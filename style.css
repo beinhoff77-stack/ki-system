@@ -122,6 +122,7 @@ nav.tabs button {
   flex: 1; border: 0; border-radius: 0; background: none; font-size: .8rem; color: var(--muted); position: relative;
 }
 nav.tabs button.on { color: var(--accent); font-weight: 600; }
+nav.tabs[hidden], #toast[hidden], #btn-back[hidden] { display: none !important; }
 .badge {
   position: absolute; top: 8px; right: calc(50% - 34px); background: var(--err); color: #fff;
   font-size: .7rem; border-radius: 999px; padding: 0 6px; min-width: 18px; line-height: 18px;

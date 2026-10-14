@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.1.0';
+const APP_VERSION = '0.2.0';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -310,82 +310,153 @@ async function stammdatenDialog(id) {
   } catch (e) { box.replaceChildren(el('span', { class: 'err-text' }, e.message)); }
 }
 
-// ---------- Ansicht: Neuer Auftrag ----------
+// ---------- Ansicht: Neuer Auftrag (Werkstatt #11: Frage rein, Entwurf raus) ----------
+let neuEntwurf = null; // letzter Entwurf der Start-KI (bleibt beim Tabwechsel erhalten)
+
 async function viewNeu() {
   setChrome('Neuer Auftrag', { tab: 'neu' });
+  if (neuEntwurf) { zeigeEntwurf(neuEntwurf); return; }
   loading();
-  const [modelle, rollen] = await Promise.all([aktion('modelle_lesen', {}), aktion('rollen_lesen', { status: 'aktiv' })]);
-  const teilnehmerModelle = (modelle.meine_modelle || []).filter((m) => !/NIE Teilnehmer/i.test(m.staerken || ''));
-  const rollenListe = Array.isArray(rollen) ? rollen : (rollen.rollen || []);
-  const rollenNamen = rollenListe.map((r) => r.name || r.rolle).filter(Boolean);
+  const einst = await aktion('einstellungen_lesen', {});
+  const standardLimit = Number(einst?.standard_kostenlimit?.wert ?? 2) || 2;
 
-  const f = {
-    titel: el('input', { type: 'text', required: true, maxlength: 120 }),
-    frage: el('textarea', { required: true, placeholder: 'Die Frage so, wie du sie stellen würdest.' }),
-    projekt: el('input', { type: 'text', placeholder: 'z. B. Weltreise / Homeschooling' }),
-    ziel: el('textarea', { placeholder: 'Was soll am Ende herauskommen?' }),
-    vorgaben: el('textarea', { placeholder: 'Fakten, Rahmenbedingungen, geprüfte Angaben' }),
-    grenzen: el('textarea', { placeholder: 'Was die KIs nicht tun sollen' }),
-    ergebnisform: el('input', { type: 'text', placeholder: 'z. B. R3 (Empfehlung; Streitpunkte; Fakten vs. Annahmen; offene Fragen)' }),
-    limit: el('input', { type: 'number', step: '0.5', min: '0.5', value: '2' }),
-    runden: el('input', { type: 'number', min: '0', max: '10', value: '2' }),
-    haltbarkeit: el('select', {}, ['einmalig', 'projekt', 'dauerhaft'].map((h) => el('option', { value: h }, h))),
-  };
-  f.haltbarkeit.value = 'projekt';
-
-  const tnBox = el('div');
-  const addRow = (modell = '', rolle = '') => {
-    const row = el('div', { class: 'teilnehmer-row' },
-      el('select', { class: 'tn-modell' }, el('option', { value: '' }, '– Modell –'), teilnehmerModelle.map((m) => el('option', { value: m.name, selected: m.name === modell ? true : null }, m.name))),
-      el('input', { class: 'tn-rolle', type: 'text', list: 'rollen-liste', placeholder: 'Rolle (z. B. Planer)', value: rolle }),
-      el('button', { type: 'button', onclick: () => row.remove() }, '✕'));
-    tnBox.append(row);
-  };
-  addRow('', 'Planer'); addRow('', 'Planer'); addRow('', 'Gegenanwalt');
-
-  const angabenBox = el('div');
-  const addAngabe = () => angabenBox.append(el('div', { class: 'teilnehmer-row' },
-    el('input', { class: 'pa-frage', type: 'text', placeholder: 'Pflichtangabe (Frage)' }),
-    el('input', { class: 'pa-antwort', type: 'text', placeholder: 'Antwort' }),
-    el('button', { type: 'button', onclick: (e) => e.target.parentElement.remove() }, '✕')));
-
+  const frage = el('textarea', { required: true, placeholder: 'Deine Frage so, wie du sie stellen würdest – mit allem, was du schon weißt (Rahmen, Zahlen, Termine).', style: 'min-height:140px' });
+  const limit = el('input', { type: 'number', step: '0.5', min: '0.5', value: String(standardLimit) });
+  const btn = el('button', { type: 'submit', class: 'primary' }, 'Auftrag vorbereiten');
   const form = el('form', { class: 'card' },
-    el('h2', {}, 'Council-Auftrag anlegen'),
-    el('p', { class: 'muted small' }, 'Der Auftrag wird als Entwurf angelegt. Gestartet wird er erst auf der Auftragsseite per Klick.'),
-    el('label', {}, 'Titel', f.titel), el('label', {}, 'Originalfrage', f.frage), el('label', {}, 'Projekt / Bereich', f.projekt),
-    el('label', {}, 'Ziel', f.ziel), el('label', {}, 'Vorgaben', f.vorgaben), el('label', {}, 'Grenzen', f.grenzen), el('label', {}, 'Ergebnisform', f.ergebnisform),
-    el('div', { class: 'row' }, el('label', { class: 'grow' }, 'Kostenlimit (USD)', f.limit), el('label', { class: 'grow' }, 'Max. Kritikrunden', f.runden), el('label', { class: 'grow' }, 'Haltbarkeit', f.haltbarkeit)),
-    el('label', {}, 'Teilnehmer (nur OpenRouter-Modelle, mindestens 2)'), tnBox,
-    el('datalist', { id: 'rollen-liste' }, rollenNamen.map((n) => el('option', { value: n }))),
-    el('button', { type: 'button', class: 'link', onclick: () => addRow() }, '+ Teilnehmer'),
-    el('label', {}, 'Pflichtangaben (optional)'), angabenBox,
-    el('button', { type: 'button', class: 'link', onclick: addAngabe }, '+ Pflichtangabe'),
-    el('div', { class: 'actions' }, el('button', { type: 'submit', class: 'primary' }, 'Entwurf anlegen')),
+    el('h2', {}, 'Was soll das Council klären?'),
+    el('label', {}, 'Frage', frage),
+    el('div', { class: 'row' },
+      el('label', { class: 'grow' }, 'Kostenlimit (USD) – bleibt als Vorgabe gespeichert', limit)),
+    el('p', { class: 'muted small' }, 'Die Start-KI erkennt das Projekt, baut Titel, Ziel, Vorgaben, Grenzen und Ergebnisform, stellt dir Pflichtfragen und schlägt die Besetzung vor. Du prüfst alles und startest dann per Klick. Kosten der Vorbereitung: meist unter 0,05 USD.'),
+    el('div', { class: 'actions' }, btn),
   );
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const teilnehmer = [...tnBox.querySelectorAll('.teilnehmer-row')].map((row, i) => ({
-      teilnehmer: row.querySelector('.tn-modell').value, rolle: row.querySelector('.tn-rolle').value.trim() || undefined, plan_label: 'Plan ' + String.fromCharCode(65 + i),
-    })).filter((t) => t.teilnehmer);
-    if (teilnehmer.length < 2) { toast('Mindestens 2 Teilnehmer wählen', true); return; }
-    const daten = {
-      titel: f.titel.value.trim(), originalfrage: f.frage.value.trim(), kostenlimit_usd: Number(f.limit.value), teilnehmer,
-      projekt: f.projekt.value.trim() || undefined, ziel: f.ziel.value.trim() || undefined, vorgaben: f.vorgaben.value.trim() || undefined,
-      grenzen: f.grenzen.value.trim() || undefined, ergebnisform: f.ergebnisform.value.trim() || undefined,
-      haltbarkeit: f.haltbarkeit.value, automatisierungsstufe: 3, max_kritikrunden: Number(f.runden.value),
-    };
-    for (const k of Object.keys(daten)) if (daten[k] === undefined) delete daten[k];
-    const btn = form.querySelector('button[type=submit]'); btn.disabled = true;
+    if (frage.value.trim().length < 5) { toast('Bitte eine Frage eingeben', true); return; }
+    btn.disabled = true; btn.textContent = 'Start-KI arbeitet …';
     try {
-      const r = await aktion('rahmen_anlegen', daten);
-      const id = r?.rahmen_id ?? r?.id ?? (typeof r === 'number' ? r : null);
-      const angaben = [...angabenBox.querySelectorAll('.teilnehmer-row')].map((row) => ({ frage: row.querySelector('.pa-frage').value.trim(), antwort: row.querySelector('.pa-antwort').value.trim(), pflicht: true })).filter((a) => a.frage);
-      if (id && angaben.length) await aktion('angaben_setzen', { rahmen_id: id, angaben });
-      toast('Entwurf angelegt' + (id ? ' (Nr. ' + id + ')' : ''));
-      if (id) route('auftrag', id); else { main.append(el('div', { class: 'card' }, renderAny(r))); }
-    } catch (err) { toast(err.message, true); } finally { btn.disabled = false; }
+      const r = await http('/vorbereiten', { method: 'POST', body: { frage: frage.value.trim(), kostenlimit: Number(limit.value) } });
+      if (!r.ok) throw new Error(r.fehler || 'Vorbereitung fehlgeschlagen');
+      neuEntwurf = { ...r, kostenlimit: Number(limit.value) || standardLimit, standardLimit };
+      toast(`Entwurf erstellt (${r.start_ki}${r.kosten_usd != null ? ', ' + Number(r.kosten_usd).toFixed(3) + ' USD' : ''})`);
+      zeigeEntwurf(neuEntwurf);
+    } catch (err) { toast(err.message, true); btn.disabled = false; btn.textContent = 'Auftrag vorbereiten'; }
   });
   main.replaceChildren(form);
+}
+
+async function zeigeEntwurf(d) {
+  const ent = d.entwurf;
+  const f = {
+    projekt: el('select', {}, (d.projekte || []).map((p) => el('option', { value: p }, p)), el('option', { value: '__neu' }, '+ Neues Projekt …')),
+    projektNeu: el('input', { type: 'text', placeholder: 'Name des neuen Projekts', hidden: true }),
+    titel: el('input', { type: 'text', value: ent.titel || '', maxlength: 120 }),
+    ziel: el('textarea', {}, ent.ziel || ''),
+    vorgaben: el('textarea', { style: 'min-height:110px' }, ent.vorgaben || ''),
+    grenzen: el('textarea', {}, ent.grenzen || ''),
+    ergebnisform: el('textarea', {}, ent.ergebnisform || ''),
+    limit: el('input', { type: 'number', step: '0.5', min: '0.5', value: String(d.kostenlimit) }),
+    runden: el('input', { type: 'number', min: '0', max: '10', value: String(ent.max_kritikrunden ?? 2) }),
+    stufe: el('select', {}, el('option', { value: '3' }, 'Stufe 3 – durchlaufen'), el('option', { value: '2' }, 'Stufe 2 – vor jeder Kritikrunde stoppen')),
+    haltbarkeit: el('select', {}, ['einmalig', 'projekt', 'dauerhaft'].map((h) => el('option', { value: h, selected: h === 'projekt' ? true : null }, h))),
+  };
+  // Projekt: erkanntes vorwählen, neues anlegen lassen
+  if (ent.projekt && (d.projekte || []).includes(ent.projekt)) f.projekt.value = ent.projekt;
+  else if (ent.projekt) { f.projekt.value = '__neu'; f.projektNeu.hidden = false; f.projektNeu.value = ent.projekt; }
+  f.projekt.addEventListener('change', () => { f.projektNeu.hidden = f.projekt.value !== '__neu'; });
+
+  // Pflichtfragen mit Antwortfeldern
+  const pfBox = el('div');
+  const addPf = (frage = '', antwort = '') => pfBox.append(el('div', { class: 'card', style: 'padding:10px 12px' },
+    el('div', { class: 'row' }, el('input', { class: 'pf-frage grow', type: 'text', value: frage, placeholder: 'Frage' }), el('button', { type: 'button', onclick: (e) => e.target.closest('.card').remove() }, '✕')),
+    el('input', { class: 'pf-antwort', type: 'text', value: antwort, placeholder: 'Deine Antwort', style: 'margin-top:6px' })));
+  for (const p of ent.pflichtfragen || []) addPf(p.frage, p.antwort_vorschlag || '');
+
+  // Besetzung
+  const tnBox = el('div');
+  const addTn = (teilnehmer = '', rolle = '', begruendung = '') => {
+    const row = el('div', { class: 'card', style: 'padding:10px 12px' },
+      el('div', { class: 'teilnehmer-row' },
+        el('select', { class: 'tn-modell' }, el('option', { value: '' }, '– Modell –'), (d.teilnehmer || []).map((t) => el('option', { value: t.name, selected: t.name === teilnehmer ? true : null }, t.name + (t.stammdaten_erlaubt ? '' : ' (keine Stammdaten)')))),
+        el('select', { class: 'tn-rolle' }, el('option', { value: '' }, '– Rolle (Standard: Planer) –'), (d.rollen || []).map((r) => el('option', { value: r.name, selected: r.name === rolle ? true : null }, r.name))),
+        el('button', { type: 'button', onclick: () => row.remove() }, '✕')),
+      begruendung ? el('div', { class: 'muted small' }, begruendung) : null);
+    tnBox.append(row);
+  };
+  for (const b of ent.besetzung || []) addTn(b.teilnehmer, b.rolle || '', b.begruendung);
+  if (!(ent.besetzung || []).length) { addTn(); addTn(); addTn(); }
+
+  // Stammdaten
+  const sdBox = el('div', { class: 'muted small' }, 'Lade Stammdaten …');
+  aktion('stammdaten_lesen', {}).then((sd) => {
+    const eintraege = Array.isArray(sd) ? sd : (sd.stammdaten || sd.eintraege || []);
+    sdBox.replaceChildren();
+    if (!eintraege.length) { sdBox.append('Keine Stammdaten vorhanden.'); return; }
+    for (const s of eintraege) sdBox.append(el('label', { style: 'display:flex;align-items:center;color:inherit;margin:4px 0' },
+      el('input', { type: 'checkbox', class: 'sd', value: s.id, style: 'width:auto;margin-right:8px', disabled: s.nie_extern ? true : null }),
+      `${s.art || ''}: ${s.bezeichnung || ''}${s.person ? ' (' + s.person + ')' : ''}${s.nie_extern ? ' – gesperrt' : ''}`));
+  }).catch((e) => sdBox.replaceChildren(el('span', { class: 'err-text' }, e.message)));
+
+  const limitHinweis = ent.kostenlimit_vorschlag && Number(ent.kostenlimit_vorschlag) !== Number(d.kostenlimit)
+    ? el('p', { class: 'small', style: 'color:var(--warn)' }, `Die Start-KI schlägt ${Number(ent.kostenlimit_vorschlag).toFixed(2)} USD vor (deine Vorgabe: ${Number(d.kostenlimit).toFixed(2)} USD).`) : null;
+
+  async function anlegen(starten) {
+    const teilnehmer = [...tnBox.querySelectorAll('.teilnehmer-row')].map((row, i) => ({
+      teilnehmer: row.querySelector('.tn-modell').value, rolle: row.querySelector('.tn-rolle').value || undefined, plan_label: 'Plan ' + String.fromCharCode(65 + i),
+    })).filter((t) => t.teilnehmer);
+    if (teilnehmer.length < 2) throw new Error('Mindestens 2 Teilnehmer wählen');
+    if (!f.titel.value.trim()) throw new Error('Titel fehlt');
+    const projekt = f.projekt.value === '__neu' ? f.projektNeu.value.trim() : f.projekt.value;
+    const kostenlimit = Number(f.limit.value) || d.kostenlimit;
+    if (kostenlimit !== Number(d.standardLimit)) {
+      await aktion('einstellung_setzen', { name: 'standard_kostenlimit', wert: kostenlimit }).catch(() => { /* Vorgabe nicht gespeichert – Auftrag trotzdem anlegen */ });
+    }
+    const daten = {
+      titel: f.titel.value.trim(), originalfrage: ent.originalfrage, kostenlimit_usd: kostenlimit, teilnehmer,
+      projekt: projekt || undefined, ziel: f.ziel.value.trim() || undefined, vorgaben: f.vorgaben.value.trim() || undefined,
+      grenzen: f.grenzen.value.trim() || undefined, ergebnisform: f.ergebnisform.value.trim() || undefined,
+      haltbarkeit: f.haltbarkeit.value, automatisierungsstufe: Number(f.stufe.value), max_kritikrunden: Number(f.runden.value),
+      vorschlaege_stamm_ki: { start_ki: d.start_ki, hinweise: ent.hinweise || '', kostenlimit_vorschlag: ent.kostenlimit_vorschlag },
+    };
+    for (const k of Object.keys(daten)) if (daten[k] === undefined) delete daten[k];
+    const r = await aktion('rahmen_anlegen', daten);
+    const id = r?.rahmen_id;
+    if (!id) throw new Error('Auftrag angelegt, aber keine Nummer erhalten');
+    const angaben = [...pfBox.querySelectorAll('.card')].map((c) => ({ frage: c.querySelector('.pf-frage').value.trim(), antwort: c.querySelector('.pf-antwort').value.trim(), pflicht: true })).filter((a) => a.frage);
+    if (angaben.length) await aktion('angaben_setzen', { rahmen_id: id, angaben });
+    const ids = [...sdBox.querySelectorAll('input.sd:checked')].map((c) => Number(c.value));
+    if (ids.length) await aktion('stammdaten_freigeben', { rahmen_id: id, ids });
+    if (starten) await aktion('auftrag_starten', { rahmen_id: id, stufe: Number(f.stufe.value) });
+    neuEntwurf = null;
+    toast(starten ? `Auftrag ${id} gestartet` : `Entwurf ${id} gespeichert`);
+    route('auftrag', id);
+  }
+
+  const seite = el('div', {},
+    el('div', { class: 'card' },
+      el('h2', {}, 'Entwurf der Start-KI – bitte prüfen'),
+      el('p', { class: 'muted small' }, `${d.start_ki || ''}${d.kosten_usd != null ? ' · ' + Number(d.kosten_usd).toFixed(3) + ' USD' : ''}`),
+      ent.hinweise ? el('p', { class: 'small' }, el('b', {}, 'Hinweis der Start-KI: '), ent.hinweise) : null,
+      el('label', {}, 'Projekt', f.projekt), f.projektNeu,
+      el('label', {}, 'Titel', f.titel),
+      el('label', {}, 'Originalfrage'), el('p', { class: 'small', style: 'white-space:pre-wrap;margin:0' }, ent.originalfrage),
+      el('label', {}, 'Ziel', f.ziel), el('label', {}, 'Vorgaben', f.vorgaben), el('label', {}, 'Grenzen', f.grenzen), el('label', {}, 'Ergebnisform', f.ergebnisform)),
+    el('div', { class: 'card' }, el('h2', {}, 'Pflichtfragen an dich'), el('p', { class: 'muted small' }, 'Je besser die Antworten, desto besser das Ergebnis. Leere Antworten sind erlaubt.'), pfBox,
+      el('button', { type: 'button', class: 'link', onclick: () => addPf() }, '+ Frage')),
+    el('div', { class: 'card' }, el('h2', {}, 'Besetzung (Vorschlag)'), tnBox, el('button', { type: 'button', class: 'link', onclick: () => addTn() }, '+ Teilnehmer')),
+    el('div', { class: 'card' }, el('h2', {}, 'Ablauf und Kosten'),
+      el('div', { class: 'row' }, el('label', { class: 'grow' }, 'Kostenlimit (USD)', f.limit), el('label', { class: 'grow' }, 'Max. Kritikrunden', f.runden)),
+      limitHinweis,
+      el('div', { class: 'row' }, el('label', { class: 'grow' }, 'Stufe', f.stufe), el('label', { class: 'grow' }, 'Haltbarkeit', f.haltbarkeit))),
+    el('div', { class: 'card' }, el('h2', {}, 'Stammdaten freigeben'), el('p', { class: 'muted small' }, 'Nur anhaken, was die KIs für diese Frage brauchen.'), sdBox),
+    el('div', { class: 'actions', style: 'margin-bottom:24px' },
+      confirmButton('Anlegen und starten', async () => { try { await anlegen(true); } catch (e) { toast(e.message, true); } }, 'primary'),
+      el('button', { onclick: async () => { try { await anlegen(false); } catch (e) { toast(e.message, true); } } }, 'Nur als Entwurf speichern'),
+      el('button', { class: 'danger', onclick: () => { neuEntwurf = null; render(); } }, 'Verwerfen')),
+  );
+  main.replaceChildren(seite);
+  window.scrollTo(0, 0);
 }
 
 // ---------- Ansicht: Einstellungen ----------

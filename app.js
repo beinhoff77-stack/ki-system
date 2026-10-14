@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.3.0';
+const APP_VERSION = '0.3.1';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -94,6 +94,9 @@ const HILFE = {
     rang: ['Kurz antworten reicht – Stichworte genügen', 'Fragen löschen, die nicht passen; eigene mit „+ Frage“ ergänzen'] },
   projekt: { titel: 'Projekt',
     text: 'Ordnet den Auftrag einem Bereich zu. Erkenntnisse aus früheren Aufträgen desselben Projekts werden den KIs mitgegeben, und die Haltbarkeit „projekt“ bezieht sich darauf. Die Start-KI hat es aus deiner Frage erkannt; du kannst es ändern oder ein neues anlegen.' },
+  teilfragen: { titel: 'Teilfragen',
+    text: 'Die Start-KI zerlegt deine Frage in einzelne, konkret beantwortbare Teilfragen. Jeder Teilnehmer muss jede Teilfrage ausdrücklich beantworten, das Ergebnis zeigt die Antwort je Teilfrage, und ein neutraler Prüfer stuft ein: voll / teilweise / offen beantwortet. Bleibt etwas offen, läuft automatisch genau eine Nachrunde dafür.',
+    rang: ['2–4 Teilfragen – das, was du wirklich wissen willst', 'Fehlende ergänzen, unpassende löschen – das steuert, was geprüft wird'] },
   websuche: { titel: 'Websuche',
     text: 'Die Teilnehmer bekommen über OpenRouter eine Websuche (5 Treffer je Anfrage, ca. 0,02 USD) und müssen konkrete Angaben – Anbieter, Preise, Regeln – im Netz prüfen und mit Quelle (URL, Datum) belegen. Ohne Websuche bleibt alles Zeitkritische „ungeprüft“. Datenschutz: Teilnehmer, die freigegebene Stammdaten im Text haben, suchen nicht; alle anderen sehen ohnehin nur Platzhalter.',
     rang: ['An – Standard; bei Recherchefragen Pflicht', 'Aus – reine Abwägungs- oder Strukturfragen ohne aktuelle Fakten'] },
@@ -352,6 +355,27 @@ function ergebnisAnsicht(e, entsch) {
     alt ? el('p', { class: 'muted small' }, 'Dieses Ergebnis entstand vor der Einigkeits-Auswertung (Motor v9) – Ampel nur für neue Aufträge.') : null,
   ));
 
+  // Antwort je Teilfrage mit Abdeckung (Prüfer) – Werkstatt #13a
+  const ajt = Array.isArray(e.antworten_je_teilfrage) ? e.antworten_je_teilfrage : [];
+  const abd = Array.isArray(e.abdeckung) ? e.abdeckung : [];
+  const ABD = { voll: ['ampel-gruen', 'voll beantwortet'], teilweise: ['ampel-gelb', 'teilweise beantwortet'], offen: ['ampel-rot', 'offen'] };
+  if (ajt.length) {
+    const statusText = { bestanden: 'Alle Teilfragen sind konkret beantwortet.', teilweise: 'Einige Teilfragen sind nur allgemein beantwortet.', nicht_bestanden: 'Mindestens eine Teilfrage ist unbeantwortet.' }[e.abdeckung_status] || 'Prüfung durch die Bewerter-KI steht noch aus.';
+    const box = el('div', { class: 'card' },
+      el('h2', {}, 'Deine Fragen – einzeln beantwortet'),
+      el('p', { class: 'muted small' }, statusText + (e.nachlauf ? ' Eine Nachrunde für offene Teilfragen wurde durchgeführt.' : '')));
+    for (const a of ajt) {
+      const pr = abd.find((x) => Number(x.nr) === Number(a.nr));
+      const st = pr?.stufe || a.abdeckung || 'offen';
+      const [cls, txt] = ABD[st] || ABD.offen;
+      box.append(el('div', { class: 'sp sp-' + cls },
+        el('div', { class: 'row' }, el('span', { class: 'ampel ' + cls }, el('span', { class: 'ampel-punkt' }), txt), el('b', { class: 'grow' }, `${a.nr}. ${a.frage || ''}`)),
+        el('p', { class: 'sp-kern' }, a.antwort || '–'),
+        pr?.begruendung ? el('p', { class: 'muted small' }, 'Prüfer: ' + pr.begruendung) : null));
+    }
+    teile.push(box);
+  }
+
   // Grün: gemeinsame Basis
   teile.push(el('div', { class: 'card erg-gruen' },
     el('h2', {}, ampel('einig'), ' Darauf sind sich alle einig – deine Arbeitsgrundlage'),
@@ -377,6 +401,14 @@ function ergebnisAnsicht(e, entsch) {
         x.weitere ? el('p', { class: 'small' }, el('b', {}, 'Weitere: '), x.weitere) : null)));
   }
   teile.push(spBox);
+
+  // Alternativen mit Vor-/Nachteilen
+  const alts = Array.isArray(e.alternativen) ? e.alternativen : [];
+  if (alts.length) teile.push(el('div', { class: 'card' }, el('h2', {}, 'Alternativen'),
+    el('div', { class: 'ev-liste' }, alts.map((a) => el('div', { class: 'sp sp-ampel-grau' }, el('b', {}, a.name || ''),
+      el('div', { class: 'row', style: 'align-items:flex-start;gap:16px;margin-top:6px' },
+        el('div', { class: 'grow small' }, el('span', { class: 'ampel ampel-gruen' }, 'dafür'), el('ul', { class: 'erg-liste' }, (a.vorteile || []).map((v) => el('li', {}, v)))),
+        el('div', { class: 'grow small' }, el('span', { class: 'ampel ampel-rot' }, 'dagegen'), el('ul', { class: 'erg-liste' }, (a.nachteile || []).map((v) => el('li', {}, v))))))))));
 
   // Entscheidungsvorschläge -> füllen das Entscheidungsfeld
   const ev = Array.isArray(e.entscheidungsvorschlaege) ? e.entscheidungsvorschlaege : [];
@@ -507,6 +539,14 @@ async function zeigeEntwurf(d) {
   else if (ent.projekt) { f.projekt.value = '__neu'; f.projektNeu.hidden = false; f.projektNeu.value = ent.projekt; }
   f.projekt.addEventListener('change', () => { f.projektNeu.hidden = f.projekt.value !== '__neu'; });
 
+  // Teilfragen (atomar, jede muss im Ergebnis beantwortet werden)
+  const tfBox = el('div');
+  const addTf = (frage = '') => tfBox.append(el('div', { class: 'row', style: 'margin-bottom:6px' },
+    el('span', { class: 'muted small tf-nr' }, String(tfBox.children.length + 1) + '.'),
+    el('input', { class: 'tf-frage grow', type: 'text', value: frage, placeholder: 'Teilfrage' }),
+    el('button', { type: 'button', onclick: (e) => { e.target.closest('.row').remove(); [...tfBox.querySelectorAll('.tf-nr')].forEach((n, i) => n.textContent = (i + 1) + '.'); } }, '✕')));
+  for (const t of ent.teilfragen || []) addTf(t);
+
   // Pflichtfragen mit Antwortfeldern
   const pfBox = el('div');
   const addPf = (frage = '', antwort = '') => pfBox.append(el('div', { class: 'card', style: 'padding:10px 12px' },
@@ -553,8 +593,9 @@ async function zeigeEntwurf(d) {
     if (kostenlimit !== Number(d.standardLimit)) {
       await aktion('einstellung_setzen', { name: 'standard_kostenlimit', wert: kostenlimit }).catch(() => { /* Vorgabe nicht gespeichert – Auftrag trotzdem anlegen */ });
     }
+    const teilfragen = [...tfBox.querySelectorAll('.tf-frage')].map((i) => i.value.trim()).filter((t) => t.length > 5);
     const daten = {
-      titel: f.titel.value.trim(), originalfrage: ent.originalfrage, kostenlimit_usd: kostenlimit, teilnehmer,
+      titel: f.titel.value.trim(), originalfrage: ent.originalfrage, kostenlimit_usd: kostenlimit, teilnehmer, teilfragen,
       projekt: projekt || undefined, ziel: f.ziel.value.trim() || undefined, vorgaben: f.vorgaben.value.trim() || undefined,
       grenzen: f.grenzen.value.trim() || undefined, ergebnisform: f.ergebnisform.value.trim() || undefined,
       haltbarkeit: f.haltbarkeit.value, automatisierungsstufe: Number(f.stufe.value), max_kritikrunden: Number(f.runden.value),
@@ -583,6 +624,8 @@ async function zeigeEntwurf(d) {
       el('label', {}, 'Projekt ', hilfeKnopf('projekt'), f.projekt), f.projektNeu,
       el('label', {}, 'Titel', f.titel),
       el('label', {}, 'Originalfrage'), el('p', { class: 'small', style: 'white-space:pre-wrap;margin:0' }, ent.originalfrage),
+      el('label', {}, 'Teilfragen ', hilfeKnopf('teilfragen')), tfBox,
+      el('button', { type: 'button', class: 'link', onclick: () => addTf() }, '+ Teilfrage'),
       el('label', {}, 'Ziel', f.ziel), el('label', {}, 'Vorgaben', f.vorgaben), el('label', {}, 'Grenzen', f.grenzen), el('label', {}, 'Ergebnisform', f.ergebnisform)),
     el('div', { class: 'card' }, el('h2', {}, 'Pflichtfragen an dich ', hilfeKnopf('pflichtfragen')), el('p', { class: 'muted small' }, 'Je besser die Antworten, desto besser das Ergebnis. Leere Antworten sind erlaubt.'), pfBox,
       el('button', { type: 'button', class: 'link', onclick: () => addPf() }, '+ Frage')),

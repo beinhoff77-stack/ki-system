@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.3.1';
+const APP_VERSION = '0.4.0';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -334,7 +334,60 @@ const AMPEL = {
 };
 function ampel(stufe) { const a = AMPEL[stufe] || AMPEL.offen; return el('span', { class: 'ampel ' + a.cls }, el('span', { class: 'ampel-punkt' }), a.text); }
 
+// ---------- Präsentation (Werkstatt #13/#14, Motor v11): Antwort · Uneinigkeit · Weiter ----------
+// Die Seite für Sebastian steht zuerst; das Protokoll des Zusammenfassers folgt aufklappbar darunter.
+function praesentationAnsicht(e, entsch) {
+  const p = e.praesentation;
+  const teile = [];
+  if (!p) {
+    if (e.praesentation_status === 'offen') teile.push(el('div', { class: 'card muted small' }, 'Die Kurzfassung für dich wird gerade erstellt (dauert ca. eine Minute) – unten steht schon das Protokoll.'));
+    else if (e.praesentation_status === 'fehler') teile.push(el('div', { class: 'card err-text small' }, 'Kurzfassung konnte nicht erstellt werden: ' + (e.praesentation_hinweis || 'unbekannter Fehler') + '. Das Protokoll steht unten.'));
+    return teile;
+  }
+  // 1 Deine Antwort
+  const aus = Array.isArray(p.aussagen) ? p.aussagen : [];
+  teile.push(el('div', { class: 'card pr-antwort' },
+    el('h2', {}, 'Deine Antwort'),
+    el('p', { class: 'pr-text' }, p.antwort || ''),
+    aus.length ? el('ul', { class: 'pr-aussagen' }, aus.map((a) => el('li', { class: a.belegt === 'ja' ? 'belegt' : 'annahme' },
+      el('span', { class: 'pr-mark', title: a.belegt === 'ja' ? 'belegt (Quelle im Protokoll)' : 'Annahme / Schätzung' }, a.belegt === 'ja' ? '✓' : '~'), el('span', {}, a.text)))) : null,
+    aus.length ? el('p', { class: 'muted small pr-legende' }, '✓ belegt (Quelle unter „Belege & Protokoll“) · ~ Annahme oder Schätzung') : null,
+    p.hinweis ? el('div', { class: 'erg-warnung' }, el('b', {}, 'Hinweis: '), p.hinweis) : null,
+  ));
+  // 2 Wo die KIs uneinig sind
+  const st = Array.isArray(p.streit) ? p.streit : [];
+  const stBox = el('div', { class: 'card' }, el('h2', {}, 'Wo die KIs uneinig sind'));
+  if (!st.length) stBox.append(el('p', { class: 'muted small' }, 'Keine entscheidungsrelevante Uneinigkeit.'));
+  for (const s of st) stBox.append(el('div', { class: 'sp sp-ampel-rot' },
+    el('b', {}, s.thema || ''),
+    s.mehrheit ? el('p', { class: 'small pr-pos' }, el('span', { class: 'pr-label' }, 'Die meisten: '), s.mehrheit) : null,
+    s.gegenstimme ? el('p', { class: 'small pr-pos' }, el('span', { class: 'pr-label' }, 'Gegenstimme: '), s.gegenstimme) : null,
+    s.bedeutung ? el('p', { class: 'pr-bedeutung' }, el('b', {}, 'Für dich: '), s.bedeutung) : null));
+  teile.push(stBox);
+  // 3 So geht es weiter
+  const w = Array.isArray(p.weiter) ? p.weiter : [];
+  if (w.length) teile.push(el('div', { class: 'card pr-weiter' }, el('h2', {}, 'So geht es weiter'),
+    el('ol', { class: 'pr-schritte' }, w.map((x) => el('li', {}, el('span', {}, x.schritt), x.sofort ? el('span', { class: 'pill neu' }, 'sofort') : null))),
+    el('p', { class: 'muted small' }, 'Antippen eines Schritts übernimmt ihn ins Entscheidungsfeld.'),
+  ));
+  for (const li of teile[teile.length - 1].querySelectorAll('.pr-schritte li')) li.addEventListener('click', () => {
+    const ta = entsch.querySelector('textarea'); ta.value = li.firstChild.textContent; entsch.scrollIntoView({ behavior: 'smooth', block: 'center' }); ta.focus();
+  });
+  return teile;
+}
+
 function ergebnisAnsicht(e, entsch) {
+  const praes = praesentationAnsicht(e, entsch);
+  const protokoll = protokollAnsicht(e, entsch);
+  if (!e.praesentation) return [...praes, ...protokoll];
+  // Mit Präsentation: Entscheidungsvorschläge bleiben sichtbar, der Rest des Protokolls ist aufklappbar
+  const ev = protokoll.find((x) => x.dataset.block === 'entscheidungen');
+  const rest = protokoll.filter((x) => x.dataset.block !== 'entscheidungen');
+  const det = el('details', { class: 'card pr-details' }, el('summary', {}, el('b', {}, 'Belege & Protokoll'), el('span', { class: 'muted small' }, ' – Empfehlung des Zusammenfassers, Ampel, Quellen, alle Streitpunkte')), ...rest);
+  return [...praes, ev, det].filter(Boolean);
+}
+
+function protokollAnsicht(e, entsch) {
   const basis = Array.isArray(e.gemeinsame_basis) ? e.gemeinsame_basis : [];
   const sp = Array.isArray(e.streitpunkte) ? e.streitpunkte : [];
   const stufe = (x) => (x?.einigkeit === 'teils' || x?.einigkeit === 'uneinig') ? x.einigkeit : 'offen';
@@ -349,7 +402,7 @@ function ergebnisAnsicht(e, entsch) {
       el('span', { class: 'ampel ampel-gelb' }, el('span', { class: 'ampel-punkt' }), `${nTeils} teils`),
       el('span', { class: 'ampel ampel-rot' }, el('span', { class: 'ampel-punkt' }), `${nUneinig} uneinig`),
       nOffen ? el('span', { class: 'ampel ampel-grau' }, el('span', { class: 'ampel-punkt' }), `${nOffen} ohne Einstufung`) : null),
-    el('h2', {}, 'Antwort des Councils'),
+    el('h2', {}, e.praesentation ? 'Empfehlung des Zusammenfassers' : 'Antwort des Councils'),
     el('p', { class: 'erg-empfehlung' }, e.empfehlung || '(keine Empfehlung)'),
     e.uebergabe && e.uebergabe !== e.empfehlung ? el('details', {}, el('summary', { class: 'muted small' }, 'Übergabe (Kurzfassung für die Weiterarbeit)'), el('p', { class: 'small', style: 'white-space:pre-wrap' }, e.uebergabe)) : null,
     alt ? el('p', { class: 'muted small' }, 'Dieses Ergebnis entstand vor der Einigkeits-Auswertung (Motor v9) – Ampel nur für neue Aufträge.') : null,
@@ -412,7 +465,7 @@ function ergebnisAnsicht(e, entsch) {
 
   // Entscheidungsvorschläge -> füllen das Entscheidungsfeld
   const ev = Array.isArray(e.entscheidungsvorschlaege) ? e.entscheidungsvorschlaege : [];
-  if (ev.length) teile.push(el('div', { class: 'card' }, el('h2', {}, 'Entscheidungsvorschläge'),
+  if (ev.length) teile.push(el('div', { class: 'card', 'data-block': 'entscheidungen' }, el('h2', {}, 'Entscheidungsvorschläge'),
     el('p', { class: 'muted small' }, 'Antippen übernimmt den Vorschlag ins Entscheidungsfeld unten – du kannst ihn dort noch ändern.'),
     el('div', { class: 'ev-liste' }, ev.map((v) => el('button', { type: 'button', class: 'ev', onclick: () => { const ta = entsch.querySelector('textarea'); ta.value = (v.label || '') + (v.beschreibung ? ' – ' + v.beschreibung : ''); entsch.scrollIntoView({ behavior: 'smooth', block: 'center' }); ta.focus(); } },
       el('b', {}, v.label || ''), v.beschreibung ? el('span', { class: 'small muted' }, ' ' + v.beschreibung) : null)))));

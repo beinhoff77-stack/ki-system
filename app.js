@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.2.0';
+const APP_VERSION = '0.2.1';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -66,6 +66,51 @@ function confirmButton(label, onYes, cls = '') {
   } }, label);
   wrap.append(btn);
   return wrap;
+}
+
+
+// ---------- Hilfetexte (ⓘ-Knöpfe) ----------
+const HILFE = {
+  kostenlimit: { titel: 'Kostenlimit',
+    text: 'Obergrenze in USD für den ganzen Auftrag (alle Runden, Ergebnis, Belege, Bewertung). Der Motor rechnet vor jeder Runde die Höchstkosten aus; würde das Limit reißen, pausiert er – du kannst dann mit höherem Limit fortsetzen. Dein Wert wird als Vorgabe für künftige Aufträge gespeichert.',
+    rang: ['2 USD – normale Frage, 3 Teilnehmer (Standard)', '3–5 USD – lange Vorgaben, 4 Teilnehmer oder 3 Kritikrunden', '1 USD – kurze Frage, schnelle Zweitmeinung'] },
+  runden: { titel: 'Max. Kritikrunden',
+    text: 'Nach der blinden Entwurfsrunde prüfen die Pläne sich gegenseitig. Jede Kritikrunde kostet etwa so viel wie die Entwurfsrunde. Endet früher, wenn niemand mehr neue Einwände meldet.',
+    rang: ['2 – Standard: Kritik und Antwort darauf', '1 – schnell und günstig, nur eine Prüfschleife', '3 – strittige oder teure Entscheidungen', '0 – nur Entwürfe und Zusammenfassung, keine Prüfung'] },
+  stufe: { titel: 'Stufe',
+    text: 'Stufe 3: läuft automatisch bis zum Ergebnis durch. Stufe 2: stoppt vor jeder Kritikrunde; du siehst die Zwischenstände unter „Verlauf“ und gibst mit „Fortsetzen“ frei – oder brichst ab.',
+    rang: ['Stufe 3 – Standard, du bekommst das fertige Ergebnis', 'Stufe 2 – bei hohem Kostenlimit oder wenn du die Richtung früh prüfen willst'] },
+  haltbarkeit: { titel: 'Haltbarkeit',
+    text: 'Wie lange der Verlauf (alle Beiträge der Runden) aufbewahrt wird. Ergebnis, Bewertung und gespeicherte Erkenntnisse bleiben immer erhalten.',
+    rang: ['projekt – Standard: bleibt, solange das Projekt läuft', 'dauerhaft – Verlauf nie löschen (Grundsatzfragen, Vorlagen)', 'einmalig – Verlauf wird 30 Tage nach Abschluss gelöscht'] },
+  stammdaten: { titel: 'Stammdaten freigeben',
+    text: 'Gespeicherte Angaben zu Personen und Haushalt, die die KIs nur für diesen Auftrag sehen dürfen. Modelle ohne Stammdaten-Freigabe (z. B. Mistral) bekommen stattdessen Platzhalter wie [Person 1] oder [Jahr]. Nie-externe Daten (Reisedokumente, Kontakte) sind gesperrt.',
+    rang: ['Nur anhaken, was die Frage wirklich braucht', 'Nichts anhaken, wenn die Frage allgemein ist'] },
+  besetzung: { titel: 'Besetzung',
+    text: 'Welches Modell welche Rolle spielt. Jede Zeile wird ein Plan (A, B, C …). Planer liefern Lösungen, Gegenanwalt/Kritiker greifen an, Fachrollen bringen Spezialwissen. Verschiedene Modellfamilien bringen verschiedene Sichtweisen. Das System sammelt Noten je Modell und Rolle – die Start-KI nutzt sie für den Vorschlag.',
+    rang: ['3 Teilnehmer: 2 Planer + 1 Gegenanwalt (Standard)', '4 Teilnehmer: zusätzlich eine Fachrolle', 'Mindestens 2 Teilnehmer, sonst kein Council'] },
+  pflichtfragen: { titel: 'Pflichtfragen',
+    text: 'Fragen der Start-KI an dich, deren Antwort die Qualität spürbar verbessert. Die Antworten gehen als Pflichtangaben in den Auftrag. Leer lassen ist erlaubt – dann arbeiten die KIs mit Annahmen und kennzeichnen sie.',
+    rang: ['Kurz antworten reicht – Stichworte genügen', 'Fragen löschen, die nicht passen; eigene mit „+ Frage“ ergänzen'] },
+  projekt: { titel: 'Projekt',
+    text: 'Ordnet den Auftrag einem Bereich zu. Erkenntnisse aus früheren Aufträgen desselben Projekts werden den KIs mitgegeben, und die Haltbarkeit „projekt“ bezieht sich darauf. Die Start-KI hat es aus deiner Frage erkannt; du kannst es ändern oder ein neues anlegen.' },
+  frage: { titel: 'Frage',
+    text: 'Schreib so, wie du es einem Berater sagen würdest: Was willst du entscheiden, was weißt du schon (Zahlen, Termine, Rahmen), was ist dir wichtig? Je mehr Kontext, desto weniger Pflichtfragen und desto besser der Entwurf.' },
+};
+function hilfeKnopf(key) {
+  const h = HILFE[key]; if (!h) return null;
+  const btn = el('button', { type: 'button', class: 'info-btn', 'aria-label': 'Erklärung: ' + h.titel, title: h.titel }, 'i');
+  btn.addEventListener('click', (e) => {
+    e.preventDefault(); e.stopPropagation();
+    const alt = document.querySelector('.hint-box'); if (alt) { const same = alt.dataset.key === key; alt.remove(); if (same) return; }
+    const box = el('div', { class: 'hint-box', 'data-key': key },
+      el('div', { class: 'row' }, el('b', {}, h.titel), el('button', { type: 'button', class: 'link right', onclick: () => box.remove() }, 'Schließen')),
+      el('p', {}, h.text),
+      h.rang ? el('ol', { class: 'hint-rang' }, h.rang.map((r) => el('li', {}, r))) : null);
+    const anker = btn.closest('label, h2, .row, .card') || btn.parentElement;
+    anker.insertAdjacentElement(anker.tagName === 'LABEL' || anker.tagName === 'H2' ? 'afterend' : 'beforeend', box);
+  });
+  return btn;
 }
 
 // ---------- Zugang ----------
@@ -325,9 +370,9 @@ async function viewNeu() {
   const btn = el('button', { type: 'submit', class: 'primary' }, 'Auftrag vorbereiten');
   const form = el('form', { class: 'card' },
     el('h2', {}, 'Was soll das Council klären?'),
-    el('label', {}, 'Frage', frage),
+    el('label', {}, 'Frage ', hilfeKnopf('frage'), frage),
     el('div', { class: 'row' },
-      el('label', { class: 'grow' }, 'Kostenlimit (USD) – bleibt als Vorgabe gespeichert', limit)),
+      el('label', { class: 'grow' }, 'Kostenlimit (USD) – bleibt als Vorgabe gespeichert ', hilfeKnopf('kostenlimit'), limit)),
     el('p', { class: 'muted small' }, 'Die Start-KI erkennt das Projekt, baut Titel, Ziel, Vorgaben, Grenzen und Ergebnisform, stellt dir Pflichtfragen und schlägt die Besetzung vor. Du prüfst alles und startest dann per Klick. Kosten der Vorbereitung: meist unter 0,05 USD.'),
     el('div', { class: 'actions' }, btn),
   );
@@ -361,6 +406,7 @@ async function zeigeEntwurf(d) {
     stufe: el('select', {}, el('option', { value: '3' }, 'Stufe 3 – durchlaufen'), el('option', { value: '2' }, 'Stufe 2 – vor jeder Kritikrunde stoppen')),
     haltbarkeit: el('select', {}, ['einmalig', 'projekt', 'dauerhaft'].map((h) => el('option', { value: h, selected: h === 'projekt' ? true : null }, h))),
   };
+  f.haltbarkeit.value = 'projekt';
   // Projekt: erkanntes vorwählen, neues anlegen lassen
   if (ent.projekt && (d.projekte || []).includes(ent.projekt)) f.projekt.value = ent.projekt;
   else if (ent.projekt) { f.projekt.value = '__neu'; f.projektNeu.hidden = false; f.projektNeu.value = ent.projekt; }
@@ -438,18 +484,18 @@ async function zeigeEntwurf(d) {
       el('h2', {}, 'Entwurf der Start-KI – bitte prüfen'),
       el('p', { class: 'muted small' }, `${d.start_ki || ''}${d.kosten_usd != null ? ' · ' + Number(d.kosten_usd).toFixed(3) + ' USD' : ''}`),
       ent.hinweise ? el('p', { class: 'small' }, el('b', {}, 'Hinweis der Start-KI: '), ent.hinweise) : null,
-      el('label', {}, 'Projekt', f.projekt), f.projektNeu,
+      el('label', {}, 'Projekt ', hilfeKnopf('projekt'), f.projekt), f.projektNeu,
       el('label', {}, 'Titel', f.titel),
       el('label', {}, 'Originalfrage'), el('p', { class: 'small', style: 'white-space:pre-wrap;margin:0' }, ent.originalfrage),
       el('label', {}, 'Ziel', f.ziel), el('label', {}, 'Vorgaben', f.vorgaben), el('label', {}, 'Grenzen', f.grenzen), el('label', {}, 'Ergebnisform', f.ergebnisform)),
-    el('div', { class: 'card' }, el('h2', {}, 'Pflichtfragen an dich'), el('p', { class: 'muted small' }, 'Je besser die Antworten, desto besser das Ergebnis. Leere Antworten sind erlaubt.'), pfBox,
+    el('div', { class: 'card' }, el('h2', {}, 'Pflichtfragen an dich ', hilfeKnopf('pflichtfragen')), el('p', { class: 'muted small' }, 'Je besser die Antworten, desto besser das Ergebnis. Leere Antworten sind erlaubt.'), pfBox,
       el('button', { type: 'button', class: 'link', onclick: () => addPf() }, '+ Frage')),
-    el('div', { class: 'card' }, el('h2', {}, 'Besetzung (Vorschlag)'), tnBox, el('button', { type: 'button', class: 'link', onclick: () => addTn() }, '+ Teilnehmer')),
+    el('div', { class: 'card' }, el('h2', {}, 'Besetzung (Vorschlag) ', hilfeKnopf('besetzung')), tnBox, el('button', { type: 'button', class: 'link', onclick: () => addTn() }, '+ Teilnehmer')),
     el('div', { class: 'card' }, el('h2', {}, 'Ablauf und Kosten'),
-      el('div', { class: 'row' }, el('label', { class: 'grow' }, 'Kostenlimit (USD)', f.limit), el('label', { class: 'grow' }, 'Max. Kritikrunden', f.runden)),
+      el('div', { class: 'row' }, el('label', { class: 'grow' }, 'Kostenlimit (USD) ', hilfeKnopf('kostenlimit'), f.limit), el('label', { class: 'grow' }, 'Max. Kritikrunden ', hilfeKnopf('runden'), f.runden)),
       limitHinweis,
-      el('div', { class: 'row' }, el('label', { class: 'grow' }, 'Stufe', f.stufe), el('label', { class: 'grow' }, 'Haltbarkeit', f.haltbarkeit))),
-    el('div', { class: 'card' }, el('h2', {}, 'Stammdaten freigeben'), el('p', { class: 'muted small' }, 'Nur anhaken, was die KIs für diese Frage brauchen.'), sdBox),
+      el('div', { class: 'row' }, el('label', { class: 'grow' }, 'Stufe ', hilfeKnopf('stufe'), f.stufe), el('label', { class: 'grow' }, 'Haltbarkeit ', hilfeKnopf('haltbarkeit'), f.haltbarkeit))),
+    el('div', { class: 'card' }, el('h2', {}, 'Stammdaten freigeben ', hilfeKnopf('stammdaten')), el('p', { class: 'muted small' }, 'Nur anhaken, was die KIs für diese Frage brauchen.'), sdBox),
     el('div', { class: 'actions', style: 'margin-bottom:24px' },
       confirmButton('Anlegen und starten', async () => { try { await anlegen(true); } catch (e) { toast(e.message, true); } }, 'primary'),
       el('button', { onclick: async () => { try { await anlegen(false); } catch (e) { toast(e.message, true); } } }, 'Nur als Entwurf speichern'),

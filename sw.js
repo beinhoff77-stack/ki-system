@@ -1,5 +1,5 @@
 // Service Worker: hält nur die App-Hülle vor (Dateien dieser Seite). Daten kommen immer live von app-api.
-const CACHE = 'ki-system-v4';
+const CACHE = 'ki-system-v5';
 const HUELLE = ['./', './index.html', './app.js', './style.css', './manifest.webmanifest', './icon.svg', './icon-180.png', './icon-512.png'];
 
 self.addEventListener('install', (e) => {

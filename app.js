@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.2.1';
+const APP_VERSION = '0.3.0';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -94,6 +94,9 @@ const HILFE = {
     rang: ['Kurz antworten reicht – Stichworte genügen', 'Fragen löschen, die nicht passen; eigene mit „+ Frage“ ergänzen'] },
   projekt: { titel: 'Projekt',
     text: 'Ordnet den Auftrag einem Bereich zu. Erkenntnisse aus früheren Aufträgen desselben Projekts werden den KIs mitgegeben, und die Haltbarkeit „projekt“ bezieht sich darauf. Die Start-KI hat es aus deiner Frage erkannt; du kannst es ändern oder ein neues anlegen.' },
+  websuche: { titel: 'Websuche',
+    text: 'Die Teilnehmer bekommen über OpenRouter eine Websuche (5 Treffer je Anfrage, ca. 0,02 USD) und müssen konkrete Angaben – Anbieter, Preise, Regeln – im Netz prüfen und mit Quelle (URL, Datum) belegen. Ohne Websuche bleibt alles Zeitkritische „ungeprüft“. Datenschutz: Teilnehmer, die freigegebene Stammdaten im Text haben, suchen nicht; alle anderen sehen ohnehin nur Platzhalter.',
+    rang: ['An – Standard; bei Recherchefragen Pflicht', 'Aus – reine Abwägungs- oder Strukturfragen ohne aktuelle Fakten'] },
   frage: { titel: 'Frage',
     text: 'Schreib so, wie du es einem Berater sagen würdest: Was willst du entscheiden, was weißt du schon (Zahlen, Termine, Rahmen), was ist dir wichtig? Je mehr Kontext, desto weniger Pflichtfragen und desto besser der Entwurf.' },
 };
@@ -235,7 +238,7 @@ async function viewAuftraege() {
 }
 
 // ---------- Ansicht: Auftrag (Detail) ----------
-let detailTab = 'uebersicht';
+let detailTab = 'ergebnis';
 async function viewAuftrag(idStr) {
   const id = Number(idStr);
   setChrome('Auftrag ' + id, { back: true, tab: 'auftraege' });
@@ -273,17 +276,22 @@ async function viewAuftrag(idStr) {
 
   const sub = el('div', { class: 'subtabs' });
   const inhalt = el('div');
-  const tabsDef = [['uebersicht', 'Übersicht'], ['verlauf', 'Verlauf'], ['belege', 'Belege'], ['bewertung', 'Bewertung'], ['rahmen', 'Rahmen']];
+  const tabsDef = [['ergebnis', 'Ergebnis'], ['uebersicht', 'Noten'], ['verlauf', 'Verlauf'], ['belege', 'Belege'], ['bewertung', 'Bewertung'], ['rahmen', 'Rahmen']];
   for (const [k, l] of tabsDef) sub.append(el('button', { class: k === detailTab ? 'on' : '', onclick: () => { detailTab = k; for (const b of sub.children) b.classList.toggle('on', b.textContent === l); zeige(); } }, l));
 
   const plaene = (r.teilnehmer || []).map((t) => t.plan_label).filter(Boolean);
   async function zeige() {
     inhalt.replaceChildren(el('div', { class: 'spinner' }, 'Lade …'));
     try {
-      if (detailTab === 'uebersicht') {
+      if (detailTab === 'ergebnis') {
+        if (!r.ergebnis_vorhanden) { inhalt.replaceChildren(el('div', { class: 'card muted' }, r.status === 'laeuft' ? 'Das Council arbeitet noch – Zwischenstände unter „Verlauf“.' : 'Noch kein Ergebnis.')); return; }
+        const e = await aktion('ergebnis_lesen', { rahmen_id: id });
+        const entsch = entscheidungsBlock(id, e.nutzer_entscheidung);
+        inhalt.replaceChildren(...ergebnisAnsicht(e, entsch), entsch, urteilBlock(id, e.nutzer_urteil));
+      } else if (detailTab === 'uebersicht') {
         if (!r.ergebnis_vorhanden) { inhalt.replaceChildren(el('div', { class: 'card muted' }, 'Noch kein Ergebnis.')); return; }
         const v = await aktion('verlauf_lesen', { rahmen_id: id, ebene: 'uebersicht' });
-        inhalt.replaceChildren(el('div', { class: 'card' }, md(v.markdown)), entscheidungsBlock(id));
+        inhalt.replaceChildren(el('div', { class: 'card' }, md(v.markdown)));
       } else if (detailTab === 'verlauf' || detailTab === 'belege') {
         const sel = el('select', {}, el('option', { value: '' }, 'alle Pläne'), plaene.map((p) => el('option', { value: p }, p)));
         const box = el('div', { class: 'card' });
@@ -314,18 +322,96 @@ async function viewAuftrag(idStr) {
   await zeige();
 }
 
-function entscheidungsBlock(id) {
+// ---------- Ergebnis mit Ampel (Werkstatt #12) ----------
+const AMPEL = {
+  einig: { cls: 'ampel-gruen', text: 'alle einig' },
+  teils: { cls: 'ampel-gelb', text: 'teilweise einig' },
+  uneinig: { cls: 'ampel-rot', text: 'uneinig' },
+  offen: { cls: 'ampel-grau', text: 'nicht eingestuft' },
+};
+function ampel(stufe) { const a = AMPEL[stufe] || AMPEL.offen; return el('span', { class: 'ampel ' + a.cls }, el('span', { class: 'ampel-punkt' }), a.text); }
+
+function ergebnisAnsicht(e, entsch) {
+  const basis = Array.isArray(e.gemeinsame_basis) ? e.gemeinsame_basis : [];
+  const sp = Array.isArray(e.streitpunkte) ? e.streitpunkte : [];
+  const stufe = (x) => (x?.einigkeit === 'teils' || x?.einigkeit === 'uneinig') ? x.einigkeit : 'offen';
+  const nTeils = sp.filter((x) => stufe(x) === 'teils').length, nUneinig = sp.filter((x) => stufe(x) === 'uneinig').length, nOffen = sp.length - nTeils - nUneinig;
+  const alt = !basis.length && sp.length && nOffen === sp.length; // Ergebnis vor Motor v9: keine Einigkeits-Auswertung
+  const teile = [];
+
+  // Kopf: Antwort + Zähler
+  teile.push(el('div', { class: 'card erg-antwort' },
+    el('div', { class: 'row ampel-leiste' },
+      el('span', { class: 'ampel ampel-gruen' }, el('span', { class: 'ampel-punkt' }), `${basis.length} einig`),
+      el('span', { class: 'ampel ampel-gelb' }, el('span', { class: 'ampel-punkt' }), `${nTeils} teils`),
+      el('span', { class: 'ampel ampel-rot' }, el('span', { class: 'ampel-punkt' }), `${nUneinig} uneinig`),
+      nOffen ? el('span', { class: 'ampel ampel-grau' }, el('span', { class: 'ampel-punkt' }), `${nOffen} ohne Einstufung`) : null),
+    el('h2', {}, 'Antwort des Councils'),
+    el('p', { class: 'erg-empfehlung' }, e.empfehlung || '(keine Empfehlung)'),
+    e.uebergabe && e.uebergabe !== e.empfehlung ? el('details', {}, el('summary', { class: 'muted small' }, 'Übergabe (Kurzfassung für die Weiterarbeit)'), el('p', { class: 'small', style: 'white-space:pre-wrap' }, e.uebergabe)) : null,
+    alt ? el('p', { class: 'muted small' }, 'Dieses Ergebnis entstand vor der Einigkeits-Auswertung (Motor v9) – Ampel nur für neue Aufträge.') : null,
+  ));
+
+  // Grün: gemeinsame Basis
+  teile.push(el('div', { class: 'card erg-gruen' },
+    el('h2', {}, ampel('einig'), ' Darauf sind sich alle einig – deine Arbeitsgrundlage'),
+    basis.length
+      ? el('ul', { class: 'erg-liste' }, basis.map((b) => el('li', {}, el('span', {}, b.aussage || String(b)),
+          b.belegt !== undefined ? el('span', { class: 'pill ' + (String(b.belegt) === 'ja' || b.belegt === true ? 'neu' : 'wartet') }, String(b.belegt) === 'ja' || b.belegt === true ? 'belegt' : 'unbelegt') : null,
+          b.grund ? el('div', { class: 'muted small' }, b.grund) : null)))
+      : el('p', { class: 'muted small' }, alt ? 'Keine Auswertung vorhanden.' : 'Keinen Punkt tragen alle Pläne gemeinsam.'),
+    e.konsens_warnung ? el('div', { class: 'erg-warnung' }, el('b', {}, 'Konsens-Warnung: '), e.konsens_warnung) : null,
+  ));
+
+  // Gelb/Rot: Streitpunkte
+  const spBox = el('div', { class: 'card' }, el('h2', {}, 'Streitpunkte'));
+  if (!sp.length) spBox.append(el('p', { class: 'muted small' }, 'Keine Streitpunkte.'));
+  for (const x of [...sp].sort((a, b) => ({ uneinig: 0, teils: 1, offen: 2 })[stufe(a)] - ({ uneinig: 0, teils: 1, offen: 2 })[stufe(b)])) {
+    const st = stufe(x);
+    spBox.append(el('div', { class: 'sp sp-' + (AMPEL[st].cls) },
+      el('div', { class: 'row' }, ampel(st), el('b', { class: 'grow' }, x.thema || '')),
+      x.kern ? el('p', { class: 'sp-kern' }, x.kern) : null,
+      el('details', {}, el('summary', { class: 'small' }, 'Positionen der Pläne'),
+        x.plan_a ? el('p', { class: 'small' }, el('b', {}, 'Plan A: '), x.plan_a) : null,
+        x.plan_b ? el('p', { class: 'small' }, el('b', {}, 'Plan B: '), x.plan_b) : null,
+        x.weitere ? el('p', { class: 'small' }, el('b', {}, 'Weitere: '), x.weitere) : null)));
+  }
+  teile.push(spBox);
+
+  // Entscheidungsvorschläge -> füllen das Entscheidungsfeld
+  const ev = Array.isArray(e.entscheidungsvorschlaege) ? e.entscheidungsvorschlaege : [];
+  if (ev.length) teile.push(el('div', { class: 'card' }, el('h2', {}, 'Entscheidungsvorschläge'),
+    el('p', { class: 'muted small' }, 'Antippen übernimmt den Vorschlag ins Entscheidungsfeld unten – du kannst ihn dort noch ändern.'),
+    el('div', { class: 'ev-liste' }, ev.map((v) => el('button', { type: 'button', class: 'ev', onclick: () => { const ta = entsch.querySelector('textarea'); ta.value = (v.label || '') + (v.beschreibung ? ' – ' + v.beschreibung : ''); entsch.scrollIntoView({ behavior: 'smooth', block: 'center' }); ta.focus(); } },
+      el('b', {}, v.label || ''), v.beschreibung ? el('span', { class: 'small muted' }, ' ' + v.beschreibung) : null)))));
+
+  // Fakten / Annahmen / offene Fragen (zugeklappt)
+  const fakten = Array.isArray(e.fakten) ? e.fakten : [], annahmen = Array.isArray(e.annahmen) ? e.annahmen : [], fragen = Array.isArray(e.offene_fragen) ? e.offene_fragen : [];
+  teile.push(el('div', { class: 'card' },
+    el('details', { open: fakten.length ? true : null }, el('summary', {}, el('b', {}, `Fakten (${fakten.length})`), el('span', { class: 'muted small' }, ' – mit Quelle und Stand')),
+      fakten.length ? el('ul', { class: 'erg-liste' }, fakten.map((f) => el('li', {}, f.aussage || String(f), (f.quelle || f.stand) ? el('div', { class: 'muted small' }, [f.quelle, f.stand].filter(Boolean).join(' · ')) : null))) : el('p', { class: 'muted small' }, 'keine')),
+    el('details', {}, el('summary', {}, el('b', {}, `Annahmen (${annahmen.length})`), el('span', { class: 'muted small' }, ' – nicht belegt')),
+      annahmen.length ? el('ul', { class: 'erg-liste' }, annahmen.map((a) => el('li', {}, typeof a === 'string' ? a : (a.aussage || JSON.stringify(a))))) : el('p', { class: 'muted small' }, 'keine')),
+    el('details', {}, el('summary', {}, el('b', {}, `Offene Fragen (${fragen.length})`)),
+      fragen.length ? el('ul', { class: 'erg-liste' }, fragen.map((f) => el('li', {}, typeof f === 'string' ? f : JSON.stringify(f)))) : el('p', { class: 'muted small' }, 'keine')),
+  ));
+  return teile;
+}
+
+function entscheidungsBlock(id, bisher) {
   const ta = el('textarea', { placeholder: 'Deine Entscheidung zum Ergebnis, z. B. „Plan B übernehmen, Probewoche ab 20.10.“' });
   return el('div', { class: 'card' }, el('h2', {}, 'Entscheidung festhalten'),
+    bisher ? el('p', { class: 'small' }, el('b', {}, 'Bisher festgehalten: '), bisher) : null,
     el('p', { class: 'muted small' }, 'Wird im System gespeichert und setzt das Ergebnis im Posteingang auf erledigt.'),
     ta, el('div', { class: 'actions' }, confirmButton('Entscheidung speichern', async () => {
       if (!ta.value.trim()) { toast('Bitte Text eingeben', true); return; }
       try { await aktion('nutzer_entscheidung', { rahmen_id: id, entscheidung: ta.value.trim() }); toast('Gespeichert'); ta.value = ''; } catch (e) { toast(e.message, true); }
     }, 'primary')));
 }
-function urteilBlock(id) {
+function urteilBlock(id, bisher) {
   const kom = el('input', { type: 'text', placeholder: 'Kommentar (optional)' });
   const row = el('div', { class: 'actions' });
+  if (bisher) row.append(el('span', { class: 'muted small' }, `Dein Urteil bisher: ${bisher}`));
   for (const u of ['ja', 'teilweise', 'nein']) row.append(confirmButton('Geholfen: ' + u, async () => {
     try { await aktion('nutzer_urteil', { rahmen_id: id, urteil: u, ...(kom.value ? { kommentar: kom.value } : {}) }); toast('Urteil gespeichert'); } catch (e) { toast(e.message, true); }
   }));
@@ -405,7 +491,16 @@ async function zeigeEntwurf(d) {
     runden: el('input', { type: 'number', min: '0', max: '10', value: String(ent.max_kritikrunden ?? 2) }),
     stufe: el('select', {}, el('option', { value: '3' }, 'Stufe 3 – durchlaufen'), el('option', { value: '2' }, 'Stufe 2 – vor jeder Kritikrunde stoppen')),
     haltbarkeit: el('select', {}, ['einmalig', 'projekt', 'dauerhaft'].map((h) => el('option', { value: h, selected: h === 'projekt' ? true : null }, h))),
+    websuche: el('input', { type: 'checkbox', style: 'width:auto;margin-right:8px' }),
   };
+  f.websuche.checked = d.websuche_standard !== false;
+  const rb = ent.recherchebedarf || 'teilweise';
+  const rbText = { keine: 'Die Frage braucht kaum aktuelle Fakten aus dem Netz.', teilweise: 'Einige Angaben sollten die Teilnehmer im Netz prüfen.', hoch: 'Die Antwort hängt stark von aktuellen Fakten ab (Anbieter, Preise, Regeln) – Websuche dringend empfohlen.' }[rb];
+  const websucheBlock = el('div', { class: 'card ' + (rb === 'hoch' ? 'erg-warnung' : '') },
+    el('h2', {}, 'Websuche ', hilfeKnopf('websuche')),
+    el('p', { class: 'small' }, el('b', {}, 'Recherchebedarf laut Start-KI: ' + rb + '. '), rbText),
+    el('label', { style: 'display:flex;align-items:center;color:inherit' }, f.websuche, 'Teilnehmer dürfen im Netz suchen (ca. 0,02 USD je Aufruf)'),
+    el('p', { class: 'muted small', id: 'websuche-hinweis' }, 'Teilnehmer, die freigegebene Stammdaten sehen, suchen nicht im Netz – so gelangen keine persönlichen Angaben in Suchanfragen.'));
   f.haltbarkeit.value = 'projekt';
   // Projekt: erkanntes vorwählen, neues anlegen lassen
   if (ent.projekt && (d.projekte || []).includes(ent.projekt)) f.projekt.value = ent.projekt;
@@ -463,7 +558,8 @@ async function zeigeEntwurf(d) {
       projekt: projekt || undefined, ziel: f.ziel.value.trim() || undefined, vorgaben: f.vorgaben.value.trim() || undefined,
       grenzen: f.grenzen.value.trim() || undefined, ergebnisform: f.ergebnisform.value.trim() || undefined,
       haltbarkeit: f.haltbarkeit.value, automatisierungsstufe: Number(f.stufe.value), max_kritikrunden: Number(f.runden.value),
-      vorschlaege_stamm_ki: { start_ki: d.start_ki, hinweise: ent.hinweise || '', kostenlimit_vorschlag: ent.kostenlimit_vorschlag },
+      websuche: !!f.websuche.checked,
+      vorschlaege_stamm_ki: { start_ki: d.start_ki, hinweise: ent.hinweise || '', kostenlimit_vorschlag: ent.kostenlimit_vorschlag, recherchebedarf: rb },
     };
     for (const k of Object.keys(daten)) if (daten[k] === undefined) delete daten[k];
     const r = await aktion('rahmen_anlegen', daten);
@@ -491,6 +587,7 @@ async function zeigeEntwurf(d) {
     el('div', { class: 'card' }, el('h2', {}, 'Pflichtfragen an dich ', hilfeKnopf('pflichtfragen')), el('p', { class: 'muted small' }, 'Je besser die Antworten, desto besser das Ergebnis. Leere Antworten sind erlaubt.'), pfBox,
       el('button', { type: 'button', class: 'link', onclick: () => addPf() }, '+ Frage')),
     el('div', { class: 'card' }, el('h2', {}, 'Besetzung (Vorschlag) ', hilfeKnopf('besetzung')), tnBox, el('button', { type: 'button', class: 'link', onclick: () => addTn() }, '+ Teilnehmer')),
+    websucheBlock,
     el('div', { class: 'card' }, el('h2', {}, 'Ablauf und Kosten'),
       el('div', { class: 'row' }, el('label', { class: 'grow' }, 'Kostenlimit (USD) ', hilfeKnopf('kostenlimit'), f.limit), el('label', { class: 'grow' }, 'Max. Kritikrunden ', hilfeKnopf('runden'), f.runden)),
       limitHinweis,

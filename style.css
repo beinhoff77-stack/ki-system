@@ -227,3 +227,23 @@ summary { min-height: 48px; padding: 12px 0; cursor: pointer; color: var(--accen
 .hint-rang { margin: 4px 0 0; padding-left: 20px; }
 .hint-rang li { margin: 2px 0; }
 .hint-rang li:first-child { font-weight: 600; }
+
+/* Ergebnis-Ampel (Claude, Werkstatt #12) */
+:root { --ampel-gruen: #1f8a4c; --ampel-gelb: #c98a00; --ampel-rot: #c43d3d; --ampel-grau: #8a94a3; }
+.ampel { display: inline-flex; align-items: center; gap: 6px; font-size: .8rem; font-weight: 600; padding: 2px 10px 2px 6px; border-radius: 999px; border: 1px solid currentColor; white-space: nowrap; }
+.ampel-punkt { width: 10px; height: 10px; border-radius: 50%; background: currentColor; display: inline-block; }
+.ampel-gruen { color: var(--ampel-gruen); } .ampel-gelb { color: var(--ampel-gelb); } .ampel-rot { color: var(--ampel-rot); } .ampel-grau { color: var(--ampel-grau); }
+.ampel-leiste { gap: 8px; margin-bottom: 10px; }
+.erg-antwort h2 { margin-top: 4px; }
+.erg-empfehlung { font-size: 1.05rem; line-height: 1.5; margin: 6px 0 8px; }
+.erg-gruen { border-left: 4px solid var(--ampel-gruen); }
+.erg-gruen h2 { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.erg-liste { margin: 6px 0 0; padding-left: 20px; } .erg-liste li { margin: 6px 0; }
+.erg-warnung { background: color-mix(in srgb, var(--ampel-gelb) 12%, transparent); border: 1px solid var(--ampel-gelb); border-radius: var(--radius-control, 10px); padding: 8px 12px; margin-top: 10px; font-size: .9rem; }
+.sp { border: 1px solid var(--border, var(--line)); border-left-width: 4px; border-radius: var(--radius-control, 10px); padding: 10px 12px; margin: 8px 0; }
+.sp-ampel-gelb { border-left-color: var(--ampel-gelb); } .sp-ampel-rot { border-left-color: var(--ampel-rot); } .sp-ampel-grau { border-left-color: var(--ampel-grau); }
+.sp .row { gap: 10px; } .sp-kern { margin: 6px 0; } .sp details { margin-top: 4px; } .sp summary { cursor: pointer; color: var(--accent); }
+.ev-liste { display: flex; flex-direction: column; gap: 8px; }
+.ev { text-align: left; padding: 10px 12px; border-radius: var(--radius-control, 10px); white-space: normal; line-height: 1.4; }
+.ev:hover { border-color: var(--accent); }
+details > summary { cursor: pointer; margin: 6px 0; }

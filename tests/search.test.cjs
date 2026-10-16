@@ -17,7 +17,7 @@ before(async () => {
   });
   await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
   origin = `http://127.0.0.1:${server.address().port}`;
-  try { browser = await chromium.launch({ headless: true }); }
+  try { browser = await chromium.launch({ headless: true, ...(process.env.PW_TEST_EXECUTABLE ? {executablePath:process.env.PW_TEST_EXECUTABLE} : {}) }); }
   catch { browser = await chromium.launch({ headless: true, channel: 'msedge' }); }
 });
 after(async () => { await browser?.close(); await new Promise((resolve) => server?.close(resolve)); });
@@ -42,11 +42,31 @@ const districts = () => ({ok:true,stadt:'kyoto',hinweis:'Automatische Vorschläg
     {id:22,name:'Altstadt',lat:35.01,lon:135.01,radius_m:500,laerm:'belebt',status:'bestaetigt',noten:{oepnv:9,gruen:0,gastronomie:8},suche:{treffer:20,liste_a:5,bester_rang:1,preis_nacht_median_eur:100}},
     {id:23,name:'Hafen',lat:95,lon:135,radius_m:600,laerm:'laut',status:'vorschlag',noten:{oepnv:2,gruen:8},suche:{treffer:0,liste_a:0,bester_rang:null,preis_nacht_median_eur:null}}
   ]});
+test('Viertel: KI-Fehler bleibt auch bei abgeschlossenem Umgebungslauf sichtbar', async (t) => {
+  const data = districts(); data.letzter_lauf.ki = {fehler:'Budget aufgebraucht <script>window.injected=true</script>'};
+  const {page,calls} = await setup(t, () => data);
+  await page.goto(origin+'/#/viertel/?stadt=kyoto');
+  await page.getByRole('alert').filter({hasText:'Viertel konnten nicht ermittelt werden: Budget aufgebraucht'}).waitFor();
+  assert.equal(await page.locator('[data-district="21"]').count(),1);
+  assert.equal(await page.evaluate(()=>window.injected),undefined);
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_viertel_erstellen').length,0);
+  delete data.letzter_lauf.ki;
+  await page.getByRole('button',{name:'Viertel aktualisieren',exact:true}).click();
+  await page.getByText('Viertel aktualisiert.',{exact:true}).waitFor();
+  assert.equal(await page.getByRole('alert').count(),0);
+});
 async function setup(t, handler, viewport) {
   const context = await browser.newContext({ viewport: viewport || { width: 1440, height: 1000 }, serviceWorkers: 'block' });
   t.after(() => context.close());
   await context.addInitScript(() => localStorage.setItem('ks_token', 'synthetic-test-session'));
   const page = await context.newPage();
+  if (process.env.PW_TEST_OFFLINE_ASSETS === '1') await page.route(origin + '/**', async route => {
+    const pathname = new URL(route.request().url()).pathname;
+    const file = path.resolve(root, '.' + (pathname === '/' ? '/index.html' : pathname));
+    if (!file.startsWith(root + path.sep) || !fs.existsSync(file) || !fs.statSync(file).isFile()) return route.fulfill({status:404,body:''});
+    const types = {'.html':'text/html','.js':'text/javascript','.css':'text/css','.svg':'image/svg+xml','.png':'image/png'};
+    await route.fulfill({body:fs.readFileSync(file),contentType:types[path.extname(file)] || 'application/octet-stream'});
+  });
   const errors = []; page.on('pageerror', (e) => errors.push(e.message)); t.after(() => assert.deepEqual(errors, []));
   const calls = [];
   await page.route('https://cdnjs.cloudflare.com/**', (r) => r.abort());

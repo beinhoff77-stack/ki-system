@@ -280,6 +280,7 @@ async function viewViertel(arg) {
       data = next; uncertain = false; city.value = data.stadt;
       for (const id of selected) if (!data.viertel.some(z => z.id === id && z.status !== 'gestrichen')) selected.delete(id);
       const last = data.letzter_lauf;
+      const generationError = typeof last?.ki?.fehler === 'string' ? last.ki.fehler.trim() : '';
       if (pendingGeneration && last?.id !== pendingGeneration.id && last?.id && ['fertig','fehler'].includes(last.status)) pendingGeneration = null;
       info.hidden = generatePanel.hidden = filterBox.hidden = selection.hidden = mapButton.hidden = false;
       if (!data.viertel.length) generatePanel.open = true;
@@ -288,6 +289,7 @@ async function viewViertel(arg) {
         el('p', { class: 'small' }, '© OpenStreetMap-Mitwirkende (ODbL).'),
         last ? el('p', { class: 'small' }, 'Letzte Ermittlung: ' + (({ki:'Beschreibungen werden ermittelt',osm_angefordert:'Umgebungsdaten werden geladen',fertig:'abgeschlossen',fehler:'fehlgeschlagen'})[last.status] || 'Status unbekannt') + (last.kosten_usd != null ? ' · ' + fmtUsd(last.kosten_usd) : '')) : null);
       generate.textContent = (data.viertel.length ? 'Viertel erneut ermitteln' : 'Viertel ermitteln') + ' · ca. 0,06 USD';
+      if (generationError) info.append(el('p', { class: 'warning', role: 'alert' }, 'Viertel konnten nicht ermittelt werden: ' + generationError), el('p', { class: 'small' }, 'Vorhandene Viertel bleiben sichtbar. Umgebungsdaten können unabhängig davon weitergeladen werden.'));
       draw(); notice.textContent = pendingGeneration ? 'Ermittlung angefragt. Auf den neuen Lauf warten; es wird kein zweiter Auftrag ausgelöst.' : 'Viertel aktualisiert.';
       if (viertelId(focusZone)) { const id = focusZone; focusZone = null; jump(id); }
       if (pendingGeneration) { if (pendingGeneration.remaining-- > 0) timer = setTimeout(load,10000); else notice.textContent += ' Bitte später mit „Viertel aktualisieren“ nachsehen.'; }

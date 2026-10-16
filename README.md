@@ -3,7 +3,7 @@
 Web- und Handy-App für Sebastians persönliches KI-System: Council und Unterkunftssuche.
 
 - Bestehende Seite: https://beinhoff77-stack.github.io/ki-system/
-- Veröffentlichter Stand: **0.10.2**. Ausbau **0.15.1** auf `feature/unterkunft-viertel-w61`, aufbauend auf den Folge-PRs für 0.11.0–0.14.1, zur Gegenprüfung.
+- Veröffentlichter Stand: **0.10.2**. Ausbau **0.15.2** auf `feature/unterkunft-viertel-w61`, aufbauend auf den Folge-PRs für 0.11.0–0.14.1, zur Gegenprüfung.
 - Daten und Suchlogik liegen in Supabase hinter `app-api`. Keine Schlüssel oder Live-Testdaten im Repository.
 - Kein Merge oder Deploy aus diesem Featurezweig ohne Sebastians ausdrückliche Freigabe.
 
@@ -100,6 +100,10 @@ Der Service Worker speichert nur die ausdrücklich aufgeführten App-Dateien. De
 Zur Installation die Seite in Safari/Chrome öffnen und „Zum Home-Bildschirm“ wählen. Die Anmeldung wird durch die bestehende app-api verwaltet.
 
 ## Tests und Prüfstand
+
+Stand 0.15.2 (Nachricht 220): Die Viertelansicht zeigt `letzter_lauf.ki.fehler` als Klartextwarnung, auch wenn die Umgebungsdaten bereits fertig geladen sind. Vorhandene Viertel bleiben sichtbar; keine automatische kostenpflichtige Wiederholung. Ein neuer Browsertest prüft Anzeige, sichere Textdarstellung, erhaltene Viertel und das Entfernen einer nicht mehr gelieferten Fehlermeldung.
+
+Aktueller Lauf: 68 von 70 Tests bestanden. Die beiden echten Netzwerk-/Service-Worker-Tests konnten wegen `ERR_NETWORK_ACCESS_DENIED` auf localhost nicht ausgeführt werden. Der frühere 69/69-Stand gilt für 0.15.1 und ersetzt diese erneute Prüfung nicht. Syntax und Diff geprüft. Für isolierte Darstellungstests kann `PW_TEST_OFFLINE_ASSETS=1` App-Dateien direkt als Testantwort bereitstellen; dies prüft ausdrücklich keinen HTTP-Cache und keinen Service Worker. `PW_TEST_EXECUTABLE` erlaubt die Auswahl eines vorhandenen Testbrowsers. Dieser Lauf nutzte Playwright 1.57.0 aus der vorhandenen Laufzeit mit Chromium-Build 1234; die Projektabhängigkeit bleibt 1.62.1. Vor Veröffentlichung die beiden Netzwerktests und Gegenprüfung nachholen.
 
 Voraussetzung: Node.js >= 20.
 

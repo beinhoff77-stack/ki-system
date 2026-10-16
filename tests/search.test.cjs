@@ -192,13 +192,13 @@ test('PWA installiert vollständige Offline-Hülle, API wird nicht gecacht', asy
   assert(cacheNames.includes('ki-system:' + origin + '/another-app/:v1'));
   assert(!cacheNames.includes('ki-system:' + origin + '/:old'));
   await page.evaluate(() => fetch('README.md'));
-  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v24')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
-  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.15.1')); assert(cached.includes('/style.css?v=0.15.1'));
-  assert(cached.includes('/stay-tools.js?v=0.15.1')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
-  assert(cached.includes('/stay-research.js?v=0.15.1'));
-  assert(cached.includes('/stay-form.js?v=0.15.1'));
-  assert(cached.includes('/stay-details.js?v=0.15.1'));
-  assert(cached.includes('/stay-districts.js?v=0.15.1'));
+  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v25')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
+  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.15.2')); assert(cached.includes('/style.css?v=0.15.2'));
+  assert(cached.includes('/stay-tools.js?v=0.15.2')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
+  assert(cached.includes('/stay-research.js?v=0.15.2'));
+  assert(cached.includes('/stay-form.js?v=0.15.2'));
+  assert(cached.includes('/stay-details.js?v=0.15.2'));
+  assert(cached.includes('/stay-districts.js?v=0.15.2'));
   assert(!cached.includes('/README.md'));
   assert(!cached.some((u) => u.includes('app-api')));
   await context.setOffline(true); await page.reload();
@@ -1340,3 +1340,4 @@ test('Gemeinsame Merkliste enthält ältere Reisen, öffnet den richtigen Treffe
   await page.locator('[data-saved-hit="12"]').getByRole('link',{name:'Im Suchlauf zeigen',exact:true}).click();await page.locator('[data-hit="12"]').waitFor();
   assert.equal(await page.evaluate(()=>document.activeElement.dataset.hit),'12');assert.equal(await page.locator('[data-group=A] .result-pages').textContent().then(t=>t.includes('Seite 2 / 2')),true);
 });
+

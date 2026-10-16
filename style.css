@@ -1,4 +1,37 @@
 /* Council design · Werkstatt #4. Existing app.js hooks remain unchanged. */
+.suche { min-width: 0; }
+.suche fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+.suche legend { font-size: 1.2rem; font-weight: 700; margin-bottom: 16px; }
+.suche-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.suche-grid label { margin: 0; }
+.suche-progress { padding-left: 22px; overflow-wrap: anywhere; }
+.suche-results { min-width: 0; margin-top: 20px; }
+.suche-table-scroll { overflow-x: auto; max-width: 100%; }
+.suche-table { border-collapse: collapse; width: 100%; font-size: .875rem; }
+.suche-table th, .suche-table td { padding: 12px 10px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
+.suche-table th button { font: inherit; font-weight: 650; padding: 6px; white-space: normal; overflow-wrap: normal; word-break: normal; }
+.suche-table th { min-width: 110px; }
+.suche-table td:first-child { min-width: 170px; overflow-wrap: anywhere; }
+.suche-table td:last-child { min-width: 220px; max-width: 360px; overflow-wrap: anywhere; }
+.suche-table details { margin-top: 8px; }
+.suche-table details p, .suche-table details dd { overflow-wrap: anywhere; }
+.suche-table details h3 { font-size: .9rem; }
+.suche-badges { display: flex; flex-wrap: wrap; gap: 6px; }
+.suche-warning { display: inline-block; padding: 3px 8px; border: 1px solid var(--warn); border-radius: 8px; color: var(--warn); background: var(--warn-bg); font-size: .75rem; }
+.suche a { overflow-wrap: anywhere; }
+@media (max-width: 599px) {
+  .suche-grid { grid-template-columns: minmax(0, 1fr); }
+  .suche-results { padding: 12px; }
+  .suche-table thead { display: block; }
+  .suche-table thead tr { display: flex; flex-wrap: wrap; gap: 4px; }
+  .suche-table th { border: 0; padding: 0; min-width: 0; }
+  .suche-table th:last-child { display: none; }
+  .suche-table tbody, .suche-table tbody tr { display: block; }
+  .suche-table tbody tr { border-top: 2px solid var(--border); margin-top: 16px; padding-top: 8px; }
+  .suche-table td { display: block; border: 0; padding: 5px 0; min-width: 0 !important; max-width: none !important; }
+  .suche-table td::before { content: attr(data-label) ': '; font-weight: 650; }
+  .suche-table td:first-child::before, .suche-table td:last-child::before { display: none; }
+}
 :root {
   color-scheme: light;
   --font-ui: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;

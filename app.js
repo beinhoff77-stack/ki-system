@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.4.0';
+const APP_VERSION = '0.5.0';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -125,10 +125,10 @@ const store = {
   set token(v) { try { v ? localStorage.setItem(TOKEN_KEY, v) : localStorage.removeItem(TOKEN_KEY); } catch { /* privater Modus */ } },
 };
 
-async function http(path, { method = 'GET', body, auth = true } = {}) {
+async function http(path, { method = 'GET', body, auth = true, signal } = {}) {
   const headers = { 'Content-Type': 'application/json' };
   if (auth && store.token) headers.Authorization = 'Bearer ' + store.token;
-  const r = await fetch(API + path, { method, headers, body: body ? JSON.stringify(body) : undefined });
+  const r = await fetch(API + path, { method, headers, body: body ? JSON.stringify(body) : undefined, signal });
   let j; try { j = await r.json(); } catch { j = { ok: false, fehler: 'Keine Antwort (' + r.status + ')' }; }
   if (r.status === 401 && auth) { store.token = null; route('login'); throw new Error(j.fehler || 'Nicht angemeldet'); }
   return j;
@@ -144,6 +144,7 @@ async function aktion(name, daten = {}) {
 const main = $('#main');
 const tabs = $('#tabs');
 let current = { view: null, arg: null };
+let disposeSuche = () => {};
 
 function route(view, arg = null) {
   const h = arg !== null ? `#/${view}/${arg}` : `#/${view}`;
@@ -169,9 +170,11 @@ function loading(text = 'Lade …') { main.replaceChildren(el('div', { class: 's
 function showError(e) { main.append(el('div', { class: 'card err-text' }, 'Fehler: ' + (e?.message || e))); }
 
 async function render() {
+  disposeSuche();
+  disposeSuche = () => {};
   current = parseHash();
   if (!store.token && current.view !== 'login') { route('login'); return; }
-  const views = { login: viewLogin, auftraege: viewAuftraege, auftrag: viewAuftrag, neu: viewNeu, einstellungen: viewEinstellungen, werkstatt: viewWerkstatt };
+  const views = { login: viewLogin, auftraege: viewAuftraege, auftrag: viewAuftrag, neu: viewNeu, einstellungen: viewEinstellungen, werkstatt: viewWerkstatt, suche: viewSuche };
   const fn = views[current.view] || viewAuftraege;
   try { await fn(current.arg); } catch (e) { showError(e); }
 }
@@ -759,6 +762,240 @@ async function viewWerkstatt(idStr) {
     el('h2', { style: 'font-size:1rem;margin:12px 0 6px' }, 'Letzte Änderungen'), aend,
     el('p', { class: 'muted small' }, 'Neue Wünsche und Nachrichten bitte im Chat – Schreiben in der Werkstatt kommt in einer späteren Stufe.'),
   );
+}
+
+// ---------- Unterkunftssuche (Werkstatt #41) ----------
+const SUCHE_ENDE = new Set(['fertig', 'fehler', 'gestoppt_budget', 'abgebrochen', 'gestoppt']);
+const SUCHE_QUELLEN = { hasdata_booking: 'Booking', apify_airbnb: 'Airbnb', rakuten_travel: 'Rakuten Travel', trivago_mcp: 'Trivago' };
+const SUCHE_WARNUNGEN = {
+  futon: 'Futon', schlafsofa: 'Schlafsofa', etagenbett: 'Etagenbett', schlafplatz_wohnzimmer: 'Schlafplatz im Wohnzimmer',
+  steuern_unklar: 'Steuern unklar', wenig_bewertungen: 'Wenige Bewertungen', weit_vom_ziel: 'Weit vom Ziel',
+  preis_geschaetzt: 'Preis geschätzt', zwei_zimmer: 'Zwei Zimmer', '2_zimmer': 'Zwei Zimmer',
+  preis_2zimmer_unklar: 'Preis für zwei Zimmer unklar', betten_unklar: 'Betten unklar', zimmer_unbekannt: 'Zimmer unbekannt', ueber_budget: 'Über Budget',
+};
+const sucheZahl = (v) => v === null || v === undefined || v === '' || !Number.isFinite(Number(v)) ? null : Number(v);
+const sucheEuro = (v) => sucheZahl(v) === null ? 'Preis unbekannt' : Number(v).toLocaleString('de-DE', { style: 'currency', currency: 'EUR' });
+function sucheLink(value) {
+  try { const u = new URL(value); return ['https:', 'http:'].includes(u.protocol) ? u.href : null; } catch { return null; }
+}
+function sucheVergleich(a, b, key, direction) {
+  const value = (t) => key === 'name' ? t.name : key === 'preis' ? sucheZahl(t.angebot?.preis_gesamt_eur) :
+    key === 'bewertungen' ? sucheZahl(t.bewertungen) : key === 'entfernung' ? sucheZahl(t.luftlinie_ziel_m) : sucheZahl(t.bewertung?.[key]);
+  const x = value(a), y = value(b);
+  // Fehlende Angaben stehen in beiden Sortierrichtungen hinten.
+  if (x == null || y == null) return x == null && y == null ? 0 : x == null ? 1 : -1;
+  return (typeof x === 'string' ? x.localeCompare(String(y), 'de') : x - y) * direction;
+}
+function sucheFormDaten(form) {
+  const f = new FormData(form), get = (key) => String(f.get(key) ?? '').trim();
+  const kinder = get('kinder_alter');
+  if (kinder && !/^\d{1,2}(\s*,\s*\d{1,2})*$/.test(kinder)) throw new Error('Kinderalter bitte durch Kommas trennen, z. B. 13, 11.');
+  const alter = kinder ? kinder.split(',').map(Number) : [];
+  if (alter.some((n) => n > 17)) throw new Error('Kinderalter muss zwischen 0 und 17 liegen.');
+  const datum = (s) => /^\d{4}-\d{2}-\d{2}$/.test(s) && !isNaN(Date.parse(s)) && new Date(s).toISOString().slice(0, 10) === s;
+  if (!datum(get('anreise')) || !datum(get('abreise')) || get('abreise') <= get('anreise')) throw new Error('Abreise muss nach der Anreise liegen.');
+  const d = { ziel: get('ziel'), anreise: get('anreise'), abreise: get('abreise'), erwachsene: Number(get('erwachsene')),
+    kinder_alter: alter, schlafzimmer_min: Number(get('schlafzimmer_min')), max_je_quelle: Number(get('max_je_quelle')), limit_usd: Number(get('limit_usd')) };
+  if (d.ziel.length < 2) throw new Error('Bitte einen Zielort angeben.');
+  for (const [key, min, max, integer] of [['erwachsene', 1, 10, true], ['schlafzimmer_min', 0, 6, true], ['max_je_quelle', 5, 100, true], ['limit_usd', 0, 10, false]]) {
+    if (!get(key) || !Number.isFinite(d[key]) || d[key] < min || d[key] > max || (integer && !Number.isInteger(d[key]))) throw new Error('Bitte die Zahlenfelder innerhalb der angegebenen Grenzen ausfüllen.');
+  }
+  if (get('budget_eur')) { d.budget_eur = Number(get('budget_eur')); if (!Number.isFinite(d.budget_eur) || d.budget_eur <= 0) throw new Error('Das Aufenthaltsbudget muss größer als 0 sein.'); }
+  if (get('land')) { d.land = get('land').toUpperCase(); if (!/^[A-Z]{2}$/.test(d.land)) throw new Error('Land bitte als zweistelligen Code angeben, z. B. JP.'); }
+  return d;
+}
+
+async function viewSuche(idStr) {
+  setChrome('Unterkunft suchen', { tab: 'suche', back: !!idStr });
+  let disposed = false, timer, busy = false, snapshot = null;
+  const requests = new Set();
+  let sort = { key: 'score', direction: -1 };
+  const scope = el('div', { class: 'suche' });
+  main.replaceChildren(scope);
+  disposeSuche = () => { disposed = true; clearTimeout(timer); requests.forEach((c) => c.abort()); };
+  const live = () => !disposed && scope.isConnected && parseHash().view === 'suche' && parseHash().arg === idStr;
+  async function call(name, daten = {}) {
+    const requestController = new AbortController();
+    requests.add(requestController);
+    const timeout = setTimeout(() => requestController.abort(), 25000);
+    try {
+      const j = await http('/aktion', { method: 'POST', body: { aktion: name, daten }, signal: requestController.signal });
+      if (!j.ok || j.ergebnis?.ok === false) throw new Error(j.fehler || j.ergebnis?.fehler || 'Die Schnittstelle konnte die Anfrage nicht ausführen.');
+      return j.ergebnis;
+    } catch (e) {
+      if (e.name === 'AbortError') throw new Error('Keine Antwort innerhalb von 25 Sekunden. Bitte den gespeicherten Suchlauf prüfen.');
+      throw e;
+    } finally { clearTimeout(timeout); requests.delete(requestController); }
+  }
+  const notice = el('p', { role: 'status', 'aria-live': 'polite', class: 'small' });
+  if (!idStr) {
+    const form = el('form', { class: 'card suche-form' });
+    const fields = el('fieldset');
+    const grid = el('div', { class: 'suche-grid' });
+    const input = (name, label, attrs) => grid.append(el('label', {}, label, el('input', { name, ...attrs })));
+    input('ziel', 'Zielort', { required: true, minlength: 2, maxlength: 200, placeholder: 'z. B. Tokyo' });
+    input('land', 'Land (optional, z. B. JP)', { maxlength: 2, pattern: '[A-Za-z]{2}', placeholder: 'Automatisch erkennen' });
+    input('anreise', 'Anreise', { type: 'date', required: true });
+    input('abreise', 'Abreise', { type: 'date', required: true });
+    input('erwachsene', 'Erwachsene', { type: 'number', min: 1, max: 10, value: 2, required: true });
+    input('kinder_alter', 'Kinderalter (mit Kommas)', { placeholder: 'z. B. 13, 11' });
+    input('budget_eur', 'Gesamtbudget Aufenthalt (€)', { type: 'number', min: 0.01, step: 0.01, placeholder: 'Optional' });
+    input('schlafzimmer_min', 'Schlafzimmer mindestens', { type: 'number', min: 0, max: 6, value: 2, required: true });
+    input('max_je_quelle', 'Treffer je Quelle (5–100)', { type: 'number', min: 5, max: 100, value: 50, required: true });
+    input('limit_usd', 'Suchkostenlimit (USD, 0–10)', { type: 'number', min: 0, max: 10, step: 0.01, value: 1.5, required: true });
+    const submit = el('button', { type: 'submit', class: 'primary' }, 'Anlegen und Suche starten');
+    fields.append(el('legend', {}, 'Deine Reise'), grid,
+      el('p', { class: 'muted small' }, 'Booking, Airbnb und Trivago; in Japan zusätzlich Rakuten. Die Suche nutzt externe Quellen und kann Suchkosten sowie Anbieter-Credits verbrauchen. Ergebnisse und Preise werden vorläufig geprüft.'), submit);
+    form.append(fields, notice);
+    scope.append(form);
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault(); if (busy || !form.reportValidity()) return;
+      let daten; try { daten = sucheFormDaten(form); } catch (e) { notice.textContent = e.message; return; }
+      busy = true; fields.disabled = true; notice.textContent = 'Suchauftrag wird angelegt …';
+      let id = null;
+      try {
+        const created = await call('unterkunft_suchauftrag_anlegen', daten);
+        id = Number(created?.id);
+        if (!Number.isSafeInteger(id) || id <= 0) throw new Error('Die Schnittstelle hat keine gültige Auftragsnummer geliefert. Bitte letzte Suchaufträge prüfen.');
+        if (!live()) return;
+        notice.replaceChildren('Auftrag angelegt. Suche wird gestartet … ', el('a', { href: '#/suche/' + id }, 'Auftrag #' + id));
+        await call('unterkunft_suche_starten', { suchauftrag_id: id });
+        if (live()) route('suche', id);
+      } catch (e) {
+        if (!live()) return;
+        if (id) {
+          // Nicht erneut anlegen: auch bei verlorener Start-Antwort bleibt die ID zugänglich.
+          notice.replaceChildren(e.message + ' ', el('a', { href: '#/suche/' + id }, 'Gespeicherten Auftrag #' + id + ' öffnen'));
+          submit.hidden = true;
+        } else {
+          notice.textContent = e.message + ' Vor erneutem Anlegen die letzten Suchaufträge aktualisieren; die Anfrage könnte bereits gespeichert sein.';
+          fields.disabled = false;
+        }
+      } finally { busy = false; }
+    });
+    const recent = el('section', { class: 'card' }, el('h2', {}, 'Letzte Suchaufträge'));
+    const list = el('div');
+    const refresh = el('button', { type: 'button', onclick: loadRecent }, 'Suchaufträge aktualisieren');
+    recent.append(refresh, list); scope.append(recent);
+    async function loadRecent() {
+      if (busy) return;
+      refresh.disabled = true;
+      try {
+        const r = await call('unterkunft_suchlauf_lesen'); if (!live()) return;
+        const rows = Array.isArray(r) ? r : r?.suchauftraege;
+        if (!Array.isArray(rows)) throw new Error('Unerwartete Antwort beim Lesen der letzten Suchaufträge.');
+        list.replaceChildren(...rows.map((a) => el('p', {}, el('a', { href: '#/suche/' + a.id }, `#${a.id} ${a.ziel} · ${fmtDate(a.anreise)}–${fmtDate(a.abreise)} · ${a.status}`))));
+        if (!rows.length) list.textContent = 'Noch keine Suchaufträge.';
+      } catch (e) { if (live()) list.textContent = e.message; }
+      finally { refresh.disabled = false; }
+    }
+    await loadRecent(); return;
+  }
+  const id = Number(idStr);
+  if (!Number.isSafeInteger(id) || id <= 0) { scope.append(el('p', {}, 'Ungültige Suchauftragsnummer.')); return; }
+  const summary = el('section', { class: 'card' });
+  const results = el('section', { 'aria-label': 'Suchergebnisse' });
+  const refresh = el('button', { onclick: () => poll() }, 'Aktualisieren');
+  const start = el('button', { class: 'primary', hidden: true, onclick: async () => {
+    if (busy) return; busy = true; start.disabled = refresh.disabled = true;
+    try { await call('unterkunft_suche_starten', { suchauftrag_id: id }); }
+    catch (e) { if (live()) notice.textContent = e.message + ' Status vor einem weiteren Start aktualisieren.'; }
+    finally { busy = false; if (live()) await poll(); }
+  } }, 'Diesen Entwurf starten');
+  scope.append(el('div', { class: 'actions' }, el('a', { href: '#/suche' }, 'Neue Suche / letzte Aufträge'), refresh, start), notice, summary, results);
+  function draw() {
+    const openDetails = new Set([...results.querySelectorAll('details[open][data-detail]')].map((n) => n.dataset.detail));
+    const a = snapshot.suchauftrag, k = snapshot.kosten || {}, steps = Array.isArray(a.schrittkette) ? a.schrittkette : [];
+    start.hidden = a.status !== 'entwurf'; start.disabled = busy;
+    summary.replaceChildren(el('h2', {}, `${a.ziel} · #${a.id}`),
+      el('p', {}, `${fmtDate(a.anreise)}–${fmtDate(a.abreise)} · ${a.erwachsene} Erwachsene · ${(a.kinder_alter || []).length} Kinder`),
+      el('p', {}, 'Status: ', el('strong', {}, a.status), ' · ', snapshot.treffer.length, ' Treffer'),
+      el('p', { class: 'small' }, `Suchkosten: ${fmtUsd(k.ist_usd) || 'unbekannt'} · reserviert: ${fmtUsd(k.reserviert_usd) || 'unbekannt'} · Limit: ${fmtUsd(k.limit_usd ?? a.limit_usd) || 'unbekannt'} · Anbieter-Einheiten: ${k.ist_einheiten ?? 'unbekannt'} / ${k.limit_einheiten ?? 'unbekannt'}`),
+      el('ul', { class: 'suche-progress' }, steps.map((s) => el('li', {},
+        `${SUCHE_QUELLEN[s.quelle] || s.quelle}: ${s.status} · ${s.treffer ?? 0} Treffer`,
+        s.kosten_usd != null ? ` · ${fmtUsd(s.kosten_usd)}` : '', s.credits != null ? ` · ${s.credits} Credits` : '',
+        s.fehler ? el('p', { class: 'err-text' }, String(s.fehler)) : null))),
+      el('p', { class: 'erg-warnung' }, 'Vorläufig: A/B beruhen auf der Vorprüfung. Der Score ist eine nach Bewertungsanzahl gewichtete Bewertungsnote (0–100), noch kein Endranking. Fehlende Teilnoten werden nicht erfunden.'));
+    results.replaceChildren();
+    const rows = snapshot.treffer;
+    const groups = [
+      ['A', 'Liste A – vorläufig', rows.filter((t) => t.topf !== 'ausgeschlossen' && t.bewertung?.liste === 'A')],
+      ['B', 'Liste B – vorläufig, Angaben prüfen', rows.filter((t) => t.topf !== 'ausgeschlossen' && t.bewertung?.liste === 'B')],
+      ['offen', 'Noch ohne Listenzuordnung', rows.filter((t) => t.topf !== 'ausgeschlossen' && !['A', 'B'].includes(t.bewertung?.liste))],
+      ['ausgeschlossen', 'Ausgeschlossene Treffer', rows.filter((t) => t.topf === 'ausgeschlossen')],
+    ];
+    for (const [key, title, items] of groups) {
+      if (!items.length && !['A', 'B'].includes(key)) continue;
+      const section = el(key === 'ausgeschlossen' ? 'details' : 'section', { class: 'card suche-results' });
+      section.append(el(key === 'ausgeschlossen' ? 'summary' : 'h2', {}, `${title} (${items.length})`));
+      if (!items.length) section.append(el('p', { class: 'muted' }, 'Noch keine Treffer in dieser Liste.'));
+      else section.append(sucheTabelle(items, sort, (sortKey) => {
+        const wasOpen = section.open;
+        sort = { key: sortKey, direction: sort.key === sortKey ? -sort.direction : ['name', 'preis', 'entfernung'].includes(sortKey) ? 1 : -1 };
+        draw();
+        const replacement = results.querySelector(`[data-group="${key}"]`);
+        if (wasOpen) replacement.open = true;
+        replacement.querySelector(`[data-sort="${sortKey}"]`)?.focus({ preventScroll: true });
+      }));
+      section.dataset.group = key; results.append(section);
+      if (key === 'ausgeschlossen') section.dataset.detail = 'ausgeschlossen';
+    }
+    results.querySelectorAll('details[data-detail]').forEach((n) => { n.open = openDetails.has(n.dataset.detail); });
+    if (rows.some((t) => t.quelle === 'rakuten_travel')) results.append(el('p', { class: 'small' }, 'Supported by Rakuten Developers'));
+  }
+  async function poll() {
+    if (!live() || busy) return;
+    clearTimeout(timer); busy = true; refresh.disabled = start.disabled = true;
+    try {
+      const r = await call('unterkunft_suchlauf_lesen', { suchauftrag_id: id });
+      if (!live()) return;
+      if (!r?.suchauftrag || !Array.isArray(r.treffer)) throw new Error('Suchlauf nicht gefunden oder Antwort unvollständig.');
+      snapshot = r; draw();
+      const running = !SUCHE_ENDE.has(r.suchauftrag.status) && r.suchauftrag.status !== 'entwurf';
+      notice.textContent = running ? 'Suche läuft. Automatische Aktualisierung alle 7 Sekunden.' : 'Stand aktualisiert. ' + (r.suchauftrag.status === 'fehler' ? 'Die Suche meldet einen Fehler; vorhandene Treffer bleiben sichtbar.' : r.suchauftrag.status === 'gestoppt_budget' ? 'Kostenlimit erreicht. Vorhandene Treffer bleiben sichtbar.' : '');
+      if (running) timer = setTimeout(poll, 7000);
+    } catch (e) {
+      if (live()) notice.textContent = e.message + ' Die automatische Aktualisierung pausiert. Mit „Aktualisieren“ erneut lesen; es wird keine neue Suche gestartet.';
+    } finally { busy = false; if (live()) { refresh.disabled = false; start.disabled = false; } }
+  }
+  await poll();
+}
+
+function sucheTabelle(items, sort, onSort) {
+  const table = el('table', { class: 'suche-table' });
+  const headings = [['name', 'Unterkunft'], ['preis', 'Gesamtpreis'], ['score', 'Score (vorläufig)'], ['datenlage', 'Datenlage (%)'], ['bewertungen', 'Bewertungen'], ['entfernung', 'Luftlinie zum Ziel']];
+  table.append(el('thead', {}, el('tr', {}, headings.map(([key, title]) => el('th', { scope: 'col', 'aria-sort': sort.key === key ? sort.direction === 1 ? 'ascending' : 'descending' : 'none' },
+    el('button', { type: 'button', 'data-sort': key, onclick: () => onSort(key) }, title, sort.key === key ? sort.direction === 1 ? ' ↑' : ' ↓' : ' ↕'))), el('th', { scope: 'col' }, 'Hinweise / Details'))));
+  const tbody = el('tbody');
+  for (const t of [...items].sort((a, b) => sucheVergleich(a, b, sort.key, sort.direction))) {
+    const a = t.angebot || {}, b = t.bewertung || {};
+    const warnings = [...new Set([...(Array.isArray(b.warnungen) ? b.warnungen : []), ...(a.preis_art === 'geschaetzt' || b.preis_geschaetzt ? ['preis_geschaetzt'] : [])])];
+    const url = sucheLink(a.link), estimated = warnings.includes('preis_geschaetzt');
+    const info = el('details', { 'data-detail': String(t.treffer_id) }, el('summary', {}, 'Angaben und Teilnoten'),
+      el('p', {}, b.begruendung || 'Noch keine Begründung verfügbar.'),
+      el('p', {}, 'Offene Prüfpunkte: ' + (b.gegenpruefung?.luecken?.join(', ') || 'keine angegeben')),
+      el('p', {}, 'Preisstand: ' + (fmtDate(a.abrufzeit) || 'unbekannt')),
+      a.schaetz_basis ? el('p', {}, 'Schätzung: ' + a.schaetz_basis) : null,
+      a.kurs != null ? el('p', {}, `Umrechnung ${a.waehrung}: ${a.kurs} · Kursdatum ${fmtDate(a.kurs_datum)}`) : null,
+      el('p', {}, 'Kategorie: ' + (a.kategorie_name || 'unbekannt')),
+      el('p', {}, 'Ausschlussgrund: ' + (t.ko_grund || 'keiner angegeben')),
+      el('h3', {}, 'Zimmerangaben'), renderAny(t.kategorien || []),
+      el('h3', {}, 'Teilnoten'), Object.keys(b.spaltennoten || {}).length ? renderAny(b.spaltennoten) : el('p', {}, 'Noch nicht verfügbar (Endranking folgt).'));
+    const td = (label, ...content) => el('td', { 'data-label': label }, ...content);
+    tbody.append(el('tr', {},
+      td('Unterkunft', el('strong', {}, t.name || 'Ohne Namen'), el('div', { class: 'muted small' }, SUCHE_QUELLEN[t.quelle] || t.quelle || 'Quelle unbekannt'),
+        url ? el('a', { href: url, target: '_blank', rel: 'noopener noreferrer' }, 'Angebot öffnen ↗') : el('span', { class: 'muted small' }, 'Kein Angebotslink')),
+      td('Gesamtpreis', (estimated && sucheZahl(a.preis_gesamt_eur) !== null ? 'ca. ' : '') + sucheEuro(a.preis_gesamt_eur) + (estimated ? ' (geschätzt)' : '')),
+      td('Score (vorläufig)', sucheZahl(b.score) ?? '–'), td('Datenlage (%)', sucheZahl(b.datenlage) ?? '–'),
+      td('Bewertungen', sucheZahl(t.bewertungen) ?? '–', el('div', { class: 'small' }, t.note != null ? `${t.note} / ${t.note_skala ?? '?'}` : 'Note unbekannt')),
+      td('Luftlinie zum Ziel', sucheZahl(t.luftlinie_ziel_m) === null ? 'unbekannt' : (t.luftlinie_ziel_m / 1000).toLocaleString('de-DE', { maximumFractionDigits: 1 }) + ' km'),
+      td('Hinweise / Details', el('div', { class: 'suche-badges' },
+        el('span', { class: 'pill' }, t.topf === 'unbewertet' ? 'Unbewertet' : t.topf === 'ausgeschlossen' ? 'Ausgeschlossen' : 'Shortlist'),
+        el('span', { class: 'pill' }, 'Ampel: ' + (b.ampel || 'unbekannt')),
+        warnings.map((w) => el('span', { class: 'suche-warning' }, SUCHE_WARNUNGEN[w] || w))), info)));
+  }
+  table.append(tbody);
+  return el('div', { class: 'suche-table-scroll', tabindex: 0, role: 'region', 'aria-label': 'Sortierbare Unterkunftstabelle' }, table);
 }
 
 // ---------- Start ----------

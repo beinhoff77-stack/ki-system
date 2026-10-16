@@ -67,7 +67,7 @@ function sucheZimmerKurz(t) {
   const k=sucheAngebotsKategorie(t);
   const category=k?.konflikt === true ? null : k;
   const types=[category?.betten_art, category?.betten_text].find(v => typeof v === 'string' && v.trim());
-  return {schlafzimmer:sucheZahl(category?.schlafzimmer),anzahl:sucheZahl(category?.betten_anzahl),typen:typeof types === 'string' && types.trim() ? types : Array.isArray(types) && types.every(v => typeof v === 'string') && types.length ? types.join(', ') : null};
+  return {m2:sucheZahl(category?.m2),schlafzimmer:sucheZahl(category?.schlafzimmer),anzahl:sucheZahl(category?.betten_anzahl),typen:typeof types === 'string' && types.trim() ? types : Array.isArray(types) && types.every(v => typeof v === 'string') && types.length ? types.join(', ') : null};
 }
 function sucheZimmerDetails(t) {
   const selected=sucheAngebotsKategorie(t), all=Array.isArray(t.kategorien) ? t.kategorien.filter(k=>k && typeof k === 'object') : [];
@@ -79,7 +79,7 @@ function sucheZimmerDetails(t) {
       const value=sucheZahl(k[field]);
       if(value !== null) parts.push((field==='max_personen'?'bis ':'')+value.toLocaleString('de-DE')+' '+unit);
     }
-    if(typeof k.balkon === 'boolean') parts.push('Balkon: '+(k.balkon?'ja':'nein'));
+    if(typeof k.balkon === 'boolean' || ['ja','nein','unklar'].includes(k.balkon)) parts.push('Balkon: '+(typeof k.balkon === 'boolean' ? k.balkon?'ja':'nein' : k.balkon));
     const beds=sucheZimmerKurz({angebot:{kategorie_id:k.id,kategorie_name:k.name},kategorien:[k]}).typen;
     const time=new Date(k.abrufzeit), stand=k.abrufzeit && Number.isFinite(time.getTime()) ? ' · Stand '+time.toLocaleString('de-DE',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}) : '';
     return el('div', {class:'room-description'}, el('p',{},parts.join(' · ')), beds?el('p',{},'Betten: '+beds):null,
@@ -99,7 +99,7 @@ function sucheZimmerDetails(t) {
 }
 function sucheFilterTreffer(t, f) {
   const room=sucheZimmerKurz(t);
-  if (f.betten && !(room.typen || '').toLocaleLowerCase('de').includes(f.betten.toLocaleLowerCase('de'))) return false;
+  if (f.betten && !sucheBettenDeutsch(room.typen).toLocaleLowerCase('de').includes(sucheBettenDeutsch(f.betten).toLocaleLowerCase('de'))) return false;
   if (f.warnungen === 'mit' && !sucheWarnungen(t).length) return false;
   if (f.warnungen === 'ohne' && sucheWarnungen(t).length) return false;
   if (f.favoriten && t.status !== 'favorit') return false;
@@ -113,7 +113,7 @@ function sucheFilterTreffer(t, f) {
   };
   const note = sucheZahl(t.note), scale = sucheZahl(t.note_skala);
   const note10 = note !== null && scale > 0 ? note * 10 / scale : null;
-  return check(room.schlafzimmer, f.schlafzimmer, true) && check(t.angebot?.preis_gesamt_eur, f.preis) && check(t.gehzeit_min, f.gehzeit) &&
+  return check(room.m2, f.m2, true) && check(room.schlafzimmer, f.schlafzimmer, true) && check(t.angebot?.preis_gesamt_eur, f.preis) && check(t.gehzeit_min, f.gehzeit) &&
     check(t.bewertungen, f.bewertungen, true) && check(note10, f.note, true) &&
     check(t.bewertung?.score, f.score, true) && check(sucheDatenlage(t), f.datenlage, true) &&
     (!['hotel', 'aparthotel', 'ryokan'].includes(t.typ) || check(t.sterne, f.sterne, true));
@@ -135,7 +135,7 @@ function sucheFilterPanel(onChange) {
   const panel = el('details', { class: 'card stay-filters' }, el('summary', {}, 'Weitere Filter'),
     el('div', { class: 'stay-filter-grid' },
       select('gruppe', 'Ergebnisliste', [['', 'Alle Listen'], ['A', 'Liste A'], ['B', 'Liste B'], ['offen', 'Noch nicht vollständig bewertet'], ['ausgeschlossen', 'Ausgeschlossen']]), type,
-      numeric('schlafzimmer', 'Schlafzimmer mindestens', null),
+      numeric('schlafzimmer', 'Schlafzimmer mindestens', null), numeric('m2', 'Fläche mindestens (m²)', null),
       el('label', {}, 'Bettentyp enthält', inputs.betten = el('input', {type:'search', 'aria-label':'Bettentyp enthält', oninput:onChange})),
       select('warnungen', 'Warnungen', [['','Alle'],['mit','Mit Warnungen'],['ohne','Ohne gemeldete Warnungen']]),
       numeric('preis', 'Gesamtpreis höchstens (€)', null, '0.01'), numeric('gehzeit', 'Gehzeit zur Station höchstens (Min.)', null, '0.1'),
@@ -169,7 +169,7 @@ function sucheKoordinaten(p) {
   return lat !== null && lon !== null && Math.abs(lat) <= 85.05112878 && Math.abs(lon) <= 180 ? [lat, lon] : null;
 }
 
-function sucheKarte(container, onSelect) {
+function sucheKarte(container, onSelect, renderSelected) {
   let map, layer, lastBoundsKey = '', destroyed = false;
   const heading = el('h2', {}, 'Unterkünfte auf der Karte');
   const message = el('p', { class: 'small', role: 'status' });
@@ -178,14 +178,27 @@ function sucheKarte(container, onSelect) {
   const reset = el('button', { type: 'button' }, 'Kartenausschnitt zurücksetzen');
   const stationToggle = el('input', { type: 'checkbox' }); stationToggle.checked = true;
   let currentRows = [], currentData = {};
+  let selectedId = null;
+  const selected = el('section', {class:'map-selected', 'aria-label':'Ausgewählte Unterkunft', 'aria-live':'polite'});
+  const picker = el('select', {'aria-label':'Unterkunft auf der Karte auswählen', onchange:()=>choose(currentRows.find(t=>String(t.treffer_id) === picker.value))});
+  function choose(t) {
+    if (!t) return;
+    selectedId = t.treffer_id; picker.value = String(selectedId);
+    selected.replaceChildren(el('h3',{tabindex:-1},t.name || 'Unterkunft'), renderSelected ? renderSelected(t) : el('button',{type:'button',onclick:()=>onSelect(t)},'In der Ergebnisliste zeigen'));
+    selected.scrollIntoView({block:'nearest',behavior:'smooth'});
+  }
   stationToggle.addEventListener('change', () => update(currentRows, currentData));
   container.append(heading, el('p', { class: 'map-legend' }, '● A: Rang · ● B: prüfen · ○ unvollständig · ★ Ziel · ▪ Station'),
-    el('div', { class: 'actions' }, reset, el('label', { class: 'check-label' }, stationToggle, 'Stationen anzeigen')), message, canvas, tileStatus);
+      el('div', { class: 'actions' }, reset, el('label', { class: 'check-label' }, stationToggle, 'Stationen anzeigen')), message, canvas, tileStatus, el('label',{},'Rang und Unterkunft auswählen',picker), selected);
   function update(rows, data = {}) {
     if (destroyed) return;
     currentRows = rows; currentData = data || {};
     const active = rows.filter(t => sucheGruppe(t) !== 'ausgeschlossen');
     const valid = active.filter(t => sucheKoordinaten(t));
+      picker.replaceChildren(el('option',{value:''},'Unterkunft auswählen …'),...valid.map(t=>el('option',{value:t.treffer_id},(sucheGruppe(t)==='A'?'Rang '+(t.bewertung?.rang ?? '?'):'Liste '+sucheGruppe(t))+' · '+t.name)));
+      const previouslySelected = valid.find(t=>t.treffer_id === selectedId);
+      if(previouslySelected) { picker.value=String(selectedId); selected.replaceChildren(el('h3',{},previouslySelected.name),renderSelected ? renderSelected(previouslySelected) : null); }
+      else {selectedId=null; selected.replaceChildren(el('p',{},'Tippe auf einen Marker. Die zugehörige Unterkunft erscheint hier – ohne Ansichtswechsel.'));}
     const far = valid.filter(t => sucheZahl(t.luftlinie_ziel_m) > 25000);
     message.textContent = `${valid.length} von ${active.length} aktiven Treffern auf der Karte. ${active.length - valid.length} ohne gültige Koordinaten.` + (far.length ? ` ${far.length} weit außerhalb (über 25 km); nicht im ersten Kartenausschnitt.` : '');
     if (!window.L) { tileStatus.textContent = 'Die Karte konnte nicht geladen werden. Die Ergebnisliste bleibt verfügbar.'; canvas.hidden = true; return; }
@@ -204,11 +217,14 @@ function sucheKarte(container, onSelect) {
       const label = group === 'A' ? rank === null ? 'A' : String(rank) : group === 'B' ? 'B' : '?';
       const icon = el('span', { 'data-map-hit': t.treffer_id }, label);
       const marker = L.marker(sucheKoordinaten(t), { title: t.name || 'Unterkunft', alt: t.name || 'Unterkunft', icon: L.divIcon({ className: 'stay-pin pin-' + group, html: icon, iconSize: [34, 34], iconAnchor: [17, 34] }) });
-      marker.bindPopup(el('div', { class: 'stay-map-popup' }, el('strong', {}, t.name || 'Unterkunft'),
+        marker.on('click',()=>choose(t));
+        const nearby=valid.filter(other=>other!==t && map.distance(sucheKoordinaten(t),sucheKoordinaten(other)) < 80);
+        marker.bindPopup(el('div', { class: 'stay-map-popup' }, el('strong', {}, t.name || 'Unterkunft'),
         el('p', {}, (t.angebot?.preis_art === 'geschaetzt' ? 'ca. ' : '') + sucheEuro(t.angebot?.preis_gesamt_eur)),
         sucheAngebotsstand(t),
         el('p', {}, group === 'A' ? 'Liste A' + (rank !== null ? ' · Rang ' + rank : '') : group === 'B' ? 'Liste B – Angaben prüfen' : 'Noch nicht vollständig bewertet'),
-        el('button', { type: 'button', onclick: () => onSelect(t) }, 'In der Ergebnisliste zeigen'))).addTo(layer);
+          el('button', { type: 'button', onclick: () => choose(t) }, 'Unterkunft unten ansehen'),
+          nearby.length ? el('details',{},el('summary',{},nearby.length+' weitere Unterkünfte an dieser Stelle'),nearby.map(other=>el('button',{type:'button',onclick:()=>choose(other)},(other.bewertung?.rang != null ? 'Rang '+other.bewertung.rang+' · ':'')+other.name))) : null)).addTo(layer);
     }
     const target = sucheKoordinaten(data?.ziel);
     if (target) L.marker(target, { title: data.ziel.name || 'Reiseziel', icon: L.divIcon({ className: 'stay-pin pin-ziel', html: el('span', {}, '★'), iconSize: [36, 36] }) }).bindPopup(el('strong', {}, data.ziel.name || 'Reiseziel')).addTo(layer);

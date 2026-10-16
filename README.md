@@ -3,7 +3,7 @@
 Web- und Handy-App für Sebastians persönliches KI-System: Council und Unterkunftssuche.
 
 - Bestehende Seite: https://beinhoff77-stack.github.io/ki-system/
-- Veröffentlichter Stand bei Arbeitsbeginn: **0.15.2** (main). Korrektur **0.16.0** auf `fix/unterkunft-ergebnisansichten` zur Gegenprüfung.
+- Veröffentlichter Stand bei Arbeitsbeginn: **0.16.0** (main). Umbau **0.17.0** auf `fix/unterkunft-bedienung-durchsehen` zur Gegenprüfung.
 - Daten und Suchlogik liegen in Supabase hinter `app-api`. Keine Schlüssel oder Live-Testdaten im Repository.
 - Kein Merge oder Deploy aus diesem Featurezweig ohne Sebastians ausdrückliche Freigabe.
 
@@ -16,6 +16,16 @@ Die Startseite `#/start` bietet zwei gleichwertige Bereiche: **Council** und **U
 Unterkunft übernimmt die Designbasis des Original-Prototyps V0.4.1: Creme, Waldgrün, Serifentitel, grüner Hero und nummerierte Formulargruppen. Tabelle, Liste und Karte sind auf jedem Gerät getrennt wählbar. Als Vorgabe startet der Desktop ab 1200 Pixeln mit der Tabelle, das Handy mit der Liste. Die Wahl bleibt pro Suchauftrag erhalten. Alle drei Ansichten verwenden dieselben Filter; ausgeschlossene Treffer bleiben außerhalb der Karte.
 
 ## Korrektur 0.16.0: kompakte Ergebnisansichten
+
+### Umbau 0.17.0: entscheiden statt Rohdaten lesen
+
+Die Fläche der angebotenen Zimmerart ist sofort sichtbar, sortierbar und filterbar. Listenfotos sind auf Handys 130 × 120 Pixel groß, auf größeren Geräten 150 Pixel hoch; Tabellenminiaturen bleiben 50 × 40 Pixel. Bekannte englische Bettentypen werden übersetzt, Futons und Schlafsofas bleiben unterscheidbar. Wege benennen die Station und bei langen Strecken Stunden; unbenannte Stationen bleiben ausdrücklich ungeklärt. Zimmerangaben stehen zuerst in den Details, Score-Aufschlüsselungen werden separat aufgeklappt. Der Anbieterlink steht beim Namen; die frühere Linkspalte enthält jetzt die Fläche. Rakuten-API-Links mit Hotel-ID öffnen die öffentliche Hotelübersicht, ausdrücklich ohne behauptete Übernahme der Reiseparameter.
+
+Die Karte zeigt nach Markerwahl dieselbe Unterkunft direkt darunter. Eine Auswahl mit Rang und Namen sowie Nachbarunterkünfte im Popup helfen bei überlagerten Markern. Der Wechsel zurück in die Liste ist zum Identifizieren nicht erforderlich.
+
+`stay-review.js` ergänzt den freigegebenen Durchsehen-Modus (Werkstatt #69/#70). Er nutzt die gefilterten, bewerteten A/B-Treffer: A vor B, schon als Favorit/Weg entschiedene Treffer auslassen, Na ja am Ende einmal erneut zeigen. Übernommene Weg-Urteile mit neuem Preishinweis erscheinen erneut. Die Vollbildansicht zeigt Foto, Gesamt-/Nachtpreis, angebotene Fläche, Schlafaufteilung, Station, Viertel und Gästenote. Drei feste Buttons schreiben ausschließlich nach Benutzerklick über `unterkunft_durchsehen_urteil`. Optionale Gründe, Rückgängig und die Rückfrage nach Rückkehr vom Anbieter gehören dazu. Unklare Antworten sperren weitere Entscheidungen bis zu einer neuen Serverabfrage, auch nach Schließen des Modus. Keine Live-Schreibtests; keine automatische Änderung von Suchgewichten oder K.-o.-Kriterien. Wischen und eine Favoriten-Endrunde sind nicht Bestandteil dieser Version.
+
+Prüfung: lokale Browser-Regressionen einschließlich synthetischer Speicher-, Fehler- und Rückgängigfälle; echter gelesener Kyoto-Snapshot separat mit `KYOTO_READONLY_TEST=1` (nicht im Repository). Responsive Breiten 320/375/390/430 Pixel sowie Desktop. Dies ist kein Test auf physischer iPhone-Hardware.
 
 Die bestehende Ergebnisansicht nutzt die verfügbare Breite. Die Tabelle enthält pro Unterkunft eine kompakte Zeile mit 50 × 40 Pixel Foto, Score/Datenlage, Gesamtpreis, Schlafzimmern, Bettentypen, Gehzeit/Station, Gästenote, Warnungsanzahl und Anbieterlink. Jeder Spaltenkopf sortiert; unbekannte Werte bleiben auch absteigend hinten. Die vorhandene serverseitige Rangfolge bleibt Standard. Neue lokale Filter ergänzen Schlafzimmer, Bettentyp und Warnungen.
 

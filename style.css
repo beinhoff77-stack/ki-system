@@ -718,3 +718,85 @@ body[data-area="unterkunft"] main.view:has([data-result-view]) { max-width: none
   [data-result-view="list"] .compact-results td:nth-child(6) { grid-column: 1 / -1; }
   [data-result-view] .suche-results { padding: 0; }
 }
+
+/* Entscheidungsdaten zuerst: kurze Reiseübersicht, große Listenbilder, Auswahl am Ergebnis. */
+.suche:has([data-result-view]) .stay-page-heading { display:none; }
+.suche:has([data-result-view]) > .actions { margin:6px 0; }
+.suche:has([data-result-view]) > [role="status"] { margin:4px 0; font-size:12px; }
+.suche:has([data-result-view]) > .card { margin:8px 0; }
+.suche .stay-page-heading .eyebrow { display:none; }
+.suche .stay-page-heading h2 { font-size:28px; margin:8px 0; }
+.suche .stay-run-summary { padding:8px 14px; }
+.suche .stay-run-summary:has(.run-details) { display:grid; grid-template-columns:auto 1fr; column-gap:18px; align-items:center; }
+.suche .stay-run-summary:has(.run-details) > p { margin:0; }
+.suche .stay-run-summary .run-details { grid-column:1 / -1; }
+.stay-run-summary h2 { font-size:22px; margin:0; }
+.stay-run-summary p { margin:5px 0; }
+.run-details > summary { min-height:30px; padding:4px 0; font-size:13px; }
+.suche .stay-filters { padding:0 14px; }
+.suche .stay-filters:not([open]) { background:transparent; border:0; box-shadow:none; margin:0; }
+.suche:has([data-result-view]) .result-jumps { margin:0; }
+.suche:has([data-result-view]) .result-view-switch { margin:0; padding:4px 0; }
+.suche:has([data-result-view]) .suche-results { margin-top:10px; }
+.suche:has([data-result-view]) .result-controls { padding:8px 14px; }
+.suche .result-controls p { font-size:11px; }
+.suche .result-controls input,.suche .result-controls select { min-height:44px; padding:8px 12px; }
+.search-ready { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
+.suche .stay-filters > summary { padding:10px 0; }
+.suche .result-controls { padding:12px 18px; gap:10px; }
+.hit-provider, .hit-identity span.small { display:block; margin-top:5px; }
+.compact-results td:last-child .stay-selection { margin:0; padding:0; border:0; }
+.compact-results td:last-child .stay-selection .actions { margin:0; gap:4px; }
+.compact-results td:last-child .stay-selection p:empty { display:none; }
+.compact-results td:last-child .stay-selection .actions > button:nth-child(2) { font-size:12px; }
+[data-result-view="list"] .compact-results caption { padding:6px 16px; text-align:left; }
+[data-result-view="list"] .compact-results tr[data-hit] { grid-template-columns:minmax(250px,2fr) repeat(3,minmax(120px,1fr)); gap:8px 20px; }
+[data-result-view="list"] .compact-results td:first-child { grid-row:span 4; }
+[data-result-view="list"] .compact-results .hit-identity { align-items:start; flex-direction:column; }
+[data-result-view="list"] .compact-results .hit-identity strong { font-size:19px; }
+[data-result-view="list"] .compact-results .stay-photo { width:100%; height:150px; }
+[data-result-view="list"] .compact-results .stay-photo img { width:100%; height:150px; }
+[data-result-view="list"] .compact-results .photo-missing { height:150px; }
+[data-result-view="list"] .compact-results td:nth-child(3) { grid-column:2 / -1; }
+[data-result-view="list"] .compact-results .price-value { font-size:24px; }
+[data-result-view="list"] .compact-results td:last-child { grid-column:2 / -1; display:flex; flex-wrap:wrap; gap:8px; align-items:start; }
+.map-selected { scroll-margin-top:140px; }
+.map-selected h3 { margin-bottom:10px; }
+.stay-map-popup details button { display:block; width:100%; margin:4px 0; text-align:left; }
+.stay-review { width:min(760px,100vw); max-width:100vw; height:100dvh; max-height:100dvh; margin:0 auto; padding:16px 24px calc(16px + env(safe-area-inset-bottom)); border:0; color:var(--text); background:var(--bg); overflow:auto; }
+.stay-review::backdrop { background:#14251fcc; }
+.stay-review[open] { display:flex; flex-direction:column; overflow:hidden; }
+.review-content { flex:1; min-height:0; overflow:auto; }
+.review-toolbar, .review-decisions, .review-message, .review-reasons { flex-shrink:0; }
+.review-toolbar { display:flex; justify-content:space-between; gap:8px; }
+.review-progress { font-size:13px; color:var(--muted); }
+.stay-review .stay-photo { margin:0; width:100%; }
+.stay-review .stay-photo img { width:100%; height:clamp(160px,28dvh,300px); object-fit:cover; }
+.stay-review .photo-missing { min-height:160px; }
+.stay-review h2 { font-size:25px; margin:12px 0; }
+.stay-key-facts p { margin:8px 0; }
+.stay-total { font-size:24px; font-weight:700; }
+.stay-total span { font-size:13px; font-weight:400; }
+.stay-space { font-size:18px; }
+.review-decisions { position:sticky; bottom:0; display:grid; grid-template-columns:repeat(3,1fr); gap:10px; background:var(--bg); padding:12px 0; margin-top:12px; }
+.review-decisions button { min-height:54px; font-size:17px; }
+.review-reasons { display:flex; flex-wrap:wrap; gap:5px; font-size:13px; }
+.review-reasons span { flex-basis:100%; }
+.review-message:empty { display:none; }
+@media (max-width:799px) {
+  .suche .result-controls { grid-template-columns:1fr 1fr; padding:8px 12px; }
+  .suche .result-controls label { font-size:12px; }
+  .suche .result-controls input,.suche .result-controls select { padding:8px; min-width:0; }
+  [data-result-view="list"] .compact-results tr[data-hit] { grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px 14px; }
+  [data-result-view="list"] .compact-results td:first-child { grid-column:1 / -1; grid-row:auto; }
+  [data-result-view="list"] .compact-results .hit-identity { display:grid; grid-template-columns:130px minmax(0,1fr); gap:12px; }
+  [data-result-view="list"] .compact-results .stay-photo, [data-result-view="list"] .compact-results .stay-photo img { height:120px; }
+  [data-result-view="list"] .compact-results td:nth-child(3), [data-result-view="list"] .compact-results td:nth-child(5), [data-result-view="list"] .compact-results td:nth-child(6), [data-result-view="list"] .compact-results td:last-child { grid-column:1 / -1; }
+  [data-result-view="list"] .compact-results td:nth-child(3) { grid-row:2; }
+  [data-result-view="list"] .compact-results td:nth-child(9) { grid-row:3; }
+  [data-result-view="list"] .compact-results td:nth-child(4) { grid-row:3; }
+  [data-result-view="list"] .compact-results td:nth-child(2) { display:none; }
+  .stay-review { padding:12px; }
+  .result-view-switch { gap:5px; }
+  .result-view-switch button { min-width:0; padding:8px 12px; }
+}

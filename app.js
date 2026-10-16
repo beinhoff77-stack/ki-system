@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.16.0';
+const APP_VERSION = '0.17.0';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -855,7 +855,7 @@ function sucheLink(value, { allowHttp = false } = {}) {
   try { const u = new URL(value); return (u.protocol === 'https:' || (allowHttp && u.protocol === 'http:')) && !u.username && !u.password ? u.href : null; } catch { return null; }
 }
 function sucheVergleich(a, b, key, direction) {
-  const value = (t) => key === 'name' ? t.name : key === 'schlafzimmer' ? sucheZimmerKurz(t).schlafzimmer : key === 'betten' ? sucheZimmerKurz(t).typen : key === 'anbieter' ? (t.angebot?.anbieter || SUCHE_QUELLEN[t.quelle] || t.quelle || null) : key === 'warnungen' ? sucheWarnungen(t).length : key === 'gaestenote' ? (sucheZahl(t.note) !== null && sucheZahl(t.note_skala) > 0 ? Number(t.note) * 10 / Number(t.note_skala) : null) : key === 'preis' ? sucheZahl(t.angebot?.preis_gesamt_eur) :
+  const value = (t) => key === 'm2' ? sucheZimmerKurz(t).m2 : key === 'name' ? t.name : key === 'schlafzimmer' ? sucheZimmerKurz(t).schlafzimmer : key === 'betten' ? sucheZimmerKurz(t).typen : key === 'anbieter' ? (t.angebot?.anbieter || SUCHE_QUELLEN[t.quelle] || t.quelle || null) : key === 'warnungen' ? sucheWarnungen(t).length : key === 'gaestenote' ? (sucheZahl(t.note) !== null && sucheZahl(t.note_skala) > 0 ? Number(t.note) * 10 / Number(t.note_skala) : null) : key === 'preis' ? sucheZahl(t.angebot?.preis_gesamt_eur) :
     key === 'bewertungen' ? sucheZahl(t.bewertungen) : key === 'entfernung' ? sucheZahl(t.luftlinie_ziel_m) : key === 'gehzeit' ? sucheZahl(t.gehzeit_min) : key.startsWith('note_') ? sucheZahl(t.bewertung?.spaltennoten?.[key.slice(5)]) : key === 'datenlage' ? sucheDatenlage(t) : key === 'rang' ? (t.topf === 'shortlist' && t.bewertung?.liste === 'A' ? sucheZahl(t.bewertung?.rang) : null) : sucheZahl(t.bewertung?.[key]);
   const x = value(a), y = value(b);
   // Fehlende Angaben stehen in beiden Sortierrichtungen hinten.
@@ -898,12 +898,12 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   const requests = new Set();
   const feedbackStates = new Map();
   const selectionStates = new Map();
-  let mapView = null, showMap = false, resultView = matchMedia('(min-width: 1200px)').matches ? 'table' : 'list', filteredRows = [], lastSelection = null;
+  let reviewView = null, mapView = null, showMap = false, resultView = matchMedia('(min-width: 1200px)').matches ? 'table' : 'list', filteredRows = [], lastSelection = null;
   let sort = { key: 'rang', direction: 1 }, snapshotStatus = null, latestStatus = null;
   const pages = new Map();
   const scope = el('div', { class: 'suche' });
   main.replaceChildren(scope);
-  disposeSuche = () => { disposed = true; clearTimeout(timer); requests.forEach((c) => c.abort()); mapView?.destroy(); scope.querySelectorAll('dialog.stay-candidate').forEach(d => { d.close(); d.remove(); }); };
+  disposeSuche = () => { disposed = true; clearTimeout(timer); requests.forEach((c) => c.abort()); mapView?.destroy(); reviewView?.destroy(); scope.querySelectorAll('dialog.stay-candidate').forEach(d => { d.close(); d.remove(); }); };
   const live = () => !disposed && scope.isConnected && parseHash().view === entryView && parseHash().arg === idStr;
   async function call(name, daten = {}) {
     const requestController = new AbortController();
@@ -1058,7 +1058,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   const results = el('section', { 'aria-label': 'Suchergebnisse' });
   const filter = el('input', { type: 'search', placeholder: 'Name oder Anbieter', oninput: () => { pages.clear(); draw(); } });
   const sortSelect = el('select', { 'aria-label': 'Sortieren nach', onchange: () => changeSort(sortSelect.value) },
-    [['rang', 'Empfohlene Rangfolge'], ['preis', 'Gesamtpreis'], ['score', 'Score'], ['datenlage', 'Datenlage'], ['schlafzimmer', 'Schlafzimmer'], ['betten', 'Bettentypen'], ['gaestenote', 'Gästenote'], ['warnungen', 'Warnungen'], ['anbieter', 'Anbieter'], ['bewertungen', 'Anzahl Bewertungen'], ['entfernung', 'Luftlinie zum Ziel'], ['gehzeit', 'Gehzeit zur Station'], ...SUCHE_NOTEN.map(([key, label]) => ['note_' + key, label]), ['name', 'Name']].map(([key, label]) => el('option', { value: key }, label)));
+    [['rang', 'Empfohlene Rangfolge'], ['preis', 'Gesamtpreis'], ['score', 'Score'], ['datenlage', 'Datenlage'], ['m2', 'Fläche (m²)'], ['schlafzimmer', 'Schlafzimmer'], ['betten', 'Bettentypen'], ['gaestenote', 'Gästenote'], ['warnungen', 'Warnungen'], ['anbieter', 'Anbieter'], ['bewertungen', 'Anzahl Bewertungen'], ['entfernung', 'Luftlinie zum Ziel'], ['gehzeit', 'Gehzeit zur Station'], ...SUCHE_NOTEN.map(([key, label]) => ['note_' + key, label]), ['name', 'Name']].map(([key, label]) => el('option', { value: key }, label)));
   const directionButton = el('button', { type: 'button', onclick: () => { sort.direction *= -1; pages.clear(); draw(); } }, 'Aufsteigend ↑');
   const pageSize = el('select', { 'aria-label': 'Treffer je Liste und Seite', onchange: () => { pages.clear(); draw(); } }, [10, 25, 50].map(n => el('option', { value: n }, String(n))));
   const filterCount = el('p', { class: 'small', role: 'status' });
@@ -1070,7 +1070,18 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   const tableButton = el('button', { type: 'button', onclick: () => { resultView = 'table'; showMap = false; draw(); } }, 'Tabelle');
   const listButton = el('button', { type: 'button', onclick: () => { resultView = 'list'; showMap = false; draw(); } }, 'Liste');
   const mapButton = el('button', { type: 'button', onclick: () => { showMap = true; draw(); } }, 'Karte');
-  const viewButtons = el('div', { class: 'actions result-view-switch', hidden: true, role: 'group', 'aria-label': 'Ergebnisansicht' }, tableButton, listButton, mapButton);
+  const reviewButton = el('button', {type:'button',class:'primary',onclick:() => {
+    if(!snapshot || !SUCHE_ENDE.has(snapshotStatus?.status) || [...selectionStates.values()].some(s=>s.pending || s.refreshRequired)) { notice.classList.remove('search-ready'); notice.textContent='Bitte zunächst die laufende Suche oder Auswahl abschließen oder aktualisieren.'; return; }
+    reviewView = sucheDurchsehen(filteredRows, {call, live, nights:snapshot.suchauftrag.naechte || (Date.parse(snapshot.suchauftrag.abreise)-Date.parse(snapshot.suchauftrag.anreise))/86400000, parent:scope, uncertain:t=>{
+      if(!selectionStates.has(t.treffer_id)) selectionStates.set(t.treffer_id,{saved:t.status || 'aktiv',revision:0,pending:false,undo:null});
+      const state=selectionStates.get(t.treffer_id); state.refreshRequired=true;state.message='Speichern nicht bestätigt. Bitte zuerst aktualisieren.';state.revision++;state.render?.();
+    }, changed:t=>{
+      const current=snapshot.treffer.find(row=>row.treffer_id === t.treffer_id); if(current) {current.status=t.status;current.urteil_gruende=t.urteil_gruende;}
+      const state=selectionStates.get(t.treffer_id); if(state) {state.saved=t.status; state.revision++; state.undo=null;}
+      draw();
+    }});
+  }}, 'Durchsehen');
+  const viewButtons = el('div', { class: 'actions result-view-switch', hidden: true, role: 'group', 'aria-label': 'Ergebnisansicht' }, listButton, tableButton, mapButton, reviewButton);
   const undoSelection = el('button', { type: 'button', hidden: true, onclick: () => selectionStates.get(lastSelection)?.undoAction() }, 'Letzte Auswahl rückgängig');
   const research = sucheLuecken(id, call, live);
   const preview = el('button', { type: 'button', hidden: true, onclick: async () => {
@@ -1085,8 +1096,9 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     if (current) current.status = state.saved;
     lastSelection = t.treffer_id;
     notice.textContent = (t.name || 'Unterkunft') + ': ' + state.message;
+    notice.classList.remove('search-ready');
     draw();
-    const row = results.querySelector(`[data-hit="${t.treffer_id}"]`);
+    const row = (showMap ? mapPanel : results).querySelector(`[data-hit="${t.treffer_id}"]`);
     (row?.getClientRects().length ? row : undoSelection.hidden ? refresh : undoSelection).focus({ preventScroll: true });
   }
   function showHit(t) {
@@ -1127,7 +1139,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     }
   } }, 'Suche abbrechen');
   const resultLinks = el('nav', { class: 'actions result-jumps', 'aria-label': 'Weitere Ergebnisgruppen' });
-  scope.append(el('div', { class: 'actions' }, el('a', { href: '#/suche' }, 'Neue Suche / letzte Aufträge'), el('a', { href: viertelHref({suche:id}) }, 'Viertel dieser Reise entdecken'), refresh, start, cancel, preview, undoSelection), notice, summary, controls, filters.node, viewButtons, resultLinks, mapPanel, results, report);
+  scope.append(el('div', { class: 'actions' }, el('a', { href: '#/suche' }, 'Neue Suche / letzte Aufträge'), el('a', { href: viertelHref({suche:id}) }, 'Viertel dieser Reise entdecken'), refresh, start, cancel, preview, undoSelection), notice, summary, viewButtons, controls, filters.node, resultLinks, mapPanel, results, report);
   function draw() {
     if (!snapshot) return;
     const openDetails = new Set([...results.querySelectorAll('details[open][data-detail]')].map((n) => n.dataset.detail));
@@ -1147,6 +1159,11 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     const aCount = snapshot.treffer.filter(t => t.topf !== 'ausgeschlossen' && t.topf !== 'unbewertet' && t.bewertung?.liste === 'A').length;
     if (phase.final && aCount < 10) summary.append(el('p', { class: 'erg-warnung' }, `Datenlage reicht noch nicht für 10 Empfehlungen in Liste A (derzeit ${aCount}).`));
     if (a.rohdaten_bis) summary.append(el('p', { class: 'small muted' }, 'Rohdaten werden nach 30 Tagen entfernt. Frist: ' + sucheAbruf(a.rohdaten_bis)));
+    if (phase.final || phase.failed) {
+      const summaryNodes=[...summary.childNodes];
+      const runDetails=el('details', {class:'run-details'}, el('summary',{},'Suchverlauf, Kosten und Bewertungsmethode'), summaryNodes.slice(2));
+      summary.replaceChildren(...summaryNodes.slice(0,2),runDetails);
+    }
     results.replaceChildren();
     controls.hidden = false;
     filters.node.hidden = viewButtons.hidden = false;
@@ -1172,7 +1189,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     listButton.setAttribute('aria-pressed', String(!showMap && resultView === 'list'));
     results.dataset.resultView = resultView; mapButton.setAttribute('aria-pressed', String(showMap));
     mapPanel.hidden = !showMap; results.hidden = showMap;
-    if (showMap) { if (!mapView) mapView = sucheKarte(mapPanel, showHit); mapView.update(rows, snapshot.karte); }
+    if (!showMap && mapView) {mapView.destroy();mapPanel.replaceChildren();mapView=null;}
     undoSelection.hidden = !selectionStates.get(lastSelection)?.undo;
     undoSelection.disabled = !!(selectionStates.get(lastSelection)?.pending || selectionStates.get(lastSelection)?.refreshRequired);
     filterCount.textContent = `${rows.length} von ${snapshot.treffer.length} Treffern · Sortierung gilt für die gesamte Liste.`;
@@ -1230,6 +1247,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       if (n.classList.contains('hit-details')) n.dispatchEvent(new Event('toggle'));
     });
     if (rows.some((t) => t.quelle === 'rakuten_travel')) results.append(el('p', { class: 'small' }, 'Supported by Rakuten Developers'));
+    if (showMap) { if (!mapView) mapView = sucheKarte(mapPanel, showHit, t => { const box=el('div',{'data-result-view':'list'}); box.append(sucheTabelle([t],sort,()=>{},true, t=>sucheRueckmeldung(t,feedbackStates,call,live),t=>sucheAuswahl(t,selectionStates,call,live,selectionChanged),id,'map-')); return box; }); mapView.update(rows, snapshot.karte); }
     if (viertelId(focusHit)) { const target = rows.find(t => t.treffer_id === focusHit); focusHit = null; if (target) showHit(target); }
   }
   function drawProgress(r) {
@@ -1283,28 +1301,32 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
         await readSnapshot(r);
       }
       if (terminal) {
+        notice.classList.toggle('search-ready',r.status === 'fertig');
         notice.textContent = r.status === 'fertig' ? 'Bewertung abgeschlossen. Rangliste aktualisiert.' : r.status === 'gestoppt_budget' ? 'Kostenlimit erreicht. Vorhandene Treffer bleiben sichtbar.' : 'Suche ' + r.status + '. Vorhandene Treffer bleiben sichtbar.';
       } else if (r.status !== 'entwurf') {
         notice.textContent = r.status === 'wartet' ? 'Die Suche wartet und startet automatisch. Aktualisierung alle 7 Sekunden.' : 'Suche läuft. Bewertung und Gegenprüfung werden abgewartet. Aktualisierung alle 7 Sekunden.';
         timer = setTimeout(poll, 7000);
       } else notice.textContent = 'Entwurf gespeichert. Die Suche wurde noch nicht gestartet.';
     } catch (e) {
+      notice.classList.remove('search-ready');
       if (live()) notice.textContent = e.message + ' Die automatische Aktualisierung pausiert. Mit „Aktualisieren“ erneut lesen; es wird keine neue Suche gestartet.';
     } finally { busy = false; if (live()) { refresh.disabled = false; start.disabled = false; cancel.disabled = false; preview.disabled = false; } }
   }
   await poll();
 }
 
-function sucheTabelle(items, sort, onSort, final = false, feedback = () => null, selection = () => null, suchauftragId = null) {
+function sucheTabelle(items, sort, onSort, final = false, feedback = () => null, selection = () => null, suchauftragId = null, prefix = '') {
   const table = el('table', { class: 'suche-table compact-results' });
   const scoreLabel = final ? 'Endscore (%)' : 'Score (Zwischenstand)';
-  const headings = [['name','Unterkunft'], ['score',scoreLabel], ['preis','Gesamtpreis'], ['schlafzimmer','Schlafzimmer'], ['betten','Bettentypen'], ['gehzeit','Lage / ÖPNV'], ['gaestenote','Bewertung'], ['warnungen','Warnungen'], ['anbieter','Anbieter / Link']];
+  const headings = [['name','Unterkunft'], ['score',scoreLabel], ['preis','Gesamtpreis'], ['schlafzimmer','Schlafzimmer'], ['betten','Bettentypen'], ['gehzeit','Lage / ÖPNV'], ['gaestenote','Bewertung'], ['warnungen','Warnungen'], ['m2','Fläche']];
   table.append(el('caption', {}, 'Gesamtpreis für die Reisegruppe und den gesamten Aufenthalt. ', el('button', {type:'button', 'data-sort':'rang', onclick:() => onSort('rang')}, 'Nach Rang sortieren' + (sort.key === 'rang' ? sort.direction === 1 ? ' ↑' : ' ↓' : ''))));
   table.append(el('thead', {}, el('tr', {}, headings.map(([key,title]) => el('th', {scope:'col', 'aria-sort':sort.key === key ? sort.direction === 1 ? 'ascending' : 'descending' : 'none'}, el('button', {type:'button', 'data-sort':key, onclick:() => onSort(key)}, title, sort.key === key ? sort.direction === 1 ? ' ↑' : ' ↓' : ' ↕'))), el('th', {scope:'col'}, 'Details'))));
   const tbody=el('tbody');
   for (const t of items) {
     const a=t.angebot || {}, b=t.bewertung || {}, warnings=sucheWarnungen(t), room=sucheZimmerKurz(t);
-    const url=sucheLink(a.link), estimated=a.preis_art === 'geschaetzt' || b.preis_geschaetzt;
+    const selectionNode=selection(t), researchNode=selectionNode?.querySelector('.stay-research');
+    researchNode?.remove();
+    const provider=sucheAnbieterLink(t), url=provider?.url, estimated=a.preis_art === 'geschaetzt' || b.preis_geschaetzt;
     const review=b.gegenpruefung?.pruefung;
     const objection=review?.urteil === 'einwand' || warnings.includes('gegenpruefung_einwand') ? el('div', {class:'review-objection'}, el('strong', {}, 'Gegenprüfung hat Einwände'), el('ul', {}, (Array.isArray(review?.einwaende) ? review.einwaende : ['Einzelheiten der Gegenprüfung liegen nicht vor.']).map(v => el('li', {}, typeof v === 'string' ? v : renderAny(v))))) : null;
     const info = el('details', { 'data-detail': String(t.treffer_id) }, el('summary', {}, 'Angaben und Prüfungen'),
@@ -1317,7 +1339,6 @@ function sucheTabelle(items, sort, onSort, final = false, feedback = () => null,
       el('p', {}, 'Luftlinie zum Ziel: ' + (sucheZahl(t.luftlinie_ziel_m) === null ? 'unbekannt' : (t.luftlinie_ziel_m / 1000).toLocaleString('de-DE', { maximumFractionDigits: 1 }) + ' km')),
       sucheZahl(t.station_m) !== null ? el('p', {}, `Luftlinie zur Station: ${Number(t.station_m).toLocaleString('de-DE', { maximumFractionDigits: 0 })} m`) : null,
       el('p', {}, 'Ausschlussgrund: ' + (t.ko_grund || 'keiner angegeben')),
-      el('h3', {}, 'Zimmerangaben'), sucheZimmerDetails(t),
       el('h3', {}, 'Bildbewertung'), b.bild_urteil ? el('div', {}, el('p', {}, 'KI-Einschätzung der Bilder; kein Nachweis der Ausstattung.'), el('p', {}, b.bild_urteil.ein_satz || ''),
         el('p', {}, 'Zu sehen: ' + (Array.isArray(b.bild_urteil.zeigt) ? b.bild_urteil.zeigt.join(', ') : b.bild_urteil.zeigt || 'unbekannt')),
         sucheBalken(b.bild_urteil, [['hell', 'Hell'], ['modern', 'Modern'], ['gepflegt', 'Gepflegt'], ['geraeumig', 'Geräumig']]),
@@ -1327,6 +1348,7 @@ function sucheTabelle(items, sort, onSort, final = false, feedback = () => null,
 
     const details=el('details', {class:'hit-details', 'data-detail':'hit-' + t.treffer_id}, el('summary', {}, 'Angaben, Prüfungen und Rückmeldung'),
       el('div', {class:'hit-detail-content'},
+        sucheZimmerDetails(t),
         el('p', {}, 'Verlässlichkeit: ' + (b.ampel || 'unbekannt') + ' · Datenlage: ' + (sucheDatenlage(t) ?? 'unbekannt') + ' %'),
         el('div', {class:'suche-badges'}, warnings.map(w => el('span', {class:'suche-warning'}, SUCHE_WARNUNGEN[w] || w))),
         el('p', {}, 'Balkon: ' + sucheBalkon(t)), sucheAngebotsstand(t), sucheViertelLink(t.zone, suchauftragId),
@@ -1334,8 +1356,8 @@ function sucheTabelle(items, sort, onSort, final = false, feedback = () => null,
           const button=event.currentTarget, dialog=sucheKandidat(t,final,suchauftragId);
           (button.closest('.suche') || main).append(dialog);
           dialog.addEventListener('close',() => {dialog.remove(); if(button.isConnected) button.focus({preventScroll:true});}); dialog.showModal();
-        }}, 'Unterkunft im Detail'), objection, sucheBalken(b.spaltennoten,SUCHE_NOTEN), info, sucheAngebote(t), selection(t), feedback(t)));
-    const detailId='hit-detail-' + t.treffer_id;
+        }}, 'Unterkunft im Detail'), objection, el('details',{},el('summary',{},'Wie wurde der Score berechnet?'),sucheBalken(b.spaltennoten,SUCHE_NOTEN)), info, sucheAngebote(t), researchNode, feedback(t)));
+    const detailId=prefix + 'hit-detail-' + t.treffer_id;
     const detailRow=el('tr', {class:'hit-detail-row',hidden:true,id:detailId}, el('td', {colspan:10},details));
     const toggle=el('button', {type:'button',class:'hit-toggle','aria-expanded':'false','aria-controls':detailId,onclick:() => {
       details.open=!details.open; sync();
@@ -1346,14 +1368,18 @@ function sucheTabelle(items, sort, onSort, final = false, feedback = () => null,
     const walk=sucheZahl(t.gehzeit_min);
     tbody.append(el('tr', {'data-hit':t.treffer_id,tabindex:-1},
       td('Unterkunft', el('div', {class:'hit-identity'},sucheFoto(t),el('div', {},el('strong', {},t.name || 'Ohne Namen'),
-        el('div', {class:'small'}, sucheGruppe(t) === 'A' && sucheZahl(b.rang) !== null ? 'Rang ' + b.rang : sucheGruppe(t) === 'offen' ? 'Unbewertet' : sucheGruppe(t) === 'ausgeschlossen' ? 'Ausgeschlossen' : 'Angaben prüfen')))),
-      td(scoreLabel,el('strong', {class:'hit-score'},sucheZahl(b.score) === null ? '–' : b.score + ' %'),el('div', {class:'small'},(final ? 'Datenlage ' : 'vorläufig · Datenlage ') + (sucheDatenlage(t) ?? '–') + ' %')),
+        el('div', {class:'small'}, sucheGruppe(t) === 'A' && sucheZahl(b.rang) !== null ? 'Rang ' + b.rang : sucheGruppe(t) === 'offen' ? 'Unbewertet' : sucheGruppe(t) === 'ausgeschlossen' ? 'Ausgeschlossen' : 'Angaben prüfen'),
+        url ? el('a',{href:url,target:'_blank',rel:'noopener noreferrer',class:'hit-provider'},provider.label) : null,
+        provider?.overview ? el('span',{class:'small'},'Hotelübersicht · Angebot dort prüfen') : null,
+        t.urteil_uebernommen ? el('span',{class:'small'},'Aus Suche #' + t.urteil_uebernommen.suchauftrag_id + ' übernommen') : null,
+        t.status === 'vielleicht' ? el('span',{class:'small'},'Dein Urteil: Na ja') : null))),
+      td(scoreLabel,el('strong', {class:'hit-score'},sucheZahl(b.score) === null ? '–' : b.score + ' %'),final ? null : el('div',{class:'small'},'vorläufig')),
       td('Gesamtpreis',el('span', {class:'price-value'},(estimated && sucheZahl(a.preis_gesamt_eur) !== null ? 'ca. ' : '') + sucheEuro(a.preis_gesamt_eur)),estimated ? el('div',{class:'small'},'geschätzt') : null),
-      td('Schlafzimmer',room.schlafzimmer ?? 'unbekannt'), td('Bettentypen',room.typen || 'unbekannt',room.anzahl !== null ? el('div',{class:'small'},room.anzahl + ' Betten · ' + (room.typen ? 'laut Kategorie' : 'Typ ungeklärt')) : null),
-      td('Lage / ÖPNV',walk === null ? 'Gehzeit unbekannt' : (t.gehzeit_art === 'geschaetzt' ? 'ca. ' : '') + walk + ' Min. zu Fuß',el('div',{class:'small'},t.station_name || 'Station unbekannt'),el('div',{class:'small'},t.gehzeit_art === 'geschaetzt' ? 'geschätzt' : ['route','ors'].includes(t.gehzeit_art) ? 'berechneter Fußweg' : 'Art unbekannt')),
+      td('Schlafzimmer',room.schlafzimmer ?? 'unbekannt', ['hotel','ryokan'].includes(t.typ) ? el('div',{class:'small'},'Hotelzimmer · Aufteilung prüfen') : null), td('Bettentypen',sucheBettenDeutsch(room.typen) || 'unbekannt'),
+      td('Lage / ÖPNV',sucheWegText(t)),
       td('Bewertung',sucheZahl(t.note) !== null ? t.note + ' / ' + (t.note_skala ?? '?') : 'unbekannt',el('div',{class:'small'},(sucheZahl(t.bewertungen) ?? '–') + ' Bewertungen')),
       td('Warnungen',el('span',{class:warnings.length ? 'suche-warning' : 'muted'},warnings.length ? warnings.length + (warnings.length === 1 ? ' Hinweis' : ' Hinweise') : 'Keine gemeldet')),
-      td('Anbieter / Link',url ? el('a',{href:url,target:'_blank',rel:'noopener noreferrer'},(a.anbieter || SUCHE_QUELLEN[t.quelle] || t.quelle || 'Angebot') + ' ↗') : el('span',{},a.anbieter || SUCHE_QUELLEN[t.quelle] || 'Kein Angebotslink')),td('Details',toggle)),detailRow);
+      td('Fläche',room.m2 === null ? 'unbekannt' : room.m2.toLocaleString('de-DE') + ' m²'),td('Details',toggle,selectionNode)),detailRow);
   }
   table.append(tbody);
   return el('div',{class:'suche-table-scroll',tabindex:0,role:'region','aria-label':'Sortierbare Unterkunftstabelle'},table);

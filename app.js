@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.10.0';
+const APP_VERSION = '0.10.1';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -846,6 +846,11 @@ const SUCHE_WARNUNGEN = {
 };
 const sucheZahl = (v) => !['number', 'string'].includes(typeof v) || String(v).trim() === '' || !Number.isFinite(Number(v)) ? null : Number(v);
 const sucheEuro = (v) => sucheZahl(v) === null ? 'Preis unbekannt' : Number(v).toLocaleString('de-DE', { style: 'currency', currency: 'EUR' });
+function sucheGruppe(t) {
+  if (t.topf === 'ausgeschlossen') return 'ausgeschlossen';
+  if (t.topf === 'unbewertet') return 'offen';
+  return ['A', 'B'].includes(t.bewertung?.liste) ? t.bewertung.liste : 'offen';
+}
 function sucheLink(value) {
   try { const u = new URL(value); return ['https:', 'http:'].includes(u.protocol) ? u.href : null; } catch { return null; }
 }
@@ -1071,10 +1076,10 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       ...(Array.isArray(t.weitere_angebote) ? t.weitere_angebote.flatMap(a => [a?.anbieter, a?.quelle, SUCHE_QUELLEN[a?.quelle]]) : [])].some(value => String(value || '').toLocaleLowerCase('de').includes(needle)));
     filterCount.textContent = `${rows.length} von ${snapshot.treffer.length} Treffern · Sortierung gilt für die gesamte Liste.`;
     const groups = [
-      ['A', phase.final ? 'Liste A – Rangliste' : 'Liste A – vorläufig', rows.filter((t) => t.topf !== 'ausgeschlossen' && t.bewertung?.liste === 'A')],
-      ['B', 'Liste B – Angaben prüfen', rows.filter((t) => t.topf !== 'ausgeschlossen' && t.bewertung?.liste === 'B')],
-      ['offen', 'Noch ohne Listenzuordnung', rows.filter((t) => t.topf !== 'ausgeschlossen' && !['A', 'B'].includes(t.bewertung?.liste))],
-      ['ausgeschlossen', 'Ausgeschlossene Treffer', rows.filter((t) => t.topf === 'ausgeschlossen')],
+      ['A', phase.final ? 'Liste A – Rangliste' : 'Liste A – vorläufig', rows.filter((t) => sucheGruppe(t) === 'A')],
+      ['B', 'Liste B – Angaben prüfen', rows.filter((t) => sucheGruppe(t) === 'B')],
+      ['offen', 'Weitere Treffer – noch nicht vollständig bewertet', rows.filter((t) => sucheGruppe(t) === 'offen')],
+      ['ausgeschlossen', 'Ausgeschlossene Treffer', rows.filter((t) => sucheGruppe(t) === 'ausgeschlossen')],
     ];
     for (const [key, title, items] of groups) {
       if (!items.length && !['A', 'B'].includes(key)) continue;
@@ -1091,7 +1096,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
         const replacement = results.querySelector(`[data-group="${key}"]`);
         if (wasOpen) replacement.open = true;
         replacement.querySelector(`[data-sort="${sortKey}"]`)?.focus({ preventScroll: true });
-      }, phase.final, (t) => sucheRueckmeldung(t, feedbackStates, call, live)));
+      }, phase.final && ['A', 'B'].includes(key), (t) => sucheRueckmeldung(t, feedbackStates, call, live)));
       if (totalPages > 1) {
         const turnPage = offset => {
           pages.set(key, page + offset); draw();
@@ -1199,7 +1204,7 @@ function sucheTabelle(items, sort, onSort, final = false, feedback = () => null)
       td(scoreLabel, sucheZahl(b.score) ?? '–'), td('Datenlage (%)', sucheDatenlage(t) ?? '–'),
       td('Bewertungen', sucheZahl(t.bewertungen) ?? '–', el('div', { class: 'small' }, t.note != null ? `${t.note} / ${t.note_skala ?? '?'}` : 'Note unbekannt')),
       td('Luftlinie zum Ziel', sucheZahl(t.luftlinie_ziel_m) === null ? 'unbekannt' : (t.luftlinie_ziel_m / 1000).toLocaleString('de-DE', { maximumFractionDigits: 1 }) + ' km',
-        el('div', { class: 'small' }, sucheZahl(t.gehzeit_min) === null ? 'Gehzeit unbekannt' : `${t.gehzeit_art === 'geschaetzt' ? 'ca. ' : ''}${t.gehzeit_min} Min. zu Fuß${t.station_name ? ' · ' + t.station_name : ''} (${t.gehzeit_art === 'geschaetzt' ? 'geschätzt' : t.gehzeit_art === 'ors' ? 'berechneter Fußweg' : 'Art unbekannt'})`)),
+        el('div', { class: 'small' }, sucheZahl(t.gehzeit_min) === null ? 'Gehzeit unbekannt' : `${t.gehzeit_art === 'geschaetzt' ? 'ca. ' : ''}${t.gehzeit_min} Min. zu Fuß${t.station_name ? ' · ' + t.station_name : ''} (${t.gehzeit_art === 'geschaetzt' ? 'geschätzt' : ['route', 'ors'].includes(t.gehzeit_art) ? 'berechneter Fußweg' : 'Art unbekannt'})`)),
       td('Hinweise / Details', el('div', { class: 'suche-badges' },
         el('span', { class: 'pill' }, t.topf === 'unbewertet' ? 'Unbewertet' : t.topf === 'ausgeschlossen' ? 'Ausgeschlossen' : 'Shortlist'),
         el('span', { class: 'pill', title: 'Verlässlichkeit der Angaben, nicht Qualität der Unterkunft' }, 'Verlässlichkeit: ' + (b.ampel || 'unbekannt')),

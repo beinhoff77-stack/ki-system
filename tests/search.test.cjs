@@ -154,7 +154,7 @@ test('PWA installiert vollständige Offline-Hülle, API wird nicht gecacht', asy
   assert(cacheNames.includes('ki-system:' + origin + '/another-app/:v1'));
   assert(!cacheNames.includes('ki-system:' + origin + '/:old'));
   await page.evaluate(() => fetch('README.md'));
-  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v15')).keys()).map((r) => new URL(r.url).pathname));
+  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v16')).keys()).map((r) => new URL(r.url).pathname));
   assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js'));
   assert(!cached.includes('/README.md'));
   assert(!cached.some((u) => u.includes('app-api')));
@@ -494,6 +494,30 @@ test('Council-Markdown behält sichere Links und entfernt ausführbare Inhalte',
   assert.equal(await page.evaluate(()=>window.injected),undefined);
   assert.equal(await page.getByRole('link',{name:'Quelle'}).getAttribute('rel'),'noopener noreferrer');
   await page.getByRole('cell',{name:'Wert'}).waitFor();
+});
+
+test('Gehzeit: route ist berechnet, geschaetzt trägt ca., unbekannte Arten bleiben offen', async (t) => {
+  const r=result();
+  Object.assign(r.treffer[0],{gehzeit_min:8,gehzeit_art:'route',station_name:'Station A'});
+  Object.assign(r.treffer[1],{gehzeit_min:9,gehzeit_art:'geschaetzt',station_name:'Station B'});
+  Object.assign(r.treffer[2],{gehzeit_min:10,gehzeit_art:'andere',station_name:'Station C'});
+  const {page}=await setup(t,()=>r);
+  await page.goto(origin+'/#/suche/2');
+  await page.getByText('8 Min. zu Fuß · Station A (berechneter Fußweg)',{exact:true}).waitFor();
+  await page.getByText('ca. 9 Min. zu Fuß · Station B (geschätzt)',{exact:true}).waitFor();
+  await page.getByText('10 Min. zu Fuß · Station C (Art unbekannt)',{exact:true}).waitFor();
+});
+
+test('Unbewertete Treffer mit vorläufigem A/B-Kennzeichen bleiben außerhalb der Ranglisten', async (t) => {
+  const r=result();
+  r.treffer.push(hit(6,'A',100,{topf:'unbewertet'}),hit(7,'B',110,{topf:'unbewertet'}));
+  const {page}=await setup(t,()=>r);
+  await page.goto(origin+'/#/suche/2');
+  await page.getByRole('heading',{name:'Liste A – Rangliste (3)',exact:true}).waitFor();
+  await page.getByRole('heading',{name:'Liste B – Angaben prüfen (1)',exact:true}).waitFor();
+  await page.getByRole('heading',{name:'Weitere Treffer – noch nicht vollständig bewertet (2)',exact:true}).waitFor();
+  assert.deepEqual(await page.locator('[data-group=offen] tbody tr td:first-child strong').allTextContents(),['Unterkunft 6','Unterkunft 7']);
+  await page.locator('[data-group=offen]').getByRole('button',{name:/Score \(Zwischenstand\)/}).waitFor();
 });
 
 test('Bereichswechsel: verspätete Council-Antworten und Fehler lassen Unterkunft stehen', async (t) => {

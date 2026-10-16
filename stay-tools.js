@@ -49,7 +49,59 @@ function sucheAuswahl(t, states, call, live, changed) {
   return box;
 }
 
+function sucheWarnungen(t) {
+  const b=t.bewertung || {}, a=t.angebot || {};
+  return [...new Set([...(Array.isArray(b.warnungen) ? b.warnungen : []), ...(a.preis_art === 'geschaetzt' || b.preis_geschaetzt ? ['preis_geschaetzt'] : []), ...(b.gegenpruefung?.pruefung?.urteil === 'einwand' ? ['gegenpruefung_einwand'] : []), ...(t.preis_veraltet ? ['preis_veraltet'] : [])])];
+}
+function sucheAngebotsKategorie(t) {
+  const a=t.angebot || {}, all=Array.isArray(t.kategorien) ? t.kategorien.filter(k => k && typeof k === 'object') : [];
+  const ids=all.filter(k => k.id != null && k.id === a.kategorie_id);
+  if (a.kategorie_id != null) return ids.length === 1 ? ids[0] : null;
+  const normalize=value => typeof value === 'string' ? value.trim().replace(/\s+/g,' ').toLocaleLowerCase('de') : '';
+  // Whole-property Airbnb data can have additional manual evidence; use only the unique primary-source category.
+  const matches=all.filter(k => normalize(k.name) && normalize(k.name) === normalize(a.kategorie_name));
+  const primaryCategories=all.filter(k => k.quelle === t.quelle);
+  return matches.length === 1 ? matches[0] : primaryCategories.length === 1 && a.kategorie_name === 'ganze Unterkunft' && t.quelle === 'apify_airbnb' ? primaryCategories[0] : null;
+}
+function sucheZimmerKurz(t) {
+  const k=sucheAngebotsKategorie(t);
+  const category=k?.konflikt === true ? null : k;
+  const types=[category?.betten_art, category?.betten_text].find(v => typeof v === 'string' && v.trim());
+  return {schlafzimmer:sucheZahl(category?.schlafzimmer),anzahl:sucheZahl(category?.betten_anzahl),typen:typeof types === 'string' && types.trim() ? types : Array.isArray(types) && types.every(v => typeof v === 'string') && types.length ? types.join(', ') : null};
+}
+function sucheZimmerDetails(t) {
+  const selected=sucheAngebotsKategorie(t), all=Array.isArray(t.kategorien) ? t.kategorien.filter(k=>k && typeof k === 'object') : [];
+  const normalize=v=>String(v || '').trim().replace(/\s+/g,' ').toLocaleLowerCase('de');
+  const source=v=>({booking_plugin:'Booking (Lückenfüller)',manuell:'Manueller Nachweis',...SUCHE_QUELLEN}[v] || v || 'Quelle unbekannt');
+  function row(k) {
+    const parts=[k.name || 'Zimmerart unbekannt'];
+    for(const [field,unit] of [['m2','m²'],['schlafzimmer','Schlafzimmer'],['betten_anzahl','Betten'],['max_personen','Personen']]) {
+      const value=sucheZahl(k[field]);
+      if(value !== null) parts.push((field==='max_personen'?'bis ':'')+value.toLocaleString('de-DE')+' '+unit);
+    }
+    if(typeof k.balkon === 'boolean') parts.push('Balkon: '+(k.balkon?'ja':'nein'));
+    const beds=sucheZimmerKurz({angebot:{kategorie_id:k.id,kategorie_name:k.name},kategorien:[k]}).typen;
+    const time=new Date(k.abrufzeit), stand=k.abrufzeit && Number.isFinite(time.getTime()) ? ' · Stand '+time.toLocaleString('de-DE',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}) : '';
+    return el('div', {class:'room-description'}, el('p',{},parts.join(' · ')), beds?el('p',{},'Betten: '+beds):null,
+      k.konflikt?el('p',{class:'warning'},'Widersprüchliche Zimmerangaben – nicht als gesichert verwenden.'):null,
+      el('p',{class:'small muted'},source(k.quelle)+stand),
+      Object.entries(k.ergaenzt_aus || {}).map(([field,from])=>el('p',{class:'small muted'},({m2:'Fläche',schlafzimmer:'Schlafzimmer',max_personen:'Personenzahl',balkon:'Balkon'}[field] || 'Angabe')+' ergänzt aus '+source(from))));
+  }
+  const others=new Map();
+  for(const k of all) {
+    const name=normalize(k.name);
+    if(k === selected || selected && name === normalize(selected.name)) continue;
+    const weight=x=>['m2','schlafzimmer','betten_anzahl','max_personen','balkon','betten_text'].filter(f=>x[f]!=null).length;
+    if(!others.has(name) || weight(k)>weight(others.get(name))) others.set(name,k);
+  }
+  return el('div',{},el('h4',{},'Angebotene Zimmerart'),selected?row(selected):el('p',{},'Angebotene Zimmerart nicht zugeordnet'),
+    others.size?el('details',{},el('summary',{},'Weitere Zimmer im Haus ('+others.size+')'),[...others.values()].map(row)):null);
+}
 function sucheFilterTreffer(t, f) {
+  const room=sucheZimmerKurz(t);
+  if (f.betten && !(room.typen || '').toLocaleLowerCase('de').includes(f.betten.toLocaleLowerCase('de'))) return false;
+  if (f.warnungen === 'mit' && !sucheWarnungen(t).length) return false;
+  if (f.warnungen === 'ohne' && sucheWarnungen(t).length) return false;
   if (f.favoriten && t.status !== 'favorit') return false;
   if (f.gruppe && sucheGruppe(t) !== f.gruppe) return false;
   if (f.typ && t.typ !== f.typ) return false;
@@ -61,7 +113,7 @@ function sucheFilterTreffer(t, f) {
   };
   const note = sucheZahl(t.note), scale = sucheZahl(t.note_skala);
   const note10 = note !== null && scale > 0 ? note * 10 / scale : null;
-  return check(t.angebot?.preis_gesamt_eur, f.preis) && check(t.gehzeit_min, f.gehzeit) &&
+  return check(room.schlafzimmer, f.schlafzimmer, true) && check(t.angebot?.preis_gesamt_eur, f.preis) && check(t.gehzeit_min, f.gehzeit) &&
     check(t.bewertungen, f.bewertungen, true) && check(note10, f.note, true) &&
     check(t.bewertung?.score, f.score, true) && check(sucheDatenlage(t), f.datenlage, true) &&
     (!['hotel', 'aparthotel', 'ryokan'].includes(t.typ) || check(t.sterne, f.sterne, true));
@@ -83,6 +135,9 @@ function sucheFilterPanel(onChange) {
   const panel = el('details', { class: 'card stay-filters' }, el('summary', {}, 'Weitere Filter'),
     el('div', { class: 'stay-filter-grid' },
       select('gruppe', 'Ergebnisliste', [['', 'Alle Listen'], ['A', 'Liste A'], ['B', 'Liste B'], ['offen', 'Noch nicht vollständig bewertet'], ['ausgeschlossen', 'Ausgeschlossen']]), type,
+      numeric('schlafzimmer', 'Schlafzimmer mindestens', null),
+      el('label', {}, 'Bettentyp enthält', inputs.betten = el('input', {type:'search', 'aria-label':'Bettentyp enthält', oninput:onChange})),
+      select('warnungen', 'Warnungen', [['','Alle'],['mit','Mit Warnungen'],['ohne','Ohne gemeldete Warnungen']]),
       numeric('preis', 'Gesamtpreis höchstens (€)', null, '0.01'), numeric('gehzeit', 'Gehzeit zur Station höchstens (Min.)', null, '0.1'),
       numeric('note', 'Gästenote mindestens (von 10)', 10, '0.1'), numeric('bewertungen', 'Bewertungen mindestens', null),
       numeric('score', 'Score mindestens (%)', 100), numeric('datenlage', 'Datenlage mindestens (%)', 100),

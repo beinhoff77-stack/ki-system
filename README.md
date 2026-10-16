@@ -3,7 +3,7 @@
 Web- und Handy-App für Sebastians persönliches KI-System: Council und Unterkunftssuche.
 
 - Bestehende Seite: https://beinhoff77-stack.github.io/ki-system/
-- App-Stand: **0.10.1**, entwickelt auf `feature/unterkunft-suchseite-w41`, Veröffentlichung über PR #1.
+- App-Stand: **0.10.2**, entwickelt auf `feature/unterkunft-suchseite-w41`.
 - Daten und Suchlogik liegen in Supabase hinter `app-api`. Keine Schlüssel oder Live-Testdaten im Repository.
 - Kein Merge oder Deploy aus diesem Featurezweig ohne Sebastians ausdrückliche Freigabe.
 
@@ -41,7 +41,7 @@ Der Rückmeldungsbericht wird auf Klick über `unterkunft_rueckmeldung_report` g
 
 ## Offline und Anmeldung
 
-Der Service Worker speichert nur die ausdrücklich aufgeführten App-Dateien. Der Cache ist an den Installationspfad gebunden; andere Anwendungen behalten ihre Caches. API-Antworten und beliebige Dateien derselben Domain werden nicht zwischengespeichert. Offline steht die App-Hülle zur Verfügung, Suche und Ergebnisse benötigen eine Verbindung. Die Markdown-Bibliothek ist optional und wird nicht offline gespeichert.
+Der Service Worker speichert nur die ausdrücklich aufgeführten App-Dateien. Der Cache ist an den Installationspfad gebunden; andere Anwendungen behalten ihre Caches. Skript und Stylesheet tragen die App-Version in ihrer URL, damit ein Browser beim Update keine alten Dateien mit der neuen Oberfläche mischt. Die Offline-Hülle verwendet dieselben URLs; Netzwerkabrufe validieren den HTTP-Cache. API-Antworten und beliebige Dateien derselben Domain werden nicht zwischengespeichert. Offline steht die App-Hülle zur Verfügung, Suche und Ergebnisse benötigen eine Verbindung. Die Markdown-Bibliothek ist optional und wird nicht offline gespeichert.
 
 Zur Installation die Seite in Safari/Chrome öffnen und „Zum Home-Bildschirm“ wählen. Die Anmeldung wird durch die bestehende app-api verwaltet.
 
@@ -55,7 +55,7 @@ npx playwright install chromium
 npm test
 ```
 
-**27 Browsertests** prüfen Formular/API-Reihenfolge, Doppelklick, Warteschlange/Bewertung, Abbruch, Fehler/401, unvollständige Antworten, Navigation, Ranking, Sortierung/Filter/Seiten, Rückmeldungen samt überlappender Lese-/Schreibvorgänge, Markdown/Links, mobile und Tablet-Breiten, Tastaturbedienung sowie Offline-Hülle/Cache-Isolation. Die Tests verwenden synthetische Antworten und starten keine echte Suche oder Rückmeldung. Screenshots liegen ignoriert in `test-results/`.
+**28 Browsertests** prüfen Formular/API-Reihenfolge, Doppelklick, Warteschlange/Bewertung, Abbruch, Fehler/401, unvollständige Antworten, Navigation, Ranking, Sortierung/Filter/Seiten, Rückmeldungen samt überlappender Lese-/Schreibvorgänge, Markdown/Links, mobile und Tablet-Breiten, Tastaturbedienung sowie Offline-Hülle/Cache-Isolation und das Update mit bereits gefülltem HTTP-Cache. Die Tests verwenden synthetische Antworten und starten keine echte Suche oder Rückmeldung. Screenshots liegen ignoriert in `test-results/`.
 
 Am 16.10.2026 wurden Suchlauf #2 und der Rückmeldungsbericht über den vorhandenen Lesezugang geprüft; ihre Daten werden nicht eingecheckt. Claudes Kyoto-Lauf #5 wurde durch diese UI-Arbeiten nicht gestartet, gestoppt oder verändert.
 

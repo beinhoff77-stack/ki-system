@@ -154,12 +154,48 @@ test('PWA installiert vollständige Offline-Hülle, API wird nicht gecacht', asy
   assert(cacheNames.includes('ki-system:' + origin + '/another-app/:v1'));
   assert(!cacheNames.includes('ki-system:' + origin + '/:old'));
   await page.evaluate(() => fetch('README.md'));
-  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v16')).keys()).map((r) => new URL(r.url).pathname));
-  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js'));
+  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v17')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
+  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.10.2')); assert(cached.includes('/style.css?v=0.10.2'));
   assert(!cached.includes('/README.md'));
   assert(!cached.some((u) => u.includes('app-api')));
   await context.setOffline(true); await page.reload();
   await page.getByRole('heading', { name: 'Anmelden' }).waitFor();
+});
+
+test('Update lädt neue Skripte und Gestaltung trotz frischem HTTP-Cache der Altversion', async (t) => {
+  let updated = false;
+  const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8').replace(/<script src="https:[^>]*><\/script>/g, '');
+  const oldHtml = html.replace(/(app\.js|style\.css)\?v=[^"']+/g, '$1');
+  const releaseServer = http.createServer((req, res) => {
+    const name = new URL(req.url, 'http://localhost').pathname;
+    if (name.endsWith('.html')) {
+      res.writeHead(200, { 'Content-Type': 'text/html', 'Cache-Control': 'no-store' });
+      return res.end(updated ? html : oldHtml);
+    }
+    if (name === '/app.js') {
+      res.writeHead(200, { 'Content-Type': 'text/javascript', 'Cache-Control': 'max-age=600' });
+      return res.end(`document.querySelector('#ver').textContent = '${updated ? 'aktuell' : 'alt'}';`);
+    }
+    if (name === '/style.css') {
+      res.writeHead(200, { 'Content-Type': 'text/css', 'Cache-Control': 'max-age=600' });
+      return res.end(`body { color: ${updated ? 'rgb(0, 128, 0)' : 'rgb(255, 0, 0)'}; }`);
+    }
+    res.writeHead(404); res.end();
+  });
+  await new Promise(resolve => releaseServer.listen(0, '127.0.0.1', resolve));
+  t.after(() => new Promise(resolve => releaseServer.close(resolve)));
+  const context = await browser.newContext({ serviceWorkers: 'block' });
+  t.after(() => context.close());
+  const page = await context.newPage();
+  const releaseOrigin = `http://127.0.0.1:${releaseServer.address().port}`;
+  // Ohne Request-Mocking: Routing würde den HTTP-Cache abschalten und den Fehler verdecken.
+  await page.goto(releaseOrigin + '/warm.html');
+  assert.equal(await page.locator('#ver').textContent(), 'alt');
+  assert.equal(await page.evaluate(() => getComputedStyle(document.body).color), 'rgb(255, 0, 0)');
+  updated = true;
+  await page.goto(releaseOrigin + '/index.html');
+  assert.equal(await page.locator('#ver').textContent(), 'aktuell');
+  assert.equal(await page.evaluate(() => getComputedStyle(document.body).color), 'rgb(0, 128, 0)');
 });
 
 test('Startseite trennt Council und Unterkunft; Navigation und Prototyp-Design', async (t) => {

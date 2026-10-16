@@ -1,11 +1,11 @@
 // Service Worker: hält nur die App-Hülle vor (Dateien dieser Seite). Daten kommen immer live von app-api.
 const CACHE_PREFIX = 'ki-system:' + self.registration.scope + ':';
-const CACHE = CACHE_PREFIX + 'v16';
-const HUELLE = ['./', './index.html', './app.js', './style.css', './manifest.webmanifest', './icon.svg', './icon-180.png', './icon-512.png'];
+const CACHE = CACHE_PREFIX + 'v17';
+const HUELLE = ['./', './index.html', './app.js?v=0.10.2', './style.css?v=0.10.2', './manifest.webmanifest', './icon.svg', './icon-180.png', './icon-512.png'];
 const HUELLE_URLS = new Set(HUELLE.map(path => new URL(path, self.registration.scope).href));
 
 self.addEventListener('install', (e) => {
-  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(HUELLE)).then(() => self.skipWaiting()));
+  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(HUELLE.map(path => new Request(new URL(path, self.registration.scope), { cache: 'no-cache' })))).then(() => self.skipWaiting()));
 });
 self.addEventListener('activate', (e) => {
   e.waitUntil(caches.keys().then((ks) => Promise.all(ks.filter((k) => k.startsWith(CACHE_PREFIX) && k !== CACHE).map((k) => caches.delete(k)))).then(() => self.clients.claim()));
@@ -16,7 +16,7 @@ self.addEventListener('fetch', (e) => {
   if (e.request.method !== 'GET' || !HUELLE_URLS.has(url.href)) return; // Nur die explizite App-Hülle speichern.
   // Netz zuerst, bei Ausfall aus dem Cache (so kommen neue Versionen sofort an).
   e.respondWith(
-    fetch(e.request).then((r) => {
+    fetch(e.request, { cache: 'no-cache' }).then((r) => {
       if (r.ok) { const kopie = r.clone(); e.waitUntil(caches.open(CACHE).then((c) => c.put(e.request, kopie))); }
       return r;
     }).catch(async () => {

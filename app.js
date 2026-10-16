@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.13.0';
+const APP_VERSION = '0.14.0';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -835,13 +835,14 @@ function sucheDatenlage(t) {
   const noten = t.bewertung?.spaltennoten;
   return sucheZahl(noten && Object.hasOwn(noten, 'datenlage_score') ? noten.datenlage_score : t.bewertung?.datenlage);
 }
-const SUCHE_QUELLEN = { hasdata_booking: 'Booking', apify_airbnb: 'Airbnb', rakuten_travel: 'Rakuten Travel', trivago_mcp: 'Trivago' };
+const SUCHE_QUELLEN = { hasdata_booking: 'Booking', apify_airbnb: 'Airbnb', rakuten_travel: 'Rakuten Travel', rakuten: 'Rakuten Travel', trivago_mcp: 'Trivago' };
 const SUCHE_WARNUNGEN = {
   futon: 'Futon', schlafsofa: 'Schlafsofa', etagenbett: 'Etagenbett', schlafplatz_wohnzimmer: 'Schlafplatz im Wohnzimmer',
   steuern_unklar: 'Steuern unklar', wenig_bewertungen: 'Wenige Bewertungen', weit_vom_ziel: 'Weit vom Ziel',
   preis_geschaetzt: 'Preis geschätzt', zwei_zimmer: '2 getrennte Zimmer', '2_zimmer': '2 getrennte Zimmer',
   doppelbett_geteilt: 'Doppelbett wird geteilt', schmales_bett: 'Schmales Bett <140 cm',
   gegenpruefung_einwand: 'Gegenprüfung hat Einwände',
+  unbewertet_chance: 'Wenige Bewertungen – bekommt eine Chance', pflicht_unbekannt: 'Pflichtangabe noch ungeklärt',
   preis_2zimmer_unklar: 'Preis für zwei Zimmer unklar', betten_unklar: 'Betten unklar', zimmer_unbekannt: 'Zimmer unbekannt', ueber_budget: 'Über Budget',
 };
 const sucheZahl = (v) => !['number', 'string'].includes(typeof v) || String(v).trim() === '' || !Number.isFinite(Number(v)) ? null : Number(v);
@@ -883,18 +884,20 @@ function sucheFormDaten(form, { profileOnly = false } = {}) {
 }
 
 async function viewSuche(idStr, { historyOnly = false } = {}) {
-  setChrome(idStr || historyOnly ? 'Unterkunft / Ergebnisse' : 'Unterkunft / Suche', { tab: idStr || historyOnly ? 'ergebnisse' : 'suche', back: !!idStr });
+  const profilePreset = /^profil-(\d+)$/.exec(idStr || '')?.[1];
+  const hasRun = !!idStr && !profilePreset;
+  setChrome(hasRun || historyOnly ? 'Unterkunft / Ergebnisse' : 'Unterkunft / Suche', { tab: hasRun || historyOnly ? 'ergebnisse' : 'suche', back: !!idStr });
   const entryView = parseHash().view;
   let disposed = false, timer, busy = false, snapshot = null;
   const requests = new Set();
   const feedbackStates = new Map();
   const selectionStates = new Map();
   let mapView = null, showMap = false, filteredRows = [], lastSelection = null;
-  let sort = { key: 'rang', direction: 1 }, snapshotStatus = null;
+  let sort = { key: 'rang', direction: 1 }, snapshotStatus = null, latestStatus = null;
   const pages = new Map();
   const scope = el('div', { class: 'suche' });
   main.replaceChildren(scope);
-  disposeSuche = () => { disposed = true; clearTimeout(timer); requests.forEach((c) => c.abort()); mapView?.destroy(); };
+  disposeSuche = () => { disposed = true; clearTimeout(timer); requests.forEach((c) => c.abort()); mapView?.destroy(); scope.querySelectorAll('dialog.stay-candidate').forEach(d => { d.close(); d.remove(); }); };
   const live = () => !disposed && scope.isConnected && parseHash().view === entryView && parseHash().arg === idStr;
   async function call(name, daten = {}) {
     const requestController = new AbortController();
@@ -910,7 +913,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     } finally { clearTimeout(timeout); requests.delete(requestController); }
   }
   const notice = el('p', { role: 'status', 'aria-live': 'polite', class: 'small' });
-  if (!idStr) {
+  if (!hasRun) {
     if (!historyOnly) scope.append(el('section', { class: 'stay-hero' },
       el('p', { class: 'eyebrow' }, 'REISEN, WIE IHR ES LIEBT'),
       el('h2', {}, 'Wohnen, wo sich die Reise richtig anfühlt.'),
@@ -952,7 +955,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       const children = String(f.get('kinder_alter') || '').split(',').filter((v) => v.trim()).length;
       tripSummary.replaceChildren(el('span', {}, 'Eure Reise'), el('strong', {}, Number.isFinite(nights) && nights > 0 ? `${nights} Nächte · ${f.get('erwachsene')} Erwachsene${children ? ` · ${children} Kinder` : ''}` : 'Wohin soll es gehen?'), el('small', {}, f.get('budget_eur') ? sucheEuro(f.get('budget_eur')) + ' Gesamtbudget' : 'Reisedaten eintragen und passende Unterkünfte entdecken.'));
     }
-    const extended = sucheErweitertesFormular(form, call, live, value => { profileReady = value; submit.disabled = !value || busy; }, value => { busy = value; fields.disabled = value; submit.disabled = value || !profileReady; });
+    const extended = sucheErweitertesFormular(form, call, live, value => { profileReady = value; submit.disabled = !value || busy; }, value => { busy = value; fields.disabled = value; submit.disabled = value || !profileReady; }, profilePreset);
     fields.append(extended.profilePanel, sections, extended.tripPanel, extended.qualityPanel, extended.filtersPanel, el('div', { class: 'search-submit-bar' }, tripSummary, submit));
     form.append(fields, notice);
     form.addEventListener('input', updateTripSummary); updateTripSummary();
@@ -986,6 +989,17 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     const list = el('div', { class: 'recent-grid' });
     const refresh = el('button', { type: 'button', onclick: loadRecent }, 'Suchaufträge aktualisieren');
     recent.append(refresh, list); scope.append(recent);
+    recent.append(el('p', { class: 'small muted' }, 'Gemerkte sind je Reise erreichbar. Rohdaten werden nach 30 Tagen entfernt.'));
+    const historyProfiles = el('section', { class: 'card' }, el('h2', {}, 'Gespeicherte Suchprofile'));
+    if (historyOnly) scope.append(historyProfiles);
+    async function loadHistoryProfiles() {
+      try {
+        const r = await call('unterkunft_suchprofile_lesen'); if (!live()) return;
+        if (!Array.isArray(r.profile)) throw new Error('Suchprofile unvollständig.');
+        const entries = r.profile.filter(p => Number.isSafeInteger(p?.id) && typeof p.name === 'string');
+        historyProfiles.append(entries.length ? el('ul', {}, entries.map(p => el('li', {}, el('a', { href: '#/suche/profil-' + p.id }, 'Neue Suche mit Profil „' + p.name + '“')))) : el('p', {}, 'Noch keine Suchprofile gespeichert.'));
+      } catch (e) { if (live()) historyProfiles.append(el('p', {}, e.message)); }
+    }
     async function loadRecent() {
       if (busy) return;
       refresh.disabled = true;
@@ -993,14 +1007,15 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
         const r = await call('unterkunft_suchlauf_lesen'); if (!live()) return;
         const rows = Array.isArray(r) ? r : r?.suchauftraege;
         if (!Array.isArray(rows)) throw new Error('Unerwartete Antwort beim Lesen der letzten Suchaufträge.');
-        list.replaceChildren(...rows.map((a) => el('a', { class: 'recent-trip', href: '#/suche/' + a.id }, el('span', { class: 'eyebrow' }, 'REISE #' + a.id), el('strong', {}, a.ziel), el('span', {}, `${fmtDate(a.anreise)}–${fmtDate(a.abreise)}`), el('span', { class: 'recent-trip-meta' }, `${a.treffer ?? '–'} Treffer · ${a.status} ↗`))));
+        list.replaceChildren(...rows.map((a) => el('article', { class: 'recent-trip' }, el('a', { class: 'recent-trip-content', href: '#/suche/' + a.id }, el('span', { class: 'eyebrow' }, 'REISE #' + a.id), el('strong', {}, a.ziel), el('span', {}, `${fmtDate(a.anreise)}–${fmtDate(a.abreise)}`), el('span', { class: 'recent-trip-meta' }, `${a.treffer ?? '–'} Treffer · ${a.status} ↗`)), el('a', { href: '#/suche/' + a.id + '?favoriten=1', class: 'small' }, 'Gemerkte in ' + a.ziel))));
         if (!rows.length) list.append(el('div', { class: 'stay-empty' }, el('strong', {}, 'Die nächste Reise beginnt hier.'), el('p', {}, 'Sobald du eine Suche startest, findest du hier ihren Fortschritt und ihre Ergebnisse.'), historyOnly ? el('a', { href: '#/suche' }, 'Erste Unterkunft suchen →') : null));
       } catch (e) { if (live()) list.textContent = e.message; }
       finally { refresh.disabled = false; }
     }
-    await Promise.all([loadRecent(), historyOnly ? Promise.resolve() : extended.load()]); return;
+    await Promise.all([loadRecent(), historyOnly ? loadHistoryProfiles() : extended.load()]); return;
   }
-  const id = Number(idStr);
+  const [idPart, viewQuery = ''] = String(idStr).split('?');
+  const id = Number(idPart), favoritesOnly = new URLSearchParams(viewQuery).get('favoriten') === '1';
   if (!Number.isSafeInteger(id) || id <= 0) { scope.append(el('p', {}, 'Ungültige Suchauftragsnummer.')); return; }
   let savedView = {}, restoredView = false;
   try { savedView = JSON.parse(sessionStorage.getItem('ks_suche_view:' + id) || '{}') || {}; } catch { /* Standards nutzen */ }
@@ -1037,6 +1052,13 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   const viewButtons = el('div', { class: 'actions result-view-switch', hidden: true, role: 'group', 'aria-label': 'Ergebnisansicht' }, listButton, mapButton);
   const undoSelection = el('button', { type: 'button', hidden: true, onclick: () => selectionStates.get(lastSelection)?.undoAction() }, 'Letzte Auswahl rückgängig');
   const research = sucheLuecken(id, call, live, draw);
+  const preview = el('button', { type: 'button', hidden: true, onclick: async () => {
+    if (busy || !latestStatus || !['wartet','laeuft'].includes(latestStatus.status)) return;
+    busy = true; clearTimeout(timer); preview.disabled = refresh.disabled = start.disabled = cancel.disabled = true;
+    try { await readSnapshot(latestStatus); if (live()) notice.textContent = 'Vorläufige Treffer. Die Bewertung läuft weiter; die Rangfolge kann sich noch ändern.'; }
+    catch (e) { if (live()) notice.textContent = 'Vorläufige Treffer nicht geladen: ' + e.message; }
+    finally { busy = false; if (live()) { preview.disabled = refresh.disabled = start.disabled = cancel.disabled = false; timer = setTimeout(poll, 7000); } }
+  } }, 'Vorläufige Treffer ansehen');
   function selectionChanged(t, state) {
     const current = snapshot?.treffer.find(row => row.treffer_id === t.treffer_id);
     if (current) current.status = state.saved;
@@ -1082,7 +1104,8 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       if (error && live()) notice.textContent = 'Abbrechen nicht bestätigt: ' + error + ' Bitte den aktuellen Status prüfen.';
     }
   } }, 'Suche abbrechen');
-  scope.append(el('div', { class: 'actions' }, el('a', { href: '#/suche' }, 'Neue Suche / letzte Aufträge'), refresh, start, cancel, undoSelection), notice, summary, controls, filters.node, viewButtons, mapPanel, results, report);
+  const resultLinks = el('nav', { class: 'actions result-jumps', 'aria-label': 'Weitere Ergebnisgruppen' });
+  scope.append(el('div', { class: 'actions' }, el('a', { href: '#/suche' }, 'Neue Suche / letzte Aufträge'), refresh, start, cancel, preview, undoSelection), notice, summary, controls, filters.node, viewButtons, resultLinks, mapPanel, results, report);
   function draw() {
     if (!snapshot) return;
     const openDetails = new Set([...results.querySelectorAll('details[open][data-detail]')].map((n) => n.dataset.detail));
@@ -1098,6 +1121,10 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
         s.fehler ? el('p', { class: 'err-text' }, String(s.fehler)) : null,
         s.gehzeit?.fehler ? el('p', { class: 'err-text' }, 'Gehzeiten: ' + s.gehzeit.fehler) : null))),
       el('p', { class: 'erg-warnung' }, phase.final ? 'Bewertung abgeschlossen. Endscore aus Raum, Lage, Preis-Leistung, Bewertungen und Eignung. Die Datenlage zeigt die Abdeckung; die Ampel beschreibt die Verlässlichkeit, nicht die Qualität. Offene Angaben und Einwände bleiben relevant.' : phase.failed ? 'Bewertung unterbrochen. Die Rangliste ist noch nicht abschließend; vorhandene Ergebnisse bleiben sichtbar.' : 'Zwischenstand: Die Rangliste ist erst nach Abschluss der Bewertungsstufe fertig. Teilnoten und Datenlage zeigen, welche Angaben bereits vorliegen.'));
+    summary.append(sucheDeckung(snapshot.deckung || snapshotStatus?.deckung));
+    const aCount = snapshot.treffer.filter(t => t.topf !== 'ausgeschlossen' && t.topf !== 'unbewertet' && t.bewertung?.liste === 'A').length;
+    if (phase.final && aCount < 10) summary.append(el('p', { class: 'erg-warnung' }, `Datenlage reicht noch nicht für 10 Empfehlungen in Liste A (derzeit ${aCount}).`));
+    if (a.rohdaten_bis) summary.append(el('p', { class: 'small muted' }, 'Rohdaten werden nach 30 Tagen entfernt. Frist: ' + sucheAbruf(a.rohdaten_bis)));
     results.replaceChildren();
     controls.hidden = false;
     filters.node.hidden = viewButtons.hidden = false;
@@ -1109,6 +1136,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       if ([...sortSelect.options].some(o => o.value === savedView.sort?.key)) sort = { key: savedView.sort.key, direction: savedView.sort.direction === -1 ? -1 : 1 };
       if ([10, 25, 50].includes(savedView.pageSize)) pageSize.value = String(savedView.pageSize);
       showMap = savedView.map === true;
+      if (favoritesOnly) { filter.value = ''; filters.restore({ favoriten: true, unbekannt: true }); showMap = false; }
     }
     sortSelect.value = sort.key;
     directionButton.textContent = sort.direction === 1 ? 'Aufsteigend ↑' : 'Absteigend ↓';
@@ -1129,6 +1157,10 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       ['offen', 'Weitere Treffer – noch nicht vollständig bewertet', rows.filter((t) => sucheGruppe(t) === 'offen')],
       ['ausgeschlossen', 'Ausgeschlossene Treffer', rows.filter((t) => sucheGruppe(t) === 'ausgeschlossen')],
     ];
+    resultLinks.replaceChildren(...groups.filter(([key,,items]) => ['offen','ausgeschlossen'].includes(key) && items.length).map(([key,,items]) => el('button', { type: 'button', onclick: () => {
+      showMap = false; draw(); const section = results.querySelector(`[data-group="${key}"]`);
+      if (section) { if (key === 'ausgeschlossen') section.open = true; section.firstElementChild.focus(); section.scrollIntoView({ block: 'start' }); }
+    } }, key === 'offen' ? `Unbewertete (${items.length})` : `Ausgeschlossene (${items.length}) nach Grund`)));
     research.update(snapshot.treffer);
     for (const [key, title, items] of groups) {
       if (!items.length && !['A', 'B'].includes(key)) continue;
@@ -1140,13 +1172,19 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       pages.set(key, page);
       const visible = [...items].sort((a, b) => sucheVergleich(a, b, sort.key, sort.direction)).slice(page * size, (page + 1) * size);
       if (!items.length) section.append(el('p', { class: 'muted' }, needle ? 'Keine Treffer für diesen Filter.' : 'Keine Treffer in dieser Liste.'));
-      else section.append(sucheTabelle(visible, sort, (sortKey) => {
+      else {
+        const buckets = key === 'ausgeschlossen' ? [...new Set(visible.map(t => t.ko_grund || (t.status === 'ausgeschlossen' ? 'Von dir ausgeschlossen' : 'Grund nicht geliefert')))].map(reason => [reason, visible.filter(t => (t.ko_grund || (t.status === 'ausgeschlossen' ? 'Von dir ausgeschlossen' : 'Grund nicht geliefert')) === reason)]) : [[null, visible]];
+        for (const [reason, shown] of buckets) {
+          if (reason) section.append(el('h3', { class: 'exclusion-reason' }, reason));
+          section.append(sucheTabelle(shown, sort, (sortKey) => {
         const wasOpen = section.open;
         changeSort(sortKey, true);
         const replacement = results.querySelector(`[data-group="${key}"]`);
         if (wasOpen) replacement.open = true;
         replacement.querySelector(`[data-sort="${sortKey}"]`)?.focus({ preventScroll: true });
-      }, phase.final && ['A', 'B'].includes(key), (t) => sucheRueckmeldung(t, feedbackStates, call, live), (t) => el('div', {}, sucheAuswahl(t, selectionStates, call, live, selectionChanged), research.row(t))));
+          }, phase.final && ['A', 'B'].includes(key), (t) => sucheRueckmeldung(t, feedbackStates, call, live), (t) => el('div', {}, sucheAuswahl(t, selectionStates, call, live, selectionChanged), research.row(t))));
+        }
+      }
       if (totalPages > 1) {
         const turnPage = offset => {
           pages.set(key, page + offset); draw();
@@ -1165,6 +1203,8 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     if (rows.some((t) => t.quelle === 'rakuten_travel')) results.append(el('p', { class: 'small' }, 'Supported by Rakuten Developers'));
   }
   function drawProgress(r) {
+    latestStatus = r;
+    preview.hidden = !['wartet','laeuft'].includes(r.status);
     start.hidden = r.status !== 'entwurf';
     cancel.hidden = !['wartet', 'laeuft'].includes(r.status);
     const k = r.kosten || {}, z = r.zaehler || {};
@@ -1176,11 +1216,33 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       el('ul', { class: 'suche-progress' }, (Array.isArray(r.schritte) ? r.schritte : []).filter(s => s.fehler || s.hinweis).map(s => el('li', {}, `${SUCHE_QUELLEN[s.schritt] || s.schritt}: ${s.fehler || s.hinweis}`))),
       el('p', { class: 'small' }, `Gesammelt: ${z.gesammelt ?? 0} · Liste A: ${z.liste_a ?? 0} · Liste B: ${z.liste_b ?? 0} · Bildprüfung: ${z.bild_geprueft ?? 0} · Gegenprüfung: ${z.gegengeprueft ?? 0}`),
       el('p', { class: 'small' }, `Suchkosten: ${fmtUsd(k.ist_usd) || 'unbekannt'} · reserviert: ${fmtUsd(k.reserviert_usd) || 'unbekannt'} · Limit: ${fmtUsd(k.limit_usd) || 'unbekannt'}`),
-      el('p', { class: 'muted' }, 'Die Ergebnisliste wird nach Abschluss geladen. Vorhandene Treffer bleiben auch nach einem Abbruch erhalten.'));
+      el('p', { class: 'muted' }, 'Die Suche läuft auch ohne geöffnetes Handy weiter. Vorläufige Treffer kannst du bereits ansehen. Nach Abschluss wird die fertige Liste geladen. Vorhandene Treffer bleiben auch nach einem Abbruch erhalten.'), sucheDeckung(r.deckung));
+  }
+  async function readSnapshot(r) {
+    const feedbackAtRead = new Map([...feedbackStates].map(([key, value]) => [key, { revision: value.revision, pending: value.pending }]));
+    const selectionsAtRead = new Map([...selectionStates].map(([key, value]) => [key, { revision: value.revision, pending: value.pending }]));
+    const data = await call('unterkunft_suchlauf_lesen', { suchauftrag_id: id });
+    if (!live()) return;
+    if (!data?.suchauftrag || !Array.isArray(data.treffer)) throw new Error('Suchlauf nicht gefunden oder Antwort unvollständig.');
+    if (data.treffer.some(t => !t || typeof t !== 'object')) throw new Error('Die Trefferliste ist unvollständig.');
+    for (const t of data.treffer) {
+      const selection = selectionStates.get(t.treffer_id), selectionAtRead = selectionsAtRead.get(t.treffer_id);
+      if (selection) {
+        if (selection.pending || selectionAtRead?.pending || selection.revision !== selectionAtRead?.revision) t.status = selection.saved;
+        else { selection.saved = t.status || 'aktiv'; selection.message = ''; selection.undo = null; selection.refreshRequired = false; }
+      }
+      const state = feedbackStates.get(t.treffer_id), atRead = feedbackAtRead.get(t.treffer_id);
+      if (!state || state.pending || atRead?.pending || state.revision !== atRead?.revision) continue;
+      state.saved = t.rueckmeldung || null;
+      if (!state.dirty) state.grund = state.saved?.grund || '';
+      state.dirty = state.grund !== (state.saved?.grund || ''); state.message = '';
+    }
+    snapshot = data; snapshotStatus = r; draw();
+    void research.load();
   }
   async function poll() {
     if (!live() || busy) return;
-    clearTimeout(timer); busy = true; refresh.disabled = start.disabled = cancel.disabled = true;
+    clearTimeout(timer); busy = true; refresh.disabled = start.disabled = cancel.disabled = preview.disabled = true;
     try {
       const r = await call('unterkunft_suche_status', { suchauftrag_id: id });
       if (!live()) return;
@@ -1188,26 +1250,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       drawProgress(r);
       const terminal = r.fertig || ['fehler', 'abgebrochen', 'gestoppt', 'gestoppt_budget'].includes(r.status);
       if (terminal) {
-        const feedbackAtRead = new Map([...feedbackStates].map(([key, value]) => [key, { revision: value.revision, pending: value.pending }]));
-        const selectionsAtRead = new Map([...selectionStates].map(([key, value]) => [key, { revision: value.revision, pending: value.pending }]));
-        const data = await call('unterkunft_suchlauf_lesen', { suchauftrag_id: id });
-        if (!live()) return;
-        if (!data?.suchauftrag || !Array.isArray(data.treffer)) throw new Error('Suchlauf nicht gefunden oder Antwort unvollständig.');
-        if (data.treffer.some(t => !t || typeof t !== 'object')) throw new Error('Die Trefferliste ist unvollständig.');
-        for (const t of data.treffer) {
-          const selection = selectionStates.get(t.treffer_id), selectionAtRead = selectionsAtRead.get(t.treffer_id);
-          if (selection) {
-            if (selection.pending || selectionAtRead?.pending || selection.revision !== selectionAtRead?.revision) t.status = selection.saved;
-            else { selection.saved = t.status || 'aktiv'; selection.message = ''; selection.undo = null; selection.refreshRequired = false; }
-          }
-          const state = feedbackStates.get(t.treffer_id), atRead = feedbackAtRead.get(t.treffer_id);
-          if (!state || state.pending || atRead?.pending || state.revision !== atRead?.revision) continue;
-          state.saved = t.rueckmeldung || null;
-          if (!state.dirty) state.grund = state.saved?.grund || '';
-          state.dirty = state.grund !== (state.saved?.grund || ''); state.message = '';
-        }
-        snapshot = data; snapshotStatus = r; draw();
-        void research.load();
+        await readSnapshot(r);
         notice.textContent = r.status === 'fertig' ? 'Bewertung abgeschlossen. Rangliste aktualisiert.' : r.status === 'gestoppt_budget' ? 'Kostenlimit erreicht. Vorhandene Treffer bleiben sichtbar.' : 'Suche ' + r.status + '. Vorhandene Treffer bleiben sichtbar.';
       } else if (r.status !== 'entwurf') {
         notice.textContent = r.status === 'wartet' ? 'Die Suche wartet und startet automatisch. Aktualisierung alle 7 Sekunden.' : 'Suche läuft. Bewertung und Gegenprüfung werden abgewartet. Aktualisierung alle 7 Sekunden.';
@@ -1215,7 +1258,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       } else notice.textContent = 'Entwurf gespeichert. Die Suche wurde noch nicht gestartet.';
     } catch (e) {
       if (live()) notice.textContent = e.message + ' Die automatische Aktualisierung pausiert. Mit „Aktualisieren“ erneut lesen; es wird keine neue Suche gestartet.';
-    } finally { busy = false; if (live()) { refresh.disabled = false; start.disabled = false; cancel.disabled = false; } }
+    } finally { busy = false; if (live()) { refresh.disabled = false; start.disabled = false; cancel.disabled = false; preview.disabled = false; } }
   }
   await poll();
 }
@@ -1257,7 +1300,7 @@ function sucheTabelle(items, sort, onSort, final = false, feedback = () => null,
     tbody.append(el('tr', { 'data-hit': t.treffer_id, tabindex: -1 },
       td('Unterkunft', sucheFoto(t), el('strong', {}, t.name || 'Ohne Namen'), sucheGruppe(t) === 'A' && sucheZahl(b.rang) !== null ? el('div', { class: 'rank-badge' }, 'Rang ' + b.rang + (final ? '' : ' · vorläufig')) : null, el('div', { class: 'muted small' }, SUCHE_QUELLEN[t.quelle] || t.quelle || 'Quelle unbekannt'),
         url ? el('a', { href: url, target: '_blank', rel: 'noopener noreferrer' }, 'Angebot öffnen ↗') : el('span', { class: 'muted small' }, 'Kein Angebotslink')),
-      td('Gesamtpreis', (estimated && sucheZahl(a.preis_gesamt_eur) !== null ? 'ca. ' : '') + sucheEuro(a.preis_gesamt_eur) + (estimated ? ' (geschätzt)' : '')),
+      td('Gesamtpreis', el('span', { class: 'price-value' }, (estimated && sucheZahl(a.preis_gesamt_eur) !== null ? 'ca. ' : '') + sucheEuro(a.preis_gesamt_eur) + (estimated ? ' (geschätzt)' : '')), sucheAngebotsstand(t)),
       td(scoreLabel, sucheZahl(b.score) ?? '–'), td('Datenlage (%)', sucheDatenlage(t) ?? '–'),
       td('Bewertungen', sucheZahl(t.bewertungen) ?? '–', el('div', { class: 'small' }, t.note != null ? `${t.note} / ${t.note_skala ?? '?'}` : 'Note unbekannt')),
       td('Luftlinie zum Ziel', sucheZahl(t.luftlinie_ziel_m) === null ? 'unbekannt' : (t.luftlinie_ziel_m / 1000).toLocaleString('de-DE', { maximumFractionDigits: 1 }) + ' km',
@@ -1265,7 +1308,13 @@ function sucheTabelle(items, sort, onSort, final = false, feedback = () => null,
       td('Hinweise / Details', el('div', { class: 'suche-badges' },
         el('span', { class: 'pill' }, sucheGruppe(t) === 'ausgeschlossen' ? t.topf === 'ausgeschlossen' ? 'Ausgeschlossen' : 'Von dir ausgeschlossen' : t.topf === 'unbewertet' ? 'Unbewertet' : 'Shortlist'),
         el('span', { class: 'pill', title: 'Verlässlichkeit der Angaben, nicht Qualität der Unterkunft' }, 'Verlässlichkeit: ' + (b.ampel || 'unbekannt')),
-        warnings.map((w) => el('span', { class: 'suche-warning' }, SUCHE_WARNUNGEN[w] || w))), objection, sucheBalken(b.spaltennoten, SUCHE_NOTEN), info, sucheAngebote(t), selection(t), feedback(t))));
+        warnings.map((w) => el('span', { class: 'suche-warning' }, SUCHE_WARNUNGEN[w] || w))), el('p', { class: 'small' }, 'Balkon: ' + sucheBalkon(t)),
+        el('button', { type: 'button', class: 'candidate-open', onclick: (event) => {
+          const button = event.currentTarget, dialog = sucheKandidat(t, final);
+          (button.closest('.suche') || main).append(dialog);
+          dialog.addEventListener('close', () => { dialog.remove(); if (button.isConnected) button.focus({ preventScroll: true }); });
+          dialog.showModal();
+        } }, 'Unterkunft im Detail'), objection, sucheBalken(b.spaltennoten, SUCHE_NOTEN), info, sucheAngebote(t), selection(t), feedback(t))));
   }
   table.append(tbody);
   return el('div', { class: 'suche-table-scroll', tabindex: 0, role: 'region', 'aria-label': 'Sortierbare Unterkunftstabelle' }, table);
@@ -1280,6 +1329,11 @@ function sucheRueckmeldung(t, states, call, live) {
   const status = el('p', { role: 'status', class: 'small' });
   const reason = el('textarea', { maxlength: 1000, rows: 2, 'aria-label': 'Optionaler Grund für ' + t.name, placeholder: 'Grund (optional, maximal 1000 Zeichen)', oninput: () => { state.grund = reason.value; state.dirty = state.grund !== (state.saved?.grund || ''); } });
   reason.value = state.grund;
+  const quickReasons = el('select', { 'aria-label': 'Schnell-Grund für ' + t.name, onchange: () => {
+    if (quickReasons.value === 'Sonstiges') reason.focus();
+    else if (quickReasons.value) { state.grund = (state.grund ? state.grund + '; ' : '') + quickReasons.value; state.grund = state.grund.slice(0,1000); reason.value = state.grund; state.dirty = state.grund !== (state.saved?.grund || ''); }
+    quickReasons.value = '';
+  } }, el('option', { value: '' }, 'Schnell-Grund wählen'), ...['Zu teuer','Zu klein','Lage','Stil','Betten','Sonstiges'].map(v => el('option', { value: v }, v)));
   const buttons = Object.entries(SUCHE_URTEILE).map(([urteil, label]) => el('button', { type: 'button', onclick: async () => {
     if (state.pending) return;
     state.pending = true; state.revision++; state.message = 'Wird gespeichert …'; update();
@@ -1295,6 +1349,7 @@ function sucheRueckmeldung(t, states, call, live) {
   } }, label));
   function update() {
     reason.disabled = state.pending;
+    quickReasons.disabled = state.pending;
     buttons.forEach((button, i) => {
       button.disabled = state.pending;
       button.setAttribute('aria-pressed', String(Object.keys(SUCHE_URTEILE)[i] === state.saved?.urteil));
@@ -1303,7 +1358,7 @@ function sucheRueckmeldung(t, states, call, live) {
   }
   // Keep the current rendered card synchronized even if sorting rebuilds it during a request.
   state.render = update;
-  box.append(el('strong', {}, 'Deine Rückmeldung'), reason, el('div', { class: 'actions' }, buttons), status);
+  box.append(el('strong', {}, 'Deine Rückmeldung'), quickReasons, reason, el('div', { class: 'actions' }, buttons), status);
   update();
   return box;
 }

@@ -151,6 +151,7 @@ function sucheKarte(container, onSelect) {
       const marker = L.marker(sucheKoordinaten(t), { title: t.name || 'Unterkunft', alt: t.name || 'Unterkunft', icon: L.divIcon({ className: 'stay-pin pin-' + group, html: icon, iconSize: [34, 34], iconAnchor: [17, 34] }) });
       marker.bindPopup(el('div', { class: 'stay-map-popup' }, el('strong', {}, t.name || 'Unterkunft'),
         el('p', {}, (t.angebot?.preis_art === 'geschaetzt' ? 'ca. ' : '') + sucheEuro(t.angebot?.preis_gesamt_eur)),
+        sucheAngebotsstand(t),
         el('p', {}, group === 'A' ? 'Liste A' + (rank !== null ? ' · Rang ' + rank : '') : group === 'B' ? 'Liste B – Angaben prüfen' : 'Noch nicht vollständig bewertet'),
         el('button', { type: 'button', onclick: () => onSelect(t) }, 'In der Ergebnisliste zeigen'))).addTo(layer);
     }

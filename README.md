@@ -3,7 +3,7 @@
 Web- und Handy-App für Sebastians persönliches KI-System: Council und Unterkunftssuche.
 
 - Bestehende Seite: https://beinhoff77-stack.github.io/ki-system/
-- Veröffentlichter Stand: **0.10.2**. Ausbau **0.13.0** auf `feature/unterkunft-suchprofile-w54`, aufbauend auf den Folge-PRs für 0.11.0 und 0.12.0, zur Gegenprüfung.
+- Veröffentlichter Stand: **0.10.2**. Ausbau **0.14.0** auf `feature/unterkunft-konzeptabgleich-w57`, aufbauend auf den Folge-PRs für 0.11.0–0.13.0, zur Gegenprüfung.
 - Daten und Suchlogik liegen in Supabase hinter `app-api`. Keine Schlüssel oder Live-Testdaten im Repository.
 - Kein Merge oder Deploy aus diesem Featurezweig ohne Sebastians ausdrückliche Freigabe.
 
@@ -28,12 +28,20 @@ Die bestehende Anmeldung wird verwendet. Alle Aktionen gehen als `{aktion, daten
 1. Das Formular validiert Ziel, Zeitraum, Personen, Kinderalter, Schlafräume, Aufenthaltsbudget und Suchkostenlimit.
 2. Ein Klick ruft `unterkunft_suchauftrag_anlegen` und danach `unterkunft_suche_starten` auf. Bei unklarer Startantwort bleibt die gespeicherte ID erreichbar; es gibt keine automatische Schreibwiederholung.
 3. `unterkunft_suche_status` liest alle sieben Sekunden den Fortschritt. Wartende Suchen zeigen ihre Position und starten serverseitig automatisch.
-4. Erst bei `fertig: true`, Fehler oder Abbruch lädt `unterkunft_suchlauf_lesen` die vollständigen Treffer. Als final gilt ausschließlich `status=fertig` zusammen mit `fertig=true`.
+4. Standardmäßig lädt `unterkunft_suchlauf_lesen` die Treffer erst bei `fertig: true`, Fehler oder Abbruch. Während eines Laufs kann der Nutzer „Vorläufige Treffer ansehen“ wählen. Die Bewertung und Statusabfrage laufen weiter; diese Treffer bleiben ausdrücklich vorläufig. Als final gilt ausschließlich `status=fertig` zusammen mit `fertig=true`.
 5. `unterkunft_suche_abbrechen` steht für laufende/wartende Suchen bereit. Vorhandene Teilergebnisse bleiben lesbar und werden nicht als finales Ranking ausgegeben.
 
 Navigation beendet ausstehende Unterkunftsabfragen und Polling. Lesefehler pausieren die Aktualisierung; „Aktualisieren“ liest erneut. Späte Antworten einer verlassenen Council-Ansicht ersetzen keine inzwischen geöffnete Unterkunftsseite. HTTP-Fehler und fehlende Antwortdaten gelten nicht als erfolgreiche Speicherung.
 
 ## Ergebnisse und Rückmeldungen
+
+Quellenabdeckung erscheint sowohl während des Laufs als auch im Ergebnis. `deckung.vollstaendig=false` oder eine nicht leere Fehlquellenliste zeigt „Keine vollständige Marktsuche“. Ohne Abdeckungsdaten wird Vollständigkeit nicht behauptet. Bei weniger als zehn fachlich bewerteten A-Treffern erscheint der Hinweis zur unzureichenden Datenlage; aktive Anzeige-Filter lösen ihn nicht aus.
+
+Treffer und Karten-Popups zeigen Preisalter, Abrufzeit und belegte/unbelegte Verfügbarkeit. „Belegt“ bezieht sich auf den Abruf, nicht auf eine Garantie aktueller Buchbarkeit. Balkon-Angaben unterscheiden bestätigte Kategorien, widersprüchliche/fehlende Angaben und die gelieferte Filterbewertung. Neue Warncodes bleiben in verständlicher Sprache sichtbar. Sprungknöpfe führen zu Unbewerteten und nach Ausschlussgrund gegliederten Treffern; deren Seitengröße bleibt begrenzt.
+
+„Unterkunft im Detail“ öffnet eine mit Tastatur schließbare Detailansicht: Bild, Zimmerkategorien mit Quelle/Abrufzeit, alle Angebote, getrennte Gästenoten, Teilnoten mit Gewicht, Begründung und Gegenprüfungs-Einwände. Nicht gelieferte Nachweise bleiben unbekannt. Insbesondere werden Noten der Hauptquelle nicht auf weitere Anbieter übertragen. Der Serververtrag für Kategorie-Abrufzeiten und Noten weiterer Quellen ist in Nachricht 201 angefragt.
+
+Rückmeldungen bieten Schnell-Gründe als editierbaren Entwurf; erst ein Urteil speichert. Der Verlauf verlinkt die Merkliste pro Reise und vorhandene Suchprofile. Ein Profil-Link öffnet das vorausgefüllte Suchformular. Rohdaten-Löschung nach 30 Tagen wird erklärt. Eine gemeinsame Merkliste aller Reisen ist ohne gezielten Leseendpunkt noch nicht angebunden (Serverfrage Nachricht 202); die UI bezeichnet die vorhandene Ansicht als „Gemerkte je Reise“.
 
 A/B-Listen, noch nicht vollständig bewertete und ausgeschlossene Treffer bleiben getrennt. `topf=unbewertet` bleibt auch bei vorläufigem A/B-Kennzeichen außerhalb der Ranglisten. Liste A startet nach dem serverseitigen Rang; ein höherer Score ersetzt diese Rangfolge nicht. Warnungen, geschätzte Preise, Gegenprüfungseinwände, Datenlage und fünf Teilnoten sind sichtbar. Die Ampel beschreibt Verlässlichkeit, nicht Unterkunftsqualität. Bildurteile sind ausdrücklich KI-Einschätzungen.
 
@@ -79,7 +87,7 @@ npx playwright install chromium
 npm test
 ```
 
-**44 Browsertests** prüfen Formular/API-Reihenfolge, Doppelklick, Warteschlange/Bewertung, Abbruch, Fehler/401, unvollständige Antworten, Navigation, Ranking, Sortierung/Filter/Seiten, Rückmeldungen und persönliche Auswahl samt überlappender Lese-/Schreibvorgänge, Fotos/Referrer/Platzhalter, Kartenfilter/Ausschlüsse/Nullkoordinaten/Listensprung, gespeicherte Filter, Lückenfüller-Auswahl/30er-Grenze/Doppelklick/Fehlerwiederherstellung/Kopieren/Status, Reisearten/Kriterien/Profilwechsel/Profil-Speicherung/Katalogfehler, Markdown/Links, mobile und Tablet-Breiten, Tastaturbedienung sowie Offline-Hülle/Cache-Isolation und das Update mit bereits gefülltem HTTP-Cache. Die Tests verwenden synthetische Antworten und starten keine echte Suche, Auswahländerung oder Rückmeldung. Fotos und Kartenkacheln werden in den Tests simuliert, ohne externe Kartendienste abzufragen. Screenshots liegen ignoriert in `test-results/`.
+**50 Browsertests** prüfen Formular/API-Reihenfolge, Doppelklick, Warteschlange/Bewertung, Abbruch, Fehler/401, unvollständige Antworten, Navigation, Ranking, Sortierung/Filter/Seiten, Rückmeldungen und persönliche Auswahl samt überlappender Lese-/Schreibvorgänge, Fotos/Referrer/Platzhalter, Kartenfilter/Ausschlüsse/Nullkoordinaten/Listensprung, gespeicherte Filter, Lückenfüller-Auswahl/30er-Grenze/Doppelklick/Fehlerwiederherstellung/Kopieren/Status, Reisearten/Kriterien/Profilwechsel/Profil-Speicherung/Katalogfehler, vorläufige Ergebnisse/Polling, Abdeckung/Preisnachweise, Kandidatendialog/Fokus, Schnell-Gründe und Verlauf, Markdown/Links, mobile und Tablet-Breiten, Tastaturbedienung sowie Offline-Hülle/Cache-Isolation und das Update mit bereits gefülltem HTTP-Cache. Die Tests verwenden synthetische Antworten und starten keine echte Suche, Auswahländerung oder Rückmeldung. Fotos und Kartenkacheln werden in den Tests simuliert, ohne externe Kartendienste abzufragen. Screenshots liegen ignoriert in `test-results/`.
 
 Am 16.10.2026 wurden Suchlauf #2 und der Rückmeldungsbericht über den vorhandenen Lesezugang geprüft; ihre Daten werden nicht eingecheckt. Claudes Kyoto-Lauf #5 wurde durch diese UI-Arbeiten nicht gestartet, gestoppt oder verändert.
 
@@ -89,7 +97,7 @@ Claude hat die Schnittstellen in Werkstatt-Nachricht 165 geprüft und die App na
 
 Werkstatt-Wunsch 41: App-Verantwortung bei ChatGPT, Backend bei Claude. Vor Änderungen `app:repo` sperren, vorhandenen Featurestand prüfen, danach Änderungen protokollieren und die Sperre freigeben. Größere Änderungen gehen zur Gegenprüfung; Sebastian entscheidet über Veröffentlichung.
 
-Der Ausbau 0.11.0 gehört zu Wunsch 50 (Fotos/Karte) und Wunsch 33 (Filter/Auswahl). Die für 0.10.x erteilte Veröffentlichungserlaubnis ersetzt nicht die Abnahme dieses Ausbaus. Ausbau 0.12.0 ergänzt Wunsch 51 (Lückenfüller) in einem eigenen Folge-PR. Ausbau 0.13.0 ergänzt Wunsch 54 (erweiterte Suche/Suchprofile) im nächsten Folge-PR.
+Der Ausbau 0.11.0 gehört zu Wunsch 50 (Fotos/Karte) und Wunsch 33 (Filter/Auswahl). Die für 0.10.x erteilte Veröffentlichungserlaubnis ersetzt nicht die Abnahme dieses Ausbaus. Ausbau 0.12.0 ergänzt Wunsch 51 (Lückenfüller) in einem eigenen Folge-PR. Ausbau 0.13.0 ergänzt Wunsch 54 (erweiterte Suche/Suchprofile); 0.14.0 ergänzt Wunsch 57 (Konzept-Abgleich der Ergebnisse und des Verlaufs).
 
 
 ### Kyoto-Abgleich (App 0.10.1)

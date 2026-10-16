@@ -1,7 +1,7 @@
 /* Suchprofile und Reisewünsche; der Server liefert die erlaubten Kriterien. */
 'use strict';
 const REISE_LABEL = { staedte: 'Städtereise', erholung: 'Erholung', strand: 'Strand', tauchen: 'Tauchen', natur: 'Natur', roadtrip: 'Roadtrip' };
-function sucheErweitertesFormular(form, call, live, ready, lock) {
+function sucheErweitertesFormular(form, call, live, ready, lock, profilePreset = null) {
   let catalog = null, profiles = [], loaded = false, loading = false, saving = false, uncertain = false, profileSources = null;
   const criteria = new Map(), counts = new Map();
   const select = (label, entries) => el('select', { 'aria-label': label }, entries.map(([value, text, disabled]) => el('option', { value, disabled }, text)));
@@ -148,6 +148,11 @@ function sucheErweitertesFormular(form, call, live, ready, lock) {
         buildCriteria(r); loaded=true;sync();
       }
       uncertain=false;profileOptions();ready(true);notice.textContent=profiles.length?`${profiles.length} Suchprofile verfügbar.`:'Noch keine Suchprofile gespeichert.';
+      if (profilePreset !== null) {
+        const preset = profiles.find(p => String(p.id) === String(profilePreset)); profilePreset = null;
+        if (preset) { profileSelect.value = String(preset.id); profileSelect.dispatchEvent(new Event('change')); }
+        else notice.textContent = 'Das ausgewählte Profil ist nicht mehr verfügbar. Bitte ein anderes wählen.';
+      }
     } catch(e) { if(live()){notice.textContent='Suchprofile nicht geladen: '+e.message;if(!loaded)ready(false);} }
     finally {loading=false;if(live())sync();}
   }

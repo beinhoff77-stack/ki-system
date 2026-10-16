@@ -1,0 +1,85 @@
+/* Nachweise und Details getrennt von Ranking und persönlicher Auswahl. */
+'use strict';
+function sucheAbruf(value) {
+  if (!value || !['string', 'number'].includes(typeof value)) return 'nicht geliefert';
+  const d = new Date(value);
+  return Number.isNaN(d.getTime()) ? 'nicht geliefert' : d.toLocaleString('de-DE', { dateStyle: 'short', timeStyle: 'short' });
+}
+function sucheDeckung(data) {
+  const missing = Array.isArray(data?.fehlend) ? data.fehlend : [];
+  const complete = data?.vollstaendig === true && !missing.length;
+  return el('div', { class: complete ? 'coverage-note small' : 'coverage-note erg-warnung', role: complete ? 'note' : 'status' },
+    el('strong', {}, complete ? 'Alle vorgesehenen Quellen sind abgeschlossen.' : data?.vollstaendig === false || missing.length ? 'Keine vollständige Marktsuche.' : 'Quellenabdeckung noch nicht bestätigt.'),
+    missing.length ? el('p', {}, 'Offen oder fehlend: ' + missing.map(v => { const key = typeof v === 'string' ? v : v?.quelle || 'unbekannt'; return SUCHE_QUELLEN[key] || key; }).join(', ')) : null,
+    data?.hinweis ? el('p', {}, String(data.hinweis)) : null);
+}
+function sucheVerfuegbarkeit(a) {
+  return a?.verfuegbar === 'belegt' || a?.verfuegbar === true ? 'Verfügbarkeit belegt beim Abruf' :
+    a?.verfuegbar === false || ['nicht_verfuegbar', 'nein', 'ausgebucht'].includes(a?.verfuegbar) ? 'Laut Quelle nicht verfügbar' : 'Verfügbarkeit unbelegt';
+}
+function sucheBalkon(t) {
+  const parse = value => value === true || value === 'ja' ? true : value === false || value === 'nein' ? false : null;
+  const categories = Array.isArray(t.kategorien) ? t.kategorien.filter(k => k && typeof k === 'object') : [];
+  const matching = categories.filter(k => k.name && k.name === t.angebot?.kategorie_name);
+  const vals = (matching.length ? matching : categories).map(k => parse(k.balkon));
+  if (vals.includes(true)) return matching.length || (vals.length && vals.every(v => v === true)) ? 'ja' : 'ja, bei mindestens einer Zimmerkategorie';
+  if (vals.length && vals.every(v => v === false)) return 'nein';
+  if (vals.some(v => v !== null)) return 'unbekannt';
+  const wish = t.bewertung?.filter_ergebnis?.wunsch?.balkon;
+  return wish === true ? 'ja' : wish === false ? 'nein' : 'unbekannt';
+}
+function sucheAngebotsstand(t, a = t.angebot || {}) {
+  return el('div', { class: 'offer-evidence small' },
+    t.preis_veraltet === true ? el('span', { class: 'suche-warning' }, 'Preis veraltet – älter als 48 Stunden') : null,
+    el('div', {}, sucheVerfuegbarkeit(a)), el('div', {}, 'Abruf: ' + sucheAbruf(a.abrufzeit)),
+    el('div', { class: 'muted' }, 'Aktuelle Buchbarkeit beim Anbieter prüfen.'));
+}
+function sucheDetailTabelle(caption, labels, rows) {
+  return el('div', { class: 'detail-table-scroll', tabindex: 0, role: 'region', 'aria-label': caption },
+    el('table', { class: 'detail-table' }, el('caption', {}, caption),
+      el('thead', {}, el('tr', {}, labels.map(label => el('th', { scope: 'col' }, label)))),
+      el('tbody', {}, rows.map(row => el('tr', {}, row.map(value => el('td', {}, value == null ? 'unbekannt' : value)))))));
+}
+function sucheKategorien(t) {
+  const rows = Array.isArray(t.kategorien) ? t.kategorien.filter(k => k && typeof k === 'object') : [];
+  if (!rows.length) return el('p', {}, 'Noch keine Zimmerkategorien belegt.');
+  return sucheDetailTabelle('Zimmerkategorien mit Nachweisen', ['Kategorie', 'm²', 'Schlafzimmer', 'Betten', 'Personen', 'Balkon', 'Quelle', 'Abruf'], rows.map(k => [
+    k.name || 'unbekannt', sucheZahl(k.m2), sucheZahl(k.schlafzimmer),
+    (sucheZahl(k.betten_anzahl) ?? 'unbekannt') + (k.betten_eindeutig === false ? ' · Art nicht eindeutig' : ''), sucheZahl(k.max_personen),
+    ['ja','nein'].includes(k.balkon) ? k.balkon : k.balkon === true ? 'ja' : k.balkon === false ? 'nein' : 'unbekannt',
+    SUCHE_QUELLEN[k.quelle] || k.quelle || 'unbekannt', sucheAbruf(k.abrufzeit)
+  ]));
+}
+function sucheKandidat(t, final) {
+  const b = t.bewertung || {}, a = t.angebot || {}, review = b.gegenpruefung?.pruefung;
+  const allOffers = [a, ...(Array.isArray(t.weitere_angebote) ? t.weitere_angebote : [])].filter(v => v && typeof v === 'object');
+  const dialog = el('dialog', { class: 'stay-candidate', 'aria-label': 'Unterkunft im Detail: ' + (t.name || 'Unterkunft') });
+  dialog.append(el('div', { class: 'candidate-header' }, el('h2', {}, t.name || 'Unterkunft'),
+    el('button', { type: 'button', onclick: () => dialog.close() }, 'Details schließen')),
+    sucheFoto(t), el('p', {}, 'Balkon: ' + sucheBalkon(t)), sucheAngebotsstand(t),
+    el('p', {}, (final ? 'Endscore' : 'Vorläufiger Score') + ': ' + (sucheZahl(b.score) ?? 'unbekannt') + ' · Datenlage: ' + (sucheDatenlage(t) ?? 'unbekannt') + ' %'),
+    sucheDetailTabelle('Teilnoten und Gewichtung', ['Kriterium', 'Note von 10', 'Gewicht (%)'], SUCHE_NOTEN.map(([key, label]) => [label, sucheZahl(b.spaltennoten?.[key]), sucheZahl(b.spaltennoten?.gewichte?.[key])])),
+    el('h3', {}, 'Begründung'), el('p', {}, b.begruendung || 'Noch keine Begründung verfügbar.'),
+    el('h3', {}, 'Gegenprüfung'), el('p', {}, review?.urteil === 'ok' ? 'Keine Einwände in der Gegenprüfung.' : review?.urteil === 'einwand' ? 'Gegenprüfung hat Einwände.' : 'Noch keine Gegenprüfung vorhanden.'),
+    el('ul', {}, (Array.isArray(review?.einwaende) ? review.einwaende : []).map(v => el('li', {}, typeof v === 'string' ? v : renderAny(v)))),
+    review?.hinweis ? el('p', {}, review.hinweis) : null,
+    el('p', {}, 'Offene Prüfpunkte: ' + (sucheTexte(b.gegenpruefung?.luecken).join(', ') || 'keine angegeben')),
+    el('p', {}, 'Ausschlussgrund: ' + (t.ko_grund || (t.status === 'ausgeschlossen' ? 'von dir ausgeschlossen' : 'keiner angegeben'))),
+    sucheKategorien(t), el('h3', {}, 'Alle Angebote nach Quelle'), el('p', { class: 'small' }, 'Zimmer und Bedingungen können abweichen. Angebote sind nicht automatisch gleichwertig.'),
+    ...allOffers.map((offer, i) => {
+      const link = sucheLink(offer.link);
+      return el('section', { class: 'candidate-offer' }, el('h4', {}, (offer.anbieter || SUCHE_QUELLEN[offer.quelle || (i === 0 ? t.quelle : '')] || offer.quelle || 'Quelle unbekannt') + (i === 0 ? ' · Hauptangebot' : '')),
+        el('p', {}, (offer.preis_art === 'geschaetzt' ? 'ca. ' : '') + sucheEuro(offer.preis_gesamt_eur)),
+        sucheAngebotsstand({ preis_veraltet: offer.preis_veraltet === true || (i === 0 && t.preis_veraltet === true) }, offer),
+        el('p', {}, 'Zimmer: ' + (offer.kategorie_name || 'unbekannt')), el('p', {}, 'Stornierung: ' + (offer.storno || 'unbekannt')),
+        link ? el('a', { href: link, target: '_blank', rel: 'noopener noreferrer' }, 'Beim Anbieter öffnen ↗') : el('p', {}, 'Kein sicherer Angebotslink vorhanden.'));
+    }),
+    sucheDetailTabelle('Gästenoten nach Quelle', ['Quelle', 'Note', 'Skala', 'Bewertungen'], allOffers.map((offer, i) => [
+      offer.anbieter || SUCHE_QUELLEN[offer.quelle || (i === 0 ? t.quelle : '')] || offer.quelle || 'unbekannt',
+      sucheZahl(i === 0 ? t.note : offer.note), sucheZahl(i === 0 ? t.note_skala : offer.note_skala), sucheZahl(i === 0 ? t.bewertungen : offer.bewertungen)
+    ])), el('p', { class: 'small muted' }, 'Fehlende Noten anderer Quellen werden nicht aus der Hauptquelle übernommen.'),
+    el('h3', {}, 'Bildbewertung'), el('p', {}, 'KI-Einschätzung der Bilder; kein Nachweis der Ausstattung.'),
+    el('p', {}, b.bild_urteil?.ein_satz || 'Noch keine Bildbewertung vorhanden.'),
+    b.bild_urteil ? sucheBalken(b.bild_urteil, [['hell','Hell'],['modern','Modern'],['gepflegt','Gepflegt'],['geraeumig','Geräumig']]) : null);
+  return dialog;
+}

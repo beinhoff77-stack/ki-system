@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.15.0';
+const APP_VERSION = '0.15.1';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -863,7 +863,7 @@ function sucheVergleich(a, b, key, direction) {
   return (typeof x === 'string' ? x.localeCompare(String(y), 'de') : x - y) * direction;
 }
 function sucheFormDaten(form, { profileOnly = false } = {}) {
-  const f = new FormData(form), get = (key) => String(f.get(key) ?? '').trim();
+  const f = new FormData(form), get = (key) => key === 'schlafzimmer_min' && form.elements.schlafzimmer_min.disabled ? '0' : String(f.get(key) ?? '').trim();
   const kinder = get('kinder_alter');
   if (kinder && !/^\d{1,2}(\s*,\s*\d{1,2})*$/.test(kinder)) throw new Error('Kinderalter bitte durch Kommas trennen, z. B. 13, 11.');
   const alter = kinder ? kinder.split(',').map(Number) : [];
@@ -995,9 +995,15 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     });
     const recent = el('section', { class: 'card recent-searches' }, el('h2', {}, 'Letzte Suchaufträge'));
     const list = el('div', { class: 'recent-grid' });
+    const recentNotice = el('p', { class: 'small', role: 'status' });
     const refresh = el('button', { type: 'button', onclick: loadRecent }, 'Suchaufträge aktualisieren');
-    recent.append(refresh, list); scope.append(recent);
-    recent.append(el('p', { class: 'small muted' }, 'Gemerkte sind je Reise erreichbar. Rohdaten werden nach 30 Tagen entfernt.'));
+    const refreshFavorites = el('button', { type: 'button', onclick: loadRecent }, 'Merkliste aktualisieren');
+    const favoritesContent = el('div'), favoritesNotice = el('p', { class: 'small', role: 'status' });
+    const allFavorites = el('section', { class: 'card global-favorites' }, el('h2', {}, 'Gemerkte Unterkünfte – alle Reisen'), refreshFavorites, favoritesNotice, favoritesContent);
+    let readingRecent = false;
+    if (historyOnly) scope.append(allFavorites);
+    recent.append(refresh, recentNotice, list); scope.append(recent);
+    recent.append(el('p', { class: 'small muted' }, 'Hier stehen die letzten zehn Suchaufträge. Die gemeinsame Merkliste umfasst alle Reisen. Rohdaten werden nach 30 Tagen entfernt.'));
     const historyProfiles = el('section', { class: 'card' }, el('h2', {}, 'Gespeicherte Suchprofile'));
     if (historyOnly) scope.append(historyProfiles);
     async function loadHistoryProfiles() {
@@ -1009,21 +1015,27 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       } catch (e) { if (live()) historyProfiles.append(el('p', {}, e.message)); }
     }
     async function loadRecent() {
-      if (busy) return;
-      refresh.disabled = true;
+      if (busy || readingRecent) return;
+      readingRecent = true; refresh.disabled = refreshFavorites.disabled = true; recentNotice.textContent = 'Suchaufträge werden geladen …';
       try {
         const r = await call('unterkunft_suchlauf_lesen'); if (!live()) return;
         const rows = Array.isArray(r) ? r : r?.suchauftraege;
         if (!Array.isArray(rows)) throw new Error('Unerwartete Antwort beim Lesen der letzten Suchaufträge.');
-        list.replaceChildren(...rows.map((a) => el('article', { class: 'recent-trip' }, el('a', { class: 'recent-trip-content', href: '#/suche/' + a.id }, el('span', { class: 'eyebrow' }, 'REISE #' + a.id), el('strong', {}, a.ziel), el('span', {}, `${fmtDate(a.anreise)}–${fmtDate(a.abreise)}`), el('span', { class: 'recent-trip-meta' }, `${a.treffer ?? '–'} Treffer · ${a.status} ↗`)), el('a', { href: '#/suche/' + a.id + '?favoriten=1', class: 'small' }, 'Gemerkte in ' + a.ziel))));
+        list.replaceChildren(...rows.map((a) => el('article', { class: 'recent-trip' }, el('a', { class: 'recent-trip-content', href: '#/suche/' + a.id }, el('span', { class: 'eyebrow' }, 'REISE #' + a.id), el('strong', {}, a.ziel), el('span', {}, `${fmtDate(a.anreise)}–${fmtDate(a.abreise)}`), el('span', { class: 'recent-trip-meta' }, `${a.treffer ?? '–'} Treffer · ${a.status || 'Status unbekannt'} ↗`)), sucheZahl(a.gemerkt) > 0 ? el('a', { href: '#/suche/' + a.id + '?favoriten=1', class: 'small' }, 'Gemerkte in ' + a.ziel) : null)));
         if (!rows.length) list.append(el('div', { class: 'stay-empty' }, el('strong', {}, 'Die nächste Reise beginnt hier.'), el('p', {}, 'Sobald du eine Suche startest, findest du hier ihren Fortschritt und ihre Ergebnisse.'), historyOnly ? el('a', { href: '#/suche' }, 'Erste Unterkunft suchen →') : null));
-      } catch (e) { if (live()) list.textContent = e.message; }
-      finally { refresh.disabled = false; }
+        recentNotice.textContent = '';
+        if (historyOnly) {
+          try { const view = sucheMerkliste(r.merkliste); favoritesContent.replaceChildren(view); favoritesNotice.textContent = ''; }
+          catch (e) { favoritesNotice.textContent = 'Merkliste nicht geladen: ' + e.message; }
+        }
+      } catch (e) { if (live()) { recentNotice.textContent = e.message; if (historyOnly) favoritesNotice.textContent = 'Merkliste nicht aktualisiert: ' + e.message; } }
+      finally { readingRecent = false; refresh.disabled = refreshFavorites.disabled = false; }
     }
     await Promise.all([loadRecent(), historyOnly ? loadHistoryProfiles() : extended.load()]); return;
   }
   const [idPart, viewQuery = ''] = String(idStr).split('?');
   const id = Number(idPart), favoritesOnly = new URLSearchParams(viewQuery).get('favoriten') === '1';
+  let focusHit = Number(new URLSearchParams(viewQuery).get('treffer'));
   if (!Number.isSafeInteger(id) || id <= 0) { scope.append(el('p', {}, 'Ungültige Suchauftragsnummer.')); return; }
   let savedView = {}, restoredView = false;
   try { savedView = JSON.parse(sessionStorage.getItem('ks_suche_view:' + id) || '{}') || {}; } catch { /* Standards nutzen */ }
@@ -1082,6 +1094,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     pages.set(group, Math.floor(items.findIndex(row => row.treffer_id === t.treffer_id) / size));
     showMap = false; draw();
     const row = results.querySelector(`[data-hit="${t.treffer_id}"]`);
+    const section = row?.closest('details[data-group="ausgeschlossen"]'); if (section) section.open = true;
     row?.focus({ preventScroll: true }); row?.scrollIntoView({ block: 'center' });
   }
   function changeSort(key, toggle = false) {
@@ -1209,6 +1222,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     }
     results.querySelectorAll('details[data-detail]').forEach((n) => { n.open = openDetails.has(n.dataset.detail); });
     if (rows.some((t) => t.quelle === 'rakuten_travel')) results.append(el('p', { class: 'small' }, 'Supported by Rakuten Developers'));
+    if (viertelId(focusHit)) { const target = rows.find(t => t.treffer_id === focusHit); focusHit = null; if (target) showHit(target); }
   }
   function drawProgress(r) {
     latestStatus = r;

@@ -46,7 +46,10 @@ function sucheErweitertesFormular(form, call, live, ready, lock, profilePreset =
     note.disabled = reviews.disabled = !quality.checked;
     for (const [key, c] of criteria) {
       if (c.input) c.input.disabled = c.mode.value === 'egal';
-      if (c.shared) c.shared.textContent = 'Wert aus „Schlafzimmer mindestens“: ' + form.elements.schlafzimmer_min.value + (c.mode.value === 'egal' ? '. Egal deaktiviert nur diesen Filter; die Suche fragt weiterhin ab dieser Schlafzimmerzahl an.' : '');
+      if (c.shared) {
+        form.elements.schlafzimmer_min.disabled = c.mode.value === 'egal';
+        c.shared.textContent = c.mode.value === 'egal' ? 'Egal: keine Schlafzimmer-Vorgabe, auch Einzimmer-Angebote.' : 'Wert aus „Schlafzimmer mindestens“: ' + form.elements.schlafzimmer_min.value;
+      }
     }
     for (const [block, output] of counts) {
       const modes = [...criteria.values()].filter(c => c.block === block).map(c => c.mode.value);
@@ -73,7 +76,7 @@ function sucheErweitertesFormular(form, call, live, ready, lock, profilePreset =
       for (const [key, spec] of Object.entries(data.kriterien_katalog[block] || {})) {
         if (!/^[a-z][a-z0-9_]{0,60}$/.test(key) || !['ja','zahl'].includes(spec?.typ) || typeof spec.label !== 'string') continue;
         const mode = select('Bedeutung: ' + spec.label, [['egal','Egal'],['wunsch','Wunsch'],...(key==='suite'?[]:[['pflicht','Pflicht']])]);
-        mode.value=key==='balkon'?'wunsch':'egal';
+        mode.value=['balkon','schlafzimmer'].includes(key)?'wunsch':'egal';
         const input = spec.typ==='zahl' && key!=='schlafzimmer' ? el('input', { type:'number', min:0, step:['bewertungen_min'].includes(key)?1:0.1, max:key==='note_min'||block==='viertel'?10:null, value:block==='viertel'?5:null, 'aria-label':'Wert: '+spec.label, placeholder:'Wert eintragen' }) : null;
         const shared = key==='schlafzimmer' ? el('span',{class:'small'}) : null;
         const c={key,block,spec,mode,input,shared}; criteria.set(key,c);
@@ -123,7 +126,7 @@ function sucheErweitertesFormular(form, call, live, ready, lock, profilePreset =
     quality.checked=data.qualitaetsfilter!==false;note.value=data.note_min??8;reviews.value=data.bewertungen_min??30;
     for(const [key,c] of criteria) {
       const v=data.kriterien?.[key];
-      c.mode.value=['pflicht','wunsch','egal'].includes(v?.modus)?key==='suite'&&v.modus==='pflicht'?'wunsch':v.modus:key==='balkon'?'wunsch':key==='suite'&&data.suite?'wunsch':'egal';
+      c.mode.value=['pflicht','wunsch','egal'].includes(v?.modus)?key==='suite'&&v.modus==='pflicht'?'wunsch':v.modus:['balkon','schlafzimmer'].includes(key)?'wunsch':key==='suite'&&data.suite?'wunsch':'egal';
       if(c.input)c.input.value=typeof v?.wert==='number'?v.wert:c.block==='viertel'?5:'';
       if(c.shared&&c.mode.value!=='egal'&&typeof v?.wert==='number')form.elements.schlafzimmer_min.value=v.wert;
     }

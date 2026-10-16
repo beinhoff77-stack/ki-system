@@ -83,3 +83,31 @@ function sucheKandidat(t, final, suchauftragId) {
     b.bild_urteil ? sucheBalken(b.bild_urteil, [['hell','Hell'],['modern','Modern'],['gepflegt','Gepflegt'],['geraeumig','Geräumig']]) : null);
   return dialog;
 }
+
+function sucheMerkliste(entries) {
+  if (!Array.isArray(entries) || entries.some(t => !t || !viertelId(t.treffer_id) || !viertelId(t.suchauftrag_id))) throw new Error('Die Antwort ist unvollständig. Bitte erneut lesen.');
+  const view = el('div', { class: 'saved-trips' }), groups = new Map();
+  if (!entries.length) return el('p', { class: 'stay-empty' }, 'Noch keine Unterkünfte gemerkt. Mit „Merken“ sammelst du deine Favoriten hier über alle Reisen.');
+  for (const t of entries) { if (!groups.has(t.suchauftrag_id)) groups.set(t.suchauftrag_id, []); groups.get(t.suchauftrag_id).push(t); }
+  for (const [id, rows] of groups) {
+    const trip = rows[0];
+    const section = el('section', { class: 'saved-trip', 'data-saved-trip': id },
+      el('h3', {}, trip.ziel || 'Reise #' + id), el('p', { class: 'small' }, `${fmtDate(trip.anreise)}–${fmtDate(trip.abreise)} · ${rows.length} gemerkt`));
+    for (const t of rows) {
+      const href = '#/suche/' + id + '?favoriten=1&treffer=' + t.treffer_id, offer = sucheLink(t.link);
+      const name = t.name || 'Unterkunft ' + t.treffer_id;
+      section.append(el('article', { class: 'saved-stay', 'data-saved-hit': t.treffer_id }, sucheFoto(t),
+        el('div', {}, el('a', { href, class: 'saved-stay-name' }, name),
+          el('p', { class: 'small' }, (SUCHE_QUELLEN[t.quelle] || t.quelle || 'Quelle unbekannt') + ' · ' +
+            (t.topf === 'ausgeschlossen' ? 'Fachlich ausgeschlossen' : t.topf === 'unbewertet' ? 'Noch nicht vollständig bewertet' : ['A','B'].includes(t.liste) ? 'Liste ' + t.liste + (sucheZahl(t.rang) !== null ? ' · Rang ' + t.rang : '') : 'Bewertung unbekannt')),
+          el('p', {}, (t.preis_art === 'geschaetzt' ? 'ca. ' : '') + sucheEuro(t.preis_gesamt_eur) + (sucheZahl(t.preis_gesamt_eur) !== null ? ' gesamt' : '')),
+          el('p', { class: 'small muted' }, 'Preisstand: ' + sucheAbruf(t.preis_abrufzeit) + '. Aktuelle Buchbarkeit beim Anbieter prüfen.'),
+          el('details', {}, el('summary', {}, 'Bewertung und Merkdatum'),
+            el('p', { class: 'small' }, 'Score: ' + (sucheZahl(t.score) ?? 'unbekannt') + ' · Gästenote: ' + (sucheZahl(t.note) ?? 'unbekannt') + ' / ' + (sucheZahl(t.note_skala) ?? '?') + ' · ' + (sucheZahl(t.bewertungen) ?? 'unbekannt') + ' Bewertungen'),
+            el('p', { class: 'small' }, 'Gemerkt: ' + sucheAbruf(t.gemerkt_am))),
+          el('div', { class: 'actions' }, el('a', { href }, 'Im Suchlauf zeigen'), offer ? el('a', { href: offer, target: '_blank', rel: 'noopener noreferrer' }, 'Angebot öffnen ↗') : null))));
+    }
+    view.append(section);
+  }
+  return view;
+}

@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.12.0';
+const APP_VERSION = '0.13.0';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -862,22 +862,23 @@ function sucheVergleich(a, b, key, direction) {
   if (x == null || y == null) return x == null && y == null ? 0 : x == null ? 1 : -1;
   return (typeof x === 'string' ? x.localeCompare(String(y), 'de') : x - y) * direction;
 }
-function sucheFormDaten(form) {
+function sucheFormDaten(form, { profileOnly = false } = {}) {
   const f = new FormData(form), get = (key) => String(f.get(key) ?? '').trim();
   const kinder = get('kinder_alter');
   if (kinder && !/^\d{1,2}(\s*,\s*\d{1,2})*$/.test(kinder)) throw new Error('Kinderalter bitte durch Kommas trennen, z. B. 13, 11.');
   const alter = kinder ? kinder.split(',').map(Number) : [];
   if (alter.some((n) => n > 17)) throw new Error('Kinderalter muss zwischen 0 und 17 liegen.');
   const datum = (s) => /^\d{4}-\d{2}-\d{2}$/.test(s) && !isNaN(Date.parse(s)) && new Date(s).toISOString().slice(0, 10) === s;
-  if (!datum(get('anreise')) || !datum(get('abreise')) || get('abreise') <= get('anreise')) throw new Error('Abreise muss nach der Anreise liegen.');
+  if (!profileOnly && (!datum(get('anreise')) || !datum(get('abreise')) || get('abreise') <= get('anreise'))) throw new Error('Abreise muss nach der Anreise liegen.');
   const d = { ziel: get('ziel'), anreise: get('anreise'), abreise: get('abreise'), erwachsene: Number(get('erwachsene')),
     kinder_alter: alter, schlafzimmer_min: Number(get('schlafzimmer_min')), max_je_quelle: Number(get('max_je_quelle')), limit_usd: Number(get('limit_usd')) };
-  if (d.ziel.length < 2) throw new Error('Bitte einen Zielort angeben.');
+  if (!profileOnly && d.ziel.length < 2) throw new Error('Bitte einen Zielort angeben.');
   for (const [key, min, max, integer] of [['erwachsene', 1, 10, true], ['schlafzimmer_min', 0, 6, true], ['max_je_quelle', 5, 100, true], ['limit_usd', 0, 10, false]]) {
     if (!get(key) || !Number.isFinite(d[key]) || d[key] < min || d[key] > max || (integer && !Number.isInteger(d[key]))) throw new Error('Bitte die Zahlenfelder innerhalb der angegebenen Grenzen ausfüllen.');
   }
   if (get('budget_eur')) { d.budget_eur = Number(get('budget_eur')); if (!Number.isFinite(d.budget_eur) || d.budget_eur <= 0) throw new Error('Das Aufenthaltsbudget muss größer als 0 sein.'); }
   if (get('land')) { d.land = get('land').toUpperCase(); if (!/^[A-Z]{2}$/.test(d.land)) throw new Error('Land bitte als zweistelligen Code angeben, z. B. JP.'); }
+  if (profileOnly) { delete d.ziel; delete d.anreise; delete d.abreise; }
   return d;
 }
 
@@ -930,6 +931,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     input('max_je_quelle', 'Treffer je Quelle (5–100)', { type: 'number', min: 5, max: 100, value: 50, required: true });
     input('limit_usd', 'Suchkostenlimit (USD, 0–10)', { type: 'number', min: 0, max: 10, step: 0.01, value: 1.5, required: true });
     const submit = el('button', { type: 'submit', class: 'primary' }, 'Anlegen und Suche starten');
+    let profileReady = false;
     const sections = el('div', { class: 'suche-panel-grid' });
     for (const [nr, title, names] of [
       ['01', 'Reiseziel & Zeitraum', ['ziel', 'land', 'anreise', 'abreise']],
@@ -950,13 +952,14 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       const children = String(f.get('kinder_alter') || '').split(',').filter((v) => v.trim()).length;
       tripSummary.replaceChildren(el('span', {}, 'Eure Reise'), el('strong', {}, Number.isFinite(nights) && nights > 0 ? `${nights} Nächte · ${f.get('erwachsene')} Erwachsene${children ? ` · ${children} Kinder` : ''}` : 'Wohin soll es gehen?'), el('small', {}, f.get('budget_eur') ? sucheEuro(f.get('budget_eur')) + ' Gesamtbudget' : 'Reisedaten eintragen und passende Unterkünfte entdecken.'));
     }
-    fields.append(sections, el('div', { class: 'search-submit-bar' }, tripSummary, submit));
+    const extended = sucheErweitertesFormular(form, call, live, value => { profileReady = value; submit.disabled = !value || busy; }, value => { busy = value; fields.disabled = value; submit.disabled = value || !profileReady; });
+    fields.append(extended.profilePanel, sections, extended.tripPanel, extended.qualityPanel, extended.filtersPanel, el('div', { class: 'search-submit-bar' }, tripSummary, submit));
     form.append(fields, notice);
     form.addEventListener('input', updateTripSummary); updateTripSummary();
     if (!historyOnly) scope.append(form);
     form.addEventListener('submit', async (event) => {
-      event.preventDefault(); if (busy || !form.reportValidity()) return;
-      let daten; try { daten = sucheFormDaten(form); } catch (e) { notice.textContent = e.message; return; }
+      event.preventDefault(); if (busy || !profileReady || !form.reportValidity()) return;
+      let daten; try { daten = { ...sucheFormDaten(form), ...extended.values() }; } catch (e) { notice.textContent = e.message; return; }
       busy = true; fields.disabled = true; notice.textContent = 'Suchauftrag wird angelegt …';
       let id = null;
       try {
@@ -995,7 +998,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       } catch (e) { if (live()) list.textContent = e.message; }
       finally { refresh.disabled = false; }
     }
-    await loadRecent(); return;
+    await Promise.all([loadRecent(), historyOnly ? Promise.resolve() : extended.load()]); return;
   }
   const id = Number(idStr);
   if (!Number.isSafeInteger(id) || id <= 0) { scope.append(el('p', {}, 'Ungültige Suchauftragsnummer.')); return; }

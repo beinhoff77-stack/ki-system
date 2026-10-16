@@ -509,6 +509,15 @@ body[data-area="unterkunft"] nav.tabs button.on { box-shadow: none; background: 
 .stay-selection button { min-height: 44px; font-size: 12px; padding: 6px 10px; }
 .stay-selection button[aria-pressed="true"] { color: white; background: #254d3e; }
 .research-panel { padding: 16px; border-bottom: 1px solid var(--border); }
+.search-profiles { margin-bottom: 18px; }
+.search-profiles .actions { flex-wrap: wrap; }
+.search-profiles button, .trip-criteria summary { min-height: 44px; }
+.trip-criteria summary { font-size: 18px; font-weight: 700; }
+.trip-filter-block { border: 1px solid var(--border); border-radius: 12px; margin: 14px 0; padding: 16px; }
+.trip-filter-block legend { font-weight: 700; padding: 0 8px; }
+.trip-criterion { display: grid; grid-template-columns: minmax(170px, 2fr) minmax(110px, 1fr) minmax(120px, 1fr); align-items: center; gap: 12px; margin: 12px 0; }
+.trip-criterion input, .trip-criterion select { min-width: 0; font-size: 16px; }
+@media (max-width: 599px) { .trip-criterion { grid-template-columns: 1fr; } .trip-filter-block { padding: 12px; } .trip-filter-block legend { font-size: 14px; } }
 .research-panel summary { min-height: 44px; font-weight: 700; }
 .research-panel textarea { width: 100%; box-sizing: border-box; font-size: 16px; }
 .research-fields { border: 1px solid var(--border); border-radius: 10px; margin: 12px 0; }

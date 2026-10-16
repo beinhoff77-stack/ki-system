@@ -1356,7 +1356,7 @@ test('Gemeinsame Merkliste enthält ältere Reisen, öffnet den richtigen Treffe
 
 test('Ergebnisansichten: kompakte Tabelle, Liste, Karte, gemeinsame Filter und sichere Details', async t => {
   const data=result();
-  data.treffer=[hit(1,'A',200,{lat:35,lon:135,bild:'https://example.com/photo.jpg',note:9,note_skala:10,gehzeit_min:3,station_name:'Bahnhof',angebot:{preis_gesamt_eur:200,kategorie_name:'Familienzimmer',link:'https://example.com/angebot'},kategorien:[{name:'Familienzimmer',schlafzimmer:2,betten_anzahl:3,bettentypen:['Doppelbett','Einzelbett']}]}),hit(2,'B',100,{lat:35.01,lon:135.01,angebot:{preis_gesamt_eur:100,kategorie_name:'Anderes Zimmer'},kategorien:[{name:'Suite',schlafzimmer:4,bettentypen:['Kingsize']}]}),hit(3,'A',null)];
+  data.treffer=[hit(1,'A',200,{lat:35,lon:135,bild:'https://example.com/photo.jpg',note:9,note_skala:10,gehzeit_min:3,station_name:'Bahnhof',angebot:{preis_gesamt_eur:200,kategorie_name:'Familienzimmer',link:'https://example.com/angebot'},kategorien:[{name:'Familienzimmer',schlafzimmer:2,betten_anzahl:3,betten_art:'Doppelbett, Einzelbett'}]}),hit(2,'B',100,{lat:35.01,lon:135.01,angebot:{preis_gesamt_eur:100,kategorie_name:'Anderes Zimmer'},kategorien:[{name:'Suite',schlafzimmer:4,betten_text:'Kingsize'}]}),hit(3,'A',null)];
   const {page,calls}=await setup(t,()=>data,{width:1920,height:1080});
   await page.route('https://example.com/photo.jpg',r=>r.fulfill({contentType:'image/svg+xml',body:'<svg xmlns="http://www.w3.org/2000/svg" width="50" height="40"><rect width="50" height="40" fill="green"/></svg>'}));
   await page.route('https://*.tile.openstreetmap.org/**',r=>r.abort());
@@ -1431,9 +1431,9 @@ test('Kyoto: echte gelesene Daten auf Desktop und iPhone darstellen', {skip:proc
 test('Neue Spalten: echte Angebotszuordnung, Nullwerte, Gäste-Skalen, Sortierung und Filter', async t => {
   const {page}=await setup(t,()=>result());await page.goto(origin+'/#/suche/2');await page.locator('[data-hit]').first().waitFor();
   const checks=await page.evaluate(()=>{
-    const a={name:'A',angebot:{kategorie_name:'Suite',anbieter:'Alpha'},kategorien:[{name:'Suite',schlafzimmer:0,bettentypen:['Einzelbett']}],bewertung:{warnungen:['offen']},note:4.5,note_skala:5};
-    const b={name:'B',angebot:{kategorie_name:'Suite',anbieter:'Beta'},kategorien:[{name:'Suite',schlafzimmer:2,bettentypen:['Kingsize']}],bewertung:{warnungen:[]},note:8,note_skala:10};
-    const unknown={angebot:{kategorie_name:'Zimmer'},kategorien:[{name:'Andere Kategorie',schlafzimmer:9,bettentypen:['Kingsize']}]};
+    const a={name:'A',angebot:{kategorie_name:'Suite',anbieter:'Alpha'},kategorien:[{name:'Suite',schlafzimmer:0,betten_art:'Einzelbett'}],bewertung:{warnungen:['offen']},note:4.5,note_skala:5};
+    const b={name:'B',angebot:{kategorie_name:'Suite',anbieter:'Beta'},kategorien:[{name:'Suite',schlafzimmer:2,betten_text:'Kingsize'}],bewertung:{warnungen:[]},note:8,note_skala:10};
+    const unknown={angebot:{kategorie_name:'Zimmer'},kategorien:[{name:'Andere Kategorie',schlafzimmer:9,betten_text:'Kingsize'}]};
     const whole={quelle:'apify_airbnb',angebot:{kategorie_name:'ganze Unterkunft'},kategorien:[{quelle:'apify_airbnb',name:'2 Schlafzimmer',schlafzimmer:2},{quelle:'manuell',name:'Weitere Notiz',schlafzimmer:3}]};
     return {whole:sucheZimmerKurz(whole).schlafzimmer,zero:sucheZimmerKurz(a).schlafzimmer,conflict:sucheZimmerKurz({...b,kategorien:[{...b.kategorien[0],konflikt:true}]}).schlafzimmer,
       unknown:sucheZimmerKurz(unknown),sorts:['schlafzimmer','betten','anbieter','gaestenote','warnungen'].map(key=>[key,sucheVergleich(a,b,key,1),sucheVergleich(a,b,key,-1)]),
@@ -1444,4 +1444,35 @@ test('Neue Spalten: echte Angebotszuordnung, Nullwerte, Gäste-Skalen, Sortierun
   assert.deepEqual(checks.nullLast,[true,true]);assert.deepEqual(checks.filters,[true,false,false]);
   for(const [key,asc,desc] of checks.sorts){assert(asc!==0,key);assert.equal(asc,-desc,key);}
   assert(checks.sorts.find(r=>r[0]==='gaestenote')[1]>0);
+});
+
+test('Zimmervertrag: Angebots-ID vor gleichen Namen, echte Bettentypen und verständliche Details', async t => {
+  const data=result();
+  const categories=[{id:685,name:'Two-Bedroom Family Apartment',quelle:'hasdata_booking',m2:47.1,schlafzimmer:2,betten_anzahl:7,max_personen:7,balkon:false,betten_text:'2 twin beds, 2 sofa beds, 3 futon beds',ergaenzt_aus:{m2:'booking_plugin'}},
+    {id:809,name:'Two-Bedroom Family Apartment',quelle:'booking_plugin',m2:47.1,schlafzimmer:9},
+    {id:810,name:'Quadruple Room',quelle:'hasdata_booking',m2:30.9},
+    {id:811,name:'Quadruple Room',quelle:'booking_plugin'}];
+  data.treffer=[hit(1,'A',200,{angebot:{preis_gesamt_eur:200,kategorie_id:685,kategorie_name:'Two-Bedroom Family Apartment'},kategorien:categories})];
+  const {page}=await setup(t,()=>data,{width:390,height:844});
+  await page.goto(origin+'/#/suche/2');await page.locator('[data-hit="1"]').waitFor();
+  assert.equal(await page.locator('[data-hit="1"] [data-label="Schlafzimmer"]').textContent(),'2');
+  assert((await page.locator('[data-hit="1"] [data-label="Bettentypen"]').textContent()).includes('2 twin beds'));
+  await page.locator('.stay-filters > summary').click();await page.getByLabel('Bettentyp enthält',{exact:true}).fill('twin');
+  assert.equal(await page.locator('[data-hit]').count(),1);
+  await page.locator('[data-hit="1"] .hit-toggle').click();
+  await page.locator('#hit-detail-1').getByText('Angaben und Prüfungen',{exact:true}).click();
+  const detail=page.locator('#hit-detail-1');
+  await detail.getByText('Two-Bedroom Family Apartment · 47,1 m² · 2 Schlafzimmer · 7 Betten · bis 7 Personen · Balkon: nein',{exact:true}).waitFor();
+  await detail.getByText('Fläche ergänzt aus Booking (Lückenfüller)',{exact:true}).waitFor();
+  assert.equal(await detail.getByText('Quadruple Room · 30,9 m²',{exact:true}).isVisible(),false);
+  await detail.getByText('Weitere Zimmer im Haus (1)',{exact:true}).click();
+  await detail.getByText('Quadruple Room · 30,9 m²',{exact:true}).waitFor();
+  assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+  const checks=await page.evaluate(categories=>{
+    const make=a=>({angebot:a,kategorien:categories});
+    return [sucheZimmerKurz(make({kategorie_id:999,kategorie_name:categories[0].name})).schlafzimmer,
+      sucheZimmerKurz(make({kategorie_name:categories[0].name})).schlafzimmer,
+      sucheZimmerKurz({angebot:{kategorie_name:'  suite  '},kategorien:[{name:'Suite',betten_art:'Doppelbett',betten_text:'raw',schlafzimmer:1}]}).typen];
+  },categories);
+  assert.deepEqual(checks,[null,null,'Doppelbett']);
 });

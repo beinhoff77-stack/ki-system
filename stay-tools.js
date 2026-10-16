@@ -53,15 +53,49 @@ function sucheWarnungen(t) {
   const b=t.bewertung || {}, a=t.angebot || {};
   return [...new Set([...(Array.isArray(b.warnungen) ? b.warnungen : []), ...(a.preis_art === 'geschaetzt' || b.preis_geschaetzt ? ['preis_geschaetzt'] : []), ...(b.gegenpruefung?.pruefung?.urteil === 'einwand' ? ['gegenpruefung_einwand'] : []), ...(t.preis_veraltet ? ['preis_veraltet'] : [])])];
 }
-function sucheZimmerKurz(t) {
+function sucheAngebotsKategorie(t) {
   const a=t.angebot || {}, all=Array.isArray(t.kategorien) ? t.kategorien.filter(k => k && typeof k === 'object') : [];
+  const ids=all.filter(k => k.id != null && k.id === a.kategorie_id);
+  if (a.kategorie_id != null) return ids.length === 1 ? ids[0] : null;
+  const normalize=value => typeof value === 'string' ? value.trim().replace(/\s+/g,' ').toLocaleLowerCase('de') : '';
   // Whole-property Airbnb data can have additional manual evidence; use only the unique primary-source category.
-  const matches=all.filter(k => (k.id != null && k.id === a.kategorie_id) || (k.name && k.name === a.kategorie_name));
+  const matches=all.filter(k => normalize(k.name) && normalize(k.name) === normalize(a.kategorie_name));
   const primaryCategories=all.filter(k => k.quelle === t.quelle);
-  const k=matches.length === 1 ? matches[0] : primaryCategories.length === 1 && a.kategorie_name === 'ganze Unterkunft' && t.quelle === 'apify_airbnb' ? primaryCategories[0] : null;
+  return matches.length === 1 ? matches[0] : primaryCategories.length === 1 && a.kategorie_name === 'ganze Unterkunft' && t.quelle === 'apify_airbnb' ? primaryCategories[0] : null;
+}
+function sucheZimmerKurz(t) {
+  const k=sucheAngebotsKategorie(t);
   const category=k?.konflikt === true ? null : k;
-  const types=category?.bettentypen;
+  const types=[category?.betten_art, category?.betten_text].find(v => typeof v === 'string' && v.trim());
   return {schlafzimmer:sucheZahl(category?.schlafzimmer),anzahl:sucheZahl(category?.betten_anzahl),typen:typeof types === 'string' && types.trim() ? types : Array.isArray(types) && types.every(v => typeof v === 'string') && types.length ? types.join(', ') : null};
+}
+function sucheZimmerDetails(t) {
+  const selected=sucheAngebotsKategorie(t), all=Array.isArray(t.kategorien) ? t.kategorien.filter(k=>k && typeof k === 'object') : [];
+  const normalize=v=>String(v || '').trim().replace(/\s+/g,' ').toLocaleLowerCase('de');
+  const source=v=>({booking_plugin:'Booking (Lückenfüller)',manuell:'Manueller Nachweis',...SUCHE_QUELLEN}[v] || v || 'Quelle unbekannt');
+  function row(k) {
+    const parts=[k.name || 'Zimmerart unbekannt'];
+    for(const [field,unit] of [['m2','m²'],['schlafzimmer','Schlafzimmer'],['betten_anzahl','Betten'],['max_personen','Personen']]) {
+      const value=sucheZahl(k[field]);
+      if(value !== null) parts.push((field==='max_personen'?'bis ':'')+value.toLocaleString('de-DE')+' '+unit);
+    }
+    if(typeof k.balkon === 'boolean') parts.push('Balkon: '+(k.balkon?'ja':'nein'));
+    const beds=sucheZimmerKurz({angebot:{kategorie_id:k.id,kategorie_name:k.name},kategorien:[k]}).typen;
+    const time=new Date(k.abrufzeit), stand=k.abrufzeit && Number.isFinite(time.getTime()) ? ' · Stand '+time.toLocaleString('de-DE',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'}) : '';
+    return el('div', {class:'room-description'}, el('p',{},parts.join(' · ')), beds?el('p',{},'Betten: '+beds):null,
+      k.konflikt?el('p',{class:'warning'},'Widersprüchliche Zimmerangaben – nicht als gesichert verwenden.'):null,
+      el('p',{class:'small muted'},source(k.quelle)+stand),
+      Object.entries(k.ergaenzt_aus || {}).map(([field,from])=>el('p',{class:'small muted'},({m2:'Fläche',schlafzimmer:'Schlafzimmer',max_personen:'Personenzahl',balkon:'Balkon'}[field] || 'Angabe')+' ergänzt aus '+source(from))));
+  }
+  const others=new Map();
+  for(const k of all) {
+    const name=normalize(k.name);
+    if(k === selected || selected && name === normalize(selected.name)) continue;
+    const weight=x=>['m2','schlafzimmer','betten_anzahl','max_personen','balkon','betten_text'].filter(f=>x[f]!=null).length;
+    if(!others.has(name) || weight(k)>weight(others.get(name))) others.set(name,k);
+  }
+  return el('div',{},el('h4',{},'Angebotene Zimmerart'),selected?row(selected):el('p',{},'Angebotene Zimmerart nicht zugeordnet'),
+    others.size?el('details',{},el('summary',{},'Weitere Zimmer im Haus ('+others.size+')'),[...others.values()].map(row)):null);
 }
 function sucheFilterTreffer(t, f) {
   const room=sucheZimmerKurz(t);

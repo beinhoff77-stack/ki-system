@@ -1306,7 +1306,7 @@ function sucheTabelle(items, sort, onSort, final = false, feedback = () => null,
     const a=t.angebot || {}, b=t.bewertung || {}, warnings=sucheWarnungen(t), room=sucheZimmerKurz(t);
     const url=sucheLink(a.link), estimated=a.preis_art === 'geschaetzt' || b.preis_geschaetzt;
     const review=b.gegenpruefung?.pruefung;
-    const objection=review?.urteil === 'einwand' ? el('div', {class:'review-objection'}, el('strong', {}, 'Gegenprüfung hat Einwände'), el('ul', {}, (Array.isArray(review.einwaende) ? review.einwaende : []).map(v => el('li', {}, typeof v === 'string' ? v : renderAny(v))))) : null;
+    const objection=review?.urteil === 'einwand' || warnings.includes('gegenpruefung_einwand') ? el('div', {class:'review-objection'}, el('strong', {}, 'Gegenprüfung hat Einwände'), el('ul', {}, (Array.isArray(review?.einwaende) ? review.einwaende : ['Einzelheiten der Gegenprüfung liegen nicht vor.']).map(v => el('li', {}, typeof v === 'string' ? v : renderAny(v))))) : null;
     const info = el('details', { 'data-detail': String(t.treffer_id) }, el('summary', {}, 'Angaben und Prüfungen'),
       el('p', {}, b.begruendung || 'Noch keine Begründung verfügbar.'),
       el('p', {}, 'Offene Prüfpunkte: ' + (sucheTexte(b.gegenpruefung?.luecken).join(', ') || 'keine angegeben')),
@@ -1317,7 +1317,7 @@ function sucheTabelle(items, sort, onSort, final = false, feedback = () => null,
       el('p', {}, 'Luftlinie zum Ziel: ' + (sucheZahl(t.luftlinie_ziel_m) === null ? 'unbekannt' : (t.luftlinie_ziel_m / 1000).toLocaleString('de-DE', { maximumFractionDigits: 1 }) + ' km')),
       sucheZahl(t.station_m) !== null ? el('p', {}, `Luftlinie zur Station: ${Number(t.station_m).toLocaleString('de-DE', { maximumFractionDigits: 0 })} m`) : null,
       el('p', {}, 'Ausschlussgrund: ' + (t.ko_grund || 'keiner angegeben')),
-      el('h3', {}, 'Zimmerangaben'), renderAny(t.kategorien || []),
+      el('h3', {}, 'Zimmerangaben'), sucheZimmerDetails(t),
       el('h3', {}, 'Bildbewertung'), b.bild_urteil ? el('div', {}, el('p', {}, 'KI-Einschätzung der Bilder; kein Nachweis der Ausstattung.'), el('p', {}, b.bild_urteil.ein_satz || ''),
         el('p', {}, 'Zu sehen: ' + (Array.isArray(b.bild_urteil.zeigt) ? b.bild_urteil.zeigt.join(', ') : b.bild_urteil.zeigt || 'unbekannt')),
         sucheBalken(b.bild_urteil, [['hell', 'Hell'], ['modern', 'Modern'], ['gepflegt', 'Gepflegt'], ['geraeumig', 'Geräumig']]),

@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.9.0';
+const APP_VERSION = '0.9.1';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -978,9 +978,14 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   const refresh = el('button', { onclick: () => poll() }, 'Aktualisieren');
   const start = el('button', { class: 'primary', hidden: true, onclick: async () => {
     if (busy) return; busy = true; start.disabled = refresh.disabled = true;
+    let error = '';
     try { await call('unterkunft_suche_starten', { suchauftrag_id: id }); }
-    catch (e) { if (live()) notice.textContent = e.message + ' Status vor einem weiteren Start aktualisieren.'; }
-    finally { busy = false; if (live()) await poll(); }
+    catch (e) { error = e.message; }
+    finally { busy = false; }
+    if (live()) {
+      await poll();
+      if (error && live()) notice.textContent = 'Start nicht bestätigt: ' + error + ' Bitte den aktuellen Status prüfen, bevor du erneut startest.';
+    }
   } }, 'Diesen Entwurf starten');
   const cancel = el('button', { hidden: true, onclick: async () => {
     if (busy) return;

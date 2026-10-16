@@ -133,7 +133,7 @@ test('PWA installiert vollständige Offline-Hülle, API wird nicht gecacht', asy
   await page.route('**/functions/v1/app-api/**', (r) => r.fulfill({ contentType: 'application/json', body: '{"ok":true,"eingerichtet":true}' }));
   await page.goto(origin + '/#/login');
   await page.evaluate(() => navigator.serviceWorker.ready);
-  const cached = await page.evaluate(async () => (await (await caches.open('ki-system-v13')).keys()).map((r) => new URL(r.url).pathname));
+  const cached = await page.evaluate(async () => (await (await caches.open('ki-system-v14')).keys()).map((r) => new URL(r.url).pathname));
   assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js'));
   assert(!cached.some((u) => u.includes('app-api')));
   await context.setOffline(true); await page.reload();
@@ -322,4 +322,34 @@ test('Bericht unverändert, nur auf Klick; Gehzeit und weitere Angebote sicher',
   await page.setViewportSize({width:390,height:844});
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
   await page.screenshot({path:path.join(root,'test-results/feedback-mobile.png'),fullPage:true});
+});
+
+
+test('Schmale Handys: lesbare Karten, Touchflächen, Formular und Tastaturfokus', async (t) => {
+  const {page}=await setup(t,p=>p.daten?.suchauftrag_id?result():{suchauftraege:[]});
+  for(const width of [320,375,430]) {
+    await page.setViewportSize({width,height:844});
+    await page.goto(origin+'/#/suche/2'); await page.locator('[data-group=A]').waitFor();
+    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+    const buttons=page.locator('[data-group=A] thead button, [data-group=A] caption button, [data-feedback="1"] button');
+    for(const size of await buttons.evaluateAll(nodes=>nodes.map(n=>n.getBoundingClientRect().height))) assert(size>=44);
+    assert.equal(await page.locator('[data-group=A] td').first().evaluate(n=>parseFloat(getComputedStyle(n).fontSize)>=14),true);
+    await page.goto(origin+'/#/suche'); await page.locator('[name=ziel]').waitFor();
+    await page.locator('[name=ziel]').focus(); await page.keyboard.press('Tab');
+    assert.equal(await page.locator('[name=land]').evaluate(n=>document.activeElement===n),true);
+    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+  }
+  await page.setViewportSize({width:390,height:844});
+  await page.goto(origin+'/#/suche/2'); await page.locator('[data-feedback="1"]').waitFor();
+  await page.locator('[data-feedback="1"]').scrollIntoViewIfNeeded();
+  await page.screenshot({path:path.join(root,'test-results/mobile-feedback-viewport.png')});
+});
+
+test('Startfehler beim gespeicherten Entwurf bleibt nach Statusabfrage sichtbar', async (t) => {
+  const {page,calls}=await setup(t,p=>p.aktion==='unterkunft_suche_starten'?'abort':status('entwurf'));
+  await page.goto(origin+'/#/suche/2');
+  await page.getByRole('button',{name:'Diesen Entwurf starten'}).click();
+  await page.getByRole('status').filter({hasText:'Start nicht bestätigt'}).waitFor();
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_suche_starten').length,1);
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_suche_status').length,2);
 });

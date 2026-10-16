@@ -477,3 +477,20 @@ body[data-area="unterkunft"] nav.tabs button.on { box-shadow: none; background: 
 .stay-feedback button[aria-pressed="true"] { background: #254d3e; color: white; }
 .feedback-report { max-width: 100%; overflow-x: auto; }
 .report-plain { white-space: pre-wrap; overflow-wrap: anywhere; }
+
+/* Readable mobile cards and finger-sized controls. */
+@media (max-width: 599px) {
+  .suche-table td, .suche-table details p { font-size: 14px; }
+  .suche-table td .small, .suche-table .pill, .suche-warning { font-size: 12px; }
+  .suche-grid label { font-size: 13px; }
+  .suche-table th button, .suche-table caption button, .suche > .actions button { min-height: 44px; font-size: 13px; }
+  .suche-table summary { font-size: 14px; }
+  .stay-feedback textarea { min-height: 80px; }
+  .stay-feedback .actions { margin-top: 10px; }
+  .stay-feedback .actions button { flex: 1 1 40%; min-height: 44px; }
+}
+@media (max-width: 359px) {
+  .suche-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 599px) { .score-bar-row { font-size: 12px; } }

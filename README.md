@@ -72,3 +72,9 @@ Jeder Treffer bietet Passt / Passt nicht / Zu teuer / Gebucht mit optionalem Gru
 Der Rückmeldungsbericht wird nur auf Klick gelesen. Der gelieferte Text bleibt unverändert; Markdown wird ausschließlich mit erlaubten Formatierungselementen ohne Attribute oder aktive Links dargestellt, bei fehlender Markdown-Bibliothek als Text. Unterhalb der Schwelle zeigt der Server den Zählerstand.
 
 Stationsname, Gehzeit (bei Schätzung mit „ca.“), Stationsluftlinie sowie weitere Angebote mit Preis, Quelle, sicherem Link und Hinweis auf nicht abgeglichene Zimmer sind sichtbar. Live-Feldstruktur und Bericht mit 0 von 20 Urteilen wurden lesend geprüft. Insgesamt 16 Browsertests inklusive Rückmeldung/Fehler/Doppelklick, Bericht und sicheren weiteren Angeboten.
+
+
+### Mobile Bedienprüfung (App 0.9.1)
+Ergebnistext und Formulare auf kleinen Displays besser lesbar; Sortierung und Rückmeldung mit mindestens 44 Pixel hohen Touchflächen, Rückmeldungsbuttons zweispaltig. Unter 360 Pixeln stehen Formularfelder untereinander. Startfehler eines gespeicherten Entwurfs bleiben nach der anschließenden Statusabfrage sichtbar.
+
+18 Browsertests bestanden, inklusive 320/375/430 Pixel Breite, Tastaturfokus und bleibender Startfehlermeldung. Rückmeldungsansicht bei 390 Pixeln visuell kontrolliert. Kein Eingriff in Claudes laufende Suche.

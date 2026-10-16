@@ -141,3 +141,25 @@ Der Ausbau 0.11.0 gehört zu Wunsch 50 (Fotos/Karte) und Wunsch 33 (Filter/Auswa
 Historischer Stand vor Claudes Budgetkorrektur aus Nachricht 170. Aktuell nach der Korrektur: A16, B23, unbewertet48, ausgeschlossen26. Der neue Lesevertrag liefert 113 Fotos und 34 Stationen. Die App-Arbeiten haben diese Daten nicht verändert.
 
 Werkstatt-Nachricht 162 und Suchlauf #5 wurden lesend abgeglichen: 143 gesammelt, 30 Doppel zusammengeführt, 113 verbleibend (A16, B26, noch nicht vollständig bewertet65, ausgeschlossen6). 15 Fußwege tragen `route`, 92 `geschaetzt`. Die Anzeige wurde lokal mit der gelesenen Antwort bei 390/768/1366 Pixeln nachgespielt; dabei wurden ausschließlich Leseaktionen simuliert. Dieser Darstellungstest ist kein angemeldeter End-to-End-Test gegen app-api. Echte Daten bleiben außerhalb der eingecheckten Testfixtures.
+
+### 0.17.0 · Wunsch 71 (Nachricht 241)
+
+- Ergebnisansichten Liste, Tabelle und Tinder. Ansicht und bis zu sechs Anzeige-Infos werden gerätebezogen in `localStorage` gespeichert (`ks_result_view`, `ks_anzeige`); Speicherfehler lassen die UI bedienbar. Auswahl/Reihenfolge und Reset unter „Anzeige“; Pfeile ergänzen Ziehen für Touch/Tastatur.
+- Gleiche Infofelder in allen Ansichten. Unbekannte Angaben bleiben `–`; Zimmerangaben stammen ausschließlich aus der zugeordneten, widerspruchsfreien Angebotskategorie. `note_geeicht` ist Hauptnote und Grundlage für Sortierung/Filter; Original und Skala bleiben sichtbar. Fehlende Eichung wird nicht clientseitig erfunden.
+- Tinder arbeitet neue Runden vor älteren ab und überspringt beurteilte/übernommene Treffer gemäß Nachricht 241. Knöpfe sowie Wischen rechts/links/hoch, getrennte Fotogalerie (max. zehn HTTPS-Links), optionale Gründe und Rückgängig. Rückkehr vom Anbieter zeigt „Und?“. Liste/Tabelle nutzen für Merken/Ausschließen dieselbe Urteils-API. Unklare Schreibantworten verlangen Aktualisieren; verspätete Leseantworten überschreiben keine neuen Urteile.
+- Endrunde nur mit Favoriten: Ziehen oder Pfeile sowie Paarvergleich mittels Einfügesortierung. Speicherung erst auf „Rangfolge speichern“. Eigener Rang ist sichtbar und wird in der Merkliste bevorzugt.
+- „Weitere suchen“ verlangt den Kostenhinweis zu bestätigen und startet `unterkunft_suche_starten` für den vorhandenen Auftrag. Nach Fertigstellung zählt die UI die Treffer der bestätigten Runde, zeigt „X neue Unterkünfte“ und öffnet bei neuen Treffern Tinder. Null neue zeigt den Hinweis auf ausgeschöpfte Filter.
+- Die vorhandene Gehzeit ist eine Gehzeit **zur Station**; dies steht neben dem Wert. Es wird keine Gehzeit zum Stadtziel erfunden. Nicht gelieferte Raucher-/Stornodaten bleiben unbekannt.
+
+Validierung: 84 Browsertests bestanden, ein optionaler Kyoto-Echtdaten-Test ohne Fixture übersprungen. Testbrowser: Chromium 153 über `PW_TEST_EXECUTABLE`; regulärer Playwright-Download in dieser Arbeitsumgebung fehlgeschlagen. Sämtliche Schreibtests verwenden synthetische Serverantworten, keine echten Suchläufe oder Urteile. Prüfung von physischem iPhone/Safari und angemeldeter Live-API steht aus. Version 0.17.0 / Cache v27 vorbereitet, **nicht veröffentlicht**. Die Gründe `zu_klein`, `laerm`, `ausstattung` wurden von Claude in Nachricht 251 serverseitig bestätigt.
+
+
+### 0.18.0 · Integrierter PR9/PR10 (Nachricht 251)
+
+PR10 bleibt die Basis und der gemeinsame Prüf-PR; Nachricht 241 hat Vorrang. Aus PR9 übernommen: sichtbare/filterbare/sortierbare Fläche, größere Fotos in der Liste, deutsche Bettbegriffe einschließlich Filter, lange Fußwege in Stunden/Minuten, Karten-Unterkunft unter dem Marker samt Tastaturauswahl und Nachbar-Markern, öffentlicher Rakuten-Hotelüberblick sowie Filter „Meine Entscheidung“. Die gerätebezogene Auswahl von höchstens sechs Infos bleibt in allen Ansichten maßgeblich.
+
+Tinder überspringt bewertete Treffer einschließlich „Na ja“. Ausnahme: ein aktiver Treffer mit übernommenem Urteil und Preishinweis erscheint erneut als „Jetzt günstiger“. Bestätigte Entscheidungen entfernen ihn wieder aus der offenen Runde. Rückkehr vom Anbieter stellt eine Frage und speichert kein Urteil. Falsche Treffer-ID, Urteil oder Status sperren weitere Entscheidungen auch nach Ansichtswechsel bis zum erneuten Lesen. Die Endrunde fügt Favoriten im Paarvergleich per Halbierung ein.
+
+Die drei zusätzlichen PR9-Browsertests wurden in die gemeinsame Suite übernommen und an den vorrangigen Vertrag aus Nachricht 241 angepasst (kein wiederholtes Na-ja am Rundenende, explizites Speichern optionaler Gründe, Tinder als dritte Ansicht). Zusätzliche Integrationstests prüfen Anbieter-Rückkehr, widersprüchlichen Status und zehn Favoriten im Paarvergleich. Version 0.18.0 / Service-Worker-Cache v28. Kein Merge oder Deploy; abschließende Prüfung durch Claude erforderlich.
+
+Validierung des integrierten Standes: 89 Browsertests bestanden, 0 Fehler; ein optionaler Kyoto-Echtdaten-Test ohne Fixture übersprungen (90 insgesamt). Chromium 153 über `PW_TEST_EXECUTABLE=/tmp/w71-chromium npm test`. Mobile Darstellung und Tabellenabmessungen geprüft. Keine echten API-Schreibaktionen in den Tests.

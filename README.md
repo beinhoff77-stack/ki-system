@@ -20,9 +20,13 @@ Web- und Handy-Oberfläche (installierbare Web-App) für Sebastians persönliche
 
 Claude baut den funktionierenden Rohbau, ChatGPT übernimmt die Gestaltung. Vor jeder Änderung: Sperre `app:repo` in der Werkstatt holen, aktuellen Stand von `main` laden, Änderung protokollieren, Sperre lösen. Gestaltung ändert keine Funktionsnamen und keine Schnittstellenaufrufe.
 
-## Unterkunftssuche (Werkstatt #41, App 0.5.0)
+## App-Struktur und Unterkunftssuche (Werkstatt #41, App 0.6.0)
 
-Navigation „Unterkunft“ (`#/suche`): Reisedaten eingeben, anlegen und starten.
+Startseite (`#/start`, auch Standard nach Anmeldung): zwei gleichwertige Bereiche **Council** und **Unterkunft**. Der globale Bereichswechsler bleibt auf allen angemeldeten Seiten erreichbar. Council behält seine Aufträge, Auftragserstellung, Einstellungen und Werkstatt. Unterkunft hat eine eigene Navigation **Suchen** (`#/suche`) und **Ergebnisse** (`#/ergebnisse`); Suchlauf-Direktlinks bleiben gültig.
+
+Die Unterkunftsgestaltung übernimmt die Designbasis des Werkstatt-Prototyps V0.4.1: Creme (#f6f4ec), Waldgrün (#254d3e), Serifentitel, grüner Hero, nummerierte Formulargruppen, helle Panels und kompakte Vergleichstabelle. Die App enthält keine fiktiven Prototyp-Angebote. Noch nicht angebundene Prototyp-Funktionen (z. B. Merkliste, Landkarte, erweiterte Kriterien) werden nicht als funktionierende Live-Navigation dargestellt.
+
+Unter „Suchen“: Reisedaten eingeben, anlegen und starten.
 Die bestehende Anmeldung wird verwendet; keine Schlüssel im Frontend ergänzen.
 Alle Aufrufe gehen als `{aktion, daten}` an `POST /app-api/aktion`:
 
@@ -44,7 +48,7 @@ npx playwright install chromium
 npm test
 ```
 
-Die Browsertests verwenden ausschließlich synthetische API-Antworten und starten keine kostenpflichtige Suche. Sie prüfen Formularvalidierung, Doppelklick, Anlegen/Starten/Lesen, Sortierung, XSS/Links, Polling-Ende, Navigation, Netzwerkfehler, 401, mobile Breite und Offline-Hülle. Screenshots liegen ignoriert unter `test-results/`.
+Die acht Browsertests verwenden ausschließlich synthetische API-Antworten und starten keine kostenpflichtige Suche. Sie prüfen Formularvalidierung, Doppelklick, Anlegen/Starten/Lesen, Sortierung, XSS/Links, Polling-Ende, Navigation, Netzwerkfehler, 401, mobile Breite und Offline-Hülle sowie Startseite, getrennte Bereichsnavigation und Prototyp-Farben. Die Tabelle wird bei 1366 px ohne horizontalen Überlauf geprüft. Screenshots von Einstieg, Suche und Ergebnissen auf Desktop und Mobil liegen ignoriert unter `test-results/`.
 
 Live geprüft am 16.10.2026: `/status` liefert app-api 0.5.0; alle drei Aktionen ohne Anmeldung liefern 401. Der authentifizierte Council-Lesezugang liefert Suchlauf #2 mit inzwischen 258 Treffern einschließlich Rakuten/Trivago. `luftlinie_ziel_m` fehlt in der gelesenen Antwort; die Oberfläche zeigt deshalb „unbekannt“. Keine Live-Daten sind als Testfixtures eingecheckt.
 

@@ -90,7 +90,7 @@ test('Polling stoppt bei Endstatus und beim Seitenwechsel', async (t) => {
   await page.getByRole('status').filter({ hasText: 'Kostenlimit erreicht' }).waitFor();
   await page.clock.fastForward(30000); assert.equal(reads, 2);
   reads = 0; await page.reload(); await page.getByRole('status').filter({ hasText: 'Suche läuft' }).waitFor();
-  await page.locator('#tabs [data-view=auftraege]').click(); await page.getByRole('heading', { name: 'Aufträge', exact: true }).waitFor();
+  await page.locator('#areas [data-area=council]').click(); await page.getByRole('heading', { name: 'Aufträge', exact: true }).waitFor();
   await page.clock.fastForward(30000); assert.equal(reads, 1);
 });
 test('Startfehler behält ID und erzeugt keinen zweiten Auftrag', async (t) => {
@@ -118,7 +118,8 @@ test('Mobile Ansicht ohne Seitenüberlauf, Screenshot', async (t) => {
   assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
   fs.mkdirSync(path.join(root, 'test-results'), { recursive: true });
   await page.screenshot({ path: path.join(root, 'test-results/mobile.png'), fullPage: true });
-  await page.setViewportSize({ width: 1440, height: 1000 });
+  await page.setViewportSize({ width: 1366, height: 1000 });
+  assert.equal(await page.locator('.suche-table-scroll').first().evaluate((n) => n.scrollWidth <= n.clientWidth), true);
   await page.screenshot({ path: path.join(root, 'test-results/desktop.png'), fullPage: true });
 });
 test('PWA installiert vollständige Offline-Hülle, API wird nicht gecacht', async (t) => {
@@ -128,9 +129,40 @@ test('PWA installiert vollständige Offline-Hülle, API wird nicht gecacht', asy
   await page.route('**/functions/v1/app-api/**', (r) => r.fulfill({ contentType: 'application/json', body: '{"ok":true,"eingerichtet":true}' }));
   await page.goto(origin + '/#/login');
   await page.evaluate(() => navigator.serviceWorker.ready);
-  const cached = await page.evaluate(async () => (await (await caches.open('ki-system-v9')).keys()).map((r) => new URL(r.url).pathname));
+  const cached = await page.evaluate(async () => (await (await caches.open('ki-system-v10')).keys()).map((r) => new URL(r.url).pathname));
   assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js'));
   assert(!cached.some((u) => u.includes('app-api')));
   await context.setOffline(true); await page.reload();
   await page.getByRole('heading', { name: 'Anmelden' }).waitFor();
+});
+
+test('Startseite trennt Council und Unterkunft; Navigation und Prototyp-Design', async (t) => {
+  const { page, calls } = await setup(t, (p) => p.aktion === 'auftraege_suchen' ? [] : { suchauftraege: [] });
+  await page.goto(origin + '/');
+  await page.getByRole('heading', { name: 'Was möchtest du heute machen?' }).waitFor();
+  assert.equal(calls.length, 0);
+  fs.mkdirSync(path.join(root, 'test-results'), { recursive: true });
+  await page.screenshot({ path: path.join(root, 'test-results/start-desktop.png'), fullPage: true });
+  await page.locator('.stay-card').click();
+  await page.getByRole('heading', { name: 'Wohnen, wo sich die Reise richtig anfühlt.' }).waitFor();
+  assert.equal(await page.locator('#tabs [data-view=auftraege]').isVisible(), false);
+  assert.equal(await page.locator('#tabs [data-view=ergebnisse]').isVisible(), true);
+  assert.equal(await page.evaluate(() => getComputedStyle(document.body).backgroundColor), 'rgb(246, 244, 236)');
+  await formFill(page);
+  await page.screenshot({ path: path.join(root, 'test-results/search-desktop.png'), fullPage: true });
+  await page.setViewportSize({ width: 390, height: 844 });
+  assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
+  await page.screenshot({ path: path.join(root, 'test-results/search-mobile.png'), fullPage: true });
+  await page.locator('#tabs [data-view=ergebnisse]').click();
+  await page.getByRole('heading', { name: 'Suchen & Ergebnisse' }).waitFor();
+  assert.equal(await page.locator('[name=ziel]').count(), 0);
+  await page.getByRole('link', { name: 'Erste Unterkunft suchen →' }).click();
+  await page.locator('[name=ziel]').waitFor();
+  await page.locator('#areas [data-area=council]').click();
+  await page.getByRole('heading', { name: 'Aufträge', exact: true }).waitFor();
+  assert.equal(await page.locator('#tabs [data-view=suche]').isVisible(), false);
+  assert.equal(await page.locator('#tabs [data-view=auftraege]').isVisible(), true);
+  await page.getByRole('link', { name: 'KI-System Startseite' }).click();
+  await page.getByRole('heading', { name: 'Was möchtest du heute machen?' }).waitFor();
+  await page.screenshot({ path: path.join(root, 'test-results/start-mobile.png'), fullPage: true });
 });

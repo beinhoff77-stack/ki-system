@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.5.0';
+const APP_VERSION = '0.6.0';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -153,17 +153,30 @@ function route(view, arg = null) {
 }
 function parseHash() {
   const m = location.hash.match(/^#\/([a-z]+)(?:\/(.+))?$/);
-  return m ? { view: m[1], arg: m[2] ?? null } : { view: 'auftraege', arg: null };
+  return m ? { view: m[1], arg: m[2] ?? null } : { view: 'start', arg: null };
 }
 window.addEventListener('hashchange', render);
 
 function setChrome(title, { back = false, showTabs = true, tab = null } = {}) {
+  const area = current.view === 'login' ? 'login' : current.view === 'start' ? 'start' : ['suche', 'ergebnisse'].includes(current.view) ? 'unterkunft' : 'council';
+  document.body.dataset.area = area;
+  for (const meta of document.querySelectorAll('meta[name="theme-color"]')) meta.content = ['unterkunft', 'start'].includes(area) ? '#f6f4ec' : meta.media.includes('dark') ? '#101721' : '#f4f6f8';
+  $('#areas').hidden = area === 'login';
+  $('#area-brand').textContent = area === 'unterkunft' ? 'Unterkunft.' : 'Council';
+  $('#area-caption').textContent = area === 'unterkunft' ? 'Ein guter Ort für jede Reise.' : 'Gute Gedanken. Klare Entscheidungen.';
+  for (const link of $('#areas').querySelectorAll('[data-area]')) {
+    if (link.dataset.area === area) link.setAttribute('aria-current', 'true'); else link.removeAttribute('aria-current');
+  }
   $('#title').textContent = title;
   $('#btn-back').hidden = !back;
   tabs.hidden = !showTabs;
-  for (const b of tabs.querySelectorAll('button')) b.classList.toggle('on', b.dataset.view === tab);
+  for (const b of tabs.querySelectorAll('button')) {
+    b.hidden = b.dataset.area !== area;
+    b.classList.toggle('on', b.dataset.view === tab);
+    if (b.dataset.view === tab) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current');
+  }
 }
-$('#btn-back').addEventListener('click', () => (history.length > 1 ? history.back() : route('auftraege')));
+$('#btn-back').addEventListener('click', () => (history.length > 1 ? history.back() : route('start')));
 tabs.addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) route(b.dataset.view); });
 
 function loading(text = 'Lade …') { main.replaceChildren(el('div', { class: 'spinner' }, text)); }
@@ -174,9 +187,27 @@ async function render() {
   disposeSuche = () => {};
   current = parseHash();
   if (!store.token && current.view !== 'login') { route('login'); return; }
-  const views = { login: viewLogin, auftraege: viewAuftraege, auftrag: viewAuftrag, neu: viewNeu, einstellungen: viewEinstellungen, werkstatt: viewWerkstatt, suche: viewSuche };
-  const fn = views[current.view] || viewAuftraege;
+  const views = { start: viewStart, login: viewLogin, auftraege: viewAuftraege, auftrag: viewAuftrag, neu: viewNeu, einstellungen: viewEinstellungen, werkstatt: viewWerkstatt, suche: viewSuche, ergebnisse: () => viewSuche(null, { historyOnly: true }) };
+  const fn = views[current.view] || (() => route('start'));
   try { await fn(current.arg); } catch (e) { showError(e); }
+}
+
+function viewStart() {
+  setChrome('Dein KI-System', { showTabs: false });
+  main.replaceChildren(el('section', { class: 'start-intro' },
+    el('p', { class: 'eyebrow' }, 'DEIN PERSÖNLICHER RAUM'),
+    el('h2', {}, 'Was möchtest du heute machen?'),
+    el('p', {}, 'Zwei Bereiche. Ein Zuhause für deine Entscheidungen und Reisen.')),
+    el('div', { class: 'area-cards' },
+      el('a', { class: 'area-card council-card', href: '#/auftraege' },
+        el('div', { class: 'area-art council-art', 'aria-hidden': true }, el('span', {}, '○'), el('span', {}, '○'), el('span', {}, '○')),
+        el('div', { class: 'area-card-copy' }, el('p', { class: 'eyebrow' }, 'DENKEN & ENTSCHEIDEN'), el('h2', {}, 'Council'),
+          el('p', {}, 'Fragen durchdenken, Perspektiven vergleichen und Entscheidungen vorbereiten.'), el('span', { class: 'area-enter' }, 'Council öffnen', el('span', { 'aria-hidden': true }, '↗')))),
+      el('a', { class: 'area-card stay-card', href: '#/suche' },
+        el('div', { class: 'area-art stay-art', 'aria-hidden': true }, el('span', { class: 'stay-sun' }), el('span', { class: 'stay-house' }, '⌂')),
+        el('div', { class: 'area-card-copy' }, el('p', { class: 'eyebrow' }, 'REISEN & WOHLFÜHLEN'), el('h2', {}, 'Unterkunft.'),
+          el('p', {}, 'Einen guten Ort für eure Reise finden. Unterkünfte suchen und in Ruhe vergleichen.'), el('span', { class: 'area-enter' }, 'Unterkunft öffnen', el('span', { 'aria-hidden': true }, '↗'))))),
+    el('p', { class: 'start-footer' }, el('a', { href: '#/einstellungen' }, 'Zugang & Einstellungen'), el('span', {}, ' · '), el('a', { href: '#/werkstatt' }, 'Werkstatt')));
 }
 
 // ---------- Ansicht: Login ----------
@@ -198,7 +229,7 @@ async function viewLogin() {
       if (!r.ok || !r.token) throw new Error(r.fehler || 'Anmeldung fehlgeschlagen');
       store.token = r.token;
       toast('Angemeldet bis ' + fmtDate(r.laeuft_ab));
-      route('auftraege');
+      route('start');
     } catch (err) { toast(err.message, true); } finally { btn.disabled = false; }
   });
 }
@@ -770,7 +801,8 @@ const SUCHE_QUELLEN = { hasdata_booking: 'Booking', apify_airbnb: 'Airbnb', raku
 const SUCHE_WARNUNGEN = {
   futon: 'Futon', schlafsofa: 'Schlafsofa', etagenbett: 'Etagenbett', schlafplatz_wohnzimmer: 'Schlafplatz im Wohnzimmer',
   steuern_unklar: 'Steuern unklar', wenig_bewertungen: 'Wenige Bewertungen', weit_vom_ziel: 'Weit vom Ziel',
-  preis_geschaetzt: 'Preis geschätzt', zwei_zimmer: 'Zwei Zimmer', '2_zimmer': 'Zwei Zimmer',
+  preis_geschaetzt: 'Preis geschätzt', zwei_zimmer: '2 getrennte Zimmer', '2_zimmer': '2 getrennte Zimmer',
+  doppelbett_geteilt: 'Doppelbett wird geteilt', schmales_bett: 'Schmales Bett <140 cm',
   preis_2zimmer_unklar: 'Preis für zwei Zimmer unklar', betten_unklar: 'Betten unklar', zimmer_unbekannt: 'Zimmer unbekannt', ueber_budget: 'Über Budget',
 };
 const sucheZahl = (v) => v === null || v === undefined || v === '' || !Number.isFinite(Number(v)) ? null : Number(v);
@@ -805,15 +837,16 @@ function sucheFormDaten(form) {
   return d;
 }
 
-async function viewSuche(idStr) {
-  setChrome('Unterkunft suchen', { tab: 'suche', back: !!idStr });
+async function viewSuche(idStr, { historyOnly = false } = {}) {
+  setChrome(idStr || historyOnly ? 'Unterkunft / Ergebnisse' : 'Unterkunft / Suche', { tab: idStr || historyOnly ? 'ergebnisse' : 'suche', back: !!idStr });
+  const entryView = parseHash().view;
   let disposed = false, timer, busy = false, snapshot = null;
   const requests = new Set();
   let sort = { key: 'score', direction: -1 };
   const scope = el('div', { class: 'suche' });
   main.replaceChildren(scope);
   disposeSuche = () => { disposed = true; clearTimeout(timer); requests.forEach((c) => c.abort()); };
-  const live = () => !disposed && scope.isConnected && parseHash().view === 'suche' && parseHash().arg === idStr;
+  const live = () => !disposed && scope.isConnected && parseHash().view === entryView && parseHash().arg === idStr;
   async function call(name, daten = {}) {
     const requestController = new AbortController();
     requests.add(requestController);
@@ -829,7 +862,12 @@ async function viewSuche(idStr) {
   }
   const notice = el('p', { role: 'status', 'aria-live': 'polite', class: 'small' });
   if (!idStr) {
-    const form = el('form', { class: 'card suche-form' });
+    if (!historyOnly) scope.append(el('section', { class: 'stay-hero' },
+      el('p', { class: 'eyebrow' }, 'REISEN, WIE IHR ES LIEBT'),
+      el('h2', {}, 'Wohnen, wo sich die Reise richtig anfühlt.'),
+      el('p', {}, 'Familiengerechte Unterkünfte finden, vergleichen und auswählen. Für eure Reise, mit euren Wünschen.')));
+    else scope.append(el('div', { class: 'stay-page-heading' }, el('p', { class: 'eyebrow' }, 'DEINE REISEN'), el('h2', {}, 'Suchen & Ergebnisse'), el('p', {}, 'Deine bisherigen Suchen – mit Fortschritt und allen gefundenen Unterkünften.')));
+    const form = el('form', { class: 'suche-form' });
     const fields = el('fieldset');
     const grid = el('div', { class: 'suche-grid' });
     const input = (name, label, attrs) => grid.append(el('label', {}, label, el('input', { name, ...attrs })));
@@ -844,10 +882,30 @@ async function viewSuche(idStr) {
     input('max_je_quelle', 'Treffer je Quelle (5–100)', { type: 'number', min: 5, max: 100, value: 50, required: true });
     input('limit_usd', 'Suchkostenlimit (USD, 0–10)', { type: 'number', min: 0, max: 10, step: 0.01, value: 1.5, required: true });
     const submit = el('button', { type: 'submit', class: 'primary' }, 'Anlegen und Suche starten');
-    fields.append(el('legend', {}, 'Deine Reise'), grid,
-      el('p', { class: 'muted small' }, 'Booking, Airbnb und Trivago; in Japan zusätzlich Rakuten. Die Suche nutzt externe Quellen und kann Suchkosten sowie Anbieter-Credits verbrauchen. Ergebnisse und Preise werden vorläufig geprüft.'), submit);
+    const sections = el('div', { class: 'suche-panel-grid' });
+    for (const [nr, title, names] of [
+      ['01', 'Reiseziel & Zeitraum', ['ziel', 'land', 'anreise', 'abreise']],
+      ['02', 'Wer reist mit?', ['erwachsene', 'kinder_alter']],
+      ['03', 'Platz & Budget', ['schlafzimmer_min', 'budget_eur']],
+      ['04', 'Quellen & Suchkosten', ['max_je_quelle', 'limit_usd']],
+    ]) {
+      const group = el('div', { class: 'suche-grid' });
+      for (const name of names) group.append(grid.querySelector(`[name="${name}"]`).parentElement);
+      const panel = el('section', { class: 'card stay-form-panel' }, el('h2', {}, el('span', { class: 'step-number' }, nr), title), group);
+      if (nr === '02') panel.append(el('p', { class: 'muted small' }, 'Kinderalter am Anreisetag angeben. Ohne Kinder bleibt das Feld leer.'));
+      if (nr === '04') panel.append(el('div', { class: 'source-chips' }, ['Booking', 'Airbnb', 'Trivago', 'Rakuten · Japan'].map((name) => el('span', {}, name))), el('p', { class: 'muted small' }, 'Die Suche kann Suchkosten und Anbieter-Credits verbrauchen. Das Aufenthaltsbudget gilt separat.'));
+      sections.append(panel);
+    }
+    const tripSummary = el('div', { class: 'trip-summary', 'aria-live': 'polite' });
+    function updateTripSummary() {
+      const f = new FormData(form), nights = (Date.parse(f.get('abreise')) - Date.parse(f.get('anreise'))) / 86400000;
+      const children = String(f.get('kinder_alter') || '').split(',').filter((v) => v.trim()).length;
+      tripSummary.replaceChildren(el('span', {}, 'Eure Reise'), el('strong', {}, Number.isFinite(nights) && nights > 0 ? `${nights} Nächte · ${f.get('erwachsene')} Erwachsene${children ? ` · ${children} Kinder` : ''}` : 'Wohin soll es gehen?'), el('small', {}, f.get('budget_eur') ? sucheEuro(f.get('budget_eur')) + ' Gesamtbudget' : 'Reisedaten eintragen und passende Unterkünfte entdecken.'));
+    }
+    fields.append(sections, el('div', { class: 'search-submit-bar' }, tripSummary, submit));
     form.append(fields, notice);
-    scope.append(form);
+    form.addEventListener('input', updateTripSummary); updateTripSummary();
+    if (!historyOnly) scope.append(form);
     form.addEventListener('submit', async (event) => {
       event.preventDefault(); if (busy || !form.reportValidity()) return;
       let daten; try { daten = sucheFormDaten(form); } catch (e) { notice.textContent = e.message; return; }
@@ -873,8 +931,8 @@ async function viewSuche(idStr) {
         }
       } finally { busy = false; }
     });
-    const recent = el('section', { class: 'card' }, el('h2', {}, 'Letzte Suchaufträge'));
-    const list = el('div');
+    const recent = el('section', { class: 'card recent-searches' }, el('h2', {}, 'Letzte Suchaufträge'));
+    const list = el('div', { class: 'recent-grid' });
     const refresh = el('button', { type: 'button', onclick: loadRecent }, 'Suchaufträge aktualisieren');
     recent.append(refresh, list); scope.append(recent);
     async function loadRecent() {
@@ -884,8 +942,8 @@ async function viewSuche(idStr) {
         const r = await call('unterkunft_suchlauf_lesen'); if (!live()) return;
         const rows = Array.isArray(r) ? r : r?.suchauftraege;
         if (!Array.isArray(rows)) throw new Error('Unerwartete Antwort beim Lesen der letzten Suchaufträge.');
-        list.replaceChildren(...rows.map((a) => el('p', {}, el('a', { href: '#/suche/' + a.id }, `#${a.id} ${a.ziel} · ${fmtDate(a.anreise)}–${fmtDate(a.abreise)} · ${a.status}`))));
-        if (!rows.length) list.textContent = 'Noch keine Suchaufträge.';
+        list.replaceChildren(...rows.map((a) => el('a', { class: 'recent-trip', href: '#/suche/' + a.id }, el('span', { class: 'eyebrow' }, 'REISE #' + a.id), el('strong', {}, a.ziel), el('span', {}, `${fmtDate(a.anreise)}–${fmtDate(a.abreise)}`), el('span', { class: 'recent-trip-meta' }, `${a.treffer ?? '–'} Treffer · ${a.status} ↗`))));
+        if (!rows.length) list.append(el('div', { class: 'stay-empty' }, el('strong', {}, 'Die nächste Reise beginnt hier.'), el('p', {}, 'Sobald du eine Suche startest, findest du hier ihren Fortschritt und ihre Ergebnisse.'), historyOnly ? el('a', { href: '#/suche' }, 'Erste Unterkunft suchen →') : null));
       } catch (e) { if (live()) list.textContent = e.message; }
       finally { refresh.disabled = false; }
     }
@@ -893,7 +951,8 @@ async function viewSuche(idStr) {
   }
   const id = Number(idStr);
   if (!Number.isSafeInteger(id) || id <= 0) { scope.append(el('p', {}, 'Ungültige Suchauftragsnummer.')); return; }
-  const summary = el('section', { class: 'card' });
+  scope.append(el('div', { class: 'stay-page-heading' }, el('p', { class: 'eyebrow' }, 'EIN GUTER ORT FÜR EURE REISE'), el('h2', {}, 'Unterkünfte vergleichen')));
+  const summary = el('section', { class: 'card stay-run-summary' });
   const results = el('section', { 'aria-label': 'Suchergebnisse' });
   const refresh = el('button', { onclick: () => poll() }, 'Aktualisieren');
   const start = el('button', { class: 'primary', hidden: true, onclick: async () => {
@@ -915,7 +974,7 @@ async function viewSuche(idStr) {
         `${SUCHE_QUELLEN[s.quelle] || s.quelle}: ${s.status} · ${s.treffer ?? 0} Treffer`,
         s.kosten_usd != null ? ` · ${fmtUsd(s.kosten_usd)}` : '', s.credits != null ? ` · ${s.credits} Credits` : '',
         s.fehler ? el('p', { class: 'err-text' }, String(s.fehler)) : null))),
-      el('p', { class: 'erg-warnung' }, 'Vorläufig: A/B beruhen auf der Vorprüfung. Der Score ist eine nach Bewertungsanzahl gewichtete Bewertungsnote (0–100), noch kein Endranking. Fehlende Teilnoten werden nicht erfunden.'));
+      el('p', { class: 'erg-warnung' }, 'Vorläufige Auswahl: Der Score berücksichtigt Gästenoten und die Anzahl der Bewertungen (0–100). Die abschließende Bewertung folgt. Unbekannte Angaben sind gekennzeichnet.'));
     results.replaceChildren();
     const rows = snapshot.treffer;
     const groups = [

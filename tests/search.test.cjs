@@ -161,12 +161,12 @@ test('PWA installiert vollständige Offline-Hülle, API wird nicht gecacht', asy
   assert(cacheNames.includes('ki-system:' + origin + '/another-app/:v1'));
   assert(!cacheNames.includes('ki-system:' + origin + '/:old'));
   await page.evaluate(() => fetch('README.md'));
-  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v21')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
-  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.14.0')); assert(cached.includes('/style.css?v=0.14.0'));
-  assert(cached.includes('/stay-tools.js?v=0.14.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
-  assert(cached.includes('/stay-research.js?v=0.14.0'));
-  assert(cached.includes('/stay-form.js?v=0.14.0'));
-  assert(cached.includes('/stay-details.js?v=0.14.0'));
+  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v22')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
+  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.14.1')); assert(cached.includes('/style.css?v=0.14.1'));
+  assert(cached.includes('/stay-tools.js?v=0.14.1')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
+  assert(cached.includes('/stay-research.js?v=0.14.1'));
+  assert(cached.includes('/stay-form.js?v=0.14.1'));
+  assert(cached.includes('/stay-details.js?v=0.14.1'));
   assert(!cached.includes('/README.md'));
   assert(!cached.some((u) => u.includes('app-api')));
   await context.setOffline(true); await page.reload();
@@ -1037,4 +1037,37 @@ test('Sprunglinks öffnen Unbewertete und nach Gründen gegliederte Ausschlüsse
   assert.deepEqual(await section.locator('h3.exclusion-reason').allTextContents(),['Grund nicht geliefert','Budget überschritten','Von dir ausgeschlossen']);
   await page.getByRole('button',{name:'Unbewertete (1)',exact:true}).click();
   assert.equal(await page.evaluate(()=>document.activeElement.parentElement.dataset.group),'offen');
+});
+
+test('Nachrecherche: verspäteter Status lässt Texteingabe, Cursor und offene Angaben stehen', async (t) => {
+  let releaseStatus;
+  const {page,calls}=await setup(t,async p=>p.aktion==='unterkunft_lueckenfueller_lesen'
+    ? await new Promise(resolve=>{releaseStatus=()=>resolve({ok:true,auftraege:[]});}) : result(),{width:390,height:844});
+  await page.goto(origin+'/#/suche/2'); await waitForCallback(()=>releaseStatus);
+  const info=page.locator('[data-detail="1"]'); await info.locator('summary').click();
+  await page.getByLabel('Für Nachrecherche auswählen: Unterkunft 4',{exact:true}).check();
+  const reason=page.getByLabel('Optionaler Grund für Unterkunft 1',{exact:true});
+  await reason.fill('Ruhig und zentral');
+  await reason.evaluate(n=>{n.focus();n.setSelectionRange(6,9);});
+  const original=await reason.elementHandle(); const scroll=await page.evaluate(()=>scrollY);
+  releaseStatus(); await page.getByText('Recherche-Status aktualisiert.',{exact:true}).waitFor();
+  assert.equal(await original.evaluate(n=>n.isConnected),true,'Eine reine Statusantwort darf das Eingabefeld nicht ersetzen');
+  assert.deepEqual(await reason.evaluate(n=>({focused:document.activeElement===n,start:n.selectionStart,end:n.selectionEnd})),{focused:true,start:6,end:9});
+  assert.equal(await info.evaluate(n=>n.open),true);
+  assert.equal(await page.getByLabel('Für Nachrecherche auswählen: Unterkunft 4',{exact:true}).isChecked(),true);
+  assert(Math.abs((await page.evaluate(()=>scrollY))-scroll)<2,'Die Leseposition bleibt stehen');
+  await page.keyboard.insertText('sowie'); assert.equal(await reason.inputValue(),'Ruhig sowie zentral');
+  assert.equal(calls.filter(p=>p.aktion && !['unterkunft_suche_status','unterkunft_suchlauf_lesen','unterkunft_lueckenfueller_lesen'].includes(p.aktion)).length,0);
+});
+
+test('Nachrecherche: verspäteter Status erhält den Rücksprung aus der Detailansicht', async (t) => {
+  let releaseStatus;
+  const {page}=await setup(t,async p=>p.aktion==='unterkunft_lueckenfueller_lesen'
+    ? await new Promise(resolve=>{releaseStatus=()=>resolve({ok:true,auftraege:[{id:91,suchauftrag_id:2,treffer_ids:[4],felder:['balkon'],status:'erzeugt'}]});}) : result());
+  await page.goto(origin+'/#/suche/2'); await waitForCallback(()=>releaseStatus);
+  const open=page.locator('[data-hit="4"] .candidate-open'); await open.click();
+  releaseStatus(); await page.getByText('Recherche-Status aktualisiert.',{exact:true}).waitFor({state:'attached'});
+  await page.getByRole('dialog').waitFor(); await page.keyboard.press('Escape');
+  assert.equal(await open.evaluate(n=>document.activeElement===n),true,'Schließen führt zum ursprünglichen Treffer zurück');
+  await page.locator('[data-research-status="4"]').getByText('Recherche #91: Angelegt – wartet auf Claude',{exact:false}).waitFor();
 });

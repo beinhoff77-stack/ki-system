@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.14.0';
+const APP_VERSION = '0.14.1';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -1051,7 +1051,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   const mapButton = el('button', { type: 'button', onclick: () => { showMap = true; draw(); } }, 'Karte');
   const viewButtons = el('div', { class: 'actions result-view-switch', hidden: true, role: 'group', 'aria-label': 'Ergebnisansicht' }, listButton, mapButton);
   const undoSelection = el('button', { type: 'button', hidden: true, onclick: () => selectionStates.get(lastSelection)?.undoAction() }, 'Letzte Auswahl rückgängig');
-  const research = sucheLuecken(id, call, live, draw);
+  const research = sucheLuecken(id, call, live);
   const preview = el('button', { type: 'button', hidden: true, onclick: async () => {
     if (busy || !latestStatus || !['wartet','laeuft'].includes(latestStatus.status)) return;
     busy = true; clearTimeout(timer); preview.disabled = refresh.disabled = start.disabled = cancel.disabled = true;

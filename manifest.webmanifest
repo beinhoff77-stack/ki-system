@@ -1,7 +1,7 @@
 {
   "name": "KI-System",
   "short_name": "KI-System",
-  "description": "Cockpit für das persönliche KI-System – Council-Aufträge, Ergebnisse, Einstellungen, Werkstatt.",
+  "description": "Council und Unterkunftssuche – Aufträge, Reisen und Ergebnisse in einer App.",
   "lang": "de",
   "start_url": "./",
   "scope": "./",

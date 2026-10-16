@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.4.0';
+const APP_VERSION = '0.10.1';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -31,10 +31,21 @@ function toast(msg, err = false) {
   clearTimeout(toastTimer); toastTimer = setTimeout(() => { t.hidden = true; }, err ? 6000 : 2500);
 }
 
-function md(text) {
+function md(text, { links = true } = {}) {
   const box = el('div', { class: 'md' });
-  if (window.marked) box.innerHTML = marked.parse(String(text ?? ''), { breaks: true });
-  else box.append(el('pre', {}, String(text ?? '')));
+  if (!window.marked) return el('div', { class: 'md' }, el('pre', { class: 'report-plain' }, String(text ?? '')));
+  const template = document.createElement('template');
+  template.innerHTML = marked.parse(String(text ?? ''), { breaks: true });
+  const allowed = new Set(['P', 'BR', 'STRONG', 'EM', 'DEL', 'UL', 'OL', 'LI', 'TABLE', 'THEAD', 'TBODY', 'TR', 'TH', 'TD', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'BLOCKQUOTE', 'PRE', 'CODE', 'HR']);
+  const copy = node => {
+    if (node.nodeType === Node.TEXT_NODE) return document.createTextNode(node.textContent);
+    if (['SCRIPT', 'STYLE', 'IFRAME', 'OBJECT', 'TEMPLATE', 'SVG', 'MATH'].includes(node.nodeName)) return document.createDocumentFragment();
+    const url = links && node.nodeName === 'A' ? sucheLink(node.getAttribute('href')) : null;
+    const out = url ? el('a', { href: url, target: '_blank', rel: 'noopener noreferrer' }) : allowed.has(node.nodeName) ? document.createElement(node.nodeName.toLowerCase()) : document.createDocumentFragment();
+    node.childNodes.forEach(child => out.append(copy(child)));
+    return out;
+  };
+  template.content.childNodes.forEach(node => box.append(copy(node)));
   return box;
 }
 
@@ -125,12 +136,13 @@ const store = {
   set token(v) { try { v ? localStorage.setItem(TOKEN_KEY, v) : localStorage.removeItem(TOKEN_KEY); } catch { /* privater Modus */ } },
 };
 
-async function http(path, { method = 'GET', body, auth = true } = {}) {
+async function http(path, { method = 'GET', body, auth = true, signal } = {}) {
   const headers = { 'Content-Type': 'application/json' };
   if (auth && store.token) headers.Authorization = 'Bearer ' + store.token;
-  const r = await fetch(API + path, { method, headers, body: body ? JSON.stringify(body) : undefined });
+  const r = await fetch(API + path, { method, headers, body: body ? JSON.stringify(body) : undefined, signal });
   let j; try { j = await r.json(); } catch { j = { ok: false, fehler: 'Keine Antwort (' + r.status + ')' }; }
-  if (r.status === 401 && auth) { store.token = null; route('login'); throw new Error(j.fehler || 'Nicht angemeldet'); }
+  if (r.status === 401 && auth) { store.token = null; route('login'); throw new Error(j?.fehler || 'Nicht angemeldet'); }
+  if (!r.ok) throw new Error(j?.fehler || 'Die Anfrage ist fehlgeschlagen (HTTP ' + r.status + ').');
   return j;
 }
 
@@ -144,6 +156,12 @@ async function aktion(name, daten = {}) {
 const main = $('#main');
 const tabs = $('#tabs');
 let current = { view: null, arg: null };
+let disposeSuche = () => {};
+let renderGeneration = 0;
+function viewGuard() {
+  const generation = renderGeneration, hash = location.hash;
+  return () => generation === renderGeneration && hash === location.hash;
+}
 
 function route(view, arg = null) {
   const h = arg !== null ? `#/${view}/${arg}` : `#/${view}`;
@@ -152,32 +170,68 @@ function route(view, arg = null) {
 }
 function parseHash() {
   const m = location.hash.match(/^#\/([a-z]+)(?:\/(.+))?$/);
-  return m ? { view: m[1], arg: m[2] ?? null } : { view: 'auftraege', arg: null };
+  return m ? { view: m[1], arg: m[2] ?? null } : { view: 'start', arg: null };
 }
 window.addEventListener('hashchange', render);
 
 function setChrome(title, { back = false, showTabs = true, tab = null } = {}) {
+  const area = current.view === 'login' ? 'login' : current.view === 'start' ? 'start' : ['suche', 'ergebnisse'].includes(current.view) ? 'unterkunft' : 'council';
+  document.body.dataset.area = area;
+  for (const meta of document.querySelectorAll('meta[name="theme-color"]')) meta.content = ['unterkunft', 'start'].includes(area) ? '#f6f4ec' : meta.media.includes('dark') ? '#101721' : '#f4f6f8';
+  $('#areas').hidden = area === 'login';
+  $('#area-brand').textContent = area === 'unterkunft' ? 'Unterkunft.' : 'Council';
+  $('#area-caption').textContent = area === 'unterkunft' ? 'Ein guter Ort für jede Reise.' : 'Gute Gedanken. Klare Entscheidungen.';
+  for (const link of $('#areas').querySelectorAll('[data-area]')) {
+    if (link.dataset.area === area) link.setAttribute('aria-current', 'true'); else link.removeAttribute('aria-current');
+  }
   $('#title').textContent = title;
   $('#btn-back').hidden = !back;
   tabs.hidden = !showTabs;
-  for (const b of tabs.querySelectorAll('button')) b.classList.toggle('on', b.dataset.view === tab);
+  for (const b of tabs.querySelectorAll('button')) {
+    b.hidden = b.dataset.area !== area;
+    b.classList.toggle('on', b.dataset.view === tab);
+    if (b.dataset.view === tab) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current');
+  }
 }
-$('#btn-back').addEventListener('click', () => (history.length > 1 ? history.back() : route('auftraege')));
+$('#btn-back').addEventListener('click', () => (history.length > 1 ? history.back() : route('start')));
 tabs.addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) route(b.dataset.view); });
 
 function loading(text = 'Lade …') { main.replaceChildren(el('div', { class: 'spinner' }, text)); }
 function showError(e) { main.append(el('div', { class: 'card err-text' }, 'Fehler: ' + (e?.message || e))); }
 
 async function render() {
+  renderGeneration++;
+  const live = viewGuard();
+  disposeSuche();
+  disposeSuche = () => {};
   current = parseHash();
   if (!store.token && current.view !== 'login') { route('login'); return; }
-  const views = { login: viewLogin, auftraege: viewAuftraege, auftrag: viewAuftrag, neu: viewNeu, einstellungen: viewEinstellungen, werkstatt: viewWerkstatt };
-  const fn = views[current.view] || viewAuftraege;
-  try { await fn(current.arg); } catch (e) { showError(e); }
+  const views = { start: viewStart, login: viewLogin, auftraege: viewAuftraege, auftrag: viewAuftrag, neu: viewNeu, einstellungen: viewEinstellungen, werkstatt: viewWerkstatt, suche: viewSuche, ergebnisse: () => viewSuche(null, { historyOnly: true }) };
+  const fn = views[current.view] || (() => route('start'));
+  try { await fn(current.arg); } catch (e) { if (live()) showError(e); }
+}
+
+function viewStart() {
+  setChrome('Dein KI-System', { showTabs: false });
+  main.replaceChildren(el('section', { class: 'start-intro' },
+    el('p', { class: 'eyebrow' }, 'DEIN PERSÖNLICHER RAUM'),
+    el('h2', {}, 'Was möchtest du heute machen?'),
+    el('p', {}, 'Zwei Bereiche. Ein Zuhause für deine Entscheidungen und Reisen.')),
+    el('div', { class: 'area-cards' },
+      el('a', { class: 'area-card council-card', href: '#/auftraege' },
+        el('div', { class: 'area-art council-art', 'aria-hidden': true }, el('span', {}, '○'), el('span', {}, '○'), el('span', {}, '○')),
+        el('div', { class: 'area-card-copy' }, el('p', { class: 'eyebrow' }, 'DENKEN & ENTSCHEIDEN'), el('h2', {}, 'Council'),
+          el('p', {}, 'Fragen durchdenken, Perspektiven vergleichen und Entscheidungen vorbereiten.'), el('span', { class: 'area-enter' }, 'Council öffnen', el('span', { 'aria-hidden': true }, '↗')))),
+      el('a', { class: 'area-card stay-card', href: '#/suche' },
+        el('div', { class: 'area-art stay-art', 'aria-hidden': true }, el('span', { class: 'stay-sun' }), el('span', { class: 'stay-house' }, '⌂')),
+        el('div', { class: 'area-card-copy' }, el('p', { class: 'eyebrow' }, 'REISEN & WOHLFÜHLEN'), el('h2', {}, 'Unterkunft.'),
+          el('p', {}, 'Einen guten Ort für eure Reise finden. Unterkünfte suchen und in Ruhe vergleichen.'), el('span', { class: 'area-enter' }, 'Unterkunft öffnen', el('span', { 'aria-hidden': true }, '↗'))))),
+    el('p', { class: 'start-footer' }, el('a', { href: '#/einstellungen' }, 'Zugang & Einstellungen'), el('span', {}, ' · '), el('a', { href: '#/werkstatt' }, 'Werkstatt')));
 }
 
 // ---------- Ansicht: Login ----------
 async function viewLogin() {
+  const live = viewGuard();
   setChrome('KI-System', { showTabs: false });
   main.replaceChildren($('#t-login').content.cloneNode(true));
   $('#einrichten-link').href = API + '/';
@@ -186,6 +240,7 @@ async function viewLogin() {
     const s = await http('/status', { auth: false });
     status.textContent = s.eingerichtet ? 'Verbindung steht. Bitte Passwort eingeben.' : 'Noch kein Passwort eingerichtet – siehe unten.';
   } catch { status.textContent = 'Schnittstelle nicht erreichbar. Internet prüfen.'; }
+  if (!live()) return;
   $('#login-form').addEventListener('submit', async (e) => {
     e.preventDefault();
     const btn = e.target.querySelector('button'); btn.disabled = true;
@@ -195,7 +250,7 @@ async function viewLogin() {
       if (!r.ok || !r.token) throw new Error(r.fehler || 'Anmeldung fehlgeschlagen');
       store.token = r.token;
       toast('Angemeldet bis ' + fmtDate(r.laeuft_ab));
-      route('auftraege');
+      route('start');
     } catch (err) { toast(err.message, true); } finally { btn.disabled = false; }
   });
 }
@@ -213,9 +268,11 @@ function statusPill(a) {
 function wartetAufDich(a) { return a.posteingang === 'neu' || a.posteingang === 'abgeholt' || a.status === 'pausiert' || a.status === 'entwurf' || a.status === 'bestaetigt'; }
 
 async function viewAuftraege() {
+  const live = viewGuard();
   setChrome('Aufträge', { tab: 'auftraege' });
   loading();
   const liste = await aktion('auftraege_suchen', {});
+  if (!live()) return;
   const neu = liste.filter((a) => a.posteingang === 'neu').length;
   const badge = $('#badge-neu'); badge.hidden = !neu; badge.textContent = neu;
 
@@ -243,10 +300,12 @@ async function viewAuftraege() {
 // ---------- Ansicht: Auftrag (Detail) ----------
 let detailTab = 'ergebnis';
 async function viewAuftrag(idStr) {
+  const live = viewGuard();
   const id = Number(idStr);
   setChrome('Auftrag ' + id, { back: true, tab: 'auftraege' });
   loading();
   const r = await aktion('rahmen_lesen', { rahmen_id: id });
+  if (!live()) return;
   setChrome(r.titel || 'Auftrag ' + id, { back: true, tab: 'auftraege' });
 
   const kopf = el('div', { class: 'card' },
@@ -530,10 +589,12 @@ async function stammdatenDialog(id) {
 let neuEntwurf = null; // letzter Entwurf der Start-KI (bleibt beim Tabwechsel erhalten)
 
 async function viewNeu() {
+  const live = viewGuard();
   setChrome('Neuer Auftrag', { tab: 'neu' });
   if (neuEntwurf) { zeigeEntwurf(neuEntwurf); return; }
   loading();
   const einst = await aktion('einstellungen_lesen', {});
+  if (!live()) return;
   const standardLimit = Number(einst?.standard_kostenlimit?.wert ?? 2) || 2;
 
   const frage = el('textarea', { required: true, placeholder: 'Deine Frage so, wie du sie stellen würdest – mit allem, was du schon weißt (Rahmen, Zahlen, Termine).', style: 'min-height:140px' });
@@ -555,6 +616,7 @@ async function viewNeu() {
       const r = await http('/vorbereiten', { method: 'POST', body: { frage: frage.value.trim(), kostenlimit: Number(limit.value) } });
       if (!r.ok) throw new Error(r.fehler || 'Vorbereitung fehlgeschlagen');
       neuEntwurf = { ...r, kostenlimit: Number(limit.value) || standardLimit, standardLimit };
+      if (!live()) return;
       toast(`Entwurf erstellt (${r.start_ki}${r.kosten_usd != null ? ', ' + Number(r.kosten_usd).toFixed(3) + ' USD' : ''})`);
       zeigeEntwurf(neuEntwurf);
     } catch (err) { toast(err.message, true); btn.disabled = false; btn.textContent = 'Auftrag vorbereiten'; }
@@ -700,9 +762,11 @@ async function zeigeEntwurf(d) {
 
 // ---------- Ansicht: Einstellungen ----------
 async function viewEinstellungen() {
+  const live = viewGuard();
   setChrome('Einstellungen', { tab: 'einstellungen' });
   loading();
   const [einst, modelle, rollen] = await Promise.all([aktion('einstellungen_lesen', {}), aktion('modelle_lesen', {}), aktion('rollen_lesen', { status: 'aktiv' })]);
+  if (!live()) return;
   const mList = el('ul', { class: 'list' });
   for (const m of modelle.meine_modelle || []) mList.append(el('li', { style: 'cursor:default' },
     el('div', { class: 't' }, m.name, m.zdr ? el('span', { class: 'pill' }, 'ZDR') : null, m.stammdaten_erlaubt ? el('span', { class: 'pill' }, 'Stammdaten') : null),
@@ -731,10 +795,12 @@ async function viewEinstellungen() {
 
 // ---------- Ansicht: Werkstatt ----------
 async function viewWerkstatt(idStr) {
+  const live = viewGuard();
   setChrome('Werkstatt', { tab: 'werkstatt', back: !!idStr });
   loading();
   if (idStr) {
     const w = await aktion('werkstatt_wunsch_lesen', { id: Number(idStr) });
+    if (!live()) return;
     setChrome('#' + w.id + ' ' + w.titel, { tab: 'werkstatt', back: true });
     const nachrichten = el('div');
     for (const n of w.nachrichten || []) nachrichten.append(el('div', { class: 'card' },
@@ -747,6 +813,7 @@ async function viewWerkstatt(idStr) {
     return;
   }
   const w = await aktion('werkstatt_lesen', {});
+  if (!live()) return;
   const ul = el('ul', { class: 'list' });
   for (const x of w.wuensche || []) ul.append(el('li', { onclick: () => route('werkstatt', x.id) },
     el('div', { class: 't' }, `#${x.id} ${x.titel}`, el('span', { class: 'pill' }, x.status)),
@@ -759,6 +826,456 @@ async function viewWerkstatt(idStr) {
     el('h2', { style: 'font-size:1rem;margin:12px 0 6px' }, 'Letzte Änderungen'), aend,
     el('p', { class: 'muted small' }, 'Neue Wünsche und Nachrichten bitte im Chat – Schreiben in der Werkstatt kommt in einer späteren Stufe.'),
   );
+}
+
+// ---------- Unterkunftssuche (Werkstatt #41) ----------
+const SUCHE_ENDE = new Set(['fertig', 'fehler', 'gestoppt_budget', 'abgebrochen', 'gestoppt']);
+const SUCHE_NOTEN = [['raum', 'Raum'], ['lage', 'Lage'], ['preis_leistung', 'Preis-Leistung'], ['bewertungen', 'Bewertungen'], ['eignung', 'Eignung']];
+function sucheDatenlage(t) {
+  const noten = t.bewertung?.spaltennoten;
+  return sucheZahl(noten && Object.hasOwn(noten, 'datenlage_score') ? noten.datenlage_score : t.bewertung?.datenlage);
+}
+const SUCHE_QUELLEN = { hasdata_booking: 'Booking', apify_airbnb: 'Airbnb', rakuten_travel: 'Rakuten Travel', trivago_mcp: 'Trivago' };
+const SUCHE_WARNUNGEN = {
+  futon: 'Futon', schlafsofa: 'Schlafsofa', etagenbett: 'Etagenbett', schlafplatz_wohnzimmer: 'Schlafplatz im Wohnzimmer',
+  steuern_unklar: 'Steuern unklar', wenig_bewertungen: 'Wenige Bewertungen', weit_vom_ziel: 'Weit vom Ziel',
+  preis_geschaetzt: 'Preis geschätzt', zwei_zimmer: '2 getrennte Zimmer', '2_zimmer': '2 getrennte Zimmer',
+  doppelbett_geteilt: 'Doppelbett wird geteilt', schmales_bett: 'Schmales Bett <140 cm',
+  gegenpruefung_einwand: 'Gegenprüfung hat Einwände',
+  preis_2zimmer_unklar: 'Preis für zwei Zimmer unklar', betten_unklar: 'Betten unklar', zimmer_unbekannt: 'Zimmer unbekannt', ueber_budget: 'Über Budget',
+};
+const sucheZahl = (v) => !['number', 'string'].includes(typeof v) || String(v).trim() === '' || !Number.isFinite(Number(v)) ? null : Number(v);
+const sucheEuro = (v) => sucheZahl(v) === null ? 'Preis unbekannt' : Number(v).toLocaleString('de-DE', { style: 'currency', currency: 'EUR' });
+function sucheGruppe(t) {
+  if (t.topf === 'ausgeschlossen') return 'ausgeschlossen';
+  if (t.topf === 'unbewertet') return 'offen';
+  return ['A', 'B'].includes(t.bewertung?.liste) ? t.bewertung.liste : 'offen';
+}
+function sucheLink(value) {
+  try { const u = new URL(value); return ['https:', 'http:'].includes(u.protocol) ? u.href : null; } catch { return null; }
+}
+function sucheVergleich(a, b, key, direction) {
+  const value = (t) => key === 'name' ? t.name : key === 'preis' ? sucheZahl(t.angebot?.preis_gesamt_eur) :
+    key === 'bewertungen' ? sucheZahl(t.bewertungen) : key === 'entfernung' ? sucheZahl(t.luftlinie_ziel_m) : key === 'gehzeit' ? sucheZahl(t.gehzeit_min) : key.startsWith('note_') ? sucheZahl(t.bewertung?.spaltennoten?.[key.slice(5)]) : key === 'datenlage' ? sucheDatenlage(t) : key === 'rang' ? (t.topf === 'shortlist' && t.bewertung?.liste === 'A' ? sucheZahl(t.bewertung?.rang) : null) : sucheZahl(t.bewertung?.[key]);
+  const x = value(a), y = value(b);
+  // Fehlende Angaben stehen in beiden Sortierrichtungen hinten.
+  if (x == null || y == null) return x == null && y == null ? 0 : x == null ? 1 : -1;
+  return (typeof x === 'string' ? x.localeCompare(String(y), 'de') : x - y) * direction;
+}
+function sucheFormDaten(form) {
+  const f = new FormData(form), get = (key) => String(f.get(key) ?? '').trim();
+  const kinder = get('kinder_alter');
+  if (kinder && !/^\d{1,2}(\s*,\s*\d{1,2})*$/.test(kinder)) throw new Error('Kinderalter bitte durch Kommas trennen, z. B. 13, 11.');
+  const alter = kinder ? kinder.split(',').map(Number) : [];
+  if (alter.some((n) => n > 17)) throw new Error('Kinderalter muss zwischen 0 und 17 liegen.');
+  const datum = (s) => /^\d{4}-\d{2}-\d{2}$/.test(s) && !isNaN(Date.parse(s)) && new Date(s).toISOString().slice(0, 10) === s;
+  if (!datum(get('anreise')) || !datum(get('abreise')) || get('abreise') <= get('anreise')) throw new Error('Abreise muss nach der Anreise liegen.');
+  const d = { ziel: get('ziel'), anreise: get('anreise'), abreise: get('abreise'), erwachsene: Number(get('erwachsene')),
+    kinder_alter: alter, schlafzimmer_min: Number(get('schlafzimmer_min')), max_je_quelle: Number(get('max_je_quelle')), limit_usd: Number(get('limit_usd')) };
+  if (d.ziel.length < 2) throw new Error('Bitte einen Zielort angeben.');
+  for (const [key, min, max, integer] of [['erwachsene', 1, 10, true], ['schlafzimmer_min', 0, 6, true], ['max_je_quelle', 5, 100, true], ['limit_usd', 0, 10, false]]) {
+    if (!get(key) || !Number.isFinite(d[key]) || d[key] < min || d[key] > max || (integer && !Number.isInteger(d[key]))) throw new Error('Bitte die Zahlenfelder innerhalb der angegebenen Grenzen ausfüllen.');
+  }
+  if (get('budget_eur')) { d.budget_eur = Number(get('budget_eur')); if (!Number.isFinite(d.budget_eur) || d.budget_eur <= 0) throw new Error('Das Aufenthaltsbudget muss größer als 0 sein.'); }
+  if (get('land')) { d.land = get('land').toUpperCase(); if (!/^[A-Z]{2}$/.test(d.land)) throw new Error('Land bitte als zweistelligen Code angeben, z. B. JP.'); }
+  return d;
+}
+
+async function viewSuche(idStr, { historyOnly = false } = {}) {
+  setChrome(idStr || historyOnly ? 'Unterkunft / Ergebnisse' : 'Unterkunft / Suche', { tab: idStr || historyOnly ? 'ergebnisse' : 'suche', back: !!idStr });
+  const entryView = parseHash().view;
+  let disposed = false, timer, busy = false, snapshot = null;
+  const requests = new Set();
+  const feedbackStates = new Map();
+  let sort = { key: 'rang', direction: 1 }, snapshotStatus = null;
+  const pages = new Map();
+  const scope = el('div', { class: 'suche' });
+  main.replaceChildren(scope);
+  disposeSuche = () => { disposed = true; clearTimeout(timer); requests.forEach((c) => c.abort()); };
+  const live = () => !disposed && scope.isConnected && parseHash().view === entryView && parseHash().arg === idStr;
+  async function call(name, daten = {}) {
+    const requestController = new AbortController();
+    requests.add(requestController);
+    const timeout = setTimeout(() => requestController.abort(), 25000);
+    try {
+      const j = await http('/aktion', { method: 'POST', body: { aktion: name, daten }, signal: requestController.signal });
+      if (j?.ok !== true || !j.ergebnis || typeof j.ergebnis !== 'object' || j.ergebnis.ok === false) throw new Error(j?.fehler || j?.ergebnis?.fehler || 'Die Schnittstelle konnte die Anfrage nicht bestätigen.');
+      return j.ergebnis;
+    } catch (e) {
+      if (e.name === 'AbortError') throw new Error('Keine Antwort innerhalb von 25 Sekunden. Bitte den gespeicherten Suchlauf prüfen.');
+      throw e;
+    } finally { clearTimeout(timeout); requests.delete(requestController); }
+  }
+  const notice = el('p', { role: 'status', 'aria-live': 'polite', class: 'small' });
+  if (!idStr) {
+    if (!historyOnly) scope.append(el('section', { class: 'stay-hero' },
+      el('p', { class: 'eyebrow' }, 'REISEN, WIE IHR ES LIEBT'),
+      el('h2', {}, 'Wohnen, wo sich die Reise richtig anfühlt.'),
+      el('p', {}, 'Familiengerechte Unterkünfte finden, vergleichen und auswählen. Für eure Reise, mit euren Wünschen.')));
+    else scope.append(el('div', { class: 'stay-page-heading' }, el('p', { class: 'eyebrow' }, 'DEINE REISEN'), el('h2', {}, 'Suchen & Ergebnisse'), el('p', {}, 'Deine bisherigen Suchen – mit Fortschritt und allen gefundenen Unterkünften.')));
+    const form = el('form', { class: 'suche-form' });
+    const fields = el('fieldset');
+    const grid = el('div', { class: 'suche-grid' });
+    const input = (name, label, attrs) => grid.append(el('label', {}, label, el('input', { name, ...attrs })));
+    input('ziel', 'Zielort', { required: true, minlength: 2, maxlength: 200, placeholder: 'z. B. Tokyo' });
+    input('land', 'Land (optional, z. B. JP)', { maxlength: 2, pattern: '[A-Za-z]{2}', placeholder: 'Automatisch erkennen' });
+    input('anreise', 'Anreise', { type: 'date', required: true });
+    input('abreise', 'Abreise', { type: 'date', required: true });
+    input('erwachsene', 'Erwachsene', { type: 'number', min: 1, max: 10, value: 2, required: true });
+    input('kinder_alter', 'Kinderalter (mit Kommas)', { placeholder: 'z. B. 13, 11' });
+    input('budget_eur', 'Gesamtbudget Aufenthalt (€)', { type: 'number', min: 0.01, step: 0.01, placeholder: 'Optional' });
+    input('schlafzimmer_min', 'Schlafzimmer mindestens', { type: 'number', min: 0, max: 6, value: 2, required: true });
+    input('max_je_quelle', 'Treffer je Quelle (5–100)', { type: 'number', min: 5, max: 100, value: 50, required: true });
+    input('limit_usd', 'Suchkostenlimit (USD, 0–10)', { type: 'number', min: 0, max: 10, step: 0.01, value: 1.5, required: true });
+    const submit = el('button', { type: 'submit', class: 'primary' }, 'Anlegen und Suche starten');
+    const sections = el('div', { class: 'suche-panel-grid' });
+    for (const [nr, title, names] of [
+      ['01', 'Reiseziel & Zeitraum', ['ziel', 'land', 'anreise', 'abreise']],
+      ['02', 'Wer reist mit?', ['erwachsene', 'kinder_alter']],
+      ['03', 'Platz & Budget', ['schlafzimmer_min', 'budget_eur']],
+      ['04', 'Quellen & Suchkosten', ['max_je_quelle', 'limit_usd']],
+    ]) {
+      const group = el('div', { class: 'suche-grid' });
+      for (const name of names) group.append(grid.querySelector(`[name="${name}"]`).parentElement);
+      const panel = el('section', { class: 'card stay-form-panel' }, el('h2', {}, el('span', { class: 'step-number' }, nr), title), group);
+      if (nr === '02') panel.append(el('p', { class: 'muted small' }, 'Kinderalter am Anreisetag angeben. Ohne Kinder bleibt das Feld leer.'));
+      if (nr === '04') panel.append(el('div', { class: 'source-chips' }, ['Booking', 'Airbnb', 'Trivago', 'Rakuten · Japan'].map((name) => el('span', {}, name))), el('p', { class: 'muted small' }, 'Die Suche kann Suchkosten und Anbieter-Credits verbrauchen. Das Aufenthaltsbudget gilt separat.'));
+      sections.append(panel);
+    }
+    const tripSummary = el('div', { class: 'trip-summary', 'aria-live': 'polite' });
+    function updateTripSummary() {
+      const f = new FormData(form), nights = (Date.parse(f.get('abreise')) - Date.parse(f.get('anreise'))) / 86400000;
+      const children = String(f.get('kinder_alter') || '').split(',').filter((v) => v.trim()).length;
+      tripSummary.replaceChildren(el('span', {}, 'Eure Reise'), el('strong', {}, Number.isFinite(nights) && nights > 0 ? `${nights} Nächte · ${f.get('erwachsene')} Erwachsene${children ? ` · ${children} Kinder` : ''}` : 'Wohin soll es gehen?'), el('small', {}, f.get('budget_eur') ? sucheEuro(f.get('budget_eur')) + ' Gesamtbudget' : 'Reisedaten eintragen und passende Unterkünfte entdecken.'));
+    }
+    fields.append(sections, el('div', { class: 'search-submit-bar' }, tripSummary, submit));
+    form.append(fields, notice);
+    form.addEventListener('input', updateTripSummary); updateTripSummary();
+    if (!historyOnly) scope.append(form);
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault(); if (busy || !form.reportValidity()) return;
+      let daten; try { daten = sucheFormDaten(form); } catch (e) { notice.textContent = e.message; return; }
+      busy = true; fields.disabled = true; notice.textContent = 'Suchauftrag wird angelegt …';
+      let id = null;
+      try {
+        const created = await call('unterkunft_suchauftrag_anlegen', daten);
+        id = Number(created?.id);
+        if (!Number.isSafeInteger(id) || id <= 0) throw new Error('Die Schnittstelle hat keine gültige Auftragsnummer geliefert. Bitte letzte Suchaufträge prüfen.');
+        if (!live()) return;
+        notice.replaceChildren('Auftrag angelegt. Suche wird gestartet … ', el('a', { href: '#/suche/' + id }, 'Auftrag #' + id));
+        await call('unterkunft_suche_starten', { suchauftrag_id: id });
+        if (live()) route('suche', id);
+      } catch (e) {
+        if (!live()) return;
+        if (id) {
+          // Nicht erneut anlegen: auch bei verlorener Start-Antwort bleibt die ID zugänglich.
+          notice.replaceChildren(e.message + ' ', el('a', { href: '#/suche/' + id }, 'Gespeicherten Auftrag #' + id + ' öffnen'));
+          submit.hidden = true;
+        } else {
+          notice.textContent = e.message + ' Vor erneutem Anlegen die letzten Suchaufträge aktualisieren; die Anfrage könnte bereits gespeichert sein.';
+          fields.disabled = false;
+        }
+      } finally { busy = false; }
+    });
+    const recent = el('section', { class: 'card recent-searches' }, el('h2', {}, 'Letzte Suchaufträge'));
+    const list = el('div', { class: 'recent-grid' });
+    const refresh = el('button', { type: 'button', onclick: loadRecent }, 'Suchaufträge aktualisieren');
+    recent.append(refresh, list); scope.append(recent);
+    async function loadRecent() {
+      if (busy) return;
+      refresh.disabled = true;
+      try {
+        const r = await call('unterkunft_suchlauf_lesen'); if (!live()) return;
+        const rows = Array.isArray(r) ? r : r?.suchauftraege;
+        if (!Array.isArray(rows)) throw new Error('Unerwartete Antwort beim Lesen der letzten Suchaufträge.');
+        list.replaceChildren(...rows.map((a) => el('a', { class: 'recent-trip', href: '#/suche/' + a.id }, el('span', { class: 'eyebrow' }, 'REISE #' + a.id), el('strong', {}, a.ziel), el('span', {}, `${fmtDate(a.anreise)}–${fmtDate(a.abreise)}`), el('span', { class: 'recent-trip-meta' }, `${a.treffer ?? '–'} Treffer · ${a.status} ↗`))));
+        if (!rows.length) list.append(el('div', { class: 'stay-empty' }, el('strong', {}, 'Die nächste Reise beginnt hier.'), el('p', {}, 'Sobald du eine Suche startest, findest du hier ihren Fortschritt und ihre Ergebnisse.'), historyOnly ? el('a', { href: '#/suche' }, 'Erste Unterkunft suchen →') : null));
+      } catch (e) { if (live()) list.textContent = e.message; }
+      finally { refresh.disabled = false; }
+    }
+    await loadRecent(); return;
+  }
+  const id = Number(idStr);
+  if (!Number.isSafeInteger(id) || id <= 0) { scope.append(el('p', {}, 'Ungültige Suchauftragsnummer.')); return; }
+  scope.append(el('div', { class: 'stay-page-heading' }, el('p', { class: 'eyebrow' }, 'EIN GUTER ORT FÜR EURE REISE'), el('h2', {}, 'Unterkünfte vergleichen')));
+  const reportText = el('div', { class: 'feedback-report' });
+  const reportNotice = el('p', { role: 'status' });
+  const reportButton = el('button', { type: 'button', onclick: async () => {
+    reportButton.disabled = true; reportNotice.textContent = 'Bericht wird geladen …';
+    try {
+      const r = await call('unterkunft_rueckmeldung_report');
+      if (!live()) return;
+      if (typeof r?.text !== 'string') throw new Error('Bericht unvollständig.');
+      reportText.replaceChildren(sucheReport(r.text)); reportNotice.textContent = '';
+    } catch (e) { if (live()) reportNotice.textContent = e.message; }
+    finally { if (live()) reportButton.disabled = false; }
+  } }, 'Rückmeldungsbericht laden');
+  const report = el('details', { class: 'card' }, el('summary', {}, 'Deine Rückmeldungen auswerten'),
+    el('p', {}, 'Ab 20 bewerteten Unterkünften werden Muster ausgewertet. Deine Rückmeldungen ändern die Rangfolge und Gewichtung nicht automatisch.'), reportButton, reportNotice, reportText);
+  const summary = el('section', { class: 'card stay-run-summary' });
+  const results = el('section', { 'aria-label': 'Suchergebnisse' });
+  const filter = el('input', { type: 'search', placeholder: 'Name oder Anbieter', oninput: () => { pages.clear(); draw(); } });
+  const sortSelect = el('select', { 'aria-label': 'Sortieren nach', onchange: () => changeSort(sortSelect.value) },
+    [['rang', 'Empfohlene Rangfolge'], ['preis', 'Gesamtpreis'], ['score', 'Score'], ['datenlage', 'Datenlage'], ['bewertungen', 'Anzahl Bewertungen'], ['entfernung', 'Luftlinie zum Ziel'], ['gehzeit', 'Gehzeit zur Station'], ...SUCHE_NOTEN.map(([key, label]) => ['note_' + key, label]), ['name', 'Name']].map(([key, label]) => el('option', { value: key }, label)));
+  const directionButton = el('button', { type: 'button', onclick: () => { sort.direction *= -1; pages.clear(); draw(); } }, 'Aufsteigend ↑');
+  const pageSize = el('select', { 'aria-label': 'Treffer je Liste und Seite', onchange: () => { pages.clear(); draw(); } }, [10, 25, 50].map(n => el('option', { value: n }, String(n))));
+  const filterCount = el('p', { class: 'small', role: 'status' });
+  const controls = el('section', { class: 'card result-controls', hidden: true, 'aria-label': 'Treffer auswählen und sortieren' },
+    el('label', {}, 'Treffer filtern', filter), el('label', {}, 'Sortieren nach', sortSelect),
+    el('div', { class: 'sort-direction' }, directionButton), el('label', {}, 'Treffer je Liste und Seite', pageSize), filterCount);
+  function changeSort(key, toggle = false) {
+    sort = { key, direction: toggle && sort.key === key ? -sort.direction : ['name', 'preis', 'entfernung', 'gehzeit', 'rang'].includes(key) ? 1 : -1 };
+    pages.clear(); draw();
+  }
+  const refresh = el('button', { onclick: () => poll() }, 'Aktualisieren');
+  const start = el('button', { class: 'primary', hidden: true, onclick: async () => {
+    if (busy) return; busy = true; start.disabled = refresh.disabled = true;
+    let error = '';
+    try { await call('unterkunft_suche_starten', { suchauftrag_id: id }); }
+    catch (e) { error = e.message; }
+    finally { busy = false; }
+    if (live()) {
+      await poll();
+      if (error && live()) notice.textContent = 'Start nicht bestätigt: ' + error + ' Bitte den aktuellen Status prüfen, bevor du erneut startest.';
+    }
+  } }, 'Diesen Entwurf starten');
+  const cancel = el('button', { hidden: true, onclick: async () => {
+    if (busy) return;
+    busy = true; clearTimeout(timer); cancel.disabled = refresh.disabled = start.disabled = true;
+    let error = '';
+    try { await call('unterkunft_suche_abbrechen', { suchauftrag_id: id }); }
+    catch (e) { error = e.message; }
+    finally { busy = false; }
+    if (live()) {
+      await poll();
+      if (error && live()) notice.textContent = 'Abbrechen nicht bestätigt: ' + error + ' Bitte den aktuellen Status prüfen.';
+    }
+  } }, 'Suche abbrechen');
+  scope.append(el('div', { class: 'actions' }, el('a', { href: '#/suche' }, 'Neue Suche / letzte Aufträge'), refresh, start, cancel), notice, summary, controls, results, report);
+  function draw() {
+    if (!snapshot) return;
+    const openDetails = new Set([...results.querySelectorAll('details[open][data-detail]')].map((n) => n.dataset.detail));
+    const a = snapshot.suchauftrag, k = snapshot.kosten || {}, steps = Array.isArray(a.schrittkette) ? a.schrittkette : [];
+    const phase = { final: snapshotStatus?.status === 'fertig' && snapshotStatus?.fertig === true, failed: snapshotStatus?.status !== 'fertig' && SUCHE_ENDE.has(snapshotStatus?.status) };
+    summary.replaceChildren(el('h2', {}, `${a.ziel} · #${a.id}`),
+      el('p', {}, `${fmtDate(a.anreise)}–${fmtDate(a.abreise)} · ${a.erwachsene} Erwachsene · ${(a.kinder_alter || []).length} Kinder`),
+      el('p', {}, 'Status: ', el('strong', {}, a.status), ' · ', snapshot.treffer.length, ' Treffer'),
+      el('p', { class: 'small' }, `Suchkosten: ${fmtUsd(k.ist_usd) || 'unbekannt'} · reserviert: ${fmtUsd(k.reserviert_usd) || 'unbekannt'} · Limit: ${fmtUsd(k.limit_usd ?? a.limit_usd) || 'unbekannt'} · Anbieter-Einheiten: ${k.ist_einheiten ?? 'unbekannt'} / ${k.limit_einheiten ?? 'unbekannt'}`),
+      el('ul', { class: 'suche-progress' }, steps.map((s) => el('li', {},
+        `${s.quelle === 'bewerten' ? 'Bewertung und Gegenprüfung' : SUCHE_QUELLEN[s.quelle] || s.quelle}: ${s.status}${s.quelle === 'bewerten' ? '' : ` · ${s.treffer ?? 0} Treffer`}`,
+        s.kosten_usd != null ? ` · ${fmtUsd(s.kosten_usd)}` : '', s.credits != null ? ` · ${s.credits} Credits` : '',
+        s.fehler ? el('p', { class: 'err-text' }, String(s.fehler)) : null,
+        s.gehzeit?.fehler ? el('p', { class: 'err-text' }, 'Gehzeiten: ' + s.gehzeit.fehler) : null))),
+      el('p', { class: 'erg-warnung' }, phase.final ? 'Bewertung abgeschlossen. Endscore aus Raum, Lage, Preis-Leistung, Bewertungen und Eignung. Die Datenlage zeigt die Abdeckung; die Ampel beschreibt die Verlässlichkeit, nicht die Qualität. Offene Angaben und Einwände bleiben relevant.' : phase.failed ? 'Bewertung unterbrochen. Die Rangliste ist noch nicht abschließend; vorhandene Ergebnisse bleiben sichtbar.' : 'Zwischenstand: Die Rangliste ist erst nach Abschluss der Bewertungsstufe fertig. Teilnoten und Datenlage zeigen, welche Angaben bereits vorliegen.'));
+    results.replaceChildren();
+    controls.hidden = false;
+    sortSelect.value = sort.key;
+    directionButton.textContent = sort.direction === 1 ? 'Aufsteigend ↑' : 'Absteigend ↓';
+    const needle = filter.value.trim().toLocaleLowerCase('de');
+    const rows = snapshot.treffer.filter(t => [t.name, t.quelle, SUCHE_QUELLEN[t.quelle], t.angebot?.anbieter,
+      ...(Array.isArray(t.weitere_angebote) ? t.weitere_angebote.flatMap(a => [a?.anbieter, a?.quelle, SUCHE_QUELLEN[a?.quelle]]) : [])].some(value => String(value || '').toLocaleLowerCase('de').includes(needle)));
+    filterCount.textContent = `${rows.length} von ${snapshot.treffer.length} Treffern · Sortierung gilt für die gesamte Liste.`;
+    const groups = [
+      ['A', phase.final ? 'Liste A – Rangliste' : 'Liste A – vorläufig', rows.filter((t) => sucheGruppe(t) === 'A')],
+      ['B', 'Liste B – Angaben prüfen', rows.filter((t) => sucheGruppe(t) === 'B')],
+      ['offen', 'Weitere Treffer – noch nicht vollständig bewertet', rows.filter((t) => sucheGruppe(t) === 'offen')],
+      ['ausgeschlossen', 'Ausgeschlossene Treffer', rows.filter((t) => sucheGruppe(t) === 'ausgeschlossen')],
+    ];
+    for (const [key, title, items] of groups) {
+      if (!items.length && !['A', 'B'].includes(key)) continue;
+      const section = el(key === 'ausgeschlossen' ? 'details' : 'section', { class: 'card suche-results' });
+      section.append(el(key === 'ausgeschlossen' ? 'summary' : 'h2', key === 'ausgeschlossen' ? {} : { tabindex: -1 }, `${title} (${items.length})`));
+      const size = Number(pageSize.value), totalPages = Math.max(1, Math.ceil(items.length / size));
+      const page = Math.min(pages.get(key) || 0, totalPages - 1);
+      pages.set(key, page);
+      const visible = [...items].sort((a, b) => sucheVergleich(a, b, sort.key, sort.direction)).slice(page * size, (page + 1) * size);
+      if (!items.length) section.append(el('p', { class: 'muted' }, needle ? 'Keine Treffer für diesen Filter.' : 'Keine Treffer in dieser Liste.'));
+      else section.append(sucheTabelle(visible, sort, (sortKey) => {
+        const wasOpen = section.open;
+        changeSort(sortKey, true);
+        const replacement = results.querySelector(`[data-group="${key}"]`);
+        if (wasOpen) replacement.open = true;
+        replacement.querySelector(`[data-sort="${sortKey}"]`)?.focus({ preventScroll: true });
+      }, phase.final && ['A', 'B'].includes(key), (t) => sucheRueckmeldung(t, feedbackStates, call, live)));
+      if (totalPages > 1) {
+        const turnPage = offset => {
+          pages.set(key, page + offset); draw();
+          const heading = results.querySelector(`[data-group="${key}"]`).firstElementChild;
+          heading.focus({ preventScroll: true }); heading.scrollIntoView({ block: 'start' });
+        };
+        section.append(el('nav', { class: 'result-pages', 'aria-label': 'Seiten für ' + title },
+          el('button', { type: 'button', disabled: page === 0, onclick: () => turnPage(-1) }, 'Vorherige Seite'),
+          el('span', {}, `${page * size + 1}–${Math.min((page + 1) * size, items.length)} von ${items.length} · Seite ${page + 1} / ${totalPages}`),
+          el('button', { type: 'button', disabled: page === totalPages - 1, onclick: () => turnPage(1) }, 'Nächste Seite')));
+      }
+      section.dataset.group = key; results.append(section);
+      if (key === 'ausgeschlossen') section.dataset.detail = 'ausgeschlossen';
+    }
+    results.querySelectorAll('details[data-detail]').forEach((n) => { n.open = openDetails.has(n.dataset.detail); });
+    if (rows.some((t) => t.quelle === 'rakuten_travel')) results.append(el('p', { class: 'small' }, 'Supported by Rakuten Developers'));
+  }
+  function drawProgress(r) {
+    start.hidden = r.status !== 'entwurf';
+    cancel.hidden = !['wartet', 'laeuft'].includes(r.status);
+    const k = r.kosten || {}, z = r.zaehler || {};
+    summary.replaceChildren(el('h2', {}, `${r.ziel || 'Suchauftrag'} · #${id}`),
+      el('p', {}, `${fmtDate(r.anreise)}–${fmtDate(r.abreise)}`),
+      el('p', {}, 'Status: ', el('strong', {}, r.status),
+        r.status === 'wartet' ? ` · Warteschlange: Position ${r.warteschlange_position ?? 'wird ermittelt'}` : ''),
+      el('p', {}, r.fortschritt || 'Suche wird vorbereitet.'),
+      el('ul', { class: 'suche-progress' }, (Array.isArray(r.schritte) ? r.schritte : []).filter(s => s.fehler || s.hinweis).map(s => el('li', {}, `${SUCHE_QUELLEN[s.schritt] || s.schritt}: ${s.fehler || s.hinweis}`))),
+      el('p', { class: 'small' }, `Gesammelt: ${z.gesammelt ?? 0} · Liste A: ${z.liste_a ?? 0} · Liste B: ${z.liste_b ?? 0} · Bildprüfung: ${z.bild_geprueft ?? 0} · Gegenprüfung: ${z.gegengeprueft ?? 0}`),
+      el('p', { class: 'small' }, `Suchkosten: ${fmtUsd(k.ist_usd) || 'unbekannt'} · reserviert: ${fmtUsd(k.reserviert_usd) || 'unbekannt'} · Limit: ${fmtUsd(k.limit_usd) || 'unbekannt'}`),
+      el('p', { class: 'muted' }, 'Die Ergebnisliste wird nach Abschluss geladen. Vorhandene Treffer bleiben auch nach einem Abbruch erhalten.'));
+  }
+  async function poll() {
+    if (!live() || busy) return;
+    clearTimeout(timer); busy = true; refresh.disabled = start.disabled = cancel.disabled = true;
+    try {
+      const r = await call('unterkunft_suche_status', { suchauftrag_id: id });
+      if (!live()) return;
+      if (!r || typeof r.status !== 'string' || typeof r.fertig !== 'boolean') throw new Error('Statusantwort unvollständig.');
+      drawProgress(r);
+      const terminal = r.fertig || ['fehler', 'abgebrochen', 'gestoppt', 'gestoppt_budget'].includes(r.status);
+      if (terminal) {
+        const feedbackAtRead = new Map([...feedbackStates].map(([key, value]) => [key, { revision: value.revision, pending: value.pending }]));
+        const data = await call('unterkunft_suchlauf_lesen', { suchauftrag_id: id });
+        if (!live()) return;
+        if (!data?.suchauftrag || !Array.isArray(data.treffer)) throw new Error('Suchlauf nicht gefunden oder Antwort unvollständig.');
+        if (data.treffer.some(t => !t || typeof t !== 'object')) throw new Error('Die Trefferliste ist unvollständig.');
+        for (const t of data.treffer) {
+          const state = feedbackStates.get(t.treffer_id), atRead = feedbackAtRead.get(t.treffer_id);
+          if (!state || state.pending || atRead?.pending || state.revision !== atRead?.revision) continue;
+          state.saved = t.rueckmeldung || null;
+          if (!state.dirty) state.grund = state.saved?.grund || '';
+          state.dirty = state.grund !== (state.saved?.grund || ''); state.message = '';
+        }
+        snapshot = data; snapshotStatus = r; draw();
+        notice.textContent = r.status === 'fertig' ? 'Bewertung abgeschlossen. Rangliste aktualisiert.' : r.status === 'gestoppt_budget' ? 'Kostenlimit erreicht. Vorhandene Treffer bleiben sichtbar.' : 'Suche ' + r.status + '. Vorhandene Treffer bleiben sichtbar.';
+      } else if (r.status !== 'entwurf') {
+        notice.textContent = r.status === 'wartet' ? 'Die Suche wartet und startet automatisch. Aktualisierung alle 7 Sekunden.' : 'Suche läuft. Bewertung und Gegenprüfung werden abgewartet. Aktualisierung alle 7 Sekunden.';
+        timer = setTimeout(poll, 7000);
+      } else notice.textContent = 'Entwurf gespeichert. Die Suche wurde noch nicht gestartet.';
+    } catch (e) {
+      if (live()) notice.textContent = e.message + ' Die automatische Aktualisierung pausiert. Mit „Aktualisieren“ erneut lesen; es wird keine neue Suche gestartet.';
+    } finally { busy = false; if (live()) { refresh.disabled = false; start.disabled = false; cancel.disabled = false; } }
+  }
+  await poll();
+}
+
+function sucheTabelle(items, sort, onSort, final = false, feedback = () => null) {
+  const table = el('table', { class: 'suche-table' });
+  const scoreLabel = final ? 'Endscore (%)' : 'Score (Zwischenstand)';
+  const headings = [['name', 'Unterkunft'], ['preis', 'Gesamtpreis'], ['score', scoreLabel], ['datenlage', 'Datenlage (%)'], ['bewertungen', 'Bewertungen'], ['entfernung', 'Luftlinie zum Ziel']];
+  table.append(el('caption', {}, el('button', { type: 'button', 'data-sort': 'rang', onclick: () => onSort('rang') }, 'Nach Rang sortieren' + (sort.key === 'rang' ? sort.direction === 1 ? ' ↑' : ' ↓' : ''))));
+  table.append(el('thead', {}, el('tr', {}, headings.map(([key, title]) => el('th', { scope: 'col', 'aria-sort': sort.key === key ? sort.direction === 1 ? 'ascending' : 'descending' : 'none' },
+    el('button', { type: 'button', 'data-sort': key, onclick: () => onSort(key) }, title, sort.key === key ? sort.direction === 1 ? ' ↑' : ' ↓' : ' ↕'))), el('th', { scope: 'col' }, 'Hinweise / Details'))));
+  const tbody = el('tbody');
+  for (const t of [...items].sort((a, b) => sucheVergleich(a, b, sort.key, sort.direction))) {
+    const a = t.angebot || {}, b = t.bewertung || {};
+    const warnings = [...new Set([...(Array.isArray(b.warnungen) ? b.warnungen : []), ...(a.preis_art === 'geschaetzt' || b.preis_geschaetzt ? ['preis_geschaetzt'] : [])])];
+    const url = sucheLink(a.link), estimated = warnings.includes('preis_geschaetzt');
+    const review = b.gegenpruefung?.pruefung;
+    if (review?.urteil === 'einwand' && !warnings.includes('gegenpruefung_einwand')) warnings.push('gegenpruefung_einwand');
+    const objection = review?.urteil === 'einwand' || warnings.includes('gegenpruefung_einwand') ? el('div', { class: 'review-objection' }, el('strong', {}, 'Gegenprüfung hat Einwände'),
+      el('ul', {}, (Array.isArray(review?.einwaende) ? review.einwaende : []).map((v) => el('li', {}, typeof v === 'string' ? v : renderAny(v)))),
+      review?.hinweis ? el('p', {}, review.hinweis) : null) : null;
+    const info = el('details', { 'data-detail': String(t.treffer_id) }, el('summary', {}, 'Angaben und Prüfungen'),
+      el('p', {}, b.begruendung || 'Noch keine Begründung verfügbar.'),
+      el('p', {}, 'Offene Prüfpunkte: ' + (sucheTexte(b.gegenpruefung?.luecken).join(', ') || 'keine angegeben')),
+      el('p', {}, 'Preisstand: ' + (fmtDate(a.abrufzeit) || 'unbekannt')),
+      a.schaetz_basis ? el('p', {}, 'Schätzung: ' + a.schaetz_basis) : null,
+      a.kurs != null ? el('p', {}, `Umrechnung ${a.waehrung}: ${a.kurs} · Kursdatum ${fmtDate(a.kurs_datum)}`) : null,
+      el('p', {}, 'Kategorie: ' + (a.kategorie_name || 'unbekannt')),
+      sucheZahl(t.station_m) !== null ? el('p', {}, `Luftlinie zur Station: ${Number(t.station_m).toLocaleString('de-DE', { maximumFractionDigits: 0 })} m`) : null,
+      el('p', {}, 'Ausschlussgrund: ' + (t.ko_grund || 'keiner angegeben')),
+      el('h3', {}, 'Zimmerangaben'), renderAny(t.kategorien || []),
+      el('h3', {}, 'Bildbewertung'), b.bild_urteil ? el('div', {}, el('p', {}, 'KI-Einschätzung der Bilder; kein Nachweis der Ausstattung.'), el('p', {}, b.bild_urteil.ein_satz || ''),
+        el('p', {}, 'Zu sehen: ' + (Array.isArray(b.bild_urteil.zeigt) ? b.bild_urteil.zeigt.join(', ') : b.bild_urteil.zeigt || 'unbekannt')),
+        sucheBalken(b.bild_urteil, [['hell', 'Hell'], ['modern', 'Modern'], ['gepflegt', 'Gepflegt'], ['geraeumig', 'Geräumig']]),
+        el('ul', {}, sucheTexte(b.bild_urteil.auffaelligkeiten).map((v) => el('li', {}, v)))) : el('p', {}, 'Noch keine Bildbewertung vorhanden.'),
+      el('h3', {}, 'Gegenprüfung'), el('p', {}, review?.urteil === 'ok' ? 'Keine Einwände in der Gegenprüfung.' : review?.urteil === 'einwand' ? 'Einwände beachten (oben aufgeführt).' : 'Noch keine Gegenprüfung vorhanden.'),
+      review?.urteil === 'ok' && review.hinweis ? el('p', {}, review.hinweis) : null);
+    const td = (label, ...content) => el('td', { 'data-label': label }, ...content);
+    tbody.append(el('tr', {},
+      td('Unterkunft', el('strong', {}, t.name || 'Ohne Namen'), t.topf === 'shortlist' && b.liste === 'A' && sucheZahl(b.rang) !== null ? el('div', { class: 'rank-badge' }, 'Rang ' + b.rang + (final ? '' : ' · vorläufig')) : null, el('div', { class: 'muted small' }, SUCHE_QUELLEN[t.quelle] || t.quelle || 'Quelle unbekannt'),
+        url ? el('a', { href: url, target: '_blank', rel: 'noopener noreferrer' }, 'Angebot öffnen ↗') : el('span', { class: 'muted small' }, 'Kein Angebotslink')),
+      td('Gesamtpreis', (estimated && sucheZahl(a.preis_gesamt_eur) !== null ? 'ca. ' : '') + sucheEuro(a.preis_gesamt_eur) + (estimated ? ' (geschätzt)' : '')),
+      td(scoreLabel, sucheZahl(b.score) ?? '–'), td('Datenlage (%)', sucheDatenlage(t) ?? '–'),
+      td('Bewertungen', sucheZahl(t.bewertungen) ?? '–', el('div', { class: 'small' }, t.note != null ? `${t.note} / ${t.note_skala ?? '?'}` : 'Note unbekannt')),
+      td('Luftlinie zum Ziel', sucheZahl(t.luftlinie_ziel_m) === null ? 'unbekannt' : (t.luftlinie_ziel_m / 1000).toLocaleString('de-DE', { maximumFractionDigits: 1 }) + ' km',
+        el('div', { class: 'small' }, sucheZahl(t.gehzeit_min) === null ? 'Gehzeit unbekannt' : `${t.gehzeit_art === 'geschaetzt' ? 'ca. ' : ''}${t.gehzeit_min} Min. zu Fuß${t.station_name ? ' · ' + t.station_name : ''} (${t.gehzeit_art === 'geschaetzt' ? 'geschätzt' : ['route', 'ors'].includes(t.gehzeit_art) ? 'berechneter Fußweg' : 'Art unbekannt'})`)),
+      td('Hinweise / Details', el('div', { class: 'suche-badges' },
+        el('span', { class: 'pill' }, t.topf === 'unbewertet' ? 'Unbewertet' : t.topf === 'ausgeschlossen' ? 'Ausgeschlossen' : 'Shortlist'),
+        el('span', { class: 'pill', title: 'Verlässlichkeit der Angaben, nicht Qualität der Unterkunft' }, 'Verlässlichkeit: ' + (b.ampel || 'unbekannt')),
+        warnings.map((w) => el('span', { class: 'suche-warning' }, SUCHE_WARNUNGEN[w] || w))), objection, sucheBalken(b.spaltennoten, SUCHE_NOTEN), info, sucheAngebote(t), feedback(t))));
+  }
+  table.append(tbody);
+  return el('div', { class: 'suche-table-scroll', tabindex: 0, role: 'region', 'aria-label': 'Sortierbare Unterkunftstabelle' }, table);
+}
+
+const SUCHE_URTEILE = { passt: 'Passt', passt_nicht: 'Passt nicht', zu_teuer: 'Zu teuer', gebucht: 'Gebucht' };
+const sucheTexte = value => Array.isArray(value) ? value.filter(v => typeof v === 'string') : typeof value === 'string' ? [value] : [];
+function sucheRueckmeldung(t, states, call, live) {
+  if (!states.has(t.treffer_id)) states.set(t.treffer_id, { grund: t.rueckmeldung?.grund || '', saved: t.rueckmeldung, pending: false, dirty: false, revision: 0, message: '' });
+  const state = states.get(t.treffer_id);
+  const box = el('div', { class: 'stay-feedback', 'data-feedback': String(t.treffer_id) });
+  const status = el('p', { role: 'status', class: 'small' });
+  const reason = el('textarea', { maxlength: 1000, rows: 2, 'aria-label': 'Optionaler Grund für ' + t.name, placeholder: 'Grund (optional, maximal 1000 Zeichen)', oninput: () => { state.grund = reason.value; state.dirty = state.grund !== (state.saved?.grund || ''); } });
+  reason.value = state.grund;
+  const buttons = Object.entries(SUCHE_URTEILE).map(([urteil, label]) => el('button', { type: 'button', onclick: async () => {
+    if (state.pending) return;
+    state.pending = true; state.revision++; state.message = 'Wird gespeichert …'; update();
+    const grund = state.grund;
+    try {
+      await call('unterkunft_rueckmeldung_geben', { treffer_id: t.treffer_id, urteil, grund });
+      if (!live()) return;
+      state.saved = { urteil, grund }; t.rueckmeldung = state.saved;
+      state.dirty = false;
+      state.message = 'Gespeichert: ' + label + '. Die Rangfolge bleibt unverändert.';
+    } catch (e) { if (live()) state.message = 'Speichern nicht bestätigt: ' + e.message + ' Bitte vor erneutem Speichern den Auftrag neu öffnen.'; }
+    finally { state.pending = false; state.revision++; if (live()) state.render(); }
+  } }, label));
+  function update() {
+    reason.disabled = state.pending;
+    buttons.forEach((button, i) => {
+      button.disabled = state.pending;
+      button.setAttribute('aria-pressed', String(Object.keys(SUCHE_URTEILE)[i] === state.saved?.urteil));
+    });
+    status.textContent = state.message || (state.saved ? 'Deine Rückmeldung: ' + (SUCHE_URTEILE[state.saved.urteil] || state.saved.urteil) : 'Noch keine Rückmeldung.');
+  }
+  // Keep the current rendered card synchronized even if sorting rebuilds it during a request.
+  state.render = update;
+  box.append(el('strong', {}, 'Deine Rückmeldung'), reason, el('div', { class: 'actions' }, buttons), status);
+  update();
+  return box;
+}
+
+function sucheAngebote(t) {
+  if (!Array.isArray(t.weitere_angebote) || !t.weitere_angebote.length) return null;
+  return el('details', { 'data-detail': 'angebote-' + t.treffer_id }, el('summary', {}, `Weitere Angebote (${t.weitere_angebote.length})`),
+    el('p', {}, 'Zimmer und Bedingungen können abweichen. Zimmer nicht abgeglichen.'),
+    el('ul', {}, t.weitere_angebote.filter(a => a && typeof a === 'object').map(a => {
+      const url = sucheLink(a.link);
+      return el('li', {}, el('strong', {}, a.anbieter || SUCHE_QUELLEN[a.quelle] || a.quelle || 'Anbieter'),
+        el('p', {}, (a.preis_art === 'geschaetzt' ? 'ca. ' : '') + sucheEuro(a.preis_gesamt_eur) + (a.preis_art === 'geschaetzt' ? ' (geschätzt)' : '')),
+        a.kategorie_name ? el('p', {}, a.kategorie_name) : null, a.hinweis ? el('p', {}, a.hinweis) : null,
+        url ? el('a', { href: url, target: '_blank', rel: 'noopener noreferrer' }, 'Weiteres Angebot öffnen ↗') : el('span', {}, 'Kein Angebotslink'));
+    })));
+}
+
+function sucheReport(text) {
+  return md(text, { links: false });
+}
+
+function sucheBalken(values, labels) {
+  return el('div', { class: 'score-bars' }, labels.map(([key, label]) => {
+    const n = sucheZahl(values?.[key]);
+    const valid = n !== null && n >= 0 && n <= 10;
+    return el('div', { class: 'score-bar-row' }, el('span', {}, label),
+      valid ? el('meter', { min: 0, max: 10, value: n, 'aria-label': label + ': ' + n + ' von 10' }) : el('span', { class: 'score-unknown', 'aria-hidden': true }, '—'),
+      el('span', {}, valid ? n.toLocaleString('de-DE') + '/10' : 'unbekannt'));
+  }));
 }
 
 // ---------- Start ----------

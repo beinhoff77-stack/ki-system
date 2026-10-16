@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>KI-System</title>
-<meta name="description" content="Cockpit für Sebastians KI-System – Council-Aufträge, Ergebnisse, Einstellungen, Werkstatt.">
+<meta name="description" content="Council und Unterkunftssuche – Aufträge, Reisen und Ergebnisse in einer App.">
 <meta name="theme-color" content="#f4f6f8" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#101721" media="(prefers-color-scheme: dark)">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -19,6 +19,12 @@
 </head>
 <body>
 
+<nav class="area-nav" id="areas" aria-label="App-Bereiche" hidden>
+  <a class="system-brand" href="#/start" aria-label="KI-System Startseite"><span aria-hidden="true">✳</span> KI-System</a>
+  <div class="area-switch"><a href="#/auftraege" data-area="council">Council</a><a href="#/suche" data-area="unterkunft">Unterkunft</a></div>
+  <a class="area-home" href="#/start">Bereiche <span aria-hidden="true">↗</span></a>
+</nav>
+
 <header class="top">
   <button class="iconbtn" id="btn-back" hidden aria-label="Zurück">‹</button>
   <h1 id="title">KI-System</h1>
@@ -28,11 +34,15 @@
 <main id="main" class="view"></main>
 
 <nav class="tabs" id="tabs" hidden aria-label="Hauptnavigation">
-  <div class="brand"><span class="brand-mark" aria-hidden="true"></span>Council</div>
-  <button data-view="auftraege"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14 3H6v18h12V7zM14 3v5h4M9 12h6M9 16h6"/></svg>Aufträge<span class="badge" id="badge-neu" hidden></span></button>
-  <button data-view="neu"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Neu</button>
-  <button data-view="einstellungen"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="3"/><circle cx="15" cy="17" r="3"/></svg>Einstellungen</button>
-  <button data-view="werkstatt"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14 5a5 5 0 0 0-6 6l-5 6 4 4 6-6a5 5 0 0 0 6-6l-3 3-4-4z"/></svg>Werkstatt</button>
+  <div class="brand"><span class="brand-mark" aria-hidden="true"></span><span id="area-brand">Council</span></div>
+  <p class="area-caption" id="area-caption"></p>
+  <button data-area="council" data-view="auftraege"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14 3H6v18h12V7zM14 3v5h4M9 12h6M9 16h6"/></svg>Aufträge<span class="badge" id="badge-neu" hidden></span></button>
+  <button data-area="council" data-view="neu"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Neuer Auftrag</button>
+  <button data-area="unterkunft" data-view="suche"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"/><path d="m15 15 6 6"/></svg>Suchen</button>
+  <button data-area="unterkunft" data-view="ergebnisse"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h1M3 12h1M3 18h1"/></svg>Ergebnisse</button>
+  <button data-area="council" data-view="einstellungen"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="3"/><circle cx="15" cy="17" r="3"/></svg>Einstellungen</button>
+  <button data-area="council" data-view="werkstatt"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14 5a5 5 0 0 0-6 6l-5 6 4 4 6-6a5 5 0 0 0 6-6l-3 3-4-4z"/></svg>Werkstatt</button>
+  <div class="area-footer"><span>DEIN KI-SYSTEM</span><a href="#/start">Bereich wechseln ↗</a></div>
 </nav>
 
 <div id="toast" class="toast" hidden></div>

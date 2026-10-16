@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.14.1';
+const APP_VERSION = '0.15.0';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -13,9 +13,8 @@ const el = (tag, attrs = {}, ...kids) => {
   const n = document.createElement(tag);
   for (const [k, v] of Object.entries(attrs)) {
     if (k === 'class') n.className = v;
-    else if (k === 'html') n.innerHTML = v;
     else if (k.startsWith('on')) n.addEventListener(k.slice(2), v);
-    else if (v !== null && v !== undefined && v !== false) n.setAttribute(k, v === true ? '' : v);
+    else if (v !== null && v !== undefined && (v !== false || k.startsWith('aria-'))) n.setAttribute(k, typeof v === 'boolean' && k.startsWith('aria-') ? String(v) : v === true ? '' : v);
   }
   for (const k of kids.flat()) if (k !== null && k !== undefined) n.append(k.nodeType ? k : document.createTextNode(String(k)));
   return n;
@@ -40,7 +39,7 @@ function md(text, { links = true } = {}) {
   const copy = node => {
     if (node.nodeType === Node.TEXT_NODE) return document.createTextNode(node.textContent);
     if (['SCRIPT', 'STYLE', 'IFRAME', 'OBJECT', 'TEMPLATE', 'SVG', 'MATH'].includes(node.nodeName)) return document.createDocumentFragment();
-    const url = links && node.nodeName === 'A' ? sucheLink(node.getAttribute('href')) : null;
+    const url = links && node.nodeName === 'A' ? sucheLink(node.getAttribute('href'), { allowHttp: true }) : null;
     const out = url ? el('a', { href: url, target: '_blank', rel: 'noopener noreferrer' }) : allowed.has(node.nodeName) ? document.createElement(node.nodeName.toLowerCase()) : document.createDocumentFragment();
     node.childNodes.forEach(child => out.append(copy(child)));
     return out;
@@ -175,7 +174,7 @@ function parseHash() {
 window.addEventListener('hashchange', render);
 
 function setChrome(title, { back = false, showTabs = true, tab = null } = {}) {
-  const area = current.view === 'login' ? 'login' : current.view === 'start' ? 'start' : ['suche', 'ergebnisse'].includes(current.view) ? 'unterkunft' : 'council';
+  const area = current.view === 'login' ? 'login' : current.view === 'start' ? 'start' : ['suche', 'ergebnisse', 'viertel'].includes(current.view) ? 'unterkunft' : 'council';
   document.body.dataset.area = area;
   for (const meta of document.querySelectorAll('meta[name="theme-color"]')) meta.content = ['unterkunft', 'start'].includes(area) ? '#f6f4ec' : meta.media.includes('dark') ? '#101721' : '#f4f6f8';
   $('#areas').hidden = area === 'login';
@@ -206,7 +205,7 @@ async function render() {
   disposeSuche = () => {};
   current = parseHash();
   if (!store.token && current.view !== 'login') { route('login'); return; }
-  const views = { start: viewStart, login: viewLogin, auftraege: viewAuftraege, auftrag: viewAuftrag, neu: viewNeu, einstellungen: viewEinstellungen, werkstatt: viewWerkstatt, suche: viewSuche, ergebnisse: () => viewSuche(null, { historyOnly: true }) };
+  const views = { start: viewStart, login: viewLogin, auftraege: viewAuftraege, auftrag: viewAuftrag, neu: viewNeu, einstellungen: viewEinstellungen, werkstatt: viewWerkstatt, suche: viewSuche, viertel: viewViertel, ergebnisse: () => viewSuche(null, { historyOnly: true }) };
   const fn = views[current.view] || (() => route('start'));
   try { await fn(current.arg); } catch (e) { if (live()) showError(e); }
 }
@@ -852,8 +851,8 @@ function sucheGruppe(t) {
   if (t.topf === 'unbewertet') return 'offen';
   return ['A', 'B'].includes(t.bewertung?.liste) ? t.bewertung.liste : 'offen';
 }
-function sucheLink(value) {
-  try { const u = new URL(value); return ['https:', 'http:'].includes(u.protocol) ? u.href : null; } catch { return null; }
+function sucheLink(value, { allowHttp = false } = {}) {
+  try { const u = new URL(value); return (u.protocol === 'https:' || (allowHttp && u.protocol === 'http:')) && !u.username && !u.password ? u.href : null; } catch { return null; }
 }
 function sucheVergleich(a, b, key, direction) {
   const value = (t) => key === 'name' ? t.name : key === 'preis' ? sucheZahl(t.angebot?.preis_gesamt_eur) :
@@ -885,7 +884,14 @@ function sucheFormDaten(form, { profileOnly = false } = {}) {
 
 async function viewSuche(idStr, { historyOnly = false } = {}) {
   const profilePreset = /^profil-(\d+)$/.exec(idStr || '')?.[1];
-  const hasRun = !!idStr && !profilePreset;
+  let districtPreset = null;
+  if (idStr === 'viertel') {
+    try {
+      const v = JSON.parse(sessionStorage.getItem('ks_viertel_entwurf') || 'null');
+      if (typeof v?.stadt === 'string' && ['pflicht','wunsch'].includes(v.modus) && Array.isArray(v.werte) && v.werte.length && v.werte.every(viertelId)) districtPreset = v;
+    } catch { /* Auswahl muss bei fehlendem Sitzungsspeicher neu erfolgen. */ }
+  }
+  const hasRun = !!idStr && !profilePreset && idStr !== 'viertel';
   setChrome(hasRun || historyOnly ? 'Unterkunft / Ergebnisse' : 'Unterkunft / Suche', { tab: hasRun || historyOnly ? 'ergebnisse' : 'suche', back: !!idStr });
   const entryView = parseHash().view;
   let disposed = false, timer, busy = false, snapshot = null;
@@ -924,6 +930,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     const grid = el('div', { class: 'suche-grid' });
     const input = (name, label, attrs) => grid.append(el('label', {}, label, el('input', { name, ...attrs })));
     input('ziel', 'Zielort', { required: true, minlength: 2, maxlength: 200, placeholder: 'z. B. Tokyo' });
+    if (districtPreset) grid.querySelector('[name=ziel]').value = districtPreset.stadt;
     input('land', 'Land (optional, z. B. JP)', { maxlength: 2, pattern: '[A-Za-z]{2}', placeholder: 'Automatisch erkennen' });
     input('anreise', 'Anreise', { type: 'date', required: true });
     input('abreise', 'Abreise', { type: 'date', required: true });
@@ -955,9 +962,10 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       const children = String(f.get('kinder_alter') || '').split(',').filter((v) => v.trim()).length;
       tripSummary.replaceChildren(el('span', {}, 'Eure Reise'), el('strong', {}, Number.isFinite(nights) && nights > 0 ? `${nights} Nächte · ${f.get('erwachsene')} Erwachsene${children ? ` · ${children} Kinder` : ''}` : 'Wohin soll es gehen?'), el('small', {}, f.get('budget_eur') ? sucheEuro(f.get('budget_eur')) + ' Gesamtbudget' : 'Reisedaten eintragen und passende Unterkünfte entdecken.'));
     }
-    const extended = sucheErweitertesFormular(form, call, live, value => { profileReady = value; submit.disabled = !value || busy; }, value => { busy = value; fields.disabled = value; submit.disabled = value || !profileReady; }, profilePreset);
+    const extended = sucheErweitertesFormular(form, call, live, value => { profileReady = value; submit.disabled = !value || busy; }, value => { busy = value; fields.disabled = value; submit.disabled = value || !profileReady; }, profilePreset, districtPreset);
     fields.append(extended.profilePanel, sections, extended.tripPanel, extended.qualityPanel, extended.filtersPanel, el('div', { class: 'search-submit-bar' }, tripSummary, submit));
     form.append(fields, notice);
+    if (idStr === 'viertel' && !districtPreset) notice.textContent = 'Die Viertelauswahl ist nicht mehr verfügbar. Bitte im Block „Viertel“ neu auswählen.';
     form.addEventListener('input', updateTripSummary); updateTripSummary();
     if (!historyOnly) scope.append(form);
     form.addEventListener('submit', async (event) => {
@@ -1080,7 +1088,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     sort = { key, direction: toggle && sort.key === key ? -sort.direction : ['name', 'preis', 'entfernung', 'gehzeit', 'rang'].includes(key) ? 1 : -1 };
     pages.clear(); draw();
   }
-  const refresh = el('button', { onclick: () => poll() }, 'Aktualisieren');
+  const refresh = el('button', { onclick: () => poll({ readResults: true }) }, 'Aktualisieren');
   const start = el('button', { class: 'primary', hidden: true, onclick: async () => {
     if (busy) return; busy = true; start.disabled = refresh.disabled = true;
     let error = '';
@@ -1105,7 +1113,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     }
   } }, 'Suche abbrechen');
   const resultLinks = el('nav', { class: 'actions result-jumps', 'aria-label': 'Weitere Ergebnisgruppen' });
-  scope.append(el('div', { class: 'actions' }, el('a', { href: '#/suche' }, 'Neue Suche / letzte Aufträge'), refresh, start, cancel, preview, undoSelection), notice, summary, controls, filters.node, viewButtons, resultLinks, mapPanel, results, report);
+  scope.append(el('div', { class: 'actions' }, el('a', { href: '#/suche' }, 'Neue Suche / letzte Aufträge'), el('a', { href: viertelHref({suche:id}) }, 'Viertel dieser Reise entdecken'), refresh, start, cancel, preview, undoSelection), notice, summary, controls, filters.node, viewButtons, resultLinks, mapPanel, results, report);
   function draw() {
     if (!snapshot) return;
     const openDetails = new Set([...results.querySelectorAll('details[open][data-detail]')].map((n) => n.dataset.detail));
@@ -1144,7 +1152,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     const rows = snapshot.treffer.filter(t => [t.name, t.quelle, SUCHE_QUELLEN[t.quelle], t.angebot?.anbieter,
       ...(Array.isArray(t.weitere_angebote) ? t.weitere_angebote.flatMap(a => [a?.anbieter, a?.quelle, SUCHE_QUELLEN[a?.quelle]]) : [])].some(value => String(value || '').toLocaleLowerCase('de').includes(needle)) && sucheFilterTreffer(t, filters.value()));
     filteredRows = rows;
-    try { sessionStorage.setItem('ks_suche_view:' + id, JSON.stringify({ needle: filter.value, filters: filters.value(), sort, pageSize: Number(pageSize.value), map: showMap })); } catch { /* Ansicht bleibt in diesem geöffneten Lauf erhalten. */ }
+    try { if (!favoritesOnly) sessionStorage.setItem('ks_suche_view:' + id, JSON.stringify({ needle: filter.value, filters: filters.value(), sort, pageSize: Number(pageSize.value), map: showMap })); } catch { /* Ansicht bleibt in diesem geöffneten Lauf erhalten. */ }
     listButton.setAttribute('aria-pressed', String(!showMap)); mapButton.setAttribute('aria-pressed', String(showMap));
     mapPanel.hidden = !showMap; results.hidden = showMap;
     if (showMap) { if (!mapView) mapView = sucheKarte(mapPanel, showHit); mapView.update(rows, snapshot.karte); }
@@ -1182,7 +1190,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
         const replacement = results.querySelector(`[data-group="${key}"]`);
         if (wasOpen) replacement.open = true;
         replacement.querySelector(`[data-sort="${sortKey}"]`)?.focus({ preventScroll: true });
-          }, phase.final && ['A', 'B'].includes(key), (t) => sucheRueckmeldung(t, feedbackStates, call, live), (t) => el('div', {}, sucheAuswahl(t, selectionStates, call, live, selectionChanged), research.row(t))));
+          }, phase.final && ['A', 'B'].includes(key), (t) => sucheRueckmeldung(t, feedbackStates, call, live), (t) => el('div', {}, sucheAuswahl(t, selectionStates, call, live, selectionChanged), research.row(t)), id));
         }
       }
       if (totalPages > 1) {
@@ -1235,12 +1243,12 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       if (!state || state.pending || atRead?.pending || state.revision !== atRead?.revision) continue;
       state.saved = t.rueckmeldung || null;
       if (!state.dirty) state.grund = state.saved?.grund || '';
-      state.dirty = state.grund !== (state.saved?.grund || ''); state.message = '';
+      state.dirty = state.grund !== (state.saved?.grund || ''); state.message = ''; state.refreshRequired = false;
     }
     snapshot = data; snapshotStatus = r; draw();
     void research.load();
   }
-  async function poll() {
+  async function poll({ readResults = false } = {}) {
     if (!live() || busy) return;
     clearTimeout(timer); busy = true; refresh.disabled = start.disabled = cancel.disabled = preview.disabled = true;
     try {
@@ -1249,8 +1257,10 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       if (!r || typeof r.status !== 'string' || typeof r.fertig !== 'boolean') throw new Error('Statusantwort unvollständig.');
       drawProgress(r);
       const terminal = r.fertig || ['fehler', 'abgebrochen', 'gestoppt', 'gestoppt_budget'].includes(r.status);
-      if (terminal) {
+      if (terminal || readResults) {
         await readSnapshot(r);
+      }
+      if (terminal) {
         notice.textContent = r.status === 'fertig' ? 'Bewertung abgeschlossen. Rangliste aktualisiert.' : r.status === 'gestoppt_budget' ? 'Kostenlimit erreicht. Vorhandene Treffer bleiben sichtbar.' : 'Suche ' + r.status + '. Vorhandene Treffer bleiben sichtbar.';
       } else if (r.status !== 'entwurf') {
         notice.textContent = r.status === 'wartet' ? 'Die Suche wartet und startet automatisch. Aktualisierung alle 7 Sekunden.' : 'Suche läuft. Bewertung und Gegenprüfung werden abgewartet. Aktualisierung alle 7 Sekunden.';
@@ -1263,7 +1273,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   await poll();
 }
 
-function sucheTabelle(items, sort, onSort, final = false, feedback = () => null, selection = () => null) {
+function sucheTabelle(items, sort, onSort, final = false, feedback = () => null, selection = () => null, suchauftragId = null) {
   const table = el('table', { class: 'suche-table' });
   const scoreLabel = final ? 'Endscore (%)' : 'Score (Zwischenstand)';
   const headings = [['name', 'Unterkunft'], ['preis', 'Gesamtpreis'], ['score', scoreLabel], ['datenlage', 'Datenlage (%)'], ['bewertungen', 'Bewertungen'], ['entfernung', 'Luftlinie zum Ziel']];
@@ -1299,7 +1309,7 @@ function sucheTabelle(items, sort, onSort, final = false, feedback = () => null,
     const td = (label, ...content) => el('td', { 'data-label': label }, ...content);
     tbody.append(el('tr', { 'data-hit': t.treffer_id, tabindex: -1 },
       td('Unterkunft', sucheFoto(t), el('strong', {}, t.name || 'Ohne Namen'), sucheGruppe(t) === 'A' && sucheZahl(b.rang) !== null ? el('div', { class: 'rank-badge' }, 'Rang ' + b.rang + (final ? '' : ' · vorläufig')) : null, el('div', { class: 'muted small' }, SUCHE_QUELLEN[t.quelle] || t.quelle || 'Quelle unbekannt'),
-        url ? el('a', { href: url, target: '_blank', rel: 'noopener noreferrer' }, 'Angebot öffnen ↗') : el('span', { class: 'muted small' }, 'Kein Angebotslink')),
+        url ? el('a', { href: url, target: '_blank', rel: 'noopener noreferrer' }, 'Angebot öffnen ↗') : el('span', { class: 'muted small' }, 'Kein Angebotslink'), sucheViertelLink(t.zone, suchauftragId)),
       td('Gesamtpreis', el('span', { class: 'price-value' }, (estimated && sucheZahl(a.preis_gesamt_eur) !== null ? 'ca. ' : '') + sucheEuro(a.preis_gesamt_eur) + (estimated ? ' (geschätzt)' : '')), sucheAngebotsstand(t)),
       td(scoreLabel, sucheZahl(b.score) ?? '–'), td('Datenlage (%)', sucheDatenlage(t) ?? '–'),
       td('Bewertungen', sucheZahl(t.bewertungen) ?? '–', el('div', { class: 'small' }, t.note != null ? `${t.note} / ${t.note_skala ?? '?'}` : 'Note unbekannt')),
@@ -1310,7 +1320,7 @@ function sucheTabelle(items, sort, onSort, final = false, feedback = () => null,
         el('span', { class: 'pill', title: 'Verlässlichkeit der Angaben, nicht Qualität der Unterkunft' }, 'Verlässlichkeit: ' + (b.ampel || 'unbekannt')),
         warnings.map((w) => el('span', { class: 'suche-warning' }, SUCHE_WARNUNGEN[w] || w))), el('p', { class: 'small' }, 'Balkon: ' + sucheBalkon(t)),
         el('button', { type: 'button', class: 'candidate-open', onclick: (event) => {
-          const button = event.currentTarget, dialog = sucheKandidat(t, final);
+          const button = event.currentTarget, dialog = sucheKandidat(t, final, suchauftragId);
           (button.closest('.suche') || main).append(dialog);
           dialog.addEventListener('close', () => { dialog.remove(); if (button.isConnected) button.focus({ preventScroll: true }); });
           dialog.showModal();
@@ -1327,31 +1337,32 @@ function sucheRueckmeldung(t, states, call, live) {
   const state = states.get(t.treffer_id);
   const box = el('div', { class: 'stay-feedback', 'data-feedback': String(t.treffer_id) });
   const status = el('p', { role: 'status', class: 'small' });
-  const reason = el('textarea', { maxlength: 1000, rows: 2, 'aria-label': 'Optionaler Grund für ' + t.name, placeholder: 'Grund (optional, maximal 1000 Zeichen)', oninput: () => { state.grund = reason.value; state.dirty = state.grund !== (state.saved?.grund || ''); } });
+  const reason = el('textarea', { maxlength: 1000, rows: 2, 'aria-label': 'Optionaler Grund für ' + (t.name || 'Unterkunft ' + t.treffer_id), placeholder: 'Grund (optional, maximal 1000 Zeichen)', oninput: () => { state.grund = reason.value; state.dirty = state.grund !== (state.saved?.grund || ''); } });
   reason.value = state.grund;
-  const quickReasons = el('select', { 'aria-label': 'Schnell-Grund für ' + t.name, onchange: () => {
+  const quickReasons = el('select', { 'aria-label': 'Schnell-Grund für ' + (t.name || 'Unterkunft ' + t.treffer_id), onchange: () => {
     if (quickReasons.value === 'Sonstiges') reason.focus();
     else if (quickReasons.value) { state.grund = (state.grund ? state.grund + '; ' : '') + quickReasons.value; state.grund = state.grund.slice(0,1000); reason.value = state.grund; state.dirty = state.grund !== (state.saved?.grund || ''); }
     quickReasons.value = '';
   } }, el('option', { value: '' }, 'Schnell-Grund wählen'), ...['Zu teuer','Zu klein','Lage','Stil','Betten','Sonstiges'].map(v => el('option', { value: v }, v)));
   const buttons = Object.entries(SUCHE_URTEILE).map(([urteil, label]) => el('button', { type: 'button', onclick: async () => {
-    if (state.pending) return;
+    if (state.pending || state.refreshRequired) return;
     state.pending = true; state.revision++; state.message = 'Wird gespeichert …'; update();
     const grund = state.grund;
     try {
-      await call('unterkunft_rueckmeldung_geben', { treffer_id: t.treffer_id, urteil, grund });
+      const r = await call('unterkunft_rueckmeldung_geben', { treffer_id: t.treffer_id, urteil, grund });
       if (!live()) return;
+      if (r.ok !== true || !Number.isSafeInteger(r.id) || r.id <= 0 || r.treffer_id !== t.treffer_id || r.urteil !== urteil) throw new Error('Die Rückmeldung wurde nicht eindeutig bestätigt.');
       state.saved = { urteil, grund }; t.rueckmeldung = state.saved;
       state.dirty = false;
       state.message = 'Gespeichert: ' + label + '. Die Rangfolge bleibt unverändert.';
-    } catch (e) { if (live()) state.message = 'Speichern nicht bestätigt: ' + e.message + ' Bitte vor erneutem Speichern den Auftrag neu öffnen.'; }
+    } catch (e) { if (live()) { state.refreshRequired = true; state.message = 'Speichern nicht bestätigt: ' + e.message + ' Bitte vor erneutem Speichern „Aktualisieren“ wählen.'; } }
     finally { state.pending = false; state.revision++; if (live()) state.render(); }
   } }, label));
   function update() {
     reason.disabled = state.pending;
     quickReasons.disabled = state.pending;
     buttons.forEach((button, i) => {
-      button.disabled = state.pending;
+      button.disabled = state.pending || state.refreshRequired;
       button.setAttribute('aria-pressed', String(Object.keys(SUCHE_URTEILE)[i] === state.saved?.urteil));
     });
     status.textContent = state.message || (state.saved ? 'Deine Rückmeldung: ' + (SUCHE_URTEILE[state.saved.urteil] || state.saved.urteil) : 'Noch keine Rückmeldung.');

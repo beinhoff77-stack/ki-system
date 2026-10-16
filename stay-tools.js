@@ -7,7 +7,7 @@ function sucheFoto(t) {
   const figure = el('figure', { class: 'stay-photo' });
   const missing = () => figure.replaceChildren(el('div', { class: 'photo-missing', role: 'img', 'aria-label': 'Kein Foto verfügbar' }, '⌂', el('span', {}, 'Kein Foto verfügbar')));
   if (!url || url.protocol !== 'https:' || url.username || url.password) { missing(); return figure; }
-  const image = el('img', { src: url.href, alt: 'Foto von ' + (t.name || 'dieser Unterkunft'), loading: 'lazy', decoding: 'async', referrerpolicy: 'no-referrer', onerror: missing });
+  const image = el('img', { alt: 'Foto von ' + (t.name || 'dieser Unterkunft'), loading: 'lazy', decoding: 'async', referrerpolicy: 'no-referrer', onerror: missing, src: url.href });
   figure.append(image, el('figcaption', {}, 'Foto: ' + (SUCHE_QUELLEN[t.bild_quelle] || t.bild_quelle || SUCHE_QUELLEN[t.quelle] || 'Anbieter')));
   return figure;
 }

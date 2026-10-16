@@ -1,8 +1,9 @@
 /* Suchprofile und Reisewünsche; der Server liefert die erlaubten Kriterien. */
 'use strict';
 const REISE_LABEL = { staedte: 'Städtereise', erholung: 'Erholung', strand: 'Strand', tauchen: 'Tauchen', natur: 'Natur', roadtrip: 'Roadtrip' };
-function sucheErweitertesFormular(form, call, live, ready, lock, profilePreset = null) {
+function sucheErweitertesFormular(form, call, live, ready, lock, profilePreset = null, districtPreset = null) {
   let catalog = null, profiles = [], loaded = false, loading = false, saving = false, uncertain = false, profileSources = null;
+  let districtForm = null;
   const criteria = new Map(), counts = new Map();
   const select = (label, entries) => el('select', { 'aria-label': label }, entries.map(([value, text, disabled]) => el('option', { value, disabled }, text)));
   const labeled = (label, input) => el('label', {}, label, input);
@@ -45,10 +46,11 @@ function sucheErweitertesFormular(form, call, live, ready, lock, profilePreset =
     note.disabled = reviews.disabled = !quality.checked;
     for (const [key, c] of criteria) {
       if (c.input) c.input.disabled = c.mode.value === 'egal';
-      if (c.shared) c.shared.textContent = 'Wert aus „Schlafzimmer mindestens“: ' + form.elements.schlafzimmer_min.value;
+      if (c.shared) c.shared.textContent = 'Wert aus „Schlafzimmer mindestens“: ' + form.elements.schlafzimmer_min.value + (c.mode.value === 'egal' ? '. Egal deaktiviert nur diesen Filter; die Suche fragt weiterhin ab dieser Schlafzimmerzahl an.' : '');
     }
     for (const [block, output] of counts) {
       const modes = [...criteria.values()].filter(c => c.block === block).map(c => c.mode.value);
+      if (block === 'viertel' && districtForm) modes.push(districtForm.modus());
       output.textContent = `${modes.filter(m=>m==='pflicht').length} Pflicht · ${modes.filter(m=>m==='wunsch').length} Wunsch`;
     }
     const existing = profiles.find(p => p.name === profileName.value.trim());
@@ -61,14 +63,18 @@ function sucheErweitertesFormular(form, call, live, ready, lock, profilePreset =
   quality.addEventListener('change', sync); profileName.addEventListener('input', sync); form.addEventListener('input', sync);
   suite.addEventListener('change', () => { const c=criteria.get('suite'); if(c)c.mode.value=suite.checked?'wunsch':'egal'; sync(); });
   function buildCriteria(data) {
-    for (const [block, title] of [['raum','Raum'],['lage','Lage'],['preis','Preis'],['bewertungen','Bewertungen'],['ausstattung','Ausstattung']]) {
+    for (const [block, title] of [['raum','Raum'],['lage','Lage'],['viertel','Viertel'],['preis','Preis'],['bewertungen','Bewertungen'],['ausstattung','Ausstattung']]) {
+      if (block === 'viertel' && !data.kriterien_katalog.viertel) continue;
       const count = el('span', { class: 'small muted' }); counts.set(block,count);
       const section = el('fieldset', { class: 'trip-filter-block' }, el('legend', {}, title, ' · ', count));
+      if (block === 'viertel' && data.kriterien_katalog.viertel.viertel_auswahl?.typ === 'liste') {
+        districtForm = sucheViertelForm(form, call, live, sync); section.append(districtForm.node);
+      }
       for (const [key, spec] of Object.entries(data.kriterien_katalog[block] || {})) {
         if (!/^[a-z][a-z0-9_]{0,60}$/.test(key) || !['ja','zahl'].includes(spec?.typ) || typeof spec.label !== 'string') continue;
         const mode = select('Bedeutung: ' + spec.label, [['egal','Egal'],['wunsch','Wunsch'],...(key==='suite'?[]:[['pflicht','Pflicht']])]);
         mode.value=key==='balkon'?'wunsch':'egal';
-        const input = spec.typ==='zahl' && key!=='schlafzimmer' ? el('input', { type:'number', min:0, step:['bewertungen_min'].includes(key)?1:0.1, max:key==='note_min'?10:null, 'aria-label':'Wert: '+spec.label, placeholder:'Wert eintragen' }) : null;
+        const input = spec.typ==='zahl' && key!=='schlafzimmer' ? el('input', { type:'number', min:0, step:['bewertungen_min'].includes(key)?1:0.1, max:key==='note_min'||block==='viertel'?10:null, value:block==='viertel'?5:null, 'aria-label':'Wert: '+spec.label, placeholder:'Wert eintragen' }) : null;
         const shared = key==='schlafzimmer' ? el('span',{class:'small'}) : null;
         const c={key,block,spec,mode,input,shared}; criteria.set(key,c);
         mode.addEventListener('change',()=>{ if(key==='suite')suite.checked=mode.value==='wunsch'; sync(); });
@@ -96,10 +102,11 @@ function sucheErweitertesFormular(form, call, live, ready, lock, profilePreset =
       if(!['egal','wunsch','pflicht'].includes(entry.modus))throw new Error('Bitte die Bedeutung der Filter prüfen.');
       if(c.spec.typ==='zahl'&&entry.modus!=='egal') {
         entry.wert=sucheZahl(c.shared?form.elements.schlafzimmer_min.value:c.input.value);
-        if(entry.wert===null||entry.wert<0||(key==='note_min'&&entry.wert>10)) { filtersPanel.open=true; c.input?.focus(); throw new Error('Bitte einen gültigen Wert für „'+c.spec.label+'“ eintragen.'); }
+        if(entry.wert===null||entry.wert<0||((key==='note_min'||c.block==='viertel')&&entry.wert>10)) { filtersPanel.open=true; c.input?.focus(); throw new Error('Bitte einen gültigen Wert für „'+c.spec.label+'“ eintragen.'); }
       }
       d.kriterien[key]=entry;
     }
+    if (districtForm) { try { d.kriterien.viertel_auswahl = districtForm.value(); } catch(e) { filtersPanel.open = true; throw e; } }
     if(profileSources)d.quellen=[...profileSources];
     return d;
   }
@@ -117,10 +124,11 @@ function sucheErweitertesFormular(form, call, live, ready, lock, profilePreset =
     for(const [key,c] of criteria) {
       const v=data.kriterien?.[key];
       c.mode.value=['pflicht','wunsch','egal'].includes(v?.modus)?key==='suite'&&v.modus==='pflicht'?'wunsch':v.modus:key==='balkon'?'wunsch':key==='suite'&&data.suite?'wunsch':'egal';
-      if(c.input)c.input.value=typeof v?.wert==='number'?v.wert:'';
+      if(c.input)c.input.value=typeof v?.wert==='number'?v.wert:c.block==='viertel'?5:'';
       if(c.shared&&c.mode.value!=='egal'&&typeof v?.wert==='number')form.elements.schlafzimmer_min.value=v.wert;
     }
     suite.checked=criteria.get('suite')?.mode.value==='wunsch';
+    districtForm?.apply(data.kriterien?.viertel_auswahl);
     profileSources=Array.isArray(data.quellen)&&data.quellen.every(q=>typeof q==='string')?[...data.quellen]:null;
     form.dispatchEvent(new Event('input',{bubbles:true}));sync();
   }
@@ -152,6 +160,11 @@ function sucheErweitertesFormular(form, call, live, ready, lock, profilePreset =
         const preset = profiles.find(p => String(p.id) === String(profilePreset)); profilePreset = null;
         if (preset) { profileSelect.value = String(preset.id); profileSelect.dispatchEvent(new Event('change')); }
         else notice.textContent = 'Das ausgewählte Profil ist nicht mehr verfügbar. Bitte ein anderes wählen.';
+      }
+      if (districtPreset !== null) {
+        if (districtForm) { districtForm.apply(districtPreset); filtersPanel.open = true; void districtForm.load(); }
+        else { ready(false); throw new Error('Der Server unterstützt die gewählte Viertelauswahl noch nicht.'); }
+        districtPreset = null;
       }
     } catch(e) { if(live()){notice.textContent='Suchprofile nicht geladen: '+e.message;if(!loaded)ready(false);} }
     finally {loading=false;if(live())sync();}

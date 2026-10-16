@@ -31,6 +31,17 @@ const profileCatalog = (profile=[]) => ({ok:true,profile,reisearten:{hauptart:['
   lage:{gehzeit_max_min:{typ:'zahl',label:'Gehzeit zur Station höchstens (Min.)'},luftlinie_max_km:{typ:'zahl',label:'Luftlinie zum Ziel höchstens (km)'}},
   preis:{storno_kostenlos:{typ:'ja',label:'Kostenlose Stornierung'}},bewertungen:{note_min:{typ:'zahl',label:'Note mindestens (0–10)'},bewertungen_min:{typ:'zahl',label:'Anzahl Bewertungen mindestens'}},
   ausstattung:{suite:{typ:'ja',label:'Suite (nur Wunsch)'},balkon:{typ:'ja',label:'Balkon'},pool:{typ:'ja',label:'Pool'},klima:{typ:'ja',label:'Klimaanlage'},kueche:{typ:'ja',label:'Küche'},parkplatz:{typ:'ja',label:'Parkplatz'},waschmaschine:{typ:'ja',label:'Waschmaschine'}} }});
+const districtCatalog = (profile=[]) => {
+  const data=profileCatalog(profile);
+  data.kriterien_katalog.viertel={viertel_auswahl:{typ:'liste',label:'Viertelauswahl'},viertel_ruhig:{typ:'ja',label:'Ruhiges Viertel'},viertel_oepnv_min:{typ:'zahl',label:'ÖPNV im Viertel mindestens'},viertel_gruen_min:{typ:'zahl',label:'Grün im Viertel mindestens'}};
+  return data;
+};
+const districts = () => ({ok:true,stadt:'kyoto',hinweis:'Automatische Vorschläge sind ungeprüft. © OpenStreetMap-Mitwirkende (ODbL).',noten_regeln:'Startannahmen aus der Umgebung; Ruhe ist eine KI-Einschätzung.',filter_katalog:[],
+  letzter_lauf:{id:1,status:'fertig',kosten_usd:0.06},gestrichen:[],viertel:[
+    {id:21,name:'Parkviertel',name_lokal:'公園',lat:35,lon:135,radius_m:800,laerm:'ruhig',laerm_nacht:'ruhig',status:'vorschlag',charakter:'Wohnviertel',preisniveau:'mittel',beschreibung:'Ruhige Seitenstraßen.',familien_hinweis:'Wege am Fluss.',highlights:['Park'],noten:{oepnv:8,ruhe:9,nahversorgung:0},vertrauen:'mittel',koordinaten_quelle:'osm',quellen:['https://example.com/viertel','javascript:alert(1)'],suche:{treffer:12,liste_a:4,bester_rang:2,preis_nacht_median_eur:150}},
+    {id:22,name:'Altstadt',lat:35.01,lon:135.01,radius_m:500,laerm:'belebt',status:'bestaetigt',noten:{oepnv:9,gruen:0,gastronomie:8},suche:{treffer:20,liste_a:5,bester_rang:1,preis_nacht_median_eur:100}},
+    {id:23,name:'Hafen',lat:95,lon:135,radius_m:600,laerm:'laut',status:'vorschlag',noten:{oepnv:2,gruen:8},suche:{treffer:0,liste_a:0,bester_rang:null,preis_nacht_median_eur:null}}
+  ]});
 async function setup(t, handler, viewport) {
   const context = await browser.newContext({ viewport: viewport || { width: 1440, height: 1000 }, serviceWorkers: 'block' });
   t.after(() => context.close());
@@ -161,12 +172,13 @@ test('PWA installiert vollständige Offline-Hülle, API wird nicht gecacht', asy
   assert(cacheNames.includes('ki-system:' + origin + '/another-app/:v1'));
   assert(!cacheNames.includes('ki-system:' + origin + '/:old'));
   await page.evaluate(() => fetch('README.md'));
-  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v22')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
-  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.14.1')); assert(cached.includes('/style.css?v=0.14.1'));
-  assert(cached.includes('/stay-tools.js?v=0.14.1')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
-  assert(cached.includes('/stay-research.js?v=0.14.1'));
-  assert(cached.includes('/stay-form.js?v=0.14.1'));
-  assert(cached.includes('/stay-details.js?v=0.14.1'));
+  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v23')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
+  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.15.0')); assert(cached.includes('/style.css?v=0.15.0'));
+  assert(cached.includes('/stay-tools.js?v=0.15.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
+  assert(cached.includes('/stay-research.js?v=0.15.0'));
+  assert(cached.includes('/stay-form.js?v=0.15.0'));
+  assert(cached.includes('/stay-details.js?v=0.15.0'));
+  assert(cached.includes('/stay-districts.js?v=0.15.0'));
   assert(!cached.includes('/README.md'));
   assert(!cached.some((u) => u.includes('app-api')));
   await context.setOffline(true); await page.reload();
@@ -340,7 +352,7 @@ test('Rückmeldung: bestehendes Urteil, Grund, Doppelklick, Sortieren und Fehler
   const {page,calls}=await setup(t, async p=> {
     if(p.aktion==='unterkunft_rueckmeldung_geben') {
       await new Promise(resolve=>setTimeout(resolve,200));
-      return fail ? 'abort' : {ok:true};
+      return fail ? 'abort' : {ok:true,id:101,treffer_id:p.daten.treffer_id,urteil:p.daten.urteil};
     }
     return r;
   });
@@ -479,7 +491,7 @@ test('Späte Leseantwort überschreibt keine gerade gespeicherte Rückmeldung', 
   const {page,calls} = await setup(t, async p => {
     if (p.aktion === 'unterkunft_suchlauf_lesen' && hold) await new Promise(resolve => {releaseRead=resolve;});
     if (p.aktion === 'unterkunft_rueckmeldung_geben') {
-      await new Promise(resolve => {releaseWrite=resolve;}); return {ok:true};
+      await new Promise(resolve => {releaseWrite=resolve;}); return {ok:true,id:102,treffer_id:p.daten.treffer_id,urteil:p.daten.urteil};
     }
     return r;
   });
@@ -504,6 +516,8 @@ test('HTTP-Fehler und leere Schreibantworten werden nicht als gespeichert angeze
   const box=page.locator('[data-feedback="1"]'); await box.waitFor();
   await box.getByRole('button',{name:'Passt',exact:true}).click();
   await box.getByRole('status').filter({hasText:'HTTP 503'}).waitFor();
+  assert.equal(await box.getByRole('button',{name:'Gebucht',exact:true}).isDisabled(),true);
+  await page.getByRole('button',{name:'Aktualisieren',exact:true}).click();await page.getByRole('status').filter({hasText:'Rangliste aktualisiert'}).waitFor();
   response=undefined;
   await box.getByRole('button',{name:'Gebucht',exact:true}).click();
   await box.getByRole('status').filter({hasText:'nicht bestätigen'}).waitFor();
@@ -1003,7 +1017,7 @@ test('Kandidatendetails trennen Angebote und Noten, zeigen Gewichte/Nachweise un
 });
 
 test('Schnell-Gründe sind ein Entwurf und werden erst mit dem Urteil gespeichert', async (t) => {
-  const {page,calls}=await setup(t,p=>p.aktion==='unterkunft_rueckmeldung_geben'?{ok:true}:result());
+  const {page,calls}=await setup(t,p=>p.aktion==='unterkunft_rueckmeldung_geben'?{ok:true,id:103,treffer_id:p.daten.treffer_id,urteil:p.daten.urteil}:result());
   await page.goto(origin+'/#/suche/2');const box=page.locator('[data-feedback="1"]');
   await box.getByLabel('Optionaler Grund für Unterkunft 1',{exact:true}).fill('Persönliche Notiz');
   await box.getByLabel('Schnell-Grund für Unterkunft 1',{exact:true}).selectOption('Lage');
@@ -1070,4 +1084,189 @@ test('Nachrecherche: verspäteter Status erhält den Rücksprung aus der Detaila
   await page.getByRole('dialog').waitFor(); await page.keyboard.press('Escape');
   assert.equal(await open.evaluate(n=>document.activeElement===n),true,'Schließen führt zum ursprünglichen Treffer zurück');
   await page.locator('[data-research-status="4"]').getByText('Recherche #91: Angelegt – wartet auf Claude',{exact:false}).waitFor();
+});
+
+test('Viertel: freier Einstieg, unbekannte Noten, lokale Filter und Sortierung', async (t) => {
+  const {page,calls}=await setup(t,()=>districts());
+  await page.goto(origin+'/#/viertel');await page.getByRole('heading',{name:'Welches Viertel passt zu euch?'}).waitFor();
+  assert.equal(calls.length,0);assert.equal(await page.locator('#tabs [data-view=viertel]').getAttribute('aria-current'),'page');
+  await page.getByLabel('Stadt oder Insel',{exact:true}).fill('Kyoto');await page.getByRole('button',{name:'Viertel laden',exact:true}).click();
+  await page.locator('[data-district="21"]').waitFor();assert.deepEqual(calls[0].daten,{stadt:'Kyoto'});
+  const unknown=page.locator('[data-district="21"] .score-bar-row').filter({hasText:'Grün'});
+  assert.equal(await unknown.getByRole('meter').count(),0);await unknown.getByText('unbekannt',{exact:true}).waitFor();
+  const zero=page.locator('[data-district="22"] .score-bar-row').filter({hasText:'Grün'});
+  assert.equal(await zero.getByRole('meter').getAttribute('value'),'0');
+  assert.equal(await page.locator('a[href^="javascript:"]').count(),0);
+  await page.getByLabel('Ruhig',{exact:true}).check();assert.equal(await page.locator('.district-cards [data-district]').count(),1);
+  await page.getByLabel('Ruhig',{exact:true}).uncheck();await page.getByLabel('Grün ≥ 5',{exact:true}).check();
+  assert.deepEqual(await page.locator('.district-cards [data-district]').evaluateAll(ns=>ns.map(n=>n.dataset.district)),['23']);
+  await page.getByRole('button',{name:'Viertelfilter zurücksetzen',exact:true}).click();await page.getByLabel('Viertel sortieren nach',{exact:true}).selectOption('gruen');
+  assert.deepEqual(await page.locator('.district-cards [data-district]').evaluateAll(ns=>ns.map(n=>n.dataset.district)),['23','22','21']);
+  assert.equal(calls.length,1,'Lokales Filtern und Sortieren erzeugt keine API-Schreibvorgänge');
+  await page.goto(origin+'/#/viertel/?suche=2');await page.getByLabel('Viertel sortieren nach',{exact:true}).selectOption('preis');
+  await page.locator('[data-district="21"]').waitFor();
+  assert.deepEqual(await page.locator('.district-cards [data-district]').evaluateAll(ns=>ns.map(n=>n.dataset.district)),['22','21','23']);
+});
+
+test('Viertelkarte: erst auf Klick, Kreise mit Status, Tastatur, fehlende Positionen und Handy', async (t) => {
+  let tiles=0;
+  const {page}=await setup(t,()=>districts(),{width:390,height:844});
+  await page.route('https://tile.openstreetmap.org/**',r=>{tiles++;return r.abort();});
+  await page.goto(origin+'/#/viertel/?suche=2');await page.locator('[data-district="21"]').waitFor();assert.equal(tiles,0);
+  await page.getByRole('button',{name:'Viertelkarte anzeigen',exact:true}).click();
+  const proposal=page.locator('[data-district-circle="21"]');await proposal.waitFor();
+  assert.equal(await proposal.getAttribute('stroke-dasharray'),'7 6');assert.equal(await proposal.getAttribute('stroke'),'#2c6846');
+  assert.equal(await page.locator('[data-district-circle="22"]').getAttribute('stroke-dasharray'),null);
+  assert.equal(await page.locator('[data-district-circle]').count(),2);await page.getByText('2 von 3 Vierteln auf der Karte.',{exact:false}).waitFor();
+  await proposal.focus();await page.keyboard.press('Enter');assert.equal(await page.evaluate(()=>document.activeElement.textContent),'Parkviertel');
+  await page.getByText('Der Kartenhintergrund ist nicht erreichbar.',{exact:false}).waitFor();assert(tiles>0);
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+  await page.locator('.stay-map-panel').screenshot({path:path.join(root,'test-results/district-map-mobile.png')});
+  await page.locator('[data-district="21"]').screenshot({path:path.join(root,'test-results/district-card-mobile.png')});
+  await page.setViewportSize({width:320,height:800});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+  await page.setViewportSize({width:1440,height:1000});await page.evaluate(()=>scrollTo(0,0));await page.screenshot({path:path.join(root,'test-results/district-desktop.png')});
+});
+
+test('Viertelentscheidungen: bestätigen, bewusst streichen, wieder aufnehmen und Name/Notiz prüfen', async (t) => {
+  const data=districts();let releaseWrite;
+  const {page,calls}=await setup(t,async p=>{
+    if(p.aktion==='unterkunft_zone_entscheiden')return await new Promise(resolve=>{releaseWrite=()=>{
+      const z=[...data.viertel,...data.gestrichen].find(z=>z.id===p.daten.id);Object.assign(z,{status:p.daten.status},p.daten.name?{name:p.daten.name}:{} ,p.daten.notiz?{notiz_nutzer:p.daten.notiz}:{});
+      data.viertel=[...data.viertel,...data.gestrichen].filter(z=>z.status!=='gestrichen');data.gestrichen=z.status==='gestrichen'?[z]:[];
+      resolve({ok:true,id:z.id,status:z.status});
+    };});return data;
+  });
+  await page.goto(origin+'/#/viertel/?stadt=kyoto');const card=page.locator('[data-district="21"]');await card.waitFor();
+  await card.getByRole('button',{name:'Bestätigen',exact:true}).dblclick();await waitForCallback(()=>releaseWrite);
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_zone_entscheiden').length,1);releaseWrite();await page.getByText('Gespeichert: Parkviertel · bestätigt.',{exact:true}).waitFor();
+  await card.getByRole('button',{name:'Streichen',exact:true}).click();assert.equal(calls.filter(p=>p.aktion==='unterkunft_zone_entscheiden').length,1);
+  await card.getByRole('button',{name:'Abbrechen',exact:true}).click();assert.equal(await card.getByRole('button',{name:'Streichen',exact:true}).evaluate(n=>document.activeElement===n),true);
+  await card.getByRole('button',{name:'Streichen',exact:true}).click();releaseWrite=null;await card.getByRole('button',{name:'Ja, Viertel streichen',exact:true}).click();await waitForCallback(()=>releaseWrite);releaseWrite();
+  await page.getByText('Gespeichert: Parkviertel · gestrichen.',{exact:true}).waitFor();assert.equal(await page.locator('.district-removed').evaluate(n=>n.open),true);
+  releaseWrite=null;await card.getByRole('button',{name:'Als Vorschlag wieder aufnehmen',exact:true}).click();await waitForCallback(()=>releaseWrite);releaseWrite();await page.getByText('Gespeichert: Parkviertel · Vorschlag.',{exact:true}).waitFor();
+  await card.getByText('Umbenennen / Notiz',{exact:true}).click();await card.getByLabel('Neuer Name für Parkviertel',{exact:true}).fill('Am Park');await card.getByLabel('Notiz zu Parkviertel',{exact:true}).fill('Für die Familie vormerken');
+  releaseWrite=null;await card.getByRole('button',{name:'Name und Notiz speichern',exact:true}).click();await waitForCallback(()=>releaseWrite);releaseWrite();await page.getByText('Gespeichert: Am Park · Vorschlag.',{exact:true}).waitFor();
+  assert.equal(await card.getByLabel('Notiz zu Am Park',{exact:true}).inputValue(),'Für die Familie vormerken');
+});
+
+test('Viertel: unklare Schreibantwort sperrt Wiederholung bis zum Lesen', async (t) => {
+  const {page,calls}=await setup(t,p=>p.aktion==='unterkunft_zone_entscheiden'?{ok:true}:districts());
+  await page.goto(origin+'/#/viertel/?stadt=kyoto');await page.locator('[data-district="21"]').getByRole('button',{name:'Bestätigen',exact:true}).click();
+  await page.getByText('Speichern nicht bestätigt:',{exact:false}).waitFor();assert.equal(await page.locator('[data-district="21"]').getByRole('button',{name:'Bestätigen',exact:true}).isDisabled(),true);
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_zone_entscheiden').length,1);
+  await page.getByRole('button',{name:'Viertel aktualisieren',exact:true}).click();await page.getByText('Viertel aktualisiert.',{exact:true}).waitFor();
+  assert.equal(await page.locator('[data-district="21"]').getByRole('button',{name:'Bestätigen',exact:true}).isDisabled(),false);
+});
+
+test('Viertel ermitteln: Kostenhinweis, ein Klick, alten Lauf nicht als neuen Erfolg ausgeben', async (t) => {
+  let phase='old';const data=districts();data.viertel=[];
+  const {page,calls}=await setup(t,p=>p.aktion==='unterkunft_viertel_erstellen'?{ok:true,stadt:'kyoto',hinweis:'Ermittlung angestoßen.'}:{...data,letzter_lauf:phase==='old'?{id:1,status:'fertig'}:{id:2,status:phase}});
+  await page.clock.install();await page.goto(origin+'/#/viertel/?stadt=kyoto');await page.getByText('Für diesen Ort sind noch keine Viertel vorhanden.',{exact:true}).waitFor();
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_viertel_erstellen').length,0);
+  await page.getByRole('button',{name:'Viertel ermitteln · ca. 0,06 USD',exact:true}).dblclick();await page.getByText('Ermittlung angefragt. Der Fortschritt wird automatisch gelesen;', {exact:false}).waitFor();
+  const next=page.waitForRequest(r=>r.postDataJSON()?.aktion==='unterkunft_viertel_lesen');await page.clock.fastForward(3100);await next;
+  await page.getByText('Ermittlung angefragt.',{exact:false}).waitFor();assert.equal(await page.getByRole('button',{name:'Viertel ermitteln · ca. 0,06 USD',exact:true}).isDisabled(),true);
+  phase='osm_angefordert';await page.clock.fastForward(10100);await page.getByText('Letzte Ermittlung: Umgebungsdaten werden geladen',{exact:false}).waitFor();
+  phase='fertig';await page.clock.fastForward(10100);await page.getByText('Viertel aktualisiert.',{exact:true}).waitFor();
+  assert.equal(await page.getByRole('button',{name:'Viertel ermitteln · ca. 0,06 USD',exact:true}).isDisabled(),false);
+  assert.deepEqual(calls.filter(p=>p.aktion==='unterkunft_viertel_erstellen').map(p=>p.daten),[{stadt:'kyoto'}]);
+  const count=calls.length;await page.clock.fastForward(30100);assert.equal(calls.length,count);
+});
+
+test('Viertelauswahl übergibt Pflicht/Wunsch an eine neue Suche, Filter verlieren keine Auswahl', async (t) => {
+  const {page,calls}=await setup(t,p=>p.aktion==='unterkunft_viertel_lesen'?districts():p.aktion==='unterkunft_suchprofile_lesen'?districtCatalog():p.aktion==='unterkunft_suchauftrag_anlegen'?{ok:true,id:2}:p.aktion==='unterkunft_suche_starten'?{ok:true}:p.daten?.suchauftrag_id?result():{suchauftraege:[]});
+  await page.goto(origin+'/#/viertel/?stadt=kyoto');await page.getByLabel('Viertel auswählen: Altstadt',{exact:true}).check();await page.getByLabel('Ruhig',{exact:true}).check();
+  await page.getByLabel('Viertel auswählen: Parkviertel',{exact:true}).check();await page.getByLabel('Gewählte Viertel berücksichtigen',{exact:true}).selectOption('wunsch');
+  await page.getByRole('button',{name:'Mit diesen Vierteln suchen',exact:true}).click();await page.getByLabel('Suchviertel: Altstadt',{exact:true}).waitFor();
+  assert.equal(await page.locator('[name=ziel]').inputValue(),'kyoto');assert.equal(await page.getByLabel('Suchviertel: Altstadt',{exact:true}).isChecked(),true);
+  await page.locator('[name=anreise]').fill('2026-11-13');await page.locator('[name=abreise]').fill('2026-11-27');
+  await page.getByLabel('Bedeutung: ÖPNV im Viertel mindestens',{exact:true}).selectOption('pflicht');await page.getByLabel('Wert: ÖPNV im Viertel mindestens',{exact:true}).fill('5');
+  await page.getByRole('button',{name:'Anlegen und Suche starten',exact:true}).click();await page.locator('[data-group=A]').waitFor();
+  const write=calls.find(p=>p.aktion==='unterkunft_suchauftrag_anlegen');assert.deepEqual(write.daten.kriterien.viertel_auswahl,{modus:'wunsch',werte:[21,22]});assert.deepEqual(write.daten.kriterien.viertel_oepnv_min,{modus:'pflicht',wert:5});
+});
+
+test('Viertel im Formular: Profil-IDs für Ziel prüfen, falsche Stadt und veraltete Antworten nicht übernehmen', async (t) => {
+  let releaseKyoto;const profile={id:7,name:'Viertelprofil',felder:{kriterien:{viertel_auswahl:{modus:'pflicht',werte:[21,99]}}}};
+  const {page,calls}=await setup(t,async p=>p.aktion==='unterkunft_suchprofile_lesen'?districtCatalog([profile]):p.aktion==='unterkunft_viertel_lesen'?await new Promise(resolve=>{releaseKyoto=()=>resolve(districts());}):{suchauftraege:[]});
+  await page.goto(origin+'/#/suche');await formFill(page);await page.getByLabel('Suchprofil verwenden',{exact:true}).selectOption('7');
+  await page.getByRole('button',{name:'Anlegen und Suche starten',exact:true}).click();await page.getByText('Bitte die gewählten Viertel zuerst für den aktuellen Zielort laden und prüfen.',{exact:true}).waitFor();
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_suchauftrag_anlegen').length,0);
+  await page.getByRole('button',{name:'Viertel für Zielort laden',exact:true}).click();await waitForCallback(()=>releaseKyoto);releaseKyoto();await page.getByText('1 gespeicherte Viertel passen nicht mehr',{exact:false}).waitFor();
+  assert.equal(await page.getByLabel('Suchviertel: Parkviertel',{exact:true}).isChecked(),true);
+  releaseKyoto=null;await page.getByRole('button',{name:'Viertel für Zielort laden',exact:true}).click();await waitForCallback(()=>releaseKyoto);
+  await page.locator('[name=ziel]').fill('Osaka');releaseKyoto();await page.getByRole('button',{name:'Viertel für Zielort laden',exact:true}).waitFor();
+  assert.equal(await page.getByLabel('Bedeutung der Viertelauswahl',{exact:true}).inputValue(),'egal');assert.equal(await page.getByLabel('Suchviertel: Parkviertel',{exact:true}).count(),0);
+});
+
+test('Viertel-Lesefehler, Navigation und 401 lassen keine falsche Ansicht oder Polling zurück', async (t) => {
+  let mode='ok',release;const data=districts();data.letzter_lauf.status='ki';
+  const {page,calls}=await setup(t,async p=>p.aktion==='unterkunft_viertel_lesen'?mode==='wait'?await new Promise(resolve=>{release=()=>resolve(data);}):mode==='ok'?data:mode:p.aktion==='auftraege_suchen'?[]:result());
+  await page.clock.install();await page.goto(origin+'/#/viertel/?stadt=kyoto');await page.locator('[data-district="21"]').waitFor();
+  mode='abort';await page.getByRole('button',{name:'Viertel aktualisieren',exact:true}).click();await page.getByText('Viertel nicht geladen:',{exact:false}).waitFor();assert.equal(await page.locator('[data-district="21"]').count(),1);
+  const total=calls.length;await page.clock.fastForward(30100);assert.equal(calls.length,total);
+  mode='wait';await page.getByRole('button',{name:'Viertel aktualisieren',exact:true}).click();await waitForCallback(()=>release);await page.locator('#areas [data-area=council]').click();release();await page.getByRole('heading',{name:'Aufträge',exact:true}).waitFor();
+  await page.clock.fastForward(30100);assert.equal(await page.locator('.districts-page').count(),0);
+  mode='unauthorized';await page.goto(origin+'/#/viertel/?stadt=kyoto');await page.getByRole('heading',{name:'Anmelden',exact:true}).waitFor();
+});
+
+test('Viertellink aus Treffer und Detail öffnet das zugehörige Viertel', async (t) => {
+  const data=result();data.treffer[0].zone={id:21,name:'Parkviertel',status:'vorschlag'};
+  const {page}=await setup(t,p=>p.aktion==='unterkunft_viertel_lesen'?districts():data);
+  await page.goto(origin+'/#/suche/2');await page.locator('[data-hit="1"] .candidate-open').click();
+  await page.getByRole('dialog').getByRole('link',{name:'Viertel: Parkviertel',exact:true}).click();await page.locator('[data-district="21"]').waitFor();
+  assert.equal(await page.evaluate(()=>document.activeElement.textContent),'Parkviertel');assert.equal(await page.getByRole('dialog').count(),0);
+  await page.getByRole('link',{name:'Zurück zu den Unterkünften',exact:true}).click();await page.locator('[data-hit="1"]').getByRole('link',{name:'Viertel: Parkviertel',exact:true}).click();await page.locator('[data-district="21"]').waitFor();
+});
+
+test('Aktualisieren liest laufende Treffer neu und entsperrt eine unklare Auswahl lesend', async (t) => {
+  const data=result('laeuft');
+  const {page,calls}=await setup(t,p=>{
+    if(p.aktion==='unterkunft_treffer_status_setzen'){data.treffer[0].status='favorit';return {ok:true};}return data;
+  });
+  await page.goto(origin+'/#/suche/2');await page.getByRole('button',{name:'Vorläufige Treffer ansehen',exact:true}).click();
+  const selection=page.locator('[data-selection="1"]');await selection.getByRole('button',{name:'☆ Merken',exact:true}).click();
+  await selection.getByText('Speichern nicht bestätigt:',{exact:false}).waitFor();assert.equal(await selection.getByRole('button',{name:'☆ Merken',exact:true}).isDisabled(),true);
+  await page.getByRole('button',{name:'Aktualisieren',exact:true}).click();await selection.getByRole('button',{name:'★ Gemerkt',exact:true}).waitFor();
+  assert.equal(await selection.getByRole('button',{name:'★ Gemerkt',exact:true}).isDisabled(),false);
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_treffer_status_setzen').length,1);assert.equal(calls.filter(p=>p.aktion==='unterkunft_suchlauf_lesen').length,2);
+  await page.getByRole('heading',{name:'Liste A – vorläufig (3)',exact:true}).waitFor();
+});
+
+test('Rückmeldung verlangt passenden Treffer und Urteil; unklare Antwort lässt keine Wiederholung zu', async (t) => {
+  let response={};
+  const {page,calls}=await setup(t,p=>p.aktion==='unterkunft_rueckmeldung_geben'?response:result());
+  await page.goto(origin+'/#/suche/2');const feedback=page.locator('[data-feedback="1"]');
+  for(const value of [{},{ok:true},{ok:true,id:11,treffer_id:2,urteil:'passt'},{ok:true,id:12,treffer_id:1,urteil:'gebucht'}]) {
+    response=value;await feedback.getByRole('button',{name:'Passt',exact:true}).click();await feedback.getByText('Speichern nicht bestätigt:',{exact:false}).waitFor();
+    assert.equal(await feedback.getByRole('button',{name:'Passt',exact:true}).isDisabled(),true);assert.equal(await feedback.locator('[aria-pressed=true]').count(),0);
+    await page.getByRole('button',{name:'Aktualisieren',exact:true}).click();await page.getByRole('status').filter({hasText:'Rangliste aktualisiert'}).waitFor();
+  }
+  response={ok:true,id:13,treffer_id:1,urteil:'passt'};await feedback.getByRole('button',{name:'Passt',exact:true}).click();await feedback.getByText('Gespeichert: Passt.',{exact:false}).waitFor();
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_rueckmeldung_geben').length,5);
+});
+
+test('Merkliste per Link verändert keine gespeicherten Normalfilter', async (t) => {
+  const data=result();data.treffer[1].status='favorit';
+  const {page}=await setup(t,()=>data);await page.goto(origin+'/#/suche/2');await page.getByPlaceholder('Name oder Anbieter').fill('Unterkunft');
+  const before=await page.evaluate(()=>sessionStorage.getItem('ks_suche_view:2'));
+  await page.goto(origin+'/#/suche/2?favoriten=1');await page.locator('[data-hit="2"]').waitFor();
+  assert.equal(await page.getByLabel('Nur Gemerkte',{exact:true}).isChecked(),true);assert.equal(await page.evaluate(()=>sessionStorage.getItem('ks_suche_view:2')),before);
+  await page.goto(origin+'/#/suche/2');await page.locator('[data-hit="1"]').waitFor();assert.equal(await page.getByLabel('Nur Gemerkte',{exact:true}).isChecked(),false);
+  assert.equal(await page.getByPlaceholder('Name oder Anbieter').inputValue(),'Unterkunft');
+});
+
+test('Angebotslinks erlauben nur HTTPS ohne eingebettete Zugangsdaten', async (t) => {
+  const data=result();data.treffer[0].angebot.link='https://name:passwort@example.com/angebot';data.treffer[1].angebot.link='http://example.com/angebot';
+  const {page}=await setup(t,()=>data);await page.goto(origin+'/#/suche/2');await page.locator('[data-hit="1"]').waitFor();
+  assert.equal(await page.locator('[data-hit="1"] a').count(),0);assert.equal(await page.locator('[data-hit="2"] a').count(),0);
+  assert.equal(await page.locator('[data-hit="3"]').getByRole('link',{name:'Angebot öffnen ↗',exact:true}).count(),1);
+});
+
+test('Viertel: neue Leseantwort erhält Notizentwurf und Cursor während laufender Ermittlung', async (t) => {
+  let release,hold=false;const data=districts();data.letzter_lauf.status='osm_angefordert';
+  const {page}=await setup(t,async()=>{if(hold)await new Promise(resolve=>{release=resolve;});return data;});
+  await page.clock.install();await page.goto(origin+'/#/viertel/?stadt=kyoto');const card=page.locator('[data-district="21"]');await card.getByText('Umbenennen / Notiz',{exact:true}).click();
+  const note=card.getByLabel('Notiz zu Parkviertel',{exact:true});await note.fill('Diesen Ort vergleichen');await note.evaluate(n=>n.setSelectionRange(7,10));
+  hold=true;await page.clock.fastForward(10100);await waitForCallback(()=>release);assert.equal(await note.isDisabled(),false);release();await page.getByText('Viertel aktualisiert.',{exact:true}).waitFor();
+  assert.deepEqual(await note.evaluate(n=>({value:n.value,focused:document.activeElement===n,start:n.selectionStart,end:n.selectionEnd})),{value:'Diesen Ort vergleichen',focused:true,start:7,end:10});
 });

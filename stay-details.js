@@ -50,13 +50,13 @@ function sucheKategorien(t) {
     SUCHE_QUELLEN[k.quelle] || k.quelle || 'unbekannt', sucheAbruf(k.abrufzeit)
   ]));
 }
-function sucheKandidat(t, final) {
+function sucheKandidat(t, final, suchauftragId) {
   const b = t.bewertung || {}, a = t.angebot || {}, review = b.gegenpruefung?.pruefung;
   const allOffers = [a, ...(Array.isArray(t.weitere_angebote) ? t.weitere_angebote : [])].filter(v => v && typeof v === 'object');
   const dialog = el('dialog', { class: 'stay-candidate', 'aria-label': 'Unterkunft im Detail: ' + (t.name || 'Unterkunft') });
   dialog.append(el('div', { class: 'candidate-header' }, el('h2', {}, t.name || 'Unterkunft'),
     el('button', { type: 'button', onclick: () => dialog.close() }, 'Details schließen')),
-    sucheFoto(t), el('p', {}, 'Balkon: ' + sucheBalkon(t)), sucheAngebotsstand(t),
+    sucheFoto(t), sucheViertelLink(t.zone, suchauftragId), el('p', {}, 'Balkon: ' + sucheBalkon(t)), sucheAngebotsstand(t),
     el('p', {}, (final ? 'Endscore' : 'Vorläufiger Score') + ': ' + (sucheZahl(b.score) ?? 'unbekannt') + ' · Datenlage: ' + (sucheDatenlage(t) ?? 'unbekannt') + ' %'),
     sucheDetailTabelle('Teilnoten und Gewichtung', ['Kriterium', 'Note von 10', 'Gewicht (%)'], SUCHE_NOTEN.map(([key, label]) => [label, sucheZahl(b.spaltennoten?.[key]), sucheZahl(b.spaltennoten?.gewichte?.[key])])),
     el('h3', {}, 'Begründung'), el('p', {}, b.begruendung || 'Noch keine Begründung verfügbar.'),

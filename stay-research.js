@@ -116,7 +116,7 @@ function sucheLuecken(id, call, live) {
     },
     row(t) {
       const status = el('div', { class: 'small', 'data-research-status': t.treffer_id });
-      const checkbox = el('input', { type: 'checkbox', 'aria-label': 'Für Nachrecherche auswählen: ' + t.name, onchange: () => {
+      const checkbox = el('input', { type: 'checkbox', 'aria-label': 'Für Nachrecherche auswählen: ' + (t.name || 'Unterkunft ' + t.treffer_id), onchange: () => {
         if (checkbox.checked && selected.size < 30) selected.add(t.treffer_id); else selected.delete(t.treffer_id);
         panel.open = true; sync();
       } });

@@ -49,7 +49,24 @@ function sucheAuswahl(t, states, call, live, changed) {
   return box;
 }
 
+function sucheWarnungen(t) {
+  const b=t.bewertung || {}, a=t.angebot || {};
+  return [...new Set([...(Array.isArray(b.warnungen) ? b.warnungen : []), ...(a.preis_art === 'geschaetzt' || b.preis_geschaetzt ? ['preis_geschaetzt'] : []), ...(b.gegenpruefung?.pruefung?.urteil === 'einwand' ? ['gegenpruefung_einwand'] : []), ...(t.preis_veraltet ? ['preis_veraltet'] : [])])];
+}
+function sucheZimmerKurz(t) {
+  const a=t.angebot || {}, all=Array.isArray(t.kategorien) ? t.kategorien.filter(k => k && typeof k === 'object') : [];
+  // Only use an explicitly matched offer category; a sole whole-property Airbnb category is unambiguous.
+  const matches=all.filter(k => (k.id != null && k.id === a.kategorie_id) || (k.name && k.name === a.kategorie_name));
+  const k=matches.length === 1 ? matches[0] : all.length === 1 && a.kategorie_name === 'ganze Unterkunft' && t.quelle === 'apify_airbnb' ? all[0] : null;
+  const category=k?.konflikt === true ? null : k;
+  const types=category?.bettentypen;
+  return {schlafzimmer:sucheZahl(category?.schlafzimmer),anzahl:sucheZahl(category?.betten_anzahl),typen:typeof types === 'string' && types.trim() ? types : Array.isArray(types) && types.every(v => typeof v === 'string') && types.length ? types.join(', ') : null};
+}
 function sucheFilterTreffer(t, f) {
+  const room=sucheZimmerKurz(t);
+  if (f.betten && !(room.typen || '').toLocaleLowerCase('de').includes(f.betten.toLocaleLowerCase('de'))) return false;
+  if (f.warnungen === 'mit' && !sucheWarnungen(t).length) return false;
+  if (f.warnungen === 'ohne' && sucheWarnungen(t).length) return false;
   if (f.favoriten && t.status !== 'favorit') return false;
   if (f.gruppe && sucheGruppe(t) !== f.gruppe) return false;
   if (f.typ && t.typ !== f.typ) return false;
@@ -61,7 +78,7 @@ function sucheFilterTreffer(t, f) {
   };
   const note = sucheZahl(t.note), scale = sucheZahl(t.note_skala);
   const note10 = note !== null && scale > 0 ? note * 10 / scale : null;
-  return check(t.angebot?.preis_gesamt_eur, f.preis) && check(t.gehzeit_min, f.gehzeit) &&
+  return check(room.schlafzimmer, f.schlafzimmer, true) && check(t.angebot?.preis_gesamt_eur, f.preis) && check(t.gehzeit_min, f.gehzeit) &&
     check(t.bewertungen, f.bewertungen, true) && check(note10, f.note, true) &&
     check(t.bewertung?.score, f.score, true) && check(sucheDatenlage(t), f.datenlage, true) &&
     (!['hotel', 'aparthotel', 'ryokan'].includes(t.typ) || check(t.sterne, f.sterne, true));
@@ -83,6 +100,9 @@ function sucheFilterPanel(onChange) {
   const panel = el('details', { class: 'card stay-filters' }, el('summary', {}, 'Weitere Filter'),
     el('div', { class: 'stay-filter-grid' },
       select('gruppe', 'Ergebnisliste', [['', 'Alle Listen'], ['A', 'Liste A'], ['B', 'Liste B'], ['offen', 'Noch nicht vollständig bewertet'], ['ausgeschlossen', 'Ausgeschlossen']]), type,
+      numeric('schlafzimmer', 'Schlafzimmer mindestens', null),
+      el('label', {}, 'Bettentyp enthält', inputs.betten = el('input', {type:'search', 'aria-label':'Bettentyp enthält', oninput:onChange})),
+      select('warnungen', 'Warnungen', [['','Alle'],['mit','Mit Warnungen'],['ohne','Ohne gemeldete Warnungen']]),
       numeric('preis', 'Gesamtpreis höchstens (€)', null, '0.01'), numeric('gehzeit', 'Gehzeit zur Station höchstens (Min.)', null, '0.1'),
       numeric('note', 'Gästenote mindestens (von 10)', 10, '0.1'), numeric('bewertungen', 'Bewertungen mindestens', null),
       numeric('score', 'Score mindestens (%)', 100), numeric('datenlage', 'Datenlage mindestens (%)', 100),

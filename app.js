@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.15.2';
+const APP_VERSION = '0.16.0';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -855,7 +855,7 @@ function sucheLink(value, { allowHttp = false } = {}) {
   try { const u = new URL(value); return (u.protocol === 'https:' || (allowHttp && u.protocol === 'http:')) && !u.username && !u.password ? u.href : null; } catch { return null; }
 }
 function sucheVergleich(a, b, key, direction) {
-  const value = (t) => key === 'name' ? t.name : key === 'preis' ? sucheZahl(t.angebot?.preis_gesamt_eur) :
+  const value = (t) => key === 'name' ? t.name : key === 'schlafzimmer' ? sucheZimmerKurz(t).schlafzimmer : key === 'betten' ? sucheZimmerKurz(t).typen : key === 'anbieter' ? (t.angebot?.anbieter || SUCHE_QUELLEN[t.quelle] || t.quelle || null) : key === 'warnungen' ? sucheWarnungen(t).length : key === 'gaestenote' ? (sucheZahl(t.note) !== null && sucheZahl(t.note_skala) > 0 ? Number(t.note) * 10 / Number(t.note_skala) : null) : key === 'preis' ? sucheZahl(t.angebot?.preis_gesamt_eur) :
     key === 'bewertungen' ? sucheZahl(t.bewertungen) : key === 'entfernung' ? sucheZahl(t.luftlinie_ziel_m) : key === 'gehzeit' ? sucheZahl(t.gehzeit_min) : key.startsWith('note_') ? sucheZahl(t.bewertung?.spaltennoten?.[key.slice(5)]) : key === 'datenlage' ? sucheDatenlage(t) : key === 'rang' ? (t.topf === 'shortlist' && t.bewertung?.liste === 'A' ? sucheZahl(t.bewertung?.rang) : null) : sucheZahl(t.bewertung?.[key]);
   const x = value(a), y = value(b);
   // Fehlende Angaben stehen in beiden Sortierrichtungen hinten.
@@ -898,7 +898,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   const requests = new Set();
   const feedbackStates = new Map();
   const selectionStates = new Map();
-  let mapView = null, showMap = false, filteredRows = [], lastSelection = null;
+  let mapView = null, showMap = false, resultView = matchMedia('(min-width: 1200px)').matches ? 'table' : 'list', filteredRows = [], lastSelection = null;
   let sort = { key: 'rang', direction: 1 }, snapshotStatus = null, latestStatus = null;
   const pages = new Map();
   const scope = el('div', { class: 'suche' });
@@ -1058,7 +1058,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   const results = el('section', { 'aria-label': 'Suchergebnisse' });
   const filter = el('input', { type: 'search', placeholder: 'Name oder Anbieter', oninput: () => { pages.clear(); draw(); } });
   const sortSelect = el('select', { 'aria-label': 'Sortieren nach', onchange: () => changeSort(sortSelect.value) },
-    [['rang', 'Empfohlene Rangfolge'], ['preis', 'Gesamtpreis'], ['score', 'Score'], ['datenlage', 'Datenlage'], ['bewertungen', 'Anzahl Bewertungen'], ['entfernung', 'Luftlinie zum Ziel'], ['gehzeit', 'Gehzeit zur Station'], ...SUCHE_NOTEN.map(([key, label]) => ['note_' + key, label]), ['name', 'Name']].map(([key, label]) => el('option', { value: key }, label)));
+    [['rang', 'Empfohlene Rangfolge'], ['preis', 'Gesamtpreis'], ['score', 'Score'], ['datenlage', 'Datenlage'], ['schlafzimmer', 'Schlafzimmer'], ['betten', 'Bettentypen'], ['gaestenote', 'Gästenote'], ['warnungen', 'Warnungen'], ['anbieter', 'Anbieter'], ['bewertungen', 'Anzahl Bewertungen'], ['entfernung', 'Luftlinie zum Ziel'], ['gehzeit', 'Gehzeit zur Station'], ...SUCHE_NOTEN.map(([key, label]) => ['note_' + key, label]), ['name', 'Name']].map(([key, label]) => el('option', { value: key }, label)));
   const directionButton = el('button', { type: 'button', onclick: () => { sort.direction *= -1; pages.clear(); draw(); } }, 'Aufsteigend ↑');
   const pageSize = el('select', { 'aria-label': 'Treffer je Liste und Seite', onchange: () => { pages.clear(); draw(); } }, [10, 25, 50].map(n => el('option', { value: n }, String(n))));
   const filterCount = el('p', { class: 'small', role: 'status' });
@@ -1067,9 +1067,10 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     el('div', { class: 'sort-direction' }, directionButton), el('label', {}, 'Treffer je Liste und Seite', pageSize), filterCount);
   const filters = sucheFilterPanel(() => { pages.clear(); draw(); }); filters.node.hidden = true;
   const mapPanel = el('section', { class: 'card stay-map-panel', hidden: true });
-  const listButton = el('button', { type: 'button', onclick: () => { showMap = false; draw(); } }, 'Liste / Tabelle');
+  const tableButton = el('button', { type: 'button', onclick: () => { resultView = 'table'; showMap = false; draw(); } }, 'Tabelle');
+  const listButton = el('button', { type: 'button', onclick: () => { resultView = 'list'; showMap = false; draw(); } }, 'Liste');
   const mapButton = el('button', { type: 'button', onclick: () => { showMap = true; draw(); } }, 'Karte');
-  const viewButtons = el('div', { class: 'actions result-view-switch', hidden: true, role: 'group', 'aria-label': 'Ergebnisansicht' }, listButton, mapButton);
+  const viewButtons = el('div', { class: 'actions result-view-switch', hidden: true, role: 'group', 'aria-label': 'Ergebnisansicht' }, tableButton, listButton, mapButton);
   const undoSelection = el('button', { type: 'button', hidden: true, onclick: () => selectionStates.get(lastSelection)?.undoAction() }, 'Letzte Auswahl rückgängig');
   const research = sucheLuecken(id, call, live);
   const preview = el('button', { type: 'button', hidden: true, onclick: async () => {
@@ -1157,6 +1158,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       if ([...sortSelect.options].some(o => o.value === savedView.sort?.key)) sort = { key: savedView.sort.key, direction: savedView.sort.direction === -1 ? -1 : 1 };
       if ([10, 25, 50].includes(savedView.pageSize)) pageSize.value = String(savedView.pageSize);
       showMap = savedView.map === true;
+      if (['table', 'list'].includes(savedView.view)) resultView = savedView.view;
       if (favoritesOnly) { filter.value = ''; filters.restore({ favoriten: true, unbekannt: true }); showMap = false; }
     }
     sortSelect.value = sort.key;
@@ -1165,8 +1167,10 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     const rows = snapshot.treffer.filter(t => [t.name, t.quelle, SUCHE_QUELLEN[t.quelle], t.angebot?.anbieter,
       ...(Array.isArray(t.weitere_angebote) ? t.weitere_angebote.flatMap(a => [a?.anbieter, a?.quelle, SUCHE_QUELLEN[a?.quelle]]) : [])].some(value => String(value || '').toLocaleLowerCase('de').includes(needle)) && sucheFilterTreffer(t, filters.value()));
     filteredRows = rows;
-    try { if (!favoritesOnly) sessionStorage.setItem('ks_suche_view:' + id, JSON.stringify({ needle: filter.value, filters: filters.value(), sort, pageSize: Number(pageSize.value), map: showMap })); } catch { /* Ansicht bleibt in diesem geöffneten Lauf erhalten. */ }
-    listButton.setAttribute('aria-pressed', String(!showMap)); mapButton.setAttribute('aria-pressed', String(showMap));
+    try { if (!favoritesOnly) sessionStorage.setItem('ks_suche_view:' + id, JSON.stringify({ needle: filter.value, filters: filters.value(), sort, pageSize: Number(pageSize.value), map: showMap, view: resultView })); } catch { /* Ansicht bleibt in diesem geöffneten Lauf erhalten. */ }
+    tableButton.setAttribute('aria-pressed', String(!showMap && resultView === 'table'));
+    listButton.setAttribute('aria-pressed', String(!showMap && resultView === 'list'));
+    results.dataset.resultView = resultView; mapButton.setAttribute('aria-pressed', String(showMap));
     mapPanel.hidden = !showMap; results.hidden = showMap;
     if (showMap) { if (!mapView) mapView = sucheKarte(mapPanel, showHit); mapView.update(rows, snapshot.karte); }
     undoSelection.hidden = !selectionStates.get(lastSelection)?.undo;
@@ -1220,7 +1224,11 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       section.dataset.group = key; results.append(section);
       if (key === 'ausgeschlossen') section.dataset.detail = 'ausgeschlossen';
     }
-    results.querySelectorAll('details[data-detail]').forEach((n) => { n.open = openDetails.has(n.dataset.detail); });
+    results.querySelectorAll('details[data-detail]').forEach((n) => {
+      n.open = openDetails.has(n.dataset.detail);
+      // Synchronize the row and disclosure button before the deferred native toggle event.
+      if (n.classList.contains('hit-details')) n.dispatchEvent(new Event('toggle'));
+    });
     if (rows.some((t) => t.quelle === 'rakuten_travel')) results.append(el('p', { class: 'small' }, 'Supported by Rakuten Developers'));
     if (viertelId(focusHit)) { const target = rows.find(t => t.treffer_id === focusHit); focusHit = null; if (target) showHit(target); }
   }
@@ -1288,22 +1296,17 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
 }
 
 function sucheTabelle(items, sort, onSort, final = false, feedback = () => null, selection = () => null, suchauftragId = null) {
-  const table = el('table', { class: 'suche-table' });
+  const table = el('table', { class: 'suche-table compact-results' });
   const scoreLabel = final ? 'Endscore (%)' : 'Score (Zwischenstand)';
-  const headings = [['name', 'Unterkunft'], ['preis', 'Gesamtpreis'], ['score', scoreLabel], ['datenlage', 'Datenlage (%)'], ['bewertungen', 'Bewertungen'], ['entfernung', 'Luftlinie zum Ziel']];
-  table.append(el('caption', {}, el('button', { type: 'button', 'data-sort': 'rang', onclick: () => onSort('rang') }, 'Nach Rang sortieren' + (sort.key === 'rang' ? sort.direction === 1 ? ' ↑' : ' ↓' : ''))));
-  table.append(el('thead', {}, el('tr', {}, headings.map(([key, title]) => el('th', { scope: 'col', 'aria-sort': sort.key === key ? sort.direction === 1 ? 'ascending' : 'descending' : 'none' },
-    el('button', { type: 'button', 'data-sort': key, onclick: () => onSort(key) }, title, sort.key === key ? sort.direction === 1 ? ' ↑' : ' ↓' : ' ↕'))), el('th', { scope: 'col' }, 'Hinweise / Details'))));
-  const tbody = el('tbody');
-  for (const t of [...items].sort((a, b) => sucheVergleich(a, b, sort.key, sort.direction))) {
-    const a = t.angebot || {}, b = t.bewertung || {};
-    const warnings = [...new Set([...(Array.isArray(b.warnungen) ? b.warnungen : []), ...(a.preis_art === 'geschaetzt' || b.preis_geschaetzt ? ['preis_geschaetzt'] : [])])];
-    const url = sucheLink(a.link), estimated = warnings.includes('preis_geschaetzt');
-    const review = b.gegenpruefung?.pruefung;
-    if (review?.urteil === 'einwand' && !warnings.includes('gegenpruefung_einwand')) warnings.push('gegenpruefung_einwand');
-    const objection = review?.urteil === 'einwand' || warnings.includes('gegenpruefung_einwand') ? el('div', { class: 'review-objection' }, el('strong', {}, 'Gegenprüfung hat Einwände'),
-      el('ul', {}, (Array.isArray(review?.einwaende) ? review.einwaende : []).map((v) => el('li', {}, typeof v === 'string' ? v : renderAny(v)))),
-      review?.hinweis ? el('p', {}, review.hinweis) : null) : null;
+  const headings = [['name','Unterkunft'], ['score',scoreLabel], ['preis','Gesamtpreis'], ['schlafzimmer','Schlafzimmer'], ['betten','Bettentypen'], ['gehzeit','Lage / ÖPNV'], ['gaestenote','Bewertung'], ['warnungen','Warnungen'], ['anbieter','Anbieter / Link']];
+  table.append(el('caption', {}, 'Gesamtpreis für die Reisegruppe und den gesamten Aufenthalt. ', el('button', {type:'button', 'data-sort':'rang', onclick:() => onSort('rang')}, 'Nach Rang sortieren' + (sort.key === 'rang' ? sort.direction === 1 ? ' ↑' : ' ↓' : ''))));
+  table.append(el('thead', {}, el('tr', {}, headings.map(([key,title]) => el('th', {scope:'col', 'aria-sort':sort.key === key ? sort.direction === 1 ? 'ascending' : 'descending' : 'none'}, el('button', {type:'button', 'data-sort':key, onclick:() => onSort(key)}, title, sort.key === key ? sort.direction === 1 ? ' ↑' : ' ↓' : ' ↕'))), el('th', {scope:'col'}, 'Details'))));
+  const tbody=el('tbody');
+  for (const t of items) {
+    const a=t.angebot || {}, b=t.bewertung || {}, warnings=sucheWarnungen(t), room=sucheZimmerKurz(t);
+    const url=sucheLink(a.link), estimated=a.preis_art === 'geschaetzt' || b.preis_geschaetzt;
+    const review=b.gegenpruefung?.pruefung;
+    const objection=review?.urteil === 'einwand' ? el('div', {class:'review-objection'}, el('strong', {}, 'Gegenprüfung hat Einwände'), el('ul', {}, (Array.isArray(review.einwaende) ? review.einwaende : []).map(v => el('li', {}, typeof v === 'string' ? v : renderAny(v))))) : null;
     const info = el('details', { 'data-detail': String(t.treffer_id) }, el('summary', {}, 'Angaben und Prüfungen'),
       el('p', {}, b.begruendung || 'Noch keine Begründung verfügbar.'),
       el('p', {}, 'Offene Prüfpunkte: ' + (sucheTexte(b.gegenpruefung?.luecken).join(', ') || 'keine angegeben')),
@@ -1311,6 +1314,7 @@ function sucheTabelle(items, sort, onSort, final = false, feedback = () => null,
       a.schaetz_basis ? el('p', {}, 'Schätzung: ' + a.schaetz_basis) : null,
       a.kurs != null ? el('p', {}, `Umrechnung ${a.waehrung}: ${a.kurs} · Kursdatum ${fmtDate(a.kurs_datum)}`) : null,
       el('p', {}, 'Kategorie: ' + (a.kategorie_name || 'unbekannt')),
+      el('p', {}, 'Luftlinie zum Ziel: ' + (sucheZahl(t.luftlinie_ziel_m) === null ? 'unbekannt' : (t.luftlinie_ziel_m / 1000).toLocaleString('de-DE', { maximumFractionDigits: 1 }) + ' km')),
       sucheZahl(t.station_m) !== null ? el('p', {}, `Luftlinie zur Station: ${Number(t.station_m).toLocaleString('de-DE', { maximumFractionDigits: 0 })} m`) : null,
       el('p', {}, 'Ausschlussgrund: ' + (t.ko_grund || 'keiner angegeben')),
       el('h3', {}, 'Zimmerangaben'), renderAny(t.kategorien || []),
@@ -1320,28 +1324,39 @@ function sucheTabelle(items, sort, onSort, final = false, feedback = () => null,
         el('ul', {}, sucheTexte(b.bild_urteil.auffaelligkeiten).map((v) => el('li', {}, v)))) : el('p', {}, 'Noch keine Bildbewertung vorhanden.'),
       el('h3', {}, 'Gegenprüfung'), el('p', {}, review?.urteil === 'ok' ? 'Keine Einwände in der Gegenprüfung.' : review?.urteil === 'einwand' ? 'Einwände beachten (oben aufgeführt).' : 'Noch keine Gegenprüfung vorhanden.'),
       review?.urteil === 'ok' && review.hinweis ? el('p', {}, review.hinweis) : null);
-    const td = (label, ...content) => el('td', { 'data-label': label }, ...content);
-    tbody.append(el('tr', { 'data-hit': t.treffer_id, tabindex: -1 },
-      td('Unterkunft', sucheFoto(t), el('strong', {}, t.name || 'Ohne Namen'), sucheGruppe(t) === 'A' && sucheZahl(b.rang) !== null ? el('div', { class: 'rank-badge' }, 'Rang ' + b.rang + (final ? '' : ' · vorläufig')) : null, el('div', { class: 'muted small' }, SUCHE_QUELLEN[t.quelle] || t.quelle || 'Quelle unbekannt'),
-        url ? el('a', { href: url, target: '_blank', rel: 'noopener noreferrer' }, 'Angebot öffnen ↗') : el('span', { class: 'muted small' }, 'Kein Angebotslink'), sucheViertelLink(t.zone, suchauftragId)),
-      td('Gesamtpreis', el('span', { class: 'price-value' }, (estimated && sucheZahl(a.preis_gesamt_eur) !== null ? 'ca. ' : '') + sucheEuro(a.preis_gesamt_eur) + (estimated ? ' (geschätzt)' : '')), sucheAngebotsstand(t)),
-      td(scoreLabel, sucheZahl(b.score) ?? '–'), td('Datenlage (%)', sucheDatenlage(t) ?? '–'),
-      td('Bewertungen', sucheZahl(t.bewertungen) ?? '–', el('div', { class: 'small' }, t.note != null ? `${t.note} / ${t.note_skala ?? '?'}` : 'Note unbekannt')),
-      td('Luftlinie zum Ziel', sucheZahl(t.luftlinie_ziel_m) === null ? 'unbekannt' : (t.luftlinie_ziel_m / 1000).toLocaleString('de-DE', { maximumFractionDigits: 1 }) + ' km',
-        el('div', { class: 'small' }, sucheZahl(t.gehzeit_min) === null ? 'Gehzeit unbekannt' : `${t.gehzeit_art === 'geschaetzt' ? 'ca. ' : ''}${t.gehzeit_min} Min. zu Fuß${t.station_name ? ' · ' + t.station_name : ''} (${t.gehzeit_art === 'geschaetzt' ? 'geschätzt' : ['route', 'ors'].includes(t.gehzeit_art) ? 'berechneter Fußweg' : 'Art unbekannt'})`)),
-      td('Hinweise / Details', el('div', { class: 'suche-badges' },
-        el('span', { class: 'pill' }, sucheGruppe(t) === 'ausgeschlossen' ? t.topf === 'ausgeschlossen' ? 'Ausgeschlossen' : 'Von dir ausgeschlossen' : t.topf === 'unbewertet' ? 'Unbewertet' : 'Shortlist'),
-        el('span', { class: 'pill', title: 'Verlässlichkeit der Angaben, nicht Qualität der Unterkunft' }, 'Verlässlichkeit: ' + (b.ampel || 'unbekannt')),
-        warnings.map((w) => el('span', { class: 'suche-warning' }, SUCHE_WARNUNGEN[w] || w))), el('p', { class: 'small' }, 'Balkon: ' + sucheBalkon(t)),
-        el('button', { type: 'button', class: 'candidate-open', onclick: (event) => {
-          const button = event.currentTarget, dialog = sucheKandidat(t, final, suchauftragId);
+
+    const details=el('details', {class:'hit-details', 'data-detail':'hit-' + t.treffer_id}, el('summary', {}, 'Angaben, Prüfungen und Rückmeldung'),
+      el('div', {class:'hit-detail-content'},
+        el('p', {}, 'Verlässlichkeit: ' + (b.ampel || 'unbekannt') + ' · Datenlage: ' + (sucheDatenlage(t) ?? 'unbekannt') + ' %'),
+        el('div', {class:'suche-badges'}, warnings.map(w => el('span', {class:'suche-warning'}, SUCHE_WARNUNGEN[w] || w))),
+        el('p', {}, 'Balkon: ' + sucheBalkon(t)), sucheAngebotsstand(t), sucheViertelLink(t.zone, suchauftragId),
+        el('button', {type:'button',class:'candidate-open',onclick:event => {
+          const button=event.currentTarget, dialog=sucheKandidat(t,final,suchauftragId);
           (button.closest('.suche') || main).append(dialog);
-          dialog.addEventListener('close', () => { dialog.remove(); if (button.isConnected) button.focus({ preventScroll: true }); });
-          dialog.showModal();
-        } }, 'Unterkunft im Detail'), objection, sucheBalken(b.spaltennoten, SUCHE_NOTEN), info, sucheAngebote(t), selection(t), feedback(t))));
+          dialog.addEventListener('close',() => {dialog.remove(); if(button.isConnected) button.focus({preventScroll:true});}); dialog.showModal();
+        }}, 'Unterkunft im Detail'), objection, sucheBalken(b.spaltennoten,SUCHE_NOTEN), info, sucheAngebote(t), selection(t), feedback(t)));
+    const detailId='hit-detail-' + t.treffer_id;
+    const detailRow=el('tr', {class:'hit-detail-row',hidden:true,id:detailId}, el('td', {colspan:10},details));
+    const toggle=el('button', {type:'button',class:'hit-toggle','aria-expanded':'false','aria-controls':detailId,onclick:() => {
+      details.open=!details.open; sync();
+    }}, 'Details');
+    function sync() {if (!details.open && detailRow.contains(document.activeElement)) toggle.focus({preventScroll:true}); detailRow.hidden=!details.open; toggle.setAttribute('aria-expanded',String(details.open)); toggle.textContent=details.open ? 'Schließen' : 'Details';}
+    details.addEventListener('toggle',sync);
+    const td=(label,...content) => el('td', {'data-label':label},...content);
+    const walk=sucheZahl(t.gehzeit_min);
+    tbody.append(el('tr', {'data-hit':t.treffer_id,tabindex:-1},
+      td('Unterkunft', el('div', {class:'hit-identity'},sucheFoto(t),el('div', {},el('strong', {},t.name || 'Ohne Namen'),
+        el('div', {class:'small'}, sucheGruppe(t) === 'A' && sucheZahl(b.rang) !== null ? 'Rang ' + b.rang : sucheGruppe(t) === 'offen' ? 'Unbewertet' : sucheGruppe(t) === 'ausgeschlossen' ? 'Ausgeschlossen' : 'Angaben prüfen')))),
+      td(scoreLabel,el('strong', {class:'hit-score'},sucheZahl(b.score) === null ? '–' : b.score + ' %'),el('div', {class:'small'},(final ? 'Datenlage ' : 'vorläufig · Datenlage ') + (sucheDatenlage(t) ?? '–') + ' %')),
+      td('Gesamtpreis',el('span', {class:'price-value'},(estimated && sucheZahl(a.preis_gesamt_eur) !== null ? 'ca. ' : '') + sucheEuro(a.preis_gesamt_eur)),estimated ? el('div',{class:'small'},'geschätzt') : null),
+      td('Schlafzimmer',room.schlafzimmer ?? 'unbekannt'), td('Bettentypen',room.typen || 'unbekannt',room.anzahl !== null ? el('div',{class:'small'},room.anzahl + ' Betten · ' + (room.typen ? 'laut Kategorie' : 'Typ ungeklärt')) : null),
+      td('Lage / ÖPNV',walk === null ? 'Gehzeit unbekannt' : (t.gehzeit_art === 'geschaetzt' ? 'ca. ' : '') + walk + ' Min. zu Fuß',el('div',{class:'small'},t.station_name || 'Station unbekannt'),el('div',{class:'small'},t.gehzeit_art === 'geschaetzt' ? 'geschätzt' : ['route','ors'].includes(t.gehzeit_art) ? 'berechneter Fußweg' : 'Art unbekannt')),
+      td('Bewertung',sucheZahl(t.note) !== null ? t.note + ' / ' + (t.note_skala ?? '?') : 'unbekannt',el('div',{class:'small'},(sucheZahl(t.bewertungen) ?? '–') + ' Bewertungen')),
+      td('Warnungen',el('span',{class:warnings.length ? 'suche-warning' : 'muted'},warnings.length ? warnings.length + (warnings.length === 1 ? ' Hinweis' : ' Hinweise') : 'Keine gemeldet')),
+      td('Anbieter / Link',url ? el('a',{href:url,target:'_blank',rel:'noopener noreferrer'},(a.anbieter || SUCHE_QUELLEN[t.quelle] || t.quelle || 'Angebot') + ' ↗') : el('span',{},a.anbieter || SUCHE_QUELLEN[t.quelle] || 'Kein Angebotslink')),td('Details',toggle)),detailRow);
   }
   table.append(tbody);
-  return el('div', { class: 'suche-table-scroll', tabindex: 0, role: 'region', 'aria-label': 'Sortierbare Unterkunftstabelle' }, table);
+  return el('div',{class:'suche-table-scroll',tabindex:0,role:'region','aria-label':'Sortierbare Unterkunftstabelle'},table);
 }
 
 const SUCHE_URTEILE = { passt: 'Passt', passt_nicht: 'Passt nicht', zu_teuer: 'Zu teuer', gebucht: 'Gebucht' };

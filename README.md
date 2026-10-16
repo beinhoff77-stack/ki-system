@@ -3,7 +3,7 @@
 Web- und Handy-App für Sebastians persönliches KI-System: Council und Unterkunftssuche.
 
 - Bestehende Seite: https://beinhoff77-stack.github.io/ki-system/
-- Veröffentlichter Stand: **0.10.2**. Ausbau **0.15.2** auf `feature/unterkunft-viertel-w61`, aufbauend auf den Folge-PRs für 0.11.0–0.14.1, zur Gegenprüfung.
+- Veröffentlichter Stand bei Arbeitsbeginn: **0.15.2** (main). Korrektur **0.16.0** auf `fix/unterkunft-ergebnisansichten` zur Gegenprüfung.
 - Daten und Suchlogik liegen in Supabase hinter `app-api`. Keine Schlüssel oder Live-Testdaten im Repository.
 - Kein Merge oder Deploy aus diesem Featurezweig ohne Sebastians ausdrückliche Freigabe.
 
@@ -13,7 +13,17 @@ Web- und Handy-App für Sebastians persönliches KI-System: Council und Unterkun
 
 Die Startseite `#/start` bietet zwei gleichwertige Bereiche: **Council** und **Unterkunft**. Der Bereichswechsler bleibt erreichbar. Council enthält Aufträge, Auftragserstellung, Einstellungen und Werkstatt. Unterkunft enthält Suchen (`#/suche`), Ergebnisse (`#/ergebnisse`) und Viertel (`#/viertel`); gespeicherte Suchläufe öffnen über `#/suche/<id>`.
 
-Unterkunft übernimmt die Designbasis des Original-Prototyps V0.4.1: Creme, Waldgrün, Serifentitel, grüner Hero und nummerierte Formulargruppen. Große Bildschirme zeigen eine Vergleichstabelle; Handys und kleinere Tablets bis 1199 Pixeln zeigen Trefferkarten. Liste und Landkarte verwenden dieselben Filter.
+Unterkunft übernimmt die Designbasis des Original-Prototyps V0.4.1: Creme, Waldgrün, Serifentitel, grüner Hero und nummerierte Formulargruppen. Tabelle, Liste und Karte sind auf jedem Gerät getrennt wählbar. Als Vorgabe startet der Desktop ab 1200 Pixeln mit der Tabelle, das Handy mit der Liste. Die Wahl bleibt pro Suchauftrag erhalten. Alle drei Ansichten verwenden dieselben Filter; ausgeschlossene Treffer bleiben außerhalb der Karte.
+
+## Korrektur 0.16.0: kompakte Ergebnisansichten
+
+Die bestehende Ergebnisansicht nutzt die verfügbare Breite. Die Tabelle enthält pro Unterkunft eine kompakte Zeile mit 50 × 40 Pixel Foto, Score/Datenlage, Gesamtpreis, Schlafzimmern, Bettentypen, Gehzeit/Station, Gästenote, Warnungsanzahl und Anbieterlink. Jeder Spaltenkopf sortiert; unbekannte Werte bleiben auch absteigend hinten. Die vorhandene serverseitige Rangfolge bleibt Standard. Neue lokale Filter ergänzen Schlafzimmer, Bettentyp und Warnungen.
+
+„Details“ klappt Nachweise, sämtliche Warntexte, Teilnoten, Begründungen, Rohdaten und Rückmeldungen über die volle Tabellenbreite auf. Die Liste zeigt dieselben Kerndaten als kompakte Karten. Auf kleinen Bildschirmen bleibt die explizit gewählte Tabelle horizontal innerhalb ihres Bereichs bedienbar, ohne die Seite zu verbreitern. Filter, Auswahl, Sortierung, Recherche und Rückmeldungsentwürfe verwenden weiter die bestehenden Zustände und Schnittstellen.
+
+Schlafzimmer und Betten werden nur aus einer eindeutig zugeordneten Kategorie des Hauptangebots übernommen; keine Vermischung anderer Angebote. Bettentypen werden ausschließlich aus einem gelieferten Textfeld gelesen, nicht aus Namen abgeleitet. Der aktuelle Server liefert meist nur Anzahl/Eindeutigkeit, deshalb steht dort häufig „unbekannt“. K.-o.-Kriterien, Bewertungsgewichte, Scores und A/B-Gruppierung sind unverändert.
+
+Prüfung: vollständige bestehende Browsersuite plus neue Tests für drei Ansichten, gemeinsame Filter/Marker, 50 × 40 Fotos, kompakte Zeilen, Detailzustand, 320/375/390/430 Pixel und große Schrift. Optionaler lokaler Test mit bereits gelesener Kyoto-Antwort: keine echten Schreibaktionen, keine neue Suche. Physisches iPhone/Safari und angemeldeter Live-Test bleiben gesonderte Abnahmen. Die Abschnitte mit älteren Versionsständen weiter unten sind historische Prüfprotokolle.
 
 ## Suchablauf
 

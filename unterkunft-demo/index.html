@@ -13,6 +13,8 @@
 @media (prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important}}
 
 .candidate-status-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:11px}.candidate-status-grid label{display:flex;gap:5px;flex-direction:column;font-size:12px}.candidate-status-grid select{width:100%;padding:9px 8px;border:1px solid var(--line);border-radius:9px;background:var(--paper)}@media(max-width:650px){.candidate-status-grid{grid-template-columns:1fr}}
+
+@media (max-width:360px){.search-layout{grid-template-columns:minmax(0,1fr)}.search-layout>*,.field-grid,.field-grid>.field{min-width:0}.field-grid{grid-template-columns:minmax(0,1fr)}.field-grid .wide{grid-column:auto}.field input,.field select{min-width:0}.panel{min-width:0}}
 </style>
 </head>
 <body>

@@ -26,6 +26,11 @@ const hit = (id, list, price, extra = {}) => ({ treffer_id: id, name: 'Unterkunf
 const result = (status = 'fertig') => ({ ok: true, suchauftrag: { id: 2, ziel: 'Tokyo', anreise: '2026-11-01', abreise: '2026-11-08', erwachsene: 2, kinder_alter: [11], status, schrittkette: [{ quelle: 'hasdata_booking', status, treffer: 4 }] },
   kosten: { ist_usd: 0.062, limit_usd: 1.5, ist_einheiten: 20, limit_einheiten: 30 },
   treffer: [hit(1, 'A', 200), hit(2, 'A', 100), hit(3, 'A', null), hit(4, 'B', 300, { quelle: 'rakuten_travel', angebot: { preis_gesamt_eur: 300, preis_art: 'geschaetzt', schaetz_basis: 'Erste Nacht × 7', link: 'javascript:alert(1)' }, bewertung: { liste: 'B', score: 95, warnungen: ['futon', 'steuern_unklar', 'neue_warnung'] } }), hit(5, 'A', 10, { topf: 'ausgeschlossen' })] });
+const profileCatalog = (profile=[]) => ({ok:true,profile,reisearten:{hauptart:['staedte'],hauptart_ab_v11:['roadtrip','strand','erholung','tauchen','natur'],nebenart:['erholung','strand','tauchen','natur','roadtrip'],nebenart_anteil:{min:10,max:50,standard:30}},unterkunftsform:['alle','hotel','apartment','haus'],kriterien_katalog:{
+  raum:{schlafzimmer:{typ:'zahl',label:'Schlafzimmer mindestens'},flaeche_m2:{typ:'zahl',label:'Wohnfläche mindestens (m²)'},echte_betten:{typ:'ja',label:'Echte Betten für alle'}},
+  lage:{gehzeit_max_min:{typ:'zahl',label:'Gehzeit zur Station höchstens (Min.)'},luftlinie_max_km:{typ:'zahl',label:'Luftlinie zum Ziel höchstens (km)'}},
+  preis:{storno_kostenlos:{typ:'ja',label:'Kostenlose Stornierung'}},bewertungen:{note_min:{typ:'zahl',label:'Note mindestens (0–10)'},bewertungen_min:{typ:'zahl',label:'Anzahl Bewertungen mindestens'}},
+  ausstattung:{suite:{typ:'ja',label:'Suite (nur Wunsch)'},balkon:{typ:'ja',label:'Balkon'},pool:{typ:'ja',label:'Pool'},klima:{typ:'ja',label:'Klimaanlage'},kueche:{typ:'ja',label:'Küche'},parkplatz:{typ:'ja',label:'Parkplatz'},waschmaschine:{typ:'ja',label:'Waschmaschine'}} }});
 async function setup(t, handler, viewport) {
   const context = await browser.newContext({ viewport: viewport || { width: 1440, height: 1000 }, serviceWorkers: 'block' });
   t.after(() => context.close());
@@ -39,6 +44,7 @@ async function setup(t, handler, viewport) {
     const payload = request.method() === 'POST' ? request.postDataJSON() : {};
     calls.push(payload);
     let value = await handler(payload, calls);
+    if (payload.aktion === 'unterkunft_suchprofile_lesen' && (value?.suchauftrag || Array.isArray(value?.suchauftraege))) value = profileCatalog();
     if (payload.aktion === 'unterkunft_lueckenfueller_lesen' && (value?.suchauftrag || Array.isArray(value?.suchauftraege))) value = {ok:true,auftraege:[]};
     if (payload.aktion === 'unterkunft_suche_status' && value?.suchauftrag) {
       const a = value.suchauftrag;
@@ -155,10 +161,11 @@ test('PWA installiert vollständige Offline-Hülle, API wird nicht gecacht', asy
   assert(cacheNames.includes('ki-system:' + origin + '/another-app/:v1'));
   assert(!cacheNames.includes('ki-system:' + origin + '/:old'));
   await page.evaluate(() => fetch('README.md'));
-  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v19')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
-  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.12.0')); assert(cached.includes('/style.css?v=0.12.0'));
-  assert(cached.includes('/stay-tools.js?v=0.12.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
-  assert(cached.includes('/stay-research.js?v=0.12.0'));
+  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v20')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
+  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.13.0')); assert(cached.includes('/style.css?v=0.13.0'));
+  assert(cached.includes('/stay-tools.js?v=0.13.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
+  assert(cached.includes('/stay-research.js?v=0.13.0'));
+  assert(cached.includes('/stay-form.js?v=0.13.0'));
   assert(!cached.includes('/README.md'));
   assert(!cached.some((u) => u.includes('app-api')));
   await context.setOffline(true); await page.reload();
@@ -762,6 +769,9 @@ test('Lückenfüller: bestätigter Auftrag, Felder, Kopiertext und Doppelklick o
   await page.locator('[data-research-status="4"]').getByText('Recherche #7: Angelegt – wartet auf Claude',{exact:false}).waitFor();
   assert.equal(await page.getByRole('button',{name:'Lücken füllen (0)',exact:true}).isDisabled(),true);
   assert(!calls.some(p=>/ausfuehren|runde_starten|suche_starten/.test(p.aktion)));
+  await page.setViewportSize({width:320,height:800});
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+  await page.locator('.research-panel').screenshot({path:path.join(root,'test-results/research-mobile.png')});
 });
 
 test('Lückenfüller: Auswahl maximal 30, über Filter hinweg erhalten und bei Ausschluss bereinigt', async (t) => {
@@ -824,4 +834,101 @@ test('Lückenfüller: vorhandenen Auftrag öffnen, Lesefehler erhalten Treffer, 
   await page.getByRole('button',{name:'Lücken füllen (1)',exact:true}).click(); await waitForCallback(()=>releaseCreate);
   await page.locator('#areas [data-area=council]').click(); await page.getByRole('heading',{name:'Aufträge',exact:true}).waitFor();
   releaseCreate(); assert.equal(await page.locator('.research-panel').count(),0);
+});
+
+test('Reisewünsche: Nebenart, Mischung, Unterkunft, Qualitätsfilter und Pflichtkriterien anlegen', async (t) => {
+  const {page,calls}=await setup(t,p=>p.aktion==='unterkunft_suchauftrag_anlegen'?{ok:true,id:2}:p.aktion==='unterkunft_suche_starten'?{ok:true}:p.daten?.suchauftrag_id?result():{suchauftraege:[]});
+  await page.goto(origin+'/#/suche');await formFill(page);
+  await page.getByLabel('Nebenart',{exact:true}).selectOption('erholung');
+  await page.getByLabel('Mischung der Reisearten',{exact:true}).selectOption('frei');
+  await page.getByLabel('Anteil der Nebenart (%)',{exact:true}).fill('40');
+  await page.getByLabel('Gewünschte Unterkunftsform',{exact:true}).selectOption('apartment');
+  await page.getByLabel('Suite als Wunsch',{exact:true}).check();
+  await page.getByLabel('Qualitätsfilter anwenden',{exact:true}).uncheck();
+  await page.locator('.trip-criteria > summary').click();
+  await page.getByLabel('Bedeutung: Echte Betten für alle',{exact:true}).selectOption('pflicht');
+  await page.getByLabel('Bedeutung: Schlafzimmer mindestens',{exact:true}).selectOption('pflicht');
+  await page.getByLabel('Bedeutung: Wohnfläche mindestens (m²)',{exact:true}).selectOption('pflicht');
+  await page.getByRole('button',{name:'Anlegen und Suche starten',exact:true}).click();
+  await page.getByText('Bitte einen gültigen Wert für „Wohnfläche mindestens (m²)“ eintragen.').waitFor();
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_suchauftrag_anlegen').length,0);
+  await page.getByLabel('Wert: Wohnfläche mindestens (m²)',{exact:true}).fill('55');
+  await page.getByLabel('Bedeutung: Balkon',{exact:true}).selectOption('egal');
+  await page.getByRole('button',{name:'Anlegen und Suche starten',exact:true}).click();
+  await page.locator('[data-group=A]').waitFor();
+  const d=calls.find(p=>p.aktion==='unterkunft_suchauftrag_anlegen').daten;
+  assert.equal(d.profil,'staedte');assert.equal(d.nebenart,'erholung');assert.equal(d.nebenart_anteil,40);assert.equal(d.unterkunftsform,'apartment');
+  assert.equal(d.suite,true);assert.equal(d.qualitaetsfilter,false);
+  assert.deepEqual(d.kriterien.echte_betten,{modus:'pflicht'});assert.deepEqual(d.kriterien.flaeche_m2,{modus:'pflicht',wert:55});
+  assert.deepEqual(d.kriterien.schlafzimmer,{modus:'pflicht',wert:2});assert.deepEqual(d.kriterien.suite,{modus:'wunsch'});assert.deepEqual(d.kriterien.balkon,{modus:'egal'});
+});
+
+test('Suchprofil übernehmen bewahrt Reiseziel und Daten; geleerte Felder kehren nicht aus Profil zurück', async (t) => {
+  const profile={id:9,name:'Familie',felder:{erwachsene:3,kinder_alter:[9],budget_eur:9000,land:'JP',schlafzimmer_min:3,nebenart:'natur',nebenart_anteil:50,unterkunftsform:'haus',qualitaetsfilter:false,kriterien:{balkon:{modus:'egal'}},quellen:['hasdata_booking','apify_airbnb']}};
+  const {page,calls}=await setup(t,p=>p.aktion==='unterkunft_suchprofile_lesen'?profileCatalog([profile]):p.aktion==='unterkunft_suchauftrag_anlegen'?{ok:true,id:2}:p.aktion==='unterkunft_suche_starten'?{ok:true}:p.daten?.suchauftrag_id?result():{suchauftraege:[]});
+  await page.goto(origin+'/#/suche');await formFill(page);
+  await page.getByLabel('Suchprofil verwenden',{exact:true}).selectOption('9');
+  assert.equal(await page.locator('[name=ziel]').inputValue(),'Kyoto');assert.equal(await page.locator('[name=anreise]').inputValue(),'2026-11-13');
+  assert.equal(await page.locator('[name=erwachsene]').inputValue(),'3');assert.equal(await page.locator('[name=kinder_alter]').inputValue(),'9');
+  await page.locator('[name=budget_eur]').fill('');await page.locator('[name=land]').fill('');
+  await page.getByLabel('Nebenart',{exact:true}).selectOption('');
+  await page.getByRole('button',{name:'Anlegen und Suche starten',exact:true}).click();await page.locator('[data-group=A]').waitFor();
+  const d=calls.find(p=>p.aktion==='unterkunft_suchauftrag_anlegen').daten;
+  assert.equal(d.suchprofil,undefined);assert.equal(d.budget_eur,undefined);assert.equal(d.land,undefined);assert.equal(d.nebenart,undefined);
+  assert.deepEqual(d.quellen,['hasdata_booking','apify_airbnb']);assert.deepEqual(d.kriterien.balkon,{modus:'egal'});
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_suchprofil_speichern').length,0);
+});
+
+test('Suchprofil ohne Ziel und Reisedaten speichern, Doppelklick und bewusster Ersatz', async (t) => {
+  let releaseSave;
+  const {page,calls}=await setup(t,async p=>{
+    if(p.aktion==='unterkunft_suchprofil_speichern'){await new Promise(resolve=>{releaseSave=resolve;});return{ok:true,id:9,name:p.daten.name,felder:p.daten.felder};}
+    return {suchauftraege:[]};
+  });
+  await page.goto(origin+'/#/suche');
+  await page.getByLabel('Name des Suchprofils',{exact:true}).fill('Familie');
+  await page.getByRole('button',{name:'Als Profil speichern',exact:true}).dblclick();await waitForCallback(()=>releaseSave);
+  assert.equal(await page.getByRole('button',{name:'Anlegen und Suche starten',exact:true}).isDisabled(),true);
+  const writes=calls.filter(p=>p.aktion==='unterkunft_suchprofil_speichern');assert.equal(writes.length,1);
+  assert.equal(writes[0].daten.felder.ziel,undefined);assert.equal(writes[0].daten.felder.anreise,undefined);assert.equal(writes[0].daten.felder.abreise,undefined);
+  assert.equal(writes[0].daten.felder.erwachsene,2);
+  releaseSave();await page.getByText('Profil „Familie“ gespeichert.',{exact:true}).waitFor();
+  await page.getByRole('button',{name:'Gleichnamiges Profil ersetzen',exact:true}).waitFor();
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_suchauftrag_anlegen').length,0);
+});
+
+test('Suchprofil: unklare Speicherantwort verlangt Lesen, Entwurf bleibt erhalten', async (t) => {
+  let saved;
+  const {page,calls}=await setup(t,p=>{
+    if(p.aktion==='unterkunft_suchprofile_lesen')return profileCatalog(saved?[saved]:[]);
+    if(p.aktion==='unterkunft_suchprofil_speichern'){saved={id:9,...p.daten};return{ok:true,id:9};}
+    return{suchauftraege:[]};
+  });
+  await page.goto(origin+'/#/suche');await page.getByLabel('Name des Suchprofils',{exact:true}).fill('Familie');
+  await page.getByRole('button',{name:'Als Profil speichern',exact:true}).click();
+  await page.getByText('Speichern nicht bestätigt:',{exact:false}).waitFor();
+  assert.equal(await page.getByRole('button',{name:'Als Profil speichern',exact:true}).isDisabled(),true);
+  await page.locator('[name=ziel]').fill('Kanazawa');await page.locator('[name=erwachsene]').fill('4');
+  await page.getByRole('button',{name:'Suchprofile aktualisieren',exact:true}).click();
+  await page.getByText('1 Suchprofile verfügbar.',{exact:true}).waitFor();
+  assert.equal(await page.locator('[name=erwachsene]').inputValue(),'4');assert.equal(await page.locator('[name=ziel]').inputValue(),'Kanazawa');
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_suchprofil_speichern').length,1);
+});
+
+test('Formular-Katalogfehler blockiert Start bis zum erneuten Laden; mobile Filter ohne Überlauf', async (t) => {
+  let working=false;
+  const {page,calls}=await setup(t,p=>p.aktion==='unterkunft_suchprofile_lesen'?(working?profileCatalog():{ok:true}):{suchauftraege:[]},{width:320,height:800});
+  await page.goto(origin+'/#/suche');await formFill(page);
+  await page.getByText('Suchprofile nicht geladen:',{exact:false}).waitFor();
+  assert.equal(await page.getByRole('button',{name:'Anlegen und Suche starten',exact:true}).isDisabled(),true);
+  working=true;await page.getByRole('button',{name:'Suchprofile aktualisieren',exact:true}).click();
+  await page.getByText('Noch keine Suchprofile gespeichert.').waitFor();
+  assert.equal(await page.locator('[name=ziel]').inputValue(),'Kyoto');
+  assert.equal(await page.getByRole('button',{name:'Anlegen und Suche starten',exact:true}).isDisabled(),false);
+  assert.equal(await page.getByLabel('Reiseart',{exact:true}).locator('option:disabled').count(),5);
+  await page.locator('.trip-criteria > summary').click();
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+  fs.mkdirSync(path.join(root,'test-results'),{recursive:true});
+  await page.locator('.trip-criteria').screenshot({path:path.join(root,'test-results/trip-filters-mobile.png')});
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_suchauftrag_anlegen').length,0);
 });

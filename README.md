@@ -3,7 +3,7 @@
 Web- und Handy-App für Sebastians persönliches KI-System: Council und Unterkunftssuche.
 
 - Bestehende Seite: https://beinhoff77-stack.github.io/ki-system/
-- Veröffentlichter Stand: **0.10.2**. Ausbau **0.12.0** auf `feature/unterkunft-lueckenfueller-w51`, aufbauend auf 0.11.0 (`feature/unterkunft-ausbau-w50`), zur Gegenprüfung.
+- Veröffentlichter Stand: **0.10.2**. Ausbau **0.13.0** auf `feature/unterkunft-suchprofile-w54`, aufbauend auf den Folge-PRs für 0.11.0 und 0.12.0, zur Gegenprüfung.
 - Daten und Suchlogik liegen in Supabase hinter `app-api`. Keine Schlüssel oder Live-Testdaten im Repository.
 - Kein Merge oder Deploy aus diesem Featurezweig ohne Sebastians ausdrückliche Freigabe.
 
@@ -16,6 +16,12 @@ Die Startseite `#/start` bietet zwei gleichwertige Bereiche: **Council** und **U
 Unterkunft übernimmt die Designbasis des Original-Prototyps V0.4.1: Creme, Waldgrün, Serifentitel, grüner Hero und nummerierte Formulargruppen. Große Bildschirme zeigen eine Vergleichstabelle; Handys und kleinere Tablets bis 1199 Pixeln zeigen Trefferkarten. Liste und Landkarte verwenden dieselben Filter.
 
 ## Suchablauf
+
+`stay-form.js` ergänzt das Suchformular aus dem Serverkatalog `unterkunft_suchprofile_lesen`. Städtereise ist als Hauptart aktiv; kommende Hauptarten bleiben sichtbar gesperrt. Eine Nebenart lässt sich mit 10–50 Prozent mischen (70/30, 50/50 oder eigener Anteil). Unterkunftsform und Suite-Wunsch, ein abschaltbarer Qualitätsfilter sowie fünf aufklappbare Filterblöcke mit Pflicht/Wunsch/Egal sind angebunden. Balkon startet entsprechend dem Server als Wunsch, Suite bietet keine Pflicht-Auswahl. Schlafzimmer verwendet denselben sichtbaren Zahlenwert wie die Grundangaben. Zahlen aktiver Kriterien werden vor dem Anlegen geprüft.
+
+Suchprofile übernehmen die Voreinstellungen in das Formular; Zielort und Reisezeit bleiben stehen. Die sichtbaren Werte werden anschließend vollständig neu eingelesen, ohne eine erneute serverseitige Profilzusammenführung: Ein gelöschtes Budget oder eine abgewählte Nebenart kehrt damit nicht aus dem Profil zurück. Quellen aus einem Profil bleiben sichtbar und werden übernommen. „Als Profil speichern“ verwendet nur erlaubte Voreinstellungen, ohne Ziel und Reisedaten; diese müssen zum Speichern noch nicht eingetragen sein. Ein gleicher Name wird sichtbar als Ersatz gekennzeichnet. Unbestätigte Schreibantworten sperren erneutes Speichern bis zum Lesen, ohne den aktuellen Formularentwurf zu verlieren.
+
+Vor Veröffentlichung ist der Serverhinweis aus Werkstatt-Nachricht 195 zu klären: Beim Profil-Speichern wurden explizite Egal-Kriterien entfernt, wodurch ein abgewählter Balkon beim erneuten Laden wieder zum Standardwunsch werden könnte. Die App sendet Balkon/Egal ausdrücklich; sie erfindet keinen dauerhaften Ersatz für den Serververtrag.
 
 Die bestehende Anmeldung wird verwendet. Alle Aktionen gehen als `{aktion, daten}` an `POST /app-api/aktion`, die Antwort hat die Hülle `{ok, ergebnis}`.
 
@@ -73,7 +79,7 @@ npx playwright install chromium
 npm test
 ```
 
-**39 Browsertests** prüfen Formular/API-Reihenfolge, Doppelklick, Warteschlange/Bewertung, Abbruch, Fehler/401, unvollständige Antworten, Navigation, Ranking, Sortierung/Filter/Seiten, Rückmeldungen und persönliche Auswahl samt überlappender Lese-/Schreibvorgänge, Fotos/Referrer/Platzhalter, Kartenfilter/Ausschlüsse/Nullkoordinaten/Listensprung, gespeicherte Filter, Lückenfüller-Auswahl/30er-Grenze/Doppelklick/Fehlerwiederherstellung/Kopieren/Status, Markdown/Links, mobile und Tablet-Breiten, Tastaturbedienung sowie Offline-Hülle/Cache-Isolation und das Update mit bereits gefülltem HTTP-Cache. Die Tests verwenden synthetische Antworten und starten keine echte Suche, Auswahländerung oder Rückmeldung. Fotos und Kartenkacheln werden in den Tests simuliert, ohne externe Kartendienste abzufragen. Screenshots liegen ignoriert in `test-results/`.
+**44 Browsertests** prüfen Formular/API-Reihenfolge, Doppelklick, Warteschlange/Bewertung, Abbruch, Fehler/401, unvollständige Antworten, Navigation, Ranking, Sortierung/Filter/Seiten, Rückmeldungen und persönliche Auswahl samt überlappender Lese-/Schreibvorgänge, Fotos/Referrer/Platzhalter, Kartenfilter/Ausschlüsse/Nullkoordinaten/Listensprung, gespeicherte Filter, Lückenfüller-Auswahl/30er-Grenze/Doppelklick/Fehlerwiederherstellung/Kopieren/Status, Reisearten/Kriterien/Profilwechsel/Profil-Speicherung/Katalogfehler, Markdown/Links, mobile und Tablet-Breiten, Tastaturbedienung sowie Offline-Hülle/Cache-Isolation und das Update mit bereits gefülltem HTTP-Cache. Die Tests verwenden synthetische Antworten und starten keine echte Suche, Auswahländerung oder Rückmeldung. Fotos und Kartenkacheln werden in den Tests simuliert, ohne externe Kartendienste abzufragen. Screenshots liegen ignoriert in `test-results/`.
 
 Am 16.10.2026 wurden Suchlauf #2 und der Rückmeldungsbericht über den vorhandenen Lesezugang geprüft; ihre Daten werden nicht eingecheckt. Claudes Kyoto-Lauf #5 wurde durch diese UI-Arbeiten nicht gestartet, gestoppt oder verändert.
 
@@ -83,7 +89,7 @@ Claude hat die Schnittstellen in Werkstatt-Nachricht 165 geprüft und die App na
 
 Werkstatt-Wunsch 41: App-Verantwortung bei ChatGPT, Backend bei Claude. Vor Änderungen `app:repo` sperren, vorhandenen Featurestand prüfen, danach Änderungen protokollieren und die Sperre freigeben. Größere Änderungen gehen zur Gegenprüfung; Sebastian entscheidet über Veröffentlichung.
 
-Der Ausbau 0.11.0 gehört zu Wunsch 50 (Fotos/Karte) und Wunsch 33 (Filter/Auswahl). Die für 0.10.x erteilte Veröffentlichungserlaubnis ersetzt nicht die Abnahme dieses Ausbaus. Ausbau 0.12.0 ergänzt Wunsch 51 (Lückenfüller) in einem eigenen Folge-PR. Wunsch 54 (erweiterte Suche/Suchprofile) folgt separat.
+Der Ausbau 0.11.0 gehört zu Wunsch 50 (Fotos/Karte) und Wunsch 33 (Filter/Auswahl). Die für 0.10.x erteilte Veröffentlichungserlaubnis ersetzt nicht die Abnahme dieses Ausbaus. Ausbau 0.12.0 ergänzt Wunsch 51 (Lückenfüller) in einem eigenen Folge-PR. Ausbau 0.13.0 ergänzt Wunsch 54 (erweiterte Suche/Suchprofile) im nächsten Folge-PR.
 
 
 ### Kyoto-Abgleich (App 0.10.1)

@@ -89,9 +89,24 @@ function stayField(t,key,trip) {
   return box;
 }
 function stayInfo(t,trip) {return el('dl',{class:'stay-info'},stayFields().flatMap(key=>[el('dt',{},STAY_FIELDS[key]),el('dd',{'data-field':key},stayField(t,key,trip))]));}
+function stayReviewInfo(t,trip) {
+  const nights=(Date.parse(trip.abreise)-Date.parse(trip.anreise))/86400000;
+  const labels={preis:nights>0?'Gesamt · '+nights+' Nächte':'Gesamtpreis',nacht:'Pro Nacht',gaestenote:'Gästenote',m2:'Fläche',schlafzimmer:'Schlafzimmer',gehzeit:'Zu Fuß zur Station'};
+  return el('dl',{class:'review-info'},stayFields().map(key=>{
+    const value=stayFieldValue(t,key,trip);let display=value===null?'–':String(value), note=null;
+    if(value!==null){
+      if(['preis','nacht'].includes(key))display=(t.angebot?.preis_art==='geschaetzt'?'ca. ':'')+sucheEuro(value);
+      if(key==='m2')display=Number(value).toLocaleString('de-DE')+' m²';
+      if(key==='datenlage')display=value+' %';
+      if(key==='gaestenote'){display=Number(value).toLocaleString('de-DE',{maximumFractionDigits:2})+' / 10';note='geeicht · '+(SUCHE_QUELLEN[t.quelle]||t.quelle||'Quelle');}
+      if(key==='gehzeit'){display=(t.gehzeit_art==='geschaetzt'?'ca. ':'')+(value>=60?Math.floor(value/60)+' Std. '+Math.round(value%60)+' Min.':Math.round(value)+' Min.');note=t.station_name||'Station unbekannt';if(!['route','ors','geschaetzt'].includes(t.gehzeit_art))note+=' · Berechnung unbekannt';}
+    }
+    return el('div',{'data-field':key},el('dt',{},labels[key]||STAY_FIELDS[key]),el('dd',{},display,note?el('small',{},note):null));
+  }));
+}
 function stayGallery(t) {
   const urls=[...new Set([...(Array.isArray(t.bilder)?t.bilder:[]),t.bild].map(v=>sucheLink(v)).filter(Boolean))].slice(0,10);
-  const box=el('section',{class:'stay-gallery','aria-label':'Fotogalerie'});
+  const box=el('section',{class:'stay-gallery'+(!urls.length?' gallery-empty':''),'aria-label':'Fotogalerie'});
   if(!urls.length) {box.append(sucheFoto(t));return box;}
   let index=0,start=null;
   const photo=el('div'), count=el('span',{'aria-live':'polite'});
@@ -101,7 +116,7 @@ function stayGallery(t) {
   photo.addEventListener('pointerdown',e=>{start={x:e.clientX,y:e.clientY};});
   photo.addEventListener('pointerup',e=>{if(start && Math.abs(e.clientX-start.x)>50 && Math.abs(e.clientY-start.y)<50)show(index+(e.clientX<start.x?1:-1));start=null;});
   photo.addEventListener('pointercancel',()=>{start=null;});
-  box.append(photo,el('div',{class:'actions'},prev,count,next));show(0);return box;
+  box.append(photo,el('div',{class:'actions gallery-controls'},prev,count,next));show(0);return box;
 }
 function stayEndrunde(hits,id,call,live,onSaved) {
   let order=hits.filter(t=>t.status==='favorit').sort((a,b)=>(a.eigener_rang??Infinity)-(b.eigener_rang??Infinity)||(a.bewertung?.rang??Infinity)-(b.bewertung?.rang??Infinity));
@@ -125,44 +140,64 @@ function stayEndrunde(hits,id,call,live,onSaved) {
   }},t.name+' wählen')))));}
   dialog.append(el('h2',{},'Endrunde · Favoriten'),close,body,status,save);list();return dialog;
 }
-function stayReview({getSnapshot,call,live,changed,scope,isBlocked=()=>false}) {
-  let pending=false, last=null, reasonFor=null, awaitingReturn=null, revision=0;
-  const box=el('section',{class:'stay-review'}), message=el('p',{role:'status'});
+function stayReview({getSnapshot,call,live,changed,scope,onRefresh,isBlocked=()=>false}) {
+  let pending=false, last=null, reasonFor=null, awaitingReturn=null, revision=0, gallery=null, galleryId=null, reasonsDialog=null;
+  const box=el('section',{class:'stay-review'}), message=el('p',{class:'review-message',role:'status'});
   const minus=[['preis','Preis'],['zu_klein','Zu klein'],['lage','Lage'],['stil','Stil'],['betten','Betten'],['fotos','Fotos'],['laerm','Lärm'],['ausstattung','Ausstattung'],['sonstiges','Sonstiges']];
   const plus=[['plus_groesse','Größe'],['plus_lage','Lage'],['plus_stil','Stil'],['plus_preis','Preis'],['plus_ausstattung','Ausstattung'],['plus_fotos','Fotos'],['plus_betten','Betten']];
   let needsRefresh=false;
   async function vote(t,urteil,gruende=[],withReasons=true){
-    if(pending||needsRefresh||isBlocked())return;pending=true;revision++;draw();
+    if(pending||needsRefresh||isBlocked())return;const focusDecision=document.activeElement?.dataset.decision;pending=true;revision++;draw();
     try {const r=await call('unterkunft_durchsehen_urteil',{treffer_id:t.treffer_id,urteil,gruende});if(!live())return;
       if(r.ok!==true || r.treffer_id!==t.treffer_id || r.urteil!==urteil || r.status!==({favorit:'favorit',vielleicht:'vielleicht',weg:'ausgeschlossen',offen:'aktiv'}[urteil]))throw Error('Urteil nicht eindeutig bestätigt.');
       t.status={favorit:'favorit',vielleicht:'vielleicht',weg:'ausgeschlossen',offen:'aktiv'}[urteil];t.urteil_gruende=gruende;
       if(urteil==='offen'){t.urteil_uebernommen=null;last=null;reasonFor=null;}else {last=t;reasonFor=withReasons?{t,urteil,gruende}:null;}
+      if(reasonsDialog){reasonsDialog.close();reasonsDialog.remove();reasonsDialog=null;}
       awaitingReturn=null;message.textContent=urteil==='offen'?'Letzte Entscheidung zurückgenommen.':'Entscheidung gespeichert.';
-    }catch(e){needsRefresh=true;message.textContent='Speichern nicht bestätigt: '+e.message+' Bitte aktualisieren, bevor du erneut entscheidest.';}
-    finally{pending=false;revision++;if(live()){changed(t);draw();}}
+    }catch(e){needsRefresh=true;if(reasonsDialog){reasonsDialog.close();reasonsDialog.remove();reasonsDialog=null;}message.textContent='Speichern nicht bestätigt: '+e.message+' Bitte aktualisieren, bevor du erneut entscheidest.';}
+    finally{pending=false;revision++;if(live()){changed(t);draw();if(focusDecision)box.querySelector('[data-decision="'+focusDecision+'"]')?.focus({preventScroll:true});}}
   }
-  function buttons(t){return el('div',{class:'actions review-actions'},[['favorit','Favorit'],['vielleicht','Na ja'],['weg','Weg']].map(([key,label])=>el('button',{type:'button',disabled:pending||needsRefresh||isBlocked(),onclick:()=>vote(t,key)},label)));}
+  function buttons(t){return el('div',{class:'actions review-actions'},[['weg','Weg'],['vielleicht','Na ja'],['favorit','Favorit']].map(([key,label])=>el('button',{type:'button',class:'decision-'+key,'data-decision':key,disabled:pending||needsRefresh||isBlocked(),onclick:()=>vote(t,key)},label)));}
+  function openReasons(){
+    if(!reasonFor||pending||needsRefresh||isBlocked())return;
+    const r=reasonFor, dialog=el('dialog',{class:'stay-candidate review-reasons','aria-label':'Gründe ergänzen'});
+    reasonsDialog=dialog;
+    const close=el('button',{type:'button',onclick:()=>dialog.close()},'Schließen');
+    const save=el('button',{type:'button',class:'primary',onclick:()=>{dialog.querySelectorAll('button').forEach(b=>b.disabled=true);void vote(r.t,r.urteil,r.gruende,false);}},'Gründe speichern');
+    dialog.append(el('h2',{},'Gründe ergänzen'),el('p',{},r.t.name+' · '+({favorit:'Favorit',weg:'Weg',vielleicht:'Na ja'}[r.urteil])),
+      el('p',{class:'small'},'Optional. Deine Entscheidung ist bereits gespeichert.'),
+      el('div',{class:'actions'},(r.urteil==='favorit'?plus:minus).map(([key,label])=>el('button',{type:'button','aria-pressed':r.gruende.includes(key),onclick:e=>{r.gruende=r.gruende.includes(key)?r.gruende.filter(k=>k!==key):[...r.gruende,key];e.currentTarget.setAttribute('aria-pressed',String(r.gruende.includes(key)));}},label))),
+      el('div',{class:'actions'},close,save));
+    dialog.addEventListener('cancel',e=>{if(pending)e.preventDefault();});
+    dialog.addEventListener('close',()=>{dialog.remove();if(reasonsDialog===dialog)reasonsDialog=null;box.querySelector('.review-reason-open')?.focus({preventScroll:true});});
+    scope.append(dialog);dialog.showModal();
+  }
   function draw(){
     const snapshot=getSnapshot();if(!snapshot)return;
     const all=snapshot.treffer, queue=all.filter(t=>!['favorit','vielleicht','ausgeschlossen'].includes(t.status)&&t.topf!=='ausgeschlossen'&&(!t.urteil_uebernommen || (t.status==='aktiv' && t.urteil_uebernommen.hinweis))).sort((a,b)=>(b.runde||1)-(a.runde||1)||(a.bewertung?.rang??Infinity)-(b.bewertung?.rang??Infinity)||a.treffer_id-b.treffer_id);
-    box.replaceChildren(el('p',{class:'small'},`${queue.length} neu · ${all.filter(t=>['favorit','vielleicht','ausgeschlossen'].includes(t.status)||t.urteil_uebernommen).length} schon bewertet`),message,
-      el('button',{type:'button',disabled:!last||pending||needsRefresh,onclick:()=>vote(last,'offen',[],false)},'Letzte Entscheidung rückgängig'));
-    if(reasonFor){const r=reasonFor;box.append(el('section',{class:'review-reasons'},el('p',{},`Warum ${r.urteil==='favorit'?'Favorit':r.urteil==='weg'?'Weg':'Na ja'}? ${r.t.name} (optional)`),
-      el('div',{class:'actions'},(r.urteil==='favorit'?plus:minus).map(([key,label])=>el('button',{type:'button','aria-pressed':r.gruende.includes(key),disabled:pending||needsRefresh||isBlocked(),onclick:()=>{r.gruende=r.gruende.includes(key)?r.gruende.filter(k=>k!==key):[...r.gruende,key];draw();}},label))),
-      el('button',{type:'button',disabled:pending||needsRefresh||isBlocked(),onclick:()=>vote(r.t,r.urteil,r.gruende,false)},'Gründe speichern'),el('button',{type:'button',disabled:pending,onclick:()=>{reasonFor=null;draw();}},'Überspringen')));}
+    box.replaceChildren(el('div',{class:'review-toolbar'},el('span',{class:'review-progress'},`${queue.length} offen · ${all.filter(t=>['favorit','vielleicht','ausgeschlossen'].includes(t.status)).length} bewertet`),
+      el('button',{type:'button',disabled:!last||pending||needsRefresh||isBlocked(),'aria-label':'Letzte Entscheidung rückgängig',onclick:()=>vote(last,'offen',[],false)},'↶ Rückgängig')),
+      el('div',{class:'review-feedback'},message,el('button',{type:'button',class:'review-reason-open',disabled:!reasonFor||pending||needsRefresh||isBlocked(),onclick:openReasons},'Gründe ergänzen')));
+    if(pending)message.textContent='Speichere …';
+    if((needsRefresh||isBlocked())&&!pending&&onRefresh)box.append(el('button',{type:'button',class:'review-reload',onclick:onRefresh},'Aktualisieren'));
     const t=queue[0];if(!t){box.append(el('h3',{},'Alle Unterkünfte durchgesehen.'),el('p',{},'In der Endrunde kannst du deine Favoriten vergleichen.'));return;}
-    const article=el('article',{class:'review-card','data-review-hit':t.treffer_id},stayGallery(t),t.urteil_uebernommen?.hinweis?el('p',{class:'warning'},'Jetzt günstiger · '+t.urteil_uebernommen.hinweis):null);
-    const swipe=el('div',{class:'review-swipe'},el('h3',{},t.name),el('p',{},`Rang ${t.bewertung?.rang??'–'} · ${snapshot.suchauftrag.status==='fertig'&&['A','B'].includes(sucheGruppe(t))?'Endscore':'Vorläufiger Score'} ${t.bewertung?.score??'–'} %`),stayInfo(t,snapshot.suchauftrag));
+    if(galleryId!==t.treffer_id){galleryId=t.treffer_id;gallery=stayGallery(t);}
+    const article=el('article',{class:'review-card','data-review-hit':t.treffer_id});
+    const content=el('div',{class:'review-content',tabindex:0,'aria-label':'Unterkunft ansehen'},gallery,t.urteil_uebernommen?.hinweis?el('p',{class:'warning'},'Jetzt günstiger · '+t.urteil_uebernommen.hinweis):null);
+    const swipe=el('div',{class:'review-swipe'},el('h3',{tabindex:-1},t.name),el('p',{class:'review-score'},`Rang ${t.bewertung?.rang??'–'} · ${snapshot.suchauftrag.status==='fertig'&&['A','B'].includes(sucheGruppe(t))?'Endscore':'Vorläufiger Score'} ${t.bewertung?.score??'–'} %`),stayReviewInfo(t,snapshot.suchauftrag));
     let point=null;
     swipe.addEventListener('pointerdown',e=>{if(e.button!==0 || e.target.closest('button,a'))return;point={x:e.clientX,y:e.clientY};try{swipe.setPointerCapture?.(e.pointerId);}catch{/* Synthetic events may lack an active pointer. */}});
     swipe.addEventListener('pointercancel',()=>point=null);
-    swipe.addEventListener('pointerup',e=>{if(!point)return;const dx=e.clientX-point.x,dy=e.clientY-point.y;point=null;if(Math.max(Math.abs(dx),Math.abs(dy))<70)return;if(Math.abs(dx)>Math.abs(dy)*1.3)void vote(t,dx>0?'favorit':'weg');else if(dy < -70 && Math.abs(dy)>Math.abs(dx)*1.3)void vote(t,'vielleicht');});
+    swipe.addEventListener('pointerup',e=>{if(!point)return;const dx=e.clientX-point.x,dy=e.clientY-point.y;point=null;if(Math.max(Math.abs(dx),Math.abs(dy))<70)return;if(Math.abs(dx)>Math.abs(dy)*1.3)void vote(t,dx>0?'favorit':'weg');else if(e.pointerType!=='touch' && dy < -70 && Math.abs(dy)>Math.abs(dx)*1.3)void vote(t,'vielleicht');});
     const provider=sucheAnbieterLink(t), url=provider?.url;
-    article.append(...[swipe,url?el('a',{href:url,target:'_blank',rel:'noopener noreferrer',onclick:()=>{awaitingReturn=t.treffer_id;}},provider.label):null,
-      awaitingReturn===t.treffer_id?el('p',{role:'status'},'Und? Wie gefällt dir die Unterkunft?'):null,buttons(t)].filter(Boolean));box.append(article);
+    content.append(swipe,el('div',{class:'review-links'},url?el('a',{href:url,target:'_blank',rel:'noopener noreferrer',onclick:()=>{awaitingReturn=t.treffer_id;}},provider.label):null,
+      el('button',{type:'button',onclick:event=>{const trigger=event.currentTarget,dialog=sucheKandidat(t,snapshot.suchauftrag.status==='fertig',snapshot.suchauftrag.id);scope.append(dialog);dialog.addEventListener('close',()=>{dialog.remove();if(trigger.isConnected)trigger.focus({preventScroll:true});});dialog.showModal();}},'Details')));
+    if(awaitingReturn===t.treffer_id)content.append(el('p',{role:'status'},'Und? Wie gefällt dir die Unterkunft?'));
+    article.append(content,buttons(t));box.append(article);
+
   }
   const returned=()=>{if(!document.hidden && awaitingReturn && live())draw();};document.addEventListener('visibilitychange',returned);
-  return {node:box,draw,get revision(){return revision;},get pending(){return pending;},get blocked(){return needsRefresh;},refreshed(){if(!pending){needsRefresh=false;last=null;reasonFor=null;}},dispose(){document.removeEventListener('visibilitychange',returned);}};
+  return {node:box,draw,get revision(){return revision;},get pending(){return pending;},get blocked(){return needsRefresh;},refreshed(){if(!pending){needsRefresh=false;last=null;reasonFor=null;}},dispose(){reasonsDialog?.close();reasonsDialog?.remove();document.removeEventListener('visibilitychange',returned);}};
 }
 function stayConfigureTable(wrapper,items,sort,onSort,trip,select) {
   const table=wrapper.querySelector('table'), head=table.tHead.rows[0], fields=stayFields();

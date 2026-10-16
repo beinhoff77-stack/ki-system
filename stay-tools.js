@@ -103,6 +103,7 @@ function sucheFilterTreffer(t, f) {
   if (f.warnungen === 'mit' && !sucheWarnungen(t).length) return false;
   if (f.warnungen === 'ohne' && sucheWarnungen(t).length) return false;
   if (f.favoriten && t.status !== 'favorit') return false;
+  if (f.urteil && (t.status || 'aktiv') !== f.urteil) return false;
   if (f.gruppe && sucheGruppe(t) !== f.gruppe) return false;
   if (f.typ && t.typ !== f.typ) return false;
   const unknown = f.unbekannt !== false;
@@ -135,6 +136,7 @@ function sucheFilterPanel(onChange) {
   const panel = el('details', { class: 'card stay-filters' }, el('summary', {}, 'Weitere Filter'),
     el('div', { class: 'stay-filter-grid' },
       select('gruppe', 'Ergebnisliste', [['', 'Alle Listen'], ['A', 'Liste A'], ['B', 'Liste B'], ['offen', 'Noch nicht vollständig bewertet'], ['ausgeschlossen', 'Ausgeschlossen']]), type,
+      select('urteil', 'Meine Entscheidung', [['','Alle Entscheidungen'],['aktiv','Noch offen'],['favorit','Favorit'],['vielleicht','Na ja'],['ausgeschlossen','Weg']]),
       numeric('schlafzimmer', 'Schlafzimmer mindestens', null), numeric('m2', 'Fläche mindestens (m²)', null),
       el('label', {}, 'Bettentyp enthält', inputs.betten = el('input', {type:'search', 'aria-label':'Bettentyp enthält', oninput:onChange})),
       select('warnungen', 'Warnungen', [['','Alle'],['mit','Mit Warnungen'],['ohne','Ohne gemeldete Warnungen']]),

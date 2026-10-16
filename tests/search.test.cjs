@@ -61,6 +61,9 @@ test('Durchsehen: A vor B, bestätigte Urteile, Na ja am Ende, Gründe und echte
   await dialog.getByRole('button',{name:'Durchsehen beenden'}).click();
   await page.locator('.stay-review').waitFor({state:'detached'});
   assert.equal(await page.locator('.stay-review').count(),0);
+  await page.locator('.stay-filters > summary').click();
+  await page.getByLabel('Meine Entscheidung',{exact:true}).selectOption('vielleicht');
+  assert.deepEqual(await page.locator('[data-hit]').evaluateAll(rows=>rows.map(row=>row.dataset.hit)),['1']);
 });
 
 test('Durchsehen: übernommene Urteile, Preishinweis, Fehler ohne automatisches Wiederholen', async t => {

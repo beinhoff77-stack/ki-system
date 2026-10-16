@@ -49,6 +49,7 @@ function sucheDurchsehen(rows, { call, live, changed, uncertain, nights, parent 
   const prior = active.filter(t => ['favorit','weg'].includes(verdict(t)) && !t.urteil_uebernommen?.hinweis);
   const eligible = active.filter(t => !prior.includes(t));
   const ordered = eligible.sort((a,b) => Number(verdict(a) === 'vielleicht') - Number(verdict(b) === 'vielleicht') ||
+    Number(!!a.urteil_uebernommen) - Number(!!b.urteil_uebernommen) ||
     Number(a.bewertung?.liste === 'B') - Number(b.bewertung?.liste === 'B') || sucheVergleich(a,b,'rang',1));
   let queue = [...ordered], index = 0, pending = false, blocked = false, last = null, providerReturn = null, removed = false;
   const revisited = new Set(ordered.filter(t => verdict(t) === 'vielleicht').map(t => t.treffer_id));
@@ -100,7 +101,7 @@ function sucheDurchsehen(rows, { call, live, changed, uncertain, nights, parent 
     if (!t) content.append(el('h2', {}, 'Alles durchgesehen'), el('p', {}, 'Deine Favoriten findest du über „Nur Gemerkte“. „Na ja“ bleibt für später erhalten.'));
     else {
       const link = sucheAnbieterLink(t), inherited = t.urteil_uebernommen;
-      content.append(el('div',{},el('p',{class:'review-progress'}, (index + 1) + ' / ' + queue.length + ' · ' + prior.length + ' bereits entschieden'),
+      content.append(el('div',{},el('p',{class:'review-progress'}, (index + 1) + ' / ' + queue.length + ' · ' + eligible.filter(row=>!row.urteil_uebernommen && verdict(row)==='offen').length + ' neu · ' + prior.length + ' bereits entschieden'),
         sucheFoto(t), el('h2',{},t.name || 'Unterkunft'),
         el('p',{class:'small'},'Liste ' + t.bewertung.liste + (t.bewertung.rang != null ? ' · Rang ' + t.bewertung.rang : '') + (verdict(t) === 'vielleicht' ? ' · letztes Mal: Na ja' : '')),
         inherited?.hinweis ? el('p',{class:'warning'},String(inherited.hinweis)) : null,

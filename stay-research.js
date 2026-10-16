@@ -9,7 +9,7 @@ function sucheLueckenKandidat(t) {
     sucheDatenlage(t) === null || sucheDatenlage(t) < 100 || sucheZahl(t.angebot?.preis_gesamt_eur) === null;
 }
 
-function sucheLuecken(id, call, live, changed) {
+function sucheLuecken(id, call, live) {
   let rows = [], orders = [], rowRefs = [], loading = false, writing = false, uncertain = false, attempt = null, loaded = false, handoffId = null;
   const selected = new Set(), fields = new Map();
   const notice = el('p', { class: 'small', role: 'status' });
@@ -45,14 +45,19 @@ function sucheLuecken(id, call, live, changed) {
     hint.disabled = writing; fields.forEach(input => { input.disabled = writing; });
     selectionText.textContent = `${selected.size} von höchstens 30 ausgewählt.`;
     selectedNames.replaceChildren(...rows.filter(t => selected.has(t.treffer_id)).map(t => el('li', {}, t.name || 'Unterkunft ' + t.treffer_id)));
-    for (const { t, checkbox, status } of rowRefs) {
-      checkbox.checked = selected.has(t.treffer_id);
-      checkbox.disabled = writing || (!checkbox.checked && selected.size >= 30);
-      const jobs = currentOrders().filter(o => o.treffer_ids.includes(t.treffer_id)).sort((a, b) => b.id - a.id);
-      status.replaceChildren(...jobs.map(o => el('div', {}, `Recherche #${o.id}: ${LUECKEN_STATUS[o.status] || 'Status unbekannt'}`,
-        ['erzeugt', 'in_arbeit'].includes(o.status) ? el('button', { type: 'button', onclick: () => { showHandoff(o); panel.scrollIntoView({ block: 'center' }); command.focus({ preventScroll: true }); } }, `Text für Auftrag #${o.id}`) : null)));
-      if (!loaded && !jobs.length) status.textContent = 'Recherche-Status noch nicht geladen.';
-    }
+    rowRefs.forEach(syncRow);
+  }
+  function syncRow(ref) {
+    const { t, checkbox, status } = ref;
+    checkbox.checked = selected.has(t.treffer_id);
+    checkbox.disabled = writing || (!checkbox.checked && selected.size >= 30);
+    const jobs = currentOrders().filter(o => o.treffer_ids.includes(t.treffer_id)).sort((a, b) => b.id - a.id);
+    const signature = JSON.stringify([loaded, jobs.map(o => [o.id, o.status])]);
+    if (signature === ref.signature) return;
+    ref.signature = signature;
+    status.replaceChildren(...jobs.map(o => el('div', {}, `Recherche #${o.id}: ${LUECKEN_STATUS[o.status] || 'Status unbekannt'}`,
+      ['erzeugt', 'in_arbeit'].includes(o.status) ? el('button', { type: 'button', onclick: () => { showHandoff(o); panel.scrollIntoView({ block: 'center' }); command.focus({ preventScroll: true }); } }, `Text für Auftrag #${o.id}`) : null)));
+    if (!loaded && !jobs.length) status.textContent = 'Recherche-Status noch nicht geladen.';
   }
   function showHandoff(order, text) {
     handoffId = order.id;
@@ -80,7 +85,8 @@ function sucheLuecken(id, call, live, changed) {
         if (match) { showHandoff(match); notice.textContent = `Auftrag #${match.id}: ${LUECKEN_STATUS[match.status] || match.status}.`; }
       }
     } catch (e) { if (live()) notice.textContent = 'Recherche-Status nicht geladen: ' + e.message; }
-    finally { loading = false; if (live()) { sync(); changed(); } }
+    // Nur Recherche-Status ändern: die Trefferliste kann gerade bearbeitet werden.
+    finally { loading = false; if (live()) sync(); }
   }
   async function create() {
     if (writing || loading || uncertain || !selected.size || selected.size > 30 || !chosenFields().length) return;
@@ -99,7 +105,7 @@ function sucheLuecken(id, call, live, changed) {
       notice.textContent = `Auftrag #${r.id} ${r.schon_vorhanden ? 'bereits vorhanden' : 'angelegt'}. ${LUECKEN_STATUS[r.status]}.`;
       showHandoff(order, r.vorgefuellter_text);
     } catch (e) { if (live()) { uncertain = true; notice.textContent = 'Anlegen nicht bestätigt: ' + e.message + ' Bitte zuerst den Recherche-Status aktualisieren.'; } }
-    finally { writing = false; if (live()) { sync(); changed(); } }
+    finally { writing = false; if (live()) sync(); }
   }
   return {
     panel, load,
@@ -115,7 +121,7 @@ function sucheLuecken(id, call, live, changed) {
         panel.open = true; sync();
       } });
       const box = el('div', { class: 'stay-research' }, sucheLueckenKandidat(t) ? el('label', { class: 'check-label' }, checkbox, 'Offene Angaben nachrecherchieren') : null, status);
-      rowRefs.push({ t, checkbox, status }); sync(); return box;
+      const ref = { t, checkbox, status }; rowRefs.push(ref); syncRow(ref); return box;
     }
   };
 }

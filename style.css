@@ -509,6 +509,28 @@ body[data-area="unterkunft"] nav.tabs button.on { box-shadow: none; background: 
 .stay-selection button { min-height: 44px; font-size: 12px; padding: 6px 10px; }
 .stay-selection button[aria-pressed="true"] { color: white; background: #254d3e; }
 .research-panel { padding: 16px; border-bottom: 1px solid var(--border); }
+.recent-trip-content { display: grid; gap: 10px; color: inherit; text-decoration: none; }
+.result-jumps { flex-wrap: wrap; }
+.result-jumps button, .candidate-open { min-height: 44px; }
+.coverage-note { margin-top: 14px; padding: 12px; border-radius: 8px; background: #edf3e9; }
+.coverage-note.erg-warnung { background: #fff5d9; }
+.offer-evidence { display: grid; gap: 4px; margin-top: 8px; white-space: normal; overflow-wrap: anywhere; }
+.exclusion-reason { padding: 12px 16px 0; font-size: 16px; }
+.stay-candidate { box-sizing: border-box; width: min(980px, calc(100% - 32px)); max-height: 88vh; max-height: 88dvh; padding: 24px; border: 1px solid var(--border); border-radius: 18px; color: var(--text); background: var(--surface); overflow-y: auto; }
+.stay-candidate::backdrop { background: #162d26aa; }
+.candidate-header { display: flex; justify-content: space-between; align-items: start; gap: 16px; position: sticky; top: -24px; background: var(--surface); padding: 12px 0; z-index: 1; }
+.candidate-header h2 { font-family: Georgia,serif; overflow-wrap: anywhere; }
+.candidate-header button { min-height: 44px; flex-shrink: 0; }
+.stay-candidate .stay-photo { max-width: 420px; }
+.candidate-offer { border-top: 1px solid var(--border); margin-top: 16px; padding-top: 8px; }
+.candidate-offer h4 { font-size: 16px; }
+.detail-table-scroll { max-width: 100%; overflow-x: auto; margin: 20px 0; }
+.detail-table { border-collapse: collapse; width: 100%; min-width: 480px; font-size: 14px; }
+.detail-table caption { text-align: left; font-weight: 700; font-size: 17px; margin-bottom: 10px; }
+.detail-table th, .detail-table td { padding: 10px; border-bottom: 1px solid var(--border); text-align: left; vertical-align: top; }
+.detail-table th { background: #edf3e9; }
+.stay-feedback select { margin-top: 8px; font-size: 14px; min-height: 44px; }
+@media (max-width: 599px) { .stay-candidate { padding: 16px; width: calc(100% - 20px); } .candidate-header { top: -16px; flex-wrap: wrap; } .stay-feedback select { font-size: 16px; } }
 .search-profiles { margin-bottom: 18px; }
 .search-profiles .actions { flex-wrap: wrap; }
 .search-profiles button, .trip-criteria summary { min-height: 44px; }

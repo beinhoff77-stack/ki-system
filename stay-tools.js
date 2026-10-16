@@ -20,16 +20,17 @@ function sucheAuswahl(t, states, call, live, changed) {
   const exclude = el('button', { type: 'button', onclick: () => save(state.saved === 'ausgeschlossen' ? 'aktiv' : 'ausgeschlossen') });
   const undo = el('button', { type: 'button', onclick: () => save(state.undo, true) }, 'Rückgängig');
   async function save(next, isUndo = false) {
-    if (state.pending || state.refreshRequired || !['aktiv', 'favorit', 'ausgeschlossen'].includes(next)) return;
+    if (state.pending || state.refreshRequired || !['aktiv', 'favorit', 'vielleicht', 'ausgeschlossen'].includes(next)) return;
     const previous = state.saved;
     state.pending = true; state.revision++; state.message = 'Auswahl wird gespeichert …'; state.render();
     try {
-      const r = await call('unterkunft_treffer_status_setzen', { treffer_id: t.treffer_id, status: next });
+      const urteil={aktiv:'offen',favorit:'favorit',vielleicht:'vielleicht',ausgeschlossen:'weg'}[next];
+      const r = await call('unterkunft_durchsehen_urteil', { treffer_id: t.treffer_id, urteil });
       if (!live()) return;
-      if (r.ok !== true || r.status !== next || r.treffer_id !== t.treffer_id) throw new Error('Die Änderung wurde nicht eindeutig bestätigt.');
+      if (r.ok !== true || r.status !== next || r.urteil !== urteil || r.treffer_id !== t.treffer_id) throw new Error('Die Änderung wurde nicht eindeutig bestätigt.');
       state.saved = next; state.undo = isUndo ? null : previous;
       state.message = next === 'favorit' ? 'Gemerkt.' : next === 'ausgeschlossen' ? 'Von dir ausgeschlossen.' : 'Wieder aktiv.';
-      t.status = next;
+      t.status = next; if(next==='aktiv')t.urteil_uebernommen=null;
     } catch (e) { if (live()) { state.refreshRequired = true; state.message = 'Speichern nicht bestätigt: ' + e.message + ' Bitte zuerst aktualisieren.'; } }
     finally { state.pending = false; state.revision++; if (live()) changed(t, state); }
   }
@@ -111,8 +112,7 @@ function sucheFilterTreffer(t, f) {
     const n = sucheZahl(value), l = sucheZahl(limit);
     return l === null || (n === null ? unknown : minimum ? n >= l : n <= l);
   };
-  const note = sucheZahl(t.note), scale = sucheZahl(t.note_skala);
-  const note10 = note !== null && scale > 0 ? note * 10 / scale : null;
+  const note10 = sucheZahl(t.note_geeicht);
   return check(room.schlafzimmer, f.schlafzimmer, true) && check(t.angebot?.preis_gesamt_eur, f.preis) && check(t.gehzeit_min, f.gehzeit) &&
     check(t.bewertungen, f.bewertungen, true) && check(note10, f.note, true) &&
     check(t.bewertung?.score, f.score, true) && check(sucheDatenlage(t), f.datenlage, true) &&

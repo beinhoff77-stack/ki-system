@@ -718,3 +718,32 @@ body[data-area="unterkunft"] main.view:has([data-result-view]) { max-width: none
   [data-result-view="list"] .compact-results td:nth-child(6) { grid-column: 1 / -1; }
   [data-result-view] .suche-results { padding: 0; }
 }
+
+/* Wunsch 71: dieselben Infofelder in allen drei Ansichten. */
+.display-order li,.endrunde li { padding:10px; border-bottom:1px solid var(--border); display:flex; gap:8px; align-items:center; flex-wrap:wrap; }
+.display-options { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:12px; margin:20px 0; }
+.display-options label {display:flex;gap:8px;align-items:center;}
+.display-options input {width:auto;}
+.stay-info {display:grid;grid-template-columns:minmax(100px,1fr) minmax(0,2fr);gap:10px 18px;}
+.stay-info dt {color:var(--muted);}.stay-info dd {margin:0;overflow-wrap:anywhere;}
+.stay-info small,[data-field] small {display:block;font-size:11px;color:var(--muted);}
+.stay-review {max-width:780px;margin:auto;}.review-card {border:1px solid var(--border);border-radius:16px;padding:18px;background:var(--card,#fff);}
+.review-swipe {touch-action:pan-x;user-select:none;padding:12px 0;}.review-actions {display:grid;grid-template-columns:repeat(3,1fr);margin-top:18px;}.review-actions button{min-height:52px;}
+.review-reasons {padding:16px;border:1px solid var(--border);border-radius:12px;margin:12px 0;}
+.review-reasons [aria-pressed=true] {background:var(--accent,#1b6657);color:white;}
+.stay-gallery .stay-photo {width:100%;margin:0;height:300px;}.stay-gallery img {width:100%;height:100%;object-fit:contain;}.stay-gallery {touch-action:pan-y;}.stay-gallery .actions {justify-content:center;}
+.pair-options {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;}.pair-options .stay-photo{height:190px;}
+[data-result-view="table"] .compact-results {min-width:900px;}
+[data-result-view="table"] .stay-selection .actions {gap:4px;}
+[data-result-view="table"] .stay-selection button {font-size:11px;}
+[data-result-view="list"] .compact-results td[data-field] {grid-column:auto;}
+@media(max-width:600px){.stay-gallery .stay-photo{height:230px;}.pair-options{grid-template-columns:1fr;}.stay-info{gap:8px;}.review-card{padding:12px;}}
+[data-result-view] tr[data-hit] .stay-selection {margin-top:4px;padding-top:0;border-top:0;}
+[data-result-view] tr[data-hit] .stay-selection p:empty {display:none;}
+[data-result-view] tr[data-hit] .stay-selection p {margin:2px 0;font-size:11px;}
+[data-result-view] tr[data-hit] .hit-score {font-size:13px;margin:4px 0;}
+@media(max-width:600px){
+  .review-card .stay-photo{height:190px;}
+  .review-card .stay-info{grid-template-columns:minmax(0,1fr) minmax(0,1fr);font-size:14px;line-height:1.4;}
+  .review-actions{position:sticky;bottom:78px;background:var(--card,#fff);padding:8px 0;z-index:2;}
+}

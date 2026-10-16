@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.16.0';
+const APP_VERSION = '0.17.0';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -174,7 +174,7 @@ function parseHash() {
 window.addEventListener('hashchange', render);
 
 function setChrome(title, { back = false, showTabs = true, tab = null } = {}) {
-  const area = current.view === 'login' ? 'login' : current.view === 'start' ? 'start' : ['suche', 'ergebnisse', 'viertel'].includes(current.view) ? 'unterkunft' : 'council';
+  const area = current.view === 'login' ? 'login' : current.view === 'start' ? 'start' : ['suche', 'ergebnisse', 'viertel', 'anzeige'].includes(current.view) ? 'unterkunft' : 'council';
   document.body.dataset.area = area;
   for (const meta of document.querySelectorAll('meta[name="theme-color"]')) meta.content = ['unterkunft', 'start'].includes(area) ? '#f6f4ec' : meta.media.includes('dark') ? '#101721' : '#f4f6f8';
   $('#areas').hidden = area === 'login';
@@ -205,7 +205,7 @@ async function render() {
   disposeSuche = () => {};
   current = parseHash();
   if (!store.token && current.view !== 'login') { route('login'); return; }
-  const views = { start: viewStart, login: viewLogin, auftraege: viewAuftraege, auftrag: viewAuftrag, neu: viewNeu, einstellungen: viewEinstellungen, werkstatt: viewWerkstatt, suche: viewSuche, viertel: viewViertel, ergebnisse: () => viewSuche(null, { historyOnly: true }) };
+  const views = { start: viewStart, login: viewLogin, auftraege: viewAuftraege, auftrag: viewAuftrag, neu: viewNeu, einstellungen: viewEinstellungen, anzeige: viewAnzeige, werkstatt: viewWerkstatt, suche: viewSuche, viertel: viewViertel, ergebnisse: () => viewSuche(null, { historyOnly: true }) };
   const fn = views[current.view] || (() => route('start'));
   try { await fn(current.arg); } catch (e) { if (live()) showError(e); }
 }
@@ -783,6 +783,7 @@ async function viewEinstellungen() {
   });
 
   main.replaceChildren(
+    el('div',{class:'card'},el('h2',{},'Unterkunft'),el('a',{href:'#/anzeige'},'Anzeige einstellen')),
     el('div', { class: 'card' }, el('h2', {}, 'Council-Einstellungen'), renderAny(einst), el('p', { class: 'muted small' }, 'Änderungen an Einstellungen bitte vorerst im Chat (Claude) – kommt in einer späteren Stufe in die App.')),
     el('div', { class: 'card' }, el('h2', {}, 'Meine Modelle'), mList),
     el('div', { class: 'card' }, el('h2', {}, 'Aktive Rollen'), renderAny(rollenListe.map((r) => r.name ? `${r.name}${r.typ ? ' (' + r.typ + ')' : ''}` : r))),
@@ -857,7 +858,7 @@ function sucheLink(value, { allowHttp = false } = {}) {
 function sucheVergleich(a, b, key, direction) {
   const value = (t) => key === 'name' ? t.name : key === 'schlafzimmer' ? sucheZimmerKurz(t).schlafzimmer : key === 'betten' ? sucheZimmerKurz(t).typen : key === 'anbieter' ? (t.angebot?.anbieter || SUCHE_QUELLEN[t.quelle] || t.quelle || null) : key === 'warnungen' ? sucheWarnungen(t).length : key === 'gaestenote' ? (sucheZahl(t.note) !== null && sucheZahl(t.note_skala) > 0 ? Number(t.note) * 10 / Number(t.note_skala) : null) : key === 'preis' ? sucheZahl(t.angebot?.preis_gesamt_eur) :
     key === 'bewertungen' ? sucheZahl(t.bewertungen) : key === 'entfernung' ? sucheZahl(t.luftlinie_ziel_m) : key === 'gehzeit' ? sucheZahl(t.gehzeit_min) : key.startsWith('note_') ? sucheZahl(t.bewertung?.spaltennoten?.[key.slice(5)]) : key === 'datenlage' ? sucheDatenlage(t) : key === 'rang' ? (t.topf === 'shortlist' && t.bewertung?.liste === 'A' ? sucheZahl(t.bewertung?.rang) : null) : sucheZahl(t.bewertung?.[key]);
-  const x = value(a), y = value(b);
+  const x = key==='anbieter' ? value(a) : Object.hasOwn(STAY_FIELDS,key) ? stayFieldValue(a,key) : value(a), y = key==='anbieter' ? value(b) : Object.hasOwn(STAY_FIELDS,key) ? stayFieldValue(b,key) : value(b);
   // Fehlende Angaben stehen in beiden Sortierrichtungen hinten.
   if (x == null || y == null) return x == null && y == null ? 0 : x == null ? 1 : -1;
   return (typeof x === 'string' ? x.localeCompare(String(y), 'de') : x - y) * direction;
@@ -899,11 +900,13 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   const feedbackStates = new Map();
   const selectionStates = new Map();
   let mapView = null, showMap = false, resultView = matchMedia('(min-width: 1200px)').matches ? 'table' : 'list', filteredRows = [], lastSelection = null;
+  resultView = ['table','list','tinder'].includes(stayRead('ks_result_view',null)) ? stayRead('ks_result_view',null) : resultView;
+  let review = null;
   let sort = { key: 'rang', direction: 1 }, snapshotStatus = null, latestStatus = null;
   const pages = new Map();
   const scope = el('div', { class: 'suche' });
   main.replaceChildren(scope);
-  disposeSuche = () => { disposed = true; clearTimeout(timer); requests.forEach((c) => c.abort()); mapView?.destroy(); scope.querySelectorAll('dialog.stay-candidate').forEach(d => { d.close(); d.remove(); }); };
+  disposeSuche = () => { disposed = true; review?.dispose(); clearTimeout(timer); requests.forEach((c) => c.abort()); mapView?.destroy(); scope.querySelectorAll('dialog.stay-candidate').forEach(d => { d.close(); d.remove(); }); };
   const live = () => !disposed && scope.isConnected && parseHash().view === entryView && parseHash().arg === idStr;
   async function call(name, daten = {}) {
     const requestController = new AbortController();
@@ -1067,12 +1070,28 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     el('div', { class: 'sort-direction' }, directionButton), el('label', {}, 'Treffer je Liste und Seite', pageSize), filterCount);
   const filters = sucheFilterPanel(() => { pages.clear(); draw(); }); filters.node.hidden = true;
   const mapPanel = el('section', { class: 'card stay-map-panel', hidden: true });
-  const tableButton = el('button', { type: 'button', onclick: () => { resultView = 'table'; showMap = false; draw(); } }, 'Tabelle');
-  const listButton = el('button', { type: 'button', onclick: () => { resultView = 'list'; showMap = false; draw(); } }, 'Liste');
+  const setResultView = view => { if(review?.pending || [...selectionStates.values()].some(s=>s.pending))return; resultView=view; stayWrite('ks_result_view',view); showMap=false; draw(); };
+  const tableButton = el('button', { type: 'button', onclick: () => { setResultView('table'); } }, 'Tabelle');
+  const listButton = el('button', { type: 'button', onclick: () => { setResultView('list'); } }, 'Liste');
+  const tinderButton = el('button',{type:'button',onclick:()=>setResultView('tinder')},'Tinder');
   const mapButton = el('button', { type: 'button', onclick: () => { showMap = true; draw(); } }, 'Karte');
-  const viewButtons = el('div', { class: 'actions result-view-switch', hidden: true, role: 'group', 'aria-label': 'Ergebnisansicht' }, tableButton, listButton, mapButton);
+  const viewButtons = el('div', { class: 'actions result-view-switch', hidden: true, role: 'group', 'aria-label': 'Ergebnisansicht' }, listButton, tableButton, tinderButton, mapButton, el('a',{href:'#/anzeige'},'Anzeige'));
   const undoSelection = el('button', { type: 'button', hidden: true, onclick: () => selectionStates.get(lastSelection)?.undoAction() }, 'Letzte Auswahl rückgängig');
   const research = sucheLuecken(id, call, live);
+  review = stayReview({getSnapshot:()=>snapshot,call,live,scope,changed:t=>{const current=snapshot?.treffer.find(x=>x.treffer_id===t.treffer_id);if(current && current!==t)Object.assign(current,{status:t.status,urteil_gruende:t.urteil_gruende,urteil_uebernommen:t.urteil_uebernommen});selectionStates.delete(t.treffer_id);draw();}});
+  let furtherRound=null;
+  const more = el('button',{type:'button',hidden:true,onclick:()=>{moreConfirm.hidden=false;}},'Weitere suchen');
+  const moreConfirm = el('div',{class:'card',hidden:true},el('p',{},'Kostet ca. 0,05–0,50 USD; findet nur, was die Quellen zusätzlich haben.'),
+    el('button',{type:'button',onclick:async event=>{
+      if(busy || review.pending)return;busy=true;more.disabled=true;event.currentTarget.disabled=true;clearTimeout(timer);
+      try {const r=await call('unterkunft_suche_starten',{suchauftrag_id:id});if(!live())return;if(!Number.isInteger(r.runde))throw Error('Neue Runde nicht bestätigt.');furtherRound=r.runde;moreConfirm.hidden=true;}
+      catch(e){if(live())notice.textContent='Nachsuche nicht bestätigt: '+e.message+' Bitte aktualisieren.';}
+      finally{busy=false;event.target.disabled=false;}
+      if(live())await poll({readResults:true});
+    }},'Jetzt weitere suchen'),el('button',{type:'button',onclick:()=>moreConfirm.hidden=true},'Doch nicht'));
+  const endrunde=el('button',{type:'button',onclick:()=>{
+    const dialog=stayEndrunde(snapshot.treffer,id,call,live,draw);scope.append(dialog);dialog.addEventListener('close',()=>{dialog.remove();endrunde.focus();});dialog.showModal();
+  }},'Endrunde');
   const preview = el('button', { type: 'button', hidden: true, onclick: async () => {
     if (busy || !latestStatus || !['wartet','laeuft'].includes(latestStatus.status)) return;
     busy = true; clearTimeout(timer); preview.disabled = refresh.disabled = start.disabled = cancel.disabled = true;
@@ -1090,6 +1109,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     (row?.getClientRects().length ? row : undoSelection.hidden ? refresh : undoSelection).focus({ preventScroll: true });
   }
   function showHit(t) {
+    if(resultView==='tinder')resultView='list';
     const group = sucheGruppe(t), size = Number(pageSize.value);
     const items = filteredRows.filter(row => sucheGruppe(row) === group).sort((a, b) => sucheVergleich(a, b, sort.key, sort.direction));
     pages.set(group, Math.floor(items.findIndex(row => row.treffer_id === t.treffer_id) / size));
@@ -1127,7 +1147,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     }
   } }, 'Suche abbrechen');
   const resultLinks = el('nav', { class: 'actions result-jumps', 'aria-label': 'Weitere Ergebnisgruppen' });
-  scope.append(el('div', { class: 'actions' }, el('a', { href: '#/suche' }, 'Neue Suche / letzte Aufträge'), el('a', { href: viertelHref({suche:id}) }, 'Viertel dieser Reise entdecken'), refresh, start, cancel, preview, undoSelection), notice, summary, controls, filters.node, viewButtons, resultLinks, mapPanel, results, report);
+  scope.append(el('div', { class: 'actions' }, el('a', { href: '#/suche' }, 'Neue Suche / letzte Aufträge'), el('a', { href: viertelHref({suche:id}) }, 'Viertel dieser Reise entdecken'), refresh, start, cancel, preview, undoSelection, more, endrunde), moreConfirm, notice, summary, controls, filters.node, viewButtons, resultLinks, mapPanel, results, report);
   function draw() {
     if (!snapshot) return;
     const openDetails = new Set([...results.querySelectorAll('details[open][data-detail]')].map((n) => n.dataset.detail));
@@ -1148,8 +1168,9 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     if (phase.final && aCount < 10) summary.append(el('p', { class: 'erg-warnung' }, `Datenlage reicht noch nicht für 10 Empfehlungen in Liste A (derzeit ${aCount}).`));
     if (a.rohdaten_bis) summary.append(el('p', { class: 'small muted' }, 'Rohdaten werden nach 30 Tagen entfernt. Frist: ' + sucheAbruf(a.rohdaten_bis)));
     results.replaceChildren();
-    controls.hidden = false;
-    filters.node.hidden = viewButtons.hidden = false;
+    controls.hidden = resultView==='tinder'&&!showMap;
+    summary.hidden = resultView==='tinder'&&!showMap;
+    filters.node.hidden = resultView==='tinder'&&!showMap; viewButtons.hidden = false;
     filters.setTypes(snapshot.treffer);
     if (!restoredView) {
       restoredView = true;
@@ -1158,8 +1179,8 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       if ([...sortSelect.options].some(o => o.value === savedView.sort?.key)) sort = { key: savedView.sort.key, direction: savedView.sort.direction === -1 ? -1 : 1 };
       if ([10, 25, 50].includes(savedView.pageSize)) pageSize.value = String(savedView.pageSize);
       showMap = savedView.map === true;
-      if (['table', 'list'].includes(savedView.view)) resultView = savedView.view;
-      if (favoritesOnly) { filter.value = ''; filters.restore({ favoriten: true, unbekannt: true }); showMap = false; }
+      // Geräteweite Ansicht hat Vorrang vor älteren Suchlauf-Einstellungen.
+      if (favoritesOnly) { if(resultView==='tinder')resultView='list'; filter.value = ''; filters.restore({ favoriten: true, unbekannt: true }); showMap = false; }
     }
     sortSelect.value = sort.key;
     directionButton.textContent = sort.direction === 1 ? 'Aufsteigend ↑' : 'Absteigend ↓';
@@ -1170,12 +1191,15 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     try { if (!favoritesOnly) sessionStorage.setItem('ks_suche_view:' + id, JSON.stringify({ needle: filter.value, filters: filters.value(), sort, pageSize: Number(pageSize.value), map: showMap, view: resultView })); } catch { /* Ansicht bleibt in diesem geöffneten Lauf erhalten. */ }
     tableButton.setAttribute('aria-pressed', String(!showMap && resultView === 'table'));
     listButton.setAttribute('aria-pressed', String(!showMap && resultView === 'list'));
+    tinderButton.setAttribute('aria-pressed', String(!showMap && resultView==='tinder'));
     results.dataset.resultView = resultView; mapButton.setAttribute('aria-pressed', String(showMap));
     mapPanel.hidden = !showMap; results.hidden = showMap;
     if (showMap) { if (!mapView) mapView = sucheKarte(mapPanel, showHit); mapView.update(rows, snapshot.karte); }
     undoSelection.hidden = !selectionStates.get(lastSelection)?.undo;
     undoSelection.disabled = !!(selectionStates.get(lastSelection)?.pending || selectionStates.get(lastSelection)?.refreshRequired);
     filterCount.textContent = `${rows.length} von ${snapshot.treffer.length} Treffern · Sortierung gilt für die gesamte Liste.`;
+    endrunde.disabled=review.pending || !snapshot.treffer.some(t=>t.status==='favorit');
+    if(resultView==='tinder' && !showMap){resultLinks.replaceChildren();review.draw();results.append(review.node);return;}
     const groups = [
       ['A', phase.final ? 'Liste A – Rangliste' : 'Liste A – vorläufig', rows.filter((t) => sucheGruppe(t) === 'A')],
       ['B', 'Liste B – Angaben prüfen', rows.filter((t) => sucheGruppe(t) === 'B')],
@@ -1195,19 +1219,21 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       const size = Number(pageSize.value), totalPages = Math.max(1, Math.ceil(items.length / size));
       const page = Math.min(pages.get(key) || 0, totalPages - 1);
       pages.set(key, page);
-      const visible = [...items].sort((a, b) => sucheVergleich(a, b, sort.key, sort.direction)).slice(page * size, (page + 1) * size);
+      const visible = [...items].sort((a, b) => favoritesOnly && sort.key==='rang' ? (a.eigener_rang??Infinity)-(b.eigener_rang??Infinity)||sucheVergleich(a,b,sort.key,sort.direction) : sucheVergleich(a, b, sort.key, sort.direction)).slice(page * size, (page + 1) * size);
       if (!items.length) section.append(el('p', { class: 'muted' }, needle ? 'Keine Treffer für diesen Filter.' : 'Keine Treffer in dieser Liste.'));
       else {
         const buckets = key === 'ausgeschlossen' ? [...new Set(visible.map(t => t.ko_grund || (t.status === 'ausgeschlossen' ? 'Von dir ausgeschlossen' : 'Grund nicht geliefert')))].map(reason => [reason, visible.filter(t => (t.ko_grund || (t.status === 'ausgeschlossen' ? 'Von dir ausgeschlossen' : 'Grund nicht geliefert')) === reason)]) : [[null, visible]];
         for (const [reason, shown] of buckets) {
           if (reason) section.append(el('h3', { class: 'exclusion-reason' }, reason));
-          section.append(sucheTabelle(shown, sort, (sortKey) => {
+          const sortGroup = (sortKey) => {
         const wasOpen = section.open;
         changeSort(sortKey, true);
         const replacement = results.querySelector(`[data-group="${key}"]`);
         if (wasOpen) replacement.open = true;
         replacement.querySelector(`[data-sort="${sortKey}"]`)?.focus({ preventScroll: true });
-          }, phase.final && ['A', 'B'].includes(key), (t) => sucheRueckmeldung(t, feedbackStates, call, live), (t) => el('div', {}, sucheAuswahl(t, selectionStates, call, live, selectionChanged), research.row(t)), id));
+          };
+          const selection = t => sucheAuswahl(t,selectionStates,call,live,selectionChanged);
+          section.append(stayConfigureTable(sucheTabelle(shown,sort,sortGroup,phase.final && ['A','B'].includes(key), t=>sucheRueckmeldung(t,feedbackStates,call,live),t=>research.row(t),id),shown,sort,sortGroup,a,selection));
         }
       }
       if (totalPages > 1) {
@@ -1234,6 +1260,8 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   }
   function drawProgress(r) {
     latestStatus = r;
+    if(r.status!=='fertig')summary.hidden=false;
+    more.hidden = r.status !== 'fertig'; more.disabled = false;
     preview.hidden = !['wartet','laeuft'].includes(r.status);
     start.hidden = r.status !== 'entwurf';
     cancel.hidden = !['wartet', 'laeuft'].includes(r.status);
@@ -1251,6 +1279,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   async function readSnapshot(r) {
     const feedbackAtRead = new Map([...feedbackStates].map(([key, value]) => [key, { revision: value.revision, pending: value.pending }]));
     const selectionsAtRead = new Map([...selectionStates].map(([key, value]) => [key, { revision: value.revision, pending: value.pending }]));
+    const reviewAtRead=review.revision, reviewWasPending=review.pending;
     const data = await call('unterkunft_suchlauf_lesen', { suchauftrag_id: id });
     if (!live()) return;
     if (!data?.suchauftrag || !Array.isArray(data.treffer)) throw new Error('Suchlauf nicht gefunden oder Antwort unvollständig.');
@@ -1267,6 +1296,10 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       if (!state.dirty) state.grund = state.saved?.grund || '';
       state.dirty = state.grund !== (state.saved?.grund || ''); state.message = ''; state.refreshRequired = false;
     }
+    if(reviewWasPending || review.pending || reviewAtRead!==review.revision) {
+      for(const t of data.treffer){const old=snapshot?.treffer.find(x=>x.treffer_id===t.treffer_id);if(old){t.status=old.status;t.urteil_gruende=old.urteil_gruende;t.urteil_uebernommen=old.urteil_uebernommen;}}
+    } else review.refreshed();
+    data.treffer.forEach(t=>{t._trip=data.suchauftrag;});
     snapshot = data; snapshotStatus = r; draw();
     void research.load();
   }
@@ -1284,6 +1317,11 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       }
       if (terminal) {
         notice.textContent = r.status === 'fertig' ? 'Bewertung abgeschlossen. Rangliste aktualisiert.' : r.status === 'gestoppt_budget' ? 'Kostenlimit erreicht. Vorhandene Treffer bleiben sichtbar.' : 'Suche ' + r.status + '. Vorhandene Treffer bleiben sichtbar.';
+      if(r.status==='fertig' && furtherRound!==null && snapshot?.suchauftrag?.runde>=furtherRound){
+          const count=snapshot.treffer.filter(t=>t.runde===furtherRound).length;
+          notice.textContent=count+' neue Unterkünfte'+(count===0?' · Angebot für diese Filter ausgeschöpft – Filter lockern oder Viertel erweitern':'');
+          if(count)setResultView('tinder');furtherRound=null;
+        }
       } else if (r.status !== 'entwurf') {
         notice.textContent = r.status === 'wartet' ? 'Die Suche wartet und startet automatisch. Aktualisierung alle 7 Sekunden.' : 'Suche läuft. Bewertung und Gegenprüfung werden abgewartet. Aktualisierung alle 7 Sekunden.';
         timer = setTimeout(poll, 7000);
@@ -1330,6 +1368,7 @@ function sucheTabelle(items, sort, onSort, final = false, feedback = () => null,
         el('p', {}, 'Verlässlichkeit: ' + (b.ampel || 'unbekannt') + ' · Datenlage: ' + (sucheDatenlage(t) ?? 'unbekannt') + ' %'),
         el('div', {class:'suche-badges'}, warnings.map(w => el('span', {class:'suche-warning'}, SUCHE_WARNUNGEN[w] || w))),
         el('p', {}, 'Balkon: ' + sucheBalkon(t)), sucheAngebotsstand(t), sucheViertelLink(t.zone, suchauftragId),
+        url ? el('a',{href:url,target:'_blank',rel:'noopener noreferrer'},(a.anbieter || SUCHE_QUELLEN[t.quelle] || 'Angebot')+' ↗') : null,
         el('button', {type:'button',class:'candidate-open',onclick:event => {
           const button=event.currentTarget, dialog=sucheKandidat(t,final,suchauftragId);
           (button.closest('.suche') || main).append(dialog);

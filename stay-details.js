@@ -56,7 +56,7 @@ function sucheKandidat(t, final, suchauftragId) {
   const dialog = el('dialog', { class: 'stay-candidate', 'aria-label': 'Unterkunft im Detail: ' + (t.name || 'Unterkunft') });
   dialog.append(el('div', { class: 'candidate-header' }, el('h2', {}, t.name || 'Unterkunft'),
     el('button', { type: 'button', onclick: () => dialog.close() }, 'Details schließen')),
-    sucheFoto(t), sucheViertelLink(t.zone, suchauftragId), el('p', {}, 'Balkon: ' + sucheBalkon(t)), sucheAngebotsstand(t),
+    stayGallery(t), sucheViertelLink(t.zone, suchauftragId), el('p', {}, 'Balkon: ' + sucheBalkon(t)), sucheAngebotsstand(t),
     el('p', {}, (final ? 'Endscore' : 'Vorläufiger Score') + ': ' + (sucheZahl(b.score) ?? 'unbekannt') + ' · Datenlage: ' + (sucheDatenlage(t) ?? 'unbekannt') + ' %'),
     sucheDetailTabelle('Teilnoten und Gewichtung', ['Kriterium', 'Note von 10', 'Gewicht (%)'], SUCHE_NOTEN.map(([key, label]) => [label, sucheZahl(b.spaltennoten?.[key]), sucheZahl(b.spaltennoten?.gewichte?.[key])])),
     el('h3', {}, 'Begründung'), el('p', {}, b.begruendung || 'Noch keine Begründung verfügbar.'),
@@ -90,6 +90,7 @@ function sucheMerkliste(entries) {
   if (!entries.length) return el('p', { class: 'stay-empty' }, 'Noch keine Unterkünfte gemerkt. Mit „Merken“ sammelst du deine Favoriten hier über alle Reisen.');
   for (const t of entries) { if (!groups.has(t.suchauftrag_id)) groups.set(t.suchauftrag_id, []); groups.get(t.suchauftrag_id).push(t); }
   for (const [id, rows] of groups) {
+    rows.sort((a,b)=>(a.eigener_rang??Infinity)-(b.eigener_rang??Infinity));
     const trip = rows[0];
     const section = el('section', { class: 'saved-trip', 'data-saved-trip': id },
       el('h3', {}, trip.ziel || 'Reise #' + id), el('p', { class: 'small' }, `${fmtDate(trip.anreise)}–${fmtDate(trip.abreise)} · ${rows.length} gemerkt`));
@@ -97,7 +98,7 @@ function sucheMerkliste(entries) {
       const href = '#/suche/' + id + '?favoriten=1&treffer=' + t.treffer_id, offer = sucheLink(t.link);
       const name = t.name || 'Unterkunft ' + t.treffer_id;
       section.append(el('article', { class: 'saved-stay', 'data-saved-hit': t.treffer_id }, sucheFoto(t),
-        el('div', {}, el('a', { href, class: 'saved-stay-name' }, name),
+        el('div', {}, el('a', { href, class: 'saved-stay-name' }, name), t.eigener_rang ? el('p',{},'Dein Rang '+t.eigener_rang) : null,
           el('p', { class: 'small' }, (SUCHE_QUELLEN[t.quelle] || t.quelle || 'Quelle unbekannt') + ' · ' +
             (t.topf === 'ausgeschlossen' ? 'Fachlich ausgeschlossen' : t.topf === 'unbewertet' ? 'Noch nicht vollständig bewertet' : ['A','B'].includes(t.liste) ? 'Liste ' + t.liste + (sucheZahl(t.rang) !== null ? ' · Rang ' + t.rang : '') : 'Bewertung unbekannt')),
           el('p', {}, (t.preis_art === 'geschaetzt' ? 'ca. ' : '') + sucheEuro(t.preis_gesamt_eur) + (sucheZahl(t.preis_gesamt_eur) !== null ? ' gesamt' : '')),

@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.17.0';
+const APP_VERSION = '0.18.0';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -1061,7 +1061,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   const results = el('section', { 'aria-label': 'Suchergebnisse' });
   const filter = el('input', { type: 'search', placeholder: 'Name oder Anbieter', oninput: () => { pages.clear(); draw(); } });
   const sortSelect = el('select', { 'aria-label': 'Sortieren nach', onchange: () => changeSort(sortSelect.value) },
-    [['rang', 'Empfohlene Rangfolge'], ['preis', 'Gesamtpreis'], ['score', 'Score'], ['datenlage', 'Datenlage'], ['schlafzimmer', 'Schlafzimmer'], ['betten', 'Bettentypen'], ['gaestenote', 'Gästenote'], ['warnungen', 'Warnungen'], ['anbieter', 'Anbieter'], ['bewertungen', 'Anzahl Bewertungen'], ['entfernung', 'Luftlinie zum Ziel'], ['gehzeit', 'Gehzeit zur Station'], ...SUCHE_NOTEN.map(([key, label]) => ['note_' + key, label]), ['name', 'Name']].map(([key, label]) => el('option', { value: key }, label)));
+    [['rang', 'Empfohlene Rangfolge'], ['preis', 'Gesamtpreis'], ['score', 'Score'], ['datenlage', 'Datenlage'], ['schlafzimmer', 'Schlafzimmer'], ['m2', 'Fläche (m²)'], ['betten', 'Bettentypen'], ['gaestenote', 'Gästenote'], ['warnungen', 'Warnungen'], ['anbieter', 'Anbieter'], ['bewertungen', 'Anzahl Bewertungen'], ['entfernung', 'Luftlinie zum Ziel'], ['gehzeit', 'Gehzeit zur Station'], ...SUCHE_NOTEN.map(([key, label]) => ['note_' + key, label]), ['name', 'Name']].map(([key, label]) => el('option', { value: key }, label)));
   const directionButton = el('button', { type: 'button', onclick: () => { sort.direction *= -1; pages.clear(); draw(); } }, 'Aufsteigend ↑');
   const pageSize = el('select', { 'aria-label': 'Treffer je Liste und Seite', onchange: () => { pages.clear(); draw(); } }, [10, 25, 50].map(n => el('option', { value: n }, String(n))));
   const filterCount = el('p', { class: 'small', role: 'status' });
@@ -1078,7 +1078,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   const viewButtons = el('div', { class: 'actions result-view-switch', hidden: true, role: 'group', 'aria-label': 'Ergebnisansicht' }, listButton, tableButton, tinderButton, mapButton, el('a',{href:'#/anzeige'},'Anzeige'));
   const undoSelection = el('button', { type: 'button', hidden: true, onclick: () => selectionStates.get(lastSelection)?.undoAction() }, 'Letzte Auswahl rückgängig');
   const research = sucheLuecken(id, call, live);
-  review = stayReview({getSnapshot:()=>snapshot,call,live,scope,changed:t=>{const current=snapshot?.treffer.find(x=>x.treffer_id===t.treffer_id);if(current && current!==t)Object.assign(current,{status:t.status,urteil_gruende:t.urteil_gruende,urteil_uebernommen:t.urteil_uebernommen});selectionStates.delete(t.treffer_id);draw();}});
+  review = stayReview({getSnapshot:()=>snapshot,call,live,scope,isBlocked:()=>[...selectionStates.values()].some(s=>s.refreshRequired||s.pending),changed:t=>{const current=snapshot?.treffer.find(x=>x.treffer_id===t.treffer_id);if(current && current!==t)Object.assign(current,{status:t.status,urteil_gruende:t.urteil_gruende,urteil_uebernommen:t.urteil_uebernommen});selectionStates.delete(t.treffer_id);draw();}});
   let furtherRound=null;
   const more = el('button',{type:'button',hidden:true,onclick:()=>{moreConfirm.hidden=false;}},'Weitere suchen');
   const moreConfirm = el('div',{class:'card',hidden:true},el('p',{},'Kostet ca. 0,05–0,50 USD; findet nur, was die Quellen zusätzlich haben.'),
@@ -1099,13 +1099,18 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     catch (e) { if (live()) notice.textContent = 'Vorläufige Treffer nicht geladen: ' + e.message; }
     finally { busy = false; if (live()) { preview.disabled = refresh.disabled = start.disabled = cancel.disabled = false; timer = setTimeout(poll, 7000); } }
   } }, 'Vorläufige Treffer ansehen');
+  function resultSelection(t) {
+    const node=sucheAuswahl(t,selectionStates,call,live,selectionChanged);
+    if(review.blocked || review.pending)node.querySelectorAll('button').forEach(b=>b.disabled=true);
+    return node;
+  }
   function selectionChanged(t, state) {
     const current = snapshot?.treffer.find(row => row.treffer_id === t.treffer_id);
     if (current) current.status = state.saved;
     lastSelection = t.treffer_id;
     notice.textContent = (t.name || 'Unterkunft') + ': ' + state.message;
     draw();
-    const row = results.querySelector(`[data-hit="${t.treffer_id}"]`);
+    const row = (showMap ? mapPanel : results).querySelector(`[data-hit="${t.treffer_id}"]`);
     (row?.getClientRects().length ? row : undoSelection.hidden ? refresh : undoSelection).focus({ preventScroll: true });
   }
   function showHit(t) {
@@ -1194,9 +1199,9 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     tinderButton.setAttribute('aria-pressed', String(!showMap && resultView==='tinder'));
     results.dataset.resultView = resultView; mapButton.setAttribute('aria-pressed', String(showMap));
     mapPanel.hidden = !showMap; results.hidden = showMap;
-    if (showMap) { if (!mapView) mapView = sucheKarte(mapPanel, showHit); mapView.update(rows, snapshot.karte); }
+    if (!showMap && mapView) {mapView.destroy();mapView=null;mapPanel.replaceChildren();}
     undoSelection.hidden = !selectionStates.get(lastSelection)?.undo;
-    undoSelection.disabled = !!(selectionStates.get(lastSelection)?.pending || selectionStates.get(lastSelection)?.refreshRequired);
+    undoSelection.disabled = review.blocked || review.pending || !!(selectionStates.get(lastSelection)?.pending || selectionStates.get(lastSelection)?.refreshRequired);
     filterCount.textContent = `${rows.length} von ${snapshot.treffer.length} Treffern · Sortierung gilt für die gesamte Liste.`;
     endrunde.disabled=review.pending || !snapshot.treffer.some(t=>t.status==='favorit');
     if(resultView==='tinder' && !showMap){resultLinks.replaceChildren();review.draw();results.append(review.node);return;}
@@ -1232,7 +1237,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
         if (wasOpen) replacement.open = true;
         replacement.querySelector(`[data-sort="${sortKey}"]`)?.focus({ preventScroll: true });
           };
-          const selection = t => sucheAuswahl(t,selectionStates,call,live,selectionChanged);
+          const selection = resultSelection;
           section.append(stayConfigureTable(sucheTabelle(shown,sort,sortGroup,phase.final && ['A','B'].includes(key), t=>sucheRueckmeldung(t,feedbackStates,call,live),t=>research.row(t),id),shown,sort,sortGroup,a,selection));
         }
       }
@@ -1250,6 +1255,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       section.dataset.group = key; results.append(section);
       if (key === 'ausgeschlossen') section.dataset.detail = 'ausgeschlossen';
     }
+    if(showMap){if(!mapView)mapView=sucheKarte(mapPanel,showHit,t=>el('div',{'data-result-view':'list'},stayConfigureTable(sucheTabelle([t],sort,()=>{},phase.final, t=>sucheRueckmeldung(t,feedbackStates,call,live),()=>null,id,'map-'),[t],sort,()=>{},a,resultSelection)));mapView.update(rows,snapshot.karte);}
     results.querySelectorAll('details[data-detail]').forEach((n) => {
       n.open = openDetails.has(n.dataset.detail);
       // Synchronize the row and disclosure button before the deferred native toggle event.
@@ -1333,7 +1339,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   await poll();
 }
 
-function sucheTabelle(items, sort, onSort, final = false, feedback = () => null, selection = () => null, suchauftragId = null) {
+function sucheTabelle(items, sort, onSort, final = false, feedback = () => null, selection = () => null, suchauftragId = null, prefix = '') {
   const table = el('table', { class: 'suche-table compact-results' });
   const scoreLabel = final ? 'Endscore (%)' : 'Score (Zwischenstand)';
   const headings = [['name','Unterkunft'], ['score',scoreLabel], ['preis','Gesamtpreis'], ['schlafzimmer','Schlafzimmer'], ['betten','Bettentypen'], ['gehzeit','Lage / ÖPNV'], ['gaestenote','Bewertung'], ['warnungen','Warnungen'], ['anbieter','Anbieter / Link']];
@@ -1374,7 +1380,7 @@ function sucheTabelle(items, sort, onSort, final = false, feedback = () => null,
           (button.closest('.suche') || main).append(dialog);
           dialog.addEventListener('close',() => {dialog.remove(); if(button.isConnected) button.focus({preventScroll:true});}); dialog.showModal();
         }}, 'Unterkunft im Detail'), objection, sucheBalken(b.spaltennoten,SUCHE_NOTEN), info, sucheAngebote(t), selection(t), feedback(t)));
-    const detailId='hit-detail-' + t.treffer_id;
+    const detailId=prefix+'hit-detail-' + t.treffer_id;
     const detailRow=el('tr', {class:'hit-detail-row',hidden:true,id:detailId}, el('td', {colspan:10},details));
     const toggle=el('button', {type:'button',class:'hit-toggle','aria-expanded':'false','aria-controls':detailId,onclick:() => {
       details.open=!details.open; sync();

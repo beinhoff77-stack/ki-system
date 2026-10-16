@@ -1,5 +1,29 @@
 /* Wunsch 71: gerätebezogene Anzeige, Galerie und persönliche Endrunde. */
 'use strict';
+function sucheBettenDeutsch(value) {
+  return String(value || '').replace(/\bBedroom\b/gi,'Schlafzimmer').replace(/\bLiving room\b/gi,'Wohnzimmer').replace(/\bsofa beds?\b/gi, 'Schlafsofa').replace(/\b(?:double|full) beds?\b/gi, 'Doppelbett')
+    .replace(/\b(?:single|twin) beds?\b/gi, 'Einzelbett').replace(/\bqueen beds?\b/gi, 'Queensize-Bett')
+    .replace(/\bking beds?\b/gi, 'Kingsize-Bett').replace(/\bbunk beds?\b/gi, 'Etagenbett')
+    .replace(/\bfuton beds?\b/gi, 'Futon').replace(/\bfutons?\b/gi, 'Futon').replace(/\btwin\b/gi,'Einzelbett').replace(/\bdouble\b/gi,'Doppelbett').replace(/\band\b/gi, 'und');
+}
+function sucheWegText(t) {
+  const min = sucheZahl(t.gehzeit_min), rawStation = typeof t.station_name === 'string' && t.station_name.trim();
+  const station = rawStation && !/^(station|bahnhof|unknown|unbekannt)$/i.test(rawStation) ? rawStation : null;
+  if (min === null || min < 0) return station ? 'Fußweg zu ' + station + ' unbekannt' : 'Fußweg und Station unbekannt';
+  const rounded = Math.round(min), time = rounded >= 60 ? Math.floor(rounded / 60) + ' Std. ' + rounded % 60 + ' Min.' : rounded + ' Min.';
+  return (t.gehzeit_art === 'geschaetzt' ? 'ca. ' : '') + time + ' zu Fuß · ' + (station || 'Zielstation nicht angegeben') +
+    (t.gehzeit_art === 'geschaetzt' ? ' (geschätzt)' : !['route', 'ors'].includes(t.gehzeit_art) ? ' (Berechnung unbekannt)' : '');
+}
+function sucheAnbieterLink(t) {
+  const original = sucheLink(t.angebot?.link);
+  if (!original) return null;
+  const u = new URL(original), id = u.searchParams.get('f_no');
+  // Rakuten API redirects may lead to login. The hotel ID identifies the public overview, not an offer.
+  if (['img.travel.rakuten.co.jp', 'hotel.travel.rakuten.co.jp'].includes(u.hostname) && /^[1-9]\d*$/.test(id || '')) {
+    return { url: 'https://travel.rakuten.co.jp/HOTEL/' + id + '/' + id + '.html', label: 'Hotel bei Rakuten ansehen ↗', overview: true };
+  }
+  return { url: original, label: 'Bei ' + (t.angebot?.anbieter || SUCHE_QUELLEN[t.quelle] || 'Anbieter') + ' ansehen ↗', overview: false };
+}
 const STAY_FIELDS = {
   preis: 'Preis gesamt', nacht: 'Preis/Nacht', gaestenote: 'Note', bewertungen: 'Bewertungen',
   m2: 'Zimmergröße m²', schlafzimmer: 'Schlafzimmer', betten: 'Betten/Schlafplätze', balkon: 'Balkon',
@@ -42,7 +66,7 @@ function stayFieldValue(t,key,trip={}) {
     case 'bewertungen': return n(t.bewertungen);
     case 'm2': return n(category?.m2);
     case 'schlafzimmer': return room.schlafzimmer;
-    case 'betten': return room.typen ?? (room.anzahl!==null?room.anzahl+' Betten':null);
+    case 'betten': return (room.typen ? sucheBettenDeutsch(room.typen) : null) ?? (room.anzahl!==null?room.anzahl+' Betten':null);
     case 'balkon': return yes(category?.balkon);
     case 'raucher': return yes(category?.raucher ?? t.raucher);
     case 'storno': return typeof a.storno==='string' && a.storno.trim() && a.storno!=='unbekannt' ? a.storno : null;
@@ -58,8 +82,8 @@ function stayField(t,key,trip) {
   if(value===null) box.append('–');
   else if(['preis','nacht'].includes(key)) box.append((t.angebot?.preis_art==='geschaetzt'?'ca. ':'')+sucheEuro(value));
   else if(key==='gaestenote') box.append(Number(value).toLocaleString('de-DE',{maximumFractionDigits:2})+' / 10');
-  else if(key==='gehzeit') box.append((t.gehzeit_art==='geschaetzt'?'ca. ':'')+value+' Min.');
-  else box.append(String(value)+(key==='m2'?' m²':key==='datenlage'?' %':''));
+  else if(key==='gehzeit') box.append(sucheWegText(t));
+  else box.append((key==='m2'?Number(value).toLocaleString('de-DE'):String(value))+(key==='m2'?' m²':key==='datenlage'?' %':''));
   if(key==='gaestenote' && sucheZahl(t.note)!==null) box.append(el('small',{},`${t.note} / ${t.note_skala ?? '?'} bei ${SUCHE_QUELLEN[t.quelle] || t.quelle || 'Quelle'}`),el('small',{}, value===null?'Eichung nicht verfügbar.':'Auf Booking-Niveau geeicht; Airbnb-Noten liegen allgemein höher.'));
   if(key==='gehzeit' && value!==null) box.append(el('small',{},t.station_name?'Zur Station '+t.station_name:'Ziel nicht benannt'),el('small',{},t.gehzeit_art==='geschaetzt'?'geschätzt':['route','ors'].includes(t.gehzeit_art)?'berechneter Fußweg':'Art unbekannt'));
   return box;
@@ -82,7 +106,7 @@ function stayGallery(t) {
 function stayEndrunde(hits,id,call,live,onSaved) {
   let order=hits.filter(t=>t.status==='favorit').sort((a,b)=>(a.eigener_rang??Infinity)-(b.eigener_rang??Infinity)||(a.bewertung?.rang??Infinity)-(b.bewertung?.rang??Infinity));
   const dialog=el('dialog',{class:'stay-candidate endrunde','aria-label':'Endrunde'}), body=el('div'), status=el('p',{role:'status'});
-  let drag=null, pending=false, ranked=[], queue=[], candidate=null, position=0;
+  let drag=null, pending=false, ranked=[], queue=[], candidate=null, position=0, low=0, high=0;
   const save=el('button',{type:'button',class:'primary',onclick:async()=>{
     if(pending||candidate||!order.length)return;pending=true;save.disabled=true;close.disabled=true;body.inert=true;status.textContent='Speichere …';
     try {const r=await call('unterkunft_eigenes_ranking_setzen',{suchauftrag_id:id,reihenfolge:order.map(t=>t.treffer_id)});if(!live())return;if(r.ok!==true)throw Error('Nicht bestätigt.');order.forEach((t,i)=>t.eigener_rang=i+1);onSaved();dialog.close();}
@@ -94,50 +118,51 @@ function stayEndrunde(hits,id,call,live,onSaved) {
   function list() {candidate=null;save.disabled=order.length===0;body.replaceChildren(el('p',{},'Ziehe deine Favoriten in die gewünschte Reihenfolge oder nutze die Pfeile.'),el('ol',{},order.map((t,i)=>el('li',{'data-final-hit':t.treffer_id,draggable:'true',ondragstart:e=>{drag=i;e.dataTransfer.setData('text/plain',String(t.treffer_id));},ondragover:e=>e.preventDefault(),ondrop:e=>{e.preventDefault();if(drag!==null){order=stayMove(order,drag,i);list();}drag=null;},ondragend:()=>drag=null},
     `${i+1}. ${t.name}`,el('button',{type:'button',disabled:i===0,'aria-label':t.name+' nach oben',onclick:()=>{order=stayMove(order,i,i-1);list();}},'↑'),el('button',{type:'button',disabled:i===order.length-1,'aria-label':t.name+' nach unten',onclick:()=>{order=stayMove(order,i,i+1);list();}},'↓')))),
     el('button',{type:'button',disabled:order.length<2,onclick:()=>{queue=[...order];ranked=[queue.shift()];advance();}},'Paarvergleich starten')); }
-  function advance(){candidate=queue.shift();position=0;if(!candidate){order=[...ranked];list();status.textContent='Paarvergleich abgeschlossen. Bitte Rangfolge speichern.';}else pair();}
+  function advance(){candidate=queue.shift();low=0;high=ranked.length;position=Math.floor((low+high)/2);if(!candidate){order=[...ranked];list();status.textContent='Paarvergleich abgeschlossen. Bitte Rangfolge speichern.';}else pair();}
   function pair(){save.disabled=true;const other=ranked[position];body.replaceChildren(el('h3',{},'A oder B?'),el('p',{},'Welche Unterkunft gefällt dir besser?'),el('div',{class:'pair-options'},[candidate,other].map(t=>el('section',{},stayGallery(t),el('h4',{},t.name),stayInfo(t),el('button',{type:'button',onclick:()=>{
-    if(t===candidate){ranked.splice(position,0,candidate);advance();}else if(++position>=ranked.length){ranked.push(candidate);advance();}else pair();
+    if(t===candidate)high=position;else low=position+1;
+    if(low===high){ranked.splice(low,0,candidate);advance();}else{position=Math.floor((low+high)/2);pair();}
   }},t.name+' wählen')))));}
   dialog.append(el('h2',{},'Endrunde · Favoriten'),close,body,status,save);list();return dialog;
 }
-function stayReview({getSnapshot,call,live,changed,scope}) {
+function stayReview({getSnapshot,call,live,changed,scope,isBlocked=()=>false}) {
   let pending=false, last=null, reasonFor=null, awaitingReturn=null, revision=0;
   const box=el('section',{class:'stay-review'}), message=el('p',{role:'status'});
   const minus=[['preis','Preis'],['zu_klein','Zu klein'],['lage','Lage'],['stil','Stil'],['betten','Betten'],['fotos','Fotos'],['laerm','Lärm'],['ausstattung','Ausstattung'],['sonstiges','Sonstiges']];
   const plus=[['plus_groesse','Größe'],['plus_lage','Lage'],['plus_stil','Stil'],['plus_preis','Preis'],['plus_ausstattung','Ausstattung'],['plus_fotos','Fotos'],['plus_betten','Betten']];
   let needsRefresh=false;
   async function vote(t,urteil,gruende=[],withReasons=true){
-    if(pending||needsRefresh)return;pending=true;revision++;draw();
+    if(pending||needsRefresh||isBlocked())return;pending=true;revision++;draw();
     try {const r=await call('unterkunft_durchsehen_urteil',{treffer_id:t.treffer_id,urteil,gruende});if(!live())return;
-      if(r.ok!==true || r.treffer_id!==t.treffer_id || r.urteil!==urteil)throw Error('Urteil nicht eindeutig bestätigt.');
+      if(r.ok!==true || r.treffer_id!==t.treffer_id || r.urteil!==urteil || r.status!==({favorit:'favorit',vielleicht:'vielleicht',weg:'ausgeschlossen',offen:'aktiv'}[urteil]))throw Error('Urteil nicht eindeutig bestätigt.');
       t.status={favorit:'favorit',vielleicht:'vielleicht',weg:'ausgeschlossen',offen:'aktiv'}[urteil];t.urteil_gruende=gruende;
       if(urteil==='offen'){t.urteil_uebernommen=null;last=null;reasonFor=null;}else {last=t;reasonFor=withReasons?{t,urteil,gruende}:null;}
       awaitingReturn=null;message.textContent=urteil==='offen'?'Letzte Entscheidung zurückgenommen.':'Entscheidung gespeichert.';
     }catch(e){needsRefresh=true;message.textContent='Speichern nicht bestätigt: '+e.message+' Bitte aktualisieren, bevor du erneut entscheidest.';}
     finally{pending=false;revision++;if(live()){changed(t);draw();}}
   }
-  function buttons(t){return el('div',{class:'actions review-actions'},[['favorit','Favorit'],['vielleicht','Na ja'],['weg','Weg']].map(([key,label])=>el('button',{type:'button',disabled:pending||needsRefresh,onclick:()=>vote(t,key)},label)));}
+  function buttons(t){return el('div',{class:'actions review-actions'},[['favorit','Favorit'],['vielleicht','Na ja'],['weg','Weg']].map(([key,label])=>el('button',{type:'button',disabled:pending||needsRefresh||isBlocked(),onclick:()=>vote(t,key)},label)));}
   function draw(){
     const snapshot=getSnapshot();if(!snapshot)return;
-    const all=snapshot.treffer, queue=all.filter(t=>!['favorit','vielleicht','ausgeschlossen'].includes(t.status)&&t.topf!=='ausgeschlossen'&&!t.urteil_uebernommen).sort((a,b)=>(b.runde||1)-(a.runde||1)||(a.bewertung?.rang??Infinity)-(b.bewertung?.rang??Infinity)||a.treffer_id-b.treffer_id);
+    const all=snapshot.treffer, queue=all.filter(t=>!['favorit','vielleicht','ausgeschlossen'].includes(t.status)&&t.topf!=='ausgeschlossen'&&(!t.urteil_uebernommen || (t.status==='aktiv' && t.urteil_uebernommen.hinweis))).sort((a,b)=>(b.runde||1)-(a.runde||1)||(a.bewertung?.rang??Infinity)-(b.bewertung?.rang??Infinity)||a.treffer_id-b.treffer_id);
     box.replaceChildren(el('p',{class:'small'},`${queue.length} neu · ${all.filter(t=>['favorit','vielleicht','ausgeschlossen'].includes(t.status)||t.urteil_uebernommen).length} schon bewertet`),message,
       el('button',{type:'button',disabled:!last||pending||needsRefresh,onclick:()=>vote(last,'offen',[],false)},'Letzte Entscheidung rückgängig'));
     if(reasonFor){const r=reasonFor;box.append(el('section',{class:'review-reasons'},el('p',{},`Warum ${r.urteil==='favorit'?'Favorit':r.urteil==='weg'?'Weg':'Na ja'}? ${r.t.name} (optional)`),
-      el('div',{class:'actions'},(r.urteil==='favorit'?plus:minus).map(([key,label])=>el('button',{type:'button','aria-pressed':r.gruende.includes(key),disabled:pending||needsRefresh,onclick:()=>{r.gruende=r.gruende.includes(key)?r.gruende.filter(k=>k!==key):[...r.gruende,key];draw();}},label))),
-      el('button',{type:'button',disabled:pending||needsRefresh,onclick:()=>vote(r.t,r.urteil,r.gruende,false)},'Gründe speichern'),el('button',{type:'button',disabled:pending,onclick:()=>{reasonFor=null;draw();}},'Überspringen')));}
+      el('div',{class:'actions'},(r.urteil==='favorit'?plus:minus).map(([key,label])=>el('button',{type:'button','aria-pressed':r.gruende.includes(key),disabled:pending||needsRefresh||isBlocked(),onclick:()=>{r.gruende=r.gruende.includes(key)?r.gruende.filter(k=>k!==key):[...r.gruende,key];draw();}},label))),
+      el('button',{type:'button',disabled:pending||needsRefresh||isBlocked(),onclick:()=>vote(r.t,r.urteil,r.gruende,false)},'Gründe speichern'),el('button',{type:'button',disabled:pending,onclick:()=>{reasonFor=null;draw();}},'Überspringen')));}
     const t=queue[0];if(!t){box.append(el('h3',{},'Alle Unterkünfte durchgesehen.'),el('p',{},'In der Endrunde kannst du deine Favoriten vergleichen.'));return;}
-    const article=el('article',{class:'review-card','data-review-hit':t.treffer_id},stayGallery(t));
+    const article=el('article',{class:'review-card','data-review-hit':t.treffer_id},stayGallery(t),t.urteil_uebernommen?.hinweis?el('p',{class:'warning'},'Jetzt günstiger · '+t.urteil_uebernommen.hinweis):null);
     const swipe=el('div',{class:'review-swipe'},el('h3',{},t.name),el('p',{},`Rang ${t.bewertung?.rang??'–'} · ${snapshot.suchauftrag.status==='fertig'&&['A','B'].includes(sucheGruppe(t))?'Endscore':'Vorläufiger Score'} ${t.bewertung?.score??'–'} %`),stayInfo(t,snapshot.suchauftrag));
     let point=null;
     swipe.addEventListener('pointerdown',e=>{if(e.button!==0 || e.target.closest('button,a'))return;point={x:e.clientX,y:e.clientY};try{swipe.setPointerCapture?.(e.pointerId);}catch{/* Synthetic events may lack an active pointer. */}});
     swipe.addEventListener('pointercancel',()=>point=null);
     swipe.addEventListener('pointerup',e=>{if(!point)return;const dx=e.clientX-point.x,dy=e.clientY-point.y;point=null;if(Math.max(Math.abs(dx),Math.abs(dy))<70)return;if(Math.abs(dx)>Math.abs(dy)*1.3)void vote(t,dx>0?'favorit':'weg');else if(dy < -70 && Math.abs(dy)>Math.abs(dx)*1.3)void vote(t,'vielleicht');});
-    const url=sucheLink(t.angebot?.link);
-    article.append(...[swipe,url?el('a',{href:url,target:'_blank',rel:'noopener noreferrer',onclick:()=>{awaitingReturn=t.treffer_id;}},'Beim Anbieter ansehen ↗'):null,
+    const provider=sucheAnbieterLink(t), url=provider?.url;
+    article.append(...[swipe,url?el('a',{href:url,target:'_blank',rel:'noopener noreferrer',onclick:()=>{awaitingReturn=t.treffer_id;}},provider.label):null,
       awaitingReturn===t.treffer_id?el('p',{role:'status'},'Und? Wie gefällt dir die Unterkunft?'):null,buttons(t)].filter(Boolean));box.append(article);
   }
   const returned=()=>{if(!document.hidden && awaitingReturn && live())draw();};document.addEventListener('visibilitychange',returned);
-  return {node:box,draw,get revision(){return revision;},get pending(){return pending;},refreshed(){if(!pending){needsRefresh=false;last=null;reasonFor=null;}},dispose(){document.removeEventListener('visibilitychange',returned);}};
+  return {node:box,draw,get revision(){return revision;},get pending(){return pending;},get blocked(){return needsRefresh;},refreshed(){if(!pending){needsRefresh=false;last=null;reasonFor=null;}},dispose(){document.removeEventListener('visibilitychange',returned);}};
 }
 function stayConfigureTable(wrapper,items,sort,onSort,trip,select) {
   const table=wrapper.querySelector('table'), head=table.tHead.rows[0], fields=stayFields();
@@ -148,6 +173,7 @@ function stayConfigureTable(wrapper,items,sort,onSort,trip,select) {
     if(t.eigener_rang)identity.append(el('p',{class:'small'},'Dein Rang '+t.eigener_rang));
     if(t.urteil_uebernommen)identity.append(el('p',{class:'small'},'aus früherer Suche'));
     if(t.status==='vielleicht')identity.append(el('p',{class:'small'},'Na ja'));
+    const provider=sucheAnbieterLink(t);if(provider)identity.querySelector('.hit-identity > div').append(el('a',{class:'hit-provider',href:provider.url,target:'_blank',rel:'noopener noreferrer'},provider.label));
     identity.append(select(t));
     row.replaceChildren(identity,...fields.map(key=>el('td',{'data-label':STAY_FIELDS[key],'data-field':key},stayField(t,key,trip))),detail);
     row.nextElementSibling.cells[0].colSpan=fields.length+2;

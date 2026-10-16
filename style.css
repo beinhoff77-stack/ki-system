@@ -747,3 +747,20 @@ body[data-area="unterkunft"] main.view:has([data-result-view]) { max-width: none
   .review-card .stay-info{grid-template-columns:minmax(0,1fr) minmax(0,1fr);font-size:14px;line-height:1.4;}
   .review-actions{position:sticky;bottom:78px;background:var(--card,#fff);padding:8px 0;z-index:2;}
 }
+
+/* PR9 integration: larger list photos, map details, compact controls. */
+.hit-provider { display:block; margin:8px 0; }
+.map-selected { scroll-margin-top:140px; }
+.stay-map-popup details button { display:block; width:100%; margin:4px 0; text-align:left; }
+[data-result-view="list"] .compact-results .hit-identity { align-items:start; flex-direction:column; }
+[data-result-view="list"] .compact-results .stay-photo,
+[data-result-view="list"] .compact-results .stay-photo img { width:100%; height:180px; }
+[data-result-view="list"] .compact-results .photo-missing { height:180px; }
+@media(max-width:799px){
+ [data-result-view="list"] .compact-results .hit-identity {display:grid;grid-template-columns:130px minmax(0,1fr);gap:12px;}
+ [data-result-view="list"] .compact-results .stay-photo,
+ [data-result-view="list"] .compact-results .stay-photo img {height:120px;}
+}
+
+[data-result-view="table"] .hit-provider {margin:2px 0;font-size:12px;}
+[data-result-view="table"] .stay-selection .actions {margin:0;}

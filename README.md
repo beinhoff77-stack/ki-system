@@ -20,7 +20,7 @@ Web- und Handy-Oberfläche (installierbare Web-App) für Sebastians persönliche
 
 Claude baut den funktionierenden Rohbau, ChatGPT übernimmt die Gestaltung. Vor jeder Änderung: Sperre `app:repo` in der Werkstatt holen, aktuellen Stand von `main` laden, Änderung protokollieren, Sperre lösen. Gestaltung ändert keine Funktionsnamen und keine Schnittstellenaufrufe.
 
-## App-Struktur und Unterkunftssuche (Werkstatt #41, App 0.7.0)
+## App-Struktur und Unterkunftssuche (Werkstatt #41, App 0.8.0)
 
 Startseite (`#/start`, auch Standard nach Anmeldung): zwei gleichwertige Bereiche **Council** und **Unterkunft**. Der globale Bereichswechsler bleibt auf allen angemeldeten Seiten erreichbar. Council behält seine Aufträge, Auftragserstellung, Einstellungen und Werkstatt. Unterkunft hat eine eigene Navigation **Suchen** (`#/suche`) und **Ergebnisse** (`#/ergebnisse`); Suchlauf-Direktlinks bleiben gültig.
 
@@ -32,7 +32,8 @@ Alle Aufrufe gehen als `{aktion, daten}` an `POST /app-api/aktion`:
 
 1. `unterkunft_suchauftrag_anlegen` liefert die Auftrags-ID.
 2. `unterkunft_suche_starten` startet nur nach Klick. Bei einem Fehler bleibt der gespeicherte Auftrag verlinkt.
-3. `unterkunft_suchlauf_lesen` aktualisiert den geöffneten Lauf alle sieben Sekunden. Endstatus, Navigation oder Lesefehler beenden das Polling. „Aktualisieren“ liest erneut, ohne einen neuen Suchlauf zu starten.
+3. `unterkunft_suche_status` aktualisiert den Fortschritt alle sieben Sekunden. Wartende Suchen starten serverseitig automatisch. Erst bei `fertig: true`, Fehler oder Abbruch lädt die App die Treffer über `unterkunft_suchlauf_lesen`. Navigation und Lesefehler beenden das Polling. „Aktualisieren“ liest erneut, ohne eine neue Suche zu starten.
+4. „Suche abbrechen“ ruft einmal `unterkunft_suche_abbrechen` auf und liest anschließend den Status. Vorhandene Treffer bleiben lesbar; bei einem Fehler wird kein Schreibaufruf automatisch wiederholt.
 
 Letzte Aufträge und Direktlinks (`#/suche/2`) erlauben das Wiederöffnen nach einem Neuladen. Ein Entwurf kann ausdrücklich gestartet werden. Nach unklarer Anlege-Antwort zuerst die letzten Aufträge prüfen, um Doppelanlagen zu vermeiden.
 
@@ -48,7 +49,7 @@ npx playwright install chromium
 npm test
 ```
 
-Die zwölf Browsertests verwenden ausschließlich synthetische API-Antworten und starten keine kostenpflichtige Suche. Sie prüfen Formularvalidierung, Doppelklick, Anlegen/Starten/Lesen, Sortierung, XSS/Links, Polling-Ende, Navigation, Netzwerkfehler, 401, mobile Breite und Offline-Hülle sowie Startseite, getrennte Bereichsnavigation und Prototyp-Farben. Die Tabelle wird bei 1366 px ohne horizontalen Überlauf geprüft. Screenshots von Einstieg, Suche und Ergebnissen auf Desktop und Mobil liegen ignoriert unter `test-results/`.
+Die vierzehn Browsertests verwenden ausschließlich synthetische API-Antworten und starten keine kostenpflichtige Suche. Sie prüfen Formularvalidierung, Doppelklick, Anlegen/Starten/Lesen, Sortierung, XSS/Links, Polling-Ende, Navigation, Netzwerkfehler, 401, mobile Breite und Offline-Hülle sowie Startseite, getrennte Bereichsnavigation und Prototyp-Farben. Die Tabelle wird bei 1366 px ohne horizontalen Überlauf geprüft. Screenshots von Einstieg, Suche und Ergebnissen auf Desktop und Mobil liegen ignoriert unter `test-results/`.
 
 Live geprüft am 16.10.2026: `/status` liefert app-api 0.5.0; alle drei Aktionen ohne Anmeldung liefern 401. Der authentifizierte Council-Lesezugang liefert Suchlauf #2 mit inzwischen 258 Treffern einschließlich Rakuten/Trivago. `luftlinie_ziel_m` fehlt in der gelesenen Antwort; die Oberfläche zeigt deshalb „unbekannt“. Keine Live-Daten sind als Testfixtures eingecheckt.
 
@@ -60,4 +61,6 @@ Liste A startet in der vom Server gelieferten Rangfolge (`bewertung.rang`); der 
 
 Die fünf Teilnoten Raum, Lage, Preis-Leistung, Bewertungen und Eignung erscheinen als Balken (0–10). Bildurteile werden ausdrücklich als KI-Einschätzung der Bilder dargestellt; Gegenprüfungseinwände einschließlich ihrer Liste bleiben außerhalb der aufklappbaren Details sichtbar. Die Ampel kennzeichnet Verlässlichkeit, nicht Qualität. Stationsname/Gehzeit werden verwendet, sobald die Leseschnittstelle sie liefert; fehlende Werte bleiben unbekannt.
 
-Ein Suchauftrag mit Status `fertig` ist noch kein Nachweis einer abgeschlossenen Bewertung. Die App wartet zusätzlich auf den letzten Schritt `bewerten` mit Status `fertig`. Fehler, Abbruch und Budgetstopp beenden das Polling ohne finale Kennzeichnung. Fehlt der Bewertungsschritt, pausiert das automatische Lesen nach drei Minuten mit einem Hinweis; manuelles Aktualisieren öffnet ein neues Wartefenster. Tests decken die Übergänge fehlend → läuft → fertig, Bewertungsfehler, Rang trotz abweichendem Score, Score-Abdeckung, Null/0 sowie Bildurteil und sichere Einwände ab. Insgesamt 12 Browsertests.
+Seit app-api 0.6.0 ist die leichte Statusabfrage maßgeblich: `status=fertig` und `fertig=true` kennzeichnen das Endranking. Fehler und Abbruch zeigen Teilergebnisse ausdrücklich vorläufig. Die frühere Wartefrist für fehlende Bewertungsschritte entfällt. 14 Browsertests decken zusätzlich Warteschlange → Bewertung → Abschluss ohne vorzeitiges Laden der Treffer, Abbrechen/Doppelklick, Abbruchfehler, ungültige Statusantwort und Entwurfsstart ab.
+
+Die Live-Statusantwort von Suchlauf #2 wurde lesend geprüft. Ein angemeldeter vollständiger Browser-Live-Test und Claudes Prüfung bleiben vor Veröffentlichung offen. Rückmeldungen/Reports aus Wunsch 47 sind noch nicht integriert; der Backend-Baustein ist derzeit in Arbeit.

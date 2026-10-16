@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.7.0';
+const APP_VERSION = '0.8.0';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -798,15 +798,6 @@ async function viewWerkstatt(idStr) {
 // ---------- Unterkunftssuche (Werkstatt #41) ----------
 const SUCHE_ENDE = new Set(['fertig', 'fehler', 'gestoppt_budget', 'abgebrochen', 'gestoppt']);
 const SUCHE_NOTEN = [['raum', 'Raum'], ['lage', 'Lage'], ['preis_leistung', 'Preis-Leistung'], ['bewertungen', 'Bewertungen'], ['eignung', 'Eignung']];
-function suchePhase(auftrag) {
-  const steps = Array.isArray(auftrag.schrittkette) ? auftrag.schrittkette : [];
-  const bewerten = steps.filter((s) => s.quelle === 'bewerten').at(-1);
-  const stopped = SUCHE_ENDE.has(auftrag.status) && auftrag.status !== 'fertig';
-  const failed = bewerten && SUCHE_ENDE.has(bewerten.status) && bewerten.status !== 'fertig';
-  return { final: auftrag.status === 'fertig' && bewerten?.status === 'fertig',
-    running: !stopped && !failed && auftrag.status !== 'entwurf' && !(auftrag.status === 'fertig' && bewerten?.status === 'fertig'),
-    waiting: auftrag.status === 'fertig' && !bewerten, failed: !!failed, bewerten };
-}
 function sucheDatenlage(t) {
   const noten = t.bewertung?.spaltennoten;
   return sucheZahl(noten && Object.hasOwn(noten, 'datenlage_score') ? noten.datenlage_score : t.bewertung?.datenlage);
@@ -857,7 +848,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   const entryView = parseHash().view;
   let disposed = false, timer, busy = false, snapshot = null;
   const requests = new Set();
-  let sort = { key: 'rang', direction: 1 }, waitingSince = null;
+  let sort = { key: 'rang', direction: 1 }, runStatus = null;
   const scope = el('div', { class: 'suche' });
   main.replaceChildren(scope);
   disposeSuche = () => { disposed = true; clearTimeout(timer); requests.forEach((c) => c.abort()); };
@@ -969,18 +960,30 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   scope.append(el('div', { class: 'stay-page-heading' }, el('p', { class: 'eyebrow' }, 'EIN GUTER ORT FÜR EURE REISE'), el('h2', {}, 'Unterkünfte vergleichen')));
   const summary = el('section', { class: 'card stay-run-summary' });
   const results = el('section', { 'aria-label': 'Suchergebnisse' });
-  const refresh = el('button', { onclick: () => { waitingSince = null; poll(); } }, 'Aktualisieren');
+  const refresh = el('button', { onclick: () => poll() }, 'Aktualisieren');
   const start = el('button', { class: 'primary', hidden: true, onclick: async () => {
     if (busy) return; busy = true; start.disabled = refresh.disabled = true;
     try { await call('unterkunft_suche_starten', { suchauftrag_id: id }); }
     catch (e) { if (live()) notice.textContent = e.message + ' Status vor einem weiteren Start aktualisieren.'; }
     finally { busy = false; if (live()) await poll(); }
   } }, 'Diesen Entwurf starten');
-  scope.append(el('div', { class: 'actions' }, el('a', { href: '#/suche' }, 'Neue Suche / letzte Aufträge'), refresh, start), notice, summary, results);
+  const cancel = el('button', { hidden: true, onclick: async () => {
+    if (busy) return;
+    busy = true; clearTimeout(timer); cancel.disabled = refresh.disabled = start.disabled = true;
+    let error = '';
+    try { await call('unterkunft_suche_abbrechen', { suchauftrag_id: id }); }
+    catch (e) { error = e.message; }
+    finally { busy = false; }
+    if (live()) {
+      await poll();
+      if (error && live()) notice.textContent = 'Abbrechen nicht bestätigt: ' + error + ' Bitte den aktuellen Status prüfen.';
+    }
+  } }, 'Suche abbrechen');
+  scope.append(el('div', { class: 'actions' }, el('a', { href: '#/suche' }, 'Neue Suche / letzte Aufträge'), refresh, start, cancel), notice, summary, results);
   function draw() {
     const openDetails = new Set([...results.querySelectorAll('details[open][data-detail]')].map((n) => n.dataset.detail));
     const a = snapshot.suchauftrag, k = snapshot.kosten || {}, steps = Array.isArray(a.schrittkette) ? a.schrittkette : [];
-    const phase = suchePhase(a);
+    const phase = { final: runStatus?.status === 'fertig' && runStatus?.fertig === true, failed: runStatus?.status !== 'fertig' && SUCHE_ENDE.has(runStatus?.status) };
     start.hidden = a.status !== 'entwurf'; start.disabled = busy;
     summary.replaceChildren(el('h2', {}, `${a.ziel} · #${a.id}`),
       el('p', {}, `${fmtDate(a.anreise)}–${fmtDate(a.abreise)} · ${a.erwachsene} Erwachsene · ${(a.kinder_alter || []).length} Kinder`),
@@ -1019,23 +1022,42 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     results.querySelectorAll('details[data-detail]').forEach((n) => { n.open = openDetails.has(n.dataset.detail); });
     if (rows.some((t) => t.quelle === 'rakuten_travel')) results.append(el('p', { class: 'small' }, 'Supported by Rakuten Developers'));
   }
+  function drawProgress(r) {
+    start.hidden = r.status !== 'entwurf';
+    cancel.hidden = !['wartet', 'laeuft'].includes(r.status);
+    const k = r.kosten || {}, z = r.zaehler || {};
+    summary.replaceChildren(el('h2', {}, `${r.ziel || 'Suchauftrag'} · #${id}`),
+      el('p', {}, `${fmtDate(r.anreise)}–${fmtDate(r.abreise)}`),
+      el('p', {}, 'Status: ', el('strong', {}, r.status),
+        r.status === 'wartet' ? ` · Warteschlange: Position ${r.warteschlange_position ?? 'wird ermittelt'}` : ''),
+      el('p', {}, r.fortschritt || 'Suche wird vorbereitet.'),
+      el('ul', { class: 'suche-progress' }, (Array.isArray(r.schritte) ? r.schritte : []).filter(s => s.fehler || s.hinweis).map(s => el('li', {}, `${SUCHE_QUELLEN[s.schritt] || s.schritt}: ${s.fehler || s.hinweis}`))),
+      el('p', { class: 'small' }, `Gesammelt: ${z.gesammelt ?? 0} · Liste A: ${z.liste_a ?? 0} · Liste B: ${z.liste_b ?? 0} · Bildprüfung: ${z.bild_geprueft ?? 0} · Gegenprüfung: ${z.gegengeprueft ?? 0}`),
+      el('p', { class: 'small' }, `Suchkosten: ${fmtUsd(k.ist_usd) || 'unbekannt'} · reserviert: ${fmtUsd(k.reserviert_usd) || 'unbekannt'} · Limit: ${fmtUsd(k.limit_usd) || 'unbekannt'}`),
+      el('p', { class: 'muted' }, 'Die Ergebnisliste wird nach Abschluss geladen. Vorhandene Treffer bleiben auch nach einem Abbruch erhalten.'));
+  }
   async function poll() {
     if (!live() || busy) return;
-    clearTimeout(timer); busy = true; refresh.disabled = start.disabled = true;
+    clearTimeout(timer); busy = true; refresh.disabled = start.disabled = cancel.disabled = true;
     try {
-      const r = await call('unterkunft_suchlauf_lesen', { suchauftrag_id: id });
+      const r = await call('unterkunft_suche_status', { suchauftrag_id: id });
       if (!live()) return;
-      if (!r?.suchauftrag || !Array.isArray(r.treffer)) throw new Error('Suchlauf nicht gefunden oder Antwort unvollständig.');
-      snapshot = r; draw();
-      const phase = suchePhase(r.suchauftrag);
-      waitingSince = phase.waiting ? waitingSince ?? Date.now() : null;
-      const waitingExpired = waitingSince !== null && Date.now() - waitingSince >= 180000;
-      const running = phase.running && !waitingExpired;
-      notice.textContent = waitingExpired ? 'Die Bewertungsstufe wurde noch nicht gemeldet. Automatische Aktualisierung pausiert; mit „Aktualisieren“ erneut prüfen. Die Rangliste bleibt vorläufig.' : running ? (phase.bewerten || phase.waiting ? 'Bewertung läuft oder wird vorbereitet. Automatische Aktualisierung alle 7 Sekunden.' : 'Suche läuft. Automatische Aktualisierung alle 7 Sekunden.') : phase.final ? 'Bewertung abgeschlossen. Rangliste aktualisiert.' : phase.failed ? 'Bewertung unterbrochen. Vorhandene Treffer bleiben sichtbar.' : 'Stand aktualisiert. ' + (r.suchauftrag.status === 'fehler' ? 'Die Suche meldet einen Fehler; vorhandene Treffer bleiben sichtbar.' : r.suchauftrag.status === 'gestoppt_budget' ? 'Kostenlimit erreicht. Vorhandene Treffer bleiben sichtbar.' : '');
-      if (running) timer = setTimeout(poll, 7000);
+      if (!r || typeof r.status !== 'string' || typeof r.fertig !== 'boolean') throw new Error('Statusantwort unvollständig.');
+      runStatus = r; drawProgress(r);
+      const terminal = r.fertig || ['fehler', 'abgebrochen', 'gestoppt', 'gestoppt_budget'].includes(r.status);
+      if (terminal) {
+        const data = await call('unterkunft_suchlauf_lesen', { suchauftrag_id: id });
+        if (!live()) return;
+        if (!data?.suchauftrag || !Array.isArray(data.treffer)) throw new Error('Suchlauf nicht gefunden oder Antwort unvollständig.');
+        snapshot = data; draw();
+        notice.textContent = r.status === 'fertig' ? 'Bewertung abgeschlossen. Rangliste aktualisiert.' : r.status === 'gestoppt_budget' ? 'Kostenlimit erreicht. Vorhandene Treffer bleiben sichtbar.' : 'Suche ' + r.status + '. Vorhandene Treffer bleiben sichtbar.';
+      } else if (r.status !== 'entwurf') {
+        notice.textContent = r.status === 'wartet' ? 'Die Suche wartet und startet automatisch. Aktualisierung alle 7 Sekunden.' : 'Suche läuft. Bewertung und Gegenprüfung werden abgewartet. Aktualisierung alle 7 Sekunden.';
+        timer = setTimeout(poll, 7000);
+      } else notice.textContent = 'Entwurf gespeichert. Die Suche wurde noch nicht gestartet.';
     } catch (e) {
       if (live()) notice.textContent = e.message + ' Die automatische Aktualisierung pausiert. Mit „Aktualisieren“ erneut lesen; es wird keine neue Suche gestartet.';
-    } finally { busy = false; if (live()) { refresh.disabled = false; start.disabled = false; } }
+    } finally { busy = false; if (live()) { refresh.disabled = false; start.disabled = false; cancel.disabled = false; } }
   }
   await poll();
 }

@@ -38,7 +38,11 @@ async function setup(t, handler, viewport) {
     const request = route.request();
     const payload = request.method() === 'POST' ? request.postDataJSON() : {};
     calls.push(payload);
-    const value = await handler(payload, calls);
+    let value = await handler(payload, calls);
+    if (payload.aktion === 'unterkunft_suche_status' && value?.suchauftrag) {
+      const a = value.suchauftrag;
+      value = { ...a, fertig: ['fertig','fehler','abgebrochen','gestoppt_budget'].includes(a.status), phase: a.status === 'fertig' ? 'fertig' : 'sammeln', kosten: value.kosten, zaehler: {}, schritte: [] };
+    }
     if (value === 'abort') return route.abort();
     if (value === 'unauthorized') return route.fulfill({ status: 401, contentType: 'application/json', body: JSON.stringify({ ok: false, fehler: 'Nicht angemeldet' }) });
     await route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: value, eingerichtet: true }) });
@@ -59,7 +63,7 @@ test('Formular validiert und ruft Anlegen → Starten → Lesen genau einmal auf
   assert.equal(calls.filter((p) => p.aktion === 'unterkunft_suchauftrag_anlegen').length, 0);
   await page.locator('[name=kinder_alter]').fill('13, 11');
   await page.getByRole('button', { name: 'Anlegen und Suche starten' }).dblclick();
-  await page.getByRole('heading', { name: 'Liste A – vorläufig (3)' }).waitFor();
+  await page.getByRole('heading', { name: 'Liste A – Rangliste (3)' }).waitFor();
   const writes = calls.filter((p) => ['unterkunft_suchauftrag_anlegen', 'unterkunft_suche_starten'].includes(p.aktion));
   assert.deepEqual(writes.map((p) => p.aktion), ['unterkunft_suchauftrag_anlegen', 'unterkunft_suche_starten']);
   assert.deepEqual(writes[0].daten.kinder_alter, [13, 11]);
@@ -83,7 +87,7 @@ test('A/B, Warnungen, sichere Links, numerische Sortierung und fehlende Werte', 
 });
 test('Polling stoppt bei Endstatus und beim Seitenwechsel', async (t) => {
   let reads = 0;
-  const { page } = await setup(t, (p) => p.aktion === 'unterkunft_suchlauf_lesen' ? result(++reads > 1 ? 'gestoppt_budget' : 'laeuft') : []);
+  const { page } = await setup(t, (p) => p.aktion === 'unterkunft_suche_status' ? result(++reads > 1 ? 'gestoppt_budget' : 'laeuft') : p.aktion === 'unterkunft_suchlauf_lesen' ? result('gestoppt_budget') : []);
   await page.clock.install(); await page.goto(origin + '/#/suche/2');
   await page.getByRole('status').filter({ hasText: 'Suche läuft' }).waitFor();
   await page.clock.fastForward(7100);
@@ -103,9 +107,9 @@ test('Startfehler behält ID und erzeugt keinen zweiten Auftrag', async (t) => {
 });
 test('Lesefehler behält Treffer, pausiert Polling; 401 führt zum Login', async (t) => {
   let mode = 'ok';
-  const { page } = await setup(t, (p) => p.aktion ? mode === 'ok' ? result('laeuft') : mode : {});
+  const { page } = await setup(t, (p) => p.aktion ? mode === 'ok' ? result() : mode : {});
   await page.clock.install(); await page.goto(origin + '/#/suche/2'); await page.locator('[data-group=A]').waitFor();
-  mode = 'abort'; await page.clock.fastForward(7100);
+  mode = 'abort'; await page.getByRole('button', { name: 'Aktualisieren', exact: true }).click();
   await page.getByRole('status').filter({ hasText: 'pausiert' }).waitFor();
   assert.equal(await page.locator('[data-group=A] tbody tr').count(), 3);
   mode = 'unauthorized'; await page.getByRole('button', { name: 'Aktualisieren', exact: true }).click();
@@ -129,7 +133,7 @@ test('PWA installiert vollständige Offline-Hülle, API wird nicht gecacht', asy
   await page.route('**/functions/v1/app-api/**', (r) => r.fulfill({ contentType: 'application/json', body: '{"ok":true,"eingerichtet":true}' }));
   await page.goto(origin + '/#/login');
   await page.evaluate(() => navigator.serviceWorker.ready);
-  const cached = await page.evaluate(async () => (await (await caches.open('ki-system-v11')).keys()).map((r) => new URL(r.url).pathname));
+  const cached = await page.evaluate(async () => (await (await caches.open('ki-system-v12')).keys()).map((r) => new URL(r.url).pathname));
   assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js'));
   assert(!cached.some((u) => u.includes('app-api')));
   await context.setOffline(true); await page.reload();
@@ -167,40 +171,44 @@ test('Startseite trennt Council und Unterkunft; Navigation und Prototyp-Design',
   await page.screenshot({ path: path.join(root, 'test-results/start-mobile.png'), fullPage: true });
 });
 
-test('Bewertungsstufe: fertig ohne Schritt → läuft → fertig; erst dann Polling-Ende', async (t) => {
-  let reads = 0;
-  const { page } = await setup(t, () => {
-    const r = result(); reads++;
-    if (reads > 1) r.suchauftrag.schrittkette.push({ quelle: 'bewerten', status: reads > 2 ? 'fertig' : 'laeuft' });
-    return r;
+test('Warteschlange und Bewertung nutzen nur Status; Treffer erst nach Abschluss', async (t) => {
+  let count = 0;
+  const { page, calls } = await setup(t, p => p.aktion === 'unterkunft_suche_status'
+    ? { ...status(++count > 2 ? 'fertig' : count === 1 ? 'wartet' : 'laeuft'), warteschlange_position: 2, fortschritt: count === 2 ? 'Bewerten: läuft' : 'Vorbereitung' }
+    : result());
+  await page.clock.install(); await page.goto(origin + '/#/suche/2');
+  await page.getByText('Status: wartet · Warteschlange: Position 2').waitFor();
+  assert.equal(calls.filter(p => p.aktion === 'unterkunft_suchlauf_lesen').length, 0);
+  await page.clock.fastForward(7100); await page.getByText('Bewerten: läuft', {exact:true}).waitFor();
+  assert.equal(calls.filter(p => p.aktion === 'unterkunft_suchlauf_lesen').length, 0);
+  await page.clock.fastForward(7100); await page.locator('[data-group=A]').waitFor();
+  await page.clock.fastForward(30000);
+  assert.equal(count, 3);
+  assert.equal(calls.filter(p => p.aktion === 'unterkunft_suchlauf_lesen').length, 1);
+});
+const status = (state) => ({ ok: true, id: 2, ziel: 'Tokyo', status: state, fertig: ['fertig','fehler','abgebrochen'].includes(state), phase: state === 'fertig' ? 'fertig' : 'bewerten', kosten: {}, zaehler: {} });
+
+test('Abbrechen einmal trotz Doppelklick, Teilergebnis bleibt vorläufig', async (t) => {
+  let cancelled = false;
+  const { page, calls } = await setup(t, async p => {
+    if (p.aktion === 'unterkunft_suche_abbrechen') { await new Promise(r => setTimeout(r, 150)); cancelled = true; return {ok:true}; }
+    if (p.aktion === 'unterkunft_suche_status') return status(cancelled ? 'abgebrochen' : 'wartet');
+    return result('abgebrochen');
   });
-  await page.clock.install(); await page.goto(origin + '/#/suche/2');
-  await page.getByRole('status').filter({ hasText: 'Bewertung läuft' }).waitFor();
-  await page.clock.fastForward(7100);
-  await page.getByText('Bewertung und Gegenprüfung: laeuft').waitFor();
-  await page.clock.fastForward(7100);
-  await page.getByRole('status').filter({ hasText: 'Bewertung abgeschlossen' }).waitFor();
-  await page.getByRole('heading', { name: 'Liste A – Rangliste (3)' }).waitFor();
-  await page.clock.fastForward(30000); assert.equal(reads, 3);
+  await page.goto(origin + '/#/suche/2');
+  await page.getByRole('button', {name:'Suche abbrechen',exact:true}).dblclick();
+  await page.getByRole('heading', {name:'Liste A – vorläufig (3)'}).waitFor();
+  assert.equal(calls.filter(p => p.aktion === 'unterkunft_suche_abbrechen').length, 1);
+  assert.equal(await page.getByRole('button', {name:'Suche abbrechen',exact:true}).isVisible(), false);
 });
 
-test('Fehlende Bewertungsstufe wartet begrenzt, manuelles Lesen setzt Wartefenster zurück', async (t) => {
-  const { page } = await setup(t, () => result());
-  await page.clock.install(); await page.goto(origin + '/#/suche/2');
-  await page.getByRole('status').filter({ hasText: 'Bewertung läuft' }).waitFor();
-  await page.clock.fastForward(181000);
-  await page.getByRole('status').filter({ hasText: 'noch nicht gemeldet' }).waitFor();
-  await page.getByRole('button', { name: 'Aktualisieren', exact: true }).click();
-  await page.getByRole('status').filter({ hasText: 'Bewertung läuft' }).waitFor();
-});
-
-test('Bewertungsfehler beendet Polling ohne finale Rangliste', async (t) => {
-  const r = result(); r.suchauftrag.schrittkette.push({ quelle: 'bewerten', status: 'fehler' });
-  const { page, calls } = await setup(t, () => r);
-  await page.clock.install(); await page.goto(origin + '/#/suche/2');
-  await page.getByRole('status').filter({ hasText: 'Bewertung unterbrochen' }).waitFor();
-  await page.clock.fastForward(30000); assert.equal(calls.length, 1);
-  await page.getByRole('heading', { name: 'Liste A – vorläufig (3)' }).waitFor();
+test('Abbruchfehler wird angezeigt und Status gelesen; kein Schreib-Retry', async (t) => {
+  const {page,calls} = await setup(t, p => p.aktion === 'unterkunft_suche_abbrechen' ? 'abort' : status('laeuft'));
+  await page.goto(origin + '/#/suche/2');
+  await page.getByRole('button',{name:'Suche abbrechen',exact:true}).click();
+  await page.getByRole('status').filter({hasText:'Abbrechen nicht bestätigt'}).waitFor();
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_suche_abbrechen').length,1);
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_suche_status').length,2);
 });
 
 test('Endrang, Score-Abdeckung, fünf Balken, Bildurteil und sichtbare Einwände', async (t) => {
@@ -228,4 +236,31 @@ test('Endrang, Score-Abdeckung, fünf Balken, Bildurteil und sichtbare Einwände
   await page.evaluate(() => scrollTo(0, 0));
   assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
   await page.screenshot({ path: path.join(root, 'test-results/ranking-mobile.png'), fullPage: true });
+});
+
+
+test('Fehler lädt Teilergebnis; ungültige Statusantwort lädt keine Treffer', async (t) => {
+  let malformed = false;
+  const {page,calls} = await setup(t, p => p.aktion === 'unterkunft_suche_status' ? malformed ? {status:'laeuft'} : status('fehler') : result('fehler'));
+  await page.goto(origin + '/#/suche/2');
+  await page.getByRole('heading',{name:'Liste A – vorläufig (3)'}).waitFor();
+  malformed = true;
+  await page.getByRole('button',{name:'Aktualisieren',exact:true}).click();
+  await page.getByRole('status').filter({hasText:'Statusantwort unvollständig'}).waitFor();
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_suchlauf_lesen').length,1);
+  assert.equal(await page.locator('[data-group=A] tbody tr').count(),3);
+});
+
+test('Entwurf startet erst auf Klick, wartende Suche startet nicht erneut', async (t) => {
+  let started=false;
+  const {page,calls} = await setup(t,p=> {
+    if(p.aktion==='unterkunft_suche_starten') {started=true;return {ok:true,status:'wartet'};}
+    return status(started?'wartet':'entwurf');
+  });
+  await page.goto(origin + '/#/suche/2');
+  await page.getByRole('button',{name:'Diesen Entwurf starten'}).click();
+  await page.getByRole('status').filter({hasText:'startet automatisch'}).waitFor();
+  assert.equal(await page.getByRole('button',{name:'Diesen Entwurf starten'}).isVisible(),false);
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_suche_starten').length,1);
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_suchlauf_lesen').length,0);
 });

@@ -133,7 +133,7 @@ test('PWA installiert vollständige Offline-Hülle, API wird nicht gecacht', asy
   await page.route('**/functions/v1/app-api/**', (r) => r.fulfill({ contentType: 'application/json', body: '{"ok":true,"eingerichtet":true}' }));
   await page.goto(origin + '/#/login');
   await page.evaluate(() => navigator.serviceWorker.ready);
-  const cached = await page.evaluate(async () => (await (await caches.open('ki-system-v12')).keys()).map((r) => new URL(r.url).pathname));
+  const cached = await page.evaluate(async () => (await (await caches.open('ki-system-v13')).keys()).map((r) => new URL(r.url).pathname));
   assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js'));
   assert(!cached.some((u) => u.includes('app-api')));
   await context.setOffline(true); await page.reload();
@@ -263,4 +263,63 @@ test('Entwurf startet erst auf Klick, wartende Suche startet nicht erneut', asyn
   assert.equal(await page.getByRole('button',{name:'Diesen Entwurf starten'}).isVisible(),false);
   assert.equal(calls.filter(p=>p.aktion==='unterkunft_suche_starten').length,1);
   assert.equal(calls.filter(p=>p.aktion==='unterkunft_suchlauf_lesen').length,0);
+});
+
+
+test('Rückmeldung: bestehendes Urteil, Grund, Doppelklick, Sortieren und Fehler', async (t) => {
+  const r=result(); r.treffer[0].rueckmeldung={urteil:'passt',grund:'Balkon'};
+  let fail=false;
+  const {page,calls}=await setup(t, async p=> {
+    if(p.aktion==='unterkunft_rueckmeldung_geben') {
+      await new Promise(resolve=>setTimeout(resolve,200));
+      return fail ? 'abort' : {ok:true};
+    }
+    return r;
+  });
+  await page.goto(origin+'/#/suche/2');
+  let box=page.locator('[data-feedback="1"]');
+  await box.getByRole('button',{name:'Passt',exact:true}).waitFor();
+  assert.equal(await box.getByRole('button',{name:'Passt',exact:true}).getAttribute('aria-pressed'),'true');
+  await box.locator('textarea').fill('Zu weit vom Bahnhof');
+  await page.locator('[data-group=A]').getByRole('button',{name:/Gesamtpreis/}).click();
+  assert.equal(await box.locator('textarea').inputValue(),'Zu weit vom Bahnhof');
+  await box.getByRole('button',{name:'Zu teuer',exact:true}).dblclick();
+  await box.getByRole('status').filter({hasText:'Gespeichert: Zu teuer'}).waitFor();
+  const writes=calls.filter(p=>p.aktion==='unterkunft_rueckmeldung_geben');
+  assert.equal(writes.length,1);
+  assert.deepEqual(writes[0].daten,{treffer_id:1,urteil:'zu_teuer',grund:'Zu weit vom Bahnhof'});
+  fail=true;
+  await box.getByRole('button',{name:'Gebucht',exact:true}).click();
+  await box.getByRole('status').filter({hasText:'Speichern nicht bestätigt'}).waitFor();
+  assert.equal(await box.getByRole('button',{name:'Zu teuer',exact:true}).getAttribute('aria-pressed'),'true');
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_rueckmeldung_geben').length,2);
+});
+
+test('Bericht unverändert, nur auf Klick; Gehzeit und weitere Angebote sicher', async (t) => {
+  const r=result(); Object.assign(r.treffer[0],{gehzeit_min:7,gehzeit_art:'geschaetzt',station_name:'Testbahnhof',weitere_angebote:[
+    {anbieter:'<img src=x onerror=alert(1)>',preis_gesamt_eur:123,preis_art:'geschaetzt',link:'javascript:alert(1)',hinweis:'Zimmer nicht abgeglichen'},
+    {anbieter:'Zweitquelle',preis_gesamt_eur:150,link:'https://example.com/zweites'}]});
+  let ready=false;
+  const source='## Auswertung\n\n| Merkmal | Passt |\n|---|---|\n| Hell | 8 |';
+  const {page,calls}=await setup(t,p=>p.aktion==='unterkunft_rueckmeldung_report'?{bereit:ready,text:ready?source:'Noch zu wenige Urteile: 0 von 20.'}:r);
+  await page.goto(origin+'/#/suche/2');
+  await page.getByText('ca. 7 Min. zu Fuß · Testbahnhof (geschätzt)',{exact:true}).waitFor();
+  await page.getByText('Weitere Angebote (2)',{exact:true}).click();
+  await page.getByText('ca. 123,00 € (geschätzt)',{exact:true}).waitFor();
+  assert.equal(await page.locator('a[href^="javascript:"]').count(),0);
+  assert.equal(await page.locator('.suche img').count(),0);
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_rueckmeldung_report').length,0);
+  await page.getByText('Deine Rückmeldungen auswerten',{exact:true}).click();
+  await page.getByRole('button',{name:'Rückmeldungsbericht laden'}).click();
+  await page.getByText('Noch zu wenige Urteile: 0 von 20.',{exact:true}).waitFor();
+  ready=true;await page.getByRole('button',{name:'Rückmeldungsbericht laden'}).click();
+  await page.locator('.feedback-report pre').filter({hasText:'Auswertung'}).waitFor();
+  assert.equal(await page.locator('.feedback-report').textContent(),source);
+  await page.evaluate(()=>{ window.marked={parse:()=>'<h2 onclick="alert(1)">Bericht</h2><img src=x onerror="alert(1)"><a href="javascript:alert(1)">Text</a><table><tr><td>8</td></tr></table>'}; });
+  await page.getByRole('button',{name:'Rückmeldungsbericht laden'}).click();
+  await page.locator('.feedback-report h2').waitFor();
+  assert.equal(await page.locator('.feedback-report [onclick], .feedback-report img, .feedback-report a').count(),0);
+  await page.setViewportSize({width:390,height:844});
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+  await page.screenshot({path:path.join(root,'test-results/feedback-mobile.png'),fullPage:true});
 });

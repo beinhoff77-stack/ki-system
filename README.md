@@ -20,7 +20,7 @@ Web- und Handy-Oberfläche (installierbare Web-App) für Sebastians persönliche
 
 Claude baut den funktionierenden Rohbau, ChatGPT übernimmt die Gestaltung. Vor jeder Änderung: Sperre `app:repo` in der Werkstatt holen, aktuellen Stand von `main` laden, Änderung protokollieren, Sperre lösen. Gestaltung ändert keine Funktionsnamen und keine Schnittstellenaufrufe.
 
-## App-Struktur und Unterkunftssuche (Werkstatt #41, App 0.8.0)
+## App-Struktur und Unterkunftssuche (Werkstatt #41, App 0.9.0)
 
 Startseite (`#/start`, auch Standard nach Anmeldung): zwei gleichwertige Bereiche **Council** und **Unterkunft**. Der globale Bereichswechsler bleibt auf allen angemeldeten Seiten erreichbar. Council behält seine Aufträge, Auftragserstellung, Einstellungen und Werkstatt. Unterkunft hat eine eigene Navigation **Suchen** (`#/suche`) und **Ergebnisse** (`#/ergebnisse`); Suchlauf-Direktlinks bleiben gültig.
 
@@ -49,7 +49,7 @@ npx playwright install chromium
 npm test
 ```
 
-Die vierzehn Browsertests verwenden ausschließlich synthetische API-Antworten und starten keine kostenpflichtige Suche. Sie prüfen Formularvalidierung, Doppelklick, Anlegen/Starten/Lesen, Sortierung, XSS/Links, Polling-Ende, Navigation, Netzwerkfehler, 401, mobile Breite und Offline-Hülle sowie Startseite, getrennte Bereichsnavigation und Prototyp-Farben. Die Tabelle wird bei 1366 px ohne horizontalen Überlauf geprüft. Screenshots von Einstieg, Suche und Ergebnissen auf Desktop und Mobil liegen ignoriert unter `test-results/`.
+Die sechzehn Browsertests verwenden ausschließlich synthetische API-Antworten und starten keine kostenpflichtige Suche. Sie prüfen Formularvalidierung, Doppelklick, Anlegen/Starten/Lesen, Sortierung, XSS/Links, Polling-Ende, Navigation, Netzwerkfehler, 401, mobile Breite und Offline-Hülle sowie Startseite, getrennte Bereichsnavigation und Prototyp-Farben. Die Tabelle wird bei 1366 px ohne horizontalen Überlauf geprüft. Screenshots von Einstieg, Suche und Ergebnissen auf Desktop und Mobil liegen ignoriert unter `test-results/`.
 
 Live geprüft am 16.10.2026: `/status` liefert app-api 0.5.0; alle drei Aktionen ohne Anmeldung liefern 401. Der authentifizierte Council-Lesezugang liefert Suchlauf #2 mit inzwischen 258 Treffern einschließlich Rakuten/Trivago. `luftlinie_ziel_m` fehlt in der gelesenen Antwort; die Oberfläche zeigt deshalb „unbekannt“. Keine Live-Daten sind als Testfixtures eingecheckt.
 
@@ -63,4 +63,12 @@ Die fünf Teilnoten Raum, Lage, Preis-Leistung, Bewertungen und Eignung erschein
 
 Seit app-api 0.6.0 ist die leichte Statusabfrage maßgeblich: `status=fertig` und `fertig=true` kennzeichnen das Endranking. Fehler und Abbruch zeigen Teilergebnisse ausdrücklich vorläufig. Die frühere Wartefrist für fehlende Bewertungsschritte entfällt. 14 Browsertests decken zusätzlich Warteschlange → Bewertung → Abschluss ohne vorzeitiges Laden der Treffer, Abbrechen/Doppelklick, Abbruchfehler, ungültige Statusantwort und Entwurfsstart ab.
 
-Die Live-Statusantwort von Suchlauf #2 wurde lesend geprüft. Ein angemeldeter vollständiger Browser-Live-Test und Claudes Prüfung bleiben vor Veröffentlichung offen. Rückmeldungen/Reports aus Wunsch 47 sind noch nicht integriert; der Backend-Baustein ist derzeit in Arbeit.
+Die Live-Statusantwort von Suchlauf #2 wurde lesend geprüft. Ein angemeldeter vollständiger Browser-Live-Test und Claudes Prüfung bleiben vor Veröffentlichung offen. Rückmeldungen/Reports aus Wunsch 47 sind integriert (app-api 0.7.0).
+
+
+### Rückmeldungen und Angebotsvergleich (App 0.9.0)
+Jeder Treffer bietet Passt / Passt nicht / Zu teuer / Gebucht mit optionalem Grund (maximal 1000 Zeichen). Nur ein Klick schreibt über `unterkunft_rueckmeldung_geben`; Doppelklicks und automatische Wiederholungen sind gesperrt. Vorhandene Rückmeldungen werden angezeigt, Entwürfe bleiben beim Sortieren erhalten. Die Rangfolge wird nicht geändert.
+
+Der Rückmeldungsbericht wird nur auf Klick gelesen. Der gelieferte Text bleibt unverändert; Markdown wird ausschließlich mit erlaubten Formatierungselementen ohne Attribute oder aktive Links dargestellt, bei fehlender Markdown-Bibliothek als Text. Unterhalb der Schwelle zeigt der Server den Zählerstand.
+
+Stationsname, Gehzeit (bei Schätzung mit „ca.“), Stationsluftlinie sowie weitere Angebote mit Preis, Quelle, sicherem Link und Hinweis auf nicht abgeglichene Zimmer sind sichtbar. Live-Feldstruktur und Bericht mit 0 von 20 Urteilen wurden lesend geprüft. Insgesamt 16 Browsertests inklusive Rückmeldung/Fehler/Doppelklick, Bericht und sicheren weiteren Angeboten.

@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.8.0';
+const APP_VERSION = '0.9.0';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -848,6 +848,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   const entryView = parseHash().view;
   let disposed = false, timer, busy = false, snapshot = null;
   const requests = new Set();
+  const feedbackStates = new Map();
   let sort = { key: 'rang', direction: 1 }, runStatus = null;
   const scope = el('div', { class: 'suche' });
   main.replaceChildren(scope);
@@ -958,6 +959,20 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   const id = Number(idStr);
   if (!Number.isSafeInteger(id) || id <= 0) { scope.append(el('p', {}, 'Ungültige Suchauftragsnummer.')); return; }
   scope.append(el('div', { class: 'stay-page-heading' }, el('p', { class: 'eyebrow' }, 'EIN GUTER ORT FÜR EURE REISE'), el('h2', {}, 'Unterkünfte vergleichen')));
+  const reportText = el('div', { class: 'feedback-report' });
+  const reportNotice = el('p', { role: 'status' });
+  const reportButton = el('button', { type: 'button', onclick: async () => {
+    reportButton.disabled = true; reportNotice.textContent = 'Bericht wird geladen …';
+    try {
+      const r = await call('unterkunft_rueckmeldung_report');
+      if (!live()) return;
+      if (typeof r?.text !== 'string') throw new Error('Bericht unvollständig.');
+      reportText.replaceChildren(sucheReport(r.text)); reportNotice.textContent = '';
+    } catch (e) { if (live()) reportNotice.textContent = e.message; }
+    finally { if (live()) reportButton.disabled = false; }
+  } }, 'Rückmeldungsbericht laden');
+  const report = el('details', { class: 'card' }, el('summary', {}, 'Deine Rückmeldungen auswerten'),
+    el('p', {}, 'Ab 20 bewerteten Unterkünften werden Muster ausgewertet. Deine Rückmeldungen ändern die Rangfolge und Gewichtung nicht automatisch.'), reportButton, reportNotice, reportText);
   const summary = el('section', { class: 'card stay-run-summary' });
   const results = el('section', { 'aria-label': 'Suchergebnisse' });
   const refresh = el('button', { onclick: () => poll() }, 'Aktualisieren');
@@ -979,7 +994,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       if (error && live()) notice.textContent = 'Abbrechen nicht bestätigt: ' + error + ' Bitte den aktuellen Status prüfen.';
     }
   } }, 'Suche abbrechen');
-  scope.append(el('div', { class: 'actions' }, el('a', { href: '#/suche' }, 'Neue Suche / letzte Aufträge'), refresh, start, cancel), notice, summary, results);
+  scope.append(el('div', { class: 'actions' }, el('a', { href: '#/suche' }, 'Neue Suche / letzte Aufträge'), refresh, start, cancel), notice, summary, results, report);
   function draw() {
     const openDetails = new Set([...results.querySelectorAll('details[open][data-detail]')].map((n) => n.dataset.detail));
     const a = snapshot.suchauftrag, k = snapshot.kosten || {}, steps = Array.isArray(a.schrittkette) ? a.schrittkette : [];
@@ -1015,7 +1030,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
         const replacement = results.querySelector(`[data-group="${key}"]`);
         if (wasOpen) replacement.open = true;
         replacement.querySelector(`[data-sort="${sortKey}"]`)?.focus({ preventScroll: true });
-      }, phase.final));
+      }, phase.final, (t) => sucheRueckmeldung(t, feedbackStates, call, live)));
       section.dataset.group = key; results.append(section);
       if (key === 'ausgeschlossen') section.dataset.detail = 'ausgeschlossen';
     }
@@ -1062,7 +1077,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   await poll();
 }
 
-function sucheTabelle(items, sort, onSort, final = false) {
+function sucheTabelle(items, sort, onSort, final = false, feedback = () => null) {
   const table = el('table', { class: 'suche-table' });
   const scoreLabel = final ? 'Endscore (%)' : 'Score (Zwischenstand)';
   const headings = [['name', 'Unterkunft'], ['preis', 'Gesamtpreis'], ['score', scoreLabel], ['datenlage', 'Datenlage (%)'], ['bewertungen', 'Bewertungen'], ['entfernung', 'Luftlinie zum Ziel']];
@@ -1086,6 +1101,7 @@ function sucheTabelle(items, sort, onSort, final = false) {
       a.schaetz_basis ? el('p', {}, 'Schätzung: ' + a.schaetz_basis) : null,
       a.kurs != null ? el('p', {}, `Umrechnung ${a.waehrung}: ${a.kurs} · Kursdatum ${fmtDate(a.kurs_datum)}`) : null,
       el('p', {}, 'Kategorie: ' + (a.kategorie_name || 'unbekannt')),
+      sucheZahl(t.station_m) !== null ? el('p', {}, `Luftlinie zur Station: ${Number(t.station_m).toLocaleString('de-DE', { maximumFractionDigits: 0 })} m`) : null,
       el('p', {}, 'Ausschlussgrund: ' + (t.ko_grund || 'keiner angegeben')),
       el('h3', {}, 'Zimmerangaben'), renderAny(t.kategorien || []),
       el('h3', {}, 'Bildbewertung'), b.bild_urteil ? el('div', {}, el('p', {}, 'KI-Einschätzung der Bilder; kein Nachweis der Ausstattung.'), el('p', {}, b.bild_urteil.ein_satz || ''),
@@ -1102,14 +1118,76 @@ function sucheTabelle(items, sort, onSort, final = false) {
       td(scoreLabel, sucheZahl(b.score) ?? '–'), td('Datenlage (%)', sucheDatenlage(t) ?? '–'),
       td('Bewertungen', sucheZahl(t.bewertungen) ?? '–', el('div', { class: 'small' }, t.note != null ? `${t.note} / ${t.note_skala ?? '?'}` : 'Note unbekannt')),
       td('Luftlinie zum Ziel', sucheZahl(t.luftlinie_ziel_m) === null ? 'unbekannt' : (t.luftlinie_ziel_m / 1000).toLocaleString('de-DE', { maximumFractionDigits: 1 }) + ' km',
-        el('div', { class: 'small' }, sucheZahl(t.gehzeit_min) === null ? 'Gehzeit unbekannt' : `${t.gehzeit_min} Min. zu Fuß${t.station_name ? ' · ' + t.station_name : ''} (${t.gehzeit_art || 'Art unbekannt'})`)),
+        el('div', { class: 'small' }, sucheZahl(t.gehzeit_min) === null ? 'Gehzeit unbekannt' : `${t.gehzeit_art === 'geschaetzt' ? 'ca. ' : ''}${t.gehzeit_min} Min. zu Fuß${t.station_name ? ' · ' + t.station_name : ''} (${t.gehzeit_art === 'geschaetzt' ? 'geschätzt' : t.gehzeit_art === 'ors' ? 'berechneter Fußweg' : 'Art unbekannt'})`)),
       td('Hinweise / Details', el('div', { class: 'suche-badges' },
         el('span', { class: 'pill' }, t.topf === 'unbewertet' ? 'Unbewertet' : t.topf === 'ausgeschlossen' ? 'Ausgeschlossen' : 'Shortlist'),
         el('span', { class: 'pill', title: 'Verlässlichkeit der Angaben, nicht Qualität der Unterkunft' }, 'Verlässlichkeit: ' + (b.ampel || 'unbekannt')),
-        warnings.map((w) => el('span', { class: 'suche-warning' }, SUCHE_WARNUNGEN[w] || w))), objection, sucheBalken(b.spaltennoten, SUCHE_NOTEN), info)));
+        warnings.map((w) => el('span', { class: 'suche-warning' }, SUCHE_WARNUNGEN[w] || w))), objection, sucheBalken(b.spaltennoten, SUCHE_NOTEN), info, sucheAngebote(t), feedback(t))));
   }
   table.append(tbody);
   return el('div', { class: 'suche-table-scroll', tabindex: 0, role: 'region', 'aria-label': 'Sortierbare Unterkunftstabelle' }, table);
+}
+
+const SUCHE_URTEILE = { passt: 'Passt', passt_nicht: 'Passt nicht', zu_teuer: 'Zu teuer', gebucht: 'Gebucht' };
+function sucheRueckmeldung(t, states, call, live) {
+  if (!states.has(t.treffer_id)) states.set(t.treffer_id, { grund: t.rueckmeldung?.grund || '', saved: t.rueckmeldung, pending: false, message: '' });
+  const state = states.get(t.treffer_id);
+  const box = el('div', { class: 'stay-feedback', 'data-feedback': String(t.treffer_id) });
+  const status = el('p', { role: 'status', class: 'small' });
+  const reason = el('textarea', { maxlength: 1000, rows: 2, 'aria-label': 'Optionaler Grund für ' + t.name, placeholder: 'Grund (optional, maximal 1000 Zeichen)', oninput: () => { state.grund = reason.value; } });
+  reason.value = state.grund;
+  const buttons = Object.entries(SUCHE_URTEILE).map(([urteil, label]) => el('button', { type: 'button', onclick: async () => {
+    if (state.pending) return;
+    state.pending = true; state.message = 'Wird gespeichert …'; update();
+    const grund = state.grund;
+    try {
+      await call('unterkunft_rueckmeldung_geben', { treffer_id: t.treffer_id, urteil, grund });
+      if (!live()) return;
+      state.saved = { urteil, grund }; t.rueckmeldung = state.saved;
+      state.message = 'Gespeichert: ' + label + '. Die Rangfolge bleibt unverändert.';
+    } catch (e) { if (live()) state.message = 'Speichern nicht bestätigt: ' + e.message + ' Bitte vor erneutem Speichern den Auftrag neu öffnen.'; }
+    finally { state.pending = false; if (live()) state.render(); }
+  } }, label));
+  function update() {
+    reason.disabled = state.pending;
+    buttons.forEach((button, i) => {
+      button.disabled = state.pending;
+      button.setAttribute('aria-pressed', String(Object.keys(SUCHE_URTEILE)[i] === state.saved?.urteil));
+    });
+    status.textContent = state.message || (state.saved ? 'Deine Rückmeldung: ' + (SUCHE_URTEILE[state.saved.urteil] || state.saved.urteil) : 'Noch keine Rückmeldung.');
+  }
+  // Keep the current rendered card synchronized even if sorting rebuilds it during a request.
+  state.render = update;
+  box.append(el('strong', {}, 'Deine Rückmeldung'), reason, el('div', { class: 'actions' }, buttons), status);
+  update();
+  return box;
+}
+
+function sucheAngebote(t) {
+  if (!Array.isArray(t.weitere_angebote) || !t.weitere_angebote.length) return null;
+  return el('details', { 'data-detail': 'angebote-' + t.treffer_id }, el('summary', {}, `Weitere Angebote (${t.weitere_angebote.length})`),
+    el('p', {}, 'Zimmer und Bedingungen können abweichen. Zimmer nicht abgeglichen.'),
+    el('ul', {}, t.weitere_angebote.map(a => {
+      const url = sucheLink(a.link);
+      return el('li', {}, el('strong', {}, a.anbieter || SUCHE_QUELLEN[a.quelle] || a.quelle || 'Anbieter'),
+        el('p', {}, (a.preis_art === 'geschaetzt' ? 'ca. ' : '') + sucheEuro(a.preis_gesamt_eur) + (a.preis_art === 'geschaetzt' ? ' (geschätzt)' : '')),
+        a.kategorie_name ? el('p', {}, a.kategorie_name) : null, a.hinweis ? el('p', {}, a.hinweis) : null,
+        url ? el('a', { href: url, target: '_blank', rel: 'noopener noreferrer' }, 'Weiteres Angebot öffnen ↗') : el('span', {}, 'Kein Angebotslink'));
+    })));
+}
+
+function sucheReport(text) {
+  if (!window.marked) return el('pre', { class: 'report-plain' }, text);
+  // Copy only inert formatting from Markdown; never copy HTML attributes or links.
+  const parsed = new DOMParser().parseFromString(marked.parse(text), 'text/html');
+  const allowed = new Set(['P','BR','STRONG','EM','UL','OL','LI','TABLE','THEAD','TBODY','TR','TH','TD','H1','H2','H3','H4','BLOCKQUOTE','PRE','CODE','HR']);
+  const copy = node => {
+    if (node.nodeType === Node.TEXT_NODE) return document.createTextNode(node.textContent);
+    const out = allowed.has(node.nodeName) ? document.createElement(node.nodeName.toLowerCase()) : document.createDocumentFragment();
+    node.childNodes.forEach(child => out.append(copy(child)));
+    return out;
+  };
+  return el('div', { class: 'md' }, [...parsed.body.childNodes].map(copy));
 }
 
 function sucheBalken(values, labels) {

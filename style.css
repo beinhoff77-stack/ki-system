@@ -470,3 +470,10 @@ body[data-area="unterkunft"] nav.tabs button.on { box-shadow: none; background: 
   .suche-table td:first-child a { display: inline-block; padding: 8px 0; }
   .suche-table summary { min-height: 44px; padding: 10px 0; }
 }
+
+.stay-feedback { margin-top: 1rem; padding-top: .75rem; border-top: 1px solid #d8dfd3; }
+.stay-feedback textarea { display: block; width: 100%; box-sizing: border-box; margin: .5rem 0; resize: vertical; }
+.stay-feedback .actions { display: flex; flex-wrap: wrap; gap: .4rem; }
+.stay-feedback button[aria-pressed="true"] { background: #254d3e; color: white; }
+.feedback-report { max-width: 100%; overflow-x: auto; }
+.report-plain { white-space: pre-wrap; overflow-wrap: anywhere; }

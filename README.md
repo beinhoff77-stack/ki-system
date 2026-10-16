@@ -1,45 +1,51 @@
 # ki-system
 
-Web- und Handy-Oberfläche (installierbare Web-App) für Sebastians persönliches KI-System.
+Web- und Handy-App für Sebastians persönliches KI-System: Council und Unterkunftssuche.
 
-- **Seite:** https://beinhoff77-stack.github.io/ki-system/
-- **Daten und Logik:** liegen in Supabase (Schnittstelle `app-api`). Dieses Repository enthält nur den Oberflächen-Code – keine Daten, keine Schlüssel.
-- **Zugang:** Passwort einmal je Gerät; die Sitzung bleibt 30 Tage (gleitend) gespeichert.
-- **Installation am Handy:** Seite in Safari/Chrome öffnen → „Zum Home-Bildschirm“.
+- Bestehende Seite: https://beinhoff77-stack.github.io/ki-system/
+- App-Stand: **0.10.0**, Featurezweig `feature/unterkunft-suchseite-w41`, Entwurfs-PR #1.
+- Daten und Suchlogik liegen in Supabase hinter `app-api`. Keine Schlüssel oder Live-Testdaten im Repository.
+- Kein Merge oder Deploy aus diesem Featurezweig ohne Sebastians ausdrückliche Freigabe.
 
-## Dateien
+## Aufbau und Gestaltung
 
-| Datei | Zweck |
-|---|---|
-| `index.html` | Grundgerüst, Login-Vorlage |
-| `app.js` | Logik: Anmeldung, Aufträge, Ergebnis, Neuer Auftrag, Einstellungen, Werkstatt |
-| `style.css` | Gestaltung (Rohbau; Feingestaltung folgt) |
-| `manifest.webmanifest`, `sw.js`, `icon*.{svg,png}` | Web-App-Installation und Offline-Hülle |
+`index.html` enthält die App-Hülle und Login-Vorlage, `app.js` die Bedienlogik, `style.css` die Gestaltung. Manifest, Service Worker und Icons ermöglichen die installierbare App-Hülle.
 
-## Zusammenarbeit (Werkstatt #4)
+Die Startseite `#/start` bietet zwei gleichwertige Bereiche: **Council** und **Unterkunft**. Der Bereichswechsler bleibt erreichbar. Council enthält Aufträge, Auftragserstellung, Einstellungen und Werkstatt. Unterkunft enthält Suchen (`#/suche`) und Ergebnisse (`#/ergebnisse`); gespeicherte Suchläufe öffnen über `#/suche/<id>`.
 
-Claude baut den funktionierenden Rohbau, ChatGPT übernimmt die Gestaltung. Vor jeder Änderung: Sperre `app:repo` in der Werkstatt holen, aktuellen Stand von `main` laden, Änderung protokollieren, Sperre lösen. Gestaltung ändert keine Funktionsnamen und keine Schnittstellenaufrufe.
+Unterkunft übernimmt die Designbasis des Original-Prototyps V0.4.1: Creme, Waldgrün, Serifentitel, grüner Hero und nummerierte Formulargruppen. Große Bildschirme zeigen eine Vergleichstabelle; Handys und kleinere Tablets bis 1199 Pixeln zeigen Karten. Nicht angebundene Prototyp-Funktionen wie Landkarte und Merkliste werden nicht als funktionierende Navigation dargestellt.
 
-## App-Struktur und Unterkunftssuche (Werkstatt #41, App 0.9.0)
+## Suchablauf
 
-Startseite (`#/start`, auch Standard nach Anmeldung): zwei gleichwertige Bereiche **Council** und **Unterkunft**. Der globale Bereichswechsler bleibt auf allen angemeldeten Seiten erreichbar. Council behält seine Aufträge, Auftragserstellung, Einstellungen und Werkstatt. Unterkunft hat eine eigene Navigation **Suchen** (`#/suche`) und **Ergebnisse** (`#/ergebnisse`); Suchlauf-Direktlinks bleiben gültig.
+Die bestehende Anmeldung wird verwendet. Alle Aktionen gehen als `{aktion, daten}` an `POST /app-api/aktion`, die Antwort hat die Hülle `{ok, ergebnis}`.
 
-Die Unterkunftsgestaltung übernimmt die Designbasis des Werkstatt-Prototyps V0.4.1: Creme (#f6f4ec), Waldgrün (#254d3e), Serifentitel, grüner Hero, nummerierte Formulargruppen, helle Panels und kompakte Vergleichstabelle. Die App enthält keine fiktiven Prototyp-Angebote. Noch nicht angebundene Prototyp-Funktionen (z. B. Merkliste, Landkarte, erweiterte Kriterien) werden nicht als funktionierende Live-Navigation dargestellt.
+1. Das Formular validiert Ziel, Zeitraum, Personen, Kinderalter, Schlafräume, Aufenthaltsbudget und Suchkostenlimit.
+2. Ein Klick ruft `unterkunft_suchauftrag_anlegen` und danach `unterkunft_suche_starten` auf. Bei unklarer Startantwort bleibt die gespeicherte ID erreichbar; es gibt keine automatische Schreibwiederholung.
+3. `unterkunft_suche_status` liest alle sieben Sekunden den Fortschritt. Wartende Suchen zeigen ihre Position und starten serverseitig automatisch.
+4. Erst bei `fertig: true`, Fehler oder Abbruch lädt `unterkunft_suchlauf_lesen` die vollständigen Treffer. Als final gilt ausschließlich `status=fertig` zusammen mit `fertig=true`.
+5. `unterkunft_suche_abbrechen` steht für laufende/wartende Suchen bereit. Vorhandene Teilergebnisse bleiben lesbar und werden nicht als finales Ranking ausgegeben.
 
-Unter „Suchen“: Reisedaten eingeben, anlegen und starten.
-Die bestehende Anmeldung wird verwendet; keine Schlüssel im Frontend ergänzen.
-Alle Aufrufe gehen als `{aktion, daten}` an `POST /app-api/aktion`:
+Navigation beendet ausstehende Unterkunftsabfragen und Polling. Lesefehler pausieren die Aktualisierung; „Aktualisieren“ liest erneut. Späte Antworten einer verlassenen Council-Ansicht ersetzen keine inzwischen geöffnete Unterkunftsseite. HTTP-Fehler und fehlende Antwortdaten gelten nicht als erfolgreiche Speicherung.
 
-1. `unterkunft_suchauftrag_anlegen` liefert die Auftrags-ID.
-2. `unterkunft_suche_starten` startet nur nach Klick. Bei einem Fehler bleibt der gespeicherte Auftrag verlinkt.
-3. `unterkunft_suche_status` aktualisiert den Fortschritt alle sieben Sekunden. Wartende Suchen starten serverseitig automatisch. Erst bei `fertig: true`, Fehler oder Abbruch lädt die App die Treffer über `unterkunft_suchlauf_lesen`. Navigation und Lesefehler beenden das Polling. „Aktualisieren“ liest erneut, ohne eine neue Suche zu starten.
-4. „Suche abbrechen“ ruft einmal `unterkunft_suche_abbrechen` auf und liest anschließend den Status. Vorhandene Treffer bleiben lesbar; bei einem Fehler wird kein Schreibaufruf automatisch wiederholt.
+## Ergebnisse und Rückmeldungen
 
-Letzte Aufträge und Direktlinks (`#/suche/2`) erlauben das Wiederöffnen nach einem Neuladen. Ein Entwurf kann ausdrücklich gestartet werden. Nach unklarer Anlege-Antwort zuerst die letzten Aufträge prüfen, um Doppelanlagen zu vermeiden.
+A/B-Listen, unzugeordnete und ausgeschlossene Treffer bleiben getrennt. Liste A startet nach dem serverseitigen Rang; ein höherer Score ersetzt diese Rangfolge nicht. Warnungen, geschätzte Preise, Gegenprüfungseinwände, Datenlage und fünf Teilnoten sind sichtbar. Die Ampel beschreibt Verlässlichkeit, nicht Unterkunftsqualität. Bildurteile sind ausdrücklich KI-Einschätzungen.
 
-A/B folgen der serverseitigen Prüfung; bis zum Abschluss der Bewertungsstufe bleibt die Rangliste vorläufig. Ausgeschlossene Treffer stehen separat, Treffer ohne Zuordnung werden nicht automatisch A oder B zugeordnet. Score, Preis, Datenlage, Bewertungsanzahl, Entfernung und Name sind sortierbar; fehlende Zahlen bleiben immer hinten. Teilnoten erscheinen erst, wenn geliefert. Auf kleinen Bildschirmen werden Tabellenzeilen als Karten dargestellt. Rakuten-Schätzpreise und Quellenhinweis sind sichtbar, unbekannte Warncodes bleiben erhalten.
+Ein Filter sucht in Name und Anbieter. Je Liste werden 10, 25 oder 50 Treffer pro Seite dargestellt. Sortiert wird über alle gefilterten Treffer, bevor die Seite ausgewählt wird: Rang, Preis, Score, Datenlage, Bewertungsanzahl, Luftlinie, Gehzeit und fünf Teilnoten. Fehlende Zahlen bleiben in beiden Richtungen hinten; 0 bleibt gültig, leere oder falsche Datentypen gelten als unbekannt.
 
-### Tests
+Gehzeiten zeigen bei `geschaetzt` ein „ca.“, bei `ors` „berechneter Fußweg“. Stationsname und Stationsluftlinie erscheinen, wenn geliefert. Die noch fehlende Zielluftlinie bleibt unbekannt. Weitere Angebote zeigen Quelle, Preis und sichere Links sowie den Hinweis, dass Zimmer nicht abgeglichen wurden. Rakuten-Quellenhinweis und unbekannte Warncodes bleiben erhalten.
+
+Jeder Treffer bietet Passt / Passt nicht / Zu teuer / Gebucht mit optionalem Grund (maximal 1000 Zeichen). Nur ein Klick schreibt über `unterkunft_rueckmeldung_geben`. Entwürfe bleiben beim Sortieren und Blättern erhalten. Aktualisieren übernimmt neue Serverurteile, ohne ungespeicherte Gründe zu verwerfen. Eine bereits laufende Leseantwort überschreibt keine zwischenzeitlich gespeicherte Rückmeldung. Die Rangfolge wird nicht geändert.
+
+Der Rückmeldungsbericht wird auf Klick über `unterkunft_rueckmeldung_report` gelesen. Unter der Schwelle liefert der Server einen Zählerstand (derzeit 20 Urteile). Inhaltlich wird der Text nicht umgeschrieben. Markdown wird mit erlaubten Formatierungselementen dargestellt, bei fehlender Bibliothek als Text. Ausführbare Inhalte und Attribute werden entfernt. Sichere HTTP(S)-Beleglinks bleiben in Council-Texten nutzbar; der Rückmeldungsbericht enthält keine aktiven Links.
+
+## Offline und Anmeldung
+
+Der Service Worker speichert nur die ausdrücklich aufgeführten App-Dateien. Der Cache ist an den Installationspfad gebunden; andere Anwendungen behalten ihre Caches. API-Antworten und beliebige Dateien derselben Domain werden nicht zwischengespeichert. Offline steht die App-Hülle zur Verfügung, Suche und Ergebnisse benötigen eine Verbindung. Die Markdown-Bibliothek ist optional und wird nicht offline gespeichert.
+
+Zur Installation die Seite in Safari/Chrome öffnen und „Zum Home-Bildschirm“ wählen. Die Anmeldung wird durch die bestehende app-api verwaltet.
+
+## Tests und Prüfstand
 
 Voraussetzung: Node.js >= 20.
 
@@ -49,32 +55,12 @@ npx playwright install chromium
 npm test
 ```
 
-Die sechzehn Browsertests verwenden ausschließlich synthetische API-Antworten und starten keine kostenpflichtige Suche. Sie prüfen Formularvalidierung, Doppelklick, Anlegen/Starten/Lesen, Sortierung, XSS/Links, Polling-Ende, Navigation, Netzwerkfehler, 401, mobile Breite und Offline-Hülle sowie Startseite, getrennte Bereichsnavigation und Prototyp-Farben. Die Tabelle wird bei 1366 px ohne horizontalen Überlauf geprüft. Screenshots von Einstieg, Suche und Ergebnissen auf Desktop und Mobil liegen ignoriert unter `test-results/`.
+**25 Browsertests** prüfen Formular/API-Reihenfolge, Doppelklick, Warteschlange/Bewertung, Abbruch, Fehler/401, unvollständige Antworten, Navigation, Ranking, Sortierung/Filter/Seiten, Rückmeldungen samt überlappender Lese-/Schreibvorgänge, Markdown/Links, mobile und Tablet-Breiten, Tastaturbedienung sowie Offline-Hülle/Cache-Isolation. Die Tests verwenden synthetische Antworten und starten keine echte Suche oder Rückmeldung. Screenshots liegen ignoriert in `test-results/`.
 
-Live geprüft am 16.10.2026: `/status` liefert app-api 0.5.0; alle drei Aktionen ohne Anmeldung liefern 401. Der authentifizierte Council-Lesezugang liefert Suchlauf #2 mit inzwischen 258 Treffern einschließlich Rakuten/Trivago. `luftlinie_ziel_m` fehlt in der gelesenen Antwort; die Oberfläche zeigt deshalb „unbekannt“. Keine Live-Daten sind als Testfixtures eingecheckt.
+Am 16.10.2026 wurden Suchlauf #2 und der Rückmeldungsbericht über den vorhandenen Lesezugang geprüft; ihre Daten werden nicht eingecheckt. Claudes Kyoto-Lauf #5 wurde durch diese UI-Arbeiten nicht gestartet, gestoppt oder verändert.
 
-Noch vor Veröffentlichung prüfen: authentifizierter kompletter Browser-Durchlauf gegen app-api mit freigegebenem Suchbudget sowie Prüfung durch Claude in der Werkstatt. Featurezweig und Entwurfs-PR sind keine Freigabe für Merge oder Deploy.
+Vor Veröffentlichung stehen Claudes Gegenprüfung und der angemeldete vollständige Browser-Live-Test gegen app-api aus. Die automatisierten Browserprüfungen ersetzen diese Abnahme nicht.
 
-### Endranking und Prüfungen (App 0.7.0)
+## Zusammenarbeit
 
-Liste A startet in der vom Server gelieferten Rangfolge (`bewertung.rang`); der Score ersetzt diese Rangfolge nicht, weil die Top 10 eine Mischung der Unterkunftsarten berücksichtigen. Die Sortierschaltflächen erlauben weiterhin eigene Reihenfolgen. Die Score-Abdeckung stammt aus `spaltennoten.datenlage_score`; nur wenn dieses Feld fehlt, wird die ältere Datenlage verwendet. Null ist unbekannt, 0 bleibt eine gültige Note.
-
-Die fünf Teilnoten Raum, Lage, Preis-Leistung, Bewertungen und Eignung erscheinen als Balken (0–10). Bildurteile werden ausdrücklich als KI-Einschätzung der Bilder dargestellt; Gegenprüfungseinwände einschließlich ihrer Liste bleiben außerhalb der aufklappbaren Details sichtbar. Die Ampel kennzeichnet Verlässlichkeit, nicht Qualität. Stationsname/Gehzeit werden verwendet, sobald die Leseschnittstelle sie liefert; fehlende Werte bleiben unbekannt.
-
-Seit app-api 0.6.0 ist die leichte Statusabfrage maßgeblich: `status=fertig` und `fertig=true` kennzeichnen das Endranking. Fehler und Abbruch zeigen Teilergebnisse ausdrücklich vorläufig. Die frühere Wartefrist für fehlende Bewertungsschritte entfällt. 14 Browsertests decken zusätzlich Warteschlange → Bewertung → Abschluss ohne vorzeitiges Laden der Treffer, Abbrechen/Doppelklick, Abbruchfehler, ungültige Statusantwort und Entwurfsstart ab.
-
-Die Live-Statusantwort von Suchlauf #2 wurde lesend geprüft. Ein angemeldeter vollständiger Browser-Live-Test und Claudes Prüfung bleiben vor Veröffentlichung offen. Rückmeldungen/Reports aus Wunsch 47 sind integriert (app-api 0.7.0).
-
-
-### Rückmeldungen und Angebotsvergleich (App 0.9.0)
-Jeder Treffer bietet Passt / Passt nicht / Zu teuer / Gebucht mit optionalem Grund (maximal 1000 Zeichen). Nur ein Klick schreibt über `unterkunft_rueckmeldung_geben`; Doppelklicks und automatische Wiederholungen sind gesperrt. Vorhandene Rückmeldungen werden angezeigt, Entwürfe bleiben beim Sortieren erhalten. Die Rangfolge wird nicht geändert.
-
-Der Rückmeldungsbericht wird nur auf Klick gelesen. Der gelieferte Text bleibt unverändert; Markdown wird ausschließlich mit erlaubten Formatierungselementen ohne Attribute oder aktive Links dargestellt, bei fehlender Markdown-Bibliothek als Text. Unterhalb der Schwelle zeigt der Server den Zählerstand.
-
-Stationsname, Gehzeit (bei Schätzung mit „ca.“), Stationsluftlinie sowie weitere Angebote mit Preis, Quelle, sicherem Link und Hinweis auf nicht abgeglichene Zimmer sind sichtbar. Live-Feldstruktur und Bericht mit 0 von 20 Urteilen wurden lesend geprüft. Insgesamt 16 Browsertests inklusive Rückmeldung/Fehler/Doppelklick, Bericht und sicheren weiteren Angeboten.
-
-
-### Mobile Bedienprüfung (App 0.9.1)
-Ergebnistext und Formulare auf kleinen Displays besser lesbar; Sortierung und Rückmeldung mit mindestens 44 Pixel hohen Touchflächen, Rückmeldungsbuttons zweispaltig. Unter 360 Pixeln stehen Formularfelder untereinander. Startfehler eines gespeicherten Entwurfs bleiben nach der anschließenden Statusabfrage sichtbar.
-
-18 Browsertests bestanden, inklusive 320/375/430 Pixel Breite, Tastaturfokus und bleibender Startfehlermeldung. Rückmeldungsansicht bei 390 Pixeln visuell kontrolliert. Kein Eingriff in Claudes laufende Suche.
+Werkstatt-Wunsch 41: App-Verantwortung bei ChatGPT, Backend bei Claude. Vor Änderungen `app:repo` sperren, vorhandenen Featurestand prüfen, danach Änderungen protokollieren und die Sperre freigeben. Größere Änderungen gehen zur Gegenprüfung; Sebastian entscheidet über Veröffentlichung.

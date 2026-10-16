@@ -45,9 +45,15 @@ async function setup(t, handler, viewport) {
     }
     if (value === 'abort') return route.abort();
     if (value === 'unauthorized') return route.fulfill({ status: 401, contentType: 'application/json', body: JSON.stringify({ ok: false, fehler: 'Nicht angemeldet' }) });
+    if (value === 'server-error') return route.fulfill({ status: 503, contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: { ok: true } }) });
     await route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: value, eingerichtet: true }) });
   });
   return { page, calls };
+}
+async function waitForCallback(get) {
+  const until = Date.now() + 5000;
+  while (!get() && Date.now() < until) await new Promise(resolve => setTimeout(resolve, 10));
+  assert.equal(typeof get(), 'function', 'Erwartete Testanfrage wurde nicht ausgelöst');
 }
 async function formFill(page) {
   await page.locator('[name=ziel]').fill('Kyoto');
@@ -84,6 +90,9 @@ test('A/B, Warnungen, sichere Links, numerische Sortierung und fehlende Werte', 
   await page.getByText('ca. 300,00 € (geschätzt)', { exact: true }).waitFor();
   await page.getByText('neue_warnung', { exact: true }).waitFor();
   assert.equal(await page.locator('[data-group=ausgeschlossen] tbody tr').count(), 1);
+  await page.locator('[data-group=ausgeschlossen] > summary').focus();
+  await page.keyboard.press('Enter');
+  assert.equal(await page.locator('[data-group=ausgeschlossen]').evaluate(n=>n.open),true);
 });
 test('Polling stoppt bei Endstatus und beim Seitenwechsel', async (t) => {
   let reads = 0;
@@ -131,10 +140,23 @@ test('PWA installiert vollständige Offline-Hülle, API wird nicht gecacht', asy
   const page = await context.newPage();
   await page.route('https://cdnjs.cloudflare.com/**', (r) => r.abort());
   await page.route('**/functions/v1/app-api/**', (r) => r.fulfill({ contentType: 'application/json', body: '{"ok":true,"eingerichtet":true}' }));
+  await page.goto(origin + '/icon.svg');
+  await page.evaluate(async () => {
+    await caches.open('other-app');
+    await caches.open('ki-system:' + location.origin + '/another-app/:v1');
+    await caches.open('ki-system:' + location.origin + '/:old');
+  });
   await page.goto(origin + '/#/login');
   await page.evaluate(() => navigator.serviceWorker.ready);
-  const cached = await page.evaluate(async () => (await (await caches.open('ki-system-v14')).keys()).map((r) => new URL(r.url).pathname));
+  await page.waitForFunction(() => navigator.serviceWorker.controller);
+  const cacheNames = await page.evaluate(() => caches.keys());
+  assert(cacheNames.includes('other-app'));
+  assert(cacheNames.includes('ki-system:' + origin + '/another-app/:v1'));
+  assert(!cacheNames.includes('ki-system:' + origin + '/:old'));
+  await page.evaluate(() => fetch('README.md'));
+  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v15')).keys()).map((r) => new URL(r.url).pathname));
   assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js'));
+  assert(!cached.includes('/README.md'));
   assert(!cached.some((u) => u.includes('app-api')));
   await context.setOffline(true); await page.reload();
   await page.getByRole('heading', { name: 'Anmelden' }).waitFor();
@@ -352,4 +374,146 @@ test('Startfehler beim gespeicherten Entwurf bleibt nach Statusabfrage sichtbar'
   await page.getByRole('status').filter({hasText:'Start nicht bestätigt'}).waitFor();
   assert.equal(calls.filter(p=>p.aktion==='unterkunft_suche_starten').length,1);
   assert.equal(calls.filter(p=>p.aktion==='unterkunft_suche_status').length,2);
+});
+
+test('Große Listen: global sortieren, filtern, blättern; Teilnoten und Gehzeit', async (t) => {
+  const r = result();
+  r.treffer = Array.from({length: 105}, (_, i) => hit(i + 1, 'A', i + 1, { gehzeit_min: 106 - i,
+    bewertung: { liste: 'A', score: 70, rang: i + 1, spaltennoten: { raum: i === 104 ? 10 : 3 } } }));
+  const {page} = await setup(t, () => r, {width:390,height:844});
+  await page.goto(origin + '/#/suche/2');
+  const a = page.locator('[data-group=A]'); await a.waitFor();
+  assert.equal(await a.locator('tbody tr').count(),10);
+  await a.getByRole('button',{name:'Nächste Seite'}).click();
+  assert.equal(await a.locator('tbody tr td:first-child strong').first().textContent(),'Unterkunft 11');
+  await page.getByLabel('Sortieren nach',{exact:true}).selectOption('note_raum');
+  assert.equal(await a.locator('tbody tr td:first-child strong').first().textContent(),'Unterkunft 105');
+  await page.getByLabel('Sortieren nach',{exact:true}).selectOption('gehzeit');
+  assert.equal(await a.locator('tbody tr td:first-child strong').first().textContent(),'Unterkunft 105');
+  await page.getByLabel('Treffer filtern',{exact:true}).fill('Unterkunft 105');
+  assert.equal(await a.locator('tbody tr').count(),1);
+  await page.getByLabel('Treffer filtern',{exact:true}).fill('Kein solcher Name');
+  await a.getByText('Keine Treffer für diesen Filter.').waitFor();
+  await page.getByLabel('Treffer filtern',{exact:true}).fill('');
+  await page.getByLabel('Treffer je Liste und Seite').selectOption('25');
+  assert.equal(await a.locator('tbody tr').count(),25);
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+  await page.evaluate(()=>scrollTo(0,0));
+  await page.screenshot({path:path.join(root,'test-results/review-mobile.png')});
+  await page.setViewportSize({width:768,height:1024});
+  await a.locator('tbody tr').first().scrollIntoViewIfNeeded();
+  await page.screenshot({path:path.join(root,'test-results/review-tablet.png')});
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+  for (const width of [600,768,1024]) {
+    await page.setViewportSize({width,height:1024});
+    assert.equal(await a.locator('tbody tr').first().evaluate(n=>getComputedStyle(n).display),'grid');
+    assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+  }
+});
+
+test('Rückmeldung aktualisiert Serverstand und erhält ungespeicherten Grund', async (t) => {
+  const r = result(); r.treffer[0].rueckmeldung = {urteil:'passt',grund:'Alt'};
+  const {page} = await setup(t, () => r);
+  await page.goto(origin + '/#/suche/2');
+  const box = page.locator('[data-feedback="1"]'); await box.waitFor();
+  await box.locator('textarea').fill('Mein noch nicht gespeicherter Grund');
+  r.treffer[0].rueckmeldung = {urteil:'gebucht',grund:'Anderes Gerät'};
+  await page.getByRole('button',{name:'Aktualisieren',exact:true}).click();
+  await box.getByRole('status').filter({hasText:'Deine Rückmeldung: Gebucht'}).waitFor();
+  assert.equal(await box.locator('textarea').inputValue(),'Mein noch nicht gespeicherter Grund');
+  await box.locator('textarea').fill('Anderes Gerät');
+  r.treffer[0].rueckmeldung = {urteil:'zu_teuer',grund:'Neuer Serverstand'};
+  await page.getByRole('button',{name:'Aktualisieren',exact:true}).click();
+  await box.getByRole('status').filter({hasText:'Deine Rückmeldung: Zu teuer'}).waitFor();
+  assert.equal(await box.locator('textarea').inputValue(),'Neuer Serverstand');
+});
+
+test('Späte Leseantwort überschreibt keine gerade gespeicherte Rückmeldung', async (t) => {
+  const r = result(); let hold = false, releaseRead, releaseWrite;
+  const {page,calls} = await setup(t, async p => {
+    if (p.aktion === 'unterkunft_suchlauf_lesen' && hold) await new Promise(resolve => {releaseRead=resolve;});
+    if (p.aktion === 'unterkunft_rueckmeldung_geben') {
+      await new Promise(resolve => {releaseWrite=resolve;}); return {ok:true};
+    }
+    return r;
+  });
+  await page.goto(origin + '/#/suche/2');
+  const box=page.locator('[data-feedback="1"]'); await box.waitFor();
+  hold=true; await page.getByRole('button',{name:'Aktualisieren',exact:true}).click();
+  await waitForCallback(()=>releaseRead);
+  await box.getByRole('button',{name:'Passt',exact:true}).click();
+  await waitForCallback(()=>releaseWrite);
+  await page.getByLabel('Sortieren nach',{exact:true}).selectOption('preis');
+  assert.equal(await box.getByRole('button',{name:'Passt',exact:true}).isDisabled(),true);
+  releaseWrite(); await box.getByRole('status').filter({hasText:'Gespeichert: Passt'}).waitFor();
+  releaseRead(); await page.getByRole('status').filter({hasText:'Rangliste aktualisiert'}).waitFor();
+  assert.equal(await box.getByRole('button',{name:'Passt',exact:true}).getAttribute('aria-pressed'),'true');
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_rueckmeldung_geben').length,1);
+});
+
+test('HTTP-Fehler und leere Schreibantworten werden nicht als gespeichert angezeigt', async (t) => {
+  let response='server-error';
+  const {page,calls}=await setup(t,p=>p.aktion==='unterkunft_rueckmeldung_geben'?response:result());
+  await page.goto(origin + '/#/suche/2');
+  const box=page.locator('[data-feedback="1"]'); await box.waitFor();
+  await box.getByRole('button',{name:'Passt',exact:true}).click();
+  await box.getByRole('status').filter({hasText:'HTTP 503'}).waitFor();
+  response=undefined;
+  await box.getByRole('button',{name:'Gebucht',exact:true}).click();
+  await box.getByRole('status').filter({hasText:'nicht bestätigen'}).waitFor();
+  assert.equal(await box.locator('[aria-pressed=true]').count(),0);
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_rueckmeldung_geben').length,2);
+});
+
+test('Unvollständige Bewertungsfelder und falsche Zahlen zerstören keine Trefferliste', async (t) => {
+  const r=result();
+  r.treffer[0].angebot.preis_gesamt_eur=false;
+  r.treffer[0].bewertung.bild_urteil={auffaelligkeiten:'Helles Fenster'};
+  r.treffer[0].bewertung.gegenpruefung={luecken:'Betten fehlen'};
+  r.treffer[0].bewertung.spaltennoten={raum:false,lage:' ',eignung:0};
+  const {page}=await setup(t,()=>r);
+  await page.goto(origin+'/#/suche/2');
+  const row=page.locator('[data-group=A] tbody tr').first();
+  await row.waitFor();
+  assert.equal(await row.locator('td[data-label=Gesamtpreis]').textContent(),'Preis unbekannt');
+  assert.equal(await row.locator('meter[value="0"]').count(),1);
+  await row.getByText('Angaben und Prüfungen',{exact:true}).click();
+  await row.getByText('Helles Fenster',{exact:true}).waitFor();
+  await row.getByText('Offene Prüfpunkte: Betten fehlen',{exact:true}).waitFor();
+});
+
+test('Council-Markdown behält sichere Links und entfernt ausführbare Inhalte', async (t) => {
+  const {page}=await setup(t,()=>[]);
+  await page.goto(origin+'/#/start');
+  await page.evaluate(()=>{
+    window.marked={parse:value=>value};
+    document.querySelector('#main').replaceChildren(md('<h2 onclick="window.injected=1">Antwort</h2><a href="https://example.com/beleg">Quelle</a><a href="javascript:alert(1)">Unsicher</a><img src=x onerror="window.injected=1"><script>window.injected=1<\/script><table><tr><td>Wert</td></tr></table>'));
+  });
+  await page.getByRole('link',{name:'Quelle'}).waitFor();
+  assert.equal(await page.locator('#main [onclick], #main img, #main script, #main a[href^="javascript:"]').count(),0);
+  assert.equal(await page.evaluate(()=>window.injected),undefined);
+  assert.equal(await page.getByRole('link',{name:'Quelle'}).getAttribute('rel'),'noopener noreferrer');
+  await page.getByRole('cell',{name:'Wert'}).waitFor();
+});
+
+test('Bereichswechsel: verspätete Council-Antworten und Fehler lassen Unterkunft stehen', async (t) => {
+  let release, response=[];
+  const {page}=await setup(t,async p=>{
+    if(p.aktion==='auftraege_suchen') { await new Promise(resolve=>{release=resolve;}); return response; }
+    return {suchauftraege:[]};
+  });
+  for (response of [[], 'abort']) {
+    release=null;await page.goto(origin+'/#/auftraege');
+    await page.locator('#areas [data-area=unterkunft]').click();
+    await page.getByRole('heading',{name:'Wohnen, wo sich die Reise richtig anfühlt.'}).waitFor();
+    await waitForCallback(()=>release);
+    const delivered=page.waitForEvent(response==='abort'?'requestfailed':'response', event=>{
+      const request=response==='abort'?event:event.request();
+      return request.postDataJSON()?.aktion==='auftraege_suchen';
+    });
+    release(); await delivered;
+    await page.getByLabel('Zielort',{exact:true}).fill('Kyoto');
+    assert.equal(await page.locator('.suche-form').count(),1);
+    assert.equal(await page.locator('#main > .err-text').count(),0);
+  }
 });

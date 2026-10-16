@@ -494,3 +494,41 @@ body[data-area="unterkunft"] nav.tabs button.on { box-shadow: none; background: 
 }
 
 @media (max-width: 599px) { .score-bar-row { font-size: 12px; } }
+
+.result-controls { display: grid; grid-template-columns: minmax(180px, 2fr) minmax(150px, 1.4fr) auto minmax(110px, 1fr); gap: 12px; align-items: end; }
+.result-controls label { margin: 0; color: var(--text); }
+.result-controls p { grid-column: 1 / -1; margin: 0; }
+.result-controls button { white-space: nowrap; }
+.result-pages { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 10px; padding: 16px; border-top: 1px solid var(--border); font-size: 13px; }
+.result-pages button { min-height: 44px; font-size: 13px; }
+.suche-results > h2 { scroll-margin-top: 88px; }
+@media (max-width: 1199px) {
+  .result-controls { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 599px) {
+  .result-controls { grid-template-columns: 1fr; padding: 16px; }
+  .result-pages span { order: -1; width: 100%; text-align: center; }
+  .result-pages button { flex: 1; }
+}
+@media (min-width: 600px) and (max-width: 1199px) {
+  .suche-table { table-layout: auto; }
+  .suche-table thead { display: block; padding: 8px 16px; background: #eaf0e7; }
+  .suche-table thead tr { display: flex; flex-wrap: wrap; gap: 8px; }
+  .suche-table th { width: auto !important; padding: 0; border: 0; }
+  .suche-table th:last-child { display: none; }
+  .suche-table th button { min-height: 44px; padding: 6px 10px; font-size: 13px; background: var(--surface); border-radius: 8px; }
+  .suche-table caption button { min-height: 44px; font-size: 13px; }
+  .suche-table tbody { display: block; padding: 0 18px; }
+  .suche-table tbody tr { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 20px; padding: 18px 0; border-top: 1px solid var(--border); background: transparent !important; }
+  .suche-table td { display: block; min-width: 0; max-width: none; padding: 0; border: 0; font-size: 14px; }
+  .suche-table td:first-child, .suche-table td:last-child { grid-column: 1 / -1; }
+  .suche-table td::before { content: attr(data-label) ': '; font-weight: 650; }
+  .suche-table td:first-child::before, .suche-table td:last-child::before { display: none; }
+  .suche-table td:first-child strong { font-size: 18px; }
+  .suche-table td .small, .suche-table .pill, .suche-warning, .score-bar-row { font-size: 12px; }
+  .suche-table details p, .suche-table summary { font-size: 14px; }
+  .suche-table summary { min-height: 44px; padding: 10px 0; }
+  .suche-table .score-bars { max-width: 480px; }
+  .stay-feedback textarea { min-height: 80px; }
+  .stay-feedback .actions { margin-top: 10px; }
+}

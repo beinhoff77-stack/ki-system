@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.9.1';
+const APP_VERSION = '0.10.0';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -31,10 +31,21 @@ function toast(msg, err = false) {
   clearTimeout(toastTimer); toastTimer = setTimeout(() => { t.hidden = true; }, err ? 6000 : 2500);
 }
 
-function md(text) {
+function md(text, { links = true } = {}) {
   const box = el('div', { class: 'md' });
-  if (window.marked) box.innerHTML = marked.parse(String(text ?? ''), { breaks: true });
-  else box.append(el('pre', {}, String(text ?? '')));
+  if (!window.marked) return el('div', { class: 'md' }, el('pre', { class: 'report-plain' }, String(text ?? '')));
+  const template = document.createElement('template');
+  template.innerHTML = marked.parse(String(text ?? ''), { breaks: true });
+  const allowed = new Set(['P', 'BR', 'STRONG', 'EM', 'DEL', 'UL', 'OL', 'LI', 'TABLE', 'THEAD', 'TBODY', 'TR', 'TH', 'TD', 'H1', 'H2', 'H3', 'H4', 'H5', 'H6', 'BLOCKQUOTE', 'PRE', 'CODE', 'HR']);
+  const copy = node => {
+    if (node.nodeType === Node.TEXT_NODE) return document.createTextNode(node.textContent);
+    if (['SCRIPT', 'STYLE', 'IFRAME', 'OBJECT', 'TEMPLATE', 'SVG', 'MATH'].includes(node.nodeName)) return document.createDocumentFragment();
+    const url = links && node.nodeName === 'A' ? sucheLink(node.getAttribute('href')) : null;
+    const out = url ? el('a', { href: url, target: '_blank', rel: 'noopener noreferrer' }) : allowed.has(node.nodeName) ? document.createElement(node.nodeName.toLowerCase()) : document.createDocumentFragment();
+    node.childNodes.forEach(child => out.append(copy(child)));
+    return out;
+  };
+  template.content.childNodes.forEach(node => box.append(copy(node)));
   return box;
 }
 
@@ -130,7 +141,8 @@ async function http(path, { method = 'GET', body, auth = true, signal } = {}) {
   if (auth && store.token) headers.Authorization = 'Bearer ' + store.token;
   const r = await fetch(API + path, { method, headers, body: body ? JSON.stringify(body) : undefined, signal });
   let j; try { j = await r.json(); } catch { j = { ok: false, fehler: 'Keine Antwort (' + r.status + ')' }; }
-  if (r.status === 401 && auth) { store.token = null; route('login'); throw new Error(j.fehler || 'Nicht angemeldet'); }
+  if (r.status === 401 && auth) { store.token = null; route('login'); throw new Error(j?.fehler || 'Nicht angemeldet'); }
+  if (!r.ok) throw new Error(j?.fehler || 'Die Anfrage ist fehlgeschlagen (HTTP ' + r.status + ').');
   return j;
 }
 
@@ -145,6 +157,11 @@ const main = $('#main');
 const tabs = $('#tabs');
 let current = { view: null, arg: null };
 let disposeSuche = () => {};
+let renderGeneration = 0;
+function viewGuard() {
+  const generation = renderGeneration, hash = location.hash;
+  return () => generation === renderGeneration && hash === location.hash;
+}
 
 function route(view, arg = null) {
   const h = arg !== null ? `#/${view}/${arg}` : `#/${view}`;
@@ -183,13 +200,15 @@ function loading(text = 'Lade …') { main.replaceChildren(el('div', { class: 's
 function showError(e) { main.append(el('div', { class: 'card err-text' }, 'Fehler: ' + (e?.message || e))); }
 
 async function render() {
+  renderGeneration++;
+  const live = viewGuard();
   disposeSuche();
   disposeSuche = () => {};
   current = parseHash();
   if (!store.token && current.view !== 'login') { route('login'); return; }
   const views = { start: viewStart, login: viewLogin, auftraege: viewAuftraege, auftrag: viewAuftrag, neu: viewNeu, einstellungen: viewEinstellungen, werkstatt: viewWerkstatt, suche: viewSuche, ergebnisse: () => viewSuche(null, { historyOnly: true }) };
   const fn = views[current.view] || (() => route('start'));
-  try { await fn(current.arg); } catch (e) { showError(e); }
+  try { await fn(current.arg); } catch (e) { if (live()) showError(e); }
 }
 
 function viewStart() {
@@ -212,6 +231,7 @@ function viewStart() {
 
 // ---------- Ansicht: Login ----------
 async function viewLogin() {
+  const live = viewGuard();
   setChrome('KI-System', { showTabs: false });
   main.replaceChildren($('#t-login').content.cloneNode(true));
   $('#einrichten-link').href = API + '/';
@@ -220,6 +240,7 @@ async function viewLogin() {
     const s = await http('/status', { auth: false });
     status.textContent = s.eingerichtet ? 'Verbindung steht. Bitte Passwort eingeben.' : 'Noch kein Passwort eingerichtet – siehe unten.';
   } catch { status.textContent = 'Schnittstelle nicht erreichbar. Internet prüfen.'; }
+  if (!live()) return;
   $('#login-form').addEventListener('submit', async (e) => {
     e.preventDefault();
     const btn = e.target.querySelector('button'); btn.disabled = true;
@@ -247,9 +268,11 @@ function statusPill(a) {
 function wartetAufDich(a) { return a.posteingang === 'neu' || a.posteingang === 'abgeholt' || a.status === 'pausiert' || a.status === 'entwurf' || a.status === 'bestaetigt'; }
 
 async function viewAuftraege() {
+  const live = viewGuard();
   setChrome('Aufträge', { tab: 'auftraege' });
   loading();
   const liste = await aktion('auftraege_suchen', {});
+  if (!live()) return;
   const neu = liste.filter((a) => a.posteingang === 'neu').length;
   const badge = $('#badge-neu'); badge.hidden = !neu; badge.textContent = neu;
 
@@ -277,10 +300,12 @@ async function viewAuftraege() {
 // ---------- Ansicht: Auftrag (Detail) ----------
 let detailTab = 'ergebnis';
 async function viewAuftrag(idStr) {
+  const live = viewGuard();
   const id = Number(idStr);
   setChrome('Auftrag ' + id, { back: true, tab: 'auftraege' });
   loading();
   const r = await aktion('rahmen_lesen', { rahmen_id: id });
+  if (!live()) return;
   setChrome(r.titel || 'Auftrag ' + id, { back: true, tab: 'auftraege' });
 
   const kopf = el('div', { class: 'card' },
@@ -564,10 +589,12 @@ async function stammdatenDialog(id) {
 let neuEntwurf = null; // letzter Entwurf der Start-KI (bleibt beim Tabwechsel erhalten)
 
 async function viewNeu() {
+  const live = viewGuard();
   setChrome('Neuer Auftrag', { tab: 'neu' });
   if (neuEntwurf) { zeigeEntwurf(neuEntwurf); return; }
   loading();
   const einst = await aktion('einstellungen_lesen', {});
+  if (!live()) return;
   const standardLimit = Number(einst?.standard_kostenlimit?.wert ?? 2) || 2;
 
   const frage = el('textarea', { required: true, placeholder: 'Deine Frage so, wie du sie stellen würdest – mit allem, was du schon weißt (Rahmen, Zahlen, Termine).', style: 'min-height:140px' });
@@ -589,6 +616,7 @@ async function viewNeu() {
       const r = await http('/vorbereiten', { method: 'POST', body: { frage: frage.value.trim(), kostenlimit: Number(limit.value) } });
       if (!r.ok) throw new Error(r.fehler || 'Vorbereitung fehlgeschlagen');
       neuEntwurf = { ...r, kostenlimit: Number(limit.value) || standardLimit, standardLimit };
+      if (!live()) return;
       toast(`Entwurf erstellt (${r.start_ki}${r.kosten_usd != null ? ', ' + Number(r.kosten_usd).toFixed(3) + ' USD' : ''})`);
       zeigeEntwurf(neuEntwurf);
     } catch (err) { toast(err.message, true); btn.disabled = false; btn.textContent = 'Auftrag vorbereiten'; }
@@ -734,9 +762,11 @@ async function zeigeEntwurf(d) {
 
 // ---------- Ansicht: Einstellungen ----------
 async function viewEinstellungen() {
+  const live = viewGuard();
   setChrome('Einstellungen', { tab: 'einstellungen' });
   loading();
   const [einst, modelle, rollen] = await Promise.all([aktion('einstellungen_lesen', {}), aktion('modelle_lesen', {}), aktion('rollen_lesen', { status: 'aktiv' })]);
+  if (!live()) return;
   const mList = el('ul', { class: 'list' });
   for (const m of modelle.meine_modelle || []) mList.append(el('li', { style: 'cursor:default' },
     el('div', { class: 't' }, m.name, m.zdr ? el('span', { class: 'pill' }, 'ZDR') : null, m.stammdaten_erlaubt ? el('span', { class: 'pill' }, 'Stammdaten') : null),
@@ -765,10 +795,12 @@ async function viewEinstellungen() {
 
 // ---------- Ansicht: Werkstatt ----------
 async function viewWerkstatt(idStr) {
+  const live = viewGuard();
   setChrome('Werkstatt', { tab: 'werkstatt', back: !!idStr });
   loading();
   if (idStr) {
     const w = await aktion('werkstatt_wunsch_lesen', { id: Number(idStr) });
+    if (!live()) return;
     setChrome('#' + w.id + ' ' + w.titel, { tab: 'werkstatt', back: true });
     const nachrichten = el('div');
     for (const n of w.nachrichten || []) nachrichten.append(el('div', { class: 'card' },
@@ -781,6 +813,7 @@ async function viewWerkstatt(idStr) {
     return;
   }
   const w = await aktion('werkstatt_lesen', {});
+  if (!live()) return;
   const ul = el('ul', { class: 'list' });
   for (const x of w.wuensche || []) ul.append(el('li', { onclick: () => route('werkstatt', x.id) },
     el('div', { class: 't' }, `#${x.id} ${x.titel}`, el('span', { class: 'pill' }, x.status)),
@@ -811,14 +844,14 @@ const SUCHE_WARNUNGEN = {
   gegenpruefung_einwand: 'Gegenprüfung hat Einwände',
   preis_2zimmer_unklar: 'Preis für zwei Zimmer unklar', betten_unklar: 'Betten unklar', zimmer_unbekannt: 'Zimmer unbekannt', ueber_budget: 'Über Budget',
 };
-const sucheZahl = (v) => v === null || v === undefined || v === '' || !Number.isFinite(Number(v)) ? null : Number(v);
+const sucheZahl = (v) => !['number', 'string'].includes(typeof v) || String(v).trim() === '' || !Number.isFinite(Number(v)) ? null : Number(v);
 const sucheEuro = (v) => sucheZahl(v) === null ? 'Preis unbekannt' : Number(v).toLocaleString('de-DE', { style: 'currency', currency: 'EUR' });
 function sucheLink(value) {
   try { const u = new URL(value); return ['https:', 'http:'].includes(u.protocol) ? u.href : null; } catch { return null; }
 }
 function sucheVergleich(a, b, key, direction) {
   const value = (t) => key === 'name' ? t.name : key === 'preis' ? sucheZahl(t.angebot?.preis_gesamt_eur) :
-    key === 'bewertungen' ? sucheZahl(t.bewertungen) : key === 'entfernung' ? sucheZahl(t.luftlinie_ziel_m) : key === 'datenlage' ? sucheDatenlage(t) : key === 'rang' ? (t.topf === 'shortlist' && t.bewertung?.liste === 'A' ? sucheZahl(t.bewertung?.rang) : null) : sucheZahl(t.bewertung?.[key]);
+    key === 'bewertungen' ? sucheZahl(t.bewertungen) : key === 'entfernung' ? sucheZahl(t.luftlinie_ziel_m) : key === 'gehzeit' ? sucheZahl(t.gehzeit_min) : key.startsWith('note_') ? sucheZahl(t.bewertung?.spaltennoten?.[key.slice(5)]) : key === 'datenlage' ? sucheDatenlage(t) : key === 'rang' ? (t.topf === 'shortlist' && t.bewertung?.liste === 'A' ? sucheZahl(t.bewertung?.rang) : null) : sucheZahl(t.bewertung?.[key]);
   const x = value(a), y = value(b);
   // Fehlende Angaben stehen in beiden Sortierrichtungen hinten.
   if (x == null || y == null) return x == null && y == null ? 0 : x == null ? 1 : -1;
@@ -849,7 +882,8 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   let disposed = false, timer, busy = false, snapshot = null;
   const requests = new Set();
   const feedbackStates = new Map();
-  let sort = { key: 'rang', direction: 1 }, runStatus = null;
+  let sort = { key: 'rang', direction: 1 }, snapshotStatus = null;
+  const pages = new Map();
   const scope = el('div', { class: 'suche' });
   main.replaceChildren(scope);
   disposeSuche = () => { disposed = true; clearTimeout(timer); requests.forEach((c) => c.abort()); };
@@ -860,7 +894,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     const timeout = setTimeout(() => requestController.abort(), 25000);
     try {
       const j = await http('/aktion', { method: 'POST', body: { aktion: name, daten }, signal: requestController.signal });
-      if (!j.ok || j.ergebnis?.ok === false) throw new Error(j.fehler || j.ergebnis?.fehler || 'Die Schnittstelle konnte die Anfrage nicht ausführen.');
+      if (j?.ok !== true || !j.ergebnis || typeof j.ergebnis !== 'object' || j.ergebnis.ok === false) throw new Error(j?.fehler || j?.ergebnis?.fehler || 'Die Schnittstelle konnte die Anfrage nicht bestätigen.');
       return j.ergebnis;
     } catch (e) {
       if (e.name === 'AbortError') throw new Error('Keine Antwort innerhalb von 25 Sekunden. Bitte den gespeicherten Suchlauf prüfen.');
@@ -975,6 +1009,19 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     el('p', {}, 'Ab 20 bewerteten Unterkünften werden Muster ausgewertet. Deine Rückmeldungen ändern die Rangfolge und Gewichtung nicht automatisch.'), reportButton, reportNotice, reportText);
   const summary = el('section', { class: 'card stay-run-summary' });
   const results = el('section', { 'aria-label': 'Suchergebnisse' });
+  const filter = el('input', { type: 'search', placeholder: 'Name oder Anbieter', oninput: () => { pages.clear(); draw(); } });
+  const sortSelect = el('select', { 'aria-label': 'Sortieren nach', onchange: () => changeSort(sortSelect.value) },
+    [['rang', 'Empfohlene Rangfolge'], ['preis', 'Gesamtpreis'], ['score', 'Score'], ['datenlage', 'Datenlage'], ['bewertungen', 'Anzahl Bewertungen'], ['entfernung', 'Luftlinie zum Ziel'], ['gehzeit', 'Gehzeit zur Station'], ...SUCHE_NOTEN.map(([key, label]) => ['note_' + key, label]), ['name', 'Name']].map(([key, label]) => el('option', { value: key }, label)));
+  const directionButton = el('button', { type: 'button', onclick: () => { sort.direction *= -1; pages.clear(); draw(); } }, 'Aufsteigend ↑');
+  const pageSize = el('select', { 'aria-label': 'Treffer je Liste und Seite', onchange: () => { pages.clear(); draw(); } }, [10, 25, 50].map(n => el('option', { value: n }, String(n))));
+  const filterCount = el('p', { class: 'small', role: 'status' });
+  const controls = el('section', { class: 'card result-controls', hidden: true, 'aria-label': 'Treffer auswählen und sortieren' },
+    el('label', {}, 'Treffer filtern', filter), el('label', {}, 'Sortieren nach', sortSelect),
+    el('div', { class: 'sort-direction' }, directionButton), el('label', {}, 'Treffer je Liste und Seite', pageSize), filterCount);
+  function changeSort(key, toggle = false) {
+    sort = { key, direction: toggle && sort.key === key ? -sort.direction : ['name', 'preis', 'entfernung', 'gehzeit', 'rang'].includes(key) ? 1 : -1 };
+    pages.clear(); draw();
+  }
   const refresh = el('button', { onclick: () => poll() }, 'Aktualisieren');
   const start = el('button', { class: 'primary', hidden: true, onclick: async () => {
     if (busy) return; busy = true; start.disabled = refresh.disabled = true;
@@ -999,12 +1046,12 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       if (error && live()) notice.textContent = 'Abbrechen nicht bestätigt: ' + error + ' Bitte den aktuellen Status prüfen.';
     }
   } }, 'Suche abbrechen');
-  scope.append(el('div', { class: 'actions' }, el('a', { href: '#/suche' }, 'Neue Suche / letzte Aufträge'), refresh, start, cancel), notice, summary, results, report);
+  scope.append(el('div', { class: 'actions' }, el('a', { href: '#/suche' }, 'Neue Suche / letzte Aufträge'), refresh, start, cancel), notice, summary, controls, results, report);
   function draw() {
+    if (!snapshot) return;
     const openDetails = new Set([...results.querySelectorAll('details[open][data-detail]')].map((n) => n.dataset.detail));
     const a = snapshot.suchauftrag, k = snapshot.kosten || {}, steps = Array.isArray(a.schrittkette) ? a.schrittkette : [];
-    const phase = { final: runStatus?.status === 'fertig' && runStatus?.fertig === true, failed: runStatus?.status !== 'fertig' && SUCHE_ENDE.has(runStatus?.status) };
-    start.hidden = a.status !== 'entwurf'; start.disabled = busy;
+    const phase = { final: snapshotStatus?.status === 'fertig' && snapshotStatus?.fertig === true, failed: snapshotStatus?.status !== 'fertig' && SUCHE_ENDE.has(snapshotStatus?.status) };
     summary.replaceChildren(el('h2', {}, `${a.ziel} · #${a.id}`),
       el('p', {}, `${fmtDate(a.anreise)}–${fmtDate(a.abreise)} · ${a.erwachsene} Erwachsene · ${(a.kinder_alter || []).length} Kinder`),
       el('p', {}, 'Status: ', el('strong', {}, a.status), ' · ', snapshot.treffer.length, ' Treffer'),
@@ -1016,7 +1063,13 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
         s.gehzeit?.fehler ? el('p', { class: 'err-text' }, 'Gehzeiten: ' + s.gehzeit.fehler) : null))),
       el('p', { class: 'erg-warnung' }, phase.final ? 'Bewertung abgeschlossen. Endscore aus Raum, Lage, Preis-Leistung, Bewertungen und Eignung. Die Datenlage zeigt die Abdeckung; die Ampel beschreibt die Verlässlichkeit, nicht die Qualität. Offene Angaben und Einwände bleiben relevant.' : phase.failed ? 'Bewertung unterbrochen. Die Rangliste ist noch nicht abschließend; vorhandene Ergebnisse bleiben sichtbar.' : 'Zwischenstand: Die Rangliste ist erst nach Abschluss der Bewertungsstufe fertig. Teilnoten und Datenlage zeigen, welche Angaben bereits vorliegen.'));
     results.replaceChildren();
-    const rows = snapshot.treffer;
+    controls.hidden = false;
+    sortSelect.value = sort.key;
+    directionButton.textContent = sort.direction === 1 ? 'Aufsteigend ↑' : 'Absteigend ↓';
+    const needle = filter.value.trim().toLocaleLowerCase('de');
+    const rows = snapshot.treffer.filter(t => [t.name, t.quelle, SUCHE_QUELLEN[t.quelle], t.angebot?.anbieter,
+      ...(Array.isArray(t.weitere_angebote) ? t.weitere_angebote.flatMap(a => [a?.anbieter, a?.quelle, SUCHE_QUELLEN[a?.quelle]]) : [])].some(value => String(value || '').toLocaleLowerCase('de').includes(needle)));
+    filterCount.textContent = `${rows.length} von ${snapshot.treffer.length} Treffern · Sortierung gilt für die gesamte Liste.`;
     const groups = [
       ['A', phase.final ? 'Liste A – Rangliste' : 'Liste A – vorläufig', rows.filter((t) => t.topf !== 'ausgeschlossen' && t.bewertung?.liste === 'A')],
       ['B', 'Liste B – Angaben prüfen', rows.filter((t) => t.topf !== 'ausgeschlossen' && t.bewertung?.liste === 'B')],
@@ -1026,16 +1079,30 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     for (const [key, title, items] of groups) {
       if (!items.length && !['A', 'B'].includes(key)) continue;
       const section = el(key === 'ausgeschlossen' ? 'details' : 'section', { class: 'card suche-results' });
-      section.append(el(key === 'ausgeschlossen' ? 'summary' : 'h2', {}, `${title} (${items.length})`));
-      if (!items.length) section.append(el('p', { class: 'muted' }, 'Noch keine Treffer in dieser Liste.'));
-      else section.append(sucheTabelle(items, sort, (sortKey) => {
+      section.append(el(key === 'ausgeschlossen' ? 'summary' : 'h2', key === 'ausgeschlossen' ? {} : { tabindex: -1 }, `${title} (${items.length})`));
+      const size = Number(pageSize.value), totalPages = Math.max(1, Math.ceil(items.length / size));
+      const page = Math.min(pages.get(key) || 0, totalPages - 1);
+      pages.set(key, page);
+      const visible = [...items].sort((a, b) => sucheVergleich(a, b, sort.key, sort.direction)).slice(page * size, (page + 1) * size);
+      if (!items.length) section.append(el('p', { class: 'muted' }, needle ? 'Keine Treffer für diesen Filter.' : 'Keine Treffer in dieser Liste.'));
+      else section.append(sucheTabelle(visible, sort, (sortKey) => {
         const wasOpen = section.open;
-        sort = { key: sortKey, direction: sort.key === sortKey ? -sort.direction : ['name', 'preis', 'entfernung', 'rang'].includes(sortKey) ? 1 : -1 };
-        draw();
+        changeSort(sortKey, true);
         const replacement = results.querySelector(`[data-group="${key}"]`);
         if (wasOpen) replacement.open = true;
         replacement.querySelector(`[data-sort="${sortKey}"]`)?.focus({ preventScroll: true });
       }, phase.final, (t) => sucheRueckmeldung(t, feedbackStates, call, live)));
+      if (totalPages > 1) {
+        const turnPage = offset => {
+          pages.set(key, page + offset); draw();
+          const heading = results.querySelector(`[data-group="${key}"]`).firstElementChild;
+          heading.focus({ preventScroll: true }); heading.scrollIntoView({ block: 'start' });
+        };
+        section.append(el('nav', { class: 'result-pages', 'aria-label': 'Seiten für ' + title },
+          el('button', { type: 'button', disabled: page === 0, onclick: () => turnPage(-1) }, 'Vorherige Seite'),
+          el('span', {}, `${page * size + 1}–${Math.min((page + 1) * size, items.length)} von ${items.length} · Seite ${page + 1} / ${totalPages}`),
+          el('button', { type: 'button', disabled: page === totalPages - 1, onclick: () => turnPage(1) }, 'Nächste Seite')));
+      }
       section.dataset.group = key; results.append(section);
       if (key === 'ausgeschlossen') section.dataset.detail = 'ausgeschlossen';
     }
@@ -1063,13 +1130,22 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       const r = await call('unterkunft_suche_status', { suchauftrag_id: id });
       if (!live()) return;
       if (!r || typeof r.status !== 'string' || typeof r.fertig !== 'boolean') throw new Error('Statusantwort unvollständig.');
-      runStatus = r; drawProgress(r);
+      drawProgress(r);
       const terminal = r.fertig || ['fehler', 'abgebrochen', 'gestoppt', 'gestoppt_budget'].includes(r.status);
       if (terminal) {
+        const feedbackAtRead = new Map([...feedbackStates].map(([key, value]) => [key, { revision: value.revision, pending: value.pending }]));
         const data = await call('unterkunft_suchlauf_lesen', { suchauftrag_id: id });
         if (!live()) return;
         if (!data?.suchauftrag || !Array.isArray(data.treffer)) throw new Error('Suchlauf nicht gefunden oder Antwort unvollständig.');
-        snapshot = data; draw();
+        if (data.treffer.some(t => !t || typeof t !== 'object')) throw new Error('Die Trefferliste ist unvollständig.');
+        for (const t of data.treffer) {
+          const state = feedbackStates.get(t.treffer_id), atRead = feedbackAtRead.get(t.treffer_id);
+          if (!state || state.pending || atRead?.pending || state.revision !== atRead?.revision) continue;
+          state.saved = t.rueckmeldung || null;
+          if (!state.dirty) state.grund = state.saved?.grund || '';
+          state.dirty = state.grund !== (state.saved?.grund || ''); state.message = '';
+        }
+        snapshot = data; snapshotStatus = r; draw();
         notice.textContent = r.status === 'fertig' ? 'Bewertung abgeschlossen. Rangliste aktualisiert.' : r.status === 'gestoppt_budget' ? 'Kostenlimit erreicht. Vorhandene Treffer bleiben sichtbar.' : 'Suche ' + r.status + '. Vorhandene Treffer bleiben sichtbar.';
       } else if (r.status !== 'entwurf') {
         notice.textContent = r.status === 'wartet' ? 'Die Suche wartet und startet automatisch. Aktualisierung alle 7 Sekunden.' : 'Suche läuft. Bewertung und Gegenprüfung werden abgewartet. Aktualisierung alle 7 Sekunden.';
@@ -1101,7 +1177,7 @@ function sucheTabelle(items, sort, onSort, final = false, feedback = () => null)
       review?.hinweis ? el('p', {}, review.hinweis) : null) : null;
     const info = el('details', { 'data-detail': String(t.treffer_id) }, el('summary', {}, 'Angaben und Prüfungen'),
       el('p', {}, b.begruendung || 'Noch keine Begründung verfügbar.'),
-      el('p', {}, 'Offene Prüfpunkte: ' + (b.gegenpruefung?.luecken?.join(', ') || 'keine angegeben')),
+      el('p', {}, 'Offene Prüfpunkte: ' + (sucheTexte(b.gegenpruefung?.luecken).join(', ') || 'keine angegeben')),
       el('p', {}, 'Preisstand: ' + (fmtDate(a.abrufzeit) || 'unbekannt')),
       a.schaetz_basis ? el('p', {}, 'Schätzung: ' + a.schaetz_basis) : null,
       a.kurs != null ? el('p', {}, `Umrechnung ${a.waehrung}: ${a.kurs} · Kursdatum ${fmtDate(a.kurs_datum)}`) : null,
@@ -1112,7 +1188,7 @@ function sucheTabelle(items, sort, onSort, final = false, feedback = () => null)
       el('h3', {}, 'Bildbewertung'), b.bild_urteil ? el('div', {}, el('p', {}, 'KI-Einschätzung der Bilder; kein Nachweis der Ausstattung.'), el('p', {}, b.bild_urteil.ein_satz || ''),
         el('p', {}, 'Zu sehen: ' + (Array.isArray(b.bild_urteil.zeigt) ? b.bild_urteil.zeigt.join(', ') : b.bild_urteil.zeigt || 'unbekannt')),
         sucheBalken(b.bild_urteil, [['hell', 'Hell'], ['modern', 'Modern'], ['gepflegt', 'Gepflegt'], ['geraeumig', 'Geräumig']]),
-        el('ul', {}, (b.bild_urteil.auffaelligkeiten || []).map((v) => el('li', {}, String(v))))) : el('p', {}, 'Noch keine Bildbewertung vorhanden.'),
+        el('ul', {}, sucheTexte(b.bild_urteil.auffaelligkeiten).map((v) => el('li', {}, v)))) : el('p', {}, 'Noch keine Bildbewertung vorhanden.'),
       el('h3', {}, 'Gegenprüfung'), el('p', {}, review?.urteil === 'ok' ? 'Keine Einwände in der Gegenprüfung.' : review?.urteil === 'einwand' ? 'Einwände beachten (oben aufgeführt).' : 'Noch keine Gegenprüfung vorhanden.'),
       review?.urteil === 'ok' && review.hinweis ? el('p', {}, review.hinweis) : null);
     const td = (label, ...content) => el('td', { 'data-label': label }, ...content);
@@ -1134,24 +1210,26 @@ function sucheTabelle(items, sort, onSort, final = false, feedback = () => null)
 }
 
 const SUCHE_URTEILE = { passt: 'Passt', passt_nicht: 'Passt nicht', zu_teuer: 'Zu teuer', gebucht: 'Gebucht' };
+const sucheTexte = value => Array.isArray(value) ? value.filter(v => typeof v === 'string') : typeof value === 'string' ? [value] : [];
 function sucheRueckmeldung(t, states, call, live) {
-  if (!states.has(t.treffer_id)) states.set(t.treffer_id, { grund: t.rueckmeldung?.grund || '', saved: t.rueckmeldung, pending: false, message: '' });
+  if (!states.has(t.treffer_id)) states.set(t.treffer_id, { grund: t.rueckmeldung?.grund || '', saved: t.rueckmeldung, pending: false, dirty: false, revision: 0, message: '' });
   const state = states.get(t.treffer_id);
   const box = el('div', { class: 'stay-feedback', 'data-feedback': String(t.treffer_id) });
   const status = el('p', { role: 'status', class: 'small' });
-  const reason = el('textarea', { maxlength: 1000, rows: 2, 'aria-label': 'Optionaler Grund für ' + t.name, placeholder: 'Grund (optional, maximal 1000 Zeichen)', oninput: () => { state.grund = reason.value; } });
+  const reason = el('textarea', { maxlength: 1000, rows: 2, 'aria-label': 'Optionaler Grund für ' + t.name, placeholder: 'Grund (optional, maximal 1000 Zeichen)', oninput: () => { state.grund = reason.value; state.dirty = state.grund !== (state.saved?.grund || ''); } });
   reason.value = state.grund;
   const buttons = Object.entries(SUCHE_URTEILE).map(([urteil, label]) => el('button', { type: 'button', onclick: async () => {
     if (state.pending) return;
-    state.pending = true; state.message = 'Wird gespeichert …'; update();
+    state.pending = true; state.revision++; state.message = 'Wird gespeichert …'; update();
     const grund = state.grund;
     try {
       await call('unterkunft_rueckmeldung_geben', { treffer_id: t.treffer_id, urteil, grund });
       if (!live()) return;
       state.saved = { urteil, grund }; t.rueckmeldung = state.saved;
+      state.dirty = false;
       state.message = 'Gespeichert: ' + label + '. Die Rangfolge bleibt unverändert.';
     } catch (e) { if (live()) state.message = 'Speichern nicht bestätigt: ' + e.message + ' Bitte vor erneutem Speichern den Auftrag neu öffnen.'; }
-    finally { state.pending = false; if (live()) state.render(); }
+    finally { state.pending = false; state.revision++; if (live()) state.render(); }
   } }, label));
   function update() {
     reason.disabled = state.pending;
@@ -1172,7 +1250,7 @@ function sucheAngebote(t) {
   if (!Array.isArray(t.weitere_angebote) || !t.weitere_angebote.length) return null;
   return el('details', { 'data-detail': 'angebote-' + t.treffer_id }, el('summary', {}, `Weitere Angebote (${t.weitere_angebote.length})`),
     el('p', {}, 'Zimmer und Bedingungen können abweichen. Zimmer nicht abgeglichen.'),
-    el('ul', {}, t.weitere_angebote.map(a => {
+    el('ul', {}, t.weitere_angebote.filter(a => a && typeof a === 'object').map(a => {
       const url = sucheLink(a.link);
       return el('li', {}, el('strong', {}, a.anbieter || SUCHE_QUELLEN[a.quelle] || a.quelle || 'Anbieter'),
         el('p', {}, (a.preis_art === 'geschaetzt' ? 'ca. ' : '') + sucheEuro(a.preis_gesamt_eur) + (a.preis_art === 'geschaetzt' ? ' (geschätzt)' : '')),
@@ -1182,17 +1260,7 @@ function sucheAngebote(t) {
 }
 
 function sucheReport(text) {
-  if (!window.marked) return el('pre', { class: 'report-plain' }, text);
-  // Copy only inert formatting from Markdown; never copy HTML attributes or links.
-  const parsed = new DOMParser().parseFromString(marked.parse(text), 'text/html');
-  const allowed = new Set(['P','BR','STRONG','EM','UL','OL','LI','TABLE','THEAD','TBODY','TR','TH','TD','H1','H2','H3','H4','BLOCKQUOTE','PRE','CODE','HR']);
-  const copy = node => {
-    if (node.nodeType === Node.TEXT_NODE) return document.createTextNode(node.textContent);
-    const out = allowed.has(node.nodeName) ? document.createElement(node.nodeName.toLowerCase()) : document.createDocumentFragment();
-    node.childNodes.forEach(child => out.append(copy(child)));
-    return out;
-  };
-  return el('div', { class: 'md' }, [...parsed.body.childNodes].map(copy));
+  return md(text, { links: false });
 }
 
 function sucheBalken(values, labels) {

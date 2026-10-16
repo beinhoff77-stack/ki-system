@@ -3,41 +3,95 @@
 Web- und Handy-App für Sebastians persönliches KI-System: Council und Unterkunftssuche.
 
 - Bestehende Seite: https://beinhoff77-stack.github.io/ki-system/
-- App-Stand: **0.10.2**, entwickelt auf `feature/unterkunft-suchseite-w41`.
+- Veröffentlichter Stand: **0.10.2**. Ausbau **0.15.2** auf `feature/unterkunft-viertel-w61`, aufbauend auf den Folge-PRs für 0.11.0–0.14.1, zur Gegenprüfung.
 - Daten und Suchlogik liegen in Supabase hinter `app-api`. Keine Schlüssel oder Live-Testdaten im Repository.
 - Kein Merge oder Deploy aus diesem Featurezweig ohne Sebastians ausdrückliche Freigabe.
 
 ## Aufbau und Gestaltung
 
-`index.html` enthält die App-Hülle und Login-Vorlage, `app.js` die Bedienlogik, `style.css` die Gestaltung. Manifest, Service Worker und Icons ermöglichen die installierbare App-Hülle.
+`index.html` enthält die App-Hülle und Login-Vorlage, `app.js` die Bedienlogik, `stay-tools.js` Fotos, Merkliste, Filter und Karte, `stay-districts.js` die Viertelübersicht und ihre Suchauswahl, `style.css` die Gestaltung. Manifest, Service Worker und Icons ermöglichen die installierbare App-Hülle.
 
-Die Startseite `#/start` bietet zwei gleichwertige Bereiche: **Council** und **Unterkunft**. Der Bereichswechsler bleibt erreichbar. Council enthält Aufträge, Auftragserstellung, Einstellungen und Werkstatt. Unterkunft enthält Suchen (`#/suche`) und Ergebnisse (`#/ergebnisse`); gespeicherte Suchläufe öffnen über `#/suche/<id>`.
+Die Startseite `#/start` bietet zwei gleichwertige Bereiche: **Council** und **Unterkunft**. Der Bereichswechsler bleibt erreichbar. Council enthält Aufträge, Auftragserstellung, Einstellungen und Werkstatt. Unterkunft enthält Suchen (`#/suche`), Ergebnisse (`#/ergebnisse`) und Viertel (`#/viertel`); gespeicherte Suchläufe öffnen über `#/suche/<id>`.
 
-Unterkunft übernimmt die Designbasis des Original-Prototyps V0.4.1: Creme, Waldgrün, Serifentitel, grüner Hero und nummerierte Formulargruppen. Große Bildschirme zeigen eine Vergleichstabelle; Handys und kleinere Tablets bis 1199 Pixeln zeigen Karten. Nicht angebundene Prototyp-Funktionen wie Landkarte und Merkliste werden nicht als funktionierende Navigation dargestellt.
+Unterkunft übernimmt die Designbasis des Original-Prototyps V0.4.1: Creme, Waldgrün, Serifentitel, grüner Hero und nummerierte Formulargruppen. Große Bildschirme zeigen eine Vergleichstabelle; Handys und kleinere Tablets bis 1199 Pixeln zeigen Trefferkarten. Liste und Landkarte verwenden dieselben Filter.
 
 ## Suchablauf
+
+`stay-form.js` ergänzt das Suchformular aus dem Serverkatalog `unterkunft_suchprofile_lesen`. Städtereise ist als Hauptart aktiv; kommende Hauptarten bleiben sichtbar gesperrt. Eine Nebenart lässt sich mit 10–50 Prozent mischen (70/30, 50/50 oder eigener Anteil). Unterkunftsform und Suite-Wunsch, ein abschaltbarer Qualitätsfilter sowie sechs aufklappbare Filterblöcke mit Pflicht/Wunsch/Egal sind angebunden. Balkon und Schlafzimmer starten als Wunsch, Suite bietet keine Pflicht-Auswahl. Schlafzimmer verwendet denselben sichtbaren Zahlenwert wie die Grundangaben. Auch ältere Profile ohne Schlafzimmer-Kriterium bleiben beim Wunsch. Ausdrückliches Egal deaktiviert die Vorgabe und sendet `schlafzimmer_min=0`; damit sind auch Einzimmer-Angebote möglich. Zahlen aktiver Kriterien werden vor dem Anlegen geprüft.
+
+Suchprofile übernehmen die Voreinstellungen in das Formular; Zielort und Reisezeit bleiben stehen. Die sichtbaren Werte werden anschließend vollständig neu eingelesen, ohne eine erneute serverseitige Profilzusammenführung: Ein gelöschtes Budget oder eine abgewählte Nebenart kehrt damit nicht aus dem Profil zurück. Quellen aus einem Profil bleiben sichtbar und werden übernommen. „Als Profil speichern“ verwendet nur erlaubte Voreinstellungen, ohne Ziel und Reisedaten; diese müssen zum Speichern noch nicht eingetragen sein. Ein gleicher Name wird sichtbar als Ersatz gekennzeichnet. Unbestätigte Schreibantworten sperren erneutes Speichern bis zum Lesen, ohne den aktuellen Formularentwurf zu verlieren.
+
+Die Serverkorrektur aus Werkstatt-Nachricht 215 erhält ausdrücklich gespeicherte Egal-Kriterien. Der Profil-Rundlauf wurde für Balkon/Egal und den gemeinsamen Schlafzimmerwert in synthetischen Browsertests geprüft; die bereitgestellten Serverfunktionen wurden lesend abgeglichen.
 
 Die bestehende Anmeldung wird verwendet. Alle Aktionen gehen als `{aktion, daten}` an `POST /app-api/aktion`, die Antwort hat die Hülle `{ok, ergebnis}`.
 
 1. Das Formular validiert Ziel, Zeitraum, Personen, Kinderalter, Schlafräume, Aufenthaltsbudget und Suchkostenlimit.
 2. Ein Klick ruft `unterkunft_suchauftrag_anlegen` und danach `unterkunft_suche_starten` auf. Bei unklarer Startantwort bleibt die gespeicherte ID erreichbar; es gibt keine automatische Schreibwiederholung.
-3. `unterkunft_suche_status` liest alle sieben Sekunden den Fortschritt. Wartende Suchen zeigen ihre Position und starten serverseitig automatisch.
-4. Erst bei `fertig: true`, Fehler oder Abbruch lädt `unterkunft_suchlauf_lesen` die vollständigen Treffer. Als final gilt ausschließlich `status=fertig` zusammen mit `fertig=true`.
+3. `unterkunft_suche_status` liest alle sieben Sekunden den Fortschritt. Wartende Suchen zeigen ihre Position und starten serverseitig automatisch. „Aktualisieren“ liest auch bei laufenden Suchen die Treffer neu und kann dadurch unklare Auswahl-/Rückmeldungszustände auflösen.
+4. Automatisch lädt `unterkunft_suchlauf_lesen` die Treffer erst bei `fertig: true`, Fehler oder Abbruch. Während eines Laufs kann der Nutzer „Vorläufige Treffer ansehen“ oder „Aktualisieren“ wählen. Die Bewertung und Statusabfrage laufen weiter; diese Treffer bleiben ausdrücklich vorläufig. Als final gilt ausschließlich `status=fertig` zusammen mit `fertig=true`.
 5. `unterkunft_suche_abbrechen` steht für laufende/wartende Suchen bereit. Vorhandene Teilergebnisse bleiben lesbar und werden nicht als finales Ranking ausgegeben.
 
 Navigation beendet ausstehende Unterkunftsabfragen und Polling. Lesefehler pausieren die Aktualisierung; „Aktualisieren“ liest erneut. Späte Antworten einer verlassenen Council-Ansicht ersetzen keine inzwischen geöffnete Unterkunftsseite. HTTP-Fehler und fehlende Antwortdaten gelten nicht als erfolgreiche Speicherung.
 
 ## Ergebnisse und Rückmeldungen
 
+Quellenabdeckung erscheint sowohl während des Laufs als auch im Ergebnis. `deckung.vollstaendig=false` oder eine nicht leere Fehlquellenliste zeigt „Keine vollständige Marktsuche“. Ohne Abdeckungsdaten wird Vollständigkeit nicht behauptet. Bei weniger als zehn fachlich bewerteten A-Treffern erscheint der Hinweis zur unzureichenden Datenlage; aktive Anzeige-Filter lösen ihn nicht aus.
+
+Treffer und Karten-Popups zeigen Preisalter, Abrufzeit und belegte/unbelegte Verfügbarkeit. „Belegt“ bezieht sich auf den Abruf, nicht auf eine Garantie aktueller Buchbarkeit. Balkon-Angaben unterscheiden bestätigte Kategorien, widersprüchliche/fehlende Angaben und die gelieferte Filterbewertung. Neue Warncodes bleiben in verständlicher Sprache sichtbar. Sprungknöpfe führen zu Unbewerteten und nach Ausschlussgrund gegliederten Treffern; deren Seitengröße bleibt begrenzt.
+
+„Unterkunft im Detail“ öffnet eine mit Tastatur schließbare Detailansicht: Bild, Zimmerkategorien mit Quelle/Abrufzeit, alle Angebote, getrennte Gästenoten, Teilnoten mit Gewicht, Begründung und Gegenprüfungs-Einwände. Nicht gelieferte Nachweise bleiben unbekannt. Insbesondere werden Noten der Hauptquelle nicht auf weitere Anbieter übertragen. Die in Nachricht 201 angefragten Kategorie-Abrufzeiten und Noten weiterer Quellen wurden mit Nachricht 215 ergänzt und an den 113 Treffern von Kyoto #5 lesend verifiziert.
+
+Rückmeldungen bieten Schnell-Gründe als editierbaren Entwurf; erst ein Urteil speichert. Der Verlauf liest mit `unterkunft_suchlauf_lesen {}` die gemeinsame Merkliste aller Reisen und die letzten zehn Suchaufträge. Gemerkte ältere Reisen bleiben enthalten; es gibt keine zusätzliche Einzelabfrage pro Reise. Bilder, Preisstand, Gästenoten und fachliche Ausschlüsse bleiben erkennbar. Ein Direktlink öffnet die richtige Listenseite und fokussiert den gemerkten Treffer. Lesefehler lassen die zuletzt gelesene Merkliste stehen. Links zur Merkliste je Reise erscheinen nur bei `gemerkt>0`. Ein Profil-Link öffnet das vorausgefüllte Suchformular. Rohdaten-Löschung nach 30 Tagen wird erklärt. Die neue Antwortform aus Nachricht 215 wurde live lesend geprüft; die derzeit leere Merkliste wurde dabei nicht verändert.
+
 A/B-Listen, noch nicht vollständig bewertete und ausgeschlossene Treffer bleiben getrennt. `topf=unbewertet` bleibt auch bei vorläufigem A/B-Kennzeichen außerhalb der Ranglisten. Liste A startet nach dem serverseitigen Rang; ein höherer Score ersetzt diese Rangfolge nicht. Warnungen, geschätzte Preise, Gegenprüfungseinwände, Datenlage und fünf Teilnoten sind sichtbar. Die Ampel beschreibt Verlässlichkeit, nicht Unterkunftsqualität. Bildurteile sind ausdrücklich KI-Einschätzungen.
 
 Ein Filter sucht in Name und Anbieter. Je Liste werden 10, 25 oder 50 Treffer pro Seite dargestellt. Sortiert wird über alle gefilterten Treffer, bevor die Seite ausgewählt wird: Rang, Preis, Score, Datenlage, Bewertungsanzahl, Luftlinie, Gehzeit und fünf Teilnoten. Fehlende Zahlen bleiben in beiden Richtungen hinten; 0 bleibt gültig, leere oder falsche Datentypen gelten als unbekannt.
+
+Weitere Filter: Ergebnisgruppe, Unterkunftsform, Gesamtpreis, Gehzeit, Gästenote (auf 10 normiert), Bewertungsanzahl, Score, Datenlage und Hotelsterne. Unbekannte Werte bleiben standardmäßig sichtbar und können abgewählt werden. Hotelsterne gelten nur für Hotel/Aparthotel/Ryokan. „Nur Gemerkte“ zeigt die persönliche Auswahl. Filter, Sortierung, Seitengröße und Listen-/Kartenansicht bleiben pro Suchauftrag im Sitzungsspeicher dieses Browser-Tabs erhalten; keine geräteübergreifende Ansichtssynchronisierung.
+
+Merken, Ausschließen, Wiederherstellen und Rückgängig schreiben ausschließlich nach Klick über `unterkunft_treffer_status_setzen`. Nur eine vollständig bestätigte Antwort gilt als gespeichert. Bei unklarer Antwort wird vor weiteren Änderungen erneut gelesen. Parallele ältere Leseantworten überschreiben keine inzwischen gespeicherte Auswahl. Persönliche Ausschlüsse erscheinen bei ausgeschlossenen Treffern und verschwinden von der Karte. Fachliche Ausschlüsse (`topf=ausgeschlossen`, etwa Budget) bleiben unabhängig vom persönlichen Status bestehen. Die Merkliste ist von Passt/Passt nicht und dem Rückmeldungsbericht getrennt.
+
+## Gezielte Nachrecherche
+
+`stay-research.js` bindet den Lückenfüller an: In Liste B können bis zu 30 aktive Treffer mit Warnungen oder Datenlücken gewählt werden. Auswahl und Felder (Zimmer/Betten, Gesamtpreis, Balkon, Storno) bleiben beim Sortieren, Filtern und Blättern erhalten; inzwischen ausgeschlossene Treffer werden aus der Auswahl entfernt. Erst „Lücken füllen (n)“ legt über `unterkunft_lueckenfueller_anlegen` einen Auftrag an. Doppelklickschutz, Bestätigung des Auftrags und ein für denselben Versuch stabiler Idempotenzschlüssel verhindern unbemerkte Wiederholungen.
+
+Die App zeigt den kopierbaren Text „Lückenfüller Auftrag <ID> ausführen“. Sie startet keine Claude-Recherche und sendet keine Nachricht automatisch. Bei verweigerter Zwischenablage lässt sich der Text manuell kopieren. Bestehende offene Aufträge können je Treffer erneut geöffnet werden. `unterkunft_lueckenfueller_lesen` zeigt die letzten 50 Aufträge: angelegt/in Arbeit/erledigt/teilweise/nicht möglich. Unklare Schreibantworten erfordern zuerst eine Statusaktualisierung; passende angelegte Aufträge werden dabei wiedergefunden. Lesefehler lassen Treffer und zuletzt gelesene Statusangaben stehen.
+
+Statusantworten und bestätigte Recherche-Aufträge aktualisieren ausschließlich die Recherche-Bedienelemente. Die Trefferliste wird dabei nicht neu aufgebaut: Ein gerade geschriebener Rückmeldungsgrund behält Fokus und Cursor, offene Angaben und Leseposition bleiben stehen. Nach dem Schließen eines Kandidatendialogs bleibt der ursprüngliche Knopf erreichbar. Unveränderte Recherche-Knöpfe werden auch beim Auswählen weiterer Treffer beibehalten.
+
+## Fotos und Landkarte
+
+Fotos aus `bild` werden ausschließlich als HTTPS-Hotlinks ohne Referrer und verzögert geladen. Referrer-Regel und Lazy-Loading werden vor `src` gesetzt, damit auch ältere Browser den Abruf bereits richtig beginnen. Fehlerhafte oder fehlende Fotos erhalten einen Platzhalter; Bilddateien werden weder kopiert noch im Service-Worker-Cache gespeichert. Die Quellenangabe stammt aus `bild_quelle`. Angebots- und Viertelquellenlinks erfordern HTTPS ohne eingebettete Zugangsdaten; Council-Beleglinks erlauben zusätzlich HTTP, ebenfalls ohne Zugangsdaten.
+
+Leaflet **1.9.4** liegt mit BSD-2-Clause-Lizenz unter `vendor/leaflet-1.9.4/`. Die Dateien entsprechen den offiziellen SHA-256-Werten: JS `20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=`, CSS `p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=`. Eigene Markierungen verwenden keine Standard-Markerbilder.
+
+Erst die Kartenansicht lädt den OpenStreetMap-Hintergrund; kein Vorladen oder Offline-Kartenarchiv. HTTP-Caching und Browser-Referrer bleiben für Kartenkacheln unverändert. Die Namensnennung bleibt sichtbar. A-Marker tragen den Rang, B-Marker sind grau, unbewertete Treffer hohl, Ziele mit Stern und Stationen mit Punkten dargestellt. Klick führt zur richtigen Seite der Ergebnisliste. Alle gefilterten aktiven Treffer sind berücksichtigt, unabhängig von der Listenseite. Ungültige Koordinaten werden gezählt; Treffer über 25 km Zielluftlinie bleiben als Marker vorhanden, aber außerhalb der anfänglichen Ausschnittsberechnung. Bei fehlendem Hintergrund bleiben Marker und Liste nutzbar.
 
 Gehzeiten zeigen bei `geschaetzt` ein „ca.“, bei `route` (alter Alias `ors`) „berechneter Fußweg“. Stationsname und Stationsluftlinie erscheinen, wenn geliefert. Die Zielluftlinie wird aus `luftlinie_ziel_m` angezeigt; fehlende Werte bleiben unbekannt. Weitere Angebote zeigen Quelle, Preis und sichere Links sowie den Hinweis, dass Zimmer nicht abgeglichen wurden. Rakuten-Quellenhinweis und unbekannte Warncodes bleiben erhalten.
 
 Jeder Treffer bietet Passt / Passt nicht / Zu teuer / Gebucht mit optionalem Grund (maximal 1000 Zeichen). Nur ein Klick schreibt über `unterkunft_rueckmeldung_geben`. Entwürfe bleiben beim Sortieren und Blättern erhalten. Aktualisieren übernimmt neue Serverurteile, ohne ungespeicherte Gründe zu verwerfen. Eine bereits laufende Leseantwort überschreibt keine zwischenzeitlich gespeicherte Rückmeldung. Die Rangfolge wird nicht geändert.
 
 Der Rückmeldungsbericht wird auf Klick über `unterkunft_rueckmeldung_report` gelesen. Unter der Schwelle liefert der Server einen Zählerstand (derzeit 20 Urteile). Inhaltlich wird der Text nicht umgeschrieben. Markdown wird mit erlaubten Formatierungselementen dargestellt, bei fehlender Bibliothek als Text. Ausführbare Inhalte und Attribute werden entfernt. Sichere HTTP(S)-Beleglinks bleiben in Council-Texten nutzbar; der Rückmeldungsbericht enthält keine aktiven Links.
+
+## Viertel entdecken und für die Suche wählen
+
+Wunsch 61 ergänzt `#/viertel`: freie Ortsabfrage, Aufruf aus einem Suchlauf und direkte Links vom Treffer sowie aus dessen Detailansicht. `unterkunft_viertel_lesen` liefert die Übersicht. Die elf Kyoto-Viertel und `zone` der 113 Treffer in Suchauftrag #5 wurden nur gelesen; die Aktionsnamen und Argumente wurden zusätzlich im bereitgestellten `app-api`-Code abgeglichen.
+
+Viertelkarten zeigen Namen, Beschreibung, Familienhinweise, Highlights, Lärm/Preisniveau, acht Noten und sichere Quellenlinks. Fehlende Noten bleiben unbekannt; eine gelieferte Null bleibt 0/10. Automatische Vorschläge sind ausdrücklich ungeprüft. Suchlaufansichten ergänzen Trefferzahl, A-Zahl, besten Rang und Preis-Median je Nacht. Die Erklärung der Noten und die OpenStreetMap-Namensnennung bleiben erreichbar. Anzeige-Filter für ruhig/ÖPNV/Nahversorgung/Gastronomie/Grün/Sehenswürdigkeiten/Zentrumsnähe sowie Sortierung wirken lokal; fehlende Zahlen stehen beim Sortieren hinten.
+
+Die Karte lädt erst nach Klick. Kreise zeigen ungefähre Radien; ruhig/belebt/laut ist grün/gelb/rot, ungeprüft gestrichelt und bestätigt durchgezogen. Klick bzw. Tastatur führt zum Viertel. Ungültige Koordinaten werden gezählt, beim Kartenausfall bleibt die Liste nutzbar. Trefferpunkte als zusätzliche Kartenebene sind nicht implementiert (optional im Auftrag).
+
+Bestätigen, Streichen mit Rückfrage, Wiederaufnehmen und Umbenennen/Notiz gehen ausschließlich nach Klick an `unterkunft_zone_entscheiden`. Nur passende ID und Status sowie ein anschließend passender gelesener Stand bestätigen die Speicherung; andernfalls sind weitere Änderungen bis zum erneuten Lesen gesperrt. Eine vorhandene Notiz kann die derzeitige Schnittstelle nur ersetzen, nicht leeren; die Oberfläche erklärt das. Ein während der laufenden Ermittlung geschriebener Notizentwurf samt Cursor bleibt bei neuen Leseantworten erhalten.
+
+Mehrfachauswahl öffnet ein neues Suchformular mit `kriterien.viertel_auswahl={modus:pflicht|wunsch,werte:[...]}`. Es wird noch keine Suche gestartet. Der Entwurf liegt nur im Sitzungsspeicher dieses Tabs. Der Formularblock „Viertel“ übernimmt die tatsächlich erlaubten Kriterien aus dem Suchprofilkatalog. Konkrete Viertel werden für den aktuellen Zielort gelesen und geprüft; Ortswechsel leeren sie. Profil-IDs brauchen vor dem Suchen dieselbe Prüfung. Nicht mehr verfügbare IDs werden mit Hinweis entfernt.
+
+„Viertel ermitteln“ nennt vor dem Klick Kosten (ca. 0,06 USD) und Dauer (1–5 Minuten). Nur dieser Klick ruft `unterkunft_viertel_erstellen` auf. Danach wird ausschließlich gelesen, auch bei unklarer Startantwort. Ein älterer abgeschlossener Lauf gilt nicht als Bestätigung der neuen Ermittlung. Bei ausbleibendem neuen Lauf endet das automatische Warten nach etwa fünf Minuten; manuelles Lesen bleibt möglich. Navigation beendet Abfragen und Timer. Bestätigte Viertel werden laut Serververtrag bei erneuter Ermittlung erhalten.
+
+Offener Vertragsabgleich, Werkstatt-Nachricht 210: `viertel_lesen.filter_katalog` nennt `viertel_zentrumsnaehe_min` und `viertel_strand_min`, die `kriterien_pruefen` noch ablehnt. Die lokale Anzeige kann Zentrumsnähe filtern, das Suchformular sendet diese beiden noch nicht akzeptierten Kriterien nicht. Sobald der gemeinsame Suchprofilkatalog sie anbietet, kann die generische Oberfläche sie darstellen.
+
+## Korrekturen aus Claudes Prüfung 211
+
+Die Pflichtpunkte Foto-Attributreihenfolge und Formularüberlauf bei 375 px sind korrigiert. Angebotslinks sind HTTPS ohne Zugangsdaten, manuelles Aktualisieren liest auch laufende Treffer, Rückmeldungen verlangen `ok`, eine positive Rückmeldungs-ID sowie passenden Treffer und Urteil. Unklare Rückmeldungen sperren erneutes Schreiben bis zum Lesen. Der Merkliste-Direktlink überschreibt keine gespeicherten Normalfilter. Die nachfolgende Serverkorrektur aus Nachricht 215 ist in App 0.15.1 berücksichtigt: Schlafzimmer/Egal hebt die Vorgabe auf, explizites Balkon/Egal bleibt im Profil erhalten, zusätzliche Nachweise werden angezeigt und die gemeinsame Merkliste nutzt den erweiterten vorhandenen Leseendpunkt.
 
 ## Offline und Anmeldung
 
@@ -47,6 +101,10 @@ Zur Installation die Seite in Safari/Chrome öffnen und „Zum Home-Bildschirm�
 
 ## Tests und Prüfstand
 
+Stand 0.15.2 (Nachricht 220): Die Viertelansicht zeigt `letzter_lauf.ki.fehler` als Klartextwarnung, auch wenn die Umgebungsdaten bereits fertig geladen sind. Vorhandene Viertel bleiben sichtbar; keine automatische kostenpflichtige Wiederholung. Ein neuer Browsertest prüft Anzeige, sichere Textdarstellung, erhaltene Viertel und das Entfernen einer nicht mehr gelieferten Fehlermeldung.
+
+Aktueller Lauf: 68 von 70 Tests bestanden. Die beiden echten Netzwerk-/Service-Worker-Tests konnten wegen `ERR_NETWORK_ACCESS_DENIED` auf localhost nicht ausgeführt werden. Der frühere 69/69-Stand gilt für 0.15.1 und ersetzt diese erneute Prüfung nicht. Syntax und Diff geprüft. Für isolierte Darstellungstests kann `PW_TEST_OFFLINE_ASSETS=1` App-Dateien direkt als Testantwort bereitstellen; dies prüft ausdrücklich keinen HTTP-Cache und keinen Service Worker. `PW_TEST_EXECUTABLE` erlaubt die Auswahl eines vorhandenen Testbrowsers. Dieser Lauf nutzte Playwright 1.57.0 aus der vorhandenen Laufzeit mit Chromium-Build 1234; die Projektabhängigkeit bleibt 1.62.1. Vor Veröffentlichung die beiden Netzwerktests und Gegenprüfung nachholen.
+
 Voraussetzung: Node.js >= 20.
 
 ```sh
@@ -55,7 +113,7 @@ npx playwright install chromium
 npm test
 ```
 
-**28 Browsertests** prüfen Formular/API-Reihenfolge, Doppelklick, Warteschlange/Bewertung, Abbruch, Fehler/401, unvollständige Antworten, Navigation, Ranking, Sortierung/Filter/Seiten, Rückmeldungen samt überlappender Lese-/Schreibvorgänge, Markdown/Links, mobile und Tablet-Breiten, Tastaturbedienung sowie Offline-Hülle/Cache-Isolation und das Update mit bereits gefülltem HTTP-Cache. Die Tests verwenden synthetische Antworten und starten keine echte Suche oder Rückmeldung. Screenshots liegen ignoriert in `test-results/`.
+**69 Browsertests** prüfen Formular/API-Reihenfolge, Doppelklick, Warteschlange/Bewertung, Abbruch, Fehler/401, unvollständige Antworten, Navigation, Ranking, Sortierung/Filter/Seiten, Rückmeldungen und persönliche Auswahl samt überlappender Lese-/Schreibvorgänge, Fotos/Referrer/Platzhalter, Kartenfilter/Ausschlüsse/Nullkoordinaten/Listensprung, gespeicherte Filter, Lückenfüller-Auswahl/30er-Grenze/Doppelklick/Fehlerwiederherstellung/Kopieren/Status, Reisearten/Kriterien/Profilwechsel/Profil-Speicherung/Katalogfehler, vorläufige Ergebnisse/Polling, Abdeckung/Preisnachweise, Kandidatendialog/Fokus, Schnell-Gründe und Verlauf, globale Merkliste mit älteren Reisen/Lesefehlern/Treffersprung, Schlafzimmer-Standards und Profil-Rundlauf, Viertel/Karte/Ortswechsel/Entscheidungen/Ermittlung und deren Fehlerfälle, Markdown/Links, mobile und Tablet-Breiten, Tastaturbedienung sowie Offline-Hülle/Cache-Isolation und das Update mit bereits gefülltem HTTP-Cache. Die Tests verwenden synthetische Antworten und starten keine echte Suche, Auswahländerung oder Rückmeldung. Fotos und Kartenkacheln werden in den Tests simuliert, ohne externe Kartendienste abzufragen. Screenshots liegen ignoriert in `test-results/`.
 
 Am 16.10.2026 wurden Suchlauf #2 und der Rückmeldungsbericht über den vorhandenen Lesezugang geprüft; ihre Daten werden nicht eingecheckt. Claudes Kyoto-Lauf #5 wurde durch diese UI-Arbeiten nicht gestartet, gestoppt oder verändert.
 
@@ -65,6 +123,11 @@ Claude hat die Schnittstellen in Werkstatt-Nachricht 165 geprüft und die App na
 
 Werkstatt-Wunsch 41: App-Verantwortung bei ChatGPT, Backend bei Claude. Vor Änderungen `app:repo` sperren, vorhandenen Featurestand prüfen, danach Änderungen protokollieren und die Sperre freigeben. Größere Änderungen gehen zur Gegenprüfung; Sebastian entscheidet über Veröffentlichung.
 
+Der Ausbau 0.11.0 gehört zu Wunsch 50 (Fotos/Karte) und Wunsch 33 (Filter/Auswahl). Die für 0.10.x erteilte Veröffentlichungserlaubnis ersetzt nicht die Abnahme dieses Ausbaus. Ausbau 0.12.0 ergänzt Wunsch 51 (Lückenfüller) in einem eigenen Folge-PR. Ausbau 0.13.0 ergänzt Wunsch 54 (erweiterte Suche/Suchprofile); 0.14.1 ergänzt Wunsch 57 (Konzept-Abgleich und Fokuskorrektur). Ausbau 0.15.1 ergänzt Wunsch 61, die App-Korrekturen aus Gegenprüfung 211 und die Anbindung der Serverkorrektur 215 einschließlich gemeinsamer Merkliste (Wunsch 62).
+
 
 ### Kyoto-Abgleich (App 0.10.1)
+
+Historischer Stand vor Claudes Budgetkorrektur aus Nachricht 170. Aktuell nach der Korrektur: A16, B23, unbewertet48, ausgeschlossen26. Der neue Lesevertrag liefert 113 Fotos und 34 Stationen. Die App-Arbeiten haben diese Daten nicht verändert.
+
 Werkstatt-Nachricht 162 und Suchlauf #5 wurden lesend abgeglichen: 143 gesammelt, 30 Doppel zusammengeführt, 113 verbleibend (A16, B26, noch nicht vollständig bewertet65, ausgeschlossen6). 15 Fußwege tragen `route`, 92 `geschaetzt`. Die Anzeige wurde lokal mit der gelesenen Antwort bei 390/768/1366 Pixeln nachgespielt; dabei wurden ausschließlich Leseaktionen simuliert. Dieser Darstellungstest ist kein angemeldeter End-to-End-Test gegen app-api. Echte Daten bleiben außerhalb der eingecheckten Testfixtures.

@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.10.2';
+const APP_VERSION = '0.15.2';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -13,9 +13,8 @@ const el = (tag, attrs = {}, ...kids) => {
   const n = document.createElement(tag);
   for (const [k, v] of Object.entries(attrs)) {
     if (k === 'class') n.className = v;
-    else if (k === 'html') n.innerHTML = v;
     else if (k.startsWith('on')) n.addEventListener(k.slice(2), v);
-    else if (v !== null && v !== undefined && v !== false) n.setAttribute(k, v === true ? '' : v);
+    else if (v !== null && v !== undefined && (v !== false || k.startsWith('aria-'))) n.setAttribute(k, typeof v === 'boolean' && k.startsWith('aria-') ? String(v) : v === true ? '' : v);
   }
   for (const k of kids.flat()) if (k !== null && k !== undefined) n.append(k.nodeType ? k : document.createTextNode(String(k)));
   return n;
@@ -40,7 +39,7 @@ function md(text, { links = true } = {}) {
   const copy = node => {
     if (node.nodeType === Node.TEXT_NODE) return document.createTextNode(node.textContent);
     if (['SCRIPT', 'STYLE', 'IFRAME', 'OBJECT', 'TEMPLATE', 'SVG', 'MATH'].includes(node.nodeName)) return document.createDocumentFragment();
-    const url = links && node.nodeName === 'A' ? sucheLink(node.getAttribute('href')) : null;
+    const url = links && node.nodeName === 'A' ? sucheLink(node.getAttribute('href'), { allowHttp: true }) : null;
     const out = url ? el('a', { href: url, target: '_blank', rel: 'noopener noreferrer' }) : allowed.has(node.nodeName) ? document.createElement(node.nodeName.toLowerCase()) : document.createDocumentFragment();
     node.childNodes.forEach(child => out.append(copy(child)));
     return out;
@@ -175,7 +174,7 @@ function parseHash() {
 window.addEventListener('hashchange', render);
 
 function setChrome(title, { back = false, showTabs = true, tab = null } = {}) {
-  const area = current.view === 'login' ? 'login' : current.view === 'start' ? 'start' : ['suche', 'ergebnisse'].includes(current.view) ? 'unterkunft' : 'council';
+  const area = current.view === 'login' ? 'login' : current.view === 'start' ? 'start' : ['suche', 'ergebnisse', 'viertel'].includes(current.view) ? 'unterkunft' : 'council';
   document.body.dataset.area = area;
   for (const meta of document.querySelectorAll('meta[name="theme-color"]')) meta.content = ['unterkunft', 'start'].includes(area) ? '#f6f4ec' : meta.media.includes('dark') ? '#101721' : '#f4f6f8';
   $('#areas').hidden = area === 'login';
@@ -206,7 +205,7 @@ async function render() {
   disposeSuche = () => {};
   current = parseHash();
   if (!store.token && current.view !== 'login') { route('login'); return; }
-  const views = { start: viewStart, login: viewLogin, auftraege: viewAuftraege, auftrag: viewAuftrag, neu: viewNeu, einstellungen: viewEinstellungen, werkstatt: viewWerkstatt, suche: viewSuche, ergebnisse: () => viewSuche(null, { historyOnly: true }) };
+  const views = { start: viewStart, login: viewLogin, auftraege: viewAuftraege, auftrag: viewAuftrag, neu: viewNeu, einstellungen: viewEinstellungen, werkstatt: viewWerkstatt, suche: viewSuche, viertel: viewViertel, ergebnisse: () => viewSuche(null, { historyOnly: true }) };
   const fn = views[current.view] || (() => route('start'));
   try { await fn(current.arg); } catch (e) { if (live()) showError(e); }
 }
@@ -835,24 +834,25 @@ function sucheDatenlage(t) {
   const noten = t.bewertung?.spaltennoten;
   return sucheZahl(noten && Object.hasOwn(noten, 'datenlage_score') ? noten.datenlage_score : t.bewertung?.datenlage);
 }
-const SUCHE_QUELLEN = { hasdata_booking: 'Booking', apify_airbnb: 'Airbnb', rakuten_travel: 'Rakuten Travel', trivago_mcp: 'Trivago' };
+const SUCHE_QUELLEN = { hasdata_booking: 'Booking', apify_airbnb: 'Airbnb', rakuten_travel: 'Rakuten Travel', rakuten: 'Rakuten Travel', trivago_mcp: 'Trivago' };
 const SUCHE_WARNUNGEN = {
   futon: 'Futon', schlafsofa: 'Schlafsofa', etagenbett: 'Etagenbett', schlafplatz_wohnzimmer: 'Schlafplatz im Wohnzimmer',
   steuern_unklar: 'Steuern unklar', wenig_bewertungen: 'Wenige Bewertungen', weit_vom_ziel: 'Weit vom Ziel',
   preis_geschaetzt: 'Preis geschätzt', zwei_zimmer: '2 getrennte Zimmer', '2_zimmer': '2 getrennte Zimmer',
   doppelbett_geteilt: 'Doppelbett wird geteilt', schmales_bett: 'Schmales Bett <140 cm',
   gegenpruefung_einwand: 'Gegenprüfung hat Einwände',
+  unbewertet_chance: 'Wenige Bewertungen – bekommt eine Chance', pflicht_unbekannt: 'Pflichtangabe noch ungeklärt',
   preis_2zimmer_unklar: 'Preis für zwei Zimmer unklar', betten_unklar: 'Betten unklar', zimmer_unbekannt: 'Zimmer unbekannt', ueber_budget: 'Über Budget',
 };
 const sucheZahl = (v) => !['number', 'string'].includes(typeof v) || String(v).trim() === '' || !Number.isFinite(Number(v)) ? null : Number(v);
 const sucheEuro = (v) => sucheZahl(v) === null ? 'Preis unbekannt' : Number(v).toLocaleString('de-DE', { style: 'currency', currency: 'EUR' });
 function sucheGruppe(t) {
-  if (t.topf === 'ausgeschlossen') return 'ausgeschlossen';
+  if (t.topf === 'ausgeschlossen' || t.status === 'ausgeschlossen') return 'ausgeschlossen';
   if (t.topf === 'unbewertet') return 'offen';
   return ['A', 'B'].includes(t.bewertung?.liste) ? t.bewertung.liste : 'offen';
 }
-function sucheLink(value) {
-  try { const u = new URL(value); return ['https:', 'http:'].includes(u.protocol) ? u.href : null; } catch { return null; }
+function sucheLink(value, { allowHttp = false } = {}) {
+  try { const u = new URL(value); return (u.protocol === 'https:' || (allowHttp && u.protocol === 'http:')) && !u.username && !u.password ? u.href : null; } catch { return null; }
 }
 function sucheVergleich(a, b, key, direction) {
   const value = (t) => key === 'name' ? t.name : key === 'preis' ? sucheZahl(t.angebot?.preis_gesamt_eur) :
@@ -862,36 +862,48 @@ function sucheVergleich(a, b, key, direction) {
   if (x == null || y == null) return x == null && y == null ? 0 : x == null ? 1 : -1;
   return (typeof x === 'string' ? x.localeCompare(String(y), 'de') : x - y) * direction;
 }
-function sucheFormDaten(form) {
-  const f = new FormData(form), get = (key) => String(f.get(key) ?? '').trim();
+function sucheFormDaten(form, { profileOnly = false } = {}) {
+  const f = new FormData(form), get = (key) => key === 'schlafzimmer_min' && form.elements.schlafzimmer_min.disabled ? '0' : String(f.get(key) ?? '').trim();
   const kinder = get('kinder_alter');
   if (kinder && !/^\d{1,2}(\s*,\s*\d{1,2})*$/.test(kinder)) throw new Error('Kinderalter bitte durch Kommas trennen, z. B. 13, 11.');
   const alter = kinder ? kinder.split(',').map(Number) : [];
   if (alter.some((n) => n > 17)) throw new Error('Kinderalter muss zwischen 0 und 17 liegen.');
   const datum = (s) => /^\d{4}-\d{2}-\d{2}$/.test(s) && !isNaN(Date.parse(s)) && new Date(s).toISOString().slice(0, 10) === s;
-  if (!datum(get('anreise')) || !datum(get('abreise')) || get('abreise') <= get('anreise')) throw new Error('Abreise muss nach der Anreise liegen.');
+  if (!profileOnly && (!datum(get('anreise')) || !datum(get('abreise')) || get('abreise') <= get('anreise'))) throw new Error('Abreise muss nach der Anreise liegen.');
   const d = { ziel: get('ziel'), anreise: get('anreise'), abreise: get('abreise'), erwachsene: Number(get('erwachsene')),
     kinder_alter: alter, schlafzimmer_min: Number(get('schlafzimmer_min')), max_je_quelle: Number(get('max_je_quelle')), limit_usd: Number(get('limit_usd')) };
-  if (d.ziel.length < 2) throw new Error('Bitte einen Zielort angeben.');
+  if (!profileOnly && d.ziel.length < 2) throw new Error('Bitte einen Zielort angeben.');
   for (const [key, min, max, integer] of [['erwachsene', 1, 10, true], ['schlafzimmer_min', 0, 6, true], ['max_je_quelle', 5, 100, true], ['limit_usd', 0, 10, false]]) {
     if (!get(key) || !Number.isFinite(d[key]) || d[key] < min || d[key] > max || (integer && !Number.isInteger(d[key]))) throw new Error('Bitte die Zahlenfelder innerhalb der angegebenen Grenzen ausfüllen.');
   }
   if (get('budget_eur')) { d.budget_eur = Number(get('budget_eur')); if (!Number.isFinite(d.budget_eur) || d.budget_eur <= 0) throw new Error('Das Aufenthaltsbudget muss größer als 0 sein.'); }
   if (get('land')) { d.land = get('land').toUpperCase(); if (!/^[A-Z]{2}$/.test(d.land)) throw new Error('Land bitte als zweistelligen Code angeben, z. B. JP.'); }
+  if (profileOnly) { delete d.ziel; delete d.anreise; delete d.abreise; }
   return d;
 }
 
 async function viewSuche(idStr, { historyOnly = false } = {}) {
-  setChrome(idStr || historyOnly ? 'Unterkunft / Ergebnisse' : 'Unterkunft / Suche', { tab: idStr || historyOnly ? 'ergebnisse' : 'suche', back: !!idStr });
+  const profilePreset = /^profil-(\d+)$/.exec(idStr || '')?.[1];
+  let districtPreset = null;
+  if (idStr === 'viertel') {
+    try {
+      const v = JSON.parse(sessionStorage.getItem('ks_viertel_entwurf') || 'null');
+      if (typeof v?.stadt === 'string' && ['pflicht','wunsch'].includes(v.modus) && Array.isArray(v.werte) && v.werte.length && v.werte.every(viertelId)) districtPreset = v;
+    } catch { /* Auswahl muss bei fehlendem Sitzungsspeicher neu erfolgen. */ }
+  }
+  const hasRun = !!idStr && !profilePreset && idStr !== 'viertel';
+  setChrome(hasRun || historyOnly ? 'Unterkunft / Ergebnisse' : 'Unterkunft / Suche', { tab: hasRun || historyOnly ? 'ergebnisse' : 'suche', back: !!idStr });
   const entryView = parseHash().view;
   let disposed = false, timer, busy = false, snapshot = null;
   const requests = new Set();
   const feedbackStates = new Map();
-  let sort = { key: 'rang', direction: 1 }, snapshotStatus = null;
+  const selectionStates = new Map();
+  let mapView = null, showMap = false, filteredRows = [], lastSelection = null;
+  let sort = { key: 'rang', direction: 1 }, snapshotStatus = null, latestStatus = null;
   const pages = new Map();
   const scope = el('div', { class: 'suche' });
   main.replaceChildren(scope);
-  disposeSuche = () => { disposed = true; clearTimeout(timer); requests.forEach((c) => c.abort()); };
+  disposeSuche = () => { disposed = true; clearTimeout(timer); requests.forEach((c) => c.abort()); mapView?.destroy(); scope.querySelectorAll('dialog.stay-candidate').forEach(d => { d.close(); d.remove(); }); };
   const live = () => !disposed && scope.isConnected && parseHash().view === entryView && parseHash().arg === idStr;
   async function call(name, daten = {}) {
     const requestController = new AbortController();
@@ -907,7 +919,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     } finally { clearTimeout(timeout); requests.delete(requestController); }
   }
   const notice = el('p', { role: 'status', 'aria-live': 'polite', class: 'small' });
-  if (!idStr) {
+  if (!hasRun) {
     if (!historyOnly) scope.append(el('section', { class: 'stay-hero' },
       el('p', { class: 'eyebrow' }, 'REISEN, WIE IHR ES LIEBT'),
       el('h2', {}, 'Wohnen, wo sich die Reise richtig anfühlt.'),
@@ -918,6 +930,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     const grid = el('div', { class: 'suche-grid' });
     const input = (name, label, attrs) => grid.append(el('label', {}, label, el('input', { name, ...attrs })));
     input('ziel', 'Zielort', { required: true, minlength: 2, maxlength: 200, placeholder: 'z. B. Tokyo' });
+    if (districtPreset) grid.querySelector('[name=ziel]').value = districtPreset.stadt;
     input('land', 'Land (optional, z. B. JP)', { maxlength: 2, pattern: '[A-Za-z]{2}', placeholder: 'Automatisch erkennen' });
     input('anreise', 'Anreise', { type: 'date', required: true });
     input('abreise', 'Abreise', { type: 'date', required: true });
@@ -928,6 +941,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     input('max_je_quelle', 'Treffer je Quelle (5–100)', { type: 'number', min: 5, max: 100, value: 50, required: true });
     input('limit_usd', 'Suchkostenlimit (USD, 0–10)', { type: 'number', min: 0, max: 10, step: 0.01, value: 1.5, required: true });
     const submit = el('button', { type: 'submit', class: 'primary' }, 'Anlegen und Suche starten');
+    let profileReady = false;
     const sections = el('div', { class: 'suche-panel-grid' });
     for (const [nr, title, names] of [
       ['01', 'Reiseziel & Zeitraum', ['ziel', 'land', 'anreise', 'abreise']],
@@ -948,13 +962,15 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       const children = String(f.get('kinder_alter') || '').split(',').filter((v) => v.trim()).length;
       tripSummary.replaceChildren(el('span', {}, 'Eure Reise'), el('strong', {}, Number.isFinite(nights) && nights > 0 ? `${nights} Nächte · ${f.get('erwachsene')} Erwachsene${children ? ` · ${children} Kinder` : ''}` : 'Wohin soll es gehen?'), el('small', {}, f.get('budget_eur') ? sucheEuro(f.get('budget_eur')) + ' Gesamtbudget' : 'Reisedaten eintragen und passende Unterkünfte entdecken.'));
     }
-    fields.append(sections, el('div', { class: 'search-submit-bar' }, tripSummary, submit));
+    const extended = sucheErweitertesFormular(form, call, live, value => { profileReady = value; submit.disabled = !value || busy; }, value => { busy = value; fields.disabled = value; submit.disabled = value || !profileReady; }, profilePreset, districtPreset);
+    fields.append(extended.profilePanel, sections, extended.tripPanel, extended.qualityPanel, extended.filtersPanel, el('div', { class: 'search-submit-bar' }, tripSummary, submit));
     form.append(fields, notice);
+    if (idStr === 'viertel' && !districtPreset) notice.textContent = 'Die Viertelauswahl ist nicht mehr verfügbar. Bitte im Block „Viertel“ neu auswählen.';
     form.addEventListener('input', updateTripSummary); updateTripSummary();
     if (!historyOnly) scope.append(form);
     form.addEventListener('submit', async (event) => {
-      event.preventDefault(); if (busy || !form.reportValidity()) return;
-      let daten; try { daten = sucheFormDaten(form); } catch (e) { notice.textContent = e.message; return; }
+      event.preventDefault(); if (busy || !profileReady || !form.reportValidity()) return;
+      let daten; try { daten = { ...sucheFormDaten(form), ...extended.values() }; } catch (e) { notice.textContent = e.message; return; }
       busy = true; fields.disabled = true; notice.textContent = 'Suchauftrag wird angelegt …';
       let id = null;
       try {
@@ -979,24 +995,50 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     });
     const recent = el('section', { class: 'card recent-searches' }, el('h2', {}, 'Letzte Suchaufträge'));
     const list = el('div', { class: 'recent-grid' });
+    const recentNotice = el('p', { class: 'small', role: 'status' });
     const refresh = el('button', { type: 'button', onclick: loadRecent }, 'Suchaufträge aktualisieren');
-    recent.append(refresh, list); scope.append(recent);
+    const refreshFavorites = el('button', { type: 'button', onclick: loadRecent }, 'Merkliste aktualisieren');
+    const favoritesContent = el('div'), favoritesNotice = el('p', { class: 'small', role: 'status' });
+    const allFavorites = el('section', { class: 'card global-favorites' }, el('h2', {}, 'Gemerkte Unterkünfte – alle Reisen'), refreshFavorites, favoritesNotice, favoritesContent);
+    let readingRecent = false;
+    if (historyOnly) scope.append(allFavorites);
+    recent.append(refresh, recentNotice, list); scope.append(recent);
+    recent.append(el('p', { class: 'small muted' }, 'Hier stehen die letzten zehn Suchaufträge. Die gemeinsame Merkliste umfasst alle Reisen. Rohdaten werden nach 30 Tagen entfernt.'));
+    const historyProfiles = el('section', { class: 'card' }, el('h2', {}, 'Gespeicherte Suchprofile'));
+    if (historyOnly) scope.append(historyProfiles);
+    async function loadHistoryProfiles() {
+      try {
+        const r = await call('unterkunft_suchprofile_lesen'); if (!live()) return;
+        if (!Array.isArray(r.profile)) throw new Error('Suchprofile unvollständig.');
+        const entries = r.profile.filter(p => Number.isSafeInteger(p?.id) && typeof p.name === 'string');
+        historyProfiles.append(entries.length ? el('ul', {}, entries.map(p => el('li', {}, el('a', { href: '#/suche/profil-' + p.id }, 'Neue Suche mit Profil „' + p.name + '“')))) : el('p', {}, 'Noch keine Suchprofile gespeichert.'));
+      } catch (e) { if (live()) historyProfiles.append(el('p', {}, e.message)); }
+    }
     async function loadRecent() {
-      if (busy) return;
-      refresh.disabled = true;
+      if (busy || readingRecent) return;
+      readingRecent = true; refresh.disabled = refreshFavorites.disabled = true; recentNotice.textContent = 'Suchaufträge werden geladen …';
       try {
         const r = await call('unterkunft_suchlauf_lesen'); if (!live()) return;
         const rows = Array.isArray(r) ? r : r?.suchauftraege;
         if (!Array.isArray(rows)) throw new Error('Unerwartete Antwort beim Lesen der letzten Suchaufträge.');
-        list.replaceChildren(...rows.map((a) => el('a', { class: 'recent-trip', href: '#/suche/' + a.id }, el('span', { class: 'eyebrow' }, 'REISE #' + a.id), el('strong', {}, a.ziel), el('span', {}, `${fmtDate(a.anreise)}–${fmtDate(a.abreise)}`), el('span', { class: 'recent-trip-meta' }, `${a.treffer ?? '–'} Treffer · ${a.status} ↗`))));
+        list.replaceChildren(...rows.map((a) => el('article', { class: 'recent-trip' }, el('a', { class: 'recent-trip-content', href: '#/suche/' + a.id }, el('span', { class: 'eyebrow' }, 'REISE #' + a.id), el('strong', {}, a.ziel), el('span', {}, `${fmtDate(a.anreise)}–${fmtDate(a.abreise)}`), el('span', { class: 'recent-trip-meta' }, `${a.treffer ?? '–'} Treffer · ${a.status || 'Status unbekannt'} ↗`)), sucheZahl(a.gemerkt) > 0 ? el('a', { href: '#/suche/' + a.id + '?favoriten=1', class: 'small' }, 'Gemerkte in ' + a.ziel) : null)));
         if (!rows.length) list.append(el('div', { class: 'stay-empty' }, el('strong', {}, 'Die nächste Reise beginnt hier.'), el('p', {}, 'Sobald du eine Suche startest, findest du hier ihren Fortschritt und ihre Ergebnisse.'), historyOnly ? el('a', { href: '#/suche' }, 'Erste Unterkunft suchen →') : null));
-      } catch (e) { if (live()) list.textContent = e.message; }
-      finally { refresh.disabled = false; }
+        recentNotice.textContent = '';
+        if (historyOnly) {
+          try { const view = sucheMerkliste(r.merkliste); favoritesContent.replaceChildren(view); favoritesNotice.textContent = ''; }
+          catch (e) { favoritesNotice.textContent = 'Merkliste nicht geladen: ' + e.message; }
+        }
+      } catch (e) { if (live()) { recentNotice.textContent = e.message; if (historyOnly) favoritesNotice.textContent = 'Merkliste nicht aktualisiert: ' + e.message; } }
+      finally { readingRecent = false; refresh.disabled = refreshFavorites.disabled = false; }
     }
-    await loadRecent(); return;
+    await Promise.all([loadRecent(), historyOnly ? loadHistoryProfiles() : extended.load()]); return;
   }
-  const id = Number(idStr);
+  const [idPart, viewQuery = ''] = String(idStr).split('?');
+  const id = Number(idPart), favoritesOnly = new URLSearchParams(viewQuery).get('favoriten') === '1';
+  let focusHit = Number(new URLSearchParams(viewQuery).get('treffer'));
   if (!Number.isSafeInteger(id) || id <= 0) { scope.append(el('p', {}, 'Ungültige Suchauftragsnummer.')); return; }
+  let savedView = {}, restoredView = false;
+  try { savedView = JSON.parse(sessionStorage.getItem('ks_suche_view:' + id) || '{}') || {}; } catch { /* Standards nutzen */ }
   scope.append(el('div', { class: 'stay-page-heading' }, el('p', { class: 'eyebrow' }, 'EIN GUTER ORT FÜR EURE REISE'), el('h2', {}, 'Unterkünfte vergleichen')));
   const reportText = el('div', { class: 'feedback-report' });
   const reportNotice = el('p', { role: 'status' });
@@ -1023,11 +1065,43 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   const controls = el('section', { class: 'card result-controls', hidden: true, 'aria-label': 'Treffer auswählen und sortieren' },
     el('label', {}, 'Treffer filtern', filter), el('label', {}, 'Sortieren nach', sortSelect),
     el('div', { class: 'sort-direction' }, directionButton), el('label', {}, 'Treffer je Liste und Seite', pageSize), filterCount);
+  const filters = sucheFilterPanel(() => { pages.clear(); draw(); }); filters.node.hidden = true;
+  const mapPanel = el('section', { class: 'card stay-map-panel', hidden: true });
+  const listButton = el('button', { type: 'button', onclick: () => { showMap = false; draw(); } }, 'Liste / Tabelle');
+  const mapButton = el('button', { type: 'button', onclick: () => { showMap = true; draw(); } }, 'Karte');
+  const viewButtons = el('div', { class: 'actions result-view-switch', hidden: true, role: 'group', 'aria-label': 'Ergebnisansicht' }, listButton, mapButton);
+  const undoSelection = el('button', { type: 'button', hidden: true, onclick: () => selectionStates.get(lastSelection)?.undoAction() }, 'Letzte Auswahl rückgängig');
+  const research = sucheLuecken(id, call, live);
+  const preview = el('button', { type: 'button', hidden: true, onclick: async () => {
+    if (busy || !latestStatus || !['wartet','laeuft'].includes(latestStatus.status)) return;
+    busy = true; clearTimeout(timer); preview.disabled = refresh.disabled = start.disabled = cancel.disabled = true;
+    try { await readSnapshot(latestStatus); if (live()) notice.textContent = 'Vorläufige Treffer. Die Bewertung läuft weiter; die Rangfolge kann sich noch ändern.'; }
+    catch (e) { if (live()) notice.textContent = 'Vorläufige Treffer nicht geladen: ' + e.message; }
+    finally { busy = false; if (live()) { preview.disabled = refresh.disabled = start.disabled = cancel.disabled = false; timer = setTimeout(poll, 7000); } }
+  } }, 'Vorläufige Treffer ansehen');
+  function selectionChanged(t, state) {
+    const current = snapshot?.treffer.find(row => row.treffer_id === t.treffer_id);
+    if (current) current.status = state.saved;
+    lastSelection = t.treffer_id;
+    notice.textContent = (t.name || 'Unterkunft') + ': ' + state.message;
+    draw();
+    const row = results.querySelector(`[data-hit="${t.treffer_id}"]`);
+    (row?.getClientRects().length ? row : undoSelection.hidden ? refresh : undoSelection).focus({ preventScroll: true });
+  }
+  function showHit(t) {
+    const group = sucheGruppe(t), size = Number(pageSize.value);
+    const items = filteredRows.filter(row => sucheGruppe(row) === group).sort((a, b) => sucheVergleich(a, b, sort.key, sort.direction));
+    pages.set(group, Math.floor(items.findIndex(row => row.treffer_id === t.treffer_id) / size));
+    showMap = false; draw();
+    const row = results.querySelector(`[data-hit="${t.treffer_id}"]`);
+    const section = row?.closest('details[data-group="ausgeschlossen"]'); if (section) section.open = true;
+    row?.focus({ preventScroll: true }); row?.scrollIntoView({ block: 'center' });
+  }
   function changeSort(key, toggle = false) {
     sort = { key, direction: toggle && sort.key === key ? -sort.direction : ['name', 'preis', 'entfernung', 'gehzeit', 'rang'].includes(key) ? 1 : -1 };
     pages.clear(); draw();
   }
-  const refresh = el('button', { onclick: () => poll() }, 'Aktualisieren');
+  const refresh = el('button', { onclick: () => poll({ readResults: true }) }, 'Aktualisieren');
   const start = el('button', { class: 'primary', hidden: true, onclick: async () => {
     if (busy) return; busy = true; start.disabled = refresh.disabled = true;
     let error = '';
@@ -1051,7 +1125,8 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       if (error && live()) notice.textContent = 'Abbrechen nicht bestätigt: ' + error + ' Bitte den aktuellen Status prüfen.';
     }
   } }, 'Suche abbrechen');
-  scope.append(el('div', { class: 'actions' }, el('a', { href: '#/suche' }, 'Neue Suche / letzte Aufträge'), refresh, start, cancel), notice, summary, controls, results, report);
+  const resultLinks = el('nav', { class: 'actions result-jumps', 'aria-label': 'Weitere Ergebnisgruppen' });
+  scope.append(el('div', { class: 'actions' }, el('a', { href: '#/suche' }, 'Neue Suche / letzte Aufträge'), el('a', { href: viertelHref({suche:id}) }, 'Viertel dieser Reise entdecken'), refresh, start, cancel, preview, undoSelection), notice, summary, controls, filters.node, viewButtons, resultLinks, mapPanel, results, report);
   function draw() {
     if (!snapshot) return;
     const openDetails = new Set([...results.querySelectorAll('details[open][data-detail]')].map((n) => n.dataset.detail));
@@ -1067,13 +1142,35 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
         s.fehler ? el('p', { class: 'err-text' }, String(s.fehler)) : null,
         s.gehzeit?.fehler ? el('p', { class: 'err-text' }, 'Gehzeiten: ' + s.gehzeit.fehler) : null))),
       el('p', { class: 'erg-warnung' }, phase.final ? 'Bewertung abgeschlossen. Endscore aus Raum, Lage, Preis-Leistung, Bewertungen und Eignung. Die Datenlage zeigt die Abdeckung; die Ampel beschreibt die Verlässlichkeit, nicht die Qualität. Offene Angaben und Einwände bleiben relevant.' : phase.failed ? 'Bewertung unterbrochen. Die Rangliste ist noch nicht abschließend; vorhandene Ergebnisse bleiben sichtbar.' : 'Zwischenstand: Die Rangliste ist erst nach Abschluss der Bewertungsstufe fertig. Teilnoten und Datenlage zeigen, welche Angaben bereits vorliegen.'));
+    summary.append(sucheDeckung(snapshot.deckung || snapshotStatus?.deckung));
+    const aCount = snapshot.treffer.filter(t => t.topf !== 'ausgeschlossen' && t.topf !== 'unbewertet' && t.bewertung?.liste === 'A').length;
+    if (phase.final && aCount < 10) summary.append(el('p', { class: 'erg-warnung' }, `Datenlage reicht noch nicht für 10 Empfehlungen in Liste A (derzeit ${aCount}).`));
+    if (a.rohdaten_bis) summary.append(el('p', { class: 'small muted' }, 'Rohdaten werden nach 30 Tagen entfernt. Frist: ' + sucheAbruf(a.rohdaten_bis)));
     results.replaceChildren();
     controls.hidden = false;
+    filters.node.hidden = viewButtons.hidden = false;
+    filters.setTypes(snapshot.treffer);
+    if (!restoredView) {
+      restoredView = true;
+      filter.value = typeof savedView.needle === 'string' ? savedView.needle : '';
+      filters.restore(savedView.filters);
+      if ([...sortSelect.options].some(o => o.value === savedView.sort?.key)) sort = { key: savedView.sort.key, direction: savedView.sort.direction === -1 ? -1 : 1 };
+      if ([10, 25, 50].includes(savedView.pageSize)) pageSize.value = String(savedView.pageSize);
+      showMap = savedView.map === true;
+      if (favoritesOnly) { filter.value = ''; filters.restore({ favoriten: true, unbekannt: true }); showMap = false; }
+    }
     sortSelect.value = sort.key;
     directionButton.textContent = sort.direction === 1 ? 'Aufsteigend ↑' : 'Absteigend ↓';
     const needle = filter.value.trim().toLocaleLowerCase('de');
     const rows = snapshot.treffer.filter(t => [t.name, t.quelle, SUCHE_QUELLEN[t.quelle], t.angebot?.anbieter,
-      ...(Array.isArray(t.weitere_angebote) ? t.weitere_angebote.flatMap(a => [a?.anbieter, a?.quelle, SUCHE_QUELLEN[a?.quelle]]) : [])].some(value => String(value || '').toLocaleLowerCase('de').includes(needle)));
+      ...(Array.isArray(t.weitere_angebote) ? t.weitere_angebote.flatMap(a => [a?.anbieter, a?.quelle, SUCHE_QUELLEN[a?.quelle]]) : [])].some(value => String(value || '').toLocaleLowerCase('de').includes(needle)) && sucheFilterTreffer(t, filters.value()));
+    filteredRows = rows;
+    try { if (!favoritesOnly) sessionStorage.setItem('ks_suche_view:' + id, JSON.stringify({ needle: filter.value, filters: filters.value(), sort, pageSize: Number(pageSize.value), map: showMap })); } catch { /* Ansicht bleibt in diesem geöffneten Lauf erhalten. */ }
+    listButton.setAttribute('aria-pressed', String(!showMap)); mapButton.setAttribute('aria-pressed', String(showMap));
+    mapPanel.hidden = !showMap; results.hidden = showMap;
+    if (showMap) { if (!mapView) mapView = sucheKarte(mapPanel, showHit); mapView.update(rows, snapshot.karte); }
+    undoSelection.hidden = !selectionStates.get(lastSelection)?.undo;
+    undoSelection.disabled = !!(selectionStates.get(lastSelection)?.pending || selectionStates.get(lastSelection)?.refreshRequired);
     filterCount.textContent = `${rows.length} von ${snapshot.treffer.length} Treffern · Sortierung gilt für die gesamte Liste.`;
     const groups = [
       ['A', phase.final ? 'Liste A – Rangliste' : 'Liste A – vorläufig', rows.filter((t) => sucheGruppe(t) === 'A')],
@@ -1081,22 +1178,34 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       ['offen', 'Weitere Treffer – noch nicht vollständig bewertet', rows.filter((t) => sucheGruppe(t) === 'offen')],
       ['ausgeschlossen', 'Ausgeschlossene Treffer', rows.filter((t) => sucheGruppe(t) === 'ausgeschlossen')],
     ];
+    resultLinks.replaceChildren(...groups.filter(([key,,items]) => ['offen','ausgeschlossen'].includes(key) && items.length).map(([key,,items]) => el('button', { type: 'button', onclick: () => {
+      showMap = false; draw(); const section = results.querySelector(`[data-group="${key}"]`);
+      if (section) { if (key === 'ausgeschlossen') section.open = true; section.firstElementChild.focus(); section.scrollIntoView({ block: 'start' }); }
+    } }, key === 'offen' ? `Unbewertete (${items.length})` : `Ausgeschlossene (${items.length}) nach Grund`)));
+    research.update(snapshot.treffer);
     for (const [key, title, items] of groups) {
       if (!items.length && !['A', 'B'].includes(key)) continue;
       const section = el(key === 'ausgeschlossen' ? 'details' : 'section', { class: 'card suche-results' });
       section.append(el(key === 'ausgeschlossen' ? 'summary' : 'h2', key === 'ausgeschlossen' ? {} : { tabindex: -1 }, `${title} (${items.length})`));
+      if (key === 'B') section.append(research.panel);
       const size = Number(pageSize.value), totalPages = Math.max(1, Math.ceil(items.length / size));
       const page = Math.min(pages.get(key) || 0, totalPages - 1);
       pages.set(key, page);
       const visible = [...items].sort((a, b) => sucheVergleich(a, b, sort.key, sort.direction)).slice(page * size, (page + 1) * size);
       if (!items.length) section.append(el('p', { class: 'muted' }, needle ? 'Keine Treffer für diesen Filter.' : 'Keine Treffer in dieser Liste.'));
-      else section.append(sucheTabelle(visible, sort, (sortKey) => {
+      else {
+        const buckets = key === 'ausgeschlossen' ? [...new Set(visible.map(t => t.ko_grund || (t.status === 'ausgeschlossen' ? 'Von dir ausgeschlossen' : 'Grund nicht geliefert')))].map(reason => [reason, visible.filter(t => (t.ko_grund || (t.status === 'ausgeschlossen' ? 'Von dir ausgeschlossen' : 'Grund nicht geliefert')) === reason)]) : [[null, visible]];
+        for (const [reason, shown] of buckets) {
+          if (reason) section.append(el('h3', { class: 'exclusion-reason' }, reason));
+          section.append(sucheTabelle(shown, sort, (sortKey) => {
         const wasOpen = section.open;
         changeSort(sortKey, true);
         const replacement = results.querySelector(`[data-group="${key}"]`);
         if (wasOpen) replacement.open = true;
         replacement.querySelector(`[data-sort="${sortKey}"]`)?.focus({ preventScroll: true });
-      }, phase.final && ['A', 'B'].includes(key), (t) => sucheRueckmeldung(t, feedbackStates, call, live)));
+          }, phase.final && ['A', 'B'].includes(key), (t) => sucheRueckmeldung(t, feedbackStates, call, live), (t) => el('div', {}, sucheAuswahl(t, selectionStates, call, live, selectionChanged), research.row(t)), id));
+        }
+      }
       if (totalPages > 1) {
         const turnPage = offset => {
           pages.set(key, page + offset); draw();
@@ -1113,8 +1222,11 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     }
     results.querySelectorAll('details[data-detail]').forEach((n) => { n.open = openDetails.has(n.dataset.detail); });
     if (rows.some((t) => t.quelle === 'rakuten_travel')) results.append(el('p', { class: 'small' }, 'Supported by Rakuten Developers'));
+    if (viertelId(focusHit)) { const target = rows.find(t => t.treffer_id === focusHit); focusHit = null; if (target) showHit(target); }
   }
   function drawProgress(r) {
+    latestStatus = r;
+    preview.hidden = !['wartet','laeuft'].includes(r.status);
     start.hidden = r.status !== 'entwurf';
     cancel.hidden = !['wartet', 'laeuft'].includes(r.status);
     const k = r.kosten || {}, z = r.zaehler || {};
@@ -1126,31 +1238,43 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       el('ul', { class: 'suche-progress' }, (Array.isArray(r.schritte) ? r.schritte : []).filter(s => s.fehler || s.hinweis).map(s => el('li', {}, `${SUCHE_QUELLEN[s.schritt] || s.schritt}: ${s.fehler || s.hinweis}`))),
       el('p', { class: 'small' }, `Gesammelt: ${z.gesammelt ?? 0} · Liste A: ${z.liste_a ?? 0} · Liste B: ${z.liste_b ?? 0} · Bildprüfung: ${z.bild_geprueft ?? 0} · Gegenprüfung: ${z.gegengeprueft ?? 0}`),
       el('p', { class: 'small' }, `Suchkosten: ${fmtUsd(k.ist_usd) || 'unbekannt'} · reserviert: ${fmtUsd(k.reserviert_usd) || 'unbekannt'} · Limit: ${fmtUsd(k.limit_usd) || 'unbekannt'}`),
-      el('p', { class: 'muted' }, 'Die Ergebnisliste wird nach Abschluss geladen. Vorhandene Treffer bleiben auch nach einem Abbruch erhalten.'));
+      el('p', { class: 'muted' }, 'Die Suche läuft auch ohne geöffnetes Handy weiter. Vorläufige Treffer kannst du bereits ansehen. Nach Abschluss wird die fertige Liste geladen. Vorhandene Treffer bleiben auch nach einem Abbruch erhalten.'), sucheDeckung(r.deckung));
   }
-  async function poll() {
+  async function readSnapshot(r) {
+    const feedbackAtRead = new Map([...feedbackStates].map(([key, value]) => [key, { revision: value.revision, pending: value.pending }]));
+    const selectionsAtRead = new Map([...selectionStates].map(([key, value]) => [key, { revision: value.revision, pending: value.pending }]));
+    const data = await call('unterkunft_suchlauf_lesen', { suchauftrag_id: id });
+    if (!live()) return;
+    if (!data?.suchauftrag || !Array.isArray(data.treffer)) throw new Error('Suchlauf nicht gefunden oder Antwort unvollständig.');
+    if (data.treffer.some(t => !t || typeof t !== 'object')) throw new Error('Die Trefferliste ist unvollständig.');
+    for (const t of data.treffer) {
+      const selection = selectionStates.get(t.treffer_id), selectionAtRead = selectionsAtRead.get(t.treffer_id);
+      if (selection) {
+        if (selection.pending || selectionAtRead?.pending || selection.revision !== selectionAtRead?.revision) t.status = selection.saved;
+        else { selection.saved = t.status || 'aktiv'; selection.message = ''; selection.undo = null; selection.refreshRequired = false; }
+      }
+      const state = feedbackStates.get(t.treffer_id), atRead = feedbackAtRead.get(t.treffer_id);
+      if (!state || state.pending || atRead?.pending || state.revision !== atRead?.revision) continue;
+      state.saved = t.rueckmeldung || null;
+      if (!state.dirty) state.grund = state.saved?.grund || '';
+      state.dirty = state.grund !== (state.saved?.grund || ''); state.message = ''; state.refreshRequired = false;
+    }
+    snapshot = data; snapshotStatus = r; draw();
+    void research.load();
+  }
+  async function poll({ readResults = false } = {}) {
     if (!live() || busy) return;
-    clearTimeout(timer); busy = true; refresh.disabled = start.disabled = cancel.disabled = true;
+    clearTimeout(timer); busy = true; refresh.disabled = start.disabled = cancel.disabled = preview.disabled = true;
     try {
       const r = await call('unterkunft_suche_status', { suchauftrag_id: id });
       if (!live()) return;
       if (!r || typeof r.status !== 'string' || typeof r.fertig !== 'boolean') throw new Error('Statusantwort unvollständig.');
       drawProgress(r);
       const terminal = r.fertig || ['fehler', 'abgebrochen', 'gestoppt', 'gestoppt_budget'].includes(r.status);
+      if (terminal || readResults) {
+        await readSnapshot(r);
+      }
       if (terminal) {
-        const feedbackAtRead = new Map([...feedbackStates].map(([key, value]) => [key, { revision: value.revision, pending: value.pending }]));
-        const data = await call('unterkunft_suchlauf_lesen', { suchauftrag_id: id });
-        if (!live()) return;
-        if (!data?.suchauftrag || !Array.isArray(data.treffer)) throw new Error('Suchlauf nicht gefunden oder Antwort unvollständig.');
-        if (data.treffer.some(t => !t || typeof t !== 'object')) throw new Error('Die Trefferliste ist unvollständig.');
-        for (const t of data.treffer) {
-          const state = feedbackStates.get(t.treffer_id), atRead = feedbackAtRead.get(t.treffer_id);
-          if (!state || state.pending || atRead?.pending || state.revision !== atRead?.revision) continue;
-          state.saved = t.rueckmeldung || null;
-          if (!state.dirty) state.grund = state.saved?.grund || '';
-          state.dirty = state.grund !== (state.saved?.grund || ''); state.message = '';
-        }
-        snapshot = data; snapshotStatus = r; draw();
         notice.textContent = r.status === 'fertig' ? 'Bewertung abgeschlossen. Rangliste aktualisiert.' : r.status === 'gestoppt_budget' ? 'Kostenlimit erreicht. Vorhandene Treffer bleiben sichtbar.' : 'Suche ' + r.status + '. Vorhandene Treffer bleiben sichtbar.';
       } else if (r.status !== 'entwurf') {
         notice.textContent = r.status === 'wartet' ? 'Die Suche wartet und startet automatisch. Aktualisierung alle 7 Sekunden.' : 'Suche läuft. Bewertung und Gegenprüfung werden abgewartet. Aktualisierung alle 7 Sekunden.';
@@ -1158,12 +1282,12 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       } else notice.textContent = 'Entwurf gespeichert. Die Suche wurde noch nicht gestartet.';
     } catch (e) {
       if (live()) notice.textContent = e.message + ' Die automatische Aktualisierung pausiert. Mit „Aktualisieren“ erneut lesen; es wird keine neue Suche gestartet.';
-    } finally { busy = false; if (live()) { refresh.disabled = false; start.disabled = false; cancel.disabled = false; } }
+    } finally { busy = false; if (live()) { refresh.disabled = false; start.disabled = false; cancel.disabled = false; preview.disabled = false; } }
   }
   await poll();
 }
 
-function sucheTabelle(items, sort, onSort, final = false, feedback = () => null) {
+function sucheTabelle(items, sort, onSort, final = false, feedback = () => null, selection = () => null, suchauftragId = null) {
   const table = el('table', { class: 'suche-table' });
   const scoreLabel = final ? 'Endscore (%)' : 'Score (Zwischenstand)';
   const headings = [['name', 'Unterkunft'], ['preis', 'Gesamtpreis'], ['score', scoreLabel], ['datenlage', 'Datenlage (%)'], ['bewertungen', 'Bewertungen'], ['entfernung', 'Luftlinie zum Ziel']];
@@ -1197,18 +1321,24 @@ function sucheTabelle(items, sort, onSort, final = false, feedback = () => null)
       el('h3', {}, 'Gegenprüfung'), el('p', {}, review?.urteil === 'ok' ? 'Keine Einwände in der Gegenprüfung.' : review?.urteil === 'einwand' ? 'Einwände beachten (oben aufgeführt).' : 'Noch keine Gegenprüfung vorhanden.'),
       review?.urteil === 'ok' && review.hinweis ? el('p', {}, review.hinweis) : null);
     const td = (label, ...content) => el('td', { 'data-label': label }, ...content);
-    tbody.append(el('tr', {},
-      td('Unterkunft', el('strong', {}, t.name || 'Ohne Namen'), t.topf === 'shortlist' && b.liste === 'A' && sucheZahl(b.rang) !== null ? el('div', { class: 'rank-badge' }, 'Rang ' + b.rang + (final ? '' : ' · vorläufig')) : null, el('div', { class: 'muted small' }, SUCHE_QUELLEN[t.quelle] || t.quelle || 'Quelle unbekannt'),
-        url ? el('a', { href: url, target: '_blank', rel: 'noopener noreferrer' }, 'Angebot öffnen ↗') : el('span', { class: 'muted small' }, 'Kein Angebotslink')),
-      td('Gesamtpreis', (estimated && sucheZahl(a.preis_gesamt_eur) !== null ? 'ca. ' : '') + sucheEuro(a.preis_gesamt_eur) + (estimated ? ' (geschätzt)' : '')),
+    tbody.append(el('tr', { 'data-hit': t.treffer_id, tabindex: -1 },
+      td('Unterkunft', sucheFoto(t), el('strong', {}, t.name || 'Ohne Namen'), sucheGruppe(t) === 'A' && sucheZahl(b.rang) !== null ? el('div', { class: 'rank-badge' }, 'Rang ' + b.rang + (final ? '' : ' · vorläufig')) : null, el('div', { class: 'muted small' }, SUCHE_QUELLEN[t.quelle] || t.quelle || 'Quelle unbekannt'),
+        url ? el('a', { href: url, target: '_blank', rel: 'noopener noreferrer' }, 'Angebot öffnen ↗') : el('span', { class: 'muted small' }, 'Kein Angebotslink'), sucheViertelLink(t.zone, suchauftragId)),
+      td('Gesamtpreis', el('span', { class: 'price-value' }, (estimated && sucheZahl(a.preis_gesamt_eur) !== null ? 'ca. ' : '') + sucheEuro(a.preis_gesamt_eur) + (estimated ? ' (geschätzt)' : '')), sucheAngebotsstand(t)),
       td(scoreLabel, sucheZahl(b.score) ?? '–'), td('Datenlage (%)', sucheDatenlage(t) ?? '–'),
       td('Bewertungen', sucheZahl(t.bewertungen) ?? '–', el('div', { class: 'small' }, t.note != null ? `${t.note} / ${t.note_skala ?? '?'}` : 'Note unbekannt')),
       td('Luftlinie zum Ziel', sucheZahl(t.luftlinie_ziel_m) === null ? 'unbekannt' : (t.luftlinie_ziel_m / 1000).toLocaleString('de-DE', { maximumFractionDigits: 1 }) + ' km',
         el('div', { class: 'small' }, sucheZahl(t.gehzeit_min) === null ? 'Gehzeit unbekannt' : `${t.gehzeit_art === 'geschaetzt' ? 'ca. ' : ''}${t.gehzeit_min} Min. zu Fuß${t.station_name ? ' · ' + t.station_name : ''} (${t.gehzeit_art === 'geschaetzt' ? 'geschätzt' : ['route', 'ors'].includes(t.gehzeit_art) ? 'berechneter Fußweg' : 'Art unbekannt'})`)),
       td('Hinweise / Details', el('div', { class: 'suche-badges' },
-        el('span', { class: 'pill' }, t.topf === 'unbewertet' ? 'Unbewertet' : t.topf === 'ausgeschlossen' ? 'Ausgeschlossen' : 'Shortlist'),
+        el('span', { class: 'pill' }, sucheGruppe(t) === 'ausgeschlossen' ? t.topf === 'ausgeschlossen' ? 'Ausgeschlossen' : 'Von dir ausgeschlossen' : t.topf === 'unbewertet' ? 'Unbewertet' : 'Shortlist'),
         el('span', { class: 'pill', title: 'Verlässlichkeit der Angaben, nicht Qualität der Unterkunft' }, 'Verlässlichkeit: ' + (b.ampel || 'unbekannt')),
-        warnings.map((w) => el('span', { class: 'suche-warning' }, SUCHE_WARNUNGEN[w] || w))), objection, sucheBalken(b.spaltennoten, SUCHE_NOTEN), info, sucheAngebote(t), feedback(t))));
+        warnings.map((w) => el('span', { class: 'suche-warning' }, SUCHE_WARNUNGEN[w] || w))), el('p', { class: 'small' }, 'Balkon: ' + sucheBalkon(t)),
+        el('button', { type: 'button', class: 'candidate-open', onclick: (event) => {
+          const button = event.currentTarget, dialog = sucheKandidat(t, final, suchauftragId);
+          (button.closest('.suche') || main).append(dialog);
+          dialog.addEventListener('close', () => { dialog.remove(); if (button.isConnected) button.focus({ preventScroll: true }); });
+          dialog.showModal();
+        } }, 'Unterkunft im Detail'), objection, sucheBalken(b.spaltennoten, SUCHE_NOTEN), info, sucheAngebote(t), selection(t), feedback(t))));
   }
   table.append(tbody);
   return el('div', { class: 'suche-table-scroll', tabindex: 0, role: 'region', 'aria-label': 'Sortierbare Unterkunftstabelle' }, table);
@@ -1221,32 +1351,39 @@ function sucheRueckmeldung(t, states, call, live) {
   const state = states.get(t.treffer_id);
   const box = el('div', { class: 'stay-feedback', 'data-feedback': String(t.treffer_id) });
   const status = el('p', { role: 'status', class: 'small' });
-  const reason = el('textarea', { maxlength: 1000, rows: 2, 'aria-label': 'Optionaler Grund für ' + t.name, placeholder: 'Grund (optional, maximal 1000 Zeichen)', oninput: () => { state.grund = reason.value; state.dirty = state.grund !== (state.saved?.grund || ''); } });
+  const reason = el('textarea', { maxlength: 1000, rows: 2, 'aria-label': 'Optionaler Grund für ' + (t.name || 'Unterkunft ' + t.treffer_id), placeholder: 'Grund (optional, maximal 1000 Zeichen)', oninput: () => { state.grund = reason.value; state.dirty = state.grund !== (state.saved?.grund || ''); } });
   reason.value = state.grund;
+  const quickReasons = el('select', { 'aria-label': 'Schnell-Grund für ' + (t.name || 'Unterkunft ' + t.treffer_id), onchange: () => {
+    if (quickReasons.value === 'Sonstiges') reason.focus();
+    else if (quickReasons.value) { state.grund = (state.grund ? state.grund + '; ' : '') + quickReasons.value; state.grund = state.grund.slice(0,1000); reason.value = state.grund; state.dirty = state.grund !== (state.saved?.grund || ''); }
+    quickReasons.value = '';
+  } }, el('option', { value: '' }, 'Schnell-Grund wählen'), ...['Zu teuer','Zu klein','Lage','Stil','Betten','Sonstiges'].map(v => el('option', { value: v }, v)));
   const buttons = Object.entries(SUCHE_URTEILE).map(([urteil, label]) => el('button', { type: 'button', onclick: async () => {
-    if (state.pending) return;
+    if (state.pending || state.refreshRequired) return;
     state.pending = true; state.revision++; state.message = 'Wird gespeichert …'; update();
     const grund = state.grund;
     try {
-      await call('unterkunft_rueckmeldung_geben', { treffer_id: t.treffer_id, urteil, grund });
+      const r = await call('unterkunft_rueckmeldung_geben', { treffer_id: t.treffer_id, urteil, grund });
       if (!live()) return;
+      if (r.ok !== true || !Number.isSafeInteger(r.id) || r.id <= 0 || r.treffer_id !== t.treffer_id || r.urteil !== urteil) throw new Error('Die Rückmeldung wurde nicht eindeutig bestätigt.');
       state.saved = { urteil, grund }; t.rueckmeldung = state.saved;
       state.dirty = false;
       state.message = 'Gespeichert: ' + label + '. Die Rangfolge bleibt unverändert.';
-    } catch (e) { if (live()) state.message = 'Speichern nicht bestätigt: ' + e.message + ' Bitte vor erneutem Speichern den Auftrag neu öffnen.'; }
+    } catch (e) { if (live()) { state.refreshRequired = true; state.message = 'Speichern nicht bestätigt: ' + e.message + ' Bitte vor erneutem Speichern „Aktualisieren“ wählen.'; } }
     finally { state.pending = false; state.revision++; if (live()) state.render(); }
   } }, label));
   function update() {
     reason.disabled = state.pending;
+    quickReasons.disabled = state.pending;
     buttons.forEach((button, i) => {
-      button.disabled = state.pending;
+      button.disabled = state.pending || state.refreshRequired;
       button.setAttribute('aria-pressed', String(Object.keys(SUCHE_URTEILE)[i] === state.saved?.urteil));
     });
     status.textContent = state.message || (state.saved ? 'Deine Rückmeldung: ' + (SUCHE_URTEILE[state.saved.urteil] || state.saved.urteil) : 'Noch keine Rückmeldung.');
   }
   // Keep the current rendered card synchronized even if sorting rebuilds it during a request.
   state.render = update;
-  box.append(el('strong', {}, 'Deine Rückmeldung'), reason, el('div', { class: 'actions' }, buttons), status);
+  box.append(el('strong', {}, 'Deine Rückmeldung'), quickReasons, reason, el('div', { class: 'actions' }, buttons), status);
   update();
   return box;
 }

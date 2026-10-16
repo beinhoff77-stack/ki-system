@@ -17,7 +17,7 @@ before(async () => {
   });
   await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
   origin = `http://127.0.0.1:${server.address().port}`;
-  try { browser = await chromium.launch({ headless: true }); }
+  try { browser = await chromium.launch({ headless: true, ...(process.env.PW_TEST_EXECUTABLE ? {executablePath:process.env.PW_TEST_EXECUTABLE} : {}) }); }
   catch { browser = await chromium.launch({ headless: true, channel: 'msedge' }); }
 });
 after(async () => { await browser?.close(); await new Promise((resolve) => server?.close(resolve)); });
@@ -26,11 +26,47 @@ const hit = (id, list, price, extra = {}) => ({ treffer_id: id, name: 'Unterkunf
 const result = (status = 'fertig') => ({ ok: true, suchauftrag: { id: 2, ziel: 'Tokyo', anreise: '2026-11-01', abreise: '2026-11-08', erwachsene: 2, kinder_alter: [11], status, schrittkette: [{ quelle: 'hasdata_booking', status, treffer: 4 }] },
   kosten: { ist_usd: 0.062, limit_usd: 1.5, ist_einheiten: 20, limit_einheiten: 30 },
   treffer: [hit(1, 'A', 200), hit(2, 'A', 100), hit(3, 'A', null), hit(4, 'B', 300, { quelle: 'rakuten_travel', angebot: { preis_gesamt_eur: 300, preis_art: 'geschaetzt', schaetz_basis: 'Erste Nacht × 7', link: 'javascript:alert(1)' }, bewertung: { liste: 'B', score: 95, warnungen: ['futon', 'steuern_unklar', 'neue_warnung'] } }), hit(5, 'A', 10, { topf: 'ausgeschlossen' })] });
+const profileCatalog = (profile=[]) => ({ok:true,profile,reisearten:{hauptart:['staedte'],hauptart_ab_v11:['roadtrip','strand','erholung','tauchen','natur'],nebenart:['erholung','strand','tauchen','natur','roadtrip'],nebenart_anteil:{min:10,max:50,standard:30}},unterkunftsform:['alle','hotel','apartment','haus'],kriterien_katalog:{
+  raum:{schlafzimmer:{typ:'zahl',label:'Schlafzimmer mindestens'},flaeche_m2:{typ:'zahl',label:'Wohnfläche mindestens (m²)'},echte_betten:{typ:'ja',label:'Echte Betten für alle'}},
+  lage:{gehzeit_max_min:{typ:'zahl',label:'Gehzeit zur Station höchstens (Min.)'},luftlinie_max_km:{typ:'zahl',label:'Luftlinie zum Ziel höchstens (km)'}},
+  preis:{storno_kostenlos:{typ:'ja',label:'Kostenlose Stornierung'}},bewertungen:{note_min:{typ:'zahl',label:'Note mindestens (0–10)'},bewertungen_min:{typ:'zahl',label:'Anzahl Bewertungen mindestens'}},
+  ausstattung:{suite:{typ:'ja',label:'Suite (nur Wunsch)'},balkon:{typ:'ja',label:'Balkon'},pool:{typ:'ja',label:'Pool'},klima:{typ:'ja',label:'Klimaanlage'},kueche:{typ:'ja',label:'Küche'},parkplatz:{typ:'ja',label:'Parkplatz'},waschmaschine:{typ:'ja',label:'Waschmaschine'}} }});
+const districtCatalog = (profile=[]) => {
+  const data=profileCatalog(profile);
+  data.kriterien_katalog.viertel={viertel_auswahl:{typ:'liste',label:'Viertelauswahl'},viertel_ruhig:{typ:'ja',label:'Ruhiges Viertel'},viertel_oepnv_min:{typ:'zahl',label:'ÖPNV im Viertel mindestens'},viertel_gruen_min:{typ:'zahl',label:'Grün im Viertel mindestens'}};
+  return data;
+};
+const districts = () => ({ok:true,stadt:'kyoto',hinweis:'Automatische Vorschläge sind ungeprüft. © OpenStreetMap-Mitwirkende (ODbL).',noten_regeln:'Startannahmen aus der Umgebung; Ruhe ist eine KI-Einschätzung.',filter_katalog:[],
+  letzter_lauf:{id:1,status:'fertig',kosten_usd:0.06},gestrichen:[],viertel:[
+    {id:21,name:'Parkviertel',name_lokal:'公園',lat:35,lon:135,radius_m:800,laerm:'ruhig',laerm_nacht:'ruhig',status:'vorschlag',charakter:'Wohnviertel',preisniveau:'mittel',beschreibung:'Ruhige Seitenstraßen.',familien_hinweis:'Wege am Fluss.',highlights:['Park'],noten:{oepnv:8,ruhe:9,nahversorgung:0},vertrauen:'mittel',koordinaten_quelle:'osm',quellen:['https://example.com/viertel','javascript:alert(1)'],suche:{treffer:12,liste_a:4,bester_rang:2,preis_nacht_median_eur:150}},
+    {id:22,name:'Altstadt',lat:35.01,lon:135.01,radius_m:500,laerm:'belebt',status:'bestaetigt',noten:{oepnv:9,gruen:0,gastronomie:8},suche:{treffer:20,liste_a:5,bester_rang:1,preis_nacht_median_eur:100}},
+    {id:23,name:'Hafen',lat:95,lon:135,radius_m:600,laerm:'laut',status:'vorschlag',noten:{oepnv:2,gruen:8},suche:{treffer:0,liste_a:0,bester_rang:null,preis_nacht_median_eur:null}}
+  ]});
+test('Viertel: KI-Fehler bleibt auch bei abgeschlossenem Umgebungslauf sichtbar', async (t) => {
+  const data = districts(); data.letzter_lauf.ki = {fehler:'Budget aufgebraucht <script>window.injected=true</script>'};
+  const {page,calls} = await setup(t, () => data);
+  await page.goto(origin+'/#/viertel/?stadt=kyoto');
+  await page.getByRole('alert').filter({hasText:'Viertel konnten nicht ermittelt werden: Budget aufgebraucht'}).waitFor();
+  assert.equal(await page.locator('[data-district="21"]').count(),1);
+  assert.equal(await page.evaluate(()=>window.injected),undefined);
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_viertel_erstellen').length,0);
+  delete data.letzter_lauf.ki;
+  await page.getByRole('button',{name:'Viertel aktualisieren',exact:true}).click();
+  await page.getByText('Viertel aktualisiert.',{exact:true}).waitFor();
+  assert.equal(await page.getByRole('alert').count(),0);
+});
 async function setup(t, handler, viewport) {
   const context = await browser.newContext({ viewport: viewport || { width: 1440, height: 1000 }, serviceWorkers: 'block' });
   t.after(() => context.close());
   await context.addInitScript(() => localStorage.setItem('ks_token', 'synthetic-test-session'));
   const page = await context.newPage();
+  if (process.env.PW_TEST_OFFLINE_ASSETS === '1') await page.route(origin + '/**', async route => {
+    const pathname = new URL(route.request().url()).pathname;
+    const file = path.resolve(root, '.' + (pathname === '/' ? '/index.html' : pathname));
+    if (!file.startsWith(root + path.sep) || !fs.existsSync(file) || !fs.statSync(file).isFile()) return route.fulfill({status:404,body:''});
+    const types = {'.html':'text/html','.js':'text/javascript','.css':'text/css','.svg':'image/svg+xml','.png':'image/png'};
+    await route.fulfill({body:fs.readFileSync(file),contentType:types[path.extname(file)] || 'application/octet-stream'});
+  });
   const errors = []; page.on('pageerror', (e) => errors.push(e.message)); t.after(() => assert.deepEqual(errors, []));
   const calls = [];
   await page.route('https://cdnjs.cloudflare.com/**', (r) => r.abort());
@@ -39,6 +75,8 @@ async function setup(t, handler, viewport) {
     const payload = request.method() === 'POST' ? request.postDataJSON() : {};
     calls.push(payload);
     let value = await handler(payload, calls);
+    if (payload.aktion === 'unterkunft_suchprofile_lesen' && (value?.suchauftrag || Array.isArray(value?.suchauftraege))) value = profileCatalog();
+    if (payload.aktion === 'unterkunft_lueckenfueller_lesen' && (value?.suchauftrag || Array.isArray(value?.suchauftraege))) value = {ok:true,auftraege:[]};
     if (payload.aktion === 'unterkunft_suche_status' && value?.suchauftrag) {
       const a = value.suchauftrag;
       value = { ...a, fertig: ['fertig','fehler','abgebrochen','gestoppt_budget'].includes(a.status), phase: a.status === 'fertig' ? 'fertig' : 'sammeln', kosten: value.kosten, zaehler: {}, schritte: [] };
@@ -154,8 +192,13 @@ test('PWA installiert vollständige Offline-Hülle, API wird nicht gecacht', asy
   assert(cacheNames.includes('ki-system:' + origin + '/another-app/:v1'));
   assert(!cacheNames.includes('ki-system:' + origin + '/:old'));
   await page.evaluate(() => fetch('README.md'));
-  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v17')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
-  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.10.2')); assert(cached.includes('/style.css?v=0.10.2'));
+  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v25')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
+  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.15.2')); assert(cached.includes('/style.css?v=0.15.2'));
+  assert(cached.includes('/stay-tools.js?v=0.15.2')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
+  assert(cached.includes('/stay-research.js?v=0.15.2'));
+  assert(cached.includes('/stay-form.js?v=0.15.2'));
+  assert(cached.includes('/stay-details.js?v=0.15.2'));
+  assert(cached.includes('/stay-districts.js?v=0.15.2'));
   assert(!cached.includes('/README.md'));
   assert(!cached.some((u) => u.includes('app-api')));
   await context.setOffline(true); await page.reload();
@@ -183,9 +226,8 @@ test('Update lädt neue Skripte und Gestaltung trotz frischem HTTP-Cache der Alt
     res.writeHead(404); res.end();
   });
   await new Promise(resolve => releaseServer.listen(0, '127.0.0.1', resolve));
-  t.after(() => new Promise(resolve => releaseServer.close(resolve)));
   const context = await browser.newContext({ serviceWorkers: 'block' });
-  t.after(() => context.close());
+  t.after(async () => { await context.close(); releaseServer.closeAllConnections(); await new Promise(resolve => releaseServer.close(resolve)); });
   const page = await context.newPage();
   const releaseOrigin = `http://127.0.0.1:${releaseServer.address().port}`;
   // Ohne Request-Mocking: Routing würde den HTTP-Cache abschalten und den Fehler verdecken.
@@ -330,7 +372,7 @@ test('Rückmeldung: bestehendes Urteil, Grund, Doppelklick, Sortieren und Fehler
   const {page,calls}=await setup(t, async p=> {
     if(p.aktion==='unterkunft_rueckmeldung_geben') {
       await new Promise(resolve=>setTimeout(resolve,200));
-      return fail ? 'abort' : {ok:true};
+      return fail ? 'abort' : {ok:true,id:101,treffer_id:p.daten.treffer_id,urteil:p.daten.urteil};
     }
     return r;
   });
@@ -469,7 +511,7 @@ test('Späte Leseantwort überschreibt keine gerade gespeicherte Rückmeldung', 
   const {page,calls} = await setup(t, async p => {
     if (p.aktion === 'unterkunft_suchlauf_lesen' && hold) await new Promise(resolve => {releaseRead=resolve;});
     if (p.aktion === 'unterkunft_rueckmeldung_geben') {
-      await new Promise(resolve => {releaseWrite=resolve;}); return {ok:true};
+      await new Promise(resolve => {releaseWrite=resolve;}); return {ok:true,id:102,treffer_id:p.daten.treffer_id,urteil:p.daten.urteil};
     }
     return r;
   });
@@ -494,6 +536,8 @@ test('HTTP-Fehler und leere Schreibantworten werden nicht als gespeichert angeze
   const box=page.locator('[data-feedback="1"]'); await box.waitFor();
   await box.getByRole('button',{name:'Passt',exact:true}).click();
   await box.getByRole('status').filter({hasText:'HTTP 503'}).waitFor();
+  assert.equal(await box.getByRole('button',{name:'Gebucht',exact:true}).isDisabled(),true);
+  await page.getByRole('button',{name:'Aktualisieren',exact:true}).click();await page.getByRole('status').filter({hasText:'Rangliste aktualisiert'}).waitFor();
   response=undefined;
   await box.getByRole('button',{name:'Gebucht',exact:true}).click();
   await box.getByRole('status').filter({hasText:'nicht bestätigen'}).waitFor();
@@ -511,7 +555,7 @@ test('Unvollständige Bewertungsfelder und falsche Zahlen zerstören keine Treff
   await page.goto(origin+'/#/suche/2');
   const row=page.locator('[data-group=A] tbody tr').first();
   await row.waitFor();
-  assert.equal(await row.locator('td[data-label=Gesamtpreis]').textContent(),'Preis unbekannt');
+  assert.equal(await row.locator('td[data-label=Gesamtpreis] .price-value').textContent(),'Preis unbekannt');
   assert.equal(await row.locator('meter[value="0"]').count(),1);
   await row.getByText('Angaben und Prüfungen',{exact:true}).click();
   await row.getByText('Helles Fenster',{exact:true}).waitFor();
@@ -577,3 +621,723 @@ test('Bereichswechsel: verspätete Council-Antworten und Fehler lassen Unterkunf
     assert.equal(await page.locator('#main > .err-text').count(),0);
   }
 });
+
+const testPixel = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jZAAAAABJRU5ErkJggg==', 'base64');
+const mapResult = () => ({ ...result(), karte: { ziel: { name: 'Testziel', lat: 35, lon: 135 }, stationen: [{ name: 'Teststation', lat: 35.002, lon: 135.002 }] },
+  treffer: [ ...Array.from({length: 14}, (_, i) => hit(i+1, 'A', (i+1)*100, {lat: 35 + i*0.001, lon: 135, luftlinie_ziel_m: i*120, bewertung: {liste:'A',rang:i+1,score:90,datenlage:80}})),
+    hit(15,'B',1500,{lat:35,lon:135.005}), hit(16,'A',100,{topf:'ausgeschlossen',lat:35,lon:135.006}),
+    hit(17,'B',100,{status:'ausgeschlossen',lat:35,lon:135.007}), hit(18,'B',100,{lat:91,lon:135}),
+    hit(19,'B',100,{lat:0,lon:0,luftlinie_ziel_m:12000000}), hit(20,'A',null,{topf:'unbewertet',lat:35,lon:135.008}) ] });
+
+test('Fotos: HTTPS-Hotlink, kein Referrer, verzögertes Laden und sichere Platzhalter', async (t) => {
+  const data = result();
+  data.treffer[0].bild = 'https://images.example/photo.png'; data.treffer[0].bild_quelle = 'hasdata_booking';
+  data.treffer[1].bild = 'javascript:alert(1)'; data.treffer[2].bild = 'https://u:p@images.example/private.png';
+  data.treffer[3].bild = 'https://images.example/missing.png';
+  const {page} = await setup(t, () => data);
+  const imageRequests=[];
+  await page.route('https://images.example/**', r => { imageRequests.push(r.request()); const missing=r.request().url().includes('missing'); return r.fulfill({status:missing?404:200,contentType:'image/png',body:missing?Buffer.from('missing'):testPixel}); });
+  await page.goto(origin+'/#/suche/2'); await page.locator('[data-hit="1"] img').waitFor();
+  const photo = page.locator('[data-hit="1"] img'); await photo.scrollIntoViewIfNeeded();
+  await page.waitForFunction(()=>document.querySelector('[data-hit="1"] img')?.complete);
+  assert.equal(await photo.getAttribute('loading'),'lazy'); assert.equal(await photo.getAttribute('referrerpolicy'),'no-referrer');
+  assert.equal(await photo.getAttribute('alt'),'Foto von Unterkunft 1');
+  assert.equal(await page.locator('[data-hit="2"] img,[data-hit="3"] img').count(),0);
+  await page.locator('[data-hit="4"]').scrollIntoViewIfNeeded();
+  await page.locator('[data-hit="4"] .photo-missing').waitFor();
+  assert(imageRequests.some(r=>r.url().endsWith('photo.png')));
+  assert(imageRequests.every(r=>!r.headers().referer));
+  assert(!imageRequests.some(r=>r.url().includes('private')));
+});
+
+test('Karte lädt erst auf Klick, zeigt gefilterte aktive Treffer und springt zur richtigen Listenseite', async (t) => {
+  const {page}=await setup(t,()=>mapResult()); let tiles=0;
+  await page.route('https://tile.openstreetmap.org/**', r=>{tiles++;return r.fulfill({contentType:'image/png',body:testPixel});});
+  await page.goto(origin+'/#/suche/2'); await page.locator('[data-group=A]').waitFor();
+  assert.equal(tiles,0);
+  await page.getByRole('button',{name:'Karte',exact:true}).click();
+  await page.locator('[data-map-hit="12"]').waitFor();
+  assert.equal(await page.locator('[data-map-hit]').count(),17);
+  assert.equal(await page.locator('[data-map-hit="16"],[data-map-hit="17"],[data-map-hit="18"]').count(),0);
+  assert.equal(await page.locator('[data-map-hit="19"]').count(),1);
+  await page.getByText('17 von 18 aktiven Treffern auf der Karte.',{exact:false}).waitFor();
+  await page.getByText('1 weit außerhalb',{exact:false}).waitFor();
+  assert.equal(await page.locator('.leaflet-control-attribution a[href="https://www.openstreetmap.org/copyright"]').isVisible(),true);
+  await page.locator('[data-map-hit="12"]').click();
+  await page.getByRole('button',{name:'In der Ergebnisliste zeigen'}).click();
+  assert.equal(await page.locator('[data-group=A] [data-hit="12"]').isVisible(),true);
+  assert.equal(await page.evaluate(()=>document.activeElement.dataset.hit),'12');
+  await page.getByRole('button',{name:'Karte',exact:true}).click();
+  await page.getByPlaceholder('Name oder Anbieter').fill('Unterkunft 15');
+  assert.equal(await page.locator('[data-map-hit]').count(),1);
+  assert.equal(await page.locator('[data-map-hit="15"]').count(),1);
+  await page.getByRole('button',{name:'Liste / Tabelle'}).click();
+  assert.deepEqual(await page.locator('tbody tr').evaluateAll(rows=>rows.map(r=>r.dataset.hit)),['15']);
+  assert(tiles>0);
+  await page.locator('#areas [data-area=council]').click();
+  await page.getByRole('heading',{name:'Aufträge',exact:true}).waitFor();
+  assert.equal(await page.locator('.stay-map').count(),0);
+});
+
+test('Karte bleibt bei fehlendem Hintergrund nutzbar und passt auf ein schmales Handy', async (t) => {
+  const {page}=await setup(t,()=>mapResult(),{width:320,height:800});
+  await page.route('https://tile.openstreetmap.org/**', r=>r.abort());
+  await page.goto(origin+'/#/suche/2'); await page.getByRole('button',{name:'Karte',exact:true}).click();
+  await page.getByText('Der Kartenhintergrund ist gerade nicht erreichbar.',{exact:false}).waitFor();
+  assert.equal(await page.locator('[data-map-hit]').count(),17);
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+  fs.mkdirSync(path.join(root,'test-results'),{recursive:true});
+  await page.locator('.stay-map-panel').screenshot({path:path.join(root,'test-results/map-mobile.png')});
+  await page.getByLabel('Stationen anzeigen').uncheck();
+  assert.equal(await page.locator('.leaflet-overlay-pane path').count(),0);
+  await page.getByRole('button',{name:'Liste / Tabelle'}).click();
+  assert.equal(await page.locator('[data-group=A]').isVisible(),true);
+});
+
+test('Favorit, Ausschließen und Rückgängig speichern bestätigte Zustände ohne doppelten Schreibaufruf', async (t) => {
+  let releaseWrite;
+  const {page,calls}=await setup(t,async p=>{
+    if(p.aktion==='unterkunft_treffer_status_setzen') { if(p.daten.status==='favorit'&&!releaseWrite) await new Promise(resolve=>{releaseWrite=resolve;}); return {ok:true,...p.daten}; }
+    return result();
+  });
+  await page.goto(origin+'/#/suche/2');
+  const selection=page.locator('[data-selection="1"]');
+  await selection.getByRole('button',{name:'☆ Merken',exact:true}).dblclick();
+  await waitForCallback(()=>releaseWrite);
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_treffer_status_setzen').length,1);
+  assert.equal(await selection.getByRole('button',{name:'☆ Merken',exact:true}).isDisabled(),true);
+  releaseWrite(); await selection.getByRole('button',{name:'★ Gemerkt',exact:true}).waitFor();
+  await selection.getByRole('button',{name:'Ausschließen',exact:true}).click();
+  await page.getByRole('heading',{name:'Liste A – Rangliste (2)'}).waitFor();
+  assert.equal(await page.locator('[data-group=A] [data-hit="1"]').count(),0);
+  await page.getByRole('button',{name:'Letzte Auswahl rückgängig'}).click();
+  await page.locator('[data-group=A] [data-selection="1"]').getByRole('button',{name:'★ Gemerkt',exact:true}).waitFor();
+  assert.deepEqual(calls.filter(p=>p.aktion==='unterkunft_treffer_status_setzen').map(p=>p.daten.status),['favorit','ausgeschlossen','favorit']);
+  await page.locator('.stay-filters summary').click(); await page.getByLabel('Nur Gemerkte',{exact:true}).check();
+  assert.deepEqual(await page.locator('tbody tr').evaluateAll(rows=>rows.map(r=>r.dataset.hit)),['1']);
+});
+
+test('Unklare Auswahlantwort sperrt weitere Änderungen bis zum Lesen des Serverzustands', async (t) => {
+  let saved=false;
+  const {page,calls}=await setup(t,p=>{
+    if(p.aktion==='unterkunft_treffer_status_setzen') {saved=true;return {ok:true};}
+    const data=result(); if(saved)data.treffer[0].status='favorit'; return data;
+  });
+  await page.goto(origin+'/#/suche/2');
+  await page.locator('[data-selection="1"]').getByRole('button',{name:'☆ Merken',exact:true}).click();
+  await page.locator('[data-selection="1"]').getByText('Bitte zuerst aktualisieren.',{exact:false}).waitFor();
+  assert.equal(await page.locator('[data-selection="1"]').getByRole('button',{name:'☆ Merken',exact:true}).isDisabled(),true);
+  await page.getByRole('button',{name:'Aktualisieren',exact:true}).click();
+  await page.locator('[data-selection="1"]').getByRole('button',{name:'★ Gemerkt',exact:true}).waitFor();
+  assert.equal(await page.locator('[data-selection="1"]').getByRole('button',{name:'★ Gemerkt',exact:true}).isDisabled(),false);
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_treffer_status_setzen').length,1);
+});
+
+test('Verspätetes Lesen überschreibt keine inzwischen gespeicherte Auswahl; neueres Lesen wird übernommen', async (t) => {
+  let reads=0, releaseRead, laterStatus='aktiv';
+  const {page}=await setup(t,async p=>{
+    if(p.aktion==='unterkunft_treffer_status_setzen') return {ok:true,...p.daten};
+    if(p.aktion==='unterkunft_suchlauf_lesen'&&++reads===2) await new Promise(resolve=>{releaseRead=resolve;});
+    const data=result(); data.treffer[0].status=laterStatus;return data;
+  });
+  await page.goto(origin+'/#/suche/2'); await page.locator('[data-selection="1"]').waitFor();
+  await page.getByRole('button',{name:'Aktualisieren',exact:true}).click(); await waitForCallback(()=>releaseRead);
+  await page.locator('[data-selection="1"]').getByRole('button',{name:'☆ Merken',exact:true}).click();
+  await page.locator('[data-selection="1"]').getByRole('button',{name:'★ Gemerkt',exact:true}).waitFor();
+  releaseRead(); await page.getByRole('button',{name:'Aktualisieren',exact:true}).waitFor({state:'visible'});
+  await page.waitForFunction(()=>!Array.from(document.querySelectorAll('button')).find(b=>b.textContent==='Aktualisieren')?.disabled);
+  assert.equal(await page.locator('[data-selection="1"]').getByRole('button',{name:'★ Gemerkt',exact:true}).count(),1);
+  laterStatus='ausgeschlossen'; await page.getByRole('button',{name:'Aktualisieren',exact:true}).click();
+  await page.locator('[data-group=ausgeschlossen] > summary').click();
+  await page.locator('[data-selection="1"]').getByRole('button',{name:'Wiederherstellen'}).waitFor();
+  assert.equal(await page.locator('[data-group=A] [data-hit="1"]').count(),0);
+  assert.equal(await page.locator('[data-selection="5"]').getByRole('button',{name:'☆ Merken',exact:true}).isDisabled(),true);
+});
+
+test('Weitere Filter: vergleichbare Noten, unbekannte Zahlen, Hotelsterne und gespeicherte Ansicht', async (t) => {
+  const data=result();
+  data.treffer=[hit(1,'A',200,{typ:'hotel',sterne:4,note:4.5,note_skala:5,gehzeit_min:5,bewertungen:80}),
+    hit(2,'A',100,{typ:'hotel',sterne:3,note:8,note_skala:10,gehzeit_min:10,bewertungen:30}),
+    hit(3,'B',null,{typ:'apartment',sterne:null,note:null,note_skala:null,gehzeit_min:null,bewertungen:null})];
+  const {page}=await setup(t,()=>data);
+  await page.addInitScript(()=>{if(!sessionStorage.getItem('ks_suche_view:2'))sessionStorage.setItem('ks_suche_view:2',JSON.stringify({filters:null}));});
+  await page.goto(origin+'/#/suche/2'); await page.locator('.stay-filters summary').click();
+  await page.getByLabel('Gästenote mindestens (von 10)',{exact:true}).fill('8.5');
+  await page.getByLabel('Hotelsterne mindestens',{exact:true}).selectOption('4');
+  assert.deepEqual(await page.locator('tbody tr').evaluateAll(rows=>rows.map(r=>r.dataset.hit)),['1','3']);
+  await page.getByLabel('Unbekannte Angaben mit anzeigen',{exact:true}).uncheck();
+  assert.deepEqual(await page.locator('tbody tr').evaluateAll(rows=>rows.map(r=>r.dataset.hit)),['1']);
+  await page.reload(); await page.locator('[data-hit="1"]').waitFor();
+  assert.deepEqual(await page.locator('tbody tr').evaluateAll(rows=>rows.map(r=>r.dataset.hit)),['1']);
+  await page.locator('.stay-filters summary').click();
+  assert.equal(await page.getByLabel('Gästenote mindestens (von 10)',{exact:true}).inputValue(),'8.5');
+  await page.getByRole('button',{name:'Weitere Filter zurücksetzen'}).click();
+  await page.getByLabel('Gesamtpreis höchstens (€)',{exact:true}).fill('150');
+  assert.deepEqual(await page.locator('tbody tr').evaluateAll(rows=>rows.map(r=>r.dataset.hit)),['2','3']);
+  await page.getByLabel('Unterkunftsform',{exact:true}).selectOption('hotel');
+  assert.deepEqual(await page.locator('tbody tr').evaluateAll(rows=>rows.map(r=>r.dataset.hit)),['2']);
+  await page.getByLabel('Gehzeit zur Station höchstens (Min.)',{exact:true}).fill('0');
+  assert.equal(await page.locator('tbody tr').count(),0);
+});
+
+test('Lückenfüller: bestätigter Auftrag, Felder, Kopiertext und Doppelklick ohne Ausführung', async (t) => {
+  let releaseCreate;
+  const {page,calls}=await setup(t,async p=>{
+    if(p.aktion==='unterkunft_lueckenfueller_anlegen') { await new Promise(resolve=>{releaseCreate=resolve;}); return {ok:true,id:7,status:'erzeugt',vorgefuellter_text:'Lückenfüller Auftrag 7 ausführen'}; }
+    return result();
+  });
+  await page.addInitScript(()=>Object.defineProperty(navigator,'clipboard',{value:{writeText:async text=>{window.copiedText=text;}}}));
+  await page.goto(origin+'/#/suche/2');
+  await page.getByLabel('Für Nachrecherche auswählen: Unterkunft 4',{exact:true}).check();
+  await page.getByLabel('Gesamtpreis',{exact:true}).check();
+  await page.getByLabel('Hinweis für die Nachrecherche').fill('Bitte echte Betten prüfen.');
+  await page.getByRole('button',{name:'Lücken füllen (1)',exact:true}).dblclick();
+  await waitForCallback(()=>releaseCreate);
+  const writes=calls.filter(p=>p.aktion==='unterkunft_lueckenfueller_anlegen');
+  assert.equal(writes.length,1);assert.deepEqual(writes[0].daten.treffer_ids,[4]);
+  assert.deepEqual(writes[0].daten.felder,['zimmerkategorien','gesamtpreis']);assert.equal(writes[0].daten.hinweis,'Bitte echte Betten prüfen.');
+  assert.equal(typeof writes[0].daten.idempotenz,'string');
+  releaseCreate(); await page.getByLabel('Text für den Claude-Chat').waitFor();
+  assert.equal(await page.getByLabel('Text für den Claude-Chat').inputValue(),'Lückenfüller Auftrag 7 ausführen');
+  await page.getByRole('button',{name:'Text kopieren',exact:true}).click();
+  assert.equal(await page.evaluate(()=>window.copiedText),'Lückenfüller Auftrag 7 ausführen');
+  await page.locator('[data-research-status="4"]').getByText('Recherche #7: Angelegt – wartet auf Claude',{exact:false}).waitFor();
+  assert.equal(await page.getByRole('button',{name:'Lücken füllen (0)',exact:true}).isDisabled(),true);
+  assert(!calls.some(p=>/ausfuehren|runde_starten|suche_starten/.test(p.aktion)));
+  await page.setViewportSize({width:320,height:800});
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+  await page.locator('.research-panel').screenshot({path:path.join(root,'test-results/research-mobile.png')});
+});
+
+test('Lückenfüller: Auswahl maximal 30, über Filter hinweg erhalten und bei Ausschluss bereinigt', async (t) => {
+  const data={...result(),treffer:Array.from({length:32},(_,i)=>hit(i+1,'B',100))};
+  const {page}=await setup(t,p=>p.aktion==='unterkunft_treffer_status_setzen'?{ok:true,...p.daten}:data);
+  await page.goto(origin+'/#/suche/2');
+  await page.getByLabel('Treffer je Liste und Seite',{exact:true}).selectOption('50');
+  for(let i=1;i<=30;i++) await page.getByLabel('Für Nachrecherche auswählen: Unterkunft '+i,{exact:true}).check();
+  assert.equal(await page.getByLabel('Für Nachrecherche auswählen: Unterkunft 31',{exact:true}).isDisabled(),true);
+  await page.getByPlaceholder('Name oder Anbieter').fill('Unterkunft 32');
+  await page.getByRole('button',{name:'Lücken füllen (30)',exact:true}).waitFor();
+  assert.equal(await page.locator('.research-selected li').count(),30);
+  await page.getByPlaceholder('Name oder Anbieter').fill('');
+  await page.locator('[data-selection="1"]').getByRole('button',{name:'Ausschließen',exact:true}).click();
+  await page.getByRole('button',{name:'Lücken füllen (29)',exact:true}).waitFor();
+  assert.equal(await page.getByLabel('Für Nachrecherche auswählen: Unterkunft 31',{exact:true}).isDisabled(),false);
+  await page.getByLabel('Zimmer und Betten',{exact:true}).uncheck();
+  assert.equal(await page.getByRole('button',{name:'Lücken füllen (29)',exact:true}).isDisabled(),true);
+});
+
+test('Lückenfüller: unklare Antwort wird lesend wiedergefunden, Status und Kopieren ohne Zwischenablage', async (t) => {
+  let created=false, jobStatus='erzeugt';
+  const {page,calls}=await setup(t,p=>{
+    if(p.aktion==='unterkunft_lueckenfueller_anlegen') {created=true;return {ok:true,id:7};}
+    if(p.aktion==='unterkunft_lueckenfueller_lesen') return {ok:true,auftraege:created?[{id:7,suchauftrag_id:2,treffer_ids:[4],felder:['zimmerkategorien'],status:jobStatus}]:[]};
+    return result();
+  });
+  await page.addInitScript(()=>Object.defineProperty(navigator,'clipboard',{value:{writeText:async()=>{throw new Error('Test: verweigert');}}}));
+  await page.goto(origin+'/#/suche/2'); await page.getByLabel('Für Nachrecherche auswählen: Unterkunft 4',{exact:true}).check();
+  await page.getByRole('button',{name:'Lücken füllen (1)',exact:true}).click();
+  await page.getByText('Anlegen nicht bestätigt:',{exact:false}).waitFor();
+  assert.equal(await page.getByRole('button',{name:'Lücken füllen (1)',exact:true}).isDisabled(),true);
+  await page.getByRole('button',{name:'Recherche-Status aktualisieren',exact:true}).click();
+  await page.getByLabel('Text für den Claude-Chat').waitFor();
+  await page.getByRole('button',{name:'Text kopieren',exact:true}).click();
+  await page.getByText('Bitte den markierten Text von Hand kopieren.').waitFor();
+  assert.equal(await page.getByLabel('Text für den Claude-Chat').evaluate(n=>n.selectionEnd-n.selectionStart),'Lückenfüller Auftrag 7 ausführen'.length);
+  for(const [state,label] of [['in_arbeit','In Arbeit'],['teilweise','Teilweise ergänzt'],['nicht_moeglich','Nicht möglich'],['erledigt','Erledigt']]) {
+    jobStatus=state; await page.getByRole('button',{name:'Recherche-Status aktualisieren',exact:true}).click();
+    await page.locator('[data-research-status="4"]').getByText('Recherche #7: '+label,{exact:false}).waitFor();
+  }
+  assert.equal(await page.getByLabel('Text für den Claude-Chat').isVisible(),false);
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_lueckenfueller_anlegen').length,1);
+});
+
+test('Lückenfüller: vorhandenen Auftrag öffnen, Lesefehler erhalten Treffer, Bereichswechsel beendet Antwort', async (t) => {
+  let readError=false, releaseCreate;
+  const {page}=await setup(t,async p=>{
+    if(p.aktion==='unterkunft_lueckenfueller_lesen') return readError?'abort':{ok:true,auftraege:[{id:8,suchauftrag_id:2,treffer_ids:[4],felder:['zimmerkategorien'],status:'in_arbeit'}]};
+    if(p.aktion==='unterkunft_lueckenfueller_anlegen') { await new Promise(resolve=>{releaseCreate=resolve;}); return {ok:true,id:8,status:'in_arbeit',schon_vorhanden:true,vorgefuellter_text:'Lückenfüller Auftrag 8 ausführen'}; }
+    if(p.aktion==='auftraege_suchen')return [];
+    return result();
+  });
+  await page.goto(origin+'/#/suche/2'); await page.getByRole('button',{name:'Text für Auftrag #8',exact:true}).click();
+  assert.equal(await page.getByLabel('Text für den Claude-Chat').inputValue(),'Lückenfüller Auftrag 8 ausführen');
+  readError=true; await page.getByRole('button',{name:'Recherche-Status aktualisieren',exact:true}).click();
+  await page.getByText('Recherche-Status nicht geladen:',{exact:false}).waitFor();
+  assert.equal(await page.locator('[data-group=B] [data-hit="4"]').count(),1);
+  await page.getByLabel('Für Nachrecherche auswählen: Unterkunft 4',{exact:true}).check();
+  await page.getByRole('button',{name:'Lücken füllen (1)',exact:true}).click(); await waitForCallback(()=>releaseCreate);
+  await page.locator('#areas [data-area=council]').click(); await page.getByRole('heading',{name:'Aufträge',exact:true}).waitFor();
+  releaseCreate(); assert.equal(await page.locator('.research-panel').count(),0);
+});
+
+test('Reisewünsche: Nebenart, Mischung, Unterkunft, Qualitätsfilter und Pflichtkriterien anlegen', async (t) => {
+  const {page,calls}=await setup(t,p=>p.aktion==='unterkunft_suchauftrag_anlegen'?{ok:true,id:2}:p.aktion==='unterkunft_suche_starten'?{ok:true}:p.daten?.suchauftrag_id?result():{suchauftraege:[]});
+  await page.goto(origin+'/#/suche');await formFill(page);
+  await page.getByLabel('Nebenart',{exact:true}).selectOption('erholung');
+  await page.getByLabel('Mischung der Reisearten',{exact:true}).selectOption('frei');
+  await page.getByLabel('Anteil der Nebenart (%)',{exact:true}).fill('40');
+  await page.getByLabel('Gewünschte Unterkunftsform',{exact:true}).selectOption('apartment');
+  await page.getByLabel('Suite als Wunsch',{exact:true}).check();
+  await page.getByLabel('Qualitätsfilter anwenden',{exact:true}).uncheck();
+  await page.locator('.trip-criteria > summary').click();
+  await page.getByLabel('Bedeutung: Echte Betten für alle',{exact:true}).selectOption('pflicht');
+  await page.getByLabel('Bedeutung: Schlafzimmer mindestens',{exact:true}).selectOption('pflicht');
+  await page.getByLabel('Bedeutung: Wohnfläche mindestens (m²)',{exact:true}).selectOption('pflicht');
+  await page.getByRole('button',{name:'Anlegen und Suche starten',exact:true}).click();
+  await page.getByText('Bitte einen gültigen Wert für „Wohnfläche mindestens (m²)“ eintragen.').waitFor();
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_suchauftrag_anlegen').length,0);
+  await page.getByLabel('Wert: Wohnfläche mindestens (m²)',{exact:true}).fill('55');
+  await page.getByLabel('Bedeutung: Balkon',{exact:true}).selectOption('egal');
+  await page.getByRole('button',{name:'Anlegen und Suche starten',exact:true}).click();
+  await page.locator('[data-group=A]').waitFor();
+  const d=calls.find(p=>p.aktion==='unterkunft_suchauftrag_anlegen').daten;
+  assert.equal(d.profil,'staedte');assert.equal(d.nebenart,'erholung');assert.equal(d.nebenart_anteil,40);assert.equal(d.unterkunftsform,'apartment');
+  assert.equal(d.suite,true);assert.equal(d.qualitaetsfilter,false);
+  assert.deepEqual(d.kriterien.echte_betten,{modus:'pflicht'});assert.deepEqual(d.kriterien.flaeche_m2,{modus:'pflicht',wert:55});
+  assert.deepEqual(d.kriterien.schlafzimmer,{modus:'pflicht',wert:2});assert.deepEqual(d.kriterien.suite,{modus:'wunsch'});assert.deepEqual(d.kriterien.balkon,{modus:'egal'});
+});
+
+test('Suchprofil übernehmen bewahrt Reiseziel und Daten; geleerte Felder kehren nicht aus Profil zurück', async (t) => {
+  const profile={id:9,name:'Familie',felder:{erwachsene:3,kinder_alter:[9],budget_eur:9000,land:'JP',schlafzimmer_min:3,nebenart:'natur',nebenart_anteil:50,unterkunftsform:'haus',qualitaetsfilter:false,kriterien:{balkon:{modus:'egal'}},quellen:['hasdata_booking','apify_airbnb']}};
+  const {page,calls}=await setup(t,p=>p.aktion==='unterkunft_suchprofile_lesen'?profileCatalog([profile]):p.aktion==='unterkunft_suchauftrag_anlegen'?{ok:true,id:2}:p.aktion==='unterkunft_suche_starten'?{ok:true}:p.daten?.suchauftrag_id?result():{suchauftraege:[]});
+  await page.goto(origin+'/#/suche');await formFill(page);
+  await page.getByLabel('Suchprofil verwenden',{exact:true}).selectOption('9');
+  assert.equal(await page.locator('[name=ziel]').inputValue(),'Kyoto');assert.equal(await page.locator('[name=anreise]').inputValue(),'2026-11-13');
+  assert.equal(await page.locator('[name=erwachsene]').inputValue(),'3');assert.equal(await page.locator('[name=kinder_alter]').inputValue(),'9');
+  await page.locator('[name=budget_eur]').fill('');await page.locator('[name=land]').fill('');
+  await page.getByLabel('Nebenart',{exact:true}).selectOption('');
+  await page.getByRole('button',{name:'Anlegen und Suche starten',exact:true}).click();await page.locator('[data-group=A]').waitFor();
+  const d=calls.find(p=>p.aktion==='unterkunft_suchauftrag_anlegen').daten;
+  assert.equal(d.suchprofil,undefined);assert.equal(d.budget_eur,undefined);assert.equal(d.land,undefined);assert.equal(d.nebenart,undefined);
+  assert.deepEqual(d.quellen,['hasdata_booking','apify_airbnb']);assert.deepEqual(d.kriterien.balkon,{modus:'egal'});
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_suchprofil_speichern').length,0);
+});
+
+test('Suchprofil ohne Ziel und Reisedaten speichern, Doppelklick und bewusster Ersatz', async (t) => {
+  let releaseSave;
+  const {page,calls}=await setup(t,async p=>{
+    if(p.aktion==='unterkunft_suchprofil_speichern'){await new Promise(resolve=>{releaseSave=resolve;});return{ok:true,id:9,name:p.daten.name,felder:p.daten.felder};}
+    return {suchauftraege:[]};
+  });
+  await page.goto(origin+'/#/suche');
+  await page.getByLabel('Name des Suchprofils',{exact:true}).fill('Familie');
+  await page.getByRole('button',{name:'Als Profil speichern',exact:true}).dblclick();await waitForCallback(()=>releaseSave);
+  assert.equal(await page.getByRole('button',{name:'Anlegen und Suche starten',exact:true}).isDisabled(),true);
+  const writes=calls.filter(p=>p.aktion==='unterkunft_suchprofil_speichern');assert.equal(writes.length,1);
+  assert.equal(writes[0].daten.felder.ziel,undefined);assert.equal(writes[0].daten.felder.anreise,undefined);assert.equal(writes[0].daten.felder.abreise,undefined);
+  assert.equal(writes[0].daten.felder.erwachsene,2);
+  releaseSave();await page.getByText('Profil „Familie“ gespeichert.',{exact:true}).waitFor();
+  await page.getByRole('button',{name:'Gleichnamiges Profil ersetzen',exact:true}).waitFor();
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_suchauftrag_anlegen').length,0);
+});
+
+test('Suchprofil: unklare Speicherantwort verlangt Lesen, Entwurf bleibt erhalten', async (t) => {
+  let saved;
+  const {page,calls}=await setup(t,p=>{
+    if(p.aktion==='unterkunft_suchprofile_lesen')return profileCatalog(saved?[saved]:[]);
+    if(p.aktion==='unterkunft_suchprofil_speichern'){saved={id:9,...p.daten};return{ok:true,id:9};}
+    return{suchauftraege:[]};
+  });
+  await page.goto(origin+'/#/suche');await page.getByLabel('Name des Suchprofils',{exact:true}).fill('Familie');
+  await page.getByRole('button',{name:'Als Profil speichern',exact:true}).click();
+  await page.getByText('Speichern nicht bestätigt:',{exact:false}).waitFor();
+  assert.equal(await page.getByRole('button',{name:'Als Profil speichern',exact:true}).isDisabled(),true);
+  await page.locator('[name=ziel]').fill('Kanazawa');await page.locator('[name=erwachsene]').fill('4');
+  await page.getByRole('button',{name:'Suchprofile aktualisieren',exact:true}).click();
+  await page.getByText('1 Suchprofile verfügbar.',{exact:true}).waitFor();
+  assert.equal(await page.locator('[name=erwachsene]').inputValue(),'4');assert.equal(await page.locator('[name=ziel]').inputValue(),'Kanazawa');
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_suchprofil_speichern').length,1);
+});
+
+test('Formular-Katalogfehler blockiert Start bis zum erneuten Laden; mobile Filter ohne Überlauf', async (t) => {
+  let working=false;
+  const {page,calls}=await setup(t,p=>p.aktion==='unterkunft_suchprofile_lesen'?(working?profileCatalog():{ok:true}):{suchauftraege:[]},{width:320,height:800});
+  await page.goto(origin+'/#/suche');await formFill(page);
+  await page.getByText('Suchprofile nicht geladen:',{exact:false}).waitFor();
+  assert.equal(await page.getByRole('button',{name:'Anlegen und Suche starten',exact:true}).isDisabled(),true);
+  working=true;await page.getByRole('button',{name:'Suchprofile aktualisieren',exact:true}).click();
+  await page.getByText('Noch keine Suchprofile gespeichert.').waitFor();
+  assert.equal(await page.locator('[name=ziel]').inputValue(),'Kyoto');
+  assert.equal(await page.getByRole('button',{name:'Anlegen und Suche starten',exact:true}).isDisabled(),false);
+  assert.equal(await page.getByLabel('Reiseart',{exact:true}).locator('option:disabled').count(),5);
+  await page.locator('.trip-criteria > summary').click();
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+  fs.mkdirSync(path.join(root,'test-results'),{recursive:true});
+  await page.locator('.trip-criteria').screenshot({path:path.join(root,'test-results/trip-filters-mobile.png')});
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_suchauftrag_anlegen').length,0);
+});
+
+test('Vorläufige Treffer auf Klick, Deckungswarnung und laufendes Polling bis zum Endstand', async (t) => {
+  let finished=false;
+  const partial={vollstaendig:false,fehlend:[{quelle:'trivago_mcp',status:'offen'}],hinweis:'Eine Quelle fehlt noch.'};
+  const {page,calls}=await setup(t,p=>p.aktion==='unterkunft_suche_status'?{...status(finished?'fertig':'laeuft'),deckung:finished?{vollstaendig:true,fehlend:[]}:partial}:{...result(finished?'fertig':'laeuft'),deckung:finished?{vollstaendig:true,fehlend:[]}:partial});
+  await page.clock.install();await page.goto(origin+'/#/suche/2');
+  await page.getByText('Keine vollständige Marktsuche.',{exact:true}).waitFor();
+  await page.getByText('Die Suche läuft auch ohne geöffnetes Handy weiter.',{exact:false}).waitFor();
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_suchlauf_lesen').length,0);
+  await page.getByRole('button',{name:'Vorläufige Treffer ansehen',exact:true}).click();
+  await page.getByRole('heading',{name:'Liste A – vorläufig (3)',exact:true}).waitFor();
+  await page.getByText('Offen oder fehlend: Trivago',{exact:true}).waitFor();
+  assert.equal(await page.getByRole('button',{name:/Endscore/}).count(),0);
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_suchlauf_lesen').length,1);
+  await page.getByText('Vorläufige Treffer. Die Bewertung läuft weiter;', {exact:false}).waitFor();
+  const nextPoll=page.waitForRequest(r=>r.postDataJSON()?.aktion==='unterkunft_suche_status');
+  await page.clock.fastForward(7100);await nextPoll;
+  await page.getByText('Suche läuft. Bewertung und Gegenprüfung werden abgewartet.',{exact:false}).waitFor();
+  assert(calls.filter(p=>p.aktion==='unterkunft_suche_status').length>=2);
+  finished=true;await page.clock.fastForward(7100);
+  await page.getByRole('heading',{name:'Liste A – Rangliste (3)',exact:true}).waitFor();
+  await page.getByText('Alle vorgesehenen Quellen sind abgeschlossen.',{exact:true}).waitFor();
+  assert.equal(await page.getByRole('button',{name:'Vorläufige Treffer ansehen',exact:true}).isVisible(),false);
+});
+
+test('Ergebnisnachweise: Preisalter, Verfügbarkeit, Balkon, Warncodes und Mindestzahl ohne Filterverwechslung', async (t) => {
+  let data=result();data.deckung={vollstaendig:false,fehlend:['rakuten_travel']};
+  data.treffer[0]={...data.treffer[0],preis_veraltet:true,kategorien:[{name:'Doppelzimmer',balkon:'ja'}],angebot:{preis_gesamt_eur:200,verfuegbar:'belegt',abrufzeit:'2026-10-12T12:30:00Z'}};
+  data.treffer[1].angebot.verfuegbar='unbelegt';data.treffer[1].kategorien=[{balkon:'nein'},{balkon:'unklar'}];
+  data.treffer[2].bewertung.warnungen=['unbewertet_chance','pflicht_unbekannt','ueber_budget'];
+  const {page}=await setup(t,()=>data);await page.goto(origin+'/#/suche/2');
+  await page.getByText('Datenlage reicht noch nicht für 10 Empfehlungen in Liste A (derzeit 3).',{exact:true}).waitFor();
+  const first=page.locator('[data-hit="1"]');
+  await first.getByText('Preis veraltet – älter als 48 Stunden',{exact:true}).waitFor();
+  await first.getByText('Verfügbarkeit belegt beim Abruf',{exact:true}).waitFor();
+  await first.getByText('Balkon: ja',{exact:true}).waitFor();
+  await page.locator('[data-hit="2"]').getByText('Verfügbarkeit unbelegt',{exact:true}).waitFor();
+  await page.locator('[data-hit="2"]').getByText('Balkon: unbekannt',{exact:true}).waitFor();
+  await page.getByText('Wenige Bewertungen – bekommt eine Chance',{exact:true}).waitFor();await page.getByText('Pflichtangabe noch ungeklärt',{exact:true}).waitFor();
+  data={...result(),deckung:{vollstaendig:true,fehlend:[]},treffer:Array.from({length:12},(_,i)=>hit(i+1,'A',100))};
+  await page.getByRole('button',{name:'Aktualisieren',exact:true}).click();await page.getByRole('heading',{name:'Liste A – Rangliste (12)',exact:true}).waitFor();
+  await page.getByPlaceholder('Name oder Anbieter').fill('Unterkunft 12');
+  assert.equal(await page.getByText('Datenlage reicht noch nicht für 10',{exact:false}).count(),0);
+});
+
+test('Kandidatendetails trennen Angebote und Noten, zeigen Gewichte/Nachweise und schließen mit Fokus', async (t) => {
+  const data=result();const t1=data.treffer[0];
+  t1.note=9.1;t1.note_skala=10;t1.angebot={preis_gesamt_eur:200,quelle:'hasdata_booking',verfuegbar:'belegt',abrufzeit:'2026-10-16T10:00:00Z',link:'https://example.com/primary'};
+  t1.bewertung.spaltennoten={raum:8,lage:9,gewichte:{raum:25,lage:30,preis_leistung:20,bewertungen:15,eignung:10}};
+  t1.bewertung.gegenpruefung={pruefung:{urteil:'einwand',einwaende:['Bettenzahl prüfen'],hinweis:'Raumaufteilung offen'}};
+  t1.kategorien=[{name:'Familienzimmer',m2:42,schlafzimmer:2,betten_anzahl:4,max_personen:4,balkon:'nein',quelle:'hasdata_booking',abrufzeit:'2026-10-15T12:00:00Z'}];
+  t1.weitere_angebote=[{anbieter:'Zweite Quelle',quelle:'trivago_mcp',preis_gesamt_eur:150,note:4.5,note_skala:5,bewertungen:60,link:'https://example.com/other'},{anbieter:'Ohne Nachweis',link:'javascript:alert(1)'}];
+  const {page}=await setup(t,()=>data,{width:390,height:844});await page.goto(origin+'/#/suche/2');
+  const open=page.locator('[data-hit="1"]').getByRole('button',{name:'Unterkunft im Detail',exact:true});await open.click();
+  const dialog=page.getByRole('dialog',{name:'Unterkunft im Detail: Unterkunft 1',exact:true});await dialog.waitFor();
+  assert.equal(await dialog.locator('a').count(),2);
+  const ratings=dialog.getByRole('region',{name:'Gästenoten nach Quelle',exact:true});
+  assert.deepEqual(await ratings.locator('tbody tr').allTextContents(),['Booking9.11035','Zweite Quelle4.5560','Ohne Nachweisunbekanntunbekanntunbekannt']);
+  await dialog.getByRole('region',{name:'Teilnoten und Gewichtung',exact:true}).getByRole('cell',{name:'25',exact:true}).waitFor();
+  await dialog.getByText('Bettenzahl prüfen',{exact:true}).waitFor();
+  await dialog.getByRole('cell',{name:'Familienzimmer',exact:true}).waitFor();
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+  await dialog.screenshot({path:path.join(root,'test-results/candidate-mobile.png')});
+  await page.keyboard.press('Escape');assert.equal(await page.getByRole('dialog').count(),0);
+  assert.equal(await open.evaluate(n=>document.activeElement===n),true);
+  await open.click();await page.evaluate(()=>{location.hash='#/ergebnisse';});
+  await page.getByRole('heading',{name:'Suchen & Ergebnisse',exact:true}).waitFor();assert.equal(await page.getByRole('dialog').count(),0);
+});
+
+test('Schnell-Gründe sind ein Entwurf und werden erst mit dem Urteil gespeichert', async (t) => {
+  const {page,calls}=await setup(t,p=>p.aktion==='unterkunft_rueckmeldung_geben'?{ok:true,id:103,treffer_id:p.daten.treffer_id,urteil:p.daten.urteil}:result());
+  await page.goto(origin+'/#/suche/2');const box=page.locator('[data-feedback="1"]');
+  await box.getByLabel('Optionaler Grund für Unterkunft 1',{exact:true}).fill('Persönliche Notiz');
+  await box.getByLabel('Schnell-Grund für Unterkunft 1',{exact:true}).selectOption('Lage');
+  await box.getByLabel('Schnell-Grund für Unterkunft 1',{exact:true}).selectOption('Betten');
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_rueckmeldung_geben').length,0);
+  await box.getByLabel('Schnell-Grund für Unterkunft 1',{exact:true}).selectOption('Sonstiges');
+  assert.equal(await box.getByLabel('Optionaler Grund für Unterkunft 1',{exact:true}).evaluate(n=>n===document.activeElement),true);
+  await box.getByRole('button',{name:'Passt nicht',exact:true}).click();await box.getByText('Gespeichert:',{exact:false}).waitFor();
+  assert.equal(calls.find(p=>p.aktion==='unterkunft_rueckmeldung_geben').daten.grund,'Persönliche Notiz; Lage; Betten');
+});
+
+test('Verlauf öffnet Merkliste je Reise und gespeichertes Profil ohne Schreibaufruf', async (t) => {
+  const data=result();data.treffer[1].status='favorit';
+  const {page,calls}=await setup(t,p=>p.aktion==='unterkunft_suchprofile_lesen'?profileCatalog([{id:7,name:'Familienprofil',felder:{erwachsene:4,kinder_alter:[10],kriterien:{balkon:{modus:'egal'}}}}]):p.daten?.suchauftrag_id?data:{merkliste:[],suchauftraege:[{id:2,ziel:'Tokyo',status:'fertig',treffer:5,gemerkt:1}]});
+  await page.goto(origin+'/#/ergebnisse');
+  await page.getByText('Rohdaten werden nach 30 Tagen entfernt.',{exact:false}).waitFor();
+  await page.getByRole('link',{name:'Gemerkte in Tokyo',exact:true}).click();await page.locator('[data-hit="2"]').waitFor();
+  assert.deepEqual(await page.locator('tbody tr').evaluateAll(rows=>rows.map(r=>r.dataset.hit)),['2']);
+  assert.equal(await page.getByLabel('Nur Gemerkte',{exact:true}).isChecked(),true);
+  await page.goto(origin+'/#/ergebnisse');await page.getByRole('link',{name:'Neue Suche mit Profil „Familienprofil“',exact:true}).click();
+  await page.getByText('Profil „Familienprofil“ übernommen.',{exact:false}).waitFor();
+  assert.equal(await page.locator('[name=erwachsene]').inputValue(),'4');assert.equal(await page.locator('[name=ziel]').inputValue(),'');
+  assert(!calls.some(p=>/anlegen|speichern|status_setzen/.test(p.aktion)));
+});
+
+test('Sprunglinks öffnen Unbewertete und nach Gründen gegliederte Ausschlüsse', async (t) => {
+  const data=result();data.treffer.push(hit(6,'A',100,{topf:'unbewertet'}),hit(7,'A',100,{topf:'ausgeschlossen',ko_grund:'Budget überschritten'}),hit(8,'B',100,{status:'ausgeschlossen'}));
+  const {page}=await setup(t,()=>data);await page.goto(origin+'/#/suche/2');
+  await page.getByRole('button',{name:'Ausgeschlossene (3) nach Grund',exact:true}).click();
+  const section=page.locator('[data-group=ausgeschlossen]');assert.equal(await section.evaluate(n=>n.open),true);
+  assert.deepEqual(await section.locator('h3.exclusion-reason').allTextContents(),['Grund nicht geliefert','Budget überschritten','Von dir ausgeschlossen']);
+  await page.getByRole('button',{name:'Unbewertete (1)',exact:true}).click();
+  assert.equal(await page.evaluate(()=>document.activeElement.parentElement.dataset.group),'offen');
+});
+
+test('Nachrecherche: verspäteter Status lässt Texteingabe, Cursor und offene Angaben stehen', async (t) => {
+  let releaseStatus;
+  const {page,calls}=await setup(t,async p=>p.aktion==='unterkunft_lueckenfueller_lesen'
+    ? await new Promise(resolve=>{releaseStatus=()=>resolve({ok:true,auftraege:[]});}) : result(),{width:390,height:844});
+  await page.goto(origin+'/#/suche/2'); await waitForCallback(()=>releaseStatus);
+  const info=page.locator('[data-detail="1"]'); await info.locator('summary').click();
+  await page.getByLabel('Für Nachrecherche auswählen: Unterkunft 4',{exact:true}).check();
+  const reason=page.getByLabel('Optionaler Grund für Unterkunft 1',{exact:true});
+  await reason.fill('Ruhig und zentral');
+  await reason.evaluate(n=>{n.focus();n.setSelectionRange(6,9);});
+  const original=await reason.elementHandle(); const scroll=await page.evaluate(()=>scrollY);
+  releaseStatus(); await page.getByText('Recherche-Status aktualisiert.',{exact:true}).waitFor();
+  assert.equal(await original.evaluate(n=>n.isConnected),true,'Eine reine Statusantwort darf das Eingabefeld nicht ersetzen');
+  assert.deepEqual(await reason.evaluate(n=>({focused:document.activeElement===n,start:n.selectionStart,end:n.selectionEnd})),{focused:true,start:6,end:9});
+  assert.equal(await info.evaluate(n=>n.open),true);
+  assert.equal(await page.getByLabel('Für Nachrecherche auswählen: Unterkunft 4',{exact:true}).isChecked(),true);
+  assert(Math.abs((await page.evaluate(()=>scrollY))-scroll)<2,'Die Leseposition bleibt stehen');
+  await page.keyboard.insertText('sowie'); assert.equal(await reason.inputValue(),'Ruhig sowie zentral');
+  assert.equal(calls.filter(p=>p.aktion && !['unterkunft_suche_status','unterkunft_suchlauf_lesen','unterkunft_lueckenfueller_lesen'].includes(p.aktion)).length,0);
+});
+
+test('Nachrecherche: verspäteter Status erhält den Rücksprung aus der Detailansicht', async (t) => {
+  let releaseStatus;
+  const {page}=await setup(t,async p=>p.aktion==='unterkunft_lueckenfueller_lesen'
+    ? await new Promise(resolve=>{releaseStatus=()=>resolve({ok:true,auftraege:[{id:91,suchauftrag_id:2,treffer_ids:[4],felder:['balkon'],status:'erzeugt'}]});}) : result());
+  await page.goto(origin+'/#/suche/2'); await waitForCallback(()=>releaseStatus);
+  const open=page.locator('[data-hit="4"] .candidate-open'); await open.click();
+  releaseStatus(); await page.getByText('Recherche-Status aktualisiert.',{exact:true}).waitFor({state:'attached'});
+  await page.getByRole('dialog').waitFor(); await page.keyboard.press('Escape');
+  assert.equal(await open.evaluate(n=>document.activeElement===n),true,'Schließen führt zum ursprünglichen Treffer zurück');
+  await page.locator('[data-research-status="4"]').getByText('Recherche #91: Angelegt – wartet auf Claude',{exact:false}).waitFor();
+});
+
+test('Viertel: freier Einstieg, unbekannte Noten, lokale Filter und Sortierung', async (t) => {
+  const {page,calls}=await setup(t,()=>districts());
+  await page.goto(origin+'/#/viertel');await page.getByRole('heading',{name:'Welches Viertel passt zu euch?'}).waitFor();
+  assert.equal(calls.length,0);assert.equal(await page.locator('#tabs [data-view=viertel]').getAttribute('aria-current'),'page');
+  await page.getByLabel('Stadt oder Insel',{exact:true}).fill('Kyoto');await page.getByRole('button',{name:'Viertel laden',exact:true}).click();
+  await page.locator('[data-district="21"]').waitFor();assert.deepEqual(calls[0].daten,{stadt:'Kyoto'});
+  const unknown=page.locator('[data-district="21"] .score-bar-row').filter({hasText:'Grün'});
+  assert.equal(await unknown.getByRole('meter').count(),0);await unknown.getByText('unbekannt',{exact:true}).waitFor();
+  const zero=page.locator('[data-district="22"] .score-bar-row').filter({hasText:'Grün'});
+  assert.equal(await zero.getByRole('meter').getAttribute('value'),'0');
+  assert.equal(await page.locator('a[href^="javascript:"]').count(),0);
+  await page.getByLabel('Ruhig',{exact:true}).check();assert.equal(await page.locator('.district-cards [data-district]').count(),1);
+  await page.getByLabel('Ruhig',{exact:true}).uncheck();await page.getByLabel('Grün ≥ 5',{exact:true}).check();
+  assert.deepEqual(await page.locator('.district-cards [data-district]').evaluateAll(ns=>ns.map(n=>n.dataset.district)),['23']);
+  await page.getByRole('button',{name:'Viertelfilter zurücksetzen',exact:true}).click();await page.getByLabel('Viertel sortieren nach',{exact:true}).selectOption('gruen');
+  assert.deepEqual(await page.locator('.district-cards [data-district]').evaluateAll(ns=>ns.map(n=>n.dataset.district)),['23','22','21']);
+  assert.equal(calls.length,1,'Lokales Filtern und Sortieren erzeugt keine API-Schreibvorgänge');
+  await page.goto(origin+'/#/viertel/?suche=2');await page.getByLabel('Viertel sortieren nach',{exact:true}).selectOption('preis');
+  await page.locator('[data-district="21"]').waitFor();
+  assert.deepEqual(await page.locator('.district-cards [data-district]').evaluateAll(ns=>ns.map(n=>n.dataset.district)),['22','21','23']);
+});
+
+test('Viertelkarte: erst auf Klick, Kreise mit Status, Tastatur, fehlende Positionen und Handy', async (t) => {
+  let tiles=0;
+  const {page}=await setup(t,()=>districts(),{width:390,height:844});
+  await page.route('https://tile.openstreetmap.org/**',r=>{tiles++;return r.abort();});
+  await page.goto(origin+'/#/viertel/?suche=2');await page.locator('[data-district="21"]').waitFor();assert.equal(tiles,0);
+  await page.getByRole('button',{name:'Viertelkarte anzeigen',exact:true}).click();
+  const proposal=page.locator('[data-district-circle="21"]');await proposal.waitFor();
+  assert.equal(await proposal.getAttribute('stroke-dasharray'),'7 6');assert.equal(await proposal.getAttribute('stroke'),'#2c6846');
+  assert.equal(await page.locator('[data-district-circle="22"]').getAttribute('stroke-dasharray'),null);
+  assert.equal(await page.locator('[data-district-circle]').count(),2);await page.getByText('2 von 3 Vierteln auf der Karte.',{exact:false}).waitFor();
+  await proposal.focus();await page.keyboard.press('Enter');assert.equal(await page.evaluate(()=>document.activeElement.textContent),'Parkviertel');
+  await page.getByText('Der Kartenhintergrund ist nicht erreichbar.',{exact:false}).waitFor();assert(tiles>0);
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+  await page.locator('.stay-map-panel').screenshot({path:path.join(root,'test-results/district-map-mobile.png')});
+  await page.locator('[data-district="21"]').screenshot({path:path.join(root,'test-results/district-card-mobile.png')});
+  await page.setViewportSize({width:320,height:800});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+  await page.setViewportSize({width:1440,height:1000});await page.evaluate(()=>scrollTo(0,0));await page.screenshot({path:path.join(root,'test-results/district-desktop.png')});
+});
+
+test('Viertelentscheidungen: bestätigen, bewusst streichen, wieder aufnehmen und Name/Notiz prüfen', async (t) => {
+  const data=districts();let releaseWrite;
+  const {page,calls}=await setup(t,async p=>{
+    if(p.aktion==='unterkunft_zone_entscheiden')return await new Promise(resolve=>{releaseWrite=()=>{
+      const z=[...data.viertel,...data.gestrichen].find(z=>z.id===p.daten.id);Object.assign(z,{status:p.daten.status},p.daten.name?{name:p.daten.name}:{} ,p.daten.notiz?{notiz_nutzer:p.daten.notiz}:{});
+      data.viertel=[...data.viertel,...data.gestrichen].filter(z=>z.status!=='gestrichen');data.gestrichen=z.status==='gestrichen'?[z]:[];
+      resolve({ok:true,id:z.id,status:z.status});
+    };});return data;
+  });
+  await page.goto(origin+'/#/viertel/?stadt=kyoto');const card=page.locator('[data-district="21"]');await card.waitFor();
+  await card.getByRole('button',{name:'Bestätigen',exact:true}).dblclick();await waitForCallback(()=>releaseWrite);
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_zone_entscheiden').length,1);releaseWrite();await page.getByText('Gespeichert: Parkviertel · bestätigt.',{exact:true}).waitFor();
+  await card.getByRole('button',{name:'Streichen',exact:true}).click();assert.equal(calls.filter(p=>p.aktion==='unterkunft_zone_entscheiden').length,1);
+  await card.getByRole('button',{name:'Abbrechen',exact:true}).click();assert.equal(await card.getByRole('button',{name:'Streichen',exact:true}).evaluate(n=>document.activeElement===n),true);
+  await card.getByRole('button',{name:'Streichen',exact:true}).click();releaseWrite=null;await card.getByRole('button',{name:'Ja, Viertel streichen',exact:true}).click();await waitForCallback(()=>releaseWrite);releaseWrite();
+  await page.getByText('Gespeichert: Parkviertel · gestrichen.',{exact:true}).waitFor();assert.equal(await page.locator('.district-removed').evaluate(n=>n.open),true);
+  releaseWrite=null;await card.getByRole('button',{name:'Als Vorschlag wieder aufnehmen',exact:true}).click();await waitForCallback(()=>releaseWrite);releaseWrite();await page.getByText('Gespeichert: Parkviertel · Vorschlag.',{exact:true}).waitFor();
+  await card.getByText('Umbenennen / Notiz',{exact:true}).click();await card.getByLabel('Neuer Name für Parkviertel',{exact:true}).fill('Am Park');await card.getByLabel('Notiz zu Parkviertel',{exact:true}).fill('Für die Familie vormerken');
+  releaseWrite=null;await card.getByRole('button',{name:'Name und Notiz speichern',exact:true}).click();await waitForCallback(()=>releaseWrite);releaseWrite();await page.getByText('Gespeichert: Am Park · Vorschlag.',{exact:true}).waitFor();
+  assert.equal(await card.getByLabel('Notiz zu Am Park',{exact:true}).inputValue(),'Für die Familie vormerken');
+});
+
+test('Viertel: unklare Schreibantwort sperrt Wiederholung bis zum Lesen', async (t) => {
+  const {page,calls}=await setup(t,p=>p.aktion==='unterkunft_zone_entscheiden'?{ok:true}:districts());
+  await page.goto(origin+'/#/viertel/?stadt=kyoto');await page.locator('[data-district="21"]').getByRole('button',{name:'Bestätigen',exact:true}).click();
+  await page.getByText('Speichern nicht bestätigt:',{exact:false}).waitFor();assert.equal(await page.locator('[data-district="21"]').getByRole('button',{name:'Bestätigen',exact:true}).isDisabled(),true);
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_zone_entscheiden').length,1);
+  await page.getByRole('button',{name:'Viertel aktualisieren',exact:true}).click();await page.getByText('Viertel aktualisiert.',{exact:true}).waitFor();
+  assert.equal(await page.locator('[data-district="21"]').getByRole('button',{name:'Bestätigen',exact:true}).isDisabled(),false);
+});
+
+test('Viertel ermitteln: Kostenhinweis, ein Klick, alten Lauf nicht als neuen Erfolg ausgeben', async (t) => {
+  let phase='old';const data=districts();data.viertel=[];
+  const {page,calls}=await setup(t,p=>p.aktion==='unterkunft_viertel_erstellen'?{ok:true,stadt:'kyoto',hinweis:'Ermittlung angestoßen.'}:{...data,letzter_lauf:phase==='old'?{id:1,status:'fertig'}:{id:2,status:phase}});
+  await page.clock.install();await page.goto(origin+'/#/viertel/?stadt=kyoto');await page.getByText('Für diesen Ort sind noch keine Viertel vorhanden.',{exact:true}).waitFor();
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_viertel_erstellen').length,0);
+  await page.getByRole('button',{name:'Viertel ermitteln · ca. 0,06 USD',exact:true}).dblclick();await page.getByText('Ermittlung angefragt. Der Fortschritt wird automatisch gelesen;', {exact:false}).waitFor();
+  const next=page.waitForRequest(r=>r.postDataJSON()?.aktion==='unterkunft_viertel_lesen');await page.clock.fastForward(3100);await next;
+  await page.getByText('Ermittlung angefragt.',{exact:false}).waitFor();assert.equal(await page.getByRole('button',{name:'Viertel ermitteln · ca. 0,06 USD',exact:true}).isDisabled(),true);
+  phase='osm_angefordert';await page.clock.fastForward(10100);await page.getByText('Letzte Ermittlung: Umgebungsdaten werden geladen',{exact:false}).waitFor();
+  phase='fertig';await page.clock.fastForward(10100);await page.getByText('Viertel aktualisiert.',{exact:true}).waitFor();
+  assert.equal(await page.getByRole('button',{name:'Viertel ermitteln · ca. 0,06 USD',exact:true}).isDisabled(),false);
+  assert.deepEqual(calls.filter(p=>p.aktion==='unterkunft_viertel_erstellen').map(p=>p.daten),[{stadt:'kyoto'}]);
+  const count=calls.length;await page.clock.fastForward(30100);assert.equal(calls.length,count);
+});
+
+test('Viertelauswahl übergibt Pflicht/Wunsch an eine neue Suche, Filter verlieren keine Auswahl', async (t) => {
+  const {page,calls}=await setup(t,p=>p.aktion==='unterkunft_viertel_lesen'?districts():p.aktion==='unterkunft_suchprofile_lesen'?districtCatalog():p.aktion==='unterkunft_suchauftrag_anlegen'?{ok:true,id:2}:p.aktion==='unterkunft_suche_starten'?{ok:true}:p.daten?.suchauftrag_id?result():{suchauftraege:[]});
+  await page.goto(origin+'/#/viertel/?stadt=kyoto');await page.getByLabel('Viertel auswählen: Altstadt',{exact:true}).check();await page.getByLabel('Ruhig',{exact:true}).check();
+  await page.getByLabel('Viertel auswählen: Parkviertel',{exact:true}).check();await page.getByLabel('Gewählte Viertel berücksichtigen',{exact:true}).selectOption('wunsch');
+  await page.getByRole('button',{name:'Mit diesen Vierteln suchen',exact:true}).click();await page.getByLabel('Suchviertel: Altstadt',{exact:true}).waitFor();
+  assert.equal(await page.locator('[name=ziel]').inputValue(),'kyoto');assert.equal(await page.getByLabel('Suchviertel: Altstadt',{exact:true}).isChecked(),true);
+  await page.locator('[name=anreise]').fill('2026-11-13');await page.locator('[name=abreise]').fill('2026-11-27');
+  await page.getByLabel('Bedeutung: ÖPNV im Viertel mindestens',{exact:true}).selectOption('pflicht');await page.getByLabel('Wert: ÖPNV im Viertel mindestens',{exact:true}).fill('5');
+  await page.getByRole('button',{name:'Anlegen und Suche starten',exact:true}).click();await page.locator('[data-group=A]').waitFor();
+  const write=calls.find(p=>p.aktion==='unterkunft_suchauftrag_anlegen');assert.deepEqual(write.daten.kriterien.viertel_auswahl,{modus:'wunsch',werte:[21,22]});assert.deepEqual(write.daten.kriterien.viertel_oepnv_min,{modus:'pflicht',wert:5});
+});
+
+test('Viertel im Formular: Profil-IDs für Ziel prüfen, falsche Stadt und veraltete Antworten nicht übernehmen', async (t) => {
+  let releaseKyoto;const profile={id:7,name:'Viertelprofil',felder:{kriterien:{viertel_auswahl:{modus:'pflicht',werte:[21,99]}}}};
+  const {page,calls}=await setup(t,async p=>p.aktion==='unterkunft_suchprofile_lesen'?districtCatalog([profile]):p.aktion==='unterkunft_viertel_lesen'?await new Promise(resolve=>{releaseKyoto=()=>resolve(districts());}):{suchauftraege:[]});
+  await page.goto(origin+'/#/suche');await formFill(page);await page.getByLabel('Suchprofil verwenden',{exact:true}).selectOption('7');
+  await page.getByRole('button',{name:'Anlegen und Suche starten',exact:true}).click();await page.getByText('Bitte die gewählten Viertel zuerst für den aktuellen Zielort laden und prüfen.',{exact:true}).waitFor();
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_suchauftrag_anlegen').length,0);
+  await page.getByRole('button',{name:'Viertel für Zielort laden',exact:true}).click();await waitForCallback(()=>releaseKyoto);releaseKyoto();await page.getByText('1 gespeicherte Viertel passen nicht mehr',{exact:false}).waitFor();
+  assert.equal(await page.getByLabel('Suchviertel: Parkviertel',{exact:true}).isChecked(),true);
+  releaseKyoto=null;await page.getByRole('button',{name:'Viertel für Zielort laden',exact:true}).click();await waitForCallback(()=>releaseKyoto);
+  await page.locator('[name=ziel]').fill('Osaka');releaseKyoto();await page.getByRole('button',{name:'Viertel für Zielort laden',exact:true}).waitFor();
+  assert.equal(await page.getByLabel('Bedeutung der Viertelauswahl',{exact:true}).inputValue(),'egal');assert.equal(await page.getByLabel('Suchviertel: Parkviertel',{exact:true}).count(),0);
+});
+
+test('Viertel-Lesefehler, Navigation und 401 lassen keine falsche Ansicht oder Polling zurück', async (t) => {
+  let mode='ok',release;const data=districts();data.letzter_lauf.status='ki';
+  const {page,calls}=await setup(t,async p=>p.aktion==='unterkunft_viertel_lesen'?mode==='wait'?await new Promise(resolve=>{release=()=>resolve(data);}):mode==='ok'?data:mode:p.aktion==='auftraege_suchen'?[]:result());
+  await page.clock.install();await page.goto(origin+'/#/viertel/?stadt=kyoto');await page.locator('[data-district="21"]').waitFor();
+  mode='abort';await page.getByRole('button',{name:'Viertel aktualisieren',exact:true}).click();await page.getByText('Viertel nicht geladen:',{exact:false}).waitFor();assert.equal(await page.locator('[data-district="21"]').count(),1);
+  const total=calls.length;await page.clock.fastForward(30100);assert.equal(calls.length,total);
+  mode='wait';await page.getByRole('button',{name:'Viertel aktualisieren',exact:true}).click();await waitForCallback(()=>release);await page.locator('#areas [data-area=council]').click();release();await page.getByRole('heading',{name:'Aufträge',exact:true}).waitFor();
+  await page.clock.fastForward(30100);assert.equal(await page.locator('.districts-page').count(),0);
+  mode='unauthorized';await page.goto(origin+'/#/viertel/?stadt=kyoto');await page.getByRole('heading',{name:'Anmelden',exact:true}).waitFor();
+});
+
+test('Viertellink aus Treffer und Detail öffnet das zugehörige Viertel', async (t) => {
+  const data=result();data.treffer[0].zone={id:21,name:'Parkviertel',status:'vorschlag'};
+  const {page}=await setup(t,p=>p.aktion==='unterkunft_viertel_lesen'?districts():data);
+  await page.goto(origin+'/#/suche/2');await page.locator('[data-hit="1"] .candidate-open').click();
+  await page.getByRole('dialog').getByRole('link',{name:'Viertel: Parkviertel',exact:true}).click();await page.locator('[data-district="21"]').waitFor();
+  assert.equal(await page.evaluate(()=>document.activeElement.textContent),'Parkviertel');assert.equal(await page.getByRole('dialog').count(),0);
+  await page.getByRole('link',{name:'Zurück zu den Unterkünften',exact:true}).click();await page.locator('[data-hit="1"]').getByRole('link',{name:'Viertel: Parkviertel',exact:true}).click();await page.locator('[data-district="21"]').waitFor();
+});
+
+test('Aktualisieren liest laufende Treffer neu und entsperrt eine unklare Auswahl lesend', async (t) => {
+  const data=result('laeuft');
+  const {page,calls}=await setup(t,p=>{
+    if(p.aktion==='unterkunft_treffer_status_setzen'){data.treffer[0].status='favorit';return {ok:true};}return data;
+  });
+  await page.goto(origin+'/#/suche/2');await page.getByRole('button',{name:'Vorläufige Treffer ansehen',exact:true}).click();
+  const selection=page.locator('[data-selection="1"]');await selection.getByRole('button',{name:'☆ Merken',exact:true}).click();
+  await selection.getByText('Speichern nicht bestätigt:',{exact:false}).waitFor();assert.equal(await selection.getByRole('button',{name:'☆ Merken',exact:true}).isDisabled(),true);
+  await page.getByRole('button',{name:'Aktualisieren',exact:true}).click();await selection.getByRole('button',{name:'★ Gemerkt',exact:true}).waitFor();
+  assert.equal(await selection.getByRole('button',{name:'★ Gemerkt',exact:true}).isDisabled(),false);
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_treffer_status_setzen').length,1);assert.equal(calls.filter(p=>p.aktion==='unterkunft_suchlauf_lesen').length,2);
+  await page.getByRole('heading',{name:'Liste A – vorläufig (3)',exact:true}).waitFor();
+});
+
+test('Rückmeldung verlangt passenden Treffer und Urteil; unklare Antwort lässt keine Wiederholung zu', async (t) => {
+  let response={};
+  const {page,calls}=await setup(t,p=>p.aktion==='unterkunft_rueckmeldung_geben'?response:result());
+  await page.goto(origin+'/#/suche/2');const feedback=page.locator('[data-feedback="1"]');
+  for(const value of [{},{ok:true},{ok:true,id:11,treffer_id:2,urteil:'passt'},{ok:true,id:12,treffer_id:1,urteil:'gebucht'}]) {
+    response=value;await feedback.getByRole('button',{name:'Passt',exact:true}).click();await feedback.getByText('Speichern nicht bestätigt:',{exact:false}).waitFor();
+    assert.equal(await feedback.getByRole('button',{name:'Passt',exact:true}).isDisabled(),true);assert.equal(await feedback.locator('[aria-pressed=true]').count(),0);
+    await page.getByRole('button',{name:'Aktualisieren',exact:true}).click();await page.getByRole('status').filter({hasText:'Rangliste aktualisiert'}).waitFor();
+  }
+  response={ok:true,id:13,treffer_id:1,urteil:'passt'};await feedback.getByRole('button',{name:'Passt',exact:true}).click();await feedback.getByText('Gespeichert: Passt.',{exact:false}).waitFor();
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_rueckmeldung_geben').length,5);
+});
+
+test('Merkliste per Link verändert keine gespeicherten Normalfilter', async (t) => {
+  const data=result();data.treffer[1].status='favorit';
+  const {page}=await setup(t,()=>data);await page.goto(origin+'/#/suche/2');await page.getByPlaceholder('Name oder Anbieter').fill('Unterkunft');
+  const before=await page.evaluate(()=>sessionStorage.getItem('ks_suche_view:2'));
+  await page.goto(origin+'/#/suche/2?favoriten=1');await page.locator('[data-hit="2"]').waitFor();
+  assert.equal(await page.getByLabel('Nur Gemerkte',{exact:true}).isChecked(),true);assert.equal(await page.evaluate(()=>sessionStorage.getItem('ks_suche_view:2')),before);
+  await page.goto(origin+'/#/suche/2');await page.locator('[data-hit="1"]').waitFor();assert.equal(await page.getByLabel('Nur Gemerkte',{exact:true}).isChecked(),false);
+  assert.equal(await page.getByPlaceholder('Name oder Anbieter').inputValue(),'Unterkunft');
+});
+
+test('Angebotslinks erlauben nur HTTPS ohne eingebettete Zugangsdaten', async (t) => {
+  const data=result();data.treffer[0].angebot.link='https://name:passwort@example.com/angebot';data.treffer[1].angebot.link='http://example.com/angebot';
+  const {page}=await setup(t,()=>data);await page.goto(origin+'/#/suche/2');await page.locator('[data-hit="1"]').waitFor();
+  assert.equal(await page.locator('[data-hit="1"] a').count(),0);assert.equal(await page.locator('[data-hit="2"] a').count(),0);
+  assert.equal(await page.locator('[data-hit="3"]').getByRole('link',{name:'Angebot öffnen ↗',exact:true}).count(),1);
+});
+
+test('Viertel: neue Leseantwort erhält Notizentwurf und Cursor während laufender Ermittlung', async (t) => {
+  let release,hold=false;const data=districts();data.letzter_lauf.status='osm_angefordert';
+  const {page}=await setup(t,async()=>{if(hold)await new Promise(resolve=>{release=resolve;});return data;});
+  await page.clock.install();await page.goto(origin+'/#/viertel/?stadt=kyoto');const card=page.locator('[data-district="21"]');await card.getByText('Umbenennen / Notiz',{exact:true}).click();
+  const note=card.getByLabel('Notiz zu Parkviertel',{exact:true});await note.fill('Diesen Ort vergleichen');await note.evaluate(n=>n.setSelectionRange(7,10));
+  hold=true;await page.clock.fastForward(10100);await waitForCallback(()=>release);assert.equal(await note.isDisabled(),false);release();await page.getByText('Viertel aktualisiert.',{exact:true}).waitFor();
+  assert.deepEqual(await note.evaluate(n=>({value:n.value,focused:document.activeElement===n,start:n.selectionStart,end:n.selectionEnd})),{value:'Diesen Ort vergleichen',focused:true,start:7,end:10});
+});
+
+test('Schlafzimmer: Standard und altes Profil bleiben Wunsch, ausdrückliches Egal entfernt die Vorgabe', async (t) => {
+  const profiles=[{id:1,name:'Bisheriges Profil',felder:{schlafzimmer_min:3}},{id:2,name:'Ohne Raumvorgabe',felder:{schlafzimmer_min:2,kriterien:{schlafzimmer:{modus:'egal'}}}}];
+  const {page,calls}=await setup(t,p=>p.aktion==='unterkunft_suchprofile_lesen'?profileCatalog(profiles):p.aktion==='unterkunft_suchauftrag_anlegen'?{ok:true,id:2}:p.aktion==='unterkunft_suche_starten'?{ok:true}:p.daten?.suchauftrag_id?result():{suchauftraege:[],merkliste:[]});
+  for(const [profile,mode,bedrooms] of [['','wunsch',2],['1','wunsch',3],['2','egal',0]]) {
+    await page.goto(origin+'/#/suche');await formFill(page);if(profile)await page.getByLabel('Suchprofil verwenden',{exact:true}).selectOption(profile);
+    assert.equal(await page.getByLabel('Bedeutung: Schlafzimmer mindestens',{exact:true}).inputValue(),mode);
+    assert.equal(await page.locator('[name=schlafzimmer_min]').isDisabled(),mode==='egal');
+    if(mode==='egal'){await page.locator('.trip-criteria > summary').click();await page.getByText('Egal: keine Schlafzimmer-Vorgabe, auch Einzimmer-Angebote.',{exact:true}).waitFor();}
+    await page.getByRole('button',{name:'Anlegen und Suche starten',exact:true}).click();await page.locator('[data-group=A]').waitFor();
+    const data=calls.filter(p=>p.aktion==='unterkunft_suchauftrag_anlegen').at(-1).daten;
+    assert.equal(data.schlafzimmer_min,bedrooms);assert.deepEqual(data.kriterien.schlafzimmer,mode==='egal'?{modus:'egal'}:{modus:'wunsch',wert:bedrooms});
+  }
+});
+
+test('Profil-Rundlauf bewahrt Balkon Egal und die gemeinsame Schlafzimmerzahl', async (t) => {
+  let profile;
+  const {page,calls}=await setup(t,p=>{
+    if(p.aktion==='unterkunft_suchprofile_lesen')return profileCatalog(profile?[profile]:[]);
+    if(p.aktion==='unterkunft_suchprofil_speichern'){profile={id:8,name:p.daten.name,felder:p.daten.felder};return {ok:true,...profile};}
+    if(p.aktion==='unterkunft_suchauftrag_anlegen')return {ok:true,id:2};if(p.aktion==='unterkunft_suche_starten')return {ok:true};return p.daten?.suchauftrag_id?result():{suchauftraege:[],merkliste:[]};
+  });
+  await page.goto(origin+'/#/suche');await page.locator('.trip-criteria > summary').click();await page.getByLabel('Bedeutung: Balkon',{exact:true}).selectOption('egal');await page.locator('[name=schlafzimmer_min]').fill('3');
+  await page.getByLabel('Name des Suchprofils',{exact:true}).fill('Familie ohne Balkonwunsch');await page.getByRole('button',{name:'Als Profil speichern',exact:true}).click();await page.getByText('Profil „Familie ohne Balkonwunsch“ gespeichert.',{exact:true}).waitFor();
+  await page.reload();await formFill(page);await page.getByLabel('Suchprofil verwenden',{exact:true}).selectOption('8');
+  assert.equal(await page.getByLabel('Bedeutung: Balkon',{exact:true}).inputValue(),'egal');assert.equal(await page.locator('[name=schlafzimmer_min]').inputValue(),'3');
+  await page.getByRole('button',{name:'Anlegen und Suche starten',exact:true}).click();await page.locator('[data-group=A]').waitFor();
+  const data=calls.find(p=>p.aktion==='unterkunft_suchauftrag_anlegen').daten;assert.deepEqual(data.kriterien.balkon,{modus:'egal'});assert.deepEqual(data.kriterien.schlafzimmer,{modus:'wunsch',wert:3});assert.equal(data.schlafzimmer_min,3);
+});
+
+test('Gemeinsame Merkliste enthält ältere Reisen, öffnet den richtigen Treffer und übersteht Lesefehler', async (t) => {
+  let fail=false;
+  const saved=Array.from({length:12},(_,i)=>({treffer_id:i+1,suchauftrag_id:1,ziel:'Frühere Reise',anreise:'2026-03-01',abreise:'2026-03-05',name:'Gemerkt '+(i+1),quelle:'hasdata_booking',preis_gesamt_eur:400,liste:'A',rang:i+1,link:'https://example.com/angebot'}));
+  saved.push({treffer_id:20,suchauftrag_id:2,ziel:'Aktuelle Reise',name:'Weiterer Favorit',topf:'ausgeschlossen',link:'https://name:pass@example.com'});
+  const {page,calls}=await setup(t,p=>{
+    if(p.aktion==='unterkunft_suchprofile_lesen')return profileCatalog();
+    if(p.daten?.suchauftrag_id){const r=result();r.suchauftrag.id=p.daten.suchauftrag_id;r.treffer=Array.from({length:12},(_,i)=>hit(i+1,'A',400,{status:'favorit'}));return r;}
+    return fail?'abort':{ok:true,suchauftraege:[{id:2,ziel:'Aktuelle Reise',gemerkt:1},{id:3,ziel:'Ohne Favoriten',gemerkt:0}],merkliste:saved};
+  });
+  await page.goto(origin+'/#/ergebnisse');await page.locator('[data-saved-trip="1"]').waitFor();
+  assert.equal(await page.locator('.saved-stay').count(),13);assert.equal(await page.getByRole('link',{name:'Gemerkte in Ohne Favoriten',exact:true}).count(),0);
+  assert.equal(await page.getByRole('link',{name:'Gemerkte in Aktuelle Reise',exact:true}).count(),1);
+  assert.equal(calls.filter(p=>p.daten?.suchauftrag_id).length,0,'Eine Listenabfrage genügt auch für alte Reisen');
+  await page.locator('[data-saved-hit="20"]').getByText('Fachlich ausgeschlossen',{exact:false}).waitFor();assert.equal(await page.locator('[data-saved-hit="20"] a[href^="https:"]').count(),0);
+  fs.mkdirSync(path.join(root,'test-results'),{recursive:true});await page.screenshot({path:path.join(root,'test-results','favorites-desktop.png'),fullPage:true});
+  fail=true;await page.getByRole('button',{name:'Merkliste aktualisieren',exact:true}).click();await page.getByText('Merkliste nicht aktualisiert:',{exact:false}).waitFor();assert.equal(await page.locator('.saved-stay').count(),13);
+  await page.setViewportSize({width:320,height:800});assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+  await page.locator('[data-saved-hit="12"]').getByRole('link',{name:'Im Suchlauf zeigen',exact:true}).click();await page.locator('[data-hit="12"]').waitFor();
+  assert.equal(await page.evaluate(()=>document.activeElement.dataset.hit),'12');assert.equal(await page.locator('[data-group=A] .result-pages').textContent().then(t=>t.includes('Seite 2 / 2')),true);
+});
+

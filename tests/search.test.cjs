@@ -1434,12 +1434,13 @@ test('Neue Spalten: echte Angebotszuordnung, Nullwerte, Gäste-Skalen, Sortierun
     const a={name:'A',angebot:{kategorie_name:'Suite',anbieter:'Alpha'},kategorien:[{name:'Suite',schlafzimmer:0,bettentypen:['Einzelbett']}],bewertung:{warnungen:['offen']},note:4.5,note_skala:5};
     const b={name:'B',angebot:{kategorie_name:'Suite',anbieter:'Beta'},kategorien:[{name:'Suite',schlafzimmer:2,bettentypen:['Kingsize']}],bewertung:{warnungen:[]},note:8,note_skala:10};
     const unknown={angebot:{kategorie_name:'Zimmer'},kategorien:[{name:'Andere Kategorie',schlafzimmer:9,bettentypen:['Kingsize']}]};
-    return {zero:sucheZimmerKurz(a).schlafzimmer,conflict:sucheZimmerKurz({...b,kategorien:[{...b.kategorien[0],konflikt:true}]}).schlafzimmer,
+    const whole={quelle:'apify_airbnb',angebot:{kategorie_name:'ganze Unterkunft'},kategorien:[{quelle:'apify_airbnb',name:'2 Schlafzimmer',schlafzimmer:2},{quelle:'manuell',name:'Weitere Notiz',schlafzimmer:3}]};
+    return {whole:sucheZimmerKurz(whole).schlafzimmer,zero:sucheZimmerKurz(a).schlafzimmer,conflict:sucheZimmerKurz({...b,kategorien:[{...b.kategorien[0],konflikt:true}]}).schlafzimmer,
       unknown:sucheZimmerKurz(unknown),sorts:['schlafzimmer','betten','anbieter','gaestenote','warnungen'].map(key=>[key,sucheVergleich(a,b,key,1),sucheVergleich(a,b,key,-1)]),
       nullLast:[1,-1].map(direction=>sucheVergleich(unknown,b,'schlafzimmer',direction)>0),
       filters:[sucheFilterTreffer(b,{betten:'king',schlafzimmer:'2',warnungen:'ohne'}),sucheFilterTreffer(a,{warnungen:'ohne'}),sucheFilterTreffer(unknown,{schlafzimmer:'2',unbekannt:false})]};
   });
-  assert.equal(checks.zero,0);assert.equal(checks.conflict,null);assert.equal(checks.unknown.schlafzimmer,null);assert.equal(checks.unknown.typen,null);
+  assert.equal(checks.whole,2);assert.equal(checks.zero,0);assert.equal(checks.conflict,null);assert.equal(checks.unknown.schlafzimmer,null);assert.equal(checks.unknown.typen,null);
   assert.deepEqual(checks.nullLast,[true,true]);assert.deepEqual(checks.filters,[true,false,false]);
   for(const [key,asc,desc] of checks.sorts){assert(asc!==0,key);assert.equal(asc,-desc,key);}
   assert(checks.sorts.find(r=>r[0]==='gaestenote')[1]>0);

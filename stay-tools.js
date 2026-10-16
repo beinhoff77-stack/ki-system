@@ -55,9 +55,10 @@ function sucheWarnungen(t) {
 }
 function sucheZimmerKurz(t) {
   const a=t.angebot || {}, all=Array.isArray(t.kategorien) ? t.kategorien.filter(k => k && typeof k === 'object') : [];
-  // Only use an explicitly matched offer category; a sole whole-property Airbnb category is unambiguous.
+  // Whole-property Airbnb data can have additional manual evidence; use only the unique primary-source category.
   const matches=all.filter(k => (k.id != null && k.id === a.kategorie_id) || (k.name && k.name === a.kategorie_name));
-  const k=matches.length === 1 ? matches[0] : all.length === 1 && a.kategorie_name === 'ganze Unterkunft' && t.quelle === 'apify_airbnb' ? all[0] : null;
+  const primaryCategories=all.filter(k => k.quelle === t.quelle);
+  const k=matches.length === 1 ? matches[0] : primaryCategories.length === 1 && a.kategorie_name === 'ganze Unterkunft' && t.quelle === 'apify_airbnb' ? primaryCategories[0] : null;
   const category=k?.konflikt === true ? null : k;
   const types=category?.bettentypen;
   return {schlafzimmer:sucheZahl(category?.schlafzimmer),anzahl:sucheZahl(category?.betten_anzahl),typen:typeof types === 'string' && types.trim() ? types : Array.isArray(types) && types.every(v => typeof v === 'string') && types.length ? types.join(', ') : null};

@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.10.2';
+const APP_VERSION = '0.11.0';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -847,7 +847,7 @@ const SUCHE_WARNUNGEN = {
 const sucheZahl = (v) => !['number', 'string'].includes(typeof v) || String(v).trim() === '' || !Number.isFinite(Number(v)) ? null : Number(v);
 const sucheEuro = (v) => sucheZahl(v) === null ? 'Preis unbekannt' : Number(v).toLocaleString('de-DE', { style: 'currency', currency: 'EUR' });
 function sucheGruppe(t) {
-  if (t.topf === 'ausgeschlossen') return 'ausgeschlossen';
+  if (t.topf === 'ausgeschlossen' || t.status === 'ausgeschlossen') return 'ausgeschlossen';
   if (t.topf === 'unbewertet') return 'offen';
   return ['A', 'B'].includes(t.bewertung?.liste) ? t.bewertung.liste : 'offen';
 }
@@ -887,11 +887,13 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   let disposed = false, timer, busy = false, snapshot = null;
   const requests = new Set();
   const feedbackStates = new Map();
+  const selectionStates = new Map();
+  let mapView = null, showMap = false, filteredRows = [], lastSelection = null;
   let sort = { key: 'rang', direction: 1 }, snapshotStatus = null;
   const pages = new Map();
   const scope = el('div', { class: 'suche' });
   main.replaceChildren(scope);
-  disposeSuche = () => { disposed = true; clearTimeout(timer); requests.forEach((c) => c.abort()); };
+  disposeSuche = () => { disposed = true; clearTimeout(timer); requests.forEach((c) => c.abort()); mapView?.destroy(); };
   const live = () => !disposed && scope.isConnected && parseHash().view === entryView && parseHash().arg === idStr;
   async function call(name, daten = {}) {
     const requestController = new AbortController();
@@ -997,6 +999,8 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   }
   const id = Number(idStr);
   if (!Number.isSafeInteger(id) || id <= 0) { scope.append(el('p', {}, 'Ungültige Suchauftragsnummer.')); return; }
+  let savedView = {}, restoredView = false;
+  try { savedView = JSON.parse(sessionStorage.getItem('ks_suche_view:' + id) || '{}') || {}; } catch { /* Standards nutzen */ }
   scope.append(el('div', { class: 'stay-page-heading' }, el('p', { class: 'eyebrow' }, 'EIN GUTER ORT FÜR EURE REISE'), el('h2', {}, 'Unterkünfte vergleichen')));
   const reportText = el('div', { class: 'feedback-report' });
   const reportNotice = el('p', { role: 'status' });
@@ -1023,6 +1027,29 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   const controls = el('section', { class: 'card result-controls', hidden: true, 'aria-label': 'Treffer auswählen und sortieren' },
     el('label', {}, 'Treffer filtern', filter), el('label', {}, 'Sortieren nach', sortSelect),
     el('div', { class: 'sort-direction' }, directionButton), el('label', {}, 'Treffer je Liste und Seite', pageSize), filterCount);
+  const filters = sucheFilterPanel(() => { pages.clear(); draw(); }); filters.node.hidden = true;
+  const mapPanel = el('section', { class: 'card stay-map-panel', hidden: true });
+  const listButton = el('button', { type: 'button', onclick: () => { showMap = false; draw(); } }, 'Liste / Tabelle');
+  const mapButton = el('button', { type: 'button', onclick: () => { showMap = true; draw(); } }, 'Karte');
+  const viewButtons = el('div', { class: 'actions result-view-switch', hidden: true, role: 'group', 'aria-label': 'Ergebnisansicht' }, listButton, mapButton);
+  const undoSelection = el('button', { type: 'button', hidden: true, onclick: () => selectionStates.get(lastSelection)?.undoAction() }, 'Letzte Auswahl rückgängig');
+  function selectionChanged(t, state) {
+    const current = snapshot?.treffer.find(row => row.treffer_id === t.treffer_id);
+    if (current) current.status = state.saved;
+    lastSelection = t.treffer_id;
+    notice.textContent = (t.name || 'Unterkunft') + ': ' + state.message;
+    draw();
+    const row = results.querySelector(`[data-hit="${t.treffer_id}"]`);
+    (row?.getClientRects().length ? row : undoSelection.hidden ? refresh : undoSelection).focus({ preventScroll: true });
+  }
+  function showHit(t) {
+    const group = sucheGruppe(t), size = Number(pageSize.value);
+    const items = filteredRows.filter(row => sucheGruppe(row) === group).sort((a, b) => sucheVergleich(a, b, sort.key, sort.direction));
+    pages.set(group, Math.floor(items.findIndex(row => row.treffer_id === t.treffer_id) / size));
+    showMap = false; draw();
+    const row = results.querySelector(`[data-hit="${t.treffer_id}"]`);
+    row?.focus({ preventScroll: true }); row?.scrollIntoView({ block: 'center' });
+  }
   function changeSort(key, toggle = false) {
     sort = { key, direction: toggle && sort.key === key ? -sort.direction : ['name', 'preis', 'entfernung', 'gehzeit', 'rang'].includes(key) ? 1 : -1 };
     pages.clear(); draw();
@@ -1051,7 +1078,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       if (error && live()) notice.textContent = 'Abbrechen nicht bestätigt: ' + error + ' Bitte den aktuellen Status prüfen.';
     }
   } }, 'Suche abbrechen');
-  scope.append(el('div', { class: 'actions' }, el('a', { href: '#/suche' }, 'Neue Suche / letzte Aufträge'), refresh, start, cancel), notice, summary, controls, results, report);
+  scope.append(el('div', { class: 'actions' }, el('a', { href: '#/suche' }, 'Neue Suche / letzte Aufträge'), refresh, start, cancel, undoSelection), notice, summary, controls, filters.node, viewButtons, mapPanel, results, report);
   function draw() {
     if (!snapshot) return;
     const openDetails = new Set([...results.querySelectorAll('details[open][data-detail]')].map((n) => n.dataset.detail));
@@ -1069,11 +1096,28 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       el('p', { class: 'erg-warnung' }, phase.final ? 'Bewertung abgeschlossen. Endscore aus Raum, Lage, Preis-Leistung, Bewertungen und Eignung. Die Datenlage zeigt die Abdeckung; die Ampel beschreibt die Verlässlichkeit, nicht die Qualität. Offene Angaben und Einwände bleiben relevant.' : phase.failed ? 'Bewertung unterbrochen. Die Rangliste ist noch nicht abschließend; vorhandene Ergebnisse bleiben sichtbar.' : 'Zwischenstand: Die Rangliste ist erst nach Abschluss der Bewertungsstufe fertig. Teilnoten und Datenlage zeigen, welche Angaben bereits vorliegen.'));
     results.replaceChildren();
     controls.hidden = false;
+    filters.node.hidden = viewButtons.hidden = false;
+    filters.setTypes(snapshot.treffer);
+    if (!restoredView) {
+      restoredView = true;
+      filter.value = typeof savedView.needle === 'string' ? savedView.needle : '';
+      filters.restore(savedView.filters);
+      if ([...sortSelect.options].some(o => o.value === savedView.sort?.key)) sort = { key: savedView.sort.key, direction: savedView.sort.direction === -1 ? -1 : 1 };
+      if ([10, 25, 50].includes(savedView.pageSize)) pageSize.value = String(savedView.pageSize);
+      showMap = savedView.map === true;
+    }
     sortSelect.value = sort.key;
     directionButton.textContent = sort.direction === 1 ? 'Aufsteigend ↑' : 'Absteigend ↓';
     const needle = filter.value.trim().toLocaleLowerCase('de');
     const rows = snapshot.treffer.filter(t => [t.name, t.quelle, SUCHE_QUELLEN[t.quelle], t.angebot?.anbieter,
-      ...(Array.isArray(t.weitere_angebote) ? t.weitere_angebote.flatMap(a => [a?.anbieter, a?.quelle, SUCHE_QUELLEN[a?.quelle]]) : [])].some(value => String(value || '').toLocaleLowerCase('de').includes(needle)));
+      ...(Array.isArray(t.weitere_angebote) ? t.weitere_angebote.flatMap(a => [a?.anbieter, a?.quelle, SUCHE_QUELLEN[a?.quelle]]) : [])].some(value => String(value || '').toLocaleLowerCase('de').includes(needle)) && sucheFilterTreffer(t, filters.value()));
+    filteredRows = rows;
+    try { sessionStorage.setItem('ks_suche_view:' + id, JSON.stringify({ needle: filter.value, filters: filters.value(), sort, pageSize: Number(pageSize.value), map: showMap })); } catch { /* Ansicht bleibt in diesem geöffneten Lauf erhalten. */ }
+    listButton.setAttribute('aria-pressed', String(!showMap)); mapButton.setAttribute('aria-pressed', String(showMap));
+    mapPanel.hidden = !showMap; results.hidden = showMap;
+    if (showMap) { if (!mapView) mapView = sucheKarte(mapPanel, showHit); mapView.update(rows, snapshot.karte); }
+    undoSelection.hidden = !selectionStates.get(lastSelection)?.undo;
+    undoSelection.disabled = !!(selectionStates.get(lastSelection)?.pending || selectionStates.get(lastSelection)?.refreshRequired);
     filterCount.textContent = `${rows.length} von ${snapshot.treffer.length} Treffern · Sortierung gilt für die gesamte Liste.`;
     const groups = [
       ['A', phase.final ? 'Liste A – Rangliste' : 'Liste A – vorläufig', rows.filter((t) => sucheGruppe(t) === 'A')],
@@ -1096,7 +1140,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
         const replacement = results.querySelector(`[data-group="${key}"]`);
         if (wasOpen) replacement.open = true;
         replacement.querySelector(`[data-sort="${sortKey}"]`)?.focus({ preventScroll: true });
-      }, phase.final && ['A', 'B'].includes(key), (t) => sucheRueckmeldung(t, feedbackStates, call, live)));
+      }, phase.final && ['A', 'B'].includes(key), (t) => sucheRueckmeldung(t, feedbackStates, call, live), (t) => sucheAuswahl(t, selectionStates, call, live, selectionChanged)));
       if (totalPages > 1) {
         const turnPage = offset => {
           pages.set(key, page + offset); draw();
@@ -1139,11 +1183,17 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       const terminal = r.fertig || ['fehler', 'abgebrochen', 'gestoppt', 'gestoppt_budget'].includes(r.status);
       if (terminal) {
         const feedbackAtRead = new Map([...feedbackStates].map(([key, value]) => [key, { revision: value.revision, pending: value.pending }]));
+        const selectionsAtRead = new Map([...selectionStates].map(([key, value]) => [key, { revision: value.revision, pending: value.pending }]));
         const data = await call('unterkunft_suchlauf_lesen', { suchauftrag_id: id });
         if (!live()) return;
         if (!data?.suchauftrag || !Array.isArray(data.treffer)) throw new Error('Suchlauf nicht gefunden oder Antwort unvollständig.');
         if (data.treffer.some(t => !t || typeof t !== 'object')) throw new Error('Die Trefferliste ist unvollständig.');
         for (const t of data.treffer) {
+          const selection = selectionStates.get(t.treffer_id), selectionAtRead = selectionsAtRead.get(t.treffer_id);
+          if (selection) {
+            if (selection.pending || selectionAtRead?.pending || selection.revision !== selectionAtRead?.revision) t.status = selection.saved;
+            else { selection.saved = t.status || 'aktiv'; selection.message = ''; selection.undo = null; selection.refreshRequired = false; }
+          }
           const state = feedbackStates.get(t.treffer_id), atRead = feedbackAtRead.get(t.treffer_id);
           if (!state || state.pending || atRead?.pending || state.revision !== atRead?.revision) continue;
           state.saved = t.rueckmeldung || null;
@@ -1163,7 +1213,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   await poll();
 }
 
-function sucheTabelle(items, sort, onSort, final = false, feedback = () => null) {
+function sucheTabelle(items, sort, onSort, final = false, feedback = () => null, selection = () => null) {
   const table = el('table', { class: 'suche-table' });
   const scoreLabel = final ? 'Endscore (%)' : 'Score (Zwischenstand)';
   const headings = [['name', 'Unterkunft'], ['preis', 'Gesamtpreis'], ['score', scoreLabel], ['datenlage', 'Datenlage (%)'], ['bewertungen', 'Bewertungen'], ['entfernung', 'Luftlinie zum Ziel']];
@@ -1197,8 +1247,8 @@ function sucheTabelle(items, sort, onSort, final = false, feedback = () => null)
       el('h3', {}, 'Gegenprüfung'), el('p', {}, review?.urteil === 'ok' ? 'Keine Einwände in der Gegenprüfung.' : review?.urteil === 'einwand' ? 'Einwände beachten (oben aufgeführt).' : 'Noch keine Gegenprüfung vorhanden.'),
       review?.urteil === 'ok' && review.hinweis ? el('p', {}, review.hinweis) : null);
     const td = (label, ...content) => el('td', { 'data-label': label }, ...content);
-    tbody.append(el('tr', {},
-      td('Unterkunft', el('strong', {}, t.name || 'Ohne Namen'), t.topf === 'shortlist' && b.liste === 'A' && sucheZahl(b.rang) !== null ? el('div', { class: 'rank-badge' }, 'Rang ' + b.rang + (final ? '' : ' · vorläufig')) : null, el('div', { class: 'muted small' }, SUCHE_QUELLEN[t.quelle] || t.quelle || 'Quelle unbekannt'),
+    tbody.append(el('tr', { 'data-hit': t.treffer_id, tabindex: -1 },
+      td('Unterkunft', sucheFoto(t), el('strong', {}, t.name || 'Ohne Namen'), sucheGruppe(t) === 'A' && sucheZahl(b.rang) !== null ? el('div', { class: 'rank-badge' }, 'Rang ' + b.rang + (final ? '' : ' · vorläufig')) : null, el('div', { class: 'muted small' }, SUCHE_QUELLEN[t.quelle] || t.quelle || 'Quelle unbekannt'),
         url ? el('a', { href: url, target: '_blank', rel: 'noopener noreferrer' }, 'Angebot öffnen ↗') : el('span', { class: 'muted small' }, 'Kein Angebotslink')),
       td('Gesamtpreis', (estimated && sucheZahl(a.preis_gesamt_eur) !== null ? 'ca. ' : '') + sucheEuro(a.preis_gesamt_eur) + (estimated ? ' (geschätzt)' : '')),
       td(scoreLabel, sucheZahl(b.score) ?? '–'), td('Datenlage (%)', sucheDatenlage(t) ?? '–'),
@@ -1206,9 +1256,9 @@ function sucheTabelle(items, sort, onSort, final = false, feedback = () => null)
       td('Luftlinie zum Ziel', sucheZahl(t.luftlinie_ziel_m) === null ? 'unbekannt' : (t.luftlinie_ziel_m / 1000).toLocaleString('de-DE', { maximumFractionDigits: 1 }) + ' km',
         el('div', { class: 'small' }, sucheZahl(t.gehzeit_min) === null ? 'Gehzeit unbekannt' : `${t.gehzeit_art === 'geschaetzt' ? 'ca. ' : ''}${t.gehzeit_min} Min. zu Fuß${t.station_name ? ' · ' + t.station_name : ''} (${t.gehzeit_art === 'geschaetzt' ? 'geschätzt' : ['route', 'ors'].includes(t.gehzeit_art) ? 'berechneter Fußweg' : 'Art unbekannt'})`)),
       td('Hinweise / Details', el('div', { class: 'suche-badges' },
-        el('span', { class: 'pill' }, t.topf === 'unbewertet' ? 'Unbewertet' : t.topf === 'ausgeschlossen' ? 'Ausgeschlossen' : 'Shortlist'),
+        el('span', { class: 'pill' }, sucheGruppe(t) === 'ausgeschlossen' ? t.topf === 'ausgeschlossen' ? 'Ausgeschlossen' : 'Von dir ausgeschlossen' : t.topf === 'unbewertet' ? 'Unbewertet' : 'Shortlist'),
         el('span', { class: 'pill', title: 'Verlässlichkeit der Angaben, nicht Qualität der Unterkunft' }, 'Verlässlichkeit: ' + (b.ampel || 'unbekannt')),
-        warnings.map((w) => el('span', { class: 'suche-warning' }, SUCHE_WARNUNGEN[w] || w))), objection, sucheBalken(b.spaltennoten, SUCHE_NOTEN), info, sucheAngebote(t), feedback(t))));
+        warnings.map((w) => el('span', { class: 'suche-warning' }, SUCHE_WARNUNGEN[w] || w))), objection, sucheBalken(b.spaltennoten, SUCHE_NOTEN), info, sucheAngebote(t), selection(t), feedback(t))));
   }
   table.append(tbody);
   return el('div', { class: 'suche-table-scroll', tabindex: 0, role: 'region', 'aria-label': 'Sortierbare Unterkunftstabelle' }, table);

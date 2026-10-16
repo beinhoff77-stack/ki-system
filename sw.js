@@ -1,7 +1,7 @@
 // Service Worker: hält nur die App-Hülle vor (Dateien dieser Seite). Daten kommen immer live von app-api.
 const CACHE_PREFIX = 'ki-system:' + self.registration.scope + ':';
-const CACHE = CACHE_PREFIX + 'v17';
-const HUELLE = ['./', './index.html', './app.js?v=0.10.2', './style.css?v=0.10.2', './manifest.webmanifest', './icon.svg', './icon-180.png', './icon-512.png'];
+const CACHE = CACHE_PREFIX + 'v18';
+const HUELLE = ['./', './index.html', './app.js?v=0.11.0', './stay-tools.js?v=0.11.0', './vendor/leaflet-1.9.4/leaflet.js', './vendor/leaflet-1.9.4/leaflet.css', './style.css?v=0.11.0', './manifest.webmanifest', './icon.svg', './icon-180.png', './icon-512.png'];
 const HUELLE_URLS = new Set(HUELLE.map(path => new URL(path, self.registration.scope).href));
 
 self.addEventListener('install', (e) => {

@@ -154,8 +154,9 @@ test('PWA installiert vollständige Offline-Hülle, API wird nicht gecacht', asy
   assert(cacheNames.includes('ki-system:' + origin + '/another-app/:v1'));
   assert(!cacheNames.includes('ki-system:' + origin + '/:old'));
   await page.evaluate(() => fetch('README.md'));
-  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v17')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
-  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.10.2')); assert(cached.includes('/style.css?v=0.10.2'));
+  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v18')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
+  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.11.0')); assert(cached.includes('/style.css?v=0.11.0'));
+  assert(cached.includes('/stay-tools.js?v=0.11.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
   assert(!cached.includes('/README.md'));
   assert(!cached.some((u) => u.includes('app-api')));
   await context.setOffline(true); await page.reload();
@@ -183,9 +184,8 @@ test('Update lädt neue Skripte und Gestaltung trotz frischem HTTP-Cache der Alt
     res.writeHead(404); res.end();
   });
   await new Promise(resolve => releaseServer.listen(0, '127.0.0.1', resolve));
-  t.after(() => new Promise(resolve => releaseServer.close(resolve)));
   const context = await browser.newContext({ serviceWorkers: 'block' });
-  t.after(() => context.close());
+  t.after(async () => { await context.close(); releaseServer.closeAllConnections(); await new Promise(resolve => releaseServer.close(resolve)); });
   const page = await context.newPage();
   const releaseOrigin = `http://127.0.0.1:${releaseServer.address().port}`;
   // Ohne Request-Mocking: Routing würde den HTTP-Cache abschalten und den Fehler verdecken.
@@ -576,4 +576,162 @@ test('Bereichswechsel: verspätete Council-Antworten und Fehler lassen Unterkunf
     assert.equal(await page.locator('.suche-form').count(),1);
     assert.equal(await page.locator('#main > .err-text').count(),0);
   }
+});
+
+const testPixel = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jZAAAAABJRU5ErkJggg==', 'base64');
+const mapResult = () => ({ ...result(), karte: { ziel: { name: 'Testziel', lat: 35, lon: 135 }, stationen: [{ name: 'Teststation', lat: 35.002, lon: 135.002 }] },
+  treffer: [ ...Array.from({length: 14}, (_, i) => hit(i+1, 'A', (i+1)*100, {lat: 35 + i*0.001, lon: 135, luftlinie_ziel_m: i*120, bewertung: {liste:'A',rang:i+1,score:90,datenlage:80}})),
+    hit(15,'B',1500,{lat:35,lon:135.005}), hit(16,'A',100,{topf:'ausgeschlossen',lat:35,lon:135.006}),
+    hit(17,'B',100,{status:'ausgeschlossen',lat:35,lon:135.007}), hit(18,'B',100,{lat:91,lon:135}),
+    hit(19,'B',100,{lat:0,lon:0,luftlinie_ziel_m:12000000}), hit(20,'A',null,{topf:'unbewertet',lat:35,lon:135.008}) ] });
+
+test('Fotos: HTTPS-Hotlink, kein Referrer, verzögertes Laden und sichere Platzhalter', async (t) => {
+  const data = result();
+  data.treffer[0].bild = 'https://images.example/photo.png'; data.treffer[0].bild_quelle = 'hasdata_booking';
+  data.treffer[1].bild = 'javascript:alert(1)'; data.treffer[2].bild = 'https://u:p@images.example/private.png';
+  data.treffer[3].bild = 'https://images.example/missing.png';
+  const {page} = await setup(t, () => data);
+  const imageRequests=[];
+  await page.route('https://images.example/**', r => { imageRequests.push(r.request()); const missing=r.request().url().includes('missing'); return r.fulfill({status:missing?404:200,contentType:'image/png',body:missing?Buffer.from('missing'):testPixel}); });
+  await page.goto(origin+'/#/suche/2'); await page.locator('[data-hit="1"] img').waitFor();
+  const photo = page.locator('[data-hit="1"] img'); await photo.scrollIntoViewIfNeeded();
+  await page.waitForFunction(()=>document.querySelector('[data-hit="1"] img')?.complete);
+  assert.equal(await photo.getAttribute('loading'),'lazy'); assert.equal(await photo.getAttribute('referrerpolicy'),'no-referrer');
+  assert.equal(await photo.getAttribute('alt'),'Foto von Unterkunft 1');
+  assert.equal(await page.locator('[data-hit="2"] img,[data-hit="3"] img').count(),0);
+  await page.locator('[data-hit="4"]').scrollIntoViewIfNeeded();
+  await page.locator('[data-hit="4"] .photo-missing').waitFor();
+  assert(imageRequests.some(r=>r.url().endsWith('photo.png')));
+  assert(imageRequests.every(r=>!r.headers().referer));
+  assert(!imageRequests.some(r=>r.url().includes('private')));
+});
+
+test('Karte lädt erst auf Klick, zeigt gefilterte aktive Treffer und springt zur richtigen Listenseite', async (t) => {
+  const {page}=await setup(t,()=>mapResult()); let tiles=0;
+  await page.route('https://tile.openstreetmap.org/**', r=>{tiles++;return r.fulfill({contentType:'image/png',body:testPixel});});
+  await page.goto(origin+'/#/suche/2'); await page.locator('[data-group=A]').waitFor();
+  assert.equal(tiles,0);
+  await page.getByRole('button',{name:'Karte',exact:true}).click();
+  await page.locator('[data-map-hit="12"]').waitFor();
+  assert.equal(await page.locator('[data-map-hit]').count(),17);
+  assert.equal(await page.locator('[data-map-hit="16"],[data-map-hit="17"],[data-map-hit="18"]').count(),0);
+  assert.equal(await page.locator('[data-map-hit="19"]').count(),1);
+  await page.getByText('17 von 18 aktiven Treffern auf der Karte.',{exact:false}).waitFor();
+  await page.getByText('1 weit außerhalb',{exact:false}).waitFor();
+  assert.equal(await page.locator('.leaflet-control-attribution a[href="https://www.openstreetmap.org/copyright"]').isVisible(),true);
+  await page.locator('[data-map-hit="12"]').click();
+  await page.getByRole('button',{name:'In der Ergebnisliste zeigen'}).click();
+  assert.equal(await page.locator('[data-group=A] [data-hit="12"]').isVisible(),true);
+  assert.equal(await page.evaluate(()=>document.activeElement.dataset.hit),'12');
+  await page.getByRole('button',{name:'Karte',exact:true}).click();
+  await page.getByPlaceholder('Name oder Anbieter').fill('Unterkunft 15');
+  assert.equal(await page.locator('[data-map-hit]').count(),1);
+  assert.equal(await page.locator('[data-map-hit="15"]').count(),1);
+  await page.getByRole('button',{name:'Liste / Tabelle'}).click();
+  assert.deepEqual(await page.locator('tbody tr').evaluateAll(rows=>rows.map(r=>r.dataset.hit)),['15']);
+  assert(tiles>0);
+  await page.locator('#areas [data-area=council]').click();
+  await page.getByRole('heading',{name:'Aufträge',exact:true}).waitFor();
+  assert.equal(await page.locator('.stay-map').count(),0);
+});
+
+test('Karte bleibt bei fehlendem Hintergrund nutzbar und passt auf ein schmales Handy', async (t) => {
+  const {page}=await setup(t,()=>mapResult(),{width:320,height:800});
+  await page.route('https://tile.openstreetmap.org/**', r=>r.abort());
+  await page.goto(origin+'/#/suche/2'); await page.getByRole('button',{name:'Karte',exact:true}).click();
+  await page.getByText('Der Kartenhintergrund ist gerade nicht erreichbar.',{exact:false}).waitFor();
+  assert.equal(await page.locator('[data-map-hit]').count(),17);
+  assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
+  fs.mkdirSync(path.join(root,'test-results'),{recursive:true});
+  await page.locator('.stay-map-panel').screenshot({path:path.join(root,'test-results/map-mobile.png')});
+  await page.getByLabel('Stationen anzeigen').uncheck();
+  assert.equal(await page.locator('.leaflet-overlay-pane path').count(),0);
+  await page.getByRole('button',{name:'Liste / Tabelle'}).click();
+  assert.equal(await page.locator('[data-group=A]').isVisible(),true);
+});
+
+test('Favorit, Ausschließen und Rückgängig speichern bestätigte Zustände ohne doppelten Schreibaufruf', async (t) => {
+  let releaseWrite;
+  const {page,calls}=await setup(t,async p=>{
+    if(p.aktion==='unterkunft_treffer_status_setzen') { if(p.daten.status==='favorit'&&!releaseWrite) await new Promise(resolve=>{releaseWrite=resolve;}); return {ok:true,...p.daten}; }
+    return result();
+  });
+  await page.goto(origin+'/#/suche/2');
+  const selection=page.locator('[data-selection="1"]');
+  await selection.getByRole('button',{name:'☆ Merken',exact:true}).dblclick();
+  await waitForCallback(()=>releaseWrite);
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_treffer_status_setzen').length,1);
+  assert.equal(await selection.getByRole('button',{name:'☆ Merken',exact:true}).isDisabled(),true);
+  releaseWrite(); await selection.getByRole('button',{name:'★ Gemerkt',exact:true}).waitFor();
+  await selection.getByRole('button',{name:'Ausschließen',exact:true}).click();
+  await page.getByRole('heading',{name:'Liste A – Rangliste (2)'}).waitFor();
+  assert.equal(await page.locator('[data-group=A] [data-hit="1"]').count(),0);
+  await page.getByRole('button',{name:'Letzte Auswahl rückgängig'}).click();
+  await page.locator('[data-group=A] [data-selection="1"]').getByRole('button',{name:'★ Gemerkt',exact:true}).waitFor();
+  assert.deepEqual(calls.filter(p=>p.aktion==='unterkunft_treffer_status_setzen').map(p=>p.daten.status),['favorit','ausgeschlossen','favorit']);
+  await page.locator('.stay-filters summary').click(); await page.getByLabel('Nur Gemerkte',{exact:true}).check();
+  assert.deepEqual(await page.locator('tbody tr').evaluateAll(rows=>rows.map(r=>r.dataset.hit)),['1']);
+});
+
+test('Unklare Auswahlantwort sperrt weitere Änderungen bis zum Lesen des Serverzustands', async (t) => {
+  let saved=false;
+  const {page,calls}=await setup(t,p=>{
+    if(p.aktion==='unterkunft_treffer_status_setzen') {saved=true;return {ok:true};}
+    const data=result(); if(saved)data.treffer[0].status='favorit'; return data;
+  });
+  await page.goto(origin+'/#/suche/2');
+  await page.locator('[data-selection="1"]').getByRole('button',{name:'☆ Merken',exact:true}).click();
+  await page.locator('[data-selection="1"]').getByText('Bitte zuerst aktualisieren.',{exact:false}).waitFor();
+  assert.equal(await page.locator('[data-selection="1"]').getByRole('button',{name:'☆ Merken',exact:true}).isDisabled(),true);
+  await page.getByRole('button',{name:'Aktualisieren',exact:true}).click();
+  await page.locator('[data-selection="1"]').getByRole('button',{name:'★ Gemerkt',exact:true}).waitFor();
+  assert.equal(await page.locator('[data-selection="1"]').getByRole('button',{name:'★ Gemerkt',exact:true}).isDisabled(),false);
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_treffer_status_setzen').length,1);
+});
+
+test('Verspätetes Lesen überschreibt keine inzwischen gespeicherte Auswahl; neueres Lesen wird übernommen', async (t) => {
+  let reads=0, releaseRead, laterStatus='aktiv';
+  const {page}=await setup(t,async p=>{
+    if(p.aktion==='unterkunft_treffer_status_setzen') return {ok:true,...p.daten};
+    if(p.aktion==='unterkunft_suchlauf_lesen'&&++reads===2) await new Promise(resolve=>{releaseRead=resolve;});
+    const data=result(); data.treffer[0].status=laterStatus;return data;
+  });
+  await page.goto(origin+'/#/suche/2'); await page.locator('[data-selection="1"]').waitFor();
+  await page.getByRole('button',{name:'Aktualisieren',exact:true}).click(); await waitForCallback(()=>releaseRead);
+  await page.locator('[data-selection="1"]').getByRole('button',{name:'☆ Merken',exact:true}).click();
+  await page.locator('[data-selection="1"]').getByRole('button',{name:'★ Gemerkt',exact:true}).waitFor();
+  releaseRead(); await page.getByRole('button',{name:'Aktualisieren',exact:true}).waitFor({state:'visible'});
+  await page.waitForFunction(()=>!Array.from(document.querySelectorAll('button')).find(b=>b.textContent==='Aktualisieren')?.disabled);
+  assert.equal(await page.locator('[data-selection="1"]').getByRole('button',{name:'★ Gemerkt',exact:true}).count(),1);
+  laterStatus='ausgeschlossen'; await page.getByRole('button',{name:'Aktualisieren',exact:true}).click();
+  await page.locator('[data-group=ausgeschlossen] > summary').click();
+  await page.locator('[data-selection="1"]').getByRole('button',{name:'Wiederherstellen'}).waitFor();
+  assert.equal(await page.locator('[data-group=A] [data-hit="1"]').count(),0);
+  assert.equal(await page.locator('[data-selection="5"]').getByRole('button',{name:'☆ Merken',exact:true}).isDisabled(),true);
+});
+
+test('Weitere Filter: vergleichbare Noten, unbekannte Zahlen, Hotelsterne und gespeicherte Ansicht', async (t) => {
+  const data=result();
+  data.treffer=[hit(1,'A',200,{typ:'hotel',sterne:4,note:4.5,note_skala:5,gehzeit_min:5,bewertungen:80}),
+    hit(2,'A',100,{typ:'hotel',sterne:3,note:8,note_skala:10,gehzeit_min:10,bewertungen:30}),
+    hit(3,'B',null,{typ:'apartment',sterne:null,note:null,note_skala:null,gehzeit_min:null,bewertungen:null})];
+  const {page}=await setup(t,()=>data);
+  await page.addInitScript(()=>{if(!sessionStorage.getItem('ks_suche_view:2'))sessionStorage.setItem('ks_suche_view:2',JSON.stringify({filters:null}));});
+  await page.goto(origin+'/#/suche/2'); await page.locator('.stay-filters summary').click();
+  await page.getByLabel('Gästenote mindestens (von 10)',{exact:true}).fill('8.5');
+  await page.getByLabel('Hotelsterne mindestens',{exact:true}).selectOption('4');
+  assert.deepEqual(await page.locator('tbody tr').evaluateAll(rows=>rows.map(r=>r.dataset.hit)),['1','3']);
+  await page.getByLabel('Unbekannte Angaben mit anzeigen',{exact:true}).uncheck();
+  assert.deepEqual(await page.locator('tbody tr').evaluateAll(rows=>rows.map(r=>r.dataset.hit)),['1']);
+  await page.reload(); await page.locator('[data-hit="1"]').waitFor();
+  assert.deepEqual(await page.locator('tbody tr').evaluateAll(rows=>rows.map(r=>r.dataset.hit)),['1']);
+  await page.locator('.stay-filters summary').click();
+  assert.equal(await page.getByLabel('Gästenote mindestens (von 10)',{exact:true}).inputValue(),'8.5');
+  await page.getByRole('button',{name:'Weitere Filter zurücksetzen'}).click();
+  await page.getByLabel('Gesamtpreis höchstens (€)',{exact:true}).fill('150');
+  assert.deepEqual(await page.locator('tbody tr').evaluateAll(rows=>rows.map(r=>r.dataset.hit)),['2','3']);
+  await page.getByLabel('Unterkunftsform',{exact:true}).selectOption('hotel');
+  assert.deepEqual(await page.locator('tbody tr').evaluateAll(rows=>rows.map(r=>r.dataset.hit)),['2']);
+  await page.getByLabel('Gehzeit zur Station höchstens (Min.)',{exact:true}).fill('0');
+  assert.equal(await page.locator('tbody tr').count(),0);
 });

@@ -3,17 +3,17 @@
 Web- und Handy-App für Sebastians persönliches KI-System: Council und Unterkunftssuche.
 
 - Bestehende Seite: https://beinhoff77-stack.github.io/ki-system/
-- App-Stand: **0.10.2**, entwickelt auf `feature/unterkunft-suchseite-w41`.
+- Veröffentlichter Stand: **0.10.2**. Ausbau **0.11.0** auf `feature/unterkunft-ausbau-w50` zur Gegenprüfung.
 - Daten und Suchlogik liegen in Supabase hinter `app-api`. Keine Schlüssel oder Live-Testdaten im Repository.
 - Kein Merge oder Deploy aus diesem Featurezweig ohne Sebastians ausdrückliche Freigabe.
 
 ## Aufbau und Gestaltung
 
-`index.html` enthält die App-Hülle und Login-Vorlage, `app.js` die Bedienlogik, `style.css` die Gestaltung. Manifest, Service Worker und Icons ermöglichen die installierbare App-Hülle.
+`index.html` enthält die App-Hülle und Login-Vorlage, `app.js` die Bedienlogik, `stay-tools.js` Fotos, Merkliste, Filter und Karte, `style.css` die Gestaltung. Manifest, Service Worker und Icons ermöglichen die installierbare App-Hülle.
 
 Die Startseite `#/start` bietet zwei gleichwertige Bereiche: **Council** und **Unterkunft**. Der Bereichswechsler bleibt erreichbar. Council enthält Aufträge, Auftragserstellung, Einstellungen und Werkstatt. Unterkunft enthält Suchen (`#/suche`) und Ergebnisse (`#/ergebnisse`); gespeicherte Suchläufe öffnen über `#/suche/<id>`.
 
-Unterkunft übernimmt die Designbasis des Original-Prototyps V0.4.1: Creme, Waldgrün, Serifentitel, grüner Hero und nummerierte Formulargruppen. Große Bildschirme zeigen eine Vergleichstabelle; Handys und kleinere Tablets bis 1199 Pixeln zeigen Karten. Nicht angebundene Prototyp-Funktionen wie Landkarte und Merkliste werden nicht als funktionierende Navigation dargestellt.
+Unterkunft übernimmt die Designbasis des Original-Prototyps V0.4.1: Creme, Waldgrün, Serifentitel, grüner Hero und nummerierte Formulargruppen. Große Bildschirme zeigen eine Vergleichstabelle; Handys und kleinere Tablets bis 1199 Pixeln zeigen Trefferkarten. Liste und Landkarte verwenden dieselben Filter.
 
 ## Suchablauf
 
@@ -32,6 +32,18 @@ Navigation beendet ausstehende Unterkunftsabfragen und Polling. Lesefehler pausi
 A/B-Listen, noch nicht vollständig bewertete und ausgeschlossene Treffer bleiben getrennt. `topf=unbewertet` bleibt auch bei vorläufigem A/B-Kennzeichen außerhalb der Ranglisten. Liste A startet nach dem serverseitigen Rang; ein höherer Score ersetzt diese Rangfolge nicht. Warnungen, geschätzte Preise, Gegenprüfungseinwände, Datenlage und fünf Teilnoten sind sichtbar. Die Ampel beschreibt Verlässlichkeit, nicht Unterkunftsqualität. Bildurteile sind ausdrücklich KI-Einschätzungen.
 
 Ein Filter sucht in Name und Anbieter. Je Liste werden 10, 25 oder 50 Treffer pro Seite dargestellt. Sortiert wird über alle gefilterten Treffer, bevor die Seite ausgewählt wird: Rang, Preis, Score, Datenlage, Bewertungsanzahl, Luftlinie, Gehzeit und fünf Teilnoten. Fehlende Zahlen bleiben in beiden Richtungen hinten; 0 bleibt gültig, leere oder falsche Datentypen gelten als unbekannt.
+
+Weitere Filter: Ergebnisgruppe, Unterkunftsform, Gesamtpreis, Gehzeit, Gästenote (auf 10 normiert), Bewertungsanzahl, Score, Datenlage und Hotelsterne. Unbekannte Werte bleiben standardmäßig sichtbar und können abgewählt werden. Hotelsterne gelten nur für Hotel/Aparthotel/Ryokan. „Nur Gemerkte“ zeigt die persönliche Auswahl. Filter, Sortierung, Seitengröße und Listen-/Kartenansicht bleiben pro Suchauftrag im Sitzungsspeicher dieses Browser-Tabs erhalten; keine geräteübergreifende Ansichtssynchronisierung.
+
+Merken, Ausschließen, Wiederherstellen und Rückgängig schreiben ausschließlich nach Klick über `unterkunft_treffer_status_setzen`. Nur eine vollständig bestätigte Antwort gilt als gespeichert. Bei unklarer Antwort wird vor weiteren Änderungen erneut gelesen. Parallele ältere Leseantworten überschreiben keine inzwischen gespeicherte Auswahl. Persönliche Ausschlüsse erscheinen bei ausgeschlossenen Treffern und verschwinden von der Karte. Fachliche Ausschlüsse (`topf=ausgeschlossen`, etwa Budget) bleiben unabhängig vom persönlichen Status bestehen. Die Merkliste ist von Passt/Passt nicht und dem Rückmeldungsbericht getrennt.
+
+## Fotos und Landkarte
+
+Fotos aus `bild` werden ausschließlich als HTTPS-Hotlinks ohne Referrer und verzögert geladen. Fehlerhafte oder fehlende Fotos erhalten einen Platzhalter; Bilddateien werden weder kopiert noch im Service-Worker-Cache gespeichert. Die Quellenangabe stammt aus `bild_quelle`.
+
+Leaflet **1.9.4** liegt mit BSD-2-Clause-Lizenz unter `vendor/leaflet-1.9.4/`. Die Dateien entsprechen den offiziellen SHA-256-Werten: JS `20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=`, CSS `p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=`. Eigene Markierungen verwenden keine Standard-Markerbilder.
+
+Erst die Kartenansicht lädt den OpenStreetMap-Hintergrund; kein Vorladen oder Offline-Kartenarchiv. HTTP-Caching und Browser-Referrer bleiben für Kartenkacheln unverändert. Die Namensnennung bleibt sichtbar. A-Marker tragen den Rang, B-Marker sind grau, unbewertete Treffer hohl, Ziele mit Stern und Stationen mit Punkten dargestellt. Klick führt zur richtigen Seite der Ergebnisliste. Alle gefilterten aktiven Treffer sind berücksichtigt, unabhängig von der Listenseite. Ungültige Koordinaten werden gezählt; Treffer über 25 km Zielluftlinie bleiben als Marker vorhanden, aber außerhalb der anfänglichen Ausschnittsberechnung. Bei fehlendem Hintergrund bleiben Marker und Liste nutzbar.
 
 Gehzeiten zeigen bei `geschaetzt` ein „ca.“, bei `route` (alter Alias `ors`) „berechneter Fußweg“. Stationsname und Stationsluftlinie erscheinen, wenn geliefert. Die Zielluftlinie wird aus `luftlinie_ziel_m` angezeigt; fehlende Werte bleiben unbekannt. Weitere Angebote zeigen Quelle, Preis und sichere Links sowie den Hinweis, dass Zimmer nicht abgeglichen wurden. Rakuten-Quellenhinweis und unbekannte Warncodes bleiben erhalten.
 
@@ -55,7 +67,7 @@ npx playwright install chromium
 npm test
 ```
 
-**28 Browsertests** prüfen Formular/API-Reihenfolge, Doppelklick, Warteschlange/Bewertung, Abbruch, Fehler/401, unvollständige Antworten, Navigation, Ranking, Sortierung/Filter/Seiten, Rückmeldungen samt überlappender Lese-/Schreibvorgänge, Markdown/Links, mobile und Tablet-Breiten, Tastaturbedienung sowie Offline-Hülle/Cache-Isolation und das Update mit bereits gefülltem HTTP-Cache. Die Tests verwenden synthetische Antworten und starten keine echte Suche oder Rückmeldung. Screenshots liegen ignoriert in `test-results/`.
+**35 Browsertests** prüfen Formular/API-Reihenfolge, Doppelklick, Warteschlange/Bewertung, Abbruch, Fehler/401, unvollständige Antworten, Navigation, Ranking, Sortierung/Filter/Seiten, Rückmeldungen und persönliche Auswahl samt überlappender Lese-/Schreibvorgänge, Fotos/Referrer/Platzhalter, Kartenfilter/Ausschlüsse/Nullkoordinaten/Listensprung, gespeicherte Filter, Markdown/Links, mobile und Tablet-Breiten, Tastaturbedienung sowie Offline-Hülle/Cache-Isolation und das Update mit bereits gefülltem HTTP-Cache. Die Tests verwenden synthetische Antworten und starten keine echte Suche, Auswahländerung oder Rückmeldung. Fotos und Kartenkacheln werden in den Tests simuliert, ohne externe Kartendienste abzufragen. Screenshots liegen ignoriert in `test-results/`.
 
 Am 16.10.2026 wurden Suchlauf #2 und der Rückmeldungsbericht über den vorhandenen Lesezugang geprüft; ihre Daten werden nicht eingecheckt. Claudes Kyoto-Lauf #5 wurde durch diese UI-Arbeiten nicht gestartet, gestoppt oder verändert.
 
@@ -65,6 +77,11 @@ Claude hat die Schnittstellen in Werkstatt-Nachricht 165 geprüft und die App na
 
 Werkstatt-Wunsch 41: App-Verantwortung bei ChatGPT, Backend bei Claude. Vor Änderungen `app:repo` sperren, vorhandenen Featurestand prüfen, danach Änderungen protokollieren und die Sperre freigeben. Größere Änderungen gehen zur Gegenprüfung; Sebastian entscheidet über Veröffentlichung.
 
+Der Ausbau 0.11.0 gehört zu Wunsch 50 (Fotos/Karte) und Wunsch 33 (Filter/Auswahl). Die für 0.10.x erteilte Veröffentlichungserlaubnis ersetzt nicht die Abnahme dieses Ausbaus. Wunsch 51 (Lückenfüller) und 54 (erweiterte Suche/Suchprofile) folgen separat.
+
 
 ### Kyoto-Abgleich (App 0.10.1)
+
+Historischer Stand vor Claudes Budgetkorrektur aus Nachricht 170. Aktuell nach der Korrektur: A16, B23, unbewertet48, ausgeschlossen26. Der neue Lesevertrag liefert 113 Fotos und 34 Stationen. Die App-Arbeiten haben diese Daten nicht verändert.
+
 Werkstatt-Nachricht 162 und Suchlauf #5 wurden lesend abgeglichen: 143 gesammelt, 30 Doppel zusammengeführt, 113 verbleibend (A16, B26, noch nicht vollständig bewertet65, ausgeschlossen6). 15 Fußwege tragen `route`, 92 `geschaetzt`. Die Anzeige wurde lokal mit der gelesenen Antwort bei 390/768/1366 Pixeln nachgespielt; dabei wurden ausschließlich Leseaktionen simuliert. Dieser Darstellungstest ist kein angemeldeter End-to-End-Test gegen app-api. Echte Daten bleiben außerhalb der eingecheckten Testfixtures.

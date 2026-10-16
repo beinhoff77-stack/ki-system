@@ -3,7 +3,7 @@
 Web- und Handy-App für Sebastians persönliches KI-System: Council und Unterkunftssuche.
 
 - Bestehende Seite: https://beinhoff77-stack.github.io/ki-system/
-- App-Stand: **0.10.1**, Featurezweig `feature/unterkunft-suchseite-w41`, Entwurfs-PR #1.
+- App-Stand: **0.10.1**, entwickelt auf `feature/unterkunft-suchseite-w41`, Veröffentlichung über PR #1.
 - Daten und Suchlogik liegen in Supabase hinter `app-api`. Keine Schlüssel oder Live-Testdaten im Repository.
 - Kein Merge oder Deploy aus diesem Featurezweig ohne Sebastians ausdrückliche Freigabe.
 
@@ -33,7 +33,7 @@ A/B-Listen, noch nicht vollständig bewertete und ausgeschlossene Treffer bleibe
 
 Ein Filter sucht in Name und Anbieter. Je Liste werden 10, 25 oder 50 Treffer pro Seite dargestellt. Sortiert wird über alle gefilterten Treffer, bevor die Seite ausgewählt wird: Rang, Preis, Score, Datenlage, Bewertungsanzahl, Luftlinie, Gehzeit und fünf Teilnoten. Fehlende Zahlen bleiben in beiden Richtungen hinten; 0 bleibt gültig, leere oder falsche Datentypen gelten als unbekannt.
 
-Gehzeiten zeigen bei `geschaetzt` ein „ca.“, bei `route` (alter Alias `ors`) „berechneter Fußweg“. Stationsname und Stationsluftlinie erscheinen, wenn geliefert. Die noch fehlende Zielluftlinie bleibt unbekannt. Weitere Angebote zeigen Quelle, Preis und sichere Links sowie den Hinweis, dass Zimmer nicht abgeglichen wurden. Rakuten-Quellenhinweis und unbekannte Warncodes bleiben erhalten.
+Gehzeiten zeigen bei `geschaetzt` ein „ca.“, bei `route` (alter Alias `ors`) „berechneter Fußweg“. Stationsname und Stationsluftlinie erscheinen, wenn geliefert. Die Zielluftlinie wird aus `luftlinie_ziel_m` angezeigt; fehlende Werte bleiben unbekannt. Weitere Angebote zeigen Quelle, Preis und sichere Links sowie den Hinweis, dass Zimmer nicht abgeglichen wurden. Rakuten-Quellenhinweis und unbekannte Warncodes bleiben erhalten.
 
 Jeder Treffer bietet Passt / Passt nicht / Zu teuer / Gebucht mit optionalem Grund (maximal 1000 Zeichen). Nur ein Klick schreibt über `unterkunft_rueckmeldung_geben`. Entwürfe bleiben beim Sortieren und Blättern erhalten. Aktualisieren übernimmt neue Serverurteile, ohne ungespeicherte Gründe zu verwerfen. Eine bereits laufende Leseantwort überschreibt keine zwischenzeitlich gespeicherte Rückmeldung. Die Rangfolge wird nicht geändert.
 
@@ -59,7 +59,7 @@ npm test
 
 Am 16.10.2026 wurden Suchlauf #2 und der Rückmeldungsbericht über den vorhandenen Lesezugang geprüft; ihre Daten werden nicht eingecheckt. Claudes Kyoto-Lauf #5 wurde durch diese UI-Arbeiten nicht gestartet, gestoppt oder verändert.
 
-Vor Veröffentlichung stehen Claudes Gegenprüfung und der angemeldete vollständige Browser-Live-Test gegen app-api aus. Die automatisierten Browserprüfungen ersetzen diese Abnahme nicht.
+Claude hat die Schnittstellen in Werkstatt-Nachricht 165 geprüft und die App nach der Pflichtkorrektur `route` als freigabefähig bewertet. Die Korrektur ist in 0.10.1 enthalten. Sebastian hat am 16.10.2026 die Veröffentlichung von App 0.10.x ausdrücklich freigegeben. Der anschließende angemeldete Browser-Live-Test mit dem vorhandenen Suchauftrag #5 wird mit dem Veröffentlichungsstand in Wunsch 41 dokumentiert. Die automatisierten Browserprüfungen ersetzen diese Abnahme nicht.
 
 ## Zusammenarbeit
 

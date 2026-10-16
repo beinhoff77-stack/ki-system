@@ -508,6 +508,16 @@ body[data-area="unterkunft"] nav.tabs button.on { box-shadow: none; background: 
 .stay-selection .actions { flex-wrap: wrap; gap: 6px; }
 .stay-selection button { min-height: 44px; font-size: 12px; padding: 6px 10px; }
 .stay-selection button[aria-pressed="true"] { color: white; background: #254d3e; }
+.research-panel { padding: 16px; border-bottom: 1px solid var(--border); }
+.research-panel summary { min-height: 44px; font-weight: 700; }
+.research-panel textarea { width: 100%; box-sizing: border-box; font-size: 16px; }
+.research-fields { border: 1px solid var(--border); border-radius: 10px; margin: 12px 0; }
+.research-panel .actions { flex-wrap: wrap; }
+.research-panel button { min-height: 44px; }
+.research-handoff { padding: 12px; margin-top: 12px; background: #edf3e9; border-radius: 10px; }
+.research-selected { max-height: 160px; overflow-y: auto; }
+.stay-research { padding-top: 10px; }
+.stay-research .check-label { font-size: 13px; margin-right: 0; }
 .stay-filters summary { min-height: 44px; font-weight: 700; }
 .stay-filter-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap: 12px; margin: 12px 0; }
 .stay-filter-grid label { margin: 0; }

@@ -3,7 +3,7 @@
 Web- und Handy-App für Sebastians persönliches KI-System: Council und Unterkunftssuche.
 
 - Bestehende Seite: https://beinhoff77-stack.github.io/ki-system/
-- Veröffentlichter Stand: **0.10.2**. Ausbau **0.11.0** auf `feature/unterkunft-ausbau-w50` zur Gegenprüfung.
+- Veröffentlichter Stand: **0.10.2**. Ausbau **0.12.0** auf `feature/unterkunft-lueckenfueller-w51`, aufbauend auf 0.11.0 (`feature/unterkunft-ausbau-w50`), zur Gegenprüfung.
 - Daten und Suchlogik liegen in Supabase hinter `app-api`. Keine Schlüssel oder Live-Testdaten im Repository.
 - Kein Merge oder Deploy aus diesem Featurezweig ohne Sebastians ausdrückliche Freigabe.
 
@@ -37,6 +37,12 @@ Weitere Filter: Ergebnisgruppe, Unterkunftsform, Gesamtpreis, Gehzeit, Gästenot
 
 Merken, Ausschließen, Wiederherstellen und Rückgängig schreiben ausschließlich nach Klick über `unterkunft_treffer_status_setzen`. Nur eine vollständig bestätigte Antwort gilt als gespeichert. Bei unklarer Antwort wird vor weiteren Änderungen erneut gelesen. Parallele ältere Leseantworten überschreiben keine inzwischen gespeicherte Auswahl. Persönliche Ausschlüsse erscheinen bei ausgeschlossenen Treffern und verschwinden von der Karte. Fachliche Ausschlüsse (`topf=ausgeschlossen`, etwa Budget) bleiben unabhängig vom persönlichen Status bestehen. Die Merkliste ist von Passt/Passt nicht und dem Rückmeldungsbericht getrennt.
 
+## Gezielte Nachrecherche
+
+`stay-research.js` bindet den Lückenfüller an: In Liste B können bis zu 30 aktive Treffer mit Warnungen oder Datenlücken gewählt werden. Auswahl und Felder (Zimmer/Betten, Gesamtpreis, Balkon, Storno) bleiben beim Sortieren, Filtern und Blättern erhalten; inzwischen ausgeschlossene Treffer werden aus der Auswahl entfernt. Erst „Lücken füllen (n)“ legt über `unterkunft_lueckenfueller_anlegen` einen Auftrag an. Doppelklickschutz, Bestätigung des Auftrags und ein für denselben Versuch stabiler Idempotenzschlüssel verhindern unbemerkte Wiederholungen.
+
+Die App zeigt den kopierbaren Text „Lückenfüller Auftrag <ID> ausführen“. Sie startet keine Claude-Recherche und sendet keine Nachricht automatisch. Bei verweigerter Zwischenablage lässt sich der Text manuell kopieren. Bestehende offene Aufträge können je Treffer erneut geöffnet werden. `unterkunft_lueckenfueller_lesen` zeigt die letzten 50 Aufträge: angelegt/in Arbeit/erledigt/teilweise/nicht möglich. Unklare Schreibantworten erfordern zuerst eine Statusaktualisierung; passende angelegte Aufträge werden dabei wiedergefunden. Lesefehler lassen Treffer und zuletzt gelesene Statusangaben stehen.
+
 ## Fotos und Landkarte
 
 Fotos aus `bild` werden ausschließlich als HTTPS-Hotlinks ohne Referrer und verzögert geladen. Fehlerhafte oder fehlende Fotos erhalten einen Platzhalter; Bilddateien werden weder kopiert noch im Service-Worker-Cache gespeichert. Die Quellenangabe stammt aus `bild_quelle`.
@@ -67,7 +73,7 @@ npx playwright install chromium
 npm test
 ```
 
-**35 Browsertests** prüfen Formular/API-Reihenfolge, Doppelklick, Warteschlange/Bewertung, Abbruch, Fehler/401, unvollständige Antworten, Navigation, Ranking, Sortierung/Filter/Seiten, Rückmeldungen und persönliche Auswahl samt überlappender Lese-/Schreibvorgänge, Fotos/Referrer/Platzhalter, Kartenfilter/Ausschlüsse/Nullkoordinaten/Listensprung, gespeicherte Filter, Markdown/Links, mobile und Tablet-Breiten, Tastaturbedienung sowie Offline-Hülle/Cache-Isolation und das Update mit bereits gefülltem HTTP-Cache. Die Tests verwenden synthetische Antworten und starten keine echte Suche, Auswahländerung oder Rückmeldung. Fotos und Kartenkacheln werden in den Tests simuliert, ohne externe Kartendienste abzufragen. Screenshots liegen ignoriert in `test-results/`.
+**39 Browsertests** prüfen Formular/API-Reihenfolge, Doppelklick, Warteschlange/Bewertung, Abbruch, Fehler/401, unvollständige Antworten, Navigation, Ranking, Sortierung/Filter/Seiten, Rückmeldungen und persönliche Auswahl samt überlappender Lese-/Schreibvorgänge, Fotos/Referrer/Platzhalter, Kartenfilter/Ausschlüsse/Nullkoordinaten/Listensprung, gespeicherte Filter, Lückenfüller-Auswahl/30er-Grenze/Doppelklick/Fehlerwiederherstellung/Kopieren/Status, Markdown/Links, mobile und Tablet-Breiten, Tastaturbedienung sowie Offline-Hülle/Cache-Isolation und das Update mit bereits gefülltem HTTP-Cache. Die Tests verwenden synthetische Antworten und starten keine echte Suche, Auswahländerung oder Rückmeldung. Fotos und Kartenkacheln werden in den Tests simuliert, ohne externe Kartendienste abzufragen. Screenshots liegen ignoriert in `test-results/`.
 
 Am 16.10.2026 wurden Suchlauf #2 und der Rückmeldungsbericht über den vorhandenen Lesezugang geprüft; ihre Daten werden nicht eingecheckt. Claudes Kyoto-Lauf #5 wurde durch diese UI-Arbeiten nicht gestartet, gestoppt oder verändert.
 
@@ -77,7 +83,7 @@ Claude hat die Schnittstellen in Werkstatt-Nachricht 165 geprüft und die App na
 
 Werkstatt-Wunsch 41: App-Verantwortung bei ChatGPT, Backend bei Claude. Vor Änderungen `app:repo` sperren, vorhandenen Featurestand prüfen, danach Änderungen protokollieren und die Sperre freigeben. Größere Änderungen gehen zur Gegenprüfung; Sebastian entscheidet über Veröffentlichung.
 
-Der Ausbau 0.11.0 gehört zu Wunsch 50 (Fotos/Karte) und Wunsch 33 (Filter/Auswahl). Die für 0.10.x erteilte Veröffentlichungserlaubnis ersetzt nicht die Abnahme dieses Ausbaus. Wunsch 51 (Lückenfüller) und 54 (erweiterte Suche/Suchprofile) folgen separat.
+Der Ausbau 0.11.0 gehört zu Wunsch 50 (Fotos/Karte) und Wunsch 33 (Filter/Auswahl). Die für 0.10.x erteilte Veröffentlichungserlaubnis ersetzt nicht die Abnahme dieses Ausbaus. Ausbau 0.12.0 ergänzt Wunsch 51 (Lückenfüller) in einem eigenen Folge-PR. Wunsch 54 (erweiterte Suche/Suchprofile) folgt separat.
 
 
 ### Kyoto-Abgleich (App 0.10.1)

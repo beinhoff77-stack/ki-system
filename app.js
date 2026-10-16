@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.11.0';
+const APP_VERSION = '0.12.0';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -1033,6 +1033,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   const mapButton = el('button', { type: 'button', onclick: () => { showMap = true; draw(); } }, 'Karte');
   const viewButtons = el('div', { class: 'actions result-view-switch', hidden: true, role: 'group', 'aria-label': 'Ergebnisansicht' }, listButton, mapButton);
   const undoSelection = el('button', { type: 'button', hidden: true, onclick: () => selectionStates.get(lastSelection)?.undoAction() }, 'Letzte Auswahl rückgängig');
+  const research = sucheLuecken(id, call, live, draw);
   function selectionChanged(t, state) {
     const current = snapshot?.treffer.find(row => row.treffer_id === t.treffer_id);
     if (current) current.status = state.saved;
@@ -1125,10 +1126,12 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       ['offen', 'Weitere Treffer – noch nicht vollständig bewertet', rows.filter((t) => sucheGruppe(t) === 'offen')],
       ['ausgeschlossen', 'Ausgeschlossene Treffer', rows.filter((t) => sucheGruppe(t) === 'ausgeschlossen')],
     ];
+    research.update(snapshot.treffer);
     for (const [key, title, items] of groups) {
       if (!items.length && !['A', 'B'].includes(key)) continue;
       const section = el(key === 'ausgeschlossen' ? 'details' : 'section', { class: 'card suche-results' });
       section.append(el(key === 'ausgeschlossen' ? 'summary' : 'h2', key === 'ausgeschlossen' ? {} : { tabindex: -1 }, `${title} (${items.length})`));
+      if (key === 'B') section.append(research.panel);
       const size = Number(pageSize.value), totalPages = Math.max(1, Math.ceil(items.length / size));
       const page = Math.min(pages.get(key) || 0, totalPages - 1);
       pages.set(key, page);
@@ -1140,7 +1143,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
         const replacement = results.querySelector(`[data-group="${key}"]`);
         if (wasOpen) replacement.open = true;
         replacement.querySelector(`[data-sort="${sortKey}"]`)?.focus({ preventScroll: true });
-      }, phase.final && ['A', 'B'].includes(key), (t) => sucheRueckmeldung(t, feedbackStates, call, live), (t) => sucheAuswahl(t, selectionStates, call, live, selectionChanged)));
+      }, phase.final && ['A', 'B'].includes(key), (t) => sucheRueckmeldung(t, feedbackStates, call, live), (t) => el('div', {}, sucheAuswahl(t, selectionStates, call, live, selectionChanged), research.row(t))));
       if (totalPages > 1) {
         const turnPage = offset => {
           pages.set(key, page + offset); draw();
@@ -1201,6 +1204,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
           state.dirty = state.grund !== (state.saved?.grund || ''); state.message = '';
         }
         snapshot = data; snapshotStatus = r; draw();
+        void research.load();
         notice.textContent = r.status === 'fertig' ? 'Bewertung abgeschlossen. Rangliste aktualisiert.' : r.status === 'gestoppt_budget' ? 'Kostenlimit erreicht. Vorhandene Treffer bleiben sichtbar.' : 'Suche ' + r.status + '. Vorhandene Treffer bleiben sichtbar.';
       } else if (r.status !== 'entwurf') {
         notice.textContent = r.status === 'wartet' ? 'Die Suche wartet und startet automatisch. Aktualisierung alle 7 Sekunden.' : 'Suche läuft. Bewertung und Gegenprüfung werden abgewartet. Aktualisierung alle 7 Sekunden.';

@@ -39,6 +39,7 @@ async function setup(t, handler, viewport) {
     const payload = request.method() === 'POST' ? request.postDataJSON() : {};
     calls.push(payload);
     let value = await handler(payload, calls);
+    if (payload.aktion === 'unterkunft_lueckenfueller_lesen' && (value?.suchauftrag || Array.isArray(value?.suchauftraege))) value = {ok:true,auftraege:[]};
     if (payload.aktion === 'unterkunft_suche_status' && value?.suchauftrag) {
       const a = value.suchauftrag;
       value = { ...a, fertig: ['fertig','fehler','abgebrochen','gestoppt_budget'].includes(a.status), phase: a.status === 'fertig' ? 'fertig' : 'sammeln', kosten: value.kosten, zaehler: {}, schritte: [] };
@@ -154,9 +155,10 @@ test('PWA installiert vollständige Offline-Hülle, API wird nicht gecacht', asy
   assert(cacheNames.includes('ki-system:' + origin + '/another-app/:v1'));
   assert(!cacheNames.includes('ki-system:' + origin + '/:old'));
   await page.evaluate(() => fetch('README.md'));
-  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v18')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
-  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.11.0')); assert(cached.includes('/style.css?v=0.11.0'));
-  assert(cached.includes('/stay-tools.js?v=0.11.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
+  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v19')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
+  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.12.0')); assert(cached.includes('/style.css?v=0.12.0'));
+  assert(cached.includes('/stay-tools.js?v=0.12.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
+  assert(cached.includes('/stay-research.js?v=0.12.0'));
   assert(!cached.includes('/README.md'));
   assert(!cached.some((u) => u.includes('app-api')));
   await context.setOffline(true); await page.reload();
@@ -734,4 +736,92 @@ test('Weitere Filter: vergleichbare Noten, unbekannte Zahlen, Hotelsterne und ge
   assert.deepEqual(await page.locator('tbody tr').evaluateAll(rows=>rows.map(r=>r.dataset.hit)),['2']);
   await page.getByLabel('Gehzeit zur Station höchstens (Min.)',{exact:true}).fill('0');
   assert.equal(await page.locator('tbody tr').count(),0);
+});
+
+test('Lückenfüller: bestätigter Auftrag, Felder, Kopiertext und Doppelklick ohne Ausführung', async (t) => {
+  let releaseCreate;
+  const {page,calls}=await setup(t,async p=>{
+    if(p.aktion==='unterkunft_lueckenfueller_anlegen') { await new Promise(resolve=>{releaseCreate=resolve;}); return {ok:true,id:7,status:'erzeugt',vorgefuellter_text:'Lückenfüller Auftrag 7 ausführen'}; }
+    return result();
+  });
+  await page.addInitScript(()=>Object.defineProperty(navigator,'clipboard',{value:{writeText:async text=>{window.copiedText=text;}}}));
+  await page.goto(origin+'/#/suche/2');
+  await page.getByLabel('Für Nachrecherche auswählen: Unterkunft 4',{exact:true}).check();
+  await page.getByLabel('Gesamtpreis',{exact:true}).check();
+  await page.getByLabel('Hinweis für die Nachrecherche').fill('Bitte echte Betten prüfen.');
+  await page.getByRole('button',{name:'Lücken füllen (1)',exact:true}).dblclick();
+  await waitForCallback(()=>releaseCreate);
+  const writes=calls.filter(p=>p.aktion==='unterkunft_lueckenfueller_anlegen');
+  assert.equal(writes.length,1);assert.deepEqual(writes[0].daten.treffer_ids,[4]);
+  assert.deepEqual(writes[0].daten.felder,['zimmerkategorien','gesamtpreis']);assert.equal(writes[0].daten.hinweis,'Bitte echte Betten prüfen.');
+  assert.equal(typeof writes[0].daten.idempotenz,'string');
+  releaseCreate(); await page.getByLabel('Text für den Claude-Chat').waitFor();
+  assert.equal(await page.getByLabel('Text für den Claude-Chat').inputValue(),'Lückenfüller Auftrag 7 ausführen');
+  await page.getByRole('button',{name:'Text kopieren',exact:true}).click();
+  assert.equal(await page.evaluate(()=>window.copiedText),'Lückenfüller Auftrag 7 ausführen');
+  await page.locator('[data-research-status="4"]').getByText('Recherche #7: Angelegt – wartet auf Claude',{exact:false}).waitFor();
+  assert.equal(await page.getByRole('button',{name:'Lücken füllen (0)',exact:true}).isDisabled(),true);
+  assert(!calls.some(p=>/ausfuehren|runde_starten|suche_starten/.test(p.aktion)));
+});
+
+test('Lückenfüller: Auswahl maximal 30, über Filter hinweg erhalten und bei Ausschluss bereinigt', async (t) => {
+  const data={...result(),treffer:Array.from({length:32},(_,i)=>hit(i+1,'B',100))};
+  const {page}=await setup(t,p=>p.aktion==='unterkunft_treffer_status_setzen'?{ok:true,...p.daten}:data);
+  await page.goto(origin+'/#/suche/2');
+  await page.getByLabel('Treffer je Liste und Seite',{exact:true}).selectOption('50');
+  for(let i=1;i<=30;i++) await page.getByLabel('Für Nachrecherche auswählen: Unterkunft '+i,{exact:true}).check();
+  assert.equal(await page.getByLabel('Für Nachrecherche auswählen: Unterkunft 31',{exact:true}).isDisabled(),true);
+  await page.getByPlaceholder('Name oder Anbieter').fill('Unterkunft 32');
+  await page.getByRole('button',{name:'Lücken füllen (30)',exact:true}).waitFor();
+  assert.equal(await page.locator('.research-selected li').count(),30);
+  await page.getByPlaceholder('Name oder Anbieter').fill('');
+  await page.locator('[data-selection="1"]').getByRole('button',{name:'Ausschließen',exact:true}).click();
+  await page.getByRole('button',{name:'Lücken füllen (29)',exact:true}).waitFor();
+  assert.equal(await page.getByLabel('Für Nachrecherche auswählen: Unterkunft 31',{exact:true}).isDisabled(),false);
+  await page.getByLabel('Zimmer und Betten',{exact:true}).uncheck();
+  assert.equal(await page.getByRole('button',{name:'Lücken füllen (29)',exact:true}).isDisabled(),true);
+});
+
+test('Lückenfüller: unklare Antwort wird lesend wiedergefunden, Status und Kopieren ohne Zwischenablage', async (t) => {
+  let created=false, jobStatus='erzeugt';
+  const {page,calls}=await setup(t,p=>{
+    if(p.aktion==='unterkunft_lueckenfueller_anlegen') {created=true;return {ok:true,id:7};}
+    if(p.aktion==='unterkunft_lueckenfueller_lesen') return {ok:true,auftraege:created?[{id:7,suchauftrag_id:2,treffer_ids:[4],felder:['zimmerkategorien'],status:jobStatus}]:[]};
+    return result();
+  });
+  await page.addInitScript(()=>Object.defineProperty(navigator,'clipboard',{value:{writeText:async()=>{throw new Error('Test: verweigert');}}}));
+  await page.goto(origin+'/#/suche/2'); await page.getByLabel('Für Nachrecherche auswählen: Unterkunft 4',{exact:true}).check();
+  await page.getByRole('button',{name:'Lücken füllen (1)',exact:true}).click();
+  await page.getByText('Anlegen nicht bestätigt:',{exact:false}).waitFor();
+  assert.equal(await page.getByRole('button',{name:'Lücken füllen (1)',exact:true}).isDisabled(),true);
+  await page.getByRole('button',{name:'Recherche-Status aktualisieren',exact:true}).click();
+  await page.getByLabel('Text für den Claude-Chat').waitFor();
+  await page.getByRole('button',{name:'Text kopieren',exact:true}).click();
+  await page.getByText('Bitte den markierten Text von Hand kopieren.').waitFor();
+  assert.equal(await page.getByLabel('Text für den Claude-Chat').evaluate(n=>n.selectionEnd-n.selectionStart),'Lückenfüller Auftrag 7 ausführen'.length);
+  for(const [state,label] of [['in_arbeit','In Arbeit'],['teilweise','Teilweise ergänzt'],['nicht_moeglich','Nicht möglich'],['erledigt','Erledigt']]) {
+    jobStatus=state; await page.getByRole('button',{name:'Recherche-Status aktualisieren',exact:true}).click();
+    await page.locator('[data-research-status="4"]').getByText('Recherche #7: '+label,{exact:false}).waitFor();
+  }
+  assert.equal(await page.getByLabel('Text für den Claude-Chat').isVisible(),false);
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_lueckenfueller_anlegen').length,1);
+});
+
+test('Lückenfüller: vorhandenen Auftrag öffnen, Lesefehler erhalten Treffer, Bereichswechsel beendet Antwort', async (t) => {
+  let readError=false, releaseCreate;
+  const {page}=await setup(t,async p=>{
+    if(p.aktion==='unterkunft_lueckenfueller_lesen') return readError?'abort':{ok:true,auftraege:[{id:8,suchauftrag_id:2,treffer_ids:[4],felder:['zimmerkategorien'],status:'in_arbeit'}]};
+    if(p.aktion==='unterkunft_lueckenfueller_anlegen') { await new Promise(resolve=>{releaseCreate=resolve;}); return {ok:true,id:8,status:'in_arbeit',schon_vorhanden:true,vorgefuellter_text:'Lückenfüller Auftrag 8 ausführen'}; }
+    if(p.aktion==='auftraege_suchen')return [];
+    return result();
+  });
+  await page.goto(origin+'/#/suche/2'); await page.getByRole('button',{name:'Text für Auftrag #8',exact:true}).click();
+  assert.equal(await page.getByLabel('Text für den Claude-Chat').inputValue(),'Lückenfüller Auftrag 8 ausführen');
+  readError=true; await page.getByRole('button',{name:'Recherche-Status aktualisieren',exact:true}).click();
+  await page.getByText('Recherche-Status nicht geladen:',{exact:false}).waitFor();
+  assert.equal(await page.locator('[data-group=B] [data-hit="4"]').count(),1);
+  await page.getByLabel('Für Nachrecherche auswählen: Unterkunft 4',{exact:true}).check();
+  await page.getByRole('button',{name:'Lücken füllen (1)',exact:true}).click(); await waitForCallback(()=>releaseCreate);
+  await page.locator('#areas [data-area=council]').click(); await page.getByRole('heading',{name:'Aufträge',exact:true}).waitFor();
+  releaseCreate(); assert.equal(await page.locator('.research-panel').count(),0);
 });

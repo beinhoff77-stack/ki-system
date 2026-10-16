@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.6.0';
+const APP_VERSION = '0.7.0';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -797,12 +797,27 @@ async function viewWerkstatt(idStr) {
 
 // ---------- Unterkunftssuche (Werkstatt #41) ----------
 const SUCHE_ENDE = new Set(['fertig', 'fehler', 'gestoppt_budget', 'abgebrochen', 'gestoppt']);
+const SUCHE_NOTEN = [['raum', 'Raum'], ['lage', 'Lage'], ['preis_leistung', 'Preis-Leistung'], ['bewertungen', 'Bewertungen'], ['eignung', 'Eignung']];
+function suchePhase(auftrag) {
+  const steps = Array.isArray(auftrag.schrittkette) ? auftrag.schrittkette : [];
+  const bewerten = steps.filter((s) => s.quelle === 'bewerten').at(-1);
+  const stopped = SUCHE_ENDE.has(auftrag.status) && auftrag.status !== 'fertig';
+  const failed = bewerten && SUCHE_ENDE.has(bewerten.status) && bewerten.status !== 'fertig';
+  return { final: auftrag.status === 'fertig' && bewerten?.status === 'fertig',
+    running: !stopped && !failed && auftrag.status !== 'entwurf' && !(auftrag.status === 'fertig' && bewerten?.status === 'fertig'),
+    waiting: auftrag.status === 'fertig' && !bewerten, failed: !!failed, bewerten };
+}
+function sucheDatenlage(t) {
+  const noten = t.bewertung?.spaltennoten;
+  return sucheZahl(noten && Object.hasOwn(noten, 'datenlage_score') ? noten.datenlage_score : t.bewertung?.datenlage);
+}
 const SUCHE_QUELLEN = { hasdata_booking: 'Booking', apify_airbnb: 'Airbnb', rakuten_travel: 'Rakuten Travel', trivago_mcp: 'Trivago' };
 const SUCHE_WARNUNGEN = {
   futon: 'Futon', schlafsofa: 'Schlafsofa', etagenbett: 'Etagenbett', schlafplatz_wohnzimmer: 'Schlafplatz im Wohnzimmer',
   steuern_unklar: 'Steuern unklar', wenig_bewertungen: 'Wenige Bewertungen', weit_vom_ziel: 'Weit vom Ziel',
   preis_geschaetzt: 'Preis geschätzt', zwei_zimmer: '2 getrennte Zimmer', '2_zimmer': '2 getrennte Zimmer',
   doppelbett_geteilt: 'Doppelbett wird geteilt', schmales_bett: 'Schmales Bett <140 cm',
+  gegenpruefung_einwand: 'Gegenprüfung hat Einwände',
   preis_2zimmer_unklar: 'Preis für zwei Zimmer unklar', betten_unklar: 'Betten unklar', zimmer_unbekannt: 'Zimmer unbekannt', ueber_budget: 'Über Budget',
 };
 const sucheZahl = (v) => v === null || v === undefined || v === '' || !Number.isFinite(Number(v)) ? null : Number(v);
@@ -812,7 +827,7 @@ function sucheLink(value) {
 }
 function sucheVergleich(a, b, key, direction) {
   const value = (t) => key === 'name' ? t.name : key === 'preis' ? sucheZahl(t.angebot?.preis_gesamt_eur) :
-    key === 'bewertungen' ? sucheZahl(t.bewertungen) : key === 'entfernung' ? sucheZahl(t.luftlinie_ziel_m) : sucheZahl(t.bewertung?.[key]);
+    key === 'bewertungen' ? sucheZahl(t.bewertungen) : key === 'entfernung' ? sucheZahl(t.luftlinie_ziel_m) : key === 'datenlage' ? sucheDatenlage(t) : key === 'rang' ? (t.topf === 'shortlist' && t.bewertung?.liste === 'A' ? sucheZahl(t.bewertung?.rang) : null) : sucheZahl(t.bewertung?.[key]);
   const x = value(a), y = value(b);
   // Fehlende Angaben stehen in beiden Sortierrichtungen hinten.
   if (x == null || y == null) return x == null && y == null ? 0 : x == null ? 1 : -1;
@@ -842,7 +857,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   const entryView = parseHash().view;
   let disposed = false, timer, busy = false, snapshot = null;
   const requests = new Set();
-  let sort = { key: 'score', direction: -1 };
+  let sort = { key: 'rang', direction: 1 }, waitingSince = null;
   const scope = el('div', { class: 'suche' });
   main.replaceChildren(scope);
   disposeSuche = () => { disposed = true; clearTimeout(timer); requests.forEach((c) => c.abort()); };
@@ -954,7 +969,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   scope.append(el('div', { class: 'stay-page-heading' }, el('p', { class: 'eyebrow' }, 'EIN GUTER ORT FÜR EURE REISE'), el('h2', {}, 'Unterkünfte vergleichen')));
   const summary = el('section', { class: 'card stay-run-summary' });
   const results = el('section', { 'aria-label': 'Suchergebnisse' });
-  const refresh = el('button', { onclick: () => poll() }, 'Aktualisieren');
+  const refresh = el('button', { onclick: () => { waitingSince = null; poll(); } }, 'Aktualisieren');
   const start = el('button', { class: 'primary', hidden: true, onclick: async () => {
     if (busy) return; busy = true; start.disabled = refresh.disabled = true;
     try { await call('unterkunft_suche_starten', { suchauftrag_id: id }); }
@@ -965,21 +980,23 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   function draw() {
     const openDetails = new Set([...results.querySelectorAll('details[open][data-detail]')].map((n) => n.dataset.detail));
     const a = snapshot.suchauftrag, k = snapshot.kosten || {}, steps = Array.isArray(a.schrittkette) ? a.schrittkette : [];
+    const phase = suchePhase(a);
     start.hidden = a.status !== 'entwurf'; start.disabled = busy;
     summary.replaceChildren(el('h2', {}, `${a.ziel} · #${a.id}`),
       el('p', {}, `${fmtDate(a.anreise)}–${fmtDate(a.abreise)} · ${a.erwachsene} Erwachsene · ${(a.kinder_alter || []).length} Kinder`),
       el('p', {}, 'Status: ', el('strong', {}, a.status), ' · ', snapshot.treffer.length, ' Treffer'),
       el('p', { class: 'small' }, `Suchkosten: ${fmtUsd(k.ist_usd) || 'unbekannt'} · reserviert: ${fmtUsd(k.reserviert_usd) || 'unbekannt'} · Limit: ${fmtUsd(k.limit_usd ?? a.limit_usd) || 'unbekannt'} · Anbieter-Einheiten: ${k.ist_einheiten ?? 'unbekannt'} / ${k.limit_einheiten ?? 'unbekannt'}`),
       el('ul', { class: 'suche-progress' }, steps.map((s) => el('li', {},
-        `${SUCHE_QUELLEN[s.quelle] || s.quelle}: ${s.status} · ${s.treffer ?? 0} Treffer`,
+        `${s.quelle === 'bewerten' ? 'Bewertung und Gegenprüfung' : SUCHE_QUELLEN[s.quelle] || s.quelle}: ${s.status}${s.quelle === 'bewerten' ? '' : ` · ${s.treffer ?? 0} Treffer`}`,
         s.kosten_usd != null ? ` · ${fmtUsd(s.kosten_usd)}` : '', s.credits != null ? ` · ${s.credits} Credits` : '',
-        s.fehler ? el('p', { class: 'err-text' }, String(s.fehler)) : null))),
-      el('p', { class: 'erg-warnung' }, 'Vorläufige Auswahl: Der Score berücksichtigt Gästenoten und die Anzahl der Bewertungen (0–100). Die abschließende Bewertung folgt. Unbekannte Angaben sind gekennzeichnet.'));
+        s.fehler ? el('p', { class: 'err-text' }, String(s.fehler)) : null,
+        s.gehzeit?.fehler ? el('p', { class: 'err-text' }, 'Gehzeiten: ' + s.gehzeit.fehler) : null))),
+      el('p', { class: 'erg-warnung' }, phase.final ? 'Bewertung abgeschlossen. Endscore aus Raum, Lage, Preis-Leistung, Bewertungen und Eignung. Die Datenlage zeigt die Abdeckung; die Ampel beschreibt die Verlässlichkeit, nicht die Qualität. Offene Angaben und Einwände bleiben relevant.' : phase.failed ? 'Bewertung unterbrochen. Die Rangliste ist noch nicht abschließend; vorhandene Ergebnisse bleiben sichtbar.' : 'Zwischenstand: Die Rangliste ist erst nach Abschluss der Bewertungsstufe fertig. Teilnoten und Datenlage zeigen, welche Angaben bereits vorliegen.'));
     results.replaceChildren();
     const rows = snapshot.treffer;
     const groups = [
-      ['A', 'Liste A – vorläufig', rows.filter((t) => t.topf !== 'ausgeschlossen' && t.bewertung?.liste === 'A')],
-      ['B', 'Liste B – vorläufig, Angaben prüfen', rows.filter((t) => t.topf !== 'ausgeschlossen' && t.bewertung?.liste === 'B')],
+      ['A', phase.final ? 'Liste A – Rangliste' : 'Liste A – vorläufig', rows.filter((t) => t.topf !== 'ausgeschlossen' && t.bewertung?.liste === 'A')],
+      ['B', 'Liste B – Angaben prüfen', rows.filter((t) => t.topf !== 'ausgeschlossen' && t.bewertung?.liste === 'B')],
       ['offen', 'Noch ohne Listenzuordnung', rows.filter((t) => t.topf !== 'ausgeschlossen' && !['A', 'B'].includes(t.bewertung?.liste))],
       ['ausgeschlossen', 'Ausgeschlossene Treffer', rows.filter((t) => t.topf === 'ausgeschlossen')],
     ];
@@ -990,12 +1007,12 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       if (!items.length) section.append(el('p', { class: 'muted' }, 'Noch keine Treffer in dieser Liste.'));
       else section.append(sucheTabelle(items, sort, (sortKey) => {
         const wasOpen = section.open;
-        sort = { key: sortKey, direction: sort.key === sortKey ? -sort.direction : ['name', 'preis', 'entfernung'].includes(sortKey) ? 1 : -1 };
+        sort = { key: sortKey, direction: sort.key === sortKey ? -sort.direction : ['name', 'preis', 'entfernung', 'rang'].includes(sortKey) ? 1 : -1 };
         draw();
         const replacement = results.querySelector(`[data-group="${key}"]`);
         if (wasOpen) replacement.open = true;
         replacement.querySelector(`[data-sort="${sortKey}"]`)?.focus({ preventScroll: true });
-      }));
+      }, phase.final));
       section.dataset.group = key; results.append(section);
       if (key === 'ausgeschlossen') section.dataset.detail = 'ausgeschlossen';
     }
@@ -1010,8 +1027,11 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       if (!live()) return;
       if (!r?.suchauftrag || !Array.isArray(r.treffer)) throw new Error('Suchlauf nicht gefunden oder Antwort unvollständig.');
       snapshot = r; draw();
-      const running = !SUCHE_ENDE.has(r.suchauftrag.status) && r.suchauftrag.status !== 'entwurf';
-      notice.textContent = running ? 'Suche läuft. Automatische Aktualisierung alle 7 Sekunden.' : 'Stand aktualisiert. ' + (r.suchauftrag.status === 'fehler' ? 'Die Suche meldet einen Fehler; vorhandene Treffer bleiben sichtbar.' : r.suchauftrag.status === 'gestoppt_budget' ? 'Kostenlimit erreicht. Vorhandene Treffer bleiben sichtbar.' : '');
+      const phase = suchePhase(r.suchauftrag);
+      waitingSince = phase.waiting ? waitingSince ?? Date.now() : null;
+      const waitingExpired = waitingSince !== null && Date.now() - waitingSince >= 180000;
+      const running = phase.running && !waitingExpired;
+      notice.textContent = waitingExpired ? 'Die Bewertungsstufe wurde noch nicht gemeldet. Automatische Aktualisierung pausiert; mit „Aktualisieren“ erneut prüfen. Die Rangliste bleibt vorläufig.' : running ? (phase.bewerten || phase.waiting ? 'Bewertung läuft oder wird vorbereitet. Automatische Aktualisierung alle 7 Sekunden.' : 'Suche läuft. Automatische Aktualisierung alle 7 Sekunden.') : phase.final ? 'Bewertung abgeschlossen. Rangliste aktualisiert.' : phase.failed ? 'Bewertung unterbrochen. Vorhandene Treffer bleiben sichtbar.' : 'Stand aktualisiert. ' + (r.suchauftrag.status === 'fehler' ? 'Die Suche meldet einen Fehler; vorhandene Treffer bleiben sichtbar.' : r.suchauftrag.status === 'gestoppt_budget' ? 'Kostenlimit erreicht. Vorhandene Treffer bleiben sichtbar.' : '');
       if (running) timer = setTimeout(poll, 7000);
     } catch (e) {
       if (live()) notice.textContent = e.message + ' Die automatische Aktualisierung pausiert. Mit „Aktualisieren“ erneut lesen; es wird keine neue Suche gestartet.';
@@ -1020,9 +1040,11 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   await poll();
 }
 
-function sucheTabelle(items, sort, onSort) {
+function sucheTabelle(items, sort, onSort, final = false) {
   const table = el('table', { class: 'suche-table' });
-  const headings = [['name', 'Unterkunft'], ['preis', 'Gesamtpreis'], ['score', 'Score (vorläufig)'], ['datenlage', 'Datenlage (%)'], ['bewertungen', 'Bewertungen'], ['entfernung', 'Luftlinie zum Ziel']];
+  const scoreLabel = final ? 'Endscore (%)' : 'Score (Zwischenstand)';
+  const headings = [['name', 'Unterkunft'], ['preis', 'Gesamtpreis'], ['score', scoreLabel], ['datenlage', 'Datenlage (%)'], ['bewertungen', 'Bewertungen'], ['entfernung', 'Luftlinie zum Ziel']];
+  table.append(el('caption', {}, el('button', { type: 'button', 'data-sort': 'rang', onclick: () => onSort('rang') }, 'Nach Rang sortieren' + (sort.key === 'rang' ? sort.direction === 1 ? ' ↑' : ' ↓' : ''))));
   table.append(el('thead', {}, el('tr', {}, headings.map(([key, title]) => el('th', { scope: 'col', 'aria-sort': sort.key === key ? sort.direction === 1 ? 'ascending' : 'descending' : 'none' },
     el('button', { type: 'button', 'data-sort': key, onclick: () => onSort(key) }, title, sort.key === key ? sort.direction === 1 ? ' ↑' : ' ↓' : ' ↕'))), el('th', { scope: 'col' }, 'Hinweise / Details'))));
   const tbody = el('tbody');
@@ -1030,7 +1052,12 @@ function sucheTabelle(items, sort, onSort) {
     const a = t.angebot || {}, b = t.bewertung || {};
     const warnings = [...new Set([...(Array.isArray(b.warnungen) ? b.warnungen : []), ...(a.preis_art === 'geschaetzt' || b.preis_geschaetzt ? ['preis_geschaetzt'] : [])])];
     const url = sucheLink(a.link), estimated = warnings.includes('preis_geschaetzt');
-    const info = el('details', { 'data-detail': String(t.treffer_id) }, el('summary', {}, 'Angaben und Teilnoten'),
+    const review = b.gegenpruefung?.pruefung;
+    if (review?.urteil === 'einwand' && !warnings.includes('gegenpruefung_einwand')) warnings.push('gegenpruefung_einwand');
+    const objection = review?.urteil === 'einwand' || warnings.includes('gegenpruefung_einwand') ? el('div', { class: 'review-objection' }, el('strong', {}, 'Gegenprüfung hat Einwände'),
+      el('ul', {}, (Array.isArray(review?.einwaende) ? review.einwaende : []).map((v) => el('li', {}, typeof v === 'string' ? v : renderAny(v)))),
+      review?.hinweis ? el('p', {}, review.hinweis) : null) : null;
+    const info = el('details', { 'data-detail': String(t.treffer_id) }, el('summary', {}, 'Angaben und Prüfungen'),
       el('p', {}, b.begruendung || 'Noch keine Begründung verfügbar.'),
       el('p', {}, 'Offene Prüfpunkte: ' + (b.gegenpruefung?.luecken?.join(', ') || 'keine angegeben')),
       el('p', {}, 'Preisstand: ' + (fmtDate(a.abrufzeit) || 'unbekannt')),
@@ -1039,22 +1066,38 @@ function sucheTabelle(items, sort, onSort) {
       el('p', {}, 'Kategorie: ' + (a.kategorie_name || 'unbekannt')),
       el('p', {}, 'Ausschlussgrund: ' + (t.ko_grund || 'keiner angegeben')),
       el('h3', {}, 'Zimmerangaben'), renderAny(t.kategorien || []),
-      el('h3', {}, 'Teilnoten'), Object.keys(b.spaltennoten || {}).length ? renderAny(b.spaltennoten) : el('p', {}, 'Noch nicht verfügbar (Endranking folgt).'));
+      el('h3', {}, 'Bildbewertung'), b.bild_urteil ? el('div', {}, el('p', {}, 'KI-Einschätzung der Bilder; kein Nachweis der Ausstattung.'), el('p', {}, b.bild_urteil.ein_satz || ''),
+        el('p', {}, 'Zu sehen: ' + (Array.isArray(b.bild_urteil.zeigt) ? b.bild_urteil.zeigt.join(', ') : b.bild_urteil.zeigt || 'unbekannt')),
+        sucheBalken(b.bild_urteil, [['hell', 'Hell'], ['modern', 'Modern'], ['gepflegt', 'Gepflegt'], ['geraeumig', 'Geräumig']]),
+        el('ul', {}, (b.bild_urteil.auffaelligkeiten || []).map((v) => el('li', {}, String(v))))) : el('p', {}, 'Noch keine Bildbewertung vorhanden.'),
+      el('h3', {}, 'Gegenprüfung'), el('p', {}, review?.urteil === 'ok' ? 'Keine Einwände in der Gegenprüfung.' : review?.urteil === 'einwand' ? 'Einwände beachten (oben aufgeführt).' : 'Noch keine Gegenprüfung vorhanden.'),
+      review?.urteil === 'ok' && review.hinweis ? el('p', {}, review.hinweis) : null);
     const td = (label, ...content) => el('td', { 'data-label': label }, ...content);
     tbody.append(el('tr', {},
-      td('Unterkunft', el('strong', {}, t.name || 'Ohne Namen'), el('div', { class: 'muted small' }, SUCHE_QUELLEN[t.quelle] || t.quelle || 'Quelle unbekannt'),
+      td('Unterkunft', el('strong', {}, t.name || 'Ohne Namen'), t.topf === 'shortlist' && b.liste === 'A' && sucheZahl(b.rang) !== null ? el('div', { class: 'rank-badge' }, 'Rang ' + b.rang + (final ? '' : ' · vorläufig')) : null, el('div', { class: 'muted small' }, SUCHE_QUELLEN[t.quelle] || t.quelle || 'Quelle unbekannt'),
         url ? el('a', { href: url, target: '_blank', rel: 'noopener noreferrer' }, 'Angebot öffnen ↗') : el('span', { class: 'muted small' }, 'Kein Angebotslink')),
       td('Gesamtpreis', (estimated && sucheZahl(a.preis_gesamt_eur) !== null ? 'ca. ' : '') + sucheEuro(a.preis_gesamt_eur) + (estimated ? ' (geschätzt)' : '')),
-      td('Score (vorläufig)', sucheZahl(b.score) ?? '–'), td('Datenlage (%)', sucheZahl(b.datenlage) ?? '–'),
+      td(scoreLabel, sucheZahl(b.score) ?? '–'), td('Datenlage (%)', sucheDatenlage(t) ?? '–'),
       td('Bewertungen', sucheZahl(t.bewertungen) ?? '–', el('div', { class: 'small' }, t.note != null ? `${t.note} / ${t.note_skala ?? '?'}` : 'Note unbekannt')),
-      td('Luftlinie zum Ziel', sucheZahl(t.luftlinie_ziel_m) === null ? 'unbekannt' : (t.luftlinie_ziel_m / 1000).toLocaleString('de-DE', { maximumFractionDigits: 1 }) + ' km'),
+      td('Luftlinie zum Ziel', sucheZahl(t.luftlinie_ziel_m) === null ? 'unbekannt' : (t.luftlinie_ziel_m / 1000).toLocaleString('de-DE', { maximumFractionDigits: 1 }) + ' km',
+        el('div', { class: 'small' }, sucheZahl(t.gehzeit_min) === null ? 'Gehzeit unbekannt' : `${t.gehzeit_min} Min. zu Fuß${t.station_name ? ' · ' + t.station_name : ''} (${t.gehzeit_art || 'Art unbekannt'})`)),
       td('Hinweise / Details', el('div', { class: 'suche-badges' },
         el('span', { class: 'pill' }, t.topf === 'unbewertet' ? 'Unbewertet' : t.topf === 'ausgeschlossen' ? 'Ausgeschlossen' : 'Shortlist'),
-        el('span', { class: 'pill' }, 'Ampel: ' + (b.ampel || 'unbekannt')),
-        warnings.map((w) => el('span', { class: 'suche-warning' }, SUCHE_WARNUNGEN[w] || w))), info)));
+        el('span', { class: 'pill', title: 'Verlässlichkeit der Angaben, nicht Qualität der Unterkunft' }, 'Verlässlichkeit: ' + (b.ampel || 'unbekannt')),
+        warnings.map((w) => el('span', { class: 'suche-warning' }, SUCHE_WARNUNGEN[w] || w))), objection, sucheBalken(b.spaltennoten, SUCHE_NOTEN), info)));
   }
   table.append(tbody);
   return el('div', { class: 'suche-table-scroll', tabindex: 0, role: 'region', 'aria-label': 'Sortierbare Unterkunftstabelle' }, table);
+}
+
+function sucheBalken(values, labels) {
+  return el('div', { class: 'score-bars' }, labels.map(([key, label]) => {
+    const n = sucheZahl(values?.[key]);
+    const valid = n !== null && n >= 0 && n <= 10;
+    return el('div', { class: 'score-bar-row' }, el('span', {}, label),
+      valid ? el('meter', { min: 0, max: 10, value: n, 'aria-label': label + ': ' + n + ' von 10' }) : el('span', { class: 'score-unknown', 'aria-hidden': true }, '—'),
+      el('span', {}, valid ? n.toLocaleString('de-DE') + '/10' : 'unbekannt'));
+  }));
 }
 
 // ---------- Start ----------

@@ -129,7 +129,7 @@ test('PWA installiert vollständige Offline-Hülle, API wird nicht gecacht', asy
   await page.route('**/functions/v1/app-api/**', (r) => r.fulfill({ contentType: 'application/json', body: '{"ok":true,"eingerichtet":true}' }));
   await page.goto(origin + '/#/login');
   await page.evaluate(() => navigator.serviceWorker.ready);
-  const cached = await page.evaluate(async () => (await (await caches.open('ki-system-v10')).keys()).map((r) => new URL(r.url).pathname));
+  const cached = await page.evaluate(async () => (await (await caches.open('ki-system-v11')).keys()).map((r) => new URL(r.url).pathname));
   assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js'));
   assert(!cached.some((u) => u.includes('app-api')));
   await context.setOffline(true); await page.reload();
@@ -165,4 +165,67 @@ test('Startseite trennt Council und Unterkunft; Navigation und Prototyp-Design',
   await page.getByRole('link', { name: 'KI-System Startseite' }).click();
   await page.getByRole('heading', { name: 'Was möchtest du heute machen?' }).waitFor();
   await page.screenshot({ path: path.join(root, 'test-results/start-mobile.png'), fullPage: true });
+});
+
+test('Bewertungsstufe: fertig ohne Schritt → läuft → fertig; erst dann Polling-Ende', async (t) => {
+  let reads = 0;
+  const { page } = await setup(t, () => {
+    const r = result(); reads++;
+    if (reads > 1) r.suchauftrag.schrittkette.push({ quelle: 'bewerten', status: reads > 2 ? 'fertig' : 'laeuft' });
+    return r;
+  });
+  await page.clock.install(); await page.goto(origin + '/#/suche/2');
+  await page.getByRole('status').filter({ hasText: 'Bewertung läuft' }).waitFor();
+  await page.clock.fastForward(7100);
+  await page.getByText('Bewertung und Gegenprüfung: laeuft').waitFor();
+  await page.clock.fastForward(7100);
+  await page.getByRole('status').filter({ hasText: 'Bewertung abgeschlossen' }).waitFor();
+  await page.getByRole('heading', { name: 'Liste A – Rangliste (3)' }).waitFor();
+  await page.clock.fastForward(30000); assert.equal(reads, 3);
+});
+
+test('Fehlende Bewertungsstufe wartet begrenzt, manuelles Lesen setzt Wartefenster zurück', async (t) => {
+  const { page } = await setup(t, () => result());
+  await page.clock.install(); await page.goto(origin + '/#/suche/2');
+  await page.getByRole('status').filter({ hasText: 'Bewertung läuft' }).waitFor();
+  await page.clock.fastForward(181000);
+  await page.getByRole('status').filter({ hasText: 'noch nicht gemeldet' }).waitFor();
+  await page.getByRole('button', { name: 'Aktualisieren', exact: true }).click();
+  await page.getByRole('status').filter({ hasText: 'Bewertung läuft' }).waitFor();
+});
+
+test('Bewertungsfehler beendet Polling ohne finale Rangliste', async (t) => {
+  const r = result(); r.suchauftrag.schrittkette.push({ quelle: 'bewerten', status: 'fehler' });
+  const { page, calls } = await setup(t, () => r);
+  await page.clock.install(); await page.goto(origin + '/#/suche/2');
+  await page.getByRole('status').filter({ hasText: 'Bewertung unterbrochen' }).waitFor();
+  await page.clock.fastForward(30000); assert.equal(calls.length, 1);
+  await page.getByRole('heading', { name: 'Liste A – vorläufig (3)' }).waitFor();
+});
+
+test('Endrang, Score-Abdeckung, fünf Balken, Bildurteil und sichtbare Einwände', async (t) => {
+  const r = result(); r.suchauftrag.schrittkette.push({ quelle: 'bewerten', status: 'fertig' });
+  Object.assign(r.treffer[0].bewertung, { rang: 2, score: 99, spaltennoten: { raum: 0, lage: 8, preis_leistung: null, bewertungen: 7, eignung: 9, datenlage_score: 65 },
+    bild_urteil: { ein_satz: 'Helles Zimmer.', zeigt: ['Zimmer'], hell: 8, modern: null, gepflegt: 7, geraeumig: 6, auffaelligkeiten: ['Fenster klein'] },
+    gegenpruefung: { pruefung: { urteil: 'einwand', einwaende: ['Bettenzahl nicht belegt', '<img src=x onerror=alert(1)>'], hinweis: 'Bitte prüfen.' } } });
+  r.treffer[1].bewertung.rang = 1; r.treffer[1].bewertung.score = 70;
+  r.treffer[2].bewertung.rang = null;
+  const { page } = await setup(t, () => r);
+  await page.goto(origin + '/#/suche/2'); const a = page.locator('[data-group=A]'); await a.waitFor();
+  assert.deepEqual(await a.locator('tbody tr td:first-child strong').allTextContents(), ['Unterkunft 2','Unterkunft 1','Unterkunft 3']);
+  const row = a.locator('tbody tr').filter({ hasText: 'Unterkunft 1' });
+  assert.equal(await row.locator('td[data-label="Datenlage (%)"]').textContent(), '65');
+  assert.equal(await row.locator('.score-bars').first().locator('.score-bar-row').count(), 5);
+  assert.equal(await row.locator('.score-bars').first().getByText('unbekannt', { exact: true }).count(), 1);
+  assert.equal(await row.locator('meter[value="0"]').count(), 1);
+  await row.locator('.review-objection').getByText('Bettenzahl nicht belegt').waitFor();
+  assert.equal(await page.locator('.suche img').count(), 0);
+  await row.locator('summary').click(); await row.getByText('Helles Zimmer.', { exact: true }).waitFor();
+  await row.getByText('Fenster klein', { exact: true }).waitFor();
+  await page.evaluate(() => scrollTo(0, 0));
+  await page.screenshot({ path: path.join(root, 'test-results/ranking-desktop.png'), fullPage: true });
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.evaluate(() => scrollTo(0, 0));
+  assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
+  await page.screenshot({ path: path.join(root, 'test-results/ranking-mobile.png'), fullPage: true });
 });

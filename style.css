@@ -301,6 +301,17 @@ details > summary { cursor: pointer; margin: 6px 0; }
 .erg-empfehlung, .sp-kern, .sp p, .erg-liste li, .md p, .md li { overflow-wrap: anywhere; }
 
 /* App-Bereiche und Unterkunft: Gestaltungsbasis des Werkstatt-Prototyps V0.4.1. */
+.score-bars { display: grid; gap: 5px; margin: 12px 0; }
+.score-bar-row { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(24px, 1fr) minmax(0, .9fr); align-items: center; gap: 5px; font-size: 10px; }
+.score-bar-row meter { width: 100%; height: 12px; accent-color: #527f68; }
+.score-bar-row > span:last-child { text-align: right; }
+.score-unknown { color: var(--muted); text-align: center; }
+.rank-badge { font-size: 11px; color: var(--accent); margin: 5px 0; font-weight: 750; }
+.review-objection { border-left: 3px solid #ae554f; background: #fff0ed; color: #853c33; border-radius: 6px; padding: 9px; margin-top: 9px; font-size: 11px; overflow-wrap: anywhere; }
+.review-objection ul { padding-left: 16px; margin: 6px 0; }
+.review-objection p { margin: 6px 0; }
+.suche-table caption { text-align: left; padding: 0 14px 10px; }
+.suche-table caption button { min-height: 40px; font-size: 11px; padding: 7px 10px; }
 body[data-area="start"], body[data-area="unterkunft"] {
   color-scheme: light;
   --bg: #f6f4ec; --surface: #fffefa; --surface-muted: #eeeae0;

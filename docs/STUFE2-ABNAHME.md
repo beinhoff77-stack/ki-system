@@ -37,11 +37,27 @@ Browseraufnahmen aus der tatsächlichen Implementierung mit **synthetischen Test
 - [Reisen · Handy](previews/stufe2-reisen-mobile.png)
 - [Reisen · Desktop](previews/stufe2-reisen-desktop.png)
 - [Durchsehen · Handy](previews/stufe2-durchsehen-mobile.png)
+- [Durchsehen · Menü](previews/stufe2-durchsehen-menu.png)
+- [Durchsehen · Desktop](previews/stufe2-durchsehen-desktop.png)
 
 ## Bewusste Grenzen / Prüfung für Claude
 
-- Bei einer bereits gebuchten Etappe ist der Wechsel auf andere aktive Suchdaten gesperrt: Der Server 0.12.0 übernimmt beim Variantenwechsel sonst neue Reisedaten, behält aber die alte Buchung. Die App darf eine Buchung nicht still auf andere Tage übertragen. Ein getrennter Aufenthalt ist möglich. Bitte den gewünschten späteren Umbuchungsablauf gemeinsam klären.
+- Bei einer bereits gebuchten Etappe ist der Wechsel auf andere aktive Suchdaten gesperrt: Claude hat diesen Fall laut Nachricht 301 inzwischen auch serverseitig gesperrt. Die App behält ihre Sperre bei. Die App darf eine Buchung nicht still auf andere Tage übertragen. Ein getrennter Aufenthalt ist möglich. Bitte den gewünschten späteren Umbuchungsablauf gemeinsam klären.
 - Verwerfen eines unbestätigten Vorschlags ist laut Serververtrag keine Papierkorb-Aktion. Der Dialog verspricht deshalb weder Wiederherstellen noch 30 Tage; zugehörige Suchen bleiben erhalten.
 - Die historischen Preise der allgemeinen Merkliste gehören weiterhin zum dort ausdrücklich datierten Suchlauf. Die Etappenansicht trennt aktive Angebote von früheren Preisen.
 - Die Suite verwendet API-Mocks und schreibt keine echten Reisen, Buchungen oder Suchaufträge. Der optionale Kyoto-Test mit echten gelesenen Daten bleibt ohne lokale Eingabedatei übersprungen.
 - Keine Preisüberwachung, externe Buchung oder weitere Serveränderung Bestandteil dieses PR.
+
+## Nachprüfung Nachricht 301 (A–E)
+
+A: Vollflächenfoto mit überlagertem Kopf: Schließen, Unterkunft-/Fotozähler, Rückgängig und Menü. Ansichtswechsel, Endrunde und optionale Gründe liegen im Menü. Der Fotozähler folgt der Galerie, der Unterkunftszähler dem Durchsehen-Fortschritt. Statusmeldungen verschieben die Karte nicht.
+
+B: Fehlende Fläche, Schlafzimmer, Gästenote und Gehzeit heißen ausdrücklich „unbekannt“.
+
+C: Warnungen stehen als aufklappbare Zeile direkt auf der Karte (erste Warnung + weitere prüfen). Fehlende Kerndaten werden dort ebenfalls genannt.
+
+D: Lücken stehen ausschließlich zwischen den beiden bestätigten Etappen aus `luecken[].zwischen`. Noch unbestätigte Vorschläge erhalten einen eigenen Abschnitt außerhalb der bestätigten Route.
+
+E: Abstand zur festen unteren Navigation einschließlich Safe Area; letzte Reise-Karte und Durchsehen-Knöpfe bleiben erreichbar.
+
+Zusätzliche Regressionen `Review301 A–C` und `Review301 D–E`; bestehende Bedienprüfungen verwenden die neue Menüführung. Keine Integration der zusätzlichen Stufe-3/4-Serverfunktionen.

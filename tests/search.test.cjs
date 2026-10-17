@@ -55,6 +55,10 @@ test('Viertel: KI-Fehler bleibt auch bei abgeschlossenem Umgebungslauf sichtbar'
   await page.getByText('Viertel aktualisiert.',{exact:true}).waitFor();
   assert.equal(await page.getByRole('alert').count(),0);
 });
+async function openReviewMenu(page) {
+  const menu=page.locator('.tinder-mode .review-menu');
+  if(await menu.count() && !await menu.evaluate(n=>n.open))await menu.locator(':scope > summary').click();
+}
 async function setup(t, handler, viewport) {
   const context = await browser.newContext({ viewport: viewport || { width: 1440, height: 1000 }, serviceWorkers: 'block' });
   t.after(() => context.close());
@@ -492,7 +496,7 @@ test('Große Listen: global sortieren, filtern, blättern; Teilnoten und Gehzeit
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
   for (const width of [600,768,1024]) {
     await page.setViewportSize({width,height:1024});
-    await page.getByRole('button',{name:'Liste',exact:true}).click();
+    await openReviewMenu(page);await page.getByRole('button',{name:'Liste',exact:true}).click();
     assert.equal(await a.locator('tbody tr[data-hit]').first().evaluate(n=>getComputedStyle(n).display),'grid');
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);
   }
@@ -683,7 +687,7 @@ test('Karte lädt erst auf Klick, zeigt gefilterte aktive Treffer und springt zu
   await page.getByPlaceholder('Name oder Anbieter').fill('Unterkunft 15');
   assert.equal(await page.locator('[data-map-hit]').count(),1);
   assert.equal(await page.locator('[data-map-hit="15"]').count(),1);
-  await page.getByRole('button',{name:'Liste',exact:true}).click();
+  await openReviewMenu(page);await page.getByRole('button',{name:'Liste',exact:true}).click();
   assert.deepEqual(await page.locator('tbody tr[data-hit]').evaluateAll(rows=>rows.map(r=>r.dataset.hit)),['15']);
   assert(tiles>0);
   await page.locator('#areas [data-area=council]').click();
@@ -702,7 +706,7 @@ test('Karte bleibt bei fehlendem Hintergrund nutzbar und passt auf ein schmales 
   await page.locator('.stay-map-panel').screenshot({path:path.join(root,'test-results/map-mobile.png')});
   await page.getByLabel('Stationen anzeigen').uncheck();
   assert.equal(await page.locator('.leaflet-overlay-pane path').count(),0);
-  await page.getByRole('button',{name:'Liste',exact:true}).click();
+  await openReviewMenu(page);await page.getByRole('button',{name:'Liste',exact:true}).click();
   assert.equal(await page.locator('[data-group=A]').isVisible(),true);
 });
 
@@ -1376,14 +1380,14 @@ test('Ergebnisansichten: kompakte Tabelle, Liste, Karte, gemeinsame Filter und s
   await page.locator('.stay-filters > summary').click();
   await page.getByLabel('Schlafzimmer mindestens',{exact:true}).fill('2');await page.getByLabel('Unbekannte Angaben mit anzeigen',{exact:true}).uncheck();
   assert.deepEqual(await page.locator('[data-hit]').evaluateAll(ns=>ns.map(n=>n.dataset.hit)),['1']);
-  await page.getByRole('button',{name:'Liste',exact:true}).click();
+  await openReviewMenu(page);await page.getByRole('button',{name:'Liste',exact:true}).click();
   assert.equal(await page.locator('[data-hit="1"]').evaluate(n=>getComputedStyle(n).display),'grid');
   await page.getByRole('button',{name:'Karte',exact:true}).click();await page.locator('.stay-pin').first().waitFor();
   assert.equal(await page.locator('.stay-pin').count(),1);
-  await page.getByRole('button',{name:'Tabelle',exact:true}).click();
+  await openReviewMenu(page);await page.getByRole('button',{name:'Tabelle',exact:true}).click();
   await page.locator('[data-hit="1"] .hit-toggle').click();await page.locator('#hit-detail-1').waitFor();
   await page.locator('[data-feedback="1"] textarea').fill('Entwurf bleibt');
-  await page.getByRole('button',{name:'Liste',exact:true}).click();
+  await openReviewMenu(page);await page.getByRole('button',{name:'Liste',exact:true}).click();
   assert.equal(await page.locator('[data-feedback="1"] textarea').inputValue(),'Entwurf bleibt');
   assert.equal(await page.locator('[data-hit="1"] .hit-toggle').getAttribute('aria-expanded'),'true');
   await page.locator('[data-hit="1"] .hit-toggle').click();assert.equal(await page.locator('#hit-detail-1').isVisible(),false);
@@ -1397,10 +1401,10 @@ test('Ergebnisansichten: iPhone-Breiten, große Schrift und bedienbare Tabelle',
   await page.goto(origin+'/#/suche/2');await page.locator('[data-hit="1"]').waitFor();
   for(const width of [320,375,390,430]) {
     await page.setViewportSize({width,height:844});
-    await page.getByRole('button',{name:'Liste',exact:true}).click();
+    await openReviewMenu(page);await page.getByRole('button',{name:'Liste',exact:true}).click();
     assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
     assert((await page.locator('[data-hit="1"]').boundingBox()).height<620);
-    await page.getByRole('button',{name:'Tabelle',exact:true}).click();
+    await openReviewMenu(page);await page.getByRole('button',{name:'Tabelle',exact:true}).click();
     assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
     assert.equal(await page.locator('[data-hit="1"]').evaluate(n=>getComputedStyle(n).display),'table-row');
     const scroller=page.locator('.suche-table-scroll').first();
@@ -1409,7 +1413,7 @@ test('Ergebnisansichten: iPhone-Breiten, große Schrift und bedienbare Tabelle',
     await page.locator('[data-hit="1"] .hit-toggle').click();await page.locator('#hit-detail-1').waitFor();
     await page.locator('[data-hit="1"] .hit-toggle').click();
   }
-  await page.getByRole('button',{name:'Liste',exact:true}).click();
+  await openReviewMenu(page);await page.getByRole('button',{name:'Liste',exact:true}).click();
   await page.addStyleTag({content:'.compact-results td,.compact-results strong,.compact-results .small{font-size:24px !important}'});
   assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
 });
@@ -1424,7 +1428,7 @@ test('Kyoto: echte gelesene Daten auf Desktop und iPhone darstellen', {skip:proc
   const output=path.join(root,'../../outputs');fs.mkdirSync(output,{recursive:true});
   await page.locator('[data-group=A]').evaluate(n=>window.scrollTo(0,n.getBoundingClientRect().top+scrollY-145));
   await page.screenshot({path:path.join(output,'Ergebnisse-Desktop.png')});
-  await page.getByRole('button',{name:'Liste',exact:true}).click();await page.setViewportSize({width:390,height:844});
+  await openReviewMenu(page);await page.getByRole('button',{name:'Liste',exact:true}).click();await page.setViewportSize({width:390,height:844});
   await page.locator('[data-group=A]').evaluate(n=>window.scrollTo(0,n.getBoundingClientRect().top+scrollY-145));
   assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
   await page.screenshot({path:path.join(output,'Ergebnisse-iPhone.png')});
@@ -1506,13 +1510,13 @@ test('W71: Anzeige max 6, Reihenfolge, Reset, Persistenz und fehlende Werte',asy
   assert.equal(await page.locator('[data-hit="1"] td[data-field=m2]').textContent(),'–');
   assert.match(await page.locator('[data-hit="1"] td[data-field=gaestenote]').textContent(),/9 \/ 10/);
   for(const label of ['Liste','Tabelle','Tinder']){await page.getByRole('button',{name:label,exact:true}).click();assert.equal(await page.locator('[aria-label=Suchergebnisse]').getAttribute('data-result-view'),{Liste:'list',Tabelle:'table',Tinder:'tinder'}[label]);}
-  await page.reload();await page.locator('[data-review-hit]').waitFor();assert.equal(await page.getByRole('button',{name:'Tinder',exact:true}).getAttribute('aria-pressed'),'true');
+  await page.reload();await page.locator('[data-review-hit]').waitFor();await openReviewMenu(page);assert.equal(await page.getByRole('button',{name:'Tinder',exact:true}).getAttribute('aria-pressed'),'true');
 });
 test('W71: Knöpfe, Gründe, Rückgängig, neue zuerst, übernommene nie erneut',async t=>{
   const d=reviewData(),{page,calls}=await setup(t,reviewHandler(d));await page.goto(origin+'/#/suche/2');await page.getByRole('button',{name:'Tinder',exact:true}).click();
   assert.equal(await page.locator('[data-review-hit]').getAttribute('data-review-hit'),'2');
   await page.getByRole('button',{name:'Weg',exact:true}).click();await page.locator('[data-review-hit="1"]').waitFor();
-  await page.getByRole('button',{name:'Gründe ergänzen',exact:true}).click();await page.locator('.review-reasons').getByRole('button',{name:'Preis',exact:true}).click();await page.getByRole('button',{name:'Gründe speichern',exact:true}).click();
+  await openReviewMenu(page);await page.getByRole('button',{name:'Gründe ergänzen',exact:true}).click();await page.locator('.review-reasons').getByRole('button',{name:'Preis',exact:true}).click();await page.getByRole('button',{name:'Gründe speichern',exact:true}).click();
   await page.getByRole('button',{name:'Letzte Entscheidung rückgängig'}).click();await page.locator('[data-review-hit="2"]').waitFor();
   await page.getByRole('button',{name:'Na ja',exact:true}).click();await page.locator('[data-review-hit="1"]').waitFor();
   await page.getByRole('button',{name:'Favorit',exact:true}).click();await page.getByText('Alle Unterkünfte durchgesehen.',{exact:true}).waitFor();
@@ -1522,7 +1526,7 @@ test('W71: Wischen rechts und links; Galerie begrenzt auf 10 und getrennt',async
   const d=reviewData();d.treffer[1].bilder=Array.from({length:12},(_,i)=>'https://example.com/photo-'+i+'.jpg');
   const {page,calls}=await setup(t,reviewHandler(d));await page.route('https://example.com/**',r=>r.fulfill({contentType:'image/svg+xml',body:'<svg xmlns="http://www.w3.org/2000/svg" width="400" height="200"/>'}));
   await page.goto(origin+'/#/suche/2');await page.getByRole('button',{name:'Tinder',exact:true}).click();
-  await page.getByText('1 / 10',{exact:true}).waitFor();await page.getByRole('button',{name:'Nächstes Foto'}).click();await page.getByText('2 / 10',{exact:true}).waitFor();
+  await page.getByText(/Foto 1\/10/).waitFor();await page.getByRole('button',{name:'Nächstes Foto'}).click();await page.getByText(/Foto 2\/10/).waitFor();
   assert.equal(calls.filter(p=>p.aktion==='unterkunft_durchsehen_urteil').length,0);
   for(const [dx,dy,verdict] of [[100,0,'favorit'],[-100,0,'weg']]){
     const area=page.locator('.review-swipe');await area.dispatchEvent('pointerdown',{pointerId:1,isPrimary:true,button:0,clientX:200,clientY:200});await area.dispatchEvent('pointerup',{pointerId:1,isPrimary:true,button:0,clientX:200+dx,clientY:200+dy});
@@ -1531,12 +1535,12 @@ test('W71: Wischen rechts und links; Galerie begrenzt auf 10 und getrennt',async
   }
 });
 test('W71: Endrunde Ziehen und Paarvergleich speichern nur Favoriten',async t=>{
-  const d=reviewData(),{page,calls}=await setup(t,reviewHandler(d));await page.goto(origin+'/#/suche/2');await page.getByRole('button',{name:'Endrunde',exact:true}).click();
+  const d=reviewData(),{page,calls}=await setup(t,reviewHandler(d));await page.goto(origin+'/#/suche/2');await openReviewMenu(page);await page.getByRole('button',{name:'Endrunde',exact:true}).click();
   await page.locator('[data-final-hit="3"]').dragTo(page.locator('[data-final-hit="4"]'),{sourcePosition:{x:10,y:10},targetPosition:{x:10,y:10}});
   assert.deepEqual(await page.locator('[data-final-hit]').evaluateAll(ns=>ns.map(n=>Number(n.dataset.finalHit))),[3,4]);
   await page.getByRole('button',{name:'Rangfolge speichern',exact:true}).click();await page.locator('.endrunde').waitFor({state:'detached'});
   assert.deepEqual(calls.find(p=>p.aktion==='unterkunft_eigenes_ranking_setzen').daten.reihenfolge,[3,4]);
-  await page.getByRole('button',{name:'Endrunde',exact:true}).click();await page.getByRole('button',{name:'Paarvergleich starten'}).click();
+  await openReviewMenu(page);await page.getByRole('button',{name:'Endrunde',exact:true}).click();await page.getByRole('button',{name:'Paarvergleich starten'}).click();
   await page.getByRole('button',{name:'Unterkunft 4 wählen'}).click();await page.getByText('Paarvergleich abgeschlossen.',{exact:false}).waitFor();
   await page.getByRole('button',{name:'Rangfolge speichern',exact:true}).click();await page.locator('.endrunde').waitFor({state:'detached'});
   assert.deepEqual(calls.filter(p=>p.aktion==='unterkunft_eigenes_ranking_setzen').at(-1).daten.reihenfolge,[4,3]);
@@ -1566,11 +1570,11 @@ test('W71: verspätete Leseantwort verliert kein Urteil; Endrunde bleibt erreich
   const d=reviewData();let readCount=0,releaseRead;
   const handler=reviewHandler(d),{page}=await setup(t,async p=>{if(p.aktion==='unterkunft_suchlauf_lesen' && ++readCount===2){const old=structuredClone(d);return new Promise(resolve=>releaseRead=()=>resolve(old));}return handler(p);});
   await page.goto(origin+'/#/suche/2');await page.getByRole('button',{name:'Tinder',exact:true}).click();
-  await page.locator('.review-run-tools > summary').click();await page.getByRole('button',{name:'Aktualisieren',exact:true}).click();await waitForCallback(()=>releaseRead);
+  await openReviewMenu(page);await page.locator('.review-run-tools > summary').click();await page.getByRole('button',{name:'Aktualisieren',exact:true}).click();await waitForCallback(()=>releaseRead);
   await page.getByRole('button',{name:'Favorit',exact:true}).click();await page.locator('[data-review-hit="1"]').waitFor();releaseRead();
   await page.waitForFunction(()=>!Array.from(document.querySelectorAll('button')).find(b=>b.textContent==='Aktualisieren').disabled);
   assert.equal(await page.locator('[data-review-hit]').getAttribute('data-review-hit'),'1');
-  await page.getByRole('button',{name:'Endrunde',exact:true}).click();await page.locator('[data-final-hit="2"]').waitFor();
+  await openReviewMenu(page);await page.getByRole('button',{name:'Endrunde',exact:true}).click();await page.locator('[data-final-hit="2"]').waitFor();
 });
 test('W71: mobile Tinder-Karte und Anzeige ohne Überlauf',async t=>{
   const {page}=await setup(t,reviewHandler(reviewData()),{width:390,height:844});await page.goto(origin+'/#/suche/2');await page.getByRole('button',{name:'Tinder',exact:true}).click();
@@ -1605,7 +1609,7 @@ test('Durchsehen: A vor B, bestätigte Urteile, Na ja bleibt bewertet gemäß Na
 
   hold=false; release();
   await dialog.getByRole('heading',{name:'Unterkunft 2',exact:true}).waitFor();
-  await page.getByRole('button',{name:'Gründe ergänzen',exact:true}).click();await page.locator('.review-reasons').getByRole('button',{name:'Preis',exact:true}).click();
+  await openReviewMenu(page);await page.getByRole('button',{name:'Gründe ergänzen',exact:true}).click();await page.locator('.review-reasons').getByRole('button',{name:'Preis',exact:true}).click();
   await page.getByRole('button',{name:'Gründe speichern',exact:true}).click();
   await dialog.getByRole('button',{name:'Letzte Entscheidung rückgängig'}).click();
   await dialog.getByRole('heading',{name:'Unterkunft 1',exact:true}).waitFor();
@@ -1616,7 +1620,7 @@ test('Durchsehen: A vor B, bestätigte Urteile, Na ja bleibt bewertet gemäß Na
   await dialog.getByRole('button',{name:'Favorit',exact:true}).click();
   await dialog.getByRole('heading',{name:'Alle Unterkünfte durchgesehen.'}).waitFor();
   assert.equal(data.treffer[0].status,'vielleicht');
-  await page.getByRole('button',{name:'Liste',exact:true}).click();
+  await openReviewMenu(page);await page.getByRole('button',{name:'Liste',exact:true}).click();
   await page.locator('.stay-review').waitFor({state:'detached'});
   assert.equal(await page.locator('.stay-review').count(),0);
   await page.locator('.stay-filters > summary').click();
@@ -1636,7 +1640,7 @@ test('Durchsehen: übernommene Urteile, Preishinweis, Fehler ohne automatisches 
   assert.equal(await dialog.getByRole('button',{name:'Weg',exact:true}).isDisabled(),true);
   assert.equal(calls.filter(p=>p.aktion==='unterkunft_durchsehen_urteil').length,1);
   assert.equal(data.treffer[1].status,'aktiv');
-  await page.getByRole('button',{name:'Liste',exact:true}).click();
+  await openReviewMenu(page);await page.getByRole('button',{name:'Liste',exact:true}).click();
   assert.equal(await page.locator('[data-selection="2"]').getByRole('button',{name:'☆ Favorit',exact:true}).isDisabled(),true);
   await page.getByRole('button',{name:'Tinder',exact:true}).click();
   assert.equal(await page.locator('.stay-review').getByRole('button',{name:'Weg',exact:true}).isDisabled(),true);
@@ -1664,13 +1668,13 @@ test('Integration: Anbieter-Rückkehrfrage ohne Urteil; falscher Status sperrt a
   await page.getByText('Und? Wie gefällt dir die Unterkunft?',{exact:true}).waitFor();
   assert.equal(calls.filter(p=>p.aktion==='unterkunft_durchsehen_urteil').length,0);
   await page.getByRole('button',{name:'Favorit',exact:true}).click();await page.getByText('Speichern nicht bestätigt:',{exact:false}).waitFor();
-  await page.getByRole('button',{name:'Liste',exact:true}).click();
+  await openReviewMenu(page);await page.getByRole('button',{name:'Liste',exact:true}).click();
   assert.equal(await page.locator('[data-selection="2"]').getByRole('button',{name:'☆ Favorit',exact:true}).isDisabled(),true);
 });
 
 test('Integration: Halbierungs-Paarvergleich ordnet 10 Favoriten mit höchstens 25 Fragen',async t=>{
   const d=reviewData();d.treffer=Array.from({length:10},(_,i)=>hit(i+1,'A',100,{status:'favorit',eigener_rang:i+1}));
-  const {page,calls}=await setup(t,reviewHandler(d));await page.goto(origin+'/#/suche/2');await page.getByRole('button',{name:'Endrunde',exact:true}).click();await page.getByRole('button',{name:'Paarvergleich starten'}).click();
+  const {page,calls}=await setup(t,reviewHandler(d));await page.goto(origin+'/#/suche/2');await openReviewMenu(page);await page.getByRole('button',{name:'Endrunde',exact:true}).click();await page.getByRole('button',{name:'Paarvergleich starten'}).click();
   let count=0;
   while(await page.locator('.pair-options button').count()){
     assert(++count<=25);const buttons=page.locator('.pair-options button').filter({hasText:'wählen'});
@@ -1701,13 +1705,13 @@ test('W73: kompakte Tinder-Bedienprobe mit langen Angaben und Gründen',async t=
   assert.equal(calls.filter(p=>p.aktion==='unterkunft_durchsehen_urteil').length,1);
   assert.equal((await page.locator('.review-card').boundingBox()).y,cardTop);
   await page.getByRole('button',{name:'Nächstes Foto',exact:true}).click();
-  await page.getByRole('button',{name:'Gründe ergänzen',exact:true}).click();
+  await openReviewMenu(page);await page.getByRole('button',{name:'Gründe ergänzen',exact:true}).click();
   const reasons=page.getByRole('dialog',{name:'Gründe ergänzen',exact:true});
   await reasons.getByRole('button',{name:'Lage',exact:true}).click();
   assert.equal(calls.filter(p=>p.aktion==='unterkunft_durchsehen_urteil').length,1);
   await reasons.getByRole('button',{name:'Schließen',exact:true}).click();
   assert.match(await page.locator('.review-card .stay-gallery img').getAttribute('src'),/photo-b/);
-  await page.getByRole('button',{name:'Gründe ergänzen',exact:true}).click();
+  await openReviewMenu(page);await page.getByRole('button',{name:'Gründe ergänzen',exact:true}).click();
   assert.equal(await reasons.getByRole('button',{name:'Lage',exact:true}).getAttribute('aria-pressed'),'true');
   await reasons.getByRole('button',{name:'Gründe speichern',exact:true}).click();
   await reasons.waitFor({state:'detached'});
@@ -1739,7 +1743,7 @@ test('W78: Viertelknopf, Endrunde und Seitenmarke bleiben auf schmalen Displays 
   await page.goto(origin+'/#/viertel');
   const load=page.getByRole('button',{name:'Viertel laden',exact:true});await load.waitFor();
   assert(await load.evaluate(n=>{const r=n.getBoundingClientRect();return r.width>100&&r.height>=44&&getComputedStyle(n).whiteSpace==='nowrap';}));
-  await page.goto(origin+'/#/suche/2');await page.getByRole('button',{name:'Endrunde',exact:true}).click();
+  await page.goto(origin+'/#/suche/2');await openReviewMenu(page);await page.getByRole('button',{name:'Endrunde',exact:true}).click();
   const row=page.locator('[data-final-hit]').first();
   const rects=await row.locator('button').evaluateAll(ns=>ns.map(n=>{let r=n.getBoundingClientRect();return {y:r.y,w:r.width,h:r.height,right:r.right};}));
   assert.equal(rects[0].y,rects[1].y);assert(rects.every(r=>r.w>=44&&r.h>=44&&r.right<=320));
@@ -1747,7 +1751,7 @@ test('W78: Viertelknopf, Endrunde und Seitenmarke bleiben auf schmalen Displays 
   await page.screenshot({path:path.join(root,'test-results/w78-endrunde-mobile.png')});
   await page.getByRole('button',{name:'Endrunde schließen',exact:true}).click();
   for(const name of ['Liste','Tabelle','Tinder','Karte']){
-    await page.getByRole('button',{name,exact:true}).click();
+    await openReviewMenu(page);await page.getByRole('button',{name,exact:true}).click();
     assert.equal(await page.evaluate(()=>window.scrollY),0);
     assert.equal(await page.locator('#ver').isVisible(),false);
   }
@@ -1764,7 +1768,7 @@ function stage2Data(){return {reisen:[{id:1,name:'Japan · Herbst 2026'}],etappe
 test('W80: Reiseübersicht chronologisch, Vorschläge und belegte Stornofrist',async t=>{
  const data=stage2Data(),{page,calls}=await setup(t,p=>p.aktion==='unterkunft_etappen_lesen'?data:{}, {width:390,height:844});
  await page.goto(origin+'/#/reisen');await page.locator('[data-stage="3"]').waitFor();
- assert.deepEqual(await page.locator('[data-stage]').evaluateAll(ns=>ns.map(n=>n.dataset.stage)),['1','2','3']);
+ assert.deepEqual(await page.locator('[data-stage]').evaluateAll(ns=>ns.map(n=>n.dataset.stage)),['1','3','2']);
  assert.match(await page.locator('[data-stage="1"]').textContent(),/Kostenlos stornierbar bis 18.10.2026/);
  assert.match(await page.locator('[data-stage="2"]').textContent(),/Vorschlag · noch bestätigen/);
  assert.equal(calls.filter(p=>p.aktion?.endsWith('_speichern')).length,0);
@@ -1773,11 +1777,15 @@ test('W80: Reiseübersicht chronologisch, Vorschläge und belegte Stornofrist',a
  await page.setViewportSize({width:1440,height:1000});await page.screenshot({path:path.join(root,'docs/previews/stufe2-reisen-desktop.png'),fullPage:true});
 });
 test('W80: Durchsehen frühe Optikprobe',async t=>{
- const d=reviewData();d.treffer.forEach(x=>{x.name='Gartenhaus am Fluss';x.bilder=['https://example.com/preview.svg'];x.angebot.preis_gesamt_eur=1840;});
+ const d=reviewData();d.treffer.forEach(x=>{x.name='Gartenhaus am Fluss';x.bilder=['https://example.com/preview.svg','https://example.com/preview2.svg'];x.angebot.preis_gesamt_eur=1840;});
  const {page}=await setup(t,reviewHandler(d),{width:390,height:844});
- await page.route('https://example.com/preview.svg',r=>r.fulfill({contentType:'image/svg+xml',body:'<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800"><rect width="800" height="800" fill="#dacbb8"/><rect x="30" y="50" width="480" height="360" fill="#395e63"/><path d="M50 330L180 180 320 320 450 150 500 370" fill="#86a392"/><path d="M180 50V410M340 50V410M30 230H510" stroke="#f0e7db" stroke-width="16"/><rect x="80" y="480" width="650" height="210" rx="30" fill="#f3ece3"/><rect x="130" y="450" width="140" height="100" rx="20" fill="#b4aaa0"/><rect x="300" y="450" width="140" height="100" rx="20" fill="#c09f85"/></svg>'}));
+ await page.route('https://example.com/preview*.svg',r=>r.fulfill({contentType:'image/svg+xml',body:'<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800"><rect width="800" height="800" fill="#dacbb8"/><rect x="30" y="50" width="480" height="360" fill="#395e63"/><path d="M50 330L180 180 320 320 450 150 500 370" fill="#86a392"/><path d="M180 50V410M340 50V410M30 230H510" stroke="#f0e7db" stroke-width="16"/><rect x="80" y="480" width="650" height="210" rx="30" fill="#f3ece3"/><rect x="130" y="450" width="140" height="100" rx="20" fill="#b4aaa0"/><rect x="300" y="450" width="140" height="100" rx="20" fill="#c09f85"/></svg>'}));
  await page.goto(origin+'/#/suche/2');await page.getByRole('button',{name:'Tinder',exact:true}).click();await page.locator('.review-card .stay-gallery img').waitFor();
- await page.screenshot({path:path.join(root,'docs/previews/stufe2-durchsehen-mobile.png'),fullPage:true});
+ await page.getByRole('button',{name:'Nächstes Foto'}).click();
+ await page.waitForFunction(()=>{const image=document.querySelector('.review-backdrop');return image?.complete&&image.naturalWidth>0;});
+ await page.screenshot({path:path.join(root,'docs/previews/stufe2-durchsehen-mobile.png')});
+ await openReviewMenu(page);await page.screenshot({path:path.join(root,'docs/previews/stufe2-durchsehen-menu.png')});await page.getByLabel('Durchsehen-Menü',{exact:true}).click();
+ await page.setViewportSize({width:1440,height:1000});await page.screenshot({path:path.join(root,'docs/previews/stufe2-durchsehen-desktop.png')});
 });
 
 test('W80: Bestätigen und Variantenwechsel mit Version; Konflikt ohne stilles Überschreiben',async t=>{
@@ -1829,4 +1837,30 @@ test('W80: Vorschlag verwerfen verspricht keinen Papierkorb, neue Reise braucht 
  const data=stage2Data();const {page,calls}=await setup(t,p=>p.aktion==='unterkunft_etappen_lesen'?data:p.aktion==='unterkunft_etappe_loeschen'?{vorschau:true,folgen:{status:'vorschlag',ziel:'Osaka',suchen:[],hinweis:'Suchen bleiben erhalten'}}:{});
  await page.goto(origin+'/#/reisen');await page.getByRole('button',{name:'Vorschlag verwerfen',exact:true}).click();assert(!(await page.getByRole('dialog').textContent()).includes('30 Tage'));assert.equal(await page.getByRole('dialog').locator('input[type=checkbox]').count(),0);await page.getByRole('dialog').getByRole('button',{name:'Schließen'}).click();
  await page.getByRole('button',{name:'Neue Reise',exact:true}).click();await page.getByLabel('Reisename',{exact:true}).fill('Neue Reise');await page.getByRole('button',{name:'Reise anlegen',exact:true}).click();await page.getByText('Reise nicht eindeutig bestätigt.',{exact:false}).waitFor();assert(await page.getByRole('button',{name:'Reise anlegen',exact:true}).isDisabled());assert.equal(calls.filter(p=>p.aktion==='unterkunft_reise_speichern').length,1);
+});
+
+test('Review301 A–C: Fotokopf, Menü, Zähler und unbekannte Angaben bleiben bedienbar',async t=>{
+ const d=reviewData();d.treffer.forEach(x=>{x.bilder=['https://example.com/a.svg','https://example.com/b.svg'];x.bewertung.warnungen=['Balkon: unbekannt','steuern_unklar'];});
+ const {page,calls}=await setup(t,reviewHandler(d),{width:390,height:844});
+ await page.route('https://example.com/*.svg',r=>r.fulfill({contentType:'image/svg+xml',body:'<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000"><rect width="800" height="1000" fill="#91aaa0"/></svg>'}));
+ await page.goto(origin+'/#/suche/2');await page.getByRole('button',{name:'Tinder',exact:true}).click();
+ assert(await page.getByRole('button',{name:'Durchsehen schließen'}).isVisible());
+ assert.equal(await page.getByRole('button',{name:'Endrunde',exact:true}).isVisible(),false);
+ assert.equal(await page.getByRole('button',{name:'Liste',exact:true}).isVisible(),false);
+ assert.match(await page.locator('.review-position').textContent(),/Unterkunft \d+\/\d+ · Foto 1\/2/);
+ await page.getByRole('button',{name:'Nächstes Foto'}).click();assert.match(await page.locator('.review-position').textContent(),/Foto 2\/2/);
+ for(const field of ['m2','schlafzimmer','gaestenote','gehzeit'])assert.equal(await page.locator('.review-info [data-field="'+field+'"] dd').textContent(),'unbekannt');
+ assert.match(await page.locator('.review-card .warning summary').textContent(),/Balkon: unbekannt · \d+ weitere prüfen/);
+ assert.equal(calls.filter(p=>p.aktion==='unterkunft_durchsehen_urteil').length,0);
+ await openReviewMenu(page);await page.getByRole('button',{name:'Endrunde',exact:true}).click();await page.getByRole('button',{name:'Endrunde schließen'}).click();
+ await page.getByRole('button',{name:'Durchsehen schließen'}).click();assert.equal(await page.locator('.tinder-mode').count(),0);assert(await page.getByRole('button',{name:'Liste',exact:true}).isVisible());
+});
+test('Review301 D–E: Lücke zwischen bestätigten IDs, Vorschläge separat und letzte Karte frei',async t=>{
+ const data=stage2Data();data.luecken.push({zwischen:[1,2],naechte:99,text:'Ungültige Vorschlagslücke'});
+ const {page}=await setup(t,p=>p.aktion==='unterkunft_etappen_lesen'?data:{},{width:390,height:844});
+ await page.goto(origin+'/#/reisen');await page.locator('.trip-gap').waitFor();assert.equal(await page.locator('.trip-gap').count(),1);
+ const pair=await page.locator('.trip-gap').evaluate(n=>[n.previousElementSibling.dataset.stage,n.nextElementSibling.dataset.stage]);assert.deepEqual(pair,['1','3']);
+ assert.equal(await page.locator('.trip-timeline [data-stage="2"]').count(),0);assert.equal(await page.locator('.trip-proposals [data-stage="2"]').count(),1);
+ await page.evaluate(()=>scrollTo(0,document.documentElement.scrollHeight));
+ const visible=await page.locator('.trip-proposals .trip-stage').evaluate(n=>n.getBoundingClientRect().bottom<=document.querySelector('#tabs').getBoundingClientRect().top-8);assert(visible);
 });

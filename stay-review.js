@@ -96,7 +96,7 @@ function stayReviewInfo(t,trip) {
   const nights=(Date.parse(trip.abreise)-Date.parse(trip.anreise))/86400000;
   const labels={preis:nights>0?'Gesamt · '+nights+' Nächte':'Gesamtpreis',nacht:'Pro Nacht',gaestenote:'Gästenote',m2:'Fläche',schlafzimmer:'Schlafzimmer',gehzeit:'Zu Fuß zur Station'};
   return el('dl',{class:'review-info'},['preis','m2','schlafzimmer',...stayReviewFields()].map(key=>{
-    const value=stayFieldValue(t,key,trip);let display=value===null?'–':String(value), note=null;
+    const value=stayFieldValue(t,key,trip);let display=value===null?'unbekannt':String(value), note=null;
     if(value!==null){
       if(['preis','nacht'].includes(key))display=(t.angebot?.preis_art==='geschaetzt'?'ca. ':'')+sucheEuro(value);
       if(key==='m2')display=Number(value).toLocaleString('de-DE')+' m²';
@@ -122,7 +122,7 @@ function stayGallery(t) {
   const photo=el('div'), count=el('span',{'aria-live':'polite'});
   const prev=el('button',{type:'button','aria-label':'Vorheriges Foto',onclick:()=>show(index-1)},'‹');
   const next=el('button',{type:'button','aria-label':'Nächstes Foto',onclick:()=>show(index+1)},'›');
-  function show(i) {index=Math.max(0,Math.min(urls.length-1,i));photo.replaceChildren(sucheFoto({...t,bild:urls[index]}));count.textContent=`${index+1} / ${urls.length}`;prev.disabled=index===0;next.disabled=index===urls.length-1;const card=box.closest('.review-card');if(card)stayCardPhoto(card,box);const img=photo.querySelector('img');if(img)img.addEventListener('error',()=>{box.classList.add('gallery-empty');card?.querySelector(':scope > .review-backdrop')?.remove();});box.classList.remove('gallery-empty');}
+  function show(i) {index=Math.max(0,Math.min(urls.length-1,i));photo.replaceChildren(sucheFoto({...t,bild:urls[index]}));count.textContent=`${index+1} / ${urls.length}`;box.dataset.photo=`Foto ${index+1}/${urls.length}`;box.onPhotoChange?.();prev.disabled=index===0;next.disabled=index===urls.length-1;const card=box.closest('.review-card');if(card)stayCardPhoto(card,box);const img=photo.querySelector('img');if(img)img.addEventListener('error',()=>{box.classList.add('gallery-empty');card?.querySelector(':scope > .review-backdrop')?.remove();});box.classList.remove('gallery-empty');}
   photo.addEventListener('pointerdown',e=>{start={x:e.clientX,y:e.clientY};});
   photo.addEventListener('pointerup',e=>{if(start && Math.abs(e.clientX-start.x)>50 && Math.abs(e.clientY-start.y)<50)show(index+(e.clientX<start.x?1:-1));start=null;});
   photo.addEventListener('pointercancel',()=>{start=null;});
@@ -153,7 +153,7 @@ function stayEndrunde(hits,id,call,live,onSaved) {
   }},t.name+' wählen')))));}
   dialog.append(el('h2',{},'Endrunde · Favoriten'),close,body,status,save);list();return dialog;
 }
-function stayReview({getSnapshot,call,live,changed,scope,onRefresh,isBlocked=()=>false}) {
+function stayReview({getSnapshot,call,live,changed,scope,onRefresh,onClose,menuItems=()=>[],isBlocked=()=>false}) {
   let pending=false, last=null, reasonFor=null, awaitingReturn=null, revision=0, gallery=null, galleryId=null, reasonsDialog=null;
   const box=el('section',{class:'stay-review'}), message=el('p',{class:'review-message',role:'status'});
   const minus=[['preis','Preis'],['zu_klein','Zu klein'],['lage','Lage'],['stil','Stil'],['betten','Betten'],['fotos','Fotos'],['laerm','Lärm'],['ausstattung','Ausstattung'],['sonstiges','Sonstiges']];
@@ -188,14 +188,18 @@ function stayReview({getSnapshot,call,live,changed,scope,onRefresh,isBlocked=()=
   function draw(){
     const snapshot=getSnapshot();if(!snapshot)return;
     const all=snapshot.treffer, queue=all.filter(t=>!['favorit','vielleicht','ausgeschlossen'].includes(t.status)&&t.topf!=='ausgeschlossen'&&(!t.urteil_uebernommen || (t.status==='aktiv' && t.urteil_uebernommen.hinweis))).sort((a,b)=>(b.runde||1)-(a.runde||1)||(a.bewertung?.rang??Infinity)-(b.bewertung?.rang??Infinity)||a.treffer_id-b.treffer_id);
-    box.replaceChildren(el('div',{class:'review-toolbar'},el('span',{class:'review-progress'},`${queue.length} offen · ${all.filter(t=>['favorit','vielleicht','ausgeschlossen'].includes(t.status)).length} bewertet`),
-      el('button',{type:'button',disabled:!last||pending||needsRefresh||isBlocked(),'aria-label':'Letzte Entscheidung rückgängig',onclick:()=>vote(last,'offen',[],false)},'↶ Rückgängig')),
-      el('div',{class:'review-feedback'},message,el('button',{type:'button',class:'review-reason-open',disabled:!reasonFor||pending||needsRefresh||isBlocked(),onclick:openReasons},'Gründe ergänzen')));
+    const total=all.filter(t=>t.topf!=='ausgeschlossen').length;
+    const progress=el('span',{class:'review-position','aria-live':'polite'});
+    const undo=el('button',{type:'button',disabled:!last||pending||needsRefresh||isBlocked(),'aria-label':'Letzte Entscheidung rückgängig',onclick:()=>vote(last,'offen',[],false)},'↶');
+    const menu=el('details',{class:'review-menu'},el('summary',{'aria-label':'Durchsehen-Menü'},'•••'),el('div',{class:'review-menu-panel'},...menuItems(),el('p',{class:'review-progress'},`${queue.length} offen · ${all.filter(t=>['favorit','vielleicht','ausgeschlossen'].includes(t.status)).length} bewertet`),el('button',{type:'button',class:'review-reason-open',disabled:!reasonFor||pending||needsRefresh||isBlocked(),onclick:openReasons},'Gründe ergänzen')));
+    const header=el('header',{class:'review-overlay-header'},el('button',{type:'button','aria-label':'Durchsehen schließen',disabled:pending,onclick:onClose},'×'),progress,undo,menu);
+    box.replaceChildren(message);
     if(pending)message.textContent='Speichere …';
     if((needsRefresh||isBlocked())&&!pending&&onRefresh)box.append(el('button',{type:'button',class:'review-reload',onclick:onRefresh},'Aktualisieren'));
-    const t=queue[0];if(!t){box.append(el('h3',{},'Alle Unterkünfte durchgesehen.'),el('p',{},'In der Endrunde kannst du deine Favoriten vergleichen.'));return;}
+    const t=queue[0];if(!t){progress.textContent='Durchsehen abgeschlossen';box.append(header);box.append(el('h3',{},'Alle Unterkünfte durchgesehen.'),el('p',{},'In der Endrunde kannst du deine Favoriten vergleichen.'));return;}
     if(galleryId!==t.treffer_id){galleryId=t.treffer_id;gallery=stayGallery(t);}
     const article=el('article',{class:'review-card','data-review-hit':t.treffer_id});
+    gallery.onPhotoChange=()=>{progress.textContent=`Unterkunft ${Math.max(1,total-queue.length+1)}/${total} · ${gallery.dataset.photo||'Kein Foto'}`;};gallery.onPhotoChange();
     const content=el('div',{class:'review-content',tabindex:0,'aria-label':'Unterkunft ansehen'},gallery,t.urteil_uebernommen?.hinweis?el('p',{class:'warning'},'Jetzt günstiger · '+t.urteil_uebernommen.hinweis):null);
     const swipe=el('div',{class:'review-swipe'},el('h3',{tabindex:-1},t.name),el('p',{class:'review-score'},`Rang ${t.bewertung?.rang??'–'} · ${snapshot.suchauftrag.status==='fertig'&&['A','B'].includes(sucheGruppe(t))?'Passung':'Vorläufige Passung'} ${t.bewertung?.score??'–'}/100`),stayReviewInfo(t,snapshot.suchauftrag));
     let point=null, swiped=false;
@@ -203,12 +207,12 @@ function stayReview({getSnapshot,call,live,changed,scope,onRefresh,isBlocked=()=
     swipe.addEventListener('pointercancel',()=>point=null);
     swipe.addEventListener('pointerup',e=>{if(!point||point.id!==e.pointerId)return;const dx=e.clientX-point.x,dy=e.clientY-point.y;point=null;if(Math.max(Math.abs(dx),Math.abs(dy))<70)return;if(Math.abs(dx)>Math.abs(dy)*1.3){swiped=true;void vote(t,dx>0?'favorit':'weg');}});
     swipe.addEventListener('click',e=>{if(swiped){e.preventDefault();e.stopPropagation();swiped=false;}},true);
-    const warnings=sucheWarnungen(t).map(w=>SUCHE_WARNUNGEN[w]||w);if(warnings.length)swipe.append(el('details',{class:'warning'},el('summary',{},warnings[0]+(warnings.length>1?' · '+(warnings.length-1)+' weitere prüfen':'')),warnings.map(w=>el('p',{},w))));
+    const warnings=[...sucheWarnungen(t).map(w=>SUCHE_WARNUNGEN[w]||w),...['m2','schlafzimmer','gehzeit'].filter(k=>stayFieldValue(t,k,snapshot.suchauftrag)===null).map(k=>({m2:'Fläche: unbekannt',schlafzimmer:'Schlafzimmer: unbekannt',gehzeit:'Station: unbekannt'})[k])];if(warnings.length)swipe.append(el('details',{class:'warning'},el('summary',{},warnings[0]+(warnings.length>1?' · '+(warnings.length-1)+' weitere prüfen':'')),warnings.map(w=>el('p',{},w))));
     const provider=sucheAnbieterLink(t), url=provider?.url;
     content.append(swipe,el('div',{class:'review-links'},url?el('a',{href:url,target:'_blank',rel:'noopener noreferrer',onclick:()=>{awaitingReturn=t.treffer_id;}},provider.label):null,
       el('button',{type:'button',onclick:event=>{const trigger=event.currentTarget,dialog=sucheKandidat(t,snapshot.suchauftrag.status==='fertig',snapshot.suchauftrag.id);scope.append(dialog);dialog.addEventListener('close',()=>{dialog.remove();if(trigger.isConnected)trigger.focus({preventScroll:true});});dialog.showModal();}},'Details')));
     if(awaitingReturn===t.treffer_id)content.append(el('p',{role:'status'},'Und? Wie gefällt dir die Unterkunft?'));
-    article.append(content,buttons(t));stayCardPhoto(article,gallery);box.append(article);
+    article.append(header,content,buttons(t));stayCardPhoto(article,gallery);box.append(article);
 
   }
   const returned=()=>{if(!document.hidden && awaitingReturn && live())draw();};document.addEventListener('visibilitychange',returned);

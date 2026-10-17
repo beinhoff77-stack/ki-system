@@ -49,16 +49,21 @@ async function viewReisen(arg){
   const rid=Number(selector.value),trip=snapshot.reisen.find(x=>x.id===rid);content.replaceChildren();if(!trip){content.append(el('p',{},'Lege deine erste Reise an. Danach kannst du Unterkünfte suchen.'));return;}
   const stages=snapshot.etappen.filter(e=>e.reise_id===rid).sort((a,b)=>String(a.anreise).localeCompare(String(b.anreise))||a.id-b.id);
   content.append(el('div',{class:'trip-title'},el('div',{},el('p',{class:'eyebrow'},'DEINE REISE'),el('h2',{},trip.name)),el('button',{class:'primary',onclick:()=>{stayWrite('ks_trip_context',{reise_id:rid});route('suche');}},'+ Aufenthalt suchen')));
-  const timeline=el('div',{class:'trip-timeline'});content.append(timeline);
+  const timeline=el('div',{class:'trip-timeline'}),proposals=el('section',{class:'trip-proposals'},el('h3',{},'Noch nicht bestätigte Vorschläge'));content.append(timeline);
+  const confirmed=stages.filter(e=>e.status!=='vorschlag');
   for(const e of stages){const b=e.buchung,card=el('article',{class:'trip-stage','data-stage':e.id});
    card.append(el('div',{class:'stage-date'},el('strong',{},fmtDate(e.anreise)),el('span',{},'bis '+fmtDate(e.abreise)),el('small',{},(e.naechte??'–')+' Nächte')),
     el('div',{class:'stage-main'},el('span',{class:'trip-status '+e.status},{vorschlag:'Vorschlag · noch bestätigen',geplant:'Geplant',gebucht:'Gebucht'}[e.status]||'Status offen'),el('h3',{},e.ziel),b?el('div',{class:'booking-summary'},el('strong',{},b.name||'Unterkunft'),el('p',{},b.zimmer||''),el('p',{},sucheEuro(b.preis_gesamt_eur)+' gesamt'),el('p',{class:'storno'},tripStorno(b))):el('p',{class:'muted'},'Die Unterkunft ist noch offen.'),
     el('div',{class:'actions'},e.status==='vorschlag'?el('button',{class:'primary',onclick:()=>change(e,{status:'geplant'})},'Vorschlag bestätigen'):null,el('button',{onclick:()=>tripStart(e)},'Andere Tage suchen'),el('button',{onclick:()=>tripEdit(e,load)},'Bearbeiten'),el('button',{onclick:()=>tripDelete('etappe',e.id,load)},e.status==='vorschlag'?'Vorschlag verwerfen':'Etappe entfernen'))));
    const searches=el('details',{open:expanded.has(e.id)},el('summary',{},(e.suchen||[]).length+' Suchvarianten'));
    for(const s of e.suchen||[]){const active=s.id===e.aktive_suche_id;searches.append(el('div',{class:'trip-variant'},el('a',{href:'#/suche/'+s.id},`${fmtDate(s.anreise)}–${fmtDate(s.abreise)} · ${s.status}`),active?el('strong',{},'Aktuelle Variante'):el('button',{onclick:()=>change(e,{aktive_suche_id:s.id})},'Diese Tage verwenden'),el('button',{onclick:()=>tripDelete('suchauftrag',s.id,load)},'Suche entfernen')));}
-   card.querySelector('.stage-main').append(searches,el('a',{href:'#/etappe/'+e.id},'Unterkünfte dieser Etappe →'));timeline.append(card);
-   for(const gap of snapshot.luecken||[]){if(gap.zwischen?.[0]===e.id)timeline.append(el('div',{class:'trip-gap'},gap.text||`${gap.naechte} Nächte noch offen`));}
+   card.querySelector('.stage-main').append(searches,el('a',{href:'#/etappe/'+e.id},'Unterkünfte dieser Etappe →'));if(e.status==='vorschlag')proposals.append(card);else {
+    const before=confirmed[confirmed.indexOf(e)-1];
+    for(const gap of snapshot.luecken||[]){if(before&&gap.zwischen?.[0]===before.id&&gap.zwischen?.[1]===e.id)timeline.append(el('div',{class:'trip-gap','data-gap-from':before.id,'data-gap-to':e.id},`${before.ziel} → ${e.ziel}: `+(gap.text||`${gap.naechte} Nächte noch offen`)));}
+    timeline.append(card);
+   }
   }
+  if(proposals.childElementCount>1)content.append(proposals);
   if(!stages.length)timeline.append(el('p',{class:'card'},'Noch keine Etappen. Suche deinen ersten Aufenthalt.'));
   const loose=(snapshot.ohne_etappe||[]).filter(s=>s.reise_id===rid||!s.reise_id);if(loose.length){const box=el('details',{},el('summary',{},'Suchen ohne Etappe'));for(const s of loose){const target=el('select',{'aria-label':'Etappe für Suche '+s.id},el('option',{value:''},'Etappe wählen'),stages.map(e=>el('option',{value:e.id},e.ziel+' · '+fmtDate(e.anreise))));box.append(el('div',{class:'trip-variant'},el('a',{href:'#/suche/'+s.id},'Suche #'+s.id+' · '+s.ziel),target,el('button',{onclick:async ev=>{if(!tripId(target.value))return;ev.target.disabled=true;try{const r=await tripCall('unterkunft_etappe_zuordnen',{suchauftrag_id:s.id,etappe_id:Number(target.value)});if(!r.suche)throw Error('Zuordnung nicht bestätigt.');await load();}catch(e){status.textContent=e.message+' Bitte neu lesen.';}}},'Zuordnen')));}content.append(box);}
  }

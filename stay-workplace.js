@@ -27,6 +27,7 @@ async function viewDecisionPlace(arg){
   scope.append(el('a',{href:'#/reisen/'+r.etappe.reise_id},'← Zur Reise'),el('h2',{},r.etappe.ziel),el('p',{},fmtDate(r.etappe.anreise)+'–'+fmtDate(r.etappe.abreise)),tabs,modeButtons,el('label',{},'Sortieren nach',sorting),toolbar,status,content,el('div',{class:'actions'},reload,button('Woanders gebucht',()=>tripExternalBooking(r.etappe,()=>render())),button('Suche auffrischen',()=>tripRefresh(r.etappe)),button('Keiner passt',()=>{
     const {body}=tripDialog('Andere Unterkunft finden');body.append(el('p',{},'Deine bisherigen Entscheidungen bleiben erhalten.'),button('Kriterien ändern und neu suchen',()=>tripStart(r.etappe)),button('Andere Tage als Variante suchen',()=>tripStart(r.etappe)));
   })));
+  scope.append(tripPhotos(r.etappe.id,live));
   main.replaceChildren(scope);
   review=stayReview({getSnapshot:()=>snapshot,getRows:rows,getGroup:()=>group,menuItems:()=>[tabs,modeButtons],call:tripCall,live,scope,onClose:()=>{mode='list';draw();},onRefresh:()=>render(),isBlocked:()=>uncertain||pending,changed:()=>draw()});
   disposeSuche=()=>review.dispose();

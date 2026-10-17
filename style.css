@@ -1001,3 +1001,8 @@ body:has(.tinder-mode) main.view{padding:8px 10px;}
 .decision-place.tinder-mode .decision-content>.stay-review{flex:1;width:100%;min-height:0}
 .trip-dialog .decision-table th,.trip-dialog .decision-table td{min-width:145px;overflow-wrap:normal;word-break:normal}
 .trip-dialog .decision-table th:first-child{min-width:120px}
+
+/* Personal stay photos, separate from search-result photos. */
+.stay-photos{margin:16px 0}.stay-photos h4{margin:8px 0}.stay-photo-strip{display:flex;gap:8px}.stay-photo-strip figure{margin:0;min-width:0;flex:1;max-width:180px}.stay-photo-strip figure>button:first-child{padding:0;width:100%;overflow:hidden;border-radius:12px}.stay-photo-strip img{display:block;width:100%;height:100px;object-fit:cover}.stay-photo-strip figure>button:last-child{font-size:12px;padding:8px 4px;width:100%}.photo-file-input{display:none}.stay-photo-viewer img{display:block;max-width:100%;max-height:75dvh;object-fit:contain;margin:auto}.past-stays{margin-top:22px}.past-stays>summary{font-size:18px;font-weight:700;padding:16px;border-radius:14px;background:#e5eeeb;cursor:pointer}.past-stays .trip-stage{margin-top:12px}.booking-note{white-space:pre-wrap;overflow-wrap:anywhere}
+
+.stay-photos .actions{display:flex;flex-wrap:wrap;gap:8px}.stay-photos .actions button{flex:1;min-width:0;font-size:13px;padding:10px}

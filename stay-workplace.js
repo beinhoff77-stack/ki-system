@@ -31,7 +31,7 @@ async function viewDecisionPlace(arg){
   })));
   scope.append(tripPhotos(r.etappe.id,live));
   main.replaceChildren(scope);
-  review=stayReview({getSnapshot:()=>snapshot,getRows:rows,getGroup:()=>group,menuItems:()=>[tabs,modeButtons],call:tripCall,live,scope,onClose:()=>{mode='list';draw();},onRefresh:()=>render(),isBlocked:()=>uncertain||pending,changed:()=>draw()});
+  review=stayReview({getSnapshot:()=>snapshot,getRows:rows,getGroup:()=>group,menuItems:()=>[tabs,modeButtons],call:tripCall,live,scope,onClose:t=>{mode='list';draw();if(t)requestAnimationFrame(()=>scope.querySelector(`[data-hit="${t.treffer_id}"]`)?.scrollIntoView({block:'center'}));},onRefresh:()=>render(),isBlocked:()=>uncertain||pending,changed:()=>draw()});
   disposeSuche=()=>review.dispose();
   function actions(t){return el('div',{class:'actions'},...Object.entries(labels).filter(([key])=>key!==t.status).map(([key,label])=>button('Zu '+label,()=>move([{t,previous:t.status,reasons:[...(t.urteil_gruende||[])]}],key))),t.status==='favorit'&&!t.currentOfferUnavailable?button('Als gebucht markieren',()=>tripBook(t.treffer_id,r.etappe,t)):null);}
   async function move(items,target,restoring=false){

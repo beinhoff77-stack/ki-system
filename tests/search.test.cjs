@@ -1995,7 +1995,7 @@ test('Paket B: Buchungsdialog bestätigt Vorschlag und Tage ausdrücklich im sel
 });
 
 test('Paket C: Kosten bestätigen, verlorene Startantwort lesen und keine falschen Preis-Pfeile',async t=>{
- const e=stage2Data().etappen[1];const run={auffrischung_id:42,etappe_id:e.id,suchauftrag_id:2,status:'fertig',status_text:'Fertig',anreise:'2026-11-01',abreise:'2026-11-08',kosten:{ist_credits:10,limit_credits:30,suchrunde_ist_usd:0.1},favoriten:[{treffer_id:1,name:'Vergleichbar',status:'geprueft_geaendert',status_text:'Geprüft',vergleichbar:true,angebot_bestaetigt:true,vorher:{preis_eur:200},nachher:{preis_eur:150},differenz_eur:-50},{treffer_id:2,name:'Andere Bedingungen',status:'geprueft_geaendert',status_text:'Bedingungen geändert',vergleichbar:false,angebot_bestaetigt:true,vorher:{preis_eur:200},nachher:{preis_eur:100},grund:'Storno unbekannt'}],neue_unterkuenfte:[{treffer_id:3,name:'Neue Wohnung'}]};
+ const e=stage2Data().etappen[1];const run={auffrischung_id:42,etappe_id:e.id,suchauftrag_id:2,status:'fertig',status_text:'Fertig',anreise:'2026-11-01',abreise:'2026-11-08',kosten:{ist_credits:10,limit_credits:30,suchrunde_ist_usd:0.1},favoriten:[{treffer_id:1,name:'Vergleichbar',status:'geprueft_geaendert',status_text:'Geprüft',vergleichbar:true,angebot_bestaetigt:true,vorher:{preis_eur:200},nachher:{preis_eur:150},richtung:'guenstiger',differenz_eur:-50},{treffer_id:2,name:'Andere Bedingungen',status:'geprueft_geaendert',status_text:'Bedingungen geändert',vergleichbar:false,angebot_bestaetigt:true,vorher:{preis_eur:200},nachher:{preis_eur:100},grund:'Storno unbekannt'}],zusammenfassung:{text:'1 neue Unterkünfte · 1 günstiger · 0 teurer'},neue_unterkuenfte:[{treffer_id:3,name:'Neue Wohnung'}]};
  const {page,calls}=await setup(t,p=>{
   if(p.aktion==='unterkunft_auffrischen_vorschau')return {ok:true,vorschau_id:'preview-42',auffrischung_id:42,version:2,etappe:e,suche:{erwachsene:2,kinder_alter:[11,13]},favoriten:[],suchrunde:{moeglich:true},kosten:{limit_vorschlag:30,suchrunde_usd_bis:0.5,text:'30 Credits plus bis 0,50 USD'}};
   if(p.aktion==='unterkunft_auffrischen_starten')return 'abort';
@@ -2033,7 +2033,7 @@ test('Anwenderablauf: Favoriten → Durchsehen → Vergleichen/Lage → Aussorti
  data.treffer=[hit(1,'A',1200,{status:'favorit',name:'Gartenwohnung',lat:35,lon:135,bild:'https://example.com/journey.svg'}),hit(2,'A',1500,{status:'favorit',name:'Stadtsuite',lat:35.01,lon:135.01,bild:'https://example.com/journey.svg'}),hit(3,'B',900,{status:'vielleicht',name:'Kleines Haus',lat:35.02,lon:135.02})];
  const e={id:1,reise_id:1,ziel:'Tokyo',anreise:data.suchauftrag.anreise,abreise:data.suchauftrag.abreise,status:'geplant',version:1,aktive_suche_id:2,suchen:[{id:2,...data.suchauftrag}]};
  const tripData={reisen:[{id:1,name:'Japan'}],etappen:[e],ohne_etappe:[],luecken:[]};let started=false;
- const refresh={auffrischung_id:61,etappe_id:1,suchauftrag_id:2,status:'fertig',status_text:'Fertig',anreise:e.anreise,abreise:e.abreise,kosten:{limit_credits:30,ist_credits:20,suchrunde_ist_usd:0.1},favoriten:[{treffer_id:1,name:'Gartenwohnung',status:'geprueft_geaendert',status_text:'Günstiger',vergleichbar:true,angebot_bestaetigt:true,vorher:{preis_eur:1200},nachher:{preis_eur:1100},differenz_eur:-100}],neue_unterkuenfte:[]};
+ const refresh={auffrischung_id:61,etappe_id:1,suchauftrag_id:2,status:'fertig',status_text:'Fertig',anreise:e.anreise,abreise:e.abreise,kosten:{limit_credits:30,ist_credits:20,suchrunde_ist_usd:0.1},favoriten:[{treffer_id:1,name:'Gartenwohnung',status:'geprueft_geaendert',status_text:'Günstiger',vergleichbar:true,angebot_bestaetigt:true,vorher:{preis_eur:1200},nachher:{preis_eur:1100},richtung:'guenstiger',differenz_eur:-100}],neue_unterkuenfte:[]};
  const {page,calls}=await setup(t,p=>{
   if(p.aktion==='unterkunft_etappen_lesen')return tripData;
   if(p.aktion==='unterkunft_suchprofile_lesen')return profileCatalog();
@@ -2085,4 +2085,14 @@ test('Sammeländerung: verlorene Bestätigung wird nicht wiederholt und sperrt w
  assert(await page.getByRole('button',{name:'Zu Weg',exact:true}).isDisabled());
  assert(await page.getByRole('button',{name:'Etappe aktualisieren',exact:true}).isEnabled());
  assert.equal(await page.getByRole('button',{name:'Rückgängig',exact:true}).count(),0);
+});
+
+test('Preispfeile respektieren Servertoleranz und getrennte Wechselkurse; Meldungslinks bleiben intern',async t=>{
+ const {page}=await setup(t,()=>({}));await page.goto(origin+'/#/start');
+ const result=await page.evaluate(()=>{
+  const price=(old,now,direction,delta,currency)=>refreshPrice({status:'geprueft_geaendert',vergleichbar:true,angebot_bestaetigt:true,vorher:{preis_eur:old},nachher:{preis_eur:now},richtung:direction,differenz_eur:delta,kurs_effekt_eur:currency});
+  const tolerance=price(2775.16,2765.04,'gleich',0),fx=price(200,210,'guenstiger',-5,15);
+  return {same:!!tolerance.querySelector('.price-same'),falseDown:!!tolerance.querySelector('.price-down'),down:!!fx.querySelector('.price-down'),up:!!fx.querySelector('.price-up'),text:fx.textContent,internal:notificationLink(location.origin+'/#/werkstatt/86'),external:notificationLink('https://attacker.example/#/werkstatt/86')};
+ });
+ assert(result.same);assert(!result.falseDown);assert(result.down);assert(!result.up);assert.match(result.text,/Separater Währungseffekt/);assert.equal(result.internal,'#/werkstatt/86');assert.equal(result.external,'#/meldungen');
 });

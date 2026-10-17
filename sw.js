@@ -21,7 +21,7 @@ self.addEventListener('fetch', (e) => {
       return r;
     }).catch(async () => {
       const cache = await caches.open(CACHE);
-      return await cache.match(e.request) || (e.request.mode === 'navigate' ? await cache.match(new URL('./index.html', './stay-compare.js?v=0.20.0', './stay-refresh.js?v=0.20.0', './stay-workplace.js?v=0.20.0', './stay-notifications.js?v=0.20.0', self.registration.scope).href) : null) || Response.error();
+      return await cache.match(e.request) || (e.request.mode === 'navigate' ? await cache.match(new URL('./index.html', self.registration.scope).href) : null) || Response.error();
     })
   );
 });

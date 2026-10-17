@@ -36,3 +36,7 @@ Kompletter Browserablauf: Favoriten → erneut durchsehen und behalten → Na ja
 Dabei behoben: ungenutzte Bildschirmhöhe beim erneuten Durchsehen, versehentlicher Text „null“ in Vergleich/Auffrischung und zu schmale Vergleichsspalten auf dem Handy. Die Vergleichstabelle lässt sich seitlich wischen. Screenshots: `previews/paket-b-durchsehen-mobile.png`, `previews/paket-d-vergleich-mobile.png`.
 
 Serverübergabe Nachricht 325 (app-api 0.14.1 / wecker 0.2.2) abgeglichen. Etappenroute für Meldungen vorhanden. Sammelverschieben verwendet jetzt einen atomaren Serveraufruf `unterkunft_urteile_sammeln`; Rückgängig sendet die unveränderten serverseitigen Rücknahmedaten an `unterkunft_urteile_zuruecksetzen`, inklusive eigenem Rang und Lern-Rückmeldungen. Bei unvollständiger Bestätigung keine Wiederholung und keine weiteren Urteile bis zum erneuten Lesen. Keine echte kostenpflichtige Suchrunde ausgelöst.
+
+## Claude-Prüfung 330/331
+
+Offline-Navigationsfallback korrigiert und mit simuliertem Netzausfall gegen den echten Service-Worker-Handler geprüft. Preisrichtung ausschließlich aus dem Serverfeld `richtung`; Kosten-/Änderungsübersicht aus `zusammenfassung`. Toleranz (2775,16 → 2765,04 trotzdem unverändert) und gegenläufiger Wechselkurseffekt im Browsertest abgesichert. Vollständige interne Mitteilungs-URLs werden auf erlaubte App-Routen normalisiert, fremde URLs bleiben gesperrt. Nichtblockierender Folgepunkt: Rückgängig direkt im Durchsehen nutzt weiterhin den bisherigen Einzelendpunkt; vollständige Server-Rücknahme ist im Etappen-Arbeitsplatz vorhanden.

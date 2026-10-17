@@ -28,3 +28,12 @@ test('Malformed push is visible; external and out-of-scope targets never open',a
  w.events.notificationclick({notification:{data:{url:'#/meldungen'},close(){}},waitUntil:p=>pending=p});await pending;
  assert.deepEqual(w.opened,['https://example.com/ki-system/#/meldungen']);
 });
+
+test('Offline navigation falls back to the cached index shell',async()=>{
+ const events={},shell={html:'cached app'},lookups=[];
+ const self={registration:{scope:'https://example.com/ki-system/'},addEventListener:(name,cb)=>events[name]=cb};
+ const caches={open:async()=>({match:async key=>{lookups.push(key);return key==='https://example.com/ki-system/index.html'?shell:undefined;}})};
+ vm.runInNewContext(fs.readFileSync(require('node:path').join(__dirname,'../sw.js'),'utf8'),{self,URL,Set,caches,fetch:async()=>{throw Error('offline');},Response:{error:()=>{throw Error('missing shell');}}});
+ let response;events.fetch({request:{url:'https://example.com/ki-system/#/reisen',method:'GET',mode:'navigate'},respondWith:p=>response=p});
+ assert.equal(await response,shell);assert.equal(lookups.at(-1),'https://example.com/ki-system/index.html');
+});

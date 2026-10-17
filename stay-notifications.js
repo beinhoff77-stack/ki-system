@@ -1,7 +1,9 @@
 // Mitteilungen: keine Berechtigungsabfrage ohne bewussten Tastendruck.
 let notificationRead=null, notificationReadAt=0, notificationToken=null;
 function notificationLink(value){
-  if(typeof value!=='string'||!/^#\/(meldungen|werkstatt|suche|reisen|etappe)(\/|$)/.test(value))return '#/meldungen';
+  if(typeof value!=='string')return '#/meldungen';
+  try{const target=new URL(value,location.href),base=new URL('.',location.href);if(target.origin!==base.origin||target.pathname!==base.pathname&&target.pathname!==base.pathname+'index.html')return '#/meldungen';value=target.hash;}catch{return '#/meldungen';}
+  if(!/^#\/(meldungen|werkstatt|suche|reisen|etappe)(\/|$)/.test(value))return '#/meldungen';
   return value;
 }
 function notificationData(r){

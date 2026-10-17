@@ -1961,19 +1961,21 @@ test('Paket B: zwölf Na-ja-Unterkünfte bewusst verschieben und gesammelt zurü
  const e=stage2Data().etappen[1];const rows=Array.from({length:12},(_,i)=>({treffer_id:i+1,suchauftrag_id:2,name:'Option '+(i+1),status:'vielleicht',in_aktiver_variante:true,preis_gesamt_eur:500,urteil_gruende:['lage']}));
  const {page,calls}=await setup(t,p=>{
   if(p.aktion==='unterkunft_etappe_treffer_lesen')return {etappe:e,aktive_variante_bestaetigt:true,unterkuenfte:rows};
-  if(p.aktion==='unterkunft_durchsehen_urteil'){const status={weg:'ausgeschlossen',vielleicht:'vielleicht',favorit:'favorit'}[p.daten.urteil];return {ok:true,treffer_id:p.daten.treffer_id,urteil:p.daten.urteil,status};}return {};
+  if(p.aktion==='unterkunft_urteile_sammeln')return {ok:true,geaendert:12,urteil:p.daten.urteil,rueckgaengig:{aktion:'unterkunft_urteile_zuruecksetzen',daten:{eintraege:rows.map(t=>({treffer_id:t.treffer_id,urteil:'vielleicht',gruende:['lage'],eigener_rang:null})),rueckmeldung_ids:[71,72]}}};
+  if(p.aktion==='unterkunft_urteile_zuruecksetzen')return {ok:true,zurueckgesetzt:12};return {};
  },{width:390,height:844});
  await page.goto(origin+'/#/etappe/1');await page.getByRole('button',{name:'Na ja (12)',exact:true}).click();
  await page.getByRole('button',{name:'Auswählen',exact:true}).click();
  await page.getByRole('button',{name:'Alle 12 auswählen',exact:true}).click();await page.getByRole('button',{name:'Auswahl zu Weg',exact:true}).click();
- await page.getByText('Diese 12 Unterkünfte auf „Weg“ setzen?',{exact:true}).waitFor();assert.equal(calls.filter(p=>p.aktion==='unterkunft_durchsehen_urteil').length,0);
- await page.getByRole('button',{name:'Abbrechen',exact:true}).click();assert.equal(calls.filter(p=>p.aktion==='unterkunft_durchsehen_urteil').length,0);
+ await page.getByText('Diese 12 Unterkünfte auf „Weg“ setzen?',{exact:true}).waitFor();assert.equal(calls.filter(p=>p.aktion==='unterkunft_urteile_sammeln').length,0);
+ await page.getByRole('button',{name:'Abbrechen',exact:true}).click();assert.equal(calls.filter(p=>p.aktion==='unterkunft_urteile_sammeln').length,0);
  await page.getByRole('button',{name:'Auswahl zu Weg',exact:true}).click();await page.getByRole('button',{name:'Auf „Weg“ setzen',exact:true}).click();
  await page.getByText('12 Unterkünfte auf „Weg“ gesetzt.',{exact:true}).waitFor();await page.getByRole('button',{name:'Weg (12)',exact:true}).click();
  assert.equal(await page.locator('[data-stage-hit]').count(),12);
  await page.getByRole('button',{name:'Rückgängig',exact:true}).click();await page.getByText('12 Entscheidungen zurückgenommen.',{exact:true}).waitFor();
  await page.getByRole('button',{name:'Na ja (12)',exact:true}).click();assert.equal(await page.locator('[data-stage-hit]').count(),12);
- assert(calls.filter(p=>p.aktion==='unterkunft_durchsehen_urteil').slice(12).every(p=>p.daten.urteil==='vielleicht'&&p.daten.gruende[0]==='lage'));
+ assert.equal(calls.filter(p=>p.aktion==='unterkunft_urteile_sammeln').length,1);
+ const restored=calls.find(p=>p.aktion==='unterkunft_urteile_zuruecksetzen').daten;assert.deepEqual(restored.rueckmeldung_ids,[71,72]);assert.equal(restored.eintraege.length,12);assert(restored.eintraege.every(e=>e.urteil==='vielleicht'&&e.gruende[0]==='lage'));
  assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
  await page.screenshot({path:path.join(root,'docs/previews/paket-b-entscheidungsplatz-mobile.png')});
 });
@@ -2038,6 +2040,8 @@ test('Anwenderablauf: Favoriten → Durchsehen → Vergleichen/Lage → Aussorti
   if(p.aktion==='unterkunft_suchlauf_lesen')return p.daten?.suchauftrag_id?data:{suchauftraege:[data.suchauftrag],merkliste:data.treffer.filter(t=>t.status==='favorit').map(t=>({...t,suchauftrag_id:2,ziel:'Tokyo',anreise:e.anreise,abreise:e.abreise,preis_gesamt_eur:t.angebot.preis_gesamt_eur}))};
   if(p.aktion==='unterkunft_etappe_treffer_lesen')return {ok:true,etappe:e,referenz_suche_id:2,aktive_variante_bestaetigt:true,unterkuenfte:data.treffer.map(t=>({...t,suchauftrag_id:2,in_aktiver_variante:true,preis_gesamt_eur:t.angebot.preis_gesamt_eur}))};
   if(p.aktion==='unterkunft_durchsehen_urteil'){const h=data.treffer.find(t=>t.treffer_id===p.daten.treffer_id);h.status={favorit:'favorit',vielleicht:'vielleicht',weg:'ausgeschlossen',offen:'aktiv'}[p.daten.urteil];return {ok:true,treffer_id:h.treffer_id,urteil:p.daten.urteil,status:h.status};}
+  if(p.aktion==='unterkunft_urteile_sammeln'){const entries=p.daten.treffer_ids.map(id=>{const h=data.treffer.find(t=>t.treffer_id===id);const previous={treffer_id:id,urteil:{favorit:'favorit',vielleicht:'vielleicht',ausgeschlossen:'weg'}[h.status],gruende:[],eigener_rang:2};h.status='ausgeschlossen';return previous;});return {ok:true,geaendert:entries.length,urteil:p.daten.urteil,rueckgaengig:{aktion:'unterkunft_urteile_zuruecksetzen',daten:{eintraege:entries,rueckmeldung_ids:[88]}}};}
+  if(p.aktion==='unterkunft_urteile_zuruecksetzen'){for(const e of p.daten.eintraege)data.treffer.find(t=>t.treffer_id===e.treffer_id).status=e.urteil;return {ok:true,zurueckgesetzt:p.daten.eintraege.length};}
   if(p.aktion==='unterkunft_vergleich')return {ok:true,unterkuenfte:p.daten.treffer_ids.map((id,i)=>({...data.treffer.find(t=>t.treffer_id===id),kennung:['A','B'][i],anreise:e.anreise,abreise:e.abreise})),zeilen:[{feld:'preis_gesamt',label:'Gesamtpreis',werte:[1200,1500],einheit:'€',gleich:false,besser:'A'}],unterschiede:[{feld:'preis_gesamt',text:'A ist 300 € günstiger'}]};
   if(p.aktion==='unterkunft_auffrischen_lesen')return {ok:true,auffrischung:started?refresh:null};
   if(p.aktion==='unterkunft_auffrischen_vorschau')return {ok:true,auffrischung_id:61,vorschau_id:'journey-preview',version:1,etappe:e,suche:{erwachsene:2,kinder_alter:[]},favoriten:[],suchrunde:{moeglich:true},kosten:{limit_vorschlag:30,suchrunde_usd_bis:0.5,text:'Bis zu 30 Credits plus 0,50 USD'}};
@@ -2066,4 +2070,19 @@ test('Anwenderablauf: Favoriten → Durchsehen → Vergleichen/Lage → Aussorti
  await page.getByRole('button',{name:'Suche auffrischen',exact:true}).click();await page.getByRole('button',{name:'Kosten und Umfang prüfen',exact:true}).click();await page.getByRole('button',{name:'Jetzt kostenpflichtig auffrischen',exact:true}).click();await page.locator('.price-down').waitFor();await page.getByRole('dialog').getByRole('button',{name:'Schließen',exact:true}).click();
  await page.locator('[data-stage-hit="1"]').getByRole('button',{name:'Als gebucht markieren',exact:true}).click();const booking=page.getByRole('dialog');await booking.getByLabel('Gebuchter Gesamtpreis (€)',{exact:true}).fill('1100');await booking.getByRole('button',{name:'Buchung vermerken',exact:true}).click();
  await page.waitForURL('**/#/reisen/1');await page.getByText('Gebucht',{exact:true}).waitFor();assert.equal(e.buchung.name,'Gartenwohnung');assert.equal(e.buchung.preis_gesamt_eur,1100);assert.equal(calls.filter(p=>p.aktion==='unterkunft_etappe_speichern').length,1);
+});
+
+test('Sammeländerung: verlorene Bestätigung wird nicht wiederholt und sperrt weitere Urteile',async t=>{
+ const e=stage2Data().etappen[1];
+ const {page,calls}=await setup(t,p=>{
+  if(p.aktion==='unterkunft_etappe_treffer_lesen')return {etappe:e,aktive_variante_bestaetigt:true,unterkuenfte:[{treffer_id:1,name:'Unsichere Antwort',status:'favorit',in_aktiver_variante:true}]};
+  if(p.aktion==='unterkunft_urteile_sammeln')return {ok:true,geaendert:1,urteil:'weg'};
+  return {};
+ });
+ await page.goto(origin+'/#/etappe/1');await page.getByRole('button',{name:'Zu Weg',exact:true}).click();
+ await page.getByText('Änderung nicht eindeutig bestätigt. Bitte Etappe aktualisieren; keine automatische Wiederholung.',{exact:true}).waitFor();
+ assert.equal(calls.filter(p=>p.aktion==='unterkunft_urteile_sammeln').length,1);
+ assert(await page.getByRole('button',{name:'Zu Weg',exact:true}).isDisabled());
+ assert(await page.getByRole('button',{name:'Etappe aktualisieren',exact:true}).isEnabled());
+ assert.equal(await page.getByRole('button',{name:'Rückgängig',exact:true}).count(),0);
 });

@@ -15,7 +15,7 @@ async function viewDecisionPlace(arg){
     return {...detail,...t,angebot:active?(detail?.angebot||{preis_gesamt_eur:t.preis_gesamt_eur,preis_art:t.preis_art,storno:t.storno}):{},bewertung:detail?.bewertung||{rang:t.rang,score:t.score,liste:t.liste},currentOfferUnavailable:!active};
   })};
   const scope=el('section',{class:'trips-page decision-place'}),status=el('p',{role:'status'}),toolbar=el('div',{class:'actions'}),content=el('div',{class:'decision-content'}),selected=new Set();
-  let group='favorit',mode='list',pending=false,uncertain=false,lastBatch=[],review=null,sortKey='rang',selecting=false;
+  let group='favorit',mode='list',pending=false,uncertain=false,lastBatch=[],undoData=null,review=null,sortKey='rang',selecting=false;
   const labels={favorit:'Favoriten',vielleicht:'Na ja',ausgeschlossen:'Weg'};
   const rows=()=>snapshot.treffer.filter(t=>t.status===group).sort((a,b)=>sucheVergleich(a,b,sortKey,1));
   const button=(label,fn)=>el('button',{type:'button',onclick:fn},label);
@@ -33,12 +33,22 @@ async function viewDecisionPlace(arg){
   function actions(t){return el('div',{class:'actions'},...Object.entries(labels).filter(([key])=>key!==t.status).map(([key,label])=>button('Zu '+label,()=>move([{t,previous:t.status,reasons:[...(t.urteil_gruende||[])]}],key))),t.status==='favorit'&&!t.currentOfferUnavailable?button('Als gebucht markieren',()=>tripBook(t.treffer_id,r.etappe,t)):null);}
   async function move(items,target,restoring=false){
     if(pending||uncertain||review.pending)return;pending=true;scope.querySelectorAll('button,input').forEach(b=>b.disabled=true);const done=[];
-    try{for(const item of items){const next=restoring?item.previous:target,urteil={favorit:'favorit',vielleicht:'vielleicht',ausgeschlossen:'weg',aktiv:'offen'}[next];
-      const ack=await tripCall('unterkunft_durchsehen_urteil',{treffer_id:item.t.treffer_id,urteil,gruende:restoring?item.reasons:[]});
-      if(ack.ok!==true||ack.treffer_id!==item.t.treffer_id||ack.status!==next||ack.urteil!==urteil)throw Error('Änderung nicht eindeutig bestätigt.');
-      item.t.status=next;item.t.urteil_gruende=restoring?item.reasons:[];done.push(item);selected.delete(item.t.treffer_id);
-    }if(restoring)selecting=false;status.textContent=restoring?`${done.length} Entscheidungen zurückgenommen.`:`${done.length} Unterkünfte auf „${labels[target]}“ gesetzt.`;
-    }catch(e){uncertain=true;status.textContent=`${done.length} Änderungen bestätigt. ${e.message} Bitte Etappe aktualisieren; keine automatische Wiederholung.`;}
+    try{
+      if(restoring){
+        const ack=await tripCall('unterkunft_urteile_zuruecksetzen',undoData);
+        if(ack.ok!==true||ack.zurueckgesetzt!==items.length)throw Error('Rücknahme nicht eindeutig bestätigt.');
+        for(const item of items){const previous=undoData.eintraege.find(e=>e.treffer_id===item.t.treffer_id);item.t.status={favorit:'favorit',vielleicht:'vielleicht',weg:'ausgeschlossen',offen:'aktiv'}[previous.urteil];item.t.urteil_gruende=previous.gruende||[];item.t.eigener_rang=previous.eigener_rang;done.push(item);}
+        undoData=null;selecting=false;
+      }else{
+        const urteil={favorit:'favorit',vielleicht:'vielleicht',ausgeschlossen:'weg',aktiv:'offen'}[target];
+        const ack=await tripCall('unterkunft_urteile_sammeln',{treffer_ids:items.map(item=>item.t.treffer_id),urteil,gruende:[]});
+        const restore=ack.rueckgaengig;
+        if(ack.ok!==true||ack.geaendert!==items.length||ack.urteil!==urteil||restore?.aktion!=='unterkunft_urteile_zuruecksetzen'||!Array.isArray(restore.daten?.eintraege)||restore.daten.eintraege.length!==items.length||!Array.isArray(restore.daten.rueckmeldung_ids)||items.some(item=>!restore.daten.eintraege.some(e=>e.treffer_id===item.t.treffer_id&&['favorit','vielleicht','weg','offen'].includes(e.urteil))))throw Error('Änderung nicht eindeutig bestätigt.');
+        undoData=restore.daten;
+        for(const item of items){item.t.status=target;item.t.urteil_gruende=[];done.push(item);selected.delete(item.t.treffer_id);}
+      }
+      status.textContent=restoring?`${done.length} Entscheidungen zurückgenommen.`:`${done.length} Unterkünfte auf „${labels[target]}“ gesetzt.`;
+    }catch(e){uncertain=true;status.textContent=`${e.message} Bitte Etappe aktualisieren; keine automatische Wiederholung.`;}
     finally{lastBatch=restoring?[]:done;pending=false;if(live()){scope.querySelectorAll('button,input').forEach(b=>b.disabled=false);draw();}}
   }
   function bulk(target){const items=rows().filter(t=>selected.has(t.treffer_id)).map(t=>({t,previous:t.status,reasons:[...(t.urteil_gruende||[])]}));if(!items.length)return;

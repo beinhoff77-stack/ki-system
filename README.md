@@ -173,3 +173,11 @@ Gründe öffnen sich nach einem Urteil nur auf „Gründe ergänzen“ in einem 
 Prüfung: automatisierte Browser-Bedienprobe mit synthetischen Unterkünften; Screenshots vor/nach Änderung, Breiten 320/375/390/430 und Desktop1440. Prüfungen auf unveränderte Kartenposition nach Urteil, sichtbare mindestens44px-Entscheidungsknöpfe, Gründe-Entwurf/Speichern, Fotopersistenz, vertikale Touch-Geste ohne Urteil und Fokus-Rückkehr aus Details. Der separate interaktive Cloud-Browser konnte den lokalen Prüfserver nicht erreichen; die Live-App war dort nicht angemeldet. Deshalb keine Behauptung eines angemeldeten Live-Anwendertests. Version0.18.1/Cachev29 zur Gegenprüfung; Veröffentlichung separat.
 
 Validierung: vollständige Suite 90 bestanden / 0 Fehler / 1 optionaler Kyoto-Test ohne Fixture übersprungen (91 insgesamt), Chromium153. Abschließende Layout-Bedienprobe nach Desktop-Höhenbegrenzung ebenfalls bestanden.
+
+### 0.18.2 · Stufe 1 App (Wunsch 78, Nachricht 283)
+
+Optionale Details und der Vierteleinstieg zeigen kein wörtliches `null` mehr. Passung wird als x/100 bezeichnet; Favorit / Na ja / Weg sowie Passende Treffer / Angaben offen werden vereinheitlicht. Die geeichte Gästenote bleibt kompakt, die Erklärung und Originalnoten stehen in den Details. Gehzeiten nennen die Station. Ansichtswechsel springen nach oben, die Version bleibt in Einstellungen statt im Kopfbereich. Der Viertelknopf, Endrunden-Pfeile und die Desktop-Seitenmarke bleiben lesbar; auf schmalen Displays stehen die Endrunden-Pfeile unter dem vollständigen Namen.
+
+Aufbauend auf dem noch ungemergten PR11; kein neuer Grafikumbau. Etappenverwaltung, Zuordnung und Papierkorb folgen gemäß Nachricht 283 erst in Stufe 2. Version 0.18.2 / Cache v30; kein Merge oder Deploy.
+
+Validierung: vollständige Chromium-Browsersuite mit synthetischen API-Antworten, einschließlich neuer Regression bei 320px (Viertelknopf, lange Favoritennamen, mindestens 44px große Pfeile), Ansichtswechsel und Desktop-Seitenmarke. Ein optionaler Kyoto-Echtdaten-Test benötigt eine separate Fixture; keine echten API-Schreibaktionen. Abschließendes Ergebnis: 91 bestanden, 0 Fehler, 1 optionaler Kyoto-Test ohne Fixture übersprungen (92 insgesamt).

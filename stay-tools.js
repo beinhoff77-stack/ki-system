@@ -29,20 +29,20 @@ function sucheAuswahl(t, states, call, live, changed) {
       if (!live()) return;
       if (r.ok !== true || r.status !== next || r.urteil !== urteil || r.treffer_id !== t.treffer_id) throw new Error('Die Änderung wurde nicht eindeutig bestätigt.');
       state.saved = next; state.undo = isUndo ? null : previous;
-      state.message = next === 'favorit' ? 'Gemerkt.' : next === 'ausgeschlossen' ? 'Von dir ausgeschlossen.' : 'Wieder aktiv.';
+      state.message = next === 'favorit' ? 'Als Favorit gespeichert.' : next === 'ausgeschlossen' ? 'Von dir als „Weg“ markiert.' : 'Wieder aktiv.';
       t.status = next; if(next==='aktiv')t.urteil_uebernommen=null;
     } catch (e) { if (live()) { state.refreshRequired = true; state.message = 'Speichern nicht bestätigt: ' + e.message + ' Bitte zuerst aktualisieren.'; } }
     finally { state.pending = false; state.revision++; if (live()) changed(t, state); }
   }
   function update() {
     const blocked = t.topf === 'ausgeschlossen';
-    favorite.textContent = state.saved === 'favorit' ? '★ Gemerkt' : '☆ Merken';
+    favorite.textContent = state.saved === 'favorit' ? '★ Favorit' : '☆ Favorit';
     favorite.setAttribute('aria-pressed', String(state.saved === 'favorit'));
     favorite.disabled = state.pending || state.refreshRequired || state.saved === 'ausgeschlossen' || blocked;
-    exclude.textContent = state.saved === 'ausgeschlossen' ? 'Wiederherstellen' : 'Ausschließen';
+    exclude.textContent = state.saved === 'ausgeschlossen' ? 'Wiederherstellen' : 'Weg';
     exclude.hidden = blocked && state.saved !== 'ausgeschlossen'; exclude.disabled = state.pending || state.refreshRequired;
     undo.hidden = !state.undo; undo.disabled = state.pending || state.refreshRequired;
-    status.textContent = state.message || (blocked ? 'Von der Suche ausgeschlossen: ' + (t.ko_grund || 'Prüfkriterien nicht erfüllt.') : state.saved === 'ausgeschlossen' ? 'Von dir ausgeschlossen.' : state.saved === 'favorit' ? 'Gemerkt – unabhängig von deiner Bewertung.' : '');
+    status.textContent = state.message || (blocked ? 'Von der Suche ausgeschlossen: ' + (t.ko_grund || 'Prüfkriterien nicht erfüllt.') : state.saved === 'ausgeschlossen' ? 'Von dir als „Weg“ markiert.' : state.saved === 'favorit' ? 'Favorit – unabhängig von der Systembewertung.' : '');
   }
   state.render = update;
   state.undoAction = () => save(state.undo, true);
@@ -135,17 +135,17 @@ function sucheFilterPanel(onChange) {
   const type = select('typ', 'Unterkunftsform', [['', 'Alle Formen']]);
   const panel = el('details', { class: 'card stay-filters' }, el('summary', {}, 'Weitere Filter'),
     el('div', { class: 'stay-filter-grid' },
-      select('gruppe', 'Ergebnisliste', [['', 'Alle Listen'], ['A', 'Liste A'], ['B', 'Liste B'], ['offen', 'Noch nicht vollständig bewertet'], ['ausgeschlossen', 'Ausgeschlossen']]), type,
+      select('gruppe', 'Ergebnisliste', [['', 'Alle Listen'], ['A', 'Passende Treffer'], ['B', 'Angaben offen'], ['offen', 'Noch nicht vollständig bewertet'], ['ausgeschlossen', 'Ausgeschlossen']]), type,
       select('urteil', 'Meine Entscheidung', [['','Alle Entscheidungen'],['aktiv','Noch offen'],['favorit','Favorit'],['vielleicht','Na ja'],['ausgeschlossen','Weg']]),
       numeric('schlafzimmer', 'Schlafzimmer mindestens', null), numeric('m2', 'Fläche mindestens (m²)', null),
       el('label', {}, 'Bettentyp enthält', inputs.betten = el('input', {type:'search', 'aria-label':'Bettentyp enthält', oninput:onChange})),
       select('warnungen', 'Warnungen', [['','Alle'],['mit','Mit Warnungen'],['ohne','Ohne gemeldete Warnungen']]),
       numeric('preis', 'Gesamtpreis höchstens (€)', null, '0.01'), numeric('gehzeit', 'Gehzeit zur Station höchstens (Min.)', null, '0.1'),
       numeric('note', 'Gästenote mindestens (von 10)', 10, '0.1'), numeric('bewertungen', 'Bewertungen mindestens', null),
-      numeric('score', 'Score mindestens (%)', 100), numeric('datenlage', 'Datenlage mindestens (%)', 100),
+      numeric('score', 'Passung mindestens (0–100)', 100), numeric('datenlage', 'Datenlage mindestens (%)', 100),
       select('sterne', 'Hotelsterne mindestens', [['', 'Egal'], ['3', '3 Sterne'], ['4', '4 Sterne'], ['5', '5 Sterne']])),
     el('p', { class: 'small muted' }, 'Gästenoten sind auf Booking-Niveau geeicht. Sterne gelten nur für Hotels, Aparthotels und Ryokans.'),
-    el('label', { class: 'check-label' }, favorite, 'Nur Gemerkte'), el('label', { class: 'check-label' }, unknown, 'Unbekannte Angaben mit anzeigen'),
+    el('label', { class: 'check-label' }, favorite, 'Nur Favoriten'), el('label', { class: 'check-label' }, unknown, 'Unbekannte Angaben mit anzeigen'),
     el('button', { type: 'button', onclick: () => { restore({ unbekannt: true }); onChange(); } }, 'Weitere Filter zurücksetzen'));
   let knownTypes = '';
   function setTypes(rows) {
@@ -224,7 +224,7 @@ function sucheKarte(container, onSelect, renderSelected) {
         marker.bindPopup(el('div', { class: 'stay-map-popup' }, el('strong', {}, t.name || 'Unterkunft'),
         el('p', {}, (t.angebot?.preis_art === 'geschaetzt' ? 'ca. ' : '') + sucheEuro(t.angebot?.preis_gesamt_eur)),
         sucheAngebotsstand(t),
-        el('p', {}, group === 'A' ? 'Liste A' + (rank !== null ? ' · Rang ' + rank : '') : group === 'B' ? 'Liste B – Angaben prüfen' : 'Noch nicht vollständig bewertet'),
+        el('p', {}, group === 'A' ? 'Passende Treffer' + (rank !== null ? ' · Rang ' + rank : '') : group === 'B' ? 'Angaben offen' : 'Noch nicht vollständig bewertet'),
           el('button', { type: 'button', onclick: () => choose(t) }, 'Unterkunft unten ansehen'),
           nearby.length ? el('details',{},el('summary',{},nearby.length+' weitere Unterkünfte an dieser Stelle'),nearby.map(other=>el('button',{type:'button',onclick:()=>choose(other)},(other.bewertung?.rang != null ? 'Rang '+other.bewertung.rang+' · ':'')+other.name))) : null)).addTo(layer);
     }

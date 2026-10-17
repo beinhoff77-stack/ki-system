@@ -25,9 +25,9 @@ function sucheAnbieterLink(t) {
   return { url: original, label: 'Bei ' + (t.angebot?.anbieter || SUCHE_QUELLEN[t.quelle] || 'Anbieter') + ' ansehen ↗', overview: false };
 }
 const STAY_FIELDS = {
-  preis: 'Preis gesamt', nacht: 'Preis/Nacht', gaestenote: 'Note', bewertungen: 'Bewertungen',
+  preis: 'Preis gesamt', nacht: 'Preis/Nacht', gaestenote: 'Gäste (geeicht)', bewertungen: 'Bewertungen',
   m2: 'Zimmergröße m²', schlafzimmer: 'Schlafzimmer', betten: 'Betten/Schlafplätze', balkon: 'Balkon',
-  raucher: 'Raucher', storno: 'Storno', gehzeit: 'Gehzeit zum Ziel', viertel: 'Viertel', anbieter: 'Quelle', datenlage: 'Datenlage'
+  raucher: 'Raucher', storno: 'Storno', gehzeit: 'Gehzeit zur Station', viertel: 'Viertel', anbieter: 'Quelle', datenlage: 'Datenlage'
 };
 const STAY_DEFAULT_FIELDS = ['preis','gaestenote','m2','schlafzimmer','gehzeit','storno'];
 function stayRead(key, fallback) { try { return JSON.parse(localStorage.getItem(key)) ?? fallback; } catch { return fallback; } }
@@ -45,7 +45,7 @@ function viewAnzeige() {
   function save() { stayFieldsMemory=[...fields]; status.textContent=stayWrite('ks_anzeige',fields) ? 'Auf diesem Gerät gespeichert.' : 'Gerätespeicher nicht verfügbar. Auswahl gilt bis zum Neuladen.'; draw(); }
   function move(i,j) {fields=stayMove(fields,i,j);save();}
   function draw() {
-    box.replaceChildren(el('h2',{},'Anzeige'),el('p',{},'Höchstens 6 Infos für Liste, Tabelle und Tinder. Name, Foto, Rang und Merken bleiben immer sichtbar.'),
+    box.replaceChildren(el('h2',{},'Anzeige'),el('p',{},'Höchstens 6 Infos für Liste, Tabelle und Tinder. Name, Foto, Rang und Favorit bleiben immer sichtbar.'),
       el('p',{},fields.length+' / 6 ausgewählt'),el('ol',{class:'display-order'},fields.map((key,i)=>el('li',{draggable:'true','data-field':key,
         ondragstart:e=>{drag=i;e.dataTransfer.setData('text/plain',key);},ondragover:e=>e.preventDefault(),ondrop:e=>{e.preventDefault();if(drag!==null)move(drag,i);drag=null;},ondragend:()=>{drag=null;}},
         STAY_FIELDS[key],el('button',{type:'button',disabled:i===0,'aria-label':STAY_FIELDS[key]+' nach oben',onclick:()=>move(i,i-1)},'↑'),
@@ -84,7 +84,7 @@ function stayField(t,key,trip) {
   else if(key==='gaestenote') box.append(Number(value).toLocaleString('de-DE',{maximumFractionDigits:2})+' / 10');
   else if(key==='gehzeit') box.append(sucheWegText(t));
   else box.append((key==='m2'?Number(value).toLocaleString('de-DE'):String(value))+(key==='m2'?' m²':key==='datenlage'?' %':''));
-  if(key==='gaestenote' && sucheZahl(t.note)!==null) box.append(el('small',{},`${t.note} / ${t.note_skala ?? '?'} bei ${SUCHE_QUELLEN[t.quelle] || t.quelle || 'Quelle'}`),el('small',{}, value===null?'Eichung nicht verfügbar.':'Auf Booking-Niveau geeicht; Airbnb-Noten liegen allgemein höher.'));
+  if(key==='gaestenote') box.append(el('small',{}, value===null?'Eichung nicht verfügbar.':'geeicht'));
   if(key==='gehzeit' && value!==null) box.append(el('small',{},t.station_name?'Zur Station '+t.station_name:'Ziel nicht benannt'),el('small',{},t.gehzeit_art==='geschaetzt'?'geschätzt':['route','ors'].includes(t.gehzeit_art)?'berechneter Fußweg':'Art unbekannt'));
   return box;
 }
@@ -131,7 +131,7 @@ function stayEndrunde(hits,id,call,live,onSaved) {
   const close=el('button',{type:'button',onclick:()=>dialog.close()},'Endrunde schließen');
   dialog.addEventListener('cancel',e=>{if(pending)e.preventDefault();});
   function list() {candidate=null;save.disabled=order.length===0;body.replaceChildren(el('p',{},'Ziehe deine Favoriten in die gewünschte Reihenfolge oder nutze die Pfeile.'),el('ol',{},order.map((t,i)=>el('li',{'data-final-hit':t.treffer_id,draggable:'true',ondragstart:e=>{drag=i;e.dataTransfer.setData('text/plain',String(t.treffer_id));},ondragover:e=>e.preventDefault(),ondrop:e=>{e.preventDefault();if(drag!==null){order=stayMove(order,drag,i);list();}drag=null;},ondragend:()=>drag=null},
-    `${i+1}. ${t.name}`,el('button',{type:'button',disabled:i===0,'aria-label':t.name+' nach oben',onclick:()=>{order=stayMove(order,i,i-1);list();}},'↑'),el('button',{type:'button',disabled:i===order.length-1,'aria-label':t.name+' nach unten',onclick:()=>{order=stayMove(order,i,i+1);list();}},'↓')))),
+    el('span',{class:'final-name'},`${i+1}. ${t.name}`),el('button',{type:'button',disabled:i===0,'aria-label':t.name+' nach oben',onclick:()=>{order=stayMove(order,i,i-1);list();}},'↑'),el('button',{type:'button',disabled:i===order.length-1,'aria-label':t.name+' nach unten',onclick:()=>{order=stayMove(order,i,i+1);list();}},'↓')))),
     el('button',{type:'button',disabled:order.length<2,onclick:()=>{queue=[...order];ranked=[queue.shift()];advance();}},'Paarvergleich starten')); }
   function advance(){candidate=queue.shift();low=0;high=ranked.length;position=Math.floor((low+high)/2);if(!candidate){order=[...ranked];list();status.textContent='Paarvergleich abgeschlossen. Bitte Rangfolge speichern.';}else pair();}
   function pair(){save.disabled=true;const other=ranked[position];body.replaceChildren(el('h3',{},'A oder B?'),el('p',{},'Welche Unterkunft gefällt dir besser?'),el('div',{class:'pair-options'},[candidate,other].map(t=>el('section',{},stayGallery(t),el('h4',{},t.name),stayInfo(t),el('button',{type:'button',onclick:()=>{
@@ -184,7 +184,7 @@ function stayReview({getSnapshot,call,live,changed,scope,onRefresh,isBlocked=()=
     if(galleryId!==t.treffer_id){galleryId=t.treffer_id;gallery=stayGallery(t);}
     const article=el('article',{class:'review-card','data-review-hit':t.treffer_id});
     const content=el('div',{class:'review-content',tabindex:0,'aria-label':'Unterkunft ansehen'},gallery,t.urteil_uebernommen?.hinweis?el('p',{class:'warning'},'Jetzt günstiger · '+t.urteil_uebernommen.hinweis):null);
-    const swipe=el('div',{class:'review-swipe'},el('h3',{tabindex:-1},t.name),el('p',{class:'review-score'},`Rang ${t.bewertung?.rang??'–'} · ${snapshot.suchauftrag.status==='fertig'&&['A','B'].includes(sucheGruppe(t))?'Endscore':'Vorläufiger Score'} ${t.bewertung?.score??'–'} %`),stayReviewInfo(t,snapshot.suchauftrag));
+    const swipe=el('div',{class:'review-swipe'},el('h3',{tabindex:-1},t.name),el('p',{class:'review-score'},`Rang ${t.bewertung?.rang??'–'} · ${snapshot.suchauftrag.status==='fertig'&&['A','B'].includes(sucheGruppe(t))?'Passung':'Vorläufige Passung'} ${t.bewertung?.score??'–'}/100`),stayReviewInfo(t,snapshot.suchauftrag));
     let point=null;
     swipe.addEventListener('pointerdown',e=>{if(e.button!==0 || e.target.closest('button,a'))return;point={x:e.clientX,y:e.clientY};try{swipe.setPointerCapture?.(e.pointerId);}catch{/* Synthetic events may lack an active pointer. */}});
     swipe.addEventListener('pointercancel',()=>point=null);
@@ -204,7 +204,7 @@ function stayConfigureTable(wrapper,items,sort,onSort,trip,select) {
   const heading=(key,label)=>el('th',{scope:'col','aria-sort':sort.key===key?sort.direction===1?'ascending':'descending':'none'},el('button',{type:'button','data-sort':key,onclick:()=>onSort(key)},label));
   head.replaceChildren(heading('name','Unterkunft'),...fields.map(key=>heading(key,STAY_FIELDS[key])),el('th',{scope:'col'},'Details'));
   for(const t of items){const row=wrapper.querySelector(`tr[data-hit="${t.treffer_id}"]`), identity=row.cells[0], detail=row.lastElementChild;
-    const scoreBox=el('div',{class:'small hit-score'},(trip.status==='fertig' && ['A','B'].includes(sucheGruppe(t))?'Endscore: ':'Vorläufiger Score: ')+(sucheZahl(t.bewertung?.score)??'–')+' %');identity.append(scoreBox);
+    const scoreBox=el('div',{class:'small hit-score'},(trip.status==='fertig' && ['A','B'].includes(sucheGruppe(t))?'Passung: ':'Vorläufige Passung: ')+(sucheZahl(t.bewertung?.score)??'–')+'/100');identity.append(scoreBox);
     if(t.eigener_rang)identity.append(el('p',{class:'small'},'Dein Rang '+t.eigener_rang));
     if(t.urteil_uebernommen)identity.append(el('p',{class:'small'},'aus früherer Suche'));
     if(t.status==='vielleicht')identity.append(el('p',{class:'small'},'Na ja'));

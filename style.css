@@ -847,3 +847,20 @@ body:has(.tinder-mode) {padding-bottom:76px;}
 @media(min-width:800px){
  .tinder-mode{height:min(680px,calc(100dvh - 100px));}
 }
+
+/* W78: stable controls at narrow widths; preserve the current visual design. */
+.district-city-form button {flex:0 0 auto;white-space:nowrap;min-height:44px;}
+@media(max-width:599px){.district-city-form button{flex:1 0 100%;}}
+.endrunde li {display:grid;grid-template-columns:minmax(0,1fr) 44px 44px;flex-wrap:nowrap;gap:8px;}
+.endrunde .final-name {min-width:0;overflow-wrap:anywhere;}
+.endrunde li button {width:44px;min-height:44px;padding:6px;}
+.endrunde ol {padding:0;list-style:none;}
+@media(max-width:420px){
+ .endrunde .final-name {grid-column:1 / -1;}
+ .endrunde li button:first-of-type {grid-column:2;}
+}
+@media(min-width:960px){
+ body[data-area="unterkunft"] .brand {font-size:18px;letter-spacing:-.03em;gap:8px;padding-inline:0;}
+ body[data-area="unterkunft"] .brand-mark {flex-shrink:0;width:32px;height:32px;}
+ #area-brand {white-space:nowrap;}
+}

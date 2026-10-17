@@ -33,7 +33,7 @@ function sucheLuecken(id, call, live) {
   }
   const hint = el('textarea', { rows: 2, maxlength: 1000, 'aria-label': 'Hinweis für die Nachrecherche', placeholder: 'Optionaler Hinweis, maximal 1000 Zeichen' });
   const panel = el('details', { class: 'research-panel' }, el('summary', {}, 'Offene Angaben nachrecherchieren'),
-    el('p', {}, 'Wähle bis zu 30 Treffer mit offenen Angaben in Liste B. Die Auswahl bleibt beim Filtern und Blättern erhalten.'),
+    el('p', {}, 'Wähle bis zu 30 Treffer unter „Angaben offen“. Die Auswahl bleibt beim Filtern und Blättern erhalten.'),
     selectionText, selectedNames, options, hint, el('div', { class: 'actions' }, submit, clear, refresh), notice, handoff,
     el('p', { class: 'small muted' }, 'Status aus den letzten 50 Recherche-Aufträgen. Der Auftrag ergänzt Angaben; er ändert keine Suchkriterien.'));
   const chosenFields = () => [...fields].filter(([, input]) => input.checked).map(([key]) => key);

@@ -26,7 +26,7 @@ function sucheViertelForm(form, call, live, changed = () => {}) {
   const list = el('div', { class: 'district-form-choices' });
   const reload = el('button', { type: 'button', onclick: () => load() }, 'Viertel für Zielort laden');
   const node = el('div', { class: 'district-form' }, el('label', {}, 'Viertelauswahl', mode), reload, notice, list,
-    el('p', { class: 'small muted' }, 'Die Auswahl gilt nur für diesen Zielort. Bei einem Ortswechsel wird sie geleert. Ohne bekannte Zuordnung bleiben Pflicht-Treffer in Liste B zur Prüfung.'));
+    el('p', { class: 'small muted' }, 'Die Auswahl gilt nur für diesen Zielort. Bei einem Ortswechsel wird sie geleert. Ohne bekannte Zuordnung bleiben Pflicht-Treffer unter „Angaben offen“ zur Prüfung.'));
   function paint() {
     list.replaceChildren(...rows.map(z => {
       const input = el('input', { type: 'checkbox', 'aria-label': 'Suchviertel: ' + z.name, onchange: () => {
@@ -179,7 +179,7 @@ async function viewViertel(arg) {
   const removed = el('details', { class: 'card district-removed', hidden: true });
   scope.append(el('div', { class: 'stay-page-heading' }, el('p', { class: 'eyebrow' }, 'DIE UMGEBUNG ZÄHLT'), el('h2', {}, 'Welches Viertel passt zu euch?'),
     el('p', {}, 'Ruhige Straßen, kurze Wege oder mitten im Leben. Entdecke die Umgebung eurer nächsten Unterkunft.')),
-    cityForm, run ? el('a', { href: '#/suche/' + run }, 'Zurück zu den Unterkünften') : null,
+    cityForm, ...[run ? el('a', { href: '#/suche/' + run }, 'Zurück zu den Unterkünften') : null].filter(Boolean),
     el('div', { class: 'actions' }, refresh, mapButton), notice, info, generatePanel, filterBox, selection, count, mapPanel, cards, removed);
   const query = run !== null ? { suchauftrag_id: run } : { stadt: (params.get('stadt') || '').trim() };
   const isRunning = () => data?.letzter_lauf && !['fertig','fehler'].includes(data.letzter_lauf.status);
@@ -225,7 +225,7 @@ async function viewViertel(arg) {
       el('p', {}, el('strong', {}, 'Mit Familie: '), z.familien_hinweis || 'Noch keine Angaben.'),
       el('ul', { class: 'district-highlights' }, sucheTexte(z.highlights).map(text => el('li', {}, text))),
       sucheBalken(z.noten, VIERTEL_NOTEN));
-    if (run) result.append(el('p', { class: 'district-stats' }, `${sucheZahl(z.suche?.treffer) ?? 'unbekannt'} Treffer · ${sucheZahl(z.suche?.liste_a) ?? 'unbekannt'} in Liste A · bester Rang: ${sucheZahl(z.suche?.bester_rang) ?? 'unbekannt'}`),
+    if (run) result.append(el('p', { class: 'district-stats' }, `${sucheZahl(z.suche?.treffer) ?? 'unbekannt'} Treffer · ${sucheZahl(z.suche?.liste_a) ?? 'unbekannt'} unter den passenden Treffern · bester Rang: ${sucheZahl(z.suche?.bester_rang) ?? 'unbekannt'}`),
       el('p', { class: 'small' }, 'Median je Nacht: ' + sucheEuro(z.suche?.preis_nacht_median_eur) + ' · aus diesem Suchlauf, kein aktuelles Buchungsangebot.'));
     const links = (Array.isArray(z.quellen) ? z.quellen : []).map(sucheLink).filter(Boolean);
     result.append(el('details', { class: 'district-sources' }, el('summary', {}, 'Quellen & Einordnung'),

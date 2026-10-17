@@ -171,7 +171,7 @@ function sucheKoordinaten(p) {
   return lat !== null && lon !== null && Math.abs(lat) <= 85.05112878 && Math.abs(lon) <= 180 ? [lat, lon] : null;
 }
 
-function sucheKarte(container, onSelect, renderSelected) {
+function sucheKarte(container, onSelect, renderSelected, options={}) {
   let map, layer, lastBoundsKey = '', destroyed = false;
   const heading = el('h2', {}, 'Unterkünfte auf der Karte');
   const message = el('p', { class: 'small', role: 'status' });
@@ -195,7 +195,7 @@ function sucheKarte(container, onSelect, renderSelected) {
   function update(rows, data = {}) {
     if (destroyed) return;
     currentRows = rows; currentData = data || {};
-    const active = rows.filter(t => sucheGruppe(t) !== 'ausgeschlossen');
+    const active = options.includeExcluded?rows:rows.filter(t => sucheGruppe(t) !== 'ausgeschlossen');
     const valid = active.filter(t => sucheKoordinaten(t));
       picker.replaceChildren(el('option',{value:''},'Unterkunft auswählen …'),...valid.map(t=>el('option',{value:t.treffer_id},(sucheGruppe(t)==='A'?'Rang '+(t.bewertung?.rang ?? '?'):'Liste '+sucheGruppe(t))+' · '+t.name)));
       const previouslySelected = valid.find(t=>t.treffer_id === selectedId);

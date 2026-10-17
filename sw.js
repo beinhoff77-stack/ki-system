@@ -1,7 +1,7 @@
 // Service Worker: hält nur die App-Hülle vor (Dateien dieser Seite). Daten kommen immer live von app-api.
 const CACHE_PREFIX = 'ki-system:' + self.registration.scope + ':';
-const CACHE = CACHE_PREFIX + 'v31';
-const HUELLE = ['./', './index.html', './stay-trips.js?v=0.19.0', './stay-review.js?v=0.19.0', './app.js?v=0.19.0', './stay-tools.js?v=0.19.0', './stay-research.js?v=0.19.0', './stay-form.js?v=0.19.0', './stay-details.js?v=0.19.0', './stay-districts.js?v=0.19.0', './vendor/leaflet-1.9.4/leaflet.js', './vendor/leaflet-1.9.4/leaflet.css', './style.css?v=0.19.0', './manifest.webmanifest', './icon.svg', './icon-180.png', './icon-512.png'];
+const CACHE = CACHE_PREFIX + 'v32';
+const HUELLE = ['./', './index.html', './stay-compare.js?v=0.20.0', './stay-refresh.js?v=0.20.0', './stay-workplace.js?v=0.20.0', './stay-notifications.js?v=0.20.0', './stay-trips.js?v=0.20.0', './stay-review.js?v=0.20.0', './app.js?v=0.20.0', './stay-tools.js?v=0.20.0', './stay-research.js?v=0.20.0', './stay-form.js?v=0.20.0', './stay-details.js?v=0.20.0', './stay-districts.js?v=0.20.0', './vendor/leaflet-1.9.4/leaflet.js', './vendor/leaflet-1.9.4/leaflet.css', './style.css?v=0.20.0', './manifest.webmanifest', './icon.svg', './icon-180.png', './icon-512.png'];
 const HUELLE_URLS = new Set(HUELLE.map(path => new URL(path, self.registration.scope).href));
 
 self.addEventListener('install', (e) => {
@@ -21,7 +21,30 @@ self.addEventListener('fetch', (e) => {
       return r;
     }).catch(async () => {
       const cache = await caches.open(CACHE);
-      return await cache.match(e.request) || (e.request.mode === 'navigate' ? await cache.match(new URL('./index.html', self.registration.scope).href) : null) || Response.error();
+      return await cache.match(e.request) || (e.request.mode === 'navigate' ? await cache.match(new URL('./index.html', './stay-compare.js?v=0.20.0', './stay-refresh.js?v=0.20.0', './stay-workplace.js?v=0.20.0', './stay-notifications.js?v=0.20.0', self.registration.scope).href) : null) || Response.error();
     })
   );
+});
+
+function notificationTarget(value){
+  const base=new URL(self.registration.scope),fallback=new URL('#/meldungen',base).href;
+  try{const target=new URL(value||fallback,base);return target.origin===base.origin&&target.pathname.startsWith(base.pathname)?target.href:fallback;}catch{return fallback;}
+}
+self.addEventListener('push',event=>{
+  let payload={};try{payload=event.data?.json()||{};}catch{/* Always display a notification, including malformed pushes. */}
+  if(!payload||typeof payload!=='object')payload={};
+  event.waitUntil(self.registration.showNotification(typeof payload.titel==='string'?payload.titel:'KI-System',{
+    body:typeof payload.text==='string'?payload.text:'Neue Mitteilung im Posteingang.',
+    icon:new URL('icon-180.png',self.registration.scope).href,
+    data:{url:notificationTarget(payload.link||payload.url)}
+  }));
+});
+self.addEventListener('notificationclick',event=>{
+  event.notification.close();const url=notificationTarget(event.notification.data?.url);
+  event.waitUntil((async()=>{
+    const windows=await self.clients.matchAll({type:'window',includeUncontrolled:true});
+    const scope=new URL(self.registration.scope);
+    const existing=windows.find(c=>{try{const u=new URL(c.url);return u.origin===scope.origin&&u.pathname.startsWith(scope.pathname);}catch{return false;}});
+    if(existing){await existing.navigate(url);await existing.focus();}else await self.clients.openWindow(url);
+  })());
 });

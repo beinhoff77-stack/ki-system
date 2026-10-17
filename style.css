@@ -978,3 +978,19 @@ body:has(.tinder-mode) main.view{padding:8px 10px;}
 .review-menu-panel .result-view-switch{position:static;top:auto;margin:0;padding:0;}
 .review-menu-panel .result-view-switch{display:grid!important;grid-template-columns:1fr 1fr;gap:8px;}
 .review-menu-panel .result-view-switch a{grid-column:1 / -1;justify-content:center;}
+
+.notification-bell{position:relative;display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;text-decoration:none}.notification-bell .badge{position:absolute;top:0;right:0}.notification-item.unread{border-left:4px solid #17666a}.notification-text{white-space:pre-wrap;overflow-wrap:anywhere}
+
+.decision-place .stage-stay{display:block}.decision-place .stage-stay>img{width:100%;max-height:240px;object-fit:cover}.decision-table{width:100%;border-collapse:collapse}.decision-table td,.decision-table th{padding:10px;text-align:left;border-bottom:1px solid #ccd7d5;vertical-align:top}.decision-table img{width:48px;height:48px;object-fit:cover}.decision-place .table-scroll{overflow-x:auto}.decision-place .review-info{margin:12px 0}.decision-place.tinder-mode{padding-bottom:100px}
+
+.decision-stage-link{display:flex;flex-direction:column;padding:12px 0;border-bottom:1px solid #ccd7d5;text-decoration:none}.decision-stage-link span{font-size:.85rem}.run-diagnostics{font-size:.85rem}.stay-run-summary{padding:14px!important}.stay-page-heading .eyebrow{display:none}
+
+.decision-place .stage-stay .stay-photo{width:100%;height:180px}.decision-place .stage-stay .stay-photo img{width:100%;height:180px;object-fit:cover}.decision-table .stay-photo{width:48px;height:48px;min-width:48px}.decision-table .stay-photo figcaption{display:none}
+
+.decision-place>h2{font-size:24px;margin:12px 0 4px}.decision-place>p{margin:4px 0 12px}.decision-place [aria-label="Entscheidungsgruppen"]{display:flex;flex-wrap:nowrap;gap:6px}.decision-place [aria-label="Entscheidungsgruppen"] button{flex:1;padding:8px 4px;font-size:13px;white-space:nowrap}.decision-place [aria-label="Ansichten"]{gap:6px}.decision-place [aria-label="Ansichten"] button{flex:1;padding:8px;font-size:14px}.decision-place>label{display:flex;align-items:center;gap:10px;font-size:12px;margin:6px 0}.decision-place>label select{width:auto;flex:1;min-height:40px;padding:6px}.decision-place>.actions{margin:6px 0}.decision-place .stage-stay{padding:12px}.decision-place .stage-stay h3{margin:10px 0;font-size:18px}.notification-bell svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7}
+
+.decision-place.tinder-mode>:not(.decision-content):not(dialog){display:none}.decision-place.tinder-mode{padding-top:0}.decision-place .review-menu [aria-label="Entscheidungsgruppen"]{display:flex}
+
+.price-up{color:#b63e37}.price-down{color:#176343}.price-same{color:#465453}.refresh-price{font-variant-numeric:tabular-nums}
+
+.trip-dialog .table-scroll{overflow-x:auto;max-width:100%}.comparison-best{background:#dcece4}.trip-dialog:has(.decision-table){width:min(1000px,95vw)}

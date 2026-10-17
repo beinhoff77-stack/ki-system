@@ -204,8 +204,8 @@ function stayReview({getSnapshot,getGroup=()=>null,getRows=()=>getSnapshot()?.tr
     if(galleryId!==t.treffer_id){galleryId=t.treffer_id;gallery=stayGallery(t);}
     const article=el('article',{class:'review-card','data-review-hit':t.treffer_id});
     gallery.onPhotoChange=()=>{progress.textContent=`Unterkunft ${Math.max(1,total-queue.length+1)}/${total} · ${gallery.dataset.photo||'Kein Foto'}`;};gallery.onPhotoChange();
-    const content=el('div',{class:'review-content',tabindex:0,'aria-label':'Unterkunft ansehen'},gallery,t.urteil_uebernommen?.hinweis?el('p',{class:'warning'},'Jetzt günstiger · '+t.urteil_uebernommen.hinweis):null);
-    const swipe=el('div',{class:'review-swipe'},el('h3',{tabindex:-1},t.name),el('p',{class:'review-score'},`Rang ${t.bewertung?.rang??'–'} · ${snapshot.suchauftrag.status==='fertig'&&['A','B'].includes(sucheGruppe(t))?'Passung':'Vorläufige Passung'} ${t.bewertung?.score??'–'}/100`),stayReviewInfo(t,snapshot.suchauftrag));
+    const content=el('div',{class:'review-content',tabindex:0,'aria-label':'Unterkunft ansehen'},gallery,t.currentOfferUnavailable?el('p',{class:'warning'},'Für die aktuellen Tage nicht gefunden. Angaben und Preis sind nicht bestätigt.'):null,t.urteil_uebernommen?.hinweis?el('p',{class:'warning'},'Jetzt günstiger · '+t.urteil_uebernommen.hinweis):null);
+    const swipe=el('div',{class:'review-swipe'},refreshIsNew(t,snapshot.suchauftrag.id)?el('span',{class:'pill'},'NEU'):null,el('h3',{tabindex:-1},t.name),el('p',{class:'review-score'},`Rang ${t.bewertung?.rang??'–'} · ${snapshot.suchauftrag.status==='fertig'&&['A','B'].includes(sucheGruppe(t))?'Passung':'Vorläufige Passung'} ${t.bewertung?.score??'–'}/100`),stayReviewInfo(t,snapshot.suchauftrag));
     let point=null, swiped=false;
     swipe.addEventListener('pointerdown',e=>{if(point){point=null;return;}if(e.isPrimary===false || e.button!==0 || e.target.closest('button,a') || document.querySelector('dialog[open]'))return;point={id:e.pointerId,x:e.clientX,y:e.clientY};try{swipe.setPointerCapture?.(e.pointerId);}catch{/* Synthetic events may lack an active pointer. */}});
     swipe.addEventListener('pointercancel',()=>point=null);
@@ -227,6 +227,7 @@ function stayConfigureTable(wrapper,items,sort,onSort,trip,select) {
   const heading=(key,label)=>el('th',{scope:'col','aria-sort':sort.key===key?sort.direction===1?'ascending':'descending':'none'},el('button',{type:'button','data-sort':key,onclick:()=>onSort(key)},label));
   head.replaceChildren(heading('name','Unterkunft'),...fields.map(key=>heading(key,STAY_FIELDS[key])),el('th',{scope:'col'},'Details'));
   for(const t of items){const row=wrapper.querySelector(`tr[data-hit="${t.treffer_id}"]`), identity=row.cells[0], detail=row.lastElementChild;
+    if(refreshIsNew(t,trip.id))identity.append(el('span',{class:'pill'},'NEU'));
     const scoreBox=el('div',{class:'small hit-score'},(trip.status==='fertig' && ['A','B'].includes(sucheGruppe(t))?'Passung: ':'Vorläufige Passung: ')+(sucheZahl(t.bewertung?.score)??'–')+'/100');identity.append(scoreBox);
     if(t.eigener_rang)identity.append(el('p',{class:'small'},'Dein Rang '+t.eigener_rang));
     if(t.urteil_uebernommen)identity.append(el('p',{class:'small'},'aus früherer Suche'));

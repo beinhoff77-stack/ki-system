@@ -25,7 +25,7 @@ function sucheErweitertesFormular(form, call, live, ready, lock, profilePreset =
     el('div', { class: 'suche-grid' }, labeled('Mindestnote (von 10)', note), labeled('Ab dieser Anzahl Bewertungen', reviews)),
     el('p', { class: 'small muted' }, 'Ab dieser Bewertungsanzahl werden belegte Noten unter deiner Mindestnote aussortiert. Eigene Pflicht- und Wunschfilter unten gelten zusätzlich.'));
   const filtersPanel = el('details', { class: 'card stay-form-panel trip-criteria' }, el('summary', {}, 'Filter anpassen'),
-    el('p', { class: 'small' }, 'Pflicht: Nachweislich nicht erfüllt bedeutet Ausschluss. Unbekannte Angaben bleiben in Liste B. Wünsche beeinflussen die Bewertung. „Egal“ lässt das Kriterium außer Betracht.'));
+    el('p', { class: 'small' }, 'Pflicht: Nachweislich nicht erfüllt bedeutet Ausschluss. Unbekannte Angaben bleiben unter „Angaben offen“. Wünsche beeinflussen die Bewertung. „Egal“ lässt das Kriterium außer Betracht.'));
   const profileSelect = select('Suchprofil verwenden', [['','Ohne Profil / Standardwerte']]);
   const profileName = el('input', { type: 'text', maxlength: 60, 'aria-label': 'Name des Suchprofils', placeholder: 'z. B. Familienreise' });
   const notice = el('p', { class: 'small', role: 'status' });

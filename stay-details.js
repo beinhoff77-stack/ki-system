@@ -56,13 +56,13 @@ function sucheKandidat(t, final, suchauftragId) {
   const dialog = el('dialog', { class: 'stay-candidate', 'aria-label': 'Unterkunft im Detail: ' + (t.name || 'Unterkunft') });
   dialog.append(el('div', { class: 'candidate-header' }, el('h2', {}, t.name || 'Unterkunft'),
     el('button', { type: 'button', onclick: () => dialog.close() }, 'Details schließen')),
-    stayGallery(t), sucheViertelLink(t.zone, suchauftragId), el('p', {}, 'Balkon: ' + sucheBalkon(t)), sucheAngebotsstand(t),
-    el('p', {}, (final ? 'Endscore' : 'Vorläufiger Score') + ': ' + (sucheZahl(b.score) ?? 'unbekannt') + ' · Datenlage: ' + (sucheDatenlage(t) ?? 'unbekannt') + ' %'),
+    stayGallery(t), ...[sucheViertelLink(t.zone, suchauftragId)].filter(Boolean), el('p', {}, 'Balkon: ' + sucheBalkon(t)), sucheAngebotsstand(t),
+    el('p', {}, (final ? 'Passung' : 'Vorläufige Passung') + ': ' + (sucheZahl(b.score) ?? 'unbekannt') + '/100 · Datenlage: ' + (sucheDatenlage(t) ?? 'unbekannt') + ' %'),
     sucheDetailTabelle('Teilnoten und Gewichtung', ['Kriterium', 'Note von 10', 'Gewicht (%)'], SUCHE_NOTEN.map(([key, label]) => [label, sucheZahl(b.spaltennoten?.[key]), sucheZahl(b.spaltennoten?.gewichte?.[key])])),
     el('h3', {}, 'Begründung'), el('p', {}, b.begruendung || 'Noch keine Begründung verfügbar.'),
     el('h3', {}, 'Gegenprüfung'), el('p', {}, review?.urteil === 'ok' ? 'Keine Einwände in der Gegenprüfung.' : review?.urteil === 'einwand' ? 'Gegenprüfung hat Einwände.' : 'Noch keine Gegenprüfung vorhanden.'),
     el('ul', {}, (Array.isArray(review?.einwaende) ? review.einwaende : []).map(v => el('li', {}, typeof v === 'string' ? v : renderAny(v)))),
-    review?.hinweis ? el('p', {}, review.hinweis) : null,
+    ...[review?.hinweis ? el('p', {}, review.hinweis) : null].filter(Boolean),
     el('p', {}, 'Offene Prüfpunkte: ' + (sucheTexte(b.gegenpruefung?.luecken).join(', ') || 'keine angegeben')),
     el('p', {}, 'Ausschlussgrund: ' + (t.ko_grund || (t.status === 'ausgeschlossen' ? 'von dir ausgeschlossen' : 'keiner angegeben'))),
     sucheKategorien(t), el('h3', {}, 'Alle Angebote nach Quelle'), el('p', { class: 'small' }, 'Zimmer und Bedingungen können abweichen. Angebote sind nicht automatisch gleichwertig.'),
@@ -77,35 +77,35 @@ function sucheKandidat(t, final, suchauftragId) {
     sucheDetailTabelle('Gästenoten nach Quelle', ['Quelle', 'Note', 'Skala', 'Bewertungen'], allOffers.map((offer, i) => [
       offer.anbieter || SUCHE_QUELLEN[offer.quelle || (i === 0 ? t.quelle : '')] || offer.quelle || 'unbekannt',
       sucheZahl(i === 0 ? t.note : offer.note), sucheZahl(i === 0 ? t.note_skala : offer.note_skala), sucheZahl(i === 0 ? t.bewertungen : offer.bewertungen)
-    ])), el('p', { class: 'small muted' }, 'Fehlende Noten anderer Quellen werden nicht aus der Hauptquelle übernommen.'),
+    ])), el('p', { class: 'small muted' }, 'Die angezeigte Gästenote ist auf Booking-Niveau geeicht. Die Tabelle zeigt die Originalnoten. Fehlende Noten anderer Quellen werden nicht aus der Hauptquelle übernommen.'),
     el('h3', {}, 'Bildbewertung'), el('p', {}, 'KI-Einschätzung der Bilder; kein Nachweis der Ausstattung.'),
     el('p', {}, b.bild_urteil?.ein_satz || 'Noch keine Bildbewertung vorhanden.'),
-    b.bild_urteil ? sucheBalken(b.bild_urteil, [['hell','Hell'],['modern','Modern'],['gepflegt','Gepflegt'],['geraeumig','Geräumig']]) : null);
+    ...[b.bild_urteil ? sucheBalken(b.bild_urteil, [['hell','Hell'],['modern','Modern'],['gepflegt','Gepflegt'],['geraeumig','Geräumig']]) : null].filter(Boolean));
   return dialog;
 }
 
 function sucheMerkliste(entries) {
   if (!Array.isArray(entries) || entries.some(t => !t || !viertelId(t.treffer_id) || !viertelId(t.suchauftrag_id))) throw new Error('Die Antwort ist unvollständig. Bitte erneut lesen.');
   const view = el('div', { class: 'saved-trips' }), groups = new Map();
-  if (!entries.length) return el('p', { class: 'stay-empty' }, 'Noch keine Unterkünfte gemerkt. Mit „Merken“ sammelst du deine Favoriten hier über alle Reisen.');
+  if (!entries.length) return el('p', { class: 'stay-empty' }, 'Noch keine Favoriten. Mit „Favorit“ sammelst du Unterkünfte hier über alle Reisen.');
   for (const t of entries) { if (!groups.has(t.suchauftrag_id)) groups.set(t.suchauftrag_id, []); groups.get(t.suchauftrag_id).push(t); }
   for (const [id, rows] of groups) {
     rows.sort((a,b)=>(a.eigener_rang??Infinity)-(b.eigener_rang??Infinity));
     const trip = rows[0];
     const section = el('section', { class: 'saved-trip', 'data-saved-trip': id },
-      el('h3', {}, trip.ziel || 'Reise #' + id), el('p', { class: 'small' }, `${fmtDate(trip.anreise)}–${fmtDate(trip.abreise)} · ${rows.length} gemerkt`));
+      el('h3', {}, trip.ziel || 'Reise #' + id), el('p', { class: 'small' }, `${fmtDate(trip.anreise)}–${fmtDate(trip.abreise)} · ${rows.length} Favoriten`));
     for (const t of rows) {
       const href = '#/suche/' + id + '?favoriten=1&treffer=' + t.treffer_id, offer = sucheLink(t.link);
       const name = t.name || 'Unterkunft ' + t.treffer_id;
       section.append(el('article', { class: 'saved-stay', 'data-saved-hit': t.treffer_id }, sucheFoto(t),
         el('div', {}, el('a', { href, class: 'saved-stay-name' }, name), t.eigener_rang ? el('p',{},'Dein Rang '+t.eigener_rang) : null,
           el('p', { class: 'small' }, (SUCHE_QUELLEN[t.quelle] || t.quelle || 'Quelle unbekannt') + ' · ' +
-            (t.topf === 'ausgeschlossen' ? 'Fachlich ausgeschlossen' : t.topf === 'unbewertet' ? 'Noch nicht vollständig bewertet' : ['A','B'].includes(t.liste) ? 'Liste ' + t.liste + (sucheZahl(t.rang) !== null ? ' · Rang ' + t.rang : '') : 'Bewertung unbekannt')),
+            (t.topf === 'ausgeschlossen' ? 'Fachlich ausgeschlossen' : t.topf === 'unbewertet' ? 'Noch nicht vollständig bewertet' : ['A','B'].includes(t.liste) ? (t.liste === 'A' ? 'Passende Treffer' : 'Angaben offen') + (sucheZahl(t.rang) !== null ? ' · Rang ' + t.rang : '') : 'Bewertung unbekannt')),
           el('p', {}, (t.preis_art === 'geschaetzt' ? 'ca. ' : '') + sucheEuro(t.preis_gesamt_eur) + (sucheZahl(t.preis_gesamt_eur) !== null ? ' gesamt' : '')),
           el('p', { class: 'small muted' }, 'Preisstand: ' + sucheAbruf(t.preis_abrufzeit) + '. Aktuelle Buchbarkeit beim Anbieter prüfen.'),
-          el('details', {}, el('summary', {}, 'Bewertung und Merkdatum'),
-            el('p', { class: 'small' }, 'Score: ' + (sucheZahl(t.score) ?? 'unbekannt') + ' · Gästenote: ' + (sucheZahl(t.note) ?? 'unbekannt') + ' / ' + (sucheZahl(t.note_skala) ?? '?') + ' · ' + (sucheZahl(t.bewertungen) ?? 'unbekannt') + ' Bewertungen'),
-            el('p', { class: 'small' }, 'Gemerkt: ' + sucheAbruf(t.gemerkt_am))),
+          el('details', {}, el('summary', {}, 'Bewertung und Favoritendatum'),
+            el('p', { class: 'small' }, 'Passung: ' + (sucheZahl(t.score) ?? 'unbekannt') + '/100' + ' · Gästenote: ' + (sucheZahl(t.note) ?? 'unbekannt') + ' / ' + (sucheZahl(t.note_skala) ?? '?') + ' · ' + (sucheZahl(t.bewertungen) ?? 'unbekannt') + ' Bewertungen'),
+            el('p', { class: 'small' }, 'Als Favorit gespeichert: ' + sucheAbruf(t.gemerkt_am))),
           el('div', { class: 'actions' }, el('a', { href }, 'Im Suchlauf zeigen'), offer ? el('a', { href: offer, target: '_blank', rel: 'noopener noreferrer' }, 'Angebot öffnen ↗') : null))));
     }
     view.append(section);

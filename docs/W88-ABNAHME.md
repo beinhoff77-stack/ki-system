@@ -6,9 +6,13 @@ Eigener PR nach PR14-Veröffentlichung, App 0.21.0 / Cache v33. Serververtrag au
 - Browser dekodiert das Original; Canvas erzeugt JPEG mit Qualität 0,82 und längster Seite höchstens 1600 Pixel. Grenze 3 MB nach Umwandlung. Bei nicht unterstütztem HEIC verständlicher Hinweis auf JPEG/PNG; kein universeller HEIC-Decoder behauptet.
 - Kurzlebige HTTPS-Bildlinks nur im Arbeitsspeicher. Kein LocalStorage/IndexedDB oder Service-Worker-Cache für Fotos. Bildfehler stößt höchstens eine automatische Neulesung an; manuelles Neulesen bleibt möglich.
 - Unklare Upload-/Löschantwort sperrt weitere Änderungen bis zum Neulesen. Keine automatische Wiederholung eines Uploads.
-- Vergangene Aufenthalte (Abreise vor lokalem heutigen Kalenderdatum) standardmäßig unter „Bisherige Aufenthalte (n)“ eingeklappt. Deren Fotos werden erst beim Öffnen gelesen. Aktuelle/künftige bleiben oben; vergangene Vorschläge wandern ebenfalls in den Verlauf.
+- Vergangene Aufenthalte (Abreise vor lokalem heutigen Kalenderdatum) standardmäßig unter „Bisherige Aufenthalte (n)“ eingeklappt. Eine gemeinsame Fotoabfrage mit reise_id verteilt die Bilder auf alle Aufenthalte, auch eingeklappte. Nach Upload/Löschen oder bei Bildfehler wird nur die betroffene Etappe neu gelesen. Aktuelle/künftige bleiben oben; vergangene Vorschläge wandern ebenfalls in den Verlauf.
 - Leerer EUR-Preis mit vorhandener Buchungsnotiz: „Preis siehe Notiz“, Notiz aufklappbar. Keine erfundenen Euro-Umrechnungen.
 
 Browserprüfungen mit synthetischen Daten: Verlauf, Notizpreis, Bildverkleinerung (2400×1200 → 1600×800 JPEG), Dreiergrenze, Großansicht, Abbruch/Bestätigung beim Löschen, abgelaufener Link, verlorene Uploadantwort und lesende Wiederaufnahme. Kein persönliches Foto hochgeladen oder gelöscht. iPhone-HEIC-Dekodierung ist vom Browser abhängig und noch nicht auf einem physischen Gerät geprüft.
 
 Screenshots: `previews/w88-fotos-mobile.png`, `previews/w88-vergangene-mobile.png` (synthetische Testbilder).
+
+## Nachprüfung 347/348
+
+Vergangene Aufenthalte zeigen keine Suche, externe Neubuchung, Suchvarianten oder Unterkunftsliste mehr; erhalten bleiben Buchung/Notiz/Fotos sowie Bearbeiten/Entfernen. Browsertests prüfen eine einzige Reiseabfrage, eindeutige Bildverteilung auf drei Etappen einschließlich Vergangenheit und gezieltes Neulesen nach Upload/Löschen.

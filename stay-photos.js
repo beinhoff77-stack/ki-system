@@ -11,7 +11,7 @@ async function tripPhotoPrepare(file){
   return {mime:'image/jpeg',daten_base64:data,breite:canvas.width,hoehe:canvas.height};
  }finally{URL.revokeObjectURL(source);}
 }
-function tripPhotos(etappeId,live,{lazy=false}={}){
+function tripPhotos(etappeId,live,{initialPhotos=null}={}){
  const node=el('section',{class:'stay-photos','aria-label':'Fotos zum Aufenthalt','data-stay-photos':etappeId}),list=el('div',{class:'stay-photo-strip'}),message=el('p',{class:'small',role:'status'});
  const input=el('input',{type:'file',accept:'image/*','aria-label':'Foto für Aufenthalt '+etappeId+' auswählen',class:'photo-file-input'});
  const add=el('button',{type:'button',onclick:()=>input.click()},'Foto hinzufügen'),reload=el('button',{type:'button',onclick:()=>load(true)},'Fotos neu laden');
@@ -25,8 +25,8 @@ function tripPhotos(etappeId,live,{lazy=false}={}){
  function draw(){list.replaceChildren(...photos.map(p=>el('figure',{},el('button',{type:'button','aria-label':'Foto groß öffnen',onclick:()=>show(p)},photoImage(p)),el('button',{type:'button',onclick:()=>remove(p)},'Foto löschen'))));controls();
   if(viewer){const p=photos.find(p=>p.foto_id===viewedId);if(p)viewer.body.replaceChildren(photoImage(p));else viewer.d.close();}
  }
- async function load(manual=false){if(pending||!active())return;pending=true;if(manual)refreshUsed=false;controls();message.textContent='Fotos werden geladen …';
-  try{const r=await tripCall('unterkunft_fotos_lesen',{etappe_id:etappeId});if(!active())return;if(!Array.isArray(r.fotos)||r.fotos.length>3||r.fotos.some(p=>!tripId(p.foto_id)||p.etappe_id!==etappeId||!url(p.url)))throw Error('Fotos nicht vollständig lesbar.');photos=r.fotos;loaded=true;uncertain=false;message.textContent=photos.length+' von 3 Fotos';draw();}
+ async function load(manual=false,initial=false){if(pending||!active())return;pending=true;if(manual)refreshUsed=false;controls();message.textContent='Fotos werden geladen …';
+  try{const r=initial&&initialPhotos?{fotos:(await initialPhotos).filter(p=>p.etappe_id===etappeId)}:await tripCall('unterkunft_fotos_lesen',{etappe_id:etappeId});if(!active())return;if(!Array.isArray(r.fotos)||r.fotos.length>3||r.fotos.some(p=>!tripId(p.foto_id)||p.etappe_id!==etappeId||!url(p.url)))throw Error('Fotos nicht vollständig lesbar.');photos=r.fotos;loaded=true;uncertain=false;message.textContent=photos.length+' von 3 Fotos';draw();}
   catch(e){if(active())message.textContent=e.message;}
   finally{pending=false;if(active())controls();}
  }
@@ -41,6 +41,6 @@ function tripPhotos(etappeId,live,{lazy=false}={}){
    finally{pending=false;close.disabled=false;cancel.disabled=false;if(active())controls();}
   }},'Endgültig löschen'),cancel=el('button',{type:'button',onclick:()=>d.close()},'Abbrechen');body.append(el('p',{},'Dieses Foto aus dem Aufenthalt entfernen?'),cancel,yes);d.addEventListener('cancel',e=>{if(pending)e.preventDefault();});}
  controls();
- queueMicrotask(()=>{if(!active())return;const details=node.closest('details');if(lazy&&details&&!details.open){details.addEventListener('toggle',()=>{if(details.open&&!loaded)void load();});}else void load();});
+ queueMicrotask(()=>{if(active())void load(false,true);});
  return node;
 }

@@ -40,3 +40,7 @@ Serverübergabe Nachricht 325 (app-api 0.14.1 / wecker 0.2.2) abgeglichen. Etapp
 ## Claude-Prüfung 330/331
 
 Offline-Navigationsfallback korrigiert und mit simuliertem Netzausfall gegen den echten Service-Worker-Handler geprüft. Preisrichtung ausschließlich aus dem Serverfeld `richtung`; Kosten-/Änderungsübersicht aus `zusammenfassung`. Toleranz (2775,16 → 2765,04 trotzdem unverändert) und gegenläufiger Wechselkurseffekt im Browsertest abgesichert. Vollständige interne Mitteilungs-URLs werden auf erlaubte App-Routen normalisiert, fremde URLs bleiben gesperrt. Nichtblockierender Folgepunkt: Rückgängig direkt im Durchsehen nutzt weiterhin den bisherigen Einzelendpunkt; vollständige Server-Rücknahme ist im Etappen-Arbeitsplatz vorhanden.
+
+## Wunsch 87: externe Buchungen
+
+An jeder Etappe/Vorschlag und im Etappen-Arbeitsplatz steht „Woanders gebucht“. In der ausgewählten Reise ermöglicht „Aufenthalt nachtragen“ auch vergangene Aufenthalte ohne Suchtreffer. Ort/Tage bei Neuanlage, Unterkunft, Anbieter, Gesamtpreis in EUR, HTTPS-Link, Stornotext, konkretes Stornodatum und Notiz. Bestehende Etappe/Tage oder Ersatz einer Buchung müssen ausdrücklich bestätigt werden. Keine automatischen Wiederholungen bei unklarer Schreibantwort. Browsertest prüft vergangenen Aufenthalt und bestehenden Vorschlag samt serverseitigen Schreibdaten.

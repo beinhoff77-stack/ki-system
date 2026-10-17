@@ -24,7 +24,7 @@ async function viewDecisionPlace(arg){
   const tabs=el('div',{class:'actions','aria-label':'Entscheidungsgruppen'});
   const modeButtons=el('div',{class:'actions','aria-label':'Ansichten'},...['list','table','tinder'].map(key=>button({list:'Liste',table:'Tabelle',tinder:'Durchsehen'}[key],()=>{if(pending||review?.pending)return;mode=key;draw();})));
   const sorting=el('select',{'aria-label':'Entscheidungen sortieren',onchange:e=>{sortKey=e.target.value;draw();}},...['rang','preis','name','m2','schlafzimmer'].map(k=>el('option',{value:k},{rang:'Empfohlene Rangfolge',preis:'Gesamtpreis',name:'Name',m2:'Fläche',schlafzimmer:'Schlafzimmer'}[k])));
-  scope.append(el('a',{href:'#/reisen/'+r.etappe.reise_id},'← Zur Reise'),el('h2',{},r.etappe.ziel),el('p',{},fmtDate(r.etappe.anreise)+'–'+fmtDate(r.etappe.abreise)),tabs,modeButtons,el('label',{},'Sortieren nach',sorting),toolbar,status,content,el('div',{class:'actions'},reload,button('Suche auffrischen',()=>tripRefresh(r.etappe)),button('Keiner passt',()=>{
+  scope.append(el('a',{href:'#/reisen/'+r.etappe.reise_id},'← Zur Reise'),el('h2',{},r.etappe.ziel),el('p',{},fmtDate(r.etappe.anreise)+'–'+fmtDate(r.etappe.abreise)),tabs,modeButtons,el('label',{},'Sortieren nach',sorting),toolbar,status,content,el('div',{class:'actions'},reload,button('Woanders gebucht',()=>tripExternalBooking(r.etappe,()=>render())),button('Suche auffrischen',()=>tripRefresh(r.etappe)),button('Keiner passt',()=>{
     const {body}=tripDialog('Andere Unterkunft finden');body.append(el('p',{},'Deine bisherigen Entscheidungen bleiben erhalten.'),button('Kriterien ändern und neu suchen',()=>tripStart(r.etappe)),button('Andere Tage als Variante suchen',()=>tripStart(r.etappe)));
   })));
   main.replaceChildren(scope);

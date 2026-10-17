@@ -2096,3 +2096,16 @@ test('Preispfeile respektieren Servertoleranz und getrennte Wechselkurse; Meldun
  });
  assert(result.same);assert(!result.falseDown);assert(result.down);assert(!result.up);assert.match(result.text,/Separater Währungseffekt/);assert.equal(result.internal,'#/werkstatt/86');assert.equal(result.external,'#/meldungen');
 });
+
+test('Woanders gebucht: vergangener Aufenthalt und bestehender Vorschlag ohne Suchtreffer',async t=>{
+ const data=stage2Data();const {page,calls}=await setup(t,p=>{
+  if(p.aktion==='unterkunft_etappen_lesen')return data;
+  if(p.aktion==='unterkunft_etappe_speichern')return {etappe:{...p.daten,id:p.daten.id||91,status:'gebucht'}};
+  return {};
+ });
+ await page.goto(origin+'/#/reisen/1');await page.getByRole('button',{name:'Aufenthalt nachtragen',exact:true}).click();let d=page.getByRole('dialog');
+ await d.getByLabel('Ort / Stadt',{exact:true}).fill('Taipei');await d.getByLabel('Anreise',{exact:true}).fill('2026-09-27');await d.getByLabel('Abreise',{exact:true}).fill('2026-09-29');await d.getByLabel('Unterkunft',{exact:true}).fill('Testhotel');await d.getByLabel('Anbieter',{exact:true}).fill('Direkt');await d.getByLabel('Gesamtpreis (€)',{exact:true}).fill('300');await d.getByRole('button',{name:'Aufenthalt speichern',exact:true}).click();await d.waitFor({state:'detached'});
+ let write=calls.filter(p=>p.aktion==='unterkunft_etappe_speichern').at(-1).daten;assert.equal(write.reise_id,1);assert.equal(write.anreise,'2026-09-27');assert.equal(write.buchung.anbieter,'Direkt');assert.equal(write.buchung.preis_gesamt_eur,300);assert(!('treffer_id' in write.buchung));assert(!('storno_kostenlos_bis' in write.buchung));
+ await page.locator('[data-stage="2"]').getByRole('button',{name:'Woanders gebucht',exact:true}).click();d=page.getByRole('dialog');await d.getByLabel('Unterkunft',{exact:true}).fill('Andere Wohnung');await d.getByLabel('Kostenlos stornierbar bis',{exact:true}).fill('2026-10-25');await d.getByRole('checkbox').check();await d.getByRole('button',{name:'Aufenthalt speichern',exact:true}).click();await d.waitFor({state:'detached'});
+ write=calls.filter(p=>p.aktion==='unterkunft_etappe_speichern').at(-1).daten;assert.equal(write.id,2);assert.equal(write.version,data.etappen.find(e=>e.id===2).version);assert.equal(write.status,'gebucht');assert.equal(write.buchung.storno_kostenlos_bis,'2026-10-25');assert(!('aktive_suche_id' in write));
+});

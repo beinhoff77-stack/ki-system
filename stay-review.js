@@ -109,6 +109,7 @@ function stayReviewInfo(t,trip) {
 }
 function stayCardPhoto(card, gallery) {
   card.querySelector(':scope > .review-backdrop')?.remove();
+  if(card.classList.contains('photo-first'))return;
   const source=gallery.querySelector('img');
   if(!source)return;
   const image=el('img',{class:'review-backdrop',alt:'','aria-hidden':'true',referrerpolicy:'no-referrer',src:source.src,onerror:()=>image.remove()});
@@ -118,18 +119,20 @@ function stayGallery(t) {
   const urls=[...new Set([...(Array.isArray(t.bilder)?t.bilder:[]),t.bild].map(v=>sucheLink(v)).filter(Boolean))].slice(0,10);
   const box=el('section',{class:'stay-gallery'+(!urls.length?' gallery-empty':''),'aria-label':'Fotogalerie'});
   if(!urls.length) {box.append(sucheFoto(t));return box;}
-  let index=0,start=null;
+  let index=0,start=null;const preloaded=new Set();
+  const dots=el('div',{class:'gallery-dots','aria-hidden':'true'},...urls.map(()=>el('span')));
+  function preload(url){if(!url||preloaded.has(url))return;preloaded.add(url);const img=new Image();img.referrerPolicy='no-referrer';img.src=url;}
   const photo=el('div'), count=el('span',{'aria-live':'polite'});
   const prev=el('button',{type:'button','aria-label':'Vorheriges Foto',onclick:()=>show(index-1)},'‹');
   const next=el('button',{type:'button','aria-label':'Nächstes Foto',onclick:()=>show(index+1)},'›');
-  function show(i) {index=Math.max(0,Math.min(urls.length-1,i));photo.replaceChildren(sucheFoto({...t,bild:urls[index]}));count.textContent=`${index+1} / ${urls.length}`;box.dataset.photo=`Foto ${index+1}/${urls.length}`;box.onPhotoChange?.();prev.disabled=index===0;next.disabled=index===urls.length-1;const card=box.closest('.review-card');if(card)stayCardPhoto(card,box);const img=photo.querySelector('img');if(img)img.addEventListener('error',()=>{box.classList.add('gallery-empty');card?.querySelector(':scope > .review-backdrop')?.remove();});box.classList.remove('gallery-empty');}
-  photo.addEventListener('pointerdown',e=>{start={x:e.clientX,y:e.clientY};});
-  photo.addEventListener('pointerup',e=>{if(start && Math.abs(e.clientX-start.x)>50 && Math.abs(e.clientY-start.y)<50)show(index+(e.clientX<start.x?1:-1));start=null;});
+  function show(i) {index=Math.max(0,Math.min(urls.length-1,i));photo.replaceChildren(sucheFoto({...t,bild:urls[index]}));count.textContent=`${index+1} / ${urls.length}`;box.dataset.photo=`Foto ${index+1}/${urls.length}`;dots.querySelectorAll('span').forEach((d,n)=>d.classList.toggle('active',n===index));preload(urls[index+1]);box.onPhotoChange?.();prev.disabled=index===0;next.disabled=index===urls.length-1;const card=box.closest('.review-card');if(card)stayCardPhoto(card,box);const img=photo.querySelector('img');if(img)img.loading='eager';if(img)img.addEventListener('error',()=>{box.classList.add('gallery-empty');card?.querySelector(':scope > .review-backdrop')?.remove();});box.classList.remove('gallery-empty');}
+  photo.addEventListener('pointerdown',e=>{if(start||e.isPrimary===false||e.button!==0){start=null;return;}start={id:e.pointerId,x:e.clientX,y:e.clientY};try{photo.setPointerCapture(e.pointerId);}catch{}});
+  photo.addEventListener('pointerup',e=>{if(!start||start.id!==e.pointerId)return;const dx=e.clientX-start.x,dy=e.clientY-start.y;start=null;if(Math.abs(dx)>50&&Math.abs(dy)<50)show(index+(dx<0?1:-1));else if(Math.abs(dx)<12&&Math.abs(dy)<12){const rect=photo.getBoundingClientRect();show(index+(e.clientX<rect.left+rect.width/2?-1:1));}});
   photo.addEventListener('pointercancel',()=>{start=null;});
   const controls=el('div',{class:'actions gallery-controls'},urls.length>1?prev:null,count,urls.length>1?next:null);
   photo.tabIndex=0;photo.setAttribute('aria-label','Foto ansehen');photo.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'||e.key==='ArrowRight'){e.preventDefault();show(index+(e.key==='ArrowRight'?1:-1));}});
   const large=el('button',{type:'button',class:'photo-large',onclick:()=>{const d=el('dialog',{class:'trip-dialog photo-dialog','aria-label':'Foto groß'});d.append(el('button',{onclick:()=>d.close()},'Schließen'),sucheFoto({...t,bild:urls[index]}));main.append(d);d.addEventListener('close',()=>{d.remove();large.focus();});d.showModal();}},'Foto groß');
-  box.append(photo,controls,large);show(0);return box;
+  box.append(photo,controls,dots,large);show(0);return box;
 }
 function stayEndrunde(hits,id,call,live,onSaved) {
   let order=hits.filter(t=>t.status==='favorit').sort((a,b)=>(a.eigener_rang??Infinity)-(b.eigener_rang??Infinity)||(a.bewertung?.rang??Infinity)-(b.bewertung?.rang??Infinity));
@@ -202,19 +205,24 @@ function stayReview({getSnapshot,getGroup=()=>null,getRows=()=>getSnapshot()?.tr
     if((needsRefresh||isBlocked())&&!pending&&onRefresh)box.append(el('button',{type:'button',class:'review-reload',onclick:onRefresh},'Aktualisieren'));
     const t=queue[0];if(!t){progress.textContent='Durchsehen abgeschlossen';box.append(header);box.append(el('h3',{},'Alle Unterkünfte durchgesehen.'),el('p',{},'In der Endrunde kannst du deine Favoriten vergleichen.'));return;}
     if(galleryId!==t.treffer_id){galleryId=t.treffer_id;gallery=stayGallery(t);}
-    const article=el('article',{class:'review-card','data-review-hit':t.treffer_id});
+    const article=el('article',{class:'review-card photo-first','data-review-hit':t.treffer_id});
+    menu.querySelector('.review-menu-panel').append(el('button',{type:'button',onclick:event=>{const trigger=event.currentTarget;gallery.querySelector('.photo-large')?.click();const dialog=main.querySelector('.photo-dialog');dialog?.addEventListener('close',()=>trigger.focus({preventScroll:true}),{once:true});}},'Foto groß'));
     gallery.onPhotoChange=()=>{progress.textContent=`Unterkunft ${Math.max(1,total-queue.length+1)}/${total} · ${gallery.dataset.photo||'Kein Foto'}`;};gallery.onPhotoChange();
-    const content=el('div',{class:'review-content',tabindex:0,'aria-label':'Unterkunft ansehen'},gallery,t.currentOfferUnavailable?el('p',{class:'warning'},'Für die aktuellen Tage nicht gefunden. Angaben und Preis sind nicht bestätigt.'):null,t.urteil_uebernommen?.hinweis?el('p',{class:'warning'},'Jetzt günstiger · '+t.urteil_uebernommen.hinweis):null);
-    const swipe=el('div',{class:'review-swipe'},refreshIsNew(t,snapshot.suchauftrag.id)?el('span',{class:'pill'},'NEU'):null,el('h3',{tabindex:-1},t.name),el('p',{class:'review-score'},`Rang ${t.bewertung?.rang??'–'} · ${snapshot.suchauftrag.status==='fertig'&&['A','B'].includes(sucheGruppe(t))?'Passung':'Vorläufige Passung'} ${t.bewertung?.score??'–'}/100`),stayReviewInfo(t,snapshot.suchauftrag));
+    const nextPhoto=sucheLink(queue[1]?.bilder?.[0]||queue[1]?.bild);if(nextPhoto&&gallery.dataset.nextPreloaded!==nextPhoto){const img=new Image();img.referrerPolicy='no-referrer';img.src=nextPhoto;gallery.dataset.nextPreloaded=nextPhoto;}
+    const content=el('div',{class:'review-content',tabindex:0,'aria-label':'Unterkunft ansehen'},gallery);
+    const price=t.currentOfferUnavailable?el('span',{},'Preis nicht bestätigt'):el('span',{},stayField(t,'preis',snapshot.suchauftrag),' gesamt · ',stayField(t,'nacht',snapshot.suchauftrag),' / Nacht');
+    const bedrooms=stayFieldValue(t,'schlafzimmer',snapshot.suchauftrag);
+    const swipe=el('div',{class:'review-swipe'},refreshIsNew(t,snapshot.suchauftrag.id)?el('span',{class:'pill'},'NEU'):null,el('h3',{tabindex:-1},t.name),el('p',{class:'review-price'},price),el('p',{class:'review-bedroom'},bedrooms===null?'Schlafzimmer unbekannt':bedrooms+' Schlafzimmer'));
     let point=null, swiped=false;
     swipe.addEventListener('pointerdown',e=>{if(point){point=null;return;}if(e.isPrimary===false || e.button!==0 || e.target.closest('button,a') || document.querySelector('dialog[open]'))return;point={id:e.pointerId,x:e.clientX,y:e.clientY};try{swipe.setPointerCapture?.(e.pointerId);}catch{/* Synthetic events may lack an active pointer. */}});
     swipe.addEventListener('pointercancel',()=>point=null);
     swipe.addEventListener('pointerup',e=>{if(!point||point.id!==e.pointerId)return;const dx=e.clientX-point.x,dy=e.clientY-point.y;point=null;if(Math.max(Math.abs(dx),Math.abs(dy))<70)return;if(Math.abs(dx)>Math.abs(dy)*1.3){swiped=true;void vote(t,dx>0?'favorit':'weg');}});
     swipe.addEventListener('click',e=>{if(swiped){e.preventDefault();e.stopPropagation();swiped=false;}},true);
-    const warnings=[...sucheWarnungen(t).map(w=>SUCHE_WARNUNGEN[w]||w),...['m2','schlafzimmer','gehzeit'].filter(k=>stayFieldValue(t,k,snapshot.suchauftrag)===null).map(k=>({m2:'Fläche: unbekannt',schlafzimmer:'Schlafzimmer: unbekannt',gehzeit:'Station: unbekannt'})[k])];if(warnings.length)swipe.append(el('details',{class:'warning'},el('summary',{},warnings[0]+(warnings.length>1?' · '+(warnings.length-1)+' weitere prüfen':'')),warnings.map(w=>el('p',{},w))));
+    const warnings=[...(t.currentOfferUnavailable?['Für aktuelle Tage nicht gefunden']:[]),...(t.urteil_uebernommen?.hinweis?['Jetzt günstiger · '+t.urteil_uebernommen.hinweis]:[]),...sucheWarnungen(t).map(w=>SUCHE_WARNUNGEN[w]||w),...['m2','schlafzimmer','gehzeit'].filter(k=>stayFieldValue(t,k,snapshot.suchauftrag)===null).map(k=>({m2:'Fläche: unbekannt',schlafzimmer:'Schlafzimmer: unbekannt',gehzeit:'Station: unbekannt'})[k])];
+    if(warnings.length)swipe.append(el('p',{class:'review-warning'},'⚠ '+warnings[0]));
     const provider=sucheAnbieterLink(t), url=provider?.url;
     content.append(swipe,el('div',{class:'review-links'},url?el('a',{href:url,target:'_blank',rel:'noopener noreferrer',onclick:()=>{awaitingReturn=t.treffer_id;}},provider.label):null,
-      el('button',{type:'button',onclick:event=>{const trigger=event.currentTarget,dialog=sucheKandidat(t,snapshot.suchauftrag.status==='fertig',snapshot.suchauftrag.id);scope.append(dialog);dialog.addEventListener('close',()=>{dialog.remove();if(trigger.isConnected)trigger.focus({preventScroll:true});});dialog.showModal();}},'Details')));
+      el('button',{type:'button',onclick:event=>{const trigger=event.currentTarget,dialog=sucheKandidat(t,snapshot.suchauftrag.status==='fertig',snapshot.suchauftrag.id);dialog.append(el('p',{class:'review-score'},`Passung ${t.bewertung?.score??'–'}/100`),stayReviewInfo(t,snapshot.suchauftrag),el('section',{'aria-label':'Offene Angaben'},warnings.map(w=>el('p',{},w))));scope.append(dialog);dialog.addEventListener('close',()=>{dialog.remove();if(trigger.isConnected)trigger.focus({preventScroll:true});});dialog.showModal();}},'Details')));
     if(awaitingReturn===t.treffer_id)content.append(el('p',{role:'status'},'Und? Wie gefällt dir die Unterkunft?'));
     article.append(header,content,buttons(t));stayCardPhoto(article,gallery);box.append(article);
 

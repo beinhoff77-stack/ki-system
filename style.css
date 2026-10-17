@@ -1006,3 +1006,20 @@ body:has(.tinder-mode) main.view{padding:8px 10px;}
 .stay-photos{margin:16px 0}.stay-photos h4{margin:8px 0}.stay-photo-strip{display:flex;gap:8px}.stay-photo-strip figure{margin:0;min-width:0;flex:1;max-width:180px}.stay-photo-strip figure>button:first-child{padding:0;width:100%;overflow:hidden;border-radius:12px}.stay-photo-strip img{display:block;width:100%;height:100px;object-fit:cover}.stay-photo-strip figure>button:last-child{font-size:12px;padding:8px 4px;width:100%}.photo-file-input{display:none}.stay-photo-viewer img{display:block;max-width:100%;max-height:75dvh;object-fit:contain;margin:auto}.past-stays{margin-top:22px}.past-stays>summary{font-size:18px;font-weight:700;padding:16px;border-radius:14px;background:#e5eeeb;cursor:pointer}.past-stays .trip-stage{margin-top:12px}.booking-note{white-space:pre-wrap;overflow-wrap:anywhere}
 
 .stay-photos .actions{display:flex;flex-wrap:wrap;gap:8px}.stay-photos .actions button{flex:1;min-width:0;font-size:13px;padding:10px}
+
+/* W89: compact decision controls; feedback stays outside photo controls. */
+.decision-controls{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 8px;margin:12px 0}
+.decision-controls>[aria-label]{grid-column:1/-1;margin:0}
+.decision-controls>label{display:flex;align-items:center;gap:6px;min-width:0;margin:0;font-size:12px}
+.decision-controls>label select{flex:1;width:0;min-width:0;min-height:44px;margin:0;padding:6px;font-size:13px}
+.decision-controls>.actions:not([aria-label]){margin:0;align-self:center}
+.decision-controls>.actions:not([aria-label]):has(button:nth-child(3)){grid-column:1/-1}
+.decision-controls button{min-height:44px}
+.decision-controls [aria-label="Ansichten"] button[aria-pressed="true"]{background:#0e3b43;color:white;border-color:#0e3b43}
+.decision-place>p[role="status"]:empty{display:none}
+.decision-place>h2{margin:6px 0 2px}
+.decision-place>h2+p{font-size:13px;margin:0 0 6px}
+.tinder-mode .review-message:not(:empty){position:static;flex:0 0 auto;margin:0 0 6px;padding:8px 12px;pointer-events:none;z-index:auto}
+.stay-photo-strip figure{position:relative}
+.stay-photo-strip figure>.photo-remove:last-child{position:absolute;top:4px;right:4px;width:44px;height:44px;min-height:44px;padding:0;border-radius:50%;background:#0e3b43e8;color:white;border:1px solid #ffffff99;font-size:24px;line-height:1}
+.stay-photos .actions button:last-child{background:transparent;border-color:transparent;text-decoration:underline;font-weight:400}

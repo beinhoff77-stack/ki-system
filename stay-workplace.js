@@ -24,7 +24,9 @@ async function viewDecisionPlace(arg){
   const tabs=el('div',{class:'actions','aria-label':'Entscheidungsgruppen'});
   const modeButtons=el('div',{class:'actions','aria-label':'Ansichten'},...['list','table','tinder'].map(key=>button({list:'Liste',table:'Tabelle',tinder:'Durchsehen'}[key],()=>{if(pending||review?.pending)return;mode=key;draw();})));
   const sorting=el('select',{'aria-label':'Entscheidungen sortieren',onchange:e=>{sortKey=e.target.value;draw();}},...['rang','preis','name','m2','schlafzimmer'].map(k=>el('option',{value:k},{rang:'Empfohlene Rangfolge',preis:'Gesamtpreis',name:'Name',m2:'Fläche',schlafzimmer:'Schlafzimmer'}[k])));
-  scope.append(el('a',{href:'#/reisen/'+r.etappe.reise_id},'← Zur Reise'),el('h2',{},r.etappe.ziel),el('p',{},fmtDate(r.etappe.anreise)+'–'+fmtDate(r.etappe.abreise)),tabs,modeButtons,el('label',{},'Sortieren nach',sorting),toolbar,status,content,el('div',{class:'actions'},reload,button('Woanders gebucht',()=>tripExternalBooking(r.etappe,()=>render())),button('Suche auffrischen',()=>tripRefresh(r.etappe)),button('Keiner passt',()=>{
+  const controls=el('div',{class:'decision-controls'}),sortLabel=el('label',{},'Sortieren',sorting);
+  controls.append(tabs,modeButtons,sortLabel,toolbar);
+  scope.append(el('a',{href:'#/reisen/'+r.etappe.reise_id},'← Zur Reise'),el('h2',{},r.etappe.ziel),el('p',{},fmtDate(r.etappe.anreise)+'–'+fmtDate(r.etappe.abreise)),controls,status,content,el('div',{class:'actions'},reload,button('Woanders gebucht',()=>tripExternalBooking(r.etappe,()=>render())),button('Suche auffrischen',()=>tripRefresh(r.etappe)),button('Keiner passt',()=>{
     const {body}=tripDialog('Andere Unterkunft finden');body.append(el('p',{},'Deine bisherigen Entscheidungen bleiben erhalten.'),button('Kriterien ändern und neu suchen',()=>tripStart(r.etappe)),button('Andere Tage als Variante suchen',()=>tripStart(r.etappe)));
   })));
   scope.append(tripPhotos(r.etappe.id,live));
@@ -57,8 +59,9 @@ async function viewDecisionPlace(arg){
   }
   function draw(){
     tabs.replaceChildren(...Object.entries(labels).map(([key,label])=>el('button',{type:'button','aria-pressed':group===key,onclick:()=>{if(pending||review?.pending)return;group=key;selected.clear();draw();}},`${label} (${snapshot.treffer.filter(t=>t.status===key).length})`)));
+    modeButtons.querySelectorAll('button').forEach((b,i)=>b.setAttribute('aria-pressed',String(['list','table','tinder'][i]===mode)));
     const current=rows();undo.hidden=!lastBatch.length;toolbar.replaceChildren(button(selecting?'Auswahl schließen':'Auswählen',()=>{selecting=!selecting;selected.clear();draw();}),...(selecting?[button('Alle '+current.length+' auswählen',()=>{current.forEach(t=>selected.add(t.treffer_id));draw();}),el('span',{},selected.size+' ausgewählt')]:[]),...(selected.size?Object.entries(labels).filter(([key])=>key!==group).map(([key,label])=>el('button',{type:'button',onclick:()=>bulk(key)},'Auswahl zu '+label)):[]),...(selected.size?[el('button',{type:'button',disabled:selected.size<2||selected.size>4,onclick:()=>tripCompare(snapshot.treffer.filter(t=>selected.has(t.treffer_id)))},'Vergleichen (2–4)'),button('Lage vergleichen',()=>tripSelectionMap(snapshot.treffer.filter(t=>selected.has(t.treffer_id))))]:[]),undo);
-    if(mode!=='tinder'){scope.insertBefore(tabs,toolbar);scope.insertBefore(modeButtons,toolbar);}
+    if(mode!=='tinder'){controls.insertBefore(tabs,sortLabel);controls.insertBefore(modeButtons,sortLabel);}
     content.replaceChildren();scope.classList.toggle('tinder-mode',mode==='tinder');toolbar.hidden=mode==='tinder';
     if(mode==='tinder'){review.draw();content.append(review.node);}
     else if(mode==='table'){

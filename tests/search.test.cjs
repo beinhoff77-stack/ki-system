@@ -204,13 +204,13 @@ test('PWA installiert vollständige Offline-Hülle, API wird nicht gecacht', asy
   assert(cacheNames.includes('ki-system:' + origin + '/another-app/:v1'));
   assert(!cacheNames.includes('ki-system:' + origin + '/:old'));
   await page.evaluate(() => fetch('README.md'));
-  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v34')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
-  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.21.1')); assert(cached.includes('/style.css?v=0.21.1'));
-  assert(cached.includes('/stay-tools.js?v=0.21.1')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
-  assert(cached.includes('/stay-research.js?v=0.21.1'));
-  assert(cached.includes('/stay-form.js?v=0.21.1'));
-  assert(cached.includes('/stay-details.js?v=0.21.1'));
-  assert(cached.includes('/stay-districts.js?v=0.21.1'));
+  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v35')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
+  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.22.0')); assert(cached.includes('/style.css?v=0.22.0'));
+  assert(cached.includes('/stay-tools.js?v=0.22.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
+  assert(cached.includes('/stay-research.js?v=0.22.0'));
+  assert(cached.includes('/stay-form.js?v=0.22.0'));
+  assert(cached.includes('/stay-details.js?v=0.22.0'));
+  assert(cached.includes('/stay-districts.js?v=0.22.0'));
   assert(!cached.includes('/README.md'));
   assert(!cached.some((u) => u.includes('app-api')));
   await context.setOffline(true); await page.reload();
@@ -1637,7 +1637,7 @@ test('Durchsehen: übernommene Urteile, Preishinweis, Fehler ohne automatisches 
   await page.goto(origin+'/#/suche/2');await page.getByRole('button',{name:'Tinder',exact:true}).click();
   const dialog=page.locator('.stay-review');
   await dialog.getByRole('heading',{name:'Unterkunft 2',exact:true}).waitFor();
-  await dialog.getByText('Jetzt günstiger · Preis deutlich gesunken',{exact:true}).waitFor();
+  await dialog.getByText('⚠ Jetzt günstiger · Preis deutlich gesunken',{exact:true}).waitFor();
   await dialog.getByRole('button',{name:'Favorit',exact:true}).click();
   await dialog.getByRole('status').filter({hasText:'Speichern nicht bestätigt'}).waitFor();
   assert.equal(await dialog.getByRole('button',{name:'Weg',exact:true}).isDisabled(),true);
@@ -1787,7 +1787,7 @@ test('W80: Durchsehen frühe Optikprobe',async t=>{
  await page.route('https://example.com/preview*.svg',r=>r.fulfill({contentType:'image/svg+xml',body:'<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800"><rect width="800" height="800" fill="#dacbb8"/><rect x="30" y="50" width="480" height="360" fill="#395e63"/><path d="M50 330L180 180 320 320 450 150 500 370" fill="#86a392"/><path d="M180 50V410M340 50V410M30 230H510" stroke="#f0e7db" stroke-width="16"/><rect x="80" y="480" width="650" height="210" rx="30" fill="#f3ece3"/><rect x="130" y="450" width="140" height="100" rx="20" fill="#b4aaa0"/><rect x="300" y="450" width="140" height="100" rx="20" fill="#c09f85"/></svg>'}));
  await page.goto(origin+'/#/suche/2');await page.getByRole('button',{name:'Tinder',exact:true}).click();await page.locator('.review-card .stay-gallery img').waitFor();
  await page.getByRole('button',{name:'Nächstes Foto'}).click();
- await page.waitForFunction(()=>{const image=document.querySelector('.review-backdrop');return image?.complete&&image.naturalWidth>0;});
+ await page.waitForFunction(()=>{const image=document.querySelector('.photo-first .stay-gallery img');return image?.complete&&image.naturalWidth>0;});
  await page.screenshot({path:path.join(root,'docs/previews/stufe2-durchsehen-mobile.png')});
  await openReviewMenu(page);await page.screenshot({path:path.join(root,'docs/previews/stufe2-durchsehen-menu.png')});await page.getByLabel('Durchsehen-Menü',{exact:true}).click();
  await page.setViewportSize({width:1440,height:1000});await page.screenshot({path:path.join(root,'docs/previews/stufe2-durchsehen-desktop.png')});
@@ -1832,11 +1832,11 @@ test('W80: Stornodatum ohne Uhrzeit und kalendarische Daten sind zeitzonenstabil
 test('W80: Durchsehen eigene vier Zusatzinfos, Warnungen und keine Urteile durch Abbruch/Multitouch',async t=>{
  const d=reviewData();d.treffer[1].bewertung.warnungen=['futon','steuern_unklar'];const {page,calls}=await setup(t,reviewHandler(d),{width:390,height:844});
  await page.goto(origin+'/#/anzeige');for(const label of ['Storno','Bewertungen'])await page.getByLabel('Durchsehen: '+label,{exact:true}).check();assert(await page.getByLabel('Durchsehen: Quelle',{exact:true}).isDisabled());await page.reload();assert.equal(await page.locator('input[aria-label^="Durchsehen:"]:checked').count(),4);
- await page.goto(origin+'/#/suche/2');await page.getByRole('button',{name:'Tinder',exact:true}).click();assert.equal(await page.locator('.review-info [data-field]').count(),7);await page.locator('.review-card summary').filter({hasText:'weitere prüfen'}).waitFor();
+ await page.goto(origin+'/#/suche/2');await page.getByRole('button',{name:'Tinder',exact:true}).click();await page.locator('.review-warning').waitFor();assert.equal(await page.locator('.review-card .review-info').count(),0);
  const a=page.locator('.review-swipe'),before=calls.filter(p=>p.aktion==='unterkunft_durchsehen_urteil').length;
  for(const mode of ['cancel','multi','vertical','short']){await a.dispatchEvent('pointerdown',{pointerId:1,isPrimary:true,button:0,clientX:100,clientY:200});if(mode==='cancel')await a.dispatchEvent('pointercancel',{pointerId:1});if(mode==='multi')await a.dispatchEvent('pointerdown',{pointerId:2,isPrimary:false,button:0,clientX:120,clientY:200});await a.dispatchEvent('pointerup',{pointerId:1,isPrimary:true,pointerType:'touch',button:0,clientX:mode==='vertical'?100:mode==='short'?120:250,clientY:mode==='vertical'?80:200});}
  assert.equal(calls.filter(p=>p.aktion==='unterkunft_durchsehen_urteil').length,before);
- await page.locator('.review-content').evaluate(n=>n.style.fontSize='200%');assert(await page.getByRole('button',{name:'Favorit',exact:true}).isVisible());await page.getByRole('button',{name:'Details',exact:true}).click();await page.getByRole('dialog').waitFor();
+ await page.locator('.review-content').evaluate(n=>n.style.fontSize='200%');assert(await page.getByRole('button',{name:'Favorit',exact:true}).isVisible());await page.getByRole('button',{name:'Details',exact:true}).click();await page.getByRole('dialog').waitFor();assert.equal(await page.locator('dialog .review-info [data-field]').count(),7);
 });
 test('W80: Vorschlag verwerfen verspricht keinen Papierkorb, neue Reise braucht bestätigte ID',async t=>{
  const data=stage2Data();const {page,calls}=await setup(t,p=>p.aktion==='unterkunft_etappen_lesen'?data:p.aktion==='unterkunft_etappe_loeschen'?{vorschau:true,folgen:{status:'vorschlag',ziel:'Osaka',suchen:[],hinweis:'Suchen bleiben erhalten'}}:{});
@@ -1854,8 +1854,9 @@ test('Review301 A–C: Fotokopf, Menü, Zähler und unbekannte Angaben bleiben b
  assert.equal(await page.getByRole('button',{name:'Liste',exact:true}).isVisible(),false);
  assert.match(await page.locator('.review-position').textContent(),/Unterkunft \d+\/\d+ · Foto 1\/2/);
  await page.getByRole('button',{name:'Nächstes Foto'}).click();assert.match(await page.locator('.review-position').textContent(),/Foto 2\/2/);
+ await page.getByRole('button',{name:'Details',exact:true}).click();
  for(const field of ['m2','schlafzimmer','gaestenote','gehzeit'])assert.equal(await page.locator('.review-info [data-field="'+field+'"] dd').textContent(),'unbekannt');
- assert.match(await page.locator('.review-card .warning summary').textContent(),/Balkon: unbekannt · \d+ weitere prüfen/);
+ assert.match(await page.locator('dialog [aria-label="Offene Angaben"]').textContent(),/Balkon: unbekannt/);await page.keyboard.press('Escape');
  assert.equal(calls.filter(p=>p.aktion==='unterkunft_durchsehen_urteil').length,0);
  await openReviewMenu(page);await page.getByRole('button',{name:'Endrunde',exact:true}).click();await page.getByRole('button',{name:'Endrunde schließen'}).click();
  await page.getByRole('button',{name:'Durchsehen schließen'}).click();assert.equal(await page.locator('.tinder-mode').count(),0);assert(await page.getByRole('button',{name:'Liste',exact:true}).isVisible());
@@ -2172,4 +2173,29 @@ test('W88: eine Fotoabfrage pro Reise verteilt Bilder auch auf eingeklappte Aufe
  await page.locator('.past-stays>summary').click();await page.locator('[data-stay-photos="1"]').getByText('1 von 3 Fotos',{exact:true}).waitFor();
  for(const id of [1,2,3]){const area=page.locator('[data-stay-photos="'+id+'"]');assert.equal(await area.locator('img').count(),1);assert.equal(await area.locator('img').getAttribute('src'),'https://example.com/stage-'+id+'.png');}
  assert.deepEqual(calls.filter(p=>p.aktion==='unterkunft_fotos_lesen').map(p=>p.daten),[{reise_id:1}]);
+});
+
+test('W91: freie Fotofläche, Tippen und Wischen blättern ohne Urteil; Details getrennt',{timeout:20000},async t=>{
+ const data=reviewData();data.treffer.forEach(x=>{x.name='Kyoto · Fotovorschau';x.bilder=Array.from({length:10},(_,i)=>'https://example.com/w91-'+i+'.jpg');x.angebot.preis_gesamt_eur=1840;x.kategorien=[{id:1,schlafzimmer:2,m2:64}];x.angebot.kategorie_id=1;});
+ const {page,calls}=await setup(t,reviewHandler(data),{width:390,height:844});
+ await page.route('https://example.com/w91-*.jpg',r=>r.fulfill(process.env.W91_PREVIEW_PHOTO?{contentType:'image/jpeg',body:fs.readFileSync(process.env.W91_PREVIEW_PHOTO)}:{contentType:'image/svg+xml',body:'<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="768"><rect width="1024" height="768" fill="#a7bdb3"/></svg>'}));
+ await page.goto(origin+'/#/suche/2');await page.getByRole('button',{name:'Tinder',exact:true}).click();
+ const gallery=page.locator('.photo-first .stay-gallery'),surface=gallery.locator(':scope > div').first();
+ await gallery.locator('img').evaluate(img=>{img.loading='eager';return img.decode();});
+ for(const viewport of [{width:390,height:844},{width:375,height:667},{width:1440,height:1000}]){
+  await page.setViewportSize(viewport);
+  const g=await gallery.boundingBox(),info=await page.locator('.review-swipe').boundingBox(),header=await page.locator('.review-overlay-header').boundingBox(),bar=await page.locator('.review-actions').boundingBox();
+  assert(g.height>=viewport.height*.43,'Photo must occupy a substantial screen area');
+  assert(info.y>=g.y+g.height-1,'Information must not cover photo');assert(header.y+header.height<=g.y+1,'Header must not cover photo');
+  assert(bar.y+bar.height<=viewport.height-65,'Voting controls remain above navigation');
+  assert.equal(await gallery.locator('img').evaluate(img=>getComputedStyle(img).opacity),'1');
+  assert.equal(await page.locator('.review-backdrop').count(),0);
+ }
+ await page.setViewportSize({width:390,height:844});const rect=await surface.boundingBox();
+ await surface.click({position:{x:rect.width-80,y:rect.height/3}});assert.match(await page.locator('.review-position').innerText(),/Foto 2\/10/);
+ await surface.dispatchEvent('pointerdown',{pointerId:1,isPrimary:true,button:0,clientX:280,clientY:200});await surface.dispatchEvent('pointerup',{pointerId:1,isPrimary:true,button:0,clientX:100,clientY:205});assert.match(await page.locator('.review-position').innerText(),/Foto 3\/10/);
+ assert.equal(await gallery.locator('.gallery-dots span.active').count(),1);assert.equal(calls.filter(x=>x.aktion==='unterkunft_durchsehen_urteil').length,0);
+ await gallery.locator('img').evaluate(img=>{img.loading='eager';return img.decode();});await page.screenshot({path:path.join(root,'docs/previews/w91-foto-mobile.png')});
+ await page.getByRole('button',{name:'Details',exact:true}).click();await page.getByRole('dialog').locator('.review-info').waitFor();await page.keyboard.press('Escape');
+ await openReviewMenu(page);await page.getByRole('button',{name:'Foto groß',exact:true}).click();await page.getByRole('dialog',{name:'Foto groß',exact:true}).locator('img').waitFor();await page.getByRole('dialog',{name:'Foto groß',exact:true}).getByRole('button',{name:'Schließen',exact:true}).click();assert(await page.getByRole('button',{name:'Foto groß',exact:true}).evaluate(n=>n===document.activeElement));
 });

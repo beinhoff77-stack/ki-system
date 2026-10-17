@@ -1023,3 +1023,30 @@ body:has(.tinder-mode) main.view{padding:8px 10px;}
 .stay-photo-strip figure{position:relative}
 .stay-photo-strip figure>.photo-remove:last-child{position:absolute;top:4px;right:4px;width:44px;height:44px;min-height:44px;padding:0;border-radius:50%;background:#0e3b43e8;color:white;border:1px solid #ffffff99;font-size:24px;line-height:1}
 .stay-photos .actions button:last-child{background:transparent;border-color:transparent;text-decoration:underline;font-weight:400}
+
+/* W91: real photo surface, no backdrop and no information covering the image. */
+.photo-first.review-card{padding:0;background:#fff;color:#14343b;border:0;border-radius:18px;isolation:auto}
+.photo-first .review-overlay-header{position:relative;inset:auto;flex:0 0 52px;padding:4px 8px;background:#fff;color:#14343b;z-index:5}
+.photo-first .review-overlay-header button,.photo-first .review-menu>summary{background:transparent;color:#14343b;border-color:#dce6e5}
+.photo-first .review-content{padding:0!important;display:flex;flex-direction:column;justify-content:flex-start;overflow:auto;min-height:0}
+.photo-first .review-content>.stay-gallery{position:relative;inset:auto;flex:1 0 200px;height:auto!important;min-height:200px;width:100%;overflow:hidden}
+.photo-first .stay-gallery>div:first-child{height:100%!important;position:absolute;inset:0;touch-action:pan-y}
+.photo-first .stay-photo,.photo-first .stay-photo img{height:100%!important;width:100%;margin:0;border-radius:0;object-fit:cover;opacity:1!important;filter:none}
+.photo-first .stay-photo figcaption,.photo-first .photo-large{display:none}
+.photo-first .gallery-controls{position:absolute;inset:50% 8px auto;transform:translateY(-50%);display:flex;justify-content:space-between;pointer-events:none;margin:0;background:transparent}
+.photo-first .gallery-controls button{pointer-events:auto;width:44px;height:44px;min-height:44px;border:1px solid #ffffff80;background:#14343b25;color:#fff;text-shadow:0 1px 3px #000;font-size:28px;padding:0;border-radius:50%}
+.photo-first .gallery-controls button:disabled{visibility:hidden}
+.photo-first .gallery-dots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:5px;padding:5px 8px;border-radius:12px;background:#14343b30;pointer-events:none}
+.gallery-dots span{width:5px;height:5px;border-radius:50%;background:#ffffff70}.gallery-dots span.active{background:#fff;width:14px;border-radius:3px}
+.photo-first .review-swipe{flex:0 0 auto;margin:0;padding:9px 14px 2px!important;background:#fff!important;color:#14343b;z-index:auto}
+.photo-first .review-swipe h3{color:#14343b;font-size:18px;line-height:1.2;margin:0 0 4px;overflow-wrap:anywhere}
+.photo-first .review-price{font-size:14px;font-weight:700;margin:0 0 3px}.photo-first .review-bedroom{font-size:12px;margin:0}
+.photo-first .review-warning{font-size:11px;color:#76552c;margin:3px 0 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.photo-first .review-links{flex:0 0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 14px!important;background:#fff!important;z-index:auto}
+.photo-first .review-links a{color:#365c61;font-size:12px}.photo-first .review-links button{min-height:44px;padding:6px 10px;font-size:13px}
+.photo-first .review-actions{flex:0 0 auto;padding:6px 12px 10px!important;gap:8px;background:#fff!important;z-index:auto}
+.photo-first .review-actions button{min-height:48px}
+.photo-first .review-content>p[role=status]{font-size:12px;margin:2px 14px}
+.photo-first .review-menu-panel{top:52px}
+.photo-first:has(.gallery-empty) .review-content{padding-top:0!important}
+@media(min-width:800px){.photo-first .review-content>.stay-gallery{flex-basis:240px}.photo-first .stay-photo img{object-fit:contain;background:#e9eeeb}}

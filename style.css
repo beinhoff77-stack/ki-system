@@ -864,3 +864,117 @@ body:has(.tinder-mode) {padding-bottom:76px;}
  body[data-area="unterkunft"] .brand-mark {flex-shrink:0;width:32px;height:32px;}
  #area-brand {white-space:nowrap;}
 }
+
+/* W80: Entdecker. Shared palette, chronological journey, photo-first review. */
+body[data-area="unterkunft"] {--accent:#0e3b43;--text:#14343b;--muted:#5a7277;--surface:#fff;--border:#dce6e5;--bg:#f3f6f5;background:#f3f6f5;}
+body[data-area="unterkunft"] h2,body[data-area="unterkunft"] h3{font-family:var(--font-ui);letter-spacing:-.035em;}
+body[data-area="unterkunft"] .eyebrow{color:#b94935;letter-spacing:.13em;}
+body[data-area="unterkunft"] button.primary{background:#d95840;border-color:#d95840;color:white;}
+body[data-area="unterkunft"] .tabs button.on{background:#dceceb;color:#0e3b43;}
+body[data-area="unterkunft"] .tabs{background:#fff;}
+.trips-page{max-width:1100px;margin:auto;}
+.trip-hero{background:#0e3b43;color:white;padding:32px;border-radius:24px;margin-bottom:24px;}
+.trip-hero h2{font-size:clamp(27px,4vw,42px);margin:8px 0 12px;max-width:600px;line-height:1.1;}
+.trip-hero .eyebrow{color:#ffb8a7!important;}
+.trip-hero p{margin-bottom:0;}
+.trip-toolbar,.trip-title{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin:16px 0;}
+.trip-toolbar select{width:auto;min-width:180px;flex:1;}
+.trip-title h2{margin:4px 0;font-size:28px;}
+.trip-title p{margin:0;}
+.trip-stage{display:grid;grid-template-columns:150px minmax(0,1fr);gap:24px;background:white;border:1px solid var(--border);border-radius:20px;padding:24px;margin:12px 0;}
+.stage-date{display:flex;flex-direction:column;gap:6px;padding-right:16px;border-right:1px solid var(--border);}
+.stage-date strong{font-size:18px;}.stage-date small{color:var(--muted);}
+.stage-main h3{font-size:25px;margin:12px 0;}.stage-main p{margin:8px 0;}
+.trip-status{display:inline-block;border-radius:20px;background:#eef1f2;padding:5px 12px;font-size:12px;font-weight:700;}
+.trip-status.gebucht{background:#dcefeb;color:#0e574a;}.trip-status.vorschlag{background:#fff0d9;color:#85550b;}
+.trip-variant{display:flex;gap:12px;align-items:center;flex-wrap:wrap;padding:14px 0;border-bottom:1px solid var(--border);}
+.trip-variant a{flex:1;min-width:150px;}.trip-variant select{max-width:300px;}
+.trip-gap{border-left:2px dashed #8ca9ac;padding:16px 24px;margin-left:40px;color:#526e73;}
+.booking-summary{background:#f3f6f5;border-radius:12px;padding:14px;}.storno{font-size:13px;}
+.trip-dialog{width:min(560px,calc(100% - 24px));max-height:calc(100dvh - 32px);border:0;border-radius:22px;padding:24px;}
+.trip-dialog::backdrop{background:#0e3b4388;}.trip-dialog label{display:block;margin:14px 0;}.trip-dialog input:not([type=checkbox]){width:100%;}.trip-dialog button{min-height:44px;}
+.stage-stay .stay-photo{height:220px;}.stage-stay{max-width:650px;}
+@media(max-width:600px){.trip-hero{padding:24px 20px;}.trip-stage{grid-template-columns:1fr;gap:16px;padding:20px;}.stage-date{border-right:0;border-bottom:1px solid var(--border);padding-bottom:12px;flex-direction:row;flex-wrap:wrap;align-items:center;gap:8px;}.stage-date small{margin-left:auto;}.trip-toolbar>a{padding:10px;}.trip-title button{width:100%;}.trip-stage .actions button{min-height:44px;}}
+.tinder-mode{height:auto!important;min-height:0!important;max-width:740px;}
+.tinder-mode .stay-review{height:auto;}
+.tinder-mode .review-card{position:relative;display:block;min-height:620px;isolation:isolate;border-radius:24px;background:#0e3b43;color:white;}
+.review-card .review-content{display:block;overflow:visible;}
+.review-card .review-content>.stay-gallery{position:relative;height:380px;}
+.review-card .stay-photo,.review-card .stay-photo img{height:380px!important;max-height:none;object-fit:cover;width:100%;}
+.review-card .gallery-controls{padding:12px;}.review-card .gallery-controls span{align-self:flex-start;}
+.review-card .review-swipe{position:relative;margin-top:-70px;padding:50px 22px 12px;background:linear-gradient(transparent,#0e3b43 48px);}
+.review-card .review-swipe h3{font-size:26px;line-height:1.12;color:white;}
+.review-card .review-score,.review-card .review-info dt,.review-card .review-info small{color:#c5dadc;}
+.review-card .review-info{gap:12px 20px;}.review-card .review-info dd{font-size:16px;}
+.review-card .review-links{padding:8px 22px;}.review-card .review-links a{color:white;}
+.review-card .review-actions{border:0;background:#0e3b43;padding:12px 22px 22px;}
+.review-actions button{min-height:56px;border-radius:28px;}.review-actions .decision-favorit{background:#e8705a;color:#082e36;}
+.review-card .gallery-empty{height:100px!important;}.review-card .gallery-empty .stay-photo{height:100px!important;}
+.review-card:has(.gallery-empty) .review-swipe{margin-top:0;padding-top:16px;}
+.review-card .warning{background:#fff0d9;color:#654a14;border-radius:10px;padding:10px;}
+@media(max-width:420px){.review-card .review-content>.stay-gallery,.review-card .stay-photo,.review-card .stay-photo img{height:320px!important;}.review-card .review-swipe h3{font-size:23px;}}
+body:has(.tinder-mode) #areas{display:none;}
+.tinder-mode .review-card{display:flex;flex-direction:column;height:calc(100dvh - 290px);min-height:360px;}
+.review-card .review-content{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;}
+.review-card .review-content>.stay-gallery,.review-card .stay-photo,.review-card .stay-photo img{height:clamp(180px,30dvh,320px)!important;}
+.review-card .review-actions{flex-shrink:0;position:relative;margin:0;}
+.review-card .review-swipe{padding-top:40px;margin-top:-60px;}
+.review-card .review-info{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;}
+.review-card .review-info dd{font-size:14px;}.review-card .review-info dt{font-size:10px;}
+.review-card .review-info>div:first-child{grid-column:span 1;}
+.stay-gallery{position:relative;}.photo-large{position:absolute;right:10px;top:10px;min-height:44px;background:#ffffffed;color:#0e3b43;font-size:12px;z-index:1;}
+.photo-dialog{width:min(1000px,calc(100% - 24px));}.photo-dialog .stay-photo{height:auto;}.photo-dialog img{max-height:75dvh;object-fit:contain;width:100%;}
+@media(min-width:800px){.tinder-mode .review-card{height:calc(100dvh - 230px);max-height:900px;}.review-card .review-content>.stay-gallery,.review-card .stay-photo,.review-card .stay-photo img{height:clamp(240px,38dvh,450px)!important;}}
+body:has(.tinder-mode){padding-top:0!important;}
+.tinder-mode .review-card{height:calc(100dvh - 225px);}
+@media(min-width:800px){.tinder-mode .review-card{height:calc(100dvh - 200px);}}
+/* Fit the decision bar above the mobile navigation; only card content scrolls. */
+.tinder-mode{height:calc(100dvh - 92px)!important;min-height:0!important;}
+.tinder-mode>[aria-label=Suchergebnisse]{min-height:0;}
+.tinder-mode .stay-review{height:100%;min-height:0;}
+.tinder-mode .review-card{flex:1;height:auto;min-height:0;}
+.review-card .review-actions button{white-space:nowrap;font-size:13px;padding:8px 4px;}
+@media(min-width:800px){.tinder-mode{height:calc(100dvh - 40px)!important;}}
+.review-card .review-actions{position:static;bottom:auto;}
+/* The actual selected photo also forms the card behind facts and decisions. */
+.review-card>.review-backdrop{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-1;pointer-events:none;mask-image:linear-gradient(#000 25%,transparent 90%);}
+.review-card:has(>.review-backdrop) .stay-photo{background:transparent;}
+.review-card:has(>.review-backdrop) .stay-photo img{opacity:0;}
+.review-card:has(>.review-backdrop) .review-swipe{background:linear-gradient(transparent,rgba(14,59,67,.88) 40px);}
+.review-card:has(>.review-backdrop) .review-links,.review-card:has(>.review-backdrop) .review-actions{background:rgba(14,59,67,.88);}
+
+.review-card .stay-photo figcaption{top:60px;bottom:auto;left:auto;right:12px;max-width:65%;font-size:10px;background:#0e3b43b3;border-radius:6px;padding:3px 6px;color:white;}
+
+/* Review 301 A–E: immersive photo, overlaid controls, explicit unknowns. */
+body[data-area="unterkunft"]{padding-bottom:calc(100px + env(safe-area-inset-bottom));}
+body:has(.tinder-mode) main.view{padding:8px 10px;}
+.tinder-mode{height:calc(100dvh - 96px - env(safe-area-inset-bottom))!important;}
+.tinder-mode .review-message:empty{display:none;}
+.tinder-mode .review-message{margin:0;font-size:12px;}
+.tinder-mode .review-card{overflow:hidden;}
+.review-overlay-header{position:absolute;top:0;left:0;right:0;z-index:5;display:flex;align-items:center;gap:6px;padding:12px;background:linear-gradient(#092c36bb,transparent);color:white;}
+.review-overlay-header button,.review-menu>summary{width:44px;min-width:44px;min-height:44px;margin:0;padding:8px;background:#0e3b4380;color:white;border:1px solid #ffffff50;border-radius:50%;text-align:center;}
+.review-overlay-header button:disabled{opacity:.5;}.review-position{flex:1;font-size:12px;font-weight:600;text-align:center;line-height:1.4;}
+.review-menu>summary{list-style:none;cursor:pointer;}.review-menu>summary::-webkit-details-marker{display:none;}
+.review-menu-panel{position:absolute;top:68px;right:12px;width:min(340px,calc(100% - 24px));max-height:60dvh;overflow:auto;padding:16px;border-radius:16px;background:#fff;color:#14343b;box-shadow:0 12px 32px #0005;}
+.review-menu-panel button{width:auto;color:#14343b;background:#f3f6f5;border:1px solid #dce6e5;border-radius:10px;}.review-menu-panel .result-view-switch{display:flex!important;flex-wrap:wrap;}.review-menu-panel a{color:#0e3b43;}.review-menu-panel .review-run-bar{display:flex;flex-wrap:wrap;margin:12px 0;}
+.review-card>.review-backdrop{mask-image:none;}
+.review-card .review-content{display:flex;flex-direction:column;justify-content:flex-end;padding-top:76px;}
+.review-card .review-content>.stay-gallery{position:absolute;inset:76px 0 auto;height:34%!important;min-height:120px;}
+.review-card .stay-gallery>div:first-child,.review-card .stay-photo{height:100%!important;}
+.review-card .stay-gallery .stay-photo img{height:100%!important;}
+.review-card .gallery-controls span{display:none;}
+.review-card .photo-large{top:8px;right:14px;background:#0e3b4380;color:white;border:1px solid #ffffff50;}
+.review-card .stay-photo figcaption{top:60px;}
+.review-card .review-swipe{margin-top:0;padding:40px 18px 4px;background:linear-gradient(transparent,#0e3b43ee 40px)!important;z-index:1;}
+.review-card .review-links,.review-card .review-actions{background:#0e3b43ee!important;z-index:1;}
+.review-card .review-info dd{overflow-wrap:anywhere;}.review-card .warning{font-size:12px;margin:8px 0 0;padding:2px 10px;}.review-card .warning summary{min-height:40px;padding:8px 0;margin:0;}
+.review-card:has(.gallery-empty) .review-content{padding-top:160px;}
+.trip-proposals{border-top:1px solid var(--border);margin-top:28px;padding-top:16px;}
+@media(min-width:960px){body[data-area="unterkunft"]{padding-bottom:32px;}.tinder-mode{height:calc(100dvh - 32px)!important;}}
+.review-menu{flex-shrink:0;}.review-menu>summary{display:grid;place-items:center;white-space:nowrap;height:44px;line-height:24px;font-size:18px;}
+.stay-review{position:relative;}.stay-review:has(>.review-overlay-header){padding-top:80px;}
+.tinder-mode .review-message:not(:empty){position:absolute;top:70px;left:12px;right:12px;z-index:6;padding:8px 12px;border-radius:8px;color:white;background:#0e3b43e8;pointer-events:none;}
+.review-menu-panel .result-view-switch{position:static;top:auto;margin:0;padding:0;}
+.review-menu-panel .result-view-switch{display:grid!important;grid-template-columns:1fr 1fr;gap:8px;}
+.review-menu-panel .result-view-switch a{grid-column:1 / -1;justify-content:center;}

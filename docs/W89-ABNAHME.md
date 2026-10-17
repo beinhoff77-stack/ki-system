@@ -10,3 +10,5 @@ App 0.21.1, Cache v34. Noch nicht veröffentlicht.
 Screenshots mit synthetischen Testdaten: previews/paket-b-entscheidungsplatz-mobile.png, previews/paket-b-durchsehen-mobile.png, previews/w88-fotos-mobile.png.
 
 Bewusst offen für eine weitere Designrunde: mobiler Vergleich nebeneinander, Etappen-Aktionsmenü, Zusammenfassung fehlender Angaben. Dieser PR ist ein kleiner Bedienungsfeinschliff. Live-Login und physisches iPhone in dieser Runde nicht durchgespielt.
+
+Nachprüfung 386: kurze Sortieroptionen (Empfohlen/Preis), gemeinsame Petrol-Markierung beider aktiver Zeilen und eindeutige Foto-Löschlabels nach Bildnummer.

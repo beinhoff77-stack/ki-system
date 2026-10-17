@@ -22,7 +22,7 @@ function tripPhotos(etappeId,live,{initialPhotos=null}={}){
  function url(value){try{const u=new URL(value);return u.protocol==='https:'&&!u.username&&!u.password?u.href:null;}catch{return null;}}
  function photoImage(p){return el('img',{src:url(p.url),alt:p.titel||'Aufenthaltsfoto',loading:'lazy',referrerpolicy:'no-referrer',onerror:()=>{if(!active())return;if(!refreshUsed&&!pending){refreshUsed=true;void load(false);}else message.textContent='Foto nicht verfügbar. Bitte Fotos neu laden.';}});}
  function show(p){viewer?.d.close();viewedId=p.foto_id;viewer=tripDialog(p.titel||'Aufenthaltsfoto');viewer.body.append(photoImage(p));viewer.d.classList.add('stay-photo-viewer');viewer.d.addEventListener('close',()=>{viewer=null;viewedId=null;});}
- function draw(){list.replaceChildren(...photos.map(p=>el('figure',{},el('button',{type:'button','aria-label':'Foto groß öffnen',onclick:()=>show(p)},photoImage(p)),el('button',{type:'button',class:'photo-remove','aria-label':'Foto löschen',onclick:()=>remove(p)},'×'))));controls();
+ function draw(){list.replaceChildren(...photos.map((p,i)=>el('figure',{},el('button',{type:'button','aria-label':'Foto groß öffnen',onclick:()=>show(p)},photoImage(p)),el('button',{type:'button',class:'photo-remove','aria-label':`Foto ${i+1} löschen`,onclick:()=>remove(p)},'×'))));controls();
   if(viewer){const p=photos.find(p=>p.foto_id===viewedId);if(p)viewer.body.replaceChildren(photoImage(p));else viewer.d.close();}
  }
  async function load(manual=false,initial=false){if(pending||!active())return;pending=true;if(manual)refreshUsed=false;controls();message.textContent='Fotos werden geladen …';

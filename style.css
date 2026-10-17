@@ -1015,7 +1015,7 @@ body:has(.tinder-mode) main.view{padding:8px 10px;}
 .decision-controls>.actions:not([aria-label]){margin:0;align-self:center}
 .decision-controls>.actions:not([aria-label]):has(button:nth-child(3)){grid-column:1/-1}
 .decision-controls button{min-height:44px}
-.decision-controls [aria-label="Ansichten"] button[aria-pressed="true"]{background:#0e3b43;color:white;border-color:#0e3b43}
+.decision-controls [aria-label] button[aria-pressed="true"]{background:#0e3b43;color:white;border-color:#0e3b43}
 .decision-place>p[role="status"]:empty{display:none}
 .decision-place>h2{margin:6px 0 2px}
 .decision-place>h2+p{font-size:13px;margin:0 0 6px}

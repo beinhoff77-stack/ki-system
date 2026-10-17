@@ -1969,6 +1969,8 @@ test('Paket B: zwölf Na-ja-Unterkünfte bewusst verschieben und gesammelt zurü
  },{width:390,height:844});
  await page.goto(origin+'/#/etappe/1');await page.getByRole('button',{name:'Na ja (12)',exact:true}).click();
  const controlsRect=await page.locator('.decision-controls').boundingBox();assert(controlsRect.height<170);
+ assert.equal(await page.getByLabel('Entscheidungen sortieren').locator('option:checked').innerText(),'Empfohlen');
+ const activeColors=await page.locator('.decision-controls button[aria-pressed="true"]').evaluateAll(nodes=>nodes.map(n=>getComputedStyle(n).backgroundColor));assert.equal(new Set(activeColors).size,1);
  assert.equal(await page.getByRole('button',{name:'Liste',exact:true}).getAttribute('aria-pressed'),'true');
  await page.getByRole('button',{name:'Auswählen',exact:true}).click();
  await page.getByRole('button',{name:'Alle 12 auswählen',exact:true}).click();await page.getByRole('button',{name:'Auswahl zu Weg',exact:true}).click();
@@ -2142,8 +2144,8 @@ test('W88: Foto verkleinern, Grenze drei, Großansicht und bestätigtes Löschen
  await area.locator('input[type=file]').setInputFiles({name:'holiday.png',mimeType:'image/png',buffer:Buffer.from(encoded,'base64')});await area.getByText('3 von 3 Fotos',{exact:true}).waitFor();
  const upload=calls.find(p=>p.aktion==='unterkunft_foto_hochladen').daten;assert.equal(upload.breite,1600);assert.equal(upload.hoehe,800);assert.equal(upload.mime,'image/jpeg');assert(Buffer.from(upload.daten_base64,'base64').length<3*1024*1024);assert.equal(Buffer.from(upload.daten_base64,'base64')[0],255);assert(!(await area.getByRole('button',{name:'Foto hinzufügen',exact:true}).isVisible()));
  await area.getByRole('button',{name:'Foto groß öffnen',exact:true}).first().click();await page.getByRole('dialog').locator('img').waitFor();await page.getByRole('dialog').getByRole('button',{name:'Schließen',exact:true}).click();
- await area.getByRole('button',{name:'Foto löschen',exact:true}).first().click();await page.getByRole('button',{name:'Abbrechen',exact:true}).click();assert.equal(calls.filter(p=>p.aktion==='unterkunft_foto_loeschen').length,0);
- await area.getByRole('button',{name:'Foto löschen',exact:true}).first().click();await page.getByRole('button',{name:'Endgültig löschen',exact:true}).click();await area.getByText('2 von 3 Fotos',{exact:true}).waitFor();assert.equal(calls.filter(p=>p.aktion==='unterkunft_foto_loeschen').length,1);
+ await area.getByRole('button',{name:'Foto 1 löschen',exact:true}).first().click();await page.getByRole('button',{name:'Abbrechen',exact:true}).click();assert.equal(calls.filter(p=>p.aktion==='unterkunft_foto_loeschen').length,0);
+ await area.getByRole('button',{name:'Foto 1 löschen',exact:true}).first().click();await page.getByRole('button',{name:'Endgültig löschen',exact:true}).click();await area.getByText('2 von 3 Fotos',{exact:true}).waitFor();assert.equal(calls.filter(p=>p.aktion==='unterkunft_foto_loeschen').length,1);
  assert.deepEqual(calls.filter(p=>p.aktion==='unterkunft_fotos_lesen').map(p=>p.daten),[{reise_id:1},{etappe_id:1},{etappe_id:1}]);
  assert.equal(await page.evaluate(()=>JSON.stringify(localStorage).includes('stay-photo-')),false);
  await area.scrollIntoViewIfNeeded();await page.screenshot({path:path.join(root,'docs/previews/w88-fotos-mobile.png')});

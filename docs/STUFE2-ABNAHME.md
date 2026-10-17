@@ -61,3 +61,10 @@ D: Lücken stehen ausschließlich zwischen den beiden bestätigten Etappen aus `
 E: Abstand zur festen unteren Navigation einschließlich Safe Area; letzte Reise-Karte und Durchsehen-Knöpfe bleiben erreichbar.
 
 Zusätzliche Regressionen `Review301 A–C` und `Review301 D–E`; bestehende Bedienprüfungen verwenden die neue Menüführung. Keine Integration der zusätzlichen Stufe-3/4-Serverfunktionen.
+
+
+## Paket A – Freigabe Nachricht 315
+
+Favoriten-Durchsehen berücksichtigt jetzt die gewählte Entscheidungsgruppe und weitere aktive Filter. Ein erneut bestätigter Favorit führt zum nächsten Favoriten; keine offenen Treffer werden eingeschoben. Rückgängig stellt das vorherige Urteil samt Gründen wieder her. Na ja und Weg lassen sich ebenfalls innerhalb ihrer Gruppe durchsehen.
+
+Validierung: vollständige Browsersuite 105 bestanden, 0 Fehler, 1 optionaler Kyoto-Test übersprungen; zusätzlicher Gruppentest Na ja/Weg bestanden. Keine persönlichen Suchdaten geändert. Claude erhält den neuen PR13-Head zur Prüfung vor dem freigegebenen Merge/Deploy.

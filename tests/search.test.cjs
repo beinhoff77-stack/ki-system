@@ -1624,6 +1624,7 @@ test('Durchsehen: A vor B, bestätigte Urteile, Na ja bleibt bewertet gemäß Na
   await page.locator('.stay-review').waitFor({state:'detached'});
   assert.equal(await page.locator('.stay-review').count(),0);
   await page.locator('.stay-filters > summary').click();
+  await page.locator('.stay-filters > summary').click();
   await page.getByLabel('Meine Entscheidung',{exact:true}).selectOption('vielleicht');
   assert.deepEqual(await page.locator('[data-hit]').evaluateAll(rows=>rows.map(row=>row.dataset.hit)),['1']);
 });
@@ -1863,4 +1864,42 @@ test('Review301 D–E: Lücke zwischen bestätigten IDs, Vorschläge separat und
  assert.equal(await page.locator('.trip-timeline [data-stage="2"]').count(),0);assert.equal(await page.locator('.trip-proposals [data-stage="2"]').count(),1);
  await page.evaluate(()=>scrollTo(0,document.documentElement.scrollHeight));
  const visible=await page.locator('.trip-proposals .trip-stage').evaluate(n=>n.getBoundingClientRect().bottom<=document.querySelector('#tabs').getBoundingClientRect().top-8);assert(visible);
+});
+
+test('Favoriten durchsehen bleibt in der Gruppe, behält Favoriten und stellt Urteile wieder her', async t => {
+  const data=result();data.treffer[1].status='favorit';data.treffer[2].status='favorit';
+  const {page,calls}=await setup(t,p=>{
+    if(p.aktion==='unterkunft_durchsehen_urteil') {
+      const status={favorit:'favorit',vielleicht:'vielleicht',weg:'ausgeschlossen',offen:'aktiv'}[p.daten.urteil];
+      data.treffer.find(x=>x.treffer_id===p.daten.treffer_id).status=status;
+      return {ok:true,treffer_id:p.daten.treffer_id,urteil:p.daten.urteil,status};
+    }return data;
+  });
+  await page.goto(origin+'/#/suche/2?favoriten=1');
+  await page.getByRole('button',{name:'Tinder',exact:true}).click();
+  await page.locator('[data-review-hit="2"]').waitFor();
+  await page.getByRole('button',{name:'Favorit',exact:true}).click();
+  await page.locator('[data-review-hit="3"]').waitFor();
+  await page.getByRole('button',{name:'Na ja',exact:true}).click();
+  await page.getByText('Alle Unterkünfte durchgesehen.',{exact:true}).waitFor();
+  await page.getByRole('button',{name:'Letzte Entscheidung rückgängig',exact:true}).click();
+  await page.locator('[data-review-hit="3"]').waitFor();
+  assert.equal(data.treffer[2].status,'favorit');
+  assert.deepEqual(calls.filter(p=>p.aktion==='unterkunft_durchsehen_urteil').map(p=>[p.daten.treffer_id,p.daten.urteil]),[[2,'favorit'],[3,'vielleicht'],[3,'favorit']]);
+  assert.equal(await page.locator('[data-review-hit="1"]').count(),0);
+});
+
+test('Na ja und Weg durchsehen zeigen nur die ausgewählte Entscheidungsgruppe', async t => {
+  const data=result();data.treffer[1].status='vielleicht';data.treffer[2].status='ausgeschlossen';
+  const {page}=await setup(t,()=>data);
+  await page.goto(origin+'/#/suche/2');
+  await page.locator('.stay-filters > summary').click();
+  await page.getByLabel('Meine Entscheidung',{exact:true}).selectOption('vielleicht');
+  await page.getByRole('button',{name:'Tinder',exact:true}).click();
+  await page.locator('[data-review-hit="2"]').waitFor();
+  await page.getByRole('button',{name:'Durchsehen schließen',exact:true}).click();
+  await page.getByLabel('Meine Entscheidung',{exact:true}).selectOption('ausgeschlossen');
+  await page.getByRole('button',{name:'Tinder',exact:true}).click();
+  await page.locator('[data-review-hit="3"]').waitFor();
+  assert.equal(await page.locator('[data-review-hit="1"]').count(),0);
 });

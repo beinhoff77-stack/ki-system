@@ -153,23 +153,26 @@ function stayEndrunde(hits,id,call,live,onSaved) {
   }},t.name+' wählen')))));}
   dialog.append(el('h2',{},'Endrunde · Favoriten'),close,body,status,save);list();return dialog;
 }
-function stayReview({getSnapshot,call,live,changed,scope,onRefresh,onClose,menuItems=()=>[],isBlocked=()=>false}) {
+function stayReview({getSnapshot,getGroup=()=>null,getRows=()=>getSnapshot()?.treffer,call,live,changed,scope,onRefresh,onClose,menuItems=()=>[],isBlocked=()=>false}) {
   let pending=false, last=null, reasonFor=null, awaitingReturn=null, revision=0, gallery=null, galleryId=null, reasonsDialog=null;
   const box=el('section',{class:'stay-review'}), message=el('p',{class:'review-message',role:'status'});
   const minus=[['preis','Preis'],['zu_klein','Zu klein'],['lage','Lage'],['stil','Stil'],['betten','Betten'],['fotos','Fotos'],['laerm','Lärm'],['ausstattung','Ausstattung'],['sonstiges','Sonstiges']];
   const plus=[['plus_groesse','Größe'],['plus_lage','Lage'],['plus_stil','Stil'],['plus_preis','Preis'],['plus_ausstattung','Ausstattung'],['plus_fotos','Fotos'],['plus_betten','Betten']];
-  let needsRefresh=false;
-  async function vote(t,urteil,gruende=[],withReasons=true){
-    if(pending||needsRefresh||isBlocked())return;const focusDecision=document.activeElement?.dataset.decision;pending=true;revision++;draw();
+  let needsRefresh=false, activeGroup=null;
+  const reviewed=new Set();
+  async function vote(t,urteil,gruende=[],withReasons=true,restoring=false){
+    if(pending||needsRefresh||isBlocked())return;const focusDecision=document.activeElement?.dataset.decision;const previous={status:t.status||'aktiv',gruende:[...(t.urteil_gruende||[])],uebernommen:t.urteil_uebernommen};pending=true;revision++;draw();
     try {const r=await call('unterkunft_durchsehen_urteil',{treffer_id:t.treffer_id,urteil,gruende});if(!live())return;
       if(r.ok!==true || r.treffer_id!==t.treffer_id || r.urteil!==urteil || r.status!==({favorit:'favorit',vielleicht:'vielleicht',weg:'ausgeschlossen',offen:'aktiv'}[urteil]))throw Error('Urteil nicht eindeutig bestätigt.');
       t.status={favorit:'favorit',vielleicht:'vielleicht',weg:'ausgeschlossen',offen:'aktiv'}[urteil];t.urteil_gruende=gruende;
-      if(urteil==='offen'){t.urteil_uebernommen=null;last=null;reasonFor=null;}else {last=t;reasonFor=withReasons?{t,urteil,gruende}:null;}
+      if(restoring){reviewed.delete(t.treffer_id);t.urteil_uebernommen=previousRestore;last=null;reasonFor=null;}else if(urteil==='offen'){t.urteil_uebernommen=null;last=null;reasonFor=null;}else {if(withReasons){last={t,previous};if(activeGroup)reviewed.add(t.treffer_id);}reasonFor=withReasons?{t,urteil,gruende}:null;}
       if(reasonsDialog){reasonsDialog.close();reasonsDialog.remove();reasonsDialog=null;}
-      awaitingReturn=null;message.textContent=urteil==='offen'?'Letzte Entscheidung zurückgenommen.':'Entscheidung gespeichert.';
+      awaitingReturn=null;message.textContent=restoring||urteil==='offen'?'Letzte Entscheidung zurückgenommen.':'Entscheidung gespeichert.';
     }catch(e){needsRefresh=true;if(reasonsDialog){reasonsDialog.close();reasonsDialog.remove();reasonsDialog=null;}message.textContent='Speichern nicht bestätigt: '+e.message+' Bitte aktualisieren, bevor du erneut entscheidest.';}
     finally{pending=false;revision++;if(live()){changed(t);draw();if(focusDecision)box.querySelector('[data-decision="'+focusDecision+'"]')?.focus({preventScroll:true});}}
   }
+  let previousRestore=null;
+  function undoVote(){if(!last)return;const {t,previous}=last;previousRestore=previous.uebernommen;void vote(t,({aktiv:'offen',favorit:'favorit',vielleicht:'vielleicht',ausgeschlossen:'weg'})[previous.status]||'offen',previous.gruende,false,true);}
   function buttons(t){return el('div',{class:'actions review-actions'},[['weg','Weg'],['vielleicht','Na ja'],['favorit','Favorit']].map(([key,label])=>el('button',{type:'button',class:'decision-'+key,'aria-label':label,'data-decision':key,disabled:pending||needsRefresh||isBlocked(),onclick:()=>vote(t,key)},el('span',{'aria-hidden':'true'},({weg:'×',vielleicht:'≈',favorit:'♥'})[key]+' '),label)));}
   function openReasons(){
     if(!reasonFor||pending||needsRefresh||isBlocked())return;
@@ -187,10 +190,11 @@ function stayReview({getSnapshot,call,live,changed,scope,onRefresh,onClose,menuI
   }
   function draw(){
     const snapshot=getSnapshot();if(!snapshot)return;
-    const all=snapshot.treffer, queue=all.filter(t=>!['favorit','vielleicht','ausgeschlossen'].includes(t.status)&&t.topf!=='ausgeschlossen'&&(!t.urteil_uebernommen || (t.status==='aktiv' && t.urteil_uebernommen.hinweis))).sort((a,b)=>(b.runde||1)-(a.runde||1)||(a.bewertung?.rang??Infinity)-(b.bewertung?.rang??Infinity)||a.treffer_id-b.treffer_id);
-    const total=all.filter(t=>t.topf!=='ausgeschlossen').length;
+    const group=getGroup();if(group!==activeGroup){activeGroup=group;reviewed.clear();last=null;reasonFor=null;}
+    const all=getRows()||[], queue=all.filter(t=>group ? t.status===group&&!reviewed.has(t.treffer_id) : !['favorit','vielleicht','ausgeschlossen'].includes(t.status)&&t.topf!=='ausgeschlossen'&&(!t.urteil_uebernommen || (t.status==='aktiv' && t.urteil_uebernommen.hinweis))).sort((a,b)=>(b.runde||1)-(a.runde||1)||(a.bewertung?.rang??Infinity)-(b.bewertung?.rang??Infinity)||a.treffer_id-b.treffer_id);
+    const total=group?queue.length+reviewed.size:all.filter(t=>t.topf!=='ausgeschlossen').length;
     const progress=el('span',{class:'review-position','aria-live':'polite'});
-    const undo=el('button',{type:'button',disabled:!last||pending||needsRefresh||isBlocked(),'aria-label':'Letzte Entscheidung rückgängig',onclick:()=>vote(last,'offen',[],false)},'↶');
+    const undo=el('button',{type:'button',disabled:!last||pending||needsRefresh||isBlocked(),'aria-label':'Letzte Entscheidung rückgängig',onclick:undoVote},'↶');
     const menu=el('details',{class:'review-menu'},el('summary',{'aria-label':'Durchsehen-Menü'},'•••'),el('div',{class:'review-menu-panel'},...menuItems(),el('p',{class:'review-progress'},`${queue.length} offen · ${all.filter(t=>['favorit','vielleicht','ausgeschlossen'].includes(t.status)).length} bewertet`),el('button',{type:'button',class:'review-reason-open',disabled:!reasonFor||pending||needsRefresh||isBlocked(),onclick:openReasons},'Gründe ergänzen')));
     const header=el('header',{class:'review-overlay-header'},el('button',{type:'button','aria-label':'Durchsehen schließen',disabled:pending,onclick:onClose},'×'),progress,undo,menu);
     box.replaceChildren(message);

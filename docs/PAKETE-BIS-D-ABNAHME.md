@@ -28,3 +28,9 @@ Sebastian hat A–D aus Werkstatt-Nachricht 315 freigegeben. Reihenfolge: A (PR1
 Browsertests decken Sammelbestätigung/Abbrechen/Rückgängig, Buchung mit expliziter Etappenbestätigung, Push-Opt-in und Ablehnung, Posteingang, verlorene Auffrischungsantwort, Vergleichbarkeit und Auswahlkarte ab. Service-Worker-Tests prüfen sichtbare Push-Meldungen und sichere Klickziele. Alle Tests verwenden synthetische Daten; keine persönlichen Unterkünfte oder kostenpflichtigen Suchen wurden verändert.
 
 Echter Push-Empfang am iPhone ist erst nach Installation der veröffentlichten App und Opt-in prüfbar. Der Server versendet `push_test` derzeit an alle aktiven Geräte; die Oberfläche benennt das ausdrücklich. Screenshots unter `docs/previews` zeigen die echte App mit synthetischen Beispieldaten, keine gebuchten Angebote.
+
+## Ergänzende Anwenderprobe
+
+Kompletter Browserablauf: Favoriten → erneut durchsehen und behalten → Na ja und Rückgängig → zwei Unterkünfte vergleichen → Auswahlkarte → Weg und Rückgängig → Auffrischen → Buchung vermerken. Synthetische Daten, keine kostenpflichtigen Live-Suchen oder Änderungen persönlicher Buchungen.
+
+Dabei behoben: ungenutzte Bildschirmhöhe beim erneuten Durchsehen, versehentlicher Text „null“ in Vergleich/Auffrischung und zu schmale Vergleichsspalten auf dem Handy. Die Vergleichstabelle lässt sich seitlich wischen. Screenshots: `previews/paket-b-durchsehen-mobile.png`, `previews/paket-d-vergleich-mobile.png`.

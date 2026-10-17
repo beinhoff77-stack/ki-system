@@ -2025,3 +2025,45 @@ test('Paket D: Vergleich nur ausgewählte IDs, unbekannte Werte und Karte nur di
  assert.deepEqual(calls.find(p=>p.aktion==='unterkunft_vergleich').daten,{treffer_ids:[1,2]});
  await map.getByRole('button',{name:'Schließen',exact:true}).click();assert.equal(await page.getByRole('dialog',{name:'Unterkünfte vergleichen',exact:true}).count(),1);
 });
+
+test('Anwenderablauf: Favoriten → Durchsehen → Vergleichen/Lage → Aussortieren → Auffrischen → Buchen',async t=>{
+ const data=result();data.suchauftrag.etappe_id=1;
+ data.treffer=[hit(1,'A',1200,{status:'favorit',name:'Gartenwohnung',lat:35,lon:135,bild:'https://example.com/journey.svg'}),hit(2,'A',1500,{status:'favorit',name:'Stadtsuite',lat:35.01,lon:135.01,bild:'https://example.com/journey.svg'}),hit(3,'B',900,{status:'vielleicht',name:'Kleines Haus',lat:35.02,lon:135.02})];
+ const e={id:1,reise_id:1,ziel:'Tokyo',anreise:data.suchauftrag.anreise,abreise:data.suchauftrag.abreise,status:'geplant',version:1,aktive_suche_id:2,suchen:[{id:2,...data.suchauftrag}]};
+ const tripData={reisen:[{id:1,name:'Japan'}],etappen:[e],ohne_etappe:[],luecken:[]};let started=false;
+ const refresh={auffrischung_id:61,etappe_id:1,suchauftrag_id:2,status:'fertig',status_text:'Fertig',anreise:e.anreise,abreise:e.abreise,kosten:{limit_credits:30,ist_credits:20,suchrunde_ist_usd:0.1},favoriten:[{treffer_id:1,name:'Gartenwohnung',status:'geprueft_geaendert',status_text:'Günstiger',vergleichbar:true,angebot_bestaetigt:true,vorher:{preis_eur:1200},nachher:{preis_eur:1100},differenz_eur:-100}],neue_unterkuenfte:[]};
+ const {page,calls}=await setup(t,p=>{
+  if(p.aktion==='unterkunft_etappen_lesen')return tripData;
+  if(p.aktion==='unterkunft_suchprofile_lesen')return profileCatalog();
+  if(p.aktion==='unterkunft_suchlauf_lesen')return p.daten?.suchauftrag_id?data:{suchauftraege:[data.suchauftrag],merkliste:data.treffer.filter(t=>t.status==='favorit').map(t=>({...t,suchauftrag_id:2,ziel:'Tokyo',anreise:e.anreise,abreise:e.abreise,preis_gesamt_eur:t.angebot.preis_gesamt_eur}))};
+  if(p.aktion==='unterkunft_etappe_treffer_lesen')return {ok:true,etappe:e,referenz_suche_id:2,aktive_variante_bestaetigt:true,unterkuenfte:data.treffer.map(t=>({...t,suchauftrag_id:2,in_aktiver_variante:true,preis_gesamt_eur:t.angebot.preis_gesamt_eur}))};
+  if(p.aktion==='unterkunft_durchsehen_urteil'){const h=data.treffer.find(t=>t.treffer_id===p.daten.treffer_id);h.status={favorit:'favorit',vielleicht:'vielleicht',weg:'ausgeschlossen',offen:'aktiv'}[p.daten.urteil];return {ok:true,treffer_id:h.treffer_id,urteil:p.daten.urteil,status:h.status};}
+  if(p.aktion==='unterkunft_vergleich')return {ok:true,unterkuenfte:p.daten.treffer_ids.map((id,i)=>({...data.treffer.find(t=>t.treffer_id===id),kennung:['A','B'][i],anreise:e.anreise,abreise:e.abreise})),zeilen:[{feld:'preis_gesamt',label:'Gesamtpreis',werte:[1200,1500],einheit:'€',gleich:false,besser:'A'}],unterschiede:[{feld:'preis_gesamt',text:'A ist 300 € günstiger'}]};
+  if(p.aktion==='unterkunft_auffrischen_lesen')return {ok:true,auffrischung:started?refresh:null};
+  if(p.aktion==='unterkunft_auffrischen_vorschau')return {ok:true,auffrischung_id:61,vorschau_id:'journey-preview',version:1,etappe:e,suche:{erwachsene:2,kinder_alter:[]},favoriten:[],suchrunde:{moeglich:true},kosten:{limit_vorschlag:30,suchrunde_usd_bis:0.5,text:'Bis zu 30 Credits plus 0,50 USD'}};
+  if(p.aktion==='unterkunft_auffrischen_starten'){started=true;return {ok:true,auffrischung_id:61,auffrischung:refresh};}
+  if(p.aktion==='unterkunft_etappe_speichern'){e.status='gebucht';e.buchung=p.daten.buchung;return {etappe:e};}return {};
+ },{width:390,height:844});
+ await page.route('https://example.com/journey.svg',r=>r.fulfill({contentType:'image/svg+xml',body:'<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500"><rect width="800" height="500" fill="#d9ccba"/><rect x="40" y="30" width="430" height="260" fill="#547b77"/><path d="M50 260L150 110 300 230 450 70V280H50" fill="#9db19a"/><rect x="90" y="330" width="620" height="130" rx="30" fill="#f2ede4"/></svg>'}));
+ await page.route('https://tile.openstreetmap.org/**',r=>r.fulfill({contentType:'image/png',body:testPixel}));
+ await page.goto(origin+'/#/ergebnisse');await page.locator('a[href="#/etappe/1"]').click();
+ await page.locator('[data-stage-hit="1"]').waitFor();
+ await page.getByRole('button',{name:'Durchsehen',exact:true}).click();await page.locator('[data-review-hit="1"]').waitFor();
+ await page.getByRole('button',{name:'Favorit',exact:true}).click();await page.locator('[data-review-hit="2"]').waitFor();
+ await page.getByRole('button',{name:'Na ja',exact:true}).click();await page.getByText('Alle Unterkünfte durchgesehen.',{exact:true}).waitFor();
+ await page.getByRole('button',{name:'Letzte Entscheidung rückgängig',exact:true}).click();await page.locator('[data-review-hit="2"]').waitFor();
+ const reviewBox=await page.locator('[data-review-hit="2"]').boundingBox();assert.ok(reviewBox.height>590,'Re-review uses available screen height');
+ await page.screenshot({path:path.join(root,'docs/previews/paket-b-durchsehen-mobile.png')});
+ await page.getByRole('button',{name:'Durchsehen schließen',exact:true}).click();
+ await page.getByRole('button',{name:'Auswählen',exact:true}).click();await page.getByRole('button',{name:'Alle 2 auswählen',exact:true}).click();
+ await page.getByRole('button',{name:'Vergleichen (2–4)',exact:true}).click();await page.getByText('A ist 300 € günstiger',{exact:true}).waitFor();
+ assert.doesNotMatch(await page.getByRole('dialog',{name:'Unterkünfte vergleichen',exact:true}).innerText(),/\bnull\b/);
+ await page.screenshot({path:path.join(root,'docs/previews/paket-d-vergleich-mobile.png')});
+ await page.getByRole('button',{name:'Lage dieser Auswahl vergleichen',exact:true}).click();const map=page.getByRole('dialog',{name:'Lage der Auswahl vergleichen',exact:true});await map.getByLabel('Unterkunft auf der Karte auswählen').selectOption('2');await map.getByRole('heading',{name:'Stadtsuite',exact:true}).waitFor();
+ await map.getByRole('button',{name:'Schließen',exact:true}).click();await page.getByRole('dialog',{name:'Unterkünfte vergleichen',exact:true}).getByRole('button',{name:'Schließen',exact:true}).click();
+ await page.locator('[data-stage-hit="2"]').getByRole('button',{name:'Zu Weg',exact:true}).click();await page.getByRole('button',{name:'Weg (1)',exact:true}).click();await page.locator('[data-stage-hit="2"]').waitFor();
+ await page.getByRole('button',{name:'Rückgängig',exact:true}).click();await page.getByRole('button',{name:'Favoriten (2)',exact:true}).click();
+ await page.getByRole('button',{name:'Suche auffrischen',exact:true}).click();await page.getByRole('button',{name:'Kosten und Umfang prüfen',exact:true}).click();await page.getByRole('button',{name:'Jetzt kostenpflichtig auffrischen',exact:true}).click();await page.locator('.price-down').waitFor();await page.getByRole('dialog').getByRole('button',{name:'Schließen',exact:true}).click();
+ await page.locator('[data-stage-hit="1"]').getByRole('button',{name:'Als gebucht markieren',exact:true}).click();const booking=page.getByRole('dialog');await booking.getByLabel('Gebuchter Gesamtpreis (€)',{exact:true}).fill('1100');await booking.getByRole('button',{name:'Buchung vermerken',exact:true}).click();
+ await page.waitForURL('**/#/reisen/1');await page.getByText('Gebucht',{exact:true}).waitFor();assert.equal(e.buchung.name,'Gartenwohnung');assert.equal(e.buchung.preis_gesamt_eur,1100);assert.equal(calls.filter(p=>p.aktion==='unterkunft_etappe_speichern').length,1);
+});

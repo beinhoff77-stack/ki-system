@@ -10,7 +10,7 @@ async function tripCompare(hits){
     rows.append(el('tr',{},el('th',{scope:'row'},f.label),...(Array.isArray(f.werte)?f.werte:[]).map((v,i)=>el('td',{class:!r.warnung&&f.besser===r.unterkuenfte[i]?.kennung?'comparison-best':''},v==null?'unbekannt':typeof v==='boolean'?(v?'Ja':'Nein'):String(v)+(f.einheit?' '+f.einheit:'')))));
    }table.append(rows);tableBox.replaceChildren(table);}
   different.onchange=draw;
-  body.replaceChildren(r.warnung?el('p',{class:'warning',role:'alert'},r.warnung):null,el('label',{},different,' Nur Unterschiede und offene Angaben'),el('ul',{},(r.unterschiede||[]).filter(x=>!r.warnung||!['preis_gesamt','preis_nacht'].includes(x.feld)).map(x=>el('li',{},x.text))),tableBox,el('p',{class:'small'},r.hinweis||'Unbekannte Werte bleiben unbekannt.'),el('button',{type:'button',onclick:()=>tripSelectionMap(hits)},'Lage dieser Auswahl vergleichen'));
+  body.replaceChildren(...[r.warnung?el('p',{class:'warning',role:'alert'},r.warnung):null,el('label',{},different,' Nur Unterschiede und offene Angaben'),el('ul',{},(r.unterschiede||[]).filter(x=>!r.warnung||!['preis_gesamt','preis_nacht'].includes(x.feld)).map(x=>el('li',{},x.text))),el('p',{class:'small'},'↔ Tabelle seitlich wischen, um alle Unterkünfte zu vergleichen.'),tableBox,el('p',{class:'small'},r.hinweis||'Unbekannte Werte bleiben unbekannt.'),el('button',{type:'button',onclick:()=>tripSelectionMap(hits)},'Lage dieser Auswahl vergleichen')].filter(node=>node!=null));
   draw();status.textContent='';
  }catch(e){if(d.isConnected)status.textContent=e.message;}
 }

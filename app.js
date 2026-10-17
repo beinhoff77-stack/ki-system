@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.22.0';
+const APP_VERSION = '0.23.0';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -223,7 +223,7 @@ function viewStart() {
         el('div', { class: 'area-art council-art', 'aria-hidden': true }, el('span', {}, '○'), el('span', {}, '○'), el('span', {}, '○')),
         el('div', { class: 'area-card-copy' }, el('p', { class: 'eyebrow' }, 'DENKEN & ENTSCHEIDEN'), el('h2', {}, 'Council'),
           el('p', {}, 'Fragen durchdenken, Perspektiven vergleichen und Entscheidungen vorbereiten.'), el('span', { class: 'area-enter' }, 'Council öffnen', el('span', { 'aria-hidden': true }, '↗')))),
-      el('a', { class: 'area-card stay-card', href: '#/reisen' },
+      el('a', { class: 'area-card stay-card', href: '#/suche' },
         el('div', { class: 'area-art stay-art', 'aria-hidden': true }, el('span', { class: 'stay-sun' }), el('span', { class: 'stay-house' }, '⌂')),
         el('div', { class: 'area-card-copy' }, el('p', { class: 'eyebrow' }, 'REISEN & WOHLFÜHLEN'), el('h2', {}, 'Unterkunft.'),
           el('p', {}, 'Einen guten Ort für eure Reise finden. Unterkünfte suchen und in Ruhe vergleichen.'), el('span', { class: 'area-enter' }, 'Unterkunft öffnen', el('span', { 'aria-hidden': true }, '↗'))))),
@@ -926,11 +926,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   }
   const notice = el('p', { role: 'status', 'aria-live': 'polite', class: 'small' });
   if (!hasRun) {
-    if (!historyOnly) scope.append(el('section', { class: 'stay-hero' },
-      el('p', { class: 'eyebrow' }, 'REISEN, WIE IHR ES LIEBT'),
-      el('h2', {}, 'Wohnen, wo sich die Reise richtig anfühlt.'),
-      el('p', {}, 'Familiengerechte Unterkünfte finden, vergleichen und auswählen. Für eure Reise, mit euren Wünschen.')));
-    else scope.append(el('div', { class: 'stay-page-heading' }, el('p', { class: 'eyebrow' }, 'DEINE REISEN'), el('h2', {}, 'Deine Favoriten'), el('p', {}, 'Deine gemerkten Unterkünfte – mit den zugehörigen Suchen zum Nachlesen.')));
+    if (historyOnly) scope.append(el('div', { class: 'stay-page-heading' }, el('p', { class: 'eyebrow' }, 'DEINE REISEN'), el('h2', {}, 'Deine Favoriten'), el('p', {}, 'Deine gemerkten Unterkünfte – mit den zugehörigen Suchen zum Nachlesen.')));
     const form = el('form', { class: 'suche-form' });
     const fields = el('fieldset');
     const grid = el('div', { class: 'suche-grid' });
@@ -971,7 +967,9 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     const extended = sucheErweitertesFormular(form, call, live, value => { profileReady = value; submit.disabled = !value || busy; }, value => { busy = value; fields.disabled = value; submit.disabled = value || !profileReady; }, profilePreset, districtPreset);
     fields.append(extended.profilePanel, sections, extended.tripPanel, extended.qualityPanel, extended.filtersPanel, el('div', { class: 'search-submit-bar' }, tripSummary, submit));
     form.append(fields, notice);
-    const tripChoice = historyOnly ? null : tripSearchChoice(form, call, live);
+    let tripHandler = () => {}, quickLayout = null;
+    const tripChoice = historyOnly ? null : tripSearchChoice(form, call, live, state => tripHandler(state));
+    if (!historyOnly) { const onTrip = fn => { tripHandler = fn; }; onTrip.setNew = () => tripChoice.setNew(); quickLayout = sucheSchnellLayout({ form, fields, sections, extended, submit, call, live, onTrip }); }
     if (idStr === 'viertel' && !districtPreset) notice.textContent = 'Die Viertelauswahl ist nicht mehr verfügbar. Bitte im Block „Viertel“ neu auswählen.';
     form.addEventListener('input', updateTripSummary); updateTripSummary();
     if (!historyOnly) scope.append(form);
@@ -1012,8 +1010,9 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       const stages=el('section',{class:'card'},el('h2',{},'Nach Etappe entscheiden'));scope.append(stages,allFavorites);
       void call('unterkunft_etappen_lesen').then(r=>{if(!live())return;if(!Array.isArray(r.etappen))throw Error('Etappen unvollständig.');stages.append(...r.etappen.map(e=>el('a',{class:'decision-stage-link',href:'#/etappe/'+e.id},el('strong',{},e.ziel),el('span',{},fmtDate(e.anreise)+'–'+fmtDate(e.abreise)+' · Favoriten / Na ja / Weg'))));}).catch(e=>{if(live())stages.append(el('p',{},e.message));});
     }
-    recent.append(refresh, recentNotice, list); scope.append(recent);
-    recent.append(el('p', { class: 'small muted' }, 'Hier stehen die letzten zehn Suchaufträge. Die gemeinsame Merkliste umfasst alle Reisen. Rohdaten werden nach 30 Tagen entfernt.'));
+    if (historyOnly) { recent.append(refresh, recentNotice, list); recent.append(el('p', { class: 'small muted' }, 'Hier stehen die letzten zehn Suchaufträge. Die gemeinsame Merkliste umfasst alle Reisen. Rohdaten werden nach 30 Tagen entfernt.')); }
+    else { recent.classList.add('recent-compact'); recent.firstElementChild.textContent = 'Deine Suchen'; recent.append(recentNotice, list); }
+    scope.append(recent);
     const historyProfiles = el('section', { class: 'card' }, el('h2', {}, 'Gespeicherte Suchprofile'));
     if (historyOnly) scope.append(historyProfiles);
     async function loadHistoryProfiles() {
@@ -1031,6 +1030,18 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
         const r = await call('unterkunft_suchlauf_lesen'); if (!live()) return;
         const rows = Array.isArray(r) ? r : r?.suchauftraege;
         if (!Array.isArray(rows)) throw new Error('Unerwartete Antwort beim Lesen der letzten Suchaufträge.');
+        if (!historyOnly) {
+          const today = new Date().toISOString().slice(0, 10);
+          const row = a => el('a', { class: 'recent-row' + (a.abreise < today || ['abgebrochen', 'fehler'].includes(a.status) ? ' is-past' : ''), href: '#/suche/' + a.id },
+            el('span', { class: 'recent-date' }, el('b', {}, String(new Date(a.anreise).getDate())), el('small', {}, new Date(a.anreise).toLocaleDateString('de-DE', { month: 'short' }))),
+            el('span', { class: 'recent-main' }, el('strong', {}, a.ziel), el('small', {}, `${a.naechte ?? Math.round((Date.parse(a.abreise) - Date.parse(a.anreise)) / 86400000)} Nächte · ${a.treffer ?? '–'} Unterkünfte${sucheZahl(a.gemerkt) > 0 ? ' · ♥ ' + a.gemerkt : ''}${['laeuft', 'wartet'].includes(a.status) ? ' · läuft …' : a.status === 'abgebrochen' ? ' · abgebrochen' : ''}`)),
+            el('span', { class: 'recent-go', 'aria-hidden': 'true' }, '›'));
+          const sorted = [...rows].sort((x, y) => (y.abreise >= today) - (x.abreise >= today) || String(x.anreise).localeCompare(String(y.anreise)));
+          const upcoming = sorted.filter(a => a.abreise >= today && a.status !== 'abgebrochen'), older = sorted.filter(a => !upcoming.includes(a));
+          list.replaceChildren(...upcoming.map(row), older.length ? el('details', { class: 'recent-older' }, el('summary', {}, `Frühere und abgebrochene Suchen (${older.length})`), ...older.map(row)) : '');
+          if (!rows.length) list.append(el('p', { class: 'muted' }, 'Noch keine Suche. Oben Ort und Daten eintragen.'));
+          recentNotice.textContent = ''; return;
+        }
         list.replaceChildren(...rows.map((a) => el('article', { class: 'recent-trip' }, el('a', { class: 'recent-trip-content', href: '#/suche/' + a.id }, el('span', { class: 'eyebrow' }, 'Suche #' + a.id), el('strong', {}, a.ziel), el('span', {}, `${fmtDate(a.anreise)}–${fmtDate(a.abreise)}`), el('span', { class: 'recent-trip-meta' }, `${a.treffer ?? '–'} Treffer · ${a.status || 'Status unbekannt'} ↗`)), sucheZahl(a.gemerkt) > 0 ? el('a', { href: '#/suche/' + a.id + '?favoriten=1', class: 'small' }, 'Favoriten in ' + a.ziel) : null)));
         if (!rows.length) list.append(el('div', { class: 'stay-empty' }, el('strong', {}, 'Die nächste Reise beginnt hier.'), el('p', {}, 'Sobald du eine Suche startest, findest du hier ihren Fortschritt und ihre Ergebnisse.'), historyOnly ? el('a', { href: '#/suche' }, 'Erste Unterkunft suchen →') : null));
         recentNotice.textContent = '';
@@ -1041,7 +1052,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       } catch (e) { if (live()) { recentNotice.textContent = e.message; if (historyOnly) favoritesNotice.textContent = 'Merkliste nicht aktualisiert: ' + e.message; } }
       finally { readingRecent = false; refresh.disabled = refreshFavorites.disabled = false; }
     }
-    await Promise.all([loadRecent(), historyOnly ? loadHistoryProfiles() : extended.load()]); return;
+    await Promise.all([loadRecent(), historyOnly ? loadHistoryProfiles() : extended.load().then(() => { if (!profilePreset && live()) quickLayout?.restoreWho(); })]); return;
   }
   const [idPart, viewQuery = ''] = String(idStr).split('?');
   const id = Number(idPart), favoritesOnly = new URLSearchParams(viewQuery).get('favoriten') === '1';
@@ -1049,7 +1060,6 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   if (!Number.isSafeInteger(id) || id <= 0) { scope.append(el('p', {}, 'Ungültige Suchauftragsnummer.')); return; }
   let savedView = {}, restoredView = false;
   try { savedView = JSON.parse(sessionStorage.getItem('ks_suche_view:' + id) || '{}') || {}; } catch { /* Standards nutzen */ }
-  scope.append(el('div', { class: 'stay-page-heading' }, el('p', { class: 'eyebrow' }, 'EIN GUTER ORT FÜR EURE REISE'), el('h2', {}, 'Unterkünfte vergleichen')));
   const reportText = el('div', { class: 'feedback-report' });
   const reportNotice = el('p', { role: 'status' });
   const reportButton = el('button', { type: 'button', onclick: async () => {
@@ -1080,12 +1090,12 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   const setResultView = view => { if(review?.pending || [...selectionStates.values()].some(s=>s.pending))return; resultView=view; stayWrite('ks_result_view',view); showMap=false;if(view==='tinder'&&notice.textContent==='Bewertung abgeschlossen. Rangliste aktualisiert.')notice.textContent=''; draw();window.scrollTo(0,0); };
   const tableButton = el('button', { type: 'button', onclick: () => { setResultView('table'); } }, 'Tabelle');
   const listButton = el('button', { type: 'button', onclick: () => { setResultView('list'); } }, 'Liste');
-  const tinderButton = el('button',{type:'button',onclick:()=>setResultView('tinder')},'Tinder');
+  const tinderButton = el('button',{type:'button',onclick:()=>setResultView('tinder')},'Durchsehen');
   const mapButton = el('button', { type: 'button', onclick: () => { showMap = true; draw(); window.scrollTo(0,0); } }, 'Karte');
-  const viewButtons = el('div', { class: 'actions result-view-switch', hidden: true, role: 'group', 'aria-label': 'Ergebnisansicht' }, listButton, tableButton, tinderButton, mapButton, el('a',{href:'#/anzeige'},'Anzeige'));
+  const viewButtons = el('div', { class: 'actions result-view-switch', hidden: true, role: 'group', 'aria-label': 'Ergebnisansicht' }, tinderButton, listButton, tableButton, mapButton, el('a',{href:'#/anzeige'},'Anzeige'));
   const undoSelection = el('button', { type: 'button', hidden: true, onclick: () => selectionStates.get(lastSelection)?.undoAction() }, 'Letzte Auswahl rückgängig');
   const research = sucheLuecken(id, call, live);
-  review = stayReview({getSnapshot:()=>snapshot,getRows:()=>filteredRows,getGroup:()=>filters.value().favoriten?'favorit':(['favorit','vielleicht','ausgeschlossen'].includes(filters.value().urteil)?filters.value().urteil:null),call,live,scope,onClose:()=>setResultView('list'),menuItems:()=>[viewButtons,runBar],onRefresh:()=>refresh.click(),isBlocked:()=>[...selectionStates.values()].some(s=>s.refreshRequired||s.pending),changed:t=>{const current=snapshot?.treffer.find(x=>x.treffer_id===t.treffer_id);if(current && current!==t)Object.assign(current,{status:t.status,urteil_gruende:t.urteil_gruende,urteil_uebernommen:t.urteil_uebernommen});selectionStates.delete(t.treffer_id);draw();}});
+  review = stayReview({getSnapshot:()=>snapshot,getRows:()=>filteredRows,getGroup:()=>filters.value().favoriten?'favorit':(['favorit','vielleicht','ausgeschlossen'].includes(filters.value().urteil)?filters.value().urteil:null),call,live,scope,onClose:t=>{setResultView('list');if(t)requestAnimationFrame(()=>showHit(t));},menuItems:()=>[viewButtons,runBar],onRefresh:()=>refresh.click(),isBlocked:()=>[...selectionStates.values()].some(s=>s.refreshRequired||s.pending),changed:t=>{const current=snapshot?.treffer.find(x=>x.treffer_id===t.treffer_id);if(current && current!==t)Object.assign(current,{status:t.status,urteil_gruende:t.urteil_gruende,urteil_uebernommen:t.urteil_uebernommen});selectionStates.delete(t.treffer_id);draw();}});
   let furtherRound=null;
   const more = el('button',{type:'button',hidden:true,onclick:()=>{moreConfirm.hidden=false;}},'Weitere suchen');
   const moreConfirm = el('div',{class:'card',hidden:true},el('p',{},'Kostet ca. 0,05–0,50 USD; findet nur, was die Quellen zusätzlich haben.'),
@@ -1161,23 +1171,26 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   } }, 'Suche abbrechen');
   const resultLinks = el('nav', { class: 'actions result-jumps', 'aria-label': 'Weitere Ergebnisgruppen' });
   const runActions=el('div', { class: 'actions' }, el('a', { href: '#/suche' }, 'Neue Suche / letzte Aufträge'), el('a', { href: viertelHref({suche:id}) }, 'Viertel dieser Reise entdecken'), refresh, start, cancel, preview, undoSelection, more);
-  const runTools=el('details',{class:'review-run-tools',open:true},el('summary',{},'Suchlauf'),runActions);
+  const runTools=el('details',{class:'review-run-tools'},el('summary',{},'Suchlauf'),runActions);
   const runBar=el('div',{class:'review-run-bar'},runTools,endrunde);
-  scope.append(runBar,moreConfirm,notice,summary,controls,filters.node,viewButtons,resultLinks,mapPanel,results,report);
+  const doneStatus = el('p', { role: 'status', class: 'sr-only' });
+  const filterBox = el('details', { class: 'card filter-box' }, el('summary', {}, 'Filtern & sortieren'), controls, filters.node);
+  scope.append(doneStatus,notice,summary,viewButtons,filterBox,resultLinks,moreConfirm,mapPanel,results,runBar,report);
   function draw() {
     if (!snapshot) return;
     const openDetails = new Set([...results.querySelectorAll('details[open][data-detail]')].map((n) => n.dataset.detail));
     const compact=resultView==='tinder'&&!showMap;
     const modeChanged=scope.classList.contains('tinder-mode')!==compact;
     scope.classList.toggle('tinder-mode',compact);report.hidden=compact;
-    if(modeChanged)runTools.open=!compact;
-    if(!compact){scope.insertBefore(runBar,report);scope.insertBefore(viewButtons,resultLinks);}
+    if(modeChanged)runTools.open=false;
+    if(!compact){scope.insertBefore(runBar,report);scope.insertBefore(viewButtons,filterBox);}filterBox.hidden=compact;
     const a = snapshot.suchauftrag, k = snapshot.kosten || {}, steps = Array.isArray(a.schrittkette) ? a.schrittkette : [];
     runTools.querySelector('summary').textContent=compact?(a.ziel||'Reise')+' · Suchlauf':'Suchlauf';
     const phase = { final: snapshotStatus?.status === 'fertig' && snapshotStatus?.fertig === true, failed: snapshotStatus?.status !== 'fertig' && SUCHE_ENDE.has(snapshotStatus?.status) };
-    summary.replaceChildren(el('h2', {}, `${a.ziel} · #${a.id}`),
-      el('p', {}, `${fmtDate(a.anreise)}–${fmtDate(a.abreise)} · ${a.erwachsene} Erwachsene · ${(a.kinder_alter || []).length} Kinder`),
-      el('p', {}, 'Status: ', el('strong', {}, a.status), ' · ', snapshot.treffer.length, ' Treffer'),
+    const nightsRun = Math.round((Date.parse(a.abreise) - Date.parse(a.anreise)) / 86400000), shortDate = d => new Date(d + 'T12:00:00').toLocaleDateString('de-DE', { day: 'numeric', month: 'numeric' });
+    summary.replaceChildren(el('h2', {}, a.ziel),
+      el('p', { class: 'run-line' }, `${shortDate(a.anreise)}–${shortDate(a.abreise)} · ${nightsRun} Nächte · ${a.erwachsene} Erw.${(a.kinder_alter || []).length ? ' · ' + (a.kinder_alter || []).length + ' Kinder' : ''} · ${snapshot.treffer.filter(t => t.topf !== 'ausgeschlossen').length} Unterkünfte`),
+      el('p', {}, 'Status: ', el('strong', {}, a.status), ' · ', snapshot.treffer.length, ' Treffer · Suche #' + a.id),
       el('p', { class: 'small' }, `Suchkosten: ${fmtUsd(k.ist_usd) || 'unbekannt'} · reserviert: ${fmtUsd(k.reserviert_usd) || 'unbekannt'} · Limit: ${fmtUsd(k.limit_usd ?? a.limit_usd) || 'unbekannt'} · Anbieter-Einheiten: ${k.ist_einheiten ?? 'unbekannt'} / ${k.limit_einheiten ?? 'unbekannt'}`),
       el('ul', { class: 'suche-progress' }, steps.map((s) => el('li', {},
         `${s.quelle === 'bewerten' ? 'Bewertung und Gegenprüfung' : SUCHE_QUELLEN[s.quelle] || s.quelle}: ${s.status}${s.quelle === 'bewerten' ? '' : ` · ${s.treffer ?? 0} Treffer`}`,
@@ -1185,14 +1198,14 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
         s.fehler ? el('p', { class: 'err-text' }, String(s.fehler)) : null,
         s.gehzeit?.fehler ? el('p', { class: 'err-text' }, 'Gehzeiten: ' + s.gehzeit.fehler) : null))),
       el('p', { class: 'erg-warnung' }, phase.final ? 'Bewertung abgeschlossen. Passung (0–100) aus Raum, Lage, Preis-Leistung, Bewertungen und Eignung. Die Datenlage zeigt die Abdeckung; die Ampel beschreibt die Verlässlichkeit, nicht die Qualität. Offene Angaben und Einwände bleiben relevant.' : phase.failed ? 'Bewertung unterbrochen. Die Rangliste ist noch nicht abschließend; vorhandene Ergebnisse bleiben sichtbar.' : 'Zwischenstand: Die Rangliste ist erst nach Abschluss der Bewertungsstufe fertig. Teilnoten und Datenlage zeigen, welche Angaben bereits vorliegen.'));
-    const technical=el('details',{class:'run-diagnostics'},el('summary',{},'Suchkosten, Quellen und Bewertung'));
-    for(const node of [...summary.children].slice(3))technical.append(node);
+    const technical=el('details',{class:'run-diagnostics'},el('summary',{},'Details zum Suchlauf'));
+    for(const node of [...summary.children].slice(2))technical.append(node);
     summary.append(technical);
     for(const step of steps)if(step.fehler)summary.append(el('p',{class:'err-text'},String(step.fehler)));
-    summary.append(sucheDeckung(snapshot.deckung || snapshotStatus?.deckung));
+    technical.append(sucheDeckung(snapshot.deckung || snapshotStatus?.deckung));
     const aCount = snapshot.treffer.filter(t => t.topf !== 'ausgeschlossen' && t.topf !== 'unbewertet' && t.bewertung?.liste === 'A').length;
-    if (phase.final && aCount < 10) summary.append(el('p', { class: 'erg-warnung' }, `Datenlage reicht noch nicht für 10 Empfehlungen unter den passenden Treffern (derzeit ${aCount}).`));
-    if (a.rohdaten_bis) summary.append(el('p', { class: 'small muted' }, 'Rohdaten werden nach 30 Tagen entfernt. Frist: ' + sucheAbruf(a.rohdaten_bis)));
+    if (phase.final && aCount < 10) technical.append(el('p', { class: 'erg-warnung' }, `Datenlage reicht noch nicht für 10 Empfehlungen unter den passenden Treffern (derzeit ${aCount}).`));
+    if (a.rohdaten_bis) technical.append(el('p', { class: 'small muted' }, 'Rohdaten werden nach 30 Tagen entfernt. Frist: ' + sucheAbruf(a.rohdaten_bis)));
     results.replaceChildren();
     controls.hidden = resultView==='tinder'&&!showMap;
     summary.hidden = resultView==='tinder'&&!showMap;
@@ -1343,7 +1356,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
         await readSnapshot(r);
       }
       if (terminal) {
-        notice.textContent = r.status === 'fertig' ? (resultView==='tinder'?'':'Bewertung abgeschlossen. Rangliste aktualisiert.') : r.status === 'gestoppt_budget' ? 'Kostenlimit erreicht. Vorhandene Treffer bleiben sichtbar.' : 'Suche ' + r.status + '. Vorhandene Treffer bleiben sichtbar.';
+        doneStatus.textContent = r.status === 'fertig' ? 'Bewertung abgeschlossen. Rangliste aktualisiert.' : ''; notice.textContent = r.status === 'fertig' ? '' : r.status === 'gestoppt_budget' ? 'Kostenlimit erreicht. Vorhandene Treffer bleiben sichtbar.' : 'Suche ' + r.status + '. Vorhandene Treffer bleiben sichtbar.';
       if(r.status==='fertig' && furtherRound!==null && snapshot?.suchauftrag?.runde>=furtherRound){
           const count=snapshot.treffer.filter(t=>t.runde===furtherRound).length;
           notice.textContent=count+' neue Unterkünfte'+(count===0?' · Angebot für diese Filter ausgeschöpft – Filter lockern oder Viertel erweitern':'');

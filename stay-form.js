@@ -188,3 +188,61 @@ function sucheErweitertesFormular(form, call, live, ready, lock, profilePreset =
   ready(false);sync();
   return {profilePanel,tripPanel,qualityPanel,filtersPanel,load,values};
 }
+
+// W93 (Claude): Suchseite auf einen Bildschirm – Lücke antippen, Wo/Wann/Wer, Suchen. Alles Weitere unter „Mehr Optionen“.
+function sucheSchnellLayout({ form, fields, sections, extended, submit, call, live, onTrip }) {
+  const label = name => form.querySelector(`[name="${name}"]`)?.closest('label');
+  const panel = nr => [...sections.children].find(p => p.querySelector('.step-number')?.textContent === nr);
+  const setLabel = (name, text) => { const l = label(name); if (l?.firstChild?.nodeType === 3) l.firstChild.textContent = text; };
+  setLabel('ziel', 'Wo?'); setLabel('anreise', 'Anreise'); setLabel('abreise', 'Abreise');
+  const nights = el('p', { class: 'quick-nights', 'aria-live': 'polite' });
+  const whoText = el('span', { class: 'who-text' }), whoPanel = el('div', { class: 'who-panel', hidden: true });
+  const who = el('button', { type: 'button', class: 'who-chip', 'aria-expanded': 'false', onclick: () => { whoPanel.hidden = !whoPanel.hidden; who.setAttribute('aria-expanded', String(!whoPanel.hidden)); } }, el('span', { class: 'who-label' }, 'Wer & was?'), whoText, el('span', { class: 'who-edit', 'aria-hidden': 'true' }, 'ändern'));
+  for (const nr of ['02', '03']) { const p = panel(nr); if (p) { p.querySelector('h2')?.remove(); whoPanel.append(...p.children); } }
+  whoPanel.append(extended.profilePanel); extended.profilePanel.classList.add('who-profiles');
+  const tripLine = el('p', { class: 'quick-trip small' });
+  const cost = el('span', { class: 'quick-cost' });
+  submit.textContent = 'Unterkünfte suchen';
+  const when = el('div', { class: 'quick-when' }, label('anreise'), label('abreise'));
+  const quick = el('section', { class: 'card quick-search' }, el('h2', {}, 'Unterkunft suchen'), label('ziel'), when, nights, who, whoPanel, submit, el('p', { class: 'quick-meta small' }, tripLine));
+  const more = el('details', { class: 'card more-options' }, el('summary', {}, 'Mehr Optionen'), el('p', { class: 'small muted' }, 'Reiseart, Unterkunftsform, Qualität, Filter, Quellen und Suchkosten. Die Standardwerte passen für die meisten Suchen.'));
+  const tripNode = fields.querySelector('.trip-choice');
+  if (tripNode) more.append(tripNode);
+  more.append(el('section', { class: 'card stay-form-panel' }, el('h2', {}, 'Land'), label('land')));
+  const p4 = panel('04'); if (p4) more.append(p4);
+  more.append(extended.tripPanel, extended.qualityPanel, extended.filtersPanel);
+  const gaps = el('div', { class: 'quick-gaps' });
+  const kurz = d => { const x = new Date(d + 'T12:00:00'); return Number.isNaN(x.getTime()) ? d : x.toLocaleDateString('de-DE', { day: 'numeric', month: 'numeric' }); };
+  const whoKeys = ['erwachsene', 'kinder_alter', 'schlafzimmer_min', 'budget_eur'];
+  const remembered = stayRead('ks_who_last', null);
+  const restoreWho = () => { if (remembered && typeof remembered === 'object') for (const k of whoKeys) { const i = form.querySelector(`[name="${k}"]`); if (i && typeof remembered[k] === 'string') i.value = remembered[k]; } form.dispatchEvent(new Event('input')); };
+  restoreWho();
+  form.addEventListener('submit', () => { const v = {}; for (const k of whoKeys) v[k] = String(form.querySelector(`[name="${k}"]`)?.value ?? ''); stayWrite('ks_who_last', v); }, true);
+  fields.replaceChildren(gaps, quick, more);
+  function update() {
+    const f = new FormData(form), n = (Date.parse(f.get('abreise')) - Date.parse(f.get('anreise'))) / 86400000;
+    nights.textContent = Number.isFinite(n) && n > 0 ? `${n} ${n === 1 ? 'Nacht' : 'Nächte'}` : '';
+    const kids = String(f.get('kinder_alter') || '').split(',').map(v => v.trim()).filter(Boolean);
+    const sz = f.get('schlafzimmer_min'), budget = f.get('budget_eur');
+    whoText.textContent = [`${f.get('erwachsene') || '?'} Erw.`, kids.length ? `Kinder ${kids.join(', ')}` : 'keine Kinder', sz !== null && sz !== '' && Number(sz) > 0 ? `mind. ${sz} SZ` : null, budget ? 'bis ' + sucheEuro(budget) : 'Budget offen'].filter(Boolean).join(' · ');
+    const limit = sucheZahl(f.get('limit_usd'));
+    cost.textContent = limit === null ? '' : ` · Suche max. ${limit.toLocaleString('de-DE', { style: 'currency', currency: 'USD' })}`;
+  }
+  form.addEventListener('input', update); form.addEventListener('change', update); update();
+  const trip = state => {
+    if (!state.ready) { tripLine.textContent = 'Reise wird geladen …'; return; }
+    if (state.needsChoice) { tripLine.replaceChildren('Bitte Aufenthalt wählen: '); if (state.node.parentElement !== quick) quick.insertBefore(state.node, submit); state.node.classList.add('needs-choice'); return; }
+    if (state.node.parentElement === quick) { more.insertBefore(state.node, more.children[2] || null); state.node.classList.remove('needs-choice'); }
+    tripLine.replaceChildren(`${state.reise} · ${state.stage === 'new' ? 'neuer Aufenthalt' : state.stageText} `, el('button', { type: 'button', class: 'link-button', onclick: () => { more.open = true; tripNode?.scrollIntoView({ block: 'center' }); } }, 'ändern'));
+  };
+  onTrip(trip);
+  call('unterkunft_etappen_lesen').then(r => {
+    if (!live()) return;
+    const today = new Date().toISOString().slice(0, 10);
+    const list = (Array.isArray(r?.luecken) ? r.luecken : []).filter(l => l?.suche_vorschlag?.abreise > today);
+    gaps.replaceChildren(...list.map(l => { const v = l.suche_vorschlag; const n = v.naechte ?? l.naechte;
+      return el('article', { class: 'gap-card' }, el('div', {}, el('p', { class: 'eyebrow' }, 'Hier fehlt noch eine Unterkunft'), el('strong', {}, `${kurz(v.anreise)} – ${kurz(v.abreise)} · ${n} Nächte`), el('span', { class: 'small' }, [v.nach ? 'nach ' + v.nach : null, v.vor ? 'vor ' + v.vor : null].filter(Boolean).join(' · '))),
+        el('button', { type: 'button', class: 'primary', onclick: () => { for (const [k, val] of [['anreise', v.anreise], ['abreise', v.abreise]]) { const i = form.querySelector(`[name="${k}"]`); i.value = val; i.dispatchEvent(new Event('input', { bubbles: true })); } onTrip.setNew?.(); const z = form.querySelector('[name="ziel"]'); z.focus(); z.scrollIntoView({ block: 'center' }); } }, 'Hier suchen')); }));
+  }).catch(() => {});
+  return { restoreWho };
+}

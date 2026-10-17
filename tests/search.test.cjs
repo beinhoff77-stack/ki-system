@@ -1624,7 +1624,7 @@ test('Durchsehen: A vor B, bestätigte Urteile, Na ja bleibt bewertet gemäß Na
   await page.locator('.stay-review').waitFor({state:'detached'});
   assert.equal(await page.locator('.stay-review').count(),0);
   await page.locator('.stay-filters > summary').click();
-  await page.locator('.stay-filters > summary').click();
+  if(!await page.locator('.stay-filters').evaluate(n=>n.open))await page.locator('.stay-filters > summary').click();
   await page.getByLabel('Meine Entscheidung',{exact:true}).selectOption('vielleicht');
   assert.deepEqual(await page.locator('[data-hit]').evaluateAll(rows=>rows.map(row=>row.dataset.hit)),['1']);
 });
@@ -1893,7 +1893,7 @@ test('Na ja und Weg durchsehen zeigen nur die ausgewählte Entscheidungsgruppe',
   const data=result();data.treffer[1].status='vielleicht';data.treffer[2].status='ausgeschlossen';
   const {page}=await setup(t,()=>data);
   await page.goto(origin+'/#/suche/2');
-  await page.locator('.stay-filters > summary').click();
+  if(!await page.locator('.stay-filters').evaluate(n=>n.open))await page.locator('.stay-filters > summary').click();
   await page.getByLabel('Meine Entscheidung',{exact:true}).selectOption('vielleicht');
   await page.getByRole('button',{name:'Tinder',exact:true}).click();
   await page.locator('[data-review-hit="2"]').waitFor();

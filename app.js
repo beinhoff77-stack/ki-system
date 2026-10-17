@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.19.0';
+const APP_VERSION = '0.20.0';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -178,6 +178,8 @@ function setChrome(title, { back = false, showTabs = true, tab = null } = {}) {
   document.body.dataset.area = area;
   for (const meta of document.querySelectorAll('meta[name="theme-color"]')) meta.content = ['unterkunft', 'start'].includes(area) ? '#f6f4ec' : meta.media.includes('dark') ? '#101721' : '#f4f6f8';
   $('#areas').hidden = area === 'login';
+  $('#notifications-link').hidden=area==='login';
+  void notificationRefresh();
   $('#area-brand').textContent = area === 'unterkunft' ? 'Unterkunft.' : 'Council';
   $('#area-caption').textContent = area === 'unterkunft' ? 'Ein guter Ort für jede Reise.' : 'Gute Gedanken. Klare Entscheidungen.';
   for (const link of $('#areas').querySelectorAll('[data-area]')) {
@@ -205,7 +207,7 @@ async function render() {
   disposeSuche = () => {};
   current = parseHash();
   if (!store.token && current.view !== 'login') { route('login'); return; }
-  const views = { reisen: viewReisen, etappe: viewEtappe, papierkorb: viewPapierkorb, start: viewStart, login: viewLogin, auftraege: viewAuftraege, auftrag: viewAuftrag, neu: viewNeu, einstellungen: viewEinstellungen, anzeige: viewAnzeige, werkstatt: viewWerkstatt, suche: viewSuche, viertel: viewViertel, ergebnisse: () => viewSuche(null, { historyOnly: true }) };
+  const views = { reisen: viewReisen, etappe: viewDecisionPlace, papierkorb: viewPapierkorb, meldungen: viewMeldungen, start: viewStart, login: viewLogin, auftraege: viewAuftraege, auftrag: viewAuftrag, neu: viewNeu, einstellungen: viewEinstellungen, anzeige: viewAnzeige, werkstatt: viewWerkstatt, suche: viewSuche, viertel: viewViertel, ergebnisse: () => viewSuche(null, { historyOnly: true }) };
   const fn = views[current.view] || (() => route('start'));
   try { await fn(current.arg); } catch (e) { if (live()) showError(e); }
 }
@@ -783,12 +785,13 @@ async function viewEinstellungen() {
   });
 
   main.replaceChildren(
+    notificationSettings(),
     el('div',{class:'card'},el('h2',{},'Unterkunft'),el('a',{href:'#/anzeige'},'Anzeige einstellen')),
     el('div', { class: 'card' }, el('h2', {}, 'Council-Einstellungen'), renderAny(einst), el('p', { class: 'muted small' }, 'Änderungen an Einstellungen bitte vorerst im Chat (Claude) – kommt in einer späteren Stufe in die App.')),
     el('div', { class: 'card' }, el('h2', {}, 'Meine Modelle'), mList),
     el('div', { class: 'card' }, el('h2', {}, 'Aktive Rollen'), renderAny(rollenListe.map((r) => r.name ? `${r.name}${r.typ ? ' (' + r.typ + ')' : ''}` : r))),
     el('div', { class: 'card' }, el('h2', {}, 'Zugang'), pwForm,
-      el('div', { class: 'actions' }, confirmButton('Auf diesem Gerät abmelden', async () => { try { await http('/logout', { method: 'POST' }); } catch { /* egal */ } store.token = null; route('login'); }, 'danger'))),
+      el('div', { class: 'actions' }, confirmButton('Auf diesem Gerät abmelden', async () => { await notificationSignOut(); try { await http('/logout', { method: 'POST' }); } catch { /* egal */ } store.token = null; route('login'); }, 'danger'))),
     el('p', { class: 'muted small' }, `App-Version ${APP_VERSION} · Schnittstelle: app-api`),
   );
 }
@@ -1005,7 +1008,10 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     const favoritesContent = el('div'), favoritesNotice = el('p', { class: 'small', role: 'status' });
     const allFavorites = el('section', { class: 'card global-favorites' }, el('h2', {}, 'Favoriten – alle Reisen'), refreshFavorites, favoritesNotice, favoritesContent);
     let readingRecent = false;
-    if (historyOnly) scope.append(allFavorites);
+    if (historyOnly) {
+      const stages=el('section',{class:'card'},el('h2',{},'Nach Etappe entscheiden'));scope.append(stages,allFavorites);
+      void call('unterkunft_etappen_lesen').then(r=>{if(!live())return;if(!Array.isArray(r.etappen))throw Error('Etappen unvollständig.');stages.append(...r.etappen.map(e=>el('a',{class:'decision-stage-link',href:'#/etappe/'+e.id},el('strong',{},e.ziel),el('span',{},fmtDate(e.anreise)+'–'+fmtDate(e.abreise)+' · Favoriten / Na ja / Weg'))));}).catch(e=>{if(live())stages.append(el('p',{},e.message));});
+    }
     recent.append(refresh, recentNotice, list); scope.append(recent);
     recent.append(el('p', { class: 'small muted' }, 'Hier stehen die letzten zehn Suchaufträge. Die gemeinsame Merkliste umfasst alle Reisen. Rohdaten werden nach 30 Tagen entfernt.'));
     const historyProfiles = el('section', { class: 'card' }, el('h2', {}, 'Gespeicherte Suchprofile'));
@@ -1165,7 +1171,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     const modeChanged=scope.classList.contains('tinder-mode')!==compact;
     scope.classList.toggle('tinder-mode',compact);report.hidden=compact;
     if(modeChanged)runTools.open=!compact;
-    if(!compact){scope.insertBefore(runBar,moreConfirm);scope.insertBefore(viewButtons,resultLinks);}
+    if(!compact){scope.insertBefore(runBar,report);scope.insertBefore(viewButtons,resultLinks);}
     const a = snapshot.suchauftrag, k = snapshot.kosten || {}, steps = Array.isArray(a.schrittkette) ? a.schrittkette : [];
     runTools.querySelector('summary').textContent=compact?(a.ziel||'Reise')+' · Suchlauf':'Suchlauf';
     const phase = { final: snapshotStatus?.status === 'fertig' && snapshotStatus?.fertig === true, failed: snapshotStatus?.status !== 'fertig' && SUCHE_ENDE.has(snapshotStatus?.status) };
@@ -1179,6 +1185,10 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
         s.fehler ? el('p', { class: 'err-text' }, String(s.fehler)) : null,
         s.gehzeit?.fehler ? el('p', { class: 'err-text' }, 'Gehzeiten: ' + s.gehzeit.fehler) : null))),
       el('p', { class: 'erg-warnung' }, phase.final ? 'Bewertung abgeschlossen. Passung (0–100) aus Raum, Lage, Preis-Leistung, Bewertungen und Eignung. Die Datenlage zeigt die Abdeckung; die Ampel beschreibt die Verlässlichkeit, nicht die Qualität. Offene Angaben und Einwände bleiben relevant.' : phase.failed ? 'Bewertung unterbrochen. Die Rangliste ist noch nicht abschließend; vorhandene Ergebnisse bleiben sichtbar.' : 'Zwischenstand: Die Rangliste ist erst nach Abschluss der Bewertungsstufe fertig. Teilnoten und Datenlage zeigen, welche Angaben bereits vorliegen.'));
+    const technical=el('details',{class:'run-diagnostics'},el('summary',{},'Suchkosten, Quellen und Bewertung'));
+    for(const node of [...summary.children].slice(3))technical.append(node);
+    summary.append(technical);
+    for(const step of steps)if(step.fehler)summary.append(el('p',{class:'err-text'},String(step.fehler)));
     summary.append(sucheDeckung(snapshot.deckung || snapshotStatus?.deckung));
     const aCount = snapshot.treffer.filter(t => t.topf !== 'ausgeschlossen' && t.topf !== 'unbewertet' && t.bewertung?.liste === 'A').length;
     if (phase.final && aCount < 10) summary.append(el('p', { class: 'erg-warnung' }, `Datenlage reicht noch nicht für 10 Empfehlungen unter den passenden Treffern (derzeit ${aCount}).`));

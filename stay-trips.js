@@ -48,13 +48,13 @@ async function viewReisen(arg){
   const expanded=new Set([...content.querySelectorAll('[data-stage] details[open]')].map(n=>Number(n.closest('[data-stage]').dataset.stage)));
   const rid=Number(selector.value),trip=snapshot.reisen.find(x=>x.id===rid);content.replaceChildren();if(!trip){content.append(el('p',{},'Lege deine erste Reise an. Danach kannst du Unterkünfte suchen.'));return;}
   const stages=snapshot.etappen.filter(e=>e.reise_id===rid).sort((a,b)=>String(a.anreise).localeCompare(String(b.anreise))||a.id-b.id);
-  content.append(el('div',{class:'trip-title'},el('div',{},el('p',{class:'eyebrow'},'DEINE REISE'),el('h2',{},trip.name)),el('button',{class:'primary',onclick:()=>{stayWrite('ks_trip_context',{reise_id:rid});route('suche');}},'+ Aufenthalt suchen')));
+  content.append(el('div',{class:'trip-title'},el('div',{},el('p',{class:'eyebrow'},'DEINE REISE'),el('h2',{},trip.name)),el('button',{class:'primary',onclick:()=>{stayWrite('ks_trip_context',{reise_id:rid});route('suche');}},'+ Aufenthalt suchen'),el('button',{onclick:()=>tripExternalBooking({reise_id:rid},load)},'Aufenthalt nachtragen')));
   const timeline=el('div',{class:'trip-timeline'}),proposals=el('section',{class:'trip-proposals'},el('h3',{},'Noch nicht bestätigte Vorschläge'));content.append(timeline);
   const confirmed=stages.filter(e=>e.status!=='vorschlag');
   for(const e of stages){const b=e.buchung,card=el('article',{class:'trip-stage','data-stage':e.id});
    card.append(el('div',{class:'stage-date'},el('strong',{},fmtDate(e.anreise)),el('span',{},'bis '+fmtDate(e.abreise)),el('small',{},(e.naechte??'–')+' Nächte')),
     el('div',{class:'stage-main'},el('span',{class:'trip-status '+e.status},{vorschlag:'Vorschlag · noch bestätigen',geplant:'Geplant',gebucht:'Gebucht'}[e.status]||'Status offen'),el('h3',{},e.ziel),b?el('div',{class:'booking-summary'},el('strong',{},b.name||'Unterkunft'),el('p',{},b.zimmer||''),el('p',{},sucheEuro(b.preis_gesamt_eur)+' gesamt'),el('p',{class:'storno'},tripStorno(b))):el('p',{class:'muted'},'Die Unterkunft ist noch offen.'),
-    el('div',{class:'actions'},e.status==='vorschlag'?el('button',{class:'primary',onclick:()=>change(e,{status:'geplant'})},'Vorschlag bestätigen'):null,el('button',{onclick:()=>tripStart(e)},'Andere Tage suchen'),el('button',{onclick:()=>tripEdit(e,load)},'Bearbeiten'),el('button',{onclick:()=>tripDelete('etappe',e.id,load)},e.status==='vorschlag'?'Vorschlag verwerfen':'Etappe entfernen'))));
+    el('div',{class:'actions'},e.status==='vorschlag'?el('button',{class:'primary',onclick:()=>change(e,{status:'geplant'})},'Vorschlag bestätigen'):null,el('button',{onclick:()=>tripStart(e)},'Andere Tage suchen'),el('button',{onclick:()=>tripExternalBooking(e,load)},'Woanders gebucht'),el('button',{onclick:()=>tripEdit(e,load)},'Bearbeiten'),el('button',{onclick:()=>tripDelete('etappe',e.id,load)},e.status==='vorschlag'?'Vorschlag verwerfen':'Etappe entfernen'))));
    const searches=el('details',{open:expanded.has(e.id)},el('summary',{},(e.suchen||[]).length+' Suchvarianten'));
    for(const s of e.suchen||[]){const active=s.id===e.aktive_suche_id;searches.append(el('div',{class:'trip-variant'},el('a',{href:'#/suche/'+s.id},`${fmtDate(s.anreise)}–${fmtDate(s.abreise)} · ${s.status}`),active?el('strong',{},'Aktuelle Variante'):el('button',{onclick:()=>change(e,{aktive_suche_id:s.id})},'Diese Tage verwenden'),el('button',{onclick:()=>tripDelete('suchauftrag',s.id,load)},'Suche entfernen')));}
    card.querySelector('.stage-main').append(searches,el('a',{href:'#/etappe/'+e.id},'Unterkünfte dieser Etappe →'));if(e.status==='vorschlag')proposals.append(card);else {
@@ -80,10 +80,28 @@ async function viewEtappe(arg){
  const scope=el('section',{class:'trips-page'},el('a',{href:'#/reisen/'+r.etappe.reise_id},'← Zur Reise'),el('h2',{},r.etappe.ziel),el('p',{},r.aktive_variante_bestaetigt?'Unterkünfte für die bestätigten Tage':'Bitte eine aktive Suchvariante bestätigen.'));main.replaceChildren(scope);
  for(const t of r.unterkuenfte){const active=t.in_aktiver_variante&&r.aktive_variante_bestaetigt&&r.etappe.status!=='vorschlag';scope.append(el('article',{class:'card stage-stay'},sucheFoto(t),el('h3',{},t.name),el('p',{},active?sucheEuro(t.preis_gesamt_eur)+' gesamt':'Für die aktuellen Tage nicht gefunden'),el('p',{},t.status==='favorit'?'♥ Favorit':t.status==='vielleicht'?'Na ja':''),el('a',{href:'#/suche/'+t.suchauftrag_id+'?treffer='+t.treffer_id},'Details und Suchlauf'),el('details',{},el('summary',{},'Frühere Angebote'),(t.frueher||[]).map(s=>el('p',{},fmtDate(s.anreise)+'–'+fmtDate(s.abreise)+' · '+sucheEuro(s.preis_gesamt_eur)+' damals'))),t.status==='favorit'&&active?el('button',{class:'primary',onclick:()=>tripBook(t.treffer_id,r.etappe)},'Als gebucht markieren'):null));}
 }
-async function tripBook(trefferId,etappe){
+async function tripBook(trefferId,etappe,hit={},searchId=etappe.aktive_suche_id){
  const {d,body,status,close}=tripDialog('Buchung bestätigen');let pending=false;
- body.append(el('p',{},'Hier vermerkst du eine bereits beim Anbieter abgeschlossene Buchung. Es wird keine Unterkunft gebucht.'),el('p',{},etappe.ziel+' · '+fmtDate(etappe.anreise)+'–'+fmtDate(etappe.abreise)));
- const button=el('button',{class:'primary',onclick:async()=>{if(pending)return;pending=true;button.disabled=true;close.disabled=true;try{const r=await tripCall('unterkunft_etappe_speichern',{id:etappe.id,version:etappe.version,status:'gebucht',buchung:{treffer_id:trefferId}});if(r.etappe?.id!==etappe.id||r.etappe.status!=='gebucht')throw Error('Buchung nicht bestätigt.');d.close();route('reisen',etappe.reise_id);}catch(e){status.textContent=e.message+' Bitte den gespeicherten Zustand neu lesen.';}finally{pending=false;close.disabled=false;}}},'Buchung vermerken');body.append(button);d.addEventListener('cancel',e=>{if(pending)e.preventDefault();});
+ const offer=hit.angebot||{},needsConfirm=etappe.status==='vorschlag'||etappe.aktive_suche_id!==searchId;
+ const search=etappe.suchen?.find(s=>s.id===searchId)||etappe;
+ const form=el('form'),fields={};
+ body.append(el('p',{},'Hier vermerkst du eine bereits beim Anbieter abgeschlossene Buchung. Es wird keine Unterkunft gebucht.'),sucheFoto(hit),el('h3',{},hit.name||'Unterkunft'),el('p',{},etappe.ziel+' · '+fmtDate(search.anreise)+'–'+fmtDate(search.abreise)),el('p',{},'Belegung: '+(hit.belegung_text||'laut deiner Buchungsbestätigung; bitte Zimmer und Personen unten prüfen.')));
+ for(const [key,label,type,value] of [['name','Unterkunft','text',hit.name||''],['zimmer','Gebuchtes Zimmer / Wohnung','text',offer.kategorie_name||''],['preis_gesamt_eur','Gebuchter Gesamtpreis (€)','number',offer.preis_gesamt_eur??hit.preis_gesamt_eur??''],['storno_text','Stornobedingungen','text',offer.storno||hit.storno||''],['storno_kostenlos_bis','Kostenlos stornierbar bis ('+Intl.DateTimeFormat().resolvedOptions().timeZone+', optional)','datetime-local',''],['notiz','Personen und Buchungsnotiz','text','']]){
+  const input=el('input',{type,value,step:type==='number'?'0.01':null,min:type==='number'?0:null,required:key==='name',placeholder:key==='storno_kostenlos_bis'?'2026-11-01T18:00:00+09:00':null});fields[key]=input;form.append(el('label',{},label,input));
+ }
+ form.append(el('p',{class:'small'},'Preisstand des Angebots: '+sucheAbruf(offer.abrufzeit)+'. Trage die tatsächlich gebuchten Angaben ein. Eine Storno-Erinnerung braucht ein konkretes Datum.'));
+ const confirmStage=el('input',{type:'checkbox',required:needsConfirm});if(needsConfirm)form.append(el('label',{},confirmStage,' Diese Etappe und diese Reisetage verbindlich übernehmen.'));
+ const button=el('button',{type:'submit',class:'primary'},'Buchung vermerken');form.append(button);body.append(form);
+ form.onsubmit=async ev=>{ev.preventDefault();if(pending)return;
+  const date=fields.storno_kostenlos_bis.value.trim();if(date&&!Number.isFinite(Date.parse(date))){status.textContent='Bitte ein konkretes Datum mit Uhrzeit eingeben.';return;}
+  if(needsConfirm&&!confirmStage.checked)return;
+  if(etappe.status==='gebucht'&&etappe.aktive_suche_id!==searchId){status.textContent='Diese Etappe ist bereits für andere Tage gebucht. Bitte eine getrennte Etappe anlegen.';return;}
+  const booking={treffer_id:trefferId};for(const [key,input] of Object.entries(fields))if(input.value.trim())booking[key]=key==='preis_gesamt_eur'?Number(input.value):key==='storno_kostenlos_bis'?new Date(input.value).toISOString():input.value.trim();
+  pending=true;form.querySelectorAll('input,button').forEach(n=>n.disabled=true);close.disabled=true;
+  try{const r=await tripCall('unterkunft_etappe_speichern',{id:etappe.id,version:etappe.version,status:'gebucht',...(needsConfirm?{aktive_suche_id:searchId}:{}),buchung:booking});if(r.etappe?.id!==etappe.id||r.etappe.status!=='gebucht')throw Error('Buchung nicht bestätigt.');d.close();route('reisen',etappe.reise_id);}
+  catch(e){status.textContent=e.message+' Bitte den gespeicherten Zustand neu lesen. Dein Entwurf bleibt erhalten.';}
+  finally{pending=false;close.disabled=false;}
+ };d.addEventListener('cancel',e=>{if(pending)e.preventDefault();});
 }
 function tripSearchChoice(form,call,live){
  const ctx=stayRead('ks_trip_context',{}),reise=el('select',{'aria-label':'Reise',required:true},el('option',{value:''},'Reise wählen')),stage=el('select',{'aria-label':'Aufenthalt'},el('option',{value:''},'Getrennter / neuer Aufenthalt')),notice=el('p',{role:'status'});let data=null;
@@ -99,5 +117,27 @@ function tripSearchChoice(form,call,live){
 
 function tripDeleteSummary(f){return el('div',{},el('h3',{},f.ziel||'Ausgewählte Etappe'),el('p',{},[fmtDate(f.anreise),fmtDate(f.abreise)].filter(Boolean).join('–')),el('p',{},(f.treffer??'–')+' Treffer · '+(f.favoriten??'–')+' Favoriten'),f.ist_aktive_variante?el('p',{},'Danach muss eine aktuelle Suchvariante neu bestätigt werden.'):null,f.letzte_suche_der_etappe?el('p',{},'Die Etappe bleibt anschließend ohne Suche bestehen.'):null,el('h4',{},'Wird entfernt'),el('ul',{},(f.wird_entfernt||[]).map(s=>el('li',{},s))),el('h4',{},'Bleibt erhalten'),el('ul',{},(f.bleibt||[]).map(s=>el('li',{},s))),f.hinweis?el('p',{},f.hinweis):null,f.suchen?el('p',{},f.suchen.length+' zugehörige Suchen · '+(f.mit_suchen?'werden ebenfalls entfernt':'bleiben erhalten')):null,el('p',{},f.status==='vorschlag'?'Die vorgeschlagene Zuordnung wird verworfen. Die Suchen bleiben erhalten.':'30 Tage im Papierkorb wiederherstellbar.'));}
 async function tripBookFromSearch(t,searchId){
- const live=viewGuard();try{const r=await tripCall('unterkunft_etappen_lesen');if(!live())return;const e=r.etappen?.find(e=>e.suchen?.some(s=>s.id===searchId));if(!e){toast('Bitte die Suche zuerst einer Etappe zuordnen.',true);return;}if(e.status==='vorschlag'||e.aktive_suche_id!==searchId){toast('Bitte zuerst diese Etappe und ihre aktuelle Suchvariante in Reisen bestätigen.',true);return;}tripBook(t.treffer_id,e);}catch(e){if(live())toast(e.message,true);}
+ const live=viewGuard();try{const r=await tripCall('unterkunft_etappen_lesen');if(!live())return;const e=r.etappen?.find(e=>e.suchen?.some(s=>s.id===searchId));if(!e){const {body}=tripDialog('Etappe zuordnen');body.append(el('p',{},'Ordne diese Suche zunächst einer Etappe zu.'),el('a',{href:'#/reisen'},'Reisen öffnen und Suche zuordnen'));return;}tripBook(t.treffer_id,e,t,searchId);}catch(e){if(live())toast(e.message,true);}
+}
+
+function tripExternalBooking(etappe,onSaved){
+ const existing=!!tripId(etappe.id),{d,body,status,close}=tripDialog(existing?'Woanders gebucht':'Aufenthalt nachtragen'),form=el('form'),fields={};let pending=false;
+ body.append(el('p',{},'Trage eine bereits abgeschlossene Buchung ein. Auch vergangene Aufenthalte sind möglich.'));
+ if(existing)body.append(el('p',{},etappe.ziel+' · '+fmtDate(etappe.anreise)+'–'+fmtDate(etappe.abreise)));
+ const specs=[...(!existing?[['ziel','Ort / Stadt','text',true],['anreise','Anreise','date',true],['abreise','Abreise','date',true]]:[]),['name','Unterkunft','text',true],['anbieter','Anbieter','text',false],['preis_gesamt_eur','Gesamtpreis (€)','number',false],['link','Unterkunftslink','url',false],['storno_text','Stornobedingungen','text',false],['storno_kostenlos_bis','Kostenlos stornierbar bis','date',false],['notiz','Notiz','text',false]];
+ for(const [key,label,type,required] of specs){const input=el('input',{type,required,min:type==='number'?0:null,step:type==='number'?'0.01':null});fields[key]=input;form.append(el('label',{},label,input));}
+ form.append(el('p',{class:'small'},'Storno-Erinnerung nur mit konkretem Datum. Den Zeitpunkt laut Buchungsbestätigung beachten.'));
+ const confirm=el('input',{type:'checkbox',required:existing});if(existing)form.append(el('label',{},confirm,etappe.status==='gebucht'?' Vorhandenen Buchungsvermerk durch diese Buchung ersetzen.':' Diese Etappe und diese Reisetage als gebucht bestätigen.'));
+ const save=el('button',{type:'submit',class:'primary'},'Aufenthalt speichern');form.append(save);body.append(form);
+ form.onsubmit=async event=>{event.preventDefault();if(pending||!form.reportValidity())return;
+  if(!fields.name.value.trim()||!existing&&!fields.ziel.value.trim()){status.textContent='Bitte Unterkunft und Ort angeben.';return;}
+  if(!existing&&fields.abreise.value<=fields.anreise.value){status.textContent='Die Abreise muss nach der Anreise liegen.';return;}
+  const booking={};for(const [key,input] of Object.entries(fields)){if(['ziel','anreise','abreise'].includes(key)||!input.value.trim())continue;booking[key]=key==='preis_gesamt_eur'?Number(input.value):input.value.trim();}
+  if(booking.link){try{const u=new URL(booking.link);if(u.protocol!=='https:'||u.username||u.password)throw Error();}catch{status.textContent='Bitte einen HTTPS-Unterkunftslink ohne Zugangsdaten eingeben.';return;}}
+  const payload={status:'gebucht',buchung:booking,...(existing?{id:etappe.id,version:etappe.version}:{reise_id:etappe.reise_id,ziel:fields.ziel.value.trim(),anreise:fields.anreise.value,abreise:fields.abreise.value})};
+  pending=true;form.querySelectorAll('input,button').forEach(n=>n.disabled=true);close.disabled=true;
+  try{const r=await tripCall('unterkunft_etappe_speichern',payload);if(!tripId(r.etappe?.id)||existing&&r.etappe.id!==etappe.id||r.etappe.status!=='gebucht')throw Error('Buchungsvermerk nicht eindeutig bestätigt.');d.close();await onSaved();}
+  catch(e){status.textContent=e.message+' Bitte Reisen neu lesen, bevor du erneut speicherst. Dein Entwurf bleibt erhalten.';}
+  finally{pending=false;close.disabled=false;}
+ };d.addEventListener('cancel',e=>{if(pending)e.preventDefault();});
 }

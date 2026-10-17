@@ -14,22 +14,23 @@
 <link rel="icon" href="icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="icon-180.png">
 <link rel="stylesheet" href="vendor/leaflet-1.9.4/leaflet.css">
-<link rel="stylesheet" href="style.css?v=0.18.2">
+<link rel="stylesheet" href="style.css?v=0.19.0">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/15.0.7/marked.min.js" defer></script>
 <script src="vendor/leaflet-1.9.4/leaflet.js" defer></script>
-<script src="stay-tools.js?v=0.18.2" defer></script>
-<script src="stay-research.js?v=0.18.2" defer></script>
-<script src="stay-form.js?v=0.18.2" defer></script>
-<script src="stay-details.js?v=0.18.2" defer></script>
-<script src="stay-districts.js?v=0.18.2" defer></script>
-<script src="stay-review.js?v=0.18.2" defer></script>
-<script src="app.js?v=0.18.2" defer></script>
+<script src="stay-tools.js?v=0.19.0" defer></script>
+<script src="stay-research.js?v=0.19.0" defer></script>
+<script src="stay-form.js?v=0.19.0" defer></script>
+<script src="stay-details.js?v=0.19.0" defer></script>
+<script src="stay-districts.js?v=0.19.0" defer></script>
+<script src="stay-review.js?v=0.19.0" defer></script>
+<script src="stay-trips.js?v=0.19.0" defer></script>
+<script src="app.js?v=0.19.0" defer></script>
 </head>
 <body>
 
 <nav class="area-nav" id="areas" aria-label="App-Bereiche" hidden>
   <a class="system-brand" href="#/start" aria-label="KI-System Startseite"><span aria-hidden="true">✳</span> KI-System</a>
-  <div class="area-switch"><a href="#/auftraege" data-area="council">Council</a><a href="#/suche" data-area="unterkunft">Unterkunft</a></div>
+  <div class="area-switch"><a href="#/auftraege" data-area="council">Council</a><a href="#/reisen" data-area="unterkunft">Unterkunft</a></div>
   <a class="area-home" href="#/start">Bereiche <span aria-hidden="true">↗</span></a>
 </nav>
 
@@ -46,9 +47,9 @@
   <p class="area-caption" id="area-caption"></p>
   <button data-area="council" data-view="auftraege"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14 3H6v18h12V7zM14 3v5h4M9 12h6M9 16h6"/></svg>Aufträge<span class="badge" id="badge-neu" hidden></span></button>
   <button data-area="council" data-view="neu"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Neuer Auftrag</button>
-  <button data-area="unterkunft" data-view="suche"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"/><path d="m15 15 6 6"/></svg>Suchen</button>
-  <button data-area="unterkunft" data-view="ergebnisse"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h1M3 12h1M3 18h1"/></svg>Ergebnisse</button>
-  <button data-area="unterkunft" data-view="viertel"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 5l6-2 6 2 6-2v16l-6 2-6-2-6 2zM9 3v16M15 5v16"/></svg>Viertel</button>
+  <button data-area="unterkunft" data-view="reisen"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 5l6-2 6 2 6-2v16l-6 2-6-2-6 2zM9 3v16M15 5v16"/></svg>Reisen</button>
+  <button data-area="unterkunft" data-view="suche"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="10" cy="10" r="6"/><path d="m15 15 6 6"/></svg>Entdecken</button>
+  <button data-area="unterkunft" data-view="ergebnisse"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h1M3 12h1M3 18h1"/></svg>Favoriten</button>
   <button data-area="council" data-view="einstellungen"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="3"/><circle cx="15" cy="17" r="3"/></svg>Einstellungen</button>
   <button data-area="council" data-view="werkstatt"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14 5a5 5 0 0 0-6 6l-5 6 4 4 6-6a5 5 0 0 0 6-6l-3 3-4-4z"/></svg>Werkstatt</button>
   <div class="area-footer"><span>DEIN KI-SYSTEM</span><a href="#/start">Bereich wechseln ↗</a></div>

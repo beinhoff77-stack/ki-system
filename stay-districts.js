@@ -119,7 +119,7 @@ function viertelKarte(container, onSelect) {
 }
 
 async function viewViertel(arg) {
-  setChrome('Unterkunft / Viertel', { tab: 'viertel', back: !!arg });
+  setChrome('Unterkunft / Viertel', { tab: 'suche', back: !!arg });
   const params = new URLSearchParams(String(arg || '').replace(/^\?/, ''));
   const run = params.has('suche') ? Number(params.get('suche')) : null;
   let focusZone = Number(params.get('zone')), data = null, loading = false, writing = false, uncertain = false, pendingGeneration = null, timer, disposed = false, map = null;

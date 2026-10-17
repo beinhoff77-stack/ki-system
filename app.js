@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.18.2';
+const APP_VERSION = '0.19.0';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -20,7 +20,7 @@ const el = (tag, attrs = {}, ...kids) => {
   return n;
 };
 const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-const fmtDate = (s) => { if (!s) return ''; const d = new Date(s); return isNaN(d) ? String(s) : d.toLocaleDateString('de-DE'); };
+const fmtDate = (s) => { if (!s) return ''; const d = new Date(/^\d{4}-\d{2}-\d{2}$/.test(s) ? s + 'T12:00:00' : s); return isNaN(d) ? String(s) : d.toLocaleDateString('de-DE'); };
 const fmtUsd = (n) => (n === null || n === undefined) ? '' : Number(n).toFixed(2) + ' USD';
 
 let toastTimer = null;
@@ -174,7 +174,7 @@ function parseHash() {
 window.addEventListener('hashchange', render);
 
 function setChrome(title, { back = false, showTabs = true, tab = null } = {}) {
-  const area = current.view === 'login' ? 'login' : current.view === 'start' ? 'start' : ['suche', 'ergebnisse', 'viertel', 'anzeige'].includes(current.view) ? 'unterkunft' : 'council';
+  const area = current.view === 'login' ? 'login' : current.view === 'start' ? 'start' : ['suche', 'ergebnisse', 'viertel', 'anzeige', 'reisen', 'etappe', 'papierkorb'].includes(current.view) ? 'unterkunft' : 'council';
   document.body.dataset.area = area;
   for (const meta of document.querySelectorAll('meta[name="theme-color"]')) meta.content = ['unterkunft', 'start'].includes(area) ? '#f6f4ec' : meta.media.includes('dark') ? '#101721' : '#f4f6f8';
   $('#areas').hidden = area === 'login';
@@ -205,7 +205,7 @@ async function render() {
   disposeSuche = () => {};
   current = parseHash();
   if (!store.token && current.view !== 'login') { route('login'); return; }
-  const views = { start: viewStart, login: viewLogin, auftraege: viewAuftraege, auftrag: viewAuftrag, neu: viewNeu, einstellungen: viewEinstellungen, anzeige: viewAnzeige, werkstatt: viewWerkstatt, suche: viewSuche, viertel: viewViertel, ergebnisse: () => viewSuche(null, { historyOnly: true }) };
+  const views = { reisen: viewReisen, etappe: viewEtappe, papierkorb: viewPapierkorb, start: viewStart, login: viewLogin, auftraege: viewAuftraege, auftrag: viewAuftrag, neu: viewNeu, einstellungen: viewEinstellungen, anzeige: viewAnzeige, werkstatt: viewWerkstatt, suche: viewSuche, viertel: viewViertel, ergebnisse: () => viewSuche(null, { historyOnly: true }) };
   const fn = views[current.view] || (() => route('start'));
   try { await fn(current.arg); } catch (e) { if (live()) showError(e); }
 }
@@ -221,7 +221,7 @@ function viewStart() {
         el('div', { class: 'area-art council-art', 'aria-hidden': true }, el('span', {}, '○'), el('span', {}, '○'), el('span', {}, '○')),
         el('div', { class: 'area-card-copy' }, el('p', { class: 'eyebrow' }, 'DENKEN & ENTSCHEIDEN'), el('h2', {}, 'Council'),
           el('p', {}, 'Fragen durchdenken, Perspektiven vergleichen und Entscheidungen vorbereiten.'), el('span', { class: 'area-enter' }, 'Council öffnen', el('span', { 'aria-hidden': true }, '↗')))),
-      el('a', { class: 'area-card stay-card', href: '#/suche' },
+      el('a', { class: 'area-card stay-card', href: '#/reisen' },
         el('div', { class: 'area-art stay-art', 'aria-hidden': true }, el('span', { class: 'stay-sun' }), el('span', { class: 'stay-house' }, '⌂')),
         el('div', { class: 'area-card-copy' }, el('p', { class: 'eyebrow' }, 'REISEN & WOHLFÜHLEN'), el('h2', {}, 'Unterkunft.'),
           el('p', {}, 'Einen guten Ort für eure Reise finden. Unterkünfte suchen und in Ruhe vergleichen.'), el('span', { class: 'area-enter' }, 'Unterkunft öffnen', el('span', { 'aria-hidden': true }, '↗'))))),
@@ -893,7 +893,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     } catch { /* Auswahl muss bei fehlendem Sitzungsspeicher neu erfolgen. */ }
   }
   const hasRun = !!idStr && !profilePreset && idStr !== 'viertel';
-  setChrome(hasRun || historyOnly ? 'Unterkunft / Ergebnisse' : 'Unterkunft / Suche', { tab: hasRun || historyOnly ? 'ergebnisse' : 'suche', back: !!idStr });
+  setChrome(hasRun || historyOnly ? 'Unterkunft / Ergebnisse' : 'Unterkunft / Suche', { tab: historyOnly ? 'ergebnisse' : 'suche', back: !!idStr });
   const entryView = parseHash().view;
   let disposed = false, timer, busy = false, snapshot = null;
   const requests = new Set();
@@ -927,7 +927,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       el('p', { class: 'eyebrow' }, 'REISEN, WIE IHR ES LIEBT'),
       el('h2', {}, 'Wohnen, wo sich die Reise richtig anfühlt.'),
       el('p', {}, 'Familiengerechte Unterkünfte finden, vergleichen und auswählen. Für eure Reise, mit euren Wünschen.')));
-    else scope.append(el('div', { class: 'stay-page-heading' }, el('p', { class: 'eyebrow' }, 'DEINE REISEN'), el('h2', {}, 'Suchen & Ergebnisse'), el('p', {}, 'Deine bisherigen Suchen – mit Fortschritt und allen gefundenen Unterkünften.')));
+    else scope.append(el('div', { class: 'stay-page-heading' }, el('p', { class: 'eyebrow' }, 'DEINE REISEN'), el('h2', {}, 'Deine Favoriten'), el('p', {}, 'Deine gemerkten Unterkünfte – mit den zugehörigen Suchen zum Nachlesen.')));
     const form = el('form', { class: 'suche-form' });
     const fields = el('fieldset');
     const grid = el('div', { class: 'suche-grid' });
@@ -968,12 +968,13 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     const extended = sucheErweitertesFormular(form, call, live, value => { profileReady = value; submit.disabled = !value || busy; }, value => { busy = value; fields.disabled = value; submit.disabled = value || !profileReady; }, profilePreset, districtPreset);
     fields.append(extended.profilePanel, sections, extended.tripPanel, extended.qualityPanel, extended.filtersPanel, el('div', { class: 'search-submit-bar' }, tripSummary, submit));
     form.append(fields, notice);
+    const tripChoice = historyOnly ? null : tripSearchChoice(form, call, live);
     if (idStr === 'viertel' && !districtPreset) notice.textContent = 'Die Viertelauswahl ist nicht mehr verfügbar. Bitte im Block „Viertel“ neu auswählen.';
     form.addEventListener('input', updateTripSummary); updateTripSummary();
     if (!historyOnly) scope.append(form);
     form.addEventListener('submit', async (event) => {
       event.preventDefault(); if (busy || !profileReady || !form.reportValidity()) return;
-      let daten; try { daten = { ...sucheFormDaten(form), ...extended.values() }; } catch (e) { notice.textContent = e.message; return; }
+      let daten; try { daten = { ...sucheFormDaten(form), ...extended.values(), ...tripChoice.values() }; } catch (e) { notice.textContent = e.message; return; }
       busy = true; fields.disabled = true; notice.textContent = 'Suchauftrag wird angelegt …';
       let id = null;
       try {
@@ -1101,6 +1102,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   } }, 'Vorläufige Treffer ansehen');
   function resultSelection(t) {
     const node=sucheAuswahl(t,selectionStates,call,live,selectionChanged);
+    if(t.status==='favorit')node.append(el('button',{type:'button',onclick:()=>tripBookFromSearch(t,id)},'Als gebucht markieren'));
     if(review.blocked || review.pending)node.querySelectorAll('button').forEach(b=>b.disabled=true);
     return node;
   }

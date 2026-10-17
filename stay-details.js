@@ -93,7 +93,7 @@ function sucheMerkliste(entries) {
     rows.sort((a,b)=>(a.eigener_rang??Infinity)-(b.eigener_rang??Infinity));
     const trip = rows[0];
     const section = el('section', { class: 'saved-trip', 'data-saved-trip': id },
-      el('h3', {}, trip.ziel || 'Reise #' + id), el('p', { class: 'small' }, `${fmtDate(trip.anreise)}–${fmtDate(trip.abreise)} · ${rows.length} Favoriten`));
+      el('h3', {}, trip.ziel || 'Suche #' + id), el('p', { class: 'small' }, `${fmtDate(trip.anreise)}–${fmtDate(trip.abreise)} · ${rows.length} Favoriten`));
     for (const t of rows) {
       const href = '#/suche/' + id + '?favoriten=1&treffer=' + t.treffer_id, offer = sucheLink(t.link);
       const name = t.name || 'Unterkunft ' + t.treffer_id;
@@ -106,7 +106,7 @@ function sucheMerkliste(entries) {
           el('details', {}, el('summary', {}, 'Bewertung und Favoritendatum'),
             el('p', { class: 'small' }, 'Passung: ' + (sucheZahl(t.score) ?? 'unbekannt') + '/100' + ' · Gästenote: ' + (sucheZahl(t.note) ?? 'unbekannt') + ' / ' + (sucheZahl(t.note_skala) ?? '?') + ' · ' + (sucheZahl(t.bewertungen) ?? 'unbekannt') + ' Bewertungen'),
             el('p', { class: 'small' }, 'Als Favorit gespeichert: ' + sucheAbruf(t.gemerkt_am))),
-          el('div', { class: 'actions' }, el('a', { href }, 'Im Suchlauf zeigen'), offer ? el('a', { href: offer, target: '_blank', rel: 'noopener noreferrer' }, 'Angebot öffnen ↗') : null))));
+          el('div', { class: 'actions' }, el('a', { href }, 'Im Suchlauf zeigen'), el('button',{type:'button',onclick:()=>tripBookFromSearch(t,id)},'Als gebucht markieren'), offer ? el('a', { href: offer, target: '_blank', rel: 'noopener noreferrer' }, 'Angebot öffnen ↗') : null))));
     }
     view.append(section);
   }

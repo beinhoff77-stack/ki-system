@@ -197,13 +197,13 @@ test('PWA installiert vollständige Offline-Hülle, API wird nicht gecacht', asy
   assert(cacheNames.includes('ki-system:' + origin + '/another-app/:v1'));
   assert(!cacheNames.includes('ki-system:' + origin + '/:old'));
   await page.evaluate(() => fetch('README.md'));
-  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v28')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
-  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.18.0')); assert(cached.includes('/style.css?v=0.18.0'));
-  assert(cached.includes('/stay-tools.js?v=0.18.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
-  assert(cached.includes('/stay-research.js?v=0.18.0'));
-  assert(cached.includes('/stay-form.js?v=0.18.0'));
-  assert(cached.includes('/stay-details.js?v=0.18.0'));
-  assert(cached.includes('/stay-districts.js?v=0.18.0'));
+  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v29')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
+  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.18.1')); assert(cached.includes('/style.css?v=0.18.1'));
+  assert(cached.includes('/stay-tools.js?v=0.18.1')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
+  assert(cached.includes('/stay-research.js?v=0.18.1'));
+  assert(cached.includes('/stay-form.js?v=0.18.1'));
+  assert(cached.includes('/stay-details.js?v=0.18.1'));
+  assert(cached.includes('/stay-districts.js?v=0.18.1'));
   assert(!cached.includes('/README.md'));
   assert(!cached.some((u) => u.includes('app-api')));
   await context.setOffline(true); await page.reload();
@@ -1505,7 +1505,7 @@ test('W71: Knöpfe, Gründe, Rückgängig, neue zuerst, übernommene nie erneut'
   const d=reviewData(),{page,calls}=await setup(t,reviewHandler(d));await page.goto(origin+'/#/suche/2');await page.getByRole('button',{name:'Tinder',exact:true}).click();
   assert.equal(await page.locator('[data-review-hit]').getAttribute('data-review-hit'),'2');
   await page.getByRole('button',{name:'Weg',exact:true}).click();await page.locator('[data-review-hit="1"]').waitFor();
-  await page.locator('.review-reasons').getByRole('button',{name:'Preis',exact:true}).click();await page.getByRole('button',{name:'Gründe speichern',exact:true}).click();
+  await page.getByRole('button',{name:'Gründe ergänzen',exact:true}).click();await page.locator('.review-reasons').getByRole('button',{name:'Preis',exact:true}).click();await page.getByRole('button',{name:'Gründe speichern',exact:true}).click();
   await page.getByRole('button',{name:'Letzte Entscheidung rückgängig'}).click();await page.locator('[data-review-hit="2"]').waitFor();
   await page.getByRole('button',{name:'Na ja',exact:true}).click();await page.locator('[data-review-hit="1"]').waitFor();
   await page.getByRole('button',{name:'Favorit',exact:true}).click();await page.getByText('Alle Unterkünfte durchgesehen.',{exact:true}).waitFor();
@@ -1559,7 +1559,7 @@ test('W71: verspätete Leseantwort verliert kein Urteil; Endrunde bleibt erreich
   const d=reviewData();let readCount=0,releaseRead;
   const handler=reviewHandler(d),{page}=await setup(t,async p=>{if(p.aktion==='unterkunft_suchlauf_lesen' && ++readCount===2){const old=structuredClone(d);return new Promise(resolve=>releaseRead=()=>resolve(old));}return handler(p);});
   await page.goto(origin+'/#/suche/2');await page.getByRole('button',{name:'Tinder',exact:true}).click();
-  await page.getByRole('button',{name:'Aktualisieren',exact:true}).click();await waitForCallback(()=>releaseRead);
+  await page.locator('.review-run-tools > summary').click();await page.getByRole('button',{name:'Aktualisieren',exact:true}).click();await waitForCallback(()=>releaseRead);
   await page.getByRole('button',{name:'Favorit',exact:true}).click();await page.locator('[data-review-hit="1"]').waitFor();releaseRead();
   await page.waitForFunction(()=>!Array.from(document.querySelectorAll('button')).find(b=>b.textContent==='Aktualisieren').disabled);
   assert.equal(await page.locator('[data-review-hit]').getAttribute('data-review-hit'),'1');
@@ -1598,8 +1598,8 @@ test('Durchsehen: A vor B, bestätigte Urteile, Na ja bleibt bewertet gemäß Na
 
   hold=false; release();
   await dialog.getByRole('heading',{name:'Unterkunft 2',exact:true}).waitFor();
-  await dialog.locator('.review-reasons').getByRole('button',{name:'Preis',exact:true}).click();
-  await dialog.getByRole('button',{name:'Gründe speichern',exact:true}).click();
+  await page.getByRole('button',{name:'Gründe ergänzen',exact:true}).click();await page.locator('.review-reasons').getByRole('button',{name:'Preis',exact:true}).click();
+  await page.getByRole('button',{name:'Gründe speichern',exact:true}).click();
   await dialog.getByRole('button',{name:'Letzte Entscheidung rückgängig'}).click();
   await dialog.getByRole('heading',{name:'Unterkunft 1',exact:true}).waitFor();
   const writes=calls.filter(p=>p.aktion==='unterkunft_durchsehen_urteil');
@@ -1673,4 +1673,54 @@ test('Integration: Halbierungs-Paarvergleich ordnet 10 Favoriten mit höchstens 
   await page.getByRole('button',{name:'Rangfolge speichern'}).click();
   await page.locator('.endrunde').waitFor({state:'detached'});
   assert.deepEqual(calls.filter(p=>p.aktion==='unterkunft_eigenes_ranking_setzen').at(-1).daten.reihenfolge,[10,9,8,7,6,5,4,3,2,1]);
+});
+
+test('W73: kompakte Tinder-Bedienprobe mit langen Angaben und Gründen',async t=>{
+  const d=reviewData();d.treffer.forEach((hit,i)=>{
+    hit.name=['Gartenhaus am Fluss – Familienapartment mit zwei Schlafzimmern','Stadthaus mit Terrasse'][i%2];
+    hit.angebot={...hit.angebot,kategorie_id:i+1,storno:'Kostenlos bis 25. Oktober'};
+    hit.kategorien=[{id:i+1,m2:64,schlafzimmer:2}];hit.gehzeit_min=7;hit.gehzeit_art='route';hit.station_name='Kyoto Shiyakusho-mae';hit.note_geeicht=9.2;
+    hit.bilder=['https://example.com/photo-a.svg','https://example.com/photo-b.svg'];hit.bewertung.rang=i+1;
+  });
+  const {page,calls}=await setup(t,reviewHandler(d),{width:390,height:844});
+  await page.route('https://example.com/photo-*.svg',r=>r.fulfill({contentType:'image/svg+xml',body:'<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450"><rect width="800" height="450" fill="#d1d9ce"/><rect x="80" y="60" width="300" height="210" fill="#87a7a7"/><rect x="450" y="190" width="300" height="130" rx="25" fill="#b6a18b"/><path d="M0 340h800v110H0" fill="#d8cbb2"/></svg>'}));
+  await page.goto(origin+'/#/suche/2');await page.getByRole('button',{name:'Tinder',exact:true}).click();
+  await page.screenshot({path:path.join(root,'test-results/w73-after.png')});
+  const cardTop=(await page.locator('.review-card').boundingBox()).y;
+  await page.getByRole('button',{name:'Nächstes Foto',exact:true}).click();
+  await page.getByRole('button',{name:'Favorit',exact:true}).click();
+  await page.locator('[data-review-hit="1"]').waitFor();
+  await page.screenshot({path:path.join(root,'test-results/w73-after-vote.png')});
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_durchsehen_urteil').length,1);
+  assert.equal((await page.locator('.review-card').boundingBox()).y,cardTop);
+  await page.getByRole('button',{name:'Nächstes Foto',exact:true}).click();
+  await page.getByRole('button',{name:'Gründe ergänzen',exact:true}).click();
+  const reasons=page.getByRole('dialog',{name:'Gründe ergänzen',exact:true});
+  await reasons.getByRole('button',{name:'Lage',exact:true}).click();
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_durchsehen_urteil').length,1);
+  await reasons.getByRole('button',{name:'Schließen',exact:true}).click();
+  assert.match(await page.locator('.review-card img').getAttribute('src'),/photo-b/);
+  await page.getByRole('button',{name:'Gründe ergänzen',exact:true}).click();
+  assert.equal(await reasons.getByRole('button',{name:'Lage',exact:true}).getAttribute('aria-pressed'),'true');
+  await reasons.getByRole('button',{name:'Gründe speichern',exact:true}).click();
+  await reasons.waitFor({state:'detached'});
+  assert.deepEqual(calls.filter(p=>p.aktion==='unterkunft_durchsehen_urteil').at(-1).daten.gruende,['plus_lage']);
+  assert.match(await page.locator('.review-card img').getAttribute('src'),/photo-b/);
+  for(const size of [{width:320,height:700},{width:375,height:812},{width:390,height:844},{width:430,height:932},{width:1440,height:1000}]){
+    await page.setViewportSize(size);
+    assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+    const metrics=await page.locator('.review-actions').evaluate(n=>{const r=n.getBoundingClientRect(),tabs=document.querySelector('#tabs').getBoundingClientRect();return{top:r.top,bottom:r.bottom,limit:tabs.width>innerWidth/2?tabs.top:innerHeight,buttons:[...n.querySelectorAll('button')].map(b=>b.getBoundingClientRect().height)};});
+    assert(metrics.top>0 && metrics.bottom<=metrics.limit,JSON.stringify({size,metrics}));
+    assert(metrics.buttons.every(h=>h>=44));
+    if(size.width===1440)await page.screenshot({path:path.join(root,'test-results/w73-desktop.png')});
+  }
+  await page.setViewportSize({width:390,height:844});
+  const beforeTouch=calls.filter(p=>p.aktion==='unterkunft_durchsehen_urteil').length;
+  await page.locator('.review-swipe').dispatchEvent('pointerdown',{pointerId:4,pointerType:'touch',button:0,clientX:180,clientY:350});
+  await page.locator('.review-swipe').dispatchEvent('pointerup',{pointerId:4,pointerType:'touch',button:0,clientX:180,clientY:150});
+  assert.equal(calls.filter(p=>p.aktion==='unterkunft_durchsehen_urteil').length,beforeTouch);
+  await page.getByRole('button',{name:'Details',exact:true}).click();
+  await page.getByRole('dialog').waitFor();
+  await page.keyboard.press('Escape');await page.getByRole('dialog').waitFor({state:'detached'});
+  assert.equal(await page.evaluate(()=>document.activeElement.textContent),'Details');
 });

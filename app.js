@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.18.0';
+const APP_VERSION = '0.18.1';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -1070,7 +1070,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     el('div', { class: 'sort-direction' }, directionButton), el('label', {}, 'Treffer je Liste und Seite', pageSize), filterCount);
   const filters = sucheFilterPanel(() => { pages.clear(); draw(); }); filters.node.hidden = true;
   const mapPanel = el('section', { class: 'card stay-map-panel', hidden: true });
-  const setResultView = view => { if(review?.pending || [...selectionStates.values()].some(s=>s.pending))return; resultView=view; stayWrite('ks_result_view',view); showMap=false; draw(); };
+  const setResultView = view => { if(review?.pending || [...selectionStates.values()].some(s=>s.pending))return; resultView=view; stayWrite('ks_result_view',view); showMap=false;if(view==='tinder'&&notice.textContent==='Bewertung abgeschlossen. Rangliste aktualisiert.')notice.textContent=''; draw();if(view==='tinder')window.scrollTo(0,0); };
   const tableButton = el('button', { type: 'button', onclick: () => { setResultView('table'); } }, 'Tabelle');
   const listButton = el('button', { type: 'button', onclick: () => { setResultView('list'); } }, 'Liste');
   const tinderButton = el('button',{type:'button',onclick:()=>setResultView('tinder')},'Tinder');
@@ -1078,7 +1078,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   const viewButtons = el('div', { class: 'actions result-view-switch', hidden: true, role: 'group', 'aria-label': 'Ergebnisansicht' }, listButton, tableButton, tinderButton, mapButton, el('a',{href:'#/anzeige'},'Anzeige'));
   const undoSelection = el('button', { type: 'button', hidden: true, onclick: () => selectionStates.get(lastSelection)?.undoAction() }, 'Letzte Auswahl rückgängig');
   const research = sucheLuecken(id, call, live);
-  review = stayReview({getSnapshot:()=>snapshot,call,live,scope,isBlocked:()=>[...selectionStates.values()].some(s=>s.refreshRequired||s.pending),changed:t=>{const current=snapshot?.treffer.find(x=>x.treffer_id===t.treffer_id);if(current && current!==t)Object.assign(current,{status:t.status,urteil_gruende:t.urteil_gruende,urteil_uebernommen:t.urteil_uebernommen});selectionStates.delete(t.treffer_id);draw();}});
+  review = stayReview({getSnapshot:()=>snapshot,call,live,scope,onRefresh:()=>refresh.click(),isBlocked:()=>[...selectionStates.values()].some(s=>s.refreshRequired||s.pending),changed:t=>{const current=snapshot?.treffer.find(x=>x.treffer_id===t.treffer_id);if(current && current!==t)Object.assign(current,{status:t.status,urteil_gruende:t.urteil_gruende,urteil_uebernommen:t.urteil_uebernommen});selectionStates.delete(t.treffer_id);draw();}});
   let furtherRound=null;
   const more = el('button',{type:'button',hidden:true,onclick:()=>{moreConfirm.hidden=false;}},'Weitere suchen');
   const moreConfirm = el('div',{class:'card',hidden:true},el('p',{},'Kostet ca. 0,05–0,50 USD; findet nur, was die Quellen zusätzlich haben.'),
@@ -1152,11 +1152,20 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     }
   } }, 'Suche abbrechen');
   const resultLinks = el('nav', { class: 'actions result-jumps', 'aria-label': 'Weitere Ergebnisgruppen' });
-  scope.append(el('div', { class: 'actions' }, el('a', { href: '#/suche' }, 'Neue Suche / letzte Aufträge'), el('a', { href: viertelHref({suche:id}) }, 'Viertel dieser Reise entdecken'), refresh, start, cancel, preview, undoSelection, more, endrunde), moreConfirm, notice, summary, controls, filters.node, viewButtons, resultLinks, mapPanel, results, report);
+  const runActions=el('div', { class: 'actions' }, el('a', { href: '#/suche' }, 'Neue Suche / letzte Aufträge'), el('a', { href: viertelHref({suche:id}) }, 'Viertel dieser Reise entdecken'), refresh, start, cancel, preview, undoSelection, more);
+  const runTools=el('details',{class:'review-run-tools',open:true},el('summary',{},'Suchlauf'),runActions);
+  const runBar=el('div',{class:'review-run-bar'},runTools,endrunde);
+  scope.append(runBar,moreConfirm,notice,summary,controls,filters.node,viewButtons,resultLinks,mapPanel,results,report);
   function draw() {
     if (!snapshot) return;
     const openDetails = new Set([...results.querySelectorAll('details[open][data-detail]')].map((n) => n.dataset.detail));
+    const compact=resultView==='tinder'&&!showMap;
+    const modeChanged=scope.classList.contains('tinder-mode')!==compact;
+    scope.classList.toggle('tinder-mode',compact);report.hidden=compact;
+    if(modeChanged)runTools.open=!compact;
+    if(compact)scope.insertBefore(viewButtons,runBar);else scope.insertBefore(viewButtons,resultLinks);
     const a = snapshot.suchauftrag, k = snapshot.kosten || {}, steps = Array.isArray(a.schrittkette) ? a.schrittkette : [];
+    runTools.querySelector('summary').textContent=compact?(a.ziel||'Reise')+' · Suchlauf':'Suchlauf';
     const phase = { final: snapshotStatus?.status === 'fertig' && snapshotStatus?.fertig === true, failed: snapshotStatus?.status !== 'fertig' && SUCHE_ENDE.has(snapshotStatus?.status) };
     summary.replaceChildren(el('h2', {}, `${a.ziel} · #${a.id}`),
       el('p', {}, `${fmtDate(a.anreise)}–${fmtDate(a.abreise)} · ${a.erwachsene} Erwachsene · ${(a.kinder_alter || []).length} Kinder`),
@@ -1322,7 +1331,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
         await readSnapshot(r);
       }
       if (terminal) {
-        notice.textContent = r.status === 'fertig' ? 'Bewertung abgeschlossen. Rangliste aktualisiert.' : r.status === 'gestoppt_budget' ? 'Kostenlimit erreicht. Vorhandene Treffer bleiben sichtbar.' : 'Suche ' + r.status + '. Vorhandene Treffer bleiben sichtbar.';
+        notice.textContent = r.status === 'fertig' ? (resultView==='tinder'?'':'Bewertung abgeschlossen. Rangliste aktualisiert.') : r.status === 'gestoppt_budget' ? 'Kostenlimit erreicht. Vorhandene Treffer bleiben sichtbar.' : 'Suche ' + r.status + '. Vorhandene Treffer bleiben sichtbar.';
       if(r.status==='fertig' && furtherRound!==null && snapshot?.suchauftrag?.runde>=furtherRound){
           const count=snapshot.treffer.filter(t=>t.runde===furtherRound).length;
           notice.textContent=count+' neue Unterkünfte'+(count===0?' · Angebot für diese Filter ausgeschöpft – Filter lockern oder Viertel erweitern':'');

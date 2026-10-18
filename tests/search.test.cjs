@@ -2286,7 +2286,8 @@ test('W93: Durchsehen blättert ohne Urteil, merkt die Stelle und führt zur Üb
   assert.equal(calls.filter(p=>p.aktion==='unterkunft_durchsehen_urteil').length,0,'Blättern bewertet nicht');
   await page.getByRole('button',{name:'Zur Übersicht',exact:true}).click();
   await page.locator('[data-hit="1"]').waitFor();
-  assert(await page.locator('[data-hit="1"]').evaluate(n=>{const r=n.getBoundingClientRect();return r.top<innerHeight&&r.bottom>0;}),'Übersicht zeigt die zuletzt angesehene Unterkunft');
+  // Das Hinscrollen passiert im nächsten Frame – auf langsamen Runnern darauf warten statt sofort zu messen.
+  assert(await page.waitForFunction(()=>{const n=document.querySelector('[data-hit="1"]');if(!n)return false;const r=n.getBoundingClientRect();return r.top<innerHeight&&r.bottom>0;},null,{timeout:3000}).then(()=>true,()=>false),'Übersicht zeigt die zuletzt angesehene Unterkunft');
   await page.getByRole('button',{name:'Durchsehen',exact:true}).click();await page.locator('[data-review-hit="1"]').waitFor();
   await page.getByRole('button',{name:'Noch offen 2',exact:true}).click();await page.locator('[data-review-hit="1"]').waitFor();
   await page.getByRole('button',{name:'Weg',exact:true}).click();await page.locator('[data-review-hit="2"]').waitFor();

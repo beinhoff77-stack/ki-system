@@ -16,8 +16,8 @@ function sucheAuswahl(t, states, call, live, changed) {
   if (!states.has(t.treffer_id)) states.set(t.treffer_id, { saved: t.status || 'aktiv', pending: false, revision: 0, message: '', undo: null });
   const state = states.get(t.treffer_id), box = el('div', { class: 'stay-selection', 'data-selection': t.treffer_id });
   const status = el('p', { class: 'small', role: 'status' });
-  const favorite = el('button', { type: 'button', onclick: () => save(state.saved === 'favorit' ? 'aktiv' : 'favorit') });
-  const exclude = el('button', { type: 'button', onclick: () => save(state.saved === 'ausgeschlossen' ? 'aktiv' : 'ausgeschlossen') });
+  const favorite = el('button', { type: 'button', class: 'sel-fav', onclick: () => save(state.saved === 'favorit' ? 'aktiv' : 'favorit') });
+  const exclude = el('button', { type: 'button', class: 'sel-out', onclick: () => save(state.saved === 'ausgeschlossen' ? 'aktiv' : 'ausgeschlossen') });
   const undo = el('button', { type: 'button', onclick: () => save(state.undo, true) }, 'Rückgängig');
   async function save(next, isUndo = false) {
     if (state.pending || state.refreshRequired || !['aktiv', 'favorit', 'vielleicht', 'ausgeschlossen'].includes(next)) return;

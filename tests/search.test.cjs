@@ -80,6 +80,7 @@ async function setup(t, handler, viewport) {
   await page.route('**/functions/v1/app-api/**', async (route) => {
     const request = route.request();
     const payload = request.method() === 'POST' ? request.postDataJSON() : {};
+    if(payload.aktion==='unterkunft_flex'&&!handler.flex)return route.fulfill({contentType:'application/json',body:JSON.stringify({ok:true,ergebnis:{ok:true,naechte:[]}})}); // W94: Nachtband ist Hintergrund-Lesen; eigene Tests setzen handler.flex.
     if(payload.aktion!=='unterkunft_meldungen_lesen')calls.push(payload); // Badge reads are background-only; notification tests track their own requests.
     if(payload.aktion==='unterkunft_meldungen_lesen'&&!handler.notifications)return route.fulfill({contentType:'application/json',body:JSON.stringify({ok:true,ergebnis:{ok:true,ungelesen:0,meldungen:[]}})});
     let value = await handler(payload, calls);
@@ -207,13 +208,13 @@ test('PWA installiert vollständige Offline-Hülle, API wird nicht gecacht', asy
   assert(cacheNames.includes('ki-system:' + origin + '/another-app/:v1'));
   assert(!cacheNames.includes('ki-system:' + origin + '/:old'));
   await page.evaluate(() => fetch('README.md'));
-  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v37')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
-  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.23.1')); assert(cached.includes('/style.css?v=0.23.1'));
-  assert(cached.includes('/stay-tools.js?v=0.23.1')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
-  assert(cached.includes('/stay-research.js?v=0.23.1'));
-  assert(cached.includes('/stay-form.js?v=0.23.1'));
-  assert(cached.includes('/stay-details.js?v=0.23.1'));
-  assert(cached.includes('/stay-districts.js?v=0.23.1'));
+  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v38')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
+  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.24.0')); assert(cached.includes('/style.css?v=0.24.0'));
+  assert(cached.includes('/stay-tools.js?v=0.24.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
+  assert(cached.includes('/stay-research.js?v=0.24.0'));
+  assert(cached.includes('/stay-form.js?v=0.24.0'));
+  assert(cached.includes('/stay-details.js?v=0.24.0'));
+  assert(cached.includes('/stay-districts.js?v=0.24.0'));
   assert(!cached.includes('/README.md'));
   assert(!cached.some((u) => u.includes('app-api')));
   await context.setOffline(true); await page.reload();
@@ -2238,6 +2239,39 @@ test('W93: Suche passt auf einen Bildschirm, Lücke füllt Daten, Reise wird aut
   await page.goto(origin+'/#/suche');await page.locator('.recent-row').first().waitFor();
   assert.equal(await page.locator('.recent-row:visible').count(),1,'Abgebrochene/vergangene Suchen sind eingeklappt');
   assert.equal(await page.locator('[name=kinder_alter]').inputValue(),'13, 11','Mitreisende werden gemerkt');
+});
+
+test('W94: Nachtband zeigt Preisniveau je Nacht in Ampelfarben, fragt erst an und liest dann nur nach',async t=>{
+  const tage=['2099-10-29','2099-10-30','2099-10-31','2099-11-01','2099-11-02'];
+  const fertig={ok:true,laeuft:false,abgerufen_am:'2099-10-01T05:47:00Z',naechte:[
+    {nacht:tage[0],wochentag:4,stufe:'gruen',index:1.02,median_eur:190},{nacht:tage[1],wochentag:5,stufe:'gelb',index:1.37,median_eur:262},
+    {nacht:tage[2],wochentag:6,stufe:'rot',index:1.71,median_eur:317,feiertage:['Culture Day']},{nacht:tage[3],wochentag:7,stufe:'gruen',index:0.95,median_eur:180},{nacht:tage[4],wochentag:1,stufe:'ungeprueft',index:null,median_eur:null}]};
+  const laeuft={ok:true,laeuft:true,naechte:tage.map((n,i)=>({nacht:n,wochentag:i+4>7?i-3:i+4,stufe:'laeuft'}))};
+  const flex=[];const handler=p=>{if(p.aktion==='unterkunft_flex'){flex.push(p.daten);return flex.length===1?laeuft:fertig;}return p.aktion==='unterkunft_etappen_lesen'?{reisen:[{id:1,name:'Weltreise'}],etappen:[],ohne_etappe:[],luecken:[]}:{suchauftraege:[]};};
+  handler.flex=true;
+  const {page}=await setup(t,handler,{width:390,height:844,collapsed:true});
+  await page.goto(origin+'/#/suche');
+  await page.getByRole('heading',{name:'Unterkunft suchen',exact:true}).waitFor();
+  assert.equal(await page.locator('.night-band').isVisible(),false,'ohne Ort und Daten kein Band');
+  await page.locator('[name=ziel]').fill('Kyoto');await page.locator('[name=anreise]').fill(tage[0]);await page.locator('[name=abreise]').fill('2099-11-03');
+  await page.getByText(' · Preise: wird geprüft … 0/5',{exact:true}).waitFor();
+  assert.equal(await page.locator('.quick-nights').isVisible(),false,'Nächte stehen im Nachtband');await page.locator('.nb-head').getByText('5 Nächte',{exact:true}).waitFor();
+  assert.equal(await page.locator('.nb-cell.nb-laeuft').count(),5);
+  await page.getByText(' · Preise: 2 Nächte teurer',{exact:true}).waitFor({timeout:8000});
+  assert.equal(flex[0].nur_lesen,undefined,'erste Anfrage fordert Preise an');assert.equal(flex[1].nur_lesen,true,'danach nur nachlesen');
+  assert.equal(flex[0].ziel,'Kyoto');assert.equal(flex[0].erwachsene,2);
+  assert.deepEqual(await page.locator('.nb-cell').evaluateAll(c=>c.map(x=>[...x.classList].find(k=>/^nb-(gruen|gelb|rot|ungeprueft)$/.test(k)))),['nb-gruen','nb-gelb','nb-rot','nb-gruen','nb-ungeprueft']);
+  
+  assert.match(await page.locator('.nb-notes').innerText(),/Teurer: Fr 30\.10\. \+37 %, Sa 31\.10\. \+71 % \(vor Culture Day\)/);
+  assert.match(await page.locator('.nb-cell').nth(4).getAttribute('aria-label'),/nicht geprüft/);
+  assert.equal(await page.locator('.nb-source').isVisible(),false,'Quelle und Legende eingeklappt');await page.getByRole('button',{name:'Farben und Quelle erklären'}).click();assert.match(await page.locator('.nb-source').innerText(),/nicht ob noch frei ist/);await page.getByRole('button',{name:'Farben und Quelle erklären'}).click();
+  await page.locator('.nb-cell').nth(2).click();assert.match(await page.locator('.nb-tip').innerText(),/Sa 31\.10\.: sehr teuer \(\+71 %\) · Ø 317 €\/Nacht · vor Feiertag: Culture Day/);
+  const submit=await page.getByRole('button',{name:'Unterkünfte suchen',exact:true}).boundingBox();
+  if(process.env.SHOT_DIR)await page.screenshot({path:process.env.SHOT_DIR+'/nb.png',fullPage:true});
+  assert(submit.y+submit.height<=844-76,'Suchknopf bleibt mit Nachtband auf dem ersten Bildschirm');
+  await page.locator('.who-chip').click();await page.locator('[name=kinder_alter]').fill('13, 11');
+  await page.waitForFunction(()=>true);await page.waitForTimeout(1200);
+  assert.deepEqual(flex.at(-1).kinder_alter,[13,11],'neue Belegung fragt neu an');assert.equal(flex.at(-1).nur_lesen,undefined);
 });
 
 test('W93: Durchsehen blättert ohne Urteil, merkt die Stelle und führt zur Übersicht zurück',async t=>{

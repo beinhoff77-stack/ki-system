@@ -1151,3 +1151,28 @@ body:has(.tinder-mode) main.view{padding:8px 10px;}
 .review-stamp.is-fresh{animation:stamp-in .38s cubic-bezier(.2,.9,.3,1.3) both}
 @keyframes stamp-in{from{transform:rotate(-10deg) scale(2.2);opacity:0}to{transform:rotate(-10deg) scale(1);opacity:1}}
 @media (prefers-reduced-motion: reduce){.review-stamp.is-fresh{animation:none}}
+/* W94 (Claude): Nachtband – Preisniveau je Nacht in Ampelfarben, Grau = nicht geprüft */
+:root{--nb-gruen:#4fae6c;--nb-gelb:#e8b730;--nb-rot:#d0453a;--nb-grau:#c9d3d2}
+.night-band{display:grid;gap:5px;margin:-4px 0 0;padding:8px 10px;border-radius:12px;border:1px solid var(--border,#dce6e5);background:var(--surface,#fff)}
+.night-band[hidden],.quick-nights[hidden]{display:none}
+.nb-head{display:flex;align-items:center;gap:4px;font-size:13px}
+.nb-head strong{color:#0e3b43}
+.nb-state{flex:1;color:var(--text-muted,#365c61)}
+.nb-info-btn{flex:none;width:24px;height:24px;min-height:0;padding:0;border-radius:50%;border:1px solid var(--border,#c9d3d2);background:transparent;color:var(--text-muted,#365c61);font:700 12px/1 Georgia,serif;font-style:italic}
+.nb-row{display:grid;grid-template-columns:auto 1fr auto;gap:6px;align-items:center}
+.nb-strip{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:2px}
+.nb-cell{display:block;height:16px;border-radius:3px;background:var(--nb-grau);cursor:pointer}
+.nb-cell.nb-we{box-shadow:inset 0 -3px 0 rgba(0,0,0,.18)}
+.nb-gruen{background:var(--nb-gruen)}.nb-gelb{background:var(--nb-gelb)}.nb-rot{background:var(--nb-rot)}.nb-ungeprueft{background:var(--nb-grau)}
+.nb-cell.nb-laeuft{background:var(--nb-grau);animation:nb-puls 1.2s ease-in-out infinite alternate}
+@keyframes nb-puls{from{opacity:.45}to{opacity:1}}
+@media (prefers-reduced-motion: reduce){.nb-cell.nb-laeuft{animation:none}}
+.nb-date{font-size:11px}
+.nb-notes{margin:0;line-height:1.4}
+.nb-dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:4px;vertical-align:0}
+.nb-legend{display:flex;flex-wrap:wrap;gap:4px 12px;margin:0;color:var(--text-muted,#365c61)}
+.nb-info{display:grid;gap:4px}.nb-info[hidden]{display:none}
+.nb-source{margin:0;line-height:1.35}
+.nb-holiday{color:var(--text-muted,#365c61)}
+.nb-tip{margin:0;font-weight:600}
+.nb-cell:focus-visible,.nb-info-btn:focus-visible{outline:2px solid #0e3b43;outline-offset:1px}

@@ -1077,16 +1077,16 @@ body:has(.tinder-mode) main.view{padding:8px 10px;}
 .gap-card strong{font-size:17px;font-variant-numeric:tabular-nums}
 .gap-card .small{color:#d7e6e4}
 .gap-card button.primary{flex:0 0 auto;min-height:44px;padding:8px 14px;border-radius:22px;white-space:nowrap}
-.quick-search{display:grid;gap:10px;padding:18px 16px}
+.quick-search{display:grid;gap:8px;padding:16px 16px}
 .quick-search>h2{margin:0;font-size:22px}
 .quick-search label{display:grid;gap:4px;font-weight:700;font-size:13px;color:#365c61;margin:0}
 .quick-search input,.quick-search select{min-height:48px;font-size:16px;margin:0;width:100%;box-sizing:border-box}
 .quick-when{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .quick-nights{margin:-4px 0 0;font-size:13px;font-weight:700;color:#0e3b43;min-height:1em}
-.who-chip{display:grid;grid-template-columns:1fr auto;align-items:center;gap:2px 10px;width:100%;min-height:56px;padding:10px 14px;text-align:left;border-radius:14px;border:1px solid #dce6e5;background:#f6f8f7;color:#14343b}
-.who-chip .who-label{grid-column:1;font-size:12px;font-weight:700;color:#365c61}
-.who-chip .who-text{grid-column:1;font-size:15px;font-weight:700}
-.who-chip .who-edit{grid-column:2;grid-row:1/3;font-size:13px;text-decoration:underline;color:#365c61}
+.who-chip{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:2px 8px;width:100%;min-height:48px;padding:8px 14px;text-align:left;border-radius:14px;border:1px solid #dce6e5;background:#f6f8f7;color:#14343b}
+.who-chip .who-label{grid-column:1;font-size:13px;font-weight:700;color:#365c61}
+.who-chip .who-text{grid-column:2;font-size:14px;font-weight:700}
+.who-chip .who-edit{grid-column:3;font-size:13px;text-decoration:underline;color:#365c61}
 .who-panel{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:12px;border-radius:14px;background:#f6f8f7}
 .who-panel>p,.who-panel>.who-profiles{grid-column:1/-1}
 .who-panel .suche-grid{display:contents}
@@ -1186,3 +1186,27 @@ body:has(.tinder-mode) main.view{padding:8px 10px;}
 .nb-chip-sub{color:var(--text-muted,#365c61)}
 .nb-chip-back{border-color:var(--border,#c9d3d2);background:transparent}
 .nb-chip:focus-visible{outline:2px solid #0e3b43;outline-offset:1px}
+/* W96 (Claude): Block „Wohnen“ – Apartment/Hotel, ★ bevorzugt, Schlafzimmer und Hotelzimmer per –/+ */
+.wohnen{display:grid;gap:6px}
+.wo-row{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.wo-chip-wrap{display:inline-flex;align-items:center;border:1px solid #cfdcda;border-radius:22px;background:#f6f8f7;overflow:hidden}
+.wo-chip-wrap.is-on{border-color:#0e3b43;background:#e6eeed}
+.wo-chip{min-height:44px;padding:6px 12px;border:0;background:transparent;color:#365c61;font-weight:700;font-size:15px}
+.wo-chip-wrap.is-on .wo-chip{color:#0e3b43}
+.wo-star{min-height:44px;min-width:36px;padding:0 8px;border:0;border-left:1px solid #cfdcda;background:transparent;color:#8a6a00;font-size:18px;line-height:1}
+.wo-star.is-on{color:#d9a514}
+.wo-stepper{display:inline-flex;align-items:center;gap:2px;padding-right:4px}
+.wo-chip-wrap .wo-stepper{border-left:1px solid #cfdcda;padding-left:4px}
+.wo-step{min-height:36px;min-width:36px;padding:0;border-radius:50%;border:1px solid #cfdcda;background:#fff;color:#0e3b43;font-size:19px;font-weight:700;line-height:1}
+.wo-step:disabled{opacity:.35}
+.wo-step-value{min-width:42px;text-align:center;font-weight:800;font-size:14px;white-space:nowrap}
+.wo-sub-name{font-size:13px;font-weight:700;color:#365c61}
+.wo-seg{display:inline-flex;border:1px solid #cfdcda;border-radius:10px;overflow:hidden}
+.wo-seg-btn{min-height:40px;padding:4px 9px;border:0;border-right:1px solid #cfdcda;background:#fff;font-size:13px;color:#14343b}
+.wo-seg-btn:last-child{border-right:0}
+.wohnen .wo-seg-btn[aria-pressed="true"]{background:#0e3b43;color:#fff;font-weight:700}
+.wo-hint{margin:0;line-height:1.35}
+.wo-chip:focus-visible,.wo-star:focus-visible,.wo-step:focus-visible,.wo-seg-btn:focus-visible{outline:2px solid #0e3b43;outline-offset:2px}
+.hit-wohnform{margin:2px 0 0;font-weight:700;color:#365c61}
+.hit-wohnform .wo-grund{font-weight:600;color:var(--fav,#2f8a4e)}
+.quick-search label[hidden],.stay-form-panel label[hidden],.trip-criterion[hidden]{display:none!important}

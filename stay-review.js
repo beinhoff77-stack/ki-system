@@ -238,7 +238,8 @@ function stayReview({getSnapshot,getGroup=()=>null,getRows=()=>getSnapshot()?.tr
     const content=el('div',{class:'review-content',tabindex:0,'aria-label':'Unterkunft ansehen'},gallery);
     const price=t.currentOfferUnavailable?el('span',{},'Preis nicht bestätigt'):el('span',{},stayField(t,'preis',snapshot.suchauftrag),' gesamt · ',stayField(t,'nacht',snapshot.suchauftrag),' / Nacht');
     const bedrooms=stayFieldValue(t,'schlafzimmer',snapshot.suchauftrag), m2=stayFieldValue(t,'m2',snapshot.suchauftrag), note=stayFieldValue(t,'gaestenote',snapshot.suchauftrag);
-    const facts=[bedrooms===null?null:bedrooms+' Schlafzimmer',m2===null?null:m2+' m²',sucheZahl(note)===null?null:'★ '+Number(note).toLocaleString('de-DE',{maximumFractionDigits:1})].filter(Boolean);
+    const wohnform=sucheWohnform(t);
+    const facts=[wohnform?wohnform.text+(wohnform.grund?' – '+wohnform.grund:''):bedrooms===null?null:bedrooms+' Schlafzimmer',m2===null?null:m2+' m²',sucheZahl(note)===null?null:'★ '+Number(note).toLocaleString('de-DE',{maximumFractionDigits:1})].filter(Boolean);
     const verdict={favorit:'♥ Favorit',vielleicht:'≈ Na ja',ausgeschlossen:'× Weg'}[t.status];
     const swipe=el('div',{class:'review-swipe'},el('div',{class:'review-title'},refreshIsNew(t,snapshot.suchauftrag.id)?el('span',{class:'pill'},'NEU'):null,verdict?el('span',{class:'review-verdict verdict-'+t.status},verdict):null,el('h3',{tabindex:-1},t.name)),el('p',{class:'review-price'},price),el('p',{class:'review-bedroom'},facts.length?facts.join(' · '):'Schlafzimmer unbekannt'));
     let point=null, swiped=false;
@@ -265,6 +266,7 @@ function stayConfigureTable(wrapper,items,sort,onSort,trip,select) {
   for(const t of items){const row=wrapper.querySelector(`tr[data-hit="${t.treffer_id}"]`), identity=row.cells[0], detail=row.lastElementChild;
     if(refreshIsNew(t,trip.id))identity.append(el('span',{class:'pill'},'NEU'));
     const scoreBox=el('div',{class:'small hit-score'},(trip.status==='fertig' && ['A','B'].includes(sucheGruppe(t))?'Passung: ':'Vorläufige Passung: ')+(sucheZahl(t.bewertung?.score)??'–')+'/100');identity.append(scoreBox);
+    const wohnform=sucheWohnform(t);if(wohnform)identity.append(el('p',{class:'small hit-wohnform'},wohnform.text,wohnform.grund?el('span',{class:'wo-grund'},' – '+wohnform.grund):null)); // W96
     if(t.eigener_rang)identity.append(el('p',{class:'small'},'Dein Rang '+t.eigener_rang));
     if(t.urteil_uebernommen)identity.append(el('p',{class:'small'},'aus früherer Suche'));
     if(t.status==='vielleicht')identity.append(el('p',{class:'small'},'Na ja'));

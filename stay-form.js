@@ -196,6 +196,7 @@ const NB_TAG = ['', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'];
 function nachtbandAnzeige({ form, call, live, onShow = () => {} }) {
   const box = el('div', { class: 'night-band', hidden: true, 'aria-live': 'polite' });
   let timer = null, poll = null, seq = 0, lastKey = '';
+  let vorher = null; // W95: Daten vor dem Antippen eines Vorschlags (für „Wie vorher“)
   const tag = d => { const x = new Date(d + 'T12:00:00'); return Number.isNaN(x.getTime()) ? d : x.toLocaleDateString('de-DE', { day: 'numeric', month: 'numeric' }); };
   const prozent = i => { const p = Math.round((Number(i) - 1) * 100); return i !== null && Number.isFinite(p) ? (p > 0 ? '+' : '') + p + ' %' : ''; };
   const euro = v => v !== null && v !== undefined && Number.isFinite(Number(v)) ? Math.round(Number(v)).toLocaleString('de-DE') + ' €' : '';
@@ -229,7 +230,7 @@ function nachtbandAnzeige({ form, call, live, onShow = () => {} }) {
     const liste = !laeuft && kurzListe.length ? el('p', { class: 'nb-notes small' }, 'Teurer: ', kurzListe.slice(0, 4).map((x, k) => [k ? ', ' : '',
       el('span', { class: `nb-dot nb-${x.stufe}`, 'aria-hidden': 'true' }), el('strong', {}, `${NB_TAG[x.wochentag] || ''} ${tag(x.nacht)}`), ` ${prozent(x.index)}`,
       Array.isArray(x.feiertage) && x.feiertage.length ? el('span', { class: 'nb-holiday' }, ` (vor ${x.feiertage.join(', ')})`) : '']).flat(),
-      kurzListe.length > 4 ? ` und ${kurzListe.length - 4} weitere` : '', ' – Feld antippen für Details') : null;
+      kurzListe.length > 4 ? ` und ${kurzListe.length - 4} weitere` : '', ' (Feld antippen)') : null;
     const zeit = r?.abgerufen_am ? new Date(r.abgerufen_am) : null;
     const info = el('div', { class: 'nb-info', hidden: true },
       el('p', { class: 'nb-legend small' }, ['gruen', 'gelb', 'rot', 'ungeprueft'].map(s => el('span', {}, el('span', { class: `nb-dot nb-${s}`, 'aria-hidden': 'true' }),
@@ -239,10 +240,39 @@ function nachtbandAnzeige({ form, call, live, onShow = () => {} }) {
     const n = naechte.length;
     const row = el('div', { class: 'nb-row' }, el('span', { class: 'nb-date small muted' }, tag(naechte[0].nacht)), strip, el('span', { class: 'nb-date small muted' }, tag(naechte[n - 1].nacht)));
     box.hidden = false;
-    box.replaceChildren(el('div', { class: 'nb-head' }, el('strong', {}, `${n} ${n === 1 ? 'Nacht' : 'Nächte'}`), el('span', { class: 'nb-state small' }, ' · Preise: ' + lage), infoBtn), row, liste, info);
+    box.replaceChildren(el('div', { class: 'nb-head' }, el('strong', {}, `${n} ${n === 1 ? 'Nacht' : 'Nächte'}`), el('span', { class: 'nb-state small' }, ' · Preise: ' + lage), infoBtn), row, liste, varianten(r), info);
     const tip = c => { box.querySelector('.nb-tip')?.remove(); row.after(el('p', { class: 'nb-tip small' }, c.getAttribute('aria-label'))); };
     for (const c of strip.children) { c.addEventListener('click', () => tip(c)); c.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); tip(c); } }); }
     onShow(true);
+  }
+  // W95: ± Tage – bis zu zwei bessere Reisedaten (Schätzung aus den Nachtpreisen), Antippen übernimmt die Daten.
+  const spanne = (a, b) => `${tag(a)}–${tag(b)}`;
+  function setzeDaten(anreise, abreise) {
+    for (const [k, v] of [['anreise', anreise], ['abreise', abreise]]) { const i = form.querySelector(`[name="${k}"]`); if (i) { i.value = v; i.dispatchEvent(new Event('input', { bubbles: true })); } }
+  }
+  function varianten(r) {
+    const v = r?.varianten; if (!v || typeof v !== 'object') return null;
+    const g = v.grenzen || {};
+    const fest = [g.anreise_fest ? 'Anreise fest: ' + (g.anreise_grund || 'gebuchter Aufenthalt davor') : null, g.abreise_fest ? 'Abreise fest: ' + (g.abreise_grund || 'gebuchter Aufenthalt danach') : null].filter(Boolean).join(' · ');
+    const f = new FormData(form), jetzt = { anreise: String(f.get('anreise') || ''), abreise: String(f.get('abreise') || '') };
+    const zurueck = vorher && (vorher.anreise !== jetzt.anreise || vorher.abreise !== jetzt.abreise)
+      ? el('button', { type: 'button', class: 'nb-chip nb-chip-back', onclick: () => { const z = vorher; vorher = null; setzeDaten(z.anreise, z.abreise); } }, el('strong', {}, '↶ Wie vorher'), el('span', {}, `${spanne(vorher.anreise, vorher.abreise)} · ${vorher.naechte} N.`)) : null;
+    if (v.status === 'laeuft') return el('p', { class: 'nb-alt small muted' }, 'Andere Daten werden geprüft …');
+    if (v.status === 'fest') return el('p', { class: 'nb-alt small muted' }, fest ? fest + '.' : 'Daten fest.');
+    if (v.status !== 'fertig') return zurueck ? el('div', { class: 'nb-alt' }, el('div', { class: 'nb-chips' }, zurueck)) : null;
+    const liste = Array.isArray(v.vorschlaege) ? v.vorschlaege.filter(x => x && /^\d{4}-\d{2}-\d{2}$/.test(x.anreise) && /^\d{4}-\d{2}-\d{2}$/.test(x.abreise)) : [];
+    const geplant = v.geplant || {};
+    const pruef = `Anreise ±${g.spanne_anreise ?? 2} Tage, Dauer ±${g.spanne_dauer ?? 1} Nacht geprüft`;
+    if (!liste.length) return el('div', { class: 'nb-alt' }, el('p', { class: 'small muted nb-alt-text' }, `Andere Daten bringen nichts (${pruef}).${fest ? ' ' + fest + '.' : ''}`), zurueck ? el('div', { class: 'nb-chips' }, zurueck) : null);
+    const chips = liste.map(x => {
+      const p = Number(x.ersparnis_nacht_prozent), grund = [x.meidet ? 'ohne ' + x.meidet : null, Number.isFinite(p) && p !== 0 ? `${p > 0 ? '−' : '+'}${Math.abs(p)} %` : null].filter(Boolean).join(' · ');
+      const aenderung = [x.verschiebung_tage ? `${Math.abs(x.verschiebung_tage)} Tag${Math.abs(x.verschiebung_tage) === 1 ? '' : 'e'} ${x.verschiebung_tage < 0 ? 'früher' : 'später'}` : null, x.dauer_aenderung ? `${Math.abs(x.dauer_aenderung)} Nacht ${x.dauer_aenderung < 0 ? 'weniger' : 'mehr'}` : null].filter(Boolean).join(', ');
+      return el('button', { type: 'button', class: 'nb-chip', 'aria-label': `Daten übernehmen: ${spanne(x.anreise, x.abreise)}, ${x.naechte} Nächte, ${aenderung}, geschätzt Ø ${euro(x.schnitt_eur)} pro Nacht${grund ? ', ' + grund : ''}`,
+        onclick: () => { vorher = { ...jetzt, naechte: geplant.naechte ?? '' }; setzeDaten(x.anreise, x.abreise); } },
+        el('span', {}, el('strong', {}, `${spanne(x.anreise, x.abreise)} · ${x.naechte} N.`), ` · Ø ${euro(x.schnitt_eur)}`), el('span', { class: 'nb-chip-sub' }, [aenderung, grund].filter(Boolean).join(' · ')));
+    });
+    return el('div', { class: 'nb-alt' }, el('p', { class: 'small nb-alt-text' }, el('strong', {}, 'Bessere Daten?'), ` Geplant Ø ${euro(geplant.schnitt_eur)} (geschätzt)`),
+      el('div', { class: 'nb-chips' }, chips, zurueck), fest ? el('p', { class: 'small muted nb-alt-text' }, fest + '.') : null);
   }
   async function load(p, nurLesen, mine, runde = 0) {
     let r;

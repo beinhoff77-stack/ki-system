@@ -208,13 +208,13 @@ test('PWA installiert vollständige Offline-Hülle, API wird nicht gecacht', asy
   assert(cacheNames.includes('ki-system:' + origin + '/another-app/:v1'));
   assert(!cacheNames.includes('ki-system:' + origin + '/:old'));
   await page.evaluate(() => fetch('README.md'));
-  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v38')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
-  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.24.0')); assert(cached.includes('/style.css?v=0.24.0'));
-  assert(cached.includes('/stay-tools.js?v=0.24.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
-  assert(cached.includes('/stay-research.js?v=0.24.0'));
-  assert(cached.includes('/stay-form.js?v=0.24.0'));
-  assert(cached.includes('/stay-details.js?v=0.24.0'));
-  assert(cached.includes('/stay-districts.js?v=0.24.0'));
+  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v39')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
+  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.25.0')); assert(cached.includes('/style.css?v=0.25.0'));
+  assert(cached.includes('/stay-tools.js?v=0.25.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
+  assert(cached.includes('/stay-research.js?v=0.25.0'));
+  assert(cached.includes('/stay-form.js?v=0.25.0'));
+  assert(cached.includes('/stay-details.js?v=0.25.0'));
+  assert(cached.includes('/stay-districts.js?v=0.25.0'));
   assert(!cached.includes('/README.md'));
   assert(!cached.some((u) => u.includes('app-api')));
   await context.setOffline(true); await page.reload();
@@ -2272,6 +2272,38 @@ test('W94: Nachtband zeigt Preisniveau je Nacht in Ampelfarben, fragt erst an un
   await page.locator('.who-chip').click();await page.locator('[name=kinder_alter]').fill('13, 11');
   await page.waitForFunction(()=>true);await page.waitForTimeout(1200);
   assert.deepEqual(flex.at(-1).kinder_alter,[13,11],'neue Belegung fragt neu an');assert.equal(flex.at(-1).nur_lesen,undefined);
+});
+
+test('W95: ± Tage schlägt bessere Daten vor, Antippen übernimmt sie, „Wie vorher“ führt zurück',async t=>{
+  const band=(an,ab,varianten)=>{const n=[];for(let d=new Date(an+'T12:00:00');d<new Date(ab+'T12:00:00');d.setDate(d.getDate()+1))n.push({nacht:d.toISOString().slice(0,10),wochentag:(d.getDay()||7),stufe:d.getDay()===6?'rot':'gruen',index:d.getDay()===6?1.68:1,median_eur:d.getDay()===6?500:220});return {ok:true,laeuft:false,naechte:n,varianten};};
+  const vor={status:'fertig',grenzen:{spanne_anreise:2,spanne_dauer:1,anreise_fest:false,abreise_fest:false},geplant:{anreise:'2099-11-16',abreise:'2099-11-22',naechte:6,schnitt_eur:257},
+    vorschlaege:[{anreise:'2099-11-15',abreise:'2099-11-21',naechte:6,verschiebung_tage:-1,dauer_aenderung:0,schnitt_eur:226,ersparnis_nacht_prozent:11,meidet:'21.11.'},
+      {anreise:'2099-11-15',abreise:'2099-11-20',naechte:5,verschiebung_tage:-1,dauer_aenderung:-1,schnitt_eur:222,ersparnis_nacht_prozent:13,meidet:'21.11.'}]};
+  const flex=[];const handler=p=>{if(p.aktion==='unterkunft_flex'){flex.push(p.daten);const d=p.daten;
+      if(d.anreise==='2099-11-16')return band(d.anreise,d.abreise,vor);
+      return band(d.anreise,d.abreise,{status:'fertig',grenzen:{anreise_fest:true,anreise_grund:'Tokyo ist bis zur Anreise gebucht'},geplant:{naechte:6,schnitt_eur:226},vorschlaege:[]});}
+    return p.aktion==='unterkunft_etappen_lesen'?{reisen:[{id:1,name:'Weltreise'}],etappen:[],ohne_etappe:[],luecken:[]}:{suchauftraege:[]};};
+  handler.flex=true;
+  const {page}=await setup(t,handler,{width:390,height:844,collapsed:true});
+  await page.goto(origin+'/#/suche');await page.getByRole('heading',{name:'Unterkunft suchen',exact:true}).waitFor();
+  await page.locator('[name=ziel]').fill('Kyoto');await page.locator('[name=anreise]').fill('2099-11-16');await page.locator('[name=abreise]').fill('2099-11-22');
+  await page.locator('.nb-alt-text strong',{hasText:'Bessere Daten?'}).waitFor();
+  assert.match(await page.locator('.nb-alt-text').first().innerText(),/Bessere Daten\? Geplant Ø 257 € \(geschätzt\)/);
+  const chips=page.locator('.nb-chip');assert.equal(await chips.count(),2);
+  assert.match(await chips.first().innerText(),/15\.11\.–21\.11\. · 6 N\. · Ø 226 €\s+1 Tag früher · ohne 21\.11\. · −11 %/);
+  assert.match(await chips.nth(1).innerText(),/1 Tag früher, 1 Nacht weniger/);
+  const submit=await page.getByRole('button',{name:'Unterkünfte suchen',exact:true}).boundingBox();
+  if(process.env.SHOT_DIR)await page.screenshot({path:process.env.SHOT_DIR+'/nb-tage.png',fullPage:true});
+  assert(submit.y+submit.height<=844-76,'Suchknopf bleibt mit Vorschlägen sichtbar');
+  await chips.first().click();
+  assert.equal(await page.locator('[name=anreise]').inputValue(),'2099-11-15');assert.equal(await page.locator('[name=abreise]').inputValue(),'2099-11-21');
+  await page.getByText('Andere Daten bringen nichts',{exact:false}).waitFor();
+  await page.getByText('Anreise fest: Tokyo ist bis zur Anreise gebucht.',{exact:false}).waitFor();
+  assert.equal(flex.at(-1).anreise,'2099-11-15');
+  await page.getByRole('button',{name:/Wie vorher/}).click();
+  assert.equal(await page.locator('[name=anreise]').inputValue(),'2099-11-16');assert.equal(await page.locator('[name=abreise]').inputValue(),'2099-11-22');
+  await page.locator('.nb-alt-text strong',{hasText:'Bessere Daten?'}).waitFor();
+  assert.equal(await page.getByRole('button',{name:/Wie vorher/}).count(),0);
 });
 
 test('W93: Durchsehen blättert ohne Urteil, merkt die Stelle und führt zur Übersicht zurück',async t=>{

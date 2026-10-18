@@ -126,7 +126,8 @@ test('Formular validiert und ruft Anlegen → Starten → Lesen genau einmal auf
   const writes = calls.filter((p) => ['unterkunft_suchauftrag_anlegen', 'unterkunft_suche_starten'].includes(p.aktion));
   assert.deepEqual(writes.map((p) => p.aktion), ['unterkunft_suchauftrag_anlegen', 'unterkunft_suche_starten']);
   assert.deepEqual(writes[0].daten.kinder_alter, [13, 11]);
-  assert.equal(writes[0].daten.limit_usd, 1.5); assert.equal(writes[0].daten.schlafzimmer_min, 2);
+  assert.equal(writes[0].daten.limit_usd, 1.5); assert.equal(writes[0].daten.schlafzimmer_min, 1);
+  assert.deepEqual(writes[0].daten.wohnen, {apartment:{an:true,schlafzimmer_min:1},hotel:{an:false,zimmer:2,bett:'doppel'},bevorzugt:'apartment'}); // W96 Standard
 });
 test('A/B, Warnungen, sichere Links, numerische Sortierung und fehlende Werte', async (t) => {
   const data = result(); data.treffer[0].name = '<img src=x onerror=alert(1)>';
@@ -208,13 +209,13 @@ test('PWA installiert vollständige Offline-Hülle, API wird nicht gecacht', asy
   assert(cacheNames.includes('ki-system:' + origin + '/another-app/:v1'));
   assert(!cacheNames.includes('ki-system:' + origin + '/:old'));
   await page.evaluate(() => fetch('README.md'));
-  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v39')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
-  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.25.0')); assert(cached.includes('/style.css?v=0.25.0'));
-  assert(cached.includes('/stay-tools.js?v=0.25.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
-  assert(cached.includes('/stay-research.js?v=0.25.0'));
-  assert(cached.includes('/stay-form.js?v=0.25.0'));
-  assert(cached.includes('/stay-details.js?v=0.25.0'));
-  assert(cached.includes('/stay-districts.js?v=0.25.0'));
+  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v40')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
+  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.26.0')); assert(cached.includes('/style.css?v=0.26.0'));
+  assert(cached.includes('/stay-tools.js?v=0.26.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
+  assert(cached.includes('/stay-research.js?v=0.26.0'));
+  assert(cached.includes('/stay-form.js?v=0.26.0'));
+  assert(cached.includes('/stay-details.js?v=0.26.0'));
+  assert(cached.includes('/stay-districts.js?v=0.26.0'));
   assert(!cached.includes('/README.md'));
   assert(!cached.some((u) => u.includes('app-api')));
   await context.setOffline(true); await page.reload();
@@ -905,12 +906,15 @@ test('Reisewünsche: Nebenart, Mischung, Unterkunft, Qualitätsfilter und Pflich
   await page.getByLabel('Nebenart',{exact:true}).selectOption('erholung');
   await page.getByLabel('Mischung der Reisearten',{exact:true}).selectOption('frei');
   await page.getByLabel('Anteil der Nebenart (%)',{exact:true}).fill('40');
-  await page.getByLabel('Gewünschte Unterkunftsform',{exact:true}).selectOption('apartment');
+  // W96: Wohnform über den Block „Wohnen“ statt Auswahlliste
+  await page.getByRole('button',{name:'Schlafzimmer mind. mehr',exact:true}).click();await page.getByRole('button',{name:'Hotel',exact:true}).click();
+  await page.getByRole('button',{name:'Zimmer mehr',exact:true}).click();await page.getByRole('button',{name:'2 Einzel',exact:true}).click();await page.getByRole('button',{name:'Hotel bevorzugen',exact:true}).click();
+  assert.equal(await page.getByLabel('Gewünschte Unterkunftsform',{exact:true}).isVisible(),false,'alte Auswahl entfällt');
   await page.getByLabel('Suite als Wunsch',{exact:true}).check();
   await page.getByLabel('Qualitätsfilter anwenden',{exact:true}).uncheck();
   await page.locator('.trip-criteria > summary').click();
   await page.getByLabel('Bedeutung: Echte Betten für alle',{exact:true}).selectOption('pflicht');
-  await page.getByLabel('Bedeutung: Schlafzimmer mindestens',{exact:true}).selectOption('pflicht');
+  assert.equal(await page.getByLabel('Bedeutung: Schlafzimmer mindestens',{exact:true}).isVisible(),false,'Schlafzimmer steht nur noch unter Wohnen');
   await page.getByLabel('Bedeutung: Wohnfläche mindestens (m²)',{exact:true}).selectOption('pflicht');
   await page.getByRole('button',{name:'Unterkünfte suchen',exact:true}).click();
   await page.getByText('Bitte einen gültigen Wert für „Wohnfläche mindestens (m²)“ eintragen.').waitFor();
@@ -920,10 +924,11 @@ test('Reisewünsche: Nebenart, Mischung, Unterkunft, Qualitätsfilter und Pflich
   await page.getByRole('button',{name:'Unterkünfte suchen',exact:true}).click();
   await page.locator('[data-group=A]').waitFor();
   const d=calls.find(p=>p.aktion==='unterkunft_suchauftrag_anlegen').daten;
-  assert.equal(d.profil,'staedte');assert.equal(d.nebenart,'erholung');assert.equal(d.nebenart_anteil,40);assert.equal(d.unterkunftsform,'apartment');
+  assert.equal(d.profil,'staedte');assert.equal(d.nebenart,'erholung');assert.equal(d.nebenart_anteil,40);
+  assert.deepEqual(d.wohnen,{apartment:{an:true,schlafzimmer_min:2},hotel:{an:true,zimmer:3,bett:'einzel'},bevorzugt:'hotel'});assert.equal(d.schlafzimmer_min,2);
   assert.equal(d.suite,true);assert.equal(d.qualitaetsfilter,false);
   assert.deepEqual(d.kriterien.echte_betten,{modus:'pflicht'});assert.deepEqual(d.kriterien.flaeche_m2,{modus:'pflicht',wert:55});
-  assert.deepEqual(d.kriterien.schlafzimmer,{modus:'pflicht',wert:2});assert.deepEqual(d.kriterien.suite,{modus:'wunsch'});assert.deepEqual(d.kriterien.balkon,{modus:'egal'});
+  assert.deepEqual(d.kriterien.suite,{modus:'wunsch'});assert.deepEqual(d.kriterien.balkon,{modus:'egal'});
 });
 
 test('Suchprofil übernehmen bewahrt Reiseziel und Daten; geleerte Felder kehren nicht aus Profil zurück', async (t) => {
@@ -1323,33 +1328,36 @@ test('Viertel: neue Leseantwort erhält Notizentwurf und Cursor während laufend
   assert.deepEqual(await note.evaluate(n=>({value:n.value,focused:document.activeElement===n,start:n.selectionStart,end:n.selectionEnd})),{value:'Diesen Ort vergleichen',focused:true,start:7,end:10});
 });
 
-test('Schlafzimmer: Standard und altes Profil bleiben Wunsch, ausdrückliches Egal entfernt die Vorgabe', async (t) => {
-  const profiles=[{id:1,name:'Bisheriges Profil',felder:{schlafzimmer_min:3}},{id:2,name:'Ohne Raumvorgabe',felder:{schlafzimmer_min:2,kriterien:{schlafzimmer:{modus:'egal'}}}}];
+test('W96: Schlafzimmer stehen unter Wohnen; altes Profil übernimmt die Zahl, neues Profil die ganze Wohnwahl', async (t) => {
+  const profiles=[{id:1,name:'Bisheriges Profil',felder:{schlafzimmer_min:3}},{id:2,name:'Nur Hotel',felder:{wohnen:{apartment:{an:false},hotel:{an:true,zimmer:2,bett:'einzel'}}}}];
   const {page,calls}=await setup(t,p=>p.aktion==='unterkunft_suchprofile_lesen'?profileCatalog(profiles):p.aktion==='unterkunft_suchauftrag_anlegen'?{ok:true,id:2}:p.aktion==='unterkunft_suche_starten'?{ok:true}:p.daten?.suchauftrag_id?result():{suchauftraege:[],merkliste:[]});
-  for(const [profile,mode,bedrooms] of [['','wunsch',2],['1','wunsch',3],['2','egal',0]]) {
+  for(const [profile,shown,check] of [['','1 SZ',d=>{assert.equal(d.schlafzimmer_min,1);assert.equal(d.wohnen.apartment.schlafzimmer_min,1);assert.equal(d.wohnen.hotel.an,false);}],
+    ['1','3 SZ',d=>{assert.equal(d.schlafzimmer_min,3);assert.equal(d.wohnen.apartment.schlafzimmer_min,3);}],
+    ['2',null,d=>{assert.equal(d.schlafzimmer_min,0);assert.deepEqual(d.wohnen,{apartment:{an:false,schlafzimmer_min:1},hotel:{an:true,zimmer:2,bett:'einzel'},bevorzugt:'hotel'});}]]) {
     await page.goto(origin+'/#/suche');await formFill(page);if(profile)await page.getByLabel('Suchprofil verwenden',{exact:true}).selectOption(profile);
-    assert.equal(await page.getByLabel('Bedeutung: Schlafzimmer mindestens',{exact:true}).inputValue(),mode);
-    assert.equal(await page.locator('[name=schlafzimmer_min]').isDisabled(),mode==='egal');
-    if(mode==='egal'){await page.locator('.trip-criteria > summary').click();await page.getByText('Egal: keine Schlafzimmer-Vorgabe, auch Einzimmer-Angebote.',{exact:true}).waitFor();}
+    assert.equal(await page.locator('[name=schlafzimmer_min]').isVisible(),false,'kein Zahlenfeld mehr');
+    if(shown)assert.equal(await page.locator('.wohnen .wo-chip-wrap .wo-step-value').innerText(),shown);
+    else { assert.equal(await page.getByRole('button',{name:'Apartment',exact:true}).getAttribute('aria-pressed'),'false');assert.equal(await page.getByRole('button',{name:'✓ Hotel',exact:true}).getAttribute('aria-pressed'),'true'); }
     await page.getByRole('button',{name:'Unterkünfte suchen',exact:true}).click();await page.locator('[data-group=A]').waitFor();
-    const data=calls.filter(p=>p.aktion==='unterkunft_suchauftrag_anlegen').at(-1).daten;
-    assert.equal(data.schlafzimmer_min,bedrooms);assert.deepEqual(data.kriterien.schlafzimmer,mode==='egal'?{modus:'egal'}:{modus:'wunsch',wert:bedrooms});
+    check(calls.filter(p=>p.aktion==='unterkunft_suchauftrag_anlegen').at(-1).daten);
   }
 });
 
-test('Profil-Rundlauf bewahrt Balkon Egal und die gemeinsame Schlafzimmerzahl', async (t) => {
+test('W96: Profil-Rundlauf bewahrt Balkon Egal und die Wohnwahl', async (t) => {
   let profile;
   const {page,calls}=await setup(t,p=>{
     if(p.aktion==='unterkunft_suchprofile_lesen')return profileCatalog(profile?[profile]:[]);
     if(p.aktion==='unterkunft_suchprofil_speichern'){profile={id:8,name:p.daten.name,felder:p.daten.felder};return {ok:true,...profile};}
     if(p.aktion==='unterkunft_suchauftrag_anlegen')return {ok:true,id:2};if(p.aktion==='unterkunft_suche_starten')return {ok:true};return p.daten?.suchauftrag_id?result():{suchauftraege:[],merkliste:[]};
   });
-  await page.goto(origin+'/#/suche');await page.locator('.trip-criteria > summary').click();await page.getByLabel('Bedeutung: Balkon',{exact:true}).selectOption('egal');await page.locator('[name=schlafzimmer_min]').fill('3');
+  await page.goto(origin+'/#/suche');await page.locator('.trip-criteria > summary').click();await page.getByLabel('Bedeutung: Balkon',{exact:true}).selectOption('egal');
+  for(let i=0;i<2;i++)await page.getByRole('button',{name:'Schlafzimmer mind. mehr',exact:true}).click();
   await page.getByLabel('Name des Suchprofils',{exact:true}).fill('Familie ohne Balkonwunsch');await page.getByRole('button',{name:'Als Profil speichern',exact:true}).click();await page.getByText('Profil „Familie ohne Balkonwunsch“ gespeichert.',{exact:true}).waitFor();
+  assert.equal(profile.felder.wohnen.apartment.schlafzimmer_min,3);
   await page.reload();await formFill(page);await page.getByLabel('Suchprofil verwenden',{exact:true}).selectOption('8');
-  assert.equal(await page.getByLabel('Bedeutung: Balkon',{exact:true}).inputValue(),'egal');assert.equal(await page.locator('[name=schlafzimmer_min]').inputValue(),'3');
+  assert.equal(await page.getByLabel('Bedeutung: Balkon',{exact:true}).inputValue(),'egal');assert.equal(await page.locator('.wohnen .wo-chip-wrap .wo-step-value').innerText(),'3 SZ');
   await page.getByRole('button',{name:'Unterkünfte suchen',exact:true}).click();await page.locator('[data-group=A]').waitFor();
-  const data=calls.find(p=>p.aktion==='unterkunft_suchauftrag_anlegen').daten;assert.deepEqual(data.kriterien.balkon,{modus:'egal'});assert.deepEqual(data.kriterien.schlafzimmer,{modus:'wunsch',wert:3});assert.equal(data.schlafzimmer_min,3);
+  const data=calls.find(p=>p.aktion==='unterkunft_suchauftrag_anlegen').daten;assert.deepEqual(data.kriterien.balkon,{modus:'egal'});assert.equal(data.wohnen.apartment.schlafzimmer_min,3);assert.equal(data.schlafzimmer_min,3);
 });
 
 test('Gemeinsame Merkliste enthält ältere Reisen, öffnet den richtigen Treffer und übersteht Lesefehler', async (t) => {
@@ -2230,7 +2238,7 @@ test('W93: Suche passt auf einen Bildschirm, Lücke füllt Daten, Reise wird aut
   assert(await page.locator('[name=ziel]').evaluate(n=>n===document.activeElement));
   await page.locator('[name=ziel]').fill('Osaka');
   await page.locator('.who-chip').click();await page.locator('[name=kinder_alter]').fill('13, 11');
-  await page.getByText('2 Erw. · Kinder 13, 11 · mind. 2 SZ · Budget offen',{exact:true}).waitFor();
+  await page.getByText('2 Erw. · Kinder 13, 11 · Budget offen',{exact:true}).waitFor();
   await page.getByRole('button',{name:'Unterkünfte suchen',exact:true}).click();
   await page.waitForURL(/#\/suche\/9$/);
   const created=calls.find(p=>p.aktion==='unterkunft_suchauftrag_anlegen').daten;
@@ -2304,6 +2312,32 @@ test('W95: ± Tage schlägt bessere Daten vor, Antippen übernimmt sie, „Wie v
   assert.equal(await page.locator('[name=anreise]').inputValue(),'2099-11-16');assert.equal(await page.locator('[name=abreise]').inputValue(),'2099-11-22');
   await page.locator('.nb-alt-text strong',{hasText:'Bessere Daten?'}).waitFor();
   assert.equal(await page.getByRole('button',{name:/Wie vorher/}).count(),0);
+});
+
+test('W96: Wohnen – Hotel zuschalten, Stern, Zimmer und Bett per Tippen; Treffer zeigen Wohnform und Grund',async t=>{
+  const data=result();const h=data.treffer[0];h.typ='hotel';h.angebot={...(h.angebot||{}),zimmer_anzahl:2};h.bewertung={...(h.bewertung||{}),spaltennoten:{...(h.bewertung?.spaltennoten||{}),wohnform:{art:'hotel',bevorzugt:'apartment',grund:'22 % günstiger'}}};
+  const {page,calls}=await setup(t,p=>p.aktion==='unterkunft_suchauftrag_anlegen'?{ok:true,id:2}:p.aktion==='unterkunft_suche_starten'?{ok:true}:p.daten?.suchauftrag_id?data:{suchauftraege:[]},{width:390,height:844,collapsed:true});
+  await page.goto(origin+'/#/suche');await page.getByRole('heading',{name:'Unterkunft suchen',exact:true}).waitFor();
+  assert.equal(await page.getByRole('button',{name:'✓ Apartment',exact:true}).getAttribute('aria-pressed'),'true');
+  assert.equal(await page.getByRole('button',{name:'Apartment bevorzugen'}).count(),0,'Stern nur wenn beide an');
+  await page.getByRole('button',{name:'✓ Apartment',exact:true}).click();
+  assert.equal(await page.getByRole('button',{name:'✓ Apartment',exact:true}).getAttribute('aria-pressed'),'true','eine Wohnform bleibt immer an');
+  await page.getByRole('button',{name:'Hotel',exact:true}).click();
+  await page.getByText('★ = bevorzugt',{exact:false}).waitFor();
+  assert.equal(await page.getByRole('button',{name:'Apartment bevorzugen'}).getAttribute('aria-pressed'),'true');
+  await page.getByRole('button',{name:'Zimmer weniger',exact:true}).click();await page.getByRole('button',{name:'Zimmer weniger',exact:true}).waitFor();
+  assert.equal(await page.getByRole('button',{name:'Zimmer weniger',exact:true}).isDisabled(),true,'1 Zimmer ist das Minimum');
+  await page.getByRole('button',{name:'Zimmer mehr',exact:true}).click();
+  await page.getByRole('button',{name:'egal',exact:true}).click();
+  const submit=await page.getByRole('button',{name:'Unterkünfte suchen',exact:true}).boundingBox();
+  if(process.env.SHOT_DIR)await page.screenshot({path:process.env.SHOT_DIR+'/wohnen.png',fullPage:true});
+  assert(submit.y+submit.height<=844-76,'Suchknopf bleibt mit Hotel-Optionen sichtbar');
+  await page.locator('[name=ziel]').fill('Kyoto');await page.locator('[name=anreise]').fill('2099-11-13');await page.locator('[name=abreise]').fill('2099-11-20');
+  await page.getByRole('button',{name:'Unterkünfte suchen',exact:true}).click();await page.waitForURL(/#\/suche\/2$/);
+  assert.deepEqual(calls.find(p=>p.aktion==='unterkunft_suchauftrag_anlegen').daten.wohnen,{apartment:{an:true,schlafzimmer_min:1},hotel:{an:true,zimmer:2,bett:'egal'},bevorzugt:'apartment'});
+  await page.locator('.hit-wohnform').first().waitFor();
+  assert.equal(await page.locator('.hit-wohnform').first().innerText(),'Hotel · 2 Zimmer – 22 % günstiger');
+  assert.deepEqual(JSON.parse(await page.evaluate(()=>localStorage.getItem('ks_wohnen_last'))).hotel,{an:true,zimmer:2,bett:'egal'},'Wahl wird gemerkt');
 });
 
 test('W93: Durchsehen blättert ohne Urteil, merkt die Stelle und führt zur Übersicht zurück',async t=>{

@@ -50,6 +50,15 @@ function sucheAuswahl(t, states, call, live, changed) {
   return box;
 }
 
+// W96 (Claude): Kennzeichnung je Treffer „Apartment · 2 SZ“ / „Hotel · 2 Zimmer“ und Grund, wenn die nicht bevorzugte Form vorn liegt.
+function sucheWohnform(t) {
+  const wf=t?.bewertung?.spaltennoten?.wohnform, z=sucheZahl(t?.angebot?.zimmer_anzahl);
+  if(!(wf && typeof wf==='object') && !(z>=2)) return null;
+  const typ=wf?.art || (['apartment','haus','machiya','aparthotel'].includes(t?.typ)?'apartment':t?.typ==='hotel'?'hotel':null);
+  if(!typ) return null;
+  const sz=sucheZimmerKurz(t).schlafzimmer;
+  return {art:typ,text:typ==='hotel'?'Hotel'+(z>=2?' · '+z+' Zimmer':''):'Apartment'+(sz!==null?' · '+sz+' SZ':''),grund:typeof wf?.grund==='string'&&wf.grund?wf.grund:null};
+}
 function sucheWarnungen(t) {
   const b=t.bewertung || {}, a=t.angebot || {};
   return [...new Set([...(Array.isArray(b.warnungen) ? b.warnungen : []), ...(a.preis_art === 'geschaetzt' || b.preis_geschaetzt ? ['preis_geschaetzt'] : []), ...(b.gegenpruefung?.pruefung?.urteil === 'einwand' ? ['gegenpruefung_einwand'] : []), ...(t.preis_veraltet ? ['preis_veraltet'] : [])])];

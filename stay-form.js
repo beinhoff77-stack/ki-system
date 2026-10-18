@@ -189,6 +189,82 @@ function sucheErweitertesFormular(form, call, live, ready, lock, profilePreset =
   return {profilePanel,tripPanel,qualityPanel,filtersPanel,load,values};
 }
 
+// W94 (Claude): Nachtband – Preisniveau je Nacht (Trivago je Nacht, Server: unterkunft_flex modus nachtband).
+// Grün normal, Gelb teurer (ab +30 %), Rot sehr teuer (ab +60 %), Grau nicht geprüft. Vergleich mit den anderen Nächten des Zeitraums.
+const NB_TEXT = { gruen: 'normal', gelb: 'teurer', rot: 'sehr teuer', ungeprueft: 'nicht geprüft', laeuft: 'wird geprüft' };
+const NB_TAG = ['', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'];
+function nachtbandAnzeige({ form, call, live, onShow = () => {} }) {
+  const box = el('div', { class: 'night-band', hidden: true, 'aria-live': 'polite' });
+  let timer = null, poll = null, seq = 0, lastKey = '';
+  const tag = d => { const x = new Date(d + 'T12:00:00'); return Number.isNaN(x.getTime()) ? d : x.toLocaleDateString('de-DE', { day: 'numeric', month: 'numeric' }); };
+  const prozent = i => { const p = Math.round((Number(i) - 1) * 100); return i !== null && Number.isFinite(p) ? (p > 0 ? '+' : '') + p + ' %' : ''; };
+  const euro = v => v !== null && v !== undefined && Number.isFinite(Number(v)) ? Math.round(Number(v)).toLocaleString('de-DE') + ' €' : '';
+  function params() {
+    const f = new FormData(form);
+    const ziel = String(f.get('ziel') || '').trim(), anreise = String(f.get('anreise') || ''), abreise = String(f.get('abreise') || '');
+    const n = (Date.parse(abreise) - Date.parse(anreise)) / 86400000;
+    const heute = new Date().toISOString().slice(0, 10);
+    if (ziel.length < 2 || !/^\d{4}-\d{2}-\d{2}$/.test(anreise) || !/^\d{4}-\d{2}-\d{2}$/.test(abreise) || !(n >= 2 && n <= 35) || abreise <= heute) return null;
+    const kinder = String(f.get('kinder_alter') || '').split(',').map(v => v.trim()).filter(v => /^\d{1,2}$/.test(v)).map(Number);
+    return { modus: 'nachtband', ziel, anreise, abreise, erwachsene: Number(f.get('erwachsene')) || 2, kinder_alter: kinder };
+  }
+  function hide() { box.hidden = true; box.replaceChildren(); onShow(false); }
+  function draw(r) {
+    const naechte = Array.isArray(r?.naechte) ? r.naechte.filter(x => x && typeof x.nacht === 'string') : [];
+    if (!naechte.length) return hide();
+    const stufe = x => NB_TEXT[x.stufe] ? x.stufe : 'ungeprueft';
+    const laeuft = naechte.some(x => x.stufe === 'laeuft');
+    const auffaellig = naechte.filter(x => x.stufe === 'gelb' || x.stufe === 'rot');
+    const geprueft = naechte.filter(x => ['gruen', 'gelb', 'rot'].includes(x.stufe)).length;
+    const feier = x => Array.isArray(x.feiertage) && x.feiertage.length ? ' · vor Feiertag: ' + x.feiertage.join(', ') : '';
+    const titel = x => `${NB_TAG[x.wochentag] || ''} ${tag(x.nacht)}: ${NB_TEXT[stufe(x)]}${x.index != null && x.stufe !== 'laeuft' ? ' (' + prozent(x.index) + ')' : ''}${x.median_eur != null ? ' · Ø ' + euro(x.median_eur) + '/Nacht' : ''}${feier(x)}`;
+    const strip = el('div', { class: 'nb-strip', role: 'list', 'aria-label': 'Preisniveau je Nacht' },
+      naechte.map(x => el('span', { role: 'listitem', tabindex: '0', class: `nb-cell nb-${stufe(x)}${x.wochentag === 5 || x.wochentag === 6 ? ' nb-we' : ''}`, title: titel(x), 'aria-label': titel(x) })));
+    let lage;
+    if (laeuft) lage = `wird geprüft … ${geprueft}/${naechte.length}`;
+    else if (!geprueft) lage = 'gerade nicht verfügbar';
+    else if (!auffaellig.length) lage = 'keine teuren Nächte';
+    else lage = `${auffaellig.length} ${auffaellig.length === 1 ? 'Nacht' : 'Nächte'} teurer`;
+    const kurzListe = auffaellig.slice().sort((a, b) => (a.nacht < b.nacht ? -1 : 1));
+    const liste = !laeuft && kurzListe.length ? el('p', { class: 'nb-notes small' }, 'Teurer: ', kurzListe.slice(0, 4).map((x, k) => [k ? ', ' : '',
+      el('span', { class: `nb-dot nb-${x.stufe}`, 'aria-hidden': 'true' }), el('strong', {}, `${NB_TAG[x.wochentag] || ''} ${tag(x.nacht)}`), ` ${prozent(x.index)}`,
+      Array.isArray(x.feiertage) && x.feiertage.length ? el('span', { class: 'nb-holiday' }, ` (vor ${x.feiertage.join(', ')})`) : '']).flat(),
+      kurzListe.length > 4 ? ` und ${kurzListe.length - 4} weitere` : '', ' – Feld antippen für Details') : null;
+    const zeit = r?.abgerufen_am ? new Date(r.abgerufen_am) : null;
+    const info = el('div', { class: 'nb-info', hidden: true },
+      el('p', { class: 'nb-legend small' }, ['gruen', 'gelb', 'rot', 'ungeprueft'].map(s => el('span', {}, el('span', { class: `nb-dot nb-${s}`, 'aria-hidden': 'true' }),
+        { gruen: 'Normal', gelb: 'Teurer (ab +30 %)', rot: 'Sehr teuer (ab +60 %)', ungeprueft: 'Nicht geprüft' }[s]))),
+      el('p', { class: 'nb-source small muted' }, `Trivago, je Nacht ca. 25 Unterkünfte für deine Belegung, verglichen mit den anderen Nächten deines Zeitraums${zeit && !Number.isNaN(zeit.getTime()) ? ' · Stand ' + zeit.toLocaleTimeString('de-DE', { hour: '2-digit', minute: '2-digit' }) : ''}. Zeigt Preise, nicht ob noch frei ist. Feiertage sind nur ein möglicher Grund. Schwellen sind Erfahrungswerte.`));
+    const infoBtn = el('button', { type: 'button', class: 'nb-info-btn', 'aria-expanded': 'false', 'aria-label': 'Farben und Quelle erklären', onclick: () => { info.hidden = !info.hidden; infoBtn.setAttribute('aria-expanded', String(!info.hidden)); } }, 'i');
+    const n = naechte.length;
+    const row = el('div', { class: 'nb-row' }, el('span', { class: 'nb-date small muted' }, tag(naechte[0].nacht)), strip, el('span', { class: 'nb-date small muted' }, tag(naechte[n - 1].nacht)));
+    box.hidden = false;
+    box.replaceChildren(el('div', { class: 'nb-head' }, el('strong', {}, `${n} ${n === 1 ? 'Nacht' : 'Nächte'}`), el('span', { class: 'nb-state small' }, ' · Preise: ' + lage), infoBtn), row, liste, info);
+    const tip = c => { box.querySelector('.nb-tip')?.remove(); row.after(el('p', { class: 'nb-tip small' }, c.getAttribute('aria-label'))); };
+    for (const c of strip.children) { c.addEventListener('click', () => tip(c)); c.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); tip(c); } }); }
+    onShow(true);
+  }
+  async function load(p, nurLesen, mine, runde = 0) {
+    let r;
+    try { r = await call('unterkunft_flex', nurLesen ? { ...p, nur_lesen: true } : p); } catch { r = null; }
+    if (!live() || mine !== seq) return;
+    if (!r || !Array.isArray(r.naechte)) return hide();
+    draw(r);
+    if (r.laeuft && runde < 30) poll = setTimeout(() => load(p, true, mine, runde + 1), runde < 5 ? 2500 : 4000);
+  }
+  function update() {
+    const p = params(), key = p ? JSON.stringify(p) : '';
+    if (key === lastKey) return;
+    lastKey = key; clearTimeout(timer); clearTimeout(poll); seq++;
+    if (!p) return hide();
+    const mine = seq;
+    timer = setTimeout(() => load(p, false, mine), 900);
+  }
+  form.addEventListener('input', update); form.addEventListener('change', update);
+  update();
+  return { node: box, update };
+}
+
 // W93 (Claude): Suchseite auf einen Bildschirm – Lücke antippen, Wo/Wann/Wer, Suchen. Alles Weitere unter „Mehr Optionen“.
 function sucheSchnellLayout({ form, fields, sections, extended, submit, call, live, onTrip }) {
   const label = name => form.querySelector(`[name="${name}"]`)?.closest('label');
@@ -204,7 +280,8 @@ function sucheSchnellLayout({ form, fields, sections, extended, submit, call, li
   const cost = el('span', { class: 'quick-cost' });
   submit.textContent = 'Unterkünfte suchen';
   const when = el('div', { class: 'quick-when' }, label('anreise'), label('abreise'));
-  const quick = el('section', { class: 'card quick-search' }, el('h2', {}, 'Unterkunft suchen'), label('ziel'), when, nights, who, whoPanel, submit, el('p', { class: 'quick-meta small' }, tripLine));
+  const band = nachtbandAnzeige({ form, call, live, onShow: v => { nights.hidden = v; } });
+  const quick = el('section', { class: 'card quick-search' }, el('h2', {}, 'Unterkunft suchen'), label('ziel'), when, nights, band.node, who, whoPanel, submit, el('p', { class: 'quick-meta small' }, tripLine));
   const more = el('details', { class: 'card more-options' }, el('summary', {}, 'Mehr Optionen'), el('p', { class: 'small muted' }, 'Reiseart, Unterkunftsform, Qualität, Filter, Quellen und Suchkosten. Die Standardwerte passen für die meisten Suchen.'));
   const tripNode = fields.querySelector('.trip-choice');
   if (tripNode) more.append(tripNode);

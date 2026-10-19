@@ -60,9 +60,11 @@ async function openReviewMenu(page) {
   if(await menu.count() && !await menu.evaluate(n=>n.open))await menu.locator(':scope > summary').click();
 }
 async function setup(t, handler, viewport) {
-  const { collapsed = false, ohneScore = false, ...size } = viewport || {};
+  const { collapsed = false, ohneScore = false, tabelle = false, ...size } = viewport || {};
   const context = await browser.newContext({ viewport: Object.keys(size).length ? size : { width: 1440, height: 1000 }, serviceWorkers: 'block' });
   t.after(() => context.close());
+  // W98: Die Rechner-Tabelle ist jetzt Standard am Desktop. Ältere Tests prüfen die Listen-Markup; sie starten einmalig in „Liste“ (eigene W98-Tests setzen tabelle:true).
+  if (!tabelle) await context.addInitScript(() => { try { if (!sessionStorage.getItem('w98_start')) { localStorage.setItem('ks_result_view', '"list"'); sessionStorage.setItem('w98_start', '1'); } } catch { /* ohne Speicher */ } });
   await context.addInitScript(({ score }) => { localStorage.setItem('ks_token', 'synthetic-test-session'); localStorage.setItem('ks_trip_context', JSON.stringify({reise_id:1})); if (score) localStorage.setItem('ks_score_an', '1'); else localStorage.removeItem('ks_score_an'); }, { score: !ohneScore });
   // W93: Funktions-Tests arbeiten mit aufgeklappten Bereichen (Mehr Optionen, Filtern, Suchlauf, Wer & was); das Layout prüfen eigene W93-Tests.
   if (!collapsed) await context.addInitScript(() => { const open = () => { document.querySelectorAll('details.more-options,details.filter-box,details.review-run-tools,details.run-diagnostics').forEach(d => { if (!d.dataset.testOpened) { d.open = true; d.dataset.testOpened = '1'; } }); document.querySelectorAll('.who-panel[hidden]').forEach(p => { if (!p.dataset.testOpened) { p.hidden = false; p.dataset.testOpened = '1'; } }); }; new MutationObserver(open).observe(document, { subtree: true, childList: true }); });
@@ -134,9 +136,9 @@ test('A/B, Warnungen, sichere Links, numerische Sortierung und fehlende Werte', 
   const { page } = await setup(t, () => data);
   await page.goto(origin + '/#/suche/2');
   const a = page.locator('[data-group=A]'); await a.waitFor();
-  await a.getByRole('button', { name: /Preis gesamt/ }).click();
+  await a.locator('[data-sort=preis]').evaluate(b => b.click()); // W98: Listenansicht – Spaltenköpfe sind dort ausgeblendet
   assert.deepEqual(await a.locator('tbody tr[data-hit] td:first-child strong').allTextContents(), ['Unterkunft 2', '<img src=x onerror=alert(1)>', 'Unterkunft 3']);
-  await a.getByRole('button', { name: /Preis gesamt/ }).click();
+  await a.locator('[data-sort=preis]').evaluate(b => b.click()); // W98: Listenansicht – Spaltenköpfe sind dort ausgeblendet
   assert.deepEqual(await a.locator('tbody tr[data-hit] td:first-child strong').allTextContents(), ['<img src=x onerror=alert(1)>', 'Unterkunft 2', 'Unterkunft 3']);
   assert.equal(await page.locator('.suche img').count(), 0);
   assert.equal(await page.locator('a[href^="javascript:"]').count(), 0);
@@ -209,13 +211,13 @@ test('PWA installiert vollständige Offline-Hülle, API wird nicht gecacht', asy
   assert(cacheNames.includes('ki-system:' + origin + '/another-app/:v1'));
   assert(!cacheNames.includes('ki-system:' + origin + '/:old'));
   await page.evaluate(() => fetch('README.md'));
-  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v41')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
-  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.27.0')); assert(cached.includes('/style.css?v=0.27.0'));
-  assert(cached.includes('/stay-tools.js?v=0.27.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
-  assert(cached.includes('/stay-research.js?v=0.27.0'));
-  assert(cached.includes('/stay-form.js?v=0.27.0'));
-  assert(cached.includes('/stay-details.js?v=0.27.0'));
-  assert(cached.includes('/stay-districts.js?v=0.27.0'));
+  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v42')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
+  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.28.0')); assert(cached.includes('/style.css?v=0.28.0'));
+  assert(cached.includes('/stay-tools.js?v=0.28.0')); assert(cached.includes('/stay-desk.js?v=0.28.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
+  assert(cached.includes('/stay-research.js?v=0.28.0'));
+  assert(cached.includes('/stay-form.js?v=0.28.0'));
+  assert(cached.includes('/stay-details.js?v=0.28.0'));
+  assert(cached.includes('/stay-districts.js?v=0.28.0'));
   assert(!cached.includes('/README.md'));
   assert(!cached.some((u) => u.includes('app-api')));
   await context.setOffline(true); await page.reload();
@@ -403,7 +405,7 @@ test('Rückmeldung: bestehendes Urteil, Grund, Doppelklick, Sortieren und Fehler
   await box.getByRole('button',{name:'Passt',exact:true}).waitFor();
   assert.equal(await box.getByRole('button',{name:'Passt',exact:true}).getAttribute('aria-pressed'),'true');
   await box.locator('textarea').fill('Zu weit vom Bahnhof');
-  await page.locator('[data-group=A]').getByRole('button',{name:/Preis gesamt/}).click();
+  await page.locator('[data-group=A] [data-sort=preis]').evaluate(b=>b.click()); // W98
   assert.equal(await box.locator('textarea').inputValue(),'Zu weit vom Bahnhof');
   await box.getByRole('button',{name:'Zu teuer',exact:true}).dblclick();
   await box.getByRole('status').filter({hasText:'Gespeichert: Zu teuer'}).waitFor();
@@ -1382,38 +1384,38 @@ test('Gemeinsame Merkliste enthält ältere Reisen, öffnet den richtigen Treffe
 });
 
 
-test('Ergebnisansichten: kompakte Tabelle, Liste, Karte, gemeinsame Filter und sichere Details', async t => {
+test('Ergebnisansichten W98: Rechner-Tabelle, Liste, Karte, gemeinsame Filter und sichere Details', async t => {
   const data=result();
   data.treffer=[hit(1,'A',200,{lat:35,lon:135,bild:'https://example.com/photo.jpg',note:9,note_skala:10,gehzeit_min:3,station_name:'Bahnhof',angebot:{preis_gesamt_eur:200,kategorie_name:'Familienzimmer',link:'https://example.com/angebot'},kategorien:[{name:'Familienzimmer',schlafzimmer:2,betten_anzahl:3,betten_art:'Doppelbett, Einzelbett'}]}),hit(2,'B',100,{lat:35.01,lon:135.01,angebot:{preis_gesamt_eur:100,kategorie_name:'Anderes Zimmer'},kategorien:[{name:'Suite',schlafzimmer:4,betten_text:'Kingsize'}]}),hit(3,'A',null)];
-  const {page,calls}=await setup(t,()=>data,{width:1920,height:1080});
+  const {page,calls}=await setup(t,()=>data,{width:1920,height:1080,tabelle:true});
   await page.route('https://example.com/photo.jpg',r=>r.fulfill({contentType:'image/svg+xml',body:'<svg xmlns="http://www.w3.org/2000/svg" width="50" height="40"><rect width="50" height="40" fill="green"/></svg>'}));
   await page.route('https://*.tile.openstreetmap.org/**',r=>r.abort());
-  await page.goto(origin+'/#/suche/2');await page.locator('[data-hit="1"]').waitFor();
+  await page.goto(origin+'/#/suche/2');await page.locator('.desk-table [data-hit="1"]').waitFor();
   assert.equal(await page.getByRole('button',{name:'Tabelle',exact:true}).getAttribute('aria-pressed'),'true');
-  assert.equal(await page.locator('.hit-detail-row:visible').count(),0);
-  const metrics=await page.locator('[data-hit="1"]').evaluate(row=>({height:row.getBoundingClientRect().height,photo:row.querySelector('figure').getBoundingClientRect().toJSON(),width:row.closest('.suche-results').getBoundingClientRect().width}));
-  assert(metrics.height<160,JSON.stringify(metrics));assert(metrics.width>1550);assert.equal(metrics.photo.width,50);assert.equal(metrics.photo.height,40);
-  assert.equal(await page.locator('[data-hit="2"] [data-label="Schlafzimmer"]').textContent(),'–');
+  const metrics=await page.locator('.desk-table [data-hit="1"]').evaluate(row=>({height:row.getBoundingClientRect().height,photo:row.querySelector('.desk-foto img').getBoundingClientRect().toJSON()}));
+  assert(metrics.height<=46,JSON.stringify(metrics));assert.equal(metrics.photo.width,44);assert.equal(metrics.photo.height,32);
+  assert.equal(await page.locator('.desk-table [data-hit="2"] td[data-field=schlafzimmer]').textContent(),'?');
+  assert.equal(await page.locator('.desk-table [data-hit="1"] td[data-field=note]').textContent(),'9/10');
   await page.locator('.stay-filters > summary').click();
   await page.getByLabel('Schlafzimmer mindestens',{exact:true}).fill('2');await page.getByLabel('Unbekannte Angaben mit anzeigen',{exact:true}).uncheck();
-  assert.deepEqual(await page.locator('[data-hit]').evaluateAll(ns=>ns.map(n=>n.dataset.hit)),['1']);
+  assert.deepEqual(await page.locator('.desk-table tbody [data-hit]').evaluateAll(ns=>ns.map(n=>n.dataset.hit)),['1']);
   await openReviewMenu(page);await page.getByRole('button',{name:'Liste',exact:true}).click();
   assert.equal(await page.locator('[data-hit="1"]').evaluate(n=>getComputedStyle(n).display),'grid');
+  await page.locator('[data-hit="1"] .hit-toggle').click();await page.locator('#hit-detail-1').waitFor();
+  await page.locator('[data-feedback="1"] textarea').fill('Entwurf bleibt');
   await page.getByRole('button',{name:'Karte',exact:true}).click();await page.locator('.stay-pin').first().waitFor();
   assert.equal(await page.locator('.stay-pin').count(),1);
   await openReviewMenu(page);await page.getByRole('button',{name:'Tabelle',exact:true}).click();
-  await page.locator('[data-hit="1"] .hit-toggle').click();await page.locator('#hit-detail-1').waitFor();
-  await page.locator('[data-feedback="1"] textarea').fill('Entwurf bleibt');
+  await page.locator('.desk-table [data-hit="1"] .desk-name-btn').click();
+  await page.locator('dialog[open]').first().waitFor();await page.keyboard.press('Escape');
   await openReviewMenu(page);await page.getByRole('button',{name:'Liste',exact:true}).click();
   assert.equal(await page.locator('[data-feedback="1"] textarea').inputValue(),'Entwurf bleibt');
-  assert.equal(await page.locator('[data-hit="1"] .hit-toggle').getAttribute('aria-expanded'),'true');
-  await page.locator('[data-hit="1"] .hit-toggle').click();assert.equal(await page.locator('#hit-detail-1').isVisible(),false);
   await page.reload();await page.locator('[data-hit="1"]').waitFor();
   assert.equal(await page.getByRole('button',{name:'Liste',exact:true}).getAttribute('aria-pressed'),'true');
   assert.equal(calls.filter(p=>p.aktion && !/lesen|status/.test(p.aktion)).length,0);
 });
 
-test('Ergebnisansichten: iPhone-Breiten, große Schrift und bedienbare Tabelle', async t => {
+test('Ergebnisansichten W98: iPhone-Breiten mit Liste und scrollbarer Rechner-Tabelle', async t => {
   const {page}=await setup(t,()=>result(),{width:390,height:844});
   await page.goto(origin+'/#/suche/2');await page.locator('[data-hit="1"]').waitFor();
   for(const width of [320,375,390,430]) {
@@ -1423,16 +1425,78 @@ test('Ergebnisansichten: iPhone-Breiten, große Schrift und bedienbare Tabelle',
     assert((await page.locator('[data-hit="1"]').boundingBox()).height<620);
     await openReviewMenu(page);await page.getByRole('button',{name:'Tabelle',exact:true}).click();
     assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
-    assert.equal(await page.locator('[data-hit="1"]').evaluate(n=>getComputedStyle(n).display),'table-row');
-    const scroller=page.locator('.suche-table-scroll').first();
+    const scroller=page.locator('.desk-scroll');
     assert(await scroller.evaluate(n=>n.scrollWidth>n.clientWidth));
     await scroller.evaluate(n=>n.scrollLeft=n.scrollWidth);
-    await page.locator('[data-hit="1"] .hit-toggle').click();await page.locator('#hit-detail-1').waitFor();
-    await page.locator('[data-hit="1"] .hit-toggle').click();
   }
-  await openReviewMenu(page);await page.getByRole('button',{name:'Liste',exact:true}).click();
-  await page.addStyleTag({content:'.compact-results td,.compact-results strong,.compact-results .small{font-size:24px !important}'});
-  assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+  for(const label of ['Liste','Tabelle','Durchsehen']){await page.getByRole('button',{name:label,exact:true}).click();assert.equal(await page.locator('[aria-label=Suchergebnisse]').getAttribute('data-result-view'),{Liste:'list',Tabelle:'table',Durchsehen:'tinder'}[label]);}
+  await page.reload();await page.locator('[data-review-hit]').waitFor();await openReviewMenu(page);assert.equal(await page.getByRole('button',{name:'Durchsehen',exact:true}).getAttribute('aria-pressed'),'true');
+});
+
+test('W98: Tabelle filtert (unbekannt bleibt sichtbar), sortiert, markiert per Shift und bewertet mit Grund, Notiz und Fakten – Rückgängig', async t => {
+  const data=result();
+  data.treffer=[1,2,3,4,5].map(i=>hit(i,'A',i*700,{typ:i===5?'hotel':'apartment',note:7+i/2,note_skala:10,luftlinie_ziel_m:i*900,angebot:{preis_gesamt_eur:i*700,storno:i===1?'kostenlos bis 2026-10-25T15:00:00Z':null,link:'https://example.com/a'+i,kategorie_name:'K'},kategorien:[{name:'K',m2:i===3?null:30+i*10,schlafzimmer:i,betten_anzahl:i+1}]}));
+  data.treffer[1].rueckmeldung={urteil:'vielleicht',grund:'Alte Notiz'};data.treffer[1].status='vielleicht';data.treffer[1].urteil_gruende=['lage'];
+  const {page,calls}=await setup(t,p=>{
+    if(p.aktion==='unterkunft_urteile_sammeln')return {ok:true,geaendert:p.daten.treffer_ids.length,urteil:p.daten.urteil,rueckgaengig:{aktion:'unterkunft_urteile_zuruecksetzen',daten:{eintraege:p.daten.treffer_ids.map(id=>({treffer_id:id,urteil:'offen',gruende:null})),rueckmeldung_ids:[9]}}};
+    if(p.aktion==='unterkunft_urteile_zuruecksetzen')return {ok:true,zurueckgesetzt:p.daten.eintraege.length};
+    if(p.aktion==='unterkunft_durchsehen_urteil')return {ok:true,treffer_id:p.daten.treffer_id,urteil:p.daten.urteil,status:'favorit',notiz:p.daten.notiz??null};
+    return data;},{width:1440,height:1000,tabelle:true});
+  await page.goto(origin+'/#/suche/2');await page.locator('.desk-table [data-hit="1"]').waitFor();
+  const ids=()=>page.locator('.desk-table tbody [data-hit]').evaluateAll(ns=>ns.map(n=>Number(n.dataset.hit)));
+  assert.deepEqual(await ids(),[1,2,3,4,5]);
+  assert.equal(await page.locator('.desk-table [data-hit="1"] td[data-field=storno]').textContent(),'bis 7 T.'); // Anreise 01.11., kostenlos bis 25.10.
+  assert.equal(await page.locator('.desk-table [data-hit="2"] td[data-field=notiz]').textContent(),'Alte Notiz');
+  await page.getByLabel('Filter m²',{exact:true}).fill('≥ 50');
+  assert.deepEqual(await ids(),[2,3,4,5]); // m² unbekannt (3) bleibt sichtbar
+  await page.getByLabel('Filter m²',{exact:true}).fill('?');assert.deepEqual(await ids(),[3]);
+  await page.getByLabel('Filter m²',{exact:true}).fill('');
+  await page.locator('.desk-table thead [data-sort=km]').click();await page.locator('.desk-table thead [data-sort=km]').click();
+  assert.deepEqual(await ids(),[5,4,3,2,1]);
+  await page.getByLabel('Markieren: Unterkunft 4',{exact:true}).click();await page.getByLabel('Markieren: Unterkunft 2',{exact:true}).click({modifiers:['Shift']});
+  await page.getByText('3 markiert',{exact:true}).waitFor();
+  await page.locator('.desk-bar-gruende > summary').click();
+  await page.locator('.desk-bar').getByRole('button',{name:'zu teuer',exact:true}).click();
+  await page.locator('.desk-bar').getByRole('button',{name:'Größe',exact:true}).click();
+  await page.getByLabel('Notiz für alle markierten',{exact:true}).fill('Zu weit draußen');
+  await page.locator('.desk-bar').getByRole('button',{name:'✕ Raus',exact:true}).click();
+  await page.getByText('3 Unterkünfte: ✕ Raus.',{exact:false}).waitFor();
+  const w=calls.find(p=>p.aktion==='unterkunft_urteile_sammeln').daten;
+  assert.deepEqual([...w.treffer_ids].sort(),[2,3,4]);assert.equal(w.urteil,'weg');assert.deepEqual(w.gruende,['preis']);assert.equal(w.notiz,'Zu weit draußen');
+  assert.equal(w.fakten['4'].preis_gesamt,2800);assert.equal(w.fakten['4'].m2,70);assert.equal(w.fakten['4'].preis_nacht,400);assert.equal(w.fakten['4'].typ,'apartment');
+  assert.equal(await page.locator('.desk-table [data-hit="4"] td[data-field=warum]').textContent(),'zu teuer');
+  await page.getByRole('button',{name:'✕ 3',exact:true}).click();assert.deepEqual(await ids(),[4,3,2]);
+  await page.getByRole('button',{name:'Rückgängig',exact:true}).click();await page.getByText('Rückgängig gemacht.',{exact:true}).waitFor();
+  assert.deepEqual(calls.find(p=>p.aktion==='unterkunft_urteile_zuruecksetzen').daten.rueckmeldung_ids,[9]);
+  await page.getByRole('button',{name:/^Alle/}).click();
+  await page.locator('.desk-table [data-hit="5"] td[data-field=notiz] button').click();
+  const d=page.getByRole('dialog',{name:'Urteil und Gründe'});
+  assert.equal(await d.getByRole('button',{name:'Speichern'}).isDisabled(),true);
+  await d.getByRole('button',{name:'★ Favorit'}).click();await d.getByRole('button',{name:'Lage',exact:true}).click();
+  await d.getByLabel('Notiz').fill('Ruhige Seitenstraße');await d.getByRole('button',{name:'Speichern'}).click();await d.waitFor({state:'detached'});
+  const e=calls.filter(p=>p.aktion==='unterkunft_durchsehen_urteil').at(-1).daten;
+  assert.deepEqual([e.treffer_id,e.urteil,e.gruende,e.notiz],[5,'favorit',['plus_lage'],'Ruhige Seitenstraße']);assert.equal(e.fakten.preis_gesamt,3500);
+  assert.equal(await page.locator('.desk-table [data-hit="5"] td[data-field=notiz]').textContent(),'Ruhige Seitenstraße');
+  assert.equal(await page.locator('.desk-table [data-hit="5"] .desk-badge').textContent(),'★');
+});
+
+test('W98: Gründe-Leiste nach dem Wischen speichert Grund und Notiz mit Fakten, ohne die nächste Unterkunft zu blockieren', async t => {
+  const data=result();
+  const {page,calls}=await setup(t,p=>{if(p.aktion==='unterkunft_durchsehen_urteil'){const h=data.treffer.find(x=>x.treffer_id===p.daten.treffer_id);h.status={favorit:'favorit',weg:'ausgeschlossen',vielleicht:'vielleicht',offen:'aktiv'}[p.daten.urteil];return {ok:true,treffer_id:h.treffer_id,urteil:p.daten.urteil,status:h.status,notiz:p.daten.notiz??null};}return data;},{width:390,height:844});
+  await page.goto(origin+'/#/suche/2');await page.locator('[data-hit="1"]').waitFor();
+  await openReviewMenu(page);await page.getByRole('button',{name:'Durchsehen',exact:true}).click();await page.locator('[data-review-hit]').waitFor();
+  const first=Number(await page.locator('[data-review-hit]').getAttribute('data-review-hit'));
+  await page.getByRole('button',{name:'Weg',exact:true}).click();
+  const bar=page.locator('.grund-leiste');await bar.waitFor();
+  await page.waitForFunction(id=>Number(document.querySelector('[data-review-hit]')?.dataset.reviewHit)!==id,first);
+  await bar.getByRole('button',{name:'zu teuer',exact:true}).click();
+  await page.waitForFunction(()=>true);await page.waitForTimeout(700);
+  await bar.getByLabel(/^Notiz zu/).fill('Fotos wirken eng');await bar.getByLabel(/^Notiz zu/).press('Enter');
+  await bar.getByText('Gespeichert.',{exact:true}).waitFor();
+  const writes=calls.filter(p=>p.aktion==='unterkunft_durchsehen_urteil');
+  assert.equal(writes[0].daten.urteil,'weg');assert(writes[0].daten.fakten && typeof writes[0].daten.fakten==='object');
+  const last=writes.at(-1).daten;assert.equal(last.treffer_id,first);assert.equal(last.urteil,'weg');assert.deepEqual(last.gruende,['preis']);assert.equal(last.notiz,'Fotos wirken eng');
+  await bar.getByRole('button',{name:'Leiste schließen'}).click();assert.equal(await page.locator('.grund-leiste').count(),0);
 });
 
 test('Kyoto: echte gelesene Daten auf Desktop und iPhone darstellen', {skip:process.env.KYOTO_READONLY_TEST!=='1'}, async t => {

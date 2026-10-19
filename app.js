@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.27.0';
+const APP_VERSION = '0.28.0';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -1210,7 +1210,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     if (phase.final && aCount < 10) technical.append(el('p', { class: 'erg-warnung' }, `Datenlage reicht noch nicht für 10 Empfehlungen unter den passenden Treffern (derzeit ${aCount}).`));
     if (a.rohdaten_bis) technical.append(el('p', { class: 'small muted' }, 'Rohdaten werden nach 30 Tagen entfernt. Frist: ' + sucheAbruf(a.rohdaten_bis)));
     results.replaceChildren();
-    controls.hidden = resultView==='tinder'&&!showMap;
+    controls.hidden = (resultView==='tinder'||resultView==='table')&&!showMap; // W98: Tabelle sortiert selbst
     summary.hidden = resultView==='tinder'&&!showMap;
     filters.node.hidden = resultView==='tinder'&&!showMap; viewButtons.hidden = false;
     filters.setTypes(snapshot.treffer);
@@ -1242,6 +1242,9 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     filterCount.textContent = `${rows.length} von ${snapshot.treffer.length} Treffern · Sortierung gilt für die gesamte Liste.`;
     endrunde.disabled=review.pending || !snapshot.treffer.some(t=>t.status==='favorit');
     if(resultView==='tinder' && !showMap){resultLinks.replaceChildren();review.draw();results.append(review.node);return;}
+    // W98: Tabelle am Rechner – eine kompakte Tabelle über alle Treffer, Markieren und Massenbewertung, Gründe/Notiz.
+    if(resultView==='table' && !showMap){resultLinks.replaceChildren();research.update(snapshot.treffer);
+      results.append(stayDeskTable({rows,trip:a,call,live,scope,onChanged:()=>{if(live())draw();},openDetail:t=>{const dialog=sucheKandidat(t,phase.final,id);scope.append(dialog);dialog.addEventListener('close',()=>dialog.remove());dialog.showModal();}}));return;}
     const groups = [
       ['A', phase.final ? 'Passende Treffer' : 'Passende Treffer – vorläufig', rows.filter((t) => sucheGruppe(t) === 'A')],
       ['B', 'Angaben offen', rows.filter((t) => sucheGruppe(t) === 'B')],

@@ -178,9 +178,11 @@ function stayReview({getSnapshot,getGroup=()=>null,getRows=()=>getSnapshot()?.tr
   function go(delta){if(holding){clearTimeout(holdTimer);holding=false;stampFresh=null;}message.textContent='';const list=currentList();if(!list.length)return;let i=list.findIndex(t=>t.treffer_id===currentId);if(i<0)i=Math.min(lastIndex,list.length-1);i=Math.max(0,Math.min(list.length-1,i+delta));currentId=list[i].treffer_id;savePosition();draw();box.querySelector('.review-swipe h3')?.focus({preventScroll:true});}
   function setMode(next){if(pending||mode===next)return;mode=next;stayWrite('ks_review_mode',mode);const list=currentList(false);if(!list.some(t=>t.treffer_id===currentId)){currentId=list[0]?.treffer_id??null;lastIndex=0;}draw();}
   const reviewed=new Set();
+  let leiste=null, leisteFor=null; // W98
   async function vote(t,urteil,gruende=[],withReasons=true,restoring=false){
     if(pending||(holding&&!restoring)||needsRefresh||isBlocked())return;const focusDecision=document.activeElement?.dataset.decision;const previous={status:t.status||'aktiv',gruende:[...(t.urteil_gruende||[])],uebernommen:t.urteil_uebernommen};pending=true;revision++;draw();
-    try {const r=await call('unterkunft_durchsehen_urteil',{treffer_id:t.treffer_id,urteil,gruende});if(!live())return;
+    try {const daten={treffer_id:t.treffer_id,urteil,gruende};if(urteil!=='offen')daten.fakten=stayFakten(t,getSnapshot()?.suchauftrag||{}); // W98: Fakten-Schnappschuss
+      const r=await call('unterkunft_durchsehen_urteil',daten);if(!live())return;
       if(r.ok!==true || r.treffer_id!==t.treffer_id || r.urteil!==urteil || r.status!==({favorit:'favorit',vielleicht:'vielleicht',weg:'ausgeschlossen',offen:'aktiv'}[urteil]))throw Error('Urteil nicht eindeutig bestätigt.');
       t.status={favorit:'favorit',vielleicht:'vielleicht',weg:'ausgeschlossen',offen:'aktiv'}[urteil];t.urteil_gruende=gruende;
       if(restoring){reviewed.delete(t.treffer_id);t.urteil_uebernommen=previousRestore;last=null;reasonFor=null;}else if(urteil==='offen'){t.urteil_uebernommen=null;last=null;reasonFor=null;}else {if(withReasons){last={t,previous};if(activeGroup)reviewed.add(t.treffer_id);}reasonFor=withReasons?{t,urteil,gruende}:null;}
@@ -254,6 +256,13 @@ function stayReview({getSnapshot,getGroup=()=>null,getRows=()=>getSnapshot()?.tr
       el('button',{type:'button',onclick:event=>{const trigger=event.currentTarget,dialog=sucheKandidat(t,snapshot.suchauftrag.status==='fertig',snapshot.suchauftrag.id);dialog.append(SUCHE_SCORE_AN?el('p',{class:'review-score'},`Passung ${t.bewertung?.score??'–'}/100`):'',stayReviewInfo(t,snapshot.suchauftrag),el('section',{'aria-label':'Offene Angaben'},warnings.map(w=>el('p',{},w))));scope.append(dialog);dialog.addEventListener('close',()=>{dialog.remove();if(trigger.isConnected)trigger.focus({preventScroll:true});});dialog.showModal();}},'Details')));
     if(awaitingReturn===t.treffer_id)content.append(el('p',{role:'status'},'Und? Wie gefällt dir die Unterkunft?'));
     gallery.querySelector(':scope > .review-modes')?.remove();if(modes)gallery.append(modes);gallery.querySelector(':scope > .review-stamp')?.remove();if(judged(t))gallery.append(el('span',{class:'review-stamp stamp-'+t.status+(stampFresh===t.treffer_id?' is-fresh':''),'aria-hidden':'true'},{favorit:'♥ Favorit',vielleicht:'≈ Na ja',ausgeschlossen:'× Weg'}[t.status]));article.append(header,content,buttons(t));stayCardPhoto(article,gallery);box.append(article);
+    // W98: Gründe-Leiste nach dem Urteil – bleibt stehen, während schon die nächste Unterkunft erscheint; ein Tipp genügt.
+    if(reasonFor&&reasonFor.urteil!=='offen'&&!isBlocked()){
+      if(leisteFor!==reasonFor){leisteFor=reasonFor;leiste=stayGrundLeiste(reasonFor,{call,live,trip:snapshot.suchauftrag,onDone:()=>{reasonFor=null;leisteFor=null;leiste=null;draw();}});}
+      const active=leiste.contains(document.activeElement)?document.activeElement:null, pos=active?.selectionStart;
+      box.append(leiste);
+      if(active){active.focus({preventScroll:true});try{if(pos!=null)active.setSelectionRange(pos,pos);}catch{/* kein Textfeld */}}
+    }
     article.addEventListener('keydown',e=>{if(e.target.closest('input,select,textarea,.stay-gallery'))return;if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();go(e.key==='ArrowRight'?1:-1);}});
   }
   const returned=()=>{if(!document.hidden && awaitingReturn && live())draw();};document.addEventListener('visibilitychange',returned);

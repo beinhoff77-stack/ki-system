@@ -151,7 +151,7 @@ function sucheFilterPanel(onChange) {
       select('warnungen', 'Warnungen', [['','Alle'],['mit','Mit Warnungen'],['ohne','Ohne gemeldete Warnungen']]),
       numeric('preis', 'Gesamtpreis höchstens (€)', null, '0.01'), numeric('gehzeit', 'Gehzeit zur Station höchstens (Min.)', null, '0.1'),
       numeric('note', 'Gästenote mindestens (von 10)', 10, '0.1'), numeric('bewertungen', 'Bewertungen mindestens', null),
-      numeric('score', 'Passung mindestens (0–100)', 100), numeric('datenlage', 'Datenlage mindestens (%)', 100),
+      ...(SUCHE_SCORE_AN ? [numeric('score', 'Passung mindestens (0–100)', 100), numeric('datenlage', 'Datenlage mindestens (%)', 100)] : []),
       select('sterne', 'Hotelsterne mindestens', [['', 'Egal'], ['3', '3 Sterne'], ['4', '4 Sterne'], ['5', '5 Sterne']])),
     el('p', { class: 'small muted' }, 'Gästenoten sind auf Booking-Niveau geeicht. Sterne gelten nur für Hotels, Aparthotels und Ryokans.'),
     el('label', { class: 'check-label' }, favorite, 'Nur Favoriten'), el('label', { class: 'check-label' }, unknown, 'Unbekannte Angaben mit anzeigen'),
@@ -199,14 +199,14 @@ function sucheKarte(container, onSelect, renderSelected, options={}) {
     selected.scrollIntoView({block:'nearest',behavior:'smooth'});
   }
   stationToggle.addEventListener('change', () => update(currentRows, currentData));
-  container.append(heading, el('p', { class: 'map-legend' }, '● A: Rang · ● B: prüfen · ○ unvollständig · ★ Ziel · ▪ Station'),
-      el('div', { class: 'actions' }, reset, el('label', { class: 'check-label' }, stationToggle, 'Stationen anzeigen')), message, canvas, tileStatus, el('label',{},'Rang und Unterkunft auswählen',picker), selected);
+  container.append(heading, el('p', { class: 'map-legend' }, (SUCHE_SCORE_AN ? '● A: Rang' : '● A: passend') + ' · ● B: prüfen · ○ unvollständig · ★ Ziel · ▪ Station'),
+      el('div', { class: 'actions' }, reset, el('label', { class: 'check-label' }, stationToggle, 'Stationen anzeigen')), message, canvas, tileStatus, el('label',{},'Unterkunft auswählen',picker), selected);
   function update(rows, data = {}) {
     if (destroyed) return;
     currentRows = rows; currentData = data || {};
     const active = options.includeExcluded?rows:rows.filter(t => sucheGruppe(t) !== 'ausgeschlossen');
     const valid = active.filter(t => sucheKoordinaten(t));
-      picker.replaceChildren(el('option',{value:''},'Unterkunft auswählen …'),...valid.map(t=>el('option',{value:t.treffer_id},(sucheGruppe(t)==='A'?'Rang '+(t.bewertung?.rang ?? '?'):'Liste '+sucheGruppe(t))+' · '+t.name)));
+      picker.replaceChildren(el('option',{value:''},'Unterkunft auswählen …'),...valid.map(t=>el('option',{value:t.treffer_id},(sucheGruppe(t)==='A'?(SUCHE_SCORE_AN?'Rang '+(t.bewertung?.rang ?? '?'):'Passend'):'Liste '+sucheGruppe(t))+' · '+t.name)));
       const previouslySelected = valid.find(t=>t.treffer_id === selectedId);
       if(previouslySelected) { picker.value=String(selectedId); selected.replaceChildren(el('h3',{},previouslySelected.name),renderSelected ? renderSelected(previouslySelected) : el('p',{},'Unterkunft ausgewählt')); }
       else {selectedId=null; selected.replaceChildren(el('p',{},'Tippe auf einen Marker. Die zugehörige Unterkunft erscheint hier – ohne Ansichtswechsel.'));}
@@ -225,7 +225,7 @@ function sucheKarte(container, onSelect, renderSelected, options={}) {
     layer.clearLayers();
     for (const t of valid) {
       const group = sucheGruppe(t), rank = sucheZahl(t.bewertung?.rang);
-      const label = group === 'A' ? rank === null ? 'A' : String(rank) : group === 'B' ? 'B' : '?';
+      const label = group === 'A' ? rank === null || !SUCHE_SCORE_AN ? 'A' : String(rank) : group === 'B' ? 'B' : '?';
       const icon = el('span', { 'data-map-hit': t.treffer_id }, label);
       const marker = L.marker(sucheKoordinaten(t), { title: t.name || 'Unterkunft', alt: t.name || 'Unterkunft', icon: L.divIcon({ className: 'stay-pin pin-' + group, html: icon, iconSize: [34, 34], iconAnchor: [17, 34] }) });
         marker.on('click',()=>choose(t));
@@ -233,9 +233,9 @@ function sucheKarte(container, onSelect, renderSelected, options={}) {
         marker.bindPopup(el('div', { class: 'stay-map-popup' }, el('strong', {}, t.name || 'Unterkunft'),
         el('p', {}, (t.angebot?.preis_art === 'geschaetzt' ? 'ca. ' : '') + sucheEuro(t.angebot?.preis_gesamt_eur)),
         sucheAngebotsstand(t),
-        el('p', {}, group === 'A' ? 'Passende Treffer' + (rank !== null ? ' · Rang ' + rank : '') : group === 'B' ? 'Angaben offen' : 'Noch nicht vollständig bewertet'),
+        el('p', {}, group === 'A' ? 'Passende Treffer' + (SUCHE_SCORE_AN && rank !== null ? ' · Rang ' + rank : '') : group === 'B' ? 'Angaben offen' : 'Noch nicht vollständig bewertet'),
           el('button', { type: 'button', onclick: () => choose(t) }, 'Unterkunft unten ansehen'),
-          nearby.length ? el('details',{},el('summary',{},nearby.length+' weitere Unterkünfte an dieser Stelle'),nearby.map(other=>el('button',{type:'button',onclick:()=>choose(other)},(other.bewertung?.rang != null ? 'Rang '+other.bewertung.rang+' · ':'')+other.name))) : null)).addTo(layer);
+          nearby.length ? el('details',{},el('summary',{},nearby.length+' weitere Unterkünfte an dieser Stelle'),nearby.map(other=>el('button',{type:'button',onclick:()=>choose(other)},(SUCHE_SCORE_AN && other.bewertung?.rang != null ? 'Rang '+other.bewertung.rang+' · ':'')+other.name))) : null)).addTo(layer);
     }
     const target = sucheKoordinaten(data?.ziel);
     if (target) L.marker(target, { title: data.ziel.name || 'Reiseziel', icon: L.divIcon({ className: 'stay-pin pin-ziel', html: el('span', {}, '★'), iconSize: [36, 36] }) }).bindPopup(el('strong', {}, data.ziel.name || 'Reiseziel')).addTo(layer);

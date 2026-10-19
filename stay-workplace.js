@@ -15,7 +15,7 @@ async function viewDecisionPlace(arg){
     return {...detail,...t,angebot:active?(detail?.angebot||{preis_gesamt_eur:t.preis_gesamt_eur,preis_art:t.preis_art,storno:t.storno}):{},bewertung:detail?.bewertung||{rang:t.rang,score:t.score,liste:t.liste},currentOfferUnavailable:!active};
   })};
   const scope=el('section',{class:'trips-page decision-place'}),status=el('p',{role:'status'}),toolbar=el('div',{class:'actions'}),content=el('div',{class:'decision-content'}),selected=new Set();
-  let group='favorit',mode='list',pending=false,uncertain=false,lastBatch=[],undoData=null,review=null,sortKey='rang',selecting=false;
+  let group='favorit',mode='list',pending=false,uncertain=false,lastBatch=[],undoData=null,review=null,sortKey=SUCHE_SCORE_AN?'rang':'preis',selecting=false;
   const labels={favorit:'Favoriten',vielleicht:'Na ja',ausgeschlossen:'Weg'};
   const rows=()=>snapshot.treffer.filter(t=>t.status===group).sort((a,b)=>sucheVergleich(a,b,sortKey,1));
   const button=(label,fn)=>el('button',{type:'button',onclick:fn},label);
@@ -23,7 +23,7 @@ async function viewDecisionPlace(arg){
   const undo=button('Rückgängig',async()=>{if(pending||uncertain||!lastBatch.length)return;const saved=[...lastBatch];lastBatch=[];await move(saved,null,true);});
   const tabs=el('div',{class:'actions','aria-label':'Entscheidungsgruppen'});
   const modeButtons=el('div',{class:'actions','aria-label':'Ansichten'},...['list','table','tinder'].map(key=>button({list:'Liste',table:'Tabelle',tinder:'Durchsehen'}[key],()=>{if(pending||review?.pending)return;mode=key;draw();})));
-  const sorting=el('select',{'aria-label':'Entscheidungen sortieren',onchange:e=>{sortKey=e.target.value;draw();}},...['rang','preis','name','m2','schlafzimmer'].map(k=>el('option',{value:k},{rang:'Empfohlen',preis:'Preis',name:'Name',m2:'Fläche',schlafzimmer:'Schlafzimmer'}[k])));
+  const sorting=el('select',{'aria-label':'Entscheidungen sortieren',onchange:e=>{sortKey=e.target.value;draw();}},...[...(SUCHE_SCORE_AN?['rang']:[]),'preis','name','m2','schlafzimmer'].map(k=>el('option',{value:k},{rang:'Empfohlen',preis:'Preis',name:'Name',m2:'Fläche',schlafzimmer:'Schlafzimmer'}[k])));
   const controls=el('div',{class:'decision-controls'}),sortLabel=el('label',{},'Sortieren',sorting);
   controls.append(tabs,modeButtons,sortLabel,toolbar);
   scope.append(el('a',{href:'#/reisen/'+r.etappe.reise_id},'← Zur Reise'),el('h2',{},r.etappe.ziel),el('p',{},fmtDate(r.etappe.anreise)+'–'+fmtDate(r.etappe.abreise)),controls,status,content,el('div',{class:'actions'},reload,button('Woanders gebucht',()=>tripExternalBooking(r.etappe,()=>render())),button('Suche auffrischen',()=>tripRefresh(r.etappe)),button('Keiner passt',()=>{

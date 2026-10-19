@@ -60,10 +60,10 @@ async function openReviewMenu(page) {
   if(await menu.count() && !await menu.evaluate(n=>n.open))await menu.locator(':scope > summary').click();
 }
 async function setup(t, handler, viewport) {
-  const { collapsed = false, ...size } = viewport || {};
-  const context = await browser.newContext({ viewport: viewport ? size : { width: 1440, height: 1000 }, serviceWorkers: 'block' });
+  const { collapsed = false, ohneScore = false, ...size } = viewport || {};
+  const context = await browser.newContext({ viewport: Object.keys(size).length ? size : { width: 1440, height: 1000 }, serviceWorkers: 'block' });
   t.after(() => context.close());
-  await context.addInitScript(() => { localStorage.setItem('ks_token', 'synthetic-test-session'); localStorage.setItem('ks_trip_context', JSON.stringify({reise_id:1})); });
+  await context.addInitScript(({ score }) => { localStorage.setItem('ks_token', 'synthetic-test-session'); localStorage.setItem('ks_trip_context', JSON.stringify({reise_id:1})); if (score) localStorage.setItem('ks_score_an', '1'); else localStorage.removeItem('ks_score_an'); }, { score: !ohneScore });
   // W93: Funktions-Tests arbeiten mit aufgeklappten Bereichen (Mehr Optionen, Filtern, Suchlauf, Wer & was); das Layout prüfen eigene W93-Tests.
   if (!collapsed) await context.addInitScript(() => { const open = () => { document.querySelectorAll('details.more-options,details.filter-box,details.review-run-tools,details.run-diagnostics').forEach(d => { if (!d.dataset.testOpened) { d.open = true; d.dataset.testOpened = '1'; } }); document.querySelectorAll('.who-panel[hidden]').forEach(p => { if (!p.dataset.testOpened) { p.hidden = false; p.dataset.testOpened = '1'; } }); }; new MutationObserver(open).observe(document, { subtree: true, childList: true }); });
   const page = await context.newPage(); page.setDefaultTimeout(5000);
@@ -209,13 +209,13 @@ test('PWA installiert vollständige Offline-Hülle, API wird nicht gecacht', asy
   assert(cacheNames.includes('ki-system:' + origin + '/another-app/:v1'));
   assert(!cacheNames.includes('ki-system:' + origin + '/:old'));
   await page.evaluate(() => fetch('README.md'));
-  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v40')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
-  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.26.0')); assert(cached.includes('/style.css?v=0.26.0'));
-  assert(cached.includes('/stay-tools.js?v=0.26.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
-  assert(cached.includes('/stay-research.js?v=0.26.0'));
-  assert(cached.includes('/stay-form.js?v=0.26.0'));
-  assert(cached.includes('/stay-details.js?v=0.26.0'));
-  assert(cached.includes('/stay-districts.js?v=0.26.0'));
+  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v41')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
+  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.27.0')); assert(cached.includes('/style.css?v=0.27.0'));
+  assert(cached.includes('/stay-tools.js?v=0.27.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
+  assert(cached.includes('/stay-research.js?v=0.27.0'));
+  assert(cached.includes('/stay-form.js?v=0.27.0'));
+  assert(cached.includes('/stay-details.js?v=0.27.0'));
+  assert(cached.includes('/stay-districts.js?v=0.27.0'));
   assert(!cached.includes('/README.md'));
   assert(!cached.some((u) => u.includes('app-api')));
   await context.setOffline(true); await page.reload();
@@ -2363,4 +2363,22 @@ test('W93: Durchsehen blättert ohne Urteil, merkt die Stelle und führt zur Üb
   await page.getByRole('button',{name:/^Weg zurücknehmen$|^Favorit zurücknehmen$|^Na ja zurücknehmen$/}).click();
   await page.waitForFunction(id=>!document.querySelector(`[data-review-hit="${id}"] .review-verdict`),shown);
   assert.equal(calls.filter(p=>p.aktion==='unterkunft_durchsehen_urteil').at(-1).daten.urteil,'offen');
+});
+
+test('19.10.: Score aus – keine Passung, kein Rang, keine Reiseart; Sortierung nach Fakten', async (t) => {
+  const data = result();
+  const { page } = await setup(t, p => p.aktion === 'unterkunft_suchauftrag_anlegen' ? { ok: true, id: 2 } : p.daten?.suchauftrag_id ? data : { suchauftraege: [] }, { ohneScore: true });
+  await page.goto(origin + '/#/suche/2');
+  const a = page.locator('[data-group=A]'); await a.waitFor();
+  assert.equal(await page.getByText(/Passung/).count(), 0, 'keine Passung sichtbar');
+  assert.equal(await a.locator('tbody tr[data-hit] .hit-score').count(), 0, 'keine Score-Spalte');
+  assert.equal(await page.getByText(/^Rang \d/).count(), 0, 'kein Rang');
+  const sort = page.getByLabel('Sortieren nach', { exact: true }).first();
+  const optionen = await sort.locator('option').evaluateAll(o => o.map(x => x.value));
+  assert.ok(!optionen.includes('rang') && !optionen.includes('score') && !optionen.includes('datenlage'), 'keine Score-Sortierung');
+  assert.equal(await sort.inputValue(), 'preis', 'Standard: Gesamtpreis');
+  await page.goto(origin + '/#/suche'); await formFill(page);
+  assert.equal(await page.getByLabel('Nebenart', { exact: true }).count(), 0, 'keine Nebenart');
+  assert.equal(await page.getByLabel('Reiseart', { exact: true }).count(), 0, 'keine Reiseart');
+  assert.equal(await page.locator('select[aria-label^="Bedeutung: Balkon"] option[value="wunsch"]').count(), 0, 'kein Wunsch-Modus');
 });

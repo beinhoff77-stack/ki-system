@@ -25,7 +25,7 @@ function sucheErweitertesFormular(form, call, live, ready, lock, profilePreset =
     el('div', { class: 'suche-grid' }, labeled('Mindestnote (von 10)', note), labeled('Ab dieser Anzahl Bewertungen', reviews)),
     el('p', { class: 'small muted' }, 'Ab dieser Bewertungsanzahl werden belegte Noten unter deiner Mindestnote aussortiert. Eigene Pflicht- und Wunschfilter unten gelten zusätzlich.'));
   const filtersPanel = el('details', { class: 'card stay-form-panel trip-criteria' }, el('summary', {}, 'Filter anpassen'),
-    el('p', { class: 'small' }, 'Pflicht: Nachweislich nicht erfüllt bedeutet Ausschluss. Unbekannte Angaben bleiben unter „Angaben offen“. Wünsche beeinflussen die Bewertung. „Egal“ lässt das Kriterium außer Betracht.'));
+    el('p', { class: 'small' }, SUCHE_SCORE_AN ? 'Pflicht: Nachweislich nicht erfüllt bedeutet Ausschluss. Unbekannte Angaben bleiben unter „Angaben offen“. Wünsche beeinflussen die Bewertung. „Egal“ lässt das Kriterium außer Betracht.' : 'Pflicht: Nachweislich nicht erfüllt bedeutet Ausschluss. Unbekannte Angaben bleiben unter „Angaben offen“. „Egal“ lässt das Kriterium außer Betracht.'));
   const profileSelect = select('Suchprofil verwenden', [['','Ohne Profil / Standardwerte']]);
   const profileName = el('input', { type: 'text', maxlength: 60, 'aria-label': 'Name des Suchprofils', placeholder: 'z. B. Familienreise' });
   const notice = el('p', { class: 'small', role: 'status' });
@@ -75,8 +75,10 @@ function sucheErweitertesFormular(form, call, live, ready, lock, profilePreset =
       }
       for (const [key, spec] of Object.entries(data.kriterien_katalog[block] || {})) {
         if (!/^[a-z][a-z0-9_]{0,60}$/.test(key) || !['ja','zahl'].includes(spec?.typ) || typeof spec.label !== 'string') continue;
-        const mode = select('Bedeutung: ' + spec.label, [['egal','Egal'],['wunsch','Wunsch'],...(key==='suite'?[]:[['pflicht','Pflicht']])]);
-        mode.value=['balkon','schlafzimmer'].includes(key)?'wunsch':'egal';
+        if(!SUCHE_SCORE_AN&&key==='suite')continue; // Suite ist nur ein Wunsch (Score) – vorerst aus
+        const wunschErlaubt=SUCHE_SCORE_AN||key==='schlafzimmer';
+        const mode = select('Bedeutung: ' + spec.label, [['egal','Egal'],...(wunschErlaubt?[['wunsch','Wunsch']]:[]),...(key==='suite'?[]:[['pflicht','Pflicht']])]);
+        mode.value=(SUCHE_SCORE_AN?['balkon','schlafzimmer']:['schlafzimmer']).includes(key)?'wunsch':'egal';
         const input = spec.typ==='zahl' && key!=='schlafzimmer' ? el('input', { type:'number', min:0, step:['bewertungen_min'].includes(key)?1:0.1, max:key==='note_min'||block==='viertel'?10:null, value:block==='viertel'?5:null, 'aria-label':'Wert: '+spec.label, placeholder:'Wert eintragen' }) : null;
         const shared = key==='schlafzimmer' ? el('span',{class:'small'}) : null;
         const c={key,block,spec,mode,input,shared}; criteria.set(key,c);
@@ -128,6 +130,7 @@ function sucheErweitertesFormular(form, call, live, ready, lock, profilePreset =
     for(const [key,c] of criteria) {
       const v=data.kriterien?.[key];
       c.mode.value=['pflicht','wunsch','egal'].includes(v?.modus)?key==='suite'&&v.modus==='pflicht'?'wunsch':v.modus:['balkon','schlafzimmer'].includes(key)?'wunsch':key==='suite'&&data.suite?'wunsch':'egal';
+      if(![...c.mode.options].some(o=>o.value===c.mode.value))c.mode.value='egal'; // Wunsch ohne Score nicht verfügbar
       if(c.input)c.input.value=typeof v?.wert==='number'?v.wert:c.block==='viertel'?5:'';
       if(c.shared&&c.mode.value!=='egal'&&typeof v?.wert==='number')form.elements.schlafzimmer_min.value=v.wert;
     }
@@ -335,7 +338,7 @@ function wohnenBlock(form, szInput = null) {
         if (an && !w[ander].an) return; // mindestens eine Wohnform bleibt an
         w[art].an = !an; if (!w[art].an && w.bevorzugt === art) w.bevorzugt = ander;
       }) }, an ? '✓ ' : '', label),
-      beide ? el('button', { type: 'button', class: 'wo-star' + (bevorzugt ? ' is-on' : ''), 'aria-pressed': String(bevorzugt), 'aria-label': label + ' bevorzugen', title: bevorzugt ? label + ' ist bevorzugt' : label + ' bevorzugen',
+      beide && SUCHE_SCORE_AN ? el('button', { type: 'button', class: 'wo-star' + (bevorzugt ? ' is-on' : ''), 'aria-pressed': String(bevorzugt), 'aria-label': label + ' bevorzugen', title: bevorzugt ? label + ' ist bevorzugt' : label + ' bevorzugen',
         onclick: () => aendern(() => { w.bevorzugt = art; }) }, bevorzugt ? '★' : '☆') : null, extra);
   }
   function draw() {
@@ -346,7 +349,7 @@ function wohnenBlock(form, szInput = null) {
     const bett = w.hotel.an ? el('div', { class: 'wo-row wo-sub' }, el('span', { class: 'wo-sub-name' }, 'Bett je Hotelzimmer'),
       el('span', { class: 'wo-seg', role: 'group', 'aria-label': 'Bett je Zimmer' }, Object.entries(WOHNEN_BETT).map(([k, t]) =>
         el('button', { type: 'button', class: 'wo-seg-btn', 'aria-pressed': String(w.hotel.bett === k), onclick: () => aendern(() => { w.hotel.bett = k; }) }, t)))) : null;
-    const hinweis = w.apartment.an && w.hotel.an ? el('p', { class: 'wo-hint small muted', title: `${w.bevorzugt === 'hotel' ? 'Apartments' : 'Hotels'} kommen nur nach vorn, wenn sie deutlich günstiger oder besser bewertet sind.` }, `★ = bevorzugt · ${w.bevorzugt === 'hotel' ? 'Apartments' : 'Hotels'} nur, wenn klar günstiger/besser`) : null;
+    const hinweis = SUCHE_SCORE_AN && w.apartment.an && w.hotel.an ? el('p', { class: 'wo-hint small muted', title: `${w.bevorzugt === 'hotel' ? 'Apartments' : 'Hotels'} kommen nur nach vorn, wenn sie deutlich günstiger oder besser bewertet sind.` }, `★ = bevorzugt · ${w.bevorzugt === 'hotel' ? 'Apartments' : 'Hotels'} nur, wenn klar günstiger/besser`) : null;
     box.replaceChildren(...[zeile, bett, hinweis].filter(Boolean));
   }
   feld(); draw();
@@ -385,12 +388,12 @@ function sucheSchnellLayout({ form, fields, sections, extended, submit, call, li
   const szLabel = whoPanel.querySelector('[name="schlafzimmer_min"]')?.closest('label'); if (szLabel) szLabel.hidden = true;
   const formLabel = extended.tripPanel.querySelector('select[aria-label="Gewünschte Unterkunftsform"]')?.closest('label'); if (formLabel) formLabel.hidden = true;
   const quick = el('section', { class: 'card quick-search' }, el('h2', {}, 'Unterkunft suchen'), label('ziel'), when, nights, band.node, wohnen.node, who, whoPanel, submit, el('p', { class: 'quick-meta small' }, tripLine));
-  const more = el('details', { class: 'card more-options' }, el('summary', {}, 'Mehr Optionen'), el('p', { class: 'small muted' }, 'Reiseart, Unterkunftsform, Qualität, Filter, Quellen und Suchkosten. Die Standardwerte passen für die meisten Suchen.'));
+  const more = el('details', { class: 'card more-options' }, el('summary', {}, 'Mehr Optionen'), el('p', { class: 'small muted' }, (SUCHE_SCORE_AN ? 'Reiseart, Unterkunftsform, ' : '') + 'Qualität, Filter, Quellen und Suchkosten. Die Standardwerte passen für die meisten Suchen.'));
   const tripNode = fields.querySelector('.trip-choice');
   if (tripNode) more.append(tripNode);
   more.append(el('section', { class: 'card stay-form-panel' }, el('h2', {}, 'Land'), label('land')));
   const p4 = panel('04'); if (p4) more.append(p4);
-  more.append(extended.tripPanel, extended.qualityPanel, extended.filtersPanel);
+  more.append(...(SUCHE_SCORE_AN ? [extended.tripPanel] : []), extended.qualityPanel, extended.filtersPanel);
   const gaps = el('div', { class: 'quick-gaps' });
   const kurz = d => { const x = new Date(d + 'T12:00:00'); return Number.isNaN(x.getTime()) ? d : x.toLocaleDateString('de-DE', { day: 'numeric', month: 'numeric' }); };
   const whoKeys = ['erwachsene', 'kinder_alter', 'budget_eur'];

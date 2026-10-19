@@ -25,38 +25,86 @@ function sucheAnbieterLink(t) {
   return { url: original, label: 'Bei ' + (t.angebot?.anbieter || SUCHE_QUELLEN[t.quelle] || 'Anbieter') + ' ansehen ↗', overview: false };
 }
 const STAY_FIELDS = {
-  preis: 'Preis gesamt', nacht: 'Preis/Nacht', gaestenote: 'Gäste (geeicht)', bewertungen: 'Bewertungen',
-  m2: 'Zimmergröße m²', schlafzimmer: 'Schlafzimmer', betten: 'Betten/Schlafplätze', balkon: 'Balkon',
-  raucher: 'Raucher', storno: 'Storno', gehzeit: 'Gehzeit zur Station', viertel: 'Viertel', anbieter: 'Quelle', datenlage: 'Datenlage'
+  preis: 'Preis gesamt', nacht: 'Preis/Nacht', tarif: 'Bester Tarif', vergleich: 'Preis ggü. gleicher Art', storno: 'Storno',
+  art: 'Unterkunftsart', schlafzimmer: 'Schlafzimmer', betten: 'Betten/Schlafplätze', m2: 'Zimmergröße m²', balkon: 'Balkon', kueche: 'Küche', waschmaschine: 'Waschmaschine', raucher: 'Raucher',
+  gaestenote: 'Gästenote', bewertungen: 'Bewertungen',
+  entfernung: 'Entfernung zum Ziel', gehzeit: 'Gehzeit zur Station', viertel: 'Viertel',
+  anbieter: 'Quelle', datenlage: 'Datenlage'
 };
-const STAY_DEFAULT_FIELDS = ['preis','gaestenote','m2','schlafzimmer','gehzeit','storno'];
+// W98b: Themen für Einstellung und Info-Box – immer dieselbe Reihenfolge und Struktur (Sebastian 20.10.).
+const STAY_THEMEN = [
+  ['Preis & Buchung', ['nacht','preis','tarif','vergleich','storno']],
+  ['Wohnen', ['art','schlafzimmer','betten','m2','balkon','kueche','waschmaschine','raucher']],
+  ['Bewertungen', ['gaestenote','bewertungen']],
+  ['Lage', ['entfernung','gehzeit','viertel']],
+  ['Quelle', ['anbieter','datenlage']],
+];
+const STAY_IMMER = ['preis','nacht']; // Name und Preis stehen immer auf der Karte
+const STAY_DIREKT_MAX = 6;
+const STAY_DEFAULT_KARTEN = { direkt: ['schlafzimmer','betten','m2','gaestenote','storno','gehzeit'], aus: ['datenlage','raucher'] };
+const STAY_DEFAULT_FIELDS = STAY_DEFAULT_KARTEN.direkt; // ältere Aufrufer
+const STAY_WAEHLBAR = Object.keys(STAY_FIELDS).filter(k => !STAY_IMMER.includes(k));
 function stayRead(key, fallback) { try { return JSON.parse(localStorage.getItem(key)) ?? fallback; } catch { return fallback; } }
 function stayWrite(key, value) { try { localStorage.setItem(key, JSON.stringify(value)); return true; } catch { return false; } }
-let stayFieldsMemory = null;
-function stayFields() {
-  const value = stayFieldsMemory ?? stayRead('ks_anzeige', STAY_DEFAULT_FIELDS);
-  return Array.isArray(value) && value.length <= 6 && new Set(value).size === value.length && value.every(k => Object.hasOwn(STAY_FIELDS,k)) ? [...value] : [...STAY_DEFAULT_FIELDS];
+let stayKartenMemory = null;
+// Einstellung für Liste, Karte und Durchsehen: je Angabe Direkt (max. 6, mit Reihenfolge) / Details (Info-Box) / Aus.
+function stayKarten() {
+  const ok = v => v && Array.isArray(v.direkt) && Array.isArray(v.aus) && v.direkt.length <= STAY_DIREKT_MAX && [...v.direkt, ...v.aus].every(k => STAY_WAEHLBAR.includes(k)) && new Set([...v.direkt, ...v.aus]).size === v.direkt.length + v.aus.length;
+  let v = stayKartenMemory ?? stayRead('ks_karten', null);
+  if (!ok(v)) { // Übernahme der früheren Auswahl (ks_anzeige), sonst Standard
+    const alt = stayRead('ks_anzeige', null);
+    v = Array.isArray(alt) ? { direkt: alt.filter(k => STAY_WAEHLBAR.includes(k)).slice(0, STAY_DIREKT_MAX), aus: [...STAY_DEFAULT_KARTEN.aus].filter(k => !alt.includes(k)) } : null;
+    if (!ok(v)) v = { direkt: [...STAY_DEFAULT_KARTEN.direkt], aus: [...STAY_DEFAULT_KARTEN.aus] };
+  }
+  return { direkt: [...v.direkt], aus: [...v.aus] };
 }
+function stayStufe(key, karten = stayKarten()) { return STAY_IMMER.includes(key) ? 'immer' : karten.direkt.includes(key) ? 'direkt' : karten.aus.includes(key) ? 'aus' : 'details'; }
+function stayFields() { return [...STAY_IMMER, ...stayKarten().direkt]; }
 function stayMove(list, from, to) { const copy=[...list]; if(from<0 || to<0 || from>=copy.length || to>=copy.length) return copy; copy.splice(to,0,copy.splice(from,1)[0]); return copy; }
 function viewAnzeige() {
   setChrome('Anzeige', {back:true});
-  let fields=stayFields(), drag=null;
+  let karten=stayKarten(), drag=null;
   const box=el('section',{class:'card display-settings'}), status=el('p',{role:'status'});
-  function save() { stayFieldsMemory=[...fields]; status.textContent=stayWrite('ks_anzeige',fields) ? 'Auf diesem Gerät gespeichert.' : 'Gerätespeicher nicht verfügbar. Auswahl gilt bis zum Neuladen.'; draw(); }
-  function move(i,j) {fields=stayMove(fields,i,j);save();}
+  function save() { stayKartenMemory={direkt:[...karten.direkt],aus:[...karten.aus]}; status.textContent=stayWrite('ks_karten',karten) ? 'Auf diesem Gerät gespeichert.' : 'Gerätespeicher nicht verfügbar. Auswahl gilt bis zum Neuladen.'; draw(); }
+  function setze(key, stufe) {
+    karten.direkt=karten.direkt.filter(k=>k!==key); karten.aus=karten.aus.filter(k=>k!==key);
+    if(stufe==='direkt'){ if(karten.direkt.length>=STAY_DIREKT_MAX){status.textContent='Höchstens '+STAY_DIREKT_MAX+' Schnell-Infos. Erst eine andere auf „Details“ stellen.';return draw();} karten.direkt.push(key); }
+    if(stufe==='aus') karten.aus.push(key);
+    save();
+  }
+  function move(i,j) {karten.direkt=stayMove(karten.direkt,i,j);save();}
   function draw() {
-    box.replaceChildren(el('h2',{},'Anzeige'),el('p',{},'Höchstens 6 Infos für Liste und Tabelle. Name, Foto, Rang und Favorit bleiben immer sichtbar.'),
-      el('p',{},fields.length+' / 6 ausgewählt'),el('ol',{class:'display-order'},fields.map((key,i)=>el('li',{draggable:'true','data-field':key,
+    box.replaceChildren(el('h2',{},'Anzeige'),
+      el('h3',{},'Karten: Liste, Karte und Durchsehen'),
+      el('p',{class:'small'},'Name und Preis (gesamt und pro Nacht) stehen immer da. Direkt = Schnell-Info auf der Karte (höchstens '+STAY_DIREKT_MAX+'), Details = in der Info-Box, Aus = nicht anzeigen.'),
+      el('p',{},karten.direkt.length+' / '+STAY_DIREKT_MAX+' Schnell-Infos'),
+      el('ol',{class:'display-order','aria-label':'Reihenfolge der Schnell-Infos'},karten.direkt.map((key,i)=>el('li',{draggable:'true','data-field':key,
         ondragstart:e=>{drag=i;e.dataTransfer.setData('text/plain',key);},ondragover:e=>e.preventDefault(),ondrop:e=>{e.preventDefault();if(drag!==null)move(drag,i);drag=null;},ondragend:()=>{drag=null;}},
         STAY_FIELDS[key],el('button',{type:'button',disabled:i===0,'aria-label':STAY_FIELDS[key]+' nach oben',onclick:()=>move(i,i-1)},'↑'),
-        el('button',{type:'button',disabled:i===fields.length-1,'aria-label':STAY_FIELDS[key]+' nach unten',onclick:()=>move(i,i+1)},'↓')))),
-      el('div',{class:'display-options'},Object.entries(STAY_FIELDS).map(([key,label])=>el('label',{},el('input',{type:'checkbox',checked:fields.includes(key),disabled:fields.length>=6&&!fields.includes(key),onchange:e=>{fields=e.target.checked?[...fields,key].slice(0,6):fields.filter(k=>k!==key);save();}}),label))),
-      el('button',{type:'button',onclick:()=>{fields=[...STAY_DEFAULT_FIELDS];save();}},'Standard wiederherstellen'),status);
+        el('button',{type:'button',disabled:i===karten.direkt.length-1,'aria-label':STAY_FIELDS[key]+' nach unten',onclick:()=>move(i,i+1)},'↓')))),
+      ...STAY_THEMEN.map(([thema,keys])=>el('fieldset',{class:'display-thema'},el('legend',{},thema),...keys.filter(k=>STAY_WAEHLBAR.includes(k)).map(key=>{
+        const stufe=stayStufe(key,karten);
+        return el('div',{class:'display-row','data-field':key},el('span',{},STAY_FIELDS[key]),el('div',{class:'display-stufen',role:'radiogroup','aria-label':STAY_FIELDS[key]},
+          ...[['direkt','Direkt'],['details','Details'],['aus','Aus']].map(([s,label])=>el('button',{type:'button',role:'radio','aria-checked':String(stufe===s),'aria-label':STAY_FIELDS[key]+': '+label,
+            disabled:s==='direkt'&&stufe!=='direkt'&&karten.direkt.length>=STAY_DIREKT_MAX,onclick:()=>{if(stufe!==s)setze(key,s);}},label))));
+      }))),
+      el('button',{type:'button',onclick:()=>{karten={direkt:[...STAY_DEFAULT_KARTEN.direkt],aus:[...STAY_DEFAULT_KARTEN.aus]};save();}},'Standard wiederherstellen'),status);
   }
-  const reviewBox=el('section',{class:'card'});let optional=stayReviewFields();
-  function reviewDraw(){reviewBox.replaceChildren(el('h2',{},'Durchsehen'),el('p',{},'Gesamtpreis, Fläche und Schlafzimmer bleiben sichtbar. Wähle bis zu 4 zusätzliche Infos.'),el('p',{},optional.length+' / 4 ausgewählt'),...Object.entries(STAY_FIELDS).filter(([key])=>!['preis','m2','schlafzimmer'].includes(key)).map(([key,label])=>el('label',{class:'check-label'},el('input',{type:'checkbox','aria-label':'Durchsehen: '+label,checked:optional.includes(key),disabled:optional.length>=4&&!optional.includes(key),onchange:e=>{optional=e.target.checked?[...optional,key]:optional.filter(k=>k!==key);status.textContent=stayWrite('ks_review_fields',optional)?'Auf diesem Gerät gespeichert.':'Gerätespeicher nicht verfügbar.';reviewDraw();}}),label)));}
-  main.replaceChildren(box,reviewBox);draw();reviewDraw();
+  // Tabelle am Rechner: eigene Spalten, dieselbe Einstellung wie der Knopf „Spalten“ in der Tabelle
+  const tabBox=el('section',{class:'card display-settings display-tabelle'}), tabStatus=el('p',{role:'status'});
+  function tabSave(n){tabStatus.textContent=stayWrite('ks_tabelle_spalten',n)?'Auf diesem Gerät gespeichert.':'Gerätespeicher nicht verfügbar.';tabDraw();}
+  function tabDraw(){
+    const spalten=stayDeskSpalten();
+    tabBox.replaceChildren(el('h2',{},'Tabelle (Rechner)'),el('p',{class:'small'},'Eigene Spalten, unabhängig von den Karten. Gleich wie der Knopf „Spalten“ in der Tabelle.'),
+      el('ol',{class:'display-order'},spalten.map((k,i)=>{const s=STAY_DESK_SPALTEN.find(x=>x.key===k);return el('li',{'data-spalte':k},el('label',{},el('input',{type:'checkbox',checked:true,'aria-label':'Tabelle: '+s.label,onchange:()=>tabSave(spalten.filter(x=>x!==k))}),s.label),
+        el('button',{type:'button',disabled:i===0,'aria-label':'Tabelle: '+s.label+' nach vorne',onclick:()=>tabSave(stayMove(spalten,i,i-1))},'↑'),
+        el('button',{type:'button',disabled:i===spalten.length-1,'aria-label':'Tabelle: '+s.label+' nach hinten',onclick:()=>tabSave(stayMove(spalten,i,i+1))},'↓'));})),
+      el('div',{class:'display-options'},STAY_DESK_SPALTEN.filter(s=>!spalten.includes(s.key)).map(s=>el('label',{},el('input',{type:'checkbox','aria-label':'Tabelle: '+s.label,onchange:()=>tabSave([...spalten,s.key])}),s.label))),
+      el('button',{type:'button',onclick:()=>tabSave([...STAY_DESK_STANDARD])},'Tabelle: Standard'),tabStatus);
+  }
+  main.replaceChildren(box,tabBox);draw();tabDraw();
 }
+let stayVergleichFn = null; // wird von der Ergebnisansicht für die geladenen Treffer gesetzt (Preis ggü. gleicher Art)
 function stayFieldValue(t,key,trip={}) {
   const a=t.angebot||{}, k=sucheAngebotsKategorie(t), room=sucheZimmerKurz(t), n=sucheZahl;
   const category=k?.konflikt ? null : k;
@@ -64,14 +112,20 @@ function stayFieldValue(t,key,trip={}) {
   switch(key) {
     case 'preis': return n(a.preis_gesamt_eur);
     case 'nacht': { const nights=(Date.parse(trip.abreise || t._trip?.abreise)-Date.parse(trip.anreise || t._trip?.anreise))/86400000; return n(a.preis_nacht_eur) ?? (n(a.preis_gesamt_eur)!==null&&nights>0?a.preis_gesamt_eur/nights:null); }
+    case 'tarif': { const g=typeof stayBesterTarif==='function'?stayBesterTarif(t):null; return g?n(g.gesamt_eur):null; }
+    case 'vergleich': { const x=stayVergleichFn?stayVergleichFn(t):null; return x?x.label:null; }
     case 'gaestenote': return n(t.note_geeicht);
     case 'bewertungen': return n(t.bewertungen);
     case 'm2': return n(category?.m2);
     case 'schlafzimmer': return room.schlafzimmer;
     case 'betten': return (room.typen ? sucheBettenDeutsch(room.typen) : null) ?? (room.anzahl!==null?room.anzahl+' Betten':null);
-    case 'balkon': return yes(category?.balkon);
+    case 'art': return typeof stayTyp==='function'?stayTyp(t):null;
+    case 'balkon': return yes(category?.balkon) ?? (t.detail?.merkmale?.balkon?'ja':null);
+    case 'kueche': return t.detail?.merkmale?.kueche?'ja':null;
+    case 'waschmaschine': return t.detail?.merkmale?.waschmaschine?'ja':null;
     case 'raucher': return yes(category?.raucher ?? t.raucher);
-    case 'storno': return typeof a.storno==='string' && a.storno.trim() && a.storno!=='unbekannt' ? a.storno : null;
+    case 'storno': { if(typeof stayStorno==='function'){const s=stayStorno(t,trip.anreise?trip:(t._trip||trip));if(s.tage!==null)return 'kostenlos bis '+s.tage+' Tage vor Anreise';if(s.nein)return 'nicht kostenlos';} return typeof a.storno==='string' && a.storno.trim() && !/^(unbekannt|nicht kostenlos\/unklar)$/.test(a.storno.trim()) ? a.storno : null; }
+    case 'entfernung': return n(t.luftlinie_ziel_m)===null?null:Math.round(t.luftlinie_ziel_m/100)/10;
     case 'gehzeit': return n(t.gehzeit_min);
     case 'viertel': return t.zone?.name || null;
     case 'anbieter': return SUCHE_QUELLEN[t.quelle] || t.quelle || null;
@@ -82,30 +136,56 @@ function stayFieldValue(t,key,trip={}) {
 function stayField(t,key,trip) {
   const value=stayFieldValue(t,key,trip), box=el('span');
   if(value===null) box.append('–');
-  else if(['preis','nacht'].includes(key)) box.append((t.angebot?.preis_art==='geschaetzt'?'ca. ':'')+sucheEuro(value));
+  else if(['preis','nacht','tarif'].includes(key)) box.append((key!=='tarif'&&t.angebot?.preis_art==='geschaetzt'?'ca. ':'')+sucheEuro(value));
   else if(key==='gaestenote') box.append(Number(value).toLocaleString('de-DE',{maximumFractionDigits:2})+' / 10');
   else if(key==='gehzeit') box.append(sucheWegText(t));
+  else if(key==='entfernung') box.append(Number(value).toLocaleString('de-DE')+' km');
   else box.append((key==='m2'?Number(value).toLocaleString('de-DE'):String(value))+(key==='m2'?' m²':key==='datenlage'?' %':''));
   if(key==='gaestenote') box.append(el('small',{}, value===null?'Eichung nicht verfügbar.':'geeicht'));
   if(key==='gehzeit' && value!==null) box.append(el('small',{},t.station_name?'Zur Station '+t.station_name:'Ziel nicht benannt'),el('small',{},t.gehzeit_art==='geschaetzt'?'geschätzt':['route','ors'].includes(t.gehzeit_art)?'berechneter Fußweg':'Art unbekannt'));
   return box;
 }
 function stayInfo(t,trip) {return el('dl',{class:'stay-info'},stayFields().flatMap(key=>[el('dt',{},STAY_FIELDS[key]),el('dd',{'data-field':key},stayField(t,key,trip))]));}
-function stayReviewFields(){const allowed=Object.keys(STAY_FIELDS).filter(k=>!['preis','m2','schlafzimmer'].includes(k));const saved=stayRead('ks_review_fields',['gaestenote','gehzeit']);return (Array.isArray(saved)?saved:[]).filter((k,i,a)=>allowed.includes(k)&&a.indexOf(k)===i).slice(0,4);}
+// Anzeige-Text einer Angabe (für Schnell-Info und Info-Box); fehlt sie: „unbekannt“.
+function stayAnzeigeText(t,key,trip) {
+  const value=stayFieldValue(t,key,trip);
+  if(value===null) return 'unbekannt';
+  if(['preis','nacht','tarif'].includes(key)) return (key!=='tarif'&&t.angebot?.preis_art==='geschaetzt'?'ca. ':'')+sucheEuro(value);
+  if(key==='m2') return Number(value).toLocaleString('de-DE')+' m²';
+  if(key==='datenlage') return value+' %';
+  if(key==='entfernung') return Number(value).toLocaleString('de-DE')+' km';
+  if(key==='gaestenote') return Number(value).toLocaleString('de-DE',{maximumFractionDigits:2})+' / 10';
+  if(key==='gehzeit') return (t.gehzeit_art==='geschaetzt'?'ca. ':'')+(value>=60?Math.floor(value/60)+' Std. '+Math.round(value%60)+' Min.':Math.round(value)+' Min.')+(t.station_name?' · '+t.station_name:'');
+  return String(value);
+}
+// Info-Box: alle „Details“-Angaben nach Themen, immer gleiche Struktur und Reihenfolge, kompakt.
+function stayInfoBox(t,trip,{alle=false}={}) {
+  const karten=stayKarten();
+  const themen=STAY_THEMEN.map(([thema,keys])=>[thema,keys.filter(k=>alle?stayStufe(k,karten)!=='aus':stayStufe(k,karten)==='details')]).filter(([,keys])=>keys.length);
+  return el('div',{class:'stay-infobox'},themen.map(([thema,keys])=>el('section',{class:'infobox-thema'},el('h4',{},thema),
+    el('dl',{},keys.map(key=>el('div',{'data-field':key,class:stayFieldValue(t,key,trip)===null?'is-unbekannt':null},el('dt',{},STAY_FIELDS[key]),el('dd',{},stayAnzeigeText(t,key,trip))))))));
+}
+// Kurzform für die Schnell-Info-Zeile beim Durchsehen
+function stayKurz(t,key,trip) {
+  const v=stayFieldValue(t,key,trip); if(v===null) return null;
+  const n=x=>Number(x).toLocaleString('de-DE',{maximumFractionDigits:1});
+  switch(key){
+    case 'schlafzimmer': return v+' Schlafzimmer'; case 'm2': return n(v)+' m²'; case 'gaestenote': return '★ '+n(v);
+    case 'bewertungen': return n(v)+' Bewertungen'; case 'entfernung': return n(v)+' km zum Ziel'; case 'gehzeit': return Math.round(v)+' Min. zur Station';
+    case 'storno': { const s=typeof stayStorno==='function'?stayStorno(t,trip):null; return s?.tage!=null?'Storno bis '+s.tage+' T. vor Anreise':s?.nein?'nicht kostenlos stornierbar':String(v); }
+    case 'tarif': return 'bester Tarif '+sucheEuro(v); case 'vergleich': return v+' für die Art';
+    case 'balkon': case 'kueche': case 'waschmaschine': case 'raucher': return v==='ja'?STAY_FIELDS[key]:null;
+    default: return String(v);
+  }
+}
+function stayReviewFields(){return stayKarten().direkt;}
+// Durchsehen-Details: oben Preis + Schnell-Infos, darunter die Info-Box nach Themen.
 function stayReviewInfo(t,trip) {
   const nights=(Date.parse(trip.abreise)-Date.parse(trip.anreise))/86400000;
-  const labels={preis:nights>0?'Gesamt · '+nights+' Nächte':'Gesamtpreis',nacht:'Pro Nacht',gaestenote:'Gästenote',m2:'Fläche',schlafzimmer:'Schlafzimmer',gehzeit:'Zu Fuß zur Station'};
-  return el('dl',{class:'review-info'},['preis','m2','schlafzimmer',...stayReviewFields()].map(key=>{
-    const value=stayFieldValue(t,key,trip);let display=value===null?'unbekannt':String(value), note=null;
-    if(value!==null){
-      if(['preis','nacht'].includes(key))display=(t.angebot?.preis_art==='geschaetzt'?'ca. ':'')+sucheEuro(value);
-      if(key==='m2')display=Number(value).toLocaleString('de-DE')+' m²';
-      if(key==='datenlage')display=value+' %';
-      if(key==='gaestenote'){display=Number(value).toLocaleString('de-DE',{maximumFractionDigits:2})+' / 10';note='geeicht · '+(SUCHE_QUELLEN[t.quelle]||t.quelle||'Quelle');}
-      if(key==='gehzeit'){display=(t.gehzeit_art==='geschaetzt'?'ca. ':'')+(value>=60?Math.floor(value/60)+' Std. '+Math.round(value%60)+' Min.':Math.round(value)+' Min.');note=t.station_name||'Station unbekannt';if(!['route','ors','geschaetzt'].includes(t.gehzeit_art))note+=' · Berechnung unbekannt';}
-    }
-    return el('div',{'data-field':key},el('dt',{},labels[key]||STAY_FIELDS[key]),el('dd',{},display,note?el('small',{},note):null));
-  }));
+  const labels={preis:nights>0?'Gesamt · '+nights+' Nächte':'Gesamtpreis',nacht:'Pro Nacht'};
+  return el('div',{class:'review-info'},
+    el('dl',{class:'review-schnell'},[...STAY_IMMER,...stayKarten().direkt].map(key=>el('div',{'data-field':key},el('dt',{},labels[key]||STAY_FIELDS[key]),el('dd',{},stayAnzeigeText(t,key,trip))))),
+    stayInfoBox(t,trip));
 }
 function stayCardPhoto(card, gallery) {
   card.querySelector(':scope > .review-backdrop')?.remove();
@@ -239,11 +319,11 @@ function stayReview({getSnapshot,getGroup=()=>null,getRows=()=>getSnapshot()?.tr
     for(const n of [list[index+1],list[index-1]]){const url=sucheLink(n?.bilder?.[0]||n?.bild);if(url){const img=new Image();img.referrerPolicy='no-referrer';img.src=url;}}
     const content=el('div',{class:'review-content',tabindex:0,'aria-label':'Unterkunft ansehen'},gallery);
     const price=t.currentOfferUnavailable?el('span',{},'Preis nicht bestätigt'):el('span',{},stayField(t,'preis',snapshot.suchauftrag),' gesamt · ',stayField(t,'nacht',snapshot.suchauftrag),' / Nacht');
-    const bedrooms=stayFieldValue(t,'schlafzimmer',snapshot.suchauftrag), m2=stayFieldValue(t,'m2',snapshot.suchauftrag), note=stayFieldValue(t,'gaestenote',snapshot.suchauftrag);
     const wohnform=sucheWohnform(t);
-    const facts=[wohnform?wohnform.text+(wohnform.grund?' – '+wohnform.grund:''):bedrooms===null?null:bedrooms+' Schlafzimmer',m2===null?null:m2+' m²',sucheZahl(note)===null?null:'★ '+Number(note).toLocaleString('de-DE',{maximumFractionDigits:1})].filter(Boolean);
+    // W98b: Schnell-Infos = die bis zu 6 „Direkt“-Angaben aus der Einstellung „Anzeige“ (gleich wie Liste und Karte)
+    const facts=[wohnform?wohnform.text+(wohnform.grund?' – '+wohnform.grund:''):null,...stayKarten().direkt.filter(k=>!(wohnform&&k==='schlafzimmer')).map(k=>stayKurz(t,k,snapshot.suchauftrag))].filter(Boolean);
     const verdict={favorit:'♥ Favorit',vielleicht:'≈ Na ja',ausgeschlossen:'× Weg'}[t.status];
-    const swipe=el('div',{class:'review-swipe'},el('div',{class:'review-title'},refreshIsNew(t,snapshot.suchauftrag.id)?el('span',{class:'pill'},'NEU'):null,verdict?el('span',{class:'review-verdict verdict-'+t.status},verdict):null,el('h3',{tabindex:-1},t.name)),el('p',{class:'review-price'},price),el('p',{class:'review-bedroom'},facts.length?facts.join(' · '):'Schlafzimmer unbekannt'));
+    const swipe=el('div',{class:'review-swipe'},el('div',{class:'review-title'},refreshIsNew(t,snapshot.suchauftrag.id)?el('span',{class:'pill'},'NEU'):null,verdict?el('span',{class:'review-verdict verdict-'+t.status},verdict):null,el('h3',{tabindex:-1},t.name)),el('p',{class:'review-price'},price),el('p',{class:'review-bedroom'},facts.length?facts.join(' · '):'Angaben noch unbekannt'));
     let point=null, swiped=false;
     swipe.addEventListener('pointerdown',e=>{if(point){point=null;return;}if(e.isPrimary===false || e.button!==0 || e.target.closest('button,a') || document.querySelector('dialog[open]'))return;point={id:e.pointerId,x:e.clientX,y:e.clientY};try{swipe.setPointerCapture?.(e.pointerId);}catch{/* Synthetic events may lack an active pointer. */}});
     swipe.addEventListener('pointercancel',()=>point=null);
@@ -283,6 +363,8 @@ function stayConfigureTable(wrapper,items,sort,onSort,trip,select) {
     identity.append(select(t));
     row.replaceChildren(identity,...fields.map(key=>el('td',{'data-label':STAY_FIELDS[key],'data-field':key},stayField(t,key,trip))),detail);
     row.nextElementSibling.cells[0].colSpan=fields.length+2;
+    // W98b: Info-Box (Details-Angaben nach Themen) immer oben in den Details – gleiche Struktur bei jeder Unterkunft
+    const content=row.nextElementSibling.querySelector('.hit-detail-content');if(content&&!content.querySelector(':scope > .stay-infobox'))content.prepend(stayInfoBox(t,trip));
   }
   return wrapper;
 }

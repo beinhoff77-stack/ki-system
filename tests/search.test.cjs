@@ -211,13 +211,13 @@ test('PWA installiert vollständige Offline-Hülle, API wird nicht gecacht', asy
   assert(cacheNames.includes('ki-system:' + origin + '/another-app/:v1'));
   assert(!cacheNames.includes('ki-system:' + origin + '/:old'));
   await page.evaluate(() => fetch('README.md'));
-  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v42')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
-  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.28.0')); assert(cached.includes('/style.css?v=0.28.0'));
-  assert(cached.includes('/stay-tools.js?v=0.28.0')); assert(cached.includes('/stay-desk.js?v=0.28.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
-  assert(cached.includes('/stay-research.js?v=0.28.0'));
-  assert(cached.includes('/stay-form.js?v=0.28.0'));
-  assert(cached.includes('/stay-details.js?v=0.28.0'));
-  assert(cached.includes('/stay-districts.js?v=0.28.0'));
+  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v43')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
+  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.29.0')); assert(cached.includes('/style.css?v=0.29.0'));
+  assert(cached.includes('/stay-tools.js?v=0.29.0')); assert(cached.includes('/stay-desk.js?v=0.29.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
+  assert(cached.includes('/stay-research.js?v=0.29.0'));
+  assert(cached.includes('/stay-form.js?v=0.29.0'));
+  assert(cached.includes('/stay-details.js?v=0.29.0'));
+  assert(cached.includes('/stay-districts.js?v=0.29.0'));
   assert(!cached.includes('/README.md'));
   assert(!cached.some((u) => u.includes('app-api')));
   await context.setOffline(true); await page.reload();
@@ -1549,7 +1549,7 @@ test('Zimmervertrag: Angebots-ID vor gleichen Namen, echte Bettentypen und verst
   await page.goto(origin+'/#/suche/2');await page.locator('[data-hit="1"]').waitFor();
   assert.equal(await page.locator('[data-hit="1"] [data-label="Schlafzimmer"]').textContent(),'2');
   // Betten are optional; select them via the actual display settings.
-  await page.goto(origin+'/#/anzeige');await page.getByLabel('Storno',{exact:true}).uncheck();await page.getByLabel('Betten/Schlafplätze',{exact:true}).check();await page.goto(origin+'/#/suche/2');
+  // W98b: Betten sind Standard-Schnell-Info (Direkt).
   assert((await page.locator('[data-hit="1"] [data-field="betten"]').textContent()).includes('2 Einzelbett'));
   await page.locator('.stay-filters > summary').click();await page.getByLabel('Bettentyp enthält',{exact:true}).fill('twin');
   assert.equal(await page.locator('[data-hit]').count(),1);
@@ -1582,10 +1582,23 @@ function reviewHandler(d) {return p=>{
 };}
 test('W71: Anzeige max 6, Reihenfolge, Reset, Persistenz und fehlende Werte',async t=>{
   const {page}=await setup(t,()=>reviewData());await page.goto(origin+'/#/anzeige');
-  assert.equal(await page.locator('.display-settings input:checked').count(),6);assert.equal(await page.getByLabel('Preis/Nacht',{exact:true}).isDisabled(),true);
-  await page.getByLabel('Storno',{exact:true}).uncheck();await page.getByLabel('Preis/Nacht',{exact:true}).check();
-  await page.getByRole('button',{name:'Preis/Nacht nach oben',exact:true}).click();
-  await page.reload();assert.equal(await page.getByLabel('Preis/Nacht',{exact:true}).isChecked(),true);
+  // W98b: drei Stufen je Angabe; höchstens 6 Direkt, Preis immer sichtbar
+  const card=page.locator('.display-settings').first();
+  assert.equal(await card.locator('[role=radio][aria-checked=true]',{hasText:'Direkt'}).count(),6);
+  assert.equal(await page.getByRole('radio',{name:'Bewertungen: Direkt',exact:true}).isDisabled(),true);
+  assert.equal(await page.getByRole('radio',{name:'Preis/Nacht: Direkt',exact:true}).count(),0);
+  await page.getByRole('radio',{name:'Storno: Details',exact:true}).click();await page.getByRole('radio',{name:'Bewertungen: Direkt',exact:true}).click();
+  await page.getByRole('radio',{name:'Viertel: Aus',exact:true}).click();
+  await page.getByRole('button',{name:'Bewertungen nach oben',exact:true}).click();
+  await page.reload();assert.equal(await page.getByRole('radio',{name:'Bewertungen: Direkt',exact:true}).getAttribute('aria-checked'),'true');
+  assert.equal(await page.getByRole('radio',{name:'Viertel: Aus',exact:true}).getAttribute('aria-checked'),'true');
+  assert.equal(await page.locator('.display-order li').nth(4).getAttribute('data-field'),'bewertungen');
+  await page.goto(origin+'/#/suche/2');await page.locator('[data-hit="1"]').waitFor();
+  assert.equal(await page.locator('[data-hit="1"] td[data-field=bewertungen]').count(),1);assert.equal(await page.locator('[data-hit="1"] td[data-field=storno]').count(),0);
+  await page.locator('[data-hit="1"] .hit-toggle').click();const box=page.locator('#hit-detail-1 .stay-infobox');
+  assert.deepEqual(await box.locator('h4').allTextContents(),['Preis & Buchung','Wohnen','Lage','Quelle']);
+  assert.equal(await box.locator('[data-field=storno]').count(),1);assert.equal(await box.locator('[data-field=viertel]').count(),0);
+  await page.goto(origin+'/#/anzeige');
   await page.getByRole('button',{name:'Standard wiederherstellen'}).click();
   await page.goto(origin+'/#/suche/2');await page.locator('[data-hit="1"]').waitFor();
   assert.equal(await page.locator('[data-hit="1"] td[data-field=m2]').textContent(),'–');
@@ -1642,11 +1655,11 @@ test('W71: unklare Urteilsantwort sperrt weitere Entscheidungen bis Aktualisieru
 });
 test('W71: gesperrter Gerätespeicher bleibt bedienbar, Reihenfolge per Ziehen',async t=>{
   const {page}=await setup(t,()=>reviewData());
-  await page.addInitScript(()=>{const read=Storage.prototype.getItem;Storage.prototype.getItem=function(k){if(k.startsWith('ks_anzeige'))throw Error('denied');return read.call(this,k);};const write=Storage.prototype.setItem;Storage.prototype.setItem=function(k,v){if(k!=='ks_token')throw Error('denied');return write.call(this,k,v);};});
-  await page.goto(origin+'/#/anzeige');await page.locator('li[data-field="storno"]').dragTo(page.locator('li[data-field="preis"]'),{sourcePosition:{x:10,y:10},targetPosition:{x:10,y:10}});
+  await page.addInitScript(()=>{const read=Storage.prototype.getItem;Storage.prototype.getItem=function(k){if(k.startsWith('ks_anzeige')||k.startsWith('ks_karten'))throw Error('denied');return read.call(this,k);};const write=Storage.prototype.setItem;Storage.prototype.setItem=function(k,v){if(k!=='ks_token')throw Error('denied');return write.call(this,k,v);};});
+  await page.goto(origin+'/#/anzeige');await page.locator('li[data-field="storno"]').dragTo(page.locator('li[data-field="schlafzimmer"]'),{sourcePosition:{x:10,y:10},targetPosition:{x:10,y:10}});
   assert.equal(await page.locator('.display-order li').first().getAttribute('data-field'),'storno');
   await page.getByText('Gerätespeicher nicht verfügbar.',{exact:false}).waitFor();
-  await page.goto(origin+'/#/suche/2');await page.locator('[data-hit="1"]').waitFor();assert.equal(await page.locator('[data-hit="1"] td[data-field]').first().getAttribute('data-field'),'storno');
+  await page.goto(origin+'/#/suche/2');await page.locator('[data-hit="1"]').waitFor();assert.deepEqual(await page.locator('[data-hit="1"] td[data-field]').evaluateAll(ns=>ns.slice(0,3).map(n=>n.dataset.field)),['preis','nacht','storno']); // W98b: Preis immer vorn
 });
 test('W71: verspätete Leseantwort verliert kein Urteil; Endrunde bleibt erreichbar',async t=>{
   const d=reviewData();let readCount=0,releaseRead;
@@ -1915,12 +1928,12 @@ test('W80: Stornodatum ohne Uhrzeit und kalendarische Daten sind zeitzonenstabil
 });
 test('W80: Durchsehen eigene vier Zusatzinfos, Warnungen und keine Urteile durch Abbruch/Multitouch',async t=>{
  const d=reviewData();d.treffer[1].bewertung.warnungen=['futon','steuern_unklar'];const {page,calls}=await setup(t,reviewHandler(d),{width:390,height:844});
- await page.goto(origin+'/#/anzeige');for(const label of ['Storno','Bewertungen'])await page.getByLabel('Durchsehen: '+label,{exact:true}).check();assert(await page.getByLabel('Durchsehen: Quelle',{exact:true}).isDisabled());await page.reload();assert.equal(await page.locator('input[aria-label^="Durchsehen:"]:checked').count(),4);
+ await page.goto(origin+'/#/anzeige');await page.getByRole('radio',{name:'Gehzeit zur Station: Details',exact:true}).click();await page.getByRole('radio',{name:'Bewertungen: Direkt',exact:true}).click();assert(await page.getByRole('radio',{name:'Quelle: Direkt',exact:true}).isDisabled());
  await page.goto(origin+'/#/suche/2');await page.getByRole('button',{name:'Durchsehen',exact:true}).click();await page.locator('.review-warning').waitFor();assert.equal(await page.locator('.review-card .review-info').count(),0);
  const a=page.locator('.review-swipe'),before=calls.filter(p=>p.aktion==='unterkunft_durchsehen_urteil').length;
  for(const mode of ['cancel','multi','vertical','short']){await a.dispatchEvent('pointerdown',{pointerId:1,isPrimary:true,button:0,clientX:100,clientY:200});if(mode==='cancel')await a.dispatchEvent('pointercancel',{pointerId:1});if(mode==='multi')await a.dispatchEvent('pointerdown',{pointerId:2,isPrimary:false,button:0,clientX:120,clientY:200});await a.dispatchEvent('pointerup',{pointerId:1,isPrimary:true,pointerType:'touch',button:0,clientX:mode==='vertical'?100:mode==='short'?120:250,clientY:mode==='vertical'?80:200});}
  assert.equal(calls.filter(p=>p.aktion==='unterkunft_durchsehen_urteil').length,before);
- await page.locator('.review-content').evaluate(n=>n.style.fontSize='200%');assert(await page.getByRole('button',{name:'Favorit',exact:true}).isVisible());await page.getByRole('button',{name:'Details',exact:true}).click();await page.getByRole('dialog').waitFor();assert.equal(await page.locator('dialog .review-info [data-field]').count(),7);
+ await page.locator('.review-content').evaluate(n=>n.style.fontSize='200%');assert(await page.getByRole('button',{name:'Favorit',exact:true}).isVisible());await page.getByRole('button',{name:'Details',exact:true}).click();await page.getByRole('dialog').waitFor();assert.equal(await page.locator('dialog .review-schnell [data-field]').count(),8);assert((await page.locator('.review-bedroom').textContent()).includes('Bewertungen'));assert.deepEqual(await page.locator('dialog .stay-infobox h4').allTextContents(),['Preis & Buchung','Wohnen','Lage','Quelle']);
 });
 test('W80: Vorschlag verwerfen verspricht keinen Papierkorb, neue Reise braucht bestätigte ID',async t=>{
  const data=stage2Data();const {page,calls}=await setup(t,p=>p.aktion==='unterkunft_etappen_lesen'?data:p.aktion==='unterkunft_etappe_loeschen'?{vorschau:true,folgen:{status:'vorschlag',ziel:'Osaka',suchen:[],hinweis:'Suchen bleiben erhalten'}}:{});
@@ -2445,4 +2458,17 @@ test('19.10.: Score aus – keine Passung, kein Rang, keine Reiseart; Sortierung
   assert.equal(await page.getByLabel('Nebenart', { exact: true }).count(), 0, 'keine Nebenart');
   assert.equal(await page.getByLabel('Reiseart', { exact: true }).count(), 0, 'keine Reiseart');
   assert.equal(await page.locator('select[aria-label^="Bedeutung: Balkon"] option[value="wunsch"]').count(), 0, 'kein Wunsch-Modus');
+});
+
+test('W98b: Tabellen-Spalten in der Einstellung „Anzeige“ gelten auch für die Rechner-Tabelle', async t => {
+  const {page}=await setup(t,()=>result(),{width:1440,height:1000,tabelle:true});
+  await page.goto(origin+'/#/anzeige');await page.getByRole('heading',{name:'Tabelle (Rechner)',exact:true}).waitFor();
+  await page.getByLabel('Tabelle: Gesamt',{exact:true}).uncheck();await page.getByLabel('Tabelle: Viertel',{exact:true}).check();
+  await page.getByRole('button',{name:'Tabelle: Viertel nach vorne',exact:true}).click();
+  await page.goto(origin+'/#/suche/2');await page.locator('.desk-table [data-hit="1"]').waitFor();
+  assert.equal(await page.locator('.desk-table [data-hit="1"] td[data-field=preis]').count(),0);
+  const felder=await page.locator('.desk-table [data-hit="1"] td[data-field]').evaluateAll(ns=>ns.map(n=>n.dataset.field));
+  assert.equal(felder.at(-2),'viertel');assert.equal(felder.at(-1),'notiz');
+  await page.goto(origin+'/#/anzeige');await page.getByRole('button',{name:'Tabelle: Standard',exact:true}).click();
+  await page.goto(origin+'/#/suche/2');await page.locator('.desk-table [data-hit="1"] td[data-field=preis]').waitFor();
 });

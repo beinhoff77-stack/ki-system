@@ -1297,3 +1297,31 @@ body:has(.tinder-mode) main.view{padding:8px 10px;}
 .desk-urteile button.desk-u-favorit[aria-pressed="true"] { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
 .desk-urteile button.desk-u-vielleicht[aria-pressed="true"] { background: #b07a12; color: #fff; border-color: #b07a12; }
 .desk-urteile button.desk-u-weg[aria-pressed="true"] { background: var(--err); color: #fff; border-color: var(--err); }
+
+/* W98b: Anzeige mit drei Stufen + Info-Box nach Themen */
+.display-thema { border: 1px solid var(--border); border-radius: 12px; padding: 8px 10px; margin: 10px 0; }
+.display-thema legend { font-weight: 700; padding: 0 4px; }
+.display-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 4px 0; border-top: 1px solid var(--surface-muted); }
+.display-row:first-of-type { border-top: 0; }
+.display-stufen { display: inline-grid; grid-template-columns: repeat(3, minmax(64px, auto)); gap: 3px; background: var(--surface-muted); border-radius: 9px; padding: 3px; }
+.display-stufen button { min-height: 36px; padding: 0 8px; border: 0; border-radius: 7px; background: transparent; color: var(--text-muted); font-size: 13px; font-weight: 600; }
+.display-stufen button[aria-checked="true"] { background: var(--surface); color: var(--text); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+.display-stufen button:disabled { opacity: .4; }
+.stay-infobox { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(210px, 100%), 1fr)); gap: 8px; margin: 8px 0; }
+.infobox-thema { border: 1px solid var(--border); border-radius: 10px; padding: 6px 10px; background: var(--surface); }
+.infobox-thema h4 { margin: 0 0 4px; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: var(--text-muted); }
+.infobox-thema dl { margin: 0; }
+.infobox-thema dl > div { display: flex; justify-content: space-between; gap: 10px; padding: 2px 0; font-size: 13px; border-top: 1px dashed var(--surface-muted); }
+.infobox-thema dl > div:first-child { border-top: 0; }
+.infobox-thema dt { color: var(--text-muted); }
+.infobox-thema dd { margin: 0; text-align: right; font-weight: 600; }
+.infobox-thema .is-unbekannt dd { color: var(--warn); font-weight: 500; }
+.review-schnell { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(140px, 100%), 1fr)); gap: 6px; margin: 0 0 8px; }
+.display-row > span { flex: 1; min-width: 0; font-size: 14px; }
+@media (max-width: 480px) { .display-stufen { grid-template-columns: repeat(3, 54px); } .display-stufen button { padding: 0 2px; font-size: 12px; } }
+.display-tabelle .display-order li { display: flex; align-items: center; gap: 6px; padding: 2px 0; min-height: 0; }
+.display-tabelle .display-order li label { flex: 1; display: flex; align-items: center; gap: 8px; }
+.display-tabelle .display-order li button { min-height: 32px; min-width: 36px; padding: 0; }
+.display-tabelle .display-options { display: flex; flex-wrap: wrap; gap: 4px 14px; }
+.display-tabelle .display-order li { padding: 0 0 0 4px; border: 0; background: none; }
+.display-tabelle .display-order { gap: 0; }

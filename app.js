@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.28.0';
+const APP_VERSION = '0.29.0';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -1230,6 +1230,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     const rows = snapshot.treffer.filter(t => [t.name, t.quelle, SUCHE_QUELLEN[t.quelle], t.angebot?.anbieter,
       ...(Array.isArray(t.weitere_angebote) ? t.weitere_angebote.flatMap(a => [a?.anbieter, a?.quelle, SUCHE_QUELLEN[a?.quelle]]) : [])].some(value => String(value || '').toLocaleLowerCase('de').includes(needle)) && sucheFilterTreffer(t, filters.value()));
     filteredRows = rows;
+    stayVergleichFn = stayVergleich(snapshot.treffer, a); // W98b: Preis ggü. gleicher Art für Karten und Info-Box
     try { if (!favoritesOnly) sessionStorage.setItem('ks_suche_view:' + id, JSON.stringify({ needle: filter.value, filters: filters.value(), sort, pageSize: Number(pageSize.value), map: showMap, view: resultView })); } catch { /* Ansicht bleibt in diesem geöffneten Lauf erhalten. */ }
     tableButton.setAttribute('aria-pressed', String(!showMap && resultView === 'table'));
     listButton.setAttribute('aria-pressed', String(!showMap && resultView === 'list'));

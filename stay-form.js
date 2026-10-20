@@ -402,7 +402,11 @@ function sucheSchnellLayout({ form, fields, sections, extended, submit, call, li
   const budgetNacht = !SUCHE_SCORE_AN && gesamtFeld ? sucheBudgetNacht(form, gesamtFeld) : null;
   if (budgetNacht) gesamtFeld.closest('label').before(budgetNacht.node);
   const maske = !SUCHE_SCORE_AN && extended.kriterien ? sucheMaske({ form, extended }) : null;
-  const quick = el('section', { class: 'card quick-search' }, el('h2', {}, 'Unterkunft suchen'), label('ziel'), when, nights, band.node, wohnen.node, who, whoPanel, maske ? maske.node : null, submit, el('p', { class: 'quick-meta small' }, tripLine));
+  // W101: Viertel vorab ansehen – direkt unter „Wo?“ (bisher nur versteckt unter Mehr Optionen)
+  const viertelLink = el('button', { type: 'button', class: 'link-button viertel-link', hidden: true, onclick: () => { const z = form.querySelector('[name="ziel"]')?.value.trim(); if (z) route('viertel', '?' + new URLSearchParams({ stadt: z })); } }, '📍 Wo wohnen? Viertel ansehen');
+  form.addEventListener('input', e => { if (e.target?.name === 'ziel') viertelLink.hidden = (e.target.value || '').trim().length < 2; });
+  const zielLabel = el('div', { class: 'mit-viertel' }, label('ziel'), viertelLink);
+  const quick = el('section', { class: 'card quick-search' }, el('h2', {}, 'Unterkunft suchen'), zielLabel, when, nights, band.node, wohnen.node, who, whoPanel, maske ? maske.node : null, submit, el('p', { class: 'quick-meta small' }, tripLine));
   const more = el('details', { class: 'card more-options' }, el('summary', {}, 'Mehr Optionen'), el('p', { class: 'small muted' }, (SUCHE_SCORE_AN ? 'Reiseart, Unterkunftsform, ' : '') + 'Qualität, Filter, Quellen und Suchkosten. Die Standardwerte passen für die meisten Suchen.'));
   const tripNode = fields.querySelector('.trip-choice');
   if (tripNode) more.append(tripNode);

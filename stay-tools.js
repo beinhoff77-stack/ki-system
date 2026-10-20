@@ -80,7 +80,7 @@ function sucheAngebotsKategorie(t) {
 function sucheZimmerKurz(t) {
   const k=sucheAngebotsKategorie(t);
   const category=k?.konflikt === true ? null : k;
-  const types=[category?.betten_art, category?.betten_text].find(v => typeof v === 'string' && v.trim());
+  const types=[category?.betten_art, t?.quelle==='rakuten_travel'?null:category?.betten_text].find(v => typeof v === 'string' && v.trim()); // W101: bei Rakuten ist betten_text der Zimmer-/Planname
   return {m2:sucheZahl(category?.m2),schlafzimmer:sucheZahl(category?.schlafzimmer),anzahl:sucheZahl(category?.betten_anzahl),typen:typeof types === 'string' && types.trim() ? types : Array.isArray(types) && types.every(v => typeof v === 'string') && types.length ? types.join(', ') : null};
 }
 function sucheZimmerDetails(t) {

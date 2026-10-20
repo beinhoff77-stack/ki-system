@@ -1419,3 +1419,5 @@ body:has(.tinder-mode) main.view{padding:8px 10px;}
   .maske-an .mk-row:not(.is-on) .mk-wirkung { display: none; }
   .maske-an .mk-row.is-on { flex-basis: 100%; }
 }
+.mit-viertel { position: relative; }
+.viertel-link { position: absolute; right: 0; top: 0; font-size: 13px; font-weight: 700; padding: 0; }

@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.31.0';
+const APP_VERSION = '0.32.0';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -194,7 +194,14 @@ function setChrome(title, { back = false, showTabs = true, tab = null } = {}) {
     if (b.dataset.view === tab) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current');
   }
 }
-$('#btn-back').addEventListener('click', () => (history.length > 1 ? history.back() : route('start')));
+// W101: Zurück nur innerhalb der App. Wurde die Seite direkt geöffnet (Link, Mitteilung, neu geladen), führt Zurück eine Ebene höher statt aus der App.
+let appNavigationen = 0;
+window.addEventListener('hashchange', () => { appNavigationen++; });
+$('#btn-back').addEventListener('click', () => {
+  if (appNavigationen > 0) { appNavigationen = Math.max(0, appNavigationen - 2); history.back(); return; }
+  const h = location.hash.replace(/^#\/?/, '');
+  route(/^(suche\/.+|anzeige|viertel)/.test(h) ? 'suche' : 'start');
+});
 tabs.addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) route(b.dataset.view); });
 
 function loading(text = 'Lade …') { main.replaceChildren(el('div', { class: 'spinner' }, text)); }

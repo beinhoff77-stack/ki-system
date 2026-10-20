@@ -211,13 +211,13 @@ test('PWA installiert vollständige Offline-Hülle, API wird nicht gecacht', asy
   assert(cacheNames.includes('ki-system:' + origin + '/another-app/:v1'));
   assert(!cacheNames.includes('ki-system:' + origin + '/:old'));
   await page.evaluate(() => fetch('README.md'));
-  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v43')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
-  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.29.0')); assert(cached.includes('/style.css?v=0.29.0'));
-  assert(cached.includes('/stay-tools.js?v=0.29.0')); assert(cached.includes('/stay-desk.js?v=0.29.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
-  assert(cached.includes('/stay-research.js?v=0.29.0'));
-  assert(cached.includes('/stay-form.js?v=0.29.0'));
-  assert(cached.includes('/stay-details.js?v=0.29.0'));
-  assert(cached.includes('/stay-districts.js?v=0.29.0'));
+  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v44')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
+  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.30.0')); assert(cached.includes('/style.css?v=0.30.0'));
+  assert(cached.includes('/stay-tools.js?v=0.30.0')); assert(cached.includes('/stay-desk.js?v=0.30.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
+  assert(cached.includes('/stay-research.js?v=0.30.0'));
+  assert(cached.includes('/stay-form.js?v=0.30.0'));
+  assert(cached.includes('/stay-details.js?v=0.30.0'));
+  assert(cached.includes('/stay-districts.js?v=0.30.0'));
   assert(!cached.includes('/README.md'));
   assert(!cached.some((u) => u.includes('app-api')));
   await context.setOffline(true); await page.reload();
@@ -2285,7 +2285,7 @@ test('W91: freie Fotofläche, Tippen und Wischen blättern ohne Urteil; Details 
   await page.setViewportSize(viewport);
   const g=await gallery.boundingBox(),info=await page.locator('.review-swipe').boundingBox(),header=await page.locator('.review-overlay-header').boundingBox(),bar=await page.locator('.review-actions').boundingBox();
   assert(g.height>=viewport.height*.43,'Photo must occupy a substantial screen area');
-  assert(info.y>=g.y+g.height-1,'Information must not cover photo');assert(header.y+header.height<=g.y+1,'Header must not cover photo');
+  assert(viewport.width>=1100?info.x>=g.x+g.width-1:info.y>=g.y+g.height-1,'Information must not cover photo'); // W98c: am Rechner rechts neben dem Fotoassert(header.y+header.height<=g.y+1,'Header must not cover photo');
   assert(bar.y+bar.height<=viewport.height-65,'Voting controls remain above navigation');
   assert.equal(await gallery.locator('img').evaluate(img=>getComputedStyle(img).opacity),'1');
   assert.equal(await page.locator('.review-backdrop').count(),0);
@@ -2471,4 +2471,29 @@ test('W98b: Tabellen-Spalten in der Einstellung „Anzeige“ gelten auch für d
   assert.equal(felder.at(-2),'viertel');assert.equal(felder.at(-1),'notiz');
   await page.goto(origin+'/#/anzeige');await page.getByRole('button',{name:'Tabelle: Standard',exact:true}).click();
   await page.goto(origin+'/#/suche/2');await page.locator('.desk-table [data-hit="1"] td[data-field=preis]').waitFor();
+});
+
+test('W98c: Score aus – Liste mit Urteils-Chips, Na ja, Preiszeile', async (t) => {
+  const data = result(); data.treffer[1].status = 'favorit'; data.treffer[2].status = 'ausgeschlossen';
+  const calls = [];
+  const { page } = await setup(t, p => { calls.push(p); return p.aktion === 'unterkunft_auswahl_setzen' ? { ok: true, status: p.daten.status } : p.daten?.suchauftrag_id ? data : { suchauftraege: [] }; }, { ohneScore: true });
+  await page.goto(origin + '/#/suche/2');
+  const chips = page.locator('.urteil-chips'); await chips.waitFor();
+  assert.equal(await chips.getByRole('button', { name: /^Alle ohne Raus/ }).getAttribute('aria-pressed'), 'true');
+  assert.equal(await page.locator('[data-group=A] tr[data-hit="3"]').count(), 0, 'Raus standardmäßig versteckt');
+  await chips.getByRole('button', { name: /^Alles inkl\. Raus/ }).click();
+  await page.locator('[data-group=A] tr[data-hit="3"]').waitFor();
+  await chips.getByRole('button', { name: /^★ Favoriten 1$/ }).waitFor();
+  await page.getByRole('button', { name: /^Alle ohne Raus/ }).click();
+  // nur Favoriten: Offen und Na ja abwählen
+  await page.locator('.urteil-chips').getByRole('button', { name: /^Offen \d+$/ }).click();
+  await page.locator('.urteil-chips').getByRole('button', { name: /^~ Na ja \d+$/ }).click();
+  await page.waitForFunction(() => document.querySelectorAll('[data-group=A] tr[data-hit]').length === 1);
+  assert.equal(await page.locator('[data-group=A] tr[data-hit="2"]').count(), 1);
+  await page.getByRole('button', { name: /^Alle ohne Raus/ }).click();
+  const row = page.locator('[data-group=A] tr[data-hit="1"]'); await row.waitFor();
+  assert.match(await row.locator('td[data-field=preis]').innerText(), /gesamt[\s\S]*Ø[\s\S]*Nacht/);
+  assert.equal(await row.locator('td[data-field=nacht]').count(), 0, 'eine Preiszeile');
+  assert.ok(await row.locator('.sel-maybe').count() === 1, 'Na-ja-Knopf in der Liste');
+  assert.ok(await page.locator('.liste-kompakt').count() === 1);
 });

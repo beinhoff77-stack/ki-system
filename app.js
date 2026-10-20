@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.29.0';
+const APP_VERSION = '0.30.0';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -1095,7 +1095,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   const listButton = el('button', { type: 'button', onclick: () => { setResultView('list'); } }, 'Liste');
   const tinderButton = el('button',{type:'button',onclick:()=>setResultView('tinder')},'Durchsehen');
   const mapButton = el('button', { type: 'button', onclick: () => { showMap = true; draw(); window.scrollTo(0,0); } }, 'Karte');
-  const viewButtons = el('div', { class: 'actions result-view-switch', hidden: true, role: 'group', 'aria-label': 'Ergebnisansicht' }, tinderButton, listButton, tableButton, mapButton, el('a',{href:'#/anzeige'},'Anzeige'));
+  const viewButtons = el('div', { class: 'actions result-view-switch', hidden: true, role: 'group', 'aria-label': 'Ergebnisansicht' }, tinderButton, listButton, tableButton, mapButton, el('a',{href:'#/anzeige',class:'anzeige-link','aria-label':'Anzeige einstellen',title:'Anzeige einstellen'},'⚙ Anzeige'));
   const undoSelection = el('button', { type: 'button', hidden: true, onclick: () => selectionStates.get(lastSelection)?.undoAction() }, 'Letzte Auswahl rückgängig');
   const research = sucheLuecken(id, call, live);
   review = stayReview({getSnapshot:()=>snapshot,getRows:()=>filteredRows,getGroup:()=>filters.value().favoriten?'favorit':(['favorit','vielleicht','ausgeschlossen'].includes(filters.value().urteil)?filters.value().urteil:null),call,live,scope,onClose:t=>{setResultView('list');if(t)requestAnimationFrame(()=>showHit(t));},menuItems:()=>[viewButtons,runBar],onRefresh:()=>refresh.click(),isBlocked:()=>[...selectionStates.values()].some(s=>s.refreshRequired||s.pending),changed:t=>{const current=snapshot?.treffer.find(x=>x.treffer_id===t.treffer_id);if(current && current!==t)Object.assign(current,{status:t.status,urteil_gruende:t.urteil_gruende,urteil_uebernommen:t.urteil_uebernommen});selectionStates.delete(t.treffer_id);draw();}});
@@ -1246,13 +1246,19 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     // W98: Tabelle am Rechner – eine kompakte Tabelle über alle Treffer, Markieren und Massenbewertung, Gründe/Notiz.
     if(resultView==='table' && !showMap){resultLinks.replaceChildren();research.update(snapshot.treffer);
       results.append(stayDeskTable({rows,trip:a,call,live,scope,onChanged:()=>{if(live())draw();},openDetail:t=>{const dialog=sucheKandidat(t,phase.final,id);scope.append(dialog);dialog.addEventListener('close',()=>dialog.remove());dialog.showModal();}}));return;}
-    const groups = [
+    // W98c: Ohne eigenen Score eine Liste mit Urteils-Chips (★ / ~ / offen / ✕), gemeinsam für Liste und Karte
+    const kompakt=!SUCHE_SCORE_AN; results.classList.toggle('liste-kompakt',kompakt);
+    const rowsUrteil=kompakt?rows.filter(t=>stayUrteilFilter().has(stayUrteilKey(t))):rows;
+    const groups = kompakt ? [
+      ['A', 'Unterkünfte', rowsUrteil.filter(t=>t.topf!=='ausgeschlossen'||STAY_STATUS_URTEIL[t.status])],
+      ['ausgeschlossen', 'Von der Suche aussortiert', rows.filter(t=>t.topf==='ausgeschlossen'&&!STAY_STATUS_URTEIL[t.status])],
+    ] : [
       ['A', phase.final ? 'Passende Treffer' : 'Passende Treffer – vorläufig', rows.filter((t) => sucheGruppe(t) === 'A')],
       ['B', 'Angaben offen', rows.filter((t) => sucheGruppe(t) === 'B')],
       ['offen', 'Weitere Treffer – noch nicht vollständig bewertet', rows.filter((t) => sucheGruppe(t) === 'offen')],
       ['ausgeschlossen', 'Ausgeschlossene Treffer', rows.filter((t) => sucheGruppe(t) === 'ausgeschlossen')],
     ];
-    resultLinks.replaceChildren(...groups.filter(([key,,items]) => ['offen','ausgeschlossen'].includes(key) && items.length).map(([key,,items]) => el('button', { type: 'button', onclick: () => {
+    if(kompakt)resultLinks.replaceChildren(stayUrteilChips(rows,()=>{pages.clear();draw();})); else resultLinks.replaceChildren(...groups.filter(([key,,items]) => ['offen','ausgeschlossen'].includes(key) && items.length).map(([key,,items]) => el('button', { type: 'button', onclick: () => {
       showMap = false; draw(); const section = results.querySelector(`[data-group="${key}"]`);
       if (section) { if (key === 'ausgeschlossen') section.open = true; section.firstElementChild.focus(); section.scrollIntoView({ block: 'start' }); }
     } }, key === 'offen' ? `Unbewertete (${items.length})` : `Ausgeschlossene (${items.length}) nach Grund`)));
@@ -1296,7 +1302,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       section.dataset.group = key; results.append(section);
       if (key === 'ausgeschlossen') section.dataset.detail = 'ausgeschlossen';
     }
-    if(showMap){if(!mapView)mapView=sucheKarte(mapPanel,showHit,t=>el('div',{'data-result-view':'list'},stayConfigureTable(sucheTabelle([t],sort,()=>{},phase.final, t=>sucheRueckmeldung(t,feedbackStates,call,live),()=>null,id,'map-'),[t],sort,()=>{},a,resultSelection)));mapView.update(rows,snapshot.karte);}
+    if(showMap){if(!mapView)mapView=sucheKarte(mapPanel,showHit,t=>el('div',{'data-result-view':'list'},stayConfigureTable(sucheTabelle([t],sort,()=>{},phase.final, t=>sucheRueckmeldung(t,feedbackStates,call,live),()=>null,id,'map-'),[t],sort,()=>{},a,resultSelection)));mapView.update(kompakt?rowsUrteil.filter(t=>t.topf!=='ausgeschlossen'||STAY_STATUS_URTEIL[t.status]):rows,snapshot.karte);}
     results.querySelectorAll('details[data-detail]').forEach((n) => {
       n.open = openDetails.has(n.dataset.detail);
       // Synchronize the row and disclosure button before the deferred native toggle event.
@@ -1346,7 +1352,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     if(reviewWasPending || review.pending || reviewAtRead!==review.revision) {
       for(const t of data.treffer){const old=snapshot?.treffer.find(x=>x.treffer_id===t.treffer_id);if(old){t.status=old.status;t.urteil_gruende=old.urteil_gruende;t.urteil_uebernommen=old.urteil_uebernommen;}}
     } else review.refreshed();
-    data.treffer.forEach(t=>{t._trip=data.suchauftrag;});
+    data.treffer.forEach(t=>{t._trip=data.suchauftrag;if(typeof t.name==='string')t.name=t.name.normalize('NFKC').replace(/\s+/g,' ').trim();if(t.angebot&&typeof t.angebot.kategorie_name==='string')t.angebot.kategorie_name=t.angebot.kategorie_name.normalize('NFKC');}); // W98c: Breitschrift (ＡＢＣ) lesbar
     snapshot = data; snapshotStatus = r; draw();
     void research.load();
   }

@@ -1325,3 +1325,65 @@ body:has(.tinder-mode) main.view{padding:8px 10px;}
 .display-tabelle .display-options { display: flex; flex-wrap: wrap; gap: 4px 14px; }
 .display-tabelle .display-order li { padding: 0 0 0 4px; border: 0; background: none; }
 .display-tabelle .display-order { gap: 0; }
+
+/* W98c: Urteils-Filter (Liste + Karte), Na ja, Preiszeile, kompakte Liste */
+.urteil-chips { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 4px 0 8px; }
+.urteil-chip { min-height: 34px; padding: 0 12px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 13px; font-weight: 600; }
+.urteil-chip[aria-pressed="true"] { background: var(--text); color: var(--surface); border-color: var(--text); }
+.urteil-chip.uc-favorit[aria-pressed="true"] { background: var(--fav); border-color: var(--fav); color: #fff; }
+.urteil-chip.uc-vielleicht[aria-pressed="true"] { background: var(--maybe-solid); border-color: var(--maybe-solid); color: #2b2100; }
+.urteil-chip.uc-raus[aria-pressed="true"] { background: var(--out); border-color: var(--out); color: #fff; }
+.uc-trenner { width: 1px; height: 22px; background: var(--border); margin: 0 2px; }
+.stay-selection button.sel-maybe[aria-pressed="true"] { background: var(--maybe-solid); color: #2b2100; border-color: var(--maybe-solid); }
+.anzeige-link { font-size: 13px; font-weight: 600; }
+.preis-zeile strong { font-size: 15px; }
+.preis-zeile small { display: inline !important; font-size: 13px !important; }
+[data-result-view="list"].liste-kompakt .compact-results caption > :not(.urteil-chips) { display: none; }
+[data-result-view="list"].liste-kompakt .compact-results tr[data-hit] { gap: 6px 10px; padding: 12px; border: 1px solid var(--border); border-radius: 12px; background: var(--surface); margin: 0 0 10px; }
+[data-result-view="list"].liste-kompakt .compact-results tr[data-hit] { grid-template-columns: repeat(3, minmax(0,1fr)); }
+[data-result-view="list"].liste-kompakt .compact-results tr[data-hit] > td[data-field] { display: block; font-size: 13px; }
+[data-result-view="list"].liste-kompakt .compact-results tr[data-hit] > td[data-field]::before { font-size: 11px; }
+[data-result-view="list"].liste-kompakt .compact-results tr[data-hit] > td:first-child,
+[data-result-view="list"].liste-kompakt .compact-results tr[data-hit] > td[data-field="preis"],
+[data-result-view="list"].liste-kompakt .compact-results tr[data-hit] > td:last-child { grid-column: 1 / -1; grid-row: auto; }
+[data-result-view="list"].liste-kompakt .compact-results .hit-identity { display: grid; grid-template-columns: 96px minmax(0,1fr); gap: 10px; flex-direction: row; }
+[data-result-view="list"].liste-kompakt .compact-results .stay-photo,
+[data-result-view="list"].liste-kompakt .compact-results .stay-photo img,
+[data-result-view="list"].liste-kompakt .compact-results .photo-missing { width: 96px; height: 72px; border-radius: 8px; }
+@media (min-width: 1000px) {
+  [data-result-view="list"].liste-kompakt .compact-results tbody { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 10px; align-items: start; }
+  [data-result-view="list"].liste-kompakt .compact-results tr[data-hit] { margin: 0; }
+  [data-result-view="list"].liste-kompakt .compact-results tr.hit-detail-row { grid-column: 1 / -1; }
+}
+.stay-pin.pin-preis span { display: inline-flex; align-items: center; justify-content: center; min-width: 52px; height: 26px; padding: 0 6px; border-radius: 13px; background: #fff; color: #172437; border: 2px solid #172437; font-size: 12px; font-weight: 800; box-shadow: 0 1px 4px rgba(0,0,0,.3); white-space: nowrap; }
+.stay-pin.pin-preis.u-favorit span { background: var(--fav); border-color: var(--fav); color: #fff; }
+.stay-pin.pin-preis.u-vielleicht span { background: var(--maybe-solid); border-color: var(--maybe-solid); color: #2b2100; }
+.stay-pin.pin-preis.u-raus span { background: var(--out); border-color: var(--out); color: #fff; opacity: .85; }
+.map-schnell { list-style: none; margin: 4px 0; padding: 0; font-size: 13px; }
+.map-schnell li > span:first-child { color: var(--text-muted); }
+.map-schnell small { display: inline !important; }
+.suche:not(.tinder-mode)>.result-jumps .urteil-chip{min-height:34px;padding:0 12px;border:1px solid var(--border);border-radius:999px;background:var(--surface);color:var(--text);text-decoration:none;font-size:13px;font-weight:600}
+.suche:not(.tinder-mode)>.result-jumps .urteil-chip[aria-pressed="true"]{background:var(--text);color:var(--surface);border-color:var(--text)}
+.suche:not(.tinder-mode)>.result-jumps .urteil-chip.uc-favorit[aria-pressed="true"]{background:var(--fav);border-color:var(--fav);color:#fff}
+.suche:not(.tinder-mode)>.result-jumps .urteil-chip.uc-vielleicht[aria-pressed="true"]{background:var(--maybe-solid);border-color:var(--maybe-solid);color:#2b2100}
+.suche:not(.tinder-mode)>.result-jumps .urteil-chip.uc-raus[aria-pressed="true"]{background:var(--out);border-color:var(--out);color:#fff}
+/* W98c D1: Durchsehen am Rechner zweispaltig – Foto links, Angaben + Knöpfe rechts */
+@media (min-width: 1100px) {
+  .tinder-mode, .tinder-mode .stay-review { max-width: 1180px; }
+  .photo-first .review-content { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(300px, 1fr); grid-template-rows: auto auto 1fr; align-content: start; }
+  .photo-first .review-content > .stay-gallery { grid-column: 1; grid-row: 1 / span 4; min-height: 440px; height: 100% !important; }
+  .photo-first .review-content > :not(.stay-gallery) { grid-column: 2; }
+  .photo-first .review-swipe { padding: 18px 18px 6px !important; }
+  .photo-first .review-swipe h3 { font-size: 22px; }
+  .photo-first .review-price { font-size: 16px; }
+  .photo-first .review-bedroom { font-size: 14px; line-height: 1.5; }
+  .photo-first .review-warning { white-space: normal; font-size: 12px; }
+  .photo-first .review-links { padding: 0 18px !important; }
+}
+.review-desk-info { display: none; }
+@media (min-width: 1100px) { .photo-first .review-content > .review-desk-info { display: block; padding: 8px 18px 12px; overflow: auto; } .review-desk-info .stay-infobox { grid-template-columns: 1fr; } }
+.review-desk-info .stay-infobox { display: flex !important; flex-direction: column; gap: 8px; }
+.review-desk-info .infobox-thema dl > div { display: flex !important; }
+.review-desk-info .infobox-thema dt { font-size: 12px; flex: 0 0 auto; max-width: 55%; }
+.review-desk-info .infobox-thema dd { font-size: 13px; }
+.candidate-mehr { margin: 14px 0; border-top: 1px solid var(--border); padding-top: 8px; } .candidate-mehr > summary { cursor: pointer; font-weight: 600; min-height: 40px; display: flex; align-items: center; }

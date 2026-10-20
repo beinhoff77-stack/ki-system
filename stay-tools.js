@@ -18,6 +18,7 @@ function sucheAuswahl(t, states, call, live, changed) {
   const status = el('p', { class: 'small', role: 'status' });
   const favorite = el('button', { type: 'button', class: 'sel-fav', onclick: () => save(state.saved === 'favorit' ? 'aktiv' : 'favorit') });
   const exclude = el('button', { type: 'button', class: 'sel-out', onclick: () => save(state.saved === 'ausgeschlossen' ? 'aktiv' : 'ausgeschlossen') });
+  const maybe = el('button', { type: 'button', class: 'sel-maybe', onclick: () => save(state.saved === 'vielleicht' ? 'aktiv' : 'vielleicht') }); // W98c: dritte Option „Na ja“
   const undo = el('button', { type: 'button', onclick: () => save(state.undo, true) }, 'Rückgängig');
   async function save(next, isUndo = false) {
     if (state.pending || state.refreshRequired || !['aktiv', 'favorit', 'vielleicht', 'ausgeschlossen'].includes(next)) return;
@@ -29,7 +30,7 @@ function sucheAuswahl(t, states, call, live, changed) {
       if (!live()) return;
       if (r.ok !== true || r.status !== next || r.urteil !== urteil || r.treffer_id !== t.treffer_id) throw new Error('Die Änderung wurde nicht eindeutig bestätigt.');
       state.saved = next; state.undo = isUndo ? null : previous;
-      state.message = next === 'favorit' ? 'Als Favorit gespeichert.' : next === 'ausgeschlossen' ? 'Von dir als „Weg“ markiert.' : 'Wieder aktiv.';
+      state.message = next === 'favorit' ? 'Als Favorit gespeichert.' : next === 'ausgeschlossen' ? 'Von dir als „Weg“ markiert.' : next === 'vielleicht' ? 'Als „Na ja“ gemerkt.' : 'Wieder aktiv.';
       t.status = next; if(next==='aktiv')t.urteil_uebernommen=null;
     } catch (e) { if (live()) { state.refreshRequired = true; state.message = 'Speichern nicht bestätigt: ' + e.message + ' Bitte zuerst aktualisieren.'; } }
     finally { state.pending = false; state.revision++; if (live()) changed(t, state); }
@@ -41,12 +42,15 @@ function sucheAuswahl(t, states, call, live, changed) {
     favorite.disabled = state.pending || state.refreshRequired || state.saved === 'ausgeschlossen' || blocked;
     exclude.textContent = state.saved === 'ausgeschlossen' ? 'Wiederherstellen' : 'Weg';
     exclude.hidden = blocked && state.saved !== 'ausgeschlossen'; exclude.disabled = state.pending || state.refreshRequired;
+    maybe.textContent = state.saved === 'vielleicht' ? '~ Na ja ✓' : '~ Na ja';
+    maybe.setAttribute('aria-pressed', String(state.saved === 'vielleicht'));
+    maybe.disabled = state.pending || state.refreshRequired || state.saved === 'ausgeschlossen' || blocked;
     undo.hidden = !state.undo; undo.disabled = state.pending || state.refreshRequired;
     status.textContent = state.message || (blocked ? 'Von der Suche ausgeschlossen: ' + (t.ko_grund || 'Prüfkriterien nicht erfüllt.') : state.saved === 'ausgeschlossen' ? 'Von dir als „Weg“ markiert.' : state.saved === 'favorit' ? 'Favorit – unabhängig von der Systembewertung.' : '');
   }
   state.render = update;
   state.undoAction = () => save(state.undo, true);
-  box.append(el('div', { class: 'actions' }, favorite, exclude, undo), status); update();
+  box.append(el('div', { class: 'actions' }, favorite, maybe, exclude, undo), status); update();
   return box;
 }
 
@@ -180,6 +184,14 @@ function sucheKoordinaten(p) {
   return lat !== null && lon !== null && Math.abs(lat) <= 85.05112878 && Math.abs(lon) <= 180 ? [lat, lon] : null;
 }
 
+// W98c: Karte ohne Score – Pin = Preis pro Nacht, Farbe = Urteil, Popup mit 3 Schnell-Infos
+const STAY_KARTE_ZEICHEN = { favorit: "★", vielleicht: "~", offen: '○', raus: '✕' };
+const STAY_URTEIL_TEXT = { favorit: '★ Favorit', vielleicht: '~ Na ja', offen: 'noch nicht bewertet', raus: '✕ Raus' };
+function sucheKartenPreis(t) { const v = stayFieldValue(t, 'nacht', t._trip || {}); return v === null ? '? €' : (t.angebot?.preis_art === 'geschaetzt' ? '~' : '') + Math.round(v) + ' €'; }
+function sucheKartenSchnell(t) {
+  const keys = stayFields().filter(k => !['preis', 'nacht'].includes(k)).slice(0, 3);
+  return el('ul', { class: 'map-schnell' }, keys.map(k => el('li', {}, el('span', {}, STAY_FIELDS[k] + ': '), stayField(t, k, t._trip || {}))));
+}
 function sucheKarte(container, onSelect, renderSelected, options={}) {
   let map, layer, lastBoundsKey = '', destroyed = false;
   const heading = el('h2', {}, 'Unterkünfte auf der Karte');
@@ -199,14 +211,14 @@ function sucheKarte(container, onSelect, renderSelected, options={}) {
     selected.scrollIntoView({block:'nearest',behavior:'smooth'});
   }
   stationToggle.addEventListener('change', () => update(currentRows, currentData));
-  container.append(heading, el('p', { class: 'map-legend' }, (SUCHE_SCORE_AN ? '● A: Rang' : '● A: passend') + ' · ● B: prüfen · ○ unvollständig · ★ Ziel · ▪ Station'),
+  container.append(heading, el('p', { class: 'map-legend' }, SUCHE_SCORE_AN ? '● A: Rang · ● B: prüfen · ○ unvollständig · ★ Ziel · ▪ Station' : 'Zahl = € pro Nacht · Grün = Favorit · Gelb = Na ja · Weiß = offen · Rot = Raus · ★ Ziel · ▪ Station'),
       el('div', { class: 'actions' }, reset, el('label', { class: 'check-label' }, stationToggle, 'Stationen anzeigen')), message, canvas, tileStatus, el('label',{},'Unterkunft auswählen',picker), selected);
   function update(rows, data = {}) {
     if (destroyed) return;
     currentRows = rows; currentData = data || {};
-    const active = options.includeExcluded?rows:rows.filter(t => sucheGruppe(t) !== 'ausgeschlossen');
+    const active = options.includeExcluded||!SUCHE_SCORE_AN?rows:rows.filter(t => sucheGruppe(t) !== 'ausgeschlossen'); // W98c: ohne Score filtert die Urteils-Leiste
     const valid = active.filter(t => sucheKoordinaten(t));
-      picker.replaceChildren(el('option',{value:''},'Unterkunft auswählen …'),...valid.map(t=>el('option',{value:t.treffer_id},(sucheGruppe(t)==='A'?(SUCHE_SCORE_AN?'Rang '+(t.bewertung?.rang ?? '?'):'Passend'):'Liste '+sucheGruppe(t))+' · '+t.name)));
+      picker.replaceChildren(el('option',{value:''},'Unterkunft auswählen …'),...valid.map(t=>el('option',{value:t.treffer_id},!SUCHE_SCORE_AN?STAY_KARTE_ZEICHEN[stayUrteilKey(t)]+' '+sucheKartenPreis(t)+' · '+t.name:(sucheGruppe(t)==='A'?(SUCHE_SCORE_AN?'Rang '+(t.bewertung?.rang ?? '?'):'Passend'):'Liste '+sucheGruppe(t))+' · '+t.name)));
       const previouslySelected = valid.find(t=>t.treffer_id === selectedId);
       if(previouslySelected) { picker.value=String(selectedId); selected.replaceChildren(el('h3',{},previouslySelected.name),renderSelected ? renderSelected(previouslySelected) : el('p',{},'Unterkunft ausgewählt')); }
       else {selectedId=null; selected.replaceChildren(el('p',{},'Tippe auf einen Marker. Die zugehörige Unterkunft erscheint hier – ohne Ansichtswechsel.'));}
@@ -226,14 +238,14 @@ function sucheKarte(container, onSelect, renderSelected, options={}) {
     for (const t of valid) {
       const group = sucheGruppe(t), rank = sucheZahl(t.bewertung?.rang);
       const label = group === 'A' ? rank === null || !SUCHE_SCORE_AN ? 'A' : String(rank) : group === 'B' ? 'B' : '?';
-      const icon = el('span', { 'data-map-hit': t.treffer_id }, label);
-      const marker = L.marker(sucheKoordinaten(t), { title: t.name || 'Unterkunft', alt: t.name || 'Unterkunft', icon: L.divIcon({ className: 'stay-pin pin-' + group, html: icon, iconSize: [34, 34], iconAnchor: [17, 34] }) });
+      const icon = el('span', { 'data-map-hit': t.treffer_id }, SUCHE_SCORE_AN ? label : sucheKartenPreis(t));
+      const marker = L.marker(sucheKoordinaten(t), { title: t.name || 'Unterkunft', alt: t.name || 'Unterkunft', icon: SUCHE_SCORE_AN ? L.divIcon({ className: 'stay-pin pin-' + group, html: icon, iconSize: [34, 34], iconAnchor: [17, 34] }) : L.divIcon({ className: 'stay-pin pin-preis u-' + stayUrteilKey(t), html: icon, iconSize: [58, 28], iconAnchor: [29, 28] }) });
         marker.on('click',()=>choose(t));
         const nearby=valid.filter(other=>other!==t && map.distance(sucheKoordinaten(t),sucheKoordinaten(other)) < 80);
         marker.bindPopup(el('div', { class: 'stay-map-popup' }, el('strong', {}, t.name || 'Unterkunft'),
-        el('p', {}, (t.angebot?.preis_art === 'geschaetzt' ? 'ca. ' : '') + sucheEuro(t.angebot?.preis_gesamt_eur)),
-        sucheAngebotsstand(t),
-        el('p', {}, group === 'A' ? 'Passende Treffer' + (SUCHE_SCORE_AN && rank !== null ? ' · Rang ' + rank : '') : group === 'B' ? 'Angaben offen' : 'Noch nicht vollständig bewertet'),
+        SUCHE_SCORE_AN ? el('p', {}, (t.angebot?.preis_art === 'geschaetzt' ? 'ca. ' : '') + sucheEuro(t.angebot?.preis_gesamt_eur)) : el('p', {}, stayPreisZeile(t, t._trip)),
+        SUCHE_SCORE_AN ? sucheAngebotsstand(t) : sucheKartenSchnell(t),
+        !SUCHE_SCORE_AN ? el('p', { class: 'small' }, STAY_URTEIL_TEXT[stayUrteilKey(t)]) : el('p', {}, group === 'A' ? 'Passende Treffer' + (SUCHE_SCORE_AN && rank !== null ? ' · Rang ' + rank : '') : group === 'B' ? 'Angaben offen' : 'Noch nicht vollständig bewertet'),
           el('button', { type: 'button', onclick: () => choose(t) }, 'Unterkunft unten ansehen'),
           nearby.length ? el('details',{},el('summary',{},nearby.length+' weitere Unterkünfte an dieser Stelle'),nearby.map(other=>el('button',{type:'button',onclick:()=>choose(other)},(SUCHE_SCORE_AN && other.bewertung?.rang != null ? 'Rang '+other.bewertung.rang+' · ':'')+other.name))) : null)).addTo(layer);
     }

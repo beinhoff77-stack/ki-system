@@ -50,7 +50,7 @@ function stayFakten(t, trip, vergleich) {
   const room = sucheZimmerKurz(t), st = stayStorno(t, trip), cmp = vergleich ? vergleich(t) : null, tarif = stayBesterTarif(t), n = sucheZahl;
   const f = {
     preis_nacht: n(stayNachtpreis(t, trip)) !== null ? Math.round(stayNachtpreis(t, trip)) : null, preis_gesamt: n(t.angebot?.preis_gesamt_eur),
-    bester_tarif: tarif ? n(tarif.gesamt_eur) : null, m2: room.m2, schlafzimmer: room.schlafzimmer, betten: room.anzahl,
+    bester_tarif: tarif ? n(tarif.gesamt_eur) : null, tarif_storno: n(t.detail?.guenstigster_stornierbar?.gesamt_eur), m2: room.m2, schlafzimmer: room.schlafzimmer, betten: room.anzahl,
     betten_text: room.typen ? String(room.typen).slice(0, 120) : null, note: n(t.note) !== null ? Math.round(t.note * 100) / 100 : null, note_skala: n(t.note_skala), bewertungen: n(t.bewertungen),
     km: n(t.luftlinie_ziel_m) !== null ? Math.round(t.luftlinie_ziel_m / 100) / 10 : null, gehzeit_min: n(t.gehzeit_min),
     typ: t.typ || null, quelle: t.quelle || null, storno_tage: st.tage, storno_nein: st.nein || null,
@@ -106,8 +106,10 @@ function stayUrteilDialog(t, { call, live, trip, vergleich, onSaved, scope }) {
 const STAY_DESK_SPALTEN = [
   { key: 'nacht', label: '€/Nacht', num: true, klein: true, v: (t, c) => stayNachtpreis(t, c.trip), r: (t, c) => { const v = stayNachtpreis(t, c.trip); return v === null ? '?' : (t.angebot?.preis_art === 'geschaetzt' ? 'ca. ' : '') + Math.round(v).toLocaleString('de-DE') + ' €'; } },
   { key: 'preis', label: 'Gesamt', num: true, klein: true, v: t => sucheZahl(t.angebot?.preis_gesamt_eur), r: t => sucheZahl(t.angebot?.preis_gesamt_eur) === null ? '?' : Math.round(t.angebot.preis_gesamt_eur).toLocaleString('de-DE') + ' €' },
-  { key: 'tarif', label: 'Bester Tarif', num: true, klein: true, v: t => stayBesterTarif(t)?.gesamt_eur ?? null,
+  { key: 'tarif', label: 'Günstigster Tarif', num: true, klein: true, v: t => stayBesterTarif(t)?.gesamt_eur ?? null,
     r: (t, c) => { const g = stayBesterTarif(t); if (!g) return '?'; const n = stayNaechte(c.trip); return el('span', { title: [g.zimmer, ...(g.bedingungen || [])].filter(Boolean).join(' · ') }, Math.round(g.gesamt_eur).toLocaleString('de-DE') + ' €', null); } },
+  { key: 'tarif_storno', label: 'Günstigster stornierbar', num: true, klein: true, v: t => sucheZahl(t?.detail?.guenstigster_stornierbar?.gesamt_eur),
+    r: (t, c) => { const g = t?.detail?.guenstigster_stornierbar; if (!g || sucheZahl(g.gesamt_eur) === null) return t?.detail?.guenstigster ? 'keiner' : '?'; const s = stayStorno(t, c.trip); return el('span', { title: g.storno_bis ? 'kostenlos bis ' + g.storno_bis : '' }, Math.round(g.gesamt_eur).toLocaleString('de-DE') + ' €'); } },
   { key: 'vergleich', label: 'Preis ggü. Art', num: true, klein: true, v: (t, c) => c.vergleich(t)?.ratio ?? null,
     r: (t, c) => { const x = c.vergleich(t); return x ? el('span', { class: 'desk-cmp desk-cmp-' + (x.label === 'günstig' ? 'g' : x.label === 'teuer' ? 't' : 'n'), title: `${Math.round(x.ratio * 100)} % vom Mittel (${x.n} × ${x.art})` }, x.label) : '?'; } },
   { key: 'art', label: 'Art', v: t => stayTyp(t), r: t => stayTyp(t) || '?' },
@@ -129,7 +131,7 @@ const STAY_DESK_SPALTEN = [
   { key: 'warum', label: 'Warum', v: t => stayWarumText(t), r: null },
   { key: 'notiz', label: 'Notiz', v: t => stayNotiz(t), r: null },
 ];
-const STAY_DESK_STANDARD = ['nacht','preis','tarif','vergleich','art','schlafzimmer','betten','m2','note','bewertungen','storno','km','quelle','warum','notiz'];
+const STAY_DESK_STANDARD = ['nacht','preis','tarif','tarif_storno','vergleich','art','schlafzimmer','betten','m2','note','bewertungen','storno','km','quelle','warum','notiz'];
 
 function stayDeskSpalten() {
   const saved = stayRead('ks_tabelle_spalten', null), known = STAY_DESK_SPALTEN.map(s => s.key);
@@ -283,4 +285,23 @@ function stayGrundLeiste(r, { call, live, trip, onDone }) {
     el('div', { class: 'grund-kopf' }, el('strong', {}, ({ favorit: '★ Favorit', vielleicht: '~ Na ja', weg: '✕ Raus' })[urteil] + ' – warum?'), el('span', { class: 'small muted grund-name' }, t.name || ''),
       el('button', { type: 'button', class: 'grund-zu', 'aria-label': 'Leiste schließen', onclick: () => onDone?.() }, '✓')),
     chips, el('div', { class: 'grund-fuss' }, notiz, status));
+}
+
+// W98c: Urteils-Filter für Liste und Karte – Chips einzeln an/aus (und/oder), „Alle“ = alles inkl. Raus.
+const STAY_URTEIL_FILTER_STANDARD = ['offen', 'favorit', 'vielleicht'];
+function stayUrteilKey(t) { return { favorit: 'favorit', vielleicht: 'vielleicht', ausgeschlossen: 'raus' }[t?.status] || 'offen'; }
+function stayUrteilFilter() {
+  const v = stayRead('ks_urteil_filter', null);
+  return new Set(Array.isArray(v) && v.length && v.every(k => ['offen', 'favorit', 'vielleicht', 'raus'].includes(k)) ? v : STAY_URTEIL_FILTER_STANDARD);
+}
+function stayUrteilChips(rows, onChange) {
+  const an = stayUrteilFilter(), relevant = rows.filter(t => t.topf !== 'ausgeschlossen' || STAY_STATUS_URTEIL[t.status]);
+  const zahl = k => relevant.filter(t => stayUrteilKey(t) === k).length, alle = ['offen', 'favorit', 'vielleicht', 'raus'];
+  const setze = next => { stayWrite('ks_urteil_filter', [...next]); onChange(); };
+  const chip = (k, label) => el('button', { type: 'button', class: 'urteil-chip uc-' + k, 'aria-pressed': String(an.has(k)), onclick: () => { const n = new Set(an); n.has(k) ? n.delete(k) : n.add(k); setze(n.size ? n : new Set(STAY_URTEIL_FILTER_STANDARD)); } }, `${label} ${zahl(k)}`);
+  return el('div', { class: 'urteil-chips', role: 'group', 'aria-label': 'Nach Urteil zeigen' },
+    el('button', { type: 'button', class: 'urteil-chip uc-alle', 'aria-pressed': String(STAY_URTEIL_FILTER_STANDARD.every(k => an.has(k)) && !an.has('raus')), onclick: () => setze(new Set(STAY_URTEIL_FILTER_STANDARD)) }, `Alle ohne Raus ${relevant.length - zahl('raus')}`),
+    el('button', { type: 'button', class: 'urteil-chip uc-alles', 'aria-pressed': String(alle.every(k => an.has(k))), onclick: () => setze(new Set(alle)) }, `Alles inkl. Raus ${relevant.length}`),
+    el('span', { class: 'uc-trenner', 'aria-hidden': 'true' }),
+    chip('favorit', '★ Favoriten'), chip('vielleicht', '~ Na ja'), chip('offen', 'Offen'), chip('raus', '✕ Raus'));
 }

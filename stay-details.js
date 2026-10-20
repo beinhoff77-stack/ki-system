@@ -81,6 +81,14 @@ function sucheKandidat(t, final, suchauftragId) {
     el('h3', {}, 'Bildbewertung'), el('p', {}, 'KI-Einschätzung der Bilder; kein Nachweis der Ausstattung.'),
     el('p', {}, b.bild_urteil?.ein_satz || 'Noch keine Bildbewertung vorhanden.'),
     ...[b.bild_urteil ? sucheBalken(b.bild_urteil, [['hell','Hell'],['modern','Modern'],['gepflegt','Gepflegt'],['geraeumig','Geräumig']]) : null].filter(Boolean));
+  // W98c D2: ohne Score zuerst die Angaben (Schnell-Infos + Info-Box nach Themen), Technisches eingeklappt darunter
+  if (!SUCHE_SCORE_AN && typeof stayReviewInfo === 'function') {
+    const gallery = dialog.querySelector(':scope > .stay-gallery'), anchor = gallery || dialog.querySelector(':scope > .candidate-header');
+    const rest = []; let n = anchor.nextSibling; while (n) { rest.push(n); n = n.nextSibling; }
+    const mehr = el('details', { class: 'candidate-mehr' }, el('summary', {}, 'Mehr: Angebote je Quelle, Zimmerarten, Bildbewertung'));
+    mehr.append(...rest);
+    anchor.after(stayReviewInfo(t, t._trip || {}), mehr);
+  }
   return dialog;
 }
 

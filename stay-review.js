@@ -25,7 +25,7 @@ function sucheAnbieterLink(t) {
   return { url: original, label: 'Bei ' + (t.angebot?.anbieter || SUCHE_QUELLEN[t.quelle] || 'Anbieter') + ' ansehen ↗', overview: false };
 }
 const STAY_FIELDS = {
-  preis: 'Preis gesamt', nacht: 'Preis/Nacht', tarif: 'Bester Tarif', vergleich: 'Preis ggü. gleicher Art', storno: 'Storno',
+  preis: 'Preis gesamt', nacht: 'Preis/Nacht', tarif: 'Günstigster Tarif', tarif_storno: 'Günstigster stornierbar', vergleich: 'Preis ggü. gleicher Art', storno: 'Storno',
   art: 'Unterkunftsart', schlafzimmer: 'Schlafzimmer', betten: 'Betten/Schlafplätze', m2: 'Zimmergröße m²', balkon: 'Balkon', kueche: 'Küche', waschmaschine: 'Waschmaschine', raucher: 'Raucher',
   gaestenote: 'Gästenote', bewertungen: 'Bewertungen',
   entfernung: 'Entfernung zum Ziel', gehzeit: 'Gehzeit zur Station', viertel: 'Viertel',
@@ -33,7 +33,7 @@ const STAY_FIELDS = {
 };
 // W98b: Themen für Einstellung und Info-Box – immer dieselbe Reihenfolge und Struktur (Sebastian 20.10.).
 const STAY_THEMEN = [
-  ['Preis & Buchung', ['nacht','preis','tarif','vergleich','storno']],
+  ['Preis & Buchung', ['nacht','preis','tarif','tarif_storno','vergleich','storno']],
   ['Wohnen', ['art','schlafzimmer','betten','m2','balkon','kueche','waschmaschine','raucher']],
   ['Bewertungen', ['gaestenote','bewertungen']],
   ['Lage', ['entfernung','gehzeit','viertel']],
@@ -113,6 +113,7 @@ function stayFieldValue(t,key,trip={}) {
     case 'preis': return n(a.preis_gesamt_eur);
     case 'nacht': { const nights=(Date.parse(trip.abreise || t._trip?.abreise)-Date.parse(trip.anreise || t._trip?.anreise))/86400000; return n(a.preis_nacht_eur) ?? (n(a.preis_gesamt_eur)!==null&&nights>0?a.preis_gesamt_eur/nights:null); }
     case 'tarif': { const g=typeof stayBesterTarif==='function'?stayBesterTarif(t):null; return g?n(g.gesamt_eur):null; }
+    case 'tarif_storno': return n(t.detail?.guenstigster_stornierbar?.gesamt_eur);
     case 'vergleich': { const x=stayVergleichFn?stayVergleichFn(t):null; return x?x.label:null; }
     case 'gaestenote': return n(t.note_geeicht);
     case 'bewertungen': return n(t.bewertungen);
@@ -136,7 +137,7 @@ function stayFieldValue(t,key,trip={}) {
 function stayField(t,key,trip) {
   const value=stayFieldValue(t,key,trip), box=el('span');
   if(value===null) box.append('–');
-  else if(['preis','nacht','tarif'].includes(key)) box.append((key!=='tarif'&&t.angebot?.preis_art==='geschaetzt'?'ca. ':'')+sucheEuro(value));
+  else if(['preis','nacht','tarif','tarif_storno'].includes(key)) box.append((!key.startsWith('tarif')&&t.angebot?.preis_art==='geschaetzt'?'ca. ':'')+sucheEuro(value));
   else if(key==='gaestenote') box.append(Number(value).toLocaleString('de-DE',{maximumFractionDigits:2})+' / 10');
   else if(key==='gehzeit') box.append(sucheWegText(t));
   else if(key==='entfernung') box.append(Number(value).toLocaleString('de-DE')+' km');
@@ -145,12 +146,18 @@ function stayField(t,key,trip) {
   if(key==='gehzeit' && value!==null) box.append(el('small',{},t.station_name?'Zur Station '+t.station_name:'Ziel nicht benannt'),el('small',{},t.gehzeit_art==='geschaetzt'?'geschätzt':['route','ors'].includes(t.gehzeit_art)?'berechneter Fußweg':'Art unbekannt'));
   return box;
 }
+// W98c: eine Preiszeile statt zwei Felder – „188 € gesamt · Ø 94 €/Nacht · 2 Nächte“
+function stayPreisZeile(t,trip) {
+  const g=stayFieldValue(t,'preis',trip), n=stayFieldValue(t,'nacht',trip), naechte=(Date.parse(trip?.abreise||t._trip?.abreise)-Date.parse(trip?.anreise||t._trip?.anreise))/86400000, ca=t.angebot?.preis_art==='geschaetzt'?'ca. ':'';
+  if(g===null) return el('span',{class:'preis-zeile'},'Preis unbekannt');
+  return el('span',{class:'preis-zeile'},el('strong',{},ca+sucheEuro(g)+' gesamt'),n!==null&&naechte>1?el('small',{},' · Ø '+sucheEuro(n)+'/Nacht · '+naechte+' Nächte'):naechte===1?el('small',{},' · 1 Nacht'):null);
+}
 function stayInfo(t,trip) {return el('dl',{class:'stay-info'},stayFields().flatMap(key=>[el('dt',{},STAY_FIELDS[key]),el('dd',{'data-field':key},stayField(t,key,trip))]));}
 // Anzeige-Text einer Angabe (für Schnell-Info und Info-Box); fehlt sie: „unbekannt“.
 function stayAnzeigeText(t,key,trip) {
   const value=stayFieldValue(t,key,trip);
   if(value===null) return 'unbekannt';
-  if(['preis','nacht','tarif'].includes(key)) return (key!=='tarif'&&t.angebot?.preis_art==='geschaetzt'?'ca. ':'')+sucheEuro(value);
+  if(['preis','nacht','tarif','tarif_storno'].includes(key)) return (!key.startsWith('tarif')&&t.angebot?.preis_art==='geschaetzt'?'ca. ':'')+sucheEuro(value);
   if(key==='m2') return Number(value).toLocaleString('de-DE')+' m²';
   if(key==='datenlage') return value+' %';
   if(key==='entfernung') return Number(value).toLocaleString('de-DE')+' km';
@@ -173,7 +180,7 @@ function stayKurz(t,key,trip) {
     case 'schlafzimmer': return v+' Schlafzimmer'; case 'm2': return n(v)+' m²'; case 'gaestenote': return '★ '+n(v);
     case 'bewertungen': return n(v)+' Bewertungen'; case 'entfernung': return n(v)+' km zum Ziel'; case 'gehzeit': return Math.round(v)+' Min. zur Station';
     case 'storno': { const s=typeof stayStorno==='function'?stayStorno(t,trip):null; return s?.tage!=null?'Storno bis '+s.tage+' T. vor Anreise':s?.nein?'nicht kostenlos stornierbar':String(v); }
-    case 'tarif': return 'bester Tarif '+sucheEuro(v); case 'vergleich': return v+' für die Art';
+    case 'tarif': return 'günstigster Tarif '+sucheEuro(v); case 'tarif_storno': return 'stornierbar ab '+sucheEuro(v); case 'vergleich': return v+' für die Art';
     case 'balkon': case 'kueche': case 'waschmaschine': case 'raucher': return v==='ja'?STAY_FIELDS[key]:null;
     default: return String(v);
   }
@@ -333,8 +340,9 @@ function stayReview({getSnapshot,getGroup=()=>null,getRows=()=>getSnapshot()?.tr
     if(warnings.length)swipe.append(el('p',{class:'review-warning'},'⚠ '+warnings[0]));
     const provider=sucheAnbieterLink(t), url=provider?.url;
     content.append(swipe,el('div',{class:'review-links'},url?el('a',{href:url,target:'_blank',rel:'noopener noreferrer',onclick:()=>{awaitingReturn=t.treffer_id;}},provider.label):null,
-      el('button',{type:'button',onclick:event=>{const trigger=event.currentTarget,dialog=sucheKandidat(t,snapshot.suchauftrag.status==='fertig',snapshot.suchauftrag.id);dialog.append(SUCHE_SCORE_AN?el('p',{class:'review-score'},`Passung ${t.bewertung?.score??'–'}/100`):'',stayReviewInfo(t,snapshot.suchauftrag),el('section',{'aria-label':'Offene Angaben'},warnings.map(w=>el('p',{},w))));scope.append(dialog);dialog.addEventListener('close',()=>{dialog.remove();if(trigger.isConnected)trigger.focus({preventScroll:true});});dialog.showModal();}},'Details')));
+      el('button',{type:'button',onclick:event=>{const trigger=event.currentTarget,dialog=sucheKandidat(t,snapshot.suchauftrag.status==='fertig',snapshot.suchauftrag.id);dialog.append(SUCHE_SCORE_AN?el('p',{class:'review-score'},`Passung ${t.bewertung?.score??'–'}/100`):'',SUCHE_SCORE_AN?stayReviewInfo(t,snapshot.suchauftrag):'',el('section',{'aria-label':'Offene Angaben'},warnings.map(w=>el('p',{},w))));scope.append(dialog);dialog.addEventListener('close',()=>{dialog.remove();if(trigger.isConnected)trigger.focus({preventScroll:true});});dialog.showModal();}},'Details')));
     if(awaitingReturn===t.treffer_id)content.append(el('p',{role:'status'},'Und? Wie gefällt dir die Unterkunft?'));
+    content.append(el('div',{class:'review-desk-info'},stayInfoBox(t,snapshot.suchauftrag))); // W98c D1: am Rechner rechts neben dem Foto
     gallery.querySelector(':scope > .review-modes')?.remove();if(modes)gallery.append(modes);gallery.querySelector(':scope > .review-stamp')?.remove();if(judged(t))gallery.append(el('span',{class:'review-stamp stamp-'+t.status+(stampFresh===t.treffer_id?' is-fresh':''),'aria-hidden':'true'},{favorit:'♥ Favorit',vielleicht:'≈ Na ja',ausgeschlossen:'× Weg'}[t.status]));article.append(header,content,buttons(t));stayCardPhoto(article,gallery);box.append(article);
     // W98: Gründe-Leiste nach dem Urteil – bleibt stehen, während schon die nächste Unterkunft erscheint; ein Tipp genügt.
     if(reasonFor&&reasonFor.urteil!=='offen'&&!isBlocked()){
@@ -349,7 +357,7 @@ function stayReview({getSnapshot,getGroup=()=>null,getRows=()=>getSnapshot()?.tr
   return {node:box,draw,get currentId(){return currentId;},show(id){currentId=id;savePosition();},get revision(){return revision;},get pending(){return pending;},get blocked(){return needsRefresh;},refreshed(){if(!pending){needsRefresh=false;last=null;reasonFor=null;}},dispose(){clearTimeout(holdTimer);reasonsDialog?.close();reasonsDialog?.remove();document.removeEventListener('visibilitychange',returned);}};
 }
 function stayConfigureTable(wrapper,items,sort,onSort,trip,select) {
-  const table=wrapper.querySelector('table'), head=table.tHead.rows[0], fields=stayFields();
+  const table=wrapper.querySelector('table'), head=table.tHead.rows[0], fields=SUCHE_SCORE_AN?stayFields():stayFields().filter(k=>k!=='nacht'); // W98c: ohne Score eine Preiszeile (gesamt + Ø pro Nacht)
   const heading=(key,label)=>el('th',{scope:'col','aria-sort':sort.key===key?sort.direction===1?'ascending':'descending':'none'},el('button',{type:'button','data-sort':key,onclick:()=>onSort(key)},label));
   head.replaceChildren(heading('name','Unterkunft'),...fields.map(key=>heading(key,STAY_FIELDS[key])),el('th',{scope:'col'},'Details'));
   for(const t of items){const row=wrapper.querySelector(`tr[data-hit="${t.treffer_id}"]`), identity=row.cells[0], detail=row.lastElementChild;
@@ -358,10 +366,10 @@ function stayConfigureTable(wrapper,items,sort,onSort,trip,select) {
     const wohnform=sucheWohnform(t);if(wohnform)identity.append(el('p',{class:'small hit-wohnform'},wohnform.text,wohnform.grund?el('span',{class:'wo-grund'},' – '+wohnform.grund):null)); // W96
     if(t.eigener_rang)identity.append(el('p',{class:'small'},'Dein Rang '+t.eigener_rang));
     if(t.urteil_uebernommen)identity.append(el('p',{class:'small'},'aus früherer Suche'));
-    if(t.status==='vielleicht')identity.append(el('p',{class:'small'},'Na ja'));
+    if(SUCHE_SCORE_AN&&t.status==='vielleicht')identity.append(el('p',{class:'small'},'Na ja'));
     const provider=sucheAnbieterLink(t);if(provider)identity.querySelector('.hit-identity > div').append(el('a',{class:'hit-provider',href:provider.url,target:'_blank',rel:'noopener noreferrer'},provider.label));
     identity.append(select(t));
-    row.replaceChildren(identity,...fields.map(key=>el('td',{'data-label':STAY_FIELDS[key],'data-field':key},stayField(t,key,trip))),detail);
+    row.replaceChildren(identity,...fields.map(key=>el('td',{'data-label':!SUCHE_SCORE_AN&&key==='preis'?'Preis':STAY_FIELDS[key],'data-field':key},!SUCHE_SCORE_AN&&key==='preis'?stayPreisZeile(t,trip):stayField(t,key,trip))),detail);
     row.nextElementSibling.cells[0].colSpan=fields.length+2;
     // W98b: Info-Box (Details-Angaben nach Themen) immer oben in den Details – gleiche Struktur bei jeder Unterkunft
     const content=row.nextElementSibling.querySelector('.hit-detail-content');if(content&&!content.querySelector(':scope > .stay-infobox'))content.prepend(stayInfoBox(t,trip));

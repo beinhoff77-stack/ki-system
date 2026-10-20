@@ -201,7 +201,7 @@ function sucheErweitertesFormular(form, call, live, ready, lock, profilePreset =
       if (c.input && wert !== undefined) c.input.value = wert === null ? '' : String(wert);
       sync(); form.dispatchEvent(new Event('maske-geaendert')); },
   };
-  return {profilePanel,tripPanel,qualityPanel,filtersPanel,load,values,kriterien,viertelModus:()=>districtForm?districtForm.modus():'egal'};
+  return {profilePanel,tripPanel,qualityPanel,filtersPanel,load,values,kriterien,viertelModus:()=>districtForm?districtForm.modus():'egal',viertelForm:()=>districtForm};
 }
 
 // W94 (Claude): Nachtband – Preisniveau je Nacht (Trivago je Nacht, Server: unterkunft_flex modus nachtband).
@@ -449,9 +449,26 @@ function sucheSchnellLayout({ form, fields, sections, extended, submit, call, li
       const da = [...fs.children].some(c => c.tagName !== 'LEGEND' && !(c.tagName === 'P' && c.classList.contains('small')) && !(c.classList.contains('trip-criterion') && c.hidden));
       fs.hidden = !da; if (da) irgendwas = true;
     }
-    // W106: Viertel-Noten stehen jetzt in der Suchmaske; der alte Block bleibt nur sichtbar, wenn eine Viertel-Auswahl aktiv ist (z. B. von der Viertel-Seite)
-    extended.filtersPanel.hidden = !irgendwas || (extended.viertelModus?.() ?? 'egal') === 'egal';
+    // W106 (Sebastian 20.10.): der alte Block „Filter anpassen“ entfällt ohne Score ganz. Viertel wählt man über die Kachel „Viertel“
+    // in der Suchmaske (Auswahl der ermittelten Viertel, Noten auf der Viertel-Seite). Einzelne Viertel-Noten als Filter: vorerst nicht
+    // (nur ca. die Hälfte der Treffer ist einem Viertel zugeordnet).
+    extended.filtersPanel.hidden = true; void irgendwas;
+    viertelKachel();
   };
+  // W106: Kachel „Viertel“ – klappt die Viertel-Auswahl direkt in der Suche auf
+  let viertelBox = null;
+  function viertelKachel() {
+    const vf = extended.viertelForm?.(); if (!vf || !maske || viertelBox) return;
+    const titel = el('span', { class: 'a-viertel-wert' });
+    const zu = () => { const n = vf.node.querySelectorAll('.district-form-choices input:checked').length, m = vf.modus();
+      titel.textContent = m === 'egal' || !n ? 'alle' : n + ' gewählt · ' + (m === 'pflicht' ? 'nur diese' : 'bevorzugt');
+      viertelBox.classList.toggle('is-on', m !== 'egal' && n > 0); };
+    const seite = el('a', { class: 'a-viertel-seite', href: '#/viertel', onclick: e => { const z = form.querySelector('[name="ziel"]')?.value.trim(); if (z) { e.preventDefault(); route('viertel', '?' + new URLSearchParams({ stadt: z })); } } }, 'Viertel mit Noten ansehen ›');
+    viertelBox = el('details', { class: 'a-viertel' }, el('summary', {}, el('span', { class: 'a-zeile-ikon' }, stayIcon('pin')), el('span', { class: 'a-viertel-text' }, el('b', {}, 'Viertel'), titel), stayIcon('plus', 'a-viertel-auf')), vf.node, seite);
+    viertelBox.addEventListener('toggle', () => { if (viertelBox.open && !vf.node.querySelector('.district-form-choices input') && (form.querySelector('[name="ziel"]')?.value.trim().length || 0) >= 2) vf.load(); });
+    vf.node.addEventListener('change', zu); vf.node.addEventListener('click', () => setTimeout(zu, 0)); form.addEventListener('input', e => { if (e.target?.name === 'ziel') setTimeout(zu, 0); });
+    maske.node.querySelector('.maske-legende')?.before(viertelBox); zu();
+  }
   form.addEventListener('kriterien-geladen', filterAufraeumen); filterAufraeumen();
   const gaps = el('div', { class: 'quick-gaps' });
   const kurz = d => { const x = new Date(d + 'T12:00:00'); return Number.isNaN(x.getTime()) ? d : x.toLocaleDateString('de-DE', { day: 'numeric', month: 'numeric' }); };
@@ -523,17 +540,6 @@ const MASKE_THEMEN = [
     { key: 'luftlinie_max_km', label: 'Zum Ziel höchstens', typ: 'zahl', einheit: 'km', start: 3, schritt: 1, min: 1, max: 50, werte: [1, 2, 3, 5, 10, 20], text: 'Nach dem Laden, Luftlinie aus den Koordinaten.' },
     { key: 'gehzeit_max_min', label: 'Gehzeit zur Station höchstens', typ: 'zahl', einheit: 'Min.', start: 10, schritt: 5, min: 5, max: 60, werte: [5, 10, 15, 20, 30], text: 'Nach dem Laden, wo die Gehzeit bekannt ist.' },
     { key: 'zentrum_max_km', label: 'Zentrum höchstens', typ: 'stufen', stufen: [[1, '1 km'], [3, '3 km'], [5, '5 km']], suche: true, text: 'Booking sucht nur in dieser Nähe zum Zentrum; andere Quellen bleiben mit ? sichtbar.' },
-  ]],
-  // W106 (Sebastian 20.10.): Viertel-Kriterien in der Suchmaske statt im alten Block „Filter anpassen“ – alle nach dem Laden geprüft (Viertel-Noten 0–10)
-  ['Viertel', [
-    { key: 'viertel_ruhig', label: 'Ruhiges Viertel', typ: 'ja', text: 'Nach dem Laden, wo das Viertel bekannt ist.' },
-    { key: 'viertel_zentrumsnaehe_min', label: 'Zentrumsnähe ab', typ: 'stufen', stufen: [[5, '5'], [6, '6'], [7, '7'], [8, '8']], text: 'Note des Viertels (0–10), nach dem Laden.' },
-    { key: 'viertel_oepnv_min', label: 'ÖPNV ab', typ: 'stufen', stufen: [[5, '5'], [6, '6'], [7, '7'], [8, '8']], text: 'Note des Viertels (0–10), nach dem Laden.' },
-    { key: 'viertel_gastronomie_min', label: 'Restaurants ab', typ: 'stufen', stufen: [[5, '5'], [6, '6'], [7, '7'], [8, '8']], text: 'Note des Viertels (0–10), nach dem Laden.' },
-    { key: 'viertel_nahversorgung_min', label: 'Einkaufen ab', typ: 'stufen', stufen: [[5, '5'], [6, '6'], [7, '7'], [8, '8']], text: 'Note des Viertels (0–10), nach dem Laden.' },
-    { key: 'viertel_gruen_min', label: 'Parks/Grün ab', typ: 'stufen', stufen: [[5, '5'], [6, '6'], [7, '7'], [8, '8']], text: 'Note des Viertels (0–10), nach dem Laden.' },
-    { key: 'viertel_sehenswuerdigkeiten_min', label: 'Sehenswertes ab', typ: 'stufen', stufen: [[5, '5'], [6, '6'], [7, '7'], [8, '8']], text: 'Note des Viertels (0–10), nach dem Laden.' },
-    { key: 'viertel_strand_min', label: 'Strand im Viertel ab', typ: 'stufen', stufen: [[5, '5'], [6, '6'], [7, '7'], [8, '8']], text: 'Note des Viertels (0–10), nach dem Laden.' },
   ]],
   ['Bewertungen', [
     { key: 'note_min', label: 'Gästenote ab', typ: 'stufen', stufen: [[6, '6'], [7, '7'], [8, '8'], [9, '9']], suche: true, text: 'Booking sucht nur ab dieser Note, andere Quellen nach dem Laden.' },

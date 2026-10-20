@@ -1848,3 +1848,21 @@ body:has(.tinder-mode) main.view { padding-top: calc(6px + env(safe-area-inset-t
 .maske-weitere .mk-row, .maske-weitere .mk-ctrl, .maske .maske-an .mk-row, .maske .maske-an .mk-ctrl { height: 100%; }
 .maske-weitere .mk-ctrl > .mk-chip, .maske .maske-an .mk-ctrl > .mk-chip { height: 100% !important; }
 .quick-search .maske .mk-ctrl > label.mk-chip.mk-wahl, .quick-search .maske .mk-ctrl > button.mk-chip { height: 100% !important; }
+/* W106: Kachel „Viertel“ mit aufklappbarer Auswahl */
+.a-viertel { border: 1px solid #dfe8e6; border-radius: 14px; background: #fff; }
+.a-viertel.is-on { border-color: var(--a-teal); }
+.a-viertel > summary { display: grid; grid-template-columns: 36px minmax(0, 1fr) auto; align-items: center; gap: 12px; padding: 8px 12px; min-height: 52px; cursor: pointer; list-style: none; }
+.a-viertel > summary::-webkit-details-marker { display: none; }
+.a-viertel-text { display: flex; flex-direction: column; font-size: 12px; color: var(--a-muted); }
+.a-viertel-text b { font-size: 15px; color: var(--a-ink); }
+.a-viertel-wert { font-size: 13px; font-weight: 700; color: var(--a-teal); }
+.a-viertel[open] .a-viertel-auf { transform: rotate(45deg); }
+.a-viertel .district-form { padding: 0 12px 6px; display: grid; gap: 8px; }
+.a-viertel .district-form > p.small.muted { display: none; }
+.a-viertel .district-form label { font-size: 12px; font-weight: 600; color: var(--a-muted); display: grid; gap: 4px; }
+.a-viertel .district-form-choices { display: flex; flex-wrap: wrap; gap: 6px; }
+.a-viertel .district-form-choices .check-label { display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border: 1px solid #dfe8e6; border-radius: 18px; font-size: 13px; color: var(--a-ink); font-weight: 600; }
+.a-viertel .district-form-choices .check-label:has(input:checked) { border-color: var(--a-teal); background: var(--a-soft); }
+.a-viertel-seite { display: block; padding: 0 12px 12px; font-size: 13px; font-weight: 700; color: var(--a-teal); text-decoration: none; }
+.anzeige-erklaerung { margin: 4px 0 10px; padding-left: 18px; font-size: 13.5px; line-height: 1.45; } .anzeige-erklaerung .muted { list-style: none; margin-left: -18px; margin-top: 4px; }
+.a-viertel .district-form > button { min-height: 36px; font-size: 13px; justify-self: start; padding: 0 12px; }

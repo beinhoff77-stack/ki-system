@@ -77,7 +77,7 @@ function viewAnzeige(arg = null) {
   function move(i,j) {karten.direkt=stayMove(karten.direkt,i,j);save();}
   function draw() {
     box.replaceChildren(el('h2',{},'Ergebnisse: was steht bei jeder Unterkunft?'),
-      el('p',{class:'small'},'Name und Preis (gesamt und pro Nacht) stehen immer da. Direkt = Schnell-Info auf der Karte (höchstens '+STAY_DIREKT_MAX+'), Details = in der Info-Box, Aus = nicht anzeigen.'),
+      el('ul',{class:'anzeige-erklaerung'},el('li',{},el('b',{},'Direkt'),' – steht in jeder Zeile der Liste und als Kachel beim Durchsehen (höchstens '+STAY_DIREKT_MAX+').'),el('li',{},el('b',{},'Details'),' – erst nach Antippen von „Details“.'),el('li',{},el('b',{},'Aus'),' – wird nirgends gezeigt.'),el('li',{class:'muted'},'Name und Preis stehen immer da.')),
       el('p',{},karten.direkt.length+' / '+STAY_DIREKT_MAX+' Schnell-Infos'),
       el('ol',{class:'display-order','aria-label':'Reihenfolge der Schnell-Infos'},karten.direkt.map((key,i)=>el('li',{draggable:'true','data-field':key,
         ondragstart:e=>{drag=i;e.dataTransfer.setData('text/plain',key);},ondragover:e=>e.preventDefault(),ondrop:e=>{e.preventDefault();if(drag!==null)move(drag,i);drag=null;},ondragend:()=>{drag=null;}},

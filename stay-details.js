@@ -55,7 +55,7 @@ function sucheKandidat(t, final, suchauftragId) {
   const allOffers = [a, ...(Array.isArray(t.weitere_angebote) ? t.weitere_angebote : [])].filter(v => v && typeof v === 'object');
   const dialog = el('dialog', { class: 'stay-candidate', 'aria-label': 'Unterkunft im Detail: ' + (t.name || 'Unterkunft') });
   dialog.append(el('div', { class: 'candidate-header' }, el('h2', {}, t.name || 'Unterkunft'),
-    el('button', { type: 'button', onclick: () => dialog.close() }, 'Details schließen')),
+    !SUCHE_SCORE_AN && typeof stayIcon === 'function' ? el('button', { type: 'button', class: 'a-zu', 'aria-label': 'Details schließen', onclick: () => dialog.close() }, stayIcon('raus')) : el('button', { type: 'button', onclick: () => dialog.close() }, 'Details schließen')),
     stayGallery(t), ...[sucheViertelLink(t.zone, suchauftragId)].filter(Boolean), el('p', {}, 'Balkon: ' + sucheBalkon(t)), sucheAngebotsstand(t),
     ...(!SUCHE_SCORE_AN ? [] : [el('p', {}, (final ? 'Passung' : 'Vorläufige Passung') + ': ' + (sucheZahl(b.score) ?? 'unbekannt') + '/100 · Datenlage: ' + (sucheDatenlage(t) ?? 'unbekannt') + ' %'),
     sucheDetailTabelle('Teilnoten und Gewichtung', ['Kriterium', 'Note von 10', 'Gewicht (%)'], SUCHE_NOTEN.map(([key, label]) => [label, sucheZahl(b.spaltennoten?.[key]), sucheZahl(b.spaltennoten?.gewichte?.[key])])),

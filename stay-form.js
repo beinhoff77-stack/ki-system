@@ -201,7 +201,7 @@ function sucheErweitertesFormular(form, call, live, ready, lock, profilePreset =
       if (c.input && wert !== undefined) c.input.value = wert === null ? '' : String(wert);
       sync(); form.dispatchEvent(new Event('maske-geaendert')); },
   };
-  return {profilePanel,tripPanel,qualityPanel,filtersPanel,load,values,kriterien};
+  return {profilePanel,tripPanel,qualityPanel,filtersPanel,load,values,kriterien,viertelModus:()=>districtForm?districtForm.modus():'egal',viertelForm:()=>districtForm};
 }
 
 // W94 (Claude): Nachtband – Preisniveau je Nacht (Trivago je Nacht, Server: unterkunft_flex modus nachtband).
@@ -449,8 +449,26 @@ function sucheSchnellLayout({ form, fields, sections, extended, submit, call, li
       const da = [...fs.children].some(c => c.tagName !== 'LEGEND' && !(c.tagName === 'P' && c.classList.contains('small')) && !(c.classList.contains('trip-criterion') && c.hidden));
       fs.hidden = !da; if (da) irgendwas = true;
     }
-    extended.filtersPanel.hidden = !irgendwas;
+    // W106 (Sebastian 20.10.): der alte Block „Filter anpassen“ entfällt ohne Score ganz. Viertel wählt man über die Kachel „Viertel“
+    // in der Suchmaske (Auswahl der ermittelten Viertel, Noten auf der Viertel-Seite). Einzelne Viertel-Noten als Filter: vorerst nicht
+    // (nur ca. die Hälfte der Treffer ist einem Viertel zugeordnet).
+    extended.filtersPanel.hidden = true; void irgendwas;
+    viertelKachel();
   };
+  // W106: Kachel „Viertel“ – klappt die Viertel-Auswahl direkt in der Suche auf
+  let viertelBox = null;
+  function viertelKachel() {
+    const vf = extended.viertelForm?.(); if (!vf || !maske || viertelBox) return;
+    const titel = el('span', { class: 'a-viertel-wert' });
+    const zu = () => { const n = vf.node.querySelectorAll('.district-form-choices input:checked').length, m = vf.modus();
+      titel.textContent = m === 'egal' || !n ? 'alle' : n + ' gewählt · ' + (m === 'pflicht' ? 'nur diese' : 'bevorzugt');
+      viertelBox.classList.toggle('is-on', m !== 'egal' && n > 0); };
+    const seite = el('a', { class: 'a-viertel-seite', href: '#/viertel', onclick: e => { const z = form.querySelector('[name="ziel"]')?.value.trim(); if (z) { e.preventDefault(); route('viertel', '?' + new URLSearchParams({ stadt: z })); } } }, 'Viertel mit Noten ansehen ›');
+    viertelBox = el('details', { class: 'a-viertel' }, el('summary', {}, el('span', { class: 'a-zeile-ikon' }, stayIcon('pin')), el('span', { class: 'a-viertel-text' }, el('b', {}, 'Viertel'), titel), stayIcon('plus', 'a-viertel-auf')), vf.node, seite);
+    viertelBox.addEventListener('toggle', () => { if (viertelBox.open && !vf.node.querySelector('.district-form-choices input') && (form.querySelector('[name="ziel"]')?.value.trim().length || 0) >= 2) vf.load(); });
+    vf.node.addEventListener('change', zu); vf.node.addEventListener('click', () => setTimeout(zu, 0)); form.addEventListener('input', e => { if (e.target?.name === 'ziel') setTimeout(zu, 0); });
+    maske.node.querySelector('.maske-legende')?.before(viertelBox); zu();
+  }
   form.addEventListener('kriterien-geladen', filterAufraeumen); filterAufraeumen();
   const gaps = el('div', { class: 'quick-gaps' });
   const kurz = d => { const x = new Date(d + 'T12:00:00'); return Number.isNaN(x.getTime()) ? d : x.toLocaleDateString('de-DE', { day: 'numeric', month: 'numeric' }); };
@@ -530,7 +548,7 @@ const MASKE_THEMEN = [
   ]],
 ];
 const MASKE_ALLE = MASKE_THEMEN.flatMap(([, liste]) => liste);
-const MASKE_ICON = { storno_kostenlos: 'storno', fruehstueck: 'fruehstueck', flaeche_m2: 'flaeche', echte_betten: 'bett', kueche: 'kueche', waschmaschine: 'waschen', balkon: 'balkon', klima: 'klima', meerblick: 'meer', wlan: 'wlan', pool: 'pool', sauna_spa: 'sauna', fitness: 'fitness', parkplatz: 'auto', strand_max_m: 'strand', luftlinie_max_km: 'pin', gehzeit_max_min: 'bahn', zentrum_max_km: 'pin', note_min: 'stern', bewertungen_min: 'stern', sterne_min: 'hotel' };
+const MASKE_ICON = { viertel_ruhig: 'mond', viertel_zentrumsnaehe_min: 'pin', viertel_oepnv_min: 'bahn', viertel_gastronomie_min: 'kueche', viertel_nahversorgung_min: 'korb', viertel_gruen_min: 'baum', viertel_sehenswuerdigkeiten_min: 'kamera', viertel_strand_min: 'strand', storno_kostenlos: 'storno', fruehstueck: 'fruehstueck', flaeche_m2: 'flaeche', echte_betten: 'bett', kueche: 'kueche', waschmaschine: 'waschen', balkon: 'balkon', klima: 'klima', meerblick: 'meer', wlan: 'wlan', pool: 'pool', sauna_spa: 'sauna', fitness: 'fitness', parkplatz: 'auto', strand_max_m: 'strand', luftlinie_max_km: 'pin', gehzeit_max_min: 'bahn', zentrum_max_km: 'pin', note_min: 'stern', bewertungen_min: 'stern', sterne_min: 'hotel' };
 const MASKE_KURZ = { flaeche_m2: 'Fläche ab', strand_max_m: 'Strand bis', luftlinie_max_km: 'Zum Ziel bis', gehzeit_max_min: 'Gehzeit Station bis', zentrum_max_km: 'Zentrum bis', note_min: 'Gästenote ab', bewertungen_min: 'Bewertungen ab', sterne_min: 'Sterne ab' };
 const MASKE_KEYS = new Set(MASKE_ALLE.map(k => k.key));
 const MASKE_STANDARD = { an: ['storno_kostenlos', 'kueche', 'pool', 'sauna_spa', 'strand_max_m', 'note_min'], aus: [] };

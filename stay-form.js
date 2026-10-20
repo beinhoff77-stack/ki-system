@@ -347,7 +347,7 @@ function wohnenBlock(form, szInput = null) {
         const ander = art === 'apartment' ? 'hotel' : 'apartment';
         if (an && !w[ander].an) return; // mindestens eine Wohnform bleibt an
         w[art].an = !an; if (!w[art].an && w.bevorzugt === art) w.bevorzugt = ander;
-      }) }, an ? '✓ ' : '', label),
+      }) }, stayIcon(art === 'hotel' ? 'hotel' : 'haus'), an ? '✓ ' : '', label),
       beide && SUCHE_SCORE_AN ? el('button', { type: 'button', class: 'wo-star' + (bevorzugt ? ' is-on' : ''), 'aria-pressed': String(bevorzugt), 'aria-label': label + ' bevorzugen', title: bevorzugt ? label + ' ist bevorzugt' : label + ' bevorzugen',
         onclick: () => aendern(() => { w.bevorzugt = art; }) }, bevorzugt ? '★' : '☆') : null, extra);
   }
@@ -356,7 +356,7 @@ function wohnenBlock(form, szInput = null) {
     const sz = w.apartment.an ? schritt('Schlafzimmer mind.', w.apartment.schlafzimmer_min, 0, 6, n => aendern(() => { w.apartment.schlafzimmer_min = n; }), 'SZ') : null;
     const zi = w.hotel.an ? schritt('Zimmer', w.hotel.zimmer, 1, 4, n => aendern(() => { w.hotel.zimmer = n; }), 'Zi.') : null;
     const zeile = el('div', { class: 'wo-row' }, chip('apartment', 'Apartment', sz), chip('hotel', 'Hotel', zi));
-    const bett = w.hotel.an ? el('div', { class: 'wo-row wo-sub' }, el('span', { class: 'wo-sub-name' }, 'Bett je Hotelzimmer'),
+    const bett = w.hotel.an ? el('div', { class: 'wo-row wo-sub' }, el('span', { class: 'wo-sub-name' }, stayIcon('bett'), 'Bett je Hotelzimmer'),
       el('span', { class: 'wo-seg', role: 'group', 'aria-label': 'Bett je Zimmer' }, Object.entries(WOHNEN_BETT).map(([k, t]) =>
         el('button', { type: 'button', class: 'wo-seg-btn', 'aria-pressed': String(w.hotel.bett === k), onclick: () => aendern(() => { w.hotel.bett = k; }) }, t)))) : null;
     const hinweis = SUCHE_SCORE_AN && w.apartment.an && w.hotel.an ? el('p', { class: 'wo-hint small muted', title: `${w.bevorzugt === 'hotel' ? 'Apartments' : 'Hotels'} kommen nur nach vorn, wenn sie deutlich günstiger oder besser bewertet sind.` }, `★ = bevorzugt · ${w.bevorzugt === 'hotel' ? 'Apartments' : 'Hotels'} nur, wenn klar günstiger/besser`) : null;
@@ -382,7 +382,7 @@ function sucheSchnellLayout({ form, fields, sections, extended, submit, call, li
   setLabel('ziel', 'Wo?'); setLabel('anreise', 'Anreise'); setLabel('abreise', 'Abreise');
   const nights = el('p', { class: 'quick-nights', 'aria-live': 'polite' });
   const whoText = el('span', { class: 'who-text' }), whoPanel = el('div', { class: 'who-panel', hidden: true });
-  const who = el('button', { type: 'button', class: 'who-chip', 'aria-expanded': 'false', onclick: () => { whoPanel.hidden = !whoPanel.hidden; who.setAttribute('aria-expanded', String(!whoPanel.hidden)); } }, el('span', { class: 'who-label' }, 'Wer:'), whoText, el('span', { class: 'who-edit', 'aria-hidden': 'true' }, 'ändern'));
+  const who = el('button', { type: 'button', class: 'who-chip', 'aria-expanded': 'false', onclick: () => { whoPanel.hidden = !whoPanel.hidden; who.setAttribute('aria-expanded', String(!whoPanel.hidden)); } }, el('span', { class: 'who-label' }, 'Wer & Budget'), whoText, el('span', { class: 'who-edit', 'aria-hidden': 'true' }, 'ändern'));
   for (const nr of ['02', '03']) { const p = panel(nr); if (p) { p.querySelector('h2')?.remove(); whoPanel.append(...p.children); } }
   const tripLine = el('p', { class: 'quick-trip small' });
   const cost = el('span', { class: 'quick-cost' });
@@ -402,18 +402,21 @@ function sucheSchnellLayout({ form, fields, sections, extended, submit, call, li
   if (budgetNacht) gesamtFeld.closest('label').before(budgetNacht.node);
   const maske = !SUCHE_SCORE_AN && extended.kriterien ? sucheMaske({ form, extended }) : null;
   // W101: Viertel vorab ansehen – direkt unter „Wo?“ (bisher nur versteckt unter Mehr Optionen)
-  const viertelLink = el('button', { type: 'button', class: 'link-button viertel-link', hidden: true, onclick: () => { const z = form.querySelector('[name="ziel"]')?.value.trim(); if (z) route('viertel', '?' + new URLSearchParams({ stadt: z })); } }, '📍 Wo wohnen? Viertel ansehen');
+  const viertelLink = el('button', { type: 'button', class: 'link-button viertel-link', hidden: true, title: 'Wo wohnen? Viertel ansehen', onclick: () => { const z = form.querySelector('[name="ziel"]')?.value.trim(); if (z) route('viertel', '?' + new URLSearchParams({ stadt: z })); } }, 'Viertel');
   form.addEventListener('input', e => { if (e.target?.name === 'ziel') viertelLink.hidden = (e.target.value || '').trim().length < 2; });
-  const zielLabel = el('div', { class: 'mit-viertel' }, label('ziel'), viertelLink);
+  const zielLabel = el('div', { class: 'mit-viertel a-zeile' }, el('span', { class: 'a-zeile-ikon' }, stayIcon('pin')), label('ziel'), viertelLink);
   // W102 (Sebastian 20.10.: „unübersichtlich, nicht kompakt“): feste Reihenfolge in drei Blöcken –
   // 1 Wo & Wann (am Rechner eine Zeile) · 2 Wohnen & Wer (eine Zeile) · 3 Wichtig für dich (Chip-Fläche) · Suchknopf bleibt sichtbar.
   const kopf = el('div', { class: 'quick-kopf' }, el('h2', {}, 'Unterkunft suchen'), el('p', { class: 'quick-meta small' }, tripLine));
+  who.prepend(el('span', { class: 'a-zeile-ikon' }, stayIcon('personen'))); who.classList.add('a-zeile');
+  submit.prepend(stayIcon('lupe'));
   when.classList.add('dr-felder'); // W103: echte Datumsfelder bleiben im Formular, bedient wird „Wann?“
-  const ortZeit = el('div', { class: 'quick-block quick-ortzeit' }, zielLabel, when);
+  const ortZeit = el('div', { class: 'quick-block quick-ortzeit a-reise' }, zielLabel, when);
   // W103 (Sebastian 20.10.): Wohnform (Apartment/Schlafzimmer, Hotel/Zimmer, Bett) gehört zu den Kriterien – steht in „Wichtig für dich“ vorne
   if (maske) { maske.wohnenSlot.append(wohnen.node); wohnen.node.classList.add('wohnen-in-maske'); }
-  const werWohnen = el('div', { class: 'quick-block quick-werwohnen' }, maske ? null : wohnen.node, who);
-  const quick = el('section', { class: 'card quick-search' }, kopf, ortZeit, nights, band.node, werWohnen, whoPanel, maske ? maske.node : null, submit);
+  const werWohnen = el('div', { class: 'quick-block quick-werwohnen' }, maske ? null : wohnen.node);
+  ortZeit.append(who); // W104: Wo / Wann / Wer in einer Karte
+  const quick = el('section', { class: 'card quick-search' }, kopf, ortZeit, band.node, whoPanel, werWohnen, maske ? maske.node : null, submit);
   const more = el('details', { class: 'card more-options' }, el('summary', {}, 'Mehr Optionen'), el('p', { class: 'small muted' }, (SUCHE_SCORE_AN ? 'Reiseart, Unterkunftsform, ' : '') + 'Suchprofile, Aufenthalt, Quellen, Suchkosten und Qualität. Die Standardwerte passen für die meisten Suchen.'));
   more.append(extended.profilePanel);
   const tripNode = fields.querySelector('.trip-choice');
@@ -440,7 +443,7 @@ function sucheSchnellLayout({ form, fields, sections, extended, submit, call, li
   restoreWho();
   form.addEventListener('submit', () => { const v = {}; for (const k of whoKeys) v[k] = String(form.querySelector(`[name="${k}"]`)?.value ?? ''); stayWrite('ks_who_last', v); }, true);
   fields.replaceChildren(gaps, quick, more);
-  const datum = sucheDatumBereich(form); ortZeit.append(datum.node); // W103: erst jetzt sind die Felder im Formular erreichbar
+  const datum = sucheDatumBereich(form); ortZeit.insertBefore(datum.node, who); datum.node.querySelector('.dr-knopf').after(nights); // W103/W104: Wann-Zeile mit Nächten
   wohnen.feld(); // W96: Feld erst jetzt im Formular erreichbar
   function update() {
     const f = new FormData(form), n = (Date.parse(f.get('abreise')) - Date.parse(f.get('anreise'))) / 86400000;
@@ -509,6 +512,7 @@ const MASKE_THEMEN = [
   ]],
 ];
 const MASKE_ALLE = MASKE_THEMEN.flatMap(([, liste]) => liste);
+const MASKE_ICON = { storno_kostenlos: 'storno', fruehstueck: 'fruehstueck', flaeche_m2: 'flaeche', echte_betten: 'bett', kueche: 'kueche', waschmaschine: 'waschen', balkon: 'balkon', klima: 'klima', meerblick: 'meer', wlan: 'wlan', pool: 'pool', sauna_spa: 'sauna', fitness: 'fitness', parkplatz: 'auto', strand_max_m: 'strand', luftlinie_max_km: 'pin', gehzeit_max_min: 'bahn', zentrum_max_km: 'pin', note_min: 'stern', bewertungen_min: 'stern', sterne_min: 'hotel' };
 const MASKE_KURZ = { flaeche_m2: 'Fläche ab', strand_max_m: 'Strand bis', luftlinie_max_km: 'Zum Ziel bis', gehzeit_max_min: 'Gehzeit Station bis', zentrum_max_km: 'Zentrum bis', note_min: 'Gästenote ab', bewertungen_min: 'Bewertungen ab', sterne_min: 'Sterne ab' };
 const MASKE_KEYS = new Set(MASKE_ALLE.map(k => k.key));
 const MASKE_STANDARD = { an: ['storno_kostenlos', 'kueche', 'pool', 'sauna_spa', 'strand_max_m', 'note_min'], aus: [] };
@@ -528,7 +532,7 @@ function sucheMaske({ form, extended }) {
   const kopfSuche = el('p', { class: 'mk-gruppe' }, 'Booking sucht schon danach', el('span', { class: 'muted' }, ' · andere Quellen prüfen nach dem Laden'));
   const kopfFilter = el('p', { class: 'mk-gruppe mk-gruppe-filter' }, 'Wird erst nach dem Laden geprüft', el('span', { class: 'muted' }, ' · Unbekanntes bleibt mit ? sichtbar'));
   // Wohnform geht an alle Quellen – steht ohne Überschrift ganz vorn
-  const angeheftet = el('div', { class: 'maske-gruppen' }, wohnenSlot, kopfSuche, chipsSuche, kopfFilter, chipsFilter);
+  const angeheftet = el('div', { class: 'maske-gruppen' }, kopfSuche, chipsSuche, kopfFilter, chipsFilter);
   const weitereInhalt = el('div', { class: 'maske-weitere-inhalt' });
   const weitereKopf = el('summary', {}, 'Weitere Kriterien');
   const weitere = el('details', { class: 'maske-weitere' }, weitereKopf, weitereInhalt);
@@ -541,7 +545,10 @@ function sucheMaske({ form, extended }) {
   function zeile(k, mitPin) {
     const z = zustand(k.key), id = 'mk-' + k.key;
     let control;
-    if (k.typ === 'ja') control = el('button', { type: 'button', class: 'mk-chip', id, 'aria-pressed': String(z.an), onclick: () => api.set(k.key, z.an ? 'egal' : 'pflicht') }, z.an ? '✓ ' : '', k.label);
+    // W104 (Richtung A): Kachel mit Symbol; Ecke 🔍 = Booking sucht schon danach, Trichter = wird nach dem Laden geprüft
+    const ikon = stayIcon(MASKE_ICON[k.key] || 'plus', 'mk-ikon');
+    const mark = el('span', { class: 'mk-mark ' + (k.suche ? 'mk-mark-suche' : 'mk-mark-filter'), title: k.suche ? 'Booking sucht schon danach' : 'Wird nach dem Laden geprüft' }, stayIcon(k.suche ? 'lupe' : 'trichter'));
+    if (k.typ === 'ja') control = el('button', { type: 'button', class: 'mk-chip', id, 'aria-pressed': String(z.an), onclick: () => api.set(k.key, z.an ? 'egal' : 'pflicht') }, ikon, el('span', { class: 'mk-chip-text' }, z.an ? '✓ ' : '', k.label), mark);
     else {
       const stufen = k.typ === 'stufen' ? k.stufen : (k.werte || []).map(w => [w, `${w} ${k.einheit}`.trim()]);
       const wert = z.an ? String(z.wert) : '';
@@ -549,7 +556,7 @@ function sucheMaske({ form, extended }) {
       const sel = el('select', { 'aria-label': k.label, onchange: () => sel.value === '' ? api.set(k.key, 'egal', null) : api.set(k.key, 'pflicht', Number(sel.value)) },
         el('option', { value: '' }, 'egal'), ...stufen.map(([w, t]) => el('option', { value: String(w) }, t)));
       sel.value = wert;
-      control = el('label', { class: 'mk-chip mk-wahl' + (z.an ? ' is-on' : ''), id }, el('span', { class: 'mk-wahl-name' }, MASKE_KURZ[k.key] || k.label), sel);
+      control = el('label', { class: 'mk-chip mk-wahl' + (z.an ? ' is-on' : ''), id }, ikon, el('span', { class: 'mk-wahl-name' }, MASKE_KURZ[k.key] || k.label), sel, mark);
     }
     const pin = mitPin ? el('button', { type: 'button', class: 'mk-pin', title: 'In der Suchmaske anheften', 'aria-label': k.label + ' anheften', onclick: () => {
       const e = maskeEinstellung(); e.an = [...e.an.filter(x => x !== k.key), k.key]; e.aus = e.aus.filter(x => x !== k.key); maskeSpeichern(e); draw(); } }, '📌') : null;
@@ -577,7 +584,8 @@ function sucheMaske({ form, extended }) {
     }).filter(Boolean), el('p', { class: 'mk-legende small muted' }, 'Durchgezogener Rahmen = Booking sucht schon danach · gestrichelt = wird nach dem Laden geprüft'));
     weitere.open = offenWar;
     const aktivWeitere = MASKE_ALLE.filter(k => da(k) && maskeStufe(k.key, e) === 'weitere' && zustand(k.key).an).length;
-    weitereKopf.textContent = 'Weitere Kriterien' + (aktivWeitere ? ` (${aktivWeitere} aktiv)` : '');
+    const anzahlWeitere = MASKE_ALLE.filter(k => da(k) && maskeStufe(k.key, e) === 'weitere').length;
+    weitereKopf.textContent = 'Weitere Kriterien' + (aktivWeitere ? ` · ${aktivWeitere} aktiv` : anzahlWeitere ? ` · ${anzahlWeitere}` : '');
     // Nur was zugeklappt unter „Weitere“ aktiv ist – die angehefteten Chips zeigen ihren Zustand selbst
     const liste = MASKE_ALLE.filter(k => da(k) && maskeStufe(k.key, e) === 'weitere').map(kurz).filter(Boolean);
     aktiv.textContent = liste.length ? 'Außerdem aktiv: ' + liste.join(' · ') : ''; aktiv.hidden = !liste.length;
@@ -585,8 +593,11 @@ function sucheMaske({ form, extended }) {
   form.addEventListener('kriterien-geladen', draw); form.addEventListener('maske-geaendert', draw);
   form.addEventListener('input', () => { if (api.geladen()) draw(); });
   draw();
-  const anpassen = el('a', { class: 'maske-anpassen small', href: '#/anzeige/suche' }, '⚙ Felder auswählen');
-  return { wohnenSlot, node: el('div', { class: 'maske' }, el('div', { class: 'maske-kopf' }, el('p', { class: 'maske-titel' }, 'Wichtig für dich'), anpassen), angeheftet, weitere, aktiv), draw };
+  const anpassen = el('a', { class: 'maske-anpassen small', href: '#/anzeige/suche' }, stayIcon('regler'), 'Anpassen');
+  const legende = el('p', { class: 'maske-legende' }, el('span', {}, stayIcon('lupe', 'mk-mark-suche'), 'Booking sucht schon danach'), el('span', {}, stayIcon('trichter', 'mk-mark-filter'), 'nach dem Laden geprüft'));
+  return { wohnenSlot, node: el('div', { class: 'maske' },
+    el('p', { class: 'maske-titel' }, 'Wohnen'), wohnenSlot,
+    el('div', { class: 'maske-kopf' }, el('p', { class: 'maske-titel' }, 'Wichtig für dich'), anpassen), angeheftet, legende, weitere, aktiv), draw };
 }
 
 // W100: Budget pro Nacht (für alle zusammen, alle Zimmer). Der Server bekommt wie bisher das Gesamtbudget = pro Nacht × Nächte.
@@ -619,7 +630,7 @@ function sucheDatumBereich(form) {
   const kurz = v => parse(v)?.toLocaleDateString('de-DE', { weekday: 'short', day: 'numeric', month: 'numeric' }) ?? '';
   let monat = null, offen = false;
   const text = el('span', { class: 'dr-text' });
-  const knopf = el('button', { type: 'button', class: 'dr-knopf', 'aria-expanded': 'false', onclick: () => umschalten() }, el('span', { class: 'dr-label' }, 'Wann?'), text);
+  const knopf = el('button', { type: 'button', class: 'dr-knopf a-zeile', 'aria-expanded': 'false', onclick: () => umschalten() }, el('span', { class: 'a-zeile-ikon' }, stayIcon('kalender')), el('span', { class: 'dr-label' }, 'Wann'), text);
   const hinweis = el('p', { class: 'dr-hinweis small', 'aria-live': 'polite' });
   const monate = el('div', { class: 'dr-monate' });
   const panel = el('div', { class: 'dr-panel', hidden: true, role: 'group', 'aria-label': 'Kalender Reisedaten' }, hinweis, monate);

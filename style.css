@@ -1553,3 +1553,105 @@ button.mk-tag { position: absolute; top: -7px; right: -5px; width: 20px; height:
 .mk-gruppe[hidden] { display: none; }
 .mk-art-filter .mk-chip:not([aria-pressed="true"]):not(.is-on) { border-style: dashed; border-color: #b9a37a; }
 .mk-legende { margin: 2px 0 0; }
+
+/* ===== W104 · Richtung A „Ruhig & kompakt“ (Sebastian 20.10.) ===== */
+:root { --a-ink: #14343b; --a-teal: #0e3b43; --a-soft: #e6eeed; --a-line: #e3eae9; --a-muted: #5b6f72; --a-coral: #d95840; --a-fav: #2f8a4e; --a-maybe: #8a6a00; --a-maybe-solid: #d9a514; --a-out: #c0392b; }
+.ic { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex: none; vertical-align: middle; }
+/* Suche: Karte mit Zeilen Wo / Wann / Wer */
+.quick-search { gap: 12px; }
+.quick-search .a-reise { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--a-line); border-radius: 16px; background: #fff; overflow: visible; }
+.quick-search .a-reise > .a-zeile, .quick-search .a-reise > .dr { border-top: 1px solid #edf2f1; }
+.quick-search .a-reise > .a-zeile:first-child { border-top: 0; }
+.a-zeile { display: grid; grid-template-columns: 36px minmax(0, 1fr) auto; align-items: center; column-gap: 12px; padding: 8px 14px; min-height: 58px; box-sizing: border-box; text-align: left; }
+.a-zeile-ikon { width: 36px; height: 36px; border-radius: 10px; background: var(--a-soft); color: var(--a-teal); display: flex; align-items: center; justify-content: center; }
+.a-zeile-ikon .ic { width: 19px; height: 19px; }
+.quick-search .mit-viertel.a-zeile { position: static; }
+.quick-search .mit-viertel.a-zeile > label { gap: 0; font-size: 12px; font-weight: 600; color: var(--a-muted); }
+.quick-search .mit-viertel.a-zeile input { min-height: 0; height: 26px; padding: 0; border: 0; background: transparent; font-size: 16px; font-weight: 700; color: var(--a-ink); box-shadow: none; outline: none; }
+.quick-search .viertel-link { position: static; padding: 6px 10px; border-radius: 999px; background: var(--a-soft); color: var(--a-teal); font-size: 12px; font-weight: 700; text-decoration: none; }
+.quick-search .dr { gap: 0; }
+.quick-search .dr-knopf.a-zeile { width: 100%; border: 0; background: none; grid-template-columns: 36px minmax(0, 1fr) auto; grid-template-rows: auto auto; }
+.quick-search .dr-knopf .a-zeile-ikon { grid-row: 1 / 3; }
+.quick-search .dr-label { grid-column: 2; font-size: 12px; font-weight: 600; color: var(--a-muted); }
+.quick-search .dr-text { grid-column: 2; min-height: 0; padding: 0; border: 0; background: none; font-size: 16px; font-weight: 700; box-shadow: none !important; }
+.quick-search .dr-text::before { content: none; }
+.quick-search .dr { position: relative; }
+.quick-search .dr > .quick-nights { position: absolute; right: 14px; top: 20px; margin: 0; font-size: 13px; font-weight: 400; color: var(--a-muted); pointer-events: none; }
+.quick-search .dr-panel { margin: 0 8px 8px; }
+.quick-search .who-chip.a-zeile { width: 100%; border: 0; border-radius: 0 0 16px 16px; background: none; grid-template-columns: 36px minmax(0, 1fr) auto; grid-template-rows: auto auto; padding: 8px 14px; }
+.quick-search .who-chip.a-zeile .a-zeile-ikon { grid-row: 1 / 3; grid-column: 1; }
+.quick-search .who-chip.a-zeile .who-label { grid-column: 2; grid-row: 1; font-size: 12px; font-weight: 600; color: var(--a-muted); }
+.quick-search .who-chip.a-zeile .who-text { grid-column: 2; grid-row: 2; font-size: 16px; font-weight: 700; }
+.quick-search .who-chip.a-zeile .who-edit { grid-column: 3; grid-row: 1 / 3; font-size: 12px; color: var(--a-teal); }
+.quick-search .who-panel { border: 1px solid var(--a-line); }
+/* Abschnitts-Titel */
+.maske { border-top: 0; padding-top: 0; gap: 8px; }
+.maske-titel { margin: 6px 2px 0; font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--a-muted); }
+.maske-kopf { align-items: center; }
+.maske-anpassen { display: inline-flex; align-items: center; gap: 4px; font-size: 13px; font-weight: 700; color: var(--a-teal); text-decoration: none; }
+.maske-anpassen .ic { width: 15px; height: 15px; }
+/* Wohnen: zwei gleich große Kacheln */
+.wohnen-in-maske .wo-row:not(.wo-sub) { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.wohnen-in-maske .wo-chip-wrap { display: flex; flex-direction: column; align-items: stretch; border-radius: 14px; border: 1px solid #dfe8e6; background: #fff; overflow: hidden; }
+.wohnen-in-maske .wo-chip-wrap.is-on { border: 1.5px solid var(--a-teal); background: #fff; }
+.wohnen-in-maske .wo-chip { display: flex; align-items: center; gap: 8px; min-height: 42px; padding: 8px 12px 4px; font-size: 15px; font-weight: 800; color: var(--a-muted); text-align: left; }
+.wohnen-in-maske .wo-chip-wrap.is-on .wo-chip { color: var(--a-teal); }
+.wohnen-in-maske .wo-chip .ic { width: 20px; height: 20px; }
+.wohnen-in-maske .wo-chip-wrap .wo-stepper { border-left: 0; padding: 0 10px 10px; justify-content: space-between; }
+.wohnen-in-maske .wo-step { min-height: 32px; min-width: 32px; }
+.wohnen-in-maske .wo-step-value { font-size: 14px; }
+.wohnen-in-maske .wo-chip-wrap:not(.is-on) .wo-chip { min-height: 74px; padding-bottom: 8px; }
+.wohnen-in-maske .wo-sub { gap: 8px; }
+.wohnen-in-maske .wo-sub-name { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; color: var(--a-muted); }
+.wohnen-in-maske .wo-sub-name .ic { width: 15px; height: 15px; }
+/* Kriterien: Kacheln im 3er-Raster */
+.maske-gruppen { gap: 8px; }
+.maske-gruppen > .mk-gruppe { display: none; }
+.maske .maske-an { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.maske .maske-an:empty { display: none; }
+.maske .maske-an .mk-row { position: relative; min-width: 0; }
+.maske .maske-an .mk-ctrl { display: block; height: 100%; }
+.quick-search .maske .maske-an .mk-chip, .quick-search .maske .maske-an label.mk-wahl, .maske .maske-an .mk-chip { position: relative; width: 100%; height: 76px; min-height: 76px; padding: 8px 6px; border: 1px solid #dfe8e6; border-radius: 14px; background: #fff; color: var(--a-ink); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; font-size: 13px; font-weight: 700; text-align: center; box-sizing: border-box; }
+.maske .maske-an .mk-chip[aria-pressed="true"], .quick-search .maske .maske-an label.mk-wahl.is-on { background: var(--a-teal); border-color: var(--a-teal); color: #fff; }
+.mk-ikon { width: 21px; height: 21px; }
+.mk-chip-text { line-height: 1.15; }
+.maske .maske-an .mk-wahl .mk-wahl-name { font-size: 13px; line-height: 1.15; }
+.maske .maske-an .mk-wahl select { max-width: 100%; padding: 0 14px 0 2px; font-size: 12.5px; font-weight: 800; text-align: center; }
+.mk-mark { position: absolute; top: 6px; right: 6px; display: flex; color: #1b6657; }
+.mk-mark .ic { width: 12px; height: 12px; stroke-width: 2.2; }
+.mk-mark-filter, .maske-legende .mk-mark-filter { color: #8a6a00; }
+.mk-mark-suche, .maske-legende .mk-mark-suche { color: #1b6657; }
+.maske .maske-an .mk-chip[aria-pressed="true"] .mk-mark, .maske .maske-an .mk-wahl.is-on .mk-mark { color: #fff; opacity: .8; }
+.maske-legende { margin: 0 2px; display: flex; flex-wrap: wrap; gap: 4px 14px; font-size: 11.5px; color: var(--a-muted); }
+.maske-legende span { display: inline-flex; align-items: center; gap: 4px; }
+.maske-legende .ic { width: 12px; height: 12px; stroke-width: 2.2; }
+.maske-weitere > summary { justify-content: center; min-height: 44px; border: 1px dashed #b9c9c6; border-radius: 12px; color: var(--a-teal); font-size: 14px; list-style: none; }
+.maske-weitere > summary::-webkit-details-marker { display: none; }
+.maske-weitere[open] > summary { margin-bottom: 8px; }
+.maske-weitere .mk-thema { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.maske-weitere .mk-thema legend { grid-column: 1 / -1; }
+.maske-weitere .mk-row { position: relative; }
+.maske-weitere .mk-ctrl { display: block; }
+.maske-weitere .mk-chip, .quick-search .maske-weitere label.mk-wahl { position: relative; width: 100%; height: 70px; min-height: 70px; padding: 6px; border: 1px dashed #cfdcda; border-radius: 14px; background: #fafcfb; color: var(--a-ink); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; font-size: 12.5px; font-weight: 700; text-align: center; box-sizing: border-box; }
+.maske-weitere .mk-chip[aria-pressed="true"], .quick-search .maske-weitere label.mk-wahl.is-on { background: var(--a-teal); border: 1px solid var(--a-teal); color: #fff; }
+.maske-weitere .mk-art-filter .mk-chip:not([aria-pressed="true"]):not(.is-on) { border-color: #cfdcda; }
+.maske-weitere .mk-pin { position: absolute; left: 4px; top: 4px; min-width: 24px; min-height: 24px; font-size: 11px; z-index: 1; }
+.maske-weitere .mk-legende { display: none; }
+/* Suchknopf */
+.quick-search > button.primary[type=submit] { display: flex; align-items: center; justify-content: center; gap: 8px; border-radius: 26px; }
+.quick-search > button.primary[type=submit] .ic { width: 20px; height: 20px; stroke-width: 2.2; }
+@media (min-width: 720px) {
+  .quick-search .a-reise { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) minmax(0, 1fr); }
+  .quick-search .a-reise > .a-zeile, .quick-search .a-reise > .dr { border-top: 0; border-left: 1px solid #edf2f1; }
+  .quick-search .a-reise > .a-zeile:first-child { border-left: 0; }
+  .quick-search .who-chip.a-zeile { border-radius: 0 16px 16px 0; }
+  .maske .maske-an, .maske-weitere .mk-thema { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .wohnen-in-maske .wo-row:not(.wo-sub) { grid-template-columns: repeat(2, minmax(0, 260px)); }
+  .quick-search .dr-panel { position: absolute; z-index: 20; left: 0; top: 100%; width: min(720px, 90vw); }
+}
+.maske .maske-gruppen { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.maske .maske-gruppen > .maske-an { display: contents; }
+.maske .maske-gruppen > .maske-an > p { grid-column: 1 / -1; }
+.wohnen-in-maske .wo-chip-wrap { min-height: 84px; justify-content: space-between; }
+.wohnen-in-maske .wo-chip-wrap:not(.is-on) .wo-chip { min-height: 82px; }
+@media (min-width: 720px) { .maske .maske-gruppen { grid-template-columns: repeat(6, minmax(0, 1fr)); } }

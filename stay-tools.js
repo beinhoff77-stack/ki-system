@@ -1,6 +1,53 @@
 /* Unterkunft: Fotos, Auswahl, Filter und Karte. Keine Schlüssel oder gespeicherten Suchdaten. */
 'use strict';
 
+// W104 (Richtung A): ein Symbolsatz für die ganze Unterkunftssuche – Linien-Symbole, Farbe = Textfarbe.
+const STAY_ICONS = {
+  pin: '<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>',
+  kalender: '<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>',
+  personen: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/>',
+  haus: '<path d="M3 10l9-7 9 7v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><path d="M9 22V12h6v10"/>',
+  hotel: '<rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/>',
+  bett: '<path d="M2 4v16M2 8h18a2 2 0 0 1 2 2v10M2 17h20M6 8v9"/>',
+  storno: '<path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/>',
+  kueche: '<path d="M3 2v7a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2V2M7 2v20M21 15V2a5 5 0 0 0-5 5v6a2 2 0 0 0 2 2h3Zm0 0v7"/>',
+  pool: '<path d="M2 7c1 .6 2 1 3 1 2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2c.7 0 1.4.2 2 .5M2 13c1 .6 2 1 3 1 2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2c.7 0 1.4.2 2 .5M2 19c1 .6 2 1 3 1 2.5 0 2.5-2 5-2s2.5 2 5 2 2.5-2 5-2c.7 0 1.4.2 2 .5"/>',
+  sauna: '<path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.4-.5-2-1-3-1.1-2.1-.2-4 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.2.4-2.3 1-3a2.5 2.5 0 0 0 2.5 2.5Z"/>',
+  strand: '<path d="M22 12a10 10 0 0 0-20 0Z"/><path d="M12 12v8a2 2 0 0 0 4 0M12 2v1"/>',
+  stern: '<path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8-6.2-3.2-6.2 3.2L7 14.2 2 9.3l6.9-1Z"/>',
+  bahn: '<rect x="5" y="3" width="14" height="13" rx="3"/><path d="M5 10h14M8 21l2-5M16 21l-2-5"/>',
+  herz: '<path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7Z"/>',
+  naja: '<path d="M3 13c2.5-3 4.5-3 6.5 0s4 3 6 0 4-3 5.5 0"/>',
+  raus: '<path d="M18 6 6 18M6 6l12 12"/>',
+  lupe: '<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>',
+  trichter: '<path d="M22 3H2l8 9.5V19l4 2v-8.5Z"/>',
+  regler: '<path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/>',
+  plus: '<path d="M12 5v14M5 12h14"/>',
+  flaeche: '<path d="M3 3h18v18H3zM3 9h18M9 21V9"/>',
+  fruehstueck: '<path d="M17 8h1a4 4 0 1 1 0 8h-1M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4ZM6 2v2M10 2v2M14 2v2"/>',
+  klima: '<path d="M12 2v20M4.9 4.9l14.2 14.2M2 12h20M4.9 19.1 19.1 4.9"/>',
+  wlan: '<path d="M5 12.6a10 10 0 0 1 14 0M8.5 16.1a5 5 0 0 1 7 0M2 8.8a15 15 0 0 1 20 0M12 20h.01"/>',
+  auto: '<path d="M19 17h2v-4l-2-5H5L3 13v4h2M5 17a2 2 0 1 0 4 0 2 2 0 1 0-4 0M15 17a2 2 0 1 0 4 0 2 2 0 1 0-4 0M9 17h6"/>',
+  fitness: '<path d="M6.5 6.5h11M6.5 17.5h11M6 20V4M18 20V4M3 15V9M21 15V9"/>',
+  balkon: '<path d="M4 21V11a8 8 0 0 1 16 0v10M2 21h20M8 21v-6M12 21v-6M16 21v-6"/>',
+  meer: '<path d="M2 15c2 0 2-2 4.5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2M2 20c2 0 2-2 4.5-2s2.5 2 5 2 2.5-2 5-2 2.5 2 5 2M12 3a5 5 0 0 1 5 5H7a5 5 0 0 1 5-5Z"/>',
+  waschen: '<rect x="3" y="2" width="18" height="20" rx="2"/><circle cx="12" cy="13" r="5"/><path d="M7 6h.01M10 6h.01"/>',
+  info: '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/>',
+  liste: '<path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/>',
+  karte: '<path d="M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3Z"/><path d="M9 3v15M15 6v15"/>',
+  tabelle: '<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/>',
+  stapel: '<rect x="2" y="6" width="14" height="16" rx="2"/><path d="M8 2h12a2 2 0 0 1 2 2v12"/>',
+  sortieren: '<path d="m21 16-4 4-4-4M17 20V4M3 8l4-4 4 4M7 4v16"/>',
+  warnung: '<path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/>',
+  extern: '<path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>',
+};
+function stayIcon(name, cls = '') {
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.setAttribute('viewBox', '0 0 24 24'); svg.setAttribute('aria-hidden', 'true'); svg.setAttribute('focusable', 'false');
+  svg.setAttribute('class', ('ic ' + cls).trim()); svg.innerHTML = STAY_ICONS[name] || '';
+  return svg;
+}
+
 function sucheFoto(t) {
   let url;
   try { url = new URL(t.bild); } catch { /* Platzhalter */ }

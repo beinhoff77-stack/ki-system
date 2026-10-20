@@ -1771,3 +1771,28 @@ button.mk-tag { position: absolute; top: -7px; right: -5px; width: 20px; height:
 .a-ergebnis .stay-run-summary { padding-bottom: 8px; }
 .a-ergebnis .stay-run-summary > *:empty { display: none; }
 .a-ergebnis .stay-run-summary { min-height: 0 !important; height: auto; align-content: start; }
+/* W104 · Durchsehen im Stil A */
+@media (max-width: 899px) { .a-ergebnis .review-card.photo-first .stay-gallery { max-height: 44vh; } .a-ergebnis .review-card.photo-first .stay-gallery img { max-height: 44vh; object-fit: cover; } }
+.a-ergebnis .review-swipe .a-meta { margin-top: 2px; }
+.a-ergebnis .review-title h3 { font-size: 21px; font-weight: 800; letter-spacing: -.01em; margin: 0; }
+.a-ergebnis .review-price { font-size: 14px; color: var(--a-muted); }
+.a-ergebnis .review-price strong, .a-ergebnis .review-price > span > span:first-child { font-size: 22px; font-weight: 800; color: var(--a-ink); }
+.a-ergebnis .review-bedroom { font-size: 13px; color: var(--a-muted); margin: 2px 0 0; }
+.a-r-fakten { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 10px; }
+.a-r-kachel { background: #f3f6f5; border-radius: 12px; padding: 9px 10px; display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.a-r-wert { display: flex; align-items: center; gap: 6px; font-size: 15px; font-weight: 800; color: var(--a-ink); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.a-r-wert .ic { width: 16px; height: 16px; }
+.a-r-kachel[data-fakt="gaestenote"] .ic { fill: var(--a-maybe-solid); stroke: var(--a-maybe-solid); }
+.a-r-kachel.is-ok .a-r-wert { color: var(--a-fav); }
+.a-r-kachel.is-warn .a-r-wert { color: var(--a-maybe); }
+.a-r-label { font-size: 11.5px; color: var(--a-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.a-ergebnis .review-actions { display: grid !important; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.a-ergebnis .review-actions > button.a-entscheid { height: 58px; min-height: 58px; border: 0; border-radius: 16px; font-size: 14px; font-weight: 800; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; }
+.a-ergebnis .review-actions > button.a-entscheid .ic { width: 21px; height: 21px; stroke-width: 2.3; }
+.a-ergebnis .review-actions > .decision-weg.a-entscheid { background: #fbe1dd; color: var(--a-out); }
+.a-ergebnis .review-actions > .decision-vielleicht.a-entscheid { background: #fdf3cf; color: var(--a-maybe); }
+.a-ergebnis .review-actions > .decision-favorit.a-entscheid { background: #e2f3e7; color: var(--a-fav); }
+.a-ergebnis .review-actions > .decision-weg.a-entscheid[aria-pressed="true"] { background: var(--a-out); color: #fff; }
+.a-ergebnis .review-actions > .decision-vielleicht.a-entscheid[aria-pressed="true"] { background: var(--a-maybe-solid); color: #fff; }
+.a-ergebnis .review-actions > .decision-favorit.a-entscheid[aria-pressed="true"] { background: var(--a-fav); color: #fff; }
+.a-ergebnis .review-actions > .decision-favorit.a-entscheid[aria-pressed="true"] .ic { fill: #fff; }

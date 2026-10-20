@@ -211,13 +211,13 @@ test('PWA installiert vollständige Offline-Hülle, API wird nicht gecacht', asy
   assert(cacheNames.includes('ki-system:' + origin + '/another-app/:v1'));
   assert(!cacheNames.includes('ki-system:' + origin + '/:old'));
   await page.evaluate(() => fetch('README.md'));
-  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v49')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
-  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.34.0')); assert(cached.includes('/style.css?v=0.34.0'));
-  assert(cached.includes('/stay-tools.js?v=0.34.0')); assert(cached.includes('/stay-desk.js?v=0.34.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
-  assert(cached.includes('/stay-research.js?v=0.34.0'));
-  assert(cached.includes('/stay-form.js?v=0.34.0'));
-  assert(cached.includes('/stay-details.js?v=0.34.0'));
-  assert(cached.includes('/stay-districts.js?v=0.34.0'));
+  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v50')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
+  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.35.0')); assert(cached.includes('/style.css?v=0.35.0'));
+  assert(cached.includes('/stay-tools.js?v=0.35.0')); assert(cached.includes('/stay-desk.js?v=0.35.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
+  assert(cached.includes('/stay-research.js?v=0.35.0'));
+  assert(cached.includes('/stay-form.js?v=0.35.0'));
+  assert(cached.includes('/stay-details.js?v=0.35.0'));
+  assert(cached.includes('/stay-districts.js?v=0.35.0'));
   assert(!cached.includes('/README.md'));
   assert(!cached.some((u) => u.includes('app-api')));
   await context.setOffline(true); await page.reload();
@@ -2524,4 +2524,22 @@ test('W100: Score aus – Suchmaske mit angehefteten Kriterien, Budget pro Nacht
   // Strand-Luftlinie: auf 50 m gerundet, Airbnb mit „ca.“
   const texte = await page.evaluate(() => [[337,'hasdata_booking'],[20,'hasdata_booking'],[1449,'rakuten_travel'],[3001,'trivago_mcp'],[512,'apify_airbnb'],[null,'x']].map(([m,q]) => stayStrandText({ strand_m: m, quelle: q })));
   assert.deepEqual(texte, ['≈ 350 m', 'unter 50 m', '≈ 1,45 km', 'über 3 km', 'ca. 500 m', '?']);
+});
+
+test('W104: Richtung A – Suche mit Reise-Karte und Kacheln, Liste mit Symbol-Fakten und Preis rechts, Durchsehen mit Fakten-Kacheln', async (t) => {
+  const data = result();
+  const { page } = await setup(t, p => p.daten?.suchauftrag_id ? data : { suchauftraege: [] }, { ohneScore: true, width: 390, height: 844, collapsed: true });
+  await page.goto(origin + '/#/suche');
+  await page.locator('.a-reise .a-zeile').first().waitFor();
+  assert.equal(await page.locator('.a-reise .a-zeile-ikon svg').count() >= 3, true, 'Wo/Wann/Wer mit Symbol');
+  await page.locator('.maske .maske-an .mk-chip').first().waitFor();
+  assert.ok(await page.locator('.maske .mk-mark').count() > 0, 'Zeichen Suche/Filter an den Kacheln');
+  await page.goto(origin + '/#/suche/2');
+  const row = page.locator('[data-group=A] tr.a-zeile-treffer').first(); await row.waitFor();
+  assert.match(await row.locator('.a-preis').innerText(), /€/);
+  assert.equal(await row.locator('.sel-fav').isVisible(), true);
+  await page.getByRole('button', { name: 'Durchsehen', exact: true }).click();
+  await page.locator('.a-r-fakten .a-r-kachel').first().waitFor();
+  assert.equal(await page.locator('.review-actions .a-entscheid').count(), 3);
+  assert.equal(await page.getByRole('button', { name: 'Weg', exact: true }).isVisible(), true, 'Name bleibt „Weg“, sichtbar „Raus“');
 });

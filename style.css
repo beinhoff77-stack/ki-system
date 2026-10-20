@@ -1539,3 +1539,10 @@ button.mk-tag { position: absolute; top: -7px; right: -5px; width: 20px; height:
   .display-maske .display-stufen button { flex: 1 1 0; }
 }
 .quick-search label.mk-wahl.is-on, .mk-wahl.is-on .mk-wahl-name { color: #fff; }
+/* W103: Wohnform als erste Kriterien in „Wichtig für dich“, gleiche Größe wie die Chips */
+.wohnen-in-maske { gap: 6px; }
+.wohnen-in-maske .wo-chip { min-height: 38px; padding: 3px 12px; font-size: 14px; }
+.wohnen-in-maske .wo-step { min-height: 28px; min-width: 28px; font-size: 16px; }
+.wohnen-in-maske .wo-step-value { min-width: 38px; font-size: 13px; }
+.wohnen-in-maske .wo-seg-btn { min-height: 32px; font-size: 12.5px; }
+@media (max-width: 599px) { .wohnen-in-maske .wo-chip { min-height: 34px; font-size: 13px; padding: 3px 10px; } }

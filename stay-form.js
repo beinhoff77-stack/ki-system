@@ -410,7 +410,9 @@ function sucheSchnellLayout({ form, fields, sections, extended, submit, call, li
   const kopf = el('div', { class: 'quick-kopf' }, el('h2', {}, 'Unterkunft suchen'), el('p', { class: 'quick-meta small' }, tripLine));
   when.classList.add('dr-felder'); // W103: echte Datumsfelder bleiben im Formular, bedient wird „Wann?“
   const ortZeit = el('div', { class: 'quick-block quick-ortzeit' }, zielLabel, when);
-  const werWohnen = el('div', { class: 'quick-block quick-werwohnen' }, wohnen.node, who);
+  // W103 (Sebastian 20.10.): Wohnform (Apartment/Schlafzimmer, Hotel/Zimmer, Bett) gehört zu den Kriterien – steht in „Wichtig für dich“ vorne
+  if (maske) { maske.node.insertBefore(wohnen.node, maske.node.querySelector('.maske-an')); wohnen.node.classList.add('wohnen-in-maske'); }
+  const werWohnen = el('div', { class: 'quick-block quick-werwohnen' }, maske ? null : wohnen.node, who);
   const quick = el('section', { class: 'card quick-search' }, kopf, ortZeit, nights, band.node, werWohnen, whoPanel, maske ? maske.node : null, submit);
   const more = el('details', { class: 'card more-options' }, el('summary', {}, 'Mehr Optionen'), el('p', { class: 'small muted' }, (SUCHE_SCORE_AN ? 'Reiseart, Unterkunftsform, ' : '') + 'Suchprofile, Aufenthalt, Quellen, Suchkosten und Qualität. Die Standardwerte passen für die meisten Suchen.'));
   more.append(extended.profilePanel);

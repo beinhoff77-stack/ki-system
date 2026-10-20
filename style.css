@@ -1796,3 +1796,8 @@ button.mk-tag { position: absolute; top: -7px; right: -5px; width: 20px; height:
 .a-ergebnis .review-actions > .decision-vielleicht.a-entscheid[aria-pressed="true"] { background: var(--a-maybe-solid); color: #fff; }
 .a-ergebnis .review-actions > .decision-favorit.a-entscheid[aria-pressed="true"] { background: var(--a-fav); color: #fff; }
 .a-ergebnis .review-actions > .decision-favorit.a-entscheid[aria-pressed="true"] .ic { fill: #fff; }
+.a-ergebnis .stay-run-summary .run-diagnostics { padding: 0 !important; margin: 4px 0 0 !important; border: 0; background: transparent; box-shadow: none; }
+.a-ergebnis .stay-run-summary .run-diagnostics > summary { min-height: 22px; padding: 0; }
+.a-ergebnis .stay-run-summary .run-line { line-height: 1.35; }
+.a-ergebnis > .result-view-switch, .a-ergebnis > .filter-box, .a-ergebnis > .result-jumps { margin-bottom: 8px; }
+.quick-search .a-reise > .who-chip.a-zeile { border-top: 1px solid #edf2f1; } @media (min-width: 720px) { .quick-search .a-reise > .who-chip.a-zeile { border-top: 0; border-left: 1px solid #edf2f1; } }

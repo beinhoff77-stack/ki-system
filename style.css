@@ -1801,3 +1801,43 @@ button.mk-tag { position: absolute; top: -7px; right: -5px; width: 20px; height:
 .a-ergebnis .stay-run-summary .run-line { line-height: 1.35; }
 .a-ergebnis > .result-view-switch, .a-ergebnis > .filter-box, .a-ergebnis > .result-jumps { margin-bottom: 8px; }
 .quick-search .a-reise > .who-chip.a-zeile { border-top: 1px solid #edf2f1; } @media (min-width: 720px) { .quick-search .a-reise > .who-chip.a-zeile { border-top: 0; border-left: 1px solid #edf2f1; } }
+/* W105 (Sebastian 20.10., iPhone): Durchsehen – Kopf unter der Statusleiste erreichbar, Foto füllt den freien Platz, Leiste unten flacher */
+body:has(.tinder-mode) main.view { padding-top: calc(6px + env(safe-area-inset-top)) !important; }
+.tinder-mode { height: calc(100dvh - var(--tabs-h) - 16px - env(safe-area-inset-bottom) - env(safe-area-inset-top)) !important; }
+.a-ergebnis.tinder-mode .review-card { display: flex !important; flex-direction: column; }
+.a-ergebnis.tinder-mode .review-card > .review-content { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; overflow-y: auto; }
+.a-ergebnis.tinder-mode .review-card > .review-content > .stay-gallery { flex: 1 0 auto; min-height: 46%; max-height: none !important; height: auto !important; }
+.a-ergebnis.tinder-mode .review-card > .review-content > .stay-gallery .stay-photo, .a-ergebnis.tinder-mode .review-card > .review-content > .stay-gallery img { height: 100% !important; max-height: none !important; }
+.a-ergebnis.tinder-mode .review-card > .review-content > .review-desk-info { display: none; }
+.a-ergebnis.tinder-mode .review-actions > button.a-entscheid { height: 50px; min-height: 50px; flex-direction: row; gap: 6px; }
+@media (min-width: 800px) { .a-ergebnis.tinder-mode .review-card > .review-content > .review-desk-info { display: block; } }
+@media (max-width: 799px) {
+  :root { --tabs-h: 58px; }
+  nav.tabs { padding-top: 4px; }
+  nav.tabs button { gap: 2px; font-size: .65rem; padding: 3px 2px; }
+  nav.tabs svg { width: 20px; height: 20px; }
+}
+/* W105: Reise, Profil & Technik direkt im Suchkopf (ein Einstieg), Suchen oben mit Löschen */
+.quick-search > .more-options.a-mehr { margin: 0; padding: 0; border: 0; box-shadow: none; background: transparent; }
+.quick-search > .more-options.a-mehr > summary { display: none; }
+.quick-search > .more-options.a-mehr > p { margin: 0 2px 6px; }
+.quick-search > .more-options.a-mehr[open] { border: 1px solid var(--a-line); border-radius: 16px; padding: 10px; background: #f8faf9; }
+.more-options.a-mehr > .card { margin: 0 0 8px !important; padding: 12px !important; border: 1px solid var(--a-line) !important; border-radius: 14px !important; background: #fff !important; box-shadow: none !important; }
+.more-options.a-mehr h2 { display: flex; align-items: center; gap: 8px; margin: 0 0 8px; font-size: 15px; }
+.more-options.a-mehr h2 .ic { color: var(--a-teal); }
+.a-technik { border: 1px dashed #c9d6d4; border-radius: 14px; padding: 0 10px; background: #fff; }
+.a-technik > summary { display: flex; align-items: center; gap: 8px; min-height: 44px; font-size: 13.5px; font-weight: 700; color: var(--a-muted); cursor: pointer; list-style: none; }
+.a-technik > summary::-webkit-details-marker { display: none; }
+.a-technik[open] { padding-bottom: 10px; }
+.a-technik > .card { margin: 0 0 8px !important; box-shadow: none !important; border: 1px solid var(--a-line) !important; border-radius: 12px !important; padding: 10px !important; background: #fafcfb !important; }
+.a-technik h2 { font-size: 14px; margin: 0 0 6px; }
+.recent-searches.a-suchen { margin-bottom: 10px; padding: 12px 14px; }
+.a-suchen > h2 { margin: 0 0 4px; font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--a-muted); }
+.recent-line { display: flex; align-items: center; gap: 4px; border-bottom: 1px solid #eef2f1; }
+.recent-line > .recent-row { flex: 1; min-width: 0; border-bottom: 0; }
+.recent-del { flex: none; width: 40px; height: 40px; min-height: 40px; padding: 0; border: 0; border-radius: 50%; background: transparent; color: #9aabaa; display: flex; align-items: center; justify-content: center; }
+.recent-del:hover, .recent-del:focus-visible { background: #fbe1dd; color: var(--a-out); }
+.recent-del:disabled { opacity: .3; }
+.recent-del .ic { width: 16px; height: 16px; }
+.quick-search > button.primary[type=submit] { bottom: calc(var(--tabs-h) + 18px + env(safe-area-inset-bottom)); }
+.more-options.a-mehr .search-profiles .actions { display: flex; flex-wrap: wrap; gap: 8px; } .more-options.a-mehr .search-profiles .actions > button { min-height: 40px; padding: 0 12px; font-size: 13.5px; }

@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.35.0';
+const APP_VERSION = '0.35.1';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -1022,7 +1022,19 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     }
     if (historyOnly) { recent.append(refresh, recentNotice, list); recent.append(el('p', { class: 'small muted' }, 'Hier stehen die letzten zehn Suchaufträge. Die gemeinsame Merkliste umfasst alle Reisen. Rohdaten werden nach 30 Tagen entfernt.')); }
     else { recent.classList.add('recent-compact'); recent.firstElementChild.textContent = 'Deine Suchen'; recent.append(recentNotice, list); }
-    scope.append(recent);
+    // W105 (Sebastian 20.10.): Suchen nicht unten verstecken – ohne Score stehen sie über dem Formular, je Suche „Löschen“ (Papierkorb, 30 Tage)
+    if (!historyOnly && !SUCHE_SCORE_AN) { recent.classList.add('a-suchen'); scope.insertBefore(recent, form); } else scope.append(recent);
+    let undoRow = null;
+    async function loeschen(a) {
+      recentNotice.textContent = '„' + a.ziel + '“ wird gelöscht …';
+      try {
+        await call('unterkunft_suchauftrag_loeschen', { suchauftrag_id: a.id }); if (!live()) return;
+        undoRow = a; await loadRecent();
+        recentNotice.replaceChildren('„' + a.ziel + '“ liegt im Papierkorb (30 Tage). ', el('button', { type: 'button', class: 'link-button', onclick: async () => {
+          try { await call('unterkunft_suchauftrag_wiederherstellen', { suchauftrag_id: undoRow.id }); undoRow = null; if (live()) await loadRecent(); } catch (e) { if (live()) recentNotice.textContent = e.message; }
+        } }, 'Rückgängig'));
+      } catch (e) { if (live()) recentNotice.textContent = /läuft|wartet/.test(e.message) ? 'Diese Suche läuft noch – bitte erst abbrechen.' : e.message; }
+    }
     const historyProfiles = el('section', { class: 'card' }, el('h2', {}, 'Gespeicherte Suchprofile'));
     if (historyOnly) scope.append(historyProfiles);
     async function loadHistoryProfiles() {
@@ -1042,15 +1054,17 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
         if (!Array.isArray(rows)) throw new Error('Unerwartete Antwort beim Lesen der letzten Suchaufträge.');
         if (!historyOnly) {
           const today = new Date().toISOString().slice(0, 10);
+          const zeile = a => SUCHE_SCORE_AN ? row(a) : el('div', { class: 'recent-line' }, row(a), el('button', { type: 'button', class: 'recent-del', 'aria-label': 'Suche ' + a.ziel + ' löschen', title: 'Löschen (Papierkorb, 30 Tage wiederherstellbar)', disabled: ['laeuft', 'wartet'].includes(a.status), onclick: () => loeschen(a) }, stayIcon('raus')));
           const row = a => el('a', { class: 'recent-row' + (a.abreise < today || ['abgebrochen', 'fehler'].includes(a.status) ? ' is-past' : ''), href: '#/suche/' + a.id },
             el('span', { class: 'recent-date' }, el('b', {}, String(new Date(a.anreise).getDate())), el('small', {}, new Date(a.anreise).toLocaleDateString('de-DE', { month: 'short' }))),
             el('span', { class: 'recent-main' }, el('strong', {}, a.ziel), el('small', {}, `${a.naechte ?? Math.round((Date.parse(a.abreise) - Date.parse(a.anreise)) / 86400000)} Nächte · ${a.treffer ?? '–'} Unterkünfte${sucheZahl(a.gemerkt) > 0 ? ' · ♥ ' + a.gemerkt : ''}${['laeuft', 'wartet'].includes(a.status) ? ' · läuft …' : a.status === 'abgebrochen' ? ' · abgebrochen' : ''}`)),
             el('span', { class: 'recent-go', 'aria-hidden': 'true' }, '›'));
           const sorted = [...rows].sort((x, y) => (y.abreise >= today) - (x.abreise >= today) || String(x.anreise).localeCompare(String(y.anreise)));
           const upcoming = sorted.filter(a => a.abreise >= today && a.status !== 'abgebrochen'), older = sorted.filter(a => !upcoming.includes(a));
-          list.replaceChildren(...upcoming.map(row), older.length ? el('details', { class: 'recent-older' }, el('summary', {}, `Frühere und abgebrochene Suchen (${older.length})`), ...older.map(row)) : '');
+          list.replaceChildren(...upcoming.map(zeile), older.length ? el('details', { class: 'recent-older' }, el('summary', {}, `Frühere und abgebrochene Suchen (${older.length})`), ...older.map(zeile)) : '');
+          recent.hidden = !SUCHE_SCORE_AN && !rows.length;
           if (!rows.length) list.append(el('p', { class: 'muted' }, 'Noch keine Suche. Oben Ort und Daten eintragen.'));
-          recentNotice.textContent = ''; return;
+          if (!undoRow) recentNotice.textContent = ''; return;
         }
         list.replaceChildren(...rows.map((a) => el('article', { class: 'recent-trip' }, el('a', { class: 'recent-trip-content', href: '#/suche/' + a.id }, el('span', { class: 'eyebrow' }, 'Suche #' + a.id), el('strong', {}, a.ziel), el('span', {}, `${fmtDate(a.anreise)}–${fmtDate(a.abreise)}`), el('span', { class: 'recent-trip-meta' }, `${a.treffer ?? '–'} Treffer · ${a.status || 'Status unbekannt'} ↗`)), sucheZahl(a.gemerkt) > 0 ? el('a', { href: '#/suche/' + a.id + '?favoriten=1', class: 'small' }, 'Favoriten in ' + a.ziel) : null)));
         if (!rows.length) list.append(el('div', { class: 'stay-empty' }, el('strong', {}, 'Die nächste Reise beginnt hier.'), el('p', {}, 'Sobald du eine Suche startest, findest du hier ihren Fortschritt und ihre Ergebnisse.'), historyOnly ? el('a', { href: '#/suche' }, 'Erste Unterkunft suchen →') : null));

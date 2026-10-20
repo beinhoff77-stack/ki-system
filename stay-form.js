@@ -384,7 +384,6 @@ function sucheSchnellLayout({ form, fields, sections, extended, submit, call, li
   const whoText = el('span', { class: 'who-text' }), whoPanel = el('div', { class: 'who-panel', hidden: true });
   const who = el('button', { type: 'button', class: 'who-chip', 'aria-expanded': 'false', onclick: () => { whoPanel.hidden = !whoPanel.hidden; who.setAttribute('aria-expanded', String(!whoPanel.hidden)); } }, el('span', { class: 'who-label' }, 'Wer:'), whoText, el('span', { class: 'who-edit', 'aria-hidden': 'true' }, 'ändern'));
   for (const nr of ['02', '03']) { const p = panel(nr); if (p) { p.querySelector('h2')?.remove(); whoPanel.append(...p.children); } }
-  whoPanel.append(extended.profilePanel); extended.profilePanel.classList.add('who-profiles');
   const tripLine = el('p', { class: 'quick-trip small' });
   const cost = el('span', { class: 'quick-cost' });
   submit.textContent = 'Unterkünfte suchen';
@@ -406,13 +405,30 @@ function sucheSchnellLayout({ form, fields, sections, extended, submit, call, li
   const viertelLink = el('button', { type: 'button', class: 'link-button viertel-link', hidden: true, onclick: () => { const z = form.querySelector('[name="ziel"]')?.value.trim(); if (z) route('viertel', '?' + new URLSearchParams({ stadt: z })); } }, '📍 Wo wohnen? Viertel ansehen');
   form.addEventListener('input', e => { if (e.target?.name === 'ziel') viertelLink.hidden = (e.target.value || '').trim().length < 2; });
   const zielLabel = el('div', { class: 'mit-viertel' }, label('ziel'), viertelLink);
-  const quick = el('section', { class: 'card quick-search' }, el('h2', {}, 'Unterkunft suchen'), zielLabel, when, nights, band.node, wohnen.node, who, whoPanel, maske ? maske.node : null, submit, el('p', { class: 'quick-meta small' }, tripLine));
-  const more = el('details', { class: 'card more-options' }, el('summary', {}, 'Mehr Optionen'), el('p', { class: 'small muted' }, (SUCHE_SCORE_AN ? 'Reiseart, Unterkunftsform, ' : '') + 'Qualität, Filter, Quellen und Suchkosten. Die Standardwerte passen für die meisten Suchen.'));
+  // W102 (Sebastian 20.10.: „unübersichtlich, nicht kompakt“): feste Reihenfolge in drei Blöcken –
+  // 1 Wo & Wann (am Rechner eine Zeile) · 2 Wohnen & Wer (eine Zeile) · 3 Wichtig für dich (Chip-Fläche) · Suchknopf bleibt sichtbar.
+  const kopf = el('div', { class: 'quick-kopf' }, el('h2', {}, 'Unterkunft suchen'), el('p', { class: 'quick-meta small' }, tripLine));
+  const ortZeit = el('div', { class: 'quick-block quick-ortzeit' }, zielLabel, when);
+  const werWohnen = el('div', { class: 'quick-block quick-werwohnen' }, wohnen.node, who);
+  const quick = el('section', { class: 'card quick-search' }, kopf, ortZeit, nights, band.node, werWohnen, whoPanel, maske ? maske.node : null, submit);
+  const more = el('details', { class: 'card more-options' }, el('summary', {}, 'Mehr Optionen'), el('p', { class: 'small muted' }, (SUCHE_SCORE_AN ? 'Reiseart, Unterkunftsform, ' : '') + 'Suchprofile, Aufenthalt, Quellen, Suchkosten und Qualität. Die Standardwerte passen für die meisten Suchen.'));
+  more.append(extended.profilePanel);
   const tripNode = fields.querySelector('.trip-choice');
   if (tripNode) more.append(tripNode);
   more.append(el('section', { class: 'card stay-form-panel' }, el('h2', {}, 'Land'), label('land')));
   const p4 = panel('04'); if (p4) more.append(p4);
   more.append(...(SUCHE_SCORE_AN ? [extended.tripPanel] : []), extended.qualityPanel, extended.filtersPanel);
+  // W102: Ohne Score stehen die Kriterien in der Suchmaske – „Filter anpassen“ nur zeigen, wenn dort noch etwas übrig ist (z. B. Viertel).
+  const filterAufraeumen = () => {
+    if (SUCHE_SCORE_AN) return;
+    let irgendwas = false;
+    for (const fs of extended.filtersPanel.querySelectorAll('fieldset.trip-filter-block')) {
+      const da = [...fs.children].some(c => c.tagName !== 'LEGEND' && !(c.tagName === 'P' && c.classList.contains('small')) && !(c.classList.contains('trip-criterion') && c.hidden));
+      fs.hidden = !da; if (da) irgendwas = true;
+    }
+    extended.filtersPanel.hidden = !irgendwas;
+  };
+  form.addEventListener('kriterien-geladen', filterAufraeumen); filterAufraeumen();
   const gaps = el('div', { class: 'quick-gaps' });
   const kurz = d => { const x = new Date(d + 'T12:00:00'); return Number.isNaN(x.getTime()) ? d : x.toLocaleDateString('de-DE', { day: 'numeric', month: 'numeric' }); };
   const whoKeys = ['erwachsene', 'kinder_alter', 'budget_eur', 'budget_nacht'];
@@ -527,8 +543,12 @@ function sucheMaske({ form, extended }) {
     }
     const pin = mitPin ? el('button', { type: 'button', class: 'mk-pin', title: 'In der Suchmaske anheften', 'aria-label': k.label + ' anheften', onclick: () => {
       const e = maskeEinstellung(); e.an = [...e.an.filter(x => x !== k.key), k.key]; e.aus = e.aus.filter(x => x !== k.key); maskeSpeichern(e); draw(); } }, '📌') : null;
-    return el('div', { class: 'mk-row' + (z.an ? ' is-on' : ''), 'data-key': k.key }, el('div', { class: 'mk-ctrl' }, control, pin),
-      el('small', { class: 'mk-wirkung' }, el('span', { class: k.suche ? 'mk-tag mk-suche' : 'mk-tag mk-filter' }, k.suche ? '➜ Suche' : '⧩ Filter'), ' ', k.text));
+    // W102: statt Erklärtext je Kriterium nur das Zeichen ➜/⧩; Antippen zeigt die Erklärung
+    const row = el('div', { class: 'mk-row' + (z.an ? ' is-on' : ''), 'data-key': k.key, title: k.text });
+    const tag = el('button', { type: 'button', class: k.suche ? 'mk-tag mk-suche' : 'mk-tag mk-filter', 'aria-label': 'Wirkung: ' + k.label, 'aria-expanded': 'false',
+      onclick: () => { const auf = row.classList.toggle('zeigt-text'); tag.setAttribute('aria-expanded', String(auf)); } }, k.suche ? '➜' : '⧩');
+    row.append(el('div', { class: 'mk-ctrl' }, control, el('small', { class: 'mk-wirkung' }, tag, el('span', { class: 'mk-text' }, (k.suche ? 'Suche: ' : 'Filter: ') + k.text)), pin));
+    return row;
   }
   function draw() {
     const fokus = angeheftet.contains(document.activeElement) || weitere.contains(document.activeElement) ? document.activeElement.getAttribute('aria-label') || document.activeElement.textContent : null;
@@ -550,12 +570,13 @@ function sucheMaske({ form, extended }) {
     const aktivWeitere = MASKE_ALLE.filter(k => da(k) && maskeStufe(k.key, e) === 'weitere' && zustand(k.key).an).length;
     weitereKopf.textContent = 'Weitere Kriterien' + (aktivWeitere ? ` (${aktivWeitere} aktiv)` : '');
     const liste = MASKE_ALLE.filter(da).map(kurz).filter(Boolean);
-    aktiv.textContent = liste.length ? 'Aktiv: ' + liste.join(' · ') : 'Keine Zusatz-Kriterien aktiv.';
+    aktiv.textContent = liste.length ? 'Aktiv: ' + liste.join(' · ') : ''; aktiv.hidden = !liste.length;
   }
   form.addEventListener('kriterien-geladen', draw); form.addEventListener('maske-geaendert', draw);
   form.addEventListener('input', () => { if (api.geladen()) draw(); });
   draw();
-  return { node: el('div', { class: 'maske' }, el('p', { class: 'maske-titel' }, 'Wichtig für dich'), angeheftet, weitere, aktiv), draw };
+  const legende = el('p', { class: 'maske-legende small muted' }, el('span', { class: 'mk-tag mk-suche' }, '➜'), ' schon bei der Suche · ', el('span', { class: 'mk-tag mk-filter' }, '⧩'), ' nach dem Laden geprüft');
+  return { node: el('div', { class: 'maske' }, el('div', { class: 'maske-kopf' }, el('p', { class: 'maske-titel' }, 'Wichtig für dich'), legende), angeheftet, weitere, aktiv), draw };
 }
 
 // W100: Budget pro Nacht (für alle zusammen, alle Zimmer). Der Server bekommt wie bisher das Gesamtbudget = pro Nacht × Nächte.

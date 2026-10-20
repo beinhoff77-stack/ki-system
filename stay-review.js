@@ -391,6 +391,32 @@ function stayReview({getSnapshot,getGroup=()=>null,getRows=()=>getSnapshot()?.tr
   const returned=()=>{if(!document.hidden && awaitingReturn && live())draw();};document.addEventListener('visibilitychange',returned);
   return {node:box,draw,get currentId(){return currentId;},show(id){currentId=id;savePosition();},get revision(){return revision;},get pending(){return pending;},get blocked(){return needsRefresh;},refreshed(){if(!pending){needsRefresh=false;last=null;reasonFor=null;}},dispose(){clearTimeout(holdTimer);reasonsDialog?.close();reasonsDialog?.remove();document.removeEventListener('visibilitychange',returned);}};
 }
+// W104 (Richtung A): kompakte Zeile – Art · Zimmer · Quelle, Symbol-Fakten aus „Direkt“, Preis rechts (gesamt groß, pro Nacht klein).
+const STAY_A_ICON={gaestenote:'stern',bewertungen:'stern',gehzeit:'bahn',storno:'storno',schlafzimmer:'bett',betten:'bett',m2:'flaeche',entfernung:'pin',strand:'strand',art:'haus',hotelzimmer:'hotel',balkon:'balkon',kueche:'kueche',waschmaschine:'waschen',klima:'klima',fruehstueck:'fruehstueck',pool:'pool',sauna_spa:'sauna',fitness:'fitness',parkplatz:'auto',wlan:'wlan',meerblick:'meer',sterne:'stern',viertel:'pin'};
+function stayAFakt(t,key,trip){
+  const v=stayFieldValue(t,key,trip), n=x=>Number(x).toLocaleString('de-DE',{maximumFractionDigits:1});
+  if(key==='storno'){const s=stayStorno(t,trip);return s.tage!==null?{text:'Storno',ok:true,title:'kostenlos bis '+s.tage+' Tage vor Anreise'}:s.nein?{text:'kein Storno',warn:true}:{text:'Storno ?',warn:true,title:'Storno unbekannt'};}
+  if(v===null)return null;
+  switch(key){
+    case 'gaestenote': return {text:n(v),stark:true}; case 'bewertungen': return {text:'('+n(v)+')'}; case 'gehzeit': return {text:(v>=60?Math.floor(v/60)+' Std.':Math.round(v)+' Min'),title:t.station_name?'zu '+t.station_name:null};
+    case 'schlafzimmer': return {text:v+' SZ'}; case 'm2': return {text:n(v)+' m²'}; case 'entfernung': return {text:n(v)+' km'}; case 'strand': return {text:stayStrandText(t)};
+    case 'betten': { const s=String(v); return {text:s.length>22?s.slice(0,21)+'…':s,title:s}; }
+    case 'hotelzimmer': return {text:v+' Zi.'}; case 'sterne': return {text:v+'★'};
+    default: return v==='ja'?{text:STAY_FIELDS[key]}:{text:String(v)};
+  }
+}
+function stayAKompakt(t,trip){
+  const a=t.angebot||{}, typ=stayTyp(t), zimmer=sucheZahl(a.zimmer_anzahl), sz=stayFieldValue(t,'schlafzimmer',trip);
+  const meta=[typ, zimmer>1?zimmer+' Zimmer':(sz!==null&&t.typ!=='hotel'?sz+' SZ':null), SUCHE_QUELLEN[t.quelle]?.replace(' Travel','')||null].filter(Boolean).join(' · ');
+  const fakten=stayKarten().direkt.filter(k=>!['preis','nacht','art','anbieter'].includes(k)&&!(k==='schlafzimmer'&&(meta.includes(' SZ')||zimmer>1))).map(k=>[k,stayAFakt(t,k,trip)]).filter(([,f])=>f);
+  const g=stayFieldValue(t,'preis',trip), nacht=stayFieldValue(t,'nacht',trip), ca=a.preis_art==='geschaetzt'?'ca. ':'';
+  const euro=x=>Math.round(x).toLocaleString('de-DE')+' €';
+  return [
+    el('p',{class:'a-meta'},stayIcon(t.typ==='hotel'?'hotel':'haus'),el('span',{},meta||'Art unbekannt')),
+    el('p',{class:'a-fakten'},fakten.map(([k,f])=>el('span',{class:'a-fakt'+(f.ok?' is-ok':'')+(f.warn?' is-warn':'')+(f.stark?' is-stark':''),'data-fakt':k,title:f.title||STAY_FIELDS[k]},stayIcon(STAY_A_ICON[k]||'info'),f.text))),
+    el('div',{class:'a-preis'},el('strong',{},g===null?'? €':ca+euro(g)),nacht!==null?el('small',{},euro(nacht)+'/N'):null),
+  ];
+}
 function stayConfigureTable(wrapper,items,sort,onSort,trip,select) {
   const table=wrapper.querySelector('table'), head=table.tHead.rows[0], fields=SUCHE_SCORE_AN?stayFields():stayFields().filter(k=>k!=='nacht'); // W98c: ohne Score eine Preiszeile (gesamt + Ø pro Nacht)
   const heading=(key,label)=>el('th',{scope:'col','aria-sort':sort.key===key?sort.direction===1?'ascending':'descending':'none'},el('button',{type:'button','data-sort':key,onclick:()=>onSort(key)},label));
@@ -403,6 +429,7 @@ function stayConfigureTable(wrapper,items,sort,onSort,trip,select) {
     if(t.urteil_uebernommen)identity.append(el('p',{class:'small'},'aus früherer Suche'));
     if(SUCHE_SCORE_AN&&t.status==='vielleicht')identity.append(el('p',{class:'small'},'Na ja'));
     const provider=sucheAnbieterLink(t);if(provider)identity.querySelector('.hit-identity > div').append(el('a',{class:'hit-provider',href:provider.url,target:'_blank',rel:'noopener noreferrer'},provider.label));
+    if(!SUCHE_SCORE_AN){const [meta,fakten,preis]=stayAKompakt(t,trip);identity.querySelector('.hit-identity > div')?.append(meta,fakten);identity.append(preis);row.classList.add('a-zeile-treffer','a-u-'+stayUrteilKey(t));} // W104
     identity.append(select(t));
     row.replaceChildren(identity,...fields.map(key=>el('td',{'data-label':!SUCHE_SCORE_AN&&key==='preis'?'Preis':STAY_FIELDS[key],'data-field':key},!SUCHE_SCORE_AN&&key==='preis'?stayPreisZeile(t,trip):stayField(t,key,trip))),detail);
     row.nextElementSibling.cells[0].colSpan=fields.length+2;

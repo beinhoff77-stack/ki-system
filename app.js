@@ -1102,7 +1102,9 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   const listButton = el('button', { type: 'button', onclick: () => { setResultView('list'); } }, 'Liste');
   const tinderButton = el('button',{type:'button',onclick:()=>setResultView('tinder')},'Durchsehen');
   const mapButton = el('button', { type: 'button', onclick: () => { showMap = true; draw(); window.scrollTo(0,0); } }, 'Karte');
-  const viewButtons = el('div', { class: 'actions result-view-switch', hidden: true, role: 'group', 'aria-label': 'Ergebnisansicht' }, tinderButton, listButton, tableButton, mapButton, el('a',{href:'#/anzeige',class:'anzeige-link','aria-label':'Anzeige einstellen',title:'Anzeige einstellen'},'⚙ Anzeige'));
+  // W104 (Richtung A): Symbole und Reihenfolge Liste · Karte · Durchsehen (· Tabelle am Rechner)
+  listButton.prepend(stayIcon('liste')); mapButton.prepend(stayIcon('karte')); tinderButton.prepend(stayIcon('stapel')); tableButton.prepend(stayIcon('tabelle'));
+  const viewButtons = el('div', { class: 'actions result-view-switch', hidden: true, role: 'group', 'aria-label': 'Ergebnisansicht' }, listButton, mapButton, tinderButton, tableButton, el('a',{href:'#/anzeige/ergebnisse',class:'anzeige-link','aria-label':'Anzeige einstellen',title:'Anzeige einstellen'},stayIcon('regler')));
   const undoSelection = el('button', { type: 'button', hidden: true, onclick: () => selectionStates.get(lastSelection)?.undoAction() }, 'Letzte Auswahl rückgängig');
   const research = sucheLuecken(id, call, live);
   review = stayReview({getSnapshot:()=>snapshot,getRows:()=>filteredRows,getGroup:()=>filters.value().favoriten?'favorit':(['favorit','vielleicht','ausgeschlossen'].includes(filters.value().urteil)?filters.value().urteil:null),call,live,scope,onClose:t=>{setResultView('list');if(t)requestAnimationFrame(()=>showHit(t));},menuItems:()=>[viewButtons,runBar],onRefresh:()=>refresh.click(),isBlocked:()=>[...selectionStates.values()].some(s=>s.refreshRequired||s.pending),changed:t=>{const current=snapshot?.treffer.find(x=>x.treffer_id===t.treffer_id);if(current && current!==t)Object.assign(current,{status:t.status,urteil_gruende:t.urteil_gruende,urteil_uebernommen:t.urteil_uebernommen});selectionStates.delete(t.treffer_id);draw();}});
@@ -1138,7 +1140,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     lastSelection = t.treffer_id;
     notice.textContent = (t.name || 'Unterkunft') + ': ' + state.message;
     draw();
-    const row = (showMap ? mapPanel : results).querySelector(`[data-hit="${t.treffer_id}"]`);
+    const row = (showMap ? mapPanel : results).querySelector(`[data-hit="${t.treffer_id}"]`); // W104: im Rechner-Split liegt die Zeile in der Liste
     (row?.getClientRects().length ? row : undoSelection.hidden ? refresh : undoSelection).focus({ preventScroll: true });
   }
   function showHit(t) {
@@ -1191,7 +1193,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     const openDetails = new Set([...results.querySelectorAll('details[open][data-detail]')].map((n) => n.dataset.detail));
     const compact=resultView==='tinder'&&!showMap;
     const modeChanged=scope.classList.contains('tinder-mode')!==compact;
-    scope.classList.toggle('tinder-mode',compact);report.hidden=compact;
+    scope.classList.toggle('tinder-mode',compact);report.hidden=compact;scope.classList.toggle('a-ergebnis',!SUCHE_SCORE_AN);
     if(modeChanged)runTools.open=false;
     if(!compact){scope.insertBefore(runBar,report);scope.insertBefore(viewButtons,filterBox);}filterBox.hidden=compact;
     const a = snapshot.suchauftrag, k = snapshot.kosten || {}, steps = Array.isArray(a.schrittkette) ? a.schrittkette : [];
@@ -1243,8 +1245,13 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     listButton.setAttribute('aria-pressed', String(!showMap && resultView === 'list'));
     tinderButton.setAttribute('aria-pressed', String(!showMap && resultView==='tinder'));
     results.dataset.resultView = resultView; mapButton.setAttribute('aria-pressed', String(showMap));
-    mapPanel.hidden = !showMap; results.hidden = showMap;
-    if (!showMap && mapView) {mapView.destroy();mapView=null;mapPanel.replaceChildren();}
+    // W104 (Richtung A): am Rechner Liste links, Karte rechts
+    const split = !SUCHE_SCORE_AN && resultView === 'list' && !showMap && matchMedia('(min-width: 1200px)').matches;
+    scope.classList.toggle('a-split', split);
+    if (split) { let box = scope.querySelector(':scope > .a-split-box'); if (!box) { box = el('div', { class: 'a-split-box' }); scope.insertBefore(box, results.parentNode === scope ? results : mapPanel.parentNode === scope ? mapPanel : runBar); } if (results.parentNode !== box || mapPanel.parentNode !== box) box.append(results, mapPanel); }
+    else { const box = scope.querySelector(':scope > .a-split-box'); if (box) { scope.insertBefore(mapPanel, box); scope.insertBefore(results, box); box.remove(); } }
+    mapPanel.hidden = !(showMap || split); results.hidden = showMap;
+    if (!showMap && !split && mapView) {mapView.destroy();mapView=null;mapPanel.replaceChildren();}
     undoSelection.hidden = !selectionStates.get(lastSelection)?.undo;
     undoSelection.disabled = review.blocked || review.pending || !!(selectionStates.get(lastSelection)?.pending || selectionStates.get(lastSelection)?.refreshRequired);
     filterCount.textContent = `${rows.length} von ${snapshot.treffer.length} Treffern · Sortierung gilt für die gesamte Liste.`;
@@ -1254,7 +1261,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     if(resultView==='table' && !showMap){resultLinks.replaceChildren();research.update(snapshot.treffer);
       results.append(stayDeskTable({rows,trip:a,call,live,scope,onChanged:()=>{if(live())draw();},openDetail:t=>{const dialog=sucheKandidat(t,phase.final,id);scope.append(dialog);dialog.addEventListener('close',()=>dialog.remove());dialog.showModal();}}));return;}
     // W98c: Ohne eigenen Score eine Liste mit Urteils-Chips (★ / ~ / offen / ✕), gemeinsam für Liste und Karte
-    const kompakt=!SUCHE_SCORE_AN; results.classList.toggle('liste-kompakt',kompakt);
+    const kompakt=!SUCHE_SCORE_AN; results.classList.toggle('liste-kompakt',kompakt); scope.classList.toggle('a-ergebnis',kompakt); // W104
     const rowsUrteil=kompakt?rows.filter(t=>stayUrteilFilter().has(stayUrteilKey(t))):rows;
     const groups = kompakt ? [
       ['A', 'Unterkünfte', rowsUrteil.filter(t=>t.topf!=='ausgeschlossen'||STAY_STATUS_URTEIL[t.status])],
@@ -1309,7 +1316,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       section.dataset.group = key; results.append(section);
       if (key === 'ausgeschlossen') section.dataset.detail = 'ausgeschlossen';
     }
-    if(showMap){if(!mapView)mapView=sucheKarte(mapPanel,showHit,t=>el('div',{'data-result-view':'list'},stayConfigureTable(sucheTabelle([t],sort,()=>{},phase.final, t=>sucheRueckmeldung(t,feedbackStates,call,live),()=>null,id,'map-'),[t],sort,()=>{},a,resultSelection)));mapView.update(kompakt?rowsUrteil.filter(t=>t.topf!=='ausgeschlossen'||STAY_STATUS_URTEIL[t.status]):rows,snapshot.karte);}
+    if(showMap||split){if(!mapView)mapView=sucheKarte(mapPanel,showHit,t=>el('div',{'data-result-view':'list'},stayConfigureTable(sucheTabelle([t],sort,()=>{},phase.final, t=>sucheRueckmeldung(t,feedbackStates,call,live),()=>null,id,'map-'),[t],sort,()=>{},a,resultSelection)));mapView.update(kompakt?rowsUrteil.filter(t=>t.topf!=='ausgeschlossen'||STAY_STATUS_URTEIL[t.status]):rows,snapshot.karte);}
     results.querySelectorAll('details[data-detail]').forEach((n) => {
       n.open = openDetails.has(n.dataset.detail);
       // Synchronize the row and disclosure button before the deferred native toggle event.

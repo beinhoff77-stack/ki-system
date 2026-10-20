@@ -421,9 +421,26 @@ function sucheSchnellLayout({ form, fields, sections, extended, submit, call, li
   more.append(extended.profilePanel);
   const tripNode = fields.querySelector('.trip-choice');
   if (tripNode) more.append(tripNode);
-  more.append(el('section', { class: 'card stay-form-panel' }, el('h2', {}, 'Land'), label('land')));
-  const p4 = panel('04'); if (p4) more.append(p4);
-  more.append(...(SUCHE_SCORE_AN ? [extended.tripPanel] : []), extended.qualityPanel, extended.filtersPanel);
+  const landPanel = el('section', { class: 'card stay-form-panel' }, el('h2', {}, 'Land'), label('land'));
+  const p4 = panel('04');
+  if (SUCHE_SCORE_AN) { more.append(landPanel); if (p4) more.append(p4); more.append(extended.tripPanel, extended.qualityPanel, extended.filtersPanel); }
+  else {
+    // W105 (Sebastian 20.10.): „Mehr Optionen“ = Reise & Profil. Technik (Land, Quellen, Suchkosten, Zusatz-Notenfilter) zugeklappt und klar benannt –
+    // keine zweite Notenauswahl neben „Gästenote ab“: der Zusatz-Notenfilter steht dort, ist aber standardmäßig aus.
+    more.querySelector(':scope > summary').replaceChildren(stayIcon('regler'), 'Reise, Profil & Technik');
+    more.querySelector(':scope > p').textContent = 'Welcher Reise die Suche zugeordnet wird, gespeicherte Suchprofile und selten gebrauchte Technik.';
+    extended.profilePanel.querySelector('h2')?.prepend(stayIcon('personen'));
+    tripNode?.querySelector('h2')?.prepend(stayIcon('karte'));
+    p4?.querySelector('.step-number')?.remove(); if (p4?.querySelector('h2')) p4.querySelector('h2').lastChild.textContent = 'Quellen & Suchkosten';
+    const q = extended.qualityPanel.querySelector('input[type="checkbox"]'); if (q && q.checked) { q.checked = false; q.dispatchEvent(new Event('change', { bubbles: true })); }
+    extended.qualityPanel.querySelector('h2').textContent = 'Zusätzlicher Notenfilter';
+    if (tripNode) more.insertBefore(tripNode, extended.profilePanel); // Reise zuerst, dann Profil
+    const technik = el('details', { class: 'a-technik' }, el('summary', {}, stayIcon('info'), 'Technik · Land, Quellen, Suchkosten, Notenfilter'), landPanel, p4, extended.qualityPanel);
+    more.append(technik, extended.filtersPanel);
+    more.classList.add('a-mehr');
+    // W105: kein zweiter Einstieg – „ändern“ in der Reisezeile öffnet diesen Bereich direkt unter dem Kopf
+    quick.insertBefore(more, kopf.nextSibling);
+  }
   // W102: Ohne Score stehen die Kriterien in der Suchmaske – „Filter anpassen“ nur zeigen, wenn dort noch etwas übrig ist (z. B. Viertel).
   const filterAufraeumen = () => {
     if (SUCHE_SCORE_AN) return;
@@ -442,7 +459,7 @@ function sucheSchnellLayout({ form, fields, sections, extended, submit, call, li
   const restoreWho = () => { if (remembered && typeof remembered === 'object') for (const k of whoKeys) { const i = form.querySelector(`[name="${k}"]`); if (i && typeof remembered[k] === 'string') i.value = remembered[k]; } wohnen.feld(); budgetNacht?.ausGesamt(); form.dispatchEvent(new Event('input')); };
   restoreWho();
   form.addEventListener('submit', () => { const v = {}; for (const k of whoKeys) v[k] = String(form.querySelector(`[name="${k}"]`)?.value ?? ''); stayWrite('ks_who_last', v); }, true);
-  fields.replaceChildren(gaps, quick, more);
+  fields.replaceChildren(...[gaps, quick, SUCHE_SCORE_AN ? more : null].filter(Boolean));
   const datum = sucheDatumBereich(form); ortZeit.insertBefore(datum.node, who); datum.node.querySelector('.dr-knopf').after(nights); // W103/W104: Wann-Zeile mit Nächten
   wohnen.feld(); // W96: Feld erst jetzt im Formular erreichbar
   function update() {
@@ -460,7 +477,8 @@ function sucheSchnellLayout({ form, fields, sections, extended, submit, call, li
     if (!state.ready) { tripLine.textContent = 'Reise wird geladen …'; return; }
     if (state.needsChoice) { tripLine.replaceChildren('Bitte Aufenthalt wählen: '); if (state.node.parentElement !== quick) quick.insertBefore(state.node, submit); state.node.classList.add('needs-choice'); return; }
     if (state.node.parentElement === quick) { more.insertBefore(state.node, more.children[2] || null); state.node.classList.remove('needs-choice'); }
-    tripLine.replaceChildren(`${state.reise} · ${state.stage === 'new' ? 'neuer Aufenthalt' : state.stageText} `, el('button', { type: 'button', class: 'link-button', onclick: () => { more.open = true; tripNode?.scrollIntoView({ block: 'center' }); } }, 'ändern'));
+    tripLine.replaceChildren(`${state.reise} · ${state.stage === 'new' ? 'neuer Aufenthalt' : state.stageText} `, SUCHE_SCORE_AN ? el('button', { type: 'button', class: 'link-button', onclick: () => { more.open = true; tripNode?.scrollIntoView({ block: 'center' }); } }, 'ändern')
+      : el('button', { type: 'button', class: 'link-button a-mehr-knopf', 'aria-expanded': String(more.open), onclick: e => { more.open = !more.open; e.currentTarget.setAttribute('aria-expanded', String(more.open)); e.currentTarget.textContent = more.open ? 'schließen' : 'ändern'; } }, more.open ? 'schließen' : 'ändern'));
   };
   onTrip(trip);
   call('unterkunft_etappen_lesen').then(r => {

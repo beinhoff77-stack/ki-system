@@ -63,7 +63,7 @@ function stayKarten() {
 function stayStufe(key, karten = stayKarten()) { return STAY_IMMER.includes(key) ? 'immer' : karten.direkt.includes(key) ? 'direkt' : karten.aus.includes(key) ? 'aus' : 'details'; }
 function stayFields() { return [...STAY_IMMER, ...stayKarten().direkt]; }
 function stayMove(list, from, to) { const copy=[...list]; if(from<0 || to<0 || from>=copy.length || to>=copy.length) return copy; copy.splice(to,0,copy.splice(from,1)[0]); return copy; }
-function viewAnzeige() {
+function viewAnzeige(arg = null) {
   setChrome('Anzeige', {back:true});
   let karten=stayKarten(), drag=null;
   const box=el('section',{class:'card display-settings'}), status=el('p',{role:'status'});
@@ -76,8 +76,7 @@ function viewAnzeige() {
   }
   function move(i,j) {karten.direkt=stayMove(karten.direkt,i,j);save();}
   function draw() {
-    box.replaceChildren(el('h2',{},'Anzeige'),
-      el('h3',{},'Karten: Liste, Karte und Durchsehen'),
+    box.replaceChildren(el('h2',{},'Ergebnisse: was steht bei jeder Unterkunft?'),
       el('p',{class:'small'},'Name und Preis (gesamt und pro Nacht) stehen immer da. Direkt = Schnell-Info auf der Karte (höchstens '+STAY_DIREKT_MAX+'), Details = in der Info-Box, Aus = nicht anzeigen.'),
       el('p',{},karten.direkt.length+' / '+STAY_DIREKT_MAX+' Schnell-Infos'),
       el('ol',{class:'display-order','aria-label':'Reihenfolge der Schnell-Infos'},karten.direkt.map((key,i)=>el('li',{draggable:'true','data-field':key,
@@ -110,15 +109,20 @@ function viewAnzeige() {
     if(typeof MASKE_THEMEN==='undefined'){maskBox.replaceChildren();return;}
     const e=maskeEinstellung();
     const setze=(key,st)=>{const n={an:e.an.filter(k=>k!==key),aus:e.aus.filter(k=>k!==key)};if(st==='an')n.an.push(key);if(st==='aus')n.aus.push(key);maskStatus.textContent=maskeSpeichern(n)?'Auf diesem Gerät gespeichert.':'Gerätespeicher nicht verfügbar.';maskDraw();};
-    maskBox.replaceChildren(el('h2',{},'Suchmaske'),
-      el('p',{class:'small'},'Angeheftet = steht direkt in der Suche · Weitere = unter „Weitere Kriterien“ · Aus = nie gesendet. ➜ Suche: Booking fragt schon gefiltert an. ⧩ Filter: wird nach dem Laden geprüft, Unbekanntes bleibt mit ? sichtbar.'),
+    maskBox.replaceChildren(el('h2',{},'Suchformular: welche Kriterien stehen drin?'),
+      el('p',{class:'small'},'Angeheftet = steht immer direkt in der Suche · Weitere = unter „Weitere Kriterien“ · Aus = taucht nicht auf. ➜ Suche: Booking fragt schon gefiltert an. ⧩ Filter: wird nach dem Laden geprüft, Unbekanntes bleibt mit ? sichtbar.'),
       ...MASKE_THEMEN.map(([thema,liste])=>el('fieldset',{class:'display-thema'},el('legend',{},thema),...liste.map(k=>{const st=maskeStufe(k.key,e);
         return el('div',{class:'display-row','data-maske':k.key},el('span',{},k.label,' ',el('small',{class:k.suche?'mk-tag mk-suche':'mk-tag mk-filter'},k.suche?'➜ Suche':'⧩ Filter')),
           el('div',{class:'display-stufen',role:'radiogroup','aria-label':'Suchmaske: '+k.label},...[['an','Angeheftet'],['weitere','Weitere'],['aus','Aus']].map(([w,t])=>
             el('button',{type:'button',role:'radio','aria-checked':String(st===w),'aria-label':'Suchmaske: '+k.label+': '+t,onclick:()=>{if(st!==w)setze(k.key,w);}},t))));}))),
       el('button',{type:'button',onclick:()=>{maskStatus.textContent=maskeSpeichern({an:[...MASKE_STANDARD.an],aus:[...MASKE_STANDARD.aus]})?'Standard wiederhergestellt.':'Gerätespeicher nicht verfügbar.';maskDraw();}},'Suchmaske: Standard'),maskStatus);
   }
-  main.replaceChildren(box,tabBox,maskBox);draw();tabDraw();maskDraw();
+  // W103 (Sebastian 20.10.): drei getrennte Einstellungen – oben umschalten, immer nur eine zeigen
+  const teile=[['suche','Suche',maskBox],['ergebnisse','Ergebnisse',box],['tabelle','Tabelle',tabBox]];
+  let teil=teile.some(([k])=>k===arg)?arg:'ergebnisse';
+  const umschalter=el('div',{class:'anzeige-teile',role:'tablist','aria-label':'Einstellungen'});
+  function zeigeTeil(){umschalter.replaceChildren(...teile.map(([k,t])=>el('button',{type:'button',role:'tab','aria-selected':String(k===teil),onclick:()=>{teil=k;history.replaceState(null,'','#/anzeige/'+k);zeigeTeil();}},t)));for(const [k,,n] of teile)n.hidden=k!==teil;}
+  main.replaceChildren(umschalter,box,tabBox,maskBox);draw();tabDraw();maskDraw();zeigeTeil();
 }
 let stayVergleichFn = null; // wird von der Ergebnisansicht für die geladenen Treffer gesetzt (Preis ggü. gleicher Art)
 function stayFieldValue(t,key,trip={}) {

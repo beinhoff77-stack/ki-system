@@ -211,13 +211,13 @@ test('PWA installiert vollständige Offline-Hülle, API wird nicht gecacht', asy
   assert(cacheNames.includes('ki-system:' + origin + '/another-app/:v1'));
   assert(!cacheNames.includes('ki-system:' + origin + '/:old'));
   await page.evaluate(() => fetch('README.md'));
-  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v48')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
-  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.33.1')); assert(cached.includes('/style.css?v=0.33.1'));
-  assert(cached.includes('/stay-tools.js?v=0.33.1')); assert(cached.includes('/stay-desk.js?v=0.33.1')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
-  assert(cached.includes('/stay-research.js?v=0.33.1'));
-  assert(cached.includes('/stay-form.js?v=0.33.1'));
-  assert(cached.includes('/stay-details.js?v=0.33.1'));
-  assert(cached.includes('/stay-districts.js?v=0.33.1'));
+  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v49')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
+  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.34.0')); assert(cached.includes('/style.css?v=0.34.0'));
+  assert(cached.includes('/stay-tools.js?v=0.34.0')); assert(cached.includes('/stay-desk.js?v=0.34.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
+  assert(cached.includes('/stay-research.js?v=0.34.0'));
+  assert(cached.includes('/stay-form.js?v=0.34.0'));
+  assert(cached.includes('/stay-details.js?v=0.34.0'));
+  assert(cached.includes('/stay-districts.js?v=0.34.0'));
   assert(!cached.includes('/README.md'));
   assert(!cached.some((u) => u.includes('app-api')));
   await context.setOffline(true); await page.reload();
@@ -1677,7 +1677,7 @@ test('W71: mobile Tinder-Karte und Anzeige ohne Überlauf',async t=>{
   assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
   assert.equal(await page.locator('.review-card').textContent().then(s=>s.includes('null')),false);
   fs.mkdirSync(path.join(root,'test-results'),{recursive:true});await page.screenshot({path:path.join(root,'test-results/w71-tinder-mobile.png')});
-  await page.goto(origin+'/#/anzeige');await page.getByRole('heading',{name:'Anzeige',exact:true,level:2}).waitFor();assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+  await page.goto(origin+'/#/anzeige');await page.getByRole('heading',{name:'Ergebnisse: was steht bei jeder Unterkunft?',exact:true,level:2}).waitFor();assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
   await page.screenshot({path:path.join(root,'test-results/w71-anzeige-mobile.png')});
 });
 
@@ -2462,14 +2462,14 @@ test('19.10.: Score aus – keine Passung, kein Rang, keine Reiseart; Sortierung
 
 test('W98b: Tabellen-Spalten in der Einstellung „Anzeige“ gelten auch für die Rechner-Tabelle', async t => {
   const {page}=await setup(t,()=>result(),{width:1440,height:1000,tabelle:true});
-  await page.goto(origin+'/#/anzeige');await page.getByRole('heading',{name:'Tabelle (Rechner)',exact:true}).waitFor();
+  await page.goto(origin+'/#/anzeige/tabelle');await page.getByRole('heading',{name:'Tabelle (Rechner)',exact:true}).waitFor();
   await page.getByLabel('Tabelle: Gesamt',{exact:true}).uncheck();await page.getByLabel('Tabelle: Viertel',{exact:true}).check();
   await page.getByRole('button',{name:'Tabelle: Viertel nach vorne',exact:true}).click();
   await page.goto(origin+'/#/suche/2');await page.locator('.desk-table [data-hit="1"]').waitFor();
   assert.equal(await page.locator('.desk-table [data-hit="1"] td[data-field=preis]').count(),0);
   const felder=await page.locator('.desk-table [data-hit="1"] td[data-field]').evaluateAll(ns=>ns.map(n=>n.dataset.field));
   assert.equal(felder.at(-2),'viertel');assert.equal(felder.at(-1),'notiz');
-  await page.goto(origin+'/#/anzeige');await page.getByRole('button',{name:'Tabelle: Standard',exact:true}).click();
+  await page.goto(origin+'/#/anzeige/tabelle');await page.getByRole('button',{name:'Tabelle: Standard',exact:true}).click();
   await page.goto(origin+'/#/suche/2');await page.locator('.desk-table [data-hit="1"] td[data-field=preis]').waitFor();
 });
 
@@ -2507,7 +2507,7 @@ test('W100: Score aus – Suchmaske mit angehefteten Kriterien, Budget pro Nacht
   assert.equal(await page.locator('[name=budget_eur]').inputValue(), '1400', '100 €/Nacht × 14 Nächte');
   await maske.getByRole('button', { name: 'Pool', exact: true }).click();
   await maske.getByRole('button', { name: 'Kostenlos stornierbar', exact: true }).click();
-  await maske.locator('.maske-aktiv').filter({ hasText: 'Pool' }).waitFor();
+  await maske.locator('[data-key=pool].is-on').waitFor();
   await page.getByRole('button', { name: 'Unterkünfte suchen' }).click();
   await page.waitForFunction(() => true);
   await page.waitForTimeout(300);
@@ -2516,7 +2516,7 @@ test('W100: Score aus – Suchmaske mit angehefteten Kriterien, Budget pro Nacht
   assert.equal(d.kriterien.pool.modus, 'pflicht'); assert.equal(d.kriterien.storno_kostenlos.modus, 'pflicht');
   assert.equal(d.kriterien.kueche.modus, 'egal');
   // Pool auf „Aus“: verschwindet aus der Maske und wird nicht mehr gesendet
-  await page.goto(origin + '/#/anzeige');
+  await page.goto(origin + '/#/anzeige/suche');
   await page.getByRole('radio', { name: 'Suchmaske: Pool: Aus', exact: true }).click();
   await page.goto(origin + '/#/suche'); await formFill(page);
   await page.locator('.maske').getByRole('button', { name: 'Küche', exact: true }).waitFor();

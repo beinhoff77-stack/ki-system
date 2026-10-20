@@ -1486,3 +1486,56 @@ button.mk-tag { position: absolute; top: -7px; right: -5px; width: 20px; height:
   .maske-weitere > summary { min-height: 32px; font-size: 13px; }
   .quick-search > button.primary[type=submit] { min-height: 48px; font-size: 16px; }
 }
+/* W103: ruhige Kriterien-Chips (Ja/Nein antippen, Stufen/Zahlen mit Auswahlliste) */
+.maske-an { gap: 8px; }
+.mk-row .mk-wirkung { display: none !important; }
+.quick-search label.mk-wahl, .mk-wahl { display: inline-flex; align-items: center; gap: 2px; padding-right: 4px; cursor: pointer; font-size: 14px; color: #365c61; }
+.mk-wahl .mk-wahl-name { white-space: nowrap; }
+.quick-search .mk-wahl select, .mk-wahl select { min-height: 0; height: auto; width: auto; padding: 2px 18px 2px 4px; border: 0; background: transparent; font: inherit; color: inherit; font-weight: 800; }
+.mk-wahl.is-on { border-color: #0e3b43; background: #0e3b43; color: #fff; }
+.mk-wahl.is-on select { color: #fff; }
+.mk-wahl.is-on select option { color: #14343b; }
+.maske-anpassen { font-weight: 700; color: #365c61; }
+.mk-thema { border: 0; padding: 0; gap: 6px 8px; }
+.mk-thema legend { padding: 0; margin-bottom: 4px; }
+.maske-weitere-inhalt { display: flex; flex-direction: column; gap: 10px; padding-top: 4px; }
+.mk-pin { min-height: 28px; min-width: 28px; font-size: 13px; }
+/* W103: Reisedaten in einem Feld – Kalender mit Anreise/Abreise in einem Zug */
+.dr-felder { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
+.dr { position: relative; display: grid; gap: 4px; }
+.dr-knopf { display: grid; gap: 3px; text-align: left; padding: 0; border: 0; background: none; color: inherit; }
+.dr-label { font-weight: 700; font-size: 13px; color: #365c61; }
+.dr-text { display: flex; align-items: center; min-height: 48px; padding: 0 14px; border: 1px solid var(--border); border-radius: 12px; background: #fff; font-size: 16px; font-weight: 700; color: #14343b; }
+.dr-text::before { content: '📅'; margin-right: 8px; font-size: 15px; }
+.dr-knopf.is-leer .dr-text { color: #7a8b8d; font-weight: 600; }
+.dr-knopf[aria-expanded="true"] .dr-text { border-color: #0e3b43; box-shadow: 0 0 0 1px #0e3b43; }
+.dr-panel { padding: 10px; border: 1px solid var(--border); border-radius: 14px; background: #fff; box-shadow: 0 10px 28px rgba(14, 59, 67, .14); }
+.dr-hinweis { margin: 0 0 6px; font-weight: 700; color: #0e3b43; text-align: center; }
+.dr-monate { position: relative; display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+.dr-kopf { position: absolute; inset: 0 0 auto 0; display: flex; justify-content: space-between; pointer-events: none; }
+.dr-nav { pointer-events: auto; min-width: 36px; min-height: 32px; padding: 0; border: 1px solid var(--border); border-radius: 10px; background: #fff; font-size: 20px; line-height: 1; color: #0e3b43; }
+.dr-nav:disabled { opacity: .3; }
+.dr-monat { flex: 1 1 260px; max-width: 340px; }
+.dr-monat-name { margin: 6px 0 8px; text-align: center; font-weight: 800; }
+.dr-raster { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
+.dr-wt { text-align: center; font-size: 11px; font-weight: 700; color: #7a8b8d; padding-bottom: 2px; }
+.dr-tag { min-height: 40px; min-width: 0; padding: 0; border: 0; border-radius: 10px; background: transparent; font-size: 15px; font-weight: 600; color: #14343b; }
+.dr-tag:disabled { color: #c3cdcc; }
+.dr-tag.is-heute { box-shadow: inset 0 0 0 1px #9fb5b3; }
+.dr-tag.is-zwischen { background: #e6eeed; border-radius: 0; }
+.dr-tag.is-start, .dr-tag.is-ende { background: #0e3b43; color: #fff; font-weight: 800; }
+@media (max-width: 599px) { .dr-text { min-height: 42px; font-size: 15px; } .dr-label { font-size: 12px; } .dr-tag { min-height: 38px; } }
+/* W103: Einstellungen „Anzeige“ mit Umschalter */
+.anzeige-teile { display: flex; gap: 4px; padding: 4px; margin-bottom: 12px; border-radius: 14px; background: #e9efee; }
+.anzeige-teile button { flex: 1 1 0; min-height: 40px; border: 0; border-radius: 10px; background: transparent; font-weight: 700; font-size: 14px; color: #365c61; }
+.anzeige-teile button[aria-selected="true"] { background: #fff; color: #0e3b43; box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+.display-settings[hidden] { display: none !important; }
+.quick-search:has(.dr-panel:not([hidden])) > button.primary[type=submit] { position: static; }
+@media (max-width: 599px) { .quick-search label.mk-wahl { font-size: 13px; } }
+@media (max-width: 599px) {
+  .display-maske .display-row { flex-wrap: wrap; }
+  .display-maske .display-row > span { flex-basis: 100%; }
+  .display-maske .display-stufen { display: grid; width: 100%; grid-template-columns: repeat(3, 1fr); }
+  .display-maske .display-stufen button { flex: 1 1 0; }
+}
+.quick-search label.mk-wahl.is-on, .mk-wahl.is-on .mk-wahl-name { color: #fff; }

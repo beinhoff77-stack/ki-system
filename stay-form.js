@@ -408,6 +408,7 @@ function sucheSchnellLayout({ form, fields, sections, extended, submit, call, li
   // W102 (Sebastian 20.10.: „unübersichtlich, nicht kompakt“): feste Reihenfolge in drei Blöcken –
   // 1 Wo & Wann (am Rechner eine Zeile) · 2 Wohnen & Wer (eine Zeile) · 3 Wichtig für dich (Chip-Fläche) · Suchknopf bleibt sichtbar.
   const kopf = el('div', { class: 'quick-kopf' }, el('h2', {}, 'Unterkunft suchen'), el('p', { class: 'quick-meta small' }, tripLine));
+  when.classList.add('dr-felder'); // W103: echte Datumsfelder bleiben im Formular, bedient wird „Wann?“
   const ortZeit = el('div', { class: 'quick-block quick-ortzeit' }, zielLabel, when);
   const werWohnen = el('div', { class: 'quick-block quick-werwohnen' }, wohnen.node, who);
   const quick = el('section', { class: 'card quick-search' }, kopf, ortZeit, nights, band.node, werWohnen, whoPanel, maske ? maske.node : null, submit);
@@ -437,6 +438,7 @@ function sucheSchnellLayout({ form, fields, sections, extended, submit, call, li
   restoreWho();
   form.addEventListener('submit', () => { const v = {}; for (const k of whoKeys) v[k] = String(form.querySelector(`[name="${k}"]`)?.value ?? ''); stayWrite('ks_who_last', v); }, true);
   fields.replaceChildren(gaps, quick, more);
+  const datum = sucheDatumBereich(form); ortZeit.append(datum.node); // W103: erst jetzt sind die Felder im Formular erreichbar
   wohnen.feld(); // W96: Feld erst jetzt im Formular erreichbar
   function update() {
     const f = new FormData(form), n = (Date.parse(f.get('abreise')) - Date.parse(f.get('anreise'))) / 86400000;
@@ -475,7 +477,7 @@ const MASKE_THEMEN = [
     { key: 'fruehstueck', label: 'Frühstück inklusive', typ: 'ja', suche: true, text: 'Booking sucht nur mit Frühstück, sonst aus dem Angebotstext.' },
   ]],
   ['Wohnen & Größe', [
-    { key: 'flaeche_m2', label: 'Fläche mindestens', typ: 'zahl', einheit: 'm²', start: 60, schritt: 5, min: 10, max: 300, text: 'Nach dem Laden. Fläche fehlt oft, solche bleiben mit ? sichtbar.' },
+    { key: 'flaeche_m2', label: 'Fläche mindestens', typ: 'zahl', einheit: 'm²', start: 60, schritt: 5, min: 10, max: 300, werte: [40, 50, 60, 80, 100, 120, 150], text: 'Nach dem Laden. Fläche fehlt oft, solche bleiben mit ? sichtbar.' },
     { key: 'echte_betten', label: 'Echte Betten für alle', typ: 'ja', text: 'Nach dem Laden: Futon, Schlafsofa und Etagenbett zählen nicht.' },
   ]],
   ['Ausstattung', [
@@ -494,17 +496,18 @@ const MASKE_THEMEN = [
   ]],
   ['Lage', [
     { key: 'strand_max_m', label: 'Strand höchstens', typ: 'stufen', stufen: [[300, '300 m'], [1000, '1 km'], [2000, '2 km']], text: 'Nach dem Laden: Luftlinie zum nächsten Strand (OpenStreetMap), kommt etwa eine halbe Minute nach den Treffern. Airbnb-Standorte sind ungenau.' },
-    { key: 'luftlinie_max_km', label: 'Zum Ziel höchstens', typ: 'zahl', einheit: 'km', start: 3, schritt: 1, min: 1, max: 50, text: 'Nach dem Laden, Luftlinie aus den Koordinaten.' },
-    { key: 'gehzeit_max_min', label: 'Gehzeit zur Station höchstens', typ: 'zahl', einheit: 'Min.', start: 10, schritt: 5, min: 5, max: 60, text: 'Nach dem Laden, wo die Gehzeit bekannt ist.' },
+    { key: 'luftlinie_max_km', label: 'Zum Ziel höchstens', typ: 'zahl', einheit: 'km', start: 3, schritt: 1, min: 1, max: 50, werte: [1, 2, 3, 5, 10, 20], text: 'Nach dem Laden, Luftlinie aus den Koordinaten.' },
+    { key: 'gehzeit_max_min', label: 'Gehzeit zur Station höchstens', typ: 'zahl', einheit: 'Min.', start: 10, schritt: 5, min: 5, max: 60, werte: [5, 10, 15, 20, 30], text: 'Nach dem Laden, wo die Gehzeit bekannt ist.' },
     { key: 'zentrum_max_km', label: 'Zentrum höchstens', typ: 'stufen', stufen: [[1, '1 km'], [3, '3 km'], [5, '5 km']], suche: true, text: 'Booking sucht nur in dieser Nähe zum Zentrum; andere Quellen bleiben mit ? sichtbar.' },
   ]],
   ['Bewertungen', [
     { key: 'note_min', label: 'Gästenote ab', typ: 'stufen', stufen: [[6, '6'], [7, '7'], [8, '8'], [9, '9']], suche: true, text: 'Booking sucht nur ab dieser Note, andere Quellen nach dem Laden.' },
-    { key: 'bewertungen_min', label: 'Bewertungen mindestens', typ: 'zahl', einheit: '', start: 30, schritt: 10, min: 10, max: 500, text: 'Nach dem Laden.' },
+    { key: 'bewertungen_min', label: 'Bewertungen mindestens', typ: 'zahl', einheit: '', start: 30, schritt: 10, min: 10, max: 500, werte: [10, 30, 50, 100, 200], text: 'Nach dem Laden.' },
     { key: 'sterne_min', label: 'Hotelsterne ab', typ: 'stufen', stufen: [[2, '2★'], [3, '3★'], [4, '4★'], [5, '5★']], suche: true, text: 'Nur für Hotels: Booking sucht nur ab diesen Sternen. Apartments sind nicht betroffen.' },
   ]],
 ];
 const MASKE_ALLE = MASKE_THEMEN.flatMap(([, liste]) => liste);
+const MASKE_KURZ = { flaeche_m2: 'Fläche ab', strand_max_m: 'Strand bis', luftlinie_max_km: 'Zum Ziel bis', gehzeit_max_min: 'Gehzeit Station bis', zentrum_max_km: 'Zentrum bis', note_min: 'Gästenote ab', bewertungen_min: 'Bewertungen ab', sterne_min: 'Sterne ab' };
 const MASKE_KEYS = new Set(MASKE_ALLE.map(k => k.key));
 const MASKE_STANDARD = { an: ['storno_kostenlos', 'kueche', 'pool', 'sauna_spa', 'strand_max_m', 'note_min'], aus: [] };
 function maskeEinstellung() {
@@ -524,36 +527,30 @@ function sucheMaske({ form, extended }) {
   const zustand = key => { const v = api.get(key); return v ? { an: v.modus !== 'egal', wert: v.wert } : { an: false, wert: null }; };
   const kurz = k => { const z = zustand(k.key); if (!z.an) return null; if (k.typ === 'ja') return k.label;
     const st = k.typ === 'stufen' ? k.stufen.find(([w]) => String(w) === String(z.wert))?.[1] : `${z.wert} ${k.einheit}`.trim(); return `${k.label} ${st ?? z.wert}`; };
+  // W103 (Sebastian 20.10.: „zu wild“): jedes Kriterium ist ein ruhiger Chip. Ja/Nein = antippen; Stufen und Zahlen = Chip mit Auswahlliste.
+  // Die Wirkung (➜ Suche / ⧩ Filter) steht in den Einstellungen und als Hinweis beim Antippen-Halten (title), nicht mehr am Chip.
   function zeile(k, mitPin) {
     const z = zustand(k.key), id = 'mk-' + k.key;
     let control;
     if (k.typ === 'ja') control = el('button', { type: 'button', class: 'mk-chip', id, 'aria-pressed': String(z.an), onclick: () => api.set(k.key, z.an ? 'egal' : 'pflicht') }, z.an ? '✓ ' : '', k.label);
-    else if (k.typ === 'stufen') control = el('span', { class: 'mk-stufen', role: 'group', 'aria-label': k.label },
-      el('span', { class: 'mk-name' }, k.label),
-      el('button', { type: 'button', class: 'mk-seg', 'aria-pressed': String(!z.an), onclick: () => api.set(k.key, 'egal', null) }, 'egal'),
-      ...k.stufen.map(([w, t]) => el('button', { type: 'button', class: 'mk-seg', 'aria-pressed': String(z.an && String(z.wert) === String(w)), 'aria-label': k.label + ' ' + t, onclick: () => api.set(k.key, 'pflicht', w) }, t)));
     else {
-      const wert = Number(z.wert) || k.start, setz = n => api.set(k.key, 'pflicht', Math.max(k.min, Math.min(k.max, n)));
-      control = el('span', { class: 'mk-zahl' + (z.an ? ' is-on' : '') },
-        el('button', { type: 'button', class: 'mk-chip', 'aria-pressed': String(z.an), onclick: () => z.an ? api.set(k.key, 'egal') : setz(wert) }, z.an ? '✓ ' : '', k.label),
-        z.an ? el('span', { class: 'wo-stepper', role: 'group', 'aria-label': k.label },
-          el('button', { type: 'button', class: 'wo-step', 'aria-label': k.label + ' weniger', disabled: wert <= k.min, onclick: () => setz(wert - k.schritt) }, '–'),
-          el('output', { class: 'wo-step-value' }, `${wert} ${k.einheit}`.trim()),
-          el('button', { type: 'button', class: 'wo-step', 'aria-label': k.label + ' mehr', disabled: wert >= k.max, onclick: () => setz(wert + k.schritt) }, '+')) : null);
+      const stufen = k.typ === 'stufen' ? k.stufen : (k.werte || []).map(w => [w, `${w} ${k.einheit}`.trim()]);
+      const wert = z.an ? String(z.wert) : '';
+      if (z.an && !stufen.some(([w]) => String(w) === wert)) stufen.push([z.wert, `${z.wert} ${k.einheit || ''}`.trim()]);
+      const sel = el('select', { 'aria-label': k.label, onchange: () => sel.value === '' ? api.set(k.key, 'egal', null) : api.set(k.key, 'pflicht', Number(sel.value)) },
+        el('option', { value: '' }, 'egal'), ...stufen.map(([w, t]) => el('option', { value: String(w) }, t)));
+      sel.value = wert;
+      control = el('label', { class: 'mk-chip mk-wahl' + (z.an ? ' is-on' : ''), id }, el('span', { class: 'mk-wahl-name' }, MASKE_KURZ[k.key] || k.label), sel);
     }
     const pin = mitPin ? el('button', { type: 'button', class: 'mk-pin', title: 'In der Suchmaske anheften', 'aria-label': k.label + ' anheften', onclick: () => {
       const e = maskeEinstellung(); e.an = [...e.an.filter(x => x !== k.key), k.key]; e.aus = e.aus.filter(x => x !== k.key); maskeSpeichern(e); draw(); } }, '📌') : null;
-    // W102: statt Erklärtext je Kriterium nur das Zeichen ➜/⧩; Antippen zeigt die Erklärung
-    const row = el('div', { class: 'mk-row' + (z.an ? ' is-on' : ''), 'data-key': k.key, title: k.text });
-    const tag = el('button', { type: 'button', class: k.suche ? 'mk-tag mk-suche' : 'mk-tag mk-filter', 'aria-label': 'Wirkung: ' + k.label, 'aria-expanded': 'false',
-      onclick: () => { const auf = row.classList.toggle('zeigt-text'); tag.setAttribute('aria-expanded', String(auf)); } }, k.suche ? '➜' : '⧩');
-    row.append(el('div', { class: 'mk-ctrl' }, control, el('small', { class: 'mk-wirkung' }, tag, el('span', { class: 'mk-text' }, (k.suche ? 'Suche: ' : 'Filter: ') + k.text)), pin));
-    return row;
+    return el('div', { class: 'mk-row' + (z.an ? ' is-on' : ''), 'data-key': k.key, title: (k.suche ? '➜ Suche: ' : '⧩ Filter: ') + k.text },
+      el('div', { class: 'mk-ctrl' }, control, pin), el('small', { class: 'mk-wirkung' }, (k.suche ? '➜ Suche: ' : '⧩ Filter: ') + k.text));
   }
   function draw() {
     const fokus = angeheftet.contains(document.activeElement) || weitere.contains(document.activeElement) ? document.activeElement.getAttribute('aria-label') || document.activeElement.textContent : null;
     zeichne();
-    if (fokus) [...angeheftet.querySelectorAll('button'), ...weitere.querySelectorAll('button')].find(b => (b.getAttribute('aria-label') || b.textContent) === fokus || b.textContent.replace('✓ ', '') === fokus.replace('✓ ', ''))?.focus({ preventScroll: true });
+    if (fokus) [...angeheftet.querySelectorAll('button,select'), ...weitere.querySelectorAll('button,select')].find(b => (b.getAttribute('aria-label') || b.textContent) === fokus || b.textContent.replace('✓ ', '') === fokus.replace('✓ ', ''))?.focus({ preventScroll: true });
   }
   function zeichne() {
     if (!api.geladen()) { angeheftet.replaceChildren(el('p', { class: 'small muted' }, 'Kriterien werden geladen …')); return; }
@@ -565,18 +562,19 @@ function sucheMaske({ form, extended }) {
     weitereInhalt.replaceChildren(...MASKE_THEMEN.map(([thema, liste]) => {
       const zeilen = liste.filter(k => da(k) && maskeStufe(k.key, e) === 'weitere');
       return zeilen.length ? el('fieldset', { class: 'mk-thema' }, el('legend', {}, thema), ...zeilen.map(k => zeile(k, true))) : null;
-    }).filter(Boolean), el('p', { class: 'small muted' }, el('a', { href: '#/anzeige' }, '⚙ Welche Kriterien hier stehen, stellst du unter „Anzeige“ ein.')));
+    }).filter(Boolean));
     weitere.open = offenWar;
     const aktivWeitere = MASKE_ALLE.filter(k => da(k) && maskeStufe(k.key, e) === 'weitere' && zustand(k.key).an).length;
     weitereKopf.textContent = 'Weitere Kriterien' + (aktivWeitere ? ` (${aktivWeitere} aktiv)` : '');
-    const liste = MASKE_ALLE.filter(da).map(kurz).filter(Boolean);
-    aktiv.textContent = liste.length ? 'Aktiv: ' + liste.join(' · ') : ''; aktiv.hidden = !liste.length;
+    // Nur was zugeklappt unter „Weitere“ aktiv ist – die angehefteten Chips zeigen ihren Zustand selbst
+    const liste = MASKE_ALLE.filter(k => da(k) && maskeStufe(k.key, e) === 'weitere').map(kurz).filter(Boolean);
+    aktiv.textContent = liste.length ? 'Außerdem aktiv: ' + liste.join(' · ') : ''; aktiv.hidden = !liste.length;
   }
   form.addEventListener('kriterien-geladen', draw); form.addEventListener('maske-geaendert', draw);
   form.addEventListener('input', () => { if (api.geladen()) draw(); });
   draw();
-  const legende = el('p', { class: 'maske-legende small muted' }, el('span', { class: 'mk-tag mk-suche' }, '➜'), ' schon bei der Suche · ', el('span', { class: 'mk-tag mk-filter' }, '⧩'), ' nach dem Laden geprüft');
-  return { node: el('div', { class: 'maske' }, el('div', { class: 'maske-kopf' }, el('p', { class: 'maske-titel' }, 'Wichtig für dich'), legende), angeheftet, weitere, aktiv), draw };
+  const anpassen = el('a', { class: 'maske-anpassen small', href: '#/anzeige/suche' }, '⚙ Felder auswählen');
+  return { node: el('div', { class: 'maske' }, el('div', { class: 'maske-kopf' }, el('p', { class: 'maske-titel' }, 'Wichtig für dich'), anpassen), angeheftet, weitere, aktiv), draw };
 }
 
 // W100: Budget pro Nacht (für alle zusammen, alle Zimmer). Der Server bekommt wie bisher das Gesamtbudget = pro Nacht × Nächte.
@@ -598,4 +596,67 @@ function sucheBudgetNacht(form, gesamt) {
   gesamt.closest('label').hidden = true;
   rechne();
   return { node: label, ausGesamt, rechne };
+}
+
+// W103 (Sebastian 20.10.: „Von–bis muss ich immer zweimal klicken“): ein Feld „Wann?“ mit Kalender – erst Anreise, dann Abreise antippen.
+// Die echten Felder anreise/abreise bleiben (unsichtbar) im Formular; alles Weitere (Nächte, Nachtband, Budget) hört wie bisher auf sie.
+function sucheDatumBereich(form) {
+  const feld = n => form.querySelector(`[name="${n}"]`);
+  const iso = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+  const parse = v => { const d = v ? new Date(v + 'T12:00:00') : null; return d && !Number.isNaN(d.getTime()) ? d : null; };
+  const kurz = v => parse(v)?.toLocaleDateString('de-DE', { weekday: 'short', day: 'numeric', month: 'numeric' }) ?? '';
+  let monat = null, offen = false;
+  const text = el('span', { class: 'dr-text' });
+  const knopf = el('button', { type: 'button', class: 'dr-knopf', 'aria-expanded': 'false', onclick: () => umschalten() }, el('span', { class: 'dr-label' }, 'Wann?'), text);
+  const hinweis = el('p', { class: 'dr-hinweis small', 'aria-live': 'polite' });
+  const monate = el('div', { class: 'dr-monate' });
+  const panel = el('div', { class: 'dr-panel', hidden: true, role: 'group', 'aria-label': 'Kalender Reisedaten' }, hinweis, monate);
+  function setze(n, v) { const i = feld(n); if (!i) return; i.value = v; i.dispatchEvent(new Event('input', { bubbles: true })); i.dispatchEvent(new Event('change', { bubbles: true })); }
+  function beschriften() {
+    const a = feld('anreise')?.value, b = feld('abreise')?.value;
+    text.textContent = a && b ? `${kurz(a)} – ${kurz(b)}` : a ? `${kurz(a)} – Abreise wählen` : 'Anreise – Abreise';
+    knopf.classList.toggle('is-leer', !a);
+    knopf.setAttribute('aria-label', 'Reisedaten: ' + text.textContent);
+  }
+  function umschalten(auf = !offen) {
+    offen = auf; panel.hidden = !auf; knopf.setAttribute('aria-expanded', String(auf));
+    if (auf) { const s = parse(feld('anreise')?.value) || new Date(); monat = new Date(s.getFullYear(), s.getMonth(), 1, 12); zeichne(); }
+  }
+  function waehle(v) {
+    const a = feld('anreise')?.value, b = feld('abreise')?.value;
+    if (!a || b || v <= a) { setze('anreise', v); setze('abreise', ''); }
+    else { setze('abreise', v); umschalten(false); }
+    beschriften(); if (offen) zeichne();
+  }
+  function zeichne() {
+    const heute = iso(new Date()), a = feld('anreise')?.value || '', b = feld('abreise')?.value || '';
+    hinweis.textContent = a && !b ? 'Abreise antippen' : 'Anreise antippen';
+    const anzahl = window.matchMedia('(min-width: 720px)').matches ? 2 : 1;
+    const erster = new Date(); erster.setDate(1);
+    const zurueck = el('button', { type: 'button', class: 'dr-nav', 'aria-label': 'Monat zurück', disabled: monat.getFullYear() * 12 + monat.getMonth() <= erster.getFullYear() * 12 + erster.getMonth(),
+      onclick: () => { monat = new Date(monat.getFullYear(), monat.getMonth() - 1, 1, 12); zeichne(); } }, '‹');
+    const vor = el('button', { type: 'button', class: 'dr-nav', 'aria-label': 'Monat vor', onclick: () => { monat = new Date(monat.getFullYear(), monat.getMonth() + 1, 1, 12); zeichne(); } }, '›');
+    const blaetter = [];
+    for (let m = 0; m < anzahl; m++) {
+      const start = new Date(monat.getFullYear(), monat.getMonth() + m, 1, 12);
+      const tage = new Date(start.getFullYear(), start.getMonth() + 1, 0, 12).getDate();
+      const leer = (start.getDay() + 6) % 7;
+      const zellen = [...'MDMDFSS'].map((t, i) => el('span', { class: 'dr-wt', 'aria-hidden': 'true' }, ['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'][i]));
+      for (let i = 0; i < leer; i++) zellen.push(el('span', {}));
+      for (let d = 1; d <= tage; d++) {
+        const v = iso(new Date(start.getFullYear(), start.getMonth(), d, 12));
+        const kl = ['dr-tag', v === a ? 'is-start' : '', v === b ? 'is-ende' : '', a && b && v > a && v < b ? 'is-zwischen' : '', v === heute ? 'is-heute' : ''].filter(Boolean).join(' ');
+        zellen.push(el('button', { type: 'button', class: kl, disabled: v < heute, 'aria-label': kurz(v), 'aria-pressed': String(v === a || v === b), onclick: () => waehle(v) }, String(d)));
+      }
+      blaetter.push(el('div', { class: 'dr-monat' }, el('p', { class: 'dr-monat-name' }, start.toLocaleDateString('de-DE', { month: 'long', year: 'numeric' })), el('div', { class: 'dr-raster' }, zellen)));
+    }
+    monate.replaceChildren(el('div', { class: 'dr-kopf' }, zurueck, vor), ...blaetter);
+  }
+  const zu = e => { if (!panel.isConnected) { document.removeEventListener('click', zu, true); return; } if (offen && !panel.contains(e.target) && !knopf.contains(e.target)) umschalten(false); };
+  document.addEventListener('click', zu, true);
+  panel.addEventListener('keydown', e => { if (e.key === 'Escape') { umschalten(false); knopf.focus(); } });
+  form.addEventListener('input', e => { if (['anreise', 'abreise'].includes(e.target?.name)) beschriften(); });
+  for (const n of ['anreise', 'abreise']) feld(n)?.addEventListener('invalid', () => umschalten(true));
+  beschriften();
+  return { node: el('div', { class: 'dr' }, knopf, panel), beschriften };
 }

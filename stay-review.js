@@ -63,7 +63,7 @@ function stayKarten() {
 function stayStufe(key, karten = stayKarten()) { return STAY_IMMER.includes(key) ? 'immer' : karten.direkt.includes(key) ? 'direkt' : karten.aus.includes(key) ? 'aus' : 'details'; }
 function stayFields() { return [...STAY_IMMER, ...stayKarten().direkt]; }
 function stayMove(list, from, to) { const copy=[...list]; if(from<0 || to<0 || from>=copy.length || to>=copy.length) return copy; copy.splice(to,0,copy.splice(from,1)[0]); return copy; }
-function viewAnzeige() {
+function viewAnzeige(arg = null) {
   setChrome('Anzeige', {back:true});
   let karten=stayKarten(), drag=null;
   const box=el('section',{class:'card display-settings'}), status=el('p',{role:'status'});
@@ -76,8 +76,7 @@ function viewAnzeige() {
   }
   function move(i,j) {karten.direkt=stayMove(karten.direkt,i,j);save();}
   function draw() {
-    box.replaceChildren(el('h2',{},'Anzeige'),
-      el('h3',{},'Karten: Liste, Karte und Durchsehen'),
+    box.replaceChildren(el('h2',{},'Ergebnisse: was steht bei jeder Unterkunft?'),
       el('p',{class:'small'},'Name und Preis (gesamt und pro Nacht) stehen immer da. Direkt = Schnell-Info auf der Karte (höchstens '+STAY_DIREKT_MAX+'), Details = in der Info-Box, Aus = nicht anzeigen.'),
       el('p',{},karten.direkt.length+' / '+STAY_DIREKT_MAX+' Schnell-Infos'),
       el('ol',{class:'display-order','aria-label':'Reihenfolge der Schnell-Infos'},karten.direkt.map((key,i)=>el('li',{draggable:'true','data-field':key,
@@ -110,15 +109,20 @@ function viewAnzeige() {
     if(typeof MASKE_THEMEN==='undefined'){maskBox.replaceChildren();return;}
     const e=maskeEinstellung();
     const setze=(key,st)=>{const n={an:e.an.filter(k=>k!==key),aus:e.aus.filter(k=>k!==key)};if(st==='an')n.an.push(key);if(st==='aus')n.aus.push(key);maskStatus.textContent=maskeSpeichern(n)?'Auf diesem Gerät gespeichert.':'Gerätespeicher nicht verfügbar.';maskDraw();};
-    maskBox.replaceChildren(el('h2',{},'Suchmaske'),
-      el('p',{class:'small'},'Angeheftet = steht direkt in der Suche · Weitere = unter „Weitere Kriterien“ · Aus = nie gesendet. ➜ Suche: Booking fragt schon gefiltert an. ⧩ Filter: wird nach dem Laden geprüft, Unbekanntes bleibt mit ? sichtbar.'),
+    maskBox.replaceChildren(el('h2',{},'Suchformular: welche Kriterien stehen drin?'),
+      el('p',{class:'small'},'Angeheftet = steht immer direkt in der Suche · Weitere = unter „Weitere Kriterien“ · Aus = taucht nicht auf. ➜ Suche: Booking fragt schon gefiltert an. ⧩ Filter: wird nach dem Laden geprüft, Unbekanntes bleibt mit ? sichtbar.'),
       ...MASKE_THEMEN.map(([thema,liste])=>el('fieldset',{class:'display-thema'},el('legend',{},thema),...liste.map(k=>{const st=maskeStufe(k.key,e);
         return el('div',{class:'display-row','data-maske':k.key},el('span',{},k.label,' ',el('small',{class:k.suche?'mk-tag mk-suche':'mk-tag mk-filter'},k.suche?'➜ Suche':'⧩ Filter')),
           el('div',{class:'display-stufen',role:'radiogroup','aria-label':'Suchmaske: '+k.label},...[['an','Angeheftet'],['weitere','Weitere'],['aus','Aus']].map(([w,t])=>
             el('button',{type:'button',role:'radio','aria-checked':String(st===w),'aria-label':'Suchmaske: '+k.label+': '+t,onclick:()=>{if(st!==w)setze(k.key,w);}},t))));}))),
       el('button',{type:'button',onclick:()=>{maskStatus.textContent=maskeSpeichern({an:[...MASKE_STANDARD.an],aus:[...MASKE_STANDARD.aus]})?'Standard wiederhergestellt.':'Gerätespeicher nicht verfügbar.';maskDraw();}},'Suchmaske: Standard'),maskStatus);
   }
-  main.replaceChildren(box,tabBox,maskBox);draw();tabDraw();maskDraw();
+  // W103 (Sebastian 20.10.): drei getrennte Einstellungen – oben umschalten, immer nur eine zeigen
+  const teile=[['suche','Suche',maskBox],['ergebnisse','Ergebnisse',box],['tabelle','Tabelle',tabBox]];
+  let teil=teile.some(([k])=>k===arg)?arg:'ergebnisse';
+  const umschalter=el('div',{class:'anzeige-teile',role:'tablist','aria-label':'Einstellungen'});
+  function zeigeTeil(){umschalter.replaceChildren(...teile.map(([k,t])=>el('button',{type:'button',role:'tab','aria-selected':String(k===teil),onclick:()=>{teil=k;history.replaceState(null,'','#/anzeige/'+k);zeigeTeil();}},t)));for(const [k,,n] of teile)n.hidden=k!==teil;}
+  main.replaceChildren(umschalter,box,tabBox,maskBox);draw();tabDraw();maskDraw();zeigeTeil();
 }
 let stayVergleichFn = null; // wird von der Ergebnisansicht für die geladenen Treffer gesetzt (Preis ggü. gleicher Art)
 function stayFieldValue(t,key,trip={}) {
@@ -312,7 +316,7 @@ function stayReview({getSnapshot,getGroup=()=>null,getRows=()=>getSnapshot()?.tr
   }
   let previousRestore=null;
   function undoVote(){if(!last)return;const {t,previous}=last;currentId=t.treffer_id;savePosition();previousRestore=previous.uebernommen;void vote(t,({aktiv:'offen',favorit:'favorit',vielleicht:'vielleicht',ausgeschlossen:'weg'})[previous.status]||'offen',previous.gruende,false,true);}
-  function buttons(t){const current={favorit:'favorit',vielleicht:'vielleicht',ausgeschlossen:'weg'}[t.status]||null;return el('div',{class:'actions review-actions'},[['weg','Weg'],['vielleicht','Na ja'],['favorit','Favorit']].map(([key,label])=>el('button',{type:'button',class:'decision-'+key,'aria-label':current===key?label+' zurücknehmen':label,'aria-pressed':String(current===key),'data-decision':key,disabled:pending||holding||needsRefresh||isBlocked(),onclick:()=>{const list=currentList();const i=list.findIndex(x=>x.treffer_id===t.treffer_id);nextAfterVote=current===key?null:(list[i+1]?.treffer_id??(mode==='offen'&&!activeGroup?list.find(x=>x.treffer_id!==t.treffer_id)?.treffer_id??-1:null));void vote(t,current===key?'offen':key);}},el('span',{'aria-hidden':'true'},({weg:'×',vielleicht:'≈',favorit:'♥'})[key]+' '),label)));}
+  function buttons(t){const current={favorit:'favorit',vielleicht:'vielleicht',ausgeschlossen:'weg'}[t.status]||null;return el('div',{class:'actions review-actions'},[['weg','Weg'],['vielleicht','Na ja'],['favorit','Favorit']].map(([key,label])=>el('button',{type:'button',class:'decision-'+key+(SUCHE_SCORE_AN?'':' a-entscheid'),'aria-label':current===key?label+' zurücknehmen':label,'aria-pressed':String(current===key),'data-decision':key,disabled:pending||holding||needsRefresh||isBlocked(),onclick:()=>{const list=currentList();const i=list.findIndex(x=>x.treffer_id===t.treffer_id);nextAfterVote=current===key?null:(list[i+1]?.treffer_id??(mode==='offen'&&!activeGroup?list.find(x=>x.treffer_id!==t.treffer_id)?.treffer_id??-1:null));void vote(t,current===key?'offen':key);}},SUCHE_SCORE_AN?el('span',{'aria-hidden':'true'},({weg:'×',vielleicht:'≈',favorit:'♥'})[key]+' '):stayIcon({weg:'raus',vielleicht:'naja',favorit:'herz'}[key]),SUCHE_SCORE_AN||key!=='weg'?label:'Raus')));}
   function openReasons(){
     if(!reasonFor||pending||needsRefresh||isBlocked())return;
     const r=reasonFor, dialog=el('dialog',{class:'stay-candidate review-reasons','aria-label':'Gründe ergänzen'});
@@ -361,7 +365,9 @@ function stayReview({getSnapshot,getGroup=()=>null,getRows=()=>getSnapshot()?.tr
     // W98b: Schnell-Infos = die bis zu 6 „Direkt“-Angaben aus der Einstellung „Anzeige“ (gleich wie Liste und Karte)
     const facts=[wohnform?wohnform.text+(wohnform.grund?' – '+wohnform.grund:''):null,...stayKarten().direkt.filter(k=>!(wohnform&&k==='schlafzimmer')).map(k=>stayKurz(t,k,snapshot.suchauftrag))].filter(Boolean);
     const verdict={favorit:'♥ Favorit',vielleicht:'≈ Na ja',ausgeschlossen:'× Weg'}[t.status];
-    const swipe=el('div',{class:'review-swipe'},el('div',{class:'review-title'},refreshIsNew(t,snapshot.suchauftrag.id)?el('span',{class:'pill'},'NEU'):null,verdict?el('span',{class:'review-verdict verdict-'+t.status},verdict):null,el('h3',{tabindex:-1},t.name)),el('p',{class:'review-price'},price),el('p',{class:'review-bedroom'},facts.length?facts.join(' · '):'Angaben noch unbekannt'));
+    // W104 (Richtung A): Preis groß, Fakten als Kacheln mit Symbolen (aus „Direkt“), Unbekanntes mit ?
+    const aKacheln=SUCHE_SCORE_AN?null:el('div',{class:'a-r-fakten'},stayKarten().direkt.filter(k=>!['preis','nacht','art','anbieter'].includes(k)).slice(0,6).map(k=>{const f=stayAFakt(t,k,snapshot.suchauftrag);return el('div',{class:'a-r-kachel'+(f?.ok?' is-ok':'')+(!f||f.warn?' is-warn':''),'data-fakt':k},el('span',{class:'a-r-wert'},stayIcon(STAY_A_ICON[k]||'info'),f?f.text:'?'),el('span',{class:'a-r-label'},f?.title&&k!=='betten'?f.title:STAY_FIELDS[k]));}));
+    const swipe=el('div',{class:'review-swipe'},el('div',{class:'review-title'},refreshIsNew(t,snapshot.suchauftrag.id)?el('span',{class:'pill'},'NEU'):null,verdict?el('span',{class:'review-verdict verdict-'+t.status},verdict):null,el('h3',{tabindex:-1},t.name)),el('p',{class:'review-price'},price),SUCHE_SCORE_AN?el('p',{class:'review-bedroom'},facts.length?facts.join(' · '):'Angaben noch unbekannt'):stayAKompakt(t,snapshot.suchauftrag)[0],aKacheln);
     let point=null, swiped=false;
     swipe.addEventListener('pointerdown',e=>{if(point){point=null;return;}if(e.isPrimary===false || e.button!==0 || e.target.closest('button,a') || document.querySelector('dialog[open]'))return;point={id:e.pointerId,x:e.clientX,y:e.clientY};try{swipe.setPointerCapture?.(e.pointerId);}catch{/* Synthetic events may lack an active pointer. */}});
     swipe.addEventListener('pointercancel',()=>point=null);
@@ -387,6 +393,32 @@ function stayReview({getSnapshot,getGroup=()=>null,getRows=()=>getSnapshot()?.tr
   const returned=()=>{if(!document.hidden && awaitingReturn && live())draw();};document.addEventListener('visibilitychange',returned);
   return {node:box,draw,get currentId(){return currentId;},show(id){currentId=id;savePosition();},get revision(){return revision;},get pending(){return pending;},get blocked(){return needsRefresh;},refreshed(){if(!pending){needsRefresh=false;last=null;reasonFor=null;}},dispose(){clearTimeout(holdTimer);reasonsDialog?.close();reasonsDialog?.remove();document.removeEventListener('visibilitychange',returned);}};
 }
+// W104 (Richtung A): kompakte Zeile – Art · Zimmer · Quelle, Symbol-Fakten aus „Direkt“, Preis rechts (gesamt groß, pro Nacht klein).
+const STAY_A_ICON={gaestenote:'stern',bewertungen:'stern',gehzeit:'bahn',storno:'storno',schlafzimmer:'bett',betten:'bett',m2:'flaeche',entfernung:'pin',strand:'strand',art:'haus',hotelzimmer:'hotel',balkon:'balkon',kueche:'kueche',waschmaschine:'waschen',klima:'klima',fruehstueck:'fruehstueck',pool:'pool',sauna_spa:'sauna',fitness:'fitness',parkplatz:'auto',wlan:'wlan',meerblick:'meer',sterne:'stern',viertel:'pin'};
+function stayAFakt(t,key,trip){
+  const v=stayFieldValue(t,key,trip), n=x=>Number(x).toLocaleString('de-DE',{maximumFractionDigits:1});
+  if(key==='storno'){const s=stayStorno(t,trip);return s.tage!==null?{text:'Storno',ok:true,title:'kostenlos bis '+s.tage+' Tage vor Anreise'}:s.nein?{text:'kein Storno',warn:true}:{text:'Storno ?',warn:true,title:'Storno unbekannt'};}
+  if(v===null)return null;
+  switch(key){
+    case 'gaestenote': return {text:n(v),stark:true}; case 'bewertungen': return {text:'('+n(v)+')'}; case 'gehzeit': return {text:(v>=60?Math.floor(v/60)+' Std.':Math.round(v)+' Min'),title:t.station_name?'zu '+t.station_name:null};
+    case 'schlafzimmer': return {text:v+' SZ'}; case 'm2': return {text:n(v)+' m²'}; case 'entfernung': return {text:n(v)+' km'}; case 'strand': return {text:stayStrandText(t)};
+    case 'betten': { const s=String(v); return {text:s.length>22?s.slice(0,21)+'…':s,title:s}; }
+    case 'hotelzimmer': return {text:v+' Zi.'}; case 'sterne': return {text:v+'★'};
+    default: return v==='ja'?{text:STAY_FIELDS[key]}:{text:String(v)};
+  }
+}
+function stayAKompakt(t,trip){
+  const a=t.angebot||{}, typ=stayTyp(t), zimmer=sucheZahl(a.zimmer_anzahl), sz=stayFieldValue(t,'schlafzimmer',trip);
+  const meta=[typ, zimmer>1?zimmer+' Zimmer':(sz!==null&&t.typ!=='hotel'?sz+' SZ':null), SUCHE_QUELLEN[t.quelle]?.replace(' Travel','')||null].filter(Boolean).join(' · ');
+  const fakten=stayKarten().direkt.filter(k=>!['preis','nacht','art','anbieter'].includes(k)&&!(k==='schlafzimmer'&&(meta.includes(' SZ')||zimmer>1))).map(k=>[k,stayAFakt(t,k,trip)]).filter(([,f])=>f);
+  const g=stayFieldValue(t,'preis',trip), nacht=stayFieldValue(t,'nacht',trip), ca=a.preis_art==='geschaetzt'?'ca. ':'';
+  const euro=x=>Math.round(x).toLocaleString('de-DE')+' €';
+  return [
+    el('p',{class:'a-meta'},stayIcon(t.typ==='hotel'?'hotel':'haus'),el('span',{},meta||'Art unbekannt')),
+    el('p',{class:'a-fakten'},fakten.map(([k,f])=>el('span',{class:'a-fakt'+(f.ok?' is-ok':'')+(f.warn?' is-warn':'')+(f.stark?' is-stark':''),'data-fakt':k,title:f.title||STAY_FIELDS[k]},stayIcon(STAY_A_ICON[k]||'info'),f.text))),
+    el('div',{class:'a-preis'},el('strong',{},g===null?'? €':ca+euro(g)),nacht!==null?el('small',{},euro(nacht)+'/N'):null),
+  ];
+}
 function stayConfigureTable(wrapper,items,sort,onSort,trip,select) {
   const table=wrapper.querySelector('table'), head=table.tHead.rows[0], fields=SUCHE_SCORE_AN?stayFields():stayFields().filter(k=>k!=='nacht'); // W98c: ohne Score eine Preiszeile (gesamt + Ø pro Nacht)
   const heading=(key,label)=>el('th',{scope:'col','aria-sort':sort.key===key?sort.direction===1?'ascending':'descending':'none'},el('button',{type:'button','data-sort':key,onclick:()=>onSort(key)},label));
@@ -399,6 +431,7 @@ function stayConfigureTable(wrapper,items,sort,onSort,trip,select) {
     if(t.urteil_uebernommen)identity.append(el('p',{class:'small'},'aus früherer Suche'));
     if(SUCHE_SCORE_AN&&t.status==='vielleicht')identity.append(el('p',{class:'small'},'Na ja'));
     const provider=sucheAnbieterLink(t);if(provider)identity.querySelector('.hit-identity > div').append(el('a',{class:'hit-provider',href:provider.url,target:'_blank',rel:'noopener noreferrer'},provider.label));
+    if(!SUCHE_SCORE_AN){const [meta,fakten,preis]=stayAKompakt(t,trip);identity.querySelector('.hit-identity > div')?.append(meta,fakten);identity.append(preis);row.classList.add('a-zeile-treffer','a-u-'+stayUrteilKey(t));} // W104
     identity.append(select(t));
     row.replaceChildren(identity,...fields.map(key=>el('td',{'data-label':!SUCHE_SCORE_AN&&key==='preis'?'Preis':STAY_FIELDS[key],'data-field':key},!SUCHE_SCORE_AN&&key==='preis'?stayPreisZeile(t,trip):stayField(t,key,trip))),detail);
     row.nextElementSibling.cells[0].colSpan=fields.length+2;

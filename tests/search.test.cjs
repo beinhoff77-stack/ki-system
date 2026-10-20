@@ -211,13 +211,13 @@ test('PWA installiert vollständige Offline-Hülle, API wird nicht gecacht', asy
   assert(cacheNames.includes('ki-system:' + origin + '/another-app/:v1'));
   assert(!cacheNames.includes('ki-system:' + origin + '/:old'));
   await page.evaluate(() => fetch('README.md'));
-  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v47')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
-  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.33.0')); assert(cached.includes('/style.css?v=0.33.0'));
-  assert(cached.includes('/stay-tools.js?v=0.33.0')); assert(cached.includes('/stay-desk.js?v=0.33.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
-  assert(cached.includes('/stay-research.js?v=0.33.0'));
-  assert(cached.includes('/stay-form.js?v=0.33.0'));
-  assert(cached.includes('/stay-details.js?v=0.33.0'));
-  assert(cached.includes('/stay-districts.js?v=0.33.0'));
+  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v50')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
+  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.35.0')); assert(cached.includes('/style.css?v=0.35.0'));
+  assert(cached.includes('/stay-tools.js?v=0.35.0')); assert(cached.includes('/stay-desk.js?v=0.35.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
+  assert(cached.includes('/stay-research.js?v=0.35.0'));
+  assert(cached.includes('/stay-form.js?v=0.35.0'));
+  assert(cached.includes('/stay-details.js?v=0.35.0'));
+  assert(cached.includes('/stay-districts.js?v=0.35.0'));
   assert(!cached.includes('/README.md'));
   assert(!cached.some((u) => u.includes('app-api')));
   await context.setOffline(true); await page.reload();
@@ -1677,7 +1677,7 @@ test('W71: mobile Tinder-Karte und Anzeige ohne Überlauf',async t=>{
   assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
   assert.equal(await page.locator('.review-card').textContent().then(s=>s.includes('null')),false);
   fs.mkdirSync(path.join(root,'test-results'),{recursive:true});await page.screenshot({path:path.join(root,'test-results/w71-tinder-mobile.png')});
-  await page.goto(origin+'/#/anzeige');await page.getByRole('heading',{name:'Anzeige',exact:true,level:2}).waitFor();assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+  await page.goto(origin+'/#/anzeige');await page.getByRole('heading',{name:'Ergebnisse: was steht bei jeder Unterkunft?',exact:true,level:2}).waitFor();assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
   await page.screenshot({path:path.join(root,'test-results/w71-anzeige-mobile.png')});
 });
 
@@ -2462,14 +2462,14 @@ test('19.10.: Score aus – keine Passung, kein Rang, keine Reiseart; Sortierung
 
 test('W98b: Tabellen-Spalten in der Einstellung „Anzeige“ gelten auch für die Rechner-Tabelle', async t => {
   const {page}=await setup(t,()=>result(),{width:1440,height:1000,tabelle:true});
-  await page.goto(origin+'/#/anzeige');await page.getByRole('heading',{name:'Tabelle (Rechner)',exact:true}).waitFor();
+  await page.goto(origin+'/#/anzeige/tabelle');await page.getByRole('heading',{name:'Tabelle (Rechner)',exact:true}).waitFor();
   await page.getByLabel('Tabelle: Gesamt',{exact:true}).uncheck();await page.getByLabel('Tabelle: Viertel',{exact:true}).check();
   await page.getByRole('button',{name:'Tabelle: Viertel nach vorne',exact:true}).click();
   await page.goto(origin+'/#/suche/2');await page.locator('.desk-table [data-hit="1"]').waitFor();
   assert.equal(await page.locator('.desk-table [data-hit="1"] td[data-field=preis]').count(),0);
   const felder=await page.locator('.desk-table [data-hit="1"] td[data-field]').evaluateAll(ns=>ns.map(n=>n.dataset.field));
   assert.equal(felder.at(-2),'viertel');assert.equal(felder.at(-1),'notiz');
-  await page.goto(origin+'/#/anzeige');await page.getByRole('button',{name:'Tabelle: Standard',exact:true}).click();
+  await page.goto(origin+'/#/anzeige/tabelle');await page.getByRole('button',{name:'Tabelle: Standard',exact:true}).click();
   await page.goto(origin+'/#/suche/2');await page.locator('.desk-table [data-hit="1"] td[data-field=preis]').waitFor();
 });
 
@@ -2507,7 +2507,7 @@ test('W100: Score aus – Suchmaske mit angehefteten Kriterien, Budget pro Nacht
   assert.equal(await page.locator('[name=budget_eur]').inputValue(), '1400', '100 €/Nacht × 14 Nächte');
   await maske.getByRole('button', { name: 'Pool', exact: true }).click();
   await maske.getByRole('button', { name: 'Kostenlos stornierbar', exact: true }).click();
-  await maske.locator('.maske-aktiv').filter({ hasText: 'Pool' }).waitFor();
+  await maske.locator('[data-key=pool].is-on').waitFor();
   await page.getByRole('button', { name: 'Unterkünfte suchen' }).click();
   await page.waitForFunction(() => true);
   await page.waitForTimeout(300);
@@ -2516,7 +2516,7 @@ test('W100: Score aus – Suchmaske mit angehefteten Kriterien, Budget pro Nacht
   assert.equal(d.kriterien.pool.modus, 'pflicht'); assert.equal(d.kriterien.storno_kostenlos.modus, 'pflicht');
   assert.equal(d.kriterien.kueche.modus, 'egal');
   // Pool auf „Aus“: verschwindet aus der Maske und wird nicht mehr gesendet
-  await page.goto(origin + '/#/anzeige');
+  await page.goto(origin + '/#/anzeige/suche');
   await page.getByRole('radio', { name: 'Suchmaske: Pool: Aus', exact: true }).click();
   await page.goto(origin + '/#/suche'); await formFill(page);
   await page.locator('.maske').getByRole('button', { name: 'Küche', exact: true }).waitFor();
@@ -2524,4 +2524,22 @@ test('W100: Score aus – Suchmaske mit angehefteten Kriterien, Budget pro Nacht
   // Strand-Luftlinie: auf 50 m gerundet, Airbnb mit „ca.“
   const texte = await page.evaluate(() => [[337,'hasdata_booking'],[20,'hasdata_booking'],[1449,'rakuten_travel'],[3001,'trivago_mcp'],[512,'apify_airbnb'],[null,'x']].map(([m,q]) => stayStrandText({ strand_m: m, quelle: q })));
   assert.deepEqual(texte, ['≈ 350 m', 'unter 50 m', '≈ 1,45 km', 'über 3 km', 'ca. 500 m', '?']);
+});
+
+test('W104: Richtung A – Suche mit Reise-Karte und Kacheln, Liste mit Symbol-Fakten und Preis rechts, Durchsehen mit Fakten-Kacheln', async (t) => {
+  const data = result();
+  const { page } = await setup(t, p => p.daten?.suchauftrag_id ? data : { suchauftraege: [] }, { ohneScore: true, width: 390, height: 844, collapsed: true });
+  await page.goto(origin + '/#/suche');
+  await page.locator('.a-reise .a-zeile').first().waitFor();
+  assert.equal(await page.locator('.a-reise .a-zeile-ikon svg').count() >= 3, true, 'Wo/Wann/Wer mit Symbol');
+  await page.locator('.maske .maske-an .mk-chip').first().waitFor();
+  assert.ok(await page.locator('.maske .mk-mark').count() > 0, 'Zeichen Suche/Filter an den Kacheln');
+  await page.goto(origin + '/#/suche/2');
+  const row = page.locator('[data-group=A] tr.a-zeile-treffer').first(); await row.waitFor();
+  assert.match(await row.locator('.a-preis').innerText(), /€/);
+  assert.equal(await row.locator('.sel-fav').isVisible(), true);
+  await page.getByRole('button', { name: 'Durchsehen', exact: true }).click();
+  await page.locator('.a-r-fakten .a-r-kachel').first().waitFor();
+  assert.equal(await page.locator('.review-actions .a-entscheid').count(), 3);
+  assert.equal(await page.getByRole('button', { name: 'Weg', exact: true }).isVisible(), true, 'Name bleibt „Weg“, sichtbar „Raus“');
 });

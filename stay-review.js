@@ -26,17 +26,19 @@ function sucheAnbieterLink(t) {
 }
 const STAY_FIELDS = {
   preis: 'Preis gesamt', nacht: 'Preis/Nacht', tarif: 'Günstigster Tarif', tarif_storno: 'Günstigster stornierbar', vergleich: 'Preis ggü. gleicher Art', storno: 'Storno',
-  art: 'Unterkunftsart', schlafzimmer: 'Schlafzimmer', betten: 'Betten/Schlafplätze', m2: 'Zimmergröße m²', balkon: 'Balkon', kueche: 'Küche', waschmaschine: 'Waschmaschine', raucher: 'Raucher',
-  gaestenote: 'Gästenote', bewertungen: 'Bewertungen',
-  entfernung: 'Entfernung zum Ziel', gehzeit: 'Gehzeit zur Station', viertel: 'Viertel',
+  art: 'Unterkunftsart', schlafzimmer: 'Schlafzimmer', hotelzimmer: 'Hotelzimmer', betten: 'Betten/Schlafplätze', m2: 'Zimmergröße m²', balkon: 'Balkon', kueche: 'Küche', waschmaschine: 'Waschmaschine', klima: 'Klimaanlage', raucher: 'Raucher',
+  fruehstueck: 'Frühstück', pool: 'Pool', sauna_spa: 'Sauna/Spa', fitness: 'Fitnessraum', parkplatz: 'Parkplatz', wlan: 'WLAN', meerblick: 'Meerblick',
+  gaestenote: 'Gästenote', bewertungen: 'Bewertungen', sterne: 'Hotelsterne',
+  entfernung: 'Entfernung zum Ziel', gehzeit: 'Gehzeit zur Station', strand: 'Strand (Luftlinie)', viertel: 'Viertel',
   anbieter: 'Quelle', datenlage: 'Datenlage'
 };
 // W98b: Themen für Einstellung und Info-Box – immer dieselbe Reihenfolge und Struktur (Sebastian 20.10.).
 const STAY_THEMEN = [
-  ['Preis & Buchung', ['nacht','preis','tarif','tarif_storno','vergleich','storno']],
-  ['Wohnen', ['art','schlafzimmer','betten','m2','balkon','kueche','waschmaschine','raucher']],
-  ['Bewertungen', ['gaestenote','bewertungen']],
-  ['Lage', ['entfernung','gehzeit','viertel']],
+  ['Preis & Buchung', ['nacht','preis','tarif','tarif_storno','vergleich','storno','fruehstueck']],
+  ['Wohnen', ['art','schlafzimmer','hotelzimmer','betten','m2','balkon','kueche','waschmaschine','klima','raucher']],
+  ['Haus & Freizeit', ['pool','sauna_spa','fitness','parkplatz','wlan','meerblick']], // W100
+  ['Bewertungen', ['gaestenote','bewertungen','sterne']],
+  ['Lage', ['entfernung','gehzeit','strand','viertel']],
   ['Quelle', ['anbieter','datenlage']],
 ];
 const STAY_IMMER = ['preis','nacht']; // Name und Preis stehen immer auf der Karte
@@ -102,7 +104,21 @@ function viewAnzeige() {
       el('div',{class:'display-options'},STAY_DESK_SPALTEN.filter(s=>!spalten.includes(s.key)).map(s=>el('label',{},el('input',{type:'checkbox','aria-label':'Tabelle: '+s.label,onchange:()=>tabSave([...spalten,s.key])}),s.label))),
       el('button',{type:'button',onclick:()=>tabSave([...STAY_DESK_STANDARD])},'Tabelle: Standard'),tabStatus);
   }
-  main.replaceChildren(box,tabBox);draw();tabDraw();
+  // W100: Suchmaske – je Kriterium Angeheftet / Weitere / Aus
+  const maskBox=el('section',{class:'card display-settings display-maske'}), maskStatus=el('p',{role:'status'});
+  function maskDraw(){
+    if(typeof MASKE_THEMEN==='undefined'){maskBox.replaceChildren();return;}
+    const e=maskeEinstellung();
+    const setze=(key,st)=>{const n={an:e.an.filter(k=>k!==key),aus:e.aus.filter(k=>k!==key)};if(st==='an')n.an.push(key);if(st==='aus')n.aus.push(key);maskStatus.textContent=maskeSpeichern(n)?'Auf diesem Gerät gespeichert.':'Gerätespeicher nicht verfügbar.';maskDraw();};
+    maskBox.replaceChildren(el('h2',{},'Suchmaske'),
+      el('p',{class:'small'},'Angeheftet = steht direkt in der Suche · Weitere = unter „Weitere Kriterien“ · Aus = nie gesendet. ➜ Suche: Booking fragt schon gefiltert an. ⧩ Filter: wird nach dem Laden geprüft, Unbekanntes bleibt mit ? sichtbar.'),
+      ...MASKE_THEMEN.map(([thema,liste])=>el('fieldset',{class:'display-thema'},el('legend',{},thema),...liste.map(k=>{const st=maskeStufe(k.key,e);
+        return el('div',{class:'display-row','data-maske':k.key},el('span',{},k.label,' ',el('small',{class:k.suche?'mk-tag mk-suche':'mk-tag mk-filter'},k.suche?'➜ Suche':'⧩ Filter')),
+          el('div',{class:'display-stufen',role:'radiogroup','aria-label':'Suchmaske: '+k.label},...[['an','Angeheftet'],['weitere','Weitere'],['aus','Aus']].map(([w,t])=>
+            el('button',{type:'button',role:'radio','aria-checked':String(st===w),'aria-label':'Suchmaske: '+k.label+': '+t,onclick:()=>{if(st!==w)setze(k.key,w);}},t))));}))),
+      el('button',{type:'button',onclick:()=>{maskStatus.textContent=maskeSpeichern({an:[...MASKE_STANDARD.an],aus:[...MASKE_STANDARD.aus]})?'Standard wiederhergestellt.':'Gerätespeicher nicht verfügbar.';maskDraw();}},'Suchmaske: Standard'),maskStatus);
+  }
+  main.replaceChildren(box,tabBox,maskBox);draw();tabDraw();maskDraw();
 }
 let stayVergleichFn = null; // wird von der Ergebnisansicht für die geladenen Treffer gesetzt (Preis ggü. gleicher Art)
 function stayFieldValue(t,key,trip={}) {
@@ -124,6 +140,11 @@ function stayFieldValue(t,key,trip={}) {
     case 'balkon': return yes(category?.balkon) ?? (t.detail?.merkmale?.balkon?'ja':null);
     case 'kueche': return t.detail?.merkmale?.kueche?'ja':null;
     case 'waschmaschine': return t.detail?.merkmale?.waschmaschine?'ja':null;
+    case 'klima': return t.detail?.merkmale?.klima||t.merkmale?.klima?'ja':null;
+    case 'fruehstueck': case 'pool': case 'sauna_spa': case 'fitness': case 'parkplatz': case 'wlan': case 'meerblick': return t.merkmale?.[key]===true?'ja':null; // W100: Server-Merkmale, sonst unbekannt
+    case 'strand': return n(t.strand_m); // W100: Luftlinie in m (OpenStreetMap), Anzeige auf 50 m gerundet
+    case 'sterne': return n(t.sterne);
+    case 'hotelzimmer': return n(a.zimmer_anzahl)!==null&&(t.typ==='hotel'||a.zimmer_anzahl>1)?a.zimmer_anzahl:null;
     case 'raucher': return yes(category?.raucher ?? t.raucher);
     case 'storno': { if(typeof stayStorno==='function'){const s=stayStorno(t,trip.anreise?trip:(t._trip||trip));if(s.tage!==null)return 'kostenlos bis '+s.tage+' Tage vor Anreise';if(s.nein)return 'nicht kostenlos';} return typeof a.storno==='string' && a.storno.trim() && !/^(unbekannt|nicht kostenlos\/unklar)$/.test(a.storno.trim()) ? a.storno : null; }
     case 'entfernung': return n(t.luftlinie_ziel_m)===null?null:Math.round(t.luftlinie_ziel_m/100)/10;
@@ -154,12 +175,21 @@ function stayPreisZeile(t,trip) {
 }
 function stayInfo(t,trip) {return el('dl',{class:'stay-info'},stayFields().flatMap(key=>[el('dt',{},STAY_FIELDS[key]),el('dd',{'data-field':key},stayField(t,key,trip))]));}
 // Anzeige-Text einer Angabe (für Schnell-Info und Info-Box); fehlt sie: „unbekannt“.
+// W100: Strand-Luftlinie auf 50 m gerundet (Sebastian 20.10.); Airbnb verschiebt Standorte, daher „ca.“
+function stayStrandText(t) {
+  const m=sucheZahl(t.strand_m); if(m===null) return '?';
+  if(m>3000) return 'über 3 km';
+  if(m<50) return 'unter 50 m';
+  const r=Math.round(m/50)*50, z=t.quelle==='apify_airbnb'?'ca. ':'≈ ';
+  return z+(r<1000?r+' m':(r/1000).toLocaleString('de-DE',{maximumFractionDigits:2})+' km');
+}
 function stayAnzeigeText(t,key,trip) {
   const value=stayFieldValue(t,key,trip);
   if(value===null) return 'unbekannt';
   if(['preis','nacht','tarif','tarif_storno'].includes(key)) return (!key.startsWith('tarif')&&t.angebot?.preis_art==='geschaetzt'?'ca. ':'')+sucheEuro(value);
   if(key==='m2') return Number(value).toLocaleString('de-DE')+' m²';
   if(key==='datenlage') return value+' %';
+  if(key==='strand') return stayStrandText(t)+(t.strand_name&&t.strand_m<=3000?' · '+t.strand_name:'');
   if(key==='entfernung') return Number(value).toLocaleString('de-DE')+' km';
   if(key==='gaestenote') return Number(value).toLocaleString('de-DE',{maximumFractionDigits:2})+' / 10';
   if(key==='gehzeit') return (t.gehzeit_art==='geschaetzt'?'ca. ':'')+(value>=60?Math.floor(value/60)+' Std. '+Math.round(value%60)+' Min.':Math.round(value)+' Min.')+(t.station_name?' · '+t.station_name:'');
@@ -181,7 +211,8 @@ function stayKurz(t,key,trip) {
     case 'bewertungen': return n(v)+' Bewertungen'; case 'entfernung': return n(v)+' km zum Ziel'; case 'gehzeit': return Math.round(v)+' Min. zur Station';
     case 'storno': { const s=typeof stayStorno==='function'?stayStorno(t,trip):null; return s?.tage!=null?'Storno bis '+s.tage+' T. vor Anreise':s?.nein?'nicht kostenlos stornierbar':String(v); }
     case 'tarif': return 'günstigster Tarif '+sucheEuro(v); case 'tarif_storno': return 'stornierbar ab '+sucheEuro(v); case 'vergleich': return v+' für die Art';
-    case 'balkon': case 'kueche': case 'waschmaschine': case 'raucher': return v==='ja'?STAY_FIELDS[key]:null;
+    case 'balkon': case 'kueche': case 'waschmaschine': case 'raucher': case 'klima': case 'fruehstueck': case 'pool': case 'sauna_spa': case 'fitness': case 'parkplatz': case 'wlan': case 'meerblick': return v==='ja'?STAY_FIELDS[key]:null;
+    case 'strand': return 'Strand '+stayStrandText(t); case 'sterne': return v+'★'; case 'hotelzimmer': return v+' Hotelzimmer';
     default: return String(v);
   }
 }

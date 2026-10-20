@@ -211,13 +211,13 @@ test('PWA installiert vollständige Offline-Hülle, API wird nicht gecacht', asy
   assert(cacheNames.includes('ki-system:' + origin + '/another-app/:v1'));
   assert(!cacheNames.includes('ki-system:' + origin + '/:old'));
   await page.evaluate(() => fetch('README.md'));
-  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v44')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
-  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.30.0')); assert(cached.includes('/style.css?v=0.30.0'));
-  assert(cached.includes('/stay-tools.js?v=0.30.0')); assert(cached.includes('/stay-desk.js?v=0.30.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
-  assert(cached.includes('/stay-research.js?v=0.30.0'));
-  assert(cached.includes('/stay-form.js?v=0.30.0'));
-  assert(cached.includes('/stay-details.js?v=0.30.0'));
-  assert(cached.includes('/stay-districts.js?v=0.30.0'));
+  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v45')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
+  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.31.0')); assert(cached.includes('/style.css?v=0.31.0'));
+  assert(cached.includes('/stay-tools.js?v=0.31.0')); assert(cached.includes('/stay-desk.js?v=0.31.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
+  assert(cached.includes('/stay-research.js?v=0.31.0'));
+  assert(cached.includes('/stay-form.js?v=0.31.0'));
+  assert(cached.includes('/stay-details.js?v=0.31.0'));
+  assert(cached.includes('/stay-districts.js?v=0.31.0'));
   assert(!cached.includes('/README.md'));
   assert(!cached.some((u) => u.includes('app-api')));
   await context.setOffline(true); await page.reload();
@@ -1596,7 +1596,7 @@ test('W71: Anzeige max 6, Reihenfolge, Reset, Persistenz und fehlende Werte',asy
   await page.goto(origin+'/#/suche/2');await page.locator('[data-hit="1"]').waitFor();
   assert.equal(await page.locator('[data-hit="1"] td[data-field=bewertungen]').count(),1);assert.equal(await page.locator('[data-hit="1"] td[data-field=storno]').count(),0);
   await page.locator('[data-hit="1"] .hit-toggle').click();const box=page.locator('#hit-detail-1 .stay-infobox');
-  assert.deepEqual(await box.locator('h4').allTextContents(),['Preis & Buchung','Wohnen','Lage','Quelle']);
+  assert.deepEqual(await box.locator('h4').allTextContents(),['Preis & Buchung','Wohnen','Haus & Freizeit','Bewertungen','Lage','Quelle']);
   assert.equal(await box.locator('[data-field=storno]').count(),1);assert.equal(await box.locator('[data-field=viertel]').count(),0);
   await page.goto(origin+'/#/anzeige');
   await page.getByRole('button',{name:'Standard wiederherstellen'}).click();
@@ -1933,7 +1933,7 @@ test('W80: Durchsehen eigene vier Zusatzinfos, Warnungen und keine Urteile durch
  const a=page.locator('.review-swipe'),before=calls.filter(p=>p.aktion==='unterkunft_durchsehen_urteil').length;
  for(const mode of ['cancel','multi','vertical','short']){await a.dispatchEvent('pointerdown',{pointerId:1,isPrimary:true,button:0,clientX:100,clientY:200});if(mode==='cancel')await a.dispatchEvent('pointercancel',{pointerId:1});if(mode==='multi')await a.dispatchEvent('pointerdown',{pointerId:2,isPrimary:false,button:0,clientX:120,clientY:200});await a.dispatchEvent('pointerup',{pointerId:1,isPrimary:true,pointerType:'touch',button:0,clientX:mode==='vertical'?100:mode==='short'?120:250,clientY:mode==='vertical'?80:200});}
  assert.equal(calls.filter(p=>p.aktion==='unterkunft_durchsehen_urteil').length,before);
- await page.locator('.review-content').evaluate(n=>n.style.fontSize='200%');assert(await page.getByRole('button',{name:'Favorit',exact:true}).isVisible());await page.getByRole('button',{name:'Details',exact:true}).click();await page.getByRole('dialog').waitFor();assert.equal(await page.locator('dialog .review-schnell [data-field]').count(),8);assert((await page.locator('.review-bedroom').textContent()).includes('Bewertungen'));assert.deepEqual(await page.locator('dialog .stay-infobox h4').allTextContents(),['Preis & Buchung','Wohnen','Lage','Quelle']);
+ await page.locator('.review-content').evaluate(n=>n.style.fontSize='200%');assert(await page.getByRole('button',{name:'Favorit',exact:true}).isVisible());await page.getByRole('button',{name:'Details',exact:true}).click();await page.getByRole('dialog').waitFor();assert.equal(await page.locator('dialog .review-schnell [data-field]').count(),8);assert((await page.locator('.review-bedroom').textContent()).includes('Bewertungen'));assert.deepEqual(await page.locator('dialog .stay-infobox h4').allTextContents(),['Preis & Buchung','Wohnen','Haus & Freizeit','Bewertungen','Lage','Quelle']);
 });
 test('W80: Vorschlag verwerfen verspricht keinen Papierkorb, neue Reise braucht bestätigte ID',async t=>{
  const data=stage2Data();const {page,calls}=await setup(t,p=>p.aktion==='unterkunft_etappen_lesen'?data:p.aktion==='unterkunft_etappe_loeschen'?{vorschau:true,folgen:{status:'vorschlag',ziel:'Osaka',suchen:[],hinweis:'Suchen bleiben erhalten'}}:{});
@@ -2496,4 +2496,32 @@ test('W98c: Score aus – Liste mit Urteils-Chips, Na ja, Preiszeile', async (t)
   assert.equal(await row.locator('td[data-field=nacht]').count(), 0, 'eine Preiszeile');
   assert.ok(await row.locator('.sel-maybe').count() === 1, 'Na-ja-Knopf in der Liste');
   assert.ok(await page.locator('.liste-kompakt').count() === 1);
+});
+
+test('W100: Score aus – Suchmaske mit angehefteten Kriterien, Budget pro Nacht, Aus wird nie gesendet', async (t) => {
+  const { page, calls } = await setup(t, (p) => p.aktion === 'unterkunft_suchauftrag_anlegen' ? { ok: true, id: 2 } : p.aktion === 'unterkunft_suche_starten' ? { ok: true, status: 'laeuft' } : p.daten?.suchauftrag_id ? result() : { suchauftraege: [] }, { ohneScore: true });
+  await page.goto(origin + '/#/suche'); await formFill(page);
+  const maske = page.locator('.maske'); await maske.getByRole('button', { name: 'Pool', exact: true }).waitFor();
+  assert.ok(await maske.locator('.mk-wirkung').first().innerText(), 'Wirkung je Kriterium sichtbar');
+  await page.locator('[name=budget_nacht]').fill('100');
+  assert.equal(await page.locator('[name=budget_eur]').inputValue(), '1400', '100 €/Nacht × 14 Nächte');
+  await maske.getByRole('button', { name: 'Pool', exact: true }).click();
+  await maske.getByRole('button', { name: 'Kostenlos stornierbar', exact: true }).click();
+  await maske.locator('.maske-aktiv').filter({ hasText: 'Pool' }).waitFor();
+  await page.getByRole('button', { name: 'Unterkünfte suchen' }).click();
+  await page.waitForFunction(() => true);
+  await page.waitForTimeout(300);
+  const d = calls.filter(p => p.aktion === 'unterkunft_suchauftrag_anlegen').at(-1).daten;
+  assert.equal(d.budget_eur, 1400);
+  assert.equal(d.kriterien.pool.modus, 'pflicht'); assert.equal(d.kriterien.storno_kostenlos.modus, 'pflicht');
+  assert.equal(d.kriterien.kueche.modus, 'egal');
+  // Pool auf „Aus“: verschwindet aus der Maske und wird nicht mehr gesendet
+  await page.goto(origin + '/#/anzeige');
+  await page.getByRole('radio', { name: 'Suchmaske: Pool: Aus', exact: true }).click();
+  await page.goto(origin + '/#/suche'); await formFill(page);
+  await page.locator('.maske').getByRole('button', { name: 'Küche', exact: true }).waitFor();
+  assert.equal(await page.locator('.maske [data-key=pool]').count(), 0);
+  // Strand-Luftlinie: auf 50 m gerundet, Airbnb mit „ca.“
+  const texte = await page.evaluate(() => [[337,'hasdata_booking'],[20,'hasdata_booking'],[1449,'rakuten_travel'],[3001,'trivago_mcp'],[512,'apify_airbnb'],[null,'x']].map(([m,q]) => stayStrandText({ strand_m: m, quelle: q })));
+  assert.deepEqual(texte, ['≈ 350 m', 'unter 50 m', '≈ 1,45 km', 'über 3 km', 'ca. 500 m', '?']);
 });

@@ -1387,3 +1387,35 @@ body:has(.tinder-mode) main.view{padding:8px 10px;}
 .review-desk-info .infobox-thema dt { font-size: 12px; flex: 0 0 auto; max-width: 55%; }
 .review-desk-info .infobox-thema dd { font-size: 13px; }
 .candidate-mehr { margin: 14px 0; border-top: 1px solid var(--border); padding-top: 8px; } .candidate-mehr > summary { cursor: pointer; font-weight: 600; min-height: 40px; display: flex; align-items: center; }
+
+/* W100: Suchmaske – angeheftete Kriterien, Weitere, Wirkung je Kriterium */
+.maske { display: flex; flex-direction: column; gap: 8px; margin: 4px 0 6px; }
+.maske-titel { margin: 4px 0 0; font-size: 12px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: var(--text-muted); }
+.maske-an { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(260px, 100%), 1fr)); gap: 6px 14px; }
+.mk-row { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.mk-ctrl { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.mk-chip { min-height: 40px; padding: 4px 14px; border: 1px solid #cfdcda; border-radius: 22px; background: #f6f8f7; color: #365c61; font-weight: 700; font-size: 14px; }
+.mk-chip[aria-pressed="true"] { border-color: #0e3b43; background: #0e3b43; color: #fff; }
+.mk-zahl { display: inline-flex; align-items: center; gap: 6px; }
+.mk-stufen { display: inline-flex; align-items: center; gap: 3px; flex-wrap: wrap; }
+.mk-name { font-weight: 700; font-size: 14px; color: #365c61; margin-right: 4px; }
+.mk-seg { min-height: 36px; min-width: 40px; padding: 0 8px; border: 1px solid #cfdcda; border-radius: 9px; background: #fff; color: #365c61; font-size: 13px; font-weight: 700; }
+.mk-seg[aria-pressed="true"] { background: #0e3b43; border-color: #0e3b43; color: #fff; }
+.mk-pin { min-height: 32px; min-width: 32px; padding: 0; border: 0; background: transparent; font-size: 15px; opacity: .55; }
+.mk-pin:hover, .mk-pin:focus-visible { opacity: 1; }
+.mk-wirkung { font-size: 11.5px; line-height: 1.35; color: var(--text-muted); }
+.mk-tag { font-weight: 800; }
+.mk-tag.mk-suche { color: #1b6657; }
+.mk-tag.mk-filter { color: #805300; }
+.maske-weitere > summary { cursor: pointer; font-weight: 700; font-size: 14px; min-height: 40px; display: flex; align-items: center; }
+.maske-weitere-inhalt { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr)); gap: 8px 14px; }
+.mk-thema { border: 1px solid var(--border); border-radius: 12px; padding: 6px 10px 10px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.mk-thema legend { font-weight: 800; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; color: var(--text-muted); padding: 0 4px; }
+.maske-aktiv { margin: 0; color: #0e3b43; font-weight: 600; }
+.budget-nacht small { display: block; margin-top: 2px; }
+@media (max-width: 599px) {
+  .maske-an { display: flex; flex-wrap: wrap; gap: 6px; }
+  .maske-an .mk-row { flex: 0 1 auto; }
+  .maske-an .mk-row:not(.is-on) .mk-wirkung { display: none; }
+  .maske-an .mk-row.is-on { flex-basis: 100%; }
+}

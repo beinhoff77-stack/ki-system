@@ -83,7 +83,7 @@ function sucheErweitertesFormular(form, call, live, ready, lock, profilePreset =
         const shared = key==='schlafzimmer' ? el('span',{class:'small'}) : null;
         const c={key,block,spec,mode,input,shared}; criteria.set(key,c);
         mode.addEventListener('change',()=>{ if(key==='suite')suite.checked=mode.value==='wunsch'; sync(); });
-        section.append(el('div',{class:'trip-criterion',hidden:key==='schlafzimmer'&&form.dataset.wohnen==='1'},el('span',{},spec.label),mode,input,shared));
+        section.append(el('div',{class:'trip-criterion','data-key':key,hidden:(key==='schlafzimmer'&&form.dataset.wohnen==='1')||(!SUCHE_SCORE_AN&&MASKE_KEYS.has(key))},el('span',{},spec.label),mode,input,shared));
       }
       if(block==='ausstattung')section.append(el('p',{class:'small muted'},'Ausstattung wird nur berücksichtigt, wenn die Quelle sie angibt. Suite ist immer ein Wunsch.'));
       filtersPanel.append(section);
@@ -161,7 +161,7 @@ function sucheErweitertesFormular(form, call, live, ready, lock, profilePreset =
         mainType.replaceChildren(...r.reisearten.hauptart.map(v=>el('option',{value:v},REISE_LABEL[v]||v)),...(r.reisearten.hauptart_ab_v11||[]).map(v=>el('option',{value:v,disabled:true},(REISE_LABEL[v]||v)+' · ab V1.1')));
         sideType.replaceChildren(el('option',{value:''},'Keine Nebenart'),...r.reisearten.nebenart.map(v=>el('option',{value:v},REISE_LABEL[v]||v)));
         formType.replaceChildren(...r.unterkunftsform.map(v=>el('option',{value:v},({alle:'Alle',hotel:'Hotel',apartment:'Apartment',haus:'Haus'})[v]||v)));
-        buildCriteria(r); loaded=true;sync();
+        buildCriteria(r); loaded=true;sync(); form.dispatchEvent(new Event('kriterien-geladen'));
       }
       uncertain=false;profileOptions();ready(true);notice.textContent=profiles.length?`${profiles.length} Suchprofile verfügbar.`:'Noch keine Suchprofile gespeichert.';
       if (profilePreset !== null) {
@@ -191,7 +191,17 @@ function sucheErweitertesFormular(form, call, live, ready, lock, profilePreset =
     finally{saving=false;if(live()){lock(false);sync();}}
   }
   ready(false);sync();
-  return {profilePanel,tripPanel,qualityPanel,filtersPanel,load,values};
+  // W100: Zugriff für die Suchmaske – sie liest und schreibt direkt die Filterzeilen (eine Quelle der Wahrheit)
+  const kriterien = {
+    geladen: () => loaded,
+    hat: key => criteria.has(key),
+    get: key => { const c = criteria.get(key); return c ? { modus: c.mode.value, wert: c.input ? c.input.value : null } : null; },
+    set: (key, modus, wert) => { const c = criteria.get(key); if (!c) return;
+      if ([...c.mode.options].some(o => o.value === modus)) c.mode.value = modus;
+      if (c.input && wert !== undefined) c.input.value = wert === null ? '' : String(wert);
+      sync(); form.dispatchEvent(new Event('maske-geaendert')); },
+  };
+  return {profilePanel,tripPanel,qualityPanel,filtersPanel,load,values,kriterien};
 }
 
 // W94 (Claude): Nachtband – Preisniveau je Nacht (Trivago je Nacht, Server: unterkunft_flex modus nachtband).
@@ -387,7 +397,12 @@ function sucheSchnellLayout({ form, fields, sections, extended, submit, call, li
   form.wohnenProfil = data => { if (data?.wohnen) wohnen.setzen(data.wohnen); else if (Number.isInteger(data?.schlafzimmer_min)) wohnen.ausSchlafzimmer(data.schlafzimmer_min); else wohnen.feld(); };
   const szLabel = whoPanel.querySelector('[name="schlafzimmer_min"]')?.closest('label'); if (szLabel) szLabel.hidden = true;
   const formLabel = extended.tripPanel.querySelector('select[aria-label="Gewünschte Unterkunftsform"]')?.closest('label'); if (formLabel) formLabel.hidden = true;
-  const quick = el('section', { class: 'card quick-search' }, el('h2', {}, 'Unterkunft suchen'), label('ziel'), when, nights, band.node, wohnen.node, who, whoPanel, submit, el('p', { class: 'quick-meta small' }, tripLine));
+  // W100: ohne Score Budget pro Nacht und die Suchmaske mit angehefteten Kriterien
+  const gesamtFeld = whoPanel.querySelector('[name="budget_eur"]');
+  const budgetNacht = !SUCHE_SCORE_AN && gesamtFeld ? sucheBudgetNacht(form, gesamtFeld) : null;
+  if (budgetNacht) gesamtFeld.closest('label').before(budgetNacht.node);
+  const maske = !SUCHE_SCORE_AN && extended.kriterien ? sucheMaske({ form, extended }) : null;
+  const quick = el('section', { class: 'card quick-search' }, el('h2', {}, 'Unterkunft suchen'), label('ziel'), when, nights, band.node, wohnen.node, who, whoPanel, maske ? maske.node : null, submit, el('p', { class: 'quick-meta small' }, tripLine));
   const more = el('details', { class: 'card more-options' }, el('summary', {}, 'Mehr Optionen'), el('p', { class: 'small muted' }, (SUCHE_SCORE_AN ? 'Reiseart, Unterkunftsform, ' : '') + 'Qualität, Filter, Quellen und Suchkosten. Die Standardwerte passen für die meisten Suchen.'));
   const tripNode = fields.querySelector('.trip-choice');
   if (tripNode) more.append(tripNode);
@@ -396,9 +411,9 @@ function sucheSchnellLayout({ form, fields, sections, extended, submit, call, li
   more.append(...(SUCHE_SCORE_AN ? [extended.tripPanel] : []), extended.qualityPanel, extended.filtersPanel);
   const gaps = el('div', { class: 'quick-gaps' });
   const kurz = d => { const x = new Date(d + 'T12:00:00'); return Number.isNaN(x.getTime()) ? d : x.toLocaleDateString('de-DE', { day: 'numeric', month: 'numeric' }); };
-  const whoKeys = ['erwachsene', 'kinder_alter', 'budget_eur'];
+  const whoKeys = ['erwachsene', 'kinder_alter', 'budget_eur', 'budget_nacht'];
   const remembered = stayRead('ks_who_last', null);
-  const restoreWho = () => { if (remembered && typeof remembered === 'object') for (const k of whoKeys) { const i = form.querySelector(`[name="${k}"]`); if (i && typeof remembered[k] === 'string') i.value = remembered[k]; } wohnen.feld(); form.dispatchEvent(new Event('input')); };
+  const restoreWho = () => { if (remembered && typeof remembered === 'object') for (const k of whoKeys) { const i = form.querySelector(`[name="${k}"]`); if (i && typeof remembered[k] === 'string') i.value = remembered[k]; } wohnen.feld(); budgetNacht?.ausGesamt(); form.dispatchEvent(new Event('input')); };
   restoreWho();
   form.addEventListener('submit', () => { const v = {}; for (const k of whoKeys) v[k] = String(form.querySelector(`[name="${k}"]`)?.value ?? ''); stayWrite('ks_who_last', v); }, true);
   fields.replaceChildren(gaps, quick, more);
@@ -408,7 +423,8 @@ function sucheSchnellLayout({ form, fields, sections, extended, submit, call, li
     nights.textContent = Number.isFinite(n) && n > 0 ? `${n} ${n === 1 ? 'Nacht' : 'Nächte'}` : '';
     const kids = String(f.get('kinder_alter') || '').split(',').map(v => v.trim()).filter(Boolean);
     const budget = f.get('budget_eur');
-    whoText.textContent = [`${f.get('erwachsene') || '?'} Erw.`, kids.length ? `Kinder ${kids.join(', ')}` : 'keine Kinder', budget ? 'bis ' + sucheEuro(budget) : 'Budget offen'].filter(Boolean).join(' · ');
+    const proNacht = f.get('budget_nacht');
+    whoText.textContent = [`${f.get('erwachsene') || '?'} Erw.`, kids.length ? `Kinder ${kids.join(', ')}` : 'keine Kinder', budgetNacht ? (proNacht ? 'bis ' + sucheEuro(proNacht) + '/Nacht' : 'Budget offen') : budget ? 'bis ' + sucheEuro(budget) : 'Budget offen'].filter(Boolean).join(' · ');
     const limit = sucheZahl(f.get('limit_usd'));
     cost.textContent = limit === null ? '' : ` · Suche max. ${limit.toLocaleString('de-DE', { style: 'currency', currency: 'USD' })}`;
   }
@@ -429,4 +445,132 @@ function sucheSchnellLayout({ form, fields, sections, extended, submit, call, li
         el('button', { type: 'button', class: 'primary', onclick: () => { for (const [k, val] of [['anreise', v.anreise], ['abreise', v.abreise]]) { const i = form.querySelector(`[name="${k}"]`); i.value = val; i.dispatchEvent(new Event('input', { bubbles: true })); } onTrip.setNew?.(); const z = form.querySelector('[name="ziel"]'); z.focus(); z.scrollIntoView({ block: 'center' }); } }, 'Hier suchen')); }));
   }).catch(() => {});
   return { restoreWho, wohnenWerte: wohnen.werte };
+}
+
+// W100 (Claude, Sebastian 20.10.): Suchmaske nach Themen. Jedes Kriterium: Angeheftet (in der Maske), Weitere (aufklappbar) oder Aus (nie gesendet).
+// Wirkung je Kriterium: ➜ Suche = Booking fragt schon gefiltert an · ⧩ Filter = nach dem Laden geprüft; unbekannt bleibt sichtbar (?).
+const MASKE_THEMEN = [
+  ['Preis & Buchung', [
+    { key: 'storno_kostenlos', label: 'Kostenlos stornierbar', typ: 'ja', suche: true, text: 'Booking sucht nur stornierbare Angebote, andere Quellen werden nach dem Laden geprüft.' },
+    { key: 'fruehstueck', label: 'Frühstück inklusive', typ: 'ja', suche: true, text: 'Booking sucht nur mit Frühstück, sonst aus dem Angebotstext.' },
+  ]],
+  ['Wohnen & Größe', [
+    { key: 'flaeche_m2', label: 'Fläche mindestens', typ: 'zahl', einheit: 'm²', start: 60, schritt: 5, min: 10, max: 300, text: 'Nach dem Laden. Fläche fehlt oft, solche bleiben mit ? sichtbar.' },
+    { key: 'echte_betten', label: 'Echte Betten für alle', typ: 'ja', text: 'Nach dem Laden: Futon, Schlafsofa und Etagenbett zählen nicht.' },
+  ]],
+  ['Ausstattung', [
+    { key: 'kueche', label: 'Küche', typ: 'ja', suche: true, text: 'Booking sucht nur mit Küche, sonst aus der Ausstattung.' },
+    { key: 'waschmaschine', label: 'Waschmaschine', typ: 'ja', text: 'Nach dem Laden, aus den Detailangaben.' },
+    { key: 'balkon', label: 'Balkon / Terrasse', typ: 'ja', suche: true, text: 'Booking sucht nur mit Balkon – schränkt stark ein.' },
+    { key: 'klima', label: 'Klimaanlage', typ: 'ja', suche: true, text: 'Booking sucht nur mit Klimaanlage.' },
+    { key: 'meerblick', label: 'Meerblick', typ: 'ja', suche: true, text: 'Booking sucht nur Zimmer mit Meerblick.' },
+    { key: 'wlan', label: 'WLAN kostenlos', typ: 'ja', suche: true, text: 'Booking sucht nur mit kostenlosem WLAN.' },
+  ]],
+  ['Haus & Freizeit', [
+    { key: 'pool', label: 'Pool', typ: 'ja', suche: true, text: 'Booking sucht nur mit Pool, sonst aus der Ausstattung.' },
+    { key: 'sauna_spa', label: 'Sauna / Spa', typ: 'ja', suche: true, text: 'Booking sucht „Spa“; Sauna genau nur aus dem Text.' },
+    { key: 'fitness', label: 'Fitnessraum', typ: 'ja', suche: true, text: 'Booking sucht nur mit Fitnessraum.' },
+    { key: 'parkplatz', label: 'Parkplatz', typ: 'ja', suche: true, text: 'Booking sucht nur mit Parkplatz.' },
+  ]],
+  ['Lage', [
+    { key: 'strand_max_m', label: 'Strand höchstens', typ: 'stufen', stufen: [[300, '300 m'], [1000, '1 km'], [2000, '2 km']], text: 'Nach dem Laden: Luftlinie zum nächsten Strand (OpenStreetMap), kommt etwa eine halbe Minute nach den Treffern. Airbnb-Standorte sind ungenau.' },
+    { key: 'luftlinie_max_km', label: 'Zum Ziel höchstens', typ: 'zahl', einheit: 'km', start: 3, schritt: 1, min: 1, max: 50, text: 'Nach dem Laden, Luftlinie aus den Koordinaten.' },
+    { key: 'gehzeit_max_min', label: 'Gehzeit zur Station höchstens', typ: 'zahl', einheit: 'Min.', start: 10, schritt: 5, min: 5, max: 60, text: 'Nach dem Laden, wo die Gehzeit bekannt ist.' },
+    { key: 'zentrum_max_km', label: 'Zentrum höchstens', typ: 'stufen', stufen: [[1, '1 km'], [3, '3 km'], [5, '5 km']], suche: true, text: 'Booking sucht nur in dieser Nähe zum Zentrum; andere Quellen bleiben mit ? sichtbar.' },
+  ]],
+  ['Bewertungen', [
+    { key: 'note_min', label: 'Gästenote ab', typ: 'stufen', stufen: [[6, '6'], [7, '7'], [8, '8'], [9, '9']], suche: true, text: 'Booking sucht nur ab dieser Note, andere Quellen nach dem Laden.' },
+    { key: 'bewertungen_min', label: 'Bewertungen mindestens', typ: 'zahl', einheit: '', start: 30, schritt: 10, min: 10, max: 500, text: 'Nach dem Laden.' },
+    { key: 'sterne_min', label: 'Hotelsterne ab', typ: 'stufen', stufen: [[2, '2★'], [3, '3★'], [4, '4★'], [5, '5★']], suche: true, text: 'Nur für Hotels: Booking sucht nur ab diesen Sternen. Apartments sind nicht betroffen.' },
+  ]],
+];
+const MASKE_ALLE = MASKE_THEMEN.flatMap(([, liste]) => liste);
+const MASKE_KEYS = new Set(MASKE_ALLE.map(k => k.key));
+const MASKE_STANDARD = { an: ['storno_kostenlos', 'kueche', 'pool', 'sauna_spa', 'strand_max_m', 'note_min'], aus: [] };
+function maskeEinstellung() {
+  const v = stayRead('ks_maske', null), ok = a => Array.isArray(a) ? a.filter(k => MASKE_KEYS.has(k)) : null;
+  return v && ok(v.an) && ok(v.aus) ? { an: ok(v.an), aus: ok(v.aus) } : { an: [...MASKE_STANDARD.an], aus: [...MASKE_STANDARD.aus] };
+}
+function maskeStufe(key, e = maskeEinstellung()) { return e.an.includes(key) ? 'an' : e.aus.includes(key) ? 'aus' : 'weitere'; }
+function maskeSpeichern(e) { return stayWrite('ks_maske', e); }
+
+function sucheMaske({ form, extended }) {
+  const api = extended.kriterien;
+  const angeheftet = el('div', { class: 'maske-an', role: 'group', 'aria-label': 'Angeheftete Kriterien' });
+  const weitereInhalt = el('div', { class: 'maske-weitere-inhalt' });
+  const weitereKopf = el('summary', {}, 'Weitere Kriterien');
+  const weitere = el('details', { class: 'maske-weitere' }, weitereKopf, weitereInhalt);
+  const aktiv = el('p', { class: 'maske-aktiv small', 'aria-live': 'polite' });
+  const zustand = key => { const v = api.get(key); return v ? { an: v.modus !== 'egal', wert: v.wert } : { an: false, wert: null }; };
+  const kurz = k => { const z = zustand(k.key); if (!z.an) return null; if (k.typ === 'ja') return k.label;
+    const st = k.typ === 'stufen' ? k.stufen.find(([w]) => String(w) === String(z.wert))?.[1] : `${z.wert} ${k.einheit}`.trim(); return `${k.label} ${st ?? z.wert}`; };
+  function zeile(k, mitPin) {
+    const z = zustand(k.key), id = 'mk-' + k.key;
+    let control;
+    if (k.typ === 'ja') control = el('button', { type: 'button', class: 'mk-chip', id, 'aria-pressed': String(z.an), onclick: () => api.set(k.key, z.an ? 'egal' : 'pflicht') }, z.an ? '✓ ' : '', k.label);
+    else if (k.typ === 'stufen') control = el('span', { class: 'mk-stufen', role: 'group', 'aria-label': k.label },
+      el('span', { class: 'mk-name' }, k.label),
+      el('button', { type: 'button', class: 'mk-seg', 'aria-pressed': String(!z.an), onclick: () => api.set(k.key, 'egal', null) }, 'egal'),
+      ...k.stufen.map(([w, t]) => el('button', { type: 'button', class: 'mk-seg', 'aria-pressed': String(z.an && String(z.wert) === String(w)), 'aria-label': k.label + ' ' + t, onclick: () => api.set(k.key, 'pflicht', w) }, t)));
+    else {
+      const wert = Number(z.wert) || k.start, setz = n => api.set(k.key, 'pflicht', Math.max(k.min, Math.min(k.max, n)));
+      control = el('span', { class: 'mk-zahl' + (z.an ? ' is-on' : '') },
+        el('button', { type: 'button', class: 'mk-chip', 'aria-pressed': String(z.an), onclick: () => z.an ? api.set(k.key, 'egal') : setz(wert) }, z.an ? '✓ ' : '', k.label),
+        z.an ? el('span', { class: 'wo-stepper', role: 'group', 'aria-label': k.label },
+          el('button', { type: 'button', class: 'wo-step', 'aria-label': k.label + ' weniger', disabled: wert <= k.min, onclick: () => setz(wert - k.schritt) }, '–'),
+          el('output', { class: 'wo-step-value' }, `${wert} ${k.einheit}`.trim()),
+          el('button', { type: 'button', class: 'wo-step', 'aria-label': k.label + ' mehr', disabled: wert >= k.max, onclick: () => setz(wert + k.schritt) }, '+')) : null);
+    }
+    const pin = mitPin ? el('button', { type: 'button', class: 'mk-pin', title: 'In der Suchmaske anheften', 'aria-label': k.label + ' anheften', onclick: () => {
+      const e = maskeEinstellung(); e.an = [...e.an.filter(x => x !== k.key), k.key]; e.aus = e.aus.filter(x => x !== k.key); maskeSpeichern(e); draw(); } }, '📌') : null;
+    return el('div', { class: 'mk-row' + (z.an ? ' is-on' : ''), 'data-key': k.key }, el('div', { class: 'mk-ctrl' }, control, pin),
+      el('small', { class: 'mk-wirkung' }, el('span', { class: k.suche ? 'mk-tag mk-suche' : 'mk-tag mk-filter' }, k.suche ? '➜ Suche' : '⧩ Filter'), ' ', k.text));
+  }
+  function draw() {
+    const fokus = angeheftet.contains(document.activeElement) || weitere.contains(document.activeElement) ? document.activeElement.getAttribute('aria-label') || document.activeElement.textContent : null;
+    zeichne();
+    if (fokus) [...angeheftet.querySelectorAll('button'), ...weitere.querySelectorAll('button')].find(b => (b.getAttribute('aria-label') || b.textContent) === fokus || b.textContent.replace('✓ ', '') === fokus.replace('✓ ', ''))?.focus({ preventScroll: true });
+  }
+  function zeichne() {
+    if (!api.geladen()) { angeheftet.replaceChildren(el('p', { class: 'small muted' }, 'Kriterien werden geladen …')); return; }
+    const e = maskeEinstellung(), da = k => api.hat(k.key);
+    // Ausgeblendete Kriterien dürfen nichts unsichtbar einschränken (ChatGPT-Hinweis 423)
+    for (const k of MASKE_ALLE) if (da(k) && e.aus.includes(k.key) && zustand(k.key).an) api.set(k.key, 'egal', null);
+    angeheftet.replaceChildren(...e.an.map(key => MASKE_ALLE.find(k => k.key === key)).filter(k => k && da(k)).map(k => zeile(k, false)));
+    const offenWar = weitere.open;
+    weitereInhalt.replaceChildren(...MASKE_THEMEN.map(([thema, liste]) => {
+      const zeilen = liste.filter(k => da(k) && maskeStufe(k.key, e) === 'weitere');
+      return zeilen.length ? el('fieldset', { class: 'mk-thema' }, el('legend', {}, thema), ...zeilen.map(k => zeile(k, true))) : null;
+    }).filter(Boolean), el('p', { class: 'small muted' }, el('a', { href: '#/anzeige' }, '⚙ Welche Kriterien hier stehen, stellst du unter „Anzeige“ ein.')));
+    weitere.open = offenWar;
+    const aktivWeitere = MASKE_ALLE.filter(k => da(k) && maskeStufe(k.key, e) === 'weitere' && zustand(k.key).an).length;
+    weitereKopf.textContent = 'Weitere Kriterien' + (aktivWeitere ? ` (${aktivWeitere} aktiv)` : '');
+    const liste = MASKE_ALLE.filter(da).map(kurz).filter(Boolean);
+    aktiv.textContent = liste.length ? 'Aktiv: ' + liste.join(' · ') : 'Keine Zusatz-Kriterien aktiv.';
+  }
+  form.addEventListener('kriterien-geladen', draw); form.addEventListener('maske-geaendert', draw);
+  form.addEventListener('input', () => { if (api.geladen()) draw(); });
+  draw();
+  return { node: el('div', { class: 'maske' }, el('p', { class: 'maske-titel' }, 'Wichtig für dich'), angeheftet, weitere, aktiv), draw };
+}
+
+// W100: Budget pro Nacht (für alle zusammen, alle Zimmer). Der Server bekommt wie bisher das Gesamtbudget = pro Nacht × Nächte.
+function sucheBudgetNacht(form, gesamt) {
+  const nacht = el('input', { name: 'budget_nacht', type: 'number', min: 1, step: 1, placeholder: 'Optional', inputmode: 'numeric' });
+  const info = el('small', { class: 'muted' });
+  const datum = name => form.querySelector(`[name="${name}"]`)?.value;
+  const naechte = () => { const n = (Date.parse(datum('abreise')) - Date.parse(datum('anreise'))) / 86400000; return Number.isFinite(n) && n > 0 ? n : null; };
+  function rechne() {
+    const n = naechte(), v = Number(nacht.value);
+    gesamt.value = nacht.value && v > 0 && n ? String(Math.round(v * n)) : '';
+    info.textContent = nacht.value && v > 0 ? (n ? `= ${sucheEuro(v * n)} für ${n} ${n === 1 ? 'Nacht' : 'Nächte'} · Suche mit +30 % Puffer` : 'Bitte Reisedaten eintragen.') : 'Für alle zusammen, alle Zimmer. Suche mit +30 % Puffer.';
+  }
+  function ausGesamt() { const n = naechte(), g = Number(gesamt.value); if (!nacht.value && g > 0 && n) nacht.value = String(Math.round(g / n)); rechne(); }
+  nacht.addEventListener('input', rechne);
+  form.addEventListener('input', e => { if (['anreise', 'abreise'].includes(e.target?.name)) rechne(); });
+  form.addEventListener('change', e => { if (['anreise', 'abreise'].includes(e.target?.name)) rechne(); });
+  const label = el('label', { class: 'budget-nacht' }, 'Budget pro Nacht (€)', nacht, info);
+  gesamt.closest('label').hidden = true;
+  rechne();
+  return { node: label, ausGesamt, rechne };
 }

@@ -1921,3 +1921,7 @@ body:has(.tinder-mode) main.view { padding-top: calc(6px + env(safe-area-inset-t
  .stay-candidate .review-info{grid-template-columns:1fr;gap:12px}
  .stay-candidate .review-schnell{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 14px;margin:0}
 }
+/* 0.35.3: Tabelle auch am Handy erreichbar (vier Ansichten) */
+.a-ergebnis .result-view-switch { grid-template-columns: repeat(4, minmax(0, 1fr)) auto; }
+.a-ergebnis .result-view-switch > button:nth-of-type(4) { display: flex; }
+@media (max-width: 479px) { .a-ergebnis .result-view-switch > button .ic { display: none; } .a-ergebnis .result-view-switch > button { font-size: 12.5px; padding: 0 2px; } }

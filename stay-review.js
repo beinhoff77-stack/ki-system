@@ -366,7 +366,7 @@ function stayReview({getSnapshot,getGroup=()=>null,getRows=()=>getSnapshot()?.tr
     const facts=[wohnform?wohnform.text+(wohnform.grund?' – '+wohnform.grund:''):null,...stayKarten().direkt.filter(k=>!(wohnform&&k==='schlafzimmer')).map(k=>stayKurz(t,k,snapshot.suchauftrag))].filter(Boolean);
     const verdict={favorit:'♥ Favorit',vielleicht:'≈ Na ja',ausgeschlossen:'× Weg'}[t.status];
     // W104 (Richtung A): Preis groß, Fakten als Kacheln mit Symbolen (aus „Direkt“), Unbekanntes mit ?
-    const aKacheln=SUCHE_SCORE_AN?null:el('div',{class:'a-r-fakten'},stayKarten().direkt.filter(k=>!['preis','nacht','art','anbieter'].includes(k)).slice(0,6).map(k=>{const f=stayAFakt(t,k,snapshot.suchauftrag);return el('div',{class:'a-r-kachel'+(f?.ok?' is-ok':'')+(!f||f.warn?' is-warn':''),'data-fakt':k},el('span',{class:'a-r-wert'},stayIcon(STAY_A_ICON[k]||'info'),f?f.text:'?'),el('span',{class:'a-r-label'},f?.title&&k!=='betten'?f.title:STAY_FIELDS[k]));}));
+    const aKacheln=SUCHE_SCORE_AN?null:stayAKacheln(t,snapshot.suchauftrag);
     const swipe=el('div',{class:'review-swipe'},el('div',{class:'review-title'},refreshIsNew(t,snapshot.suchauftrag.id)?el('span',{class:'pill'},'NEU'):null,verdict?el('span',{class:'review-verdict verdict-'+t.status},verdict):null,el('h3',{tabindex:-1},t.name)),el('p',{class:'review-price'},price),SUCHE_SCORE_AN?el('p',{class:'review-bedroom'},facts.length?facts.join(' · '):'Angaben noch unbekannt'):stayAKompakt(t,snapshot.suchauftrag)[0],aKacheln);
     let point=null, swiped=false;
     swipe.addEventListener('pointerdown',e=>{if(point){point=null;return;}if(e.isPrimary===false || e.button!==0 || e.target.closest('button,a') || document.querySelector('dialog[open]'))return;point={id:e.pointerId,x:e.clientX,y:e.clientY};try{swipe.setPointerCapture?.(e.pointerId);}catch{/* Synthetic events may lack an active pointer. */}});
@@ -377,6 +377,7 @@ function stayReview({getSnapshot,getGroup=()=>null,getRows=()=>getSnapshot()?.tr
     if(warnings.length)swipe.append(el('p',{class:'review-warning'},'⚠ '+warnings[0]));
     const provider=sucheAnbieterLink(t), url=provider?.url;
     content.append(swipe,el('div',{class:'review-links'},url?el('a',{href:url,target:'_blank',rel:'noopener noreferrer',onclick:()=>{awaitingReturn=t.treffer_id;}},provider.label):null,
+      SUCHE_SCORE_AN?null:el('button',{type:'button',class:'a-lage-knopf',onclick:()=>stayLageDialog(t,snapshot.suchauftrag)},stayIcon('pin'),'Lage'),
       el('button',{type:'button',onclick:event=>{const trigger=event.currentTarget,dialog=sucheKandidat(t,snapshot.suchauftrag.status==='fertig',snapshot.suchauftrag.id);dialog.append(SUCHE_SCORE_AN?el('p',{class:'review-score'},`Passung ${t.bewertung?.score??'–'}/100`):'',SUCHE_SCORE_AN?stayReviewInfo(t,snapshot.suchauftrag):'',el('section',{'aria-label':'Offene Angaben'},warnings.map(w=>el('p',{},w))));scope.append(dialog);dialog.addEventListener('close',()=>{dialog.remove();if(trigger.isConnected)trigger.focus({preventScroll:true});});dialog.showModal();}},'Details')));
     if(awaitingReturn===t.treffer_id)content.append(el('p',{role:'status'},'Und? Wie gefällt dir die Unterkunft?'));
     content.append(el('div',{class:'review-desk-info'},stayInfoBox(t,snapshot.suchauftrag))); // W98c D1: am Rechner rechts neben dem Foto
@@ -419,6 +420,46 @@ function stayAKompakt(t,trip){
     el('div',{class:'a-preis'},el('strong',{},g===null?'? €':ca+euro(g)),nacht!==null?el('small',{},euro(nacht)+'/N'):null),
   ];
 }
+// W107 (Sebastian 20.10.): Fotos groß ansehen (alle Bilder, wischen/blättern) und Lage auf einer kleinen Karte – direkt aus Liste, Karte und Durchsehen
+function stayFotoDialog(t){
+  const d=el('dialog',{class:'a-foto-dialog','aria-label':'Fotos von '+(t.name||'Unterkunft')});
+  d.append(el('div',{class:'a-dialog-kopf'},el('strong',{},t.name||'Unterkunft'),el('button',{type:'button',class:'a-dialog-zu','aria-label':'Schließen',onclick:()=>d.close()},stayIcon('raus'))),stayGallery(t));
+  main.append(d);d.addEventListener('close',()=>d.remove());d.showModal();
+}
+function stayLageDialog(t,trip){
+  const d=el('dialog',{class:'a-lage-dialog','aria-label':'Lage von '+(t.name||'Unterkunft')});
+  const karte=el('div',{class:'a-lage-karte'}), n=sucheZahl;
+  const zeilen=[n(t.luftlinie_ziel_m)!==null?['pin',(t.luftlinie_ziel_m/1000).toLocaleString('de-DE',{maximumFractionDigits:1})+' km Luftlinie zum Ziel'+(trip?.ziel?' ('+trip.ziel+')':'')]:null,
+    n(t.gehzeit_min)!==null?['bahn',sucheWegText(t)]:null, t.zone?.name?['haus','Viertel: '+t.zone.name]:null, n(t.strand_m)!==null&&t.strand_m<=3000?['strand','Strand '+stayStrandText(t)]:null].filter(Boolean);
+  d.append(el('div',{class:'a-dialog-kopf'},el('strong',{},t.name||'Unterkunft'),el('button',{type:'button',class:'a-dialog-zu','aria-label':'Schließen',onclick:()=>d.close()},stayIcon('raus'))),karte,
+    el('ul',{class:'a-lage-liste'},zeilen.map(([i,x])=>el('li',{},stayIcon(i),x))),
+    sucheKoordinaten(t)?el('a',{class:'a-lage-extern',href:'https://www.google.com/maps/search/?api=1&query='+t.lat+','+t.lon,target:'_blank',rel:'noopener noreferrer'},'In Google Maps öffnen ↗'):null);
+  main.append(d);let map=null;d.addEventListener('close',()=>{map?.remove();d.remove();});d.showModal();
+  const p=sucheKoordinaten(t);
+  if(!p||!window.L){karte.replaceChildren(el('p',{class:'small muted'},p?'Karte nicht verfügbar.':'Keine Koordinaten bekannt.'));return;}
+  map=L.map(karte,{scrollWheelZoom:false}).setView(p,14);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap-Mitwirkende'}).addTo(map);
+  L.marker(p,{icon:L.divIcon({className:'stay-pin pin-preis is-gewaehlt',html:el('span',{},sucheKartenPreis(t)),iconSize:null})}).addTo(map);
+  const z=n(trip?.ziel_lat)!==null&&n(trip?.ziel_lon)!==null?[Number(trip.ziel_lat),Number(trip.ziel_lon)]:null;
+  if(z){L.marker(z,{icon:L.divIcon({className:'stay-pin pin-ziel',html:el('span',{},'★'),iconSize:[30,30]})}).addTo(map);map.fitBounds(L.latLngBounds([p,z]),{padding:[40,40],maxZoom:15});}
+  setTimeout(()=>map?.invalidateSize(),50);
+}
+function stayAKacheln(t,trip){
+  const keys=stayKarten().direkt.filter(k=>!['preis','nacht','art','anbieter'].includes(k)).slice(0,6);
+  return keys.length?el('div',{class:'a-r-fakten'},keys.map(k=>{const f=stayAFakt(t,k,trip);return el('div',{class:'a-r-kachel'+(f?.ok?' is-ok':'')+(!f||f.warn?' is-warn':''),'data-fakt':k},el('span',{class:'a-r-wert'},stayIcon(STAY_A_ICON[k]||'info'),f?f.text:'?'),el('span',{class:'a-r-label'},f?.title&&k!=='betten'?f.title:STAY_FIELDS[k]));})):null;
+}
+// W107 (Sebastian 20.10.): Karte – Antippen eines Pins zeigt unten die Durchsehen-Ansicht (Fotos, Fakten, Urteil)
+function stayKartenKarte(t,trip,select,openDetail){
+  const a=t.angebot||{}, g=stayFieldValue(t,'preis',trip), n=stayFieldValue(t,'nacht',trip), ca=a.preis_art==='geschaetzt'?'ca. ':'';
+  const euro=x=>Math.round(x).toLocaleString('de-DE')+' €';
+  const provider=typeof sucheAnbieterLink==='function'?sucheAnbieterLink(t):null;
+  return el('div',{class:'a-karten-karte'},stayGallery(t),
+    el('div',{class:'a-karten-text'},
+      el('p',{class:'a-karten-preis'},el('strong',{},g===null?'Preis unbekannt':ca+euro(g)),n!==null?el('span',{},' · '+euro(n)+'/Nacht'):null),
+      stayAKompakt(t,trip)[0], stayAKacheln(t,trip),
+      el('div',{class:'a-karten-links'},provider?el('a',{href:provider.url,target:'_blank',rel:'noopener noreferrer'},provider.label):null,el('button',{type:'button',onclick:()=>stayFotoDialog(t)},'Fotos'),el('button',{type:'button',onclick:()=>openDetail?.(t)},'Details'))),
+    el('div',{class:'a-karten-wahl'},select(t)));
+}
 function stayConfigureTable(wrapper,items,sort,onSort,trip,select) {
   const table=wrapper.querySelector('table'), head=table.tHead.rows[0], fields=SUCHE_SCORE_AN?stayFields():stayFields().filter(k=>k!=='nacht'); // W98c: ohne Score eine Preiszeile (gesamt + Ø pro Nacht)
   const heading=(key,label)=>el('th',{scope:'col','aria-sort':sort.key===key?sort.direction===1?'ascending':'descending':'none'},el('button',{type:'button','data-sort':key,onclick:()=>onSort(key)},label));
@@ -431,7 +472,11 @@ function stayConfigureTable(wrapper,items,sort,onSort,trip,select) {
     if(t.urteil_uebernommen)identity.append(el('p',{class:'small'},'aus früherer Suche'));
     if(SUCHE_SCORE_AN&&t.status==='vielleicht')identity.append(el('p',{class:'small'},'Na ja'));
     const provider=sucheAnbieterLink(t);if(provider)identity.querySelector('.hit-identity > div').append(el('a',{class:'hit-provider',href:provider.url,target:'_blank',rel:'noopener noreferrer'},provider.label));
-    if(!SUCHE_SCORE_AN){const [meta,fakten,preis]=stayAKompakt(t,trip);identity.querySelector('.hit-identity > div')?.append(meta,fakten);identity.append(preis);row.classList.add('a-zeile-treffer','a-u-'+stayUrteilKey(t));} // W104
+    if(!SUCHE_SCORE_AN){const [meta,fakten,preis]=stayAKompakt(t,trip);identity.querySelector('.hit-identity > div')?.append(meta,fakten);identity.append(preis);row.classList.add('a-zeile-treffer','a-u-'+stayUrteilKey(t)); // W104
+      const foto=identity.querySelector('.stay-photo');if(foto){foto.tabIndex=0;foto.setAttribute('role','button');foto.setAttribute('aria-label','Fotos von '+(t.name||'Unterkunft')+' groß ansehen');foto.addEventListener('click',()=>stayFotoDialog(t));foto.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();stayFotoDialog(t);}});} // W107
+      detail.append(el('button',{type:'button',class:'a-lage-knopf',onclick:()=>stayLageDialog(t,trip)},stayIcon('pin'),'Lage'));
+      // W107 (Sebastian 20.10.: „alte Leichen“): „Details“ öffnet direkt die Detailansicht statt des alten Aufklapp-Bereichs (Prüfungen, Rückmeldung, Nachrecherche)
+      const toggle=detail.querySelector('.hit-toggle');toggle?.addEventListener('click',e=>{const open=row.nextElementSibling?.querySelector('.candidate-open');if(!open)return;e.stopImmediatePropagation();e.preventDefault();open.click();},true);}
     identity.append(select(t));
     row.replaceChildren(identity,...fields.map(key=>el('td',{'data-label':!SUCHE_SCORE_AN&&key==='preis'?'Preis':STAY_FIELDS[key],'data-field':key},!SUCHE_SCORE_AN&&key==='preis'?stayPreisZeile(t,trip):stayField(t,key,trip))),detail);
     row.nextElementSibling.cells[0].colSpan=fields.length+2;

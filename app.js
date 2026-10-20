@@ -1330,7 +1330,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       section.dataset.group = key; results.append(section);
       if (key === 'ausgeschlossen') section.dataset.detail = 'ausgeschlossen';
     }
-    if(showMap||split){if(!mapView)mapView=sucheKarte(mapPanel,showHit,t=>el('div',{'data-result-view':'list'},stayConfigureTable(sucheTabelle([t],sort,()=>{},phase.final, t=>sucheRueckmeldung(t,feedbackStates,call,live),()=>null,id,'map-'),[t],sort,()=>{},a,resultSelection)));mapView.update(kompakt?rowsUrteil.filter(t=>t.topf!=='ausgeschlossen'||STAY_STATUS_URTEIL[t.status]):rows,snapshot.karte);}
+    if(showMap||split){if(!mapView)mapView=sucheKarte(mapPanel,showHit,!SUCHE_SCORE_AN?t=>stayKartenKarte(t,a,resultSelection,x=>{const dialog=sucheKandidat(x,phase.final,id);scope.append(dialog);dialog.addEventListener('close',()=>dialog.remove());dialog.showModal();}):t=>el('div',{'data-result-view':'list'},stayConfigureTable(sucheTabelle([t],sort,()=>{},phase.final, t=>sucheRueckmeldung(t,feedbackStates,call,live),()=>null,id,'map-'),[t],sort,()=>{},a,resultSelection)));mapView.update(kompakt?rowsUrteil.filter(t=>t.topf!=='ausgeschlossen'||STAY_STATUS_URTEIL[t.status]):rows,snapshot.karte);}
     results.querySelectorAll('details[data-detail]').forEach((n) => {
       n.open = openDetails.has(n.dataset.detail);
       // Synchronize the row and disclosure button before the deferred native toggle event.

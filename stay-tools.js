@@ -259,11 +259,18 @@ function sucheKarte(container, onSelect, renderSelected, options={}) {
     if (!t) return;
     selectedId = t.treffer_id; picker.value = String(selectedId);
     selected.replaceChildren(el('h3',{tabindex:-1},t.name || 'Unterkunft'), renderSelected ? renderSelected(t) : el('button',{type:'button',onclick:()=>onSelect(t)},'In der Ergebnisliste zeigen'));
+    markieren();
     selected.scrollIntoView({block:'nearest',behavior:'smooth'});
   }
   stationToggle.addEventListener('change', () => update(currentRows, currentData));
   container.append(heading, el('p', { class: 'map-legend' }, SUCHE_SCORE_AN ? '● A: Rang · ● B: prüfen · ○ unvollständig · ★ Ziel · ▪ Station' : 'Zahl = € pro Nacht · Grün = Favorit · Gelb = Na ja · Weiß = offen · Rot = Raus · ★ Ziel · ▪ Station'),
       el('div', { class: 'actions' }, reset, el('label', { class: 'check-label' }, stationToggle, 'Stationen anzeigen')), message, canvas, tileStatus, el('label',{},'Unterkunft auswählen',picker), selected);
+  // W107: gewählter Pin wird hervorgehoben und nach vorn geholt
+  const markers = new Map();
+  function markieren() {
+    canvas.querySelectorAll('.stay-pin.is-gewaehlt').forEach(n => n.classList.remove('is-gewaehlt'));
+    for (const [id, m] of markers) { const on = id === selectedId; m.setZIndexOffset(on ? 1000 : 0); if (on) m.getElement()?.classList.add('is-gewaehlt'); }
+  }
   function update(rows, data = {}) {
     if (destroyed) return;
     currentRows = rows; currentData = data || {};
@@ -285,20 +292,20 @@ function sucheKarte(container, onSelect, renderSelected, options={}) {
       }).on('tileerror', () => { if (!destroyed) tileStatus.textContent = 'Der Kartenhintergrund ist gerade nicht erreichbar. Positionen und Ergebnisliste bleiben verfügbar.'; }).addTo(map);
       layer = L.layerGroup().addTo(map);
     }
-    layer.clearLayers();
+    layer.clearLayers(); markers.clear();
     for (const t of valid) {
       const group = sucheGruppe(t), rank = sucheZahl(t.bewertung?.rang);
       const label = group === 'A' ? rank === null || !SUCHE_SCORE_AN ? 'A' : String(rank) : group === 'B' ? 'B' : '?';
       const icon = el('span', { 'data-map-hit': t.treffer_id }, SUCHE_SCORE_AN ? label : sucheKartenPreis(t));
       const marker = L.marker(sucheKoordinaten(t), { title: t.name || 'Unterkunft', alt: t.name || 'Unterkunft', icon: SUCHE_SCORE_AN ? L.divIcon({ className: 'stay-pin pin-' + group, html: icon, iconSize: [34, 34], iconAnchor: [17, 34] }) : L.divIcon({ className: 'stay-pin pin-preis u-' + stayUrteilKey(t), html: icon, iconSize: [58, 28], iconAnchor: [29, 28] }) });
-        marker.on('click',()=>choose(t));
+        marker.on('click',()=>choose(t)); markers.set(t.treffer_id, marker);
         const nearby=valid.filter(other=>other!==t && map.distance(sucheKoordinaten(t),sucheKoordinaten(other)) < 80);
-        marker.bindPopup(el('div', { class: 'stay-map-popup' }, el('strong', {}, t.name || 'Unterkunft'),
+        (SUCHE_SCORE_AN || nearby.length ? marker.bindPopup(el('div', { class: 'stay-map-popup' }, el('strong', {}, t.name || 'Unterkunft'),
         SUCHE_SCORE_AN ? el('p', {}, (t.angebot?.preis_art === 'geschaetzt' ? 'ca. ' : '') + sucheEuro(t.angebot?.preis_gesamt_eur)) : el('p', {}, stayPreisZeile(t, t._trip)),
         SUCHE_SCORE_AN ? sucheAngebotsstand(t) : sucheKartenSchnell(t),
         !SUCHE_SCORE_AN ? el('p', { class: 'small' }, STAY_URTEIL_TEXT[stayUrteilKey(t)]) : el('p', {}, group === 'A' ? 'Passende Treffer' + (SUCHE_SCORE_AN && rank !== null ? ' · Rang ' + rank : '') : group === 'B' ? 'Angaben offen' : 'Noch nicht vollständig bewertet'),
           el('button', { type: 'button', onclick: () => choose(t) }, 'Unterkunft unten ansehen'),
-          nearby.length ? el('details',{},el('summary',{},nearby.length+' weitere Unterkünfte an dieser Stelle'),nearby.map(other=>el('button',{type:'button',onclick:()=>choose(other)},(SUCHE_SCORE_AN && other.bewertung?.rang != null ? 'Rang '+other.bewertung.rang+' · ':'')+other.name))) : null)).addTo(layer);
+          nearby.length ? el('details',{},el('summary',{},nearby.length+' weitere Unterkünfte an dieser Stelle'),nearby.map(other=>el('button',{type:'button',onclick:()=>choose(other)},(SUCHE_SCORE_AN && other.bewertung?.rang != null ? 'Rang '+other.bewertung.rang+' · ':'')+other.name))) : null)) : marker).addTo(layer); // W107: ohne Überlappung kein Popup – die Unterkunft erscheint unten
     }
     const target = sucheKoordinaten(data?.ziel);
     if (target) L.marker(target, { title: data.ziel.name || 'Reiseziel', icon: L.divIcon({ className: 'stay-pin pin-ziel', html: el('span', {}, '★'), iconSize: [36, 36] }) }).bindPopup(el('strong', {}, data.ziel.name || 'Reiseziel')).addTo(layer);

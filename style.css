@@ -1866,3 +1866,58 @@ body:has(.tinder-mode) main.view { padding-top: calc(6px + env(safe-area-inset-t
 .a-viertel-seite { display: block; padding: 0 12px 12px; font-size: 13px; font-weight: 700; color: var(--a-teal); text-decoration: none; }
 .anzeige-erklaerung { margin: 4px 0 10px; padding-left: 18px; font-size: 13.5px; line-height: 1.45; } .anzeige-erklaerung .muted { list-style: none; margin-left: -18px; margin-top: 4px; }
 .a-viertel .district-form > button { min-height: 36px; font-size: 13px; justify-self: start; padding: 0 12px; }
+/* W107: Karte – gewählter Pin, Durchsehen-Karte unten */
+.stay-pin.is-gewaehlt > span { transform: scale(1.18); background: var(--a-teal) !important; color: #fff !important; border-color: #fff !important; box-shadow: 0 0 0 3px var(--a-teal), 0 6px 14px rgba(14,59,67,.35) !important; }
+.stay-pin > span { transition: transform .12s ease; }
+.a-ergebnis .stay-map-panel .map-selected { margin-top: 10px; }
+.a-ergebnis .stay-map-panel .map-selected > h3 { margin: 0 0 8px; font-size: 18px; font-weight: 800; }
+.a-karten-karte { display: grid; gap: 10px; }
+.a-karten-karte .stay-gallery { border-radius: 14px; overflow: hidden; max-height: 260px; }
+.a-karten-karte .stay-gallery img, .a-karten-karte .stay-photo { height: 240px !important; width: 100%; object-fit: cover; }
+.a-karten-text { display: grid; gap: 6px; }
+.a-karten-preis { margin: 0; font-size: 14px; color: var(--a-muted); }
+.a-karten-preis strong { font-size: 22px; color: var(--a-ink); }
+.a-karten-links { display: flex; justify-content: space-between; align-items: center; gap: 10px; font-size: 13px; }
+.a-karten-links button { min-height: 36px; padding: 0 12px; border-radius: 18px; font-size: 13px; }
+.a-karten-wahl .stay-selection > p { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.a-karten-wahl .stay-selection .actions { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 0; }
+.a-karten-wahl .stay-selection .actions > button[hidden] { display: none; }
+.a-karten-wahl .stay-selection .actions > button { min-height: 48px; border: 0; border-radius: 14px; font-size: 14px; font-weight: 800; }
+.a-karten-wahl .sel-fav { background: #e2f3e7; color: var(--a-fav); order: 3; }
+.a-karten-wahl .sel-maybe { background: #fdf3cf; color: var(--a-maybe); order: 2; }
+.a-karten-wahl .sel-out { background: #fbe1dd; color: var(--a-out); order: 1; }
+.a-karten-wahl .sel-fav[aria-pressed="true"] { background: var(--a-fav); color: #fff; }
+.a-karten-wahl .sel-maybe[aria-pressed="true"] { background: var(--a-maybe-solid); color: #fff; }
+.a-karten-wahl .stay-selection .actions > button:last-child:not(.sel-out) { grid-column: 1 / -1; order: 4; min-height: 36px; background: transparent; color: var(--a-teal); }
+@media (max-width: 899px) { .a-ergebnis .stay-map-panel .stay-map { height: 52vh !important; min-height: 300px; } .a-ergebnis .stay-map-panel > label { display: none; } }
+/* W107: Fotos groß, Lage-Karte */
+.a-ergebnis tr.a-zeile-treffer .stay-photo { cursor: zoom-in; }
+.a-lage-knopf { display: inline-flex; align-items: center; gap: 4px; min-height: 32px; height: 32px; padding: 0 10px; border-radius: 16px; font-size: 12px; font-weight: 700; border: 1px solid #e1e8e6; background: #fff; color: var(--a-teal); }
+.a-lage-knopf .ic { width: 14px; height: 14px; }
+.a-ergebnis [data-result-view="list"].liste-kompakt tr.a-zeile-treffer > td:last-child { display: flex !important; gap: 6px; align-items: center; }
+.a-foto-dialog, .a-lage-dialog { width: min(920px, 100vw); max-width: 100vw; max-height: 100dvh; padding: 0; border: 0; border-radius: 18px; background: #0f1d20; color: #fff; }
+.a-lage-dialog { background: #fff; color: var(--a-ink); }
+.a-foto-dialog::backdrop, .a-lage-dialog::backdrop { background: rgba(10, 20, 22, .82); }
+.a-dialog-kopf { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: calc(10px + env(safe-area-inset-top)) 14px 10px; }
+.a-dialog-kopf strong { font-size: 15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.a-dialog-zu { width: 40px; height: 40px; min-height: 40px; padding: 0; border-radius: 50%; border: 0; background: rgba(255,255,255,.16); color: inherit; display: flex; align-items: center; justify-content: center; flex: none; }
+.a-lage-dialog .a-dialog-zu { background: #eef3f2; }
+.a-foto-dialog .stay-gallery { background: #0f1d20; }
+.a-foto-dialog .stay-gallery .stay-photo, .a-foto-dialog .stay-gallery img { width: 100%; height: min(70dvh, 640px) !important; object-fit: contain; background: #0f1d20; }
+.a-foto-dialog .gallery-controls { justify-content: center; color: #fff; padding: 8px 0 14px; }
+.a-foto-dialog .gallery-controls button { min-width: 48px; min-height: 44px; border-radius: 22px; }
+.a-foto-dialog .photo-large { display: none; }
+.a-lage-karte { height: min(55dvh, 460px); background: #e7ece9; }
+.a-lage-liste { list-style: none; margin: 0; padding: 12px 16px; display: grid; gap: 8px; font-size: 14px; }
+.a-lage-liste li { display: flex; align-items: center; gap: 8px; }
+.a-lage-liste .ic { color: var(--a-teal); }
+.a-lage-extern { display: block; padding: 0 16px 16px; font-size: 13px; font-weight: 700; color: var(--a-teal); }
+@media (max-width: 599px) { .a-foto-dialog, .a-lage-dialog { width: 100vw; height: 100dvh; border-radius: 0; margin: 0; } }
+/* W107b: Detail-Dialog im A-Design kompakt */
+.a-zu{width:40px;height:40px;min-height:40px;padding:0;border-radius:50%;border:1px solid var(--a-line,#dfe8e6);background:#fff;color:var(--a-ink,#14343b);display:inline-flex;align-items:center;justify-content:center;flex:none}
+.stay-candidate .candidate-header:has(.a-zu){flex-wrap:nowrap;align-items:flex-start;gap:10px}
+.stay-candidate .candidate-header:has(.a-zu) h2{font-size:19px;line-height:1.25;margin:4px 0 0}
+@media (max-width:799px){
+ .stay-candidate .review-info{grid-template-columns:1fr;gap:12px}
+ .stay-candidate .review-schnell{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 14px;margin:0}
+}

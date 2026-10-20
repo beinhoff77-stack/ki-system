@@ -411,7 +411,7 @@ function sucheSchnellLayout({ form, fields, sections, extended, submit, call, li
   when.classList.add('dr-felder'); // W103: echte Datumsfelder bleiben im Formular, bedient wird „Wann?“
   const ortZeit = el('div', { class: 'quick-block quick-ortzeit' }, zielLabel, when);
   // W103 (Sebastian 20.10.): Wohnform (Apartment/Schlafzimmer, Hotel/Zimmer, Bett) gehört zu den Kriterien – steht in „Wichtig für dich“ vorne
-  if (maske) { maske.node.insertBefore(wohnen.node, maske.node.querySelector('.maske-an')); wohnen.node.classList.add('wohnen-in-maske'); }
+  if (maske) { maske.wohnenSlot.append(wohnen.node); wohnen.node.classList.add('wohnen-in-maske'); }
   const werWohnen = el('div', { class: 'quick-block quick-werwohnen' }, maske ? null : wohnen.node, who);
   const quick = el('section', { class: 'card quick-search' }, kopf, ortZeit, nights, band.node, werWohnen, whoPanel, maske ? maske.node : null, submit);
   const more = el('details', { class: 'card more-options' }, el('summary', {}, 'Mehr Optionen'), el('p', { class: 'small muted' }, (SUCHE_SCORE_AN ? 'Reiseart, Unterkunftsform, ' : '') + 'Suchprofile, Aufenthalt, Quellen, Suchkosten und Qualität. Die Standardwerte passen für die meisten Suchen.'));
@@ -521,7 +521,14 @@ function maskeSpeichern(e) { return stayWrite('ks_maske', e); }
 
 function sucheMaske({ form, extended }) {
   const api = extended.kriterien;
-  const angeheftet = el('div', { class: 'maske-an', role: 'group', 'aria-label': 'Angeheftete Kriterien' });
+  // W103 (Sebastian 20.10.: „erkenne ich, was wirklich mitgesucht wird?“): zwei ruhige Gruppen statt Zeichen am Chip
+  const chipsSuche = el('div', { class: 'maske-an', role: 'group', 'aria-label': 'Kriterien, die mitgesucht werden' });
+  const chipsFilter = el('div', { class: 'maske-an', role: 'group', 'aria-label': 'Kriterien, die nach dem Laden geprüft werden' });
+  const wohnenSlot = el('div', { class: 'maske-wohnen' });
+  const kopfSuche = el('p', { class: 'mk-gruppe' }, 'Booking sucht schon danach', el('span', { class: 'muted' }, ' · andere Quellen prüfen nach dem Laden'));
+  const kopfFilter = el('p', { class: 'mk-gruppe mk-gruppe-filter' }, 'Wird erst nach dem Laden geprüft', el('span', { class: 'muted' }, ' · Unbekanntes bleibt mit ? sichtbar'));
+  // Wohnform geht an alle Quellen – steht ohne Überschrift ganz vorn
+  const angeheftet = el('div', { class: 'maske-gruppen' }, wohnenSlot, kopfSuche, chipsSuche, kopfFilter, chipsFilter);
   const weitereInhalt = el('div', { class: 'maske-weitere-inhalt' });
   const weitereKopf = el('summary', {}, 'Weitere Kriterien');
   const weitere = el('details', { class: 'maske-weitere' }, weitereKopf, weitereInhalt);
@@ -546,7 +553,7 @@ function sucheMaske({ form, extended }) {
     }
     const pin = mitPin ? el('button', { type: 'button', class: 'mk-pin', title: 'In der Suchmaske anheften', 'aria-label': k.label + ' anheften', onclick: () => {
       const e = maskeEinstellung(); e.an = [...e.an.filter(x => x !== k.key), k.key]; e.aus = e.aus.filter(x => x !== k.key); maskeSpeichern(e); draw(); } }, '📌') : null;
-    return el('div', { class: 'mk-row' + (z.an ? ' is-on' : ''), 'data-key': k.key, title: (k.suche ? '➜ Suche: ' : '⧩ Filter: ') + k.text },
+    return el('div', { class: 'mk-row' + (z.an ? ' is-on' : '') + (k.suche ? ' mk-art-suche' : ' mk-art-filter'), 'data-key': k.key, title: (k.suche ? '➜ Suche: ' : '⧩ Filter: ') + k.text },
       el('div', { class: 'mk-ctrl' }, control, pin), el('small', { class: 'mk-wirkung' }, (k.suche ? '➜ Suche: ' : '⧩ Filter: ') + k.text));
   }
   function draw() {
@@ -555,16 +562,19 @@ function sucheMaske({ form, extended }) {
     if (fokus) [...angeheftet.querySelectorAll('button,select'), ...weitere.querySelectorAll('button,select')].find(b => (b.getAttribute('aria-label') || b.textContent) === fokus || b.textContent.replace('✓ ', '') === fokus.replace('✓ ', ''))?.focus({ preventScroll: true });
   }
   function zeichne() {
-    if (!api.geladen()) { angeheftet.replaceChildren(el('p', { class: 'small muted' }, 'Kriterien werden geladen …')); return; }
+    if (!api.geladen()) { chipsSuche.replaceChildren(el('p', { class: 'small muted' }, 'Kriterien werden geladen …')); chipsFilter.replaceChildren(); kopfFilter.hidden = true; return; }
     const e = maskeEinstellung(), da = k => api.hat(k.key);
     // Ausgeblendete Kriterien dürfen nichts unsichtbar einschränken (ChatGPT-Hinweis 423)
     for (const k of MASKE_ALLE) if (da(k) && e.aus.includes(k.key) && zustand(k.key).an) api.set(k.key, 'egal', null);
-    angeheftet.replaceChildren(...e.an.map(key => MASKE_ALLE.find(k => k.key === key)).filter(k => k && da(k)).map(k => zeile(k, false)));
+    const an = e.an.map(key => MASKE_ALLE.find(k => k.key === key)).filter(k => k && da(k));
+    chipsSuche.replaceChildren(...an.filter(k => k.suche).map(k => zeile(k, false)));
+    chipsFilter.replaceChildren(...an.filter(k => !k.suche).map(k => zeile(k, false)));
+    kopfFilter.hidden = !chipsFilter.children.length; kopfSuche.hidden = !chipsSuche.children.length;
     const offenWar = weitere.open;
     weitereInhalt.replaceChildren(...MASKE_THEMEN.map(([thema, liste]) => {
       const zeilen = liste.filter(k => da(k) && maskeStufe(k.key, e) === 'weitere');
       return zeilen.length ? el('fieldset', { class: 'mk-thema' }, el('legend', {}, thema), ...zeilen.map(k => zeile(k, true))) : null;
-    }).filter(Boolean));
+    }).filter(Boolean), el('p', { class: 'mk-legende small muted' }, 'Durchgezogener Rahmen = Booking sucht schon danach · gestrichelt = wird nach dem Laden geprüft'));
     weitere.open = offenWar;
     const aktivWeitere = MASKE_ALLE.filter(k => da(k) && maskeStufe(k.key, e) === 'weitere' && zustand(k.key).an).length;
     weitereKopf.textContent = 'Weitere Kriterien' + (aktivWeitere ? ` (${aktivWeitere} aktiv)` : '');
@@ -576,7 +586,7 @@ function sucheMaske({ form, extended }) {
   form.addEventListener('input', () => { if (api.geladen()) draw(); });
   draw();
   const anpassen = el('a', { class: 'maske-anpassen small', href: '#/anzeige/suche' }, '⚙ Felder auswählen');
-  return { node: el('div', { class: 'maske' }, el('div', { class: 'maske-kopf' }, el('p', { class: 'maske-titel' }, 'Wichtig für dich'), anpassen), angeheftet, weitere, aktiv), draw };
+  return { wohnenSlot, node: el('div', { class: 'maske' }, el('div', { class: 'maske-kopf' }, el('p', { class: 'maske-titel' }, 'Wichtig für dich'), anpassen), angeheftet, weitere, aktiv), draw };
 }
 
 // W100: Budget pro Nacht (für alle zusammen, alle Zimmer). Der Server bekommt wie bisher das Gesamtbudget = pro Nacht × Nächte.

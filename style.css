@@ -1546,3 +1546,10 @@ button.mk-tag { position: absolute; top: -7px; right: -5px; width: 20px; height:
 .wohnen-in-maske .wo-step-value { min-width: 38px; font-size: 13px; }
 .wohnen-in-maske .wo-seg-btn { min-height: 32px; font-size: 12.5px; }
 @media (max-width: 599px) { .wohnen-in-maske .wo-chip { min-height: 34px; font-size: 13px; padding: 3px 10px; } }
+/* W103: zwei Gruppen – mitgesucht / danach geprüft; gestrichelter Rahmen = nur Filter */
+.maske-gruppen { display: grid; gap: 6px; }
+.mk-gruppe { margin: 2px 0 0; font-size: 12px; font-weight: 700; color: #1b6657; }
+.mk-gruppe-filter { color: #805300; margin-top: 6px; }
+.mk-gruppe[hidden] { display: none; }
+.mk-art-filter .mk-chip:not([aria-pressed="true"]):not(.is-on) { border-style: dashed; border-color: #b9a37a; }
+.mk-legende { margin: 2px 0 0; }

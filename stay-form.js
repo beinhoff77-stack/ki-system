@@ -201,7 +201,7 @@ function sucheErweitertesFormular(form, call, live, ready, lock, profilePreset =
       if (c.input && wert !== undefined) c.input.value = wert === null ? '' : String(wert);
       sync(); form.dispatchEvent(new Event('maske-geaendert')); },
   };
-  return {profilePanel,tripPanel,qualityPanel,filtersPanel,load,values,kriterien};
+  return {profilePanel,tripPanel,qualityPanel,filtersPanel,load,values,kriterien,viertelModus:()=>districtForm?districtForm.modus():'egal'};
 }
 
 // W94 (Claude): Nachtband – Preisniveau je Nacht (Trivago je Nacht, Server: unterkunft_flex modus nachtband).
@@ -449,7 +449,8 @@ function sucheSchnellLayout({ form, fields, sections, extended, submit, call, li
       const da = [...fs.children].some(c => c.tagName !== 'LEGEND' && !(c.tagName === 'P' && c.classList.contains('small')) && !(c.classList.contains('trip-criterion') && c.hidden));
       fs.hidden = !da; if (da) irgendwas = true;
     }
-    extended.filtersPanel.hidden = !irgendwas;
+    // W106: Viertel-Noten stehen jetzt in der Suchmaske; der alte Block bleibt nur sichtbar, wenn eine Viertel-Auswahl aktiv ist (z. B. von der Viertel-Seite)
+    extended.filtersPanel.hidden = !irgendwas || (extended.viertelModus?.() ?? 'egal') === 'egal';
   };
   form.addEventListener('kriterien-geladen', filterAufraeumen); filterAufraeumen();
   const gaps = el('div', { class: 'quick-gaps' });
@@ -523,6 +524,17 @@ const MASKE_THEMEN = [
     { key: 'gehzeit_max_min', label: 'Gehzeit zur Station höchstens', typ: 'zahl', einheit: 'Min.', start: 10, schritt: 5, min: 5, max: 60, werte: [5, 10, 15, 20, 30], text: 'Nach dem Laden, wo die Gehzeit bekannt ist.' },
     { key: 'zentrum_max_km', label: 'Zentrum höchstens', typ: 'stufen', stufen: [[1, '1 km'], [3, '3 km'], [5, '5 km']], suche: true, text: 'Booking sucht nur in dieser Nähe zum Zentrum; andere Quellen bleiben mit ? sichtbar.' },
   ]],
+  // W106 (Sebastian 20.10.): Viertel-Kriterien in der Suchmaske statt im alten Block „Filter anpassen“ – alle nach dem Laden geprüft (Viertel-Noten 0–10)
+  ['Viertel', [
+    { key: 'viertel_ruhig', label: 'Ruhiges Viertel', typ: 'ja', text: 'Nach dem Laden, wo das Viertel bekannt ist.' },
+    { key: 'viertel_zentrumsnaehe_min', label: 'Zentrumsnähe ab', typ: 'stufen', stufen: [[5, '5'], [6, '6'], [7, '7'], [8, '8']], text: 'Note des Viertels (0–10), nach dem Laden.' },
+    { key: 'viertel_oepnv_min', label: 'ÖPNV ab', typ: 'stufen', stufen: [[5, '5'], [6, '6'], [7, '7'], [8, '8']], text: 'Note des Viertels (0–10), nach dem Laden.' },
+    { key: 'viertel_gastronomie_min', label: 'Restaurants ab', typ: 'stufen', stufen: [[5, '5'], [6, '6'], [7, '7'], [8, '8']], text: 'Note des Viertels (0–10), nach dem Laden.' },
+    { key: 'viertel_nahversorgung_min', label: 'Einkaufen ab', typ: 'stufen', stufen: [[5, '5'], [6, '6'], [7, '7'], [8, '8']], text: 'Note des Viertels (0–10), nach dem Laden.' },
+    { key: 'viertel_gruen_min', label: 'Parks/Grün ab', typ: 'stufen', stufen: [[5, '5'], [6, '6'], [7, '7'], [8, '8']], text: 'Note des Viertels (0–10), nach dem Laden.' },
+    { key: 'viertel_sehenswuerdigkeiten_min', label: 'Sehenswertes ab', typ: 'stufen', stufen: [[5, '5'], [6, '6'], [7, '7'], [8, '8']], text: 'Note des Viertels (0–10), nach dem Laden.' },
+    { key: 'viertel_strand_min', label: 'Strand im Viertel ab', typ: 'stufen', stufen: [[5, '5'], [6, '6'], [7, '7'], [8, '8']], text: 'Note des Viertels (0–10), nach dem Laden.' },
+  ]],
   ['Bewertungen', [
     { key: 'note_min', label: 'Gästenote ab', typ: 'stufen', stufen: [[6, '6'], [7, '7'], [8, '8'], [9, '9']], suche: true, text: 'Booking sucht nur ab dieser Note, andere Quellen nach dem Laden.' },
     { key: 'bewertungen_min', label: 'Bewertungen mindestens', typ: 'zahl', einheit: '', start: 30, schritt: 10, min: 10, max: 500, werte: [10, 30, 50, 100, 200], text: 'Nach dem Laden.' },
@@ -530,7 +542,7 @@ const MASKE_THEMEN = [
   ]],
 ];
 const MASKE_ALLE = MASKE_THEMEN.flatMap(([, liste]) => liste);
-const MASKE_ICON = { storno_kostenlos: 'storno', fruehstueck: 'fruehstueck', flaeche_m2: 'flaeche', echte_betten: 'bett', kueche: 'kueche', waschmaschine: 'waschen', balkon: 'balkon', klima: 'klima', meerblick: 'meer', wlan: 'wlan', pool: 'pool', sauna_spa: 'sauna', fitness: 'fitness', parkplatz: 'auto', strand_max_m: 'strand', luftlinie_max_km: 'pin', gehzeit_max_min: 'bahn', zentrum_max_km: 'pin', note_min: 'stern', bewertungen_min: 'stern', sterne_min: 'hotel' };
+const MASKE_ICON = { viertel_ruhig: 'mond', viertel_zentrumsnaehe_min: 'pin', viertel_oepnv_min: 'bahn', viertel_gastronomie_min: 'kueche', viertel_nahversorgung_min: 'korb', viertel_gruen_min: 'baum', viertel_sehenswuerdigkeiten_min: 'kamera', viertel_strand_min: 'strand', storno_kostenlos: 'storno', fruehstueck: 'fruehstueck', flaeche_m2: 'flaeche', echte_betten: 'bett', kueche: 'kueche', waschmaschine: 'waschen', balkon: 'balkon', klima: 'klima', meerblick: 'meer', wlan: 'wlan', pool: 'pool', sauna_spa: 'sauna', fitness: 'fitness', parkplatz: 'auto', strand_max_m: 'strand', luftlinie_max_km: 'pin', gehzeit_max_min: 'bahn', zentrum_max_km: 'pin', note_min: 'stern', bewertungen_min: 'stern', sterne_min: 'hotel' };
 const MASKE_KURZ = { flaeche_m2: 'Fläche ab', strand_max_m: 'Strand bis', luftlinie_max_km: 'Zum Ziel bis', gehzeit_max_min: 'Gehzeit Station bis', zentrum_max_km: 'Zentrum bis', note_min: 'Gästenote ab', bewertungen_min: 'Bewertungen ab', sterne_min: 'Sterne ab' };
 const MASKE_KEYS = new Set(MASKE_ALLE.map(k => k.key));
 const MASKE_STANDARD = { an: ['storno_kostenlos', 'kueche', 'pool', 'sauna_spa', 'strand_max_m', 'note_min'], aus: [] };

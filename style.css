@@ -1841,3 +1841,10 @@ body:has(.tinder-mode) main.view { padding-top: calc(6px + env(safe-area-inset-t
 .recent-del .ic { width: 16px; height: 16px; }
 .quick-search > button.primary[type=submit] { bottom: calc(var(--tabs-h) + 18px + env(safe-area-inset-bottom)); }
 .more-options.a-mehr .search-profiles .actions { display: flex; flex-wrap: wrap; gap: 8px; } .more-options.a-mehr .search-profiles .actions > button { min-height: 40px; padding: 0 12px; font-size: 13.5px; }
+.maske-weitere label.mk-wahl select, .maske .maske-an label.mk-wahl select { min-width: 68px; text-align-last: center; }
+.maske-weitere label.mk-wahl .mk-wahl-name { white-space: normal; line-height: 1.15; }
+.maske-weitere .mk-chip, .quick-search .maske-weitere label.mk-wahl, .quick-search .maske .maske-an label.mk-wahl, .maske .maske-an .mk-chip { height: auto !important; min-height: 76px; padding-top: 8px; padding-bottom: 8px; }
+.maske-weitere .mk-thema, .maske .maske-gruppen { align-items: stretch !important; }
+.maske-weitere .mk-row, .maske-weitere .mk-ctrl, .maske .maske-an .mk-row, .maske .maske-an .mk-ctrl { height: 100%; }
+.maske-weitere .mk-ctrl > .mk-chip, .maske .maske-an .mk-ctrl > .mk-chip { height: 100% !important; }
+.quick-search .maske .mk-ctrl > label.mk-chip.mk-wahl, .quick-search .maske .mk-ctrl > button.mk-chip { height: 100% !important; }

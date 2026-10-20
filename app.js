@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.33.0';
+const APP_VERSION = '0.33.1';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 

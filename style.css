@@ -1455,3 +1455,34 @@ button.mk-tag { position: absolute; top: -7px; right: -5px; width: 20px; height:
 .mk-thema { align-items: flex-start; align-content: flex-start; }
 .mk-thema .mk-ctrl { flex-wrap: nowrap; }
 .quick-search .night-band[hidden], .quick-search .quick-nights:empty, .quick-search .quick-nights[hidden] { display: none; }
+/* W103: Handy wirklich kompakt – kleinere Bedienelemente, iOS-Datumsfelder ohne Überlauf */
+.quick-search input[type=date] { -webkit-appearance: none; appearance: none; min-width: 0; display: block; text-align: left; }
+.quick-search input[type=date]::-webkit-date-and-time-value { text-align: left; }
+.quick-when > label { min-width: 0; }
+@media (max-width: 599px) {
+  .quick-search { padding: 14px 12px; gap: 8px; }
+  .quick-kopf h2, .quick-search > .quick-kopf > h2 { font-size: 19px; }
+  .quick-kopf .quick-meta { text-align: left; font-size: 12.5px; }
+  .quick-search label { font-size: 12px; gap: 3px; }
+  .quick-search input, .quick-search select { min-height: 42px; padding-top: 6px; padding-bottom: 6px; }
+  .quick-block { gap: 8px; }
+  .quick-when { gap: 8px; }
+  .wo-chip { min-height: 38px; padding: 4px 10px; font-size: 14px; }
+  .wo-step { min-height: 30px; min-width: 30px; font-size: 17px; }
+  .wo-step-value { min-width: 36px; font-size: 13px; }
+  .wo-seg-btn { min-height: 34px; padding: 3px 8px; font-size: 12.5px; }
+  .wo-sub-name { font-size: 12px; }
+  .quick-werwohnen > .who-chip { min-height: 40px; padding: 6px 12px; flex-basis: 100%; }
+  .who-chip .who-text { font-size: 13px; }
+  .who-chip .who-label, .who-chip .who-edit { font-size: 12px; }
+  .maske { padding-top: 6px; gap: 5px; }
+  .maske-titel { font-size: 11px; }
+  .maske-legende { font-size: 11px; }
+  .maske-an { gap: 7px 6px; }
+  .mk-chip { min-height: 34px; padding: 3px 11px; font-size: 13px; }
+  .mk-name { font-size: 13px; }
+  .mk-seg { min-height: 32px; min-width: 34px; padding: 0 6px; font-size: 12.5px; }
+  button.mk-tag { width: 17px; height: 17px; top: -6px; right: -4px; font-size: 9px; }
+  .maske-weitere > summary { min-height: 32px; font-size: 13px; }
+  .quick-search > button.primary[type=submit] { min-height: 48px; font-size: 16px; }
+}

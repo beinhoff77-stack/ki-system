@@ -128,8 +128,9 @@ const STAY_DESK_SPALTEN = [
   { key: 'waschmaschine', label: 'Waschm.', v: t => t.detail?.merkmale?.waschmaschine ? 'ja' : null, r: t => t.detail?.merkmale?.waschmaschine ? 'ja' : '?' },
   { key: 'balkon', label: 'Balkon', v: t => stayFieldValue(t, 'balkon', {}), r: t => stayFieldValue(t, 'balkon', {}) ?? '?' },
   // W100: weitere Kriterien aus Sebastians Auswahl (ja oder ?)
-  ...[['klima', 'Klima'], ['fruehstueck', 'Frühst.'], ['pool', 'Pool'], ['sauna_spa', 'Sauna/Spa'], ['fitness', 'Fitness'], ['parkplatz', 'Parken'], ['wlan', 'WLAN'], ['meerblick', 'Meerblick'], ['strand', 'Strand']]
+  ...[['klima', 'Klima'], ['fruehstueck', 'Frühst.'], ['pool', 'Pool'], ['sauna_spa', 'Sauna/Spa'], ['fitness', 'Fitness'], ['parkplatz', 'Parken'], ['wlan', 'WLAN'], ['meerblick', 'Meerblick']]
     .map(([key, label]) => ({ key, label, v: t => stayFieldValue(t, key, {}), r: t => stayFieldValue(t, key, {}) ?? '?' })),
+  { key: 'strand', label: 'Strand', num: true, klein: true, v: t => sucheZahl(t.strand_m), r: t => stayStrandText(t) }, // W100: Luftlinie, auf 50 m gerundet
   { key: 'sterne', label: '★', num: true, v: t => sucheZahl(t.sterne), r: t => sucheZahl(t.sterne) ?? '?' },
   { key: 'hotelzimmer', label: 'Zi.', num: true, v: t => stayFieldValue(t, 'hotelzimmer', {}), r: t => stayFieldValue(t, 'hotelzimmer', {}) ?? '–' },
   { key: 'quelle', label: 'Quelle', v: t => SUCHE_QUELLEN[t.quelle] || t.quelle || null, r: t => { const p = sucheAnbieterLink(t); const name = SUCHE_QUELLEN[t.quelle] || t.quelle || '?'; return p ? el('a', { href: p.url, target: '_blank', rel: 'noopener noreferrer' }, name + ' ↗') : name; } },

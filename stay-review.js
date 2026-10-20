@@ -29,7 +29,7 @@ const STAY_FIELDS = {
   art: 'Unterkunftsart', schlafzimmer: 'Schlafzimmer', hotelzimmer: 'Hotelzimmer', betten: 'Betten/Schlafplätze', m2: 'Zimmergröße m²', balkon: 'Balkon', kueche: 'Küche', waschmaschine: 'Waschmaschine', klima: 'Klimaanlage', raucher: 'Raucher',
   fruehstueck: 'Frühstück', pool: 'Pool', sauna_spa: 'Sauna/Spa', fitness: 'Fitnessraum', parkplatz: 'Parkplatz', wlan: 'WLAN', meerblick: 'Meerblick',
   gaestenote: 'Gästenote', bewertungen: 'Bewertungen', sterne: 'Hotelsterne',
-  entfernung: 'Entfernung zum Ziel', gehzeit: 'Gehzeit zur Station', strand: 'Strandnähe', viertel: 'Viertel',
+  entfernung: 'Entfernung zum Ziel', gehzeit: 'Gehzeit zur Station', strand: 'Strand (Luftlinie)', viertel: 'Viertel',
   anbieter: 'Quelle', datenlage: 'Datenlage'
 };
 // W98b: Themen für Einstellung und Info-Box – immer dieselbe Reihenfolge und Struktur (Sebastian 20.10.).
@@ -141,7 +141,8 @@ function stayFieldValue(t,key,trip={}) {
     case 'kueche': return t.detail?.merkmale?.kueche?'ja':null;
     case 'waschmaschine': return t.detail?.merkmale?.waschmaschine?'ja':null;
     case 'klima': return t.detail?.merkmale?.klima||t.merkmale?.klima?'ja':null;
-    case 'fruehstueck': case 'pool': case 'sauna_spa': case 'fitness': case 'parkplatz': case 'wlan': case 'meerblick': case 'strand': return t.merkmale?.[key]===true?'ja':null; // W100: Server-Merkmale, sonst unbekannt
+    case 'fruehstueck': case 'pool': case 'sauna_spa': case 'fitness': case 'parkplatz': case 'wlan': case 'meerblick': return t.merkmale?.[key]===true?'ja':null; // W100: Server-Merkmale, sonst unbekannt
+    case 'strand': return n(t.strand_m); // W100: Luftlinie in m (OpenStreetMap), Anzeige auf 50 m gerundet
     case 'sterne': return n(t.sterne);
     case 'hotelzimmer': return n(a.zimmer_anzahl)!==null&&(t.typ==='hotel'||a.zimmer_anzahl>1)?a.zimmer_anzahl:null;
     case 'raucher': return yes(category?.raucher ?? t.raucher);
@@ -174,12 +175,21 @@ function stayPreisZeile(t,trip) {
 }
 function stayInfo(t,trip) {return el('dl',{class:'stay-info'},stayFields().flatMap(key=>[el('dt',{},STAY_FIELDS[key]),el('dd',{'data-field':key},stayField(t,key,trip))]));}
 // Anzeige-Text einer Angabe (für Schnell-Info und Info-Box); fehlt sie: „unbekannt“.
+// W100: Strand-Luftlinie auf 50 m gerundet (Sebastian 20.10.); Airbnb verschiebt Standorte, daher „ca.“
+function stayStrandText(t) {
+  const m=sucheZahl(t.strand_m); if(m===null) return '?';
+  if(m>3000) return 'über 3 km';
+  if(m<50) return 'unter 50 m';
+  const r=Math.round(m/50)*50, z=t.quelle==='apify_airbnb'?'ca. ':'≈ ';
+  return z+(r<1000?r+' m':(r/1000).toLocaleString('de-DE',{maximumFractionDigits:2})+' km');
+}
 function stayAnzeigeText(t,key,trip) {
   const value=stayFieldValue(t,key,trip);
   if(value===null) return 'unbekannt';
   if(['preis','nacht','tarif','tarif_storno'].includes(key)) return (!key.startsWith('tarif')&&t.angebot?.preis_art==='geschaetzt'?'ca. ':'')+sucheEuro(value);
   if(key==='m2') return Number(value).toLocaleString('de-DE')+' m²';
   if(key==='datenlage') return value+' %';
+  if(key==='strand') return stayStrandText(t)+(t.strand_name&&t.strand_m<=3000?' · '+t.strand_name:'');
   if(key==='entfernung') return Number(value).toLocaleString('de-DE')+' km';
   if(key==='gaestenote') return Number(value).toLocaleString('de-DE',{maximumFractionDigits:2})+' / 10';
   if(key==='gehzeit') return (t.gehzeit_art==='geschaetzt'?'ca. ':'')+(value>=60?Math.floor(value/60)+' Std. '+Math.round(value%60)+' Min.':Math.round(value)+' Min.')+(t.station_name?' · '+t.station_name:'');
@@ -202,7 +212,7 @@ function stayKurz(t,key,trip) {
     case 'storno': { const s=typeof stayStorno==='function'?stayStorno(t,trip):null; return s?.tage!=null?'Storno bis '+s.tage+' T. vor Anreise':s?.nein?'nicht kostenlos stornierbar':String(v); }
     case 'tarif': return 'günstigster Tarif '+sucheEuro(v); case 'tarif_storno': return 'stornierbar ab '+sucheEuro(v); case 'vergleich': return v+' für die Art';
     case 'balkon': case 'kueche': case 'waschmaschine': case 'raucher': case 'klima': case 'fruehstueck': case 'pool': case 'sauna_spa': case 'fitness': case 'parkplatz': case 'wlan': case 'meerblick': return v==='ja'?STAY_FIELDS[key]:null;
-    case 'strand': return v==='ja'?'am Strand':null; case 'sterne': return v+'★'; case 'hotelzimmer': return v+' Hotelzimmer';
+    case 'strand': return 'Strand '+stayStrandText(t); case 'sterne': return v+'★'; case 'hotelzimmer': return v+' Hotelzimmer';
     default: return String(v);
   }
 }

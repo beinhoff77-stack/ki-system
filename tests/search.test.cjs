@@ -2521,4 +2521,7 @@ test('W100: Score aus – Suchmaske mit angehefteten Kriterien, Budget pro Nacht
   await page.goto(origin + '/#/suche'); await formFill(page);
   await page.locator('.maske').getByRole('button', { name: 'Küche', exact: true }).waitFor();
   assert.equal(await page.locator('.maske [data-key=pool]').count(), 0);
+  // Strand-Luftlinie: auf 50 m gerundet, Airbnb mit „ca.“
+  const texte = await page.evaluate(() => [[337,'hasdata_booking'],[20,'hasdata_booking'],[1449,'rakuten_travel'],[3001,'trivago_mcp'],[512,'apify_airbnb'],[null,'x']].map(([m,q]) => stayStrandText({ strand_m: m, quelle: q })));
+  assert.deepEqual(texte, ['≈ 350 m', 'unter 50 m', '≈ 1,45 km', 'über 3 km', 'ca. 500 m', '?']);
 });

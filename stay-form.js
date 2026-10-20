@@ -473,7 +473,7 @@ const MASKE_THEMEN = [
     { key: 'parkplatz', label: 'Parkplatz', typ: 'ja', suche: true, text: 'Booking sucht nur mit Parkplatz.' },
   ]],
   ['Lage', [
-    { key: 'strand', label: 'Strandnähe', typ: 'ja', text: 'Nach dem Laden: „Beach/Strand“ in Name oder Beschreibung.' },
+    { key: 'strand_max_m', label: 'Strand höchstens', typ: 'stufen', stufen: [[300, '300 m'], [1000, '1 km'], [2000, '2 km']], text: 'Nach dem Laden: Luftlinie zum nächsten Strand (OpenStreetMap), kommt etwa eine halbe Minute nach den Treffern. Airbnb-Standorte sind ungenau.' },
     { key: 'luftlinie_max_km', label: 'Zum Ziel höchstens', typ: 'zahl', einheit: 'km', start: 3, schritt: 1, min: 1, max: 50, text: 'Nach dem Laden, Luftlinie aus den Koordinaten.' },
     { key: 'gehzeit_max_min', label: 'Gehzeit zur Station höchstens', typ: 'zahl', einheit: 'Min.', start: 10, schritt: 5, min: 5, max: 60, text: 'Nach dem Laden, wo die Gehzeit bekannt ist.' },
     { key: 'zentrum_max_km', label: 'Zentrum höchstens', typ: 'stufen', stufen: [[1, '1 km'], [3, '3 km'], [5, '5 km']], suche: true, text: 'Booking sucht nur in dieser Nähe zum Zentrum; andere Quellen bleiben mit ? sichtbar.' },
@@ -486,7 +486,7 @@ const MASKE_THEMEN = [
 ];
 const MASKE_ALLE = MASKE_THEMEN.flatMap(([, liste]) => liste);
 const MASKE_KEYS = new Set(MASKE_ALLE.map(k => k.key));
-const MASKE_STANDARD = { an: ['storno_kostenlos', 'kueche', 'pool', 'sauna_spa', 'strand', 'note_min'], aus: [] };
+const MASKE_STANDARD = { an: ['storno_kostenlos', 'kueche', 'pool', 'sauna_spa', 'strand_max_m', 'note_min'], aus: [] };
 function maskeEinstellung() {
   const v = stayRead('ks_maske', null), ok = a => Array.isArray(a) ? a.filter(k => MASKE_KEYS.has(k)) : null;
   return v && ok(v.an) && ok(v.aus) ? { an: ok(v.an), aus: ok(v.aus) } : { an: [...MASKE_STANDARD.an], aus: [...MASKE_STANDARD.aus] };

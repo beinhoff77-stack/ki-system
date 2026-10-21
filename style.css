@@ -2058,3 +2058,21 @@ main.view:has(.a-ergebnis) { padding-top: 4px; }
 .a-ergebnis > .result-view-switch { margin-top: 0; }
 body[data-area="unterkunft"] main.view:has(.a-ergebnis) { padding-top: 2px; }
 .a-ergebnis > p:empty { display: none; }
+.nb-nochmal { margin: 6px 0 0; min-height: 34px; height: 34px; padding: 0 14px; border-radius: 17px; border: 1px solid #dfe8e6; background: #fff; color: var(--a-teal, #0e3b43); font-size: 12.5px; font-weight: 800; }
+/* W113: Viertel-Auswahl in der Suche – Chips statt Liste */
+.vf-a { display: flex; flex-direction: column; gap: 8px; }
+.vf-a > label:first-child { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.vf-a > button { align-self: flex-start; min-height: 34px; height: 34px; padding: 0 14px; border-radius: 17px; border: 1px solid #dfe8e6; background: #fff; color: var(--a-teal, #0e3b43); font-size: 12.5px; font-weight: 800; margin: 0; }
+.vf-a > p.small { margin: 0; font-size: 12px; color: var(--a-muted, #5b6f72); }
+.vf-a > p.small:empty { display: none; }
+.vf-a .district-form-choices { display: flex; flex-wrap: wrap; gap: 6px; }
+.vf-a .vf-chip { position: relative; display: inline-flex; align-items: center; min-height: 34px; height: auto; padding: 6px 12px; margin: 0; border: 1px solid #dfe8e6; border-radius: 17px; background: #fff; font-size: 13px; font-weight: 700; line-height: 1.2; color: var(--a-ink, #14343b); cursor: pointer; }
+.vf-a .vf-chip input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; margin: 0; cursor: pointer; }
+.vf-a .vf-chip:has(input:checked) { background: var(--a-teal, #0e3b43); border-color: var(--a-teal, #0e3b43); color: #fff; }
+.vf-a .vf-chip:has(input:focus-visible) { outline: 2px solid var(--a-teal, #0e3b43); outline-offset: 2px; }
+.vf-a .vf-ok { color: var(--a-fav, #2f8a4e); }
+.vf-a .vf-chip:has(input:checked) .vf-ok { color: #fff; }
+.vf-a .vf-hinweis { flex-basis: 100%; margin: 2px 0 0; font-size: 11.5px; }
+.vf-a > p.small.muted:last-of-type { font-size: 11.5px; }
+.vf-a .district-form-choices label.vf-chip:has(input:checked) { background: var(--a-teal, #0e3b43) !important; border-color: var(--a-teal, #0e3b43) !important; color: #fff !important; }
+.vf-a:has(.vf-chip) > button { display: none; }

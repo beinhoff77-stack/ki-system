@@ -239,6 +239,7 @@ function nachtbandAnzeige({ form, call, live, onShow = () => {} }) {
     let lage;
     if (laeuft) lage = `wird geprüft … ${geprueft}/${naechte.length}`;
     else if (!geprueft) lage = 'gerade nicht verfügbar';
+    else if (!auffaellig.length && geprueft < naechte.length) lage = `${geprueft} von ${naechte.length} geprüft, bisher keine teuren`; // W113: nicht „keine teuren“, wenn Nächte fehlen
     else if (!auffaellig.length) lage = 'keine teuren Nächte';
     else lage = `${auffaellig.length} ${auffaellig.length === 1 ? 'Nacht' : 'Nächte'} teurer`;
     const kurzListe = auffaellig.slice().sort((a, b) => (a.nacht < b.nacht ? -1 : 1));
@@ -255,7 +256,9 @@ function nachtbandAnzeige({ form, call, live, onShow = () => {} }) {
     const n = naechte.length;
     const row = el('div', { class: 'nb-row' }, el('span', { class: 'nb-date small muted' }, tag(naechte[0].nacht)), strip, el('span', { class: 'nb-date small muted' }, tag(naechte[n - 1].nacht)));
     box.hidden = false;
-    box.replaceChildren(el('div', { class: 'nb-head' }, el('strong', {}, `${n} ${n === 1 ? 'Nacht' : 'Nächte'}`), el('span', { class: 'nb-state small' }, ' · Preise: ' + lage), infoBtn), row, liste, varianten(r), info);
+    const fehlen = !laeuft && geprueft < naechte.length;
+    const nochmal = fehlen ? el('button', { type: 'button', class: 'nb-nochmal', onclick: () => { nochmal.disabled = true; nochmal.textContent = 'Wird geprüft …'; clearTimeout(poll); const p = params(); if (p) { const mine = ++seq; void load(p, false, mine); } } }, 'Fehlende Nächte nochmal prüfen') : null;
+    box.replaceChildren(...[el('div', { class: 'nb-head' }, el('strong', {}, `${n} ${n === 1 ? 'Nacht' : 'Nächte'}`), el('span', { class: 'nb-state small' }, ' · Preise: ' + lage), infoBtn), row, liste, nochmal, varianten(r), info].filter(Boolean)); // W113: keine „null“-Texte
     const tip = c => { box.querySelector('.nb-tip')?.remove(); row.after(el('p', { class: 'nb-tip small' }, c.getAttribute('aria-label'))); };
     for (const c of strip.children) { c.addEventListener('click', () => tip(c)); c.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); tip(c); } }); }
     onShow(true);

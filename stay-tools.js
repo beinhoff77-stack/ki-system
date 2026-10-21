@@ -211,13 +211,16 @@ function sucheFilterPanel(onChange) {
     el('p', { class: 'small muted' }, 'Gästenoten sind auf Booking-Niveau geeicht. Sterne gelten nur für Hotels, Aparthotels und Ryokans.'),
     el('label', { class: 'check-label' }, favorite, 'Nur Favoriten'), el('label', { class: 'check-label' }, unknown, 'Unbekannte Angaben mit anzeigen'),
     el('button', { type: 'button', onclick: () => { restore({ unbekannt: true }); onChange(); } }, 'Weitere Filter zurücksetzen'));
+  const chipSync = []; let knownTypeList = [];
+  function sync() { chipSync.forEach(f => f()); }
   let knownTypes = '';
   function setTypes(rows) {
     const types = [...new Set(rows.map(t => t.typ).filter(v => typeof v === 'string' && v))].sort();
     if (JSON.stringify(types) === knownTypes) return;
-    knownTypes = JSON.stringify(types); const value = inputs.typ.value;
+    knownTypes = JSON.stringify(types); knownTypeList = types; const value = inputs.typ.value;
     inputs.typ.replaceChildren(el('option', { value: '' }, 'Alle Formen'), ...types.map(t => el('option', { value: t }, ({ hotel: 'Hotel', aparthotel: 'Aparthotel', ryokan: 'Ryokan', haus: 'Haus', wohnung: 'Wohnung', apartment: 'Apartment' })[t] || t)));
     inputs.typ.value = types.includes(value) ? value : '';
+    sync();
   }
   const value = () => Object.fromEntries(Object.entries(inputs).map(([key, n]) => [key, n.type === 'checkbox' ? n.checked : n.value]));
   function restore(v = {}) {
@@ -226,8 +229,12 @@ function sucheFilterPanel(onChange) {
       if (n.type === 'checkbox') n.checked = key === 'unbekannt' ? v[key] !== false : v[key] === true;
       else n.value = ['string', 'number'].includes(typeof v[key]) ? String(v[key]) : '';
     }
+    if (!SUCHE_SCORE_AN) { inputs.gruppe.value = ''; inputs.urteil.value = ''; } // ohne Score: Urteil steuern die Chips über der Liste
+    sync();
   }
-  return { node: panel, value, restore, setTypes };
+  // Zahl aktiver Filter (für den Knopf „Filter · n“)
+  const active = () => Object.entries(inputs).filter(([key, n]) => key === 'unbekannt' ? !n.checked : n.type === 'checkbox' ? n.checked : n.value !== '').length;
+  return { node: panel, value, restore, setTypes, active, reset: () => { restore({ unbekannt: true }); onChange(); } };
 }
 
 function sucheKoordinaten(p) {

@@ -62,7 +62,15 @@ async function viewReisen(arg){
     el('div',{class:'actions'},!isPast&&e.status==='vorschlag'?el('button',{class:'primary',onclick:()=>change(e,{status:'geplant'})},'Vorschlag bestätigen'):null,!isPast?el('button',{onclick:()=>tripStart(e)},'Andere Tage suchen'):null,!isPast?el('button',{onclick:()=>tripExternalBooking(e,load)},'Woanders gebucht'):null,el('button',{onclick:()=>tripEdit(e,load)},'Bearbeiten'),el('button',{onclick:()=>tripDelete('etappe',e.id,load)},e.status==='vorschlag'?'Vorschlag verwerfen':'Etappe entfernen'))));
    const searches=el('details',{open:expanded.has(e.id)},el('summary',{},(e.suchen||[]).length+' Suchvarianten'));
    for(const s of e.suchen||[]){const active=s.id===e.aktive_suche_id;searches.append(el('div',{class:'trip-variant'},el('a',{href:'#/suche/'+s.id},`${fmtDate(s.anreise)}–${fmtDate(s.abreise)} · ${s.status}`),active?el('strong',{},'Aktuelle Variante'):el('button',{onclick:()=>change(e,{aktive_suche_id:s.id})},'Diese Tage verwenden'),el('button',{onclick:()=>tripDelete('suchauftrag',s.id,load)},'Suche entfernen')));}
-   card.querySelector('.stage-main').append(tripPhotos(e.id,live,{initialPhotos}),...(!isPast?[searches,el('a',{href:'#/etappe/'+e.id},'Unterkünfte dieser Etappe →')]:[]));if(e.abreise<today)past.append(card);else if(e.status==='vorschlag')proposals.append(card);else {
+   if(!SUCHE_SCORE_AN){ // 0.36.4 (Sebastian 21.10.): Etappe kompakt – Hauptweg „Unterkünfte“, Weiteres hinter ⋯, Fotos und Varianten eingeklappt
+    card.classList.add('a-etappe');const acts=card.querySelector('.stage-main > .actions'),neben=[...acts.querySelectorAll('button:not(.primary)')];
+    const menu=el('details',{class:'a-etappe-menu'},el('summary',{'aria-label':'Weitere Aktionen zur Etappe',title:'Weitere Aktionen'},'⋯'),el('div',{class:'a-etappe-menu-liste'},...neben));
+    const fotos=el('details',{class:'a-etappe-fotos'},el('summary',{},stayIcon('kamera'),'Fotos'),tripPhotos(e.id,live,{initialPhotos}));
+    searches.classList.add('a-etappe-varianten');searches.querySelector('summary').prepend(stayIcon('kalender'));
+    const leiste=el('div',{class:'a-etappe-leiste'},...(!isPast?[searches]:[]),fotos,menu);
+    card.querySelector('.stage-main').append(...(!isPast?[el('a',{class:'a-etappe-link',href:'#/etappe/'+e.id},stayIcon('liste'),'Unterkünfte dieser Etappe')]:[]),leiste);
+    if(!acts.children.length)acts.remove();
+   } else card.querySelector('.stage-main').append(tripPhotos(e.id,live,{initialPhotos}),...(!isPast?[searches,el('a',{href:'#/etappe/'+e.id},'Unterkünfte dieser Etappe →')]:[]));if(e.abreise<today)past.append(card);else if(e.status==='vorschlag')proposals.append(card);else {
     const before=confirmed[confirmed.indexOf(e)-1];
     for(const gap of snapshot.luecken||[]){if(before&&gap.zwischen?.[0]===before.id&&gap.zwischen?.[1]===e.id)timeline.append(el('div',{class:'trip-gap','data-gap-from':before.id,'data-gap-to':e.id},`${before.ziel} → ${e.ziel}: `+(gap.text||`${gap.naechte} Nächte noch offen`)));}
     timeline.append(card);

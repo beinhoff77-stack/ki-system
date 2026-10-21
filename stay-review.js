@@ -409,6 +409,7 @@ const STAY_A_ICON={gaestenote:'stern',bewertungen:'stern',gehzeit:'bahn',storno:
 function stayAFakt(t,key,trip){
   const v=stayFieldValue(t,key,trip), n=x=>Number(x).toLocaleString('de-DE',{maximumFractionDigits:1});
   if(key==='storno'){const s=stayStorno(t,trip);return s.tage!==null?{text:'Storno',ok:true,title:'kostenlos bis '+s.tage+' Tage vor Anreise'}:s.nein?{text:'kein Storno',warn:true}:{text:'Storno ?',warn:true,title:'Storno unbekannt'};}
+  if(v===null&&key==='gehzeit'&&trip?._keineBahn)return {text:'keine Bahn',title:'Am Ort gibt es keinen Bahnhof'}; // W114
   if(v===null)return null;
   switch(key){
     case 'gaestenote': return {text:n(v),stark:true}; case 'bewertungen': return {text:'('+n(v)+')'}; case 'gehzeit': return {text:(v>=60?Math.floor(v/60)+' Std.':Math.round(v)+' Min'),title:t.station_name?'zu '+t.station_name:null};
@@ -457,6 +458,22 @@ function stayLageDialog(t,trip){
 function stayAKacheln(t,trip){
   const keys=stayKarten().direkt.filter(k=>!['preis','nacht','art','anbieter'].includes(k)).slice(0,6);
   return keys.length?el('div',{class:'a-r-fakten'},keys.map(k=>{const f=stayAFakt(t,k,trip);return el('div',{class:'a-r-kachel'+(f?.ok?' is-ok':'')+(!f||f.warn?' is-warn':''),'data-fakt':k},el('span',{class:'a-r-wert'},stayIcon(STAY_A_ICON[k]||'info'),f?f.text:'?'),el('span',{class:'a-r-label'},f?.title&&k!=='betten'?f.title:STAY_FIELDS[k]));})):null;
+}
+// 0.36.4 (Sebastian 21.10.): Detail-Fenster im A-Stil – Preis oben, Kacheln, bekannte Angaben nach Themen, Unbekanntes eingeklappt.
+function stayDetailA(t,trip){
+  const [meta,,preis]=stayAKompakt(t,trip), karten=stayKarten();
+  const unbekannt=[], themen=[];
+  for(const [thema,keys] of STAY_THEMEN){
+    const rows=[];
+    for(const k of keys){
+      if(['preis','nacht'].includes(k)||stayStufe(k,karten)==='aus')continue;
+      if(stayFieldValue(t,k,trip)===null){unbekannt.push(STAY_FIELDS[k]);continue;}
+      rows.push(el('div',{class:'ad-zeile','data-field':k},stayIcon(STAY_A_ICON[k]||'info'),el('span',{class:'ad-label'},STAY_FIELDS[k]),el('span',{class:'ad-wert'},stayAnzeigeText(t,k,trip))));
+    }
+    if(rows.length)themen.push(el('section',{class:'ad-thema'},el('h4',{},thema),...rows));
+  }
+  return el('div',{class:'ad'},el('div',{class:'ad-kopf'},meta,preis),stayAKacheln(t,trip),...themen,
+    unbekannt.length?el('details',{class:'ad-unbekannt'},el('summary',{},'Nicht angegeben ('+unbekannt.length+')'),el('p',{},unbekannt.join(' · '))):null);
 }
 // W107 (Sebastian 20.10.): Karte – Antippen eines Pins zeigt unten die Durchsehen-Ansicht (Fotos, Fakten, Urteil)
 function stayKartenKarte(t,trip,select,openDetail){

@@ -1232,6 +1232,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     if(modeChanged)runTools.open=false;
     if(!compact){scope.insertBefore(runBar,report);scope.insertBefore(viewButtons,filterBox);}filterBox.hidden=compact;
     const a = snapshot.suchauftrag, k = snapshot.kosten || {}, steps = Array.isArray(a.schrittkette) ? a.schrittkette : [];
+    a._keineBahn = steps.some(s => s?.quelle === 'bewerten' && s?.gehzeit?.stationen === 0); // W114: z. B. Ishigaki – kein Bahnhof vor Ort
     runTools.querySelector('summary').textContent=compact?(a.ziel||'Reise')+' · Suchlauf':'Suchlauf';
     const phase = { final: snapshotStatus?.status === 'fertig' && snapshotStatus?.fertig === true, failed: snapshotStatus?.status !== 'fertig' && SUCHE_ENDE.has(snapshotStatus?.status) };
     const nightsRun = Math.round((Date.parse(a.abreise) - Date.parse(a.anreise)) / 86400000), shortDate = d => new Date(d + 'T12:00:00').toLocaleDateString('de-DE', { day: 'numeric', month: 'numeric' });
@@ -1243,7 +1244,8 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
         `${s.quelle === 'bewerten' ? (SUCHE_SCORE_AN ? 'Bewertung und Gegenprüfung' : 'Auswertung (Lage, Fotos)') : SUCHE_QUELLEN[s.quelle] || s.quelle}: ${s.status}${s.quelle === 'bewerten' ? '' : ` · ${s.treffer ?? 0} Treffer`}`,
         s.kosten_usd != null ? ` · ${fmtUsd(s.kosten_usd)}` : '', s.credits != null ? ` · ${s.credits} Credits` : '',
         s.fehler ? el('p', { class: 'err-text' }, String(s.fehler)) : null,
-        s.gehzeit?.fehler ? el('p', { class: 'err-text' }, 'Gehzeiten: ' + s.gehzeit.fehler) : null))),
+        s.gehzeit?.fehler ? el('p', { class: 'err-text' }, 'Gehzeiten: ' + s.gehzeit.fehler) : null,
+        s.gehzeit?.hinweis ? el('p', { class: 'small muted' }, 'Gehzeiten: ' + s.gehzeit.hinweis) : null))),
       el('p', { class: 'erg-warnung' }, !SUCHE_SCORE_AN ? (phase.final ? 'Suche abgeschlossen. Die Liste zeigt die Angaben der Anbieter – sortiere nach Preis, Gästenote, Fläche, Schlafzimmer oder Entfernung. Eine eigene Bewertung ist vorerst abgeschaltet.' : phase.failed ? 'Auswertung unterbrochen; vorhandene Ergebnisse bleiben sichtbar.' : 'Zwischenstand: Die Suche läuft noch, weitere Treffer und Angaben können folgen.') : phase.final ? 'Bewertung abgeschlossen. Passung (0–100) aus Raum, Lage, Preis-Leistung, Bewertungen und Eignung. Die Datenlage zeigt die Abdeckung; die Ampel beschreibt die Verlässlichkeit, nicht die Qualität. Offene Angaben und Einwände bleiben relevant.' : phase.failed ? 'Bewertung unterbrochen. Die Rangliste ist noch nicht abschließend; vorhandene Ergebnisse bleiben sichtbar.' : 'Zwischenstand: Die Rangliste ist erst nach Abschluss der Bewertungsstufe fertig. Teilnoten und Datenlage zeigen, welche Angaben bereits vorliegen.'));
     const technical=el('details',{class:'run-diagnostics'},el('summary',{},'Details zum Suchlauf'));
     for(const node of [...summary.children].slice(2))technical.append(node);

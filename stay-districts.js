@@ -91,7 +91,7 @@ function viertelKarte(container, onSelect) {
       if (!window.L) { message.textContent = 'Die Karte ist nicht verfügbar. Alle Viertel bleiben als Liste lesbar.'; canvas.hidden = true; return; }
       if (!map) {
         map = L.map(canvas, { scrollWheelZoom: false }).setView([20,0],2); layer = L.layerGroup().addTo(map);
-        tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { minZoom: 2, maxZoom: 19, keepBuffer: 1,
+        tiles = L.tileLayer('https://tile.openstreetmap.de/{z}/{x}/{y}.png', { minZoom: 2, maxZoom: 19, keepBuffer: 1,
           attribution: '© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap-Mitwirkende</a>'
         }).on('tileerror', () => { if (!disposed) tileStatus.textContent = 'Der Kartenhintergrund ist nicht erreichbar. Viertelkreise und Liste bleiben nutzbar.'; });
       }

@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.36.1';
+const APP_VERSION = '0.36.3';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -1145,7 +1145,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   } }, 'Vorläufige Treffer ansehen');
   function resultSelection(t) {
     const node=sucheAuswahl(t,selectionStates,call,live,selectionChanged);
-    if(t.status==='favorit'){ if(SUCHE_SCORE_AN) node.append(el('button',{type:'button',onclick:()=>tripBookFromSearch(t,id)},'Als gebucht markieren')); else node.querySelector('.actions')?.append(el('button',{type:'button',class:'sel-buchen','aria-label':'Als gebucht markieren',title:'Als gebucht markieren',onclick:()=>tripBookFromSearch(t,id)},stayIcon('kalender'))); } // 0.36.1: als Symbol in der Reihe
+    if(t.status==='favorit'){ if(SUCHE_SCORE_AN) node.append(el('button',{type:'button',onclick:()=>tripBookFromSearch(t,id)},'Als gebucht markieren')); else node.querySelector('.actions')?.append(el('button',{type:'button',class:'sel-buchen','aria-label':'Als gebucht markieren',title:'Als gebucht markieren',onclick:()=>tripBookFromSearch(t,id)},stayIcon('kalender'))); } // 0.36.3: als Symbol in der Reihe
     if(review.blocked || review.pending)node.querySelectorAll('button').forEach(b=>b.disabled=true);
     return node;
   }

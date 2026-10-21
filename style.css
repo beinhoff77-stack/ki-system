@@ -2039,3 +2039,22 @@ body:has(.tinder-mode) main.view { padding-top: calc(6px + env(safe-area-inset-t
 /* 0.36.1: Tabellenfoto öffnet die Fotos groß */
 .desk-foto-knopf { display: block; padding: 0; margin: 0; border: 0; background: none; min-height: 0; width: auto; cursor: zoom-in; border-radius: 6px; overflow: hidden; }
 .desk-foto-knopf:focus-visible { outline: 2px solid var(--a-teal, #0e3b43); outline-offset: 2px; }
+/* 0.36.2: Reise in der Kopfzeile (zweizeilig), ⓘ für den Suchlauf, Einblendung nach Urteil */
+#btn-info[hidden] { display: none; }
+#btn-info { display: inline-flex; align-items: center; justify-content: center; color: var(--a-teal, #0e3b43); }
+#btn-info .ic { width: 20px; height: 20px; }
+body[data-area="unterkunft"] header.top h1.t-reise { display: flex; flex-direction: column; gap: 1px; text-transform: none; letter-spacing: 0; min-width: 0; }
+h1.t-reise .t-haupt { font: 800 17px/1.2 var(--font-ui); color: var(--a-ink, #14343b); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+h1.t-reise .t-sub { font: 500 12.5px/1.3 var(--font-ui); color: var(--a-muted, #5b6f72); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+body[data-area="unterkunft"] header.top:has(h1.t-reise) { padding-top: 10px; padding-bottom: 6px; gap: 8px; }
+.a-info-dialog .stay-run-summary { box-shadow: none; border: 0; padding: 0; margin: 0; }
+.a-info-dialog { max-width: 560px; }
+.a-toast { position: fixed; left: 50%; bottom: calc(var(--tabs-h, 58px) + 18px + env(safe-area-inset-bottom)); transform: translateX(-50%); z-index: 40; max-width: min(92vw, 460px); margin: 0; padding: 9px 16px; border-radius: 20px; background: var(--a-ink, #14343b); color: #fff; font-size: 13px; font-weight: 600; box-shadow: 0 6px 20px rgba(20,52,59,.25); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; opacity: 0; pointer-events: none; }
+.a-toast.an { animation: aToast 2.6s ease forwards; }
+@keyframes aToast { 0% { opacity: 0; transform: translate(-50%, 8px); } 8% { opacity: 1; transform: translate(-50%, 0); } 80% { opacity: 1; } 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .a-toast.an { animation-duration: 3s; animation-name: aToastRuhig; } @keyframes aToastRuhig { 0%, 85% { opacity: 1; transform: translate(-50%, 0); } 100% { opacity: 0; transform: translate(-50%, 0); } } }
+#btn-info { width: 40px; height: 40px; min-height: 40px; border: 0 !important; background: transparent !important; box-shadow: none !important; padding: 0; }
+main.view:has(.a-ergebnis) { padding-top: 4px; }
+.a-ergebnis > .result-view-switch { margin-top: 0; }
+body[data-area="unterkunft"] main.view:has(.a-ergebnis) { padding-top: 2px; }
+.a-ergebnis > p:empty { display: none; }

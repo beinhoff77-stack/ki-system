@@ -185,7 +185,8 @@ function setChrome(title, { back = false, showTabs = true, tab = null } = {}) {
   for (const link of $('#areas').querySelectorAll('[data-area]')) {
     if (link.dataset.area === area) link.setAttribute('aria-current', 'true'); else link.removeAttribute('aria-current');
   }
-  $('#title').textContent = title;
+  $('#title').textContent = title; $('#title').classList.remove('t-reise');
+  $('#btn-info').hidden = true; $('#btn-info').onclick = null;
   $('#btn-back').hidden = !back;
   tabs.hidden = !showTabs;
   for (const b of tabs.querySelectorAll('button')) {
@@ -1152,7 +1153,8 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     const current = snapshot?.treffer.find(row => row.treffer_id === t.treffer_id);
     if (current) current.status = state.saved;
     lastSelection = t.treffer_id;
-    notice.textContent = (t.name || 'Unterkunft') + ': ' + state.message;
+    if (SUCHE_SCORE_AN) notice.textContent = (t.name || 'Unterkunft') + ': ' + state.message;
+    else { aToast.textContent = (t.name || 'Unterkunft') + ': ' + state.message; aToast.classList.remove('an'); void aToast.offsetWidth; aToast.classList.add('an'); if (!aToast.isConnected) scope.append(aToast); } // 0.36.2: kurze Einblendung statt Textzeile oben
     draw();
     const row = (showMap ? mapPanel : results).querySelector(`[data-hit="${t.treffer_id}"]`); // W104: im Rechner-Split liegt die Zeile in der Liste
     (row?.getClientRects().length ? row : undoSelection.hidden ? refresh : undoSelection).focus({ preventScroll: true });
@@ -1199,9 +1201,9 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   const runActions=el('div', { class: 'actions' }, el('a', { href: '#/suche' }, 'Neue Suche / letzte Aufträge'), el('a', { href: viertelHref({suche:id}) }, 'Viertel dieser Reise entdecken'), refresh, start, cancel, preview, undoSelection, more);
   const runTools=el('details',{class:'review-run-tools'},el('summary',{},'Suchlauf'),runActions);
   const runBar=el('div',{class:'review-run-bar'},runTools,endrunde);
-  const doneStatus = el('p', { role: 'status', class: 'sr-only' });
-  // 0.36.1 (Sebastian 21.10.): ohne Score eine Werkzeugzeile (Suchen · Sortieren · Filter) und die Filter als Blatt von unten.
-  const fState = stayFilterState(id); // 0.36.1: gemeinsamer Spaltenfilter (Liste, Karte, Durchsehen, Tabelle)
+  const doneStatus = el('p', { role: 'status', class: 'sr-only' }); let runInfo = null; const aToast = el('p', { class: 'a-toast', role: 'status', 'aria-live': 'polite' });
+  // 0.36.0 (Sebastian 21.10.): ohne Score eine Werkzeugzeile (Suchen · Sortieren · Filter) und die Filter als Blatt von unten.
+  const fState = stayFilterState(id); // 0.36.0: gemeinsamer Spaltenfilter (Liste, Karte, Durchsehen, Tabelle)
   const aBlatt = SUCHE_SCORE_AN ? null : stayFilterBlatt({ rows: () => snapshot?.treffer || [], ctx: () => ({ trip: snapshot?.suchauftrag || {}, vergleich: stayVergleich(snapshot?.treffer || [], snapshot?.suchauftrag || {}) }), st: fState, onChange: () => { pages.clear(); draw(); } });
   const A_SORT = [['preis:1','Preis ↑','Preis – günstigste zuerst'],['gaestenote:-1','Note ↓','Gästenote – beste zuerst'],['entfernung:1','Nähe ↑','Luftlinie zum Ziel – nächste zuerst'],['gehzeit:1','Station ↑','Gehzeit zur Station – kürzeste zuerst'],['bewertungen:-1','Bewertungen ↓','Anzahl Bewertungen – meiste zuerst'],['schlafzimmer:-1','Schlafzimmer ↓','Schlafzimmer – meiste zuerst'],['m2:-1','Fläche ↓','Fläche – größte zuerst'],['name:1','Name A–Z','Name – A bis Z']];
   const aSort = el('select', { class: 'a-sort', 'aria-label': 'Sortieren', onchange: () => { const [key, dir] = aSort.value.split(':'); sort = { key, direction: Number(dir) === -1 ? -1 : 1 }; pages.clear(); draw(); } });
@@ -1249,9 +1251,21 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     const aCount = snapshot.treffer.filter(t => t.topf !== 'ausgeschlossen' && t.topf !== 'unbewertet' && t.bewertung?.liste === 'A').length;
     if (phase.final && aCount < 10) technical.append(el('p', { class: 'erg-warnung' }, `Datenlage reicht noch nicht für 10 Empfehlungen unter den passenden Treffern (derzeit ${aCount}).`));
     if (a.rohdaten_bis) technical.append(el('p', { class: 'small muted' }, 'Rohdaten werden nach 30 Tagen entfernt. Frist: ' + sucheAbruf(a.rohdaten_bis)));
+    if (!SUCHE_SCORE_AN) { // 0.36.2 (Sebastian 21.10.): Reise in der Kopfzeile, Suchlauf-Details hinter ⓘ – die Liste beginnt weiter oben
+      const kinder = (a.kinder_alter || []).map(Number).filter(Number.isFinite), d = x => new Date(x + 'T12:00:00');
+      const von = d(a.anreise), bis = d(a.abreise), gleich = von.getMonth() === bis.getMonth();
+      const zeit = gleich ? `${von.getDate()}.–${bis.getDate()}.${bis.getMonth() + 1}.` : `${shortDate(a.anreise)}–${shortDate(a.abreise)}`;
+      const t = $('#title'); t.classList.add('t-reise');
+      t.replaceChildren(el('span', { class: 't-haupt' }, a.ziel || 'Reise'), el('span', { class: 't-sub' }, `${zeit} · ${a.erwachsene} Erw.${kinder.length ? ' · Kind' + (kinder.length > 1 ? 'er ' : ' ') + kinder.join(', ') : ''}`));
+      const info = $('#btn-info'); info.hidden = false; if (!info.firstChild) info.append(stayIcon('info'));
+      if (!runInfo) { runInfo = el('dialog', { class: 'stay-candidate a-info-dialog', 'aria-label': 'Details zum Suchlauf' }, el('div', { class: 'candidate-header' }, el('h2', {}, 'Suchlauf'), el('button', { type: 'button', class: 'a-zu', 'aria-label': 'Schließen', onclick: () => runInfo.close() }, stayIcon('raus')))); runInfo.addEventListener('click', e => { if (e.target === runInfo) runInfo.close(); }); }
+      if (summary.parentNode !== runInfo) runInfo.append(summary);
+      summary.hidden = false; summary.querySelector('.run-diagnostics')?.setAttribute('open', '');
+      info.onclick = () => { if (!runInfo.isConnected) scope.append(runInfo); runInfo.showModal(); };
+    }
     results.replaceChildren();
     controls.hidden = (resultView==='tinder'||resultView==='table')&&!showMap; // W98: Tabelle sortiert selbst
-    summary.hidden = resultView==='tinder'&&!showMap;
+    if (SUCHE_SCORE_AN) summary.hidden = resultView==='tinder'&&!showMap;
     filters.node.hidden = resultView==='tinder'&&!showMap; viewButtons.hidden = false;
     if (!SUCHE_SCORE_AN) { filters.node.hidden = false; filterBox.querySelector('.a-sort-pill').hidden = resultView==='table'&&!showMap; }
     filters.setTypes(snapshot.treffer);

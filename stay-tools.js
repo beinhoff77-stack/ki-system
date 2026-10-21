@@ -286,7 +286,7 @@ function sucheKarte(container, onSelect, renderSelected, options={}) {
     canvas.hidden = false;
     if (!map) {
       map = L.map(canvas, { scrollWheelZoom: false });
-      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      L.tileLayer('https://tile.openstreetmap.de/{z}/{x}/{y}.png', {
         maxZoom: 19, minZoom: 2, keepBuffer: 1,
         attribution: '© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap-Mitwirkende</a>'
       }).on('tileerror', () => { if (!destroyed) tileStatus.textContent = 'Der Kartenhintergrund ist gerade nicht erreichbar. Positionen und Ergebnisliste bleiben verfügbar.'; }).addTo(map);

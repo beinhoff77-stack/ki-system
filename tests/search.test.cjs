@@ -681,7 +681,7 @@ test('Fotos: HTTPS-Hotlink, kein Referrer, verzögertes Laden und sichere Platzh
 
 test('Karte lädt erst auf Klick, zeigt gefilterte aktive Treffer und springt zur richtigen Listenseite', async (t) => {
   const {page}=await setup(t,()=>mapResult()); let tiles=0;
-  await page.route('https://tile.openstreetmap.org/**', r=>{tiles++;return r.fulfill({contentType:'image/png',body:testPixel});});
+  await page.route('https://tile.openstreetmap.de/**', r=>{tiles++;return r.fulfill({contentType:'image/png',body:testPixel});});
   await page.goto(origin+'/#/suche/2'); await page.locator('[data-group=A]').waitFor();
   assert.equal(tiles,0);
   await page.getByRole('button',{name:'Karte',exact:true}).click();
@@ -709,7 +709,7 @@ test('Karte lädt erst auf Klick, zeigt gefilterte aktive Treffer und springt zu
 
 test('Karte bleibt bei fehlendem Hintergrund nutzbar und passt auf ein schmales Handy', async (t) => {
   const {page}=await setup(t,()=>mapResult(),{width:320,height:800});
-  await page.route('https://tile.openstreetmap.org/**', r=>r.abort());
+  await page.route('https://tile.openstreetmap.de/**', r=>r.abort());
   await page.goto(origin+'/#/suche/2'); await page.getByRole('button',{name:'Karte',exact:true}).click();
   await page.getByText('Der Kartenhintergrund ist gerade nicht erreichbar.',{exact:false}).waitFor();
   assert.equal(await page.locator('[data-map-hit]').count(),17);
@@ -1169,7 +1169,7 @@ test('Viertel: freier Einstieg, unbekannte Noten, lokale Filter und Sortierung',
 test('Viertelkarte: erst auf Klick, Kreise mit Status, Tastatur, fehlende Positionen und Handy', async (t) => {
   let tiles=0;
   const {page}=await setup(t,()=>districts(),{width:390,height:844});
-  await page.route('https://tile.openstreetmap.org/**',r=>{tiles++;return r.abort();});
+  await page.route('https://tile.openstreetmap.de/**',r=>{tiles++;return r.abort();});
   await page.goto(origin+'/#/viertel/?suche=2');await page.locator('[data-district="21"]').waitFor();assert.equal(tiles,0);
   await page.getByRole('button',{name:'Viertelkarte anzeigen',exact:true}).click();
   const proposal=page.locator('[data-district-circle="21"]');await proposal.waitFor();
@@ -1389,7 +1389,7 @@ test('Ergebnisansichten W98: Rechner-Tabelle, Liste, Karte, gemeinsame Filter un
   data.treffer=[hit(1,'A',200,{lat:35,lon:135,bild:'https://example.com/photo.jpg',note:9,note_skala:10,gehzeit_min:3,station_name:'Bahnhof',angebot:{preis_gesamt_eur:200,kategorie_name:'Familienzimmer',link:'https://example.com/angebot'},kategorien:[{name:'Familienzimmer',schlafzimmer:2,betten_anzahl:3,betten_art:'Doppelbett, Einzelbett'}]}),hit(2,'B',100,{lat:35.01,lon:135.01,angebot:{preis_gesamt_eur:100,kategorie_name:'Anderes Zimmer'},kategorien:[{name:'Suite',schlafzimmer:4,betten_text:'Kingsize'}]}),hit(3,'A',null)];
   const {page,calls}=await setup(t,()=>data,{width:1920,height:1080,tabelle:true});
   await page.route('https://example.com/photo.jpg',r=>r.fulfill({contentType:'image/svg+xml',body:'<svg xmlns="http://www.w3.org/2000/svg" width="50" height="40"><rect width="50" height="40" fill="green"/></svg>'}));
-  await page.route('https://*.tile.openstreetmap.org/**',r=>r.abort());
+  await page.route('https://*.tile.openstreetmap.de/**',r=>r.abort());
   await page.goto(origin+'/#/suche/2');await page.locator('.desk-table [data-hit="1"]').waitFor();
   assert.equal(await page.getByRole('button',{name:'Tabelle',exact:true}).getAttribute('aria-pressed'),'true');
   const metrics=await page.locator('.desk-table [data-hit="1"]').evaluate(row=>({height:row.getBoundingClientRect().height,photo:row.querySelector('.desk-foto img').getBoundingClientRect().toJSON()}));
@@ -1502,7 +1502,7 @@ test('W98: Gründe-Leiste nach dem Wischen speichert Grund und Notiz mit Fakten,
 test('Kyoto: echte gelesene Daten auf Desktop und iPhone darstellen', {skip:process.env.KYOTO_READONLY_TEST!=='1'}, async t => {
   const data=JSON.parse(fs.readFileSync(path.join(root,'../live-data.json'),'utf8'));
   const {page,calls}=await setup(t,()=>data,{width:1920,height:1080});
-  await page.route('https://*.tile.openstreetmap.org/**',r=>r.abort());
+  await page.route('https://*.tile.openstreetmap.de/**',r=>r.abort());
   await page.goto(origin+'/#/suche/5');await page.locator('[data-hit]').first().waitFor();
   const counts={};for(const row of data.treffer){const group=row.topf==='ausgeschlossen'||row.status==='ausgeschlossen'?'ausgeschlossen':row.topf==='unbewertet'?'offen':['A','B'].includes(row.bewertung?.liste)?row.bewertung.liste:'offen';counts[group]=(counts[group]||0)+1;}
   for(const [group,count] of Object.entries(counts)) assert((await page.locator('[data-group='+group+']').first().textContent()).includes('('+count+')'));
@@ -2123,7 +2123,7 @@ test('Paket C: Kosten bestätigen, verlorene Startantwort lesen und keine falsch
 test('Paket D: Vergleich nur ausgewählte IDs, unbekannte Werte und Karte nur dieser Auswahl',async t=>{
  const rows=[hit(1,'A',200,{name:'Haus A',status:'favorit',suchauftrag_id:2,lat:35,lon:135}),hit(2,'A',150,{name:'Haus B',status:'vielleicht',suchauftrag_id:2,lat:35.01,lon:135.01})];
  const {page,calls}=await setup(t,p=>p.aktion==='unterkunft_vergleich'?{ok:true,unterkuenfte:rows.map((x,i)=>({...x,kennung:['A','B'][i],anreise:'2026-11-01',abreise:'2026-11-08'})),zeilen:[{feld:'m2',label:'Fläche',einheit:'m²',werte:[null,80],gleich:false,besser:null},{feld:'anbieter',label:'Anbieter',werte:['Booking','Booking'],gleich:true}],unterschiede:[],hinweis:'Unbekannte Werte werden nicht als null Euro behandelt.'}:{});
- await page.route('https://tile.openstreetmap.org/**',r=>r.fulfill({contentType:'image/png',body:testPixel}));
+ await page.route('https://tile.openstreetmap.de/**',r=>r.fulfill({contentType:'image/png',body:testPixel}));
  await page.goto(origin+'/#/start');await page.evaluate(rows=>tripCompare(rows),rows);
  const d=page.getByRole('dialog',{name:'Unterkünfte vergleichen',exact:true});await d.getByText('unbekannt',{exact:true}).waitFor();
  assert.equal(await d.getByRole('rowheader',{name:'Anbieter',exact:true}).count(),0);
@@ -2156,7 +2156,7 @@ test('Anwenderablauf: Favoriten → Durchsehen → Vergleichen/Lage → Aussorti
   if(p.aktion==='unterkunft_etappe_speichern'){e.status='gebucht';e.buchung=p.daten.buchung;return {etappe:e};}return {};
  },{width:390,height:844});
  await page.route('https://example.com/journey.svg',r=>r.fulfill({contentType:'image/svg+xml',body:'<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500"><rect width="800" height="500" fill="#d9ccba"/><rect x="40" y="30" width="430" height="260" fill="#547b77"/><path d="M50 260L150 110 300 230 450 70V280H50" fill="#9db19a"/><rect x="90" y="330" width="620" height="130" rx="30" fill="#f2ede4"/></svg>'}));
- await page.route('https://tile.openstreetmap.org/**',r=>r.fulfill({contentType:'image/png',body:testPixel}));
+ await page.route('https://tile.openstreetmap.de/**',r=>r.fulfill({contentType:'image/png',body:testPixel}));
  await page.goto(origin+'/#/ergebnisse');await page.locator('a[href="#/etappe/1"]').click();
  await page.locator('[data-stage-hit="1"]').waitFor();
  await page.getByRole('button',{name:'Durchsehen',exact:true}).click();await page.locator('[data-review-hit="1"]').waitFor();

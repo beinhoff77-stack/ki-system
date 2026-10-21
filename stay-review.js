@@ -438,7 +438,7 @@ function stayLageDialog(t,trip){
   const p=sucheKoordinaten(t);
   if(!p||!window.L){karte.replaceChildren(el('p',{class:'small muted'},p?'Karte nicht verfügbar.':'Keine Koordinaten bekannt.'));return;}
   map=L.map(karte,{scrollWheelZoom:false}).setView(p,14);
-  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap-Mitwirkende'}).addTo(map);
+  L.tileLayer('https://tile.openstreetmap.de/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© OpenStreetMap-Mitwirkende'}).addTo(map);
   L.marker(p,{icon:L.divIcon({className:'stay-pin pin-preis is-gewaehlt',html:el('span',{},sucheKartenPreis(t)),iconSize:null})}).addTo(map);
   const z=n(trip?.ziel_lat)!==null&&n(trip?.ziel_lon)!==null?[Number(trip.ziel_lat),Number(trip.ziel_lon)]:null;
   if(z){L.marker(z,{icon:L.divIcon({className:'stay-pin pin-ziel',html:el('span',{},'★'),iconSize:[30,30]})}).addTo(map);map.fitBounds(L.latLngBounds([p,z]),{padding:[40,40],maxZoom:15});}
@@ -474,7 +474,7 @@ function stayConfigureTable(wrapper,items,sort,onSort,trip,select) {
     const provider=sucheAnbieterLink(t);if(provider)identity.querySelector('.hit-identity > div').append(el('a',{class:'hit-provider',href:provider.url,target:'_blank',rel:'noopener noreferrer'},provider.label));
     if(!SUCHE_SCORE_AN){const [meta,fakten,preis]=stayAKompakt(t,trip);identity.querySelector('.hit-identity > div')?.append(meta,fakten);identity.append(preis);row.classList.add('a-zeile-treffer','a-u-'+stayUrteilKey(t)); // W104
       const foto=identity.querySelector('.stay-photo');if(foto){foto.tabIndex=0;foto.setAttribute('role','button');foto.setAttribute('aria-label','Fotos von '+(t.name||'Unterkunft')+' groß ansehen');foto.addEventListener('click',()=>stayFotoDialog(t));foto.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();stayFotoDialog(t);}});} // W107
-      detail.append(el('button',{type:'button',class:'a-lage-knopf',onclick:()=>stayLageDialog(t,trip)},stayIcon('pin'),'Lage'));
+      detail.append(el('button',{type:'button',class:'a-info-knopf','aria-label':'Details zu '+(t.name||'Unterkunft'),title:'Details',onclick:()=>row.nextElementSibling?.querySelector('.candidate-open')?.click()},stayIcon('info')),el('button',{type:'button',class:'a-lage-knopf','aria-label':'Lage von '+(t.name||'Unterkunft')+' auf der Karte',title:'Lage',onclick:()=>stayLageDialog(t,trip)},stayIcon('pin'))); // 0.35.3: nur Symbole (Sebastian 21.10.)
       // W107 (Sebastian 20.10.: „alte Leichen“): „Details“ öffnet direkt die Detailansicht statt des alten Aufklapp-Bereichs (Prüfungen, Rückmeldung, Nachrecherche)
       const toggle=detail.querySelector('.hit-toggle');toggle?.addEventListener('click',e=>{const open=row.nextElementSibling?.querySelector('.candidate-open');if(!open)return;e.stopImmediatePropagation();e.preventDefault();open.click();},true);}
     identity.append(select(t));

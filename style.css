@@ -2094,3 +2094,4 @@ body[data-area="unterkunft"] main.view:has(.a-ergebnis) { padding-top: 2px; }
 .review-links .a-rund .ic { width: 18px; height: 18px; }
 .review-links:has(.a-rund) > .a-lage-knopf { order: 2; }
 .review-links:has(.a-rund) > button:not(.a-lage-knopf) { order: 1; }
+.a-sort-pill select { width: 98px; max-width: 98px; }

@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.36.3';
+const APP_VERSION = '0.36.4';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -870,6 +870,8 @@ function sucheLink(value, { allowHttp = false } = {}) {
   try { const u = new URL(value); return (u.protocol === 'https:' || (allowHttp && u.protocol === 'http:')) && !u.username && !u.password ? u.href : null; } catch { return null; }
 }
 function sucheVergleich(a, b, key, direction) {
+  // 0.36.4 (Sebastian 21.10.: „Bewertungssortierung“): nach deinem Urteil – ♥ zuerst, dann Na ja, offen, Raus; gleiche Stufe nach Preis.
+  if (key === 'urteil') { const rang = t => ({ favorit: 0, vielleicht: 1, ausgeschlossen: 3 })[t.status] ?? 2; return (rang(a) - rang(b)) * direction || sucheVergleich(a, b, 'preis', 1); }
   const value = (t) => key === 'name' ? t.name : key === 'schlafzimmer' ? sucheZimmerKurz(t).schlafzimmer : key === 'betten' ? sucheZimmerKurz(t).typen : key === 'anbieter' ? (t.angebot?.anbieter || SUCHE_QUELLEN[t.quelle] || t.quelle || null) : key === 'warnungen' ? sucheWarnungen(t).length : key === 'gaestenote' ? (sucheZahl(t.note) !== null && sucheZahl(t.note_skala) > 0 ? Number(t.note) * 10 / Number(t.note_skala) : null) : key === 'preis' ? sucheZahl(t.angebot?.preis_gesamt_eur) :
     key === 'bewertungen' ? sucheZahl(t.bewertungen) : key === 'entfernung' ? sucheZahl(t.luftlinie_ziel_m) : key === 'gehzeit' ? sucheZahl(t.gehzeit_min) : key.startsWith('note_') ? sucheZahl(t.bewertung?.spaltennoten?.[key.slice(5)]) : key === 'datenlage' ? sucheDatenlage(t) : key === 'rang' ? (t.topf === 'shortlist' && t.bewertung?.liste === 'A' ? sucheZahl(t.bewertung?.rang) : null) : sucheZahl(t.bewertung?.[key]);
   const x = key==='anbieter' ? value(a) : Object.hasOwn(STAY_FIELDS,key) ? stayFieldValue(a,key) : value(a), y = key==='anbieter' ? value(b) : Object.hasOwn(STAY_FIELDS,key) ? stayFieldValue(b,key) : value(b);
@@ -1103,7 +1105,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   const results = el('section', { 'aria-label': 'Suchergebnisse' });
   const filter = el('input', { type: 'search', placeholder: 'Name oder Anbieter', oninput: () => { pages.clear(); draw(); } });
   const sortSelect = el('select', { 'aria-label': 'Sortieren nach', onchange: () => changeSort(sortSelect.value) },
-    [...(SUCHE_SCORE_AN ? [['rang', 'Empfohlene Rangfolge']] : []), ['preis', 'Gesamtpreis'], ...(SUCHE_SCORE_AN ? [['score', 'Passung'], ['datenlage', 'Datenlage']] : []), ['schlafzimmer', 'Schlafzimmer'], ['m2', 'Fläche (m²)'], ['betten', 'Bettentypen'], ['gaestenote', 'Gästenote'], ['warnungen', 'Warnungen'], ['anbieter', 'Anbieter'], ['bewertungen', 'Anzahl Bewertungen'], ['entfernung', 'Luftlinie zum Ziel'], ['gehzeit', 'Gehzeit zur Station'], ...SUCHE_NOTEN.map(([key, label]) => ['note_' + key, label]), ['name', 'Name']].map(([key, label]) => el('option', { value: key }, label)));
+    [...(SUCHE_SCORE_AN ? [['rang', 'Empfohlene Rangfolge']] : []), ['preis', 'Gesamtpreis'], ...(SUCHE_SCORE_AN ? [['score', 'Passung'], ['datenlage', 'Datenlage']] : []), ['urteil', 'Mein Urteil'], ['schlafzimmer', 'Schlafzimmer'], ['m2', 'Fläche (m²)'], ['betten', 'Bettentypen'], ['gaestenote', 'Gästenote'], ['warnungen', 'Warnungen'], ['anbieter', 'Anbieter'], ['bewertungen', 'Anzahl Bewertungen'], ['entfernung', 'Luftlinie zum Ziel'], ['gehzeit', 'Gehzeit zur Station'], ...SUCHE_NOTEN.map(([key, label]) => ['note_' + key, label]), ['name', 'Name']].map(([key, label]) => el('option', { value: key }, label)));
   const directionButton = el('button', { type: 'button', onclick: () => { sort.direction *= -1; pages.clear(); draw(); } }, 'Aufsteigend ↑');
   const pageSize = el('select', { 'aria-label': 'Treffer je Liste und Seite', onchange: () => { pages.clear(); draw(); } }, [10, 25, 50].map(n => el('option', { value: n }, String(n))));
   const filterCount = el('p', { class: 'small', role: 'status' });
@@ -1145,7 +1147,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   } }, 'Vorläufige Treffer ansehen');
   function resultSelection(t) {
     const node=sucheAuswahl(t,selectionStates,call,live,selectionChanged);
-    if(t.status==='favorit'){ if(SUCHE_SCORE_AN) node.append(el('button',{type:'button',onclick:()=>tripBookFromSearch(t,id)},'Als gebucht markieren')); else node.querySelector('.actions')?.append(el('button',{type:'button',class:'sel-buchen','aria-label':'Als gebucht markieren',title:'Als gebucht markieren',onclick:()=>tripBookFromSearch(t,id)},stayIcon('kalender'))); } // 0.36.3: als Symbol in der Reihe
+    if(t.status==='favorit'){ if(SUCHE_SCORE_AN) node.append(el('button',{type:'button',onclick:()=>tripBookFromSearch(t,id)},'Als gebucht markieren')); else node.querySelector('.actions')?.append(el('button',{type:'button',class:'sel-buchen','aria-label':'Als gebucht markieren',title:'Als gebucht markieren',onclick:()=>tripBookFromSearch(t,id)},stayIcon('kalender'))); } // 0.36.4: als Symbol in der Reihe
     if(review.blocked || review.pending)node.querySelectorAll('button').forEach(b=>b.disabled=true);
     return node;
   }
@@ -1154,7 +1156,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     if (current) current.status = state.saved;
     lastSelection = t.treffer_id;
     if (SUCHE_SCORE_AN) notice.textContent = (t.name || 'Unterkunft') + ': ' + state.message;
-    else { aToast.textContent = (t.name || 'Unterkunft') + ': ' + state.message; aToast.classList.remove('an'); void aToast.offsetWidth; aToast.classList.add('an'); if (!aToast.isConnected) scope.append(aToast); } // 0.36.3: kurze Einblendung statt Textzeile oben
+    else { aToast.textContent = (t.name || 'Unterkunft') + ': ' + state.message; aToast.classList.remove('an'); void aToast.offsetWidth; aToast.classList.add('an'); if (!aToast.isConnected) scope.append(aToast); } // 0.36.4: kurze Einblendung statt Textzeile oben
     draw();
     const row = (showMap ? mapPanel : results).querySelector(`[data-hit="${t.treffer_id}"]`); // W104: im Rechner-Split liegt die Zeile in der Liste
     (row?.getClientRects().length ? row : undoSelection.hidden ? refresh : undoSelection).focus({ preventScroll: true });
@@ -1205,7 +1207,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   // 0.36.0 (Sebastian 21.10.): ohne Score eine Werkzeugzeile (Suchen · Sortieren · Filter) und die Filter als Blatt von unten.
   const fState = stayFilterState(id); // 0.36.0: gemeinsamer Spaltenfilter (Liste, Karte, Durchsehen, Tabelle)
   const aBlatt = SUCHE_SCORE_AN ? null : stayFilterBlatt({ rows: () => snapshot?.treffer || [], ctx: () => ({ trip: snapshot?.suchauftrag || {}, vergleich: stayVergleich(snapshot?.treffer || [], snapshot?.suchauftrag || {}) }), st: fState, onChange: () => { pages.clear(); draw(); } });
-  const A_SORT = [['preis:1','Preis ↑','Preis – günstigste zuerst'],['gaestenote:-1','Note ↓','Gästenote – beste zuerst'],['entfernung:1','Nähe ↑','Luftlinie zum Ziel – nächste zuerst'],['gehzeit:1','Station ↑','Gehzeit zur Station – kürzeste zuerst'],['bewertungen:-1','Bewertungen ↓','Anzahl Bewertungen – meiste zuerst'],['schlafzimmer:-1','Schlafzimmer ↓','Schlafzimmer – meiste zuerst'],['m2:-1','Fläche ↓','Fläche – größte zuerst'],['name:1','Name A–Z','Name – A bis Z']];
+  const A_SORT = [['preis:1','Preis ↑','Preis – günstigste zuerst'],['urteil:1','Mein Urteil','Dein Urteil – ♥ zuerst, dann Na ja, offen'],['gaestenote:-1','Gästenote ↓','Gästenote – beste zuerst'],['entfernung:1','Nähe ↑','Luftlinie zum Ziel – nächste zuerst'],['gehzeit:1','Station ↑','Gehzeit zur Station – kürzeste zuerst'],['bewertungen:-1','Anzahl Bew. ↓','Anzahl Bewertungen – meiste zuerst'],['schlafzimmer:-1','Schlafzimmer ↓','Schlafzimmer – meiste zuerst'],['m2:-1','Fläche ↓','Fläche – größte zuerst'],['name:1','Name A–Z','Name – A bis Z']];
   const aSort = el('select', { class: 'a-sort', 'aria-label': 'Sortieren', onchange: () => { const [key, dir] = aSort.value.split(':'); sort = { key, direction: Number(dir) === -1 ? -1 : 1 }; pages.clear(); draw(); } });
   const aSortSync = () => { const v = sort.key + ':' + (sort.direction === -1 ? -1 : 1); const list = A_SORT.some(([k]) => k === v) ? A_SORT : [...A_SORT, [v, (sortSelect.selectedOptions[0]?.textContent || sort.key) + (sort.direction === -1 ? ' ↓' : ' ↑'), '']]; aSort.replaceChildren(...list.map(([k, short, long]) => el('option', { value: k, title: long }, short))); aSort.value = v; };
   const aBadge = el('span', { class: 'a-badge', hidden: true });
@@ -1251,7 +1253,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     const aCount = snapshot.treffer.filter(t => t.topf !== 'ausgeschlossen' && t.topf !== 'unbewertet' && t.bewertung?.liste === 'A').length;
     if (phase.final && aCount < 10) technical.append(el('p', { class: 'erg-warnung' }, `Datenlage reicht noch nicht für 10 Empfehlungen unter den passenden Treffern (derzeit ${aCount}).`));
     if (a.rohdaten_bis) technical.append(el('p', { class: 'small muted' }, 'Rohdaten werden nach 30 Tagen entfernt. Frist: ' + sucheAbruf(a.rohdaten_bis)));
-    if (!SUCHE_SCORE_AN) { // 0.36.3 (Sebastian 21.10.): Reise in der Kopfzeile, Suchlauf-Details hinter ⓘ – die Liste beginnt weiter oben
+    if (!SUCHE_SCORE_AN) { // 0.36.4 (Sebastian 21.10.): Reise in der Kopfzeile, Suchlauf-Details hinter ⓘ – die Liste beginnt weiter oben
       const kinder = (a.kinder_alter || []).map(Number).filter(Number.isFinite), d = x => new Date(x + 'T12:00:00');
       const von = d(a.anreise), bis = d(a.abreise), gleich = von.getMonth() === bis.getMonth();
       const zeit = gleich ? `${von.getDate()}.–${bis.getDate()}.${bis.getMonth() + 1}.` : `${shortDate(a.anreise)}–${shortDate(a.abreise)}`;

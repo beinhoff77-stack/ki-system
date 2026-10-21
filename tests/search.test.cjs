@@ -211,13 +211,13 @@ test('PWA installiert vollständige Offline-Hülle, API wird nicht gecacht', asy
   assert(cacheNames.includes('ki-system:' + origin + '/another-app/:v1'));
   assert(!cacheNames.includes('ki-system:' + origin + '/:old'));
   await page.evaluate(() => fetch('README.md'));
-  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v55')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
-  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.36.1')); assert(cached.includes('/style.css?v=0.36.1'));
-  assert(cached.includes('/stay-tools.js?v=0.36.1')); assert(cached.includes('/stay-desk.js?v=0.36.1')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
-  assert(cached.includes('/stay-research.js?v=0.36.1'));
-  assert(cached.includes('/stay-form.js?v=0.36.1'));
-  assert(cached.includes('/stay-details.js?v=0.36.1'));
-  assert(cached.includes('/stay-districts.js?v=0.36.1'));
+  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v57')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
+  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.36.3')); assert(cached.includes('/style.css?v=0.36.3'));
+  assert(cached.includes('/stay-tools.js?v=0.36.3')); assert(cached.includes('/stay-desk.js?v=0.36.3')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
+  assert(cached.includes('/stay-research.js?v=0.36.3'));
+  assert(cached.includes('/stay-form.js?v=0.36.3'));
+  assert(cached.includes('/stay-details.js?v=0.36.3'));
+  assert(cached.includes('/stay-districts.js?v=0.36.3'));
   assert(!cached.includes('/README.md'));
   assert(!cached.some((u) => u.includes('app-api')));
   await context.setOffline(true); await page.reload();
@@ -733,7 +733,7 @@ test('Favorit, Weg und Rückgängig speichern bestätigte Zustände ohne doppelt
   await selection.getByRole('button',{name:'☆ Favorit',exact:true}).dblclick();
   await waitForCallback(()=>releaseWrite);
   assert.equal(calls.filter(p=>p.aktion==='unterkunft_durchsehen_urteil').length,1);
-  assert.equal(await selection.getByRole('button',{name:'★ Favorit',exact:true}).isDisabled(),true); // 0.36.1: sofort sichtbar, gesperrt bis bestätigt
+  assert.equal(await selection.getByRole('button',{name:'★ Favorit',exact:true}).isDisabled(),true); // 0.36.3: sofort sichtbar, gesperrt bis bestätigt
   releaseWrite(); await selection.getByRole('button',{name:'★ Favorit',exact:true}).waitFor();
   await selection.getByRole('button',{name:'Weg',exact:true}).click();
   await page.getByRole('heading',{name:'Passende Treffer (2)'}).waitFor();
@@ -1465,7 +1465,7 @@ test('W98: Tabelle filtert (unbekannt bleibt sichtbar), sortiert, markiert per S
   assert.deepEqual([...w.treffer_ids].sort(),[2,3,4]);assert.equal(w.urteil,'weg');assert.deepEqual(w.gruende,['preis']);assert.equal(w.notiz,'Zu weit draußen');
   assert.equal(w.fakten['4'].preis_gesamt,2800);assert.equal(w.fakten['4'].m2,70);assert.equal(w.fakten['4'].preis_nacht,400);assert.equal(w.fakten['4'].typ,'apartment');
   assert.equal(await page.locator('.desk-table [data-hit="4"] td[data-field=warum]').textContent(),'zu teuer');
-  await page.getByRole('button',{name:'✕ 3',exact:true}).click();assert.deepEqual(await ids(),[4,3,2]);
+  await page.getByRole('button',{name:'✕ Raus 3',exact:true}).click();assert.deepEqual(await ids(),[4,3,2]);
   await page.getByRole('button',{name:'Rückgängig',exact:true}).click();await page.getByText('Rückgängig gemacht.',{exact:true}).waitFor();
   assert.deepEqual(calls.find(p=>p.aktion==='unterkunft_urteile_zuruecksetzen').daten.rueckmeldung_ids,[9]);
   await page.getByRole('button',{name:/^Alle/}).click();
@@ -2450,7 +2450,7 @@ test('19.10.: Score aus – keine Passung, kein Rang, keine Reiseart; Sortierung
   assert.equal(await page.getByText(/Passung/).count(), 0, 'keine Passung sichtbar');
   assert.equal(await a.locator('tbody tr[data-hit] .hit-score').count(), 0, 'keine Score-Spalte');
   assert.equal(await page.getByText(/^Rang \d/).count(), 0, 'kein Rang');
-  const sort = page.locator('select.a-sort').first(); // 0.36.1: kompakte Sortierung in der Werkzeugzeile
+  const sort = page.locator('select.a-sort').first(); // 0.36.3: kompakte Sortierung in der Werkzeugzeile
   const optionen = await sort.locator('option').evaluateAll(o => o.map(x => x.value.split(':')[0]));
   assert.ok(!optionen.includes('rang') && !optionen.includes('score') && !optionen.includes('datenlage'), 'keine Score-Sortierung');
   assert.equal(await sort.inputValue(), 'preis:1', 'Standard: Gesamtpreis, günstigste zuerst');
@@ -2483,11 +2483,10 @@ test('W98c: Score aus – Liste mit Urteils-Chips, Na ja, Preiszeile', async (t)
   assert.equal(await page.locator('[data-group=A] tr[data-hit="3"]').count(), 0, 'Raus standardmäßig versteckt');
   await chips.getByRole('button', { name: /^Alles inkl\. Raus/ }).click();
   await page.locator('[data-group=A] tr[data-hit="3"]').waitFor();
-  await chips.getByRole('button', { name: /^★ Favoriten 1$/ }).waitFor();
+  await chips.getByRole('button', { name: /^♥ Favoriten 1$/ }).waitFor();
   await page.getByRole('button', { name: /^Alle ohne Raus/ }).click();
-  // nur Favoriten: Offen und Na ja abwählen
-  await page.locator('.urteil-chips').getByRole('button', { name: /^Offen \d+$/ }).click();
-  await page.locator('.urteil-chips').getByRole('button', { name: /^~ Na ja \d+$/ }).click();
+  // 0.36.3: ein Urteils-Chip aus „Ohne Raus“ heraus zeigt nur dieses Urteil
+  await page.locator('.urteil-chips').getByRole('button', { name: /^♥ Favoriten \d+$/ }).click();
   await page.waitForFunction(() => document.querySelectorAll('[data-group=A] tr[data-hit]').length === 1);
   assert.equal(await page.locator('[data-group=A] tr[data-hit="2"]').count(), 1);
   await page.getByRole('button', { name: /^Alle ohne Raus/ }).click();

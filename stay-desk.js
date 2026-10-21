@@ -165,8 +165,8 @@ function stayDeskTable({ rows, trip, call, live, onChanged, openDetail, scope })
   let spalten = stayDeskSpalten();
   const box = el('section', { class: 'card desk', 'aria-label': 'Tabelle' });
   const counts = { alle: rows.length, offen: rows.filter(t => !STAY_STATUS_URTEIL[t.status]).length, favorit: rows.filter(t => t.status === 'favorit').length, vielleicht: rows.filter(t => t.status === 'vielleicht').length, ausgeschlossen: rows.filter(t => t.status === 'ausgeschlossen').length };
-  const gruppen = el('div', { class: 'desk-gruppen', role: 'group', 'aria-label': 'Nach Urteil zeigen' }, [['alle','Alle'],['offen','Ohne Urteil'],['favorit','★'],['vielleicht','~'],['ausgeschlossen','✕']].map(([k, label]) =>
-    el('button', { type: 'button', 'aria-pressed': String(st.gruppe === k), onclick: () => { st.gruppe = k; stayWrite('ks_tabelle_gruppe', k); onChanged(); } }, `${label} ${counts[k]}`)));
+  const gruppen = el('div', { class: 'desk-gruppen', role: 'group', 'aria-label': 'Nach Urteil zeigen' }, [['alle','Alle'],['offen','Offen'],['favorit','♥ Favoriten'],['vielleicht','~ Na ja'],['ausgeschlossen','✕ Raus']].map(([k, label]) =>
+    el('button', { type: 'button', class: 'urteil-chip uc-' + ({ ausgeschlossen: 'raus' }[k] || k), 'aria-pressed': String(st.gruppe === k), 'aria-label': `${label} ${counts[k]}`, onclick: () => { st.gruppe = k; stayWrite('ks_tabelle_gruppe', k); onChanged(); } }, ...(STAY_URTEIL_ICON[{ ausgeschlossen: 'raus' }[k] || k] ? [stayIcon(STAY_URTEIL_ICON[{ ausgeschlossen: 'raus' }[k] || k]), String(counts[k])] : [`${label} ${counts[k]}`]))));
   const spaltenWahl = el('details', { class: 'desk-spalten' }, el('summary', {}, 'Spalten'), el('div', { class: 'desk-spalten-panel' },
     el('p', { class: 'small muted' }, 'Gilt nur für die Tabelle. Reihenfolge mit ↑ ↓.'),
     el('ol', {}, spalten.map((k, i) => { const s = STAY_DESK_SPALTEN.find(x => x.key === k); const move = d => { const n = stayMove(spalten, i, i + d); stayWrite('ks_tabelle_spalten', n); onChanged(); };
@@ -301,18 +301,22 @@ function stayUrteilFilter() {
   const v = stayRead('ks_urteil_filter', null);
   return new Set(Array.isArray(v) && v.length && v.every(k => ['offen', 'favorit', 'vielleicht', 'raus'].includes(k)) ? v : STAY_URTEIL_FILTER_STANDARD);
 }
+const STAY_URTEIL_ICON = { favorit: 'herz', vielleicht: 'naja', raus: 'raus' };
 function stayUrteilChips(rows, onChange) {
   const an = stayUrteilFilter(), relevant = rows.filter(t => t.topf !== 'ausgeschlossen' || STAY_STATUS_URTEIL[t.status]);
   const zahl = k => relevant.filter(t => stayUrteilKey(t) === k).length, alle = ['offen', 'favorit', 'vielleicht', 'raus'];
   const setze = next => { stayWrite('ks_urteil_filter', [...next]); onChange(); };
-  // 0.36.0: kurze sichtbare Beschriftung (passt in eine Zeile), voller Name bleibt für Vorlesen/Tests erhalten
-  const kurz = { favorit: '★', vielleicht: '~', offen: '○', raus: '✕' };
-  const chip = (k, label) => el('button', { type: 'button', class: 'urteil-chip uc-' + k, 'aria-label': `${label} ${zahl(k)}`, title: label, 'aria-pressed': String(an.has(k)), onclick: () => { const n = new Set(an); n.has(k) ? n.delete(k) : n.add(k); setze(n.size ? n : new Set(STAY_URTEIL_FILTER_STANDARD)); } }, `${kurz[k]} ${zahl(k)}`);
+  // 0.36.3 (Sebastian 21.10.: „Zeichen vereinheitlichen“): dieselben Symbole wie die Knöpfe in der Zeile (♥ / Welle / ✕).
+  // Gedrückt sieht nur aus, was du gewählt hast: „Ohne Raus“ oder „Alle“ – oder einzelne Urteile. Ein Urteils-Chip aus „Ohne Raus“/„Alle“ heraus wählt nur dieses.
+  const standard = STAY_URTEIL_FILTER_STANDARD.every(k => an.has(k)) && !an.has('raus') && an.size === 3, allesAn = alle.every(k => an.has(k));
+  const chip = (k, label) => el('button', { type: 'button', class: 'urteil-chip uc-' + k, 'aria-label': `${label} ${zahl(k)}`, title: label, 'aria-pressed': String(!standard && !allesAn && an.has(k)),
+    onclick: () => { if (standard || allesAn) { setze(new Set([k])); return; } const n = new Set(an); n.has(k) ? n.delete(k) : n.add(k); setze(n.size ? n : new Set(STAY_URTEIL_FILTER_STANDARD)); } },
+    ...(STAY_URTEIL_ICON[k] ? [stayIcon(STAY_URTEIL_ICON[k]), String(zahl(k))] : [`${label} ${zahl(k)}`]));
   return el('div', { class: 'urteil-chips', role: 'group', 'aria-label': 'Nach Urteil zeigen' },
-    el('button', { type: 'button', class: 'urteil-chip uc-alle', 'aria-label': `Alle ohne Raus ${relevant.length - zahl('raus')}`, 'aria-pressed': String(STAY_URTEIL_FILTER_STANDARD.every(k => an.has(k)) && !an.has('raus')), onclick: () => setze(new Set(STAY_URTEIL_FILTER_STANDARD)) }, `Ohne Raus ${relevant.length - zahl('raus')}`),
-    el('button', { type: 'button', class: 'urteil-chip uc-alles', 'aria-label': `Alles inkl. Raus ${relevant.length}`, 'aria-pressed': String(alle.every(k => an.has(k))), onclick: () => setze(new Set(alle)) }, `Alle ${relevant.length}`),
+    el('button', { type: 'button', class: 'urteil-chip uc-alle', 'aria-label': `Alle ohne Raus ${relevant.length - zahl('raus')}`, 'aria-pressed': String(standard), onclick: () => setze(new Set(STAY_URTEIL_FILTER_STANDARD)) }, `Ohne Raus ${relevant.length - zahl('raus')}`),
+    el('button', { type: 'button', class: 'urteil-chip uc-alles', 'aria-label': `Alles inkl. Raus ${relevant.length}`, 'aria-pressed': String(allesAn), onclick: () => setze(new Set(alle)) }, `Alle ${relevant.length}`),
     el('span', { class: 'uc-trenner', 'aria-hidden': 'true' }),
-    chip('favorit', '★ Favoriten'), chip('vielleicht', '~ Na ja'), chip('offen', 'Offen'), chip('raus', '✕ Raus'));
+    chip('favorit', '♥ Favoriten'), chip('vielleicht', '~ Na ja'), chip('offen', 'Offen'), chip('raus', '✕ Raus'));
 }
 
 // ===== 0.36.0 (Sebastian 21.10.: „Spalten = Filter“): ein gemeinsamer Filter für Liste, Karte, Durchsehen und Tabelle =====

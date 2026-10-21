@@ -30,18 +30,26 @@ function sucheViertelForm(form, call, live, changed = () => {}) {
   function paint() {
     list.replaceChildren(...rows.map(z => {
       const input = el('input', { type: 'checkbox', 'aria-label': 'Suchviertel: ' + z.name, onchange: () => {
-        if (input.checked) { selected.add(z.id); if (mode.value === 'egal') mode.value = 'pflicht'; } else selected.delete(z.id);
+        if (input.checked) { selected.add(z.id); if (mode.value === 'egal') { mode.value = SUCHE_SCORE_AN ? 'pflicht' : 'wunsch'; syncModus(); } } else selected.delete(z.id);
         changed();
       } }); input.checked = selected.has(z.id);
+      if (!SUCHE_SCORE_AN) return el('label', { class: 'check-label vf-chip', title: z.status === 'vorschlag' ? 'Automatischer Vorschlag, ungeprüft' : 'Von dir bestätigt' }, input, z.name, z.status === 'bestaetigt' ? el('span', { class: 'vf-ok', 'aria-hidden': 'true' }, ' ✓') : null);
       return el('label', { class: 'check-label' }, input, z.name, z.status === 'vorschlag' ? ' · ungeprüft' : ' · bestätigt');
     }));
+    if (!SUCHE_SCORE_AN && rows.some(z => z.status === 'vorschlag')) list.append(el('p', { class: 'vf-hinweis small muted' }, 'Automatische Vorschläge, noch nicht geprüft. ✓ = von dir bestätigt.'));
+    syncModus();
   }
+  // W113: ohne Score die Bedeutung als drei Chips (das Auswahlfeld bleibt die Datenquelle)
+  const modusChips = el('div', { class: 'vf-modus af-chips', role: 'group', 'aria-label': 'Viertel berücksichtigen' }, [['egal', 'Egal'], ['pflicht', 'Nur diese'], ['wunsch', 'Bevorzugen']].map(([v, t]) =>
+    el('button', { type: 'button', class: 'af-chip', 'data-modus': v, onclick: () => { mode.value = v; syncModus(); changed(); } }, t)));
+  function syncModus() { for (const b of modusChips.children) b.setAttribute('aria-pressed', String(b.dataset.modus === mode.value)); }
+  if (!SUCHE_SCORE_AN) { node.classList.add('vf-a'); node.querySelector(':scope > label').after(modusChips); syncModus(); }
   form.elements.ziel.addEventListener('input', () => {
     if (viertelStadt(form.elements.ziel.value) === loadedCity) return;
     revision++; loadedCity = ''; rows = []; selected.clear(); mode.value = 'egal'; paint();
     notice.textContent = 'Viertelauswahl geleert. Viertel für den neuen Zielort laden.'; changed();
   });
-  mode.addEventListener('change', changed);
+  mode.addEventListener('change', () => { syncModus(); changed(); });
   async function load() {
     const city = form.elements.ziel.value.trim(), key = viertelStadt(city);
     if (loading) return;

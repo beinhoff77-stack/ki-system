@@ -2094,3 +2094,74 @@ body[data-area="unterkunft"] main.view:has(.a-ergebnis) { padding-top: 2px; }
 .review-links .a-rund .ic { width: 18px; height: 18px; }
 .review-links:has(.a-rund) > .a-lage-knopf { order: 2; }
 .review-links:has(.a-rund) > button:not(.a-lage-knopf) { order: 1; }
+.a-sort-pill select { width: 98px; max-width: 98px; }
+/* 0.36.4: Detail-Fenster im A-Stil */
+.ad { display: flex; flex-direction: column; gap: 12px; margin-top: 10px; }
+.ad-kopf { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; }
+.ad-kopf .a-meta { margin: 4px 0 0; display: flex; align-items: center; gap: 6px; font-size: 13.5px; color: var(--a-muted); }
+.ad-kopf .a-meta .ic { width: 16px; height: 16px; }
+.ad-kopf .a-preis { text-align: right; display: flex; flex-direction: column; align-items: flex-end; }
+.ad-kopf .a-preis strong { font-size: 22px; font-weight: 800; color: var(--a-ink); }
+.ad-kopf .a-preis small { font-size: 12.5px; color: var(--a-muted); }
+.ad .a-r-fakten { margin: 0; }
+.ad-thema { border: 1px solid #e6eeed; border-radius: 14px; padding: 4px 12px; }
+.ad-thema h4 { margin: 8px 0 4px; font-size: 11.5px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; color: var(--a-muted); }
+.ad-zeile { display: grid; grid-template-columns: 18px minmax(0, 1fr) auto; align-items: center; gap: 8px; min-height: 36px; border-top: 1px solid #f0f4f3; font-size: 13.5px; }
+.ad-thema h4 + .ad-zeile { border-top: 0; }
+.ad-zeile .ic { width: 16px; height: 16px; color: var(--a-teal); }
+.ad-label { color: var(--a-muted); min-width: 0; }
+.ad-wert { font-weight: 700; color: var(--a-ink); text-align: right; max-width: 60vw; overflow-wrap: anywhere; }
+.ad-unbekannt { border-radius: 12px; background: #f4f7f6; padding: 0 12px; }
+.ad-unbekannt summary { cursor: pointer; padding: 10px 0; font-size: 13px; font-weight: 700; color: var(--a-muted); }
+.ad-unbekannt p { margin: 0 0 10px; font-size: 12.5px; color: var(--a-muted); line-height: 1.5; }
+/* 0.36.4: Reiseplan im A-Stil – kompakte Etappen */
+.trips-page .trip-hero { padding: 16px 18px !important; }
+.trips-page .trip-hero p:not(.eyebrow) { display: none; }
+.trips-page .trip-hero h2 { font-size: 20px !important; margin: 2px 0 0 !important; }
+.trip-stage.a-etappe { padding: 14px 16px; }
+.a-etappe .stage-main h3 { margin: 4px 0 2px; font-size: 20px; }
+.a-etappe .stage-main > p.muted { margin: 0 0 8px; font-size: 13px; }
+.a-etappe-link { display: flex; align-items: center; justify-content: center; gap: 8px; height: 46px; margin: 8px 0 0; border-radius: 12px; background: var(--a-teal, #0e3b43); color: #fff !important; font-weight: 800; font-size: 14.5px; text-decoration: none !important; }
+.a-etappe-link .ic { width: 18px; height: 18px; }
+.a-etappe-leiste { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 6px; margin-top: 8px; }
+.a-etappe-leiste > details { flex: 0 0 auto; }
+.a-etappe-leiste > details[open] { flex: 1 1 100%; order: 9; }
+.a-etappe-leiste > details > summary { list-style: none; display: inline-flex; align-items: center; gap: 6px; height: 36px; padding: 0 12px; border: 1px solid #dfe8e6; border-radius: 18px; background: #fff; font-size: 13px; font-weight: 700; color: var(--a-ink, #14343b); cursor: pointer; }
+.a-etappe-leiste > details > summary::-webkit-details-marker { display: none; }
+.a-etappe-leiste > details > summary .ic { width: 15px; height: 15px; color: var(--a-teal, #0e3b43); }
+.a-etappe-menu { margin-left: auto; }
+.a-etappe-menu > summary { width: 36px; justify-content: center; padding: 0 !important; font-size: 18px !important; }
+.a-etappe-menu[open] { flex: 0 0 auto !important; order: 0 !important; position: relative; }
+.a-etappe-menu-liste { position: absolute; right: 0; top: 42px; z-index: 20; min-width: 210px; display: flex; flex-direction: column; padding: 6px; background: #fff; border: 1px solid #e1e8e6; border-radius: 14px; box-shadow: 0 10px 30px rgba(20,52,59,.18); }
+.a-etappe-menu-liste button { justify-content: flex-start; text-align: left; min-height: 40px; height: 40px; margin: 0; border: 0; background: transparent; border-radius: 10px; font-size: 14px; font-weight: 600; padding: 0 10px; width: 100%; }
+.a-etappe-menu-liste button:hover { background: #f3f6f5; }
+.a-etappe-fotos[open], .a-etappe-varianten[open] { padding: 8px 0 0; }
+/* 0.36.4: Favoriten kompakt */
+.saved-stay.a-fav { display: grid; grid-template-columns: 72px minmax(0, 1fr) auto; grid-template-areas: "foto text preis" "foto knoepfe knoepfe"; gap: 4px 10px; align-items: start; padding: 10px 0; border-top: 1px solid #edf2f1; }
+.a-fav .a-fav-foto { grid-area: foto; display: block; width: 72px; height: 72px; border-radius: 10px; overflow: hidden; }
+.a-fav .a-fav-foto .stay-photo, .a-fav .a-fav-foto img { width: 72px !important; height: 72px !important; margin: 0; object-fit: cover; }
+.a-fav .a-fav-foto figcaption { display: none; }
+.a-fav-text { grid-area: text; min-width: 0; }
+.a-fav-text .saved-stay-name { display: block; font-size: 14.5px; font-weight: 800; color: var(--a-ink, #14343b); text-decoration: none; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.a-fav-meta { margin: 2px 0 0; font-size: 12.5px; color: var(--a-muted, #5b6f72); }
+.a-fav-stand { margin: 1px 0 0; font-size: 11.5px; color: var(--a-muted, #5b6f72); }
+.a-fav-preis { grid-area: preis; text-align: right; display: flex; flex-direction: column; }
+.a-fav-preis strong { font-size: 16px; font-weight: 800; color: var(--a-ink, #14343b); white-space: nowrap; }
+.a-fav-preis small { font-size: 11.5px; color: var(--a-muted, #5b6f72); }
+.a-fav-knoepfe { grid-area: knoepfe; display: flex; gap: 6px; justify-content: flex-end; }
+.a-fav-knopf { width: 36px; height: 36px; min-height: 36px; padding: 0; margin: 0; border-radius: 50%; border: 1px solid #e1e8e6; background: #fff; color: var(--a-teal, #0e3b43); display: inline-flex; align-items: center; justify-content: center; text-decoration: none; }
+.a-fav-knopf .ic { width: 17px; height: 17px; }
+.a-fav-knopf.is-buchen { border-color: var(--a-fav, #2f8a4e); color: var(--a-fav, #2f8a4e); }
+.saved-trip h3 { margin: 4px 0 0; font-size: 18px; }
+.stay-page-heading h2 { font-size: 24px; }
+/* 0.36.4: Bereichsleiste in der Unterkunftssuche am Handy schmaler (72 → 52 px), Tabellen-Hinweis am Handy aus */
+@media (max-width: 799px) {
+  body[data-area="unterkunft"] { padding-top: 52px; }
+  body[data-area="unterkunft"] .area-nav { height: 52px; }
+  body[data-area="unterkunft"] header.top { top: 52px; }
+  body[data-area="unterkunft"] .result-view-switch { top: 52px; }
+  body[data-area="unterkunft"] .area-switch { padding: 2px; border-radius: 12px; }
+  body[data-area="unterkunft"] .area-switch a { padding: 6px 12px; font-size: 12.5px; }
+  body[data-area="unterkunft"] .system-brand { font-size: 14px; }
+  .a-ergebnis .desk-hinweis { display: none; }
+}

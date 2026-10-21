@@ -87,7 +87,7 @@ function sucheKandidat(t, final, suchauftragId) {
     const rest = []; let n = anchor.nextSibling; while (n) { rest.push(n); n = n.nextSibling; }
     const mehr = el('details', { class: 'candidate-mehr' }, el('summary', {}, 'Mehr: Angebote je Quelle, Zimmerarten, Bildbewertung'));
     mehr.append(...rest);
-    anchor.after(stayReviewInfo(t, t._trip || {}), mehr);
+    anchor.after(typeof stayDetailA === 'function' ? stayDetailA(t, t._trip || {}) : stayReviewInfo(t, t._trip || {}), mehr); // 0.36.4: A-Stil
   }
   return dialog;
 }
@@ -105,6 +105,22 @@ function sucheMerkliste(entries) {
     for (const t of rows) {
       const href = '#/suche/' + id + '?favoriten=1&treffer=' + t.treffer_id, offer = sucheLink(t.link);
       const name = t.name || 'Unterkunft ' + t.treffer_id;
+      if (!SUCHE_SCORE_AN) { // 0.36.4 (Sebastian 21.10.): Favoriten kompakt wie die Liste – Foto, Name, Preis, Symbol-Knöpfe
+        const note = sucheZahl(t.note) !== null && sucheZahl(t.note_skala) ? Number(t.note) / Number(t.note_skala) * 10 : null;
+        const naechte = Math.round((Date.parse(t.abreise) - Date.parse(t.anreise)) / 86400000), preis = sucheZahl(t.preis_gesamt_eur), ca = t.preis_art === 'geschaetzt' ? 'ca. ' : '';
+        const euro = x => Math.round(x).toLocaleString('de-DE') + ' €';
+        const rund = (attrs, icon) => el(attrs.href ? 'a' : 'button', { ...(attrs.href ? {} : { type: 'button' }), class: 'a-fav-knopf', ...attrs }, stayIcon(icon));
+        section.append(el('article', { class: 'saved-stay a-fav', 'data-saved-hit': t.treffer_id },
+          el('a', { href, class: 'a-fav-foto', 'aria-label': name + ' im Suchlauf zeigen' }, sucheFoto(t)),
+          el('div', { class: 'a-fav-text' }, el('a', { href, class: 'saved-stay-name' }, name),
+            el('p', { class: 'a-fav-meta' }, [SUCHE_QUELLEN[t.quelle] || t.quelle, note !== null ? '★ ' + note.toLocaleString('de-DE', { maximumFractionDigits: 1 }) : null, sucheZahl(t.bewertungen) !== null ? '(' + Number(t.bewertungen).toLocaleString('de-DE') + ')' : null].filter(Boolean).join(' · ')),
+            el('p', { class: 'a-fav-stand', title: 'Aktuelle Buchbarkeit beim Anbieter prüfen.' }, 'Preisstand ' + sucheAbruf(t.preis_abrufzeit))),
+          el('div', { class: 'a-fav-preis' }, el('strong', {}, preis === null ? '? €' : ca + euro(preis)), preis !== null && naechte > 0 ? el('small', {}, euro(preis / naechte) + '/N') : null),
+          el('div', { class: 'a-fav-knoepfe' }, offer ? rund({ href: offer, target: '_blank', rel: 'noopener noreferrer', 'aria-label': 'Angebot öffnen', title: 'Angebot öffnen' }, 'extern') : null,
+            rund({ href, 'aria-label': 'Im Suchlauf zeigen', title: 'Im Suchlauf zeigen' }, 'liste'),
+            rund({ onclick: () => tripBookFromSearch(t, id), 'aria-label': 'Als gebucht markieren', title: 'Als gebucht markieren', class: 'a-fav-knopf is-buchen' }, 'kalender'))));
+        continue;
+      }
       section.append(el('article', { class: 'saved-stay', 'data-saved-hit': t.treffer_id }, sucheFoto(t),
         el('div', {}, el('a', { href, class: 'saved-stay-name' }, name), t.eigener_rang ? el('p',{},'Dein Rang '+t.eigener_rang) : null,
           el('p', { class: 'small' }, (SUCHE_QUELLEN[t.quelle] || t.quelle || 'Quelle unbekannt') + ' · ' +

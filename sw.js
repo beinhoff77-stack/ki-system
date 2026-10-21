@@ -1,7 +1,7 @@
 // Service Worker: hält nur die App-Hülle vor (Dateien dieser Seite). Daten kommen immer live von app-api.
 const CACHE_PREFIX = 'ki-system:' + self.registration.scope + ':';
-const CACHE = CACHE_PREFIX + 'v57';
-const HUELLE = ['./', './index.html', './stay-compare.js?v=0.36.3', './stay-refresh.js?v=0.36.3', './stay-workplace.js?v=0.36.3', './stay-notifications.js?v=0.36.3', './stay-photos.js?v=0.36.3', './stay-trips.js?v=0.36.3', './stay-review.js?v=0.36.3', './stay-desk.js?v=0.36.3', './app.js?v=0.36.3', './stay-tools.js?v=0.36.3', './stay-research.js?v=0.36.3', './stay-form.js?v=0.36.3', './stay-details.js?v=0.36.3', './stay-districts.js?v=0.36.3', './vendor/leaflet-1.9.4/leaflet.js', './vendor/leaflet-1.9.4/leaflet.css', './style.css?v=0.36.3', './manifest.webmanifest', './icon.svg', './icon-180.png', './icon-512.png'];
+const CACHE = CACHE_PREFIX + 'v58';
+const HUELLE = ['./', './index.html', './stay-compare.js?v=0.36.4', './stay-refresh.js?v=0.36.4', './stay-workplace.js?v=0.36.4', './stay-notifications.js?v=0.36.4', './stay-photos.js?v=0.36.4', './stay-trips.js?v=0.36.4', './stay-review.js?v=0.36.4', './stay-desk.js?v=0.36.4', './app.js?v=0.36.4', './stay-tools.js?v=0.36.4', './stay-research.js?v=0.36.4', './stay-form.js?v=0.36.4', './stay-details.js?v=0.36.4', './stay-districts.js?v=0.36.4', './vendor/leaflet-1.9.4/leaflet.js', './vendor/leaflet-1.9.4/leaflet.css', './style.css?v=0.36.4', './manifest.webmanifest', './icon.svg', './icon-180.png', './icon-512.png'];
 const HUELLE_URLS = new Set(HUELLE.map(path => new URL(path, self.registration.scope).href));
 
 self.addEventListener('install', (e) => {

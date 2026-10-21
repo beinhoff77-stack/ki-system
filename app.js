@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.35.3';
+const APP_VERSION = '0.36.0';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -1200,7 +1200,22 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   const runTools=el('details',{class:'review-run-tools'},el('summary',{},'Suchlauf'),runActions);
   const runBar=el('div',{class:'review-run-bar'},runTools,endrunde);
   const doneStatus = el('p', { role: 'status', class: 'sr-only' });
-  const filterBox = el('details', { class: 'card filter-box' }, el('summary', {}, 'Filtern & sortieren'), controls, filters.node);
+  // 0.36.0 (Sebastian 21.10.): ohne Score eine Werkzeugzeile (Suchen · Sortieren · Filter) und die Filter als Blatt von unten.
+  const A_SORT = [['preis:1','Preis ↑','Preis – günstigste zuerst'],['gaestenote:-1','Note ↓','Gästenote – beste zuerst'],['entfernung:1','Nähe ↑','Luftlinie zum Ziel – nächste zuerst'],['gehzeit:1','Station ↑','Gehzeit zur Station – kürzeste zuerst'],['bewertungen:-1','Bewertungen ↓','Anzahl Bewertungen – meiste zuerst'],['schlafzimmer:-1','Schlafzimmer ↓','Schlafzimmer – meiste zuerst'],['m2:-1','Fläche ↓','Fläche – größte zuerst'],['name:1','Name A–Z','Name – A bis Z']];
+  const aSort = el('select', { class: 'a-sort', 'aria-label': 'Sortieren', onchange: () => { const [key, dir] = aSort.value.split(':'); sort = { key, direction: Number(dir) === -1 ? -1 : 1 }; pages.clear(); draw(); } });
+  const aSortSync = () => { const v = sort.key + ':' + (sort.direction === -1 ? -1 : 1); const list = A_SORT.some(([k]) => k === v) ? A_SORT : [...A_SORT, [v, (sortSelect.selectedOptions[0]?.textContent || sort.key) + (sort.direction === -1 ? ' ↓' : ' ↑'), '']]; aSort.replaceChildren(...list.map(([k, short, long]) => el('option', { value: k, title: long }, short))); aSort.value = v; };
+  const aBadge = el('span', { class: 'a-badge', hidden: true });
+  const aShow = el('button', { type: 'button', class: 'a-sheet-zeigen', onclick: () => aSheet.close() }, 'Treffer zeigen');
+  const aSheet = SUCHE_SCORE_AN ? null : el('dialog', { class: 'a-sheet', 'aria-label': 'Filter' },
+    el('header', { class: 'a-sheet-kopf' }, el('h2', {}, 'Filter'), el('button', { type: 'button', class: 'a-zu', 'aria-label': 'Filter schließen', onclick: () => aSheet.close() }, stayIcon('raus'))),
+    el('div', { class: 'a-sheet-inhalt' }, filters.node, el('label', { class: 'af-zeile af-seite' }, el('span', { class: 'af-titel' }, stayIcon('liste'), 'Treffer pro Seite'), pageSize)),
+    el('footer', { class: 'a-sheet-fuss' }, el('button', { type: 'button', class: 'a-sheet-reset', onclick: () => { filters.reset(); } }, 'Zurücksetzen'), aShow));
+  aSheet?.addEventListener('click', e => { if (e.target === aSheet) aSheet.close(); });
+  const aSearch = SUCHE_SCORE_AN ? null : el('label', { class: 'a-suche-feld' }, stayIcon('lupe'), filter);
+  const aFilterBtn = el('button', { type: 'button', class: 'a-filter-knopf', 'aria-haspopup': 'dialog', onclick: () => { if (!aSheet.isConnected) scope.append(aSheet); aSheet.showModal(); } }, stayIcon('trichter'), el('span', {}, 'Filter'), aBadge);
+  const filterBox = SUCHE_SCORE_AN ? el('details', { class: 'card filter-box' }, el('summary', {}, 'Filtern & sortieren'), controls, filters.node)
+    : el('div', { class: 'a-werkzeug', role: 'search', 'aria-label': 'Treffer suchen, sortieren und filtern' }, aSearch, el('label', { class: 'a-sort-pill' }, stayIcon('sortieren'), aSort), aFilterBtn);
+  if (!SUCHE_SCORE_AN) { filter.placeholder = 'Name suchen'; filter.setAttribute('aria-label', 'Name oder Anbieter suchen'); }
   scope.append(doneStatus,notice,summary,viewButtons,filterBox,resultLinks,moreConfirm,mapPanel,results,runBar,report);
   function draw() {
     if (!snapshot) return;
@@ -1236,6 +1251,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     controls.hidden = (resultView==='tinder'||resultView==='table')&&!showMap; // W98: Tabelle sortiert selbst
     summary.hidden = resultView==='tinder'&&!showMap;
     filters.node.hidden = resultView==='tinder'&&!showMap; viewButtons.hidden = false;
+    if (!SUCHE_SCORE_AN) { filters.node.hidden = false; filterBox.querySelector('.a-sort-pill').hidden = resultView==='table'&&!showMap; }
     filters.setTypes(snapshot.treffer);
     if (!restoredView) {
       restoredView = true;
@@ -1249,6 +1265,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     }
     sortSelect.value = sort.key;
     directionButton.textContent = sort.direction === 1 ? 'Aufsteigend ↑' : 'Absteigend ↓';
+    if (!SUCHE_SCORE_AN) aSortSync();
     const needle = filter.value.trim().toLocaleLowerCase('de');
     const rows = snapshot.treffer.filter(t => [t.name, t.quelle, SUCHE_QUELLEN[t.quelle], t.angebot?.anbieter,
       ...(Array.isArray(t.weitere_angebote) ? t.weitere_angebote.flatMap(a => [a?.anbieter, a?.quelle, SUCHE_QUELLEN[a?.quelle]]) : [])].some(value => String(value || '').toLocaleLowerCase('de').includes(needle)) && sucheFilterTreffer(t, filters.value()));
@@ -1269,6 +1286,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     undoSelection.hidden = !selectionStates.get(lastSelection)?.undo;
     undoSelection.disabled = review.blocked || review.pending || !!(selectionStates.get(lastSelection)?.pending || selectionStates.get(lastSelection)?.refreshRequired);
     filterCount.textContent = `${rows.length} von ${snapshot.treffer.length} Treffern · Sortierung gilt für die gesamte Liste.`;
+    if (!SUCHE_SCORE_AN) { const n = filters.active(); aBadge.hidden = !n; aBadge.textContent = String(n); aFilterBtn.classList.toggle('ist-aktiv', n > 0); }
     endrunde.disabled=review.pending || !snapshot.treffer.some(t=>t.status==='favorit');
     if(resultView==='tinder' && !showMap){resultLinks.replaceChildren();review.draw();results.append(review.node);return;}
     // W98: Tabelle am Rechner – eine kompakte Tabelle über alle Treffer, Markieren und Massenbewertung, Gründe/Notiz.
@@ -1277,6 +1295,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     // W98c: Ohne eigenen Score eine Liste mit Urteils-Chips (★ / ~ / offen / ✕), gemeinsam für Liste und Karte
     const kompakt=!SUCHE_SCORE_AN; results.classList.toggle('liste-kompakt',kompakt); scope.classList.toggle('a-ergebnis',kompakt); // W104
     const rowsUrteil=kompakt?rows.filter(t=>stayUrteilFilter().has(stayUrteilKey(t))):rows;
+    if (!SUCHE_SCORE_AN) aShow.textContent = rowsUrteil.filter(t=>t.topf!=='ausgeschlossen'||STAY_STATUS_URTEIL[t.status]).length + ' Treffer zeigen';
     const groups = kompakt ? [
       ['A', 'Unterkünfte', rowsUrteil.filter(t=>t.topf!=='ausgeschlossen'||STAY_STATUS_URTEIL[t.status])],
       ['ausgeschlossen', 'Von der Suche aussortiert', rows.filter(t=>t.topf==='ausgeschlossen'&&!STAY_STATUS_URTEIL[t.status])],

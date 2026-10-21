@@ -304,10 +304,12 @@ function stayUrteilChips(rows, onChange) {
   const an = stayUrteilFilter(), relevant = rows.filter(t => t.topf !== 'ausgeschlossen' || STAY_STATUS_URTEIL[t.status]);
   const zahl = k => relevant.filter(t => stayUrteilKey(t) === k).length, alle = ['offen', 'favorit', 'vielleicht', 'raus'];
   const setze = next => { stayWrite('ks_urteil_filter', [...next]); onChange(); };
-  const chip = (k, label) => el('button', { type: 'button', class: 'urteil-chip uc-' + k, 'aria-pressed': String(an.has(k)), onclick: () => { const n = new Set(an); n.has(k) ? n.delete(k) : n.add(k); setze(n.size ? n : new Set(STAY_URTEIL_FILTER_STANDARD)); } }, `${label} ${zahl(k)}`);
+  // 0.36.0: kurze sichtbare Beschriftung (passt in eine Zeile), voller Name bleibt für Vorlesen/Tests erhalten
+  const kurz = { favorit: '★', vielleicht: '~', offen: '○', raus: '✕' };
+  const chip = (k, label) => el('button', { type: 'button', class: 'urteil-chip uc-' + k, 'aria-label': `${label} ${zahl(k)}`, title: label, 'aria-pressed': String(an.has(k)), onclick: () => { const n = new Set(an); n.has(k) ? n.delete(k) : n.add(k); setze(n.size ? n : new Set(STAY_URTEIL_FILTER_STANDARD)); } }, `${kurz[k]} ${zahl(k)}`);
   return el('div', { class: 'urteil-chips', role: 'group', 'aria-label': 'Nach Urteil zeigen' },
-    el('button', { type: 'button', class: 'urteil-chip uc-alle', 'aria-pressed': String(STAY_URTEIL_FILTER_STANDARD.every(k => an.has(k)) && !an.has('raus')), onclick: () => setze(new Set(STAY_URTEIL_FILTER_STANDARD)) }, `Alle ohne Raus ${relevant.length - zahl('raus')}`),
-    el('button', { type: 'button', class: 'urteil-chip uc-alles', 'aria-pressed': String(alle.every(k => an.has(k))), onclick: () => setze(new Set(alle)) }, `Alles inkl. Raus ${relevant.length}`),
+    el('button', { type: 'button', class: 'urteil-chip uc-alle', 'aria-label': `Alle ohne Raus ${relevant.length - zahl('raus')}`, 'aria-pressed': String(STAY_URTEIL_FILTER_STANDARD.every(k => an.has(k)) && !an.has('raus')), onclick: () => setze(new Set(STAY_URTEIL_FILTER_STANDARD)) }, `Ohne Raus ${relevant.length - zahl('raus')}`),
+    el('button', { type: 'button', class: 'urteil-chip uc-alles', 'aria-label': `Alles inkl. Raus ${relevant.length}`, 'aria-pressed': String(alle.every(k => an.has(k))), onclick: () => setze(new Set(alle)) }, `Alle ${relevant.length}`),
     el('span', { class: 'uc-trenner', 'aria-hidden': 'true' }),
     chip('favorit', '★ Favoriten'), chip('vielleicht', '~ Na ja'), chip('offen', 'Offen'), chip('raus', '✕ Raus'));
 }

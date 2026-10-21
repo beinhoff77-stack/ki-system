@@ -208,7 +208,7 @@ function stayDeskTable({ rows, trip, call, live, onChanged, openDetail, scope })
       const foto = sucheLink(t.bild);
       return el('tr', { 'data-hit': t.treffer_id, class: (st.sel.has(t.treffer_id) ? 'is-sel ' : '') + 'desk-s-' + (t.status || 'aktiv') },
         el('td', { class: 'desk-sel' }, box),
-        el('td', { class: 'desk-foto' }, foto ? el('img', { src: foto, alt: '', loading: 'lazy', referrerpolicy: 'no-referrer', onerror: e => e.currentTarget.remove() }) : null),
+        el('td', { class: 'desk-foto' }, foto ? el('button', { type: 'button', class: 'desk-foto-knopf', 'aria-label': 'Fotos von ' + (t.name || 'Unterkunft') + ' groß ansehen', onclick: e => { e.stopPropagation(); stayFotoDialog(t); } }, el('img', { src: foto, alt: '', loading: 'lazy', referrerpolicy: 'no-referrer', onerror: e => e.currentTarget.remove() })) : null), // 0.36.1: Fotos groß wie in der Liste
         el('td', { class: 'desk-name' }, el('button', { type: 'button', class: 'desk-name-btn', title: t.name || '', onclick: () => openDetail?.(t) }, t.name || 'Ohne Namen')),
         el('td', { class: 'desk-urteil-zelle' }, el('button', { type: 'button', class: 'desk-badge desk-b-' + (t.status || 'aktiv'), 'aria-label': 'Urteil ändern: ' + (t.name || ''), onclick: bearbeiten }, zeichen || '·')),
         ...defs.map(s => {

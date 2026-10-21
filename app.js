@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.36.0';
+const APP_VERSION = '0.36.1';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -1144,7 +1144,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   } }, 'Vorläufige Treffer ansehen');
   function resultSelection(t) {
     const node=sucheAuswahl(t,selectionStates,call,live,selectionChanged);
-    if(t.status==='favorit'){ if(SUCHE_SCORE_AN) node.append(el('button',{type:'button',onclick:()=>tripBookFromSearch(t,id)},'Als gebucht markieren')); else node.querySelector('.actions')?.append(el('button',{type:'button',class:'sel-buchen','aria-label':'Als gebucht markieren',title:'Als gebucht markieren',onclick:()=>tripBookFromSearch(t,id)},stayIcon('kalender'))); } // 0.36.0: als Symbol in der Reihe
+    if(t.status==='favorit'){ if(SUCHE_SCORE_AN) node.append(el('button',{type:'button',onclick:()=>tripBookFromSearch(t,id)},'Als gebucht markieren')); else node.querySelector('.actions')?.append(el('button',{type:'button',class:'sel-buchen','aria-label':'Als gebucht markieren',title:'Als gebucht markieren',onclick:()=>tripBookFromSearch(t,id)},stayIcon('kalender'))); } // 0.36.1: als Symbol in der Reihe
     if(review.blocked || review.pending)node.querySelectorAll('button').forEach(b=>b.disabled=true);
     return node;
   }
@@ -1200,8 +1200,8 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   const runTools=el('details',{class:'review-run-tools'},el('summary',{},'Suchlauf'),runActions);
   const runBar=el('div',{class:'review-run-bar'},runTools,endrunde);
   const doneStatus = el('p', { role: 'status', class: 'sr-only' });
-  // 0.36.0 (Sebastian 21.10.): ohne Score eine Werkzeugzeile (Suchen · Sortieren · Filter) und die Filter als Blatt von unten.
-  const fState = stayFilterState(id); // 0.36.0: gemeinsamer Spaltenfilter (Liste, Karte, Durchsehen, Tabelle)
+  // 0.36.1 (Sebastian 21.10.): ohne Score eine Werkzeugzeile (Suchen · Sortieren · Filter) und die Filter als Blatt von unten.
+  const fState = stayFilterState(id); // 0.36.1: gemeinsamer Spaltenfilter (Liste, Karte, Durchsehen, Tabelle)
   const aBlatt = SUCHE_SCORE_AN ? null : stayFilterBlatt({ rows: () => snapshot?.treffer || [], ctx: () => ({ trip: snapshot?.suchauftrag || {}, vergleich: stayVergleich(snapshot?.treffer || [], snapshot?.suchauftrag || {}) }), st: fState, onChange: () => { pages.clear(); draw(); } });
   const A_SORT = [['preis:1','Preis ↑','Preis – günstigste zuerst'],['gaestenote:-1','Note ↓','Gästenote – beste zuerst'],['entfernung:1','Nähe ↑','Luftlinie zum Ziel – nächste zuerst'],['gehzeit:1','Station ↑','Gehzeit zur Station – kürzeste zuerst'],['bewertungen:-1','Bewertungen ↓','Anzahl Bewertungen – meiste zuerst'],['schlafzimmer:-1','Schlafzimmer ↓','Schlafzimmer – meiste zuerst'],['m2:-1','Fläche ↓','Fläche – größte zuerst'],['name:1','Name A–Z','Name – A bis Z']];
   const aSort = el('select', { class: 'a-sort', 'aria-label': 'Sortieren', onchange: () => { const [key, dir] = aSort.value.split(':'); sort = { key, direction: Number(dir) === -1 ? -1 : 1 }; pages.clear(); draw(); } });

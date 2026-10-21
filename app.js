@@ -1154,7 +1154,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     if (current) current.status = state.saved;
     lastSelection = t.treffer_id;
     if (SUCHE_SCORE_AN) notice.textContent = (t.name || 'Unterkunft') + ': ' + state.message;
-    else { aToast.textContent = (t.name || 'Unterkunft') + ': ' + state.message; aToast.classList.remove('an'); void aToast.offsetWidth; aToast.classList.add('an'); if (!aToast.isConnected) scope.append(aToast); } // 0.36.2: kurze Einblendung statt Textzeile oben
+    else { aToast.textContent = (t.name || 'Unterkunft') + ': ' + state.message; aToast.classList.remove('an'); void aToast.offsetWidth; aToast.classList.add('an'); if (!aToast.isConnected) scope.append(aToast); } // 0.36.3: kurze Einblendung statt Textzeile oben
     draw();
     const row = (showMap ? mapPanel : results).querySelector(`[data-hit="${t.treffer_id}"]`); // W104: im Rechner-Split liegt die Zeile in der Liste
     (row?.getClientRects().length ? row : undoSelection.hidden ? refresh : undoSelection).focus({ preventScroll: true });
@@ -1251,7 +1251,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     const aCount = snapshot.treffer.filter(t => t.topf !== 'ausgeschlossen' && t.topf !== 'unbewertet' && t.bewertung?.liste === 'A').length;
     if (phase.final && aCount < 10) technical.append(el('p', { class: 'erg-warnung' }, `Datenlage reicht noch nicht für 10 Empfehlungen unter den passenden Treffern (derzeit ${aCount}).`));
     if (a.rohdaten_bis) technical.append(el('p', { class: 'small muted' }, 'Rohdaten werden nach 30 Tagen entfernt. Frist: ' + sucheAbruf(a.rohdaten_bis)));
-    if (!SUCHE_SCORE_AN) { // 0.36.2 (Sebastian 21.10.): Reise in der Kopfzeile, Suchlauf-Details hinter ⓘ – die Liste beginnt weiter oben
+    if (!SUCHE_SCORE_AN) { // 0.36.3 (Sebastian 21.10.): Reise in der Kopfzeile, Suchlauf-Details hinter ⓘ – die Liste beginnt weiter oben
       const kinder = (a.kinder_alter || []).map(Number).filter(Number.isFinite), d = x => new Date(x + 'T12:00:00');
       const von = d(a.anreise), bis = d(a.abreise), gleich = von.getMonth() === bis.getMonth();
       const zeit = gleich ? `${von.getDate()}.–${bis.getDate()}.${bis.getMonth() + 1}.` : `${shortDate(a.anreise)}–${shortDate(a.abreise)}`;

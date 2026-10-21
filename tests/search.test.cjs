@@ -1465,7 +1465,7 @@ test('W98: Tabelle filtert (unbekannt bleibt sichtbar), sortiert, markiert per S
   assert.deepEqual([...w.treffer_ids].sort(),[2,3,4]);assert.equal(w.urteil,'weg');assert.deepEqual(w.gruende,['preis']);assert.equal(w.notiz,'Zu weit draußen');
   assert.equal(w.fakten['4'].preis_gesamt,2800);assert.equal(w.fakten['4'].m2,70);assert.equal(w.fakten['4'].preis_nacht,400);assert.equal(w.fakten['4'].typ,'apartment');
   assert.equal(await page.locator('.desk-table [data-hit="4"] td[data-field=warum]').textContent(),'zu teuer');
-  await page.getByRole('button',{name:'✕ 3',exact:true}).click();assert.deepEqual(await ids(),[4,3,2]);
+  await page.getByRole('button',{name:'✕ Raus 3',exact:true}).click();assert.deepEqual(await ids(),[4,3,2]);
   await page.getByRole('button',{name:'Rückgängig',exact:true}).click();await page.getByText('Rückgängig gemacht.',{exact:true}).waitFor();
   assert.deepEqual(calls.find(p=>p.aktion==='unterkunft_urteile_zuruecksetzen').daten.rueckmeldung_ids,[9]);
   await page.getByRole('button',{name:/^Alle/}).click();
@@ -2483,11 +2483,10 @@ test('W98c: Score aus – Liste mit Urteils-Chips, Na ja, Preiszeile', async (t)
   assert.equal(await page.locator('[data-group=A] tr[data-hit="3"]').count(), 0, 'Raus standardmäßig versteckt');
   await chips.getByRole('button', { name: /^Alles inkl\. Raus/ }).click();
   await page.locator('[data-group=A] tr[data-hit="3"]').waitFor();
-  await chips.getByRole('button', { name: /^★ Favoriten 1$/ }).waitFor();
+  await chips.getByRole('button', { name: /^♥ Favoriten 1$/ }).waitFor();
   await page.getByRole('button', { name: /^Alle ohne Raus/ }).click();
-  // nur Favoriten: Offen und Na ja abwählen
-  await page.locator('.urteil-chips').getByRole('button', { name: /^Offen \d+$/ }).click();
-  await page.locator('.urteil-chips').getByRole('button', { name: /^~ Na ja \d+$/ }).click();
+  // 0.36.3: ein Urteils-Chip aus „Ohne Raus“ heraus zeigt nur dieses Urteil
+  await page.locator('.urteil-chips').getByRole('button', { name: /^♥ Favoriten \d+$/ }).click();
   await page.waitForFunction(() => document.querySelectorAll('[data-group=A] tr[data-hit]').length === 1);
   assert.equal(await page.locator('[data-group=A] tr[data-hit="2"]').count(), 1);
   await page.getByRole('button', { name: /^Alle ohne Raus/ }).click();

@@ -2076,3 +2076,21 @@ body[data-area="unterkunft"] main.view:has(.a-ergebnis) { padding-top: 2px; }
 .vf-a > p.small.muted:last-of-type { font-size: 11.5px; }
 .vf-a .district-form-choices label.vf-chip:has(input:checked) { background: var(--a-teal, #0e3b43) !important; border-color: var(--a-teal, #0e3b43) !important; color: #fff !important; }
 .vf-a:has(.vf-chip) > button { display: none; }
+/* 0.36.3: Urteils-Chips mit denselben Symbolen wie die Zeilen-Knöpfe (Liste, Tabelle, Durchsehen) */
+.urteil-chip { display: inline-flex; align-items: center; justify-content: center; gap: 5px; }
+.urteil-chip .ic { width: 15px; height: 15px; flex: none; }
+.urteil-chip.uc-favorit .ic { color: var(--a-fav, #2f8a4e); }
+.urteil-chip.uc-vielleicht .ic { color: var(--a-maybe, #8a6a00); stroke-width: 2.4; }
+.urteil-chip.uc-raus .ic { color: var(--a-out, #c0392b); stroke-width: 2.4; }
+.a-ergebnis .urteil-chip, .a-ergebnis .desk-gruppen .urteil-chip, .review-modes .urteil-chip { background: #fff; color: var(--a-ink, #14343b); border: 1px solid #dfe8e6; }
+.a-ergebnis .urteil-chip[aria-pressed="true"], .review-modes .urteil-chip[aria-pressed="true"] { background: var(--a-teal, #0e3b43); border-color: var(--a-teal, #0e3b43); color: #fff; }
+.a-ergebnis .urteil-chip.uc-favorit[aria-pressed="true"], .review-modes .urteil-chip.uc-favorit[aria-pressed="true"] { background: var(--a-fav, #2f8a4e); border-color: var(--a-fav, #2f8a4e); color: #fff; }
+.a-ergebnis .urteil-chip.uc-vielleicht[aria-pressed="true"], .review-modes .urteil-chip.uc-vielleicht[aria-pressed="true"] { background: var(--a-maybe-solid, #d9a514); border-color: var(--a-maybe-solid, #d9a514); color: #2b2100; }
+.a-ergebnis .urteil-chip.uc-raus[aria-pressed="true"] { background: var(--a-out, #c0392b); border-color: var(--a-out, #c0392b); color: #fff; }
+.urteil-chip[aria-pressed="true"] .ic { color: currentColor !important; }
+/* 0.36.3: Durchsehen – Anbieter, Lage, Details als runde Symbol-Knöpfe wie in der Liste */
+.review-links:has(.a-rund) { justify-content: flex-start !important; gap: 8px !important; padding: 6px 14px !important; }
+.review-links .a-rund { width: 40px !important; height: 40px !important; min-height: 40px !important; min-width: 40px; padding: 0 !important; border-radius: 50% !important; border: 1px solid #e1e8e6 !important; background: #fff !important; color: var(--a-teal, #0e3b43) !important; display: inline-flex !important; align-items: center; justify-content: center; font-size: 0 !important; text-decoration: none; }
+.review-links .a-rund .ic { width: 18px; height: 18px; }
+.review-links:has(.a-rund) > .a-lage-knopf { order: 2; }
+.review-links:has(.a-rund) > button:not(.a-lage-knopf) { order: 1; }

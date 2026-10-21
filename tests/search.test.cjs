@@ -733,7 +733,7 @@ test('Favorit, Weg und Rückgängig speichern bestätigte Zustände ohne doppelt
   await selection.getByRole('button',{name:'☆ Favorit',exact:true}).dblclick();
   await waitForCallback(()=>releaseWrite);
   assert.equal(calls.filter(p=>p.aktion==='unterkunft_durchsehen_urteil').length,1);
-  assert.equal(await selection.getByRole('button',{name:'☆ Favorit',exact:true}).isDisabled(),true);
+  assert.equal(await selection.getByRole('button',{name:'★ Favorit',exact:true}).isDisabled(),true); // 0.35.3: sofort sichtbar, gesperrt bis bestätigt
   releaseWrite(); await selection.getByRole('button',{name:'★ Favorit',exact:true}).waitFor();
   await selection.getByRole('button',{name:'Weg',exact:true}).click();
   await page.getByRole('heading',{name:'Passende Treffer (2)'}).waitFor();
@@ -2163,7 +2163,7 @@ test('Anwenderablauf: Favoriten → Durchsehen → Vergleichen/Lage → Aussorti
  await page.getByRole('button',{name:'Nächste Unterkunft',exact:true}).click();await page.locator('[data-review-hit="2"]').waitFor();
  await page.getByRole('button',{name:'Na ja',exact:true}).click();await page.locator('[data-review-hit="1"]').waitFor();
  await page.getByRole('button',{name:'Letzte Entscheidung rückgängig',exact:true}).click();await page.locator('[data-review-hit="2"] .review-verdict').filter({hasText:'♥ Favorit'}).waitFor();
- const reviewBox=await page.locator('[data-review-hit="2"]').boundingBox();assert.ok(reviewBox.height>590,'Re-review uses available screen height');
+ await page.waitForTimeout(400);const reviewBox=await page.locator('[data-review-hit="2"]').boundingBox();assert.ok(reviewBox.height>590,'Re-review uses available screen height');
  await page.screenshot({path:path.join(root,'docs/previews/paket-b-durchsehen-mobile.png')});
  await page.getByRole('button',{name:'Zur Übersicht',exact:true}).click();
  await page.getByRole('button',{name:'Auswählen',exact:true}).click();await page.getByRole('button',{name:'Alle 2 auswählen',exact:true}).click();

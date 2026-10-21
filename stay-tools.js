@@ -71,19 +71,19 @@ function sucheAuswahl(t, states, call, live, changed) {
   const exclude = el('button', { type: 'button', class: 'sel-out', onclick: () => save(state.saved === 'ausgeschlossen' ? 'aktiv' : 'ausgeschlossen') });
   const maybe = el('button', { type: 'button', class: 'sel-maybe', onclick: () => save(state.saved === 'vielleicht' ? 'aktiv' : 'vielleicht') }); // W98c: dritte Option „Na ja“
   const undo = el('button', { type: 'button', onclick: () => save(state.undo, true) }, 'Rückgängig');
+  // 0.35.3 (Sebastian 21.10.): Auswahl sofort zeigen, Speichern im Hintergrund; bei Fehler zurücksetzen.
   async function save(next, isUndo = false) {
     if (state.pending || state.refreshRequired || !['aktiv', 'favorit', 'vielleicht', 'ausgeschlossen'].includes(next)) return;
-    const previous = state.saved;
-    state.pending = true; state.revision++; state.message = 'Auswahl wird gespeichert …'; state.render();
+    const previous = state.saved, undoBefore = state.undo, uebernommen = t.urteil_uebernommen;
+    const urteil={aktiv:'offen',favorit:'favorit',vielleicht:'vielleicht',ausgeschlossen:'weg'}[next];
+    state.pending = true; state.saved = next; state.undo = isUndo ? null : previous; t.status = next; if(next==='aktiv')t.urteil_uebernommen=null;
+    state.message = next === 'favorit' ? 'Als Favorit gespeichert.' : next === 'ausgeschlossen' ? 'Von dir als „Weg“ markiert.' : next === 'vielleicht' ? 'Als „Na ja“ gemerkt.' : 'Wieder aktiv.';
+    state.revision++; changed(t, state);
     try {
-      const urteil={aktiv:'offen',favorit:'favorit',vielleicht:'vielleicht',ausgeschlossen:'weg'}[next];
       const r = await call('unterkunft_durchsehen_urteil', { treffer_id: t.treffer_id, urteil });
       if (!live()) return;
       if (r.ok !== true || r.status !== next || r.urteil !== urteil || r.treffer_id !== t.treffer_id) throw new Error('Die Änderung wurde nicht eindeutig bestätigt.');
-      state.saved = next; state.undo = isUndo ? null : previous;
-      state.message = next === 'favorit' ? 'Als Favorit gespeichert.' : next === 'ausgeschlossen' ? 'Von dir als „Weg“ markiert.' : next === 'vielleicht' ? 'Als „Na ja“ gemerkt.' : 'Wieder aktiv.';
-      t.status = next; if(next==='aktiv')t.urteil_uebernommen=null;
-    } catch (e) { if (live()) { state.refreshRequired = true; state.message = 'Speichern nicht bestätigt: ' + e.message + ' Bitte zuerst aktualisieren.'; } }
+    } catch (e) { if (live()) { state.saved = previous; state.undo = undoBefore; t.status = previous; t.urteil_uebernommen = uebernommen; state.refreshRequired = true; state.message = 'Speichern nicht bestätigt: ' + e.message + ' Bitte zuerst aktualisieren.'; } }
     finally { state.pending = false; state.revision++; if (live()) changed(t, state); }
   }
   function update() {

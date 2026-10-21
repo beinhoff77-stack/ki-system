@@ -1929,3 +1929,6 @@ body:has(.tinder-mode) main.view { padding-top: calc(6px + env(safe-area-inset-t
 .a-zeile-treffer .hit-toggle { display: none !important; }
 .a-zeile-treffer .a-info-knopf, .a-zeile-treffer .a-lage-knopf { width: 40px; min-width: 40px; height: 40px; min-height: 40px; padding: 0; border-radius: 50%; border: 1px solid #e1e8e6; background: #fff; color: var(--a-teal); display: inline-flex; align-items: center; justify-content: center; flex: none; }
 .a-zeile-treffer .a-info-knopf .ic, .a-zeile-treffer .a-lage-knopf .ic { width: 18px; height: 18px; }
+.a-zeile-treffer .hit-provider { display: none !important; }
+.a-zeile-treffer .a-anbieter-knopf { width: 40px; min-width: 40px; height: 40px; min-height: 40px; padding: 0; border-radius: 50%; border: 1px solid #e1e8e6; background: #fff; color: var(--a-teal); display: inline-flex; align-items: center; justify-content: center; flex: none; text-decoration: none; }
+.a-zeile-treffer .a-anbieter-knopf .ic { width: 18px; height: 18px; }

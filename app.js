@@ -1144,7 +1144,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   } }, 'Vorläufige Treffer ansehen');
   function resultSelection(t) {
     const node=sucheAuswahl(t,selectionStates,call,live,selectionChanged);
-    if(t.status==='favorit')node.append(el('button',{type:'button',onclick:()=>tripBookFromSearch(t,id)},'Als gebucht markieren'));
+    if(t.status==='favorit'){ if(SUCHE_SCORE_AN) node.append(el('button',{type:'button',onclick:()=>tripBookFromSearch(t,id)},'Als gebucht markieren')); else node.querySelector('.actions')?.append(el('button',{type:'button',class:'sel-buchen','aria-label':'Als gebucht markieren',title:'Als gebucht markieren',onclick:()=>tripBookFromSearch(t,id)},stayIcon('kalender'))); } // 0.36.0: als Symbol in der Reihe
     if(review.blocked || review.pending)node.querySelectorAll('button').forEach(b=>b.disabled=true);
     return node;
   }
@@ -1201,6 +1201,8 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   const runBar=el('div',{class:'review-run-bar'},runTools,endrunde);
   const doneStatus = el('p', { role: 'status', class: 'sr-only' });
   // 0.36.0 (Sebastian 21.10.): ohne Score eine Werkzeugzeile (Suchen · Sortieren · Filter) und die Filter als Blatt von unten.
+  const fState = stayFilterState(id); // 0.36.0: gemeinsamer Spaltenfilter (Liste, Karte, Durchsehen, Tabelle)
+  const aBlatt = SUCHE_SCORE_AN ? null : stayFilterBlatt({ rows: () => snapshot?.treffer || [], ctx: () => ({ trip: snapshot?.suchauftrag || {}, vergleich: stayVergleich(snapshot?.treffer || [], snapshot?.suchauftrag || {}) }), st: fState, onChange: () => { pages.clear(); draw(); } });
   const A_SORT = [['preis:1','Preis ↑','Preis – günstigste zuerst'],['gaestenote:-1','Note ↓','Gästenote – beste zuerst'],['entfernung:1','Nähe ↑','Luftlinie zum Ziel – nächste zuerst'],['gehzeit:1','Station ↑','Gehzeit zur Station – kürzeste zuerst'],['bewertungen:-1','Bewertungen ↓','Anzahl Bewertungen – meiste zuerst'],['schlafzimmer:-1','Schlafzimmer ↓','Schlafzimmer – meiste zuerst'],['m2:-1','Fläche ↓','Fläche – größte zuerst'],['name:1','Name A–Z','Name – A bis Z']];
   const aSort = el('select', { class: 'a-sort', 'aria-label': 'Sortieren', onchange: () => { const [key, dir] = aSort.value.split(':'); sort = { key, direction: Number(dir) === -1 ? -1 : 1 }; pages.clear(); draw(); } });
   const aSortSync = () => { const v = sort.key + ':' + (sort.direction === -1 ? -1 : 1); const list = A_SORT.some(([k]) => k === v) ? A_SORT : [...A_SORT, [v, (sortSelect.selectedOptions[0]?.textContent || sort.key) + (sort.direction === -1 ? ' ↓' : ' ↑'), '']]; aSort.replaceChildren(...list.map(([k, short, long]) => el('option', { value: k, title: long }, short))); aSort.value = v; };
@@ -1208,11 +1210,11 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   const aShow = el('button', { type: 'button', class: 'a-sheet-zeigen', onclick: () => aSheet.close() }, 'Treffer zeigen');
   const aSheet = SUCHE_SCORE_AN ? null : el('dialog', { class: 'a-sheet', 'aria-label': 'Filter' },
     el('header', { class: 'a-sheet-kopf' }, el('h2', {}, 'Filter'), el('button', { type: 'button', class: 'a-zu', 'aria-label': 'Filter schließen', onclick: () => aSheet.close() }, stayIcon('raus'))),
-    el('div', { class: 'a-sheet-inhalt' }, filters.node, el('label', { class: 'af-zeile af-seite' }, el('span', { class: 'af-titel' }, stayIcon('liste'), 'Treffer pro Seite'), pageSize)),
-    el('footer', { class: 'a-sheet-fuss' }, el('button', { type: 'button', class: 'a-sheet-reset', onclick: () => { filters.reset(); } }, 'Zurücksetzen'), aShow));
+    el('div', { class: 'a-sheet-inhalt' }, aBlatt?.node, el('label', { class: 'af-zeile af-seite' }, el('span', { class: 'af-titel' }, stayIcon('liste'), 'Treffer pro Seite'), pageSize)),
+    el('footer', { class: 'a-sheet-fuss' }, el('button', { type: 'button', class: 'a-sheet-reset', onclick: () => { aBlatt.zuruecksetzen(); } }, 'Zurücksetzen'), aShow));
   aSheet?.addEventListener('click', e => { if (e.target === aSheet) aSheet.close(); });
   const aSearch = SUCHE_SCORE_AN ? null : el('label', { class: 'a-suche-feld' }, stayIcon('lupe'), filter);
-  const aFilterBtn = el('button', { type: 'button', class: 'a-filter-knopf', 'aria-haspopup': 'dialog', onclick: () => { if (!aSheet.isConnected) scope.append(aSheet); aSheet.showModal(); } }, stayIcon('trichter'), el('span', {}, 'Filter'), aBadge);
+  const aFilterBtn = el('button', { type: 'button', class: 'a-filter-knopf', 'aria-haspopup': 'dialog', onclick: () => { if (!aSheet.isConnected) scope.append(aSheet); aBlatt.zeichnen(); aSheet.showModal(); } }, stayIcon('trichter'), el('span', {}, 'Filter'), aBadge);
   const filterBox = SUCHE_SCORE_AN ? el('details', { class: 'card filter-box' }, el('summary', {}, 'Filtern & sortieren'), controls, filters.node)
     : el('div', { class: 'a-werkzeug', role: 'search', 'aria-label': 'Treffer suchen, sortieren und filtern' }, aSearch, el('label', { class: 'a-sort-pill' }, stayIcon('sortieren'), aSort), aFilterBtn);
   if (!SUCHE_SCORE_AN) { filter.placeholder = 'Name suchen'; filter.setAttribute('aria-label', 'Name oder Anbieter suchen'); }
@@ -1256,7 +1258,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     if (!restoredView) {
       restoredView = true;
       filter.value = typeof savedView.needle === 'string' ? savedView.needle : '';
-      filters.restore(savedView.filters);
+      filters.restore(SUCHE_SCORE_AN ? savedView.filters : { unbekannt: true }); // ohne Score: alte Filterwerte nicht still weiterwirken lassen
       if ([...sortSelect.options].some(o => o.value === savedView.sort?.key)) sort = { key: savedView.sort.key, direction: savedView.sort.direction === -1 ? -1 : 1 };
       if ([10, 25, 50].includes(savedView.pageSize)) pageSize.value = String(savedView.pageSize);
       showMap = savedView.map === true;
@@ -1267,8 +1269,10 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     directionButton.textContent = sort.direction === 1 ? 'Aufsteigend ↑' : 'Absteigend ↓';
     if (!SUCHE_SCORE_AN) aSortSync();
     const needle = filter.value.trim().toLocaleLowerCase('de');
-    const rows = snapshot.treffer.filter(t => [t.name, t.quelle, SUCHE_QUELLEN[t.quelle], t.angebot?.anbieter,
+    const rowsBasis = snapshot.treffer.filter(t => [t.name, t.quelle, SUCHE_QUELLEN[t.quelle], t.angebot?.anbieter,
       ...(Array.isArray(t.weitere_angebote) ? t.weitere_angebote.flatMap(a => [a?.anbieter, a?.quelle, SUCHE_QUELLEN[a?.quelle]]) : [])].some(value => String(value || '').toLocaleLowerCase('de').includes(needle)) && sucheFilterTreffer(t, filters.value()));
+    const fFns = SUCHE_SCORE_AN ? [] : stayFilterFunktionen(fState), fCtx = { trip: a, vergleich: stayVergleich(snapshot.treffer, a) };
+    const rows = fFns.length ? rowsBasis.filter(t => stayFilterPasst(t, fCtx, fState, fFns)) : rowsBasis;
     filteredRows = rows;
     stayVergleichFn = stayVergleich(snapshot.treffer, a); // W98b: Preis ggü. gleicher Art für Karten und Info-Box
     try { if (!favoritesOnly) sessionStorage.setItem('ks_suche_view:' + id, JSON.stringify({ needle: filter.value, filters: filters.value(), sort, pageSize: Number(pageSize.value), map: showMap, view: resultView })); } catch { /* Ansicht bleibt in diesem geöffneten Lauf erhalten. */ }
@@ -1286,12 +1290,12 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     undoSelection.hidden = !selectionStates.get(lastSelection)?.undo;
     undoSelection.disabled = review.blocked || review.pending || !!(selectionStates.get(lastSelection)?.pending || selectionStates.get(lastSelection)?.refreshRequired);
     filterCount.textContent = `${rows.length} von ${snapshot.treffer.length} Treffern · Sortierung gilt für die gesamte Liste.`;
-    if (!SUCHE_SCORE_AN) { const n = filters.active(); aBadge.hidden = !n; aBadge.textContent = String(n); aFilterBtn.classList.toggle('ist-aktiv', n > 0); }
+    if (!SUCHE_SCORE_AN) { const n = stayFilterAktiv(fState); aBadge.hidden = !n; aBadge.textContent = String(n); aFilterBtn.classList.toggle('ist-aktiv', n > 0); }
     endrunde.disabled=review.pending || !snapshot.treffer.some(t=>t.status==='favorit');
     if(resultView==='tinder' && !showMap){resultLinks.replaceChildren();review.draw();results.append(review.node);return;}
     // W98: Tabelle am Rechner – eine kompakte Tabelle über alle Treffer, Markieren und Massenbewertung, Gründe/Notiz.
     if(resultView==='table' && !showMap){resultLinks.replaceChildren();research.update(snapshot.treffer);
-      results.append(stayDeskTable({rows,trip:a,call,live,scope,onChanged:()=>{if(live())draw();},openDetail:t=>{const dialog=sucheKandidat(t,phase.final,id);scope.append(dialog);dialog.addEventListener('close',()=>dialog.remove());dialog.showModal();}}));return;}
+      results.append(stayDeskTable({rows:SUCHE_SCORE_AN?rows:rowsBasis,trip:a,call,live,scope,onChanged:()=>{if(live())draw();},openDetail:t=>{const dialog=sucheKandidat(t,phase.final,id);scope.append(dialog);dialog.addEventListener('close',()=>dialog.remove());dialog.showModal();}}));return;}
     // W98c: Ohne eigenen Score eine Liste mit Urteils-Chips (★ / ~ / offen / ✕), gemeinsam für Liste und Karte
     const kompakt=!SUCHE_SCORE_AN; results.classList.toggle('liste-kompakt',kompakt); scope.classList.toggle('a-ergebnis',kompakt); // W104
     const rowsUrteil=kompakt?rows.filter(t=>stayUrteilFilter().has(stayUrteilKey(t))):rows;

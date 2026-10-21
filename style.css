@@ -2015,3 +2015,24 @@ body:has(.tinder-mode) main.view { padding-top: calc(6px + env(safe-area-inset-t
 .district-filters > label:not(.district-chip), .decision-controls > label { max-width: 100%; min-width: 0; box-sizing: border-box; }
 .district-filters > label:not(.district-chip) select, .decision-controls > label select { min-width: 0; max-width: 100%; text-overflow: ellipsis; }
 .district-filters { min-width: 0; max-width: 100%; box-sizing: border-box; }
+/* 0.36.0: Urteils-Knöpfe in der Listenzeile bleiben gleich groß, auch als Favorit (Sebastian 21.10.) */
+.a-ergebnis tr.a-zeile-treffer .stay-selection .actions { gap: 6px; }
+.a-ergebnis tr.a-zeile-treffer .stay-selection .actions > button { flex: none; width: 36px !important; height: 36px; padding: 0 !important; border-radius: 50% !important; font-size: 0 !important; }
+.a-ergebnis tr.a-zeile-treffer .stay-selection .actions > button:not(.sel-fav):not(.sel-maybe):not(.sel-out):not(.sel-buchen) { display: none !important; }
+.a-ergebnis tr.a-zeile-treffer .stay-selection .actions > .sel-buchen { display: inline-flex; align-items: center; justify-content: center; border-color: var(--a-fav); }
+.a-ergebnis tr.a-zeile-treffer .stay-selection .actions > .sel-buchen::before { content: none; }
+.a-ergebnis tr.a-zeile-treffer .stay-selection .actions > .sel-buchen .ic { width: 17px; height: 17px; color: var(--a-fav); }
+.a-ergebnis tr.a-zeile-treffer .stay-selection .actions > button:disabled { opacity: 1; }
+.a-ergebnis tr.a-zeile-treffer .stay-selection > button { display: none; }
+.af-preise { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.af-preis { display: flex; flex-direction: column; gap: 3px; margin: 0; font-size: 11.5px; color: var(--a-muted); font-weight: 700; }
+.af-preis .af-eingabe input { width: 100%; min-width: 0; }
+.af-preis .af-eingabe { gap: 4px; }
+.a-ergebnis tr.a-zeile-treffer .stay-selection .actions > button.sel-fav[aria-pressed="true"] { background: var(--a-fav); border-color: var(--a-fav); }
+.a-ergebnis tr.a-zeile-treffer .stay-selection .actions > button.sel-maybe[aria-pressed="true"] { background: var(--a-maybe-solid); border-color: var(--a-maybe-solid); }
+.a-ergebnis tr.a-zeile-treffer.a-u-raus .stay-selection .actions > button.sel-out { background: var(--a-out); border-color: var(--a-out); }
+/* Tabelle: Urteils-Gruppen wie die Chips der Liste, Hinweis knapper */
+.a-ergebnis .desk-gruppen { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; gap: 4px; }
+.a-ergebnis .desk-gruppen button { flex: 0 0 auto; height: 32px; min-height: 32px; padding: 0 11px; border-radius: 16px; font-size: 12.5px; font-weight: 700; border: 1px solid #dfe8e6; background: #fff; color: var(--a-ink); white-space: nowrap; }
+.a-ergebnis .desk-gruppen button[aria-pressed="true"] { background: var(--a-teal); border-color: var(--a-teal); color: #fff; }
+.a-ergebnis .desk-hinweis { font-size: 11.5px; }

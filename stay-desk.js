@@ -161,7 +161,7 @@ const stayDeskState = new Map();
 function stayDeskTable({ rows, trip, call, live, onChanged, openDetail, scope }) {
   const id = trip?.id ?? 'x';
   if (!stayDeskState.has(id)) stayDeskState.set(id, { sel: new Set(), last: null, filter: {}, gruppe: stayRead('ks_tabelle_gruppe', 'alle'), sort: { key: 'nacht', dir: 1 }, undo: null, msg: '', bulkGruende: [], bulkNotiz: '', pending: false });
-  const st = stayDeskState.get(id), vergleich = stayVergleich(rows, trip), ctx = { trip, vergleich };
+  const st = stayDeskState.get(id), vergleich = stayVergleich(rows, trip), ctx = { trip, vergleich }, fst = stayFilterState(id); // 0.36.0: Spaltenfilter = gemeinsamer Filter
   let spalten = stayDeskSpalten();
   const box = el('section', { class: 'card desk', 'aria-label': 'Tabelle' });
   const counts = { alle: rows.length, offen: rows.filter(t => !STAY_STATUS_URTEIL[t.status]).length, favorit: rows.filter(t => t.status === 'favorit').length, vielleicht: rows.filter(t => t.status === 'vielleicht').length, ausgeschlossen: rows.filter(t => t.status === 'ausgeschlossen').length };
@@ -182,7 +182,7 @@ function stayDeskTable({ rows, trip, call, live, onChanged, openDetail, scope })
   const alleBox = el('input', { type: 'checkbox', 'aria-label': 'Alle sichtbaren markieren' });
   const sortBtn = (key, label) => el('th', { scope: 'col', 'aria-sort': st.sort.key === key ? (st.sort.dir === 1 ? 'ascending' : 'descending') : 'none' },
     el('button', { type: 'button', 'data-sort': key, onclick: () => { st.sort = { key, dir: st.sort.key === key ? -st.sort.dir : 1 }; onChanged(); } }, label, st.sort.key === key ? (st.sort.dir === 1 ? ' ↑' : ' ↓') : ''));
-  const filterZelle = s => { const input = el('input', { type: 'text', class: 'desk-filter', 'aria-label': 'Filter ' + s.label, value: st.filter[s.key] || '', placeholder: s.num ? (s.klein ? '≤' : '≥') : 'enthält', oninput: () => { st.filter[s.key] = input.value; body(); } }); return el('th', {}, input); };
+  const filterZelle = s => { const input = el('input', { type: 'text', class: 'desk-filter', 'aria-label': 'Filter ' + s.label, value: (s.key === 'name' ? st.filter.name : fst.werte[s.key]) || '', placeholder: s.num ? (s.klein ? '≤' : '≥') : 'enthält', oninput: () => { if (s.key === 'name') st.filter.name = input.value; else { if (input.value.trim()) fst.werte[s.key] = input.value; else delete fst.werte[s.key]; fst.speichern(); } body(); } }); return el('th', {}, input); };
   table.append(el('thead', {},
     el('tr', {}, el('th', { class: 'desk-sel' }, alleBox), el('th', { class: 'desk-foto' }, el('span', { class: 'sr-only' }, 'Foto')), sortBtn('name', 'Name'), sortBtn('urteil', 'Urteil'), ...defs.map(s => sortBtn(s.key, s.label))),
     el('tr', { class: 'desk-filterzeile' }, el('th'), el('th'), filterZelle({ key: 'name', label: 'Name' }), el('th'), ...defs.map(filterZelle))), tbody);
@@ -192,9 +192,10 @@ function stayDeskTable({ rows, trip, call, live, onChanged, openDetail, scope })
   const wert = (t, key) => key === 'name' ? (t.name || null) : key === 'urteil' ? ({ favorit: 1, vielleicht: 2, ausgeschlossen: 3 }[t.status] ?? 0) : defs.concat(STAY_DESK_SPALTEN).find(s => s.key === key)?.v(t, ctx) ?? null;
   let sichtbar = [];
   function body() {
-    const filters = [['name', stayDeskFilter(st.filter.name, { num: false })], ...defs.map(s => [s.key, stayDeskFilter(st.filter[s.key], s)])].filter(([, f]) => f);
+    const filters = [['name', stayDeskFilter(st.filter.name, { num: false })], ...defs.map(s => [s.key, stayDeskFilter(fst.werte[s.key], s)])].filter(([, f]) => f);
+    const ohneUnbekannt = fst.unbekannteAus ? defs.filter(s => fst.werte[s.key]).map(s => s.key) : [];
     sichtbar = rows.filter(t => st.gruppe === 'alle' ? true : st.gruppe === 'offen' ? !STAY_STATUS_URTEIL[t.status] : t.status === st.gruppe)
-      .filter(t => filters.every(([k, f]) => f(wert(t, k))))
+      .filter(t => filters.every(([k, f]) => f(wert(t, k))) && ohneUnbekannt.every(k => wert(t, k) !== null))
       .sort((a, b) => { const x = wert(a, st.sort.key), y = wert(b, st.sort.key); if (x === null || y === null) return x === null && y === null ? a.treffer_id - b.treffer_id : x === null ? 1 : -1; return (typeof x === 'string' ? x.localeCompare(String(y), 'de') : x - y) * st.sort.dir || a.treffer_id - b.treffer_id; });
     for (const tid of [...st.sel]) if (!rows.some(t => t.treffer_id === tid)) st.sel.delete(tid);
     tbody.replaceChildren(...sichtbar.map((t, i) => {
@@ -312,4 +313,85 @@ function stayUrteilChips(rows, onChange) {
     el('button', { type: 'button', class: 'urteil-chip uc-alles', 'aria-label': `Alles inkl. Raus ${relevant.length}`, 'aria-pressed': String(alle.every(k => an.has(k))), onclick: () => setze(new Set(alle)) }, `Alle ${relevant.length}`),
     el('span', { class: 'uc-trenner', 'aria-hidden': 'true' }),
     chip('favorit', '★ Favoriten'), chip('vielleicht', '~ Na ja'), chip('offen', 'Offen'), chip('raus', '✕ Raus'));
+}
+
+// ===== 0.36.0 (Sebastian 21.10.: „Spalten = Filter“): ein gemeinsamer Filter für Liste, Karte, Durchsehen und Tabelle =====
+// Werte im Tabellen-Format („≤ 150“, „≥ 8“, „2–3“, Text = enthält). Unbekannte Angaben bleiben sichtbar, außer „Unbekannte ausblenden“.
+const stayFilterStates = new Map();
+function stayFilterState(id) {
+  const key = 'ks_spaltenfilter:' + (id ?? 'x');
+  if (!stayFilterStates.has(key)) {
+    let v = null; try { v = JSON.parse(sessionStorage.getItem(key) || 'null'); } catch { /* ohne Speicher */ }
+    const werte = v && typeof v.werte === 'object' && !Array.isArray(v.werte) ? Object.fromEntries(Object.entries(v.werte).filter(([, x]) => typeof x === 'string' && x)) : {};
+    const st = { werte, unbekannteAus: v?.unbekannteAus === true, speichern() { try { sessionStorage.setItem(key, JSON.stringify({ werte: st.werte, unbekannteAus: st.unbekannteAus })); } catch { /* ohne Speicher */ } } };
+    stayFilterStates.set(key, st);
+  }
+  return stayFilterStates.get(key);
+}
+function stayFilterAktiv(st) { return Object.values(st.werte).filter(Boolean).length + (st.unbekannteAus ? 1 : 0); }
+function stayFilterFunktionen(st, spalten = stayDeskSpalten()) {
+  return spalten.map(k => STAY_DESK_SPALTEN.find(s => s.key === k)).filter(s => s && st.werte[s.key]).map(s => [s, stayDeskFilter(st.werte[s.key], s)]).filter(([, f]) => f);
+}
+function stayFilterPasst(t, ctx, st, fns) {
+  for (const [s, f] of fns) { const v = s.v(t, ctx); if ((v === null || v === undefined) && st.unbekannteAus) return false; if (!f(v ?? null)) return false; }
+  return true;
+}
+// Darstellung je Spalte im Filterfenster: Chips mit Stufen, Eingabefeld oder „nur mit“
+const STAY_FILTER_FORM = {
+  nacht: { feld: 'bis', einheit: '€', icon: 'korb', titel: 'Preis pro Nacht bis' }, preis: { feld: 'bis', einheit: '€', icon: 'korb', titel: 'Gesamtpreis bis' },
+  tarif: { feld: 'bis', einheit: '€', icon: 'korb', titel: 'Günstigster Tarif bis' }, tarif_storno: { feld: 'bis', einheit: '€', icon: 'storno', titel: 'Günstigster stornierbar bis' },
+  vergleich: { icon: 'regler', titel: 'Preis ggü. gleicher Art', chips: [['≤ 0,85', 'günstig'], ['≤ 1,15', 'normal oder günstig']] },
+  schlafzimmer: { icon: 'bett', titel: 'Schlafzimmer ab', chips: [['≥ 1', '1'], ['≥ 2', '2'], ['≥ 3', '3'], ['≥ 4', '4']] },
+  hotelzimmer: { icon: 'hotel', titel: 'Hotelzimmer ab', chips: [['≥ 1', '1'], ['≥ 2', '2'], ['≥ 3', '3']] },
+  betten: { icon: 'bett', titel: 'Schlafplätze ab', chips: [['≥ 2', '2'], ['≥ 3', '3'], ['≥ 4', '4'], ['≥ 5', '5']] },
+  m2: { feld: 'ab', einheit: 'm²', icon: 'flaeche', titel: 'Fläche ab' },
+  note: { icon: 'stern', titel: 'Gästenote ab', chips: [['≥ 7', '7'], ['≥ 8', '8'], ['≥ 8,5', '8,5'], ['≥ 9', '9']] },
+  bewertungen: { icon: 'personen', titel: 'Bewertungen ab', chips: [['≥ 10', '10'], ['≥ 50', '50'], ['≥ 100', '100'], ['≥ 500', '500']] },
+  storno: { icon: 'storno', titel: 'Stornierung', chips: [['≤ 9998', 'kostenlos stornierbar']] },
+  km: { icon: 'pin', titel: 'Entfernung zum Ziel bis', chips: [['≤ 1', '1 km'], ['≤ 3', '3 km'], ['≤ 5', '5 km'], ['≤ 10', '10 km']] },
+  gehzeit: { icon: 'bahn', titel: 'Zur Station bis', chips: [['≤ 5', '5 Min'], ['≤ 10', '10 Min'], ['≤ 15', '15 Min']] },
+  strand: { icon: 'strand', titel: 'Strand bis', chips: [['≤ 200', '200 m'], ['≤ 500', '500 m'], ['≤ 1000', '1 km']] },
+  sterne: { icon: 'hotel', titel: 'Sterne ab', chips: [['≥ 3', '3'], ['≥ 4', '4'], ['≥ 5', '5']] },
+  art: { icon: 'haus', titel: 'Art', werte: true }, viertel: { icon: 'pin', titel: 'Viertel', werte: true }, quelle: { icon: 'extern', titel: 'Quelle', werte: true },
+};
+const STAY_FILTER_JA = ['kueche', 'waschmaschine', 'balkon', 'klima', 'fruehstueck', 'pool', 'sauna_spa', 'fitness', 'parkplatz', 'wlan', 'meerblick'];
+function stayFilterBlatt({ rows: rowsQ, ctx: ctxQ, st, onChange }) {
+  const R = typeof rowsQ === 'function' ? rowsQ : () => rowsQ, C = typeof ctxQ === 'function' ? ctxQ : () => ctxQ;
+  const box = el('div', { class: 'af-liste' });
+  function setze(key, wert) { if (wert) st.werte[key] = wert; else delete st.werte[key]; st.speichern(); onChange(); zeichnen(); }
+  const chipReihe = (key, opts) => el('div', { class: 'af-chips', role: 'group' }, [['', 'Egal'], ...opts].map(([v, text]) => el('button', { type: 'button', class: 'af-chip', 'aria-pressed': String((st.werte[key] || '') === v), onclick: () => setze(key, (st.werte[key] || '') === v ? '' : v) }, text)));
+  const titel = (icon, text) => el('span', { class: 'af-titel' }, stayIcon(icon), text);
+  function zeichnen() {
+    const spalten = stayDeskSpalten(), teile = [], ja = [], preise = [];
+    const KURZ = { nacht: 'pro Nacht', preis: 'gesamt', tarif: 'günstigster Tarif', tarif_storno: 'stornierbar' };
+    for (const k of spalten) {
+      const s = STAY_DESK_SPALTEN.find(x => x.key === k), f = STAY_FILTER_FORM[k];
+      if (!s) continue;
+      if (STAY_FILTER_JA.includes(k)) { ja.push(s); continue; }
+      if (!f) continue;
+      if (f.feld) {
+        const zahl = String(st.werte[k] || '').replace(/^[≤≥<>=]+\s*/, '');
+        const input = el('input', { type: 'text', inputmode: 'decimal', placeholder: 'egal', value: zahl, 'aria-label': f.titel, onchange: () => { const x = input.value.trim(); setze(k, x ? (f.feld === 'bis' ? '≤ ' : '≥ ') + x : ''); } });
+        if (KURZ[k]) { if (!preise.length) teile.push(null); preise.push(el('label', { class: 'af-preis', 'data-spalte': k }, el('span', {}, KURZ[k]), el('span', { class: 'af-eingabe' }, input, el('span', { class: 'af-einheit' }, f.einheit)))); continue; }
+        teile.push(el('label', { class: 'af-zeile af-feld', 'data-spalte': k }, titel(f.icon, f.titel), el('span', { class: 'af-eingabe' }, input, el('span', { class: 'af-einheit' }, f.einheit))));
+      } else if (f.werte) {
+        const vals = [...new Set(R().map(t => s.v(t, C())).filter(v => typeof v === 'string' && v))].sort((a, b) => a.localeCompare(b, 'de')).slice(0, 12);
+        if (!vals.length) continue;
+        teile.push(el('div', { class: 'af-zeile', 'data-spalte': k }, titel(f.icon, f.titel), chipReihe(k, vals.map(v => [v, v]))));
+      } else teile.push(el('div', { class: 'af-zeile', 'data-spalte': k }, titel(f.icon, f.titel), chipReihe(k, f.chips)));
+    }
+    if (ja.length) teile.push(el('div', { class: 'af-zeile', 'data-spalte': 'ausstattung' }, titel('pool', 'Nur mit'), el('div', { class: 'af-chips', role: 'group', 'aria-label': 'Nur mit' },
+      ja.map(s => el('button', { type: 'button', class: 'af-chip', 'aria-pressed': String(st.werte[s.key] === 'ja'), onclick: () => setze(s.key, st.werte[s.key] === 'ja' ? '' : 'ja') }, STAY_FIELDS[s.key] || s.label)))));
+    const pi = teile.indexOf(null); if (pi >= 0) teile[pi] = el('div', { class: 'af-zeile', 'data-spalte': 'preise' }, titel('korb', 'Preis bis'), el('div', { class: 'af-preise' }, preise));
+    if (!teile.length) teile.push(el('p', { class: 'small muted' }, 'Keine filterbaren Spalten gewählt.'));
+    const aus = el('input', { type: 'checkbox', onchange: () => { st.unbekannteAus = aus.checked; st.speichern(); onChange(); } }); aus.checked = st.unbekannteAus;
+    const wahl = el('details', { class: 'af-mehr af-spalten' }, el('summary', {}, 'Felder wählen (gleich wie Tabellenspalten)'),
+      el('div', { class: 'af-chips' }, STAY_DESK_SPALTEN.filter(s => STAY_FILTER_FORM[s.key] || STAY_FILTER_JA.includes(s.key)).map(s => el('button', { type: 'button', class: 'af-chip', 'aria-pressed': String(spalten.includes(s.key)),
+        onclick: () => { const n = spalten.includes(s.key) ? spalten.filter(k => k !== s.key) : [...spalten, s.key]; if (!n.length) return; if (!n.includes(s.key)) delete st.werte[s.key]; stayWrite('ks_tabelle_spalten', n); st.speichern(); onChange(); zeichnen(); wahl.open = true; } }, STAY_FIELDS[s.key] || s.label))));
+    const offen = box.querySelector('.af-spalten')?.open;
+    box.replaceChildren(...teile, el('label', { class: 'af-schalter' }, aus, el('span', {}, el('b', {}, 'Unbekannte Angaben ausblenden'), el('small', {}, 'sonst bleiben z. B. Unterkünfte ohne Flächenangabe sichtbar'))), wahl);
+    if (offen) wahl.open = true;
+  }
+  zeichnen();
+  return { node: box, zeichnen, zuruecksetzen() { st.werte = {}; st.unbekannteAus = false; st.speichern(); onChange(); zeichnen(); } };
 }

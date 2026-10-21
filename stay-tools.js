@@ -197,7 +197,7 @@ function sucheFilterPanel(onChange) {
   const favorite = el('input', { type: 'checkbox', onchange: onChange }); inputs.favoriten = favorite;
   const unknown = el('input', { type: 'checkbox', onchange: onChange }); unknown.checked = true; inputs.unbekannt = unknown;
   const type = select('typ', 'Unterkunftsform', [['', 'Alle Formen']]);
-  const panel = el(SUCHE_SCORE_AN ? 'details' : 'div', { class: 'card stay-filters' }, el('summary', {}, 'Weitere Filter'),
+  const panel = el('details', { class: 'card stay-filters' }, el('summary', {}, 'Weitere Filter'),
     el('div', { class: 'stay-filter-grid' },
       select('gruppe', 'Ergebnisliste', [['', 'Alle Listen'], ['A', 'Passende Treffer'], ['B', 'Angaben offen'], ['offen', 'Noch nicht vollständig bewertet'], ['ausgeschlossen', 'Ausgeschlossen']]), type,
       select('urteil', 'Meine Entscheidung', [['','Alle Entscheidungen'],['aktiv','Noch offen'],['favorit','Favorit'],['vielleicht','Na ja'],['ausgeschlossen','Weg']]),
@@ -211,37 +211,7 @@ function sucheFilterPanel(onChange) {
     el('p', { class: 'small muted' }, 'Gästenoten sind auf Booking-Niveau geeicht. Sterne gelten nur für Hotels, Aparthotels und Ryokans.'),
     el('label', { class: 'check-label' }, favorite, 'Nur Favoriten'), el('label', { class: 'check-label' }, unknown, 'Unbekannte Angaben mit anzeigen'),
     el('button', { type: 'button', onclick: () => { restore({ unbekannt: true }); onChange(); } }, 'Weitere Filter zurücksetzen'));
-  // 0.36.0 (Sebastian 21.10.: „kompakt, stylisch, verständlich“): ohne Score eigene, knappe Darstellung mit Auswahl-Chips.
-  // Die Eingabefelder bleiben die Datenquelle (gleiche Schlüssel); die Chips setzen nur deren Wert.
   const chipSync = []; let knownTypeList = [];
-  if (!SUCHE_SCORE_AN) {
-    const chips = (key, label, icon, options, unit = '') => {
-      const box = el('div', { class: 'af-chips', role: 'group', 'aria-label': label });
-      const draw = () => box.replaceChildren(...(typeof options === 'function' ? options() : options).map(([v, text]) => el('button', { type: 'button', class: 'af-chip', 'aria-pressed': String(String(inputs[key].value) === String(v)),
-        onclick: () => { inputs[key].value = String(inputs[key].value) === String(v) ? '' : v; sync(); onChange(); } }, text)));
-      chipSync.push(draw); draw();
-      return el('div', { class: 'af-zeile' }, el('span', { class: 'af-titel' }, stayIcon(icon), label), box);
-    };
-    const feld = (key, label, icon, unit) => el('label', { class: 'af-zeile af-feld' }, el('span', { class: 'af-titel' }, stayIcon(icon), label), el('span', { class: 'af-eingabe' }, inputs[key], unit ? el('span', { class: 'af-einheit' }, unit) : null));
-    inputs.preis.placeholder = 'egal'; inputs.m2.placeholder = 'egal'; inputs.betten.placeholder = 'z. B. Doppel'; inputs.preis.inputMode = 'decimal'; inputs.m2.inputMode = 'numeric';
-    const typen = () => [['', 'Alle'], ...knownTypeList.map(t => [t, ({ hotel: 'Hotel', aparthotel: 'Aparthotel', ryokan: 'Ryokan', haus: 'Haus', wohnung: 'Wohnung', apartment: 'Apartment', unklar: 'Unklar' })[t] || t])];
-    const egal = ['', 'Egal'];
-    const switchUnknown = el('label', { class: 'af-schalter' }, unknown, el('span', {}, el('b', {}, 'Unbekannte Angaben mitzeigen'), el('small', {}, 'z. B. wenn die Fläche nicht angegeben ist')));
-    const onlyFav = el('label', { class: 'af-schalter af-nur-fav' }, favorite, el('span', {}, el('b', {}, 'Nur Favoriten')));
-    panel.replaceChildren(el('div', { class: 'af-liste' },
-      chips('typ', 'Art', 'haus', typen),
-      feld('preis', 'Gesamtpreis bis', 'korb', '€'),
-      chips('note', 'Gästenote ab', 'stern', [egal, ['7', '7'], ['8', '8'], ['9', '9']]),
-      chips('gehzeit', 'Zur Station bis', 'bahn', [egal, ['5', '5 Min'], ['10', '10 Min'], ['15', '15 Min']]),
-      chips('schlafzimmer', 'Schlafzimmer ab', 'bett', [egal, ['1', '1'], ['2', '2'], ['3', '3']]),
-      chips('sterne', 'Sterne ab', 'hotel', [egal, ['3', '3'], ['4', '4'], ['5', '5']]),
-      chips('bewertungen', 'Bewertungen ab', 'personen', [egal, ['10', '10'], ['50', '50'], ['100', '100']]),
-      el('details', { class: 'af-mehr' }, el('summary', {}, 'Mehr Filter'),
-        feld('m2', 'Fläche ab', 'flaeche', 'm²'), feld('betten', 'Bettentyp enthält', 'bett'),
-        chips('warnungen', 'Warnungen', 'warnung', [['', 'Alle'], ['ohne', 'Ohne'], ['mit', 'Nur mit']]))),
-      switchUnknown, onlyFav);
-    panel.classList.add('af-panel');
-  }
   function sync() { chipSync.forEach(f => f()); }
   let knownTypes = '';
   function setTypes(rows) {

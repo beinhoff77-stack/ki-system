@@ -2179,3 +2179,6 @@ body[data-area="unterkunft"] main.view:has(.a-ergebnis) { padding-top: 2px; }
 .ort-wahl strong { font-size: 15px; }
 .ort-warnung { margin: 8px 0; padding: 10px 14px; border-radius: 12px; background: #fbf3e4; color: #6b4610; font-size: 14px; line-height: 1.4; border: 1px solid #ecd9b5; }
 .ort-warnung.stark { background: #fdecea; color: #8a2a1c; border-color: #f2c6bf; font-weight: 600; }
+.ort-flaeche { display: block; margin-top: 2px; line-height: 1.3; }
+.ort-flaeche[hidden] { display: none; }
+.ort-rahmen > .ort-info, .ort-rahmen > .ort-flaeche { grid-column: 2 / -1; margin-top: -6px; }

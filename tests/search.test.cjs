@@ -59,6 +59,19 @@ async function openReviewMenu(page) {
   const menu=page.locator('.tinder-mode .review-menu');
   if(await menu.count() && !await menu.evaluate(n=>n.open))await menu.locator(':scope > summary').click();
 }
+// W116: Ortssuche (Open-Meteo) – Palau gibt es auf Sardinien, in Spanien und als Inselstaat; Kyoto eindeutig (Tansania ohne Einwohner)
+const geoFixture = (name) => {
+  const n = String(name || '').toLowerCase();
+  if (n === 'palau') return [
+    { name: 'Palau', latitude: 41.17936, longitude: 9.3819, feature_code: 'PPLA3', country_code: 'IT', country: 'Italy', admin1: 'Sardinia', population: 2885 },
+    { name: 'Palau', latitude: 42.17743, longitude: 2.96918, feature_code: 'PPL', country_code: 'ES', country: 'Spain', admin1: 'Catalonia' },
+    { name: 'Palau', latitude: 7.503, longitude: 134.621, feature_code: 'PCLF', country_code: 'PW', population: 17663 }];
+  if (n === 'kyoto') return [
+    { name: 'Kyoto', latitude: 35.02107, longitude: 135.75385, feature_code: 'PPLA', country_code: 'JP', country: 'Japan', admin1: 'Kyoto', population: 1463723 },
+    { name: 'Kyoto', latitude: -2.05, longitude: 31.68333, feature_code: 'PPL', country_code: 'TZ', country: 'Tanzania', admin1: 'Kagera' }];
+  if (n.length < 2 || n === 'xyzzy') return [];
+  return [{ name: String(name), latitude: 35, longitude: 135, feature_code: 'PPL', country_code: 'JP', country: 'Japan', admin1: 'Test', population: 1000 }];
+};
 async function setup(t, handler, viewport) {
   const { collapsed = false, ohneScore = false, tabelle = false, ...size } = viewport || {};
   const context = await browser.newContext({ viewport: Object.keys(size).length ? size : { width: 1440, height: 1000 }, serviceWorkers: 'block' });
@@ -79,6 +92,7 @@ async function setup(t, handler, viewport) {
   const errors = []; page.on('pageerror', (e) => errors.push(e.message)); t.after(() => assert.deepEqual(errors, []));
   const calls = [];
   await page.route('https://cdnjs.cloudflare.com/**', (r) => r.abort());
+  await page.route('https://geocoding-api.open-meteo.com/**', (r) => r.fulfill({ contentType: 'application/json', body: JSON.stringify({ results: geoFixture(new URL(r.request().url()).searchParams.get('name')) }) })); // W116
   await page.route('**/functions/v1/app-api/**', async (route) => {
     const request = route.request();
     const payload = request.method() === 'POST' ? request.postDataJSON() : {};
@@ -130,6 +144,38 @@ test('Formular validiert und ruft Anlegen → Starten → Lesen genau einmal auf
   assert.deepEqual(writes[0].daten.kinder_alter, [13, 11]);
   assert.equal(writes[0].daten.limit_usd, 1.5); assert.equal(writes[0].daten.schlafzimmer_min, 1);
   assert.deepEqual(writes[0].daten.wohnen, {apartment:{an:true,schlafzimmer_min:1},hotel:{an:false,zimmer:2,bett:'doppel'},bevorzugt:'apartment'}); // W96 Standard
+  assert.equal(writes[0].daten.ziel_ort?.land_code, 'JP'); assert.equal(writes[0].daten.ziel_lat, 35.02107); assert.equal(writes[0].daten.land, 'JP'); // W116: eindeutiger Ort still übernommen
+});
+test('W116: mehrdeutiger Ort (Palau) muss gewählt werden und geht mit Land und Koordinaten an den Server', async (t) => {
+  const { page, calls } = await setup(t, (p) => p.aktion === 'unterkunft_suchauftrag_anlegen' ? { ok: true, id: 2 } : p.aktion === 'unterkunft_suche_starten' ? { ok: true, status: 'laeuft' } : p.daten?.suchauftrag_id ? result() : { suchauftraege: [] });
+  await page.goto(origin + '/#/suche'); await formFill(page);
+  await page.locator('[name=ziel]').fill('Palau');
+  const liste = page.getByRole('listbox', { name: 'Passende Orte' }); await liste.waitFor();
+  assert.equal(await liste.getByRole('option').count(), 3);
+  await page.locator('.ort-info.warn').filter({ hasText: 'Mehrere Orte' }).waitFor();
+  await page.getByRole('button', { name: 'Unterkünfte suchen' }).click();
+  await page.getByRole('status').filter({ hasText: 'Bitte den richtigen Ort aus der Liste wählen' }).waitFor();
+  assert.equal(calls.filter((p) => p.aktion === 'unterkunft_suchauftrag_anlegen').length, 0);
+  await liste.getByRole('button').filter({ hasText: 'ganzes Land' }).click();
+  await page.locator('.ort-info.ok').filter({ hasText: 'Palau' }).waitFor();
+  assert.equal(await liste.isHidden(), true);
+  await page.getByRole('button', { name: 'Unterkünfte suchen' }).click();
+  await page.getByRole('heading', { name: 'Passende Treffer (3)' }).waitFor();
+  const anlegen = calls.find((p) => p.aktion === 'unterkunft_suchauftrag_anlegen');
+  assert.equal(anlegen.daten.ziel, 'Palau'); assert.equal(anlegen.daten.land, 'PW');
+  assert.deepEqual({ ...anlegen.daten.ziel_ort }, { name: 'Palau', region: null, land: 'Palau', land_code: 'PW', lat: 7.503, lon: 134.621, typ: 'land', quelle: 'auswahl', auto: false });
+  // Neuer Text hebt die Auswahl auf
+  await page.goto(origin + '/#/suche'); await formFill(page); await page.locator('[name=ziel]').fill('xyzzy');
+  await page.locator('.ort-info.warn').filter({ hasText: 'Kein Ort gefunden' }).waitFor();
+});
+test('W116: Ortsprüfung zeigt „Anderer Ort?“ über der Liste und als Warnung am Treffer', async (t) => {
+  const data = result(); data.suchauftrag.ziel = 'Palau'; data.suchauftrag.ziel_ort = { name: 'Palau', land_code: 'PW', typ: 'land', quelle: 'automatisch' };
+  data.suchauftrag.schrittkette.push({ quelle: 'ortspruefung', status: 'warnung', hinweis: 'Anderer Ort? Treffer mehr als 400 km von Palau entfernt – Booking: 40 von 40. Diese Treffer sind markiert, nicht gelöscht.' });
+  data.treffer[0].bewertung.warnungen = ['anderer_ort'];
+  const { page } = await setup(t, () => data, { ohneScore: true });
+  await page.goto(origin + '/#/suche/2');
+  const banner = page.locator('.ort-warnung.stark'); await banner.waitFor();
+  assert.match(await banner.textContent(), /Anderer Ort\? .*Booking: 40 von 40/);
 });
 test('A/B, Warnungen, sichere Links, numerische Sortierung und fehlende Werte', async (t) => {
   const data = result(); data.treffer[0].name = '<img src=x onerror=alert(1)>';
@@ -211,13 +257,13 @@ test('PWA installiert vollständige Offline-Hülle, API wird nicht gecacht', asy
   assert(cacheNames.includes('ki-system:' + origin + '/another-app/:v1'));
   assert(!cacheNames.includes('ki-system:' + origin + '/:old'));
   await page.evaluate(() => fetch('README.md'));
-  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v58')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
-  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.36.4')); assert(cached.includes('/style.css?v=0.36.4'));
-  assert(cached.includes('/stay-tools.js?v=0.36.4')); assert(cached.includes('/stay-desk.js?v=0.36.4')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
-  assert(cached.includes('/stay-research.js?v=0.36.4'));
-  assert(cached.includes('/stay-form.js?v=0.36.4'));
-  assert(cached.includes('/stay-details.js?v=0.36.4'));
-  assert(cached.includes('/stay-districts.js?v=0.36.4'));
+  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v59')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
+  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.37.0')); assert(cached.includes('/style.css?v=0.37.0'));
+  assert(cached.includes('/stay-tools.js?v=0.37.0')); assert(cached.includes('/stay-desk.js?v=0.37.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
+  assert(cached.includes('/stay-research.js?v=0.37.0'));
+  assert(cached.includes('/stay-form.js?v=0.37.0'));
+  assert(cached.includes('/stay-details.js?v=0.37.0'));
+  assert(cached.includes('/stay-districts.js?v=0.37.0'));
   assert(!cached.includes('/README.md'));
   assert(!cached.some((u) => u.includes('app-api')));
   await context.setOffline(true); await page.reload();
@@ -944,7 +990,7 @@ test('Suchprofil übernehmen bewahrt Reiseziel und Daten; geleerte Felder kehren
   await page.getByLabel('Nebenart',{exact:true}).selectOption('');
   await page.getByRole('button',{name:'Unterkünfte suchen',exact:true}).click();await page.locator('[data-group=A]').waitFor();
   const d=calls.find(p=>p.aktion==='unterkunft_suchauftrag_anlegen').daten;
-  assert.equal(d.suchprofil,undefined);assert.equal(d.budget_eur,undefined);assert.equal(d.land,undefined);assert.equal(d.nebenart,undefined);
+  assert.equal(d.suchprofil,undefined);assert.equal(d.budget_eur,undefined);assert.equal(d.land,'JP'); /* W116: Land kommt aus der Ortsauswahl, nicht aus dem Profil */assert.equal(d.nebenart,undefined);
   assert.deepEqual(d.quellen,['hasdata_booking','apify_airbnb']);assert.deepEqual(d.kriterien.balkon,{modus:'egal'});
   assert.equal(calls.filter(p=>p.aktion==='unterkunft_suchprofil_speichern').length,0);
 });

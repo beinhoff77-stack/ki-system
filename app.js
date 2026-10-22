@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.36.4';
+const APP_VERSION = '0.37.0';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -852,7 +852,7 @@ function sucheDatenlage(t) {
 const SUCHE_QUELLEN = { hasdata_booking: 'Booking', apify_airbnb: 'Airbnb', rakuten_travel: 'Rakuten Travel', rakuten: 'Rakuten Travel', trivago_mcp: 'Trivago' };
 const SUCHE_WARNUNGEN = {
   futon: 'Futon', schlafsofa: 'Schlafsofa', etagenbett: 'Etagenbett', schlafplatz_wohnzimmer: 'Schlafplatz im Wohnzimmer',
-  steuern_unklar: 'Steuern unklar', wenig_bewertungen: 'Wenige Bewertungen', weit_vom_ziel: 'Weit vom Ziel',
+  steuern_unklar: 'Steuern unklar', wenig_bewertungen: 'Wenige Bewertungen', weit_vom_ziel: 'Weit vom Ziel', anderer_ort: 'Anderer Ort?',
   preis_geschaetzt: 'Preis geschätzt', zwei_zimmer: '2 getrennte Zimmer', '2_zimmer': '2 getrennte Zimmer',
   doppelbett_geteilt: 'Doppelbett wird geteilt', schmales_bett: 'Schmales Bett <140 cm',
   gegenpruefung_einwand: 'Gegenprüfung hat Einwände',
@@ -895,6 +895,13 @@ function sucheFormDaten(form, { profileOnly = false } = {}) {
   }
   if (get('budget_eur')) { d.budget_eur = Number(get('budget_eur')); if (!Number.isFinite(d.budget_eur) || d.budget_eur <= 0) throw new Error('Das Aufenthaltsbudget muss größer als 0 sein.'); }
   if (get('land')) { d.land = get('land').toUpperCase(); if (!/^[A-Z]{2}$/.test(d.land)) throw new Error('Land bitte als zweistelligen Code angeben, z. B. JP.'); }
+  // W116: gewählter Ort mit Land und Koordinaten (aus „Wo?“)
+  const o = form.zielOrt;
+  if (!profileOnly && o && Number.isFinite(o.lat) && Number.isFinite(o.lon)) {
+    d.ziel_ort = { name: o.name, region: o.region, land: o.land, land_code: o.land_code, lat: o.lat, lon: o.lon, typ: o.typ, quelle: 'auswahl', auto: !!o.auto };
+    d.ziel_lat = o.lat; d.ziel_lon = o.lon;
+    if (!d.land && o.land_code) d.land = o.land_code;
+  }
   if (profileOnly) { delete d.ziel; delete d.anreise; delete d.abreise; }
   return d;
 }
@@ -988,6 +995,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     if (!historyOnly) scope.append(form);
     form.addEventListener('submit', async (event) => {
       event.preventDefault(); if (busy || !profileReady || !form.reportValidity()) return;
+      if (form.ortSicherstellen) { busy = true; notice.textContent = 'Ort wird geprüft …'; let fehlerOrt = null; try { fehlerOrt = await form.ortSicherstellen(); } finally { busy = false; } if (!live()) return; if (fehlerOrt) { notice.textContent = fehlerOrt; return; } notice.textContent = ''; } // W116
       let daten; try { daten = { ...sucheFormDaten(form), ...extended.values(), ...tripChoice.values() }; } catch (e) { notice.textContent = e.message; return; }
       busy = true; fields.disabled = true; notice.textContent = 'Suchauftrag wird angelegt …';
       let id = null;
@@ -1203,6 +1211,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   const runActions=el('div', { class: 'actions' }, el('a', { href: '#/suche' }, 'Neue Suche / letzte Aufträge'), el('a', { href: viertelHref({suche:id}) }, 'Viertel dieser Reise entdecken'), refresh, start, cancel, preview, undoSelection, more);
   const runTools=el('details',{class:'review-run-tools'},el('summary',{},'Suchlauf'),runActions);
   const runBar=el('div',{class:'review-run-bar'},runTools,endrunde);
+  const ortBanner = el('p', { class: 'ort-warnung', role: 'alert', hidden: true }); // W116: „Anderer Ort?“ sichtbar über der Liste
   const doneStatus = el('p', { role: 'status', class: 'sr-only' }); let runInfo = null; const aToast = el('p', { class: 'a-toast', role: 'status', 'aria-live': 'polite' });
   // 0.36.0 (Sebastian 21.10.): ohne Score eine Werkzeugzeile (Suchen · Sortieren · Filter) und die Filter als Blatt von unten.
   const fState = stayFilterState(id); // 0.36.0: gemeinsamer Spaltenfilter (Liste, Karte, Durchsehen, Tabelle)
@@ -1241,12 +1250,16 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       el('p', {}, 'Status: ', el('strong', {}, a.status), ' · ', snapshot.treffer.length, ' Treffer · Suche #' + a.id),
       el('p', { class: 'small' }, `Suchkosten: ${fmtUsd(k.ist_usd) || 'unbekannt'} · reserviert: ${fmtUsd(k.reserviert_usd) || 'unbekannt'} · Limit: ${fmtUsd(k.limit_usd ?? a.limit_usd) || 'unbekannt'} · Anbieter-Einheiten: ${k.ist_einheiten ?? 'unbekannt'} / ${k.limit_einheiten ?? 'unbekannt'}`),
       el('ul', { class: 'suche-progress' }, steps.map((s) => el('li', {},
-        `${s.quelle === 'bewerten' ? (SUCHE_SCORE_AN ? 'Bewertung und Gegenprüfung' : 'Auswertung (Lage, Fotos)') : SUCHE_QUELLEN[s.quelle] || s.quelle}: ${s.status}${s.quelle === 'bewerten' ? '' : ` · ${s.treffer ?? 0} Treffer`}`,
+        `${s.quelle === 'bewerten' ? (SUCHE_SCORE_AN ? 'Bewertung und Gegenprüfung' : 'Auswertung (Lage, Fotos)') : s.quelle === 'ortspruefung' ? 'Ortsprüfung' : SUCHE_QUELLEN[s.quelle] || s.quelle}: ${s.status}${['bewerten', 'ortspruefung'].includes(s.quelle) ? '' : ` · ${s.treffer ?? 0} Treffer`}`,
+        s.quelle === 'ortspruefung' && s.hinweis ? el('p', { class: 'small' }, String(s.hinweis)) : null,
         s.kosten_usd != null ? ` · ${fmtUsd(s.kosten_usd)}` : '', s.credits != null ? ` · ${s.credits} Credits` : '',
         s.fehler ? el('p', { class: 'err-text' }, String(s.fehler)) : null,
         s.gehzeit?.fehler ? el('p', { class: 'err-text' }, 'Gehzeiten: ' + s.gehzeit.fehler) : null,
         s.gehzeit?.hinweis ? el('p', { class: 'small muted' }, 'Gehzeiten: ' + s.gehzeit.hinweis) : null))),
       el('p', { class: 'erg-warnung' }, !SUCHE_SCORE_AN ? (phase.final ? 'Suche abgeschlossen. Die Liste zeigt die Angaben der Anbieter – sortiere nach Preis, Gästenote, Fläche, Schlafzimmer oder Entfernung. Eine eigene Bewertung ist vorerst abgeschaltet.' : phase.failed ? 'Auswertung unterbrochen; vorhandene Ergebnisse bleiben sichtbar.' : 'Zwischenstand: Die Suche läuft noch, weitere Treffer und Angaben können folgen.') : phase.final ? 'Bewertung abgeschlossen. Passung (0–100) aus Raum, Lage, Preis-Leistung, Bewertungen und Eignung. Die Datenlage zeigt die Abdeckung; die Ampel beschreibt die Verlässlichkeit, nicht die Qualität. Offene Angaben und Einwände bleiben relevant.' : phase.failed ? 'Bewertung unterbrochen. Die Rangliste ist noch nicht abschließend; vorhandene Ergebnisse bleiben sichtbar.' : 'Zwischenstand: Die Rangliste ist erst nach Abschluss der Bewertungsstufe fertig. Teilnoten und Datenlage zeigen, welche Angaben bereits vorliegen.'));
+    const ortStep = steps.find(s => s?.quelle === 'ortspruefung');
+    ortBanner.hidden = !ortStep?.hinweis; ortBanner.classList.toggle('stark', ortStep?.status === 'warnung'); ortBanner.textContent = ortStep?.hinweis ? String(ortStep.hinweis) : '';
+    if (filterBox.parentNode === scope) { if (ortBanner.nextSibling !== filterBox) scope.insertBefore(ortBanner, filterBox); } else if (!ortBanner.isConnected) scope.prepend(ortBanner);
     const technical=el('details',{class:'run-diagnostics'},el('summary',{},'Details zum Suchlauf'));
     for(const node of [...summary.children].slice(2))technical.append(node);
     summary.append(technical);
@@ -1260,7 +1273,8 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       const von = d(a.anreise), bis = d(a.abreise), gleich = von.getMonth() === bis.getMonth();
       const zeit = gleich ? `${von.getDate()}.–${bis.getDate()}.${bis.getMonth() + 1}.` : `${shortDate(a.anreise)}–${shortDate(a.abreise)}`;
       const t = $('#title'); t.classList.add('t-reise');
-      t.replaceChildren(el('span', { class: 't-haupt' }, a.ziel || 'Reise'), el('span', { class: 't-sub' }, `${zeit} · ${a.erwachsene} Erw.${kinder.length ? ' · Kind' + (kinder.length > 1 ? 'er ' : ' ') + kinder.join(', ') : ''}`));
+      const zielLand = a.ziel_ort?.land_code ? ortLand(a.ziel_ort.land_code) : ''; // W116: Land zum Ort zeigen
+      t.replaceChildren(el('span', { class: 't-haupt' }, (a.ziel || 'Reise') + (zielLand && a.ziel_ort?.typ !== 'land' && !ortNorm(a.ziel).includes(ortNorm(zielLand)) ? ', ' + zielLand : '')), el('span', { class: 't-sub' }, `${zeit} · ${a.erwachsene} Erw.${kinder.length ? ' · Kind' + (kinder.length > 1 ? 'er ' : ' ') + kinder.join(', ') : ''}`));
       const info = $('#btn-info'); info.hidden = false; if (!info.firstChild) info.append(stayIcon('info'));
       if (!runInfo) { runInfo = el('dialog', { class: 'stay-candidate a-info-dialog', 'aria-label': 'Details zum Suchlauf' }, el('div', { class: 'candidate-header' }, el('h2', {}, 'Suchlauf'), el('button', { type: 'button', class: 'a-zu', 'aria-label': 'Schließen', onclick: () => runInfo.close() }, stayIcon('raus')))); runInfo.addEventListener('click', e => { if (e.target === runInfo) runInfo.close(); }); }
       if (summary.parentNode !== runInfo) runInfo.append(summary);

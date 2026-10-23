@@ -66,6 +66,8 @@ const geoFixture = (name) => {
     { name: 'Palau', latitude: 41.17936, longitude: 9.3819, feature_code: 'PPLA3', country_code: 'IT', country: 'Italy', admin1: 'Sardinia', population: 2885 },
     { name: 'Palau', latitude: 42.17743, longitude: 2.96918, feature_code: 'PPL', country_code: 'ES', country: 'Spain', admin1: 'Catalonia' },
     { name: 'Palau', latitude: 7.503, longitude: 134.621, feature_code: 'PCLF', country_code: 'PW', population: 17663 }];
+  if (n === 'fuji') return [ // W119: Stadt Fuji – der Berg kommt aus Photon
+    { name: 'Fuji', latitude: 35.16667, longitude: 138.68333, feature_code: 'PPLA2', country_code: 'JP', country: 'Japan', admin1: 'Shizuoka', population: 245392 }];
   if (n === 'kyoto') return [
     { name: 'Kyoto', latitude: 35.02107, longitude: 135.75385, feature_code: 'PPLA', country_code: 'JP', country: 'Japan', admin1: 'Kyoto', population: 1463723 },
     { name: 'Kyoto', latitude: -2.05, longitude: 31.68333, feature_code: 'PPL', country_code: 'TZ', country: 'Tanzania', admin1: 'Kagera' }];
@@ -96,6 +98,10 @@ async function setup(t, handler, viewport) {
   const errors = []; page.on('pageerror', (e) => errors.push(e.message)); t.after(() => assert.deepEqual(errors, []));
   const calls = [];
   await page.route('https://cdnjs.cloudflare.com/**', (r) => r.abort());
+  await page.route('https://photon.komoot.io/**', (r) => r.fulfill({ contentType: 'application/json', body: JSON.stringify({ features: String(new URL(r.request().url()).searchParams.get('q')).toLowerCase() === 'fuji' ? [ // W119
+    { geometry: { coordinates: [138.68333, 35.16667] }, properties: { name: 'Fuji', osm_key: 'place', osm_value: 'city', state: 'Shizuoka Prefecture', countrycode: 'JP' } },
+    { geometry: { coordinates: [138.7274, 35.3606] }, properties: { name: 'Mount Fuji', osm_key: 'natural', osm_value: 'volcano', state: 'Shizuoka Prefecture', countrycode: 'JP' } },
+    { geometry: { coordinates: [116.1, 26.1] }, properties: { name: 'Fujian Province', osm_key: 'place', osm_value: 'state', countrycode: 'CN' } }] : [] }) }));
   await page.route('https://geocoding-api.open-meteo.com/**', (r) => r.fulfill({ contentType: 'application/json', body: JSON.stringify({ results: geoFixture(new URL(r.request().url()).searchParams.get('name')) }) })); // W116
   await page.route('**/functions/v1/app-api/**', async (route) => {
     const request = route.request();
@@ -171,6 +177,28 @@ test('W116: mehrdeutiger Ort (Palau) muss gewählt werden und geht mit Land und 
   // Neuer Text hebt die Auswahl auf
   await page.goto(origin + '/#/suche'); await formFill(page); await page.locator('[name=ziel]').fill('xyzzy');
   await page.locator('.ort-info.warn').filter({ hasText: 'Kein Ort gefunden' }).waitFor();
+});
+test('W119: „Fuji“ – Stadt oder Gebiet um den Berg muss gewählt werden; Gebiet geht mit Umkreis, Trefferzahl wählbar bis „Alle“', async (t) => {
+  const { page, calls } = await setup(t, (p) => p.aktion === 'unterkunft_suchauftrag_anlegen' ? { ok: true, id: 2 } : p.aktion === 'unterkunft_suche_starten' ? { ok: true, status: 'laeuft' } : p.daten?.suchauftrag_id ? result() : { suchauftraege: [] });
+  await page.goto(origin + '/#/suche'); await formFill(page);
+  assert.equal(await page.locator('[name=max_je_quelle]').inputValue(), '500');
+  assert.match(await page.locator('.treffer-kosten').textContent(), /Bis zu 500 Treffer je Quelle/);
+  await page.locator('[name=ziel]').fill('Fuji');
+  const liste = page.getByRole('listbox', { name: 'Passende Orte' }); await liste.waitFor();
+  await page.locator('.ort-info.warn').filter({ hasText: 'Mehrere Orte' }).waitFor();
+  assert.equal(await liste.getByRole('option').count(), 2); // Berg + Stadt, nicht „Fujian“
+  await page.getByRole('button', { name: 'Unterkünfte suchen' }).click();
+  await page.getByRole('status').filter({ hasText: 'Bitte den richtigen Ort aus der Liste wählen' }).waitFor();
+  assert.equal(calls.filter((p) => p.aktion === 'unterkunft_suchauftrag_anlegen').length, 0);
+  await liste.getByRole('button').filter({ hasText: 'Gebiet um Mount Fuji' }).click();
+  await page.locator('.ort-info.ok').filter({ hasText: 'Gebiet um Mount Fuji (Berg) · 30 km Umkreis' }).waitFor();
+  await page.locator('.ort-radius').selectOption('50');
+  await page.locator('[name=max_je_quelle]').selectOption('200');
+  await page.getByRole('button', { name: 'Unterkünfte suchen' }).click();
+  await page.getByRole('heading', { name: 'Passende Treffer (3)' }).waitFor();
+  const d = calls.find((p) => p.aktion === 'unterkunft_suchauftrag_anlegen').daten;
+  assert.equal(d.ziel_ort.typ, 'gebiet'); assert.equal(d.ziel_ort.radius_km, 50); assert.equal(d.ziel_ort.art, 'Berg'); assert.equal(d.ziel_ort.lat, 35.3606); assert.equal(d.land, 'JP');
+  assert.equal(d.max_je_quelle, 200);
 });
 test('W117: Region (Okinawa) wird als ganze Region übernommen und mit Typ und Hinweis gesendet', async (t) => {
   const { page, calls } = await setup(t, (p) => p.aktion === 'unterkunft_suchauftrag_anlegen' ? { ok: true, id: 2 } : p.aktion === 'unterkunft_suche_starten' ? { ok: true, status: 'laeuft' } : p.daten?.suchauftrag_id ? result() : { suchauftraege: [] });
@@ -286,13 +314,13 @@ test('PWA installiert vollständige Offline-Hülle, API wird nicht gecacht', asy
   assert(cacheNames.includes('ki-system:' + origin + '/another-app/:v1'));
   assert(!cacheNames.includes('ki-system:' + origin + '/:old'));
   await page.evaluate(() => fetch('README.md'));
-  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v60')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
-  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.38.0')); assert(cached.includes('/style.css?v=0.38.0'));
-  assert(cached.includes('/stay-tools.js?v=0.38.0')); assert(cached.includes('/stay-desk.js?v=0.38.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
-  assert(cached.includes('/stay-research.js?v=0.38.0'));
-  assert(cached.includes('/stay-form.js?v=0.38.0'));
-  assert(cached.includes('/stay-details.js?v=0.38.0'));
-  assert(cached.includes('/stay-districts.js?v=0.38.0'));
+  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v61')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
+  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.39.0')); assert(cached.includes('/style.css?v=0.39.0'));
+  assert(cached.includes('/stay-tools.js?v=0.39.0')); assert(cached.includes('/stay-desk.js?v=0.39.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
+  assert(cached.includes('/stay-research.js?v=0.39.0'));
+  assert(cached.includes('/stay-form.js?v=0.39.0'));
+  assert(cached.includes('/stay-details.js?v=0.39.0'));
+  assert(cached.includes('/stay-districts.js?v=0.39.0'));
   assert(!cached.includes('/README.md'));
   assert(!cached.some((u) => u.includes('app-api')));
   await context.setOffline(true); await page.reload();

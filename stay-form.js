@@ -117,10 +117,10 @@ function sucheErweitertesFormular(form, call, live, ready, lock, profilePreset =
     return d;
   }
   function applyProfile(data={}) {
-    const defaults={erwachsene:2,kinder_alter:[],budget_eur:'',schlafzimmer_min:2,max_je_quelle:50,limit_usd:1.5,land:''};
+    const defaults={erwachsene:2,kinder_alter:[],budget_eur:'',schlafzimmer_min:2,max_je_quelle:500,limit_usd:1.5,land:''};
     for(const [key,value] of Object.entries(defaults)) {
       const incoming=data[key]??value;
-      form.elements[key].value=key==='kinder_alter'?Array.isArray(incoming)?incoming.join(', '):'':String(incoming);
+      form.elements[key].value=key==='kinder_alter'?Array.isArray(incoming)?incoming.join(', '):'':key==='max_je_quelle'?String([25,50,100,200,500].find(n=>n>=Number(incoming))??500):String(incoming); // W119: Auswahlliste
     }
     mainType.value=catalog.reisearten.hauptart.includes(data.profil)?data.profil:'staedte';
     sideType.value=catalog.reisearten.nebenart.includes(data.nebenart)?data.nebenart:'';
@@ -730,20 +730,24 @@ const ORT_LAND_DE = (() => { try { return new Intl.DisplayNames(['de'], { type: 
 const ortLand = code => { try { return code && /^[A-Z]{2}$/i.test(code) ? ORT_LAND_DE?.of(String(code).toUpperCase()) || code : ''; } catch { return code || ''; } };
 const ortNorm = t => String(t || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim();
 // W117: Art aus dem GeoNames-Code – Land (PCL…), Region/Insel (ADM…, ISL…, ARCH, RGN, AREA) oder Ort
-const ortTyp = fc => /^PCL/.test(fc || '') ? 'land' : /^(ADM|ISL|ARCH|RGN|AREA)/.test(fc || '') ? 'region' : 'ort';
+const ortTyp = fc => fc === 'GEBIET' ? 'gebiet' : /^PCL/.test(fc || '') ? 'land' : /^(ADM|ISL|ARCH|RGN|AREA)/.test(fc || '') ? 'region' : 'ort';
 function ortAusTreffer(x, auto = false) {
   const typ = ortTyp(x.feature_code);
   const name = typ === 'region' ? String(x.name).replace(/^Island\s+/i, '') : String(x.name); // GeoNames: „Island Sardinia“ -> „Sardinia“
-  return { name, region: typ === 'ort' ? (x.admin1 || null) : null, land: ortLand(x.country_code) || x.country || null, land_code: x.country_code ? String(x.country_code).toUpperCase() : null,
-    lat: Number(x.latitude), lon: Number(x.longitude), typ, quelle: 'auswahl', auto, einwohner: Number(x.population) || null };
+  return { name, region: typ === 'ort' || typ === 'gebiet' ? (x.admin1 || null) : null, land: ortLand(x.country_code) || x.country || null, land_code: x.country_code ? String(x.country_code).toUpperCase() : null,
+    lat: Number(x.latitude), lon: Number(x.longitude), typ, quelle: 'auswahl', auto, einwohner: Number(x.population) || null, ...(typ === 'gebiet' ? { art: x.art || 'Gebiet', radius_km: 30 } : {}) };
 }
-const ortArt = o => o?.typ === 'land' ? 'ganzes Land' : o?.typ === 'region' ? 'ganze Region' : '';
+const ortArt = o => o?.typ === 'land' ? 'ganzes Land' : o?.typ === 'region' ? 'ganze Region' : o?.typ === 'gebiet' ? `Gebiet (${o.art}), Umkreis ${o.radius_km || 30} km` : '';
 const ortText = o => o ? (o.typ === 'land' ? o.name + ' · ganzes Land' : o.typ === 'region' ? o.name + ' · ganze Region' + (o.land ? ', ' + o.land : '')
+  : o.typ === 'gebiet' ? `Gebiet um ${o.name} (${o.art}) · ${o.radius_km || 30} km Umkreis` + (o.land ? ', ' + o.land : '')
   : [o.name, o.region, o.land].filter((v, i, a) => v && a.findIndex(w => ortNorm(w) === ortNorm(v)) === i).join(', ')) : '';
 // Mehrdeutig: gleichnamige Orte in mehreren Ländern, und der zweitgrößte hat mindestens 10 % der Einwohner des größten
 // (Palau: Inselstaat 17.663 vs. Sardinien 2.885 → wählen; Kyoto: Japan 1,46 Mio. vs. Tansania ohne Angabe → eindeutig)
 const ortGleich = (x, text) => ortNorm(String(x.name).replace(/^Island\s+/i, '')) === ortNorm(text);
+// W119: Naturziel (Berg, See …) mit dem Namen im Text und zugleich ein Ort → immer wählen lassen („Fuji“: Stadt Fuji oder Gebiet um Mount Fuji)
+const ortWort = (name, text) => new RegExp('(^|[\\s-])' + ortNorm(text).replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '($|[\\s-])').test(ortNorm(name));
 function ortMehrdeutig(liste, text) {
+  if (liste.some(x => x.feature_code === 'GEBIET' && ortWort(x.name, text)) && liste.some(x => x.feature_code !== 'GEBIET')) return true;
   const gleich = liste.filter(x => ortGleich(x, text));
   const laender = [...new Set(gleich.map(x => x.country_code))];
   if (laender.length < 2) return false;
@@ -753,13 +757,33 @@ function ortMehrdeutig(liste, text) {
   const zweiter = s.find(x => x.country_code !== s[0].country_code);
   return groesse(s[0]) === 0 || groesse(zweiter) >= groesse(s[0]) * 0.1;
 }
+// W119: Naturziele aus OpenStreetMap (Photon, kostenlos): Berge, Vulkane, Seen, Buchten, Strände, Nationalparks – als „Gebiet“ mit Umkreis
+const NATUR_ART = { peak: 'Berg', volcano: 'Berg', water: 'See', lake: 'See', bay: 'Bucht', beach: 'Strand', glacier: 'Gletscher', valley: 'Tal', national_park: 'Nationalpark', protected_area: 'Schutzgebiet' };
+async function naturSuchen(text, signal) {
+  try {
+    const r = await fetch('https://photon.komoot.io/api/?' + new URLSearchParams({ q: text, limit: '10', lang: 'en' }), { signal });
+    if (!r.ok) return [];
+    const feats = (await r.json())?.features || [];
+    const aus = [], gesehen = new Set();
+    for (const f of feats) {
+      const p = f?.properties || {}, c = f?.geometry?.coordinates || [];
+      const art = (p.osm_key === 'natural' || p.osm_key === 'boundary' || p.osm_key === 'leisure') ? NATUR_ART[p.osm_value] : null;
+      if (!art || !p.name || !Number.isFinite(Number(c[1])) || !ortWort(p.name, text)) continue;
+      const key = ortNorm(p.name) + '|' + (p.countrycode || '');
+      if (gesehen.has(key)) continue; gesehen.add(key);
+      aus.push({ name: p.name, feature_code: 'GEBIET', art, admin1: p.state || null, country_code: p.countrycode || null, latitude: Number(c[1]), longitude: Number(c[0]), population: null });
+    }
+    return aus.slice(0, 3);
+  } catch (e) { if (e.name === 'AbortError') throw e; return []; }
+}
 async function ortSuchen(text, signal) {
   const qs = new URLSearchParams({ name: text, count: '10', language: 'en', format: 'json' });
-  const r = await fetch('https://geocoding-api.open-meteo.com/v1/search?' + qs, { signal });
-  if (!r.ok) throw new Error('Ortssuche nicht erreichbar');
-  const j = await r.json();
-  return (Array.isArray(j?.results) ? j.results : []).filter(x => Number.isFinite(Number(x.latitude)) && Number.isFinite(Number(x.longitude))
+  const [r, natur] = await Promise.all([fetch('https://geocoding-api.open-meteo.com/v1/search?' + qs, { signal }), naturSuchen(text, signal)]);
+  if (!r.ok && !natur.length) throw new Error('Ortssuche nicht erreichbar');
+  const j = r.ok ? await r.json() : {};
+  const orte = (Array.isArray(j?.results) ? j.results : []).filter(x => Number.isFinite(Number(x.latitude)) && Number.isFinite(Number(x.longitude))
     && (!x.feature_code || /^(PPL|PCL|ADM|ISL|ARCH|AREA|RGN|LCTY)/.test(x.feature_code))).slice(0, 6);
+  return [...natur, ...orte].slice(0, 8);
 }
 function sucheOrtsauswahl(form, rahmen) {
   const input = rahmen.querySelector('[name="ziel"]') || form.querySelector('[name="ziel"]'); // das Feld steckt beim Aufbau schon im Rahmen, der erst danach ins Formular kommt
@@ -768,12 +792,17 @@ function sucheOrtsauswahl(form, rahmen) {
   const liste = el('ul', { class: 'ort-liste', role: 'listbox', hidden: true, 'aria-label': 'Passende Orte' });
   const info = el('span', { class: 'ort-info small', 'aria-live': 'polite' });
   const flaecheHinweis = el('span', { class: 'ort-flaeche small muted', hidden: true }, 'Ganze Fläche: Führt der Name bei Anbietern woandershin, wird in bis zu 3 Orten darin gesucht (Booking-Kosten bis etwa ×3).');
-  rahmen.classList.add('ort-rahmen'); rahmen.append(info, flaecheHinweis, liste); // außerhalb des Labels, damit „Wo?“ der Feldname bleibt
+  // W119: Umkreis für ein Gebiet (Berg, See …) – gesucht wird in den bis zu 4 nächstgelegenen Orten
+  const radiusWahl = el('select', { class: 'ort-radius', 'aria-label': 'Umkreis um das Gebiet', hidden: true, onchange: () => { if (gewaehlt?.typ === 'gebiet') { gewaehlt.radius_km = Number(radiusWahl.value); zeigeInfo(); } } },
+    ...[15, 30, 50].map(n => el('option', { value: String(n), selected: n === 30 }, `Umkreis ${n} km`)));
+  rahmen.classList.add('ort-rahmen'); rahmen.append(info, radiusWahl, flaecheHinweis, liste); // außerhalb des Labels, damit „Wo?“ der Feldname bleibt
   let gewaehlt = null, treffer = [], fuer = '', timer = null, ctrl = null, eigen = false, fehler = false;
   const zeigeInfo = () => {
     info.className = 'ort-info small';
-    flaecheHinweis.hidden = !gewaehlt || gewaehlt.typ === 'ort';
-    if (gewaehlt) { info.textContent = '✓ ' + ortText(gewaehlt); info.classList.add('ok'); }
+    flaecheHinweis.hidden = !gewaehlt || gewaehlt.typ === 'ort' || gewaehlt.typ === 'gebiet';
+    radiusWahl.hidden = gewaehlt?.typ !== 'gebiet';
+    if (gewaehlt?.typ === 'gebiet') radiusWahl.value = String(gewaehlt.radius_km || 30);
+    if (gewaehlt) { info.textContent = '✓ ' + ortText(gewaehlt) + (gewaehlt.typ === 'gebiet' ? ' – gesucht wird in den nächstgelegenen Orten' : ''); info.classList.add('ok'); }
     else if (fehler) info.textContent = 'Ortssuche gerade nicht erreichbar – der Server ordnet den Namen selbst zu.';
     else if (treffer.length && ortMehrdeutig(treffer, input.value)) { info.textContent = 'Mehrere Orte – bitte wählen'; info.classList.add('warn'); }
     else if (fuer && !treffer.length) { info.textContent = 'Kein Ort gefunden – bitte Schreibweise prüfen'; info.classList.add('warn'); }
@@ -787,7 +816,7 @@ function sucheOrtsauswahl(form, rahmen) {
   };
   const malen = () => {
     liste.replaceChildren(...treffer.map(x => { const o = ortAusTreffer(x); return el('li', { role: 'option' }, el('button', { type: 'button', class: 'ort-wahl', onmousedown: e => e.preventDefault(), onclick: () => waehlen(o) },
-      el('strong', {}, o.name), el('span', { class: 'small muted' }, o.typ === 'land' ? 'ganzes Land' : o.typ === 'region' ? ['ganze Region', o.land].filter(Boolean).join(', ') : [o.region, o.land].filter((v, i, a) => v && a.indexOf(v) === i).join(', ')))); }));
+      el('strong', {}, o.typ === 'gebiet' ? 'Gebiet um ' + o.name : o.name), el('span', { class: 'small muted' }, o.typ === 'land' ? 'ganzes Land' : o.typ === 'region' ? ['ganze Region', o.land].filter(Boolean).join(', ') : o.typ === 'gebiet' ? [o.art + ' · Umkreis 30 km', o.region, o.land].filter(Boolean).join(', ') : [o.region, o.land].filter((v, i, a) => v && a.indexOf(v) === i).join(', ')))); }));
     liste.hidden = !treffer.length || document.activeElement !== input && !ortMehrdeutig(treffer, input.value);
     input.setAttribute('aria-expanded', String(!liste.hidden));
   };

@@ -408,6 +408,7 @@ function sucheSchnellLayout({ form, fields, sections, extended, submit, call, li
   const viertelLink = el('button', { type: 'button', class: 'link-button viertel-link', hidden: true, title: 'Wo wohnen? Viertel ansehen', onclick: () => { const z = form.querySelector('[name="ziel"]')?.value.trim(); if (z) route('viertel', '?' + new URLSearchParams({ stadt: z })); } }, 'Viertel');
   form.addEventListener('input', e => { if (e.target?.name === 'ziel') viertelLink.hidden = (e.target.value || '').trim().length < 2; });
   const zielLabel = el('div', { class: 'mit-viertel a-zeile' }, el('span', { class: 'a-zeile-ikon' }, stayIcon('pin')), label('ziel'), viertelLink);
+  sucheOrtsauswahl(form, zielLabel); // W116: Ort mit Land wählen
   // W102 (Sebastian 20.10.: „unübersichtlich, nicht kompakt“): feste Reihenfolge in drei Blöcken –
   // 1 Wo & Wann (am Rechner eine Zeile) · 2 Wohnen & Wer (eine Zeile) · 3 Wichtig für dich (Chip-Fläche) · Suchknopf bleibt sichtbar.
   const kopf = el('div', { class: 'quick-kopf' }, el('h2', {}, 'Unterkunft suchen'), el('p', { class: 'quick-meta small' }, tripLine));
@@ -721,4 +722,100 @@ function sucheDatumBereich(form) {
   for (const n of ['anreise', 'abreise']) feld(n)?.addEventListener('invalid', () => umschalten(true));
   beschriften();
   return { node: el('div', { class: 'dr' }, knopf, panel), beschriften };
+}
+
+// W116 (Sebastian 22.10.): Ziel eindeutig – „Palau“ landete auf Sardinien. Beim Tippen zeigt „Wo?“ passende Orte mit Land (Open-Meteo, kostenlos);
+// gleichnamige Orte in mehreren Ländern müssen gewählt werden, sonst wird der eindeutige Treffer übernommen. Gespeichert: Name, Region, Land, Koordinaten.
+const ORT_LAND_DE = (() => { try { return new Intl.DisplayNames(['de'], { type: 'region' }); } catch { return null; } })();
+const ortLand = code => { try { return code && /^[A-Z]{2}$/i.test(code) ? ORT_LAND_DE?.of(String(code).toUpperCase()) || code : ''; } catch { return code || ''; } };
+const ortNorm = t => String(t || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim();
+function ortAusTreffer(x, auto = false) {
+  const land = !!String(x.feature_code || '').startsWith('PCL');
+  return { name: String(x.name), region: land ? null : (x.admin1 || null), land: ortLand(x.country_code) || x.country || null, land_code: x.country_code ? String(x.country_code).toUpperCase() : null,
+    lat: Number(x.latitude), lon: Number(x.longitude), typ: land ? 'land' : 'ort', quelle: 'auswahl', auto, einwohner: Number(x.population) || null };
+}
+const ortText = o => o ? [o.name, o.typ === 'land' ? 'ganzes Land' : o.region, o.typ === 'land' ? null : o.land].filter((v, i, a) => v && a.findIndex(w => ortNorm(w) === ortNorm(v)) === i).join(', ') : '';
+// Mehrdeutig: gleichnamige Orte in mehreren Ländern, und der zweitgrößte hat mindestens 10 % der Einwohner des größten
+// (Palau: Inselstaat 17.663 vs. Sardinien 2.885 → wählen; Kyoto: Japan 1,46 Mio. vs. Tansania ohne Angabe → eindeutig)
+function ortMehrdeutig(liste, text) {
+  const gleich = liste.filter(x => ortNorm(x.name) === ortNorm(text));
+  const laender = [...new Set(gleich.map(x => x.country_code))];
+  if (laender.length < 2) return false;
+  const groesse = x => Number(x.population) || 0;
+  const s = [...gleich].sort((a, b) => groesse(b) - groesse(a));
+  const zweiter = s.find(x => x.country_code !== s[0].country_code);
+  return groesse(s[0]) === 0 || groesse(zweiter) >= groesse(s[0]) * 0.1;
+}
+async function ortSuchen(text, signal) {
+  const qs = new URLSearchParams({ name: text, count: '10', language: 'en', format: 'json' });
+  const r = await fetch('https://geocoding-api.open-meteo.com/v1/search?' + qs, { signal });
+  if (!r.ok) throw new Error('Ortssuche nicht erreichbar');
+  const j = await r.json();
+  return (Array.isArray(j?.results) ? j.results : []).filter(x => Number.isFinite(Number(x.latitude)) && Number.isFinite(Number(x.longitude))
+    && (!x.feature_code || /^(PPL|PCL|ADM|ISL|AREA|RGN|LCTY)/.test(x.feature_code))).slice(0, 6);
+}
+function sucheOrtsauswahl(form, rahmen) {
+  const input = rahmen.querySelector('[name="ziel"]') || form.querySelector('[name="ziel"]'); // das Feld steckt beim Aufbau schon im Rahmen, der erst danach ins Formular kommt
+  if (!input || form.ortSicherstellen) return;
+  input.setAttribute('autocomplete', 'off'); input.setAttribute('role', 'combobox'); input.setAttribute('aria-autocomplete', 'list'); input.setAttribute('aria-expanded', 'false');
+  const liste = el('ul', { class: 'ort-liste', role: 'listbox', hidden: true, 'aria-label': 'Passende Orte' });
+  const info = el('span', { class: 'ort-info small', 'aria-live': 'polite' });
+  input.closest('label')?.append(info);
+  rahmen.classList.add('ort-rahmen'); rahmen.append(liste);
+  let gewaehlt = null, treffer = [], fuer = '', timer = null, ctrl = null, eigen = false, fehler = false;
+  const zeigeInfo = () => {
+    info.className = 'ort-info small';
+    if (gewaehlt) { info.textContent = '✓ ' + ortText(gewaehlt); info.classList.add('ok'); }
+    else if (fehler) info.textContent = 'Ortssuche gerade nicht erreichbar – der Server ordnet den Namen selbst zu.';
+    else if (treffer.length && ortMehrdeutig(treffer, input.value)) { info.textContent = 'Mehrere Orte – bitte wählen'; info.classList.add('warn'); }
+    else if (fuer && !treffer.length) { info.textContent = 'Kein Ort gefunden – bitte Schreibweise prüfen'; info.classList.add('warn'); }
+    else info.textContent = '';
+  };
+  const schliessen = () => { liste.hidden = true; input.setAttribute('aria-expanded', 'false'); };
+  const waehlen = (o, { stumm = false } = {}) => {
+    gewaehlt = o; form.zielOrt = o; schliessen();
+    if (!stumm && ortNorm(input.value) !== ortNorm(o.name)) { eigen = true; input.value = o.name; input.dispatchEvent(new Event('input', { bubbles: true })); eigen = false; }
+    zeigeInfo();
+  };
+  const malen = () => {
+    liste.replaceChildren(...treffer.map(x => { const o = ortAusTreffer(x); return el('li', { role: 'option' }, el('button', { type: 'button', class: 'ort-wahl', onmousedown: e => e.preventDefault(), onclick: () => waehlen(o) },
+      el('strong', {}, o.name), el('span', { class: 'small muted' }, o.typ === 'land' ? 'ganzes Land' : [o.region, o.land].filter((v, i, a) => v && a.indexOf(v) === i).join(', ')))); }));
+    liste.hidden = !treffer.length || document.activeElement !== input && !ortMehrdeutig(treffer, input.value);
+    input.setAttribute('aria-expanded', String(!liste.hidden));
+  };
+  // Eindeutiger Treffer (gleicher Name, nur ein Land oder alle anderen winzig) wird still übernommen; sonst muss gewählt werden.
+  const autoWahl = () => {
+    if (gewaehlt || !treffer.length || ortMehrdeutig(treffer, input.value)) return;
+    const gleich = treffer.filter(x => ortNorm(x.name) === ortNorm(input.value)).sort((a, b) => (Number(b.population) || 0) - (Number(a.population) || 0));
+    if (gleich.length || treffer.length === 1) waehlen(ortAusTreffer(gleich[0] || treffer[0], true), { stumm: true });
+  };
+  async function laden(text) {
+    ctrl?.abort(); ctrl = new AbortController();
+    try { treffer = await ortSuchen(text, ctrl.signal); fehler = false; fuer = text; }
+    catch (e) { if (e.name === 'AbortError') return; treffer = []; fehler = true; fuer = text; }
+    if (ortNorm(input.value) !== ortNorm(text)) return;
+    autoWahl(); malen(); zeigeInfo();
+  }
+  input.addEventListener('input', () => {
+    if (eigen) return;
+    gewaehlt = null; form.zielOrt = null; fehler = false; clearTimeout(timer);
+    const text = input.value.trim();
+    if (text.length < 2) { treffer = []; fuer = ''; schliessen(); zeigeInfo(); return; }
+    timer = setTimeout(() => laden(text), 350);
+  });
+  input.addEventListener('focus', () => { if (treffer.length && !gewaehlt) malen(); });
+  input.addEventListener('blur', () => setTimeout(() => { if (!liste.contains(document.activeElement)) schliessen(); }, 150));
+  input.addEventListener('keydown', e => { if (e.key === 'Escape') schliessen(); });
+  // Vor dem Absenden: Ort feststellen (auch wenn der Name von außen eingesetzt wurde). Rückgabe = Fehlermeldung oder null.
+  form.ortSicherstellen = async () => {
+    const text = input.value.trim();
+    if (text.length < 2) return null;
+    if (gewaehlt && ortNorm(gewaehlt.name) === ortNorm(text)) return null;
+    if (ortNorm(fuer) !== ortNorm(text)) { clearTimeout(timer); await laden(text); }
+    if (gewaehlt) return null;
+    if (fehler) return null; // Ortssuche nicht erreichbar: Server ordnet zu und meldet Mehrdeutigkeit
+    if (!treffer.length) return 'Ort „' + text + '“ nicht gefunden. Bitte Schreibweise prüfen oder einen größeren Ort in der Nähe wählen.';
+    liste.hidden = false; input.setAttribute('aria-expanded', 'true'); input.focus();
+    return ortMehrdeutig(treffer, text) ? '„' + text + '“ gibt es mehrmals. Bitte den richtigen Ort aus der Liste wählen.' : 'Bitte den passenden Ort aus der Liste unter „Wo?“ wählen.';
+  };
 }

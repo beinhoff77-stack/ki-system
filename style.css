@@ -2165,3 +2165,17 @@ body[data-area="unterkunft"] main.view:has(.a-ergebnis) { padding-top: 2px; }
   body[data-area="unterkunft"] .system-brand { font-size: 14px; }
   .a-ergebnis .desk-hinweis { display: none; }
 }
+
+/* W116: Ortsauswahl unter „Wo?“ und Hinweis „Anderer Ort?“ */
+.ort-rahmen, .quick-search .mit-viertel.a-zeile.ort-rahmen { position: relative; }
+.ort-info { display: block; margin-top: 2px; font-weight: 600; color: var(--a-muted, #5b6b69); line-height: 1.3; }
+.ort-info:empty { display: none; }
+.ort-info.ok { color: var(--a-teal, #0f766e); }
+.ort-info.warn { color: #9a6516; }
+.ort-liste { position: absolute; left: 8px; right: 8px; top: calc(100% - 2px); z-index: 30; margin: 0; padding: 6px; list-style: none; background: #fff; border: 1px solid var(--a-line, #d8e2e0); border-radius: 14px; box-shadow: 0 12px 28px rgba(16, 37, 35, .16); max-height: 320px; overflow-y: auto; }
+.ort-liste li + li { border-top: 1px solid #edf2f1; }
+.ort-wahl { display: flex; flex-direction: column; align-items: flex-start; gap: 1px; width: 100%; min-height: 48px; padding: 8px 10px; border: 0; border-radius: 10px; background: none; text-align: left; font: inherit; color: var(--a-ink, #102523); cursor: pointer; }
+.ort-wahl:hover, .ort-wahl:focus-visible { background: var(--a-soft, #eef6f5); outline: none; }
+.ort-wahl strong { font-size: 15px; }
+.ort-warnung { margin: 8px 0; padding: 10px 14px; border-radius: 12px; background: #fbf3e4; color: #6b4610; font-size: 14px; line-height: 1.4; border: 1px solid #ecd9b5; }
+.ort-warnung.stark { background: #fdecea; color: #8a2a1c; border-color: #f2c6bf; font-weight: 600; }

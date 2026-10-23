@@ -729,20 +729,27 @@ function sucheDatumBereich(form) {
 const ORT_LAND_DE = (() => { try { return new Intl.DisplayNames(['de'], { type: 'region' }); } catch { return null; } })();
 const ortLand = code => { try { return code && /^[A-Z]{2}$/i.test(code) ? ORT_LAND_DE?.of(String(code).toUpperCase()) || code : ''; } catch { return code || ''; } };
 const ortNorm = t => String(t || '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim();
+// W117: Art aus dem GeoNames-Code – Land (PCL…), Region/Insel (ADM…, ISL…, ARCH, RGN, AREA) oder Ort
+const ortTyp = fc => /^PCL/.test(fc || '') ? 'land' : /^(ADM|ISL|ARCH|RGN|AREA)/.test(fc || '') ? 'region' : 'ort';
 function ortAusTreffer(x, auto = false) {
-  const land = !!String(x.feature_code || '').startsWith('PCL');
-  return { name: String(x.name), region: land ? null : (x.admin1 || null), land: ortLand(x.country_code) || x.country || null, land_code: x.country_code ? String(x.country_code).toUpperCase() : null,
-    lat: Number(x.latitude), lon: Number(x.longitude), typ: land ? 'land' : 'ort', quelle: 'auswahl', auto, einwohner: Number(x.population) || null };
+  const typ = ortTyp(x.feature_code);
+  const name = typ === 'region' ? String(x.name).replace(/^Island\s+/i, '') : String(x.name); // GeoNames: „Island Sardinia“ -> „Sardinia“
+  return { name, region: typ === 'ort' ? (x.admin1 || null) : null, land: ortLand(x.country_code) || x.country || null, land_code: x.country_code ? String(x.country_code).toUpperCase() : null,
+    lat: Number(x.latitude), lon: Number(x.longitude), typ, quelle: 'auswahl', auto, einwohner: Number(x.population) || null };
 }
-const ortText = o => o ? [o.name, o.typ === 'land' ? 'ganzes Land' : o.region, o.typ === 'land' ? null : o.land].filter((v, i, a) => v && a.findIndex(w => ortNorm(w) === ortNorm(v)) === i).join(', ') : '';
+const ortArt = o => o?.typ === 'land' ? 'ganzes Land' : o?.typ === 'region' ? 'ganze Region' : '';
+const ortText = o => o ? (o.typ === 'land' ? o.name + ' · ganzes Land' : o.typ === 'region' ? o.name + ' · ganze Region' + (o.land ? ', ' + o.land : '')
+  : [o.name, o.region, o.land].filter((v, i, a) => v && a.findIndex(w => ortNorm(w) === ortNorm(v)) === i).join(', ')) : '';
 // Mehrdeutig: gleichnamige Orte in mehreren Ländern, und der zweitgrößte hat mindestens 10 % der Einwohner des größten
 // (Palau: Inselstaat 17.663 vs. Sardinien 2.885 → wählen; Kyoto: Japan 1,46 Mio. vs. Tansania ohne Angabe → eindeutig)
+const ortGleich = (x, text) => ortNorm(String(x.name).replace(/^Island\s+/i, '')) === ortNorm(text);
 function ortMehrdeutig(liste, text) {
-  const gleich = liste.filter(x => ortNorm(x.name) === ortNorm(text));
+  const gleich = liste.filter(x => ortGleich(x, text));
   const laender = [...new Set(gleich.map(x => x.country_code))];
   if (laender.length < 2) return false;
   const groesse = x => Number(x.population) || 0;
   const s = [...gleich].sort((a, b) => groesse(b) - groesse(a));
+  if (!s.some(x => x.country_code !== s[0].country_code)) return false;
   const zweiter = s.find(x => x.country_code !== s[0].country_code);
   return groesse(s[0]) === 0 || groesse(zweiter) >= groesse(s[0]) * 0.1;
 }
@@ -752,7 +759,7 @@ async function ortSuchen(text, signal) {
   if (!r.ok) throw new Error('Ortssuche nicht erreichbar');
   const j = await r.json();
   return (Array.isArray(j?.results) ? j.results : []).filter(x => Number.isFinite(Number(x.latitude)) && Number.isFinite(Number(x.longitude))
-    && (!x.feature_code || /^(PPL|PCL|ADM|ISL|AREA|RGN|LCTY)/.test(x.feature_code))).slice(0, 6);
+    && (!x.feature_code || /^(PPL|PCL|ADM|ISL|ARCH|AREA|RGN|LCTY)/.test(x.feature_code))).slice(0, 6);
 }
 function sucheOrtsauswahl(form, rahmen) {
   const input = rahmen.querySelector('[name="ziel"]') || form.querySelector('[name="ziel"]'); // das Feld steckt beim Aufbau schon im Rahmen, der erst danach ins Formular kommt
@@ -760,11 +767,12 @@ function sucheOrtsauswahl(form, rahmen) {
   input.setAttribute('autocomplete', 'off'); input.setAttribute('role', 'combobox'); input.setAttribute('aria-autocomplete', 'list'); input.setAttribute('aria-expanded', 'false');
   const liste = el('ul', { class: 'ort-liste', role: 'listbox', hidden: true, 'aria-label': 'Passende Orte' });
   const info = el('span', { class: 'ort-info small', 'aria-live': 'polite' });
-  input.closest('label')?.append(info);
-  rahmen.classList.add('ort-rahmen'); rahmen.append(liste);
+  const flaecheHinweis = el('span', { class: 'ort-flaeche small muted', hidden: true }, 'Ganze Fläche: Führt der Name bei Anbietern woandershin, wird in bis zu 3 Orten darin gesucht (Booking-Kosten bis etwa ×3).');
+  rahmen.classList.add('ort-rahmen'); rahmen.append(info, flaecheHinweis, liste); // außerhalb des Labels, damit „Wo?“ der Feldname bleibt
   let gewaehlt = null, treffer = [], fuer = '', timer = null, ctrl = null, eigen = false, fehler = false;
   const zeigeInfo = () => {
     info.className = 'ort-info small';
+    flaecheHinweis.hidden = !gewaehlt || gewaehlt.typ === 'ort';
     if (gewaehlt) { info.textContent = '✓ ' + ortText(gewaehlt); info.classList.add('ok'); }
     else if (fehler) info.textContent = 'Ortssuche gerade nicht erreichbar – der Server ordnet den Namen selbst zu.';
     else if (treffer.length && ortMehrdeutig(treffer, input.value)) { info.textContent = 'Mehrere Orte – bitte wählen'; info.classList.add('warn'); }
@@ -779,14 +787,14 @@ function sucheOrtsauswahl(form, rahmen) {
   };
   const malen = () => {
     liste.replaceChildren(...treffer.map(x => { const o = ortAusTreffer(x); return el('li', { role: 'option' }, el('button', { type: 'button', class: 'ort-wahl', onmousedown: e => e.preventDefault(), onclick: () => waehlen(o) },
-      el('strong', {}, o.name), el('span', { class: 'small muted' }, o.typ === 'land' ? 'ganzes Land' : [o.region, o.land].filter((v, i, a) => v && a.indexOf(v) === i).join(', ')))); }));
+      el('strong', {}, o.name), el('span', { class: 'small muted' }, o.typ === 'land' ? 'ganzes Land' : o.typ === 'region' ? ['ganze Region', o.land].filter(Boolean).join(', ') : [o.region, o.land].filter((v, i, a) => v && a.indexOf(v) === i).join(', ')))); }));
     liste.hidden = !treffer.length || document.activeElement !== input && !ortMehrdeutig(treffer, input.value);
     input.setAttribute('aria-expanded', String(!liste.hidden));
   };
   // Eindeutiger Treffer (gleicher Name, nur ein Land oder alle anderen winzig) wird still übernommen; sonst muss gewählt werden.
   const autoWahl = () => {
     if (gewaehlt || !treffer.length || ortMehrdeutig(treffer, input.value)) return;
-    const gleich = treffer.filter(x => ortNorm(x.name) === ortNorm(input.value)).sort((a, b) => (Number(b.population) || 0) - (Number(a.population) || 0));
+    const gleich = treffer.filter(x => ortGleich(x, input.value)).sort((a, b) => (Number(b.population) || 0) - (Number(a.population) || 0));
     if (gleich.length || treffer.length === 1) waehlen(ortAusTreffer(gleich[0] || treffer[0], true), { stumm: true });
   };
   async function laden(text) {

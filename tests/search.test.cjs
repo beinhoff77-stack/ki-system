@@ -69,6 +69,10 @@ const geoFixture = (name) => {
   if (n === 'kyoto') return [
     { name: 'Kyoto', latitude: 35.02107, longitude: 135.75385, feature_code: 'PPLA', country_code: 'JP', country: 'Japan', admin1: 'Kyoto', population: 1463723 },
     { name: 'Kyoto', latitude: -2.05, longitude: 31.68333, feature_code: 'PPL', country_code: 'TZ', country: 'Tanzania', admin1: 'Kagera' }];
+  if (n === 'okinawa') return [
+    { name: 'Okinawa', latitude: 26.50687, longitude: 127.94581, feature_code: 'ISL', country_code: 'JP', country: 'Japan', admin1: 'Okinawa', population: 1466870 },
+    { name: 'Okinawa', latitude: 26.33583, longitude: 127.80139, feature_code: 'PPLA2', country_code: 'JP', country: 'Japan', admin1: 'Okinawa', population: 142752 },
+    { name: 'Okinawa', latitude: -17.22, longitude: -62.89, feature_code: 'PPL', country_code: 'BO', country: 'Bolivia', admin1: 'Santa Cruz' }];
   if (n.length < 2 || n === 'xyzzy') return [];
   return [{ name: String(name), latitude: 35, longitude: 135, feature_code: 'PPL', country_code: 'JP', country: 'Japan', admin1: 'Test', population: 1000 }];
 };
@@ -168,6 +172,31 @@ test('W116: mehrdeutiger Ort (Palau) muss gewählt werden und geht mit Land und 
   await page.goto(origin + '/#/suche'); await formFill(page); await page.locator('[name=ziel]').fill('xyzzy');
   await page.locator('.ort-info.warn').filter({ hasText: 'Kein Ort gefunden' }).waitFor();
 });
+test('W117: Region (Okinawa) wird als ganze Region übernommen und mit Typ und Hinweis gesendet', async (t) => {
+  const { page, calls } = await setup(t, (p) => p.aktion === 'unterkunft_suchauftrag_anlegen' ? { ok: true, id: 2 } : p.aktion === 'unterkunft_suche_starten' ? { ok: true, status: 'laeuft' } : p.daten?.suchauftrag_id ? result() : { suchauftraege: [] });
+  await page.goto(origin + '/#/suche'); await formFill(page);
+  await page.locator('[name=ziel]').fill('Okinawa');
+  await page.locator('.ort-info.ok').filter({ hasText: 'Okinawa · ganze Region, Japan' }).waitFor();
+  assert.equal(await page.locator('.ort-flaeche').isVisible(), true);
+  await page.getByRole('button', { name: 'Unterkünfte suchen' }).click();
+  await page.getByRole('heading', { name: 'Passende Treffer (3)' }).waitFor();
+  const d = calls.find((p) => p.aktion === 'unterkunft_suchauftrag_anlegen').daten;
+  assert.equal(d.ziel_ort.typ, 'region'); assert.equal(d.ziel_ort.land_code, 'JP'); assert.equal(d.land, 'JP'); assert.equal(d.ziel_ort.name, 'Okinawa');
+  // Ein Ort bleibt ein Ort, Hinweis zur Fläche verschwindet
+  await page.goto(origin + '/#/suche'); await formFill(page);
+  await page.locator('.ort-info.ok').filter({ hasText: '✓ Kyoto, Japan' }).waitFor();
+  assert.equal(await page.locator('.ort-flaeche').isVisible(), false);
+});
+test('W117: Suchorte einer Region werden über der Liste genannt', async (t) => {
+  const data = result(); data.suchauftrag.ziel = 'Palau'; data.suchauftrag.ziel_ort = { name: 'Palau', land_code: 'PW', typ: 'land', quelle: 'auswahl' };
+  data.suchauftrag.schrittkette.push({ quelle: 'zielaufloesung', status: 'suchorte', modus: 'suchorte', hinweis: 'Der Name „Palau“ führt bei den Anbietern woandershin. Gesucht wird deshalb in: Koror, Airai, Melekeok (Palau).' });
+  const { page } = await setup(t, () => data, { ohneScore: true });
+  await page.goto(origin + '/#/suche/2');
+  const banner = page.locator('.ort-warnung'); await banner.waitFor();
+  assert.match(await banner.textContent(), /Gesucht wird deshalb in: Koror/);
+  assert.equal(await page.locator('.ort-warnung.stark').count(), 0);
+  assert.match(await page.locator('#title').textContent(), /Palau \(Land\)/);
+});
 test('W116: Ortsprüfung zeigt „Anderer Ort?“ über der Liste und als Warnung am Treffer', async (t) => {
   const data = result(); data.suchauftrag.ziel = 'Palau'; data.suchauftrag.ziel_ort = { name: 'Palau', land_code: 'PW', typ: 'land', quelle: 'automatisch' };
   data.suchauftrag.schrittkette.push({ quelle: 'ortspruefung', status: 'warnung', hinweis: 'Anderer Ort? Treffer mehr als 400 km von Palau entfernt – Booking: 40 von 40. Diese Treffer sind markiert, nicht gelöscht.' });
@@ -257,13 +286,13 @@ test('PWA installiert vollständige Offline-Hülle, API wird nicht gecacht', asy
   assert(cacheNames.includes('ki-system:' + origin + '/another-app/:v1'));
   assert(!cacheNames.includes('ki-system:' + origin + '/:old'));
   await page.evaluate(() => fetch('README.md'));
-  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v59')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
-  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.37.0')); assert(cached.includes('/style.css?v=0.37.0'));
-  assert(cached.includes('/stay-tools.js?v=0.37.0')); assert(cached.includes('/stay-desk.js?v=0.37.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
-  assert(cached.includes('/stay-research.js?v=0.37.0'));
-  assert(cached.includes('/stay-form.js?v=0.37.0'));
-  assert(cached.includes('/stay-details.js?v=0.37.0'));
-  assert(cached.includes('/stay-districts.js?v=0.37.0'));
+  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v60')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
+  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.38.0')); assert(cached.includes('/style.css?v=0.38.0'));
+  assert(cached.includes('/stay-tools.js?v=0.38.0')); assert(cached.includes('/stay-desk.js?v=0.38.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
+  assert(cached.includes('/stay-research.js?v=0.38.0'));
+  assert(cached.includes('/stay-form.js?v=0.38.0'));
+  assert(cached.includes('/stay-details.js?v=0.38.0'));
+  assert(cached.includes('/stay-districts.js?v=0.38.0'));
   assert(!cached.includes('/README.md'));
   assert(!cached.some((u) => u.includes('app-api')));
   await context.setOffline(true); await page.reload();

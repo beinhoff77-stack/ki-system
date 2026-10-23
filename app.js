@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.38.0';
+const APP_VERSION = '0.39.0';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -890,7 +890,7 @@ function sucheFormDaten(form, { profileOnly = false } = {}) {
   const d = { ziel: get('ziel'), anreise: get('anreise'), abreise: get('abreise'), erwachsene: Number(get('erwachsene')),
     kinder_alter: alter, schlafzimmer_min: Number(get('schlafzimmer_min')), max_je_quelle: Number(get('max_je_quelle')), limit_usd: Number(get('limit_usd')) };
   if (!profileOnly && d.ziel.length < 2) throw new Error('Bitte einen Zielort angeben.');
-  for (const [key, min, max, integer] of [['erwachsene', 1, 10, true], ['schlafzimmer_min', 0, 6, true], ['max_je_quelle', 5, 100, true], ['limit_usd', 0, 10, false]]) {
+  for (const [key, min, max, integer] of [['erwachsene', 1, 10, true], ['schlafzimmer_min', 0, 6, true], ['max_je_quelle', 5, 500, true], ['limit_usd', 0, 10, false]]) {
     if (!get(key) || !Number.isFinite(d[key]) || d[key] < min || d[key] > max || (integer && !Number.isInteger(d[key]))) throw new Error('Bitte die Zahlenfelder innerhalb der angegebenen Grenzen ausfüllen.');
   }
   if (get('budget_eur')) { d.budget_eur = Number(get('budget_eur')); if (!Number.isFinite(d.budget_eur) || d.budget_eur <= 0) throw new Error('Das Aufenthaltsbudget muss größer als 0 sein.'); }
@@ -898,7 +898,7 @@ function sucheFormDaten(form, { profileOnly = false } = {}) {
   // W116: gewählter Ort mit Land und Koordinaten (aus „Wo?“)
   const o = form.zielOrt;
   if (!profileOnly && o && Number.isFinite(o.lat) && Number.isFinite(o.lon)) {
-    d.ziel_ort = { name: o.name, region: o.region, land: o.land, land_code: o.land_code, lat: o.lat, lon: o.lon, typ: o.typ, quelle: 'auswahl', auto: !!o.auto };
+    d.ziel_ort = { name: o.name, region: o.region, land: o.land, land_code: o.land_code, lat: o.lat, lon: o.lon, typ: o.typ, quelle: 'auswahl', auto: !!o.auto, ...(o.typ === 'gebiet' ? { radius_km: Number(o.radius_km) || 30, art: o.art || null } : {}) };
     d.ziel_lat = o.lat; d.ziel_lon = o.lon;
     if (!d.land && o.land_code) d.land = o.land_code;
   }
@@ -960,7 +960,9 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
     input('kinder_alter', 'Kinderalter (mit Kommas)', { placeholder: 'z. B. 13, 11' });
     input('budget_eur', 'Gesamtbudget Aufenthalt (€)', { type: 'number', min: 0.01, step: 0.01, placeholder: 'Optional' });
     input('schlafzimmer_min', 'Schlafzimmer mindestens', { type: 'number', min: 0, max: 6, value: 2, required: true });
-    input('max_je_quelle', 'Treffer je Quelle (5–100)', { type: 'number', min: 5, max: 100, value: 50, required: true });
+    // W119 (Sebastian 23.10.): Trefferzahl je Quelle wählbar bis „Alle“ (500); das Suchkostenlimit bleibt die harte Grenze
+    grid.append(el('label', {}, 'Treffer je Quelle', el('select', { name: 'max_je_quelle', required: true },
+      ...[['25', '25'], ['50', '50'], ['100', '100'], ['200', '200'], ['500', 'Alle (bis 500)']].map(([v, t]) => el('option', { value: v, selected: v === '500' }, t)))));
     input('limit_usd', 'Suchkostenlimit (USD, 0–10)', { type: 'number', min: 0, max: 10, step: 0.01, value: 1.5, required: true });
     const submit = el('button', { type: 'submit', class: 'primary' }, 'Anlegen und Suche starten');
     let profileReady = false;
@@ -975,7 +977,16 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       for (const name of names) group.append(grid.querySelector(`[name="${name}"]`).parentElement);
       const panel = el('section', { class: 'card stay-form-panel' }, el('h2', {}, el('span', { class: 'step-number' }, nr), title), group);
       if (nr === '02') panel.append(el('p', { class: 'muted small' }, 'Kinderalter am Anreisetag angeben. Ohne Kinder bleibt das Feld leer.'));
-      if (nr === '04') panel.append(el('div', { class: 'source-chips' }, ['Booking', 'Airbnb', 'Trivago', 'Rakuten · Japan'].map((name) => el('span', {}, name))), el('p', { class: 'muted small' }, 'Die Suche kann Suchkosten und Anbieter-Credits verbrauchen. Das Aufenthaltsbudget gilt separat.'));
+      if (nr === '04') {
+        const schaetzung = el('p', { class: 'muted small treffer-kosten', 'aria-live': 'polite' });
+        const rechnen = () => { // W119: grobe Kosten je Suchort – Booking 10 Credits je 25 Treffer, Airbnb ca. 0,35 USD je 100 Treffer (bis zum Suchkostenlimit)
+          const n = Number(form.elements.max_je_quelle?.value || 50), lim = Number(form.elements.limit_usd?.value || 0);
+          const usd = Math.min(lim, n * 0.0035 + 0.02);
+          schaetzung.textContent = `Bis zu ${n} Treffer je Quelle: Booking bis ca. ${Math.ceil(n / 25) * 10} Credits je Wohnform, Airbnb bis ca. ${usd.toFixed(2).replace('.', ',')} USD${n * 0.0035 + 0.02 > lim ? ' (Suchkostenlimit stoppt früher – Limit erhöhen für mehr Airbnb-Treffer)' : ''}. Bei einem Gebiet wird in bis zu 4 Orten gesucht (Booking-Credits bis ×4).`;
+        };
+        form.addEventListener('input', rechnen); form.addEventListener('change', rechnen); setTimeout(rechnen, 0);
+        panel.append(el('div', { class: 'source-chips' }, ['Booking', 'Airbnb', 'Trivago', 'Rakuten · Japan'].map((name) => el('span', {}, name))), schaetzung, el('p', { class: 'muted small' }, 'Die Suche kann Suchkosten und Anbieter-Credits verbrauchen. Das Aufenthaltsbudget gilt separat.'));
+      }
       sections.append(panel);
     }
     const tripSummary = el('div', { class: 'trip-summary', 'aria-live': 'polite' });
@@ -1250,8 +1261,8 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
       el('p', {}, 'Status: ', el('strong', {}, a.status), ' · ', snapshot.treffer.length, ' Treffer · Suche #' + a.id),
       el('p', { class: 'small' }, `Suchkosten: ${fmtUsd(k.ist_usd) || 'unbekannt'} · reserviert: ${fmtUsd(k.reserviert_usd) || 'unbekannt'} · Limit: ${fmtUsd(k.limit_usd ?? a.limit_usd) || 'unbekannt'} · Anbieter-Einheiten: ${k.ist_einheiten ?? 'unbekannt'} / ${k.limit_einheiten ?? 'unbekannt'}`),
       el('ul', { class: 'suche-progress' }, steps.map((s) => el('li', {},
-        `${s.quelle === 'bewerten' ? (SUCHE_SCORE_AN ? 'Bewertung und Gegenprüfung' : 'Auswertung (Lage, Fotos)') : s.quelle === 'ortspruefung' ? 'Ortsprüfung' : s.quelle === 'zielaufloesung' ? 'Ziel (Region/Land)' : SUCHE_QUELLEN[s.quelle] || s.quelle}: ${s.status}${['bewerten', 'ortspruefung', 'zielaufloesung'].includes(s.quelle) ? '' : ` · ${s.treffer ?? 0} Treffer`}`,
-        ['ortspruefung', 'zielaufloesung'].includes(s.quelle) && s.hinweis ? el('p', { class: 'small' }, String(s.hinweis)) : null,
+        `${s.quelle === 'bewerten' ? (SUCHE_SCORE_AN ? 'Bewertung und Gegenprüfung' : 'Auswertung (Lage, Fotos)') : s.quelle === 'ortspruefung' ? 'Ortsprüfung' : s.quelle === 'zielaufloesung' ? 'Ziel (Gebiet/Region)' : SUCHE_QUELLEN[s.quelle] || s.quelle}: ${s.status}${['bewerten', 'ortspruefung', 'zielaufloesung'].includes(s.quelle) ? '' : ` · ${s.treffer ?? 0} Treffer`}`,
+        s.hinweis ? el('p', { class: 'small' + (['ortspruefung', 'zielaufloesung'].includes(s.quelle) ? '' : ' warn') }, String(s.hinweis)) : null, // W119: auch Hinweise der Quellen (0 Treffer, Pflichtfilter)
         s.kosten_usd != null ? ` · ${fmtUsd(s.kosten_usd)}` : '', s.credits != null ? ` · ${s.credits} Credits` : '',
         s.fehler ? el('p', { class: 'err-text' }, String(s.fehler)) : null,
         s.gehzeit?.fehler ? el('p', { class: 'err-text' }, 'Gehzeiten: ' + s.gehzeit.fehler) : null,

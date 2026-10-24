@@ -24,10 +24,12 @@ function sucheAnbieterLink(t) {
   }
   return { url: original, label: 'Bei ' + (t.angebot?.anbieter || SUCHE_QUELLEN[t.quelle] || 'Anbieter') + ' ansehen ↗', overview: false };
 }
+// W122: true -> ja, false (laut vollständiger Ausstattungsliste nicht vorhanden) -> nein, sonst unbekannt
+function stayJaNein(v) { return v === true ? 'ja' : v === false ? 'nein' : null; }
 const STAY_FIELDS = {
   preis: 'Preis gesamt', nacht: 'Preis/Nacht', tarif: 'Günstigster Tarif', tarif_storno: 'Günstigster stornierbar', vergleich: 'Preis ggü. gleicher Art', storno: 'Storno',
   art: 'Unterkunftsart', schlafzimmer: 'Schlafzimmer', hotelzimmer: 'Hotelzimmer', betten: 'Betten/Schlafplätze', m2: 'Zimmergröße m²', balkon: 'Balkon', kueche: 'Küche', waschmaschine: 'Waschmaschine', klima: 'Klimaanlage', raucher: 'Raucher',
-  fruehstueck: 'Frühstück', pool: 'Pool', sauna_spa: 'Sauna/Spa', fitness: 'Fitnessraum', parkplatz: 'Parkplatz', wlan: 'WLAN', meerblick: 'Meerblick',
+  fruehstueck: 'Frühstück', pool: 'Pool', sauna: 'Sauna', spa: 'Spa/Onsen/Whirlpool', sauna_spa: 'Sauna/Spa', fitness: 'Fitnessraum', parkplatz: 'Parkplatz', wlan: 'WLAN', meerblick: 'Meerblick',
   gaestenote: 'Gästenote', bewertungen: 'Bewertungen', sterne: 'Hotelsterne',
   entfernung: 'Entfernung zum Ziel', gehzeit: 'Gehzeit zur Station', strand: 'Strand (Luftlinie)', viertel: 'Viertel',
   anbieter: 'Quelle', datenlage: 'Datenlage'
@@ -36,7 +38,7 @@ const STAY_FIELDS = {
 const STAY_THEMEN = [
   ['Preis & Buchung', ['nacht','preis','tarif','tarif_storno','vergleich','storno','fruehstueck']],
   ['Wohnen', ['art','schlafzimmer','hotelzimmer','betten','m2','balkon','kueche','waschmaschine','klima','raucher']],
-  ['Haus & Freizeit', ['pool','sauna_spa','fitness','parkplatz','wlan','meerblick']], // W100
+  ['Haus & Freizeit', ['pool','sauna','spa','fitness','parkplatz','wlan','meerblick']], // W100, W122: Sauna und Spa getrennt
   ['Bewertungen', ['gaestenote','bewertungen','sterne']],
   ['Lage', ['entfernung','gehzeit','strand','viertel']],
   ['Quelle', ['anbieter','datenlage']],
@@ -141,16 +143,14 @@ function stayFieldValue(t,key,trip={}) {
     case 'schlafzimmer': return room.schlafzimmer;
     case 'betten': return (room.typen ? sucheBettenDeutsch(room.typen) : null) ?? (room.anzahl!==null?room.anzahl+' Betten':null);
     case 'art': return typeof stayTyp==='function'?stayTyp(t):null;
-    case 'balkon': return yes(category?.balkon) ?? (t.detail?.merkmale?.balkon?'ja':null);
-    case 'kueche': return t.detail?.merkmale?.kueche?'ja':null;
-    case 'waschmaschine': return t.detail?.merkmale?.waschmaschine?'ja':null;
-    case 'klima': return t.detail?.merkmale?.klima||t.merkmale?.klima?'ja':null;
-    case 'fruehstueck': case 'pool': case 'sauna_spa': case 'fitness': case 'parkplatz': case 'wlan': case 'meerblick': return t.merkmale?.[key]===true?'ja':null; // W100: Server-Merkmale, sonst unbekannt
+    case 'balkon': return yes(category?.balkon) ?? (t.detail?.merkmale?.balkon?'ja':stayJaNein(t.merkmale?.balkon));
+    case 'kueche': case 'waschmaschine': case 'klima': return t.detail?.merkmale?.[key]?'ja':stayJaNein(t.merkmale?.[key]);
+    case 'fruehstueck': case 'pool': case 'sauna': case 'spa': case 'sauna_spa': case 'fitness': case 'parkplatz': case 'wlan': case 'meerblick': return stayJaNein(t.merkmale?.[key]); // W100: Server-Merkmale; W122: „nein“ nur bei vollständiger Ausstattungsliste, sonst unbekannt
     case 'strand': return n(t.strand_m); // W100: Luftlinie in m (OpenStreetMap), Anzeige auf 50 m gerundet
     case 'sterne': return n(t.sterne);
     case 'hotelzimmer': return n(a.zimmer_anzahl)!==null&&(t.typ==='hotel'||a.zimmer_anzahl>1)?a.zimmer_anzahl:null;
     case 'raucher': return yes(category?.raucher ?? t.raucher);
-    case 'storno': { if(typeof stayStorno==='function'){const s=stayStorno(t,trip.anreise?trip:(t._trip||trip));if(s.tage!==null)return 'kostenlos bis '+s.tage+' Tage vor Anreise';if(s.nein)return 'nicht kostenlos';} return typeof a.storno==='string' && a.storno.trim() && !/^(unbekannt|nicht kostenlos\/unklar)$/.test(a.storno.trim()) ? a.storno : null; }
+    case 'storno': { if(typeof stayStorno==='function'){const s=stayStorno(t,trip.anreise?trip:(t._trip||trip));if(s.tage!==null)return 'kostenlos bis '+s.tage+' Tage vor Anreise';if(s.ja)return 'kostenlos stornierbar';if(s.nein)return 'nicht kostenlos';} return typeof a.storno==='string' && a.storno.trim() && !/^(unbekannt|nicht kostenlos\/unklar)$/.test(a.storno.trim()) ? a.storno : null; }
     case 'entfernung': return n(t.luftlinie_ziel_m)===null?null:Math.round(t.luftlinie_ziel_m/100)/10;
     case 'gehzeit': return n(t.gehzeit_min);
     case 'viertel': return t.zone?.name || null;
@@ -213,9 +213,9 @@ function stayKurz(t,key,trip) {
   switch(key){
     case 'schlafzimmer': return v+' Schlafzimmer'; case 'm2': return n(v)+' m²'; case 'gaestenote': return '★ '+n(v);
     case 'bewertungen': return n(v)+' Bewertungen'; case 'entfernung': return n(v)+' km zum Ziel'; case 'gehzeit': return Math.round(v)+' Min. zur Station';
-    case 'storno': { const s=typeof stayStorno==='function'?stayStorno(t,trip):null; return s?.tage!=null?'Storno bis '+s.tage+' T. vor Anreise':s?.nein?'nicht kostenlos stornierbar':String(v); }
+    case 'storno': { const s=typeof stayStorno==='function'?stayStorno(t,trip):null; return s?.tage!=null?'Storno bis '+s.tage+' T. vor Anreise':s?.ja?'kostenlos stornierbar':s?.nein?'nicht kostenlos stornierbar':String(v); }
     case 'tarif': return 'günstigster Tarif '+sucheEuro(v); case 'tarif_storno': return 'stornierbar ab '+sucheEuro(v); case 'vergleich': return v+' für die Art';
-    case 'balkon': case 'kueche': case 'waschmaschine': case 'raucher': case 'klima': case 'fruehstueck': case 'pool': case 'sauna_spa': case 'fitness': case 'parkplatz': case 'wlan': case 'meerblick': return v==='ja'?STAY_FIELDS[key]:null;
+    case 'balkon': case 'kueche': case 'waschmaschine': case 'raucher': case 'klima': case 'fruehstueck': case 'pool': case 'sauna': case 'spa': case 'sauna_spa': case 'fitness': case 'parkplatz': case 'wlan': case 'meerblick': return v==='ja'?STAY_FIELDS[key]:v==='nein'?'kein '+STAY_FIELDS[key]:null;
     case 'strand': return 'Strand '+stayStrandText(t); case 'sterne': return v+'★'; case 'hotelzimmer': return v+' Hotelzimmer';
     default: return String(v);
   }
@@ -405,10 +405,10 @@ function stayReview({getSnapshot,getGroup=()=>null,getRows=()=>getSnapshot()?.tr
   return {node:box,draw,get currentId(){return currentId;},show(id){currentId=id;savePosition();},get revision(){return revision;},get pending(){return isP();},get blocked(){return needsRefresh;},refreshed(){if(!isP()){needsRefresh=false;last=null;reasonFor=null;}},dispose(){clearTimeout(holdTimer);reasonsDialog?.close();reasonsDialog?.remove();document.removeEventListener('visibilitychange',returned);}};
 }
 // W104 (Richtung A): kompakte Zeile – Art · Zimmer · Quelle, Symbol-Fakten aus „Direkt“, Preis rechts (gesamt groß, pro Nacht klein).
-const STAY_A_ICON={gaestenote:'stern',bewertungen:'stern',gehzeit:'bahn',storno:'storno',schlafzimmer:'bett',betten:'bett',m2:'flaeche',entfernung:'pin',strand:'strand',art:'haus',hotelzimmer:'hotel',balkon:'balkon',kueche:'kueche',waschmaschine:'waschen',klima:'klima',fruehstueck:'fruehstueck',pool:'pool',sauna_spa:'sauna',fitness:'fitness',parkplatz:'auto',wlan:'wlan',meerblick:'meer',sterne:'stern',viertel:'pin'};
+const STAY_A_ICON={gaestenote:'stern',bewertungen:'stern',gehzeit:'bahn',storno:'storno',schlafzimmer:'bett',betten:'bett',m2:'flaeche',entfernung:'pin',strand:'strand',art:'haus',hotelzimmer:'hotel',balkon:'balkon',kueche:'kueche',waschmaschine:'waschen',klima:'klima',fruehstueck:'fruehstueck',pool:'pool',sauna:'sauna',spa:'sauna',sauna_spa:'sauna',fitness:'fitness',parkplatz:'auto',wlan:'wlan',meerblick:'meer',sterne:'stern',viertel:'pin'};
 function stayAFakt(t,key,trip){
   const v=stayFieldValue(t,key,trip), n=x=>Number(x).toLocaleString('de-DE',{maximumFractionDigits:1});
-  if(key==='storno'){const s=stayStorno(t,trip);return s.tage!==null?{text:'Storno',ok:true,title:'kostenlos bis '+s.tage+' Tage vor Anreise'}:s.nein?{text:'kein Storno',warn:true}:{text:'Storno ?',warn:true,title:'Storno unbekannt'};}
+  if(key==='storno'){const s=stayStorno(t,trip);return s.tage!==null?{text:'Storno',ok:true,title:'kostenlos bis '+s.tage+' Tage vor Anreise'}:s.ja?{text:'Storno',ok:true,title:'kostenlos stornierbar (Frist unbekannt)'}:s.nein?{text:'kein Storno',warn:true}:{text:'Storno ?',warn:true,title:'Storno unbekannt'};}
   if(v===null&&key==='gehzeit'&&trip?._keineBahn)return {text:'keine Bahn',title:'Am Ort gibt es keinen Bahnhof'}; // W114
   if(v===null)return null;
   switch(key){

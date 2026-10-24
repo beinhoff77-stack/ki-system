@@ -26,6 +26,19 @@ function stayStorno(t, trip) {
   // 1) Angebot aus der Suche: „kostenlos bis 2026-10-29T15:00:00Z“
   const iso = (text.match(/\d{4}-\d{2}-\d{2}/) || [])[0];
   if (iso && !/nicht/i.test(text)) { const x = tage(iso); if (x) return x; }
+  // W122: Airbnb/Booking-Text „Free cancellation before October 26“ (ohne Jahr -> Jahr der Anreise, liegt das Datum danach: Vorjahr)
+  const fc = text.match(/(?:free cancell?ation|kostenlos)\s+(?:before|until|bis)\s+([A-Za-z]+\.?\s+\d{1,2}|\d{1,2}\.?\s+[A-Za-z]+)(?:,?\s+(\d{4}))?/i);
+  if (fc && Number.isFinite(arrive)) {
+    const y = fc[2] ? Number(fc[2]) : new Date(arrive).getUTCFullYear();
+    let d = Date.parse(fc[1].replace('.', '') + ' ' + y + ' UTC');
+    if (!fc[2] && Number.isFinite(d) && d > arrive) d = Date.parse(fc[1].replace('.', '') + ' ' + (y - 1) + ' UTC');
+    if (Number.isFinite(d)) { const x = tage(new Date(d).toISOString()); if (x) return x; }
+  }
+  // W122: Trivago nennt nur „kostenlos stornierbar“ ohne Datum
+  if (/kostenlos stornierbar/i.test(text) && !/nicht/i.test(text)) return { tage: null, nein: false, ja: true, bis: null };
+  // W122: Booking-Suche meldet beim angezeigten Angebot keine kostenlose Stornierung -> „nein“ (Treffer bleibt sichtbar, nur der Filter greift)
+  if (/^nicht kostenlos/i.test(text) && !t?.detail?.guenstigster_stornierbar) return { tage: null, nein: true, bis: null };
+  if (/non-?refundable|nicht erstattungsf|strict|no refund/i.test(text) && !/free cancell?ation/i.test(text)) return { tage: null, nein: true, bis: null };
   // 2) Detailabruf: günstigster kostenlos stornierbarer Tarif für die ganze Gruppe
   const d = t?.detail;
   if (d?.guenstigster_stornierbar?.storno_bis) { const x = tage(d.guenstigster_stornierbar.storno_bis); if (x) return x; }
@@ -116,19 +129,20 @@ const STAY_DESK_SPALTEN = [
   { key: 'schlafzimmer', label: 'SZ', num: true, v: t => sucheZimmerKurz(t).schlafzimmer, r: t => sucheZimmerKurz(t).schlafzimmer ?? '?' },
   { key: 'betten', label: 'Betten', num: true, v: t => sucheZimmerKurz(t).anzahl, r: t => { const r = sucheZimmerKurz(t); return r.anzahl === null && !r.typen ? '?' : el('span', { title: r.typen || '' }, r.anzahl ?? '?', r.typen && /futon|sofa|bunk|etagen/i.test(r.typen) ? el('small', { class: 'desk-warn', title: r.typen }, ' (Futon/Sofa)') : null); } },
   { key: 'm2', label: 'm²', num: true, v: t => sucheZimmerKurz(t).m2, r: t => sucheZimmerKurz(t).m2 ?? '?' },
-  { key: 'note', label: 'Note', num: true, v: t => sucheZahl(t.note) !== null && sucheZahl(t.note_skala) ? t.note / t.note_skala * 10 : null,
-    r: t => sucheZahl(t.note) === null ? '?' : Number(t.note).toLocaleString('de-DE', { maximumFractionDigits: 2 }) + '/' + (t.note_skala ?? '?') },
+  // W122: Filter und Tabelle nutzen dieselbe Note wie die Liste (geeicht auf Booking-Skala 0–10, Airbnb 4,61/5 -> 8,4), Rohwert im Tooltip
+  { key: 'note', label: 'Note', num: true, v: t => sucheZahl(t.note_geeicht) ?? (sucheZahl(t.note) !== null && sucheZahl(t.note_skala) ? t.note / t.note_skala * 10 : null),
+    r: t => { const g = sucheZahl(t.note_geeicht) ?? (sucheZahl(t.note) !== null && sucheZahl(t.note_skala) ? t.note / t.note_skala * 10 : null); return g === null ? '?' : el('span', { title: 'Original: ' + Number(t.note).toLocaleString('de-DE', { maximumFractionDigits: 2 }) + '/' + (t.note_skala ?? '?') }, g.toLocaleString('de-DE', { maximumFractionDigits: 1 })); } },
   { key: 'bewertungen', label: 'Bew.', num: true, v: t => sucheZahl(t.bewertungen), r: t => sucheZahl(t.bewertungen) === null ? '?' : Number(t.bewertungen).toLocaleString('de-DE') },
-  { key: 'storno', label: 'Storno', num: true, klein: true, v: (t, c) => { const s = stayStorno(t, c.trip); return s.tage ?? (s.nein ? 9999 : null); },
-    r: (t, c) => { const s = stayStorno(t, c.trip); return s.tage !== null ? el('span', { title: 'kostenlos bis ' + s.bis }, 'bis ' + s.tage + ' T.') : s.nein ? 'nein' : '?'; } },
+  { key: 'storno', label: 'Storno', num: true, klein: true, v: (t, c) => { const s = stayStorno(t, c.trip); return s.tage ?? (s.ja ? 9000 : s.nein ? 9999 : null); },
+    r: (t, c) => { const s = stayStorno(t, c.trip); return s.tage !== null ? el('span', { title: 'kostenlos bis ' + s.bis }, 'bis ' + s.tage + ' T.') : s.ja ? 'ja' : s.nein ? 'nein' : '?'; } },
   { key: 'km', label: 'km', num: true, klein: true, v: t => sucheZahl(t.luftlinie_ziel_m) === null ? null : t.luftlinie_ziel_m / 1000, r: t => sucheZahl(t.luftlinie_ziel_m) === null ? '?' : (t.luftlinie_ziel_m / 1000).toLocaleString('de-DE', { maximumFractionDigits: 1 }) },
   { key: 'gehzeit', label: 'Station', num: true, klein: true, v: t => sucheZahl(t.gehzeit_min), r: t => sucheZahl(t.gehzeit_min) === null ? '?' : el('span', { title: t.station_name || '' }, Math.round(t.gehzeit_min) + ' Min.') },
   { key: 'viertel', label: 'Viertel', v: t => t.zone?.name || null, r: t => t.zone?.name || '?' },
-  { key: 'kueche', label: 'Küche', v: t => t.detail?.merkmale?.kueche ? 'ja' : null, r: t => t.detail?.merkmale?.kueche ? 'ja' : '?' },
-  { key: 'waschmaschine', label: 'Waschm.', v: t => t.detail?.merkmale?.waschmaschine ? 'ja' : null, r: t => t.detail?.merkmale?.waschmaschine ? 'ja' : '?' },
+  { key: 'kueche', label: 'Küche', v: t => stayFieldValue(t, 'kueche', {}), r: t => stayFieldValue(t, 'kueche', {}) ?? '?' },
+  { key: 'waschmaschine', label: 'Waschm.', v: t => stayFieldValue(t, 'waschmaschine', {}), r: t => stayFieldValue(t, 'waschmaschine', {}) ?? '?' },
   { key: 'balkon', label: 'Balkon', v: t => stayFieldValue(t, 'balkon', {}), r: t => stayFieldValue(t, 'balkon', {}) ?? '?' },
   // W100: weitere Kriterien aus Sebastians Auswahl (ja oder ?)
-  ...[['klima', 'Klima'], ['fruehstueck', 'Frühst.'], ['pool', 'Pool'], ['sauna_spa', 'Sauna/Spa'], ['fitness', 'Fitness'], ['parkplatz', 'Parken'], ['wlan', 'WLAN'], ['meerblick', 'Meerblick']]
+  ...[['klima', 'Klima'], ['fruehstueck', 'Frühst.'], ['pool', 'Pool'], ['sauna', 'Sauna'], ['spa', 'Spa/Onsen'], ['fitness', 'Fitness'], ['parkplatz', 'Parken'], ['wlan', 'WLAN'], ['meerblick', 'Meerblick']]
     .map(([key, label]) => ({ key, label, v: t => stayFieldValue(t, key, {}), r: t => stayFieldValue(t, key, {}) ?? '?' })),
   { key: 'strand', label: 'Strand', num: true, klein: true, v: t => sucheZahl(t.strand_m), r: t => stayStrandText(t) }, // W100: Luftlinie, auf 50 m gerundet
   { key: 'sterne', label: '★', num: true, v: t => sucheZahl(t.sterne), r: t => sucheZahl(t.sterne) ?? '?' },
@@ -140,7 +154,8 @@ const STAY_DESK_SPALTEN = [
 const STAY_DESK_STANDARD = ['nacht','preis','tarif','tarif_storno','vergleich','art','schlafzimmer','betten','m2','note','bewertungen','storno','km','quelle','warum','notiz'];
 
 function stayDeskSpalten() {
-  const saved = stayRead('ks_tabelle_spalten', null), known = STAY_DESK_SPALTEN.map(s => s.key);
+  let saved = stayRead('ks_tabelle_spalten', null); const known = STAY_DESK_SPALTEN.map(s => s.key);
+  if (Array.isArray(saved) && saved.includes('sauna_spa')) saved = [...new Set(saved.flatMap(k => k === 'sauna_spa' ? ['sauna', 'spa'] : [k]))]; // W122: Sauna und Spa getrennt
   return Array.isArray(saved) && saved.length && saved.every(k => known.includes(k)) && new Set(saved).size === saved.length ? saved : [...STAY_DESK_STANDARD];
 }
 
@@ -358,7 +373,7 @@ const STAY_FILTER_FORM = {
   sterne: { icon: 'hotel', titel: 'Sterne ab', chips: [['≥ 3', '3'], ['≥ 4', '4'], ['≥ 5', '5']] },
   art: { icon: 'haus', titel: 'Art', werte: true }, viertel: { icon: 'pin', titel: 'Viertel', werte: true }, quelle: { icon: 'extern', titel: 'Quelle', werte: true },
 };
-const STAY_FILTER_JA = ['kueche', 'waschmaschine', 'balkon', 'klima', 'fruehstueck', 'pool', 'sauna_spa', 'fitness', 'parkplatz', 'wlan', 'meerblick'];
+const STAY_FILTER_JA = ['kueche', 'waschmaschine', 'balkon', 'klima', 'fruehstueck', 'pool', 'sauna', 'spa', 'fitness', 'parkplatz', 'wlan', 'meerblick'];
 function stayFilterBlatt({ rows: rowsQ, ctx: ctxQ, st, onChange }) {
   const R = typeof rowsQ === 'function' ? rowsQ : () => rowsQ, C = typeof ctxQ === 'function' ? ctxQ : () => ctxQ;
   const box = el('div', { class: 'af-liste' });

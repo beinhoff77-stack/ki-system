@@ -314,13 +314,13 @@ test('PWA installiert vollständige Offline-Hülle, API wird nicht gecacht', asy
   assert(cacheNames.includes('ki-system:' + origin + '/another-app/:v1'));
   assert(!cacheNames.includes('ki-system:' + origin + '/:old'));
   await page.evaluate(() => fetch('README.md'));
-  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v61')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
-  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.39.0')); assert(cached.includes('/style.css?v=0.39.0'));
-  assert(cached.includes('/stay-tools.js?v=0.39.0')); assert(cached.includes('/stay-desk.js?v=0.39.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
-  assert(cached.includes('/stay-research.js?v=0.39.0'));
-  assert(cached.includes('/stay-form.js?v=0.39.0'));
-  assert(cached.includes('/stay-details.js?v=0.39.0'));
-  assert(cached.includes('/stay-districts.js?v=0.39.0'));
+  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v63')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
+  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.40.0')); assert(cached.includes('/style.css?v=0.40.0'));
+  assert(cached.includes('/stay-tools.js?v=0.40.0')); assert(cached.includes('/stay-desk.js?v=0.40.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
+  assert(cached.includes('/stay-research.js?v=0.40.0'));
+  assert(cached.includes('/stay-form.js?v=0.40.0'));
+  assert(cached.includes('/stay-details.js?v=0.40.0'));
+  assert(cached.includes('/stay-districts.js?v=0.40.0'));
   assert(!cached.includes('/README.md'));
   assert(!cached.some((u) => u.includes('app-api')));
   await context.setOffline(true); await page.reload();
@@ -1498,7 +1498,7 @@ test('Ergebnisansichten W98: Rechner-Tabelle, Liste, Karte, gemeinsame Filter un
   const metrics=await page.locator('.desk-table [data-hit="1"]').evaluate(row=>({height:row.getBoundingClientRect().height,photo:row.querySelector('.desk-foto img').getBoundingClientRect().toJSON()}));
   assert(metrics.height<=46,JSON.stringify(metrics));assert.equal(metrics.photo.width,44);assert.equal(metrics.photo.height,32);
   assert.equal(await page.locator('.desk-table [data-hit="2"] td[data-field=schlafzimmer]').textContent(),'?');
-  assert.equal(await page.locator('.desk-table [data-hit="1"] td[data-field=note]').textContent(),'9/10');
+  assert.equal(await page.locator('.desk-table [data-hit="1"] td[data-field=note]').textContent(),'9'); // W122: Tabelle zeigt die geeichte Note wie die Liste
   await page.locator('.stay-filters > summary').click();
   await page.getByLabel('Schlafzimmer mindestens',{exact:true}).fill('2');await page.getByLabel('Unbekannte Angaben mit anzeigen',{exact:true}).uncheck();
   assert.deepEqual(await page.locator('.desk-table tbody [data-hit]').evaluateAll(ns=>ns.map(n=>n.dataset.hit)),['1']);
@@ -2644,4 +2644,18 @@ test('W104: Richtung A – Suche mit Reise-Karte und Kacheln, Liste mit Symbol-F
   await page.locator('.a-r-fakten .a-r-kachel').first().waitFor();
   assert.equal(await page.locator('.review-actions .a-entscheid').count(), 3);
   assert.equal(await page.getByRole('button', { name: 'Weg', exact: true }).isVisible(), true, 'Name bleibt „Weg“, sichtbar „Raus“');
+});
+
+test('W122: Gästenote-Filter nutzt die geeichte Note, Ausstattung „nein“ wird herausgefiltert, Sauna und Spa getrennt',async t=>{
+  const data=result();
+  data.treffer=[hit(1,'A',200,{quelle:'apify_airbnb',note:4.61,note_skala:5,note_geeicht:8.4,merkmale:{sauna:false,spa:true}}),hit(2,'A',300,{quelle:'trivago_mcp',note:9.6,note_skala:10,note_geeicht:9.6,merkmale:{sauna:true,spa:false}}),hit(3,'A',300,{quelle:'apify_airbnb',note:null,note_skala:5,note_geeicht:null})];
+  const {page}=await setup(t,p=>p.daten?.suchauftrag_id?data:{suchauftraege:[]},{ohneScore:true,width:390,height:844,collapsed:true});
+  await page.goto(origin+'/#/suche');
+  await page.evaluate(()=>{sessionStorage.setItem('ks_spaltenfilter:2',JSON.stringify({werte:{note:'≥ 9'},unbekannteAus:false}));localStorage.setItem('ks_tabelle_spalten',JSON.stringify(['nacht','note','sauna_spa','quelle']));});
+  await page.goto(origin+'/#/suche/2');await page.getByText('Unterkunft 2',{exact:true}).first().waitFor();
+  assert.equal(await page.getByText('Unterkunft 1',{exact:true}).count(),0,'8,4 (Airbnb 4,61/5) fällt bei „ab 9“ heraus');
+  await page.evaluate(()=>{sessionStorage.setItem('ks_spaltenfilter:2',JSON.stringify({werte:{sauna:'ja'},unbekannteAus:false}));});
+  await page.reload();await page.getByText('Unterkunft 2',{exact:true}).first().waitFor();
+  assert.equal(await page.getByText('Unterkunft 1',{exact:true}).count(),0,'„keine Sauna“ laut vollständiger Liste fällt heraus');
+  assert.equal(await page.getByText('Unterkunft 3',{exact:true}).count()>0,true,'unbekannt bleibt sichtbar');
 });

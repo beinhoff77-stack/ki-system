@@ -2182,3 +2182,21 @@ body[data-area="unterkunft"] main.view:has(.a-ergebnis) { padding-top: 2px; }
 .ort-flaeche { display: block; margin-top: 2px; line-height: 1.3; }
 .ort-flaeche[hidden] { display: none; }
 .ort-rahmen > .ort-info, .ort-rahmen > .ort-flaeche { grid-column: 2 / -1; margin-top: -6px; }
+/* W123: Sortieren als Blatt – Richtung oben, Kriterien als Liste mit Bedeutung je Richtung */
+.a-sort-pill .a-sort { height: 38px; min-height: 38px; margin: 0; padding: 0 4px 0 0; border: 0; background: transparent; color: var(--a-ink); font-size: 13px; font-weight: 800; white-space: nowrap; max-width: 150px; overflow: hidden; text-overflow: ellipsis; }
+.a-sort-richtung { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; padding: 4px; margin: 10px 0 12px; border-radius: 14px; background: #eef4f3; }
+.a-sort-dir { height: 42px; min-height: 42px; margin: 0; border: 0; border-radius: 11px; background: transparent; color: var(--a-ink); font-size: 15px; font-weight: 700; }
+.a-sort-dir[aria-pressed="true"] { background: #fff; color: var(--a-teal); box-shadow: 0 1px 4px #0e3b4326; font-weight: 800; }
+.a-sort-liste { display: grid; gap: 2px; }
+.a-sort-krit { display: grid; grid-template-columns: 1fr auto; grid-template-areas: "name pfeil" "sinn pfeil"; align-items: center; gap: 1px 10px; width: 100%; min-height: 56px; margin: 0; padding: 8px 12px; border: 0; border-radius: 12px; background: transparent; color: var(--a-ink); text-align: left; }
+.a-sort-krit-name { grid-area: name; font-size: 16px; font-weight: 700; }
+.a-sort-krit-sinn { grid-area: sinn; font-size: 13px; color: #5d7471; }
+.a-sort-krit-pfeil { grid-area: pfeil; font-size: 20px; font-weight: 800; color: var(--a-teal); }
+.a-sort-krit[aria-checked="true"] { background: #e3f0ee; }
+.a-sort-krit[aria-checked="true"] .a-sort-krit-name { color: var(--a-teal); font-weight: 800; }
+.a-sort-fuss { grid-template-columns: 1fr; }
+@media (hover: hover) {
+  .af-chip[aria-pressed="true"]:not(:disabled):hover { background: var(--a-teal); color: #fff; filter: brightness(1.08); }
+  .a-sort-dir[aria-pressed="true"]:not(:disabled):hover { background: #fff; }
+  .a-sort-krit[aria-checked="true"]:not(:disabled):hover { background: #e3f0ee; }
+}

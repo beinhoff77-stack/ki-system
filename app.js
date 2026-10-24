@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.39.1';
+const APP_VERSION = '0.41.0';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -1227,9 +1227,30 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   // 0.36.0 (Sebastian 21.10.): ohne Score eine Werkzeugzeile (Suchen · Sortieren · Filter) und die Filter als Blatt von unten.
   const fState = stayFilterState(id); // 0.36.0: gemeinsamer Spaltenfilter (Liste, Karte, Durchsehen, Tabelle)
   const aBlatt = SUCHE_SCORE_AN ? null : stayFilterBlatt({ rows: () => snapshot?.treffer || [], ctx: () => ({ trip: snapshot?.suchauftrag || {}, vergleich: stayVergleich(snapshot?.treffer || [], snapshot?.suchauftrag || {}) }), st: fState, onChange: () => { pages.clear(); draw(); } });
-  const A_SORT = [['preis:1','Preis ↑','Preis – günstigste zuerst'],['urteil:1','Mein Urteil','Dein Urteil – ♥ zuerst, dann Na ja, offen'],['gaestenote:-1','Gästenote ↓','Gästenote – beste zuerst'],['entfernung:1','Nähe ↑','Luftlinie zum Ziel – nächste zuerst'],['gehzeit:1','Station ↑','Gehzeit zur Station – kürzeste zuerst'],['bewertungen:-1','Anzahl Bew. ↓','Anzahl Bewertungen – meiste zuerst'],['schlafzimmer:-1','Schlafzimmer ↓','Schlafzimmer – meiste zuerst'],['m2:-1','Fläche ↓','Fläche – größte zuerst'],['name:1','Name A–Z','Name – A bis Z']];
-  const aSort = el('select', { class: 'a-sort', 'aria-label': 'Sortieren', onchange: () => { const [key, dir] = aSort.value.split(':'); sort = { key, direction: Number(dir) === -1 ? -1 : 1 }; pages.clear(); draw(); } });
-  const aSortSync = () => { const v = sort.key + ':' + (sort.direction === -1 ? -1 : 1); const list = A_SORT.some(([k]) => k === v) ? A_SORT : [...A_SORT, [v, (sortSelect.selectedOptions[0]?.textContent || sort.key) + (sort.direction === -1 ? ' ↓' : ' ↑'), '']]; aSort.replaceChildren(...list.map(([k, short, long]) => el('option', { value: k, title: long }, short))); aSort.value = v; };
+  // W123 (Sebastian 24.10.): Sortieren als Blatt – Kriterium wählen, Richtung frei (aufsteigend/absteigend), Bedeutung je Richtung im Klartext
+  const A_SORT_KRIT = [['preis', 'Preis', 'günstigste zuerst', 'teuerste zuerst', 1], ['urteil', 'Mein Urteil', '♥ zuerst, dann Na ja, offen', 'Raus zuerst, dann offen, Na ja'], ['gaestenote', 'Gästenote', 'schlechteste zuerst', 'beste zuerst', -1],
+    ['entfernung', 'Nähe zum Ziel', 'nächste zuerst', 'weiteste zuerst', 1], ['gehzeit', 'Gehzeit zur Station', 'kürzeste zuerst', 'längste zuerst', 1], ['bewertungen', 'Anzahl Bewertungen', 'wenigste zuerst', 'meiste zuerst', -1],
+    ['schlafzimmer', 'Schlafzimmer', 'wenigste zuerst', 'meiste zuerst', -1], ['m2', 'Fläche', 'kleinste zuerst', 'größte zuerst', -1], ['name', 'Name', 'A bis Z', 'Z bis A', 1]];
+  const aSortName = () => (A_SORT_KRIT.find(([k]) => k === sort.key)?.[1] || sortSelect.selectedOptions[0]?.textContent || sort.key);
+  const aSortText = el('span', { class: 'a-sort-text' });
+  const aSort = el('button', { type: 'button', class: 'a-sort', 'aria-haspopup': 'dialog', 'data-sort-wert': 'preis:1', onclick: () => { if (!aSortBlatt.isConnected) scope.append(aSortBlatt); aSortZeichnen(); aSortBlatt.showModal(); } }, aSortText);
+  const aSortSetzen = (key, direction) => { sort = { key, direction: direction === -1 ? -1 : 1 }; pages.clear(); draw(); aSortZeichnen(); };
+  const aSortRichtung = el('div', { class: 'a-sort-richtung', role: 'group', 'aria-label': 'Richtung' });
+  const aSortListe = el('div', { class: 'a-sort-liste', role: 'radiogroup', 'aria-label': 'Sortieren nach' });
+  const aSortBlatt = SUCHE_SCORE_AN ? null : el('dialog', { class: 'a-sheet a-sort-blatt', 'aria-label': 'Sortieren' },
+    el('header', { class: 'a-sheet-kopf' }, el('h2', {}, 'Sortieren'), el('button', { type: 'button', class: 'a-zu', 'aria-label': 'Sortieren schließen', onclick: () => aSortBlatt.close() }, stayIcon('raus'))),
+    el('div', { class: 'a-sheet-inhalt' }, aSortRichtung, aSortListe),
+    el('footer', { class: 'a-sheet-fuss a-sort-fuss' }, el('button', { type: 'button', class: 'a-sheet-zeigen', onclick: () => aSortBlatt.close() }, 'Fertig')));
+  aSortBlatt?.addEventListener('click', e => { if (e.target === aSortBlatt) aSortBlatt.close(); });
+  function aSortZeichnen() {
+    if (SUCHE_SCORE_AN) return;
+    const auf = sort.direction !== -1;
+    aSortRichtung.replaceChildren(...[[1, '↑ Aufsteigend'], [-1, '↓ Absteigend']].map(([d, t]) => el('button', { type: 'button', class: 'a-sort-dir', 'aria-pressed': String((d === 1) === auf), onclick: () => aSortSetzen(sort.key, d) }, t)));
+    aSortListe.replaceChildren(...A_SORT_KRIT.map(([k, name, aufText, abText, std]) => { const an = sort.key === k;
+      return el('button', { type: 'button', role: 'radio', class: 'a-sort-krit', 'aria-checked': String(an), 'data-sort-key': k, onclick: () => aSortSetzen(k, an ? sort.direction : (std ?? 1)) },
+        el('span', { class: 'a-sort-krit-name' }, name), el('span', { class: 'a-sort-krit-sinn' }, an ? (auf ? aufText : abText) : (std === -1 ? abText : aufText)), an ? el('span', { class: 'a-sort-krit-pfeil', 'aria-hidden': 'true' }, auf ? '↑' : '↓') : null); }));
+  }
+  const aSortSync = () => { aSortText.textContent = aSortName() + (sort.key === 'urteil' ? (sort.direction === -1 ? ' ↓' : '') : sort.direction === -1 ? ' ↓' : ' ↑'); aSort.dataset.sortWert = sort.key + ':' + (sort.direction === -1 ? -1 : 1); aSort.setAttribute('aria-label', 'Sortieren: ' + aSortText.textContent); if (aSortBlatt?.open) aSortZeichnen(); };
   const aBadge = el('span', { class: 'a-badge', hidden: true });
   const aShow = el('button', { type: 'button', class: 'a-sheet-zeigen', onclick: () => aSheet.close() }, 'Treffer zeigen');
   const aSheet = SUCHE_SCORE_AN ? null : el('dialog', { class: 'a-sheet', 'aria-label': 'Filter' },
@@ -1240,7 +1261,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   const aSearch = SUCHE_SCORE_AN ? null : el('label', { class: 'a-suche-feld' }, stayIcon('lupe'), filter);
   const aFilterBtn = el('button', { type: 'button', class: 'a-filter-knopf', 'aria-haspopup': 'dialog', onclick: () => { if (!aSheet.isConnected) scope.append(aSheet); aBlatt.zeichnen(); aSheet.showModal(); } }, stayIcon('trichter'), el('span', {}, 'Filter'), aBadge);
   const filterBox = SUCHE_SCORE_AN ? el('details', { class: 'card filter-box' }, el('summary', {}, 'Filtern & sortieren'), controls, filters.node)
-    : el('div', { class: 'a-werkzeug', role: 'search', 'aria-label': 'Treffer suchen, sortieren und filtern' }, aSearch, el('label', { class: 'a-sort-pill' }, stayIcon('sortieren'), aSort), aFilterBtn);
+    : el('div', { class: 'a-werkzeug', role: 'search', 'aria-label': 'Treffer suchen, sortieren und filtern' }, aSearch, el('div', { class: 'a-sort-pill' }, stayIcon('sortieren'), aSort), aFilterBtn);
   if (!SUCHE_SCORE_AN) { filter.placeholder = 'Name suchen'; filter.setAttribute('aria-label', 'Name oder Anbieter suchen'); }
   scope.append(doneStatus,notice,summary,viewButtons,filterBox,resultLinks,moreConfirm,mapPanel,results,runBar,report);
   function draw() {

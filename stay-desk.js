@@ -26,6 +26,19 @@ function stayStorno(t, trip) {
   // 1) Angebot aus der Suche: „kostenlos bis 2026-10-29T15:00:00Z“
   const iso = (text.match(/\d{4}-\d{2}-\d{2}/) || [])[0];
   if (iso && !/nicht/i.test(text)) { const x = tage(iso); if (x) return x; }
+  // W122: Airbnb/Booking-Text „Free cancellation before October 26“ (ohne Jahr -> Jahr der Anreise, liegt das Datum danach: Vorjahr)
+  const fc = text.match(/(?:free cancell?ation|kostenlos)\s+(?:before|until|bis)\s+([A-Za-z]+\.?\s+\d{1,2}|\d{1,2}\.?\s+[A-Za-z]+)(?:,?\s+(\d{4}))?/i);
+  if (fc && Number.isFinite(arrive)) {
+    const y = fc[2] ? Number(fc[2]) : new Date(arrive).getUTCFullYear();
+    let d = Date.parse(fc[1].replace('.', '') + ' ' + y + ' UTC');
+    if (!fc[2] && Number.isFinite(d) && d > arrive) d = Date.parse(fc[1].replace('.', '') + ' ' + (y - 1) + ' UTC');
+    if (Number.isFinite(d)) { const x = tage(new Date(d).toISOString()); if (x) return x; }
+  }
+  // W122: Trivago nennt nur „kostenlos stornierbar“ ohne Datum
+  if (/kostenlos stornierbar/i.test(text) && !/nicht/i.test(text)) return { tage: null, nein: false, ja: true, bis: null };
+  // W122: Booking-Suche meldet beim angezeigten Angebot keine kostenlose Stornierung -> „nein“ (Treffer bleibt sichtbar, nur der Filter greift)
+  if (/^nicht kostenlos/i.test(text) && !t?.detail?.guenstigster_stornierbar) return { tage: null, nein: true, bis: null };
+  if (/non-?refundable|nicht erstattungsf|strict|no refund/i.test(text) && !/free cancell?ation/i.test(text)) return { tage: null, nein: true, bis: null };
   // 2) Detailabruf: günstigster kostenlos stornierbarer Tarif für die ganze Gruppe
   const d = t?.detail;
   if (d?.guenstigster_stornierbar?.storno_bis) { const x = tage(d.guenstigster_stornierbar.storno_bis); if (x) return x; }
@@ -119,28 +132,30 @@ const STAY_DESK_SPALTEN = [
   { key: 'note', label: 'Note', num: true, v: t => sucheZahl(t.note) !== null && sucheZahl(t.note_skala) ? t.note / t.note_skala * 10 : null,
     r: t => sucheZahl(t.note) === null ? '?' : Number(t.note).toLocaleString('de-DE', { maximumFractionDigits: 2 }) + '/' + (t.note_skala ?? '?') },
   { key: 'bewertungen', label: 'Bew.', num: true, v: t => sucheZahl(t.bewertungen), r: t => sucheZahl(t.bewertungen) === null ? '?' : Number(t.bewertungen).toLocaleString('de-DE') },
-  { key: 'storno', label: 'Storno', num: true, klein: true, v: (t, c) => { const s = stayStorno(t, c.trip); return s.tage ?? (s.nein ? 9999 : null); },
-    r: (t, c) => { const s = stayStorno(t, c.trip); return s.tage !== null ? el('span', { title: 'kostenlos bis ' + s.bis }, 'bis ' + s.tage + ' T.') : s.nein ? 'nein' : '?'; } },
+  { key: 'storno', label: 'Storno', num: true, klein: true, v: (t, c) => { const s = stayStorno(t, c.trip); return s.tage ?? (s.ja ? 9000 : s.nein ? 9999 : null); },
+    r: (t, c) => { const s = stayStorno(t, c.trip); return s.tage !== null ? el('span', { title: 'kostenlos bis ' + s.bis }, 'bis ' + s.tage + ' T.') : s.ja ? 'ja' : s.nein ? 'nein' : '?'; } },
   { key: 'km', label: 'km', num: true, klein: true, v: t => sucheZahl(t.luftlinie_ziel_m) === null ? null : t.luftlinie_ziel_m / 1000, r: t => sucheZahl(t.luftlinie_ziel_m) === null ? '?' : (t.luftlinie_ziel_m / 1000).toLocaleString('de-DE', { maximumFractionDigits: 1 }) },
   { key: 'gehzeit', label: 'Station', num: true, klein: true, v: t => sucheZahl(t.gehzeit_min), r: t => sucheZahl(t.gehzeit_min) === null ? '?' : el('span', { title: t.station_name || '' }, Math.round(t.gehzeit_min) + ' Min.') },
   { key: 'viertel', label: 'Viertel', v: t => t.zone?.name || null, r: t => t.zone?.name || '?' },
-  { key: 'kueche', label: 'Küche', v: t => t.detail?.merkmale?.kueche ? 'ja' : null, r: t => t.detail?.merkmale?.kueche ? 'ja' : '?' },
-  { key: 'waschmaschine', label: 'Waschm.', v: t => t.detail?.merkmale?.waschmaschine ? 'ja' : null, r: t => t.detail?.merkmale?.waschmaschine ? 'ja' : '?' },
+  { key: 'kueche', label: 'Küche', v: t => stayFieldValue(t, 'kueche', {}), r: t => stayFieldValue(t, 'kueche', {}) ?? '?' },
+  { key: 'waschmaschine', label: 'Waschm.', v: t => stayFieldValue(t, 'waschmaschine', {}), r: t => stayFieldValue(t, 'waschmaschine', {}) ?? '?' },
   { key: 'balkon', label: 'Balkon', v: t => stayFieldValue(t, 'balkon', {}), r: t => stayFieldValue(t, 'balkon', {}) ?? '?' },
   // W100: weitere Kriterien aus Sebastians Auswahl (ja oder ?)
-  ...[['klima', 'Klima'], ['fruehstueck', 'Frühst.'], ['pool', 'Pool'], ['sauna_spa', 'Sauna/Spa'], ['fitness', 'Fitness'], ['parkplatz', 'Parken'], ['wlan', 'WLAN'], ['meerblick', 'Meerblick']]
+  ...[['klima', 'Klima'], ['fruehstueck', 'Frühst.'], ['pool', 'Pool'], ['sauna', 'Sauna'], ['spa', 'Spa/Onsen'], ['fitness', 'Fitness'], ['parkplatz', 'Parken'], ['wlan', 'WLAN'], ['meerblick', 'Meerblick']]
     .map(([key, label]) => ({ key, label, v: t => stayFieldValue(t, key, {}), r: t => stayFieldValue(t, key, {}) ?? '?' })),
   { key: 'strand', label: 'Strand', num: true, klein: true, v: t => sucheZahl(t.strand_m), r: t => stayStrandText(t) }, // W100: Luftlinie, auf 50 m gerundet
   { key: 'sterne', label: '★', num: true, v: t => sucheZahl(t.sterne), r: t => sucheZahl(t.sterne) ?? '?' },
   { key: 'hotelzimmer', label: 'Zi.', num: true, v: t => stayFieldValue(t, 'hotelzimmer', {}), r: t => stayFieldValue(t, 'hotelzimmer', {}) ?? '–' },
-  { key: 'quelle', label: 'Quelle', v: t => SUCHE_QUELLEN[t.quelle] || t.quelle || null, r: t => { const p = sucheAnbieterLink(t); const name = SUCHE_QUELLEN[t.quelle] || t.quelle || '?'; return p ? el('a', { href: p.url, target: '_blank', rel: 'noopener noreferrer' }, name + ' ↗') : name; } },
+  { key: 'quelle', label: 'Quelle', alle: t => [...new Set([t.quelle, ...(Array.isArray(t.weitere_angebote) ? t.weitere_angebote.map(a => a?.quelle) : [])].filter(Boolean).map(q => SUCHE_QUELLEN[q] || q))], // W123: auch Doppel bei anderen Anbietern
+    v: t => SUCHE_QUELLEN[t.quelle] || t.quelle || null, r: t => { const p = sucheAnbieterLink(t); const name = SUCHE_QUELLEN[t.quelle] || t.quelle || '?'; return p ? el('a', { href: p.url, target: '_blank', rel: 'noopener noreferrer' }, name + ' ↗') : name; } },
   { key: 'warum', label: 'Warum', v: t => stayWarumText(t), r: null },
   { key: 'notiz', label: 'Notiz', v: t => stayNotiz(t), r: null },
 ];
 const STAY_DESK_STANDARD = ['nacht','preis','tarif','tarif_storno','vergleich','art','schlafzimmer','betten','m2','note','bewertungen','storno','km','quelle','warum','notiz'];
 
 function stayDeskSpalten() {
-  const saved = stayRead('ks_tabelle_spalten', null), known = STAY_DESK_SPALTEN.map(s => s.key);
+  let saved = stayRead('ks_tabelle_spalten', null); const known = STAY_DESK_SPALTEN.map(s => s.key);
+  if (Array.isArray(saved) && saved.includes('sauna_spa')) saved = [...new Set(saved.flatMap(k => k === 'sauna_spa' ? ['sauna', 'spa'] : [k]))]; // W122: Sauna und Spa getrennt
   return Array.isArray(saved) && saved.length && saved.every(k => known.includes(k)) && new Set(saved).size === saved.length ? saved : [...STAY_DESK_STANDARD];
 }
 
@@ -148,6 +163,8 @@ function stayDeskSpalten() {
 function stayDeskFilter(text, spalte) {
   const s = String(text || '').trim(); if (!s) return null;
   if (s === '?') return v => v === null || v === undefined;
+  // W123: Mehrfachauswahl „=A|B“ – passt, wenn einer der Werte zutrifft (ODER); Listen (z. B. alle Anbieter eines Treffers) zählen, wenn einer passt
+  if (s.startsWith('=')) { const set = new Set(s.slice(1).split('|').filter(Boolean)); return v => v === null || v === undefined || (Array.isArray(v) ? v.some(x => set.has(String(x))) : set.has(String(v))); }
   if (!spalte.num) { const needle = s.toLocaleLowerCase('de'); return v => v === null || v === undefined || String(v).toLocaleLowerCase('de').includes(needle); }
   const num = x => Number(String(x).replace(/\./g, '').replace(',', '.'));
   let m = s.match(/^(?:(≥|>=|>|≤|<=|<))?\s*([\d.,]+)\s*$/), lo = -Infinity, hi = Infinity;
@@ -337,7 +354,7 @@ function stayFilterFunktionen(st, spalten = stayDeskSpalten()) {
   return spalten.map(k => STAY_DESK_SPALTEN.find(s => s.key === k)).filter(s => s && st.werte[s.key]).map(s => [s, stayDeskFilter(st.werte[s.key], s)]).filter(([, f]) => f);
 }
 function stayFilterPasst(t, ctx, st, fns) {
-  for (const [s, f] of fns) { const v = s.v(t, ctx); if ((v === null || v === undefined) && st.unbekannteAus) return false; if (!f(v ?? null)) return false; }
+  for (const [s, f] of fns) { const v = s.alle ? s.alle(t, ctx) : s.v(t, ctx); if ((v === null || v === undefined) && st.unbekannteAus) return false; if (!f(v ?? null)) return false; }
   return true;
 }
 // Darstellung je Spalte im Filterfenster: Chips mit Stufen, Eingabefeld oder „nur mit“
@@ -358,11 +375,16 @@ const STAY_FILTER_FORM = {
   sterne: { icon: 'hotel', titel: 'Sterne ab', chips: [['≥ 3', '3'], ['≥ 4', '4'], ['≥ 5', '5']] },
   art: { icon: 'haus', titel: 'Art', werte: true }, viertel: { icon: 'pin', titel: 'Viertel', werte: true }, quelle: { icon: 'extern', titel: 'Quelle', werte: true },
 };
-const STAY_FILTER_JA = ['kueche', 'waschmaschine', 'balkon', 'klima', 'fruehstueck', 'pool', 'sauna_spa', 'fitness', 'parkplatz', 'wlan', 'meerblick'];
+const STAY_FILTER_JA = ['kueche', 'waschmaschine', 'balkon', 'klima', 'fruehstueck', 'pool', 'sauna', 'spa', 'fitness', 'parkplatz', 'wlan', 'meerblick'];
 function stayFilterBlatt({ rows: rowsQ, ctx: ctxQ, st, onChange }) {
   const R = typeof rowsQ === 'function' ? rowsQ : () => rowsQ, C = typeof ctxQ === 'function' ? ctxQ : () => ctxQ;
   const box = el('div', { class: 'af-liste' });
   function setze(key, wert) { if (wert) st.werte[key] = wert; else delete st.werte[key]; st.speichern(); onChange(); zeichnen(); }
+  // W123: Mehrfachauswahl (ODER) für Werte-Filter wie Anbieter, Art, Viertel – gespeichert als „=A|B“
+  const mehrReihe = (key, opts) => { const gew = new Set(String(st.werte[key] || '').startsWith('=') ? String(st.werte[key]).slice(1).split('|').filter(Boolean) : []);
+    const setzeMehr = v => { if (v === '') gew.clear(); else if (gew.has(v)) gew.delete(v); else gew.add(v); setze(key, gew.size ? '=' + [...gew].join('|') : ''); };
+    return el('div', { class: 'af-chips', role: 'group', 'aria-label': 'Mehrfachauswahl' }, el('button', { type: 'button', class: 'af-chip', 'aria-pressed': String(!gew.size), onclick: () => setzeMehr('') }, 'Alle'),
+      ...opts.map(([v, text]) => el('button', { type: 'button', class: 'af-chip', 'aria-pressed': String(gew.has(v)), onclick: () => setzeMehr(v) }, text))); };
   const chipReihe = (key, opts) => el('div', { class: 'af-chips', role: 'group' }, [['', 'Egal'], ...opts].map(([v, text]) => el('button', { type: 'button', class: 'af-chip', 'aria-pressed': String((st.werte[key] || '') === v), onclick: () => setze(key, (st.werte[key] || '') === v ? '' : v) }, text)));
   const titel = (icon, text) => el('span', { class: 'af-titel' }, stayIcon(icon), text);
   function zeichnen() {
@@ -379,9 +401,9 @@ function stayFilterBlatt({ rows: rowsQ, ctx: ctxQ, st, onChange }) {
         if (KURZ[k]) { if (!preise.length) teile.push(null); preise.push(el('label', { class: 'af-preis', 'data-spalte': k }, el('span', {}, KURZ[k]), el('span', { class: 'af-eingabe' }, input, el('span', { class: 'af-einheit' }, f.einheit)))); continue; }
         teile.push(el('label', { class: 'af-zeile af-feld', 'data-spalte': k }, titel(f.icon, f.titel), el('span', { class: 'af-eingabe' }, input, el('span', { class: 'af-einheit' }, f.einheit))));
       } else if (f.werte) {
-        const vals = [...new Set(R().map(t => s.v(t, C())).filter(v => typeof v === 'string' && v))].sort((a, b) => a.localeCompare(b, 'de')).slice(0, 12);
+        const vals = [...new Set(R().flatMap(t => { const x = s.alle ? s.alle(t, C()) : s.v(t, C()); return Array.isArray(x) ? x : [x]; }).filter(v => typeof v === 'string' && v))].sort((a, b) => a.localeCompare(b, 'de')).slice(0, 12);
         if (!vals.length) continue;
-        teile.push(el('div', { class: 'af-zeile', 'data-spalte': k }, titel(f.icon, f.titel), chipReihe(k, vals.map(v => [v, v]))));
+        teile.push(el('div', { class: 'af-zeile', 'data-spalte': k }, titel(f.icon, f.titel + (vals.length > 1 ? ' (mehrere möglich)' : '')), mehrReihe(k, vals.map(v => [v, v]))));
       } else teile.push(el('div', { class: 'af-zeile', 'data-spalte': k }, titel(f.icon, f.titel), chipReihe(k, f.chips)));
     }
     if (ja.length) teile.push(el('div', { class: 'af-zeile', 'data-spalte': 'ausstattung' }, titel('pool', 'Nur mit'), el('div', { class: 'af-chips', role: 'group', 'aria-label': 'Nur mit' },

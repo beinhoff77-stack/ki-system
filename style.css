@@ -1070,13 +1070,6 @@ body:has(.tinder-mode) main.view{padding:8px 10px;}
 .review-done{padding:32px 20px;text-align:center}.review-done h3{margin:0 0 8px}
 
 /* W93 (Claude): Suchseite – ein Bildschirm, Lücke zuerst. */
-.quick-gaps{display:grid;gap:10px;margin:0 0 12px}
-.gap-card{display:flex;align-items:center;gap:12px;padding:14px 14px 14px 16px;border-radius:18px;background:linear-gradient(135deg,#0e3b43,#1d5a62);color:#fff;box-shadow:0 8px 24px #0e3b4326}
-.gap-card>div{flex:1;display:grid;gap:2px;min-width:0}
-.gap-card .eyebrow{color:#ffd2c4;margin:0;font-size:11px;letter-spacing:.06em}
-.gap-card strong{font-size:17px;font-variant-numeric:tabular-nums}
-.gap-card .small{color:#d7e6e4}
-.gap-card button.primary{flex:0 0 auto;min-height:44px;padding:8px 14px;border-radius:22px;white-space:nowrap}
 .quick-search{display:grid;gap:8px;padding:16px 16px}
 .quick-search>h2{margin:0;font-size:22px}
 .quick-search label{display:grid;gap:4px;font-weight:700;font-size:13px;color:#365c61;margin:0}

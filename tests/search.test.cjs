@@ -2402,7 +2402,7 @@ test('W91: freie Fotofläche, Tippen und Wischen blättern ohne Urteil; Details 
  await openReviewMenu(page);await page.getByRole('button',{name:'Foto groß',exact:true}).click();await page.getByRole('dialog',{name:'Foto groß',exact:true}).locator('img').waitFor();await page.getByRole('dialog',{name:'Foto groß',exact:true}).getByRole('button',{name:'Schließen',exact:true}).click();assert(await page.getByRole('button',{name:'Foto groß',exact:true}).evaluate(n=>n===document.activeElement));
 });
 
-test('W93: Suche passt auf einen Bildschirm, Lücke füllt Daten, Reise wird automatisch zugeordnet',async t=>{
+test('W93/W121: Suche passt auf einen Bildschirm, ohne Lücken-Karten, Reise wird automatisch zugeordnet',async t=>{
   const trips={reisen:[{id:1,name:'Weltreise'}],etappen:[{id:3,reise_id:1,ziel:'Tokyo',anreise:'2026-10-20',abreise:'2026-10-27',status:'gebucht'},{id:1,reise_id:1,ziel:'Kyoto',anreise:'2026-11-13',abreise:'2026-11-27',status:'vorschlag'}],ohne_etappe:[],
     luecken:[{reise_id:1,von:'2026-10-27',bis:'2026-11-13',naechte:17,text:'Vom 27.10. bis 13.11. fehlt noch eine Unterkunft (17 Nächte)',unsicher:true,suche_vorschlag:{anreise:'2099-10-27',abreise:'2099-11-13',naechte:17,nach:'Tokyo',vor:'Kyoto'}}]};
   const {page,calls}=await setup(t,p=>p.aktion==='unterkunft_etappen_lesen'?trips:p.aktion==='unterkunft_suchauftrag_anlegen'?{ok:true,id:9}:p.aktion==='unterkunft_suche_starten'?{ok:true}:{suchauftraege:[{id:5,ziel:'Kyoto',anreise:'2099-11-13',abreise:'2099-11-27',naechte:14,treffer:113,gemerkt:2,status:'fertig'},{id:6,ziel:'Tokyo',anreise:'2026-01-13',abreise:'2026-01-20',treffer:25,status:'abgebrochen'}]},{width:390,height:844,collapsed:true});
@@ -2412,7 +2412,8 @@ test('W93: Suche passt auf einen Bildschirm, Lücke füllt Daten, Reise wird aut
   assert(submit.y+submit.height<=844-76,'Suchknopf auf dem ersten Bildschirm über der Navigation');
   assert.equal(await page.getByLabel('Reise',{exact:true}).isVisible(),false,'Reisewahl liegt unter „Mehr Optionen“');
   await page.getByText('Weltreise · neuer Aufenthalt',{exact:false}).waitFor();
-  await page.getByRole('button',{name:'Hier suchen',exact:true}).click();
+  assert.equal(await page.locator('.gap-card').count(),0,'W121: keine Lücken-Karten auf der Suchseite');
+  await page.locator('[name=anreise]').fill('2099-10-27');await page.locator('[name=abreise]').fill('2099-11-13');await page.locator('[name=ziel]').focus();
   assert.equal(await page.locator('[name=anreise]').inputValue(),'2099-10-27');assert.equal(await page.locator('[name=abreise]').inputValue(),'2099-11-13');
   await page.getByText('17 Nächte',{exact:true}).waitFor();
   assert(await page.locator('[name=ziel]').evaluate(n=>n===document.activeElement));

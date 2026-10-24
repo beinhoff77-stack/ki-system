@@ -129,9 +129,8 @@ const STAY_DESK_SPALTEN = [
   { key: 'schlafzimmer', label: 'SZ', num: true, v: t => sucheZimmerKurz(t).schlafzimmer, r: t => sucheZimmerKurz(t).schlafzimmer ?? '?' },
   { key: 'betten', label: 'Betten', num: true, v: t => sucheZimmerKurz(t).anzahl, r: t => { const r = sucheZimmerKurz(t); return r.anzahl === null && !r.typen ? '?' : el('span', { title: r.typen || '' }, r.anzahl ?? '?', r.typen && /futon|sofa|bunk|etagen/i.test(r.typen) ? el('small', { class: 'desk-warn', title: r.typen }, ' (Futon/Sofa)') : null); } },
   { key: 'm2', label: 'm²', num: true, v: t => sucheZimmerKurz(t).m2, r: t => sucheZimmerKurz(t).m2 ?? '?' },
-  // W122: Filter und Tabelle nutzen dieselbe Note wie die Liste (geeicht auf Booking-Skala 0–10, Airbnb 4,61/5 -> 8,4), Rohwert im Tooltip
-  { key: 'note', label: 'Note', num: true, v: t => sucheZahl(t.note_geeicht) ?? (sucheZahl(t.note) !== null && sucheZahl(t.note_skala) ? t.note / t.note_skala * 10 : null),
-    r: t => { const g = sucheZahl(t.note_geeicht) ?? (sucheZahl(t.note) !== null && sucheZahl(t.note_skala) ? t.note / t.note_skala * 10 : null); return g === null ? '?' : el('span', { title: 'Original: ' + Number(t.note).toLocaleString('de-DE', { maximumFractionDigits: 2 }) + '/' + (t.note_skala ?? '?') }, g.toLocaleString('de-DE', { maximumFractionDigits: 1 })); } },
+  { key: 'note', label: 'Note', num: true, v: t => sucheZahl(t.note) !== null && sucheZahl(t.note_skala) ? t.note / t.note_skala * 10 : null,
+    r: t => sucheZahl(t.note) === null ? '?' : Number(t.note).toLocaleString('de-DE', { maximumFractionDigits: 2 }) + '/' + (t.note_skala ?? '?') },
   { key: 'bewertungen', label: 'Bew.', num: true, v: t => sucheZahl(t.bewertungen), r: t => sucheZahl(t.bewertungen) === null ? '?' : Number(t.bewertungen).toLocaleString('de-DE') },
   { key: 'storno', label: 'Storno', num: true, klein: true, v: (t, c) => { const s = stayStorno(t, c.trip); return s.tage ?? (s.ja ? 9000 : s.nein ? 9999 : null); },
     r: (t, c) => { const s = stayStorno(t, c.trip); return s.tage !== null ? el('span', { title: 'kostenlos bis ' + s.bis }, 'bis ' + s.tage + ' T.') : s.ja ? 'ja' : s.nein ? 'nein' : '?'; } },

@@ -474,14 +474,13 @@ function sucheSchnellLayout({ form, fields, sections, extended, submit, call, li
     maske.node.querySelector('.maske-legende')?.before(viertelBox); zu();
   }
   form.addEventListener('kriterien-geladen', filterAufraeumen); filterAufraeumen();
-  const gaps = el('div', { class: 'quick-gaps' });
   const kurz = d => { const x = new Date(d + 'T12:00:00'); return Number.isNaN(x.getTime()) ? d : x.toLocaleDateString('de-DE', { day: 'numeric', month: 'numeric' }); };
   const whoKeys = ['erwachsene', 'kinder_alter', 'budget_eur', 'budget_nacht'];
   const remembered = stayRead('ks_who_last', null);
   const restoreWho = () => { if (remembered && typeof remembered === 'object') for (const k of whoKeys) { const i = form.querySelector(`[name="${k}"]`); if (i && typeof remembered[k] === 'string') i.value = remembered[k]; } wohnen.feld(); budgetNacht?.ausGesamt(); form.dispatchEvent(new Event('input')); };
   restoreWho();
   form.addEventListener('submit', () => { const v = {}; for (const k of whoKeys) v[k] = String(form.querySelector(`[name="${k}"]`)?.value ?? ''); stayWrite('ks_who_last', v); }, true);
-  fields.replaceChildren(...[gaps, quick, SUCHE_SCORE_AN ? more : null].filter(Boolean));
+  fields.replaceChildren(...[quick, SUCHE_SCORE_AN ? more : null].filter(Boolean));
   const datum = sucheDatumBereich(form); ortZeit.insertBefore(datum.node, who); datum.node.querySelector('.dr-knopf').after(nights); // W103/W104: Wann-Zeile mit Nächten
   wohnen.feld(); // W96: Feld erst jetzt im Formular erreichbar
   function update() {
@@ -503,14 +502,7 @@ function sucheSchnellLayout({ form, fields, sections, extended, submit, call, li
       : el('button', { type: 'button', class: 'link-button a-mehr-knopf', 'aria-expanded': String(more.open), onclick: e => { more.open = !more.open; e.currentTarget.setAttribute('aria-expanded', String(more.open)); e.currentTarget.textContent = more.open ? 'schließen' : 'ändern'; } }, more.open ? 'schließen' : 'ändern'));
   };
   onTrip(trip);
-  call('unterkunft_etappen_lesen').then(r => {
-    if (!live()) return;
-    const today = new Date().toISOString().slice(0, 10);
-    const list = (Array.isArray(r?.luecken) ? r.luecken : []).filter(l => l?.suche_vorschlag?.abreise > today);
-    gaps.replaceChildren(...list.map(l => { const v = l.suche_vorschlag; const n = v.naechte ?? l.naechte;
-      return el('article', { class: 'gap-card' }, el('div', {}, el('p', { class: 'eyebrow' }, 'Hier fehlt noch eine Unterkunft'), el('strong', {}, `${kurz(v.anreise)} – ${kurz(v.abreise)} · ${n} Nächte`), el('span', { class: 'small' }, [v.nach ? 'nach ' + v.nach : null, v.vor ? 'vor ' + v.vor : null].filter(Boolean).join(' · '))),
-        el('button', { type: 'button', class: 'primary', onclick: () => { for (const [k, val] of [['anreise', v.anreise], ['abreise', v.abreise]]) { const i = form.querySelector(`[name="${k}"]`); i.value = val; i.dispatchEvent(new Event('input', { bubbles: true })); } onTrip.setNew?.(); const z = form.querySelector('[name="ziel"]'); z.focus(); z.scrollIntoView({ block: 'center' }); } }, 'Hier suchen')); }));
-  }).catch(() => {});
+  // W121 (Sebastian 24.10.): Karten „Hier fehlt noch eine Unterkunft“ entfernt – Lücken stehen weiter im Reiseplan.
   return { restoreWho, wohnenWerte: wohnen.werte };
 }
 

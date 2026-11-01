@@ -1,0 +1,416 @@
+<!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light}body{margin:0}[hidden]{display:none!important}</style></head><body>
+<meta name="robots" content="noindex"><title>Mathe-Merkblatt Klasse 7/8</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Bricolage+Grotesque:wght@600;800&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: Karoheft-Optik. Sticky Kapitelleiste, Kästchen im Raster, Farbcode je Themengebiet. */
+:root{--bg:#f7f9fd;--grid:#e2e9f4;--surface:#ffffff;--ink:#14213a;--ink2:#4a5a78;--line:#cbd6e8;--c-blue:#1f5fbf;--c-teal:#0b7a85;--c-violet:#7440b8;--c-orange:#b85a00;--c-green:#1b7a3c;--c-red:#c0302a;--on-cat:#ffffff;--f-display:'Bricolage Grotesque','Trebuchet MS',system-ui,sans-serif;--f-body:'Atkinson Hyperlegible',system-ui,'Segoe UI',sans-serif;--f-mono:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0e1624;--grid:#172336;--surface:#152033;--ink:#e8eefb;--ink2:#a9b8d4;--line:#2a3b57;--c-blue:#6aa5ff;--c-teal:#4fcdd6;--c-violet:#b794f6;--c-orange:#ffa05a;--c-green:#5fd488;--c-red:#ff7b72;--on-cat:#0e1624;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e1624;--grid:#172336;--surface:#152033;--ink:#e8eefb;--ink2:#a9b8d4;--line:#2a3b57;--c-blue:#6aa5ff;--c-teal:#4fcdd6;--c-violet:#b794f6;--c-orange:#ffa05a;--c-green:#5fd488;--c-red:#ff7b72;--on-cat:#0e1624;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background-color:var(--bg);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:24px 24px;color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:12;background:var(--bg)}
+.wrap{max-width:1120px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.main{padding-block:1.4rem 3rem}
+:focus-visible{outline:3px solid var(--c-blue);outline-offset:2px}
+.zahl{--cat:var(--c-blue)}.terme{--cat:var(--c-teal)}.pot{--cat:var(--c-violet)}.bruch{--cat:var(--c-orange)}.gl{--cat:var(--c-green)}.fehler{--cat:var(--c-red)}.notiz{--cat:var(--ink2)}
+/* Kapitelleiste */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:11;background:var(--bg);border-bottom:1.5px solid var(--line)}
+.nav{display:flex;gap:.45rem;overflow-x:auto;padding-block:.6rem;scrollbar-width:thin}
+.nav a{flex:none;display:inline-flex;align-items:center;gap:.45rem;padding:.35rem .75rem;border:1.5px solid var(--line);border-radius:999px;background:var(--surface);color:var(--ink);text-decoration:none;font-weight:700;font-size:.9rem}
+.nav a i{width:.7rem;height:.7rem;border-radius:2px;background:var(--cat)}
+.nav a:hover{border-color:var(--cat)}
+/* Kopf */
+.hero{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:1.4rem;align-items:end;padding-block:1.4rem .4rem}
+@media (max-width:780px){.hero{grid-template-columns:minmax(0,1fr)}}
+h1{font-family:var(--f-display);font-weight:800;font-size:clamp(2.1rem,6vw,3.5rem);line-height:1.02;letter-spacing:-.02em;margin:0 0 .8rem;text-wrap:balance}
+h1 .kl{display:inline-block;color:var(--c-blue);white-space:nowrap}
+.lead{max-width:62ch;margin:0 0 .7rem;font-size:1.06rem}
+.small{font-size:.9rem;color:var(--ink2);margin:.35rem 0 0;max-width:68ch}
+/* Kapitel */
+.sec{margin-top:2.8rem;scroll-margin-top:calc(env(safe-area-inset-top,0px) + 4.2rem)}
+.sec>h2{font-family:var(--f-display);font-weight:800;font-size:clamp(1.6rem,4vw,2.3rem);line-height:1.1;margin:0;letter-spacing:-.01em}
+.sec>h2::after{content:"";display:block;width:3.4rem;height:6px;border-radius:3px;background:var(--cat);margin-top:.4rem}
+.intro{color:var(--ink2);max-width:66ch;margin:.6rem 0 1.1rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,330px),1fr));gap:1rem;align-items:start}
+.wide{grid-column:1/-1}
+/* Kästchen */
+.card{background:var(--surface);background:color-mix(in srgb,var(--cat) 7%,var(--surface));border:1.5px solid var(--line);border:1.5px solid color-mix(in srgb,var(--cat) 38%,var(--line));border-radius:14px;padding:.85rem 1rem 1rem;min-width:0}
+.card>header{display:flex;flex-wrap:wrap;align-items:baseline;gap:.35rem .7rem;border-bottom:2px solid var(--cat);padding-bottom:.45rem;margin-bottom:.2rem}
+.card h3{margin:0;font-family:var(--f-display);font-weight:800;font-size:1.12rem;color:var(--cat);text-wrap:balance}
+.badge{font-size:.72rem;font-weight:700;padding:.1rem .55rem;border-radius:999px;border:1.5px solid var(--cat);color:var(--cat);white-space:nowrap}
+.row{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:.2rem 1rem;padding:.5rem 0;border-top:1px dashed var(--line);border-top:1px dashed color-mix(in srgb,var(--cat) 32%,var(--line))}
+.body>.row:first-child{border-top:0}
+.row.t{grid-template-columns:minmax(0,1fr)}
+.ex{color:var(--cat)}
+@media (max-width:520px){.row{grid-template-columns:minmax(0,1fr)}}
+.card p.small{margin:.5rem 0}
+/* Brüche und Hochzahlen */
+.fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;line-height:1.15;margin:0 .14em}
+.fr>span{padding:0 .22em}
+.fr>span:first-child{border-bottom:1.5px solid currentColor}
+sup{font-size:.72em;line-height:0}
+/* Rechenwege */
+.stepper{margin-top:.2rem}
+.step{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:.1rem .8rem;align-items:baseline;padding:.32rem 0;font-size:1.05rem}
+.step .op{font-family:var(--f-mono);font-size:.8rem;color:var(--ink2)}
+.step .eqn{overflow-wrap:anywhere}
+@media (max-width:460px){.step{grid-template-columns:minmax(0,1fr)}}
+.res{margin-top:.4rem;padding:.4rem .7rem;border-radius:8px;border:1.5px solid var(--c-green);border:1.5px solid color-mix(in srgb,var(--c-green) 55%,var(--line));background:var(--surface);background:color-mix(in srgb,var(--c-green) 16%,var(--surface));font-weight:700}
+.probe{margin-top:.4rem;font-size:.92rem;color:var(--ink2)}
+.probe b{color:var(--c-green)}
+.ctl{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.7rem}
+.stepper.static .ctl{display:none}
+.btn{font:inherit;font-weight:700;font-size:.9rem;cursor:pointer;padding:.45rem .85rem;border-radius:10px;border:1.5px solid var(--cat,var(--c-blue));background:var(--surface);color:var(--cat,var(--c-blue))}
+.btn:hover{background:color-mix(in srgb,var(--cat,var(--c-blue)) 14%,var(--surface))}
+.btn.solid{background:var(--cat,var(--c-blue));color:var(--on-cat)}
+.btn.solid:hover{filter:brightness(1.08)}
+.btn[disabled]{opacity:.45;cursor:default}
+.btn.sm{font-size:.82rem;padding:.3rem .6rem}
+.btn.on{background:var(--cat,var(--c-blue));color:var(--on-cat)}
+/* Waage */
+.balwrap{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:1rem;align-items:center;padding-top:.6rem}
+@media (max-width:760px){.balwrap{grid-template-columns:minmax(0,1fr)}}
+.bal{width:100%;height:auto;max-width:520px;color:var(--ink)}
+.bal .beam{stroke:var(--ink);stroke-width:5;stroke-linecap:round}
+.bal .pole{stroke:var(--ink2);stroke-width:5;stroke-linecap:round}
+.bal .basep{fill:var(--ink2)}
+.bal .pivot{fill:var(--surface);stroke:var(--ink);stroke-width:3}
+.bal .str{stroke:var(--ink2);stroke-width:1.5}
+.bal .bowl{fill:var(--surface);fill:color-mix(in srgb,var(--c-green) 22%,var(--surface));stroke:var(--ink);stroke-width:1.5}
+.bal .blk{fill:var(--surface);stroke:var(--c-green);stroke-width:2.2}
+.bal text{fill:var(--ink);font-family:var(--f-body);font-weight:700;font-size:20px;text-anchor:middle}
+.bal .eqs{fill:var(--c-green);font-size:30px}
+#beamg{transform-origin:210px 64px}
+#beamg.wob{animation:wob .6s ease-out}
+@keyframes wob{0%{transform:rotate(0)}25%{transform:rotate(3deg)}55%{transform:rotate(-1.8deg)}80%{transform:rotate(.6deg)}100%{transform:rotate(0)}}
+@media (prefers-reduced-motion:reduce){#beamg.wob{animation:none}}
+.bop{font-weight:700;margin:0 0 .3rem;min-height:3em}
+.presets{display:flex;flex-wrap:wrap;gap:.4rem;margin:.6rem 0}
+/* Graph */
+.plot{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:1.2rem;align-items:start;padding-top:.5rem}
+@media (max-width:800px){.plot{grid-template-columns:minmax(0,1fr)}}
+.plot figure{margin:0}
+#gsvg{width:100%;height:auto;max-width:540px;display:block}
+.eqrow{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem;font-size:1.08rem;margin-bottom:.6rem}
+.eqrow b{font-weight:800;min-width:1.6rem}
+.tag1{color:var(--c-blue)}.tag2{color:var(--c-orange)}
+.num{width:4.6rem;font:inherit;font-family:var(--f-mono);font-size:1rem;text-align:center;padding:.35rem .25rem;border:1.5px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink)}
+.out{padding:.7rem .85rem;border-radius:10px;border:1.5px solid var(--line);background:var(--surface);min-height:6rem}
+.out.ok{border-color:var(--c-green)}.out.warn{border-color:var(--c-orange)}.out.bad{border-color:var(--c-red)}
+.out .big{font-weight:800;font-size:1.15rem;margin:0 0 .3rem}
+.out p{margin:.2rem 0}
+.pbg{fill:var(--surface)}
+.gl-l{stroke:var(--line);stroke-width:1}
+.axis{stroke:var(--ink2);stroke-width:1.6}
+.tk{fill:var(--ink2);font-size:10px;font-family:var(--f-mono)}
+.ln1{stroke:var(--c-blue);stroke-width:3;fill:none;stroke-linecap:round}
+.ln2{stroke:var(--c-orange);stroke-width:3;fill:none;stroke-linecap:round}
+.pt{fill:var(--c-green);stroke:var(--surface);stroke-width:2.5}
+.ptl{fill:var(--ink);font-weight:700;font-size:13px;font-family:var(--f-body)}
+.frame{fill:none;stroke:var(--ink2);stroke-width:1.2}
+/* Fehler */
+.grp{font-family:var(--f-display);font-weight:800;font-size:1.15rem;margin:1.3rem 0 .55rem;color:var(--cat)}
+.traps{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:.8rem}
+.trap{border:1.5px solid var(--line);border-radius:12px;background:var(--surface);padding:.7rem .85rem;display:grid;gap:.35rem;min-width:0;align-content:start}
+.trap .w{color:var(--c-red)}
+.trap .w .s{text-decoration:line-through;text-decoration-thickness:2px}
+.trap .r{color:var(--c-green);font-weight:700}
+.trap .mk{font-weight:800}
+.trap .why{color:var(--ink2);font-size:.9rem;margin:0}
+/* Notizen */
+.noteform{display:grid;grid-template-columns:minmax(0,1fr);gap:.35rem;max-width:560px;margin-top:.5rem}
+.noteform label{font-weight:700;font-size:.9rem;margin-top:.3rem}
+.txt{font:inherit;padding:.5rem .65rem;border:1.5px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);width:100%}
+.noteform .btn{justify-self:start;margin-top:.5rem}
+.notelist{list-style:none;margin:1rem 0 0;padding:0;display:grid;gap:.6rem;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr))}
+.notelist li{border:1.5px solid var(--line);border-radius:12px;background:var(--surface);padding:.6rem .8rem;display:grid;gap:.25rem;min-width:0;overflow-wrap:anywhere}
+.notelist .w{color:var(--c-red);text-decoration:line-through;text-decoration-thickness:2px}
+.notelist .r{color:var(--c-green);font-weight:700}
+.notelist .btn{justify-self:end;font-size:.8rem;padding:.2rem .55rem}
+.foot{border-top:1.5px solid var(--line);margin-top:3rem;padding-block:1.2rem max(1.4rem,env(safe-area-inset-bottom,0px));background:var(--bg)}
+</style>
+<header class="top"><div class="wrap"><nav class="nav" aria-label="Kapitel"><a class="zahl" href="#zahlen"><i></i>Zahlen</a><a class="terme" href="#terme"><i></i>Terme</a><a class="pot" href="#potenzen"><i></i>Potenzen</a><a class="bruch" href="#brueche"><i></i>Brüche</a><a class="gl" href="#gleichungen"><i></i>Gleichungen</a><a class="gl" href="#gleichungssysteme"><i></i>Gleichungssysteme</a><a class="fehler" href="#fallen"><i></i>Typische Fehler</a><a class="notiz" href="#meine-fehler"><i></i>Meine Fehler</a></nav></div></header><main><div class="wrap main">
+<section class="hero">
+ <div>
+  <h1>Mathe-Merkblatt <span class="kl">Klasse 7/8</span></h1>
+  <p class="lead">Alles, was beim Lösen von Gleichungen immer wieder gebraucht wird, auf einer Seite: Zahlen, Terme, Potenzen, Brüche, Gleichungen und Gleichungssysteme mit zwei Unbekannten. Die Beispiele sind Schritt für Schritt vorgerechnet und lassen sich selbst durchspielen.</p>
+  <p class="small">Kästchen mit dem Hinweis „oft erst Kl. 8/9“ gehen über den Standardstoff der Klasse 7/8 hinaus. Was wann drankommt, hängt vom Bundesland und vom Schulbuch ab.</p>
+ </div>
+ <article class="card gl leseprobe"><header><h3>So liest du die Rechenwege</h3></header>
+  <div class="stepper static">
+   <div class="step first"><span class="eqn">3x + 4 = 19</span><span class="op"></span></div>
+   <div class="step"><span class="eqn">3x = 15</span><span class="op">| − 4</span></div>
+   <div class="step"><span class="eqn">x = 5</span><span class="op">| : 3</span></div>
+  </div>
+  <p class="small">Links steht die Gleichung nach dem Schritt. Rechts hinter dem Strich steht, was auf beiden Seiten getan wurde.</p>
+ </article>
+</section><section class="sec zahl" id="zahlen"><h2>Zahlen</h2><p class="intro">Vorzeichen, Rechenreihenfolge und Teilbarkeit. Das Fundament für alles Weitere.</p><div class="grid"><article class="card "><header><h3>Zahlenmengen</h3></header><div class="body"><div class="row"><div class="rule">ℕ natürliche Zahlen: 1, 2, 3, … (je nach Buch mit 0)</div><div class="ex">ℕ ⊂ ℤ ⊂ ℚ</div></div><div class="row"><div class="rule">ℤ ganze Zahlen: … −2, −1, 0, 1, 2 …</div><div class="ex"></div></div><div class="row"><div class="rule">ℚ rationale Zahlen: alle Brüche, auch Dezimalzahlen</div><div class="ex">0,75 = <span class="fr"><span>3</span><span>4</span></span> &nbsp; <span class="fr"><span>1</span><span>3</span></span> = 0,333…</div></div><div class="row"><div class="rule">Bruch → Dezimalzahl: Zähler : Nenner</div><div class="ex"><span class="fr"><span>3</span><span>8</span></span> = 3 : 8 = 0,375</div></div><div class="row"><div class="rule">Dezimalzahl → Bruch: Stellen zählen</div><div class="ex">0,35 = <span class="fr"><span>35</span><span>100</span></span> = <span class="fr"><span>7</span><span>20</span></span></div></div></div></article><article class="card "><header><h3>Vorzeichen (Plus / Minus)</h3></header><div class="body"><div class="row"><div class="rule"><b>Mal und geteilt:</b> gleiche Vorzeichen → +, verschiedene → −</div><div class="ex">(−3)·(−4) = 12<br>(−12) : 4 = −3</div></div><div class="row"><div class="rule"><b>Plus:</b> gleiche Vorzeichen: Beträge addieren, Vorzeichen bleibt</div><div class="ex">−3 + (−4) = −7</div></div><div class="row"><div class="rule"><b>Plus:</b> verschiedene Vorzeichen: Beträge subtrahieren, Vorzeichen der größeren Zahl</div><div class="ex">−3 + 8 = 5<br>3 + (−8) = −5</div></div><div class="row"><div class="rule"><b>Minus minus = plus:</b> Subtrahieren heißt Gegenzahl addieren</div><div class="ex">5 − (−2) = 5 + 2 = 7</div></div></div></article><article class="card "><header><h3>Rechenreihenfolge</h3></header><div class="body"><div class="row t"><div><b>1.</b> Klammern · <b>2.</b> Potenzen · <b>3.</b> Punkt (· :) vor Strich (+ −) · <b>4.</b> von links nach rechts</div></div><div class="row"><div class="rule">Ohne Klammer</div><div class="ex">2 + 3·4<sup>2</sup> = 2 + 3·16 = 2 + 48 = 50</div></div><div class="row"><div class="rule">Mit Klammer</div><div class="ex">(2 + 3)·4<sup>2</sup> = 5·16 = 80</div></div></div></article><article class="card "><header><h3>Teilbarkeit, Primfaktoren, Hauptnenner</h3></header><div class="body"><div class="row"><div class="rule">durch <b>2</b>: Endziffer gerade<br>durch <b>5</b>: Endziffer 0 oder 5<br>durch <b>10</b>: Endziffer 0</div><div class="ex"></div></div><div class="row"><div class="rule">durch <b>3</b>: Quersumme durch 3 teilbar<br>durch <b>9</b>: Quersumme durch 9 teilbar</div><div class="ex">138: 1+3+8 = 12 → durch 3 ✓</div></div><div class="row"><div class="rule"><b>Primfaktoren:</b> in Primzahlen zerlegen (2, 3, 5, 7, 11, 13 …)</div><div class="ex">12 = 2<sup>2</sup>·3<br>18 = 2·3<sup>2</sup></div></div><div class="row"><div class="rule"><b>ggT</b> (zum Kürzen): gemeinsame Faktoren, jeweils kleinste Potenz</div><div class="ex">ggT(12; 18) = 2·3 = 6</div></div><div class="row"><div class="rule"><b>kgV</b> = Hauptnenner: jeden Faktor in der größten Potenz</div><div class="ex">kgV(4; 6) = 2<sup>2</sup>·3 = 12</div></div></div></article></div></section><section class="sec terme" id="terme"><h2>Terme</h2><p class="intro">Zusammenfassen, Klammern auflösen, binomische Formeln.</p><div class="grid"><article class="card "><header><h3>Zusammenfassen und Klammern</h3></header><div class="body"><div class="row"><div class="rule">Nur <b>Gleichartiges</b> zusammenfassen: x-Terme mit x-Termen</div><div class="ex">4x + 7 − 2x + 3 = 2x + 10</div></div><div class="row"><div class="rule">Plus vor Klammer: weglassen</div><div class="ex">5 + (2x − 3) = 2x + 2</div></div><div class="row"><div class="rule"><b>Minus vor Klammer:</b> alle Vorzeichen drehen</div><div class="ex">7x − (2x − 9) = 5x + 9</div></div><div class="row"><div class="rule">Zahl vor Klammer: mal <b>jedes</b> Glied</div><div class="ex">−2(x − 3) = −2x + 6</div></div><div class="row"><div class="rule">Klammer mal Klammer: jedes mit jedem</div><div class="ex">(x+2)(x+3) = x<sup>2</sup> + 5x + 6</div></div></div></article><article class="card "><header><h3>Binomische Formeln</h3><span class="badge">oft erst Kl. 8/9</span></header><div class="body"><div class="row"><div class="rule">1. (a + b)<sup>2</sup> = a<sup>2</sup> + 2ab + b<sup>2</sup></div><div class="ex">(x+3)<sup>2</sup> = x<sup>2</sup> + 6x + 9</div></div><div class="row"><div class="rule">2. (a − b)<sup>2</sup> = a<sup>2</sup> − 2ab + b<sup>2</sup></div><div class="ex">(x−1)<sup>2</sup> = x<sup>2</sup> − 2x + 1</div></div><div class="row"><div class="rule">3. (a + b)(a − b) = a<sup>2</sup> − b<sup>2</sup></div><div class="ex">(2x+3)(2x−3) = 4x<sup>2</sup> − 9</div></div><div class="row t"><div>Das mittlere Glied 2ab nicht vergessen: (x + 3)<sup>2</sup> ist <b>nicht</b> x<sup>2</sup> + 9.</div></div></div></article></div></section><section class="sec pot" id="potenzen"><h2>Potenzen</h2><p class="intro">Von 2<sup>4</sup> bis zu den Potenzgesetzen.</p><div class="grid"><article class="card "><header><h3>Potenzen: Grundlagen</h3></header><div class="body"><div class="row"><div class="rule">a<sup>n</sup> = a·a·…·a (n Faktoren)<br>a = Basis, n = Exponent</div><div class="ex">2<sup>4</sup> = 2·2·2·2 = 16</div></div><div class="row"><div class="rule">Exponent 1 und 0</div><div class="ex">a<sup>1</sup> = a &nbsp; a<sup>0</sup> = 1 (a ≠ 0)</div></div></div></article><article class="card "><header><h3>Zahlen zum Auswendigkönnen</h3></header><div class="body"><div class="row t"><div><b>Quadratzahlen:</b> 1 · 4 · 9 · 16 · 25 · 36 · 49 · 64 · 81 · 100 · 121 · 144 · 169 · 196 · 225</div></div><div class="row t"><div><b>Dritte Potenzen:</b> 2<sup>3</sup> = 8 · 3<sup>3</sup> = 27 · 4<sup>3</sup> = 64 · 5<sup>3</sup> = 125 · 10<sup>3</sup> = 1000</div></div><div class="row t"><div><b>Zweierpotenzen:</b> 2 · 4 · 8 · 16 · 32 · 64 · 128 · 256 · 512 · 1024</div></div></div></article><article class="card "><header><h3>Vorzeichen bei Potenzen</h3></header><div class="body"><div class="row"><div class="rule">Mit Klammer: die Basis ist −2</div><div class="ex">(−2)<sup>2</sup> = (−2)·(−2) = <b>4</b></div></div><div class="row"><div class="rule">Ohne Klammer: nur die 2 wird quadriert</div><div class="ex">−2<sup>2</sup> = −(2·2) = <b>−4</b></div></div><div class="row"><div class="rule">Exponent <b>gerade</b> → Ergebnis positiv<br>Exponent <b>ungerade</b> → Vorzeichen bleibt</div><div class="ex">(−2)<sup>4</sup> = 16<br>(−2)<sup>3</sup> = −8</div></div></div></article><article class="card "><header><h3>Potenzgesetze (gleiche Basis)</h3></header><div class="body"><div class="row"><div class="rule"><b>Mal:</b> Exponenten <b>addieren</b><br>a<sup>m</sup>·a<sup>n</sup> = a<sup>m+n</sup></div><div class="ex">2<sup>3</sup>·2<sup>4</sup> = 2<sup>7</sup><br>x<sup>2</sup>·x = x<sup>3</sup></div></div><div class="row"><div class="rule"><b>Geteilt:</b> Exponenten <b>subtrahieren</b><br>a<sup>m</sup> : a<sup>n</sup> = a<sup>m−n</sup></div><div class="ex">5<sup>6</sup> : 5<sup>2</sup> = 5<sup>4</sup></div></div><div class="row"><div class="rule"><b>Potenz von Potenz:</b> Exponenten <b>multiplizieren</b><br>(a<sup>m</sup>)<sup>n</sup> = a<sup>m·n</sup></div><div class="ex">(3<sup>2</sup>)<sup>3</sup> = 3<sup>6</sup></div></div></div></article><article class="card "><header><h3>Gleicher Exponent</h3></header><div class="body"><div class="row"><div class="rule">a<sup>n</sup>·b<sup>n</sup> = (a·b)<sup>n</sup></div><div class="ex">2<sup>3</sup>·5<sup>3</sup> = 10<sup>3</sup> = 1000</div></div><div class="row"><div class="rule">(a·b)<sup>n</sup> = a<sup>n</sup>·b<sup>n</sup></div><div class="ex">(2x)<sup>3</sup> = 8x<sup>3</sup></div></div><div class="row"><div class="rule">(<span class="fr"><span>a</span><span>b</span></span>)<sup>n</sup> = <span class="fr"><span>a<sup>n</sup></span><span>b<sup>n</sup></span></span></div><div class="ex">(<span class="fr"><span>2</span><span>3</span></span>)<sup>2</sup> = <span class="fr"><span>4</span><span>9</span></span></div></div></div></article><article class="card "><header><h3>Negative Exponenten</h3><span class="badge">oft erst Kl. 9</span></header><div class="body"><div class="row"><div class="rule">a<sup>−n</sup> = <span class="fr"><span>1</span><span>a<sup>n</sup></span></span> &nbsp;(Kehrwert!)</div><div class="ex">2<sup>−3</sup> = <span class="fr"><span>1</span><span>8</span></span> &nbsp; x<sup>−1</sup> = <span class="fr"><span>1</span><span>x</span></span></div></div><div class="row"><div class="rule">(<span class="fr"><span>a</span><span>b</span></span>)<sup>−n</sup> = (<span class="fr"><span>b</span><span>a</span></span>)<sup>n</sup></div><div class="ex">(<span class="fr"><span>2</span><span>3</span></span>)<sup>−2</sup> = (<span class="fr"><span>3</span><span>2</span></span>)<sup>2</sup> = <span class="fr"><span>9</span><span>4</span></span></div></div><div class="row"><div class="rule">Zehnerpotenzen</div><div class="ex">10<sup>3</sup> = 1000<br>10<sup>−2</sup> = 0,01<br>3,2·10<sup>4</sup> = 32000</div></div></div></article></div></section><section class="sec bruch" id="brueche"><h2>Brüche</h2><p class="intro">Erweitern, Kürzen, Rechnen und der Kehrwert (Umkehrbruch).</p><div class="grid"><article class="card "><header><h3>Brüche: Begriffe</h3></header><div class="body"><div class="row"><div class="rule">Zähler / Nenner. Der <b>Nenner darf nie 0</b> sein.</div><div class="ex"><span class="fr"><span>3</span><span>4</span></span>: Zähler 3, Nenner 4</div></div><div class="row"><div class="rule">Ganze Zahl als Bruch</div><div class="ex">3 = <span class="fr"><span>3</span><span>1</span></span></div></div><div class="row"><div class="rule">Gemischte Zahl: Ganze · Nenner + Zähler</div><div class="ex">2<span class="fr"><span>1</span><span>3</span></span> = <span class="fr"><span>2·3+1</span><span>3</span></span> = <span class="fr"><span>7</span><span>3</span></span></div></div><div class="row"><div class="rule"><b>Kehrwert</b> (Umkehrbruch): Zähler und Nenner tauschen</div><div class="ex"><span class="fr"><span>3</span><span>4</span></span> → <span class="fr"><span>4</span><span>3</span></span> &nbsp; 5 → <span class="fr"><span>1</span><span>5</span></span><br><span class="fr"><span>x</span><span>3</span></span> → <span class="fr"><span>3</span><span>x</span></span></div></div></div></article><article class="card "><header><h3>Erweitern und Kürzen</h3></header><div class="body"><div class="row"><div class="rule"><b>Erweitern:</b> Zähler <b>und</b> Nenner mit derselben Zahl <b>mal</b></div><div class="ex"><span class="fr"><span>2</span><span>3</span></span> = <span class="fr"><span>6</span><span>9</span></span> &nbsp;(· 3)</div></div><div class="row"><div class="rule"><b>Kürzen:</b> Zähler <b>und</b> Nenner durch dieselbe Zahl <b>teilen</b></div><div class="ex"><span class="fr"><span>12</span><span>18</span></span> = <span class="fr"><span>2</span><span>3</span></span> &nbsp;(: 6)</div></div><div class="row"><div class="rule">Gekürzt wird nur <b>Faktor mit Faktor</b>, nie Summen. Erst ausklammern.</div><div class="ex"><span class="fr"><span>2x+6</span><span>2</span></span> = <span class="fr"><span>2(x+3)</span><span>2</span></span> = x + 3</div></div></div></article><article class="card "><header><h3>Rechnen mit Brüchen</h3></header><div class="body"><div class="row"><div class="rule"><b>Plus / Minus:</b> gleichnamig machen (Hauptnenner), Nenner bleibt, nur Zähler rechnen</div><div class="ex"><span class="fr"><span>1</span><span>2</span></span> + <span class="fr"><span>1</span><span>3</span></span> = <span class="fr"><span>3</span><span>6</span></span> + <span class="fr"><span>2</span><span>6</span></span> = <span class="fr"><span>5</span><span>6</span></span></div></div><div class="row"><div class="rule"><b>Mal:</b> Zähler·Zähler, Nenner·Nenner (vorher kürzen)</div><div class="ex"><span class="fr"><span>2</span><span>3</span></span>·<span class="fr"><span>4</span><span>5</span></span> = <span class="fr"><span>8</span><span>15</span></span><br><span class="fr"><span>3</span><span>4</span></span>·<span class="fr"><span>2</span><span>9</span></span> = <span class="fr"><span>1</span><span>6</span></span></div></div><div class="row"><div class="rule"><b>Geteilt:</b> mit dem <b>Kehrwert</b> multiplizieren</div><div class="ex"><span class="fr"><span>2</span><span>3</span></span> : <span class="fr"><span>4</span><span>5</span></span> = <span class="fr"><span>2</span><span>3</span></span>·<span class="fr"><span>5</span><span>4</span></span> = <span class="fr"><span>5</span><span>6</span></span></div></div><div class="row"><div class="rule">Bruch mal / geteilt durch ganze Zahl</div><div class="ex">3·<span class="fr"><span>2</span><span>5</span></span> = <span class="fr"><span>6</span><span>5</span></span> &nbsp; <span class="fr"><span>2</span><span>3</span></span> : 4 = <span class="fr"><span>1</span><span>6</span></span></div></div><div class="row"><div class="rule">Doppelbruch: oberer Bruch mal Kehrwert des unteren</div><div class="ex">(3/4) : (9/8) = <span class="fr"><span>3</span><span>4</span></span>·<span class="fr"><span>8</span><span>9</span></span> = <span class="fr"><span>2</span><span>3</span></span></div></div></div></article><article class="card "><header><h3>Brüche mit Variablen</h3></header><div class="body"><div class="row"><div class="rule">Gleichnamig machen wie bei Zahlen</div><div class="ex"><span class="fr"><span>x</span><span>2</span></span> + <span class="fr"><span>x</span><span>3</span></span> = <span class="fr"><span>3x</span><span>6</span></span> + <span class="fr"><span>2x</span><span>6</span></span> = <span class="fr"><span>5x</span><span>6</span></span></div></div><div class="row"><div class="rule"><span class="fr"><span>2</span><span>3</span></span>·x bedeutet <span class="fr"><span>2x</span><span>3</span></span></div><div class="ex"><span class="fr"><span>2</span><span>3</span></span>x = <span class="fr"><span>2x</span><span>3</span></span></div></div><div class="row"><div class="rule">Minus vor dem Bruch: <b>Klammer setzen</b></div><div class="ex">−<span class="fr"><span>x−2</span><span>2</span></span> = <span class="fr"><span>−x+2</span><span>2</span></span></div></div><div class="row"><div class="rule">Summe im Zähler darf man aufteilen</div><div class="ex"><span class="fr"><span>4x+6</span><span>2</span></span> = 2x + 3</div></div></div></article></div></section><section class="sec gl" id="gleichungen"><h2>Gleichungen</h2><p class="intro">Eine Gleichung ist wie eine Waage im Gleichgewicht: Was du links tust, tust du rechts auch.</p><div class="grid">
+<article class="card wide"><header><h3>Die Waage: auf beiden Seiten dasselbe</h3></header>
+<div class="balwrap">
+ <svg id="bsvg" class="bal" viewBox="0 0 420 190" role="img" aria-label="Waage im Gleichgewicht: links und rechts steht derselbe Wert">
+  <polygon class="basep" points="180,178 240,178 210,138"/>
+  <line class="pole" x1="210" y1="64" x2="210" y2="146"/>
+  <g id="beamg">
+   <line class="beam" x1="70" y1="64" x2="350" y2="64"/>
+   <line class="str" x1="70" y1="64" x2="12" y2="124"/><line class="str" x1="70" y1="64" x2="128" y2="124"/>
+   <path class="bowl" d="M8 124 H132 L114 146 H26 Z"/>
+   <rect class="blk" x="20" y="88" width="100" height="34" rx="6"/>
+   <text id="bl" x="70" y="112">3x + 4</text>
+   <line class="str" x1="350" y1="64" x2="292" y2="124"/><line class="str" x1="350" y1="64" x2="408" y2="124"/>
+   <path class="bowl" d="M288 124 H412 L394 146 H306 Z"/>
+   <rect class="blk" x="300" y="88" width="100" height="34" rx="6"/>
+   <text id="br" x="350" y="112">19</text>
+  </g>
+  <text class="eqs" x="210" y="38">=</text>
+  <circle class="pivot" cx="210" cy="64" r="7"/>
+ </svg>
+ <div>
+  <p class="bop" id="bop" aria-live="polite">Start: links 3x + 4, rechts 19</p>
+  <div class="ctl"><button type="button" class="btn" id="bprev">Zurück</button><button type="button" class="btn solid" id="bnext">Weiter</button></div>
+  <div class="presets"><button type="button" class="btn sm on" data-bex="0">3x + 4 = 19</button><button type="button" class="btn sm" data-bex="1">5x + 3 = 2x + 15</button></div>
+  <p class="small">Jeder Schritt tut links und rechts genau dasselbe. Darum bleibt die Waage im Gleichgewicht und die Lösung ändert sich nicht.</p>
+ </div>
+</div></article><article class="card "><header><h3>Das Rezept in 5 Schritten</h3></header><div class="body"><div class="row t"><div><b>Goldene Regel:</b> auf <b>beiden</b> Seiten dasselbe tun. Umkehren: + ↔ −, · ↔ :. Nie mit 0 mal, nie durch 0.</div></div><div class="row"><div class="rule"><b>1.</b> Vereinfachen (Klammern, Brüche weg, zusammenfassen)</div><div class="ex">3(x−2) + 4 = 3x − 2</div></div><div class="row"><div class="rule"><b>2.</b> x auf eine Seite bringen</div><div class="ex">| − 2x</div></div><div class="row"><div class="rule"><b>3.</b> Zahlen auf die andere Seite bringen</div><div class="ex">| + 2</div></div><div class="row"><div class="rule"><b>4.</b> Durch die Zahl vor x teilen, <b>mit</b> Vorzeichen</div><div class="ex">−4x = 28 &nbsp;| : (−4)<br>x = −7</div></div><div class="row"><div class="rule"><b>5.</b> Probe in der <b>Ausgangsgleichung</b></div><div class="ex">x einsetzen: links = rechts?</div></div></div></article><article class="card "><header><h3>Sonderfälle und Umstellen</h3></header><div class="body"><div class="row"><div class="rule">x fällt weg: <b>wahr</b> → L = ℚ · <b>falsch</b> → L = { }</div><div class="ex">6 = 6 → ℚ<br>1 = 5 → { }</div></div><div class="row"><div class="rule">Formel umstellen wie eine Gleichung</div><div class="ex">U = 2(a+b) → b = <span class="fr"><span>U</span><span>2</span></span> − a</div></div><div class="row"><div class="rule">Nach x auflösen (a ≠ c)</div><div class="ex">ax + b = cx + d<br>x = <span class="fr"><span>d−b</span><span>a−c</span></span></div></div></div></article><article class="card ex-card"><header><h3>Beispiel: einfach</h3></header><div class="body"><div class="stepper" aria-live="polite"><div class="step first"><span class="eqn">3x + 4 = 19</span><span class="op"></span></div><div class="step rv"><span class="eqn">3x = 15</span><span class="op">| − 4</span></div><div class="step rv"><span class="eqn">x = 5</span><span class="op">| : 3</span></div><div class="res rv">L = {5}</div><div class="probe rv"><b>Probe:</b> 3·5 + 4 = 19 ✓</div><div class="ctl"><button type="button" class="btn solid go">Selbst probieren</button><button type="button" class="btn all" hidden>Alles zeigen</button></div></div></div></article><article class="card ex-card"><header><h3>Beispiel: x auf beiden Seiten</h3></header><div class="body"><div class="stepper" aria-live="polite"><div class="step first"><span class="eqn">5x + 3 = 2x + 15</span><span class="op"></span></div><div class="step rv"><span class="eqn">3x + 3 = 15</span><span class="op">| − 2x</span></div><div class="step rv"><span class="eqn">3x = 12</span><span class="op">| − 3</span></div><div class="step rv"><span class="eqn">x = 4</span><span class="op">| : 3</span></div><div class="res rv">L = {4}</div><div class="probe rv"><b>Probe:</b> links 5·4 + 3 = 23, rechts 2·4 + 15 = 23 ✓</div><div class="ctl"><button type="button" class="btn solid go">Selbst probieren</button><button type="button" class="btn all" hidden>Alles zeigen</button></div></div></div></article><article class="card ex-card"><header><h3>Beispiel: mit Klammern</h3></header><div class="body"><div class="stepper" aria-live="polite"><div class="step first"><span class="eqn">3(x − 2) + 4 = 2(x + 5) − 3</span><span class="op"></span></div><div class="step rv"><span class="eqn">3x − 6 + 4 = 2x + 10 − 3</span><span class="op">Klammern auflösen</span></div><div class="step rv"><span class="eqn">3x − 2 = 2x + 7</span><span class="op">zusammenfassen</span></div><div class="step rv"><span class="eqn">x − 2 = 7</span><span class="op">| − 2x</span></div><div class="step rv"><span class="eqn">x = 9</span><span class="op">| + 2</span></div><div class="res rv">L = {9}</div><div class="probe rv"><b>Probe:</b> links 3·7 + 4 = 25, rechts 2·14 − 3 = 25 ✓</div><div class="ctl"><button type="button" class="btn solid go">Selbst probieren</button><button type="button" class="btn all" hidden>Alles zeigen</button></div></div></div></article><article class="card "><header><h3>Gleichungen mit Brüchen</h3></header><div class="body"><div class="row t"><div><b>Entscheiden:</b> Bruch in der Gleichung → mal Hauptnenner · Bruch vor x → mal Kehrwert · x im Nenner → erst Definitionsmenge D</div></div><div class="row"><div class="rule"><b>Mal Hauptnenner:</b> <b>jedes</b> Glied, Klammern setzen</div><div class="ex"><span class="fr"><span>x</span><span>2</span></span> + 1 = 4 &nbsp;| · 2<br>x + 2 = 8 → x = 6</div></div><div class="row"><div class="rule"><b>Bruch vor x:</b> mit dem Kehrwert mal</div><div class="ex"><span class="fr"><span>2</span><span>3</span></span>x = 8 &nbsp;| · <span class="fr"><span>3</span><span>2</span></span><br>x = 12</div></div><div class="row"><div class="rule"><b>x im Nenner:</b> erst D bestimmen, am Ende prüfen</div><div class="ex"><span class="fr"><span>6</span><span>x</span></span> = <span class="fr"><span>3</span><span>4</span></span>: D = ℚ\{0}</div></div></div></article><article class="card ex-card"><header><h3>Beispiel: Zähler mit Summe</h3></header><div class="body"><div class="stepper" aria-live="polite"><div class="step first"><span class="eqn"><span class="fr"><span>x+1</span><span>3</span></span> = <span class="fr"><span>x−3</span><span>2</span></span></span><span class="op">Hauptnenner 6</span></div><div class="step rv"><span class="eqn">2(x + 1) = 3(x − 3)</span><span class="op">| · 6 &nbsp;(Klammern setzen!)</span></div><div class="step rv"><span class="eqn">2x + 2 = 3x − 9</span><span class="op">Klammern auflösen</span></div><div class="step rv"><span class="eqn">2 = x − 9</span><span class="op">| − 2x</span></div><div class="step rv"><span class="eqn">x = 11</span><span class="op">| + 9</span></div><div class="res rv">L = {11}</div><div class="probe rv"><b>Probe:</b> <span class="fr"><span>12</span><span>3</span></span> = 4 und <span class="fr"><span>8</span><span>2</span></span> = 4 ✓</div><div class="ctl"><button type="button" class="btn solid go">Selbst probieren</button><button type="button" class="btn all" hidden>Alles zeigen</button></div></div></div></article><article class="card ex-card"><header><h3>Beispiel: x im Nenner</h3></header><div class="body"><div class="stepper" aria-live="polite"><div class="step first"><span class="eqn"><span class="fr"><span>6</span><span>x</span></span> = <span class="fr"><span>3</span><span>4</span></span></span><span class="op">D = ℚ\{0}</span></div><div class="step rv"><span class="eqn">24 = 3x</span><span class="op">| · 4x</span></div><div class="step rv"><span class="eqn">x = 8</span><span class="op">| : 3</span></div><div class="res rv">L = {8}</div><div class="probe rv"><b>Probe:</b> <span class="fr"><span>6</span><span>8</span></span> = <span class="fr"><span>3</span><span>4</span></span> ✓, und 8 liegt in D</div><div class="ctl"><button type="button" class="btn solid go">Selbst probieren</button><button type="button" class="btn all" hidden>Alles zeigen</button></div></div></div></article><article class="card "><header><h3>Textaufgaben</h3></header><div class="body"><div class="row t"><div><b>Ablauf:</b> x festlegen → Gleichung aufstellen → lösen → Probe am Text → Antwortsatz</div></div><div class="row"><div class="rule">Doppeltes · Hälfte · Jahre später</div><div class="ex">2x &nbsp; <span class="fr"><span>x</span><span>2</span></span> &nbsp; x + 6</div></div><div class="row"><div class="rule">Drei aufeinanderfolgende Zahlen</div><div class="ex">n, n+1, n+2</div></div><div class="row"><div class="rule">Bewegung: Weg = Geschwindigkeit · Zeit</div><div class="ex">s = v·t<br>später gestartet: (t − 1)</div></div><div class="row"><div class="rule">Tarif: Grundgebühr + Preis · Menge</div><div class="ex">12 + 0,04·t</div></div><div class="row"><div class="rule">Rechteck: Umfang</div><div class="ex">U = 2(l + b)</div></div></div></article></div></section><section class="sec gl" id="gleichungssysteme"><h2>Gleichungssysteme</h2><p class="intro">Zwei Gleichungen, zwei Unbekannte: vier Verfahren und ein Graph, der die Lösung zeigt.</p><div class="grid"><article class="card "><header><h3>Die Idee</h3><span class="badge">oft erst Kl. 8/9</span></header><div class="body"><div class="row t"><div><b>Zwei Unbekannte (x und y) brauchen zwei Gleichungen.</b> Gesucht ist das Paar (x | y), das beide erfüllt.</div></div><div class="row"><div class="rule"><b>1.</b> Eine Unbekannte verschwinden lassen</div><div class="ex">übrig bleibt eine Gleichung mit einer Unbekannten</div></div><div class="row"><div class="rule"><b>2.</b> Die zweite Unbekannte durch Einsetzen berechnen</div><div class="ex">Ergebnis als Paar (x | y)</div></div><div class="row"><div class="rule"><b>3.</b> Probe in <b>beiden</b> Gleichungen</div><div class="ex">sonst ist die Probe nicht vollständig</div></div></div></article><article class="card "><header><h3>Welches Verfahren?</h3></header><div class="body"><div class="row"><div class="rule">Eine Gleichung ist schon nach x oder y aufgelöst</div><div class="ex">y = x + 3 → <b>Einsetzen</b></div></div><div class="row"><div class="rule">Beide Gleichungen sind nach derselben Variablen aufgelöst</div><div class="ex">y = … und y = … → <b>Gleichsetzen</b></div></div><div class="row"><div class="rule">Gleiche Zahl bei x oder y, aber mit Gegenvorzeichen</div><div class="ex">+2y und −2y → <b>Addition</b></div></div><div class="row"><div class="rule">Sonst: Gleichung(en) mit einer Zahl multiplizieren</div><div class="ex">I · 3 und II · (−2), dann <b>Addition</b></div></div></div></article>
+<article class="card wide"><header><h3>Graph: Wo schneiden sich die Geraden?</h3></header>
+<p class="small">Jede Gleichung ist eine Gerade. Die Lösung ist der Punkt, in dem sich beide Geraden treffen. Ändere die Zahlen oder nimm ein Beispiel.</p>
+<div class="plot">
+ <div>
+  <form id="plotform" autocomplete="off">
+   <div class="eqrow"><b class="tag1">I</b>
+    <input id="a1" class="num" inputmode="decimal" aria-label="Zahl vor x in Gleichung I"> x +
+    <input id="b1" class="num" inputmode="decimal" aria-label="Zahl vor y in Gleichung I"> y =
+    <input id="c1" class="num" inputmode="decimal" aria-label="Ergebnis rechts in Gleichung I"></div>
+   <div class="eqrow"><b class="tag2">II</b>
+    <input id="a2" class="num" inputmode="decimal" aria-label="Zahl vor x in Gleichung II"> x +
+    <input id="b2" class="num" inputmode="decimal" aria-label="Zahl vor y in Gleichung II"> y =
+    <input id="c2" class="num" inputmode="decimal" aria-label="Ergebnis rechts in Gleichung II"></div>
+  </form>
+  <div class="presets" id="presets"></div>
+  <div class="out" id="out" aria-live="polite"></div>
+ </div>
+ <figure>
+  <svg id="gsvg" viewBox="0 0 360 352" role="img" aria-label="Koordinatensystem mit zwei Geraden und ihrem Schnittpunkt"></svg>
+  <figcaption id="gcap" class="small"></figcaption>
+ </figure>
+</div></article><article class="card ex-card"><header><h3>Einsetzen</h3></header><div class="body"><div class="row t"><div>Wenn eine Gleichung schon nach x oder y aufgelöst ist.</div></div><div class="stepper" aria-live="polite"><div class="step first"><span class="eqn">I: y = x + 3 &nbsp; II: 2x + y = 18</span><span class="op"></span></div><div class="step rv"><span class="eqn">2x + (x + 3) = 18</span><span class="op">| y durch x + 3 ersetzen</span></div><div class="step rv"><span class="eqn">3x + 3 = 18</span><span class="op">zusammenfassen</span></div><div class="step rv"><span class="eqn">3x = 15</span><span class="op">| − 3</span></div><div class="step rv"><span class="eqn">x = 5</span><span class="op">| : 3</span></div><div class="step rv"><span class="eqn">y = 5 + 3 = 8</span><span class="op">x in I einsetzen</span></div><div class="res rv">(x | y) = (5 | 8)</div><div class="probe rv"><b>Probe:</b> I: 8 = 5 + 3 ✓ · II: 2·5 + 8 = 18 ✓</div><div class="ctl"><button type="button" class="btn solid go">Selbst probieren</button><button type="button" class="btn all" hidden>Alles zeigen</button></div></div></div></article><article class="card ex-card"><header><h3>Gleichsetzen</h3></header><div class="body"><div class="row t"><div>Wenn beide Gleichungen nach derselben Variablen aufgelöst sind.</div></div><div class="stepper" aria-live="polite"><div class="step first"><span class="eqn">I: y = 2x − 1 &nbsp; II: y = x + 4</span><span class="op"></span></div><div class="step rv"><span class="eqn">2x − 1 = x + 4</span><span class="op">beide y-Terme gleichsetzen</span></div><div class="step rv"><span class="eqn">x − 1 = 4</span><span class="op">| − x</span></div><div class="step rv"><span class="eqn">x = 5</span><span class="op">| + 1</span></div><div class="step rv"><span class="eqn">y = 5 + 4 = 9</span><span class="op">x in II einsetzen</span></div><div class="res rv">(x | y) = (5 | 9)</div><div class="probe rv"><b>Probe:</b> I: 2·5 − 1 = 9 ✓ · II: 5 + 4 = 9 ✓</div><div class="ctl"><button type="button" class="btn solid go">Selbst probieren</button><button type="button" class="btn all" hidden>Alles zeigen</button></div></div></div></article><article class="card ex-card"><header><h3>Addition</h3></header><div class="body"><div class="row t"><div>Wenn bei x oder y dieselbe Zahl mit Gegenvorzeichen steht.</div></div><div class="stepper" aria-live="polite"><div class="step first"><span class="eqn">I: 3x + 2y = 13 &nbsp; II: 5x − 2y = 11</span><span class="op"></span></div><div class="step rv"><span class="eqn">8x = 24</span><span class="op">I + II (+2y und −2y fallen weg)</span></div><div class="step rv"><span class="eqn">x = 3</span><span class="op">| : 8</span></div><div class="step rv"><span class="eqn">3·3 + 2y = 13</span><span class="op">x in I einsetzen</span></div><div class="step rv"><span class="eqn">2y = 4</span><span class="op">| − 9</span></div><div class="step rv"><span class="eqn">y = 2</span><span class="op">| : 2</span></div><div class="res rv">(x | y) = (3 | 2)</div><div class="probe rv"><b>Probe:</b> I: 9 + 4 = 13 ✓ · II: 15 − 4 = 11 ✓</div><div class="ctl"><button type="button" class="btn solid go">Selbst probieren</button><button type="button" class="btn all" hidden>Alles zeigen</button></div></div></div></article><article class="card ex-card"><header><h3>Addition mit Vorbereitung</h3></header><div class="body"><div class="row t"><div>Wenn keine Variable passt: erst mit Zahlen multiplizieren, <b>beide Seiten</b> der Gleichung.</div></div><div class="stepper" aria-live="polite"><div class="step first"><span class="eqn">I: 2x + 3y = 13 &nbsp; II: 3x + 2y = 12</span><span class="op">x soll wegfallen</span></div><div class="step rv"><span class="eqn">6x + 9y = 39</span><span class="op">I · 3</span></div><div class="step rv"><span class="eqn">−6x − 4y = −24</span><span class="op">II · (−2)</span></div><div class="step rv"><span class="eqn">5y = 15</span><span class="op">beide addieren</span></div><div class="step rv"><span class="eqn">y = 3</span><span class="op">| : 5</span></div><div class="step rv"><span class="eqn">2x + 3·3 = 13</span><span class="op">y in I einsetzen</span></div><div class="step rv"><span class="eqn">x = 2</span><span class="op">| − 9 und : 2</span></div><div class="res rv">(x | y) = (2 | 3)</div><div class="probe rv"><b>Probe:</b> I: 4 + 9 = 13 ✓ · II: 6 + 6 = 12 ✓</div><div class="ctl"><button type="button" class="btn solid go">Selbst probieren</button><button type="button" class="btn all" hidden>Alles zeigen</button></div></div></div></article><article class="card wide ex-card"><header><h3>Textaufgabe mit zwei Unbekannten</h3></header><div class="body"><div class="row t"><div>3 Hefte und 2 Stifte kosten 5,40 €. 1 Heft und 4 Stifte kosten 4,30 €. Was kostet je ein Heft und ein Stift?</div></div><div class="stepper" aria-live="polite"><div class="step first"><span class="eqn">I: 3h + 2s = 5,40 &nbsp; II: h + 4s = 4,30</span><span class="op">h = Heft, s = Stift (in €)</span></div><div class="step rv"><span class="eqn">h = 4,30 − 4s</span><span class="op">II nach h auflösen</span></div><div class="step rv"><span class="eqn">3(4,30 − 4s) + 2s = 5,40</span><span class="op">in I einsetzen</span></div><div class="step rv"><span class="eqn">12,90 − 10s = 5,40</span><span class="op">Klammer auflösen, zusammenfassen</span></div><div class="step rv"><span class="eqn">−10s = −7,50</span><span class="op">| − 12,90</span></div><div class="step rv"><span class="eqn">s = 0,75</span><span class="op">| : (−10)</span></div><div class="step rv"><span class="eqn">h = 4,30 − 3,00 = 1,30</span><span class="op">s in II einsetzen</span></div><div class="res rv">Ein Heft kostet 1,30 €, ein Stift 0,75 €.</div><div class="probe rv"><b>Probe:</b> I: 3,90 + 1,50 = 5,40 ✓ · II: 1,30 + 3,00 = 4,30 ✓</div><div class="ctl"><button type="button" class="btn solid go">Selbst probieren</button><button type="button" class="btn all" hidden>Alles zeigen</button></div></div></div></article></div></section><section class="sec fehler" id="fallen"><h2>Typische Fehler</h2><p class="intro">Diese Fehler schleichen sich immer wieder ein. Links der Fehler, rechts die richtige Lösung.</p><div class="pot"><h3 class="grp">Potenzen</h3><div class="traps"><div class="trap"><div class="w"><span class="mk">✗</span> <span class="s">2<sup>3</sup>·2<sup>4</sup> = 2<sup>12</sup></span></div><div class="r"><span class="mk">✓</span> 2<sup>3</sup>·2<sup>4</sup> = 2<sup>7</sup></div><p class="why">Beim Malnehmen werden die Exponenten addiert.</p></div><div class="trap"><div class="w"><span class="mk">✗</span> <span class="s">a<sup>2</sup> + a<sup>3</sup> = a<sup>5</sup></span></div><div class="r"><span class="mk">✓</span> bleibt a<sup>2</sup> + a<sup>3</sup></div><p class="why">Nur gleichartige Terme fasst man zusammen: 3a<sup>2</sup> + 2a<sup>2</sup> = 5a<sup>2</sup>.</p></div><div class="trap"><div class="w"><span class="mk">✗</span> <span class="s">(a + b)<sup>2</sup> = a<sup>2</sup> + b<sup>2</sup></span></div><div class="r"><span class="mk">✓</span> (a + b)<sup>2</sup> = a<sup>2</sup> + 2ab + b<sup>2</sup></div><p class="why">Das mittlere Glied 2ab fehlt sonst.</p></div><div class="trap"><div class="w"><span class="mk">✗</span> <span class="s">2·3<sup>2</sup> = 6<sup>2</sup> = 36</span></div><div class="r"><span class="mk">✓</span> 2·3<sup>2</sup> = 2·9 = 18</div><p class="why">Erst die Potenz, dann das Malnehmen.</p></div><div class="trap"><div class="w"><span class="mk">✗</span> <span class="s">−3<sup>2</sup> = 9</span></div><div class="r"><span class="mk">✓</span> −3<sup>2</sup> = −9 &nbsp; (−3)<sup>2</sup> = 9</div><p class="why">Ohne Klammer gehört das Minus nicht zur Basis.</p></div></div></div><div class="bruch"><h3 class="grp">Brüche</h3><div class="traps"><div class="trap"><div class="w"><span class="mk">✗</span> <span class="s"><span class="fr"><span>x+3</span><span>3</span></span> = x + 1</span></div><div class="r"><span class="mk">✓</span> <span class="fr"><span>x+3</span><span>3</span></span> = <span class="fr"><span>x</span><span>3</span></span> + 1</div><p class="why">Gekürzt werden nur Faktoren, nie Summanden.</p></div><div class="trap"><div class="w"><span class="mk">✗</span> <span class="s"><span class="fr"><span>1</span><span>2</span></span> + <span class="fr"><span>1</span><span>3</span></span> = <span class="fr"><span>2</span><span>5</span></span></span></div><div class="r"><span class="mk">✓</span> <span class="fr"><span>1</span><span>2</span></span> + <span class="fr"><span>1</span><span>3</span></span> = <span class="fr"><span>5</span><span>6</span></span></div><p class="why">Hauptnenner suchen. Die Nenner werden nicht addiert.</p></div><div class="trap"><div class="w"><span class="mk">✗</span> <span class="s"><span class="fr"><span>2</span><span>3</span></span> : <span class="fr"><span>4</span><span>5</span></span> = <span class="fr"><span>2</span><span>3</span></span>·<span class="fr"><span>4</span><span>5</span></span></span></div><div class="r"><span class="mk">✓</span> <span class="fr"><span>2</span><span>3</span></span> : <span class="fr"><span>4</span><span>5</span></span> = <span class="fr"><span>2</span><span>3</span></span>·<span class="fr"><span>5</span><span>4</span></span></div><p class="why">Beim Teilen wird mit dem Kehrwert multipliziert.</p></div><div class="trap"><div class="w"><span class="mk">✗</span> <span class="s">Erweitern nur im Zähler</span></div><div class="r"><span class="mk">✓</span> Zähler <b>und</b> Nenner mit derselben Zahl</div><p class="why">Sonst ändert sich der Wert des Bruchs.</p></div><div class="trap"><div class="w"><span class="mk">✗</span> <span class="s">−<span class="fr"><span>x−2</span><span>2</span></span> = <span class="fr"><span>−x−2</span><span>2</span></span></span></div><div class="r"><span class="mk">✓</span> −<span class="fr"><span>x−2</span><span>2</span></span> = <span class="fr"><span>−x+2</span><span>2</span></span></div><p class="why">Das Minus dreht alle Vorzeichen im Zähler um.</p></div></div></div><div class="gl"><h3 class="grp">Gleichungen</h3><div class="traps"><div class="trap"><div class="w"><span class="mk">✗</span> <span class="s">−(x − 3) = −x − 3</span></div><div class="r"><span class="mk">✓</span> −(x − 3) = −x + 3</div><p class="why">Minus vor der Klammer: alle Vorzeichen drehen.</p></div><div class="trap"><div class="w"><span class="mk">✗</span> <span class="s">2(x + 3) = 2x + 3</span></div><div class="r"><span class="mk">✓</span> 2(x + 3) = 2x + 6</div><p class="why">Die Zahl vor der Klammer mal jedes Glied.</p></div><div class="trap"><div class="w"><span class="mk">✗</span> <span class="s">−4x = 28 → x = 7</span></div><div class="r"><span class="mk">✓</span> −4x = 28 → x = −7</div><p class="why">Durch −4 teilen, nicht durch 4.</p></div><div class="trap"><div class="w"><span class="mk">✗</span> <span class="s">2x + 6 = 10 &nbsp;| − 6 nur links</span></div><div class="r"><span class="mk">✓</span> 2x + 6 = 10 &nbsp;| − 6 auf beiden Seiten</div><p class="why">Die goldene Regel: beide Seiten.</p></div><div class="trap"><div class="w"><span class="mk">✗</span> <span class="s">3 + 2x = 5x</span></div><div class="r"><span class="mk">✓</span> 3 + 2x bleibt 3 + 2x</div><p class="why">Zahl und x-Term sind nicht gleichartig.</p></div><div class="trap"><div class="w"><span class="mk">✗</span> <span class="s"><span class="fr"><span>x</span><span>2</span></span> + 1 = 4 &nbsp;| · 2 → x + 1 = 8</span></div><div class="r"><span class="mk">✓</span> <span class="fr"><span>x</span><span>2</span></span> + 1 = 4 &nbsp;| · 2 → x + 2 = 8</div><p class="why">Beim Hauptnenner auch die Zahl ohne Bruch mal nehmen.</p></div></div></div><div class="gl"><h3 class="grp">Gleichungssysteme</h3><div class="traps"><div class="trap"><div class="w"><span class="mk">✗</span> <span class="s">Nur x ausrechnen und aufhören</span></div><div class="r"><span class="mk">✓</span> x <b>und</b> y berechnen, Ergebnis als Paar (x | y)</div><p class="why">Die Lösung besteht immer aus zwei Zahlen.</p></div><div class="trap"><div class="w"><span class="mk">✗</span> <span class="s">Probe nur in einer Gleichung</span></div><div class="r"><span class="mk">✓</span> Probe in <b>beiden</b> Gleichungen</div><p class="why">Ein Paar muss beide Gleichungen erfüllen.</p></div><div class="trap"><div class="w"><span class="mk">✗</span> <span class="s">2x + 3y = 13 &nbsp;| · 3 → 6x + 9y = 13</span></div><div class="r"><span class="mk">✓</span> 2x + 3y = 13 &nbsp;| · 3 → 6x + 9y = 39</div><p class="why">Beim Multiplizieren die ganze Gleichung nehmen, auch die rechte Seite.</p></div></div></div></section><section class="sec notiz" id="meine-fehler"><h2>Meine Fehler</h2>
+<article class="card wide"><header><h3>Meine persönlichen Fehler</h3></header>
+<p class="small">Trage ein, was dir immer wieder passiert. Die Einträge bleiben in diesem Browser gespeichert und sind für andere nicht sichtbar.</p>
+<form id="noteform" class="noteform" autocomplete="off">
+ <label for="nw">Mein Fehler</label><input id="nw" class="txt" maxlength="120" placeholder="z. B. −(x − 3) = −x − 3">
+ <label for="nr">So ist es richtig</label><input id="nr" class="txt" maxlength="120" placeholder="z. B. −(x − 3) = −x + 3">
+ <button type="submit" class="btn solid">Eintragen</button>
+</form>
+<ul id="notelist" class="notelist"></ul>
+<p id="noteempty" class="small">Noch nichts eingetragen. Der erste Eintrag erscheint hier.</p>
+</article></section></div></main><footer class="foot"><div class="wrap"><p class="small">Mathe-Merkblatt Klasse 7/8. Die Einträge unter „Meine Fehler“ bleiben nur im jeweiligen Browser.</p></div></footer>
+<script>
+(function(){
+'use strict';
+function $(s,r){return (r||document).querySelector(s)}
+function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))}
+
+/* Rechenwege: erst alles sichtbar, auf Wunsch Schritt für Schritt aufdecken */
+$$('.stepper').forEach(function(root){
+  var rv=$$('.rv',root), go=$('.go',root), all=$('.all',root);
+  if(!go||!rv.length) return;
+  var n=rv.length;
+  function render(){
+    rv.forEach(function(e,i){e.hidden=i>=n});
+    if(n>=rv.length){go.textContent='Selbst probieren';all.hidden=true}
+    else{go.textContent='Nächster Schritt';all.hidden=false}
+  }
+  go.addEventListener('click',function(){n=(n>=rv.length)?0:n+1;render()});
+  all.addEventListener('click',function(){n=rv.length;render()});
+  render();
+});
+
+/* Waage */
+var BEX=[
+ {l:['3x + 4','3x','x'],r:['19','15','5'],o:['Start: links 3x + 4, rechts 19','− 4 auf beiden Seiten',': 3 auf beiden Seiten. Lösung: x = 5']},
+ {l:['5x + 3','3x + 3','3x','x'],r:['2x + 15','15','12','4'],o:['Start: links 5x + 3, rechts 2x + 15','− 2x auf beiden Seiten','− 3 auf beiden Seiten',': 3 auf beiden Seiten. Lösung: x = 4']}
+];
+var bi=0,bs=0;
+var bl=$('#bl'),br=$('#br'),bop=$('#bop'),bprev=$('#bprev'),bnext=$('#bnext'),beam=$('#beamg');
+function wob(){ if(!beam) return; beam.classList.remove('wob'); void beam.getBoundingClientRect(); beam.classList.add('wob'); }
+function brender(anim){
+  var e=BEX[bi];
+  bl.textContent=e.l[bs]; br.textContent=e.r[bs]; bop.textContent=e.o[bs];
+  bprev.disabled=(bs===0); bnext.disabled=(bs===e.l.length-1);
+  $$('[data-bex]').forEach(function(b){b.classList.toggle('on',+b.getAttribute('data-bex')===bi)});
+  if(anim) wob();
+}
+if(bl){
+  bprev.addEventListener('click',function(){if(bs>0){bs--;brender(true)}});
+  bnext.addEventListener('click',function(){if(bs<BEX[bi].l.length-1){bs++;brender(true)}});
+  $$('[data-bex]').forEach(function(b){b.addEventListener('click',function(){bi=+b.getAttribute('data-bex');bs=0;brender(false)})});
+  brender(false);
+}
+
+/* Graph für Gleichungssysteme */
+
+function fmtNum(v){
+  var s=(Math.round(v*1000)/1000).toLocaleString('de-DE',{maximumFractionDigits:3});
+  return s.replace('-','−');
+}
+function isTerm(v){
+  if(Math.abs(v-Math.round(v))<1e-9) return true;
+  for(var d=10;d<=1000;d*=10){ if(Math.abs(v*d-Math.round(v*d))<1e-9) return true; }
+  return false;
+}
+function fmt(v){
+  if(Math.abs(v-Math.round(v))<1e-9) return String(Math.round(v)).replace('-','−');
+  if(isTerm(v)) return fmtNum(v);
+  for(var q=2;q<=12;q++){
+    var p=v*q;
+    if(Math.abs(p-Math.round(p))<1e-9){ var pn=Math.round(p); return (pn<0?'−':'')+Math.abs(pn)+'/'+q+' ≈ '+fmtNum(v); }
+  }
+  return fmtNum(v);
+}
+function solveSys(a1,b1,c1,a2,b2,c2){
+  if((a1===0&&b1===0)||(a2===0&&b2===0)) return {t:'bad'};
+  var det=a1*b2-a2*b1;
+  if(Math.abs(det)>1e-12) return {t:'one',x:(c1*b2-c2*b1)/det,y:(a1*c2-a2*c1)/det};
+  var same=Math.abs(a1*c2-a2*c1)<1e-12&&Math.abs(b1*c2-b2*c1)<1e-12;
+  return {t:same?'same':'par'};
+}
+function term(c,v,first){
+  if(c===0) return '';
+  var m=Math.abs(c), body=(m===1?'':fmtNum(m))+v;
+  if(first) return (c<0?'−':'')+body;
+  return ' '+(c<0?'−':'+')+' '+body;
+}
+function eqStr(a,b,c){
+  var t=term(a,'x',true), u=term(b,'y',t==='');
+  return t+u+' = '+fmt(c);
+}
+
+var PRE=[
+ ['Einsetzen',[-1,1,3,2,1,18]],
+ ['Gleichsetzen',[-2,1,-1,-1,1,4]],
+ ['Addition',[3,2,13,5,-2,11]],
+ ['Mit Vorbereitung',[2,3,13,3,2,12]],
+ ['Hefte und Stifte',[3,2,5.4,1,4,4.3]],
+ ['Parallel',[1,1,3,1,1,5]],
+ ['Identisch',[1,1,3,2,2,6]]
+];
+var IDS=['a1','b1','c1','a2','b2','c2'];
+var out=$('#out'),svg=$('#gsvg'),cap=$('#gcap');
+function getv(id){var v=parseFloat(String($('#'+id).value).replace(',','.'));return isNaN(v)?null:v}
+function setv(id,v){$('#'+id).value=String(v).replace('.',',')}
+function NS(h){return h}
+function draw(r,p){
+  var R=6;
+  if(r.t==='one'){
+    var m=Math.max(Math.abs(r.x),Math.abs(r.y))*1.25, st=[6,8,10,12,15,20,25,30,40,50,100,200,500,1000];
+    R=1000; for(var i=0;i<st.length;i++){ if(m<=st[i]){R=st[i];break} }
+  }
+  var S=320/(2*R), ox=34, oy=8;
+  var step=R<=8?1:R<=20?2:R<=40?5:R<=100?10:R<=200?20:R<=500?50:100;
+  function X(x){return ox+(x+R)*S} function Y(y){return oy+(R-y)*S}
+  var h='<defs><clipPath id="pc"><rect x="'+ox+'" y="'+oy+'" width="320" height="320"/></clipPath></defs>';
+  h+='<rect class="pbg" x="'+ox+'" y="'+oy+'" width="320" height="320"/>';
+  var t0=-Math.floor(R/step)*step;
+  for(var t=t0;t<=R+1e-9;t+=step){
+    h+='<line class="gl-l" x1="'+X(t)+'" y1="'+oy+'" x2="'+X(t)+'" y2="'+(oy+320)+'"/>';
+    h+='<line class="gl-l" x1="'+ox+'" y1="'+Y(t)+'" x2="'+(ox+320)+'" y2="'+Y(t)+'"/>';
+    h+='<text class="tk" x="'+X(t)+'" y="'+(oy+332)+'" text-anchor="middle">'+String(t).replace('-','−')+'</text>';
+    h+='<text class="tk" x="'+(ox-4)+'" y="'+(Y(t)+3.5)+'" text-anchor="end">'+String(t).replace('-','−')+'</text>';
+  }
+  h+='<line class="axis" x1="'+X(0)+'" y1="'+oy+'" x2="'+X(0)+'" y2="'+(oy+320)+'"/>';
+  h+='<line class="axis" x1="'+ox+'" y1="'+Y(0)+'" x2="'+(ox+320)+'" y2="'+Y(0)+'"/>';
+  function seg(a,b,c,cls){
+    var x1,y1,x2,y2;
+    if(b!==0){x1=-R;x2=R;y1=(c-a*x1)/b;y2=(c-a*x2)/b}
+    else{x1=x2=c/a;y1=-R;y2=R}
+    return '<line class="'+cls+'" x1="'+X(x1)+'" y1="'+Y(y1)+'" x2="'+X(x2)+'" y2="'+Y(y2)+'"/>';
+  }
+  h+='<g clip-path="url(#pc)">'+seg(p[0],p[1],p[2],'ln1')+seg(p[3],p[4],p[5],'ln2');
+  if(r.t==='one'){
+    var px=X(r.x),py=Y(r.y);
+    h+='<circle class="pt" cx="'+px+'" cy="'+py+'" r="6.5"/>';
+  }
+  h+='</g><rect class="frame" x="'+ox+'" y="'+oy+'" width="320" height="320"/>';
+  if(r.t==='one'){
+    var px2=X(r.x),py2=Y(r.y), anc=px2>250?'end':'start', dx=px2>250?-10:10, dy=py2<30?20:-10;
+    h+='<text class="ptl" x="'+(px2+dx)+'" y="'+(py2+dy)+'" text-anchor="'+anc+'">('+fmt(r.x).split(' ')[0]+' | '+fmt(r.y).split(' ')[0]+')</text>';
+  }
+  svg.innerHTML=h;
+}
+function update(){
+  var p=IDS.map(getv);
+  if(p.some(function(v){return v===null})){
+    out.className='out warn'; out.innerHTML='<p class="big">Bitte alle sechs Felder mit Zahlen füllen.</p>'; cap.textContent=''; return;
+  }
+  var r=solveSys(p[0],p[1],p[2],p[3],p[4],p[5]);
+  var e1='I: '+eqStr(p[0],p[1],p[2]), e2='II: '+eqStr(p[3],p[4],p[5]);
+  if(r.t==='bad'){
+    out.className='out bad'; out.innerHTML='<p class="big">Das ist keine Gerade.</p><p>In jeder Gleichung muss vor x oder vor y eine Zahl ungleich 0 stehen.</p>'; svg.innerHTML=''; cap.textContent=''; return;
+  }
+  draw(r,p);
+  if(r.t==='one'){
+    var h='<p class="big">(x | y) = ('+fmt(r.x)+' | '+fmt(r.y)+')</p><p>Eine Lösung: Die Geraden schneiden sich in genau einem Punkt.</p>';
+    if(isTerm(r.x)&&isTerm(r.y)){
+      var l1=p[0]*r.x+p[1]*r.y, l2=p[3]*r.x+p[4]*r.y;
+      var ok1=Math.abs(l1-p[2])<1e-9, ok2=Math.abs(l2-p[5])<1e-9;
+      h+='<p><b>Probe</b><br>I: '+fmt(p[0])+'·'+fmt(r.x)+' + '+fmt(p[1])+'·'+fmt(r.y)+' = '+fmt(l1)+(ok1?' ✓':' ✗')+
+         '<br>II: '+fmt(p[3])+'·'+fmt(r.x)+' + '+fmt(p[4])+'·'+fmt(r.y)+' = '+fmt(l2)+(ok2?' ✓':' ✗')+'</p>';
+    } else {
+      h+='<p>Die Lösung ist ein Bruch. Zum Prüfen mit Brüchen einsetzen.</p>';
+    }
+    out.className='out ok'; out.innerHTML=h;
+    cap.textContent='Blau: Gleichung I. Orange: Gleichung II. Grün: Schnittpunkt.';
+  } else if(r.t==='par'){
+    out.className='out warn'; out.innerHTML='<p class="big">Keine Lösung: L = { }</p><p>Die Geraden sind parallel und treffen sich nie. Beim Rechnen ergibt sich eine falsche Aussage, zum Beispiel 0 = 2.</p>';
+    cap.textContent='Blau: Gleichung I. Orange: Gleichung II.';
+  } else {
+    out.className='out warn'; out.innerHTML='<p class="big">Unendlich viele Lösungen</p><p>Beide Gleichungen beschreiben dieselbe Gerade. Beim Rechnen ergibt sich eine wahre Aussage, zum Beispiel 0 = 0.</p>';
+    cap.textContent='Beide Geraden liegen aufeinander, sichtbar ist die orange.';
+  }
+}
+if(out&&svg){
+  var pb=$('#presets');
+  PRE.forEach(function(pr,idx){
+    var b=document.createElement('button'); b.type='button'; b.className='btn sm'; b.textContent=pr[0];
+    b.addEventListener('click',function(){pr[1].forEach(function(v,i){setv(IDS[i],v)});update()});
+    pb.appendChild(b);
+  });
+  IDS.forEach(function(id){$('#'+id).addEventListener('input',update)});
+  $('#plotform').addEventListener('submit',function(e){e.preventDefault()});
+  PRE[0][1].forEach(function(v,i){setv(IDS[i],v)});
+  update();
+}
+
+/* Meine Fehler: nur in diesem Browser */
+var KEY='mm-fehler-v1', items=[];
+try{var raw=localStorage.getItem(KEY); if(raw){var arr=JSON.parse(raw); if(Array.isArray(arr)) items=arr.filter(function(x){return x&&typeof x.w==='string'&&typeof x.r==='string'})}}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(items))}catch(e){}}
+var list=$('#notelist'),empty=$('#noteempty');
+function renderNotes(){
+  if(!list) return;
+  list.textContent='';
+  empty.hidden=items.length>0;
+  items.forEach(function(it,i){
+    var li=document.createElement('li');
+    var w=document.createElement('div'); w.className='w'; w.textContent='✗ '+it.w;
+    var r=document.createElement('div'); r.className='r'; r.textContent='✓ '+it.r;
+    var d=document.createElement('button'); d.type='button'; d.className='btn'; d.textContent='Löschen';
+    d.addEventListener('click',function(){items.splice(i,1);save();renderNotes()});
+    li.appendChild(w); li.appendChild(r); li.appendChild(d); list.appendChild(li);
+  });
+}
+var nf=$('#noteform');
+if(nf){
+  nf.addEventListener('submit',function(e){
+    e.preventDefault();
+    var w=$('#nw').value.trim(), r=$('#nr').value.trim();
+    if(!w) { $('#nw').focus(); return; }
+    items.push({w:w,r:r||'(noch ausfüllen)'}); save();
+    $('#nw').value=''; $('#nr').value=''; renderNotes(); $('#nw').focus();
+  });
+  renderNotes();
+}
+})();
+</script>
+</body></html>

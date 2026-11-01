@@ -314,13 +314,13 @@ test('PWA installiert vollständige Offline-Hülle, API wird nicht gecacht', asy
   assert(cacheNames.includes('ki-system:' + origin + '/another-app/:v1'));
   assert(!cacheNames.includes('ki-system:' + origin + '/:old'));
   await page.evaluate(() => fetch('README.md'));
-  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v64')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
-  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.41.0')); assert(cached.includes('/style.css?v=0.41.0'));
-  assert(cached.includes('/stay-tools.js?v=0.41.0')); assert(cached.includes('/stay-desk.js?v=0.41.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
-  assert(cached.includes('/stay-research.js?v=0.41.0'));
-  assert(cached.includes('/stay-form.js?v=0.41.0'));
-  assert(cached.includes('/stay-details.js?v=0.41.0'));
-  assert(cached.includes('/stay-districts.js?v=0.41.0'));
+  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v65')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
+  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.42.0')); assert(cached.includes('/style.css?v=0.42.0'));
+  assert(cached.includes('/stay-tools.js?v=0.42.0')); assert(cached.includes('/stay-desk.js?v=0.42.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
+  assert(cached.includes('/stay-research.js?v=0.42.0'));
+  assert(cached.includes('/stay-form.js?v=0.42.0'));
+  assert(cached.includes('/stay-details.js?v=0.42.0'));
+  assert(cached.includes('/stay-districts.js?v=0.42.0'));
   assert(!cached.includes('/README.md'));
   assert(!cached.some((u) => u.includes('app-api')));
   await context.setOffline(true); await page.reload();
@@ -2644,7 +2644,7 @@ test('W104: Richtung A – Suche mit Reise-Karte und Kacheln, Liste mit Symbol-F
   assert.equal(await row.locator('.sel-fav').isVisible(), true);
   await page.getByRole('button', { name: 'Durchsehen', exact: true }).click();
   await page.locator('.a-r-fakten .a-r-kachel').first().waitFor();
-  assert.equal(await page.locator('.review-actions .a-entscheid').count(), 3);
+  assert.equal(await page.locator('.review-actions .a-entscheid').count(), 4); // W127: + Wow, zu teuer
   assert.equal(await page.getByRole('button', { name: 'Weg', exact: true }).isVisible(), true, 'Name bleibt „Weg“, sichtbar „Raus“');
 });
 

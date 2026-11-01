@@ -59,4 +59,4 @@ function refreshRememberNew(run){
  if(!tripId(run?.suchauftrag_id)||!Array.isArray(run.neue_unterkuenfte))return;
  stayWrite('ks_new_hits:'+run.suchauftrag_id,run.neue_unterkuenfte.map(t=>t.treffer_id).filter(tripId));
 }
-function refreshIsNew(t,searchId){const ids=stayRead('ks_new_hits:'+searchId,[]);return Array.isArray(ids)&&!['favorit','vielleicht','ausgeschlossen'].includes(t.status)&&ids.includes(t.treffer_id);}
+function refreshIsNew(t,searchId){const ids=stayRead('ks_new_hits:'+searchId,[]);return Array.isArray(ids)&&!['favorit','wow','vielleicht','ausgeschlossen'].includes(t.status)&&ids.includes(t.treffer_id);}

@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.41.0';
+const APP_VERSION = '0.42.0';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -1143,7 +1143,7 @@ async function viewSuche(idStr, { historyOnly = false } = {}) {
   const viewButtons = el('div', { class: 'actions result-view-switch', hidden: true, role: 'group', 'aria-label': 'Ergebnisansicht' }, listButton, mapButton, tinderButton, tableButton, el('a',{href:'#/anzeige/ergebnisse',class:'anzeige-link','aria-label':'Anzeige einstellen',title:'Anzeige einstellen'},stayIcon('regler')));
   const undoSelection = el('button', { type: 'button', hidden: true, onclick: () => selectionStates.get(lastSelection)?.undoAction() }, 'Letzte Auswahl rückgängig');
   const research = sucheLuecken(id, call, live);
-  review = stayReview({getSnapshot:()=>snapshot,getRows:()=>filteredRows,getGroup:()=>filters.value().favoriten?'favorit':(['favorit','vielleicht','ausgeschlossen'].includes(filters.value().urteil)?filters.value().urteil:null),call,live,scope,onClose:t=>{setResultView('list');if(t)requestAnimationFrame(()=>showHit(t));},menuItems:()=>[viewButtons,runBar],onRefresh:()=>refresh.click(),isBlocked:()=>[...selectionStates.values()].some(s=>s.refreshRequired||s.pending),changed:t=>{const current=snapshot?.treffer.find(x=>x.treffer_id===t.treffer_id);if(current && current!==t)Object.assign(current,{status:t.status,urteil_gruende:t.urteil_gruende,urteil_uebernommen:t.urteil_uebernommen});selectionStates.delete(t.treffer_id);draw();}});
+  review = stayReview({getSnapshot:()=>snapshot,getRows:()=>filteredRows,getGroup:()=>filters.value().favoriten?'favorit':(['favorit','wow','vielleicht','ausgeschlossen'].includes(filters.value().urteil)?filters.value().urteil:null),call,live,scope,onClose:t=>{setResultView('list');if(t)requestAnimationFrame(()=>showHit(t));},menuItems:()=>[viewButtons,runBar],onRefresh:()=>refresh.click(),isBlocked:()=>[...selectionStates.values()].some(s=>s.refreshRequired||s.pending),changed:t=>{const current=snapshot?.treffer.find(x=>x.treffer_id===t.treffer_id);if(current && current!==t)Object.assign(current,{status:t.status,urteil_gruende:t.urteil_gruende,urteil_uebernommen:t.urteil_uebernommen});selectionStates.delete(t.treffer_id);draw();}});
   let furtherRound=null;
   const more = el('button',{type:'button',hidden:true,onclick:()=>{moreConfirm.hidden=false;}},'Weitere suchen');
   const moreConfirm = el('div',{class:'card',hidden:true},el('p',{},'Kostet ca. 0,05–0,50 USD; findet nur, was die Quellen zusätzlich haben.'),

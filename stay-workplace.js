@@ -40,10 +40,10 @@ async function viewDecisionPlace(arg){
       if(restoring){
         const ack=await tripCall('unterkunft_urteile_zuruecksetzen',undoData);
         if(ack.ok!==true||ack.zurueckgesetzt!==items.length)throw Error('Rücknahme nicht eindeutig bestätigt.');
-        for(const item of items){const previous=undoData.eintraege.find(e=>e.treffer_id===item.t.treffer_id);item.t.status={favorit:'favorit',vielleicht:'vielleicht',weg:'ausgeschlossen',offen:'aktiv'}[previous.urteil];item.t.urteil_gruende=previous.gruende||[];item.t.eigener_rang=previous.eigener_rang;done.push(item);}
+        for(const item of items){const previous=undoData.eintraege.find(e=>e.treffer_id===item.t.treffer_id);item.t.status={favorit:'favorit',wow:'wow',vielleicht:'vielleicht',weg:'ausgeschlossen',offen:'aktiv'}[previous.urteil];item.t.urteil_gruende=previous.gruende||[];item.t.eigener_rang=previous.eigener_rang;done.push(item);}
         undoData=null;selecting=false;
       }else{
-        const urteil={favorit:'favorit',vielleicht:'vielleicht',ausgeschlossen:'weg',aktiv:'offen'}[target];
+        const urteil={favorit:'favorit',wow:'wow',vielleicht:'vielleicht',ausgeschlossen:'weg',aktiv:'offen'}[target];
         const ack=await tripCall('unterkunft_urteile_sammeln',{treffer_ids:items.map(item=>item.t.treffer_id),urteil,gruende:[]});
         const restore=ack.rueckgaengig;
         if(ack.ok!==true||ack.geaendert!==items.length||ack.urteil!==urteil||restore?.aktion!=='unterkunft_urteile_zuruecksetzen'||!Array.isArray(restore.daten?.eintraege)||restore.daten.eintraege.length!==items.length||!Array.isArray(restore.daten.rueckmeldung_ids)||items.some(item=>!restore.daten.eintraege.some(e=>e.treffer_id===item.t.treffer_id&&['favorit','vielleicht','weg','offen'].includes(e.urteil))))throw Error('Änderung nicht eindeutig bestätigt.');

@@ -73,9 +73,9 @@ function sucheAuswahl(t, states, call, live, changed) {
   const undo = el('button', { type: 'button', onclick: () => save(state.undo, true) }, 'Rückgängig');
   // 0.35.3 (Sebastian 21.10.): Auswahl sofort zeigen, Speichern im Hintergrund; bei Fehler zurücksetzen.
   async function save(next, isUndo = false) {
-    if (state.pending || state.refreshRequired || !['aktiv', 'favorit', 'vielleicht', 'ausgeschlossen'].includes(next)) return;
+    if (state.pending || state.refreshRequired || !['aktiv', 'favorit', 'wow', 'vielleicht', 'ausgeschlossen'].includes(next)) return;
     const previous = state.saved, undoBefore = state.undo, uebernommen = t.urteil_uebernommen;
-    const urteil={aktiv:'offen',favorit:'favorit',vielleicht:'vielleicht',ausgeschlossen:'weg'}[next];
+    const urteil={aktiv:'offen',favorit:'favorit',wow:'wow',vielleicht:'vielleicht',ausgeschlossen:'weg'}[next];
     state.pending = true; state.saved = next; state.undo = isUndo ? null : previous; t.status = next; if(next==='aktiv')t.urteil_uebernommen=null;
     state.message = next === 'favorit' ? 'Als Favorit gespeichert.' : next === 'ausgeschlossen' ? 'Von dir als „Weg“ markiert.' : next === 'vielleicht' ? 'Als „Na ja“ gemerkt.' : 'Wieder aktiv.';
     state.revision++; changed(t, state);
@@ -200,7 +200,7 @@ function sucheFilterPanel(onChange) {
   const panel = el('details', { class: 'card stay-filters' }, el('summary', {}, 'Weitere Filter'),
     el('div', { class: 'stay-filter-grid' },
       select('gruppe', 'Ergebnisliste', [['', 'Alle Listen'], ['A', 'Passende Treffer'], ['B', 'Angaben offen'], ['offen', 'Noch nicht vollständig bewertet'], ['ausgeschlossen', 'Ausgeschlossen']]), type,
-      select('urteil', 'Meine Entscheidung', [['','Alle Entscheidungen'],['aktiv','Noch offen'],['favorit','Favorit'],['vielleicht','Na ja'],['ausgeschlossen','Weg']]),
+      select('urteil', 'Meine Entscheidung', [['','Alle Entscheidungen'],['aktiv','Noch offen'],['favorit','Favorit'],['wow','Wow, zu teuer'],['vielleicht','Na ja'],['ausgeschlossen','Weg']]),
       numeric('schlafzimmer', 'Schlafzimmer mindestens', null), numeric('m2', 'Fläche mindestens (m²)', null),
       el('label', {}, 'Bettentyp enthält', inputs.betten = el('input', {type:'search', 'aria-label':'Bettentyp enthält', oninput:onChange})),
       select('warnungen', 'Warnungen', [['','Alle'],['mit','Mit Warnungen'],['ohne','Ohne gemeldete Warnungen']]),

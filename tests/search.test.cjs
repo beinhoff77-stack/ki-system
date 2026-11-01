@@ -362,6 +362,37 @@ test('Update lädt neue Skripte und Gestaltung trotz frischem HTTP-Cache der Alt
   assert.equal(await page.evaluate(() => getComputedStyle(document.body).color), 'rgb(0, 128, 0)');
 });
 
+test('Lernen Schule: Startkarte, Bereichswechsel und Link zum Mathe-Merkblatt', async (t) => {
+  const { page, calls } = await setup(t, (p) => p.aktion === 'auftraege_suchen' ? [] : { suchauftraege: [] });
+  await page.goto(origin + '/');
+  await page.getByRole('heading', { name: 'Was möchtest du heute machen?' }).waitFor();
+  fs.mkdirSync(path.join(root, 'test-results'), { recursive: true });
+  for (const [w, h] of [[1280, 800], [768, 900], [375, 800], [320, 700]]) {
+    await page.setViewportSize({ width: w, height: h });
+    await page.screenshot({ path: path.join(root, `test-results/lernen-start-${w}.png`), fullPage: true });
+    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), true, `Start ${w}px ohne Seitwärtsscroll`);
+  }
+  await page.setViewportSize({ width: 1280, height: 800 });
+  await page.locator('.learn-card').click();
+  await page.getByRole('heading', { name: 'Mathe-Merkblatt Klasse 7/8' }).waitFor();
+  for (const [w, h] of [[1280, 800], [375, 800], [320, 700]]) {
+    await page.setViewportSize({ width: w, height: h });
+    await page.screenshot({ path: path.join(root, `test-results/lernen-${w}.png`), fullPage: true });
+    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), true, `Lernen ${w}px ohne Seitwärtsscroll`);
+  }
+  await page.setViewportSize({ width: 1280, height: 800 });
+  assert.equal(await page.evaluate(() => document.body.dataset.area), 'lernen');
+  assert.equal(await page.locator('#areas [data-area=lernen]').getAttribute('aria-current'), 'true');
+  const link = page.getByRole('link', { name: /Merkblatt öffnen/ });
+  assert.equal(await link.getAttribute('href'), 'mathe/');
+  assert.equal(await link.getAttribute('rel'), 'noopener');
+  assert(await page.locator('.learn-url').textContent().then((x) => x.endsWith('/mathe/')));
+  assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), true);
+  await page.locator('#areas [data-area=council]').click();
+  await page.getByRole('heading', { name: 'Aufträge', exact: true }).waitFor();
+  assert(!calls.some((c) => /lern|mathe/i.test(JSON.stringify(c))));
+});
+
 test('Startseite trennt Council und Unterkunft; Navigation und Prototyp-Design', async (t) => {
   const { page, calls } = await setup(t, (p) => p.aktion === 'auftraege_suchen' ? [] : { suchauftraege: [] });
   await page.goto(origin + '/');

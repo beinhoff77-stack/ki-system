@@ -312,7 +312,7 @@ details > summary { cursor: pointer; margin: 6px 0; }
 .review-objection p { margin: 6px 0; }
 .suche-table caption { text-align: left; padding: 0 14px 10px; }
 .suche-table caption button { min-height: 40px; font-size: 11px; padding: 7px 10px; }
-body[data-area="start"], body[data-area="unterkunft"] {
+body[data-area="start"], body[data-area="unterkunft"], body[data-area="lernen"] {
   color-scheme: light;
   --bg: #f6f4ec; --surface: #fffefa; --surface-muted: #eeeae0;
   --text: #22372e; --muted: #6e7c73; --text-muted: #6e7c73;
@@ -337,7 +337,7 @@ body[data-area="start"] main.view { max-width: 1100px; padding-top: 70px; }
 .start-intro { max-width: 700px; margin-bottom: 36px; }
 .start-intro h2 { font: 400 clamp(34px, 4vw, 50px)/1.12 Georgia, serif; letter-spacing: -.035em; margin: 14px 0; }
 .start-intro > p:last-child { color: var(--muted); font-size: 15px; }
-.area-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.area-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 24px; }
 .area-card { display: block; overflow: hidden; color: var(--text); text-decoration: none; background: var(--surface); border: 1px solid var(--border); border-radius: 24px; box-shadow: var(--shadow); transition: transform .2s, box-shadow .2s; }
 .area-card:hover { transform: translateY(-3px); box-shadow: 0 14px 35px #22372e12; }
 .area-card-copy { padding: 26px 28px; }
@@ -350,6 +350,13 @@ body[data-area="start"] main.view { max-width: 1100px; padding-top: 70px; }
 .council-art span { display: block; font: 150px/1 Georgia, serif; margin: 0 -13px; transform: rotate(-18deg); }
 .council-art span:nth-child(2) { color: #536f5c; transform: translateY(-12px); }
 .stay-art { background: linear-gradient(120deg,#254d3e,#78977c); color: #eee8cd; }
+.learn-art { background: #e3eadf; color: #536f5c; gap: 10px; }
+.learn-art span { display: block; font: 130px/1 Georgia, serif; }
+.learn-art span:nth-child(2) { color: #85866c; transform: rotate(-12deg); }
+.learn-resource { display: grid; gap: 14px; max-width: 640px; }
+.learn-resource .row { flex-wrap: wrap; align-items: center; gap: 10px; }
+.learn-resource a.btn { display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border-radius: var(--radius-control); border: 1px solid var(--accent); background: var(--accent); color: var(--on-accent); font-weight: 650; text-decoration: none; }
+.learn-url { word-break: break-all; margin: 0; }
 .stay-sun { position: absolute; width: 105px; height: 105px; border-radius: 50%; background: #d5d5aa50; right: 65px; top: 20px; }
 .stay-house { font: 170px/1 Georgia, serif; transform: translateY(-5px); opacity: .85; }
 .start-footer { margin-top: 28px; font-size: 12px; color: var(--muted); text-align: center; }
@@ -443,7 +450,7 @@ body[data-area="unterkunft"] nav.tabs button.on { box-shadow: none; background: 
   .system-brand { font-size: 12px; gap: 6px; }
   .system-brand > span { width: 25px; height: 25px; font-size: 18px; }
   .area-switch { gap: 2px; padding: 3px; }
-  .area-switch a { font-size: 12px; padding: 9px 12px; }
+  .area-switch a { font-size: 12px; padding: 9px 12px; white-space: nowrap; }
   .area-cards { grid-template-columns: 1fr; gap: 18px; }
   .area-art { height: 125px; }
   .area-card-copy { padding: 21px; }
@@ -2208,3 +2215,13 @@ body[data-area="unterkunft"] main.view:has(.a-ergebnis) { padding-top: 2px; }
 /* W127: vier Urteilsknöpfe in einer Zeile */
 .review-actions, .review-card .review-actions, .a-ergebnis .review-actions { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
 .a-ergebnis .review-actions > button.a-entscheid { font-size: 13px; padding-left: 4px; padding-right: 4px; }
+
+/* Lernen: drei Bereiche im Bereichswechsler auch auf kleinen Handys ohne Wortbruch */
+@media (max-width: 430px) {
+  .area-nav { padding: 0 12px; gap: 8px; }
+  .system-brand { font-size: 0; gap: 0; }
+  .system-brand > span { font-size: 18px; }
+  .area-switch a { padding: 9px 10px; }
+}
+body[data-area="lernen"] { padding-bottom: calc(100px + env(safe-area-inset-bottom)); }
+@media (min-width: 960px) { body[data-area="lernen"] { padding-bottom: 32px; } }

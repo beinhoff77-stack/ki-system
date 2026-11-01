@@ -174,14 +174,14 @@ function parseHash() {
 window.addEventListener('hashchange', render);
 
 function setChrome(title, { back = false, showTabs = true, tab = null } = {}) {
-  const area = current.view === 'login' ? 'login' : current.view === 'start' ? 'start' : ['suche', 'ergebnisse', 'viertel', 'anzeige', 'reisen', 'etappe', 'papierkorb'].includes(current.view) ? 'unterkunft' : 'council';
+  const area = current.view === 'login' ? 'login' : current.view === 'start' ? 'start' : current.view === 'lernen' ? 'lernen' : ['suche', 'ergebnisse', 'viertel', 'anzeige', 'reisen', 'etappe', 'papierkorb'].includes(current.view) ? 'unterkunft' : 'council';
   document.body.dataset.area = area;
-  for (const meta of document.querySelectorAll('meta[name="theme-color"]')) meta.content = ['unterkunft', 'start'].includes(area) ? '#f6f4ec' : meta.media.includes('dark') ? '#101721' : '#f4f6f8';
+  for (const meta of document.querySelectorAll('meta[name="theme-color"]')) meta.content = ['unterkunft', 'start', 'lernen'].includes(area) ? '#f6f4ec' : meta.media.includes('dark') ? '#101721' : '#f4f6f8';
   $('#areas').hidden = area === 'login';
   $('#notifications-link').hidden=area==='login';
   void notificationRefresh();
-  $('#area-brand').textContent = area === 'unterkunft' ? 'Unterkunft.' : 'Council';
-  $('#area-caption').textContent = area === 'unterkunft' ? 'Ein guter Ort für jede Reise.' : 'Gute Gedanken. Klare Entscheidungen.';
+  $('#area-brand').textContent = area === 'unterkunft' ? 'Unterkunft.' : area === 'lernen' ? 'Lernen' : 'Council';
+  $('#area-caption').textContent = area === 'unterkunft' ? 'Ein guter Ort für jede Reise.' : area === 'lernen' ? 'Verständlich üben und nachschlagen.' : 'Gute Gedanken. Klare Entscheidungen.';
   for (const link of $('#areas').querySelectorAll('[data-area]')) {
     if (link.dataset.area === area) link.setAttribute('aria-current', 'true'); else link.removeAttribute('aria-current');
   }
@@ -215,7 +215,7 @@ async function render() {
   disposeSuche = () => {};
   current = parseHash();
   if (!store.token && current.view !== 'login') { route('login'); return; }
-  const views = { reisen: viewReisen, etappe: viewDecisionPlace, papierkorb: viewPapierkorb, meldungen: viewMeldungen, start: viewStart, login: viewLogin, auftraege: viewAuftraege, auftrag: viewAuftrag, neu: viewNeu, einstellungen: viewEinstellungen, anzeige: viewAnzeige, werkstatt: viewWerkstatt, suche: viewSuche, viertel: viewViertel, ergebnisse: () => viewSuche(null, { historyOnly: true }) };
+  const views = { reisen: viewReisen, etappe: viewDecisionPlace, papierkorb: viewPapierkorb, meldungen: viewMeldungen, start: viewStart, lernen: viewLernen, login: viewLogin, auftraege: viewAuftraege, auftrag: viewAuftrag, neu: viewNeu, einstellungen: viewEinstellungen, anzeige: viewAnzeige, werkstatt: viewWerkstatt, suche: viewSuche, viertel: viewViertel, ergebnisse: () => viewSuche(null, { historyOnly: true }) };
   const fn = views[current.view] || (() => route('start'));
   try { await fn(current.arg); } catch (e) { if (live()) showError(e); }
 }
@@ -225,7 +225,7 @@ function viewStart() {
   main.replaceChildren(el('section', { class: 'start-intro' },
     el('p', { class: 'eyebrow' }, 'DEIN PERSÖNLICHER RAUM'),
     el('h2', {}, 'Was möchtest du heute machen?'),
-    el('p', {}, 'Zwei Bereiche. Ein Zuhause für deine Entscheidungen und Reisen.')),
+    el('p', {}, 'Drei Bereiche. Ein Zuhause für deine Entscheidungen, Reisen und das Lernen.')),
     el('div', { class: 'area-cards' },
       el('a', { class: 'area-card council-card', href: '#/auftraege' },
         el('div', { class: 'area-art council-art', 'aria-hidden': true }, el('span', {}, '○'), el('span', {}, '○'), el('span', {}, '○')),
@@ -234,8 +234,36 @@ function viewStart() {
       el('a', { class: 'area-card stay-card', href: '#/suche' },
         el('div', { class: 'area-art stay-art', 'aria-hidden': true }, el('span', { class: 'stay-sun' }), el('span', { class: 'stay-house' }, '⌂')),
         el('div', { class: 'area-card-copy' }, el('p', { class: 'eyebrow' }, 'REISEN & WOHLFÜHLEN'), el('h2', {}, 'Unterkunft.'),
-          el('p', {}, 'Einen guten Ort für eure Reise finden. Unterkünfte suchen und in Ruhe vergleichen.'), el('span', { class: 'area-enter' }, 'Unterkunft öffnen', el('span', { 'aria-hidden': true }, '↗'))))),
+          el('p', {}, 'Einen guten Ort für eure Reise finden. Unterkünfte suchen und in Ruhe vergleichen.'), el('span', { class: 'area-enter' }, 'Unterkunft öffnen', el('span', { 'aria-hidden': true }, '↗')))),
+      el('a', { class: 'area-card learn-card', href: '#/lernen' },
+        el('div', { class: 'area-art learn-art', 'aria-hidden': true }, el('span', {}, 'π'), el('span', {}, '=')),
+        el('div', { class: 'area-card-copy' }, el('p', { class: 'eyebrow' }, 'LERNEN & VERSTEHEN'), el('h2', {}, 'Lernen Schule'),
+          el('p', {}, 'Merkblätter und Übungen für die Schule. Zum Nachschlagen, auch für Leo und Lehrkräfte.'), el('span', { class: 'area-enter' }, 'Lernen öffnen', el('span', { 'aria-hidden': true }, '↗'))))),
     el('p', { class: 'start-footer' }, el('a', { href: '#/einstellungen' }, 'Zugang & Einstellungen'), el('span', {}, ' · '), el('a', { href: '#/werkstatt' }, 'Werkstatt')));
+}
+
+// ---------- Ansicht: Lernen Schule ----------
+// Das Merkblatt liegt als eigenständige, öffentliche Seite unter mathe/ (ohne Anmeldung erreichbar, z. B. für Leo und Lehrkräfte).
+function viewLernen() {
+  setChrome('Lernen Schule', { tab: 'lernen' });
+  const url = new URL('mathe/', location.href).href;
+  const status = el('span', { class: 'muted small', role: 'status' });
+  const copy = el('button', { type: 'button', class: 'secondary' }, 'Link kopieren');
+  copy.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(url); status.textContent = 'Link kopiert.'; }
+    catch { status.textContent = 'Kopieren nicht möglich. Link bitte markieren und kopieren.'; }
+  });
+  main.replaceChildren(
+    el('section', { class: 'start-intro' },
+      el('p', { class: 'eyebrow' }, 'LERNEN SCHULE'),
+      el('h2', {}, 'Mathe-Merkblatt Klasse 7/8'),
+      el('p', {}, 'Zahlen, Terme, Potenzen, Brüche, Gleichungen und Gleichungssysteme. Mit Beispielen, Waage, Graph und Fehlerliste.')),
+    el('div', { class: 'card learn-resource' },
+      el('p', {}, 'Die Seite öffnet ohne Anmeldung. Du kannst den Link an Leo und die Lehrkraft schicken.'),
+      el('div', { class: 'row' },
+        el('a', { class: 'btn primary', href: 'mathe/', target: '_blank', rel: 'noopener' }, 'Merkblatt öffnen ↗'),
+        copy, status),
+      el('p', { class: 'muted small learn-url' }, url)));
 }
 
 // ---------- Ansicht: Login ----------

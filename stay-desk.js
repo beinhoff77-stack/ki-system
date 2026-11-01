@@ -5,8 +5,8 @@
 const STAY_GRUENDE_MINUS = [['preis','zu teuer'],['zu_klein','zu klein'],['lage','Lage'],['betten','Betten/Futon'],['stil','Stil'],['fotos','Fotos'],['bewertungen','Bewertungen'],['laerm','Lärm'],['storno','Storno'],['ausstattung','Ausstattung'],['sonstiges','Sonstiges']];
 const STAY_GRUENDE_PLUS = [['plus_preis','Preis'],['plus_groesse','Größe'],['plus_lage','Lage'],['plus_stil','Stil'],['plus_fotos','Fotos'],['plus_ausstattung','Ausstattung'],['plus_betten','Betten'],['plus_bewertungen','Bewertungen'],['plus_storno','Storno']];
 const STAY_GRUND_TEXT = Object.fromEntries([...STAY_GRUENDE_MINUS, ...STAY_GRUENDE_PLUS, ['groesse','Größe']]);
-const STAY_URTEIL_STATUS = { favorit: 'favorit', vielleicht: 'vielleicht', weg: 'ausgeschlossen', offen: 'aktiv' };
-const STAY_STATUS_URTEIL = { favorit: 'favorit', vielleicht: 'vielleicht', ausgeschlossen: 'weg' };
+const STAY_URTEIL_STATUS = { favorit: 'favorit', wow: 'wow', vielleicht: 'vielleicht', weg: 'ausgeschlossen', offen: 'aktiv' };
+const STAY_STATUS_URTEIL = { favorit: 'favorit', wow: 'wow', vielleicht: 'vielleicht', ausgeschlossen: 'weg' };
 const STAY_URTEIL_ZEICHEN = { favorit: '★', vielleicht: '~', ausgeschlossen: '✕' };
 const STAY_TYPEN = { apartment: 'Apartment', haus: 'Haus', machiya: 'Machiya', aparthotel: 'Aparthotel', hotel: 'Hotel', ryokan: 'Ryokan', hostel: 'Hostel', guesthouse: 'Gästehaus' };
 
@@ -98,7 +98,7 @@ function stayUrteilDialog(t, { call, live, trip, vergleich, onSaved, scope }) {
   const urteile = el('div', { class: 'desk-urteile', role: 'group', 'aria-label': 'Urteil' });
   const save = el('button', { type: 'button', class: 'primary' }, 'Speichern');
   function draw() {
-    urteile.replaceChildren(...[['favorit','★ Favorit'],['vielleicht','~ Na ja'],['weg','✕ Raus']].map(([k, label]) => el('button', { type: 'button', class: 'desk-u-' + k, 'aria-pressed': String(urteil === k), onclick: () => {
+    urteile.replaceChildren(...[['favorit','★ Favorit'],['wow','✦ Wow, zu teuer'],['vielleicht','~ Na ja'],['weg','✕ Raus']].map(([k, label]) => el('button', { type: 'button', class: 'desk-u-' + k, 'aria-pressed': String(urteil === k), onclick: () => {
       if (urteil !== k) gruende = gruende.filter(g => stayGruendeFuer(k).some(([x]) => x === g)); urteil = k; draw(); } }, label)));
     chips.replaceChildren(...(urteil ? stayGruendeFuer(urteil) : []).map(([k, label]) => el('button', { type: 'button', 'aria-pressed': String(gruende.includes(k)), onclick: () => { gruende = gruende.includes(k) ? gruende.filter(x => x !== k) : [...gruende, k]; draw(); } }, label)));
     if (!urteil) chips.append(el('span', { class: 'small muted' }, 'Erst ein Urteil wählen.'));
@@ -278,7 +278,7 @@ function stayDeskTable({ rows, trip, call, live, onChanged, openDetail, scope })
     const chip = ([k, label]) => el('button', { type: 'button', 'aria-pressed': String(st.bulkGruende.includes(k)), disabled: st.pending, onclick: () => { st.bulkGruende = st.bulkGruende.includes(k) ? st.bulkGruende.filter(x => x !== k) : [...st.bulkGruende, k]; leiste(); } }, label);
     bar.replaceChildren(
       el('strong', {}, n + ' markiert'),
-      el('div', { class: 'desk-bar-knoepfe' }, ...[['favorit','★ Favorit'],['vielleicht','~ Na ja'],['weg','✕ Raus'],['offen','Urteil löschen']].map(([k, label]) => el('button', { type: 'button', class: 'desk-u-' + k, disabled: st.pending, onclick: () => bewerten(k) }, label)),
+      el('div', { class: 'desk-bar-knoepfe' }, ...[['favorit','★ Favorit'],['wow','✦ Wow, zu teuer'],['vielleicht','~ Na ja'],['weg','✕ Raus'],['offen','Urteil löschen']].map(([k, label]) => el('button', { type: 'button', class: 'desk-u-' + k, disabled: st.pending, onclick: () => bewerten(k) }, label)),
         el('button', { type: 'button', disabled: st.pending, onclick: () => { st.sel.clear(); body(); } }, 'Markierung aufheben')),
       el('details', { class: 'desk-bar-gruende', open: st.bulkGruende.length > 0 || !!st.bulkNotiz }, el('summary', {}, 'Grund / Notiz für alle (optional)' + (st.bulkGruende.length ? ` · ${st.bulkGruende.length} gewählt` : '')),
         el('div', { class: 'desk-chips' }, el('span', { class: 'small muted' }, 'bei ✕ / ~:'), ...STAY_GRUENDE_MINUS.map(chip)),
@@ -312,20 +312,23 @@ function stayGrundLeiste(r, { call, live, trip, onDone }) {
 }
 
 // W98c: Urteils-Filter für Liste und Karte – Chips einzeln an/aus (und/oder), „Alle“ = alles inkl. Raus.
-const STAY_URTEIL_FILTER_STANDARD = ['offen', 'favorit', 'vielleicht'];
-function stayUrteilKey(t) { return { favorit: 'favorit', vielleicht: 'vielleicht', ausgeschlossen: 'raus' }[t?.status] || 'offen'; }
+const STAY_URTEIL_FILTER_STANDARD = ['offen', 'favorit', 'wow', 'vielleicht'];
+function stayUrteilKey(t) { return { favorit: 'favorit', wow: 'wow', vielleicht: 'vielleicht', ausgeschlossen: 'raus' }[t?.status] || 'offen'; }
 function stayUrteilFilter() {
   const v = stayRead('ks_urteil_filter', null);
-  return new Set(Array.isArray(v) && v.length && v.every(k => ['offen', 'favorit', 'vielleicht', 'raus'].includes(k)) ? v : STAY_URTEIL_FILTER_STANDARD);
+  const ok = Array.isArray(v) && v.length && v.every(k => ['offen', 'favorit', 'wow', 'vielleicht', 'raus'].includes(k));
+  // W127: gespeicherte Auswahl ohne „Wow“ (vor 0.42.0) zeigt Wow-Treffer weiter mit, wenn Favoriten gewählt sind
+  const set = new Set(ok ? v : STAY_URTEIL_FILTER_STANDARD); if (ok && set.has('favorit') && !v.includes('wow')) set.add('wow');
+  return set;
 }
-const STAY_URTEIL_ICON = { favorit: 'herz', vielleicht: 'naja', raus: 'raus' };
+const STAY_URTEIL_ICON = { favorit: 'herz', wow: 'stern', vielleicht: 'naja', raus: 'raus' };
 function stayUrteilChips(rows, onChange) {
   const an = stayUrteilFilter(), relevant = rows.filter(t => t.topf !== 'ausgeschlossen' || STAY_STATUS_URTEIL[t.status]);
-  const zahl = k => relevant.filter(t => stayUrteilKey(t) === k).length, alle = ['offen', 'favorit', 'vielleicht', 'raus'];
+  const zahl = k => relevant.filter(t => stayUrteilKey(t) === k).length, alle = ['offen', 'favorit', 'wow', 'vielleicht', 'raus'];
   const setze = next => { stayWrite('ks_urteil_filter', [...next]); onChange(); };
   // 0.36.3 (Sebastian 21.10.: „Zeichen vereinheitlichen“): dieselben Symbole wie die Knöpfe in der Zeile (♥ / Welle / ✕).
   // Gedrückt sieht nur aus, was du gewählt hast: „Ohne Raus“ oder „Alle“ – oder einzelne Urteile. Ein Urteils-Chip aus „Ohne Raus“/„Alle“ heraus wählt nur dieses.
-  const standard = STAY_URTEIL_FILTER_STANDARD.every(k => an.has(k)) && !an.has('raus') && an.size === 3, allesAn = alle.every(k => an.has(k));
+  const standard = STAY_URTEIL_FILTER_STANDARD.every(k => an.has(k)) && !an.has('raus') && an.size === STAY_URTEIL_FILTER_STANDARD.length, allesAn = alle.every(k => an.has(k));
   const chip = (k, label) => el('button', { type: 'button', class: 'urteil-chip uc-' + k, 'aria-label': `${label} ${zahl(k)}`, title: label, 'aria-pressed': String(!standard && !allesAn && an.has(k)),
     onclick: () => { if (standard || allesAn) { setze(new Set([k])); return; } const n = new Set(an); n.has(k) ? n.delete(k) : n.add(k); setze(n.size ? n : new Set(STAY_URTEIL_FILTER_STANDARD)); } },
     ...(STAY_URTEIL_ICON[k] ? [stayIcon(STAY_URTEIL_ICON[k]), String(zahl(k))] : [`${label} ${zahl(k)}`]));
@@ -333,7 +336,7 @@ function stayUrteilChips(rows, onChange) {
     el('button', { type: 'button', class: 'urteil-chip uc-alle', 'aria-label': `Alle ohne Raus ${relevant.length - zahl('raus')}`, 'aria-pressed': String(standard), onclick: () => setze(new Set(STAY_URTEIL_FILTER_STANDARD)) }, `Ohne Raus ${relevant.length - zahl('raus')}`),
     el('button', { type: 'button', class: 'urteil-chip uc-alles', 'aria-label': `Alles inkl. Raus ${relevant.length}`, 'aria-pressed': String(allesAn), onclick: () => setze(new Set(alle)) }, `Alle ${relevant.length}`),
     el('span', { class: 'uc-trenner', 'aria-hidden': 'true' }),
-    chip('favorit', '♥ Favoriten'), chip('vielleicht', '~ Na ja'), chip('offen', 'Offen'), chip('raus', '✕ Raus'));
+    chip('favorit', '♥ Favoriten'), chip('wow', '★ Wow, zu teuer'), chip('vielleicht', '~ Na ja'), chip('offen', 'Offen'), chip('raus', '✕ Raus'));
 }
 
 // ===== 0.36.0 (Sebastian 21.10.: „Spalten = Filter“): ein gemeinsamer Filter für Liste, Karte, Durchsehen und Tabelle =====

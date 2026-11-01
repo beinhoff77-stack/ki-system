@@ -2193,3 +2193,18 @@ body[data-area="unterkunft"] main.view:has(.a-ergebnis) { padding-top: 2px; }
   .a-sort-dir[aria-pressed="true"]:not(:disabled):hover { background: #fff; }
   .a-sort-krit[aria-checked="true"]:not(:disabled):hover { background: #e3f0ee; }
 }
+
+/* W127 (Sebastian 01.11.): viertes Urteil „Wow, aber zu teuer“ */
+:root { --wow: #7a4fd6; --wow-bg: #efe8fc; }
+.review-actions .decision-wow, .photo-first .review-actions .decision-wow { background: var(--wow-bg); color: var(--wow); border-color: transparent; }
+.photo-first .review-actions .decision-wow[aria-pressed="true"], .review-actions .decision-wow[aria-pressed="true"] { background: var(--wow); color: #fff; }
+.a-ergebnis .review-actions > .decision-wow.a-entscheid { background: var(--wow-bg); color: var(--wow); }
+.a-ergebnis .review-actions > .decision-wow.a-entscheid[aria-pressed="true"] { background: var(--wow); color: #fff; }
+.review-stamp.stamp-wow { color: var(--wow); }
+.urteil-chip.uc-wow[aria-pressed="true"] { background: var(--wow); border-color: var(--wow); color: #fff; }
+.desk-u-wow { background: var(--wow-bg); color: var(--wow); }
+.desk-urteile button.desk-u-wow[aria-pressed="true"] { background: var(--wow); color: #fff; border-color: var(--wow); }
+.review-actions .decision-wow { white-space: nowrap; }
+/* W127: vier Urteilsknöpfe in einer Zeile */
+.review-actions, .review-card .review-actions, .a-ergebnis .review-actions { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
+.a-ergebnis .review-actions > button.a-entscheid { font-size: 13px; padding-left: 4px; padding-right: 4px; }

@@ -2398,3 +2398,23 @@ body[data-area="lernen"] { padding-bottom: calc(100px + env(safe-area-inset-bott
 .rp-seg-item[open].is-tauchen{background:#eaf7f5;}
 .rp-dive-list li{margin:2px 0;}
 @media (prefers-color-scheme:dark){.rp-seg-item.is-tauchen{background:#0c2f2c;border-color:#1d7d74;}.rp-seg-item.is-tauchen .rp-seg-main,.rp-seg-item.is-tauchen .rp-date-seg b{color:#9fe3da;}.rp-seg-item.is-tauchen .rp-seg-ic{background:#14504a;color:#9fe3da;}}
+
+/* W141: Tauchen blau, Flüge violett */
+.rp-seg-ic.is-flug{background:#e9e5fb;color:#3c3489;}
+.rp-seg-item.is-flug{background:#f3f1fd;border-color:#c6bdf1;}
+.rp-seg-item[open].is-flug{background:#f3f1fd;}
+.rp-seg-item.is-flug .rp-date-seg b,.rp-seg-item.is-flug .rp-seg-main{color:#3c3489;}
+.rp-seg-item.is-flug .rp-seg-ic{background:#e2ddf8;color:#3c3489;}
+.rp-seg-ic.is-tauchen{background:#d5e7f8;color:#0c447c;}
+.rp-seg-item.is-tauchen{background:#eef5fc;border-color:#b5d4f4;}
+.rp-seg-item[open].is-tauchen{background:#eef5fc;}
+.rp-seg-item.is-tauchen .rp-date-seg b,.rp-seg-item.is-tauchen .rp-seg-main{color:#0c447c;}
+.rp-seg-item.is-tauchen .rp-seg-ic{background:#d5e7f8;color:#0c447c;}
+@media (prefers-color-scheme:dark){
+ .rp-seg-item.is-flug{background:#221d48;border-color:#5a4fc0;}
+ .rp-seg-item.is-flug .rp-seg-main,.rp-seg-item.is-flug .rp-date-seg b{color:#cdc6f5;}
+ .rp-seg-item.is-flug .rp-seg-ic,.rp-seg-ic.is-flug{background:#352d6e;color:#cdc6f5;}
+ .rp-seg-item.is-tauchen{background:#0c2a44;border-color:#185fa5;}
+ .rp-seg-item.is-tauchen .rp-seg-main,.rp-seg-item.is-tauchen .rp-date-seg b{color:#b5d4f4;}
+ .rp-seg-item.is-tauchen .rp-seg-ic,.rp-seg-ic.is-tauchen{background:#123c63;color:#b5d4f4;}
+}

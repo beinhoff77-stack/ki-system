@@ -79,9 +79,19 @@ function gapRow(g,rid,today){
  if(!past)node.append(el('button',{class:'rp-gap-btn',onclick:()=>{stayWrite('ks_trip_context',{reise_id:rid,anreise:g.von,abreise:g.bis,...(g.ort_name?{ziel:g.ort_name}:{})});route('suche');}},stayIcon('lupe'),'Suchen'));
  return node;
 }
+const TRIP_LAND_ISO={'deutschland':'DE','österreich':'AT','schweiz':'CH','frankreich':'FR','italien':'IT','spanien':'ES','portugal':'PT','niederlande':'NL','belgien':'BE','luxemburg':'LU','dänemark':'DK','norwegen':'NO','schweden':'SE','finnland':'FI','island':'IS','irland':'IE','großbritannien':'GB','vereinigtes königreich':'GB','england':'GB','polen':'PL','tschechien':'CZ','ungarn':'HU','kroatien':'HR','griechenland':'GR','türkei':'TR','zypern':'CY','malta':'MT',
+ 'vereinigte arabische emirate':'AE','vae':'AE','katar':'QA','oman':'OM','saudi-arabien':'SA','bahrain':'BH','kuwait':'KW','jordanien':'JO','israel':'IL','ägypten':'EG','marokko':'MA','tunesien':'TN','südafrika':'ZA','kenia':'KE','tansania':'TZ','mauritius':'MU','seychellen':'SC','namibia':'NA','botswana':'BW',
+ 'japan':'JP','taiwan':'TW','china':'CN','hongkong':'HK','macau':'MO','südkorea':'KR','thailand':'TH','vietnam':'VN','kambodscha':'KH','laos':'LA','malaysia':'MY','singapur':'SG','indonesien':'ID','philippinen':'PH','indien':'IN','sri lanka':'LK','malediven':'MV','nepal':'NP','myanmar':'MM','mongolei':'MN',
+ 'australien':'AU','neuseeland':'NZ','fidschi':'FJ','samoa':'WS','französisch-polynesien':'PF','tahiti':'PF','palau':'PW','cookinseln':'CK','tonga':'TO','vanuatu':'VU','neukaledonien':'NC',
+ 'usa':'US','vereinigte staaten':'US','kanada':'CA','mexiko':'MX','kuba':'CU','costa rica':'CR','panama':'PA','kolumbien':'CO','ecuador':'EC','peru':'PE','bolivien':'BO','chile':'CL','argentinien':'AR','brasilien':'BR','uruguay':'UY','paraguay':'PY','venezuela':'VE'};
+const TRIP_LAND_KURZ={'vereinigte arabische emirate':'VAE','vereinigte staaten':'USA','vereinigtes königreich':'Großbritannien','französisch-polynesien':'Franz.-Polynesien'};
+function tripFlag(land){const iso=TRIP_LAND_ISO[String(land||'').trim().toLowerCase()];return iso?String.fromCodePoint(...[...iso].map(c=>0x1F1E6+c.charCodeAt(0)-65)):'';}
+function tripLandShort(land){return TRIP_LAND_KURZ[String(land||'').trim().toLowerCase()]||land;}
+function tripMonthYear(d){const x=new Date(String(d).slice(0,10)+'T12:00:00');return x.toLocaleDateString('de-DE',{month:'long',year:'numeric'});}
+function tripRange(a,b){const x=new Date(a+'T12:00:00'),y=new Date(b+'T12:00:00'),f=(d,o)=>d.toLocaleDateString('de-DE',o);return x.getFullYear()===y.getFullYear()?f(x,{day:'numeric',month:'short'})+' – '+f(y,{day:'numeric',month:'short',year:'numeric'}):f(x,{day:'numeric',month:'short',year:'numeric'})+' – '+f(y,{day:'numeric',month:'short',year:'numeric'});}
 async function viewReisen(arg){
  setChrome('Reiseplan',{tab:'reisen'});const live=viewGuard(),scope=el('section',{class:'trips-page rp'});main.replaceChildren(scope);
- const status=el('p',{role:'status',class:'rp-status'}),content=el('div'),selector=el('select',{'aria-label':'Reise auswählen'});let snapshot=null,pending=false;
+ const secOpen=new Map(),status=el('p',{role:'status',class:'rp-status'}),content=el('div'),selector=el('select',{'aria-label':'Reise auswählen'});let snapshot=null,pending=false;
  const reload=el('button',{onclick:load},'Aktualisieren');
  const create=el('button',{onclick:()=>{const {d,body,status:msg}=tripDialog('Neue Reise');const f=el('form'),name=el('input',{required:true,maxlength:100,'aria-label':'Reisename',placeholder:'Japan im Herbst'}),b=el('button',{type:'submit',class:'primary'},'Reise anlegen');f.append(el('label',{},'Reisename',name),b);body.append(f);f.onsubmit=async ev=>{ev.preventDefault();if(b.disabled)return;b.disabled=true;try{const created=await tripCall('unterkunft_reise_speichern',{name:name.value.trim()});if(!tripId(created.reise?.id))throw Error('Reise nicht eindeutig bestätigt.');d.close();await load();}catch(e){msg.textContent=e.message+' Bitte neu lesen, bevor du erneut anlegst.';}};}},'Neue Reise');
  const more=el('details',{class:'rp-more'},el('summary',{'aria-label':'Weitere Aktionen',title:'Weitere Aktionen'},'⋯'),el('div',{class:'rp-more-list'},create,reload,el('a',{href:'#/papierkorb'},'Papierkorb')));
@@ -128,26 +138,15 @@ async function viewReisen(arg){
   const total=Math.round((stayTotal+flightTotal+carTotal+otherTotal)*100)/100,missing=(booked.length-priced.length)+postenBooked.filter(p=>pPrice(p)===null).length;
   const approx=postenBooked.some(p=>p.preis_ca);
   const photos=stages.length?tripCall('unterkunft_fotos_lesen',{reise_id:rid}).then(r=>{if(!Array.isArray(r.fotos))throw Error('Fotos nicht vollständig lesbar.');return r.fotos;}):null;photos?.catch(()=>{});
-  const kpi=(v,l)=>el('div',{},el('b',{},v),l);
-  const hasTransport=postenBooked.length>0;
-  content.append(el('section',{class:'rp-total','aria-label':'Bereits ausgegeben'},
-   el('div',{class:'rp-total-head'},el('div',{class:'rp-total-label'},(hasTransport?'Bereits ausgegeben · ':'Für Unterkünfte ausgegeben · ')+trip.name),more),
-   el('div',{class:'rp-total-sum'},(approx?'ca. ':'')+tripEuro(total)),
-   hasTransport?el('div',{class:'rp-kpis'},kpi(tripEuro(stayTotal,0),'Unterkünfte'),kpi(tripEuro(flightTotal,0),'Flüge'),kpi(tripEuro(carTotal+otherTotal,0),carTotal&&!otherTotal?'Mietwagen':'Mietwagen & Co.'))
-    :el('div',{class:'rp-kpis'},kpi(String(nights),'Nächte'),kpi(pricedNights?tripEuro(stayTotal/pricedNights,0):'–','Ø / Nacht'),kpi(String(booked.length),booked.length===1?'Unterkunft':'Unterkünfte')),
-   hasTransport?el('p',{class:'rp-total-hint rp-total-sub'},nights+' Nächte · Ø '+(pricedNights?tripEuro(stayTotal/pricedNights,0):'–')+' pro Nacht · '+booked.length+(booked.length===1?' Unterkunft':' Unterkünfte')):null,
-   missing?el('p',{class:'rp-total-hint'},missing+' Buchung(en) ohne Preis – nicht eingerechnet.'):null));
-  if(!booked.length&&!postenBooked.length)content.append(el('p',{class:'rp-empty'},'Noch keine Buchung eingetragen.'));
-  // Zeitleiste: Unterkünfte + Segmente, nach Beginn sortiert
+  // W133: Zeitleiste in Abschnitten je Land, Filter Hotel / Flug / Transport
   const items=[];
-  for(const e of booked)items.push({k:String(e.anreise)+'T23:00',typ:'stay',e});
-  for(const p of postenBooked)p.segmente.forEach((s,i)=>items.push({k:String(s.ab||p.beginn||''),typ:'seg',p,s,i}));
+  for(const e of booked)items.push({k:String(e.anreise)+'T23:00',typ:'stay',e,von:e.anreise,bis:e.abreise,land:e.buchung?.land||e.ziel});
+  for(const p of postenBooked)p.segmente.forEach((x,i)=>items.push({k:String(x.ab||p.beginn||''),typ:'seg',p,s:x,i,von:String(x.ab||'').slice(0,10),bis:String(x.an||x.ab||'').slice(0,10),land:p.art==='flug'?(x.von_land||''):(x.land||'')}));
   items.sort((a,b)=>a.k.localeCompare(b.k));
-  // Nächte ohne Unterkunft: weder gebuchte Unterkunft noch Nachtflug
   const dayAdd=(d,n)=>{const x=new Date(d+'T12:00:00Z');x.setUTCDate(x.getUTCDate()+n);return x.toISOString().slice(0,10);};
   const covered=new Set();for(const e of booked)for(let d=e.anreise;d<e.abreise;d=dayAdd(d,1))covered.add(d);
-  for(const p of postenBooked)if(p.art==='flug')for(const s of p.segmente){const a=String(s.ab||'').slice(0,10),b=String(s.an||'').slice(0,10);if(a&&b)for(let d=a;d<b;d=dayAdd(d,1))covered.add(d);}
-  const allDates=items.flatMap(it=>it.typ==='stay'?[it.e.anreise,it.e.abreise]:[String(it.s.ab||'').slice(0,10),String(it.s.an||'').slice(0,10)]).filter(Boolean).sort();
+  for(const p of postenBooked)if(p.art==='flug')for(const x of p.segmente){const a=String(x.ab||'').slice(0,10),b=String(x.an||'').slice(0,10);if(a&&b)for(let d=a;d<b;d=dayAdd(d,1))covered.add(d);}
+  const allDates=items.flatMap(it=>[it.von,it.bis]).filter(Boolean).sort();
   const flights=postenBooked.filter(p=>p.art==='flug').flatMap(p=>p.segmente).filter(x=>x.ab&&x.an);
   const departs=new Set(flights.map(x=>String(x.ab).slice(0,10)));
   const placeAt=d=>{let best=null;for(const x of flights){const a=String(x.an).slice(0,10);if(a<=d&&(!best||String(x.an)>String(best.an)))best=x;}return best;};
@@ -155,18 +154,72 @@ async function viewReisen(arg){
    if(covered.has(d)){cur=null;continue;}
    if(cur&&departs.has(d))cur=null; // an jedem Abflugtag beginnt ein neuer Ort
    if(!cur){const f=placeAt(d),stayBefore=booked.filter(e=>e.abreise<=d).pop();const fromStay=stayBefore&&(!f||stayBefore.abreise>=String(f.an).slice(0,10));
-    cur={von:d,bis:dayAdd(d,1),ort:fromStay?stayBefore.ziel:(f?.nach_name||f?.nach||''),ort_name:fromStay?stayBefore.ziel:(f?.nach_name||'')};gaps.push(cur);}
+    cur={von:d,bis:dayAdd(d,1),ort:fromStay?stayBefore.ziel:(f?.nach_name||f?.nach||''),ort_name:fromStay?stayBefore.ziel:(f?.nach_name||''),land:fromStay?(stayBefore.buchung?.land||stayBefore.ziel):(f?.nach_land||f?.nach_name||'')};gaps.push(cur);}
    else cur.bis=dayAdd(d,1);}}
-  for(const g of gaps)items.push({k:g.von+'T23:59',typ:'gap',g});
+  for(const g of gaps)items.push({k:g.von+'T23:59',typ:'gap',g,von:g.von,bis:g.bis,land:g.land});
   items.sort((a,b)=>a.k.localeCompare(b.k)||(a.typ==='gap'?1:-1));
-  let group=null,groupKey=null;const pending=[];
-  const flushTo=g=>{while(pending.length)g.append(pending.shift());};
-  const newGroup=key=>{groupKey=key;const sum=el('span',{});group=el('div',{class:'rp-group'},el('div',{class:'rp-group-head'},el('span',{},stayIcon('pin'),key),sum));group._sum=sum;group._total=0;content.append(group);};
+  // Kennzahlen
+  const tripFrom=allDates[0],tripTo=allDates[allDates.length-1],tripDays=tripFrom?tripDayDiff(tripFrom,tripTo):0;
+  const dayNo=tripFrom&&today>=tripFrom&&today<=tripTo?tripDayDiff(tripFrom,today)+1:null;
+  const flightCount=postenBooked.filter(p=>p.art==='flug').reduce((n,p)=>n+p.segmente.length,0);
+  const kpi=(v,l)=>el('span',{class:'rp-stat'},el('b',{},v),' '+l);
+  content.append(el('section',{class:'rp-total rp-total-slim','aria-label':'Reise-Übersicht'},
+   el('div',{class:'rp-total-head'},el('div',{},el('div',{class:'rp-total-label'},trip.name+(dayNo?' · Tag '+dayNo+' von '+tripDays:'')),
+     el('div',{class:'rp-stats'},kpi(String(booked.length),booked.length===1?'Unterkunft':'Unterkünfte'),kpi(String(flightCount),flightCount===1?'Flug':'Flüge'),kpi(String(tripDays),'Tage'))),more),
+   el('div',{class:'rp-total-money'},el('span',{},'Ausgegeben '),el('b',{},(approx?'ca. ':'')+tripEuro(total,0)),
+    el('span',{class:'rp-total-split'},' · Hotels '+tripEuro(stayTotal,0)+(flightTotal?' · Flüge '+tripEuro(flightTotal,0):'')+((carTotal+otherTotal)?' · Transport '+tripEuro(carTotal+otherTotal,0):'')+(pricedNights?' · Ø '+tripEuro(stayTotal/pricedNights,0)+'/Nacht':''))),
+   missing?el('p',{class:'rp-total-hint'},missing+' Buchung(en) ohne Preis – nicht eingerechnet.'):null));
+  // Filter: drei kleine Schalter, einzeln an/aus (Standard alle an)
+  let filt={hotel:true,flug:true,transport:true,...(stayRead('ks_rp_filter',{})||{})};
+  const kindOf=it=>it.typ==='seg'?(it.p.art==='flug'?'flug':'transport'):'hotel';
+  const chip=(key,icon,label)=>{const b=el('button',{type:'button',class:'rp-chip'+(filt[key]?' on':''),'aria-pressed':String(!!filt[key]),onclick:()=>{filt={...filt,[key]:!filt[key]};stayWrite('ks_rp_filter',filt);b.classList.toggle('on',filt[key]);b.setAttribute('aria-pressed',String(filt[key]));applyFilter();}},stayIcon(icon),label);return b;};
+  content.append(el('div',{class:'rp-filter',role:'group','aria-label':'Anzeigen'},chip('hotel','bett','Hotel'),chip('flug','flug','Flug'),chip('transport','auto','Transport')));
+  function applyFilter(){for(const n of content.querySelectorAll('[data-kind]'))n.hidden=!filt[n.dataset.kind];for(const m of content.querySelectorAll('.rp-month')){let x=m.nextElementSibling,vis=false;while(x&&!x.classList.contains('rp-month')){if(!x.hidden&&x.dataset.kind){vis=true;break;}x=x.nextElementSibling;}m.hidden=!vis;}}
+  if(!booked.length&&!postenBooked.length)content.append(el('p',{class:'rp-empty'},'Noch keine Buchung eingetragen.'));
+  // Abschnitte bilden: Flüge bleiben im aktuellen Abschnitt, Unterkünfte/Lücken/Mietwagen eines anderen Landes öffnen einen neuen
+  const secs=[];let curSec=null;const pend=[];
   for(const it of items){
-   if(it.typ==='stay'){const key=it.e.buchung?.land||it.e.ziel;if(key!==groupKey)newGroup(key);flushTo(group);group.append(row(it.e,today,photos));group._total+=cents(tripPrice(it.e)||0);group._sum.textContent=tripEuro(group._total/100);}
-   else{const node=it.typ==='seg'?segRow(it.p,it.s,it.i,today):gapRow(it.g,rid,today);if(group&&segBelongsBefore(it,items))group.append(node);else pending.push(node);}
+   if(it.typ==='seg'&&it.p.art==='flug'){if(curSec)curSec.items.push(it);else pend.push(it);continue;}
+   const L=it.land||'Weitere Reise';
+   if(!curSec||curSec.lands[curSec.lands.length-1]!==L){curSec={lands:[L],items:[]};secs.push(curSec);}
+   curSec.items.push(...pend.splice(0),it);
   }
-  if(pending.length){if(!group)newGroup('Weitere Reise');flushTo(group);}
+  if(pend.length){if(!curSec){curSec={lands:['Weitere Reise'],items:[]};secs.push(curSec);}curSec.items.push(...pend);}
+  const secRange=sec=>{const core=sec.items.filter(it=>it.typ!=='seg'||it.p.art!=='flug');const src=core.length?core:sec.items;const ds=src.flatMap(it=>[it.von,it.bis]).filter(Boolean).sort();return {von:ds[0],bis:ds[ds.length-1]};};
+  for(const sec of secs)Object.assign(sec,secRange(sec));
+  // Kurze Abschnitte (≤ 3 Nächte) mit dem kürzeren Nachbarn zusammenlegen
+  for(let i=0;i<secs.length;i++){const sec=secs[i],n=tripDayDiff(sec.von,sec.bis);if(secs.length<2||n>3)continue;
+   const prev=secs[i-1],next=secs[i+1],pn=prev?tripDayDiff(prev.von,prev.bis):Infinity,nn=next?tripDayDiff(next.von,next.bis):Infinity;
+   const into=pn<=nn?prev:next;if(!into)continue;
+   if(into===prev){prev.items.push(...sec.items);prev.lands.push(...sec.lands.filter(l=>!prev.lands.includes(l)));}else{next.items.unshift(...sec.items);next.lands.unshift(...sec.lands.filter(l=>!next.lands.includes(l)));}
+   Object.assign(into,secRange(into));secs.splice(i,1);i--;}
+  const horizon=dayAdd(today,28);
+  for(const sec of secs){
+   const n=tripDayDiff(sec.von,sec.bis),isNow=sec.von<=today&&today<sec.bis,isPast=sec.bis<=today,isSoon=!isPast&&sec.von<=horizon;
+   const key=rid+':'+sec.lands.join('|')+':'+sec.von;const open=secOpen.has(key)?secOpen.get(key):(isNow||isSoon);
+   const sum=sec.items.reduce((c,it)=>it.typ==='stay'?c+cents(tripPrice(it.e)||0):(it.typ==='seg'&&it.i===0&&it.p.segmente.length<=3?c+cents(pPrice(it.p)||0):c),0)/100;
+   const offen=sec.items.filter(it=>it.typ==='gap'&&it.bis>today).reduce((c,it)=>c+tripDayDiff(it.von>today?it.von:today,it.bis),0);
+   const nFl=sec.items.filter(it=>it.typ==='seg'&&it.p.art==='flug').length,nSt=sec.items.filter(it=>it.typ==='stay').length;
+   const when=isNow?'jetzt':isPast?'abgeschlossen':(()=>{const d=tripDayDiff(today,sec.von);return d<=1?'morgen':d<=31?'in '+d+' Tagen':'ab '+tripMonthYear(sec.von);})();
+   const head=el('summary',{class:'rp-sec-head'},
+    el('div',{class:'rp-sec-title'},el('span',{class:'rp-flags','aria-hidden':'true'},...sec.lands.map(l=>tripFlag(l)).filter(Boolean).map(f=>el('span',{},f))),el('span',{class:'rp-sec-name'},sec.lands.map(tripLandShort).join(' · ')),isNow?el('span',{class:'rp-now'},'jetzt'):null),
+    el('div',{class:'rp-sec-meta'},tripRange(sec.von,sec.bis)+' · '+n+(n===1?' Nacht':' Nächte')),
+    el('div',{class:'rp-sec-sum'},sum?tripEuro(sum,0):el('i',{},'offen'),el('span',{},isNow?'noch '+tripDayDiff(today,sec.bis)+(tripDayDiff(today,sec.bis)===1?' Tag':' Tage'):when)),
+    el('div',{class:'rp-sec-mini'},[nSt?nSt+(nSt===1?' Unterkunft':' Unterkünfte'):null,nFl?nFl+(nFl===1?' Flug':' Flüge'):null,offen?el('b',{},offen+(offen===1?' Nacht offen':' Nächte offen')):null].filter(Boolean).flatMap((x,i)=>i?[' · ',x]:[x])));
+   const body=el('div',{class:'rp-sec-body'});
+   const secEl=el('details',{class:'rp-sec'+(isNow?' is-now':'')+(isPast?' is-past':''),open},head,body);
+   secEl.addEventListener('toggle',()=>secOpen.set(key,secEl.open));
+   const rowFor=it=>{const node=it.typ==='stay'?row(it.e,today,photos):it.typ==='seg'?segRow(it.p,it.s,it.i,today):gapRow(it.g,rid,today);node.dataset.kind=kindOf(it);return node;};
+   const withMonths=(list,target)=>{let m=null;for(const it of list){const mm=String(it.von||'').slice(0,7);if(mm&&mm!==m){m=mm;target.append(el('div',{class:'rp-month'},tripMonthYear(it.von)));}target.append(rowFor(it));}};
+   if(isNow||isSoon){
+    const before=sec.items.filter(it=>it.bis<=today&&!(it.typ==='stay'&&it.e.abreise>today)),after=sec.items.filter(it=>it.von>horizon),mid=sec.items.filter(it=>!before.includes(it)&&!after.includes(it));
+    if(before.length){const d=el('details',{class:'rp-more-rows'},el('summary',{},'Bisher in '+sec.lands.map(tripLandShort).join(' · ')+' · '+before.length+' Einträge anzeigen'));d.addEventListener('toggle',()=>{if(d.open&&d.childElementCount===1){withMonths(before,d);applyFilter();}},{once:false});body.append(d);}
+    withMonths(mid,body);
+    if(after.length){const d=el('details',{class:'rp-more-rows'},el('summary',{},'Ab '+tripShortDate(dayAdd(horizon,1))+' · '+after.length+' weitere Einträge'));d.addEventListener('toggle',()=>{if(d.open&&d.childElementCount===1){withMonths(after,d);applyFilter();}});body.append(d);}
+   }else withMonths(sec.items,body);
+   content.append(secEl);
+  }
+  applyFilter();
   const lastEnd=allDates[allDates.length-1];
   content.append(el('section',{class:'rp-plans'},
    el('div',{class:'rp-group-head'},el('span',{},stayIcon('kalender'),'Geplant'),el('span',{},(plans.length+postenPlan.length)?(plans.length+postenPlan.length)+' offen':'')),

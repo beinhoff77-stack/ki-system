@@ -4,10 +4,10 @@ async function tripPhotoPrepare(file){
  const source=URL.createObjectURL(file),img=new Image();
  try{
   img.src=source;try{await img.decode();}catch{throw Error('Dieses Bildformat lässt sich hier nicht öffnen. Bitte als JPEG oder PNG auswählen.');}
-  const scale=Math.min(1,1600/Math.max(img.naturalWidth,img.naturalHeight)),canvas=document.createElement('canvas');
+  const scale=Math.min(1,1200/Math.max(img.naturalWidth,img.naturalHeight)),canvas=document.createElement('canvas');
   canvas.width=Math.max(1,Math.round(img.naturalWidth*scale));canvas.height=Math.max(1,Math.round(img.naturalHeight*scale));
   const ctx=canvas.getContext('2d');if(!ctx)throw Error('Bildverarbeitung nicht verfügbar.');ctx.fillStyle='#fff';ctx.fillRect(0,0,canvas.width,canvas.height);ctx.drawImage(img,0,0,canvas.width,canvas.height);
-  const data=canvas.toDataURL('image/jpeg',0.82).split(',')[1];if(!data||Math.ceil(data.length*3/4)>3*1024*1024)throw Error('Bild ist noch zu groß. Bitte ein kleineres Foto auswählen.');
+  const data=canvas.toDataURL('image/jpeg',0.72).split(',')[1];if(!data||Math.ceil(data.length*3/4)>3*1024*1024)throw Error('Bild ist noch zu groß. Bitte ein kleineres Foto auswählen.');
   return {mime:'image/jpeg',daten_base64:data,breite:canvas.width,hoehe:canvas.height};
  }finally{URL.revokeObjectURL(source);}
 }

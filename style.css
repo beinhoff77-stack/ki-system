@@ -2377,3 +2377,15 @@ body[data-area="lernen"] { padding-bottom: calc(100px + env(safe-area-inset-bott
 .rp-seg{grid-template-columns:48px minmax(0,1fr) auto;gap:8px;padding:4px 10px;}
 .rp-seg-main{font-size:13.5px;letter-spacing:-.01em;}
 .rp-seg-main small{font-size:11px;}
+/* W136 Flüge und Transport farbig umrahmt */
+.rp-seg-item{border:1.5px solid transparent;border-radius:12px;margin:2px 0 6px;}
+.rp-seg-item.is-flug{background:#eef5fc;border-color:#b5d4f4;}
+.rp-seg-item.is-transport{background:#fbf3e4;border-color:#f0c98a;}
+.rp-seg-item.is-flug .rp-date-seg b,.rp-seg-item.is-flug .rp-seg-main{color:#0c447c;}
+.rp-seg-item.is-transport .rp-date-seg b,.rp-seg-item.is-transport .rp-seg-main{color:#633806;}
+.rp-seg-item.is-flug .rp-seg-ic{background:#d5e7f8;color:#0c447c;}
+.rp-seg-item.is-transport .rp-seg-ic{background:#f5dfb8;color:#633806;}
+.rp-seg-item[open].is-flug{background:#eef5fc;}.rp-seg-item[open].is-transport{background:#fbf3e4;}
+.rp-seg-item .rp-detail{border-top-color:#ffffff99;}
+.rp-month.is-dup{display:none!important;}
+@media (prefers-color-scheme:dark){.rp-seg-item.is-flug{background:#0c2a44;border-color:#185fa5;}.rp-seg-item.is-transport{background:#3a2a10;border-color:#854f0b;}.rp-seg-item.is-flug .rp-seg-main,.rp-seg-item.is-flug .rp-date-seg b{color:#b5d4f4;}.rp-seg-item.is-transport .rp-seg-main,.rp-seg-item.is-transport .rp-date-seg b{color:#fac775;}}

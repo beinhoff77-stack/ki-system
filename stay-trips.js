@@ -55,14 +55,14 @@ function segRow(p,s,i,today){
  const past=String(s.an||s.ab||'').slice(0,10)<today;
  const ic=el('span',{class:'rp-seg-ic '+(flight?'is-flug':'is-auto'),'aria-hidden':'true'},stayIcon(flight?'flug':'auto'));
  const main=flight?[s.von||'?',' ',tripClock(s.ab),' → ',s.nach||'?',' ',tripClock(s.an),plusDays>0?el('small',{},' +'+plusDays):null]
-  :[tripClock(s.ab),' → ',tripShortDate(s.an),' ',tripClock(s.an)];
+  :(tripClock(s.ab)?[tripClock(s.ab),' → ',tripShortDate(s.an),' ',tripClock(s.an)]:['bis ',tripShortDate(s.an),' · ',tripDayDiff(s.ab,s.an)+' Tage']);
  const sub=flight?[[s.nr,s.airline].filter(Boolean).join(' '),p.buchungscode].filter(Boolean).join(' · ')
   :[s.ort,s.fahrzeug,p.anbieter].filter(Boolean).join(' · ');
  const priceNode=i===0?el('div',{class:'rp-seg-price'},hasPrice?tripEuro(price,0):'? €',el('span',{},(p.preis_ca&&hasPrice?'ca. · ':'')+(n>1?n+(flight?' Flüge':' Teile'):(hasPrice?(flight?'Flug':tripDayDiff(s.ab,s.an)+' Tage'):'nachtragen'))))
   :el('div',{class:'rp-seg-price'},el('span',{},'im '+(n>3?'Ticket':'Paket')));
  const head=el('summary',{class:'rp-seg'},el('div',{class:'rp-date rp-date-seg'},el('b',{},tripDM(s.ab)),el('span',{},new Date(String(s.ab).slice(0,10)+'T12:00:00').toLocaleDateString('de-DE',{weekday:'short'}).replace('.',''))),el('div',{class:'rp-main'},el('div',{class:'rp-seg-main'},...main),el('div',{class:'rp-sub rp-seg-sub'},ic,sub)),priceNode);
  const body=el('div',{class:'rp-detail'});
- const item=el('details',{class:'rp-item rp-seg-item'+(past?' is-past':''),'data-posten':p.id,'data-seg':i},head,body);
+ const item=el('details',{class:'rp-item rp-seg-item '+(flight?'is-flug':'is-transport')+(past?' is-past':''),'data-posten':p.id,'data-seg':i},head,body);
  item.addEventListener('toggle',()=>{if(!item.open||body.childElementCount)return;
   const facts=el('dl',{class:'rp-facts'});const add=(k,v)=>{if(v)facts.append(el('dt',{},k),el('dd',{},v));};
   add('Buchung',[p.titel,p.anbieter].filter(Boolean).join(' · '));add('Code',p.buchungscode);
@@ -183,7 +183,7 @@ async function viewReisen(arg){
   const secs=[];let curSec=null;const pend=[];
   for(const it of items){
    if(it.typ==='seg'&&it.p.art==='flug'){if(curSec)curSec.items.push(it);else pend.push(it);continue;}
-   const L=it.land||'Weitere Reise';
+   const L=it.land||(curSec?curSec.lands[curSec.lands.length-1]:'Weitere Reise');
    if(!curSec||curSec.lands[curSec.lands.length-1]!==L){curSec={lands:[L],items:[]};secs.push(curSec);}
    curSec.items.push(...pend.splice(0),it);
   }
@@ -195,7 +195,7 @@ async function viewReisen(arg){
    const prev=secs[i-1],next=secs[i+1],pn=prev?tripDayDiff(prev.von,prev.bis):Infinity,nn=next?tripDayDiff(next.von,next.bis):Infinity;
    const into=pn<=nn?prev:next;if(!into)continue;
    if(into===prev){prev.items.push(...sec.items);prev.lands.push(...sec.lands.filter(l=>!prev.lands.includes(l)));}else{next.items.unshift(...sec.items);next.lands.unshift(...sec.lands.filter(l=>!next.lands.includes(l)));}
-   Object.assign(into,secRange(into));secs.splice(i,1);i--;}
+   into.items.sort((x,y)=>x.k.localeCompare(y.k)||(x.typ==='gap'?1:y.typ==='gap'?-1:0));Object.assign(into,secRange(into));secs.splice(i,1);i--;}
   const horizon=dayAdd(today,28);
   for(const sec of secs){
    const n=tripDayDiff(sec.von,sec.bis),isNow=sec.von<=today&&today<sec.bis,isPast=sec.bis<=today,isSoon=!isPast&&sec.von<=horizon;
@@ -213,11 +213,12 @@ async function viewReisen(arg){
    const secEl=el('details',{class:'rp-sec'+(isNow?' is-now':'')+(isPast?' is-past':''),open},head,body);
    secEl.addEventListener('toggle',()=>secOpen.set(key,secEl.open));
    const rowFor=it=>{const node=it.typ==='stay'?row(it.e,today,photos):it.typ==='seg'?segRow(it.p,it.s,it.i,today):gapRow(it.g,rid,today);node.dataset.kind=kindOf(it);return node;};
-   const withMonths=(list,target)=>{let m=null;for(const it of list){const mm=String(it.von||'').slice(0,7);if(mm&&mm!==m){m=mm;target.append(el('div',{class:'rp-month'},tripMonthYear(it.von)));}target.append(rowFor(it));}};
+   const withMonths=(list,target)=>{let m=null,first=null;for(const it of list){const mm=String(it.von||'').slice(0,7);if(mm&&mm!==m){m=mm;const lab=el('div',{class:'rp-month','data-month':mm},tripMonthYear(it.von));first=first||lab;target.append(lab);}target.append(rowFor(it));}return {first,last:m};};
    if(isNow||isSoon){
     const before=sec.items.filter(it=>it.bis<=today&&!(it.typ==='stay'&&it.e.abreise>today)),after=sec.items.filter(it=>it.von>horizon),mid=sec.items.filter(it=>!before.includes(it)&&!after.includes(it));
-    if(before.length){const d=el('details',{class:'rp-more-rows'},el('summary',{},'Bisher in '+sec.lands.map(tripLandShort).join(' · ')+' · '+before.length+' Einträge anzeigen'));d.addEventListener('toggle',()=>{if(d.open&&d.childElementCount===1){withMonths(before,d);applyFilter();}},{once:false});body.append(d);}
-    withMonths(mid,body);
+    let beforeLast=null,midRes=null;
+    if(before.length){const d=el('details',{class:'rp-more-rows'},el('summary',{},'Bisher in '+sec.lands.map(tripLandShort).join(' · ')+' · '+before.length+' Einträge anzeigen'));d.addEventListener('toggle',()=>{if(d.open&&d.childElementCount===1){beforeLast=withMonths(before,d).last;applyFilter();}if(midRes?.first)midRes.first.classList.toggle('is-dup',d.open&&beforeLast===midRes.first.dataset.month);});body.append(d);}
+    midRes=withMonths(mid,body);
     if(after.length){const d=el('details',{class:'rp-more-rows'},el('summary',{},'Ab '+tripShortDate(dayAdd(horizon,1))+' · '+after.length+' weitere Einträge'));d.addEventListener('toggle',()=>{if(d.open&&d.childElementCount===1){withMonths(after,d);applyFilter();}});body.append(d);}
    }else withMonths(sec.items,body);
    content.append(secEl);

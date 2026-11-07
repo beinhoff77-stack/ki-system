@@ -35,53 +35,151 @@ async function tripEdit(e,onSaved){
  d.addEventListener('cancel',ev=>{if(pending)ev.preventDefault();});
  form.onsubmit=async ev=>{ev.preventDefault();if(pending)return;pending=true;save.disabled=true;close.disabled=true;try{const r=await tripCall('unterkunft_etappe_speichern',{id:e.id,version:e.version,...Object.fromEntries(Object.entries(inputs).map(([k,v])=>[k,v.value]))});if(r.etappe?.id!==e.id)throw Error('Änderung nicht bestätigt.');d.close();await onSaved();}catch(err){status.textContent=err.message+' Dein Entwurf bleibt hier. Bitte neu lesen, bevor du erneut speicherst.';}finally{pending=false;close.disabled=false;}};
 }
+// W131 (Sebastian 07.11.2026): Reiseplan = nur echte Buchungen. Oben Gesamtausgaben, je Land Zwischensumme,
+// eine kompakte Zeile pro Unterkunft; Details und Aktionen erst nach Antippen. Pläne getrennt darunter.
+function tripNights(e){const n=Number(e.naechte);if(Number.isFinite(n)&&n>0)return n;const d=Math.round((Date.parse(e.abreise)-Date.parse(e.anreise))/86400000);return d>0?d:0;}
+function tripPrice(e){const v=Number(e.buchung?.preis_gesamt_eur??e.preis_gesamt_eur);return Number.isFinite(v)&&v>0?v:null;}
+function tripEuro(v,digits=2){return Number(v).toLocaleString('de-DE',{style:'currency',currency:'EUR',minimumFractionDigits:digits,maximumFractionDigits:digits});}
+function tripDateBlock(iso){const d=new Date(String(iso)+'T12:00:00');return el('div',{class:'rp-date','aria-hidden':'true'},el('b',{},String(d.getDate())),d.toLocaleDateString('de-DE',{month:'short'}).replace('.',''));}
+function tripToday(){const n=new Date();return [n.getFullYear(),String(n.getMonth()+1).padStart(2,'0'),String(n.getDate()).padStart(2,'0')].join('-');}
+function tripClock(v){const m=/T(\d{2}:\d{2})/.exec(String(v||''));return m?m[1]:'';}
+function tripDayDiff(a,b){const x=String(a||'').slice(0,10),y=String(b||'').slice(0,10);if(!x||!y)return 0;return Math.round((Date.parse(y)-Date.parse(x))/86400000);}
+function tripShortDate(v){const d=String(v||'').slice(0,10);return d?d.slice(8,10)+'.'+d.slice(5,7)+'.':'';}
+function segBelongsBefore(it,items){ // Zeile bleibt in der aktuellen Gruppe, außer direkt danach beginnt eine Unterkunft (die eine neue Gruppe öffnen kann)
+ const idx=items.indexOf(it),d0=it.typ==='gap'?it.g.bis:String(it.s.an||it.s.ab).slice(0,10);
+ for(let j=idx+1;j<items.length;j++){if(items[j].typ==='stay')return tripDayDiff(d0,items[j].e.anreise)>1;}return true;}
+function segRow(p,s,i,today){
+ const flight=p.art==='flug',plusDays=tripDayDiff(s.ab,s.an),n=p.segmente.length,price=Number(p.preis_gesamt_eur),hasPrice=Number.isFinite(price)&&price>0;
+ const past=String(s.an||s.ab||'').slice(0,10)<today;
+ const main=flight?[s.von||'?',' ',tripClock(s.ab),' → ',s.nach||'?',' ',tripClock(s.an),plusDays>0?el('small',{},' +'+plusDays):null]
+  :[tripShortDate(s.ab),' ',tripClock(s.ab),' → ',tripShortDate(s.an),' ',tripClock(s.an)];
+ const sub=flight?[tripShortDate(s.ab),[s.nr,s.airline].filter(Boolean).join(' '),p.buchungscode].filter(Boolean).join(' · ')
+  :[s.ort,s.fahrzeug,p.anbieter].filter(Boolean).join(' · ');
+ const priceNode=i===0?el('div',{class:'rp-seg-price'},hasPrice?(p.preis_ca?'ca. ':'')+tripEuro(price,0):'? €',el('span',{},n>1?n+(flight?' Flüge':' Teile'):(hasPrice?(flight?'Flug':tripDayDiff(s.ab,s.an)+' Tage'):'nachtragen')))
+  :el('div',{class:'rp-seg-price'},el('span',{},'im '+(n>3?'Ticket':'Paket')));
+ const head=el('summary',{class:'rp-seg'},el('div',{class:'rp-seg-ic '+(flight?'is-flug':'is-auto'),'aria-hidden':'true'},stayIcon(flight?'flug':'auto')),el('div',{class:'rp-main'},el('div',{class:'rp-seg-main'},...main),el('div',{class:'rp-sub'},sub)),priceNode);
+ const body=el('div',{class:'rp-detail'});
+ const item=el('details',{class:'rp-item rp-seg-item'+(past?' is-past':''),'data-posten':p.id,'data-seg':i},head,body);
+ item.addEventListener('toggle',()=>{if(!item.open||body.childElementCount)return;
+  const facts=el('dl',{class:'rp-facts'});const add=(k,v)=>{if(v)facts.append(el('dt',{},k),el('dd',{},v));};
+  add('Buchung',[p.titel,p.anbieter].filter(Boolean).join(' · '));add('Code',p.buchungscode);
+  add('Preis',hasPrice?(p.preis_ca?'ca. ':'')+tripEuro(price)+(p.waehrung&&p.waehrung!=='EUR'?' ('+Number(p.preis_original).toLocaleString('de-DE')+' '+p.waehrung+')':''):'nicht eingetragen');
+  if(flight){add('Abflug',[s.von_name||s.von,fmtDate(String(s.ab).slice(0,10)),tripClock(s.ab)].filter(Boolean).join(' · '));add('Ankunft',[s.nach_name||s.nach,fmtDate(String(s.an).slice(0,10)),tripClock(s.an)].filter(Boolean).join(' · '));add('Klasse',s.klasse);add('Sitze',s.sitze);}
+  else{add('Abholung',fmtDate(String(s.ab).slice(0,10))+' '+tripClock(s.ab));add('Rückgabe',fmtDate(String(s.an).slice(0,10))+' '+tripClock(s.an));add('Ort',s.ort);}
+  body.append(facts);
+  if(n>1){const list=el('ol',{class:'rp-seg-list'});p.segmente.forEach((x,j)=>list.append(el('li',{class:j===i?'is-current':''},el('b',{},tripShortDate(x.ab)),' ',[x.nr,x.von+' '+tripClock(x.ab)+' → '+x.nach+' '+tripClock(x.an)].filter(Boolean).join(' · '))));body.append(el('details',{class:'rp-note'},el('summary',{},'Alle '+n+' Flüge dieser Buchung'),list));}
+  if(p.link)body.append(el('a',{class:'rp-link',href:p.link,target:'_blank',rel:'noopener'},stayIcon('extern'),'Buchung öffnen'));
+  if(p.notiz)body.append(el('details',{class:'rp-note'},el('summary',{},'Notiz'),el('p',{class:'booking-note'},p.notiz)));
+ });
+ return item;
+}
+function gapRow(g,rid,today){
+ const n=tripDayDiff(g.von,g.bis),past=g.bis<=today;
+ const node=el('div',{class:'rp-gap'+(past?' is-past':'')},el('span',{},el('b',{},n+(n===1?' Nacht':' Nächte')+' ohne Unterkunft'),' · '+[g.ort,tripShortDate(g.von)+'–'+tripShortDate(g.bis)].filter(Boolean).join(' · ')));
+ if(!past)node.append(el('button',{class:'rp-gap-btn',onclick:()=>{stayWrite('ks_trip_context',{reise_id:rid,anreise:g.von,abreise:g.bis,...(g.ort_name?{ziel:g.ort_name}:{})});route('suche');}},stayIcon('lupe'),'Suchen'));
+ return node;
+}
 async function viewReisen(arg){
- setChrome('Deine Reisen',{tab:'reisen'});const live=viewGuard(),scope=el('section',{class:'trips-page'});main.replaceChildren(scope);
- const status=el('p',{role:'status'}),content=el('div'),selector=el('select',{'aria-label':'Reise auswählen'});let snapshot=null,pending=false;
- const header=el('header',{class:'trip-hero'},el('p',{class:'eyebrow'},'ENTDECKER'),el('h2',{},'Wohin geht es als Nächstes?'),el('p',{},'Eure Aufenthalte. Eure Favoriten. Alles an einem Ort.'));
- const reload=el('button',{onclick:load},'Reisen aktualisieren');
- const create=el('button',{class:'primary',onclick:()=>{const {d,body,status:msg}=tripDialog('Neue Reise');const f=el('form'),name=el('input',{required:true,maxlength:100,'aria-label':'Reisename',placeholder:'z. B. Japan im Herbst'}),b=el('button',{type:'submit',class:'primary'},'Reise anlegen');f.append(el('label',{},'Reisename',name),b);body.append(f);f.onsubmit=async ev=>{ev.preventDefault();if(b.disabled)return;b.disabled=true;try{const created=await tripCall('unterkunft_reise_speichern',{name:name.value.trim()});if(!tripId(created.reise?.id))throw Error('Reise nicht eindeutig bestätigt.');d.close();await load();}catch(e){msg.textContent=e.message+' Bitte neu lesen, bevor du erneut anlegst.';}};}},'Neue Reise');
- scope.append(header,el('div',{class:'trip-toolbar'},selector,create,reload,el('a',{href:'#/papierkorb'},'Papierkorb')),status,content);
+ setChrome('Reiseplan',{tab:'reisen'});const live=viewGuard(),scope=el('section',{class:'trips-page rp'});main.replaceChildren(scope);
+ const status=el('p',{role:'status',class:'rp-status'}),content=el('div'),selector=el('select',{'aria-label':'Reise auswählen'});let snapshot=null,pending=false;
+ const reload=el('button',{onclick:load},'Aktualisieren');
+ const create=el('button',{onclick:()=>{const {d,body,status:msg}=tripDialog('Neue Reise');const f=el('form'),name=el('input',{required:true,maxlength:100,'aria-label':'Reisename',placeholder:'Japan im Herbst'}),b=el('button',{type:'submit',class:'primary'},'Reise anlegen');f.append(el('label',{},'Reisename',name),b);body.append(f);f.onsubmit=async ev=>{ev.preventDefault();if(b.disabled)return;b.disabled=true;try{const created=await tripCall('unterkunft_reise_speichern',{name:name.value.trim()});if(!tripId(created.reise?.id))throw Error('Reise nicht eindeutig bestätigt.');d.close();await load();}catch(e){msg.textContent=e.message+' Bitte neu lesen, bevor du erneut anlegst.';}};}},'Neue Reise');
+ const more=el('details',{class:'rp-more'},el('summary',{'aria-label':'Weitere Aktionen',title:'Weitere Aktionen'},'⋯'),el('div',{class:'rp-more-list'},create,reload,el('a',{href:'#/papierkorb'},'Papierkorb')));
+ const top=el('div',{class:'rp-top'},selector);scope.append(top,status,content);
  selector.onchange=()=>{stayWrite('ks_reise',Number(selector.value));draw();};
- async function change(e,data){if(pending)return;if(e.status==='gebucht'&&data.aktive_suche_id&&data.aktive_suche_id!==e.aktive_suche_id){status.textContent='Diese Etappe ist bereits gebucht. Für einen anderen gebuchten Aufenthalt bitte eine getrennte Etappe anlegen; die Buchung wird nicht still auf andere Tage übertragen.';return;}pending=true;scope.querySelectorAll('button').forEach(b=>b.disabled=true);try{const r=await tripCall('unterkunft_etappe_speichern',{id:e.id,version:e.version,...data});if(r.etappe?.id!==e.id)throw Error('Änderung nicht bestätigt.');await load();}catch(err){status.textContent=err.message+' Bitte Reisen aktualisieren.';}finally{pending=false;reload.disabled=false;}}
- function draw(){
-  const expanded=new Set([...content.querySelectorAll('[data-stage] details[open]')].map(n=>Number(n.closest('[data-stage]').dataset.stage)));
-  const pastWasOpen=content.querySelector('.past-stays')?.open||false;
-  const rid=Number(selector.value),trip=snapshot.reisen.find(x=>x.id===rid);content.replaceChildren();if(!trip){content.append(el('p',{},'Lege deine erste Reise an. Danach kannst du Unterkünfte suchen.'));return;}
-  const stages=snapshot.etappen.filter(e=>e.reise_id===rid).sort((a,b)=>String(a.anreise).localeCompare(String(b.anreise))||a.id-b.id);
-  content.append(el('div',{class:'trip-title'},el('div',{},el('p',{class:'eyebrow'},'DEINE REISE'),el('h2',{},trip.name)),el('button',{class:'primary',onclick:()=>{stayWrite('ks_trip_context',{reise_id:rid});route('suche');}},'+ Aufenthalt suchen'),el('button',{onclick:()=>tripExternalBooking({reise_id:rid},load)},'Aufenthalt nachtragen')));
-  const timeline=el('div',{class:'trip-timeline'}),proposals=el('section',{class:'trip-proposals'},el('h3',{},'Noch nicht bestätigte Vorschläge'));content.append(timeline);
-  const now=new Date(),today=[now.getFullYear(),String(now.getMonth()+1).padStart(2,'0'),String(now.getDate()).padStart(2,'0')].join('-');
-  const pastStages=stages.filter(e=>e.abreise<today),past=el('details',{class:'past-stays',open:pastWasOpen},el('summary',{},'Bisherige Aufenthalte ('+pastStages.length+')'));
-  const confirmed=stages.filter(e=>e.status!=='vorschlag'&&e.abreise>=today);
-  const initialPhotos=stages.length?tripCall('unterkunft_fotos_lesen',{reise_id:rid}).then(r=>{if(!Array.isArray(r.fotos))throw Error('Fotos nicht vollständig lesbar.');return r.fotos;}):null;
-  initialPhotos?.catch(()=>{}); // Components show read errors; navigation may detach all of them.
-  for(const e of stages){const isPast=e.abreise<today,b=e.buchung,card=el('article',{class:'trip-stage','data-stage':e.id});
-   card.append(el('div',{class:'stage-date'},el('strong',{},fmtDate(e.anreise)),el('span',{},'bis '+fmtDate(e.abreise)),el('small',{},(e.naechte??'–')+' Nächte')),
-    el('div',{class:'stage-main'},el('span',{class:'trip-status '+e.status},{vorschlag:'Vorschlag · noch bestätigen',geplant:'Geplant',gebucht:'Gebucht'}[e.status]||'Status offen'),el('h3',{},e.ziel),b?el('div',{class:'booking-summary'},el('strong',{},b.name||'Unterkunft'),el('p',{},b.zimmer||''),el('p',{},b.preis_gesamt_eur==null?(b.notiz?'Preis siehe Notiz':'Preis nicht eingetragen'):sucheEuro(b.preis_gesamt_eur)+' gesamt'),el('p',{class:'storno'},tripStorno(b)),b.notiz?el('details',{},el('summary',{},'Buchungsnotiz'),el('p',{class:'booking-note'},b.notiz)):null):el('p',{class:'muted'},'Die Unterkunft ist noch offen.'),
-    el('div',{class:'actions'},!isPast&&e.status==='vorschlag'?el('button',{class:'primary',onclick:()=>change(e,{status:'geplant'})},'Vorschlag bestätigen'):null,!isPast?el('button',{onclick:()=>tripStart(e)},'Andere Tage suchen'):null,!isPast?el('button',{onclick:()=>tripExternalBooking(e,load)},'Woanders gebucht'):null,el('button',{onclick:()=>tripEdit(e,load)},'Bearbeiten'),el('button',{onclick:()=>tripDelete('etappe',e.id,load)},e.status==='vorschlag'?'Vorschlag verwerfen':'Etappe entfernen'))));
-   const searches=el('details',{open:expanded.has(e.id)},el('summary',{},(e.suchen||[]).length+' Suchvarianten'));
-   for(const s of e.suchen||[]){const active=s.id===e.aktive_suche_id;searches.append(el('div',{class:'trip-variant'},el('a',{href:'#/suche/'+s.id},`${fmtDate(s.anreise)}–${fmtDate(s.abreise)} · ${s.status}`),active?el('strong',{},'Aktuelle Variante'):el('button',{onclick:()=>change(e,{aktive_suche_id:s.id})},'Diese Tage verwenden'),el('button',{onclick:()=>tripDelete('suchauftrag',s.id,load)},'Suche entfernen')));}
-   if(!SUCHE_SCORE_AN){ // 0.36.4 (Sebastian 21.10.): Etappe kompakt – Hauptweg „Unterkünfte“, Weiteres hinter ⋯, Fotos und Varianten eingeklappt
-    card.classList.add('a-etappe');const acts=card.querySelector('.stage-main > .actions'),neben=[...acts.querySelectorAll('button:not(.primary)')];
-    const menu=el('details',{class:'a-etappe-menu'},el('summary',{'aria-label':'Weitere Aktionen zur Etappe',title:'Weitere Aktionen'},'⋯'),el('div',{class:'a-etappe-menu-liste'},...neben));
-    const fotos=el('details',{class:'a-etappe-fotos'},el('summary',{},stayIcon('kamera'),'Fotos'),tripPhotos(e.id,live,{initialPhotos}));
-    searches.classList.add('a-etappe-varianten');searches.querySelector('summary').prepend(stayIcon('kalender'));
-    const leiste=el('div',{class:'a-etappe-leiste'},...(!isPast?[searches]:[]),fotos,menu);
-    card.querySelector('.stage-main').append(...(!isPast?[el('a',{class:'a-etappe-link',href:'#/etappe/'+e.id},stayIcon('liste'),'Unterkünfte dieser Etappe')]:[]),leiste);
-    if(!acts.children.length)acts.remove();
-   } else card.querySelector('.stage-main').append(tripPhotos(e.id,live,{initialPhotos}),...(!isPast?[searches,el('a',{href:'#/etappe/'+e.id},'Unterkünfte dieser Etappe →')]:[]));if(e.abreise<today)past.append(card);else if(e.status==='vorschlag')proposals.append(card);else {
-    const before=confirmed[confirmed.indexOf(e)-1];
-    for(const gap of snapshot.luecken||[]){if(before&&gap.zwischen?.[0]===before.id&&gap.zwischen?.[1]===e.id)timeline.append(el('div',{class:'trip-gap','data-gap-from':before.id,'data-gap-to':e.id},`${before.ziel} → ${e.ziel}: `+(gap.text||`${gap.naechte} Nächte noch offen`)));}
-    timeline.append(card);
-   }
-  }
-  if(proposals.childElementCount>1)content.append(proposals);
-  if(pastStages.length)content.append(past);
-  if(!stages.length)timeline.append(el('p',{class:'card'},'Noch keine Etappen. Suche deinen ersten Aufenthalt.'));
-  const loose=(snapshot.ohne_etappe||[]).filter(s=>s.reise_id===rid||!s.reise_id);if(loose.length){const box=el('details',{},el('summary',{},'Suchen ohne Etappe'));for(const s of loose){const target=el('select',{'aria-label':'Etappe für Suche '+s.id},el('option',{value:''},'Etappe wählen'),stages.map(e=>el('option',{value:e.id},e.ziel+' · '+fmtDate(e.anreise))));box.append(el('div',{class:'trip-variant'},el('a',{href:'#/suche/'+s.id},'Suche #'+s.id+' · '+s.ziel),target,el('button',{onclick:async ev=>{if(!tripId(target.value))return;ev.target.disabled=true;try{const r=await tripCall('unterkunft_etappe_zuordnen',{suchauftrag_id:s.id,etappe_id:Number(target.value)});if(!r.suche)throw Error('Zuordnung nicht bestätigt.');await load();}catch(e){status.textContent=e.message+' Bitte neu lesen.';}}},'Zuordnen')));}content.append(box);}
+ async function change(e,data){if(pending)return;pending=true;scope.querySelectorAll('button').forEach(b=>b.disabled=true);try{const r=await tripCall('unterkunft_etappe_speichern',{id:e.id,version:e.version,...data});if(r.etappe?.id!==e.id)throw Error('Änderung nicht bestätigt.');await load();}catch(err){status.textContent=err.message+' Bitte aktualisieren.';}finally{pending=false;scope.querySelectorAll('button').forEach(b=>b.disabled=false);}}
+ function row(e,today,photos){
+  const b=e.buchung||{},n=tripNights(e),p=tripPrice(e),booked=e.status==='gebucht',now=e.anreise<=today&&e.abreise>today,past=e.abreise<=today;
+  const sub=[e.ziel,n+(n===1?' Nacht':' Nächte'),b.anbieter].filter(Boolean).join(' · ');
+  const price=booked?el('div',{class:'rp-price'},p===null?'–':tripEuro(p,0),el('span',{},p!==null&&n?tripEuro(p/n,0)+'/N':'Preis fehlt')):el('div',{class:'rp-price rp-open'},'offen');
+  const head=el('summary',{class:'rp-row'},tripDateBlock(e.anreise),el('div',{class:'rp-main'},el('div',{class:'rp-name'},booked?(b.name||'Unterkunft'):e.ziel),el('div',{class:'rp-sub'},now?el('span',{class:'rp-now'},'jetzt'):null,booked?sub:fmtDate(e.anreise)+'–'+fmtDate(e.abreise)+' · '+n+(n===1?' Nacht':' Nächte'))),price);
+  const body=el('div',{class:'rp-detail'});
+  const item=el('details',{class:'rp-item'+(now?' is-now':'')+(past?' is-past':''),'data-stage':e.id},head,body);
+  item.addEventListener('toggle',()=>{if(!item.open||body.childElementCount)return;
+   const facts=el('dl',{class:'rp-facts'});const add=(k,v)=>{if(v)facts.append(el('dt',{},k),el('dd',{},v));};
+   add('Zeitraum',fmtDate(e.anreise)+' – '+fmtDate(e.abreise));
+   if(booked){add('Zimmer',b.zimmer);add('Gesamt',p===null?null:tripEuro(p)+(n?' · Ø '+tripEuro(p/n)+' pro Nacht':''));add('Storno',b.storno_kostenlos_bis?tripStorno(b):b.storno_text);}
+   body.append(facts);
+   if(b.link)body.append(el('a',{class:'rp-link',href:b.link,target:'_blank',rel:'noopener'},stayIcon('extern'),'Unterkunft öffnen'));
+   if(b.notiz)body.append(el('details',{class:'rp-note'},el('summary',{},'Buchungsnotiz'),el('p',{class:'booking-note'},b.notiz)));
+   const fotos=el('details',{class:'rp-fotos'},el('summary',{},stayIcon('kamera'),'Fotos'));fotos.addEventListener('toggle',()=>{if(fotos.open&&fotos.childElementCount===1)fotos.append(tripPhotos(e.id,live,{initialPhotos:photos}));});body.append(fotos);
+   const acts=el('div',{class:'rp-actions'});
+   if(!booked&&e.status==='vorschlag')acts.append(el('button',{class:'primary',onclick:()=>change(e,{status:'geplant'})},'Bestätigen'));
+   if(!booked&&!past)acts.append(el('button',{class:'primary',onclick:()=>route('etappe',e.id)},stayIcon('lupe'),'Unterkünfte suchen'),el('button',{onclick:()=>tripExternalBooking(e,load)},'Woanders gebucht'));
+   if(!past&&(e.suchen||[]).length){const v=el('details',{class:'rp-variants'},el('summary',{},stayIcon('kalender'),(e.suchen||[]).length+' Suchvarianten'));for(const s of e.suchen){const active=s.id===e.aktive_suche_id;v.append(el('div',{class:'trip-variant'},el('a',{href:'#/suche/'+s.id},`${fmtDate(s.anreise)}–${fmtDate(s.abreise)} · ${s.status}`),active?el('strong',{},'Aktuell'):el('button',{onclick:()=>change(e,{aktive_suche_id:s.id})},'Diese Tage verwenden'),el('button',{onclick:()=>tripDelete('suchauftrag',s.id,load)},'Suche entfernen')));}body.append(v);}
+   acts.append(el('button',{onclick:()=>tripEdit(e,load)},'Bearbeiten'),el('button',{class:'rp-danger',onclick:()=>tripDelete('etappe',e.id,load)},e.status==='vorschlag'?'Vorschlag verwerfen':'Entfernen'));
+   body.append(acts);
+  });
+  return item;
  }
- async function load(){reload.disabled=true;status.textContent='Reisen werden geladen …';try{const r=await tripCall('unterkunft_etappen_lesen');if(!live())return;if(!Array.isArray(r.reisen)||!Array.isArray(r.etappen))throw Error('Reiseübersicht unvollständig.');snapshot=r;const selected=tripId(arg)||Number(selector.value)||stayRead('ks_reise',null);selector.replaceChildren(...r.reisen.map(t=>el('option',{value:t.id},t.name)));if(r.reisen.some(t=>t.id===selected))selector.value=selected;draw();status.textContent='';}catch(e){if(live())status.textContent=e.message;}finally{reload.disabled=false;}}
+ function draw(){
+  const open=new Set([...content.querySelectorAll('details.rp-item[open]')].map(n=>Number(n.dataset.stage)));
+  const rid=Number(selector.value),trip=snapshot.reisen.find(x=>x.id===rid);content.replaceChildren();
+  if(!trip){content.append(el('div',{class:'rp-empty'},el('p',{},'Leg deine erste Reise an. Danach kannst du Unterkünfte eintragen und suchen.'),more));return;}
+  const today=tripToday(),stages=snapshot.etappen.filter(e=>e.reise_id===rid).sort((a,b)=>String(a.anreise).localeCompare(String(b.anreise))||a.id-b.id);
+  const booked=stages.filter(e=>e.status==='gebucht'),plans=stages.filter(e=>e.status!=='gebucht'&&e.abreise>today);
+  // W132: Flüge, Mietwagen und Tickets (snapshot.posten) – eine Zeile je Segment zwischen den Unterkünften
+  const posten=(snapshot.posten||[]).filter(p=>p.reise_id===rid&&Array.isArray(p.segmente));
+  const postenBooked=posten.filter(p=>p.status!=='geplant'),postenPlan=posten.filter(p=>p.status==='geplant');
+  const cents=v=>Math.round(Number(v)*100),pPrice=p=>{const v=Number(p.preis_gesamt_eur);return Number.isFinite(v)&&v>0?v:null;};
+  const priced=booked.filter(e=>tripPrice(e)!==null),stayTotal=priced.reduce((s,e)=>s+cents(tripPrice(e)),0)/100,nights=booked.reduce((s,e)=>s+tripNights(e),0),pricedNights=priced.reduce((s,e)=>s+tripNights(e),0);
+  const sumArt=a=>postenBooked.filter(p=>p.art===a&&pPrice(p)!==null).reduce((s,p)=>s+cents(pPrice(p)),0)/100;
+  const flightTotal=sumArt('flug'),carTotal=sumArt('mietwagen'),otherTotal=postenBooked.filter(p=>!['flug','mietwagen'].includes(p.art)&&pPrice(p)!==null).reduce((s,p)=>s+cents(pPrice(p)),0)/100;
+  const total=Math.round((stayTotal+flightTotal+carTotal+otherTotal)*100)/100,missing=(booked.length-priced.length)+postenBooked.filter(p=>pPrice(p)===null).length;
+  const approx=postenBooked.some(p=>p.preis_ca);
+  const photos=stages.length?tripCall('unterkunft_fotos_lesen',{reise_id:rid}).then(r=>{if(!Array.isArray(r.fotos))throw Error('Fotos nicht vollständig lesbar.');return r.fotos;}):null;photos?.catch(()=>{});
+  const kpi=(v,l)=>el('div',{},el('b',{},v),l);
+  const hasTransport=postenBooked.length>0;
+  content.append(el('section',{class:'rp-total','aria-label':'Bereits ausgegeben'},
+   el('div',{class:'rp-total-head'},el('div',{class:'rp-total-label'},(hasTransport?'Bereits ausgegeben · ':'Für Unterkünfte ausgegeben · ')+trip.name),more),
+   el('div',{class:'rp-total-sum'},(approx?'ca. ':'')+tripEuro(total)),
+   hasTransport?el('div',{class:'rp-kpis'},kpi(tripEuro(stayTotal,0),'Unterkünfte'),kpi(tripEuro(flightTotal,0),'Flüge'),kpi(tripEuro(carTotal+otherTotal,0),carTotal&&!otherTotal?'Mietwagen':'Mietwagen & Co.'))
+    :el('div',{class:'rp-kpis'},kpi(String(nights),'Nächte'),kpi(pricedNights?tripEuro(stayTotal/pricedNights,0):'–','Ø / Nacht'),kpi(String(booked.length),booked.length===1?'Unterkunft':'Unterkünfte')),
+   hasTransport?el('p',{class:'rp-total-hint rp-total-sub'},nights+' Nächte · Ø '+(pricedNights?tripEuro(stayTotal/pricedNights,0):'–')+' pro Nacht · '+booked.length+(booked.length===1?' Unterkunft':' Unterkünfte')):null,
+   missing?el('p',{class:'rp-total-hint'},missing+' Buchung(en) ohne Preis – nicht eingerechnet.'):null));
+  if(!booked.length&&!postenBooked.length)content.append(el('p',{class:'rp-empty'},'Noch keine Buchung eingetragen.'));
+  // Zeitleiste: Unterkünfte + Segmente, nach Beginn sortiert
+  const items=[];
+  for(const e of booked)items.push({k:String(e.anreise)+'T23:00',typ:'stay',e});
+  for(const p of postenBooked)p.segmente.forEach((s,i)=>items.push({k:String(s.ab||p.beginn||''),typ:'seg',p,s,i}));
+  items.sort((a,b)=>a.k.localeCompare(b.k));
+  // Nächte ohne Unterkunft: weder gebuchte Unterkunft noch Nachtflug
+  const dayAdd=(d,n)=>{const x=new Date(d+'T12:00:00Z');x.setUTCDate(x.getUTCDate()+n);return x.toISOString().slice(0,10);};
+  const covered=new Set();for(const e of booked)for(let d=e.anreise;d<e.abreise;d=dayAdd(d,1))covered.add(d);
+  for(const p of postenBooked)if(p.art==='flug')for(const s of p.segmente){const a=String(s.ab||'').slice(0,10),b=String(s.an||'').slice(0,10);if(a&&b)for(let d=a;d<b;d=dayAdd(d,1))covered.add(d);}
+  const allDates=items.flatMap(it=>it.typ==='stay'?[it.e.anreise,it.e.abreise]:[String(it.s.ab||'').slice(0,10),String(it.s.an||'').slice(0,10)]).filter(Boolean).sort();
+  const flights=postenBooked.filter(p=>p.art==='flug').flatMap(p=>p.segmente).filter(x=>x.ab&&x.an);
+  const departs=new Set(flights.map(x=>String(x.ab).slice(0,10)));
+  const placeAt=d=>{let best=null;for(const x of flights){const a=String(x.an).slice(0,10);if(a<=d&&(!best||String(x.an)>String(best.an)))best=x;}return best;};
+  const gaps=[];if(allDates.length){let d=allDates[0],end=allDates[allDates.length-1],cur=null;for(;d<end;d=dayAdd(d,1)){
+   if(covered.has(d)){cur=null;continue;}
+   if(cur&&departs.has(d))cur=null; // an jedem Abflugtag beginnt ein neuer Ort
+   if(!cur){const f=placeAt(d),stayBefore=booked.filter(e=>e.abreise<=d).pop();const fromStay=stayBefore&&(!f||stayBefore.abreise>=String(f.an).slice(0,10));
+    cur={von:d,bis:dayAdd(d,1),ort:fromStay?stayBefore.ziel:(f?.nach_name||f?.nach||''),ort_name:fromStay?stayBefore.ziel:(f?.nach_name||'')};gaps.push(cur);}
+   else cur.bis=dayAdd(d,1);}}
+  for(const g of gaps)items.push({k:g.von+'T23:59',typ:'gap',g});
+  items.sort((a,b)=>a.k.localeCompare(b.k)||(a.typ==='gap'?1:-1));
+  let group=null,groupKey=null;const pending=[];
+  const flushTo=g=>{while(pending.length)g.append(pending.shift());};
+  const newGroup=key=>{groupKey=key;const sum=el('span',{});group=el('div',{class:'rp-group'},el('div',{class:'rp-group-head'},el('span',{},stayIcon('pin'),key),sum));group._sum=sum;group._total=0;content.append(group);};
+  for(const it of items){
+   if(it.typ==='stay'){const key=it.e.buchung?.land||it.e.ziel;if(key!==groupKey)newGroup(key);flushTo(group);group.append(row(it.e,today,photos));group._total+=cents(tripPrice(it.e)||0);group._sum.textContent=tripEuro(group._total/100);}
+   else{const node=it.typ==='seg'?segRow(it.p,it.s,it.i,today):gapRow(it.g,rid,today);if(group&&segBelongsBefore(it,items))group.append(node);else pending.push(node);}
+  }
+  if(pending.length){if(!group)newGroup('Weitere Reise');flushTo(group);}
+  const lastEnd=allDates[allDates.length-1];
+  content.append(el('section',{class:'rp-plans'},
+   el('div',{class:'rp-group-head'},el('span',{},stayIcon('kalender'),'Geplant'),el('span',{},(plans.length+postenPlan.length)?(plans.length+postenPlan.length)+' offen':'')),
+   ...plans.map(e=>row(e,today,photos)),
+   ...postenPlan.flatMap(p=>p.segmente.map((s,i)=>segRow(p,s,i,today))),
+   el('div',{class:'rp-next'},
+    el('button',{class:'primary',onclick:()=>{stayWrite('ks_trip_context',{reise_id:rid});route('suche');}},stayIcon('plus'),'Nächsten Aufenthalt planen'),
+    el('button',{onclick:()=>tripExternalBooking({reise_id:rid},load)},'Buchung nachtragen')),
+   lastEnd&&lastEnd>=today&&!plans.length&&!gaps.length?el('p',{class:'rp-sub rp-center'},'Ab '+fmtDate(lastEnd)+' noch nichts gebucht.'):null));
+  for(const id of open)content.querySelector(`details.rp-item[data-stage="${id}"]`)?.setAttribute('open','');
+  const loose=(snapshot.ohne_etappe||[]).filter(s=>s.reise_id===rid||!s.reise_id);if(loose.length){const box=el('details',{class:'rp-loose'},el('summary',{},'Suchen ohne Etappe ('+loose.length+')'));for(const s of loose){const target=el('select',{'aria-label':'Etappe für Suche '+s.id},el('option',{value:''},'Etappe wählen'),stages.map(e=>el('option',{value:e.id},e.ziel+' · '+fmtDate(e.anreise))));box.append(el('div',{class:'trip-variant'},el('a',{href:'#/suche/'+s.id},'Suche #'+s.id+' · '+s.ziel),target,el('button',{onclick:async ev=>{if(!tripId(target.value))return;ev.target.disabled=true;try{const r=await tripCall('unterkunft_etappe_zuordnen',{suchauftrag_id:s.id,etappe_id:Number(target.value)});if(!r.suche)throw Error('Zuordnung nicht bestätigt.');await load();}catch(e){status.textContent=e.message+' Bitte neu lesen.';}}},'Zuordnen')));}content.append(box);}
+ }
+ async function load(){reload.disabled=true;status.textContent='Reiseplan wird geladen …';try{const r=await tripCall('unterkunft_etappen_lesen');if(!live())return;if(!Array.isArray(r.reisen)||!Array.isArray(r.etappen))throw Error('Reiseübersicht unvollständig.');snapshot=r;const selected=tripId(arg)||Number(selector.value)||stayRead('ks_reise',null);selector.replaceChildren(...r.reisen.map(t=>el('option',{value:t.id},t.name)));if(r.reisen.some(t=>t.id===selected))selector.value=selected;top.hidden=r.reisen.length<2;draw();status.textContent='';}catch(e){if(live())status.textContent=e.message;}finally{reload.disabled=false;more.open=false;}}
  await load();
 }
 async function viewPapierkorb(){
@@ -126,7 +224,7 @@ function tripSearchChoice(form,call,live,onPaint=()=>{}){
  function report(){const r=reise.selectedOptions[0],st=stage.selectedOptions[0];onPaint({ready:!!data,reise:reise.value?r?.textContent:'',stage:stage.value,stageText:st?.textContent||'',needsChoice:!!data&&(!reise.value||!stage.value),node});}
  function paint(){const previous=stage.value,matching=(data?.etappen||[]).filter(e=>e.reise_id===Number(reise.value)&&normalize(e.ziel)===normalize(destination.value));stage.replaceChildren(...[matching.length?el('option',{value:''},'Bestehender oder getrennter Aufenthalt?'):null,el('option',{value:'new'},'Getrennter / neuer Aufenthalt'),...matching.map(e=>el('option',{value:e.id},e.ziel+' · '+fmtDate(e.anreise)+'–'+fmtDate(e.abreise)))].filter(Boolean));if(matching.some(e=>e.id===Number(previous)))stage.value=previous;else if(matching.some(e=>e.id===ctx.etappe_id))stage.value=ctx.etappe_id;else if(!matching.length)stage.value='new';report();}
  reise.onchange=paint;stage.onchange=report;destination.addEventListener('input',paint);
- call('unterkunft_etappen_lesen').then(r=>{if(!live())return;if(!Array.isArray(r.reisen)||!Array.isArray(r.etappen))throw Error('Reisen konnten nicht geladen werden.');data=r;reise.append(...r.reisen.map(t=>el('option',{value:t.id},t.name)));if(ctx.reise_id&&r.reisen.some(t=>t.id===ctx.reise_id))reise.value=ctx.reise_id;else if(r.reisen.length===1)reise.value=r.reisen[0].id;if(ctx.ziel&&!destination.value)destination.value=ctx.ziel;paint();}).catch(e=>{if(live())notice.textContent=e.message;});
+ call('unterkunft_etappen_lesen').then(r=>{if(!live())return;if(!Array.isArray(r.reisen)||!Array.isArray(r.etappen))throw Error('Reisen konnten nicht geladen werden.');data=r;reise.append(...r.reisen.map(t=>el('option',{value:t.id},t.name)));if(ctx.reise_id&&r.reisen.some(t=>t.id===ctx.reise_id))reise.value=ctx.reise_id;else if(r.reisen.length===1)reise.value=r.reisen[0].id;if(ctx.ziel&&!destination.value)destination.value=ctx.ziel;if(ctx.anreise&&ctx.abreise){for(const [k,v] of [['anreise',ctx.anreise],['abreise',ctx.abreise]]){const i=form.querySelector('[name="'+k+'"]');if(i){i.value=v;i.dispatchEvent(new Event('input',{bubbles:true}));}}const {anreise,abreise,...rest}=ctx;stayWrite('ks_trip_context',rest);}paint();}).catch(e=>{if(live())notice.textContent=e.message;});
  return {node,values(){const rid=tripId(reise.value);if(!data||!rid)throw Error('Bitte zuerst eine Reise wählen.');if(!stage.value)throw Error('Bitte bestehenden oder getrennten Aufenthalt wählen.');return stage.value!=='new'?{reise_id:rid,etappe_id:Number(stage.value)}:{reise_id:rid,etappe_neu:true};},setNew(){if(stage.querySelector('option[value="new"]')){stage.value='new';report();}}};
 }
 

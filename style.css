@@ -2225,3 +2225,85 @@ body[data-area="unterkunft"] main.view:has(.a-ergebnis) { padding-top: 2px; }
 }
 body[data-area="lernen"] { padding-bottom: calc(100px + env(safe-area-inset-bottom)); }
 @media (min-width: 960px) { body[data-area="lernen"] { padding-bottom: 32px; } }
+/* W131 Reiseplan (07.11.2026): Gesamtausgaben oben, kompakte Zeilen je Land, Details beim Antippen */
+.rp{max-width:720px;}
+.rp-top{display:flex;gap:8px;align-items:center;justify-content:flex-end;margin:4px 0 12px;}
+.rp-top select{flex:1;min-width:0;}
+.rp-more{position:relative;}
+.rp-more>summary{list-style:none;cursor:pointer;width:44px;height:44px;display:grid;place-items:center;border-radius:12px;border:1px solid var(--border);background:var(--surface);font-size:20px;line-height:1;}
+.rp-more>summary::-webkit-details-marker{display:none;}
+.rp-more-list{position:absolute;right:0;top:50px;z-index:20;display:flex;flex-direction:column;gap:6px;min-width:190px;padding:8px;background:var(--surface);border:1px solid var(--border);border-radius:14px;box-shadow:0 8px 24px #0e3b4322;}
+.rp-more-list>*{width:100%;text-align:left;}.rp-more-list a{padding:10px 12px;}
+.rp-status:empty{display:none;}
+.rp-total{background:#0e3b43;color:#fff;border-radius:20px;padding:18px 18px 16px;margin-bottom:8px;}
+.rp-total-label{font-size:13px;color:#ffb8a7;}
+.rp-total-sum{font-size:clamp(30px,8vw,40px);font-weight:700;letter-spacing:-.5px;margin:2px 0 12px;font-variant-numeric:tabular-nums;}
+.rp-kpis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;}
+.rp-kpis>div{background:#ffffff17;border-radius:10px;padding:8px 10px;font-size:12px;color:#cfe3e5;}
+.rp-kpis b{display:block;font-size:16px;color:#fff;font-variant-numeric:tabular-nums;}
+.rp-total-hint{margin:10px 0 0;font-size:12px;color:#ffd9cf;}
+.rp-group,.rp-plans{margin-top:18px;}
+.rp-group-head{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:600;color:var(--muted);margin:0 4px 8px;font-variant-numeric:tabular-nums;}
+.rp-group-head>span:first-child{display:flex;align-items:center;gap:6px;}.rp-group-head .ic{width:16px;height:16px;}
+.rp-item{background:var(--surface);border:1px solid var(--border);border-radius:14px;margin-bottom:8px;overflow:hidden;}
+.rp-item.is-now{border:2px solid #e0735a;}
+.rp-item.is-past .rp-name,.rp-item.is-past .rp-price{opacity:.78;}
+.rp-row{list-style:none;cursor:pointer;display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:12px;align-items:center;padding:10px 12px;min-height:60px;}
+.rp-row::-webkit-details-marker{display:none;}
+.rp-date{text-align:center;font-size:11px;color:var(--muted);line-height:1.15;}
+.rp-date b{display:block;font-size:19px;color:var(--text,#16242a);}
+.rp-name{font-size:15px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.rp-sub{font-size:12.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.rp-now{font-size:11px;font-weight:600;background:#fde3dc;color:#8a2f1a;border-radius:6px;padding:1px 6px;margin-left:6px;vertical-align:1px;}
+.rp-price{text-align:right;font-size:15px;font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums;}
+.rp-price span{display:block;font-size:11.5px;font-weight:400;color:var(--muted);}
+.rp-price.rp-open{font-size:12px;font-weight:600;color:#85550b;background:#fff0d9;border-radius:8px;padding:3px 8px;}
+.rp-detail{border-top:1px solid var(--border);padding:12px 14px 14px;}
+.rp-facts{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 14px;margin:0 0 10px;font-size:14px;}
+.rp-facts dt{color:var(--muted);}.rp-facts dd{margin:0;overflow-wrap:anywhere;}
+.rp-link{display:inline-flex;align-items:center;gap:6px;margin:2px 0 8px;font-weight:600;}.rp-link .ic{width:16px;height:16px;}
+.rp-note,.rp-fotos,.rp-variants{margin:6px 0;}
+.rp-note>summary,.rp-fotos>summary,.rp-variants>summary{cursor:pointer;display:flex;align-items:center;gap:6px;padding:8px 0;font-size:14px;color:var(--muted);}
+.rp-note>summary .ic,.rp-fotos>summary .ic,.rp-variants>summary .ic{width:16px;height:16px;}
+.rp-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+.rp-actions button{min-height:44px;display:inline-flex;align-items:center;gap:6px;}.rp-actions .ic{width:16px;height:16px;}
+.rp-danger{color:#a32d2d;}
+.rp-gap{margin:2px 0 10px 22px;padding:6px 12px;border-left:2px dashed #e0a35a;font-size:12.5px;color:#85550b;}
+.rp-next{display:flex;flex-direction:column;gap:8px;padding:14px;border:1.5px dashed var(--border);border-radius:14px;}
+.rp-next button{min-height:48px;display:inline-flex;justify-content:center;align-items:center;gap:6px;}.rp-next .ic{width:18px;height:18px;}
+.rp-center{text-align:center;margin-top:8px;white-space:normal;}
+.rp-empty{padding:16px;color:var(--muted);}
+.rp-loose{margin-top:18px;}.rp-loose>summary{cursor:pointer;color:var(--muted);padding:8px 4px;}
+@media(min-width:600px){.rp-next{flex-direction:row;justify-content:center;}}
+.rp-total-head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;}
+.rp-total .rp-more>summary{width:36px;height:36px;margin:-6px -6px 0 0;background:#ffffff17;border-color:transparent;color:#fff;}
+.rp-total .rp-more-list{color:var(--text);}
+.rp-top{margin:0 0 10px;}.rp-top[hidden]{display:none;}
+.rp-sub .rp-now{margin:0 6px 0 0;}
+.rp-item[open] .rp-name{white-space:normal;}
+.rp-detail details{margin:0;}
+.rp-detail details>summary{padding:6px 0;min-height:36px;}
+.rp-detail .booking-note{margin:4px 0 8px;font-size:13.5px;}
+.rp-total .rp-more>summary{width:32px!important;height:32px!important;min-height:0!important;padding:0!important;margin:-4px -4px 0 0;font-size:18px;border-radius:10px;}
+/* W132 Flüge, Mietwagen, Lücken */
+.rp-total-sub{color:#cfe3e5!important;}
+.rp-seg-item{background:transparent;border:0;margin:2px 0 6px;}
+.rp-seg-item[open]{background:var(--surface);border:1px solid var(--border);}
+.rp-seg{list-style:none;cursor:pointer;display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:12px;align-items:center;padding:4px 12px;min-height:44px;}
+.rp-seg::-webkit-details-marker{display:none;}
+.rp-seg-ic{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;margin:0 auto;}
+.rp-seg-ic .ic{width:16px;height:16px;}
+.rp-seg-ic.is-flug{background:#e6f1fb;color:#0c447c;}.rp-seg-ic.is-auto{background:#faeeda;color:#633806;}
+.rp-seg-main{font-size:14px;font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.rp-seg-main small{font-weight:400;color:var(--muted);}
+.rp-seg-price{text-align:right;font-size:13.5px;font-weight:600;white-space:nowrap;font-variant-numeric:tabular-nums;}
+.rp-seg-price span{display:block;font-size:11.5px;font-weight:400;color:var(--muted);}
+.rp-seg-item.is-past .rp-seg-main,.rp-seg-item.is-past .rp-seg-price{opacity:.75;}
+.rp-seg-list{margin:4px 0 8px;padding-left:20px;font-size:13px;line-height:1.7;font-variant-numeric:tabular-nums;}
+.rp-seg-list li.is-current{font-weight:600;}
+.rp-gap{display:flex;align-items:center;justify-content:space-between;gap:8px;}
+.rp-gap.is-past{opacity:.7;}
+.rp-gap-btn{min-height:36px;padding:4px 12px;display:inline-flex;align-items:center;gap:6px;font-size:13px;border-color:#e0a35a;color:#85550b;background:#fff8ec;}
+.rp-gap-btn .ic{width:14px;height:14px;}
+.rp-gap>span{min-width:0;}.rp-gap b{font-weight:600;}
+.rp-gap-btn{white-space:nowrap;flex-shrink:0;}

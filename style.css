@@ -2389,3 +2389,12 @@ body[data-area="lernen"] { padding-bottom: calc(100px + env(safe-area-inset-bott
 .rp-seg-item .rp-detail{border-top-color:#ffffff99;}
 .rp-month.is-dup{display:none!important;}
 @media (prefers-color-scheme:dark){.rp-seg-item.is-flug{background:#0c2a44;border-color:#185fa5;}.rp-seg-item.is-transport{background:#3a2a10;border-color:#854f0b;}.rp-seg-item.is-flug .rp-seg-main,.rp-seg-item.is-flug .rp-date-seg b{color:#b5d4f4;}.rp-seg-item.is-transport .rp-seg-main,.rp-seg-item.is-transport .rp-date-seg b{color:#fac775;}}
+
+/* W140: Tauchen (petrol/türkis) */
+.rp-seg-ic.is-tauchen{background:#d6f1ee;color:#0b5a55;}
+.rp-seg-item.is-tauchen{background:#eaf7f5;border-color:#9fd8d0;}
+.rp-seg-item.is-tauchen .rp-date-seg b,.rp-seg-item.is-tauchen .rp-seg-main{color:#0b5a55;}
+.rp-seg-item.is-tauchen .rp-seg-ic{background:#c9ece7;color:#0b5a55;}
+.rp-seg-item[open].is-tauchen{background:#eaf7f5;}
+.rp-dive-list li{margin:2px 0;}
+@media (prefers-color-scheme:dark){.rp-seg-item.is-tauchen{background:#0c2f2c;border-color:#1d7d74;}.rp-seg-item.is-tauchen .rp-seg-main,.rp-seg-item.is-tauchen .rp-date-seg b{color:#9fe3da;}.rp-seg-item.is-tauchen .rp-seg-ic{background:#14504a;color:#9fe3da;}}

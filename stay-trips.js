@@ -51,6 +51,7 @@ function segBelongsBefore(it,items){ // Zeile bleibt in der aktuellen Gruppe, au
  const idx=items.indexOf(it),d0=it.typ==='gap'?it.g.bis:String(it.s.an||it.s.ab).slice(0,10);
  for(let j=idx+1;j<items.length;j++){if(items[j].typ==='stay')return tripDayDiff(d0,items[j].e.anreise)>1;}return true;}
 function segRow(p,s,i,today){
+ if(p.art==='tauchen')return diveRow(p,s,i,today);
  const flight=p.art==='flug',plusDays=tripDayDiff(s.ab,s.an),n=p.segmente.length,price=Number(p.preis_gesamt_eur),hasPrice=Number.isFinite(price)&&price>0;
  const past=String(s.an||s.ab||'').slice(0,10)<today;
  const ic=el('span',{class:'rp-seg-ic '+(flight?'is-flug':'is-auto'),'aria-hidden':'true'},stayIcon(flight?'flug':'auto'));
@@ -71,6 +72,33 @@ function segRow(p,s,i,today){
   else{add('Abholung',fmtDate(String(s.ab).slice(0,10))+' '+tripClock(s.ab));add('Rückgabe',fmtDate(String(s.an).slice(0,10))+' '+tripClock(s.an));add('Ort',s.ort);}
   body.append(facts);
   if(n>1){const list=el('ol',{class:'rp-seg-list'});p.segmente.forEach((x,j)=>list.append(el('li',{class:j===i?'is-current':''},el('b',{},tripShortDate(x.ab)),' ',[x.nr,x.von+' '+tripClock(x.ab)+' → '+x.nach+' '+tripClock(x.an)].filter(Boolean).join(' · '))));body.append(el('details',{class:'rp-note'},el('summary',{},'Alle '+n+' Flüge dieser Buchung'),list));}
+  if(p.link)body.append(el('a',{class:'rp-link',href:p.link,target:'_blank',rel:'noopener'},stayIcon('extern'),'Buchung öffnen'));
+  if(p.notiz)body.append(el('details',{class:'rp-note'},el('summary',{},'Notiz'),el('p',{class:'booking-note'},p.notiz)));
+ });
+ return item;
+}
+// W140 (Sebastian 07.11.2026): Tauchtage als eigene Art – ein Segment je Tauchtag, mit Taucher, Gebiet und Log-Werten
+function diveNum(v,d=1){const n=Number(v);return Number.isFinite(n)?n.toLocaleString('de-DE',{maximumFractionDigits:d}):'';}
+function diveRow(p,s,i,today){
+ const price=Number(p.preis_gesamt_eur),hasPrice=Number.isFinite(price)&&price>0,tg=Array.isArray(s.tg)?s.tg:[],n=Number(s.tauchgaenge)||tg.length||0;
+ const who=Array.isArray(s.taucher)?s.taucher:[],past=String(s.an||s.ab||'').slice(0,10)<today;
+ const depths=tg.map(x=>Number(x.max_tiefe_m)).filter(Number.isFinite),maxD=depths.length?Math.max(...depths):null;
+ const ic=el('span',{class:'rp-seg-ic is-tauchen','aria-hidden':'true'},stayIcon('tauchen'));
+ const main=[n+(n===1?' Tauchgang':' Tauchgänge'),maxD!==null?' · bis '+diveNum(maxD)+' m':'',' · '+(who.length===4?'alle 4':who.length?who.join(', '):'Taucher offen')];
+ const sub=[s.gebiet||s.ort,p.anbieter].filter(Boolean).join(' · ');
+ const priceNode=el('div',{class:'rp-seg-price'},hasPrice?tripEuro(price,0):(p.kurs?.offen?'Kurs folgt':'? €'),el('span',{},(p.preis_ca&&hasPrice?'ca. · ':'')+(p.waehrung&&p.waehrung!=='EUR'&&p.preis_original?Number(p.preis_original).toLocaleString('de-DE')+' '+p.waehrung:'Tauchen')));
+ const head=el('summary',{class:'rp-seg'},el('div',{class:'rp-date rp-date-seg'},el('b',{},tripDM(s.ab)),el('span',{},new Date(String(s.ab).slice(0,10)+'T12:00:00').toLocaleDateString('de-DE',{weekday:'short'}).replace('.',''))),el('div',{class:'rp-main'},el('div',{class:'rp-seg-main'},...main),el('div',{class:'rp-sub rp-seg-sub'},ic,sub)),priceNode);
+ const body=el('div',{class:'rp-detail'});
+ const item=el('details',{class:'rp-item rp-seg-item is-tauchen'+(past?' is-past':''),'data-posten':p.id,'data-seg':i},head,body);
+ item.addEventListener('toggle',()=>{if(!item.open||body.childElementCount)return;
+  const facts=el('dl',{class:'rp-facts'});const add=(k,v)=>{if(v)facts.append(el('dt',{},k),el('dd',{},v));};
+  add('Anbieter',p.anbieter);add('Getaucht',who.join(', '));add('Gebiet',[s.gebiet,s.ort,s.land].filter(Boolean).join(' · '));
+  add('Zeit',[fmtDate(String(s.ab).slice(0,10)),[tripClock(s.ab),tripClock(s.an)].filter(Boolean).join('–')].filter(Boolean).join(' · '));add('Modus',s.modus);
+  add('Preis',hasPrice?(p.preis_ca?'ca. ':'')+tripEuro(price)+(p.waehrung&&p.waehrung!=='EUR'?' ('+Number(p.preis_original).toLocaleString('de-DE')+' '+p.waehrung+(p.kurs?.kurs?', Kurs '+p.kurs.datum:'')+')':''):(p.kurs?.offen?'Umrechnung folgt ('+Number(p.preis_original).toLocaleString('de-DE')+' '+p.waehrung+')':'nicht eingetragen'));
+  body.append(facts);
+  if(tg.length){const list=el('ol',{class:'rp-seg-list rp-dive-list'});for(const x of tg){const lat=Number(x.lat),lon=Number(x.lon),map=Number.isFinite(lat)&&Number.isFinite(lon)?el('a',{href:'https://www.google.com/maps?q='+lat+','+lon,target:'_blank',rel:'noopener'},'Karte'):null;
+   list.append(el('li',{},el('b',{},'TG '+(x.nr||'')),' ',[x.start,x.dauer_min?x.dauer_min+' min':'',x.max_tiefe_m!=null?'max. '+diveNum(x.max_tiefe_m)+' m':'',x.temp_c!=null?diveNum(x.temp_c)+' °C':'',x.gebiet].filter(Boolean).join(' · '),map?' · ':'',map));}
+   body.append(el('details',{class:'rp-note',open:true},el('summary',{},'Tauchgänge laut Log'),list));}
   if(p.link)body.append(el('a',{class:'rp-link',href:p.link,target:'_blank',rel:'noopener'},stayIcon('extern'),'Buchung öffnen'));
   if(p.notiz)body.append(el('details',{class:'rp-note'},el('summary',{},'Notiz'),el('p',{class:'booking-note'},p.notiz)));
  });
@@ -137,8 +165,8 @@ async function viewReisen(arg){
   const cents=v=>Math.round(Number(v)*100),pPrice=p=>{const v=Number(p.preis_gesamt_eur);return Number.isFinite(v)&&v>0?v:null;};
   const priced=booked.filter(e=>tripPrice(e)!==null),stayTotal=priced.reduce((s,e)=>s+cents(tripPrice(e)),0)/100,nights=booked.reduce((s,e)=>s+tripNights(e),0),pricedNights=priced.reduce((s,e)=>s+tripNights(e),0);
   const sumArt=a=>postenBooked.filter(p=>p.art===a&&pPrice(p)!==null).reduce((s,p)=>s+cents(pPrice(p)),0)/100;
-  const flightTotal=sumArt('flug'),carTotal=sumArt('mietwagen'),otherTotal=postenBooked.filter(p=>!['flug','mietwagen'].includes(p.art)&&pPrice(p)!==null).reduce((s,p)=>s+cents(pPrice(p)),0)/100;
-  const total=Math.round((stayTotal+flightTotal+carTotal+otherTotal)*100)/100,missing=(booked.length-priced.length)+postenBooked.filter(p=>pPrice(p)===null).length;
+  const flightTotal=sumArt('flug'),carTotal=sumArt('mietwagen'),diveTotal=sumArt('tauchen'),otherTotal=postenBooked.filter(p=>!['flug','mietwagen','tauchen'].includes(p.art)&&pPrice(p)!==null).reduce((s,p)=>s+cents(pPrice(p)),0)/100;
+  const total=Math.round((stayTotal+flightTotal+carTotal+diveTotal+otherTotal)*100)/100,missing=(booked.length-priced.length)+postenBooked.filter(p=>pPrice(p)===null).length;
   const approx=postenBooked.some(p=>p.preis_ca);
   const photos=stages.length?tripCall('unterkunft_fotos_lesen',{reise_id:rid}).then(r=>{if(!Array.isArray(r.fotos))throw Error('Fotos nicht vollständig lesbar.');return r.fotos;}):null;photos?.catch(()=>{});
   // W133: Zeitleiste in Abschnitten je Land, Filter Hotel / Flug / Transport
@@ -170,13 +198,13 @@ async function viewReisen(arg){
    el('div',{class:'rp-total-head'},el('div',{},el('div',{class:'rp-total-title'},el('span',{class:'rp-total-name'},trip.name),dayNo?el('span',{class:'rp-total-day'},'Tag '+dayNo+' von '+tripDays):null),
      el('div',{class:'rp-stats'},kpi(String(booked.length),booked.length===1?'Unterkunft':'Unterkünfte'),kpi(String(flightCount),flightCount===1?'Flug':'Flüge'),kpi(String(tripDays),'Tage'))),more),
    el('div',{class:'rp-total-money'},el('span',{},'Ausgegeben '),el('b',{},(approx?'ca. ':'')+tripEuro(total,0)),
-    el('span',{class:'rp-total-split'},' · Hotels '+tripEuro(stayTotal,0)+(flightTotal?' · Flüge '+tripEuro(flightTotal,0):'')+((carTotal+otherTotal)?' · Transport '+tripEuro(carTotal+otherTotal,0):'')+(pricedNights?' · Ø '+tripEuro(stayTotal/pricedNights,0)+'/Nacht':''))),
-   missing?el('p',{class:'rp-total-hint'},missing+' Buchung(en) ohne Preis – nicht eingerechnet.'):null));
+    el('span',{class:'rp-total-split'},' · Hotels '+tripEuro(stayTotal,0)+(flightTotal?' · Flüge '+tripEuro(flightTotal,0):'')+((carTotal+otherTotal)?' · Transport '+tripEuro(carTotal+otherTotal,0):'')+(diveTotal?' · Tauchen '+tripEuro(diveTotal,0):'')+(pricedNights?' · Ø '+tripEuro(stayTotal/pricedNights,0)+'/Nacht':''))),
+   missing?el('p',{class:'rp-total-hint'},missing+' Buchung(en) ohne Euro-Preis – nicht eingerechnet'+(postenBooked.some(p=>p.kurs?.offen)?' (Wechselkurs wird abgerufen).':'.')):null));
   // Filter: drei kleine Schalter, einzeln an/aus (Standard alle an)
-  let filt={hotel:true,flug:true,transport:true,...(stayRead('ks_rp_filter',{})||{})};
-  const kindOf=it=>it.typ==='seg'?(it.p.art==='flug'?'flug':'transport'):'hotel';
+  let filt={hotel:true,flug:true,transport:true,tauchen:true,...(stayRead('ks_rp_filter',{})||{})};
+  const kindOf=it=>it.typ==='seg'?(it.p.art==='flug'?'flug':it.p.art==='tauchen'?'tauchen':'transport'):'hotel';
   const chip=(key,icon,label)=>{const b=el('button',{type:'button',class:'rp-chip'+(filt[key]?' on':''),'aria-pressed':String(!!filt[key]),onclick:()=>{filt={...filt,[key]:!filt[key]};stayWrite('ks_rp_filter',filt);b.classList.toggle('on',filt[key]);b.setAttribute('aria-pressed',String(filt[key]));applyFilter();}},stayIcon(icon),label);return b;};
-  content.append(el('div',{class:'rp-filter',role:'group','aria-label':'Anzeigen'},chip('hotel','bett','Hotel'),chip('flug','flug','Flug'),chip('transport','auto','Transport')));
+  content.append(el('div',{class:'rp-filter',role:'group','aria-label':'Anzeigen'},chip('hotel','bett','Hotel'),chip('flug','flug','Flug'),chip('transport','auto','Transport'),postenBooked.some(p=>p.art==='tauchen')?chip('tauchen','tauchen','Tauchen'):null));
   function applyFilter(){for(const n of content.querySelectorAll('[data-kind]'))n.hidden=!filt[n.dataset.kind];for(const m of content.querySelectorAll('.rp-month')){let x=m.nextElementSibling,vis=false;while(x&&!x.classList.contains('rp-month')){if(!x.hidden&&x.dataset.kind){vis=true;break;}x=x.nextElementSibling;}m.hidden=!vis;}}
   if(!booked.length&&!postenBooked.length)content.append(el('p',{class:'rp-empty'},'Noch keine Buchung eingetragen.'));
   // Abschnitte bilden: Flüge bleiben im aktuellen Abschnitt, Unterkünfte/Lücken/Mietwagen eines anderen Landes öffnen einen neuen
@@ -202,20 +230,20 @@ async function viewReisen(arg){
    const key=rid+':'+sec.lands.join('|')+':'+sec.von;const open=secOpen.has(key)?secOpen.get(key):(isNow||isSoon);
    const sum=sec.items.reduce((c,it)=>it.typ==='stay'?c+cents(tripPrice(it.e)||0):(it.typ==='seg'&&it.i===0&&it.p.segmente.length<=3?c+cents(pPrice(it.p)||0):c),0)/100;
    const offen=sec.items.filter(it=>it.typ==='gap'&&it.bis>today).reduce((c,it)=>c+tripDayDiff(it.von>today?it.von:today,it.bis),0);
-   const nFl=sec.items.filter(it=>it.typ==='seg'&&it.p.art==='flug').length,nSt=sec.items.filter(it=>it.typ==='stay').length;
+   const nFl=sec.items.filter(it=>it.typ==='seg'&&it.p.art==='flug').length,nSt=sec.items.filter(it=>it.typ==='stay').length,nTg=sec.items.filter(it=>it.typ==='seg'&&it.p.art==='tauchen').length;
    const when=isNow?'jetzt':isPast?'abgeschlossen':(()=>{const d=tripDayDiff(today,sec.von);return d<=1?'morgen':d<=31?'in '+d+' Tagen':'ab '+tripMonthYear(sec.von);})();
    const head=el('summary',{class:'rp-sec-head'},
     el('div',{class:'rp-sec-title'},el('span',{class:'rp-flags','aria-hidden':'true'},...sec.lands.map(l=>tripFlag(l)).filter(Boolean).map(f=>el('span',{},f))),el('span',{class:'rp-sec-name'},sec.lands.map(tripLandShort).join(' · ')),isNow?el('span',{class:'rp-now'},'jetzt'):null),
     el('div',{class:'rp-sec-meta'},tripRange(sec.von,sec.bis)+' · '+n+(n===1?' Nacht':' Nächte')),
     el('div',{class:'rp-sec-sum'},sum?tripEuro(sum,0):el('i',{},'offen'),el('span',{},isNow?'noch '+tripDayDiff(today,sec.bis)+(tripDayDiff(today,sec.bis)===1?' Tag':' Tage'):when)),
-    el('div',{class:'rp-sec-mini'},[nSt?nSt+(nSt===1?' Unterkunft':' Unterkünfte'):null,nFl?nFl+(nFl===1?' Flug':' Flüge'):null,offen?el('b',{},offen+(offen===1?' Nacht offen':' Nächte offen')):null].filter(Boolean).flatMap((x,i)=>i?[' · ',x]:[x])));
+    el('div',{class:'rp-sec-mini'},[nSt?nSt+(nSt===1?' Unterkunft':' Unterkünfte'):null,nFl?nFl+(nFl===1?' Flug':' Flüge'):null,nTg?nTg+(nTg===1?' Tauchtag':' Tauchtage'):null,offen?el('b',{},offen+(offen===1?' Nacht offen':' Nächte offen')):null].filter(Boolean).flatMap((x,i)=>i?[' · ',x]:[x])));
    const body=el('div',{class:'rp-sec-body'});
    const secEl=el('details',{class:'rp-sec'+(isNow?' is-now':'')+(isPast?' is-past':''),open},head,body);
    secEl.addEventListener('toggle',()=>secOpen.set(key,secEl.open));
    const rowFor=it=>{const node=it.typ==='stay'?row(it.e,today,photos):it.typ==='seg'?segRow(it.p,it.s,it.i,today):gapRow(it.g,rid,today);node.dataset.kind=kindOf(it);return node;};
    const withMonths=(list,target)=>{let m=null,first=null;for(const it of list){const mm=String(it.von||'').slice(0,7);if(mm&&mm!==m){m=mm;const lab=el('div',{class:'rp-month','data-month':mm},tripMonthYear(it.von));first=first||lab;target.append(lab);}target.append(rowFor(it));}return {first,last:m};};
    if(isNow||isSoon){
-    const isPast=it=>it.bis<=today&&!(it.typ==='stay'&&it.e.abreise>today),isRun=it=>it.typ==='seg'&&it.p.art!=='flug'&&it.von<today; // W137: laufender Mietwagen bleibt an seinem Startdatum
+    const isPast=it=>it.bis<=today&&!(it.typ==='stay'&&it.e.abreise>today),isRun=it=>it.typ==='seg'&&!['flug','tauchen'].includes(it.p.art)&&it.von<today; // W137: laufender Mietwagen bleibt an seinem Startdatum
     let cut=sec.items.findIndex(it=>!isPast(it)&&!isRun(it));if(cut<0)cut=sec.items.length;
     const before=sec.items.slice(0,cut).filter(it=>it.von<=today),after=sec.items.filter(it=>it.von>horizon),mid=sec.items.filter(it=>!before.includes(it)&&!after.includes(it));
     let beforeLast=null,midRes=null;

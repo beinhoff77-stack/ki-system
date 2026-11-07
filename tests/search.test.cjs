@@ -314,13 +314,13 @@ test('PWA installiert vollständige Offline-Hülle, API wird nicht gecacht', asy
   assert(cacheNames.includes('ki-system:' + origin + '/another-app/:v1'));
   assert(!cacheNames.includes('ki-system:' + origin + '/:old'));
   await page.evaluate(() => fetch('README.md'));
-  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v72')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
-  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.47.2')); assert(cached.includes('/style.css?v=0.47.2'));
-  assert(cached.includes('/stay-tools.js?v=0.47.2')); assert(cached.includes('/stay-desk.js?v=0.47.2')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
-  assert(cached.includes('/stay-research.js?v=0.47.2'));
-  assert(cached.includes('/stay-form.js?v=0.47.2'));
-  assert(cached.includes('/stay-details.js?v=0.47.2'));
-  assert(cached.includes('/stay-districts.js?v=0.47.2'));
+  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v73')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
+  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.48.0')); assert(cached.includes('/style.css?v=0.48.0'));
+  assert(cached.includes('/stay-tools.js?v=0.48.0')); assert(cached.includes('/stay-desk.js?v=0.48.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
+  assert(cached.includes('/stay-research.js?v=0.48.0'));
+  assert(cached.includes('/stay-form.js?v=0.48.0'));
+  assert(cached.includes('/stay-details.js?v=0.48.0'));
+  assert(cached.includes('/stay-districts.js?v=0.48.0'));
   assert(!cached.includes('/README.md'));
   assert(!cached.some((u) => u.includes('app-api')));
   await context.setOffline(true); await page.reload();
@@ -2753,8 +2753,34 @@ test('W133: Abschnitte je Land mit Flagge, jetzt offen, Filter Hotel/Flug/Transp
  assert.equal(await vis('hotel'),2);assert.equal(await vis('transport'),1);
  await page.getByRole('button',{name:'Hotel',exact:true}).click();assert.equal(await vis('hotel'),0);assert.equal(await vis('transport'),1);
  await page.getByRole('button',{name:'Transport',exact:true}).click();assert.equal(await vis('transport'),0);
- assert.deepEqual(await page.evaluate(()=>JSON.parse(localStorage.getItem('ks_rp_filter'))),{hotel:false,flug:true,transport:false});
+ assert.deepEqual(await page.evaluate(()=>JSON.parse(localStorage.getItem('ks_rp_filter'))),{hotel:false,flug:true,transport:false,tauchen:true});
  await page.locator('.rp-sec').nth(1).locator('summary.rp-sec-head').click();assert.equal(await page.locator('.rp-sec').nth(1).evaluate(d=>d.open),true);
  await page.getByRole('button',{name:'Hotel',exact:true}).click();await page.locator('.rp-sec').nth(1).locator('[data-stage="2"]').waitFor();
  await rpOpenAll(page);assert.equal(await page.locator('.rp-sec').first().locator('[data-posten="5"]').count(),1); // Abflug aus Japan bleibt im Japan-Abschnitt
+});
+
+test('W140: Tauchtage mit Tauchern, Gebiet, Log-Werten, Euro-Summe und eigenem Filter',async t=>{
+ const day=n=>{const d=new Date();d.setDate(d.getDate()+n);return d.toISOString().slice(0,10);};
+ const data=stage2Data();
+ data.etappen=[{...data.etappen[1],id:1,anreise:day(-5),abreise:day(5),buchung:{name:'Haus Insel',preis_gesamt_eur:1000,land:'Japan'}}];
+ data.posten=[{id:7,reise_id:1,art:'tauchen',status:'gebucht',titel:'Tauchen',anbieter:'Aqua-no-jikan',preis_original:86000,waehrung:'JPY',preis_gesamt_eur:480.5,preis_ca:true,kurs:{kurs:0.0055875,datum:day(-2)},
+  segmente:[{ab:day(-2)+'T09:19',an:day(-2)+'T11:21',ort:'Ishigaki',land:'Japan',gebiet:'Westküste vor Sakieda',taucher:['Sebastian','Kerstin','Leo','Rosa'],tauchgaenge:2,modus:'Gerät',tg:[{nr:1,start:'09:19',dauer_min:44,max_tiefe_m:16.7,temp_c:28.2,lat:24.42,lon:124.08},{nr:2,start:'10:28',dauer_min:53,max_tiefe_m:14.9,lat:24.41,lon:124.08}]}]},
+  {id:8,reise_id:1,art:'tauchen',status:'gebucht',titel:'Tauchen 2',anbieter:'Euro Divers',preis_original:94600,waehrung:'JPY',preis_gesamt_eur:null,preis_ca:true,kurs:{offen:true},
+  segmente:[{ab:day(1)+'T09:30',an:day(1)+'T12:00',ort:'Ishigaki',land:'Japan',taucher:['Sebastian','Kerstin'],tauchgaenge:2,tg:[]}]}];
+ const {page}=await setup(t,p=>p.aktion==='unterkunft_etappen_lesen'?data:{fotos:[]},{width:390,height:844});
+ await page.goto(origin+'/#/reisen/1');await page.locator('.rp-sec').first().waitFor();
+ await rpOpenAll(page);
+ const row=page.locator('[data-posten="7"]');
+ assert.match(await row.locator('.rp-seg-main').textContent(),/2 Tauchgänge · bis 16,7 m · alle 4/);
+ assert.match(await row.locator('.rp-seg-sub').textContent(),/Westküste vor Sakieda · Aqua-no-jikan/);
+ assert.match(await page.locator('[data-posten="8"] .rp-seg-main').textContent(),/Sebastian, Kerstin/);
+ assert.match(await page.locator('[data-posten="8"] .rp-seg-price').textContent(),/Kurs folgt/);
+ assert.match(await page.locator('.rp-total-split').textContent(),/Tauchen 481/);
+ assert.match(await page.locator('.rp-total-hint').textContent(),/Wechselkurs wird abgerufen/);
+ await row.locator('summary').click();
+ assert.match(await row.locator('.rp-facts').textContent(),/Sebastian, Kerstin, Leo, Rosa/);
+ assert.equal(await row.locator('.rp-dive-list li').count(),2);
+ assert.match(await row.locator('.rp-dive-list a').first().getAttribute('href'),/maps\?q=24\.42,124\.08/);
+ assert.equal(await page.locator('[data-kind="tauchen"]:visible').count(),2);
+ await page.getByRole('button',{name:'Tauchen',exact:true}).click();assert.equal(await page.locator('[data-kind="tauchen"]:visible').count(),0);
 });

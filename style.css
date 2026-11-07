@@ -2418,3 +2418,13 @@ body[data-area="lernen"] { padding-bottom: calc(100px + env(safe-area-inset-bott
  .rp-seg-item.is-tauchen .rp-seg-main,.rp-seg-item.is-tauchen .rp-date-seg b{color:#b5d4f4;}
  .rp-seg-item.is-tauchen .rp-seg-ic,.rp-seg-ic.is-tauchen{background:#123c63;color:#b5d4f4;}
 }
+
+/* W142: Nebenkosten (rosé) */
+.rp-seg-ic.is-kosten{background:#f6dde5;color:#7a2945;}
+.rp-seg-item.is-kosten{background:#fbf1f4;border-color:#ecc3cf;}
+.rp-seg-item[open].is-kosten{background:#fbf1f4;}
+.rp-seg-item.is-kosten .rp-date-seg b,.rp-seg-item.is-kosten .rp-seg-main{color:#7a2945;}
+.rp-nk-kat{padding:6px 0;border-bottom:1px solid #ecc3cf66;}
+.rp-nk-head{display:flex;justify-content:space-between;gap:8px;font-variant-numeric:tabular-nums;}
+.rp-nk-top{margin:2px 0 0;font-size:.85em;opacity:.8;}
+@media (prefers-color-scheme:dark){.rp-seg-item.is-kosten{background:#3a1723;border-color:#8a3a55;}.rp-seg-item.is-kosten .rp-seg-main,.rp-seg-item.is-kosten .rp-date-seg b{color:#f4b8cb;}.rp-seg-ic.is-kosten,.rp-seg-item.is-kosten .rp-seg-ic{background:#5a2236;color:#f4b8cb;}}

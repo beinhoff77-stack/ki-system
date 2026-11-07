@@ -77,6 +77,26 @@ function segRow(p,s,i,today){
  });
  return item;
 }
+// W142 (Sebastian 07.11.2026): Nebenkosten vor Ort je Monat und Kategorie, am Monatsende im Reiseplan
+const NK_KAT={essen:'Essen & Trinken',erleben:'Erlebnisse & Wellness',unterwegs:'Unterwegs',sonst:'Sonstiges'};
+const NK_KURZ={essen:'Essen',erleben:'Erlebnisse',unterwegs:'Unterwegs',sonst:'Sonstiges'};
+function kostenRow(n,today){
+ const kats=Array.isArray(n.kategorien)?n.kategorien:[],sum=Number(n.summe)||0,mon=new Date(String(n.bis)+'T12:00:00').toLocaleDateString('de-DE',{month:'long'});
+ const open=String(n.stand||'')<String(n.bis||'');
+ const ic=el('span',{class:'rp-seg-ic is-kosten','aria-hidden':'true'},stayIcon('geld'));
+ const head=el('summary',{class:'rp-seg'},el('div',{class:'rp-date rp-date-seg'},el('b',{},tripDM(n.bis)),el('span',{},'Ende')),
+  el('div',{class:'rp-main'},el('div',{class:'rp-seg-main'},'Nebenkosten '+mon),el('div',{class:'rp-sub rp-seg-sub'},ic,kats.map(k=>(NK_KURZ[k.key]||k.key)+' '+tripEuro(k.eur,0)).join(' · '))),
+  el('div',{class:'rp-seg-price'},tripEuro(sum,0),el('span',{},open?'bis '+tripDM(n.stand):'Monat')));
+ const body=el('div',{class:'rp-detail'});
+ const item=el('details',{class:'rp-item rp-seg-item is-kosten'+(String(n.bis)<today?' is-past':''),'data-kosten':n.monat},head,body);
+ item.addEventListener('toggle',()=>{if(!item.open||body.childElementCount)return;
+  for(const k of kats){const top=Array.isArray(k.top)?k.top:[];
+   body.append(el('div',{class:'rp-nk-kat'},el('div',{class:'rp-nk-head'},el('b',{},NK_KAT[k.key]||k.key),el('span',{},tripEuro(k.eur,0)+(k.anzahl?' · '+k.anzahl+(k.anzahl===1?' Buchung':' Buchungen'):''))),
+    el('p',{class:'rp-nk-top'},top.map(t=>t.anbieter+' '+tripEuro(t.eur,0)).join(' · '))));}
+  body.append(el('p',{class:'booking-note'},'Kreditkarte vor Ort'+(n.stand?' bis '+tripDM(n.stand):'')+'. Ohne Unterkünfte, Flüge, Mietwagen und Tauchen (stehen einzeln im Plan) und ohne private Ausgaben. Auslandsgebühr 2 % unter Sonstiges.'));
+ });
+ return item;
+}
 // W140 (Sebastian 07.11.2026): Tauchtage als eigene Art – ein Segment je Tauchtag, mit Taucher, Gebiet und Log-Werten
 function diveNum(v,d=1){const n=Number(v);return Number.isFinite(n)?n.toLocaleString('de-DE',{maximumFractionDigits:d}):'';}
 function diveRow(p,s,i,today){
@@ -166,18 +186,20 @@ async function viewReisen(arg){
   const priced=booked.filter(e=>tripPrice(e)!==null),stayTotal=priced.reduce((s,e)=>s+cents(tripPrice(e)),0)/100,nights=booked.reduce((s,e)=>s+tripNights(e),0),pricedNights=priced.reduce((s,e)=>s+tripNights(e),0);
   const sumArt=a=>postenBooked.filter(p=>p.art===a&&pPrice(p)!==null).reduce((s,p)=>s+cents(pPrice(p)),0)/100;
   const flightTotal=sumArt('flug'),carTotal=sumArt('mietwagen'),diveTotal=sumArt('tauchen'),otherTotal=postenBooked.filter(p=>!['flug','mietwagen','tauchen'].includes(p.art)&&pPrice(p)!==null).reduce((s,p)=>s+cents(pPrice(p)),0)/100;
-  const total=Math.round((stayTotal+flightTotal+carTotal+diveTotal+otherTotal)*100)/100,missing=(booked.length-priced.length)+postenBooked.filter(p=>pPrice(p)===null).length;
+  const neben=(snapshot.nebenkosten||[]).filter(n=>n.reise_id===rid),nebenTotal=neben.reduce((c,n)=>c+cents(Number(n.summe)||0),0)/100,nebenStand=neben.map(n=>String(n.stand||'')).sort().pop();
+  const total=Math.round((stayTotal+flightTotal+carTotal+diveTotal+otherTotal+nebenTotal)*100)/100,missing=(booked.length-priced.length)+postenBooked.filter(p=>pPrice(p)===null).length;
   const approx=postenBooked.some(p=>p.preis_ca);
   const photos=stages.length?tripCall('unterkunft_fotos_lesen',{reise_id:rid}).then(r=>{if(!Array.isArray(r.fotos))throw Error('Fotos nicht vollständig lesbar.');return r.fotos;}):null;photos?.catch(()=>{});
   // W133: Zeitleiste in Abschnitten je Land, Filter Hotel / Flug / Transport
   const items=[];
   for(const e of booked)items.push({k:String(e.anreise)+'T23:00',typ:'stay',e,von:e.anreise,bis:e.abreise,land:e.buchung?.land||e.ziel});
   for(const p of postenBooked)p.segmente.forEach((x,i)=>items.push({k:String(x.ab||p.beginn||''),typ:'seg',p,s:x,i,von:String(x.ab||'').slice(0,10),bis:String(x.an||x.ab||'').slice(0,10),land:p.art==='flug'?(x.von_land||''):(x.land||'')}));
+  for(const n of neben)items.push({k:String(n.bis)+'T23:58',typ:'kosten',n,von:String(n.bis),bis:String(n.bis),land:''});
   items.sort((a,b)=>a.k.localeCompare(b.k));
   const dayAdd=(d,n)=>{const x=new Date(d+'T12:00:00Z');x.setUTCDate(x.getUTCDate()+n);return x.toISOString().slice(0,10);};
   const covered=new Set();for(const e of booked)for(let d=e.anreise;d<e.abreise;d=dayAdd(d,1))covered.add(d);
   for(const p of postenBooked)if(p.art==='flug')for(const x of p.segmente){const a=String(x.ab||'').slice(0,10),b=String(x.an||'').slice(0,10);if(a&&b)for(let d=a;d<b;d=dayAdd(d,1))covered.add(d);}
-  const allDates=items.flatMap(it=>[it.von,it.bis]).filter(Boolean).sort();
+  const allDates=items.filter(it=>it.typ!=='kosten').flatMap(it=>[it.von,it.bis]).filter(Boolean).sort();
   const flights=postenBooked.filter(p=>p.art==='flug').flatMap(p=>p.segmente).filter(x=>x.ab&&x.an);
   const departs=new Set(flights.map(x=>String(x.ab).slice(0,10)));
   const placeAt=d=>{let best=null;for(const x of flights){const a=String(x.an).slice(0,10);if(a<=d&&(!best||String(x.an)>String(best.an)))best=x;}return best;};
@@ -198,13 +220,13 @@ async function viewReisen(arg){
    el('div',{class:'rp-total-head'},el('div',{},el('div',{class:'rp-total-title'},el('span',{class:'rp-total-name'},trip.name),dayNo?el('span',{class:'rp-total-day'},'Tag '+dayNo+' von '+tripDays):null),
      el('div',{class:'rp-stats'},kpi(String(booked.length),booked.length===1?'Unterkunft':'Unterkünfte'),kpi(String(flightCount),flightCount===1?'Flug':'Flüge'),kpi(String(tripDays),'Tage'))),more),
    el('div',{class:'rp-total-money'},el('span',{},'Ausgegeben '),el('b',{},(approx?'ca. ':'')+tripEuro(total,0)),
-    el('span',{class:'rp-total-split'},' · Hotels '+tripEuro(stayTotal,0)+(flightTotal?' · Flüge '+tripEuro(flightTotal,0):'')+((carTotal+otherTotal)?' · Transport '+tripEuro(carTotal+otherTotal,0):'')+(diveTotal?' · Tauchen '+tripEuro(diveTotal,0):'')+(pricedNights?' · Ø '+tripEuro(stayTotal/pricedNights,0)+'/Nacht':''))),
+    el('span',{class:'rp-total-split'},' · Hotels '+tripEuro(stayTotal,0)+(flightTotal?' · Flüge '+tripEuro(flightTotal,0):'')+((carTotal+otherTotal)?' · Transport '+tripEuro(carTotal+otherTotal,0):'')+(diveTotal?' · Tauchen '+tripEuro(diveTotal,0):'')+(nebenTotal?' · Nebenkosten '+tripEuro(nebenTotal,0)+(nebenStand?' (bis '+tripDM(nebenStand)+')':''):'')+(pricedNights?' · Ø '+tripEuro(stayTotal/pricedNights,0)+'/Nacht':''))),
    missing?el('p',{class:'rp-total-hint'},missing+' Buchung(en) ohne Euro-Preis – nicht eingerechnet'+(postenBooked.some(p=>p.kurs?.offen)?' (Wechselkurs wird abgerufen).':'.')):null));
   // Filter: drei kleine Schalter, einzeln an/aus (Standard alle an)
-  let filt={hotel:true,flug:true,transport:true,tauchen:true,...(stayRead('ks_rp_filter',{})||{})};
-  const kindOf=it=>it.typ==='seg'?(it.p.art==='flug'?'flug':it.p.art==='tauchen'?'tauchen':'transport'):'hotel';
+  let filt={hotel:true,flug:true,transport:true,tauchen:true,kosten:true,...(stayRead('ks_rp_filter',{})||{})};
+  const kindOf=it=>it.typ==='kosten'?'kosten':it.typ==='seg'?(it.p.art==='flug'?'flug':it.p.art==='tauchen'?'tauchen':'transport'):'hotel';
   const chip=(key,icon,label)=>{const b=el('button',{type:'button',class:'rp-chip'+(filt[key]?' on':''),'aria-pressed':String(!!filt[key]),onclick:()=>{filt={...filt,[key]:!filt[key]};stayWrite('ks_rp_filter',filt);b.classList.toggle('on',filt[key]);b.setAttribute('aria-pressed',String(filt[key]));applyFilter();}},stayIcon(icon),label);return b;};
-  content.append(el('div',{class:'rp-filter',role:'group','aria-label':'Anzeigen'},chip('hotel','bett','Hotel'),chip('flug','flug','Flug'),chip('transport','auto','Transport'),postenBooked.some(p=>p.art==='tauchen')?chip('tauchen','tauchen','Tauchen'):null));
+  content.append(el('div',{class:'rp-filter',role:'group','aria-label':'Anzeigen'},chip('hotel','bett','Hotel'),chip('flug','flug','Flug'),chip('transport','auto','Transport'),postenBooked.some(p=>p.art==='tauchen')?chip('tauchen','tauchen','Tauchen'):null,neben.length?chip('kosten','geld','Nebenkosten'):null));
   function applyFilter(){for(const n of content.querySelectorAll('[data-kind]'))n.hidden=!filt[n.dataset.kind];for(const m of content.querySelectorAll('.rp-month')){let x=m.nextElementSibling,vis=false;while(x&&!x.classList.contains('rp-month')){if(!x.hidden&&x.dataset.kind){vis=true;break;}x=x.nextElementSibling;}m.hidden=!vis;}}
   if(!booked.length&&!postenBooked.length)content.append(el('p',{class:'rp-empty'},'Noch keine Buchung eingetragen.'));
   // Abschnitte bilden: Flüge bleiben im aktuellen Abschnitt, Unterkünfte/Lücken/Mietwagen eines anderen Landes öffnen einen neuen
@@ -240,7 +262,7 @@ async function viewReisen(arg){
    const body=el('div',{class:'rp-sec-body'});
    const secEl=el('details',{class:'rp-sec'+(isNow?' is-now':'')+(isPast?' is-past':''),open},head,body);
    secEl.addEventListener('toggle',()=>secOpen.set(key,secEl.open));
-   const rowFor=it=>{const node=it.typ==='stay'?row(it.e,today,photos):it.typ==='seg'?segRow(it.p,it.s,it.i,today):gapRow(it.g,rid,today);node.dataset.kind=kindOf(it);return node;};
+   const rowFor=it=>{const node=it.typ==='kosten'?kostenRow(it.n,today):it.typ==='stay'?row(it.e,today,photos):it.typ==='seg'?segRow(it.p,it.s,it.i,today):gapRow(it.g,rid,today);node.dataset.kind=kindOf(it);return node;};
    const withMonths=(list,target)=>{let m=null,first=null;for(const it of list){const mm=String(it.von||'').slice(0,7);if(mm&&mm!==m){m=mm;const lab=el('div',{class:'rp-month','data-month':mm},tripMonthYear(it.von));first=first||lab;target.append(lab);}target.append(rowFor(it));}return {first,last:m};};
    if(isNow||isSoon){
     const isPast=it=>it.bis<=today&&!(it.typ==='stay'&&it.e.abreise>today),isRun=it=>it.typ==='seg'&&!['flug','tauchen'].includes(it.p.art)&&it.von<today; // W137: laufender Mietwagen bleibt an seinem Startdatum

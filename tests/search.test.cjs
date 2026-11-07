@@ -314,13 +314,13 @@ test('PWA installiert vollständige Offline-Hülle, API wird nicht gecacht', asy
   assert(cacheNames.includes('ki-system:' + origin + '/another-app/:v1'));
   assert(!cacheNames.includes('ki-system:' + origin + '/:old'));
   await page.evaluate(() => fetch('README.md'));
-  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v74')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
-  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.48.1')); assert(cached.includes('/style.css?v=0.48.1'));
-  assert(cached.includes('/stay-tools.js?v=0.48.1')); assert(cached.includes('/stay-desk.js?v=0.48.1')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
-  assert(cached.includes('/stay-research.js?v=0.48.1'));
-  assert(cached.includes('/stay-form.js?v=0.48.1'));
-  assert(cached.includes('/stay-details.js?v=0.48.1'));
-  assert(cached.includes('/stay-districts.js?v=0.48.1'));
+  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v75')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
+  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.49.0')); assert(cached.includes('/style.css?v=0.49.0'));
+  assert(cached.includes('/stay-tools.js?v=0.49.0')); assert(cached.includes('/stay-desk.js?v=0.49.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
+  assert(cached.includes('/stay-research.js?v=0.49.0'));
+  assert(cached.includes('/stay-form.js?v=0.49.0'));
+  assert(cached.includes('/stay-details.js?v=0.49.0'));
+  assert(cached.includes('/stay-districts.js?v=0.49.0'));
   assert(!cached.includes('/README.md'));
   assert(!cached.some((u) => u.includes('app-api')));
   await context.setOffline(true); await page.reload();
@@ -2753,7 +2753,7 @@ test('W133: Abschnitte je Land mit Flagge, jetzt offen, Filter Hotel/Flug/Transp
  assert.equal(await vis('hotel'),2);assert.equal(await vis('transport'),1);
  await page.getByRole('button',{name:'Hotel',exact:true}).click();assert.equal(await vis('hotel'),0);assert.equal(await vis('transport'),1);
  await page.getByRole('button',{name:'Transport',exact:true}).click();assert.equal(await vis('transport'),0);
- assert.deepEqual(await page.evaluate(()=>JSON.parse(localStorage.getItem('ks_rp_filter'))),{hotel:false,flug:true,transport:false,tauchen:true});
+ assert.deepEqual(await page.evaluate(()=>JSON.parse(localStorage.getItem('ks_rp_filter'))),{hotel:false,flug:true,transport:false,tauchen:true,kosten:true});
  await page.locator('.rp-sec').nth(1).locator('summary.rp-sec-head').click();assert.equal(await page.locator('.rp-sec').nth(1).evaluate(d=>d.open),true);
  await page.getByRole('button',{name:'Hotel',exact:true}).click();await page.locator('.rp-sec').nth(1).locator('[data-stage="2"]').waitFor();
  await rpOpenAll(page);assert.equal(await page.locator('.rp-sec').first().locator('[data-posten="5"]').count(),1); // Abflug aus Japan bleibt im Japan-Abschnitt
@@ -2783,4 +2783,27 @@ test('W140: Tauchtage mit Tauchern, Gebiet, Log-Werten, Euro-Summe und eigenem F
  assert.match(await row.locator('.rp-dive-list a').first().getAttribute('href'),/maps\?q=24\.42,124\.08/);
  assert.equal(await page.locator('[data-kind="tauchen"]:visible').count(),2);
  await page.getByRole('button',{name:'Tauchen',exact:true}).click();assert.equal(await page.locator('[data-kind="tauchen"]:visible').count(),0);
+});
+
+test('W142: Nebenkosten am Monatsende mit Kategorien, in der Gesamtsumme und eigenem Filter',async t=>{
+ const data=stage2Data();
+ data.etappen=[{...data.etappen[1],id:1,anreise:'2026-09-28',abreise:'2026-10-05',buchung:{name:'Haus Insel',preis_gesamt_eur:1000,land:'Japan'}}];
+ data.posten=[];
+ data.nebenkosten=[{reise_id:1,monat:'2026-09',bis:'2026-09-30',stand:'2026-09-30',summe:300,kategorien:[{key:'essen',eur:200,anzahl:5,top:[{anbieter:'MaxValu',eur:150}]},{key:'unterwegs',eur:100,anzahl:3,top:[{anbieter:'Uber',eur:100}]}]},
+  {reise_id:1,monat:'2026-10',bis:'2026-10-31',stand:'2026-10-03',summe:50,kategorien:[{key:'sonst',eur:50,anzahl:1,top:[{anbieter:'Ubigi',eur:50}]}]},
+  {reise_id:99,monat:'2026-10',bis:'2026-10-31',stand:'2026-10-30',summe:999,kategorien:[]}];
+ const {page}=await setup(t,p=>p.aktion==='unterkunft_etappen_lesen'?data:{fotos:[]},{width:390,height:844});
+ await page.goto(origin+'/#/reisen/1');await page.locator('.rp-sec').first().waitFor();
+ await rpOpenAll(page);
+ assert.match(await page.locator('.rp-total-split').textContent(),/Nebenkosten 350\s€ \(bis 03\.10\.\)/);
+ assert.match(await page.locator('.rp-total-money b').textContent(),/1\.350/);
+ const sep=page.locator('[data-kosten="2026-09"]');
+ assert.match(await sep.locator('.rp-seg-main').textContent(),/Nebenkosten September/);
+ assert.match(await sep.locator('.rp-seg-sub').textContent(),/Essen 200\s€ · Unterwegs 100\s€/);
+ assert.match(await page.locator('[data-kosten="2026-10"] .rp-seg-price').textContent(),/bis 03\.10\./);
+ await sep.locator('summary').click();await sep.locator('.rp-nk-kat').first().waitFor();
+ assert.match(await sep.locator('.rp-detail').textContent(),/Essen & Trinken.*200\s€.*MaxValu 150\s€/s);
+ assert.equal(await page.locator('[data-kosten]').count(),2);
+ await page.getByRole('button',{name:'Nebenkosten',exact:true}).click();
+ assert.equal(await page.locator('[data-kind="kosten"]:visible').count(),0);
 });

@@ -81,6 +81,16 @@ Pflicht: `taucher` (Vornamen, wer getaucht ist), `tauchgaenge`, `gebiet` (genaue
 UDDF-Hinweise: Temperatur steht in Kelvin (− 273,15), Tiefe in m, Dauer in s. Zeitstempel sind Ortszeit (Oceanic-Export schreibt fälschlich `+00:09`). `divemode apnoe` = Computer falsch eingestellt → nur Maximaltiefe, Dauer ungenau, im `modus` vermerken. Gebiet aus GPS ableiten und in der Notiz als „nicht vom Anbieter bestätigt“ kennzeichnen.
 App: eigene Farbe (petrol), Filter „Tauchen“ (nur wenn vorhanden), Summe „Tauchen“ in der Gesamtzeile, Details mit Kartenlink je Tauchgang.
 
+### 2d. Nebenkosten vor Ort (`reise_ausgabe`, seit W142)
+
+Kreditkartenbuchungen (Wio, alle Karten) ab Reisebeginn, **eine Zeile je Buchung** – Quelle sind die Monatsabrechnungen (PDF). Felder: `datum`, `anbieter` (bereinigter Name), `text_original`, `karte_endung`, `waehrung_karte`, `betrag_aed`, `betrag_eur` (Tageskurs AED→EUR aus `wechselkurs`), `gebuehr_eur` (2 % Auslandseinsatzgebühr), `land`, `quelle_ref` (`wio:<n>`, eindeutig).
+- `status`: `reise` = Nebenkosten (zählt), `privat` = nicht zählen, `plan` = steckt schon in `etappe`/`reise_posten` (nie doppelt zählen).
+- `kategorie`: `essen` (Restaurants, Supermarkt, Konbini, Lieferdienst), `erleben` (Aktivitäten, Eintritte, Onsen, Massage), `unterwegs` (Taxi/Uber/Careem, Tanken, Parken, Flug-Nebenkosten), `sonst` (Shopping, Telefon/eSIM, Apps, Apotheke, Unklares).
+- Regeln je Anbieter hat Sebastian in der Seite „Reisekasse Weltreise“ gesetzt (privat u. a.: KI-Abos, Apple, Behörden Dubai, Etisalat/du, Noon, Spas Dubai, Hoka). Neue Abrechnung: gleiche Regeln anwenden, nur neue Anbieter fragen.
+- Gebühr zählt bei `status <> 'privat'` unter Sonstiges (auch für Plan-Buchungen).
+- Plan-Buchungen auf der Karte: Plan-Wert = Kartenbetrag ohne Gebühr (Etappen: `waehrung` AED, `preis_buchung` = Originalpreis).
+- `unterkunft.nebenkosten_json(reise)` fasst je Monat zusammen; `api.unterkunft_etappen_lesen` liefert sie als `nebenkosten`. App: Zeile „Nebenkosten <Monat>“ am Monatsende (rosé, Filter „Nebenkosten“), Summe in der Gesamtzeile.
+
 ## 3. Bestand Weltreise (reise_id 1), Stand 07.11.2026
 
 Posten: 1 Emirates IDN6RJ · 2 Tigerair W75GXP · 3 Klook-Mietwagen Ishigaki · 4 oneworld-RTW YNGQBK (11 Flüge, ca. 24.490 €) · 5 ANA NH 90 · 6 Mietwagen Japan-Rundreise 27.10.–10.11. (ca. 1.200 €) · 7–10 Tauchtage Ishigaki 02./03./05./13.10. (Euro Divers, 3× Aqua-no-jikan; je 2 TG, alle 4; ca. 1.992 €).

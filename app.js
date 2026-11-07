@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.49.1';
+const APP_VERSION = '0.50.0';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -222,24 +222,47 @@ async function render() {
 
 function viewStart() {
   setChrome('Dein KI-System', { showTabs: false });
-  main.replaceChildren(el('section', { class: 'start-intro' },
+  const live = viewGuard();
+  const tripSlot = el('a', { class: 'start-trip is-loading', href: '#/reisen' },
+    el('p', { class: 'eyebrow' }, 'DEINE REISE'), el('h2', {}, 'Reiseplan'), el('p', { class: 'start-trip-now' }, 'Wird geladen …'),
+    el('span', { class: 'area-enter' }, 'Reise öffnen', el('span', { 'aria-hidden': true }, '↗')));
+  const area = (cls, href, art, glyph, eyebrow, title, text) => el('a', { class: 'area-card area-compact ' + cls, href },
+    el('div', { class: 'area-art ' + art, 'aria-hidden': true }, el('span', { class: 'area-glyph' }, glyph)),
+    el('div', { class: 'area-card-copy' }, el('p', { class: 'eyebrow' }, eyebrow), el('h2', {}, title), el('p', {}, text)),
+    el('span', { class: 'area-arrow', 'aria-hidden': true }, '↗'));
+  main.replaceChildren(el('section', { class: 'start-intro start-intro-compact' },
     el('p', { class: 'eyebrow' }, 'DEIN PERSÖNLICHER RAUM'),
-    el('h2', {}, 'Was möchtest du heute machen?'),
-    el('p', {}, 'Drei Bereiche. Ein Zuhause für deine Entscheidungen, Reisen und das Lernen.')),
-    el('div', { class: 'area-cards' },
-      el('a', { class: 'area-card council-card', href: '#/auftraege' },
-        el('div', { class: 'area-art council-art', 'aria-hidden': true }, el('span', {}, '○'), el('span', {}, '○'), el('span', {}, '○')),
-        el('div', { class: 'area-card-copy' }, el('p', { class: 'eyebrow' }, 'DENKEN & ENTSCHEIDEN'), el('h2', {}, 'Council'),
-          el('p', {}, 'Fragen durchdenken, Perspektiven vergleichen und Entscheidungen vorbereiten.'), el('span', { class: 'area-enter' }, 'Council öffnen', el('span', { 'aria-hidden': true }, '↗')))),
-      el('a', { class: 'area-card stay-card', href: '#/suche' },
-        el('div', { class: 'area-art stay-art', 'aria-hidden': true }, el('span', { class: 'stay-sun' }), el('span', { class: 'stay-house' }, '⌂')),
-        el('div', { class: 'area-card-copy' }, el('p', { class: 'eyebrow' }, 'REISEN & WOHLFÜHLEN'), el('h2', {}, 'Unterkunft.'),
-          el('p', {}, 'Einen guten Ort für eure Reise finden. Unterkünfte suchen und in Ruhe vergleichen.'), el('span', { class: 'area-enter' }, 'Unterkunft öffnen', el('span', { 'aria-hidden': true }, '↗')))),
-      el('a', { class: 'area-card learn-card', href: '#/lernen' },
-        el('div', { class: 'area-art learn-art', 'aria-hidden': true }, el('span', {}, 'π'), el('span', {}, '=')),
-        el('div', { class: 'area-card-copy' }, el('p', { class: 'eyebrow' }, 'LERNEN & VERSTEHEN'), el('h2', {}, 'Lernen Schule'),
-          el('p', {}, 'Merkblätter und Übungen für die Schule. Zum Nachschlagen, auch für Leo und Lehrkräfte.'), el('span', { class: 'area-enter' }, 'Lernen öffnen', el('span', { 'aria-hidden': true }, '↗'))))),
+    el('h2', {}, 'Was möchtest du heute machen?')),
+    tripSlot,
+    el('div', { class: 'area-list' },
+      area('stay-card', '#/suche', 'stay-art', '⌂', 'REISEN', 'Unterkunft suchen', 'Unterkünfte finden und vergleichen.'),
+      area('council-card', '#/auftraege', 'council-art', '○○○', 'DENKEN & ENTSCHEIDEN', 'Council', 'Fragen durchdenken und Entscheidungen vorbereiten.'),
+      area('learn-card', '#/lernen', 'learn-art', 'π', 'LERNEN', 'Lernen Schule', 'Merkblätter und Übungen für Leo.')),
     el('p', { class: 'start-footer' }, el('a', { href: '#/einstellungen' }, 'Zugang & Einstellungen'), el('span', {}, ' · '), el('a', { href: '#/werkstatt' }, 'Werkstatt')));
+  // W144: aktuelle Reise direkt auf der Startseite
+  if (typeof tripCall !== 'function') return;
+  tripCall('unterkunft_etappen_lesen').then((r) => {
+    if (!live()) return;
+    const today = tripToday(), reisen = r.reisen || [];
+    const span = (id) => { const ds = [...(r.etappen || []).filter((e) => e.reise_id === id && e.status === 'gebucht').flatMap((e) => [e.anreise, e.abreise]), ...(r.posten || []).filter((p) => p.reise_id === id).flatMap((p) => (p.segmente || []).map((x) => String(x.ab || '').slice(0, 10)))].filter(Boolean).sort(); return { von: ds[0], bis: ds[ds.length - 1] }; };
+    const withSpan = reisen.map((t) => ({ t, ...span(t.id) })).filter((x) => x.von);
+    const pick = withSpan.find((x) => x.von <= today && today <= x.bis) || withSpan.filter((x) => x.von > today).sort((a, b) => a.von.localeCompare(b.von))[0] || withSpan[0];
+    if (!pick) { tripSlot.classList.remove('is-loading'); tripSlot.querySelector('.start-trip-now').textContent = 'Noch keine Reise angelegt.'; return; }
+    const stays = (r.etappen || []).filter((e) => e.reise_id === pick.t.id && e.status === 'gebucht').sort((a, b) => String(a.anreise).localeCompare(String(b.anreise)));
+    const now = stays.find((e) => e.anreise <= today && today < e.abreise), next = stays.find((e) => e.anreise > today);
+    const flights = (r.posten || []).filter((p) => p.reise_id === pick.t.id && p.art === 'flug').flatMap((p) => p.segmente || []).filter((x) => String(x.ab || '') > today).sort((a, b) => String(a.ab).localeCompare(String(b.ab)));
+    const nf = flights[0];
+    const day = pick.von <= today && today <= pick.bis ? tripDayDiff(pick.von, today) + 1 : null, days = tripDayDiff(pick.von, pick.bis);
+    tripSlot.href = '#/reisen/' + pick.t.id; tripSlot.classList.remove('is-loading');
+    tripSlot.replaceChildren(
+      el('p', { class: 'eyebrow' }, day ? 'DEINE REISE · TAG ' + day + ' VON ' + days : 'DEINE REISE · AB ' + tripShortDate(pick.von)),
+      el('h2', {}, pick.t.name || 'Reise'),
+      now ? el('p', { class: 'start-trip-now' }, el('b', {}, now.ziel), (now.buchung?.name ? ' · ' + now.buchung.name : '') + ' · bis ' + tripShortDate(now.abreise)) : null,
+      el('ul', { class: 'start-trip-next' },
+        nf ? el('li', {}, 'Nächster Flug: ' + tripShortDate(nf.ab) + ' ' + String(nf.ab).slice(11, 16) + ' ' + (nf.von_name || nf.von || '') + ' → ' + (nf.nach_name || nf.nach || '')) : null,
+        next ? el('li', {}, 'Nächste Unterkunft: ' + next.ziel + ' ab ' + tripShortDate(next.anreise)) : null),
+      el('span', { class: 'area-enter' }, 'Reiseplan öffnen', el('span', { 'aria-hidden': true }, '↗')));
+  }).catch(() => { if (live()) { tripSlot.classList.remove('is-loading'); tripSlot.querySelector('.start-trip-now').textContent = 'Reiseplan öffnen'; } });
 }
 
 // ---------- Ansicht: Lernen Schule ----------

@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.50.0';
+const APP_VERSION = '0.50.2';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -224,20 +224,19 @@ function viewStart() {
   setChrome('Dein KI-System', { showTabs: false });
   const live = viewGuard();
   const tripSlot = el('a', { class: 'start-trip is-loading', href: '#/reisen' },
-    el('p', { class: 'eyebrow' }, 'DEINE REISE'), el('h2', {}, 'Reiseplan'), el('p', { class: 'start-trip-now' }, 'Wird geladen …'),
+    el('p', { class: 'eyebrow' }, 'REISEPLAN'), el('h2', {}, 'Reise'), el('p', { class: 'start-trip-now' }, 'Wird geladen …'),
     el('span', { class: 'area-enter' }, 'Reise öffnen', el('span', { 'aria-hidden': true }, '↗')));
   const area = (cls, href, art, glyph, eyebrow, title, text) => el('a', { class: 'area-card area-compact ' + cls, href },
     el('div', { class: 'area-art ' + art, 'aria-hidden': true }, el('span', { class: 'area-glyph' }, glyph)),
     el('div', { class: 'area-card-copy' }, el('p', { class: 'eyebrow' }, eyebrow), el('h2', {}, title), el('p', {}, text)),
     el('span', { class: 'area-arrow', 'aria-hidden': true }, '↗'));
+  const theme = (title, ...cards) => el('section', { class: 'start-theme' }, el('h3', { class: 'start-theme-title' }, title), el('div', { class: 'area-list' }, ...cards));
   main.replaceChildren(el('section', { class: 'start-intro start-intro-compact' },
     el('p', { class: 'eyebrow' }, 'DEIN PERSÖNLICHER RAUM'),
     el('h2', {}, 'Was möchtest du heute machen?')),
-    tripSlot,
-    el('div', { class: 'area-list' },
-      area('stay-card', '#/suche', 'stay-art', '⌂', 'REISEN', 'Unterkunft suchen', 'Unterkünfte finden und vergleichen.'),
-      area('council-card', '#/auftraege', 'council-art', '○○○', 'DENKEN & ENTSCHEIDEN', 'Council', 'Fragen durchdenken und Entscheidungen vorbereiten.'),
-      area('learn-card', '#/lernen', 'learn-art', 'π', 'LERNEN', 'Lernen Schule', 'Merkblätter und Übungen für Leo.')),
+    theme('Reisen', tripSlot, area('stay-card', '#/suche', 'stay-art', '⌂', 'UNTERKUNFT', 'Unterkunft suchen', 'Unterkünfte finden und vergleichen.')),
+    theme('Denken & Entscheiden', area('council-card', '#/auftraege', 'council-art', '○○○', 'COUNCIL', 'Council', 'Fragen durchdenken und Entscheidungen vorbereiten.')),
+    theme('Lernen', area('learn-card', '#/lernen', 'learn-art', 'π', 'SCHULE', 'Lernen Schule', 'Merkblätter und Übungen für Leo.')),
     el('p', { class: 'start-footer' }, el('a', { href: '#/einstellungen' }, 'Zugang & Einstellungen'), el('span', {}, ' · '), el('a', { href: '#/werkstatt' }, 'Werkstatt')));
   // W144: aktuelle Reise direkt auf der Startseite
   if (typeof tripCall !== 'function') return;
@@ -255,7 +254,7 @@ function viewStart() {
     const day = pick.von <= today && today <= pick.bis ? tripDayDiff(pick.von, today) + 1 : null, days = tripDayDiff(pick.von, pick.bis);
     tripSlot.href = '#/reisen/' + pick.t.id; tripSlot.classList.remove('is-loading');
     tripSlot.replaceChildren(
-      el('p', { class: 'eyebrow' }, day ? 'DEINE REISE · TAG ' + day + ' VON ' + days : 'DEINE REISE · AB ' + tripShortDate(pick.von)),
+      el('p', { class: 'eyebrow' }, day ? 'REISEPLAN · TAG ' + day + ' VON ' + days : 'REISEPLAN · AB ' + tripShortDate(pick.von)),
       el('h2', {}, pick.t.name || 'Reise'),
       now ? el('p', { class: 'start-trip-now' }, el('b', {}, now.ziel), (now.buchung?.name ? ' · ' + now.buchung.name : '') + ' · bis ' + tripShortDate(now.abreise)) : null,
       el('ul', { class: 'start-trip-next' },

@@ -7,6 +7,8 @@ Web- und Handy-App für Sebastians persönliches KI-System: Council und Unterkun
 - Daten und Suchlogik liegen in Supabase hinter `app-api`. Keine Schlüssel oder Live-Testdaten im Repository.
 - Kein Merge oder Deploy aus diesem Featurezweig ohne Sebastians ausdrückliche Freigabe.
 
+**Reiseplan ändern (Unterkünfte, Flüge, Mietwagen):** zuerst [`docs/REISEPLAN.md`](docs/REISEPLAN.md) lesen.
+
 ## Aufbau und Gestaltung
 
 `index.html` enthält die App-Hülle und Login-Vorlage, `app.js` die Bedienlogik, `stay-tools.js` Fotos, Merkliste, Filter und Karte, `stay-districts.js` die Viertelübersicht und ihre Suchauswahl, `style.css` die Gestaltung. Manifest, Service Worker und Icons ermöglichen die installierbare App-Hülle.

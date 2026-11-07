@@ -2468,3 +2468,13 @@ body[data-area="lernen"] { padding-bottom: calc(100px + env(safe-area-inset-bott
 .area-compact .area-glyph{font:400 26px Georgia,serif;color:#ffffffcc;letter-spacing:-4px;}
 .area-compact.council-card .area-glyph,.area-compact.learn-card .area-glyph{color:#5c6b55;font-size:22px;}
 .start-trip .area-enter{border-top:0!important;padding-top:0!important;}
+
+/* W145: Kosten aufklappbar, Startseite nach Themen */
+.rp-total-fold>summary{list-style:none;cursor:pointer;}
+.rp-total-fold>summary::-webkit-details-marker{display:none;}
+.rp-total-fold>summary b::after{content:"";display:inline-block;width:8px;height:8px;margin:0 2px 5px 12px;border-right:2px solid #a9c6c9;border-bottom:2px solid #a9c6c9;transform:rotate(45deg);transition:transform .2s;}
+.rp-total-fold[open]>summary b::after{transform:rotate(-135deg);margin-bottom:0;}
+.rp-total-fold>summary:focus-visible{outline:2px solid #ffb8a7;outline-offset:4px;border-radius:8px;}
+.start-theme{margin-bottom:20px;}
+.start-theme-title{font:600 13px/1.2 var(--font,inherit);letter-spacing:.12em;text-transform:uppercase;color:#8a5a3c;margin:0 0 8px 2px;}
+.start-theme .start-trip{margin-bottom:0;}

@@ -225,15 +225,16 @@ async function viewReisen(arg){
      el('div',{class:'rp-stats'},kpi(String(booked.length),booked.length===1?'Unterkunft':'Unterkünfte'),kpi(String(flightCount),flightCount===1?'Flug':'Flüge'),kpi(String(tripDays),'Tage'))),more),
    (()=>{const all=essenIn(tageVon||'0000',tripDayAdd(tageBis||'0000-01-01',1)),tile=(lab,val,sub,cls)=>el('div',{class:'rp-tile'+(cls?' '+cls:'')},el('span',{class:'rp-tile-lab'},lab),el('b',{},val),sub?el('span',{class:'rp-tile-sub'},sub):null);
     const diveDays=postenBooked.filter(p=>p.art==='tauchen').length;
-    return el('div',{class:'rp-total-money'},
-     el('div',{class:'rp-total-big'},el('span',{},'Ausgegeben'),el('b',{},(approx?'ca. ':'')+tripEuro(total,0))),
+    const det=el('details',{class:'rp-total-money rp-total-fold',open:!!stayRead('ks_rp_kosten_offen',false)||null},
+     el('summary',{class:'rp-total-big'},el('span',{},'Ausgegeben'),el('b',{},(approx?'ca. ':'')+tripEuro(total,0))),
      el('div',{class:'rp-tiles'},
       tile('Unterkünfte',tripEuro(stayTotal,0),pricedNights?'Ø '+tripEuro(stayTotal/pricedNights,0)+' / Nacht':null),
       flightTotal?tile('Flüge',tripEuro(flightTotal,0),flightCount+(flightCount===1?' Flug':' Flüge')):null,
       (carTotal+otherTotal)?tile('Transport',tripEuro(carTotal+otherTotal,0),'Mietwagen & Co.'):null,
       diveTotal?tile('Tauchen',tripEuro(diveTotal,0),diveDays+(diveDays===1?' Tauchtag':' Tauchtage')):null,
       nebenTotal?tile('Nebenkosten',tripEuro(nebenTotal,0),nebenStand?'bis '+tripDM(nebenStand):null):null,
-      all.days?tile('Essen','Ø '+tripEuro(all.essen/all.days,0),'pro Tag · '+tripEuro(all.essen,0)+' gesamt','is-food'):null));})(),
+      all.days?tile('Essen','Ø '+tripEuro(all.essen/all.days,0)+'/Tag',tripEuro(all.essen,0)+' gesamt','is-food'):null));
+    det.addEventListener('toggle',()=>stayWrite('ks_rp_kosten_offen',det.open));return det;})(),
    missing?el('p',{class:'rp-total-hint'},missing+' Buchung(en) ohne Euro-Preis – nicht eingerechnet'+(postenBooked.some(p=>p.kurs?.offen)?' (Wechselkurs wird abgerufen).':'.')):null));
   // Filter: drei kleine Schalter, einzeln an/aus (Standard alle an)
   let filt={hotel:true,flug:true,transport:true,tauchen:true,kosten:true,...(stayRead('ks_rp_filter',{})||{})};

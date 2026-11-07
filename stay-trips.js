@@ -226,7 +226,8 @@ async function viewReisen(arg){
    (()=>{const all=essenIn(tageVon||'0000',tripDayAdd(tageBis||'0000-01-01',1)),tile=(lab,val,sub,cls)=>el('div',{class:'rp-tile'+(cls?' '+cls:'')},el('span',{class:'rp-tile-lab'},lab),el('b',{},val),sub?el('span',{class:'rp-tile-sub'},sub):null);
     const diveDays=postenBooked.filter(p=>p.art==='tauchen').length;
     const det=el('details',{class:'rp-total-money rp-total-fold',open:!!stayRead('ks_rp_kosten_offen',false)||null},
-     el('summary',{class:'rp-total-big'},el('span',{},'Ausgegeben'),el('b',{},(approx?'ca. ':'')+tripEuro(total,0))),
+     el('summary',{class:'rp-fold-sum'},el('span',{},'Kosten'),el('i',{'aria-hidden':'true'})),
+     el('div',{class:'rp-total-big'},el('span',{},'Ausgegeben'),el('b',{},(approx?'ca. ':'')+tripEuro(total,0))),
      el('div',{class:'rp-tiles'},
       tile('Unterkünfte',tripEuro(stayTotal,0),pricedNights?'Ø '+tripEuro(stayTotal/pricedNights,0)+' / Nacht':null),
       flightTotal?tile('Flüge',tripEuro(flightTotal,0),flightCount+(flightCount===1?' Flug':' Flüge')):null,

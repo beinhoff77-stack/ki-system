@@ -45,6 +45,7 @@ function tripStayDates(a,b){return el('div',{class:'rp-date rp-date-io','aria-la
 function tripDateBlock(iso){const d=new Date(String(iso)+'T12:00:00');return el('div',{class:'rp-date','aria-hidden':'true'},el('b',{},String(d.getDate())),d.toLocaleDateString('de-DE',{month:'short'}).replace('.',''));}
 function tripToday(){const n=new Date();return [n.getFullYear(),String(n.getMonth()+1).padStart(2,'0'),String(n.getDate()).padStart(2,'0')].join('-');}
 function tripClock(v){const m=/T(\d{2}:\d{2})/.exec(String(v||''));return m?m[1]:'';}
+function tripDayAdd(d,n){const x=new Date(String(d).slice(0,10)+'T12:00:00Z');x.setUTCDate(x.getUTCDate()+n);return x.toISOString().slice(0,10);}
 function tripDayDiff(a,b){const x=String(a||'').slice(0,10),y=String(b||'').slice(0,10);if(!x||!y)return 0;return Math.round((Date.parse(y)-Date.parse(x))/86400000);}
 function tripShortDate(v){const d=String(v||'').slice(0,10);return d?d.slice(8,10)+'.'+d.slice(5,7)+'.':'';}
 function segBelongsBefore(it,items){ // Zeile bleibt in der aktuellen Gruppe, außer direkt danach beginnt eine Unterkunft (die eine neue Gruppe öffnen kann)
@@ -186,6 +187,9 @@ async function viewReisen(arg){
   const priced=booked.filter(e=>tripPrice(e)!==null),stayTotal=priced.reduce((s,e)=>s+cents(tripPrice(e)),0)/100,nights=booked.reduce((s,e)=>s+tripNights(e),0),pricedNights=priced.reduce((s,e)=>s+tripNights(e),0);
   const sumArt=a=>postenBooked.filter(p=>p.art===a&&pPrice(p)!==null).reduce((s,p)=>s+cents(pPrice(p)),0)/100;
   const flightTotal=sumArt('flug'),carTotal=sumArt('mietwagen'),diveTotal=sumArt('tauchen'),otherTotal=postenBooked.filter(p=>!['flug','mietwagen','tauchen'].includes(p.art)&&pPrice(p)!==null).reduce((s,p)=>s+cents(pPrice(p)),0)/100;
+  const tage=(snapshot.ausgaben_tage||[]).filter(t=>t.reise_id===rid),tagSum=t=>(Number(t.essen)||0)+(Number(t.erleben)||0)+(Number(t.unterwegs)||0)+(Number(t.sonst)||0);
+  const tageVon=tage.length?tage[0].datum:null,tageBis=tage.length?tage[tage.length-1].datum:null;
+  const essenIn=(a,b)=>{if(!tageVon)return {essen:0,neben:0,days:0};const xs=tage.filter(t=>t.datum>=a&&t.datum<b);const von=a>tageVon?a:tageVon,bisIncl=(b>tageBis?tageBis:tripDayAdd(b,-1));const days=tageVon&&von<=bisIncl?tripDayDiff(von,bisIncl)+1:0;return {essen:xs.reduce((c,t)=>c+(Number(t.essen)||0),0),neben:xs.reduce((c,t)=>c+tagSum(t),0),days};};
   const neben=(snapshot.nebenkosten||[]).filter(n=>n.reise_id===rid),nebenTotal=neben.reduce((c,n)=>c+cents(Number(n.summe)||0),0)/100,nebenStand=neben.map(n=>String(n.stand||'')).sort().pop();
   const total=Math.round((stayTotal+flightTotal+carTotal+diveTotal+otherTotal+nebenTotal)*100)/100,missing=(booked.length-priced.length)+postenBooked.filter(p=>pPrice(p)===null).length;
   const approx=postenBooked.some(p=>p.preis_ca);
@@ -219,8 +223,17 @@ async function viewReisen(arg){
   content.append(el('section',{class:'rp-total rp-total-slim','aria-label':'Reise-Übersicht'},
    el('div',{class:'rp-total-head'},el('div',{},el('div',{class:'rp-total-title'},el('span',{class:'rp-total-name'},trip.name),dayNo?el('span',{class:'rp-total-day'},'Tag '+dayNo+' von '+tripDays):null),
      el('div',{class:'rp-stats'},kpi(String(booked.length),booked.length===1?'Unterkunft':'Unterkünfte'),kpi(String(flightCount),flightCount===1?'Flug':'Flüge'),kpi(String(tripDays),'Tage'))),more),
-   el('div',{class:'rp-total-money'},el('span',{},'Ausgegeben '),el('b',{},(approx?'ca. ':'')+tripEuro(total,0)),
-    el('span',{class:'rp-total-split'},' · Hotels '+tripEuro(stayTotal,0)+(flightTotal?' · Flüge '+tripEuro(flightTotal,0):'')+((carTotal+otherTotal)?' · Transport '+tripEuro(carTotal+otherTotal,0):'')+(diveTotal?' · Tauchen '+tripEuro(diveTotal,0):'')+(nebenTotal?' · Nebenkosten '+tripEuro(nebenTotal,0)+(nebenStand?' (bis '+tripDM(nebenStand)+')':''):'')+(pricedNights?' · Ø '+tripEuro(stayTotal/pricedNights,0)+'/Nacht':''))),
+   (()=>{const all=essenIn(tageVon||'0000',tripDayAdd(tageBis||'0000-01-01',1)),tile=(lab,val,sub,cls)=>el('div',{class:'rp-tile'+(cls?' '+cls:'')},el('span',{class:'rp-tile-lab'},lab),el('b',{},val),sub?el('span',{class:'rp-tile-sub'},sub):null);
+    const diveDays=postenBooked.filter(p=>p.art==='tauchen').length;
+    return el('div',{class:'rp-total-money'},
+     el('div',{class:'rp-total-big'},el('span',{},'Ausgegeben'),el('b',{},(approx?'ca. ':'')+tripEuro(total,0))),
+     el('div',{class:'rp-tiles'},
+      tile('Unterkünfte',tripEuro(stayTotal,0),pricedNights?'Ø '+tripEuro(stayTotal/pricedNights,0)+' / Nacht':null),
+      flightTotal?tile('Flüge',tripEuro(flightTotal,0),flightCount+(flightCount===1?' Flug':' Flüge')):null,
+      (carTotal+otherTotal)?tile('Transport',tripEuro(carTotal+otherTotal,0),'Mietwagen & Co.'):null,
+      diveTotal?tile('Tauchen',tripEuro(diveTotal,0),diveDays+(diveDays===1?' Tauchtag':' Tauchtage')):null,
+      nebenTotal?tile('Nebenkosten',tripEuro(nebenTotal,0),nebenStand?'bis '+tripDM(nebenStand):null):null,
+      all.days?tile('Essen','Ø '+tripEuro(all.essen/all.days,0),'pro Tag · '+tripEuro(all.essen,0)+' gesamt','is-food'):null));})(),
    missing?el('p',{class:'rp-total-hint'},missing+' Buchung(en) ohne Euro-Preis – nicht eingerechnet'+(postenBooked.some(p=>p.kurs?.offen)?' (Wechselkurs wird abgerufen).':'.')):null));
   // Filter: drei kleine Schalter, einzeln an/aus (Standard alle an)
   let filt={hotel:true,flug:true,transport:true,tauchen:true,kosten:true,...(stayRead('ks_rp_filter',{})||{})};
@@ -250,7 +263,10 @@ async function viewReisen(arg){
   for(const sec of secs){
    const n=tripDayDiff(sec.von,sec.bis),isNow=sec.von<=today&&today<sec.bis,isPast=sec.bis<=today,isSoon=!isPast&&sec.von<=horizon;
    const key=rid+':'+sec.lands.join('|')+':'+sec.von;const open=secOpen.has(key)?secOpen.get(key):(isNow||isSoon);
-   const sum=sec.items.reduce((c,it)=>it.typ==='stay'?c+cents(tripPrice(it.e)||0):(it.typ==='seg'&&it.i===0&&it.p.segmente.length<=3?c+cents(pPrice(it.p)||0):c),0)/100;
+   const sumPlan=sec.items.reduce((c,it)=>it.typ==='stay'?c+cents(tripPrice(it.e)||0):(it.typ==='seg'&&it.i===0&&it.p.segmente.length<=3?c+cents(pPrice(it.p)||0):c),0)/100;
+   const secAus=essenIn(sec.von,sec.bis),sum=Math.round((sumPlan+secAus.neben)*100)/100;
+   const secStays=sec.items.filter(it=>it.typ==='stay'&&tripPrice(it.e)!==null),secStayEur=secStays.reduce((c,it)=>c+(tripPrice(it.e)||0),0),secNights=secStays.reduce((c,it)=>c+tripNights(it.e),0);
+   const avg=[secNights?'Hotel Ø '+tripEuro(secStayEur/secNights,0)+'/Nacht':null,secAus.days?'Essen Ø '+tripEuro(secAus.essen/secAus.days,0)+'/Tag':null,secAus.neben?'Nebenkosten '+tripEuro(secAus.neben,0):null].filter(Boolean).join(' · ');
    const offen=sec.items.filter(it=>it.typ==='gap'&&it.bis>today).reduce((c,it)=>c+tripDayDiff(it.von>today?it.von:today,it.bis),0);
    const nFl=sec.items.filter(it=>it.typ==='seg'&&it.p.art==='flug').length,nSt=sec.items.filter(it=>it.typ==='stay').length,nTg=sec.items.filter(it=>it.typ==='seg'&&it.p.art==='tauchen').length;
    const when=isNow?'jetzt':isPast?'abgeschlossen':(()=>{const d=tripDayDiff(today,sec.von);return d<=1?'morgen':d<=31?'in '+d+' Tagen':'ab '+tripMonthYear(sec.von);})();
@@ -258,6 +274,7 @@ async function viewReisen(arg){
     el('div',{class:'rp-sec-title'},el('span',{class:'rp-flags','aria-hidden':'true'},...sec.lands.map(l=>tripFlag(l)).filter(Boolean).map(f=>el('span',{},f))),el('span',{class:'rp-sec-name'},sec.lands.map(tripLandShort).join(' · ')),isNow?el('span',{class:'rp-now'},'jetzt'):null),
     el('div',{class:'rp-sec-meta'},tripRange(sec.von,sec.bis)+' · '+n+(n===1?' Nacht':' Nächte')),
     el('div',{class:'rp-sec-sum'},sum?tripEuro(sum,0):el('i',{},'offen'),el('span',{},isNow?'noch '+tripDayDiff(today,sec.bis)+(tripDayDiff(today,sec.bis)===1?' Tag':' Tage'):when)),
+    avg?el('div',{class:'rp-sec-avg'},avg):null,
     el('div',{class:'rp-sec-mini'},[nSt?nSt+(nSt===1?' Unterkunft':' Unterkünfte'):null,nFl?nFl+(nFl===1?' Flug':' Flüge'):null,nTg?nTg+(nTg===1?' Tauchtag':' Tauchtage'):null,offen?el('b',{},offen+(offen===1?' Nacht offen':' Nächte offen')):null].filter(Boolean).flatMap((x,i)=>i?[' · ',x]:[x])));
    const body=el('div',{class:'rp-sec-body'});
    const secEl=el('details',{class:'rp-sec'+(isNow?' is-now':'')+(isPast?' is-past':''),open},head,body);

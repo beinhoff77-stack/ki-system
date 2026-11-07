@@ -90,6 +90,7 @@ Kreditkartenbuchungen (Wio, alle Karten) ab Reisebeginn, **eine Zeile je Buchung
 - Gebühr zählt bei `status <> 'privat'` unter Sonstiges (auch für Plan-Buchungen).
 - Plan-Buchungen auf der Karte: Plan-Wert = Kartenbetrag ohne Gebühr (Etappen: `waehrung` AED, `preis_buchung` = Originalpreis).
 - `unterkunft.nebenkosten_json(reise)` fasst je Monat zusammen; `api.unterkunft_etappen_lesen` liefert sie als `nebenkosten`. App: Zeile „Nebenkosten <Monat>“ am Monatsende (rosé, Filter „Nebenkosten“), Summe in der Gesamtzeile.
+- `unterkunft.ausgaben_tage_json(reise)` liefert dieselben Nebenkosten je Tag (`ausgaben_tage` in der API). App (W144): oben Kacheln (Unterkünfte mit Ø/Nacht, Flüge, Transport, Tauchen, Nebenkosten, Essen Ø/Tag); Abschnittssumme je Land = Unterkünfte + Posten (≤ 3 Segmente) + Nebenkosten der Tage im Abschnitt, darunter Hotel Ø/Nacht · Essen Ø/Tag · Nebenkosten. Startseite zeigt die aktuelle Reise (Tag, jetzige Unterkunft, nächster Flug/Unterkunft) mit Link.
 
 ## 3. Bestand Weltreise (reise_id 1), Stand 07.11.2026
 

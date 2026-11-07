@@ -2432,3 +2432,39 @@ body[data-area="lernen"] { padding-bottom: calc(100px + env(safe-area-inset-bott
 /* W143: Filter nur als Symbol */
 .rp-filter .rp-chip.rp-chip-ic{height:32px!important;min-width:44px!important;padding:0 12px!important;justify-content:center;}
 .rp-filter .rp-chip.rp-chip-ic .ic{width:16px;height:16px;}
+
+/* W144: Summen als Kacheln, Abschnitt mit Durchschnitten */
+.rp-total-big{display:flex;align-items:baseline;justify-content:space-between;gap:8px;}
+.rp-total-big span{font-size:12.5px;color:#cfe3e5;}
+.rp-total .rp-total-big b{font-size:24px!important;font-weight:800!important;color:#fff;font-variant-numeric:tabular-nums;}
+.rp-tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-top:8px;}
+.rp-tile{background:#ffffff12;border-radius:10px;padding:7px 9px;display:flex;flex-direction:column;gap:1px;min-width:0;}
+.rp-tile-lab{font-size:11px;color:#a9c6c9;}
+.rp-total .rp-tile b{font-size:15px!important;font-weight:700!important;color:#fff;font-variant-numeric:tabular-nums;white-space:nowrap;}
+.rp-tile-sub{font-size:10.5px;color:#cfe3e5;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.rp-tile.is-food{background:#ffb8a71f;}
+.rp-sec-avg{grid-column:1/-1;font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;}
+.rp-sec.is-now .rp-sec-avg{color:#cfe3e5;}
+
+/* W144: Startseite kompakt mit Reise-Karte */
+.start-intro-compact{margin-bottom:14px;}
+.start-intro-compact h2{font-size:clamp(26px,7vw,40px)!important;}
+.start-trip{display:block;text-decoration:none;color:#fff;background:#0e3b43;border-radius:20px;padding:18px 20px;margin-bottom:16px;box-shadow:var(--shadow);}
+.start-trip .eyebrow{color:#ffb8a7;}
+.start-trip h2{font:400 30px Georgia,serif;margin:6px 0 8px;color:#fff;}
+.start-trip-now{margin:0;color:#e3eff0;font-size:15px;}
+.start-trip-now b{color:#fff;}
+.start-trip-next{list-style:none;margin:8px 0 0;padding:0;color:#a9c6c9;font-size:13.5px;display:grid;gap:2px;}
+.start-trip .area-enter{color:#fff;margin-top:12px;display:inline-flex;gap:6px;font-weight:600;}
+.start-trip.is-loading{opacity:.85;}
+.area-list{display:grid;gap:10px;}
+.area-card.area-compact{display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:14px;padding:12px 16px 12px 12px;border-radius:16px;}
+.area-compact .area-art{height:64px!important;width:64px;border-radius:12px;}
+.area-compact .area-card-copy{padding:0!important;}
+.area-compact .area-card-copy h2{font:400 21px Georgia,serif!important;margin:2px 0 2px!important;}
+.area-compact .area-card-copy p:not(.eyebrow){min-height:0!important;font-size:13px;margin:0;}
+.area-compact .eyebrow{font-size:10px;margin:0;}
+.area-arrow{font-size:18px;color:var(--muted);}
+.area-compact .area-glyph{font:400 26px Georgia,serif;color:#ffffffcc;letter-spacing:-4px;}
+.area-compact.council-card .area-glyph,.area-compact.learn-card .area-glyph{color:#5c6b55;font-size:22px;}
+.start-trip .area-enter{border-top:0!important;padding-top:0!important;}

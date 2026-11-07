@@ -314,13 +314,13 @@ test('PWA installiert vollständige Offline-Hülle, API wird nicht gecacht', asy
   assert(cacheNames.includes('ki-system:' + origin + '/another-app/:v1'));
   assert(!cacheNames.includes('ki-system:' + origin + '/:old'));
   await page.evaluate(() => fetch('README.md'));
-  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v66')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
-  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.43.0')); assert(cached.includes('/style.css?v=0.43.0'));
-  assert(cached.includes('/stay-tools.js?v=0.43.0')); assert(cached.includes('/stay-desk.js?v=0.43.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
-  assert(cached.includes('/stay-research.js?v=0.43.0'));
-  assert(cached.includes('/stay-form.js?v=0.43.0'));
-  assert(cached.includes('/stay-details.js?v=0.43.0'));
-  assert(cached.includes('/stay-districts.js?v=0.43.0'));
+  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v67')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
+  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.44.0')); assert(cached.includes('/style.css?v=0.44.0'));
+  assert(cached.includes('/stay-tools.js?v=0.44.0')); assert(cached.includes('/stay-desk.js?v=0.44.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
+  assert(cached.includes('/stay-research.js?v=0.44.0'));
+  assert(cached.includes('/stay-form.js?v=0.44.0'));
+  assert(cached.includes('/stay-details.js?v=0.44.0'));
+  assert(cached.includes('/stay-districts.js?v=0.44.0'));
   assert(!cached.includes('/README.md'));
   assert(!cached.some((u) => u.includes('app-api')));
   await context.setOffline(true); await page.reload();
@@ -2716,4 +2716,22 @@ test('W123: Sortieren auf- und absteigend im Blatt, Anbieter-Filter mit Mehrfach
   assert.match(await page.locator('dialog[open] .a-sheet-zeigen').textContent(),/^3 /,'Airbnb ODER Booking: 1, 2 und 4 (Trivago mit Airbnb-Angebot)');
   await q.getByRole('button',{name:'Alle',exact:true}).click();
   assert.match(await page.locator('dialog[open] .a-sheet-zeigen').textContent(),/^4 /);
+});
+
+test('W132: Flüge und Mietwagen im Reiseplan, Summe mit Aufteilung, Lücken je Ort mit Suchen',async t=>{
+ const data=stage2Data();
+ data.etappen=[{...data.etappen[1],id:1,anreise:'2099-01-01',abreise:'2099-01-05',buchung:{name:'Haus A',preis_gesamt_eur:400,land:'Japan'}},{...data.etappen[1],id:2,anreise:'2099-01-10',abreise:'2099-01-12',buchung:{name:'Haus B',preis_gesamt_eur:200,land:'Australien'}}];
+ data.posten=[{id:7,reise_id:1,art:'flug',status:'gebucht',titel:'Ticket',buchungscode:'ABC123',preis_gesamt_eur:1000,preis_ca:true,segmente:[{nr:'JL 1',von:'NRT',nach:'MEL',nach_name:'Melbourne',ab:'2099-01-05T17:40',an:'2099-01-06T05:40'},{nr:'QF 2',von:'MEL',nach:'ADL',ab:'2099-01-08T10:00',an:'2099-01-08T11:00'}]},
+  {id:8,reise_id:1,art:'mietwagen',status:'gebucht',titel:'Auto',anbieter:'Klook',preis_gesamt_eur:100,segmente:[{ab:'2099-01-01T09:00',an:'2099-01-04T09:00',ort:'Tokio'}]}];
+ const {page}=await setup(t,p=>p.aktion==='unterkunft_etappen_lesen'?data:{fotos:[]},{width:390,height:844});
+ await page.goto(origin+'/#/reisen/1');await page.locator('.rp-total').waitFor();
+ assert.match(await page.locator('.rp-total-sum').textContent(),/ca\. 1\.700,00/);
+ assert.match(await page.locator('.rp-kpis').textContent(),/1\.000\s€Flüge/);
+ assert.equal(await page.locator('details.rp-seg-item').count(),3);
+ assert.match(await page.locator('[data-posten="7"][data-seg="0"]').textContent(),/NRT 17:40 → MEL 05:40 \+1/);
+ const gaps=await page.locator('.rp-gap').allTextContents();
+ assert.equal(gaps.length,2);assert.match(gaps[0],/2 Nächte ohne Unterkunft · Melbourne · 06\.01\.–08\.01\./);assert.match(gaps[1],/2 Nächte ohne Unterkunft · ADL · 08\.01\.–10\.01\./);
+ await page.locator('.rp-gap').first().getByRole('button',{name:'Suchen'}).click();
+ await page.getByRole('heading',{name:'Unterkunft suchen'}).waitFor();
+ assert.equal(await page.locator('[name=anreise]').inputValue(),'2099-01-06');assert.equal(await page.locator('[name=abreise]').inputValue(),'2099-01-08');
 });

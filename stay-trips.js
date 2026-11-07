@@ -115,7 +115,7 @@ async function viewReisen(arg){
    body.append(facts);
    if(b.link)body.append(el('a',{class:'rp-link',href:b.link,target:'_blank',rel:'noopener'},stayIcon('extern'),'Unterkunft öffnen'));
    if(b.notiz)body.append(el('details',{class:'rp-note'},el('summary',{},'Buchungsnotiz'),el('p',{class:'booking-note'},b.notiz)));
-   const fotos=el('details',{class:'rp-fotos'},el('summary',{},stayIcon('kamera'),'Fotos'));fotos.addEventListener('toggle',()=>{if(fotos.open&&fotos.childElementCount===1)fotos.append(tripPhotos(e.id,live,{initialPhotos:photos}));});body.append(fotos);
+   body.append(el('div',{class:'rp-fotos'},tripPhotos(e.id,live,{initialPhotos:photos}))); // W137: Fotos sofort sichtbar
    const acts=el('div',{class:'rp-actions'});
    if(!booked&&e.status==='vorschlag')acts.append(el('button',{class:'primary',onclick:()=>change(e,{status:'geplant'})},'Bestätigen'));
    if(!booked&&!past)acts.append(el('button',{class:'primary',onclick:()=>route('etappe',e.id)},stayIcon('lupe'),'Unterkünfte suchen'),el('button',{onclick:()=>tripExternalBooking(e,load)},'Woanders gebucht'));
@@ -215,7 +215,9 @@ async function viewReisen(arg){
    const rowFor=it=>{const node=it.typ==='stay'?row(it.e,today,photos):it.typ==='seg'?segRow(it.p,it.s,it.i,today):gapRow(it.g,rid,today);node.dataset.kind=kindOf(it);return node;};
    const withMonths=(list,target)=>{let m=null,first=null;for(const it of list){const mm=String(it.von||'').slice(0,7);if(mm&&mm!==m){m=mm;const lab=el('div',{class:'rp-month','data-month':mm},tripMonthYear(it.von));first=first||lab;target.append(lab);}target.append(rowFor(it));}return {first,last:m};};
    if(isNow||isSoon){
-    const before=sec.items.filter(it=>it.bis<=today&&!(it.typ==='stay'&&it.e.abreise>today)),after=sec.items.filter(it=>it.von>horizon),mid=sec.items.filter(it=>!before.includes(it)&&!after.includes(it));
+    const isPast=it=>it.bis<=today&&!(it.typ==='stay'&&it.e.abreise>today),isRun=it=>it.typ==='seg'&&it.p.art!=='flug'&&it.von<today; // W137: laufender Mietwagen bleibt an seinem Startdatum
+    let cut=sec.items.findIndex(it=>!isPast(it)&&!isRun(it));if(cut<0)cut=sec.items.length;
+    const before=sec.items.slice(0,cut).filter(it=>it.von<=today),after=sec.items.filter(it=>it.von>horizon),mid=sec.items.filter(it=>!before.includes(it)&&!after.includes(it));
     let beforeLast=null,midRes=null;
     if(before.length){const d=el('details',{class:'rp-more-rows'},el('summary',{},'Bisher in '+sec.lands.map(tripLandShort).join(' · ')+' · '+before.length+' Einträge anzeigen'));d.addEventListener('toggle',()=>{if(d.open&&d.childElementCount===1){beforeLast=withMonths(before,d).last;applyFilter();}if(midRes?.first)midRes.first.classList.toggle('is-dup',d.open&&beforeLast===midRes.first.dataset.month);});body.append(d);}
     midRes=withMonths(mid,body);

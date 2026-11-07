@@ -314,13 +314,13 @@ test('PWA installiert vollständige Offline-Hülle, API wird nicht gecacht', asy
   assert(cacheNames.includes('ki-system:' + origin + '/another-app/:v1'));
   assert(!cacheNames.includes('ki-system:' + origin + '/:old'));
   await page.evaluate(() => fetch('README.md'));
-  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v67')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
-  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.44.0')); assert(cached.includes('/style.css?v=0.44.0'));
-  assert(cached.includes('/stay-tools.js?v=0.44.0')); assert(cached.includes('/stay-desk.js?v=0.44.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
-  assert(cached.includes('/stay-research.js?v=0.44.0'));
-  assert(cached.includes('/stay-form.js?v=0.44.0'));
-  assert(cached.includes('/stay-details.js?v=0.44.0'));
-  assert(cached.includes('/stay-districts.js?v=0.44.0'));
+  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v68')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
+  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.45.0')); assert(cached.includes('/style.css?v=0.45.0'));
+  assert(cached.includes('/stay-tools.js?v=0.45.0')); assert(cached.includes('/stay-desk.js?v=0.45.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
+  assert(cached.includes('/stay-research.js?v=0.45.0'));
+  assert(cached.includes('/stay-form.js?v=0.45.0'));
+  assert(cached.includes('/stay-details.js?v=0.45.0'));
+  assert(cached.includes('/stay-districts.js?v=0.45.0'));
   assert(!cached.includes('/README.md'));
   assert(!cached.some((u) => u.includes('app-api')));
   await context.setOffline(true); await page.reload();
@@ -1997,6 +1997,7 @@ test('W78: Viertelknopf, Endrunde und Seitenmarke bleiben auf schmalen Displays 
   await page.screenshot({path:path.join(root,'test-results/w78-desktop.png')});
 });
 
+async function rpOpenAll(page){await page.evaluate(()=>{document.querySelectorAll('details.rp-sec,details.rp-more-rows').forEach(d=>d.open=true);});await page.waitForTimeout(50);await page.evaluate(()=>{document.querySelectorAll('details.rp-more-rows').forEach(d=>d.open=true);});await page.waitForTimeout(50);}
 function stage2Data(){return {reisen:[{id:1,name:'Japan · Herbst 2026'}],etappen:[
 {id:3,reise_id:1,ziel:'Kyoto',anreise:'2026-11-13',abreise:'2026-11-27',naechte:14,status:'geplant',version:1,suchen:[]},
 {id:1,reise_id:1,ziel:'Tokyo',anreise:'2026-10-20',abreise:'2026-10-27',naechte:7,status:'gebucht',version:2,aktive_suche_id:2,buchung:{name:'Gartenhaus am Fluss',zimmer:'Apartment · 2 Schlafzimmer',preis_gesamt_eur:1840,storno_kostenlos_bis:'2026-10-18',storno_quelle:'Booking'},suchen:[{id:2,anreise:'2026-10-20',abreise:'2026-10-27',status:'fertig'}]},
@@ -2310,7 +2311,7 @@ test('Anwenderablauf: Favoriten → Durchsehen → Vergleichen/Lage → Aussorti
  await page.getByRole('button',{name:'Rückgängig',exact:true}).click();await page.getByRole('button',{name:'Favoriten (2)',exact:true}).click();
  await page.getByRole('button',{name:'Suche auffrischen',exact:true}).click();await page.getByRole('button',{name:'Kosten und Umfang prüfen',exact:true}).click();await page.getByRole('button',{name:'Jetzt kostenpflichtig auffrischen',exact:true}).click();await page.locator('.price-down').waitFor();await page.getByRole('dialog').getByRole('button',{name:'Schließen',exact:true}).click();
  await page.locator('[data-stage-hit="1"]').getByRole('button',{name:'Als gebucht markieren',exact:true}).click();const booking=page.getByRole('dialog');await booking.getByLabel('Gebuchter Gesamtpreis (€)',{exact:true}).fill('1100');await booking.getByRole('button',{name:'Buchung vermerken',exact:true}).click();
- await page.waitForURL('**/#/reisen/1');await page.locator('.rp-group details.rp-item').getByText('Gartenwohnung',{exact:true}).waitFor();assert.equal(e.buchung.name,'Gartenwohnung');assert.equal(e.buchung.preis_gesamt_eur,1100);assert.equal(calls.filter(p=>p.aktion==='unterkunft_etappe_speichern').length,1);
+ await page.waitForURL('**/#/reisen/1');await page.locator('.rp-sec details.rp-item').getByText('Gartenwohnung',{exact:true}).waitFor({state:'attached'});assert.equal(e.buchung.name,'Gartenwohnung');assert.equal(e.buchung.preis_gesamt_eur,1100);assert.equal(calls.filter(p=>p.aktion==='unterkunft_etappe_speichern').length,1);
 });
 
 test('Sammeländerung: verlorene Bestätigung wird nicht wiederholt und sperrt weitere Urteile',async t=>{
@@ -2356,7 +2357,7 @@ test('W88: vergangene Aufenthalte eingeklappt, künftige Aufenthalte sichtbar, F
  const {page,calls}=await setup(t,p=>p.aktion==='unterkunft_etappen_lesen'?data:{fotos:[]},{width:390,height:844});
  await page.goto(origin+'/#/reisen/1');await page.locator('.rp-total').waitFor();
  // W131: Gebuchtes steht chronologisch in einer Liste; Details und Fotos erst nach Antippen
- assert.deepEqual(await page.locator('.rp-group details.rp-item').evaluateAll(ns=>ns.map(n=>n.dataset.stage)),['10','11']);
+ await rpOpenAll(page);assert.deepEqual(await page.locator('.rp-sec details.rp-item[data-stage]').evaluateAll(ns=>ns.map(n=>n.dataset.stage)),['10','11']);
  assert(await page.locator('[data-stage="10"]').evaluate(n=>n.classList.contains('is-past')));
  await page.locator('[data-stage="10"]').getByText('Preis fehlt',{exact:true}).waitFor();
  await page.locator('.rp-total-hint').getByText('1 Buchung(en) ohne Preis',{exact:false}).waitFor();
@@ -2406,7 +2407,7 @@ test('W88: eine Fotoabfrage pro Reise verteilt Bilder auch auf eingeklappte Aufe
  const data=stage2Data();data.etappen=data.etappen.map(e=>({...e,anreise:e.id===1?'2020-01-01':e.anreise,abreise:e.id===1?'2020-01-03':e.abreise}));
  const {page,calls}=await setup(t,p=>p.aktion==='unterkunft_etappen_lesen'?data:p.aktion==='unterkunft_fotos_lesen'?{fotos:data.etappen.map(e=>({foto_id:100+e.id,etappe_id:e.id,url:'https://example.com/stage-'+e.id+'.png'}))}:{});
  await page.route('https://example.com/stage-*.png',r=>r.fulfill({contentType:'image/png',body:testPixel}));
- await page.goto(origin+'/#/reisen/1');await page.locator('.rp-total').waitFor();
+ await page.goto(origin+'/#/reisen/1');await page.locator('.rp-total').waitFor();await rpOpenAll(page);
  for(const id of [1,3]){await page.locator('details.rp-item[data-stage="'+id+'"] > summary').click();await page.locator('[data-stage="'+id+'"] .rp-fotos > summary').click();await page.locator('[data-stay-photos="'+id+'"]').getByText('1 von 3 Fotos',{exact:true}).waitFor();}
  for(const id of [1,3]){const area=page.locator('[data-stay-photos="'+id+'"]');assert.equal(await area.locator('img').count(),1);assert.equal(await area.locator('img').getAttribute('src'),'https://example.com/stage-'+id+'.png');}
  assert.deepEqual(calls.filter(p=>p.aktion==='unterkunft_fotos_lesen').map(p=>p.daten),[{reise_id:1}]);
@@ -2725,8 +2726,8 @@ test('W132: Flüge und Mietwagen im Reiseplan, Summe mit Aufteilung, Lücken je 
   {id:8,reise_id:1,art:'mietwagen',status:'gebucht',titel:'Auto',anbieter:'Klook',preis_gesamt_eur:100,segmente:[{ab:'2099-01-01T09:00',an:'2099-01-04T09:00',ort:'Tokio'}]}];
  const {page}=await setup(t,p=>p.aktion==='unterkunft_etappen_lesen'?data:{fotos:[]},{width:390,height:844});
  await page.goto(origin+'/#/reisen/1');await page.locator('.rp-total').waitFor();
- assert.match(await page.locator('.rp-total-sum').textContent(),/ca\. 1\.700,00/);
- assert.match(await page.locator('.rp-kpis').textContent(),/1\.000\s€Flüge/);
+ assert.match(await page.locator('.rp-total-money').textContent(),/ca\. 1\.700/);
+ assert.match(await page.locator('.rp-total-money').textContent(),/Flüge 1\.000/);assert.match(await page.locator('.rp-stats').textContent(),/2\s*Unterkünfte\s*2\s*Flüge/);await rpOpenAll(page);
  assert.equal(await page.locator('details.rp-seg-item').count(),3);
  assert.match(await page.locator('[data-posten="7"][data-seg="0"]').textContent(),/NRT 17:40 → MEL 05:40 \+1/);
  const gaps=await page.locator('.rp-gap').allTextContents();
@@ -2734,4 +2735,26 @@ test('W132: Flüge und Mietwagen im Reiseplan, Summe mit Aufteilung, Lücken je 
  await page.locator('.rp-gap').first().getByRole('button',{name:'Suchen'}).click();
  await page.getByRole('heading',{name:'Unterkunft suchen'}).waitFor();
  assert.equal(await page.locator('[name=anreise]').inputValue(),'2099-01-06');assert.equal(await page.locator('[name=abreise]').inputValue(),'2099-01-08');
+});
+
+test('W133: Abschnitte je Land mit Flagge, jetzt offen, Filter Hotel/Flug/Transport einzeln',async t=>{
+ const day=n=>{const d=new Date();d.setDate(d.getDate()+n);return d.toISOString().slice(0,10);};
+ const data=stage2Data();
+ data.etappen=[{...data.etappen[1],id:1,anreise:day(-5),abreise:day(2),buchung:{name:'Haus Jetzt',preis_gesamt_eur:700,land:'Japan'}},{...data.etappen[1],id:2,anreise:day(60),abreise:day(70),buchung:{name:'Haus Später',preis_gesamt_eur:900,land:'Thailand'}}];
+ data.posten=[{id:5,reise_id:1,art:'flug',status:'gebucht',titel:'Hin',preis_gesamt_eur:300,segmente:[{nr:'XX 1',von:'NRT',von_land:'Japan',nach:'BKK',nach_land:'Thailand',ab:day(60)+'T08:00',an:day(60)+'T13:00'}]},
+  {id:6,reise_id:1,art:'mietwagen',status:'gebucht',titel:'Auto',preis_gesamt_eur:50,segmente:[{ab:day(-1)+'T09:00',an:day(1)+'T09:00',ort:'Tokio',land:'Japan'}]}];
+ const {page}=await setup(t,p=>p.aktion==='unterkunft_etappen_lesen'?data:{fotos:[]},{width:390,height:844});
+ await page.goto(origin+'/#/reisen/1');await page.locator('.rp-sec').first().waitFor();
+ const names=await page.locator('.rp-sec-name').allTextContents();assert.deepEqual(names,['Japan','Thailand']);
+ assert.equal(await page.locator('.rp-sec').first().locator('.rp-flags').textContent(),'🇯🇵');
+ assert.equal(await page.locator('.rp-sec').nth(0).evaluate(d=>d.open),true);assert.equal(await page.locator('.rp-sec').nth(1).evaluate(d=>d.open),false);
+ assert.match(await page.locator('.rp-stats').textContent(),/2\s*Unterkünfte\s*1\s*Flug/);
+ const vis=k=>page.locator('.rp-sec').first().locator(`[data-kind="${k}"]:visible`).count();
+ assert.equal(await vis('hotel'),2);assert.equal(await vis('transport'),1);
+ await page.getByRole('button',{name:'Hotel',exact:true}).click();assert.equal(await vis('hotel'),0);assert.equal(await vis('transport'),1);
+ await page.getByRole('button',{name:'Transport',exact:true}).click();assert.equal(await vis('transport'),0);
+ assert.deepEqual(await page.evaluate(()=>JSON.parse(localStorage.getItem('ks_rp_filter'))),{hotel:false,flug:true,transport:false});
+ await page.locator('.rp-sec').nth(1).locator('summary.rp-sec-head').click();assert.equal(await page.locator('.rp-sec').nth(1).evaluate(d=>d.open),true);
+ await page.getByRole('button',{name:'Hotel',exact:true}).click();await page.locator('.rp-sec').nth(1).locator('[data-stage="2"]').waitFor();
+ await rpOpenAll(page);assert.equal(await page.locator('.rp-sec').first().locator('[data-posten="5"]').count(),1); // Abflug aus Japan bleibt im Japan-Abschnitt
 });

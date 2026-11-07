@@ -40,6 +40,8 @@ async function tripEdit(e,onSaved){
 function tripNights(e){const n=Number(e.naechte);if(Number.isFinite(n)&&n>0)return n;const d=Math.round((Date.parse(e.abreise)-Date.parse(e.anreise))/86400000);return d>0?d:0;}
 function tripPrice(e){const v=Number(e.buchung?.preis_gesamt_eur??e.preis_gesamt_eur);return Number.isFinite(v)&&v>0?v:null;}
 function tripEuro(v,digits=2){return Number(v).toLocaleString('de-DE',{style:'currency',currency:'EUR',minimumFractionDigits:digits,maximumFractionDigits:digits});}
+function tripDM(iso){const d=new Date(String(iso).slice(0,10)+'T12:00:00');return String(d.getDate()).padStart(2,'0')+'.'+String(d.getMonth()+1).padStart(2,'0')+'.';}
+function tripStayDates(a,b){return el('div',{class:'rp-date rp-date-io','aria-label':'Check-in '+tripDM(a)+', Check-out '+tripDM(b)},el('b',{},tripDM(a)),el('span',{class:'rp-date-arrow','aria-hidden':'true'},'↓'),el('span',{},tripDM(b)));}
 function tripDateBlock(iso){const d=new Date(String(iso)+'T12:00:00');return el('div',{class:'rp-date','aria-hidden':'true'},el('b',{},String(d.getDate())),d.toLocaleDateString('de-DE',{month:'short'}).replace('.',''));}
 function tripToday(){const n=new Date();return [n.getFullYear(),String(n.getMonth()+1).padStart(2,'0'),String(n.getDate()).padStart(2,'0')].join('-');}
 function tripClock(v){const m=/T(\d{2}:\d{2})/.exec(String(v||''));return m?m[1]:'';}
@@ -51,13 +53,14 @@ function segBelongsBefore(it,items){ // Zeile bleibt in der aktuellen Gruppe, au
 function segRow(p,s,i,today){
  const flight=p.art==='flug',plusDays=tripDayDiff(s.ab,s.an),n=p.segmente.length,price=Number(p.preis_gesamt_eur),hasPrice=Number.isFinite(price)&&price>0;
  const past=String(s.an||s.ab||'').slice(0,10)<today;
+ const ic=el('span',{class:'rp-seg-ic '+(flight?'is-flug':'is-auto'),'aria-hidden':'true'},stayIcon(flight?'flug':'auto'));
  const main=flight?[s.von||'?',' ',tripClock(s.ab),' → ',s.nach||'?',' ',tripClock(s.an),plusDays>0?el('small',{},' +'+plusDays):null]
-  :[tripShortDate(s.ab),' ',tripClock(s.ab),' → ',tripShortDate(s.an),' ',tripClock(s.an)];
- const sub=flight?[tripShortDate(s.ab),[s.nr,s.airline].filter(Boolean).join(' '),p.buchungscode].filter(Boolean).join(' · ')
+  :[tripClock(s.ab),' → ',tripShortDate(s.an),' ',tripClock(s.an)];
+ const sub=flight?[[s.nr,s.airline].filter(Boolean).join(' '),p.buchungscode].filter(Boolean).join(' · ')
   :[s.ort,s.fahrzeug,p.anbieter].filter(Boolean).join(' · ');
- const priceNode=i===0?el('div',{class:'rp-seg-price'},hasPrice?(p.preis_ca?'ca. ':'')+tripEuro(price,0):'? €',el('span',{},n>1?n+(flight?' Flüge':' Teile'):(hasPrice?(flight?'Flug':tripDayDiff(s.ab,s.an)+' Tage'):'nachtragen')))
+ const priceNode=i===0?el('div',{class:'rp-seg-price'},hasPrice?tripEuro(price,0):'? €',el('span',{},(p.preis_ca&&hasPrice?'ca. · ':'')+(n>1?n+(flight?' Flüge':' Teile'):(hasPrice?(flight?'Flug':tripDayDiff(s.ab,s.an)+' Tage'):'nachtragen'))))
   :el('div',{class:'rp-seg-price'},el('span',{},'im '+(n>3?'Ticket':'Paket')));
- const head=el('summary',{class:'rp-seg'},el('div',{class:'rp-seg-ic '+(flight?'is-flug':'is-auto'),'aria-hidden':'true'},stayIcon(flight?'flug':'auto')),el('div',{class:'rp-main'},el('div',{class:'rp-seg-main'},...main),el('div',{class:'rp-sub'},sub)),priceNode);
+ const head=el('summary',{class:'rp-seg'},el('div',{class:'rp-date rp-date-seg'},el('b',{},tripDM(s.ab)),el('span',{},new Date(String(s.ab).slice(0,10)+'T12:00:00').toLocaleDateString('de-DE',{weekday:'short'}).replace('.',''))),el('div',{class:'rp-main'},el('div',{class:'rp-seg-main'},...main),el('div',{class:'rp-sub rp-seg-sub'},ic,sub)),priceNode);
  const body=el('div',{class:'rp-detail'});
  const item=el('details',{class:'rp-item rp-seg-item'+(past?' is-past':''),'data-posten':p.id,'data-seg':i},head,body);
  item.addEventListener('toggle',()=>{if(!item.open||body.childElementCount)return;
@@ -102,7 +105,7 @@ async function viewReisen(arg){
   const b=e.buchung||{},n=tripNights(e),p=tripPrice(e),booked=e.status==='gebucht',now=e.anreise<=today&&e.abreise>today,past=e.abreise<=today;
   const sub=[e.ziel,n+(n===1?' Nacht':' Nächte'),b.anbieter].filter(Boolean).join(' · ');
   const price=booked?el('div',{class:'rp-price'},p===null?'–':tripEuro(p,0),el('span',{},p!==null&&n?tripEuro(p/n,0)+'/N':'Preis fehlt')):el('div',{class:'rp-price rp-open'},'offen');
-  const head=el('summary',{class:'rp-row'},tripDateBlock(e.anreise),el('div',{class:'rp-main'},el('div',{class:'rp-name'},booked?(b.name||'Unterkunft'):e.ziel),el('div',{class:'rp-sub'},now?el('span',{class:'rp-now'},'jetzt'):null,booked?sub:fmtDate(e.anreise)+'–'+fmtDate(e.abreise)+' · '+n+(n===1?' Nacht':' Nächte'))),price);
+  const head=el('summary',{class:'rp-row'},tripStayDates(e.anreise,e.abreise),el('div',{class:'rp-main'},el('div',{class:'rp-name'},booked?(b.name||'Unterkunft'):e.ziel),el('div',{class:'rp-sub'},now?el('span',{class:'rp-now'},'jetzt'):null,booked?sub:fmtDate(e.anreise)+'–'+fmtDate(e.abreise)+' · '+n+(n===1?' Nacht':' Nächte'))),price);
   const body=el('div',{class:'rp-detail'});
   const item=el('details',{class:'rp-item'+(now?' is-now':'')+(past?' is-past':''),'data-stage':e.id},head,body);
   item.addEventListener('toggle',()=>{if(!item.open||body.childElementCount)return;
@@ -164,7 +167,7 @@ async function viewReisen(arg){
   const flightCount=postenBooked.filter(p=>p.art==='flug').reduce((n,p)=>n+p.segmente.length,0);
   const kpi=(v,l)=>el('span',{class:'rp-stat'},el('b',{},v),' '+l);
   content.append(el('section',{class:'rp-total rp-total-slim','aria-label':'Reise-Übersicht'},
-   el('div',{class:'rp-total-head'},el('div',{},el('div',{class:'rp-total-label'},trip.name+(dayNo?' · Tag '+dayNo+' von '+tripDays:'')),
+   el('div',{class:'rp-total-head'},el('div',{},el('div',{class:'rp-total-title'},el('span',{class:'rp-total-name'},trip.name),dayNo?el('span',{class:'rp-total-day'},'Tag '+dayNo+' von '+tripDays):null),
      el('div',{class:'rp-stats'},kpi(String(booked.length),booked.length===1?'Unterkunft':'Unterkünfte'),kpi(String(flightCount),flightCount===1?'Flug':'Flüge'),kpi(String(tripDays),'Tage'))),more),
    el('div',{class:'rp-total-money'},el('span',{},'Ausgegeben '),el('b',{},(approx?'ca. ':'')+tripEuro(total,0)),
     el('span',{class:'rp-total-split'},' · Hotels '+tripEuro(stayTotal,0)+(flightTotal?' · Flüge '+tripEuro(flightTotal,0):'')+((carTotal+otherTotal)?' · Transport '+tripEuro(carTotal+otherTotal,0):'')+(pricedNights?' · Ø '+tripEuro(stayTotal/pricedNights,0)+'/Nacht':''))),

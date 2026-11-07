@@ -314,13 +314,13 @@ test('PWA installiert vollständige Offline-Hülle, API wird nicht gecacht', asy
   assert(cacheNames.includes('ki-system:' + origin + '/another-app/:v1'));
   assert(!cacheNames.includes('ki-system:' + origin + '/:old'));
   await page.evaluate(() => fetch('README.md'));
-  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v70')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
-  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.47.0')); assert(cached.includes('/style.css?v=0.47.0'));
-  assert(cached.includes('/stay-tools.js?v=0.47.0')); assert(cached.includes('/stay-desk.js?v=0.47.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
-  assert(cached.includes('/stay-research.js?v=0.47.0'));
-  assert(cached.includes('/stay-form.js?v=0.47.0'));
-  assert(cached.includes('/stay-details.js?v=0.47.0'));
-  assert(cached.includes('/stay-districts.js?v=0.47.0'));
+  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v71')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
+  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.47.1')); assert(cached.includes('/style.css?v=0.47.1'));
+  assert(cached.includes('/stay-tools.js?v=0.47.1')); assert(cached.includes('/stay-desk.js?v=0.47.1')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
+  assert(cached.includes('/stay-research.js?v=0.47.1'));
+  assert(cached.includes('/stay-form.js?v=0.47.1'));
+  assert(cached.includes('/stay-details.js?v=0.47.1'));
+  assert(cached.includes('/stay-districts.js?v=0.47.1'));
   assert(!cached.includes('/README.md'));
   assert(!cached.some((u) => u.includes('app-api')));
   await context.setOffline(true); await page.reload();
@@ -2364,7 +2364,7 @@ test('W88: vergangene Aufenthalte eingeklappt, künftige Aufenthalte sichtbar, F
  await page.locator('details.rp-item[data-stage="10"] > summary').click();
  const oldStage=page.locator('[data-stage="10"]');assert.equal(await oldStage.getByRole('button',{name:'Andere Tage suchen',exact:true}).count(),0);assert.equal(await oldStage.getByRole('button',{name:'Woanders gebucht',exact:true}).count(),0);assert.equal(await oldStage.getByText(/Suchvarianten/).count(),0);assert(await oldStage.getByRole('button',{name:'Bearbeiten',exact:true}).isVisible());
  assert.deepEqual(calls.filter(p=>p.aktion==='unterkunft_fotos_lesen').map(p=>p.daten),[{reise_id:1}]);
- await oldStage.locator('.rp-fotos > summary').click();await oldStage.getByText('0 von 3 Fotos',{exact:true}).waitFor();
+ await oldStage.getByText('0 von 3 Fotos',{exact:true}).waitFor();
  await oldStage.getByText('Buchungsnotiz',{exact:true}).click();await page.getByText('Bezahlt: 50.000 JPY',{exact:true}).waitFor();
  await page.screenshot({path:path.join(root,'docs/previews/w88-vergangene-mobile.png'),fullPage:true});
 });
@@ -2378,7 +2378,7 @@ test('W88: Foto verkleinern, Grenze drei, Großansicht und bestätigtes Löschen
   if(p.aktion==='unterkunft_foto_loeschen'){photos=photos.filter(x=>x.foto_id!==p.daten.foto_id);return {ok:true};}return {};
  },{width:390,height:844});
  await page.route('https://example.com/stay-photo-*.png',r=>r.fulfill({contentType:'image/svg+xml',body:'<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400"><rect width="600" height="400" fill="#d9ccba"/><rect x="30" y="20" width="350" height="220" fill="#547b77"/><rect x="80" y="280" width="450" height="100" rx="20" fill="#f2ede4"/></svg>'}));
- await page.goto(origin+'/#/reisen/1');await page.locator('details.rp-item[data-stage="1"] > summary').click();await page.locator('[data-stage="1"] .rp-fotos > summary').click();const area=page.locator('[data-stay-photos="1"]');await area.getByText('2 von 3 Fotos',{exact:true}).waitFor();
+ await page.goto(origin+'/#/reisen/1');await page.locator('details.rp-item[data-stage="1"] > summary').click();const area=page.locator('[data-stay-photos="1"]');await area.getByText('2 von 3 Fotos',{exact:true}).waitFor();
  const encoded=await page.evaluate(()=>{const c=document.createElement('canvas');c.width=2400;c.height=1200;const x=c.getContext('2d');x.fillStyle='#247a75';x.fillRect(0,0,c.width,c.height);return c.toDataURL('image/png').split(',')[1];});
  await area.locator('input[type=file]').setInputFiles({name:'holiday.png',mimeType:'image/png',buffer:Buffer.from(encoded,'base64')});await area.getByText('3 von 3 Fotos',{exact:true}).waitFor();
  const upload=calls.find(p=>p.aktion==='unterkunft_foto_hochladen').daten;assert.equal(upload.breite,1600);assert.equal(upload.hoehe,800);assert.equal(upload.mime,'image/jpeg');assert(Buffer.from(upload.daten_base64,'base64').length<3*1024*1024);assert.equal(Buffer.from(upload.daten_base64,'base64')[0],255);assert(!(await area.getByRole('button',{name:'Foto hinzufügen',exact:true}).isVisible()));
@@ -2398,7 +2398,7 @@ test('W88: abgelaufene Bild-URL einmal erneuern; verlorene Uploadantwort nur les
   if(p.aktion==='unterkunft_foto_hochladen'){uploaded=true;return 'abort';}return {};
  });
  await page.route('https://example.com/expired.png',r=>r.fulfill({status:403,body:'expired'}));await page.route('https://example.com/fresh.png',r=>r.fulfill({contentType:'image/png',body:testPixel}));
- await page.goto(origin+'/#/reisen/1');await page.locator('details.rp-item[data-stage="1"] > summary').click();await page.locator('[data-stage="1"] .rp-fotos > summary').click();const area=page.locator('[data-stay-photos="1"]');await area.scrollIntoViewIfNeeded();await area.locator('img[src="https://example.com/fresh.png"]').waitFor();assert.equal(reads,2);
+ await page.goto(origin+'/#/reisen/1');await page.locator('details.rp-item[data-stage="1"] > summary').click();const area=page.locator('[data-stay-photos="1"]');await area.scrollIntoViewIfNeeded();await area.locator('img[src="https://example.com/fresh.png"]').waitFor();assert.equal(reads,2);
  await area.locator('input[type=file]').setInputFiles({name:'photo.png',mimeType:'image/png',buffer:testPixel});await area.getByText('Bitte Fotos neu laden; nicht erneut hochladen.',{exact:false}).waitFor();assert(await area.getByRole('button',{name:'Foto hinzufügen',exact:true}).isDisabled());
  await area.getByRole('button',{name:'Fotos neu laden',exact:true}).click();await area.getByText('2 von 3 Fotos',{exact:true}).waitFor();assert.equal(calls.filter(p=>p.aktion==='unterkunft_foto_hochladen').length,1);assert(await area.getByRole('button',{name:'Foto hinzufügen',exact:true}).isEnabled());
 });
@@ -2408,7 +2408,7 @@ test('W88: eine Fotoabfrage pro Reise verteilt Bilder auch auf eingeklappte Aufe
  const {page,calls}=await setup(t,p=>p.aktion==='unterkunft_etappen_lesen'?data:p.aktion==='unterkunft_fotos_lesen'?{fotos:data.etappen.map(e=>({foto_id:100+e.id,etappe_id:e.id,url:'https://example.com/stage-'+e.id+'.png'}))}:{});
  await page.route('https://example.com/stage-*.png',r=>r.fulfill({contentType:'image/png',body:testPixel}));
  await page.goto(origin+'/#/reisen/1');await page.locator('.rp-total').waitFor();await rpOpenAll(page);
- for(const id of [1,3]){await page.locator('details.rp-item[data-stage="'+id+'"] > summary').click();await page.locator('[data-stage="'+id+'"] .rp-fotos > summary').click();await page.locator('[data-stay-photos="'+id+'"]').getByText('1 von 3 Fotos',{exact:true}).waitFor();}
+ for(const id of [1,3]){await page.locator('details.rp-item[data-stage="'+id+'"] > summary').click();await page.locator('[data-stay-photos="'+id+'"]').getByText('1 von 3 Fotos',{exact:true}).waitFor();}
  for(const id of [1,3]){const area=page.locator('[data-stay-photos="'+id+'"]');assert.equal(await area.locator('img').count(),1);assert.equal(await area.locator('img').getAttribute('src'),'https://example.com/stage-'+id+'.png');}
  assert.deepEqual(calls.filter(p=>p.aktion==='unterkunft_fotos_lesen').map(p=>p.daten),[{reise_id:1}]);
 });

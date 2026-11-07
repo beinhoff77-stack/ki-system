@@ -2428,3 +2428,7 @@ body[data-area="lernen"] { padding-bottom: calc(100px + env(safe-area-inset-bott
 .rp-nk-head{display:flex;justify-content:space-between;gap:8px;font-variant-numeric:tabular-nums;}
 .rp-nk-top{margin:2px 0 0;font-size:.85em;opacity:.8;}
 @media (prefers-color-scheme:dark){.rp-seg-item.is-kosten{background:#3a1723;border-color:#8a3a55;}.rp-seg-item.is-kosten .rp-seg-main,.rp-seg-item.is-kosten .rp-date-seg b{color:#f4b8cb;}.rp-seg-ic.is-kosten,.rp-seg-item.is-kosten .rp-seg-ic{background:#5a2236;color:#f4b8cb;}}
+
+/* W143: Filter nur als Symbol */
+.rp-filter .rp-chip.rp-chip-ic{height:32px!important;min-width:44px!important;padding:0 12px!important;justify-content:center;}
+.rp-filter .rp-chip.rp-chip-ic .ic{width:16px;height:16px;}

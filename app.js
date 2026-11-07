@@ -256,12 +256,12 @@ function viewLernen() {
   main.replaceChildren(
     el('section', { class: 'start-intro' },
       el('p', { class: 'eyebrow' }, 'LERNEN SCHULE'),
-      el('h2', {}, 'Mathe-Merkblatt Klasse 7/8'),
-      el('p', {}, 'Zahlen, Terme, Potenzen, Brüche, Gleichungen und Gleichungssysteme. Mit Beispielen, Waage, Graph und Fehlerliste.')),
+      el('h2', {}, 'Mathe Klasse 7/8'),
+      el('p', {}, 'Erklärungen, Aufgaben in drei Stufen und typische Fehler zu Zahlen, Termen, Potenzen, Brüchen, Gleichungen und Gleichungssystemen. Mit Fortschritt und Wiederholung.')),
     el('div', { class: 'card learn-resource' },
       el('p', {}, 'Die Seite öffnet ohne Anmeldung. Du kannst den Link an Leo und die Lehrkraft schicken.'),
       el('div', { class: 'row' },
-        el('a', { class: 'btn primary', href: 'mathe/', target: '_blank', rel: 'noopener' }, 'Merkblatt öffnen ↗'),
+        el('a', { class: 'btn primary', href: 'mathe/', target: '_blank', rel: 'noopener' }, 'Mathe öffnen ↗'),
         copy, status),
       el('p', { class: 'muted small learn-url' }, url)));
 }

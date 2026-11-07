@@ -362,7 +362,7 @@ test('Update lädt neue Skripte und Gestaltung trotz frischem HTTP-Cache der Alt
   assert.equal(await page.evaluate(() => getComputedStyle(document.body).color), 'rgb(0, 128, 0)');
 });
 
-test('Lernen Schule: Startkarte, Bereichswechsel und Link zum Mathe-Merkblatt', async (t) => {
+test('Lernen Schule: Startkarte, Bereichswechsel und Link zu Mathe Klasse 7/8', async (t) => {
   const { page, calls } = await setup(t, (p) => p.aktion === 'auftraege_suchen' ? [] : { suchauftraege: [] });
   await page.goto(origin + '/');
   await page.getByRole('heading', { name: 'Was möchtest du heute machen?' }).waitFor();
@@ -374,7 +374,7 @@ test('Lernen Schule: Startkarte, Bereichswechsel und Link zum Mathe-Merkblatt', 
   }
   await page.setViewportSize({ width: 1280, height: 800 });
   await page.locator('.learn-card').click();
-  await page.getByRole('heading', { name: 'Mathe-Merkblatt Klasse 7/8' }).waitFor();
+  await page.getByRole('heading', { name: 'Mathe Klasse 7/8' }).waitFor();
   for (const [w, h] of [[1280, 800], [375, 800], [320, 700]]) {
     await page.setViewportSize({ width: w, height: h });
     await page.screenshot({ path: path.join(root, `test-results/lernen-${w}.png`), fullPage: true });
@@ -383,7 +383,7 @@ test('Lernen Schule: Startkarte, Bereichswechsel und Link zum Mathe-Merkblatt', 
   await page.setViewportSize({ width: 1280, height: 800 });
   assert.equal(await page.evaluate(() => document.body.dataset.area), 'lernen');
   assert.equal(await page.locator('#areas [data-area=lernen]').getAttribute('aria-current'), 'true');
-  const link = page.getByRole('link', { name: /Merkblatt öffnen/ });
+  const link = page.getByRole('link', { name: /Mathe öffnen/ });
   assert.equal(await link.getAttribute('href'), 'mathe/');
   assert.equal(await link.getAttribute('rel'), 'noopener');
   assert(await page.locator('.learn-url').textContent().then((x) => x.endsWith('/mathe/')));

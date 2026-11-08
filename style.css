@@ -2689,3 +2689,7 @@ body[data-area="lernen"] { padding-bottom: calc(100px + env(safe-area-inset-bott
 .stil-nacht .hl-actions { border-color: #1f3b47; }
 .stil-nacht .hl-actions button { background: #1b3540; color: #e6f1f2; border-color: #2e5f6b; }
 .stil-nacht .hl-merk.an { background: #5fe0cf; color: #0d1b22; }
+/* W151: Familie nur als Zeile bei Unterschieden */
+.hl-familie { font-size: 13px; color: var(--err); background: var(--err-bg); border-radius: 10px; padding: 7px 10px; }
+.stil-nacht .hl-familie { background: #3b2328; color: #ffb3b8; }
+.stil-postkarte .hl-familie { background: #f6e1d6; }

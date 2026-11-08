@@ -2599,3 +2599,93 @@ body[data-area="lernen"] { padding-bottom: calc(100px + env(safe-area-inset-bott
 @media (min-width: 1000px) { .hl-vgl-leiste { bottom: 24px; } }
 @media (prefers-reduced-motion: reduce) { .hl-card, .hl-fly { transition: none; } }
 .hl-vgl-table th { overflow-wrap: anywhere; hyphens: auto; }
+
+/* ---------- Highlights: Darstellungen zum Aussuchen ---------- */
+.hl-stile { display: flex; align-items: center; gap: 6px; overflow-x: auto; scrollbar-width: none; margin: -2px 0 12px; }
+.hl-stile .hl-chip { min-height: 32px; font-size: 12px; }
+
+/* B Poster: Foto bildfüllend, Titel und Moment im Bild, Fakten darunter */
+.stil-poster { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+.stil-poster .hl-card { display: grid; grid-template-rows: 1fr auto auto auto; border: 0; border-radius: 26px; }
+.stil-poster .hl-card > .hl-img { grid-row: 1 / 5; grid-column: 1; aspect-ratio: 4 / 5; }
+.stil-poster .hl-card > .hl-img::before { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, transparent 35%, rgb(10 20 16 / 82%)); }
+.stil-poster .hl-img figcaption { top: 0; bottom: auto; background: none; z-index: 2; text-align: right; }
+.stil-poster .hl-body { display: contents; }
+.stil-poster .hl-body > * { margin-left: 20px; margin-right: 20px; }
+.stil-poster .hl-body > .eyebrow, .stil-poster .hl-body > h3, .stil-poster .hl-body > .hl-moment { grid-column: 1; z-index: 2; color: #fff; }
+.stil-poster .hl-body > .eyebrow { grid-row: 2; color: #f0d7a6; margin-bottom: 4px; }
+.stil-poster .hl-body > h3 { grid-row: 3; font-size: 32px; line-height: 1.05; margin-bottom: 6px; }
+.stil-poster .hl-body > .hl-moment { grid-row: 4; font: italic 15px/1.4 Georgia, serif; margin-bottom: 18px; opacity: .95; }
+.stil-poster .hl-warnung { margin-top: 14px; }
+.stil-poster .hl-krit { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 14px; border: 0; background: transparent; gap: 8px; }
+.stil-poster .hl-krit > div { background: var(--surface-muted); border-radius: 12px; text-align: center; }
+.stil-poster .hl-krit dd { justify-content: center; }
+.stil-poster .hl-krit dd small { display: none; }
+.stil-poster .hl-krit-fam { grid-column: 1 / -1; }
+.stil-poster .hl-saison, .stil-poster .hl-fach, .stil-poster .hl-wenn, .stil-poster .hl-frage, .stil-poster .hl-ruhig, .stil-poster .hl-quellen { margin-top: 10px; }
+.stil-poster .hl-actions { margin: 14px 20px 18px; }
+
+/* C Kompakt: viele Vorschläge auf einen Blick, Antippen klappt auf */
+.stil-kompakt { grid-template-columns: 1fr; gap: 10px; max-width: 820px; }
+.stil-kompakt .hl-card { display: grid; grid-template-columns: 92px 1fr; border-radius: 16px; cursor: pointer; }
+.stil-kompakt .hl-card > .hl-img { aspect-ratio: auto; height: 100%; min-height: 92px; }
+.stil-kompakt .hl-card:not(:has(> .hl-img)) .hl-body { grid-column: 1 / -1; }
+.stil-kompakt .hl-img figcaption { display: none; }
+.stil-kompakt .hl-img.leer::after { font-size: 30px; }
+.stil-kompakt .hl-body { padding: 10px 12px; gap: 6px; }
+.stil-kompakt .hl-body h3 { font: 700 16px/1.25 var(--font-ui); margin: 0; letter-spacing: 0; }
+.stil-kompakt .eyebrow { font-size: 9px; }
+.stil-kompakt .hl-krit { display: flex; flex-wrap: wrap; gap: 4px 10px; border: 0; background: none; margin: 0; }
+.stil-kompakt .hl-krit > div { padding: 0; display: flex; gap: 4px; align-items: center; }
+.stil-kompakt .hl-krit dt { font-size: 9px; }
+.stil-kompakt .hl-krit dd { font-size: 12px; margin: 0; }
+.stil-kompakt .hl-krit dd small, .stil-kompakt .hl-fam-txt { display: none; }
+.stil-kompakt .hl-person { width: 18px; height: 18px; font-size: 8px; }
+.stil-kompakt .hl-dots i { width: 7px; height: 7px; }
+.stil-kompakt .hl-card:not(.offen) :is(.hl-moment, .hl-saison, .hl-fach, .hl-wenn, .hl-frage, .hl-ruhig, .hl-quellen, .hl-actions .link, .hl-vgl) { display: none; }
+.stil-kompakt .hl-card:not(.offen) .hl-actions { border: 0; padding: 0; margin: 0; }
+.stil-kompakt .hl-actions button { min-height: 34px; font-size: 12px; padding: 0 10px; }
+.stil-kompakt .hl-card.offen { grid-template-columns: 1fr; }
+.stil-kompakt .hl-card.offen > .hl-img { aspect-ratio: 16 / 9; }
+.stil-kompakt .hl-warnung { font-size: 12px; padding: 5px 8px; }
+
+/* D Postkarte: Reisetagebuch – Polaroid, Papier, Stempel */
+.stil-postkarte .hl-card { background: #fbf6e9 radial-gradient(circle at 20% 10%, #fffaf0 0, transparent 60%); border: 1px solid #e6dcc4; border-radius: 6px; box-shadow: 0 10px 30px rgb(70 50 20 / 12%); padding: 14px 14px 0; }
+.stil-postkarte .hl-card > .hl-img { border: 8px solid #fff; border-bottom-width: 34px; box-shadow: 0 6px 16px rgb(0 0 0 / 18%); transform: rotate(-1.6deg); border-radius: 2px; aspect-ratio: 4 / 3; }
+.stil-postkarte .hl-card:nth-child(even) > .hl-img { transform: rotate(1.4deg); }
+.stil-postkarte .hl-img figcaption { background: none; bottom: -30px; padding: 6px 4px; }
+.stil-postkarte .hl-img figcaption a { color: #8a7a5c; }
+.stil-postkarte .hl-body { padding: 14px 6px 16px; }
+.stil-postkarte .hl-body h3 { font: italic 28px/1.1 Georgia, serif; color: #3a2f1e; }
+.stil-postkarte .eyebrow { color: #a2563a; }
+.stil-postkarte .hl-moment { font: 16px/1.5 Georgia, serif; color: #4a3d28; }
+.stil-postkarte .hl-krit { grid-template-columns: repeat(4, minmax(0, 1fr)); background: none; border: 0; gap: 8px; }
+.stil-postkarte .hl-krit > div { background: transparent; border: 2px dashed #b9864f; border-radius: 10px; text-align: center; transform: rotate(-1deg); }
+.stil-postkarte .hl-krit > div:nth-child(even) { transform: rotate(1.2deg); }
+.stil-postkarte .hl-krit dt { color: #a2563a; }
+.stil-postkarte .hl-krit dd { justify-content: center; font-family: Georgia, serif; }
+.stil-postkarte .hl-krit dd small { display: none; }
+.stil-postkarte .hl-krit-fam { grid-column: 1 / -1; border-style: solid !important; transform: none !important; }
+.stil-postkarte .hl-frage { background: #f3e6c8; }
+.stil-postkarte .hl-actions { border-top: 1px dashed #d8c8a4; }
+
+/* E Nacht: dunkel, kinoreif, für Tauch- und Abendmomente */
+.stil-nacht { background: #0d1b22; border-radius: 26px; padding: 14px; }
+.stil-nacht .hl-card { background: #13262f; border-color: #1f3b47; color: #e6f1f2; box-shadow: none; }
+.stil-nacht .hl-card > .hl-img { aspect-ratio: 21 / 9; }
+.stil-nacht .hl-card > .hl-img::after { box-shadow: inset 0 0 60px rgb(0 0 0 / 55%); }
+.stil-nacht .hl-img.leer { background: linear-gradient(135deg, #12313b, #1f5560); }
+.stil-nacht .hl-body h3 { color: #fff; font: 600 24px/1.15 var(--font-ui); letter-spacing: -.01em; }
+.stil-nacht .eyebrow { color: #5fe0cf; }
+.stil-nacht .hl-moment, .stil-nacht .hl-saison, .stil-nacht .hl-fach dd, .stil-nacht .hl-wenn, .stil-nacht .hl-ruhig { color: #c5d6d9; }
+.stil-nacht .hl-fach dt, .stil-nacht .hl-krit dt, .stil-nacht .hl-krit dd small { color: #7fa1a8; }
+.stil-nacht .hl-krit { background: #1f3b47; border-color: #1f3b47; }
+.stil-nacht .hl-krit > div { background: #13262f; }
+.stil-nacht .hl-dots i { border-color: #2e5f6b; background: #1b3540; }
+.stil-nacht .hl-dots i.an { background: #5fe0cf; border-color: #5fe0cf; box-shadow: 0 0 8px #5fe0cf88; }
+.stil-nacht .hl-person { background: #5fe0cf; color: #0d1b22; }
+.stil-nacht .hl-frage { background: #1b3540; color: #e6f1f2; }
+.stil-nacht .hl-frage a, .stil-nacht .hl-quellen a, .stil-nacht .hl-tiefer, .stil-nacht .link { color: #5fe0cf; }
+.stil-nacht .hl-actions { border-color: #1f3b47; }
+.stil-nacht .hl-actions button { background: #1b3540; color: #e6f1f2; border-color: #2e5f6b; }
+.stil-nacht .hl-merk.an { background: #5fe0cf; color: #0d1b22; }

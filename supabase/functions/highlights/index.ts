@@ -3,14 +3,14 @@
 // Vorschläge: je Portion 5 Steckbrief-Karten von einem KI-Modell über OpenRouter mit Websuche (ZDR + data_collection deny).
 //   Die Websuche fällt NICHT unter ZDR – deshalb enthält der Prompt keine Namen, kein Alter, keine Stammdaten.
 // Belege: Eine Angabe gilt nur als belegt, wenn ihre URL unter den tatsächlich abgerufenen Suchtreffern (url_citation) ist.
-// Bilder: nur Wikimedia Commons mit freier Lizenz (Urheber, Lizenz, Quelle werden mitgespeichert), sonst kein Bild.
+// Bilder: Wikipedia-Titelbild + Commons-Kandidaten (nur freie Lizenz), Bildmodell wählt das aussagekräftigste; kein Foto bei Restaurant/Unterkunft/Tauchbasis.
 // Wege: POST /highlights/aktion { aktion, daten }  (Bearer = App-Token)
 //   lesen {suche_id?, knoten_id?, mit_weg?} · merkliste {suche_id?} · suche_speichern {id?, wunsch?, vorlieben?, loeschen?}
 //   entscheiden {knoten_id, status offen|gemerkt|weg} · portion {suche_id, parent_id?, art start|mehr|aehnlich|anders|frage, linse?, text?, vorlage_knoten_id?}
 import 'jsr:@supabase/functions-js/edge-runtime.d.ts'
 import postgres from 'npm:postgres@3.4.5'
 
-const VERSION = '0.1.2'
+const VERSION = '0.2.1'
 const sql = postgres(Deno.env.get('SUPABASE_DB_URL')!, { prepare: false, max: 3, idle_timeout: 20 })
 const OR_KEY = Deno.env.get('OPENROUTER_API_KEY') ?? ''
 const MODELL = 'anthropic/claude-sonnet-5.5'
@@ -79,7 +79,7 @@ Andrang-Skala: 1 kaum touristisch · 2 lokaler Alltag · 3 bekannter Stopp · 4 
 Fachwerte je Typ (genau 2, label + wert): ${Object.entries(FACH).map(([t, f]) => `${t}: ${f}`).join(' | ')}.
 Antworte ausschließlich mit JSON:
 {"fazit":"1 Satz: warum diese Reihenfolge (beginnt mit 'Für euch vorn: ')","ende":false,"ende_hinweis":null,
-"karten":[{"titel":"kurzer Name","typ":"${TYPEN.join('|')}","bild_suche":"englischer Suchbegriff für ein aktuelles Foto auf Wikimedia Commons: konkretes Motiv + Ort, z. B. 'Australian sea lion Seal Bay' (keine Karten/Satellitenbilder)",
+"karten":[{"titel":"kurzer Name","typ":"${TYPEN.join('|')}","bild_motiv":"englischer Suchbegriff für das, was man dort SIEHT (Motiv + Ort), z. B. 'great white shark Neptune Islands', 'Remarkable Rocks Kangaroo Island', 'weedy seadragon Tasmania'; null bei Restaurant, Unterkunft, Tauchbasis, Laden","wiki_titel":"exakter Titel des passenden englischen Wikipedia-Artikels oder null",
 "moment":"1 Satz: was man dort erlebt, bildhaft",
 "wow":1-5,"andrang":1-5,"andrang_quelle":"URL oder null",
 "zeit":"z. B. 3 h, 1 Tag, 2–3 Tage","kosten_4":"Betrag für 4 Personen in Landeswährung, gerundet, z. B. ca. 620 AUD; oder 'frei'","kosten_quelle":"URL oder null",
@@ -131,7 +131,7 @@ function karteBauen(c: any, zitate: Set<string>) {
   const fach = (Array.isArray(c?.fach) ? c.fach : []).slice(0, 2).map((f: any) => ({ label: txt(f?.label, 40), wert: txt(f?.wert, 120) })).filter((f: any) => f.label && f.wert)
   const quellen = [...new Set([...(Array.isArray(c?.quellen) ? c.quellen : []), aq, kq, pu, c?.warnung_quelle].map(url).filter(Boolean))].slice(0, 8)
   return {
-    titel: txt(c?.titel, 120), typ, bild_suche: txt(c?.bild_suche, 120),
+    titel: txt(c?.titel, 120), typ, bild_motiv: c?.bild_motiv === null ? null : txt(c?.bild_motiv, 120), wiki_titel: txt(c?.wiki_titel, 120),
     steckbrief: {
       moment: txt(c?.moment, 240), wow: zahl(c?.wow, 1, 5), andrang: zahl(c?.andrang, 1, 5), andrang_quelle: aq, andrang_belegt: belegt(aq, zitate),
       zeit: txt(c?.zeit, 40), kosten_4: txt(c?.kosten_4, 90), kosten_quelle: kq, kosten_belegt: belegt(kq, zitate),
@@ -141,39 +141,94 @@ function karteBauen(c: any, zitate: Set<string>) {
       pruefen: { text: txt(c?.pruefen?.text, 160), url: pu, belegt: belegt(pu, zitate) }, ruhig: txt(c?.ruhig, 200),
       warnung: txt(c?.warnung, 240), warnung_quelle: url(c?.warnung_quelle), warnung_belegt: belegt(url(c?.warnung_quelle), zitate),
       lat: Number.isFinite(Number(c?.lat)) && Number(c.lat) !== 0 ? Number(c.lat) : null, lon: Number.isFinite(Number(c?.lon)) && Number(c.lon) !== 0 ? Number(c.lon) : null,
-      geprueft_am: new Date().toISOString().slice(0, 10), bild_suche: txt(c?.bild_suche, 120),
+      geprueft_am: new Date().toISOString().slice(0, 10), bild_motiv: c?.bild_motiv === null ? null : txt(c?.bild_motiv, 120), wiki_titel: txt(c?.wiki_titel, 120),
     },
     quellen: quellen.map((u) => ({ url: u, abgerufen: belegt(u as string, zitate) })),
   }
 }
 
-// ---------- Bilder: Wikimedia Commons, nur freie Lizenzen ----------
+// ---------- Bilder (0.2.0): echte, aussagekräftige Fotos nur dort, wo ein Foto Sinn ergibt ----------
+// Kandidaten: Titelbild des passenden Wikipedia-Artikels (en/de, nur freie Lizenz) + Commons-Suche nach dem Motiv.
+// Ein Bildmodell (Gemini 3.8 Flash) sieht die Kandidaten und wählt das Foto, das das Highlight so zeigt, wie man es erlebt – oder keins.
+// Kein Foto für Restaurant, Unterkunft, Tauchbasis/Laden (bild_motiv = null).
+const OHNE_FOTO = new Set(['restaurant', 'unterkunft'])
+const BILDMODELL = 'google/gemini-3.8-flash'
 const ohneHtml = (s: unknown) => String(s ?? '').replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim().slice(0, 120)
-// Karten, Satellitenbilder, alte Stiche, Logos usw. sind keine guten Kartenfotos
-const UNPASSEND = /\b(map|karte|modis|satellite|landsat|sentinel|engraving|lithograph|drawing|illustration|logo|diagram|chart|stamp|coat of arms|1[6-8]\d\d)\b/i
-async function commons(suche: string) {
+const UNPASSEND = /\b(map|karte|modis|satellite|landsat|sentinel|engraving|lithograph|drawing|illustration|logo|diagram|chart|stamp|coat of arms|sign|signage|plaque|1[6-8]\d\d)\b/i
+const holeJson = async (u: URL) => { const r = await fetch(u, { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(12_000) }); return r.ok ? await r.json() : null }
+function lizenzOk(m: any) { const l = ohneHtml(m?.LicenseShortName?.value); return /^(cc|public domain|pd)/i.test(l) && !/nc|nd/i.test(l) ? l : null }
+function kandidatAus(titel: string, ii: any) {
+  const m = ii?.extmetadata ?? {}, lizenz = lizenzOk(m)
+  if (!lizenz || !ii?.thumburl || !/jpeg|png|webp/.test(ii.mime ?? '') || (ii.width ?? 0) < 800 || (ii.width ?? 0) < (ii.height ?? 0) * 0.9) return null
+  if (UNPASSEND.test(titel.replace(/[_-]/g, ' '))) return null
+  return { datei: titel, url: ii.thumburl, quelle_url: ii.descriptionurl, urheber: ohneHtml(m.Artist?.value) || 'unbekannt', lizenz, lizenz_url: url(m.LicenseUrl?.value), quelle: 'Wikimedia Commons' }
+}
+async function commonsInfo(dateien: string[]) {
+  if (!dateien.length) return []
   const q = new URL('https://commons.wikimedia.org/w/api.php')
-  for (const [k, v] of Object.entries({ action: 'query', format: 'json', generator: 'search', gsrnamespace: '6', gsrsearch: `${suche} filetype:bitmap`, gsrlimit: '8',
+  for (const [k, v] of Object.entries({ action: 'query', format: 'json', titles: dateien.map((d) => d.startsWith('File:') ? d : 'File:' + d).join('|'), prop: 'imageinfo', iiprop: 'url|extmetadata|size|mime', iiurlwidth: '960', origin: '*' })) q.searchParams.set(k, v)
+  const j = await holeJson(q)
+  return Object.values(j?.query?.pages ?? {}).map((p: any) => kandidatAus(String(p.title ?? ''), p?.imageinfo?.[0])).filter(Boolean)
+}
+async function wikiTitelbilder(sprache: string, suche: string, direkt: boolean) {
+  const q = new URL(`https://${sprache}.wikipedia.org/w/api.php`)
+  const basis: Record<string, string> = { action: 'query', format: 'json', prop: 'pageimages', piprop: 'name', pilicense: 'free', redirects: '1', origin: '*' }
+  if (direkt) basis.titles = suche; else Object.assign(basis, { generator: 'search', gsrsearch: suche, gsrlimit: '3' })
+  for (const [k, v] of Object.entries(basis)) q.searchParams.set(k, v)
+  const j = await holeJson(q)
+  return Object.values(j?.query?.pages ?? {}).map((p: any) => p?.pageimage).filter(Boolean) as string[]
+}
+async function commonsSuche(suche: string) {
+  const q = new URL('https://commons.wikimedia.org/w/api.php')
+  for (const [k, v] of Object.entries({ action: 'query', format: 'json', generator: 'search', gsrnamespace: '6', gsrsearch: `${suche} filetype:bitmap`, gsrlimit: '10',
     prop: 'imageinfo', iiprop: 'url|extmetadata|size|mime', iiurlwidth: '960', origin: '*' })) q.searchParams.set(k, v)
-  const r = await fetch(q, { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(12_000) })
-  if (!r.ok) return null
-  const j = await r.json()
-  const seiten = Object.values(j?.query?.pages ?? {}).sort((a: any, b: any) => (a.index ?? 0) - (b.index ?? 0)) as any[]
-  for (const s of seiten) {
-    const ii = s?.imageinfo?.[0], m = ii?.extmetadata ?? {}
-    const lizenz = ohneHtml(m.LicenseShortName?.value)
-    if (!ii?.thumburl || !/jpeg|png|webp/.test(ii.mime ?? '') || (ii.width ?? 0) < 800 || (ii.width ?? 0) < (ii.height ?? 0) * 0.9) continue
-    if (UNPASSEND.test(String(s.title ?? '').replace(/[_-]/g, ' '))) continue
-    if (!/^(cc|public domain|pd)/i.test(lizenz) || /nc|nd/i.test(lizenz)) continue
-    return { url: ii.thumburl, quelle_url: ii.descriptionurl, urheber: ohneHtml(m.Artist?.value) || 'unbekannt', lizenz, lizenz_url: url(m.LicenseUrl?.value), quelle: 'Wikimedia Commons' }
-  }
-  return null
+  const j = await holeJson(q)
+  return (Object.values(j?.query?.pages ?? {}) as any[]).sort((a, b) => (a.index ?? 0) - (b.index ?? 0)).map((p) => kandidatAus(String(p.title ?? ''), p?.imageinfo?.[0])).filter(Boolean)
+}
+async function alsDaten(u: string) {
+  const klein = u.replace(/\/\d+px-/, '/500px-') // Wikimedia liefert nur Standardgrößen
+  const r = await fetch(klein, { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(15_000) })
+  if (!r.ok) throw new Error('Bild ' + r.status)
+  const b = new Uint8Array(await r.arrayBuffer())
+  let s = ''; for (let i = 0; i < b.length; i += 0x8000) s += String.fromCharCode(...b.subarray(i, i + 0x8000))
+  return `data:${r.headers.get('content-type') ?? 'image/jpeg'};base64,${btoa(s)}`
+}
+async function bildWaehlen(karte: any, kand: any[]) {
+  const geladen = (await Promise.allSettled(kand.map((k) => alsDaten(k.url)))).map((x, i) => (x.status === 'fulfilled' ? { k: kand[i], d: x.value } : null)).filter(Boolean) as any[]
+  if (!geladen.length) return { bild: null, kosten: 0, info: `0/${kand.length} Kandidaten ladbar` }
+  const text = `Reise-Highlight: „${karte.titel}“. ${karte.steckbrief?.moment ?? ''}
+Wähle unter den ${geladen.length} Fotos (Nummer 1–${geladen.length}) das eine, das genau dieses Highlight am aussagekräftigsten und schönsten zeigt – so, wie ein Besucher es erlebt (Ort, Landschaft, Tier, Unterwasserszene, Bauwerk). Ungeeignet: anderer Ort, Schilder, Karten, Parkplätze, Gebäude/Büro eines Anbieters, Personenporträts, unscharf, dunkel, sichtbar alt.
+Antworte nur mit einer Zeile JSON: {"wahl": Nummer oder null, "note": 1-10, "grund": "max 8 Wörter Deutsch"}`
+  const r = await fetch('https://openrouter.ai/api/v1/chat/completions', { method: 'POST', signal: AbortSignal.timeout(60_000),
+    headers: { Authorization: `Bearer ${OR_KEY}`, 'Content-Type': 'application/json', 'X-Title': 'Highlights Bildwahl' },
+    body: JSON.stringify({ model: BILDMODELL, temperature: 0, max_tokens: 2000, usage: { include: true }, provider: { data_collection: 'deny' },
+      messages: [{ role: 'user', content: [{ type: 'text', text }, ...geladen.flatMap((g, i) => [{ type: 'text', text: `Foto ${i + 1}:` }, { type: 'image_url', image_url: { url: g.d } }])] }] }) })
+  const j = await r.json().catch(() => null)
+  const t = String(j?.choices?.[0]?.message?.content ?? '')
+  const kosten = Number(j?.usage?.cost ?? 0) || 0
+  const wahl = Number(t.match(/"wahl"\s*:\s*(\d+)/)?.[1]), note = Number(t.match(/"note"\s*:\s*(\d+)/)?.[1])
+  if (!(wahl >= 1 && wahl <= geladen.length) || !(note >= 6)) return { bild: null, kosten, info: `${geladen.length} Kandidaten, Antwort: ${t.slice(0, 160) || JSON.stringify(j?.error ?? '').slice(0, 160)}` }
+  const k = geladen[wahl - 1].k
+  return { bild: { ...k, datei: undefined, note, grund: ohneHtml(t.match(/"grund"\s*:\s*"([^"]*)/)?.[1]) }, kosten }
 }
 async function bildFuer(karte: any, pfad: string[]) {
+  if (OHNE_FOTO.has(karte.typ) || karte.bild_motiv === null) return { bild: null, kosten: 0 }
   const t = String(karte.titel ?? '').replace(/\(.*?\)/g, '').replace(/[:&]/g, ' ').trim()
-  const versuche = [...new Set([karte.bild_suche, `${t} ${String(pfad.at(-1) ?? '').replace(/\(.*?\)/g, '')}`.trim(), t].filter(Boolean))]
-  for (const v of versuche) { try { const b = await commons(v); if (b) return b } catch { /* nächster Versuch */ } }
-  return null
+  const ort = String(pfad.at(-1) ?? '').replace(/\(.*?\)/g, '').trim()
+  const motiv = karte.bild_motiv || karte.bild_suche || `${t} ${ort}`.trim()
+  try {
+    const titel = new Set<string>()
+    const listen = await Promise.all([
+      karte.wiki_titel ? wikiTitelbilder('en', karte.wiki_titel, true) : Promise.resolve([]),
+      wikiTitelbilder('en', `${t} ${ort}`.trim(), false), wikiTitelbilder('de', t, false)])
+    for (const l of listen) for (const d of l) titel.add(d)
+    const ausWiki = await commonsInfo([...titel].slice(0, 6))
+    const ausSuche = await commonsSuche(motiv)
+    const kand: any[] = []
+    for (const k of [...ausWiki, ...ausSuche]) if (!kand.some((x) => x.datei === k.datei)) kand.push(k)
+    if (!kand.length) return { bild: null, kosten: 0, info: `keine Kandidaten (Wiki ${titel.size}, Suche ${ausSuche.length})` }
+    return await bildWaehlen(karte, kand.slice(0, 6))
+  } catch (e) { console.error('bild', karte.titel, (e as any)?.message); return { bild: null, kosten: 0, info: String((e as any)?.message ?? e).slice(0, 160) } }
 }
 
 async function portionFuellen(id: number) {
@@ -186,7 +241,7 @@ async function portionFuellen(id: number) {
     const karten = (Array.isArray(ki.daten?.karten) ? ki.daten.karten : []).slice(0, 5).map((c: any) => karteBauen(c, ki.zitate)).filter((c: any) => c.titel)
     const pfad = (k.pfad ?? []).map((x: any) => x.titel)
     const bilder = await Promise.all(karten.map((c: any) => bildFuer(c, pfad)))
-    karten.forEach((c: any, i: number) => { c.bild = bilder[i] })
+    karten.forEach((c: any, i: number) => { c.bild = bilder[i].bild; kosten += bilder[i].kosten })
     await sql`select highlights.portion_abschliessen(${id}, ${JSON.stringify({ karten, fazit: txt(ki.daten?.fazit, 400), ende: !!ki.daten?.ende,
       ende_hinweis: txt(ki.daten?.ende_hinweis, 400), kosten_usd: kosten, modell })}::text::jsonb)`
   } catch (e) {
@@ -207,13 +262,19 @@ Deno.serve(async (req) => {
     const b = await req.json().catch(() => ({}))
     if (b.bilder_suche_id) {
       // fehlende Bilder einer Suche nachholen (Wikimedia, nur freie Lizenzen)
-      const ks = await sql`select id, titel, steckbrief->>'bild_suche' as bild_suche, highlights.pfad(parent_id) as pfad from highlights.knoten where suche_id = ${Number(b.bilder_suche_id)} and bild is null limit 25`
-      let n = 0
-      for (const k of ks) {
-        const bild = await bildFuer({ titel: k.titel, bild_suche: k.bild_suche }, (k.pfad ?? []).map((x: any) => x.titel))
-        if (bild) { await sql`update highlights.knoten set bild = ${JSON.stringify(bild)}::text::jsonb where id = ${k.id}`; n++ }
-      }
-      return antwort({ ok: true, bilder: n, von: ks.length })
+      const ks = await sql`select id, titel, typ, steckbrief, highlights.pfad(parent_id) as pfad from highlights.knoten
+        where suche_id = ${Number(b.bilder_suche_id)} and (bild is null or ${!!b.neu}) order by id limit 30`
+      let n = 0, kosten = 0
+      const infos: string[] = []
+      await Promise.all(ks.map(async (k: any) => {
+        const sb = k.steckbrief ?? {}
+        const r = await bildFuer({ titel: k.titel, typ: k.typ, steckbrief: sb, bild_motiv: sb.bild_motiv, bild_suche: sb.bild_suche, wiki_titel: sb.wiki_titel }, (k.pfad ?? []).map((x: any) => x.titel))
+        kosten += r.kosten
+        if (!r.bild) infos.push(`${k.titel}: ${(r as any).info ?? 'kein Foto vorgesehen'}`)
+        await sql`update highlights.knoten set bild = ${r.bild ? JSON.stringify(r.bild) : null}::text::jsonb where id = ${k.id}`
+        if (r.bild) n++
+      }))
+      return antwort({ ok: true, bilder: n, von: ks.length, kosten_usd: Math.round(kosten * 10000) / 10000, ohne: infos })
     }
     await portionFuellen(Number(b.portion_id))
     return antwort({ ok: true, portion_id: Number(b.portion_id) })

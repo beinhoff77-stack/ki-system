@@ -9,6 +9,9 @@ const HL_TYP = { region: ['Region', '◍'], ort: ['Ort', '⌖'], stadt: ['Stadt'
 const HL_ANDRANG = ['', 'kaum touristisch', 'lokaler Alltag', 'bekannter Stopp', 'Busgruppen', 'Massentourismus'];
 const HL_LINSEN = [['highlights', 'Highlights'], ['tauchen', 'Tauchen'], ['tiere', 'Tiere'], ['natur', 'Natur'], ['kinder', 'Mit Kindern'], ['wohnen', 'Wo wohnen'], ['essen', 'Essen'], ['kultur', 'Kultur'], ['abend', 'Abend']];
 const HL_KOSTEN = 'ca. 0,10–0,30 USD · 1–2 Min.';
+// Darstellung der Karten (W149, zum Aussuchen): gleiche Inhalte, sehr unterschiedliche Gestaltung
+const HL_STILE = [['steckbrief', 'Steckbrief'], ['poster', 'Poster'], ['kompakt', 'Kompakt'], ['postkarte', 'Postkarte'], ['nacht', 'Nacht']];
+const hlStil = () => { const s = hlLese('hl_stil', 'steckbrief'); return HL_STILE.some(x => x[0] === s) ? s : 'steckbrief'; };
 let hlFly = null;            // Kopfbild-Zoom: Startposition des Kartenfotos
 const hlVergleich = new Set();
 
@@ -133,10 +136,10 @@ function hlKarte(k, ctx) {
   weg.onclick = () => hlEntscheiden(k, k.status === 'weg' ? 'offen' : 'weg', ctx);
   const vgl = el('input', { type: 'checkbox', 'aria-label': 'Vergleichen' }); vgl.checked = hlVergleich.has(k.id);
   vgl.onchange = () => { if (vgl.checked) { if (hlVergleich.size >= 3) { vgl.checked = false; toast('Höchstens 3 vergleichen.'); return; } hlVergleich.add(k.id); } else hlVergleich.delete(k.id); ctx.vergleichLeiste(); };
-  const bild = hlBild(k.bild, k.typ);
+  const bild = k.bild || !['restaurant', 'unterkunft'].includes(k.typ) ? hlBild(k.bild, k.typ) : null;
   const tiefer = el('a', { class: 'hl-tiefer primary-link', href: hlHref(ctx.sid, k.id) }, 'Mehr dazu', el('span', { 'aria-hidden': true }, ' →'), k.kinder ? el('small', {}, ' · ' + k.kinder) : null);
-  tiefer.addEventListener('click', () => { const img = bild.querySelector('img'); if (img) hlFly = { src: img.src, rect: img.getBoundingClientRect() }; });
-  art.append(bild,
+  tiefer.addEventListener('click', () => { const img = bild?.querySelector('img'); if (img) hlFly = { src: img.src, rect: img.getBoundingClientRect() }; });
+  art.append(...(bild ? [bild] : []),
     el('div', { class: 'hl-body' },
       el('p', { class: 'eyebrow' }, typName),
       el('h3', {}, k.titel),
@@ -153,6 +156,8 @@ function hlKarte(k, ctx) {
       el('div', { class: 'hl-actions' }, merk, weg, el('label', { class: 'hl-vgl' }, vgl, 'Vgl.'),
         el('button', { type: 'button', class: 'link', onclick: () => ctx.portion('aehnlich', { vorlage_knoten_id: k.id }) }, 'Mehr wie das'), tiefer)));
   hlWisch(art, () => { if (k.status !== 'weg') hlEntscheiden(k, 'weg', ctx); });
+  // Kompakt: Antippen klappt den vollen Steckbrief auf
+  art.addEventListener('click', e => { if (art.closest('.stil-kompakt') && !e.target.closest('a,button,input,label,summary,details')) art.classList.toggle('offen'); });
   return art;
 }
 
@@ -190,10 +195,13 @@ async function hlEbene(sid, kid) {
   const chips = el('div', { class: 'hl-chips' });
   const fazit = el('p', { class: 'hl-fazit' });
   const lauf = el('div', { class: 'hl-lauf', role: 'status' });
-  const karten = el('div', { class: 'hl-grid' });
+  const karten = el('div', { class: 'hl-grid stil-' + hlStil() });
+  const stilWahl = el('div', { class: 'hl-stile', role: 'group', 'aria-label': 'Darstellung' }, el('span', { class: 'small muted' }, 'Darstellung'),
+    HL_STILE.map(([key, label]) => { const b = el('button', { type: 'button', class: 'hl-chip' + (hlStil() === key ? ' an' : ''), 'aria-pressed': hlStil() === key }, label);
+      b.onclick = () => { hlSchreibe('hl_stil', key); karten.className = 'hl-grid stil-' + key; stilWahl.querySelectorAll('button').forEach(x => { const on = x === b; x.classList.toggle('an', on); x.setAttribute('aria-pressed', on); }); }; return b; }));
   const unten = el('div', { class: 'hl-unten' });
   const vgl = el('div', { class: 'hl-vgl-leiste', hidden: true });
-  hlFill(main, pfad, kopf, chips, fazit, lauf, karten, unten, vgl);
+  hlFill(main, pfad, kopf, chips, stilWahl, fazit, lauf, karten, unten, vgl);
   const ctx = { sid, alter: null, neu: () => lesen(), portion: (art, extra = {}) => portion(art, extra), vergleichLeiste: () => leiste() };
 
   async function portion(art, extra = {}) {

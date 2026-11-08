@@ -111,13 +111,16 @@ function hlBild(b, typ, cls = 'hl-img') {
 const hlPunkte = (n, max = 5) => el('span', { class: 'hl-dots', 'aria-label': n ? n + ' von ' + max : 'unbekannt' }, n ? Array.from({ length: max }, (_, i) => el('i', { class: i < n ? 'an' : '' })) : '–');
 const hlBeleg = (ok, url) => ok ? el('a', { class: 'hl-beleg ok', href: hlSicher(url) || '#', target: '_blank', rel: 'noopener noreferrer', title: 'Belegt: Quelle abgerufen' }, '✓') : el('span', { class: 'hl-beleg', title: 'Schätzung, keine abgerufene Quelle' }, '○');
 
-function hlFamilie(sb, alter) {
-  const fam = alter ? HL_FAMILIE.map((p, i) => (i > 1 && alter[i - 2] ? { k: String(alter[i - 2]), alter: alter[i - 2] } : p)) : HL_FAMILIE;
+// Familie (W151, GPT-Variante): keine Kreise mehr – nur eine Zeile, wenn jemand nicht mitkann oder es einen Hinweis gibt.
+// Kein Hinweis heißt NICHT „alle geeignet“ – es wurde nur nichts Einschränkendes gefunden.
+function hlFamilieText(sb, alter) {
+  const kinder = (Array.isArray(alter) && alter.length ? alter : HL_FAMILIE.filter(p => p.alter < 99).map(p => p.alter)).map(Number).filter(Boolean);
   const min = Number(sb.mindestalter) || 0;
-  const kreise = fam.map(p => el('i', { class: 'hl-person' + (min && p.alter < min ? ' nein' : ''), title: p.alter < 99 ? p.k + ' Jahre' : 'Erwachsen' }, p.k));
-  const unterschied = (min && fam.some(p => p.alter < min)) || sb.familie_hinweis;
-  return el('div', { class: 'hl-fam' }, el('span', { class: 'hl-kreise' }, kreise),
-    unterschied ? el('span', { class: 'hl-fam-txt' }, [min ? 'ab ' + min + ' J.' : null, sb.familie_hinweis].filter(Boolean).join(' · ')) : null);
+  const zuJung = min ? kinder.filter(a => a < min) : [];
+  const teile = [];
+  if (zuJung.length) teile.push((zuJung.length === kinder.length && kinder.length > 1 ? 'Beide Kinder' : zuJung.map(a => a + '-Jährige/r').join(' und ')) + ' zu jung (ab ' + min + ' J.)');
+  if (sb.familie_hinweis) teile.push(sb.familie_hinweis);
+  return teile.length ? teile.join(' · ') : null;
 }
 
 function hlKarte(k, ctx) {
@@ -128,8 +131,8 @@ function hlKarte(k, ctx) {
     el('div', {}, el('dt', {}, 'WOW'), el('dd', {}, hlPunkte(sb.wow))),
     el('div', {}, el('dt', {}, 'Andrang'), el('dd', {}, el('b', {}, sb.andrang ? sb.andrang + '/5' : '–'), ' ', hlBeleg(sb.andrang_belegt, sb.andrang_quelle), el('small', {}, HL_ANDRANG[sb.andrang] || ''))),
     el('div', {}, el('dt', {}, 'Zeit'), el('dd', {}, sb.zeit || '–')),
-    el('div', {}, el('dt', {}, 'Kosten für 4'), el('dd', {}, sb.kosten_4 || '–', ' ', hlBeleg(sb.kosten_belegt, sb.kosten_quelle))),
-    el('div', { class: 'hl-krit-fam' }, el('dt', {}, 'Familie'), el('dd', {}, hlFamilie(sb, ctx.alter))));
+    el('div', {}, el('dt', {}, 'Kosten für 4'), el('dd', {}, sb.kosten_4 || '–', ' ', hlBeleg(sb.kosten_belegt, sb.kosten_quelle))));
+  const famText = hlFamilieText(sb, ctx.alter);
   const merk = el('button', { type: 'button', class: 'hl-merk' + (k.status === 'gemerkt' ? ' an' : ''), 'aria-pressed': k.status === 'gemerkt' }, k.status === 'gemerkt' ? '♥ Gemerkt' : '♡ Merken');
   merk.onclick = () => hlEntscheiden(k, k.status === 'gemerkt' ? 'offen' : 'gemerkt', ctx);
   const weg = el('button', { type: 'button', class: 'hl-weg' }, k.status === 'weg' ? 'Zurückholen' : 'Weg');
@@ -146,6 +149,7 @@ function hlKarte(k, ctx) {
       sb.moment ? el('p', { class: 'hl-moment' }, sb.moment) : null,
       sb.warnung ? el('p', { class: 'hl-warnung' }, '⚠ ', sb.warnung, ' ', hlBeleg(sb.warnung_belegt, sb.warnung_quelle)) : null,
       krit,
+      famText ? el('p', { class: 'hl-familie' }, el('b', {}, 'Familie: '), famText) : null,
       el('p', { class: 'hl-saison' }, el('span', { class: 'pill hl-s-' + (saison.status || 'unbekannt') }, { passt: 'Saison passt', grenzwertig: 'Saison grenzwertig', falsch: 'Falsche Saison', unbekannt: 'Saison ?' }[saison.status || 'unbekannt']), ' ', saison.text || '', sb.tageszeit ? ' · ' + sb.tageszeit : ''),
       (sb.fach || []).length ? el('dl', { class: 'hl-fach' }, sb.fach.map(f => el('div', {}, el('dt', {}, f.label), el('dd', {}, f.wert)))) : null,
       sb.lohnt || sb.eher_nicht ? el('div', { class: 'hl-wenn' }, sb.lohnt ? el('p', { class: 'ja' }, sb.lohnt) : null, sb.eher_nicht ? el('p', { class: 'nein' }, sb.eher_nicht) : null) : null,
@@ -315,7 +319,7 @@ function hlVergleichen(liste, ctx) {
     el('thead', {}, el('tr', {}, el('th', {}), liste.map(k => el('th', {}, k.titel)))),
     el('tbody', {},
       z('WOW', s => hlPunkte(s.wow)), z('Andrang', s => (s.andrang ? s.andrang + '/5 ' + HL_ANDRANG[s.andrang] : '–')),
-      z('Zeit', s => s.zeit || '–'), z('Kosten für 4', s => s.kosten_4 || '–'), z('Familie', s => hlFamilie(s, ctx.alter)),
+      z('Zeit', s => s.zeit || '–'), z('Kosten für 4', s => s.kosten_4 || '–'), z('Familie', s => hlFamilieText(s, ctx.alter) || 'kein Hinweis'),
       z('Saison', s => (s.saison?.text || '–') + (s.saison?.status ? ' (' + s.saison.status + ')' : '')),
       z('Fachwert', s => (s.fach?.[0] ? s.fach[0].label + ': ' + s.fach[0].wert : '–')), z('Eher nicht', s => (s.eher_nicht || '–').replace(/^Eher nicht,? wenn /i, '… wenn '))))),
     el('button', { type: 'button', onclick: () => d.close() }, 'Schließen'));

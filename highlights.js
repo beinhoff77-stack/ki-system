@@ -127,11 +127,14 @@ function hlKarte(k, ctx) {
   const sb = k.steckbrief || {}, [typName] = HL_TYP[k.typ] || HL_TYP.erlebnis;
   const art = el('article', { class: 'hl-card' + (k.status === 'gemerkt' ? ' gemerkt' : '') + (k.status === 'weg' ? ' weg' : ''), 'data-id': k.id });
   const saison = sb.saison || {};
-  const krit = el('dl', { class: 'hl-krit' },
-    el('div', {}, el('dt', {}, 'WOW'), el('dd', {}, hlPunkte(sb.wow))),
-    el('div', {}, el('dt', {}, 'Andrang'), el('dd', {}, el('b', {}, sb.andrang ? sb.andrang + '/5' : '–'), ' ', hlBeleg(sb.andrang_belegt, sb.andrang_quelle), el('small', {}, HL_ANDRANG[sb.andrang] || ''))),
-    el('div', {}, el('dt', {}, 'Zeit'), el('dd', {}, sb.zeit || '–')),
-    el('div', {}, el('dt', {}, 'Kosten für 4'), el('dd', {}, sb.kosten_4 || '–', ' ', hlBeleg(sb.kosten_belegt, sb.kosten_quelle))));
+  const gebiet = ['region', 'ort', 'stadt'].includes(k.typ);
+  const saisonPill = el('span', { class: 'pill hl-s-' + (saison.status || 'unbekannt') }, { passt: 'passt', grenzwertig: 'grenzwertig', falsch: 'falsche Zeit', unbekannt: '?' }[saison.status || 'unbekannt']);
+  const fakt = (label, ...wert) => el('div', {}, el('dt', {}, label), el('dd', {}, ...wert));
+  const andrang = fakt('Andrang', el('b', {}, sb.andrang ? sb.andrang + '/5' : '–'), ' ', hlBeleg(sb.andrang_belegt, sb.andrang_quelle), el('small', {}, HL_ANDRANG[sb.andrang] || ''));
+  // Region/Ort: Wo · Warum · Highlights dort – keine Kosten. Erlebnis: Was ihr erlebt · Warum besonders · Fakten (Kosten in €)
+  const krit = gebiet
+    ? el('dl', { class: 'hl-krit' }, fakt('Dauer', sb.tage || sb.zeit || '–'), fakt('Beste Zeit', saisonPill, ' ', saison.text || ''), andrang)
+    : el('dl', { class: 'hl-krit' }, fakt('Zeit', sb.zeit || '–'), fakt('Kosten für 4', sb.kosten_4 || '–', ' ', hlBeleg(sb.kosten_belegt, sb.kosten_quelle)), andrang, fakt('Saison', saisonPill, ' ', saison.text || ''));
   const famText = hlFamilieText(sb, ctx.alter);
   const merk = el('button', { type: 'button', class: 'hl-merk' + (k.status === 'gemerkt' ? ' an' : ''), 'aria-pressed': k.status === 'gemerkt' }, k.status === 'gemerkt' ? '♥ Gemerkt' : '♡ Merken');
   merk.onclick = () => hlEntscheiden(k, k.status === 'gemerkt' ? 'offen' : 'gemerkt', ctx);
@@ -140,23 +143,30 @@ function hlKarte(k, ctx) {
   const vgl = el('input', { type: 'checkbox', 'aria-label': 'Vergleichen' }); vgl.checked = hlVergleich.has(k.id);
   vgl.onchange = () => { if (vgl.checked) { if (hlVergleich.size >= 3) { vgl.checked = false; toast('Höchstens 3 vergleichen.'); return; } hlVergleich.add(k.id); } else hlVergleich.delete(k.id); ctx.vergleichLeiste(); };
   const bild = k.bild || !['restaurant', 'unterkunft'].includes(k.typ) ? hlBild(k.bild, k.typ) : null;
-  const tiefer = el('a', { class: 'hl-tiefer primary-link', href: hlHref(ctx.sid, k.id) }, 'Mehr dazu', el('span', { 'aria-hidden': true }, ' →'), k.kinder ? el('small', {}, ' · ' + k.kinder) : null);
+  const tiefer = el('a', { class: 'hl-tiefer primary-link', href: hlHref(ctx.sid, k.id) }, k.typ === 'region' ? 'Highlights dort' : 'Mehr dazu', el('span', { 'aria-hidden': true }, ' →'), k.kinder ? el('small', {}, ' · ' + k.kinder) : null);
   tiefer.addEventListener('click', () => { const img = bild?.querySelector('img'); if (img) hlFly = { src: img.src, rect: img.getBoundingClientRect() }; });
   art.append(...(bild ? [bild] : []),
     el('div', { class: 'hl-body' },
       el('p', { class: 'eyebrow' }, typName),
       el('h3', {}, k.titel),
-      sb.moment ? el('p', { class: 'hl-moment' }, sb.moment) : null,
-      sb.warnung ? el('p', { class: 'hl-warnung' }, '⚠ ', sb.warnung, ' ', hlBeleg(sb.warnung_belegt, sb.warnung_quelle)) : null,
+      ...(gebiet ? [
+        sb.wo ? el('p', { class: 'hl-wo' }, el('b', {}, 'Wo: '), sb.wo) : null,
+        el('p', { class: 'hl-moment' }, el('b', {}, 'Warum hin: '), sb.warum || sb.moment || ''),
+        (sb.highlights || []).length ? el('div', { class: 'hl-dort' }, el('b', {}, 'Highlights dort'), el('ul', {}, sb.highlights.map(h => el('li', {}, h)))) : null,
+      ] : [
+        sb.moment ? el('p', { class: 'hl-moment' }, sb.moment) : null,
+        sb.besonders || sb.wow ? el('p', { class: 'hl-besonders' }, el('b', {}, 'WOW ' + (sb.wow ? sb.wow + '/5' : '') + (sb.besonders ? ' – ' : '')), sb.besonders || '') : null,
+      ]),
+      sb.warnung && sb.warnung_art ? el('p', { class: 'hl-warnung' }, '⚠ ', sb.warnung_art === 'gesperrt' ? 'Gesperrt: ' : 'Eingeschränkt: ', sb.warnung, ' ', hlBeleg(sb.warnung_belegt, sb.warnung_quelle)) : null,
       krit,
       famText ? el('p', { class: 'hl-familie' }, el('b', {}, 'Familie: '), famText) : null,
-      el('p', { class: 'hl-saison' }, el('span', { class: 'pill hl-s-' + (saison.status || 'unbekannt') }, { passt: 'Saison passt', grenzwertig: 'Saison grenzwertig', falsch: 'Falsche Saison', unbekannt: 'Saison ?' }[saison.status || 'unbekannt']), ' ', saison.text || '', sb.tageszeit ? ' · ' + sb.tageszeit : ''),
-      (sb.fach || []).length ? el('dl', { class: 'hl-fach' }, sb.fach.map(f => el('div', {}, el('dt', {}, f.label), el('dd', {}, f.wert)))) : null,
-      sb.lohnt || sb.eher_nicht ? el('div', { class: 'hl-wenn' }, sb.lohnt ? el('p', { class: 'ja' }, sb.lohnt) : null, sb.eher_nicht ? el('p', { class: 'nein' }, sb.eher_nicht) : null) : null,
-      sb.frage ? el('p', { class: 'hl-frage' }, el('b', {}, 'Entscheidende Frage: '), sb.frage, sb.pruefen?.text ? el('span', { class: 'small' }, ' · Prüfen: ', hlSicher(sb.pruefen.url) ? el('a', { href: sb.pruefen.url, target: '_blank', rel: 'noopener noreferrer' }, sb.pruefen.text) : sb.pruefen.text) : null) : null,
-      sb.ruhig ? el('p', { class: 'hl-ruhig' }, el('b', {}, 'Ruhiger erleben: '), sb.ruhig) : null,
-      (k.quellen || []).length ? el('details', { class: 'hl-quellen' }, el('summary', {}, 'Quellen (' + k.quellen.length + ') · Stand ' + fmtDate(sb.geprueft_am)),
-        el('ul', {}, k.quellen.map(q => hlSicher(q.url) ? el('li', {}, el('a', { href: q.url, target: '_blank', rel: 'noopener noreferrer' }, new URL(q.url).hostname.replace(/^www\./, '')), q.abgerufen ? ' ✓' : ' ○') : null))) : null,
+      el('details', { class: 'hl-mehrinfo' }, el('summary', {}, 'Mehr Infos'),
+        sb.frage ? el('p', { class: 'hl-frage' }, el('b', {}, 'Vor dem Buchen klären: '), sb.frage, sb.pruefen?.text ? el('span', { class: 'small' }, ' · Prüfen: ', hlSicher(sb.pruefen.url) ? el('a', { href: sb.pruefen.url, target: '_blank', rel: 'noopener noreferrer' }, sb.pruefen.text) : sb.pruefen.text) : null) : null,
+        (sb.fach || []).length ? el('dl', { class: 'hl-fach' }, sb.fach.map(f => el('div', {}, el('dt', {}, f.label), el('dd', {}, f.wert)))) : null,
+        sb.lohnt || sb.eher_nicht ? el('div', { class: 'hl-wenn' }, sb.lohnt ? el('p', { class: 'ja' }, sb.lohnt) : null, sb.eher_nicht ? el('p', { class: 'nein' }, sb.eher_nicht) : null) : null,
+        sb.tageszeit ? el('p', { class: 'small' }, el('b', {}, 'Beste Tageszeit: '), sb.tageszeit) : null,
+        sb.ruhig ? el('p', { class: 'hl-ruhig' }, el('b', {}, 'Ruhiger erleben: '), sb.ruhig) : null,
+        (k.quellen || []).length ? el('p', { class: 'hl-quellen small' }, 'Quellen (Stand ' + fmtDate(sb.geprueft_am) + '): ', k.quellen.filter(q => hlSicher(q.url)).map((q, i) => [i ? ' · ' : '', el('a', { href: q.url, target: '_blank', rel: 'noopener noreferrer' }, new URL(q.url).hostname.replace(/^www\./, '')), q.abgerufen ? ' ✓' : ' ○'])) : null),
       el('div', { class: 'hl-actions' }, merk, weg, el('label', { class: 'hl-vgl' }, vgl, 'Vgl.'),
         el('button', { type: 'button', class: 'link', onclick: () => ctx.portion('aehnlich', { vorlage_knoten_id: k.id }) }, 'Mehr wie das'), tiefer)));
   hlWisch(art, () => { if (k.status !== 'weg') hlEntscheiden(k, 'weg', ctx); });

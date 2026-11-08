@@ -10,7 +10,7 @@
 import 'jsr:@supabase/functions-js/edge-runtime.d.ts'
 import postgres from 'npm:postgres@3.4.5'
 
-const VERSION = '0.2.2'
+const VERSION = '0.3.1'
 const sql = postgres(Deno.env.get('SUPABASE_DB_URL')!, { prepare: false, max: 3, idle_timeout: 20 })
 const OR_KEY = Deno.env.get('OPENROUTER_API_KEY') ?? ''
 const MODELL = 'anthropic/claude-sonnet-5.5'
@@ -59,9 +59,14 @@ function prompt(k: any): string {
   if (p.art === 'anders') auftrag = `Liefere 5 Vorschläge einer bewusst ANDEREN Art als die bisherigen (bisherige Typen: ${[...new Set((k.vorhanden ?? []).map((x: any) => x.typ))].join(', ') || 'keine'}).`
   if (p.art === 'frage') auftrag = `Beantworte diese Frage mit bis zu 5 passenden Vorschlägen: „${p.text}“.`
   const linse = p.linse && LINSEN[p.linse] ? `Schwerpunkt (Linse): ${LINSEN[p.linse]}.` : ''
+  const et = k.eltern?.typ
   const ebene = !eltern
-    ? 'Ebene: oberste Ebene zu diesem Wunsch. Ist der Wunsch ein Land oder größerer Raum, schlage Regionen/Inseln/Orte vor; ist er schon eine Region, schlage Orte und Erlebnisse darin vor.'
-    : `Ebene: eine Stufe feiner als „${eltern}“, ausschließlich innerhalb davon. Region → Orte/Erlebnisse; Stadt/Ort → Viertel, Spots, Restaurants; Erlebnis/Spot → konkrete Anbieter/Touren, beste Plätze, Essen/Wohnen in der Nähe.`
+    ? 'EBENE 1 = REGIONEN. Liefere ausschließlich Regionen/Gebiete innerhalb des Wunsches (z. B. Insel, Halbinsel, Küstenabschnitt, Nationalpark-Gebiet, Stadt mit Umland) – KEINE einzelnen Spots, Touren oder Anbieter. typ = "region". Jede Region mit Lage (wo), Grund (warum) und ihren 3–4 stärksten konkreten Highlights.'
+    : ['region'].includes(et)
+      ? `EBENE 2 = HIGHLIGHTS IN „${eltern}“: konkrete Orte, Naturerlebnisse, Tierbegegnungen, Tauchplätze innerhalb dieser Region. Größere Orte/Städte als typ "ort"/"stadt".`
+      : ['ort', 'stadt'].includes(et)
+        ? `EBENE IN „${eltern}“: Viertel, Spots, Restaurants, Unterkünfte innerhalb dieses Ortes.`
+        : `EBENE ZU „${eltern}“: konkrete Anbieter/Touren, beste Plätze, Essen und Wohnen in der Nähe.`
   return `Du bist ein erfahrener, stilsicherer Reiseberater für eine Taucherfamilie (2 Erwachsene, 2 Kinder im Schulalter, alle tauchen). Geschmack: individuell, beeindruckend, kein Massentourismus, Stil statt Protz; gutes Budget, wenn es sich lohnt.
 Reisewunsch: „${k.wunsch}“
 Pfad: ${pfad.length ? pfad.join(' › ') : '(oberste Ebene)'}
@@ -73,7 +78,7 @@ Schon gezeigt (nicht wiederholen): ${vorhanden.length ? vorhanden.join('; ') : '
 Gemerkt (Signal für Geschmack): ${(k.gemerkt_sonst ?? []).join('; ') || 'nichts'}
 Weggewischt (eher weniger davon, aber nicht ausschließen): ${(k.weg_sonst ?? []).join('; ') || 'nichts'}
 AUFTRAG: ${auftrag}
-Nutze die Websuche für aktuelle Fakten (Preise, Saison, Regeln, Mindestalter). Suche je Vorschlag ausdrücklich nach aktuellen Sperrungen/Warnhinweisen (offizielle Park-, Behörden- oder Anbieterseite); findest du welche, schreibe sie in "warnung". Erfinde nichts. Eine *_quelle nur angeben, wenn genau diese Seite die Angabe enthält, sonst null.
+Nutze die Websuche für aktuelle Fakten (Preise, Saison, Regeln, Mindestalter). Suche je Vorschlag ausdrücklich nach aktuellen Sperrungen/Einschränkungen (offizielle Park-, Behörden- oder Anbieterseite). "warnung" NUR bei echter aktueller Einschränkung (gesperrt, pausiert, nicht buchbar, Saison geschlossen) – Entwarnungen und allgemeine Hinweise gehören NICHT in "warnung", sondern in "pruefen". Erfinde nichts. Eine *_quelle nur angeben, wenn genau diese Seite die Angabe enthält, sonst null.
 Gibt es keine 5 wirklich starken Vorschläge mehr, liefere weniger und setze "ende": true mit kurzem "ende_hinweis". Niemals auffüllen.
 Andrang-Skala: 1 kaum touristisch · 2 lokaler Alltag · 3 bekannter Stopp · 4 Busgruppen · 5 Massentourismus.
 Fachwerte je Typ (genau 2, label + wert): ${Object.entries(FACH).map(([t, f]) => `${t}: ${f}`).join(' | ')}.
@@ -81,14 +86,19 @@ Antworte ausschließlich mit JSON:
 {"fazit":"1 Satz: warum diese Reihenfolge (beginnt mit 'Für euch vorn: ')","ende":false,"ende_hinweis":null,
 "karten":[{"titel":"kurzer Name","typ":"${TYPEN.join('|')}","bild_motiv":"englischer Suchbegriff für das, was man dort SIEHT (Motiv + Ort), z. B. 'great white shark Neptune Islands', 'Remarkable Rocks Kangaroo Island', 'weedy seadragon Tasmania'; bei Restaurant, Unterkunft, Tauchbasis: Name + Ort (Ansicht, Lage, Blick)","wiki_titel":"exakter Titel des passenden englischen Wikipedia-Artikels oder null",
 "moment":"1 Satz: was man dort erlebt, bildhaft",
+"besonders":"1 Satz, konkret: was daran einzigartig ist und den WOW-Wert begründet (z. B. 'einziger Ort weltweit, an dem sich jährlich Tausende Riesentintenfische zur Paarung sammeln'); keine Werbesprache",
+"wo":"nur bei region/ort/stadt: 1 Satz Lage + grobe Anreise, z. B. 'Insel vor der Südküste, 45 Min. Fähre ab Cape Jervis (2 h von Adelaide)'; sonst null",
+"warum":"nur bei region/ort/stadt: 1–2 Sätze, warum ihr dorthin solltet; sonst null",
+"highlights":["nur bei region/ort/stadt: 3–4 konkrete Highlights dort, je 'Name – was es ist' (max. 8 Wörter)"],
+"tage":"nur bei region/ort/stadt: empfohlene Aufenthaltsdauer, z. B. '3–4 Tage'; sonst null",
 "wow":1-5,"andrang":1-5,"andrang_quelle":"URL oder null",
-"zeit":"z. B. 3 h, 1 Tag, 2–3 Tage","kosten_4":"Betrag für 4 Personen in Landeswährung, gerundet, z. B. ca. 620 AUD; oder 'frei'","kosten_quelle":"URL oder null",
+"zeit":"z. B. 3 h, 1 Tag, 2–3 Tage","kosten_4":"nur bei einzelnen Erlebnissen (nicht bei region/ort/stadt, dort null): Betrag für 4 Personen in EURO, gerundet, z. B. 'ca. 620 €'; oder 'frei'","kosten_quelle":"URL oder null",
 "mindestalter":null oder Zahl (für Kinder, z. B. Tauch-/Tourregel),"familie_hinweis":"nur falls ein Familienmitglied nicht mitkann/eingeschränkt ist, sonst null",
 "saison":{"text":"kurz, z. B. Mai–Aug, Höhepunkt Juni","status":"passt|grenzwertig|falsch|unbekannt"},"tageszeit":"beste Tageszeit kurz",
 "fach":[{"label":"…","wert":"…"},{"label":"…","wert":"…"}],
 "lohnt":"Lohnt sich, wenn … (1 Satz)","eher_nicht":"Eher nicht, wenn … (1 Satz)",
 "frage":"die entscheidende offene Frage vor dem Buchen","pruefen":{"text":"was/wo prüfen","url":"URL oder null"},
-"ruhig":"1 Tipp, wie man es ruhiger erlebt","warnung":"aktuelle Sperrung/Einschränkung mit Datum oder null","warnung_quelle":"URL oder null","lat":0.0,"lon":0.0,"quellen":["https://…"]}]}`
+"ruhig":"1 Tipp, wie man es ruhiger erlebt","warnung":"NUR echte aktuelle Einschränkung mit Datum, sonst null","warnung_art":"gesperrt|eingeschraenkt|null","warnung_quelle":"URL oder null","lat":0.0,"lon":0.0,"quellen":["https://…"]}]}`
 }
 
 async function kiPortion(k: any) {
@@ -139,7 +149,10 @@ function karteBauen(c: any, zitate: Set<string>) {
       saison: { text: txt(c?.saison?.text, 80), status: st }, tageszeit: txt(c?.tageszeit, 80), fach,
       lohnt: txt(c?.lohnt, 200), eher_nicht: txt(c?.eher_nicht, 200), frage: txt(c?.frage, 200),
       pruefen: { text: txt(c?.pruefen?.text, 160), url: pu, belegt: belegt(pu, zitate) }, ruhig: txt(c?.ruhig, 200),
-      warnung: txt(c?.warnung, 240), warnung_quelle: url(c?.warnung_quelle), warnung_belegt: belegt(url(c?.warnung_quelle), zitate),
+      ...(['gesperrt', 'eingeschraenkt'].includes(c?.warnung_art) && txt(c?.warnung, 240)
+        ? { warnung: txt(c?.warnung, 240), warnung_art: c.warnung_art, warnung_quelle: url(c?.warnung_quelle), warnung_belegt: belegt(url(c?.warnung_quelle), zitate) } : {}),
+      besonders: txt(c?.besonders, 240), wo: txt(c?.wo, 200), warum: txt(c?.warum, 320), tage: txt(c?.tage, 40),
+      highlights: (Array.isArray(c?.highlights) ? c.highlights : []).map((h: any) => txt(h, 90)).filter(Boolean).slice(0, 4),
       lat: Number.isFinite(Number(c?.lat)) && Number(c.lat) !== 0 ? Number(c.lat) : null, lon: Number.isFinite(Number(c?.lon)) && Number(c.lon) !== 0 ? Number(c.lon) : null,
       geprueft_am: new Date().toISOString().slice(0, 10), bild_motiv: c?.bild_motiv === null ? null : txt(c?.bild_motiv, 120), wiki_titel: txt(c?.wiki_titel, 120),
     },

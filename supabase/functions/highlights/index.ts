@@ -3,14 +3,14 @@
 // Vorschläge: je Portion 5 Steckbrief-Karten von einem KI-Modell über OpenRouter mit Websuche (ZDR + data_collection deny).
 //   Die Websuche fällt NICHT unter ZDR – deshalb enthält der Prompt keine Namen, kein Alter, keine Stammdaten.
 // Belege: Eine Angabe gilt nur als belegt, wenn ihre URL unter den tatsächlich abgerufenen Suchtreffern (url_citation) ist.
-// Bilder: Wikipedia-Titelbild + Commons-Kandidaten (nur freie Lizenz), Bildmodell wählt das aussagekräftigste; kein Foto bei Restaurant/Unterkunft/Tauchbasis.
+// Bilder: Wikipedia-Titelbild + Commons-Kandidaten (nur freie Lizenz), Bildmodell wählt das aussagekräftigste; Foto nur, wenn ein passendes gefunden wird.
 // Wege: POST /highlights/aktion { aktion, daten }  (Bearer = App-Token)
 //   lesen {suche_id?, knoten_id?, mit_weg?} · merkliste {suche_id?} · suche_speichern {id?, wunsch?, vorlieben?, loeschen?}
 //   entscheiden {knoten_id, status offen|gemerkt|weg} · portion {suche_id, parent_id?, art start|mehr|aehnlich|anders|frage, linse?, text?, vorlage_knoten_id?}
 import 'jsr:@supabase/functions-js/edge-runtime.d.ts'
 import postgres from 'npm:postgres@3.4.5'
 
-const VERSION = '0.2.1'
+const VERSION = '0.2.2'
 const sql = postgres(Deno.env.get('SUPABASE_DB_URL')!, { prepare: false, max: 3, idle_timeout: 20 })
 const OR_KEY = Deno.env.get('OPENROUTER_API_KEY') ?? ''
 const MODELL = 'anthropic/claude-sonnet-5.5'
@@ -79,7 +79,7 @@ Andrang-Skala: 1 kaum touristisch · 2 lokaler Alltag · 3 bekannter Stopp · 4 
 Fachwerte je Typ (genau 2, label + wert): ${Object.entries(FACH).map(([t, f]) => `${t}: ${f}`).join(' | ')}.
 Antworte ausschließlich mit JSON:
 {"fazit":"1 Satz: warum diese Reihenfolge (beginnt mit 'Für euch vorn: ')","ende":false,"ende_hinweis":null,
-"karten":[{"titel":"kurzer Name","typ":"${TYPEN.join('|')}","bild_motiv":"englischer Suchbegriff für das, was man dort SIEHT (Motiv + Ort), z. B. 'great white shark Neptune Islands', 'Remarkable Rocks Kangaroo Island', 'weedy seadragon Tasmania'; null bei Restaurant, Unterkunft, Tauchbasis, Laden","wiki_titel":"exakter Titel des passenden englischen Wikipedia-Artikels oder null",
+"karten":[{"titel":"kurzer Name","typ":"${TYPEN.join('|')}","bild_motiv":"englischer Suchbegriff für das, was man dort SIEHT (Motiv + Ort), z. B. 'great white shark Neptune Islands', 'Remarkable Rocks Kangaroo Island', 'weedy seadragon Tasmania'; bei Restaurant, Unterkunft, Tauchbasis: Name + Ort (Ansicht, Lage, Blick)","wiki_titel":"exakter Titel des passenden englischen Wikipedia-Artikels oder null",
 "moment":"1 Satz: was man dort erlebt, bildhaft",
 "wow":1-5,"andrang":1-5,"andrang_quelle":"URL oder null",
 "zeit":"z. B. 3 h, 1 Tag, 2–3 Tage","kosten_4":"Betrag für 4 Personen in Landeswährung, gerundet, z. B. ca. 620 AUD; oder 'frei'","kosten_quelle":"URL oder null",
@@ -150,8 +150,7 @@ function karteBauen(c: any, zitate: Set<string>) {
 // ---------- Bilder (0.2.0): echte, aussagekräftige Fotos nur dort, wo ein Foto Sinn ergibt ----------
 // Kandidaten: Titelbild des passenden Wikipedia-Artikels (en/de, nur freie Lizenz) + Commons-Suche nach dem Motiv.
 // Ein Bildmodell (Gemini 3.8 Flash) sieht die Kandidaten und wählt das Foto, das das Highlight so zeigt, wie man es erlebt – oder keins.
-// Kein Foto für Restaurant, Unterkunft, Tauchbasis/Laden (bild_motiv = null).
-const OHNE_FOTO = new Set(['restaurant', 'unterkunft'])
+// Auch Restaurant/Unterkunft/Tauchbasis bekommen ein Foto, wenn ein passendes da ist (Ansicht, Lage, Blick); sonst keins.
 const BILDMODELL = 'google/gemini-3.8-flash'
 const ohneHtml = (s: unknown) => String(s ?? '').replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim().slice(0, 120)
 const UNPASSEND = /\b(map|karte|modis|satellite|landsat|sentinel|engraving|lithograph|drawing|illustration|logo|diagram|chart|stamp|coat of arms|sign|signage|plaque|1[6-8]\d\d)\b/i
@@ -197,7 +196,7 @@ async function bildWaehlen(karte: any, kand: any[]) {
   const geladen = (await Promise.allSettled(kand.map((k) => alsDaten(k.url)))).map((x, i) => (x.status === 'fulfilled' ? { k: kand[i], d: x.value } : null)).filter(Boolean) as any[]
   if (!geladen.length) return { bild: null, kosten: 0, info: `0/${kand.length} Kandidaten ladbar` }
   const text = `Reise-Highlight: „${karte.titel}“. ${karte.steckbrief?.moment ?? ''}
-Wähle unter den ${geladen.length} Fotos (Nummer 1–${geladen.length}) das eine, das genau dieses Highlight am aussagekräftigsten und schönsten zeigt – so, wie ein Besucher es erlebt (Ort, Landschaft, Tier, Unterwasserszene, Bauwerk). Ungeeignet: anderer Ort, Schilder, Karten, Parkplätze, Gebäude/Büro eines Anbieters, Personenporträts, unscharf, dunkel, sichtbar alt.
+Wähle unter den ${geladen.length} Fotos (Nummer 1–${geladen.length}) das eine, das genau dieses Highlight am aussagekräftigsten und schönsten zeigt – so, wie ein Besucher es erlebt (Ort, Landschaft, Tier, Unterwasserszene, Bauwerk). Bei Restaurant, Unterkunft oder Anbieter genügt eine Ansicht des Hauses, der Lage oder des Blicks. Ungeeignet: anderer Ort, Schilder, Karten, Parkplätze, Personenporträts, unscharf, dunkel, sichtbar alt.
 Antworte nur mit einer Zeile JSON: {"wahl": Nummer oder null, "note": 1-10, "grund": "max 8 Wörter Deutsch"}`
   const r = await fetch('https://openrouter.ai/api/v1/chat/completions', { method: 'POST', signal: AbortSignal.timeout(60_000),
     headers: { Authorization: `Bearer ${OR_KEY}`, 'Content-Type': 'application/json', 'X-Title': 'Highlights Bildwahl' },
@@ -212,7 +211,7 @@ Antworte nur mit einer Zeile JSON: {"wahl": Nummer oder null, "note": 1-10, "gru
   return { bild: { ...k, datei: undefined, note, grund: ohneHtml(t.match(/"grund"\s*:\s*"([^"]*)/)?.[1]) }, kosten }
 }
 async function bildFuer(karte: any, pfad: string[]) {
-  if (OHNE_FOTO.has(karte.typ) || karte.bild_motiv === null) return { bild: null, kosten: 0 }
+  if (karte.bild_motiv === null) return { bild: null, kosten: 0 }
   const t = String(karte.titel ?? '').replace(/\(.*?\)/g, '').replace(/[:&]/g, ' ').trim()
   const ort = String(pfad.at(-1) ?? '').replace(/\(.*?\)/g, '').trim()
   const motiv = karte.bild_motiv || karte.bild_suche || `${t} ${ort}`.trim()

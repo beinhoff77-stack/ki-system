@@ -9,6 +9,16 @@ Web- und Handy-App für Sebastians persönliches KI-System: Council und Unterkun
 
 **Reiseplan ändern (Unterkünfte, Flüge, Mietwagen):** zuerst [`docs/REISEPLAN.md`](docs/REISEPLAN.md) lesen.
 
+## Reisen › Highlights (W149, 0.51.0)
+
+`highlights.js` ergänzt `#/highlights`: vom Reisewunsch über Region und Ort bis zu Spots und Restaurants. Eine Person entscheidet; keine Termin- oder Routenplanung.
+
+- **Ablauf:** Wunsch (Text oder Diktat) → 5 Steckbrief-Karten → Merken / Weg (Wischen nach links, mit Rückgängig) / „Mehr dazu“ öffnet die nächste Ebene. Unten: „Mehr anzeigen (+5)“, „Andere Richtung“, freie Frage; „Mehr wie das“ je Karte. Ab 20 Vorschlägen je Ebene oder wenn die KI kein starkes Ergebnis mehr hat: ehrliches Ende statt Füller.
+- **Steckbrief:** WOW · Andrang 1–5 · Zeit · Kosten für 4 · Familie (Kreise, Hinweis nur bei Mindestalter/Einschränkung), Saison + Tageszeit, 2 Fachwerte je Typ, Lohnt sich / Eher nicht, entscheidende Frage + Prüfen, Ruhiger erleben, aktuelle Warnung. ✓ = Angabe stammt von einer tatsächlich abgerufenen Seite, ○ = Schätzung.
+- **Vorlieben** (Andrang bis, Reisezeit) sind änderbare Chips; sie sortieren nur, nichts wird ausgeschlossen. Linsen-Chips (Tauchen, Tiere, Essen …) steuern die nächste Anfrage.
+- **Navigation:** Pfadleiste, Kopfbild-Zoom beim Vertiefen, Wischen vom linken Rand = zurück, Vergleich von 2–3 Karten, Merkliste nach Region mit „Weiter bei …“.
+- **Server:** eigene Edge Function `highlights` (Quelle in `supabase/functions/highlights/`), gleicher App-Token wie `app-api`, Datenbank-Schema `highlights` hinter `api.highlights_*`. KI: Claude Sonnet 5.5 über OpenRouter mit Websuche (ZDR; die Websuche selbst fällt nicht unter ZDR, daher keine Personendaten im Prompt). Bilder nur Wikimedia Commons mit freier Lizenz, Urheber und Lizenz auf dem Bild. Kosten nur nach Klick, ca. 0,06 USD und 30 s je Portion (Messung 08.11.2026), Tageslimit 5 USD.
+
 ## Aufbau und Gestaltung
 
 `index.html` enthält die App-Hülle und Login-Vorlage, `app.js` die Bedienlogik, `stay-tools.js` Fotos, Merkliste, Filter und Karte, `stay-districts.js` die Viertelübersicht und ihre Suchauswahl, `style.css` die Gestaltung. Manifest, Service Worker und Icons ermöglichen die installierbare App-Hülle.

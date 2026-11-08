@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.50.2';
+const APP_VERSION = '0.51.0';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const TOKEN_KEY = 'ks_token';
 
@@ -174,7 +174,7 @@ function parseHash() {
 window.addEventListener('hashchange', render);
 
 function setChrome(title, { back = false, showTabs = true, tab = null } = {}) {
-  const area = current.view === 'login' ? 'login' : current.view === 'start' ? 'start' : current.view === 'lernen' ? 'lernen' : ['suche', 'ergebnisse', 'viertel', 'anzeige', 'reisen', 'etappe', 'papierkorb'].includes(current.view) ? 'unterkunft' : 'council';
+  const area = current.view === 'login' ? 'login' : current.view === 'start' ? 'start' : current.view === 'lernen' ? 'lernen' : ['suche', 'ergebnisse', 'viertel', 'anzeige', 'reisen', 'etappe', 'papierkorb', 'highlights'].includes(current.view) ? 'unterkunft' : 'council';
   document.body.dataset.area = area;
   for (const meta of document.querySelectorAll('meta[name="theme-color"]')) meta.content = ['unterkunft', 'start', 'lernen'].includes(area) ? '#f6f4ec' : meta.media.includes('dark') ? '#101721' : '#f4f6f8';
   $('#areas').hidden = area === 'login';
@@ -215,7 +215,7 @@ async function render() {
   disposeSuche = () => {};
   current = parseHash();
   if (!store.token && current.view !== 'login') { route('login'); return; }
-  const views = { reisen: viewReisen, etappe: viewDecisionPlace, papierkorb: viewPapierkorb, meldungen: viewMeldungen, start: viewStart, lernen: viewLernen, login: viewLogin, auftraege: viewAuftraege, auftrag: viewAuftrag, neu: viewNeu, einstellungen: viewEinstellungen, anzeige: viewAnzeige, werkstatt: viewWerkstatt, suche: viewSuche, viertel: viewViertel, ergebnisse: () => viewSuche(null, { historyOnly: true }) };
+  const views = { highlights: viewHighlights, reisen: viewReisen, etappe: viewDecisionPlace, papierkorb: viewPapierkorb, meldungen: viewMeldungen, start: viewStart, lernen: viewLernen, login: viewLogin, auftraege: viewAuftraege, auftrag: viewAuftrag, neu: viewNeu, einstellungen: viewEinstellungen, anzeige: viewAnzeige, werkstatt: viewWerkstatt, suche: viewSuche, viertel: viewViertel, ergebnisse: () => viewSuche(null, { historyOnly: true }) };
   const fn = views[current.view] || (() => route('start'));
   try { await fn(current.arg); } catch (e) { if (live()) showError(e); }
 }
@@ -234,7 +234,7 @@ function viewStart() {
   main.replaceChildren(el('section', { class: 'start-intro start-intro-compact' },
     el('p', { class: 'eyebrow' }, 'DEIN PERSÖNLICHER RAUM'),
     el('h2', {}, 'Was möchtest du heute machen?')),
-    theme('Reisen', tripSlot, area('stay-card', '#/suche', 'stay-art', '⌂', 'UNTERKUNFT', 'Unterkunft suchen', 'Unterkünfte finden und vergleichen.')),
+    theme('Reisen', tripSlot, area('hl-card', '#/highlights', 'hl-art', '✦', 'HIGHLIGHTS', 'Highlights entdecken', 'Vom Reisewunsch bis zum Spot – merken, vertiefen, vergleichen.'), area('stay-card', '#/suche', 'stay-art', '⌂', 'UNTERKUNFT', 'Unterkunft suchen', 'Unterkünfte finden und vergleichen.')),
     theme('Denken & Entscheiden', area('council-card', '#/auftraege', 'council-art', '○○○', 'COUNCIL', 'Council', 'Fragen durchdenken und Entscheidungen vorbereiten.')),
     theme('Lernen', area('learn-card', '#/lernen', 'learn-art', 'π', 'SCHULE', 'Lernen Schule', 'Merkblätter und Übungen für Leo.')),
     el('p', { class: 'start-footer' }, el('a', { href: '#/einstellungen' }, 'Zugang & Einstellungen'), el('span', {}, ' · '), el('a', { href: '#/werkstatt' }, 'Werkstatt')));

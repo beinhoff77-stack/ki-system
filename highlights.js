@@ -9,7 +9,7 @@ const hlApi = () => API.replace(/app-api$/, 'highlights'); // API stammt aus app
 const HL_FAMILIE = [{ k: 'E', alter: 99 }, { k: 'E', alter: 99 }, { k: '13', alter: 13 }, { k: '11', alter: 11 }];
 const HL_TYP = { region: ['Region', '◍'], ort: ['Ort', '⌖'], stadt: ['Stadt', '▦'], viertel: ['Viertel', '▤'], tauchen: ['Tauchen', '≈'], tiere: ['Tiere', '❦'], natur: ['Natur', '▲'], tempel: ['Tempel', '⛩'], altstadt: ['Altstadt', '⌂'], museum: ['Museum', '▥'], restaurant: ['Restaurant', '◐'], unterkunft: ['Unterkunft', '⌂'], erlebnis: ['Erlebnis', '✦'] };
 // Themen: Farbe + Zeichen für Chips und Kartenpunkte
-const HL_THEMA = { tauchen: ['Meer & Tauchen', '≈', '#2a6f97'], tiere: ['Tiere', '❦', '#8a6420'], natur: ['Natur', '▲', '#3f7d3a'], kultur: ['Kultur', '⌂', '#7b4b94'], essen: ['Essen & Trinken', '◐', '#c0662b'], wohnen: ['Wohnen', '⌂', '#1f8585'], ort: ['Ort', '⌖', '#5a6878'], erlebnis: ['Erlebnis', '✦', '#a8801a'] };
+const HL_THEMA = { tauchen: ['Meer & Tauchen', '≈', '#2a6f97'], tiere: ['Tiere', '❦', '#8a6420'], natur: ['Natur & Wandern', '▲', '#3f7d3a'], kultur: ['Kultur', '⌂', '#7b4b94'], essen: ['Essen & Trinken', '◐', '#c0662b'], wohnen: ['Wohnen', '⌂', '#1f8585'], ort: ['Ort', '⌖', '#5a6878'], erlebnis: ['Erlebnis', '✦', '#a8801a'] };
 const hlThemaVon = (typ) => ({ tauchen: 'tauchen', tiere: 'tiere', natur: 'natur', tempel: 'kultur', altstadt: 'kultur', museum: 'kultur', restaurant: 'essen', unterkunft: 'wohnen', ort: 'ort', stadt: 'ort', viertel: 'ort' })[typ] || 'erlebnis';
 const hlThema = (t) => HL_THEMA[t] || HL_THEMA.erlebnis;
 const HL_ANDRANG = ['', 'kaum touristisch', 'lokaler Alltag', 'bekannter Stopp', 'Busgruppen', 'Massentourismus'];
@@ -212,6 +212,17 @@ function hlTabs(aktiv, zahlen, wahl) {
       el('button', { type: 'button', role: 'tab', 'aria-selected': aktiv === k, class: 'hl2-tab' + (aktiv === k ? ' an' : ''), onclick: () => wahl(k) }, l, ' ', el('span', { class: 'hl2-n' }, String(n)))));
 }
 
+// Themen-Filter (W155b): nur Themen, die es hier gibt, mit Anzahl; gilt für Liste und Karte
+function hlThemenLeiste(eintraege, aktiv, wahl) {
+  const n = {};
+  for (const x of eintraege) if (x.status !== 'weg') { const t = hlThemaVon(x.typ); n[t] = (n[t] || 0) + 1; }
+  const themen = Object.keys(HL_THEMA).filter(t => n[t]);
+  if (themen.length < 2 && !aktiv) return null;
+  const knopf = (t, text) => el('button', { type: 'button', class: 'hl2-thema-chip' + ((aktiv || '') === t ? ' an' : ''), 'aria-pressed': (aktiv || '') === t, style: t ? '--t:' + hlThema(t)[2] : '', onclick: () => wahl(aktiv === t ? '' : t) }, text);
+  return el('div', { class: 'hl2-themen', role: 'group', 'aria-label': 'Nach Thema filtern' },
+    knopf('', 'Alle Themen'), themen.map(t => knopf(t, [el('i', { 'aria-hidden': true }, hlThema(t)[1]), ' ', hlThema(t)[0], ' ', el('span', { class: 'hl2-n' }, String(n[t]))])));
+}
+
 // ---------- Karte (Leaflet) ----------
 function hlKarteBox(hoch = false) {
   const canvas = el('div', { class: 'hl2-map' + (hoch ? ' hoch' : ''), role: 'region', 'aria-label': 'Karte' });
@@ -236,6 +247,11 @@ function hlKarteBox(hoch = false) {
       if (p.art === 'region' || p.art === 'ort') {
         m = L.marker(pos, { title: p.titel, alt: p.titel, keyboard: true, zIndexOffset: 500,
           icon: L.divIcon({ className: 'hl2-pin' + (p.art === 'ort' ? ' ort' : '') + (p.status === 'gemerkt' ? ' will' : '') + (p.status === 'weg' ? ' nicht' : ''), html: el('span', {}, p.nr ? String(p.nr) : '★'), iconSize: [30, 30], iconAnchor: [15, 15] }) });
+      } else if (p.nr) {
+        // Region/Detail: Nummer im Punkt = Nummer in der Liste
+        const farbe = p.status === 'weg' ? '#9aa5b1' : hlThema(p.thema)[2];
+        m = L.marker(pos, { title: p.titel, alt: p.titel, keyboard: true, zIndexOffset: p.status === 'gemerkt' ? 300 : 0,
+          icon: L.divIcon({ className: 'hl2-pin hl' + (p.status === 'gemerkt' ? ' will' : ''), html: '<span style="background:' + farbe + '">' + p.nr + '</span>', iconSize: [26, 26], iconAnchor: [13, 13] }) });
       } else {
         const farbe = p.status === 'weg' ? '#9aa5b1' : hlThema(p.thema)[2];
         m = L.circleMarker(pos, { radius: p.status === 'gemerkt' ? 9 : 6.5, color: p.status === 'gemerkt' ? '#c0392b' : '#fff', weight: p.status === 'gemerkt' ? 3 : 2, fillColor: farbe, fillOpacity: p.status === 'weg' ? 0.45 : 0.95 });
@@ -246,7 +262,8 @@ function hlKarteBox(hoch = false) {
     }
     setTimeout(() => box.map && box.map.invalidateSize(), 0);
     if (ll.length > box.anzahl && !box.bewegt) {
-      if (ll.length === 1) box.map.setView(ll[0], 11); else box.map.fitBounds(ll, { padding: [26, 26], maxZoom: 12 });
+      // ohne Animation: schnelles Neuzeichnen (Zwischenspeicher, Filter) bricht sonst eine laufende Zoom-Animation ab (_leaflet_pos)
+      if (ll.length === 1) box.map.setView(ll[0], 11, { animate: false }); else box.map.fitBounds(ll, { padding: [26, 26], maxZoom: 12, animate: false });
     }
     box.anzahl = Math.max(box.anzahl, ll.length);
   };
@@ -288,6 +305,10 @@ async function hlEbene(sid, kid) {
   hlFill(main, pfad, kopf, mitte, el('section', { class: 'hl2-map-wrap' }, karte.canvas, kartenZeile), chatBox, lauf, tabs, liste, unten);
   const ctx = { sid, alter: null, neu: () => lesen() };
   const setAnsicht = (a) => { ansicht = a; sessionStorage.setItem(ansichtKey, a); lesen(); };
+  const themaKey = 'hl2_thema_' + sid;
+  let thema = (() => { try { return sessionStorage.getItem(themaKey) || ''; } catch { return ''; } })();
+  const setThema = (t) => { thema = t; try { sessionStorage.setItem(themaKey, t); } catch { /* privat */ } HL_SCROLL.delete(cacheKey); lesen(); };
+  const passt = (x) => !thema || hlThemaVon(x.typ) === thema;
 
   // Sofortige Rückmeldung (W155b): Knöpfe sperren, Hinweis direkt am Knopf und oben, Toast beim Start
   async function portion(art, extra = {}) {
@@ -365,7 +386,7 @@ async function hlEbene(sid, kid) {
     andr.onclick = async () => { const n = v.andrang_max ? (v.andrang_max % 5) + 1 : 3; await hlCall('suche_speichern', { id: sid, vorlieben: { ...v, andrang_max: n === 5 ? null : n } }).catch(e => toast(e.message, true)); toast('Gilt für die nächsten Vorschläge.'); lesen(); };
     const zeitChip = el('button', { type: 'button', class: 'hl-chip pref' }, 'Reisezeit ' + (v.reisezeit || 'offen') + ' ✎');
     zeitChip.onclick = () => hlZeitDialog(v, async neu => { await hlCall('suche_speichern', { id: sid, vorlieben: neu }); lesen(); });
-    hlFill(kopf, el('p', { class: 'eyebrow' }, 'EUER WUNSCH'), el('h2', {}, r.suche.wunsch), el('div', { class: 'hl-chips' }, andr, zeitChip), fazit ? el('p', { class: 'hl-fazit' }, fazit) : null);
+    hlFill(kopf, el('p', { class: 'eyebrow' }, 'EUER WUNSCH'), el('h2', {}, r.suche.wunsch), el('div', { class: 'hl-chips' }, andr, zeitChip), hlFazit(fazit));
     hlFill(mitte);
     // Karte: Regionen als Nummern, Highlights als Punkte (umschaltbar)
     const mitPunkten = hlLese('hl2_punkte', true);
@@ -373,7 +394,7 @@ async function hlEbene(sid, kid) {
     for (const k of regionen) {
       const sb = k.steckbrief || {};
       punkte.push({ art: 'region', id: k.id, nr: nr.get(k.id), titel: k.titel, lat: sb.lat, lon: sb.lon, status: k.status, klick: () => { location.hash = hlHref(sid, k.id); } });
-      if (mitPunkten) for (const u of unterVon.get(k.id)) punkte.push({ art: 'hl', id: u.id, titel: u.titel + ' · ' + k.titel, lat: u.lat, lon: u.lon, status: u.status, thema: hlThemaVon(u.typ), klick: () => { location.hash = hlHref(sid, u.id); } });
+      if (mitPunkten) for (const u of unterVon.get(k.id).filter(passt)) punkte.push({ art: 'hl', id: u.id, titel: u.titel + ' · ' + k.titel, lat: u.lat, lon: u.lon, status: u.status, thema: hlThemaVon(u.typ), klick: () => { location.hash = hlHref(sid, u.id); } });
     }
     karte.zeichne(punkte.filter(p => p.status !== 'weg' || ansicht === 'nicht'));
     const schalter = el('input', { type: 'checkbox' }); schalter.checked = mitPunkten;
@@ -389,9 +410,11 @@ async function hlEbene(sid, kid) {
     else if (letzte?.status === 'fehler') hlFill(lauf, el('p', { class: 'err-text' }, 'Letzte Anfrage fehlgeschlagen: ' + (letzte.fehler || 'unbekannt') + '. Du kannst es erneut versuchen.'));
     else hlFill(lauf);
     // Ansichten
-    hlFill(tabs, hlTabs(ansicht, { alle: hlFilter(regionen, 'alle').length, will: hlFilter(alle, 'will').length, nicht: hlFilter(alle, 'nicht').length }, setAnsicht));
+    hlFill(tabs, hlTabs(ansicht, { alle: hlFilter(regionen, 'alle').length, will: hlFilter(alle, 'will').length, nicht: hlFilter(alle, 'nicht').length }, setAnsicht), hlThemenLeiste(r.unter, thema, setThema));
     if (ansicht === 'alle') {
-      hlFill(liste, ...hlFilter(regionen, 'alle').map(k => hlRegionKarte(k, nr.get(k.id), unterVon.get(k.id), laufend.includes(k.id), ctx)),
+      const regionenSicht = hlFilter(regionen, 'alle').filter(k => !thema || unterVon.get(k.id).some(u => passt(u) && u.status !== 'weg'));
+      hlFill(liste, thema ? el('p', { class: 'small muted' }, regionenSicht.length + ' Regionen mit ' + hlThema(thema)[0]) : null,
+        ...regionenSicht.map(k => hlRegionKarte(k, nr.get(k.id), unterVon.get(k.id).filter(passt), laufend.includes(k.id), ctx)),
         !regionen.length && !laufend.length ? el('p', { class: 'muted' }, 'Noch keine Regionen.') : null);
     } else {
       // Will ich / Erstmal nicht: nach Region gruppiert – Regionen selbst und ihre Highlights
@@ -409,7 +432,8 @@ async function hlEbene(sid, kid) {
 
   // ----- Region: alle Highlights der Region, sofort da -----
   function region(r, laufend) {
-    const k = r.knoten, sb = k.steckbrief || {}, kinder = r.karten;
+    const k = r.knoten, sb = k.steckbrief || {}, kinderAlle = r.karten, kinder = kinderAlle.filter(passt);
+    const nrVon = new Map(hlFilter(kinder, 'alle').map((c, i) => [c.id, i + 1]));
     const saison = sb.saison || {};
     hlFill(kopf, el('div', { class: 'hl2-kopf-grid' }, hlBild(k.bild, 'region', 'hl2-kopf-img'),
       el('div', { class: 'hl2-kopf-text' }, el('p', { class: 'eyebrow' }, 'REGION'), el('h2', {}, k.titel),
@@ -419,7 +443,7 @@ async function hlEbene(sid, kid) {
         hlWow(sb), hlWarnung(sb), hlLinks(k), hlStatusKnoepfe(k, ctx))));
     hlFill(mitte);
     const punkte = [{ art: 'ort', titel: (sb.hauptort || k.titel), lat: sb.lat, lon: sb.lon, status: 'offen' },
-      ...hlFilter(kinder, ansicht === 'nicht' ? 'nicht' : 'alle').map(c => ({ art: 'hl', id: c.id, titel: c.titel, lat: c.steckbrief?.lat, lon: c.steckbrief?.lon, status: c.status, thema: hlThemaVon(c.typ), klick: () => { location.hash = hlHref(sid, c.id); } }))];
+      ...hlFilter(kinder, ansicht === 'nicht' ? 'nicht' : 'alle').map(c => ({ art: 'hl', id: c.id, nr: nrVon.get(c.id), titel: (nrVon.get(c.id) ? nrVon.get(c.id) + ' · ' : '') + c.titel, lat: c.steckbrief?.lat, lon: c.steckbrief?.lon, status: c.status, thema: hlThemaVon(c.typ), klick: () => { location.hash = hlHref(sid, c.id); } }))];
     karte.zeichne(punkte);
     hlFill(kartenZeile, el('button', { type: 'button', class: 'link', onclick: () => hlIchBinHier(kinder.map(c => ({ id: c.id, titel: c.titel, lat: c.steckbrief?.lat, lon: c.steckbrief?.lon })), sid) }, '📍 Ich bin hier'),
       el('span', { class: 'small muted' }, '★ = Basis ' + (sb.hauptort || '')));
@@ -429,9 +453,9 @@ async function hlEbene(sid, kid) {
     else if (letzte?.status === 'fehler') hlFill(lauf, el('p', { class: 'err-text' }, 'Letzte Anfrage fehlgeschlagen: ' + (letzte.fehler || 'unbekannt') + '.'));
     else hlFill(lauf);
     const fazit = r.portionen.find(p => p.status === 'fertig' && p.fazit)?.fazit;
-    hlFill(tabs, fazit ? el('p', { class: 'hl-fazit' }, fazit) : null, hlTabs(ansicht, { alle: hlFilter(kinder, 'alle').length, will: hlFilter(kinder, 'will').length, nicht: hlFilter(kinder, 'nicht').length }, setAnsicht));
+    hlFill(tabs, hlFazit(fazit), hlTabs(ansicht, { alle: hlFilter(kinder, 'alle').length, will: hlFilter(kinder, 'will').length, nicht: hlFilter(kinder, 'nicht').length }, setAnsicht), hlThemenLeiste(kinderAlle, thema, setThema));
     const sicht = hlFilter(kinder, ansicht);
-    hlFill(liste, ...(sicht.length ? sicht.map(c => hlZeile(c, ctx, k.titel)) : [!hierLaeuft ? el('p', { class: 'muted' }, ansicht === 'alle' ? 'Noch keine Highlights.' : ansicht === 'will' ? 'Noch nichts mit ♥ markiert.' : 'Nichts aussortiert.') : null]));
+    hlFill(liste, ...(sicht.length ? sicht.map(c => hlZeile(c, ctx, k.titel, nrVon.get(c.id))) : [!hierLaeuft ? el('p', { class: 'muted' }, ansicht === 'alle' ? 'Noch keine Highlights.' : ansicht === 'will' ? 'Noch nichts mit ♥ markiert.' : 'Nichts aussortiert.') : null]));
     const ende = r.portionen.some(p => p.ende);
     hlFill(unten, ende ? el('p', { class: 'hl-ende' }, 'Das waren die starken Highlights hier. Frag gezielt, wenn dir etwas fehlt.') : null, hlModusWahl(lesen),
       el('div', { class: 'hl-mehr' },
@@ -443,7 +467,8 @@ async function hlEbene(sid, kid) {
 
   // ----- Detail: ein Highlight + „Hier weitersuchen“ -----
   function detail(r, laufend) {
-    const k = r.knoten, sb = k.steckbrief || {}, th = hlThemaVon(k.typ), kinder = r.karten, eltern = r.eltern;
+    const k = r.knoten, sb = k.steckbrief || {}, th = hlThemaVon(k.typ), kinderAlle = r.karten, kinder = kinderAlle.filter(passt), eltern = r.eltern;
+    const nrVon = new Map(hlFilter(kinder, 'alle').map((c, i) => [c.id, i + 1]));
     const saison = sb.saison || {};
     const ortText = sb.ort || (eltern ? (eltern.steckbrief?.hauptort ? eltern.titel + ' · Basis ' + eltern.steckbrief.hauptort : eltern.titel) : '');
     const fakt = (label, ...wert) => el('div', {}, el('dt', {}, label), el('dd', {}, ...wert));
@@ -478,20 +503,22 @@ async function hlEbene(sid, kid) {
     const sbE = eltern?.steckbrief || {};
     const lat = hlZahl(sb.lat) ?? hlZahl(sbE.lat), lon = hlZahl(sb.lon) ?? hlZahl(sbE.lon);
     karte.zeichne([{ art: 'ort', titel: k.titel + (hlZahl(sb.lat) === null ? ' (Lage ungefähr: ' + (eltern?.titel || '') + ')' : ''), lat, lon, status: k.status },
-      ...hlFilter(kinder, 'alle').map(c => ({ art: 'hl', id: c.id, titel: c.titel, lat: c.steckbrief?.lat, lon: c.steckbrief?.lon, status: c.status, thema: hlThemaVon(c.typ), klick: () => { location.hash = hlHref(sid, c.id); } }))]);
+      ...hlFilter(kinder, 'alle').map(c => ({ art: 'hl', id: c.id, nr: nrVon.get(c.id), titel: nrVon.get(c.id) + ' · ' + c.titel, lat: c.steckbrief?.lat, lon: c.steckbrief?.lon, status: c.status, thema: hlThemaVon(c.typ), klick: () => { location.hash = hlHref(sid, c.id); } }))]);
     hlFill(kartenZeile, hlZahl(sb.lat) === null ? el('span', { class: 'small muted' }, 'Genaue Lage unbekannt – Karte zeigt die Region.') : null);
     const letzte = r.portionen[r.portionen.length - 1];
     if (hierLaeuft) hlFill(lauf, el('div', { class: 'spinner' }, { essen: 'Essen & Trinken', wohnen: 'Unterkünfte', naehe: 'Was es in der Nähe gibt', kinder: 'Was die Kinder begeistert' }[letzte?.linse] ? ({ essen: 'Essen & Trinken', wohnen: 'Unterkünfte', naehe: 'Was es in der Nähe gibt', kinder: 'Was die Kinder begeistert' }[letzte.linse] + ' wird recherchiert … (1–2 Min.)') : 'Wird recherchiert … (1–2 Min.)'));
     else if (letzte?.status === 'fehler') hlFill(lauf, el('p', { class: 'err-text' }, 'Letzte Anfrage fehlgeschlagen: ' + (letzte.fehler || 'unbekannt') + '.'));
     else hlFill(lauf);
-    hlFill(tabs, kinder.length ? [el('h3', { class: 'hl2-h3' }, 'Gefunden bei ' + k.titel), hlTabs(ansicht, { alle: hlFilter(kinder, 'alle').length, will: hlFilter(kinder, 'will').length, nicht: hlFilter(kinder, 'nicht').length }, setAnsicht)] : []);
-    hlFill(liste, ...hlFilter(kinder, ansicht).map(c => hlZeile(c, ctx, eltern?.titel || k.titel)));
+    hlFill(tabs, kinder.length ? [el('h3', { class: 'hl2-h3' }, 'Gefunden bei ' + k.titel), hlTabs(ansicht, { alle: hlFilter(kinder, 'alle').length, will: hlFilter(kinder, 'will').length, nicht: hlFilter(kinder, 'nicht').length }, setAnsicht), hlThemenLeiste(kinderAlle, thema, setThema)] : []);
+    hlFill(liste, ...hlFilter(kinder, ansicht).map(c => hlZeile(c, ctx, eltern?.titel || k.titel, nrVon.get(c.id))));
     hlFill(unten, eltern ? el('p', {}, el('a', { href: hlHref(sid, eltern.id) }, '← Alle Highlights in ' + eltern.titel)) : null);
   }
 
   hlRandWischen();
   await lesen();
 }
+// Routen-Fazit ohne Koordinaten anzeigen (die KI bekommt sie zur Reihenfolge und wiederholt sie manchmal)
+const hlFazit = (t) => t ? el('p', { class: 'hl-fazit' }, String(t).replace(/\s*[([]\s*-?\d{1,3}\.\d+(\s*,\s*-?\d{1,3}\.\d+)?\s*[)\]]/g, '').replace(/\s+([,.;:])/g, '$1')) : null;
 const hlKostenText = (r) => { const s = r.portionen.reduce((a, p) => a + (Number(p.kosten_usd) || 0), 0); return s ? ' · bisher ' + s.toFixed(2).replace('.', ',') + ' USD' : ''; };
 
 // Region-Karte in der Übersicht: Wo · Warum · Highlights dort (Chips) – keine Kosten
@@ -518,14 +545,14 @@ function hlRegionKarte(k, nr, kinder, laeuft, ctx) {
 const hlVorabChip = (h) => { const t = hlHlThema(h); return el('span', { class: 'hl2-hchip vorab', style: '--t:' + hlThema(t)[2] }, el('i', { 'aria-hidden': true }, hlThema(t)[1]), hlHlName(h)); };
 
 // Highlight-Zeile (Region/Detail): Foto · Thema/Ort · Name · Moment · WOW-Begründung · Will ich/Erstmal nicht
-function hlZeile(c, ctx, ortHinweis) {
+function hlZeile(c, ctx, ortHinweis, nr) {
   const sb = c.steckbrief || {}, th = hlThemaVon(c.typ);
   const art = el('article', { class: 'hl2-zeile' + (c.status === 'gemerkt' ? ' will' : '') + (c.status === 'weg' ? ' nicht' : '') },
     el('a', { class: 'hl2-zeile-link', href: hlHref(ctx.sid, c.id) },
       c.bild || !['restaurant', 'unterkunft'].includes(c.typ) ? hlBild(c.bild, c.typ, 'hl2-zeile-img') : el('div', { class: 'hl2-zeile-img leer-typ', style: '--t:' + hlThema(th)[2] }, hlThema(th)[1]),
       el('div', { class: 'hl2-zeile-text' },
         el('p', { class: 'hl2-thema', style: '--t:' + hlThema(th)[2] }, hlThema(th)[1] + ' ' + hlThema(th)[0] + (sb.ort ? ' · ' + sb.ort : '')),
-        el('h4', {}, c.titel),
+        el('h4', {}, nr ? el('span', { class: 'hl2-znr', style: '--t:' + hlThema(th)[2], title: 'Nummer auf der Karte' }, String(nr)) : null, c.titel),
         sb.moment ? el('p', { class: 'hl2-moment' }, sb.moment) : null,
         hlWow(sb), hlWarnung(sb),
         c.kinder ? el('p', { class: 'small muted' }, c.kinder + ' weitere Funde hier') : null)),

@@ -11,7 +11,7 @@
 import 'jsr:@supabase/functions-js/edge-runtime.d.ts'
 import postgres from 'npm:postgres@3.4.5'
 
-const VERSION = '0.4.3'
+const VERSION = '0.4.4'
 const sql = postgres(Deno.env.get('SUPABASE_DB_URL')!, { prepare: false, max: 3, idle_timeout: 20 })
 const OR_KEY = Deno.env.get('OPENROUTER_API_KEY') ?? ''
 const MODELL = 'anthropic/claude-sonnet-5.5'
@@ -232,7 +232,8 @@ async function holeMitWdh(u: string | URL, ms: number) {
   }
   return await fetch(u, { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(ms) })
 }
-const holeJson = async (u: URL) => { const r = await holeMitWdh(u, 12_000); return r.ok ? await r.json() : null }
+// Fehlerstatus wird weitergegeben (z. B. 429 = Wikimedia drosselt), damit der Grund je Highlight sichtbar ist
+const holeJson = async (u: URL) => { const r = await holeMitWdh(u, 12_000); if (!r.ok) throw new Error(`Wikimedia ${u.hostname.split('.')[0]} ${r.status}`); return await r.json() }
 function lizenzOk(m: any) { const l = ohneHtml(m?.LicenseShortName?.value); return /^(cc|public domain|pd)/i.test(l) && !/nc|nd/i.test(l) ? l : null }
 function kandidatAus(titel: string, ii: any) {
   const m = ii?.extmetadata ?? {}, lizenz = lizenzOk(m)

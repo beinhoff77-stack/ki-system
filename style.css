@@ -2527,34 +2527,18 @@ body[data-area="lernen"] { padding-bottom: calc(100px + env(safe-area-inset-bott
 .hl-lauf:empty { display: none; }
 .hl-lauf { margin-bottom: 14px; }
 
-.hl-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 18px; align-items: start; }
-.hl-card { background: var(--surface); border: 1px solid var(--border); border-radius: 22px; overflow: hidden; box-shadow: var(--shadow); transition: transform .2s, opacity .2s; }
-.hl-card.gemerkt { border-color: #c9a46a; box-shadow: 0 0 0 2px #c9a46a33, var(--shadow); }
-.hl-card.weg { opacity: .55; }
-.hl-card .hl-img { aspect-ratio: 16 / 10; }
-.hl-body { padding: 16px 18px 18px; display: grid; gap: 10px; }
-.hl-body h3 { font: 400 25px/1.15 Georgia, serif; margin: -4px 0 0; letter-spacing: -.02em; }
-.hl-body p { margin: 0; }
-.hl-moment { font-size: 15px; line-height: 1.45; }
+/* Highlights V1-Bausteine, die V2 weiter nutzt */
 .hl-warnung { background: var(--err-bg); color: var(--err); border-radius: 10px; padding: 8px 10px; font-size: 13px; }
 .hl-krit { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; margin: 2px 0; }
 .hl-krit > div { background: var(--surface); padding: 8px 10px; min-width: 0; }
 .hl-krit dt { font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
 .hl-krit dd { margin: 2px 0 0; font-size: 14px; display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
 .hl-krit dd small { flex-basis: 100%; color: var(--muted); font-size: 11px; }
-.hl-krit-fam { grid-column: 1 / -1; }
 .hl-dots { display: inline-flex; gap: 3px; }
 .hl-dots i { width: 9px; height: 9px; border-radius: 50%; background: var(--surface-muted); border: 1px solid #c9b48f; }
 .hl-dots i.an { background: #c9a46a; border-color: #c9a46a; }
 .hl-beleg { font-size: 11px; color: var(--muted); text-decoration: none; display: inline-grid; place-items: center; width: 17px; height: 17px; border-radius: 50%; border: 1px solid var(--border); }
 .hl-beleg.ok { color: var(--ok); border-color: var(--ok); background: var(--ok-bg, #e7f4eb); }
-.hl-fam { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.hl-kreise { display: inline-flex; gap: 4px; }
-.hl-person { font-style: normal; width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-size: 10px; font-weight: 700; background: var(--accent); color: var(--on-accent); }
-.hl-person.nein { background: transparent; color: var(--err); border: 1.5px dashed var(--err); }
-.hl-fam-txt { font-size: 12px; color: var(--err); }
-.hl-saison { font-size: 13px; color: var(--muted); }
-.hl-saison .pill { font-size: 11px; }
 .hl-s-passt { background: var(--ok-bg, #e7f4eb); color: var(--ok); }
 .hl-s-grenzwertig { background: var(--warn-bg); color: var(--warn); }
 .hl-s-falsch { background: var(--err-bg); color: var(--err); }
@@ -2570,137 +2554,138 @@ body[data-area="lernen"] { padding-bottom: calc(100px + env(safe-area-inset-bott
 .hl-frage { background: var(--accent-soft); border-radius: 10px; padding: 8px 10px; }
 .hl-quellen summary { font-size: 12px; color: var(--muted); cursor: pointer; }
 .hl-quellen ul { margin: 6px 0 0; padding-left: 18px; font-size: 12px; }
-.hl-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; border-top: 1px solid var(--border); padding-top: 12px; margin-top: 2px; }
-.hl-actions button { min-height: 40px; }
-.hl-merk.an { background: #f3e6cc; border-color: #c9a46a; color: #7a5520; }
-.hl-weg { color: var(--muted); }
-.hl-vgl { display: inline-flex; gap: 4px; align-items: center; font-size: 13px; }
-.hl-tiefer { margin-left: auto; font-weight: 700; text-decoration: none; color: var(--accent); padding: 8px 4px; }
-.hl-unten { display: grid; gap: 12px; margin: 22px 0 90px; max-width: 760px; }
 .hl-mehr { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
 .hl-ende { background: var(--warn-bg); color: var(--warn); border-radius: 12px; padding: 10px 12px; margin: 0; }
 .hl-frage-form { display: flex; gap: 8px; }
 .hl-frage-form input { flex: 1; min-width: 0; }
-.hl-vgl-leiste { position: fixed; left: 50%; transform: translateX(-50%); bottom: calc(var(--tabs-h) + 14px); z-index: 25; display: flex; align-items: center; gap: 12px; background: var(--text); color: var(--bg); padding: 8px 10px 8px 16px; border-radius: 999px; box-shadow: 0 10px 30px rgb(0 0 0 / 20%); }
-.hl-vgl-leiste .link { color: var(--bg); }
-.hl-vgl-scroll { overflow-x: auto; margin: 10px 0; }
-.hl-vgl-table { border-collapse: collapse; font-size: 12.5px; width: 100%; table-layout: fixed; }
-.hl-vgl-table tr > :first-child { width: 26%; }
-.hl-vgl-table .hl-person { width: 22px; height: 22px; font-size: 9px; }
-.hl-vgl-table .hl-kreise { flex-wrap: wrap; }
-.hl-vgl-table th, .hl-vgl-table td { border-bottom: 1px solid var(--border); padding: 8px; text-align: left; vertical-align: top; }
-.hl-vgl-table tbody th { color: var(--muted); font-weight: 600; white-space: nowrap; }
 .hl-merk-kopf h2 { font: 400 38px Georgia, serif; margin: 6px 0; }
 .hl-merk-gruppe h3 { font: 400 22px Georgia, serif; margin: 24px 0 10px; }
 .hl-merk-liste { display: grid; gap: 10px; }
 .hl-merk-row { display: grid; grid-template-columns: 92px 1fr; gap: 12px; align-items: center; padding: 8px; border-radius: 16px; background: var(--surface); border: 1px solid var(--border); color: var(--text); text-decoration: none; }
 .hl-merk-row > div { display: grid; gap: 2px; }
 .hl-merk-img { width: 92px; height: 70px; border-radius: 12px; }
-@media (min-width: 1000px) { .hl-vgl-leiste { bottom: 24px; } }
-@media (prefers-reduced-motion: reduce) { .hl-card, .hl-fly { transition: none; } }
-.hl-vgl-table th { overflow-wrap: anywhere; hyphens: auto; }
-
-/* ---------- Highlights: Darstellungen zum Aussuchen ---------- */
-.hl-stile { display: flex; align-items: center; gap: 6px; overflow-x: auto; scrollbar-width: none; margin: -2px 0 12px; }
-.hl-stile .hl-chip { min-height: 32px; font-size: 12px; }
-
-/* B Poster: Foto bildfüllend, Titel und Moment im Bild, Fakten darunter */
-.stil-poster { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
-.stil-poster .hl-card { display: grid; grid-template-rows: 1fr auto auto auto; border: 0; border-radius: 26px; }
-.stil-poster .hl-card > .hl-img { grid-row: 1 / 5; grid-column: 1; aspect-ratio: 4 / 5; }
-.stil-poster .hl-card > .hl-img::before { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, transparent 35%, rgb(10 20 16 / 82%)); }
-.stil-poster .hl-img figcaption { top: 0; bottom: auto; background: none; z-index: 2; text-align: right; }
-.stil-poster .hl-body { display: contents; }
-.stil-poster .hl-body > * { margin-left: 20px; margin-right: 20px; }
-.stil-poster .hl-body > .eyebrow, .stil-poster .hl-body > h3, .stil-poster .hl-body > .hl-moment { grid-column: 1; z-index: 2; color: #fff; }
-.stil-poster .hl-body > .eyebrow { grid-row: 2; color: #f0d7a6; margin-bottom: 4px; }
-.stil-poster .hl-body > h3 { grid-row: 3; font-size: 32px; line-height: 1.05; margin-bottom: 6px; }
-.stil-poster .hl-body > .hl-moment { grid-row: 4; font: italic 15px/1.4 Georgia, serif; margin-bottom: 18px; opacity: .95; }
-.stil-poster .hl-warnung { margin-top: 14px; }
-.stil-poster .hl-krit { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 14px; border: 0; background: transparent; gap: 8px; }
-.stil-poster .hl-krit > div { background: var(--surface-muted); border-radius: 12px; text-align: center; }
-.stil-poster .hl-krit dd { justify-content: center; }
-.stil-poster .hl-krit dd small { display: none; }
-.stil-poster .hl-krit-fam { grid-column: 1 / -1; }
-.stil-poster .hl-saison, .stil-poster .hl-fach, .stil-poster .hl-wenn, .stil-poster .hl-frage, .stil-poster .hl-ruhig, .stil-poster .hl-quellen { margin-top: 10px; }
-.stil-poster .hl-actions { margin: 14px 20px 18px; }
-
-/* C Kompakt: viele Vorschläge auf einen Blick, Antippen klappt auf */
-.stil-kompakt { grid-template-columns: 1fr; gap: 10px; max-width: 820px; }
-.stil-kompakt .hl-card { display: grid; grid-template-columns: 92px 1fr; border-radius: 16px; cursor: pointer; }
-.stil-kompakt .hl-card > .hl-img { aspect-ratio: auto; height: 100%; min-height: 92px; }
-.stil-kompakt .hl-card:not(:has(> .hl-img)) .hl-body { grid-column: 1 / -1; }
-.stil-kompakt .hl-img figcaption { display: none; }
-.stil-kompakt .hl-img.leer::after { font-size: 30px; }
-.stil-kompakt .hl-body { padding: 10px 12px; gap: 6px; }
-.stil-kompakt .hl-body h3 { font: 700 16px/1.25 var(--font-ui); margin: 0; letter-spacing: 0; }
-.stil-kompakt .eyebrow { font-size: 9px; }
-.stil-kompakt .hl-krit { display: flex; flex-wrap: wrap; gap: 4px 10px; border: 0; background: none; margin: 0; }
-.stil-kompakt .hl-krit > div { padding: 0; display: flex; gap: 4px; align-items: center; }
-.stil-kompakt .hl-krit dt { font-size: 9px; }
-.stil-kompakt .hl-krit dd { font-size: 12px; margin: 0; }
-.stil-kompakt .hl-krit dd small, .stil-kompakt .hl-fam-txt { display: none; }
-.stil-kompakt .hl-person { width: 18px; height: 18px; font-size: 8px; }
-.stil-kompakt .hl-dots i { width: 7px; height: 7px; }
-.stil-kompakt .hl-card:not(.offen) :is(.hl-moment, .hl-saison, .hl-fach, .hl-wenn, .hl-frage, .hl-ruhig, .hl-quellen, .hl-actions .link, .hl-vgl) { display: none; }
-.stil-kompakt .hl-card:not(.offen) .hl-actions { border: 0; padding: 0; margin: 0; }
-.stil-kompakt .hl-actions button { min-height: 34px; font-size: 12px; padding: 0 10px; }
-.stil-kompakt .hl-card.offen { grid-template-columns: 1fr; }
-.stil-kompakt .hl-card.offen > .hl-img { aspect-ratio: 16 / 9; }
-.stil-kompakt .hl-warnung { font-size: 12px; padding: 5px 8px; }
-
-/* D Postkarte: Reisetagebuch – Polaroid, Papier, Stempel */
-.stil-postkarte .hl-card { background: #fbf6e9 radial-gradient(circle at 20% 10%, #fffaf0 0, transparent 60%); border: 1px solid #e6dcc4; border-radius: 6px; box-shadow: 0 10px 30px rgb(70 50 20 / 12%); padding: 14px 14px 0; }
-.stil-postkarte .hl-card > .hl-img { border: 8px solid #fff; border-bottom-width: 34px; box-shadow: 0 6px 16px rgb(0 0 0 / 18%); transform: rotate(-1.6deg); border-radius: 2px; aspect-ratio: 4 / 3; }
-.stil-postkarte .hl-card:nth-child(even) > .hl-img { transform: rotate(1.4deg); }
-.stil-postkarte .hl-img figcaption { background: none; bottom: -30px; padding: 6px 4px; }
-.stil-postkarte .hl-img figcaption a { color: #8a7a5c; }
-.stil-postkarte .hl-body { padding: 14px 6px 16px; }
-.stil-postkarte .hl-body h3 { font: italic 28px/1.1 Georgia, serif; color: #3a2f1e; }
-.stil-postkarte .eyebrow { color: #a2563a; }
-.stil-postkarte .hl-moment { font: 16px/1.5 Georgia, serif; color: #4a3d28; }
-.stil-postkarte .hl-krit { grid-template-columns: repeat(4, minmax(0, 1fr)); background: none; border: 0; gap: 8px; }
-.stil-postkarte .hl-krit > div { background: transparent; border: 2px dashed #b9864f; border-radius: 10px; text-align: center; transform: rotate(-1deg); }
-.stil-postkarte .hl-krit > div:nth-child(even) { transform: rotate(1.2deg); }
-.stil-postkarte .hl-krit dt { color: #a2563a; }
-.stil-postkarte .hl-krit dd { justify-content: center; font-family: Georgia, serif; }
-.stil-postkarte .hl-krit dd small { display: none; }
-.stil-postkarte .hl-krit-fam { grid-column: 1 / -1; border-style: solid !important; transform: none !important; }
-.stil-postkarte .hl-frage { background: #f3e6c8; }
-.stil-postkarte .hl-actions { border-top: 1px dashed #d8c8a4; }
-
-/* E Nacht: dunkel, kinoreif, für Tauch- und Abendmomente */
-.stil-nacht { background: #0d1b22; border-radius: 26px; padding: 14px; }
-.stil-nacht .hl-card { background: #13262f; border-color: #1f3b47; color: #e6f1f2; box-shadow: none; }
-.stil-nacht .hl-card > .hl-img { aspect-ratio: 21 / 9; }
-.stil-nacht .hl-card > .hl-img::after { box-shadow: inset 0 0 60px rgb(0 0 0 / 55%); }
-.stil-nacht .hl-img.leer { background: linear-gradient(135deg, #12313b, #1f5560); }
-.stil-nacht .hl-body h3 { color: #fff; font: 600 24px/1.15 var(--font-ui); letter-spacing: -.01em; }
-.stil-nacht .eyebrow { color: #5fe0cf; }
-.stil-nacht .hl-moment, .stil-nacht .hl-saison, .stil-nacht .hl-fach dd, .stil-nacht .hl-wenn, .stil-nacht .hl-ruhig { color: #c5d6d9; }
-.stil-nacht .hl-fach dt, .stil-nacht .hl-krit dt, .stil-nacht .hl-krit dd small { color: #7fa1a8; }
-.stil-nacht .hl-krit { background: #1f3b47; border-color: #1f3b47; }
-.stil-nacht .hl-krit > div { background: #13262f; }
-.stil-nacht .hl-dots i { border-color: #2e5f6b; background: #1b3540; }
-.stil-nacht .hl-dots i.an { background: #5fe0cf; border-color: #5fe0cf; box-shadow: 0 0 8px #5fe0cf88; }
-.stil-nacht .hl-person { background: #5fe0cf; color: #0d1b22; }
-.stil-nacht .hl-frage { background: #1b3540; color: #e6f1f2; }
-.stil-nacht .hl-frage a, .stil-nacht .hl-quellen a, .stil-nacht .hl-tiefer, .stil-nacht .link { color: #5fe0cf; }
-.stil-nacht .hl-actions { border-color: #1f3b47; }
-.stil-nacht .hl-actions button { background: #1b3540; color: #e6f1f2; border-color: #2e5f6b; }
-.stil-nacht .hl-merk.an { background: #5fe0cf; color: #0d1b22; }
-/* W151: Familie nur als Zeile bei Unterschieden */
-.hl-familie { font-size: 13px; color: var(--err); background: var(--err-bg); border-radius: 10px; padding: 7px 10px; }
-.stil-nacht .hl-familie { background: #3b2328; color: #ffb3b8; }
-.stil-postkarte .hl-familie { background: #f6e1d6; }
-/* W152: Regionen zuerst, Begründung statt Punkte */
-.hl-wo { font-size: 14px; color: var(--muted); }
-.hl-dort { font-size: 14px; }
-.hl-dort ul { margin: 4px 0 0; padding-left: 18px; display: grid; gap: 3px; }
-.hl-besonders { font-size: 14px; background: #f6efe0; border-left: 3px solid #c9a46a; border-radius: 0 10px 10px 0; padding: 7px 10px; }
-.hl-besonders b { color: #7a5520; }
 .hl-mehrinfo summary { font-size: 13px; color: var(--accent); font-weight: 650; cursor: pointer; padding: 4px 0; }
 .hl-mehrinfo[open] { display: grid; gap: 8px; }
-.stil-nacht .hl-besonders { background: #1b3540; color: #e6f1f2; }
-.stil-nacht .hl-besonders b { color: #5fe0cf; }
-.stil-kompakt .hl-card:not(.offen) :is(.hl-wo, .hl-dort, .hl-besonders, .hl-mehrinfo) { display: none; }
+
+/* ---------- Highlights V2 (W154): Karte zuerst, Regionen mit Highlights, Will ich / Erstmal nicht ---------- */
+.hl-familie { font-size: 13px; color: var(--warn); background: var(--warn-bg); border-radius: 10px; padding: 7px 10px; margin: 0; }
+.hl2-kopf { margin-bottom: 12px; }
+.hl2-kopf > h2 { font: 400 clamp(26px, 4vw, 40px)/1.1 Georgia, serif; letter-spacing: -.02em; margin: 4px 0 10px; }
+.hl2-kopf-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 18px; align-items: start; }
+.hl2-kopf-grid.ohne-bild { grid-template-columns: 1fr; }
+.hl2-kopf-img { position: relative; margin: 0; overflow: hidden; aspect-ratio: 4 / 3; border-radius: 20px; background: linear-gradient(135deg, #cfdcd2, #e9e2cc); }
+.hl2-kopf-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hl2-kopf-text { display: grid; gap: 8px; align-content: start; }
+.hl2-kopf-text h2 { font: 400 clamp(26px, 4vw, 38px)/1.1 Georgia, serif; letter-spacing: -.02em; margin: 0; }
+.hl2-kopf-text p { margin: 0; }
+.hl2-meta { color: var(--muted); font-size: 13px; margin: 2px 0 0; }
+.hl2-wo, .hl2-warum, .hl2-besonders, .hl2-ort { font-size: 14px; line-height: 1.45; margin: 0; }
+.hl2-ort { color: var(--muted); }
+.hl2-moment { font-size: 15px; line-height: 1.45; }
+.hl2-wow { font-size: 14px; line-height: 1.45; margin: 0; background: #f6efe0; border-left: 3px solid #c9a46a; padding: 6px 10px; border-radius: 0 10px 10px 0; color: var(--text); }
+.hl2-wow b { color: #7a5520; }
+.hl2-thema { font-size: 11px; letter-spacing: .06em; text-transform: uppercase; font-weight: 700; color: var(--t, var(--muted)); margin: 0; }
+.hl2-thema.t-tauchen { --t: #2a6f97; } .hl2-thema.t-tiere { --t: #8a6420; } .hl2-thema.t-natur { --t: #3f7d3a; } .hl2-thema.t-kultur { --t: #7b4b94; }
+.hl2-thema.t-essen { --t: #c0662b; } .hl2-thema.t-wohnen { --t: #1f8585; } .hl2-thema.t-ort { --t: #5a6878; } .hl2-thema.t-erlebnis { --t: #a8801a; }
+@media (max-width: 760px) { .hl2-kopf-grid { grid-template-columns: 1fr; } .hl2-kopf-img { aspect-ratio: 16 / 10; } }
+
+/* Karte */
+.hl2-map-wrap { margin: 6px 0 14px; }
+.hl2-map { height: 240px; border-radius: 18px; overflow: hidden; border: 1px solid var(--border); background: var(--surface-muted); z-index: 0; }
+.hl2-map.hoch { height: min(52vh, 420px); }
+.hl2-map-zeile { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 16px; padding: 8px 2px 0; font-size: 13px; }
+.hl2-map-zeile:empty { display: none; }
+.hl2-schalter { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; }
+.hl2-schalter input { width: 18px; height: 18px; accent-color: var(--accent); }
+.hl2-legende { display: inline-flex; flex-wrap: wrap; gap: 4px 10px; color: var(--muted); font-size: 12px; }
+.hl2-legende span { display: inline-flex; align-items: center; gap: 4px; }
+.hl2-legende i { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+.hl2-pin { background: #1d3557; color: #fff; border: 2px solid #fff; border-radius: 50%; display: grid !important; place-items: center; font: 700 13px/1 var(--font-ui); box-shadow: 0 2px 6px rgb(0 0 0 / 35%); }
+.hl2-pin.ort { background: #c9a46a; }
+.hl2-pin.will { background: #c0392b; }
+.hl2-pin.nicht { background: #9aa5b1; opacity: .7; }
+
+/* Ansichten */
+.hl2-tabs { display: flex; gap: 6px; margin: 4px 0 14px; overflow-x: auto; scrollbar-width: none; }
+.hl2-tab { flex: none; min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); font-size: 14px; }
+.hl2-tab.an { background: var(--text); color: var(--surface); border-color: var(--text); }
+.hl2-n { display: inline-block; min-width: 20px; padding: 0 6px; border-radius: 999px; background: var(--surface-muted); color: var(--text); font-size: 12px; }
+.hl2-tab.an .hl2-n { background: rgb(255 255 255 / 22%); color: inherit; }
+.hl2-h3 { font: 400 22px Georgia, serif; margin: 18px 0 8px; }
+
+/* Region-Karten in der Übersicht */
+.hl2-liste { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 16px; align-items: start; }
+.hl2-region { background: var(--surface); border: 1px solid var(--border); border-radius: 18px; overflow: hidden; display: grid; box-shadow: var(--shadow); }
+.hl2-region.will { border-color: #c0392b; box-shadow: 0 0 0 1px #c0392b inset, var(--shadow); }
+.hl2-region-kopf { display: grid; grid-template-columns: 112px 1fr; gap: 12px; padding: 12px 12px 0; text-decoration: none; color: var(--text); align-items: center; }
+.hl2-region-kopf h3 { font: 600 18px/1.2 var(--font-ui); margin: 0; display: flex; gap: 8px; align-items: center; }
+.hl2-region-img { position: relative; margin: 0; width: 112px; height: 84px; border-radius: 12px; overflow: hidden; background: linear-gradient(135deg, #cfdcd2, #e9e2cc); }
+.hl2-region-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hl2-region-img figcaption, .hl2-zeile-img figcaption { display: none; }
+.hl2-region-img.leer::after, .hl2-zeile-img.leer::after, .hl2-kopf-img.leer::after { content: attr(data-glyph); position: absolute; inset: 0; display: grid; place-items: center; font: 36px Georgia, serif; color: #6f8a78; }
+.hl2-kopf-img figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 14px 10px 5px; font-size: 10px; background: linear-gradient(transparent, rgb(0 0 0 / 55%)); }
+.hl2-kopf-img figcaption a { color: #fff; text-decoration: none; opacity: .85; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; display: block; }
+.hl2-nr { flex: none; display: inline-grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: #1d3557; color: #fff; font: 700 12px/1 var(--font-ui); }
+.hl2-region-text { display: grid; gap: 8px; padding: 10px 14px 4px; }
+.hl2-hl-titel { font-size: 13px; color: var(--muted); margin: 4px 0 0; }
+.hl2-hl-titel b { color: var(--text); }
+.hl2-hchips { display: flex; flex-wrap: wrap; gap: 6px; }
+.hl2-hchip { display: inline-flex; align-items: center; gap: 5px; min-height: 30px; padding: 3px 10px 3px 8px; border-radius: 999px; font-size: 13px; line-height: 1.2;
+  background: color-mix(in srgb, var(--t, #5a6878) 11%, var(--surface)); border: 1px solid color-mix(in srgb, var(--t, #5a6878) 35%, transparent); color: var(--text); text-decoration: none; }
+.hl2-hchip i { font-style: normal; color: var(--t, #5a6878); font-weight: 700; }
+.hl2-hchip.will { border-color: #c0392b; }
+.hl2-hchip.will i { color: #c0392b; }
+.hl2-hchip.vorab { opacity: .75; border-style: dashed; }
+.hl2-region-fuss { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 8px 12px 12px; }
+.hl2-oeffnen { font-weight: 650; text-decoration: none; color: var(--accent); }
+
+/* Will ich / Erstmal nicht */
+.hl2-status { display: flex; gap: 8px; flex-wrap: wrap; }
+.hl2-status button { min-height: 40px; border-radius: 999px; padding: 0 14px; font-size: 14px; border: 1px solid var(--border); background: var(--surface); }
+.hl2-will.an { background: #c0392b; border-color: #c0392b; color: #fff; }
+.hl2-nicht.an { background: var(--surface-muted); color: var(--muted); }
+.hl2-status.klein { flex-wrap: nowrap; gap: 6px; }
+.hl2-status.klein button { width: 40px; height: 40px; padding: 0; font-size: 17px; display: grid; place-items: center; }
+.hl2-status.klein .hl2-will { color: #c0392b; }
+.hl2-status.klein .hl2-will.an { color: #fff; }
+
+/* Highlight-Zeilen */
+.hl2-zeile { display: grid; grid-template-columns: 1fr auto; gap: 8px; align-items: start; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 10px; }
+.hl2-zeile.will { border-color: #c0392b; }
+.hl2-zeile.nicht { opacity: .72; }
+.hl2-zeile .hl2-status.klein { flex-direction: column; }
+.hl2-zeile-link { display: grid; grid-template-columns: 96px 1fr; gap: 12px; text-decoration: none; color: var(--text); min-width: 0; }
+.hl2-zeile-img { position: relative; margin: 0; width: 96px; height: 96px; border-radius: 12px; overflow: hidden; background: linear-gradient(135deg, #cfdcd2, #e9e2cc); }
+.hl2-zeile-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hl2-zeile-img.leer-typ { display: grid; place-items: center; font: 34px Georgia, serif; color: var(--t); background: color-mix(in srgb, var(--t) 12%, var(--surface)); }
+.hl2-zeile-text { display: grid; gap: 5px; min-width: 0; align-content: start; }
+.hl2-zeile-text h4 { margin: 0; font: 600 16px/1.25 var(--font-ui); }
+.hl2-zeile-text .hl2-moment { font-size: 13.5px; color: var(--muted); margin: 0; }
+.hl2-zeile-text .hl2-wow { font-size: 13px; padding: 4px 8px; }
+.hl2-zeile-text .hl-warnung { font-size: 12px; padding: 5px 8px; margin: 0; }
+
+/* Will ich / Erstmal nicht – gruppiert */
+.hl2-gruppe { grid-column: 1 / -1; display: grid; gap: 6px; }
+.hl2-gruppe h3 { display: flex; align-items: center; gap: 8px; font: 600 17px var(--font-ui); margin: 10px 0 2px; }
+.hl2-gruppe h3 a { color: var(--text); text-decoration: none; }
+.hl2-kurz { display: flex; align-items: center; justify-content: space-between; gap: 10px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 8px 10px; }
+.hl2-kurz > a { display: grid; gap: 2px; text-decoration: none; color: var(--text); min-width: 0; }
+.hl2-kurz-t { font-size: 11px; text-transform: uppercase; letter-spacing: .06em; font-weight: 700; color: var(--t, var(--muted)); }
+
+/* Hier weitersuchen */
+.hl2-weiter { background: var(--accent-soft); border-radius: 18px; padding: 14px; display: grid; gap: 10px; margin: 4px 0 14px; }
+.hl2-weiter h3 { margin: 0; font: 600 16px var(--font-ui); }
+.hl2-weiter-knoepfe { display: flex; flex-wrap: wrap; gap: 8px; }
+.hl2-weiter-knoepfe button { min-height: 40px; border-radius: 999px; padding: 0 14px; background: var(--surface); }
+.hl2-weiter p { margin: 0; }
+.hl2-unten { display: grid; gap: 12px; margin: 18px 0 8px; }
+.hl2-unten p { margin: 0; }
+.hl2-mitte:empty { display: none; }
+@media (max-width: 520px) {
+  .hl2-liste { grid-template-columns: 1fr; }
+  .hl2-region-kopf { grid-template-columns: 92px 1fr; }
+  .hl2-region-img { width: 92px; height: 72px; }
+  .hl2-zeile-link { grid-template-columns: 76px 1fr; }
+  .hl2-zeile-img { width: 76px; height: 76px; }
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .hl2-wow { background: #2c2618; } :root:not([data-theme="light"]) .hl2-wow b { color: #e3c48a; } }

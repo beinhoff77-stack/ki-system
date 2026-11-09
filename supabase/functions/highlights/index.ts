@@ -11,7 +11,7 @@
 import 'jsr:@supabase/functions-js/edge-runtime.d.ts'
 import postgres from 'npm:postgres@3.4.5'
 
-const VERSION = '0.4.6'
+const VERSION = '0.4.7'
 const sql = postgres(Deno.env.get('SUPABASE_DB_URL')!, { prepare: false, max: 3, idle_timeout: 20 })
 const OR_KEY = Deno.env.get('OPENROUTER_API_KEY') ?? ''
 const MODELL = 'anthropic/claude-sonnet-5.5'
@@ -264,11 +264,13 @@ async function commonsSuche(suche: string) {
   return (Object.values(j?.query?.pages ?? {}) as any[]).sort((a, b) => (a.index ?? 0) - (b.index ?? 0)).map((p) => kandidatAus(String(p.title ?? ''), p?.imageinfo?.[0])).filter(Boolean)
 }
 // Openverse (WordPress-Stiftung): freie Bilder u. a. von Flickr – kostenlos, ohne Konto; nur CC0/PD/CC BY/CC BY-SA
+let ovRoh = 0 // Treffer vor Filter (Diagnose)
 const OV_LIZENZ: Record<string, string> = { cc0: 'CC0', pdm: 'Public domain', by: 'CC BY', 'by-sa': 'CC BY-SA' }
 async function openverseSuche(suche: string) {
   const q = new URL('https://api.openverse.org/v1/images/')
   for (const [k, v] of Object.entries({ q: suche, license: 'cc0,pdm,by,by-sa', page_size: '10', mature: 'false' })) q.searchParams.set(k, v)
   const j = await holeJson(q)
+  ovRoh += Number(j?.result_count ?? (j?.results ?? []).length) || 0
   return ((j?.results ?? []) as any[]).filter((x) => url(x?.url) && OV_LIZENZ[x?.license] && (x.width == null || (x.width >= 640 && x.width >= (x.height ?? 0) * 0.75)) && !UNPASSEND.test(String(x.title ?? '')))
     .map((x) => ({ datei: `${ohneHtml(x.title)} (${x.source ?? x.provider ?? 'Openverse'})`, url: x.url, vorschau: url(x.thumbnail) ?? x.url, quelle_url: url(x.foreign_landing_url),
       urheber: ohneHtml(x.creator) || 'unbekannt', lizenz: `${OV_LIZENZ[x.license]} ${x.license_version ?? ''}`.trim(), lizenz_url: url(x.license_url), quelle: `Openverse · ${x.source ?? x.provider ?? ''}` }))
@@ -319,16 +321,23 @@ async function bildFuer(karte: any, pfad: string[]) {
     }
     const kand: any[] = []
     for (const k of [...ausWiki, ...ausSuche]) if (!kand.some((x) => x.datei === k.datei)) kand.push(k)
-    // Zu wenig bei Wikimedia -> Openverse (Flickr u. a.) ergänzen; ein Ausfall dort kostet die Wikimedia-Kandidaten nicht
-    let ov = 0, ovFehler = ''
-    if (kand.length < 3) {
-      for (const q of [...new Set([motiv, `${t} ${ort}`.trim(), t].filter((x) => x && x.length > 2))]) {
-        try { for (const k of await openverseSuche(q)) if (!kand.some((x) => x.url === k.url)) { kand.push(k); ov++ } } catch (e) { ovFehler = String((e as any)?.message ?? e).slice(0, 60); break }
-        if (ov >= 4) break
-      }
+    // Runde 1: Wikimedia. Kein passendes Foto -> Runde 2: Openverse (Flickr u. a., frei lizenziert, kostenlos)
+    let w1: any = null
+    if (kand.length) { w1 = await bildWaehlen(karte, kand.slice(0, 6)); if (w1.bild) return w1 }
+    const ovK: any[] = []
+    let ovFehler = ''
+    ovRoh = 0
+    for (const q of [...new Set([`${t} ${ort}`.trim(), t, motiv].filter((x) => x && x.length > 2))]) {
+      try { for (const k of await openverseSuche(q)) if (!ovK.some((x) => x.url === k.url)) ovK.push(k) } catch (e) { ovFehler = String((e as any)?.message ?? e).slice(0, 60); break }
+      if (ovK.length >= 4) break
     }
-    if (!kand.length) return { bild: null, kosten: 0, info: `keine Kandidaten (Wiki ${titel.size}, Suche ${ausSuche.length}, Openverse ${ov}${ovFehler ? ' – ' + ovFehler : ''})` }
-    return await bildWaehlen(karte, kand.slice(0, 6))
+    const ovText = `Openverse ${ovK.length}/${ovRoh}${ovFehler ? ' – ' + ovFehler : ''}`
+    if (ovK.length) {
+      const w2 = await bildWaehlen(karte, ovK.slice(0, 6))
+      if (w2.bild) return { ...w2, kosten: w2.kosten + (w1?.kosten ?? 0) }
+      return { bild: null, kosten: w2.kosten + (w1?.kosten ?? 0), info: `Wikimedia: ${w1?.info ?? 'keine Kandidaten'} · ${ovText}: ${w2.info}`.slice(0, 200) }
+    }
+    return { bild: null, kosten: w1?.kosten ?? 0, info: `${w1?.info ?? `keine Kandidaten (Wiki ${titel.size}, Suche ${ausSuche.length})`} · ${ovText}`.slice(0, 200) }
   } catch (e) { console.error('bild', karte.titel, (e as any)?.message); return { bild: null, kosten: 0, info: String((e as any)?.message ?? e).slice(0, 160) } }
 }
 

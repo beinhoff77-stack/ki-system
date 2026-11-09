@@ -11,7 +11,7 @@
 import 'jsr:@supabase/functions-js/edge-runtime.d.ts'
 import postgres from 'npm:postgres@3.4.5'
 
-const VERSION = '0.4.4'
+const VERSION = '0.4.5'
 const sql = postgres(Deno.env.get('SUPABASE_DB_URL')!, { prepare: false, max: 3, idle_timeout: 20 })
 const OR_KEY = Deno.env.get('OPENROUTER_API_KEY') ?? ''
 const MODELL = 'anthropic/claude-sonnet-5.5'
@@ -237,7 +237,7 @@ const holeJson = async (u: URL) => { const r = await holeMitWdh(u, 12_000); if (
 function lizenzOk(m: any) { const l = ohneHtml(m?.LicenseShortName?.value); return /^(cc|public domain|pd)/i.test(l) && !/nc|nd/i.test(l) ? l : null }
 function kandidatAus(titel: string, ii: any) {
   const m = ii?.extmetadata ?? {}, lizenz = lizenzOk(m)
-  if (!lizenz || !ii?.thumburl || !/jpeg|png|webp/.test(ii.mime ?? '') || (ii.width ?? 0) < 800 || (ii.width ?? 0) < (ii.height ?? 0) * 0.9) return null
+  if (!lizenz || !ii?.thumburl || !/jpeg|png|webp/.test(ii.mime ?? '') || (ii.width ?? 0) < 640 || (ii.width ?? 0) < (ii.height ?? 0) * 0.75) return null
   if (UNPASSEND.test(titel.replace(/[_-]/g, ' '))) return null
   return { datei: titel, url: ii.thumburl, quelle_url: ii.descriptionurl, urheber: ohneHtml(m.Artist?.value) || 'unbekannt', lizenz, lizenz_url: url(m.LicenseUrl?.value), quelle: 'Wikimedia Commons' }
 }
@@ -301,7 +301,12 @@ async function bildFuer(karte: any, pfad: string[]) {
       wikiTitelbilder('en', `${t} ${ort}`.trim(), false), wikiTitelbilder('de', t, false)])
     for (const l of listen) for (const d of l) titel.add(d)
     const ausWiki = await commonsInfo([...titel].slice(0, 6))
-    const ausSuche = await commonsSuche(motiv)
+    // Commons-Suche verlangt alle Wörter: vom genauen Motiv schrittweise zu kürzeren Begriffen, bis es Kandidaten gibt
+    const ausSuche: any[] = []
+    for (const q of [...new Set([motiv, String(karte.wiki_titel ?? '').replace(/\(.*?\)/g, '').trim(), `${t} ${ort}`.trim(), t].filter((x) => x && x.length > 2))]) {
+      for (const k of await commonsSuche(q)) if (!ausSuche.some((x) => x.datei === k.datei)) ausSuche.push(k)
+      if (ausSuche.length >= 3) break
+    }
     const kand: any[] = []
     for (const k of [...ausWiki, ...ausSuche]) if (!kand.some((x) => x.datei === k.datei)) kand.push(k)
     if (!kand.length) return { bild: null, kosten: 0, info: `keine Kandidaten (Wiki ${titel.size}, Suche ${ausSuche.length})` }

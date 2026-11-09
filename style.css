@@ -2689,3 +2689,5 @@ body[data-area="lernen"] { padding-bottom: calc(100px + env(safe-area-inset-bott
   .hl2-zeile-img { width: 76px; height: 76px; }
 }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .hl2-wow { background: #2c2618; } :root:not([data-theme="light"]) .hl2-wow b { color: #e3c48a; } }
+.hl2-tab.an:hover, .hl2-tab.an:focus-visible { background: var(--text); color: var(--surface); }
+.hl2-will.an:hover { background: #a93226; color: #fff; }

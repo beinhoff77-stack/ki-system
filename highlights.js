@@ -38,7 +38,7 @@ function hlChatKasten(auftraege) {
 }
 
 async function hlCall(aktionName, daten = {}) {
-  const r = await fetch(hlApi() + '/aktion', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + (store.token || '') }, body: JSON.stringify({ aktion: aktionName, daten }) });
+  const r = await fetch(mitRegion(hlApi() + '/aktion'), { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + (store.token || '') }, body: JSON.stringify({ aktion: aktionName, daten }) });
   let j; try { j = await r.json(); } catch { j = { ok: false, fehler: 'Keine Antwort (' + r.status + ')' }; }
   if (r.status === 401) { store.token = null; route('login'); throw new Error('Nicht angemeldet'); }
   if (!j.ok) throw new Error(j.fehler || 'Anfrage fehlgeschlagen');
@@ -268,6 +268,7 @@ function hlIchBinHier(punkte, sid) {
 }
 
 // ---------- Ansicht: Übersicht · Region · Detail ----------
+const HL_CACHE = new Map(), HL_SCROLL = new Map(); // nur im Speicher, je Sitzung
 async function hlEbene(sid, kid) {
   setChrome('Highlights', { tab: 'highlights', back: true });
   const live = viewGuard();
@@ -288,10 +289,17 @@ async function hlEbene(sid, kid) {
   const ctx = { sid, alter: null, neu: () => lesen() };
   const setAnsicht = (a) => { ansicht = a; sessionStorage.setItem(ansichtKey, a); lesen(); };
 
+  // Sofortige Rückmeldung (W155b): Knöpfe sperren, Hinweis direkt am Knopf und oben, Toast beim Start
   async function portion(art, extra = {}) {
+    const hinweis = el('div', { class: 'spinner hl2-am-knopf' }, 'Wird angefragt …');
     hlFill(lauf, el('div', { class: 'spinner' }, 'Wird angefragt …'));
-    try { await hlCall('portion', { suche_id: sid, parent_id: kid, art, modus: hlModus(), ...extra }); await lesen(); }
-    catch (e) { hlFill(lauf, el('p', { class: 'hl-ende' }, e.message)); }
+    for (const b of [...unten.querySelectorAll('button'), ...mitte.querySelectorAll('button')]) b.disabled = true;
+    (unten.querySelector('.hl-mehr') || mitte.querySelector('.hl2-weiter-knoepfe'))?.after(hinweis);
+    try {
+      await hlCall('portion', { suche_id: sid, parent_id: kid, art, modus: hlModus(), ...extra });
+      toast(hlModus() === 'chat' ? 'Auftrag liegt für Claude/ChatGPT bereit.' : 'Recherche läuft – dauert 1–3 Min., die Seite aktualisiert sich selbst.');
+      await lesen();
+    } catch (e) { hinweis.remove(); hlFill(lauf, el('p', { class: 'hl-ende' }, e.message)); await lesen(); }
   }
   function frageForm(platzhalter) {
     const frage = el('input', { type: 'text', maxlength: 400, placeholder: platzhalter });
@@ -300,12 +308,34 @@ async function hlEbene(sid, kid) {
     return f;
   }
 
+  // Zurück/Vor (W155b): letzter Stand sofort aus dem Zwischenspeicher zeigen, Scrollposition wiederherstellen, dann still aktualisieren
+  const cacheKey = sid + '_' + (kid || 0);
+  let ersterLauf = true;
+  const scrollMerken = () => HL_SCROLL.set(cacheKey, window.scrollY);
+  window.addEventListener('scroll', scrollMerken, { passive: true });
+  const altDispose = disposeSuche;
+  disposeSuche = () => { window.removeEventListener('scroll', scrollMerken); altDispose(); };
   async function lesen() {
     clearTimeout(timer);
+    if (ersterLauf && HL_CACHE.has(cacheKey)) {
+      ersterLauf = false;
+      zeigen(HL_CACHE.get(cacheKey));
+      const y = HL_SCROLL.get(cacheKey);
+      if (y) requestAnimationFrame(() => window.scrollTo(0, y));
+      clearTimeout(timer);
+      return lesen();
+    }
+    ersterLauf = false;
     let r;
     try { r = await hlCall('lesen', { suche_id: sid, knoten_id: kid, mit_weg: true }); }
     catch (e) { if (live()) hlFill(lauf, el('p', { class: 'err-text' }, e.message)); return; }
     if (!live()) return;
+    HL_CACHE.set(cacheKey, r);
+    const y = window.scrollY;
+    zeigen(r);
+    if (Math.abs(window.scrollY - y) > 2) window.scrollTo(0, y);
+  }
+  function zeigen(r) {
     const v = r.suche.vorlieben || {};
     ctx.alter = Array.isArray(v.familie_alter) ? v.familie_alter : null;
     const titel = r.knoten ? r.knoten.titel : r.suche.wunsch;
@@ -371,7 +401,7 @@ async function hlEbene(sid, kid) {
         g.eintraege.map(x => hlKurzZeile(x, x.id === g.k.id, ctx)))) : [el('p', { class: 'muted' }, ansicht === 'will' ? 'Noch nichts mit ♥ markiert.' : 'Nichts aussortiert.')]));
     }
     hlFill(unten, hlModusWahl(lesen), el('div', { class: 'hl-mehr' },
-      el('button', { type: 'button', class: regionen.length ? '' : 'primary', disabled: laufend.includes(0), onclick: () => portion(regionen.length ? 'mehr' : 'start') }, regionen.length ? 'Weitere Regionen suchen' : 'Regionen holen'),
+      el('button', { type: 'button', class: regionen.length ? '' : 'primary', disabled: laufend.includes(0), onclick: () => portion(regionen.length ? 'mehr' : 'start') }, laufend.includes(0) ? '⏳ Regionen werden gesucht … (1–3 Min.)' : regionen.length ? 'Weitere Regionen suchen' : 'Regionen holen'),
       el('span', { class: 'small muted' }, regionen.length ? (hlModus() === 'chat' ? hlKostenKlein() : HL_KOSTEN_KLEIN + ' (+ Highlights je neuer Region)') : HL_KOSTEN_START)),
       frageForm('Frage zum ganzen Wunsch, z. B. „Wo sieht man Seelöwen?“'),
       el('p', { class: 'small muted' }, regionen.length + ' Regionen · ' + r.unter.length + ' Highlights' + hlKostenText(r)));
@@ -386,8 +416,7 @@ async function hlEbene(sid, kid) {
         el('p', { class: 'hl2-meta' }, [sb.hauptort ? 'Basis: ' + sb.hauptort : null, sb.tage, saison.text ? 'Beste Zeit: ' + saison.text : null, sb.andrang ? 'Andrang ' + sb.andrang + '/5 · ' + HL_ANDRANG[sb.andrang] : null].filter(Boolean).join(' · ')),
         sb.wo ? el('p', { class: 'hl2-wo' }, el('b', {}, 'Wo & Anfahrt: '), sb.wo) : null,
         el('p', { class: 'hl2-warum' }, el('b', {}, 'Warum hin: '), sb.warum || sb.moment || ''),
-        sb.besonders ? el('p', { class: 'hl2-besonders' }, el('b', {}, 'Nur hier: '), sb.besonders) : null,
-        hlWarnung(sb), hlStatusKnoepfe(k, ctx))));
+        hlWow(sb), hlWarnung(sb), hlLinks(k), hlStatusKnoepfe(k, ctx))));
     hlFill(mitte);
     const punkte = [{ art: 'ort', titel: (sb.hauptort || k.titel), lat: sb.lat, lon: sb.lon, status: 'offen' },
       ...hlFilter(kinder, ansicht === 'nicht' ? 'nicht' : 'alle').map(c => ({ art: 'hl', id: c.id, titel: c.titel, lat: c.steckbrief?.lat, lon: c.steckbrief?.lon, status: c.status, thema: hlThemaVon(c.typ), klick: () => { location.hash = hlHref(sid, c.id); } }))];
@@ -406,7 +435,7 @@ async function hlEbene(sid, kid) {
     const ende = r.portionen.some(p => p.ende);
     hlFill(unten, ende ? el('p', { class: 'hl-ende' }, 'Das waren die starken Highlights hier. Frag gezielt, wenn dir etwas fehlt.') : null, hlModusWahl(lesen),
       el('div', { class: 'hl-mehr' },
-        el('button', { type: 'button', class: kinder.length ? '' : 'primary', disabled: hierLaeuft, onclick: () => portion(kinder.length ? 'mehr' : 'start') }, kinder.length ? 'Mehr Highlights in ' + hlKurz(k.titel) : 'Highlights recherchieren'),
+        el('button', { type: 'button', class: kinder.length ? '' : 'primary', disabled: hierLaeuft, onclick: () => portion(kinder.length ? 'mehr' : 'start') }, hierLaeuft ? '⏳ Wird recherchiert … (1–2 Min.)' : kinder.length ? 'Mehr Highlights in ' + hlKurz(k.titel) : 'Highlights recherchieren'),
         el('span', { class: 'small muted' }, hlKostenKlein())),
       frageForm('In ' + hlKurz(k.titel) + ' fragen, z. B. „Wo Seedrachen sehen?“'),
       el('p', { class: 'small muted' }, kinder.length + ' Highlights' + hlKostenText(r)));
@@ -475,7 +504,8 @@ function hlRegionKarte(k, nr, kinder, laeuft, ctx) {
   const art = el('article', { class: 'hl2-region' + (k.status === 'gemerkt' ? ' will' : '') },
     el('a', { class: 'hl2-region-kopf', href }, hlBild(k.bild, 'region', 'hl2-region-img'),
       el('div', {}, el('h3', {}, el('span', { class: 'hl2-nr' }, String(nr)), k.titel),
-        el('p', { class: 'hl2-meta' }, [sb.hauptort ? '⌖ ' + sb.hauptort : null, sb.tage, sb.andrang ? 'Andrang ' + sb.andrang + '/5' : null].filter(Boolean).join(' · ')))),
+        el('p', { class: 'hl2-meta' }, [sb.hauptort ? '⌖ ' + sb.hauptort : null, sb.tage, sb.andrang ? 'Andrang ' + sb.andrang + '/5' : null].filter(Boolean).join(' · ')),
+        hlWow({ wow: sb.wow }))),
     el('div', { class: 'hl2-region-text' },
       sb.wo ? el('p', { class: 'hl2-wo' }, el('b', {}, 'Wo: '), sb.wo) : null,
       el('p', { class: 'hl2-warum' }, el('b', {}, 'Warum hin: '), sb.warum || sb.moment || ''),

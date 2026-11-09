@@ -2708,3 +2708,4 @@ body[data-area="lernen"] { padding-bottom: calc(100px + env(safe-area-inset-bott
 .hl2-links .hl2-link:hover { border-color: var(--accent, #3b6e8f); }
 .hl2-zeile > .hl2-links { grid-column: 1 / -1; margin: 0; }
 .hl2-links.klein .hl2-link { min-height: 32px; padding: 0 10px; font-size: 13px; }
+.hl2-am-knopf { margin: 8px 0; font-size: 14px; }

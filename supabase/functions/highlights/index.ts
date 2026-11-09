@@ -11,7 +11,7 @@
 import 'jsr:@supabase/functions-js/edge-runtime.d.ts'
 import postgres from 'npm:postgres@3.4.5'
 
-const VERSION = '0.4.5'
+const VERSION = '0.4.6'
 const sql = postgres(Deno.env.get('SUPABASE_DB_URL')!, { prepare: false, max: 3, idle_timeout: 20 })
 const OR_KEY = Deno.env.get('OPENROUTER_API_KEY') ?? ''
 const MODELL = 'anthropic/claude-sonnet-5.5'
@@ -233,7 +233,7 @@ async function holeMitWdh(u: string | URL, ms: number) {
   return await fetch(u, { headers: { 'User-Agent': UA }, signal: AbortSignal.timeout(ms) })
 }
 // Fehlerstatus wird weitergegeben (z. B. 429 = Wikimedia drosselt), damit der Grund je Highlight sichtbar ist
-const holeJson = async (u: URL) => { const r = await holeMitWdh(u, 12_000); if (!r.ok) throw new Error(`Wikimedia ${u.hostname.split('.')[0]} ${r.status}`); return await r.json() }
+const holeJson = async (u: URL) => { const r = await holeMitWdh(u, 12_000); if (!r.ok) throw new Error(`Bildquelle ${u.hostname} ${r.status}`); return await r.json() }
 function lizenzOk(m: any) { const l = ohneHtml(m?.LicenseShortName?.value); return /^(cc|public domain|pd)/i.test(l) && !/nc|nd/i.test(l) ? l : null }
 function kandidatAus(titel: string, ii: any) {
   const m = ii?.extmetadata ?? {}, lizenz = lizenzOk(m)
@@ -263,6 +263,16 @@ async function commonsSuche(suche: string) {
   const j = await holeJson(q)
   return (Object.values(j?.query?.pages ?? {}) as any[]).sort((a, b) => (a.index ?? 0) - (b.index ?? 0)).map((p) => kandidatAus(String(p.title ?? ''), p?.imageinfo?.[0])).filter(Boolean)
 }
+// Openverse (WordPress-Stiftung): freie Bilder u. a. von Flickr – kostenlos, ohne Konto; nur CC0/PD/CC BY/CC BY-SA
+const OV_LIZENZ: Record<string, string> = { cc0: 'CC0', pdm: 'Public domain', by: 'CC BY', 'by-sa': 'CC BY-SA' }
+async function openverseSuche(suche: string) {
+  const q = new URL('https://api.openverse.org/v1/images/')
+  for (const [k, v] of Object.entries({ q: suche, license: 'cc0,pdm,by,by-sa', page_size: '10', mature: 'false' })) q.searchParams.set(k, v)
+  const j = await holeJson(q)
+  return ((j?.results ?? []) as any[]).filter((x) => url(x?.url) && OV_LIZENZ[x?.license] && (x.width == null || (x.width >= 640 && x.width >= (x.height ?? 0) * 0.75)) && !UNPASSEND.test(String(x.title ?? '')))
+    .map((x) => ({ datei: `${ohneHtml(x.title)} (${x.source ?? x.provider ?? 'Openverse'})`, url: x.url, vorschau: url(x.thumbnail) ?? x.url, quelle_url: url(x.foreign_landing_url),
+      urheber: ohneHtml(x.creator) || 'unbekannt', lizenz: `${OV_LIZENZ[x.license]} ${x.license_version ?? ''}`.trim(), lizenz_url: url(x.license_url), quelle: `Openverse · ${x.source ?? x.provider ?? ''}` }))
+}
 async function alsDaten(u: string) {
   const klein = u.replace(/\/\d+px-/, '/500px-') // Wikimedia liefert nur Standardgrößen
   const r = await holeMitWdh(klein, 15_000)
@@ -272,7 +282,7 @@ async function alsDaten(u: string) {
   return `data:${r.headers.get('content-type') ?? 'image/jpeg'};base64,${btoa(s)}`
 }
 async function bildWaehlen(karte: any, kand: any[]) {
-  const geladen = (await Promise.allSettled(kand.map((k) => alsDaten(k.url)))).map((x, i) => (x.status === 'fulfilled' ? { k: kand[i], d: x.value } : null)).filter(Boolean) as any[]
+  const geladen = (await Promise.allSettled(kand.map((k) => alsDaten(k.vorschau ?? k.url)))).map((x, i) => (x.status === 'fulfilled' ? { k: kand[i], d: x.value } : null)).filter(Boolean) as any[]
   if (!geladen.length) return { bild: null, kosten: 0, info: `0/${kand.length} Kandidaten ladbar` }
   const text = `Reise-Highlight: „${karte.titel}“. ${karte.steckbrief?.moment ?? ''}
 Wähle unter den ${geladen.length} Fotos (Nummer 1–${geladen.length}) das eine, das genau dieses Highlight am aussagekräftigsten und schönsten zeigt – so, wie ein Besucher es erlebt (Ort, Landschaft, Tier, Unterwasserszene, Bauwerk). Bei Restaurant, Unterkunft oder Anbieter genügt eine Ansicht des Hauses, der Lage oder des Blicks. Ungeeignet: anderer Ort (nennt der Dateiname einen anderen Ort, z. B. eine andere Höhle oder Insel → ungeeignet), Schilder, Karten, Parkplätze, Personenporträts, unscharf, dunkel, sichtbar alt.
@@ -287,7 +297,7 @@ Antworte nur mit einer Zeile JSON: {"wahl": Nummer oder null, "note": 1-10, "gru
   const wahl = Number(t.match(/"wahl"\s*:\s*(\d+)/)?.[1]), note = Number(t.match(/"note"\s*:\s*(\d+)/)?.[1])
   if (!(wahl >= 1 && wahl <= geladen.length) || !(note >= 6)) return { bild: null, kosten, info: `${geladen.length} Kandidaten, Antwort: ${t.slice(0, 160) || JSON.stringify(j?.error ?? '').slice(0, 160)}` }
   const k = geladen[wahl - 1].k
-  return { bild: { ...k, datei: undefined, note, grund: ohneHtml(t.match(/"grund"\s*:\s*"([^"]*)/)?.[1]) }, kosten }
+  return { bild: { ...k, datei: undefined, vorschau: undefined, note, grund: ohneHtml(t.match(/"grund"\s*:\s*"([^"]*)/)?.[1]) }, kosten }
 }
 async function bildFuer(karte: any, pfad: string[]) {
   if (karte.bild_motiv === null) return { bild: null, kosten: 0 }
@@ -309,7 +319,15 @@ async function bildFuer(karte: any, pfad: string[]) {
     }
     const kand: any[] = []
     for (const k of [...ausWiki, ...ausSuche]) if (!kand.some((x) => x.datei === k.datei)) kand.push(k)
-    if (!kand.length) return { bild: null, kosten: 0, info: `keine Kandidaten (Wiki ${titel.size}, Suche ${ausSuche.length})` }
+    // Zu wenig bei Wikimedia -> Openverse (Flickr u. a.) ergänzen; ein Ausfall dort kostet die Wikimedia-Kandidaten nicht
+    let ov = 0, ovFehler = ''
+    if (kand.length < 3) {
+      for (const q of [...new Set([motiv, `${t} ${ort}`.trim(), t].filter((x) => x && x.length > 2))]) {
+        try { for (const k of await openverseSuche(q)) if (!kand.some((x) => x.url === k.url)) { kand.push(k); ov++ } } catch (e) { ovFehler = String((e as any)?.message ?? e).slice(0, 60); break }
+        if (ov >= 4) break
+      }
+    }
+    if (!kand.length) return { bild: null, kosten: 0, info: `keine Kandidaten (Wiki ${titel.size}, Suche ${ausSuche.length}, Openverse ${ov}${ovFehler ? ' – ' + ovFehler : ''})` }
     return await bildWaehlen(karte, kand.slice(0, 6))
   } catch (e) { console.error('bild', karte.titel, (e as any)?.message); return { bild: null, kosten: 0, info: String((e as any)?.message ?? e).slice(0, 160) } }
 }

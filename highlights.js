@@ -16,6 +16,26 @@ const HL_ANDRANG = ['', 'kaum touristisch', 'lokaler Alltag', 'bekannter Stopp',
 const HL_WEITER = [['essen', 'Essen & Trinken hier'], ['wohnen', 'Wohnen hier'], ['naehe', 'In der Nähe (≤ 30 Min.)'], ['kinder', 'Für die Kinder']];
 const HL_KOSTEN_START = 'ca. 1–2 USD · 3–5 Min.: erst die Regionen, danach automatisch die Highlights je Region';
 const HL_KOSTEN_KLEIN = 'ca. 0,10 USD · 1–2 Min.';
+// W155: Recherche wahlweise automatisch (Server, kostet) oder im Chat (Claude/ChatGPT über den Council, ohne Serverkosten)
+const hlModus = () => (hlLese('hl2_modus', 'auto') === 'chat' ? 'chat' : 'auto');
+const hlKostenKlein = () => (hlModus() === 'chat' ? 'ohne Serverkosten · erledigt Claude oder ChatGPT im Chat' : HL_KOSTEN_KLEIN);
+function hlModusWahl(neu) {
+  const m = hlModus();
+  const knopf = (wert, text) => el('button', { type: 'button', class: 'hl2-modus-k' + (m === wert ? ' an' : ''), 'aria-pressed': m === wert,
+    onclick: () => { hlSchreibe('hl2_modus', wert); neu(); } }, text);
+  return el('div', { class: 'hl2-modus', role: 'group', 'aria-label': 'Recherche' }, el('span', { class: 'small muted' }, 'Recherche:'),
+    knopf('auto', '⚡ Automatisch'), knopf('chat', '💬 Im Chat'));
+}
+function hlChatKasten(auftraege) {
+  return el('div', { class: 'hl2-chat' }, auftraege.map(a => {
+    const satz = 'Highlights Auftrag ' + a.portion_id + ' ausführen';
+    const kopie = el('button', { type: 'button', class: 'link', onclick: async () => { try { await navigator.clipboard.writeText(satz); toast('Kopiert – im Chat einfügen.'); } catch { toast(satz); } } }, 'Kopieren');
+    return el('div', { class: 'hl2-chat-z' }, el('p', {}, el('b', {}, a.status === 'chat_arbeit' ? '💬 Wird gerade im Chat recherchiert' : '💬 Wartet auf den Chat'),
+      a.linse || a.text ? ' · ' + ({ essen: 'Essen & Trinken', wohnen: 'Wohnen', naehe: 'In der Nähe', kinder: 'Für die Kinder' }[a.linse] || ('„' + a.text + '“')) : ''),
+      el('p', { class: 'small' }, 'Schreib Claude oder ChatGPT: ', el('code', {}, satz), ' ', kopie),
+      el('p', { class: 'small muted' }, 'Das Ergebnis erscheint hier von selbst.'));
+  }));
+}
 
 async function hlCall(aktionName, daten = {}) {
   const r = await fetch(hlApi() + '/aktion', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + (store.token || '') }, body: JSON.stringify({ aktion: aktionName, daten }) });
@@ -236,16 +256,17 @@ async function hlEbene(sid, kid) {
   const mitte = el('div', { class: 'hl2-mitte' });
   const kartenZeile = el('div', { class: 'hl2-map-zeile' });
   const lauf = el('div', { class: 'hl-lauf', role: 'status' });
+  const chatBox = el('div');
   const tabs = el('div');
   const liste = el('div', { class: 'hl2-liste' });
   const unten = el('div', { class: 'hl2-unten' });
-  hlFill(main, pfad, kopf, mitte, el('section', { class: 'hl2-map-wrap' }, karte.canvas, kartenZeile), lauf, tabs, liste, unten);
+  hlFill(main, pfad, kopf, mitte, el('section', { class: 'hl2-map-wrap' }, karte.canvas, kartenZeile), chatBox, lauf, tabs, liste, unten);
   const ctx = { sid, alter: null, neu: () => lesen() };
   const setAnsicht = (a) => { ansicht = a; sessionStorage.setItem(ansichtKey, a); lesen(); };
 
   async function portion(art, extra = {}) {
     hlFill(lauf, el('div', { class: 'spinner' }, 'Wird angefragt …'));
-    try { await hlCall('portion', { suche_id: sid, parent_id: kid, art, ...extra }); await lesen(); }
+    try { await hlCall('portion', { suche_id: sid, parent_id: kid, art, modus: hlModus(), ...extra }); await lesen(); }
     catch (e) { hlFill(lauf, el('p', { class: 'hl-ende' }, e.message)); }
   }
   function frageForm(platzhalter) {
@@ -273,7 +294,10 @@ async function hlEbene(sid, kid) {
     if (!r.knoten) uebersicht(r, v, laufend);
     else if (r.knoten.typ === 'region') region(r, laufend);
     else detail(r, laufend);
+    const chatHier = (r.chat_offen || []).filter(a => (a.parent_id ?? null) === (kid ?? null));
+    hlFill(chatBox, chatHier.length ? hlChatKasten(chatHier) : null);
     if (laufend.length) timer = setTimeout(lesen, 5000);
+    else if (chatHier.length) timer = setTimeout(lesen, 15000);
   }
 
   // ----- Übersicht: Karte + Regionen mit ihren Highlights -----
@@ -322,9 +346,9 @@ async function hlEbene(sid, kid) {
         el('h3', {}, el('span', { class: 'hl2-nr' }, String(nr.get(g.k.id))), el('a', { href: hlHref(sid, g.k.id) }, g.k.titel)),
         g.eintraege.map(x => hlKurzZeile(x, x.id === g.k.id, ctx)))) : [el('p', { class: 'muted' }, ansicht === 'will' ? 'Noch nichts mit ♥ markiert.' : 'Nichts aussortiert.')]));
     }
-    hlFill(unten, el('div', { class: 'hl-mehr' },
+    hlFill(unten, hlModusWahl(lesen), el('div', { class: 'hl-mehr' },
       el('button', { type: 'button', class: regionen.length ? '' : 'primary', disabled: laufend.includes(0), onclick: () => portion(regionen.length ? 'mehr' : 'start') }, regionen.length ? 'Weitere Regionen suchen' : 'Regionen holen'),
-      el('span', { class: 'small muted' }, regionen.length ? HL_KOSTEN_KLEIN + ' (+ Highlights je neuer Region)' : HL_KOSTEN_START)),
+      el('span', { class: 'small muted' }, regionen.length ? (hlModus() === 'chat' ? hlKostenKlein() : HL_KOSTEN_KLEIN + ' (+ Highlights je neuer Region)') : HL_KOSTEN_START)),
       frageForm('Frage zum ganzen Wunsch, z. B. „Wo sieht man Seelöwen?“'),
       el('p', { class: 'small muted' }, regionen.length + ' Regionen · ' + r.unter.length + ' Highlights' + hlKostenText(r)));
   }
@@ -356,10 +380,10 @@ async function hlEbene(sid, kid) {
     const sicht = hlFilter(kinder, ansicht);
     hlFill(liste, ...(sicht.length ? sicht.map(c => hlZeile(c, ctx)) : [!hierLaeuft ? el('p', { class: 'muted' }, ansicht === 'alle' ? 'Noch keine Highlights.' : ansicht === 'will' ? 'Noch nichts mit ♥ markiert.' : 'Nichts aussortiert.') : null]));
     const ende = r.portionen.some(p => p.ende);
-    hlFill(unten, ende ? el('p', { class: 'hl-ende' }, 'Das waren die starken Highlights hier. Frag gezielt, wenn dir etwas fehlt.') : null,
+    hlFill(unten, ende ? el('p', { class: 'hl-ende' }, 'Das waren die starken Highlights hier. Frag gezielt, wenn dir etwas fehlt.') : null, hlModusWahl(lesen),
       el('div', { class: 'hl-mehr' },
         el('button', { type: 'button', class: kinder.length ? '' : 'primary', disabled: hierLaeuft, onclick: () => portion(kinder.length ? 'mehr' : 'start') }, kinder.length ? 'Mehr Highlights in ' + hlKurz(k.titel) : 'Highlights recherchieren'),
-        el('span', { class: 'small muted' }, HL_KOSTEN_KLEIN)),
+        el('span', { class: 'small muted' }, hlKostenKlein())),
       frageForm('In ' + hlKurz(k.titel) + ' fragen, z. B. „Wo Seedrachen sehen?“'),
       el('p', { class: 'small muted' }, kinder.length + ' Highlights' + hlKostenText(r)));
   }
@@ -396,7 +420,7 @@ async function hlEbene(sid, kid) {
     hlFill(mitte, el('section', { class: 'hl2-weiter' }, el('h3', {}, 'Hier weitersuchen'),
       el('div', { class: 'hl2-weiter-knoepfe' }, HL_WEITER.map(([linse, label]) => el('button', { type: 'button', disabled: hierLaeuft, onclick: () => portion('mehr', { linse }) }, label))),
       frageForm('Frei fragen, z. B. „Wo gibt es hier guten Fisch?“'),
-      el('p', { class: 'small muted' }, 'Je Suche ' + HL_KOSTEN_KLEIN + ' – Ergebnisse erscheinen unten.')));
+      hlModusWahl(lesen), el('p', { class: 'small muted' }, 'Je Suche ' + hlKostenKlein() + ' – Ergebnisse erscheinen unten.')));
     const sbE = eltern?.steckbrief || {};
     const lat = hlZahl(sb.lat) ?? hlZahl(sbE.lat), lon = hlZahl(sb.lon) ?? hlZahl(sbE.lon);
     karte.zeichne([{ art: 'ort', titel: k.titel + (hlZahl(sb.lat) === null ? ' (Lage ungefähr: ' + (eltern?.titel || '') + ')' : ''), lat, lon, status: k.status },

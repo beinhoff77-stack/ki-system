@@ -7,11 +7,12 @@
 // Bilder: Wikipedia-Titelbild + Commons-Kandidaten (nur freie Lizenz), Bildmodell wählt das aussagekräftigste; Foto nur, wenn ein passendes gefunden wird.
 // Wege: POST /highlights/aktion { aktion, daten }  (Bearer = App-Token)
 //   lesen {suche_id?, knoten_id?, mit_weg?} · merkliste {suche_id?} · suche_speichern {id?, wunsch?, vorlieben?, loeschen?}
-//   entscheiden {knoten_id, status offen|gemerkt|weg} · portion {suche_id, parent_id?, art start|mehr|aehnlich|anders|frage, linse?, text?, vorlage_knoten_id?}
+//   entscheiden {knoten_id, status offen|gemerkt|weg} · portion {suche_id, parent_id?, art start|mehr|aehnlich|anders|frage, linse?, text?, vorlage_knoten_id?, modus auto|chat}
+//   modus chat (W155): keine Server-Recherche; Anleitung wird gespeichert, Claude/ChatGPT erledigt den Auftrag über den Council (highlights_chat_*)
 import 'jsr:@supabase/functions-js/edge-runtime.d.ts'
 import postgres from 'npm:postgres@3.4.5'
 
-const VERSION = '0.4.7'
+const VERSION = '0.5.0'
 const sql = postgres(Deno.env.get('SUPABASE_DB_URL')!, { prepare: false, max: 3, idle_timeout: 20 })
 const OR_KEY = Deno.env.get('OPENROUTER_API_KEY') ?? ''
 const MODELL = 'anthropic/claude-sonnet-5.5'
@@ -82,7 +83,7 @@ function promptRegionen(k: any): string {
   return `${PERSONA}
 ${kontext(k)}
 STUFE 1 = REGIONEN. Gliedere den Wunsch in Regionen/Gebiete (Insel, Halbinsel, Küstenabschnitt, Nationalpark-Gebiet, Stadt mit Umland). KEINE einzelnen Spots als Region.
-Decke den GANZEN Raum des Wunsches ab – alle Teile (Norden, Süden, Osten, Westen, Inland, Inseln), auch Natur-/Bergregionen ohne Meer – und sortiere erst danach. Regionen überschneiden sich nicht: jedes Highlight gehört genau zu einer Region.
+Decke den GANZEN Raum des Wunsches ab – alle Teile (Norden, Süden, Osten, Westen, Inland, Inseln), auch Natur-/Bergregionen ohne Meer – und sortiere erst danach. Regionen überschneiden sich nicht: jedes Highlight gehört genau zu einer Region. Fasse keine Inseln oder Gebiete zu einer Region zusammen, die mehr als ca. 150 km auseinanderliegen.
 Je Region: Hauptort/Basis, Lage + Anfahrt, warum hin, und ALLE starken Highlights dort als kurze Namen mit Thema (3–8, gemischt).
 AUFTRAG: ${auftrag}
 Nutze die Websuche für aktuelle Fakten (Saison, Sperrungen). "warnung" NUR bei echter aktueller Sperre/Einschränkung einer ganzen Region (sonst null). Eine *_quelle nur angeben, wenn genau diese Seite die Angabe enthält, sonst null.
@@ -453,7 +454,11 @@ Deno.serve(async (req) => {
   if (!fn) return antwort({ ok: false, fehler: `Unbekannte Aktion "${b?.aktion}"` }, 400)
   try {
     const r = await api(fn, h, b.daten ?? {})
-    if (b.aktion === 'portion' && r?.portion_id) {
+    if (b.aktion === 'portion' && r?.portion_id && r?.modus === 'chat') {
+      // W155: Chat-Auftrag – gleiche Anleitung wie für den Server speichern; Claude/ChatGPT holt sie über den Council ab
+      const [{ k }] = await sql`select highlights.portion_kontext(${Number(r.portion_id)}) as k`
+      await sql`update highlights.portion set anleitung = ${prompt(k)} where id = ${Number(r.portion_id)}`
+    } else if (b.aktion === 'portion' && r?.portion_id) {
       // @ts-ignore EdgeRuntime gibt es in Supabase Edge Functions
       EdgeRuntime.waitUntil(portionFuellen(Number(r.portion_id)))
     }

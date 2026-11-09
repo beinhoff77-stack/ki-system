@@ -11,7 +11,7 @@
 import 'jsr:@supabase/functions-js/edge-runtime.d.ts'
 import postgres from 'npm:postgres@3.4.5'
 
-const VERSION = '0.4.2'
+const VERSION = '0.4.3'
 const sql = postgres(Deno.env.get('SUPABASE_DB_URL')!, { prepare: false, max: 3, idle_timeout: 20 })
 const OR_KEY = Deno.env.get('OPENROUTER_API_KEY') ?? ''
 const MODELL = 'anthropic/claude-sonnet-5.5'
@@ -329,6 +329,29 @@ async function regionenVertiefen(sucheId: number) {
   return neu.length
 }
 
+// Fehlende Fotos einer Suche nachholen: höchstens 24 je Lauf, 2 parallel, je Highlight max. 3 Versuche; Grund wird gespeichert.
+async function bilderNachholen(sucheId: number, neu = false) {
+  const ks = await sql`select id, titel, typ, steckbrief, highlights.pfad(parent_id) as pfad from highlights.knoten
+    where suche_id = ${sucheId} and (bild is null or ${neu}) and coalesce((steckbrief->>'bild_versuche')::int, 0) < 3
+      and (steckbrief->>'bild_versuch_am' is null or (steckbrief->>'bild_versuch_am')::timestamptz < now() - interval '5 minutes')
+    order by coalesce((steckbrief->>'bild_versuche')::int, 0), id limit 24`
+  let ni = 0
+  await Promise.all([0, 1].map(async () => { while (ni < ks.length) { const k: any = ks[ni++]
+    const sb = k.steckbrief ?? {}
+    const r = await bildFuer({ titel: k.titel, typ: k.typ, steckbrief: sb, bild_motiv: sb.bild_motiv, bild_suche: sb.bild_suche, wiki_titel: sb.wiki_titel }, (k.pfad ?? []).map((x: any) => x.titel))
+    const info = { bild_versuche: (Number(sb.bild_versuche) || 0) + 1, bild_versuch_am: new Date().toISOString(), bild_info: r.bild ? null : String((r as any).info ?? 'kein Foto vorgesehen').slice(0, 200) }
+    if (r.bild) await sql`update highlights.knoten set bild = ${JSON.stringify(r.bild)}::text::jsonb, steckbrief = steckbrief || ${JSON.stringify(info)}::text::jsonb where id = ${k.id}`
+    else await sql`update highlights.knoten set steckbrief = steckbrief || ${JSON.stringify(info)}::text::jsonb where id = ${k.id}`
+    if (r.kosten) await sql`update highlights.portion set kosten_usd = coalesce(kosten_usd, 0) + ${r.kosten} where id = (select portion_id from highlights.knoten where id = ${k.id})`
+  } }))
+  return ks.length
+}
+// Nach der letzten Recherche einer Suche: fehlende Fotos in Ruhe nachholen (dann ohne parallele Wikimedia-Last)
+async function nachholenWennFertig(sucheId: number) {
+  const [{ laufen }] = await sql`select count(*)::int as laufen from highlights.portion where suche_id = ${sucheId} and status in ('wartet','laeuft') and erstellt_am > now() - interval '8 minutes'`
+  if (laufen === 0) await bilderNachholen(sucheId)
+}
+
 async function portionFuellen(id: number) {
   const [{ k }] = await sql`select highlights.portion_kontext(${id}) as k`
   await sql`update highlights.portion set status = 'laeuft' where id = ${id}`
@@ -348,11 +371,13 @@ async function portionFuellen(id: number) {
     const bilder: any[] = new Array(karten.length)
     let naechstes = 0
     await Promise.all([0, 1, 2].map(async () => { while (naechstes < karten.length) { const i = naechstes++; bilder[i] = await bildFuer(karten[i], pfad) } }))
-    karten.forEach((c: any, i: number) => { c.bild = bilder[i].bild; kosten += bilder[i].kosten })
+    karten.forEach((c: any, i: number) => { c.bild = bilder[i].bild; kosten += bilder[i].kosten
+      if (!c.bild) Object.assign(c.steckbrief, { bild_versuche: 1, bild_versuch_am: new Date().toISOString(), bild_info: String(bilder[i].info ?? 'kein Foto vorgesehen').slice(0, 200) }) })
     await sql`select highlights.portion_abschliessen(${id}, ${JSON.stringify({ karten, fazit: txt(ki.daten?.fazit, 400), ende: !!ki.daten?.ende,
       ende_hinweis: txt(ki.daten?.ende_hinweis, 400), kosten_usd: kosten, modell })}::text::jsonb)`
     // Stufe 1 fertig -> Stufe 2 für jede neue Region automatisch (eigene Aufrufe, parallel)
     if (st === 1) await regionenVertiefen(Number(k.portion.suche_id))
+    else await nachholenWennFertig(Number(k.portion.suche_id))
   } catch (e) {
     console.error('highlights portion', id, (e as any)?.message)
     await sql`select highlights.portion_abschliessen(${id}, ${JSON.stringify({ fehler: String((e as any)?.message ?? e).slice(0, 300), kosten_usd: (e as any)?.kosten ?? kosten, modell })}::text::jsonb)`
@@ -370,21 +395,10 @@ Deno.serve(async (req) => {
     if (!ok?.ok) return antwort({ ok: false, fehler: 'Nicht erlaubt' }, 401)
     const b = await req.json().catch(() => ({}))
     if (b.bilder_suche_id) {
-      // fehlende Bilder einer Suche nachholen (Wikimedia, nur freie Lizenzen)
-      const ks = await sql`select id, titel, typ, steckbrief, highlights.pfad(parent_id) as pfad from highlights.knoten
-        where suche_id = ${Number(b.bilder_suche_id)} and (bild is null or ${!!b.neu}) order by id limit 30`
-      let n = 0, kosten = 0
-      const infos: string[] = []
-      let ni = 0
-      await Promise.all([0, 1, 2].map(async () => { while (ni < ks.length) { const k: any = ks[ni++]
-        const sb = k.steckbrief ?? {}
-        const r = await bildFuer({ titel: k.titel, typ: k.typ, steckbrief: sb, bild_motiv: sb.bild_motiv, bild_suche: sb.bild_suche, wiki_titel: sb.wiki_titel }, (k.pfad ?? []).map((x: any) => x.titel))
-        kosten += r.kosten
-        if (!r.bild) infos.push(`${k.titel}: ${(r as any).info ?? 'kein Foto vorgesehen'}`)
-        await sql`update highlights.knoten set bild = ${r.bild ? JSON.stringify(r.bild) : null}::text::jsonb where id = ${k.id}`
-        if (r.bild) n++
-      } }))
-      return antwort({ ok: true, bilder: n, von: ks.length, kosten_usd: Math.round(kosten * 10000) / 10000, ohne: infos })
+      // fehlende Bilder nachholen – im Hintergrund, Grund je Highlight gespeichert (steckbrief.bild_info)
+      // @ts-ignore EdgeRuntime gibt es in Supabase Edge Functions
+      EdgeRuntime.waitUntil(bilderNachholen(Number(b.bilder_suche_id), !!b.neu))
+      return antwort({ ok: true, async: true })
     }
     if (b.regionen_suche_id) return antwort({ ok: true, gestartet: await regionenVertiefen(Number(b.regionen_suche_id)) })
     if (b.async) {

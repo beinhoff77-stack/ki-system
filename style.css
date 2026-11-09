@@ -2708,3 +2708,19 @@ body[data-area="lernen"] { padding-bottom: calc(100px + env(safe-area-inset-bott
 .hl2-links .hl2-link:hover { border-color: var(--accent, #3b6e8f); }
 .hl2-zeile > .hl2-links { grid-column: 1 / -1; margin: 0; }
 .hl2-links.klein .hl2-link { min-height: 32px; padding: 0 10px; font-size: 13px; }
+.hl2-am-knopf { margin: 8px 0; font-size: 14px; }
+
+/* W155b: nummerierte Kartenpunkte = Nummer in der Liste; Themen-Filter */
+.hl2-pin.hl { background: none !important; border: 0 !important; box-shadow: none !important; }
+.hl2-pin.hl span { display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; color: #fff; font: 700 12px/1 var(--font-ui); border: 2px solid #fff; box-shadow: 0 1px 4px rgb(0 0 0 / 40%); }
+.hl2-pin.hl.will span { border-color: #c0392b; border-width: 3px; }
+.hl2-znr { display: inline-grid; place-items: center; min-width: 22px; height: 22px; padding: 0 4px; margin-right: 6px; border-radius: 999px; background: var(--t, #5a6878); color: #fff; font: 700 12px/1 var(--font-ui); vertical-align: 2px; }
+.hl2-themen { display: flex; gap: 6px; overflow-x: auto; padding: 8px 0 2px; scrollbar-width: none; }
+.hl2-themen::-webkit-scrollbar { display: none; }
+.hl2-thema-chip { flex: none; min-height: 36px; padding: 0 12px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); color: var(--text); font-size: 14px; white-space: nowrap; }
+.hl2-thema-chip i { font-style: normal; color: var(--t, var(--text)); }
+.hl2-thema-chip.an { background: var(--t, var(--text)); border-color: var(--t, var(--text)); color: #fff; }
+.hl2-thema-chip.an i { color: #fff; }
+.hl2-thema-chip .hl2-n { opacity: .75; font-size: 12px; }
+.hl2-themen .hl2-thema-chip.an, .hl2-themen .hl2-thema-chip.an:hover { background: var(--t, var(--text)); border-color: var(--t, var(--text)); color: #fff; }
+.hl2-themen .hl2-thema-chip:not(.an):hover { background: var(--surface); color: var(--text); }

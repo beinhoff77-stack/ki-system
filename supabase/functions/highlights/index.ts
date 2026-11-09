@@ -12,7 +12,7 @@
 import 'jsr:@supabase/functions-js/edge-runtime.d.ts'
 import postgres from 'npm:postgres@3.4.5'
 
-const VERSION = '0.5.1'
+const VERSION = '0.5.2'
 const sql = postgres(Deno.env.get('SUPABASE_DB_URL')!, { prepare: false, max: 3, idle_timeout: 20 })
 const OR_KEY = Deno.env.get('OPENROUTER_API_KEY') ?? ''
 const MODELL = 'anthropic/claude-sonnet-5.5'
@@ -91,7 +91,7 @@ Je Region: Hauptort/Basis, Lage + Anfahrt, warum hin, und ALLE starken Highlight
 AUFTRAG: ${auftrag}
 Nutze die Websuche für aktuelle Fakten (Saison, Sperrungen). "warnung" NUR bei echter aktueller Sperre/Einschränkung einer ganzen Region (sonst null). ${WOW_SKALA} Eine *_quelle nur angeben, wenn genau diese Seite die Angabe enthält, sonst null.
 Antworte ausschließlich mit JSON:
-{"fazit":"1 Satz: wie die Regionen zusammenhängen (z. B. Reihenfolge/Route)","ende":false,"ende_hinweis":null,
+{"fazit":"1 Satz: wie die Regionen zusammenhängen (Reihenfolge/Route) – nur Regionen aus deinen karten; keine Hinweise zur Suche","ende":false,"ende_hinweis":null,
 "karten":[{"titel":"Name der Region","typ":"region","hauptort":"Hauptort/Basis, z. B. 'Kingscote'","wo":"1 Satz Lage + Anfahrt, z. B. 'Insel vor Adelaide, 45 Min. Fähre ab Cape Jervis (2 h Fahrt von Adelaide)'",
 "warum":"1–2 Sätze, warum ihr dorthin solltet – konkret","besonders":"1 Satz: was es so nur hier gibt",
 "highlights":[{"name":"konkreter Name (max. 6 Wörter)","thema":"${THEMEN.join('|')}"}],
@@ -136,7 +136,7 @@ Nur Highlights INNERHALB dieser Region. Diese anderen Regionen werden separat be
 AUFTRAG: ${auftrag}
 ${REGELN}
 Antworte ausschließlich mit JSON:
-{"fazit":"1 Satz: wie man die Region am besten erlebt (Route/Reihenfolge)","ende":false,"ende_hinweis":null,"karten":[${karteJson(true)}]}`
+{"fazit":"1–2 Sätze: Route durch die Region in der Reihenfolge der echten Lage – nenne NUR Highlights aus deinen karten, keine anderen; keine Hinweise zur Suche","ende":false,"ende_hinweis":null,"karten":[${karteJson(true)}]}`
 }
 
 function promptWeiter(k: any): string {
@@ -181,6 +181,14 @@ async function kiPortion(k: any) {
 
 const url = (u: unknown) => (typeof u === 'string' && /^https?:\/\/[^\s"<>]+$/.test(u) && !/@/.test(u.split('/')[2] ?? '') ? u : null)
 const txt = (s: unknown, n: number) => (typeof s === 'string' && s.trim() ? s.trim().slice(0, n) : null)
+// Fazit: am Satzende kürzen (nicht mitten im Wort) und Meta-Hinweise der KI zur Websuche entfernen
+const fazitTxt = (s: unknown) => {
+  let t = txt(s, 2000); if (!t) return null
+  t = t.replace(/\s*(Hinweis|Anmerkung)\s*:[^]*?(Websuche|Suche|Treffer)[^]*$/i, '').trim()
+  if (t.length <= 400) return t || null
+  const cut = t.slice(0, 400), ende = Math.max(cut.lastIndexOf('. '), cut.lastIndexOf('; '))
+  return (ende > 120 ? cut.slice(0, ende + 1) : cut.replace(/\s+\S*$/, '') + ' …')
+}
 const zahl = (x: unknown, lo: number, hi: number) => { const n = Math.round(Number(x)); return Number.isFinite(n) && n >= lo && n <= hi ? n : null }
 // belegt nur, wenn die URL wirklich unter den abgerufenen Suchtreffern war (gleiche Adresse ohne #/? oder gleicher Host+Pfad)
 function belegt(u: string | null, zitate: Set<string>): boolean {
@@ -406,10 +414,36 @@ async function wowNeu(sucheId: number) {
   if (kosten) await sql`update highlights.portion set kosten_usd = coalesce(kosten_usd, 0) + ${kosten} where id = (select max(id) from highlights.portion where suche_id = ${sucheId})`
   return { ok: true, bewertet: neu.length, von: ks.length, kosten_usd: kosten }
 }
+// Routen-Fazit je Region aus den TATSÄCHLICH vorhandenen Highlights (ohne Websuche, ca. 0,01 USD je Region) –
+// sonst nennt das Fazit Dinge, die gar nicht in der Liste stehen (Sebastian 10.11.: „Nordküste, aber kein Highlight dort“)
+async function fazitNeu(sucheId: number, nurRegion: number | null = null) {
+  const regionen = await sql`select r.id, r.titel, r.steckbrief->>'hauptort' as hauptort from highlights.knoten r
+    where r.suche_id = ${sucheId} and r.parent_id is null and r.typ = 'region' and (${nurRegion}::bigint is null or r.id = ${nurRegion})`
+  let n = 0, kosten = 0
+  await Promise.all(regionen.map(async (r: any) => {
+    const ks = await sql`select titel, steckbrief->>'ort' as ort, steckbrief->>'lat' as lat, steckbrief->>'lon' as lon from highlights.knoten
+      where parent_id = ${r.id} and status <> 'weg' order by reihenfolge`
+    if (ks.length < 2) return
+    const liste = ks.map((k: any) => `- ${k.titel}${k.ort ? ' (' + k.ort + ')' : ''}${k.lat ? ' [' + Number(k.lat).toFixed(2) + ', ' + Number(k.lon).toFixed(2) + ']' : ''}`).join('\n')
+    const text = `Region „${r.titel}“ (Basis ${r.hauptort ?? 'unbekannt'}). Schreibe 1–2 Sätze auf Deutsch: sinnvolle Route durch diese Highlights in der Reihenfolge ihrer echten Lage (Koordinaten in Klammern), mit Tagesempfehlung. Nenne NUR Highlights aus der Liste, erfinde nichts dazu, keine Himmelsrichtung, die nicht zu den Koordinaten passt. Max. 350 Zeichen. Nur der Text, kein JSON.\n${liste}`
+    const res = await fetch('https://openrouter.ai/api/v1/chat/completions', { method: 'POST', signal: AbortSignal.timeout(90_000),
+      headers: { Authorization: `Bearer ${OR_KEY}`, 'Content-Type': 'application/json', 'X-Title': 'Highlights Fazit' },
+      body: JSON.stringify({ model: MODELL, messages: [{ role: 'user', content: text }], max_tokens: 3000, reasoning: { effort: 'low' }, provider: { zdr: true, data_collection: 'deny' }, usage: { include: true } }) })
+    const j = await res.json().catch(() => null)
+    const f = fazitTxt(String(j?.choices?.[0]?.message?.content ?? '').replace(/^["„]|["“]$/g, ''))
+    kosten += Number(j?.usage?.cost ?? 0) || 0
+    if (!f) return
+    // die App zeigt das Fazit der ersten fertigen Portion der Region
+    await sql`update highlights.portion set fazit = ${f} where id = (select min(id) from highlights.portion where parent_id = ${r.id} and status = 'fertig')`
+    n++
+  }))
+  if (kosten) await sql`update highlights.portion set kosten_usd = coalesce(kosten_usd, 0) + ${kosten} where id = (select max(id) from highlights.portion where suche_id = ${sucheId})`
+  return { ok: true, regionen: n, kosten_usd: kosten }
+}
 // Nach der letzten Recherche einer Suche: WOW vergleichend einstufen, dann fehlende Fotos in Ruhe nachholen
 async function nachholenWennFertig(sucheId: number) {
   const [{ laufen }] = await sql`select count(*)::int as laufen from highlights.portion where suche_id = ${sucheId} and status in ('wartet','laeuft') and erstellt_am > now() - interval '8 minutes'`
-  if (laufen === 0) { await wowNeu(sucheId).catch((e) => console.error('wow', e?.message)); await bilderNachholen(sucheId) }
+  if (laufen === 0) { await wowNeu(sucheId).catch((e) => console.error('wow', e?.message)); await fazitNeu(sucheId).catch((e) => console.error('fazit', e?.message)); await bilderNachholen(sucheId) }
 }
 
 async function portionFuellen(id: number) {
@@ -433,7 +467,7 @@ async function portionFuellen(id: number) {
     await Promise.all([0, 1, 2].map(async () => { while (naechstes < karten.length) { const i = naechstes++; bilder[i] = await bildFuer(karten[i], pfad) } }))
     karten.forEach((c: any, i: number) => { c.bild = bilder[i].bild; kosten += bilder[i].kosten
       if (!c.bild) Object.assign(c.steckbrief, { bild_versuche: 1, bild_versuch_am: new Date().toISOString(), bild_info: String(bilder[i].info ?? 'kein Foto vorgesehen').slice(0, 200) }) })
-    await sql`select highlights.portion_abschliessen(${id}, ${JSON.stringify({ karten, fazit: txt(ki.daten?.fazit, 400), ende: !!ki.daten?.ende,
+    await sql`select highlights.portion_abschliessen(${id}, ${JSON.stringify({ karten, fazit: fazitTxt(ki.daten?.fazit), ende: !!ki.daten?.ende,
       ende_hinweis: txt(ki.daten?.ende_hinweis, 400), kosten_usd: kosten, modell })}::text::jsonb)`
     // Stufe 1 fertig -> Stufe 2 für jede neue Region automatisch (eigene Aufrufe, parallel)
     if (st === 1) await regionenVertiefen(Number(k.portion.suche_id))
@@ -462,6 +496,7 @@ Deno.serve(async (req) => {
     }
     if (b.regionen_suche_id) return antwort({ ok: true, gestartet: await regionenVertiefen(Number(b.regionen_suche_id)) })
     if (b.wow_suche_id) return antwort(await wowNeu(Number(b.wow_suche_id)))
+    if (b.fazit_suche_id) return antwort(await fazitNeu(Number(b.fazit_suche_id), b.region_id ? Number(b.region_id) : null))
     if (b.async) {
       // @ts-ignore EdgeRuntime gibt es in Supabase Edge Functions
       EdgeRuntime.waitUntil(portionFuellen(Number(b.portion_id)))

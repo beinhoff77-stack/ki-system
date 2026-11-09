@@ -3,8 +3,10 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.54.1';
+const APP_VERSION = '0.54.4';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
+// Serverfunktionen in der Datenbank-Region (Irland) ausführen: sonst läuft die Funktion nahe beim Gerät (z. B. Asien) und jede DB-Abfrage geht um die Welt (W155b, ~4 s statt ~0,3 s)
+const mitRegion = (u) => u + (u.includes('?') ? '&' : '?') + 'forceFunctionRegion=eu-west-1';
 const TOKEN_KEY = 'ks_token';
 
 // ---------- Hilfen ----------
@@ -138,7 +140,7 @@ const store = {
 async function http(path, { method = 'GET', body, auth = true, signal } = {}) {
   const headers = { 'Content-Type': 'application/json' };
   if (auth && store.token) headers.Authorization = 'Bearer ' + store.token;
-  const r = await fetch(API + path, { method, headers, body: body ? JSON.stringify(body) : undefined, signal });
+  const r = await fetch(mitRegion(API + path), { method, headers, body: body ? JSON.stringify(body) : undefined, signal });
   let j; try { j = await r.json(); } catch { j = { ok: false, fehler: 'Keine Antwort (' + r.status + ')' }; }
   if (r.status === 401 && auth) { store.token = null; route('login'); throw new Error(j?.fehler || 'Nicht angemeldet'); }
   if (!r.ok) throw new Error(j?.fehler || 'Die Anfrage ist fehlgeschlagen (HTTP ' + r.status + ').');

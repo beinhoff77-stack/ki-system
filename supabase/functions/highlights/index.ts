@@ -12,7 +12,7 @@
 import 'jsr:@supabase/functions-js/edge-runtime.d.ts'
 import postgres from 'npm:postgres@3.4.5'
 
-const VERSION = '0.5.0'
+const VERSION = '0.5.1'
 const sql = postgres(Deno.env.get('SUPABASE_DB_URL')!, { prepare: false, max: 3, idle_timeout: 20 })
 const OR_KEY = Deno.env.get('OPENROUTER_API_KEY') ?? ''
 const MODELL = 'anthropic/claude-sonnet-5.5'
@@ -60,6 +60,9 @@ const PERSONA = `Du bist ein erfahrener, stilsicherer Reiseberater. Ihr beratet 
 Mische ehrlich: Natur & Landschaft, Tiere, Meer & Tauchen, Kultur, Essen & Trinken, besondere Orte. Tauchen nur, wo es wirklich herausragt; nicht jeder Vorschlag braucht Wasser.
 Geschmack: individuell, beeindruckend, kein Massentourismus, Stil statt Protz; gutes Budget, wenn es sich lohnt. Erfinde nichts.`
 
+// WOW-Skala (Sebastian 10.11.: ein Markt ist kein 4er) – streng und vergleichend, damit die Punkte etwas bedeuten
+const WOW_SKALA = `WOW-Skala (streng, gemessen an allem, was die Familie weltweit erleben kann): 5 = weltweit einzigartig, allein ein Grund für die Reise (z. B. mit wilden Seelöwen schwimmen); 4 = eines der Top-Erlebnisse des Landes, lohnt einen Umweg; 3 = schöner Programmpunkt, wenn man ohnehin in der Gegend ist; 2 = nett, aber austauschbar (Märkte, Stadtparks, übliche Weingüter, Museen ohne Besonderheit); 1 = Füller. Nur etwa jedes fünfte Highlight verdient eine 5.`
+
 function stufe(k: any): 1 | 2 | 3 { return !k.eltern ? 1 : k.eltern.typ === 'region' ? 2 : 3 }
 
 function kontext(k: any): string {
@@ -86,7 +89,7 @@ STUFE 1 = REGIONEN. Gliedere den Wunsch in Regionen/Gebiete (Insel, Halbinsel, K
 Decke den GANZEN Raum des Wunsches ab – alle Teile (Norden, Süden, Osten, Westen, Inland, Inseln), auch Natur-/Bergregionen ohne Meer – und sortiere erst danach. Regionen überschneiden sich nicht: jedes Highlight gehört genau zu einer Region. Fasse keine Inseln oder Gebiete zu einer Region zusammen, die mehr als ca. 150 km auseinanderliegen.
 Je Region: Hauptort/Basis, Lage + Anfahrt, warum hin, und ALLE starken Highlights dort als kurze Namen mit Thema (3–8, gemischt).
 AUFTRAG: ${auftrag}
-Nutze die Websuche für aktuelle Fakten (Saison, Sperrungen). "warnung" NUR bei echter aktueller Sperre/Einschränkung einer ganzen Region (sonst null). Eine *_quelle nur angeben, wenn genau diese Seite die Angabe enthält, sonst null.
+Nutze die Websuche für aktuelle Fakten (Saison, Sperrungen). "warnung" NUR bei echter aktueller Sperre/Einschränkung einer ganzen Region (sonst null). ${WOW_SKALA} Eine *_quelle nur angeben, wenn genau diese Seite die Angabe enthält, sonst null.
 Antworte ausschließlich mit JSON:
 {"fazit":"1 Satz: wie die Regionen zusammenhängen (z. B. Reihenfolge/Route)","ende":false,"ende_hinweis":null,
 "karten":[{"titel":"Name der Region","typ":"region","hauptort":"Hauptort/Basis, z. B. 'Kingscote'","wo":"1 Satz Lage + Anfahrt, z. B. 'Insel vor Adelaide, 45 Min. Fähre ab Cape Jervis (2 h Fahrt von Adelaide)'",
@@ -115,6 +118,7 @@ ${mitOrt ? '"ort":"wo genau: nächster Ort + Fahrzeit ab Hauptort, z. B. \'bei P
 }
 const REGELN = `Nutze die Websuche für aktuelle Fakten (Preise, Saison, Regeln, Mindestalter). Suche je Vorschlag nach aktuellen Sperrungen (offizielle Park-, Behörden- oder Anbieterseite). "warnung" NUR bei echter aktueller Einschränkung (gesperrt, pausiert, nicht buchbar, Saison geschlossen) – Entwarnungen und allgemeine Hinweise gehören in "pruefen". Eine *_quelle nur angeben, wenn genau diese Seite die Angabe enthält, sonst null.
 Koordinaten: echte Lage des Spots (nicht des Hauptorts), auf ca. 3 Nachkommastellen.
+${WOW_SKALA}
 Fachwerte je Typ (genau 2, label + wert): ${Object.entries(FACH).map(([t, f]) => `${t}: ${f}`).join(' | ')}.`
 
 function promptHighlights(k: any): string {
@@ -380,10 +384,32 @@ async function bilderNachholen(sucheId: number, neu = false) {
   } }))
   return ks.length
 }
-// Nach der letzten Recherche einer Suche: fehlende Fotos in Ruhe nachholen (dann ohne parallele Wikimedia-Last)
+// WOW einer ganzen Suche vergleichend neu einstufen (ein Abruf ohne Websuche, ca. 0,03–0,08 USD): alle Highlights nebeneinander,
+// damit „Markt“ und „mit Seelöwen schwimmen“ nicht beide 4 bekommen. Nur die Zahl ändert sich, Texte bleiben.
+async function wowNeu(sucheId: number) {
+  const ks = await sql`select k.id, k.titel, k.typ, e.titel as region, k.steckbrief->>'besonders' as besonders, k.steckbrief->>'moment' as moment, k.steckbrief->'wow' as wow
+    from highlights.knoten k left join highlights.knoten e on e.id = k.parent_id where k.suche_id = ${sucheId} order by k.parent_id nulls first, k.reihenfolge`
+  if (ks.length < 3 || !OR_KEY) return { ok: false, grund: 'zu wenig' }
+  const liste = ks.map((k: any) => `${k.id} | ${k.typ} | ${k.titel}${k.region ? ' (' + k.region + ')' : ''} | ${k.besonders ?? k.moment ?? ''}`).join('\n')
+  const text = `Stufe für jeden Eintrag den WOW-Wert neu ein – vergleichend über die ganze Liste.\n${WOW_SKALA}\nRegionen (typ region) gemessen an ihrem stärksten Erlebnis.\nAntworte nur mit JSON: {"wow":[{"id":Zahl,"wow":1-5}]} für ALLE ${ks.length} Einträge.\n\nid | typ | titel (region) | besonders\n${liste}`
+  const r = await fetch('https://openrouter.ai/api/v1/chat/completions', { method: 'POST', signal: AbortSignal.timeout(120_000),
+    headers: { Authorization: `Bearer ${OR_KEY}`, 'Content-Type': 'application/json', 'X-Title': 'Highlights WOW' },
+    body: JSON.stringify({ model: MODELL, messages: [{ role: 'user', content: text }], max_tokens: 6000, reasoning: { effort: 'low' }, provider: { zdr: true, data_collection: 'deny' }, usage: { include: true } }) })
+  const j = await r.json().catch(() => null)
+  const inhalt = String(j?.choices?.[0]?.message?.content ?? '')
+  let daten: any = null
+  try { daten = JSON.parse(inhalt.slice(inhalt.indexOf('{'), inhalt.lastIndexOf('}') + 1)) } catch { daten = null }
+  const kosten = Number(j?.usage?.cost ?? 0) || 0
+  const ids = new Set(ks.map((k: any) => Number(k.id)))
+  const neu = (Array.isArray(daten?.wow) ? daten.wow : []).map((x: any) => ({ id: Number(x?.id), wow: zahl(x?.wow, 1, 5) })).filter((x: any) => ids.has(x.id) && x.wow)
+  for (const x of neu) await sql`update highlights.knoten set steckbrief = steckbrief || ${JSON.stringify({ wow: x.wow, wow_vergleich: true })}::text::jsonb where id = ${x.id}`
+  if (kosten) await sql`update highlights.portion set kosten_usd = coalesce(kosten_usd, 0) + ${kosten} where id = (select max(id) from highlights.portion where suche_id = ${sucheId})`
+  return { ok: true, bewertet: neu.length, von: ks.length, kosten_usd: kosten }
+}
+// Nach der letzten Recherche einer Suche: WOW vergleichend einstufen, dann fehlende Fotos in Ruhe nachholen
 async function nachholenWennFertig(sucheId: number) {
   const [{ laufen }] = await sql`select count(*)::int as laufen from highlights.portion where suche_id = ${sucheId} and status in ('wartet','laeuft') and erstellt_am > now() - interval '8 minutes'`
-  if (laufen === 0) await bilderNachholen(sucheId)
+  if (laufen === 0) { await wowNeu(sucheId).catch((e) => console.error('wow', e?.message)); await bilderNachholen(sucheId) }
 }
 
 async function portionFuellen(id: number) {
@@ -435,6 +461,7 @@ Deno.serve(async (req) => {
       return antwort({ ok: true, async: true })
     }
     if (b.regionen_suche_id) return antwort({ ok: true, gestartet: await regionenVertiefen(Number(b.regionen_suche_id)) })
+    if (b.wow_suche_id) return antwort(await wowNeu(Number(b.wow_suche_id)))
     if (b.async) {
       // @ts-ignore EdgeRuntime gibt es in Supabase Edge Functions
       EdgeRuntime.waitUntil(portionFuellen(Number(b.portion_id)))

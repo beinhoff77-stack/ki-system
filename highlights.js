@@ -148,7 +148,31 @@ function hlFamilieText(sb, alter) {
 }
 // Rot nur bei echter Sperre/Einschränkung
 const hlWarnung = (sb) => sb.warnung && sb.warnung_art ? el('p', { class: 'hl-warnung' }, '⚠ ', sb.warnung_art === 'gesperrt' ? 'Gesperrt: ' : 'Eingeschränkt: ', sb.warnung, ' ', hlBeleg(sb.warnung_belegt, sb.warnung_quelle)) : null;
-const hlWow = (sb) => sb.besonders || sb.wow ? el('p', { class: 'hl2-wow' }, el('b', {}, 'WOW' + (sb.wow ? ' ' + sb.wow + '/5' : '')), sb.besonders ? ' – ' + sb.besonders : '') : null;
+// WOW (W155): Sterne + Begründung als Fließtext, keine Box. 5 = weltweit einzigartig … 1 = Füller (Skala im Server)
+const HL_WOW = { 5: 'weltweit einzigartig', 4: 'Top des Landes', 3: 'schöner Programmpunkt', 2: 'nett', 1: 'Füller' };
+const hlWow = (sb) => {
+  const n = Number(sb.wow) >= 1 && Number(sb.wow) <= 5 ? Math.round(Number(sb.wow)) : null;
+  if (!n && !sb.besonders) return null;
+  return el('p', { class: 'hl2-wow' },
+    n ? el('span', { class: 'hl2-sterne', title: 'WOW ' + n + '/5 – ' + HL_WOW[n], 'aria-label': 'WOW ' + n + ' von 5: ' + HL_WOW[n] }, '★'.repeat(n), el('span', { class: 'aus' }, '★'.repeat(5 - n))) : null,
+    n ? el('span', { class: 'hl2-wow-stufe' }, HL_WOW[n]) : null,
+    sb.besonders ? el('span', { class: 'hl2-wow-text' }, sb.besonders) : null);
+};
+// Weiterlesen-Knöpfe (W155): Google Maps (Suche nach Name + Region, kein Kartenschlüssel nötig), Wikipedia (Suche -> Artikel), erste belegte Quelle
+function hlLinks(k, ortHinweis, klein) {
+  const sb = k.steckbrief || {};
+  const knopf = (href, sym, text, titel) => el('a', { class: 'hl2-link', href, target: '_blank', rel: 'noopener noreferrer', title: titel }, el('span', { 'aria-hidden': true }, sym), ' ', text);
+  const ort = [sb.hauptort, ortHinweis].filter(Boolean).find(x => !String(k.titel).includes(x)) || '';
+  const maps = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent([k.titel, ort].filter(Boolean).join(', '));
+  const wiki = sb.wiki_titel ? 'https://en.wikipedia.org/w/index.php?search=' + encodeURIComponent(sb.wiki_titel) : null;
+  const qs = (k.quellen || []).filter(q => hlSicher(q.url));
+  const q = qs.find(x => x.abgerufen) || qs[0];
+  let host = ''; try { host = q ? new URL(q.url).hostname.replace(/^www\./, '') : ''; } catch { host = ''; }
+  return el('div', { class: 'hl2-links' + (klein ? ' klein' : '') },
+    knopf(maps, '📍', 'Google Maps', 'In Google Maps öffnen'),
+    wiki ? knopf(wiki, '📖', 'Wikipedia', 'Wikipedia: ' + sb.wiki_titel) : null,
+    q && host ? knopf(q.url, '🌐', klein ? 'Mehr lesen' : 'Mehr lesen · ' + host, host + (q.abgerufen ? ' (von der Recherche abgerufen)' : '')) : null);
+}
 
 // Will ich / Erstmal nicht – zweimal tippen setzt zurück auf offen
 function hlStatusKnoepfe(k, ctx, klein = false) {
@@ -378,7 +402,7 @@ async function hlEbene(sid, kid) {
     const fazit = r.portionen.find(p => p.status === 'fertig' && p.fazit)?.fazit;
     hlFill(tabs, fazit ? el('p', { class: 'hl-fazit' }, fazit) : null, hlTabs(ansicht, { alle: hlFilter(kinder, 'alle').length, will: hlFilter(kinder, 'will').length, nicht: hlFilter(kinder, 'nicht').length }, setAnsicht));
     const sicht = hlFilter(kinder, ansicht);
-    hlFill(liste, ...(sicht.length ? sicht.map(c => hlZeile(c, ctx)) : [!hierLaeuft ? el('p', { class: 'muted' }, ansicht === 'alle' ? 'Noch keine Highlights.' : ansicht === 'will' ? 'Noch nichts mit ♥ markiert.' : 'Nichts aussortiert.') : null]));
+    hlFill(liste, ...(sicht.length ? sicht.map(c => hlZeile(c, ctx, k.titel)) : [!hierLaeuft ? el('p', { class: 'muted' }, ansicht === 'alle' ? 'Noch keine Highlights.' : ansicht === 'will' ? 'Noch nichts mit ♥ markiert.' : 'Nichts aussortiert.') : null]));
     const ende = r.portionen.some(p => p.ende);
     hlFill(unten, ende ? el('p', { class: 'hl-ende' }, 'Das waren die starken Highlights hier. Frag gezielt, wenn dir etwas fehlt.') : null, hlModusWahl(lesen),
       el('div', { class: 'hl-mehr' },
@@ -403,6 +427,7 @@ async function hlEbene(sid, kid) {
         ortText ? el('p', { class: 'hl2-ort' }, '⌖ ', ortText) : null,
         sb.moment ? el('p', { class: 'hl2-moment' }, sb.moment) : null,
         hlWow(sb), hlWarnung(sb),
+        hlLinks(k, eltern?.titel),
         el('dl', { class: 'hl-krit' }, fakt('Zeit', sb.zeit || '–'), fakt('Kosten für 4', sb.kosten_4 || '–', ' ', hlBeleg(sb.kosten_belegt, sb.kosten_quelle)),
           fakt('Andrang', el('b', {}, sb.andrang ? sb.andrang + '/5' : '–'), ' ', hlBeleg(sb.andrang_belegt, sb.andrang_quelle), el('small', {}, HL_ANDRANG[sb.andrang] || '')),
           fakt('Saison', el('span', { class: 'pill hl-s-' + (saison.status || 'unbekannt') }, { passt: 'passt', grenzwertig: 'grenzwertig', falsch: 'falsche Zeit', unbekannt: '?' }[saison.status || 'unbekannt']), ' ', saison.text || '')),
@@ -431,7 +456,7 @@ async function hlEbene(sid, kid) {
     else if (letzte?.status === 'fehler') hlFill(lauf, el('p', { class: 'err-text' }, 'Letzte Anfrage fehlgeschlagen: ' + (letzte.fehler || 'unbekannt') + '.'));
     else hlFill(lauf);
     hlFill(tabs, kinder.length ? [el('h3', { class: 'hl2-h3' }, 'Gefunden bei ' + k.titel), hlTabs(ansicht, { alle: hlFilter(kinder, 'alle').length, will: hlFilter(kinder, 'will').length, nicht: hlFilter(kinder, 'nicht').length }, setAnsicht)] : []);
-    hlFill(liste, ...hlFilter(kinder, ansicht).map(c => hlZeile(c, ctx)));
+    hlFill(liste, ...hlFilter(kinder, ansicht).map(c => hlZeile(c, ctx, eltern?.titel || k.titel)));
     hlFill(unten, eltern ? el('p', {}, el('a', { href: hlHref(sid, eltern.id) }, '← Alle Highlights in ' + eltern.titel)) : null);
   }
 
@@ -463,7 +488,7 @@ function hlRegionKarte(k, nr, kinder, laeuft, ctx) {
 const hlVorabChip = (h) => { const t = hlHlThema(h); return el('span', { class: 'hl2-hchip vorab', style: '--t:' + hlThema(t)[2] }, el('i', { 'aria-hidden': true }, hlThema(t)[1]), hlHlName(h)); };
 
 // Highlight-Zeile (Region/Detail): Foto · Thema/Ort · Name · Moment · WOW-Begründung · Will ich/Erstmal nicht
-function hlZeile(c, ctx) {
+function hlZeile(c, ctx, ortHinweis) {
   const sb = c.steckbrief || {}, th = hlThemaVon(c.typ);
   const art = el('article', { class: 'hl2-zeile' + (c.status === 'gemerkt' ? ' will' : '') + (c.status === 'weg' ? ' nicht' : '') },
     el('a', { class: 'hl2-zeile-link', href: hlHref(ctx.sid, c.id) },
@@ -474,7 +499,8 @@ function hlZeile(c, ctx) {
         sb.moment ? el('p', { class: 'hl2-moment' }, sb.moment) : null,
         hlWow(sb), hlWarnung(sb),
         c.kinder ? el('p', { class: 'small muted' }, c.kinder + ' weitere Funde hier') : null)),
-    hlStatusKnoepfe(c, ctx, true));
+    hlStatusKnoepfe(c, ctx, true),
+    hlLinks(c, ortHinweis, true));
   hlWisch(art, () => { if (c.status !== 'weg') hlEntscheiden(c, 'weg', ctx); });
   return art;
 }

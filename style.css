@@ -2922,3 +2922,13 @@ body[data-area="lernen"] { padding-bottom: calc(100px + env(safe-area-inset-bott
 .hl2-blockkarte-chip { font-size: 12.5px; padding: 3px 9px; border-radius: 999px; background: var(--surface-muted); border: 1px solid var(--border); }
 .hl2-blockkarte-chip.top { background: #fdebb5; border-color: #e0a800; font-weight: 650; }
 .hl2-blockkarte-regionen { margin: 0; line-height: 1.4; }
+
+/* W162: großes Fragefeld mit sichtbarem Bereich */
+.hl-frage-form { display: grid; gap: 8px; }
+.hl-frage-bereich { font-size: 13.5px; color: var(--muted); }
+.hl-frage-bereich b { color: var(--text); }
+.hl-frage-form textarea { width: 100%; box-sizing: border-box; min-height: 84px; resize: vertical; font: 16px/1.45 var(--font-ui); padding: 12px 14px; border-radius: 14px; border: 1px solid var(--border); background: var(--surface); color: var(--text); }
+.hl-frage-form textarea:focus { outline: 2px solid var(--accent, #2a6f97); outline-offset: 1px; border-color: transparent; }
+.hl-frage-knoepfe { display: flex; justify-content: flex-end; align-items: center; gap: 8px; }
+.hl-frage-knoepfe button[type="submit"] { min-height: 44px; padding: 0 22px; border-radius: 999px; font-size: 15px; }
+.hl-frage-knoepfe .hl-mic { width: 44px; height: 44px; border-radius: 50%; }

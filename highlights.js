@@ -373,7 +373,7 @@ function hlIchBinHier(punkte, sid) {
 }
 
 // ---------- Ansicht: Übersicht · Region · Detail ----------
-const HL_CACHE = new Map(), HL_SCROLL = new Map(), HL_OFFEN = new Map(), HL_REGION_BLOCK = new Map(); // nur im Speicher, je Sitzung
+const HL_CACHE = new Map(), HL_SCROLL = new Map(), HL_OFFEN = new Map(), HL_REGION_BLOCK = new Map(), HL_ENTWURF = new Map(), HL_MEHR_AUF = new Set(); // nur im Speicher, je Sitzung
 // W159: Regionen in Blöcke (Bundesstaaten) gruppieren – aus der Lage abgeleitet, Reihenfolge = eure Route (Adelaide → Roadtrip Victoria → Tasmanien, Abflug Hobart)
 const HL_BLOECKE = ['Südaustralien', 'Victoria', 'Tasmanien', 'New South Wales', 'Weitere'];
 function hlBlock(k) {
@@ -438,10 +438,21 @@ async function hlEbene(sid, kid, block = null) {
       await lesen();
     } catch (e) { hinweis.remove(); hlFill(lauf, el('p', { class: 'hl-ende' }, e.message)); await lesen(); }
   }
-  function frageForm(platzhalter, vorsatz = '') {
-    const frage = el('input', { type: 'text', maxlength: 400, placeholder: platzhalter });
-    const f = el('form', { class: 'hl-frage-form' }, frage, hlDiktat(frage), el('button', { type: 'submit' }, 'Fragen'));
-    f.onsubmit = e => { e.preventDefault(); if (frage.value.trim().length >= 3) portion('frage', { text: vorsatz + frage.value.trim() }); };
+  // „Mehr suchen“ bleibt offen, wenn man es geöffnet hat (auch nach Neuaufbau der Seite)
+  const mehrAuf = (d) => { if (HL_MEHR_AUF.has(cacheKey) || HL_ENTWURF.get(cacheKey)) d.open = true;
+    d.addEventListener('toggle', () => { if (d.open) HL_MEHR_AUF.add(cacheKey); else HL_MEHR_AUF.delete(cacheKey); }); return d; };
+  // W162: großes, mehrzeiliges Fragefeld; der Bereich (Wunsch/Block/Region/Highlight) steht sichtbar darüber und geht automatisch mit.
+  // Der Entwurf bleibt erhalten, auch wenn die Seite sich neu aufbaut (z. B. beim Umschalten Automatisch/Chat).
+  function frageForm(platzhalter, vorsatz = '', bereich = '') {
+    const frage = el('textarea', { rows: 3, maxlength: 600, placeholder: platzhalter, 'aria-label': 'Frage' + (bereich ? ' zu ' + bereich : '') });
+    frage.value = HL_ENTWURF.get(cacheKey) || '';
+    const anpassen = () => { frage.style.height = 'auto'; frage.style.height = Math.min(frage.scrollHeight + 2, 260) + 'px'; };
+    frage.addEventListener('input', () => { HL_ENTWURF.set(cacheKey, frage.value); anpassen(); });
+    requestAnimationFrame(anpassen);
+    const f = el('form', { class: 'hl-frage-form' },
+      bereich ? el('label', { class: 'hl-frage-bereich' }, '💬 Frage zu ', el('b', {}, bereich)) : null,
+      frage, el('div', { class: 'hl-frage-knoepfe' }, hlDiktat(frage), el('button', { type: 'submit', class: 'primary' }, 'Fragen')));
+    f.onsubmit = e => { e.preventDefault(); if (frage.value.trim().length >= 3) { const t = frage.value.trim(); HL_ENTWURF.delete(cacheKey); portion('frage', { text: vorsatz + t }); } };
     return f;
   }
 
@@ -564,13 +575,13 @@ async function hlEbene(sid, kid, block = null) {
         el('h3', {}, blockAnsicht ? null : el('span', { class: 'hl2-nr' }, String(nr.get(g.k.id))), el('a', { href: hlHref(sid, g.k.id) }, g.k.titel), blockAnsicht ? el('span', { class: 'small muted' }, ' · ' + hlBlock(g.k)) : null),
         g.eintraege.map(x => hlKurzZeile(x, x.id === g.k.id, ctx)))) : [el('p', { class: 'muted' }, ansicht === 'muss' ? 'Noch nichts als ◆ Muss markiert.' : ansicht === 'will' ? 'Noch nichts als ♡ Vielleicht markiert.' : 'Nichts aussortiert.')]));
     }
-    hlFill(unten, hlMehrSuchen(!regionen.length || laufend.includes(0), block ? 'Mehr suchen in ' + block : 'Mehr suchen · weitere Regionen oder eine Frage',
+    hlFill(unten, mehrAuf(hlMehrSuchen(!regionen.length || laufend.includes(0), block ? 'Mehr suchen in ' + block : 'Mehr suchen · weitere Regionen oder eine Frage',
       el('div', { class: 'hl-mehr' },
         el('button', { type: 'button', class: regionen.length ? '' : 'primary', disabled: laufend.includes(0),
           onclick: () => block ? portion('frage', { text: 'Weitere wirklich lohnende Regionen in ' + block + ' (nur ' + block + '), die noch nicht gezeigt wurden.' }) : portion(regionen.length ? 'mehr' : 'start') },
           laufend.includes(0) ? '⏳ Regionen werden gesucht … (1–3 Min.)' : block ? 'Weitere Regionen in ' + block : regionen.length ? 'Weitere Regionen suchen' : 'Regionen holen'),
         el('span', { class: 'small muted' }, regionen.length ? (hlModus() === 'chat' ? hlKostenKlein() : HL_KOSTEN_KLEIN + ' (+ Highlights je neuer Region)') : HL_KOSTEN_START)),
-      block ? frageForm('Frage zu ' + block + ', z. B. „Wo sieht man Pinguine?“', 'In ' + block + ': ') : frageForm('Frage zum ganzen Wunsch, z. B. „Wo sieht man Seelöwen?“'), hlModusWahl(lesen)),
+      block ? frageForm('z. B. „Wo sieht man Pinguine?“', 'In ' + block + ': ', block) : frageForm('z. B. „Wo sieht man Seelöwen?“', '', 'eurem ganzen Wunsch'), hlModusWahl(lesen))),
       el('p', { class: 'small muted' }, regionen.length + ' Regionen · ' + unterHier.length + ' Highlights' + (block ? '' : hlKostenText(r))));
   }
 
@@ -603,11 +614,11 @@ async function hlEbene(sid, kid, block = null) {
     hlFill(liste, ...(sicht.length ? sicht.map(c => hlZeile(c, ctx, k.titel, nrVon.get(c.id))) : [!hierLaeuft ? el('p', { class: 'muted' }, ansicht === 'alle' ? 'Noch keine Highlights.' : ansicht === 'muss' ? 'Noch nichts als ◆ Muss markiert.' : ansicht === 'will' ? 'Noch nichts als ♡ Vielleicht markiert.' : 'Nichts aussortiert.') : null]));
     const ende = r.portionen.some(p => p.ende);
     hlFill(unten, ende ? el('p', { class: 'hl-ende' }, 'Das waren die starken Highlights hier. Frag gezielt, wenn dir etwas fehlt.') : null,
-      hlMehrSuchen(!kinderAlle.length || hierLaeuft, 'Mehr suchen · weitere Highlights oder eine Frage',
+      mehrAuf(hlMehrSuchen(!kinderAlle.length || hierLaeuft, 'Mehr suchen · weitere Highlights oder eine Frage',
         el('div', { class: 'hl-mehr' },
           el('button', { type: 'button', class: kinderAlle.length ? '' : 'primary', disabled: hierLaeuft, onclick: () => portion(kinderAlle.length ? 'mehr' : 'start') }, hierLaeuft ? '⏳ Wird recherchiert … (1–2 Min.)' : kinderAlle.length ? 'Mehr Highlights in ' + hlKurz(k.titel) : 'Highlights recherchieren'),
           el('span', { class: 'small muted' }, hlKostenKlein())),
-        frageForm('In ' + hlKurz(k.titel) + ' fragen, z. B. „Wo Seedrachen sehen?“'), hlModusWahl(lesen)),
+        frageForm('z. B. „Wo kann man Seedrachen sehen?“', '', k.titel), hlModusWahl(lesen))),
       el('p', { class: 'small muted' }, kinderAlle.length + ' Highlights' + hlKostenText(r)));
   }
 
@@ -661,7 +672,7 @@ async function hlEbene(sid, kid, block = null) {
     hlFill(mitte);
     hlFill(weiterBox, el('section', { class: 'hl2-weiter' }, el('h3', {}, 'Hier weitersuchen'),
       el('div', { class: 'hl2-weiter-knoepfe' }, HL_WEITER.map(([linse, label]) => el('button', { type: 'button', disabled: hierLaeuft, onclick: () => portion('mehr', { linse }) }, label))),
-      frageForm('Frei fragen, z. B. „Wo gibt es hier guten Fisch?“'),
+      frageForm('z. B. „Wo gibt es hier in der Nähe guten Fisch?“', '', k.titel),
       el('details', { class: 'hl2-weiter-opt' }, el('summary', { class: 'small muted' }, 'Je Suche ' + hlKostenKlein() + ' · Art der Recherche'), hlModusWahl(lesen))));
     const sbE = eltern?.steckbrief || {};
     const lat = hlZahl(sb.lat) ?? hlZahl(sbE.lat), lon = hlZahl(sb.lon) ?? hlZahl(sbE.lon);

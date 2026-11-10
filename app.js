@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.54.4';
+const APP_VERSION = '0.55.0';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 // Serverfunktionen in der Datenbank-Region (Irland) ausführen: sonst läuft die Funktion nahe beim Gerät (z. B. Asien) und jede DB-Abfrage geht um die Welt (W155b, ~4 s statt ~0,3 s)
 const mitRegion = (u) => u + (u.includes('?') ? '&' : '?') + 'forceFunctionRegion=eu-west-1';
@@ -182,8 +182,8 @@ function setChrome(title, { back = false, showTabs = true, tab = null } = {}) {
   $('#areas').hidden = area === 'login';
   $('#notifications-link').hidden=area==='login';
   void notificationRefresh();
-  $('#area-brand').textContent = area === 'unterkunft' ? 'Unterkunft.' : area === 'lernen' ? 'Lernen' : 'Council';
-  $('#area-caption').textContent = area === 'unterkunft' ? 'Ein guter Ort für jede Reise.' : area === 'lernen' ? 'Verständlich üben und nachschlagen.' : 'Gute Gedanken. Klare Entscheidungen.';
+  $('#area-brand').textContent = area === 'unterkunft' ? 'Reisen.' : area === 'lernen' ? 'Lernen' : 'Council';
+  $('#area-caption').textContent = area === 'unterkunft' ? 'Unterkünfte, Highlights, Reiseplan.' : area === 'lernen' ? 'Verständlich üben und nachschlagen.' : 'Gute Gedanken. Klare Entscheidungen.';
   for (const link of $('#areas').querySelectorAll('[data-area]')) {
     if (link.dataset.area === area) link.setAttribute('aria-current', 'true'); else link.removeAttribute('aria-current');
   }

@@ -370,7 +370,24 @@ function hlIchBinHier(punkte, sid) {
 }
 
 // ---------- Ansicht: Übersicht · Region · Detail ----------
-const HL_CACHE = new Map(), HL_SCROLL = new Map(), HL_OFFEN = new Map(); // nur im Speicher, je Sitzung
+const HL_CACHE = new Map(), HL_SCROLL = new Map(), HL_OFFEN = new Map(), HL_BLOCK_ZU = new Set(); // nur im Speicher, je Sitzung
+// W159: Regionen in Blöcke (Bundesstaaten) gruppieren – aus der Lage abgeleitet, Reihenfolge = typische Route ab Melbourne
+const HL_BLOECKE = ['Victoria', 'Südaustralien', 'Tasmanien', 'New South Wales', 'Weitere'];
+function hlBlock(k) {
+  const lat = hlZahl(k.steckbrief?.lat), lon = hlZahl(k.steckbrief?.lon);
+  if (lat === null || lon === null) return 'Weitere';
+  if (lon < 110 || lon > 155 || lat > -10 || lat < -45) return 'Weitere'; // außerhalb Australiens: kein Bundesstaat
+  if (lat < -39.4 && lon > 143.4) return 'Tasmanien';
+  if (lon < 141) return 'Südaustralien';
+  // Grenze Victoria/New South Wales: Murray-Fluss bis zur Quelle, dann Gerade zum Cape Howe (grob, für Gruppierung genügt das)
+  const grenze = [[141.0, -34.0], [142.0, -34.1], [142.3, -34.15], [143.4, -35.2], [144.6, -36.1], [146.0, -36.0], [147.0, -36.1], [148.2, -36.8], [149.98, -37.5]];
+  if (lon <= 150 && lat > -39.4) {
+    let gl = grenze[grenze.length - 1][1];
+    for (let i = 0; i < grenze.length - 1; i++) { const [a, b] = grenze[i], [c, e] = grenze[i + 1]; if (lon >= a && lon <= c) { gl = b + (e - b) * (lon - a) / (c - a); break; } }
+    if (lat < gl) return 'Victoria';
+  }
+  return 'New South Wales';
+}
 async function hlEbene(sid, kid) {
   setChrome('Highlights', { tab: 'highlights', back: true });
   const live = viewGuard();
@@ -476,7 +493,8 @@ async function hlEbene(sid, kid) {
 
   // ----- Übersicht: Karte + Regionen mit ihren Highlights -----
   function uebersicht(r, v, laufend) {
-    const regionen = r.karten, nr = new Map(regionen.map((k, i) => [k.id, i + 1]));
+    // W159: Nummern in Block-Reihenfolge (Victoria → Südaustralien → Tasmanien), innerhalb des Blocks wie recherchiert
+    const regionen = [...r.karten].sort((a, b) => HL_BLOECKE.indexOf(hlBlock(a)) - HL_BLOECKE.indexOf(hlBlock(b))), nr = new Map(regionen.map((k, i) => [k.id, i + 1]));
     const unterVon = new Map(regionen.map(k => [k.id, r.unter.filter(u => u.parent_id === k.id)]));
     const fertige = r.portionen.filter(p => p.status === 'fertig'), letzte = r.portionen[r.portionen.length - 1];
     const fazit = fertige.length ? fertige[0].fazit : null;
@@ -513,10 +531,26 @@ async function hlEbene(sid, kid) {
       const regionenSicht = hlFilter(regionen, 'alle').filter(k => !thema || unterVon.get(k.id).some(u => passt(u) && u.status !== 'weg'));
       if (sortierung === 'wow') regionenSicht.sort((a, b) => (Number(b.steckbrief?.wow) || 0) - (Number(a.steckbrief?.wow) || 0) || nr.get(a.id) - nr.get(b.id));
       const sortKnopf = (x, text) => el('button', { type: 'button', class: 'hl2-sort-k' + (sortierung === x ? ' an' : ''), 'aria-pressed': sortierung === x, onclick: () => setSortierung(x) }, text);
+      // Blöcke (z. B. Victoria · Südaustralien · Tasmanien) als eigene, zuklappbare Abschnitte – nur wenn es mehr als einen gibt
+      const blockVon = new Map(regionen.map(k => [k.id, hlBlock(k)]));
+      const bloecke = HL_BLOECKE.filter(b => regionenSicht.some(k => blockVon.get(k.id) === b));
+      const blockAbschnitt = (b) => {
+        const rs = regionenSicht.filter(k => blockVon.get(k.id) === b);
+        const hls = rs.flatMap(k => unterVon.get(k.id).filter(u => u.status !== 'weg'));
+        const top = hls.filter(u => Number(u.wow) >= 5).length, muss = hls.filter(u => u.status === 'muss').length;
+        const d = el('details', { class: 'hl2-block' });
+        d.open = !HL_BLOCK_ZU.has(sid + b);
+        d.addEventListener('toggle', () => { if (d.open) HL_BLOCK_ZU.delete(sid + b); else HL_BLOCK_ZU.add(sid + b); });
+        d.append(el('summary', {}, el('span', { class: 'hl2-block-name' }, b),
+          el('span', { class: 'hl2-block-info' }, [rs.length + (rs.length === 1 ? ' Region' : ' Regionen'), hls.length + (hls.length === 1 ? ' Highlight' : ' Highlights'), top ? '★5 ' + top : null, muss ? '◆ ' + muss : null].filter(Boolean).join(' · ')),
+          el('span', { class: 'hl2-auf', 'aria-hidden': true }, '›')),
+          el('div', { class: 'hl2-block-liste' }, rs.map(k => hlRegionKarte(k, nr.get(k.id), unterVon.get(k.id).filter(passt), laufend.includes(k.id), ctx, offen))));
+        return d;
+      };
       hlFill(liste, el('div', { class: 'hl2-sort' }, el('span', { class: 'small muted' }, thema ? regionenSicht.length + ' Regionen mit ' + hlThema(thema)[0] + ' · ' : regionenSicht.length + ' Regionen · '),
           sortKnopf('route', 'Route'), sortKnopf('wow', '★ WOW'),
           el('button', { type: 'button', class: 'link small hl2-alle-auf', onclick: () => { const zu = regionenSicht.every(k => offen.has(k.id)); for (const k of regionenSicht) zu ? offen.delete(k.id) : offen.add(k.id); zeigen(HL_CACHE.get(cacheKey) || r); } }, regionenSicht.length && regionenSicht.every(k => offen.has(k.id)) ? 'alle zu' : 'alle auf')),
-        ...regionenSicht.map(k => hlRegionKarte(k, nr.get(k.id), unterVon.get(k.id).filter(passt), laufend.includes(k.id), ctx, offen)),
+        ...(bloecke.length > 1 ? bloecke.map(blockAbschnitt) : regionenSicht.map(k => hlRegionKarte(k, nr.get(k.id), unterVon.get(k.id).filter(passt), laufend.includes(k.id), ctx, offen))),
         !regionen.length && !laufend.length ? el('p', { class: 'muted' }, 'Noch keine Regionen.') : null);
     } else {
       // Muss / Vielleicht / Raus: nach Region gruppiert – Regionen selbst und ihre Highlights
@@ -659,7 +693,7 @@ function hlRegionKarte(k, nr, kinder, laeuft, ctx, offen) {
   art.append(el('summary', { class: 'hl2-region-zeile' }, hlBild(k.bild, 'region', 'hl2-region-img'),
       el('div', { class: 'hl2-region-info' },
         el('h3', {}, el('span', { class: 'hl2-nr' }, String(nr)), el('span', { class: 'hl2-region-name' }, k.titel), hlKl(k.status) ? el('span', { class: 'hl2-herz' + hlKl(k.status), title: HL_STATUS[k.status][1] }, HL_STATUS[k.status][0]) : null),
-        el('p', { class: 'hl2-meta' }, hlSterne(sb.wow), ' ', [sb.tage, sichtbar.length ? sichtbar.length + ' Highlights' : laeuft ? 'wird recherchiert …' : null].filter(Boolean).join(' · ')),
+        el('p', { class: 'hl2-meta' }, hlSterne(sb.wow), ' ', [sb.tage, sichtbar.length ? sichtbar.length + (sichtbar.length === 1 ? ' Highlight' : ' Highlights') : laeuft ? 'wird recherchiert …' : null].filter(Boolean).join(' · ')),
         hlZaehler(kinder)),
       el('span', { class: 'hl2-auf', 'aria-hidden': true }, '›')),
     el('div', { class: 'hl2-region-text' },

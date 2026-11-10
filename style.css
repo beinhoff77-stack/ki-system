@@ -2887,3 +2887,14 @@ body[data-area="lernen"] { padding-bottom: calc(100px + env(safe-area-inset-bott
 .hl2-hchip.erlebt { opacity: .7; }
 .hl2-hchip.erlebt i { color: #2e7d4f; }
 .hl2-pin.hl.erlebt span { filter: grayscale(.8); opacity: .7; }
+
+/* W159: Blöcke (Bundesstaaten) in der Übersicht */
+.hl2-block { grid-column: 1 / -1; }
+.hl2-block > summary { list-style: none; cursor: pointer; display: flex; align-items: baseline; gap: 10px; padding: 14px 4px 8px; border-bottom: 2px solid var(--text); margin-bottom: 10px; }
+.hl2-block > summary::-webkit-details-marker { display: none; }
+.hl2-block-name { font: 400 24px/1.1 Georgia, serif; }
+.hl2-block-info { font-size: 13px; color: var(--muted); flex: 1; }
+.hl2-block > summary .hl2-auf { align-self: center; }
+.hl2-block[open] > summary .hl2-auf { transform: rotate(90deg); }
+.hl2-block-liste { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 10px; align-items: start; }
+@media (max-width: 520px) { .hl2-block-liste { grid-template-columns: 1fr; } }

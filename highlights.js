@@ -48,6 +48,7 @@ async function hlCall(aktionName, daten = {}) {
 const hlLese = (k, fb = null) => { try { return JSON.parse(localStorage.getItem(k)) ?? fb; } catch { return fb; } };
 const hlSchreibe = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* privat */ } };
 const hlHref = (sid, kid) => '#/highlights/' + sid + (kid ? '/' + kid : '');
+const hlBlockHref = (sid, b) => '#/highlights/' + sid + '/b/' + encodeURIComponent(b);
 const hlSicher = (u) => (typeof u === 'string' && /^https:\/\/[^\s"<>@]+$/.test(u) ? u : null);
 const hlFill = (node, ...kids) => node.replaceChildren(...kids.flat().filter(k => k !== null && k !== undefined && k !== false)); // replaceChildren schreibt sonst „null“
 const hlKurz = s => (s.length > 34 ? s.slice(0, 32) + '…' : s);
@@ -59,7 +60,9 @@ const hlHlThema = (h) => (typeof h === 'object' && h?.thema && HL_THEMA[h.thema]
 // ---------- Einstieg ----------
 async function viewHighlights(arg) {
   if (arg === 'merk') return hlMerkliste();
-  const [sid, kid] = String(arg || '').split('/').map(x => (/^\d+$/.test(x) ? Number(x) : null));
+  const teile = String(arg || '').split('/');
+  const [sid, kid] = teile.map(x => (/^\d+$/.test(x) ? Number(x) : null));
+  if (sid && teile[1] === 'b' && teile[2]) return hlEbene(sid, null, decodeURIComponent(teile[2])); // W160: Block-Ebene
   if (sid) return hlEbene(sid, kid);
   return hlStart();
 }
@@ -323,7 +326,7 @@ function hlKarteBox(hoch = false) {
           icon: L.divIcon({ className: 'hl2-pin ziel' + hlKl(p.status), html: '<span style="background:' + farbe + '">' + hlThema(p.thema)[1] + '</span>', iconSize: [36, 36], iconAnchor: [18, 18] }) });
       } else if (p.art === 'region' || p.art === 'ort') {
         m = L.marker(pos, { title: p.titel, alt: p.titel, keyboard: true, zIndexOffset: p.art === 'ort' ? -500 : 500,
-          icon: L.divIcon({ className: 'hl2-pin' + (p.art === 'ort' ? ' ort' : '') + hlKl(p.status) + (p.status === 'weg' ? ' nicht' : ''), html: el('span', {}, p.nr ? String(p.nr) : '★'), iconSize: p.art === 'ort' ? [22, 22] : [30, 30], iconAnchor: p.art === 'ort' ? [11, 11] : [15, 15] }) });
+          icon: L.divIcon({ className: 'hl2-pin' + (p.art === 'ort' ? ' ort' : '') + (p.klasse || '') + hlKl(p.status) + (p.status === 'weg' ? ' nicht' : ''), html: el('span', {}, p.nr ? String(p.nr) : p.klasse ? '' : '★'), iconSize: p.art === 'ort' ? [22, 22] : [30, 30], iconAnchor: p.art === 'ort' ? [11, 11] : [15, 15] }) });
       } else if (p.nr) {
         // Region/Detail: Nummer im Punkt = Nummer in der Liste
         const farbe = p.status === 'weg' ? '#9aa5b1' : hlThema(p.thema)[2];
@@ -370,7 +373,7 @@ function hlIchBinHier(punkte, sid) {
 }
 
 // ---------- Ansicht: Übersicht · Region · Detail ----------
-const HL_CACHE = new Map(), HL_SCROLL = new Map(), HL_OFFEN = new Map(), HL_BLOCK_ZU = new Set(); // nur im Speicher, je Sitzung
+const HL_CACHE = new Map(), HL_SCROLL = new Map(), HL_OFFEN = new Map(), HL_REGION_BLOCK = new Map(); // nur im Speicher, je Sitzung
 // W159: Regionen in Blöcke (Bundesstaaten) gruppieren – aus der Lage abgeleitet, Reihenfolge = eure Route (Adelaide → Roadtrip Victoria → Tasmanien, Abflug Hobart)
 const HL_BLOECKE = ['Südaustralien', 'Victoria', 'Tasmanien', 'New South Wales', 'Weitere'];
 function hlBlock(k) {
@@ -388,10 +391,10 @@ function hlBlock(k) {
   }
   return 'New South Wales';
 }
-async function hlEbene(sid, kid) {
+async function hlEbene(sid, kid, block = null) {
   setChrome('Highlights', { tab: 'highlights', back: true });
   const live = viewGuard();
-  const ansichtKey = 'hl2_ansicht_' + sid + '_' + (kid || 0);
+  const ansichtKey = 'hl2_ansicht_' + sid + '_' + (kid || 0) + (block ? '_' + block : '');
   let timer = null, ansicht = sessionStorage.getItem(ansichtKey) || 'alle';
   const karte = hlKarteBox(!kid);
   disposeSuche = () => { clearTimeout(timer); karte.weg(); };
@@ -435,15 +438,15 @@ async function hlEbene(sid, kid) {
       await lesen();
     } catch (e) { hinweis.remove(); hlFill(lauf, el('p', { class: 'hl-ende' }, e.message)); await lesen(); }
   }
-  function frageForm(platzhalter) {
+  function frageForm(platzhalter, vorsatz = '') {
     const frage = el('input', { type: 'text', maxlength: 400, placeholder: platzhalter });
     const f = el('form', { class: 'hl-frage-form' }, frage, hlDiktat(frage), el('button', { type: 'submit' }, 'Fragen'));
-    f.onsubmit = e => { e.preventDefault(); if (frage.value.trim().length >= 3) portion('frage', { text: frage.value.trim() }); };
+    f.onsubmit = e => { e.preventDefault(); if (frage.value.trim().length >= 3) portion('frage', { text: vorsatz + frage.value.trim() }); };
     return f;
   }
 
   // Zurück/Vor (W155b): letzter Stand sofort aus dem Zwischenspeicher zeigen, Scrollposition wiederherstellen, dann still aktualisieren
-  const cacheKey = sid + '_' + (kid || 0);
+  const cacheKey = sid + '_' + (kid || 0) + (block ? '_' + block : '');
   let ersterLauf = true;
   const scrollMerken = () => HL_SCROLL.set(cacheKey, window.scrollY);
   window.addEventListener('scroll', scrollMerken, { passive: true });
@@ -472,17 +475,23 @@ async function hlEbene(sid, kid) {
   function zeigen(r) {
     const v = r.suche.vorlieben || {};
     ctx.alter = Array.isArray(v.familie_alter) ? v.familie_alter : null;
-    const titel = r.knoten ? r.knoten.titel : r.suche.wunsch;
+    const titel = r.knoten ? r.knoten.titel : block || r.suche.wunsch;
     hlSchreibe('hl_last', { sid, kid, titel });
+    // Block der aktuellen Region (für den Pfad): aus der Region selbst, sonst aus der Übersicht gemerkt
+    const regionId = r.pfad.length ? r.pfad[0].id : null;
+    const blockHier = block || (r.knoten && r.knoten.typ === 'region' && !r.knoten.parent_id ? hlBlock(r.knoten) : HL_REGION_BLOCK.get(regionId) || null);
+    const mitBlock = blockHier && HL_REGION_BLOCK.get('mehr_' + sid) !== false;
     setChrome(hlKurz(titel), { tab: 'highlights', back: true });
     const sep = () => el('span', { 'aria-hidden': true }, '›');
     // W156: Pfad nur mit den Ebenen darüber – der aktuelle Titel steht schon oben und als Überschrift
     hlFill(pfad, el('a', { href: '#/highlights' }, 'Highlights'),
-      ...(r.pfad.length ? [sep(), el('a', { href: hlHref(sid) }, hlKurz(r.suche.wunsch)), ...r.pfad.slice(0, -1).flatMap(p => [sep(), el('a', { href: hlHref(sid, p.id) }, hlKurz(p.titel))])] : []));
+      ...(r.pfad.length || block ? [sep(), el('a', { href: hlHref(sid) }, hlKurz(r.suche.wunsch))] : []),
+      ...(mitBlock && !block ? [sep(), el('a', { href: hlBlockHref(sid, blockHier) }, blockHier)] : []),
+      ...r.pfad.slice(0, -1).flatMap(p => [sep(), el('a', { href: hlHref(sid, p.id) }, hlKurz(p.titel))]));
     hlFill(weiterBox);
     wischZiel = { vor: null, zurueck: null };
     const laufend = (r.laufend || []).map(x => (x === null ? 0 : Number(x)));
-    if (!r.knoten) uebersicht(r, v, laufend);
+    if (!r.knoten) uebersicht(r, v, laufend, block);
     else if (r.knoten.typ === 'region') region(r, laufend);
     else detail(r, laufend);
     const chatHier = (r.chat_offen || []).filter(a => (a.parent_id ?? null) === (kid ?? null));
@@ -492,10 +501,17 @@ async function hlEbene(sid, kid) {
   }
 
   // ----- Übersicht: Karte + Regionen mit ihren Highlights -----
-  function uebersicht(r, v, laufend) {
-    // W159: Nummern in Block-Reihenfolge (Südaustralien → Victoria → Tasmanien), innerhalb des Blocks wie recherchiert
-    const regionen = [...r.karten].sort((a, b) => HL_BLOECKE.indexOf(hlBlock(a)) - HL_BLOECKE.indexOf(hlBlock(b))), nr = new Map(regionen.map((k, i) => [k.id, i + 1]));
+  // W160: Ebene „Block“ (Südaustralien / Victoria / Tasmanien …) zwischen Wunsch und Region.
+  // Wunsch mit mehreren Blöcken → Block-Karten (Ansicht „Alle“); Block → nur dessen Regionen, Karte und Must-Sees.
+  function uebersicht(r, v, laufend, block) {
+    const regionenAlle = [...r.karten].sort((a, b) => HL_BLOECKE.indexOf(hlBlock(a)) - HL_BLOECKE.indexOf(hlBlock(b)));
+    for (const k of regionenAlle) HL_REGION_BLOCK.set(k.id, hlBlock(k));
+    const blockListe = HL_BLOECKE.filter(b => regionenAlle.some(k => hlBlock(k) === b));
+    HL_REGION_BLOCK.set('mehr_' + sid, blockListe.length > 1);
+    const blockAnsicht = !block && blockListe.length > 1;
+    const regionen = block ? regionenAlle.filter(k => hlBlock(k) === block) : regionenAlle, nr = new Map(regionen.map((k, i) => [k.id, i + 1]));
     const unterVon = new Map(regionen.map(k => [k.id, r.unter.filter(u => u.parent_id === k.id)]));
+    const unterHier = regionen.flatMap(k => unterVon.get(k.id));
     const fertige = r.portionen.filter(p => p.status === 'fertig'), letzte = r.portionen[r.portionen.length - 1];
     const fazit = fertige.length ? fertige[0].fazit : null;
     // Vorlieben (änderbar, sortieren nur)
@@ -503,21 +519,24 @@ async function hlEbene(sid, kid) {
     andr.onclick = async () => { const n = v.andrang_max ? (v.andrang_max % 5) + 1 : 3; await hlCall('suche_speichern', { id: sid, vorlieben: { ...v, andrang_max: n === 5 ? null : n } }).catch(e => toast(e.message, true)); toast('Gilt für die nächsten Vorschläge.'); lesen(); };
     const zeitChip = el('button', { type: 'button', class: 'hl-chip pref' }, 'Reisezeit ' + (v.reisezeit || 'offen') + ' ✎');
     zeitChip.onclick = () => hlZeitDialog(v, async neu => { await hlCall('suche_speichern', { id: sid, vorlieben: neu }); lesen(); });
-    hlFill(kopf, el('p', { class: 'eyebrow' }, 'EUER WUNSCH'), el('h2', {}, r.suche.wunsch), el('div', { class: 'hl-chips' }, andr, zeitChip), new Set(r.karten.map(hlBlock)).size > 1 ? null : hlMustSee(r, sid), hlFazit(fazit)); // bei Blöcken steht die Must-See-Leiste je Block
+    if (block) hlFill(kopf, el('p', { class: 'eyebrow' }, hlKurz(r.suche.wunsch).toUpperCase()), el('h2', {}, block),
+      el('p', { class: 'hl2-meta' }, regionen.length + (regionen.length === 1 ? ' Region' : ' Regionen') + ' · ' + unterHier.filter(u => u.status !== 'weg').length + ' Highlights'),
+      hlMustSee({ karten: regionen, unter: unterHier }, sid, block));
+    else hlFill(kopf, el('p', { class: 'eyebrow' }, 'EUER WUNSCH'), el('h2', {}, r.suche.wunsch), el('div', { class: 'hl-chips' }, andr, zeitChip), blockAnsicht ? null : hlMustSee(r, sid), blockAnsicht ? null : hlFazit(fazit)); // bei Blöcken: Must-Sees und Wege je Block
     hlFill(mitte);
     // Karte: Regionen als Nummern, Highlights als Punkte (umschaltbar)
     const mitPunkten = hlLese('hl2_punkte', true);
     const punkte = [];
     for (const k of regionen) {
       const sb = k.steckbrief || {};
-      punkte.push({ art: 'region', id: k.id, nr: nr.get(k.id), titel: k.titel, lat: sb.lat, lon: sb.lon, status: k.status, klick: () => { location.hash = hlHref(sid, k.id); } });
-      if (mitPunkten) for (const u of unterVon.get(k.id).filter(passt)) punkte.push({ art: 'hl', id: u.id, erlebt: !!u.erlebt_am, top: Number(u.wow) >= 5, titel: (Number(u.wow) >= 5 ? '★ ' : '') + u.titel + ' · ' + k.titel, lat: u.lat, lon: u.lon, status: u.status, thema: hlThemaVon(u.typ), klick: () => { location.hash = hlHref(sid, u.id); } });
+      punkte.push({ art: 'region', id: k.id, nr: blockAnsicht ? '' : nr.get(k.id), klasse: blockAnsicht ? ' blk blk-' + blockListe.indexOf(hlBlock(k)) : '', titel: (blockAnsicht ? hlBlock(k) + ' · ' : '') + k.titel, lat: sb.lat, lon: sb.lon, status: k.status, klick: () => { location.hash = blockAnsicht ? hlBlockHref(sid, hlBlock(k)) : hlHref(sid, k.id); } });
+      if (mitPunkten && !blockAnsicht) for (const u of unterVon.get(k.id).filter(passt)) punkte.push({ art: 'hl', id: u.id, erlebt: !!u.erlebt_am, top: Number(u.wow) >= 5, titel: (Number(u.wow) >= 5 ? '★ ' : '') + u.titel + ' · ' + k.titel, lat: u.lat, lon: u.lon, status: u.status, thema: hlThemaVon(u.typ), klick: () => { location.hash = hlHref(sid, u.id); } });
     }
     karte.zeichne(punkte.filter(p => p.status !== 'weg' || ansicht === 'nicht'));
     const schalter = el('input', { type: 'checkbox' }); schalter.checked = mitPunkten;
     schalter.onchange = () => { hlSchreibe('hl2_punkte', schalter.checked); lesen(); };
-    const alle = [...regionen.map(k => ({ ...k, steckbrief: k.steckbrief })), ...r.unter];
-    hlFill(kartenZeile, el('label', { class: 'hl2-schalter' }, schalter, ' Highlights auf der Karte'),
+    const alle = [...regionen.map(k => ({ ...k, steckbrief: k.steckbrief })), ...unterHier];
+    hlFill(kartenZeile, blockAnsicht ? el('span', { class: 'hl2-legende' }, blockListe.map((b, i) => el('span', {}, el('i', { class: 'blk-' + i }), b))) : el('label', { class: 'hl2-schalter' }, schalter, ' Highlights auf der Karte'),
       el('button', { type: 'button', class: 'link', onclick: () => hlIchBinHier([...regionen.map(k => ({ id: k.id, titel: k.titel, lat: k.steckbrief?.lat, lon: k.steckbrief?.lon })), ...r.unter], sid) }, '📍 Ich bin hier'));
     // Laufende Recherchen
     const regionenLaufen = laufend.filter(x => x && nr.has(x)).length;
@@ -526,45 +545,33 @@ async function hlEbene(sid, kid) {
     else if (letzte?.status === 'fehler') hlFill(lauf, el('p', { class: 'err-text' }, 'Letzte Anfrage fehlgeschlagen: ' + (letzte.fehler || 'unbekannt') + '. Du kannst es erneut versuchen.'));
     else hlFill(lauf);
     // Ansichten
-    hlFill(tabs, hlTabs(ansicht, hlZahlen(alle, hlFilter(regionen, 'alle').length), setAnsicht), hlThemenLeiste(r.unter, thema, setThema));
-    if (ansicht === 'alle') {
+    hlFill(tabs, hlTabs(ansicht, hlZahlen(alle, blockAnsicht ? blockListe.length : hlFilter(regionen, 'alle').length), setAnsicht), blockAnsicht ? null : hlThemenLeiste(unterHier, thema, setThema));
+    if (ansicht === 'alle' && blockAnsicht) {
+      hlFill(liste, ...blockListe.map((b, i) => hlBlockKarte(b, i, regionenAlle.filter(k => hlBlock(k) === b), r.unter, sid)));
+    } else if (ansicht === 'alle') {
       const regionenSicht = hlFilter(regionen, 'alle').filter(k => !thema || unterVon.get(k.id).some(u => passt(u) && u.status !== 'weg'));
       if (sortierung === 'wow') regionenSicht.sort((a, b) => (Number(b.steckbrief?.wow) || 0) - (Number(a.steckbrief?.wow) || 0) || nr.get(a.id) - nr.get(b.id));
       const sortKnopf = (x, text) => el('button', { type: 'button', class: 'hl2-sort-k' + (sortierung === x ? ' an' : ''), 'aria-pressed': sortierung === x, onclick: () => setSortierung(x) }, text);
-      // Blöcke (z. B. Victoria · Südaustralien · Tasmanien) als eigene, zuklappbare Abschnitte – nur wenn es mehr als einen gibt
-      const blockVon = new Map(regionen.map(k => [k.id, hlBlock(k)]));
-      const bloecke = HL_BLOECKE.filter(b => regionenSicht.some(k => blockVon.get(k.id) === b));
-      const blockAbschnitt = (b) => {
-        const rs = regionenSicht.filter(k => blockVon.get(k.id) === b);
-        const hls = rs.flatMap(k => unterVon.get(k.id).filter(u => u.status !== 'weg'));
-        const top = hls.filter(u => Number(u.wow) >= 5).length, muss = hls.filter(u => u.status === 'muss').length;
-        const d = el('details', { class: 'hl2-block' });
-        d.open = !HL_BLOCK_ZU.has(sid + b);
-        d.addEventListener('toggle', () => { if (d.open) HL_BLOCK_ZU.delete(sid + b); else HL_BLOCK_ZU.add(sid + b); });
-        d.append(el('summary', {}, el('span', { class: 'hl2-block-name' }, b),
-          el('span', { class: 'hl2-block-info' }, [rs.length + (rs.length === 1 ? ' Region' : ' Regionen'), hls.length + (hls.length === 1 ? ' Highlight' : ' Highlights'), top ? '★5 ' + top : null, muss ? '◆ ' + muss : null].filter(Boolean).join(' · ')),
-          el('span', { class: 'hl2-auf', 'aria-hidden': true }, '›')),
-          el('div', { class: 'hl2-block-liste' }, hlMustSee({ karten: rs, unter: hls }, sid, b), rs.map(k => hlRegionKarte(k, nr.get(k.id), unterVon.get(k.id).filter(passt), laufend.includes(k.id), ctx, offen))));
-        return d;
-      };
       hlFill(liste, el('div', { class: 'hl2-sort' }, el('span', { class: 'small muted' }, thema ? regionenSicht.length + ' Regionen mit ' + hlThema(thema)[0] + ' · ' : regionenSicht.length + ' Regionen · '),
           sortKnopf('route', 'Route'), sortKnopf('wow', '★ WOW'),
           el('button', { type: 'button', class: 'link small hl2-alle-auf', onclick: () => { const zu = regionenSicht.every(k => offen.has(k.id)); for (const k of regionenSicht) zu ? offen.delete(k.id) : offen.add(k.id); zeigen(HL_CACHE.get(cacheKey) || r); } }, regionenSicht.length && regionenSicht.every(k => offen.has(k.id)) ? 'alle zu' : 'alle auf')),
-        ...(bloecke.length > 1 ? bloecke.map(blockAbschnitt) : regionenSicht.map(k => hlRegionKarte(k, nr.get(k.id), unterVon.get(k.id).filter(passt), laufend.includes(k.id), ctx, offen))),
+        ...regionenSicht.map(k => hlRegionKarte(k, nr.get(k.id), unterVon.get(k.id).filter(passt), laufend.includes(k.id), ctx, offen)),
         !regionen.length && !laufend.length ? el('p', { class: 'muted' }, 'Noch keine Regionen.') : null);
     } else {
       // Muss / Vielleicht / Raus: nach Region gruppiert – Regionen selbst und ihre Highlights
       const gruppen = regionen.map(k => ({ k, eintraege: [...(hlFilter([k], ansicht).length ? [k] : []), ...hlFilter(unterVon.get(k.id), ansicht)] })).filter(g => g.eintraege.length);
       hlFill(liste, ...(gruppen.length ? gruppen.map(g => el('section', { class: 'hl2-gruppe' },
-        el('h3', {}, el('span', { class: 'hl2-nr' }, String(nr.get(g.k.id))), el('a', { href: hlHref(sid, g.k.id) }, g.k.titel)),
+        el('h3', {}, blockAnsicht ? null : el('span', { class: 'hl2-nr' }, String(nr.get(g.k.id))), el('a', { href: hlHref(sid, g.k.id) }, g.k.titel), blockAnsicht ? el('span', { class: 'small muted' }, ' · ' + hlBlock(g.k)) : null),
         g.eintraege.map(x => hlKurzZeile(x, x.id === g.k.id, ctx)))) : [el('p', { class: 'muted' }, ansicht === 'muss' ? 'Noch nichts als ◆ Muss markiert.' : ansicht === 'will' ? 'Noch nichts als ♡ Vielleicht markiert.' : 'Nichts aussortiert.')]));
     }
-    hlFill(unten, hlMehrSuchen(!regionen.length || laufend.includes(0), 'Mehr suchen · weitere Regionen oder eine Frage',
+    hlFill(unten, hlMehrSuchen(!regionen.length || laufend.includes(0), block ? 'Mehr suchen in ' + block : 'Mehr suchen · weitere Regionen oder eine Frage',
       el('div', { class: 'hl-mehr' },
-        el('button', { type: 'button', class: regionen.length ? '' : 'primary', disabled: laufend.includes(0), onclick: () => portion(regionen.length ? 'mehr' : 'start') }, laufend.includes(0) ? '⏳ Regionen werden gesucht … (1–3 Min.)' : regionen.length ? 'Weitere Regionen suchen' : 'Regionen holen'),
+        el('button', { type: 'button', class: regionen.length ? '' : 'primary', disabled: laufend.includes(0),
+          onclick: () => block ? portion('frage', { text: 'Weitere wirklich lohnende Regionen in ' + block + ' (nur ' + block + '), die noch nicht gezeigt wurden.' }) : portion(regionen.length ? 'mehr' : 'start') },
+          laufend.includes(0) ? '⏳ Regionen werden gesucht … (1–3 Min.)' : block ? 'Weitere Regionen in ' + block : regionen.length ? 'Weitere Regionen suchen' : 'Regionen holen'),
         el('span', { class: 'small muted' }, regionen.length ? (hlModus() === 'chat' ? hlKostenKlein() : HL_KOSTEN_KLEIN + ' (+ Highlights je neuer Region)') : HL_KOSTEN_START)),
-      frageForm('Frage zum ganzen Wunsch, z. B. „Wo sieht man Seelöwen?“'), hlModusWahl(lesen)),
-      el('p', { class: 'small muted' }, regionen.length + ' Regionen · ' + r.unter.length + ' Highlights' + hlKostenText(r)));
+      block ? frageForm('Frage zu ' + block + ', z. B. „Wo sieht man Pinguine?“', 'In ' + block + ': ') : frageForm('Frage zum ganzen Wunsch, z. B. „Wo sieht man Seelöwen?“'), hlModusWahl(lesen)),
+      el('p', { class: 'small muted' }, regionen.length + ' Regionen · ' + unterHier.length + ' Highlights' + (block ? '' : hlKostenText(r))));
   }
 
   // ----- Region: alle Highlights der Region, sofort da -----
@@ -678,6 +685,25 @@ async function hlEbene(sid, kid) {
 // Routen-Fazit ohne Koordinaten anzeigen (die KI bekommt sie zur Reihenfolge und wiederholt sie manchmal)
 const hlFazit = (t) => t ? el('p', { class: 'hl-fazit' }, String(t).replace(/\s*[([]\s*-?\d{1,3}\.\d+(\s*,\s*-?\d{1,3}\.\d+)?\s*[)\]]/g, '').replace(/\s+([,.;:])/g, '$1')) : null;
 const hlKostenText = (r) => { const s = r.portionen.reduce((a, p) => a + (Number(p.kosten_usd) || 0), 0); return s ? ' · bisher ' + s.toFixed(2).replace('.', ',') + ' USD' : ''; };
+
+// W160: Block-Karte auf der Wunsch-Ebene: Fotos der Regionen, Zahlen, Must-Sees, Regionen – antippen öffnet den Block
+function hlBlockKarte(b, i, regionen, unter, sid) {
+  const ids = new Set(regionen.map(k => k.id));
+  const hls = unter.filter(u => ids.has(u.parent_id) && u.status !== 'weg');
+  const top = hls.filter(u => Number(u.wow) >= 5), vier = hls.filter(u => Number(u.wow) === 4);
+  const muss = hls.filter(u => u.status === 'muss').length + regionen.filter(k => k.status === 'muss').length;
+  const viel = hls.filter(u => u.status === 'gemerkt').length + regionen.filter(k => k.status === 'gemerkt').length;
+  const fotos = regionen.filter(k => k.bild).slice(0, 3);
+  const zeigen = (top.length ? top : vier).slice(0, 4);
+  return el('a', { class: 'hl2-blockkarte blk-rand-' + i, href: hlBlockHref(sid, b) },
+    el('div', { class: 'hl2-blockkarte-fotos' }, (fotos.length ? fotos : [null]).map(k => hlBild(k?.bild, 'region', 'hl2-blockkarte-img'))),
+    el('div', { class: 'hl2-blockkarte-text' },
+      el('h3', {}, el('i', { class: 'blk-' + i, 'aria-hidden': true }), b, el('span', { 'aria-hidden': true }, ' →')),
+      el('p', { class: 'hl2-meta' }, [regionen.length + (regionen.length === 1 ? ' Region' : ' Regionen'), hls.length + ' Highlights', muss ? '◆ ' + muss + ' Muss' : null, viel ? '♡ ' + viel : null].filter(Boolean).join(' · ')),
+      hlZaehler(hls),
+      zeigen.length ? el('div', { class: 'hl2-blockkarte-top' }, el('span', { class: 'hl2-sterne' }, top.length ? '★★★★★' : '★★★★'), zeigen.map(u => el('span', { class: 'hl2-blockkarte-chip' + (top.length ? ' top' : '') }, u.titel))) : null,
+      el('p', { class: 'small muted hl2-blockkarte-regionen' }, regionen.map(k => k.titel).join(' · '))));
+}
 
 // Region-Karte in der Übersicht: Wo · Warum · Highlights dort (Chips) – keine Kosten
 // W156: eine Zeile je Region (Foto · Nummer · Name · Sterne · Tage · Themen-Zähler), Antippen klappt Wo/Warum/Highlights auf

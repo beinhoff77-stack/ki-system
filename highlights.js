@@ -137,14 +137,14 @@ function hlReiseKarte(s, weiter, gross) {
     weiter && weiter.kid ? el('a', { class: 'hl-reise-weiter', href: hlHref(weiter.sid, weiter.kid) }, 'Weiter bei ', el('b', {}, weiter.titel || 'letzter Ansicht'), el('span', { 'aria-hidden': true }, ' →')) : null);
 }
 // W157: Must-Sees (★5) einer Reise als eigene, auffällige Leiste – Regionen und Highlights
-function hlMustSee(r, sid) {
+function hlMustSee(r, sid, block) {
   const regionTitel = new Map((r.karten || []).map(k => [k.id, k.titel]));
   const alle = [...(r.unter || []).map(u => ({ id: u.id, titel: u.titel, wow: Number(u.wow), status: u.status, typ: u.typ, ort: regionTitel.get(u.parent_id) || '' })),
     ...(r.karten || []).map(k => ({ id: k.id, titel: k.titel, wow: Number(k.steckbrief?.wow), status: k.status, typ: 'region', ort: 'Region' }))];
   const top = alle.filter(x => x.wow >= 5 && x.status !== 'weg').sort((a, b) => (a.typ === 'region') - (b.typ === 'region'));
   if (!top.length) return null;
   return el('section', { class: 'hl-must', 'aria-label': 'Must-See' },
-    el('p', { class: 'hl-must-titel' }, el('span', { class: 'hl-must-stern' }, '★★★★★'), ' Must-See · weltweit einzigartig'),
+    el('p', { class: 'hl-must-titel' }, el('span', { class: 'hl-must-stern' }, '★★★★★'), block ? ' Must-See in ' + block : ' Must-See · weltweit einzigartig'),
     el('div', { class: 'hl-must-reihe' }, top.map(x => el('a', { class: 'hl-must-k' + hlKl(x.status), href: hlHref(sid, x.id) },
       el('b', {}, hlSym(x.status) + x.titel), el('span', {}, x.typ === 'region' ? '◍ Region' : hlThema(hlThemaVon(x.typ))[1] + ' ' + x.ort)))));
 }
@@ -371,8 +371,8 @@ function hlIchBinHier(punkte, sid) {
 
 // ---------- Ansicht: Übersicht · Region · Detail ----------
 const HL_CACHE = new Map(), HL_SCROLL = new Map(), HL_OFFEN = new Map(), HL_BLOCK_ZU = new Set(); // nur im Speicher, je Sitzung
-// W159: Regionen in Blöcke (Bundesstaaten) gruppieren – aus der Lage abgeleitet, Reihenfolge = typische Route ab Melbourne
-const HL_BLOECKE = ['Victoria', 'Südaustralien', 'Tasmanien', 'New South Wales', 'Weitere'];
+// W159: Regionen in Blöcke (Bundesstaaten) gruppieren – aus der Lage abgeleitet, Reihenfolge = eure Route (Adelaide → Roadtrip Victoria → Tasmanien, Abflug Hobart)
+const HL_BLOECKE = ['Südaustralien', 'Victoria', 'Tasmanien', 'New South Wales', 'Weitere'];
 function hlBlock(k) {
   const lat = hlZahl(k.steckbrief?.lat), lon = hlZahl(k.steckbrief?.lon);
   if (lat === null || lon === null) return 'Weitere';
@@ -493,7 +493,7 @@ async function hlEbene(sid, kid) {
 
   // ----- Übersicht: Karte + Regionen mit ihren Highlights -----
   function uebersicht(r, v, laufend) {
-    // W159: Nummern in Block-Reihenfolge (Victoria → Südaustralien → Tasmanien), innerhalb des Blocks wie recherchiert
+    // W159: Nummern in Block-Reihenfolge (Südaustralien → Victoria → Tasmanien), innerhalb des Blocks wie recherchiert
     const regionen = [...r.karten].sort((a, b) => HL_BLOECKE.indexOf(hlBlock(a)) - HL_BLOECKE.indexOf(hlBlock(b))), nr = new Map(regionen.map((k, i) => [k.id, i + 1]));
     const unterVon = new Map(regionen.map(k => [k.id, r.unter.filter(u => u.parent_id === k.id)]));
     const fertige = r.portionen.filter(p => p.status === 'fertig'), letzte = r.portionen[r.portionen.length - 1];
@@ -503,7 +503,7 @@ async function hlEbene(sid, kid) {
     andr.onclick = async () => { const n = v.andrang_max ? (v.andrang_max % 5) + 1 : 3; await hlCall('suche_speichern', { id: sid, vorlieben: { ...v, andrang_max: n === 5 ? null : n } }).catch(e => toast(e.message, true)); toast('Gilt für die nächsten Vorschläge.'); lesen(); };
     const zeitChip = el('button', { type: 'button', class: 'hl-chip pref' }, 'Reisezeit ' + (v.reisezeit || 'offen') + ' ✎');
     zeitChip.onclick = () => hlZeitDialog(v, async neu => { await hlCall('suche_speichern', { id: sid, vorlieben: neu }); lesen(); });
-    hlFill(kopf, el('p', { class: 'eyebrow' }, 'EUER WUNSCH'), el('h2', {}, r.suche.wunsch), el('div', { class: 'hl-chips' }, andr, zeitChip), hlMustSee(r, sid), hlFazit(fazit));
+    hlFill(kopf, el('p', { class: 'eyebrow' }, 'EUER WUNSCH'), el('h2', {}, r.suche.wunsch), el('div', { class: 'hl-chips' }, andr, zeitChip), new Set(r.karten.map(hlBlock)).size > 1 ? null : hlMustSee(r, sid), hlFazit(fazit)); // bei Blöcken steht die Must-See-Leiste je Block
     hlFill(mitte);
     // Karte: Regionen als Nummern, Highlights als Punkte (umschaltbar)
     const mitPunkten = hlLese('hl2_punkte', true);
@@ -544,7 +544,7 @@ async function hlEbene(sid, kid) {
         d.append(el('summary', {}, el('span', { class: 'hl2-block-name' }, b),
           el('span', { class: 'hl2-block-info' }, [rs.length + (rs.length === 1 ? ' Region' : ' Regionen'), hls.length + (hls.length === 1 ? ' Highlight' : ' Highlights'), top ? '★5 ' + top : null, muss ? '◆ ' + muss : null].filter(Boolean).join(' · ')),
           el('span', { class: 'hl2-auf', 'aria-hidden': true }, '›')),
-          el('div', { class: 'hl2-block-liste' }, rs.map(k => hlRegionKarte(k, nr.get(k.id), unterVon.get(k.id).filter(passt), laufend.includes(k.id), ctx, offen))));
+          el('div', { class: 'hl2-block-liste' }, hlMustSee({ karten: rs, unter: hls }, sid, b), rs.map(k => hlRegionKarte(k, nr.get(k.id), unterVon.get(k.id).filter(passt), laufend.includes(k.id), ctx, offen))));
         return d;
       };
       hlFill(liste, el('div', { class: 'hl2-sort' }, el('span', { class: 'small muted' }, thema ? regionenSicht.length + ' Regionen mit ' + hlThema(thema)[0] + ' · ' : regionenSicht.length + ' Regionen · '),

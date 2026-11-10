@@ -2898,3 +2898,4 @@ body[data-area="lernen"] { padding-bottom: calc(100px + env(safe-area-inset-bott
 .hl2-block[open] > summary .hl2-auf { transform: rotate(90deg); }
 .hl2-block-liste { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 10px; align-items: start; }
 @media (max-width: 520px) { .hl2-block-liste { grid-template-columns: 1fr; } }
+.hl2-block-liste > .hl-must { grid-column: 1 / -1; margin: 0 0 2px; }

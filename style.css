@@ -2860,3 +2860,42 @@ body[data-area="lernen"] { padding-bottom: calc(100px + env(safe-area-inset-bott
   :root:not([data-theme="light"]) .hl-must-k span { color: #d9c48a; }
   :root:not([data-theme="light"]) .hl2-hchip.top { background: #4a3a12; }
 }
+
+/* W158: Muss (◆ rot) · Vielleicht (♡ blau) · Raus (✕) · Erlebt (✓ grün) */
+.hl2-st { min-height: 40px; border-radius: 999px; padding: 0 14px; font-size: 14px; border: 1px solid var(--border); background: var(--surface); color: var(--text); }
+.hl2-st-muss { color: #c0392b; }
+.hl2-st-gemerkt { color: #2a6f97; }
+.hl2-st-muss.an, .hl2-st-muss.an:hover { background: #c0392b; border-color: #c0392b; color: #fff; }
+.hl2-st-gemerkt.an, .hl2-st-gemerkt.an:hover { background: #2a6f97; border-color: #2a6f97; color: #fff; }
+.hl2-st-weg.an, .hl2-st-weg.an:hover { background: var(--surface-muted); color: var(--muted); }
+.hl2-status.klein .hl2-st { width: 36px; height: 36px; min-height: 0; padding: 0; display: grid; place-items: center; font-size: 15px; }
+.hl2-zeile.will.vielleicht, .hl2-region.will.vielleicht { border-color: #2a6f97; box-shadow: none; }
+.hl2-zeile.top.will.vielleicht, .hl2-region.top.will.vielleicht { border-color: #2a6f97; box-shadow: 0 2px 14px rgb(224 168 0 / 25%); }
+.hl2-hchip.will.vielleicht { border-color: #2a6f97; }
+.hl2-hchip.will.vielleicht i { color: #2a6f97; }
+.hl2-herz.vielleicht { color: #2a6f97; }
+.hl-must-k.vielleicht { border-color: #2a6f97; }
+.hl2-pin.vielleicht { background: #2a6f97; }
+.hl2-pin.hl.vielleicht span, .hl2-pin.ziel.vielleicht span { border-color: #2a6f97; border-width: 3px; }
+.hl2-pin.hl.muss span, .hl2-pin.ziel.muss span { border-color: #c0392b; border-width: 3px; }
+.hl-merk-st.muss { color: #c0392b; }
+.hl-merk-st.vielleicht { color: #2a6f97; }
+.hl2-erlebt { justify-self: start; min-height: 36px; padding: 0 14px; border-radius: 999px; border: 1px dashed #2e7d4f; background: var(--surface); color: #2e7d4f; font-size: 14px; font-weight: 600; }
+.hl2-erlebt.an, .hl2-erlebt.an:hover { background: #2e7d4f; border-style: solid; color: #fff; }
+.hl2-erlebt-mini { font-size: 12px; font-weight: 700; color: #2e7d4f; white-space: nowrap; }
+.hl2-zeile.erlebt .hl2-zeile-img { filter: grayscale(.7); opacity: .8; }
+.hl2-hchip.erlebt { opacity: .7; }
+.hl2-hchip.erlebt i { color: #2e7d4f; }
+.hl2-pin.hl.erlebt span { filter: grayscale(.8); opacity: .7; }
+
+/* W159: Blöcke (Bundesstaaten) in der Übersicht */
+.hl2-block { grid-column: 1 / -1; }
+.hl2-block > summary { list-style: none; cursor: pointer; display: flex; align-items: baseline; gap: 10px; padding: 14px 4px 8px; border-bottom: 2px solid var(--text); margin-bottom: 10px; }
+.hl2-block > summary::-webkit-details-marker { display: none; }
+.hl2-block-name { font: 400 24px/1.1 Georgia, serif; }
+.hl2-block-info { font-size: 13px; color: var(--muted); flex: 1; }
+.hl2-block > summary .hl2-auf { align-self: center; }
+.hl2-block[open] > summary .hl2-auf { transform: rotate(90deg); }
+.hl2-block-liste { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 10px; align-items: start; }
+@media (max-width: 520px) { .hl2-block-liste { grid-template-columns: 1fr; } }
+.hl2-block-liste > .hl-must { grid-column: 1 / -1; margin: 0 0 2px; }

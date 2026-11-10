@@ -1,7 +1,8 @@
 /* Reisen › Highlights V2 (Werkstatt #154): Karte zuerst → Regionen mit fertigen Highlights → Detail → „Hier weitersuchen“.
    Server: Edge Function „highlights“ (api.highlights_*). Kosten entstehen nur nach Klick: ein Wunsch holt die Regionen und danach automatisch
    die Highlights je Region; tiefer wird nur auf Ansage gesucht („Hier weitersuchen“, Frage).
-   Nichts wird automatisch ausgeschlossen: „Erstmal nicht“ verschiebt nur in eine eigene Ansicht und ist jederzeit zurückholbar.
+   Nichts wird automatisch ausgeschlossen: „Raus“ verschiebt nur in eine eigene Ansicht und ist jederzeit zurückholbar.
+   W158: Entscheidung Muss (◆) / Vielleicht (♡, intern 'gemerkt') / Raus (✕, intern 'weg'); „Erlebt“ (✓) ist ein eigener Haken.
    „Ich bin hier“ nutzt den Standort nur im Gerät (nächster bekannter Punkt) – er wird nicht gesendet. */
 'use strict';
 
@@ -92,7 +93,7 @@ async function hlStart() {
     el('div', { class: 'hl-wish-row' }, wunsch, hlDiktat(wunsch)),
     el('div', { class: 'hl-wish-opts' }, el('label', {}, 'Reisezeit', zeit), el('label', {}, 'Andrang', andrang)),
     el('p', { class: 'small muted' }, 'Vorlieben sortieren nur – nichts wird ausgeschlossen. Ändern geht jederzeit.'),
-    el('div', { class: 'row' }, los, el('a', { href: '#/highlights/merk' }, '♥ Will ich →')), status);
+    el('div', { class: 'row' }, los), status);
   form.addEventListener('submit', async e => {
     e.preventDefault();
     if (wunsch.value.trim().length < 2) { wunsch.focus(); return; }
@@ -110,7 +111,7 @@ async function hlStart() {
   const liste = el('div', { class: 'hl-reisen' }, el('div', { class: 'spinner' }, 'Lade …'));
   const weiter = hlLese('hl_last');
   hlFill(main, el('div', { class: 'hl-start-kopf' }, el('h2', {}, 'Eure Reisen'),
-      el('a', { class: 'hl-start-merk', href: '#/highlights/merk' }, '♥ Will ich')),
+      el('a', { class: 'hl-start-merk', href: '#/highlights/merk' }, '◆ Meine Auswahl')),
     liste, neu);
   try {
     const r = await hlCall('lesen', {});
@@ -131,21 +132,21 @@ function hlReiseKarte(s, weiter, gross) {
   return el('article', { class: 'hl-reise' + (gross ? ' gross' : '') },
     el('a', { class: 'hl-reise-link', href: hlHref(s.id) }, hlBild(s.bild, 'region', 'hl-reise-img'),
       el('div', { class: 'hl-reise-text' }, el('strong', {}, s.wunsch),
-        el('span', { class: 'small muted' }, s.vorschlaege + ' Regionen & Highlights · ♥ ' + s.gemerkt))),
+        el('span', { class: 'small muted' }, s.vorschlaege + ' Regionen & Highlights · ausgewählt ' + s.gemerkt))),
     gross ? el('div', { 'data-must': s.id }) : null,
     weiter && weiter.kid ? el('a', { class: 'hl-reise-weiter', href: hlHref(weiter.sid, weiter.kid) }, 'Weiter bei ', el('b', {}, weiter.titel || 'letzter Ansicht'), el('span', { 'aria-hidden': true }, ' →')) : null);
 }
 // W157: Must-Sees (★5) einer Reise als eigene, auffällige Leiste – Regionen und Highlights
-function hlMustSee(r, sid) {
+function hlMustSee(r, sid, block) {
   const regionTitel = new Map((r.karten || []).map(k => [k.id, k.titel]));
   const alle = [...(r.unter || []).map(u => ({ id: u.id, titel: u.titel, wow: Number(u.wow), status: u.status, typ: u.typ, ort: regionTitel.get(u.parent_id) || '' })),
     ...(r.karten || []).map(k => ({ id: k.id, titel: k.titel, wow: Number(k.steckbrief?.wow), status: k.status, typ: 'region', ort: 'Region' }))];
   const top = alle.filter(x => x.wow >= 5 && x.status !== 'weg').sort((a, b) => (a.typ === 'region') - (b.typ === 'region'));
   if (!top.length) return null;
   return el('section', { class: 'hl-must', 'aria-label': 'Must-See' },
-    el('p', { class: 'hl-must-titel' }, el('span', { class: 'hl-must-stern' }, '★★★★★'), ' Must-See · weltweit einzigartig'),
-    el('div', { class: 'hl-must-reihe' }, top.map(x => el('a', { class: 'hl-must-k' + (x.status === 'gemerkt' ? ' will' : ''), href: hlHref(sid, x.id) },
-      el('b', {}, (x.status === 'gemerkt' ? '♥ ' : '') + x.titel), el('span', {}, x.typ === 'region' ? '◍ Region' : hlThema(hlThemaVon(x.typ))[1] + ' ' + x.ort)))));
+    el('p', { class: 'hl-must-titel' }, el('span', { class: 'hl-must-stern' }, '★★★★★'), block ? ' Must-See in ' + block : ' Must-See · weltweit einzigartig'),
+    el('div', { class: 'hl-must-reihe' }, top.map(x => el('a', { class: 'hl-must-k' + hlKl(x.status), href: hlHref(sid, x.id) },
+      el('b', {}, hlSym(x.status) + x.titel), el('span', {}, x.typ === 'region' ? '◍ Region' : hlThema(hlThemaVon(x.typ))[1] + ' ' + x.ort)))));
 }
 
 // ---------- Bausteine ----------
@@ -227,25 +228,36 @@ function hlZaehler(kinder) {
 const hlSterne = (wow) => { const n = Number(wow) >= 1 && Number(wow) <= 5 ? Math.round(Number(wow)) : null;
   return n ? el('span', { class: 'hl2-sterne', title: 'WOW ' + n + '/5 – ' + HL_WOW[n], 'aria-label': 'WOW ' + n + ' von 5' }, '★'.repeat(n), el('span', { class: 'aus' }, '★'.repeat(5 - n))) : null; };
 
-// Will ich / Erstmal nicht – zweimal tippen setzt zurück auf offen
+// W158: Muss / Vielleicht / Raus – nochmal tippen setzt zurück auf offen; „Erlebt“ ist ein eigener Haken
+const HL_STATUS = { muss: ['◆', 'Muss'], gemerkt: ['♡', 'Vielleicht'], weg: ['✕', 'Raus'] };
+const hlKl = (st) => (st === 'muss' ? ' will muss' : st === 'gemerkt' ? ' will vielleicht' : '');
+const hlSym = (st) => (st === 'muss' ? '◆ ' : st === 'gemerkt' ? '♡ ' : '');
 function hlStatusKnoepfe(k, ctx, klein = false) {
-  const will = el('button', { type: 'button', class: 'hl2-will' + (k.status === 'gemerkt' ? ' an' : ''), 'aria-pressed': k.status === 'gemerkt', 'aria-label': 'Will ich: ' + k.titel }, klein ? (k.status === 'gemerkt' ? '♥' : '♡') : (k.status === 'gemerkt' ? '♥ Will ich' : '♡ Will ich'));
-  will.onclick = e => { e.preventDefault(); e.stopPropagation(); hlEntscheiden(k, k.status === 'gemerkt' ? 'offen' : 'gemerkt', ctx); };
-  const nicht = el('button', { type: 'button', class: 'hl2-nicht' + (k.status === 'weg' ? ' an' : ''), 'aria-pressed': k.status === 'weg', 'aria-label': 'Erstmal nicht: ' + k.titel }, klein ? '✕' : (k.status === 'weg' ? '✕ Erstmal nicht' : 'Erstmal nicht'));
-  nicht.onclick = e => { e.preventDefault(); e.stopPropagation(); hlEntscheiden(k, k.status === 'weg' ? 'offen' : 'weg', ctx); };
-  return el('div', { class: 'hl2-status' + (klein ? ' klein' : '') }, will, nicht);
+  const knopf = (st) => {
+    const an = k.status === st, [sym, text] = HL_STATUS[st];
+    const b = el('button', { type: 'button', class: 'hl2-st hl2-st-' + st + (an ? ' an' : ''), 'aria-pressed': an, 'aria-label': text + ': ' + k.titel, title: text }, klein ? sym : sym + ' ' + text);
+    b.onclick = e => { e.preventDefault(); e.stopPropagation(); hlEntscheiden(k, an ? 'offen' : st, ctx); };
+    return b;
+  };
+  return el('div', { class: 'hl2-status' + (klein ? ' klein' : '') }, knopf('muss'), knopf('gemerkt'), knopf('weg'));
+}
+function hlErlebtKnopf(k, ctx) {
+  const b = el('button', { type: 'button', class: 'hl2-erlebt' + (k.erlebt_am ? ' an' : ''), 'aria-pressed': !!k.erlebt_am },
+    k.erlebt_am ? '✓ Erlebt am ' + fmtDate(k.erlebt_am) : '✓ Als erlebt abhaken');
+  b.onclick = async () => { b.disabled = true; try { await hlCall('entscheiden', { knoten_id: k.id, erlebt: !k.erlebt_am }); toast(k.erlebt_am ? 'Haken entfernt.' : '✓ Erlebt'); await ctx.neu(); } catch (e) { toast(e.message, true); b.disabled = false; } };
+  return b;
 }
 async function hlEntscheiden(k, status, ctx) {
   const vorher = k.status;
   try {
     await hlCall('entscheiden', { knoten_id: k.id, status });
-    if (status === 'weg') hlRueckgaengig(k, vorher, ctx); else toast(status === 'gemerkt' ? '♥ Will ich' : 'Zurück auf offen.');
+    if (status === 'weg') hlRueckgaengig(k, vorher, ctx); else toast(status === 'offen' ? 'Zurück auf offen.' : HL_STATUS[status].join(' '));
     await ctx.neu();
   } catch (e) { toast(e.message, true); }
 }
 function hlRueckgaengig(k, vorher, ctx) {
   const t = $('#toast');
-  t.replaceChildren('„' + k.titel + '“ → Erstmal nicht. ', el('button', { type: 'button', class: 'link', onclick: async () => { t.hidden = true; await hlCall('entscheiden', { knoten_id: k.id, status: vorher }).catch(e => toast(e.message, true)); await ctx.neu(); } }, 'Rückgängig'));
+  t.replaceChildren('„' + k.titel + '“ → Raus. ', el('button', { type: 'button', class: 'link', onclick: async () => { t.hidden = true; await hlCall('entscheiden', { knoten_id: k.id, status: vorher }).catch(e => toast(e.message, true)); await ctx.neu(); } }, 'Rückgängig'));
   t.className = 'toast'; t.hidden = false; clearTimeout(toastTimer); toastTimer = setTimeout(() => { t.hidden = true; }, 6000);
 }
 function hlWisch(node, links) {
@@ -257,11 +269,12 @@ function hlWisch(node, links) {
   });
 }
 
-// Ansichten: Alle (ohne „Erstmal nicht“) · Will ich · Erstmal nicht
-const hlFilter = (liste, ansicht) => liste.filter(x => (ansicht === 'will' ? x.status === 'gemerkt' : ansicht === 'nicht' ? x.status === 'weg' : x.status !== 'weg'));
+// Ansichten: Alle (ohne „Raus“) · Muss · Vielleicht · Raus
+const hlFilter = (liste, ansicht) => liste.filter(x => (ansicht === 'muss' ? x.status === 'muss' : ansicht === 'will' ? x.status === 'gemerkt' : ansicht === 'nicht' ? x.status === 'weg' : x.status !== 'weg'));
+const hlZahlen = (liste, alleZahl) => ({ alle: alleZahl ?? hlFilter(liste, 'alle').length, muss: hlFilter(liste, 'muss').length, will: hlFilter(liste, 'will').length, nicht: hlFilter(liste, 'nicht').length });
 function hlTabs(aktiv, zahlen, wahl) {
   return el('div', { class: 'hl2-tabs', role: 'tablist', 'aria-label': 'Ansicht' },
-    [['alle', 'Alle', zahlen.alle], ['will', '♥ Will ich', zahlen.will], ['nicht', '✕ Erstmal nicht', zahlen.nicht]].map(([k, l, n]) =>
+    [['alle', 'Alle', zahlen.alle], ['muss', '◆ Muss', zahlen.muss], ['will', '♡ Vielleicht', zahlen.will], ['nicht', '✕ Raus', zahlen.nicht]].map(([k, l, n]) =>
       el('button', { type: 'button', role: 'tab', 'aria-selected': aktiv === k, class: 'hl2-tab' + (aktiv === k ? ' an' : ''), onclick: () => wahl(k) }, l, ' ', el('span', { class: 'hl2-n' }, String(n)))));
 }
 
@@ -307,21 +320,21 @@ function hlKarteBox(hoch = false) {
       if (p.art === 'ziel') {
         const farbe = hlThema(p.thema)[2];
         m = L.marker(pos, { title: p.titel, alt: p.titel, keyboard: true, zIndexOffset: 1000,
-          icon: L.divIcon({ className: 'hl2-pin ziel' + (p.status === 'gemerkt' ? ' will' : ''), html: '<span style="background:' + farbe + '">' + hlThema(p.thema)[1] + '</span>', iconSize: [36, 36], iconAnchor: [18, 18] }) });
+          icon: L.divIcon({ className: 'hl2-pin ziel' + hlKl(p.status), html: '<span style="background:' + farbe + '">' + hlThema(p.thema)[1] + '</span>', iconSize: [36, 36], iconAnchor: [18, 18] }) });
       } else if (p.art === 'region' || p.art === 'ort') {
         m = L.marker(pos, { title: p.titel, alt: p.titel, keyboard: true, zIndexOffset: p.art === 'ort' ? -500 : 500,
-          icon: L.divIcon({ className: 'hl2-pin' + (p.art === 'ort' ? ' ort' : '') + (p.status === 'gemerkt' ? ' will' : '') + (p.status === 'weg' ? ' nicht' : ''), html: el('span', {}, p.nr ? String(p.nr) : '★'), iconSize: p.art === 'ort' ? [22, 22] : [30, 30], iconAnchor: p.art === 'ort' ? [11, 11] : [15, 15] }) });
+          icon: L.divIcon({ className: 'hl2-pin' + (p.art === 'ort' ? ' ort' : '') + hlKl(p.status) + (p.status === 'weg' ? ' nicht' : ''), html: el('span', {}, p.nr ? String(p.nr) : '★'), iconSize: p.art === 'ort' ? [22, 22] : [30, 30], iconAnchor: p.art === 'ort' ? [11, 11] : [15, 15] }) });
       } else if (p.nr) {
         // Region/Detail: Nummer im Punkt = Nummer in der Liste
         const farbe = p.status === 'weg' ? '#9aa5b1' : hlThema(p.thema)[2];
-        m = L.marker(pos, { title: p.titel, alt: p.titel, keyboard: true, zIndexOffset: p.top ? 400 : p.status === 'gemerkt' ? 300 : 0,
-          icon: L.divIcon({ className: 'hl2-pin hl' + (p.status === 'gemerkt' ? ' will' : '') + (p.top ? ' top' : '') + (p.blass ? ' blass' : ''), html: '<span style="background:' + farbe + '">' + p.nr + '</span>', iconSize: [26, 26], iconAnchor: [13, 13] }) });
+        m = L.marker(pos, { title: p.titel, alt: p.titel, keyboard: true, zIndexOffset: p.top ? 400 : p.status === 'muss' ? 350 : p.status === 'gemerkt' ? 300 : 0,
+          icon: L.divIcon({ className: 'hl2-pin hl' + hlKl(p.status) + (p.erlebt ? ' erlebt' : '') + (p.top ? ' top' : '') + (p.blass ? ' blass' : ''), html: '<span style="background:' + farbe + '">' + p.nr + '</span>', iconSize: [26, 26], iconAnchor: [13, 13] }) });
       } else {
         const farbe = p.status === 'weg' ? '#9aa5b1' : hlThema(p.thema)[2];
-        m = L.circleMarker(pos, { radius: p.top ? 10 : p.status === 'gemerkt' ? 9 : 6.5, color: p.status === 'gemerkt' ? '#c0392b' : p.top ? '#e0a800' : '#fff', weight: p.top || p.status === 'gemerkt' ? 3 : 2, fillColor: farbe, fillOpacity: p.status === 'weg' ? 0.45 : 0.95 });
+        m = L.circleMarker(pos, { radius: p.top || p.status === 'muss' ? 10 : p.status === 'gemerkt' ? 8.5 : 6.5, color: p.status === 'muss' ? '#c0392b' : p.status === 'gemerkt' ? '#2a6f97' : p.top ? '#e0a800' : '#fff', weight: p.top || hlKl(p.status) ? 3 : 2, fillColor: p.erlebt ? '#9aa5b1' : farbe, fillOpacity: p.status === 'weg' || p.erlebt ? 0.45 : 0.95 });
         if (p.top) setTimeout(() => m.bringToFront?.(), 0); // ★5 über die anderen Punkte
       }
-      m.bindTooltip(el('span', {}, (p.status === 'gemerkt' ? '♥ ' : '') + p.titel), { direction: 'top' });
+      m.bindTooltip(el('span', {}, hlSym(p.status) + p.titel + (p.erlebt ? ' ✓' : '')), { direction: 'top' });
       marker.push({ m, pos });
       // Tipp auf einen Punkt in einem Gedränge: erst hineinzoomen, dann öffnen
       m.on('click', () => {
@@ -357,7 +370,24 @@ function hlIchBinHier(punkte, sid) {
 }
 
 // ---------- Ansicht: Übersicht · Region · Detail ----------
-const HL_CACHE = new Map(), HL_SCROLL = new Map(), HL_OFFEN = new Map(); // nur im Speicher, je Sitzung
+const HL_CACHE = new Map(), HL_SCROLL = new Map(), HL_OFFEN = new Map(), HL_BLOCK_ZU = new Set(); // nur im Speicher, je Sitzung
+// W159: Regionen in Blöcke (Bundesstaaten) gruppieren – aus der Lage abgeleitet, Reihenfolge = eure Route (Adelaide → Roadtrip Victoria → Tasmanien, Abflug Hobart)
+const HL_BLOECKE = ['Südaustralien', 'Victoria', 'Tasmanien', 'New South Wales', 'Weitere'];
+function hlBlock(k) {
+  const lat = hlZahl(k.steckbrief?.lat), lon = hlZahl(k.steckbrief?.lon);
+  if (lat === null || lon === null) return 'Weitere';
+  if (lon < 110 || lon > 155 || lat > -10 || lat < -45) return 'Weitere'; // außerhalb Australiens: kein Bundesstaat
+  if (lat < -39.4 && lon > 143.4) return 'Tasmanien';
+  if (lon < 141) return 'Südaustralien';
+  // Grenze Victoria/New South Wales: Murray-Fluss bis zur Quelle, dann Gerade zum Cape Howe (grob, für Gruppierung genügt das)
+  const grenze = [[141.0, -34.0], [142.0, -34.1], [142.3, -34.15], [143.4, -35.2], [144.6, -36.1], [146.0, -36.0], [147.0, -36.1], [148.2, -36.8], [149.98, -37.5]];
+  if (lon <= 150 && lat > -39.4) {
+    let gl = grenze[grenze.length - 1][1];
+    for (let i = 0; i < grenze.length - 1; i++) { const [a, b] = grenze[i], [c, e] = grenze[i + 1]; if (lon >= a && lon <= c) { gl = b + (e - b) * (lon - a) / (c - a); break; } }
+    if (lat < gl) return 'Victoria';
+  }
+  return 'New South Wales';
+}
 async function hlEbene(sid, kid) {
   setChrome('Highlights', { tab: 'highlights', back: true });
   const live = viewGuard();
@@ -463,7 +493,8 @@ async function hlEbene(sid, kid) {
 
   // ----- Übersicht: Karte + Regionen mit ihren Highlights -----
   function uebersicht(r, v, laufend) {
-    const regionen = r.karten, nr = new Map(regionen.map((k, i) => [k.id, i + 1]));
+    // W159: Nummern in Block-Reihenfolge (Südaustralien → Victoria → Tasmanien), innerhalb des Blocks wie recherchiert
+    const regionen = [...r.karten].sort((a, b) => HL_BLOECKE.indexOf(hlBlock(a)) - HL_BLOECKE.indexOf(hlBlock(b))), nr = new Map(regionen.map((k, i) => [k.id, i + 1]));
     const unterVon = new Map(regionen.map(k => [k.id, r.unter.filter(u => u.parent_id === k.id)]));
     const fertige = r.portionen.filter(p => p.status === 'fertig'), letzte = r.portionen[r.portionen.length - 1];
     const fazit = fertige.length ? fertige[0].fazit : null;
@@ -472,7 +503,7 @@ async function hlEbene(sid, kid) {
     andr.onclick = async () => { const n = v.andrang_max ? (v.andrang_max % 5) + 1 : 3; await hlCall('suche_speichern', { id: sid, vorlieben: { ...v, andrang_max: n === 5 ? null : n } }).catch(e => toast(e.message, true)); toast('Gilt für die nächsten Vorschläge.'); lesen(); };
     const zeitChip = el('button', { type: 'button', class: 'hl-chip pref' }, 'Reisezeit ' + (v.reisezeit || 'offen') + ' ✎');
     zeitChip.onclick = () => hlZeitDialog(v, async neu => { await hlCall('suche_speichern', { id: sid, vorlieben: neu }); lesen(); });
-    hlFill(kopf, el('p', { class: 'eyebrow' }, 'EUER WUNSCH'), el('h2', {}, r.suche.wunsch), el('div', { class: 'hl-chips' }, andr, zeitChip), hlMustSee(r, sid), hlFazit(fazit));
+    hlFill(kopf, el('p', { class: 'eyebrow' }, 'EUER WUNSCH'), el('h2', {}, r.suche.wunsch), el('div', { class: 'hl-chips' }, andr, zeitChip), new Set(r.karten.map(hlBlock)).size > 1 ? null : hlMustSee(r, sid), hlFazit(fazit)); // bei Blöcken steht die Must-See-Leiste je Block
     hlFill(mitte);
     // Karte: Regionen als Nummern, Highlights als Punkte (umschaltbar)
     const mitPunkten = hlLese('hl2_punkte', true);
@@ -480,7 +511,7 @@ async function hlEbene(sid, kid) {
     for (const k of regionen) {
       const sb = k.steckbrief || {};
       punkte.push({ art: 'region', id: k.id, nr: nr.get(k.id), titel: k.titel, lat: sb.lat, lon: sb.lon, status: k.status, klick: () => { location.hash = hlHref(sid, k.id); } });
-      if (mitPunkten) for (const u of unterVon.get(k.id).filter(passt)) punkte.push({ art: 'hl', id: u.id, top: Number(u.wow) >= 5, titel: (Number(u.wow) >= 5 ? '★ ' : '') + u.titel + ' · ' + k.titel, lat: u.lat, lon: u.lon, status: u.status, thema: hlThemaVon(u.typ), klick: () => { location.hash = hlHref(sid, u.id); } });
+      if (mitPunkten) for (const u of unterVon.get(k.id).filter(passt)) punkte.push({ art: 'hl', id: u.id, erlebt: !!u.erlebt_am, top: Number(u.wow) >= 5, titel: (Number(u.wow) >= 5 ? '★ ' : '') + u.titel + ' · ' + k.titel, lat: u.lat, lon: u.lon, status: u.status, thema: hlThemaVon(u.typ), klick: () => { location.hash = hlHref(sid, u.id); } });
     }
     karte.zeichne(punkte.filter(p => p.status !== 'weg' || ansicht === 'nicht'));
     const schalter = el('input', { type: 'checkbox' }); schalter.checked = mitPunkten;
@@ -495,22 +526,38 @@ async function hlEbene(sid, kid) {
     else if (letzte?.status === 'fehler') hlFill(lauf, el('p', { class: 'err-text' }, 'Letzte Anfrage fehlgeschlagen: ' + (letzte.fehler || 'unbekannt') + '. Du kannst es erneut versuchen.'));
     else hlFill(lauf);
     // Ansichten
-    hlFill(tabs, hlTabs(ansicht, { alle: hlFilter(regionen, 'alle').length, will: hlFilter(alle, 'will').length, nicht: hlFilter(alle, 'nicht').length }, setAnsicht), hlThemenLeiste(r.unter, thema, setThema));
+    hlFill(tabs, hlTabs(ansicht, hlZahlen(alle, hlFilter(regionen, 'alle').length), setAnsicht), hlThemenLeiste(r.unter, thema, setThema));
     if (ansicht === 'alle') {
       const regionenSicht = hlFilter(regionen, 'alle').filter(k => !thema || unterVon.get(k.id).some(u => passt(u) && u.status !== 'weg'));
       if (sortierung === 'wow') regionenSicht.sort((a, b) => (Number(b.steckbrief?.wow) || 0) - (Number(a.steckbrief?.wow) || 0) || nr.get(a.id) - nr.get(b.id));
       const sortKnopf = (x, text) => el('button', { type: 'button', class: 'hl2-sort-k' + (sortierung === x ? ' an' : ''), 'aria-pressed': sortierung === x, onclick: () => setSortierung(x) }, text);
+      // Blöcke (z. B. Victoria · Südaustralien · Tasmanien) als eigene, zuklappbare Abschnitte – nur wenn es mehr als einen gibt
+      const blockVon = new Map(regionen.map(k => [k.id, hlBlock(k)]));
+      const bloecke = HL_BLOECKE.filter(b => regionenSicht.some(k => blockVon.get(k.id) === b));
+      const blockAbschnitt = (b) => {
+        const rs = regionenSicht.filter(k => blockVon.get(k.id) === b);
+        const hls = rs.flatMap(k => unterVon.get(k.id).filter(u => u.status !== 'weg'));
+        const top = hls.filter(u => Number(u.wow) >= 5).length, muss = hls.filter(u => u.status === 'muss').length;
+        const d = el('details', { class: 'hl2-block' });
+        d.open = !HL_BLOCK_ZU.has(sid + b);
+        d.addEventListener('toggle', () => { if (d.open) HL_BLOCK_ZU.delete(sid + b); else HL_BLOCK_ZU.add(sid + b); });
+        d.append(el('summary', {}, el('span', { class: 'hl2-block-name' }, b),
+          el('span', { class: 'hl2-block-info' }, [rs.length + (rs.length === 1 ? ' Region' : ' Regionen'), hls.length + (hls.length === 1 ? ' Highlight' : ' Highlights'), top ? '★5 ' + top : null, muss ? '◆ ' + muss : null].filter(Boolean).join(' · ')),
+          el('span', { class: 'hl2-auf', 'aria-hidden': true }, '›')),
+          el('div', { class: 'hl2-block-liste' }, hlMustSee({ karten: rs, unter: hls }, sid, b), rs.map(k => hlRegionKarte(k, nr.get(k.id), unterVon.get(k.id).filter(passt), laufend.includes(k.id), ctx, offen))));
+        return d;
+      };
       hlFill(liste, el('div', { class: 'hl2-sort' }, el('span', { class: 'small muted' }, thema ? regionenSicht.length + ' Regionen mit ' + hlThema(thema)[0] + ' · ' : regionenSicht.length + ' Regionen · '),
           sortKnopf('route', 'Route'), sortKnopf('wow', '★ WOW'),
           el('button', { type: 'button', class: 'link small hl2-alle-auf', onclick: () => { const zu = regionenSicht.every(k => offen.has(k.id)); for (const k of regionenSicht) zu ? offen.delete(k.id) : offen.add(k.id); zeigen(HL_CACHE.get(cacheKey) || r); } }, regionenSicht.length && regionenSicht.every(k => offen.has(k.id)) ? 'alle zu' : 'alle auf')),
-        ...regionenSicht.map(k => hlRegionKarte(k, nr.get(k.id), unterVon.get(k.id).filter(passt), laufend.includes(k.id), ctx, offen)),
+        ...(bloecke.length > 1 ? bloecke.map(blockAbschnitt) : regionenSicht.map(k => hlRegionKarte(k, nr.get(k.id), unterVon.get(k.id).filter(passt), laufend.includes(k.id), ctx, offen))),
         !regionen.length && !laufend.length ? el('p', { class: 'muted' }, 'Noch keine Regionen.') : null);
     } else {
-      // Will ich / Erstmal nicht: nach Region gruppiert – Regionen selbst und ihre Highlights
+      // Muss / Vielleicht / Raus: nach Region gruppiert – Regionen selbst und ihre Highlights
       const gruppen = regionen.map(k => ({ k, eintraege: [...(hlFilter([k], ansicht).length ? [k] : []), ...hlFilter(unterVon.get(k.id), ansicht)] })).filter(g => g.eintraege.length);
       hlFill(liste, ...(gruppen.length ? gruppen.map(g => el('section', { class: 'hl2-gruppe' },
         el('h3', {}, el('span', { class: 'hl2-nr' }, String(nr.get(g.k.id))), el('a', { href: hlHref(sid, g.k.id) }, g.k.titel)),
-        g.eintraege.map(x => hlKurzZeile(x, x.id === g.k.id, ctx)))) : [el('p', { class: 'muted' }, ansicht === 'will' ? 'Noch nichts mit ♥ markiert.' : 'Nichts aussortiert.')]));
+        g.eintraege.map(x => hlKurzZeile(x, x.id === g.k.id, ctx)))) : [el('p', { class: 'muted' }, ansicht === 'muss' ? 'Noch nichts als ◆ Muss markiert.' : ansicht === 'will' ? 'Noch nichts als ♡ Vielleicht markiert.' : 'Nichts aussortiert.')]));
     }
     hlFill(unten, hlMehrSuchen(!regionen.length || laufend.includes(0), 'Mehr suchen · weitere Regionen oder eine Frage',
       el('div', { class: 'hl-mehr' },
@@ -534,7 +581,7 @@ async function hlEbene(sid, kid) {
         hlWow(sb), hlWarnung(sb), hlLinks(k), hlStatusKnoepfe(k, ctx))));
     hlFill(mitte);
     const punkte = [{ art: 'ort', titel: (sb.hauptort || k.titel), lat: sb.lat, lon: sb.lon, status: 'offen' },
-      ...hlFilter(kinder, ansicht === 'nicht' ? 'nicht' : 'alle').map(c => ({ art: 'hl', id: c.id, nr: nrVon.get(c.id), top: Number(c.steckbrief?.wow) >= 5, titel: (nrVon.get(c.id) ? nrVon.get(c.id) + ' · ' : '') + c.titel, lat: c.steckbrief?.lat, lon: c.steckbrief?.lon, status: c.status, thema: hlThemaVon(c.typ), klick: () => { location.hash = hlHref(sid, c.id); } }))];
+      ...hlFilter(kinder, ansicht === 'nicht' ? 'nicht' : 'alle').map(c => ({ art: 'hl', id: c.id, nr: nrVon.get(c.id), erlebt: !!c.erlebt_am, top: Number(c.steckbrief?.wow) >= 5, titel: (nrVon.get(c.id) ? nrVon.get(c.id) + ' · ' : '') + c.titel, lat: c.steckbrief?.lat, lon: c.steckbrief?.lon, status: c.status, thema: hlThemaVon(c.typ), klick: () => { location.hash = hlHref(sid, c.id); } }))];
     karte.zeichne(punkte);
     hlFill(kartenZeile, el('button', { type: 'button', class: 'link', onclick: () => hlIchBinHier(kinder.map(c => ({ id: c.id, titel: c.titel, lat: c.steckbrief?.lat, lon: c.steckbrief?.lon })), sid) }, '📍 Ich bin hier'),
       el('span', { class: 'small muted' }, '★ = Basis ' + (sb.hauptort || '')));
@@ -544,9 +591,9 @@ async function hlEbene(sid, kid) {
     else if (letzte?.status === 'fehler') hlFill(lauf, el('p', { class: 'err-text' }, 'Letzte Anfrage fehlgeschlagen: ' + (letzte.fehler || 'unbekannt') + '.'));
     else hlFill(lauf);
     const fazit = r.portionen.find(p => p.status === 'fertig' && p.fazit)?.fazit;
-    hlFill(tabs, hlFazit(fazit), hlTabs(ansicht, { alle: hlFilter(kinder, 'alle').length, will: hlFilter(kinder, 'will').length, nicht: hlFilter(kinder, 'nicht').length }, setAnsicht), hlThemenLeiste(kinderAlle, thema, setThema));
+    hlFill(tabs, hlFazit(fazit), hlTabs(ansicht, hlZahlen(kinder), setAnsicht), hlThemenLeiste(kinderAlle, thema, setThema));
     const sicht = hlFilter(kinder, ansicht);
-    hlFill(liste, ...(sicht.length ? sicht.map(c => hlZeile(c, ctx, k.titel, nrVon.get(c.id))) : [!hierLaeuft ? el('p', { class: 'muted' }, ansicht === 'alle' ? 'Noch keine Highlights.' : ansicht === 'will' ? 'Noch nichts mit ♥ markiert.' : 'Nichts aussortiert.') : null]));
+    hlFill(liste, ...(sicht.length ? sicht.map(c => hlZeile(c, ctx, k.titel, nrVon.get(c.id))) : [!hierLaeuft ? el('p', { class: 'muted' }, ansicht === 'alle' ? 'Noch keine Highlights.' : ansicht === 'muss' ? 'Noch nichts als ◆ Muss markiert.' : ansicht === 'will' ? 'Noch nichts als ♡ Vielleicht markiert.' : 'Nichts aussortiert.') : null]));
     const ende = r.portionen.some(p => p.ende);
     hlFill(unten, ende ? el('p', { class: 'hl-ende' }, 'Das waren die starken Highlights hier. Frag gezielt, wenn dir etwas fehlt.') : null,
       hlMehrSuchen(!kinderAlle.length || hierLaeuft, 'Mehr suchen · weitere Highlights oder eine Frage',
@@ -587,7 +634,7 @@ async function hlEbene(sid, kid) {
         el('p', { class: 'hl2-thema t-' + th }, hlThema(th)[1] + ' ' + hlThema(th)[0]),
         el('h2', {}, gNr.get(k.id) ? el('span', { class: 'hl2-znr', style: '--t:' + hlThema(th)[2], title: 'Nummer auf der Karte der Region' }, String(gNr.get(k.id))) : null, k.titel),
         ortText ? el('p', { class: 'hl2-ort' }, '⌖ ', ortText) : null,
-        hlStatusKnoepfe(k, ctx),
+        hlStatusKnoepfe(k, ctx), hlErlebtKnopf(k, ctx),
         sb.moment ? el('p', { class: 'hl2-moment' }, sb.moment) : null,
         hlWow(sb), hlWarnung(sb),
         el('dl', { class: 'hl-krit' }, fakt('Zeit', sb.zeit || '–'), fakt('Kosten für 4', sb.kosten_4 || '–', ' ', hlBeleg(sb.kosten_belegt, sb.kosten_quelle)),
@@ -620,7 +667,7 @@ async function hlEbene(sid, kid) {
     if (hierLaeuft) hlFill(lauf, el('div', { class: 'spinner' }, { essen: 'Essen & Trinken', wohnen: 'Unterkünfte', naehe: 'Was es in der Nähe gibt', kinder: 'Was die Kinder begeistert' }[letzte?.linse] ? ({ essen: 'Essen & Trinken', wohnen: 'Unterkünfte', naehe: 'Was es in der Nähe gibt', kinder: 'Was die Kinder begeistert' }[letzte.linse] + ' wird recherchiert … (1–2 Min.)') : 'Wird recherchiert … (1–2 Min.)'));
     else if (letzte?.status === 'fehler') hlFill(lauf, el('p', { class: 'err-text' }, 'Letzte Anfrage fehlgeschlagen: ' + (letzte.fehler || 'unbekannt') + '.'));
     else hlFill(lauf);
-    hlFill(tabs, kinder.length ? [el('h3', { class: 'hl2-h3' }, 'Gefunden bei ' + k.titel), hlTabs(ansicht, { alle: hlFilter(kinder, 'alle').length, will: hlFilter(kinder, 'will').length, nicht: hlFilter(kinder, 'nicht').length }, setAnsicht), hlThemenLeiste(kinderAlle, thema, setThema)] : []);
+    hlFill(tabs, kinder.length ? [el('h3', { class: 'hl2-h3' }, 'Gefunden bei ' + k.titel), hlTabs(ansicht, hlZahlen(kinder), setAnsicht), hlThemenLeiste(kinderAlle, thema, setThema)] : []);
     hlFill(liste, ...hlFilter(kinder, ansicht).map(c => hlZeile(c, ctx, eltern?.titel || k.titel, nrVon.get(c.id))));
     hlFill(unten, eltern ? el('p', {}, el('a', { href: hlHref(sid, eltern.id) }, '← Alle Highlights in ' + eltern.titel)) : null);
   }
@@ -638,15 +685,15 @@ function hlRegionKarte(k, nr, kinder, laeuft, ctx, offen) {
   const sb = k.steckbrief || {}, href = hlHref(ctx.sid, k.id);
   const sichtbar = kinder.filter(c => c.status !== 'weg');
   const chips = kinder.length
-    ? [...sichtbar].sort((a, b) => (Number(b.wow) >= 5) - (Number(a.wow) >= 5)).map(c => el('a', { class: 'hl2-hchip' + (Number(c.wow) >= 5 ? ' top' : '') + (c.status === 'gemerkt' ? ' will' : ''), href: hlHref(ctx.sid, c.id), style: '--t:' + hlThema(hlThemaVon(c.typ))[2] }, el('i', { 'aria-hidden': true }, c.status === 'gemerkt' ? '♥' : Number(c.wow) >= 5 ? '★' : hlThema(hlThemaVon(c.typ))[1]), c.titel))
+    ? [...sichtbar].sort((a, b) => (Number(b.wow) >= 5) - (Number(a.wow) >= 5)).map(c => el('a', { class: 'hl2-hchip' + (Number(c.wow) >= 5 ? ' top' : '') + hlKl(c.status) + (c.erlebt_am ? ' erlebt' : ''), href: hlHref(ctx.sid, c.id), style: '--t:' + hlThema(hlThemaVon(c.typ))[2] }, el('i', { 'aria-hidden': true }, c.erlebt_am ? '✓' : hlKl(c.status) ? hlSym(c.status).trim() : Number(c.wow) >= 5 ? '★' : hlThema(hlThemaVon(c.typ))[1]), c.titel))
     : (sb.highlights || []).map(h => hlVorabChip(h));
-  const art = el('details', { class: 'hl2-region' + (Number(sb.wow) >= 5 ? ' top' : '') + (k.status === 'gemerkt' ? ' will' : '') });
+  const art = el('details', { class: 'hl2-region' + (Number(sb.wow) >= 5 ? ' top' : '') + hlKl(k.status) });
   art.open = offen.has(k.id);
   art.addEventListener('toggle', () => { if (art.open) offen.add(k.id); else offen.delete(k.id); });
   art.append(el('summary', { class: 'hl2-region-zeile' }, hlBild(k.bild, 'region', 'hl2-region-img'),
       el('div', { class: 'hl2-region-info' },
-        el('h3', {}, el('span', { class: 'hl2-nr' }, String(nr)), el('span', { class: 'hl2-region-name' }, k.titel), k.status === 'gemerkt' ? el('span', { class: 'hl2-herz', title: 'Will ich' }, '♥') : null),
-        el('p', { class: 'hl2-meta' }, hlSterne(sb.wow), ' ', [sb.tage, sichtbar.length ? sichtbar.length + ' Highlights' : laeuft ? 'wird recherchiert …' : null].filter(Boolean).join(' · ')),
+        el('h3', {}, el('span', { class: 'hl2-nr' }, String(nr)), el('span', { class: 'hl2-region-name' }, k.titel), hlKl(k.status) ? el('span', { class: 'hl2-herz' + hlKl(k.status), title: HL_STATUS[k.status][1] }, HL_STATUS[k.status][0]) : null),
+        el('p', { class: 'hl2-meta' }, hlSterne(sb.wow), ' ', [sb.tage, sichtbar.length ? sichtbar.length + (sichtbar.length === 1 ? ' Highlight' : ' Highlights') : laeuft ? 'wird recherchiert …' : null].filter(Boolean).join(' · ')),
         hlZaehler(kinder)),
       el('span', { class: 'hl2-auf', 'aria-hidden': true }, '›')),
     el('div', { class: 'hl2-region-text' },
@@ -667,16 +714,16 @@ function hlMehrSuchen(auf, titel, ...inhalt) {
 }
 const hlVorabChip = (h) => { const t = hlHlThema(h); return el('span', { class: 'hl2-hchip vorab', style: '--t:' + hlThema(t)[2] }, el('i', { 'aria-hidden': true }, hlThema(t)[1]), hlHlName(h)); };
 
-// Highlight-Zeile (Region/Detail), W156 kompakt: Foto · Nummer + Name · Thema + kurze Lage · Sterne + Begründung (max. 3 Zeilen) · Fußzeile ♥ ✕ Links
+// Highlight-Zeile (Region/Detail), W156 kompakt: Foto · Nummer + Name · Thema + kurze Lage · Sterne + Begründung (max. 3 Zeilen) · Fußzeile ◆ ♡ ✕ Links
 function hlZeile(c, ctx, ortHinweis, nr) {
   const sb = c.steckbrief || {}, th = hlThemaVon(c.typ), ortK = hlOrtKurz(sb.ort);
   const top = Number(sb.wow) >= 5;
-  const art = el('article', { class: 'hl2-zeile' + (top ? ' top' : '') + (c.status === 'gemerkt' ? ' will' : '') + (c.status === 'weg' ? ' nicht' : '') },
+  const art = el('article', { class: 'hl2-zeile' + (top ? ' top' : '') + hlKl(c.status) + (c.erlebt_am ? ' erlebt' : '') + (c.status === 'weg' ? ' nicht' : '') },
     top ? el('p', { class: 'hl2-top-band' }, '★ MUST-SEE · weltweit einzigartig') : null,
     el('a', { class: 'hl2-zeile-link', href: hlHref(ctx.sid, c.id) },
       c.bild || !['restaurant', 'unterkunft'].includes(c.typ) ? hlBild(c.bild, c.typ, 'hl2-zeile-img') : el('div', { class: 'hl2-zeile-img leer-typ', style: '--t:' + hlThema(th)[2] }, hlThema(th)[1]),
       el('div', { class: 'hl2-zeile-text' },
-        el('h4', {}, nr ? el('span', { class: 'hl2-znr', style: '--t:' + hlThema(th)[2], title: 'Nummer auf der Karte' }, String(nr)) : null, c.titel),
+        el('h4', {}, nr ? el('span', { class: 'hl2-znr', style: '--t:' + hlThema(th)[2], title: 'Nummer auf der Karte' }, String(nr)) : null, c.titel, c.erlebt_am ? el('span', { class: 'hl2-erlebt-mini', title: 'Erlebt am ' + fmtDate(c.erlebt_am) }, ' ✓ erlebt') : null),
         el('p', { class: 'hl2-thema', style: '--t:' + hlThema(th)[2] }, hlThema(th)[1] + ' ' + hlThema(th)[0] + (ortK ? ' · ' + ortK : '')),
         hlWow(sb.besonders ? sb : { ...sb, besonders: sb.moment }, true), hlWarnung(sb),
         c.kinder ? el('p', { class: 'small muted' }, c.kinder + ' weitere Funde hier') : null)),
@@ -684,7 +731,7 @@ function hlZeile(c, ctx, ortHinweis, nr) {
   hlWisch(art, () => { if (c.status !== 'weg') hlEntscheiden(c, 'weg', ctx); });
   return art;
 }
-// Kurzzeile in „Will ich“/„Erstmal nicht“ der Übersicht
+// Kurzzeile in „Muss“/„Vielleicht“/„Raus“ der Übersicht
 function hlKurzZeile(x, istRegion, ctx) {
   const th = istRegion ? null : hlThemaVon(x.typ);
   return el('div', { class: 'hl2-kurz' }, el('a', { href: hlHref(ctx.sid, x.id) },
@@ -709,9 +756,9 @@ function hlZeitDialog(v, speichern) {
   main.append(d); d.addEventListener('close', () => d.remove()); d.showModal(); f.focus();
 }
 
-// ---------- Will ich (über alle Wünsche) ----------
+// ---------- Meine Auswahl: Muss + Vielleicht (über alle Wünsche) ----------
 async function hlMerkliste() {
-  setChrome('Will ich', { tab: 'highlights', back: true });
+  setChrome('Meine Auswahl', { tab: 'highlights', back: true });
   const live = viewGuard();
   loading();
   const r = await hlCall('merkliste', {});
@@ -719,9 +766,9 @@ async function hlMerkliste() {
   const gruppen = new Map();
   for (const k of r.gemerkt) { const g = k.pfad.length > 1 ? k.pfad[0].titel : k.wunsch; if (!gruppen.has(g)) gruppen.set(g, []); gruppen.get(g).push(k); }
   hlFill(main,
-    el('section', { class: 'hl-merk-kopf' }, el('p', { class: 'eyebrow' }, 'HIGHLIGHTS'), el('h2', {}, '♥ Will ich'), el('p', { class: 'muted' }, r.gemerkt.length + ' markiert · nach Region')),
+    el('section', { class: 'hl-merk-kopf' }, el('p', { class: 'eyebrow' }, 'HIGHLIGHTS'), el('h2', {}, 'Meine Auswahl'), el('p', { class: 'muted' }, r.gemerkt.filter(k => k.status === 'muss').length + ' ◆ Muss · ' + r.gemerkt.filter(k => k.status === 'gemerkt').length + ' ♡ Vielleicht · nach Region')),
     ...(r.gemerkt.length ? [...gruppen].map(([g, ks]) => el('section', { class: 'hl-merk-gruppe' }, el('h3', {}, g + ' · ' + ks.length),
       el('div', { class: 'hl-merk-liste' }, ks.map(k => el('a', { class: 'hl-merk-row', href: hlHref(k.suche_id, k.id) }, hlBild(k.bild, k.typ, 'hl-merk-img'),
-        el('div', {}, el('strong', {}, k.titel), el('span', { class: 'small muted' }, k.pfad.slice(0, -1).map(p => p.titel).join(' › ') || k.wunsch),
-          el('span', { class: 'small' }, [k.steckbrief?.ort, k.steckbrief?.zeit].filter(Boolean).join(' · ')))))))) : [el('p', { class: 'muted' }, 'Noch nichts mit ♥ markiert. ', el('a', { href: '#/highlights' }, 'Zu den Highlights →'))]));
+        el('div', {}, el('strong', {}, el('span', { class: 'hl-merk-st' + hlKl(k.status), title: HL_STATUS[k.status]?.[1] || '' }, hlSym(k.status)), k.titel, k.erlebt_am ? ' ✓' : ''), el('span', { class: 'small muted' }, k.pfad.slice(0, -1).map(p => p.titel).join(' › ') || k.wunsch),
+          el('span', { class: 'small' }, [k.steckbrief?.ort, k.steckbrief?.zeit].filter(Boolean).join(' · ')))))))) : [el('p', { class: 'muted' }, 'Noch nichts als ◆ Muss oder ♡ Vielleicht markiert. ', el('a', { href: '#/highlights' }, 'Zu den Highlights →'))]));
 }

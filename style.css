@@ -2899,3 +2899,26 @@ body[data-area="lernen"] { padding-bottom: calc(100px + env(safe-area-inset-bott
 .hl2-block-liste { display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); gap: 10px; align-items: start; }
 @media (max-width: 520px) { .hl2-block-liste { grid-template-columns: 1fr; } }
 .hl2-block-liste > .hl-must { grid-column: 1 / -1; margin: 0 0 2px; }
+
+/* W160: Block-Ebene – Block-Karten auf der Wunsch-Ebene, Blockfarben auf der Karte */
+.blk-0 { --b: #b9873a; } .blk-1 { --b: #2f6f9f; } .blk-2 { --b: #2f7f6a; } .blk-3 { --b: #7d6aa8; } .blk-4 { --b: #6b7785; }
+.hl2-pin.blk { background: var(--b) !important; width: 22px !important; height: 22px !important; margin-left: -11px !important; margin-top: -11px !important; }
+.hl2-legende i.blk-0, .hl2-legende i.blk-1, .hl2-legende i.blk-2, .hl2-legende i.blk-3, .hl2-legende i.blk-4 { background: var(--b); width: 11px; height: 11px; }
+.hl2-legende { font-size: 13px; color: var(--text); gap: 4px 14px; }
+.hl2-blockkarte { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr; background: var(--surface); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; color: var(--text); text-decoration: none; box-shadow: var(--shadow); }
+.hl2-blockkarte.blk-rand-0 { border-top: 5px solid #b9873a; } .hl2-blockkarte.blk-rand-1 { border-top: 5px solid #2f6f9f; } .hl2-blockkarte.blk-rand-2 { border-top: 5px solid #2f7f6a; } .hl2-blockkarte.blk-rand-3 { border-top: 5px solid #7d6aa8; }
+.hl2-blockkarte-fotos { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: 2px; height: 120px; }
+.hl2-blockkarte-img { position: relative; margin: 0; overflow: hidden; background: linear-gradient(135deg, #cfdcd2, #e9e2cc); }
+.hl2-blockkarte-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hl2-blockkarte-img figcaption { display: none; }
+.hl2-blockkarte-img.leer::after { content: attr(data-glyph); position: absolute; inset: 0; display: grid; place-items: center; font: 30px Georgia, serif; color: #6f8a78; }
+.hl2-blockkarte-text { display: grid; gap: 7px; padding: 12px 14px 14px; }
+.hl2-blockkarte-text h3 { margin: 0; font: 400 26px/1.15 Georgia, serif; display: flex; align-items: center; gap: 10px; }
+.hl2-blockkarte-text h3 i { width: 12px; height: 12px; border-radius: 50%; background: var(--b); flex: none; }
+.hl2-blockkarte-text h3 span { margin-left: auto; color: var(--muted); font: 400 22px var(--font-ui); }
+.hl2-blockkarte-text .hl2-meta { margin: 0; font-size: 13.5px; }
+.hl2-blockkarte-top { display: flex; flex-wrap: wrap; align-items: center; gap: 5px; }
+.hl2-blockkarte-top .hl2-sterne { font-size: 13px; color: #e0a800; margin-right: 2px; }
+.hl2-blockkarte-chip { font-size: 12.5px; padding: 3px 9px; border-radius: 999px; background: var(--surface-muted); border: 1px solid var(--border); }
+.hl2-blockkarte-chip.top { background: #fdebb5; border-color: #e0a800; font-weight: 650; }
+.hl2-blockkarte-regionen { margin: 0; line-height: 1.4; }

@@ -140,9 +140,14 @@ function hlReiseKarte(s, weiter, gross) {
     weiter && weiter.kid ? el('a', { class: 'hl-reise-weiter', href: hlHref(weiter.sid, weiter.kid) }, 'Weiter bei ', el('b', {}, weiter.titel || 'letzter Ansicht'), el('span', { 'aria-hidden': true }, ' →')) : null);
 }
 // W157: Must-Sees (★5) einer Reise als eigene, auffällige Leiste – Regionen und Highlights
+// W164: Highlights einer Region, die auf „Raus“ steht, verschwinden mit – außer bewusst als Muss/Vielleicht markierte
+function hlSichtbareUnter(karten, unter) {
+  const weg = new Set((karten || []).filter(k => k.status === 'weg').map(k => k.id));
+  return (unter || []).filter(u => !(weg.has(u.parent_id) && (u.status === 'offen' || u.status === 'weg')));
+}
 function hlMustSee(r, sid, block) {
   const regionTitel = new Map((r.karten || []).map(k => [k.id, k.titel]));
-  const alle = [...(r.unter || []).map(u => ({ id: u.id, titel: u.titel, wow: Number(u.wow), status: u.status, typ: u.typ, ort: regionTitel.get(u.parent_id) || '' })),
+  const alle = [...hlSichtbareUnter(r.karten, r.unter).map(u => ({ id: u.id, titel: u.titel, wow: Number(u.wow), status: u.status, typ: u.typ, ort: regionTitel.get(u.parent_id) || '' })),
     ...(r.karten || []).map(k => ({ id: k.id, titel: k.titel, wow: Number(k.steckbrief?.wow), status: k.status, typ: 'region', ort: 'Region' }))];
   const top = alle.filter(x => x.wow >= 5 && x.status !== 'weg').sort((a, b) => (a.typ === 'region') - (b.typ === 'region'));
   if (!top.length) return null;
@@ -521,7 +526,8 @@ async function hlEbene(sid, kid, block = null) {
     HL_REGION_BLOCK.set('mehr_' + sid, blockListe.length > 1);
     const blockAnsicht = !block && blockListe.length > 1;
     const regionen = block ? regionenAlle.filter(k => hlBlock(k) === block) : regionenAlle, nr = new Map(regionen.map((k, i) => [k.id, i + 1]));
-    const unterVon = new Map(regionen.map(k => [k.id, r.unter.filter(u => u.parent_id === k.id)]));
+    const unterSicht = ansicht === 'nicht' ? r.unter : hlSichtbareUnter(r.karten, r.unter);
+    const unterVon = new Map(regionen.map(k => [k.id, unterSicht.filter(u => u.parent_id === k.id)]));
     const unterHier = regionen.flatMap(k => unterVon.get(k.id));
     const fertige = r.portionen.filter(p => p.status === 'fertig'), letzte = r.portionen[r.portionen.length - 1];
     const fazit = fertige.length ? fertige[0].fazit : null;
@@ -531,7 +537,7 @@ async function hlEbene(sid, kid, block = null) {
     const zeitChip = el('button', { type: 'button', class: 'hl-chip pref' }, 'Reisezeit ' + (v.reisezeit || 'offen') + ' ✎');
     zeitChip.onclick = () => hlZeitDialog(v, async neu => { await hlCall('suche_speichern', { id: sid, vorlieben: neu }); lesen(); });
     if (block) hlFill(kopf, el('p', { class: 'eyebrow' }, hlKurz(r.suche.wunsch).toUpperCase()), el('h2', {}, block),
-      el('p', { class: 'hl2-meta' }, regionen.length + (regionen.length === 1 ? ' Region' : ' Regionen') + ' · ' + unterHier.filter(u => u.status !== 'weg').length + ' Highlights'),
+      el('p', { class: 'hl2-meta' }, hlFilter(regionen, 'alle').length + (hlFilter(regionen, 'alle').length === 1 ? ' Region' : ' Regionen') + ' · ' + unterHier.filter(u => u.status !== 'weg').length + ' Highlights'),
       hlMustSee({ karten: regionen, unter: unterHier }, sid, block));
     else hlFill(kopf, el('p', { class: 'eyebrow' }, 'EUER WUNSCH'), el('h2', {}, r.suche.wunsch), el('div', { class: 'hl-chips' }, andr, zeitChip), blockAnsicht ? null : hlMustSee(r, sid), blockAnsicht ? null : hlFazit(fazit)); // bei Blöcken: Must-Sees und Wege je Block
     hlFill(mitte);
@@ -558,7 +564,7 @@ async function hlEbene(sid, kid, block = null) {
     // Ansichten
     hlFill(tabs, hlTabs(ansicht, hlZahlen(alle, blockAnsicht ? blockListe.length : hlFilter(regionen, 'alle').length), setAnsicht), blockAnsicht ? null : hlThemenLeiste(unterHier, thema, setThema));
     if (ansicht === 'alle' && blockAnsicht) {
-      hlFill(liste, ...blockListe.map((b, i) => hlBlockKarte(b, i, regionenAlle.filter(k => hlBlock(k) === b), r.unter, sid)));
+      hlFill(liste, ...blockListe.map((b, i) => hlBlockKarte(b, i, regionenAlle.filter(k => hlBlock(k) === b), unterSicht, sid)));
     } else if (ansicht === 'alle') {
       const regionenSicht = hlFilter(regionen, 'alle').filter(k => !thema || unterVon.get(k.id).some(u => passt(u) && u.status !== 'weg'));
       if (sortierung === 'wow') regionenSicht.sort((a, b) => (Number(b.steckbrief?.wow) || 0) - (Number(a.steckbrief?.wow) || 0) || nr.get(a.id) - nr.get(b.id));
@@ -698,7 +704,8 @@ const hlFazit = (t) => t ? el('p', { class: 'hl-fazit' }, String(t).replace(/\s*
 const hlKostenText = (r) => { const s = r.portionen.reduce((a, p) => a + (Number(p.kosten_usd) || 0), 0); return s ? ' · bisher ' + s.toFixed(2).replace('.', ',') + ' USD' : ''; };
 
 // W160: Block-Karte auf der Wunsch-Ebene: Fotos der Regionen, Zahlen, Must-Sees, Regionen – antippen öffnet den Block
-function hlBlockKarte(b, i, regionen, unter, sid) {
+function hlBlockKarte(b, i, regionenRoh, unter, sid) {
+  const regionen = regionenRoh.filter(k => k.status !== 'weg'); // „Raus“-Regionen zählen nicht mit
   const ids = new Set(regionen.map(k => k.id));
   const hls = unter.filter(u => ids.has(u.parent_id) && u.status !== 'weg');
   const top = hls.filter(u => Number(u.wow) >= 5), vier = hls.filter(u => Number(u.wow) === 4);

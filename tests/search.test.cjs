@@ -314,14 +314,14 @@ test('PWA installiert vollständige Offline-Hülle, API wird nicht gecacht', asy
   assert(cacheNames.includes('ki-system:' + origin + '/another-app/:v1'));
   assert(!cacheNames.includes('ki-system:' + origin + '/:old'));
   await page.evaluate(() => fetch('README.md'));
-  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v97')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
-  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.60.1')); assert(cached.includes('/style.css?v=0.60.1'));
-  assert(cached.includes('/stay-tools.js?v=0.60.1')); assert(cached.includes('/stay-desk.js?v=0.60.1')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
-  assert(cached.includes('/stay-research.js?v=0.60.1'));
-  assert(cached.includes('/stay-form.js?v=0.60.1'));
-  assert(cached.includes('/stay-details.js?v=0.60.1'));
-  assert(cached.includes('/stay-districts.js?v=0.60.1'));
-  assert(cached.includes('/highlights.js?v=0.60.1'));
+  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v98')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
+  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.60.2')); assert(cached.includes('/style.css?v=0.60.2'));
+  assert(cached.includes('/stay-tools.js?v=0.60.2')); assert(cached.includes('/stay-desk.js?v=0.60.2')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
+  assert(cached.includes('/stay-research.js?v=0.60.2'));
+  assert(cached.includes('/stay-form.js?v=0.60.2'));
+  assert(cached.includes('/stay-details.js?v=0.60.2'));
+  assert(cached.includes('/stay-districts.js?v=0.60.2'));
+  assert(cached.includes('/highlights.js?v=0.60.2'));
   assert(!cached.includes('/README.md'));
   assert(!cached.some((u) => u.includes('app-api')));
   await context.setOffline(true); await page.reload();
@@ -2811,4 +2811,24 @@ test('W142: Nebenkosten am Monatsende mit Kategorien, in der Gesamtsumme und eig
  assert.equal(await page.locator('[data-kosten]').count(),2);
  await page.getByRole('button',{name:'Nebenkosten',exact:true}).click();
  assert.equal(await page.locator('[data-kind="kosten"]:visible').count(),0);
+});
+
+test('W175: Reiseplan-Kopf zeigt Bisher-Zahlen, Reiseende und Erlebnisse getrennt vom Transport',async t=>{
+ const day=n=>{const d=new Date();d.setDate(d.getDate()+n);return d.toISOString().slice(0,10);};
+ const data=stage2Data();
+ data.reisen=data.reisen.map(r=>r.id===1?{...r,ende:day(100)}:r);
+ data.etappen=[{...data.etappen[1],id:1,anreise:day(-10),abreise:day(-5),buchung:{name:'Haus Vorher',preis_gesamt_eur:500,land:'Japan'}},{...data.etappen[1],id:2,anreise:day(-5),abreise:day(2),buchung:{name:'Haus Jetzt',preis_gesamt_eur:700,land:'Japan'}},{...data.etappen[1],id:3,anreise:day(60),abreise:day(70),buchung:{name:'Haus Später',preis_gesamt_eur:900,land:'Thailand'}}];
+ data.posten=[{id:5,reise_id:1,art:'flug',status:'gebucht',titel:'Flüge',preis_gesamt_eur:300,segmente:[{von:'MUC',nach:'NRT',ab:day(-10)+'T08:00',an:day(-10)+'T20:00'},{von:'NRT',von_land:'Japan',nach:'BKK',nach_land:'Thailand',ab:day(60)+'T08:00',an:day(60)+'T13:00'}]},
+  {id:6,reise_id:1,art:'mietwagen',status:'gebucht',titel:'Auto',preis_gesamt_eur:50,segmente:[{ab:day(-1)+'T09:00',an:day(1)+'T09:00',ort:'Tokio',land:'Japan'}]},
+  {id:7,reise_id:1,art:'sonstiges',status:'gebucht',titel:'Konzert',preis_gesamt_eur:120,segmente:[{ab:day(3),ort:'Tokio',land:'Japan'}]}];
+ const {page}=await setup(t,p=>p.aktion==='unterkunft_etappen_lesen'?data:{fotos:[]},{width:390,height:844});
+ await page.goto(origin+'/#/reisen/1');await page.locator('.rp-sec').first().waitFor();
+ assert.match(await page.locator('.rp-stats').textContent(),/3\s*Unterkünfte\s*2\s*Flüge\s*110\s*Tage/);
+ assert.match(await page.locator('.rp-total-day').textContent(),/Tag 11 von 110/);
+ const b=await page.locator('.rp-bisher').textContent();
+ assert.match(b,/Bisher\s*2\s*Unterkünfte\s*1\s*Flug\s*100\s*Tage übrig · Rückreise/);
+ await page.locator('.rp-fold-sum').click();
+ const tiles=await page.locator('.rp-tile').allTextContents();
+ assert.ok(tiles.some(x=>/Transport\s*50/.test(x)),tiles.join('|'));
+ assert.ok(tiles.some(x=>/Erlebnisse\s*120/.test(x)),tiles.join('|'));
 });

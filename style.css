@@ -3099,3 +3099,7 @@ body[data-area="lernen"] { padding-bottom: calc(100px + env(safe-area-inset-bott
 .rb-stay { position: relative; }
 .rb-stay summary { display: block; padding-right: 22px; }
 .rb-stay summary::after { position: absolute; right: 12px; top: 10px; margin: 0; }
+/* W175: Bisher-Zeile im Reiseplan-Kopf */
+.rp-bisher{display:flex;flex-wrap:wrap;gap:2px 12px;margin-top:4px;font-size:12.5px;color:#cfe3e5;opacity:.9;align-items:baseline;}
+.rp-bisher .rp-stat b{font-size:13.5px;}
+.rp-stat-lab{text-transform:uppercase;letter-spacing:.06em;font-size:11px;color:#9fc3c6;}

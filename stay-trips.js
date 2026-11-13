@@ -222,17 +222,22 @@ async function viewReisen(arg){
   const dayNo=tripFrom&&today>=tripFrom&&today<=tripTo?tripDayDiff(tripFrom,today)+1:null;
   const flightCount=postenBooked.filter(p=>p.art==='flug').reduce((n,p)=>n+p.segmente.length,0);
   const kpi=(v,l)=>el('span',{class:'rp-stat'},el('b',{},v),' '+l);
+  // W175b: Anschlussbuchungen in derselben Unterkunft (gleicher Name, Abreise = nächste Anreise) zählen als ein Aufenthalt
+  const aufenthalte=[];for(const e of booked){const prev=aufenthalte[aufenthalte.length-1],nm=String(e.buchung?.name||'').trim().toLowerCase();
+   if(prev&&nm&&prev.nm===nm&&String(prev.abreise)===String(e.anreise))prev.abreise=e.abreise;else aufenthalte.push({nm,anreise:e.anreise,abreise:e.abreise});}
   // W175: was schon hinter uns liegt – Unterkünfte mit Anreise bis heute, Flüge mit Abflug vor jetzt (Ortszeit-Text)
   const jetzt=(()=>{const n=new Date(),z=x=>String(x).padStart(2,'0');return today+'T'+z(n.getHours())+':'+z(n.getMinutes());})();
-  const staysDone=booked.filter(e=>String(e.anreise)<=today).length;
+  const staysDone=aufenthalte.filter(a=>String(a.anreise)<=today).length;
   const flightsDone=postenBooked.filter(p=>p.art==='flug').flatMap(p=>p.segmente).filter(x=>x.ab&&String(x.ab).slice(0,16)<jetzt).length;
   const daysLeft=tripTo&&today<=tripTo?tripDayDiff(today,tripTo):null;
   const bisher=tripFrom&&today>=tripFrom?el('div',{class:'rp-bisher'},el('span',{class:'rp-stat-lab'},'Bisher'),kpi(String(staysDone),staysDone===1?'Unterkunft':'Unterkünfte'),kpi(String(flightsDone),flightsDone===1?'Flug':'Flüge'),daysLeft!==null?kpi(String(daysLeft),(daysLeft===1?'Tag':'Tage')+' übrig'+(endePlan?' · Rückreise '+tripDM(endePlan):'')):null):null;
   content.append(el('section',{class:'rp-total rp-total-slim','aria-label':'Reise-Übersicht'},
    el('div',{class:'rp-total-head'},el('div',{},el('div',{class:'rp-total-title'},el('span',{class:'rp-total-name'},trip.name),dayNo?el('span',{class:'rp-total-day'},'Tag '+dayNo+' von '+tripDays):null),
-     el('div',{class:'rp-stats'},kpi(String(booked.length),booked.length===1?'Unterkunft':'Unterkünfte'),kpi(String(flightCount),flightCount===1?'Flug':'Flüge'),kpi(String(tripDays),'Tage')),bisher),more),
+     el('div',{class:'rp-stats'},kpi(String(aufenthalte.length),aufenthalte.length===1?'Unterkunft':'Unterkünfte'),kpi(String(flightCount),flightCount===1?'Flug':'Flüge'),kpi(String(tripDays),'Tage')),bisher),more),
    (()=>{const all=essenIn(tageVon||'0000',tripDayAdd(tageBis||'0000-01-01',1)),tile=(lab,val,sub,cls)=>el('div',{class:'rp-tile'+(cls?' '+cls:'')},el('span',{class:'rp-tile-lab'},lab),el('b',{},val),sub?el('span',{class:'rp-tile-sub'},sub):null);
     const diveDays=postenBooked.filter(p=>p.art==='tauchen').length;
+    // W175c: Erlebnisse = gebuchte Tickets/Events + Kategorie „erleben“ aus den Nebenkosten (dort abgezogen, Summe bleibt gleich)
+    const erlebNeben=neben.reduce((c,n)=>c+(Array.isArray(n.kategorien)?n.kategorien:[]).filter(k=>k.key==='erleben').reduce((x,k)=>x+cents(Number(k.eur)||0),0),0)/100,erlebAll=Math.round((otherTotal+erlebNeben)*100)/100;
     const det=el('details',{class:'rp-total-money rp-total-fold',open:!!stayRead('ks_rp_kosten_offen',false)||null},
      el('summary',{class:'rp-fold-sum'},el('span',{},'Kosten'),el('i',{'aria-hidden':'true'})),
      el('div',{class:'rp-total-big'},el('span',{},'Ausgegeben'),el('b',{},(approx?'ca. ':'')+tripEuro(total,0))),
@@ -240,9 +245,8 @@ async function viewReisen(arg){
       tile('Unterkünfte',tripEuro(stayTotal,0),pricedNights?'Ø '+tripEuro(stayTotal/pricedNights,0)+' / Nacht':null),
       flightTotal?tile('Flüge',tripEuro(flightTotal,0),flightCount+(flightCount===1?' Flug':' Flüge')):null,
       carTotal?tile('Transport',tripEuro(carTotal,0),'Mietwagen & Co.'):null,
-      otherTotal?tile('Erlebnisse',tripEuro(otherTotal,0),'Tickets & Events'):null,
-      diveTotal?tile('Tauchen',tripEuro(diveTotal,0),diveDays+(diveDays===1?' Tauchtag':' Tauchtage')):null,
-      nebenTotal?tile('Nebenkosten',tripEuro(nebenTotal,0),nebenStand?'bis '+tripDM(nebenStand):null):null,
+      (diveTotal+erlebAll)?tile('Tauchen & Erlebnisse',tripEuro(diveTotal+erlebAll,0),[diveDays?diveDays+(diveDays===1?' Tauchtag':' Tauchtage'):null,erlebAll?'Erlebnisse '+tripEuro(erlebAll,0):null].filter(Boolean).join(' · ')):null,
+      (nebenTotal-erlebNeben)?tile('Nebenkosten',tripEuro(nebenTotal-erlebNeben,0),nebenStand?'bis '+tripDM(nebenStand):null):null,
       all.days?tile('Essen','Ø '+tripEuro(all.essen/all.days,0)+'/Tag',tripEuro(all.essen,0)+' gesamt','is-food'):null));
     det.addEventListener('toggle',()=>stayWrite('ks_rp_kosten_offen',det.open));return det;})(),
    missing?el('p',{class:'rp-total-hint'},missing+' Buchung(en) ohne Euro-Preis – nicht eingerechnet'+(postenBooked.some(p=>p.kurs?.offen)?' (Wechselkurs wird abgerufen).':'.')):null));

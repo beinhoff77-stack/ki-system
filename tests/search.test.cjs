@@ -314,14 +314,14 @@ test('PWA installiert vollständige Offline-Hülle, API wird nicht gecacht', asy
   assert(cacheNames.includes('ki-system:' + origin + '/another-app/:v1'));
   assert(!cacheNames.includes('ki-system:' + origin + '/:old'));
   await page.evaluate(() => fetch('README.md'));
-  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v98')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
-  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.60.2')); assert(cached.includes('/style.css?v=0.60.2'));
-  assert(cached.includes('/stay-tools.js?v=0.60.2')); assert(cached.includes('/stay-desk.js?v=0.60.2')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
-  assert(cached.includes('/stay-research.js?v=0.60.2'));
-  assert(cached.includes('/stay-form.js?v=0.60.2'));
-  assert(cached.includes('/stay-details.js?v=0.60.2'));
-  assert(cached.includes('/stay-districts.js?v=0.60.2'));
-  assert(cached.includes('/highlights.js?v=0.60.2'));
+  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v99')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
+  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.60.3')); assert(cached.includes('/style.css?v=0.60.3'));
+  assert(cached.includes('/stay-tools.js?v=0.60.3')); assert(cached.includes('/stay-desk.js?v=0.60.3')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
+  assert(cached.includes('/stay-research.js?v=0.60.3'));
+  assert(cached.includes('/stay-form.js?v=0.60.3'));
+  assert(cached.includes('/stay-details.js?v=0.60.3'));
+  assert(cached.includes('/stay-districts.js?v=0.60.3'));
+  assert(cached.includes('/highlights.js?v=0.60.3'));
   assert(!cached.includes('/README.md'));
   assert(!cached.some((u) => u.includes('app-api')));
   await context.setOffline(true); await page.reload();
@@ -2777,7 +2777,7 @@ test('W140: Tauchtage mit Tauchern, Gebiet, Log-Werten, Euro-Summe und eigenem F
  assert.match(await row.locator('.rp-seg-sub').textContent(),/Westküste vor Sakieda · Aqua-no-jikan/);
  assert.match(await page.locator('[data-posten="8"] .rp-seg-main').textContent(),/Sebastian, Kerstin/);
  assert.match(await page.locator('[data-posten="8"] .rp-seg-price').textContent(),/Kurs folgt/);
- assert.match(await page.locator('.rp-tiles').textContent(),/Tauchen\s*481/);
+ assert.match(await page.locator('.rp-tiles').textContent(),/Tauchen & Erlebnisse\s*481/);
  assert.match(await page.locator('.rp-total-hint').textContent(),/Wechselkurs wird abgerufen/);
  await row.locator('summary').click();
  assert.match(await row.locator('.rp-facts').textContent(),/Sebastian, Kerstin, Leo, Rosa/);
@@ -2830,5 +2830,16 @@ test('W175: Reiseplan-Kopf zeigt Bisher-Zahlen, Reiseende und Erlebnisse getrenn
  await page.locator('.rp-fold-sum').click();
  const tiles=await page.locator('.rp-tile').allTextContents();
  assert.ok(tiles.some(x=>/Transport\s*50/.test(x)),tiles.join('|'));
- assert.ok(tiles.some(x=>/Erlebnisse\s*120/.test(x)),tiles.join('|'));
+ assert.ok(tiles.some(x=>/Tauchen & Erlebnisse\s*120\s*€\s*Erlebnisse 120/.test(x)),tiles.join('|'));
+});
+
+test('W175b: Anschlussbuchung in derselben Unterkunft zählt einmal',async t=>{
+ const day=n=>{const d=new Date();d.setDate(d.getDate()+n);return d.toISOString().slice(0,10);};
+ const data=stage2Data();
+ data.etappen=[{...data.etappen[1],id:1,anreise:day(-3),abreise:day(0),buchung:{name:'Haus Vorher',preis_gesamt_eur:300,land:'Japan'}},{...data.etappen[1],id:2,anreise:day(0),abreise:day(1),buchung:{name:'Oase',preis_gesamt_eur:100,land:'Japan'}},{...data.etappen[1],id:3,anreise:day(1),abreise:day(2),buchung:{name:'Oase',preis_gesamt_eur:100,land:'Japan'}}];
+ data.posten=[];
+ const {page}=await setup(t,p=>p.aktion==='unterkunft_etappen_lesen'?data:{fotos:[]},{width:390,height:844});
+ await page.goto(origin+'/#/reisen/1');await page.locator('.rp-sec').first().waitFor();
+ assert.match(await page.locator('.rp-stats').textContent(),/2\s*Unterkünfte/);
+ assert.match(await page.locator('.rp-bisher').textContent(),/Bisher\s*2\s*Unterkünfte/);
 });

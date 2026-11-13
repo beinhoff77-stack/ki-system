@@ -63,6 +63,7 @@ async function viewHighlights(arg) {
   const teile = String(arg || '').split('/');
   const [sid, kid] = teile.map(x => (/^\d+$/.test(x) ? Number(x) : null));
   if (sid && teile[1] === 'b' && teile[2]) return hlEbene(sid, null, decodeURIComponent(teile[2])); // W160: Block-Ebene
+  if (sid && teile[1] === 'roadbook' && /^\d+$/.test(teile[2] || '')) return viewRoadbook(sid, Number(teile[2])); // W171: Roadbook
   if (sid) return hlEbene(sid, kid);
   return hlStart();
 }
@@ -413,7 +414,9 @@ async function hlEbene(sid, kid, block = null) {
   const liste = el('div', { class: 'hl2-liste' });
   const unten = el('div', { class: 'hl2-unten' });
   const weiterBox = el('div');
-  hlFill(main, pfad, kopf, mitte, el('section', { class: 'hl2-map-wrap' }, karte.canvas, kartenZeile), weiterBox, chatBox, lauf, tabs, liste, unten);
+  const rbBox = el('div', { class: 'rb-entries' }); // W171: Roadbook-Kacheln der Suche
+  if (!kid && !block) void rbEinstieg(sid, rbBox);
+  hlFill(main, pfad, kopf, rbBox, mitte, el('section', { class: 'hl2-map-wrap' }, karte.canvas, kartenZeile), weiterBox, chatBox, lauf, tabs, liste, unten);
   // W156: im Detail per Wischen über den Kopf zum vorigen/nächsten Highlight der Region
   let wischZiel = { vor: null, zurueck: null };
   { let x0 = null, y0 = 0;

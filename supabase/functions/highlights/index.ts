@@ -12,7 +12,7 @@
 import 'jsr:@supabase/functions-js/edge-runtime.d.ts'
 import postgres from 'npm:postgres@3.4.5'
 
-const VERSION = '0.5.2'
+const VERSION = '0.5.3'
 const sql = postgres(Deno.env.get('SUPABASE_DB_URL')!, { prepare: false, max: 3, idle_timeout: 20 })
 const OR_KEY = Deno.env.get('OPENROUTER_API_KEY') ?? ''
 const MODELL = 'anthropic/claude-sonnet-5.5'
@@ -23,6 +23,7 @@ const antwort = (body: unknown, status = 200) => new Response(JSON.stringify(bod
 const API: Record<string, string> = {
   lesen: 'highlights_lesen', merkliste: 'highlights_merkliste', suche_speichern: 'highlights_suche_speichern',
   entscheiden: 'highlights_entscheiden', portion: 'highlights_portion_anlegen',
+  roadtrip_liste: 'highlights_roadtrip_liste', roadtrip_lesen: 'highlights_roadtrip_lesen', roadtrip_speichern: 'highlights_roadtrip_speichern', // W171
 }
 async function api(fn: string, h: string, daten: unknown): Promise<any> {
   return await sql.begin(async (tx) => {

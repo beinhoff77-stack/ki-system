@@ -216,13 +216,21 @@ async function viewReisen(arg){
   for(const g of gaps)items.push({k:g.von+'T23:59',typ:'gap',g,von:g.von,bis:g.bis,land:g.land});
   items.sort((a,b)=>a.k.localeCompare(b.k)||(a.typ==='gap'?1:-1));
   // Kennzahlen
-  const tripFrom=allDates[0],tripTo=allDates[allDates.length-1],tripDays=tripFrom?tripDayDiff(tripFrom,tripTo):0;
+  // W175: geplantes Reiseende (reise.ende) zählt, wenn es nach der letzten Buchung liegt
+  const lastDate=allDates[allDates.length-1],endePlan=trip.ende&&(!lastDate||String(trip.ende)>lastDate)?String(trip.ende).slice(0,10):null;
+  const tripFrom=allDates[0],tripTo=endePlan||lastDate,tripDays=tripFrom?tripDayDiff(tripFrom,tripTo):0;
   const dayNo=tripFrom&&today>=tripFrom&&today<=tripTo?tripDayDiff(tripFrom,today)+1:null;
   const flightCount=postenBooked.filter(p=>p.art==='flug').reduce((n,p)=>n+p.segmente.length,0);
   const kpi=(v,l)=>el('span',{class:'rp-stat'},el('b',{},v),' '+l);
+  // W175: was schon hinter uns liegt – Unterkünfte mit Anreise bis heute, Flüge mit Abflug vor jetzt (Ortszeit-Text)
+  const jetzt=(()=>{const n=new Date(),z=x=>String(x).padStart(2,'0');return today+'T'+z(n.getHours())+':'+z(n.getMinutes());})();
+  const staysDone=booked.filter(e=>String(e.anreise)<=today).length;
+  const flightsDone=postenBooked.filter(p=>p.art==='flug').flatMap(p=>p.segmente).filter(x=>x.ab&&String(x.ab).slice(0,16)<jetzt).length;
+  const daysLeft=tripTo&&today<=tripTo?tripDayDiff(today,tripTo):null;
+  const bisher=tripFrom&&today>=tripFrom?el('div',{class:'rp-bisher'},el('span',{class:'rp-stat-lab'},'Bisher'),kpi(String(staysDone),staysDone===1?'Unterkunft':'Unterkünfte'),kpi(String(flightsDone),flightsDone===1?'Flug':'Flüge'),daysLeft!==null?kpi(String(daysLeft),(daysLeft===1?'Tag':'Tage')+' übrig'+(endePlan?' · Rückreise '+tripDM(endePlan):'')):null):null;
   content.append(el('section',{class:'rp-total rp-total-slim','aria-label':'Reise-Übersicht'},
    el('div',{class:'rp-total-head'},el('div',{},el('div',{class:'rp-total-title'},el('span',{class:'rp-total-name'},trip.name),dayNo?el('span',{class:'rp-total-day'},'Tag '+dayNo+' von '+tripDays):null),
-     el('div',{class:'rp-stats'},kpi(String(booked.length),booked.length===1?'Unterkunft':'Unterkünfte'),kpi(String(flightCount),flightCount===1?'Flug':'Flüge'),kpi(String(tripDays),'Tage'))),more),
+     el('div',{class:'rp-stats'},kpi(String(booked.length),booked.length===1?'Unterkunft':'Unterkünfte'),kpi(String(flightCount),flightCount===1?'Flug':'Flüge'),kpi(String(tripDays),'Tage')),bisher),more),
    (()=>{const all=essenIn(tageVon||'0000',tripDayAdd(tageBis||'0000-01-01',1)),tile=(lab,val,sub,cls)=>el('div',{class:'rp-tile'+(cls?' '+cls:'')},el('span',{class:'rp-tile-lab'},lab),el('b',{},val),sub?el('span',{class:'rp-tile-sub'},sub):null);
     const diveDays=postenBooked.filter(p=>p.art==='tauchen').length;
     const det=el('details',{class:'rp-total-money rp-total-fold',open:!!stayRead('ks_rp_kosten_offen',false)||null},
@@ -231,7 +239,8 @@ async function viewReisen(arg){
      el('div',{class:'rp-tiles'},
       tile('Unterkünfte',tripEuro(stayTotal,0),pricedNights?'Ø '+tripEuro(stayTotal/pricedNights,0)+' / Nacht':null),
       flightTotal?tile('Flüge',tripEuro(flightTotal,0),flightCount+(flightCount===1?' Flug':' Flüge')):null,
-      (carTotal+otherTotal)?tile('Transport',tripEuro(carTotal+otherTotal,0),'Mietwagen & Co.'):null,
+      carTotal?tile('Transport',tripEuro(carTotal,0),'Mietwagen & Co.'):null,
+      otherTotal?tile('Erlebnisse',tripEuro(otherTotal,0),'Tickets & Events'):null,
       diveTotal?tile('Tauchen',tripEuro(diveTotal,0),diveDays+(diveDays===1?' Tauchtag':' Tauchtage')):null,
       nebenTotal?tile('Nebenkosten',tripEuro(nebenTotal,0),nebenStand?'bis '+tripDM(nebenStand):null):null,
       all.days?tile('Essen','Ø '+tripEuro(all.essen/all.days,0)+'/Tag',tripEuro(all.essen,0)+' gesamt','is-food'):null));

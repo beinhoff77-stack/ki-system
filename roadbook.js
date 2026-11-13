@@ -71,8 +71,8 @@ function rbZuordnen(ctx) {
     const P = h.P; const ov = (D.ov || {})[h.id];
     let bi = -1, bd = 1e9; B.forEach((b, i) => { const w = netz.weg(pts[i + 1], P).km; if (w < bd - 1 || (Math.abs(w - bd) <= 1 && bi >= 0 && b.n > B[bi].n)) { bd = w; bi = i; } });
     let li = -1, ld = 1e9; legs.forEach((l, i) => { const det = netz.weg(l.a, P).km + netz.weg(P, l.b).km - netz.weg(l.a, l.b).km; if (det < ld) { ld = det; li = i; } });
-    if (ov !== 'basis' && bd > 35 && ld <= 50 && ld <= 2 * bd) legs[li].stops.push({ h, P, von: netz.weg(legs[li].a, P).km });
-    else if (bd <= 110) bases[bi].abst.push({ h, P, km: bd, std: netz.weg(pts[bi + 1], P).h });
+    if ((ov === 'fahrt' && ld <= 90) || (ov !== 'basis' && ov !== 'fahrt' && bd > 35 && ld <= 50 && ld <= 2 * bd)) legs[li].stops.push({ h, P, von: netz.weg(legs[li].a, P).km });
+    else if (bd <= 110) bases[bi].abst.push({ h, P, km: bd, std: netz.weg(pts[bi + 1], P).h, ld });
     else abseits.push({ h, P, km: bd, bi });
   }
   legs.forEach(l => l.stops.sort((x, y) => x.von - y.von));
@@ -86,6 +86,7 @@ function rbBloecke(ctx) {
 }
 const rbBlockOrt = (ctx, b) => (b.own && b.own.lat != null ? ctx.netz.ort([b.own.lat, b.own.lon]) : ctx.netz.knoten(b.z));
 const rbName = (ctx, b) => (b.own ? b.own.name : ctx.netz.N[b.z]?.[0] || b.z);
+const rbOrt = (ctx, b) => ctx.netz.N[b.z]?.[0] || b.z;
 
 // ---------- Ansicht ----------
 async function viewRoadbook(sid, rid) {
@@ -108,8 +109,9 @@ async function viewRoadbook(sid, rid) {
   main.replaceChildren(wrap);
   disposeSuche = () => { clearTimeout(ctx.timer); if (ctx.timer) rbSpeichern(ctx, true); if (ctx.karte) ctx.karte.remove(); };
   wrap.addEventListener('click', e => rbKlick(ctx, e));
-  wrap.addEventListener('change', e => { const s = e.target.closest('[data-zone]'); if (!s) return; const b = rbBloecke(ctx)[+s.dataset.zone]; b.z = s.value; b.own = null; b.st = null; rbAenderung(ctx); });
+  wrap.addEventListener('change', e => { const s = e.target.closest('[data-zone]'); if (!s) return; const b = rbBloecke(ctx)[+s.dataset.zone]; b.z = s.value; if (b.own && b.own.lat == null && b.st !== 'gebucht') { b.own = null; b.st = null; } rbAenderung(ctx); });
   wrap.addEventListener('submit', e => rbForm(ctx, e));
+  wrap.addEventListener('toggle', e => { const d = e.target.closest?.('[data-stay]'); if (d) ctx.auf = d.open ? +d.dataset.stay : (ctx.auf === +d.dataset.stay ? null : ctx.auf); }, true);
   ctx.wrap = wrap;
   rbRender(ctx);
 }
@@ -119,73 +121,136 @@ function rbRender(ctx) {
   const start = new Date(rt.start_datum + 'T00:00:00');
   const tot = B.reduce((s, b) => s + b.n, 0), ziel = rt.ziel_naechte, end = rbAddD(start, tot);
   const diff = ziel ? ziel - tot : 0, geb = B.filter(b => b.st === 'gebucht').length;
-  const chips = `<span class="rb-chip">${rbFmt(start)} → ${rbFmt(end)} ${RB_WT[end.getDay()]}</span>` +
-    (ziel ? `<span class="rb-chip ${diff === 0 ? 'ok' : diff > 0 ? 'unter' : 'ueber'}">${diff === 0 ? 'passt: ' + ziel + ' Nächte' : diff > 0 ? diff + ' Nacht' + (diff > 1 ? 'e' : '') + ' frei' : (-diff) + ' Nacht' + (-diff > 1 ? 'e' : '') + ' zu viel'}</span>` : '') +
-    `<span class="rb-chip">${B.length} Nachtlager · ${geb} gebucht</span><span class="rb-chip rb-save" id="rb-save">${ctx.gespeichert ? 'gespeichert' : 'speichert …'}</span>`;
+  const heute = new Date(); heute.setHours(0, 0, 0, 0);
+  const startName = netz.N[D.start || 'adl'][0], endName = netz.N[D.ende || D.start || 'adl'][0];
+  // Fahrten und Tage vorab berechnen
+  const fahrten = Zu.legs.map(l => rbFahrtWerte(ctx, l));
+  let day = 0; const lager = B.map((b, i) => { const von = rbAddD(start, day), bis = rbAddD(start, day + b.n); day += b.n; return { b, i, von, bis, tage: rbTage(ctx, b, Zu.bases[i], von) }; });
+  // ---- Kopf
+  const chips = `<span class="rb-chip">${RB_WT[start.getDay()]} ${rbFmt(start)} → ${RB_WT[end.getDay()]} ${rbFmt(end)}</span>` +
+    (ziel ? `<span class="rb-chip ${diff === 0 ? 'ok' : diff > 0 ? 'unter' : 'ueber'}">${diff === 0 ? ziel + ' Nächte · passt' : diff > 0 ? diff + ' Nacht' + (diff > 1 ? 'e' : '') + ' frei' : (-diff) + ' Nacht' + (-diff > 1 ? 'e' : '') + ' zu viel'}</span>` : '') +
+    `<span class="rb-chip">${geb}/${B.length} Unterkünfte gebucht</span><span class="rb-chip rb-save" id="rb-save">${ctx.gespeichert ? 'gespeichert' : 'speichert …'}</span>`;
+  // ---- Jetzt: heute / morgen
+  const tagInfo = (d) => {
+    const t = Math.round((d - start) / 864e5); if (t < 0 || t > tot) return null;
+    let acc = 0;
+    for (const L of lager) {
+      if (t === acc) return { art: 'fahrt', text: `Fahrt ${L.i === 0 ? startName : rbOrt(ctx, B[L.i - 1])} → ${rbOrt(ctx, L.b)}`, km: fahrten[L.i].km, ziel: 'f' + L.i };
+      if (t < acc + L.b.n) { const tg = L.tage.find(x => +x.datum === +d); return { art: 'tag', text: `${rbOrt(ctx, L.b)}${tg && tg.items.length ? ': ' + tg.items.slice(0, 2).map(x => x.h.titel).join(', ') : ''}`, ziel: L.i }; }
+      acc += L.b.n;
+    }
+    return { art: 'fahrt', text: `Rückfahrt ${rbOrt(ctx, B[B.length - 1])} → ${endName}`, km: fahrten[B.length]?.km, ziel: 'fende' };
+  };
+  const hT = tagInfo(heute), mT = tagInfo(rbAddD(heute, 1));
+  const jetzt = hT || mT ? `<section class="rb-jetzt">${[[hT, 'Heute', heute], [mT, 'Morgen', rbAddD(heute, 1)]].filter(x => x[0]).map(([t, wort, d]) =>
+    `<button type="button" class="rb-jetzt-z" data-goto="${t.ziel}"><span class="rb-jetzt-w">${wort}</span><span class="rb-jetzt-d">${RB_WT[d.getDay()]} ${rbFmt(d)}</span><b>${t.art === 'fahrt' ? '🚙 ' : '📍 '}${rbEsc(t.text)}</b>${t.km ? `<span class="rb-jetzt-d">${Math.round(t.km)} km</span>` : ''}</button>`).join('')}</section>` : '';
+  // ---- Route auf einen Blick
+  const blick = `<ol class="rb-blick">${lager.map(L => { const top = [...Zu.legs[L.i].stops.map(s => s.h), ...Zu.bases[L.i].abst.map(a => a.h)].sort((x, y) => (+y.wow || 0) - (+x.wow || 0))[0];
+    const vergangen = L.bis <= heute, jetzt = L.von <= heute && heute < L.bis;
+    return `<li class="${vergangen ? 'war' : ''}${jetzt ? ' jetzt' : ''}"><button type="button" data-goto="${L.i}">${top?.bild?.url ? `<img src="${rbEsc(top.bild.url)}" alt="" loading="lazy">` : `<span class="rb-blick-ph" aria-hidden="true">${rbGlyph(top)}</span>`}
+      <span class="rb-blick-n">${L.b.n}</span><b>${rbEsc(rbOrt(ctx, L.b))}</b><small>${rbFmt(L.von)}–${rbFmt(L.bis)}${L.b.st === 'gebucht' ? ' · ✓' : ''}</small></button></li>`; }).join('')}</ol>`;
   const tabs = Object.entries(D.vorlagen || {}).map(([k, v]) => `<button type="button" class="rb-tab" aria-pressed="${k === D.aktiv}" data-v="${rbEsc(k)}">${rbEsc(v.name)}<small>${rbEsc(v.sub || '')}</small></button>`).join('');
-  let tl = '', day = 0;
-  B.forEach((b, i) => {
-    const d = rbAddD(start, day), e = rbAddD(start, day + b.n);
-    tl += rbFahrt(ctx, d, Zu.legs[i], i === 0 ? netz.N[D.start || 'adl'][0] : rbName(ctx, B[i - 1]), rbName(ctx, b));
-    tl += rbLager(ctx, b, i, d, e, Zu.bases[i], B.length);
-    tl += `<div class="rb-ins"><button type="button" data-ins="${i}">+ Nachtlager danach einfügen</button></div>`;
-    day += b.n;
+  // ---- Zeitleiste
+  let tl = '';
+  lager.forEach(L => {
+    tl += rbFahrt(ctx, L.von, Zu.legs[L.i], fahrten[L.i], L.i === 0 ? startName : rbOrt(ctx, B[L.i - 1]), rbOrt(ctx, L.b), L.i);
+    tl += rbLager(ctx, L, Zu.bases[L.i], B.length, heute);
+    tl += `<div class="rb-ins"><button type="button" data-ins="${L.i}">+ Nachtlager danach einfügen</button></div>`;
   });
-  if (B.length) tl += rbFahrt(ctx, rbAddD(start, day), Zu.legs[B.length], rbName(ctx, B[B.length - 1]), netz.N[D.ende || D.start || 'adl'][0]);
+  if (B.length) tl += rbFahrt(ctx, end, Zu.legs[B.length], fahrten[B.length], rbOrt(ctx, B[B.length - 1]), endName, 'ende');
   else tl += `<p class="muted">Noch kein Nachtlager. <button type="button" class="link" data-ins="-1">Erstes Nachtlager anlegen</button></p>`;
-  if (Zu.abseits.length) tl += `<section class="rb-off"><h3>Abseits der Route</h3>${Zu.abseits.map(a => { const w = netz.weg(Zu.pts[a.bi + 1], a.P);
-    return `<div class="rb-offz"><div>${rbHlName(ctx, a.h)}<small>${Math.round(w.km)} km · ${rbH(w.h)} einfach ab ${rbEsc(rbName(ctx, B[a.bi]))}${a.h.warn ? ' · <span class="rb-w">⚠ ' + rbEsc(a.h.warn) + '</span>' : ''}</small></div><span class="rb-nowrap"><button type="button" class="rb-btn ghost" data-dort="${a.h.id}">Nacht dort einplanen</button><button type="button" class="rb-x" data-raus="${a.h.id}" aria-label="Raus">✕</button></span></div>`; }).join('')}</section>`;
+  if (Zu.abseits.length) tl += `<section class="rb-off"><h3>Abseits der Route</h3><p class="small muted">Liegen weiter als 110 km von euren Unterkünften. Mit „Nacht dort einplanen“ kommt ein Nachtlager dazu.</p>${Zu.abseits.map(a => { const w = netz.weg(Zu.pts[a.bi + 1], a.P);
+    return rbHlKarte(ctx, a.h, { meta: `${Math.round(w.km)} km · ${rbH(w.h)} ab ${rbEsc(rbOrt(ctx, B[a.bi]))}`, maps: rbGm(Zu.pts[a.bi + 1].c, a.P.c), extra: `<button type="button" class="rb-btn ghost" data-dort="${a.h.id}">Nacht dort einplanen</button>` }); }).join('')}</section>`;
   const raus = ctx.his.filter(h => h.status === 'weg');
   if (raus.length) tl += `<details class="rb-off"><summary>Raus (${raus.length}) – zurückholen</summary><div class="rb-stops">${raus.map(h => `<span class="rb-stop">${rbEsc(h.titel)}<button type="button" data-back="${h.id}" aria-label="zurückholen">↺</button></span>`).join('')}</div></details>`;
   const scroll = window.scrollY;
   ctx.wrap.innerHTML = `
     <header class="rb-kopf"><p class="eyebrow"><a href="${hlHref(ctx.sid)}">Highlights</a> › ROADBOOK</p><h2>${rbEsc(rt.titel)}</h2><div class="rb-chips">${chips}</div></header>
-    <details class="rb-how"><summary><b>So geht’s</b></summary><p>Pro Nacht einen <b>Schlafbereich</b> wählen und über Booking/Airbnb suchen. Gefunden? <b>Unterkunft eintragen</b> (mit Google-Maps-Link wird ab genau dort gerechnet). Die Highlights ordnen sich selbst ein: <b>auf dem Weg</b>, <b>ab Unterkunft</b> oder <b>abseits</b>. ⤴ legt einen Stopp auf die Unterkunft, ✕ setzt ein Highlight auf Raus.</p></details>
-    ${tabs ? `<div class="rb-tabs" role="group" aria-label="Variante">${tabs}</div>` : ''}
+    ${jetzt}
+    <section class="rb-blick-wrap" aria-label="Route auf einen Blick">${blick}</section>
     <div class="rb-grid"><div class="rb-mapbox"><div class="rb-map" id="rb-map" role="region" aria-label="Karte"></div>
-      <div class="rb-legende"><span><i class="l-fahrt"></i>Fahrt</span><span><i class="l-lager"></i>Nachtlager</span><span><i class="l-geb"></i>gebucht</span><span><i class="l-weg"></i>auf dem Weg</span><span><i class="l-ab"></i>ab Unterkunft</span><span><i class="l-off"></i>abseits</span><span><i class="l-zone"></i>Schlafbereich</span></div>
-      <p class="small muted">Kilometer und Zeiten: Schätzung aus vereinfachtem Straßennetz (Asphalt ~85, Piste ~50 km/h). Genaue Strecke über die Maps-Links.</p></div>
+      <div class="rb-legende"><span><i class="l-fahrt"></i>Fahrt</span><span><i class="l-lager"></i>Nächte</span><span><i class="l-geb"></i>gebucht</span><span><i class="l-weg"></i>auf dem Weg</span><span><i class="l-ab"></i>Ausflug</span><span><i class="l-off"></i>abseits</span></div>
+      ${tabs ? `<details class="rb-var"><summary>Variante: <b>${rbEsc(D.vorlagen[D.aktiv]?.name || D.aktiv)}</b> – wechseln</summary><div class="rb-tabs" role="group" aria-label="Variante">${tabs}</div></details>` : ''}
+      <details class="rb-how"><summary>So funktioniert das Roadbook</summary><p>Die Highlights ordnen sich selbst ein: <b>auf dem Weg</b> (am Fahrtag), <b>Ausflug</b> ab der Unterkunft (auf die Tage verteilt) oder <b>abseits</b>. ⤴ legt einen Stopp vom Fahrtag auf einen Ausflugstag, 🚙 legt einen Ausflug auf den Fahrtag, ✕ setzt ein Highlight auf Raus. Unterkunft: unter „🛏“ aufklappen – Schlafbereich wählen, über Booking/Airbnb suchen, dann eintragen (mit Google-Maps-Link wird ab genau dort gerechnet). Kilometer und Zeiten sind Schätzungen (Asphalt ~85, Piste ~50 km/h); genaue Strecke über „Maps“.</p></details></div>
     <div class="rb-tl">${tl}</div></div>`;
   window.scrollTo(0, scroll);
   rbKarte(ctx, Zu);
   if (ctx.offen !== null) { const f = document.getElementById('rb-n-' + ctx.offen); if (f) f.focus({ preventScroll: false }); }
 }
+const rbGlyph = (h) => (h ? hlThema(hlThemaVon(h.typ))[1] : '✦');
 const rbHlName = (ctx, h) => `<a href="${hlHref(ctx.sid, h.id)}">${h.status === 'muss' ? '◆ ' : h.status === 'gemerkt' ? '♡ ' : ''}${rbEsc(h.titel)}</a>${h.wow ? ` <span class="rb-wow" aria-label="${rbEsc(h.wow)} von 5">${'★'.repeat(Math.max(0, Math.min(5, +h.wow || 0)))}</span>` : ''}`;
-
-function rbFahrt(ctx, d, l, von, nach) {
-  const { netz } = ctx;
-  let km = 0, h = 0, prev = l.a, pis = 0;
-  for (const s of [...l.stops.map(x => x.P), l.b]) { const w = netz.weg(prev, s); km += w.km; h += w.h; if (prev.k !== s.k) pis += netz.piste(netz.pfad(prev.k, s.k)); prev = s; }
-  const vor = l.stops.reduce((s, x) => s + x.h.dauer, 0);
-  return `<div class="rb-drive"><div class="rb-date"><b>${d.getDate()}</b><span>${RB_WT[d.getDay()]} ${RB_MO[d.getMonth()]}</span></div>
-   <div><div class="rb-sign"><span class="rb-to">${rbEsc(von)} → ${rbEsc(nach)}</span><span class="rb-km">${Math.round(km)} km · ${rbH(h)}</span></div>
-   <div class="rb-dbody"><div class="small muted">${pis > 0 ? 'davon ca. ' + Math.round(pis) + ' km Piste' : 'Asphalt'}${vor ? ' · plus ca. ' + rbKomma(vor) + ' h Stopps' : ''}</div>
-   ${l.stops.length ? `<div class="rb-stops">${l.stops.map(s => `<span class="rb-stop"><span class="rb-dot"></span>${rbHlName(ctx, s.h)}${s.h.warn ? ` <span class="rb-w" title="${rbEsc(s.h.warn)}">⚠</span>` : ''}<button type="button" data-basis="${s.h.id}" title="lieber ab Unterkunft" aria-label="lieber ab Unterkunft">⤴</button><button type="button" data-raus="${s.h.id}" aria-label="Raus">✕</button></span>`).join('')}</div>` : ''}
-   ${h + vor > 9 ? `<div class="rb-w">⚠ Langer Tag: ca. ${Math.round(h + vor)} h mit Stopps – Stopps per ⤴ auf die Unterkunft legen oder ✕.</div>` : ''}
-   <div><a class="rb-maps" target="_blank" rel="noopener" href="${rbGm(l.a.c, l.b.c, l.stops.map(s => s.P.c))}">Fahrt in Google Maps</a></div></div></div></div>`;
+// Highlight als Karte mit Foto, Moment-Satz und Eckdaten
+function rbHlKarte(ctx, h, o = {}) {
+  const th = hlThema(hlThemaVon(h.typ));
+  const img = h.bild?.url ? `<img src="${rbEsc(h.bild.url)}" alt="" loading="lazy"><span class="rb-hl-cr" title="${rbEsc((h.bild.urheber || '') + ' · ' + (h.bild.lizenz || ''))}">©</span>` : `<span class="rb-hl-ph" style="--th:${th[2]}" aria-hidden="true">${th[1]}</span>`;
+  return `<article class="rb-hl${h.status === 'muss' ? ' muss' : ''}"><a class="rb-hl-img" href="${hlHref(ctx.sid, h.id)}" tabindex="-1" aria-hidden="true">${img}</a>
+    <div class="rb-hl-txt"><div class="rb-hl-t">${rbHlName(ctx, h)}</div>${h.moment ? `<p class="rb-hl-m">${rbEsc(h.moment)}</p>` : ''}
+    <div class="rb-hl-meta">${o.meta || ''}${o.meta ? ' · ' : ''}${rbKomma(h.dauer)} h vor Ort${h.kosten && !/^frei$/i.test(h.kosten) ? ' · ' + rbEsc(h.kosten) : ''}</div>
+    ${h.warn ? `<div class="rb-hl-w">⚠ ${rbEsc(h.warn)}</div>` : ''}
+    <div class="rb-hl-act">${o.maps ? `<a class="rb-maps" target="_blank" rel="noopener" href="${o.maps}">Maps</a>` : ''}${o.extra || ''}<button type="button" class="rb-x" data-raus="${h.id}" title="Raus" aria-label="Raus">✕</button></div></div></article>`;
 }
-
-function rbLager(ctx, b, i, d, e, ba, len) {
-  const { D, netz } = ctx; const zonen = D.zonen || {}; const z = zonen[b.z] || { q: (netz.N[b.z]?.[0] || '') , bet: '' }; const O = rbBlockOrt(ctx, b);
+function rbFahrtWerte(ctx, l) {
+  const { netz } = ctx; let km = 0, h = 0, prev = l.a, pis = 0;
+  for (const s of [...l.stops.map(x => x.P), l.b]) { const w = netz.weg(prev, s); km += w.km; h += w.h; if (prev.k !== s.k) pis += netz.piste(netz.pfad(prev.k, s.k)); prev = s; }
+  return { km, h, pis, vor: l.stops.reduce((s, x) => s + x.h.dauer, 0) };
+}
+function rbFahrt(ctx, d, l, f, von, nach, id) {
+  return `<section class="rb-drive" id="rb-ziel-f${id}"><div class="rb-date"><b>${d.getDate()}</b><span>${RB_WT[d.getDay()]} ${RB_MO[d.getMonth()]}</span></div>
+   <div class="rb-dmain"><div class="rb-sign"><span class="rb-to">${rbEsc(von)} → ${rbEsc(nach)}</span><span class="rb-km">${Math.round(f.km)} km · ${rbH(f.h)}</span></div>
+   <div class="rb-dbody"><div class="small muted">${f.pis > 0 ? 'davon ca. ' + Math.round(f.pis) + ' km Piste' : 'Asphalt'}${f.vor ? ' · plus ca. ' + rbKomma(f.vor) + ' h für ' + l.stops.length + ' Stopp' + (l.stops.length > 1 ? 's' : '') : ''} · <a class="link" target="_blank" rel="noopener" href="${rbGm(l.a.c, l.b.c, l.stops.map(s => s.P.c))}">Strecke in Google Maps</a></div>
+   ${f.h + f.vor > 9 ? `<div class="rb-hl-w">⚠ Langer Tag: ca. ${Math.round(f.h + f.vor)} h mit Stopps – einen Stopp mit ⤴ auf einen Ausflugstag legen oder ✕.</div>` : ''}
+   ${l.stops.length ? `<div class="rb-hls">${l.stops.map(s => rbHlKarte(ctx, s.h, { maps: rbGm(l.a.c, s.P.c), extra: `<button type="button" class="rb-x" data-basis="${s.h.id}" title="lieber als Ausflug ab Unterkunft" aria-label="lieber als Ausflug ab Unterkunft">⤴</button>`, meta: s.h.id in (ctx.D.ov || {}) ? 'auf dem Weg (von euch gelegt)' : 'auf dem Weg' })).join('')}</div>` : ''}
+   </div></div></section>`;
+}
+// Ausflüge ab der Unterkunft auf die Tage verteilen: Ankunftsabend (kurz), volle Tage (≤ 7,5 h inkl. Fahrt), Rest „wenn Zeit“
+function rbTage(ctx, b, ba, von) {
+  const prio = (h) => (h.status === 'muss' ? 100 : h.status === 'gemerkt' ? 50 : 0) + (+h.wow || 0) * 10;
+  const items = ba.abst.map(a => ({ ...a, kosten: a.std * 2 + a.h.dauer })).sort((x, y) => prio(y.h) - prio(x.h) || x.km - y.km);
+  const abend = { datum: von, art: 'abend', items: [], frei: 2.5 };
+  const tage = Array.from({ length: Math.max(0, b.n - 1) }, (_, k) => ({ datum: rbAddD(von, k + 1), art: 'tag', items: [], frei: 7.5 }));
+  const rest = [];
+  const istAbend = (a) => /abend|nacht|stern/i.test((a.h.zeit || '') + ' ' + a.h.titel);
+  for (const a of items) {
+    if (istAbend(a) && abend.frei >= a.kosten) { abend.items.push(a); abend.frei -= a.kosten; continue; }
+    let best = null, bd = Infinity;
+    for (const t of tage) { if (t.frei < a.kosten) continue;
+      const d = t.items.length ? Math.min(...t.items.map(x => hlKm(x.P.c[0], x.P.c[1], a.P.c[0], a.P.c[1]))) : 40 + (7.5 - t.frei) * 0; if (d < bd) { bd = d; best = t; } }
+    if (best) { best.items.push(a); best.frei -= a.kosten; continue; }
+    if (abend.frei >= a.kosten && a.kosten <= 2.5) { abend.items.push(a); abend.frei -= a.kosten; continue; }
+    rest.push(a);
+  }
+  const alle = [abend, ...tage]; if (rest.length) alle.push({ datum: null, art: 'rest', items: rest });
+  return alle;
+}
+function rbLager(ctx, L, ba, len, heute) {
+  const { D, netz } = ctx; const { b, i, von, bis } = L; const zonen = D.zonen || {}; const z = zonen[b.z] || { q: (netz.N[b.z]?.[0] || ''), bet: '' }; const O = rbBlockOrt(ctx, b);
   const opts = Object.keys(zonen).map(k => ({ k, km: netz.weg(netz.knoten(b.z), netz.knoten(k)).km })).sort((x, y) => x.km - y.km);
-  const sumH = ba.abst.reduce((s, a) => s + a.std * 2 + a.h.dauer, 0), tage = b.n - 1 + .5;
-  const st = b.own ? `<div class="rb-stay">Unterkunft: <b>${rbEsc(b.own.name)}</b> · ${b.own.lat != null ? '<span class="rb-ok">genaue Lage</span>' : '<span class="rb-w">Lage = ' + rbEsc(netz.N[b.z]?.[0] || '') + '</span>'}
-      <span class="rb-pills">${['idee', 'angefragt', 'gebucht'].map(s => `<button type="button" class="rb-pill${b.st === s ? ' an' : ''}" data-st="${i}" data-s="${s}">${s === 'idee' ? 'Idee' : s}</button>`).join('')}</span>
-      ${b.own.link ? `<a class="link" target="_blank" rel="noopener" href="${rbEsc(hlSicher(b.own.link) || rbGs(b.own.name))}">Link</a> · ` : ''}<button type="button" class="link" data-edit="${i}">ändern</button> · <button type="button" class="link" data-clear="${i}">entfernen</button></div>`
-    : `<div><button type="button" class="rb-btn" data-edit="${i}">Unterkunft eintragen</button></div>`;
+  const stLabel = { idee: 'Idee', angefragt: 'angefragt', gebucht: '✓ gebucht' };
+  const zusammen = b.own ? `🛏 <b>${rbEsc(b.own.name)}</b> <span class="rb-st ${b.st || ''}">${stLabel[b.st] || 'Idee'}</span>` : `🛏 <span class="rb-w">Unterkunft offen</span> <span class="small muted">· suchen in ${rbEsc(netz.N[b.z]?.[0] || '')}</span>`;
   const form = ctx.offen === i ? `<form class="rb-own" data-form="${i}">
       <label for="rb-n-${i}">Name der Unterkunft</label><input id="rb-n-${i}" name="n" value="${rbEsc(b.own?.name || '')}" placeholder="z. B. Prairie Hotel" autocomplete="off">
       <label for="rb-l-${i}">Google-Maps-Link oder Koordinaten (optional)</label><input id="rb-l-${i}" name="l" value="${rbEsc(b.own?.link || '')}" placeholder="lange Google-Maps-Adresse oder -31.13, 138.39" autocomplete="off">
       <small class="muted">Ohne Lage zählt die Mitte des Schlafbereichs. Kurzlinks (maps.app.goo.gl) enthalten keine Koordinaten – im Browser öffnen und die lange Adresse kopieren.</small>
       <div class="rb-row"><button type="submit" class="rb-btn">Übernehmen</button><button type="button" class="link" data-cancel="1">Abbrechen</button></div><div class="err-text small" id="rb-e-${i}"></div></form>` : '';
-  return `<section class="rb-base"><div class="rb-bhead"><div><h3>${rbEsc(rbName(ctx, b))}</h3><div class="small muted">${RB_WT[d.getDay()]} ${rbFmt(d)} – ${RB_WT[e.getDay()]} ${rbFmt(e)}</div></div>
-     <div class="rb-row"><div class="rb-step"><button type="button" data-i="${i}" data-d="-1" aria-label="Eine Nacht weniger" ${b.n <= 1 ? 'disabled' : ''}>−</button><output>${b.n} ${b.n > 1 ? 'Nächte' : 'Nacht'}</output><button type="button" data-i="${i}" data-d="1" aria-label="Eine Nacht mehr">+</button></div>
-     <span class="rb-tools"><button type="button" data-mv="${i}" data-dir="-1" aria-label="nach oben" ${i === 0 ? 'disabled' : ''}>↑</button><button type="button" data-mv="${i}" data-dir="1" aria-label="nach unten" ${i === len - 1 ? 'disabled' : ''}>↓</button><button type="button" data-del="${i}" aria-label="Nachtlager entfernen">✕</button></span></div></div>
-   <div><div class="rb-sec">Schlafbereich</div><div class="rb-row"><select data-zone="${i}" aria-label="Schlafbereich">${opts.map(o => `<option value="${rbEsc(o.k)}"${o.k === b.z ? ' selected' : ''}>${rbEsc(netz.N[o.k]?.[0] || o.k)}${o.k === b.z ? '' : ' (' + Math.round(o.km) + ' km)'}</option>`).join('')}</select><span class="small muted">${rbEsc(z.bet || '')}</span></div></div>
-   <div class="rb-search"><a class="bk" target="_blank" rel="noopener" href="${rbBooking(z.q, d, e)}">Booking ${rbFmt(d)}–${rbFmt(e)}</a><a target="_blank" rel="noopener" href="${rbAirbnb(z.q, d, e)}">Airbnb</a><a target="_blank" rel="noopener" href="${rbGs('accommodation near ' + z.q)}">Google Maps</a></div>
-   ${st}${form}
-   <div><div class="rb-sec">Ab Unterkunft</div>${ba.abst.length ? `<div class="rb-spokes">${ba.abst.sort((x, y) => x.km - y.km).map((a, j) => `<div class="rb-spoke"><span class="rb-ico">${j + 1}</span><div>${rbHlName(ctx, a.h)}<small>${Math.round(a.km)} km · ${rbH(a.std)} einfach · ${rbKomma(a.h.dauer)} h vor Ort${a.h.warn ? ' · <span class="rb-w">⚠ ' + rbEsc(a.h.warn) + '</span>' : ''}</small></div><span class="rb-nowrap">${(D.ov || {})[a.h.id] === 'basis' ? `<button type="button" class="rb-x" data-unbasis="${a.h.id}" title="wieder auf dem Weg einplanen" aria-label="wieder auf dem Weg">⤵</button>` : ''}<a class="rb-maps" target="_blank" rel="noopener" href="${rbGm(O.c, O.c, [a.P.c])}">Maps</a><button type="button" class="rb-x" data-raus="${a.h.id}" aria-label="Raus">✕</button></span></div>`).join('')}</div>
-     <div class="small ${sumH > tage * 7 ? 'rb-w' : 'muted'}">Abstecher zusammen ca. ${Math.round(sumH)} h · Zeit vor Ort: ${b.n === 1 ? 'Abend + Morgen' : (b.n - 1) + ' volle' + (b.n - 1 > 1 ? ' Tage' : 'r Tag') + ' + Anreisetag'}${sumH > tage * 7 ? ' – mehr als machbar: auswählen oder Nacht dazu' : ''}</div>` : '<div class="small muted">Keine Highlights in Reichweite – reines Nachtlager.</div>'}</div>
+  const unterkunft = `<details class="rb-stay"${ctx.offen === i || ctx.auf === i ? ' open' : ''} data-stay="${i}"><summary>${zusammen}</summary><div class="rb-stay-in">
+    ${b.own ? `<div class="rb-row"><span class="rb-pills">${['idee', 'angefragt', 'gebucht'].map(s => `<button type="button" class="rb-pill${b.st === s ? ' an' : ''}" data-st="${i}" data-s="${s}">${s === 'idee' ? 'Idee' : s}</button>`).join('')}</span>
+      <a class="link" target="_blank" rel="noopener" href="${b.own.lat != null ? rbGs(b.own.lat + ',' + b.own.lon) : rbGs(b.own.name + ' ' + z.q)}">In Maps</a> · <button type="button" class="link" data-edit="${i}">ändern</button> · <button type="button" class="link" data-clear="${i}">entfernen</button></div>`
+      : `<div><button type="button" class="rb-btn" data-edit="${i}">Unterkunft eintragen</button></div>`}
+    ${form}
+    <div class="rb-row"><label class="rb-sec" for="rb-z-${i}">Schlafbereich</label><select id="rb-z-${i}" data-zone="${i}">${opts.map(o => `<option value="${rbEsc(o.k)}"${o.k === b.z ? ' selected' : ''}>${rbEsc(netz.N[o.k]?.[0] || o.k)}${o.k === b.z ? '' : ' (' + Math.round(o.km) + ' km)'}</option>`).join('')}</select><span class="small muted">${rbEsc(z.bet || '')}</span></div>
+    <div class="rb-search"><a class="bk" target="_blank" rel="noopener" href="${rbBooking(z.q, von, bis)}">Booking ${rbFmt(von)}–${rbFmt(bis)}</a><a target="_blank" rel="noopener" href="${rbAirbnb(z.q, von, bis)}">Airbnb</a><a target="_blank" rel="noopener" href="${rbGs('accommodation near ' + z.q)}">Google Maps</a></div>
+    <div class="rb-row small"><span class="muted">Nachtlager:</span><span class="rb-tools"><button type="button" data-mv="${i}" data-dir="-1" aria-label="früher" ${i === 0 ? 'disabled' : ''}>↑</button><button type="button" data-mv="${i}" data-dir="1" aria-label="später" ${i === len - 1 ? 'disabled' : ''}>↓</button><button type="button" data-del="${i}" aria-label="Nachtlager entfernen">✕</button></span></div>
+  </div></details>`;
+  const tage = L.tage.map(t => {
+    const titel = t.art === 'abend' ? `${RB_WT[t.datum.getDay()]} ${rbFmt(t.datum)} · Ankunft, Abend` : t.art === 'tag' ? `${RB_WT[t.datum.getDay()]} ${rbFmt(t.datum)} · ganzer Tag` : 'Wenn noch Zeit ist (z. B. Abreisemorgen)';
+    const istHeute = t.datum && +t.datum === +heute;
+    if (!t.items.length && t.art === 'abend') return '';
+    return `<div class="rb-tag${istHeute ? ' heute' : ''}"><h4>${istHeute ? '<span class="rb-heute">Heute</span> ' : ''}${titel}</h4>${t.items.length ? `<div class="rb-hls">${t.items.map(a => rbHlKarte(ctx, a.h, { meta: `${Math.round(a.km)} km · ${rbH(a.std)} hin`, maps: rbGm(O.c, O.c, [a.P.c]), extra: a.ld <= 90 ? `<button type="button" class="rb-x" data-fahrt="${a.h.id}" title="auf den Fahrtag legen (Umweg ca. ${Math.round(a.ld)} km)" aria-label="auf den Fahrtag legen">🚙</button>` : '' })).join('')}</div>` : '<p class="small muted">Frei – Pool, Wandern ab Unterkunft, Ruhetag.</p>'}</div>`;
+  }).join('');
+  return `<section class="rb-base" id="rb-ziel-${i}"><div class="rb-bhead"><div><p class="rb-eyebrow">${b.n} ${b.n > 1 ? 'Nächte' : 'Nacht'} · ${RB_WT[von.getDay()]} ${rbFmt(von)} – ${RB_WT[bis.getDay()]} ${rbFmt(bis)}</p><h3>${rbEsc(netz.N[b.z]?.[0] || rbName(ctx, b))}</h3></div>
+     <div class="rb-step" aria-label="Nächte"><button type="button" data-i="${i}" data-d="-1" aria-label="Eine Nacht weniger" ${b.n <= 1 ? 'disabled' : ''}>−</button><output>${b.n}</output><button type="button" data-i="${i}" data-d="1" aria-label="Eine Nacht mehr">+</button></div></div>
+   ${unterkunft}
+   ${tage || '<p class="small muted">Keine Ausflüge in Reichweite – reines Nachtlager.</p>'}
   </section>`;
 }
 
@@ -197,7 +262,6 @@ function rbKarte(ctx, Zu) {
   const m = L.map(box, { scrollWheelZoom: false, zoomSnap: 0.5 });
   L.tileLayer('https://tile.openstreetmap.de/{z}/{x}/{y}.png', { minZoom: 4, maxZoom: 16, keepBuffer: 1, attribution: '© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap-Mitwirkende</a>' }).addTo(m);
   const css = getComputedStyle(document.body); const erde = '#b4472a', grau = '#7d8b8f', gruen = '#1f5f46', ink = css.getPropertyValue('--text').trim() || '#14343b';
-  Object.keys(D.zonen || {}).forEach(z => { if (netz.N[z]) L.circle(netz.npt(z), { radius: 15000, color: grau, weight: 1, dashArray: '4 4', fill: false, interactive: false }).addTo(m); });
   const alle = [];
   Zu.legs.forEach(l => { const seq = [l.a, ...l.stops.map(s => s.P), l.b];
     for (let i = 0; i < seq.length - 1; i++) { const a = seq[i], b = seq[i + 1]; const pa = a.k === b.k ? [] : netz.pfad(a.k, b.k); const pts = [a.c, ...pa.map(netz.npt), b.c]; alle.push(...pts);
@@ -232,6 +296,7 @@ async function rbStatus(ctx, id, status) {
 }
 function rbKlick(ctx, e) {
   const T = s => e.target.closest(s); let t; const D = ctx.D, B = rbBloecke(ctx);
+  if ((t = T('[data-goto]'))) { const z = document.getElementById('rb-ziel-' + t.dataset.goto); if (z) z.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
   if ((t = T('[data-v]'))) { D.aktiv = t.dataset.v; ctx.offen = null; return rbAenderung(ctx); }
   if ((t = T('[data-i]'))) { const b = B[+t.dataset.i]; b.n = Math.max(1, b.n + +t.dataset.d); return rbAenderung(ctx); }
   if ((t = T('[data-mv]'))) { const i = +t.dataset.mv, j = i + +t.dataset.dir; if (!B[j]) return; [B[i], B[j]] = [B[j], B[i]]; ctx.offen = null; return rbAenderung(ctx); }
@@ -242,6 +307,7 @@ function rbKlick(ctx, e) {
   if ((t = T('[data-clear]'))) { const b = B[+t.dataset.clear]; b.own = null; b.st = null; ctx.offen = null; return rbAenderung(ctx); }
   if ((t = T('[data-st]'))) { B[+t.dataset.st].st = t.dataset.s; return rbAenderung(ctx); }
   if ((t = T('[data-basis]'))) { D.ov = D.ov || {}; D.ov[t.dataset.basis] = 'basis'; return rbAenderung(ctx); }
+  if ((t = T('[data-fahrt]'))) { D.ov = D.ov || {}; D.ov[t.dataset.fahrt] = 'fahrt'; return rbAenderung(ctx); }
   if ((t = T('[data-unbasis]'))) { if (D.ov) delete D.ov[t.dataset.unbasis]; return rbAenderung(ctx); }
   if ((t = T('[data-raus]'))) return rbStatus(ctx, +t.dataset.raus, 'weg');
   if ((t = T('[data-back]'))) return rbStatus(ctx, +t.dataset.back, 'offen');

@@ -29,6 +29,11 @@ const AUFG = {
   13: { id: 13, lernziel: 'binomisch', antworttyp: 'luecken', frage: { text: 'Multipliziere aus: (x + 1)²', schablone: '□x² + □x + □' }, loesung: { werte: [1, 2, 1] } },
   14: { id: 14, lernziel: 'lesen', antworttyp: 'auswahl', frage: { text: 'Wie liest man 11 490 051?' }, antworten: ['elf Millionen vierhundertneuntausend…', 'elf Millionen vierhundertneunzigtausendeinundfünfzig'], loesung: { index: 1 } },
 };
+const ETAPPEN = [
+  { lernziel: 'stellenwert', titel: 'Welchen Wert hat eine Ziffer?', regel: 'Jeder Platz ist ⟦10-mal⟧ so viel wert wie der rechts daneben.', schritte: ['In 4 052 steht die ⟦4⟧ bei den Tausendern.', 'Also ist sie 4 000 wert.'],
+    fehler: 'Die 0 hält einen Platz frei.', bild: { typ: 'stellentafel', stellen: ['T', 'H', 'Z', 'E'], ziffern: ['4', '0', '5', '2'], markiert: 0 } },
+  { lernziel: 'strahl', titel: 'Zahlenstrahl', regel: 'Erst ausrechnen, wie viel ein Abschnitt wert ist.', schritte: ['100 : 10 = 10'], bild: { typ: 'zahlenstrahl', start: 0, ende: 100, abschnitte: 10, pfeil: 3, beschriftet: 'anfang_ende' } },
+  { lernziel: 'binomisch', titel: 'Binomische Formeln', regel: '(a + b)² = a² + 2ab + b²', schritte: ['(x + 3)²', '= x² + 6x + 9'], probe: '3 · 3 = 9 ✓' }];
 const zeig = (a) => { const { loesung, ...r } = a; return { ...r, tipp: 'Denk an die Stellenwerttafel.' }; };
 function bewerte(a, w) {
   if (a.antworttyp === 'luecken') { if (!w?.werte || w.werte.some((x) => !String(x).trim())) return { format_ok: false, hinweis: 'Bitte fülle alle Felder aus.' }; return { format_ok: true, richtig: w.werte.every((x, i) => Number(String(x).replace('−', '-')) === a.loesung.werte[i]) }; }
@@ -69,8 +74,12 @@ async function setup(t) {
     else if (b.aktion === 'schule_eltern') e = { ok: true, kinder: [{ id: 1, name: 'Kind A', konto: { sterne: 340, stempel: 0, lerntage: 12 } }], belohnungen: [{ id: 5, titel: 'Eis', kosten_sterne: 300, kosten_stempel: 0, aktiv: true }],
       einloesungen: [{ id: 9, kind: 'Kind A', titel: 'Eis', sterne: 300, status: 'beantragt' }] };
     else if (['schule_einloesen', 'schule_look_setzen', 'schule_belohnung_setzen', 'schule_einloesung_entscheiden'].includes(b.aktion)) e = { ok: true };
-    else if (b.aktion === 'schule_einheit_lesen') e = { ok: true, einheit_id: d.einheit_id, status: 'geprueft', inhalt: { ziel: 'Natürliche Zahlen: große Zahlen lesen', verstehen: [{ titel: 'Stellenwerte', text: 'Jede Stelle ist zehnmal so viel wert.', beispiel: '2 000 = 2 · 1 000' }], merke: ['Dreiergruppen lesen.'] },
-      uebungen: [zeig(AUFG[11]), zeig(AUFG[12]), zeig(AUFG[13])], stand: [{ lernziel: 'stellenwert', pflicht: true, status: 'offen' }], laufender_test: null };
+    else if (b.aktion === 'schule_einheit_lesen') e = { ok: true, einheit_id: d.einheit_id, status: 'geprueft', inhalt: { ziel: 'Natürliche Zahlen: große Zahlen lesen', etappen: ETAPPEN },
+      uebungen: [zeig(AUFG[11]), zeig(AUFG[12]), zeig(AUFG[13])], stand: ETAPPEN.map((x) => ({ lernziel: x.lernziel, pflicht: true, status: 'offen' })),
+      etappen_stand: { stellenwert: { fertig: false }, strahl: { fertig: false }, binomisch: { fertig: false } }, laufender_test: null };
+    else if (b.aktion === 'schule_merkheft') e = { ok: true, einheiten: [{ einheit_id: 1, block_id: 49, stadt: 'Rom', ort_titel: 'Natürliche und ganze Zahlen', etappen: ETAPPEN,
+      stand: { stellenwert: { fertig: true }, strahl: { fertig: true } }, blocktest_fertig: false, nachtest: { grund: 'einheit_offen' } },
+      { einheit_id: 2, block_id: 52, stadt: 'New York', ort_titel: 'Zinsen', etappen: ETAPPEN.slice(0, 2), stand: { stellenwert: { fertig: true } }, blocktest_fertig: false, nachtest: { grund: 'einheit_offen' } }] };
     else if (b.aktion === 'schule_uebung_pruefen') { const a = AUFG[d.aufgabe_id]; e = { ok: true, ...bewerte(a, d.antwort), loesung: a.loesung, loesungsweg: 'Weg zur Lösung.' }; }
     else if (b.aktion === 'schule_test_starten') { stand.test = 77; e = { ok: true, sitzung_id: 77, art: d.art, aufgaben: [AUFG[14], AUFG[12]].map((a) => { const { loesung, ...r } = a; return r; }), beantwortet: [] }; }
     else if (b.aktion === 'schule_test_antwort') { const a = AUFG[d.aufgabe_id]; const r = bewerte(a, d.antwort); if (r.format_ok) stand.antworten[a.id] = { w: d.antwort, ok: r.richtig }; e = { ok: true, format_ok: r.format_ok, hinweis: r.hinweis, gespeichert: r.format_ok }; }
@@ -112,7 +121,10 @@ test('Lernreise: Heute dran auf der echten Karte, Weltkarte und Reisepass', asyn
   await page.getByRole('heading', { name: '0 von 5 Orten' }).waitFor();
   await page.getByText('Rom: Natürliche und ganze Zahlen').waitFor();
   await page.screenshot({ path: path.join(root, 'test-results/lernreise-karte-390.png'), fullPage: true });
-  await page.getByRole('link', { name: 'Reisepass' }).click();
+  await page.getByRole('link', { name: 'Mein Weg' }).click();
+  await page.getByRole('heading', { name: 'GERADE DRAN' }).waitFor();
+  await page.screenshot({ path: path.join(root, 'test-results/lernreise-weg-390.png'), fullPage: true });
+  await page.getByRole('link', { name: /Reisepass/ }).click();
   await page.getByRole('heading', { name: 'Belohnungen' }).waitFor();
   await page.getByText('noch 3 Stempel').waitFor();
   await page.getByRole('button', { name: 'Einlösen' }).click();
@@ -130,45 +142,83 @@ test('Lernreise: Kind B (Studio, Nacht) – Rom geschafft als Stempel, Zinsen je
   await page.getByRole('heading', { name: 'New York: Einfache Zinsen' }).waitFor();
   assert.equal(await page.locator('.lr.lr-nacht.lr-studio').count(), 1);
   await page.screenshot({ path: path.join(root, 'test-results/lernreise-leo-390.png'), fullPage: true });
-  await page.getByRole('link', { name: 'Reisepass' }).click();
+  await page.getByText('1 von 2 Etappen').waitFor();
+  await page.getByRole('link', { name: 'Mein Weg' }).click();
+  await page.locator('.lr-wegzeile', { hasText: 'Natürliche und ganze Zahlen' }).waitFor();
+  await page.screenshot({ path: path.join(root, 'test-results/lernreise-leo-weg-390.png'), fullPage: true });
+  await page.goto(origin + '/#/reisepass/2');
   await page.locator('.lr-stempel', { hasText: 'Rom' }).waitFor();
   await page.goto(origin + '/#/reise/3');
   await page.getByText('Terme umformen', { exact: false }).first().waitFor();
 });
 
-test('Lernen: Üben mit Zahl, Zahlenstrahl und Lückenfeldern', async (t) => {
+test('Lernen: Etappen – kurz erklärt, selbst probieren, falsche Aufgabe kommt noch einmal', async (t) => {
   const { page, calls } = await setup(t);
   await page.goto(origin + '/#/lerneinheit/1-1');
-  await page.locator('.lr').waitFor();
-  await page.getByText('Jede Stelle ist zehnmal so viel wert.').waitFor();
-  await page.getByRole('tab', { name: 'Üben' }).click();
+  await page.getByText('0 von 3 Etappen').waitFor();
+  assert.equal(await page.locator('.lr-gesperrt').count(), 1);
+  assert.equal(await page.locator('#title').textContent(), 'Rom: Natürliche und ganze Zahlen');
+  fs.mkdirSync(path.join(root, 'test-results'), { recursive: true });
+  await page.screenshot({ path: path.join(root, 'test-results/lernen-etappen-390.png'), fullPage: true });
+  await page.getByRole('link', { name: 'Los geht’s' }).click();
+  await page.locator('.lr-stellentafel').waitFor();
+  await page.locator('mark', { hasText: '10-mal' }).waitFor();
+  await page.getByText('ACHTUNG, TYPISCHER FEHLER').waitFor();
+  await page.screenshot({ path: path.join(root, 'test-results/lernen-erklaert-390.png'), fullPage: true });
+  await page.getByRole('button', { name: 'Jetzt du' }).click();
   await page.getByRole('textbox', { name: 'Antwort' }).fill('2.000');
   await page.getByRole('button', { name: 'Prüfen' }).click();
   await page.getByText('Bitte schreibe Dezimalzahlen mit Komma.').waitFor();
   await page.getByRole('textbox', { name: 'Antwort' }).fill('2 000');
   await page.getByRole('button', { name: 'Prüfen' }).click();
-  await page.getByText('✓ Richtig!').waitFor();
-  await page.getByRole('button', { name: 'Nächste Aufgabe' }).click();
+  await page.getByText('Richtig!').waitFor();
+  await page.getByRole('button', { name: 'Etappe abschließen' }).click();
+  await page.getByText('ETAPPE 1 GESCHAFFT').waitFor();
+  await page.getByText('+10 Sterne').waitFor();
+  await page.getByRole('link', { name: 'Weiter zu Etappe 2' }).click();
+  await page.getByRole('button', { name: 'Jetzt du' }).click();
+  await page.getByRole('button', { name: 'Nochmal erklären' }).click();
+  await page.locator('.lr-nochmal').waitFor();
   await page.getByRole('button', { name: 'Markierung 3' }).click();
-  fs.mkdirSync(path.join(root, 'test-results'), { recursive: true });
-  await page.screenshot({ path: path.join(root, 'test-results/lernen-ueben-390.png'), fullPage: true });
   await page.getByRole('button', { name: 'Prüfen' }).click();
-  await page.getByText('Richtig ist: Markierung 4').waitFor();
-  await page.getByRole('button', { name: 'Nächste Aufgabe' }).click();
+  await page.getByText('Richtig ist: 20 000 (der 4. Strich nach dem Anfang)').waitFor();
+  await page.getByText('kommt gleich noch einmal').waitFor();
+  await page.screenshot({ path: path.join(root, 'test-results/lernen-probieren-390.png'), fullPage: true });
+  await page.getByRole('button', { name: 'Weiter' }).click();
+  await page.getByRole('button', { name: 'Markierung 4' }).click();
+  await page.getByRole('button', { name: 'Prüfen' }).click();
+  await page.getByText('Richtig!').waitFor();
+  await page.goto(origin + '/#/lerneinheit/1-1-3');
+  await page.getByRole('button', { name: 'Jetzt du' }).click();
   await page.getByRole('textbox', { name: 'Feld 1' }).fill('1');
   await page.getByRole('textbox', { name: 'Feld 2' }).fill('2');
   await page.getByRole('textbox', { name: 'Feld 3' }).fill('1');
   await page.getByRole('button', { name: 'Prüfen' }).click();
-  await page.getByText('✓ Richtig!').waitFor();
+  await page.getByText('Richtig!').waitFor();
   const p = calls.filter((c) => c.aktion === 'schule_uebung_pruefen');
-  assert.deepEqual(p.map((c) => c.daten.antwort), [{ wert: '2.000' }, { wert: '2 000' }, { index: 3 }, { werte: ['1', '2', '1'] }]);
+  assert.deepEqual(p.map((c) => c.daten.antwort), [{ wert: '2.000' }, { wert: '2 000' }, { index: 3 }, { index: 4 }, { werte: ['1', '2', '1'] }]);
   assert.ok(p.every((c) => c.daten.lernender_id === 1 && c.daten.client_id));
+  const w = await page.evaluate(() => document.documentElement.scrollWidth); assert.ok(w <= 390, 'keine Querverschiebung: ' + w);
+});
+
+test('Lernen: Merkheft mit Suche und Weg zurück zur Etappe', async (t) => {
+  const { page } = await setup(t);
+  await page.goto(origin + '/#/merkheft/2');
+  await page.locator('details.lr-merk').first().waitFor();
+  assert.equal(await page.locator('.lr.lr-nacht.lr-studio').count(), 1);
+  assert.equal(await page.locator('details.lr-merk').count(), 3);
+  await page.getByRole('searchbox').fill('binom');
+  await page.getByText('Nichts gefunden.').waitFor();
+  await page.getByRole('searchbox').fill('zahlenstrahl');
+  await page.locator('details.lr-merk[open]', { hasText: 'Zahlenstrahl' }).waitFor();
+  await page.screenshot({ path: path.join(root, 'test-results/lernen-merkheft-390.png'), fullPage: true });
+  await page.getByRole('link', { name: 'Nochmal üben' }).click();
+  await page.waitForURL(/#\/lerneinheit\/2-1-2$/);
 });
 
 test('Lernen: Test ohne Lösungen bis zur Abgabe, danach Auswertung', async (t) => {
   const { page, calls } = await setup(t);
-  await page.goto(origin + '/#/lerneinheit/1-1');
-  await page.getByRole('tab', { name: 'Test' }).click();
+  await page.goto(origin + '/#/lerneinheit/1-1-test');
   await page.getByRole('button', { name: 'Test starten' }).click();
   await page.getByText('elf Millionen vierhundertneunzigtausendeinundfünfzig').click();
   await page.getByRole('button', { name: 'Weiter ›' }).click();

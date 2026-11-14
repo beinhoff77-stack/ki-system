@@ -3236,7 +3236,7 @@ body[data-kindmodus] main.view { padding-left: 0; padding-right: 0; padding-top:
 .lr-zeile-zustand { font-size: 13px; font-weight: 800; color: var(--lr-leise); white-space: nowrap; }
 .lr-mehr > summary { cursor: pointer; font-weight: 800; padding: 8px 2px; color: var(--lr-leise); min-height: 32px; }
 .lr-mehr[open] { display: flex; flex-direction: column; gap: 8px; }
-.lr-nav { position: sticky; bottom: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); background: var(--lr-flaeche); border-top: 1px solid var(--lr-linie); padding: 8px 8px calc(8px + env(safe-area-inset-bottom)); z-index: 5; }
+.lr-nav { position: sticky; bottom: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); background: var(--lr-flaeche); border-top: 1px solid var(--lr-linie); padding: 8px 8px calc(8px + env(safe-area-inset-bottom)); z-index: 5; }
 .lr-nav a { display: flex; flex-direction: column; align-items: center; gap: 2px; min-height: 48px; justify-content: center; text-decoration: none; color: var(--lr-leise); font-size: 12px; font-weight: 800; }
 .lr-nav a.on { color: var(--lr-akzent); }
 .lr-nacht .lr-nav a.on { color: var(--lr-akzent); }
@@ -3299,3 +3299,80 @@ body[data-kindmodus] main.view { padding-left: 0; padding-right: 0; padding-top:
 /* W150: Kopfleiste im Kindmodus einzeilig und nicht mitlaufend */
 body[data-kindmodus] header.top { position: static; }
 body[data-kindmodus] header.top h1 { font-size: 1.15rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; overflow-wrap: normal; }
+
+/* W150: Lerneinheit in Etappen, Mein Weg, Merkheft */
+.lr-etappen { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+.lr-etappe > a { display: flex; align-items: center; gap: 12px; min-height: 52px; color: var(--lr-text); text-decoration: none; padding: 4px 2px; }
+.lr-etappe-nr { width: 34px; height: 34px; border-radius: 50%; border: 3px solid var(--lr-linie); box-sizing: border-box; display: grid; place-items: center; font-weight: 800; color: var(--lr-leise); flex: none; }
+.lr-etappe-fertig .lr-etappe-nr { background: var(--lr-gut); border-color: var(--lr-gut); color: var(--lr-auf-akzent); }
+.lr-ozean .lr-etappe-fertig .lr-etappe-nr, .lr-dschungel .lr-etappe-fertig .lr-etappe-nr, .lr-wueste .lr-etappe-fertig .lr-etappe-nr { color: #fff; }
+.lr-etappe-fertig .lr-zeile-text b { color: var(--lr-leise); font-weight: 700; }
+.lr-etappe-jetzt { margin: 6px 0; background: var(--lr-flaeche); border: 2px solid var(--lr-akzent); border-radius: var(--lr-radius); padding: 14px; display: flex; flex-direction: column; gap: 12px; }
+.lr-entdecker .lr-etappe-jetzt { border-width: 0; box-shadow: 0 5px 0 var(--lr-linie); }
+.lr-etappe-kopf { display: flex; align-items: center; gap: 12px; font-size: 19px; line-height: 1.2; }
+.lr-etappe-jetzt .lr-etappe-nr { background: var(--lr-akzent); border-color: var(--lr-akzent); color: var(--lr-auf-akzent); }
+.lr-gesperrt { display: flex; align-items: center; gap: 10px; margin: 0; padding: 12px 14px; border: 2px dashed var(--lr-linie); border-radius: var(--lr-radius-klein); color: var(--lr-leise); font-weight: 800; }
+.lr-etappe-flaeche { display: flex; flex-direction: column; gap: 14px; }
+.lr-etappe-oben .lr-titel { font-size: 24px; margin-top: 8px; }
+.lr-punktleiste { display: flex; gap: 4px; margin-top: 6px; }
+.lr-punktleiste span { flex: 1; height: 6px; border-radius: 99px; background: var(--lr-linie); }
+.lr-punktleiste span.fertig { background: var(--lr-gut); }
+.lr-punktleiste span.jetzt { background: var(--lr-akzent); }
+.lr-erklaert { display: flex; flex-direction: column; gap: 14px; }
+.lr-regel { margin: 0; font-size: 19px; font-weight: 700; line-height: 1.45; }
+.lr-studio .lr-regel { font-size: 17px; font-weight: 600; }
+.lr-sogehts ol { margin: 6px 0 0; padding: 0; list-style: none; counter-reset: s; display: flex; flex-direction: column; gap: 6px; }
+.lr-sogehts li { counter-increment: s; display: flex; align-items: baseline; gap: 10px; font-size: 18px; font-weight: 700; line-height: 1.5; font-variant-numeric: tabular-nums; }
+.lr-sogehts li::before { content: counter(s); color: var(--lr-leise); font-weight: 800; min-width: 1em; }
+.lr-erklaert mark { background: color-mix(in srgb, var(--lr-akzent) 22%, transparent); color: inherit; border-radius: 6px; padding: 0 3px; }
+.lr-probe { margin: 0; font-size: 14px; color: var(--lr-leise); }
+.lr-fehler { border-radius: var(--lr-radius-klein); background: color-mix(in srgb, var(--lr-akzent) 10%, var(--lr-flaeche)); padding: 10px 12px; }
+.lr-fehler .lr-ueber { color: var(--lr-akzent); }
+.lr-fehler p:last-child { margin: 4px 0 0; font-size: 15px; line-height: 1.4; }
+.lr-bild { line-height: 0; }
+.lr-bild .lern-strahl { width: 100%; height: auto; }
+.lr-stellentafel { border-collapse: collapse; margin: 0 auto; font-size: 22px; font-weight: 800; line-height: 1.2; }
+.lr-stellentafel th, .lr-stellentafel td { border: 2px solid var(--lr-linie); width: 52px; height: 44px; text-align: center; }
+.lr-stellentafel th { font-size: 15px; color: var(--lr-leise); }
+.lr-stellentafel td.on { background: color-mix(in srgb, var(--lr-akzent) 22%, transparent); }
+.lr-aufgabe .lern-frage { font-size: 20px; font-weight: 800; margin: 4px 0 10px; }
+.lr-knopfzeile { display: flex; gap: 8px; flex-wrap: wrap; }
+.lr-knopf-zweit { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 16px; border-radius: var(--lr-radius-klein); border: 2px solid var(--lr-linie); background: transparent; color: var(--lr-text); font: inherit; font-weight: 800; text-decoration: none; cursor: pointer; }
+.lr-tipp { margin: 0; padding: 12px 14px; border-radius: var(--lr-radius-klein); background: color-mix(in srgb, var(--lr-gut) 12%, var(--lr-flaeche)); font-size: 16px; line-height: 1.4; }
+.lr-hinweis { margin: 0; font-weight: 700; color: var(--lr-akzent); }
+.lr-rueck { border-radius: var(--lr-radius-klein); padding: 12px 14px; font-size: 16px; line-height: 1.4; }
+.lr-rueck p { margin: 6px 0 0; }
+.lr-rueck-ok { background: color-mix(in srgb, #1E8A4C 16%, var(--lr-flaeche)); }
+.lr-rueck-falsch { background: color-mix(in srgb, var(--lr-akzent) 14%, var(--lr-flaeche)); }
+.lr-geschafft { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 8px; padding: 30px 0 10px; }
+.lr-geschafft-haken { width: 116px; height: 116px; border-radius: 50%; background: var(--lr-gut); color: var(--lr-auf-akzent); display: grid; place-items: center; margin-bottom: 10px; }
+.lr-ozean .lr-geschafft-haken, .lr-dschungel .lr-geschafft-haken, .lr-wueste .lr-geschafft-haken { color: #fff; }
+.lr-sterne-neu { display: inline-flex; align-items: center; gap: 4px; margin: 4px 0; padding: 8px 14px; border-radius: 99px; background: var(--lr-flaeche); font-weight: 800; color: var(--lr-akzent); }
+.lr-zurueck { font-weight: 800; color: var(--lr-leise); text-decoration: none; }
+.lr-zahlen { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+.lr-zahl { background: var(--lr-flaeche); border: 1px solid var(--lr-linie); border-radius: var(--lr-radius-klein); padding: 10px 6px; text-align: center; }
+.lr-zahl b { display: block; font-size: 26px; line-height: 1.1; }
+.lr-zahl.gut b { color: var(--lr-gut); }
+.lr-zahl span { font-size: 12px; font-weight: 700; color: var(--lr-leise); }
+.lr-abschnitt { margin: 10px 2px 0; font-size: 13px; letter-spacing: .08em; color: var(--lr-leise); }
+.lr-abschnitt-jetzt { color: var(--lr-akzent); }
+.lr-dran { display: flex; flex-direction: column; gap: 6px; background: var(--lr-flaeche); border: 2px solid var(--lr-linie); border-radius: var(--lr-radius-klein); padding: 12px 14px; color: var(--lr-text); text-decoration: none; }
+.lr-dran:first-of-type { border-color: var(--lr-akzent); }
+.lr-dran-kopf { display: flex; justify-content: space-between; gap: 10px; }
+.lr-dran-kopf span { font-size: 13px; font-weight: 800; color: var(--lr-akzent); white-space: nowrap; }
+.lr-dran small { color: var(--lr-leise); }
+.lr-dran .lr-balken { height: 8px; }
+.lr-wegliste { display: flex; flex-direction: column; }
+.lr-wegzeile { display: flex; align-items: center; gap: 12px; padding: 10px 2px; border-bottom: 1px solid var(--lr-linie); color: var(--lr-text); text-decoration: none; min-height: 44px; }
+.lr-wegzeile-icon { width: 26px; height: 26px; border-radius: 50%; border: 2px solid var(--lr-linie); box-sizing: border-box; display: grid; place-items: center; flex: none; }
+.lr-wegzeile-icon.fertig { background: var(--lr-gut); border-color: var(--lr-gut); color: var(--lr-auf-akzent); }
+.lr-ozean .lr-wegzeile-icon.fertig, .lr-dschungel .lr-wegzeile-icon.fertig, .lr-wueste .lr-wegzeile-icon.fertig { color: #fff; }
+.lr-suche { width: 100%; box-sizing: border-box; min-height: 48px; border-radius: var(--lr-radius-klein); border: 1px solid var(--lr-linie); background: var(--lr-flaeche); color: var(--lr-text); padding: 0 14px; font: inherit; font-size: 16px; }
+.lr-merkliste { display: flex; flex-direction: column; gap: 8px; }
+.lr-merkgruppe { display: flex; flex-direction: column; gap: 8px; }
+.lr-merk { background: var(--lr-flaeche); border: 1px solid var(--lr-linie); border-radius: var(--lr-radius-klein); }
+.lr-merk > summary { color: var(--lr-text); list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 14px; min-height: 24px; cursor: pointer; }
+.lr-merk > summary::-webkit-details-marker { display: none; }
+.lr-merk[open] > summary svg { transform: rotate(90deg); }
+.lr-merk-inhalt { padding: 0 14px 14px; display: flex; flex-direction: column; gap: 12px; }
+.lr-nochmal { margin: 0; }

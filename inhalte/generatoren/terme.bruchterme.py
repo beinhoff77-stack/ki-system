@@ -6,7 +6,7 @@ from math import gcd
 from pathlib import Path
 sys.dont_write_bytecode = True
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _bausatz import A, L, Z, baue, bruch, cz, ist_endlich, kl, lin, mono, pot, zt  # noqa: E402
+from _bausatz import A, L, Z, baue, bruch, cz, einsetzen, ist_endlich, kl, lin, mono, pot, zt  # noqa: E402
 
 META = {'thema_schluessel': 'terme.bruchterme', 'thema_id': 31, 'block_id': 60, 'klasse': {'gym_by': 8, 'rs_by': 8}}
 
@@ -32,14 +32,14 @@ ETAPPEN = [
      'fehler': 'Erweitert man 3/(2x) mit 4x, wird nicht nur der Nenner multipliziert. Auch der ⟦Zähler⟧ ändert sich: 12x/(8x²), nicht 3/(8x²).',
      '_verbot': ['3/(2x)']},
     {'lernziel': 'addieren', 'titel': 'Bruchterme addieren und subtrahieren',
-     'regel': 'Gleicher Nenner: ⟦Zähler addieren⟧, Nenner bleibt. Verschiedene Nenner: erst auf den ⟦Hauptnenner⟧ erweitern.',
+     'regel': 'Es geht genau wie bei Zahlenbrüchen: 2/7 + 3/7 = 5/7. Gleicher Nenner: ⟦Zähler addieren⟧, der Nenner bleibt. Verschiedene Nenner: erst auf den ⟦Hauptnenner⟧ erweitern.',
      'schritte': ['2/x + 3/(4x): Hauptnenner 4x.', '2/x = 8/(4x)', '8/(4x) + 3/(4x) = ⟦11/(4x)⟧'],
-     'fehler': '2/x + 3/x ist nicht 5/(2x): Die ⟦Nenner werden nicht addiert⟧. Richtig ist 5/x.',
+     'fehler': '2/x + 3/x ist nicht 5/(2x): Die ⟦Nenner werden nicht addiert⟧. Prüfe mit x = 1: 2 + 3 = 5, aber 5/2 = 2,5. Richtig ist 5/x.',
      '_verbot': ['2/x + 3/(4x)']},
     {'lernziel': 'multiplizieren', 'titel': 'Bruchterme multiplizieren und dividieren',
      'regel': 'Multiplizieren: ⟦Zähler mal Zähler, Nenner mal Nenner⟧, dann kürzen. Dividieren: mit dem ⟦Kehrbruch⟧ multiplizieren.',
-     'schritte': ['(4x/9) · (3/x²)', '= 12x/(9x²)', 'kürzen mit 3x: ⟦4/(3x)⟧'],
-     'fehler': 'Bei (2/x) : (4/x²) teilt man nicht Zähler durch Zähler und Nenner durch Nenner „irgendwie“: Multipliziere mit dem ⟦Kehrbruch⟧ x²/4. Ergebnis: 2x²/(4x) = x/2.',
+     'schritte': ['(4x/9) · (3/x²): Schreibe alles auf einen Bruchstrich: (4x · 3)/(9 · x²).', 'Erst kürzen, dann rechnen: 3 mit 9 kürzen gibt 1 und 3; x mit x² kürzen gibt 1 und x.', 'Übrig bleibt ⟦4/(3x)⟧.'],
+     'fehler': 'Bei (2/x) : (4/x²) den Kehrbruch vom ⟦ersten⟧ Bruch nehmen: (x/2) · (4/x²) = 2/x ist falsch. Umgedreht wird der Bruch, ⟦durch den⟧ du teilst: (2/x) · (x²/4) = 2x²/(4x) = x/2.',
      '_verbot': ['(4x/9) · (3/x²)']},
     {'lernziel': 'fehler_finden', 'titel': 'Richtig oder falsch umgeformt?',
      'regel': 'Prüfe eine Umformung, indem du eine ⟦Zahl einsetzt⟧ (aus D). Kommt links und rechts etwas anderes heraus, ist die Umformung ⟦falsch⟧.',
@@ -64,13 +64,15 @@ def g_definitionsmenge(R, st):
     if st == 1:
         a, b = R.randint(1, 9), R.randint(-9, 9)
         if b == 0: b = 4
-        z = R.choice([str(a), lin(1, R.randint(1, 5)), lin(2, -R.randint(1, 5))])
+        z = R.choice([str(a), f'({lin(1, R.randint(1, 5))})', f'({lin(2, -R.randint(1, 5))})'])
         T = f'{z}/{nenner_lin(1, -b)}'
         if R.random() < .5:
             return Z(f'Für welche Zahl ist der Term {T} nicht definiert?', b, f'{b}', f'Nenner {lin(1, -b)} = 0 für x = {zt(b)}.',
                      'Setze den Nenner gleich 0 und löse nach x.')
         return A(R, f'Gib die Definitionsmenge von {T} an.', mengentext([b]), [mengentext([-b]), mengentext([0]), 'ℚ'],
                  f'Nenner {lin(1, -b)} = 0 für x = {zt(b)}, also D = {mengentext([b])}.', 'Welche Zahl macht den Nenner 0?')
+    if st == 2 and R.random() < .3:
+        return def_schwer(R, R.random() * .4)
     if st == 2:
         while True:
             k, m = R.choice([2, 3, 4, 5, -2, -4]), R.randint(-12, 12)
@@ -85,8 +87,30 @@ def g_definitionsmenge(R, st):
         return A(R, f'Gib die Definitionsmenge von {T} an.', mengentext([0, b]), [mengentext([b]), mengentext([0, -b]), mengentext([-b])],
                  f'Ein Produkt ist 0, wenn ein Faktor 0 ist: x = 0 oder {lin(1, -b)} = 0, also x = {zt(b)}. D = {mengentext([0, b])}.',
                  'Ein Produkt im Nenner ist 0, wenn einer der Faktoren 0 ist.')
-    # Stufe 3: zwei Nenner / Zähler mit Nullstelle als Falle
-    if R.random() < .5:
+    # Stufe 3: zwei Nenner / Zähler mit Nullstelle als Falle / Nenner nie 0 / Umkehraufgabe
+    return def_schwer(R, R.random())
+
+
+def def_schwer(R, art):
+    if art < .2:
+        k, z = R.choice([1, 4, 9, 2, 5]), R.randint(1, 9)
+        return A(R, f'Gib die Definitionsmenge von {z}/(x² + {k}) an.', 'ℚ',
+                 [mengentext([-k]), mengentext([k]), mengentext([-2, 2]) if k == 4 else mengentext([-k, k])],
+                 f'x² ist nie negativ, also ist x² + {k} mindestens {k} und nie 0. Es fehlt keine Zahl: D = ℚ.',
+                 'Kann x² + eine positive Zahl überhaupt 0 werden?')
+    if art < .4:
+        while True:
+            b, c = R.sample([k for k in range(-7, 8)], 2)
+            if b != -c: break
+        z = R.randint(1, 9)
+        def nf(v): return 'x' if v == 0 else f'({lin(1, -v)})'
+        richtig = f'{z}/({nf(b)}{nf(c)})' if 0 in (b, c) else f'{z}/({nf(b)}{nf(c)})'
+        falsch = [f'{z}/({nf(-b)}{nf(-c)})' if (b, c) != (0, 0) else '', f'{nf(b)}/{nf(c)}' if c else f'{nf(c)}/{nf(b)}',
+                  f'{z}/{nf(b)} + {lin(1, -c)}']
+        return A(R, f'Welcher Term hat die Definitionsmenge {mengentext([b, c])}?', richtig, [f for f in falsch if f],
+                 f'Der Nenner {nf(b)}{nf(c)} wird genau für x = {zt(min(b, c))} und x = {zt(max(b, c))} null. Bei den anderen Termen fehlen andere oder weniger Zahlen.',
+                 'Setze die ausgeschlossenen Zahlen ein: Welcher Nenner wird bei beiden 0?')
+    if art < .7:
         b, c = R.sample([k for k in range(-8, 9) if k], 2)
         z = R.choice([k for k in range(-8, 9) if k not in (b, c, 0)])
         T = f'{nenner_lin(1, -z)}/(({lin(1, -b)})({lin(1, -c)}))'
@@ -115,16 +139,43 @@ def g_termwert(R, st):
         break
     zx = lin(a, b); nx = lin(c, d)
     T = f'({zx})/({nx})' if b else f'{zx}/({nx})'
-    if st == 3 and R.random() < .45:
+    art = R.choice(['undef', 'umkehr', 'bruch', 'normal', 'normal']) if st >= 2 else 'normal'
+    if art == 'undef' and c not in (1, -1): c = R.choice([1, -1]); nx = lin(c, d); T = f'({zx})/({nx})' if b else f'{zx}/({nx})'
+    if art == 'undef':
         # Wert außerhalb von D
         xn = Fr(-d, c)
-        if xn.denominator == 1:
-            andere = [zt(Fr(a * xn + b, 1)), '0', zt(a * xn + b + 1)]
-            return A(R, f'Welchen Wert hat T(x) = {T} für x = {zt(xn)}?', 'Keinen: T ist dort nicht definiert.', andere,
-                     f'Nenner: {lin(c, 0).replace("x", "· " + kl(xn)) if c != 1 else kl(xn)} {"+" if d > 0 else "−"} {abs(d)} = 0. Durch 0 teilen geht nicht.',
-                     'Rechne zuerst den Nenner aus.')
+        zw = a * xn + b
+        andere = [zt(zw) if zw else '1', '0' if zw else '−1', zt(zw + 1) if zw + 1 else '2']
+        return A(R, f'Welchen Wert hat T(x) = {T} für x = {zt(xn)}?', 'Keinen: T ist dort nicht definiert.', andere,
+                 f'Nenner: {einsetzen(nx, xn)} = 0. Durch 0 teilen geht nicht.', 'Rechne zuerst den Nenner aus.')
+    if art == 'umkehr':
+        # Umkehraufgabe: T(x) = k/(x + d) hat den Wert v
+        v, x1 = R.choice([-4, -3, -2, 2, 3, 4, 5, 6]), R.randint(-6, 8)
+        d2 = R.choice([k for k in range(-6, 7) if k and k != -x1])
+        k = v * (x1 + d2)
+        T2 = f'{zt(k)}/({lin(1, d2)})'
+        return Z(f'Für welches x hat T(x) = {T2} den Wert {zt(v)}?', x1, f'{k} / ({v}) - ({d2})',
+                 f'{T2} = {zt(v)} → {lin(1, d2)} = {zt(k)} : {kl(v)} = {zt(Fr(k, v))} → x = {zt(x1)}. Probe: {zt(k)} : {kl(x1 + d2)} = {zt(v)}.',
+                 'Der Nenner muss so groß sein, dass Zähler : Nenner den Wert ergibt. Bestimme erst den Nenner.')
+    if art == 'bruch':
+        # Ergebnis als Bruch (nicht abbrechend) → Lücke □/□
+        for _ in range(200):
+            a, b, c, d = R.randint(-5, 6) or 1, R.randint(-9, 9), R.choice([1, 2, 3, -1]), R.randint(-8, 8) or 5
+            zx = lin(a, b); nx = lin(c, d)
+            T = f'({zx})/({nx})' if b else f'{zx}/({nx})'
+            x2 = R.randint(-6, 8)
+            nen2 = c * x2 + d
+            if nen2 == 0: continue
+            w2 = Fr(a * x2 + b, nen2)
+            if not ist_endlich(w2) and w2 > 0 and w2.denominator <= 12: break
+        else:
+            return g_termwert(R, st)
+        return L(f'Berechne T({zt(x2)}) für T(x) = {T}. Gib das Ergebnis als vollständig gekürzten Bruch an.', '□/□',
+                 [w2.numerator, w2.denominator], [f'{w2.numerator}', f'{w2.denominator}'],
+                 f'Zähler: {einsetzen(zx, x2)} = {zt(a * x2 + b)}, Nenner: {einsetzen(nx, x2)} = {zt(nen2)}. T({zt(x2)}) = {zt(a * x2 + b)}/{kl(nen2)}' + (f' = {bruch(w2)}.' if (a * x2 + b, nen2) != (w2.numerator, w2.denominator) else '.'),
+                 'Setze in Zähler und Nenner getrennt ein. Kürze am Ende.', hinweis='Zähler oben, Nenner unten.')
     return Z(f'Berechne T({zt(x0)}) für T(x) = {T}.', w, f'(({a}) * ({x0}) + ({b})) / (({c}) * ({x0}) + ({d}))',
-             f'Zähler: {zt(a * x0 + b)}, Nenner: {zt(nen)}. T({zt(x0)}) = {zt(a * x0 + b)}/{kl(nen) if nen < 0 else zt(nen)} = {zt(w)}.',
+             f'Zähler: {einsetzen(zx, x0)} = {zt(a * x0 + b)}, Nenner: {einsetzen(nx, x0)} = {zt(nen)}. T({zt(x0)}) = {zt(a * x0 + b)}/{kl(nen) if nen < 0 else zt(nen)} = {zt(w)}.',
              'Setze die Zahl in Zähler und Nenner getrennt ein. Achte auf Klammern bei negativen Zahlen.')
 
 
@@ -149,7 +200,9 @@ def g_kuerzen(R, st):
                 if k != m and b: break
             T = f'({lin(k, k * b)})/({lin(m, m * b)})'
             r = bruch(Fr(k, m))
-            return A(R, f'Kürze vollständig: {T}', r, [f'{bruch(Fr(k * b, m * b) + 1)}', f'({lin(k, b)})/({lin(m, b)})', f'{zt(k * b)}/{kl(m * b)} · x'],
+            g = gcd(abs(k * b), abs(m * b))
+            nur_zahlen = f'({lin(k, k * b // g)})/({lin(m, m * b // g)})' if g > 1 else f'{zt(k)}x/({zt(m)}x)'
+            return A(R, f'Kürze vollständig: {T}', r, [nur_zahlen, f'({lin(k, b)})/({lin(m, b)})', f'{bruch(Fr(k * b, m * b) + 1)}'],
                      f'Ausklammern: {k}({lin(1, b)})/({m}({lin(1, b)})). ({lin(1, b)}) kürzen: {r}.', 'Klammere im Zähler und im Nenner die Zahl vor x aus.')
         b, c = R.randint(-8, 8) or 3, R.randint(2, 9)
         T = f'({lin(1, 0)}² {"+" if b > 0 else "−"} {abs(b) if abs(b) != 1 else ""}x)/({c}x)'
@@ -157,6 +210,12 @@ def g_kuerzen(R, st):
         return A(R, f'Kürze vollständig: {T}', r, [lin(1, b), f'(x² {"+" if b > 0 else "−"} {abs(b)})/{c}', f'({lin(1, b)})/({c}x)'],
                  f'Zähler: x({lin(1, b)}). Mit x kürzen: {r}.', 'Klammere im Zähler x aus.')
     art = R.choice(['vorzeichen', 'binom', 'binom'])
+    if art == 'vorzeichen' and R.random() < .5:
+        b = R.randint(1, 9); k = R.choice([1, 2, 3])
+        Zae = f'{k * b} − {k}x' if k > 1 else f'{b} − x'
+        return A(R, f'Kürze vollständig: ({Zae})/(x − {b})', zt(-k), [zt(k), '0', f'x − {b}'],
+                 f'{Zae} = −{"" if k == 1 else k}(x − {b}). Also ' + (f'−(x − {b})/(x − {b}) = −1.' if k == 1 else f'−{k}(x − {b})/(x − {b}) = −{k}.'),
+                 'Klammere im Zähler eine negative Zahl aus. Dann steht dort dieselbe Klammer wie im Nenner.')
     if art == 'vorzeichen':
         k, b = R.randint(2, 9), R.randint(1, 9)
         T = f'({lin(k, -k * b)})/({b} − x)'
@@ -173,6 +232,16 @@ def g_kuerzen(R, st):
 
 def g_erweitern(R, st):
     h = 'Teile den neuen Nenner durch den alten. Mit diesem Term multiplizierst du auch den Zähler.'
+    if st >= 2 and R.random() < .3:
+        if R.random() < .5:
+            a, b, f, e = R.randint(1, 9), R.randint(2, 5), R.randint(2, 5), R.randint(1, 2)
+            neu = f'{b * f}{pot("x", 1 + e)}'
+            return L(f'Mit welchem Term wurde {a}/({b}x) erweitert, wenn der neue Nenner {neu} ist?', f'□{pot("x", e)}', [f], [f'{b * f} // {b}'],
+                     f'{neu} : ({b}x) = {f}{pot("x", e)}. Mit {f}{pot("x", e)} wurde erweitert.', 'Teile den neuen Nenner durch den alten.')
+        a, b, f = R.randint(1, 9), R.randint(1, 9) * R.choice([-1, 1]), R.randint(2, 6)
+        neu = f'{f}x² {"+" if b > 0 else "−"} {abs(f * b)}x'
+        return L(f'Mit welchem Term wurde {a}/({lin(1, b)}) erweitert, wenn der neue Nenner {neu} ist?', '□x', [f], [f'{f}'],
+                 f'{neu} = {f}x({lin(1, b)}). Mit {f}x wurde erweitert.', 'Klammere im neuen Nenner so viel wie möglich aus.')
     if st == 1:
         a, b = R.randint(1, 9), R.randint(2, 6)
         f = R.randint(2, 5)
@@ -189,7 +258,9 @@ def g_erweitern(R, st):
         alt, neu = f'{a}/({lin(1, b)})', f'x² {"+" if b > 0 else "−"} {abs(b) if abs(b) != 1 else ""}x'
         return L(f'Erweitere {alt} auf den Nenner {neu}. Gib den neuen Zähler ein.', '□x', [a], [f'{a}'],
                  f'{neu} = x({lin(1, b)}). Mit x erweitern: Zähler {lin(a, 0)}.', 'Klammere im neuen Nenner x aus.')
-    b, c, f = R.randint(1, 9) * R.choice([-1, 1]), R.randint(1, 9) * R.choice([-1, 1]), R.randint(2, 5)
+    while True:
+        b, c, f = R.randint(1, 9) * R.choice([-1, 1]), R.randint(1, 9) * R.choice([-1, 1]), R.randint(2, 5)
+        if b != c: break
     alt, neu = f'({lin(1, b)})/({lin(1, c)})', f'{lin(f, f * c)}'
     return L(f'Erweitere {alt} auf den Nenner {neu}. Gib den neuen Zähler ein.', '□x + □', [f, f * b], [f'{f}', f'{f}*({b})'],
              f'{neu} = {f}({lin(1, c)}). Mit {f} erweitern: {f} · ({lin(1, b)}) = {lin(f, f * b)}.', 'Klammere im neuen Nenner eine Zahl aus.')
@@ -217,12 +288,63 @@ def g_addieren(R, st):
         r = f'({lin(a, -b if op == "−" else b)})/x²'
         return A(R, f'Fasse zusammen: {a}/x {op} {b}/x²', r, [f'{zt(a - b if op == "−" else a + b)}/x²', f'{zt(a - b if op == "−" else a + b)}/x³', f'({lin(a, -b if op == "−" else b)})/x³'],
                  f'Hauptnenner x²: {a}/x = {lin(a, 0)}/x². Ergebnis: {r}.', 'Der Hauptnenner ist x². Erweitere den ersten Bruch mit x.')
+    if R.random() < .45:
+        while True:
+            p1, q1, p2, q2 = R.randint(2, 7), R.randint(-9, 9), R.randint(1, 5), R.randint(-9, 9)
+            if q1 and q2 and p1 != p2 and q1 != q2 and q1 + q2 != q1 - q2: break
+        Nn = R.choice(['x', f'({lin(1, R.randint(1, 6))})'])
+        r = f'({lin(p1 - p2, q1 - q2)})/{Nn}'
+        return A(R, f'Fasse zusammen: ({lin(p1, q1)})/{Nn} − ({lin(p2, q2)})/{Nn}', r,
+                 [f'({lin(p1 - p2, q1 + q2)})/{Nn}', f'({lin(p1 + p2, q1 - q2)})/{Nn}', f'({lin(p1 - p2, q1 - q2)})/(2{Nn})' if Nn == 'x' else f'({lin(p1 - p2, q1 - q2)})/(2{Nn})'],
+                 f'Gleicher Nenner. Das Minus gilt für den ganzen zweiten Zähler: {lin(p1, q1)} − ({lin(p2, q2)}) = {lin(p1, q1)} − {lin(p2, -q2)} = {lin(p1 - p2, q1 - q2)}. Ergebnis: {r}.',
+                 'Setze den zweiten Zähler in Klammern. Das Minus ändert jedes Vorzeichen darin.')
     a, b, c = R.randint(1, 6), R.randint(1, 6), R.randint(1, 8) * R.choice([-1, 1])
     r = f'({lin(a + b, a * c)})/(x({lin(1, c)}))'
     return A(R, f'Fasse zusammen: {a}/x + {b}/({lin(1, c)})', r,
              [f'{a + b}/(x + {lin(1, c)})', f'{a + b}/(x({lin(1, c)}))', f'({lin(a + b, c)})/(x({lin(1, c)}))'],
              f'Hauptnenner x({lin(1, c)}). Zähler: {a}({lin(1, c)}) + {lin(b, 0)} = {lin(a + b, a * c)}. Ergebnis: {r}.',
              'Der Hauptnenner ist das Produkt der beiden Nenner.')
+
+
+def teile(c, e):
+    """Bruch c·x^e als (Zählerzahl, x-Exponent oben, Nennerzahl, x-Exponent unten)."""
+    c = Fr(c)
+    return c.numerator, max(e, 0), c.denominator, max(-e, 0)
+
+
+def roh(p, ez, q, en):
+    """Ungekürzter Bruch, z. B. 28x/(40x²)."""
+    zae = (str(p) if p != 1 or ez == 0 else '') + (pot('x', ez) if ez else '')
+    nen = (str(q) if q != 1 or en == 0 else '') + (pot('x', en) if en else '')
+    if nen == '1': return zae
+    return f'{zae}/({nen})' if (en and q != 1) else f'{zae}/{nen}'
+
+
+def faktor(p, e):
+    return (str(p) if p != 1 or e == 0 else '') + (pot('x', e) if e else '')
+
+
+def mal_weg(c1, e1, c2, e2):
+    p1, z1, q1, n1 = teile(c1, e1)
+    p2, z2, q2, n2 = teile(c2, e2)
+    P, EZ, Q, EN = p1 * p2, z1 + z2, q1 * q2, n1 + n2
+    k = min(EZ, EN)
+    g = gcd(P, Q)
+    kt = (str(g) if g != 1 or not k else '') + (pot('x', k) if k else '')
+    erg = mono(Fr(P, Q), EZ - EN)
+    zw = (f'Zähler: {faktor(p1, z1)} · {faktor(p2, z2)} = {faktor(P, EZ)}. Nenner: {faktor(q1, n1)} · {faktor(q2, n2)} = {faktor(Q, EN)}. ')
+    if g == 1 and not k: return zw + f'Nichts zu kürzen: {erg}.', erg
+    return zw + f'{roh(P, EZ, Q, EN)} mit {kt} kürzen: {erg}.', erg
+
+
+def L_mono(c, e):
+    """Lücke für ein Monom-Ergebnis c·x^e (c > 0)."""
+    c = Fr(c)
+    p, q = c.numerator, c.denominator
+    if e > 0 and q == 1: return f'□{pot("x", e)}', [p]
+    if e > 0: return f'□{pot("x", e)}/□', [p, q]
+    if e < 0: return f'□/(□{pot("x", -e)})', [p, q]
+    return '□/□', [p, q]
 
 
 def g_multiplizieren(R, st):
@@ -232,27 +354,49 @@ def g_multiplizieren(R, st):
             if gcd(p, q) == 1 and e != 0: return Fr(p, q), e
     if st in (1, 2):
         (c1, e1), (c2, e2) = zufall(), zufall()
-        if st == 1 and e1 * e2 > 0: e2 = -e2
-        div = st == 2 and R.random() < .6
+        if e1 * e2 > 0: e2 = -e2
+        div = st == 2 and R.random() < .7
         if div:
             c, e = c1 / c2, e1 - e2
-            op, w0 = ':', f'Mit dem Kehrbruch von {mono(c2, e2)} multiplizieren: {mono(c1, e1)} · {mono(1 / c2, -e2)}'
+            op = ':'
+            weg, erg = mal_weg(c1, e1, 1 / c2, -e2)
+            weg = f'Mit dem Kehrbruch von {mono(c2, e2)} multiplizieren: {mono(c1, e1)} · {mono(1 / c2, -e2)}. ' + weg
             falsch = [mono(c1 * c2, e1 + e2), mono(c2 / c1, e2 - e1), mono(c1 / c2, e1 + e2)]
         else:
             c, e = c1 * c2, e1 + e2
-            op, w0 = '·', 'Zähler mal Zähler, Nenner mal Nenner'
+            op = '·'
+            weg, erg = mal_weg(c1, e1, c2, e2)
             falsch = [mono(c1 * c2, e1 - e2), mono(c1 / c2, e), mono(c1 * c2 * 2, e), mono(c1 + c2, e)]
-        if e > 6 or e < -6: return g_multiplizieren(R, st)
+        if e > 6 or e < -6 or c.denominator == 1 and e == 0: return g_multiplizieren(R, st)
         r = mono(c, e)
-        return A(R, f'Berechne und kürze: ({mono(c1, e1)}) {op} ({mono(c2, e2)})', r, falsch, f'{w0}, dann kürzen: {r}.',
-                 'Erst multiplizieren (bei „:“ mit dem Kehrbruch), dann Zahlen und x getrennt kürzen.')
+        assert r == erg
+        h = 'Erst multiplizieren (bei „:“ mit dem Kehrbruch), dann Zahlen und x getrennt kürzen.'
+        if R.random() < .4 and c.numerator != 1:
+            sch, werte = L_mono(c, e)
+            return L(f'Berechne und kürze vollständig: ({mono(c1, e1)}) {op} ({mono(c2, e2)})', sch, werte, [str(v) for v in werte], weg, h,
+                     hinweis='Trage die gekürzten Zahlen in die Felder ein.')
+        return A(R, f'Berechne und kürze: ({mono(c1, e1)}) {op} ({mono(c2, e2)})', r, falsch, weg, h)
+    if R.random() < .5:
+        # Stufe 3: erst faktorisieren, dann kürzen
+        if R.random() < .5:
+            k, b = R.randint(2, 6), R.randint(1, 8) * R.choice([-1, 1])
+            r = f'{k}x'
+            return A(R, f'Berechne und kürze: ({lin(k, k * b)})/x · x²/({lin(1, b)})', r, [f'{k}x²', f'{k}/x', f'({lin(k, k * b)})x'],
+                     f'{lin(k, k * b)} = {k}({lin(1, b)}). Zähler: {k}({lin(1, b)}) · x², Nenner: x({lin(1, b)}). Mit x({lin(1, b)}) kürzen: {r}.',
+                     'Klammere im ersten Zähler aus. Dann kürzt sich eine Klammer weg.')
+        b, m, f = R.randint(1, 9), R.randint(2, 5), R.randint(2, 3)
+        n = m * f
+        r = f'{f}({lin(1, b)})'
+        return A(R, f'Berechne und kürze: (x² − {b * b})/{m} : (x − {b})/{n}', r, [f'({lin(1, b)})/{f}', f'{f}({lin(1, -b)})', f'(x² − {b * b})/{f}'],
+                 f'Mit dem Kehrbruch multiplizieren: (x² − {b * b})/{m} · {n}/(x − {b}). x² − {b * b} = (x + {b})(x − {b}). Mit (x − {b}) und {m} kürzen: {r}.',
+                 'Erkenne die 3. binomische Formel im ersten Zähler.')
     b = R.randint(1, 9) * R.choice([-1, 1]); p, q = R.randint(2, 9), R.randint(2, 9)
     if p == q: q += 1
     g = gcd(p, q)
     K = f'({lin(1, b)})'
     r = f'{p // g}/({q // g}{K})' if q // g != 1 else f'{p // g}/{K}'
     return A(R, f'Berechne und kürze: ({lin(1, b)})/{q} · {p}/{K}²', r, [f'{p // g}{K}/{q // g}', f'{p}/({q}{K}²)', f'{p // g}/{q // g}'],
-             f'Zähler: {p}{K}, Nenner: {q}{K}². Kürzen mit {g}{K}' + ('' if g > 1 else '') + f': {r}.', f'{K}² = {K} · {K}. Ein Faktor {K} kürzt sich.')
+             f'Zähler: {p}{K}, Nenner: {q}{K}². Mit {"" if g == 1 else g}{K} kürzen: {r}.', f'{K}² = {K} · {K}. Ein Faktor {K} kürzt sich.')
 
 
 def aussagen(R):
@@ -281,7 +425,29 @@ def aussagen(R):
     return [(t, w, g) for t, w, g, _ in al]
 
 
+BEGRUENDUNG = [
+    (lambda a, b: f'Warum darf man in (x + {a})/(x + {b}) die x nicht kürzen?', 'Kürzen geht nur mit Faktoren, x ist hier ein Summand.',
+     [lambda a, b: f'Weil {a} und {b} verschieden sind.', lambda a, b: 'Man darf es doch kürzen.', lambda a, b: 'Weil x auch 0 sein kann.'],
+     lambda a, b: f'Teste x = 1: (1 + {a})/(1 + {b}) = {bruch(Fr(1 + a, 1 + b))}, aber {a}/{b} = {bruch(Fr(a, b))}. Kürzen darf man nur gemeinsame Faktoren.'),
+    (lambda a, b: f'Warum ist x²/x = x nur für x ≠ 0 richtig?', 'Für x = 0 ist der linke Term nicht definiert.',
+     [lambda a, b: 'Weil 0² = 0 ist.', lambda a, b: 'Für x = 0 ist der rechte Term nicht definiert.', lambda a, b: 'Es ist für alle x richtig.'],
+     lambda a, b: 'Links steht x im Nenner. Für x = 0 hieße das 0/0 – durch 0 teilen geht nicht. Rechts wäre 0 erlaubt.'),
+    (lambda a, b: f'Warum ist {a}/x + {b}/x nicht {a + b}/(2x)?', 'Beim Addieren bleibt der gemeinsame Nenner; nur die Zähler werden addiert.',
+     [lambda a, b: 'Weil man die Zähler multiplizieren muss.', lambda a, b: f'Es stimmt doch: {a + b}/(2x) ist richtig.', lambda a, b: 'Weil x nicht 0 sein darf.'],
+     lambda a, b: f'Teste x = 1: {a} + {b} = {a + b}, aber {a + b}/2 = {zt(Fr(a + b, 2))}. Richtig ist {a + b}/x.'),
+    (lambda a, b: f'Warum ist ({a}x + {b})/{a} nicht x + {b}?', 'Die Zahl im Nenner teilt den ganzen Zähler, also auch den zweiten Summanden.',
+     [lambda a, b: 'Es stimmt, man kürzt die gleichen Zahlen.', lambda a, b: f'Weil x durch {a} geteilt werden muss, nicht {a}x.', lambda a, b: 'Weil man aus Brüchen nie kürzen darf.'],
+     lambda a, b: f'({a}x + {b})/{a} = x + {bruch(Fr(b, a))}. Teste x = 0: {bruch(Fr(b, a))} ≠ {b}.'),
+]
+
+
 def g_fehler_finden(R, st):
+    if st >= 2 and R.random() < .3:
+        frage, richtig, falsch, weg = R.choice(BEGRUENDUNG)
+        while True:
+            a, b = R.sample(range(2, 10), 2)
+            if b % a: break
+        return A(R, frage(a, b), richtig, [f(a, b) for f in falsch], weg(a, b), 'Teste mit einer einfachen Zahl, z. B. x = 1.')
     al = aussagen(R)
     wahr = [(t, g) for t, w, g in al if w]; falsch = [(t, g) for t, w, g in al if not w]
     if st == 1 or (st == 2 and R.random() < .5):
@@ -304,5 +470,6 @@ if __name__ == '__main__':
          'Bruchterme verstehen: Definitionsmenge bestimmen, Werte berechnen, kürzen, erweitern und mit Bruchtermen rechnen.',
          ['Nenner darf nie 0 sein: Diese Zahlen fehlen in D.', 'Kürzen nur aus Produkten, nie aus Summen.',
           'Addieren: erst gleichnamig machen. Multiplizieren: Zähler · Zähler, Nenner · Nenner. Dividieren: mal Kehrbruch.'],
-         offen=['Die README nennt für Brüche als Ergebnis die Lückenschablone „□/□“. Die App liest Lücken aber als Polynom-Term (z. B. „□x + □“); '
-                'einen Bruch kann sie dort nicht auswerten. Bruch-Ergebnisse sind deshalb als Auswahl gebaut, Lücken nur für Zähler-Terme.'])
+         offen=['Bruch-Ergebnisse jetzt teils als Lücken (□/□, □/(□x), □x²/□); Ergebnisse mit Klammer-Faktoren (z. B. 5/(7(x + 1))) bleiben Auswahl, '
+                'weil die Lückenfelder nur ganze Zahlen aufnehmen.',
+                'Vorschlag aus der Prüfung (Anknüpfen an Zahlenbrüche aus Klasse 6) ist in der Regel der Karte „addieren“ umgesetzt.'])

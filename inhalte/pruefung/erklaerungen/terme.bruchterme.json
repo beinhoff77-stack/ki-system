@@ -1,0 +1,60 @@
+{
+  "thema_schluessel": "terme.bruchterme",
+  "gesamturteil": "gut",
+  "thema_hinweise": [
+    "Fachlich richtig, gute Reihenfolge, die Zahlenprobe als Prüfwerkzeug ist vorbildlich.",
+    "Verbessert: beim Multiplizieren der elegantere Weg „erst kürzen, dann multiplizieren“ und ein konkreter typischer Fehler beim Dividieren (Kehrbruch vom falschen Bruch).",
+    "Vorschlag: In „addieren“ und „multiplizieren“ ausdrücklich an die Zahlenbrüche aus Klasse 6 anknüpfen (2/7 + 3/7 = 5/7) – das Kind rechnet dann nichts Neues, nur mit Buchstaben."
+  ],
+  "karten": [
+    {
+      "lernziel": "definitionsmenge",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "termwert",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "kuerzen",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "erweitern",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "addieren",
+      "urteil": "verbessern",
+      "probleme": [
+        "Die Verbindung zu den Zahlenbrüchen aus Klasse 6 fehlt; mit ihr wird die Regel selbstverständlich und der typische Fehler (Nenner addieren) sofort als Unsinn erkennbar."
+      ],
+      "neu": {
+        "regel": "Es geht genau wie bei Zahlenbrüchen: 2/7 + 3/7 = 5/7. Gleicher Nenner: ⟦Zähler addieren⟧, der Nenner bleibt. Verschiedene Nenner: erst auf den ⟦Hauptnenner⟧ erweitern.",
+        "fehler": "2/x + 3/x ist nicht 5/(2x): Die ⟦Nenner werden nicht addiert⟧. Prüfe mit x = 1: 2 + 3 = 5, aber 5/2 = 2,5. Richtig ist 5/x."
+      }
+    },
+    {
+      "lernziel": "multiplizieren",
+      "urteil": "verbessern",
+      "probleme": [
+        "Der typische Fehler beim Dividieren ist unklar formuliert („irgendwie“). Häufigster Fehler: den Kehrbruch vom ersten statt vom zweiten Bruch bilden.",
+        "Eleganter: vor dem Multiplizieren kürzen – kleinere Zahlen, weniger Fehler."
+      ],
+      "neu": {
+        "schritte": [
+          "(4x/9) · (3/x²): Schreibe alles auf einen Bruchstrich: (4x · 3)/(9 · x²).",
+          "Erst kürzen, dann rechnen: 3 mit 9 kürzen gibt 1 und 3; x mit x² kürzen gibt 1 und x.",
+          "Übrig bleibt ⟦4/(3x)⟧."
+        ],
+        "fehler": "Bei (2/x) : (4/x²) den Kehrbruch vom ⟦ersten⟧ Bruch nehmen: (x/2) · (4/x²) = 2/x ist falsch. Umgedreht wird der Bruch, ⟦durch den⟧ du teilst: (2/x) · (x²/4) = 2x²/(4x) = x/2."
+      },
+      "strategie": "Erst kürzen, dann multiplizieren: Faktoren über Kreuz kürzen hält die Zahlen klein."
+    },
+    {
+      "lernziel": "fehler_finden",
+      "urteil": "ok"
+    }
+  ],
+  "neue_karten": []
+}

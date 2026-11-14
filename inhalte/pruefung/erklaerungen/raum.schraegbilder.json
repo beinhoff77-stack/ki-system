@@ -1,0 +1,434 @@
+{
+  "thema_schluessel": "raum.schraegbilder",
+  "gesamturteil": "brauchbar",
+  "thema_hinweise": [
+    "Unter „offen“ steht, dass Schrägbilder und der Quader im Koordinatensystem nicht gezeichnet werden können. Fakt: Mit dem Bildtyp „figur“ (Punkte, Linien, gestrichelt) lassen sich Schrägbilder als ebene Zeichnung darstellen. Für „laengen“, „lage“, „koordinaten“ und „rotation“ sind fertige Bilder angegeben. Gerade „lage“ (windschief) ist ohne Bild für Klasse 8 kaum verständlich.",
+    "Reihenfolge: Laut inhalt.abschnitte gehört „koordinaten“ in den Bereich „Lage im Raum“ direkt hinter „lage“, in inhalt.etappen steht sie aber am Ende hinter den Rotationskörpern. Vorschlag: „koordinaten“ direkt hinter „lage“.",
+    "Lehrplan (Annahme, bitte vom Aufbau-Prüfer klären): Das Feld lehrplan_gym ist leer. Raumkoordinaten, windschiefe Geraden und Kegel/Axialschnitte stehen im bayerischen Gymnasium nach meinem Kenntnisstand eher in späteren Jahrgangsstufen als in Klasse 8. Fakt ist nur: Für dieses Thema ist kein Lehrplanbezug hinterlegt.",
+    "Konvention (Vorschlag): In der Karte „koordinaten“ liegt die x-Achse nach rechts. In der späteren Raumgeometrie ist in Bayern üblich: x-Achse schräg nach vorn, y nach rechts, z nach oben. Wenn die Karte bleibt, wäre diese Lage besser, damit nicht umgelernt werden muss.",
+    "Überschneidung mit messen.koerper_darstellung (Karte „schraegbild“)."
+  ],
+  "karten": [
+    {
+      "lernziel": "pyramide",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "laengen",
+      "urteil": "verbessern",
+      "probleme": [
+        "Wo der Fußpunkt der Höhe im Schrägbild liegt und welche Kanten unsichtbar sind, kann man ohne Bild kaum vermitteln."
+      ],
+      "neu": {
+        "schritte": [
+          "Quadratische Pyramide: Grundkante 6 cm, Höhe 8 cm, q = 1/2.",
+          "Grundfläche: vordere Kante 6 cm in wahrer Länge, Kanten nach hinten 6 · 1/2 = 3 cm unter 45°.",
+          "Diagonalen der Grundfläche zeichnen. Ihr Schnittpunkt F ist der Fußpunkt der Höhe.",
+          "Von F aus ⟦8 cm⟧ senkrecht nach oben zur Spitze S. Verdeckte Kanten gestrichelt."
+        ],
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "A": [
+              0,
+              0
+            ],
+            "B": [
+              6,
+              0
+            ],
+            "C": [
+              8.12,
+              2.12
+            ],
+            "D": [
+              2.12,
+              2.12
+            ],
+            "F": [
+              4.06,
+              1.06
+            ],
+            "S": [
+              4.06,
+              9.06
+            ]
+          },
+          "linien": [
+            [
+              "A",
+              "B",
+              "6 cm"
+            ],
+            [
+              "B",
+              "C",
+              "3 cm"
+            ],
+            [
+              "A",
+              "D",
+              "",
+              "gestrichelt"
+            ],
+            [
+              "D",
+              "C",
+              "",
+              "gestrichelt"
+            ],
+            [
+              "S",
+              "A"
+            ],
+            [
+              "S",
+              "B"
+            ],
+            [
+              "S",
+              "C"
+            ],
+            [
+              "S",
+              "D",
+              "",
+              "gestrichelt"
+            ],
+            [
+              "F",
+              "S",
+              "h = 8 cm",
+              "gestrichelt"
+            ],
+            [
+              "A",
+              "C",
+              "",
+              "gestrichelt"
+            ],
+            [
+              "B",
+              "D",
+              "",
+              "gestrichelt"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "lage",
+      "urteil": "verbessern",
+      "probleme": [
+        "Der Quader wird nur in Worten beschrieben. „Windschief“ ist der schwierigste Begriff des Themas und braucht ein Bild.",
+        "Alltagsbezug fehlt: zwei Straßen, von denen eine über eine Brücke führt, sind windschief."
+      ],
+      "neu": {
+        "regel": "Zwei Geraden im Raum sind ⟦parallel⟧ (gleiche Richtung), ⟦schneiden sich⟧ (ein gemeinsamer Punkt) oder sind ⟦windschief⟧: nicht parallel und trotzdem ohne gemeinsamen Punkt. Beispiel: Eine Autobahn und eine Straße, die auf einer Brücke quer darüber führt.",
+        "schritte": [
+          "Quader ABCDEFGH wie im Bild.",
+          "AB läuft unten vorne nach rechts. CG läuft hinten rechts senkrecht nach oben.",
+          "Sie haben verschiedene Richtungen und treffen sich nie: ⟦windschief⟧."
+        ],
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "A": [
+              0,
+              0
+            ],
+            "B": [
+              5,
+              0
+            ],
+            "C": [
+              6.06,
+              1.06
+            ],
+            "D": [
+              1.06,
+              1.06
+            ],
+            "E": [
+              0,
+              2
+            ],
+            "F": [
+              5,
+              2
+            ],
+            "G": [
+              6.06,
+              3.06
+            ],
+            "H": [
+              1.06,
+              3.06
+            ]
+          },
+          "linien": [
+            [
+              "A",
+              "B"
+            ],
+            [
+              "B",
+              "F"
+            ],
+            [
+              "F",
+              "E"
+            ],
+            [
+              "E",
+              "A"
+            ],
+            [
+              "B",
+              "C"
+            ],
+            [
+              "C",
+              "G"
+            ],
+            [
+              "G",
+              "F"
+            ],
+            [
+              "E",
+              "H"
+            ],
+            [
+              "H",
+              "G"
+            ],
+            [
+              "A",
+              "D",
+              "",
+              "gestrichelt"
+            ],
+            [
+              "D",
+              "C",
+              "",
+              "gestrichelt"
+            ],
+            [
+              "D",
+              "H",
+              "",
+              "gestrichelt"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "rotation",
+      "urteil": "verbessern",
+      "probleme": [
+        "Welche Seite zur Achse und welche zum Radius wird, sieht man erst im Bild (Rechteck mit gespiegeltem Rechteck an der Achse)."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "_a": [
+              0,
+              -1
+            ],
+            "_b": [
+              0,
+              8
+            ],
+            "A": [
+              0,
+              0
+            ],
+            "B": [
+              4,
+              0
+            ],
+            "C": [
+              4,
+              7
+            ],
+            "D": [
+              0,
+              7
+            ],
+            "_l": [
+              -4,
+              0
+            ],
+            "_m": [
+              -4,
+              7
+            ]
+          },
+          "flaeche": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "linien": [
+            [
+              "_a",
+              "_b",
+              "",
+              "gestrichelt"
+            ],
+            [
+              "A",
+              "B",
+              "4 cm"
+            ],
+            [
+              "B",
+              "C"
+            ],
+            [
+              "C",
+              "D"
+            ],
+            [
+              "D",
+              "A",
+              "7 cm (Achse)"
+            ],
+            [
+              "_l",
+              "A",
+              "",
+              "gestrichelt"
+            ],
+            [
+              "_l",
+              "_m",
+              "",
+              "gestrichelt"
+            ],
+            [
+              "_m",
+              "D",
+              "",
+              "gestrichelt"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "axialschnitt",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "koordinaten",
+      "urteil": "verbessern",
+      "probleme": [
+        "Die Lage des Quaders an den Achsen wird nur beschrieben; mit Bild liest das Kind die Koordinaten direkt an den Kanten ab."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "A": [
+              0,
+              0
+            ],
+            "B": [
+              5,
+              0
+            ],
+            "C": [
+              6.06,
+              1.06
+            ],
+            "D": [
+              1.06,
+              1.06
+            ],
+            "E": [
+              0,
+              2
+            ],
+            "F": [
+              5,
+              2
+            ],
+            "G": [
+              6.06,
+              3.06
+            ],
+            "H": [
+              1.06,
+              3.06
+            ]
+          },
+          "linien": [
+            [
+              "A",
+              "B",
+              "5"
+            ],
+            [
+              "B",
+              "F"
+            ],
+            [
+              "F",
+              "E"
+            ],
+            [
+              "E",
+              "A"
+            ],
+            [
+              "B",
+              "C"
+            ],
+            [
+              "C",
+              "G"
+            ],
+            [
+              "G",
+              "F"
+            ],
+            [
+              "E",
+              "H"
+            ],
+            [
+              "H",
+              "G"
+            ],
+            [
+              "A",
+              "D",
+              "3",
+              "gestrichelt"
+            ],
+            [
+              "D",
+              "C",
+              "",
+              "gestrichelt"
+            ],
+            [
+              "D",
+              "H",
+              "",
+              "gestrichelt"
+            ]
+          ]
+        }
+      }
+    }
+  ],
+  "neue_karten": []
+}

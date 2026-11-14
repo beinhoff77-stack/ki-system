@@ -1,0 +1,93 @@
+{
+  "thema_schluessel": "gleichungen.ungleichungen",
+  "gesamturteil": "gut",
+  "karten": [
+    {
+      "lernziel": "umformen",
+      "urteil": "ok",
+      "stufen": "Saubere Steigerung: ein Schritt → zwei Schritte → x auf beiden Seiten. Ablenker (Vorzeichen der Grenze, Zeichen gedreht) sind typische Fehler.",
+      "fehlende_aufgabentypen": [
+        "Sonderfall alle Zahlen / keine Zahl (auswahl, Stufe 3): ‚Löse 2x + 5 > 2x + 1.‘ Antworten: ‚L = ℝ (jede Zahl)‘ (richtig) | ‚L = { }‘ | ‚x > 4‘ | ‚x > 0‘. Beispiel 2: ‚Löse 3x − 2 < 3x − 7.‘ → ‚L = { } (keine Zahl)‘, Weg ‚− 3x: −2 < −7 ist falsch‘."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "umdrehen",
+      "urteil": "verbessern",
+      "stufen": "Passen. Es fehlt eine Aufgabe, die erklärt, warum das Zeichen umgedreht wird.",
+      "fehlende_aufgabentypen": [
+        "Begründen (auswahl): ‚Es gilt 2 < 5. Multipliziere beide Seiten mit (−1). Was stimmt dann?‘ Antworten: ‚−2 > −5‘ (richtig) | ‚−2 < −5‘ | ‚−2 = −5‘. Beispiel 2: ‚Es gilt −3 < 6. Teile beide Seiten durch (−3).‘ → ‚1 > −2‘."
+      ],
+      "generator_regeln": [
+        "Sonderfall −x (Faktor −1) öfter einbauen (‚−x ≤ 4‘ → x ≥ −4); er kommt nur einmal vor."
+      ]
+    },
+    {
+      "lernziel": "klammern",
+      "urteil": "ok",
+      "stufen": "Passen. Stufe 1 enthält schon negative Faktoren vor der Klammer (−2(x − 5) < −2) – eher Stufe 2.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Im Lösungsweg den Schritt ‚: 1 → x ≥ 4‘ weglassen, wenn der Faktor 1 ist."
+      ]
+    },
+    {
+      "lernziel": "intervall",
+      "urteil": "verbessern",
+      "stufen": "Gut, Doppelungleichungen in Stufe 3. Es fehlt die im Lehrplan verlangte grafische Lösung und das Ablesen am Zahlenstrahl.",
+      "fehlende_aufgabentypen": [
+        "Grafisch lösen (auswahl, f.grafik koordinaten): Graph g: y = 2x − 4 (linear m=2, t=−4) und Frage ‚Für welche x liegt der Graph oberhalb der x-Achse, also 2x − 4 > 0?‘ → ‚x > 2‘ | x < 2 | x > −4 | x < −4. Beispiel 2: Zwei Geraden y = x + 1 und y = −x + 5, ‚Für welche x gilt x + 1 < −x + 5?‘ → x < 2 (Schnittpunkt bei x = 2).",
+        "Intervall → Ungleichung (auswahl): ‚Welche Ungleichung gehört zu L = [−3; ∞[?‘ → ‚x ≥ −3‘ | x > −3 | x ≤ −3. Beispiel 2: ‚L = ]−∞; 0,5[‘ → ‚x < 0,5‘."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "pruefen",
+      "urteil": "verbessern",
+      "stufen": "Stufe 3 ‚Fehler finden‘ ist sehr gut gedacht. Ein Ablenker widerspricht sich aber selbst (siehe Fehlerliste).",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Ablenker ‚Im ersten Schritt wurde falsch gerechnet: richtig ist …‘ muss eine andere (falsche) Zwischenzeile nennen als die gezeigte, sonst ist er unsinnig. Besser: ‚Im ersten Schritt hätte man −x statt +x rechnen müssen.‘"
+      ]
+    },
+    {
+      "lernziel": "sachaufgabe",
+      "urteil": "verbessern",
+      "stufen": "Gute Mischung aus ‚höchstens‘ und ‚ab wann‘. Der Handytarif kommt 11-mal vor.",
+      "fehlende_aufgabentypen": [
+        "Ungleichung aufstellen (auswahl): ‚Ein Paket darf höchstens 20 kg wiegen. Der Karton wiegt 1,5 kg, jedes Buch 0,8 kg. Welche Ungleichung passt?‘ → ‚1,5 + 0,8x ≤ 20‘ | 1,5 + 0,8x ≥ 20 | 1,5x + 0,8 ≤ 20 | 0,8x ≤ 20. Beispiel 2: ‚Ein Verein braucht mehr als 400 € für einen Ausflug, hat 120 € und verkauft Kuchen zu 2 € pro Stück.‘ → ‚120 + 2x > 400‘."
+      ],
+      "generator_regeln": [
+        "Aufzug-Aufgabe: höchstens 10 Kisten als Lösung (z. B. Kisten zu 25 kg, Höchstlast 450 kg, Person 80 kg → 14 ist schon viel); 47 Kisten passen in keinen Aufzug.",
+        "Handytarif höchstens 4-mal je Karte.",
+        "Im Lösungsweg nicht ‚x ≤ ≈ 47,08‘ schreiben, sondern ‚x ≤ 47,08…‘ oder ‚x ≤ 565/12 ≈ 47,1‘."
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Jemand löst −4x + 2 > −2 so: − 2 ergibt −4x > −4; durch (−4) ergibt x < −1. Was stimmt?",
+      "art": "mehrdeutig",
+      "problem": "Ablenker ‚Im ersten Schritt wurde falsch gerechnet: richtig ist −4x > −4.‘ nennt als ‚richtig‘ genau die gezeigte Zeile – er widerspricht sich selbst. Betrifft alle Fehler-finden-Aufgaben der Karte ‚pruefen‘. Die richtige Lösung (Vorzeichen falsch, richtig x < 1) stimmt.",
+      "korrektur": "Ablenker ersetzen durch ‚Im ersten Schritt hätte man + 2 statt − 2 rechnen müssen.‘"
+    },
+    {
+      "aufgabe": "Ein Aufzug darf höchstens 630 kg tragen. Eine Person (65 kg) will Kisten zu je 12 kg mitnehmen. Wie viele Kisten darf sie höchstens einladen?",
+      "art": "unrealistisch",
+      "problem": "Lösung 47 Kisten – passt räumlich in keinen Aufzug. Lösungsweg schreibt ‚x ≤ ≈ 47,08‘.",
+      "korrektur": "‚Ein Aufzug darf höchstens 450 kg tragen. Eine Person (80 kg) will Getränkekisten zu je 18 kg mitnehmen. Wie viele Kisten darf sie höchstens einladen?‘ → 80 + 18x ≤ 450 → x ≤ 20,5… → höchstens 20 Kisten. (Alternativ Last 300 kg → 12 Kisten.)"
+    },
+    {
+      "aufgabe": "Löse die Ungleichung −3(x − 1) ≥ −4x + 7.",
+      "art": "loesungsweg",
+      "problem": "Lösungsweg endet mit ‚x ≥ 4. : 1 → x ≥ 4.‘ – überflüssiger Schritt. Gleiches bei ‚Löse 5(x + 6) > 4x + 34 …‘ und ‚Löse 5(x + 2) − 4(x + 4) ≤ 1 …‘.",
+      "korrektur": "Lösungsweg: ‚Klammern auflösen: −3x + 3 ≥ −4x + 7. + 4x: x + 3 ≥ 7. − 3: x ≥ 4.‘"
+    },
+    {
+      "aufgabe": "Eine Taxifahrt kostet 3,50 € Grundpreis und 2,50 € je angefangenen Kilometer. Wie viele Kilometer kann man mit 50 € höchstens fahren?",
+      "art": "mehrdeutig",
+      "problem": "Wegen ‚je angefangenen Kilometer‘ kann man nur volle 18 km fahren; der Lösungsweg ‚x ≤ 18,6‘ suggeriert 18,6 km. Lösung 18 stimmt, Begründung fehlt.",
+      "korrektur": "Lösungsweg: ‚3,50 + 2,50x ≤ 50 → x ≤ 18,6. Ab dem 19. angefangenen Kilometer wird es zu teuer, also höchstens 18 km.‘"
+    }
+  ]
+}

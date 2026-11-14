@@ -1,0 +1,102 @@
+{
+  "thema_schluessel": "funktionen.linear",
+  "gesamturteil": "brauchbar",
+  "karten": [
+    {
+      "lernziel": "ablesen",
+      "urteil": "verbessern",
+      "stufen": "Stufe 1/2 lesen m und t aus y = mx + t, Stufe 3 erst umformen (4y = …) – gut. Es fehlt völlig das Ablesen am Graphen, das der Lehrplan ausdrücklich nennt (‚Graphen zeichnen und Parameter ablesen‘); seit 14.11. kann die App Geraden zeichnen.",
+      "fehlende_aufgabentypen": [
+        "m und t am Graphen ablesen (luecken ‚□x + □‘, f.grafik koordinaten mit linear): Gerade m = 2, t = −1 im Bereich x ∈ [−3; 3] gezeichnet; ‚Gib die Gleichung der Geraden an.‘ → 2x − 1. Beispiel 2: m = −0,5 geht nicht als ganze Zahl in die Lücke → nur ganzzahlige m für die Term-Lücke; Bruchsteigungen als Auswahl: Gerade durch (0 | 1) und (2 | 0) → ‚y = −0,5x + 1‘ | y = −2x + 1 | y = 0,5x + 1 | y = 2x + 1.",
+        "Steigungsdreieck (zahl, f.grafik koordinaten mit strecken gestrichelt): Gerade durch (−1 | 1) und (2 | 7) mit eingezeichnetem Steigungsdreieck; ‚Wie groß ist die Steigung?‘ → 2. Beispiel 2: Dreieck von (0 | 4) nach (4 | 1) → −0,75."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "zwei_punkte",
+      "urteil": "verbessern",
+      "stufen": "Alle 24 Aufgaben sind eine einzige Vorlage (‚Berechne die Steigung der Geraden durch P und Q‘). Stufen unterscheiden sich nur in den Zahlen.",
+      "fehlende_aufgabentypen": [
+        "Sonderfälle (auswahl, Stufe 3): ‚Berechne die Steigung durch P(2 | 5) und Q(7 | 5).‘ → 0 (waagrecht). ‚… durch P(3 | 1) und Q(3 | 6)?‘ → ‚Es gibt keine Steigung, die Gerade ist senkrecht (keine Funktion).‘",
+        "Fehler finden (auswahl): ‚Jemand rechnet für P(1 | 2), Q(4 | 11): m = (11 − 2) : (1 − 4) = −3. Was ist falsch?‘ → ‚Im Nenner wurde andersherum subtrahiert; richtig 9 : 3 = 3.‘ Beispiel 2: ‚m = (4 − 1) : (11 − 2)‘ → ‚x und y vertauscht; richtig (11 − 2) : (4 − 1) = 3‘.",
+        "Liegt der Punkt auf der Geraden? (auswahl): ‚Liegen A(0 | 1), B(2 | 5), C(4 | 8) auf einer Geraden?‘ → ‚Nein, AB hat Steigung 2, BC hat 1,5.‘ Beispiel 2: A(−1 | 4), B(1 | 0), C(3 | −4) → ‚Ja, beide Steigungen −2.‘"
+      ],
+      "generator_regeln": [
+        "Je Stufe höchstens 6 Aufgaben derselben Vorlage."
+      ]
+    },
+    {
+      "lernziel": "aufstellen",
+      "urteil": "ok",
+      "stufen": "Passen: m und t gegeben → m und Punkt → zwei Punkte. Alle 24 Lückenaufgaben nachgerechnet.",
+      "fehlende_aufgabentypen": [
+        "Aufstellen aus Sachtext (luecken ‚□x + □‘): ‚Ein Kerzenstück ist 20 cm lang und brennt pro Stunde 2 cm ab. Gib h(x) an.‘ → −2x + 20. Beispiel 2: ‚Ein Handwerker berechnet 35 € Anfahrt und 40 € pro Stunde.‘ → 40x + 35."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "proportional",
+      "urteil": "verbessern",
+      "stufen": "Die Auswahlaufgabe ‚Ist die Zuordnung … proportional?‘ hat in allen 4 Fällen die Antwort ‚Ja‘. Das Kind muss gar nicht prüfen.",
+      "fehlende_aufgabentypen": [
+        "Nicht proportional erkennen (auswahl): ‚Ist (1 | 5), (2 | 8), (4 | 14) proportional?‘ → ‚Nein, die Quotienten y : x sind verschieden (5; 4; 3,5).‘ Beispiel 2: Taxi-Tabelle (0 km | 4,50 €), (10 km | 22,50 €) → ‚Nein, bei 0 km kostet es schon 4,50 €.‘"
+      ],
+      "generator_regeln": [
+        "Mindestens die Hälfte der ‚Ist … proportional?‘-Aufgaben mit Antwort ‚Nein‘ (linear mit t ≠ 0 oder nicht linear)."
+      ]
+    },
+    {
+      "lernziel": "schnittpunkte",
+      "urteil": "verbessern",
+      "stufen": "Passen. Sprachfehler ‚An welcher Stelle … Gib den y-Wert an‘. Abgefragt wird immer nur eine Koordinate.",
+      "fehlende_aufgabentypen": [
+        "Schnittpunkt als Punkt eingeben (luecken ‚S(□ | □)‘): ‚Berechne den Schnittpunkt von g: y = x + 7 und h: y = 2x + 4.‘ → S(3 | 10). Beispiel 2: ‚g: y = −x + 1 und h: y = x − 5‘ → S(3 | −2)."
+      ],
+      "generator_regeln": [
+        "‚Stelle‘ nur für x-Werte verwenden."
+      ]
+    },
+    {
+      "lernziel": "lage",
+      "urteil": "ok",
+      "stufen": "Gute Abdeckung (parallel, senkrecht, identisch, schneidend), Stufe 3 mit umzuformender Gleichung. Alle 23 Auswahlaufgaben nachgeprüft. Richtige Antwort steht oft an Position 4 (10 von 23).",
+      "fehlende_aufgabentypen": [
+        "Senkrechte Gerade aufstellen (zahl): ‚Gib die Steigung einer Geraden an, die senkrecht zu y = 4x + 1 ist.‘ → −0,25. Beispiel 2: ‚… senkrecht zu y = −2,5x‘ → 0,4."
+      ],
+      "generator_regeln": [
+        "Position der richtigen Antwort gleichmäßig verteilen."
+      ]
+    },
+    {
+      "lernziel": "deuten",
+      "urteil": "ok",
+      "stufen": "Sehr gute Sachkontexte (Kerze, Tank, Pool, Taxi, Tarif) mit Deutung von m und t. Stufe 3 Aussage-Auswahl passt.",
+      "fehlende_aufgabentypen": [
+        "Vergleich zweier Tarife am Graphen (auswahl, f.grafik koordinaten mit zwei Geraden): ‚Ab wie vielen km ist Taxi B billiger?‘ – Schnittpunkt ablesen. Beispiel 1: A: 2x + 4, B: 1,5x + 6 → ab 4 km. Beispiel 2: A: 0,1x + 10, B: 0,2x + 5 (Handy, Minuten) → bis 50 Minuten ist B billiger."
+      ],
+      "generator_regeln": [
+        "Lösungsweg ohne Doppelschritt (‚x + 30 = 80 → x = 50 → x = 50‘)."
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "An welcher Stelle schneidet y = 6x − 30 die y-Achse? Gib den y-Wert an.",
+      "art": "sprache",
+      "problem": "‚Stelle‘ bezeichnet in der Schulmathematik den x-Wert. Die Stelle des y-Achsenschnitts ist immer x = 0; gefragt ist aber der y-Wert. Widersprüchlich.",
+      "korrektur": "‚In welchem Punkt schneidet y = 6x − 30 die y-Achse? Gib den y-Wert an.‘ (Lösung −30)."
+    },
+    {
+      "aufgabe": "Ist die Zuordnung (1 | 7), (6 | 42), (8 | 56) proportional?",
+      "art": "mehrdeutig",
+      "problem": "Lösung richtig, aber alle vier Aufgaben dieser Vorlage haben ‚Ja, y = k · x‘ als Lösung; die Ablenker ‚Nein …‘ sind nie richtig.",
+      "korrektur": "Zwei der vier Aufgaben ersetzen, z. B. ‚Ist die Zuordnung (1 | 5), (2 | 8), (4 | 14) proportional?‘ → ‚Nein, die Quotienten y : x sind verschieden.‘"
+    },
+    {
+      "aufgabe": "Ein Pool wird befüllt: h(x) = x + 30 (x in Minuten, h in cm). Nach wie vielen Minuten steht das Wasser 80 cm hoch?",
+      "art": "loesungsweg",
+      "problem": "Lösungsweg ‚x + 30 = 80 → x = 50 → x = 50.‘ (Doppelschritt). Außerdem steigt das Wasser 1 cm pro Minute – für einen Pool sehr schnell (realistisch 1–3 cm pro Stunde bei Gartenschlauch).",
+      "korrektur": "‚Ein Planschbecken wird befüllt: h(x) = 0,5x + 5 (x in Minuten, h in cm). Nach wie vielen Minuten steht das Wasser 30 cm hoch?‘ → 50. Lösungsweg: ‚0,5x + 5 = 30 → 0,5x = 25 → x = 50.‘"
+    }
+  ]
+}

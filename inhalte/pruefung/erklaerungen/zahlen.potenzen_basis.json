@@ -1,0 +1,80 @@
+{
+  "thema_schluessel": "zahlen.potenzen_basis",
+  "gesamturteil": "gut",
+  "thema_hinweise": [
+    "Aufbau stimmt. Die Karte „negativ“ setzt das Multiplizieren ganzer Zahlen voraus; das kommt im Thema zahlen.rechengesetze (Karte mal_ganz), das in der Themenliste vorher steht – passt.",
+    "Der häufigste Fehler bei negativen Basen fehlt: −3² und (−3)² verwechseln. Er ist in der Karte „negativ“ jetzt eingebaut.",
+    "Zwei Karten (quadrat, zehner) haben nackte Zahlenbeispiele; ein Alltagsbezug (Fliesen, Stadion) ist leicht möglich und jetzt eingebaut."
+  ],
+  "karten": [
+    {
+      "lernziel": "schreibweise",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "berechnen",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "quadrat",
+      "urteil": "verbessern",
+      "probleme": [
+        "Kein Bild davon, warum „hoch 2“ Quadrat heißt: Ein Quadrat aus 14 mal 14 Fliesen macht das sofort klar.",
+        "Es fehlt ein Trick, mit dem das Kind vergessene Quadratzahlen schnell aus der Nachbarzahl findet."
+      ],
+      "neu": {
+        "regel": "„Hoch 2“ heißt ⟦Quadrat⟧: die Zahl mal sich selbst. Der Name kommt vom Quadrat: Ein Quadrat mit 14 Fliesen pro Reihe und 14 Reihen hat 14 · 14 = 14² Fliesen. Die Quadratzahlen von 1² bis 20² solltest du auswendig können: … 11² = 121, 12² = 144, 13² = 169, 14² = 196, 15² = 225, 16² = 256, 17² = 289, 18² = 324, 19² = 361, 20² = 400.",
+        "schritte": [
+          "Ein quadratischer Badboden hat 14 Fliesen pro Reihe und 14 Reihen. Das sind 14² Fliesen.",
+          "Zerlege: 14 · 10 = 140 und 14 · 4 = 56.",
+          "Zusammen: 140 + 56 = ⟦196⟧ Fliesen."
+        ],
+        "probe": "Nachbar-Trick: 15² = 225. Vom Quadrat mit 14 · 14 Fliesen zum Quadrat mit 15 · 15 kommen eine Reihe und eine Spalte dazu, also 14 + 15 = 29 Fliesen. 196 + 29 = 225 ✓",
+        "fehler": "14² = 28 ist falsch: Das wäre 14 · 2. Quadrat heißt 14 · ⟦14⟧. Denk an die Fliesen: 14 Reihen mit je 14 Fliesen sind viel mehr als 28."
+      },
+      "strategie": "Nachbar-Trick mit Begründung: n² + n + (n + 1) = (n + 1)². Am Fliesenquadrat sieht man, dass eine Reihe und eine Spalte dazukommen."
+    },
+    {
+      "lernziel": "vertauschen",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "zehner",
+      "urteil": "verbessern",
+      "probleme": [
+        "Das Beispiel ist eine nackte Zahl; gerade große Zahlen haben viele Alltagsbezüge (Zuschauer, Einwohner, Entfernungen).",
+        "Häufiger Fehler fehlt: 7 · 10⁴ mit fünf Nullen schreiben (die 7 wird als Null mitgezählt) oder 7 · 10⁴ mit 7⁴ verwechseln."
+      ],
+      "neu": {
+        "schritte": [
+          "Ein großes Fußballstadion hat rund 7 · 10⁴ Plätze.",
+          "10⁴ ist eine 1 mit 4 Nullen: 10 000.",
+          "7 · 10 000 = ⟦70 000⟧ Plätze."
+        ],
+        "fehler": "7 · 10⁴ = 700 000 ist falsch: Hinter die 7 kommen genau ⟦4⟧ Nullen, also 70 000. Und 10⁴ ist nicht 40: 10⁴ = 10 · 10 · 10 · 10 = ⟦10 000⟧."
+      }
+    },
+    {
+      "lernziel": "negativ",
+      "urteil": "verbessern",
+      "probleme": [
+        "Der häufigste Fehler bei negativen Basen fehlt: −3² (ohne Klammer) und (−3)² verwechseln. Ohne Klammer gehört das Minus nicht zur Basis.",
+        "Die Regel „gerader Exponent → positiv“ steht ohne Warum da; die Begründung über Minus-Paare ist kurz und einleuchtend."
+      ],
+      "neu": {
+        "regel": "Steht eine negative Zahl ⟦in Klammern⟧, wird sie samt Minus malgenommen. Je zwei Minus-Faktoren ergeben zusammen Plus. Gerader Exponent: Alle Minus finden einen Partner, das Ergebnis ist ⟦positiv⟧. Ungerader Exponent: Ein Minus bleibt übrig, das Ergebnis ist ⟦negativ⟧.",
+        "schritte": [
+          "(−2)³ = (−2) · (−2) · (−2)",
+          "(−2) · (−2) = 4, dann 4 · (−2) = ⟦−8⟧. Ein Minus ist übrig geblieben."
+        ],
+        "probe": "(−2)² = (−2) · (−2) = 4: zwei Minus, ein Paar, positiv ✓",
+        "fehler": "−3² und (−3)² verwechseln. In (−3)² ist die −3 die Basis: (−3) · (−3) = ⟦9⟧. In −3² ohne Klammer gehört nur die 3 zur Basis: −3² = −(3 · 3) = ⟦−9⟧."
+      }
+    },
+    {
+      "lernziel": "sach",
+      "urteil": "ok"
+    }
+  ],
+  "neue_karten": []
+}

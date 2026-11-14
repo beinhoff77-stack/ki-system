@@ -1,0 +1,93 @@
+{
+  "thema_schluessel": "zahlen.intervalle",
+  "gesamturteil": "brauchbar",
+  "thema_hinweise": [
+    "Die Karte „lesen“ zeigt einen Zahlenstrahl ohne jede Markierung – das Bild hilft so nicht. Mit dem Bildtyp „figur“ lässt sich ein Intervall darstellen: gestrichelte Zahlengerade, durchgezogene Strecke, gefüllter Punkt (Grenze gehört dazu) und kleiner leerer Kreis (Grenze gehört nicht dazu). Das ist eine Behelfslösung; ein eigener Bildtyp „intervall“ für den Zahlenstrahl wäre besser (Vorschlag für den Haupt-Chat).",
+    "Lehrplanbezug fehlt (lehrplan_gym leer). Intervalle werden im Thema gleichungen.ungleichungen gebraucht; dieses Thema sollte davor stehen.",
+    "Es fehlt ein Alltagsbezug, warum man Grenzen unterscheiden muss (z. B. Kinderkarte „unter 14 Jahren“, Paket „bis einschließlich 2 kg“)."
+  ],
+  "karten": [
+    {
+      "lernziel": "lesen",
+      "urteil": "verbessern",
+      "probleme": [
+        "Das Bild ist ein Zahlenstrahl ohne Markierung des Intervalls.",
+        "Kein Alltagsbezug für „Grenze gehört dazu / nicht dazu“."
+      ],
+      "neu": {
+        "regel": "Ein ⟦Intervall⟧ ist ein lückenloser Zahlenbereich. [a; b] heißt: a ≤ x ≤ b. Zeigt eine Klammer ⟦nach außen⟧, gehört die Grenze ⟦nicht⟧ dazu. Wie im Alltag: „Ab 3 Jahren“ – die 3 gehört dazu. „Unter 5 Jahren“ – die 5 gehört nicht dazu.",
+        "schritte": [
+          "[−2; 5[: Links zeigt die Klammer nach innen, −2 gehört dazu (gefüllter Punkt).",
+          "Rechts zeigt die Klammer nach außen, 5 gehört nicht dazu (leerer Kreis).",
+          "Also ⟦−2 ≤ x < 5⟧."
+        ],
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "_l": [
+              -3.5,
+              0
+            ],
+            "_r": [
+              6.5,
+              0
+            ],
+            "−2": [
+              -2,
+              0
+            ],
+            "_e": [
+              5,
+              0
+            ]
+          },
+          "linien": [
+            [
+              "_l",
+              "_r",
+              "",
+              "gestrichelt"
+            ],
+            [
+              "−2",
+              "_e"
+            ]
+          ],
+          "kreise": [
+            {
+              "m": [
+                5,
+                0
+              ],
+              "r": 0.2,
+              "name": "5"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "schreiben",
+      "urteil": "verbessern",
+      "probleme": [
+        "Nur Ungleichungszeichen, kein Alltagsbezug. Ein Satz wie „Mitfahren ab 140 cm“ zeigt, wozu man die Schreibweise braucht."
+      ],
+      "neu": {
+        "schritte": [
+          "Achterbahn: Mitfahren darf, wer ⟦mindestens⟧ 140 cm groß ist. Nach oben gibt es keine Grenze: x ≥ 140.",
+          "Die 140 gehört dazu: Klammer nach innen. Nach oben unbegrenzt: ∞ mit Klammer nach außen.",
+          "Intervall: ⟦[140; ∞[⟧"
+        ]
+      }
+    },
+    {
+      "lernziel": "enthalten",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "beurteilen",
+      "urteil": "ok"
+    }
+  ],
+  "neue_karten": []
+}

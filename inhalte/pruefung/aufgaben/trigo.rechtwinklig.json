@@ -1,0 +1,111 @@
+{
+  "thema_schluessel": "trigo.rechtwinklig",
+  "gesamturteil": "brauchbar",
+  "karten": [
+    {
+      "lernziel": "seiten",
+      "urteil": "verbessern",
+      "stufen": "Gute Steigerung: Stufe 1 rechter Winkel bei C, Stufe 2 bei A oder B, Stufe 3 andere Punktnamen. Die Frage 'Welche Seite ist die Hypotenuse von β?' ist fachlich schief: Die Hypotenuse gehört zum Dreieck, nicht zu einem Winkel. Ohne Zeichnung bleibt die Karte rein formal.",
+      "fehlende_aufgabentypen": [
+        "Seiten in einer Figur zuordnen (auswahl, Stufe 2): f.grafik typ 'figur' mit rechtem Winkel bei einem Punkt und markiertem Winkel. Beispiel 1: Punkte P(0|0), Q(6|0), R(6|4), rechter Winkel bei Q, Winkel bei P markiert. 'Welche Strecke ist die Gegenkathete des markierten Winkels?' → QR. Beispiel 2: gleiche Figur, Winkel bei R markiert, 'Ankathete?' → QR."
+      ],
+      "generator_regeln": [
+        "Nicht 'Hypotenuse von β' fragen, sondern 'Welche Seite ist die Hypotenuse?'.",
+        "Figur als f.grafik mitgeben, sobald verfügbar (typ 'figur' mit 'rechter_winkel')."
+      ]
+    },
+    {
+      "lernziel": "verhaeltnisse",
+      "urteil": "ok",
+      "stufen": "Stufe 1 Term zuordnen, Stufe 2/3 berechnen. Stufe 3 unterscheidet sich nur durch andere Seiten-Tripel. Alle Tripel sind echte pythagoreische Tripel, Werte stimmen.",
+      "fehlende_aufgabentypen": [
+        "Term erkennen bei rechtem Winkel nicht bei C (auswahl, Stufe 3): Beispiel 1: 'Im Dreieck ABC ist α = 90°. Welcher Term ist sin β?' → b/a (Ablenker b/c, c/a, a/b). Beispiel 2: 'β = 90°. Welcher Term ist tan γ?' → c/a."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "seite",
+      "urteil": "verbessern",
+      "stufen": "Stufe 1 nur sin, Stufe 2 nur tan, Stufe 3 nur 'b = a : tan α'. Der Kosinus und die gesuchte Hypotenuse (c = a : sin α) kommen nicht vor, obwohl die Regel sie nennt.",
+      "fehlende_aufgabentypen": [
+        "Hypotenuse gesucht (zahl, Stufe 3): Beispiel 1: 'γ = 90°, α = 40°, a = 6 cm. Berechne c auf eine Nachkommastelle.' → 9,3 cm (c = 6 : sin 40°). Beispiel 2: 'γ = 90°, β = 25°, a = 10 cm. Berechne c.' → 11,0 cm (c = 10 : cos 25°).",
+        "Kosinus (zahl, Stufe 2): Beispiel 1: 'γ = 90°, α = 35°, c = 12 cm. Berechne b.' → 9,8 cm. Beispiel 2: 'γ = 90°, β = 62°, c = 20 cm. Berechne a.' → 9,4 cm."
+      ],
+      "generator_regeln": [
+        "Je Stufe sin, cos und tan gemischt; in Stufe 3 die gesuchte Seite im Nenner (Hypotenuse oder Ankathete aus Gegenkathete).",
+        "'toleranz': 0.1 bei 'auf eine Nachkommastelle' (fehlt im ganzen Thema, 62 Aufgaben)."
+      ]
+    },
+    {
+      "lernziel": "winkel",
+      "urteil": "ok",
+      "stufen": "Passt; Stufe 3 (Winkel β statt α) ist eine kleine, aber echte Steigerung. Mehr Sachaufgaben wären gut.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "'toleranz': 0.1 setzen."
+      ]
+    },
+    {
+      "lernziel": "beziehungen",
+      "urteil": "verbessern",
+      "stufen": "Stufe 1 und 2 sind derselbe Typ (sin α = cos(90° − α)). Fehler finden in Stufe 3 ist gut, die Ablenker sind aus Denkfehlern gebaut. Zwei Aufgaben sind wörtlich doppelt, eine Auswahl hat zwei richtige Antworten (siehe Fehlerliste).",
+      "fehlende_aufgabentypen": [
+        "tan aus sin und cos (zahl, Stufe 2): Beispiel 1: 'Für einen spitzen Winkel gilt sin α = 0,6 und cos α = 0,8. Berechne tan α.' → 0,75. Beispiel 2: 'cos α = 0,28, α spitz. Berechne tan α.' → 3,43 (sin α = 0,96; 0,96 : 0,28 ≈ 3,43; toleranz 0.01)."
+      ],
+      "generator_regeln": [
+        "Bei 'Welcher Ausdruck ist gleich sin x?' darf sin x selbst nicht als Antwort erscheinen.",
+        "Exakte Werte nur für 30°, 45°, 60° (spitze Winkel); sin 90° gehört nicht zu dieser Karte, oder den Lösungsweg anpassen."
+      ]
+    },
+    {
+      "lernziel": "anwendung",
+      "urteil": "verbessern",
+      "stufen": "Gute Sachaufgaben (Leiter, Turm, Leuchtturm), realistische Zahlen. Stufe 2 wiederholt fast nur die Leiter (10 von 28). Bei Turm und Leuchtturm fehlt die Rundungsangabe.",
+      "fehlende_aufgabentypen": [
+        "Zwei Dreiecke (zahl, Stufe 3): Beispiel 1: 'Von einem Punkt sieht man die Spitze eines Turms unter 30°. Geht man 50 m näher, unter 45°. Wie hoch ist der Turm (auf ganze Meter)?' → 68 m. Beispiel 2: 'Eine Rampe soll 1,2 m Höhe überwinden und höchstens 6 % Steigung haben. Wie lang muss sie mindestens waagrecht sein?' → 20 m."
+      ],
+      "generator_regeln": [
+        "Jede Zahl-Aufgabe mit gerundetem Ergebnis nennt die Rundung ('auf eine Nachkommastelle', 'auf ganze Meter') und hat 'toleranz'.",
+        "Leiter-Aufgaben höchstens 4 je Lernkarte; Winkel 65°–75° (wie bisher realistisch)."
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Welcher Ausdruck ist gleich sin 45°?",
+      "art": "falsch",
+      "problem": "Antworten: 'tan 45°', 'cos 45°' (als richtig markiert), 'sin 45°'. 'sin 45°' ist trivialerweise auch gleich sin 45° – zwei richtige Antworten.",
+      "korrektur": "Antworten: 'cos 45°' (richtig), 'tan 45°', 'cos 135°', '1'."
+    },
+    {
+      "aufgabe": "Gib den exakten Wert von sin 90° an.",
+      "art": "loesungsweg",
+      "problem": "Lösungsweg: 'besonderer Wert, z. B. am halben gleichseitigen bzw. gleichschenklig-rechtwinkligen Dreieck' – stimmt für 90° nicht; in einem rechtwinkligen Dreieck ist 90° kein spitzer Winkel.",
+      "korrektur": "Lösungsweg: 'Je näher α an 90° kommt, desto mehr nähert sich die Gegenkathete der Hypotenuse. Man setzt sin 90° = 1.' Besser: Aufgabe durch 'Gib den exakten Wert von sin 30° an' (0,5) ersetzen."
+    },
+    {
+      "aufgabe": "Von einem 80 m hohen Leuchtturm sieht man ein Boot unter dem Tiefenwinkel 22° (gemessen von der Waagrechten nach unten). Wie weit ist das Boot vom Fuß des Turms entfernt?",
+      "art": "mehrdeutig",
+      "problem": "Keine Rundungsangabe; Lösung 198 m (exakt 198,01 m). Ebenso 'Aus 94 m Entfernung sieht man die Spitze eines Turms unter dem Höhenwinkel 21° … Wie hoch ist der Turm?' (Lösung 36,1 m).",
+      "korrektur": "… Wie weit ist das Boot vom Fuß des Turms entfernt? Runde auf ganze Meter. – Lösung {\"wert\": 198, \"einheit\": \"m\", \"toleranz\": 1}."
+    },
+    {
+      "aufgabe": "Jemand behauptet: „Für einen spitzen Winkel gilt sin α = 0,96 und cos α = 0,04, weil sin α + cos α = 1.“ Was stimmt?",
+      "art": "mehrdeutig",
+      "problem": "Wörtlich doppelt in Stufe 3, ebenso die Fassung mit 0,936/0,064 und 'Welcher Ausdruck ist gleich cos 53°?' (Korrektur und Sicherung).",
+      "korrektur": "Zweite Fassung ersetzen: „Für einen spitzen Winkel gilt sin α = 0,28 und cos α = 0,72, weil sin α + cos α = 1.“ – Lösung 'Falsch: Es gilt sin² α + cos² α = 1, also cos α = 0,96.'"
+    },
+    {
+      "aufgabe": "Im Dreieck ABC ist β = 90°. Welche Seite ist die Hypotenuse von γ?",
+      "art": "sprache",
+      "problem": "Eine Hypotenuse gibt es nur für das Dreieck, nicht für einen Winkel. Die Formulierung legt nahe, sie hänge vom Winkel ab (betrifft alle 'Hypotenuse von …'-Aufgaben).",
+      "korrektur": "Im Dreieck ABC ist β = 90°. Welche Seite ist die Hypotenuse? – Lösung b."
+    },
+    {
+      "aufgabe": "Im Dreieck ABC ist γ = 90°, α = 32° und c = 15 cm. Berechne a (auf eine Nachkommastelle).",
+      "art": "mehrdeutig",
+      "problem": "Gerundetes Ergebnis ohne 'toleranz' (alle 62 gerundeten Aufgaben des Themas).",
+      "korrektur": "Lösung {\"wert\": 7.9, \"einheit\": \"cm\", \"toleranz\": 0.1}."
+    }
+  ]
+}

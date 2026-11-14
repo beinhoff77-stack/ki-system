@@ -1,0 +1,88 @@
+{
+  "thema_schluessel": "terme.aufstellen",
+  "gesamturteil": "brauchbar",
+  "karten": [
+    {
+      "lernziel": "struktur",
+      "urteil": "ok",
+      "stufen": "Passt im Kern. Stufe 3 ist nur wenig schwerer (verschachtelte Terme). Terme wie '9y : (1 + 6)' oder '2 · x + 9 · 9' sind künstlich.",
+      "fehlende_aufgabentypen": [
+        "Term zur Termart bauen (auswahl, Stufe 3): Beispiel 1: 'Welcher Term ist ein Produkt, dessen erster Faktor eine Summe ist?' → (x + 3) · 5 (Ablenker x + 3 · 5, 5 · x + 3, (x · 3) + 5). Beispiel 2: 'Welcher Term ist eine Differenz aus einem Quotienten und einer Zahl?' → x : 4 − 2."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "termwert",
+      "urteil": "ok",
+      "stufen": "Passt (eine Variable, Quadrat mit negativer Zahl, zwei Variablen, Bruchterm).",
+      "fehlende_aufgabentypen": [
+        "Wertetabelle ergänzen (luecken, Stufe 2, Schablone 'x = −1: □; x = 0: □; x = 2: □'): Beispiel 1: Term 2x² − 3 → [−1, −3, 5]. Beispiel 2: Term (x + 1)(x − 2) → [0, −2, 0]."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "uebersetzen",
+      "urteil": "ok",
+      "stufen": "Passt; 'Differenz aus 5 und dem Vierfachen von x' trifft den typischen Reihenfolgefehler. Die Schablone '□(□x + □)' verlangt bei 'Summe aus x und 9' eine 1 vor dem x und bei Differenzen '+ (−5)' – für Klasse 7 ungewohnt.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Schablone für Klammerterme '□(x + □)' bzw. '□(x − □)' passend zur Wortform."
+      ]
+    },
+    {
+      "lernziel": "sachsituation",
+      "urteil": "verbessern",
+      "stufen": "Stufe 2 bis Sicherung bestehen fast nur aus Kinokarten- und Altersaufgaben. Mehrere Altersangaben sind unrealistisch (Vater doppelt so alt wie das Kind). Stufe 3 (Restmenge 24 − x) gut.",
+      "fehlende_aufgabentypen": [
+        "Tarife vergleichen (zahl, Stufe 3): Beispiel 1: 'Kletterhalle A: 8 € je Besuch. B: Jahreskarte 30 € plus 5 € je Besuch. Ab wie vielen Besuchen ist B billiger?' → 11 (A: 88 €, B: 85 €). Beispiel 2: 'Fahrrad: Verleih A 10 € + 2 € je Stunde, B 4 € je Stunde. Bei wie vielen Stunden kosten beide gleich viel?' → 5."
+      ],
+      "generator_regeln": [
+        "Altersaufgaben: Vater mindestens 3-mal so alt oder 'x + 30 Jahre älter'; nie '2-mal so alt' bei einem Kind.",
+        "Handytarif mit SMS durch Datenvolumen oder Streaming-Abo ersetzen (zeitgemäß)."
+      ]
+    },
+    {
+      "lernziel": "muster",
+      "urteil": "verbessern",
+      "stufen": "Gute Idee mit Wertetabelle. Die Figuren selbst werden nicht gezeigt, die Namen sind beliebig ('Stühle in einem Saal: Figur 1: 13 …', 'Kreise in einer Kette mit Endkappen') – ohne Bild ist nicht nachvollziehbar, warum die Zahlen so wachsen. Stufe 3 (welche Figur hat 112?) gut.",
+      "fehlende_aufgabentypen": [
+        "Term aus der Figur begründen (auswahl, Stufe 3): Beispiel 1: 'Tische in einer Reihe: An jeden Tisch passen 2 Personen an die Längsseiten, an die beiden Enden je 1. Welcher Term passt?' → 2n + 2 (Ablenker 4n, 2n, n + 2). Beispiel 2: 'Quadrate aus Streichhölzern in einer Reihe' → 3n + 1."
+      ],
+      "generator_regeln": [
+        "Nur Sachnamen, die zur Zunahme passen (Tischreihe: +2; Streichholzquadrate: +3; Sechsecke: +5); sonst neutral 'Figurenfolge'.",
+        "Sobald möglich Figur als Bild (Plättchenmuster) mitgeben."
+      ]
+    },
+    {
+      "lernziel": "deuten",
+      "urteil": "verbessern",
+      "stufen": "Stufe 1 (Bedeutung einer Zahl) gut. Stufe 2 ist reines Einsetzen und gehört zur Karte 'termwert'. In Stufe 3 passen die Ablenker oft nicht zur Aufgabe (bei 'Doppelte der Summe' erscheint 'Differenz aus 2 und x'; 'richtig wäre 7x' ohne Bezug).",
+      "fehlende_aufgabentypen": [
+        "Bedeutung eines Terms (auswahl, Stufe 2): Beispiel 1: 'Kerze: h = 20 − 3x. Was bedeutet 20 − 3 · 4 = 8?' → 'Nach 4 Stunden ist die Kerze noch 8 cm hoch.' Beispiel 2: 'K = 0,1x + 10. Was bedeutet K = 15?' → 'Bei 50 Minuten kostet es 15 €.'"
+      ],
+      "generator_regeln": [
+        "Ablenker in Stufe 3 passend zur jeweiligen Übersetzung, z. B. bei 'das Doppelte der Summe aus x und 2': 'Richtig übersetzt.', 'Falsch: richtig ist x + 2 · 2.', 'Falsch: richtig ist 2 · x · 2.' – nicht '2x + 4' anbieten, das ist gleichwertig zu 2(x + 2)."
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Ein Kind ist x Jahre alt. Seine Schwester ist 4 Jahre älter, der Vater ist 2-mal so alt wie das Kind. Gib einen Term für das Alter aller drei zusammen an.",
+      "art": "unrealistisch",
+      "problem": "Ein Vater, der doppelt so alt ist wie sein Kind (z. B. 24 bei einem 12-Jährigen), ist unrealistisch.",
+      "korrektur": "Ein Kind ist x Jahre alt. Seine Schwester ist 4 Jahre älter, der Vater ist 30 Jahre älter als das Kind. Gib einen Term für das Alter aller drei zusammen an. – Lösung 3x + 34."
+    },
+    {
+      "aufgabe": "Jemand übersetzt „das Doppelte der Summe aus x und 2“ in den Term 2x + 2. Stimmt das?",
+      "art": "loesungsweg",
+      "problem": "Ablenker 'Falsch: Bei „Differenz aus 2 und x“ steht 2 vorne, richtig ist 2 − x.' und 'Falsch: richtig wäre 4x.' gehören zu anderen Aufgaben bzw. haben keinen Ursprung.",
+      "korrektur": "Antworten: 'Falsch: Die Summe muss in Klammern stehen, richtig ist 2(x + 2).' (richtig), 'Richtig übersetzt.', 'Falsch: richtig ist x + 2 · 2.', 'Falsch: richtig ist 2 · x · 2.'"
+    },
+    {
+      "aufgabe": "Stühle in einem Saal: Figur 1: 13, Figur 2: 20, Figur 3: 27. Gib einen Term für die Anzahl bei Figur n an.",
+      "art": "sprache",
+      "problem": "'Stühle in einem Saal' mit 'Figuren' ergibt ohne Bild keinen Sinn; die Zahlen haben keinen Bezug zur Situation.",
+      "korrektur": "Eine Figurenfolge hat 13, 20, 27, … Plättchen. Gib einen Term für die Anzahl der Plättchen in Figur n an. – Lösung 7n + 6."
+    }
+  ]
+}

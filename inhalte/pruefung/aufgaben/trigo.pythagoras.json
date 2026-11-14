@@ -1,0 +1,111 @@
+{
+  "thema_schluessel": "trigo.pythagoras",
+  "gesamturteil": "brauchbar",
+  "karten": [
+    {
+      "lernziel": "hypotenuse",
+      "urteil": "verbessern",
+      "stufen": "Stufe 1–3 sind dieselbe Aufgabe mit größeren Tripeln; nur eine Stufe-3-Aufgabe hat Dezimalzahlen. Immer heißen die Katheten a und b und die Hypotenuse c – die typische Falle (rechter Winkel nicht bei C) wird nie geübt. Korrektur enthält dieselbe Aufgabe zweimal mit vertauschten Katheten (15/36 und 36/15), Sicherung ebenso (40/9 und 9/40).",
+      "fehlende_aufgabentypen": [
+        "Rechter Winkel nicht bei C (zahl, Stufe 3): Beispiel 1: 'Im Dreieck ABC ist α = 90°, b = 9 cm, c = 12 cm. Berechne a.' → 15 cm. Beispiel 2: 'Im Dreieck PQR ist der Winkel bei Q ein rechter, PQ = 8 cm, QR = 15 cm. Berechne PR.' → 17 cm.",
+        "Ergebnis mit Wurzel und Rundung (zahl, Stufe 2, toleranz 0.1): Beispiel 1: 'Katheten 4 cm und 7 cm. Hypotenuse auf eine Nachkommastelle?' → 8,1 cm. Beispiel 2: 'Katheten 2,5 cm und 6 cm' → 6,5 cm (exakt)."
+      ],
+      "generator_regeln": [
+        "Ein Tripel und sein Vertauschtes nie zusammen in einer Lernkarte.",
+        "Stufe 3 = andere Bezeichnungen, Dezimalzahlen oder gerundete Wurzel; nicht nur größere Tripel."
+      ]
+    },
+    {
+      "lernziel": "kathete",
+      "urteil": "ok",
+      "stufen": "Passt im Grundsatz; Stufe 3 mit Rundung (15/5 → 14,1) ist gut. Mehr davon und 'toleranz' setzen.",
+      "fehlende_aufgabentypen": [
+        "Fehler finden (auswahl, Stufe 3): Beispiel 1: 'Hypotenuse 13 cm, Kathete 5 cm. Jemand rechnet a² = 13² + 5² = 194, a ≈ 13,9 cm. Was ist falsch?' → 'Bei einer Kathete wird subtrahiert: a² = 169 − 25 = 144, a = 12 cm. Eine Kathete ist nie länger als die Hypotenuse.' Beispiel 2: 'Hypotenuse 10 cm, Kathete 6 cm. Jemand rechnet a = 10 − 6 = 4 cm.' → 'Die Quadrate werden subtrahiert, nicht die Längen: a = 8 cm.'"
+      ],
+      "generator_regeln": [
+        "'toleranz': 0.1 bei 'auf eine Nachkommastelle'."
+      ]
+    },
+    {
+      "lernziel": "umkehrung",
+      "urteil": "verbessern",
+      "stufen": "Stufe 3 (Welcher Winkel ist der rechte?) ist eine gute Steigerung. Die Antworten der Stufe 1–2 lassen sich ohne Rechnen lösen: Die richtige Antwort ist die einzige, in der 'Ja' zu '=' bzw. 'Nein' zu '≠' passt ('Nein, denn … = 169 = 169 = 13²' widerspricht sich selbst).",
+      "fehlende_aufgabentypen": [
+        "Spitz, recht oder stumpf (auswahl, Stufe 3): Beispiel 1: 'Seiten 6 cm, 8 cm, 11 cm. Welcher Winkel liegt gegenüber 11 cm?' → stumpf (36 + 64 = 100 < 121). Beispiel 2: 'Seiten 7 cm, 8 cm, 10 cm' → spitz (49 + 64 = 113 > 100)."
+      ],
+      "generator_regeln": [
+        "Antworten ohne vorgerechnete Begründung: 'Ja, rechtwinklig', 'Nein, nicht rechtwinklig', 'Man kann es ohne Winkelmessung nicht entscheiden', 'Ja, weil 5 + 12 > 13'. Die Rechnung gehört in den Lösungsweg.",
+        "Schreibweise im Lösungsweg '5² + 12² = 169 = 13²', nicht '169 = 169 = 13²'.",
+        "Fast-Tripel als Nein-Fälle (z. B. 6, 8, 10,5 oder 7, 24, 26) – heute sind die Nein-Fälle oft weit weg."
+      ]
+    },
+    {
+      "lernziel": "koordinaten",
+      "urteil": "verbessern",
+      "stufen": "Stufe 3 (P(−1 | −4), Q(−4 | −8) → 5) ist leichter als Stufe 2. Nur eine Aufgabe ohne Tripel.",
+      "fehlende_aufgabentypen": [
+        "Mit Koordinatensystem als Bild (zahl, Stufe 1): f.grafik typ 'koordinaten' mit zwei Punkten und gestrichelter Stufe. Beispiel 1: P(1 | 1), Q(4 | 5) → 5. Beispiel 2: P(−2 | 3), Q(4 | −5) → 10.",
+        "Umkehraufgabe (zahl, Stufe 3): Beispiel 1: 'P(2 | 1) und Q(x | 5) haben den Abstand 5, x > 2. Bestimme x.' → 5. Beispiel 2: 'P(0 | 0), Q(6 | y), Abstand 10, y < 0' → −8."
+      ],
+      "generator_regeln": [
+        "Stufe 3 = gerundete Ergebnisse, Umkehraufgaben oder Seitenlängen eines Dreiecks im Koordinatensystem; kleinste Tripel (3-4-5) nur in Stufe 1."
+      ]
+    },
+    {
+      "lernziel": "raum",
+      "urteil": "ok",
+      "stufen": "Passt: Flächendiagonale, Raumdiagonale, Würfel mit Wurzel. Stufe 3 könnte zusätzlich die Höhe einer Pyramide verlangen.",
+      "fehlende_aufgabentypen": [
+        "Passt der Stab in die Kiste? (auswahl, Stufe 3): Beispiel 1: 'Eine Kiste ist 60 cm × 40 cm × 30 cm. Passt ein 75 cm langer Stab hinein?' → 'Ja, die Raumdiagonale ist etwa 78 cm.' Beispiel 2: 'Kiste 50 × 30 × 20 cm, Stab 65 cm' → 'Nein, die Raumdiagonale ist nur etwa 62 cm.'"
+      ],
+      "generator_regeln": [
+        "'toleranz': 0.1 bei Würfel-Diagonalen."
+      ]
+    },
+    {
+      "lernziel": "anwendung",
+      "urteil": "verbessern",
+      "stufen": "Gute Mischung (Leiter, Bildschirm, gleichschenkliges Dreieck, Rampe). Zwei Sachkontexte sind unrealistisch (siehe Fehlerliste). Stufe 3 (Rampe) ist rechnerisch gleich wie Stufe 2.",
+      "fehlende_aufgabentypen": [
+        "Abkürzung (zahl, Stufe 3): Beispiel 1: 'Ein rechteckiger Park ist 120 m lang und 50 m breit. Wie viele Meter spart man, wenn man diagonal statt außen herum geht?' → 40 m (170 − 130). Beispiel 2: 'Sportplatz 80 m × 60 m' → 40 m (140 − 100)."
+      ],
+      "generator_regeln": [
+        "Bildschirme im Querformat: Breite größer als Höhe (16 : 9 näherungsweise, z. B. 96 cm × 54 cm → Diagonale ≈ 110,1 cm, oder Tripel 80 × 60 → 100).",
+        "Rampen höchstens 10 % Steigung (Höhe höchstens ein Zehntel der waagrechten Länge).",
+        "Leiterfuß höchstens ein Drittel der Leiterlänge von der Wand entfernt."
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Eine Rampe steigt auf 450 cm waagrechter Länge um 600 cm an. Wie lang ist die Rampe?",
+      "art": "unrealistisch",
+      "problem": "Die 'Rampe' ist höher als lang (Steigung 133 %, etwa 53°) – das ist eine Leiter oder Wand, keine Rampe. Ebenso '300 cm waagrecht, 400 cm an'.",
+      "korrektur": "Eine Rampe steigt auf 600 cm waagrechter Länge um 45 cm an. Wie lang ist die Rampe? Runde auf ganze Zentimeter. – Lösung 602 cm (√(360 000 + 2 025) ≈ 601,7 cm; toleranz 1)."
+    },
+    {
+      "aufgabe": "Ein Fernseher hat einen 60 cm breiten und 80 cm hohen Bildschirm. Wie lang ist die Bildschirmdiagonale?",
+      "art": "unrealistisch",
+      "problem": "Fernseher sind breiter als hoch. Betrifft auch 48 × 64, 36 × 48, 20 × 48 und 32 × 60.",
+      "korrektur": "Ein Fernseher hat einen 80 cm breiten und 60 cm hohen Bildschirm. Wie lang ist die Bildschirmdiagonale? – Lösung 100 cm."
+    },
+    {
+      "aufgabe": "Ein Dreieck hat die Seiten 12 cm, 13 cm und 5 cm. Ist es rechtwinklig?",
+      "art": "loesungsweg",
+      "problem": "Antwort 'Nein, denn 5² + 12² = 169 = 169 = 13²' widerspricht sich selbst; die richtige Antwort ist ohne Rechnen erkennbar. Muster in allen 22 Aufgaben dieser Art.",
+      "korrektur": "Antworten: 'Ja, es ist rechtwinklig.' (richtig), 'Nein, es ist nicht rechtwinklig.', 'Ja, weil 5 + 12 > 13.', 'Das kann man ohne Winkelmessung nicht entscheiden.' Lösungsweg: 'Längste Seite 13 cm: 5² + 12² = 25 + 144 = 169 = 13². Also rechtwinklig.'"
+    },
+    {
+      "aufgabe": "Ein rechtwinkliges Dreieck hat die Katheten a = 36 cm und b = 15 cm. Berechne die Hypotenuse c.",
+      "art": "mehrdeutig",
+      "problem": "Steht in der Korrektur direkt neben 'a = 15 cm und b = 36 cm' – praktisch dieselbe Aufgabe. Gleiches in der Sicherung (40/9 und 9/40).",
+      "korrektur": "Ersetzen durch: 'Ein rechtwinkliges Dreieck hat die Katheten a = 20 cm und b = 21 cm. Berechne die Hypotenuse c.' – Lösung 29 cm."
+    },
+    {
+      "aufgabe": "Wie lang ist die Raumdiagonale eines Würfels mit 1 cm Kantenlänge? Runde auf eine Nachkommastelle.",
+      "art": "mehrdeutig",
+      "problem": "Gerundetes Ergebnis ohne 'toleranz' (23 gerundete Aufgaben im Thema).",
+      "korrektur": "Lösung {\"wert\": 1.7, \"einheit\": \"cm\", \"toleranz\": 0.1}."
+    }
+  ]
+}

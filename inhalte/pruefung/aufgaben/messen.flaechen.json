@@ -1,0 +1,91 @@
+{
+  "thema_schluessel": "messen.flaechen",
+  "gesamturteil": "gut",
+  "karten": [
+    {
+      "lernziel": "einheitsquadrate",
+      "urteil": "ok",
+      "stufen": "Passt: Zählen mit Bild, Reihen · Spalten, Umkehrung, Fliesen größer als 1 cm, Verdoppeln. Werte stimmen.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "'lang' immer die längere Seite ('10 cm breit und 15 cm lang' statt '10 cm lang und 15 cm breit')."
+      ]
+    },
+    {
+      "lernziel": "rechteck",
+      "urteil": "ok",
+      "stufen": "Passt (Grundform, Umkehrung, verschiedene Einheiten).",
+      "fehlende_aufgabentypen": [
+        "Fläche und Umfang verwechseln (auswahl, Stufe 2): Beispiel 1: 'Ein Rechteck ist 6 cm lang und 4 cm breit. Welche Angabe ist der Umfang?' → 20 cm (Ablenker 24 cm², 10 cm, 24 cm). Beispiel 2: 'Quadrat mit 5 cm: Flächeninhalt?' → 25 cm² (Ablenker 20 cm, 25 cm, 10 cm²)."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "einheiten",
+      "urteil": "ok",
+      "stufen": "Passt; der Vergleich '70 000 a gegen 600 ha' ist eine gute Stufe-3-Aufgabe. Zahlen ohne Leerzeichen in den Lösungen ('50000') sind nur Anzeige.",
+      "fehlende_aufgabentypen": [
+        "Vorstellung (auswahl, Stufe 2): Beispiel 1: 'Welche Fläche hat ein Fußballfeld ungefähr?' → 70 a (Ablenker 70 m², 70 ha, 70 km²). Beispiel 2: 'Ein Klassenzimmer hat ungefähr …' → 60 m²."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "kommaschreibweise",
+      "urteil": "ok",
+      "stufen": "Passt; Ablenker (5,2 a; 5,002 a; 502 a) sind typische Fehler.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "zerlegen",
+      "urteil": "verbessern",
+      "stufen": "Gute Figuren mit Zeichnung. Stufe 3 (Wohnung aus Räumen) ist leichter als Stufe 2 (L-Form ohne Maße an allen Seiten), weil die Räume schon zerlegt angegeben sind. Bei 'Zerlege die L-Form …' stehen die Maße zusätzlich in Klammern im Text, das Bild wird dann überflüssig.",
+      "fehlende_aufgabentypen": [
+        "U-Form oder Figur mit zwei Aussparungen (zahl, Stufe 3): Beispiel 1: 'Ein Rechteck 10 m × 6 m, in der Mitte der oberen Seite fehlt ein Rechteck 4 m × 3 m. Flächeninhalt?' → 48 m². Beispiel 2: 'Umfang dieser U-Form?' → 38 m (32 + 2 · 3)."
+      ],
+      "generator_regeln": [
+        "In Stufe 2–3 nur die Zeichnung mit Seitenlängen geben, nicht zusätzlich die Zerlegung im Text."
+      ]
+    },
+    {
+      "lernziel": "sachaufgaben",
+      "urteil": "ok",
+      "stufen": "Passt. Fußleiste mit Tür ist eine gute Falle. Stufe 2 bis Sicherung wiederholen Fußleiste/Teppich sehr oft.",
+      "fehlende_aufgabentypen": [
+        "Streichen mit Fenster (zahl, Stufe 3): Beispiel 1: 'Eine Wand ist 5 m lang und 3 m hoch, ein Fenster 2 m × 1 m bleibt frei. Wie viele m² werden gestrichen?' → 13 m². Beispiel 2: 'Wand 4 m × 2,5 m, Tür 1 m × 2 m' → 8 m²."
+      ],
+      "generator_regeln": [
+        "Rasensamen realistisch: etwa 2–3 kg je Ar (heute 5 kg je Ar)."
+      ]
+    },
+    {
+      "lernziel": "verstehen",
+      "urteil": "verbessern",
+      "stufen": "Sehr gute Inhalte (gleicher Umfang – verschiedene Fläche; Ecke ausschneiden; Verdoppeln). Wie in den anderen Klasse-5-Themen ist aber die richtige Antwort fast immer die einzige mit Begründung.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Alle Antworten mit Begründung, z. B. 'Nein, 1 m² = 10 dm², weil 1 m = 10 dm.' (falsch) / 'Ja, 10 dm · 10 dm = 100 dm².' (richtig) / 'Nein, 1 m² = 1 000 dm².' (falsch)."
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Stimmt die Aussage? „1 m² = 100 dm²“",
+      "art": "loesungsweg",
+      "problem": "Richtige Antwort 'Ja, 10 dm · 10 dm = 100 dm².' ist die einzige mit Begründung; Ablenker 'Nein, das ist falsch.' / 'Das kann man nicht entscheiden.' Muster in der ganzen Karte 'verstehen'.",
+      "korrektur": "Antworten: 'Ja, 10 dm · 10 dm = 100 dm².' (richtig), 'Nein, 1 m = 10 dm, also 1 m² = 10 dm².', 'Nein, 1 m² = 1 000 dm² wie bei Volumen.'"
+    },
+    {
+      "aufgabe": "Für 1 a Rasen braucht man 5 kg Samen. Wie viele kg braucht man für 5 ha?",
+      "art": "unrealistisch",
+      "problem": "5 kg Samen je Ar ist etwa das Doppelte der üblichen Menge (2–3 kg je Ar). Rechnung stimmt.",
+      "korrektur": "Für 1 a Rasen braucht man 3 kg Samen. Wie viele kg braucht man für 2 ha? – Lösung 600 kg."
+    },
+    {
+      "aufgabe": "Ein Rechteck ist 10 cm lang und 15 cm breit. Wie viele Quadratfliesen mit 5 cm Seitenlänge passen hinein?",
+      "art": "sprache",
+      "problem": "'lang' bezeichnet üblicherweise die längere Seite.",
+      "korrektur": "Ein Rechteck ist 15 cm lang und 10 cm breit. Wie viele quadratische Fliesen mit 5 cm Seitenlänge passen hinein? – Lösung 6."
+    }
+  ]
+}

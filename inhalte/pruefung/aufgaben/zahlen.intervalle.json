@@ -1,0 +1,62 @@
+{
+  "thema_schluessel": "zahlen.intervalle",
+  "gesamturteil": "brauchbar",
+  "karten": [
+    {
+      "lernziel": "lesen",
+      "urteil": "verbessern",
+      "stufen": "Stufe 3 (‚Was bedeutet [0,5; ∞[?‘, ‚Welche Menge ist dasselbe wie ]0,5; 1,5]?‘) ist dieselbe Übersetzung wie Stufe 1/2, nur mit Dezimalzahl oder Mengenschreibweise – kein neuer Gedanke. Die richtige Antwort steht in 13 von 24 Auswahlaufgaben an erster Stelle.",
+      "fehlende_aufgabentypen": [
+        "Am Zahlenstrahl ablesen (auswahl): Zahlenstrahl mit ausgefülltem Punkt bei −2, hohlem Punkt bei 3 und dick markierter Strecke dazwischen → ‚[−2; 3[‘ | ]−2; 3] | [−2; 3] | ]−2; 3[. Beispiel 2: hohler Punkt bei 1, Pfeil nach rechts → ‚]1; ∞[‘. Braucht Zeichnung: Zahlenstrahl mit offenen/ausgefüllten Endpunkten und markierter Strecke (bisher nicht vorhanden → offen).",
+        "Sachsituation (auswahl, Stufe 3): ‚Auf dem Karussell dürfen Kinder mitfahren, die mindestens 1,10 m und kleiner als 1,40 m sind. Welches Intervall beschreibt die erlaubten Größen (in m)?‘ → [1,10; 1,40[. Beispiel 2: ‚Ein Kühlschrank soll über 2 °C und höchstens 7 °C haben.‘ → ]2; 7]."
+      ],
+      "generator_regeln": [
+        "Position der richtigen Antwort gleichmäßig verteilen (höchstens 35 % an Position 1).",
+        "Stufe 3 nur mit Sachsituationen oder Wortbeschreibungen, nicht mit derselben Übersetzung."
+      ]
+    },
+    {
+      "lernziel": "schreiben",
+      "urteil": "ok",
+      "stufen": "Passen: Ungleichung → Intervall, Stufe 3 aus Worten (‚mindestens‘, ‚bis einschließlich‘) – gut.",
+      "fehlende_aufgabentypen": [
+        "Fehler finden (auswahl): ‚Jemand schreibt x ≥ 3 als ]3; ∞[. Was stimmt?‘ → ‚Falsch: 3 gehört dazu, richtig ist [3; ∞[‘ | ‚Richtig‘ | ‚Falsch: richtig ist [3; ∞]‘. Beispiel 2: ‚x < −1 als ]−∞; −1]‘ → ‚Falsch: −1 gehört nicht dazu, richtig ]−∞; −1[‘."
+      ],
+      "generator_regeln": [
+        "Bei Intervallen bis ∞ den Ablenker ‚[a; ∞]‘ (Klammer bei ∞ nach innen) mit aufnehmen – das ist der typische Fehler und fehlt bisher."
+      ]
+    },
+    {
+      "lernziel": "enthalten",
+      "urteil": "ok",
+      "stufen": "Gut: Zahl im Intervall → Anzahl ganzer Zahlen → Länge und Markieren der Randzahl. Alle Auswahlaufgaben nachgerechnet, eindeutig.",
+      "fehlende_aufgabentypen": [
+        "Gemeinsame Zahlen zweier Intervalle (auswahl, Stufe 3): ‚Welche Zahlen liegen in [−2; 5[ und in ]1; 8]?‘ → ]1; 5[ | [−2; 8] | ]1; 5] | [1; 5[. Beispiel 2: ‚]−∞; 4] und [4; ∞[‘ → ‚nur die 4‘."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "beurteilen",
+      "urteil": "ok",
+      "stufen": "Gute Verstehensaufgaben (Aussagen beurteilen, ‚kleinste Zahl‘, ‚unendlich viele‘). Alle 28 Auswahlaufgaben automatisch nachgeprüft: genau eine Aussage passt.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Bei ‚Welche Aussage … ist FALSCH?‘ das Wort FALSCH zusätzlich fett/hervorgehoben anzeigen; Kinder überlesen es leicht (Vorschlag)."
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Schreibe x ≥ −9 als Intervall.",
+      "art": "mehrdeutig",
+      "problem": "Lösung richtig, aber nur 3 Antworten; der typischste Fehler fehlt: die Klammer an ∞ nach innen ([−9; ∞]). Gilt für alle Intervalle bis ±∞ in den Karten lesen und schreiben.",
+      "korrektur": "‚Schreibe x ≥ −9 als Intervall.‘ Antworten: [−9; ∞[ (richtig) | ]−9; ∞[ | [−9; ∞] | ]−∞; −9]."
+    },
+    {
+      "aufgabe": "Was bedeutet das Intervall ]−7; 3[?",
+      "art": "sprache",
+      "problem": "Richtige Antwort steht an Position 1 (wie in 13 von 24 Lese-Aufgaben). Kinder lernen ‚die erste ist meist richtig‘.",
+      "korrektur": "Antworten mischen, z. B. −7 ≤ x < 3 | −7 < x ≤ 3 | −7 < x < 3 (richtig) | −7 ≤ x ≤ 3."
+    }
+  ]
+}

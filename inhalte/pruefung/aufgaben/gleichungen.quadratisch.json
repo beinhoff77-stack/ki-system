@@ -1,0 +1,95 @@
+{
+  "thema_schluessel": "gleichungen.quadratisch",
+  "gesamturteil": "gut",
+  "karten": [
+    {
+      "lernziel": "reinquadratisch",
+      "urteil": "verbessern",
+      "stufen": "Passt (x² = d, ax² + c = 0 ohne Lösung, Klammer). Alle Lösungen per Programm nachgerechnet (100 Gleichungen im Thema, kein Fehler). Schreibweise: In den Klammer-Aufgaben steht ein Bindestrich statt Minuszeichen ('= -1').",
+      "fehlende_aufgabentypen": [
+        "Fehler finden (auswahl, Stufe 3): Beispiel 1: 'Jemand löst (x + 3)² = 16 so: x + 3 = 4, also x = 1. Was stimmt?' → 'Unvollständig: Auch x + 3 = −4, also x = −7.' Beispiel 2: 'Jemand löst 3x² = 27 so: x = ±√27.' → 'Falsch: Erst durch 3 teilen, x² = 9, x = ±3.'"
+      ],
+      "generator_regeln": [
+        "Minuszeichen '−' (U+2212) auch bei negativen Zahlen rechts vom Gleichheitszeichen."
+      ]
+    },
+    {
+      "lernziel": "ausklammern",
+      "urteil": "ok",
+      "stufen": "Passt; Stufe 3 mit 'nicht durch x teilen' trifft den Hauptfehler.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "faktorisieren",
+      "urteil": "ok",
+      "stufen": "Passt. Stufe 3 (Faktorisieren durch Probieren) ist anspruchsvoll; der Zusatz 'Tipp: Faktorisiere …' im Fragetext ist eigentlich ein Tipp und gehört in h.",
+      "fehlende_aufgabentypen": [
+        "Lösungen mit Bruch (luecken, Stufe 3, Schablone 'x₁ = □/□; x₂ = □'): Beispiel 1: 'Löse (2x − 3)(x + 4) = 0.' → [3, 2, −4]. Beispiel 2: '(3x + 1)(x − 2) = 0' → [−1, 3, 2]."
+      ],
+      "generator_regeln": [
+        "'Tipp: Faktorisiere in (x − p)(x − q).' aus dem Fragetext in das Feld h verschieben."
+      ]
+    },
+    {
+      "lernziel": "ergaenzung",
+      "urteil": "ok",
+      "stufen": "Passt (erst Form (x + p)² = q, dann vollständig lösen). 'Löse x² − 8x = 0 mit quadratischer Ergänzung' ist umständlich, weil Ausklammern näher liegt – als Vergleichsaufgabe begründen oder streichen.",
+      "fehlende_aufgabentypen": [
+        "Mit Faktor vor x² (luecken, Stufe 3): Beispiel 1: 'Löse 2x² + 12x + 10 = 0 mit quadratischer Ergänzung.' → [−5, −1]. Beispiel 2: '3x² − 12x − 15 = 0' → [−1, 5]."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "loesungsformel",
+      "urteil": "ok",
+      "stufen": "Passt (Diskriminante, dann Lösungen, Stufe 3 mit a < 0 und Dezimalergebnis).",
+      "fehlende_aufgabentypen": [
+        "Gleichung erst in Normalform bringen (luecken, Stufe 3): Beispiel 1: 'Löse x(x + 3) = 10.' → [−5, 2]. Beispiel 2: '(x − 1)² = 2x + 6' → [−1, 5]."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "diskriminante",
+      "urteil": "verbessern",
+      "stufen": "Stufe 1 und 2 identisch. 'Zwei Lösungen' ist in 13 von 19 Auswahlaufgaben richtig, 'genau eine' nur einmal. Stufe 3 (Fehlvorstellung '± heißt immer zwei Lösungen') ist gut.",
+      "fehlende_aufgabentypen": [
+        "Parameter (zahl, Stufe 3): Beispiel 1: 'Für welches c hat x² + 6x + c = 0 genau eine Lösung?' → 9. Beispiel 2: 'Für welches b > 0 hat x² + bx + 16 = 0 genau eine Lösung?' → 8."
+      ],
+      "generator_regeln": [
+        "Richtige Antworten etwa gleich verteilt auf keine / eine / zwei Lösungen (D = 0 über binomische Formeln erzeugen, z. B. 4x² − 12x + 9)."
+      ]
+    },
+    {
+      "lernziel": "sachaufgabe",
+      "urteil": "verbessern",
+      "stufen": "Gute Mischung (Zahlrätsel, Rechteck, Wurf). Stufe 1 'Das Quadrat einer positiven Zahl ist 169' ist eine Wurzelaufgabe, keine Sachaufgabe. Eine Wurfaufgabe ist missverständlich (siehe Fehlerliste).",
+      "fehlende_aufgabentypen": [
+        "Bilderrahmen (zahl, Stufe 3): Beispiel 1: 'Ein Bild ist 20 cm × 30 cm groß. Es bekommt einen gleich breiten Rahmen; Bild und Rahmen haben zusammen 1 200 cm². Wie breit ist der Rahmen?' → 5 cm ((20 + 2x)(30 + 2x) = 1 200). Beispiel 2: 'Bild 40 cm × 50 cm, zusammen 2 800 cm²' → 5 cm."
+      ],
+      "generator_regeln": [
+        "Bei 'zum ersten Mal … m hoch' nur Höhen unterhalb der Maximalhöhe verwenden (zwei verschiedene Lösungen)."
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Ein Ball wird senkrecht nach oben geworfen. Seine Höhe über dem Abwurfpunkt ist h(t) = 30t − 5t² (t in s, h in m). Nach wie vielen Sekunden ist er zum ersten Mal 45 m hoch?",
+      "art": "mehrdeutig",
+      "problem": "45 m ist genau die Gipfelhöhe: 5t² − 30t + 45 = 0 hat nur die Lösung t = 3. 'Zum ersten Mal' unterstellt eine zweite Lösung, die es nicht gibt.",
+      "korrektur": "… Nach wie vielen Sekunden ist er zum ersten Mal 40 m hoch? – Lösung 2 s (5t² − 30t + 40 = 0 ⇒ t = 2 oder t = 4)."
+    },
+    {
+      "aufgabe": "Welche Lösungsmenge hat (x + 9)² = -1?",
+      "art": "sprache",
+      "problem": "Bindestrich '-1' statt Minuszeichen '−1' (README: Minus '−'). Ebenso '(x + 1)² = -64', '(x − 5)² = -16', '(x + 3)² = -1'.",
+      "korrektur": "Welche Lösungsmenge hat (x + 9)² = −1? – Lösung L = { }."
+    },
+    {
+      "aufgabe": "Das Quadrat einer positiven Zahl ist 169. Wie heißt die Zahl?",
+      "art": "unrealistisch",
+      "problem": "Keine Sachaufgabe, sondern √169; steht in der Lernkarte 'Sachaufgaben lösen'.",
+      "korrektur": "Ein quadratischer Garten hat 169 m² Fläche. Wie viele Meter Zaun braucht man ringsum? – Lösung 52 m (Seite 13 m)."
+    }
+  ]
+}

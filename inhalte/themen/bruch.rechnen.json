@@ -1,0 +1,5456 @@
+{
+ "thema_schluessel": "bruch.rechnen",
+ "thema_id": 23,
+ "block_id": 45,
+ "klasse": {
+  "gym_by": 6,
+  "rs_by": 6,
+  "ib_myp": 1
+ },
+ "autor": "Claude (Opus), Paket Klasse 6",
+ "inhalt": {
+  "ziel": "Mit Brüchen und Dezimalzahlen – auch negativen – sicher addieren, subtrahieren, multiplizieren und dividieren und Rechenvorteile nutzen.",
+  "merke": [
+   "Plus/Minus: gleichnamig machen, Zähler rechnen, kürzen.",
+   "Mal: Zähler · Zähler, Nenner · Nenner (vorher kürzen).",
+   "Geteilt: mit dem Kehrbruch malnehmen.",
+   "Dezimal mal: Nachkommastellen zusammenzählen. Dezimal geteilt: Komma bei beiden verschieben.",
+   "Klammer vor Punkt vor Strich."
+  ],
+  "abschnitte": [
+   {
+    "titel": "Plus und Minus",
+    "lernziele": [
+     "brueche_plus_minus",
+     "dezimal_plus_minus",
+     "vorzeichen"
+    ]
+   },
+   {
+    "titel": "Mal und Geteilt",
+    "lernziele": [
+     "brueche_mal",
+     "brueche_geteilt",
+     "dezimal_mal",
+     "dezimal_geteilt"
+    ]
+   },
+   {
+    "titel": "Geschickt und gemischt",
+    "lernziele": [
+     "rechenvorteile",
+     "gemischt",
+     "fehler_finden"
+    ]
+   }
+  ],
+  "etappen": [
+   {
+    "lernziel": "brueche_plus_minus",
+    "titel": "Brüche addieren und subtrahieren",
+    "regel": "Bei ⟦gleichem Nenner⟧ addierst oder subtrahierst du nur die ⟦Zähler⟧, der Nenner bleibt. Bei verschiedenen Nennern erweiterst du zuerst auf den ⟦Hauptnenner⟧. Am Ende ⟦kürzen⟧.",
+    "schritte": [
+     "3/4 + 1/6: Hauptnenner 12. 3/4 = 9/12 und 1/6 = 2/12.",
+     "9/12 + 2/12 = ⟦11/12⟧."
+    ],
+    "probe": "11/12 − 1/6 = 11/12 − 2/12 = 9/12 = 3/4 ✓",
+    "fehler": "3/4 + 1/6 = 4/10 ist falsch: Nenner werden ⟦nie addiert⟧. Erst auf einen gemeinsamen Nenner bringen, dann nur die Zähler addieren."
+   },
+   {
+    "lernziel": "dezimal_plus_minus",
+    "titel": "Dezimalzahlen addieren, subtrahieren",
+    "regel": "Dezimalzahlen addierst und subtrahierst du ⟦stellengerecht⟧: ⟦Komma unter Komma⟧. Fehlende Stellen füllst du mit Nullen auf.",
+    "schritte": [
+     "4,7 + 2,85: Komma unter Komma schreiben, 4,70 + 2,85.",
+     "Stelle für Stelle addieren: ⟦7,55⟧."
+    ],
+    "probe": "7,55 − 2,85 = 4,70 = 4,7 ✓",
+    "fehler": "4,7 + 2,85 = 3,32 ist falsch: Da wurden die Ziffern einfach rechtsbündig untereinandergeschrieben (47 + 285). Es gilt ⟦Komma unter Komma⟧."
+   },
+   {
+    "lernziel": "vorzeichen",
+    "titel": "Rationale Zahlen mit Vorzeichen",
+    "regel": "Für Brüche und Dezimalzahlen mit Vorzeichen gelten dieselben ⟦Vorzeichenregeln⟧ wie bei ganzen Zahlen. Eine negative Zahl subtrahieren heißt ⟦ihre Gegenzahl addieren⟧. Beim Malnehmen und Teilen: gleiche Vorzeichen ⟦plus⟧, verschiedene ⟦minus⟧.",
+    "schritte": [
+     "(−2,5) + 1,2: verschiedene Vorzeichen, also Beträge subtrahieren: 2,5 − 1,2 = 1,3.",
+     "Der größere Betrag (2,5) ist negativ: ⟦−1,3⟧."
+    ],
+    "probe": "−1,3 − 1,2 = −2,5 ✓",
+    "fehler": "(−0,5) · (−0,4) = −0,2 ist falsch: Zwei negative Faktoren ergeben ein ⟦positives⟧ Ergebnis: 0,2."
+   },
+   {
+    "lernziel": "brueche_mal",
+    "titel": "Brüche multiplizieren",
+    "regel": "Brüche multiplizierst du: ⟦Zähler mal Zähler, Nenner mal Nenner⟧. ⟦Vorher kürzen⟧ (auch über Kreuz) spart Arbeit. Eine ganze Zahl schreibst du als Bruch mit Nenner 1, z. B. 4 = 4/1.",
+    "schritte": [
+     "3/4 · 8/9: Über Kreuz kürzen – 3 und 9 durch 3, 8 und 4 durch 4: 1/1 · 2/3.",
+     "Zähler mal Zähler, Nenner mal Nenner: ⟦2/3⟧."
+    ],
+    "fehler": "2/3 · 4 = 8/12 ist falsch: 4 = 4/1, also wird nur der ⟦Zähler⟧ mal 4 genommen: 2/3 · 4 = 8/3."
+   },
+   {
+    "lernziel": "brueche_geteilt",
+    "titel": "Durch einen Bruch teilen",
+    "regel": "Durch einen Bruch teilst du, indem du mit seinem ⟦Kehrbruch⟧ malnimmst. Den Kehrbruch bekommst du, wenn du ⟦Zähler und Nenner vertauschst⟧: Der Kehrbruch von 3/8 ist 8/3.",
+    "schritte": [
+     "5/6 : 2/3 = 5/6 · 3/2.",
+     "Kürzen (3 und 6 durch 3) und rechnen: 5/2 · 1/2 = ⟦5/4⟧."
+    ],
+    "probe": "5/4 · 2/3 = 10/12 = 5/6 ✓",
+    "fehler": "5/6 : 2/3 = 6/5 · 2/3 ist falsch: Umgedreht wird nur der ⟦Teiler⟧, also der Bruch ⟦hinter⟧ dem Geteiltzeichen."
+   },
+   {
+    "lernziel": "dezimal_mal",
+    "titel": "Dezimalzahlen multiplizieren",
+    "regel": "Rechne zuerst ⟦ohne Komma⟧. Das Ergebnis hat dann so viele ⟦Nachkommastellen wie beide Faktoren zusammen⟧.",
+    "schritte": [
+     "0,3 · 0,04: ohne Komma 3 · 4 = 12. Nachkommastellen: 1 + 2 = 3.",
+     "Also 0,3 · 0,04 = ⟦0,012⟧."
+    ],
+    "probe": "0,012 ist kleiner als 0,04 – passt, denn mal 0,3 macht kleiner ✓",
+    "fehler": "0,3 · 0,04 = 0,12 ist falsch: Die Faktoren haben zusammen ⟦3⟧ Nachkommastellen, also braucht das Ergebnis auch 3: 0,012."
+   },
+   {
+    "lernziel": "dezimal_geteilt",
+    "titel": "Durch eine Dezimalzahl teilen",
+    "regel": "Teilst du durch eine Dezimalzahl, verschiebst du das Komma ⟦bei beiden Zahlen gleich weit nach rechts⟧, bis der Teiler eine ⟦ganze Zahl⟧ ist. Der Wert des Quotienten ändert sich dabei nicht.",
+    "schritte": [
+     "4,8 : 0,06: Komma bei beiden um 2 Stellen nach rechts: 480 : 6.",
+     "480 : 6 = ⟦80⟧."
+    ],
+    "probe": "80 · 0,06 = 4,8 ✓",
+    "fehler": "4,8 : 0,06 = 0,8 ist falsch: Das Komma wurde nur beim Teiler verschoben. Es muss ⟦bei beiden Zahlen⟧ gleich weit wandern."
+   },
+   {
+    "lernziel": "rechenvorteile",
+    "titel": "Geschickt rechnen bei · und :",
+    "regel": "Bei ⟦Produkten⟧ darfst du Faktoren ⟦vertauschen⟧ und beliebig ⟦zusammenfassen⟧. Suche Paare, die eine runde Zahl ergeben: 0,25 · 4 = 1, 0,5 · 2 = 1, 2/3 · 3/2 = 1. Mehrmals teilen kannst du zusammenfassen: a : b : c = a : ⟦(b · c)⟧.",
+    "schritte": [
+     "0,25 · 7,3 · 4: Vertauschen zu (0,25 · 4) · 7,3.",
+     "= 1 · 7,3 = ⟦7,3⟧."
+    ],
+    "fehler": "24 : 0,5 : 2 = 24 : (0,5 : 2) ist falsch: Beim Teilen darf man ⟦nicht beliebig klammern⟧. Richtig: 24 : 0,5 : 2 = 24 : (0,5 · 2) = 24."
+   },
+   {
+    "lernziel": "gemischt",
+    "titel": "Gemischte Rechnungen",
+    "regel": "⟦Klammern zuerst⟧, dann ⟦Punkt vor Strich⟧ (· und : vor + und −), sonst ⟦von links nach rechts⟧. Brüche und Dezimalzahlen darfst du umwandeln, wenn es die Rechnung leichter macht.",
+    "schritte": [
+     "1/2 + 3/4 · 2/3: Punkt vor Strich, also zuerst 3/4 · 2/3 = 1/2.",
+     "1/2 + 1/2 = ⟦1⟧."
+    ],
+    "fehler": "1/2 + 3/4 · 2/3 = 5/4 · 2/3 = 5/6 ist falsch: Hier wurde zuerst addiert. ⟦Punkt vor Strich⟧ – erst malnehmen!"
+   },
+   {
+    "lernziel": "fehler_finden",
+    "titel": "Fehler in Rechnungen finden",
+    "regel": "Prüfe eine Rechnung mit einer ⟦Überschlagsrechnung⟧ oder der ⟦Umkehraufgabe⟧. Typische Fehler: Nenner addieren, Komma falsch setzen, falschen Bruch umdrehen, Punkt-vor-Strich vergessen.",
+    "schritte": [
+     "Behauptet: 2,4 · 0,5 = 12. Überschlag: 2,4 · 0,5 ist die Hälfte von 2,4, also etwa 1,2.",
+     "12 ist viel zu groß. Fehler: ⟦Komma vergessen⟧, richtig ist 1,2."
+    ],
+    "fehler": "Nur nachrechnen, ohne zu überlegen, ob das Ergebnis passen kann, übersieht Kommafehler. Mal eine Zahl kleiner als 1 macht ein Ergebnis ⟦kleiner⟧, geteilt durch eine Zahl kleiner als 1 macht es ⟦größer⟧."
+   }
+  ],
+  "teilfaehigkeiten": [
+   {
+    "k": "brueche_plus_minus",
+    "text": "Brüche addieren und subtrahieren",
+    "lernziele": [
+     "brueche_plus_minus"
+    ]
+   },
+   {
+    "k": "dezimal_plus_minus",
+    "text": "Dezimalzahlen addieren, subtrahieren",
+    "lernziele": [
+     "dezimal_plus_minus"
+    ]
+   },
+   {
+    "k": "vorzeichen",
+    "text": "Rationale Zahlen mit Vorzeichen",
+    "lernziele": [
+     "vorzeichen"
+    ]
+   },
+   {
+    "k": "brueche_mal",
+    "text": "Brüche multiplizieren",
+    "lernziele": [
+     "brueche_mal"
+    ]
+   },
+   {
+    "k": "brueche_geteilt",
+    "text": "Durch einen Bruch teilen",
+    "lernziele": [
+     "brueche_geteilt"
+    ]
+   },
+   {
+    "k": "dezimal_mal",
+    "text": "Dezimalzahlen multiplizieren",
+    "lernziele": [
+     "dezimal_mal"
+    ]
+   },
+   {
+    "k": "dezimal_geteilt",
+    "text": "Durch eine Dezimalzahl teilen",
+    "lernziele": [
+     "dezimal_geteilt"
+    ]
+   },
+   {
+    "k": "rechenvorteile",
+    "text": "Geschickt rechnen bei · und :",
+    "lernziele": [
+     "rechenvorteile"
+    ]
+   },
+   {
+    "k": "gemischt",
+    "text": "Gemischte Rechnungen",
+    "lernziele": [
+     "gemischt"
+    ]
+   },
+   {
+    "k": "fehler_finden",
+    "text": "Fehler in Rechnungen finden",
+    "lernziele": [
+     "fehler_finden"
+    ]
+   }
+  ],
+  "bewertung": {
+   "lernziele_pflicht": [
+    "brueche_plus_minus",
+    "dezimal_plus_minus",
+    "vorzeichen",
+    "brueche_mal",
+    "brueche_geteilt",
+    "dezimal_mal",
+    "dezimal_geteilt",
+    "rechenvorteile",
+    "gemischt",
+    "fehler_finden"
+   ],
+   "lernziele_vertiefung": [],
+   "testaufgaben_je_lernziel": 1
+  },
+  "quellen": {
+   "erklaerungen": "Eigene Fassung (Claude), alle Aufgaben programmgeneriert.",
+   "begriffe": "Fachbegriffe nach LehrplanPLUS Bayern (Gymnasium, Jahrgangsstufe 6)."
+  }
+ },
+ "aufgaben": [
+  {
+   "l": "brueche_plus_minus",
+   "t": "brueche_plus_minus",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 5/15 + 14/15.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     19,
+     15
+    ]
+   },
+   "c": [
+    "(5/15 + 14/15) * 15",
+    "15"
+   ],
+   "w": "Gleicher Nenner: 5 + 14 = 19, also 19/15.",
+   "h": "Gleicher Nenner: Nur die Zähler rechnen, der Nenner bleibt."
+  },
+  {
+   "l": "brueche_plus_minus",
+   "t": "brueche_plus_minus",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 6/11 + 3/11.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     9,
+     11
+    ]
+   },
+   "c": [
+    "(6/11 + 3/11) * 11",
+    "11"
+   ],
+   "w": "Gleicher Nenner: 6 + 3 = 9, also 9/11.",
+   "h": "Gleicher Nenner: Nur die Zähler rechnen, der Nenner bleibt."
+  },
+  {
+   "l": "brueche_plus_minus",
+   "t": "brueche_plus_minus",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 4/7 + 1/7.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     5,
+     7
+    ]
+   },
+   "c": [
+    "(4/7 + 1/7) * 7",
+    "7"
+   ],
+   "w": "Gleicher Nenner: 4 + 1 = 5, also 5/7.",
+   "h": "Gleicher Nenner: Nur die Zähler rechnen, der Nenner bleibt."
+  },
+  {
+   "l": "brueche_plus_minus",
+   "t": "brueche_plus_minus",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 8/12 + 1/12.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     3,
+     4
+    ]
+   },
+   "c": [
+    "(8/12 + 1/12) * 4",
+    "4"
+   ],
+   "w": "Gleicher Nenner: 8 + 1 = 9, also 9/12 = 3/4 (gekürzt).",
+   "h": "Gleicher Nenner: Nur die Zähler rechnen, der Nenner bleibt."
+  },
+  {
+   "l": "brueche_plus_minus",
+   "t": "brueche_plus_minus",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 3/4 − 2/4.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     1,
+     4
+    ]
+   },
+   "c": [
+    "(3/4 - 2/4) * 4",
+    "4"
+   ],
+   "w": "Gleicher Nenner: 3 − 2 = 1, also 1/4.",
+   "h": "Gleicher Nenner: Nur die Zähler rechnen, der Nenner bleibt."
+  },
+  {
+   "l": "brueche_plus_minus",
+   "t": "brueche_plus_minus",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 5/6 − 1/6.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     2,
+     3
+    ]
+   },
+   "c": [
+    "(5/6 - 1/6) * 3",
+    "3"
+   ],
+   "w": "Gleicher Nenner: 5 − 1 = 4, also 4/6 = 2/3 (gekürzt).",
+   "h": "Gleicher Nenner: Nur die Zähler rechnen, der Nenner bleibt."
+  },
+  {
+   "l": "brueche_plus_minus",
+   "t": "brueche_plus_minus",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 3/4 − 3/5.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     3,
+     20
+    ]
+   },
+   "c": [
+    "((0.75) - (0.6)) * 20",
+    "20"
+   ],
+   "w": "Hauptnenner 20: 15/20 − 12/20 = 3/20.",
+   "h": "Bringe beide Brüche zuerst auf den Hauptnenner."
+  },
+  {
+   "l": "brueche_plus_minus",
+   "t": "brueche_plus_minus",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 1/2 + 2/3.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     7,
+     6
+    ]
+   },
+   "c": [
+    "((0.5) + (2/3)) * 6",
+    "6"
+   ],
+   "w": "Hauptnenner 6: 3/6 + 4/6 = 7/6.",
+   "h": "Bringe beide Brüche zuerst auf den Hauptnenner."
+  },
+  {
+   "l": "brueche_plus_minus",
+   "t": "brueche_plus_minus",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 8/9 + 1/4.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     41,
+     36
+    ]
+   },
+   "c": [
+    "((8/9) + (0.25)) * 36",
+    "36"
+   ],
+   "w": "Hauptnenner 36: 32/36 + 9/36 = 41/36.",
+   "h": "Bringe beide Brüche zuerst auf den Hauptnenner."
+  },
+  {
+   "l": "brueche_plus_minus",
+   "t": "brueche_plus_minus",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 5/6 − 1/2.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     1,
+     3
+    ]
+   },
+   "c": [
+    "((5/6) - (0.5)) * 3",
+    "3"
+   ],
+   "w": "Hauptnenner 6: 5/6 − 3/6 = 1/3.",
+   "h": "Bringe beide Brüche zuerst auf den Hauptnenner."
+  },
+  {
+   "l": "brueche_plus_minus",
+   "t": "brueche_plus_minus",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 5/6 − 2/3.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     1,
+     6
+    ]
+   },
+   "c": [
+    "((5/6) - (2/3)) * 6",
+    "6"
+   ],
+   "w": "Hauptnenner 6: 5/6 − 4/6 = 1/6.",
+   "h": "Bringe beide Brüche zuerst auf den Hauptnenner."
+  },
+  {
+   "l": "brueche_plus_minus",
+   "t": "brueche_plus_minus",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 4/9 + 1/3.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     7,
+     9
+    ]
+   },
+   "c": [
+    "((4/9) + (1/3)) * 9",
+    "9"
+   ],
+   "w": "Hauptnenner 9: 4/9 + 3/9 = 7/9.",
+   "h": "Bringe beide Brüche zuerst auf den Hauptnenner."
+  },
+  {
+   "l": "brueche_plus_minus",
+   "t": "brueche_plus_minus",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Von einer Pizza isst ein Kind 1/2, ein anderes 1/5. Welcher Anteil der Pizza bleibt übrig?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     3,
+     10
+    ]
+   },
+   "c": [
+    "(1 - 1/2 - 1/5) * 10",
+    "10"
+   ],
+   "w": "Gegessen: 1/2 + 1/5 = 7/10. Übrig: 1 − 7/10 = 3/10.",
+   "h": "Die ganze Pizza ist 1. Ziehe beide Anteile ab."
+  },
+  {
+   "l": "brueche_plus_minus",
+   "t": "brueche_plus_minus",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 3/4 + 1/3 − 2/5.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     41,
+     60
+    ]
+   },
+   "c": [
+    "((0.75) + (1/3) - (0.4)) * 60",
+    "60"
+   ],
+   "w": "Hauptnenner 60: 45/60 + 20/60 − 24/60 = 41/60.",
+   "h": "Suche einen Nenner, in den alle drei Nenner passen."
+  },
+  {
+   "l": "brueche_plus_minus",
+   "t": "brueche_plus_minus",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 1 − 1/2.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     1,
+     2
+    ]
+   },
+   "c": [
+    "(1 - (0.5)) * 2",
+    "2"
+   ],
+   "w": "1 = 2/2. 2/2 − 1/2 = 1/2.",
+   "h": "Schreibe 1 als Bruch mit dem Nenner 2."
+  },
+  {
+   "l": "brueche_plus_minus",
+   "t": "brueche_plus_minus",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 1 − 1/4.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     3,
+     4
+    ]
+   },
+   "c": [
+    "(1 - (0.25)) * 4",
+    "4"
+   ],
+   "w": "1 = 4/4. 4/4 − 1/4 = 3/4.",
+   "h": "Schreibe 1 als Bruch mit dem Nenner 4."
+  },
+  {
+   "l": "brueche_plus_minus",
+   "t": "brueche_plus_minus",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Von einer Pizza isst ein Kind 1/2, ein anderes 1/3. Welcher Anteil der Pizza bleibt übrig?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     1,
+     6
+    ]
+   },
+   "c": [
+    "(1 - 1/2 - 1/3) * 6",
+    "6"
+   ],
+   "w": "Gegessen: 1/2 + 1/3 = 5/6. Übrig: 1 − 5/6 = 1/6.",
+   "h": "Die ganze Pizza ist 1. Ziehe beide Anteile ab."
+  },
+  {
+   "l": "brueche_plus_minus",
+   "t": "brueche_plus_minus",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Von einer Pizza isst ein Kind 1/2, ein anderes 1/6. Welcher Anteil der Pizza bleibt übrig?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     1,
+     3
+    ]
+   },
+   "c": [
+    "(1 - 1/2 - 1/6) * 3",
+    "3"
+   ],
+   "w": "Gegessen: 1/2 + 1/6 = 2/3. Übrig: 1 − 2/3 = 1/3.",
+   "h": "Die ganze Pizza ist 1. Ziehe beide Anteile ab."
+  },
+  {
+   "l": "brueche_plus_minus",
+   "t": "brueche_plus_minus",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 2/9 − 1/7.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     5,
+     63
+    ]
+   },
+   "c": [
+    "((2/9) - (1/7)) * 63",
+    "63"
+   ],
+   "w": "Hauptnenner 63: 14/63 − 9/63 = 5/63."
+  },
+  {
+   "l": "brueche_plus_minus",
+   "t": "brueche_plus_minus",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 1/2 − 4/9.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     1,
+     18
+    ]
+   },
+   "c": [
+    "((0.5) - (4/9)) * 18",
+    "18"
+   ],
+   "w": "Hauptnenner 18: 9/18 − 8/18 = 1/18."
+  },
+  {
+   "l": "brueche_plus_minus",
+   "t": "brueche_plus_minus",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 1/5 + 1/3.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     8,
+     15
+    ]
+   },
+   "c": [
+    "((0.2) + (1/3)) * 15",
+    "15"
+   ],
+   "w": "Hauptnenner 15: 3/15 + 5/15 = 8/15."
+  },
+  {
+   "l": "brueche_plus_minus",
+   "t": "brueche_plus_minus",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 1/6 + 1/4.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     5,
+     12
+    ]
+   },
+   "c": [
+    "((1/6) + (0.25)) * 12",
+    "12"
+   ],
+   "w": "Hauptnenner 12: 2/12 + 3/12 = 5/12."
+  },
+  {
+   "l": "brueche_plus_minus",
+   "t": "brueche_plus_minus",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 2/3 + 7/8.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     37,
+     24
+    ]
+   },
+   "c": [
+    "((2/3) + (0.875)) * 24",
+    "24"
+   ],
+   "w": "Hauptnenner 24: 16/24 + 21/24 = 37/24."
+  },
+  {
+   "l": "brueche_plus_minus",
+   "t": "brueche_plus_minus",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 3/5 − 1/8.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     19,
+     40
+    ]
+   },
+   "c": [
+    "((0.6) - (0.125)) * 40",
+    "40"
+   ],
+   "w": "Hauptnenner 40: 24/40 − 5/40 = 19/40."
+  },
+  {
+   "l": "brueche_plus_minus",
+   "t": "brueche_plus_minus",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 3/8 + 9/10.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     51,
+     40
+    ]
+   },
+   "c": [
+    "((0.375) + (0.9)) * 40",
+    "40"
+   ],
+   "w": "Hauptnenner 40: 15/40 + 36/40 = 51/40."
+  },
+  {
+   "l": "brueche_plus_minus",
+   "t": "brueche_plus_minus",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 1/2 − 1/6.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     1,
+     3
+    ]
+   },
+   "c": [
+    "((0.5) - (1/6)) * 3",
+    "3"
+   ],
+   "w": "Hauptnenner 6: 3/6 − 1/6 = 1/3."
+  },
+  {
+   "l": "brueche_plus_minus",
+   "t": "brueche_plus_minus",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 7/10 + 2/5.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     11,
+     10
+    ]
+   },
+   "c": [
+    "((0.7) + (0.4)) * 10",
+    "10"
+   ],
+   "w": "Hauptnenner 10: 7/10 + 4/10 = 11/10."
+  },
+  {
+   "l": "brueche_plus_minus",
+   "t": "brueche_plus_minus",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 5/7 + 1/5.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     32,
+     35
+    ]
+   },
+   "c": [
+    "((5/7) + (0.2)) * 35",
+    "35"
+   ],
+   "w": "Hauptnenner 35: 25/35 + 7/35 = 32/35."
+  },
+  {
+   "l": "dezimal_plus_minus",
+   "t": "dezimal_plus_minus",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 16,38 − 9,21."
+   },
+   "o": {
+    "wert": 7.17
+   },
+   "c": "(16.38) - (9.21)",
+   "w": "Komma unter Komma: 16,38 − 9,21 = 7,17.",
+   "h": "Schreibe Komma unter Komma."
+  },
+  {
+   "l": "dezimal_plus_minus",
+   "t": "dezimal_plus_minus",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 8,7 + 9,7."
+   },
+   "o": {
+    "wert": 18.4
+   },
+   "c": "(8.7) + (9.7)",
+   "w": "Komma unter Komma: 8,7 + 9,7 = 18,4.",
+   "h": "Schreibe Komma unter Komma."
+  },
+  {
+   "l": "dezimal_plus_minus",
+   "t": "dezimal_plus_minus",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 19,2 + 10,3."
+   },
+   "o": {
+    "wert": 29.5
+   },
+   "c": "(19.2) + (10.3)",
+   "w": "Komma unter Komma: 19,2 + 10,3 = 29,5.",
+   "h": "Schreibe Komma unter Komma."
+  },
+  {
+   "l": "dezimal_plus_minus",
+   "t": "dezimal_plus_minus",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 16,8 − 4,5."
+   },
+   "o": {
+    "wert": 12.3
+   },
+   "c": "(16.8) - (4.5)",
+   "w": "Komma unter Komma: 16,8 − 4,5 = 12,3.",
+   "h": "Schreibe Komma unter Komma."
+  },
+  {
+   "l": "dezimal_plus_minus",
+   "t": "dezimal_plus_minus",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 19,56 − 1,68."
+   },
+   "o": {
+    "wert": 17.88
+   },
+   "c": "(19.56) - (1.68)",
+   "w": "Komma unter Komma: 19,56 − 1,68 = 17,88.",
+   "h": "Schreibe Komma unter Komma."
+  },
+  {
+   "l": "dezimal_plus_minus",
+   "t": "dezimal_plus_minus",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 9,84 + 12,24."
+   },
+   "o": {
+    "wert": 22.08
+   },
+   "c": "(9.84) + (12.24)",
+   "w": "Komma unter Komma: 9,84 + 12,24 = 22,08.",
+   "h": "Schreibe Komma unter Komma."
+  },
+  {
+   "l": "dezimal_plus_minus",
+   "t": "dezimal_plus_minus",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 17,395 + 7,08."
+   },
+   "o": {
+    "wert": 24.475
+   },
+   "c": "(17.395) + (7.08)",
+   "w": "Mit Nullen auffüllen, Komma unter Komma: 17,395 + 7,08 = 24,475.",
+   "h": "Fülle fehlende Nachkommastellen mit Nullen auf."
+  },
+  {
+   "l": "dezimal_plus_minus",
+   "t": "dezimal_plus_minus",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 39,655 − 33,74."
+   },
+   "o": {
+    "wert": 5.915
+   },
+   "c": "(39.655) - (33.74)",
+   "w": "Mit Nullen auffüllen, Komma unter Komma: 39,655 − 33,74 = 5,915.",
+   "h": "Fülle fehlende Nachkommastellen mit Nullen auf."
+  },
+  {
+   "l": "dezimal_plus_minus",
+   "t": "dezimal_plus_minus",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 24,76 − 22,897."
+   },
+   "o": {
+    "wert": 1.863
+   },
+   "c": "(24.76) - (22.897)",
+   "w": "Mit Nullen auffüllen, Komma unter Komma: 24,76 − 22,897 = 1,863.",
+   "h": "Fülle fehlende Nachkommastellen mit Nullen auf."
+  },
+  {
+   "l": "dezimal_plus_minus",
+   "t": "dezimal_plus_minus",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 31,75 + 10,516."
+   },
+   "o": {
+    "wert": 42.266
+   },
+   "c": "(31.75) + (10.516)",
+   "w": "Mit Nullen auffüllen, Komma unter Komma: 31,75 + 10,516 = 42,266.",
+   "h": "Fülle fehlende Nachkommastellen mit Nullen auf."
+  },
+  {
+   "l": "dezimal_plus_minus",
+   "t": "dezimal_plus_minus",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 36,291 − 20,93."
+   },
+   "o": {
+    "wert": 15.361
+   },
+   "c": "(36.291) - (20.93)",
+   "w": "Mit Nullen auffüllen, Komma unter Komma: 36,291 − 20,93 = 15,361.",
+   "h": "Fülle fehlende Nachkommastellen mit Nullen auf."
+  },
+  {
+   "l": "dezimal_plus_minus",
+   "t": "dezimal_plus_minus",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 14,239 + 21,62."
+   },
+   "o": {
+    "wert": 35.859
+   },
+   "c": "(14.239) + (21.62)",
+   "w": "Mit Nullen auffüllen, Komma unter Komma: 14,239 + 21,62 = 35,859.",
+   "h": "Fülle fehlende Nachkommastellen mit Nullen auf."
+  },
+  {
+   "l": "dezimal_plus_minus",
+   "t": "dezimal_plus_minus",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Einkauf kostet 2,48 €, 9,48 €, 12,71 €. Bezahlt wird mit einem 100-€-Schein. Wie viel Euro gibt es zurück?"
+   },
+   "o": {
+    "wert": 75.33,
+    "einheit": "€"
+   },
+   "c": "100 - (2.48) - (9.48) - (12.71)",
+   "w": "Summe: 24,67 €. Rückgeld: 100 − 24,67 = 75,33 €.",
+   "h": "Addiere zuerst alle Preise, dann ziehe die Summe vom Schein ab."
+  },
+  {
+   "l": "dezimal_plus_minus",
+   "t": "dezimal_plus_minus",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viel fehlt von 7,244 bis 7,3?"
+   },
+   "o": {
+    "wert": 0.056
+   },
+   "c": "(7.3) - (7.244)",
+   "w": "7,3 − 7,244: auffüllen zu 7,300 − 7,244 = 0,056.",
+   "h": "Rechne die größere minus die kleinere Zahl. Nullen auffüllen!"
+  },
+  {
+   "l": "dezimal_plus_minus",
+   "t": "dezimal_plus_minus",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Einkauf kostet 0,76 €, 2,28 €, 5,31 €. Bezahlt wird mit einem 20-€-Schein. Wie viel Euro gibt es zurück?"
+   },
+   "o": {
+    "wert": 11.65,
+    "einheit": "€"
+   },
+   "c": "20 - (0.76) - (2.28) - (5.31)",
+   "w": "Summe: 8,35 €. Rückgeld: 20 − 8,35 = 11,65 €.",
+   "h": "Addiere zuerst alle Preise, dann ziehe die Summe vom Schein ab."
+  },
+  {
+   "l": "dezimal_plus_minus",
+   "t": "dezimal_plus_minus",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 1/5 + 2,09. Gib das Ergebnis als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 2.29
+   },
+   "c": "(0.2) + (2.09)",
+   "w": "1/5 = 0,2. 0,2 + 2,09 = 2,29.",
+   "h": "Wandle den Bruch zuerst in eine Dezimalzahl um."
+  },
+  {
+   "l": "dezimal_plus_minus",
+   "t": "dezimal_plus_minus",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Einkauf kostet 4,11 €, 5,65 €, 7,42 €. Bezahlt wird mit einem 100-€-Schein. Wie viel Euro gibt es zurück?"
+   },
+   "o": {
+    "wert": 82.82,
+    "einheit": "€"
+   },
+   "c": "100 - (4.11) - (5.65) - (7.42)",
+   "w": "Summe: 17,18 €. Rückgeld: 100 − 17,18 = 82,82 €.",
+   "h": "Addiere zuerst alle Preise, dann ziehe die Summe vom Schein ab."
+  },
+  {
+   "l": "dezimal_plus_minus",
+   "t": "dezimal_plus_minus",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Einkauf kostet 1,86 €, 10,43 €, 12,74 €. Bezahlt wird mit einem 100-€-Schein. Wie viel Euro gibt es zurück?"
+   },
+   "o": {
+    "wert": 74.97,
+    "einheit": "€"
+   },
+   "c": "100 - (1.86) - (10.43) - (12.74)",
+   "w": "Summe: 25,03 €. Rückgeld: 100 − 25,03 = 74,97 €.",
+   "h": "Addiere zuerst alle Preise, dann ziehe die Summe vom Schein ab."
+  },
+  {
+   "l": "dezimal_plus_minus",
+   "t": "dezimal_plus_minus",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 40,033 − 29,59."
+   },
+   "o": {
+    "wert": 10.443
+   },
+   "c": "(40.033) - (29.59)",
+   "w": "Mit Nullen auffüllen, Komma unter Komma: 40,033 − 29,59 = 10,443."
+  },
+  {
+   "l": "dezimal_plus_minus",
+   "t": "dezimal_plus_minus",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 2,1 + 9,86."
+   },
+   "o": {
+    "wert": 11.96
+   },
+   "c": "(2.1) + (9.86)",
+   "w": "Mit Nullen auffüllen, Komma unter Komma: 2,1 + 9,86 = 11,96."
+  },
+  {
+   "l": "dezimal_plus_minus",
+   "t": "dezimal_plus_minus",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 31,3 − 24,13."
+   },
+   "o": {
+    "wert": 7.17
+   },
+   "c": "(31.3) - (24.13)",
+   "w": "Mit Nullen auffüllen, Komma unter Komma: 31,3 − 24,13 = 7,17."
+  },
+  {
+   "l": "dezimal_plus_minus",
+   "t": "dezimal_plus_minus",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 37,342 + 3,89."
+   },
+   "o": {
+    "wert": 41.232
+   },
+   "c": "(37.342) + (3.89)",
+   "w": "Mit Nullen auffüllen, Komma unter Komma: 37,342 + 3,89 = 41,232."
+  },
+  {
+   "l": "dezimal_plus_minus",
+   "t": "dezimal_plus_minus",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 2,41 + 16,8."
+   },
+   "o": {
+    "wert": 19.21
+   },
+   "c": "(2.41) + (16.8)",
+   "w": "Mit Nullen auffüllen, Komma unter Komma: 2,41 + 16,8 = 19,21."
+  },
+  {
+   "l": "dezimal_plus_minus",
+   "t": "dezimal_plus_minus",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 43,9 + 17,56."
+   },
+   "o": {
+    "wert": 61.46
+   },
+   "c": "(43.9) + (17.56)",
+   "w": "Mit Nullen auffüllen, Komma unter Komma: 43,9 + 17,56 = 61,46."
+  },
+  {
+   "l": "dezimal_plus_minus",
+   "t": "dezimal_plus_minus",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 49,646 − 18,23."
+   },
+   "o": {
+    "wert": 31.416
+   },
+   "c": "(49.646) - (18.23)",
+   "w": "Mit Nullen auffüllen, Komma unter Komma: 49,646 − 18,23 = 31,416."
+  },
+  {
+   "l": "dezimal_plus_minus",
+   "t": "dezimal_plus_minus",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 45,95 − 38,2."
+   },
+   "o": {
+    "wert": 7.75
+   },
+   "c": "(45.95) - (38.2)",
+   "w": "Mit Nullen auffüllen, Komma unter Komma: 45,95 − 38,2 = 7,75."
+  },
+  {
+   "l": "dezimal_plus_minus",
+   "t": "dezimal_plus_minus",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 31,14 − 18,3."
+   },
+   "o": {
+    "wert": 12.84
+   },
+   "c": "(31.14) - (18.3)",
+   "w": "Mit Nullen auffüllen, Komma unter Komma: 31,14 − 18,3 = 12,84."
+  },
+  {
+   "l": "dezimal_plus_minus",
+   "t": "dezimal_plus_minus",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 32,37 − 25,2."
+   },
+   "o": {
+    "wert": 7.17
+   },
+   "c": "(32.37) - (25.2)",
+   "w": "Mit Nullen auffüllen, Komma unter Komma: 32,37 − 25,2 = 7,17."
+  },
+  {
+   "l": "vorzeichen",
+   "t": "vorzeichen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−8,4) + 6,9."
+   },
+   "o": {
+    "wert": -1.5
+   },
+   "c": "(-8.4) + (6.9)",
+   "w": "(−8,4) + 6,9 = −1,5. Vorzeichen wie bei ganzen Zahlen.",
+   "h": "Rechne wie mit ganzen Zahlen: erst die Vorzeichen klären, dann die Beträge rechnen."
+  },
+  {
+   "l": "vorzeichen",
+   "t": "vorzeichen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 2,7 − (−4,1)."
+   },
+   "o": {
+    "wert": 6.8
+   },
+   "c": "(2.7) - (-4.1)",
+   "w": "Minus eine negative Zahl wird plus: 2,7 + 4,1 = 6,8. Vorzeichen wie bei ganzen Zahlen.",
+   "h": "Rechne wie mit ganzen Zahlen: erst die Vorzeichen klären, dann die Beträge rechnen."
+  },
+  {
+   "l": "vorzeichen",
+   "t": "vorzeichen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−5,5) + 0,8."
+   },
+   "o": {
+    "wert": -4.7
+   },
+   "c": "(-5.5) + (0.8)",
+   "w": "(−5,5) + 0,8 = −4,7. Vorzeichen wie bei ganzen Zahlen.",
+   "h": "Rechne wie mit ganzen Zahlen: erst die Vorzeichen klären, dann die Beträge rechnen."
+  },
+  {
+   "l": "vorzeichen",
+   "t": "vorzeichen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 4,1 − (−5,5)."
+   },
+   "o": {
+    "wert": 9.6
+   },
+   "c": "(4.1) - (-5.5)",
+   "w": "Minus eine negative Zahl wird plus: 4,1 + 5,5 = 9,6. Vorzeichen wie bei ganzen Zahlen.",
+   "h": "Rechne wie mit ganzen Zahlen: erst die Vorzeichen klären, dann die Beträge rechnen."
+  },
+  {
+   "l": "vorzeichen",
+   "t": "vorzeichen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 2,1 − (−7,6)."
+   },
+   "o": {
+    "wert": 9.7
+   },
+   "c": "(2.1) - (-7.6)",
+   "w": "Minus eine negative Zahl wird plus: 2,1 + 7,6 = 9,7. Vorzeichen wie bei ganzen Zahlen.",
+   "h": "Rechne wie mit ganzen Zahlen: erst die Vorzeichen klären, dann die Beträge rechnen."
+  },
+  {
+   "l": "vorzeichen",
+   "t": "vorzeichen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 4,7 − (−3,2)."
+   },
+   "o": {
+    "wert": 7.9
+   },
+   "c": "(4.7) - (-3.2)",
+   "w": "Minus eine negative Zahl wird plus: 4,7 + 3,2 = 7,9. Vorzeichen wie bei ganzen Zahlen.",
+   "h": "Rechne wie mit ganzen Zahlen: erst die Vorzeichen klären, dann die Beträge rechnen."
+  },
+  {
+   "l": "vorzeichen",
+   "t": "vorzeichen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−2,7) : 9."
+   },
+   "o": {
+    "wert": -0.3
+   },
+   "c": "(-2.7) / (9)",
+   "w": "Beträge: 2,7 : 9 = 0,3. Verschiedene Vorzeichen: −0,3.",
+   "h": "Gleiche Vorzeichen: plus. Verschiedene: minus."
+  },
+  {
+   "l": "vorzeichen",
+   "t": "vorzeichen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−33,3) : (−9)."
+   },
+   "o": {
+    "wert": 3.7
+   },
+   "c": "(-33.3) / (-9)",
+   "w": "Beträge: 33,3 : 9 = 3,7. Gleiche Vorzeichen: 3,7.",
+   "h": "Gleiche Vorzeichen: plus. Verschiedene: minus."
+  },
+  {
+   "l": "vorzeichen",
+   "t": "vorzeichen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−10,4) : 8."
+   },
+   "o": {
+    "wert": -1.3
+   },
+   "c": "(-10.4) / (8)",
+   "w": "Beträge: 10,4 : 8 = 1,3. Verschiedene Vorzeichen: −1,3.",
+   "h": "Gleiche Vorzeichen: plus. Verschiedene: minus."
+  },
+  {
+   "l": "vorzeichen",
+   "t": "vorzeichen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−2,6) · (−6)."
+   },
+   "o": {
+    "wert": 15.6
+   },
+   "c": "(-2.6) * (-6)",
+   "w": "Beträge: 2,6 · 6 = 15,6. Gleiche Vorzeichen: 15,6.",
+   "h": "Gleiche Vorzeichen: plus. Verschiedene: minus."
+  },
+  {
+   "l": "vorzeichen",
+   "t": "vorzeichen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 13,8 : (−6)."
+   },
+   "o": {
+    "wert": -2.3
+   },
+   "c": "(13.8) / (-6)",
+   "w": "Beträge: 13,8 : 6 = 2,3. Verschiedene Vorzeichen: −2,3.",
+   "h": "Gleiche Vorzeichen: plus. Verschiedene: minus."
+  },
+  {
+   "l": "vorzeichen",
+   "t": "vorzeichen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−0,5) · (−9)."
+   },
+   "o": {
+    "wert": 4.5
+   },
+   "c": "(-0.5) * (-9)",
+   "w": "Beträge: 0,5 · 9 = 4,5. Gleiche Vorzeichen: 4,5.",
+   "h": "Gleiche Vorzeichen: plus. Verschiedene: minus."
+  },
+  {
+   "l": "vorzeichen",
+   "t": "vorzeichen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−4,2) − 0,8 + (−4,9)."
+   },
+   "o": {
+    "wert": -9.9
+   },
+   "c": "(-4.2) - (0.8) + (-4.9)",
+   "w": "Von links nach rechts: (−4,2) − 0,8 = −5; (−5) + (−4,9) = −9,9.",
+   "h": "Rechne von links nach rechts. Minus einer negativen Zahl wird plus."
+  },
+  {
+   "l": "vorzeichen",
+   "t": "vorzeichen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−3,5) − (−2,3) + 1,8."
+   },
+   "o": {
+    "wert": 0.6
+   },
+   "c": "(-3.5) - (-2.3) + (1.8)",
+   "w": "Von links nach rechts: (−3,5) − (−2,3) = −1,2; (−1,2) + 1,8 = 0,6.",
+   "h": "Rechne von links nach rechts. Minus einer negativen Zahl wird plus."
+  },
+  {
+   "l": "vorzeichen",
+   "t": "vorzeichen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 2,8 − 3,5 + 2,2."
+   },
+   "o": {
+    "wert": 1.5
+   },
+   "c": "(2.8) - (3.5) + (2.2)",
+   "w": "Von links nach rechts: 2,8 − 3,5 = −0,7; (−0,7) + 2,2 = 1,5.",
+   "h": "Rechne von links nach rechts. Minus einer negativen Zahl wird plus."
+  },
+  {
+   "l": "vorzeichen",
+   "t": "vorzeichen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−1,5) − (−0,5) + (−4,3)."
+   },
+   "o": {
+    "wert": -5.3
+   },
+   "c": "(-1.5) - (-0.5) + (-4.3)",
+   "w": "Von links nach rechts: (−1,5) − (−0,5) = −1; (−1) + (−4,3) = −5,3.",
+   "h": "Rechne von links nach rechts. Minus einer negativen Zahl wird plus."
+  },
+  {
+   "l": "vorzeichen",
+   "t": "vorzeichen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "−19/28",
+    "5/28",
+    "−2/11",
+    "−5/28"
+   ],
+   "o": {
+    "index": 3
+   },
+   "f": {
+    "text": "Berechne (−3/7) + 1/4."
+   },
+   "w": "Hauptnenner 28: −12/28 + 7/28 = −5/28.",
+   "h": "Gleichnamig machen, dann wie bei ganzen Zahlen rechnen."
+  },
+  {
+   "l": "vorzeichen",
+   "t": "vorzeichen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 4,1 − (−3,3) + 1,8."
+   },
+   "o": {
+    "wert": 9.2
+   },
+   "c": "(4.1) - (-3.3) + (1.8)",
+   "w": "Von links nach rechts: 4,1 − (−3,3) = 7,4; 7,4 + 1,8 = 9,2.",
+   "h": "Rechne von links nach rechts. Minus einer negativen Zahl wird plus."
+  },
+  {
+   "l": "vorzeichen",
+   "t": "vorzeichen",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 7 : (−2)."
+   },
+   "o": {
+    "wert": -3.5
+   },
+   "c": "(7) / (-2)",
+   "w": "Beträge: 7 : 2 = 3,5. Verschiedene Vorzeichen: −3,5."
+  },
+  {
+   "l": "vorzeichen",
+   "t": "vorzeichen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−0,9) · (−8)."
+   },
+   "o": {
+    "wert": 7.2
+   },
+   "c": "(-0.9) * (-8)",
+   "w": "Beträge: 0,9 · 8 = 7,2. Gleiche Vorzeichen: 7,2."
+  },
+  {
+   "l": "vorzeichen",
+   "t": "vorzeichen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−0,8) : 8."
+   },
+   "o": {
+    "wert": -0.1
+   },
+   "c": "(-0.8) / (8)",
+   "w": "Beträge: 0,8 : 8 = 0,1. Verschiedene Vorzeichen: −0,1."
+  },
+  {
+   "l": "vorzeichen",
+   "t": "vorzeichen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−4,1) · 1."
+   },
+   "o": {
+    "wert": -4.1
+   },
+   "c": "(-4.1) * (1)",
+   "w": "Beträge: 4,1 · 1 = 4,1. Verschiedene Vorzeichen: −4,1."
+  },
+  {
+   "l": "vorzeichen",
+   "t": "vorzeichen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−3,2) · (−3,7)."
+   },
+   "o": {
+    "wert": 11.84
+   },
+   "c": "(-3.2) * (-3.7)",
+   "w": "Beträge: 3,2 · 3,7 = 11,84. Gleiche Vorzeichen: 11,84."
+  },
+  {
+   "l": "vorzeichen",
+   "t": "vorzeichen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−5,2) · (−3)."
+   },
+   "o": {
+    "wert": 15.6
+   },
+   "c": "(-5.2) * (-3)",
+   "w": "Beträge: 5,2 · 3 = 15,6. Gleiche Vorzeichen: 15,6."
+  },
+  {
+   "l": "vorzeichen",
+   "t": "vorzeichen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−11,4) : (−3)."
+   },
+   "o": {
+    "wert": 3.8
+   },
+   "c": "(-11.4) / (-3)",
+   "w": "Beträge: 11,4 : 3 = 3,8. Gleiche Vorzeichen: 3,8."
+  },
+  {
+   "l": "vorzeichen",
+   "t": "vorzeichen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−17) : 5."
+   },
+   "o": {
+    "wert": -3.4
+   },
+   "c": "(-17) / (5)",
+   "w": "Beträge: 17 : 5 = 3,4. Verschiedene Vorzeichen: −3,4."
+  },
+  {
+   "l": "vorzeichen",
+   "t": "vorzeichen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−0,7) · 4."
+   },
+   "o": {
+    "wert": -2.8
+   },
+   "c": "(-0.7) * (4)",
+   "w": "Beträge: 0,7 · 4 = 2,8. Verschiedene Vorzeichen: −2,8."
+  },
+  {
+   "l": "vorzeichen",
+   "t": "vorzeichen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−11,2) : (−8)."
+   },
+   "o": {
+    "wert": 1.4
+   },
+   "c": "(-11.2) / (-8)",
+   "w": "Beträge: 11,2 : 8 = 1,4. Gleiche Vorzeichen: 1,4."
+  },
+  {
+   "l": "brueche_mal",
+   "t": "brueche_mal",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 4/9 · 3/5.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     4,
+     15
+    ]
+   },
+   "c": [
+    "((4/9) * (0.6)) * 15",
+    "15"
+   ],
+   "w": "4 · 3 = 12, 9 · 5 = 45: 12/45 = 4/15.",
+   "h": "Zähler mal Zähler, Nenner mal Nenner."
+  },
+  {
+   "l": "brueche_mal",
+   "t": "brueche_mal",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 2/3 · 2.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     4,
+     3
+    ]
+   },
+   "c": [
+    "((2/3) * 2) * 3",
+    "3"
+   ],
+   "w": "2 = 2/1. 2 · 2 = 4, Nenner 3: 4/3.",
+   "h": "Nur der Zähler wird mit der ganzen Zahl malgenommen."
+  },
+  {
+   "l": "brueche_mal",
+   "t": "brueche_mal",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 1/9 · 1/2.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     1,
+     18
+    ]
+   },
+   "c": [
+    "((1/9) * (0.5)) * 18",
+    "18"
+   ],
+   "w": "1 · 1 = 1, 9 · 2 = 18: 1/18.",
+   "h": "Zähler mal Zähler, Nenner mal Nenner."
+  },
+  {
+   "l": "brueche_mal",
+   "t": "brueche_mal",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 4/5 · 7.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     28,
+     5
+    ]
+   },
+   "c": [
+    "((0.8) * 7) * 5",
+    "5"
+   ],
+   "w": "7 = 7/1. 4 · 7 = 28, Nenner 5: 28/5.",
+   "h": "Nur der Zähler wird mit der ganzen Zahl malgenommen."
+  },
+  {
+   "l": "brueche_mal",
+   "t": "brueche_mal",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 1/6 · 9.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     3,
+     2
+    ]
+   },
+   "c": [
+    "((1/6) * 9) * 2",
+    "2"
+   ],
+   "w": "9 = 9/1. 1 · 9 = 9, Nenner 6: 9/6 = 3/2.",
+   "h": "Nur der Zähler wird mit der ganzen Zahl malgenommen."
+  },
+  {
+   "l": "brueche_mal",
+   "t": "brueche_mal",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 2/3 · 8.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     16,
+     3
+    ]
+   },
+   "c": [
+    "((2/3) * 8) * 3",
+    "3"
+   ],
+   "w": "8 = 8/1. 2 · 8 = 16, Nenner 3: 16/3.",
+   "h": "Nur der Zähler wird mit der ganzen Zahl malgenommen."
+  },
+  {
+   "l": "brueche_mal",
+   "t": "brueche_mal",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 2/35 · 21/4. Kürze vorher.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     3,
+     10
+    ]
+   },
+   "c": [
+    "((2/35) * (5.25)) * 10",
+    "10"
+   ],
+   "w": "Über Kreuz kürzen, dann Zähler mal Zähler und Nenner mal Nenner: 2/35 · 21/4 = 3/10.",
+   "h": "Kürze über Kreuz: Zähler des einen mit Nenner des anderen."
+  },
+  {
+   "l": "brueche_mal",
+   "t": "brueche_mal",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 1/3 · 6/7. Kürze vorher.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     2,
+     7
+    ]
+   },
+   "c": [
+    "((1/3) * (6/7)) * 7",
+    "7"
+   ],
+   "w": "Über Kreuz kürzen, dann Zähler mal Zähler und Nenner mal Nenner: 1/3 · 6/7 = 2/7.",
+   "h": "Kürze über Kreuz: Zähler des einen mit Nenner des anderen."
+  },
+  {
+   "l": "brueche_mal",
+   "t": "brueche_mal",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 1/6 · 6/5. Kürze vorher.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     1,
+     5
+    ]
+   },
+   "c": [
+    "((1/6) * (1.2)) * 5",
+    "5"
+   ],
+   "w": "Über Kreuz kürzen, dann Zähler mal Zähler und Nenner mal Nenner: 1/6 · 6/5 = 1/5.",
+   "h": "Kürze über Kreuz: Zähler des einen mit Nenner des anderen."
+  },
+  {
+   "l": "brueche_mal",
+   "t": "brueche_mal",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 3/8 · 6/5. Kürze vorher.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     9,
+     20
+    ]
+   },
+   "c": [
+    "((0.375) * (1.2)) * 20",
+    "20"
+   ],
+   "w": "Über Kreuz kürzen, dann Zähler mal Zähler und Nenner mal Nenner: 3/8 · 6/5 = 9/20.",
+   "h": "Kürze über Kreuz: Zähler des einen mit Nenner des anderen."
+  },
+  {
+   "l": "brueche_mal",
+   "t": "brueche_mal",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 3/20 · 12/7. Kürze vorher.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     9,
+     35
+    ]
+   },
+   "c": [
+    "((0.15) * (12/7)) * 35",
+    "35"
+   ],
+   "w": "Über Kreuz kürzen, dann Zähler mal Zähler und Nenner mal Nenner: 3/20 · 12/7 = 9/35.",
+   "h": "Kürze über Kreuz: Zähler des einen mit Nenner des anderen."
+  },
+  {
+   "l": "brueche_mal",
+   "t": "brueche_mal",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 7/10 · 4/3. Kürze vorher.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     14,
+     15
+    ]
+   },
+   "c": [
+    "((0.7) * (4/3)) * 15",
+    "15"
+   ],
+   "w": "Über Kreuz kürzen, dann Zähler mal Zähler und Nenner mal Nenner: 7/10 · 4/3 = 14/15.",
+   "h": "Kürze über Kreuz: Zähler des einen mit Nenner des anderen."
+  },
+  {
+   "l": "brueche_mal",
+   "t": "brueche_mal",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Flasche sind 1/4 l Saft. Davon wird 1/3 getrunken. Wie viele Liter sind das?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     1,
+     12
+    ]
+   },
+   "c": [
+    "((1/3) * (0.25)) * 12",
+    "12"
+   ],
+   "w": "1/3 von 1/4 l = 1/3 · 1/4 = 1/12 l.",
+   "h": "„Bruchteil von“ heißt malnehmen."
+  },
+  {
+   "l": "brueche_mal",
+   "t": "brueche_mal",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Flasche sind 3/5 l Saft. Davon wird 1/2 getrunken. Wie viele Liter sind das?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     3,
+     10
+    ]
+   },
+   "c": [
+    "((0.5) * (0.6)) * 10",
+    "10"
+   ],
+   "w": "1/2 von 3/5 l = 1/2 · 3/5 = 3/10 l.",
+   "h": "„Bruchteil von“ heißt malnehmen."
+  },
+  {
+   "l": "brueche_mal",
+   "t": "brueche_mal",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 2/3 · 5/7 · 2/3.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     20,
+     63
+    ]
+   },
+   "c": [
+    "((2/3) * (5/7) * (2/3)) * 63",
+    "63"
+   ],
+   "w": "Alle Zähler und alle Nenner malnehmen, vorher kürzen: 20/63.",
+   "h": "Kürze, wo immer ein Zähler und ein Nenner einen gemeinsamen Teiler haben."
+  },
+  {
+   "l": "brueche_mal",
+   "t": "brueche_mal",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Rechteck ist 3/4 m lang und 5/6 m breit. Wie groß ist sein Flächeninhalt in m²?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     5,
+     8
+    ]
+   },
+   "c": [
+    "((0.75) * (5/6)) * 8",
+    "8"
+   ],
+   "w": "Flächeninhalt = Länge · Breite = 3/4 · 5/6 = 5/8 m².",
+   "h": "Flächeninhalt eines Rechtecks: Länge mal Breite."
+  },
+  {
+   "l": "brueche_mal",
+   "t": "brueche_mal",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Rechteck ist 3/4 m lang und 3/4 m breit. Wie groß ist sein Flächeninhalt in m²?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     9,
+     16
+    ]
+   },
+   "c": [
+    "((0.75) * (0.75)) * 16",
+    "16"
+   ],
+   "w": "Flächeninhalt = Länge · Breite = 3/4 · 3/4 = 9/16 m².",
+   "h": "Flächeninhalt eines Rechtecks: Länge mal Breite."
+  },
+  {
+   "l": "brueche_mal",
+   "t": "brueche_mal",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 2/3 · 6/7 · 1/2.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     2,
+     7
+    ]
+   },
+   "c": [
+    "((2/3) * (6/7) * (0.5)) * 7",
+    "7"
+   ],
+   "w": "Alle Zähler und alle Nenner malnehmen, vorher kürzen: 2/7.",
+   "h": "Kürze, wo immer ein Zähler und ein Nenner einen gemeinsamen Teiler haben."
+  },
+  {
+   "l": "brueche_mal",
+   "t": "brueche_mal",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 1/2 · 10/9. Kürze vorher.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     5,
+     9
+    ]
+   },
+   "c": [
+    "((0.5) * (10/9)) * 9",
+    "9"
+   ],
+   "w": "Über Kreuz kürzen, dann Zähler mal Zähler und Nenner mal Nenner: 1/2 · 10/9 = 5/9."
+  },
+  {
+   "l": "brueche_mal",
+   "t": "brueche_mal",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 1/24 · 4/3. Kürze vorher.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     1,
+     18
+    ]
+   },
+   "c": [
+    "((1/24) * (4/3)) * 18",
+    "18"
+   ],
+   "w": "Über Kreuz kürzen, dann Zähler mal Zähler und Nenner mal Nenner: 1/24 · 4/3 = 1/18."
+  },
+  {
+   "l": "brueche_mal",
+   "t": "brueche_mal",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 3/40 · 8/3. Kürze vorher.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     1,
+     5
+    ]
+   },
+   "c": [
+    "((0.075) * (8/3)) * 5",
+    "5"
+   ],
+   "w": "Über Kreuz kürzen, dann Zähler mal Zähler und Nenner mal Nenner: 3/40 · 8/3 = 1/5."
+  },
+  {
+   "l": "brueche_mal",
+   "t": "brueche_mal",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 1/4 · 16/3. Kürze vorher.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     4,
+     3
+    ]
+   },
+   "c": [
+    "((0.25) * (16/3)) * 3",
+    "3"
+   ],
+   "w": "Über Kreuz kürzen, dann Zähler mal Zähler und Nenner mal Nenner: 1/4 · 16/3 = 4/3."
+  },
+  {
+   "l": "brueche_mal",
+   "t": "brueche_mal",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 5/16 · 4/5. Kürze vorher.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     1,
+     4
+    ]
+   },
+   "c": [
+    "((0.3125) * (0.8)) * 4",
+    "4"
+   ],
+   "w": "Über Kreuz kürzen, dann Zähler mal Zähler und Nenner mal Nenner: 5/16 · 4/5 = 1/4."
+  },
+  {
+   "l": "brueche_mal",
+   "t": "brueche_mal",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 1/2 · 6/5. Kürze vorher.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     3,
+     5
+    ]
+   },
+   "c": [
+    "((0.5) * (1.2)) * 5",
+    "5"
+   ],
+   "w": "Über Kreuz kürzen, dann Zähler mal Zähler und Nenner mal Nenner: 1/2 · 6/5 = 3/5."
+  },
+  {
+   "l": "brueche_mal",
+   "t": "brueche_mal",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 7/9 · 6/5. Kürze vorher.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     14,
+     15
+    ]
+   },
+   "c": [
+    "((7/9) * (1.2)) * 15",
+    "15"
+   ],
+   "w": "Über Kreuz kürzen, dann Zähler mal Zähler und Nenner mal Nenner: 7/9 · 6/5 = 14/15."
+  },
+  {
+   "l": "brueche_mal",
+   "t": "brueche_mal",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 1/32 · 8/3. Kürze vorher.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     1,
+     12
+    ]
+   },
+   "c": [
+    "((0.03125) * (8/3)) * 12",
+    "12"
+   ],
+   "w": "Über Kreuz kürzen, dann Zähler mal Zähler und Nenner mal Nenner: 1/32 · 8/3 = 1/12."
+  },
+  {
+   "l": "brueche_mal",
+   "t": "brueche_mal",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 1/10 · 5/4. Kürze vorher.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     1,
+     8
+    ]
+   },
+   "c": [
+    "((0.1) * (1.25)) * 8",
+    "8"
+   ],
+   "w": "Über Kreuz kürzen, dann Zähler mal Zähler und Nenner mal Nenner: 1/10 · 5/4 = 1/8."
+  },
+  {
+   "l": "brueche_mal",
+   "t": "brueche_mal",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 2/15 · 5/9. Kürze vorher.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     2,
+     27
+    ]
+   },
+   "c": [
+    "((2/15) * (5/9)) * 27",
+    "27"
+   ],
+   "w": "Über Kreuz kürzen, dann Zähler mal Zähler und Nenner mal Nenner: 2/15 · 5/9 = 2/27."
+  },
+  {
+   "l": "brueche_geteilt",
+   "t": "brueche_geteilt",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 2/3 : 2.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     1,
+     3
+    ]
+   },
+   "c": [
+    "((2/3) / 2) * 3",
+    "3"
+   ],
+   "w": ": 2 heißt · 1/2: 2/3 · 1/2 = 1/3.",
+   "h": "Teilen durch 2 ist dasselbe wie malnehmen mit 1/2."
+  },
+  {
+   "l": "brueche_geteilt",
+   "t": "brueche_geteilt",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 1/2 : 6.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     1,
+     12
+    ]
+   },
+   "c": [
+    "((0.5) / 6) * 12",
+    "12"
+   ],
+   "w": ": 6 heißt · 1/6: 1/2 · 1/6 = 1/12.",
+   "h": "Teilen durch 6 ist dasselbe wie malnehmen mit 1/6."
+  },
+  {
+   "l": "brueche_geteilt",
+   "t": "brueche_geteilt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 2 : 1/9."
+   },
+   "o": {
+    "wert": 18
+   },
+   "c": "2 / (1/9)",
+   "w": "Mit dem Kehrbruch malnehmen: 2 · 9/1 = 18.",
+   "h": "Teile durch einen Bruch: mit dem Kehrbruch malnehmen."
+  },
+  {
+   "l": "brueche_geteilt",
+   "t": "brueche_geteilt",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 1 : 5/7.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     7,
+     5
+    ]
+   },
+   "c": [
+    "(1 / (5/7)) * 5",
+    "5"
+   ],
+   "w": "Mit dem Kehrbruch malnehmen: 1 · 7/5 = 7/5.",
+   "h": "Kehrbruch: Zähler und Nenner tauschen."
+  },
+  {
+   "l": "brueche_geteilt",
+   "t": "brueche_geteilt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 5 : 5/7."
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "5 / (5/7)",
+   "w": "Mit dem Kehrbruch malnehmen: 5 · 7/5 = 7.",
+   "h": "Teile durch einen Bruch: mit dem Kehrbruch malnehmen."
+  },
+  {
+   "l": "brueche_geteilt",
+   "t": "brueche_geteilt",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 1/2 : 3.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     1,
+     6
+    ]
+   },
+   "c": [
+    "((0.5) / 3) * 6",
+    "6"
+   ],
+   "w": ": 3 heißt · 1/3: 1/2 · 1/3 = 1/6.",
+   "h": "Teilen durch 3 ist dasselbe wie malnehmen mit 1/3."
+  },
+  {
+   "l": "brueche_geteilt",
+   "t": "brueche_geteilt",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 1/2 : 4/7.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     7,
+     8
+    ]
+   },
+   "c": [
+    "((0.5) / (4/7)) * 8",
+    "8"
+   ],
+   "w": "1/2 : 4/7 = 1/2 · 7/4 = 7/8.",
+   "h": "Drehe den zweiten Bruch um und nimm mal."
+  },
+  {
+   "l": "brueche_geteilt",
+   "t": "brueche_geteilt",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 1/3 : 2/5.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     5,
+     6
+    ]
+   },
+   "c": [
+    "((1/3) / (0.4)) * 6",
+    "6"
+   ],
+   "w": "1/3 : 2/5 = 1/3 · 5/2 = 5/6.",
+   "h": "Drehe den zweiten Bruch um und nimm mal."
+  },
+  {
+   "l": "brueche_geteilt",
+   "t": "brueche_geteilt",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 3/4 : 1/3.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     9,
+     4
+    ]
+   },
+   "c": [
+    "((0.75) / (1/3)) * 4",
+    "4"
+   ],
+   "w": "3/4 : 1/3 = 3/4 · 3/1 = 9/4.",
+   "h": "Drehe den zweiten Bruch um und nimm mal."
+  },
+  {
+   "l": "brueche_geteilt",
+   "t": "brueche_geteilt",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 1/9 : 5/9.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     1,
+     5
+    ]
+   },
+   "c": [
+    "((1/9) / (5/9)) * 5",
+    "5"
+   ],
+   "w": "1/9 : 5/9 = 1/9 · 9/5 = 1/5.",
+   "h": "Drehe den zweiten Bruch um und nimm mal."
+  },
+  {
+   "l": "brueche_geteilt",
+   "t": "brueche_geteilt",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 1/2 : 3/4.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     2,
+     3
+    ]
+   },
+   "c": [
+    "((0.5) / (0.75)) * 3",
+    "3"
+   ],
+   "w": "1/2 : 3/4 = 1/2 · 4/3 = 2/3.",
+   "h": "Drehe den zweiten Bruch um und nimm mal."
+  },
+  {
+   "l": "brueche_geteilt",
+   "t": "brueche_geteilt",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 1/8 : 1/3.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     3,
+     8
+    ]
+   },
+   "c": [
+    "((0.125) / (1/3)) * 8",
+    "8"
+   ],
+   "w": "1/8 : 1/3 = 1/8 · 3/1 = 3/8.",
+   "h": "Drehe den zweiten Bruch um und nimm mal."
+  },
+  {
+   "l": "brueche_geteilt",
+   "t": "brueche_geteilt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Gläser zu je 1/8 l kann man aus 5/2 l Saft füllen?"
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "(2.5) / (0.125)",
+   "w": "5/2 : 1/8 = 5/2 · 8/1 = 20 Gläser.",
+   "h": "Wie oft passt der kleine Bruch in den großen? Das ist eine Division."
+  },
+  {
+   "l": "brueche_geteilt",
+   "t": "brueche_geteilt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Gläser zu je 1/8 l kann man aus 9/4 l Saft füllen?"
+   },
+   "o": {
+    "wert": 18
+   },
+   "c": "(2.25) / (0.125)",
+   "w": "9/4 : 1/8 = 9/4 · 8/1 = 18 Gläser.",
+   "h": "Wie oft passt der kleine Bruch in den großen? Das ist eine Division."
+  },
+  {
+   "l": "brueche_geteilt",
+   "t": "brueche_geteilt",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "−1/3",
+    "1/6",
+    "3/1",
+    "2/3"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Was ist der Kehrbruch von 1/3?"
+   },
+   "w": "Zähler und Nenner tauschen: 3/1. Probe: 1/3 · 3/1 = 1.",
+   "h": "Kehrbruch: Zähler und Nenner vertauschen. Bruch mal Kehrbruch ergibt 1."
+  },
+  {
+   "l": "brueche_geteilt",
+   "t": "brueche_geteilt",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "1/2",
+    "−1/2",
+    "1/4",
+    "2/1"
+   ],
+   "o": {
+    "index": 3
+   },
+   "f": {
+    "text": "Was ist der Kehrbruch von 1/2?"
+   },
+   "w": "Zähler und Nenner tauschen: 2/1. Probe: 1/2 · 2/1 = 1.",
+   "h": "Kehrbruch: Zähler und Nenner vertauschen. Bruch mal Kehrbruch ergibt 1."
+  },
+  {
+   "l": "brueche_geteilt",
+   "t": "brueche_geteilt",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "7/9",
+    "2/18",
+    "−2/9",
+    "9/2"
+   ],
+   "o": {
+    "index": 3
+   },
+   "f": {
+    "text": "Was ist der Kehrbruch von 2/9?"
+   },
+   "w": "Zähler und Nenner tauschen: 9/2. Probe: 2/9 · 9/2 = 1.",
+   "h": "Kehrbruch: Zähler und Nenner vertauschen. Bruch mal Kehrbruch ergibt 1."
+  },
+  {
+   "l": "brueche_geteilt",
+   "t": "brueche_geteilt",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Rechteck hat den Flächeninhalt 3/8 m² und ist 3/5 m breit. Wie lang ist es?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     5,
+     8
+    ]
+   },
+   "c": [
+    "((0.375) / (0.6)) * 8",
+    "8"
+   ],
+   "w": "Länge = Fläche : Breite = 3/8 : 3/5 = 3/8 · 5/3 = 5/8 m.",
+   "h": "Fläche = Länge · Breite. Rechne rückwärts mit Teilen."
+  },
+  {
+   "l": "brueche_geteilt",
+   "t": "brueche_geteilt",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 1/3 : 2/7.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     7,
+     6
+    ]
+   },
+   "c": [
+    "((1/3) / (2/7)) * 6",
+    "6"
+   ],
+   "w": "1/3 : 2/7 = 1/3 · 7/2 = 7/6."
+  },
+  {
+   "l": "brueche_geteilt",
+   "t": "brueche_geteilt",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 1/2 : 1/5.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     5,
+     2
+    ]
+   },
+   "c": [
+    "((0.5) / (0.2)) * 2",
+    "2"
+   ],
+   "w": "1/2 : 1/5 = 1/2 · 5/1 = 5/2."
+  },
+  {
+   "l": "brueche_geteilt",
+   "t": "brueche_geteilt",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 5/7 : 5/9.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     9,
+     7
+    ]
+   },
+   "c": [
+    "((5/7) / (5/9)) * 7",
+    "7"
+   ],
+   "w": "5/7 : 5/9 = 5/7 · 9/5 = 9/7."
+  },
+  {
+   "l": "brueche_geteilt",
+   "t": "brueche_geteilt",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 2/5 : 1/3.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     6,
+     5
+    ]
+   },
+   "c": [
+    "((0.4) / (1/3)) * 5",
+    "5"
+   ],
+   "w": "2/5 : 1/3 = 2/5 · 3/1 = 6/5."
+  },
+  {
+   "l": "brueche_geteilt",
+   "t": "brueche_geteilt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 1/2 : 1/7.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     7,
+     2
+    ]
+   },
+   "c": [
+    "((0.5) / (1/7)) * 2",
+    "2"
+   ],
+   "w": "1/2 : 1/7 = 1/2 · 7/1 = 7/2."
+  },
+  {
+   "l": "brueche_geteilt",
+   "t": "brueche_geteilt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 1/5 : 1/3.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     3,
+     5
+    ]
+   },
+   "c": [
+    "((0.2) / (1/3)) * 5",
+    "5"
+   ],
+   "w": "1/5 : 1/3 = 1/5 · 3/1 = 3/5."
+  },
+  {
+   "l": "brueche_geteilt",
+   "t": "brueche_geteilt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 5/8 : 2/3.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     15,
+     16
+    ]
+   },
+   "c": [
+    "((0.625) / (2/3)) * 16",
+    "16"
+   ],
+   "w": "5/8 : 2/3 = 5/8 · 3/2 = 15/16."
+  },
+  {
+   "l": "brueche_geteilt",
+   "t": "brueche_geteilt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 3/5 : 1/3.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     9,
+     5
+    ]
+   },
+   "c": [
+    "((0.6) / (1/3)) * 5",
+    "5"
+   ],
+   "w": "3/5 : 1/3 = 3/5 · 3/1 = 9/5."
+  },
+  {
+   "l": "brueche_geteilt",
+   "t": "brueche_geteilt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 3/7 : 3/4.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     4,
+     7
+    ]
+   },
+   "c": [
+    "((3/7) / (0.75)) * 7",
+    "7"
+   ],
+   "w": "3/7 : 3/4 = 3/7 · 4/3 = 4/7."
+  },
+  {
+   "l": "brueche_geteilt",
+   "t": "brueche_geteilt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 4/5 : 3/4.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     16,
+     15
+    ]
+   },
+   "c": [
+    "((0.8) / (0.75)) * 15",
+    "15"
+   ],
+   "w": "4/5 : 3/4 = 4/5 · 4/3 = 16/15."
+  },
+  {
+   "l": "dezimal_mal",
+   "t": "dezimal_mal",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 3,5 · 100."
+   },
+   "o": {
+    "wert": 350
+   },
+   "c": "(3.5) * (100)",
+   "w": "Mal 100: Komma um 2 Stellen nach rechts. 3,5 · 100 = 350.",
+   "h": "Mal 10, 100, 1 000: Komma nach rechts verschieben."
+  },
+  {
+   "l": "dezimal_mal",
+   "t": "dezimal_mal",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 3,1 · 4."
+   },
+   "o": {
+    "wert": 12.4
+   },
+   "c": "(3.1) * (4)",
+   "w": "Ohne Komma: 31 · 4 = 124. Eine Nachkommastelle: 12,4.",
+   "h": "Rechne ohne Komma und setze dann das Komma."
+  },
+  {
+   "l": "dezimal_mal",
+   "t": "dezimal_mal",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 5,6 · 6."
+   },
+   "o": {
+    "wert": 33.6
+   },
+   "c": "(5.6) * (6)",
+   "w": "Ohne Komma: 56 · 6 = 336. Eine Nachkommastelle: 33,6.",
+   "h": "Rechne ohne Komma und setze dann das Komma."
+  },
+  {
+   "l": "dezimal_mal",
+   "t": "dezimal_mal",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 7,8 · 4."
+   },
+   "o": {
+    "wert": 31.2
+   },
+   "c": "(7.8) * (4)",
+   "w": "Ohne Komma: 78 · 4 = 312. Eine Nachkommastelle: 31,2.",
+   "h": "Rechne ohne Komma und setze dann das Komma."
+  },
+  {
+   "l": "dezimal_mal",
+   "t": "dezimal_mal",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 5,2 · 8."
+   },
+   "o": {
+    "wert": 41.6
+   },
+   "c": "(5.2) * (8)",
+   "w": "Ohne Komma: 52 · 8 = 416. Eine Nachkommastelle: 41,6.",
+   "h": "Rechne ohne Komma und setze dann das Komma."
+  },
+  {
+   "l": "dezimal_mal",
+   "t": "dezimal_mal",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 5,3 · 6."
+   },
+   "o": {
+    "wert": 31.8
+   },
+   "c": "(5.3) * (6)",
+   "w": "Ohne Komma: 53 · 6 = 318. Eine Nachkommastelle: 31,8.",
+   "h": "Rechne ohne Komma und setze dann das Komma."
+  },
+  {
+   "l": "dezimal_mal",
+   "t": "dezimal_mal",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 5,1 · 1,6."
+   },
+   "o": {
+    "wert": 8.16
+   },
+   "c": "(5.1) * (1.6)",
+   "w": "Ohne Komma: 51 · 16 = 816. Nachkommastellen: 1 + 1 = 2. Ergebnis: 8,16.",
+   "h": "Zähle die Nachkommastellen beider Faktoren zusammen."
+  },
+  {
+   "l": "dezimal_mal",
+   "t": "dezimal_mal",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 7,6 · 0,3."
+   },
+   "o": {
+    "wert": 2.28
+   },
+   "c": "(7.6) * (0.3)",
+   "w": "Ohne Komma: 76 · 3 = 228. Nachkommastellen: 1 + 1 = 2. Ergebnis: 2,28.",
+   "h": "Zähle die Nachkommastellen beider Faktoren zusammen."
+  },
+  {
+   "l": "dezimal_mal",
+   "t": "dezimal_mal",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 3,9 · 0,1."
+   },
+   "o": {
+    "wert": 0.39
+   },
+   "c": "(3.9) * (0.1)",
+   "w": "Ohne Komma: 39 · 1 = 39. Nachkommastellen: 1 + 1 = 2. Ergebnis: 0,39.",
+   "h": "Zähle die Nachkommastellen beider Faktoren zusammen."
+  },
+  {
+   "l": "dezimal_mal",
+   "t": "dezimal_mal",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 8,9 · 0,39."
+   },
+   "o": {
+    "wert": 3.471
+   },
+   "c": "(8.9) * (0.39)",
+   "w": "Ohne Komma: 89 · 39 = 3471. Nachkommastellen: 1 + 2 = 3. Ergebnis: 3,471.",
+   "h": "Zähle die Nachkommastellen beider Faktoren zusammen."
+  },
+  {
+   "l": "dezimal_mal",
+   "t": "dezimal_mal",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 5,3 · 1,2."
+   },
+   "o": {
+    "wert": 6.36
+   },
+   "c": "(5.3) * (1.2)",
+   "w": "Ohne Komma: 53 · 12 = 636. Nachkommastellen: 1 + 1 = 2. Ergebnis: 6,36.",
+   "h": "Zähle die Nachkommastellen beider Faktoren zusammen."
+  },
+  {
+   "l": "dezimal_mal",
+   "t": "dezimal_mal",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 5,3 · 0,6."
+   },
+   "o": {
+    "wert": 3.18
+   },
+   "c": "(5.3) * (0.6)",
+   "w": "Ohne Komma: 53 · 6 = 318. Nachkommastellen: 1 + 1 = 2. Ergebnis: 3,18.",
+   "h": "Zähle die Nachkommastellen beider Faktoren zusammen."
+  },
+  {
+   "l": "dezimal_mal",
+   "t": "dezimal_mal",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zimmer ist 0,3 m lang und 5,9 m breit. Wie groß ist die Bodenfläche in m²?"
+   },
+   "o": {
+    "wert": 1.77,
+    "einheit": "m²"
+   },
+   "c": "(0.3) * (5.9)",
+   "w": "0,3 · 5,9 = 1,77 m².",
+   "h": "Fläche eines Rechtecks: Länge mal Breite."
+  },
+  {
+   "l": "dezimal_mal",
+   "t": "dezimal_mal",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "0,8",
+    "0,08",
+    "0,24",
+    "0,008"
+   ],
+   "o": {
+    "index": 3
+   },
+   "f": {
+    "text": "Was ergibt 0,2 · 0,04?"
+   },
+   "w": "2 · 4 = 8, Nachkommastellen 1 + 2 = 3: 0,008.",
+   "h": "Zähle die Nachkommastellen zusammen – das Ergebnis braucht genauso viele."
+  },
+  {
+   "l": "dezimal_mal",
+   "t": "dezimal_mal",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "2,8",
+    "0,028",
+    "0,28",
+    "0,47"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Was ergibt 0,4 · 0,07?"
+   },
+   "w": "4 · 7 = 28, Nachkommastellen 1 + 2 = 3: 0,028.",
+   "h": "Zähle die Nachkommastellen zusammen – das Ergebnis braucht genauso viele."
+  },
+  {
+   "l": "dezimal_mal",
+   "t": "dezimal_mal",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kilogramm Äpfel kostet 2,38 €. Was kosten 3,4 kg? Runde auf Cent."
+   },
+   "o": {
+    "wert": 8.09,
+    "einheit": "€"
+   },
+   "c": "((2.38) * (3.4) * 100 + 1/2) // 1 / 100",
+   "w": "2,38 · 3,4 = 8,092 €, gerundet 8,09 €.",
+   "h": "Preis pro kg mal Anzahl kg. Am Ende auf zwei Nachkommastellen runden."
+  },
+  {
+   "l": "dezimal_mal",
+   "t": "dezimal_mal",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "0,4",
+    "0,004",
+    "0,22",
+    "0,04"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Was ergibt 0,2 · 0,02?"
+   },
+   "w": "2 · 2 = 4, Nachkommastellen 1 + 2 = 3: 0,004.",
+   "h": "Zähle die Nachkommastellen zusammen – das Ergebnis braucht genauso viele."
+  },
+  {
+   "l": "dezimal_mal",
+   "t": "dezimal_mal",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zimmer ist 4,6 m lang und 7,1 m breit. Wie groß ist die Bodenfläche in m²?"
+   },
+   "o": {
+    "wert": 32.66,
+    "einheit": "m²"
+   },
+   "c": "(4.6) * (7.1)",
+   "w": "4,6 · 7,1 = 32,66 m².",
+   "h": "Fläche eines Rechtecks: Länge mal Breite."
+  },
+  {
+   "l": "dezimal_mal",
+   "t": "dezimal_mal",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 1,5 · 1,75."
+   },
+   "o": {
+    "wert": 2.625
+   },
+   "c": "(1.5) * (1.75)",
+   "w": "Ohne Komma: 15 · 175 = 2625. Nachkommastellen: 1 + 2 = 3. Ergebnis: 2,625."
+  },
+  {
+   "l": "dezimal_mal",
+   "t": "dezimal_mal",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 6,6 · 0,7."
+   },
+   "o": {
+    "wert": 4.62
+   },
+   "c": "(6.6) * (0.7)",
+   "w": "Ohne Komma: 66 · 7 = 462. Nachkommastellen: 1 + 1 = 2. Ergebnis: 4,62."
+  },
+  {
+   "l": "dezimal_mal",
+   "t": "dezimal_mal",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 3,51 · 0,8."
+   },
+   "o": {
+    "wert": 2.808
+   },
+   "c": "(3.51) * (0.8)",
+   "w": "Ohne Komma: 351 · 8 = 2808. Nachkommastellen: 2 + 1 = 3. Ergebnis: 2,808."
+  },
+  {
+   "l": "dezimal_mal",
+   "t": "dezimal_mal",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 8,57 · 0,8."
+   },
+   "o": {
+    "wert": 6.856
+   },
+   "c": "(8.57) * (0.8)",
+   "w": "Ohne Komma: 857 · 8 = 6856. Nachkommastellen: 2 + 1 = 3. Ergebnis: 6,856."
+  },
+  {
+   "l": "dezimal_mal",
+   "t": "dezimal_mal",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 3,85 · 1,5."
+   },
+   "o": {
+    "wert": 5.775
+   },
+   "c": "(3.85) * (1.5)",
+   "w": "Ohne Komma: 385 · 15 = 5775. Nachkommastellen: 2 + 1 = 3. Ergebnis: 5,775."
+  },
+  {
+   "l": "dezimal_mal",
+   "t": "dezimal_mal",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 2,1 · 0,4."
+   },
+   "o": {
+    "wert": 0.84
+   },
+   "c": "(2.1) * (0.4)",
+   "w": "Ohne Komma: 21 · 4 = 84. Nachkommastellen: 1 + 1 = 2. Ergebnis: 0,84."
+  },
+  {
+   "l": "dezimal_mal",
+   "t": "dezimal_mal",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 6,93 · 1,7."
+   },
+   "o": {
+    "wert": 11.781
+   },
+   "c": "(6.93) * (1.7)",
+   "w": "Ohne Komma: 693 · 17 = 11781. Nachkommastellen: 2 + 1 = 3. Ergebnis: 11,781."
+  },
+  {
+   "l": "dezimal_mal",
+   "t": "dezimal_mal",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 8,4 · 1,8."
+   },
+   "o": {
+    "wert": 15.12
+   },
+   "c": "(8.4) * (1.8)",
+   "w": "Ohne Komma: 84 · 18 = 1512. Nachkommastellen: 1 + 1 = 2. Ergebnis: 15,12."
+  },
+  {
+   "l": "dezimal_mal",
+   "t": "dezimal_mal",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 2,13 · 0,5."
+   },
+   "o": {
+    "wert": 1.065
+   },
+   "c": "(2.13) * (0.5)",
+   "w": "Ohne Komma: 213 · 5 = 1065. Nachkommastellen: 2 + 1 = 3. Ergebnis: 1,065."
+  },
+  {
+   "l": "dezimal_mal",
+   "t": "dezimal_mal",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 2,4 · 0,27."
+   },
+   "o": {
+    "wert": 0.648
+   },
+   "c": "(2.4) * (0.27)",
+   "w": "Ohne Komma: 24 · 27 = 648. Nachkommastellen: 1 + 2 = 3. Ergebnis: 0,648."
+  },
+  {
+   "l": "dezimal_geteilt",
+   "t": "dezimal_geteilt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 2 : 10."
+   },
+   "o": {
+    "wert": 0.2
+   },
+   "c": "(2) / 10",
+   "w": "Durch 10: Komma um 1 Stelle nach links. 0,2.",
+   "h": "Durch 10, 100, 1 000: Komma nach links."
+  },
+  {
+   "l": "dezimal_geteilt",
+   "t": "dezimal_geteilt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 34,8 : 6."
+   },
+   "o": {
+    "wert": 5.8
+   },
+   "c": "(34.8) / 6",
+   "w": "Schriftlich teilen; beim Überschreiten des Kommas im Ergebnis das Komma setzen: 34,8 : 6 = 5,8.",
+   "h": "Teile wie gewohnt und setze das Komma, sobald du es in der geteilten Zahl überschreitest."
+  },
+  {
+   "l": "dezimal_geteilt",
+   "t": "dezimal_geteilt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 9 : 2."
+   },
+   "o": {
+    "wert": 4.5
+   },
+   "c": "(9) / 2",
+   "w": "Schriftlich teilen; beim Überschreiten des Kommas im Ergebnis das Komma setzen: 9 : 2 = 4,5.",
+   "h": "Teile wie gewohnt und setze das Komma, sobald du es in der geteilten Zahl überschreitest."
+  },
+  {
+   "l": "dezimal_geteilt",
+   "t": "dezimal_geteilt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 56,8 : 8."
+   },
+   "o": {
+    "wert": 7.1
+   },
+   "c": "(56.8) / 8",
+   "w": "Schriftlich teilen; beim Überschreiten des Kommas im Ergebnis das Komma setzen: 56,8 : 8 = 7,1.",
+   "h": "Teile wie gewohnt und setze das Komma, sobald du es in der geteilten Zahl überschreitest."
+  },
+  {
+   "l": "dezimal_geteilt",
+   "t": "dezimal_geteilt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 1,8 : 3."
+   },
+   "o": {
+    "wert": 0.6
+   },
+   "c": "(1.8) / 3",
+   "w": "Schriftlich teilen; beim Überschreiten des Kommas im Ergebnis das Komma setzen: 1,8 : 3 = 0,6.",
+   "h": "Teile wie gewohnt und setze das Komma, sobald du es in der geteilten Zahl überschreitest."
+  },
+  {
+   "l": "dezimal_geteilt",
+   "t": "dezimal_geteilt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 92 : 1 000."
+   },
+   "o": {
+    "wert": 0.092
+   },
+   "c": "(92) / 1000",
+   "w": "Durch 1 000: Komma um 3 Stellen nach links. 0,092.",
+   "h": "Durch 10, 100, 1 000: Komma nach links."
+  },
+  {
+   "l": "dezimal_geteilt",
+   "t": "dezimal_geteilt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 4 : 0,1."
+   },
+   "o": {
+    "wert": 40
+   },
+   "c": "(4) / (0.1)",
+   "w": "Komma bei beiden um 1 Stelle nach rechts: 40 : 1 = 40.",
+   "h": "Verschiebe das Komma bei beiden Zahlen, bis der Teiler keine Nachkommastellen mehr hat."
+  },
+  {
+   "l": "dezimal_geteilt",
+   "t": "dezimal_geteilt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 0,36 : 0,09."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(0.36) / (0.09)",
+   "w": "Komma bei beiden um 2 Stellen nach rechts: 36 : 9 = 4.",
+   "h": "Verschiebe das Komma bei beiden Zahlen, bis der Teiler keine Nachkommastellen mehr hat."
+  },
+  {
+   "l": "dezimal_geteilt",
+   "t": "dezimal_geteilt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 1,42 : 0,02."
+   },
+   "o": {
+    "wert": 71
+   },
+   "c": "(1.42) / (0.02)",
+   "w": "Komma bei beiden um 2 Stellen nach rechts: 142 : 2 = 71.",
+   "h": "Verschiebe das Komma bei beiden Zahlen, bis der Teiler keine Nachkommastellen mehr hat."
+  },
+  {
+   "l": "dezimal_geteilt",
+   "t": "dezimal_geteilt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 0,51 : 0,3."
+   },
+   "o": {
+    "wert": 1.7
+   },
+   "c": "(0.51) / (0.3)",
+   "w": "Komma bei beiden um 1 Stelle nach rechts: 5,1 : 3 = 1,7.",
+   "h": "Verschiebe das Komma bei beiden Zahlen, bis der Teiler keine Nachkommastellen mehr hat."
+  },
+  {
+   "l": "dezimal_geteilt",
+   "t": "dezimal_geteilt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 3,4 : 0,5."
+   },
+   "o": {
+    "wert": 6.8
+   },
+   "c": "(3.4) / (0.5)",
+   "w": "Komma bei beiden um 1 Stelle nach rechts: 34 : 5 = 6,8.",
+   "h": "Verschiebe das Komma bei beiden Zahlen, bis der Teiler keine Nachkommastellen mehr hat."
+  },
+  {
+   "l": "dezimal_geteilt",
+   "t": "dezimal_geteilt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 18,29 : 0,59."
+   },
+   "o": {
+    "wert": 31
+   },
+   "c": "(18.29) / (0.59)",
+   "w": "Komma bei beiden um 2 Stellen nach rechts: 1 829 : 59 = 31.",
+   "h": "Verschiebe das Komma bei beiden Zahlen, bis der Teiler keine Nachkommastellen mehr hat."
+  },
+  {
+   "l": "dezimal_geteilt",
+   "t": "dezimal_geteilt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Rolle Band ist 6,25 m lang. Wie viele Stücke von 0,25 m Länge kann man abschneiden?"
+   },
+   "o": {
+    "wert": 25
+   },
+   "c": "(6.25) / (0.25)",
+   "w": "6,25 : 0,25 = 625 : 25 = 25 Stücke.",
+   "h": "Wie oft passt das kurze Stück in die ganze Länge? Teile."
+  },
+  {
+   "l": "dezimal_geteilt",
+   "t": "dezimal_geteilt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "0,5 kg Käse kosten 5,07 €. Was kostet 1 kg?"
+   },
+   "o": {
+    "wert": 10.14,
+    "einheit": "€"
+   },
+   "c": "(5.07) / (0.5)",
+   "w": "Preis für 1 kg: 5,07 : 0,5 = 50,7 : 5 = 10,14 €.",
+   "h": "Preis geteilt durch Menge ergibt den Preis pro kg."
+  },
+  {
+   "l": "dezimal_geteilt",
+   "t": "dezimal_geteilt",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "2,4",
+    "0,24",
+    "240",
+    "24"
+   ],
+   "o": {
+    "index": 3
+   },
+   "f": {
+    "text": "Was ergibt 1,44 : 0,06?"
+   },
+   "w": "Komma bei beiden um 2 Stellen nach rechts: 144 : 6 = 24.",
+   "h": "Überschlag: Teilen durch eine Zahl kleiner als 1 macht das Ergebnis größer."
+  },
+  {
+   "l": "dezimal_geteilt",
+   "t": "dezimal_geteilt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Rolle Band ist 3,8 m lang. Wie viele Stücke von 0,2 m Länge kann man abschneiden?"
+   },
+   "o": {
+    "wert": 19
+   },
+   "c": "(3.8) / (0.2)",
+   "w": "3,8 : 0,2 = 38 : 2 = 19 Stücke.",
+   "h": "Wie oft passt das kurze Stück in die ganze Länge? Teile."
+  },
+  {
+   "l": "dezimal_geteilt",
+   "t": "dezimal_geteilt",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "850",
+    "8,5",
+    "0,85",
+    "85"
+   ],
+   "o": {
+    "index": 3
+   },
+   "f": {
+    "text": "Was ergibt 5,1 : 0,06?"
+   },
+   "w": "Komma bei beiden um 2 Stellen nach rechts: 510 : 6 = 85.",
+   "h": "Überschlag: Teilen durch eine Zahl kleiner als 1 macht das Ergebnis größer."
+  },
+  {
+   "l": "dezimal_geteilt",
+   "t": "dezimal_geteilt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "2,8 kg Käse kosten 57,82 €. Was kostet 1 kg?"
+   },
+   "o": {
+    "wert": 20.65,
+    "einheit": "€"
+   },
+   "c": "(57.82) / (2.8)",
+   "w": "Preis für 1 kg: 57,82 : 2,8 = 578,2 : 28 = 20,65 €.",
+   "h": "Preis geteilt durch Menge ergibt den Preis pro kg."
+  },
+  {
+   "l": "dezimal_geteilt",
+   "t": "dezimal_geteilt",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 1,54 : 0,1."
+   },
+   "o": {
+    "wert": 15.4
+   },
+   "c": "(1.54) / (0.1)",
+   "w": "Komma bei beiden um 1 Stelle nach rechts: 15,4 : 1 = 15,4."
+  },
+  {
+   "l": "dezimal_geteilt",
+   "t": "dezimal_geteilt",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 20,7 : 0,9."
+   },
+   "o": {
+    "wert": 23
+   },
+   "c": "(20.7) / (0.9)",
+   "w": "Komma bei beiden um 1 Stelle nach rechts: 207 : 9 = 23."
+  },
+  {
+   "l": "dezimal_geteilt",
+   "t": "dezimal_geteilt",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 10,146 : 0,89."
+   },
+   "o": {
+    "wert": 11.4
+   },
+   "c": "(10.146) / (0.89)",
+   "w": "Komma bei beiden um 2 Stellen nach rechts: 1 014,6 : 89 = 11,4."
+  },
+  {
+   "l": "dezimal_geteilt",
+   "t": "dezimal_geteilt",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 26,5 : 0,53."
+   },
+   "o": {
+    "wert": 50
+   },
+   "c": "(26.5) / (0.53)",
+   "w": "Komma bei beiden um 2 Stellen nach rechts: 2 650 : 53 = 50."
+  },
+  {
+   "l": "dezimal_geteilt",
+   "t": "dezimal_geteilt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 4,5 : 0,45."
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "(4.5) / (0.45)",
+   "w": "Komma bei beiden um 2 Stellen nach rechts: 450 : 45 = 10."
+  },
+  {
+   "l": "dezimal_geteilt",
+   "t": "dezimal_geteilt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 29,4 : 0,6."
+   },
+   "o": {
+    "wert": 49
+   },
+   "c": "(29.4) / (0.6)",
+   "w": "Komma bei beiden um 1 Stelle nach rechts: 294 : 6 = 49."
+  },
+  {
+   "l": "dezimal_geteilt",
+   "t": "dezimal_geteilt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 6,12 : 0,09."
+   },
+   "o": {
+    "wert": 68
+   },
+   "c": "(6.12) / (0.09)",
+   "w": "Komma bei beiden um 2 Stellen nach rechts: 612 : 9 = 68."
+  },
+  {
+   "l": "dezimal_geteilt",
+   "t": "dezimal_geteilt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 1,84 : 0,4."
+   },
+   "o": {
+    "wert": 4.6
+   },
+   "c": "(1.84) / (0.4)",
+   "w": "Komma bei beiden um 1 Stelle nach rechts: 18,4 : 4 = 4,6."
+  },
+  {
+   "l": "dezimal_geteilt",
+   "t": "dezimal_geteilt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 2,666 : 0,62."
+   },
+   "o": {
+    "wert": 4.3
+   },
+   "c": "(2.666) / (0.62)",
+   "w": "Komma bei beiden um 2 Stellen nach rechts: 266,6 : 62 = 4,3."
+  },
+  {
+   "l": "dezimal_geteilt",
+   "t": "dezimal_geteilt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 10,062 : 0,78."
+   },
+   "o": {
+    "wert": 12.9
+   },
+   "c": "(10.062) / (0.78)",
+   "w": "Komma bei beiden um 2 Stellen nach rechts: 1 006,2 : 78 = 12,9."
+  },
+  {
+   "l": "rechenvorteile",
+   "t": "rechenvorteile",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne geschickt: 10,2 · 1,25 · 8"
+   },
+   "o": {
+    "wert": 102
+   },
+   "c": "(10.2) * (1.25) * (8)",
+   "w": "Vertauschen: (1,25 · 8) · 10,2 = 10 · 10,2 = 102.",
+   "h": "Suche zwei Faktoren, deren Produkt eine runde Zahl ist."
+  },
+  {
+   "l": "rechenvorteile",
+   "t": "rechenvorteile",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne geschickt: 14,1 · 0,2 · 5"
+   },
+   "o": {
+    "wert": 14.1
+   },
+   "c": "(14.1) * (0.2) * (5)",
+   "w": "Vertauschen: (0,2 · 5) · 14,1 = 1 · 14,1 = 14,1.",
+   "h": "Suche zwei Faktoren, deren Produkt eine runde Zahl ist."
+  },
+  {
+   "l": "rechenvorteile",
+   "t": "rechenvorteile",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne geschickt: 3,4 · 0,25 · 4"
+   },
+   "o": {
+    "wert": 3.4
+   },
+   "c": "(3.4) * (0.25) * (4)",
+   "w": "Vertauschen: (0,25 · 4) · 3,4 = 1 · 3,4 = 3,4.",
+   "h": "Suche zwei Faktoren, deren Produkt eine runde Zahl ist."
+  },
+  {
+   "l": "rechenvorteile",
+   "t": "rechenvorteile",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne geschickt: 4 · 0,25 · 7,2"
+   },
+   "o": {
+    "wert": 7.2
+   },
+   "c": "(4) * (0.25) * (7.2)",
+   "w": "Vertauschen: (0,25 · 4) · 7,2 = 1 · 7,2 = 7,2.",
+   "h": "Suche zwei Faktoren, deren Produkt eine runde Zahl ist."
+  },
+  {
+   "l": "rechenvorteile",
+   "t": "rechenvorteile",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne geschickt: 0,5 · 2 · 11,6"
+   },
+   "o": {
+    "wert": 11.6
+   },
+   "c": "(0.5) * (2) * (11.6)",
+   "w": "Vertauschen: (0,5 · 2) · 11,6 = 1 · 11,6 = 11,6.",
+   "h": "Suche zwei Faktoren, deren Produkt eine runde Zahl ist."
+  },
+  {
+   "l": "rechenvorteile",
+   "t": "rechenvorteile",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne geschickt: 4 · 0,25 · 13,6"
+   },
+   "o": {
+    "wert": 13.6
+   },
+   "c": "(4) * (0.25) * (13.6)",
+   "w": "Vertauschen: (0,25 · 4) · 13,6 = 1 · 13,6 = 13,6.",
+   "h": "Suche zwei Faktoren, deren Produkt eine runde Zahl ist."
+  },
+  {
+   "l": "rechenvorteile",
+   "t": "rechenvorteile",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne geschickt: 4 · 5 · 2,2 · 0,25"
+   },
+   "o": {
+    "wert": 11
+   },
+   "c": "(4) * (5) * (2.2) * (0.25)",
+   "w": "(0,25 · 4) · 2,2 · 5 = 1 · 11 = 11.",
+   "h": "Ordne die Faktoren um: Zuerst die Paare, die runde Zahlen ergeben."
+  },
+  {
+   "l": "rechenvorteile",
+   "t": "rechenvorteile",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne geschickt: 1/2 · 4 · 1/6",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     1,
+     3
+    ]
+   },
+   "c": [
+    "((0.5) * (4) * (1/6)) * 3",
+    "3"
+   ],
+   "w": "Zusammenfassen: 1/2 · 4 = 2. Dann · 1/6 = 1/3.",
+   "h": "Welche zwei Brüche ergeben zusammen eine ganze Zahl?"
+  },
+  {
+   "l": "rechenvorteile",
+   "t": "rechenvorteile",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne geschickt: 2/3 · 3 · 1/3",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     2,
+     3
+    ]
+   },
+   "c": [
+    "((2/3) * (3) * (1/3)) * 3",
+    "3"
+   ],
+   "w": "Zusammenfassen: 1/3 · 3 = 1. Dann · 2/3 = 2/3.",
+   "h": "Welche zwei Brüche ergeben zusammen eine ganze Zahl?"
+  },
+  {
+   "l": "rechenvorteile",
+   "t": "rechenvorteile",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne geschickt: 20 · 6 · 4,5 · 0,5"
+   },
+   "o": {
+    "wert": 270
+   },
+   "c": "(20) * (6) * (4.5) * (0.5)",
+   "w": "(0,5 · 20) · 4,5 · 6 = 10 · 27 = 270.",
+   "h": "Ordne die Faktoren um: Zuerst die Paare, die runde Zahlen ergeben."
+  },
+  {
+   "l": "rechenvorteile",
+   "t": "rechenvorteile",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne geschickt: 6/5 · 2/3 · 5/6",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     2,
+     3
+    ]
+   },
+   "c": [
+    "((1.2) * (2/3) * (5/6)) * 3",
+    "3"
+   ],
+   "w": "Zusammenfassen: 5/6 · 6/5 = 1. Dann · 2/3 = 2/3.",
+   "h": "Welche zwei Brüche ergeben zusammen eine ganze Zahl?"
+  },
+  {
+   "l": "rechenvorteile",
+   "t": "rechenvorteile",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne geschickt: 1/7 · 7/9 · 14",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     14,
+     9
+    ]
+   },
+   "c": [
+    "((1/7) * (7/9) * (14)) * 9",
+    "9"
+   ],
+   "w": "Zusammenfassen: 1/7 · 14 = 2. Dann · 7/9 = 14/9.",
+   "h": "Welche zwei Brüche ergeben zusammen eine ganze Zahl?"
+  },
+  {
+   "l": "rechenvorteile",
+   "t": "rechenvorteile",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne geschickt: 7/3 · 0,2 · 3/7 · 5"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(7/3) * (0.2) * (3/7) * (5)",
+   "w": "(3/7 · 7/3) · (0,2 · 5) = 1 · 1 = 1.",
+   "h": "Ein Bruch mal sein Kehrbruch ergibt 1."
+  },
+  {
+   "l": "rechenvorteile",
+   "t": "rechenvorteile",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne geschickt: 8 : 0,2 : 5"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "(8) / (0.2) / 5",
+   "w": "Zusammenfassen: 8 : (0,2 · 5) = 8 : 1 = 8.",
+   "h": "Zweimal teilen ist wie einmal durch das Produkt teilen."
+  },
+  {
+   "l": "rechenvorteile",
+   "t": "rechenvorteile",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne geschickt: 1/7 · 2 · 0,5 · 7"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(1/7) * (2) * (0.5) * (7)",
+   "w": "(1/7 · 7) · (0,5 · 2) = 1 · 1 = 1.",
+   "h": "Ein Bruch mal sein Kehrbruch ergibt 1."
+  },
+  {
+   "l": "rechenvorteile",
+   "t": "rechenvorteile",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne geschickt: 6 : 0,5 : 2"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "(6) / (0.5) / 2",
+   "w": "Zusammenfassen: 6 : (0,5 · 2) = 6 : 1 = 6.",
+   "h": "Zweimal teilen ist wie einmal durch das Produkt teilen."
+  },
+  {
+   "l": "rechenvorteile",
+   "t": "rechenvorteile",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "80",
+    "320",
+    "20"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Was ergibt 40 : 0,5 : 4?"
+   },
+   "w": "Von links: 40 : 0,5 = 80, dann : 4 = 20. Achtung: 40 : (0,5 : 4) wäre falsch geklammert.",
+   "h": "Beim Teilen nicht beliebig klammern – rechne von links oder fasse zu : (b · c) zusammen."
+  },
+  {
+   "l": "rechenvorteile",
+   "t": "rechenvorteile",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "20",
+    "5",
+    "10"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Was ergibt 5 : 0,5 : 2?"
+   },
+   "w": "Von links: 5 : 0,5 = 10, dann : 2 = 5. Achtung: 5 : (0,5 : 2) wäre falsch geklammert.",
+   "h": "Beim Teilen nicht beliebig klammern – rechne von links oder fasse zu : (b · c) zusammen."
+  },
+  {
+   "l": "rechenvorteile",
+   "t": "rechenvorteile",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne geschickt: 2/3 · 3/2 · 1/2",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     1,
+     2
+    ]
+   },
+   "c": [
+    "((2/3) * (1.5) * (0.5)) * 2",
+    "2"
+   ],
+   "w": "Zusammenfassen: 2/3 · 3/2 = 1. Dann · 1/2 = 1/2."
+  },
+  {
+   "l": "rechenvorteile",
+   "t": "rechenvorteile",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne geschickt: 1,9 · 8 · 4 · 0,25"
+   },
+   "o": {
+    "wert": 15.2
+   },
+   "c": "(1.9) * (8) * (4) * (0.25)",
+   "w": "(0,25 · 4) · 1,9 · 8 = 1 · 15,2 = 15,2."
+  },
+  {
+   "l": "rechenvorteile",
+   "t": "rechenvorteile",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne geschickt: 20 · 8,8 · 0,05 · 4"
+   },
+   "o": {
+    "wert": 35.2
+   },
+   "c": "(20) * (8.8) * (0.05) * (4)",
+   "w": "(0,05 · 20) · 8,8 · 4 = 1 · 35,2 = 35,2."
+  },
+  {
+   "l": "rechenvorteile",
+   "t": "rechenvorteile",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne geschickt: 8 · 8,3 · 0,5 · 2"
+   },
+   "o": {
+    "wert": 66.4
+   },
+   "c": "(8) * (8.3) * (0.5) * (2)",
+   "w": "(0,5 · 2) · 8,3 · 8 = 1 · 66,4 = 66,4."
+  },
+  {
+   "l": "rechenvorteile",
+   "t": "rechenvorteile",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne geschickt: 0,05 · 20 · 6,4 · 5"
+   },
+   "o": {
+    "wert": 32
+   },
+   "c": "(0.05) * (20) * (6.4) * (5)",
+   "w": "(0,05 · 20) · 6,4 · 5 = 1 · 32 = 32."
+  },
+  {
+   "l": "rechenvorteile",
+   "t": "rechenvorteile",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne geschickt: 7/8 · 3 · 1/3",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     7,
+     8
+    ]
+   },
+   "c": [
+    "((0.875) * (3) * (1/3)) * 8",
+    "8"
+   ],
+   "w": "Zusammenfassen: 1/3 · 3 = 1. Dann · 7/8 = 7/8."
+  },
+  {
+   "l": "rechenvorteile",
+   "t": "rechenvorteile",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne geschickt: 0,04 · 7 · 8,8 · 25"
+   },
+   "o": {
+    "wert": 61.6
+   },
+   "c": "(0.04) * (7) * (8.8) * (25)",
+   "w": "(0,04 · 25) · 8,8 · 7 = 1 · 61,6 = 61,6."
+  },
+  {
+   "l": "rechenvorteile",
+   "t": "rechenvorteile",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne geschickt: 1/5 · 1/2 · 5",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     1,
+     2
+    ]
+   },
+   "c": [
+    "((0.2) * (0.5) * (5)) * 2",
+    "2"
+   ],
+   "w": "Zusammenfassen: 1/5 · 5 = 1. Dann · 1/2 = 1/2."
+  },
+  {
+   "l": "rechenvorteile",
+   "t": "rechenvorteile",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne geschickt: 4 · 0,04 · 25 · 7,9"
+   },
+   "o": {
+    "wert": 31.6
+   },
+   "c": "(4) * (0.04) * (25) * (7.9)",
+   "w": "(0,04 · 25) · 7,9 · 4 = 1 · 31,6 = 31,6."
+  },
+  {
+   "l": "rechenvorteile",
+   "t": "rechenvorteile",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne geschickt: 1/2 · 9/2 · 2/9",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt, unechte Brüche wie 7/4 sind erlaubt."
+   },
+   "o": {
+    "werte": [
+     1,
+     2
+    ]
+   },
+   "c": [
+    "((0.5) * (4.5) * (2/9)) * 2",
+    "2"
+   ],
+   "w": "Zusammenfassen: 2/9 · 9/2 = 1. Dann · 1/2 = 1/2."
+  },
+  {
+   "l": "gemischt",
+   "t": "gemischt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 8,7 + 6 · 6,5."
+   },
+   "o": {
+    "wert": 47.7
+   },
+   "c": "(8.7) + (6) * (6.5)",
+   "w": "Punkt vor Strich: 6 · 6,5 = 39. Dann 8,7 + 39 = 47,7.",
+   "h": "Erst malnehmen, dann addieren oder subtrahieren."
+  },
+  {
+   "l": "gemischt",
+   "t": "gemischt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 0,6 + 3 · 0,3."
+   },
+   "o": {
+    "wert": 1.5
+   },
+   "c": "(0.6) + (3) * (0.3)",
+   "w": "Punkt vor Strich: 3 · 0,3 = 0,9. Dann 0,6 + 0,9 = 1,5.",
+   "h": "Erst malnehmen, dann addieren oder subtrahieren."
+  },
+  {
+   "l": "gemischt",
+   "t": "gemischt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 2,3 + 6 · 8,3."
+   },
+   "o": {
+    "wert": 52.1
+   },
+   "c": "(2.3) + (6) * (8.3)",
+   "w": "Punkt vor Strich: 6 · 8,3 = 49,8. Dann 2,3 + 49,8 = 52,1.",
+   "h": "Erst malnehmen, dann addieren oder subtrahieren."
+  },
+  {
+   "l": "gemischt",
+   "t": "gemischt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 3,3 + 3 · 0,5."
+   },
+   "o": {
+    "wert": 4.8
+   },
+   "c": "(3.3) + (3) * (0.5)",
+   "w": "Punkt vor Strich: 3 · 0,5 = 1,5. Dann 3,3 + 1,5 = 4,8.",
+   "h": "Erst malnehmen, dann addieren oder subtrahieren."
+  },
+  {
+   "l": "gemischt",
+   "t": "gemischt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 2,2 + 4 · 6,7."
+   },
+   "o": {
+    "wert": 29
+   },
+   "c": "(2.2) + (4) * (6.7)",
+   "w": "Punkt vor Strich: 4 · 6,7 = 26,8. Dann 2,2 + 26,8 = 29.",
+   "h": "Erst malnehmen, dann addieren oder subtrahieren."
+  },
+  {
+   "l": "gemischt",
+   "t": "gemischt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 6,4 + 6 · 6,1."
+   },
+   "o": {
+    "wert": 43
+   },
+   "c": "(6.4) + (6) * (6.1)",
+   "w": "Punkt vor Strich: 6 · 6,1 = 36,6. Dann 6,4 + 36,6 = 43.",
+   "h": "Erst malnehmen, dann addieren oder subtrahieren."
+  },
+  {
+   "l": "gemischt",
+   "t": "gemischt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (1/2 + 3/5) · 0,2. Gib das Ergebnis als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.22
+   },
+   "c": "((0.5) + (0.6)) * (0.2)",
+   "w": "Klammer zuerst: 1/2 + 3/5 = 11/10. · 0,2 = 0,22.",
+   "h": "Was in der Klammer steht, wird zuerst gerechnet."
+  },
+  {
+   "l": "gemischt",
+   "t": "gemischt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (5/2 + 3/4) · 0,6. Gib das Ergebnis als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 1.95
+   },
+   "c": "((2.5) + (0.75)) * (0.6)",
+   "w": "Klammer zuerst: 5/2 + 3/4 = 13/4. · 0,6 = 1,95.",
+   "h": "Was in der Klammer steht, wird zuerst gerechnet."
+  },
+  {
+   "l": "gemischt",
+   "t": "gemischt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (1/2 + 1/8) · 0,4. Gib das Ergebnis als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.25
+   },
+   "c": "((0.5) + (0.125)) * (0.4)",
+   "w": "Klammer zuerst: 1/2 + 1/8 = 5/8. · 0,4 = 0,25.",
+   "h": "Was in der Klammer steht, wird zuerst gerechnet."
+  },
+  {
+   "l": "gemischt",
+   "t": "gemischt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (1/8 + 3/2) · 0,2. Gib das Ergebnis als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.325
+   },
+   "c": "((0.125) + (1.5)) * (0.2)",
+   "w": "Klammer zuerst: 1/8 + 3/2 = 13/8. · 0,2 = 0,325.",
+   "h": "Was in der Klammer steht, wird zuerst gerechnet."
+  },
+  {
+   "l": "gemischt",
+   "t": "gemischt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 1/2 + 3/2 · 5/2. Gib das Ergebnis als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 4.25
+   },
+   "c": "(0.5) + (1.5) * (2.5)",
+   "w": "Punkt vor Strich: 3/2 · 5/2 = 15/4. 1/2 + 15/4 = 17/4 = 4,25.",
+   "h": "Erst das Produkt, dann die Summe."
+  },
+  {
+   "l": "gemischt",
+   "t": "gemischt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (3/5 + 5/2) · 0,25. Gib das Ergebnis als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.775
+   },
+   "c": "((0.6) + (2.5)) * (0.25)",
+   "w": "Klammer zuerst: 3/5 + 5/2 = 31/10. · 0,25 = 0,775.",
+   "h": "Was in der Klammer steht, wird zuerst gerechnet."
+  },
+  {
+   "l": "gemischt",
+   "t": "gemischt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 1/2 · 3/2 − 1/5 · 5/2. Gib das Ergebnis als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.25
+   },
+   "c": "(0.5) * (1.5) - (0.2) * (2.5)",
+   "w": "Punkt vor Strich: 3/4 − 1/2 = 1/4 = 0,25.",
+   "h": "Rechne beide Produkte zuerst. Das Ergebnis kann negativ sein."
+  },
+  {
+   "l": "gemischt",
+   "t": "gemischt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (0,7 − 0,2) : 0,25."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "((0.7) - (0.2)) / (0.25)",
+   "w": "Klammer: 0,7 − 0,2 = 0,5. 0,5 : 0,25 = 2.",
+   "h": "Klammer zuerst. Bei negativen Zwischenergebnissen auf das Vorzeichen achten."
+  },
+  {
+   "l": "gemischt",
+   "t": "gemischt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (0,2 − 4,4) : 0,2."
+   },
+   "o": {
+    "wert": -21
+   },
+   "c": "((0.2) - (4.4)) / (0.2)",
+   "w": "Klammer: 0,2 − 4,4 = −4,2. −4,2 : 0,2 = −21.",
+   "h": "Klammer zuerst. Bei negativen Zwischenergebnissen auf das Vorzeichen achten."
+  },
+  {
+   "l": "gemischt",
+   "t": "gemischt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (3,4 − 1,8) : 0,25."
+   },
+   "o": {
+    "wert": 6.4
+   },
+   "c": "((3.4) - (1.8)) / (0.25)",
+   "w": "Klammer: 3,4 − 1,8 = 1,6. 1,6 : 0,25 = 6,4.",
+   "h": "Klammer zuerst. Bei negativen Zwischenergebnissen auf das Vorzeichen achten."
+  },
+  {
+   "l": "gemischt",
+   "t": "gemischt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 3/2 · 2/5 − 1/4 · 5/2. Gib das Ergebnis als Dezimalzahl an."
+   },
+   "o": {
+    "wert": -0.025
+   },
+   "c": "(1.5) * (0.4) - (0.25) * (2.5)",
+   "w": "Punkt vor Strich: 3/5 − 5/8 = −1/40 = −0,025.",
+   "h": "Rechne beide Produkte zuerst. Das Ergebnis kann negativ sein."
+  },
+  {
+   "l": "gemischt",
+   "t": "gemischt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind kauft 2 Hefte zu je 0,36 € und 2 Stifte zu je 0,54 €. Es bezahlt mit 20 €. Wie viel bekommt es zurück?"
+   },
+   "o": {
+    "wert": 18.2,
+    "einheit": "€"
+   },
+   "c": "20 - (2 * (0.36) + 2 * (0.54))",
+   "w": "2 · 0,36 = 0,72 €, 2 · 0,54 = 1,08 €. Zusammen 1,8 €. Zurück: 18,2 €.",
+   "h": "Stelle einen Term mit Klammer auf: Geld − (Hefte + Stifte)."
+  },
+  {
+   "l": "gemischt",
+   "t": "gemischt",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (1/8 + 3/5) · 0,4. Gib das Ergebnis als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.29
+   },
+   "c": "((0.125) + (0.6)) * (0.4)",
+   "w": "Klammer zuerst: 1/8 + 3/5 = 29/40. · 0,4 = 0,29."
+  },
+  {
+   "l": "gemischt",
+   "t": "gemischt",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (3/2 + 5/2) · 0,125. Gib das Ergebnis als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.5
+   },
+   "c": "((1.5) + (2.5)) * (0.125)",
+   "w": "Klammer zuerst: 3/2 + 5/2 = 4. · 0,125 = 0,5."
+  },
+  {
+   "l": "gemischt",
+   "t": "gemischt",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 3/5 + 1/4 · 2/5. Gib das Ergebnis als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.7
+   },
+   "c": "(0.6) + (0.25) * (0.4)",
+   "w": "Punkt vor Strich: 1/4 · 2/5 = 1/10. 3/5 + 1/10 = 7/10 = 0,7."
+  },
+  {
+   "l": "gemischt",
+   "t": "gemischt",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 3/4 + 3/2 · 1/5. Gib das Ergebnis als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 1.05
+   },
+   "c": "(0.75) + (1.5) * (0.2)",
+   "w": "Punkt vor Strich: 3/2 · 1/5 = 3/10. 3/4 + 3/10 = 21/20 = 1,05."
+  },
+  {
+   "l": "gemischt",
+   "t": "gemischt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 3/5 + 2/5 · 1/8. Gib das Ergebnis als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.65
+   },
+   "c": "(0.6) + (0.4) * (0.125)",
+   "w": "Punkt vor Strich: 2/5 · 1/8 = 1/20. 3/5 + 1/20 = 13/20 = 0,65."
+  },
+  {
+   "l": "gemischt",
+   "t": "gemischt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (1/5 + 3/4) · 0,6. Gib das Ergebnis als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.57
+   },
+   "c": "((0.2) + (0.75)) * (0.6)",
+   "w": "Klammer zuerst: 1/5 + 3/4 = 19/20. · 0,6 = 0,57."
+  },
+  {
+   "l": "gemischt",
+   "t": "gemischt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (3/2 + 3/8) · 0,6. Gib das Ergebnis als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 1.125
+   },
+   "c": "((1.5) + (0.375)) * (0.6)",
+   "w": "Klammer zuerst: 3/2 + 3/8 = 15/8. · 0,6 = 1,125."
+  },
+  {
+   "l": "gemischt",
+   "t": "gemischt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (1/8 + 3/8) · 1,5. Gib das Ergebnis als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.75
+   },
+   "c": "((0.125) + (0.375)) * (1.5)",
+   "w": "Klammer zuerst: 1/8 + 3/8 = 1/2. · 1,5 = 0,75."
+  },
+  {
+   "l": "gemischt",
+   "t": "gemischt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (1/8 + 3/8) · 0,6. Gib das Ergebnis als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.3
+   },
+   "c": "((0.125) + (0.375)) * (0.6)",
+   "w": "Klammer zuerst: 1/8 + 3/8 = 1/2. · 0,6 = 0,3."
+  },
+  {
+   "l": "gemischt",
+   "t": "gemischt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (3/4 + 1/4) · 1,5. Gib das Ergebnis als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 1.5
+   },
+   "c": "((0.75) + (0.25)) * (1.5)",
+   "w": "Klammer zuerst: 3/4 + 1/4 = 1. · 1,5 = 1,5."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Nein, die Aussage ist falsch.",
+    "Ja, durch eine Zahl kleiner als 1 teilen macht größer: 5,2 : 0,2 = 26.",
+    "Das kann man nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „5,2 : 0,2 ist größer als 5,2.“"
+   },
+   "w": "Ja, durch eine Zahl kleiner als 1 teilen macht größer: 5,2 : 0,2 = 26.",
+   "h": "Überlege: Ist der zweite Faktor größer oder kleiner als 1?"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Man hätte den zweiten Bruch umdrehen müssen.",
+    "Nenner dürfen nicht addiert werden.",
+    "Die Rechnung ist richtig.",
+    "Man hätte die Zähler malnehmen müssen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Ein Kind rechnet: 1/6 + 6/7 = 7/13. Was ist der Fehler?"
+   },
+   "w": "Richtig: Hauptnenner, 1/6 + 6/7 = 43/42. Nenner werden nie addiert.",
+   "h": "Was passiert mit den Nennern beim Addieren?"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Die Rechnung ist richtig.",
+    "Man hätte den zweiten Bruch umdrehen müssen.",
+    "Man hätte die Zähler malnehmen müssen.",
+    "Nenner dürfen nicht addiert werden."
+   ],
+   "o": {
+    "index": 3
+   },
+   "f": {
+    "text": "Ein Kind rechnet: 5/6 + 1/2 = 6/8. Was ist der Fehler?"
+   },
+   "w": "Richtig: Hauptnenner, 5/6 + 1/2 = 4/3. Nenner werden nie addiert.",
+   "h": "Was passiert mit den Nennern beim Addieren?"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind rechnet: 0,3 · 0,2 = 0,6. Das ist falsch. Wie heißt das richtige Ergebnis?"
+   },
+   "o": {
+    "wert": 0.06
+   },
+   "c": "(0.3) * (0.2)",
+   "w": "3 · 2 = 6, zwei Nachkommastellen: 0,06.",
+   "h": "Zähle die Nachkommastellen beider Faktoren."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Man hätte den zweiten Bruch umdrehen müssen.",
+    "Nenner dürfen nicht addiert werden.",
+    "Die Rechnung ist richtig.",
+    "Man hätte die Zähler malnehmen müssen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Ein Kind rechnet: 2/5 + 3/4 = 5/9. Was ist der Fehler?"
+   },
+   "w": "Richtig: Hauptnenner, 2/5 + 3/4 = 23/20. Nenner werden nie addiert.",
+   "h": "Was passiert mit den Nennern beim Addieren?"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind rechnet: 0,9 · 0,5 = 4,5. Das ist falsch. Wie heißt das richtige Ergebnis?"
+   },
+   "o": {
+    "wert": 0.45
+   },
+   "c": "(0.9) * (0.5)",
+   "w": "9 · 5 = 45, zwei Nachkommastellen: 0,45.",
+   "h": "Zähle die Nachkommastellen beider Faktoren."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind rechnet: 6,5 : 0,5 = 1,3. Das ist falsch. Wie heißt das richtige Ergebnis?"
+   },
+   "o": {
+    "wert": 13
+   },
+   "c": "(6.5) / (0.5)",
+   "w": "Komma bei beiden um 1 Stelle nach rechts: 65 : 5 = 13.",
+   "h": "Teilen durch eine Zahl kleiner als 1 macht das Ergebnis größer."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind rechnet: 3/8 + 2/5 · 1/2 = 31/80. Das ist falsch. Wie heißt das richtige Ergebnis als Dezimalzahl?"
+   },
+   "o": {
+    "wert": 0.575
+   },
+   "c": "(0.375) + (0.4) * (0.5)",
+   "w": "Punkt vor Strich: 2/5 · 1/2 = 1/5; 3/8 + 1/5 = 0,575.",
+   "h": "Das Kind hat zuerst addiert. Was gilt bei Punkt und Strich?"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind rechnet: 1,2 : 0,3 = 0,4. Das ist falsch. Wie heißt das richtige Ergebnis?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(1.2) / (0.3)",
+   "w": "Komma bei beiden um 1 Stelle nach rechts: 12 : 3 = 4.",
+   "h": "Teilen durch eine Zahl kleiner als 1 macht das Ergebnis größer."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind rechnet: 9,6 : 0,6 = 1,6. Das ist falsch. Wie heißt das richtige Ergebnis?"
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "(9.6) / (0.6)",
+   "w": "Komma bei beiden um 1 Stelle nach rechts: 96 : 6 = 16.",
+   "h": "Teilen durch eine Zahl kleiner als 1 macht das Ergebnis größer."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Nenner dürfen nicht addiert werden.",
+    "Die Rechnung ist richtig.",
+    "Man hätte den zweiten Bruch umdrehen müssen.",
+    "Man hätte die Zähler malnehmen müssen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Ein Kind rechnet: 2/7 + 1/2 = 3/9. Was ist der Fehler?"
+   },
+   "w": "Richtig: Hauptnenner, 2/7 + 1/2 = 11/14. Nenner werden nie addiert.",
+   "h": "Was passiert mit den Nennern beim Addieren?"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Die Rechnung ist richtig.",
+    "Man hätte beide Brüche umdrehen müssen.",
+    "Es wurde der falsche Bruch umgedreht.",
+    "Man darf beim Teilen nicht kürzen."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Ein Kind rechnet: 3/4 : 4/5 = 4/3 · 4/5. Was ist der Fehler?"
+   },
+   "w": "Nur der Teiler 4/5 wird umgedreht: 3/4 · 5/4 = 15/16.",
+   "h": "Welcher Bruch steht hinter dem Geteiltzeichen?"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Man darf beim Teilen nicht kürzen.",
+    "Die Rechnung ist richtig.",
+    "Es wurde der falsche Bruch umgedreht.",
+    "Man hätte beide Brüche umdrehen müssen."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Ein Kind rechnet: 7/8 : 3/7 = 8/7 · 3/7. Was ist der Fehler?"
+   },
+   "w": "Nur der Teiler 3/7 wird umgedreht: 7/8 · 7/3 = 49/24.",
+   "h": "Welcher Bruch steht hinter dem Geteiltzeichen?"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind rechnet: 1/8 + 1/5 · 2/5 = 13/100. Das ist falsch. Wie heißt das richtige Ergebnis als Dezimalzahl?"
+   },
+   "o": {
+    "wert": 0.205
+   },
+   "c": "(0.125) + (0.2) * (0.4)",
+   "w": "Punkt vor Strich: 1/5 · 2/5 = 2/25; 1/8 + 2/25 = 0,205.",
+   "h": "Das Kind hat zuerst addiert. Was gilt bei Punkt und Strich?"
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "4,953",
+    "4 953",
+    "49,53",
+    "495,3"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Welches Ergebnis von 12,7 · 3,9 kann nach einem Überschlag stimmen?"
+   },
+   "w": "Überschlag: etwa 13 · 4 = 52. Passend: 49,53.",
+   "h": "Runde beide Zahlen auf Ganze und rechne grob."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "800,4",
+    "8,004",
+    "80,04",
+    "8 004"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Welches Ergebnis von 34,8 · 2,3 kann nach einem Überschlag stimmen?"
+   },
+   "w": "Überschlag: etwa 35 · 2 = 70. Passend: 80,04.",
+   "h": "Runde beide Zahlen auf Ganze und rechne grob."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "1,32",
+    "132",
+    "13,2",
+    "0,132"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Welches Ergebnis von 0,3 · 4,4 kann nach einem Überschlag stimmen?"
+   },
+   "w": "Überschlag: etwa 0 · 4 = 0. Passend: 1,32.",
+   "h": "Runde beide Zahlen auf Ganze und rechne grob."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "108,9",
+    "10,89",
+    "1 089",
+    "10 890"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Welches Ergebnis von 16,5 · 6,6 kann nach einem Überschlag stimmen?"
+   },
+   "w": "Überschlag: etwa 16 · 7 = 112. Passend: 108,9.",
+   "h": "Runde beide Zahlen auf Ganze und rechne grob."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind rechnet: 2/5 + 1/5 · 1/4 = 3/20. Das ist falsch. Wie heißt das richtige Ergebnis als Dezimalzahl?"
+   },
+   "o": {
+    "wert": 0.45
+   },
+   "c": "(0.4) + (0.2) * (0.25)",
+   "w": "Punkt vor Strich: 1/5 · 1/4 = 1/20; 2/5 + 1/20 = 0,45."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind rechnet: 9 : 0,5 = 1,8. Das ist falsch. Wie heißt das richtige Ergebnis?"
+   },
+   "o": {
+    "wert": 18
+   },
+   "c": "(9) / (0.5)",
+   "w": "Komma bei beiden um 1 Stelle nach rechts: 90 : 5 = 18."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Nenner dürfen nicht addiert werden.",
+    "Die Rechnung ist richtig.",
+    "Man hätte die Zähler malnehmen müssen.",
+    "Man hätte den zweiten Bruch umdrehen müssen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Ein Kind rechnet: 1/2 + 3/5 = 4/7. Was ist der Fehler?"
+   },
+   "w": "Richtig: Hauptnenner, 1/2 + 3/5 = 11/10. Nenner werden nie addiert."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Es wurde der falsche Bruch umgedreht.",
+    "Man darf beim Teilen nicht kürzen.",
+    "Die Rechnung ist richtig.",
+    "Man hätte beide Brüche umdrehen müssen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Ein Kind rechnet: 1/7 : 1/3 = 7/1 · 1/3. Was ist der Fehler?"
+   },
+   "w": "Nur der Teiler 1/3 wird umgedreht: 1/7 · 3/1 = 3/7."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Es wurde der falsche Bruch umgedreht.",
+    "Man darf beim Teilen nicht kürzen.",
+    "Die Rechnung ist richtig.",
+    "Man hätte beide Brüche umdrehen müssen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Ein Kind rechnet: 6/7 : 1/3 = 7/6 · 1/3. Was ist der Fehler?"
+   },
+   "w": "Nur der Teiler 1/3 wird umgedreht: 6/7 · 3/1 = 18/7."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind rechnet: 13,5 : 0,9 = 1,5. Das ist falsch. Wie heißt das richtige Ergebnis?"
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "(13.5) / (0.9)",
+   "w": "Komma bei beiden um 1 Stelle nach rechts: 135 : 9 = 15."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind rechnet: 0,9 : 0,3 = 0,3. Das ist falsch. Wie heißt das richtige Ergebnis?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(0.9) / (0.3)",
+   "w": "Komma bei beiden um 1 Stelle nach rechts: 9 : 3 = 3."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Man hätte die Zähler malnehmen müssen.",
+    "Man hätte den zweiten Bruch umdrehen müssen.",
+    "Nenner dürfen nicht addiert werden.",
+    "Die Rechnung ist richtig."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Ein Kind rechnet: 1/3 + 1/5 = 2/8. Was ist der Fehler?"
+   },
+   "w": "Richtig: Hauptnenner, 1/3 + 1/5 = 8/15. Nenner werden nie addiert."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind rechnet: 3 : 0,2 = 1,5. Das ist falsch. Wie heißt das richtige Ergebnis?"
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "(3) / (0.2)",
+   "w": "Komma bei beiden um 1 Stelle nach rechts: 30 : 2 = 15."
+  },
+  {
+   "l": "fehler_finden",
+   "t": "fehler_finden",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Man darf beim Teilen nicht kürzen.",
+    "Es wurde der falsche Bruch umgedreht.",
+    "Man hätte beide Brüche umdrehen müssen.",
+    "Die Rechnung ist richtig."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Ein Kind rechnet: 1/2 : 3/4 = 2/1 · 3/4. Was ist der Fehler?"
+   },
+   "w": "Nur der Teiler 3/4 wird umgedreht: 1/2 · 4/3 = 2/3."
+  }
+ ],
+ "offen": [
+  "Negative Bruch-Ergebnisse werden nur als Auswahl abgefragt, weil unklar ist, ob die Lücken-Eingabe ein Minuszeichen annimmt. Falls ja, können sie auch als Lücke kommen.",
+  "Gemischte Zahlen (z. B. 1 3/4) werden nicht verwendet; Ergebnisse > 1 als unechter Bruch (7/4). Falls die Schule gemischte Zahlen verlangt, braucht die App ein Eingabeformat dafür."
+ ]
+}

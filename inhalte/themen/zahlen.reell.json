@@ -1,0 +1,3730 @@
+{
+ "thema_schluessel": "zahlen.reell",
+ "thema_id": 20,
+ "block_id": 43,
+ "klasse": {
+  "gym_by": 9,
+  "rs_by": 9,
+  "ib_myp": 3
+ },
+ "autor": "Claude (Paket Klasse 9)",
+ "inhalt": {
+  "ziel": "Irrationale Zahlen erkennen, Wurzeln eingrenzen, Wurzelterme vereinfachen und Nenner rational machen.",
+  "merke": [
+   "ℕ ⊂ ℤ ⊂ ℚ ⊂ ℝ. Irrational: unendlich, nicht periodisch (z. B. √2).",
+   "√a · √b = √(ab), √a : √b = √(a : b) – aber nicht für Summen.",
+   "Teilweise radizieren: √(k²m) = k√m.",
+   "Wurzel im Nenner: erweitern (bei √m ± n mit der 3. binomischen Formel)."
+  ],
+  "abschnitte": [
+   {
+    "titel": "Reelle Zahlen",
+    "lernziele": [
+     "zahlarten",
+     "eingrenzen"
+    ]
+   },
+   {
+    "titel": "Rechnen mit Wurzeln",
+    "lernziele": [
+     "wurzel_mal",
+     "teilweise",
+     "zusammenfassen"
+    ]
+   },
+   {
+    "titel": "Nenner rational machen",
+    "lernziele": [
+     "nenner_rational"
+    ]
+   }
+  ],
+  "etappen": [
+   {
+    "lernziel": "zahlarten",
+    "titel": "Rational oder irrational?",
+    "regel": "⟦Rationale Zahlen⟧ lassen sich als Bruch schreiben (endliche oder periodische Dezimalzahl). ⟦Irrationale Zahlen⟧ wie √2 haben unendlich viele Nachkommastellen ohne Periode. Beide zusammen bilden die ⟦reellen Zahlen ℝ⟧.",
+    "schritte": [
+     "√49 = 7 ist eine natürliche Zahl, also rational.",
+     "√50 liegt zwischen 7 und 8, 50 ist keine Quadratzahl: √50 ist ⟦irrational⟧."
+    ],
+    "probe": "Faustregel: √n (n natürlich) ist nur rational, wenn n eine Quadratzahl ist.",
+    "fehler": "„0,333… ist irrational, weil es unendlich viele Stellen hat“ ist falsch: Die Ziffern wiederholen sich (Periode). 0,333… = ⟦1/3⟧ ist rational."
+   },
+   {
+    "lernziel": "eingrenzen",
+    "titel": "Wurzeln genauer eingrenzen",
+    "regel": "Mit der ⟦Intervallschachtelung⟧ grenzt du √a immer enger ein: Du quadrierst Zahlen mit einer, dann zwei Nachkommastellen und vergleichst mit a.",
+    "schritte": [
+     "√30: 5² = 25 < 30 < 36 = 6², also 5 < √30 < 6.",
+     "5,4² = 29,16 < 30 < 30,25 = 5,5², also ⟦5,4 < √30 < 5,5⟧."
+    ],
+    "probe": "5,48² ≈ 30,03 – passt in das Intervall.",
+    "fehler": "„√30 liegt zwischen 5,0 und 5,1, weil 30 näher an 25 liegt“ ist falsch: 5,1² = 26,01 < 30. Du musst ⟦quadrieren und vergleichen⟧, nicht schätzen."
+   },
+   {
+    "lernziel": "wurzel_mal",
+    "titel": "Wurzeln multiplizieren und dividieren",
+    "regel": "Für a, b ≥ 0 gilt: ⟦√a · √b = √(a · b)⟧ und für b > 0 ⟦√a : √b = √(a : b)⟧. Für Summen gibt es keine solche Regel.",
+    "schritte": [
+     "√3 · √27 = √(3 · 27) = √81.",
+     "√81 = ⟦9⟧."
+    ],
+    "probe": "9 : √3 = √27? 81 : 3 = 27 ✓",
+    "fehler": "√16 + √9 = √25 ist falsch: Bei der ⟦Summe⟧ darf man nicht zusammenfassen. 4 + 3 = 7, aber √25 = 5."
+   },
+   {
+    "lernziel": "teilweise",
+    "titel": "Teilweise die Wurzel ziehen",
+    "regel": "Zerlege den Radikanden in eine ⟦Quadratzahl mal Rest⟧: √(k² · m) = ⟦k√m⟧. Nimm die größte Quadratzahl, die passt.",
+    "schritte": [
+     "√72 = √(36 · 2), denn 36 ist die größte Quadratzahl, die in 72 steckt.",
+     "√36 · √2 = ⟦6√2⟧."
+    ],
+    "probe": "(6√2)² = 36 · 2 = 72 ✓",
+    "fehler": "√72 = √(4 · 18) = 2√18 ist nicht fertig: In 18 steckt noch die Quadratzahl 9. Mit der ⟦größten⟧ Quadratzahl 36 erhält man 6√2."
+   },
+   {
+    "lernziel": "zusammenfassen",
+    "titel": "Wurzelterme zusammenfassen",
+    "regel": "Nur Wurzeln mit ⟦gleichem Radikanden⟧ kann man addieren: a√m + b√m = ⟦(a + b)√m⟧. Vorher teilweise radizieren, dann zusammenfassen.",
+    "schritte": [
+     "√18 + √50 = 3√2 + 5√2 (teilweise radiziert).",
+     "3√2 + 5√2 = ⟦8√2⟧."
+    ],
+    "probe": "√18 ≈ 4,24, √50 ≈ 7,07, Summe ≈ 11,31; 8√2 ≈ 11,31 ✓",
+    "fehler": "2√3 + 4√5 = 6√8 ist falsch: Die Radikanden sind ⟦verschieden⟧, der Term lässt sich nicht zusammenfassen."
+   },
+   {
+    "lernziel": "nenner_rational",
+    "titel": "Nenner rational machen",
+    "regel": "Steht eine Wurzel im Nenner, ⟦erweitere⟧ mit dieser Wurzel: a/√m = a√m / m. Bei √m − n erweiterst du mit √m + n (⟦3. binomische Formel⟧).",
+    "schritte": [
+     "12/√3: mit √3 erweitern ergibt 12√3 / (√3 · √3) = 12√3 / 3.",
+     "12√3 / 3 = ⟦4√3⟧."
+    ],
+    "probe": "4√3 · √3 = 4 · 3 = 12 ✓",
+    "fehler": "12/√3 = 4 ist falsch: Man darf nicht einfach durch 3 teilen. √3 · √3 = 3, deshalb steht nach dem Erweitern ⟦√3 im Zähler⟧: 4√3."
+   }
+  ],
+  "teilfaehigkeiten": [
+   {
+    "k": "zahlarten",
+    "text": "Rational oder irrational?",
+    "lernziele": [
+     "zahlarten"
+    ]
+   },
+   {
+    "k": "eingrenzen",
+    "text": "Wurzeln genauer eingrenzen",
+    "lernziele": [
+     "eingrenzen"
+    ]
+   },
+   {
+    "k": "wurzel_mal",
+    "text": "Wurzeln multiplizieren und dividieren",
+    "lernziele": [
+     "wurzel_mal"
+    ]
+   },
+   {
+    "k": "teilweise",
+    "text": "Teilweise die Wurzel ziehen",
+    "lernziele": [
+     "teilweise"
+    ]
+   },
+   {
+    "k": "zusammenfassen",
+    "text": "Wurzelterme zusammenfassen",
+    "lernziele": [
+     "zusammenfassen"
+    ]
+   },
+   {
+    "k": "nenner_rational",
+    "text": "Nenner rational machen",
+    "lernziele": [
+     "nenner_rational"
+    ]
+   }
+  ],
+  "bewertung": {
+   "lernziele_pflicht": [
+    "zahlarten",
+    "eingrenzen",
+    "wurzel_mal",
+    "teilweise",
+    "zusammenfassen",
+    "nenner_rational"
+   ],
+   "lernziele_vertiefung": [],
+   "testaufgaben_je_lernziel": 1
+  },
+  "quellen": {
+   "erklaerungen": "Eigene Fassung (Claude), Aufgaben vom Generator erzeugt und berechnet.",
+   "begriffe": "Fachbegriffe nach LehrplanPLUS Bayern."
+  }
+ },
+ "aufgaben": [
+  {
+   "l": "zahlarten",
+   "t": "zahlarten",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Zu welcher kleinsten Zahlenmenge gehört √144?"
+   },
+   "a": [
+    "ℕ (natürliche Zahlen)",
+    "ℤ (ganze Zahlen)",
+    "ℝ (reelle Zahlen)",
+    "ℚ (rationale Zahlen)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "√144 = 12 ist eine natürliche Zahl.",
+   "h": "Vereinfache die Zahl zuerst so weit wie möglich."
+  },
+  {
+   "l": "zahlarten",
+   "t": "zahlarten",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist √108 rational oder irrational?"
+   },
+   "a": [
+    "rational, denn √108 ≈ 10,5",
+    "rational, denn jede Wurzel ist ein Bruch",
+    "irrational, denn 108 ist keine Quadratzahl",
+    "weder noch"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "10² = 100 < 108 < 121 = 11². 108 ist keine Quadratzahl, √108 ist irrational.",
+   "h": "Liegt der Radikand genau auf einer Quadratzahl?"
+  },
+  {
+   "l": "zahlarten",
+   "t": "zahlarten",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Zu welcher kleinsten Zahlenmenge gehört √(9/16)?"
+   },
+   "a": [
+    "ℕ (natürliche Zahlen)",
+    "ℝ (reelle Zahlen)",
+    "ℤ (ganze Zahlen)",
+    "ℚ (rationale Zahlen)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "√(9/16) = 3/4 ist ein Bruch, aber keine ganze Zahl.",
+   "h": "Vereinfache die Zahl zuerst so weit wie möglich."
+  },
+  {
+   "l": "zahlarten",
+   "t": "zahlarten",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist √121 rational oder irrational?"
+   },
+   "a": [
+    "rational, denn √121 = 11",
+    "weder noch",
+    "irrational, denn es ist eine Wurzel",
+    "irrational, denn √121 ist nicht abbrechend"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "11 · 11 = 121, also √121 = 11. Ganze Zahlen sind rational.",
+   "h": "Ist der Radikand eine Quadratzahl?"
+  },
+  {
+   "l": "zahlarten",
+   "t": "zahlarten",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Zu welcher kleinsten Zahlenmenge gehört √(9/16)?"
+   },
+   "a": [
+    "ℕ (natürliche Zahlen)",
+    "ℝ (reelle Zahlen)",
+    "ℚ (rationale Zahlen)",
+    "ℤ (ganze Zahlen)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "√(9/16) = 3/4 ist ein Bruch, aber keine ganze Zahl.",
+   "h": "Vereinfache die Zahl zuerst so weit wie möglich."
+  },
+  {
+   "l": "zahlarten",
+   "t": "zahlarten",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Zu welcher kleinsten Zahlenmenge gehört √4?"
+   },
+   "a": [
+    "ℚ (rationale Zahlen)",
+    "ℝ (reelle Zahlen)",
+    "ℕ (natürliche Zahlen)",
+    "ℤ (ganze Zahlen)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "√4 = 2 ist eine natürliche Zahl.",
+   "h": "Vereinfache die Zahl zuerst so weit wie möglich."
+  },
+  {
+   "l": "zahlarten",
+   "t": "zahlarten",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „4,777… (die 7 wiederholt sich immer) ist irrational.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: Die Zahl ist eine natürliche Zahl.",
+    "Richtig: Die Zahl ist keine ganze Zahl.",
+    "Richtig: Unendlich viele Nachkommastellen bedeuten irrational.",
+    "Falsch: Periodische Dezimalzahlen sind rational."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Eine Periode lässt sich als Bruch schreiben (z. B. 0,777… = 7/9). Irrational sind nur Zahlen ohne Periode.",
+   "h": "Wiederholen sich die Ziffern oder nicht?"
+  },
+  {
+   "l": "zahlarten",
+   "t": "zahlarten",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche der Zahlen ist irrational?"
+   },
+   "a": [
+    "−2",
+    "√41",
+    "5/3",
+    "√4"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "41 ist keine Quadratzahl, also ist √41 irrational. Die anderen Zahlen lassen sich als Bruch schreiben (z. B. √4 = 2).",
+   "h": "Prüfe bei jeder Wurzel, ob der Radikand eine Quadratzahl ist."
+  },
+  {
+   "l": "zahlarten",
+   "t": "zahlarten",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche der Zahlen ist irrational?"
+   },
+   "a": [
+    "0,72",
+    "√17",
+    "√49",
+    "3/11"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "17 ist keine Quadratzahl, also ist √17 irrational. Die anderen Zahlen lassen sich als Bruch schreiben (z. B. √49 = 7).",
+   "h": "Prüfe bei jeder Wurzel, ob der Radikand eine Quadratzahl ist."
+  },
+  {
+   "l": "zahlarten",
+   "t": "zahlarten",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist √57 rational oder irrational?"
+   },
+   "a": [
+    "rational, denn jede Wurzel ist ein Bruch",
+    "weder noch",
+    "irrational, denn 57 ist keine Quadratzahl",
+    "rational, denn √57 ≈ 7,5"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "7² = 49 < 57 < 64 = 8². 57 ist keine Quadratzahl, √57 ist irrational.",
+   "h": "Liegt der Radikand genau auf einer Quadratzahl?"
+  },
+  {
+   "l": "zahlarten",
+   "t": "zahlarten",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist √48 rational oder irrational?"
+   },
+   "a": [
+    "rational, denn √48 ≈ 6,5",
+    "irrational, denn 48 ist keine Quadratzahl",
+    "weder noch",
+    "rational, denn jede Wurzel ist ein Bruch"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "6² = 36 < 48 < 49 = 7². 48 ist keine Quadratzahl, √48 ist irrational.",
+   "h": "Liegt der Radikand genau auf einer Quadratzahl?"
+  },
+  {
+   "l": "zahlarten",
+   "t": "zahlarten",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist √529 rational oder irrational?"
+   },
+   "a": [
+    "irrational, denn es ist eine Wurzel",
+    "irrational, denn √529 ist nicht abbrechend",
+    "weder noch",
+    "rational, denn √529 = 23"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "23 · 23 = 529, also √529 = 23. Ganze Zahlen sind rational.",
+   "h": "Ist der Radikand eine Quadratzahl?"
+  },
+  {
+   "l": "zahlarten",
+   "t": "zahlarten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „0,999… (die 9 wiederholt sich immer) ist irrational.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: Die Zahl ist eine natürliche Zahl.",
+    "Falsch: Periodische Dezimalzahlen sind rational.",
+    "Richtig: Die Zahl ist keine ganze Zahl.",
+    "Richtig: Unendlich viele Nachkommastellen bedeuten irrational."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Eine Periode lässt sich als Bruch schreiben (z. B. 0,999… = 1). Irrational sind nur Zahlen ohne Periode.",
+   "h": "Wiederholen sich die Ziffern oder nicht?"
+  },
+  {
+   "l": "zahlarten",
+   "t": "zahlarten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche der Zahlen ist irrational?"
+   },
+   "a": [
+    "√4",
+    "−2",
+    "0,89",
+    "√53"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "53 ist keine Quadratzahl, also ist √53 irrational. Die anderen Zahlen lassen sich als Bruch schreiben (z. B. √4 = 2).",
+   "h": "Prüfe bei jeder Wurzel, ob der Radikand eine Quadratzahl ist."
+  },
+  {
+   "l": "zahlarten",
+   "t": "zahlarten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „0,111… (die 1 wiederholt sich immer) ist irrational.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: Die Zahl ist eine natürliche Zahl.",
+    "Richtig: Unendlich viele Nachkommastellen bedeuten irrational.",
+    "Richtig: Die Zahl ist keine ganze Zahl.",
+    "Falsch: Periodische Dezimalzahlen sind rational."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Eine Periode lässt sich als Bruch schreiben (z. B. 0,111… = 1/9). Irrational sind nur Zahlen ohne Periode.",
+   "h": "Wiederholen sich die Ziffern oder nicht?"
+  },
+  {
+   "l": "zahlarten",
+   "t": "zahlarten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche der Zahlen ist irrational?"
+   },
+   "a": [
+    "√33",
+    "0,7",
+    "1/9",
+    "√9"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "33 ist keine Quadratzahl, also ist √33 irrational. Die anderen Zahlen lassen sich als Bruch schreiben (z. B. √9 = 3).",
+   "h": "Prüfe bei jeder Wurzel, ob der Radikand eine Quadratzahl ist."
+  },
+  {
+   "l": "zahlarten",
+   "t": "zahlarten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „0,666… (die 6 wiederholt sich immer) ist irrational.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: Die Zahl ist eine natürliche Zahl.",
+    "Falsch: Periodische Dezimalzahlen sind rational.",
+    "Richtig: Unendlich viele Nachkommastellen bedeuten irrational.",
+    "Richtig: Die Zahl ist keine ganze Zahl."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Eine Periode lässt sich als Bruch schreiben (z. B. 0,666… = 2/3). Irrational sind nur Zahlen ohne Periode.",
+   "h": "Wiederholen sich die Ziffern oder nicht?"
+  },
+  {
+   "l": "zahlarten",
+   "t": "zahlarten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche der Zahlen ist irrational?"
+   },
+   "a": [
+    "√100",
+    "√83",
+    "−10",
+    "2/7"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "83 ist keine Quadratzahl, also ist √83 irrational. Die anderen Zahlen lassen sich als Bruch schreiben (z. B. √100 = 10).",
+   "h": "Prüfe bei jeder Wurzel, ob der Radikand eine Quadratzahl ist."
+  },
+  {
+   "l": "zahlarten",
+   "t": "zahlarten",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Zu welcher kleinsten Zahlenmenge gehört √14?"
+   },
+   "a": [
+    "ℕ (natürliche Zahlen)",
+    "ℚ (rationale Zahlen)",
+    "ℝ (reelle Zahlen)",
+    "ℤ (ganze Zahlen)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "14 ist keine Quadratzahl, √14 ist irrational, also nur in ℝ."
+  },
+  {
+   "l": "zahlarten",
+   "t": "zahlarten",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist √400 rational oder irrational?"
+   },
+   "a": [
+    "rational, denn √400 = 20",
+    "irrational, denn √400 ist nicht abbrechend",
+    "weder noch",
+    "irrational, denn es ist eine Wurzel"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "20 · 20 = 400, also √400 = 20. Ganze Zahlen sind rational."
+  },
+  {
+   "l": "zahlarten",
+   "t": "zahlarten",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist √114 rational oder irrational?"
+   },
+   "a": [
+    "rational, denn √114 ≈ 10,5",
+    "irrational, denn 114 ist keine Quadratzahl",
+    "rational, denn jede Wurzel ist ein Bruch",
+    "weder noch"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "10² = 100 < 114 < 121 = 11². 114 ist keine Quadratzahl, √114 ist irrational."
+  },
+  {
+   "l": "zahlarten",
+   "t": "zahlarten",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist √289 rational oder irrational?"
+   },
+   "a": [
+    "weder noch",
+    "rational, denn √289 = 17",
+    "irrational, denn √289 ist nicht abbrechend",
+    "irrational, denn es ist eine Wurzel"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "17 · 17 = 289, also √289 = 17. Ganze Zahlen sind rational."
+  },
+  {
+   "l": "zahlarten",
+   "t": "zahlarten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „3,111… (die 1 wiederholt sich immer) ist irrational.“ Was stimmt?"
+   },
+   "a": [
+    "Richtig: Die Zahl ist keine ganze Zahl.",
+    "Falsch: Die Zahl ist eine natürliche Zahl.",
+    "Richtig: Unendlich viele Nachkommastellen bedeuten irrational.",
+    "Falsch: Periodische Dezimalzahlen sind rational."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Eine Periode lässt sich als Bruch schreiben (z. B. 0,111… = 1/9). Irrational sind nur Zahlen ohne Periode."
+  },
+  {
+   "l": "zahlarten",
+   "t": "zahlarten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist √225 rational oder irrational?"
+   },
+   "a": [
+    "weder noch",
+    "rational, denn √225 = 15",
+    "irrational, denn es ist eine Wurzel",
+    "irrational, denn √225 ist nicht abbrechend"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "15 · 15 = 225, also √225 = 15. Ganze Zahlen sind rational."
+  },
+  {
+   "l": "zahlarten",
+   "t": "zahlarten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist √324 rational oder irrational?"
+   },
+   "a": [
+    "rational, denn √324 = 18",
+    "weder noch",
+    "irrational, denn es ist eine Wurzel",
+    "irrational, denn √324 ist nicht abbrechend"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "18 · 18 = 324, also √324 = 18. Ganze Zahlen sind rational."
+  },
+  {
+   "l": "zahlarten",
+   "t": "zahlarten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche der Zahlen ist irrational?"
+   },
+   "a": [
+    "√57",
+    "√4",
+    "−2",
+    "0,68"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "57 ist keine Quadratzahl, also ist √57 irrational. Die anderen Zahlen lassen sich als Bruch schreiben (z. B. √4 = 2)."
+  },
+  {
+   "l": "zahlarten",
+   "t": "zahlarten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Zu welcher kleinsten Zahlenmenge gehört √(16/25)?"
+   },
+   "a": [
+    "ℤ (ganze Zahlen)",
+    "ℚ (rationale Zahlen)",
+    "ℕ (natürliche Zahlen)",
+    "ℝ (reelle Zahlen)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "√(16/25) = 4/5 ist ein Bruch, aber keine ganze Zahl."
+  },
+  {
+   "l": "zahlarten",
+   "t": "zahlarten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Zu welcher kleinsten Zahlenmenge gehört −√196?"
+   },
+   "a": [
+    "ℝ (reelle Zahlen)",
+    "ℤ (ganze Zahlen)",
+    "ℚ (rationale Zahlen)",
+    "ℕ (natürliche Zahlen)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "−√196 = −14 ist ganz, aber nicht natürlich."
+  },
+  {
+   "l": "eingrenzen",
+   "t": "eingrenzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 3,2² (für die Intervallschachtelung)."
+   },
+   "o": {
+    "wert": 10.24
+   },
+   "c": "3.2 * 3.2",
+   "w": "3,2 · 3,2 = 10,24 (zwei Nachkommastellen).",
+   "h": "Rechne ohne Komma und setze dann das Komma: 2 Nachkommastellen."
+  },
+  {
+   "l": "eingrenzen",
+   "t": "eingrenzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 9,7² (für die Intervallschachtelung)."
+   },
+   "o": {
+    "wert": 94.09
+   },
+   "c": "9.7 * 9.7",
+   "w": "9,7 · 9,7 = 94,09 (zwei Nachkommastellen).",
+   "h": "Rechne ohne Komma und setze dann das Komma: 2 Nachkommastellen."
+  },
+  {
+   "l": "eingrenzen",
+   "t": "eingrenzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 7,8² (für die Intervallschachtelung)."
+   },
+   "o": {
+    "wert": 60.84
+   },
+   "c": "7.8 * 7.8",
+   "w": "7,8 · 7,8 = 60,84 (zwei Nachkommastellen).",
+   "h": "Rechne ohne Komma und setze dann das Komma: 2 Nachkommastellen."
+  },
+  {
+   "l": "eingrenzen",
+   "t": "eingrenzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 2,5² (für die Intervallschachtelung)."
+   },
+   "o": {
+    "wert": 6.25
+   },
+   "c": "2.5 * 2.5",
+   "w": "2,5 · 2,5 = 6,25 (zwei Nachkommastellen).",
+   "h": "Rechne ohne Komma und setze dann das Komma: 2 Nachkommastellen."
+  },
+  {
+   "l": "eingrenzen",
+   "t": "eingrenzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 5,7² (für die Intervallschachtelung)."
+   },
+   "o": {
+    "wert": 32.49
+   },
+   "c": "5.7 * 5.7",
+   "w": "5,7 · 5,7 = 32,49 (zwei Nachkommastellen).",
+   "h": "Rechne ohne Komma und setze dann das Komma: 2 Nachkommastellen."
+  },
+  {
+   "l": "eingrenzen",
+   "t": "eingrenzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 2,7² (für die Intervallschachtelung)."
+   },
+   "o": {
+    "wert": 7.29
+   },
+   "c": "2.7 * 2.7",
+   "w": "2,7 · 2,7 = 7,29 (zwei Nachkommastellen).",
+   "h": "Rechne ohne Komma und setze dann das Komma: 2 Nachkommastellen."
+  },
+  {
+   "l": "eingrenzen",
+   "t": "eingrenzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwischen welchen Zahlen mit 1 Nachkommastelle liegt √132?"
+   },
+   "a": [
+    "zwischen 11,5 und 11,6",
+    "zwischen 11,3 und 11,4",
+    "zwischen 11,4 und 11,5",
+    "zwischen 66,0 und 66,1"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "11,4² = 129,96 < 132 < 132,25 = 11,5², also 11,4 < √132 < 11,5.",
+   "h": "Quadriere die Kandidaten und vergleiche mit dem Radikanden."
+  },
+  {
+   "l": "eingrenzen",
+   "t": "eingrenzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwischen welchen Zahlen mit 1 Nachkommastelle liegt √108?"
+   },
+   "a": [
+    "zwischen 10,3 und 10,4",
+    "zwischen 10,4 und 10,5",
+    "zwischen 10,2 und 10,3",
+    "zwischen 54,0 und 54,1"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "10,3² = 106,09 < 108 < 108,16 = 10,4², also 10,3 < √108 < 10,4.",
+   "h": "Quadriere die Kandidaten und vergleiche mit dem Radikanden."
+  },
+  {
+   "l": "eingrenzen",
+   "t": "eingrenzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwischen welchen Zahlen mit 1 Nachkommastelle liegt √33?"
+   },
+   "a": [
+    "zwischen 5,6 und 5,7",
+    "zwischen 5,7 und 5,8",
+    "zwischen 16,5 und 16,6",
+    "zwischen 5,8 und 5,9"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "5,7² = 32,49 < 33 < 33,64 = 5,8², also 5,7 < √33 < 5,8.",
+   "h": "Quadriere die Kandidaten und vergleiche mit dem Radikanden."
+  },
+  {
+   "l": "eingrenzen",
+   "t": "eingrenzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwischen welchen Zahlen mit 1 Nachkommastelle liegt √147?"
+   },
+   "a": [
+    "zwischen 12,2 und 12,3",
+    "zwischen 73,5 und 73,6",
+    "zwischen 12,0 und 12,1",
+    "zwischen 12,1 und 12,2"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "12,1² = 146,41 < 147 < 148,84 = 12,2², also 12,1 < √147 < 12,2.",
+   "h": "Quadriere die Kandidaten und vergleiche mit dem Radikanden."
+  },
+  {
+   "l": "eingrenzen",
+   "t": "eingrenzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwischen welchen Zahlen mit 1 Nachkommastelle liegt √154?"
+   },
+   "a": [
+    "zwischen 12,4 und 12,5",
+    "zwischen 77,0 und 77,1",
+    "zwischen 12,3 und 12,4",
+    "zwischen 12,5 und 12,6"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "12,4² = 153,76 < 154 < 156,25 = 12,5², also 12,4 < √154 < 12,5.",
+   "h": "Quadriere die Kandidaten und vergleiche mit dem Radikanden."
+  },
+  {
+   "l": "eingrenzen",
+   "t": "eingrenzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwischen welchen Zahlen mit 1 Nachkommastelle liegt √135?"
+   },
+   "a": [
+    "zwischen 11,6 und 11,7",
+    "zwischen 11,7 und 11,8",
+    "zwischen 11,5 und 11,6",
+    "zwischen 67,5 und 67,6"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "11,6² = 134,56 < 135 < 136,89 = 11,7², also 11,6 < √135 < 11,7.",
+   "h": "Quadriere die Kandidaten und vergleiche mit dem Radikanden."
+  },
+  {
+   "l": "eingrenzen",
+   "t": "eingrenzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwischen welchen Zahlen mit 2 Nachkommastellen liegt √176?"
+   },
+   "a": [
+    "zwischen 13,27 und 13,28",
+    "zwischen 88,00 und 88,01",
+    "zwischen 13,26 und 13,27",
+    "zwischen 13,25 und 13,26"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "13,26² = 175,8276 < 176 < 176,0929 = 13,27², also 13,26 < √176 < 13,27.",
+   "h": "Quadriere die Kandidaten und vergleiche mit dem Radikanden."
+  },
+  {
+   "l": "eingrenzen",
+   "t": "eingrenzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwischen welchen Zahlen mit 2 Nachkommastellen liegt √58?"
+   },
+   "a": [
+    "zwischen 7,62 und 7,63",
+    "zwischen 29,00 und 29,01",
+    "zwischen 7,61 und 7,62",
+    "zwischen 7,60 und 7,61"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "7,61² = 57,9121 < 58 < 58,0644 = 7,62², also 7,61 < √58 < 7,62.",
+   "h": "Quadriere die Kandidaten und vergleiche mit dem Radikanden."
+  },
+  {
+   "l": "eingrenzen",
+   "t": "eingrenzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwischen welchen Zahlen mit 2 Nachkommastellen liegt √96?"
+   },
+   "a": [
+    "zwischen 9,80 und 9,81",
+    "zwischen 48,00 und 48,01",
+    "zwischen 9,79 und 9,80",
+    "zwischen 9,78 und 9,79"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "9,79² = 95,8441 < 96 < 96,04 = 9,80², also 9,79 < √96 < 9,80.",
+   "h": "Quadriere die Kandidaten und vergleiche mit dem Radikanden."
+  },
+  {
+   "l": "eingrenzen",
+   "t": "eingrenzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwischen welchen Zahlen mit 2 Nachkommastellen liegt √92?"
+   },
+   "a": [
+    "zwischen 9,58 und 9,59",
+    "zwischen 9,59 und 9,60",
+    "zwischen 46,00 und 46,01",
+    "zwischen 9,60 und 9,61"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "9,59² = 91,9681 < 92 < 92,16 = 9,60², also 9,59 < √92 < 9,60.",
+   "h": "Quadriere die Kandidaten und vergleiche mit dem Radikanden."
+  },
+  {
+   "l": "eingrenzen",
+   "t": "eingrenzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwischen welchen Zahlen mit 2 Nachkommastellen liegt √134?"
+   },
+   "a": [
+    "zwischen 11,56 und 11,57",
+    "zwischen 11,58 und 11,59",
+    "zwischen 67,00 und 67,01",
+    "zwischen 11,57 und 11,58"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "11,57² = 133,8649 < 134 < 134,0964 = 11,58², also 11,57 < √134 < 11,58.",
+   "h": "Quadriere die Kandidaten und vergleiche mit dem Radikanden."
+  },
+  {
+   "l": "eingrenzen",
+   "t": "eingrenzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwischen welchen Zahlen mit 2 Nachkommastellen liegt √41?"
+   },
+   "a": [
+    "zwischen 6,41 und 6,42",
+    "zwischen 20,50 und 20,51",
+    "zwischen 6,39 und 6,40",
+    "zwischen 6,40 und 6,41"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "6,40² = 40,96 < 41 < 41,0881 = 6,41², also 6,40 < √41 < 6,41.",
+   "h": "Quadriere die Kandidaten und vergleiche mit dem Radikanden."
+  },
+  {
+   "l": "eingrenzen",
+   "t": "eingrenzen",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwischen welchen Zahlen mit 1 Nachkommastelle liegt √105?"
+   },
+   "a": [
+    "zwischen 52,5 und 52,6",
+    "zwischen 10,2 und 10,3",
+    "zwischen 10,1 und 10,2",
+    "zwischen 10,3 und 10,4"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "10,2² = 104,04 < 105 < 106,09 = 10,3², also 10,2 < √105 < 10,3."
+  },
+  {
+   "l": "eingrenzen",
+   "t": "eingrenzen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwischen welchen Zahlen mit 1 Nachkommastelle liegt √19?"
+   },
+   "a": [
+    "zwischen 4,4 und 4,5",
+    "zwischen 4,2 und 4,3",
+    "zwischen 4,3 und 4,4",
+    "zwischen 9,5 und 9,6"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "4,3² = 18,49 < 19 < 19,36 = 4,4², also 4,3 < √19 < 4,4."
+  },
+  {
+   "l": "eingrenzen",
+   "t": "eingrenzen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwischen welchen Zahlen mit 1 Nachkommastelle liegt √56?"
+   },
+   "a": [
+    "zwischen 7,3 und 7,4",
+    "zwischen 7,5 und 7,6",
+    "zwischen 28,0 und 28,1",
+    "zwischen 7,4 und 7,5"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "7,4² = 54,76 < 56 < 56,25 = 7,5², also 7,4 < √56 < 7,5."
+  },
+  {
+   "l": "eingrenzen",
+   "t": "eingrenzen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwischen welchen Zahlen mit 1 Nachkommastelle liegt √150?"
+   },
+   "a": [
+    "zwischen 12,2 und 12,3",
+    "zwischen 12,3 und 12,4",
+    "zwischen 75,0 und 75,1",
+    "zwischen 12,1 und 12,2"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "12,2² = 148,84 < 150 < 151,29 = 12,3², also 12,2 < √150 < 12,3."
+  },
+  {
+   "l": "eingrenzen",
+   "t": "eingrenzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwischen welchen Zahlen mit 1 Nachkommastelle liegt √50?"
+   },
+   "a": [
+    "zwischen 25,0 und 25,1",
+    "zwischen 7,1 und 7,2",
+    "zwischen 7,0 und 7,1",
+    "zwischen 6,9 und 7,0"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "7,0² = 49 < 50 < 50,41 = 7,1², also 7,0 < √50 < 7,1."
+  },
+  {
+   "l": "eingrenzen",
+   "t": "eingrenzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwischen welchen Zahlen mit 1 Nachkommastelle liegt √37?"
+   },
+   "a": [
+    "zwischen 6,1 und 6,2",
+    "zwischen 18,5 und 18,6",
+    "zwischen 6,0 und 6,1",
+    "zwischen 5,9 und 6,0"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "6,0² = 36 < 37 < 37,21 = 6,1², also 6,0 < √37 < 6,1."
+  },
+  {
+   "l": "eingrenzen",
+   "t": "eingrenzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwischen welchen Zahlen mit 1 Nachkommastelle liegt √77?"
+   },
+   "a": [
+    "zwischen 8,7 und 8,8",
+    "zwischen 8,6 und 8,7",
+    "zwischen 38,5 und 38,6",
+    "zwischen 8,8 und 8,9"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "8,7² = 75,69 < 77 < 77,44 = 8,8², also 8,7 < √77 < 8,8."
+  },
+  {
+   "l": "eingrenzen",
+   "t": "eingrenzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwischen welchen Zahlen mit 1 Nachkommastelle liegt √80?"
+   },
+   "a": [
+    "zwischen 8,8 und 8,9",
+    "zwischen 9,0 und 9,1",
+    "zwischen 8,9 und 9,0",
+    "zwischen 40,0 und 40,1"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "8,9² = 79,21 < 80 < 81 = 9,0², also 8,9 < √80 < 9,0."
+  },
+  {
+   "l": "eingrenzen",
+   "t": "eingrenzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwischen welchen Zahlen mit 1 Nachkommastelle liegt √147?"
+   },
+   "a": [
+    "zwischen 73,5 und 73,6",
+    "zwischen 12,1 und 12,2",
+    "zwischen 12,2 und 12,3",
+    "zwischen 12,0 und 12,1"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "12,1² = 146,41 < 147 < 148,84 = 12,2², also 12,1 < √147 < 12,2."
+  },
+  {
+   "l": "eingrenzen",
+   "t": "eingrenzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwischen welchen Zahlen mit 1 Nachkommastelle liegt √108?"
+   },
+   "a": [
+    "zwischen 54,0 und 54,1",
+    "zwischen 10,3 und 10,4",
+    "zwischen 10,2 und 10,3",
+    "zwischen 10,4 und 10,5"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "10,3² = 106,09 < 108 < 108,16 = 10,4², also 10,3 < √108 < 10,4."
+  },
+  {
+   "l": "wurzel_mal",
+   "t": "wurzel_mal",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne √252 · √7."
+   },
+   "o": {
+    "wert": 42
+   },
+   "c": "(252 * 7) / 42",
+   "w": "√252 · √7 = √(252 · 7) = √1 764 = 42.",
+   "h": "Fasse zu einer Wurzel zusammen und ziehe dann die Wurzel."
+  },
+  {
+   "l": "wurzel_mal",
+   "t": "wurzel_mal",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne √275 · √11."
+   },
+   "o": {
+    "wert": 55
+   },
+   "c": "(275 * 11) / 55",
+   "w": "√275 · √11 = √(275 · 11) = √3 025 = 55.",
+   "h": "Fasse zu einer Wurzel zusammen und ziehe dann die Wurzel."
+  },
+  {
+   "l": "wurzel_mal",
+   "t": "wurzel_mal",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne √2 · √72."
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "(2 * 72) / 12",
+   "w": "√2 · √72 = √(2 · 72) = √144 = 12.",
+   "h": "Fasse zu einer Wurzel zusammen und ziehe dann die Wurzel."
+  },
+  {
+   "l": "wurzel_mal",
+   "t": "wurzel_mal",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne √2 · √50."
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "(2 * 50) / 10",
+   "w": "√2 · √50 = √(2 · 50) = √100 = 10.",
+   "h": "Fasse zu einer Wurzel zusammen und ziehe dann die Wurzel."
+  },
+  {
+   "l": "wurzel_mal",
+   "t": "wurzel_mal",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne √2 · √8."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(2 * 8) / 4",
+   "w": "√2 · √8 = √(2 · 8) = √16 = 4.",
+   "h": "Fasse zu einer Wurzel zusammen und ziehe dann die Wurzel."
+  },
+  {
+   "l": "wurzel_mal",
+   "t": "wurzel_mal",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne √2 · √32."
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "(2 * 32) / 8",
+   "w": "√2 · √32 = √(2 · 32) = √64 = 8.",
+   "h": "Fasse zu einer Wurzel zusammen und ziehe dann die Wurzel."
+  },
+  {
+   "l": "wurzel_mal",
+   "t": "wurzel_mal",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne √343 : √7."
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "(343 / 7) / 7",
+   "w": "√343 : √7 = √(343 : 7) = √49 = 7.",
+   "h": "Fasse zu einer Wurzel des Quotienten zusammen."
+  },
+  {
+   "l": "wurzel_mal",
+   "t": "wurzel_mal",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne √1215 : √15."
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "(1215 / 15) / 9",
+   "w": "√1215 : √15 = √(1215 : 15) = √81 = 9.",
+   "h": "Fasse zu einer Wurzel des Quotienten zusammen."
+  },
+  {
+   "l": "wurzel_mal",
+   "t": "wurzel_mal",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne √294 : √6."
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "(294 / 6) / 7",
+   "w": "√294 : √6 = √(294 : 6) = √49 = 7.",
+   "h": "Fasse zu einer Wurzel des Quotienten zusammen."
+  },
+  {
+   "l": "wurzel_mal",
+   "t": "wurzel_mal",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne √98 : √2."
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "(98 / 2) / 7",
+   "w": "√98 : √2 = √(98 : 2) = √49 = 7.",
+   "h": "Fasse zu einer Wurzel des Quotienten zusammen."
+  },
+  {
+   "l": "wurzel_mal",
+   "t": "wurzel_mal",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne √810 : √10."
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "(810 / 10) / 9",
+   "w": "√810 : √10 = √(810 : 10) = √81 = 9.",
+   "h": "Fasse zu einer Wurzel des Quotienten zusammen."
+  },
+  {
+   "l": "wurzel_mal",
+   "t": "wurzel_mal",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne √147 : √3."
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "(147 / 3) / 7",
+   "w": "√147 : √3 = √(147 : 3) = √49 = 7.",
+   "h": "Fasse zu einer Wurzel des Quotienten zusammen."
+  },
+  {
+   "l": "wurzel_mal",
+   "t": "wurzel_mal",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Vereinfache √(14x) · √(126x) für x ≥ 0."
+   },
+   "a": [
+    "1764x",
+    "3x",
+    "42x",
+    "42x²"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "√(14x · 126x) = √(1 764x²) = 42x, denn (42x)² = 1 764x².",
+   "h": "Multipliziere die Radikanden und ziehe dann die Wurzel aus Zahl und x² getrennt."
+  },
+  {
+   "l": "wurzel_mal",
+   "t": "wurzel_mal",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Vereinfache √(2x) · √(72x) für x ≥ 0."
+   },
+   "a": [
+    "6x",
+    "144x",
+    "12x²",
+    "12x"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "√(2x · 72x) = √(144x²) = 12x, denn (12x)² = 144x².",
+   "h": "Multipliziere die Radikanden und ziehe dann die Wurzel aus Zahl und x² getrennt."
+  },
+  {
+   "l": "wurzel_mal",
+   "t": "wurzel_mal",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Vereinfache √(7x) · √(63x) für x ≥ 0."
+   },
+   "a": [
+    "21x²",
+    "3x",
+    "441x",
+    "21x"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "√(7x · 63x) = √(441x²) = 21x, denn (21x)² = 441x².",
+   "h": "Multipliziere die Radikanden und ziehe dann die Wurzel aus Zahl und x² getrennt."
+  },
+  {
+   "l": "wurzel_mal",
+   "t": "wurzel_mal",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Vereinfache √(7x) · √(112x) für x ≥ 0."
+   },
+   "a": [
+    "4x",
+    "28x",
+    "28x²",
+    "784x"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "√(7x · 112x) = √(784x²) = 28x, denn (28x)² = 784x².",
+   "h": "Multipliziere die Radikanden und ziehe dann die Wurzel aus Zahl und x² getrennt."
+  },
+  {
+   "l": "wurzel_mal",
+   "t": "wurzel_mal",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne √240 · √60 − √14 400."
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "(240 * 60) / 120 - 120",
+   "w": "√240 · √60 = √14 400 = 120; √14 400 = 120; Ergebnis 0.",
+   "h": "Berechne das Produkt der Wurzeln zuerst."
+  },
+  {
+   "l": "wurzel_mal",
+   "t": "wurzel_mal",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne √27 · √108 − √2 916."
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "(27 * 108) / 54 - 54",
+   "w": "√27 · √108 = √2 916 = 54; √2 916 = 54; Ergebnis 0.",
+   "h": "Berechne das Produkt der Wurzeln zuerst."
+  },
+  {
+   "l": "wurzel_mal",
+   "t": "wurzel_mal",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne √117 : √13."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(117 / 13) / 3",
+   "w": "√117 : √13 = √(117 : 13) = √9 = 3."
+  },
+  {
+   "l": "wurzel_mal",
+   "t": "wurzel_mal",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne √486 : √6."
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "(486 / 6) / 9",
+   "w": "√486 : √6 = √(486 : 6) = √81 = 9."
+  },
+  {
+   "l": "wurzel_mal",
+   "t": "wurzel_mal",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne √252 : √7."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "(252 / 7) / 6",
+   "w": "√252 : √7 = √(252 : 7) = √36 = 6."
+  },
+  {
+   "l": "wurzel_mal",
+   "t": "wurzel_mal",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne √128 : √2."
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "(128 / 2) / 8",
+   "w": "√128 : √2 = √(128 : 2) = √64 = 8."
+  },
+  {
+   "l": "wurzel_mal",
+   "t": "wurzel_mal",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne √320 : √5."
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "(320 / 5) / 8",
+   "w": "√320 : √5 = √(320 : 5) = √64 = 8."
+  },
+  {
+   "l": "wurzel_mal",
+   "t": "wurzel_mal",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne √112 : √7."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(112 / 7) / 4",
+   "w": "√112 : √7 = √(112 : 7) = √16 = 4."
+  },
+  {
+   "l": "wurzel_mal",
+   "t": "wurzel_mal",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne √52 : √13."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "(52 / 13) / 2",
+   "w": "√52 : √13 = √(52 : 13) = √4 = 2."
+  },
+  {
+   "l": "wurzel_mal",
+   "t": "wurzel_mal",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne √28 : √7."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "(28 / 7) / 2",
+   "w": "√28 : √7 = √(28 : 7) = √4 = 2."
+  },
+  {
+   "l": "wurzel_mal",
+   "t": "wurzel_mal",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne √275 : √11."
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(275 / 11) / 5",
+   "w": "√275 : √11 = √(275 : 11) = √25 = 5."
+  },
+  {
+   "l": "wurzel_mal",
+   "t": "wurzel_mal",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne √99 : √11."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(99 / 11) / 3",
+   "w": "√99 : √11 = √(99 : 11) = √9 = 3."
+  },
+  {
+   "l": "teilweise",
+   "t": "teilweise",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Ziehe teilweise die Wurzel: √240.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     4,
+     15
+    ]
+   },
+   "w": "√240 = √(16 · 15) = 4√15.",
+   "h": "Suche die größte Quadratzahl, die im Radikanden steckt.",
+   "c": [
+    "4",
+    "240 // 16"
+   ]
+  },
+  {
+   "l": "teilweise",
+   "t": "teilweise",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Ziehe teilweise die Wurzel: √28.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     2,
+     7
+    ]
+   },
+   "w": "√28 = √(4 · 7) = 2√7.",
+   "h": "Suche die größte Quadratzahl, die im Radikanden steckt.",
+   "c": [
+    "2",
+    "28 // 4"
+   ]
+  },
+  {
+   "l": "teilweise",
+   "t": "teilweise",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Ziehe teilweise die Wurzel: √48.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     4,
+     3
+    ]
+   },
+   "w": "√48 = √(16 · 3) = 4√3.",
+   "h": "Suche die größte Quadratzahl, die im Radikanden steckt.",
+   "c": [
+    "4",
+    "48 // 16"
+   ]
+  },
+  {
+   "l": "teilweise",
+   "t": "teilweise",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Ziehe teilweise die Wurzel: √175.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     5,
+     7
+    ]
+   },
+   "w": "√175 = √(25 · 7) = 5√7.",
+   "h": "Suche die größte Quadratzahl, die im Radikanden steckt.",
+   "c": [
+    "5",
+    "175 // 25"
+   ]
+  },
+  {
+   "l": "teilweise",
+   "t": "teilweise",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Ziehe teilweise die Wurzel: √40.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     2,
+     10
+    ]
+   },
+   "w": "√40 = √(4 · 10) = 2√10.",
+   "h": "Suche die größte Quadratzahl, die im Radikanden steckt.",
+   "c": [
+    "2",
+    "40 // 4"
+   ]
+  },
+  {
+   "l": "teilweise",
+   "t": "teilweise",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Ziehe teilweise die Wurzel: √117.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     3,
+     13
+    ]
+   },
+   "w": "√117 = √(9 · 13) = 3√13.",
+   "h": "Suche die größte Quadratzahl, die im Radikanden steckt.",
+   "c": [
+    "3",
+    "117 // 9"
+   ]
+  },
+  {
+   "l": "teilweise",
+   "t": "teilweise",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ziehe teilweise die Wurzel: √252.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     6,
+     7
+    ]
+   },
+   "w": "√252 = √(36 · 7) = 6√7.",
+   "h": "Suche die größte Quadratzahl, die im Radikanden steckt.",
+   "c": [
+    "6",
+    "252 // 36"
+   ]
+  },
+  {
+   "l": "teilweise",
+   "t": "teilweise",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ziehe teilweise die Wurzel: √500.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     10,
+     5
+    ]
+   },
+   "w": "√500 = √(100 · 5) = 10√5.",
+   "h": "Suche die größte Quadratzahl, die im Radikanden steckt.",
+   "c": [
+    "10",
+    "500 // 100"
+   ]
+  },
+  {
+   "l": "teilweise",
+   "t": "teilweise",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ziehe teilweise die Wurzel: √294.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     7,
+     6
+    ]
+   },
+   "w": "√294 = √(49 · 6) = 7√6.",
+   "h": "Suche die größte Quadratzahl, die im Radikanden steckt.",
+   "c": [
+    "7",
+    "294 // 49"
+   ]
+  },
+  {
+   "l": "teilweise",
+   "t": "teilweise",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ziehe teilweise die Wurzel: √405.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     9,
+     5
+    ]
+   },
+   "w": "√405 = √(81 · 5) = 9√5.",
+   "h": "Suche die größte Quadratzahl, die im Radikanden steckt.",
+   "c": [
+    "9",
+    "405 // 81"
+   ]
+  },
+  {
+   "l": "teilweise",
+   "t": "teilweise",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ziehe teilweise die Wurzel: √160.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     4,
+     10
+    ]
+   },
+   "w": "√160 = √(16 · 10) = 4√10.",
+   "h": "Suche die größte Quadratzahl, die im Radikanden steckt.",
+   "c": [
+    "4",
+    "160 // 16"
+   ]
+  },
+  {
+   "l": "teilweise",
+   "t": "teilweise",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ziehe teilweise die Wurzel: √99.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     3,
+     11
+    ]
+   },
+   "w": "√99 = √(9 · 11) = 3√11.",
+   "h": "Suche die größte Quadratzahl, die im Radikanden steckt.",
+   "c": [
+    "3",
+    "99 // 9"
+   ]
+  },
+  {
+   "l": "teilweise",
+   "t": "teilweise",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ziehe teilweise die Wurzel: √1134.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     9,
+     14
+    ]
+   },
+   "w": "√1134 = √(81 · 14) = 9√14.",
+   "h": "Suche die größte Quadratzahl, die im Radikanden steckt.",
+   "c": [
+    "9",
+    "1134 // 81"
+   ]
+  },
+  {
+   "l": "teilweise",
+   "t": "teilweise",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ziehe teilweise die Wurzel: √32.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     4,
+     2
+    ]
+   },
+   "w": "√32 = √(16 · 2) = 4√2.",
+   "h": "Suche die größte Quadratzahl, die im Radikanden steckt.",
+   "c": [
+    "4",
+    "32 // 16"
+   ]
+  },
+  {
+   "l": "teilweise",
+   "t": "teilweise",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ziehe teilweise die Wurzel: √504.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     6,
+     14
+    ]
+   },
+   "w": "√504 = √(36 · 14) = 6√14.",
+   "h": "Suche die größte Quadratzahl, die im Radikanden steckt.",
+   "c": [
+    "6",
+    "504 // 36"
+   ]
+  },
+  {
+   "l": "teilweise",
+   "t": "teilweise",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 9√10 als eine einzige Wurzel.",
+    "schablone": "√□",
+    "hinweis": "Radikand"
+   },
+   "o": {
+    "werte": [
+     810
+    ]
+   },
+   "w": "9√10 = √81 · √10 = √(81 · 10) = √810.",
+   "h": "Schreibe den Faktor vor der Wurzel als Wurzel aus seinem Quadrat.",
+   "c": [
+    "9 * 9 * 10"
+   ]
+  },
+  {
+   "l": "teilweise",
+   "t": "teilweise",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ziehe teilweise die Wurzel: √98.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     7,
+     2
+    ]
+   },
+   "w": "√98 = √(49 · 2) = 7√2.",
+   "h": "Suche die größte Quadratzahl, die im Radikanden steckt.",
+   "c": [
+    "7",
+    "98 // 49"
+   ]
+  },
+  {
+   "l": "teilweise",
+   "t": "teilweise",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 7√14 als eine einzige Wurzel.",
+    "schablone": "√□",
+    "hinweis": "Radikand"
+   },
+   "o": {
+    "werte": [
+     686
+    ]
+   },
+   "w": "7√14 = √49 · √14 = √(49 · 14) = √686.",
+   "h": "Schreibe den Faktor vor der Wurzel als Wurzel aus seinem Quadrat.",
+   "c": [
+    "7 * 7 * 14"
+   ]
+  },
+  {
+   "l": "teilweise",
+   "t": "teilweise",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ziehe teilweise die Wurzel: √1400.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     10,
+     14
+    ]
+   },
+   "w": "√1400 = √(100 · 14) = 10√14.",
+   "c": [
+    "10",
+    "1400 // 100"
+   ]
+  },
+  {
+   "l": "teilweise",
+   "t": "teilweise",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ziehe teilweise die Wurzel: √208.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     4,
+     13
+    ]
+   },
+   "w": "√208 = √(16 · 13) = 4√13.",
+   "c": [
+    "4",
+    "208 // 16"
+   ]
+  },
+  {
+   "l": "teilweise",
+   "t": "teilweise",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ziehe teilweise die Wurzel: √960.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     8,
+     15
+    ]
+   },
+   "w": "√960 = √(64 · 15) = 8√15.",
+   "c": [
+    "8",
+    "960 // 64"
+   ]
+  },
+  {
+   "l": "teilweise",
+   "t": "teilweise",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ziehe teilweise die Wurzel: √1053.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     9,
+     13
+    ]
+   },
+   "w": "√1053 = √(81 · 13) = 9√13.",
+   "c": [
+    "9",
+    "1053 // 81"
+   ]
+  },
+  {
+   "l": "teilweise",
+   "t": "teilweise",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ziehe teilweise die Wurzel: √112.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     4,
+     7
+    ]
+   },
+   "w": "√112 = √(16 · 7) = 4√7.",
+   "c": [
+    "4",
+    "112 // 16"
+   ]
+  },
+  {
+   "l": "teilweise",
+   "t": "teilweise",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ziehe teilweise die Wurzel: √150.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     5,
+     6
+    ]
+   },
+   "w": "√150 = √(25 · 6) = 5√6.",
+   "c": [
+    "5",
+    "150 // 25"
+   ]
+  },
+  {
+   "l": "teilweise",
+   "t": "teilweise",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ziehe teilweise die Wurzel: √810.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     9,
+     10
+    ]
+   },
+   "w": "√810 = √(81 · 10) = 9√10.",
+   "c": [
+    "9",
+    "810 // 81"
+   ]
+  },
+  {
+   "l": "teilweise",
+   "t": "teilweise",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ziehe teilweise die Wurzel: √1215.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     9,
+     15
+    ]
+   },
+   "w": "√1215 = √(81 · 15) = 9√15.",
+   "c": [
+    "9",
+    "1215 // 81"
+   ]
+  },
+  {
+   "l": "teilweise",
+   "t": "teilweise",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ziehe teilweise die Wurzel: √704.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     8,
+     11
+    ]
+   },
+   "w": "√704 = √(64 · 11) = 8√11.",
+   "c": [
+    "8",
+    "704 // 64"
+   ]
+  },
+  {
+   "l": "teilweise",
+   "t": "teilweise",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ziehe teilweise die Wurzel: √600.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     10,
+     6
+    ]
+   },
+   "w": "√600 = √(100 · 6) = 10√6.",
+   "c": [
+    "10",
+    "600 // 100"
+   ]
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: 7√3 + 6√3.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     13,
+     3
+    ]
+   },
+   "w": "Gleicher Radikand 3: (7 + 6)√3 = 13√3.",
+   "h": "Gleiche Radikanden: Zahlen vor der Wurzel zusammenrechnen.",
+   "c": [
+    "7 + (6)",
+    "3"
+   ]
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: 9√7 + 6√7.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     15,
+     7
+    ]
+   },
+   "w": "Gleicher Radikand 7: (9 + 6)√7 = 15√7.",
+   "h": "Gleiche Radikanden: Zahlen vor der Wurzel zusammenrechnen.",
+   "c": [
+    "9 + (6)",
+    "7"
+   ]
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: 5√2 + 3√2.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     8,
+     2
+    ]
+   },
+   "w": "Gleicher Radikand 2: (5 + 3)√2 = 8√2.",
+   "h": "Gleiche Radikanden: Zahlen vor der Wurzel zusammenrechnen.",
+   "c": [
+    "5 + (3)",
+    "2"
+   ]
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: 8√7 − 5√7.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     3,
+     7
+    ]
+   },
+   "w": "Gleicher Radikand 7: (8 − 5)√7 = 3√7.",
+   "h": "Gleiche Radikanden: Zahlen vor der Wurzel zusammenrechnen.",
+   "c": [
+    "8 + (-5)",
+    "7"
+   ]
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: 6√10 + 4√10.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     10,
+     10
+    ]
+   },
+   "w": "Gleicher Radikand 10: (6 + 4)√10 = 10√10.",
+   "h": "Gleiche Radikanden: Zahlen vor der Wurzel zusammenrechnen.",
+   "c": [
+    "6 + (4)",
+    "10"
+   ]
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: 9√7 + 4√7.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     13,
+     7
+    ]
+   },
+   "w": "Gleicher Radikand 7: (9 + 4)√7 = 13√7.",
+   "h": "Gleiche Radikanden: Zahlen vor der Wurzel zusammenrechnen.",
+   "c": [
+    "9 + (4)",
+    "7"
+   ]
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: √20 − √45.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     -1,
+     5
+    ]
+   },
+   "w": "√20 = 2√5, √45 = 3√5; zusammen −√5.",
+   "h": "Ziehe zuerst teilweise die Wurzel, damit gleiche Radikanden entstehen.",
+   "c": [
+    "2 + (-3)",
+    "5"
+   ]
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: √28 − √112.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     -2,
+     7
+    ]
+   },
+   "w": "√28 = 2√7, √112 = 4√7; zusammen −2√7.",
+   "h": "Ziehe zuerst teilweise die Wurzel, damit gleiche Radikanden entstehen.",
+   "c": [
+    "2 + (-4)",
+    "7"
+   ]
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: √3 − √48.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     -3,
+     3
+    ]
+   },
+   "w": "√3 = √3, √48 = 4√3; zusammen −3√3.",
+   "h": "Ziehe zuerst teilweise die Wurzel, damit gleiche Radikanden entstehen.",
+   "c": [
+    "1 + (-4)",
+    "3"
+   ]
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: √32 + √18.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     7,
+     2
+    ]
+   },
+   "w": "√32 = 4√2, √18 = 3√2; zusammen 7√2.",
+   "h": "Ziehe zuerst teilweise die Wurzel, damit gleiche Radikanden entstehen.",
+   "c": [
+    "4 + (3)",
+    "2"
+   ]
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: √112 − √7.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     3,
+     7
+    ]
+   },
+   "w": "√112 = 4√7, √7 = √7; zusammen 3√7.",
+   "h": "Ziehe zuerst teilweise die Wurzel, damit gleiche Radikanden entstehen.",
+   "c": [
+    "4 + (-1)",
+    "7"
+   ]
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: √90 − √250.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     -2,
+     10
+    ]
+   },
+   "w": "√90 = 3√10, √250 = 5√10; zusammen −2√10.",
+   "h": "Ziehe zuerst teilweise die Wurzel, damit gleiche Radikanden entstehen.",
+   "c": [
+    "3 + (-5)",
+    "10"
+   ]
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: √7 + √7 − 5√7.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     -3,
+     7
+    ]
+   },
+   "w": "√7 + √7 − 5√7 = (1 + 1 − 5)√7 = −3√7.",
+   "h": "Erst alle Wurzeln teilweise ziehen, dann zusammenfassen.",
+   "c": [
+    "1 + 1 - 5",
+    "7"
+   ]
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (5 + √10) · (5 − √10)."
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "5 * 5 - 10",
+   "w": "3. binomische Formel: 5² − (√10)² = 25 − 10 = 15.",
+   "h": "Welche binomische Formel steckt dahinter?"
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (8 + √3) · (8 − √3)."
+   },
+   "o": {
+    "wert": 61
+   },
+   "c": "8 * 8 - 3",
+   "w": "3. binomische Formel: 8² − (√3)² = 64 − 3 = 61.",
+   "h": "Welche binomische Formel steckt dahinter?"
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (6 + √7) · (6 − √7)."
+   },
+   "o": {
+    "wert": 29
+   },
+   "c": "6 * 6 - 7",
+   "w": "3. binomische Formel: 6² − (√7)² = 36 − 7 = 29.",
+   "h": "Welche binomische Formel steckt dahinter?"
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: √48 + √27 − 5√3.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     2,
+     3
+    ]
+   },
+   "w": "4√3 + 3√3 − 5√3 = (4 + 3 − 5)√3 = 2√3.",
+   "h": "Erst alle Wurzeln teilweise ziehen, dann zusammenfassen.",
+   "c": [
+    "4 + 3 - 5",
+    "3"
+   ]
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: √12 + √3 − 2√3.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     1,
+     3
+    ]
+   },
+   "w": "2√3 + √3 − 2√3 = (2 + 1 − 2)√3 = √3.",
+   "h": "Erst alle Wurzeln teilweise ziehen, dann zusammenfassen.",
+   "c": [
+    "2 + 1 - 2",
+    "3"
+   ]
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: √3 − √27.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     -2,
+     3
+    ]
+   },
+   "w": "√3 = √3, √27 = 3√3; zusammen −2√3.",
+   "c": [
+    "1 + (-3)",
+    "3"
+   ]
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: √160 + √250.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     9,
+     10
+    ]
+   },
+   "w": "√160 = 4√10, √250 = 5√10; zusammen 9√10.",
+   "c": [
+    "4 + (5)",
+    "10"
+   ]
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: √2 + √32.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     5,
+     2
+    ]
+   },
+   "w": "√2 = √2, √32 = 4√2; zusammen 5√2.",
+   "c": [
+    "1 + (4)",
+    "2"
+   ]
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: √27 − √48.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     -1,
+     3
+    ]
+   },
+   "w": "√27 = 3√3, √48 = 4√3; zusammen −√3.",
+   "c": [
+    "3 + (-4)",
+    "3"
+   ]
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: √6 + √24.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     3,
+     6
+    ]
+   },
+   "w": "√6 = √6, √24 = 2√6; zusammen 3√6.",
+   "c": [
+    "1 + (2)",
+    "6"
+   ]
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: √112 − √63.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     1,
+     7
+    ]
+   },
+   "w": "√112 = 4√7, √63 = 3√7; zusammen √7.",
+   "c": [
+    "4 + (-3)",
+    "7"
+   ]
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: √32 + √8.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     6,
+     2
+    ]
+   },
+   "w": "√32 = 4√2, √8 = 2√2; zusammen 6√2.",
+   "c": [
+    "4 + (2)",
+    "2"
+   ]
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: √80 + √125.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     9,
+     5
+    ]
+   },
+   "w": "√80 = 4√5, √125 = 5√5; zusammen 9√5.",
+   "c": [
+    "4 + (5)",
+    "5"
+   ]
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: √12 + √48.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     6,
+     3
+    ]
+   },
+   "w": "√12 = 2√3, √48 = 4√3; zusammen 6√3.",
+   "c": [
+    "2 + (4)",
+    "3"
+   ]
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zusammen: √63 + √28.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     5,
+     7
+    ]
+   },
+   "w": "√63 = 3√7, √28 = 2√7; zusammen 5√7.",
+   "c": [
+    "3 + (2)",
+    "7"
+   ]
+  },
+  {
+   "l": "nenner_rational",
+   "t": "nenner_rational",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Mache den Nenner rational: 50/√10.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     5,
+     10
+    ]
+   },
+   "w": "50/√10 = 50√10 / 10 = 5√10.",
+   "h": "Erweitere den Bruch mit der Wurzel aus dem Nenner.",
+   "c": [
+    "50 / 10",
+    "10"
+   ]
+  },
+  {
+   "l": "nenner_rational",
+   "t": "nenner_rational",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Mache den Nenner rational: 12/√6.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     2,
+     6
+    ]
+   },
+   "w": "12/√6 = 12√6 / 6 = 2√6.",
+   "h": "Erweitere den Bruch mit der Wurzel aus dem Nenner.",
+   "c": [
+    "12 / 6",
+    "6"
+   ]
+  },
+  {
+   "l": "nenner_rational",
+   "t": "nenner_rational",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Mache den Nenner rational: 18/√3.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     6,
+     3
+    ]
+   },
+   "w": "18/√3 = 18√3 / 3 = 6√3.",
+   "h": "Erweitere den Bruch mit der Wurzel aus dem Nenner.",
+   "c": [
+    "18 / 3",
+    "3"
+   ]
+  },
+  {
+   "l": "nenner_rational",
+   "t": "nenner_rational",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Mache den Nenner rational: 20/√10.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     2,
+     10
+    ]
+   },
+   "w": "20/√10 = 20√10 / 10 = 2√10.",
+   "h": "Erweitere den Bruch mit der Wurzel aus dem Nenner.",
+   "c": [
+    "20 / 10",
+    "10"
+   ]
+  },
+  {
+   "l": "nenner_rational",
+   "t": "nenner_rational",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Mache den Nenner rational: 28/√7.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     4,
+     7
+    ]
+   },
+   "w": "28/√7 = 28√7 / 7 = 4√7.",
+   "h": "Erweitere den Bruch mit der Wurzel aus dem Nenner.",
+   "c": [
+    "28 / 7",
+    "7"
+   ]
+  },
+  {
+   "l": "nenner_rational",
+   "t": "nenner_rational",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Mache den Nenner rational: 44/√11.",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     4,
+     11
+    ]
+   },
+   "w": "44/√11 = 44√11 / 11 = 4√11.",
+   "h": "Erweitere den Bruch mit der Wurzel aus dem Nenner.",
+   "c": [
+    "44 / 11",
+    "11"
+   ]
+  },
+  {
+   "l": "nenner_rational",
+   "t": "nenner_rational",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Mache den Nenner rational: 90/(3√10).",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     3,
+     10
+    ]
+   },
+   "w": "90/(3√10) = 90√10 / (3 · 10) = 90√10 / 30 = 3√10.",
+   "h": "Erweitere mit √10 und kürze danach.",
+   "c": [
+    "90 / (3 * 10)",
+    "10"
+   ]
+  },
+  {
+   "l": "nenner_rational",
+   "t": "nenner_rational",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Mache den Nenner rational: 110/(5√11).",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     2,
+     11
+    ]
+   },
+   "w": "110/(5√11) = 110√11 / (5 · 11) = 110√11 / 55 = 2√11.",
+   "h": "Erweitere mit √11 und kürze danach.",
+   "c": [
+    "110 / (5 * 11)",
+    "11"
+   ]
+  },
+  {
+   "l": "nenner_rational",
+   "t": "nenner_rational",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Mache den Nenner rational: 220/(5√11).",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     4,
+     11
+    ]
+   },
+   "w": "220/(5√11) = 220√11 / (5 · 11) = 220√11 / 55 = 4√11.",
+   "h": "Erweitere mit √11 und kürze danach.",
+   "c": [
+    "220 / (5 * 11)",
+    "11"
+   ]
+  },
+  {
+   "l": "nenner_rational",
+   "t": "nenner_rational",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Mache den Nenner rational: 60/(2√15).",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     2,
+     15
+    ]
+   },
+   "w": "60/(2√15) = 60√15 / (2 · 15) = 60√15 / 30 = 2√15.",
+   "h": "Erweitere mit √15 und kürze danach.",
+   "c": [
+    "60 / (2 * 15)",
+    "15"
+   ]
+  },
+  {
+   "l": "nenner_rational",
+   "t": "nenner_rational",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Mache den Nenner rational: 60/(5√6).",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     2,
+     6
+    ]
+   },
+   "w": "60/(5√6) = 60√6 / (5 · 6) = 60√6 / 30 = 2√6.",
+   "h": "Erweitere mit √6 und kürze danach.",
+   "c": [
+    "60 / (5 * 6)",
+    "6"
+   ]
+  },
+  {
+   "l": "nenner_rational",
+   "t": "nenner_rational",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Mache den Nenner rational: 48/(4√6).",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     2,
+     6
+    ]
+   },
+   "w": "48/(4√6) = 48√6 / (4 · 6) = 48√6 / 24 = 2√6.",
+   "h": "Erweitere mit √6 und kürze danach.",
+   "c": [
+    "48 / (4 * 6)",
+    "6"
+   ]
+  },
+  {
+   "l": "nenner_rational",
+   "t": "nenner_rational",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Mache den Nenner rational: 26/(√14 − 1).",
+    "schablone": "□ · (√□ + □)",
+    "hinweis": "Faktor, Radikand, Zahl"
+   },
+   "o": {
+    "werte": [
+     2,
+     14,
+     1
+    ]
+   },
+   "w": "Mit √14 + 1 erweitern: Nenner (√14)² − 1² = 14 − 1 = 13. 26/13 = 2, also 2 · (√14 + 1).",
+   "h": "Erweitere mit √14 + 1 und nutze die 3. binomische Formel.",
+   "c": [
+    "26 / (14 - 1 * 1)",
+    "14",
+    "1"
+   ]
+  },
+  {
+   "l": "nenner_rational",
+   "t": "nenner_rational",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Mache den Nenner rational: 6/(√6 − 2).",
+    "schablone": "□ · (√□ + □)",
+    "hinweis": "Faktor, Radikand, Zahl"
+   },
+   "o": {
+    "werte": [
+     3,
+     6,
+     2
+    ]
+   },
+   "w": "Mit √6 + 2 erweitern: Nenner (√6)² − 2² = 6 − 4 = 2. 6/2 = 3, also 3 · (√6 + 2).",
+   "h": "Erweitere mit √6 + 2 und nutze die 3. binomische Formel.",
+   "c": [
+    "6 / (6 - 2 * 2)",
+    "6",
+    "2"
+   ]
+  },
+  {
+   "l": "nenner_rational",
+   "t": "nenner_rational",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Mache den Nenner rational: 8/(√6 − 2).",
+    "schablone": "□ · (√□ + □)",
+    "hinweis": "Faktor, Radikand, Zahl"
+   },
+   "o": {
+    "werte": [
+     4,
+     6,
+     2
+    ]
+   },
+   "w": "Mit √6 + 2 erweitern: Nenner (√6)² − 2² = 6 − 4 = 2. 8/2 = 4, also 4 · (√6 + 2).",
+   "h": "Erweitere mit √6 + 2 und nutze die 3. binomische Formel.",
+   "c": [
+    "8 / (6 - 2 * 2)",
+    "6",
+    "2"
+   ]
+  },
+  {
+   "l": "nenner_rational",
+   "t": "nenner_rational",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Mache den Nenner rational: 12/(√15 − 3).",
+    "schablone": "□ · (√□ + □)",
+    "hinweis": "Faktor, Radikand, Zahl"
+   },
+   "o": {
+    "werte": [
+     2,
+     15,
+     3
+    ]
+   },
+   "w": "Mit √15 + 3 erweitern: Nenner (√15)² − 3² = 15 − 9 = 6. 12/6 = 2, also 2 · (√15 + 3).",
+   "h": "Erweitere mit √15 + 3 und nutze die 3. binomische Formel.",
+   "c": [
+    "12 / (15 - 3 * 3)",
+    "15",
+    "3"
+   ]
+  },
+  {
+   "l": "nenner_rational",
+   "t": "nenner_rational",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Mache den Nenner rational: 20/(√14 − 2).",
+    "schablone": "□ · (√□ + □)",
+    "hinweis": "Faktor, Radikand, Zahl"
+   },
+   "o": {
+    "werte": [
+     2,
+     14,
+     2
+    ]
+   },
+   "w": "Mit √14 + 2 erweitern: Nenner (√14)² − 2² = 14 − 4 = 10. 20/10 = 2, also 2 · (√14 + 2).",
+   "h": "Erweitere mit √14 + 2 und nutze die 3. binomische Formel.",
+   "c": [
+    "20 / (14 - 2 * 2)",
+    "14",
+    "2"
+   ]
+  },
+  {
+   "l": "nenner_rational",
+   "t": "nenner_rational",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Mache den Nenner rational: 18/(√10 − 1).",
+    "schablone": "□ · (√□ + □)",
+    "hinweis": "Faktor, Radikand, Zahl"
+   },
+   "o": {
+    "werte": [
+     2,
+     10,
+     1
+    ]
+   },
+   "w": "Mit √10 + 1 erweitern: Nenner (√10)² − 1² = 10 − 1 = 9. 18/9 = 2, also 2 · (√10 + 1).",
+   "h": "Erweitere mit √10 + 1 und nutze die 3. binomische Formel.",
+   "c": [
+    "18 / (10 - 1 * 1)",
+    "10",
+    "1"
+   ]
+  },
+  {
+   "l": "nenner_rational",
+   "t": "nenner_rational",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Mache den Nenner rational: 120/(4√10).",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     3,
+     10
+    ]
+   },
+   "w": "120/(4√10) = 120√10 / (4 · 10) = 120√10 / 40 = 3√10.",
+   "c": [
+    "120 / (4 * 10)",
+    "10"
+   ]
+  },
+  {
+   "l": "nenner_rational",
+   "t": "nenner_rational",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Mache den Nenner rational: 132/(3√11).",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     4,
+     11
+    ]
+   },
+   "w": "132/(3√11) = 132√11 / (3 · 11) = 132√11 / 33 = 4√11.",
+   "c": [
+    "132 / (3 * 11)",
+    "11"
+   ]
+  },
+  {
+   "l": "nenner_rational",
+   "t": "nenner_rational",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Mache den Nenner rational: 132/(4√11).",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     3,
+     11
+    ]
+   },
+   "w": "132/(4√11) = 132√11 / (4 · 11) = 132√11 / 44 = 3√11.",
+   "c": [
+    "132 / (4 * 11)",
+    "11"
+   ]
+  },
+  {
+   "l": "nenner_rational",
+   "t": "nenner_rational",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Mache den Nenner rational: 168/(4√14).",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     3,
+     14
+    ]
+   },
+   "w": "168/(4√14) = 168√14 / (4 · 14) = 168√14 / 56 = 3√14.",
+   "c": [
+    "168 / (4 * 14)",
+    "14"
+   ]
+  },
+  {
+   "l": "nenner_rational",
+   "t": "nenner_rational",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Mache den Nenner rational: 60/(4√3).",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     5,
+     3
+    ]
+   },
+   "w": "60/(4√3) = 60√3 / (4 · 3) = 60√3 / 12 = 5√3.",
+   "c": [
+    "60 / (4 * 3)",
+    "3"
+   ]
+  },
+  {
+   "l": "nenner_rational",
+   "t": "nenner_rational",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Mache den Nenner rational: 16/(4√2).",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     2,
+     2
+    ]
+   },
+   "w": "16/(4√2) = 16√2 / (4 · 2) = 16√2 / 8 = 2√2.",
+   "c": [
+    "16 / (4 * 2)",
+    "2"
+   ]
+  },
+  {
+   "l": "nenner_rational",
+   "t": "nenner_rational",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Mache den Nenner rational: 56/(4√7).",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     2,
+     7
+    ]
+   },
+   "w": "56/(4√7) = 56√7 / (4 · 7) = 56√7 / 28 = 2√7.",
+   "c": [
+    "56 / (4 * 7)",
+    "7"
+   ]
+  },
+  {
+   "l": "nenner_rational",
+   "t": "nenner_rational",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Mache den Nenner rational: 84/(3√14).",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     2,
+     14
+    ]
+   },
+   "w": "84/(3√14) = 84√14 / (3 · 14) = 84√14 / 42 = 2√14.",
+   "c": [
+    "84 / (3 * 14)",
+    "14"
+   ]
+  },
+  {
+   "l": "nenner_rational",
+   "t": "nenner_rational",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Mache den Nenner rational: 84/(4√7).",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     3,
+     7
+    ]
+   },
+   "w": "84/(4√7) = 84√7 / (4 · 7) = 84√7 / 28 = 3√7.",
+   "c": [
+    "84 / (4 * 7)",
+    "7"
+   ]
+  },
+  {
+   "l": "nenner_rational",
+   "t": "nenner_rational",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Mache den Nenner rational: 130/(2√13).",
+    "schablone": "□√□",
+    "hinweis": "Zahl vor der Wurzel, Radikand"
+   },
+   "o": {
+    "werte": [
+     5,
+     13
+    ]
+   },
+   "w": "130/(2√13) = 130√13 / (2 · 13) = 130√13 / 26 = 5√13.",
+   "c": [
+    "130 / (2 * 13)",
+    "13"
+   ]
+  }
+ ],
+ "offen": [
+  "Lückentext „□√□“: Die App zeigt das Wurzelzeichen nur als Text in der Schablone; bitte prüfen, ob die Darstellung im Eingabefeld gut lesbar ist."
+ ]
+}

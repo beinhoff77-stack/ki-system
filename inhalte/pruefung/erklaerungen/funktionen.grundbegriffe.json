@@ -1,0 +1,138 @@
+{
+  "thema_schluessel": "funktionen.grundbegriffe",
+  "gesamturteil": "brauchbar",
+  "thema_hinweise": [
+    "Reihenfolge: Laut inhalt.abschnitte gehört „mengen“ in den ersten Bereich („Was ist eine Funktion?“), in inhalt.etappen steht die Karte aber an 5. Stelle. Vorschlag: „mengen“ direkt hinter „eindeutig“.",
+    "Unter „offen“ steht, dass Graphen nicht gezeichnet werden können. Das Koordinatensystem gibt es jetzt. Das Thema heißt „Tabelle, Graph, Term“, aber keine Karte arbeitet mit dem Graphen. Neue Karte „graph_lesen“ (Werte am Graphen ablesen) hinter „wertetabelle“; die Karten „nullstellen“ und „punkt_graph“ bekommen ein Bild.",
+    "Die Karte „eindeutig“ hat nur nackte Zahlenpaare. Ein Alltagsbeispiel (Kind → Geburtstag ist eine Funktion, Monat → Geburtstagskinder nicht) macht „genau ein“ greifbar.",
+    "Vorschlag für später: „Ist dieser Graph eine Funktion?“ (senkrechte Linie trifft den Graphen höchstens einmal) braucht einen Kreis oder eine liegende Parabel im Koordinatensystem; das kann die App noch nicht. Unter „offen“ belassen."
+  ],
+  "karten": [
+    {
+      "lernziel": "eindeutig",
+      "urteil": "verbessern",
+      "probleme": [
+        "Nur abstrakte Zahlenpaare; das Kind hat kein Bild davon, warum „genau ein“ wichtig ist.",
+        "Die Wertetabelle als Darstellung fehlt, obwohl sie die Prüfung sehr einfach macht (steht ein x zweimal da?)."
+      ],
+      "neu": {
+        "regel": "Eine ⟦Funktion⟧ ordnet ⟦jedem⟧ x-Wert ⟦genau einen⟧ y-Wert zu. Beispiel: Jedem Kind deiner Klasse wird sein Geburtstag zugeordnet – jedes Kind hat genau einen. Dass zwei Kinder am selben Tag Geburtstag haben, ist erlaubt.",
+        "schritte": [
+          "Zuordnung: (1 | 5), (2 | 7), (3 | 5). Prüfe: Kommt ein x-Wert zweimal vor?",
+          "Nein, 1, 2 und 3 kommen je einmal vor. Dass 1 und 3 beide den y-Wert 5 haben, stört nicht – wie zwei Kinder mit demselben Geburtstag.",
+          "⟦Es ist eine Funktion.⟧"
+        ],
+        "fehler": "(2 | 4), (2 | 6) ist ⟦keine⟧ Funktion: Der x-Wert 2 hat zwei y-Werte – wie ein Kind mit zwei Geburtstagen. Umgekehrt ist (2 | 4), (3 | 4) eine Funktion: Zwei x-Werte dürfen denselben y-Wert haben.",
+        "bild": {
+          "typ": "tabelle",
+          "kopf": ["x", "1", "2", "3"],
+          "zeilen": [["y", "5", "7", "5"]]
+        }
+      }
+    },
+    {
+      "lernziel": "funktionswert",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "stelle",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "wertetabelle",
+      "urteil": "verbessern",
+      "probleme": [
+        "Der typische Fehler ist allgemein formuliert, ohne Zahlen.",
+        "Die Tabelle wird nur als Zahlenpaare in Klammern gezeigt, nicht als Tabelle."
+      ],
+      "neu": {
+        "fehler": "Einen Term nur an zwei Paaren prüfen. Tabelle (1 | 2), (2 | 4), (3 | 8): f(x) = 2x passt bei x = 1 und x = 2. Aber f(3) = 2 · 3 = 6, nicht 8. Ein Term passt nur, wenn er für ⟦alle⟧ Paare stimmt.",
+        "bild": {
+          "typ": "tabelle",
+          "kopf": ["x", "−1", "0", "3"],
+          "zeilen": [["f(x) = 4 − x²", "3", "4", "−5"]]
+        }
+      }
+    },
+    {
+      "lernziel": "mengen",
+      "urteil": "verbessern",
+      "probleme": [
+        "Der „Fehler“ ist eigentlich ein zweites Beispiel, kein typischer Fehler. Der häufigste Fehler ist das falsche Vorzeichen: Bei 1/(x − 2) wird die −2 statt der 2 ausgeschlossen.",
+        "Kein Alltagsbezug für „nicht einsetzbar“."
+      ],
+      "neu": {
+        "regel": "Die ⟦Definitionsmenge⟧ D enthält alle x, die man einsetzen darf. Die ⟦Wertemenge⟧ W enthält alle y-Werte, die dabei herauskommen. Verboten ist zum Beispiel alles, was einen ⟦Nenner 0⟧ macht – durch 0 kann man nicht teilen.",
+        "schritte": [
+          "f(x) = 2x + 1 mit D = {0; 1; 3}.",
+          "Setze alle x ein: f(0) = 1, f(1) = 3, f(3) = 7.",
+          "⟦W = {1; 3; 7}⟧"
+        ],
+        "fehler": "Bei f(x) = 1/(x − 2) ist D nicht ℚ \\ {−2}. Verboten ist das x, für das der Nenner 0 wird: x − 2 = 0, also x = 2. Richtig: ⟦D = ℚ \\ {2}⟧. Probe: f(−2) = 1/(−4) geht problemlos."
+      }
+    },
+    {
+      "lernziel": "nullstellen",
+      "urteil": "verbessern",
+      "probleme": [
+        "Die Erklärung sagt „dort schneidet der Graph die x-Achse“, zeigt es aber nicht. Mit Bild sieht das Kind auch sofort den Unterschied zum y-Achsenabschnitt (typischer Fehler)."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "koordinaten",
+          "x": [-1, 5],
+          "y": [-8, 3],
+          "graphen": [{ "art": "linear", "m": 2, "t": -7, "name": "f" }],
+          "punkte": [{ "x": 3.5, "y": 0, "name": "N(3,5 | 0)" }, { "x": 0, "y": -7, "name": "(0 | −7)" }]
+        }
+      }
+    },
+    {
+      "lernziel": "punkt_graph",
+      "urteil": "verbessern",
+      "probleme": [
+        "Ohne Bild bleibt abstrakt, was „liegt auf dem Graphen“ bedeutet. Ein Bild mit einem Punkt auf und einem Punkt neben der Parabel zeigt es sofort."
+      ],
+      "neu": {
+        "schritte": [
+          "f(x) = x² − 2x. Liegt P(3 | 3) auf dem Graphen?",
+          "Setze die x-Koordinate 3 ein: f(3) = 9 − 6 = 3.",
+          "Das ist genau die y-Koordinate von P: ⟦P liegt auf dem Graphen.⟧",
+          "Q(3 | 1) hat dieselbe x-Koordinate, aber f(3) = 3 ≠ 1: ⟦Q liegt nicht darauf⟧, sondern darunter."
+        ],
+        "bild": {
+          "typ": "koordinaten",
+          "x": [-2, 4],
+          "y": [-2, 5],
+          "graphen": [{ "art": "poly", "k": [0, -2, 1], "name": "f" }],
+          "punkte": [{ "x": 3, "y": 3, "name": "P" }, { "x": 3, "y": 1, "name": "Q", "offen": true }]
+        }
+      }
+    }
+  ],
+  "neue_karten": [
+    {
+      "nach": "wertetabelle",
+      "lernziel": "graph_lesen",
+      "titel": "Werte am Graphen ablesen",
+      "regel": "Der ⟦Graph⟧ zeigt alle Paare (x | f(x)) auf einmal. f(4) ablesen: Bei x = 4 ⟦senkrecht⟧ bis zum Graphen gehen, dann ⟦waagrecht⟧ zur y-Achse. Umgekehrt findest du zu einem y-Wert die passenden x-Werte – manchmal mehrere.",
+        "schritte": [
+          "Der Graph gehört zu f(x) = 0,5x² − 2. Gesucht: f(4).",
+          "Von x = 4 senkrecht nach oben bis zum Graphen, dann waagrecht nach links: ⟦f(4) = 6⟧.",
+          "Umgekehrt: Wo ist f(x) = 6? Gehe bei y = 6 waagrecht – du triffst den Graphen ⟦zweimal⟧: bei x = 4 und bei x = −4."
+        ],
+        "probe": "f(4) = 0,5 · 16 − 2 = 6 ✓ und f(−4) = 0,5 · 16 − 2 = 6 ✓",
+        "fehler": "Bei „Wo ist f(x) = 6?“ nur x = 4 angeben. Die waagrechte Linie bei y = 6 trifft die Parabel ⟦zweimal⟧. Suche immer die ganze Linie entlang.",
+        "bild": {
+          "typ": "koordinaten",
+          "x": [-5, 5],
+          "y": [-3, 7],
+          "graphen": [{ "art": "poly", "k": [-2, 0, 0.5], "name": "f" }],
+          "senkrecht": [4],
+          "waagrecht": [6],
+          "punkte": [{ "x": 4, "y": 6, "name": "(4 | 6)" }, { "x": -4, "y": 6, "name": "(−4 | 6)" }]
+        },
+      "begruendung": "Das Thema verlangt „Tabelle, Graph, Term“; bisher arbeitet keine Karte mit dem Graphen. Das Koordinatensystem ist jetzt verfügbar."
+    }
+  ]
+}

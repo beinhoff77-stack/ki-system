@@ -1,0 +1,117 @@
+{
+  "thema_schluessel": "gleichungen.trig",
+  "gesamturteil": "brauchbar",
+  "karten": [
+    {
+      "lernziel": "sinus",
+      "urteil": "verbessern",
+      "stufen": "Stufe 1 (zweite Lösung aus x₁ = 54°) passt. Stufe 2 und 3 sind derselbe Typ (Taschenrechner, dann 180° − x₁); Stufe 3 hat nur kleinere Werte (0,11; −0,12). Keine echte Steigerung. Alle geprüften Werte stimmen.",
+      "fehlende_aufgabentypen": [
+        "Beide Lösungen bei negativem Wert als Lücke (luecken, Stufe 3, Schablone 'x₁ ≈ □°; x₂ ≈ □°' mit ganzzahliger Rundung): Beispiel 1: 'Löse sin x = −0,7 auf ganze Grad gerundet.' → [224, 316] (sin⁻¹(−0,7) ≈ −44,4°; 180° + 44,4° ≈ 224°, 360° − 44,4° ≈ 316°). Beispiel 2: 'sin x = −0,25' → [194, 346].",
+        "Fehler finden (auswahl, Stufe 3): Beispiel 1: 'Jemand löst sin x = −0,5 so: x₁ = −30°, x₂ = 180° − (−30°) = 210°. Was ist falsch?' → '−30° liegt nicht im Bereich; richtig ist 330°, also 210° und 330°.' Beispiel 2: 'Jemand gibt für sin x = 0,6 die Lösungen 36,9° und 323,1° an.' → 'Falsch: Das ist die Regel für den Kosinus; richtig 36,9° und 143,1°.'"
+      ],
+      "generator_regeln": [
+        "Bei 'auf eine Nachkommastelle' immer 'toleranz': 0.1 setzen (heute bei allen 80 gerundeten Zahl-Aufgaben des Themas ohne Toleranz).",
+        "Stufe 3 = negativer Wert mit beiden Lösungen oder Fehler finden; Stufe 2 = positiver Wert mit Taschenrechner."
+      ]
+    },
+    {
+      "lernziel": "kosinus",
+      "urteil": "verbessern",
+      "stufen": "Wie bei 'sinus': Stufe 2 und 3 gleichartig. Gut: Sinus- und Kosinus-Regel sind getrennt; es fehlt aber eine Aufgabe, die beide Regeln gegenüberstellt.",
+      "fehlende_aufgabentypen": [
+        "Regel zuordnen (auswahl, Stufe 2): Beispiel 1: 'cos x = 0,3 hat die Lösung x₁ ≈ 72,5°. Welche ist die zweite Lösung?' Antworten 287,5° (richtig, 360° − x₁), 107,5° (Sinus-Regel), 252,5° (Tangens-Regel), −72,5°. Beispiel 2: 'cos x = −0,8, x₁ ≈ 143,1°' → 216,9°; Ablenker 36,9°, 323,1°."
+      ],
+      "generator_regeln": [
+        "Bei 'auf eine Nachkommastelle' 'toleranz': 0.1 setzen."
+      ]
+    },
+    {
+      "lernziel": "tangens",
+      "urteil": "verbessern",
+      "stufen": "Stufe 2 enthält extreme Werte (tan x = 13, −22, 25, 28): die Antwort hängt dann an der dritten Stelle des Taschenrechners. Stufe 3 (kleine Werte) ist leichter als Stufe 2. Lösungsweg nennt bei großen Werten nicht, welche Lösung gefragt war ('Größere: …' fehlt).",
+      "fehlende_aufgabentypen": [
+        "Sachaufgabe Steigungswinkel (zahl, Stufe 3): Beispiel 1: 'Eine Rampe steigt auf 12 m Länge um 1,5 m. Unter welchem Winkel steigt sie? Runde auf eine Nachkommastelle.' → 7,1° (tan α = 0,125). Beispiel 2: 'Ein Weg hat 18 % Steigung. Steigungswinkel auf eine Nachkommastelle?' → 10,2°."
+      ],
+      "generator_regeln": [
+        "|v| ≤ 5 beim Tangens; extreme Werte nur in einer Verstehen-Aufgabe ('Warum liegt die Lösung nahe bei 90°?').",
+        "Lösungsweg immer mit 'Kleinere: …' bzw. 'Größere: …' abschließen."
+      ]
+    },
+    {
+      "lernziel": "anzahl",
+      "urteil": "verbessern",
+      "stufen": "Stufe 1 und 2 sind derselbe Typ. Stufe 3 (Fehler finden) ist gut. Die falschen Angaben in Stufe 3 ('x ≈ 51°' bei cos x = 1,7; 'x ≈ 102°') haben keinen erkennbaren Ursprung – besser einen echten Fehler nachbilden (z. B. Taschenrechner meldet 'Error', Kind nimmt cos⁻¹(0,7)). Mehrere Aufgaben wörtlich doppelt.",
+      "fehlende_aufgabentypen": [
+        "Anzahl bei Gleichung mit Parameter (auswahl, Stufe 3): Beispiel 1: 'Für welches a hat 2 sin x = a im Bereich 0° ≤ x < 360° genau eine Lösung?' → a = 2 oder a = −2; Ablenker a = 1, a = 0. Beispiel 2: '3 cos x + 4 = b hat keine Lösung, wenn …' → b > 7 oder b < 1."
+      ],
+      "generator_regeln": [
+        "Keine Aufgabe doppelt im Thema (heute doppelt: cos x = 0,1; sin x = −1,1; sin x = 1; cos x = 1; 'cos x = 1 … 0° und 180°').",
+        "Stufe 1 nur |v| > 1 oder klar 0 < |v| < 1; Werte genau ±1 und 0 in Stufe 2."
+      ]
+    },
+    {
+      "lernziel": "umformen",
+      "urteil": "verbessern",
+      "stufen": "Stufe 3 ist überwiegend leichter als Stufe 2 ('2 cos x + 9 = 11' → cos x = 1 → 0°). Nur 'sin x = cos x' ist echt schwer. cos x = 1 mit Lösung 0° kommt 6-mal vor, sin x = 0,5 5-mal: Lösungen lassen sich auswendig wiederholen.",
+      "fehlende_aufgabentypen": [
+        "sin x auf beiden Seiten (luecken, Stufe 3): Beispiel 1: 'Löse 3 sin x − 1 = sin x im Bereich 0° ≤ x < 360°.' → 2 sin x = 1 → [30, 150]. Beispiel 2: '5 cos x + 2 = 3 cos x + 1' → cos x = −0,5 → [120, 240].",
+        "Quadrat (luecken, Stufe 3): Beispiel 1: '4 (sin x)² = 1' → sin x = ±0,5 → [30, 150, 210, 330] mit Schablone 'x₁ = □°; x₂ = □°; x₃ = □°; x₄ = □°'. Beispiel 2: '(cos x)² = 1' → [0, 180]."
+      ],
+      "generator_regeln": [
+        "Jede Lösungsmenge höchstens 2-mal je Lernkarte.",
+        "Stufe 3 nur mit Variable auf beiden Seiten, Quadrat oder sin x = k · cos x."
+      ]
+    },
+    {
+      "lernziel": "anwendung",
+      "urteil": "verbessern",
+      "stufen": "Riesenrad-Aufgaben (Stufe 1) sind gut und realistisch. Bei 'Wie viele Werte kommen für β in Frage?' ist in 14 von 16 Aufgaben 'genau ein Winkel' richtig, 'kein Winkel' nie – das Kind kann raten. Stufe 3 verrät durch 'β ist stumpf' den entscheidenden Schritt.",
+      "fehlende_aufgabentypen": [
+        "Zeitpunkt aus periodischem Vorgang (luecken, Stufe 3): Beispiel 1: 'Die Wassertiefe in einem Hafen ist t(x) = 5 + 2 · sin x (in m; x in Grad, 360° = ein Tag). Wann ist das Wasser 6 m tief?' → [30, 150]. Beispiel 2: 'Wann ist es 4 m tief?' → [210, 330]."
+      ],
+      "generator_regeln": [
+        "Antworten 'genau ein Winkel' und 'zwei Winkel' je etwa gleich oft; 'kein Winkel' als richtige Antwort einbauen (α + β₁ ≥ 180°, z. B. α = 150°, sin β = 0,7).",
+        "In Stufe 3 nicht 'β ist stumpf' vorgeben, sondern eine Angabe, aus der das folgt (z. B. 'β ist der größte Winkel im Dreieck')."
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Löse sin x = 0,27 im Bereich 0° ≤ x < 360°. Gib die kleinere Lösung auf eine Nachkommastelle an.",
+      "art": "mehrdeutig",
+      "problem": "Gerundetes Ergebnis ohne 'toleranz'. Wer z. B. mit dem gerundeten Zwischenwert rechnet oder anders rundet (15,6°), wird als falsch gewertet. Betrifft alle 80 Zahl-Aufgaben des Themas mit 'auf eine Nachkommastelle'.",
+      "korrektur": "Lösung {\"wert\": 15.7, \"einheit\": \"°\", \"toleranz\": 0.1}."
+    },
+    {
+      "aufgabe": "Löse sin x = 0,19 im Bereich 0° ≤ x < 360°. Gib die kleinere Lösung auf eine Nachkommastelle an.",
+      "art": "loesungsweg",
+      "problem": "Lösungsweg schreibt '≈ 11°' und '169°', obwohl eine Nachkommastelle verlangt ist.",
+      "korrektur": "Lösungsweg: 'sin⁻¹(0,19) ≈ 11,0°; Lösungen ≈ 11,0° und 169,0°. Kleinere: 11,0°.'"
+    },
+    {
+      "aufgabe": "Löse tan x = 13 im Bereich 0° ≤ x < 360°. Gib die größere Lösung auf eine Nachkommastelle an.",
+      "art": "loesungsweg",
+      "problem": "Lösungsweg endet mit 'Lösungen ≈ 85,6° und 265,6°' ohne Angabe, welche gefragt war (auch bei tan x = −22, −28, 19, 25).",
+      "korrektur": "Lösungsweg: 'tan⁻¹(13) ≈ 85,6°; zweite Lösung 85,6° + 180° = 265,6°. Größere: 265,6°.'"
+    },
+    {
+      "aufgabe": "Jemand gibt für cos x = 1 im Bereich 0° ≤ x < 360° die Lösungen 0° und 180° an. Was stimmt?",
+      "art": "mehrdeutig",
+      "problem": "Aufgabe kommt zwei Mal in Stufe 3 vor (nur Antworten gemischt).",
+      "korrektur": "Zweite Fassung: 'Jemand gibt für sin x = 1 im Bereich 0° ≤ x < 360° die Lösungen 90° und 270° an. Was stimmt?' – Lösung 'Falsch: Es gibt nur die Lösung 90°.'"
+    },
+    {
+      "aufgabe": "Jemand löst cos x = 1,7 und schreibt x ≈ 51°. Was stimmt?",
+      "art": "loesungsweg",
+      "problem": "Antwort 'Falsch: x ≈ 102°' und die Angabe '51°' sind kein nachvollziehbarer Schülerfehler.",
+      "korrektur": "Jemand löst cos x = 1,7, bekommt am Taschenrechner eine Fehlermeldung und rechnet stattdessen cos⁻¹(0,7) ≈ 45,6°. Was stimmt? – Richtig: 'Falsch: cos x ≤ 1, die Gleichung hat keine Lösung.' Ablenker: 'Richtig, 1,7 − 1 = 0,7', 'Falsch: x ≈ 314,4°', 'Falsch: Es gibt unendlich viele Lösungen.'"
+    },
+    {
+      "aufgabe": "In einem Dreieck ist α = 27° und sin β = 0,47; außerdem ist β stumpf. Berechne β (auf eine Nachkommastelle).",
+      "art": "tipp_verraet_loesung",
+      "problem": "Der Zusatz 'β ist stumpf' nimmt dem Kind die eigentliche Überlegung (spitzer oder stumpfer Winkel?) ab; die Aufgabe ist damit nicht schwer. Außerdem fehlt die Toleranz.",
+      "korrektur": "In einem Dreieck ist α = 27° und sin β = 0,47. β ist der größte Winkel des Dreiecks. Berechne β auf eine Nachkommastelle. – Lösung 152,0° (toleranz 0.1): β₁ ≈ 28,0° wäre kleiner als γ = 125°, also β = 180° − 28,0° = 152,0°."
+    }
+  ]
+}

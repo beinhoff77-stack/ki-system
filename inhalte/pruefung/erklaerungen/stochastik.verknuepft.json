@@ -1,0 +1,218 @@
+{
+  "thema_schluessel": "stochastik.verknuepft",
+  "gesamturteil": "brauchbar",
+  "thema_hinweise": [
+    "Unter „offen“ steht, dass Vierfeldertafel und Venn-Diagramm nicht gezeichnet werden können. Fakt: Die Vierfeldertafel geht mit dem Bildtyp „tabelle“, ein einfaches Venn-Diagramm mit „figur“ (zwei sich überschneidende Kreise). Ein Thema über Vierfeldertafeln ohne eine einzige Tafel ist die größte Schwäche; Bilder sind jetzt in allen Karten außer „verstehen“ angegeben.",
+    "Reihenfolge: Laut inhalt.abschnitte gehört „additionssatz“ direkt hinter „verknuepfen“, in inhalt.etappen steht er hinter den Tafel-Karten. Vorschlag: der Abschnitts-Reihenfolge folgen – das Venn-Diagramm aus „verknuepfen“ erklärt den Additionssatz direkt."
+  ],
+  "karten": [
+    {
+      "lernziel": "verknuepfen",
+      "urteil": "verbessern",
+      "probleme": [
+        "„Und“ und „oder“ werden nur in Worten unterschieden. Im Venn-Diagramm ist A ∩ B die Überschneidung, A ∪ B alles, was in einem der Kreise liegt."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "_M1": [
+              0,
+              0
+            ],
+            "_M2": [
+              4,
+              0
+            ],
+            "A": [
+              -2.6,
+              2.6
+            ],
+            "B": [
+              6.6,
+              2.6
+            ],
+            "6, 12, 18": [
+              2,
+              0
+            ]
+          },
+          "kreise": [
+            {
+              "m": "_M1",
+              "r": 3.5
+            },
+            {
+              "m": "_M2",
+              "r": 3.5
+            }
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "vierfeld",
+      "urteil": "verbessern",
+      "probleme": [
+        "Die Vierfeldertafel wird nur in Worten beschrieben."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "tabelle",
+          "kopf": [
+            "",
+            "B",
+            "nicht B",
+            "Summe"
+          ],
+          "zeilen": [
+            [
+              "A",
+              "30",
+              "?",
+              "80"
+            ],
+            [
+              "nicht A",
+              "",
+              "",
+              "?"
+            ],
+            [
+              "Summe",
+              "",
+              "",
+              "200"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "tafel_wkeit",
+      "urteil": "verbessern",
+      "probleme": [
+        "Keine Tafel im Bild; der Unterschied zwischen Anzahl und Wahrscheinlichkeit wird in der Tafel sichtbar."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "tabelle",
+          "kopf": [
+            "",
+            "B",
+            "nicht B",
+            "Summe"
+          ],
+          "zeilen": [
+            [
+              "A",
+              "60 → 0,15",
+              "100 → 0,25",
+              "160 → 0,4"
+            ],
+            [
+              "Summe",
+              "",
+              "",
+              "400 → 1"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "additionssatz",
+      "urteil": "verbessern",
+      "probleme": [
+        "„Doppelt gezählt“ ist ohne Bild abstrakt; im Venn-Diagramm liegt die Überschneidung in beiden Kreisen."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "_M1": [
+              0,
+              0
+            ],
+            "_M2": [
+              4,
+              0
+            ],
+            "A": [
+              -2.6,
+              2.6
+            ],
+            "B": [
+              6.6,
+              2.6
+            ],
+            "6, 12, 18": [
+              2,
+              0
+            ]
+          },
+          "kreise": [
+            {
+              "m": "_M1",
+              "r": 3.5
+            },
+            {
+              "m": "_M2",
+              "r": 3.5
+            }
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "bedingt",
+      "urteil": "verbessern",
+      "probleme": [
+        "Der typische Fehler (P_B(A) und P_A(B) verwechseln) wird ohne Zahlen genannt.",
+        "Keine Tafel, obwohl die Regel „nur die Spalte B betrachten“ heißt."
+      ],
+      "neu": {
+        "schritte": [
+          "200 Personen, davon 50 mit B. Von diesen 50 haben 20 auch A.",
+          "Du weißt schon: B ist eingetreten. Dann zählt nur die ⟦Spalte B⟧ mit 50 Personen.",
+          "P_B(A) = 20 : 50 = ⟦0,4⟧."
+        ],
+        "fehler": "P_B(A) und P_A(B) verwechseln. P_B(A) = 20 : 50 = 0,4 (unter allen mit B). P_A(B) = 20 : 80 = 0,25 (unter allen mit A). Die ⟦Bedingung⟧ unten bestimmt, ⟦durch welche Summe⟧ du teilst.",
+        "bild": {
+          "typ": "tabelle",
+          "kopf": [
+            "",
+            "B",
+            "nicht B",
+            "Summe"
+          ],
+          "zeilen": [
+            [
+              "A",
+              "20",
+              "60",
+              "80"
+            ],
+            [
+              "nicht A",
+              "30",
+              "90",
+              "120"
+            ],
+            [
+              "Summe",
+              "50",
+              "150",
+              "200"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "verstehen",
+      "urteil": "ok"
+    }
+  ],
+  "neue_karten": []
+}

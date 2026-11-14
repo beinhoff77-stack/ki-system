@@ -1,6 +1,7 @@
 // lernen-api (Werkstatt #150, Claude): Schnittstelle der App für „Lernen Schule“.
 // Gleiche Anmeldung wie app-api (Sitzungs-Token -> app.sitzung), ruft nur die api.schule_*-Funktionen als council_mcp auf.
 // Die Datenbank prüft Zugriff (schule.zugriff) und Sichtbarkeit (Entwürfe nur fürs Testkind) bei jeder Aktion.
+// v0.5.0: eigene Lern-Zugänge (Code -> Lern-Sitzung, Schlüssel 'lern:<hash>' gilt nur für schule-Funktionen), Themenplan, Rückmeldungen, Zugänge.
 // v0.4.0: Merkheft/Etappenfortschritt. v0.3.0: Elternübersicht. v0.2.0: Sterne-Konto, Belohnungen einlösen/pflegen, Look wählen.
 // Wege: POST /lernen-api/aktion  Bearer-Token, { aktion, daten } -> { ok, ergebnis }
 //       GET  /lernen-api/hilfe   Liste der Aktionen
@@ -9,7 +10,7 @@ import { Hono } from 'npm:hono@^4.9.7'
 import postgres from 'npm:postgres@3.4.5'
 
 const sql = postgres(Deno.env.get('SUPABASE_DB_URL')!, { prepare: false, max: 3, idle_timeout: 20 })
-const VERSION = '0.4.0'
+const VERSION = '0.5.0'
 
 const AKTIONEN: Record<string, string[]> = {
   schule_uebersicht: [],
@@ -25,6 +26,15 @@ const AKTIONEN: Record<string, string[]> = {
   schule_einloesung_entscheiden: ['id', 'status'],
   schule_eltern: [],
   schule_merkheft: ['lernender_id'],
+  schule_ich: [],
+  schule_plan_lesen: ['lernender_id'],
+  schule_plan_setzen: ['lernender_id', 'eintraege', 'revision?'],
+  schule_notiz_setzen: ['lernender_id', 'text'],
+  schule_zugaenge: [],
+  schule_zugang_anlegen: ['name', 'rolle', 'lernender_id?'],
+  schule_zugang_sperren: ['id'],
+  schule_rueckmeldung_geben: ['art', 'text', 'block_id?', 'einheit_id?', 'lernziel?', 'aufgabe_id?', 'lernender_id?'],
+  schule_rueckmeldungen: [],
 }
 
 const CORS = { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Content-Type, Authorization', 'Access-Control-Allow-Methods': 'GET, POST, OPTIONS' }
@@ -41,12 +51,36 @@ function fehlertext(e: any): string {
   return 'Interner Fehler – bitte später erneut versuchen.'
 }
 
+function bearer(c: any): string {
+  return (c.req.header('authorization') ?? '').replace(/^Bearer\s+/i, '').trim()
+}
+
+// App-Sitzung (Eltern, ganze App) oder Lern-Sitzung (nur Lernen). Lern-Sitzungen kennt app-api nicht.
 async function sitzung(c: any): Promise<string | null> {
-  const t = (c.req.header('authorization') ?? '').replace(/^Bearer\s+/i, '').trim()
+  const t = bearer(c)
   if (!t) return null
   const [row] = await sql`select app.sitzung(${t}) as h`
-  return row?.h ?? null
+  if (row?.h) return row.h
+  const [l] = await sql`select schule.lern_sitzung_pruefen(${t}) as h`
+  return l?.h ?? null
 }
+
+app.post('/anmelden', async (c) => {
+  let b: any
+  try { b = await c.req.json() } catch { return c.json({ ok: false, fehler: 'Ungültiges JSON' }, 400) }
+  const code = String(b?.code ?? '').slice(0, 40)
+  if (!code.trim()) return c.json({ ok: false, fehler: 'Code fehlt' }, 400)
+  try {
+    const [row] = await sql`select schule.lern_anmelden(${code}) as r`
+    return c.json({ ok: true, ergebnis: row.r })
+  } catch (e) { return c.json({ ok: false, fehler: fehlertext(e) }, 400) }
+})
+
+app.post('/abmelden', async (c) => {
+  const t = bearer(c)
+  if (t) { try { await sql`select schule.lern_abmelden(${t})` } catch (e) { console.error('abmelden', e) } }
+  return c.json({ ok: true })
+})
 
 app.get('/hilfe', (c) => c.json({ ok: true, version: VERSION, aktionen: Object.entries(AKTIONEN).map(([aktion, parameter]) => ({ aktion, parameter })) }))
 

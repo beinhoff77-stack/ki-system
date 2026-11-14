@@ -3381,3 +3381,41 @@ body[data-kindmodus] header.top h1 { font-size: 1.15rem; white-space: nowrap; ov
 .lern-term { width: 100%; box-sizing: border-box; min-height: 56px; border-radius: 12px; border: 2px solid var(--lr-akzent, var(--accent)); background: var(--lr-bg, var(--surface)); color: inherit; padding: 0 14px; font: 700 22px/1.2 ui-monospace, "SF Mono", Menlo, monospace; }
 .lern-tasten { display: grid; grid-template-columns: repeat(auto-fit, minmax(44px, 1fr)); gap: 6px; margin-top: 8px; }
 .lern-taste { min-height: 44px; border-radius: 10px; border: 1px solid var(--lr-linie, var(--border)); background: var(--lr-flaeche, var(--surface)); color: inherit; font: 700 18px/1 ui-monospace, "SF Mono", Menlo, monospace; cursor: pointer; }
+
+/* W150: Eltern/Lehrer – Rückmeldungen, Themenplan, Zugänge, eigene Lernen-Seite */
+.lern-chip { min-height: 40px; padding: 0 14px; border-radius: 99px; border: 1px solid var(--border); background: var(--surface); color: inherit; font: inherit; font-weight: 600; cursor: pointer; }
+.lern-chip[aria-pressed="true"] { background: var(--accent, #1b2a41); color: #fff; border-color: transparent; }
+.lern-rm-arten { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 10px; }
+.lern-rm-form { display: grid; gap: 10px; }
+.lern-rm-form textarea, .lern-rm-form input, .lern-rm-form select { width: 100%; box-sizing: border-box; font: inherit; }
+.lern-anmerkung { margin-top: 18px; padding: 12px 14px; border: 1px dashed currentColor; border-radius: 14px; opacity: .92; }
+.lern-anmerkung summary { cursor: pointer; font-weight: 700; min-height: 32px; }
+.lern-anmerkung[open] summary { margin-bottom: 10px; }
+.lr .lern-anmerkung .lern-chip { background: var(--lr-flaeche); color: var(--lr-text); border-color: var(--lr-linie); }
+.lr .lern-anmerkung .lern-chip[aria-pressed="true"] { background: var(--lr-akzent); color: var(--lr-auf-akzent); }
+.lr .lern-anmerkung textarea { background: var(--lr-flaeche); color: var(--lr-text); border: 1px solid var(--lr-linie); border-radius: 10px; padding: 8px; }
+.lern-rm-text { white-space: pre-wrap; }
+.lern-rm-antwort { background: var(--ok-bg); color: var(--ok); padding: 8px 10px; border-radius: 10px; }
+.lern-rm-erledigt, .lern-rm-abgelehnt { opacity: .75; }
+.pill.ok { background: var(--ok-bg); border-color: transparent; color: var(--ok); }
+.lern-plan { list-style: none; padding: 0; margin: 0 0 12px; display: grid; gap: 8px; }
+.lern-plan-zeile { display: grid; grid-template-columns: 32px 1fr; gap: 10px; align-items: start; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 10px 12px; }
+.lern-plan-zeile.fertig { opacity: .7; }
+.lern-plan-nr { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: var(--surface-muted); font-weight: 700; }
+.lern-plan-text { display: grid; gap: 2px; min-width: 0; }
+.lern-plan-text small { overflow-wrap: anywhere; }
+.lern-plan-knoepfe { grid-column: 2; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.lern-plan-knoepfe .iconbtn { flex: 0 0 40px; width: 40px; height: 40px; font-size: 1.2rem; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); }
+.lern-plan-kann { display: inline-flex; align-items: center; gap: 4px; font-size: .9rem; }
+.lern-plan-weg { margin-left: auto; background: none; border: 0; color: var(--err); font: inherit; cursor: pointer; min-height: 40px; }
+.lern-plan-speichern { position: sticky; bottom: calc(12px + env(safe-area-inset-bottom)); background: var(--bg, #f6f4ec); padding: 8px 0; z-index: 2; }
+.lern-plan-auswahl { list-style: none; padding: 0; display: grid; gap: 6px; }
+.lern-plan-vorrat details { margin: 6px 0; }
+.lern-plan-vorrat summary { cursor: pointer; font-weight: 600; min-height: 32px; }
+.lern-code-box { margin-top: 10px; padding: 12px; border-radius: 12px; background: var(--info-bg); }
+.lern-code { font: 700 1.4rem/1.2 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .08em; user-select: all; }
+.lern-zugang.aus { opacity: .55; }
+.lern-login { margin-top: 24px; display: grid; gap: 12px; }
+.lern-login input { font: 600 1.2rem ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .06em; text-transform: uppercase; }
+.lern-seite .lern-abmelden { margin-left: auto; min-height: 40px; padding: 0 12px; border-radius: 10px; border: 1px solid var(--border); background: var(--surface); font: inherit; font-size: .9rem; cursor: pointer; }
+body.lern-seite { padding-bottom: 32px; }

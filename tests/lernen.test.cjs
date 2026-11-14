@@ -10,7 +10,7 @@ const root = path.resolve(__dirname, '..');
 before(async () => {
   server = http.createServer((req, res) => {
     const name = new URL(req.url, 'http://localhost').pathname;
-    const file = path.join(root, name === '/' ? 'index.html' : name);
+    const file = path.join(root, name.endsWith('/') ? name + 'index.html' : name);
     if (!file.startsWith(root + path.sep) || !fs.existsSync(file) || fs.statSync(file).isDirectory()) { res.writeHead(404); res.end(); return; }
     const types = { '.html': 'text/html', '.js': 'text/javascript', '.css': 'text/css', '.svg': 'image/svg+xml', '.png': 'image/png', '.webmanifest': 'application/manifest+json' };
     res.setHeader('Content-Type', types[path.extname(file)] || 'text/plain');
@@ -42,20 +42,41 @@ function bewerte(a, w) {
   return { format_ok: true, richtig: Number(String(w.wert).replace(/\s/g, '')) === a.loesung.wert };
 }
 
-async function setup(t) {
+async function setup(t, opt = {}) {
   const context = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: 'block' });
   t.after(() => context.close());
-  await context.addInitScript(() => { localStorage.setItem('ks_token', 'synthetic-test-session'); });
+  if (!opt.lernSeite) await context.addInitScript(() => { localStorage.setItem('ks_token', 'synthetic-test-session'); });
+  const appCalls = [];
   const page = await context.newPage(); page.setDefaultTimeout(5000);
   const errors = []; page.on('pageerror', (e) => errors.push(e.message)); t.after(() => assert.deepEqual(errors, []));
   await page.route('https://cdnjs.cloudflare.com/**', (r) => r.abort());
-  await page.route('**/functions/v1/app-api/**', (r) => r.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: {} }) }));
+  await page.route('**/functions/v1/app-api/**', (r) => appCalls.push(r.request().url()) && r.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: {} }) }));
   const calls = []; const stand = { test: null, antworten: {} };
+  const rolle = opt.rolle || 'eltern';
   await page.route('**/functions/v1/lernen-api/**', async (route) => {
-    const b = JSON.parse(route.request().postData() || '{}'); calls.push(b); const d = b.daten || {};
+    const b = JSON.parse(route.request().postData() || '{}'); const d = b.daten || {};
+    const pfad = new URL(route.request().url()).pathname;
+    if (pfad.endsWith('/anmelden')) {
+      calls.push({ anmelden: b.code });
+      const ok = b.code === 'ABCD-EFGH-JKLM';
+      await route.fulfill({ contentType: 'application/json', status: ok ? 200 : 400, body: JSON.stringify(ok ? { ok: true, ergebnis: { token: 't'.repeat(64), rolle, name: rolle === 'kind' ? 'Kind A' : 'Herr Lehrer', lernender_id: rolle === 'kind' ? 1 : null } } : { ok: false, fehler: 'Code unbekannt' }) });
+      return;
+    }
+    calls.push(b);
     let e;
+    if (b.aktion === 'schule_ich') e = { ok: true, rolle, name: rolle === 'kind' ? 'Kind A' : 'Herr Lehrer', lernender_id: rolle === 'kind' ? 1 : null, app: !opt.lernSeite };
+    if (b.aktion === 'schule_eltern' && rolle !== 'eltern') { await route.fulfill({ status: 400, contentType: 'application/json', body: JSON.stringify({ ok: false, fehler: 'Nur Eltern' }) }); return; }
+    if (b.aktion === 'schule_rueckmeldungen') e = { ok: true, rueckmeldungen: [{ id: 4, von: 'lehrer:Herr Lehrer', art: 'mehr_aufgaben', text: 'Mehr Aufgaben zum Runden.', status: 'erledigt', antwort: '6 neue Aufgaben ergänzt.', am: '2026-11-14T09:00:00Z', ort: 'Rom – Natürliche Zahlen' }] };
+    if (['schule_rueckmeldung_geben', 'schule_plan_setzen', 'schule_notiz_setzen'].includes(b.aktion)) e = { ok: true, id: 1 };
+    if (b.aktion === 'schule_plan_lesen') e = { ok: true, kind: { id: 1, name: 'Kind A', klasse: 5 }, revision: 1,
+      plan: [{ route_id: 1, block_id: 49, position: 1, art: 'normal', status: 'offen', kann_schon: false }, { route_id: 2, block_id: 52, position: 2, art: 'normal', status: 'offen', kann_schon: false }],
+      orte: [{ block_id: 49, titel: 'Natürliche Zahlen', stadt: 'Rom', kontinent: 'Zahlen', ziel_klasse: 5, einheiten: [{ id: 1, status: 'geprueft', titel: 'Große Zahlen', pflicht: 4, fertig: 2, fehler: 1 }] },
+        { block_id: 48, titel: 'Teilbarkeit', stadt: 'Athen', kontinent: 'Zahlen', ziel_klasse: 5, einheiten: [] },
+        { block_id: 52, titel: 'Zinsen', stadt: 'New York', kontinent: 'Geld', ziel_klasse: 7, einheiten: [{ id: 2, status: 'geprueft', titel: 'Zinsen', pflicht: 6, fertig: 0, fehler: 0 }] }],
+      notizen: [], verlauf: [] };
     const geo = (ort, stadt, land, lat, lon, kontinent, kt, erdteil) => ({ ort, stadt, land, lat, lon, kontinent, kontinent_titel: kt, erdteil });
-    if (b.aktion === 'schule_uebersicht') e = { ok: true, leitung: true, einheiten: [
+    if (e) { /* oben beantwortet */ }
+    else if (b.aktion === 'schule_uebersicht') e = { ok: true, leitung: true, einheiten: [
       { id: 1, status: 'geprueft', block_id: 49, ...geo('z1', 'Rom', 'Italien', 41.9, 12.5), kontinent: 'Zahlen', erdteil: 'Europa', ort_titel: 'Natürliche und ganze Zahlen', titel: 'Natürliche Zahlen', ziel: 'Große Zahlen lesen.', pflicht_anzahl: 4, ziel_klasse: 5 },
       { id: 2, status: 'geprueft', block_id: 52, ...geo('g4', 'New York', 'USA', 40.71, -74.01), kontinent: 'Geld und Verhältnisse', erdteil: 'Nordamerika', ort_titel: 'Zinsen', titel: 'Einfache Zinsen', ziel: 'Zinsen berechnen.', pflicht_anzahl: 6, ziel_klasse: 7 },
       { id: 3, status: 'entwurf', block_id: 60, ...geo('a3', 'Samarkand', 'Usbekistan', 39.65, 66.96), kontinent: 'Algebra', erdteil: 'Asien', ort_titel: 'Terme', titel: 'Terme umformen', ziel: 'Terme umformen.', pflicht_anzahl: 8, ziel_klasse: 7 }],
@@ -89,7 +110,7 @@ async function setup(t) {
     }
     await route.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: e }) });
   });
-  return { page, calls };
+  return { page, calls, appCalls };
 }
 
 test('Lernen: Eltern sehen Kinder, Belohnungen und offene Wünsche', async (t) => {
@@ -237,4 +258,74 @@ test('Lernen: Test ohne Lösungen bis zur Abgabe, danach Auswertung', async (t) 
   await page.getByText('Richtig: ', { exact: false }).first().waitFor();
   assert.deepEqual(calls.filter((c) => c.aktion === 'schule_test_antwort').map((c) => c.daten.antwort), [{ index: 1 }, { index: 2 }]);
   assert.equal(calls.filter((c) => c.aktion === 'schule_test_abschliessen').length, 1);
+});
+
+test('Lernen-Seite: Lehrer meldet sich mit Code an, ordnet den Themenplan und schreibt Rückmeldungen', async (t) => {
+  const { page, calls, appCalls } = await setup(t, { lernSeite: true, rolle: 'lehrer' });
+  await page.goto(origin + '/lernen/');
+  await page.getByLabel('Lern-Code').fill('falsch');
+  await page.getByRole('button', { name: 'Anmelden' }).click();
+  await page.getByText('Code unbekannt').waitFor();
+  await page.getByLabel('Lern-Code').fill('ABCD-EFGH-JKLM');
+  await page.getByRole('button', { name: 'Anmelden' }).click();
+  await page.getByText('Themenplan Kind A').waitFor();
+  assert.equal(await page.getByText('Zugänge', { exact: true }).count(), 0, 'Lehrer verwaltet keine Zugänge');
+  assert.equal(await page.getByRole('heading', { name: 'Mathe Klasse 7/8' }).count(), 0);
+  await page.getByText('Themenplan Kind A').click();
+  await page.locator('.lern-plan-zeile').first().waitFor();
+  await page.getByRole('button', { name: 'New York – Zinsen nach oben' }).click();
+  await page.locator('summary', { hasText: 'Zahlen' }).click();
+  await page.getByRole('button', { name: '+ Athen – Teilbarkeit' }).click();
+  await page.locator('.lern-plan-zeile').nth(2).getByLabel('kann es schon').check();
+  await page.getByRole('button', { name: 'Plan speichern' }).click();
+  await page.getByText('Gespeichert.').waitFor();
+  assert.deepEqual(calls.find((c) => c.aktion === 'schule_plan_setzen').daten,
+    { lernender_id: 1, revision: 1, eintraege: [{ block_id: 52, kann_schon: false }, { block_id: 49, kann_schon: false }, { block_id: 48, kann_schon: true }] });
+  await page.goto(origin + '/lernen/#/rueckmeldungen');
+  await page.getByText('6 neue Aufgaben ergänzt.').waitFor();
+  await page.locator('.lern-rm-form').first().getByRole('button', { name: 'Thema fehlt' }).click();
+  await page.locator('.lern-rm-form').first().getByLabel('Deine Anmerkung').fill('Prozentrechnung fehlt für Klasse 7.');
+  await page.locator('.lern-rm-form').first().getByRole('button', { name: 'Senden' }).click();
+  await page.getByText('Danke – ist bei der Entwicklung angekommen.').waitFor();
+  assert.deepEqual(calls.find((c) => c.aktion === 'schule_rueckmeldung_geben').daten, { art: 'thema_fehlt', text: 'Prozentrechnung fehlt für Klasse 7.' });
+  assert.deepEqual(appCalls, [], 'Die Lernen-Seite ruft die Hauptapp-Schnittstelle nie auf');
+});
+
+test('Lernen-Seite: Anmerkung direkt an einer Aufgabe, Kind-Code nur Lernreise', async (t) => {
+  const { page, calls } = await setup(t, { lernSeite: true, rolle: 'lehrer' });
+  await page.addInitScript(() => localStorage.setItem('lern_token', 't'.repeat(64)));
+  await page.goto(origin + '/lernen/#/lerneinheit/3-1-1');
+  await page.getByRole('button', { name: 'Jetzt du' }).click();
+  await page.getByText('✎ Anmerkung zu dieser Aufgabe').click();
+  await page.getByRole('button', { name: 'Schwieriger' }).click();
+  await page.getByLabel('Deine Anmerkung').fill('Zu leicht für Klasse 5.');
+  await page.getByRole('button', { name: 'Senden' }).click();
+  await page.getByText('Danke – ist bei der Entwicklung angekommen.').waitFor();
+  assert.deepEqual(calls.find((c) => c.aktion === 'schule_rueckmeldung_geben').daten,
+    { einheit_id: 1, lernziel: 'stellenwert', aufgabe_id: 11, lernender_id: 3, art: 'schwieriger', text: 'Zu leicht für Klasse 5.' });
+});
+
+test('Lernen-Seite: Kind-Code landet in der eigenen Lernreise, Eltern-Ansichten gesperrt', async (t) => {
+  const { page } = await setup(t, { lernSeite: true, rolle: 'kind' });
+  await page.goto(origin + '/lernen/');
+  await page.getByLabel('Lern-Code').fill('abcd efgh jklm'.toUpperCase().replace(/ /g, '-'));
+  await page.getByRole('button', { name: 'Anmelden' }).click();
+  await page.waitForURL(/#\/reise\/1$/);
+  await page.goto(origin + '/lernen/#/plan/1');
+  await page.waitForURL(/#\/reise\/1$/);
+  assert.equal(await page.locator('#btn-back').isHidden(), true);
+});
+
+test('Lernreise mit Themenplan: nur Orte aus dem Plan sind dran', async (t) => {
+  const { page } = await setup(t);
+  // Plan-Logik direkt prüfen (lernReiseDaten)
+  await page.goto(origin + '/#/lernen');
+  await page.getByText('Themenplan Kind A').waitFor();
+  const gruppen = await page.evaluate(() => {
+    const u = { einheiten: [{ id: 1, block_id: 49, pflicht_anzahl: 4, ziel_klasse: 5 }, { id: 2, block_id: 52, pflicht_anzahl: 6, ziel_klasse: 7 }, { id: 4, block_id: 48, pflicht_anzahl: 6, ziel_klasse: 5 }],
+      orte: [], lernende: [{ id: 1, klasse: 5, route: [{ block_id: 52, position: 1, art: 'normal', status: 'offen' }, { block_id: 49, position: 2, art: 'normal', status: 'offen', kann_schon: true }, { block_id: 48, position: 3, art: 'normal', status: 'entfernt' }], stand: [] }] };
+    const d = lernReiseDaten(u, 1);
+    return { jetzt: d.jetzt.map((e) => e.id), kann: d.kann.map((e) => e.id), spaeter: d.spaeter.map((e) => e.id), naechste: d.naechste.id };
+  });
+  assert.deepEqual(gruppen, { jetzt: [2], kann: [1], spaeter: [4], naechste: 2 });
 });

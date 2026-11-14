@@ -1,0 +1,3574 @@
+{
+ "thema_schluessel": "terme.aufstellen",
+ "thema_id": 28,
+ "block_id": 63,
+ "klasse": {
+  "gym_by": 7,
+  "rs_by": 6
+ },
+ "autor": "Claude (Paket Klasse 7)",
+ "inhalt": {
+  "ziel": "Terme aus Texten, Sachsituationen und Mustern aufstellen, Termwerte berechnen, die Termart erkennen und Terme im Sachzusammenhang deuten.",
+  "merke": [
+   "Termart = zuletzt ausgeführte Rechnung.",
+   "Was zuerst gerechnet wird, kommt in Klammern.",
+   "Pro Stück/Stunde/Figur → vor das x (bzw. n); fester Betrag → addieren."
+  ],
+  "abschnitte": [
+   {
+    "titel": "Terme lesen",
+    "lernziele": [
+     "struktur",
+     "termwert"
+    ]
+   },
+   {
+    "titel": "Terme aufstellen",
+    "lernziele": [
+     "uebersetzen",
+     "sachsituation",
+     "muster"
+    ]
+   },
+   {
+    "titel": "Terme deuten",
+    "lernziele": [
+     "deuten"
+    ]
+   }
+  ],
+  "etappen": [
+   {
+    "lernziel": "struktur",
+    "titel": "Termart bestimmen",
+    "regel": "Die ⟦Termart⟧ richtet sich nach der Rechenart, die man ⟦zuletzt⟧ ausführt: Summe (+), Differenz (−), Produkt (·) oder Quotient (:). Klammern werden zuerst gerechnet.",
+    "schritte": [
+     "Term: 5 · (x + 2)",
+     "Zuerst die Klammer x + 2, zuletzt mal 5.",
+     "Der Term ist ein ⟦Produkt⟧."
+    ],
+    "fehler": "3x + 4 ist kein Produkt, obwohl „3x“ ein Mal enthält: Zuletzt wird ⟦addiert⟧ (Punkt vor Strich). Es ist eine Summe."
+   },
+   {
+    "lernziel": "termwert",
+    "titel": "Termwerte berechnen",
+    "regel": "Für die Variable wird eine Zahl ⟦eingesetzt⟧. Negative Zahlen kommen in ⟦Klammern⟧. Dann gilt: Klammer vor Potenz vor Punkt vor Strich.",
+    "schritte": [
+     "T(x) = 2x² − 3x für x = −2",
+     "2 · (−2)² − 3 · (−2) = 2 · 4 + 6",
+     "= ⟦14⟧"
+    ],
+    "fehler": "Für x = −2 ist 2x² nicht 2 · (−4): Es wird ⟦erst quadriert⟧, (−2)² = 4, dann mal 2. Also 8."
+   },
+   {
+    "lernziel": "uebersetzen",
+    "titel": "Wortterme in Terme übersetzen",
+    "regel": "Übersetze Wort für Wort: ⟦Summe⟧ +, ⟦Differenz⟧ −, ⟦Produkt⟧ ·, ⟦Quotient⟧ :, ⟦das Dreifache⟧ 3 ·, ⟦vermehrt um⟧ +, ⟦vermindert um⟧ −. Was zuerst gerechnet werden soll, kommt in ⟦Klammern⟧.",
+    "schritte": [
+     "„Das Doppelte der Summe aus x und 5“",
+     "Summe aus x und 5: (x + 5)",
+     "Das Doppelte davon: ⟦2(x + 5)⟧"
+    ],
+    "fehler": "„Das Doppelte der Summe aus x und 5“ ist nicht 2x + 5. Dort wird nur x verdoppelt. Gemeint ist die ganze ⟦Summe⟧: 2(x + 5) = 2x + 10."
+   },
+   {
+    "lernziel": "sachsituation",
+    "titel": "Terme zu Sachsituationen",
+    "regel": "Lege fest, wofür die ⟦Variable⟧ steht (z. B. x = Anzahl der Stunden). Feste Beträge werden ⟦addiert⟧, Beträge „pro Stück“ werden ⟦mit x multipliziert⟧.",
+    "schritte": [
+     "Ein Fahrradverleih: 5 € Grundgebühr, 3 € pro Stunde.",
+     "x = Anzahl der Stunden",
+     "Kosten: ⟦3x + 5⟧ (in €)"
+    ],
+    "fehler": "Der Term 5x + 3 vertauscht die Rollen: Dann würde die ⟦Grundgebühr pro Stunde⟧ anfallen. Was pro Stunde anfällt, steht vor dem x."
+   },
+   {
+    "lernziel": "muster",
+    "titel": "Figurenfolgen mit Termen beschreiben",
+    "regel": "Bei einer ⟦Figurenfolge⟧ suchst du, ⟦wie viel pro Schritt dazukommt⟧. Kommen pro Figur 3 dazu, steht im Term 3 · n. Dann passt du die Zahl an, sodass Figur 1 stimmt.",
+    "schritte": [
+     "Hölzer: Figur 1: 4, Figur 2: 7, Figur 3: 10",
+     "Pro Figur +3: Term 3n + □. Für n = 1: 3 + □ = 4 → □ = 1",
+     "⟦3n + 1⟧; Figur 10: 31 Hölzer"
+    ],
+    "probe": "n = 2: 3 · 2 + 1 = 7 ✓",
+    "fehler": "Der Term n + 3 passt nicht zu 4, 7, 10: Für n = 2 ergibt er 5. Die ⟦Zunahme pro Schritt⟧ (3) gehört vor das n.",
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "_a0": [
+       0,
+       0
+      ],
+      "_a1": [
+       1,
+       0
+      ],
+      "_a2": [
+       2,
+       0
+      ],
+      "_a3": [
+       3,
+       0
+      ],
+      "_b0": [
+       0,
+       1
+      ],
+      "_b1": [
+       1,
+       1
+      ],
+      "_b2": [
+       2,
+       1
+      ],
+      "_b3": [
+       3,
+       1
+      ]
+     },
+     "linien": [
+      [
+       "_a0",
+       "_a1"
+      ],
+      [
+       "_a1",
+       "_a2"
+      ],
+      [
+       "_a2",
+       "_a3"
+      ],
+      [
+       "_b0",
+       "_b1"
+      ],
+      [
+       "_b1",
+       "_b2"
+      ],
+      [
+       "_b2",
+       "_b3"
+      ],
+      [
+       "_a0",
+       "_b0"
+      ],
+      [
+       "_a1",
+       "_b1"
+      ],
+      [
+       "_a2",
+       "_b2"
+      ],
+      [
+       "_a3",
+       "_b3",
+       "Figur 3: 10 Hölzer"
+      ]
+     ]
+    }
+   },
+   {
+    "lernziel": "deuten",
+    "titel": "Terme deuten und prüfen",
+    "regel": "Einen Term ⟦deuten⟧ heißt: sagen, was jede Zahl und jede Variable in der Situation bedeutet. Passt eine Deutung nicht zu allen Teilen, ist sie ⟦falsch⟧.",
+    "schritte": [
+     "Handytarif: K = 0,1x + 8 (x = Minuten, K in €)",
+     "8: feste Grundgebühr; 0,1: Preis pro Minute",
+     "Für 50 Minuten: K = ⟦13 €⟧"
+    ],
+    "fehler": "In K = 0,1x + 8 ist 8 nicht der Preis pro Minute. Was pro Minute zählt, steht ⟦vor dem x⟧."
+   }
+  ],
+  "teilfaehigkeiten": [
+   {
+    "k": "struktur",
+    "text": "Termart bestimmen",
+    "lernziele": [
+     "struktur"
+    ]
+   },
+   {
+    "k": "termwert",
+    "text": "Termwerte berechnen",
+    "lernziele": [
+     "termwert"
+    ]
+   },
+   {
+    "k": "uebersetzen",
+    "text": "Wortterme in Terme übersetzen",
+    "lernziele": [
+     "uebersetzen"
+    ]
+   },
+   {
+    "k": "sachsituation",
+    "text": "Terme zu Sachsituationen",
+    "lernziele": [
+     "sachsituation"
+    ]
+   },
+   {
+    "k": "muster",
+    "text": "Figurenfolgen mit Termen beschreiben",
+    "lernziele": [
+     "muster"
+    ]
+   },
+   {
+    "k": "deuten",
+    "text": "Terme deuten und prüfen",
+    "lernziele": [
+     "deuten"
+    ]
+   }
+  ],
+  "bewertung": {
+   "lernziele_pflicht": [
+    "struktur",
+    "termwert",
+    "uebersetzen",
+    "sachsituation",
+    "muster",
+    "deuten"
+   ],
+   "lernziele_vertiefung": [],
+   "testaufgaben_je_lernziel": 1
+  },
+  "quellen": {
+   "erklaerungen": "Eigene Fassung (Claude).",
+   "begriffe": "Fachbegriffe nach LehrplanPLUS Bayern (Gymnasium)."
+  }
+ },
+ "aufgaben": [
+  {
+   "l": "struktur",
+   "t": "struktur",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Termart hat der Term 7x + 2?"
+   },
+   "a": [
+    "Quotient",
+    "Differenz",
+    "Produkt",
+    "Summe"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Rechenreihenfolge: Klammern, dann Punkt vor Strich. Zuletzt wird addiert – also eine Summe.",
+   "h": "Welche Rechnung würdest du ganz zum Schluss ausführen?"
+  },
+  {
+   "l": "struktur",
+   "t": "struktur",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Termart hat der Term 9 · (y + 7)?"
+   },
+   "a": [
+    "Summe",
+    "Quotient",
+    "Differenz",
+    "Produkt"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Rechenreihenfolge: Klammern, dann Punkt vor Strich. Zuletzt wird multipliziert – also ein Produkt.",
+   "h": "Welche Rechnung würdest du ganz zum Schluss ausführen?"
+  },
+  {
+   "l": "struktur",
+   "t": "struktur",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Termart hat der Term (a + 1) : 4?"
+   },
+   "a": [
+    "Produkt",
+    "Differenz",
+    "Quotient",
+    "Summe"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Rechenreihenfolge: Klammern, dann Punkt vor Strich. Zuletzt wird dividiert – also ein Quotient.",
+   "h": "Welche Rechnung würdest du ganz zum Schluss ausführen?"
+  },
+  {
+   "l": "struktur",
+   "t": "struktur",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Termart hat der Term (y + 4) : 8?"
+   },
+   "a": [
+    "Produkt",
+    "Summe",
+    "Differenz",
+    "Quotient"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Rechenreihenfolge: Klammern, dann Punkt vor Strich. Zuletzt wird dividiert – also ein Quotient.",
+   "h": "Welche Rechnung würdest du ganz zum Schluss ausführen?"
+  },
+  {
+   "l": "struktur",
+   "t": "struktur",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Termart hat der Term 9y : (1 + 6)?"
+   },
+   "a": [
+    "Summe",
+    "Differenz",
+    "Produkt",
+    "Quotient"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Rechenreihenfolge: Klammern, dann Punkt vor Strich. Zuletzt wird dividiert – also ein Quotient.",
+   "h": "Welche Rechnung würdest du ganz zum Schluss ausführen?"
+  },
+  {
+   "l": "struktur",
+   "t": "struktur",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Termart hat der Term (y + 6) − 2y?"
+   },
+   "a": [
+    "Quotient",
+    "Summe",
+    "Differenz",
+    "Produkt"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Rechenreihenfolge: Klammern, dann Punkt vor Strich. Zuletzt wird subtrahiert – also eine Differenz.",
+   "h": "Welche Rechnung würdest du ganz zum Schluss ausführen?"
+  },
+  {
+   "l": "struktur",
+   "t": "struktur",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Termart hat der Term 5y : (2 + 3)?"
+   },
+   "a": [
+    "Differenz",
+    "Summe",
+    "Produkt",
+    "Quotient"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Rechenreihenfolge: Klammern, dann Punkt vor Strich. Zuletzt wird dividiert – also ein Quotient.",
+   "h": "Welche Rechnung würdest du ganz zum Schluss ausführen?"
+  },
+  {
+   "l": "struktur",
+   "t": "struktur",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Termart hat der Term 4 · x + 7 · 9?"
+   },
+   "a": [
+    "Differenz",
+    "Produkt",
+    "Quotient",
+    "Summe"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Rechenreihenfolge: Klammern, dann Punkt vor Strich. Zuletzt wird addiert – also eine Summe.",
+   "h": "Welche Rechnung würdest du ganz zum Schluss ausführen?"
+  },
+  {
+   "l": "struktur",
+   "t": "struktur",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Termart hat der Term (a + 8) − 8a?"
+   },
+   "a": [
+    "Produkt",
+    "Differenz",
+    "Quotient",
+    "Summe"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Rechenreihenfolge: Klammern, dann Punkt vor Strich. Zuletzt wird subtrahiert – also eine Differenz.",
+   "h": "Welche Rechnung würdest du ganz zum Schluss ausführen?"
+  },
+  {
+   "l": "struktur",
+   "t": "struktur",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Termart hat der Term 2 · x + 9 · 9?"
+   },
+   "a": [
+    "Differenz",
+    "Produkt",
+    "Quotient",
+    "Summe"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Rechenreihenfolge: Klammern, dann Punkt vor Strich. Zuletzt wird addiert – also eine Summe.",
+   "h": "Welche Rechnung würdest du ganz zum Schluss ausführen?"
+  },
+  {
+   "l": "struktur",
+   "t": "struktur",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Termart hat der Term 3 · (7a − 2)?"
+   },
+   "a": [
+    "Quotient",
+    "Summe",
+    "Differenz",
+    "Produkt"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Rechenreihenfolge: Klammern, dann Punkt vor Strich. Zuletzt wird multipliziert – also ein Produkt.",
+   "h": "Welche Rechnung würdest du ganz zum Schluss ausführen?"
+  },
+  {
+   "l": "struktur",
+   "t": "struktur",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Termart hat der Term a² − 9 · 4?"
+   },
+   "a": [
+    "Differenz",
+    "Quotient",
+    "Produkt",
+    "Summe"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Rechenreihenfolge: Klammern, dann Punkt vor Strich. Zuletzt wird subtrahiert – also eine Differenz.",
+   "h": "Welche Rechnung würdest du ganz zum Schluss ausführen?"
+  },
+  {
+   "l": "struktur",
+   "t": "struktur",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Termart hat der Term (a² + 9) : (a − 5)?"
+   },
+   "a": [
+    "Summe",
+    "Quotient",
+    "Differenz",
+    "Produkt"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Rechenreihenfolge: Klammern, dann Punkt vor Strich. Zuletzt wird dividiert – also ein Quotient.",
+   "h": "Welche Rechnung würdest du ganz zum Schluss ausführen?"
+  },
+  {
+   "l": "struktur",
+   "t": "struktur",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Termart hat der Term 3 · (y − 9) + 2?"
+   },
+   "a": [
+    "Differenz",
+    "Summe",
+    "Quotient",
+    "Produkt"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Rechenreihenfolge: Klammern, dann Punkt vor Strich. Zuletzt wird addiert – also eine Summe.",
+   "h": "Welche Rechnung würdest du ganz zum Schluss ausführen?"
+  },
+  {
+   "l": "struktur",
+   "t": "struktur",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Termart hat der Term 2 · y + 1 · 7?"
+   },
+   "a": [
+    "Produkt",
+    "Quotient",
+    "Differenz",
+    "Summe"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Rechenreihenfolge: Klammern, dann Punkt vor Strich. Zuletzt wird addiert – also eine Summe."
+  },
+  {
+   "l": "struktur",
+   "t": "struktur",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Termart hat der Term (y − 5) · (y + 9)?"
+   },
+   "a": [
+    "Produkt",
+    "Quotient",
+    "Differenz",
+    "Summe"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Rechenreihenfolge: Klammern, dann Punkt vor Strich. Zuletzt wird multipliziert – also ein Produkt."
+  },
+  {
+   "l": "struktur",
+   "t": "struktur",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Termart hat der Term (a + 4) − 4a?"
+   },
+   "a": [
+    "Differenz",
+    "Summe",
+    "Produkt",
+    "Quotient"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Rechenreihenfolge: Klammern, dann Punkt vor Strich. Zuletzt wird subtrahiert – also eine Differenz."
+  },
+  {
+   "l": "struktur",
+   "t": "struktur",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Termart hat der Term (a − 7) · (a + 6)?"
+   },
+   "a": [
+    "Differenz",
+    "Produkt",
+    "Summe",
+    "Quotient"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Rechenreihenfolge: Klammern, dann Punkt vor Strich. Zuletzt wird multipliziert – also ein Produkt."
+  },
+  {
+   "l": "struktur",
+   "t": "struktur",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Termart hat der Term 3 · x + 5 · 4?"
+   },
+   "a": [
+    "Quotient",
+    "Summe",
+    "Produkt",
+    "Differenz"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Rechenreihenfolge: Klammern, dann Punkt vor Strich. Zuletzt wird addiert – also eine Summe."
+  },
+  {
+   "l": "struktur",
+   "t": "struktur",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Termart hat der Term 3a : (2 + 7)?"
+   },
+   "a": [
+    "Produkt",
+    "Summe",
+    "Differenz",
+    "Quotient"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Rechenreihenfolge: Klammern, dann Punkt vor Strich. Zuletzt wird dividiert – also ein Quotient."
+  },
+  {
+   "l": "struktur",
+   "t": "struktur",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Termart hat der Term (y − 7) · (y + 2)?"
+   },
+   "a": [
+    "Quotient",
+    "Produkt",
+    "Differenz",
+    "Summe"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Rechenreihenfolge: Klammern, dann Punkt vor Strich. Zuletzt wird multipliziert – also ein Produkt."
+  },
+  {
+   "l": "struktur",
+   "t": "struktur",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Termart hat der Term 4 · y + 7 · 3?"
+   },
+   "a": [
+    "Differenz",
+    "Summe",
+    "Quotient",
+    "Produkt"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Rechenreihenfolge: Klammern, dann Punkt vor Strich. Zuletzt wird addiert – also eine Summe."
+  },
+  {
+   "l": "struktur",
+   "t": "struktur",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Termart hat der Term (y − 9) · (y + 4)?"
+   },
+   "a": [
+    "Quotient",
+    "Summe",
+    "Produkt",
+    "Differenz"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Rechenreihenfolge: Klammern, dann Punkt vor Strich. Zuletzt wird multipliziert – also ein Produkt."
+  },
+  {
+   "l": "struktur",
+   "t": "struktur",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Termart hat der Term 5a : (4 + 6)?"
+   },
+   "a": [
+    "Summe",
+    "Quotient",
+    "Differenz",
+    "Produkt"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Rechenreihenfolge: Klammern, dann Punkt vor Strich. Zuletzt wird dividiert – also ein Quotient."
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Wert von 4x − 2 für x = −2."
+   },
+   "o": {
+    "wert": -10
+   },
+   "c": "(4) * (-2) + (-2)",
+   "w": "x = −2 einsetzen: 4 · (−2) − 2 = −10.",
+   "h": "Setze die Zahl für x ein. Negative Zahlen in Klammern."
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Wert von −4x − 7 für x = −4."
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "(-4) * (-4) + (-7)",
+   "w": "x = −4 einsetzen: −4 · (−4) − 7 = 9.",
+   "h": "Setze die Zahl für x ein. Negative Zahlen in Klammern."
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Wert von 3x − 2 für x = 7."
+   },
+   "o": {
+    "wert": 19
+   },
+   "c": "(3) * (7) + (-2)",
+   "w": "x = 7 einsetzen: 3 · 7 − 2 = 19.",
+   "h": "Setze die Zahl für x ein. Negative Zahlen in Klammern."
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Wert von −6x für x = −6."
+   },
+   "o": {
+    "wert": 36
+   },
+   "c": "(-6) * (-6) + (0)",
+   "w": "x = −6 einsetzen: −6 · (−6) = 36.",
+   "h": "Setze die Zahl für x ein. Negative Zahlen in Klammern."
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Wert von 3x² + x + 6 für x = −1."
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "(3) * (-1) ** 2 + (1) * (-1) + (6)",
+   "w": "x = −1 einsetzen: 3 · (−1)² + (−1) + 6 = 8.",
+   "h": "Erst quadrieren, dann multiplizieren, dann addieren."
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Wert von 2x² − 5x − 8 für x = −4."
+   },
+   "o": {
+    "wert": 44
+   },
+   "c": "(2) * (-4) ** 2 + (-5) * (-4) + (-8)",
+   "w": "x = −4 einsetzen: 2 · (−4)² − 5 · (−4) − 8 = 44.",
+   "h": "Erst quadrieren, dann multiplizieren, dann addieren."
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Wert von −x² + 6x − 8 für x = −3."
+   },
+   "o": {
+    "wert": -35
+   },
+   "c": "(-1) * (-3) ** 2 + (6) * (-3) + (-8)",
+   "w": "x = −3 einsetzen: −(−3)² + 6 · (−3) − 8 = −35.",
+   "h": "Erst quadrieren, dann multiplizieren, dann addieren."
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Wert von x² − 3x − 6 für x = −1."
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "(1) * (-1) ** 2 + (-3) * (-1) + (-6)",
+   "w": "x = −1 einsetzen: (−1)² − 3 · (−1) − 6 = −2.",
+   "h": "Erst quadrieren, dann multiplizieren, dann addieren."
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Wert von −x² − 5x − 3 für x = 3."
+   },
+   "o": {
+    "wert": -27
+   },
+   "c": "(-1) * (3) ** 2 + (-5) * (3) + (-3)",
+   "w": "x = 3 einsetzen: −(3)² − 5 · 3 − 3 = −27.",
+   "h": "Erst quadrieren, dann multiplizieren, dann addieren."
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Wert von 3x² + x − 6 für x = −4."
+   },
+   "o": {
+    "wert": 38
+   },
+   "c": "(3) * (-4) ** 2 + (1) * (-4) + (-6)",
+   "w": "x = −4 einsetzen: 3 · (−4)² + (−4) − 6 = 38.",
+   "h": "Erst quadrieren, dann multiplizieren, dann addieren."
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Wert von −a − 4b für a = 2 und b = 3."
+   },
+   "o": {
+    "wert": -14
+   },
+   "c": "(-1) * (2) - (4) * (3)",
+   "w": "Einsetzen: −1 · 2 − 4 · 3 = −14.",
+   "h": "Setze für a und b jeweils die Zahl ein."
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Wert von 3a + 1b für a = 4 und b = 1."
+   },
+   "o": {
+    "wert": 13
+   },
+   "c": "(3) * (4) - (-1) * (1)",
+   "w": "Einsetzen: 3 · 4 + 1 · 1 = 13.",
+   "h": "Setze für a und b jeweils die Zahl ein."
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Wert von −5a − 2b für a = 1 und b = 1."
+   },
+   "o": {
+    "wert": -7
+   },
+   "c": "(-5) * (1) - (2) * (1)",
+   "w": "Einsetzen: −5 · 1 − 2 · 1 = −7.",
+   "h": "Setze für a und b jeweils die Zahl ein."
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Wert von (a · b) : (a + b) für a = 8 und b = −4."
+   },
+   "o": {
+    "wert": -8
+   },
+   "c": "(8) * (-4) / ((8) + (-4))",
+   "w": "Zähler: 8 · (−4) = −32. Nenner: 8 + (−4) = 4. −32 : 4 = −8.",
+   "h": "Rechne Zähler und Nenner getrennt aus."
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Wert von x² − 5x + 3 für x = −1."
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "(1) * (-1) ** 2 + (-5) * (-1) + (3)",
+   "w": "x = −1 einsetzen: (−1)² − 5 · (−1) + 3 = 9."
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Wert von 2x² − 4x − 2 für x = −4."
+   },
+   "o": {
+    "wert": 46
+   },
+   "c": "(2) * (-4) ** 2 + (-4) * (-4) + (-2)",
+   "w": "x = −4 einsetzen: 2 · (−4)² − 4 · (−4) − 2 = 46."
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Wert von x² − 2x − 3 für x = −4."
+   },
+   "o": {
+    "wert": 21
+   },
+   "c": "(1) * (-4) ** 2 + (-2) * (-4) + (-3)",
+   "w": "x = −4 einsetzen: (−4)² − 2 · (−4) − 3 = 21."
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Wert von 3x² − 6x − 1 für x = −5."
+   },
+   "o": {
+    "wert": 104
+   },
+   "c": "(3) * (-5) ** 2 + (-6) * (-5) + (-1)",
+   "w": "x = −5 einsetzen: 3 · (−5)² − 6 · (−5) − 1 = 104."
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Wert von 3x² − 5x − 1 für x = 2."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(3) * (2) ** 2 + (-5) * (2) + (-1)",
+   "w": "x = 2 einsetzen: 3 · 2² − 5 · 2 − 1 = 1."
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Wert von −2x² − 2x + 1 für x = 0."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(-2) * (0) ** 2 + (-2) * (0) + (1)",
+   "w": "x = 0 einsetzen: −2 · 0² − 2 · 0 + 1 = 1."
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Wert von 3x² − 5x + 1 für x = 4."
+   },
+   "o": {
+    "wert": 29
+   },
+   "c": "(3) * (4) ** 2 + (-5) * (4) + (1)",
+   "w": "x = 4 einsetzen: 3 · 4² − 5 · 4 + 1 = 29."
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Wert von −2x² + 4x + 3 für x = 3."
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "(-2) * (3) ** 2 + (4) * (3) + (3)",
+   "w": "x = 3 einsetzen: −2 · 3² + 4 · 3 + 3 = −3."
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Wert von −x² + 7 für x = 1."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "(-1) * (1) ** 2 + (0) * (1) + (7)",
+   "w": "x = 1 einsetzen: −(1)² + 7 = 6."
+  },
+  {
+   "l": "termwert",
+   "t": "termwert",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Wert von −2x² + x − 4 für x = 0."
+   },
+   "o": {
+    "wert": -4
+   },
+   "c": "(-2) * (0) ** 2 + (1) * (0) + (-4)",
+   "w": "x = 0 einsetzen: −2 · 0² + 0 − 4 = −4."
+  },
+  {
+   "l": "uebersetzen",
+   "t": "uebersetzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe als Term: die Summe aus dem Sechsfachen von x und 7.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     6,
+     7
+    ]
+   },
+   "c": [
+    "6",
+    "7"
+   ],
+   "w": "Die Summe aus dem Sechsfachen von x und 7: 6x + 7.",
+   "h": "Übersetze Wort für Wort."
+  },
+  {
+   "l": "uebersetzen",
+   "t": "uebersetzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe als Term: die Summe aus dem Fünffachen von x und 9.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     5,
+     9
+    ]
+   },
+   "c": [
+    "5",
+    "9"
+   ],
+   "w": "Die Summe aus dem Fünffachen von x und 9: 5x + 9.",
+   "h": "Übersetze Wort für Wort."
+  },
+  {
+   "l": "uebersetzen",
+   "t": "uebersetzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe als Term: die Summe aus dem Doppelten von x und 11.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     2,
+     11
+    ]
+   },
+   "c": [
+    "2",
+    "11"
+   ],
+   "w": "Die Summe aus dem Doppelten von x und 11: 2x + 11.",
+   "h": "Übersetze Wort für Wort."
+  },
+  {
+   "l": "uebersetzen",
+   "t": "uebersetzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe als Term: das Sechsfache von x, vermindert um 1.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     6,
+     -1
+    ]
+   },
+   "c": [
+    "6",
+    "-1"
+   ],
+   "w": "Das Sechsfache von x, vermindert um 1: 6x − 1.",
+   "h": "Übersetze Wort für Wort."
+  },
+  {
+   "l": "uebersetzen",
+   "t": "uebersetzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe als Term: die Differenz aus 5 und dem Vierfachen von x.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     -4,
+     5
+    ]
+   },
+   "c": [
+    "-4",
+    "5"
+   ],
+   "w": "Differenz aus 5 und 4x: 5 − 4x.",
+   "h": "Bei „Differenz aus A und B“ steht A vorne: A − B."
+  },
+  {
+   "l": "uebersetzen",
+   "t": "uebersetzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe als Term: das Vierfache der Summe aus x und 9.",
+    "schablone": "□(□x + □)",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     4,
+     1,
+     9
+    ]
+   },
+   "c": [
+    "4",
+    "1",
+    "9"
+   ],
+   "w": "Summe aus x und 9: (x + 9). Das Vierfache: 4(x + 9).",
+   "h": "Was zuerst gerechnet wird, kommt in eine Klammer."
+  },
+  {
+   "l": "uebersetzen",
+   "t": "uebersetzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe als Term: das Sechsfache der Differenz aus x und 5.",
+    "schablone": "□(□x + □)",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     6,
+     1,
+     -5
+    ]
+   },
+   "c": [
+    "6",
+    "1",
+    "-5"
+   ],
+   "w": "Differenz aus x und 5: (x − 5). Das Sechsfache: 6(x − 5).",
+   "h": "Was zuerst gerechnet wird, kommt in eine Klammer."
+  },
+  {
+   "l": "uebersetzen",
+   "t": "uebersetzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe als Term: das Doppelte der Differenz aus x und 5.",
+    "schablone": "□(□x + □)",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     2,
+     1,
+     -5
+    ]
+   },
+   "c": [
+    "2",
+    "1",
+    "-5"
+   ],
+   "w": "Differenz aus x und 5: (x − 5). Das Doppelte: 2(x − 5).",
+   "h": "Was zuerst gerechnet wird, kommt in eine Klammer."
+  },
+  {
+   "l": "uebersetzen",
+   "t": "uebersetzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe als Term: das Fünffache der Summe aus x und 11.",
+    "schablone": "□(□x + □)",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     5,
+     1,
+     11
+    ]
+   },
+   "c": [
+    "5",
+    "1",
+    "11"
+   ],
+   "w": "Summe aus x und 11: (x + 11). Das Fünffache: 5(x + 11).",
+   "h": "Was zuerst gerechnet wird, kommt in eine Klammer."
+  },
+  {
+   "l": "uebersetzen",
+   "t": "uebersetzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe als Term: das Zehnfache der Differenz aus x und 4.",
+    "schablone": "□(□x + □)",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     10,
+     1,
+     -4
+    ]
+   },
+   "c": [
+    "10",
+    "1",
+    "-4"
+   ],
+   "w": "Differenz aus x und 4: (x − 4). Das Zehnfache: 10(x − 4).",
+   "h": "Was zuerst gerechnet wird, kommt in eine Klammer."
+  },
+  {
+   "l": "uebersetzen",
+   "t": "uebersetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Wortterm passt zu 10(x − 1)?"
+   },
+   "a": [
+    "das Zehnfache der Differenz aus x und 1",
+    "die Differenz aus 1 und dem Zehnfachen von x",
+    "das Zehnfache der Summe aus x und 1",
+    "das Zehnfache von x, vermindert um 1"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "In der Klammer steht die Differenz x − 1, sie wird mit 10 multipliziert.",
+   "h": "Was steht in der Klammer, was passiert danach?"
+  },
+  {
+   "l": "uebersetzen",
+   "t": "uebersetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Wortterm passt zu 10(x − 6)?"
+   },
+   "a": [
+    "das Zehnfache von x, vermindert um 6",
+    "das Zehnfache der Summe aus x und 6",
+    "das Zehnfache der Differenz aus x und 6",
+    "die Differenz aus 6 und dem Zehnfachen von x"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "In der Klammer steht die Differenz x − 6, sie wird mit 10 multipliziert.",
+   "h": "Was steht in der Klammer, was passiert danach?"
+  },
+  {
+   "l": "uebersetzen",
+   "t": "uebersetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe als Term und fasse zusammen: Zum Zehnfachen von x wird die Summe aus x und 8 addiert, danach wird 7 subtrahiert.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     11,
+     1
+    ]
+   },
+   "c": [
+    "10 + 1",
+    "8 - 7"
+   ],
+   "w": "10x + (x + 8) − 7 = 11x + 1.",
+   "h": "Erst aufschreiben, dann gleiche Glieder zusammenfassen."
+  },
+  {
+   "l": "uebersetzen",
+   "t": "uebersetzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe als Term und fasse zusammen: Zum Zehnfachen von x wird die Summe aus x und 12 addiert, danach wird 8 subtrahiert.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     11,
+     4
+    ]
+   },
+   "c": [
+    "10 + 1",
+    "12 - 8"
+   ],
+   "w": "10x + (x + 12) − 8 = 11x + 4.",
+   "h": "Erst aufschreiben, dann gleiche Glieder zusammenfassen."
+  },
+  {
+   "l": "uebersetzen",
+   "t": "uebersetzen",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe als Term: die Differenz aus 6 und dem Sechsfachen von x.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     -6,
+     6
+    ]
+   },
+   "c": [
+    "-6",
+    "6"
+   ],
+   "w": "Differenz aus 6 und 6x: 6 − 6x."
+  },
+  {
+   "l": "uebersetzen",
+   "t": "uebersetzen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe als Term: die Differenz aus 5 und dem Dreifachen von x.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     -3,
+     5
+    ]
+   },
+   "c": [
+    "-3",
+    "5"
+   ],
+   "w": "Differenz aus 5 und 3x: 5 − 3x."
+  },
+  {
+   "l": "uebersetzen",
+   "t": "uebersetzen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe als Term: die Differenz aus 2 und dem Doppelten von x.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     -2,
+     2
+    ]
+   },
+   "c": [
+    "-2",
+    "2"
+   ],
+   "w": "Differenz aus 2 und 2x: 2 − 2x."
+  },
+  {
+   "l": "uebersetzen",
+   "t": "uebersetzen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe als Term: die Differenz aus 12 und dem Zehnfachen von x.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     -10,
+     12
+    ]
+   },
+   "c": [
+    "-10",
+    "12"
+   ],
+   "w": "Differenz aus 12 und 10x: 12 − 10x."
+  },
+  {
+   "l": "uebersetzen",
+   "t": "uebersetzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe als Term: die Differenz aus 7 und dem Fünffachen von x.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     -5,
+     7
+    ]
+   },
+   "c": [
+    "-5",
+    "7"
+   ],
+   "w": "Differenz aus 7 und 5x: 7 − 5x."
+  },
+  {
+   "l": "uebersetzen",
+   "t": "uebersetzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe als Term: die Differenz aus 4 und dem Dreifachen von x.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     -3,
+     4
+    ]
+   },
+   "c": [
+    "-3",
+    "4"
+   ],
+   "w": "Differenz aus 4 und 3x: 4 − 3x."
+  },
+  {
+   "l": "uebersetzen",
+   "t": "uebersetzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe als Term: die Differenz aus 4 und dem Zehnfachen von x.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     -10,
+     4
+    ]
+   },
+   "c": [
+    "-10",
+    "4"
+   ],
+   "w": "Differenz aus 4 und 10x: 4 − 10x."
+  },
+  {
+   "l": "uebersetzen",
+   "t": "uebersetzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe als Term: das Doppelte der Summe aus x und 3.",
+    "schablone": "□(□x + □)",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     2,
+     1,
+     3
+    ]
+   },
+   "c": [
+    "2",
+    "1",
+    "3"
+   ],
+   "w": "Summe aus x und 3: (x + 3). Das Doppelte: 2(x + 3)."
+  },
+  {
+   "l": "uebersetzen",
+   "t": "uebersetzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe als Term: das Doppelte der Summe aus x und 7.",
+    "schablone": "□(□x + □)",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     2,
+     1,
+     7
+    ]
+   },
+   "c": [
+    "2",
+    "1",
+    "7"
+   ],
+   "w": "Summe aus x und 7: (x + 7). Das Doppelte: 2(x + 7)."
+  },
+  {
+   "l": "uebersetzen",
+   "t": "uebersetzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe als Term: die Differenz aus 6 und dem Dreifachen von x.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     -3,
+     6
+    ]
+   },
+   "c": [
+    "-3",
+    "6"
+   ],
+   "w": "Differenz aus 6 und 3x: 6 − 3x."
+  },
+  {
+   "l": "sachsituation",
+   "t": "sachsituation",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Kinokarte kostet 12 €. Eine Gruppe kauft x Karten und zusammen einmal Popcorn für 5 €. Gib den Term für den Gesamtpreis (in €) an.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     12,
+     5
+    ]
+   },
+   "c": [
+    "12",
+    "5"
+   ],
+   "w": "x Karten zu 12 €: 12x. Popcorn einmal: + 5. Term: 12x + 5.",
+   "h": "Was mehrfach gekauft wird, wird mit x multipliziert."
+  },
+  {
+   "l": "sachsituation",
+   "t": "sachsituation",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Kinokarte kostet 8 €. Eine Gruppe kauft x Karten und zusammen einmal Popcorn für 3 €. Gib den Term für den Gesamtpreis (in €) an.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     8,
+     3
+    ]
+   },
+   "c": [
+    "8",
+    "3"
+   ],
+   "w": "x Karten zu 8 €: 8x. Popcorn einmal: + 3. Term: 8x + 3.",
+   "h": "Was mehrfach gekauft wird, wird mit x multipliziert."
+  },
+  {
+   "l": "sachsituation",
+   "t": "sachsituation",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Kanuverleih verlangt 10 € Grundgebühr und 3 € pro Stunde. Gib den Term für die Kosten (in €) bei x Stunden an.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     3,
+     10
+    ]
+   },
+   "c": [
+    "3",
+    "10"
+   ],
+   "w": "3 € pro Stunde: 3x. Dazu die Grundgebühr 10 €: 3x + 10.",
+   "h": "Was pro Stunde anfällt, kommt vor das x."
+  },
+  {
+   "l": "sachsituation",
+   "t": "sachsituation",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Kanuverleih verlangt 5 € Grundgebühr und 5 € pro Stunde. Gib den Term für die Kosten (in €) bei x Stunden an.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     5,
+     5
+    ]
+   },
+   "c": [
+    "5",
+    "5"
+   ],
+   "w": "5 € pro Stunde: 5x. Dazu die Grundgebühr 5 €: 5x + 5.",
+   "h": "Was pro Stunde anfällt, kommt vor das x."
+  },
+  {
+   "l": "sachsituation",
+   "t": "sachsituation",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Kanuverleih verlangt 4 € Grundgebühr und 3 € pro Stunde. Gib den Term für die Kosten (in €) bei x Stunden an.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     3,
+     4
+    ]
+   },
+   "c": [
+    "3",
+    "4"
+   ],
+   "w": "3 € pro Stunde: 3x. Dazu die Grundgebühr 4 €: 3x + 4.",
+   "h": "Was pro Stunde anfällt, kommt vor das x."
+  },
+  {
+   "l": "sachsituation",
+   "t": "sachsituation",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Kinokarte kostet 10 €. Eine Gruppe kauft x Karten und zusammen einmal Popcorn für 4 €. Gib den Term für den Gesamtpreis (in €) an.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     10,
+     4
+    ]
+   },
+   "c": [
+    "10",
+    "4"
+   ],
+   "w": "x Karten zu 10 €: 10x. Popcorn einmal: + 4. Term: 10x + 4.",
+   "h": "Was mehrfach gekauft wird, wird mit x multipliziert."
+  },
+  {
+   "l": "sachsituation",
+   "t": "sachsituation",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Kind ist x Jahre alt. Seine Schwester ist 4 Jahre älter, der Vater ist 3-mal so alt wie das Kind. Gib einen Term für das Alter aller drei zusammen an.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     5,
+     4
+    ]
+   },
+   "c": [
+    "2 + 3",
+    "4"
+   ],
+   "w": "x + (x + 4) + 3x = 5x + 4.",
+   "h": "Schreibe jedes Alter mit x auf und addiere."
+  },
+  {
+   "l": "sachsituation",
+   "t": "sachsituation",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Kinokarte kostet 11 €. Eine Gruppe kauft x Karten und zusammen einmal Popcorn für 4 €. Gib den Term für den Gesamtpreis (in €) an.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     11,
+     4
+    ]
+   },
+   "c": [
+    "11",
+    "4"
+   ],
+   "w": "x Karten zu 11 €: 11x. Popcorn einmal: + 4. Term: 11x + 4.",
+   "h": "Was mehrfach gekauft wird, wird mit x multipliziert."
+  },
+  {
+   "l": "sachsituation",
+   "t": "sachsituation",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Kinokarte kostet 12 €. Eine Gruppe kauft x Karten und zusammen einmal Popcorn für 3 €. Gib den Term für den Gesamtpreis (in €) an.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     12,
+     3
+    ]
+   },
+   "c": [
+    "12",
+    "3"
+   ],
+   "w": "x Karten zu 12 €: 12x. Popcorn einmal: + 3. Term: 12x + 3.",
+   "h": "Was mehrfach gekauft wird, wird mit x multipliziert."
+  },
+  {
+   "l": "sachsituation",
+   "t": "sachsituation",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Kind ist x Jahre alt. Seine Schwester ist 3 Jahre älter, der Vater ist 3-mal so alt wie das Kind. Gib einen Term für das Alter aller drei zusammen an.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     5,
+     3
+    ]
+   },
+   "c": [
+    "2 + 3",
+    "3"
+   ],
+   "w": "x + (x + 3) + 3x = 5x + 3.",
+   "h": "Schreibe jedes Alter mit x auf und addiere."
+  },
+  {
+   "l": "sachsituation",
+   "t": "sachsituation",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Kind ist x Jahre alt. Seine Schwester ist 9 Jahre älter, der Vater ist 2-mal so alt wie das Kind. Gib einen Term für das Alter aller drei zusammen an.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     4,
+     9
+    ]
+   },
+   "c": [
+    "2 + 2",
+    "9"
+   ],
+   "w": "x + (x + 9) + 2x = 4x + 9.",
+   "h": "Schreibe jedes Alter mit x auf und addiere."
+  },
+  {
+   "l": "sachsituation",
+   "t": "sachsituation",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Handytarif kostet 3 € im Monat plus 0,15 € pro SMS. Stelle einen Term auf und berechne die Kosten für x = 60 SMS."
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "€"
+   },
+   "c": "3 + (3/20) * 60",
+   "w": "Term: 0,15x + 3. Für x = 60: 0,15 · 60 + 3 = 12 €.",
+   "h": "Grundgebühr + Preis pro SMS · Anzahl."
+  },
+  {
+   "l": "sachsituation",
+   "t": "sachsituation",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Handytarif kostet 5 € im Monat plus 0,05 € pro SMS. Stelle einen Term auf und berechne die Kosten für x = 120 SMS."
+   },
+   "o": {
+    "wert": 11,
+    "einheit": "€"
+   },
+   "c": "5 + (1/20) * 120",
+   "w": "Term: 0,05x + 5. Für x = 120: 0,05 · 120 + 5 = 11 €.",
+   "h": "Grundgebühr + Preis pro SMS · Anzahl."
+  },
+  {
+   "l": "sachsituation",
+   "t": "sachsituation",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Für ein Fest werden 24 Getränke gekauft: x Flaschen Saft zu 3 € und der Rest Wasser zu 2 €. Gib einen Term für den Gesamtpreis (in €) an und fasse zusammen.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     1,
+     48
+    ]
+   },
+   "c": [
+    "3 - 2",
+    "2 * 24"
+   ],
+   "w": "Wasser: 24 − x Flaschen. 3x + 2(24 − x) = x + 48.",
+   "h": "Wie viele Wasserflaschen sind es, wenn es x Saftflaschen sind?"
+  },
+  {
+   "l": "sachsituation",
+   "t": "sachsituation",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Kind ist x Jahre alt. Seine Schwester ist 8 Jahre älter, der Vater ist 3-mal so alt wie das Kind. Gib einen Term für das Alter aller drei zusammen an.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     5,
+     8
+    ]
+   },
+   "c": [
+    "2 + 3",
+    "8"
+   ],
+   "w": "x + (x + 8) + 3x = 5x + 8."
+  },
+  {
+   "l": "sachsituation",
+   "t": "sachsituation",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Kanuverleih verlangt 8 € Grundgebühr und 6 € pro Stunde. Gib den Term für die Kosten (in €) bei x Stunden an.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     6,
+     8
+    ]
+   },
+   "c": [
+    "6",
+    "8"
+   ],
+   "w": "6 € pro Stunde: 6x. Dazu die Grundgebühr 8 €: 6x + 8."
+  },
+  {
+   "l": "sachsituation",
+   "t": "sachsituation",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Rechteck ist x cm breit und 6 cm länger als breit. Gib einen Term für den Umfang (in cm) an.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     4,
+     12
+    ]
+   },
+   "c": [
+    "4",
+    "2 * 6"
+   ],
+   "w": "Länge x + 6. Umfang: 2x + 2(x + 6) = 4x + 12."
+  },
+  {
+   "l": "sachsituation",
+   "t": "sachsituation",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Kind ist x Jahre alt. Seine Schwester ist 6 Jahre älter, der Vater ist 3-mal so alt wie das Kind. Gib einen Term für das Alter aller drei zusammen an.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     5,
+     6
+    ]
+   },
+   "c": [
+    "2 + 3",
+    "6"
+   ],
+   "w": "x + (x + 6) + 3x = 5x + 6."
+  },
+  {
+   "l": "sachsituation",
+   "t": "sachsituation",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Rechteck ist x cm breit und 1 cm länger als breit. Gib einen Term für den Umfang (in cm) an.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     4,
+     2
+    ]
+   },
+   "c": [
+    "4",
+    "2 * 1"
+   ],
+   "w": "Länge x + 1. Umfang: 2x + 2(x + 1) = 4x + 2."
+  },
+  {
+   "l": "sachsituation",
+   "t": "sachsituation",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Kinokarte kostet 7 €. Eine Gruppe kauft x Karten und zusammen einmal Popcorn für 2 €. Gib den Term für den Gesamtpreis (in €) an.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     7,
+     2
+    ]
+   },
+   "c": [
+    "7",
+    "2"
+   ],
+   "w": "x Karten zu 7 €: 7x. Popcorn einmal: + 2. Term: 7x + 2."
+  },
+  {
+   "l": "sachsituation",
+   "t": "sachsituation",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Kind ist x Jahre alt. Seine Schwester ist 4 Jahre älter, der Vater ist 2-mal so alt wie das Kind. Gib einen Term für das Alter aller drei zusammen an.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     4,
+     4
+    ]
+   },
+   "c": [
+    "2 + 2",
+    "4"
+   ],
+   "w": "x + (x + 4) + 2x = 4x + 4."
+  },
+  {
+   "l": "sachsituation",
+   "t": "sachsituation",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Kind ist x Jahre alt. Seine Schwester ist 8 Jahre älter, der Vater ist 2-mal so alt wie das Kind. Gib einen Term für das Alter aller drei zusammen an.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     4,
+     8
+    ]
+   },
+   "c": [
+    "2 + 2",
+    "8"
+   ],
+   "w": "x + (x + 8) + 2x = 4x + 8."
+  },
+  {
+   "l": "sachsituation",
+   "t": "sachsituation",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Kinokarte kostet 11 €. Eine Gruppe kauft x Karten und zusammen einmal Popcorn für 3 €. Gib den Term für den Gesamtpreis (in €) an.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     11,
+     3
+    ]
+   },
+   "c": [
+    "11",
+    "3"
+   ],
+   "w": "x Karten zu 11 €: 11x. Popcorn einmal: + 3. Term: 11x + 3."
+  },
+  {
+   "l": "sachsituation",
+   "t": "sachsituation",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Kinokarte kostet 9 €. Eine Gruppe kauft x Karten und zusammen einmal Popcorn für 5 €. Gib den Term für den Gesamtpreis (in €) an.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1)."
+   },
+   "o": {
+    "werte": [
+     9,
+     5
+    ]
+   },
+   "c": [
+    "9",
+    "5"
+   ],
+   "w": "x Karten zu 9 €: 9x. Popcorn einmal: + 5. Term: 9x + 5."
+  },
+  {
+   "l": "muster",
+   "t": "muster",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Kreise in einer Kette mit Endkappen: Figur 1: 5, Figur 2: 8, Figur 3: 11. Wie viele sind es bei Figur 4?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "5",
+       "8",
+       "11"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 14
+   },
+   "c": "3 * 4 + (2)",
+   "w": "Pro Figur kommen 3 dazu: Figur 4: 11 + 3 · 1 = 14.",
+   "h": "Wie viele kommen von Figur zu Figur dazu?"
+  },
+  {
+   "l": "muster",
+   "t": "muster",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Plättchen in einem Muster: Figur 1: 8, Figur 2: 12, Figur 3: 16. Wie viele sind es bei Figur 5?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "8",
+       "12",
+       "16"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 24
+   },
+   "c": "4 * 5 + (4)",
+   "w": "Pro Figur kommen 4 dazu: Figur 5: 16 + 4 · 2 = 24.",
+   "h": "Wie viele kommen von Figur zu Figur dazu?"
+  },
+  {
+   "l": "muster",
+   "t": "muster",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Streichhölzer für Dreiecke in einer Reihe: Figur 1: 3, Figur 2: 5, Figur 3: 7. Wie viele sind es bei Figur 4?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "3",
+       "5",
+       "7"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "2 * 4 + (1)",
+   "w": "Pro Figur kommen 2 dazu: Figur 4: 7 + 2 · 1 = 9.",
+   "h": "Wie viele kommen von Figur zu Figur dazu?"
+  },
+  {
+   "l": "muster",
+   "t": "muster",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Punkte in einer Treppe aus Rahmen: Figur 1: 4, Figur 2: 8, Figur 3: 12. Wie viele sind es bei Figur 7?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "4",
+       "8",
+       "12"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 28
+   },
+   "c": "4 * 7 + (0)",
+   "w": "Pro Figur kommen 4 dazu: Figur 7: 12 + 4 · 4 = 28.",
+   "h": "Wie viele kommen von Figur zu Figur dazu?"
+  },
+  {
+   "l": "muster",
+   "t": "muster",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Streichhölzer für Sechsecke in einer Reihe: Figur 1: 6, Figur 2: 11, Figur 3: 16. Gib einen Term für die Anzahl bei Figur n an.",
+    "schablone": "□n + □",
+    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "6",
+       "11",
+       "16"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     5,
+     1
+    ]
+   },
+   "c": [
+    "5",
+    "1"
+   ],
+   "w": "Pro Figur +5: 5n. Für n = 1 muss 6 herauskommen: 5 + □ = 6 → □ = 1. Term: 5n + 1.",
+   "h": "Zunahme pro Schritt vor das n, dann für n = 1 anpassen."
+  },
+  {
+   "l": "muster",
+   "t": "muster",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Kreise in einer Kette mit Endkappen: Figur 1: 5, Figur 2: 8, Figur 3: 11. Gib einen Term für die Anzahl bei Figur n an.",
+    "schablone": "□n + □",
+    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "5",
+       "8",
+       "11"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     3,
+     2
+    ]
+   },
+   "c": [
+    "3",
+    "2"
+   ],
+   "w": "Pro Figur +3: 3n. Für n = 1 muss 5 herauskommen: 3 + □ = 5 → □ = 2. Term: 3n + 2.",
+   "h": "Zunahme pro Schritt vor das n, dann für n = 1 anpassen."
+  },
+  {
+   "l": "muster",
+   "t": "muster",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Plättchen in einem Muster: Figur 1: 13, Figur 2: 20, Figur 3: 27. Gib einen Term für die Anzahl bei Figur n an.",
+    "schablone": "□n + □",
+    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "13",
+       "20",
+       "27"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     7,
+     6
+    ]
+   },
+   "c": [
+    "7",
+    "6"
+   ],
+   "w": "Pro Figur +7: 7n. Für n = 1 muss 13 herauskommen: 7 + □ = 13 → □ = 6. Term: 7n + 6.",
+   "h": "Zunahme pro Schritt vor das n, dann für n = 1 anpassen."
+  },
+  {
+   "l": "muster",
+   "t": "muster",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Kacheln um ein Beet herum: Figur 1: 8, Figur 2: 10, Figur 3: 12. Gib einen Term für die Anzahl bei Figur n an.",
+    "schablone": "□n + □",
+    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "8",
+       "10",
+       "12"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     2,
+     6
+    ]
+   },
+   "c": [
+    "2",
+    "6"
+   ],
+   "w": "Pro Figur +2: 2n. Für n = 1 muss 8 herauskommen: 2 + □ = 8 → □ = 6. Term: 2n + 6.",
+   "h": "Zunahme pro Schritt vor das n, dann für n = 1 anpassen."
+  },
+  {
+   "l": "muster",
+   "t": "muster",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Plättchen in einer T-Form: Figur 1: 2, Figur 2: 5, Figur 3: 8. Gib einen Term für die Anzahl bei Figur n an.",
+    "schablone": "□n + □",
+    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "2",
+       "5",
+       "8"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     3,
+     -1
+    ]
+   },
+   "c": [
+    "3",
+    "-1"
+   ],
+   "w": "Pro Figur +3: 3n. Für n = 1 muss 2 herauskommen: 3 + □ = 2 → □ = −1. Term: 3n − 1.",
+   "h": "Zunahme pro Schritt vor das n, dann für n = 1 anpassen."
+  },
+  {
+   "l": "muster",
+   "t": "muster",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Stühle in einem Saal: Figur 1: 13, Figur 2: 20, Figur 3: 27. Gib einen Term für die Anzahl bei Figur n an.",
+    "schablone": "□n + □",
+    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "13",
+       "20",
+       "27"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     7,
+     6
+    ]
+   },
+   "c": [
+    "7",
+    "6"
+   ],
+   "w": "Pro Figur +7: 7n. Für n = 1 muss 13 herauskommen: 7 + □ = 13 → □ = 6. Term: 7n + 6.",
+   "h": "Zunahme pro Schritt vor das n, dann für n = 1 anpassen."
+  },
+  {
+   "l": "muster",
+   "t": "muster",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Sitzplätze an einer Reihe zusammengeschobener Tische: Figur 1: 4, Figur 2: 6, Figur 3: 8. Welche Figur braucht genau 112?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "4",
+       "6",
+       "8"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 55
+   },
+   "c": "(112 - (2)) / 2",
+   "w": "2n + 2 = 112 → 2n = 110 → n = 55.",
+   "h": "Stelle den Term auf und setze ihn gleich der Anzahl."
+  },
+  {
+   "l": "muster",
+   "t": "muster",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Steine in einer Mauerreihe: Figur 1: 7, Figur 2: 14, Figur 3: 21. Wie viele sind es bei Figur 28?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "7",
+       "14",
+       "21"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 196
+   },
+   "c": "7 * 28 + (0)",
+   "w": "Term 7n. Für n = 28: 7 · 28 + 0 = 196.",
+   "h": "Stelle erst einen Term auf, dann setze n ein."
+  },
+  {
+   "l": "muster",
+   "t": "muster",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Streichhölzer für Sechsecke in einer Reihe: Figur 1: 6, Figur 2: 11, Figur 3: 16. Wie viele sind es bei Figur 92?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "6",
+       "11",
+       "16"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 461
+   },
+   "c": "5 * 92 + (1)",
+   "w": "Term 5n + 1. Für n = 92: 5 · 92 + 1 = 461.",
+   "h": "Stelle erst einen Term auf, dann setze n ein."
+  },
+  {
+   "l": "muster",
+   "t": "muster",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Sitzplätze an einer Reihe zusammengeschobener Tische: Figur 1: 4, Figur 2: 6, Figur 3: 8. Welche Figur braucht genau 94?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "4",
+       "6",
+       "8"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 46
+   },
+   "c": "(94 - (2)) / 2",
+   "w": "2n + 2 = 94 → 2n = 92 → n = 46.",
+   "h": "Stelle den Term auf und setze ihn gleich der Anzahl."
+  },
+  {
+   "l": "muster",
+   "t": "muster",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Plättchen in einem Muster: Figur 1: 4, Figur 2: 8, Figur 3: 12. Gib einen Term für die Anzahl bei Figur n an.",
+    "schablone": "□n + □",
+    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "4",
+       "8",
+       "12"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     4,
+     0
+    ]
+   },
+   "c": [
+    "4",
+    "0"
+   ],
+   "w": "Pro Figur +4: 4n. Für n = 1 muss 4 herauskommen: 4 + □ = 4 → □ = 0. Term: 4n."
+  },
+  {
+   "l": "muster",
+   "t": "muster",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Stühle in einem Saal: Figur 1: 9, Figur 2: 15, Figur 3: 21. Gib einen Term für die Anzahl bei Figur n an.",
+    "schablone": "□n + □",
+    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "9",
+       "15",
+       "21"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     6,
+     3
+    ]
+   },
+   "c": [
+    "6",
+    "3"
+   ],
+   "w": "Pro Figur +6: 6n. Für n = 1 muss 9 herauskommen: 6 + □ = 9 → □ = 3. Term: 6n + 3."
+  },
+  {
+   "l": "muster",
+   "t": "muster",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Sitzplätze an einer Reihe zusammengeschobener Tische: Figur 1: 4, Figur 2: 6, Figur 3: 8. Gib einen Term für die Anzahl bei Figur n an.",
+    "schablone": "□n + □",
+    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "4",
+       "6",
+       "8"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     2,
+     2
+    ]
+   },
+   "c": [
+    "2",
+    "2"
+   ],
+   "w": "Pro Figur +2: 2n. Für n = 1 muss 4 herauskommen: 2 + □ = 4 → □ = 2. Term: 2n + 2."
+  },
+  {
+   "l": "muster",
+   "t": "muster",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Perlen an einer Kette: Figur 1: 7, Figur 2: 9, Figur 3: 11. Gib einen Term für die Anzahl bei Figur n an.",
+    "schablone": "□n + □",
+    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "7",
+       "9",
+       "11"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     2,
+     5
+    ]
+   },
+   "c": [
+    "2",
+    "5"
+   ],
+   "w": "Pro Figur +2: 2n. Für n = 1 muss 7 herauskommen: 2 + □ = 7 → □ = 5. Term: 2n + 5."
+  },
+  {
+   "l": "muster",
+   "t": "muster",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Steine in einer Mauerreihe: Figur 1: 10, Figur 2: 14, Figur 3: 18. Gib einen Term für die Anzahl bei Figur n an.",
+    "schablone": "□n + □",
+    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "10",
+       "14",
+       "18"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     4,
+     6
+    ]
+   },
+   "c": [
+    "4",
+    "6"
+   ],
+   "w": "Pro Figur +4: 4n. Für n = 1 muss 10 herauskommen: 4 + □ = 10 → □ = 6. Term: 4n + 6."
+  },
+  {
+   "l": "muster",
+   "t": "muster",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Stühle in einem Saal: Figur 1: 4, Figur 2: 9, Figur 3: 14. Gib einen Term für die Anzahl bei Figur n an.",
+    "schablone": "□n + □",
+    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "4",
+       "9",
+       "14"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     5,
+     -1
+    ]
+   },
+   "c": [
+    "5",
+    "-1"
+   ],
+   "w": "Pro Figur +5: 5n. Für n = 1 muss 4 herauskommen: 5 + □ = 4 → □ = −1. Term: 5n − 1."
+  },
+  {
+   "l": "muster",
+   "t": "muster",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Stühle in einem Saal: Figur 1: 7, Figur 2: 11, Figur 3: 15. Gib einen Term für die Anzahl bei Figur n an.",
+    "schablone": "□n + □",
+    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "7",
+       "11",
+       "15"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     4,
+     3
+    ]
+   },
+   "c": [
+    "4",
+    "3"
+   ],
+   "w": "Pro Figur +4: 4n. Für n = 1 muss 7 herauskommen: 4 + □ = 7 → □ = 3. Term: 4n + 3."
+  },
+  {
+   "l": "muster",
+   "t": "muster",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Stühle in einem Saal: Figur 1: 3, Figur 2: 7, Figur 3: 11. Gib einen Term für die Anzahl bei Figur n an.",
+    "schablone": "□n + □",
+    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "3",
+       "7",
+       "11"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     4,
+     -1
+    ]
+   },
+   "c": [
+    "4",
+    "-1"
+   ],
+   "w": "Pro Figur +4: 4n. Für n = 1 muss 3 herauskommen: 4 + □ = 3 → □ = −1. Term: 4n − 1."
+  },
+  {
+   "l": "muster",
+   "t": "muster",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Stühle in einem Saal: Figur 1: 11, Figur 2: 16, Figur 3: 21. Gib einen Term für die Anzahl bei Figur n an.",
+    "schablone": "□n + □",
+    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "11",
+       "16",
+       "21"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     5,
+     6
+    ]
+   },
+   "c": [
+    "5",
+    "6"
+   ],
+   "w": "Pro Figur +5: 5n. Für n = 1 muss 11 herauskommen: 5 + □ = 11 → □ = 6. Term: 5n + 6."
+  },
+  {
+   "l": "muster",
+   "t": "muster",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Stühle in einem Saal: Figur 1: 5, Figur 2: 7, Figur 3: 9. Gib einen Term für die Anzahl bei Figur n an.",
+    "schablone": "□n + □",
+    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "5",
+       "7",
+       "9"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     2,
+     3
+    ]
+   },
+   "c": [
+    "2",
+    "3"
+   ],
+   "w": "Pro Figur +2: 2n. Für n = 1 muss 5 herauskommen: 2 + □ = 5 → □ = 3. Term: 2n + 3."
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "h = 20 − 3x (x = Brenndauer in Stunden, h in cm). Was bedeutet die Zahl 20?"
+   },
+   "a": [
+    "Die Höhe der Kerze am Anfang",
+    "Die Anzahl x",
+    "Der Wert ganz am Ende",
+    "Die Abnahme der Höhe pro Stunde"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "20 ist die Höhe der Kerze am Anfang.",
+   "h": "Steht die Zahl vor dem x (pro Einheit) oder allein (fest)?"
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "K = 0,1x + 10 (x = Gesprächsminuten, K in €). Was bedeutet die Zahl 10?"
+   },
+   "a": [
+    "Der Wert ganz am Ende",
+    "Die Anzahl x",
+    "Die monatliche Grundgebühr",
+    "Der Preis pro Minute"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "10 ist die monatliche Grundgebühr.",
+   "h": "Steht die Zahl vor dem x (pro Einheit) oder allein (fest)?"
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "h = 20 − 2x (x = Brenndauer in Stunden, h in cm). Was bedeutet die Zahl 2?"
+   },
+   "a": [
+    "Die Höhe der Kerze am Anfang",
+    "Die Anzahl x",
+    "Die Abnahme der Höhe pro Stunde",
+    "Der Wert ganz am Ende"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "2 ist die Abnahme der Höhe pro Stunde.",
+   "h": "Steht die Zahl vor dem x (pro Einheit) oder allein (fest)?"
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "h = 30 − 3x (x = Brenndauer in Stunden, h in cm). Was bedeutet die Zahl 30?"
+   },
+   "a": [
+    "Die Abnahme der Höhe pro Stunde",
+    "Die Höhe der Kerze am Anfang",
+    "Die Anzahl x",
+    "Der Wert ganz am Ende"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "30 ist die Höhe der Kerze am Anfang.",
+   "h": "Steht die Zahl vor dem x (pro Einheit) oder allein (fest)?"
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "h = 20 − 3x (x = Brenndauer in Stunden, h in cm). Berechne h für x = 4."
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "-3 * 4 + 20",
+   "w": "x = 4 einsetzen: h = −3 · 4 + 20 = 8.",
+   "h": "Setze x ein."
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "P = 2x + 1 (x = Parkdauer in Stunden, P in €). Berechne P für x = 10."
+   },
+   "o": {
+    "wert": 21
+   },
+   "c": "2 * 10 + 1",
+   "w": "x = 10 einsetzen: P = 2 · 10 + 1 = 21.",
+   "h": "Setze x ein."
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "P = 1,5x + 1 (x = Parkdauer in Stunden, P in €). Berechne P für x = 10."
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "(3/2) * 10 + 1",
+   "w": "x = 10 einsetzen: P = 1,5 · 10 + 1 = 16.",
+   "h": "Setze x ein."
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "h = 24 − 2x (x = Brenndauer in Stunden, h in cm). Berechne h für x = 4."
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "-2 * 4 + 24",
+   "w": "x = 4 einsetzen: h = −2 · 4 + 24 = 16.",
+   "h": "Setze x ein."
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "P = 2,5x + 2 (x = Parkdauer in Stunden, P in €). Berechne P für x = 4."
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "(5/2) * 4 + 2",
+   "w": "x = 4 einsetzen: P = 2,5 · 4 + 2 = 12.",
+   "h": "Setze x ein."
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "P = 2,2x + 4,5 (x = gefahrene km, P in €). Berechne P für x = 8."
+   },
+   "o": {
+    "wert": 22.1
+   },
+   "c": "(11/5) * 8 + (9/2)",
+   "w": "x = 8 einsetzen: P = 2,2 · 8 + 4,5 = 22,1.",
+   "h": "Setze x ein."
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand übersetzt „das Doppelte der Summe aus x und 2“ in den Term 2x + 2. Stimmt das?"
+   },
+   "a": [
+    "Falsch: Bei „Differenz aus 2 und x“ steht 2 vorne, richtig ist 2 − x.",
+    "Falsch: richtig wäre 4x.",
+    "Richtig übersetzt.",
+    "Falsch: Die Summe muss in Klammern stehen, richtig ist 2(x + 2)."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Falsch: Die Summe muss in Klammern stehen, richtig ist 2(x + 2).",
+   "h": "Übersetze selbst und vergleiche – achte auf Klammern und Reihenfolge."
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand übersetzt „die Differenz aus 2 und x“ in den Term x − 2. Stimmt das?"
+   },
+   "a": [
+    "Falsch: richtig wäre 7x.",
+    "Falsch: Die Summe muss in Klammern stehen, richtig ist 5(x + 2).",
+    "Falsch: Bei „Differenz aus 2 und x“ steht 2 vorne, richtig ist 2 − x.",
+    "Richtig übersetzt."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Falsch: Bei „Differenz aus 2 und x“ steht 2 vorne, richtig ist 2 − x.",
+   "h": "Übersetze selbst und vergleiche – achte auf Klammern und Reihenfolge."
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand übersetzt „die Differenz aus 3 und x“ in den Term x − 3. Stimmt das?"
+   },
+   "a": [
+    "Falsch: Bei „Differenz aus 3 und x“ steht 3 vorne, richtig ist 3 − x.",
+    "Richtig übersetzt.",
+    "Falsch: richtig wäre 7x.",
+    "Falsch: Die Summe muss in Klammern stehen, richtig ist 4(x + 3)."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Falsch: Bei „Differenz aus 3 und x“ steht 3 vorne, richtig ist 3 − x.",
+   "h": "Übersetze selbst und vergleiche – achte auf Klammern und Reihenfolge."
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand übersetzt „das Doppelte der Summe aus x und 6“ in den Term 2x + 6. Stimmt das?"
+   },
+   "a": [
+    "Richtig übersetzt.",
+    "Falsch: Bei „Differenz aus 6 und x“ steht 6 vorne, richtig ist 6 − x.",
+    "Falsch: Die Summe muss in Klammern stehen, richtig ist 2(x + 6).",
+    "Falsch: richtig wäre 8x."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Falsch: Die Summe muss in Klammern stehen, richtig ist 2(x + 6).",
+   "h": "Übersetze selbst und vergleiche – achte auf Klammern und Reihenfolge."
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "K = 0,05x + 8 (x = Gesprächsminuten, K in €). Berechne K für x = 4."
+   },
+   "o": {
+    "wert": 8.2
+   },
+   "c": "(1/20) * 4 + 8",
+   "w": "x = 4 einsetzen: K = 0,05 · 4 + 8 = 8,2."
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "P = 2x + 2 (x = Parkdauer in Stunden, P in €). Berechne P für x = 3."
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "2 * 3 + 2",
+   "w": "x = 3 einsetzen: P = 2 · 3 + 2 = 8."
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "h = 24 − 3x (x = Brenndauer in Stunden, h in cm). Berechne h für x = 6."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "-3 * 6 + 24",
+   "w": "x = 6 einsetzen: h = −3 · 6 + 24 = 6."
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "S = 50 + 15x (x = Anzahl der Wochen, S in €). Berechne S für x = 8."
+   },
+   "o": {
+    "wert": 170
+   },
+   "c": "15 * 8 + 50",
+   "w": "x = 8 einsetzen: S = 15 · 8 + 50 = 170."
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "P = 2x + 3,5 (x = gefahrene km, P in €). Berechne P für x = 4."
+   },
+   "o": {
+    "wert": 11.5
+   },
+   "c": "2 * 4 + (7/2)",
+   "w": "x = 4 einsetzen: P = 2 · 4 + 3,5 = 11,5."
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "h = 20 − 2x (x = Brenndauer in Stunden, h in cm). Berechne h für x = 4."
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "-2 * 4 + 20",
+   "w": "x = 4 einsetzen: h = −2 · 4 + 20 = 12."
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "K = 0,05x + 10 (x = Gesprächsminuten, K in €). Berechne K für x = 3."
+   },
+   "o": {
+    "wert": 10.15
+   },
+   "c": "(1/20) * 3 + 10",
+   "w": "x = 3 einsetzen: K = 0,05 · 3 + 10 = 10,15."
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "P = 2x + 3,5 (x = gefahrene km, P in €). Berechne P für x = 3."
+   },
+   "o": {
+    "wert": 9.5
+   },
+   "c": "2 * 3 + (7/2)",
+   "w": "x = 3 einsetzen: P = 2 · 3 + 3,5 = 9,5."
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "S = 80 + 5x (x = Anzahl der Wochen, S in €). Berechne S für x = 6."
+   },
+   "o": {
+    "wert": 110
+   },
+   "c": "5 * 6 + 80",
+   "w": "x = 6 einsetzen: S = 5 · 6 + 80 = 110."
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "h = 24 − 3x (x = Brenndauer in Stunden, h in cm). Berechne h für x = 4."
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "-3 * 4 + 24",
+   "w": "x = 4 einsetzen: h = −3 · 4 + 24 = 12."
+  }
+ ],
+ "offen": [
+  "Lernkarte „muster“: Die Erklärung zeigt die Streichholzfigur 3 als Zeichnung, die Aufgaben zeigen die Anzahlen als Tabelle. Zeichnungen aller Figurenfolgen je Aufgabe wären möglich, sind aber aufwendig; bei Bedarf nachziehen.",
+  "Äquivalenzumformungen von Termen (Ausmultiplizieren, Zusammenfassen als eigenes Thema) sind nicht Teil dieses Themas; nur einfaches Zusammenfassen kommt in Stufe 3 vor."
+ ]
+}

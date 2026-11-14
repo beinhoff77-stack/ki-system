@@ -71,6 +71,46 @@ Reihenfolge der Themen: zuerst Klasse 5, dann 8, dann 6, dann 9 (Feld `klasse.gy
 }
 ```
 
+## 4. App: Bedienung, Fehler, Ideen → `inhalte/pruefung/app/bericht.json` + Bilder in `inhalte/pruefung/app/bilder/` (Zweig `pruefung-app`)
+
+Getestet wird lokal mit den Testdaten aus `tests/lernen.test.cjs` (dort wird die Server-Schnittstelle nachgestellt). Start der Tests: `node --test tests/lernen.test.cjs`. Für eigene Klick-Durchläufe: die Hilfsfunktionen dieser Testdatei (lokaler Server, `setup`) in einer **eigenen** Datei `inhalte/pruefung/app/durchlauf.test.cjs` wiederverwenden; die bestehenden Tests nicht ändern. Echte Zugänge gibt es nicht und werden nicht gebraucht.
+
+Ansichten (Adresse hinter `#/`): Kind `reise/<kind>`, `weg/<kind>`, `lerneinheit/<kind>-<einheit>[-ueben|-fehler|-test]`, `merkheft/<kind>`, `wiederholen/<kind>`, `weltkarte/<kind>`, `reisepass/<kind>`; Eltern/Lehrer `lernen`, `lehrplan`, `inhalte/<einheit>`, `plan/<kind>`, `rueckmeldungen`, `zugaenge`; eigene Lernen-Seite unter `/lernen/`.
+
+```json
+{
+  "stand": "Commit-Kennung, gegen die getestet wurde",
+  "getestet": ["Ansicht/Ablauf, Gerätebreite (390 px Handy, 820 px Tablet, 1280 px Rechner), Ergebnis"],
+  "befunde": [
+    {
+      "nr": 1,
+      "bereich": "kind | eltern_lehrer | anmeldung | allgemein",
+      "ansicht": "z. B. lerneinheit (Üben)",
+      "art": "fehler | bedienung | darstellung | verstaendlichkeit | barrierefreiheit",
+      "schwere": "hoch | mittel | niedrig",
+      "beschreibung": "Was passiert, was wäre richtig?",
+      "nachstellen": ["Schritt 1", "Schritt 2"],
+      "vorschlag": "Konkrete Änderung (Text, Platz, Verhalten)",
+      "bild": "bilder/01-ueben-handy.png"
+    }
+  ],
+  "ideen": [
+    {
+      "titel": "…",
+      "fuer": "kind | eltern_lehrer",
+      "nutzen": "Welches Problem löst es? Warum lernt das Kind dadurch mehr oder lieber?",
+      "beschreibung": "So genau, dass man es bauen kann: was sieht man, was passiert beim Antippen.",
+      "aufwand": "klein | mittel | gross",
+      "rang": 1
+    }
+  ],
+  "top5": ["Die fünf Änderungen mit dem größten Gewinn, in Reihenfolge."]
+}
+```
+
+- Fehler nur melden, wenn sie nachgestellt wurden (mit Schritten und Bild). Vermutungen als solche kennzeichnen.
+- Ideen müssen dem Lernen dienen. Keine Mechaniken, die Kinder unter Druck setzen oder zum bloßen Klicken verleiten (z. B. Serien, die bei einem Tag Pause verfallen, Ranglisten zwischen Geschwistern).
+
 ## Für alle
 
 - Auf Deutsch, in der Sprache des Kindes der jeweiligen Klasse (kurze Sätze, „du“).

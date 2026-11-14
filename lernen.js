@@ -648,7 +648,13 @@ function lernGraphWert(g, x) {
   }
 }
 function lernKoordinaten(b) {
-  const [x0, x1] = b.x || [-5, 5], [y0, y1] = b.y || [-5, 5];
+  let [x0, x1] = b.x || [-5, 5], [y0, y1] = b.y || [-5, 5];
+  // Reine Geometrie (ohne Graphen): gleicher Maßstab auf beiden Achsen, sonst werden Kreise und rechte Winkel verzerrt.
+  if (!(b.graphen || []).length && !b.streckung) {
+    const v = (y1 - y0) / (x1 - x0);
+    if (v > 1 && v <= 4) { const m = (x0 + x1) / 2, h = (y1 - y0) / 2; x0 = m - h; x1 = m + h; }
+    else if (v < 1 && v >= 0.25) { const m = (y0 + y1) / 2, h = (x1 - x0) / 2; y0 = m - h; y1 = m + h; }
+  }
   const B = 340, H = Math.round(Math.min(340, Math.max(170, 300 * (y1 - y0) / (x1 - x0) * (b.streckung || 1)))), R = 32;
   const px = (x) => R + (B - 2 * R) * (x - x0) / (x1 - x0), py = (y) => H - R - (H - 2 * R) * (y - y0) / (y1 - y0);
   const { svg, mk } = lernSvg(B, H, b.label || `Koordinatensystem von x = ${x0} bis ${x1} und y = ${y0} bis ${y1}`);

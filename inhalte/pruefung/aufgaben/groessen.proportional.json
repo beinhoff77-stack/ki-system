@@ -1,0 +1,137 @@
+{
+  "thema_schluessel": "groessen.proportional",
+  "gesamturteil": "brauchbar",
+  "karten": [
+    {
+      "lernziel": "erkennen",
+      "urteil": "verbessern",
+      "stufen": "Stufe 1 (Zuordnung im Alltag beurteilen) passt. Stufe 2 ist eine reine Vervielfachen-Aufgabe (4 Hefte → 40 Hefte) und gehört inhaltlich zur Karte 'vervielfachen'. Stufe 3 ist leichter als Stufe 2: Der Satz 'Es gibt keinen festen Grundbetrag' verrät, dass die Zuordnung proportional ist; übrig bleibt eine Malaufgabe aus dem Einmaleins.",
+      "fehlende_aufgabentypen": [
+        "Begründen mit Zahlen (auswahl, Stufe 3): Eine Situation mit Grundgebühr wird mit zwei Zahlenpaaren gezeigt, das Kind wählt die richtige Begründung. Generator: Grundbetrag g (2–5 €), Preis je Einheit p (1–3 €), Mengen n und 2n. Richtig: 'Nicht proportional, denn für das Doppelte zahlt man nicht das Doppelte.' Falsch: 'Proportional, denn der Preis wird größer' (Denkfehler: 'je mehr, desto mehr'), 'Proportional, denn jede Stunde kostet gleich viel' (Grundbetrag übersehen). Beispiel 1: 'Ein Kletterpark kostet 4 € Eintritt plus 2 € je Stunde. 1 Stunde: 6 €, 2 Stunden: 8 €. Ist das proportional?' → 'Nein, denn 2 Stunden kosten nicht das Doppelte von 6 €.' Beispiel 2: 'Ein Fahrradverleih kostet 3 € Grundgebühr plus 1 € je Stunde. 2 Stunden: 5 €, 4 Stunden: 7 €.' → 'Nein, 4 Stunden müssten sonst 10 € kosten.'",
+        "Je-mehr-desto-mehr-Falle (auswahl, Stufe 2): Zuordnungen, bei denen beide Größen wachsen, aber nicht proportional (Alter → Größe, Seitenlänge → Flächeninhalt mit Zahlen). Beispiel 1: 'Ein Quadrat mit 2 cm Seite hat 4 cm² Fläche, eines mit 4 cm Seite hat 16 cm². Proportional?' → 'Nein, doppelte Seite gibt vierfache Fläche.' Beispiel 2: 'Mit 5 Jahren ist ein Kind 110 cm groß. Ist es mit 10 Jahren 220 cm groß?' → 'Nein, Alter und Größe sind nicht proportional.'"
+      ],
+      "generator_regeln": [
+        "Stufe 3 ohne den Satz 'Es gibt keinen festen Grundbetrag'. Stattdessen die Situation so beschreiben, dass das Kind selbst entscheidet (mal mit, mal ohne Grundgebühr; Antwort 'Nein' in etwa einem Drittel der Fälle richtig).",
+        "Falsche Antworten nur aus Denkfehlern: Addieren statt Malnehmen (12 € + 36 € = 48 € bzw. 12 + (40 − 4)), falscher Faktor (·9 statt ·10), Wert durch Faktor geteilt. Keine Ziffernketten wie '123 €' (aus 12 und 3) oder '1 365 cm' – diese Fehler macht kein Kind."
+      ]
+    },
+    {
+      "lernziel": "vervielfachen",
+      "urteil": "verbessern",
+      "stufen": "Stufen 1 und 2 sind gleichartig (ein Faktor, mal oder geteilt). Stufe 3 (Zwischenschritt, 12 → 20) überschneidet sich mit der Karte 'geschickt'. Echte Steigerung fehlt.",
+      "fehlende_aufgabentypen": [
+        "Umkehraufgabe (zahl, Stufe 2): Wert gegeben, Menge gesucht. Generator: Preis je Stück p, Anzahl n, k = 2..5; Frage nach der Anzahl für k·n·p. Beispiel 1: '3 Hefte kosten 6 €. Wie viele Hefte bekommst du für 30 €?' → 15 (30 ist das 5-Fache von 6, also 3 · 5 = 15). Beispiel 2: 'In 4 Minuten laufen 32 Liter aus dem Hahn. Wie viele Minuten dauert es, bis 96 Liter gelaufen sind?' → 12.",
+        "Tabelle ergänzen (luecken, Stufe 2, Schablone '□; □'): Beispiel 1: 'Proportional: 2 kg → 6 €, 6 kg → □ €, 1 kg → □ €' → [18, 3]. Beispiel 2: 'Proportional: 4 Karten → 28 €, 12 Karten → □ €, 2 Karten → □ €' → [84, 14]."
+      ],
+      "generator_regeln": [
+        "Im Lösungsweg nicht 'der 3. Teil von 9', sondern 'ein Drittel von 9, denn 9 : 3 = 3'. 'Der 3. Teil' verstehen Kinder als 'das dritte Stück'."
+      ]
+    },
+    {
+      "lernziel": "einheit",
+      "urteil": "verbessern",
+      "stufen": "Alle Stufen sind dieselbe Division; Stufe 3 hat nur größere Zahlen (75 : 25). Stufe 3 sollte Einheiten umrechnen oder den Wert für 1 als Zwischenergebnis in einer Sachfrage verlangen.",
+      "fehlende_aufgabentypen": [
+        "Einheit mit Umrechnung (zahl, Stufe 3): Beispiel 1: '5 Brötchen kosten 2 €. Wie viel Cent kostet 1 Brötchen?' → 40 (2 € = 200 ct, 200 : 5 = 40). Beispiel 2: '4 Pakete wiegen zusammen 2 kg. Wie viel Gramm wiegt 1 Paket?' → 500.",
+        "Fehler finden (auswahl, Stufe 3): Beispiel 1: 'Mia rechnet: 6 Hefte kosten 18 €, also kostet 1 Heft 6 : 18 €. Was ist falsch?' → 'Sie hat Menge und Wert vertauscht; richtig ist 18 : 6 = 3 €.' Beispiel 2: 'Tim rechnet: 8 kg kosten 24 €, 1 kg kostet 24 − 8 = 16 €. Was ist falsch?' → 'Er hat subtrahiert statt geteilt; richtig 24 : 8 = 3 €.'"
+      ],
+      "generator_regeln": [
+        "Wert für 1 Stück nicht gleich 1 € (z. B. '12 Hefte kosten 12 €') – das prüft nichts."
+      ]
+    },
+    {
+      "lernziel": "dreisatz",
+      "urteil": "ok",
+      "stufen": "Passt im Grundsatz; Stufe 3 unterscheidet sich nur durch größere Zahlen (15 kg → 35 kg). Für Stufe 3 Dreisatz mit Umrechnung oder mit gesuchter Menge statt gesuchtem Wert.",
+      "fehlende_aufgabentypen": [
+        "Dreisatz mit gesuchter Menge (zahl, Stufe 3): Beispiel 1: '6 Hefte kosten 18 €. Wie viele Hefte bekommst du für 21 €?' → 7. Beispiel 2: 'In 5 Minuten laufen 40 Liter. Wie viele Minuten braucht der Hahn für 72 Liter?' → 9."
+      ],
+      "generator_regeln": [
+        "Radfahrer: höchstens 6 Stunden Fahrzeit und 10–20 km je Stunde ('In 12 Stunden fährt ein Radfahrer 216 km' ist für Kinder unglaubwürdig und kaum proportional)."
+      ]
+    },
+    {
+      "lernziel": "geschickt",
+      "urteil": "ok",
+      "stufen": "Passt. Die Auswahlaufgaben zum Zwischenschritt sind gut (Verstehen statt Rechnen); davon mehr, mindestens 4.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Beträge über 1 000 ct in Euro mit Komma angeben (Klasse 5 kennt Kommazahlen bei Geld): '35 Brötchen kosten 10,50 €' statt '1 050 ct'."
+      ]
+    },
+    {
+      "lernziel": "pruefen",
+      "urteil": "verbessern",
+      "stufen": "Stufe 3 ('Welche Tabelle ist proportional?') ist nicht schwerer als Stufe 2. Die falschen Tabellen sind gut gewählt (Quadrat-Tabelle, Tabelle mit festem Zuschlag).",
+      "fehlende_aufgabentypen": [
+        "Fehlenden Wert in proportionaler Tabelle finden, wenn kein Wert für 1 ganzzahlig ist (zahl, Stufe 3): Beispiel 1: '4 → 10, 6 → 15, 10 → ?' → 25 (Wert für 2 ist 5). Beispiel 2: '6 → 9, 10 → 15, 14 → ?' → 21.",
+        "Aussage beurteilen (auswahl, Stufe 3): Beispiel 1: 'In einer Tabelle wird der Wert immer um 5 größer, wenn die Menge um 1 größer wird: 1 → 7, 2 → 12, 3 → 17. Ist sie proportional?' → 'Nein, 7 · 2 wäre 14, nicht 12.' Beispiel 2: '2 → 6, 3 → 9, 4 → 12' → 'Ja, Wert : Menge ist immer 3.'"
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "sach",
+      "urteil": "verbessern",
+      "stufen": "Stufe 1 und 2 passen. Fallen ('Eier kochen') stehen fast nur in Sicherung, in den Übungen nur zwei Mal – das Kind übt die Falle kaum, wird aber darin geprüft. Bei den Riegel-Vergleichen ist in allen 4 Aufgaben die kleine Packung billiger: Das Kind lernt eine falsche Faustregel.",
+      "fehlende_aufgabentypen": [
+        "Schätzen (auswahl, Stufe 2): Beispiel 1: 'Für 3 Pfannkuchen braucht man 100 g Mehl. Ungefähr wie viel Mehl brauchst du für 20 Pfannkuchen?' Antworten: 'etwa 700 g' (richtig), 'etwa 120 g' (addiert), 'etwa 2 kg'. Beispiel 2: 'Ein Hahn füllt in 2 Minuten einen 20-Liter-Eimer. Ungefähr wie lange dauert eine Badewanne mit 150 Litern?' → 'etwa 15 Minuten' (richtig), 'etwa 2 Minuten', 'etwa 2 Stunden'."
+      ],
+      "generator_regeln": [
+        "Packungsvergleich: in etwa 40 % die große, 40 % die kleine Packung billiger, 20 % gleich teuer.",
+        "Mengen je Muffin realistisch: Zucker 10–20 g, Butter 10–15 g, Mehl 15–25 g, Quark 20–40 g (heute bis 45 g Butter und 40 g Zucker je Muffin).",
+        "Fallen-Aufgaben (Eier kochen, Wäsche trocknen, Lied singen) auch in Übungen aller Stufen, nicht nur in Sicherung.",
+        "Eier kochen 5–10 Minuten, nicht 45 Minuten."
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Ein Auto verbraucht auf 100 km 6 Liter Benzin. Wie viele Liter braucht es für 750 km? (Das Ergebnis ist eine Kommazahl.)",
+      "art": "falsch",
+      "problem": "Das Ergebnis ist 45 Liter, also keine Kommazahl. Der Hinweis führt das Kind in die Irre (es sucht einen Rechenfehler).",
+      "korrektur": "Ein Auto verbraucht auf 100 km 6 Liter Benzin. Wie viele Liter braucht es für 750 km? – Lösung 45 Liter. Den Klammerzusatz streichen; nur setzen, wenn das Ergebnis wirklich ein Komma hat (z. B. 7 Liter auf 100 km, 250 km → 17,5 Liter)."
+    },
+    {
+      "aufgabe": "4 Eier kochen 45 Minuten. Wie viele Minuten kochen 7 Eier im selben Topf?",
+      "art": "unrealistisch",
+      "problem": "Eier kochen etwa 5–10 Minuten, nicht 45 Minuten. Gilt auch für '3 Eier kochen 45 Minuten. Wie viele Minuten kochen 5 Eier im selben Topf?'.",
+      "korrektur": "4 Eier kochen 8 Minuten. Wie viele Minuten kochen 7 Eier im selben Topf? – Lösung 8 min (die Zeit hängt nicht von der Anzahl ab)."
+    },
+    {
+      "aufgabe": "Ein Rezept für 4 Muffins braucht 180 g Butter. Wie viel Gramm braucht man für 10 Muffins?",
+      "art": "unrealistisch",
+      "problem": "45 g Butter je Muffin ist etwa das Dreifache eines üblichen Rezepts.",
+      "korrektur": "Ein Rezept für 4 Muffins braucht 60 g Butter. Wie viel Gramm braucht man für 10 Muffins? – Lösung 150 g (60 : 4 = 15 g je Muffin, 15 · 10 = 150 g)."
+    },
+    {
+      "aufgabe": "1 Packung enthält 12 Kekse. Es gibt keinen festen Grundbetrag. Ist die Zuordnung proportional, und was gilt für 6 Packungen?",
+      "art": "tipp_verraet_loesung",
+      "problem": "Der Fragetext verrät, dass die Zuordnung proportional ist ('kein fester Grundbetrag'). Bei Keksen ist das Wort 'Grundbetrag' außerdem unpassend. Gleiches Muster in allen Stufe-3-Aufgaben dieser Art ('1 Schritt ist 60 cm. Es gibt keinen festen Grundbetrag …').",
+      "korrektur": "Eine Packung enthält 12 Kekse. Ist 'Anzahl Packungen → Anzahl Kekse' proportional, und wie viele Kekse sind in 6 Packungen? – Lösung 'Ja, 6 Packungen: 72 Kekse'."
+    },
+    {
+      "aufgabe": "Eine Zuordnung ist proportional. 4 Hefte kosten 12 €. Was gilt dann für 40 Hefte?",
+      "art": "loesungsweg",
+      "problem": "Falsche Antworten '22 €', '42 €', '123 €' sind keine typischen Fehler ('123 €' entsteht nur durch Aneinanderhängen von Ziffern). Gleiches Muster z. B. bei '2 Schritte sind 130 cm … 20 Schritte' mit '1 365 cm'.",
+      "korrektur": "Antworten: '120 €' (richtig), '48 €' (addiert: 12 + 36), '108 €' (mal 9 statt mal 10), '1 200 €' (mal 100)."
+    },
+    {
+      "aufgabe": "9 Liter Farbe reichen für 72 m². 3 Liter Farbe reichen für wie viele m²?",
+      "art": "sprache",
+      "problem": "Lösungsweg: '3 ist der 3. Teil von 9.' Das klingt wie 'das dritte Stück' und ist für Fünftklässler missverständlich. Betrifft alle Teilen-Aufgaben der Karte 'vervielfachen'.",
+      "korrektur": "Lösungsweg: '3 Liter sind ein Drittel von 9 Litern (9 : 3 = 3). Also auch der Wert geteilt durch 3: 72 : 3 = 24 m².'"
+    },
+    {
+      "aufgabe": "In 5 Stunden fährt ein Radfahrer 90 km. In 12 Stunden fährt ein Radfahrer wie viele km?",
+      "art": "unrealistisch",
+      "problem": "12 Stunden ohne Pause mit gleichem Tempo sind unrealistisch; die Annahme 'proportional' ist hier fraglich.",
+      "korrektur": "In 2 Stunden fährt ein Radfahrer 30 km. Wie viele km schafft er in 5 Stunden mit gleichem Tempo? – Lösung 75 km (1 Stunde: 15 km, 15 · 5 = 75)."
+    },
+    {
+      "aufgabe": "Kleine Packung: 6 Riegel für 360 ct. Große Packung: 10 Riegel für 700 ct. Bei welcher Packung ist ein Riegel billiger?",
+      "art": "mehrdeutig",
+      "problem": "Rechnung stimmt, aber in allen 4 Aufgaben dieses Typs ist die kleine Packung billiger und 'gleich günstig' nie richtig. Das Kind kann ohne Rechnen raten.",
+      "korrektur": "Mischen, z. B. 'Kleine Packung: 6 Riegel für 360 ct. Große Packung: 10 Riegel für 550 ct.' – Lösung 'Die große Packung' (55 ct statt 60 ct je Riegel)."
+    }
+  ]
+}

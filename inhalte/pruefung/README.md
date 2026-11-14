@@ -111,6 +111,45 @@ Ansichten (Adresse hinter `#/`): Kind `reise/<kind>`, `weg/<kind>`, `lerneinheit
 - Fehler nur melden, wenn sie nachgestellt wurden (mit Schritten und Bild). Vermutungen als solche kennzeichnen.
 - Ideen müssen dem Lernen dienen. Keine Mechaniken, die Kinder unter Druck setzen oder zum bloßen Klicken verleiten (z. B. Serien, die bei einem Tag Pause verfallen, Ranglisten zwischen Geschwistern).
 
+## 5. Gestaltung: neue Optik und Handhabung → `inhalte/pruefung/design/` (Zweig `pruefung-design`)
+
+Ziel: drei **deutlich verschiedene** Gestaltungsrichtungen zum Auswählen – als anklickbare Entwürfe, nicht als Beschreibung.
+
+```
+inhalte/pruefung/design/
+  ist-zustand.md              Ehrliche Kritik der heutigen Optik und Handhabung, mit Bildern unter ist/
+  ist/*.png
+  <richtung>/                 z. B. atlas/, werkbank/, comic/ – ein kurzer, sprechender Name
+    entwurf.html              Eine einzige Datei ohne fremde Abhängigkeiten (kein CDN, keine Fonts aus dem Netz), läuft per Doppelklick.
+                              Anklickbar: Heute → Thema (Erklären | Üben | Fehler) → Aufgabe lösen (richtig und falsch) → „Lernkarte sitzt“,
+                              dazu Weltkarte/Reisepass und die Eltern/Lehrer-Übersicht mit Lernstand. Beispieldaten fest im Entwurf.
+    handy-*.png               Bilder in 390 × 844 (jede Ansicht), tablet-*.png in 820 × 1180, rechner-*.png in 1280 × 800
+    vorschlag.json            siehe unten
+  vergleich.md                Die drei Richtungen nebeneinander: für wen, Stärken, Schwächen, Aufwand; klare Empfehlung
+```
+
+`vorschlag.json`:
+
+```json
+{
+  "name": "atlas",
+  "leitidee": "Ein Satz: Wie fühlt sich die App an, und warum passt das zu Mathe auf einer Weltreise?",
+  "fuer_wen": "Passt für 10-Jährige und 13-Jährige? Was ändert sich je Alter (Varianten)?",
+  "farben": { "hintergrund": "#…", "flaeche": "#…", "text": "#…", "leise": "#…", "akzent": "#…", "auf_akzent": "#…", "gut": "#…", "falsch": "#…", "linie": "#…", "dunkel": { "hintergrund": "#…", "…": "…" } },
+  "schrift": { "ueberschrift": "Familie, Gewicht, Größen", "text": "…", "zahlen": "…", "lizenz": "frei nutzbar und selbst hostbar; Quelle" },
+  "formen": { "radius": "…", "schatten": "…", "rand": "…", "abstand_raster": "…" },
+  "bausteine": [ { "name": "Hauptknopf", "aussehen": "…", "zustaende": "normal, gedrückt, gesperrt, Fokus", "mindestgroesse": "…" } ],
+  "handhabung": [ { "ablauf": "z. B. Aufgabe lösen", "heute": "Was stört heute?", "neu": "Wie geht es im Entwurf – Schritt für Schritt, mit Gesten/Tasten", "warum": "…" } ],
+  "navigation": "Wie kommt man wohin? (Leiste, Wischen, Zurück, Tiefe)",
+  "bewegung": "Welche Übergänge/Rückmeldungen, wie lange; Verhalten bei „Bewegung reduzieren“",
+  "weltreise": "Wie wird die Reise sichtbar, ohne vom Lernen abzulenken?",
+  "kontraste": "Gemessene Kontrastwerte der wichtigsten Paare (mind. 4,5:1 für Text)",
+  "umsetzung": { "aufwand": "klein | mittel | gross", "reihenfolge": ["Was zuerst umbauen"], "risiken": ["…"] }
+}
+```
+
+Rahmen: Die App ist eine Web-App (HTML/CSS/JS ohne Framework), läuft auf Handy, Tablet und Rechner, auch ohne Netz – also nur Schriften und Bilder, die mitgeliefert werden können (höchstens zwei Schriftfamilien, Bilder als SVG/CSS). Text mindestens 16 px, Tippflächen mindestens 44 px. Kein Zeitdruck, keine Uhr, keine Serien, die verfallen, keine Ranglisten.
+
 ## Für alle
 
 - Auf Deutsch, in der Sprache des Kindes der jeweiligen Klasse (kurze Sätze, „du“).

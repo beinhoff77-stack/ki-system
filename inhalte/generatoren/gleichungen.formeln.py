@@ -5,7 +5,8 @@ from fractions import Fraction as Fr
 from pathlib import Path
 sys.dont_write_bytecode = True
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _bausatz import A, Z, baue, cz, ist_endlich, zt  # noqa: E402
+import re
+from _bausatz import A, Z, baue, cz, eur, ist_endlich, kl, zt  # noqa: E402
 
 META = {'thema_schluessel': 'gleichungen.formeln', 'thema_id': 4, 'block_id': 60, 'klasse': {'gym_by': 8}}
 
@@ -17,10 +18,16 @@ ETAPPEN = [
      'fehler': 'Aus W = F · s wird nicht s = W · F. Wer mit F ⟦multipliziert⟧ ist, wird durch F ⟦geteilt⟧.',
      '_verbot': ['W = F · s']},
     {'lernziel': 'zwei_schritte', 'titel': 'Formeln in zwei Schritten umstellen',
-     'regel': 'Gehe ⟦rückwärts⟧ vor: Erst entfernst du, was zuletzt gerechnet wurde (meist + oder −), dann löst du das Mal oder Geteilt auf.',
-     'schritte': ['s = a + v · t nach v umstellen.', '| − a: s − a = v · t', '| : t: ⟦v = (s − a) : t⟧'],
-     'fehler': 'Aus s = a + v · t wird nicht v = s : t − a. Zuerst muss das ⟦+ a⟧ weg, sonst wird a auch durch t geteilt. Richtig: v = (s − a) : t.',
-     '_verbot': ['s = a + v · t']},
+     'regel': 'Gehe ⟦rückwärts⟧ vor – wie beim Ausziehen: Socken zuerst an, Schuhe zuletzt an, also Schuhe ⟦zuerst⟧ wieder aus. In der Formel wird mal zuerst gerechnet und plus zuletzt. Also entfernst du zuerst das ⟦Plus⟧, dann das Mal.',
+     'schritte': ['Taxipreis: K = G + p · s (K Kosten, G Grundgebühr, p Preis pro km, s Strecke). Gesucht ist s.',
+                  'Zuletzt wurde G addiert, also zuerst | − G: K − G = p · s.', 'Dann | : p: ⟦s = (K − G) : p⟧.'],
+     'probe': 'G = 4 €, p = 2 € pro km, s = 8 km: K = 4 + 16 = 20 €. Rückwärts: (20 − 4) : 2 = 8 ✓',
+     'fehler': 'Aus K = G + p · s wird nicht s = K : p − G. Mit Zahlen: 20 : 2 − 4 = 6 km statt 8 km. Zuerst muss das ⟦+ G⟧ weg, sonst wird die Grundgebühr auch durch p geteilt. Richtig: s = (K − G) : p.'},
+    {'lernziel': 'pruefen', 'titel': 'Ist die Umstellung richtig?',
+     'regel': 'Eine Umstellung prüfst du mit ⟦Zahlen⟧: Wähle Werte, rechne mit der Originalformel und setze in die umgestellte Formel ein. Es muss ⟦dasselbe⟧ herauskommen. Nimm keine 0 und keine 1 – mit ihnen fallen viele Fehler nicht auf.',
+     'schritte': ['Behauptung: Aus u = 4 · a folgt a = u − 4.', 'Test: a = 3 → u = 12. Dann u − 4 = 8, nicht 3.', 'Also ⟦falsch⟧. Richtig: a = u : 4.'],
+     'fehler': 'Ein passendes Zahlenbeispiel beweist noch nichts. Jemand stellt u = 4 · a um zu a = u − 12 und testet a = 4: u = 16, und 16 − 12 = 4 ✓ – reiner Zufall! Mit a = 5: u = 20, aber 20 − 12 = 8 ≠ 5. Teste deshalb ⟦zwei verschiedene⟧ Zahlen.',
+     '_verbot': ['u = 4 · a']},
     {'lernziel': 'einsetzen', 'titel': 'Umstellen und Werte einsetzen',
      'regel': 'Stelle zuerst die Formel nach der ⟦gesuchten Größe⟧ um, dann setze die Werte ⟦mit Einheiten⟧ ein und rechne aus.',
      'schritte': ['Ein Radfahrer fährt 45 km mit 18 km/h. Wie lange dauert es?', 'v = s : t umstellen: t = s : v', 't = 45 km : 18 km/h = ⟦2,5 h⟧'],
@@ -31,11 +38,6 @@ ETAPPEN = [
      'schritte': ['Ein Dreieck hat A = 24 cm² und g = 8 cm. Wie hoch ist es?', 'A = g · h : 2 → h = 2 · A : g', 'h = 48 cm² : 8 cm = ⟦6 cm⟧'],
      'fehler': 'h = A : g = 3 cm ist falsch: Beim Dreieck steht in der Formel noch ⟦: 2⟧. Beim Umstellen wird daraus · 2.',
      '_verbot': ['A = 24 cm² und g = 8 cm']},
-    {'lernziel': 'pruefen', 'titel': 'Ist die Umstellung richtig?',
-     'regel': 'Eine Umstellung prüfst du mit ⟦Zahlen⟧: Wähle Werte, rechne mit der Originalformel und setze in die umgestellte Formel ein. Es muss ⟦dasselbe⟧ herauskommen.',
-     'schritte': ['Behauptung: Aus u = 4 · a folgt a = u − 4.', 'Test: a = 3 → u = 12. Dann u − 4 = 8, nicht 3.', 'Also ⟦falsch⟧. Richtig: a = u : 4.'],
-     'fehler': 'Ein passendes Zahlenbeispiel beweist noch nichts: a = u − 4 stimmt zufällig für a = 4/3 (u = 16/3, u − 4 = 4/3). Teste deshalb ⟦zwei verschiedene⟧ Zahlen.',
-     '_verbot': ['u = 4 · a']},
 ]
 
 # Formel: (Anzeige, linke Seite, rechte Seite, {Variable: [(Anzeige, Python) – erste richtig]})
@@ -68,6 +70,7 @@ ZWEI = [
     ('A = g · h : 2', 'A', 'g*h/2', {'h': [('h = 2 · A : g', '2*A/g'), ('h = A : (2 · g)', 'A/(2*g)'), ('h = A : g', 'A/g'), ('h = 2 · g : A', '2*g/A')],
                                      'g': [('g = 2 · A : h', '2*A/h'), ('g = A : (2 · h)', 'A/(2*h)'), ('g = A · h : 2', 'A*h/2')]}),
     ('A = (a + c) · h : 2', 'A', '(a+c)*h/2', {'h': [('h = 2 · A : (a + c)', '2*A/(a+c)'), ('h = (a + c) : (2 · A)', '(a+c)/(2*A)'), ('h = 2 · A − (a + c)', '2*A-(a+c)'), ('h = A : (2 · (a + c))', 'A/(2*(a+c))')],
+                                               'c': [('c = 2 · A : h − a', '2*A/h-a'), ('c = 2 · A − a : h', '2*A-a/h'), ('c = (2 · A − a) : h', '(2*A-a)/h'), ('c = A : (2 · h) − a', 'A/(2*h)-a')],
                                                'a': [('a = 2 · A : h − c', '2*A/h-c'), ('a = 2 · A : h + c', '2*A/h+c'), ('a = A : h − c', 'A/h-c'), ('a = 2 · A : (h − c)', '2*A/(h-c)')]}),
     ('V = G · h : 3', 'V', 'G*h/3', {'h': [('h = 3 · V : G', '3*V/G'), ('h = V : (3 · G)', 'V/(3*G)'), ('h = V : G', 'V/G'), ('h = 3 · G : V', '3*G/V')]}),
     ('F = 1,8 · C + 32', 'F', 'Fr(9,5)*C+32', {'C': [('C = (F − 32) : 1,8', '(F-32)/Fr(9,5)'), ('C = F : 1,8 − 32', 'F/Fr(9,5)-32'), ('C = (F + 32) : 1,8', '(F+32)/Fr(9,5)'), ('C = (F − 32) · 1,8', '(F-32)*Fr(9,5)')]}),
@@ -76,10 +79,68 @@ ZWEI = [
     ('K = G + n · p', 'K', 'G+n*p', {'n': [('n = (K − G) : p', '(K-G)/p'), ('n = K : p − G', 'K/p-G'), ('n = (K + G) : p', '(K+G)/p'), ('n = (K − G) · p', '(K-G)*p')],
                                      'p': [('p = (K − G) : n', '(K-G)/n'), ('p = K : n − G', 'K/n-G'), ('p = (K − n) : G', '(K-n)/G')]}),
     ('E = m · g · h', 'E', 'm*g*h', {'h': [('h = E : (m · g)', 'E/(m*g)'), ('h = E · m · g', 'E*m*g'), ('h = m · g : E', 'm*g/E'), ('h = E − m · g', 'E-m*g')]}),
-    ('u = 2 · (a + b)', 'u', '2*(a+b)', {'a': [('a = u : 2 − b', 'u/2-b'), ('a = (u − b) : 2', '(u-b)/2'), ('a = u − 2 · b', 'u-2*b'), ('a = u : 2 + b', 'u/2+b')]}),
+    ('u = 2 · (a + b)', 'u', '2*(a+b)', {'a': [('a = u : 2 − b', 'u/2-b'), ('a = (u − b) : 2', '(u-b)/2'), ('a = u − 2 · b', 'u-2*b'), ('a = u : 2 + b', 'u/2+b')],
+                                         'b': [('b = u : 2 − a', 'u/2-a'), ('b = (u − a) : 2', '(u-a)/2'), ('b = u − 2 · a', 'u-2*a'), ('b = u : 2 + a', 'u/2+a')]}),
     ('M = (a + b) : 2', 'M', '(a+b)/2', {'a': [('a = 2 · M − b', '2*M-b'), ('a = M : 2 − b', 'M/2-b'), ('a = 2 · (M − b)', '2*(M-b)'), ('a = M − 2 · b', 'M-2*b')]}),
 ]
 NAMEN = {'rho': 'ρ'}
+
+# Umformungsschritte je (Formel, gesuchte Größe)
+WEG = {
+    ('v = s : t', 's'): 'v = s : t | · t → s = v · t', ('v = s : t', 't'): 'v = s : t | · t → v · t = s | : v → t = s : v',
+    ('A = a · b', 'b'): 'A = a · b | : a → b = A : a',
+    ('U = R · I', 'R'): 'U = R · I | : I → R = U : I', ('U = R · I', 'I'): 'U = R · I | : R → I = U : R',
+    ('ρ = m : V', 'm'): 'ρ = m : V | · V → m = ρ · V', ('ρ = m : V', 'V'): 'ρ = m : V | · V → ρ · V = m | : ρ → V = m : ρ',
+    ('F = m · a', 'm'): 'F = m · a | : a → m = F : a',
+    ('P = W : t', 'W'): 'P = W : t | · t → W = P · t', ('P = W : t', 't'): 'P = W : t | · t → P · t = W | : P → t = W : P',
+    ('u = 4 · a', 'a'): 'u = 4 · a | : 4 → a = u : 4',
+    ('V = G · h', 'h'): 'V = G · h | : G → h = V : G', ('V = G · h', 'G'): 'V = G · h | : h → G = V : h',
+    ('p = F : A', 'F'): 'p = F : A | · A → F = p · A', ('p = F : A', 'A'): 'p = F : A | · A → p · A = F | : p → A = F : p',
+    ('d = 2 · r', 'r'): 'd = 2 · r | : 2 → r = d : 2',
+    ('k = y : x', 'y'): 'k = y : x | · x → y = k · x', ('k = y : x', 'x'): 'k = y : x | · x → k · x = y | : k → x = y : k',
+    ('G = E − K', 'E'): 'G = E − K | + K → E = G + K', ('G = E − K', 'K'): 'G = E − K | + K → G + K = E | − G → K = E − G',
+    ('y = m · x + t', 'x'): 'y = m · x + t | − t → y − t = m · x | : m → x = (y − t) : m', ('y = m · x + t', 't'): 'y = m · x + t | − m · x → t = y − m · x',
+    ('U = 2 · a + 2 · b', 'a'): 'U = 2 · a + 2 · b | − 2 · b → U − 2 · b = 2 · a | : 2 → a = (U − 2 · b) : 2',
+    ('A = g · h : 2', 'h'): 'A = g · h : 2 | · 2 → 2 · A = g · h | : g → h = 2 · A : g', ('A = g · h : 2', 'g'): 'A = g · h : 2 | · 2 → 2 · A = g · h | : h → g = 2 · A : h',
+    ('A = (a + c) · h : 2', 'h'): 'A = (a + c) · h : 2 | · 2 → 2 · A = (a + c) · h | : (a + c) → h = 2 · A : (a + c)',
+    ('A = (a + c) · h : 2', 'a'): 'A = (a + c) · h : 2 | · 2 → 2 · A = (a + c) · h | : h → 2 · A : h = a + c | − c → a = 2 · A : h − c',
+    ('A = (a + c) · h : 2', 'c'): 'A = (a + c) · h : 2 | · 2 → 2 · A = (a + c) · h | : h → 2 · A : h = a + c | − a → c = 2 · A : h − a',
+    ('V = G · h : 3', 'h'): 'V = G · h : 3 | · 3 → 3 · V = G · h | : G → h = 3 · V : G',
+    ('F = 1,8 · C + 32', 'C'): 'F = 1,8 · C + 32 | − 32 → F − 32 = 1,8 · C | : 1,8 → C = (F − 32) : 1,8',
+    ('Z = K · p : 100', 'p'): 'Z = K · p : 100 | · 100 → 100 · Z = K · p | : K → p = 100 · Z : K',
+    ('Z = K · p : 100', 'K'): 'Z = K · p : 100 | · 100 → 100 · Z = K · p | : p → K = 100 · Z : p',
+    ('K = G + n · p', 'n'): 'K = G + n · p | − G → K − G = n · p | : p → n = (K − G) : p', ('K = G + n · p', 'p'): 'K = G + n · p | − G → K − G = n · p | : n → p = (K − G) : n',
+    ('E = m · g · h', 'h'): 'E = m · g · h | : (m · g) → h = E : (m · g)',
+    ('u = 2 · (a + b)', 'a'): 'u = 2 · (a + b) | : 2 → u : 2 = a + b | − b → a = u : 2 − b',
+    ('u = 2 · (a + b)', 'b'): 'u = 2 · (a + b) | : 2 → u : 2 = a + b | − a → b = u : 2 − a',
+    ('M = (a + b) : 2', 'a'): 'M = (a + b) : 2 | · 2 → 2 · M = a + b | − b → a = 2 · M − b',
+}
+VARS = [*'vstAabUIRrmVFPWGhpdkyxEKCZnMugc', 'rho']
+
+
+def probe(R, anz, lhs, rhs, var, richtig_anz, richtig_py):
+    """Zahlenprobe: Werte wählen, mit der Formel rechnen, in die Umstellung einsetzen."""
+    namen = sorted({n for n in VARS if re.search(rf'(?<![A-Za-z]){n}(?![A-Za-z])', rhs)} - {lhs})
+    for _ in range(200):
+        env = {n: Fr(R.randint(2, 9)) for n in namen}
+        if anz.startswith('F = 1,8'): env['C'] = Fr(R.choice([5, 10, 15, 20, 25, 30]))
+        env['Fr'] = Fr
+        env[lhs] = eval(rhs, {}, env)
+        ws = [env[n] for n in namen] + [env[lhs]]
+        if ist_endlich(env[lhs]) and len(zt(env[lhs]).split(',')[-1]) <= 2 and env[lhs] > 1 and len(set(ws)) == len(ws): break
+    zeig = lambda n: NAMEN.get(n, n)
+    werte = ', '.join(f'{zeig(n)} = {zt(env[n])}' for n in namen)
+    rechte = richtig_anz.split(' = ', 1)[1]
+    eingesetzt = re.sub(r'(?<![A-Za-zρ])([A-Za-zρ])(?![A-Za-zρ])', lambda m: kl(env['rho' if m.group(1) == 'ρ' else m.group(1)]), rechte)
+    assert eval(richtig_py, {}, env) == env[var]
+    return f'Probe: {werte} → {zeig(lhs)} = {zt(env[lhs])}; {eingesetzt} = {zt(env[var])} ✓'
+
+
+def tipp(anz, var):
+    v = NAMEN.get(var, var)
+    if '+' in anz or '−' in anz:
+        return f'Was wurde mit {v} gerechnet? Mache zuerst das Plus/Minus rückgängig, dann das Mal/Geteilt.'
+    return f'Was wurde mit {v} gemacht? Mache es mit der Umkehrrechnung rückgängig – das zuletzt Gerechnete zuerst.'
 
 
 def pruefe_bank():
@@ -103,16 +164,60 @@ def pruefe_bank():
 pruefe_bank()
 
 
-def umstell_aufgabe(R, bank, st, h):
+def umstell_aufgabe(R, bank, st, h=None, nur=None):
     anz, lhs, rhs, ziele = R.choice(bank)
-    var = R.choice(list(ziele))
+    var = nur if nur in ziele else R.choice(list(ziele))
     opts = ziele[var]
     v = NAMEN.get(var, var)
     return A(R, f'Stelle {anz} nach {v} um.', opts[0][0], [t for t, _ in opts[1:]],
-             f'Richtig ist {opts[0][0]}. Probe mit Zahlen: Setze Werte in {anz} ein und vergleiche.', h)
+             f'{WEG[(anz, var)]}. {probe(R, anz, lhs, rhs, var, *opts[0])}', tipp(anz, var))
+
+
+# Gleiche Umkehrrechnung erst mit Zahlen, dann mit Buchstaben
+ZAHL_BUCHSTABE = [('A = a · b', 'b', lambda a, b: f'{a * b} = {a} · b', lambda a, b: f'{a * b} : {a}', lambda a, b: b),
+                  ('v = s : t', 't', lambda a, b: f'{a} = {a * b} : t', lambda a, b: f'{a * b} : {a}', lambda a, b: b),
+                  ('U = R · I', 'I', lambda a, b: f'{a * b} = {a} · I', lambda a, b: f'{a * b} : {a}', lambda a, b: b),
+                  ('p = F : A', 'F', lambda a, b: f'{a} = F : {b}', lambda a, b: f'{a} · {b}', lambda a, b: a * b),
+                  ('G = E − K', 'E', lambda a, b: f'{a} = E − {b}', lambda a, b: f'{a} + {b}', lambda a, b: a + b)]
 
 
 def g_ein_schritt(R, st):
+    if st <= 2 and R.random() < .35:
+        anz, var, gl, rech, erg = R.choice(ZAHL_BUCHSTABE)
+        a, b = R.randint(2, 9), R.randint(2, 9)
+        if st == 1:
+            return Z(f'Aus {gl(a, b)} folgt {var} = ?', erg(a, b), rech(a, b).replace(' : ', ' / ').replace(' · ', ' * ').replace(' − ', ' - '),
+                     f'{var} = {rech(a, b)} = {erg(a, b)} (Umkehrrechnung). Genauso stellst du die Formel {anz} um.',
+                     'Mit welcher Umkehrrechnung bekommst du die Zahl für den Buchstaben?')
+        e = [x for x in EIN if x[0] == anz][0]
+        opts = e[3][var]
+        return A(R, f'Aus {gl(a, b)} folgt {var} = {rech(a, b)} = {erg(a, b)}. Genauso: Aus {anz} folgt …', opts[0][0], [t for t, _ in opts[1:]],
+                 f'Dieselbe Umkehrrechnung wie mit den Zahlen: {WEG[(anz, var)]}.', 'Mache mit den Buchstaben genau das, was du mit den Zahlen gemacht hast.')
+    if (st == 3 and R.random() < .5) or (st == 2 and R.random() < .12):
+        # Probe statt Rechnen
+        art = R.choice(['rechteck', 'dichte', 'strom'])
+        if art == 'rechteck':
+            a, b = R.choice([4, 5, 8]), R.choice([2, 4, 5])
+            A_ = a * b; fb = Fr(a, A_)
+            t = f'Ein Rechteck hat A = {A_} cm² und a = {a} cm. Jemand rechnet b = a : A = {zt(fb)} cm. Welche Probe zeigt den Fehler?'
+            ri = f'{a} · {zt(fb)} = {zt(a * fb)} und nicht {A_}'
+            fa = [f'{zt(fb)} ist kleiner als {a}', 'Die Einheit cm stimmt nicht', f'{A_} : {a} = {b} ist größer als {zt(fb)}']
+            w = f'Probe in A = a · b: {a} · {zt(fb)} = {zt(a * fb)} ≠ {A_}. Richtig: b = A : a = {b} cm.'
+        elif art == 'dichte':
+            rho, m = R.choice([(Fr(5, 2), 10), (Fr(2), 8), (Fr(5, 2), 20), (Fr(4), 12)])
+            fV = rho / m
+            t = f'Ein Stoff hat ρ = {zt(rho)} g/cm³, ein Stück wiegt m = {m} g. Jemand rechnet V = ρ : m = {zt(fV)} cm³. Welche Probe zeigt den Fehler?'
+            ri = f'{zt(rho)} · {zt(fV)} = {zt(rho * fV)}, nicht {m}'
+            fa = [f'{zt(fV)} ist kleiner als 1', f'{m} : {zt(rho)} = {zt(m / rho)}, also passt es', 'Die Einheit g stimmt nicht']
+            w = f'Aus ρ = m : V folgt m = ρ · V. Probe: {zt(rho)} · {zt(fV)} = {zt(rho * fV)} ≠ {m}. Richtig: V = m : ρ = {zt(m / rho)} cm³.'
+        else:
+            U, R_ = R.choice([(12, 4), (24, 6), (230, 10), (9, 3)])
+            fI = Fr(R_, U)
+            t = f'An einem Widerstand R = {R_} Ω liegt U = {U} V. Jemand rechnet I = R : U = {ca_(fI)} A. Welche Probe zeigt den Fehler?'
+            ri = f'{R_} · {ca_(fI)} ergibt etwa {zt(round(float(R_ * fI), 2)) if not ist_endlich(R_ * fI) else zt(R_ * fI)}, nicht {U}'
+            fa = [f'{ca_(fI)} A ist zu klein für eine Stromstärke', f'{U} : {R_} = {zt(Fr(U, R_))} ist größer, also passt es', 'Die Einheit A stimmt nicht']
+            w = f'Aus U = R · I: Probe {R_} · {ca_(fI)} ≈ {zt(round(float(R_ * fI), 2))} ≠ {U}. Richtig: I = U : R = {zt(Fr(U, R_))} A.'
+        return A(R, t, ri, fa, w, 'Setze das Ergebnis in die ursprüngliche Formel ein.')
     if st == 3:
         # Zahl einsetzen nach dem Umstellen (Größe im Nenner)
         anz, var, frage = R.choice([('v = s : t', 't', 'v'), ('ρ = m : V', 'V', 'r'), ('p = F : A', 'A', 'p'), ('P = W : t', 't', 'P'), ('k = y : x', 'x', 'k')])
@@ -123,17 +228,30 @@ def g_ein_schritt(R, st):
         oben_n = {'v = s : t': 's', 'ρ = m : V': 'm', 'p = F : A': 'F', 'P = W : t': 'W', 'k = y : x': 'y'}[anz]
         return Z(f'Es gilt {anz}. Berechne {var} für {oben_n} = {zt(oben)} und {sym} = {zt(g)}.', z, f'{cz(oben)} / {cz(g)}',
                  f'Umstellen: {var} = {oben_n} : {sym} = {zt(oben)} : {zt(g)} = {zt(z)}.', f'Stelle zuerst nach {var} um. {var} steht im Nenner.')
-    return umstell_aufgabe(R, EIN, st, 'Welche Rechnung wird mit der gesuchten Größe gemacht? Mache sie mit der Umkehrrechnung rückgängig.')
+    return umstell_aufgabe(R, EIN, st)
+
+
+def ca_(x):
+    return zt(x) if ist_endlich(x) and len(zt(x).split(',')[-1]) <= 3 else zt(round(float(x), 2))
+
+
+MITTEL = {'n': 0}
 
 
 def g_zwei_schritte(R, st):
     if st == 1:
         bank = [f for f in ZWEI if f[0] in ('y = m · x + t', 'A = g · h : 2', 'V = G · h : 3', 'K = G + n · p', 'E = m · g · h')]
-        return umstell_aufgabe(R, bank, st, 'Mache zuerst das Plus/Minus rückgängig, dann das Mal/Geteilt.')
+        return umstell_aufgabe(R, bank, st)
     if st == 2 and R.random() < .55:
-        return umstell_aufgabe(R, ZWEI, st, 'Gehe rückwärts: Was wurde zuletzt gerechnet? Das machst du zuerst rückgängig.')
+        return umstell_aufgabe(R, [f for f in ZWEI if f[0] not in ('A = (a + c) · h : 2', 'u = 2 · (a + b)')], st)
+    if st == 3 and R.random() < .35:
+        # gesuchte Größe steht in einer Klammer
+        f = R.choice([x for x in ZWEI if x[0] in ('A = (a + c) · h : 2', 'u = 2 · (a + b)')])
+        return umstell_aufgabe(R, [f], st, nur=R.choice(['c', 'a'] if f[0].startswith('A') else ['a', 'b']))
     # Stufe 3: umstellen und Zahl berechnen
-    art = R.choice(['lin', 'fahrenheit', 'trapez', 'mittel'])
+    arten = ['lin', 'fahrenheit', 'trapez'] + (['mittel'] if MITTEL['n'] < 3 else [])
+    art = R.choice(arten)
+    if art == 'mittel': MITTEL['n'] += 1
     if art == 'lin':
         m, t = R.choice([2, 3, 4, 5, -2, -3]), R.randint(-9, 9)
         x = Fr(R.randint(-8, 8)); y = m * x + t
@@ -149,14 +267,31 @@ def g_zwei_schritte(R, st):
         Af = Fr((a + c) * h, 2)
         return Z(f'Ein Trapez hat A = {zt(Af)} cm², a = {a} cm und h = {h} cm. Berechne c aus A = (a + c) · h : 2.', c, f'2 * {cz(Af)} / {h} - {a}',
                  f'c = 2 · A : h − a = {zt(2 * Af)} : {h} − {a} = {zt(2 * Af / h)} − {a} = {c} cm.', 'Stelle nach c um: · 2, dann : h, dann − a.', einheit='cm')
-    a, b = R.randint(1, 6), R.randint(1, 6)
-    M = Fr(a + b, 2)
-    return Z(f'Der Mittelwert zweier Noten ist M = {zt(M)}. Eine Note ist {b}. Welche ist die andere? Nutze M = (a + b) : 2.', a, f'2 * {cz(M)} - {b}',
-             f'a = 2 · M − b = {zt(2 * M)} − {b} = {a}.', 'Stelle nach a um: erst · 2, dann − b.')
+    while True:
+        a, b, c = R.randint(1, 6), R.randint(1, 6), R.randint(1, 6)
+        M = Fr(a + b + c, 3)
+        if ist_endlich(M) and M not in (a, b, c) and a not in (b, c): break
+    return Z(f'Der Mittelwert dreier Noten ist M = {zt(M)}. Zwei Noten sind {b} und {c}. Welche ist die dritte? Nutze M = (a + b + c) : 3.', a, f'3 * {cz(M)} - {b} - {c}',
+             f'M = (a + b + c) : 3 | · 3 → 3 · M = a + b + c | − b − c → a = 3 · M − b − c = {zt(3 * M)} − {b} − {c} = {a}.', 'Stelle nach a um: erst · 3, dann die bekannten Noten abziehen.')
 
 
 def g_einsetzen(R, st):
-    art = R.choice({1: ['rad', 'strom', 'dichte'], 2: ['rad', 'strom', 'dichte', 'zins_p', 'tarif'], 3: ['zins_K', 'tarif', 'kraft', 'arbeit']}[st])
+    art = R.choice({1: ['rad', 'strom', 'dichte'], 2: ['rad', 'strom', 'dichte', 'zins_p', 'tarif'], 3: ['zins_K', 'kraft', 'arbeit', 'einheit_v', 'einheit_m']}[st])
+    if art == 'einheit_v':
+        mi = R.choice([15, 20, 30, 40, 45, 90])
+        v = R.choice([60, 80, 100, 120, 140, 160, 180, 200])
+        s_ = Fr(v * mi, 60)
+        if s_.denominator != 1: return g_einsetzen(R, st)
+        return Z(f'Ein Zug fährt {zt(s_)} km in {mi} Minuten. Wie groß ist seine Durchschnittsgeschwindigkeit in km/h? (v = s : t)', v, f'{cz(s_)} / ({mi} / 60)',
+                 f'Erst umrechnen: {mi} min = {zt(Fr(mi, 60))} h. v = s : t = {zt(s_)} km : {zt(Fr(mi, 60))} h = {v} km/h.',
+                 'Rechne die Minuten zuerst in Stunden um.', einheit='km/h')
+    if art == 'einheit_m':
+        stoff, rho = R.choice([('Holz', Fr(6, 10)), ('Eis', Fr(9, 10)), ('Aluminium', Fr(27, 10)), ('Glas', Fr(5, 2))])
+        V = R.choice([2, 3, 4, 5, 10])
+        m = rho * V
+        return Z(f'Ein Stück {stoff} (ρ = {zt(rho)} g/cm³) hat das Volumen {V} dm³. Wie schwer ist es in kg? (ρ = m : V)', m, f'{cz(rho)} * {V} * 1000 / 1000',
+                 f'{V} dm³ = {V * 1000} cm³. m = ρ · V = {zt(rho)} g/cm³ · {V * 1000} cm³ = {zt(rho * V * 1000)} g = {zt(m)} kg.',
+                 'Rechne dm³ zuerst in cm³ um. Am Ende g in kg.', einheit='kg')
     if art == 'rad':
         v = R.choice([12, 15, 16, 18, 20, 24, 25, 30, 40, 50, 60, 80, 90, 100, 120])
         t = Fr(R.choice([1, 2, 3, 5, 6, 8, 10, 12, 15]), R.choice([1, 2, 4]))
@@ -192,8 +327,8 @@ def g_einsetzen(R, st):
         G, p = Fr(R.choice([5, 8, 10, 12, 15])), Fr(R.choice([5, 10, 15, 20, 25]), 10)
         n = R.randint(4, 30)
         K = G + n * p
-        return Z(f'Ein Tarif kostet K = G + n · p mit G = {zt(G)} € und p = {zt(p)} € pro Stunde. Die Rechnung beträgt {zt(K)} €. Wie viele Stunden n wurden genutzt?', n, f'({cz(K)} - {cz(G)}) / {cz(p)}',
-                 f'n = (K − G) : p = ({zt(K)} − {zt(G)}) : {zt(p)} = {n}.', 'Stelle nach n um: erst − G, dann : p.')
+        return Z(f'Ein Tarif kostet K = G + n · p mit G = {eur(G)} € und p = {eur(p)} € pro Stunde. Die Rechnung beträgt {eur(K)} €. Wie viele Stunden n wurden genutzt?', n, f'({cz(K)} - {cz(G)}) / {cz(p)}',
+                 f'n = (K − G) : p = ({eur(K)} − {eur(G)}) : {eur(p)} = {n}.', 'Stelle nach n um: erst − G, dann : p.')
     if art == 'kraft':
         m, a = Fr(R.choice([2, 4, 5, 8, 10, 20, 25, 50, 80])), Fr(R.choice([1, 2, 3, 4, 5, 15, 25]), R.choice([1, 2, 10]))
         F = m * a
@@ -263,7 +398,7 @@ def g_pruefen(R, st):
         antw, andere = f'Nein, richtig wäre {opts[0][0]}.', ['Ja, die Umstellung ist richtig.'] + [f'Nein, richtig wäre {t}.' for t in falsch_rest[:1]]
     v = NAMEN.get(var, var)
     return A(R, f'Jemand stellt {anz} nach {v} um und erhält {behauptet[0]}. Stimmt das?', antw, andere,
-             f'Richtig ist {opts[0][0]}. Probe: Wähle Zahlen für die anderen Größen, berechne {NAMEN.get(lhs, lhs)} mit {anz} und setze in die Umstellung ein.',
+             f'Richtig ist {opts[0][0]}: {WEG[(anz, var)]}. {probe(R, anz, lhs, rhs, var, *opts[0])}',
              'Mache die Probe mit einfachen Zahlen.')
 
 

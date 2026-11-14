@@ -1,0 +1,2996 @@
+{
+ "thema_schluessel": "daten.normalverteilung",
+ "thema_id": 80,
+ "block_id": 88,
+ "klasse": {
+  "zusatz": 10
+ },
+ "autor": "Claude (Paket IB)",
+ "inhalt": {
+  "ziel": "Die Normalverteilung als Modell kennen, Anteile mit der 68-95-99,7-Regel abschätzen, z-Werte berechnen und Ergebnisse vergleichen.",
+  "merke": [
+   "Normalverteilung (normal distribution): Glockenkurve, symmetrisch um μ; Mittelwert = Median = Modus.",
+   "σ bestimmt die Breite: größer = breiter und flacher.",
+   "68 % in μ ± σ, 95 % in μ ± 2σ, 99,7 % in μ ± 3σ.",
+   "Hälften: 34 % | 13,5 % | 2,35 % je Seite; über μ + σ: 16 %, über μ + 2σ: 2,5 %.",
+   "z-Wert (z-score): z = (x − μ) : σ; |z| > 2 gilt als ungewöhnlich."
+  ],
+  "abschnitte": [
+   {
+    "titel": "Das Modell",
+    "lernziele": [
+     "eigenschaften",
+     "regel"
+    ]
+   },
+   {
+    "titel": "Anteile",
+    "lernziele": [
+     "anteile"
+    ]
+   },
+   {
+    "titel": "Standardisieren",
+    "lernziele": [
+     "zwert",
+     "vergleichen"
+    ]
+   }
+  ],
+  "etappen": [
+   {
+    "lernziel": "eigenschaften",
+    "titel": "Die Glockenkurve",
+    "regel": "Viele Messgrößen (Körpergrößen, Füllmengen, Messfehler) sind ⟦normalverteilt⟧ (normal distribution): Die meisten Werte liegen nahe beim ⟦Mittelwert μ⟧, je weiter weg, desto seltener. Das Histogramm sieht aus wie eine ⟦Glocke⟧, ⟦symmetrisch⟧ um μ. Mittelwert, Median und Modus fallen zusammen. Die ⟦Standardabweichung σ⟧ bestimmt die Breite.",
+    "schritte": [
+     "Füllmengen: μ = 500 ml, σ = 5 ml.",
+     "Die Glocke hat ihre Spitze bei ⟦500 ml⟧; Füllmengen wie 495 ml und 505 ml sind ⟦gleich häufig⟧."
+    ],
+    "probe": "Symmetrie: 500 − 5 = 495 und 500 + 5 = 505 ✓",
+    "bild": {
+     "typ": "saeulen",
+     "einheit": "Anteil in %",
+     "werte": [
+      {
+       "name": "μ−3σ",
+       "wert": 2
+      },
+      {
+       "name": "",
+       "wert": 9
+      },
+      {
+       "name": "μ−σ",
+       "wert": 23
+      },
+      {
+       "name": "μ",
+       "wert": 32
+      },
+      {
+       "name": "μ+σ",
+       "wert": 23
+      },
+      {
+       "name": "",
+       "wert": 9
+      },
+      {
+       "name": "μ+3σ",
+       "wert": 2
+      }
+     ],
+     "zahlen": false
+    },
+    "fehler": "„Bei größerem σ wird die Glocke höher“ ist falsch: Größeres σ heißt ⟦breiter und dafür flacher⟧ – die Gesamtfläche bleibt 100 %."
+   },
+   {
+    "lernziel": "regel",
+    "titel": "Die 68-95-99,7-Regel",
+    "regel": "Bei einer Normalverteilung liegen etwa ⟦68 %⟧ der Werte zwischen μ − σ und μ + σ, etwa ⟦95 %⟧ zwischen μ − 2σ und μ + 2σ und etwa ⟦99,7 %⟧ zwischen μ − 3σ und μ + 3σ (empirical rule).",
+    "schritte": [
+     "Körpergröße: μ = 170 cm, σ = 6 cm.",
+     "μ − 2σ = 158 cm, μ + 2σ = 182 cm.",
+     "Etwa ⟦95 %⟧ sind zwischen 158 cm und 182 cm groß."
+    ],
+    "probe": "2 · 6 = 12; 170 ± 12 ✓",
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Bereich",
+      "Anteil"
+     ],
+     "zeilen": [
+      [
+       "μ ± σ",
+       "≈ 68 %"
+      ],
+      [
+       "μ ± 2σ",
+       "≈ 95 %"
+      ],
+      [
+       "μ ± 3σ",
+       "≈ 99,7 %"
+      ]
+     ]
+    },
+    "fehler": "„Zwischen μ − 2σ und μ + 2σ liegen 2 · 68 % = 136 %“ ist falsch: Mehr als 100 % geht nicht. Die Anteile wachsen ⟦nicht proportional⟧: 68 %, 95 %, 99,7 %."
+   },
+   {
+    "lernziel": "anteile",
+    "titel": "Anteile in Teilbereichen",
+    "regel": "Wegen der ⟦Symmetrie⟧ teilt man die Anteile in Hälften: Zwischen μ und μ + σ liegen ⟦34 %⟧, zwischen μ + σ und μ + 2σ ⟦13,5 %⟧, zwischen μ + 2σ und μ + 3σ ⟦2,35 %⟧, darüber 0,15 %. Über μ + σ liegen also ⟦16 %⟧, über μ + 2σ ⟦2,5 %⟧.",
+    "schritte": [
+     "Testergebnisse: μ = 60, σ = 10. Wie viel % haben mehr als 70 Punkte?",
+     "70 = μ + σ. Darüber: (100 % − 68 %) : 2 = ⟦16 %⟧."
+    ],
+    "probe": "34 % + 34 % + 16 % + 16 % = 100 ✓",
+    "bild": {
+     "typ": "saeulen",
+     "einheit": "%",
+     "werte": [
+      {
+       "name": "<μ−2σ",
+       "wert": 2.5
+      },
+      {
+       "name": "μ−2σ…μ−σ",
+       "wert": 13.5
+      },
+      {
+       "name": "μ−σ…μ",
+       "wert": 34
+      },
+      {
+       "name": "μ…μ+σ",
+       "wert": 34
+      },
+      {
+       "name": "μ+σ…μ+2σ",
+       "wert": 13.5
+      },
+      {
+       "name": ">μ+2σ",
+       "wert": 2.5
+      }
+     ],
+     "zahlen": true
+    },
+    "fehler": "„Über μ + σ liegen 32 %“ ist falsch: Die 32 % außerhalb von μ ± σ verteilen sich auf ⟦beide Seiten⟧ – oben nur die Hälfte, 16 %."
+   },
+   {
+    "lernziel": "zwert",
+    "titel": "Der z-Wert",
+    "regel": "Der ⟦z-Wert⟧ (z-score) gibt an, ⟦wie viele Standardabweichungen⟧ ein Wert x vom Mittelwert entfernt ist: ⟦z = (x − μ) : σ⟧. Positiv: über dem Mittelwert, negativ: darunter. Umgekehrt: x = μ + z · σ.",
+    "schritte": [
+     "μ = 170 cm, σ = 6 cm, x = 182 cm.",
+     "z = (182 − 170) : 6 = 12 : 6 = ⟦2⟧.",
+     "Die Person ist 2 Standardabweichungen größer als der Durchschnitt."
+    ],
+    "probe": "170 + 2 · 6 = 182 ✓",
+    "fehler": "z = 182 : 6 ≈ 30,3 ist falsch: Zuerst den ⟦Abstand zum Mittelwert⟧ bilden (182 − 170), dann durch σ teilen."
+   },
+   {
+    "lernziel": "vergleichen",
+    "titel": "Vergleichen und beurteilen",
+    "regel": "Mit z-Werten kann man Ergebnisse aus ⟦verschiedenen Verteilungen⟧ vergleichen: Der größere z-Wert ist ⟦relativ besser⟧. Werte mit ⟦|z| > 2⟧ gelten als ⟦ungewöhnlich⟧ (nur etwa 5 % liegen so weit außen).",
+    "schritte": [
+     "Mathe: 78 Punkte bei μ = 70, σ = 4 → z = 2. Deutsch: 85 Punkte bei μ = 75, σ = 10 → z = 1.",
+     "Trotz weniger Punkten ist ⟦Mathe das bessere Ergebnis⟧ im Vergleich zur Gruppe."
+    ],
+    "probe": "(78 − 70) : 4 = 2 und (85 − 75) : 10 = 1 ✓",
+    "fehler": "Nur die Punktzahlen zu vergleichen (85 > 78) ist falsch, wenn die Tests ⟦verschieden verteilt⟧ sind. Erst in z-Werte umrechnen."
+   }
+  ],
+  "teilfaehigkeiten": [
+   {
+    "k": "eigenschaften",
+    "text": "Die Glockenkurve",
+    "lernziele": [
+     "eigenschaften"
+    ]
+   },
+   {
+    "k": "regel",
+    "text": "Die 68-95-99,7-Regel",
+    "lernziele": [
+     "regel"
+    ]
+   },
+   {
+    "k": "anteile",
+    "text": "Anteile in Teilbereichen",
+    "lernziele": [
+     "anteile"
+    ]
+   },
+   {
+    "k": "zwert",
+    "text": "Der z-Wert",
+    "lernziele": [
+     "zwert"
+    ]
+   },
+   {
+    "k": "vergleichen",
+    "text": "Vergleichen und beurteilen",
+    "lernziele": [
+     "vergleichen"
+    ]
+   }
+  ],
+  "bewertung": {
+   "lernziele_pflicht": [
+    "eigenschaften",
+    "regel",
+    "anteile",
+    "zwert",
+    "vergleichen"
+   ],
+   "lernziele_vertiefung": [],
+   "testaufgaben_je_lernziel": 1
+  },
+  "quellen": {
+   "erklaerungen": "Eigene Fassung (Claude), Aufgaben vom Generator erzeugt und berechnet.",
+   "begriffe": "Fachbegriffe deutsch (LehrplanPLUS Bayern), IB-Begriffe beim ersten Auftreten englisch in Klammern."
+  }
+ },
+ "aufgaben": [
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Körpergröße 15-jähriger Jungen ist normalverteilt mit μ = 170 cm und σ = 6 cm. Bei welchem Wert hat die Glockenkurve ihre Spitze?"
+   },
+   "o": {
+    "wert": 170,
+    "einheit": "cm"
+   },
+   "c": "170",
+   "w": "Die Spitze liegt beim Mittelwert μ = 170 cm.",
+   "h": "Wo liegen die meisten Werte?"
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Füllmenge von Saftflaschen ist normalverteilt mit μ = 500 ml und σ = 8 ml. Bei welchem Wert hat die Glockenkurve ihre Spitze?"
+   },
+   "o": {
+    "wert": 500,
+    "einheit": "ml"
+   },
+   "c": "500",
+   "w": "Die Spitze liegt beim Mittelwert μ = 500 ml.",
+   "h": "Wo liegen die meisten Werte?"
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Das Gewicht neugeborener Babys ist normalverteilt mit μ = 3 500 g und σ = 500 g. Wie groß ist der Median?"
+   },
+   "o": {
+    "wert": 3500,
+    "einheit": "g"
+   },
+   "c": "3500",
+   "w": "Wegen der Symmetrie sind Median und Mittelwert gleich: 3 500 g.",
+   "h": "Die Glocke ist symmetrisch – wo liegt die Mitte der Daten?"
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Das Gewicht neugeborener Babys ist normalverteilt mit μ = 3 300 g und σ = 500 g. Wie groß ist der Median?"
+   },
+   "o": {
+    "wert": 3300,
+    "einheit": "g"
+   },
+   "c": "3300",
+   "w": "Wegen der Symmetrie sind Median und Mittelwert gleich: 3 300 g.",
+   "h": "Die Glocke ist symmetrisch – wo liegt die Mitte der Daten?"
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Das Gewicht neugeborener Babys ist normalverteilt mit μ = 3 400 g und σ = 500 g. Wie groß ist der Median?"
+   },
+   "o": {
+    "wert": 3400,
+    "einheit": "g"
+   },
+   "c": "3400",
+   "w": "Wegen der Symmetrie sind Median und Mittelwert gleich: 3 400 g.",
+   "h": "Die Glocke ist symmetrisch – wo liegt die Mitte der Daten?"
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Fahrzeit zur Schule ist normalverteilt mit μ = 35 min und σ = 3 min. Bei welchem Wert hat die Glockenkurve ihre Spitze?"
+   },
+   "o": {
+    "wert": 35,
+    "einheit": "min"
+   },
+   "c": "35",
+   "w": "Die Spitze liegt beim Mittelwert μ = 35 min.",
+   "h": "Wo liegen die meisten Werte?"
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Das Ergebnis in einem Test ist normalverteilt mit μ = 70 Punkte und σ = 8 Punkte. Wie groß ist der Median?"
+   },
+   "o": {
+    "wert": 70,
+    "einheit": "Punkte"
+   },
+   "c": "70",
+   "w": "Wegen der Symmetrie sind Median und Mittelwert gleich: 70 Punkte.",
+   "h": "Die Glocke ist symmetrisch – wo liegt die Mitte der Daten?"
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Füllmenge von Saftflaschen ist normalverteilt mit μ = 750 ml und σ = 8 ml. Wie groß ist der Median?"
+   },
+   "o": {
+    "wert": 750,
+    "einheit": "ml"
+   },
+   "c": "750",
+   "w": "Wegen der Symmetrie sind Median und Mittelwert gleich: 750 ml.",
+   "h": "Die Glocke ist symmetrisch – wo liegt die Mitte der Daten?"
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Tabelle zeigt die Säulenhöhen (in %) von vier Histogrammen. Welches passt am besten zu einer Normalverteilung?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Diagramm",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7"
+     ],
+     "zeilen": [
+      [
+       "D",
+       "5",
+       "20",
+       "10",
+       "4",
+       "10",
+       "20",
+       "5"
+      ],
+      [
+       "A",
+       "2",
+       "7",
+       "18",
+       "26",
+       "18",
+       "7",
+       "2"
+      ],
+      [
+       "B",
+       "4",
+       "6",
+       "11",
+       "18",
+       "26",
+       "22",
+       "3"
+      ],
+      [
+       "C",
+       "14",
+       "15",
+       "14",
+       "14",
+       "15",
+       "14",
+       "14"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Diagramm A",
+    "Diagramm D",
+    "Diagramm C",
+    "Diagramm B"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Diagramm A ist symmetrisch, hat eine Spitze in der Mitte und fällt nach beiden Seiten ab. Die anderen sind schief, flach oder haben zwei Gipfel.",
+   "h": "Achte auf: eine Spitze in der Mitte, symmetrisch, nach außen kleiner."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Tabelle zeigt die Säulenhöhen (in %) von vier Histogrammen. Welches passt am besten zu einer Normalverteilung?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Diagramm",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7"
+     ],
+     "zeilen": [
+      [
+       "A",
+       "2",
+       "7",
+       "18",
+       "26",
+       "18",
+       "7",
+       "2"
+      ],
+      [
+       "B",
+       "3",
+       "22",
+       "26",
+       "18",
+       "11",
+       "6",
+       "4"
+      ],
+      [
+       "C",
+       "14",
+       "15",
+       "14",
+       "14",
+       "15",
+       "14",
+       "14"
+      ],
+      [
+       "D",
+       "5",
+       "20",
+       "10",
+       "4",
+       "10",
+       "20",
+       "5"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Diagramm A",
+    "Diagramm C",
+    "Diagramm B",
+    "Diagramm D"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Diagramm A ist symmetrisch, hat eine Spitze in der Mitte und fällt nach beiden Seiten ab. Die anderen sind schief, flach oder haben zwei Gipfel.",
+   "h": "Achte auf: eine Spitze in der Mitte, symmetrisch, nach außen kleiner."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Tabelle zeigt die Säulenhöhen (in %) von vier Histogrammen. Welches passt am besten zu einer Normalverteilung?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Diagramm",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7"
+     ],
+     "zeilen": [
+      [
+       "B",
+       "3",
+       "22",
+       "26",
+       "18",
+       "11",
+       "6",
+       "4"
+      ],
+      [
+       "C",
+       "14",
+       "15",
+       "14",
+       "14",
+       "15",
+       "14",
+       "14"
+      ],
+      [
+       "A",
+       "2",
+       "7",
+       "18",
+       "26",
+       "18",
+       "7",
+       "2"
+      ],
+      [
+       "D",
+       "5",
+       "20",
+       "10",
+       "4",
+       "10",
+       "20",
+       "5"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Diagramm C",
+    "Diagramm A",
+    "Diagramm D",
+    "Diagramm B"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Diagramm A ist symmetrisch, hat eine Spitze in der Mitte und fällt nach beiden Seiten ab. Die anderen sind schief, flach oder haben zwei Gipfel.",
+   "h": "Achte auf: eine Spitze in der Mitte, symmetrisch, nach außen kleiner."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Körpergröße 15-jähriger Jungen ist normalverteilt mit μ = 175 cm. 16 % der Werte liegen unter 169 cm. Wie viel % liegen über 181 cm?"
+   },
+   "o": {
+    "wert": 16,
+    "einheit": "%"
+   },
+   "c": "16.0",
+   "w": "169 und 181 liegen symmetrisch zu μ. Also auch 16 %.",
+   "h": "Spiegele am Mittelwert."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Tabelle zeigt die Säulenhöhen (in %) von vier Histogrammen. Welches passt am besten zu einer Normalverteilung?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Diagramm",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7"
+     ],
+     "zeilen": [
+      [
+       "B",
+       "4",
+       "6",
+       "11",
+       "18",
+       "26",
+       "22",
+       "3"
+      ],
+      [
+       "C",
+       "14",
+       "15",
+       "14",
+       "14",
+       "15",
+       "14",
+       "14"
+      ],
+      [
+       "D",
+       "5",
+       "20",
+       "10",
+       "4",
+       "10",
+       "20",
+       "5"
+      ],
+      [
+       "A",
+       "2",
+       "7",
+       "18",
+       "26",
+       "18",
+       "7",
+       "2"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Diagramm D",
+    "Diagramm A",
+    "Diagramm C",
+    "Diagramm B"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Diagramm A ist symmetrisch, hat eine Spitze in der Mitte und fällt nach beiden Seiten ab. Die anderen sind schief, flach oder haben zwei Gipfel.",
+   "h": "Achte auf: eine Spitze in der Mitte, symmetrisch, nach außen kleiner."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand behauptet: „Die Fahrzeit zur Schule ist normalverteilt, aber der Median liegt deutlich über dem Mittelwert.“ Stimmt das?"
+   },
+   "a": [
+    "Falsch: Bei einer Normalverteilung sind Mittelwert und Median gleich.",
+    "Richtig, wenn σ groß ist.",
+    "Falsch: Der Median ist immer kleiner.",
+    "Richtig, der Median ist immer größer."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Symmetrische Verteilung: Die Hälfte der Werte liegt unter μ, die Hälfte darüber. Also Median = μ.",
+   "h": "Was folgt aus der Symmetrie?"
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Füllmenge von Saftflaschen ist normalverteilt mit μ = 750 ml. 16 % der Werte liegen unter 745 ml. Wie viel % liegen über 755 ml?"
+   },
+   "o": {
+    "wert": 16,
+    "einheit": "%"
+   },
+   "c": "16.0",
+   "w": "745 und 755 liegen symmetrisch zu μ. Also auch 16 %.",
+   "h": "Spiegele am Mittelwert."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand behauptet: „Die Körpergröße 15-jähriger Jungen ist normalverteilt, aber der Median liegt deutlich über dem Mittelwert.“ Stimmt das?"
+   },
+   "a": [
+    "Richtig, der Median ist immer größer.",
+    "Falsch: Bei einer Normalverteilung sind Mittelwert und Median gleich.",
+    "Richtig, wenn σ groß ist.",
+    "Falsch: Der Median ist immer kleiner."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Symmetrische Verteilung: Die Hälfte der Werte liegt unter μ, die Hälfte darüber. Also Median = μ.",
+   "h": "Was folgt aus der Symmetrie?"
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand behauptet: „Die Füllmenge von Saftflaschen ist normalverteilt, aber der Median liegt deutlich über dem Mittelwert.“ Stimmt das?"
+   },
+   "a": [
+    "Richtig, wenn σ groß ist.",
+    "Falsch: Bei einer Normalverteilung sind Mittelwert und Median gleich.",
+    "Richtig, der Median ist immer größer.",
+    "Falsch: Der Median ist immer kleiner."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Symmetrische Verteilung: Die Hälfte der Werte liegt unter μ, die Hälfte darüber. Also Median = μ.",
+   "h": "Was folgt aus der Symmetrie?"
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Fahrzeit zur Schule ist normalverteilt mit μ = 25 min. 2,5 % der Werte liegen unter 19 min. Wie viel % liegen über 31 min?"
+   },
+   "o": {
+    "wert": 2.5,
+    "einheit": "%"
+   },
+   "c": "2.5",
+   "w": "19 und 31 liegen symmetrisch zu μ. Also auch 2,5 %.",
+   "h": "Spiegele am Mittelwert."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Fahrzeit zur Schule ist normalverteilt mit μ = 30 min und σ = 3 min. Wie groß ist der Median?"
+   },
+   "o": {
+    "wert": 30,
+    "einheit": "min"
+   },
+   "c": "30",
+   "w": "Wegen der Symmetrie sind Median und Mittelwert gleich: 30 min."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Füllmenge von Saftflaschen ist normalverteilt mit μ = 500 ml und σ = 5 ml. Wie groß ist der Median?"
+   },
+   "o": {
+    "wert": 500,
+    "einheit": "ml"
+   },
+   "c": "500",
+   "w": "Wegen der Symmetrie sind Median und Mittelwert gleich: 500 ml."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Tabelle zeigt die Säulenhöhen (in %) von vier Histogrammen. Welches passt am besten zu einer Normalverteilung?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Diagramm",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7"
+     ],
+     "zeilen": [
+      [
+       "C",
+       "14",
+       "15",
+       "14",
+       "14",
+       "15",
+       "14",
+       "14"
+      ],
+      [
+       "A",
+       "2",
+       "7",
+       "18",
+       "26",
+       "18",
+       "7",
+       "2"
+      ],
+      [
+       "B",
+       "4",
+       "6",
+       "11",
+       "18",
+       "26",
+       "22",
+       "3"
+      ],
+      [
+       "D",
+       "5",
+       "20",
+       "10",
+       "4",
+       "10",
+       "20",
+       "5"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Diagramm B",
+    "Diagramm D",
+    "Diagramm A",
+    "Diagramm C"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Diagramm A ist symmetrisch, hat eine Spitze in der Mitte und fällt nach beiden Seiten ab. Die anderen sind schief, flach oder haben zwei Gipfel."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Fahrzeit zur Schule ist normalverteilt mit μ = 30 min. 16 % der Werte liegen unter 27 min. Wie viel % liegen über 33 min?"
+   },
+   "o": {
+    "wert": 16,
+    "einheit": "%"
+   },
+   "c": "16.0",
+   "w": "27 und 33 liegen symmetrisch zu μ. Also auch 16 %."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Normalverteilungen haben denselben Mittelwert μ = 3 400, aber σ = 4 bzw. σ = 5. Was stimmt?"
+   },
+   "a": [
+    "Die Kurve mit σ = 5 ist breiter und flacher.",
+    "Die Kurve mit σ = 5 liegt weiter rechts.",
+    "Beide Kurven sehen gleich aus.",
+    "Die Kurve mit σ = 5 ist schmaler und höher."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "σ bestimmt die Breite: größeres σ – Werte streuen mehr – Glocke breiter und (gleiche Fläche) flacher. μ bestimmt nur die Lage."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Normalverteilungen haben denselben Mittelwert μ = 1 000, aber σ = 3 bzw. σ = 8. Was stimmt?"
+   },
+   "a": [
+    "Die Kurve mit σ = 8 ist breiter und flacher.",
+    "Die Kurve mit σ = 8 ist schmaler und höher.",
+    "Die Kurve mit σ = 8 liegt weiter rechts.",
+    "Beide Kurven sehen gleich aus."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "σ bestimmt die Breite: größeres σ – Werte streuen mehr – Glocke breiter und (gleiche Fläche) flacher. μ bestimmt nur die Lage."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Normalverteilungen haben denselben Mittelwert μ = 30, aber σ = 5 bzw. σ = 6. Was stimmt?"
+   },
+   "a": [
+    "Die Kurve mit σ = 6 liegt weiter rechts.",
+    "Die Kurve mit σ = 6 ist breiter und flacher.",
+    "Die Kurve mit σ = 6 ist schmaler und höher.",
+    "Beide Kurven sehen gleich aus."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "σ bestimmt die Breite: größeres σ – Werte streuen mehr – Glocke breiter und (gleiche Fläche) flacher. μ bestimmt nur die Lage."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Das Ergebnis in einem Test ist normalverteilt mit μ = 60 Punkte. 2,5 % der Werte liegen unter 40 Punkten. Wie viel % liegen über 80 Punkten?"
+   },
+   "o": {
+    "wert": 2.5,
+    "einheit": "%"
+   },
+   "c": "2.5",
+   "w": "40 und 80 liegen symmetrisch zu μ. Also auch 2,5 %."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Normalverteilungen haben denselben Mittelwert μ = 1 000, aber σ = 4 bzw. σ = 5. Was stimmt?"
+   },
+   "a": [
+    "Die Kurve mit σ = 5 ist breiter und flacher.",
+    "Beide Kurven sehen gleich aus.",
+    "Die Kurve mit σ = 5 ist schmaler und höher.",
+    "Die Kurve mit σ = 5 liegt weiter rechts."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "σ bestimmt die Breite: größeres σ – Werte streuen mehr – Glocke breiter und (gleiche Fläche) flacher. μ bestimmt nur die Lage."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Lebensdauer von Glühbirnen ist normalverteilt mit μ = 1 200 h und σ = 100 h. Wie groß ist der Median?"
+   },
+   "o": {
+    "wert": 1200,
+    "einheit": "h"
+   },
+   "c": "1200",
+   "w": "Wegen der Symmetrie sind Median und Mittelwert gleich: 1 200 h."
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Die Körpergröße 15-jähriger Jungen ist normalverteilt mit μ = 170 cm und σ = 6 cm. Zwischen welchen Werten liegen etwa 95 % der Werte?",
+    "schablone": "□ cm bis □ cm",
+    "hinweis": "zwei ganze Zahlen"
+   },
+   "o": {
+    "werte": [
+     158,
+     182
+    ]
+   },
+   "w": "95 % ↔ μ ± 2σ: 170 ∓ 12 = 158 bis 182.",
+   "h": "95 % gehört zu μ ± 2σ.",
+   "c": [
+    "170 - 2 * 6",
+    "170 + 2 * 6"
+   ]
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Das Ergebnis in einem Test ist normalverteilt mit μ = 60 Punkte und σ = 10 Punkte. Wie viel Prozent der Werte liegen etwa zwischen 40 Punkten und 80 Punkten?"
+   },
+   "o": {
+    "wert": 95,
+    "einheit": "%"
+   },
+   "c": "95.0",
+   "w": "40 = μ − 2σ und 80 = μ + 2σ. Nach der Regel: etwa 95 %.",
+   "h": "Wie viele σ sind die Grenzen vom Mittelwert entfernt?"
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Lebensdauer von Glühbirnen ist normalverteilt mit μ = 1 000 h und σ = 80 h. Wie viel Prozent der Werte liegen etwa zwischen 920 h und 1 080 h?"
+   },
+   "o": {
+    "wert": 68,
+    "einheit": "%"
+   },
+   "c": "68.0",
+   "w": "920 = μ − σ und 1 080 = μ + σ. Nach der Regel: etwa 68 %.",
+   "h": "Wie viele σ sind die Grenzen vom Mittelwert entfernt?"
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Die Fahrzeit zur Schule ist normalverteilt mit μ = 35 min und σ = 5 min. Zwischen welchen Werten liegen etwa 68 % der Werte?",
+    "schablone": "□ min bis □ min",
+    "hinweis": "zwei ganze Zahlen"
+   },
+   "o": {
+    "werte": [
+     30,
+     40
+    ]
+   },
+   "w": "68 % ↔ μ ± σ: 35 ∓ 5 = 30 bis 40.",
+   "h": "68 % gehört zu μ ± σ.",
+   "c": [
+    "35 - 1 * 5",
+    "35 + 1 * 5"
+   ]
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Körpergröße 15-jähriger Jungen ist normalverteilt mit μ = 170 cm und σ = 8 cm. Wie viel Prozent der Werte liegen etwa zwischen 154 cm und 186 cm?"
+   },
+   "o": {
+    "wert": 95,
+    "einheit": "%"
+   },
+   "c": "95.0",
+   "w": "154 = μ − 2σ und 186 = μ + 2σ. Nach der Regel: etwa 95 %.",
+   "h": "Wie viele σ sind die Grenzen vom Mittelwert entfernt?"
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Körpergröße 15-jähriger Jungen ist normalverteilt mit μ = 175 cm und σ = 8 cm. Wie viel Prozent der Werte liegen etwa zwischen 167 cm und 183 cm?"
+   },
+   "o": {
+    "wert": 68,
+    "einheit": "%"
+   },
+   "c": "68.0",
+   "w": "167 = μ − σ und 183 = μ + σ. Nach der Regel: etwa 68 %.",
+   "h": "Wie viele σ sind die Grenzen vom Mittelwert entfernt?"
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Körpergröße 15-jähriger Jungen ist normalverteilt mit μ = 175 cm und σ = 7 cm. Zwischen welchen Werten liegen etwa 99,7 % der Werte?",
+    "schablone": "□ cm bis □ cm",
+    "hinweis": "zwei ganze Zahlen"
+   },
+   "o": {
+    "werte": [
+     154,
+     196
+    ]
+   },
+   "w": "99,7 % ↔ μ ± 3σ: 175 ∓ 21 = 154 bis 196.",
+   "h": "99,7 % gehört zu μ ± 3σ.",
+   "c": [
+    "175 - 3 * 7",
+    "175 + 3 * 7"
+   ]
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "200 Messwerte (Lebensdauer von Glühbirnen, μ = 1 200 h, σ = 80 h): Etwa wie viele Werte liegen zwischen 1 120 h und 1 280 h?"
+   },
+   "o": {
+    "wert": 136
+   },
+   "c": "200 * 68.0 / 100",
+   "w": "Bereich μ ± σ: etwa 68 %. 68 % von 200 = 136.",
+   "h": "Erst den Prozentsatz bestimmen, dann von der Gesamtzahl berechnen."
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "2 000 Messwerte (Lebensdauer von Glühbirnen, μ = 1 500 h, σ = 100 h): Etwa wie viele Werte liegen zwischen 1 400 h und 1 600 h?"
+   },
+   "o": {
+    "wert": 1360
+   },
+   "c": "2000 * 68.0 / 100",
+   "w": "Bereich μ ± σ: etwa 68 %. 68 % von 2 000 = 1 360.",
+   "h": "Erst den Prozentsatz bestimmen, dann von der Gesamtzahl berechnen."
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Füllmenge von Saftflaschen ist normalverteilt mit μ = 1 000 ml und σ = 8 ml. Zwischen welchen Werten liegen etwa 68 % der Werte?",
+    "schablone": "□ ml bis □ ml",
+    "hinweis": "zwei ganze Zahlen"
+   },
+   "o": {
+    "werte": [
+     992,
+     1008
+    ]
+   },
+   "w": "68 % ↔ μ ± σ: 1 000 ∓ 8 = 992 bis 1 008.",
+   "h": "68 % gehört zu μ ± σ.",
+   "c": [
+    "1000 - 1 * 8",
+    "1000 + 1 * 8"
+   ]
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Lebensdauer von Glühbirnen ist normalverteilt mit μ = 1 200 h und σ = 80 h. Wie viel Prozent der Werte liegen etwa zwischen 1 040 h und 1 360 h?"
+   },
+   "o": {
+    "wert": 95,
+    "einheit": "%"
+   },
+   "c": "95.0",
+   "w": "1 040 = μ − 2σ und 1 360 = μ + 2σ. Nach der Regel: etwa 95 %.",
+   "h": "Wie viele σ sind die Grenzen vom Mittelwert entfernt?"
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Körpergröße 15-jähriger Jungen ist normalverteilt mit μ = 172 cm und σ = 8 cm. Wie viel Prozent der Werte liegen etwa zwischen 156 cm und 188 cm?"
+   },
+   "o": {
+    "wert": 95,
+    "einheit": "%"
+   },
+   "c": "95.0",
+   "w": "156 = μ − 2σ und 188 = μ + 2σ. Nach der Regel: etwa 95 %.",
+   "h": "Wie viele σ sind die Grenzen vom Mittelwert entfernt?"
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "In welchem Bereich liegen bei einer Normalverteilung etwa 99,7 % der Werte?"
+   },
+   "a": [
+    "μ ± 2σ",
+    "μ ± σ",
+    "μ ± 3σ",
+    "μ ± 0,5σ"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "68 % ↔ μ ± σ, 95 % ↔ μ ± 2σ, 99,7 % ↔ μ ± 3σ.",
+   "h": "Merke die drei Zahlen der Regel."
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "In welchem Bereich liegen bei einer Normalverteilung etwa 95 % der Werte?"
+   },
+   "a": [
+    "μ ± 3σ",
+    "μ ± 2σ",
+    "μ ± σ",
+    "μ ± 0,5σ"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "68 % ↔ μ ± σ, 95 % ↔ μ ± 2σ, 99,7 % ↔ μ ± 3σ.",
+   "h": "Merke die drei Zahlen der Regel."
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Messwert ist normalverteilt mit μ = 50 und σ = 4,5. Gib die Grenzen des Bereichs an, in dem etwa 95 % liegen.",
+    "schablone": "□ bis □",
+    "hinweis": "zwei ganze Zahlen"
+   },
+   "o": {
+    "werte": [
+     41,
+     59
+    ]
+   },
+   "w": "95 % ↔ μ ± 2σ. 2σ = 2 · 4,5 = 9. 50 − 9 = 41, 50 + 9 = 59.",
+   "h": "Welcher Bereich gehört zu 95 %? Rechne 2σ aus.",
+   "c": [
+    "50 - 2 * 4.5",
+    "50 + 2 * 4.5"
+   ]
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "In welchem Bereich liegen bei einer Normalverteilung etwa 68 % der Werte?"
+   },
+   "a": [
+    "μ ± 3σ",
+    "μ ± 0,5σ",
+    "μ ± σ",
+    "μ ± 2σ"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "68 % ↔ μ ± σ, 95 % ↔ μ ± 2σ, 99,7 % ↔ μ ± 3σ.",
+   "h": "Merke die drei Zahlen der Regel."
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Messwert ist normalverteilt mit μ = 35 und σ = 4,5. Gib die Grenzen des Bereichs an, in dem etwa 95 % liegen.",
+    "schablone": "□ bis □",
+    "hinweis": "zwei ganze Zahlen"
+   },
+   "o": {
+    "werte": [
+     26,
+     44
+    ]
+   },
+   "w": "95 % ↔ μ ± 2σ. 2σ = 2 · 4,5 = 9. 35 − 9 = 26, 35 + 9 = 44.",
+   "h": "Welcher Bereich gehört zu 95 %? Rechne 2σ aus.",
+   "c": [
+    "35 - 2 * 4.5",
+    "35 + 2 * 4.5"
+   ]
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Messwert ist normalverteilt mit μ = 35 und σ = 3,5. Gib die Grenzen des Bereichs an, in dem etwa 95 % liegen.",
+    "schablone": "□ bis □",
+    "hinweis": "zwei ganze Zahlen"
+   },
+   "o": {
+    "werte": [
+     28,
+     42
+    ]
+   },
+   "w": "95 % ↔ μ ± 2σ. 2σ = 2 · 3,5 = 7. 35 − 7 = 28, 35 + 7 = 42.",
+   "h": "Welcher Bereich gehört zu 95 %? Rechne 2σ aus.",
+   "c": [
+    "35 - 2 * 3.5",
+    "35 + 2 * 3.5"
+   ]
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "200 Messwerte (Körpergröße 15-jähriger Jungen, μ = 175 cm, σ = 6 cm): Etwa wie viele Werte liegen zwischen 163 cm und 187 cm?"
+   },
+   "o": {
+    "wert": 190
+   },
+   "c": "200 * 95.0 / 100",
+   "w": "Bereich μ ± 2σ: etwa 95 %. 95 % von 200 = 190."
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Das Ergebnis in einem Test ist normalverteilt mit μ = 65 Punkte und σ = 10 Punkte. Wie viel Prozent der Werte liegen etwa zwischen 55 Punkten und 75 Punkten?"
+   },
+   "o": {
+    "wert": 68,
+    "einheit": "%"
+   },
+   "c": "68.0",
+   "w": "55 = μ − σ und 75 = μ + σ. Nach der Regel: etwa 68 %."
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "500 Messwerte (Lebensdauer von Glühbirnen, μ = 1 000 h, σ = 100 h): Etwa wie viele Werte liegen zwischen 800 h und 1 200 h?"
+   },
+   "o": {
+    "wert": 475
+   },
+   "c": "500 * 95.0 / 100",
+   "w": "Bereich μ ± 2σ: etwa 95 %. 95 % von 500 = 475."
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Fahrzeit zur Schule ist normalverteilt mit μ = 25 min und σ = 5 min. Zwischen welchen Werten liegen etwa 68 % der Werte?",
+    "schablone": "□ min bis □ min",
+    "hinweis": "zwei ganze Zahlen"
+   },
+   "o": {
+    "werte": [
+     20,
+     30
+    ]
+   },
+   "w": "68 % ↔ μ ± σ: 25 ∓ 5 = 20 bis 30.",
+   "c": [
+    "25 - 1 * 5",
+    "25 + 1 * 5"
+   ]
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Fahrzeit zur Schule ist normalverteilt mit μ = 30 min und σ = 3 min. Zwischen welchen Werten liegen etwa 68 % der Werte?",
+    "schablone": "□ min bis □ min",
+    "hinweis": "zwei ganze Zahlen"
+   },
+   "o": {
+    "werte": [
+     27,
+     33
+    ]
+   },
+   "w": "68 % ↔ μ ± σ: 30 ∓ 3 = 27 bis 33.",
+   "c": [
+    "30 - 1 * 3",
+    "30 + 1 * 3"
+   ]
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Lebensdauer von Glühbirnen ist normalverteilt mit μ = 1 200 h und σ = 50 h. Wie viel Prozent der Werte liegen etwa zwischen 1 150 h und 1 250 h?"
+   },
+   "o": {
+    "wert": 68,
+    "einheit": "%"
+   },
+   "c": "68.0",
+   "w": "1 150 = μ − σ und 1 250 = μ + σ. Nach der Regel: etwa 68 %."
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "500 Messwerte (Ergebnis in einem Test, μ = 60 Punkte, σ = 8 Punkte): Etwa wie viele Werte liegen zwischen 52 Punkten und 68 Punkten?"
+   },
+   "o": {
+    "wert": 340
+   },
+   "c": "500 * 68.0 / 100",
+   "w": "Bereich μ ± σ: etwa 68 %. 68 % von 500 = 340."
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Das Ergebnis in einem Test ist normalverteilt mit μ = 65 Punkte und σ = 10 Punkte. Zwischen welchen Werten liegen etwa 68 % der Werte?",
+    "schablone": "□ Punkte bis □ Punkte",
+    "hinweis": "zwei ganze Zahlen"
+   },
+   "o": {
+    "werte": [
+     55,
+     75
+    ]
+   },
+   "w": "68 % ↔ μ ± σ: 65 ∓ 10 = 55 bis 75.",
+   "c": [
+    "65 - 1 * 10",
+    "65 + 1 * 10"
+   ]
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Körpergröße 15-jähriger Jungen ist normalverteilt mit μ = 172 cm und σ = 7 cm. Zwischen welchen Werten liegen etwa 95 % der Werte?",
+    "schablone": "□ cm bis □ cm",
+    "hinweis": "zwei ganze Zahlen"
+   },
+   "o": {
+    "werte": [
+     158,
+     186
+    ]
+   },
+   "w": "95 % ↔ μ ± 2σ: 172 ∓ 14 = 158 bis 186.",
+   "c": [
+    "172 - 2 * 7",
+    "172 + 2 * 7"
+   ]
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "500 Messwerte (Körpergröße 15-jähriger Jungen, μ = 175 cm, σ = 8 cm): Etwa wie viele Werte liegen zwischen 167 cm und 183 cm?"
+   },
+   "o": {
+    "wert": 340
+   },
+   "c": "500 * 68.0 / 100",
+   "w": "Bereich μ ± σ: etwa 68 %. 68 % von 500 = 340."
+  },
+  {
+   "l": "anteile",
+   "t": "anteile",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Körpergröße 15-jähriger Jungen ist normalverteilt mit μ = 172 cm und σ = 6 cm. Wie viel Prozent haben etwa mehr als 184 cm?"
+   },
+   "o": {
+    "wert": 2.5,
+    "einheit": "%"
+   },
+   "c": "2.5",
+   "w": "184 = μ + 2σ. Darüber liegen etwa 2,5 %.",
+   "h": "Rechne die Grenze in σ-Schritte um und nutze die Symmetrie (Hälften der 68/95/99,7 %)."
+  },
+  {
+   "l": "anteile",
+   "t": "anteile",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Das Ergebnis in einem Test ist normalverteilt mit μ = 60 Punkte und σ = 12 Punkte. Wie viel Prozent haben etwa weniger als 48 Punkten?"
+   },
+   "o": {
+    "wert": 16,
+    "einheit": "%"
+   },
+   "c": "16.0",
+   "w": "48 = μ − σ. Darunter liegen etwa 16 %.",
+   "h": "Rechne die Grenze in σ-Schritte um und nutze die Symmetrie (Hälften der 68/95/99,7 %)."
+  },
+  {
+   "l": "anteile",
+   "t": "anteile",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Körpergröße 15-jähriger Jungen ist normalverteilt mit μ = 170 cm und σ = 7 cm. Wie viel Prozent haben etwa mehr als 177 cm?"
+   },
+   "o": {
+    "wert": 16,
+    "einheit": "%"
+   },
+   "c": "16.0",
+   "w": "177 = μ + σ. Darüber liegen etwa 16 %.",
+   "h": "Rechne die Grenze in σ-Schritte um und nutze die Symmetrie (Hälften der 68/95/99,7 %)."
+  },
+  {
+   "l": "anteile",
+   "t": "anteile",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Lebensdauer von Glühbirnen ist normalverteilt mit μ = 1 500 h und σ = 80 h. Wie viel Prozent haben etwa weniger als 1 340 h?"
+   },
+   "o": {
+    "wert": 2.5,
+    "einheit": "%"
+   },
+   "c": "2.5",
+   "w": "1 340 = μ − 2σ. Darunter liegen etwa 2,5 %.",
+   "h": "Rechne die Grenze in σ-Schritte um und nutze die Symmetrie (Hälften der 68/95/99,7 %)."
+  },
+  {
+   "l": "anteile",
+   "t": "anteile",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Das Gewicht neugeborener Babys ist normalverteilt mit μ = 3 400 g und σ = 450 g. Wie viel Prozent haben etwa weniger als 2 500 g?"
+   },
+   "o": {
+    "wert": 2.5,
+    "einheit": "%"
+   },
+   "c": "2.5",
+   "w": "2 500 = μ − 2σ. Darunter liegen etwa 2,5 %.",
+   "h": "Rechne die Grenze in σ-Schritte um und nutze die Symmetrie (Hälften der 68/95/99,7 %)."
+  },
+  {
+   "l": "anteile",
+   "t": "anteile",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Füllmenge von Saftflaschen ist normalverteilt mit μ = 1 000 ml und σ = 4 ml. Wie viel Prozent haben etwa weniger als 996 ml?"
+   },
+   "o": {
+    "wert": 16,
+    "einheit": "%"
+   },
+   "c": "16.0",
+   "w": "996 = μ − σ. Darunter liegen etwa 16 %.",
+   "h": "Rechne die Grenze in σ-Schritte um und nutze die Symmetrie (Hälften der 68/95/99,7 %)."
+  },
+  {
+   "l": "anteile",
+   "t": "anteile",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Das Gewicht neugeborener Babys ist normalverteilt mit μ = 3 400 g und σ = 500 g. Wie viel Prozent haben etwa weniger als 3 400 g?"
+   },
+   "o": {
+    "wert": 50,
+    "einheit": "%"
+   },
+   "c": "50.0",
+   "w": "3 400 = μ. Darunter liegen etwa 50 %.",
+   "h": "Rechne die Grenze in σ-Schritte um und nutze die Symmetrie (Hälften der 68/95/99,7 %)."
+  },
+  {
+   "l": "anteile",
+   "t": "anteile",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Füllmenge von Saftflaschen ist normalverteilt mit μ = 500 ml und σ = 8 ml. Wie viel Prozent liegen etwa zwischen 492 ml und 500 ml?"
+   },
+   "o": {
+    "wert": 34,
+    "einheit": "%"
+   },
+   "c": "34.0",
+   "w": "Grenzen: μ − σ und μ. Streifen addieren: etwa 34 %.",
+   "h": "Teile den Bereich in σ-Streifen (34 %, 13,5 %, 2,35 %) und addiere."
+  },
+  {
+   "l": "anteile",
+   "t": "anteile",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Füllmenge von Saftflaschen ist normalverteilt mit μ = 1 000 ml und σ = 4 ml. Wie viel Prozent haben etwa mehr als 1 012 ml?"
+   },
+   "o": {
+    "wert": 0.15,
+    "einheit": "%"
+   },
+   "c": "0.15",
+   "w": "1 012 = μ + 3σ. Darüber liegen etwa 0,15 %.",
+   "h": "Rechne die Grenze in σ-Schritte um und nutze die Symmetrie (Hälften der 68/95/99,7 %)."
+  },
+  {
+   "l": "anteile",
+   "t": "anteile",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Füllmenge von Saftflaschen ist normalverteilt mit μ = 750 ml und σ = 5 ml. Wie viel Prozent haben etwa weniger als 735 ml?"
+   },
+   "o": {
+    "wert": 0.15,
+    "einheit": "%"
+   },
+   "c": "0.15",
+   "w": "735 = μ − 3σ. Darunter liegen etwa 0,15 %.",
+   "h": "Rechne die Grenze in σ-Schritte um und nutze die Symmetrie (Hälften der 68/95/99,7 %)."
+  },
+  {
+   "l": "anteile",
+   "t": "anteile",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Das Gewicht neugeborener Babys ist normalverteilt mit μ = 3 300 g und σ = 450 g. Wie viel Prozent haben etwa mehr als 3 300 g?"
+   },
+   "o": {
+    "wert": 50,
+    "einheit": "%"
+   },
+   "c": "50.0",
+   "w": "3 300 = μ. Darüber liegen etwa 50 %.",
+   "h": "Rechne die Grenze in σ-Schritte um und nutze die Symmetrie (Hälften der 68/95/99,7 %)."
+  },
+  {
+   "l": "anteile",
+   "t": "anteile",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "1 000 Messwerte (Füllmenge von Saftflaschen, μ = 500 ml, σ = 8 ml). Etwa wie viele liegen über 508 ml?"
+   },
+   "o": {
+    "wert": 160
+   },
+   "c": "1000 * 16.0 / 100",
+   "w": "Über μ + σ: etwa 16 %. 16 % von 1 000 = 160.",
+   "h": "Erst den Anteil, dann die Anzahl."
+  },
+  {
+   "l": "anteile",
+   "t": "anteile",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Das Gewicht neugeborener Babys ist normalverteilt mit μ = 3 500 g und σ = 400 g. Wie viel Prozent liegen etwa zwischen 2 300 g und 3 500 g?"
+   },
+   "o": {
+    "wert": 49.85,
+    "einheit": "%"
+   },
+   "c": "49.85",
+   "w": "Grenzen: μ − 3σ und μ. Streifen addieren: etwa 49,85 %.",
+   "h": "Teile den Bereich in σ-Streifen (34 %, 13,5 %, 2,35 %) und addiere."
+  },
+  {
+   "l": "anteile",
+   "t": "anteile",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Körpergröße 15-jähriger Jungen ist normalverteilt mit μ = 175 cm und σ = 7 cm. Wie viel Prozent liegen außerhalb von 161 bis 189 cm?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "%"
+   },
+   "c": "100 - 95.0",
+   "w": "Innerhalb μ ± 2σ: 95 %. Außerhalb: 100 % − 95 % = 5 % (je 2,5 % auf jeder Seite).",
+   "h": "Was bleibt übrig, wenn 95 % innen liegen?"
+  },
+  {
+   "l": "anteile",
+   "t": "anteile",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Lebensdauer von Glühbirnen ist normalverteilt mit μ = 1 200 h und σ = 80 h. Wie viel Prozent liegen etwa zwischen 1 040 h und 1 360 h?"
+   },
+   "o": {
+    "wert": 95,
+    "einheit": "%"
+   },
+   "c": "95.0",
+   "w": "Grenzen: μ − 2σ und μ + 2σ. Streifen addieren: etwa 95 %.",
+   "h": "Teile den Bereich in σ-Streifen (34 %, 13,5 %, 2,35 %) und addiere."
+  },
+  {
+   "l": "anteile",
+   "t": "anteile",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Lebensdauer von Glühbirnen ist normalverteilt mit μ = 1 000 h und σ = 80 h. Wie viel Prozent liegen außerhalb von 840 bis 1 160 h?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "%"
+   },
+   "c": "100 - 95.0",
+   "w": "Innerhalb μ ± 2σ: 95 %. Außerhalb: 100 % − 95 % = 5 % (je 2,5 % auf jeder Seite).",
+   "h": "Was bleibt übrig, wenn 95 % innen liegen?"
+  },
+  {
+   "l": "anteile",
+   "t": "anteile",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Das Gewicht neugeborener Babys ist normalverteilt mit μ = 3 500 g und σ = 450 g. Wie viel Prozent liegen etwa zwischen 2 150 g und 2 600 g?"
+   },
+   "o": {
+    "wert": 2.35,
+    "einheit": "%"
+   },
+   "c": "2.35",
+   "w": "Grenzen: μ − 3σ und μ − 2σ. Streifen addieren: etwa 2,35 %.",
+   "h": "Teile den Bereich in σ-Streifen (34 %, 13,5 %, 2,35 %) und addiere."
+  },
+  {
+   "l": "anteile",
+   "t": "anteile",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "400 Messwerte (Körpergröße 15-jähriger Jungen, μ = 170 cm, σ = 6 cm). Etwa wie viele liegen über 176 cm?"
+   },
+   "o": {
+    "wert": 64
+   },
+   "c": "400 * 16.0 / 100",
+   "w": "Über μ + σ: etwa 16 %. 16 % von 400 = 64.",
+   "h": "Erst den Anteil, dann die Anzahl."
+  },
+  {
+   "l": "anteile",
+   "t": "anteile",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "2 000 Messwerte (Gewicht neugeborener Babys, μ = 3 400 g, σ = 500 g). Etwa wie viele liegen über 3 900 g?"
+   },
+   "o": {
+    "wert": 320
+   },
+   "c": "2000 * 16.0 / 100",
+   "w": "Über μ + σ: etwa 16 %. 16 % von 2 000 = 320."
+  },
+  {
+   "l": "anteile",
+   "t": "anteile",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Füllmenge von Saftflaschen ist normalverteilt mit μ = 500 ml und σ = 8 ml. Wie viel Prozent haben etwa mehr als 508 ml?"
+   },
+   "o": {
+    "wert": 16,
+    "einheit": "%"
+   },
+   "c": "16.0",
+   "w": "508 = μ + σ. Darüber liegen etwa 16 %."
+  },
+  {
+   "l": "anteile",
+   "t": "anteile",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "1 000 Messwerte (Gewicht neugeborener Babys, μ = 3 500 g, σ = 400 g). Etwa wie viele liegen über 3 900 g?"
+   },
+   "o": {
+    "wert": 160
+   },
+   "c": "1000 * 16.0 / 100",
+   "w": "Über μ + σ: etwa 16 %. 16 % von 1 000 = 160."
+  },
+  {
+   "l": "anteile",
+   "t": "anteile",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Lebensdauer von Glühbirnen ist normalverteilt mit μ = 1 000 h und σ = 80 h. Wie viel Prozent haben etwa mehr als 1 000 h?"
+   },
+   "o": {
+    "wert": 50,
+    "einheit": "%"
+   },
+   "c": "50.0",
+   "w": "1 000 = μ. Darüber liegen etwa 50 %."
+  },
+  {
+   "l": "anteile",
+   "t": "anteile",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Das Ergebnis in einem Test ist normalverteilt mit μ = 60 Punkte und σ = 12 Punkte. Wie viel Prozent haben etwa weniger als 60 Punkten?"
+   },
+   "o": {
+    "wert": 50,
+    "einheit": "%"
+   },
+   "c": "50.0",
+   "w": "60 = μ. Darunter liegen etwa 50 %."
+  },
+  {
+   "l": "anteile",
+   "t": "anteile",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Körpergröße 15-jähriger Jungen ist normalverteilt mit μ = 172 cm und σ = 6 cm. Wie viel Prozent haben etwa weniger als 172 cm?"
+   },
+   "o": {
+    "wert": 50,
+    "einheit": "%"
+   },
+   "c": "50.0",
+   "w": "172 = μ. Darunter liegen etwa 50 %."
+  },
+  {
+   "l": "anteile",
+   "t": "anteile",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "400 Messwerte (Fahrzeit zur Schule, μ = 25 min, σ = 5 min). Etwa wie viele liegen über 30 min?"
+   },
+   "o": {
+    "wert": 64
+   },
+   "c": "400 * 16.0 / 100",
+   "w": "Über μ + σ: etwa 16 %. 16 % von 400 = 64."
+  },
+  {
+   "l": "anteile",
+   "t": "anteile",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Füllmenge von Saftflaschen ist normalverteilt mit μ = 500 ml und σ = 4 ml. Wie viel Prozent haben etwa mehr als 504 ml?"
+   },
+   "o": {
+    "wert": 16,
+    "einheit": "%"
+   },
+   "c": "16.0",
+   "w": "504 = μ + σ. Darüber liegen etwa 16 %."
+  },
+  {
+   "l": "anteile",
+   "t": "anteile",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Lebensdauer von Glühbirnen ist normalverteilt mit μ = 1 500 h und σ = 100 h. Wie viel Prozent haben etwa weniger als 1 200 h?"
+   },
+   "o": {
+    "wert": 0.15,
+    "einheit": "%"
+   },
+   "c": "0.15",
+   "w": "1 200 = μ − 3σ. Darunter liegen etwa 0,15 %."
+  },
+  {
+   "l": "anteile",
+   "t": "anteile",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Fahrzeit zur Schule ist normalverteilt mit μ = 25 min und σ = 3 min. Wie viel Prozent liegen etwa zwischen 25 min und 28 min?"
+   },
+   "o": {
+    "wert": 34,
+    "einheit": "%"
+   },
+   "c": "34.0",
+   "w": "Grenzen: μ und μ + σ. Streifen addieren: etwa 34 %."
+  },
+  {
+   "l": "zwert",
+   "t": "zwert",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Lebensdauer von Glühbirnen: μ = 1 200 h, σ = 100 h. Berechne den z-Wert für x = 1 400 h."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "(1400 - 1200) / 100",
+   "w": "z = (1 400 − 1 200) : 100 = 200 : 100 = 2.",
+   "h": "z = (x − μ) : σ. Unter dem Mittelwert wird z negativ."
+  },
+  {
+   "l": "zwert",
+   "t": "zwert",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Füllmenge von Saftflaschen: μ = 750 ml, σ = 8 ml. Berechne den z-Wert für x = 758 ml."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(758 - 750) / 8",
+   "w": "z = (758 − 750) : 8 = 8 : 8 = 1.",
+   "h": "z = (x − μ) : σ. Unter dem Mittelwert wird z negativ."
+  },
+  {
+   "l": "zwert",
+   "t": "zwert",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Gewicht neugeborener Babys: μ = 3 400 g, σ = 450 g. Berechne den z-Wert für x = 3 850 g."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(3850 - 3400) / 450",
+   "w": "z = (3 850 − 3 400) : 450 = 450 : 450 = 1.",
+   "h": "z = (x − μ) : σ. Unter dem Mittelwert wird z negativ."
+  },
+  {
+   "l": "zwert",
+   "t": "zwert",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Fahrzeit zur Schule: μ = 35 min, σ = 3 min. Berechne den z-Wert für x = 44 min."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(44 - 35) / 3",
+   "w": "z = (44 − 35) : 3 = 9 : 3 = 3.",
+   "h": "z = (x − μ) : σ. Unter dem Mittelwert wird z negativ."
+  },
+  {
+   "l": "zwert",
+   "t": "zwert",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Füllmenge von Saftflaschen: μ = 750 ml, σ = 8 ml. Berechne den z-Wert für x = 774 ml."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(774 - 750) / 8",
+   "w": "z = (774 − 750) : 8 = 24 : 8 = 3.",
+   "h": "z = (x − μ) : σ. Unter dem Mittelwert wird z negativ."
+  },
+  {
+   "l": "zwert",
+   "t": "zwert",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Lebensdauer von Glühbirnen: μ = 1 500 h, σ = 100 h. Berechne den z-Wert für x = 1 600 h."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(1600 - 1500) / 100",
+   "w": "z = (1 600 − 1 500) : 100 = 100 : 100 = 1.",
+   "h": "z = (x − μ) : σ. Unter dem Mittelwert wird z negativ."
+  },
+  {
+   "l": "zwert",
+   "t": "zwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Füllmenge von Saftflaschen: μ = 500 ml, σ = 4 ml. Welcher Wert x hat den z-Wert 0,5?"
+   },
+   "o": {
+    "wert": 502,
+    "einheit": "ml"
+   },
+   "c": "500 + (0.5) * 4",
+   "w": "x = μ + z · σ = 500 + 0,5 · 4 = 502.",
+   "h": "x = μ + z · σ."
+  },
+  {
+   "l": "zwert",
+   "t": "zwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Fahrzeit zur Schule: μ = 35 min, σ = 3 min. Berechne den z-Wert für x = 26 min."
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "(26 - 35) / 3",
+   "w": "z = (26 − 35) : 3 = −9 : 3 = −3.",
+   "h": "z = (x − μ) : σ. Unter dem Mittelwert wird z negativ."
+  },
+  {
+   "l": "zwert",
+   "t": "zwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Fahrzeit zur Schule: μ = 35 min, σ = 4 min. Berechne den z-Wert für x = 39 min."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(39 - 35) / 4",
+   "w": "z = (39 − 35) : 4 = 4 : 4 = 1.",
+   "h": "z = (x − μ) : σ. Unter dem Mittelwert wird z negativ."
+  },
+  {
+   "l": "zwert",
+   "t": "zwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ergebnis in einem Test: μ = 70 Punkte, σ = 10 Punkte. Berechne den z-Wert für x = 80 Punkte."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(80 - 70) / 10",
+   "w": "z = (80 − 70) : 10 = 10 : 10 = 1.",
+   "h": "z = (x − μ) : σ. Unter dem Mittelwert wird z negativ."
+  },
+  {
+   "l": "zwert",
+   "t": "zwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gewicht neugeborener Babys: μ = 3 400 g, σ = 500 g. Welcher Wert x hat den z-Wert 1,5?"
+   },
+   "o": {
+    "wert": 4150,
+    "einheit": "g"
+   },
+   "c": "3400 + (1.5) * 500",
+   "w": "x = μ + z · σ = 3 400 + 1,5 · 500 = 4 150.",
+   "h": "x = μ + z · σ."
+  },
+  {
+   "l": "zwert",
+   "t": "zwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Fahrzeit zur Schule: μ = 30 min, σ = 4 min. Berechne den z-Wert für x = 42 min."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(42 - 30) / 4",
+   "w": "z = (42 − 30) : 4 = 12 : 4 = 3.",
+   "h": "z = (x − μ) : σ. Unter dem Mittelwert wird z negativ."
+  },
+  {
+   "l": "zwert",
+   "t": "zwert",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Füllmenge von Saftflaschen: μ = 500 ml. Der Wert x = 507,5 ml hat den z-Wert 1,5. Wie groß ist σ?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "ml"
+   },
+   "c": "(507.5 - 500) / (1.5)",
+   "w": "z = (x − μ) : σ ⇒ σ = (x − μ) : z = 7,5 : 1,5 = 5.",
+   "h": "Stelle die z-Formel nach σ um."
+  },
+  {
+   "l": "zwert",
+   "t": "zwert",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ergebnis in einem Test: μ = 60 Punkte, σ = 12 Punkte. Berechne den z-Wert für x = 69 Punkte."
+   },
+   "o": {
+    "wert": 0.75
+   },
+   "c": "(69.0 - 60) / 12",
+   "w": "z = (69 − 60) : 12 = 9 : 12 = 0,75.",
+   "h": "Der z-Wert muss keine ganze Zahl sein."
+  },
+  {
+   "l": "zwert",
+   "t": "zwert",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Körpergröße 15-jähriger Jungen: μ = 175 cm. Der Wert x = 183 cm hat den z-Wert 2. Wie groß ist σ?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "cm"
+   },
+   "c": "(183.0 - 175) / (2.0)",
+   "w": "z = (x − μ) : σ ⇒ σ = (x − μ) : z = 8 : 2 = 4.",
+   "h": "Stelle die z-Formel nach σ um."
+  },
+  {
+   "l": "zwert",
+   "t": "zwert",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Körpergröße 15-jähriger Jungen: μ = 172 cm, σ = 8 cm. Berechne den z-Wert für x = 184 cm."
+   },
+   "o": {
+    "wert": 1.5
+   },
+   "c": "(184.0 - 172) / 8",
+   "w": "z = (184 − 172) : 8 = 12 : 8 = 1,5.",
+   "h": "Der z-Wert muss keine ganze Zahl sein."
+  },
+  {
+   "l": "zwert",
+   "t": "zwert",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Körpergröße 15-jähriger Jungen: μ = 175 cm, σ = 7 cm. Berechne den z-Wert für x = 164,5 cm."
+   },
+   "o": {
+    "wert": -1.5
+   },
+   "c": "(164.5 - 175) / 7",
+   "w": "z = (164,5 − 175) : 7 = −10,5 : 7 = −1,5.",
+   "h": "Der z-Wert muss keine ganze Zahl sein."
+  },
+  {
+   "l": "zwert",
+   "t": "zwert",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Füllmenge von Saftflaschen: μ = 750 ml, σ = 8 ml. Berechne den z-Wert für x = 762 ml."
+   },
+   "o": {
+    "wert": 1.5
+   },
+   "c": "(762.0 - 750) / 8",
+   "w": "z = (762 − 750) : 8 = 12 : 8 = 1,5.",
+   "h": "Der z-Wert muss keine ganze Zahl sein."
+  },
+  {
+   "l": "zwert",
+   "t": "zwert",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Fahrzeit zur Schule: μ = 35 min, σ = 5 min. Welcher Wert x hat den z-Wert 2?"
+   },
+   "o": {
+    "wert": 45,
+    "einheit": "min"
+   },
+   "c": "35 + (2.0) * 5",
+   "w": "x = μ + z · σ = 35 + 2 · 5 = 45."
+  },
+  {
+   "l": "zwert",
+   "t": "zwert",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Körpergröße 15-jähriger Jungen: μ = 170 cm, σ = 7 cm. Berechne den z-Wert für x = 163 cm."
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "(163 - 170) / 7",
+   "w": "z = (163 − 170) : 7 = −7 : 7 = −1."
+  },
+  {
+   "l": "zwert",
+   "t": "zwert",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Füllmenge von Saftflaschen: μ = 500 ml, σ = 5 ml. Berechne den z-Wert für x = 515 ml."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(515 - 500) / 5",
+   "w": "z = (515 − 500) : 5 = 15 : 5 = 3."
+  },
+  {
+   "l": "zwert",
+   "t": "zwert",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Füllmenge von Saftflaschen: μ = 750 ml, σ = 5 ml. Berechne den z-Wert für x = 755 ml."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(755 - 750) / 5",
+   "w": "z = (755 − 750) : 5 = 5 : 5 = 1."
+  },
+  {
+   "l": "zwert",
+   "t": "zwert",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Körpergröße 15-jähriger Jungen: μ = 170 cm, σ = 6 cm. Berechne den z-Wert für x = 182 cm."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "(182 - 170) / 6",
+   "w": "z = (182 − 170) : 6 = 12 : 6 = 2."
+  },
+  {
+   "l": "zwert",
+   "t": "zwert",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ergebnis in einem Test: μ = 65 Punkte, σ = 10 Punkte. Welcher Wert x hat den z-Wert 0,5?"
+   },
+   "o": {
+    "wert": 70,
+    "einheit": "Punkte"
+   },
+   "c": "65 + (0.5) * 10",
+   "w": "x = μ + z · σ = 65 + 0,5 · 10 = 70."
+  },
+  {
+   "l": "zwert",
+   "t": "zwert",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Füllmenge von Saftflaschen: μ = 1 000 ml, σ = 4 ml. Berechne den z-Wert für x = 1 004 ml."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(1004 - 1000) / 4",
+   "w": "z = (1 004 − 1 000) : 4 = 4 : 4 = 1."
+  },
+  {
+   "l": "zwert",
+   "t": "zwert",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Körpergröße 15-jähriger Jungen: μ = 170 cm, σ = 8 cm. Berechne den z-Wert für x = 162 cm."
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "(162 - 170) / 8",
+   "w": "z = (162 − 170) : 8 = −8 : 8 = −1."
+  },
+  {
+   "l": "zwert",
+   "t": "zwert",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Füllmenge von Saftflaschen: μ = 1 000 ml, σ = 5 ml. Berechne den z-Wert für x = 1 015 ml."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(1015 - 1000) / 5",
+   "w": "z = (1 015 − 1 000) : 5 = 15 : 5 = 3."
+  },
+  {
+   "l": "zwert",
+   "t": "zwert",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Körpergröße 15-jähriger Jungen: μ = 175 cm, σ = 8 cm. Welcher Wert x hat den z-Wert 0,5?"
+   },
+   "o": {
+    "wert": 179,
+    "einheit": "cm"
+   },
+   "c": "175 + (0.5) * 8",
+   "w": "x = μ + z · σ = 175 + 0,5 · 8 = 179."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ergebnis Mathe: 52 Punkte (μ = 50, σ = 4). Ergebnis Deutsch: 85 Punkte (μ = 65, σ = 8). In welchem Fach ist das Ergebnis im Vergleich zu den anderen besser?"
+   },
+   "a": [
+    "Mathe",
+    "Deutsch",
+    "In beiden gleich gut"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "z(Mathe) = 0,5, z(Deutsch) = 2,5. Der größere z-Wert ist relativ besser: Deutsch.",
+   "h": "Vergleiche die z-Werte, nicht die Punkte."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ergebnis Physik: 80 Punkte (μ = 60, σ = 8). Ergebnis Englisch: 45 Punkte (μ = 40, σ = 10). In welchem Fach ist das Ergebnis im Vergleich zu den anderen besser?"
+   },
+   "a": [
+    "Physik",
+    "In beiden gleich gut",
+    "Englisch"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "z(Physik) = 2,5, z(Englisch) = 0,5. Der größere z-Wert ist relativ besser: Physik.",
+   "h": "Vergleiche die z-Werte, nicht die Punkte."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ergebnis Physik: 75 Punkte (μ = 70, σ = 10). Ergebnis Englisch: 90 Punkte (μ = 65, σ = 10). In welchem Fach ist das Ergebnis im Vergleich zu den anderen besser?"
+   },
+   "a": [
+    "Physik",
+    "Englisch",
+    "In beiden gleich gut"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "z(Physik) = 0,5, z(Englisch) = 2,5. Der größere z-Wert ist relativ besser: Englisch.",
+   "h": "Vergleiche die z-Werte, nicht die Punkte."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ergebnis in einem Test: μ = 65 Punkte, σ = 8 Punkte. Ist der Wert 77 Punkte ungewöhnlich (|z| > 2)?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "z = (77 − 65) : 8 = 1,5. |z| ≤ 2: nicht ungewöhnlich.",
+   "h": "Berechne z und vergleiche den Betrag mit 2."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Fahrzeit zur Schule: μ = 30 min, σ = 4 min. Ist der Wert 20 min ungewöhnlich (|z| > 2)?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "z = (20 − 30) : 4 = −2,5. |z| > 2: ungewöhnlich.",
+   "h": "Berechne z und vergleiche den Betrag mit 2."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ergebnis Physik: 56 Punkte (μ = 50, σ = 4). Ergebnis Englisch: 50 Punkte (μ = 40, σ = 5). In welchem Fach ist das Ergebnis im Vergleich zu den anderen besser?"
+   },
+   "a": [
+    "Englisch",
+    "Physik",
+    "In beiden gleich gut"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "z(Physik) = 1,5, z(Englisch) = 2. Der größere z-Wert ist relativ besser: Englisch.",
+   "h": "Vergleiche die z-Werte, nicht die Punkte."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ergebnis Test A: 80 Punkte (μ = 70, σ = 5). Ergebnis Test B: 100 Punkte (μ = 75, σ = 10). Um wie viel ist der z-Wert in Test B größer als in Test A?"
+   },
+   "o": {
+    "wert": 0.5
+   },
+   "c": "abs((80 - 70) / 5 - (100 - 75) / 10)",
+   "w": "z(Test A) = (80 − 70) : 5 = 2; z(Test B) = (100 − 75) : 10 = 2,5. Unterschied: 0,5.",
+   "h": "Berechne beide z-Werte und bilde die Differenz."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ergebnis Physik: 52 Punkte (μ = 50, σ = 4). Ergebnis Englisch: 63 Punkte (μ = 55, σ = 4). Um wie viel ist der z-Wert in Englisch größer als in Physik?"
+   },
+   "o": {
+    "wert": 1.5
+   },
+   "c": "abs((52 - 50) / 4 - (63 - 55) / 4)",
+   "w": "z(Physik) = (52 − 50) : 4 = 0,5; z(Englisch) = (63 − 55) : 4 = 2. Unterschied: 1,5.",
+   "h": "Berechne beide z-Werte und bilde die Differenz."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Lebensdauer von Glühbirnen: μ = 1 500 h, σ = 50 h. Ist der Wert 1 525 h ungewöhnlich (|z| > 2)?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "z = (1 525 − 1 500) : 50 = 0,5. |z| ≤ 2: nicht ungewöhnlich.",
+   "h": "Berechne z und vergleiche den Betrag mit 2."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Körpergröße 15-jähriger Jungen: μ = 172 cm, σ = 7 cm. Ist der Wert 151 cm ungewöhnlich (|z| > 2)?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "z = (151 − 172) : 7 = −3. |z| > 2: ungewöhnlich.",
+   "h": "Berechne z und vergleiche den Betrag mit 2."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ergebnis Physik: 65 Punkte (μ = 60, σ = 5). Ergebnis Englisch: 80 Punkte (μ = 65, σ = 10). Um wie viel ist der z-Wert in Englisch größer als in Physik?"
+   },
+   "o": {
+    "wert": 0.5
+   },
+   "c": "abs((65 - 60) / 5 - (80 - 65) / 10)",
+   "w": "z(Physik) = (65 − 60) : 5 = 1; z(Englisch) = (80 − 65) : 10 = 1,5. Unterschied: 0,5.",
+   "h": "Berechne beide z-Werte und bilde die Differenz."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ergebnis Mathe: 62 Punkte (μ = 50, σ = 8). Ergebnis Deutsch: 73 Punkte (μ = 65, σ = 8). Um wie viel ist der z-Wert in Mathe größer als in Deutsch?"
+   },
+   "o": {
+    "wert": 0.5
+   },
+   "c": "abs((62 - 50) / 8 - (73 - 65) / 8)",
+   "w": "z(Mathe) = (62 − 50) : 8 = 1,5; z(Deutsch) = (73 − 65) : 8 = 1. Unterschied: 0,5.",
+   "h": "Berechne beide z-Werte und bilde die Differenz."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ergebnis Test A: 60 Punkte (μ = 50, σ = 5). Ergebnis Test B: 79 Punkte (μ = 75, σ = 4). In welchem Fach ist das Ergebnis im Vergleich zu den anderen besser?"
+   },
+   "a": [
+    "Test B",
+    "In beiden gleich gut",
+    "Test A"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "z(Test A) = 2, z(Test B) = 1. Der größere z-Wert ist relativ besser: Test A.",
+   "h": "Vergleiche die z-Werte, nicht die Punkte."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ergebnis Weitsprung: 56 Punkte (μ = 50, σ = 4). Ergebnis Sprint: 70 Punkte (μ = 65, σ = 10). In welchem Fach ist das Ergebnis im Vergleich zu den anderen besser?"
+   },
+   "a": [
+    "In beiden gleich gut",
+    "Sprint",
+    "Weitsprung"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "z(Weitsprung) = 1,5, z(Sprint) = 0,5. Der größere z-Wert ist relativ besser: Weitsprung.",
+   "h": "Vergleiche die z-Werte, nicht die Punkte."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ergebnis Weitsprung: 80 Punkte (μ = 60, σ = 8). Ergebnis Sprint: 80 Punkte (μ = 65, σ = 10). Um wie viel ist der z-Wert in Weitsprung größer als in Sprint?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "abs((80 - 60) / 8 - (80 - 65) / 10)",
+   "w": "z(Weitsprung) = (80 − 60) : 8 = 2,5; z(Sprint) = (80 − 65) : 10 = 1,5. Unterschied: 1.",
+   "h": "Berechne beide z-Werte und bilde die Differenz."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ergebnis Physik: 60 Punkte (μ = 50, σ = 4). Ergebnis Englisch: 75 Punkte (μ = 65, σ = 10). In welchem Fach ist das Ergebnis im Vergleich zu den anderen besser?"
+   },
+   "a": [
+    "Englisch",
+    "In beiden gleich gut",
+    "Physik"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "z(Physik) = 2,5, z(Englisch) = 1. Der größere z-Wert ist relativ besser: Physik.",
+   "h": "Vergleiche die z-Werte, nicht die Punkte."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ergebnis Mathe: 80 Punkte (μ = 60, σ = 10). Ergebnis Deutsch: 44 Punkte (μ = 40, σ = 4). Um wie viel ist der z-Wert in Mathe größer als in Deutsch?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "abs((80 - 60) / 10 - (44 - 40) / 4)",
+   "w": "z(Mathe) = (80 − 60) : 10 = 2; z(Deutsch) = (44 − 40) : 4 = 1. Unterschied: 1.",
+   "h": "Berechne beide z-Werte und bilde die Differenz."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ergebnis Physik: 74 Punkte (μ = 70, σ = 8). Ergebnis Englisch: 71 Punkte (μ = 65, σ = 4). In welchem Fach ist das Ergebnis im Vergleich zu den anderen besser?"
+   },
+   "a": [
+    "In beiden gleich gut",
+    "Englisch",
+    "Physik"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "z(Physik) = 0,5, z(Englisch) = 1,5. Der größere z-Wert ist relativ besser: Englisch.",
+   "h": "Vergleiche die z-Werte, nicht die Punkte."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Lebensdauer von Glühbirnen: μ = 1 200 h, σ = 50 h. Ist der Wert 1 075 h ungewöhnlich (|z| > 2)?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "z = (1 075 − 1 200) : 50 = −2,5. |z| > 2: ungewöhnlich."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ergebnis Mathe: 76 Punkte (μ = 70, σ = 4). Ergebnis Deutsch: 50 Punkte (μ = 40, σ = 5). Um wie viel ist der z-Wert in Deutsch größer als in Mathe?"
+   },
+   "o": {
+    "wert": 0.5
+   },
+   "c": "abs((76 - 70) / 4 - (50 - 40) / 5)",
+   "w": "z(Mathe) = (76 − 70) : 4 = 1,5; z(Deutsch) = (50 − 40) : 5 = 2. Unterschied: 0,5."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ergebnis Mathe: 60 Punkte (μ = 50, σ = 4). Ergebnis Deutsch: 83 Punkte (μ = 75, σ = 8). In welchem Fach ist das Ergebnis im Vergleich zu den anderen besser?"
+   },
+   "a": [
+    "In beiden gleich gut",
+    "Deutsch",
+    "Mathe"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "z(Mathe) = 2,5, z(Deutsch) = 1. Der größere z-Wert ist relativ besser: Mathe."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ergebnis Mathe: 76 Punkte (μ = 70, σ = 4). Ergebnis Deutsch: 50 Punkte (μ = 40, σ = 10). Um wie viel ist der z-Wert in Mathe größer als in Deutsch?"
+   },
+   "o": {
+    "wert": 0.5
+   },
+   "c": "abs((76 - 70) / 4 - (50 - 40) / 10)",
+   "w": "z(Mathe) = (76 − 70) : 4 = 1,5; z(Deutsch) = (50 − 40) : 10 = 1. Unterschied: 0,5."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ergebnis Physik: 66 Punkte (μ = 60, σ = 4). Ergebnis Englisch: 90 Punkte (μ = 65, σ = 10). Um wie viel ist der z-Wert in Englisch größer als in Physik?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "abs((66 - 60) / 4 - (90 - 65) / 10)",
+   "w": "z(Physik) = (66 − 60) : 4 = 1,5; z(Englisch) = (90 − 65) : 10 = 2,5. Unterschied: 1."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ergebnis Test A: 76 Punkte (μ = 60, σ = 8). Ergebnis Test B: 87 Punkte (μ = 75, σ = 8). In welchem Fach ist das Ergebnis im Vergleich zu den anderen besser?"
+   },
+   "a": [
+    "Test A",
+    "Test B",
+    "In beiden gleich gut"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "z(Test A) = 2, z(Test B) = 1,5. Der größere z-Wert ist relativ besser: Test A."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ergebnis Physik: 70 Punkte (μ = 50, σ = 10). Ergebnis Englisch: 60 Punkte (μ = 55, σ = 10). Um wie viel ist der z-Wert in Physik größer als in Englisch?"
+   },
+   "o": {
+    "wert": 1.5
+   },
+   "c": "abs((70 - 50) / 10 - (60 - 55) / 10)",
+   "w": "z(Physik) = (70 − 50) : 10 = 2; z(Englisch) = (60 − 55) : 10 = 0,5. Unterschied: 1,5."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ergebnis Test A: 60 Punkte (μ = 50, σ = 4). Ergebnis Test B: 46 Punkte (μ = 40, σ = 4). In welchem Fach ist das Ergebnis im Vergleich zu den anderen besser?"
+   },
+   "a": [
+    "Test B",
+    "In beiden gleich gut",
+    "Test A"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "z(Test A) = 2,5, z(Test B) = 1,5. Der größere z-Wert ist relativ besser: Test A."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ergebnis Physik: 90 Punkte (μ = 70, σ = 10). Ergebnis Englisch: 80 Punkte (μ = 75, σ = 10). In welchem Fach ist das Ergebnis im Vergleich zu den anderen besser?"
+   },
+   "a": [
+    "In beiden gleich gut",
+    "Physik",
+    "Englisch"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "z(Physik) = 2, z(Englisch) = 0,5. Der größere z-Wert ist relativ besser: Physik."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ergebnis Mathe: 82 Punkte (μ = 70, σ = 8). Ergebnis Deutsch: 50 Punkte (μ = 40, σ = 4). Um wie viel ist der z-Wert in Deutsch größer als in Mathe?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "abs((82 - 70) / 8 - (50 - 40) / 4)",
+   "w": "z(Mathe) = (82 − 70) : 8 = 1,5; z(Deutsch) = (50 − 40) : 4 = 2,5. Unterschied: 1."
+  }
+ ],
+ "offen": [
+  "Ohne Lehrplan-Zuordnung (Verlagsinhalt IB Extended); Niveau Klasse 9/10 angenommen. Rechnung nur mit der 68-95-99,7-Regel, keine Tabellen der Standardnormalverteilung und keine Taschenrechner-Funktionen (normalcdf).",
+  "App-Wunsch: Graphart „Glockenkurve“ (Normalverteilungsdichte mit μ und σ, Fläche zwischen zwei Grenzen färbbar). Bisher Ersatz: Säulendiagramm in Glockenform und Tabelle der Streifen-Anteile.",
+  "Feld klasse: {\"zusatz\": 10} statt {} (Prüfskript verlangt einen Eintrag) – siehe FRAGE im Postfach."
+ ]
+}

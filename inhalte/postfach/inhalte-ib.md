@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-14 15:35 – STATUS
+11/14 daten.normalverteilung fertig: 5 Lernkarten (Glockenkurve, 68-95-99,7-Regel, Teilanteile, z-Wert, Vergleichen), 140 Aufgaben, Prüfskript OK. klasse = {"zusatz": 10} (siehe FRAGE). App-Wunsch (offen): Graphart Glockenkurve mit färbbarer Fläche.
+
 ## 2026-11-14 15:33 – STATUS
 10/14 sonder.optimierung fertig: 5 Lernkarten (Punkt im Bereich, Bedingungen aufstellen, Ecken, Eckenprinzip, Sachaufgaben), 140 Aufgaben, Randgeraden gezeichnet, Prüfskript OK. App-Wunsch (offen): zulässigen Bereich füllen.
 

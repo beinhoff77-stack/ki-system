@@ -17,7 +17,25 @@
     "Tastatur (1280 px): Tab-Reihenfolge sinnvoll, Fokusrahmen sichtbar, Zahlenstrahl-Striche per Tab und Enter wählbar; Enter prüft nicht, Fokus geht nach Prüfen verloren, Reiter ohne Pfeiltasten (Befunde 6, 22)",
     "Zeichnungen (Stellentafel, Zahlenstrahl, Koordinaten, Figur, Säulen, Kreis, Boxplot, Baum, Tabelle): in allen Breiten lesbar, nichts abgeschnitten; Zahlenstrahl im Üben auf dem Handy klein (Befund 7)",
     "Dunkler Gerätemodus: Bereich Lernen bleibt absichtlich hell; Kindansichten unverändert gut; in Eltern-Ansichten zwei unlesbare Signalfarben (Befund 16)",
-    "Keine JavaScript-Fehler (pageerror) in allen Durchläufen; einzige Konsolenmeldungen sind die gewollt nachgestellten 400/500-Antworten"
+    "Keine JavaScript-Fehler (pageerror) in allen Durchläufen; einzige Konsolenmeldungen sind die gewollt nachgestellten 400/500-Antworten",
+    "Bewertung Heute (Kind): wichtigste Handlung „Weiter lernen“ – auf dem Handy nicht auf den ersten Blick (verdeckt, konkurriert mit Wiederholen-Zeile); überflüssig: drei große Zahlenkästen über dem Knopf, Abschnitt „Mein Stand“ doppelt zu Mein Weg; Lesen nötig: ja, um zwischen „Zuerst wiederholen“ und „Weiter geht’s“ zu wählen (Befunde 2, 26)",
+    "Bewertung Thema – Erklären (Kind): wichtigste Handlung „Diese Karte üben“ – Knopf ist Zweitknopf, unter der Erklärung; Seite zeigt alle Karten untereinander statt der einen, die dran ist; „○ neu“ unklar (Befunde 12, 27)",
+    "Bewertung Thema – Üben (Kind): wichtigste Handlung „Antwort eingeben und prüfen“ – Eingabe sichtbar, Prüfen nicht; überflüssig auf dem Handy: Pfad, doppelter Titel, Kartenchips + Stufenzeile + Kartenzeile übereinander; Rückmeldung nach Prüfen klar und freundlich (Befunde 1, 6, 14)",
+    "Bewertung Thema – Fehler (Kind): wichtigste Handlung „Erklärung ansehen“ – erkennbar; „null“ stört (Befund 25)",
+    "Bewertung Test (Kind): wichtigste Handlung „Antwort wählen, weiter“ – erkennbar; Look wechselt in Erwachsenen-Optik, Abgeben-Rückfrage als Browser-Fenster (Befund 13)",
+    "Bewertung Wiederholen (Kind): klar, eine Aufgabe je Seite, großer Prüfen-Knopf; am Ende „Weiter zu Heute“ statt direkt weiterlernen (Befund 26)",
+    "Bewertung Mein Weg (Kind): wichtigste Handlung „das Gerade-dran-Thema öffnen“ – erkennbar (rot umrandet); „Test geschrieben ›“ als Text sagt nicht, was jetzt zu tun ist; Reisepass versteckt ganz unten (Befunde 10, 12)",
+    "Bewertung Merkheft (Kind): sehr klar – Suche oben, Karten mit Status, aufklappen zum Lesen; gut gelöst",
+    "Bewertung Weltkarte (Kind): schön zur Orientierung, aber keine Handlung möglich (Orte nicht antippbar) (Befund 11)",
+    "Bewertung Reisepass (Kind): wichtigste Handlung „Belohnung einlösen“ – klar erkennbar; „noch 3 Stempel“ zeigt den Weg; gut gelöst, nur schwer zu finden (Befund 10)",
+    "Bewertung Übersicht (Eltern/Lehrer): wichtigste Handlung unklar – erster Knopf „Mathe öffnen ↗“ führt weg; offene Wünsche ganz unten (Befunde 18, 28)",
+    "Bewertung Lehrplan-Übersicht (Lehrer): wichtigste Handlung „sehen, was fehlt/fertig ist“ – gut erkennbar durch Farbstreifen und Kacheln; Einleitung mit Abkürzungen muss man lesen; Kacheln nicht klickbar (Befund 19)",
+    "Bewertung Inhalte ansehen (Lehrer): wichtigste Handlung „Karte prüfen, Anmerkung schreiben“ – am Rechner gut; auf dem Handy Tabelle schwer lesbar (Befund 17)",
+    "Bewertung Themenplan (Eltern/Lehrer): wichtigste Handlung „Reihenfolge festlegen und speichern“ – „Plan speichern“ bleibt unten stehen, gut; Verstehen braucht Lesen, Umordnen viele Klicks (Befund 29)",
+    "Bewertung Rückmeldungen (Eltern/Lehrer): klar – Art wählen, Text, Senden, Danke-Meldung; bisherige Rückmeldungen mit Antwort sichtbar; gut gelöst",
+    "Bewertung Zugänge (Eltern): klar – Name, Rolle, Code erzeugen; Code wird groß gezeigt mit Hinweis „nur jetzt“; gut gelöst",
+    "Bewertung Anmeldung /lernen/: klar – ein Feld, ein Knopf; Fehlermeldung verständlich; Code-Schreibweise wird nicht vereinheitlicht (Befund 20)",
+    "Klicks von „App öffnen“ bis zur ersten Aufgabe: Kind auf /lernen/ (angemeldet) 2 Klicks + 1–2 Mal scrollen; Kind in der Hauptapp 4 Klicks; Ziel: 1 Klick (Befund 27)"
   ],
   "befunde": [
     {
@@ -371,6 +389,77 @@
       ],
       "vorschlag": "Für Kinder „Abmelden“ in den Reisepass (unten, mit Erklärung „Nur wenn du das Gerät abgibst“) verschieben; Versionsnummer im Kindmodus ausblenden.",
       "bild": "bilder/24-kind-lernseite-abmelden.png"
+    },
+    {
+      "nr": 25,
+      "bereich": "kind",
+      "ansicht": "lerneinheit (Reiter Fehler)",
+      "art": "fehler",
+      "schwere": "mittel",
+      "beschreibung": "Unter den typischen Fehlern steht das Wort „null“, sobald das Kind noch keine falsch gelöste Aufgabe hat. Ursache: panels.fehler.append(…, versucht.length ? … : null) – append(null) schreibt den Text „null“. Gleiche Ursache vermutlich bei „null“ auf der leeren Weltkarte (Befund 8).",
+      "nachstellen": [
+        "#/lerneinheit/1-1-fehler öffnen (Kind ohne Fehlversuche)",
+        "Unter der Fehlerkarte steht „null“"
+      ],
+      "vorschlag": "Leere Teile vor append herausfiltern (…filter(Boolean)) oder statt null einen leeren String; bei keinen eigenen Fehlern den Satz „Bei dir hat bisher alles geklappt.“",
+      "bild": "bilder/25-fehler-reiter-null.png"
+    },
+    {
+      "nr": 26,
+      "bereich": "kind",
+      "ansicht": "reise (Heute)",
+      "art": "bedienung",
+      "schwere": "mittel",
+      "beschreibung": "Bewertung: Die eine wichtigste Handlung („Lernen starten“) ist nicht eindeutig. Es konkurrieren die rot umrandete Zeile „Zuerst: 2 Aufgaben zum Wiederholen“, der orange Knopf „Weiter geht’s“ (verdeckt, Befund 2) und die drei Zahlenkästen (die man antippen kann, was niemand vermutet). Das Kind muss lesen, um zu entscheiden. Nach dem Wiederholen führt „Weiter zu Heute“ zurück statt weiter ins Thema – ein Klick mehr.",
+      "nachstellen": [
+        "#/reise/1 mit fälligen Wiederholungen öffnen",
+        "Erster Blick: rote Zeile oben, Hauptknopf unten am Rand"
+      ],
+      "vorschlag": "Ein einziger großer Knopf oben: „Los geht’s“ (Text darunter klein: „erst 2 Wiederholungen, dann Rom“). Er startet die Wiederholung und geht danach automatisch in die nächste Übung des Themas. Die Wiederholen-Zeile entfällt als eigener Block.",
+      "bild": "bilder/26-heute-zwei-erste-handlungen.png"
+    },
+    {
+      "nr": 27,
+      "bereich": "kind",
+      "ansicht": "Weg von „App öffnen“ bis zur ersten Aufgabe",
+      "art": "bedienung",
+      "schwere": "mittel",
+      "beschreibung": "Bewertung: „Weiter geht’s“ führt in den Reiter „Erklären“ mit allen Lernkarten untereinander (390 px: Seite 2 150 px hoch). Der nötige Knopf „Dazu üben ▸“ ist nur ein heller Zweitknopf und liegt bei der ersten Karte unter der Leiste. Gezählt: Lernen-Seite mit Kind-Code 2 Klicks (Weiter geht’s → Dazu üben) plus 1–2 Mal scrollen bis Prüfen; in der Hauptapp 4 Klicks (Bereich Lernen → Kindkarte → Weiter geht’s → Dazu üben). Wer schon geübt hat, landet trotzdem wieder in der Erklärung.",
+      "nachstellen": [
+        "#/reise/1 → „Weiter geht’s“",
+        "Adresse #/lerneinheit/1-1-erklaeren, kein Eingabefeld sichtbar",
+        "„Dazu üben ▸“ suchen und tippen"
+      ],
+      "vorschlag": "„Weiter geht’s“ öffnet direkt „Üben“ der empfohlenen Karte. Hat das Kind die Karte noch nie gesehen, steht über der ersten Aufgabe die Erklärung dieser einen Karte aufgeklappt mit einem Knopf „Verstanden – los“. Ziel: 1 Klick bis zur ersten Aufgabe.",
+      "bild": "bilder/27-losreisen-landet-in-erklaeren.png"
+    },
+    {
+      "nr": 28,
+      "bereich": "eltern_lehrer",
+      "ansicht": "lernen (Übersicht)",
+      "art": "bedienung",
+      "schwere": "mittel",
+      "beschreibung": "Bewertung: Für Eltern ist die eine Handlung, die eine Antwort braucht, „Offene Wünsche bestätigen“ (das Kind wartet). Sie steht ganz unten nach rund zehn Karten (390 px: ab etwa 2 300 px). Für Lehrkräfte ist es „Themenplan des Kindes“, das ist eine von sechs gleich aussehenden Karten.",
+      "nachstellen": [
+        "#/lernen bei 390 px",
+        "Offene Wünsche erst nach langem Scrollen"
+      ],
+      "vorschlag": "Oben ein Kasten „Wartet auf dich“: offene Wünsche mit Bestätigen/Ablehnen und neue Antworten auf Rückmeldungen. Danach die Kinder mit je zwei Knöpfen „Lernreise ansehen“ und „Plan“. Katalog, Zugänge und Lehrplan als Liste „Verwalten“ darunter.",
+      "bild": "bilder/28-eltern-wuensche-ganz-unten.png"
+    },
+    {
+      "nr": 29,
+      "bereich": "eltern_lehrer",
+      "ansicht": "plan (Themenplan)",
+      "art": "bedienung",
+      "schwere": "niedrig",
+      "beschreibung": "Bewertung: Um die Seite zu verstehen, muss man einen Absatz lesen („Reihenfolge = Reihenfolge in der Lernreise … Punkt: grün = …“). Umordnen geht nur Schritt für Schritt mit Pfeilen (40×48 px); ein Ort von Platz 12 nach 1 braucht 11 Klicks. Das Kästchen „kann es schon“ ist 20×20 px.",
+      "nachstellen": [
+        "#/plan/1 öffnen",
+        "Ort mit ↑ mehrfach nach oben bewegen"
+      ],
+      "vorschlag": "Legende als drei farbige Punkte mit Wort direkt über der Liste statt Absatz. Zusätzlich je Ort ein Knopf „nach ganz oben“ (oder Ziehen am Griff). „kann es schon“ als Schalter mit 44 px Höhe.",
+      "bild": "bilder/29-themenplan-lesen-und-pfeile.png"
     }
   ],
   "ideen": [],

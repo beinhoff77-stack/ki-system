@@ -1076,5 +1076,400 @@
    "Zusammengesetzte Zufallsexperimente und stochastische Simulationen"
   ],
   "datei": "inhalte/themen/stochastik.mehrstufig.json"
+ },
+ {
+  "thema_id": 74,
+  "thema_schluessel": "abbildungen.determinanten2",
+  "block_id": 75,
+  "ort": "Lagos",
+  "gebiet": "Geometrie",
+  "titel": "Zweireihige Determinanten",
+  "klasse": {
+   "rs_by": 7
+  },
+  "umfang": "Flächen im Koordinatensystem mit Determinanten berechnen.",
+  "lehrplan_gym": [],
+  "lehrplan_andere": [
+   "RS 7: Dreiecks-/Vierecksflächen mittels zweireihiger Determinanten berechnen.",
+   "RS 7: Vielecksflächen mittels zweireihiger Determinanten berechnen."
+  ],
+  "datei": "inhalte/themen/abbildungen.determinanten2.json"
+ },
+ {
+  "thema_id": 48,
+  "thema_schluessel": "abbildungen.vektoren",
+  "block_id": 75,
+  "ort": "Lagos",
+  "gebiet": "Geometrie",
+  "titel": "Vektoren und Determinanten",
+  "klasse": {
+   "rs_by": 7
+  },
+  "umfang": "Vektoren im Koordinatensystem, Vektoraddition, Determinanten für Flächen, Skalarprodukt.",
+  "lehrplan_gym": [],
+  "lehrplan_andere": [
+   "RS 7: Punkt-/Vektorkoordinaten mittels Vektoraddition berechnen.",
+   "RS 7: Gegenvektoren und Umkehrabbildung bestimmen.",
+   "RS 7: Kongruenzeigenschaften erläutern."
+  ],
+  "datei": "inhalte/themen/abbildungen.vektoren.json"
+ },
+ {
+  "thema_id": 81,
+  "thema_schluessel": "daten.stichproben",
+  "block_id": 93,
+  "ort": "Perth",
+  "gebiet": "Daten und Zufall",
+  "titel": "Stichproben und Aussagekraft",
+  "klasse": {
+   "rs_by": 7
+  },
+  "umfang": "Repräsentativität und Grenzen von Aussagen.",
+  "lehrplan_gym": [],
+  "lehrplan_andere": [
+   "RS 7: Stichprobeneignung/Repräsentativität beurteilen."
+  ],
+  "datei": "inhalte/themen/daten.stichproben.json"
+ },
+ {
+  "thema_id": 78,
+  "thema_schluessel": "funktionen.scharen",
+  "block_id": 72,
+  "ort": "Neumayer-Station III",
+  "gebiet": "Funktionen",
+  "titel": "Parameter und Funktionenscharen",
+  "klasse": {
+   "rs_by": 8
+  },
+  "umfang": "Parameterwirkung, Scharen, parameterabhängige Lösungen.",
+  "lehrplan_gym": [],
+  "lehrplan_andere": [],
+  "datei": "inhalte/themen/funktionen.scharen.json"
+ },
+ {
+  "thema_id": 97,
+  "thema_schluessel": "terme.quadratische_extreme",
+  "block_id": 112,
+  "ort": "Shanghai",
+  "gebiet": "Algebra",
+  "titel": "Quadratische Terme und Extremwerte",
+  "klasse": {
+   "rs_by": 8
+  },
+  "umfang": "Extremwerte von ax²+bx+c rechnerisch über Termumformung (quadratische Ergänzung) bestimmen, einfache Optimierungsaufgaben; ohne vollständige Parabellehre",
+  "lehrplan_gym": [],
+  "lehrplan_andere": [
+   "RS 8: Extreme von ax²+bx+c rechnerisch ermitteln und Optimierungsaufgaben bearbeiten."
+  ],
+  "datei": "inhalte/themen/terme.quadratische_extreme.json"
+ },
+ {
+  "thema_id": 40,
+  "thema_schluessel": "funktionen.transformation",
+  "block_id": 70,
+  "ort": "Wostok-Station",
+  "gebiet": "Funktionen",
+  "titel": "Graphentransformation",
+  "klasse": {
+   "rs_by": 9
+  },
+  "umfang": "Graphen verschieben, strecken, spiegeln.",
+  "lehrplan_gym": [],
+  "lehrplan_andere": [
+   "RS 10: Transformierte Potenz-/Exponential-/Logarithmusgleichungen bestimmen; Spiegelachsen: Koordinatenachsen, y=x."
+  ],
+  "datei": "inhalte/themen/funktionen.transformation.json"
+ },
+ {
+  "thema_id": 12,
+  "thema_schluessel": "gleichungen.reinquadratisch",
+  "block_id": 58,
+  "ort": "Seoul",
+  "gebiet": "Algebra",
+  "titel": "Reinquadratische Gleichungen",
+  "klasse": {
+   "rs_by": 9
+  },
+  "umfang": "Gleichungen der Form x² = a lösen (zwei, eine oder keine Lösung).",
+  "lehrplan_gym": [],
+  "lehrplan_andere": [
+   "RS 9: Wurzelwerte näherungsweise einschätzen und x²=a lösen."
+  ],
+  "datei": "inhalte/themen/gleichungen.reinquadratisch.json"
+ },
+ {
+  "thema_id": 13,
+  "thema_schluessel": "gleichungen.wurzel",
+  "block_id": 57,
+  "ort": "Tokio",
+  "gebiet": "Algebra",
+  "titel": "Wurzelgleichungen",
+  "klasse": {
+   "rs_by": 9
+  },
+  "umfang": "Gleichungen mit der Variablen unter der Wurzel lösen, Definitionsmenge und Probe beachten.",
+  "lehrplan_gym": [],
+  "lehrplan_andere": [
+   "RS 9: Wurzelgleichungen unter Berücksichtigung ihres Definitionsbereichs lösen."
+  ],
+  "datei": "inhalte/themen/gleichungen.wurzel.json"
+ },
+ {
+  "thema_id": 49,
+  "thema_schluessel": "abbildungen.matrizen",
+  "block_id": 74,
+  "ort": "Dakar",
+  "gebiet": "Geometrie",
+  "titel": "Matrizen und Abbildungen mit Matrizen",
+  "klasse": {
+   "rs_by": 10,
+   "ib_myp": 4
+  },
+  "umfang": "Abbildungen (Spiegelung, Drehung) mit Matrizen, Matrizenrechnung.",
+  "lehrplan_gym": [],
+  "lehrplan_andere": [
+   "RS 10: Koordinatenabbildungen",
+   "RS 10: Skalarprodukt berechnen; Orthogonalität/Winkel bestimmen.",
+   "IB MYP 4: Matrizenrechnung, Multiplikation, Inverse, Gleichungssysteme",
+   "IB MYP 4: Koordinatengeometrie, Matrixabbildungen, Parkettierungen"
+  ],
+  "datei": "inhalte/themen/abbildungen.matrizen.json"
+ },
+ {
+  "thema_id": 77,
+  "thema_schluessel": "funktionen.umkehr",
+  "block_id": 68,
+  "ort": "Halley-Station",
+  "gebiet": "Funktionen",
+  "titel": "Umkehrfunktionen",
+  "klasse": {
+   "rs_by": 10,
+   "ib_myp": 4
+  },
+  "umfang": "Umkehrbarkeit und Umkehrfunktion.",
+  "lehrplan_gym": [],
+  "lehrplan_andere": [],
+  "datei": "inhalte/themen/funktionen.umkehr.json"
+ },
+ {
+  "thema_id": 83,
+  "thema_schluessel": "mengen.grundbegriffe",
+  "block_id": 99,
+  "ort": "Galápagos-Inseln",
+  "gebiet": "Entdecker-Inseln",
+  "titel": "Mengen und Venn-Diagramme",
+  "klasse": {
+   "ib_myp": 1
+  },
+  "umfang": "Elemente, Schnitt, Vereinigung; Wahrscheinlichkeit separat.",
+  "lehrplan_gym": [],
+  "lehrplan_andere": [
+   "IB MYP 1: Venn-Diagramme",
+   "IB MYP 4–5 Standard: Mengenoperationen und Venn-Diagramme"
+  ],
+  "datei": "inhalte/themen/mengen.grundbegriffe.json"
+ },
+ {
+  "thema_id": 27,
+  "thema_schluessel": "groessen.verhaeltnisse",
+  "block_id": 51,
+  "ort": "San Francisco",
+  "gebiet": "Geld und Verhältnisse",
+  "titel": "Verhältnisse und Raten",
+  "klasse": {
+   "ib_myp": 2
+  },
+  "umfang": "Verhältnisse kürzen und vergleichen, Proportionen, Einheitsraten, Änderungsraten.",
+  "lehrplan_gym": [],
+  "lehrplan_andere": [
+   "IB MYP 2: Gleichwertige Verhältnisse",
+   "IB MYP 2: Proportionen lösen",
+   "IB MYP 2: Einheitsraten und Stückpreise",
+   "IB MYP 2: Änderungsraten"
+  ],
+  "datei": "inhalte/themen/groessen.verhaeltnisse.json"
+ },
+ {
+  "thema_id": 59,
+  "thema_schluessel": "daten.zweidimensional",
+  "block_id": 89,
+  "ort": "Hobart",
+  "gebiet": "Daten und Zufall",
+  "titel": "Zweidimensionale Daten",
+  "klasse": {
+   "ib_myp": 3
+  },
+  "umfang": "Streudiagramme, Zusammenhang, Korrelation und Kausalität.",
+  "lehrplan_gym": [],
+  "lehrplan_andere": [
+   "IB MYP 3: Zweidimensionale Datendarstellung",
+   "IB MYP 3: Korrelation und Kausalität"
+  ],
+  "datei": "inhalte/themen/daten.zweidimensional.json"
+ },
+ {
+  "thema_id": 79,
+  "thema_schluessel": "daten.standardabweichung",
+  "block_id": 88,
+  "ort": "Suva",
+  "gebiet": "Daten und Zufall",
+  "titel": "Standardabweichung",
+  "klasse": {
+   "ib_myp": 4
+  },
+  "umfang": "Streuung berechnen und interpretieren.",
+  "lehrplan_gym": [],
+  "lehrplan_andere": [
+   "IB MYP 4: Datenanalyse, Standardabweichung, zweidimensionale Daten"
+  ],
+  "datei": "inhalte/themen/daten.standardabweichung.json"
+ },
+ {
+  "thema_id": 82,
+  "thema_schluessel": "stochastik.bedingt",
+  "block_id": 88,
+  "ort": "Suva",
+  "gebiet": "Daten und Zufall",
+  "titel": "Bedingte Wahrscheinlichkeit",
+  "klasse": {
+   "ib_myp": 4
+  },
+  "umfang": "Bedingung, Bezugsmenge, Abhängigkeit/Unabhängigkeit.",
+  "lehrplan_gym": [],
+  "lehrplan_andere": [
+   "IB MYP 4–5 Extended: Unabhängige Ereignisse und bedingte Wahrscheinlichkeit"
+  ],
+  "datei": "inhalte/themen/stochastik.bedingt.json"
+ },
+ {
+  "thema_id": 75,
+  "thema_schluessel": "funktionen.betrag",
+  "block_id": 65,
+  "ort": "Palmer-Station",
+  "gebiet": "Funktionen",
+  "titel": "Betragsfunktion",
+  "klasse": {
+   "ib_myp": 4
+  },
+  "umfang": "Graph und stückweise Beschreibung.",
+  "lehrplan_gym": [],
+  "lehrplan_andere": [],
+  "datei": "inhalte/themen/funktionen.betrag.json"
+ },
+ {
+  "thema_id": 41,
+  "thema_schluessel": "funktionen.folgen",
+  "block_id": 65,
+  "ort": "Palmer-Station",
+  "gebiet": "Funktionen",
+  "titel": "Folgen",
+  "klasse": {
+   "ib_myp": 4
+  },
+  "umfang": "Arithmetische und geometrische Folgen und Reihen, Summenschreibweise.",
+  "lehrplan_gym": [],
+  "lehrplan_andere": [
+   "IB MYP 4: Arithmetische/geometrische Folgen, Reihen, Summenschreibweise"
+  ],
+  "datei": "inhalte/themen/funktionen.folgen.json"
+ },
+ {
+  "thema_id": 76,
+  "thema_schluessel": "funktionen.reihen",
+  "block_id": 65,
+  "ort": "Palmer-Station",
+  "gebiet": "Funktionen",
+  "titel": "Reihen",
+  "klasse": {
+   "ib_myp": 4
+  },
+  "umfang": "Summen von Folgengliedern.",
+  "lehrplan_gym": [],
+  "lehrplan_andere": [],
+  "datei": "inhalte/themen/funktionen.reihen.json"
+ },
+ {
+  "thema_id": 65,
+  "thema_schluessel": "sonder.graphentheorie",
+  "block_id": 98,
+  "ort": "Tahiti",
+  "gebiet": "Entdecker-Inseln",
+  "titel": "Graphentheorie",
+  "klasse": {
+   "ib_myp": 4
+  },
+  "umfang": "Graphen, Wege, Graphenalgorithmen (IB-Verlagsinhalt).",
+  "lehrplan_gym": [],
+  "lehrplan_andere": [
+   "IB MYP 4: Graphentheorie, Graphenalgorithmen, Zahlentheorie"
+  ],
+  "datei": "inhalte/themen/sonder.graphentheorie.json"
+ },
+ {
+  "thema_id": 66,
+  "thema_schluessel": "sonder.optimierung",
+  "block_id": 98,
+  "ort": "Tahiti",
+  "gebiet": "Entdecker-Inseln",
+  "titel": "Lineare Optimierung",
+  "klasse": {
+   "ib_myp": 4
+  },
+  "umfang": "Optimierung mit linearen Ungleichungssystemen (IB-Verlagsinhalt).",
+  "lehrplan_gym": [],
+  "lehrplan_andere": [],
+  "datei": "inhalte/themen/sonder.optimierung.json"
+ },
+ {
+  "thema_id": 80,
+  "thema_schluessel": "daten.normalverteilung",
+  "block_id": 88,
+  "ort": "Suva",
+  "gebiet": "Daten und Zufall",
+  "titel": "Normalverteilung",
+  "klasse": {},
+  "umfang": "Verteilungsmodell und Anwendungen (Verlagsinhalt IB Extended).",
+  "lehrplan_gym": [],
+  "lehrplan_andere": [],
+  "datei": "inhalte/themen/daten.normalverteilung.json"
+ },
+ {
+  "thema_id": 72,
+  "thema_schluessel": "finanzen.zinseszins",
+  "block_id": 50,
+  "ort": "Boston",
+  "gebiet": "Geld und Verhältnisse",
+  "titel": "Zinseszins",
+  "klasse": {},
+  "umfang": "Wiederholte Verzinsung, Wachstumsfaktor.",
+  "lehrplan_gym": [],
+  "lehrplan_andere": [],
+  "datei": "inhalte/themen/finanzen.zinseszins.json"
+ },
+ {
+  "thema_id": 84,
+  "thema_schluessel": "sonder.logik",
+  "block_id": 97,
+  "ort": "Honolulu",
+  "gebiet": "Entdecker-Inseln",
+  "titel": "Aussagenlogik",
+  "klasse": {},
+  "umfang": "Verknüpfungen, Wahrheitstafeln (Verlagsinhalt).",
+  "lehrplan_gym": [],
+  "lehrplan_andere": [],
+  "datei": "inhalte/themen/sonder.logik.json"
+ },
+ {
+  "thema_id": 70,
+  "thema_schluessel": "zahlen.schranken",
+  "block_id": 97,
+  "ort": "Honolulu",
+  "gebiet": "Entdecker-Inseln",
+  "titel": "Schranken und Genauigkeit",
+  "klasse": {},
+  "umfang": "Obere/untere Schranken bei gerundeten Größen.",
+  "lehrplan_gym": [],
+  "lehrplan_andere": [],
+  "datei": "inhalte/themen/zahlen.schranken.json"
  }
 ]

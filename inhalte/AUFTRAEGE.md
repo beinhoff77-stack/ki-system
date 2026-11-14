@@ -467,3 +467,86 @@ Meldungen (Status nach jedem Thema, Fragen, Blocker, Abschlussbericht) nach inha
 Arbeite ohne Rückfragen durch. Am Ende: je Thema umgesetzte/abgelehnte Punkte, neue Lernkarten, Zahl der Bilder, verbleibende offen-Punkte.
 ```
 
+
+
+---
+
+# Vierte Runde: Themen nur für Realschule und IB
+
+Alle Gymnasium-Themen (Klasse 5–10) sind gebaut. Diese 24 Themen kommen nur in der bayerischen Realschule, im IB MYP oder in keinem der drei Lehrpläne vor.
+
+## Paket Realschule (10 Themen)
+
+```text
+Du baust Mathe-Lerninhalte für eine Lern-App. Diese Themen stehen nicht im Lehrplan des bayerischen Gymnasiums, sondern im LehrplanPLUS der bayerischen Realschule (Wahlpflichtfächergruppe I).
+Repository: beinhoff77-stack/ki-system (lernen-app ist ein Zweig darin). Hole den aktuellen Stand des Zweigs lernen-app, lege davon den Zweig inhalte-rs an und arbeite nur dort.
+
+Lies zuerst vollständig: inhalte/README.md (Format, Regeln, „Erfahrungen“, „Zeichnungen“), inhalte/postfach/README.md (Meldungen),
+inhalte/vorlage_generator.py und die Einträge der unten genannten Themen in inhalte/themenliste.json (Felder klasse, umfang, lehrplan_andere).
+Als Beispiel für ein fertig geprüftes Thema: inhalte/generatoren/zahlen_ganz.py mit inhalte/themen/zahlen.ganz.json.
+
+Aufgabe: Baue diese Themen nacheinander. Je Thema ein Generator (inhalte/generatoren/<thema_schluessel>.py), der inhalte/themen/<thema_schluessel>.json schreibt.
+Niveau und Sprache: Realschule der angegebenen Klasse – anschaulich, kleinschrittig, viele Rechenbeispiele. In das Feld klasse der Datei genau die Angabe aus themenliste.json übernehmen (kein gym_by).
+
+ 1. abbildungen.determinanten2 – Zweireihige Determinanten (thema_id 74, block_id 75, rs_by 7)
+ 2. abbildungen.vektoren – Vektoren und Determinanten (thema_id 48, block_id 75, rs_by 7)
+ 3. daten.stichproben – Stichproben und Aussagekraft (thema_id 81, block_id 93, rs_by 7)
+ 4. funktionen.scharen – Parameter und Funktionenscharen (thema_id 78, block_id 72, rs_by 8)
+ 5. terme.quadratische_extreme – Quadratische Terme und Extremwerte (thema_id 97, block_id 112, rs_by 8)
+ 6. funktionen.transformation – Graphentransformation (thema_id 40, block_id 70, rs_by 9)
+ 7. gleichungen.reinquadratisch – Reinquadratische Gleichungen (thema_id 12, block_id 58, rs_by 9)
+ 8. gleichungen.wurzel – Wurzelgleichungen (thema_id 13, block_id 57, rs_by 9)
+ 9. abbildungen.matrizen – Matrizen und Abbildungen mit Matrizen (thema_id 49, block_id 74, rs_by 10, ib_myp 4)
+10. funktionen.umkehr – Umkehrfunktionen (thema_id 77, block_id 68, rs_by 10, ib_myp 4)
+
+Regeln:
+- Gleich die Qualität der geprüften Themen liefern: Anschauungsmodell und Alltagsbeispiel in jeder Erklärung, typischer Fehler mit Zahlen,
+  Stufe 3 als anderer Gedanke (Fehler finden, Umkehraufgabe, Sachaufgabe), falsche Antworten aus typischen Denkfehlern, Bilder wo sie helfen.
+- Ein Thema ist erst fertig, wenn `python3 -I tools/inhalt_pruefen.py inhalte/themen/<datei>.json` OK meldet und jede Zahl-Aufgabe nachgerechnet ist.
+  Mindestens 10 Aufgaben je Lernkarte selbst lesen. Dann Commit + Push auf inhalte-rs (ein Thema = ein Commit).
+- Eigene Hilfsdatei nur als inhalte/generatoren/_rs.py. Bestehende Dateien anderer Pakete nicht ändern.
+- Keine Datenbank, keine Serverfunktionen, kein App-Code, kein Merge nach main. Keine Schulbuchaufgaben abschreiben.
+- Ist der Umfang eines Themas unklar (leeres Lehrplan-Feld): den üblichen Schulstoff dieser Stufe bauen und die Annahme unter "offen" notieren.
+- Meldungen (Status nach jedem Thema, Fragen, Blocker, Abschlussbericht) nach inhalte/postfach/README.md in inhalte/postfach/inhalte-rs.md ablegen und pushen.
+Arbeite ohne Rückfragen durch.
+```
+
+## Paket IB (14 Themen)
+
+```text
+Du baust Mathe-Lerninhalte für eine Lern-App. Diese Themen stehen nicht im Lehrplan des bayerischen Gymnasiums, sondern im IB Middle Years Programme (MYP) bzw. in keinem der drei Lehrpläne (Zusatzstoff).
+Repository: beinhoff77-stack/ki-system (lernen-app ist ein Zweig darin). Hole den aktuellen Stand des Zweigs lernen-app, lege davon den Zweig inhalte-ib an und arbeite nur dort.
+
+Lies zuerst vollständig: inhalte/README.md (Format, Regeln, „Erfahrungen“, „Zeichnungen“), inhalte/postfach/README.md (Meldungen),
+inhalte/vorlage_generator.py und die Einträge der unten genannten Themen in inhalte/themenliste.json (Felder klasse, umfang, lehrplan_andere).
+Als Beispiel für ein fertig geprüftes Thema: inhalte/generatoren/zahlen_ganz.py mit inhalte/themen/zahlen.ganz.json.
+
+Aufgabe: Baue diese Themen nacheinander. Je Thema ein Generator (inhalte/generatoren/<thema_schluessel>.py), der inhalte/themen/<thema_schluessel>.json schreibt.
+Niveau und Sprache: IB MYP des angegebenen Jahres (MYP 1 ≈ Klasse 6, MYP 4 ≈ Klasse 9); Themen ohne Zuordnung auf dem Niveau Klasse 9/10. Deutsch, Fachbegriffe beim ersten Auftreten zusätzlich auf Englisch in Klammern. In das Feld klasse der Datei genau die Angabe aus themenliste.json übernehmen (kein gym_by).
+
+ 1. mengen.grundbegriffe – Mengen und Venn-Diagramme (thema_id 83, block_id 99, ib_myp 1)
+ 2. groessen.verhaeltnisse – Verhältnisse und Raten (thema_id 27, block_id 51, ib_myp 2)
+ 3. daten.zweidimensional – Zweidimensionale Daten (thema_id 59, block_id 89, ib_myp 3)
+ 4. daten.standardabweichung – Standardabweichung (thema_id 79, block_id 88, ib_myp 4)
+ 5. stochastik.bedingt – Bedingte Wahrscheinlichkeit (thema_id 82, block_id 88, ib_myp 4)
+ 6. funktionen.betrag – Betragsfunktion (thema_id 75, block_id 65, ib_myp 4)
+ 7. funktionen.folgen – Folgen (thema_id 41, block_id 65, ib_myp 4)
+ 8. funktionen.reihen – Reihen (thema_id 76, block_id 65, ib_myp 4)
+ 9. sonder.graphentheorie – Graphentheorie (thema_id 65, block_id 98, ib_myp 4)
+10. sonder.optimierung – Lineare Optimierung (thema_id 66, block_id 98, ib_myp 4)
+11. daten.normalverteilung – Normalverteilung (thema_id 80, block_id 88, ohne Lehrplan-Zuordnung)
+12. finanzen.zinseszins – Zinseszins (thema_id 72, block_id 50, ohne Lehrplan-Zuordnung)
+13. sonder.logik – Aussagenlogik (thema_id 84, block_id 97, ohne Lehrplan-Zuordnung)
+14. zahlen.schranken – Schranken und Genauigkeit (thema_id 70, block_id 97, ohne Lehrplan-Zuordnung)
+
+Regeln:
+- Gleich die Qualität der geprüften Themen liefern: Anschauungsmodell und Alltagsbeispiel in jeder Erklärung, typischer Fehler mit Zahlen,
+  Stufe 3 als anderer Gedanke (Fehler finden, Umkehraufgabe, Sachaufgabe), falsche Antworten aus typischen Denkfehlern, Bilder wo sie helfen.
+- Ein Thema ist erst fertig, wenn `python3 -I tools/inhalt_pruefen.py inhalte/themen/<datei>.json` OK meldet und jede Zahl-Aufgabe nachgerechnet ist.
+  Mindestens 10 Aufgaben je Lernkarte selbst lesen. Dann Commit + Push auf inhalte-ib (ein Thema = ein Commit).
+- Eigene Hilfsdatei nur als inhalte/generatoren/_ib.py. Bestehende Dateien anderer Pakete nicht ändern.
+- Keine Datenbank, keine Serverfunktionen, kein App-Code, kein Merge nach main. Keine Schulbuchaufgaben abschreiben.
+- Ist der Umfang eines Themas unklar (leeres Lehrplan-Feld): den üblichen Schulstoff dieser Stufe bauen und die Annahme unter "offen" notieren.
+- Meldungen (Status nach jedem Thema, Fragen, Blocker, Abschlussbericht) nach inhalte/postfach/README.md in inhalte/postfach/inhalte-ib.md ablegen und pushen.
+Arbeite ohne Rückfragen durch.
+```

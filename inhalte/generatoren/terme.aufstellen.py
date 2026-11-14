@@ -5,7 +5,7 @@ from fractions import Fraction as Fr
 from pathlib import Path
 sys.dont_write_bytecode = True
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _kl7 import A, L, Z, baue, cz, einsetzen, eur, kl, lin, zt  # noqa: E402
+from _kl7 import A, L, Z, baue, cz, einsetzen, eur, figur, kl, lin, zt  # noqa: E402
 
 META = {'thema_schluessel': 'terme.aufstellen', 'thema_id': 28, 'block_id': 63, 'klasse': {'gym_by': 7, 'rs_by': 6}}
 HW = 'Tippe den Term ein, z. B. 3x + 5 oder 2(x − 1).'
@@ -36,6 +36,9 @@ ETAPPEN = [
      'schritte': ['Hölzer: Figur 1: 4, Figur 2: 7, Figur 3: 10', 'Pro Figur +3: Term 3n + □. Für n = 1: 3 + □ = 4 → □ = 1', '⟦3n + 1⟧; Figur 10: 31 Hölzer'],
      'probe': 'n = 2: 3 · 2 + 1 = 7 ✓',
      'fehler': 'Der Term n + 3 passt nicht zu 4, 7, 10: Für n = 2 ergibt er 5. Die ⟦Zunahme pro Schritt⟧ (3) gehört vor das n.',
+     'bild': figur({'_a0': [0, 0], '_a1': [1, 0], '_a2': [2, 0], '_a3': [3, 0], '_b0': [0, 1], '_b1': [1, 1], '_b2': [2, 1], '_b3': [3, 1]},
+                   linien=[['_a0', '_a1'], ['_a1', '_a2'], ['_a2', '_a3'], ['_b0', '_b1'], ['_b1', '_b2'], ['_b2', '_b3'],
+                           ['_a0', '_b0'], ['_a1', '_b1'], ['_a2', '_b2'], ['_a3', '_b3', 'Figur 3: 10 Hölzer']]),
      '_verbot': ['Figur 1: 4, Figur 2: 7, Figur 3: 10']},
     {'lernziel': 'deuten', 'titel': 'Terme deuten und prüfen',
      'regel': 'Einen Term ⟦deuten⟧ heißt: sagen, was jede Zahl und jede Variable in der Situation bedeutet. Passt eine Deutung nicht zu allen Teilen, ist sie ⟦falsch⟧.',
@@ -178,6 +181,15 @@ MUSTER = [
 
 
 def g_muster(R, st):
+    a = _g_muster(R, st)
+    import re
+    w = re.findall(r'Figur (\d+): (\d+)', a['f']['text'])
+    if w:
+        a['f']['grafik'] = {'typ': 'tabelle', 'kopf': ['Figur n'] + [n for n, _ in w], 'zeilen': [['Anzahl'] + [v for _, v in w]]}
+    return a
+
+
+def _g_muster(R, st):
     name, m, t = R.choice(MUSTER)
     if R.random() < .5:
         name, m, t = R.choice(['Plättchen in einem Muster', 'Perlen an einer Kette', 'Steine in einer Mauerreihe', 'Stühle in einem Saal']), R.randint(2, 7), R.randint(-1, 6)
@@ -254,5 +266,5 @@ if __name__ == '__main__':
          'Terme aus Texten, Sachsituationen und Mustern aufstellen, Termwerte berechnen, die Termart erkennen und Terme im Sachzusammenhang deuten.',
          ['Termart = zuletzt ausgeführte Rechnung.', 'Was zuerst gerechnet wird, kommt in Klammern.',
           'Pro Stück/Stunde/Figur → vor das x (bzw. n); fester Betrag → addieren.'],
-         offen=['Lernkarte „muster“: Die Figurenfolgen (Streichhölzer, Plättchen) werden nur mit Namen und Anzahlen beschrieben. Bilder der ersten drei Figuren wären sehr hilfreich; die App kann sie noch nicht zeichnen.',
+         offen=['Lernkarte „muster“: Die Erklärung zeigt die Streichholzfigur 3 als Zeichnung, die Aufgaben zeigen die Anzahlen als Tabelle. Zeichnungen aller Figurenfolgen je Aufgabe wären möglich, sind aber aufwendig; bei Bedarf nachziehen.',
                 'Äquivalenzumformungen von Termen (Ausmultiplizieren, Zusammenfassen als eigenes Thema) sind nicht Teil dieses Themas; nur einfaches Zusammenfassen kommt in Stufe 3 vor.'])

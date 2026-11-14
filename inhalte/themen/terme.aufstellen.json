@@ -92,7 +92,87 @@
      "⟦3n + 1⟧; Figur 10: 31 Hölzer"
     ],
     "probe": "n = 2: 3 · 2 + 1 = 7 ✓",
-    "fehler": "Der Term n + 3 passt nicht zu 4, 7, 10: Für n = 2 ergibt er 5. Die ⟦Zunahme pro Schritt⟧ (3) gehört vor das n."
+    "fehler": "Der Term n + 3 passt nicht zu 4, 7, 10: Für n = 2 ergibt er 5. Die ⟦Zunahme pro Schritt⟧ (3) gehört vor das n.",
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "_a0": [
+       0,
+       0
+      ],
+      "_a1": [
+       1,
+       0
+      ],
+      "_a2": [
+       2,
+       0
+      ],
+      "_a3": [
+       3,
+       0
+      ],
+      "_b0": [
+       0,
+       1
+      ],
+      "_b1": [
+       1,
+       1
+      ],
+      "_b2": [
+       2,
+       1
+      ],
+      "_b3": [
+       3,
+       1
+      ]
+     },
+     "linien": [
+      [
+       "_a0",
+       "_a1"
+      ],
+      [
+       "_a1",
+       "_a2"
+      ],
+      [
+       "_a2",
+       "_a3"
+      ],
+      [
+       "_b0",
+       "_b1"
+      ],
+      [
+       "_b1",
+       "_b2"
+      ],
+      [
+       "_b2",
+       "_b3"
+      ],
+      [
+       "_a0",
+       "_b0"
+      ],
+      [
+       "_a1",
+       "_b1"
+      ],
+      [
+       "_a2",
+       "_b2"
+      ],
+      [
+       "_a3",
+       "_b3",
+       "Figur 3: 10 Hölzer"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "deuten",
@@ -2169,7 +2249,24 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Kreise in einer Kette mit Endkappen: Figur 1: 5, Figur 2: 8, Figur 3: 11. Wie viele sind es bei Figur 4?"
+    "text": "Kreise in einer Kette mit Endkappen: Figur 1: 5, Figur 2: 8, Figur 3: 11. Wie viele sind es bei Figur 4?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "5",
+       "8",
+       "11"
+      ]
+     ]
+    }
    },
    "o": {
     "wert": 14
@@ -2185,7 +2282,24 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Plättchen in einem Muster: Figur 1: 8, Figur 2: 12, Figur 3: 16. Wie viele sind es bei Figur 5?"
+    "text": "Plättchen in einem Muster: Figur 1: 8, Figur 2: 12, Figur 3: 16. Wie viele sind es bei Figur 5?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "8",
+       "12",
+       "16"
+      ]
+     ]
+    }
    },
    "o": {
     "wert": 24
@@ -2201,7 +2315,24 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Streichhölzer für Dreiecke in einer Reihe: Figur 1: 3, Figur 2: 5, Figur 3: 7. Wie viele sind es bei Figur 4?"
+    "text": "Streichhölzer für Dreiecke in einer Reihe: Figur 1: 3, Figur 2: 5, Figur 3: 7. Wie viele sind es bei Figur 4?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "3",
+       "5",
+       "7"
+      ]
+     ]
+    }
    },
    "o": {
     "wert": 9
@@ -2217,7 +2348,24 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Punkte in einer Treppe aus Rahmen: Figur 1: 4, Figur 2: 8, Figur 3: 12. Wie viele sind es bei Figur 7?"
+    "text": "Punkte in einer Treppe aus Rahmen: Figur 1: 4, Figur 2: 8, Figur 3: 12. Wie viele sind es bei Figur 7?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "4",
+       "8",
+       "12"
+      ]
+     ]
+    }
    },
    "o": {
     "wert": 28
@@ -2235,7 +2383,24 @@
    "f": {
     "text": "Streichhölzer für Sechsecke in einer Reihe: Figur 1: 6, Figur 2: 11, Figur 3: 16. Gib einen Term für die Anzahl bei Figur n an.",
     "schablone": "□n + □",
-    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1."
+    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "6",
+       "11",
+       "16"
+      ]
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -2259,7 +2424,24 @@
    "f": {
     "text": "Kreise in einer Kette mit Endkappen: Figur 1: 5, Figur 2: 8, Figur 3: 11. Gib einen Term für die Anzahl bei Figur n an.",
     "schablone": "□n + □",
-    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1."
+    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "5",
+       "8",
+       "11"
+      ]
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -2283,7 +2465,24 @@
    "f": {
     "text": "Plättchen in einem Muster: Figur 1: 13, Figur 2: 20, Figur 3: 27. Gib einen Term für die Anzahl bei Figur n an.",
     "schablone": "□n + □",
-    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1."
+    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "13",
+       "20",
+       "27"
+      ]
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -2307,7 +2506,24 @@
    "f": {
     "text": "Kacheln um ein Beet herum: Figur 1: 8, Figur 2: 10, Figur 3: 12. Gib einen Term für die Anzahl bei Figur n an.",
     "schablone": "□n + □",
-    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1."
+    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "8",
+       "10",
+       "12"
+      ]
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -2331,7 +2547,24 @@
    "f": {
     "text": "Plättchen in einer T-Form: Figur 1: 2, Figur 2: 5, Figur 3: 8. Gib einen Term für die Anzahl bei Figur n an.",
     "schablone": "□n + □",
-    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1."
+    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "2",
+       "5",
+       "8"
+      ]
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -2355,7 +2588,24 @@
    "f": {
     "text": "Stühle in einem Saal: Figur 1: 13, Figur 2: 20, Figur 3: 27. Gib einen Term für die Anzahl bei Figur n an.",
     "schablone": "□n + □",
-    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1."
+    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "13",
+       "20",
+       "27"
+      ]
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -2377,7 +2627,24 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Sitzplätze an einer Reihe zusammengeschobener Tische: Figur 1: 4, Figur 2: 6, Figur 3: 8. Welche Figur braucht genau 112?"
+    "text": "Sitzplätze an einer Reihe zusammengeschobener Tische: Figur 1: 4, Figur 2: 6, Figur 3: 8. Welche Figur braucht genau 112?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "4",
+       "6",
+       "8"
+      ]
+     ]
+    }
    },
    "o": {
     "wert": 55
@@ -2393,7 +2660,24 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Steine in einer Mauerreihe: Figur 1: 7, Figur 2: 14, Figur 3: 21. Wie viele sind es bei Figur 28?"
+    "text": "Steine in einer Mauerreihe: Figur 1: 7, Figur 2: 14, Figur 3: 21. Wie viele sind es bei Figur 28?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "7",
+       "14",
+       "21"
+      ]
+     ]
+    }
    },
    "o": {
     "wert": 196
@@ -2409,7 +2693,24 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Streichhölzer für Sechsecke in einer Reihe: Figur 1: 6, Figur 2: 11, Figur 3: 16. Wie viele sind es bei Figur 92?"
+    "text": "Streichhölzer für Sechsecke in einer Reihe: Figur 1: 6, Figur 2: 11, Figur 3: 16. Wie viele sind es bei Figur 92?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "6",
+       "11",
+       "16"
+      ]
+     ]
+    }
    },
    "o": {
     "wert": 461
@@ -2425,7 +2726,24 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Sitzplätze an einer Reihe zusammengeschobener Tische: Figur 1: 4, Figur 2: 6, Figur 3: 8. Welche Figur braucht genau 94?"
+    "text": "Sitzplätze an einer Reihe zusammengeschobener Tische: Figur 1: 4, Figur 2: 6, Figur 3: 8. Welche Figur braucht genau 94?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "4",
+       "6",
+       "8"
+      ]
+     ]
+    }
    },
    "o": {
     "wert": 46
@@ -2443,7 +2761,24 @@
    "f": {
     "text": "Plättchen in einem Muster: Figur 1: 4, Figur 2: 8, Figur 3: 12. Gib einen Term für die Anzahl bei Figur n an.",
     "schablone": "□n + □",
-    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1."
+    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "4",
+       "8",
+       "12"
+      ]
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -2466,7 +2801,24 @@
    "f": {
     "text": "Stühle in einem Saal: Figur 1: 9, Figur 2: 15, Figur 3: 21. Gib einen Term für die Anzahl bei Figur n an.",
     "schablone": "□n + □",
-    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1."
+    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "9",
+       "15",
+       "21"
+      ]
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -2489,7 +2841,24 @@
    "f": {
     "text": "Sitzplätze an einer Reihe zusammengeschobener Tische: Figur 1: 4, Figur 2: 6, Figur 3: 8. Gib einen Term für die Anzahl bei Figur n an.",
     "schablone": "□n + □",
-    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1."
+    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "4",
+       "6",
+       "8"
+      ]
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -2512,7 +2881,24 @@
    "f": {
     "text": "Perlen an einer Kette: Figur 1: 7, Figur 2: 9, Figur 3: 11. Gib einen Term für die Anzahl bei Figur n an.",
     "schablone": "□n + □",
-    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1."
+    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "7",
+       "9",
+       "11"
+      ]
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -2535,7 +2921,24 @@
    "f": {
     "text": "Steine in einer Mauerreihe: Figur 1: 10, Figur 2: 14, Figur 3: 18. Gib einen Term für die Anzahl bei Figur n an.",
     "schablone": "□n + □",
-    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1."
+    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "10",
+       "14",
+       "18"
+      ]
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -2558,7 +2961,24 @@
    "f": {
     "text": "Stühle in einem Saal: Figur 1: 4, Figur 2: 9, Figur 3: 14. Gib einen Term für die Anzahl bei Figur n an.",
     "schablone": "□n + □",
-    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1."
+    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "4",
+       "9",
+       "14"
+      ]
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -2581,7 +3001,24 @@
    "f": {
     "text": "Stühle in einem Saal: Figur 1: 7, Figur 2: 11, Figur 3: 15. Gib einen Term für die Anzahl bei Figur n an.",
     "schablone": "□n + □",
-    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1."
+    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "7",
+       "11",
+       "15"
+      ]
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -2604,7 +3041,24 @@
    "f": {
     "text": "Stühle in einem Saal: Figur 1: 3, Figur 2: 7, Figur 3: 11. Gib einen Term für die Anzahl bei Figur n an.",
     "schablone": "□n + □",
-    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1."
+    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "3",
+       "7",
+       "11"
+      ]
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -2627,7 +3081,24 @@
    "f": {
     "text": "Stühle in einem Saal: Figur 1: 11, Figur 2: 16, Figur 3: 21. Gib einen Term für die Anzahl bei Figur n an.",
     "schablone": "□n + □",
-    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1."
+    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "11",
+       "16",
+       "21"
+      ]
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -2650,7 +3121,24 @@
    "f": {
     "text": "Stühle in einem Saal: Figur 1: 5, Figur 2: 7, Figur 3: 9. Gib einen Term für die Anzahl bei Figur n an.",
     "schablone": "□n + □",
-    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1."
+    "hinweis": "Tippe den Term mit n ein, z. B. 3n + 1.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Figur n",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Anzahl",
+       "5",
+       "7",
+       "9"
+      ]
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -3080,7 +3568,7 @@
   }
  ],
  "offen": [
-  "Lernkarte „muster“: Die Figurenfolgen (Streichhölzer, Plättchen) werden nur mit Namen und Anzahlen beschrieben. Bilder der ersten drei Figuren wären sehr hilfreich; die App kann sie noch nicht zeichnen.",
+  "Lernkarte „muster“: Die Erklärung zeigt die Streichholzfigur 3 als Zeichnung, die Aufgaben zeigen die Anzahlen als Tabelle. Zeichnungen aller Figurenfolgen je Aufgabe wären möglich, sind aber aufwendig; bei Bedarf nachziehen.",
   "Äquivalenzumformungen von Termen (Ausmultiplizieren, Zusammenfassen als eigenes Thema) sind nicht Teil dieses Themas; nur einfaches Zusammenfassen kommt in Stufe 3 vor."
  ]
 }

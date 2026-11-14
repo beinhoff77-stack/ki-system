@@ -48,7 +48,22 @@
      "Faktor ⟦1,15⟧",
      "Senkung um 15 %: 100 % − 15 % = 85 %, Faktor ⟦0,85⟧"
     ],
-    "fehler": "Der Faktor für „um 15 % mehr“ ist nicht 0,15. Mit 0,15 erhältst du nur die ⟦Zunahme⟧, nicht den neuen Wert. Der neue Wert braucht 1,15."
+    "fehler": "Der Faktor für „um 15 % mehr“ ist nicht 0,15. Mit 0,15 erhältst du nur die ⟦Zunahme⟧, nicht den neuen Wert. Der neue Wert braucht 1,15.",
+    "bild": {
+     "typ": "kreisdiagramm",
+     "einheit": " %",
+     "werte": [
+      {
+       "name": "neuer Wert (Senkung)",
+       "wert": 85
+      },
+      {
+       "name": "Abnahme",
+       "wert": 15
+      }
+     ],
+     "zahlen": true
+    }
    },
    {
     "lernziel": "vermehrt",
@@ -60,7 +75,23 @@
      "= ⟦504 €⟧"
     ],
     "probe": "Zunahme 5 % von 480 € = 24 €; 480 € + 24 € = 504 € ✓",
-    "fehler": "480 € + 5 = 485 € ist falsch: 5 % sind ⟦nicht 5 Euro⟧, sondern 5 Hundertstel des Grundwerts."
+    "fehler": "480 € + 5 = 485 € ist falsch: 5 % sind ⟦nicht 5 Euro⟧, sondern 5 Hundertstel des Grundwerts.",
+    "bild": {
+     "typ": "saeulen",
+     "einheit": "€",
+     "werte": [
+      {
+       "name": "vorher",
+       "wert": 480
+      },
+      {
+       "name": "nachher (+5 %)",
+       "wert": 504
+      }
+     ],
+     "y_start": 0,
+     "zahlen": true
+    }
    },
    {
     "lernziel": "vermindert",
@@ -71,7 +102,27 @@
      "Faktor: 1 − 0,30 = 0,70",
      "120 € · 0,7 = ⟦84 €⟧"
     ],
-    "fehler": "120 € · 0,3 = 36 € ist nicht der neue Preis, sondern der ⟦Rabatt⟧. Zu zahlen sind 120 € − 36 € = 84 €."
+    "fehler": "120 € · 0,3 = 36 € ist nicht der neue Preis, sondern der ⟦Rabatt⟧. Zu zahlen sind 120 € − 36 € = 84 €.",
+    "bild": {
+     "typ": "saeulen",
+     "einheit": "€",
+     "werte": [
+      {
+       "name": "vorher",
+       "wert": 120
+      },
+      {
+       "name": "Rabatt",
+       "wert": 36
+      },
+      {
+       "name": "zu zahlen",
+       "wert": 84
+      }
+     ],
+     "y_start": 0,
+     "zahlen": true
+    }
    },
    {
     "lernziel": "zurueck",
@@ -83,7 +134,32 @@
      "= ⟦50 €⟧"
     ],
     "probe": "50 € · 1,19 = 59,50 € ✓",
-    "fehler": "Der Nettopreis ist nicht 59,50 € − 19 % von 59,50 € = 48,20 €. Die 19 % beziehen sich auf den ⟦Nettopreis⟧, nicht auf den Endpreis. Darum wird geteilt."
+    "fehler": "Der Nettopreis ist nicht 59,50 € − 19 % von 59,50 € = 48,20 €. Die 19 % beziehen sich auf den ⟦Nettopreis⟧, nicht auf den Endpreis. Darum wird geteilt.",
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "Prozent",
+      "Betrag"
+     ],
+     "zeilen": [
+      [
+       "Nettopreis (Grundwert)",
+       "100 %",
+       "?"
+      ],
+      [
+       "Mehrwertsteuer",
+       "19 %",
+       ""
+      ],
+      [
+       "Endpreis",
+       "119 %",
+       "59,50 €"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "prozentsatz",
@@ -105,7 +181,32 @@
      "200 € · 1,1 · 0,9 = 200 € · 0,99",
      "= ⟦198 €⟧ – weniger als vorher!"
     ],
-    "fehler": "+10 % und dann −10 % heben sich nicht auf: Die −10 % beziehen sich auf den ⟦schon erhöhten⟧ Preis 220 €. Ergebnis 198 €, nicht 200 €."
+    "fehler": "+10 % und dann −10 % heben sich nicht auf: Die −10 % beziehen sich auf den ⟦schon erhöhten⟧ Preis 220 €. Ergebnis 198 €, nicht 200 €.",
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Schritt",
+      "Faktor",
+      "Preis"
+     ],
+     "zeilen": [
+      [
+       "Start",
+       "",
+       "200 €"
+      ],
+      [
+       "+10 %",
+       "· 1,1",
+       "220 €"
+      ],
+      [
+       "−10 %",
+       "· 0,9",
+       "198 €"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "argumente",
@@ -3052,6 +3153,6 @@
   }
  ],
  "offen": [
-  "Prozentstreifen / Prozentkreis als Bild wären für die Lernkarten „faktor“ und „zurueck“ hilfreich; die App kann sie noch nicht zeichnen."
+  "Lernkarten mit Kreis-/Säulendiagramm und Tabellen bebildert. Ein echter Prozentstreifen (Balken mit 100 % / 115 %) wäre noch anschaulicher; die App hat dafür keinen eigenen Bildtyp."
  ]
 }

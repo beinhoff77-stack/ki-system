@@ -7,6 +7,8 @@ sys.dont_write_bytecode = True
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _kl7 import A, Z, baue, cz, eur, ist_endlich, zt  # noqa: E402
 
+TAB = lambda kopf, zeilen: {'typ': 'tabelle', 'kopf': kopf, 'zeilen': zeilen}
+
 META = {'thema_schluessel': 'bruch.prozent_grundwert', 'thema_id': 94, 'block_id': 108, 'klasse': {'gym_by': 7, 'rs_by': 7}}
 
 ETAPPEN = [
@@ -14,23 +16,27 @@ ETAPPEN = [
      'regel': 'Steigt ein Wert um p %, ist der neue Wert (100 + p) % des alten: Man multipliziert mit dem ⟦Wachstumsfaktor 1 + p/100⟧. Sinkt er um p %, multipliziert man mit ⟦1 − p/100⟧.',
      'schritte': ['Erhöhung um 15 %: 100 % + 15 % = 115 %', 'Faktor ⟦1,15⟧', 'Senkung um 15 %: 100 % − 15 % = 85 %, Faktor ⟦0,85⟧'],
      'fehler': 'Der Faktor für „um 15 % mehr“ ist nicht 0,15. Mit 0,15 erhältst du nur die ⟦Zunahme⟧, nicht den neuen Wert. Der neue Wert braucht 1,15.',
+     'bild': {'typ': 'kreisdiagramm', 'einheit': ' %', 'werte': [{'name': 'neuer Wert (Senkung)', 'wert': 85}, {'name': 'Abnahme', 'wert': 15}], 'zahlen': True},
      '_verbot': ['um 15 %']},
     {'lernziel': 'vermehrt', 'titel': 'Den vermehrten Grundwert berechnen',
      'regel': 'Vermehrter Grundwert = ⟦Grundwert · (1 + p/100)⟧. So rechnest du in einem Schritt, statt erst die Zunahme auszurechnen und dann zu addieren.',
      'schritte': ['Ein Fahrrad kostet 480 €, der Preis steigt um 5 %.', 'Neuer Preis: 480 € · 1,05', '= ⟦504 €⟧'],
      'probe': 'Zunahme 5 % von 480 € = 24 €; 480 € + 24 € = 504 € ✓',
      'fehler': '480 € + 5 = 485 € ist falsch: 5 % sind ⟦nicht 5 Euro⟧, sondern 5 Hundertstel des Grundwerts.',
+     'bild': {'typ': 'saeulen', 'einheit': '€', 'werte': [{'name': 'vorher', 'wert': 480}, {'name': 'nachher (+5 %)', 'wert': 504}], 'y_start': 0, 'zahlen': True},
      '_verbot': ['480 €']},
     {'lernziel': 'vermindert', 'titel': 'Den verminderten Grundwert berechnen',
      'regel': 'Verminderter Grundwert = ⟦Grundwert · (1 − p/100)⟧. Typisch sind ⟦Rabatt⟧ und Preissenkungen.',
      'schritte': ['Eine Jacke kostet 120 €, es gibt 30 % Rabatt.', 'Faktor: 1 − 0,30 = 0,70', '120 € · 0,7 = ⟦84 €⟧'],
      'fehler': '120 € · 0,3 = 36 € ist nicht der neue Preis, sondern der ⟦Rabatt⟧. Zu zahlen sind 120 € − 36 € = 84 €.',
+     'bild': {'typ': 'saeulen', 'einheit': '€', 'werte': [{'name': 'vorher', 'wert': 120}, {'name': 'Rabatt', 'wert': 36}, {'name': 'zu zahlen', 'wert': 84}], 'y_start': 0, 'zahlen': True},
      '_verbot': ['120 €']},
     {'lernziel': 'zurueck', 'titel': 'Zurück zum Grundwert',
      'regel': 'Kennst du den vermehrten oder verminderten Wert, ⟦teilst⟧ du durch den Faktor: Grundwert = neuer Wert : (1 ± p/100).',
      'schritte': ['Ein Preis mit 19 % Mehrwertsteuer ist 59,50 €.', 'Netto · 1,19 = 59,50 € → Netto = 59,50 € : 1,19', '= ⟦50 €⟧'],
      'probe': '50 € · 1,19 = 59,50 € ✓',
      'fehler': 'Der Nettopreis ist nicht 59,50 € − 19 % von 59,50 € = 48,20 €. Die 19 % beziehen sich auf den ⟦Nettopreis⟧, nicht auf den Endpreis. Darum wird geteilt.',
+     'bild': TAB(['', 'Prozent', 'Betrag'], [['Nettopreis (Grundwert)', '100 %', '?'], ['Mehrwertsteuer', '19 %', ''], ['Endpreis', '119 %', '59,50 €']]),
      '_verbot': ['59,50 €']},
     {'lernziel': 'prozentsatz', 'titel': 'Um wie viel Prozent geändert?',
      'regel': 'Teile den neuen Wert durch den ⟦alten⟧ Wert. Liegt der Faktor über 1, ist es eine Zunahme, sonst eine Abnahme: ⟦p % = (Faktor − 1) · 100 %⟧.',
@@ -41,6 +47,7 @@ ETAPPEN = [
      'regel': 'Bei mehreren Änderungen nacheinander werden die ⟦Faktoren multipliziert⟧, nicht die Prozentsätze addiert.',
      'schritte': ['200 €, erst +10 %, dann −10 %', '200 € · 1,1 · 0,9 = 200 € · 0,99', '= ⟦198 €⟧ – weniger als vorher!'],
      'fehler': '+10 % und dann −10 % heben sich nicht auf: Die −10 % beziehen sich auf den ⟦schon erhöhten⟧ Preis 220 €. Ergebnis 198 €, nicht 200 €.',
+     'bild': TAB(['Schritt', 'Faktor', 'Preis'], [['Start', '', '200 €'], ['+10 %', '· 1,1', '220 €'], ['−10 %', '· 0,9', '198 €']]),
      '_verbot': ['200 €, erst']},
     {'lernziel': 'argumente', 'titel': 'Aussagen zu Prozenten prüfen',
      'regel': 'Prüfe eine Aussage ⟦rechnerisch⟧ (mathematisches Argument). Gründe wie „das klingt fair“ oder „das macht jeder Laden so“ sind ⟦außermathematische⟧ Argumente – sie beweisen rechnerisch nichts.',
@@ -226,4 +233,4 @@ if __name__ == '__main__':
          'Mit dem Wachstumsfaktor vermehrte und verminderte Grundwerte berechnen, auf den Grundwert zurückrechnen, prozentuale Änderungen bestimmen und Aussagen über Prozente mathematisch prüfen.',
          ['Plus p %: mal (1 + p/100). Minus p %: mal (1 − p/100).', 'Zurück zum Grundwert: durch den Faktor teilen.',
           'Mehrere Änderungen: Faktoren multiplizieren, nicht Prozente addieren.'],
-         offen=['Prozentstreifen / Prozentkreis als Bild wären für die Lernkarten „faktor“ und „zurueck“ hilfreich; die App kann sie noch nicht zeichnen.'])
+         offen=['Lernkarten mit Kreis-/Säulendiagramm und Tabellen bebildert. Ein echter Prozentstreifen (Balken mit 100 % / 115 %) wäre noch anschaulicher; die App hat dafür keinen eigenen Bildtyp.'])

@@ -81,6 +81,25 @@ def ca(x, stellen=2):
     return zt(x) if dez(x) is not None and len(dez(x).split(',')[-1]) <= 3 else '≈ ' + zt(runde(x, stellen))
 
 
+HOCH = {2: '²', 3: '³', 4: '⁴', 5: '⁵', 6: '⁶'}
+
+
+def pot(v, k):
+    return v if k == 1 else f'{v}{HOCH[k]}'
+
+
+def mono(c, e, v='x'):
+    """Bruch c·v^e (e auch negativ) gekürzt schreiben, z. B. 2/(3x), 4x²/5, −x."""
+    c = Fr(c)
+    vz = '−' if c < 0 else ''
+    p, q = abs(c.numerator), c.denominator
+    zae = (str(p) if p != 1 or e <= 0 else '') + (pot(v, e) if e > 0 else '')
+    nen = (str(q) if q != 1 else '') + (pot(v, -e) if e < 0 else '')
+    if not nen: return vz + zae
+    if q != 1 and e < 0: nen = f'({nen})'
+    return vz + zae + '/' + nen
+
+
 def kl(x):
     """Negative Zahlen in Klammern."""
     s = zt(x)
@@ -185,8 +204,8 @@ def baue(meta, etappen, gen, abschnitte, ziel, merke, offen=(), plan=PLAN, seed=
         for pool, stufe in plan:
             for _ in range(3000):
                 a = gen[lz](R, stufe)
-                text = a['f']['text']
-                if text in gesehen or any(v in text for v in verbot): continue
+                text = a['f']['text'] + '|' + '|'.join(sorted(map(str, a.get('a', [])))) + json.dumps(a['f'].get('grafik'), sort_keys=True)
+                if a['f']['text'] in e['schritte'] or text in gesehen or any(v in text for v in verbot): continue
                 break
             else:
                 raise SystemExit(f'zu wenige Varianten für {lz} (Stufe {stufe})')

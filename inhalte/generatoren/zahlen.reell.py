@@ -32,7 +32,7 @@ ETAPPEN = [
     {'lernziel': 'wurzel_mal', 'titel': 'Wurzeln multiplizieren und dividieren',
      'regel': 'Für a, b ≥ 0 gilt: ⟦√a · √b = √(a · b)⟧ und für b > 0 ⟦√a : √b = √(a : b)⟧. Für Summen gibt es keine solche Regel.',
      'schritte': ['√3 · √27 = √(3 · 27) = √81.', '√81 = ⟦9⟧.'],
-     'probe': '9 : √3 = √27? 81 : 3 = 27 ✓',
+     'probe': 'Quadriere das Ergebnis: 9² = 81, und 3 · 27 = 81 ✓',
      'fehler': '√16 + √9 = √25 ist falsch: Bei der ⟦Summe⟧ darf man nicht zusammenfassen. 4 + 3 = 7, aber √25 = 5.'},
     {'lernziel': 'teilweise', 'titel': 'Teilweise die Wurzel ziehen',
      'regel': 'Zerlege den Radikanden in eine ⟦Quadratzahl mal Rest⟧: √(k² · m) = ⟦k√m⟧. Nimm die größte Quadratzahl, die passt.',
@@ -40,7 +40,7 @@ ETAPPEN = [
      'probe': '(6√2)² = 36 · 2 = 72 ✓',
      'fehler': '√72 = √(4 · 18) = 2√18 ist nicht fertig: In 18 steckt noch die Quadratzahl 9. Mit der ⟦größten⟧ Quadratzahl 36 erhält man 6√2.'},
     {'lernziel': 'zusammenfassen', 'titel': 'Wurzelterme zusammenfassen',
-     'regel': 'Nur Wurzeln mit ⟦gleichem Radikanden⟧ kann man addieren: a√m + b√m = ⟦(a + b)√m⟧. Vorher teilweise radizieren, dann zusammenfassen.',
+     'regel': 'Behandle √m wie eine Variable: 3x + 5x = 8x, also auch ⟦3√2 + 5√2 = 8√2⟧. Aber 2x + 4y lässt sich nicht zusammenfassen – genauso wenig ⟦2√3 + 4√5⟧. Nur Wurzeln mit ⟦gleichem Radikanden⟧ kann man addieren. Vorher teilweise die Wurzel ziehen, dann zusammenfassen.',
      'schritte': ['√18 + √50 = 3√2 + 5√2 (teilweise radiziert).', '3√2 + 5√2 = ⟦8√2⟧.'],
      'probe': '√18 ≈ 4,24, √50 ≈ 7,07, Summe ≈ 11,31; 8√2 ≈ 11,31 ✓',
      'fehler': '2√3 + 4√5 = 6√8 ist falsch: Die Radikanden sind ⟦verschieden⟧, der Term lässt sich nicht zusammenfassen.'},
@@ -53,7 +53,7 @@ ETAPPEN = [
 
 
 def g_zahlarten(s):
-    typ = R.choice({1: 'bc', 2: 'abcd', 3: 'ade'}[s])
+    typ = R.choice({1: 'bcf', 2: 'abcdf', 3: 'adef'}[s])
     if typ == 'a':
         r = R.choice(NQ)
         n = R.randint(2, 12)
@@ -90,14 +90,35 @@ def g_zahlarten(s):
                        ['ℕ (natürliche Zahlen)', 'ℤ (ganze Zahlen)', 'ℚ (rationale Zahlen)', 'ℝ (reelle Zahlen)'],
                        grund, 'Vereinfache die Zahl zuerst so weit wie möglich.')
     if typ == 'd':
-        z = R.randint(1, 9)
-        per = R.choice([f'0,{z}{z}{z}…', f'{R.randint(1, 9)},{z}{z}{z}…'])
-        return auswahl(f'Jemand sagt: „{per} (die {z} wiederholt sich immer) ist irrational.“ Was stimmt?',
-                       'Falsch: Periodische Dezimalzahlen sind rational.',
+        p_, q_ = R.sample(range(0, 9), 2)
+        g = R.randint(0, 9)
+        per = f'{g},{p_}{q_}{p_}{q_}{p_}{q_}…'
+        wert_ = g + Fr(10 * p_ + q_, 99)
+        return auswahl(f'Jemand sagt: „{per} (die Ziffern {p_}{q_} wiederholen sich immer) ist irrational.“ Was stimmt?',
+                       f'Falsch: Periodische Dezimalzahlen sind rational ({per} = {br(wert_)}).',
                        ['Richtig: Unendlich viele Nachkommastellen bedeuten irrational.', 'Richtig: Die Zahl ist keine ganze Zahl.',
                         'Falsch: Die Zahl ist eine natürliche Zahl.'],
-                       f'Eine Periode lässt sich als Bruch schreiben (z. B. 0,{z}{z}{z}… = {br(Fr(z, 9))}). Irrational sind nur Zahlen ohne Periode.',
+                       f'Eine Periode lässt sich als Bruch schreiben: {per} = {br(wert_)}. Irrational sind nur Zahlen ohne Periode.',
                        'Wiederholen sich die Ziffern oder nicht?')
+    if typ == 'f':
+        if R.random() < 0.5:
+            return auswahl('Welche Zahl ist irrational?', 'π', ['22/7', '3,14', R.choice(['3,141414… (14 wiederholt sich)', '3,1416'])],
+                           'π hat unendlich viele Nachkommastellen ohne Periode. 22/7, 3,14 und 3,1416 sind nur Näherungen und als Bruch schreibbar; 3,1414… ist periodisch.',
+                           'Welche Zahl lässt sich nicht als Bruch schreiben?')
+        z = R.randint(1, 9)
+        muster = f'0,{z}0{z}00{z}000{z}0000{z}…'
+        per = f'0,{z}0{z}0{z}0{z}0…'
+        if R.random() < 0.5:
+            return auswahl(f'Ist {muster} (nach jeder {z} steht eine 0 mehr) rational oder irrational?',
+                           'irrational, denn es gibt keine Periode',
+                           ['rational, denn das Muster ist bekannt', 'rational, denn die Ziffern sind nur 0 und ' + str(z), 'weder noch'],
+                           'Die Abstände zwischen den Ziffern ' + str(z) + ' werden immer größer – es wiederholt sich kein fester Ziffernblock. Ohne Periode ist die Zahl irrational.',
+                           'Wiederholt sich ein fester Ziffernblock immer wieder?')
+        return auswahl(f'Ist {per} (der Block {z}0 wiederholt sich immer) rational oder irrational?',
+                       f'rational, denn {per} = {br(Fr(10 * z, 99))}',
+                       ['irrational, denn es hat unendlich viele Nachkommastellen', 'irrational, denn es ist kein Bruch', 'weder noch'],
+                       f'Der Block {z}0 wiederholt sich (Periode). Periodische Dezimalzahlen sind rational: {per} = {br(Fr(10 * z, 99))}.',
+                       'Gibt es einen festen Ziffernblock, der sich wiederholt?')
     r = R.choice(QF)
     return auswahl(f'Welche Aussage ist richtig? (Denke an √{r}.)', f'√{r} · √{r} ist rational, obwohl √{r} irrational ist.',
                    [f'Das Produkt zweier irrationaler Zahlen ist immer irrational.', f'√{r} ist rational, weil man es auf dem Taschenrechner sieht.',
@@ -142,6 +163,18 @@ def g_wurzel_mal(s):
         n = k * m
         return zahl(f'Berechne √{a} · √{b}.', f'√{a} · √{b} = √({a} · {b}) = √{dz(a * b)} = {n}.',
                     'Fasse zu einer Wurzel zusammen und ziehe dann die Wurzel.', n, f'({a} * {b}) / {n}')
+    if s == 2 and R.random() < 0.3:
+        a, b = R.choice([(9, 16), (16, 9), (36, 64), (9, 40), (25, 144), (4, 9), (16, 49), (36, 4)])
+        if R.random() < 0.5:
+            return auswahl(f'Ist √{a} · √{b} = √({a} · {b})?', f'Ja: {isqrt(a)} · {isqrt(b)} = {isqrt(a) * isqrt(b) if isqrt(b) ** 2 == b else "√" + str(a * b)} und √{dz(a * b)} ergibt dasselbe.' if isqrt(b) ** 2 == b else f'Ja, das Produktgesetz gilt für alle a, b ≥ 0.',
+                           [f'Nein, man darf Wurzeln nie zusammenfassen.', f'Nein, richtig wäre √{a} · √{b} = √({a} + {b}).', 'Nur wenn beide Zahlen Quadratzahlen sind.'],
+                           f'Für a, b ≥ 0 gilt √a · √b = √(a · b). Probe durch Quadrieren: (√{a} · √{b})² = {a} · {b} = {dz(a * b)}.',
+                           'Quadriere beide Seiten und vergleiche.')
+        if isqrt(b) ** 2 != b or isqrt(a + b) ** 2 == a + b: return None
+        return auswahl(f'Ist √{a} + √{b} = √({a} + {b})?', f'Nein: √{a} + √{b} = {isqrt(a) + isqrt(b)}, aber √{a + b} ≈ {dz(round((a + b) ** 0.5, 1))}.',
+                       ['Ja, wie beim Multiplizieren darf man zusammenfassen.', f'Ja, denn {isqrt(a)} + {isqrt(b)} = {isqrt(a) + isqrt(b)}.', 'Nur wenn beide Zahlen gerade sind.'],
+                       f'√{a} + √{b} = {isqrt(a)} + {isqrt(b)} = {isqrt(a) + isqrt(b)}. Unter einer Wurzel: √{a + b} ≈ {dz(round((a + b) ** 0.5, 1))}. Für Summen gibt es keine Wurzelregel.',
+                       'Rechne beide Seiten getrennt aus.')
     if s == 2:
         m = R.choice(QF)
         k = R.randint(2, 9)
@@ -155,8 +188,15 @@ def g_wurzel_mal(s):
         if p == q: return None
         a, b = m * p * p, m * q * q
         n = p * q * m
-        return zahl(f'Berechne √{a} · √{b} − √{dz(n * n)}.', f'√{a} · √{b} = √{dz(a * b)} = {n}; √{dz(n * n)} = {n}; Ergebnis 0.',
-                    'Berechne das Produkt der Wurzeln zuerst.', 0, f'({a} * {b}) / {n} - {n}')
+        d = R.randint(2, 20)
+        if d == n: return None
+        if R.random() < 0.5:
+            return zahl(f'Berechne √{a} · √{b} − √{dz(d * d)}.', f'√{a} · √{b} = √{dz(a * b)} = {n}; √{dz(d * d)} = {d}; {n} − {d} = {n - d}.',
+                        'Berechne das Produkt der Wurzeln zuerst, dann die zweite Wurzel.', n - d, f'({a} * {b}) / {n} - {d * d} / {d}')
+        k = R.randint(4, 12)
+        A_ = m * k * k
+        return zahl(f'Berechne √{dz(A_)} : √{m}.', f'√{dz(A_)} : √{m} = √({dz(A_)} : {m}) = √{k * k} = {k}.',
+                    'Fasse zu einer Wurzel des Quotienten zusammen.', k, f'({A_} / {m}) / {k}')
     m = R.choice(QF)
     k = R.randint(2, 7)
     richtig = f'{k * m}x'
@@ -175,16 +215,22 @@ def g_teilweise(s):
             return luecken(f'Schreibe {k}√{m} als eine einzige Wurzel.', '√□', 'Radikand', [r],
                            f'{k}√{m} = √{k * k} · √{m} = √({k * k} · {m}) = √{r}.',
                            'Schreibe den Faktor vor der Wurzel als Wurzel aus seinem Quadrat.', c=[f'{k} * {k} * {m}'])
-        return luecken(f'Ziehe teilweise die Wurzel: √({r}x²) für x ≥ 0.', '□x√□', 'Zahl vor x, Radikand', [k, m],
+        return luecken(f'Ziehe teilweise die Wurzel, so weit wie möglich: √({r}x²) für x ≥ 0.', '□x√□', 'Zahl vor x, Radikand', [k, m],
                        f'√({r}x²) = √({k * k} · {m} · x²) = {k}x√{m}.', 'Ziehe die Wurzel aus der Quadratzahl und aus x² getrennt.',
                        c=[f'{k}', f'{r} // {k * k}'])
-    return luecken(f'Ziehe teilweise die Wurzel: √{r}.', '□√□', 'Zahl vor der Wurzel, Radikand', [k, m],
-                   f'√{r} = √({k * k} · {m}) = {k}√{m}.', 'Suche die größte Quadratzahl, die im Radikanden steckt.',
+    return luecken(f'Ziehe teilweise die Wurzel, so weit wie möglich: √{dz(r)}.', '□√□', 'Zahl vor der Wurzel, Radikand', [k, m],
+                   f'√{dz(r)} = √({k * k} · {m}) = {k}√{m}.', 'Suche die größte Quadratzahl, die im Radikanden steckt.',
                    c=[f'{k}', f'{r} // {k * k}'])
 
 
 def g_zusammenfassen(s):
     m = R.choice(QF[:6])
+    if s <= 2 and R.random() < 0.25:
+        a, b = sorted(R.sample([2, 3, 5, 6, 7, 10, 11], 2))
+        return auswahl(f'Kann man √{a} + √{b} zusammenfassen?', 'Nein, die Radikanden sind verschieden.',
+                       [f'Ja, zu √{a + b}.', f'Ja, zu 2√{a + b}.', f'Ja, zu √{a * b}.'],
+                       f'√{a} und √{b} sind wie verschiedene Variablen x und y: x + y bleibt stehen. Probe: (√{a} + √{b})² = {a + b} + 2√{a * b} ≠ {a + b}.',
+                       'Wie ist es bei 2x + 4y?')
     if s == 1:
         a, b = R.randint(2, 9), R.randint(-9, 9)
         if b in (0, -a): return None

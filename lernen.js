@@ -429,6 +429,15 @@ function lernTermWerte(schablone, eingabe) {
   for (const k of map.keys()) if (!v.inner.includes(k)) return { fehler: 'form' };
   return { werte: [...vor, ...v.inner.map((k) => (map.has(k) ? map.get(k) : 0))].map(lernZahlText) };
 }
+// Ist eine (falsche) Antwort zu einer Ausklammer-Vorlage trotzdem gleichwertig zur Lösung? Dann fehlt nur der größte Faktor.
+function lernGleichwertigAusgeklammert(schablone, werte, loesung) {
+  const v = lernVorlage(schablone);
+  if (v.prefix === null || !Array.isArray(werte) || !Array.isArray(loesung)) return false;
+  const zahl = (x) => Number(String(x).replace('−', '-').replace(',', '.'));
+  const aus = (w) => { const m = new Map(); v.inner.forEach((k, i) => { const key = lernMonoKey(v.prefix + k); m.set(key, (m.get(key) || 0) + zahl(w[0]) * zahl(w[i + 1])); }); return m; };
+  const a = aus(werte), b = aus(loesung);
+  return [...new Set([...a.keys(), ...b.keys()])].every((k) => Math.abs((a.get(k) || 0) - (b.get(k) || 0)) < 1e-9);
+}
 function lernTermFehler(f, schablone) {
   const form = String(schablone).replace(/□/g, '…');
   return { klammer: `Hier gehört eine Klammer in die Antwort, so: ${form}`, ohneklammer: 'Die Antwort soll ohne Klammer sein. Rechne die Klammer aus.',
@@ -653,6 +662,8 @@ function lernEtappe(ctx, etappen, idx) {
         meldung.replaceChildren(r.richtig
           ? el('div', { class: 'lr-rueck lr-rueck-ok' }, el('b', {}, 'Richtig!'), r.loesungsweg ? el('p', {}, lernText(r.loesungsweg)) : null)
           : el('div', { class: 'lr-rueck lr-rueck-falsch' }, el('b', {}, 'Noch nicht. Richtig ist: ' + lernLoesungText(a)),
+            a.antworttyp === 'luecken' && lernGleichwertigAusgeklammert(a.frage?.schablone, w.werte, r.loesung?.werte)
+              ? el('p', {}, 'Dein Term ist gleichwertig, aber noch nicht vollständig ausgeklammert: Vor die Klammer gehört der größte gemeinsame Faktor.') : null,
             r.loesungsweg ? el('p', {}, el('b', {}, 'So geht’s: '), lernText(r.loesungsweg)) : null,
             el('p', { class: 'lr-leise' }, 'Diese Aufgabe kommt gleich noch einmal.')));
         weiter.focus();

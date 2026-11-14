@@ -1,0 +1,340 @@
+{
+ "klasse": 8,
+ "reihenfolge": [
+  {
+   "thema_schluessel": "funktionen.grundbegriffe",
+   "position": 1,
+   "braucht_vorher": [
+    "terme.aufstellen (Kl. 7: Termwerte, Wertetabellen)",
+    "gleichungen.linear (Kl. 7, fehlt: für 'stelle' und 'nullstellen')",
+    "geometrie.grundbegriffe (Kl. 5, fehlt: Koordinatensystem)"
+   ],
+   "begruendung": "Funktionsbegriff (M8 1) ist Grundlage für lineare und gebrochen-rationale Funktionen."
+  },
+  {
+   "thema_schluessel": "funktionen.linear",
+   "position": 2,
+   "braucht_vorher": [
+    "funktionen.grundbegriffe",
+    "groessen.proportional (Kl. 5)"
+   ],
+   "begruendung": "M8 2. Proportionalität aus Kl. 5 wird als Ursprungsgerade wieder aufgenommen."
+  },
+  {
+   "thema_schluessel": "zahlen.intervalle",
+   "position": 3,
+   "braucht_vorher": [
+    "zahlen.ganz (Kl. 5: Zahlengerade)",
+    "bruch.dezimal (Kl. 6)"
+   ],
+   "begruendung": "Kurzes Hilfsthema direkt vor den Ungleichungen, wo es gebraucht wird."
+  },
+  {
+   "thema_schluessel": "gleichungen.ungleichungen",
+   "position": 4,
+   "braucht_vorher": [
+    "gleichungen.linear (Kl. 7, fehlt)",
+    "zahlen.intervalle",
+    "funktionen.linear (graphisches Lösen)"
+   ],
+   "begruendung": "Lineare Ungleichungen erweitern lineare Gleichungen; graphische Lösung braucht Geraden."
+  },
+  {
+   "thema_schluessel": "gleichungen.formeln",
+   "position": 5,
+   "braucht_vorher": [
+    "gleichungen.linear (Kl. 7, fehlt)",
+    "messen.flaechen_vielecke (Kl. 6, fehlt: Dreiecksformel in Karte 'geometrie')"
+   ],
+   "begruendung": "Formeln umstellen = Gleichungen mit Buchstaben; wird bei Kreis/Zylinder (M8 7) und in Physik gebraucht. Kann auch direkt nach Kl. 7 kommen."
+  },
+  {
+   "thema_schluessel": "funktionen.gebrochen",
+   "position": 6,
+   "braucht_vorher": [
+    "funktionen.grundbegriffe",
+    "funktionen.linear (Verschieben, Asymptote als Gerade)"
+   ],
+   "begruendung": "M8 3 steht vor M8 4; indirekte Proportionalität als Spezialfall a/x."
+  },
+  {
+   "thema_schluessel": "terme.bruchterme",
+   "position": 7,
+   "braucht_vorher": [
+    "bruch.rechnen (Kl. 6)",
+    "terme.umformen (Kl. 7, fehlt: ausklammern, binomische Formeln für 'kuerzen')"
+   ],
+   "begruendung": "M8 4: erst rechnen mit Bruchtermen, dann Bruchgleichungen."
+  },
+  {
+   "thema_schluessel": "gleichungen.bruch",
+   "position": 8,
+   "braucht_vorher": [
+    "terme.bruchterme",
+    "gleichungen.linear (Kl. 7, fehlt)",
+    "funktionen.gebrochen (graphische Deutung als Schnittpunkt)"
+   ],
+   "begruendung": "M8 4: Bruchgleichungen rechnerisch und als Schnittproblem von Graphen."
+  },
+  {
+   "thema_schluessel": "gleichungen.lgs2",
+   "position": 9,
+   "braucht_vorher": [
+    "funktionen.linear (graphisches Lösen, Lage der Geraden)",
+    "gleichungen.linear (Kl. 7, fehlt)"
+   ],
+   "begruendung": "M8 6. Lösbarkeit ist am Geradenbild am besten zu verstehen."
+  },
+  {
+   "thema_schluessel": "stochastik.grundbegriffe",
+   "position": 10,
+   "braucht_vorher": [
+    "daten.darstellen (Kl. 6: relative Häufigkeit)",
+    "bruch.brueche (Kl. 6)"
+   ],
+   "begruendung": "M8 5 Laplace-Experimente."
+  },
+  {
+   "thema_schluessel": "stochastik.simulation",
+   "position": 11,
+   "braucht_vorher": [
+    "stochastik.grundbegriffe"
+   ],
+   "begruendung": "M8 5: Simulieren setzt Wahrscheinlichkeit und relative Häufigkeit voraus."
+  },
+  {
+   "thema_schluessel": "messen.kreisberechnung",
+   "position": 12,
+   "braucht_vorher": [
+    "messen.flaechen_vielecke (Kl. 6, fehlt)",
+    "zahlen.potenzen_basis (Kl. 5: Quadrat)",
+    "gleichungen.formeln (r aus u oder A)"
+   ],
+   "begruendung": "M8 7: erst Kreis, dann Körper. Karte 'zylinder' aber erst nach messen.koerper_darstellung lernen."
+  },
+  {
+   "thema_schluessel": "messen.koerper_darstellung",
+   "position": 13,
+   "braucht_vorher": [
+    "messen.volumen (Kl. 6, fehlt)",
+    "messen.kreisberechnung (Kreisumfang für den Zylindermantel)"
+   ],
+   "begruendung": "Nach dem Kreis, damit der Zylindermantel berechnet statt vorgegeben werden kann (die Datei gibt den Umfang bisher vor, weil sie vor dem Kreis gedacht war)."
+  },
+  {
+   "thema_schluessel": "messen.prisma_zylinder",
+   "position": 14,
+   "braucht_vorher": [
+    "messen.koerper_darstellung",
+    "messen.kreisberechnung"
+   ],
+   "begruendung": "NEU (fehlt): Volumen und Oberfläche gerader Prismen und Zylinder in Sachaufgaben (M8 7). Bisher nur eine Zylinder-Karte in messen.kreisberechnung."
+  },
+  {
+   "thema_schluessel": "raum.schraegbilder",
+   "position": 15,
+   "braucht_vorher": [
+    "messen.koerper_darstellung"
+   ],
+   "begruendung": "Großteils Stoff höherer Klassen (siehe zu_viel). Falls behalten: zuletzt und als Vertiefung."
+  }
+ ],
+ "luecken": [
+  {
+   "was_fehlt": "Volumen und Oberfläche gerader Prismen (V = G · h) und ihre Begründung; Sachaufgaben mit Prismen und Zylindern. Nur der Zylinder hat eine Karte (in messen.kreisberechnung), Prismen werden nur gezählt (Ecken/Kanten) und abgewickelt.",
+   "lehrplan_bezug": "M8 7 („begründen, dass das Volumen gerader Prismen … Grundflächeninhalt mal Höhe“; nur Auszug des Lehrplantexts eingesehen (ISB-Schwerpunktsetzungen Jgst. 8, distanzunterricht.bayern.de))",
+   "wohin": "neues Thema messen.prisma_zylinder nach messen.koerper_darstellung; Karte 'zylinder' aus messen.kreisberechnung dorthin verschieben. Karten: prisma_volumen, prisma_oberflaeche, zylinder_volumen, zylinder_oberflaeche, sach.",
+   "dringlichkeit": "hoch"
+  },
+  {
+   "was_fehlt": "Lineare Gleichungen (Kl. 7) und Termumformungen inkl. binomischer Formeln (Kl. 7) werden in 7 von 13 Kl.-8-Themen vorausgesetzt, existieren aber nicht.",
+   "lehrplan_bezug": "M7 1.2 und M7 3 (geprüft)",
+   "wohin": "siehe klasse7.json (gleichungen.linear, terme.umformen).",
+   "dringlichkeit": "hoch"
+  },
+  {
+   "was_fehlt": "Graphen: Geraden zeichnen und Parameter am Steigungsdreieck ablesen; Ungleichungen, LGS und Bruchgleichungen graphisch lösen; Hyperbeln mit Asymptoten. Überall unter 'offen' als „App kann nicht zeichnen“ vermerkt – seit 14.11. kann sie es ('koordinaten' mit linear/hyperbel).",
+   "lehrplan_bezug": "M8 2, M8 3, M8 4 (nur Auszug des Lehrplantexts eingesehen (ISB-Schwerpunktsetzungen Jgst. 8, distanzunterricht.bayern.de)); themenliste lehrplan_gym („Graphen zeichnen und Parameter ablesen“, „auch graphisch als Schnittpunkt deuten“)",
+   "wohin": "funktionen.linear neue Karte 'graph_ablesen' nach 'ablesen'; gleichungen.lgs2 neue Karte 'graphisch' nach 'pruefen'; gleichungen.ungleichungen neue Karte 'graphisch' vor 'sachaufgabe'; gleichungen.bruch neue Karte 'graphisch' nach 'scheinloesung'; funktionen.gebrochen Karte 'parameter' mit Bild.",
+   "dringlichkeit": "hoch"
+  },
+  {
+   "was_fehlt": "Funktionale Zusammenhänge aus dem Alltag (Tarife, Temperaturverläufe) in Tabelle, Diagramm und Term beschreiben – funktionen.grundbegriffe arbeitet nur innermathematisch, keine Sachkarte.",
+   "lehrplan_bezug": "M8 1 (nur Auszug des Lehrplantexts eingesehen (ISB-Schwerpunktsetzungen Jgst. 8, distanzunterricht.bayern.de))",
+   "wohin": "funktionen.grundbegriffe, neue Lernkarte 'sachzusammenhang' am Ende (z. B. Handytarif: Grundgebühr + Preis pro GB; Graph ablesen).",
+   "dringlichkeit": "mittel"
+  },
+  {
+   "was_fehlt": "π näherungsweise bestimmen (Messen, Vielecke) und Kreisfläche als nicht-lineare Zuordnung deuten.",
+   "lehrplan_bezug": "M8 7 (nur Auszug des Lehrplantexts eingesehen (ISB-Schwerpunktsetzungen Jgst. 8, distanzunterricht.bayern.de))",
+   "wohin": "messen.kreisberechnung, Karte 'umfang' um einen Schritt „Warum etwa 3,14?“ erweitern; 'verstehen' deckt die Nicht-Linearität schon ab.",
+   "dringlichkeit": "niedrig"
+  },
+  {
+   "was_fehlt": "Indirekte Proportionalität: Produktgleichheit und Dreisatz „umgekehrt“ in Sachaufgaben (Pumpen, Arbeiter, Geschwindigkeit). Nur eine Karte ('indirekt').",
+   "lehrplan_bezug": "M8 3 („Spezialfall y = a/x als indirekt proportionale Zuordnung … in naturwissenschaftlichen Kontexten“; nur Auszug des Lehrplantexts eingesehen (ISB-Schwerpunktsetzungen Jgst. 8, distanzunterricht.bayern.de))",
+   "wohin": "funktionen.gebrochen, zweite Lernkarte 'indirekt_sach' nach 'indirekt'.",
+   "dringlichkeit": "mittel"
+  }
+ ],
+ "zu_viel": [
+  {
+   "thema_schluessel": "raum.schraegbilder",
+   "lernziel": "pyramide, laengen (Pyramidenteil)",
+   "warum": "gehört in Klasse 10 (themenliste raum.pyramide_kegel_kugel: „Schrägbilder und Netze von Pyramiden und Kegeln“). M8 7 nennt nur Prismen und Zylinder (Auszug geprüft)."
+  },
+  {
+   "thema_schluessel": "raum.schraegbilder",
+   "lernziel": "rotation, axialschnitt",
+   "warum": "Kegel und Kugel gehören in Klasse 10 (raum.pyramide_kegel_kugel). Axialschnitt des Zylinders allein wäre Kl. 8 – dann in messen.prisma_zylinder."
+  },
+  {
+   "thema_schluessel": "raum.schraegbilder",
+   "lernziel": "lage (windschief), koordinaten (Raumkoordinaten)",
+   "warum": "Wortlaut nicht geprüft, nach Kenntnisstand Stoff der Oberstufe (Raumgeometrie/Vektoren, Kl. 11/12); im M8-Auszug nicht enthalten. Für ein Kl.-8-Kind ohne Bild kaum lernbar."
+  },
+  {
+   "thema_schluessel": "funktionen.linear",
+   "lernziel": "lage (senkrecht: m₁ · m₂ = −1)",
+   "warum": "Wortlaut nicht geprüft, nach Kenntnisstand nicht im LehrplanPLUS 8 (im eingesehenen Auszug nicht enthalten). Parallelität ist unproblematisch; das Orthogonalitäts-Kriterium als Vertiefung markieren oder in die Oberstufe verschieben."
+  },
+  {
+   "thema_schluessel": "stochastik.simulation",
+   "lernziel": "monte_carlo",
+   "warum": "Nicht im M8-5-Auszug (dort: Simulation mit Tabellenkalkulation, absoluter/relativer Zellbezug). Fachlich schön, aber Vertiefung."
+  },
+  {
+   "thema_schluessel": "funktionen.gebrochen",
+   "lernziel": "definitionsmenge (Schreibweise ℚ \\ {−b})",
+   "warum": "Kein Stoff-Problem, nur Hinweis: Mengen-Schreibweise mit „\\“ ist für Kl. 8 neu und wird nirgends eingeführt – einmal in funktionen.grundbegriffe ('mengen') erklären."
+  }
+ ],
+ "themen": [
+  {
+   "thema_schluessel": "funktionen.grundbegriffe",
+   "abdeckung": "teilweise",
+   "hinweise": [
+    "Funktionsbegriff, Term, Tabelle, D/W, Nullstellen, Punktprobe: guter innermathematischer Aufbau.",
+    "Reihenfolge: 'abschnitte' stellt 'mengen' an Platz 2, 'etappen' an Platz 5. Fachlich besser nach 'wertetabelle' (wie 'etappen'), weil D/W erst mit Beispielen Sinn ergibt – 'abschnitte' angleichen.",
+    "Fehlt: Sachzusammenhänge, Graph ablesen (jetzt mit 'koordinaten' möglich).",
+    "'stelle' und 'nullstellen' setzen lineare Gleichungen (Kl. 7) voraus."
+   ]
+  },
+  {
+   "thema_schluessel": "funktionen.linear",
+   "abdeckung": "teilweise",
+   "hinweise": [
+    "Rechnerische Seite vollständig, Sachkarte am Ende.",
+    "Graph zeichnen/ablesen fehlt – Lehrplan verlangt es ausdrücklich; jetzt baubar.",
+    "'proportional' steht in 'abschnitte' vor 'aufstellen', in 'etappen' danach; fachlich gehört es vor 'aufstellen' (t = 0 als Sonderfall zuerst).",
+    "'lage' mit Orthogonalität vermutlich über Lehrplan."
+   ]
+  },
+  {
+   "thema_schluessel": "zahlen.intervalle",
+   "abdeckung": "vollständig",
+   "hinweise": [
+    "Kurz und klar. Doppelt mit gleichungen.ungleichungen (Karte 'intervall'); dort genügt ein Verweis/Wiederholung.",
+    "Bild: Intervall am Zahlenstrahl mit offenem/vollem Randpunkt geht als 'koordinaten' ohne y-Achse noch nicht sauber – weiter unter offen."
+   ]
+  },
+  {
+   "thema_schluessel": "gleichungen.ungleichungen",
+   "abdeckung": "teilweise",
+   "hinweise": [
+    "Rechnerisches Lösen inkl. Zeichenumkehr und Sachaufgaben gut.",
+    "Graphisches Lösen fehlt (Lehrplan-Wortlaut der themenliste: „graphisch und rechnerisch“)."
+   ]
+  },
+  {
+   "thema_schluessel": "gleichungen.formeln",
+   "abdeckung": "vollständig",
+   "hinweise": [
+    "Sinnvoll: ein Schritt → zwei Schritte → einsetzen → Geometrie → prüfen.",
+    "'etappen' stellt 'pruefen' ans Ende, 'abschnitte' an Platz 3. Ende ist besser (Verstehen-Karte als Abschluss).",
+    "Karte 'geometrie' braucht die Dreiecksformel aus Kl. 6 (Thema fehlt)."
+   ]
+  },
+  {
+   "thema_schluessel": "funktionen.gebrochen",
+   "abdeckung": "teilweise",
+   "hinweise": [
+    "D, Asymptoten, Achsenpunkte, Verschiebung: rechnerisch vollständig.",
+    "Graph mit Asymptoten zeichnen/zuordnen fehlt – jetzt mit 'hyperbel' baubar, für dieses Thema das wichtigste Bild.",
+    "Indirekte Proportionalität nur eine Karte."
+   ]
+  },
+  {
+   "thema_schluessel": "terme.bruchterme",
+   "abdeckung": "vollständig",
+   "hinweise": [
+    "Gut aufgebaut; 'fehler_finden' als Verstehen-Abschluss.",
+    "'kuerzen' setzt Ausklammern und binomische Formeln (Kl. 7) voraus.",
+    "'offen' meldet, Lücken-Brüche gingen nicht – laut README (Erfahrungen) geht '□/□' inzwischen; Aufgaben von Auswahl auf Lücke umstellen."
+   ]
+  },
+  {
+   "thema_schluessel": "gleichungen.bruch",
+   "abdeckung": "teilweise",
+   "hinweise": [
+    "Rechnerisch vollständig, Scheinlösung gut herausgearbeitet.",
+    "Graphische Deutung fehlt (jetzt baubar).",
+    "Keine Sachkarte (z. B. Arbeitsaufgaben, Durchschnittsgeschwindigkeit) – als Stufe 3 in 'hauptnenner' oder eigene Karte."
+   ]
+  },
+  {
+   "thema_schluessel": "gleichungen.lgs2",
+   "abdeckung": "teilweise",
+   "hinweise": [
+    "Alle drei Verfahren, Verfahrenswahl, Lösbarkeit, Sachaufgaben: vollständig rechnerisch.",
+    "Graphisches Lösen fehlt; Lösbarkeit sollte am Bild (parallel/identisch/schneidend) gezeigt werden.",
+    "'verfahren' (Vergleich) gehört direkt hinter die drei Verfahren, wie in 'abschnitte'; in 'etappen' steht es hinter 'loesbarkeit' – angleichen.",
+    "'offen' (nur eine Zahl je Aufgabe) ist überholt: Schablone 'x = □; y = □' ist möglich."
+   ]
+  },
+  {
+   "thema_schluessel": "stochastik.grundbegriffe",
+   "abdeckung": "vollständig",
+   "hinweise": [
+    "Deckt Laplace und relative Häufigkeit ab; 'rel_haeufigkeit' wiederholt Kl. 6 – gut so.",
+    "'laplace_pruefen' gehört direkt hinter 'laplace' (wie in 'abschnitte'), 'grosse_zahlen' ans Ende.",
+    "Bild: 'baum' für zweistufige Münzwürfe, 'tabelle' für Häufigkeiten."
+   ]
+  },
+  {
+   "thema_schluessel": "stochastik.simulation",
+   "abdeckung": "vollständig",
+   "hinweise": [
+    "Gut für ein Lern-Programm ohne echte Simulation. 'regel' sollte vor 'zufallsziffern' stehen (wie 'abschnitte').",
+    "Tabellenkalkulation (Lehrplan) kann die App nicht – offen lassen."
+   ]
+  },
+  {
+   "thema_schluessel": "messen.kreisberechnung",
+   "abdeckung": "teilweise",
+   "hinweise": [
+    "Kreis vollständig, auch exakt mit π.",
+    "Karte 'zylinder' gehört in ein eigenes Körper-Thema (Prisma fehlt ganz).",
+    "'verstehen' steht in 'abschnitte' an Platz 4, in 'etappen' am Ende; Ende passt besser als Abschluss – 'abschnitte' angleichen.",
+    "Bild: 'figur' mit 'kreise' für Ausschnitt/Ring."
+   ]
+  },
+  {
+   "thema_schluessel": "messen.koerper_darstellung",
+   "abdeckung": "teilweise",
+   "hinweise": [
+    "Netze, Schrägbild-Regeln, Ansichten in Worten – die Kernfähigkeit (zeichnen, Netz erkennen) braucht Bilder, die die App nicht kann (Schrägbilder/Netze).",
+    "Doppelt mit raum.schraegbilder ('laengen').",
+    "Nach messen.kreisberechnung lernen, dann muss der Kreisumfang nicht vorgegeben werden."
+   ]
+  },
+  {
+   "thema_schluessel": "raum.schraegbilder",
+   "abdeckung": "dünn",
+   "hinweise": [
+    "Für Kl. 8 passt nur der Prisma-Teil von 'laengen'; der Rest ist Kl. 10 bzw. Oberstufe.",
+    "Vorschlag: Thema nach Kl. 10 verschieben und mit raum.pyramide_kegel_kugel zusammenlegen; Prisma-Schrägbild bleibt in messen.koerper_darstellung."
+   ]
+  }
+ ]
+}

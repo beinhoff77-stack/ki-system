@@ -350,12 +350,14 @@ async function viewLernEinheit(arg) {
   if (!kindId || !einheitId) { route('lernen'); return; }
   loading();
   const ctx = { kind: kindId, einheit: einheitId, live };
-  const [daten, konto] = await Promise.all([lernCall('schule_einheit_lesen', { lernender_id: kindId, einheit_id: einheitId }), lernCall('schule_konto', { lernender_id: kindId }).catch(() => null)]);
+  const [daten, konto, uebers] = await Promise.all([lernCall('schule_einheit_lesen', { lernender_id: kindId, einheit_id: einheitId }), lernCall('schule_konto', { lernender_id: kindId }).catch(() => null), lernCall('schule_uebersicht').catch(() => null)]);
   ctx.daten = daten;
   if (!live()) return;
   const kind = { id: kindId, ...(konto?.look || {}) };
   const inh = ctx.daten.inhalt || {};
-  $('#title').textContent = (inh.ziel || 'Lerneinheit').split(':')[0];
+  // W150: kurzer Titel (Ort), das lange Lernziel steht nur einmal im Kopf der Seite
+  const ort = (uebers?.einheiten || []).find((e) => e.id === einheitId);
+  $('#title').textContent = ort?.stadt ? `${ort.stadt}: ${ort.ort_titel || ort.titel || ''}`.replace(/: $/, '') : 'Lerneinheit';
   const body = el('div', { class: 'lern-body' });
   const reiter = [['verstehen', 'Verstehen'], ['ueben', 'Üben'], ['test', 'Test']];
   const leiste = el('div', { class: 'lern-reiter', role: 'tablist' });

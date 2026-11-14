@@ -1,0 +1,4785 @@
+{
+ "thema_schluessel": "bruch.brueche",
+ "thema_id": 21,
+ "block_id": 47,
+ "klasse": {
+  "gym_by": 6,
+  "rs_by": 6,
+  "ib_myp": 1
+ },
+ "autor": "Claude (Opus), Paket Klasse 6",
+ "inhalt": {
+  "ziel": "Anteile als Brüche deuten und berechnen, Brüche erweitern, kürzen, vergleichen und am Zahlenstrahl darstellen.",
+  "merke": [
+   "Bruchteil von: durch den Nenner, mal den Zähler.",
+   "Anteil = Teil : Ganzes, dann kürzen.",
+   "Ganzes: durch den Zähler, mal den Nenner.",
+   "Erweitern und Kürzen ändern den Wert nicht.",
+   "Vergleichen: auf den Hauptnenner bringen, dann Zähler vergleichen."
+  ],
+  "abschnitte": [
+   {
+    "titel": "Anteile verstehen",
+    "lernziele": [
+     "bruchteil_von",
+     "anteil_bestimmen",
+     "ganzes_bestimmen"
+    ]
+   },
+   {
+    "titel": "Erweitern und kürzen",
+    "lernziele": [
+     "erweitern",
+     "kuerzen"
+    ]
+   },
+   {
+    "titel": "Vergleichen und darstellen",
+    "lernziele": [
+     "vergleichen",
+     "zahlenstrahl",
+     "verstehen"
+    ]
+   }
+  ],
+  "etappen": [
+   {
+    "lernziel": "bruchteil_von",
+    "titel": "Bruchteil einer Größe berechnen",
+    "regel": "Ein Bruch wie 3/4 besteht aus ⟦Zähler⟧ (oben, 3) und ⟦Nenner⟧ (unten, 4). So berechnest du 3/4 von einer Größe: ⟦durch den Nenner teilen⟧, dann ⟦mit dem Zähler malnehmen⟧.",
+    "schritte": [
+     "3/4 von 20 €: Zuerst 20 € : 4 = 5 €. Das ist ein Viertel.",
+     "Dann 5 € · 3 = ⟦15 €⟧. Das sind drei Viertel."
+    ],
+    "probe": "15 € ist weniger als 20 € – passt, denn 3/4 ist weniger als ein Ganzes ✓",
+    "fehler": "3/4 von 20 € als 20 : 3 · 4 zu rechnen ist falsch: Du teilst durch den ⟦Nenner⟧ (unten) und nimmst mit dem ⟦Zähler⟧ (oben) mal."
+   },
+   {
+    "lernziel": "anteil_bestimmen",
+    "titel": "Welcher Anteil ist das?",
+    "regel": "Der ⟦Anteil⟧ ist ⟦Teil durch Ganzes⟧: Der Teil kommt in den Zähler, das Ganze in den Nenner. Danach ⟦kürzt⟧ man so weit wie möglich.",
+    "schritte": [
+     "Von 30 Kindern spielen 12 ein Instrument. Anteil: 12/30.",
+     "Zähler und Nenner durch 6 teilen: 12/30 = ⟦2/5⟧."
+    ],
+    "probe": "2/5 von 30 = 30 : 5 · 2 = 12 ✓",
+    "fehler": "Den Anteil als 30/12 aufzuschreiben ist falsch: Der Teil steht ⟦oben⟧ im Zähler, das Ganze ⟦unten⟧ im Nenner."
+   },
+   {
+    "lernziel": "ganzes_bestimmen",
+    "titel": "Das Ganze aus einem Teil finden",
+    "regel": "Kennst du einen Bruchteil, findest du das ⟦Ganze⟧ rückwärts: ⟦durch den Zähler teilen⟧ – das ist ein Stück –, dann ⟦mit dem Nenner malnehmen⟧.",
+    "schritte": [
+     "2/5 der Klasse sind 12 Kinder. Ein Fünftel: 12 : 2 = 6 Kinder.",
+     "Das Ganze sind fünf Fünftel: 6 · 5 = ⟦30 Kinder⟧."
+    ],
+    "probe": "2/5 von 30 = 30 : 5 · 2 = 12 ✓",
+    "fehler": "Das Ganze als 2/5 von 12 auszurechnen ist falsch: Dann bekommst du einen ⟦Teil vom Teil⟧. Rückwärts heißt: ⟦durch den Zähler, mal den Nenner⟧."
+   },
+   {
+    "lernziel": "erweitern",
+    "titel": "Brüche erweitern",
+    "regel": "⟦Erweitern⟧ heißt: Zähler und Nenner mit ⟦derselben Zahl⟧ malnehmen. Der Wert des Bruchs bleibt gleich, nur die Stücke werden kleiner und es werden mehr.",
+    "schritte": [
+     "Erweitere 3/4 auf den Nenner 20. Es gilt 4 · 5 = 20.",
+     "Also auch den Zähler mal 5: 3 · 5 = 15. Ergebnis: 3/4 = ⟦15/20⟧."
+    ],
+    "probe": "15/20 durch 5 gekürzt ergibt wieder 3/4 ✓",
+    "fehler": "3/4 = 3/20 ist falsch: Wer nur den Nenner ändert, verändert den Wert. ⟦Zähler und Nenner⟧ werden mit derselben Zahl malgenommen."
+   },
+   {
+    "lernziel": "kuerzen",
+    "titel": "Brüche vollständig kürzen",
+    "regel": "⟦Kürzen⟧ heißt: Zähler und Nenner durch ⟦dieselbe Zahl⟧ teilen. ⟦Vollständig gekürzt⟧ ist ein Bruch, wenn Zähler und Nenner keinen gemeinsamen Teiler außer 1 mehr haben.",
+    "schritte": [
+     "Kürze 18/24. Der größte gemeinsame Teiler von 18 und 24 ist 6.",
+     "18 : 6 = 3 und 24 : 6 = 4, also 18/24 = ⟦3/4⟧."
+    ],
+    "probe": "3/4 mit 6 erweitert ergibt 18/24 ✓",
+    "fehler": "18/24 = 9/12 ist richtig gekürzt, aber ⟦nicht vollständig⟧: 9 und 12 haben noch den Teiler 3. Ganz gekürzt: 3/4."
+   },
+   {
+    "lernziel": "vergleichen",
+    "titel": "Brüche vergleichen",
+    "regel": "Gleicher Nenner: Der Bruch mit dem ⟦größeren Zähler⟧ ist größer. Verschiedene Nenner: Erst beide Brüche auf den ⟦Hauptnenner⟧ erweitern (das kleinste gemeinsame Vielfache der Nenner), dann die Zähler vergleichen.",
+    "schritte": [
+     "Vergleiche 3/4 und 5/6. Hauptnenner von 4 und 6 ist 12.",
+     "3/4 = 9/12 und 5/6 = 10/12. Weil 10 > 9, ist ⟦5/6 größer⟧."
+    ],
+    "fehler": "„3/8 ist größer als 3/5, weil 8 > 5“ ist falsch: Ein größerer Nenner heißt ⟦kleinere Stücke⟧. Bei gleichem Zähler ist der Bruch mit dem ⟦kleineren Nenner⟧ größer."
+   },
+   {
+    "lernziel": "zahlenstrahl",
+    "titel": "Brüche am Zahlenstrahl",
+    "regel": "Am ⟦Zahlenstrahl⟧ teilst du die Strecke von 0 bis 1 in so viele gleiche Teile, wie der ⟦Nenner⟧ angibt. Der ⟦Zähler⟧ sagt, wie viele Teile du von 0 aus nach rechts gehst.",
+    "schritte": [
+     "3/5: Teile die Strecke von 0 bis 1 in 5 gleiche Teile.",
+     "Gehe von 0 aus 3 Teile nach rechts: Dort liegt ⟦3/5⟧."
+    ],
+    "fehler": "3/5 beim 5. Strich einzutragen ist falsch: Der 5. Strich nach der 0 ist schon die ⟦1⟧ (5/5). 3/5 liegt beim ⟦3. Strich⟧.",
+    "bild": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 1,
+     "abschnitte": 5,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   {
+    "lernziel": "verstehen",
+    "titel": "Aussagen prüfen, Fehler finden",
+    "regel": "Bevor du eine Aussage über Brüche glaubst, ⟦prüfe sie mit einem Beispiel⟧: Erweitere, kürze oder rechne den Anteil aus. Ein einziges Gegenbeispiel zeigt, dass eine allgemeine Aussage ⟦falsch⟧ ist.",
+    "schritte": [
+     "Aussage: „Ein Bruch mit größerem Nenner ist immer größer.“ Teste 1/2 und 1/4.",
+     "1/2 = 2/4 ist größer als 1/4. Das ist ein Gegenbeispiel, die Aussage ist also ⟦falsch⟧."
+    ],
+    "fehler": "Eine Aussage nur mit einem passenden Beispiel „beweisen“ reicht nicht: 1/4 < 3/5 bestätigt die Nenner-Regel zufällig. Ein ⟦Gegenbeispiel⟧ wie 1/2 > 1/4 widerlegt sie."
+   }
+  ],
+  "teilfaehigkeiten": [
+   {
+    "k": "bruchteil_von",
+    "text": "Bruchteil einer Größe berechnen",
+    "lernziele": [
+     "bruchteil_von"
+    ]
+   },
+   {
+    "k": "anteil_bestimmen",
+    "text": "Welcher Anteil ist das?",
+    "lernziele": [
+     "anteil_bestimmen"
+    ]
+   },
+   {
+    "k": "ganzes_bestimmen",
+    "text": "Das Ganze aus einem Teil finden",
+    "lernziele": [
+     "ganzes_bestimmen"
+    ]
+   },
+   {
+    "k": "erweitern",
+    "text": "Brüche erweitern",
+    "lernziele": [
+     "erweitern"
+    ]
+   },
+   {
+    "k": "kuerzen",
+    "text": "Brüche vollständig kürzen",
+    "lernziele": [
+     "kuerzen"
+    ]
+   },
+   {
+    "k": "vergleichen",
+    "text": "Brüche vergleichen",
+    "lernziele": [
+     "vergleichen"
+    ]
+   },
+   {
+    "k": "zahlenstrahl",
+    "text": "Brüche am Zahlenstrahl",
+    "lernziele": [
+     "zahlenstrahl"
+    ]
+   },
+   {
+    "k": "verstehen",
+    "text": "Aussagen prüfen, Fehler finden",
+    "lernziele": [
+     "verstehen"
+    ]
+   }
+  ],
+  "bewertung": {
+   "lernziele_pflicht": [
+    "bruchteil_von",
+    "anteil_bestimmen",
+    "ganzes_bestimmen",
+    "erweitern",
+    "kuerzen",
+    "vergleichen",
+    "zahlenstrahl",
+    "verstehen"
+   ],
+   "lernziele_vertiefung": [],
+   "testaufgaben_je_lernziel": 1
+  },
+  "quellen": {
+   "erklaerungen": "Eigene Fassung (Claude), alle Aufgaben programmgeneriert.",
+   "begriffe": "Fachbegriffe nach LehrplanPLUS Bayern (Gymnasium, Jahrgangsstufe 6)."
+  }
+ },
+ "aufgaben": [
+  {
+   "l": "bruchteil_von",
+   "t": "bruchteil_von",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 2/4 von 48 m."
+   },
+   "o": {
+    "wert": 24,
+    "einheit": "m"
+   },
+   "c": "48 / 4 * 2",
+   "w": "48 m : 4 = 12 m, dann · 2 = 24 m.",
+   "h": "Teile zuerst durch den Nenner."
+  },
+  {
+   "l": "bruchteil_von",
+   "t": "bruchteil_von",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 8/9 von 90 kg."
+   },
+   "o": {
+    "wert": 80,
+    "einheit": "kg"
+   },
+   "c": "90 / 9 * 8",
+   "w": "90 kg : 9 = 10 kg, dann · 8 = 80 kg.",
+   "h": "Teile zuerst durch den Nenner."
+  },
+  {
+   "l": "bruchteil_von",
+   "t": "bruchteil_von",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 1/10 von 20 m."
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "m"
+   },
+   "c": "20 / 10 * 1",
+   "w": "20 m : 10 = 2 m. Das ist 1/10 von 20 m.",
+   "h": "Teile zuerst durch den Nenner."
+  },
+  {
+   "l": "bruchteil_von",
+   "t": "bruchteil_von",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 1/8 von 40 kg."
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "kg"
+   },
+   "c": "40 / 8 * 1",
+   "w": "40 kg : 8 = 5 kg. Das ist 1/8 von 40 kg.",
+   "h": "Teile zuerst durch den Nenner."
+  },
+  {
+   "l": "bruchteil_von",
+   "t": "bruchteil_von",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 1/2 von 22 l."
+   },
+   "o": {
+    "wert": 11,
+    "einheit": "l"
+   },
+   "c": "22 / 2 * 1",
+   "w": "22 l : 2 = 11 l. Das ist 1/2 von 22 l.",
+   "h": "Teile zuerst durch den Nenner."
+  },
+  {
+   "l": "bruchteil_von",
+   "t": "bruchteil_von",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 1/2 von 6 m."
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "m"
+   },
+   "c": "6 / 2 * 1",
+   "w": "6 m : 2 = 3 m. Das ist 1/2 von 6 m.",
+   "h": "Teile zuerst durch den Nenner."
+  },
+  {
+   "l": "bruchteil_von",
+   "t": "bruchteil_von",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "1/2 der Kinder einer Klasse mit 20 Kinder – wie viele Kinder sind das?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "20 / 2 * 1",
+   "w": "20 : 2 = 10, dann · 1 = 10 Kinder.",
+   "h": "Erst ein Stück ausrechnen (durch den Nenner), dann mit dem Zähler malnehmen."
+  },
+  {
+   "l": "bruchteil_von",
+   "t": "bruchteil_von",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "1/2 der Tickets eines Kontingents von 30 Tickets – wie viele Tickets sind das?"
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "30 / 2 * 1",
+   "w": "30 : 2 = 15, dann · 1 = 15 Tickets.",
+   "h": "Erst ein Stück ausrechnen (durch den Nenner), dann mit dem Zähler malnehmen."
+  },
+  {
+   "l": "bruchteil_von",
+   "t": "bruchteil_von",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "4/7 der Seiten eines Buches mit 252 Seiten – wie viele Seiten sind das?"
+   },
+   "o": {
+    "wert": 144
+   },
+   "c": "252 / 7 * 4",
+   "w": "252 : 7 = 36, dann · 4 = 144 Seiten.",
+   "h": "Erst ein Stück ausrechnen (durch den Nenner), dann mit dem Zähler malnehmen."
+  },
+  {
+   "l": "bruchteil_von",
+   "t": "bruchteil_von",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "3/4 der Äpfel einer Kiste mit 28 Äpfeln – wie viele Äpfel sind das?"
+   },
+   "o": {
+    "wert": 21
+   },
+   "c": "28 / 4 * 3",
+   "w": "28 : 4 = 7, dann · 3 = 21 Äpfel.",
+   "h": "Erst ein Stück ausrechnen (durch den Nenner), dann mit dem Zähler malnehmen."
+  },
+  {
+   "l": "bruchteil_von",
+   "t": "bruchteil_von",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "1/5 der Seiten eines Buches mit 85 Seiten – wie viele Seiten sind das?"
+   },
+   "o": {
+    "wert": 17
+   },
+   "c": "85 / 5 * 1",
+   "w": "85 : 5 = 17, dann · 1 = 17 Seiten.",
+   "h": "Erst ein Stück ausrechnen (durch den Nenner), dann mit dem Zähler malnehmen."
+  },
+  {
+   "l": "bruchteil_von",
+   "t": "bruchteil_von",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "11/12 der Kinder einer Klasse mit 108 Kinder – wie viele Kinder sind das?"
+   },
+   "o": {
+    "wert": 99
+   },
+   "c": "108 / 12 * 11",
+   "w": "108 : 12 = 9, dann · 11 = 99 Kinder.",
+   "h": "Erst ein Stück ausrechnen (durch den Nenner), dann mit dem Zähler malnehmen."
+  },
+  {
+   "l": "bruchteil_von",
+   "t": "bruchteil_von",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Von 100 € Taschengeld gibt ein Kind 1/2 für Bücher und 1/5 für Kino aus. Wie viel Euro bleiben übrig?"
+   },
+   "o": {
+    "wert": 30,
+    "einheit": "€"
+   },
+   "c": "100 - 100 / 2 - 100 / 5",
+   "w": "1/2 von 100 € = 50 €, 1/5 von 100 € = 20 €. Übrig: 100 − 50 − 20 = 30 €.",
+   "h": "Berechne beide Bruchteile einzeln und ziehe sie vom Ganzen ab."
+  },
+  {
+   "l": "bruchteil_von",
+   "t": "bruchteil_von",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele ml sind 1/4 l?"
+   },
+   "o": {
+    "wert": 250,
+    "einheit": "ml"
+   },
+   "c": "1000 / 4 * 1",
+   "w": "1 l = 1 000 ml. 1 000 : 4 = 250, · 1 = 250 ml.",
+   "h": "Rechne zuerst 1 l in ml um."
+  },
+  {
+   "l": "bruchteil_von",
+   "t": "bruchteil_von",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele ml sind 4/5 l?"
+   },
+   "o": {
+    "wert": 800,
+    "einheit": "ml"
+   },
+   "c": "1000 / 5 * 4",
+   "w": "1 l = 1 000 ml. 1 000 : 5 = 200, · 4 = 800 ml.",
+   "h": "Rechne zuerst 1 l in ml um."
+  },
+  {
+   "l": "bruchteil_von",
+   "t": "bruchteil_von",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele g sind 3/8 kg?"
+   },
+   "o": {
+    "wert": 375,
+    "einheit": "g"
+   },
+   "c": "1000 / 8 * 3",
+   "w": "1 kg = 1 000 g. 1 000 : 8 = 125, · 3 = 375 g.",
+   "h": "Rechne zuerst 1 kg in g um."
+  },
+  {
+   "l": "bruchteil_von",
+   "t": "bruchteil_von",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Minuten sind 3/4 Stunde?"
+   },
+   "o": {
+    "wert": 45,
+    "einheit": "min"
+   },
+   "c": "60 / 4 * 3",
+   "w": "1 h = 60 min. 60 : 4 = 15, · 3 = 45 min.",
+   "h": "Rechne mit 60 Minuten als Ganzem."
+  },
+  {
+   "l": "bruchteil_von",
+   "t": "bruchteil_von",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Von 20 € Taschengeld gibt ein Kind 1/2 für Bücher und 1/5 für Kino aus. Wie viel Euro bleiben übrig?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "€"
+   },
+   "c": "20 - 20 / 2 - 20 / 5",
+   "w": "1/2 von 20 € = 10 €, 1/5 von 20 € = 4 €. Übrig: 20 − 10 − 4 = 6 €.",
+   "h": "Berechne beide Bruchteile einzeln und ziehe sie vom Ganzen ab."
+  },
+  {
+   "l": "bruchteil_von",
+   "t": "bruchteil_von",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "2/9 der Tickets eines Kontingents von 360 Tickets – wie viele Tickets sind das?"
+   },
+   "o": {
+    "wert": 80
+   },
+   "c": "360 / 9 * 2",
+   "w": "360 : 9 = 40, dann · 2 = 80 Tickets."
+  },
+  {
+   "l": "bruchteil_von",
+   "t": "bruchteil_von",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "2/5 der Tickets eines Kontingents von 125 Tickets – wie viele Tickets sind das?"
+   },
+   "o": {
+    "wert": 50
+   },
+   "c": "125 / 5 * 2",
+   "w": "125 : 5 = 25, dann · 2 = 50 Tickets."
+  },
+  {
+   "l": "bruchteil_von",
+   "t": "bruchteil_von",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "2/11 der Seiten eines Buches mit 176 Seiten – wie viele Seiten sind das?"
+   },
+   "o": {
+    "wert": 32
+   },
+   "c": "176 / 11 * 2",
+   "w": "176 : 11 = 16, dann · 2 = 32 Seiten."
+  },
+  {
+   "l": "bruchteil_von",
+   "t": "bruchteil_von",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "1/2 der Plätze eines Busses mit 52 Plätzen – wie viele Plätze sind das?"
+   },
+   "o": {
+    "wert": 26
+   },
+   "c": "52 / 2 * 1",
+   "w": "52 : 2 = 26, dann · 1 = 26 Plätze."
+  },
+  {
+   "l": "bruchteil_von",
+   "t": "bruchteil_von",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "5/11 der Kinder einer Klasse mit 220 Kinder – wie viele Kinder sind das?"
+   },
+   "o": {
+    "wert": 100
+   },
+   "c": "220 / 11 * 5",
+   "w": "220 : 11 = 20, dann · 5 = 100 Kinder."
+  },
+  {
+   "l": "bruchteil_von",
+   "t": "bruchteil_von",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "1/4 der Äpfel einer Kiste mit 64 Äpfeln – wie viele Äpfel sind das?"
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "64 / 4 * 1",
+   "w": "64 : 4 = 16, dann · 1 = 16 Äpfel."
+  },
+  {
+   "l": "bruchteil_von",
+   "t": "bruchteil_von",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "2/7 der Tickets eines Kontingents von 49 Tickets – wie viele Tickets sind das?"
+   },
+   "o": {
+    "wert": 14
+   },
+   "c": "49 / 7 * 2",
+   "w": "49 : 7 = 7, dann · 2 = 14 Tickets."
+  },
+  {
+   "l": "bruchteil_von",
+   "t": "bruchteil_von",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "1/3 der Seiten eines Buches mit 93 Seiten – wie viele Seiten sind das?"
+   },
+   "o": {
+    "wert": 31
+   },
+   "c": "93 / 3 * 1",
+   "w": "93 : 3 = 31, dann · 1 = 31 Seiten."
+  },
+  {
+   "l": "bruchteil_von",
+   "t": "bruchteil_von",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "1/11 der Äpfel einer Kiste mit 297 Äpfeln – wie viele Äpfel sind das?"
+   },
+   "o": {
+    "wert": 27
+   },
+   "c": "297 / 11 * 1",
+   "w": "297 : 11 = 27, dann · 1 = 27 Äpfel."
+  },
+  {
+   "l": "bruchteil_von",
+   "t": "bruchteil_von",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "7/10 der Seiten eines Buches mit 200 Seiten – wie viele Seiten sind das?"
+   },
+   "o": {
+    "wert": 140
+   },
+   "c": "200 / 10 * 7",
+   "w": "200 : 10 = 20, dann · 7 = 140 Seiten."
+  },
+  {
+   "l": "anteil_bestimmen",
+   "t": "anteil_bestimmen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Streifen ist in 5 gleich große Teile geteilt. 1 Teil ist gelb, der Rest ist weiß. Welcher Anteil ist weiß?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     4,
+     5
+    ]
+   },
+   "c": [
+    "((5 - 1) / 5) * 5",
+    "5"
+   ],
+   "w": "Weiß: 5 − 1 = 4 Teile, Anteil 4/5.",
+   "h": "Zähle zuerst, wie viele Teile weiß sind."
+  },
+  {
+   "l": "anteil_bestimmen",
+   "t": "anteil_bestimmen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Quadrat ist in 10 gleich große Teile geteilt. 1 Teil ist blau, der Rest ist weiß. Welcher Anteil ist weiß?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     9,
+     10
+    ]
+   },
+   "c": [
+    "((10 - 1) / 10) * 10",
+    "10"
+   ],
+   "w": "Weiß: 10 − 1 = 9 Teile, Anteil 9/10.",
+   "h": "Zähle zuerst, wie viele Teile weiß sind."
+  },
+  {
+   "l": "anteil_bestimmen",
+   "t": "anteil_bestimmen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Streifen ist in 7 gleich große Teile geteilt. 1 Teil ist rot. Welcher Anteil ist rot?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     1,
+     7
+    ]
+   },
+   "c": [
+    "(1 / 7) * 7",
+    "7"
+   ],
+   "w": "1 von 7 gleich großen Teilen: Anteil 1/7.",
+   "h": "Teil durch Ganzes: gefärbte Teile durch alle Teile."
+  },
+  {
+   "l": "anteil_bestimmen",
+   "t": "anteil_bestimmen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Kreis ist in 4 gleich große Teile geteilt. 3 Teile sind rot, der Rest ist weiß. Welcher Anteil ist weiß?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     1,
+     4
+    ]
+   },
+   "c": [
+    "((4 - 3) / 4) * 4",
+    "4"
+   ],
+   "w": "Weiß: 4 − 3 = 1 Teil, Anteil 1/4.",
+   "h": "Zähle zuerst, wie viele Teile weiß sind."
+  },
+  {
+   "l": "anteil_bestimmen",
+   "t": "anteil_bestimmen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Quadrat ist in 10 gleich große Teile geteilt. 1 Teil ist rot, der Rest ist weiß. Welcher Anteil ist weiß?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     9,
+     10
+    ]
+   },
+   "c": [
+    "((10 - 1) / 10) * 10",
+    "10"
+   ],
+   "w": "Weiß: 10 − 1 = 9 Teile, Anteil 9/10.",
+   "h": "Zähle zuerst, wie viele Teile weiß sind."
+  },
+  {
+   "l": "anteil_bestimmen",
+   "t": "anteil_bestimmen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Rechteck ist in 11 gleich große Teile geteilt. 8 Teile sind rot, der Rest ist weiß. Welcher Anteil ist weiß?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     3,
+     11
+    ]
+   },
+   "c": [
+    "((11 - 8) / 11) * 11",
+    "11"
+   ],
+   "w": "Weiß: 11 − 8 = 3 Teile, Anteil 3/11.",
+   "h": "Zähle zuerst, wie viele Teile weiß sind."
+  },
+  {
+   "l": "anteil_bestimmen",
+   "t": "anteil_bestimmen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Von 24 Tagen regnet es an 6 Tagen. Welcher Anteil der Tage ist das?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     1,
+     4
+    ]
+   },
+   "c": [
+    "(6 / 24) * 4",
+    "4"
+   ],
+   "w": "Anteil 6/24. Kürzen mit 6: 1/4.",
+   "h": "Teil in den Zähler, Ganzes in den Nenner, dann kürzen."
+  },
+  {
+   "l": "anteil_bestimmen",
+   "t": "anteil_bestimmen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Von 30 Fragen beantwortet ein Kind 26 richtig. Welcher Anteil ist richtig?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     13,
+     15
+    ]
+   },
+   "c": [
+    "(26 / 30) * 15",
+    "15"
+   ],
+   "w": "Anteil 26/30. Kürzen mit 2: 13/15.",
+   "h": "Teil in den Zähler, Ganzes in den Nenner, dann kürzen."
+  },
+  {
+   "l": "anteil_bestimmen",
+   "t": "anteil_bestimmen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Von 27 Plätzen sind 6 besetzt. Welcher Anteil ist das?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     2,
+     9
+    ]
+   },
+   "c": [
+    "(6 / 27) * 9",
+    "9"
+   ],
+   "w": "Anteil 6/27. Kürzen mit 3: 2/9.",
+   "h": "Teil in den Zähler, Ganzes in den Nenner, dann kürzen."
+  },
+  {
+   "l": "anteil_bestimmen",
+   "t": "anteil_bestimmen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Von 30 Losen sind 10 Gewinne. Welcher Anteil ist das?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     1,
+     3
+    ]
+   },
+   "c": [
+    "(10 / 30) * 3",
+    "3"
+   ],
+   "w": "Anteil 10/30. Kürzen mit 10: 1/3.",
+   "h": "Teil in den Zähler, Ganzes in den Nenner, dann kürzen."
+  },
+  {
+   "l": "anteil_bestimmen",
+   "t": "anteil_bestimmen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Von 12 Losen sind 8 Gewinne. Welcher Anteil ist das?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     2,
+     3
+    ]
+   },
+   "c": [
+    "(8 / 12) * 3",
+    "3"
+   ],
+   "w": "Anteil 8/12. Kürzen mit 4: 2/3.",
+   "h": "Teil in den Zähler, Ganzes in den Nenner, dann kürzen."
+  },
+  {
+   "l": "anteil_bestimmen",
+   "t": "anteil_bestimmen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Von 12 Plätzen sind 6 besetzt. Welcher Anteil ist das?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     1,
+     2
+    ]
+   },
+   "c": [
+    "(6 / 12) * 2",
+    "2"
+   ],
+   "w": "Anteil 6/12. Kürzen mit 6: 1/2.",
+   "h": "Teil in den Zähler, Ganzes in den Nenner, dann kürzen."
+  },
+  {
+   "l": "anteil_bestimmen",
+   "t": "anteil_bestimmen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Welcher Anteil von 1 kg sind 750 g?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     3,
+     4
+    ]
+   },
+   "c": [
+    "(750 / 1000) * 4",
+    "4"
+   ],
+   "w": "1 kg = 1 000 g. Anteil 750/1 000 = 3/4.",
+   "h": "Rechne 1 kg in g um, dann Teil durch Ganzes."
+  },
+  {
+   "l": "anteil_bestimmen",
+   "t": "anteil_bestimmen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Von 30 Kindern kommen 7 mit dem Bus, 9 mit dem Rad, der Rest zu Fuß. Welcher Anteil kommt zu Fuß?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     7,
+     15
+    ]
+   },
+   "c": [
+    "((30 - 7 - 9) / 30) * 15",
+    "15"
+   ],
+   "w": "Zu Fuß: 30 − 7 − 9 = 14. Anteil 14/30 = 7/15.",
+   "h": "Berechne zuerst, wie viele Kinder zu Fuß kommen."
+  },
+  {
+   "l": "anteil_bestimmen",
+   "t": "anteil_bestimmen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Welcher Anteil einer Stunde sind 12 Minuten?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     1,
+     5
+    ]
+   },
+   "c": [
+    "(12 / 60) * 5",
+    "5"
+   ],
+   "w": "1 h = 60 min. Anteil 12/60 = 1/5.",
+   "h": "Beide Größen in derselben Einheit: 1 h = 60 min."
+  },
+  {
+   "l": "anteil_bestimmen",
+   "t": "anteil_bestimmen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Welcher Anteil einer Stunde sind 10 Minuten?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     1,
+     6
+    ]
+   },
+   "c": [
+    "(10 / 60) * 6",
+    "6"
+   ],
+   "w": "1 h = 60 min. Anteil 10/60 = 1/6.",
+   "h": "Beide Größen in derselben Einheit: 1 h = 60 min."
+  },
+  {
+   "l": "anteil_bestimmen",
+   "t": "anteil_bestimmen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Welcher Anteil von 1 kg sind 100 g?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     1,
+     10
+    ]
+   },
+   "c": [
+    "(100 / 1000) * 10",
+    "10"
+   ],
+   "w": "1 kg = 1 000 g. Anteil 100/1 000 = 1/10.",
+   "h": "Rechne 1 kg in g um, dann Teil durch Ganzes."
+  },
+  {
+   "l": "anteil_bestimmen",
+   "t": "anteil_bestimmen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Welcher Anteil einer Stunde sind 48 Minuten?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     4,
+     5
+    ]
+   },
+   "c": [
+    "(48 / 60) * 5",
+    "5"
+   ],
+   "w": "1 h = 60 min. Anteil 48/60 = 4/5.",
+   "h": "Beide Größen in derselben Einheit: 1 h = 60 min."
+  },
+  {
+   "l": "anteil_bestimmen",
+   "t": "anteil_bestimmen",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Von 27 Kindern fahren 6 mit dem Rad zur Schule. Welcher Anteil ist das?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     2,
+     9
+    ]
+   },
+   "c": [
+    "(6 / 27) * 9",
+    "9"
+   ],
+   "w": "Anteil 6/27. Kürzen mit 3: 2/9."
+  },
+  {
+   "l": "anteil_bestimmen",
+   "t": "anteil_bestimmen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Von 15 Tagen regnet es an 12 Tagen. Welcher Anteil der Tage ist das?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     4,
+     5
+    ]
+   },
+   "c": [
+    "(12 / 15) * 5",
+    "5"
+   ],
+   "w": "Anteil 12/15. Kürzen mit 3: 4/5."
+  },
+  {
+   "l": "anteil_bestimmen",
+   "t": "anteil_bestimmen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Von 16 Plätzen sind 6 besetzt. Welcher Anteil ist das?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     3,
+     8
+    ]
+   },
+   "c": [
+    "(6 / 16) * 8",
+    "8"
+   ],
+   "w": "Anteil 6/16. Kürzen mit 2: 3/8."
+  },
+  {
+   "l": "anteil_bestimmen",
+   "t": "anteil_bestimmen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Von 24 Fragen beantwortet ein Kind 14 richtig. Welcher Anteil ist richtig?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     7,
+     12
+    ]
+   },
+   "c": [
+    "(14 / 24) * 12",
+    "12"
+   ],
+   "w": "Anteil 14/24. Kürzen mit 2: 7/12."
+  },
+  {
+   "l": "anteil_bestimmen",
+   "t": "anteil_bestimmen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Von 18 Losen sind 4 Gewinne. Welcher Anteil ist das?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     2,
+     9
+    ]
+   },
+   "c": [
+    "(4 / 18) * 9",
+    "9"
+   ],
+   "w": "Anteil 4/18. Kürzen mit 2: 2/9."
+  },
+  {
+   "l": "anteil_bestimmen",
+   "t": "anteil_bestimmen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Von 16 Losen sind 8 Gewinne. Welcher Anteil ist das?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     1,
+     2
+    ]
+   },
+   "c": [
+    "(8 / 16) * 2",
+    "2"
+   ],
+   "w": "Anteil 8/16. Kürzen mit 8: 1/2."
+  },
+  {
+   "l": "anteil_bestimmen",
+   "t": "anteil_bestimmen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Von 28 Kindern fahren 26 mit dem Rad zur Schule. Welcher Anteil ist das?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     13,
+     14
+    ]
+   },
+   "c": [
+    "(26 / 28) * 14",
+    "14"
+   ],
+   "w": "Anteil 26/28. Kürzen mit 2: 13/14."
+  },
+  {
+   "l": "anteil_bestimmen",
+   "t": "anteil_bestimmen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Von 30 Plätzen sind 24 besetzt. Welcher Anteil ist das?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     4,
+     5
+    ]
+   },
+   "c": [
+    "(24 / 30) * 5",
+    "5"
+   ],
+   "w": "Anteil 24/30. Kürzen mit 6: 4/5."
+  },
+  {
+   "l": "anteil_bestimmen",
+   "t": "anteil_bestimmen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Von 12 Fragen beantwortet ein Kind 2 richtig. Welcher Anteil ist richtig?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     1,
+     6
+    ]
+   },
+   "c": [
+    "(2 / 12) * 6",
+    "6"
+   ],
+   "w": "Anteil 2/12. Kürzen mit 2: 1/6."
+  },
+  {
+   "l": "anteil_bestimmen",
+   "t": "anteil_bestimmen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Von 27 Losen sind 24 Gewinne. Welcher Anteil ist das?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     8,
+     9
+    ]
+   },
+   "c": [
+    "(24 / 27) * 9",
+    "9"
+   ],
+   "w": "Anteil 24/27. Kürzen mit 3: 8/9."
+  },
+  {
+   "l": "ganzes_bestimmen",
+   "t": "ganzes_bestimmen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "1/6 eines Betrags sind 13 min. Wie groß ist das Ganze?"
+   },
+   "o": {
+    "wert": 78,
+    "einheit": "min"
+   },
+   "c": "13 * 6",
+   "w": "Ein Teil (1/6) sind 13 min, das Ganze sind 6 solche Stücke: 13 · 6 = 78 min.",
+   "h": "Das Ganze besteht aus so vielen Stücken, wie der Nenner sagt."
+  },
+  {
+   "l": "ganzes_bestimmen",
+   "t": "ganzes_bestimmen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "1/2 eines Betrags sind 5 l. Wie groß ist das Ganze?"
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "l"
+   },
+   "c": "5 * 2",
+   "w": "Ein Teil (1/2) sind 5 l, das Ganze sind 2 solche Stücke: 5 · 2 = 10 l.",
+   "h": "Das Ganze besteht aus so vielen Stücken, wie der Nenner sagt."
+  },
+  {
+   "l": "ganzes_bestimmen",
+   "t": "ganzes_bestimmen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "15 Kinder sind 1/6 aller Kinder auf dem Schulhof. Wie viele Kinder sind auf dem Schulhof?"
+   },
+   "o": {
+    "wert": 90
+   },
+   "c": "15 * 6",
+   "w": "15 Kinder sind 1/6, also alle: 15 · 6 = 90 Kinder.",
+   "h": "Ein Stück mal Nenner ergibt das Ganze."
+  },
+  {
+   "l": "ganzes_bestimmen",
+   "t": "ganzes_bestimmen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "11 Kinder sind 1/9 aller Kinder auf dem Schulhof. Wie viele Kinder sind auf dem Schulhof?"
+   },
+   "o": {
+    "wert": 99
+   },
+   "c": "11 * 9",
+   "w": "11 Kinder sind 1/9, also alle: 11 · 9 = 99 Kinder.",
+   "h": "Ein Stück mal Nenner ergibt das Ganze."
+  },
+  {
+   "l": "ganzes_bestimmen",
+   "t": "ganzes_bestimmen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "10 Kinder sind 1/2 aller Kinder auf dem Schulhof. Wie viele Kinder sind auf dem Schulhof?"
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "10 * 2",
+   "w": "10 Kinder sind 1/2, also alle: 10 · 2 = 20 Kinder.",
+   "h": "Ein Stück mal Nenner ergibt das Ganze."
+  },
+  {
+   "l": "ganzes_bestimmen",
+   "t": "ganzes_bestimmen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "6 Kinder sind 1/10 aller Kinder auf dem Schulhof. Wie viele Kinder sind auf dem Schulhof?"
+   },
+   "o": {
+    "wert": 60
+   },
+   "c": "6 * 10",
+   "w": "6 Kinder sind 1/10, also alle: 6 · 10 = 60 Kinder.",
+   "h": "Ein Stück mal Nenner ergibt das Ganze."
+  },
+  {
+   "l": "ganzes_bestimmen",
+   "t": "ganzes_bestimmen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "10/11 eines Ganzen sind 50 €. Wie groß ist das Ganze?"
+   },
+   "o": {
+    "wert": 55,
+    "einheit": "€"
+   },
+   "c": "50 / 10 * 11",
+   "w": "Ein Teil (1/11): 50 : 10 = 5 €. Das Ganze: 5 · 11 = 55 €.",
+   "h": "Teile durch den Zähler, dann nimm mit dem Nenner mal."
+  },
+  {
+   "l": "ganzes_bestimmen",
+   "t": "ganzes_bestimmen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "7/12 eines Ganzen sind 35 m. Wie groß ist das Ganze?"
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "m"
+   },
+   "c": "35 / 7 * 12",
+   "w": "Ein Teil (1/12): 35 : 7 = 5 m. Das Ganze: 5 · 12 = 60 m.",
+   "h": "Teile durch den Zähler, dann nimm mit dem Nenner mal."
+  },
+  {
+   "l": "ganzes_bestimmen",
+   "t": "ganzes_bestimmen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "3/4 eines Ganzen sind 36 l. Wie groß ist das Ganze?"
+   },
+   "o": {
+    "wert": 48,
+    "einheit": "l"
+   },
+   "c": "36 / 3 * 4",
+   "w": "Ein Teil (1/4): 36 : 3 = 12 l. Das Ganze: 12 · 4 = 48 l.",
+   "h": "Teile durch den Zähler, dann nimm mit dem Nenner mal."
+  },
+  {
+   "l": "ganzes_bestimmen",
+   "t": "ganzes_bestimmen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "3/4 eines Ganzen sind 30 min. Wie groß ist das Ganze?"
+   },
+   "o": {
+    "wert": 40,
+    "einheit": "min"
+   },
+   "c": "30 / 3 * 4",
+   "w": "Ein Teil (1/4): 30 : 3 = 10 min. Das Ganze: 10 · 4 = 40 min.",
+   "h": "Teile durch den Zähler, dann nimm mit dem Nenner mal."
+  },
+  {
+   "l": "ganzes_bestimmen",
+   "t": "ganzes_bestimmen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "2/3 eines Ganzen sind 18 min. Wie groß ist das Ganze?"
+   },
+   "o": {
+    "wert": 27,
+    "einheit": "min"
+   },
+   "c": "18 / 2 * 3",
+   "w": "Ein Teil (1/3): 18 : 2 = 9 min. Das Ganze: 9 · 3 = 27 min.",
+   "h": "Teile durch den Zähler, dann nimm mit dem Nenner mal."
+  },
+  {
+   "l": "ganzes_bestimmen",
+   "t": "ganzes_bestimmen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "8/11 eines Ganzen sind 64 €. Wie groß ist das Ganze?"
+   },
+   "o": {
+    "wert": 88,
+    "einheit": "€"
+   },
+   "c": "64 / 8 * 11",
+   "w": "Ein Teil (1/11): 64 : 8 = 8 €. Das Ganze: 8 · 11 = 88 €.",
+   "h": "Teile durch den Zähler, dann nimm mit dem Nenner mal."
+  },
+  {
+   "l": "ganzes_bestimmen",
+   "t": "ganzes_bestimmen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Wanderer hat 3/4 seines Weges geschafft. Das sind 120 m. Wie lang ist der ganze Weg?"
+   },
+   "o": {
+    "wert": 160,
+    "einheit": "m"
+   },
+   "c": "120 / 3 * 4",
+   "w": "120 : 3 = 40 m (das ist 1/4). · 4 = 160 m.",
+   "h": "Rückwärts rechnen: durch den Zähler, mal den Nenner."
+  },
+  {
+   "l": "ganzes_bestimmen",
+   "t": "ganzes_bestimmen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Wanderer hat 5/6 seines Weges geschafft. Das sind 1 300 m. Wie lang ist der ganze Weg?"
+   },
+   "o": {
+    "wert": 1560,
+    "einheit": "m"
+   },
+   "c": "1300 / 5 * 6",
+   "w": "1 300 : 5 = 260 m (das ist 1/6). · 6 = 1 560 m.",
+   "h": "Rückwärts rechnen: durch den Zähler, mal den Nenner."
+  },
+  {
+   "l": "ganzes_bestimmen",
+   "t": "ganzes_bestimmen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "3/8 der Plätze eines Kinos sind besetzt, das sind 45 Plätze. Wie viele Plätze sind noch frei?"
+   },
+   "o": {
+    "wert": 75
+   },
+   "c": "45 / 3 * 8 - 45",
+   "w": "Alle Plätze: 45 : 3 · 8 = 120. Frei: 120 − 45 = 75.",
+   "h": "Berechne zuerst alle Plätze, dann ziehe die besetzten ab."
+  },
+  {
+   "l": "ganzes_bestimmen",
+   "t": "ganzes_bestimmen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "5/6 der Plätze eines Kinos sind besetzt, das sind 50 Plätze. Wie viele Plätze sind noch frei?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "50 / 5 * 6 - 50",
+   "w": "Alle Plätze: 50 : 5 · 6 = 60. Frei: 60 − 50 = 10.",
+   "h": "Berechne zuerst alle Plätze, dann ziehe die besetzten ab."
+  },
+  {
+   "l": "ganzes_bestimmen",
+   "t": "ganzes_bestimmen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Tank ist zu 3/4 gefüllt und enthält 240 l. Wie viele Liter passen in den vollen Tank?"
+   },
+   "o": {
+    "wert": 320,
+    "einheit": "l"
+   },
+   "c": "240 / 3 * 4",
+   "w": "240 : 3 = 80 l, · 4 = 320 l.",
+   "h": "Rechne erst aus, wie viel ein Teil (1/Nenner) ist."
+  },
+  {
+   "l": "ganzes_bestimmen",
+   "t": "ganzes_bestimmen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "5/6 der Plätze eines Kinos sind besetzt, das sind 115 Plätze. Wie viele Plätze sind noch frei?"
+   },
+   "o": {
+    "wert": 23
+   },
+   "c": "115 / 5 * 6 - 115",
+   "w": "Alle Plätze: 115 : 5 · 6 = 138. Frei: 138 − 115 = 23.",
+   "h": "Berechne zuerst alle Plätze, dann ziehe die besetzten ab."
+  },
+  {
+   "l": "ganzes_bestimmen",
+   "t": "ganzes_bestimmen",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "11/12 eines Ganzen sind 143 m. Wie groß ist das Ganze?"
+   },
+   "o": {
+    "wert": 156,
+    "einheit": "m"
+   },
+   "c": "143 / 11 * 12",
+   "w": "Ein Teil (1/12): 143 : 11 = 13 m. Das Ganze: 13 · 12 = 156 m."
+  },
+  {
+   "l": "ganzes_bestimmen",
+   "t": "ganzes_bestimmen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "5/6 eines Ganzen sind 45 l. Wie groß ist das Ganze?"
+   },
+   "o": {
+    "wert": 54,
+    "einheit": "l"
+   },
+   "c": "45 / 5 * 6",
+   "w": "Ein Teil (1/6): 45 : 5 = 9 l. Das Ganze: 9 · 6 = 54 l."
+  },
+  {
+   "l": "ganzes_bestimmen",
+   "t": "ganzes_bestimmen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "6/7 eines Ganzen sind 48 min. Wie groß ist das Ganze?"
+   },
+   "o": {
+    "wert": 56,
+    "einheit": "min"
+   },
+   "c": "48 / 6 * 7",
+   "w": "Ein Teil (1/7): 48 : 6 = 8 min. Das Ganze: 8 · 7 = 56 min."
+  },
+  {
+   "l": "ganzes_bestimmen",
+   "t": "ganzes_bestimmen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "2/3 eines Ganzen sind 14 kg. Wie groß ist das Ganze?"
+   },
+   "o": {
+    "wert": 21,
+    "einheit": "kg"
+   },
+   "c": "14 / 2 * 3",
+   "w": "Ein Teil (1/3): 14 : 2 = 7 kg. Das Ganze: 7 · 3 = 21 kg."
+  },
+  {
+   "l": "ganzes_bestimmen",
+   "t": "ganzes_bestimmen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "5/7 eines Ganzen sind 65 kg. Wie groß ist das Ganze?"
+   },
+   "o": {
+    "wert": 91,
+    "einheit": "kg"
+   },
+   "c": "65 / 5 * 7",
+   "w": "Ein Teil (1/7): 65 : 5 = 13 kg. Das Ganze: 13 · 7 = 91 kg."
+  },
+  {
+   "l": "ganzes_bestimmen",
+   "t": "ganzes_bestimmen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "3/4 eines Ganzen sind 33 l. Wie groß ist das Ganze?"
+   },
+   "o": {
+    "wert": 44,
+    "einheit": "l"
+   },
+   "c": "33 / 3 * 4",
+   "w": "Ein Teil (1/4): 33 : 3 = 11 l. Das Ganze: 11 · 4 = 44 l."
+  },
+  {
+   "l": "ganzes_bestimmen",
+   "t": "ganzes_bestimmen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "3/10 eines Ganzen sind 12 l. Wie groß ist das Ganze?"
+   },
+   "o": {
+    "wert": 40,
+    "einheit": "l"
+   },
+   "c": "12 / 3 * 10",
+   "w": "Ein Teil (1/10): 12 : 3 = 4 l. Das Ganze: 4 · 10 = 40 l."
+  },
+  {
+   "l": "ganzes_bestimmen",
+   "t": "ganzes_bestimmen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "5/6 eines Ganzen sind 20 l. Wie groß ist das Ganze?"
+   },
+   "o": {
+    "wert": 24,
+    "einheit": "l"
+   },
+   "c": "20 / 5 * 6",
+   "w": "Ein Teil (1/6): 20 : 5 = 4 l. Das Ganze: 4 · 6 = 24 l."
+  },
+  {
+   "l": "ganzes_bestimmen",
+   "t": "ganzes_bestimmen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "9/10 eines Ganzen sind 99 m. Wie groß ist das Ganze?"
+   },
+   "o": {
+    "wert": 110,
+    "einheit": "m"
+   },
+   "c": "99 / 9 * 10",
+   "w": "Ein Teil (1/10): 99 : 9 = 11 m. Das Ganze: 11 · 10 = 110 m."
+  },
+  {
+   "l": "ganzes_bestimmen",
+   "t": "ganzes_bestimmen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "4/5 eines Ganzen sind 32 min. Wie groß ist das Ganze?"
+   },
+   "o": {
+    "wert": 40,
+    "einheit": "min"
+   },
+   "c": "32 / 4 * 5",
+   "w": "Ein Teil (1/5): 32 : 4 = 8 min. Das Ganze: 8 · 5 = 40 min."
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Erweitere 1/6 mit 5.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite."
+   },
+   "o": {
+    "werte": [
+     5,
+     30
+    ]
+   },
+   "c": [
+    "1 * 5",
+    "6 * 5"
+   ],
+   "w": "Zähler und Nenner mal 5: 1/6 = 5/30.",
+   "h": "Nimm Zähler und Nenner mit derselben Zahl mal."
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Erweitere 1/5 mit 7.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite."
+   },
+   "o": {
+    "werte": [
+     7,
+     35
+    ]
+   },
+   "c": [
+    "1 * 7",
+    "5 * 7"
+   ],
+   "w": "Zähler und Nenner mal 7: 1/5 = 7/35.",
+   "h": "Nimm Zähler und Nenner mit derselben Zahl mal."
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Erweitere 1/7 mit 3.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite."
+   },
+   "o": {
+    "werte": [
+     3,
+     21
+    ]
+   },
+   "c": [
+    "1 * 3",
+    "7 * 3"
+   ],
+   "w": "Zähler und Nenner mal 3: 1/7 = 3/21.",
+   "h": "Nimm Zähler und Nenner mit derselben Zahl mal."
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Erweitere 1/2 mit 9.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite."
+   },
+   "o": {
+    "werte": [
+     9,
+     18
+    ]
+   },
+   "c": [
+    "1 * 9",
+    "2 * 9"
+   ],
+   "w": "Zähler und Nenner mal 9: 1/2 = 9/18.",
+   "h": "Nimm Zähler und Nenner mit derselben Zahl mal."
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Erweitere 4/9 mit 2.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite."
+   },
+   "o": {
+    "werte": [
+     8,
+     18
+    ]
+   },
+   "c": [
+    "4 * 2",
+    "9 * 2"
+   ],
+   "w": "Zähler und Nenner mal 2: 4/9 = 8/18.",
+   "h": "Nimm Zähler und Nenner mit derselben Zahl mal."
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Erweitere 1/4 mit 6.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite."
+   },
+   "o": {
+    "werte": [
+     6,
+     24
+    ]
+   },
+   "c": [
+    "1 * 6",
+    "4 * 6"
+   ],
+   "w": "Zähler und Nenner mal 6: 1/4 = 6/24.",
+   "h": "Nimm Zähler und Nenner mit derselben Zahl mal."
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze: 4/5 = 28/□",
+    "schablone": "□",
+    "hinweis": "Trage den fehlenden Nenner ein."
+   },
+   "o": {
+    "werte": [
+     35
+    ]
+   },
+   "c": [
+    "5 * 28 / 4"
+   ],
+   "w": "4 · 7 = 28, also auch 5 · 7 = 35.",
+   "h": "Mit welcher Zahl wurde der Zähler malgenommen?"
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze: 2/7 = 8/□",
+    "schablone": "□",
+    "hinweis": "Trage den fehlenden Nenner ein."
+   },
+   "o": {
+    "werte": [
+     28
+    ]
+   },
+   "c": [
+    "7 * 8 / 2"
+   ],
+   "w": "2 · 4 = 8, also auch 7 · 4 = 28.",
+   "h": "Mit welcher Zahl wurde der Zähler malgenommen?"
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze: 5/8 = □/16",
+    "schablone": "□",
+    "hinweis": "Trage den fehlenden Zähler ein."
+   },
+   "o": {
+    "werte": [
+     10
+    ]
+   },
+   "c": [
+    "5 * 16 / 8"
+   ],
+   "w": "8 · 2 = 16, also auch 5 · 2 = 10.",
+   "h": "Mit welcher Zahl wurde der Nenner malgenommen?"
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze: 1/2 = □/10",
+    "schablone": "□",
+    "hinweis": "Trage den fehlenden Zähler ein."
+   },
+   "o": {
+    "werte": [
+     5
+    ]
+   },
+   "c": [
+    "1 * 10 / 2"
+   ],
+   "w": "2 · 5 = 10, also auch 1 · 5 = 5.",
+   "h": "Mit welcher Zahl wurde der Nenner malgenommen?"
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze: 1/9 = □/27",
+    "schablone": "□",
+    "hinweis": "Trage den fehlenden Zähler ein."
+   },
+   "o": {
+    "werte": [
+     3
+    ]
+   },
+   "c": [
+    "1 * 27 / 9"
+   ],
+   "w": "9 · 3 = 27, also auch 1 · 3 = 3.",
+   "h": "Mit welcher Zahl wurde der Nenner malgenommen?"
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze: 2/5 = □/10",
+    "schablone": "□",
+    "hinweis": "Trage den fehlenden Zähler ein."
+   },
+   "o": {
+    "werte": [
+     4
+    ]
+   },
+   "c": [
+    "2 * 10 / 5"
+   ],
+   "w": "5 · 2 = 10, also auch 2 · 2 = 4.",
+   "h": "Mit welcher Zahl wurde der Nenner malgenommen?"
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "31/32",
+    "184/207",
+    "8/207",
+    "184/36"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Welcher Bruch ist gleich 8/9?"
+   },
+   "w": "8/9 mit 23 erweitert: 184/207. Bei den anderen wurde nicht Zähler und Nenner mit derselben Zahl malgenommen.",
+   "h": "Prüfe: Wurden Zähler und Nenner mit derselben Zahl malgenommen?"
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "33/14",
+    "3/77",
+    "14/18",
+    "33/77"
+   ],
+   "o": {
+    "index": 3
+   },
+   "f": {
+    "text": "Welcher Bruch ist gleich 3/7?"
+   },
+   "w": "3/7 mit 11 erweitert: 33/77. Bei den anderen wurde nicht Zähler und Nenner mit derselben Zahl malgenommen.",
+   "h": "Prüfe: Wurden Zähler und Nenner mit derselben Zahl malgenommen?"
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "15/20",
+    "3/20",
+    "15/12",
+    "8/9"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Welcher Bruch ist gleich 3/4?"
+   },
+   "w": "3/4 mit 5 erweitert: 15/20. Bei den anderen wurde nicht Zähler und Nenner mit derselben Zahl malgenommen.",
+   "h": "Prüfe: Wurden Zähler und Nenner mit derselben Zahl malgenommen?"
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "3/6",
+    "3/10",
+    "1/6",
+    "4/5"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Welcher Bruch ist gleich 1/2?"
+   },
+   "w": "1/2 mit 3 erweitert: 3/6. Bei den anderen wurde nicht Zähler und Nenner mit derselben Zahl malgenommen.",
+   "h": "Prüfe: Wurden Zähler und Nenner mit derselben Zahl malgenommen?"
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Erweitere 3/5 auf den Nenner 100.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite."
+   },
+   "o": {
+    "werte": [
+     60,
+     100
+    ]
+   },
+   "c": [
+    "3 * 100 / 5",
+    "100"
+   ],
+   "w": "5 · 20 = 100, also 3 · 20 = 60: 3/5 = 60/100.",
+   "h": "Mit welcher Zahl wird der Nenner zu 100?"
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Erweitere 17/25 auf den Nenner 100.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite."
+   },
+   "o": {
+    "werte": [
+     68,
+     100
+    ]
+   },
+   "c": [
+    "17 * 100 / 25",
+    "100"
+   ],
+   "w": "25 · 4 = 100, also 17 · 4 = 68: 17/25 = 68/100.",
+   "h": "Mit welcher Zahl wird der Nenner zu 100?"
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze: 1/8 = 7/□",
+    "schablone": "□",
+    "hinweis": "Trage den fehlenden Nenner ein."
+   },
+   "o": {
+    "werte": [
+     56
+    ]
+   },
+   "c": [
+    "8 * 7 / 1"
+   ],
+   "w": "1 · 7 = 7, also auch 8 · 7 = 56."
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze: 1/5 = 7/□",
+    "schablone": "□",
+    "hinweis": "Trage den fehlenden Nenner ein."
+   },
+   "o": {
+    "werte": [
+     35
+    ]
+   },
+   "c": [
+    "5 * 7 / 1"
+   ],
+   "w": "1 · 7 = 7, also auch 5 · 7 = 35."
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze: 1/4 = □/28",
+    "schablone": "□",
+    "hinweis": "Trage den fehlenden Zähler ein."
+   },
+   "o": {
+    "werte": [
+     7
+    ]
+   },
+   "c": [
+    "1 * 28 / 4"
+   ],
+   "w": "4 · 7 = 28, also auch 1 · 7 = 7."
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze: 1/2 = 2/□",
+    "schablone": "□",
+    "hinweis": "Trage den fehlenden Nenner ein."
+   },
+   "o": {
+    "werte": [
+     4
+    ]
+   },
+   "c": [
+    "2 * 2 / 1"
+   ],
+   "w": "1 · 2 = 2, also auch 2 · 2 = 4."
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze: 1/2 = 3/□",
+    "schablone": "□",
+    "hinweis": "Trage den fehlenden Nenner ein."
+   },
+   "o": {
+    "werte": [
+     6
+    ]
+   },
+   "c": [
+    "2 * 3 / 1"
+   ],
+   "w": "1 · 3 = 3, also auch 2 · 3 = 6."
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze: 1/4 = 9/□",
+    "schablone": "□",
+    "hinweis": "Trage den fehlenden Nenner ein."
+   },
+   "o": {
+    "werte": [
+     36
+    ]
+   },
+   "c": [
+    "4 * 9 / 1"
+   ],
+   "w": "1 · 9 = 9, also auch 4 · 9 = 36."
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze: 1/7 = □/49",
+    "schablone": "□",
+    "hinweis": "Trage den fehlenden Zähler ein."
+   },
+   "o": {
+    "werte": [
+     7
+    ]
+   },
+   "c": [
+    "1 * 49 / 7"
+   ],
+   "w": "7 · 7 = 49, also auch 1 · 7 = 7."
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze: 5/6 = 10/□",
+    "schablone": "□",
+    "hinweis": "Trage den fehlenden Nenner ein."
+   },
+   "o": {
+    "werte": [
+     12
+    ]
+   },
+   "c": [
+    "6 * 10 / 5"
+   ],
+   "w": "5 · 2 = 10, also auch 6 · 2 = 12."
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze: 1/4 = □/32",
+    "schablone": "□",
+    "hinweis": "Trage den fehlenden Zähler ein."
+   },
+   "o": {
+    "werte": [
+     8
+    ]
+   },
+   "c": [
+    "1 * 32 / 4"
+   ],
+   "w": "4 · 8 = 32, also auch 1 · 8 = 8."
+  },
+  {
+   "l": "erweitern",
+   "t": "erweitern",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze: 2/3 = 14/□",
+    "schablone": "□",
+    "hinweis": "Trage den fehlenden Nenner ein."
+   },
+   "o": {
+    "werte": [
+     21
+    ]
+   },
+   "c": [
+    "3 * 14 / 2"
+   ],
+   "w": "2 · 7 = 14, also auch 3 · 7 = 21."
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze 24/30 mit 6.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite."
+   },
+   "o": {
+    "werte": [
+     4,
+     5
+    ]
+   },
+   "c": [
+    "24 / 6",
+    "30 / 6"
+   ],
+   "w": "24 : 6 = 4 und 30 : 6 = 5, also 24/30 = 4/5.",
+   "h": "Teile Zähler und Nenner durch dieselbe Zahl."
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze 6/12 mit 6.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite."
+   },
+   "o": {
+    "werte": [
+     1,
+     2
+    ]
+   },
+   "c": [
+    "6 / 6",
+    "12 / 6"
+   ],
+   "w": "6 : 6 = 1 und 12 : 6 = 2, also 6/12 = 1/2.",
+   "h": "Teile Zähler und Nenner durch dieselbe Zahl."
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze 5/20 mit 5.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite."
+   },
+   "o": {
+    "werte": [
+     1,
+     4
+    ]
+   },
+   "c": [
+    "5 / 5",
+    "20 / 5"
+   ],
+   "w": "5 : 5 = 1 und 20 : 5 = 4, also 5/20 = 1/4.",
+   "h": "Teile Zähler und Nenner durch dieselbe Zahl."
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze 3/33 mit 3.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite."
+   },
+   "o": {
+    "werte": [
+     1,
+     11
+    ]
+   },
+   "c": [
+    "3 / 3",
+    "33 / 3"
+   ],
+   "w": "3 : 3 = 1 und 33 : 3 = 11, also 3/33 = 1/11.",
+   "h": "Teile Zähler und Nenner durch dieselbe Zahl."
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze 6/18 mit 6.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite."
+   },
+   "o": {
+    "werte": [
+     1,
+     3
+    ]
+   },
+   "c": [
+    "6 / 6",
+    "18 / 6"
+   ],
+   "w": "6 : 6 = 1 und 18 : 6 = 3, also 6/18 = 1/3.",
+   "h": "Teile Zähler und Nenner durch dieselbe Zahl."
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze 18/30 mit 6.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite."
+   },
+   "o": {
+    "werte": [
+     3,
+     5
+    ]
+   },
+   "c": [
+    "18 / 6",
+    "30 / 6"
+   ],
+   "w": "18 : 6 = 3 und 30 : 6 = 5, also 18/30 = 3/5.",
+   "h": "Teile Zähler und Nenner durch dieselbe Zahl."
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze 3/18 vollständig.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite."
+   },
+   "o": {
+    "werte": [
+     1,
+     6
+    ]
+   },
+   "c": [
+    "3 / 3",
+    "18 / 3"
+   ],
+   "w": "Größter gemeinsamer Teiler von 3 und 18 ist 3. 3/18 = 1/6.",
+   "h": "Suche den größten gemeinsamen Teiler. Du kannst auch in mehreren Schritten kürzen."
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze 24/30 vollständig.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite."
+   },
+   "o": {
+    "werte": [
+     4,
+     5
+    ]
+   },
+   "c": [
+    "24 / 6",
+    "30 / 6"
+   ],
+   "w": "Größter gemeinsamer Teiler von 24 und 30 ist 6. 24/30 = 4/5.",
+   "h": "Suche den größten gemeinsamen Teiler. Du kannst auch in mehreren Schritten kürzen."
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze 10/15 vollständig.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite."
+   },
+   "o": {
+    "werte": [
+     2,
+     3
+    ]
+   },
+   "c": [
+    "10 / 5",
+    "15 / 5"
+   ],
+   "w": "Größter gemeinsamer Teiler von 10 und 15 ist 5. 10/15 = 2/3.",
+   "h": "Suche den größten gemeinsamen Teiler. Du kannst auch in mehreren Schritten kürzen."
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze 8/20 vollständig.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite."
+   },
+   "o": {
+    "werte": [
+     2,
+     5
+    ]
+   },
+   "c": [
+    "8 / 4",
+    "20 / 4"
+   ],
+   "w": "Größter gemeinsamer Teiler von 8 und 20 ist 4. 8/20 = 2/5.",
+   "h": "Suche den größten gemeinsamen Teiler. Du kannst auch in mehreren Schritten kürzen."
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze 5/10 vollständig.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite."
+   },
+   "o": {
+    "werte": [
+     1,
+     2
+    ]
+   },
+   "c": [
+    "5 / 5",
+    "10 / 5"
+   ],
+   "w": "Größter gemeinsamer Teiler von 5 und 10 ist 5. 5/10 = 1/2.",
+   "h": "Suche den größten gemeinsamen Teiler. Du kannst auch in mehreren Schritten kürzen."
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze 20/25 vollständig.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite."
+   },
+   "o": {
+    "werte": [
+     4,
+     5
+    ]
+   },
+   "c": [
+    "20 / 5",
+    "25 / 5"
+   ],
+   "w": "Größter gemeinsamer Teiler von 20 und 25 ist 5. 20/25 = 4/5.",
+   "h": "Suche den größten gemeinsamen Teiler. Du kannst auch in mehreren Schritten kürzen."
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze 25/250 vollständig.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite."
+   },
+   "o": {
+    "werte": [
+     1,
+     10
+    ]
+   },
+   "c": [
+    "25 / 25",
+    "250 / 25"
+   ],
+   "w": "Größter gemeinsamer Teiler: 25. 25 : 25 = 1, 250 : 25 = 10.",
+   "h": "Kürze schrittweise, z. B. erst durch 2, 3 oder 5, bis es nicht mehr geht."
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Ja, das ist vollständig gekürzt.",
+    "Nein, man kann noch weiter kürzen.",
+    "Nein, man hätte erweitern müssen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Ein Kind kürzt 50/75 zu 10/15. Ist der Bruch damit vollständig gekürzt?"
+   },
+   "w": "10 und 15 haben noch den gemeinsamen Teiler 5. Vollständig gekürzt: 2/3.",
+   "h": "Haben Zähler und Nenner noch einen gemeinsamen Teiler?"
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Nein, man hätte erweitern müssen.",
+    "Ja, das ist vollständig gekürzt.",
+    "Nein, man kann noch weiter kürzen."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Ein Kind kürzt 36/63 zu 12/21. Ist der Bruch damit vollständig gekürzt?"
+   },
+   "w": "12 und 21 haben noch den gemeinsamen Teiler 3. Vollständig gekürzt: 4/7.",
+   "h": "Haben Zähler und Nenner noch einen gemeinsamen Teiler?"
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Nein, man kann noch weiter kürzen.",
+    "Ja, das ist vollständig gekürzt.",
+    "Nein, man hätte erweitern müssen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Ein Kind kürzt 36/48 zu 12/16. Ist der Bruch damit vollständig gekürzt?"
+   },
+   "w": "12 und 16 haben noch den gemeinsamen Teiler 4. Vollständig gekürzt: 3/4.",
+   "h": "Haben Zähler und Nenner noch einen gemeinsamen Teiler?"
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze 18/54 vollständig.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite."
+   },
+   "o": {
+    "werte": [
+     1,
+     3
+    ]
+   },
+   "c": [
+    "18 / 18",
+    "54 / 18"
+   ],
+   "w": "Größter gemeinsamer Teiler: 18. 18 : 18 = 1, 54 : 18 = 3.",
+   "h": "Kürze schrittweise, z. B. erst durch 2, 3 oder 5, bis es nicht mehr geht."
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Nein, man kann noch weiter kürzen.",
+    "Ja, das ist vollständig gekürzt.",
+    "Nein, man hätte erweitern müssen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Ein Kind kürzt 275/425 zu 55/85. Ist der Bruch damit vollständig gekürzt?"
+   },
+   "w": "55 und 85 haben noch den gemeinsamen Teiler 5. Vollständig gekürzt: 11/17.",
+   "h": "Haben Zähler und Nenner noch einen gemeinsamen Teiler?"
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze 8/44 vollständig.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite."
+   },
+   "o": {
+    "werte": [
+     2,
+     11
+    ]
+   },
+   "c": [
+    "8 / 4",
+    "44 / 4"
+   ],
+   "w": "Größter gemeinsamer Teiler von 8 und 44 ist 4. 8/44 = 2/11."
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze 8/12 vollständig.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite."
+   },
+   "o": {
+    "werte": [
+     2,
+     3
+    ]
+   },
+   "c": [
+    "8 / 4",
+    "12 / 4"
+   ],
+   "w": "Größter gemeinsamer Teiler von 8 und 12 ist 4. 8/12 = 2/3."
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze 6/27 vollständig.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite."
+   },
+   "o": {
+    "werte": [
+     2,
+     9
+    ]
+   },
+   "c": [
+    "6 / 3",
+    "27 / 3"
+   ],
+   "w": "Größter gemeinsamer Teiler von 6 und 27 ist 3. 6/27 = 2/9."
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze 12/22 vollständig.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite."
+   },
+   "o": {
+    "werte": [
+     6,
+     11
+    ]
+   },
+   "c": [
+    "12 / 2",
+    "22 / 2"
+   ],
+   "w": "Größter gemeinsamer Teiler von 12 und 22 ist 2. 12/22 = 6/11."
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze 3/9 vollständig.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite."
+   },
+   "o": {
+    "werte": [
+     1,
+     3
+    ]
+   },
+   "c": [
+    "3 / 3",
+    "9 / 3"
+   ],
+   "w": "Größter gemeinsamer Teiler von 3 und 9 ist 3. 3/9 = 1/3."
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze 2/4 vollständig.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite."
+   },
+   "o": {
+    "werte": [
+     1,
+     2
+    ]
+   },
+   "c": [
+    "2 / 2",
+    "4 / 2"
+   ],
+   "w": "Größter gemeinsamer Teiler von 2 und 4 ist 2. 2/4 = 1/2."
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze 20/24 vollständig.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite."
+   },
+   "o": {
+    "werte": [
+     5,
+     6
+    ]
+   },
+   "c": [
+    "20 / 4",
+    "24 / 4"
+   ],
+   "w": "Größter gemeinsamer Teiler von 20 und 24 ist 4. 20/24 = 5/6."
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze 6/18 vollständig.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite."
+   },
+   "o": {
+    "werte": [
+     1,
+     3
+    ]
+   },
+   "c": [
+    "6 / 6",
+    "18 / 6"
+   ],
+   "w": "Größter gemeinsamer Teiler von 6 und 18 ist 6. 6/18 = 1/3."
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze 10/25 vollständig.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite."
+   },
+   "o": {
+    "werte": [
+     2,
+     5
+    ]
+   },
+   "c": [
+    "10 / 5",
+    "25 / 5"
+   ],
+   "w": "Größter gemeinsamer Teiler von 10 und 25 ist 5. 10/25 = 2/5."
+  },
+  {
+   "l": "kuerzen",
+   "t": "kuerzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Kürze 8/18 vollständig.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite."
+   },
+   "o": {
+    "werte": [
+     4,
+     9
+    ]
+   },
+   "c": [
+    "8 / 2",
+    "18 / 2"
+   ],
+   "w": "Größter gemeinsamer Teiler von 8 und 18 ist 2. 8/18 = 4/9."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "3/12",
+    "Beide sind gleich groß",
+    "3/9"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Welcher Bruch ist größer: 3/12 oder 3/9?"
+   },
+   "w": "Gleicher Zähler: Kleinerer Nenner heißt größere Stücke. 3/9 ist größer.",
+   "h": "Gleicher Zähler – welcher Bruch hat die größeren Stücke?"
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "3/4",
+    "3/8",
+    "Beide sind gleich groß"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Welcher Bruch ist größer: 3/4 oder 3/8?"
+   },
+   "w": "Gleicher Zähler: Kleinerer Nenner heißt größere Stücke. 3/4 ist größer.",
+   "h": "Gleicher Zähler – welcher Bruch hat die größeren Stücke?"
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "10/15",
+    "11/15",
+    "Beide sind gleich groß"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Welcher Bruch ist größer: 10/15 oder 11/15?"
+   },
+   "w": "Gleicher Nenner: Der größere Zähler gewinnt. 11/15 ist größer.",
+   "h": "Gleicher Nenner – vergleiche die Zähler."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "2/10",
+    "Beide sind gleich groß",
+    "2/12"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Welcher Bruch ist größer: 2/12 oder 2/10?"
+   },
+   "w": "Gleicher Zähler: Kleinerer Nenner heißt größere Stücke. 2/10 ist größer.",
+   "h": "Gleicher Zähler – welcher Bruch hat die größeren Stücke?"
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "2/3",
+    "Beide sind gleich groß",
+    "1/3"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Welcher Bruch ist größer: 2/3 oder 1/3?"
+   },
+   "w": "Gleicher Nenner: Der größere Zähler gewinnt. 2/3 ist größer.",
+   "h": "Gleicher Nenner – vergleiche die Zähler."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "4/12",
+    "Beide sind gleich groß",
+    "4/8"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Welcher Bruch ist größer: 4/8 oder 4/12?"
+   },
+   "w": "Gleicher Zähler: Kleinerer Nenner heißt größere Stücke. 4/8 ist größer.",
+   "h": "Gleicher Zähler – welcher Bruch hat die größeren Stücke?"
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "4/9",
+    "Beide sind gleich groß",
+    "2/3"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Welcher Bruch ist größer: 4/9 oder 2/3?"
+   },
+   "w": "Hauptnenner 9: 4/9 = 4/9, 2/3 = 6/9. Größer: 2/3.",
+   "h": "Bringe beide Brüche auf den Hauptnenner."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie heißt der Hauptnenner von 1/2 und 3/7?"
+   },
+   "o": {
+    "wert": 14
+   },
+   "c": "2 * 7 / 1",
+   "w": "Das kleinste gemeinsame Vielfache von 2 und 7 ist 14.",
+   "h": "Gehe die Vielfachen des größeren Nenners durch, bis der andere Nenner hineinpasst."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie heißt der Hauptnenner von 1/2 und 1/4?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "2 * 4 / 2",
+   "w": "Das kleinste gemeinsame Vielfache von 2 und 4 ist 4.",
+   "h": "Gehe die Vielfachen des größeren Nenners durch, bis der andere Nenner hineinpasst."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie heißt der Hauptnenner von 1/4 und 1/5?"
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "4 * 5 / 1",
+   "w": "Das kleinste gemeinsame Vielfache von 4 und 5 ist 20.",
+   "h": "Gehe die Vielfachen des größeren Nenners durch, bis der andere Nenner hineinpasst."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie heißt der Hauptnenner von 2/5 und 1/10?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "5 * 10 / 5",
+   "w": "Das kleinste gemeinsame Vielfache von 5 und 10 ist 10.",
+   "h": "Gehe die Vielfachen des größeren Nenners durch, bis der andere Nenner hineinpasst."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie heißt der Hauptnenner von 2/5 und 1/3?"
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "5 * 3 / 1",
+   "w": "Das kleinste gemeinsame Vielfache von 5 und 3 ist 15.",
+   "h": "Gehe die Vielfachen des größeren Nenners durch, bis der andere Nenner hineinpasst."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Um wie viel ist 3/8 größer als 1/10?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     11,
+     40
+    ]
+   },
+   "c": [
+    "(3/8 - 1/10) * 40",
+    "40"
+   ],
+   "w": "Hauptnenner 40: 15/40 − 4/40 = 11/40.",
+   "h": "Bringe beide auf den Hauptnenner und vergleiche die Zähler."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "4/11",
+    "7/16",
+    "7/8",
+    "5/8"
+   ],
+   "o": {
+    "index": 3
+   },
+   "f": {
+    "text": "Welcher Bruch liegt zwischen 1/2 und 3/4?"
+   },
+   "w": "Die Mitte von 1/2 und 3/4 ist 5/8; sie liegt dazwischen.",
+   "h": "Erweitere beide Brüche so weit, dass zwischen den Zählern Platz ist."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "7/8",
+    "1/4",
+    "1/6",
+    "8/11"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Welcher ist der größte Bruch: 7/8, 1/4, 1/6, 8/11?"
+   },
+   "w": "Der Größe nach: 1/6 < 1/4 < 8/11 < 7/8. Der größte ist 7/8.",
+   "h": "Vergleiche mit 1/2 oder bringe die Brüche auf einen gemeinsamen Nenner."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Um wie viel ist 1/2 größer als 3/7?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     1,
+     14
+    ]
+   },
+   "c": [
+    "(1/2 - 3/7) * 14",
+    "14"
+   ],
+   "w": "Hauptnenner 14: 7/14 − 6/14 = 1/14.",
+   "h": "Bringe beide auf den Hauptnenner und vergleiche die Zähler."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Um wie viel ist 7/8 größer als 5/9?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     23,
+     72
+    ]
+   },
+   "c": [
+    "(7/8 - 5/9) * 72",
+    "72"
+   ],
+   "w": "Hauptnenner 72: 63/72 − 40/72 = 23/72.",
+   "h": "Bringe beide auf den Hauptnenner und vergleiche die Zähler."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "4/9",
+    "1/2",
+    "11/12",
+    "2/3"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Welcher ist der kleinste Bruch: 1/2, 2/3, 11/12, 4/9?"
+   },
+   "w": "Der Größe nach: 4/9 < 1/2 < 2/3 < 11/12. Der kleinste ist 4/9.",
+   "h": "Vergleiche mit 1/2 oder bringe die Brüche auf einen gemeinsamen Nenner."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Beide sind gleich groß",
+    "4/9",
+    "1/5"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Welcher Bruch ist größer: 1/5 oder 4/9?"
+   },
+   "w": "Hauptnenner 45: 1/5 = 9/45, 4/9 = 20/45. Größer: 4/9."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "1/2",
+    "Beide sind gleich groß",
+    "5/6"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Welcher Bruch ist größer: 1/2 oder 5/6?"
+   },
+   "w": "Hauptnenner 6: 1/2 = 3/6, 5/6 = 5/6. Größer: 5/6."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie heißt der Hauptnenner von 5/8 und 2/5?"
+   },
+   "o": {
+    "wert": 40
+   },
+   "c": "8 * 5 / 1",
+   "w": "Das kleinste gemeinsame Vielfache von 8 und 5 ist 40."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Beide sind gleich groß",
+    "1/7",
+    "2/5"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Welcher Bruch ist größer: 2/5 oder 1/7?"
+   },
+   "w": "Hauptnenner 35: 2/5 = 14/35, 1/7 = 5/35. Größer: 2/5."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie heißt der Hauptnenner von 3/5 und 7/10?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "5 * 10 / 5",
+   "w": "Das kleinste gemeinsame Vielfache von 5 und 10 ist 10."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie heißt der Hauptnenner von 3/4 und 4/7?"
+   },
+   "o": {
+    "wert": 28
+   },
+   "c": "4 * 7 / 1",
+   "w": "Das kleinste gemeinsame Vielfache von 4 und 7 ist 28."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "1/2",
+    "6/7",
+    "Beide sind gleich groß"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Welcher Bruch ist größer: 6/7 oder 1/2?"
+   },
+   "w": "Hauptnenner 14: 6/7 = 12/14, 1/2 = 7/14. Größer: 6/7."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "3/4",
+    "7/10",
+    "Beide sind gleich groß"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Welcher Bruch ist größer: 7/10 oder 3/4?"
+   },
+   "w": "Hauptnenner 20: 7/10 = 14/20, 3/4 = 15/20. Größer: 3/4."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Beide sind gleich groß",
+    "1/5",
+    "1/3"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Welcher Bruch ist größer: 1/3 oder 1/5?"
+   },
+   "w": "Hauptnenner 15: 1/3 = 5/15, 1/5 = 3/15. Größer: 1/3."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Beide sind gleich groß",
+    "3/4",
+    "1/2"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Welcher Bruch ist größer: 3/4 oder 1/2?"
+   },
+   "w": "Hauptnenner 4: 3/4 = 3/4, 1/2 = 2/4. Größer: 3/4."
+  },
+  {
+   "l": "zahlenstrahl",
+   "t": "zahlenstrahl",
+   "p": "uebung",
+   "s": 1,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere 7/10 am Zahlenstrahl (von 0 bis 1, 10 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 1,
+     "abschnitte": 10,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 7
+   },
+   "w": "Die Strecke von 0 bis 1 ist in 10 Teile geteilt. 7/10 liegt beim 7. Strich nach der 0.",
+   "h": "Der Nenner sagt, in wie viele Teile geteilt ist. Zähle von 0 aus.",
+   "zahl": 0.7,
+   "c": "0 + (1 - 0) * 7 / 10"
+  },
+  {
+   "l": "zahlenstrahl",
+   "t": "zahlenstrahl",
+   "p": "uebung",
+   "s": 1,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere 1/2 am Zahlenstrahl (von 0 bis 1, 2 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 1,
+     "abschnitte": 2,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 1
+   },
+   "w": "Die Strecke von 0 bis 1 ist in 2 Teile geteilt. 1/2 liegt beim 1. Strich nach der 0.",
+   "h": "Der Nenner sagt, in wie viele Teile geteilt ist. Zähle von 0 aus.",
+   "zahl": 0.5,
+   "c": "0 + (1 - 0) * 1 / 2"
+  },
+  {
+   "l": "zahlenstrahl",
+   "t": "zahlenstrahl",
+   "p": "uebung",
+   "s": 1,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere 2/4 am Zahlenstrahl (von 0 bis 1, 4 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 1,
+     "abschnitte": 4,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 2
+   },
+   "w": "Die Strecke von 0 bis 1 ist in 4 Teile geteilt. 2/4 liegt beim 2. Strich nach der 0.",
+   "h": "Der Nenner sagt, in wie viele Teile geteilt ist. Zähle von 0 aus.",
+   "zahl": 0.5,
+   "c": "0 + (1 - 0) * 2 / 4"
+  },
+  {
+   "l": "zahlenstrahl",
+   "t": "zahlenstrahl",
+   "p": "uebung",
+   "s": 1,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere 2/3 am Zahlenstrahl (von 0 bis 1, 3 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 1,
+     "abschnitte": 3,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 2
+   },
+   "w": "Die Strecke von 0 bis 1 ist in 3 Teile geteilt. 2/3 liegt beim 2. Strich nach der 0.",
+   "h": "Der Nenner sagt, in wie viele Teile geteilt ist. Zähle von 0 aus."
+  },
+  {
+   "l": "zahlenstrahl",
+   "t": "zahlenstrahl",
+   "p": "uebung",
+   "s": 1,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere 1/7 am Zahlenstrahl (von 0 bis 1, 7 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 1,
+     "abschnitte": 7,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 1
+   },
+   "w": "Die Strecke von 0 bis 1 ist in 7 Teile geteilt. 1/7 liegt beim 1. Strich nach der 0.",
+   "h": "Der Nenner sagt, in wie viele Teile geteilt ist. Zähle von 0 aus."
+  },
+  {
+   "l": "zahlenstrahl",
+   "t": "zahlenstrahl",
+   "p": "uebung",
+   "s": 1,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere 3/4 am Zahlenstrahl (von 0 bis 1, 4 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 1,
+     "abschnitte": 4,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 3
+   },
+   "w": "Die Strecke von 0 bis 1 ist in 4 Teile geteilt. 3/4 liegt beim 3. Strich nach der 0.",
+   "h": "Der Nenner sagt, in wie viele Teile geteilt ist. Zähle von 0 aus.",
+   "zahl": 0.75,
+   "c": "0 + (1 - 0) * 3 / 4"
+  },
+  {
+   "l": "zahlenstrahl",
+   "t": "zahlenstrahl",
+   "p": "uebung",
+   "s": 2,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere 8/5 am Zahlenstrahl (von 0 bis 2, 10 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 2,
+     "abschnitte": 10,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 8
+   },
+   "w": "Jeder Teil ist 1/5. 8/5 liegt beim 8. Strich nach der 0, also hinter der 1.",
+   "h": "Von 0 bis 1 sind es 5 Teile. 8/5 ist größer als 1.",
+   "zahl": 1.6,
+   "c": "0 + (2 - 0) * 8 / 10"
+  },
+  {
+   "l": "zahlenstrahl",
+   "t": "zahlenstrahl",
+   "p": "uebung",
+   "s": 2,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere 1/5 am Zahlenstrahl (von 0 bis 1, 20 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 1,
+     "abschnitte": 20,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 4
+   },
+   "w": "1/5 = 4/20. Also beim 4. Strich nach der 0.",
+   "h": "Erweitere 1/5 so, dass der Nenner 20 ist.",
+   "zahl": 0.2,
+   "c": "0 + (1 - 0) * 4 / 20"
+  },
+  {
+   "l": "zahlenstrahl",
+   "t": "zahlenstrahl",
+   "p": "uebung",
+   "s": 2,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere 1/2 am Zahlenstrahl (von 0 bis 1, 8 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 1,
+     "abschnitte": 8,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 4
+   },
+   "w": "1/2 = 4/8. Also beim 4. Strich nach der 0.",
+   "h": "Erweitere 1/2 so, dass der Nenner 8 ist.",
+   "zahl": 0.5,
+   "c": "0 + (1 - 0) * 4 / 8"
+  },
+  {
+   "l": "zahlenstrahl",
+   "t": "zahlenstrahl",
+   "p": "uebung",
+   "s": 2,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere 6/4 am Zahlenstrahl (von 0 bis 2, 8 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 2,
+     "abschnitte": 8,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 6
+   },
+   "w": "Jeder Teil ist 1/4. 6/4 liegt beim 6. Strich nach der 0, also hinter der 1.",
+   "h": "Von 0 bis 1 sind es 4 Teile. 6/4 ist größer als 1.",
+   "zahl": 1.5,
+   "c": "0 + (2 - 0) * 6 / 8"
+  },
+  {
+   "l": "zahlenstrahl",
+   "t": "zahlenstrahl",
+   "p": "uebung",
+   "s": 2,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere 7/4 am Zahlenstrahl (von 0 bis 2, 8 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 2,
+     "abschnitte": 8,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 7
+   },
+   "w": "Jeder Teil ist 1/4. 7/4 liegt beim 7. Strich nach der 0, also hinter der 1.",
+   "h": "Von 0 bis 1 sind es 4 Teile. 7/4 ist größer als 1.",
+   "zahl": 1.75,
+   "c": "0 + (2 - 0) * 7 / 8"
+  },
+  {
+   "l": "zahlenstrahl",
+   "t": "zahlenstrahl",
+   "p": "uebung",
+   "s": 2,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere 3/4 am Zahlenstrahl (von 0 bis 1, 8 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 1,
+     "abschnitte": 8,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 6
+   },
+   "w": "3/4 = 6/8. Also beim 6. Strich nach der 0.",
+   "h": "Erweitere 3/4 so, dass der Nenner 8 ist.",
+   "zahl": 0.75,
+   "c": "0 + (1 - 0) * 6 / 8"
+  },
+  {
+   "l": "zahlenstrahl",
+   "t": "zahlenstrahl",
+   "p": "uebung",
+   "s": 3,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere 5/4 am Zahlenstrahl (von 1 bis 2, 4 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 1,
+     "ende": 2,
+     "abschnitte": 4,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 1
+   },
+   "w": "5/4 = 1 + 1/4. Von der 1 aus 1 Teil nach rechts.",
+   "h": "Wie viele Ganze stecken in dem Bruch? Starte bei der 1.",
+   "zahl": 1.25,
+   "c": "1 + (2 - 1) * 1 / 4"
+  },
+  {
+   "l": "zahlenstrahl",
+   "t": "zahlenstrahl",
+   "p": "uebung",
+   "s": 3,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere 1/4 am Zahlenstrahl (von 0 bis 2, 16 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 2,
+     "abschnitte": 16,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 2
+   },
+   "w": "Von 0 bis 1 sind es 8 Teile, jeder ist 1/8. 1/4 = 2/8: beim 2. Strich.",
+   "h": "Wie viele Teile liegen zwischen 0 und 1? Damit erweiterst du den Bruch.",
+   "zahl": 0.25,
+   "c": "0 + (2 - 0) * 2 / 16"
+  },
+  {
+   "l": "zahlenstrahl",
+   "t": "zahlenstrahl",
+   "p": "uebung",
+   "s": 3,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere 4/3 am Zahlenstrahl (von 1 bis 2, 3 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 1,
+     "ende": 2,
+     "abschnitte": 3,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 1
+   },
+   "w": "4/3 = 1 + 1/3. Von der 1 aus 1 Teil nach rechts.",
+   "h": "Wie viele Ganze stecken in dem Bruch? Starte bei der 1."
+  },
+  {
+   "l": "zahlenstrahl",
+   "t": "zahlenstrahl",
+   "p": "uebung",
+   "s": 3,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere 3/2 am Zahlenstrahl (von 1 bis 2, 2 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 1,
+     "ende": 2,
+     "abschnitte": 2,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 1
+   },
+   "w": "3/2 = 1 + 1/2. Von der 1 aus 1 Teil nach rechts.",
+   "h": "Wie viele Ganze stecken in dem Bruch? Starte bei der 1.",
+   "zahl": 1.5,
+   "c": "1 + (2 - 1) * 1 / 2"
+  },
+  {
+   "l": "zahlenstrahl",
+   "t": "zahlenstrahl",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Zahlenstrahl von 0 bis 1 ist in 6 gleiche Teile geteilt. Ein Pfeil zeigt auf den 3. Strich nach der 0. Welcher Bruch ist das?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     1,
+     2
+    ]
+   },
+   "c": [
+    "3 / 6 * 2",
+    "2"
+   ],
+   "w": "Der Pfeil zeigt auf 3/6. Gekürzt: 1/2.",
+   "h": "Schreibe zuerst Strich-Nummer / Anzahl der Teile und kürze dann."
+  },
+  {
+   "l": "zahlenstrahl",
+   "t": "zahlenstrahl",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Zahlenstrahl von 0 bis 1 ist in 8 gleiche Teile geteilt. Ein Pfeil zeigt auf den 2. Strich nach der 0. Welcher Bruch ist das?",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     1,
+     4
+    ]
+   },
+   "c": [
+    "2 / 8 * 4",
+    "4"
+   ],
+   "w": "Der Pfeil zeigt auf 2/8. Gekürzt: 1/4.",
+   "h": "Schreibe zuerst Strich-Nummer / Anzahl der Teile und kürze dann."
+  },
+  {
+   "l": "zahlenstrahl",
+   "t": "zahlenstrahl",
+   "p": "test",
+   "s": 2,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere 3/2 am Zahlenstrahl (von 0 bis 2, 4 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 2,
+     "abschnitte": 4,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 3
+   },
+   "w": "Jeder Teil ist 1/2. 3/2 liegt beim 3. Strich nach der 0, also hinter der 1.",
+   "zahl": 1.5,
+   "c": "0 + (2 - 0) * 3 / 4"
+  },
+  {
+   "l": "zahlenstrahl",
+   "t": "zahlenstrahl",
+   "p": "korrektur",
+   "s": 2,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere 2/3 am Zahlenstrahl (von 0 bis 1, 9 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 1,
+     "abschnitte": 9,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 6
+   },
+   "w": "2/3 = 6/9. Also beim 6. Strich nach der 0."
+  },
+  {
+   "l": "zahlenstrahl",
+   "t": "zahlenstrahl",
+   "p": "korrektur",
+   "s": 2,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere 4/3 am Zahlenstrahl (von 0 bis 2, 6 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 2,
+     "abschnitte": 6,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 4
+   },
+   "w": "Jeder Teil ist 1/3. 4/3 liegt beim 4. Strich nach der 0, also hinter der 1."
+  },
+  {
+   "l": "zahlenstrahl",
+   "t": "zahlenstrahl",
+   "p": "korrektur",
+   "s": 2,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere 9/5 am Zahlenstrahl (von 0 bis 2, 10 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 2,
+     "abschnitte": 10,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 9
+   },
+   "w": "Jeder Teil ist 1/5. 9/5 liegt beim 9. Strich nach der 0, also hinter der 1.",
+   "zahl": 1.8,
+   "c": "0 + (2 - 0) * 9 / 10"
+  },
+  {
+   "l": "zahlenstrahl",
+   "t": "zahlenstrahl",
+   "p": "sicherung",
+   "s": 2,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere 6/5 am Zahlenstrahl (von 0 bis 2, 10 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 2,
+     "abschnitte": 10,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 6
+   },
+   "w": "Jeder Teil ist 1/5. 6/5 liegt beim 6. Strich nach der 0, also hinter der 1.",
+   "zahl": 1.2,
+   "c": "0 + (2 - 0) * 6 / 10"
+  },
+  {
+   "l": "zahlenstrahl",
+   "t": "zahlenstrahl",
+   "p": "sicherung",
+   "s": 2,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere 10/6 am Zahlenstrahl (von 0 bis 2, 12 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 2,
+     "abschnitte": 12,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 10
+   },
+   "w": "Jeder Teil ist 1/6. 10/6 liegt beim 10. Strich nach der 0, also hinter der 1."
+  },
+  {
+   "l": "zahlenstrahl",
+   "t": "zahlenstrahl",
+   "p": "sicherung",
+   "s": 2,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere 8/6 am Zahlenstrahl (von 0 bis 2, 12 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 2,
+     "abschnitte": 12,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 8
+   },
+   "w": "Jeder Teil ist 1/6. 8/6 liegt beim 8. Strich nach der 0, also hinter der 1."
+  },
+  {
+   "l": "zahlenstrahl",
+   "t": "zahlenstrahl",
+   "p": "sicherung",
+   "s": 2,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere 5/3 am Zahlenstrahl (von 0 bis 2, 6 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 2,
+     "abschnitte": 6,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 5
+   },
+   "w": "Jeder Teil ist 1/3. 5/3 liegt beim 5. Strich nach der 0, also hinter der 1."
+  },
+  {
+   "l": "zahlenstrahl",
+   "t": "zahlenstrahl",
+   "p": "sicherung",
+   "s": 2,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere 2/3 am Zahlenstrahl (von 0 bis 1, 6 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 1,
+     "abschnitte": 6,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 4
+   },
+   "w": "2/3 = 4/6. Also beim 4. Strich nach der 0."
+  },
+  {
+   "l": "zahlenstrahl",
+   "t": "zahlenstrahl",
+   "p": "sicherung",
+   "s": 2,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere 9/6 am Zahlenstrahl (von 0 bis 2, 12 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 2,
+     "abschnitte": 12,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 9
+   },
+   "w": "Jeder Teil ist 1/6. 9/6 liegt beim 9. Strich nach der 0, also hinter der 1.",
+   "zahl": 1.5,
+   "c": "0 + (2 - 0) * 9 / 12"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Ja, 24/42 ist 4/7 mit 6 erweitert.",
+    "Nein, die Aussage ist falsch."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „4/7 und 24/42 sind gleich groß.“"
+   },
+   "w": "Ja, 24/42 ist 4/7 mit 6 erweitert.",
+   "h": "Prüfe mit einem Beispiel: erweitern, kürzen oder ausrechnen."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Nein, mehr Teile bedeuten kleinere Stücke: 1/6 < 1/3.",
+    "Das kann man nicht entscheiden.",
+    "Ja, die Aussage stimmt."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „1/6 ist größer als 1/3, weil 6 > 3.“"
+   },
+   "w": "Nein, mehr Teile bedeuten kleinere Stücke: 1/6 < 1/3.",
+   "h": "Prüfe mit einem Beispiel: erweitern, kürzen oder ausrechnen."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Nein, mehr Teile bedeuten kleinere Stücke: 1/9 < 1/6.",
+    "Ja, die Aussage stimmt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „1/9 ist größer als 1/6, weil 9 > 6.“"
+   },
+   "w": "Nein, mehr Teile bedeuten kleinere Stücke: 1/9 < 1/6.",
+   "h": "Prüfe mit einem Beispiel: erweitern, kürzen oder ausrechnen."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Nein, mehr Teile bedeuten kleinere Stücke: 1/13 < 1/7.",
+    "Ja, die Aussage stimmt.",
+    "Das kann man nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „1/13 ist größer als 1/7, weil 13 > 7.“"
+   },
+   "w": "Nein, mehr Teile bedeuten kleinere Stücke: 1/13 < 1/7.",
+   "h": "Prüfe mit einem Beispiel: erweitern, kürzen oder ausrechnen."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Ja, die Aussage stimmt.",
+    "Nein, man darf nicht addieren. Mit Hauptnenner sieht man: 3/5 ≠ 3/4.",
+    "Das kann man nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „3/5 und 6/8 sind gleich groß.“"
+   },
+   "w": "Nein, man darf nicht addieren. Mit Hauptnenner sieht man: 3/5 ≠ 3/4.",
+   "h": "Prüfe mit einem Beispiel: erweitern, kürzen oder ausrechnen."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Nein, mehr Teile bedeuten kleinere Stücke: 1/7 < 1/3.",
+    "Das kann man nicht entscheiden.",
+    "Ja, die Aussage stimmt."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „1/7 ist größer als 1/3, weil 7 > 3.“"
+   },
+   "w": "Nein, mehr Teile bedeuten kleinere Stücke: 1/7 < 1/3.",
+   "h": "Prüfe mit einem Beispiel: erweitern, kürzen oder ausrechnen."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Ja: 60 : 5 = 12, · 3 = 36.",
+    "Nein, die Aussage ist falsch."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „3/5 von 60 sind 36.“"
+   },
+   "w": "Ja: 60 : 5 = 12, · 3 = 36.",
+   "h": "Prüfe mit einem Beispiel: erweitern, kürzen oder ausrechnen."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Nein: 55 : 5 · 2 = 22.",
+    "Ja, die Aussage stimmt.",
+    "Das kann man nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „2/5 von 55 sind 115.“"
+   },
+   "w": "Nein: 55 : 5 · 2 = 22.",
+   "h": "Prüfe mit einem Beispiel: erweitern, kürzen oder ausrechnen."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Nein: 28 : 4 · 3 = 21.",
+    "Ja, die Aussage stimmt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „3/4 von 28 sind 88.“"
+   },
+   "w": "Nein: 28 : 4 · 3 = 21.",
+   "h": "Prüfe mit einem Beispiel: erweitern, kürzen oder ausrechnen."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Nein: 18 : 2 · 1 = 9.",
+    "Ja, die Aussage stimmt.",
+    "Das kann man nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „1/2 von 18 sind 10.“"
+   },
+   "w": "Nein: 18 : 2 · 1 = 9.",
+   "h": "Prüfe mit einem Beispiel: erweitern, kürzen oder ausrechnen."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Ja, die Aussage stimmt.",
+    "Nein: 24 : 2 · 1 = 12."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „1/2 von 24 sind 13.“"
+   },
+   "w": "Nein: 24 : 2 · 1 = 12.",
+   "h": "Prüfe mit einem Beispiel: erweitern, kürzen oder ausrechnen."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Nein, die Aussage ist falsch.",
+    "Ja, Zähler und Nenner durch 4 geteilt.",
+    "Das kann man nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „4/8 kann man zu 1/2 kürzen.“"
+   },
+   "w": "Ja, Zähler und Nenner durch 4 geteilt.",
+   "h": "Prüfe mit einem Beispiel: erweitern, kürzen oder ausrechnen."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Ja, die Aussage stimmt.",
+    "Das kann man nicht entscheiden.",
+    "Nein, Gegenbeispiel: 1/2 > 1/3, obwohl 3 > 2."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Je größer der Nenner, desto größer der Bruch.“"
+   },
+   "w": "Nein, Gegenbeispiel: 1/2 > 1/3, obwohl 3 > 2.",
+   "h": "Prüfe mit einem Beispiel: erweitern, kürzen oder ausrechnen."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Ja, die Aussage stimmt.",
+    "Nein: Bruchteil heißt durch den Nenner, mal den Zähler: 42 : 7 · 5 = 30.",
+    "Das kann man nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „5/7 von 42 ist dasselbe wie 42 : 5 · 7.“"
+   },
+   "w": "Nein: Bruchteil heißt durch den Nenner, mal den Zähler: 42 : 7 · 5 = 30.",
+   "h": "Prüfe mit einem Beispiel: erweitern, kürzen oder ausrechnen."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Ja, die Aussage stimmt.",
+    "Das kann man nicht entscheiden.",
+    "Nein: Bruchteil heißt durch den Nenner, mal den Zähler: 18 : 3 · 1 = 6."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „1/3 von 18 ist dasselbe wie 18 : 1 · 3.“"
+   },
+   "w": "Nein: Bruchteil heißt durch den Nenner, mal den Zähler: 18 : 3 · 1 = 6.",
+   "h": "Prüfe mit einem Beispiel: erweitern, kürzen oder ausrechnen."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Ja, 3/3 = 1, und 5/3 ist noch 2/3 mehr.",
+    "Nein, die Aussage ist falsch.",
+    "Das kann man nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Bruch mit Zähler größer als Nenner, wie 5/3, ist größer als 1.“"
+   },
+   "w": "Ja, 3/3 = 1, und 5/3 ist noch 2/3 mehr.",
+   "h": "Prüfe mit einem Beispiel: erweitern, kürzen oder ausrechnen."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Ja, 6/6 = 1, und 7/6 ist noch 1/6 mehr.",
+    "Das kann man nicht entscheiden.",
+    "Nein, die Aussage ist falsch."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Bruch mit Zähler größer als Nenner, wie 7/6, ist größer als 1.“"
+   },
+   "w": "Ja, 6/6 = 1, und 7/6 ist noch 1/6 mehr.",
+   "h": "Prüfe mit einem Beispiel: erweitern, kürzen oder ausrechnen."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Nein: Bruchteil heißt durch den Nenner, mal den Zähler: 54 : 9 · 8 = 48.",
+    "Ja, die Aussage stimmt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „8/9 von 54 ist dasselbe wie 54 : 8 · 9.“"
+   },
+   "w": "Nein: Bruchteil heißt durch den Nenner, mal den Zähler: 54 : 9 · 8 = 48.",
+   "h": "Prüfe mit einem Beispiel: erweitern, kürzen oder ausrechnen."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Nein, die Aussage ist falsch.",
+    "Ja, Zähler und Nenner durch 4 geteilt."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „20/36 kann man zu 5/9 kürzen.“"
+   },
+   "w": "Ja, Zähler und Nenner durch 4 geteilt."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Nein, der Teil kommt in den Zähler: 9/24 = 3/8.",
+    "Das kann man nicht entscheiden.",
+    "Ja, die Aussage stimmt."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Wenn 9 von 24 Kindern Brille tragen, ist der Anteil 24/9.“"
+   },
+   "w": "Nein, der Teil kommt in den Zähler: 9/24 = 3/8."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Nein, die Aussage ist falsch.",
+    "Ja: 63 : 9 = 7, · 1 = 7.",
+    "Das kann man nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „1/9 von 63 sind 7.“"
+   },
+   "w": "Ja: 63 : 9 = 7, · 1 = 7."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Nein, der Teil kommt in den Zähler: 32/36 = 8/9.",
+    "Ja, die Aussage stimmt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Wenn 32 von 36 Kindern Brille tragen, ist der Anteil 36/32.“"
+   },
+   "w": "Nein, der Teil kommt in den Zähler: 32/36 = 8/9."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Nein, die Aussage ist falsch.",
+    "Ja: 30 : 6 = 5, · 1 = 5."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „1/6 von 30 sind 5.“"
+   },
+   "w": "Ja: 30 : 6 = 5, · 1 = 5."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Ja, Zähler und Nenner durch 6 geteilt.",
+    "Nein, die Aussage ist falsch."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „30/48 kann man zu 5/8 kürzen.“"
+   },
+   "w": "Ja, Zähler und Nenner durch 6 geteilt."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Nein, die Aussage ist falsch.",
+    "Ja, Zähler und Nenner durch 6 geteilt."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „6/24 kann man zu 1/4 kürzen.“"
+   },
+   "w": "Ja, Zähler und Nenner durch 6 geteilt."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Nein, die Aussage ist falsch.",
+    "Das kann man nicht entscheiden.",
+    "Ja: 30 : 5 = 6, · 2 = 12."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „2/5 von 30 sind 12.“"
+   },
+   "w": "Ja: 30 : 5 = 6, · 2 = 12."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Ja, die Aussage stimmt.",
+    "Das kann man nicht entscheiden.",
+    "Nein, der Teil kommt in den Zähler: 6/16 = 3/8."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Wenn 6 von 16 Kindern Brille tragen, ist der Anteil 16/6.“"
+   },
+   "w": "Nein, der Teil kommt in den Zähler: 6/16 = 3/8."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Ja: 72 : 9 = 8, · 7 = 56.",
+    "Das kann man nicht entscheiden.",
+    "Nein, die Aussage ist falsch."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „7/9 von 72 sind 56.“"
+   },
+   "w": "Ja: 72 : 9 = 8, · 7 = 56."
+  }
+ ],
+ "offen": [
+  "Lehrplan „Anteile mit Flächendiagrammen veranschaulichen“: Flächen sind nur in Worten beschrieben (Rechteck in n Teile, k gefärbt). Lernkarte anteil_bestimmen braucht Zeichnung: gefärbte Rechteck-/Kreisteile zum Ablesen und Selbst-Färben.",
+  "Brüche stehen im Text als 3/4 (Schrägstrich). Falls die App echte Bruchdarstellung bekommt, Texte umstellen.",
+  "Bei Markierungen mit Dritteln/Sechsteln fehlt das Feld „zahl“, weil 1/3 keine endliche Dezimalzahl ist; der Index wird vom Programm exakt berechnet."
+ ]
+}

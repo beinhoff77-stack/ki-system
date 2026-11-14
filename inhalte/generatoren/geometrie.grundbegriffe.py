@@ -48,9 +48,14 @@ ETAPPEN = [
      'fehler': 'Eine Aussage mit nur einem passenden Beispiel für „immer richtig“ zu halten ist ein Fehler. ⟦Ein Gegenbeispiel⟧ genügt, um eine Allaussage zu widerlegen.'},
 ]
 
+PRUEFUNG = pruefung_erklaerungen(ETAPPEN, 'geometrie.grundbegriffe')   # kreis_lage (Bild mit Passante, Probe), vierecke (Bild: Raute)
+
 MERKE = ['P(x | y): erst x (rechts/links), dann y (oben/unten).', 'Waagrechte Strecke: Unterschied der x-Koordinaten.',
          'g ∥ h: parallel. g ⊥ h: senkrecht. Abstand = Länge des Lots.', 'd < r Sekante, d = r Tangente, d > r Passante.',
          'spitz < 90° = recht < stumpf < 180° = gestreckt < überstumpf < 360°.']
+
+
+def ein(n): return f'{n} Einheit' if n == 1 else f'{n} Einheiten'
 
 
 def p(x, y): return f'({zt(x)} | {zt(y)})'
@@ -88,8 +93,27 @@ def richtung(dx, dy):
 
 
 # ---------- 1 Koordinaten ----------
+def _welcher_punkt():
+    x, y = R.choice([-1, 1]) * R.randint(1, 5), R.choice([-1, 1]) * R.randint(1, 5)
+    if R.random() < .25: x, y = (0, y) if R.random() < .5 else (x, 0)
+    kand = [(x, y), (y, x), (-x, y), (x, -y), (-x, -y)]
+    pts = []
+    for q in kand:
+        if q not in pts: pts.append(q)
+    if len(pts) < 4: return _welcher_punkt()
+    pts = [pts[0]] + R.sample(pts[1:], 3)
+    R.shuffle(pts)
+    namen = 'ABCD'
+    i = pts.index((x, y))
+    return {'y': 'auswahl', 'a': list(namen), 'o': {'index': i},
+            'f': {'text': f'Welcher Punkt hat die Koordinaten {p(x, y)}?', 'grafik': ks([(q[0], q[1], namen[k]) for k, q in enumerate(pts)])},
+            'w': f'{p(x, y)}: x = {zt(x)} ({"rechts" if x > 0 else "links" if x < 0 else "auf der y-Achse"}), y = {zt(y)} ({"oben" if y > 0 else "unten" if y < 0 else "auf der x-Achse"}). Das ist Punkt {namen[i]}.',
+            'h': 'Erst die x-Koordinate (rechts/links), dann die y-Koordinate (oben/unten).'}
+
+
 def g_koord(st):
     if st == 1:
+        if R.random() < .3: return _welcher_punkt()
         if R.random() < .35:
             x, y = R.randint(-6, 6), R.randint(-5, 5)
             if x == 0 or y == 0: return g_koord(1)
@@ -113,8 +137,15 @@ def g_koord(st):
                          'Rechts und oben: plus. Links und unten: minus.', f'({x}) + ({dx})', f'({y}) + ({dy})')
         x, y = R.choice([-1, 1]) * R.randint(1, 8), R.choice([-1, 1]) * R.randint(1, 8)
         lage = {(1, 1): 'rechts oben', (-1, 1): 'links oben', (-1, -1): 'links unten', (1, -1): 'rechts unten'}
+        if R.random() < .3:      # auch Punkte auf einer Achse (Prüfung)
+            x, y = (x, 0) if R.random() < .5 else (0, y)
+            achse = {(1, 0): 'auf der x-Achse, rechts', (-1, 0): 'auf der x-Achse, links', (0, 1): 'auf der y-Achse, oben', (0, -1): 'auf der y-Achse, unten'}
+            r = achse[((x > 0) - (x < 0), (y > 0) - (y < 0))]
+            f = R.sample([v for v in achse.values() if v != r], 2) + R.sample(list(lage.values()), 1)
+            return {**wahl_rund(R, r, f), 'f': {'text': f'Wo liegt der Punkt P{p(x, y)}, vom Ursprung aus gesehen?'},
+                    'w': f'Eine Koordinate ist 0: Der Punkt liegt auf einer Achse. {r[0].upper() + r[1:]}.', 'h': 'Ist eine Koordinate 0? Dann liegt der Punkt auf einer Achse.'}
         r = lage[(1 if x > 0 else -1, 1 if y > 0 else -1)]
-        return {**wahl(R, r, [v for v in lage.values() if v != r]), 'f': {'text': f'Wo liegt der Punkt P{p(x, y)}, vom Ursprung aus gesehen?'},
+        return {**wahl_rund(R, r, [v for v in lage.values() if v != r]), 'f': {'text': f'Wo liegt der Punkt P{p(x, y)}, vom Ursprung aus gesehen?'},
                 'w': f'x = {zt(x)}: {"rechts" if x > 0 else "links"}, y = {zt(y)}: {"oben" if y > 0 else "unten"}. Also {r}.', 'h': 'Das Vorzeichen von x sagt rechts/links, das von y oben/unten.'}
     art = R.randrange(3)
     if art == 0:
@@ -146,21 +177,21 @@ def g_strecke(st):
         x1, x2 = sorted(R.sample(range(0, 12), 2))
         if R.random() < .5:
             return {'y': 'zahl', 'f': {'text': f'Wie lang ist die Strecke [AB] mit A{p(x1, y)} und B{p(x2, y)} (in Einheiten)?', 'grafik': ks([(x1, y, 'A'), (x2, y, 'B')], [(x1, y, x2, y)])}, 'o': {'wert': x2 - x1}, 'c': f'{x2} - {x1}',
-                    'w': f'Gleiche y-Koordinate, also waagrecht: {x2} − {x1} = {x2 - x1} Einheiten.', 'h': 'Vergleiche die x-Koordinaten.'}
+                    'w': f'Gleiche y-Koordinate, also waagrecht: {x2} − {x1} = {ein(x2 - x1)}.', 'h': 'Vergleiche die x-Koordinaten.'}
         return {'y': 'zahl', 'f': {'text': f'Wie lang ist die Strecke [CD] mit C{p(y, x1)} und D{p(y, x2)} (in Einheiten)?'}, 'o': {'wert': x2 - x1}, 'c': f'{x2} - {x1}',
-                'w': f'Gleiche x-Koordinate, also senkrecht: {x2} − {x1} = {x2 - x1} Einheiten.', 'h': 'Vergleiche die y-Koordinaten.'}
+                'w': f'Gleiche x-Koordinate, also senkrecht: {x2} − {x1} = {ein(x2 - x1)}.', 'h': 'Vergleiche die y-Koordinaten.'}
     if st == 2:
         a, b = sorted(R.sample(range(-9, 10), 2))
         if a >= 0: a = -R.randint(1, 6)
         c = R.randint(-6, 6)
         if R.random() < .5:
             return {'y': 'zahl', 'f': {'text': f'Wie lang ist [AB] mit A{p(a, c)} und B{p(b, c)} (in Einheiten)?', 'grafik': ks([(a, c, 'A'), (b, c, 'B')], [(a, c, b, c)])}, 'o': {'wert': b - a}, 'c': f'({b}) - ({a})',
-                    'w': f'Waagrecht: {zt(b)} − {kl(a)} = {zt(b)} + {zt(-a)} = {b - a} Einheiten.', 'h': 'Liegt die 0 dazwischen? Dann zähle die beiden Teilstücke zusammen.'}
+                    'w': f'Waagrecht: {zt(b)} − {kl(a)} = {zt(b)} + {zt(-a)} = {ein(b - a)}.', 'h': 'Liegt die 0 dazwischen? Dann zähle die beiden Teilstücke zusammen.'}
         if R.random() < .5:
             return {'y': 'zahl', 'f': {'text': f'Welchen Abstand hat der Punkt P{p(c, a)} von der x-Achse (in Einheiten)?'}, 'o': {'wert': abs(a)}, 'c': f'abs({a})',
                     'w': f'Der Abstand zur x-Achse ist der Betrag der y-Koordinate: |{zt(a)}| = {abs(a)}.', 'h': 'Wie weit ist P von der waagrechten Achse entfernt? Schau auf y.'}
         return {'y': 'zahl', 'f': {'text': f'Wie lang ist [CD] mit C{p(c, a)} und D{p(c, b)} (in Einheiten)?'}, 'o': {'wert': b - a}, 'c': f'({b}) - ({a})',
-                'w': f'Senkrecht: {zt(b)} − {kl(a)} = {b - a} Einheiten.', 'h': 'Gleiche x-Koordinate: Unterschied der y-Koordinaten.'}
+                'w': f'Senkrecht: {zt(b)} − {kl(a)} = {ein(b - a)}.', 'h': 'Gleiche x-Koordinate: Unterschied der y-Koordinaten.'}
     art = R.randrange(3)
     x1, x2 = sorted(R.sample(range(-7, 8), 2))
     y1, y2 = sorted(R.sample(range(-6, 7), 2))
@@ -185,7 +216,7 @@ def g_strecke(st):
         else: x -= l
     weg = sum(l for l, _ in lang)
     return {'y': 'zahl', 'f': {'text': f'Eine Ameise läuft von A{p(ax, ay)} {lang[0][0]} nach rechts, {lang[1][0]} nach oben und {lang[2][0]} nach links. Wie viele Einheiten ist sie insgesamt gelaufen?'},
-            'o': {'wert': weg}, 'c': f'{lang[0][0]} + {lang[1][0]} + {lang[2][0]}', 'w': f'{lang[0][0]} + {lang[1][0]} + {lang[2][0]} = {weg} Einheiten. Sie endet bei {p(x, y)}.',
+            'o': {'wert': weg}, 'c': f'{lang[0][0]} + {lang[1][0]} + {lang[2][0]}', 'w': f'{lang[0][0]} + {lang[1][0]} + {lang[2][0]} = {ein(weg)}. Sie endet bei {p(x, y)}.',
             'h': 'Addiere alle Teilstrecken.'} if R.random() < .5 else \
         punkt('Z', x, y, f'Eine Ameise läuft von A{p(ax, ay)} {lang[0][0]} nach rechts, {lang[1][0]} nach oben und {lang[2][0]} nach links. An welchem Punkt Z kommt sie an?',
               f'x: {zt(ax)} + {lang[0][0]} − {lang[2][0]} = {zt(x)}, y: {zt(ay)} + {lang[1][0]} = {zt(y)}. Z{p(x, y)}.', 'Rechts/links ändert x, oben ändert y.',
@@ -207,10 +238,43 @@ BEGRIFFE = [('Eine gerade Linie mit Anfangs- und Endpunkt heißt …', 'Strecke'
             ('Das Zeichen g ⊥ h bedeutet …', 'g ist senkrecht zu h', ['g ist parallel zu h', 'g ist länger als h', 'g berührt h'])]
 
 
+WARUM = {'Strecke': 'Eine Strecke hat einen Anfangs- und einen Endpunkt, deshalb kann man ihre Länge messen.',
+         'Gerade': 'Eine Gerade hat keinen Anfang und kein Ende, sie geht in beide Richtungen unendlich weiter.',
+         'Halbgerade': 'Eine Halbgerade hat einen Anfangspunkt, geht aber auf einer Seite unendlich weiter.',
+         'senkrecht zueinander': 'Senkrecht heißt: Die Geraden bilden einen rechten Winkel (90°).',
+         'parallel': 'Parallele Geraden haben überall denselben Abstand, deshalb schneiden sie sich nie.',
+         'Lot': 'Das Lot steht senkrecht auf der Geraden – das ist der kürzeste Weg.',
+         'keinen': 'Parallele Geraden haben überall denselben Abstand und treffen sich deshalb nie.',
+         'genau einen': None, 'genau eine': 'Durch zwei verschiedene Punkte kann man genau eine Gerade legen – mit dem Lineal gibt es nur eine Möglichkeit.',
+         'unendlich viele': 'Um einen einzigen Punkt kann man das Lineal in jede Richtung drehen: unendlich viele Geraden.',
+         'g ist parallel zu h': 'Das Zeichen ∥ sieht aus wie zwei parallele Striche: g und h schneiden sich nie und haben überall denselben Abstand.',
+         'g ist senkrecht zu h': 'Das Zeichen ⊥ zeigt einen rechten Winkel: g und h schneiden sich im 90°-Winkel.'}
+
+
+def _linienbild():
+    arten = ['Strecke', 'Halbgerade', 'Gerade']
+    R.shuffle(arten)
+    P, L = {}, []
+    for k, a in enumerate(arten):
+        y = 4 - 2 * k
+        if a == 'Strecke': P['A'], P['B'] = [2, y], [6, y]; L.append(['A', 'B', f'Linie {k + 1}'])
+        elif a == 'Halbgerade': P['C'], P[f'_E{k}'] = [2, y], [10, y]; L.append(['C', f'_E{k}', f'Linie {k + 1}'])
+        else: P[f'_G{k}a'], P[f'_G{k}b'] = [0, y], [10, y]; L.append([f'_G{k}a', f'_G{k}b', f'Linie {k + 1}'])
+    frage, ziel = R.choice([('Welche Linie ist eine Halbgerade?', 'Halbgerade'), ('Welche Linie ist eine Strecke?', 'Strecke'),
+                            ('Welche Linie ist eine Gerade?', 'Gerade'), ('Welche Linie hat eine messbare Länge?', 'Strecke')])
+    i = arten.index(ziel)
+    return {'y': 'auswahl', 'a': ['Linie 1', 'Linie 2', 'Linie 3'], 'o': {'index': i},
+            'f': {'text': f'Die Punkte markieren Anfangs- und Endpunkte. Wo kein Punkt ist, geht die Linie bis zum Bildrand und weiter. {frage}',
+                  'grafik': {'typ': 'figur', 'punkte': P, 'linien': L}},
+            'w': f'Linie {i + 1} ist eine {ziel}: {WARUM[ziel]}', 'h': 'Zähle die Endpunkte: zwei, einer oder keiner?'}
+
+
 def g_lage(st):
     if st == 1:
+        if R.random() < .4: return _linienbild()
         t, r, f = R.choice(BEGRIFFE)
-        return {**wahl(R, r, f), 'f': {'text': t}, 'w': f'Richtig ist: {r}. So steht es in der Erklärung.', 'h': 'Denke an die Fachbegriffe aus der Erklärung.'}
+        warum = WARUM.get(r) or 'Zwei Geraden, die senkrecht zueinander sind, kreuzen sich an genau einer Stelle.'
+        return {**wahl_rund(R, r, f), 'f': {'text': t}, 'w': f'Richtig ist: {r}. {warum}', 'h': 'Denke an die Fachbegriffe aus der Erklärung.'}
     if st == 2:
         c = R.randint(-6, 6)
         x, y = R.randint(-8, 8), R.randint(-8, 8)
@@ -250,6 +314,9 @@ def g_lage(st):
 TYP = {-1: 'Sekante (2 Schnittpunkte)', 0: 'Tangente (1 Berührpunkt)', 1: 'Passante (kein gemeinsamer Punkt)'}
 
 
+KR = set()
+
+
 def vgl(d, r): return (d > r) - (d < r)
 
 
@@ -279,19 +346,29 @@ def g_kreis(st):
     if art == 0:
         r1, r2 = R.randint(2, 7), R.randint(2, 7)
         e = R.choice([r1 + r2, r1 + r2 + R.randint(1, 4), R.randint(abs(r1 - r2) + 1, r1 + r2 - 1) if r1 + r2 - 1 > abs(r1 - r2) else r1 + r2])
+        if r1 != r2 and R.random() < .4:      # ein Kreis im anderen (Prüfung): innen berührend oder ganz innen
+            r1, r2 = max(r1, r2), min(r1, r2)
+            e = r1 - r2 if R.random() < .5 or r1 - r2 == 1 else R.randint(1, r1 - r2 - 1)
+            n = 1 if e == r1 - r2 else 0
+            return {'y': 'zahl', 'f': {'text': f'Zwei Kreise haben die Radien {r1} cm und {r2} cm. Ihre Mittelpunkte sind {e} cm voneinander entfernt. Wie viele gemeinsame Punkte haben sie?'},
+                    'o': {'wert': n}, 'c': f'{n}',
+                    'w': f'r₁ − r₂ = {r1 - r2} cm. ' + ('Der Abstand ist gleich dem Unterschied: Der kleine Kreis berührt den großen von innen (1 Punkt).' if n == 1 else 'Der Abstand ist kleiner als der Unterschied: Der kleine Kreis liegt ganz im großen, kein gemeinsamer Punkt.'),
+                    'h': 'Liegt ein Kreis im anderen? Vergleiche den Abstand der Mittelpunkte auch mit r₁ − r₂.'}
         n = 2 if abs(r1 - r2) < e < r1 + r2 else 1 if e == r1 + r2 else 0
         return {'y': 'zahl', 'f': {'text': f'Zwei Kreise haben die Radien {r1} cm und {r2} cm. Ihre Mittelpunkte sind {e} cm voneinander entfernt. Wie viele gemeinsame Punkte haben sie?'},
                 'o': {'wert': n}, 'c': f'{n}', 'w': f'r₁ + r₂ = {r1 + r2} cm. ' + ('Abstand gleich der Summe: Sie berühren sich (1 Punkt).' if n == 1 else 'Abstand größer als die Summe: kein gemeinsamer Punkt.' if n == 0 else 'Abstand kleiner als die Summe (und größer als der Unterschied): 2 Schnittpunkte.'),
                 'h': 'Vergleiche den Abstand der Mittelpunkte mit r₁ + r₂.'}
     if art == 1:
         r = R.choice([3, 4, 5, 8, 10, 12, 15])
-        d = R.choice([r - 2, r, r + 3, r - 1])
+        d = R.choice([r - 2, r + 1, r + 3, r - 1])          # nie genau auf der Grenze (Prüfung)
         ja = d <= r
         rr = 'Ja, der Ort liegt innerhalb der Reichweite.' if ja else 'Nein, der Ort liegt außerhalb der Reichweite.'
         return {**wahl(R, rr, ['Nein, der Ort liegt außerhalb der Reichweite.' if ja else 'Ja, der Ort liegt innerhalb der Reichweite.', 'Das hängt von der Richtung ab.'], 3),
                 'f': {'text': f'Ein Funkmast reicht {r} km weit in jede Richtung. Ein Dorf ist {d} km vom Mast entfernt. Hat das Dorf Empfang?'},
                 'w': f'Der Empfangsbereich ist ein Kreis mit Radius {r} km. {d} km {"≤" if ja else ">"} {r} km.', 'h': 'Alle Punkte bis zum Abstand r liegen im Kreis – in jede Richtung gleich weit.'}
     mx, my, r = R.randint(-3, 3), R.randint(-3, 3), R.randint(2, 6)
+    if (mx, r) in KR: return g_kreis(3)          # keine zwei Aufgaben mit derselben Lösung (Prüfung)
+    KR.add((mx, r))
     return luecke([mx - r, mx + r], f'Ein Kreis um M{p(mx, my)} mit r = {r} schneidet die waagrechte Linie durch M in zwei Punkten. Welche x-Koordinaten haben sie? (kleinere zuerst)',
                   'x = □ und x = □', 'Kleinere Zahl zuerst.', [f'({mx}) - {r}', f'({mx}) + {r}'], f'Von M aus {r} nach links: {zt(mx - r)}, {r} nach rechts: {zt(mx + r)}.',
                   'Alle Kreispunkte sind r von M entfernt.')
@@ -320,11 +397,17 @@ def g_wart(st):
                 'w': f'{a}° ' + {'spitz': 'ist kleiner als 90°: spitz.', 'recht': 'ist genau 90°: rechter Winkel.', 'stumpf': 'liegt zwischen 90° und 180°: stumpf.',
                                  'gestreckt': 'ist genau 180°: gestreckt.', 'überstumpf': 'liegt zwischen 180° und 360°: überstumpf.'}[r], 'h': 'Vergleiche mit 90°, 180° und 360°.'}
     if st == 2:
+        if R.random() < .3:          # Winkel schätzen am Bild (Prüfung)
+            a = R.choice([20, 30, 40, 50, 60, 70, 110, 120, 130, 140, 150, 160])
+            f = [180 - a, 360 - a, 90 if abs(a - 90) >= 40 else (a + 60 if a < 90 else a - 60)]
+            return {**wahl_rund(R, f'{a}°', [f'{x}°' for x in f]), 'f': {'text': 'Schätze: Wie groß ist der Winkel α ungefähr?', 'grafik': winkelfigur(a, 'α')},
+                    'w': f'α ist {"kleiner" if a < 90 else "größer"} als ein rechter Winkel und kleiner als 180°: etwa {a}°. {180 - a}° wäre der Winkel auf der anderen Seite des gestreckten Winkels.',
+                    'h': 'Vergleiche mit einem rechten Winkel (90°) und einem gestreckten Winkel (180°).'}
         a = R.randint(10, 170)
         if a == 90: a = 95
         return {'y': 'zahl', 'f': {'text': f'Zwei Schenkel bilden einen Winkel von {a}°. Wie groß ist der überstumpfe Winkel zwischen denselben Schenkeln (auf der anderen Seite)?'},
                 'o': {'wert': 360 - a, 'einheit': '°'}, 'c': f'360 - {a}', 'w': f'Beide Winkel zusammen ergeben den Vollwinkel: 360° − {a}° = {360 - a}°.', 'h': 'Beide Winkel zusammen ergeben 360°.'} if R.random() < .5 else \
-            {**wahl(R, art(a), [x for x in ARTEN if x != art(a)]), 'f': {'text': f'Ein Winkel ist {"halb" if a % 2 == 0 else "um 10° kleiner als"} {"so groß wie " + str(2 * a) + "°" if a % 2 == 0 else str(a + 10) + "°"}. Welche Winkelart ist er?'},
+            {**wahl(R, art(a), [x for x in ARTEN if x != art(a)]), 'f': {'text': f'Ein Winkel ist halb so groß wie ein Winkel von {2 * a}°. Welche Winkelart ist er?' if a % 2 == 0 else f'Ein Winkel ist 10° kleiner als ein Winkel von {a + 10}°. Welche Winkelart ist er?'},
              'w': f'Der Winkel ist {a}°, also {art(a)}.', 'h': 'Rechne zuerst die Größe des Winkels aus.'}
     k = R.randrange(3)
     if k == 0:
@@ -384,6 +467,29 @@ def g_viereck(st):
         else: t, r = f'Die Seiten sind der Reihe nach {a} cm, {a} cm, {c} cm und {c} cm lang.', 'Drachenviereck'
         return {**wahl(R, r, [x for x in ['Quadrat', 'Rechteck', 'Raute', 'Drachenviereck', 'Trapez'] if x != r][:3]), 'f': {'text': f'{t} Welches Viereck ist das (genauester Name)?', 'grafik': vfigur(typ, a, c)},
                 'w': f'Das ist {ART[r]} {r}.', 'h': 'Welche Eigenschaften hat es genau? Nimm den genauesten Namen.'}
+    if st == 2 and R.random() < .45:      # Viereck aus Koordinaten erkennen (Prüfung)
+        typ = R.choice(['Quadrat', 'Rechteck', 'Parallelogramm', 'Trapez', 'Raute', 'Drachenviereck'])
+        a, b = R.sample(range(2, 7), 2)
+        if typ == 'Quadrat': pts = [(0, 0), (a, 0), (a, a), (0, a)]
+        elif typ == 'Rechteck': pts = [(0, 0), (a, 0), (a, b), (0, b)]
+        elif typ == 'Parallelogramm':
+            s_ = R.randint(1, 3); pts = [(0, 0), (a, 0), (a + s_, b), (s_, b)]
+            if s_ * s_ + b * b == a * a: return g_viereck(st)          # wäre eine Raute
+        elif typ == 'Trapez': s_ = R.randint(1, 2); pts = [(0, 0), (a + 2 * s_ + 1, 0), (a + s_ + 1, b), (s_, b)]
+        elif typ == 'Raute': pts = [(0, -b), (a, 0), (0, b), (-a, 0)]
+        else:
+            c = b + R.randint(1, 3); pts = [(0, -c), (a, 0), (0, b), (-a, 0)]
+        dx, dy = R.randint(-3, 2), R.randint(-3, 2)
+        pts = [(x + dx, y + dy) for x, y in pts]
+        namen = 'ABCD'
+        nahe = {'Quadrat': ['Rechteck', 'Raute', 'Parallelogramm'], 'Rechteck': ['Quadrat', 'Parallelogramm', 'Trapez'], 'Parallelogramm': ['Rechteck', 'Trapez', 'Raute'],
+                'Trapez': ['Parallelogramm', 'Drachenviereck', 'Rechteck'], 'Raute': ['Quadrat', 'Drachenviereck', 'Parallelogramm'], 'Drachenviereck': ['Raute', 'Trapez', 'Parallelogramm']}[typ]
+        warum = {'Quadrat': 'alle Seiten gleich lang und alle Winkel 90°', 'Rechteck': 'alle Winkel 90°, aber zwei verschiedene Seitenlängen',
+                 'Parallelogramm': 'zwei Paare paralleler Seiten, aber keine rechten Winkel', 'Trapez': 'nur die untere und die obere Seite sind parallel',
+                 'Raute': 'alle vier Seiten sind gleich lang, aber es gibt keine rechten Winkel', 'Drachenviereck': 'je zwei benachbarte Seiten sind gleich lang, aber nicht alle vier'}[typ]
+        return {**wahl_rund(R, typ, nahe), 'f': {'text': 'Das Viereck ABCD hat die Ecken ' + ', '.join(f'{namen[k]}{p(*q)}' for k, q in enumerate(pts)) + '. Wie heißt es (genauester Name)?',
+                                                 'grafik': ks([(q[0], q[1], namen[k]) for k, q in enumerate(pts)], [(*pts[k], *pts[(k + 1) % 4]) for k in range(4)])},
+                'w': f'Es ist {ART[typ]} {typ}: {warum}.', 'h': 'Prüfe: parallele Seiten, gleich lange Seiten, rechte Winkel.'}
     if st == 2:
         x1, y1 = R.randint(-6, 2), R.randint(-6, 2)
         a, h, s = R.randint(3, 6), R.randint(2, 5), R.randint(1, 3)
@@ -392,41 +498,53 @@ def g_viereck(st):
         return mit(punkt('D', D[0], D[1], f'ABCD ist ein Parallelogramm mit A{p(*A)}, B{p(*B)} und C{p(*C)}. Welche Koordinaten hat D?',
                      f'Von B nach C geht es {s} nach rechts und {h} nach oben. Dasselbe von A aus: D{p(*D)}.', 'Die Seite [AD] ist parallel und gleich lang wie [BC]: gleiche Verschiebung.',
                      f'({x1}) + {s}', f'({y1}) + {h}'), ks([(A[0], A[1], 'A'), (B[0], B[1], 'B'), (C[0], C[1], 'C')], [(A[0], A[1], B[0], B[1]), (B[0], B[1], C[0], C[1])]))
-    aussagen = [('Jedes Quadrat ist ein Rechteck.', True), ('Jedes Rechteck ist ein Quadrat.', False), ('Jede Raute ist ein Parallelogramm.', True),
-                ('Jedes Parallelogramm ist ein Trapez.', True), ('Jedes Trapez ist ein Parallelogramm.', False), ('Jedes Quadrat ist eine Raute.', True),
-                ('Jede Raute ist ein Quadrat.', False), ('Jedes Rechteck ist ein Parallelogramm.', True), ('Jede Raute ist ein Drachenviereck.', True),
-                ('Jedes Drachenviereck ist eine Raute.', False)]
-    s, stimmt = R.choice(aussagen)
-    r = 'Ja, das stimmt immer.' if stimmt else 'Nein, es gibt Gegenbeispiele.'
-    return {**wahl(R, r, ['Nein, es gibt Gegenbeispiele.' if stimmt else 'Ja, das stimmt immer.', 'Nur manchmal, das hängt von der Größe ab.'], 3), 'f': {'text': f'Stimmt die Aussage? „{s}“'},
-            'w': ('Ja: Das erste Viereck hat alle Eigenschaften des zweiten.' if stimmt else 'Nein: Das zweite Viereck verlangt Eigenschaften, die das erste nicht immer hat.') + ' Vergleiche die Eigenschaften aus der Erklärung.',
-            'h': 'Hat das erste Viereck immer alle Eigenschaften des zweiten?'}
+    aussagen = [  # Prüfung: konkrete Lösungswege, Ablenker aus Denkfehlern
+        ('Jedes Quadrat ist ein Rechteck.', 'Ja: Ein Quadrat hat vier rechte Winkel wie jedes Rechteck.', ['Nein: Ein Rechteck muss zwei verschiedene Seitenlängen haben.', 'Nein: Ein Quadrat hat keine rechten Winkel.']),
+        ('Jedes Rechteck ist ein Quadrat.', 'Nein: Ein Rechteck mit 3 cm und 5 cm langen Seiten ist kein Quadrat.', ['Ja: Beide haben vier rechte Winkel.', 'Ja: Beide haben vier gleich lange Seiten.']),
+        ('Jede Raute ist ein Parallelogramm.', 'Ja: Jede Raute hat zwei Paare paralleler Seiten.', ['Nein, nur wenn alle Winkel 90° sind.', 'Nein: Eine Raute hat keine parallelen Seiten.']),
+        ('Jedes Parallelogramm ist ein Trapez.', 'Ja: Ein Trapez braucht ein Paar paralleler Seiten, ein Parallelogramm hat sogar zwei.', ['Nein: Ein Parallelogramm hat keine parallelen Seiten.', 'Nein, nur wenn alle Winkel 90° sind.']),
+        ('Jedes Trapez ist ein Parallelogramm.', 'Nein: Ein Trapez mit nur einem Paar paralleler Seiten ist kein Parallelogramm.', ['Ja: Beide haben parallele Seiten.', 'Ja, aber nur wenn alle Winkel 90° sind.']),
+        ('Jedes Quadrat ist eine Raute.', 'Ja: Ein Quadrat hat vier gleich lange Seiten wie jede Raute.', ['Nein: Eine Raute darf keine rechten Winkel haben.', 'Nein: Ein Quadrat hat nur zwei gleich lange Seiten.']),
+        ('Jede Raute ist ein Quadrat.', 'Nein: Eine Raute ohne rechte Winkel ist kein Quadrat.', ['Ja: Beide haben vier gleich lange Seiten.', 'Ja: Jede Raute hat vier rechte Winkel.']),
+        ('Jedes Rechteck ist ein Parallelogramm.', 'Ja: Gegenüberliegende Seiten eines Rechtecks sind parallel.', ['Nein: Ein Parallelogramm darf keine rechten Winkel haben.', 'Nein, nur wenn alle Seiten gleich lang sind.']),
+        ('Jede Raute ist ein Drachenviereck.', 'Ja: Bei einer Raute sind auch je zwei benachbarte Seiten gleich lang.', ['Nein: Ein Drachenviereck hat keine gleich langen Seiten.', 'Nein, nur wenn alle Winkel 90° sind.']),
+        ('Jedes Drachenviereck ist eine Raute.', 'Nein: Ein Drachenviereck mit den Seiten 3 cm, 3 cm, 5 cm, 5 cm ist keine Raute.', ['Ja: Beide haben gleich lange benachbarte Seiten.', 'Ja, aber nur wenn alle Winkel 90° sind.'])]
+    s_, r, f = R.choice(aussagen)
+    return {**wahl_rund(R, r, f, 3), 'f': {'text': f'Stimmt die Aussage? „{s_}“'}, 'w': r,
+            'h': 'Hat das erste Viereck immer alle Eigenschaften des zweiten? Suche ein Gegenbeispiel.'}
 
 
 # ---------- 7 Verstehen ----------
+# Prüfung: jede Antwort mit gleich gebauter Begründung; höchstens 4 Aufgaben je Muster
+MUSTER = {}
+
+
 def g_vers(st):
     x, y = R.randint(1, 8), R.randint(1, 8)
     if x == y: y += 1
     r = R.randint(2, 6)
     if st == 1:
-        aussagen = [(f'Der Punkt ({x} | {y}) ist derselbe wie ({y} | {x}).', False, f'Nein, zuerst steht x: ({x} | {y}) liegt {x} rechts und {y} oben, ({y} | {x}) umgekehrt.'),
-                    ('Eine Strecke kann man messen, eine Gerade nicht.', True, 'Ja, eine Gerade ist unendlich lang.'),
-                    (f'Ein Winkel von {90 + x}° ist spitz.', False, f'Nein, {90 + x}° ist größer als 90°, also stumpf.'),
-                    (f'Ein Kreis mit Radius {r} cm hat den Durchmesser {2 * r} cm.', True, f'Ja, der Durchmesser ist doppelt so lang: 2 · {r} = {2 * r}.')]
+        aussagen = [('tausch', f'Der Punkt ({x} | {y}) ist derselbe wie ({y} | {x}).', f'Nein: ({x} | {y}) liegt {x} rechts und {y} oben, ({y} | {x}) umgekehrt.', [f'Ja: Beide Punkte haben die Zahlen {x} und {y}.', 'Ja: Die Reihenfolge der Koordinaten ist egal.']),
+                    ('messen', 'Eine Strecke kann man messen, eine Gerade nicht.', 'Ja: Eine Strecke hat zwei Endpunkte, eine Gerade ist unendlich lang.', ['Nein: Beide kann man mit dem Lineal messen.', 'Nein: Nur eine Gerade hat eine Länge.']),
+                    ('spitz', f'Ein Winkel von {90 + x}° ist spitz.', f'Nein: {90 + x}° ist größer als 90°, also stumpf.', [f'Ja: {90 + x}° ist kleiner als 180°.', f'Nein: {90 + x}° ist überstumpf.']),
+                    ('kreis', f'Ein Kreis mit Radius {r} cm hat den Durchmesser {2 * r} cm.', f'Ja: Der Durchmesser ist doppelt so lang: 2 · {r} cm = {2 * r} cm.', [f'Nein: Der Durchmesser ist halb so lang: {zt(Fr(r, 2))} cm.', f'Nein: Der Durchmesser ist so lang wie der Radius: {r} cm.'])]
     elif st == 2:
-        aussagen = [(f'Der Punkt (−{x} | {y}) liegt links von der y-Achse.', True, 'Ja, eine negative x-Koordinate heißt links.'),
-                    (f'Die Strecke von (−{x} | 0) bis ({y} | 0) ist {abs(y - x)} lang.', False, f'Nein, sie ist {x} + {y} = {x + y} lang.'),
-                    (f'Eine Gerade mit Abstand {r} cm vom Mittelpunkt eines Kreises mit r = {r} cm ist eine Sekante.', False, 'Nein, d = r: Das ist eine Tangente.'),
-                    ('Zwei Geraden, die beide senkrecht zu einer dritten sind, sind parallel zueinander.', True, 'Ja, beide stehen im rechten Winkel auf derselben Geraden.')]
+        aussagen = [('links', f'Der Punkt (−{x} | {y}) liegt links von der y-Achse.', 'Ja: Eine negative x-Koordinate heißt links.', ['Nein: Er liegt rechts, weil y positiv ist.', 'Nein: Er liegt unter der x-Achse.']),
+                    ('unten', f'Der Punkt ({x} | −{y}) liegt unter der x-Achse.', 'Ja: Eine negative y-Koordinate heißt unten.', ['Nein: Er liegt links, weil eine Koordinate negativ ist.', 'Nein: Er liegt oben, weil x positiv ist.']),
+                    ('strecke', f'Die Strecke von (−{x} | 0) bis ({y} | 0) ist {abs(y - x)} lang.', f'Nein: Sie ist {x} + {y} = {x + y} lang.', [f'Ja: denn {max(x, y)} − {min(x, y)} = {abs(y - x)}.', f'Nein: Sie ist {max(x, y)} lang, man zählt nur bis zur größeren Zahl.']),
+                    ('tangente', f'Eine Gerade mit Abstand {r} cm vom Mittelpunkt eines Kreises mit r = {r} cm ist eine Sekante.', 'Nein: d = r, das ist eine Tangente mit genau einem Berührpunkt.', ['Ja: Jede Gerade, die den Kreis trifft, ist eine Sekante.', 'Nein: d = r, das ist eine Passante.']),
+                    ('abstand', f'Der Punkt P({x} | {y}) hat von der x-Achse den Abstand {x}.', f'Nein: Der Abstand zur x-Achse ist die y-Koordinate, also {y}.', [f'Ja: Der Abstand ist immer die erste Koordinate, also {x}.', f'Nein: Der Abstand ist {x} + {y} = {x + y}.']),
+                    ('lot', 'Zwei Geraden, die beide senkrecht zu einer dritten sind, sind parallel zueinander.', 'Ja: Beide stehen im rechten Winkel auf derselben Geraden.', ['Nein: Sie stehen senkrecht zueinander.', 'Nein: Sie schneiden sich auf der dritten Geraden.'])]
     else:
-        aussagen = [('Zwei Kreise können genau drei gemeinsame Punkte haben.', False, 'Nein, möglich sind nur 0, 1 oder 2 gemeinsame Punkte (oder alle, wenn sie gleich sind).'),
-                    ('Jedes Viereck mit vier gleich langen Seiten ist ein Quadrat.', False, 'Nein, Gegenbeispiel: eine Raute ohne rechte Winkel.'),
-                    ('Der Abstand eines Punktes zu einer Geraden wird senkrecht gemessen.', True, 'Ja, entlang des Lots – das ist die kürzeste Verbindung.'),
-                    (f'Ein Winkel von {180 + x * 10}° ist stumpf.', False, f'Nein, {180 + x * 10}° liegt zwischen 180° und 360°: überstumpf.'),
-                    ('Eine Tangente schneidet den Kreis in zwei Punkten.', False, 'Nein, eine Tangente berührt den Kreis in genau einem Punkt.')]
-    s, stimmt, grund = R.choice(aussagen)
-    gegen = 'Ja, das stimmt.' if not stimmt else 'Nein, das ist falsch.'
-    return {**wahl(R, grund, [gegen, 'Das kann man nicht entscheiden.'], 3), 'f': {'text': f'Stimmt die Aussage? „{s}“'}, 'w': grund, 'h': 'Mach eine Skizze oder suche ein Gegenbeispiel.'}
+        aussagen = [('drei', 'Zwei Kreise können genau drei gemeinsame Punkte haben.', 'Nein: Möglich sind nur 0, 1 oder 2 gemeinsame Punkte (oder alle, wenn die Kreise gleich sind).', ['Ja: wenn sich die Kreise oft genug überlappen.', 'Ja: wenn ein Kreis im anderen liegt.']),
+                    ('raute', 'Jedes Viereck mit vier gleich langen Seiten ist ein Quadrat.', 'Nein: Eine Raute ohne rechte Winkel hat auch vier gleich lange Seiten.', ['Ja: Vier gleich lange Seiten reichen für ein Quadrat.', 'Ja, wenn die Seiten länger als 1 cm sind.']),
+                    ('senkrecht', 'Der Abstand eines Punktes zu einer Geraden wird senkrecht gemessen.', 'Ja: entlang des Lots – das ist die kürzeste Verbindung.', ['Nein: Man misst immer waagrecht.', 'Nein: Man darf in jede Richtung messen.']),
+                    ('ueber', f'Ein Winkel von {180 + x * 10}° ist stumpf.', f'Nein: {180 + x * 10}° liegt zwischen 180° und 360°, also überstumpf.', [f'Ja: {180 + x * 10}° ist größer als 90°.', f'Nein: {180 + x * 10}° ist ein gestreckter Winkel.']),
+                    ('tangente2', 'Eine Tangente schneidet den Kreis in zwei Punkten.', 'Nein: Eine Tangente berührt den Kreis in genau einem Punkt.', ['Ja: Jede Gerade durch einen Kreis hat zwei Schnittpunkte.', 'Nein: Eine Tangente hat keinen gemeinsamen Punkt mit dem Kreis.'])]
+    frei = [a for a in aussagen if MUSTER.get(a[0], 0) < 4]
+    k, s_, r_, f = R.choice(frei)
+    MUSTER[k] = MUSTER.get(k, 0) + 1
+    return {**wahl_rund(R, r_, f, 3), 'f': {'text': f'Stimmt die Aussage? „{s_}“'}, 'w': r_, 'h': 'Mach eine Skizze oder suche ein Gegenbeispiel.'}
 
 
 GEN = {'koordinaten': g_koord, 'strecken': g_strecke, 'lagebeziehungen': g_lage, 'kreis_lage': g_kreis, 'winkelarten': g_wart, 'vierecke': g_viereck, 'verstehen': g_vers}

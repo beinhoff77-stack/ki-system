@@ -16,10 +16,10 @@ ETAPPEN = [
      'schritte': ['(−2)³ = (−2) · (−2) · (−2).', '(−2) · (−2) = 4 und 4 · (−2) = ⟦−8⟧.'],
      'fehler': '2⁴ = 8 ist falsch: Das wäre 2 · 4. Richtig ist ⟦2 · 2 · 2 · 2 = 16⟧. Achtung auch: −2² = −(2 · 2) = −4, aber (−2)² = 4.'},
     {'lernziel': 'negativer_exponent', 'titel': 'Negative Exponenten und Hoch 0',
-     'regel': 'Ein negativer Exponent bedeutet ⟦Kehrbruch⟧: a⁻ⁿ = 1/aⁿ. Außerdem gilt ⟦a⁰ = 1⟧ (für a ≠ 0) und a¹ = a.',
-     'schritte': ['2⁻³ = 1/2³.', '2³ = 8, also 2⁻³ = ⟦1/8⟧ = 0,125.'],
+     'regel': 'Ein negativer Exponent bedeutet ⟦Kehrbruch⟧: a⁻ⁿ = 1/aⁿ. Außerdem gilt ⟦a⁰ = 1⟧ (für a ≠ 0). Warum? Geht der Exponent um 1 runter, wird ⟦durch a geteilt⟧: 2³ = 8, 2² = 4, 2¹ = 2, 2⁰ = 1, 2⁻¹ = 1/2, 2⁻² = 1/4.',
+     'schritte': ['Setze die Reihe fort: 2⁰ = 1, 2⁻¹ = 1/2, 2⁻² = 1/4, 2⁻³ = 1/8.', 'Also 2⁻³ = 1/2³ = ⟦1/8⟧ = 0,125.'],
      'probe': '2⁻³ · 2³ = 1/8 · 8 = 1 ✓',
-     'fehler': '2⁻³ = −8 ist falsch: Das Minus im Exponenten macht ⟦keine negative Zahl⟧, sondern den ⟦Kehrbruch⟧: 1/8.'},
+     'fehler': '2⁰ = 0 ist falsch: Von 2¹ = 2 einmal durch 2 geteilt ergibt ⟦1⟧. Und 2⁻³ = −8 ist falsch: Das Minus im Exponenten macht ⟦keine negative Zahl⟧, sondern den Kehrbruch 1/8.'},
     {'lernziel': 'mal_gleiche_basis', 'titel': 'Gleiche Basis: malnehmen',
      'regel': 'Potenzen mit ⟦gleicher Basis⟧ multiplizierst du, indem du die ⟦Exponenten addierst⟧: aᵐ · aⁿ = aᵐ⁺ⁿ. Die Basis bleibt gleich.',
      'schritte': ['2³ · 2⁴ = (2 · 2 · 2) · (2 · 2 · 2 · 2): Das sind 3 + 4 = 7 Faktoren 2.', 'Also 2³ · 2⁴ = ⟦2⁷⟧ = 128.'],
@@ -86,7 +86,7 @@ def g_begriff(st):
             b, n = R.randint(2, 9), R.randint(2, 6)
             frage = R.choice(['Basis', 'Exponent'])
             r = str(b if frage == 'Basis' else n)
-            return {**wahl(R, r, [str(n if frage == 'Basis' else b), str(b * n), str(b ** n)]), 'f': {'text': f'Was ist bei {pt(b, n)} der {frage}?'},
+            return {**wahl(R, r, [str(n if frage == 'Basis' else b), str(b * n), str(b ** n)]), 'f': {'text': f'Was ist bei {pt(b, n)} {"die" if frage == "Basis" else "der"} {frage}?'},
                     'w': f'Bei {pt(b, n)} ist {b} die Basis (Grundzahl) und {n} der Exponent (Hochzahl).', 'h': 'Die Basis ist die große Zahl unten, der Exponent die kleine oben.'}
         b, n = R.randint(2, 10), R.randint(2, 4)
         return {'y': 'zahl', 'f': {'text': f'Berechne {pt(b, n)}.'}, 'o': {'wert': b ** n}, 'c': f'{b}**{n}',
@@ -111,16 +111,24 @@ def g_begriff(st):
     art = R.randrange(4)
     if art == 0:
         b, n = R.randint(2, 5), R.choice([2, 4])
+        if b * n == b ** n: return g_begriff(3)
         r = -(b ** n)
         return {**wahl(R, zt(r), [zt(b ** n), zt(-b * n), zt(b * n)]), 'f': {'text': f'Was ergibt −{b}{hoch(n)}? (Ohne Klammer!)'},
                 'w': f'Ohne Klammer gehört das Minus nicht zur Basis: −{b}{hoch(n)} = −({b}{hoch(n)}) = {zt(r)}. Dagegen wäre ({zt(-b)}){hoch(n)} = {b ** n}.', 'h': 'Der Exponent gehört nur zur Zahl direkt darunter.'}
     if art == 1:
-        a, m = R.randint(2, 5), R.randint(2, 5)
-        b, n = R.randint(2, 5), R.randint(2, 5)
-        if a ** m == b ** n or (a, m) == (b, n): return g_begriff(3)
-        r = pt(a, m) if a ** m > b ** n else pt(b, n)
-        return {**wahl(R, r, [pt(b, n) if r == pt(a, m) else pt(a, m), 'Beide sind gleich groß'], 3), 'f': {'text': f'Welche Zahl ist größer: {pt(a, m)} oder {pt(b, n)}?'},
-                'w': f'{pt(a, m)} = {a ** m}, {pt(b, n)} = {b ** n}. Größer: {r}.', 'h': 'Rechne beide Potenzen aus.'}
+        # nur knappe Fälle: Basis und Exponent vertauscht oder Werte nah beieinander
+        (a, m), (b, n) = R.choice([((2, 5), (5, 2)), ((3, 4), (4, 3)), ((2, 4), (4, 2)), ((2, 6), (6, 2)), ((3, 3), (5, 2)), ((2, 7), (5, 3)),
+                                   ((4, 4), (3, 5)), ((2, 8), (4, 4)), ((2, 9), (8, 3)), ((3, 5), (5, 3)), ((2, 10), (10, 3)), ((7, 2), (2, 6))])
+        if R.random() < .5: (a, m), (b, n) = (b, n), (a, m)
+        if a ** m == b ** n:
+            r = 'Beide sind gleich groß'
+            falsch = [pt(a, m), pt(b, n)]
+        else:
+            r = pt(a, m) if a ** m > b ** n else pt(b, n)
+            falsch = [pt(b, n) if r == pt(a, m) else pt(a, m), 'Beide sind gleich groß']
+        return {**wahl(R, r, falsch, 3), 'f': {'text': f'Welche Zahl ist größer: {pt(a, m)} oder {pt(b, n)}?'},
+                'w': f'{pt(a, m)} = {zt(a ** m)}, {pt(b, n)} = {zt(b ** n)}. ' + ('Beide sind gleich groß.' if a ** m == b ** n else f'Größer: {r}.') + ' Vertauschen von Basis und Exponent ändert den Wert meistens.',
+                'h': 'Rechne beide Potenzen aus. Raten nach der größeren Basis klappt hier nicht.'}
     if art == 2:
         k = R.randint(2, 9)
         return {'y': 'zahl', 'f': {'text': f'Ein Würfel hat die Kantenlänge {k} cm. Sein Volumen ist {k}³ cm³. Berechne das Volumen.'}, 'o': {'wert': k ** 3, 'einheit': 'cm³'}, 'c': f'{k}**3',
@@ -158,7 +166,13 @@ def g_neg(st):
         b, n = R.choice([2, 3, 5, 10]), R.randint(2, 5)
         return {'y': 'zahl', 'f': {'text': f'Schreibe 1/{zt(b ** n)} als Potenz mit der Basis {b}. Wie heißt der Exponent?'}, 'o': {'wert': -n}, 'c': f'-{n}',
                 'w': f'{zt(b ** n)} = {pt(b, n)}, also 1/{zt(b ** n)} = {pt(b, -n)}. Exponent: {zt(-n)}.', 'h': f'Schreibe zuerst den Nenner als Potenz von {b}.'}
-    art = R.randrange(3)
+    art = R.randrange(4)
+    if art == 3:
+        b, n = R.choice([(10, 1), (10, 2), (10, 3), (10, 4), (2, 1), (2, 2), (2, 3), (2, 4), (5, 1), (5, 2), (4, 1), (4, 2), (20, 1), (25, 1)])
+        x = Fr(1, b ** n)
+        return {'y': 'zahl', 'f': {'text': f'{zt(x)} = {b}ᵏ. Wie groß ist k?'}, 'o': {'wert': -n}, 'c': f'-{n}',
+                'w': f'{zt(x)} = 1/{zt(b ** n)} = 1/{pt(b, n)} = {pt(b, -n)}. Also k = {zt(-n)}.',
+                'h': f'Schreibe {zt(x)} als Bruch mit Zähler 1. Welche Potenz von {b} steht im Nenner?'}
     if art == 0:
         b, n = -R.randint(2, 4), R.choice([1, 3])
         r = Fr(b) ** -n
@@ -213,7 +227,7 @@ def g_mal(st):
         b = R.choice([2, 3, 5, 7])
         m, s = R.randint(2, 6), R.randint(8, 14)
         return {'y': 'zahl', 'f': {'text': f'Ergänze den Exponenten: {pt(b, m)} · {b}ᵏ = {pt(b, s)}. Wie groß ist k?'}, 'o': {'wert': s - m}, 'c': f'{s} - {m}',
-                'w': f'{m} + k = {s}, also k = {s} − {m} = {s - m}.', 'h': 'Welche Zahl musst du zu m addieren, damit s herauskommt?'}
+                'w': f'{m} + k = {s}, also k = {s} − {m} = {s - m}.', 'h': f'Welche Zahl musst du zu {m} addieren, damit {s} herauskommt?'}
     b = R.choice([2, 3])
     m, n = R.randint(1, 3), R.randint(1, 3)
     return {'y': 'zahl', 'f': {'text': f'Berechne {pt(b, m)} · {pt(b, n)} mit dem Potenzgesetz und gib den Wert an.'}, 'o': {'wert': b ** (m + n)}, 'c': f'{b}**{m} * {b}**{n}',
@@ -240,7 +254,8 @@ def g_geteilt(st):
             m, n = R.randint(-4, 7), R.randint(-4, 7)
             if 0 in (m, n) or m == n: return g_geteilt(2)
             return {'y': 'zahl', 'f': {'text': f'{v}{hoch(m)} : {v}{hoch(n)} = {v}ᵏ. Wie groß ist k?'}, 'o': {'wert': m - n}, 'c': f'({m}) - ({n})',
-                    'w': f'Exponenten subtrahieren: {kl(m)} − {kl(n)} = {zt(m - n)}.', 'h': 'Minus eine negative Zahl wird plus.'}
+                    'w': f'Exponenten subtrahieren: {kl(m)} − {kl(n)} = {zt(m - n)}.',
+                    'h': 'Exponenten subtrahieren: oben minus unten. Minus eine negative Zahl wird plus.' if n < 0 else 'Gleiche Basis beim Teilen: Exponenten subtrahieren.'}
         b = R.choice([2, 3, 5])
         n = R.randint(2, 3)
         m = n * R.randint(2, 3)
@@ -271,7 +286,23 @@ def g_geteilt(st):
 PAARE = [(2, 5), (4, 25), (5, 20), (2, 50), (4, 5), (25, 4), (8, 125), (2, 3), (3, 3)]
 
 
+def zerlegen():
+    """Rückwärts zerlegen: 36² = 4² · □² → 9."""
+    a, x = R.choice([(2, 5), (4, 9), (3, 4), (2, 7), (5, 4), (4, 25), (3, 8), (6, 5), (2, 50), (8, 5), (4, 6)])
+    n = R.randint(2, 5) if a * x <= 12 or a * x in (20, 100) else 2
+    if R.random() < .5:
+        txt = f'{pt(a * x, n)} = {pt(a, n)} · □{hoch(n)}. Welche Zahl gehört ins Kästchen?'
+    else:
+        txt = f'{pt(a * x, n)} = □{hoch(n)} · {pt(x, n)}. Welche Zahl gehört ins Kästchen?'
+        a, x = x, a
+    return {'y': 'zahl', 'f': {'text': txt}, 'o': {'wert': x}, 'c': f'{a * x} / {a}',
+            'w': f'Gleicher Exponent: {pt(a, n)} · {pt(x, n)} = ({a} · {x}){hoch(n)} = {pt(a * x, n)}. Gesucht ist {a * x} : {a} = {x}.',
+            'h': f'Gleicher Exponent heißt: Die Basen werden malgenommen. Welche Zahl mal {a} ergibt {a * x}?'}
+
+
 def g_gleichexp(st):
+    if st in (2, 3) and R.random() < .3:
+        return zerlegen()
     if st == 1:
         a, b = R.choice([(2, 5), (4, 25), (5, 20), (20, 5), (5, 2), (2, 50), (25, 4), (50, 2)])
         n = R.randint(2, 4) if a * b == 10 else R.randint(2, 3)
@@ -363,7 +394,35 @@ def g_anw(st):
 
 
 # ---------- 7 Fehler finden ----------
+RECHNUNG = [0]   # Vorlage „Stimmt die Rechnung?“ höchstens 10-mal
+
+
+def fehler_benennen():
+    """Fehler in einer Potenzrechnung benennen (Auswahl)."""
+    b = R.randint(2, 5)
+    m, n = R.randint(2, 4), R.randint(2, 4)
+    erk = {'basis': f'Die Basis bleibt {b}, nur die Exponenten werden addiert: {pt(b, m + n)}.',
+           'mal': f'Die Exponenten werden addiert, nicht malgenommen: {pt(b, m + n)}.',
+           'teilen': f'Exponenten subtrahieren, nicht teilen: {pt(b, m * n - n)}.',
+           'negativ': f'Ein negativer Exponent bedeutet Kehrbruch, keine negative Zahl: {pt(b, -m)} = 1/{b ** m}.',
+           'gleichexp': f'Gleicher Exponent: Basen malnehmen, der Exponent bleibt: {pt(10, m)}.'}
+    art = R.choice(list(erk))
+    if art == 'basis': txt = f'{pt(b, m)} · {pt(b, n)} = {pt(b * b, m + n)}'
+    elif art == 'mal':
+        if m * n == m + n: return fehler_benennen()
+        txt = f'{pt(b, m)} · {pt(b, n)} = {pt(b, m * n)}'
+    elif art == 'teilen': txt = f'{pt(b, m * n)} : {pt(b, n)} = {pt(b, m)}'
+    elif art == 'negativ': txt = f'{pt(b, -m)} = {zt(-(b ** m))}'
+    else: txt = f'{pt(2, m)} · {pt(5, m)} = {pt(10, 2 * m)}'
+    andere = [erk[k] for k in erk if k != art]
+    R.shuffle(andere)
+    return {**wahl(R, erk[art], andere[:2] + ['Nichts, die Rechnung ist richtig.']), 'f': {'text': f'Ein Kind rechnet: {txt}. Was ist falsch?'},
+            'w': erk[art], 'h': 'Schreibe die Potenzen aus oder rechne mit kleinen Zahlen nach.'}
+
+
 def g_fehler(st):
+    if st == 3 or (st == 2 and R.random() < .5) or RECHNUNG[0] >= 10:
+        return fehler_benennen()
     b = R.randint(2, 5)
     m, n = R.randint(2, 4), R.randint(2, 4)
     if st == 1:
@@ -371,22 +430,18 @@ def g_fehler(st):
                     (f'{pt(b, m)} · {pt(b, n)} = {pt(b, m + n)}', True, 'Ja, gleiche Basis: Exponenten addieren.'),
                     (f'{pt(b, -m)} ist eine negative Zahl.', False, f'Nein, {pt(b, -m)} = 1/{b ** m} ist positiv.'),
                     (f'{b}⁰ = 0', False, f'Nein, jede Zahl außer 0 hoch 0 ergibt 1: {b}⁰ = 1.')]
-    elif st == 2:
+    else:
         aussagen = [(f'{pt(b, m)} · {pt(b, n)} = {pt(b, m * n)}', m * n == m + n, f'{"Ja" if m * n == m + n else "Nein"}, die Exponenten werden addiert: {pt(b, m + n)}.'),
                     (f'{pt(b, m + n)} : {pt(b, n)} = {pt(b, m)}', True, 'Ja, Exponenten subtrahieren.'),
                     (f'{pt(-b, 2)} = {zt(-b * b)}', False, f'Nein, ({zt(-b)}) · ({zt(-b)}) = {b * b}.'),
                     (f'{pt(2, m)} · {pt(5, m)} = {pt(10, 2 * m)}', False, f'Nein, gleicher Exponent: Basen malnehmen, Exponent bleibt: {pt(10, m)}.')]
-    else:
-        aussagen = [(f'{pt(b, m)} · {pt(b, n)} = {pt(b * b, m + n)}', False, f'Nein, die Basis bleibt: {pt(b, m + n)}.'),
-                    (f'{pt(b, 2 * m)} : {pt(b, m)} = {pt(b, 2)}', m == 2, f'{"Ja" if m == 2 else "Nein"}, Exponenten subtrahieren: {pt(b, 2 * m - m)}.'),
-                    (f'−{b}² = {b * b}', False, f'Nein, ohne Klammer: −{b}² = −{b * b}.'),
-                    (f'{pt(b, -1)} · {b} = 1', True, f'Ja, 1/{b} · {b} = 1.'),
-                    (f'{pt(b, m)} + {pt(b, n)} = {pt(b, m + n)}', False, f'Nein, für Plus gibt es kein Potenzgesetz: {b ** m} + {b ** n} = {b ** m + b ** n}, aber {pt(b, m + n)} = {b ** (m + n)}.')]
-    s, stimmt, grund = R.choice(aussagen)
+    s_, stimmt, grund = R.choice(aussagen)
     if stimmt and not grund.startswith('Ja'): grund = 'Ja. ' + grund
     if not stimmt and not grund.startswith('Nein'): grund = 'Nein. ' + grund
-    gegen = 'Ja, das stimmt.' if not stimmt else 'Nein, das ist falsch.'
-    return {**wahl(R, grund, [gegen, 'Das kann man nicht entscheiden.'], 3), 'f': {'text': f'Stimmt die Rechnung? {s}'},
+    rechnung = '=' in s_
+    if rechnung: RECHNUNG[0] += 1
+    gegen = ('Ja, das stimmt.' if rechnung else 'Ja, die Aussage stimmt.') if not stimmt else ('Nein, das ist falsch.' if rechnung else 'Nein, die Aussage ist falsch.')
+    return {**wahl(R, grund, [gegen, 'Das kann man nicht entscheiden.'], 3), 'f': {'text': f'Stimmt die Rechnung? {s_}' if rechnung else f'Stimmt die Aussage? „{s_}“'},
             'w': grund, 'h': 'Prüfe mit Ausschreiben oder Ausrechnen.'}
 
 

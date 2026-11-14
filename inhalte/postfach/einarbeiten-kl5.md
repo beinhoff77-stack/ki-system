@@ -1,5 +1,9 @@
 # Postfach einarbeiten-kl5
 
+## 2026-11-14 16:50 – STATUS
+messen.flaechen fertig: 15 Prüfpunkte umgesetzt, 0 abgelehnt, 1 Vorschlag zurückgestellt (eigene Lernkarte „Näherungswerte mit Rechtecken“ – steht weiter unter offen). Bild in einheiten korrigiert, neue U-Form-Figur. 7 Lernkarten / 196 Aufgaben, Prüfskript OK.
+Weiter mit messen.koerper_berechnung.
+
 ## 2026-11-14 16:30 – STATUS
 geometrie.ortslinien fertig: 17 Prüfpunkte umgesetzt, 0 abgelehnt. Neues Lernkarten-Bild in verknuepfen (Kreis mit Parallelenpaar). 6 Lernkarten / 168 Aufgaben, Prüfskript OK.
 Weiter mit messen.flaechen.

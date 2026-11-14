@@ -179,21 +179,22 @@ test('Lernreise: Kind B (Studio, Nacht) – Rom geschafft als Stempel, Zinsen je
   await page.getByText('Terme umformen', { exact: false }).first().waitFor();
 });
 
-test('Lernen: Lernkarte – Erklärung | Üben ohne Neustart, Punkte bis „sitzt“, Fehler führt zur Erklärung', async (t) => {
+test('Lernen: Thema – Erklären | Üben | Typische Fehler, Punkte bis „sitzt“, Erklärung an der Aufgabe', async (t) => {
   const { page, calls } = await setup(t);
   await page.goto(origin + '/#/lerneinheit/1-1');
   await page.getByText('0 von 3 sitzen').waitFor();
   assert.equal(await page.locator('.lr-gesperrt').count(), 1);
   assert.equal(await page.locator('#title').textContent(), 'Rom: Natürliche und ganze Zahlen');
+  assert.equal(await page.getByRole('tab', { name: 'Erklären' }).getAttribute('aria-selected'), 'true');
+  const sichtbar = page.locator('.lr-panel:not([hidden])');
+  // Erklären: alle Lernkarten untereinander, ohne Klick nachlesbar.
+  await sichtbar.locator('.lr-stellentafel').first().waitFor();
+  await sichtbar.locator('mark', { hasText: '10-mal' }).first().waitFor();
+  await sichtbar.getByText('100 : 10 = 10').waitFor();
   fs.mkdirSync(path.join(root, 'test-results'), { recursive: true });
-  await page.screenshot({ path: path.join(root, 'test-results/lernen-etappen-390.png'), fullPage: true });
-  await page.getByRole('link', { name: 'Weiter mit: Welchen Wert hat eine Ziffer?' }).click();
-  await page.locator('.lr-stellentafel').waitFor();
-  assert.equal(await page.getByRole('tab', { name: 'Erklärung' }).getAttribute('aria-selected'), 'true');
-  await page.locator('mark', { hasText: '10-mal' }).waitFor();
-  await page.getByText('ACHTUNG, TYPISCHER FEHLER').waitFor();
-  await page.screenshot({ path: path.join(root, 'test-results/lernen-erklaert-390.png'), fullPage: true });
-  await page.getByRole('button', { name: 'Jetzt üben' }).click();
+  await page.screenshot({ path: path.join(root, 'test-results/lernen-erklaeren-390.png'), fullPage: true });
+  await sichtbar.getByRole('button', { name: 'Dazu üben ▸' }).first().click();
+  await page.waitForURL(/#\/lerneinheit\/1-1-ueben-1$/);
   await page.getByRole('textbox', { name: 'Antwort' }).fill('2.000');
   await page.getByRole('button', { name: 'Prüfen' }).click();
   await page.getByText('Bitte schreibe Dezimalzahlen mit Komma.').waitFor();
@@ -202,8 +203,8 @@ test('Lernen: Lernkarte – Erklärung | Üben ohne Neustart, Punkte bis „sitz
   await page.getByText('Richtig!').waitFor();
   await page.getByText('1 von 2 richtig hintereinander').waitFor();
   // Zur Erklärung und zurück: Aufgabe und Rückmeldung bleiben stehen.
-  await page.getByRole('tab', { name: 'Erklärung' }).click();
-  await page.locator('.lr-stellentafel').waitFor();
+  await page.getByRole('tab', { name: 'Erklären' }).click();
+  await sichtbar.locator('.lr-stellentafel').first().waitFor();
   await page.getByRole('tab', { name: 'Üben' }).click();
   await page.getByText('Richtig!').waitFor();
   await page.getByRole('button', { name: 'Nächste Aufgabe' }).click();
@@ -211,14 +212,17 @@ test('Lernen: Lernkarte – Erklärung | Üben ohne Neustart, Punkte bis „sitz
   await page.getByRole('button', { name: 'Prüfen' }).click();
   await page.getByText('LERNKARTE SITZT').waitFor();
   await page.getByText('+10 Sterne').waitFor();
-  await page.getByRole('link', { name: 'Nächste Karte: Zahlenstrahl' }).click();
-  await page.getByRole('button', { name: 'Jetzt üben' }).click();
+  await page.getByText('1 von 3 sitzen').waitFor();
+  await page.getByRole('button', { name: 'Nächste Karte: Zahlenstrahl' }).click();
   await page.getByRole('button', { name: 'Markierung 3' }).click();
   await page.getByRole('button', { name: 'Prüfen' }).click();
   await page.getByText('Richtig ist: 20 000 (der 4. Strich nach dem Anfang)').waitFor();
+  // Bei einem Fehler klappt die Erklärung direkt an der Aufgabe auf.
+  await sichtbar.locator('.lr-nochmal').getByText('100 : 10 = 10').waitFor();
   await page.screenshot({ path: path.join(root, 'test-results/lernen-probieren-390.png'), fullPage: true });
-  await page.getByRole('button', { name: 'Erklärung ansehen' }).click();
-  await page.getByText('100 : 10 = 10').waitFor();
+  await page.getByRole('tab', { name: 'Fehler' }).click();
+  await sichtbar.locator('.lr-fehlerkarte').first().waitFor();
+  await page.screenshot({ path: path.join(root, 'test-results/lernen-fehler-390.png'), fullPage: true });
   await page.getByRole('tab', { name: 'Üben' }).click();
   await page.getByText('Richtig ist: 20 000').waitFor();
   await page.getByRole('button', { name: 'Nächste Aufgabe' }).click();
@@ -226,7 +230,6 @@ test('Lernen: Lernkarte – Erklärung | Üben ohne Neustart, Punkte bis „sitz
   await page.getByRole('button', { name: 'Prüfen' }).click();
   await page.getByText('Richtig!').waitFor();
   await page.goto(origin + '/#/lerneinheit/1-1-3');
-  await page.getByRole('button', { name: 'Jetzt üben' }).click();
   const term = page.getByRole('textbox', { name: 'Dein Term' });
   await term.fill('x²+x+x+1');
   await page.getByRole('button', { name: 'Prüfen' }).click();
@@ -258,7 +261,7 @@ test('Lernen: Merkheft zeigt alle Lernkarten zum Nachlesen, mit Suche und Weg zu
   await page.locator('details.lr-merk[open]', { hasText: 'Zahlenstrahl' }).first().waitFor();
   await page.screenshot({ path: path.join(root, 'test-results/lernen-merkheft-390.png'), fullPage: true });
   await page.getByRole('link', { name: 'Üben' }).first().click();
-  await page.waitForURL(/#\/lerneinheit\/2-1-2$/);
+  await page.waitForURL(/#\/lerneinheit\/2-1-ueben-2$/);
 });
 
 test('Lernen: Test ohne Lösungen bis zur Abgabe, danach Auswertung', async (t) => {
@@ -312,7 +315,6 @@ test('Lernen-Seite: Anmerkung direkt an einer Aufgabe, Kind-Code nur Lernreise',
   const { page, calls } = await setup(t, { lernSeite: true, rolle: 'lehrer' });
   await page.addInitScript(() => localStorage.setItem('lern_token', 't'.repeat(64)));
   await page.goto(origin + '/lernen/#/lerneinheit/3-1-1');
-  await page.getByRole('button', { name: 'Jetzt üben' }).click();
   await page.getByText('✎ Anmerkung zu dieser Aufgabe').click();
   const offen = page.locator('.lr-panel:not([hidden])');
   await offen.getByRole('button', { name: 'Schwieriger' }).click();

@@ -3448,3 +3448,26 @@ body.lern-seite { padding-bottom: 32px; }
 .lr-ortstand { margin: 0; }
 .lr-wdh { border: 2px solid var(--lr-akzent); }
 .lr-sitzt { margin-top: 12px; }
+
+/* W150 Struktur v2: Thema mit Erklären | Üben | Typische Fehler */
+.lr-thema { display: flex; flex-direction: column; gap: 12px; }
+.lr-pfad { margin: 0; font-size: .85rem; color: var(--lr-leise, #5B6B7B); }
+.lr-jahrgang { margin: 0; font-size: .85rem; }
+.lr-tabs-3 { grid-template-columns: 1fr 1fr 1fr; }
+.lr-tabs-3 button { font-size: .95rem; padding: 0 4px; }
+.lr-tabs button small { font-weight: 600; opacity: .8; }
+.lr-lernkarte { display: flex; flex-direction: column; gap: 10px; }
+.lr-lernkarte.jetzt { border-color: var(--lr-akzent); box-shadow: 0 0 0 2px var(--lr-akzent) inset; }
+.lr-lernkarte-kopf { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; flex-wrap: wrap; }
+.lr-lernkarte-kopf h3 { margin: 0; font-size: 1.05rem; min-width: 0; }
+.lr-dazu { align-self: flex-start; }
+.lr-chips-scroll { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; }
+.lr-chips-scroll button { white-space: nowrap; }
+.lr-lk-zeile { display: flex; flex-direction: column; gap: 6px; }
+.lr-fehlerkarte { display: flex; flex-direction: column; gap: 8px; }
+.lr-fehlerkarte h3 { margin: 0; font-size: 1rem; }
+.lr-meinefehler { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.lr-meinefehler li { display: flex; justify-content: space-between; align-items: center; gap: 10px; border-top: 1px solid var(--lr-linie); padding-top: 8px; }
+.lr-meinefehler li span { min-width: 0; }
+.lr-hilfebox:empty { display: none; }
+.lr-ueben-flaeche { display: flex; flex-direction: column; gap: 12px; }

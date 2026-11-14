@@ -86,6 +86,8 @@ async function setup(t, opt = {}) {
         { lernziel: 'thales', titel: 'Thales', regel: 'r', schritte: ['a', 'b'], fehler: 'f', bild: { typ: 'figur', punkte: { A: [-3, 0], B: [3, 0], C: [1.8, 2.4], M: [0, 0] }, kreise: [{ m: 'M', r: 3 }], linien: [['A', 'B'], ['A', 'C'], ['B', 'C']], rechter_winkel: [['C', 'A', 'B']] } },
         { lernziel: 'saeulen', titel: 'Säulen', regel: 'r', schritte: ['a', 'b'], fehler: 'f', bild: { typ: 'saeulen', einheit: 'Kinder', werte: [{ name: 'Hund', wert: 9 }, { name: 'Katze', wert: 12 }, { name: 'Fisch', wert: 4 }, { name: 'kein Tier', wert: 7 }] } },
         { lernziel: 'kreisd', titel: 'Kreisdiagramm', regel: 'r', schritte: ['a', 'b'], fehler: 'f', bild: { typ: 'kreisdiagramm', einheit: ' %', werte: [{ name: 'Bus', wert: 40 }, { name: 'Rad', wert: 35 }, { name: 'zu Fuß', wert: 25 }] } },
+        { lernziel: 'box', titel: 'Boxplot', regel: 'r', schritte: ['a', 'b'], fehler: 'f', bild: { typ: 'boxplot', achse: [0, 20], einheit: 'Punkte', reihen: [{ name: 'Klasse a', min: 3, q1: 8, median: 11, q3: 14, max: 19 }, { name: 'Klasse b', min: 5, q1: 7, median: 9, q3: 15, max: 17 }] } },
+        { lernziel: 'baum', titel: 'Baumdiagramm', regel: 'r', schritte: ['a', 'b'], fehler: 'f', bild: { typ: 'baum', aeste: [{ text: 'rot', p: '3/5', aeste: [{ text: 'rot', p: '2/4' }, { text: 'blau', p: '2/4' }] }, { text: 'blau', p: '2/5', aeste: [{ text: 'rot', p: '3/4' }, { text: 'blau', p: '1/4' }] }] } },
         { lernziel: 'tafel', titel: 'Vierfeldertafel', regel: 'r', schritte: ['a', 'b'], fehler: 'f', bild: { typ: 'tabelle', kopf: ['', 'Brille', 'keine Brille', 'Summe'], zeilen: [['Mädchen', '5', '9', '14'], ['Jungen', '4', '10', '14'], ['Summe', '9', '19', '28']] } }] },
       aufgaben: [{ id: 501, lernziel: 'gerade', pool: 'uebung', stufe: 1, antworttyp: 'zahl', freigegeben: true, frage: { text: 'Lies die Steigung ab.', grafik: { typ: 'koordinaten', x: [-3, 3], y: [-3, 3], graphen: [{ art: 'linear', m: 1, t: 0 }] } }, loesung: { wert: 1 } }], rueckmeldungen: [] };
     else if (b.aktion === 'schule_inhalt_lesen') e = { ok: true, einheit_id: d.einheit_id, status: 'geprueft', ort: { stadt: 'Rom', titel: 'Natürliche Zahlen' },
@@ -368,13 +370,13 @@ test('Zeichnungen: Koordinatensystem, Figur, Diagramme und Tabelle in den Erklä
   const { page } = await setup(t);
   await page.setViewportSize({ width: 430, height: 900 });
   await page.goto(origin + '/#/inhalte/77');
-  await page.getByText('8 Lernkarten', { exact: false }).waitFor();
+  await page.getByText('10 Lernkarten', { exact: false }).waitFor();
   await page.evaluate(() => document.querySelectorAll('details.lp-karte').forEach((d) => { d.open = true; }));
-  assert.equal(await page.locator('svg.lern-zeichnung').count(), 7);
+  assert.equal(await page.locator('svg.lern-zeichnung').count(), 9);
   assert.equal(await page.locator('svg.lern-zeichnung path.graph').count(), 5);
   assert.equal(await page.locator('table.lr-tafel td').count(), 9);
   fs.mkdirSync(path.join(root, 'test-results'), { recursive: true });
-  for (const [i, n] of ['gerade', 'hyperbel', 'sinus', 'dreieck', 'thales', 'saeulen', 'kreisd'].entries())
+  for (const [i, n] of ['gerade', 'hyperbel', 'sinus', 'dreieck', 'thales', 'saeulen', 'kreisd', 'box', 'baum'].entries())
     await page.locator('svg.lern-zeichnung').nth(i).screenshot({ path: path.join(root, `test-results/zeichnung-${n}.png`) });
 });
 

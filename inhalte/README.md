@@ -108,4 +108,7 @@ Die App zeichnet jetzt selbst. Dasselbe Objekt geht als `bild` in einer Lernkart
 - **Kreisdiagramm** `{"typ": "kreisdiagramm", "einheit": " %", "werte": [{"name": "Bus", "wert": 40}], "zahlen": true}`
 - **Tabelle** `{"typ": "tabelle", "kopf": ["", "Brille", "keine Brille", "Summe"], "zeilen": [["Mädchen", "5", "9", "14"]]}` – für Vierfeldertafeln, Wertetabellen, Häufigkeitstabellen. Unbekanntes als „?“.
 
-Noch nicht möglich: Schrägbilder und Netze von Körpern, Boxplot, Baumdiagramm, Flächen zum Färben, Zeichnen durch das Kind. Weiter unter `offen` notieren.
+- **Boxplot** `{"typ": "boxplot", "achse": [0, 20], "einheit": "Punkte", "reihen": [{"name": "Klasse a", "min": 3, "q1": 8, "median": 11, "q3": 14, "max": 19}]}` – eine oder mehrere Reihen über derselben Achse.
+- **Baumdiagramm** `{"typ": "baum", "aeste": [{"text": "rot", "p": "3/5", "aeste": [{"text": "rot", "p": "2/4"}, {"text": "blau", "p": "2/4"}]}, …]}` – bis zu drei Stufen, höchstens etwa 8 Blätter; `p` (Wahrscheinlichkeit am Ast) ist optional, „?“ für Gesuchtes.
+
+Noch nicht möglich: Schrägbilder und Netze von Körpern, Flächen zum Färben, Zeichnen durch das Kind. Weiter unter `offen` notieren.

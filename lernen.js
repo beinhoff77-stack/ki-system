@@ -618,6 +618,8 @@ function lernBild(b) {
   if (b.typ === 'saeulen') return el('div', { class: 'lr-bild' }, lernSaeulen(b));
   if (b.typ === 'kreisdiagramm') return el('div', { class: 'lr-bild' }, lernKreisdiagramm(b));
   if (b.typ === 'tabelle') return el('div', { class: 'lr-bild lr-bild-tabelle' }, lernTabelle(b));
+  if (b.typ === 'boxplot') return el('div', { class: 'lr-bild' }, lernBoxplot(b));
+  if (b.typ === 'baum') return el('div', { class: 'lr-bild' }, lernBaum(b));
   return null;
 }
 
@@ -754,6 +756,47 @@ function lernKreisdiagramm(b) {
     mk('text', { x: 242, y: 36 + i * 24, class: 'zahl links' }, x.name + (b.zahlen === false ? '' : ` (${lernZahlText(x.wert)}${b.einheit || ''})`));
     a0 = a1;
   });
+  return svg;
+}
+// Boxplot: reihen [{name, min, q1, median, q3, max}] über einer gemeinsamen Achse [lo, hi]
+function lernBoxplot(b) {
+  const reihen = b.reihen || [b]; const B = 340, L = reihen.some((r) => r.name) ? 64 : 18, R = 18, zh = 46, H = reihen.length * zh + 44;
+  const lo = b.achse?.[0] ?? Math.min(...reihen.map((r) => r.min)), hi = b.achse?.[1] ?? Math.max(...reihen.map((r) => r.max));
+  const px = (v) => L + (B - L - R) * (v - lo) / (hi - lo);
+  const { svg, mk } = lernSvg(B, H, b.label || 'Boxplot: ' + reihen.map((r) => `${r.name || ''} Minimum ${r.min}, unteres Quartil ${r.q1}, Median ${r.median}, oberes Quartil ${r.q3}, Maximum ${r.max}`).join('; '));
+  const roh = (hi - lo) / 8; const p = 10 ** Math.floor(Math.log10(roh)); const sx = b.schritt || [1, 2, 5, 10].map((m) => m * p).find((m) => m >= roh);
+  const ya = H - 26;
+  mk('line', { x1: L - 6, y1: ya, x2: B - R + 6, y2: ya, class: 'achse' });
+  for (let v = Math.ceil(lo / sx) * sx; v <= hi + 1e-9; v += sx) { mk('line', { x1: px(v), y1: ya - 4, x2: px(v), y2: ya + 4, class: 'achse' }); mk('text', { x: px(v), y: ya + 18, class: 'zahl' }, lernZahlText(v)); }
+  if (b.einheit) mk('text', { x: 4, y: ya + 18, class: 'zahl links' }, b.einheit);
+  reihen.forEach((r, i) => {
+    const y = 10 + i * zh, h = 26, m = y + h / 2;
+    if (r.name) mk('text', { x: 4, y: m + 4, class: 'zahl links' }, r.name);
+    mk('line', { x1: px(r.min), y1: m, x2: px(r.q1), y2: m, class: 'strecke' }); mk('line', { x1: px(r.q3), y1: m, x2: px(r.max), y2: m, class: 'strecke' });
+    mk('line', { x1: px(r.min), y1: m - 8, x2: px(r.min), y2: m + 8, class: 'strecke' }); mk('line', { x1: px(r.max), y1: m - 8, x2: px(r.max), y2: m + 8, class: 'strecke' });
+    mk('rect', { x: px(r.q1), y, width: px(r.q3) - px(r.q1), height: h, class: 'box box' + (i % 3) });
+    mk('line', { x1: px(r.median), y1: y, x2: px(r.median), y2: y + h, class: 'strecke median' });
+  });
+  return svg;
+}
+// Baumdiagramm: aeste [{text: 'rot', p: '3/5', aeste: [...]}], bis zu drei Stufen
+function lernBaum(b) {
+  const blaetter = []; let tiefe = 0;
+  const lauf = (k, t) => { tiefe = Math.max(tiefe, t); if (!(k.aeste || []).length) { k._x = blaetter.length; blaetter.push(k); } else { k.aeste.forEach((c) => lauf(c, t + 1)); k._x = (k.aeste[0]._x + k.aeste[k.aeste.length - 1]._x) / 2; } k._t = t; };
+  const wurzel = { aeste: JSON.parse(JSON.stringify(b.aeste || [])) }; lauf(wurzel, 0);
+  const B = 340, n = Math.max(blaetter.length, 1), sh = tiefe > 2 ? 62 : 74, H = 26 + tiefe * sh + 18;
+  const px = (x) => 20 + (B - 40) * (n === 1 ? 0.5 : x / (n - 1)), py = (t) => 14 + t * sh;
+  const { svg, mk } = lernSvg(B, H, b.label || 'Baumdiagramm');
+  const zeichne = (k) => {
+    for (const c of k.aeste || []) {
+      mk('line', { x1: px(k._x), y1: py(k._t) + (k._t ? 8 : 0), x2: px(c._x), y2: py(c._t) - 14, class: 'strecke duenn' });
+      if (c.p) { const links = c._x <= k._x; mk('text', { x: (px(k._x) + px(c._x)) / 2 + (links ? -5 : 5), y: (py(k._t) + py(c._t)) / 2 + 1, class: 'zahl klein ' + (links ? 'rechts' : 'links') }, c.p); }
+      mk('text', { x: px(c._x), y: py(c._t) + 4, class: 'zahl fett' }, c.text || '');
+      zeichne(c);
+    }
+  };
+  mk('circle', { cx: px(wurzel._x), cy: py(0), r: 3, class: 'punkt' });
+  zeichne(wurzel);
   return svg;
 }
 function lernTabelle(b) {

@@ -3555,3 +3555,8 @@ body.lern-seite { padding-bottom: 32px; }
 .lr-tafel th, .lr-tafel td { border: 1px solid var(--lr-linie, var(--border)); padding: 6px 12px; text-align: center; }
 .lr-tafel th { font-weight: 800; background: var(--lr-bg, var(--surface-muted)); }
 .lern-zeichnung text { paint-order: stroke; stroke: var(--lr-flaeche, var(--surface)); stroke-width: 3px; stroke-linejoin: round; }
+.lern-zeichnung .box { fill-opacity: .25; stroke: var(--lr-text, var(--text)); stroke-width: 2; }
+.lern-zeichnung .box0 { fill: var(--lr-akzent, var(--accent)); } .lern-zeichnung .box1 { fill: var(--lr-gut, #0E7C86); } .lern-zeichnung .box2 { fill: #8A5BD1; }
+.lern-zeichnung .median { stroke-width: 3.2; }
+.lern-zeichnung .duenn { stroke-width: 1.5; }
+.lern-zeichnung .zahl.klein { font-size: 11px; }

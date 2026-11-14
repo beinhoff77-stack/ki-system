@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-14 15:39 – STATUS
+13/14 sonder.logik fertig: 5 Lernkarten (Aussagen, Verneinung, und/oder, Wahrheitstafeln, wenn–dann), 140 Aufgaben, Prüfskript OK. Wahrheitswerte in Lücken als 1/0. klasse = {"zusatz": 10}.
+
 ## 2026-11-14 15:37 – STATUS
 12/14 finanzen.zinseszins fertig: 5 Lernkarten (Jahr für Jahr, Wachstumsfaktor, Kₙ = K₀ · qⁿ, rückwärts, Angebote/Verdopplung), 140 Aufgaben, Prüfskript OK. klasse = {"zusatz": 10}.
 

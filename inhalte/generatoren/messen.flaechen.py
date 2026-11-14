@@ -30,6 +30,14 @@ def gitter(a, b):
     return {'typ': 'figur', 'punkte': pk, 'flaeche': ['_A', '_B', '_C', '_D'], 'linien': lin}
 
 
+def uform(W, H, w, h):
+    """Rechteck W × H, in der Mitte der oberen Seite fehlt ein Rechteck w × h (Prüfung: U-Form)."""
+    l, r = (W - w) // 2, (W + w) // 2
+    pk = {'_P0': [0, 0], '_P1': [W, 0], '_P2': [W, H], '_P3': [r, H], '_P4': [r, H - h], '_P5': [l, H - h], '_P6': [l, H], '_P7': [0, H]}
+    lin = [['_P0', '_P1', f'{W} m'], ['_P1', '_P2', f'{H} m'], ['_P2', '_P3', f'{l} m'], ['_P3', '_P4', f'{h} m'], ['_P4', '_P5', f'{w} m'], ['_P5', '_P6'], ['_P6', '_P7', f'{l} m'], ['_P7', '_P0']]
+    return {'typ': 'figur', 'punkte': pk, 'flaeche': list(pk), 'linien': lin}
+
+
 def lform(W, H, w, h, einheit='m', fragezeichen=False):
     """Rechteck W × H, oben rechts fehlt ein Stück w × h."""
     pk = {'_P0': [0, 0], '_P1': [W, 0], '_P2': [W, H - h], '_P3': [W - w, H - h], '_P4': [W - w, H], '_P5': [0, H]}
@@ -75,6 +83,8 @@ ETAPPEN = [
      'fehler': '„Doppelte Seiten, doppelte Fläche“ ist falsch: 2 m × 3 m = 6 m², aber 4 m × 6 m = 24 m² – das ist ⟦viermal⟧ so viel.'},
 ]
 
+PRUEFUNG = pruefung_erklaerungen(ETAPPEN, 'messen.flaechen')   # einheiten: Bild passend beschriftet (1 m² = 100 dm²)
+
 MERKE = ['Rechteck: A = a · b, u = 2a + 2b. Quadrat: A = a · a, u = 4a.', 'km² –100– ha –100– a –100– m² –100– dm² –100– cm² –100– mm²',
          'Kommaschreibweise: zwei Stellen je Einheit (3,05 m² = 3 m² 5 dm²).', 'Zusammengesetzte Flächen: zerlegen oder ergänzen.',
          'Umfang ist eine Länge (m), Flächeninhalt eine Fläche (m²).']
@@ -95,6 +105,7 @@ def g_eq(st):
                 'w': f'{b} Reihen zu je {a} Quadraten: {b} · {a} = {a * b} cm².', 'h': 'Zähle die Quadrate in einer Reihe und die Anzahl der Reihen.'}
     if st == 2:
         a, b = R.randint(3, 12), R.randint(2, 9)
+        a, b = max(a, b), min(a, b)          # „lang“ ist die längere Seite (Prüfung)
         if R.random() < .5:
             return {'y': 'zahl', 'f': {'text': f'Ein Rechteck ist {a} cm lang und {b} cm breit. Wie viele Quadrate mit 1 cm Seitenlänge passen hinein?'}, 'o': {'wert': a * b}, 'c': f'{a} * {b}',
                     'w': f'Eine Reihe: {a} Quadrate. {b} Reihen: {b} · {a} = {a * b}.', 'h': 'Reihen mal Quadrate pro Reihe.'}
@@ -107,8 +118,8 @@ def g_eq(st):
         return {'y': 'zahl', 'f': {'text': f'Ein Rechteck aus {a} · {b} Einheitsquadraten wird in beiden Richtungen doppelt so lang. Wie viele Einheitsquadrate passen jetzt hinein?'},
                 'o': {'wert': 4 * a * b}, 'c': f'(2 * {a}) * (2 * {b})', 'w': f'Neu: {2 * a} · {2 * b} = {4 * a * b} Quadrate – viermal so viele wie {a * b}.', 'h': 'Rechne die neuen Seitenlängen aus.'}
     s = R.choice([2, 3, 4, 5])
-    a, b = s * R.randint(2, 4), s * R.randint(2, 4)
-    return {'y': 'zahl', 'f': {'text': f'Ein Rechteck ist {a} cm lang und {b} cm breit. Wie viele Quadratfliesen mit {s} cm Seitenlänge passen hinein?'}, 'o': {'wert': (a // s) * (b // s)},
+    a, b = sorted([s * R.randint(2, 4), s * R.randint(2, 4)], reverse=True)
+    return {'y': 'zahl', 'f': {'text': f'Ein Rechteck ist {a} cm lang und {b} cm breit. Wie viele quadratische Fliesen mit {s} cm Seitenlänge passen hinein?'}, 'o': {'wert': (a // s) * (b // s)},
             'c': f'({a} / {s}) * ({b} / {s})', 'w': f'In der Länge {a} : {s} = {a // s}, in der Breite {b} : {s} = {b // s}. {a // s} · {b // s} = {(a // s) * (b // s)} Fliesen.',
             'h': 'Wie viele Fliesen passen nebeneinander, wie viele hintereinander?'}
 
@@ -123,6 +134,23 @@ def g_re(st):
                     'o': {'wert': a * b, 'einheit': e + '²'}, 'c': f'{a} * {b}', 'w': f'A = {a} {e} · {b} {e} = {a * b} {e}².', 'h': 'A = Länge mal Breite.'}
         return {'y': 'zahl', 'f': {'text': f'Berechne den Umfang des Rechtecks mit a = {a} {e} und b = {b} {e}.', 'grafik': rechteck(a, b, f'{a} {e}', f'{b} {e}')},
                 'o': {'wert': 2 * a + 2 * b, 'einheit': e}, 'c': f'2 * {a} + 2 * {b}', 'w': f'u = 2 · {a} {e} + 2 · {b} {e} = {2 * a + 2 * b} {e}.', 'h': 'Der Umfang ist der ganze Rand: alle vier Seiten.'}
+    if st == 2 and R.random() < .3:          # Fläche und Umfang verwechseln (Prüfung)
+        a, b = R.randint(3, 9), R.randint(2, 8)
+        if a == b:
+            frage, r = f'Ein Quadrat hat die Seitenlänge {a} cm. Welche Angabe ist sein Flächeninhalt?', f'{a * a} cm²'
+            f = [f'{4 * a} cm', f'{a * a} cm', f'{4 * a} cm²']
+            w = f'A = {a} cm · {a} cm = {a * a} cm². Ein Flächeninhalt hat die Einheit cm². {4 * a} cm wäre der Umfang.'
+        else:
+            a, b = max(a, b), min(a, b)
+            if R.random() < .5:
+                frage, r = f'Ein Rechteck ist {a} cm lang und {b} cm breit. Welche Angabe ist der Umfang?', f'{2 * a + 2 * b} cm'
+                f = [f'{a * b} cm²', f'{a + b} cm', f'{a * b} cm']
+                w = f'u = 2 · {a} cm + 2 · {b} cm = {2 * a + 2 * b} cm. Ein Umfang ist eine Länge (cm). {a * b} cm² wäre der Flächeninhalt.'
+            else:
+                frage, r = f'Ein Rechteck ist {a} cm lang und {b} cm breit. Welche Angabe ist der Flächeninhalt?', f'{a * b} cm²'
+                f = [f'{2 * a + 2 * b} cm', f'{a * b} cm', f'{2 * a + 2 * b} cm²']
+                w = f'A = {a} cm · {b} cm = {a * b} cm². Ein Flächeninhalt hat die Einheit cm². {2 * a + 2 * b} cm wäre der Umfang.'
+        return {**wahl_rund(R, r, f), 'f': {'text': frage}, 'w': w, 'h': 'Umfang: Länge in cm. Flächeninhalt: in cm².'}
     if st == 2:
         art = R.randrange(3)
         if art == 0:
@@ -133,6 +161,8 @@ def g_re(st):
             return {'y': 'zahl', 'f': {'text': f'Ein Quadrat hat den Umfang {4 * s} {e}. Wie groß ist sein Flächeninhalt?'}, 'o': {'wert': s * s, 'einheit': e + '²'}, 'c': f'({4 * s} / 4) ** 2',
                     'w': f'Seite: {4 * s} : 4 = {s} {e}. A = {s} · {s} = {s * s} {e}².', 'h': 'Berechne zuerst die Seitenlänge.'}
         a, b = R.randint(3, 20), R.randint(2, 15)
+        a, b = max(a, b), min(a, b)
+        if a == b: a += 1
         if art == 1:
             return {'y': 'zahl', 'f': {'text': f'Ein Rechteck hat den Flächeninhalt {a * b} {e}² und ist {a} {e} lang. Wie breit ist es?'}, 'o': {'wert': b, 'einheit': e}, 'c': f'{a * b} / {a}',
                     'w': f'b = A : a = {a * b} : {a} = {b} {e}.', 'h': 'Umkehraufgabe: Fläche geteilt durch Länge.'}
@@ -145,6 +175,7 @@ def g_re(st):
         return {'y': 'zahl', 'f': {'text': f'Ein Rechteck ist {a} m lang und {b} cm breit. Wie groß ist der Flächeninhalt in dm²?'}, 'o': {'wert': a * 10 * b // 10, 'einheit': 'dm²'}, 'c': f'({a} * 10) * ({b} / 10)',
                 'w': f'Gleiche Einheit: {a} m = {a * 10} dm, {b} cm = {b // 10} dm. A = {a * 10} · {b // 10} = {a * b} dm².', 'h': 'Erst beide Seiten in dm umrechnen.'}
     a, b = R.randint(3, 12), R.randint(2, 10)
+    a, b = max(a, b), min(a, b)
     ra, rb = 2 * a, b
     return {'y': 'zahl', 'f': {'text': f'Ein Rechteck ist {a} m lang und {b} m breit. Die Länge wird verdoppelt. Um wie viel m² wächst der Flächeninhalt?'}, 'o': {'wert': a * b, 'einheit': 'm²'},
             'c': f'{ra} * {rb} - {a} * {b}', 'w': f'Vorher {a} · {b} = {a * b} m², nachher {ra} · {rb} = {ra * rb} m². Zuwachs: {ra * rb - a * b} m².', 'h': 'Rechne beide Flächen aus und vergleiche.'}
@@ -161,6 +192,13 @@ def g_ein(st):
                     'h': 'In die kleinere Einheit: mal 100.'}
         return {'y': 'zahl', 'f': {'text': f'Rechne um: {zt(x * 100)} {b} = ? {a}'}, 'o': {'wert': x, 'einheit': a}, 'c': f'{x * 100} / 100', 'w': f'Umrechnungszahl 100: {zt(x * 100)} : 100 = {x} {a}.',
                 'h': 'In die größere Einheit: durch 100.'}
+    if st == 2 and R.random() < .3:          # Vorstellung von Flächengrößen (Prüfung)
+        satz, z, e, f = R.choice([('Ein Fußballfeld hat ungefähr', 70, 'a', ['m²', 'ha', 'km²']), ('Ein Klassenzimmer hat ungefähr', 60, 'm²', ['dm²', 'a', 'cm²']),
+                                  ('Ein Blatt Papier (DIN A4) hat ungefähr', 6, 'dm²', ['cm²', 'm²', 'mm²']), ('Bayern hat ungefähr', 70000, 'km²', ['ha', 'a', 'm²']),
+                                  ('Ein Handydisplay hat ungefähr', 1, 'dm²', ['m²', 'mm²', 'a']), ('Eine Briefmarke hat ungefähr', 6, 'cm²', ['mm²', 'dm²', 'm²'])])
+        return {**wahl_rund(R, f'{zt(z)} {e}', [f'{zt(z)} {x}' for x in f]), 'f': {'text': f'{satz} welche Fläche?'},
+                'w': f'{satz} {zt(z)} {e}. Vergleiche: 1 m² ist ein Quadrat mit 1 m Seite, 1 a ein Quadrat mit 10 m Seite, 1 ha eines mit 100 m Seite.',
+                'h': 'Stell dir Quadrate mit 1 cm, 10 cm, 1 m, 10 m und 100 m Seitenlänge vor.'}
     if st == 2:
         i = R.randint(0, 4)
         j = i + 2
@@ -229,16 +267,28 @@ def g_zer(st):
     if st == 1:
         return {'y': 'zahl', 'f': {'text': f'Berechne den Flächeninhalt der Figur. Von einem Rechteck {W} m × {H} m fehlt oben rechts ein Rechteck {w} m × {h} m.', 'grafik': lform(W, H, w, h)},
                 'o': {'wert': A, 'einheit': 'm²'}, 'c': f'{W} * {H} - {w} * {h}', 'w': f'Ergänzen: {W} · {H} − {w} · {h} = {W * H} − {w * h} = {A} m².', 'h': 'Großes Rechteck minus das fehlende Stück.'}
+    if st == 2 and R.random() < .25: return _wohnung()          # Wohnung aus Räumen ist leichter: Stufe 2 (Prüfung)
     if st == 2:
         if R.random() < .5:
             u = 2 * W + 2 * H
-            return {'y': 'zahl', 'f': {'text': f'Wie lang ist der Umfang der L-Form? (Großes Rechteck {W} m × {H} m, oben rechts fehlt {w} m × {h} m.)', 'grafik': lform(W, H, w, h)},
+            return {'y': 'zahl', 'f': {'text': 'Wie lang ist der Umfang der L-Form?', 'grafik': lform(W, H, w, h)},
                     'o': {'wert': u, 'einheit': 'm'}, 'c': f'{W} + ({H} - {h}) + {w} + {h} + ({W} - {w}) + {H}',
                     'w': f'Alle sechs Seiten: {W} + {H - h} + {w} + {h} + {W - w} + {H} = {u} m – genauso viel wie beim ganzen Rechteck.', 'h': 'Gehe einmal ganz um die Figur herum und addiere alle Seiten.'}
-        return {'y': 'zahl', 'f': {'text': f'Zerlege die L-Form in zwei Rechtecke und berechne den Flächeninhalt. (Großes Rechteck {W} m × {H} m, oben rechts fehlt {w} m × {h} m.)', 'grafik': lform(W, H, w, h)}, 'o': {'wert': A, 'einheit': 'm²'},
+        return {'y': 'zahl', 'f': {'text': 'Zerlege die L-Form in zwei Rechtecke und berechne den Flächeninhalt.', 'grafik': lform(W, H, w, h)}, 'o': {'wert': A, 'einheit': 'm²'},
                 'c': f'{W} * ({H} - {h}) + ({W} - {w}) * {h}', 'w': f'Unten: {W} · {H - h} = {W * (H - h)} m². Oben links: {W - w} · {h} = {(W - w) * h} m². Zusammen {A} m².',
                 'h': 'Ziehe eine Linie, sodass zwei Rechtecke entstehen.'}
-    art = R.randrange(2)
+    art = R.randrange(3)
+    if art == 1:          # U-Form (Prüfung)
+        W2, H2 = R.randint(8, 14), R.randint(5, 9); w2 = R.randint(2, W2 - 4); h2 = R.randint(2, H2 - 2)
+        if (W2 - w2) % 2: return g_zer(3)
+        if R.random() < .5:
+            A2 = W2 * H2 - w2 * h2
+            return {'y': 'zahl', 'f': {'text': 'Berechne den Flächeninhalt der U-Form.', 'grafik': uform(W2, H2, w2, h2)}, 'o': {'wert': A2, 'einheit': 'm²'}, 'c': f'{W2} * {H2} - {w2} * {h2}',
+                    'w': f'Ergänzen zum Rechteck: {W2} · {H2} = {W2 * H2} m². Die Lücke: {w2} · {h2} = {w2 * h2} m². {W2 * H2} − {w2 * h2} = {A2} m².', 'h': 'Großes Rechteck minus die Lücke in der Mitte.'}
+        u2 = 2 * W2 + 2 * H2 + 2 * h2
+        return {'y': 'zahl', 'f': {'text': 'Wie lang ist der Umfang der U-Form?', 'grafik': uform(W2, H2, w2, h2)}, 'o': {'wert': u2, 'einheit': 'm'}, 'c': f'2 * {W2} + 2 * {H2} + 2 * {h2}',
+                'w': f'Außen wie beim Rechteck: 2 · {W2} + 2 · {H2} = {2 * W2 + 2 * H2} m. Die Lücke bringt zwei Kanten von je {h2} m dazu: {2 * W2 + 2 * H2} + 2 · {h2} = {u2} m.',
+                'h': 'Gehe einmal ganz um die Figur herum. Die Lücke hat zwei zusätzliche Kanten.'}
     if art == 0:
         a, b = R.randint(8, 16), R.randint(6, 12)
         s = R.randint(1, 3)
@@ -248,6 +298,10 @@ def g_zer(st):
                                               'flaeche': ['_A', '_B', '_C', '_D'], 'linien': [['_A', '_B', f'{a} m'], ['_B', '_C', f'{b} m'], ['_C', '_D'], ['_D', '_A'], ['_a', '_b', f'{a - 2 * s} m'], ['_b', '_c', f'{b - 2 * s} m'], ['_c', '_d'], ['_d', '_a']]}},
                 'o': {'wert': a * b - inn, 'einheit': 'm²'}, 'c': f'{a} * {b} - ({a} - 2 * {s}) * ({b} - 2 * {s})',
                 'w': f'Außen: {a} · {b} = {a * b} m². Beet: {a - 2 * s} · {b - 2 * s} = {inn} m². Weg: {a * b - inn} m².', 'h': 'Gesamtfläche minus Beet.'}
+    return _wohnung()
+
+
+def _wohnung():
     k = R.randint(2, 4)
     teile = [(R.randint(3, 8), R.randint(2, 6)) for _ in range(k)]
     s = sum(x * y for x, y in teile)
@@ -258,6 +312,8 @@ def g_zer(st):
 # ---------- 6 Sachaufgaben ----------
 def g_sach(st):
     a, b = R.randint(6, 25), R.randint(4, 15)
+    a, b = max(a, b), min(a, b)
+    if a == b: a += 1
     if st == 1:
         if R.random() < .5:
             return {'y': 'zahl', 'f': {'text': f'Ein Garten ist {a} m lang und {b} m breit. Wie viele Meter Zaun braucht man ringsherum?', 'grafik': rechteck(a, b, f'{a} m', f'{b} m', False)},
@@ -265,7 +321,12 @@ def g_sach(st):
         return {'y': 'zahl', 'f': {'text': f'Ein Rasen ist {a} m lang und {b} m breit. Wie viele m² Rasen sind das?', 'grafik': rechteck(a, b, f'{a} m', f'{b} m', False)},
                 'o': {'wert': a * b, 'einheit': 'm²'}, 'c': f'{a} * {b}', 'w': f'Fläche: {a} · {b} = {a * b} m².', 'h': 'Rasen bedeckt eine Fläche.'}
     if st == 2:
-        art = R.randrange(2)
+        art = R.randrange(3)
+        if art == 2:
+            g = R.choice([20, 25, 30])
+            return {'y': 'zahl', 'f': {'text': f'Ein Rasen ist {a} m lang und {b} m breit. Für 1 m² braucht man {g} g Samen. Wie viele g Samen braucht man?'},
+                    'o': {'wert': a * b * g, 'einheit': 'g'}, 'c': f'{a} * {b} * {g}', 'w': f'Fläche: {a} · {b} = {a * b} m². Samen: {a * b} · {g} g = {zt(a * b * g)} g.',
+                    'h': 'Zuerst die Fläche, dann mal die Menge pro m².'}
         if art == 0:
             l, bb = R.randint(3, 6), R.randint(3, 5)
             p = R.choice([20, 25, 30, 35, 40])
@@ -278,38 +339,50 @@ def g_sach(st):
     if art == 0:
         f = R.choice([20, 25, 50])
         l, bb = f * R.randint(200 // f, 400 // f), f * R.randint(150 // f, 300 // f)
+        l, bb = max(l, bb), min(l, bb)
         return {'y': 'zahl', 'f': {'text': f'Ein Bad ist {zt(Fr(l, 100))} m lang und {zt(Fr(bb, 100))} m breit. Wie viele quadratische Fliesen mit {f} cm Seitenlänge braucht man für den Boden?'},
                 'o': {'wert': (l // f) * (bb // f)}, 'c': f'({l} / {f}) * ({bb} / {f})', 'w': f'In cm: {l} : {f} = {l // f} Fliesen in der Länge, {bb} : {f} = {bb // f} in der Breite. {l // f} · {bb // f} = {(l // f) * (bb // f)} Fliesen.',
                 'h': 'Rechne in cm und bestimme, wie viele Fliesen in jede Richtung passen.'}
-    f = R.choice([5, 8, 10, 12])
+    if R.random() < .5:          # Streichen mit Fenster oder Tür (Prüfung)
+        l, h = R.choice([4, 5, 6, Fr(9, 2)]), R.choice([Fr(5, 2), 3])
+        loch, lb, lh, rel, kurz = R.choice([('ein Fenster', 2, 1, 'das', 'Fenster'), ('ein Fenster', Fr(3, 2), 1, 'das', 'Fenster'), ('eine Tür', 1, 2, 'die', 'Tür')])
+        A = l * h - lb * lh
+        return {'y': 'zahl', 'f': {'text': f'Eine Wand ist {zt(l)} m lang und {zt(h)} m hoch. Darin ist {loch} ({zt(lb)} m × {zt(lh)} m), {rel} nicht gestrichen wird. Wie viele m² werden gestrichen?'},
+                'o': {'wert': wert(A), 'einheit': 'm²'}, 'c': f'{float(l)} * {float(h)} - {float(lb)} * {float(lh)}',
+                'w': f'Wand: {zt(l)} · {zt(h)} = {zt(l * h)} m². {kurz}: {zt(lb)} · {zt(lh)} = {zt(lb * lh)} m². Gestrichen: {zt(l * h)} − {zt(lb * lh)} = {zt(A)} m².',
+                'h': 'Ganze Wand minus die Fläche, die frei bleibt.'}
+    f = R.choice([2, 3, Fr(5, 2)])          # realistisch: 2–3 kg Samen je Ar (Prüfung)
     ha = R.choice([2, 3, 4, 5, 6])
-    return {'y': 'zahl', 'f': {'text': f'Für 1 a Rasen braucht man {f} kg Samen. Wie viele kg braucht man für {ha} ha?'}, 'o': {'wert': f * ha * 100, 'einheit': 'kg'}, 'c': f'{ha} * 100 * {f}',
-            'w': f'{ha} ha = {ha * 100} a. {ha * 100} · {f} kg = {zt(f * ha * 100)} kg.', 'h': '1 ha = 100 a.'}
+    return {'y': 'zahl', 'f': {'text': f'Für 1 a Rasen braucht man {zt(f)} kg Samen. Wie viele kg braucht man für {ha} ha?'}, 'o': {'wert': wert(f * ha * 100), 'einheit': 'kg'}, 'c': f'{ha} * 100 * {float(f)}',
+            'w': f'{ha} ha = {ha * 100} a. {ha * 100} · {zt(f)} kg = {zt(f * ha * 100)} kg.', 'h': '1 ha = 100 a.'}
 
 
 # ---------- 7 Verstehen ----------
+# Prüfung: alle Antworten mit Begründung
 def g_vers(st):
     a, b = R.randint(2, 9), R.randint(2, 9)
     if a == b: b += 1
     if st == 1:
-        aussagen = [('1 m² = 100 dm²', True, 'Ja, 10 dm · 10 dm = 100 dm².'), ('1 m² = 10 dm²', False, 'Nein, die Umrechnungszahl bei Flächen ist 100: 1 m² = 100 dm².'),
-                    (f'Ein Rechteck mit {a} cm und {b} cm hat den Flächeninhalt {a + b} cm².', False, f'Nein, A = {a} · {b} = {a * b} cm².'),
-                    (f'Ein Quadrat mit {a} cm Seitenlänge hat den Umfang {4 * a} cm.', True, f'Ja, 4 · {a} = {4 * a} cm.')]
+        aussagen = [('1 m² = 100 dm²', 'Ja, 10 dm · 10 dm = 100 dm².', ['Nein, 1 m = 10 dm, also 1 m² = 10 dm².', 'Nein, 1 m² = 1 000 dm² wie bei Volumen.']),
+                    ('1 m² = 10 dm²', 'Nein, 10 dm · 10 dm = 100 dm².', ['Ja, 1 m = 10 dm, also 1 m² = 10 dm².', 'Nein, 1 m² = 1 000 dm².']),
+                    (f'Ein Rechteck mit {a} cm und {b} cm hat den Flächeninhalt {a + b} cm².', f'Nein, A = {a} cm · {b} cm = {a * b} cm².', [f'Ja, man addiert die Seiten: {a} + {b} = {a + b}.', f'Nein, A = 2 · {a} + 2 · {b} = {2 * a + 2 * b} cm².']),
+                    (f'Ein Quadrat mit {a} cm Seitenlänge hat den Umfang {4 * a} cm.', f'Ja, u = 4 · {a} cm = {4 * a} cm.', [f'Nein, u = {a} · {a} = {a * a} cm.', f'Nein, u = 2 · {a} cm = {2 * a} cm.'])]
     elif st == 2:
-        aussagen = [(f'Verdoppelt man Länge und Breite eines Rechtecks, wird die Fläche doppelt so groß.', False, f'Nein, viermal so groß: z. B. {a} · {b} = {a * b}, {2 * a} · {2 * b} = {4 * a * b}.'),
-                    ('1 ha = 100 a', True, 'Ja, Umrechnungszahl 100.'), ('1 km² = 1 000 m²', False, 'Nein, 1 km² = 100 ha = 10 000 a = 1 000 000 m².'),
-                    (f'{a} m² {b} dm² = {a},{b} m²', False, f'Nein, {a} m² {b} dm² = {a},0{b} m² (zwei Stellen je Einheit).'),
-                    (f'{a} m² {b} dm² = {a},0{b} m²', True, 'Ja, zu dm² gehören zwei Stellen nach dem Komma.'),
-                    (f'{a} a = {a * 100} m²', True, 'Ja, 1 a = 100 m².'), (f'{a} a = {a * 10} m²', False, f'Nein, 1 a = 100 m², also {a} a = {a * 100} m².'),
-                    (f'{a * 100} cm² = {a} dm²', True, 'Ja, 100 cm² = 1 dm².')]
+        aussagen = [('Verdoppelt man Länge und Breite eines Rechtecks, wird die Fläche doppelt so groß.', f'Nein, viermal so groß: z. B. {a} · {b} = {a * b}, {2 * a} · {2 * b} = {4 * a * b}.', ['Ja, doppelte Seiten, doppelte Fläche.', 'Nein, die Fläche bleibt gleich.']),
+                    ('1 ha = 100 a', 'Ja, die Umrechnungszahl bei Flächen ist 100.', ['Nein, 1 ha = 10 a.', 'Nein, 1 ha = 1 000 a.']),
+                    ('1 km² = 1 000 m²', 'Nein, 1 km² = 1 000 m · 1 000 m = 1 000 000 m².', ['Ja, 1 km = 1 000 m.', 'Nein, 1 km² = 10 000 m².']),
+                    (f'{a} m² {b} dm² = {a},{b} m²', f'Nein, {b} dm² = 0,0{b} m², also {a},0{b} m².', ['Ja, die dm² stehen direkt hinter dem Komma.', f'Nein, richtig ist {a},00{b} m².']),
+                    (f'{a} m² {b} dm² = {a},0{b} m²', 'Ja, zu dm² gehören zwei Stellen nach dem Komma.', [f'Nein, richtig ist {a},{b} m².', f'Nein, richtig ist {a},00{b} m².']),
+                    (f'{a} a = {a * 100} m²', 'Ja, 1 a = 100 m².', [f'Nein, 1 a = 10 m², also {a * 10} m².', f'Nein, 1 a = 1 000 m², also {zt(a * 1000)} m².']),
+                    (f'{a} a = {a * 10} m²', f'Nein, 1 a = 100 m², also {a} a = {a * 100} m².', ['Ja, 1 a = 10 m².', f'Nein, 1 a = 1 000 m², also {zt(a * 1000)} m².']),
+                    (f'{a * 100} cm² = {a} dm²', 'Ja, 10 cm · 10 cm = 100 cm² = 1 dm².', [f'Nein, {a * 100} cm² = {a * 10} dm².', f'Nein, {a * 100} cm² = {zt(Fr(a, 10))} dm².'])]
     else:
-        aussagen = [('Zwei Rechtecke mit gleichem Umfang haben immer den gleichen Flächeninhalt.', False, 'Nein, z. B. 6 × 2 (A = 12) und 4 × 4 (A = 16) haben beide u = 16.'),
-                    ('Schneidet man aus einem Rechteck an einer Ecke ein kleines Rechteck aus, bleibt der Umfang gleich.', True, 'Ja, die beiden fehlenden Randstücke werden durch zwei gleich lange neue Kanten ersetzt.'),
-                    ('Beim Zerlegen und beim Ergänzen kommt derselbe Flächeninhalt heraus.', True, 'Ja, es ist dieselbe Figur – nur anders gerechnet.'),
-                    (f'Ein Quadrat mit Umfang {4 * a} cm hat einen größeren Flächeninhalt als ein Rechteck {a + 1} cm × {a - 1} cm.', True, f'Ja, {a * a} cm² > {(a + 1) * (a - 1)} cm² (gleicher Umfang).')]
-    s, stimmt, grund = R.choice(aussagen)
-    gegen = 'Ja, das stimmt.' if not stimmt else 'Nein, das ist falsch.'
-    return {**wahl(R, grund, [gegen, 'Das kann man nicht entscheiden.'], 3), 'f': {'text': f'Stimmt die Aussage? „{s}“'}, 'w': grund, 'h': 'Rechne ein Beispiel durch.'}
+        aussagen = [('Zwei Rechtecke mit gleichem Umfang haben immer den gleichen Flächeninhalt.', 'Nein, z. B. 6 × 2 (A = 12) und 4 × 4 (A = 16) haben beide u = 16.', ['Ja, gleicher Rand heißt gleiche Fläche.', 'Ja, wenn beide Figuren Rechtecke sind.']),
+                    ('Schneidet man aus einem Rechteck an einer Ecke ein kleines Rechteck aus, bleibt der Umfang gleich.', 'Ja, die beiden fehlenden Randstücke werden durch zwei gleich lange neue Kanten ersetzt.', ['Nein, der Umfang wird kleiner, weil ein Stück fehlt.', 'Nein, der Umfang wird um den ganzen Rand des Stücks größer.']),
+                    ('Beim Zerlegen und beim Ergänzen kommt derselbe Flächeninhalt heraus.', 'Ja, es ist dieselbe Figur – nur anders gerechnet.', ['Nein, beim Ergänzen kommt mehr heraus.', 'Nein, beim Zerlegen kommt mehr heraus.']),
+                    (f'Ein Quadrat mit Umfang {4 * a} cm hat einen größeren Flächeninhalt als ein Rechteck {a + 1} cm × {a - 1} cm.', f'Ja, {a * a} cm² > {(a + 1) * (a - 1)} cm² (gleicher Umfang).', [f'Nein, beide haben {a * a} cm², weil der Umfang gleich ist.', f'Nein, das Rechteck ist größer, weil {a + 1} > {a} ist.'])]
+    s_, grund, f = R.choice(aussagen)
+    return {**wahl_rund(R, grund, f, 3), 'f': {'text': f'Stimmt die Aussage? „{s_}“'}, 'w': grund, 'h': 'Rechne ein Beispiel durch.'}
 
 
 GEN = {'einheitsquadrate': g_eq, 'rechteck': g_re, 'einheiten': g_ein, 'kommaschreibweise': g_komma, 'zerlegen': g_zer, 'sachaufgaben': g_sach, 'verstehen': g_vers}
@@ -320,7 +393,7 @@ DATEI = datei(E, 'Flächeninhalt und Umfang von Rechteck, Quadrat und zusammenge
                ('Zusammengesetzte Flächen', ['zerlegen', 'sachaufgaben', 'verstehen'])],
               ETAPPEN, GEN,
               offen=['Dreieck, Parallelogramm, Trapez und allgemeine Vielecke aus „umfang“ weggelassen: lehrplan_gym Kl. 5 nennt nur Zerlegen/Ergänzen, Flächeneinheiten und die Rechteckformel. Die Formeln für diese Figuren sind Stoff späterer Jahrgangsstufen.',
-                     'Lehrplan „Näherungswerte durch Modellierung mit Rechtecken“ nur indirekt (Zerlegen in Rechtecke); krumm begrenzte Flächen zum Abschätzen bräuchten eine eigene Zeichnung (z. B. See auf Karopapier).',
+                     'Lehrplan „Näherungswerte durch Modellierung mit Rechtecken“ nur indirekt (Zerlegen in Rechtecke). Die Prüfung schlägt dafür eine spätere eigene Lernkarte vor (krumme Fläche, z. B. ein See, im Kästchengitter innen und außen abschätzen); noch nicht gebaut – braucht eine gezeichnete krumme Figur und eine Zählregel für angeschnittene Kästchen.',
                      'Zeichnungen: Rechtecke, Einheitsquadrate (gestrichelte Hilfslinien), L-Formen und Rahmen als Figur. Das Kind kann Flächen nicht selbst färben oder zerlegen.'])
 
 if __name__ == '__main__':

@@ -47,6 +47,8 @@ ETAPPEN = [
      'fehler': 'Ein Ergebnis wie „Ein Ei wiegt 60 kg“ einfach hinzuschreiben, ohne nachzudenken, ist der häufigste Fehler. Die ⟦Plausibilität⟧ prüfen – richtig wären 60 g.'},
 ]
 
+PRUEFUNG = pruefung_erklaerungen(ETAPPEN, 'groessen.einheiten')   # karten[].neu wörtlich übernommen
+
 MERKE = ['km –1 000– m –10– dm –10– cm –10– mm', 't –1 000– kg –1 000– g –1 000– mg', '€ –100– ct', 'd –24– h –60– min –60– s',
          'Kommaschreibweise: so viele Nachkommastellen, wie die Umrechnungszahl Nullen hat.', 'Maßstab 1 : n: Wirklichkeit = Karte · n.']
 
@@ -63,7 +65,7 @@ SCHAETZ = [('Ein Bleistift ist etwa', 18, 'cm', ['mm', 'm', 'dm']), ('Eine Zimme
            ('Ein Elefant wiegt etwa', 5, 't', ['kg', 'g', 'mg']), ('Ein Marathonlauf ist etwa', 42, 'km', ['m', 'cm', 'dm']),
            ('Ein Ei wiegt etwa', 60, 'g', ['kg', 'mg', 't']), ('Ein Schuljahr hat etwa', 190, 'Schultage', None),
            ('Eine Ameise ist etwa', 5, 'mm', ['cm', 'm', 'dm']), ('Ein Stockwerk eines Hauses ist etwa', 3, 'm', ['cm', 'dm', 'km']),
-           ('Eine Briefmarke wiegt etwa', 1, 'g', ['kg', 't', 'mg']), ('Ein Lied im Radio dauert etwa', 3, 'min', ['s', 'h', 'd']),
+           ('Ein Brief mit zwei Blatt Papier wiegt etwa', 10, 'g', ['kg', 't', 'mg']), ('Ein Lied im Radio dauert etwa', 3, 'min', ['s', 'h', 'd']),
            ('Ein Schulheft wiegt etwa', 50, 'g', ['kg', 'mg', 't']), ('Ein Lineal ist etwa', 30, 'cm', ['mm', 'm', 'dm']),
            ('Ein Kinofilm dauert etwa', 2, 'h', ['min', 's', 'd']), ('Ein Lkw mit Ladung wiegt etwa', 40, 't', ['kg', 'g', 'mg'])]
 SCHAETZ = [s for s in SCHAETZ if s[3]]
@@ -90,9 +92,20 @@ def g_schaetz(st):
             return {**wahl(R, r, [gr(z * 60, e), gr(z, 'h' if e == 'min' else 'min'), gr(z * 10, e)]), 'f': {'text': f'Was ist realistisch? {satz.replace(" etwa", "")} …'},
                     'w': f'{satz} {r}.', 'h': 'Vergleiche mit Zeiten, die du kennst.'}
         r = gr(z, e)
-        alt = [gr(z, f) for f in falsch[:2]] + [gr(z * 10 if z < 1000 else z, e) if z * 10 != z else gr(z + 1, e)]
-        return {**wahl(R, r, alt), 'f': {'text': f'Was ist realistisch? {satz.replace(" etwa", "")} ungefähr …'}, 'w': f'{satz} {r}.', 'h': 'Gleiche Maßzahl, andere Einheit: Welche passt zur Wirklichkeit?'}
-    art = R.randrange(2)
+        alt = [gr(z, f) for f in falsch]          # gleiche Maßzahl, andere Einheiten – alle verschieden groß (Prüfung)
+        return {**wahl_rund(R, r, alt), 'f': {'text': f'Was ist realistisch? {satz.replace(" etwa", "")} ungefähr …'}, 'w': f'{satz} {r}.', 'h': 'Gleiche Maßzahl, andere Einheit: Welche passt zur Wirklichkeit?'}
+    art = R.randrange(3)
+    if art == 2:
+        if R.random() < .5:
+            n = R.randint(2, 9)
+            return {'y': 'zahl', 'f': {'text': f'Ein Stapel mit 100 Blatt Papier ist etwa 1 cm hoch. Wie viele Blatt sind etwa in einem {n} cm hohen Stapel?'},
+                    'o': {'wert': 100 * n, 'toleranz': 10}, 'c': f'100 * {n}', 'w': f'Jeder Zentimeter sind etwa 100 Blatt: {n} · 100 = {zt(100 * n)} Blatt.',
+                    'h': 'Wie viele Zentimeter hoch ist der Stapel? Jeder Zentimeter sind 100 Blatt.'}
+        sch, km = R.choice([(50, 1), (50, 2), (80, 2), (80, 4), (125, 5), (40, 2), (75, 3)])
+        anz = km * 100000 // sch
+        return {'y': 'zahl', 'f': {'text': f'Ein Schritt ist etwa {sch} cm lang. Wie viele Schritte brauchst du etwa für {km} km?'},
+                'o': {'wert': anz, 'toleranz': 100}, 'c': f'{km} * 100000 / {sch}',
+                'w': f'{km} km = {zt(km * 100000)} cm. {zt(km * 100000)} : {sch} = {zt(anz)} Schritte.', 'h': 'Rechne die Strecke in cm um und teile durch die Schrittlänge.'}
     if art == 0:
         n = R.randint(3, 9)
         bez = R.choice([('Eine Tür ist etwa 2 m hoch. Ein Haus ist etwa {n} Türen hoch.', 2, 'm'), ('Ein Schritt ist etwa 60 cm lang. Ein Weg ist {n}0 Schritte lang.', 60, 'cm'),
@@ -147,13 +160,14 @@ def g_tafel(tafel, paare):
             return luecke([x, y], f'Zerlege: {gr(ges, b)} = □ {a} □ {b}', f'□ {a} □ {b}', f'Erst {a}, dann {b}.', [f'{ges} // {k}', f'{ges} % {k}'],
                           f'{zt(ges)} : {zt(k)} = {x} Rest {y}. Also {gr(x, a)} {gr(y, b)}.', f'Wie oft passen {zt(k)} {b} in {zt(ges)} {b}? Der Rest bleibt in {b}.')
         if art == 1:
-            werte = []
-            while len(werte) < 4:
-                e2 = [a, b][len(werte) % 2]
-                v = Fr(R.randint(1, 30) * (k // 10 if e2 == b and k >= 100 else 1) + (R.randint(1, 9) if e2 == b else 0))
-                if all(umr(v, e2, b, tafel) != umr(w2, f2, b, tafel) for w2, f2 in werte): werte.append((v, e2))
+            x = R.randint(2, 20); d = R.randint(1, k - 1)
+            if R.random() < .5:      # die Angabe in der kleineren Einheit ist die größte (Prüfung)
+                werte = [(Fr(x), a), (Fr(x * k + d), b), (Fr(x * k - d), b), (Fr(x - 1), a)]
+            else:
+                werte = [(Fr(x + 1), a), (Fr(x * k + d), b), (Fr(x), a), (Fr(x * k - d), b)]
+            if len({umr(v, e2, b, tafel) for v, e2 in werte}) < 4 or min(v for v, _ in werte) <= 0: return g(3)
             groesst = max(werte, key=lambda t: umr(t[0], t[1], b, tafel))
-            return {**wahl(R, gr(*groesst), [gr(*t) for t in werte]), 'f': {'text': 'Welche Größe ist am größten: ' + ', '.join(gr(*t) for t in werte) + '?'},
+            return {**wahl_rund(R, gr(*groesst), [gr(*t) for t in werte if t != groesst]), 'f': {'text': 'Welche Größe ist am größten: ' + ', '.join(gr(*t) for t in werte) + '?'},
                     'w': 'In ' + b + ': ' + ', '.join(f'{gr(*t)} = {gr(umr(t[0], t[1], b, tafel), b)}' for t in werte) + f'. Am größten: {gr(*groesst)}.', 'h': 'Rechne alle in dieselbe Einheit um.'}
         x = R.randint(2, 9)
         n = R.choice([4, 5, 8, 10, 20, 25])
@@ -166,6 +180,9 @@ def g_tafel(tafel, paare):
 
 # ---------- 4 Zeit ----------
 def uhr(m): return f'{m // 60}:{m % 60:02d} Uhr'
+
+
+ZEIT3 = {'n': 0}
 
 
 def g_zeit(st):
@@ -182,7 +199,19 @@ def g_zeit(st):
         return {'y': 'zahl', 'f': {'text': f'Wie viele Stunden haben {x} Tage?'}, 'o': {'wert': 24 * x, 'einheit': 'h'}, 'c': f'{x} * 24',
                 'w': f'1 d = 24 h, also {x} · 24 = {24 * x} h.', 'h': 'Ein Tag hat 24 Stunden.'}
     if st == 2:
-        art = R.randrange(3)
+        art = R.randrange(5)
+        if art == 3:
+            s_ = R.randint(70, 600)
+            if s_ % 60 == 0: s_ += 13
+            return luecke([s_ // 60, s_ % 60], f'Ein Lauf dauert {s_} s. Schreibe die Zeit in Minuten und Sekunden.', '□ min □ s', 'Erst die Minuten, dann die Sekunden.', [f'{s_} // 60', f'{s_} % 60'],
+                          f'{s_} : 60 = {s_ // 60} Rest {s_ % 60}: {s_ // 60} min {s_ % 60} s.', 'Eine Minute hat 60 Sekunden.')
+        if art == 4:
+            a = R.randint(14 * 60, 20 * 60) // 5 * 5; d = R.randint(80, 150) // 5 * 5
+            if d % 60 == 0: d += 10
+            b = a + d
+            return luecke([b // 60, b % 60], f'Ein Film beginnt um {uhr(a)} und dauert {d // 60} h {d % 60} min. Wann endet er?', '□:□ Uhr', 'Stunde ins erste Feld, Minuten ins zweite.',
+                          [f'({a} + {d}) // 60', f'({a} + {d}) % 60'], f'{uhr(a)} + {d // 60} h = {uhr(a + d // 60 * 60)}, + {d % 60} min = {uhr(b)}.',
+                          'Erst die Stunden addieren, dann die Minuten. Über 60 min gibt es eine Stunde mehr.')
         if art == 0:
             m = R.randint(65, 400)
             if m % 60 == 0: m += 7
@@ -198,7 +227,7 @@ def g_zeit(st):
         x, y = R.randint(1, 5), R.randint(5, 55)
         return {'y': 'zahl', 'f': {'text': f'Wie viele Minuten sind {x} h {y} min?'}, 'o': {'wert': 60 * x + y, 'einheit': 'min'}, 'c': f'{x} * 60 + {y}',
                 'w': f'{x} h = {60 * x} min, dazu {y} min: {60 * x + y} min.', 'h': 'Stunden in Minuten umrechnen, dann addieren.'}
-    art = R.randrange(3)
+    art = ZEIT3['n'] % 3; ZEIT3['n'] += 1          # Stufe 3 reihum: Ankunft, Dauer aus Uhrzeiten, über Mitternacht
     if art == 0:
         a = R.randint(6 * 60, 20 * 60) // 5 * 5
         d = R.randint(40, 200) // 5 * 5
@@ -206,11 +235,15 @@ def g_zeit(st):
         b = a + d
         return luecke([b // 60, b % 60], f'Ein Zug fährt um {uhr(a)} ab. Die Fahrt dauert {d // 60} h {d % 60} min. Wann kommt er an?', '□:□ Uhr', 'Stunde ins erste Feld, Minuten ins zweite.',
                       [f'({a} + {d}) // 60', f'({a} + {d}) % 60'], f'{uhr(a)} + {d // 60} h = {uhr(a + d // 60 * 60)}, + {d % 60} min = {uhr(b)}.', 'Erst die Stunden addieren, dann die Minuten. Über 60 min gibt es eine Stunde mehr.')
-    if art == 1:
-        s = R.randint(70, 600)
-        if s % 60 == 0: s += 13
-        return luecke([s // 60, s % 60], f'Ein Lauf dauert {s} s. Schreibe die Zeit in Minuten und Sekunden.', '□ min □ s', 'Erst die Minuten, dann die Sekunden.', [f'{s} // 60', f'{s} % 60'],
-                      f'{s} : 60 = {s // 60} Rest {s % 60}: {s // 60} min {s % 60} s.', 'Eine Minute hat 60 Sekunden.')
+    if art == 1:      # Dauer aus zwei Uhrzeiten mit krummen Minuten (Prüfung)
+        a = R.randint(6 * 60, 19 * 60); d = R.randint(50, 200)
+        if a % 5 == 0 or (a + d) % 60 == 0 or d % 60 == 0: return g_zeit(3)
+        b = a + d
+        bis = 60 - a % 60
+        return luecke([d // 60, d % 60], f'Ein Zug fährt um {uhr(a)} ab und kommt um {uhr(b)} an. Wie lange dauert die Fahrt?', '□ h □ min', 'Erst die Stunden, dann die Minuten.',
+                      [f'({b} - {a}) // 60', f'({b} - {a}) % 60'],
+                      f'Bis {uhr(a + bis)}: {bis} min. Dann bis {uhr(b - b % 60)}: {(b - b % 60 - a - bis) // 60} h. Dann bis {uhr(b)}: {b % 60} min. Zusammen {d // 60} h {d % 60} min.',
+                      'Rechne in Schritten: bis zur vollen Stunde, volle Stunden, dann die restlichen Minuten.')
     a = R.randint(20 * 60, 23 * 60) // 5 * 5
     b = R.randint(5 * 60, 8 * 60) // 5 * 5
     d = 24 * 60 - a + b
@@ -231,7 +264,7 @@ def g_komma(st):
         while n > 10 and y % 10 == 0: y = R.randint(1, n - 1)
         v = x + Fr(y, n)
         return {'y': 'zahl', 'f': {'text': f'Schreibe in Kommaschreibweise: {gr(x, g_)} {gr(y, k_)} = ? {g_}'}, 'o': {'wert': wert(v), 'einheit': g_}, 'c': f'{x} + {y} / {n}',
-                'w': f'1 {g_} = {zt(n)} {k_}: {stellen} Stelle{"n" if stellen > 1 else ""} nach dem Komma. {gr(y, k_)} → {str(y).rjust(stellen, "0")}. Also {gr(v, g_)}.', 'h': f'Nach dem Komma stehen {stellen} Stellen, fehlende mit 0 auffüllen.'}
+                'w': f'1 {g_} = {zt(n)} {k_}: {stellen} Stelle{"n" if stellen > 1 else ""} nach dem Komma. {gr(y, k_)} → {str(y).rjust(stellen, "0")}. Also {gr(v, g_)}.', 'h': f'Nach dem Komma {"steht 1 Stelle" if stellen == 1 else f"stehen {stellen} Stellen"} ({k_}), fehlende mit 0 auffüllen.'}
     if st == 2:
         v = Fr(R.randint(1, 30 * n), n)
         while v.denominator == 1: v = Fr(R.randint(1, 30 * n), n)
@@ -324,20 +357,30 @@ def g_mst(st):
         k = R.randint(1, 9)
         w_cm = k * m
         return {'y': 'zahl', 'f': {'text': f'Maßstab 1 : {zt(m)}. Auf der Karte sind es {k} cm. Wie viele Meter sind es in Wirklichkeit?'}, 'o': {'wert': w_cm // 100, 'einheit': 'm'},
-                'c': f'{k} * {m} / 100', 'w': f'{k} cm · {zt(m)} = {zt(w_cm)} cm = {zt(w_cm // 100)} m.', 'h': 'Kartenlänge mal Maßstabszahl, dann cm in m umrechnen.'}
+                'c': f'{k} * {m} / 100', 'w': f'Zuerst: 1 cm auf der Karte sind {zt(m)} cm = {zt(m // 100)} m. {k} · {zt(m // 100)} m = {zt(w_cm // 100)} m.', 'h': 'Was ist 1 cm auf der Karte in Wirklichkeit? Rechne das zuerst in m um.'}
     if st == 2:
         if R.random() < .5:
             k = Fr(R.randint(5, 60), 2) if m <= 25000 else Fr(R.randint(2, 20), 2)
             w = k * m
             if (w / 100000).denominator > 100: return g_mst(2)
             return {'y': 'zahl', 'f': {'text': f'Maßstab 1 : {zt(m)}. Auf der Karte misst ein Weg {gr(k, "cm")}. Wie viele km ist er wirklich lang?'}, 'o': {'wert': wert(w / 100000), 'einheit': 'km'},
-                    'c': f'{float(k)} * {m} / 100000', 'w': f'{gr(k, "cm")} · {zt(m)} = {zt(w)} cm = {zt(w / 100)} m = {zt(w / 100000)} km.', 'h': '100 000 cm = 1 km.'}
+                    'c': f'{float(k)} * {m} / 100000', 'w': f'Zuerst: 1 cm auf der Karte sind {zt(m)} cm = {zt(Fr(m, 100000))} km. {zt(k)} · {zt(Fr(m, 100000))} km = {zt(w / 100000)} km.', 'h': 'Was ist 1 cm auf der Karte in Wirklichkeit? Rechne das in km um (100 000 cm = 1 km).'}
         km = R.randint(1, 12)
         k = Fr(km * 100000, m)
         if (k * 10).denominator != 1 or k > 40: return g_mst(2)
         return {'y': 'zahl', 'f': {'text': f'Maßstab 1 : {zt(m)}. Wie lang ist eine {km} km lange Strecke auf der Karte (in cm)?'}, 'o': {'wert': wert(k), 'einheit': 'cm'}, 'c': f'{km} * 100000 / {m}',
                 'w': f'{km} km = {zt(km * 100000)} cm. {zt(km * 100000)} : {zt(m)} = {zt(k)} cm.', 'h': 'Wirklichkeit in cm umrechnen und durch die Maßstabszahl teilen.'}
     art = R.randrange(3)
+    if art == 0 and R.random() < .5:     # Maßstab bestimmen als Zahl (Prüfung)
+        if R.random() < .5:
+            l, mm_ = R.randint(3, 6), R.choice([20, 25, 50, 100])
+            return {'y': 'zahl', 'f': {'text': f'Auf einem Plan ist ein {l} m langes Zimmer {zt(Fr(l * 100, mm_))} cm lang. Welcher Maßstab ist das? Gib die Zahl x in 1 : x an.'},
+                    'o': {'wert': mm_}, 'c': f'{l} * 100 / {float(Fr(l * 100, mm_))}', 'w': f'{l} m = {l * 100} cm. {l * 100} : {zt(Fr(l * 100, mm_))} = {mm_}. Maßstab 1 : {mm_}.',
+                    'h': 'Rechne die Wirklichkeit in cm um. Wie oft passt die Planlänge hinein?'}
+        km, k = R.choice([(2, 8), (1, 4), (3, 6), (5, 5), (1, 10), (4, 8)])
+        return {'y': 'zahl', 'f': {'text': f'Ein {km} km langer Weg ist auf der Karte {k} cm lang. Welcher Maßstab ist das? Gib die Zahl x in 1 : x an.'},
+                'o': {'wert': km * 100000 // k}, 'c': f'{km} * 100000 / {k}', 'w': f'{km} km = {zt(km * 100000)} cm. {zt(km * 100000)} : {k} = {zt(km * 100000 // k)}. Maßstab 1 : {zt(km * 100000 // k)}.',
+                'h': 'Rechne die Wirklichkeit in cm um und teile durch die Kartenlänge.'}
     if art == 0:
         k = R.randint(2, 10)
         w_m = k * m // 100
@@ -350,12 +393,16 @@ def g_mst(st):
         return {'y': 'zahl', 'f': {'text': f'{tier} ist {mm} mm lang. Im Biologiebuch ist das Tier im Maßstab {f} : 1 abgebildet. Wie viele cm ist das Bild lang?'},
                 'o': {'wert': wert(Fr(mm * f, 10)), 'einheit': 'cm'}, 'c': f'{mm} * {f} / 10', 'w': f'{f} : 1 heißt {f}-mal so groß: {mm} mm · {f} = {mm * f} mm = {zt(Fr(mm * f, 10))} cm.',
                 'h': 'Bei f : 1 ist das Bild f-mal so groß wie in Wirklichkeit.'}
-    l, b = R.choice([(12, 8), (10, 6), (15, 10), (9, 6), (14, 8)])
-    mm = R.choice([50, 100])
-    if (l * 100) % mm or (b * 100) % mm: return g_mst(3)
+    raum = R.choice(['Zimmer', 'Zimmer', 'Turnhalle', 'Garten'])          # Zimmer 3–6 m, größere Maße: Turnhalle, Garten (Prüfung)
+    if raum == 'Zimmer': l, b, mm = R.randint(4, 6), R.randint(3, 4), R.choice([50, 100])
+    elif raum == 'Turnhalle': l, b, mm = R.choice([(30, 15), (27, 15), (45, 27)]), None, R.choice([300, 500])
+    else: l, b, mm = R.choice([(20, 12), (15, 10), (25, 15)]), None, R.choice([200, 500])
+    if b is None: l, b = l
+    if l == b or (l * 100) % mm or (b * 100) % mm: return g_mst(3)
+    artikel = {'Zimmer': 'Ein Zimmer', 'Turnhalle': 'Eine Turnhalle', 'Garten': 'Ein Garten'}[raum]
     a = luecke([l * 100 // mm, b * 100 // mm],
-                  f'Ein Zimmer ist {l} m lang und {b} m breit. Zeichne es im Maßstab 1 : {mm}. Wie lang und breit wird es auf dem Plan (in cm)?', 'Länge □ cm, Breite □ cm', 'Erst die Länge, dann die Breite.',
-                  [f'{l} * 100 / {mm}', f'{b} * 100 / {mm}'], f'{l} m = {l * 100} cm, : {mm} = {l * 100 // mm} cm. {b} m = {b * 100} cm, : {mm} = {b * 100 // mm} cm.',
+                  f'{artikel} ist {l} m lang und {b} m breit. Zeichne den Grundriss im Maßstab 1 : {mm}. Wie lang und breit wird der Grundriss auf dem Plan (in cm)?', 'Länge □ cm, Breite □ cm', 'Erst die Länge, dann die Breite.',
+                  [f'{l} * 100 / {mm}', f'{b} * 100 / {mm}'], f'{l} m = {zt(l * 100)} cm, : {mm} = {l * 100 // mm} cm. {b} m = {zt(b * 100)} cm, : {mm} = {b * 100 // mm} cm.',
                   'Erst in cm umrechnen, dann durch die Maßstabszahl teilen.')
     a['f']['grafik'] = {'typ': 'figur', 'punkte': {'_A': [0, 0], '_B': [l, 0], '_C': [l, b], '_D': [0, b]}, 'flaeche': ['_A', '_B', '_C', '_D'],
                         'linien': [['_A', '_B', f'{l} m'], ['_B', '_C', f'{b} m'], ['_C', '_D'], ['_D', '_A']]}
@@ -363,31 +410,31 @@ def g_mst(st):
 
 
 # ---------- 8 Verstehen ----------
+# Prüfung: alle Antworten mit Begründung, große Zahlen mit Leerzeichen
 def g_vers(st):
     if st == 1:
         x = R.randint(2, 9)
-        aussagen = [(f'{x} m = {x * 10} cm', False, f'Nein, 1 m = 100 cm, also {x} m = {x * 100} cm.'),
-                    (f'{x} kg = {x * 1000} g', True, 'Ja, bei Massen ist die Umrechnungszahl 1 000.'),
-                    (f'{x} h = {x * 100} min', False, f'Nein, 1 h = 60 min, also {x} h = {x * 60} min.'),
-                    (f'{x} € = {x * 100} ct', True, 'Ja, 1 € = 100 ct.')]
+        aussagen = [(f'{x} m = {x * 10} cm', f'Nein, 1 m = 100 cm, also {x} m = {x * 100} cm.', ['Ja, 1 m = 10 cm.', f'Nein, {x} m = {zt(x * 1000)} cm.']),
+                    (f'{x} kg = {zt(x * 1000)} g', 'Ja, 1 kg = 1 000 g.', [f'Nein, 1 kg = 100 g, also {x * 100} g.', f'Nein, {x} kg = {x * 10} g.']),
+                    (f'{x} h = {x * 100} min', f'Nein, 1 h = 60 min, also {x} h = {x * 60} min.', ['Ja, 1 h = 100 min.', f'Nein, {x} h = {zt(x * 3600)} min.']),
+                    (f'{x} € = {x * 100} ct', 'Ja, 1 € = 100 ct.', [f'Nein, 1 € = 10 ct, also {x * 10} ct.', f'Nein, {x} € = {zt(x * 1000)} ct.'])]
     elif st == 2:
         x, y = R.randint(1, 9), R.randint(1, 9)
-        aussagen = [(f'{x} m {y} cm = {x},{y} m', False, f'Nein, {y} cm = 0,0{y} m. Also {x},0{y} m.'),
-                    (f'{x},{y} kg = {x} kg {y}00 g', True, f'Ja, {x},{y} kg = {x * 1000 + y * 100} g = {x} kg {y * 100} g.'),
-                    (f'{x},5 h = {x} h 50 min', False, f'Nein, 0,5 h ist eine halbe Stunde = 30 min.'),
-                    (f'{x},{y}0 € = {x} € {y}0 ct', True, 'Ja, zwei Stellen nach dem Komma sind Cent.')]
+        aussagen = [(f'{x} m {y} cm = {x},{y} m', f'Nein, {y} cm = 0,0{y} m. Also {x},0{y} m.', ['Ja, die Zentimeter stehen direkt hinter dem Komma.', f'Nein, richtig ist {x},00{y} m.']),
+                    (f'{x},{y} kg = {x} kg {y}00 g', f'Ja, {x},{y} kg = {zt(x * 1000 + y * 100)} g = {x} kg {y * 100} g.', [f'Nein, {x},{y} kg = {x} kg {y} g.', f'Nein, {x},{y} kg = {x} kg {y * 10} g.']),
+                    (f'{x},5 h = {x} h 50 min', 'Nein, 0,5 h ist eine halbe Stunde = 30 min.', ['Ja, nach dem Komma stehen die Minuten.', 'Nein, 0,5 h = 5 min.']),
+                    (f'{x},{y}0 € = {x} € {y}0 ct', 'Ja, zwei Stellen nach dem Komma sind Cent.', [f'Nein, {x},{y}0 € = {x} € {y} ct.', f'Nein, {x},{y}0 € = {x} € {y}00 ct.'])]
     else:
-        aussagen = [('Ein Ei wiegt etwa 60 kg.', False, 'Nein, ein Ei wiegt etwa 60 g.'),
-                    ('Ein Klassenzimmer ist etwa 8 m lang.', True, 'Ja, das ist realistisch (etwa 4 Türbreiten mal 2).'),
-                    ('Mit dem Rad schafft man 15 km in etwa einer Stunde.', True, 'Ja, Radfahrer fahren etwa 15 km pro Stunde.'),
-                    ('Ein Schulbus ist etwa 12 cm lang.', False, 'Nein, ein Bus ist etwa 12 m lang.'),
-                    ('Ein Kind wiegt etwa 40 t.', False, 'Nein, ein Kind wiegt etwa 40 kg.'),
-                    ('Ein Fußweg von 1 km dauert etwa 15 min.', True, 'Ja, man geht etwa 4 bis 5 km in der Stunde.'),
-                    ('Auf einer Karte 1 : 100 000 ist 1 cm in Wirklichkeit 1 km.', True, 'Ja, 100 000 cm = 1 000 m = 1 km.'),
-                    ('Auf einer Karte 1 : 10 000 ist 1 cm in Wirklichkeit 10 km.', False, 'Nein, 10 000 cm = 100 m.')]
-    s, stimmt, grund = R.choice(aussagen)
-    gegen = 'Ja, das stimmt.' if not stimmt else 'Nein, das ist falsch.'
-    return {**wahl(R, grund, [gegen, 'Das kann man nicht entscheiden.'], 3), 'f': {'text': f'Stimmt das? „{s}“'}, 'w': grund,
+        aussagen = [('Ein Ei wiegt etwa 60 kg.', 'Nein, ein Ei wiegt etwa 60 g.', ['Ja, ein Ei wiegt etwa so viel wie eine Tafel Schokolade.', 'Nein, ein Ei wiegt etwa 60 mg.']),
+                    ('Ein Klassenzimmer ist etwa 8 m lang.', 'Ja, das ist realistisch (etwa 8 Türbreiten von je 1 m).', ['Nein, ein Klassenzimmer ist etwa 8 cm lang.', 'Nein, ein Klassenzimmer ist etwa 80 m lang.']),
+                    ('Mit dem Rad schafft man 15 km in etwa einer Stunde.', 'Ja, Radfahrer fahren etwa 15 km pro Stunde.', ['Nein, mit dem Rad schafft man nur etwa 1,5 km in einer Stunde.', 'Nein, mit dem Rad schafft man etwa 150 km in einer Stunde.']),
+                    ('Ein Schulbus ist etwa 12 cm lang.', 'Nein, ein Bus ist etwa 12 m lang.', ['Ja, ein Bus ist etwa so lang wie ein Lineal.', 'Nein, ein Bus ist etwa 12 km lang.']),
+                    ('Ein Kind wiegt etwa 40 t.', 'Nein, ein Kind wiegt etwa 40 kg.', ['Ja, 1 t ist dasselbe wie 1 kg.', 'Nein, ein Kind wiegt etwa 40 g.']),
+                    ('Ein Fußweg von 1 km dauert etwa 15 min.', 'Ja, man geht etwa 4 bis 5 km in der Stunde.', ['Nein, 1 km zu Fuß dauert etwa 1 min.', 'Nein, 1 km zu Fuß dauert etwa 2 h.']),
+                    ('Auf einer Karte 1 : 100 000 ist 1 cm in Wirklichkeit 1 km.', 'Ja, 100 000 cm = 1 000 m = 1 km.', ['Nein, 100 000 cm = 100 km.', 'Nein, 100 000 cm = 10 m.']),
+                    ('Auf einer Karte 1 : 10 000 ist 1 cm in Wirklichkeit 10 km.', 'Nein, 10 000 cm = 100 m.', ['Ja, 10 000 cm = 10 km.', 'Nein, 10 000 cm = 1 m.'])]
+    s_, grund, falsch = R.choice(aussagen)
+    return {**wahl_rund(R, grund, falsch, 3), 'f': {'text': f'Stimmt das? „{s_}“'}, 'w': grund,
             'h': 'Prüfe die Umrechnungszahl oder vergleiche mit einer Bezugsgröße.'}
 
 

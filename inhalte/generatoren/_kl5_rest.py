@@ -74,6 +74,32 @@ def wahl(R, richtig, falsche, n=4):
     return {'y': 'auswahl', 'a': opts, 'o': {'index': opts.index(richtig)}}
 
 
+_RUND = {'n': 0}
+
+
+def wahl_rund(R, richtig, falsche, n=4):
+    """Wie wahl, aber die richtige Antwort wandert reihum über alle Plätze (Einarbeiten der Prüfung)."""
+    opts = []
+    for f in falsche:
+        if f not in opts and f != richtig: opts.append(f)
+        if len(opts) == n - 1: break
+    if len(opts) < 2: raise ValueError(f'zu wenige verschiedene Antworten: {[richtig] + opts}')
+    R.shuffle(opts)
+    i = _RUND['n'] % (len(opts) + 1); _RUND['n'] += 1
+    opts.insert(i, richtig)
+    return {'y': 'auswahl', 'a': opts, 'o': {'index': i}}
+
+
+def pruefung_erklaerungen(etappen, schluessel):
+    """Übernimmt karten[].neu der Prüfung wörtlich (jedes Feld ersetzt das alte vollständig). Gibt die Prüfdatei zurück."""
+    p = Path(__file__).resolve().parent.parent / 'pruefung' / 'erklaerungen' / f'{schluessel}.json'
+    d = json.loads(p.read_text(encoding='utf-8'))
+    for k in d.get('karten', []):
+        if k.get('neu'):
+            next(e for e in etappen if e['lernziel'] == k['lernziel']).update(k['neu'])
+    return d
+
+
 def ja_nein(R, stimmt, grund_ja, grund_nein, extra):
     """Aussage beurteilen: 3 Antworten, eine davon richtig."""
     richtig = grund_ja if stimmt else grund_nein
@@ -129,7 +155,7 @@ def eintrag_laden(schluessel):
     return next(e for e in liste if e['thema_schluessel'] == schluessel)
 
 
-__all__.append('eintrag_laden')
+__all__ += ['eintrag_laden', 'wahl_rund', 'pruefung_erklaerungen']
 
 
 def luecke(werte, text, schablone, hinweis, c, w, h):

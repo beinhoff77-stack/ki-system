@@ -17,6 +17,35 @@ def strahl(grad, l=5):
     return [round(l * math.cos(w), 3), round(l * math.sin(w), 3)]
 
 
+def uhrbild(h, m=0, text=None):
+    """Zifferblatt als Figur: 12 Striche, Zahlen 12/3/6/9, Stundenzeiger kurz, Minutenzeiger lang (Prüfung: Uhr ist mit „figur“ zeichenbar)."""
+    pk = {'M': [0, 0]}
+    lin = []
+    for k in range(12):
+        w = math.radians(90 - 30 * k)
+        pk[f'_t{k}a'] = [round(4.4 * math.cos(w), 3), round(4.4 * math.sin(w), 3)]
+        pk[f'_t{k}b'] = [round(5 * math.cos(w), 3), round(5 * math.sin(w), 3)]
+        lin.append([f'_t{k}a', f'_t{k}b'])
+    for zahl, k in (('12', 0), ('3', 3), ('6', 6), ('9', 9)):
+        pk[zahl] = pk[f'_t{k}b']
+    ws = math.radians(90 - (30 * (h % 12) + m / 2)); wm = math.radians(90 - 6 * m)
+    pk['_h'] = [round(2.6 * math.cos(ws), 3), round(2.6 * math.sin(ws), 3)]
+    pk['_m'] = [round(4 * math.cos(wm), 3), round(4 * math.sin(wm), 3)]
+    lin += [['M', '_h'], ['M', '_m']]
+    g = {'typ': 'figur', 'punkte': pk, 'kreise': [{'m': 'M', 'r': 5}], 'linien': lin}
+    if text: g['winkel'] = [['M', '_m', '_h', text]]
+    return g
+
+
+def windrose():
+    pk = {'_M': [0, 0]}
+    kurz = ['N', 'NO', 'O', 'SO', 'S', 'SW', 'W', 'NW']
+    for k, n in enumerate(kurz):
+        w = math.radians(90 - 45 * k)
+        pk[n] = [round(4 * math.cos(w), 3), round(4 * math.sin(w), 3)]
+    return {'typ': 'figur', 'punkte': pk, 'linien': [['_M', n, '', '' if k % 2 == 0 else 'gestrichelt'] for k, n in enumerate(kurz)]}
+
+
 def facher(richtungen, beschr, gerade=False):
     """Strahlen von S aus; Winkel zwischen benachbarten Strahlen beschriftet."""
     pk = {'S': [0, 0]}
@@ -64,6 +93,8 @@ ETAPPEN = [
      'fehler': 'Eine Aussage nur an einem Beispiel zu prüfen, das zufällig passt, ist unsicher. Überlege, ob es ⟦immer⟧ gilt – oder suche gezielt ein ⟦Gegenbeispiel⟧.'},
 ]
 
+PRUEFUNG = pruefung_erklaerungen(ETAPPEN, 'geometrie.winkel')   # uhr (Stundenzeiger, Bild), drehungen (Windrose als Bild)
+
 MERKE = ['Nebeneinander liegende Winkel werden addiert.', 'Gestreckter Winkel 180°, Vollwinkel 360°, rechter Winkel 90°.',
          'Geradenkreuzung: Nachbarwinkel ergeben 180°, gegenüberliegende sind gleich groß.', 'Uhr: Minutenzeiger 6° pro Minute, zwischen zwei Stundenzahlen 30°.',
          'Windrose: zwischen benachbarten Richtungen 45°.']
@@ -91,15 +122,25 @@ def g_erg(st):
         a = R.randint(5, 85)
         return {'y': 'zahl', 'f': {'text': f'Ein Winkel ist um {a}° größer als ein rechter Winkel. Um wie viel Grad muss man ihn noch vergrößern, damit er gestreckt ist?'},
                 'o': {'wert': 90 - a, 'einheit': '°'}, 'c': f'180 - (90 + {a})', 'w': f'Der Winkel ist 90° + {a}° = {90 + a}°. Bis 180° fehlen {90 - a}°.', 'h': 'Rechne zuerst die Größe des Winkels aus.'}
+    if art == 1 and R.random() < .5:      # Fehler finden (Prüfung)
+        if R.random() < .5:
+            a = R.randint(10, 80)
+            text = f'Jemand rechnet: α = {a}° und β bilden einen rechten Winkel, also β = 180° − {a}° = {180 - a}°. Was ist falsch?'
+            r, f = f'Ein rechter Winkel hat 90°: β = 90° − {a}° = {90 - a}°.', ['Nichts, das stimmt.', f'Man muss 360° − {a}° = {360 - a}° rechnen.']
+        else:
+            a = R.randint(190, 350)
+            text = f'Jemand rechnet: α = {a}° wird zum Vollwinkel ergänzt, also β = {a}° − 180° = {a - 180}°. Was ist falsch?'
+            r, f = f'Ein Vollwinkel hat 360°: β = 360° − {a}° = {360 - a}°.', ['Nichts, das stimmt.', f'Man muss 180° − {a}° rechnen.']
+        return {**wahl_rund(R, r, f, 3), 'f': {'text': text}, 'w': r, 'h': 'Wie groß ist der Winkel, der ergänzt werden soll: 90°, 180° oder 360°?'}
     if art == 1:
-        a = R.randint(10, 80)
+        a = 2 * R.randint(5, 40)          # gerader Unterschied: ganze Gradzahlen (Prüfung)
         return {'y': 'zahl', 'f': {'text': f'α und β liegen nebeneinander und ergeben zusammen 180°. β ist {a}° größer als α. Wie groß ist α?'},
                 'o': {'wert': wert(Fr(180 - a, 2)), 'einheit': '°'}, 'c': f'(180 - {a}) / 2', 'w': f'α + (α + {a}°) = 180°, also 2 · α = {180 - a}° und α = {zt(Fr(180 - a, 2))}°. Probe: {zt(Fr(180 - a, 2))}° + {zt(Fr(180 + a, 2))}° = 180°.',
                 'h': 'Nimm den Unterschied weg, dann bleiben zwei gleich große Winkel.'}
     n = R.choice([2, 3, 4, 5, 6])
     ziel = R.choice([90, 180])
     return {'y': 'zahl', 'f': {'text': f'Ein {"rechter" if ziel == 90 else "gestreckter"} Winkel wird in {n} gleich große Winkel geteilt. Wie groß ist jeder?'},
-            'o': {'wert': wert(Fr(ziel, n)), 'einheit': '°'}, 'c': f'{ziel} / {n}', 'w': f'{ziel}° : {n} = {zt(Fr(ziel, n))}°.', 'h': 'Teile die Gesamtgröße durch die Anzahl.'}
+            'o': {'wert': wert(Fr(ziel, n)), 'einheit': '°'}, 'c': f'{ziel} / {n}', 'w': f'Ein {"rechter" if ziel == 90 else "gestreckter"} Winkel hat {ziel}°: {ziel}° : {n} = {zt(Fr(ziel, n))}°.', 'h': 'Teile die Gesamtgröße durch die Anzahl.'}
 
 
 # ---------- 2 Kreuzung ----------
@@ -133,9 +174,12 @@ def g_kreuz(st):
         return {'y': 'zahl', 'f': {'text': f'An einer Geradenkreuzung ist ein Winkel um {d}° größer als sein Nachbarwinkel. Wie groß ist der größere Winkel?'},
                 'o': {'wert': wert(x), 'einheit': '°'}, 'c': f'(180 + {d}) / 2', 'w': f'Zusammen 180°, Unterschied {d}°: kleiner Winkel (180° − {d}°) : 2 = {zt(Fr(180 - d, 2))}°, großer {zt(x)}°.',
                 'h': 'Nachbarwinkel ergeben 180°. Nimm den Unterschied weg und halbiere.'}
-    if art == 1:
-        return {'y': 'zahl', 'f': {'text': f'Zwei Geraden schneiden sich. α = {a}°. Wie groß sind alle vier Winkel zusammen?', 'grafik': fig}, 'o': {'wert': 360, 'einheit': '°'}, 'c': f'2 * {a} + 2 * (180 - {a})',
-                'w': f'α = γ = {a}°, β = δ = {180 - a}°. Summe: 2 · {a}° + 2 · {180 - a}° = 360°.', 'h': 'Die vier Winkel liegen lückenlos um den Schnittpunkt.'}
+    if art == 1:          # ersetzt „alle vier Winkel zusammen“ (immer 360°, Prüfung)
+        k = R.choice([2, 3, 4, 5])
+        kl2 = 180 // (k + 1)
+        return {'y': 'zahl', 'f': {'text': f'Zwei Geraden schneiden sich. Ein Winkel ist {k}-mal so groß wie sein Nachbarwinkel. Wie groß ist der größere Winkel?'}, 'o': {'wert': k * kl2, 'einheit': '°'},
+                'c': f'{k} * 180 / ({k} + 1)', 'w': f'Zusammen 180°, das sind {k + 1} gleiche Teile: 180° : {k + 1} = {kl2}°. Der größere Winkel: {k} · {kl2}° = {k * kl2}°.',
+                'h': f'Die beiden Nachbarwinkel bestehen zusammen aus {k + 1} gleichen Teilen.'}
     k = R.randint(2, 4)
     kl_ = Fr(180, k + 1)
     if kl_.denominator != 1: return g_kreuz(3)
@@ -156,6 +200,16 @@ def g_punkt(st):
         s += w_
         richt.append(s)
     fig = facher(richt, [f'{w_}°' for w_ in ws] + ['?'])
+    if st == 3 and R.random() < .35:      # Torte/Pizza (Prüfung)
+        n = R.choice([6, 8, 10, 12])
+        ding = R.choice(['Torte', 'Pizza'])
+        if R.random() < .4:
+            return {'y': 'zahl', 'f': {'text': f'Eine {ding} wird in {n} gleiche Stücke geschnitten. Wie groß ist der Winkel eines Stücks an der Spitze?'}, 'o': {'wert': 360 // n, 'einheit': '°'},
+                    'c': f'360 / {n}', 'w': f'Alle Stücke liegen um den Mittelpunkt: 360° : {n} = {360 // n}°.', 'h': 'Alle Stücke zusammen ergeben einen Vollwinkel.'}
+        k = R.randint(1, n - 1)
+        return {'y': 'zahl', 'f': {'text': f'Eine {ding} wird in {n} gleiche Stücke geschnitten, {k} {"Stück ist" if k == 1 else "Stücke sind"} gegessen. Wie groß ist der Winkel des Rests (an der Mitte gemessen)?'},
+                'o': {'wert': (n - k) * 360 // n, 'einheit': '°'}, 'c': f'({n} - {k}) * 360 / {n}',
+                'w': f'Ein Stück: 360° : {n} = {360 // n}°. Übrig sind {n - k} Stücke: {n - k} · {360 // n}° = {(n - k) * 360 // n}°.', 'h': 'Rechne zuerst den Winkel eines Stücks aus.'}
     if st == 3 and R.random() < .5:
         k = R.choice([2, 3])
         a = Fr(360, 2 + k)
@@ -175,13 +229,19 @@ def g_uhr(st):
             return {'y': 'zahl', 'f': {'text': f'Um wie viel Grad dreht sich der Minutenzeiger in {m} Minuten?'}, 'o': {'wert': 6 * m, 'einheit': '°'}, 'c': f'{m} * 6',
                     'w': f'6° pro Minute: {m} · 6° = {6 * m}°.', 'h': 'In 60 Minuten dreht er sich um 360°.'}
         h = R.randint(1, 6)
-        return {'y': 'zahl', 'f': {'text': f'Wie groß ist der kleinere Winkel zwischen den Zeigern um {h}:00 Uhr?'}, 'o': {'wert': 30 * h, 'einheit': '°'}, 'c': f'{h} * 30',
+        return {'y': 'zahl', 'f': {'text': f'Wie groß ist der kleinere Winkel zwischen den Zeigern um {h}:00 Uhr?', 'grafik': uhrbild(h, 0, '?')}, 'o': {'wert': 30 * h, 'einheit': '°'}, 'c': f'{h} * 30',
                 'w': f'Der große Zeiger zeigt auf 12, der kleine auf {h}. {h} Abstände · 30° = {30 * h}°.', 'h': 'Zwischen zwei Stundenzahlen liegen 30°.'}
     if st == 2:
-        art = R.randrange(3)
+        art = R.randrange(4)
+        if art == 3:          # Uhrzeit am Bild ablesen und Winkel bestimmen (Prüfung)
+            h = R.randint(1, 11)
+            k = min(h, 12 - h)
+            return {'y': 'zahl', 'f': {'text': 'Die Uhr zeigt eine volle Stunde. Wie groß ist der kleinere Winkel zwischen den Zeigern?', 'grafik': uhrbild(h, 0)},
+                    'o': {'wert': 30 * k, 'einheit': '°'}, 'c': f'{k} * 30', 'w': f'Die Uhr zeigt {h}:00 Uhr. Kürzester Weg zwischen 12 und {h}: {k} Abstände · 30° = {30 * k}°.',
+                    'h': 'Lies zuerst die Uhrzeit ab. Zwischen zwei Stundenzahlen liegen 30°.'}
         if art == 0:
             h = R.randint(7, 11)
-            return {'y': 'zahl', 'f': {'text': f'Wie groß ist der kleinere Winkel zwischen den Zeigern um {h}:00 Uhr?'}, 'o': {'wert': 30 * (12 - h), 'einheit': '°'}, 'c': f'(12 - {h}) * 30',
+            return {'y': 'zahl', 'f': {'text': f'Wie groß ist der kleinere Winkel zwischen den Zeigern um {h}:00 Uhr?', 'grafik': uhrbild(h, 0, '?')}, 'o': {'wert': 30 * (12 - h), 'einheit': '°'}, 'c': f'(12 - {h}) * 30',
                     'w': f'Von {h} bis 12 sind es {12 - h} Abstände: {12 - h} · 30° = {30 * (12 - h)}°. (Der andere Winkel wäre {30 * h}°.)', 'h': 'Zähle den kürzeren Weg zwischen den Zeigern.'}
         if art == 1:
             g = R.choice([90, 120, 150, 180, 210, 240, 270, 300])
@@ -199,7 +259,7 @@ def g_uhr(st):
         h = R.randint(1, 11)
         g = abs(30 * h + 15 - 180)
         g = min(g, 360 - g)
-        return {'y': 'zahl', 'f': {'text': f'Um {h}:30 Uhr steht der Stundenzeiger genau zwischen {h} und {h % 12 + 1}. Wie groß ist der kleinere Winkel zwischen den Zeigern?'},
+        return {'y': 'zahl', 'f': {'text': f'Um {h}:30 Uhr steht der Stundenzeiger genau zwischen {h} und {h % 12 + 1}. Wie groß ist der kleinere Winkel zwischen den Zeigern?', 'grafik': uhrbild(h, 30, '?')},
                 'o': {'wert': g, 'einheit': '°'}, 'c': f'min(abs({h} * 30 + 15 - 180), 360 - abs({h} * 30 + 15 - 180))',
                 'w': f'Minutenzeiger auf 6 (180°), Stundenzeiger bei {h}½ ({30 * h + 15}°). Unterschied: {g}°.', 'h': 'Der Stundenzeiger bewegt sich in 30 Minuten um 15° weiter.'}
     if art == 1:
@@ -223,15 +283,22 @@ def g_dreh(st):
                     'h': 'Eine ganze Drehung sind 360°.'}
         i, k = R.randrange(8), R.randint(1, 4)
         return {'y': 'zahl', 'f': {'text': f'Du schaust nach {ROSE[i]} und drehst dich im Uhrzeigersinn nach {ROSE[(i + k) % 8]}. Um wie viel Grad drehst du dich (kürzester Weg im Uhrzeigersinn)?'},
-                'o': {'wert': 45 * k, 'einheit': '°'}, 'c': f'{k} * 45', 'w': f'{k} Schritte auf der Windrose zu je 45°: {45 * k}°.', 'h': 'Zwischen benachbarten Richtungen der Windrose liegen 45°.'}
+                'o': {'wert': 45 * k, 'einheit': '°'}, 'c': f'{k} * 45', 'w': f'{k} {"Schritt" if k == 1 else "Schritte"} auf der Windrose zu je 45°: {45 * k}°.', 'h': 'Zwischen benachbarten Richtungen der Windrose liegen 45°.'}
     if st == 2:
         i = R.randrange(8)
         g = R.choice([45, 90, 135, 180, 225, 270, 315])
         r = ROSE[(i + g // 45) % 8]
         return {**wahl(R, r, [ROSE[(i - g // 45) % 8], ROSE[(i + g // 45 + 1) % 8], ROSE[(i + g // 90) % 8]] if ROSE[(i - g // 45) % 8] != r else [ROSE[(i + 1) % 8], ROSE[(i + 2) % 8], ROSE[(i + 3) % 8]]),
-                'f': {'text': f'Ein Wanderer schaut nach {ROSE[i]} und dreht sich um {g}° im Uhrzeigersinn. In welche Richtung schaut er jetzt?'},
+                'f': {'text': f'Ein Wanderer schaut nach {ROSE[i]} und dreht sich um {g}° im Uhrzeigersinn. In welche Richtung schaut er jetzt?', 'grafik': windrose()},
                 'w': f'{g}° : 45° = {g // 45} {"Schritt" if g == 45 else "Schritte"} im Uhrzeigersinn von {ROSE[i]}: {r}.', 'h': 'Ein Schritt auf der Windrose sind 45°. Im Uhrzeigersinn: N → NO → O …'}
-    art = R.randrange(2)
+    art = R.randrange(3)
+    if art == 2:          # gegen den Uhrzeigersinn (Prüfung)
+        i, k = R.randrange(8), R.choice([1, 2, 3, 5, 6, 7])
+        r = ROSE[(i - k) % 8]
+        f = [ROSE[(i + k) % 8], ROSE[(i - k - 1) % 8], ROSE[(i - k + 1) % 8]]
+        return {**wahl_rund(R, r, [x for x in f if x != r]), 'f': {'text': f'Du schaust nach {ROSE[i]} und drehst dich um {45 * k}° gegen den Uhrzeigersinn. Wohin schaust du jetzt?', 'grafik': windrose()},
+                'w': f'{45 * k}° : 45° = {k} {"Schritt" if k == 1 else "Schritte"} gegen den Uhrzeigersinn (N → NW → W …) von {ROSE[i]} aus: {r}.',
+                'h': 'Gegen den Uhrzeigersinn geht es auf der Windrose N → NW → W → SW …'}
     if art == 0:
         a, b = R.choice([90, 135, 180, 45]), R.choice([90, 45, 180, 270])
         s = (a + b) % 360
@@ -245,6 +312,9 @@ def g_dreh(st):
 
 
 # ---------- 6 Figuren ----------
+FIG = {'groesser': 0}
+
+
 def g_fig(st):
     if st == 1:
         a = R.randint(15, 75)
@@ -256,7 +326,18 @@ def g_fig(st):
         return {'y': 'zahl', 'f': {'text': f'Im Rechteck ABCD teilt die Diagonale [AC] den Winkel bei A. Ein Teil ist {a}°. Wie groß ist der andere Teil?', 'grafik': fig},
                 'o': {'wert': 90 - a, 'einheit': '°'}, 'c': f'90 - {a}', 'w': f'Der Eckwinkel ist 90°: 90° − {a}° = {90 - a}°.', 'h': 'Jeder Eckwinkel im Rechteck ist 90°.'}
     if st == 2:
+        if R.random() < .3:          # Quadrat-Diagonale (Prüfung)
+            if R.random() < .4:
+                aw = wahl_rund(R, '45°', ['90°', '30°', '60°'])
+                return {**aw, 'f': {'text': 'Im Quadrat teilt die Diagonale den Eckwinkel in zwei Teile. Wie groß ist jeder Teil?'},
+                        'w': 'Im Quadrat sind beide Teile gleich groß: 90° : 2 = 45°.', 'h': 'Der Eckwinkel ist 90°. Im Quadrat sind beide Teile gleich.'}
+            a = R.choice([x for x in range(15, 76) if x != 45])
+            aw = wahl_rund(R, f'Nein: Der andere Teil ist 90° − {a}° = {90 - a}°.', ['Ja: Die Diagonale halbiert den Eckwinkel immer.', f'Nein: Der andere Teil ist 180° − {a}° = {180 - a}°.'], 3)
+            return {**aw, 'f': {'text': f'Im Rechteck (kein Quadrat) teilt die Diagonale den Eckwinkel in {a}° und einen zweiten Teil. Stimmt die Aussage „Beide Teile sind 45°“?'},
+                    'w': f'Nur im Quadrat sind beide Teile 45°. Hier: 90° − {a}° = {90 - a}°.', 'h': 'Beide Teile ergeben zusammen den rechten Eckwinkel.'}
         art = R.randrange(2)
+        if art == 1 and FIG['groesser'] >= 4: art = 0          # höchstens 4 Aufgaben „um x° größer“ (Prüfung)
+        if art == 1: FIG['groesser'] += 1
         if art == 0:
             k = R.choice([2, 3, 5, 6])
             return {'y': 'zahl', 'f': {'text': f'Ein rechter Winkel wird durch {k - 1} Strahlen in {k} gleich große Winkel geteilt. Wie groß ist jeder?'}, 'o': {'wert': wert(Fr(90, k)), 'einheit': '°'},
@@ -277,49 +358,56 @@ def g_fig(st):
         a = R.randint(10, 80)
         return {'y': 'zahl', 'f': {'text': f'Eine Schranke liegt waagrecht. Sie wird um {a}° nach oben gedreht. Um wie viel Grad muss sie noch weiter gedreht werden, bis sie senkrecht steht?'},
                 'o': {'wert': 90 - a, 'einheit': '°'}, 'c': f'90 - {a}', 'w': f'Von waagrecht bis senkrecht sind es 90°. Es fehlen 90° − {a}° = {90 - a}°.', 'h': 'Waagrecht und senkrecht bilden einen rechten Winkel.'}
-    a = R.randint(10, 40)
-    return {'y': 'zahl', 'f': {'text': f'Eine Raute ist ein Quadrat, das „schief gedrückt“ wurde: Ein Eckwinkel ist um {a}° kleiner als 90°. Wie groß ist der Nachbarwinkel an der benachbarten Ecke, wenn beide zusammen 180° ergeben?'},
-            'o': {'wert': 90 + a, 'einheit': '°'}, 'c': f'180 - (90 - {a})', 'w': f'Der erste Winkel ist {90 - a}°. Der Nachbarwinkel: 180° − {90 - a}° = {90 + a}°.', 'h': 'Rechne zuerst den ersten Winkel aus.'}
+    k = R.choice([2, 4, 5, 8])          # ersetzt die Raute-Aufgabe (Raute wird in dieser Karte nicht erklärt, Prüfung)
+    t = 90 // (k + 1)
+    return {'y': 'zahl', 'f': {'text': f'Im Rechteck teilt eine Strecke von einer Ecke aus den Eckwinkel in zwei Teile. Ein Teil ist {k}-mal so groß wie der andere. Wie groß ist der größere Teil?'},
+            'o': {'wert': k * t, 'einheit': '°'}, 'c': f'{k} * 90 / ({k} + 1)', 'w': f'Zusammen 90°, das sind {k + 1} gleiche Teile: 90° : {k + 1} = {t}°. Der größere Teil: {k} · {t}° = {k * t}°.',
+            'h': f'Die beiden Teile bestehen zusammen aus {k + 1} gleichen Stücken.'}
 
 
 # ---------- 7 Verstehen ----------
+# Prüfung: alle Antworten gleich gebaut, jeweils mit Zahl oder Begründung
 def g_vers(st):
     a = R.randint(20, 80)
     if st == 1:
         m = R.choice([10, 15, 20, 25, 40, 45, 50])
-        aussagen = [(f'In {m} Minuten dreht sich der Minutenzeiger um {6 * m}°.', True, f'Ja, {m} · 6° = {6 * m}°.'),
-                    (f'In {m} Minuten dreht sich der Minutenzeiger um {m}°.', False, f'Nein, 6° pro Minute: {m} · 6° = {6 * m}°.'),
-                    (f'Ein Winkel von {a}° und einer von {180 - a}° nebeneinander ergeben einen gestreckten Winkel.', True, f'Ja, {a}° + {180 - a}° = 180°.'),
-                    (f'Ein Winkel von {a}° und einer von {90 - a + 10}° nebeneinander ergeben einen rechten Winkel.', False, f'Nein, {a}° + {100 - a}° = 100°, nicht 90°.'),
-                    ('Eine halbe Drehung sind 90°.', False, 'Nein, eine halbe Drehung sind 180°, eine Vierteldrehung 90°.'),
-                    ('In 30 Minuten dreht sich der Minutenzeiger um 180°.', True, 'Ja, 30 · 6° = 180°.')]
+        aussagen = [(f'In {m} Minuten dreht sich der Minutenzeiger um {6 * m}°.', f'Ja, denn {m} · 6° = {6 * m}°.', [f'Nein, denn {m} · 30° = {zt(30 * m)}°.', f'Nein, denn {m} · 3° = {3 * m}°.']),
+                    (f'In {m} Minuten dreht sich der Minutenzeiger um {m}°.', f'Nein, denn {m} · 6° = {6 * m}°.', ['Ja, denn in 1 Minute dreht er sich um 1°.', f'Nein, denn {m} · 30° = {zt(30 * m)}°.']),
+                    (f'Ein Winkel von {a}° und einer von {180 - a}° nebeneinander ergeben einen gestreckten Winkel.', f'Ja, denn {a}° + {180 - a}° = 180°.', ['Nein, ein gestreckter Winkel hat 360°.', 'Nein, ein gestreckter Winkel hat 90°.']),
+                    (f'Ein Winkel von {a}° und einer von {100 - a}° nebeneinander ergeben einen rechten Winkel.', f'Nein, denn {a}° + {100 - a}° = 100°, nicht 90°.', [f'Ja, denn {a}° + {100 - a}° = 90°.', 'Ja, denn zwei spitze Winkel ergeben immer einen rechten Winkel.']),
+                    ('Eine halbe Drehung sind 90°.', 'Nein, eine halbe Drehung sind 360° : 2 = 180°.', ['Ja, denn 360° : 4 = 90°.', 'Nein, eine halbe Drehung sind 360°.']),
+                    ('In 30 Minuten dreht sich der Minutenzeiger um 180°.', 'Ja, denn 30 · 6° = 180°.', ['Nein, denn 30 · 30° = 900°.', 'Nein, denn 30 · 3° = 90°.'])]
     elif st == 2:
         h = R.randint(1, 11)
-        k = min(h, 12 - h) * 30
+        n = min(h, 12 - h); k = n * 30
         b = R.randint(20, 80)
         c = R.randint(95, 170)
-        aussagen = [(f'An einer Geradenkreuzung mit α = {a}° ist der gegenüberliegende Winkel ebenfalls {a}°.', True, 'Ja, gegenüberliegende Winkel ergänzen denselben Nachbarwinkel zu 180°.'),
-                    (f'An einer Geradenkreuzung mit α = {a}° ist der Nachbarwinkel ebenfalls {a}°.', False, f'Nein, Nachbarwinkel ergänzen sich zu 180°: 180° − {a}° = {180 - a}°.'),
-                    (f'Die spitzen Winkel {a}° und {b}° nebeneinander ergeben einen {"stumpfen" if a + b > 90 else "spitzen"} Winkel.', True, f'Ja, {a}° + {b}° = {a + b}°.'),
-                    (f'Die spitzen Winkel {a}° und {b}° nebeneinander ergeben einen {"spitzen" if a + b > 90 else "stumpfen"} Winkel.', False, f'Nein, {a}° + {b}° = {a + b}° ist {"stumpf" if a + b > 90 else "spitz"}.'),
-                    (f'Um {h}:00 Uhr bilden die Zeiger einen Winkel von {k}°.', True, f'Ja, {min(h, 12 - h)} Abstände · 30° = {k}°.'),
-                    (f'Um {h}:00 Uhr bilden die Zeiger einen Winkel von {h * 10 if h * 10 != k else h * 10 + 30}°.', False, f'Nein, zwischen zwei Stundenzahlen liegen 30°: {k}°.'),
-                    (f'Ein stumpfer Winkel von {c}° und ein Winkel von {180 - c}° ergeben zusammen einen gestreckten Winkel.', True, f'Ja, {c}° + {180 - c}° = 180°.')]
+        falsch_h = h * 10 if h * 10 != k else h * 10 + 30
+        if 6 * h in (k, falsch_h, 10 * h) or 15 * h == k: return g_vers(st)          # keine Ablenker mit dem richtigen Wert
+        art_ = 'stumpfen' if a + b > 90 else ('rechten' if a + b == 90 else 'spitzen')
+        anders = 'spitzen' if a + b > 90 else 'stumpfen'
+        aussagen = [(f'An einer Geradenkreuzung mit α = {a}° ist der gegenüberliegende Winkel ebenfalls {a}°.', 'Ja, denn beide ergänzen denselben Nachbarwinkel zu 180°.', [f'Nein, er ist 180° − {a}° = {180 - a}°.', f'Nein, er ist 360° − {a}° = {360 - a}°.']),
+                    (f'An einer Geradenkreuzung mit α = {a}° ist der Nachbarwinkel ebenfalls {a}°.', f'Nein, Nachbarwinkel ergeben zusammen 180°: 180° − {a}° = {180 - a}°.', ['Ja, an einer Kreuzung sind alle Winkel gleich.', f'Nein, er ist 360° − {a}° = {360 - a}°.']),
+                    (f'Die spitzen Winkel {a}° und {b}° nebeneinander ergeben einen {art_} Winkel.', f'Ja, denn {a}° + {b}° = {a + b}°.', [f'Nein, zwei spitze Winkel ergeben immer einen {anders} Winkel.', 'Nein, sie ergeben einen gestreckten Winkel.']),
+                    (f'Die spitzen Winkel {a}° und {b}° nebeneinander ergeben einen {anders} Winkel.', f'Nein, denn {a}° + {b}° = {a + b}°, also ein {art_[:-1]} Winkel.', [f'Ja, zwei spitze Winkel ergeben immer einen {anders} Winkel.', 'Nein, sie ergeben einen gestreckten Winkel.']),
+                    (f'Um {h}:00 Uhr bilden die Zeiger einen Winkel von {k}°.', f'Ja, denn {n} {"Abstand" if n == 1 else "Abstände"} · 30° = {k}°.', [f'Nein, denn {h} · 10° = {10 * h}°.' if 10 * h != k else f'Nein, denn {h} · 15° = {15 * h}°.', f'Nein, denn {h} · 6° = {6 * h}°.']),
+                    (f'Um {h}:00 Uhr bilden die Zeiger einen Winkel von {falsch_h}°.', f'Nein, zwischen zwei Stundenzahlen liegen 30°: {n} · 30° = {k}°.', [f'Ja, denn {h} · 10° = {10 * h}°.' if falsch_h == 10 * h else f'Ja, denn {h} · 10° + 30° = {falsch_h}°.', f'Nein, denn {h} · 6° = {6 * h}°.']),
+                    (f'Ein stumpfer Winkel von {c}° und ein Winkel von {180 - c}° ergeben zusammen einen gestreckten Winkel.', f'Ja, denn {c}° + {180 - c}° = 180°.', ['Nein, ein stumpfer und ein spitzer Winkel ergeben immer einen stumpfen Winkel.', 'Nein, ein gestreckter Winkel hat 360°.'])]
     else:
         i = R.randrange(8); kk = R.randint(1, 7)
         n4 = R.choice([3, 4, 5, 6, 8])
-        aussagen = [(f'Wer von {ROSE[i]} aus um {45 * kk}° im Uhrzeigersinn dreht, schaut nach {ROSE[(i + kk) % 8]}.', True, f'Ja, {kk} Schritte zu 45° auf der Windrose.'),
-                    (f'Wer von {ROSE[i]} aus um {45 * kk}° im Uhrzeigersinn dreht, schaut nach {ROSE[(i - kk) % 8] if (i - kk) % 8 != (i + kk) % 8 else ROSE[(i + kk + 1) % 8]}.', False, f'Nein, im Uhrzeigersinn kommt man nach {ROSE[(i + kk) % 8]}.'),
-                    (f'{n4} gleich große Winkel um einen Punkt sind je {zt(Fr(360, n4))}° groß.', True, f'Ja, 360° : {n4} = {zt(Fr(360, n4))}°.'),
-                    (f'{n4} gleich große Winkel um einen Punkt sind je {zt(Fr(180, n4))}° groß.', False, f'Nein, um einen Punkt sind es 360°: 360° : {n4} = {zt(Fr(360, n4))}°.'),
-                    ('Zwei stumpfe Winkel nebeneinander ergeben immer mehr als 180°.', True, 'Ja, jeder ist größer als 90°, zusammen also mehr als 180°.'),
-                    ('Drei spitze Winkel um einen Punkt können einen Vollwinkel ergeben.', False, 'Nein, drei Winkel unter 90° ergeben zusammen weniger als 270°.'),
-                    ('Wer sich von Norden aus um 270° im Uhrzeigersinn dreht, schaut nach Westen.', True, 'Ja, 270° sind drei Vierteldrehungen: N → O → S → W.'),
-                    ('Im Rechteck teilt die Diagonale den Eckwinkel immer in zwei gleiche Teile.', False, 'Nein, nur im Quadrat (je 45°). Im Rechteck sind die Teile verschieden.'),
-                    ('Vier gleich große Winkel um einen Punkt sind rechte Winkel.', True, 'Ja, 360° : 4 = 90°.')]
-    s, stimmt, grund = R.choice(aussagen)
-    gegen = 'Ja, das stimmt.' if not stimmt else 'Nein, das ist falsch.'
-    return {**wahl(R, grund, [gegen, 'Das kann man nicht entscheiden.'], 3), 'f': {'text': f'Stimmt die Aussage? „{s}“'}, 'w': grund, 'h': 'Rechne mit 90°, 180° oder 360° nach oder mach eine Skizze.'}
+        gegen = ROSE[(i - kk) % 8] if (i - kk) % 8 != (i + kk) % 8 else ROSE[(i + kk + 1) % 8]
+        aussagen = [(f'Wer von {ROSE[i]} aus um {45 * kk}° im Uhrzeigersinn dreht, schaut nach {ROSE[(i + kk) % 8]}.', f'Ja, denn {kk} {"Schritt" if kk == 1 else "Schritte"} zu 45° sind {45 * kk}°.', [f'Nein, man schaut nach {gegen}.', f'Nein, denn {45 * kk}° sind {kk} Schritte zu 90°.']),
+                    (f'Wer von {ROSE[i]} aus um {45 * kk}° im Uhrzeigersinn dreht, schaut nach {gegen}.', f'Nein, im Uhrzeigersinn kommt man nach {ROSE[(i + kk) % 8]}.', ['Ja, die Drehrichtung ist egal.', f'Ja, denn {kk} {"Schritt" if kk == 1 else "Schritte"} zu 45° sind {45 * kk}°.']),
+                    (f'{n4} gleich große Winkel um einen Punkt sind je {zt(Fr(360, n4))}° groß.', f'Ja, denn 360° : {n4} = {zt(Fr(360, n4))}°.', [f'Nein, denn 180° : {n4} = {zt(Fr(180, n4))}°.', f'Nein, denn 90° : {n4} = {zt(Fr(90, n4))}°.']),
+                    (f'{n4} gleich große Winkel um einen Punkt sind je {zt(Fr(180, n4))}° groß.', f'Nein, um einen Punkt sind es 360°: 360° : {n4} = {zt(Fr(360, n4))}°.', [f'Ja, denn 180° : {n4} = {zt(Fr(180, n4))}°.', f'Nein, denn 90° : {n4} = {zt(Fr(90, n4))}°.']),
+                    ('Zwei stumpfe Winkel nebeneinander ergeben immer mehr als 180°.', 'Ja, jeder ist größer als 90°, zusammen also mehr als 180°.', ['Nein, z. B. 100° + 70° = 170°.', 'Nein, zusammen sind es immer genau 180°.']),
+                    ('Drei spitze Winkel um einen Punkt können einen Vollwinkel ergeben.', 'Nein, drei Winkel unter 90° ergeben zusammen weniger als 270°.', ['Ja, z. B. 120° + 120° + 120° = 360°.', 'Ja, wenn jeder Winkel 90° ist.']),
+                    ('Wer sich von Norden aus um 270° im Uhrzeigersinn dreht, schaut nach Westen.', 'Ja, 270° sind drei Vierteldrehungen: N → O → S → W.', ['Nein, 270° im Uhrzeigersinn führen nach Osten.', 'Nein, 270° führen nach Süden.']),
+                    ('Im Rechteck teilt die Diagonale den Eckwinkel immer in zwei gleiche Teile.', 'Nein, nur im Quadrat (je 45°). Im Rechteck sind die Teile verschieden.', ['Ja, die Diagonale halbiert jeden Eckwinkel.', 'Ja, beide Teile sind immer 45°.']),
+                    ('Vier gleich große Winkel um einen Punkt sind rechte Winkel.', 'Ja, denn 360° : 4 = 90°.', ['Nein, denn 180° : 4 = 45°.', 'Nein, denn 360° : 4 = 80°.'])]
+    s_, r, f = R.choice(aussagen)
+    return {**wahl_rund(R, r, f, 3), 'f': {'text': f'Stimmt die Aussage? „{s_}“'}, 'w': r, 'h': 'Rechne mit 90°, 180° oder 360° nach oder mach eine Skizze.'}
 
 
 GEN = {'ergaenzen': g_erg, 'kreuzung': g_kreuz, 'um_punkt': g_punkt, 'uhr': g_uhr, 'drehungen': g_dreh, 'figuren': g_fig, 'verstehen': g_vers}
@@ -331,7 +419,7 @@ DATEI = datei(E, 'Winkel ergänzen und an Geradenkreuzungen, um einen Punkt, an 
               ETAPPEN, GEN,
               offen=['WICHTIG: themenliste.json ordnet „Winkelsätze“ Kl. 5 zu, nennt aber keinen lehrplan_gym-Wortlaut. Laut LehrplanPLUS Gymnasium Kl. 5 gibt es nur „Winkel bis 360° messen, zeichnen, beschreiben“. Stufen-/Wechselwinkel und Innenwinkelsummen (Dreieck, Viereck) sind Stoff der Jahrgangsstufe 7 und wurden weggelassen. Vorschlag: dieses Thema für Kl. 5 so lassen und die eigentlichen Winkelsätze als Kl.-7-Thema führen.',
                      'Nachbarwinkel an der Geradenkreuzung werden nur über „ergänzen zu 180°“ begründet, ohne die Fachbegriffe Neben-/Scheitelwinkel einzuführen (Kl. 7).',
-                     'Zeichnungen: Strahlenfächer und Geradenkreuzung als Figur mit Winkelbögen, Rechteck/Quadrat mit Diagonale. Eine Uhr und eine Windrose kann die App nicht zeichnen.'])
+                     'Zeichnungen: Strahlenfächer und Geradenkreuzung als Figur mit Winkelbögen, Rechteck/Quadrat mit Diagonale; Uhr (Zifferblatt mit Zeigern) und Windrose als Figur in den Lernkarten uhr und drehungen und in Aufgaben.'])
 
 if __name__ == '__main__':
     schreibe(DATEI)

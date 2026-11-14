@@ -103,7 +103,66 @@
      "Eine Münze wird dreimal geworfen (K = Kopf, Z = Zahl). Jede Stufe hat 2 Äste.",
      "Pfade: 2 · 2 · 2 = 8. Genau zweimal Kopf: KKZ, KZK, ZKK – das sind ⟦3⟧ Pfade."
     ],
-    "fehler": "Bei „genau zweimal Kopf“ nur KKZ zu zählen ist falsch: Die Reihenfolge der Würfe macht ⟦verschiedene Pfade⟧ – auch KZK und ZKK gehören dazu."
+    "fehler": "Bei „genau zweimal Kopf“ nur KKZ zu zählen ist falsch: Die Reihenfolge der Würfe macht ⟦verschiedene Pfade⟧ – auch KZK und ZKK gehören dazu.",
+    "bild": {
+     "typ": "baum",
+     "aeste": [
+      {
+       "text": "K",
+       "aeste": [
+        {
+         "text": "K",
+         "aeste": [
+          {
+           "text": "K"
+          },
+          {
+           "text": "Z"
+          }
+         ]
+        },
+        {
+         "text": "Z",
+         "aeste": [
+          {
+           "text": "K"
+          },
+          {
+           "text": "Z"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "text": "Z",
+       "aeste": [
+        {
+         "text": "K",
+         "aeste": [
+          {
+           "text": "K"
+          },
+          {
+           "text": "Z"
+          }
+         ]
+        },
+        {
+         "text": "Z",
+         "aeste": [
+          {
+           "text": "K"
+          },
+          {
+           "text": "Z"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
    },
    {
     "lernziel": "bedingungen",
@@ -213,30 +272,30 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Es gibt 3 Eissorten und 3 Waffeln. Wie viele Kombinationen aus einem Stück jeder Sorte gibt es? Die Tabelle hilft.",
+    "text": "Es gibt 3 Eissorten (Vanille, Schoko, Erdbeere) und 3 Toppings (Sahne, Streusel, Soße). Wie viele verschiedene Becher mit einer Kugel und einem Topping gibt es? Die Tabelle hilft.",
     "grafik": {
      "typ": "tabelle",
      "kopf": [
       "",
-      "gelb",
-      "weiß",
-      "schwarz"
+      "Sahne",
+      "Streusel",
+      "Soße"
      ],
      "zeilen": [
       [
-       "rot",
+       "Vanille",
        "?",
        "?",
        "?"
       ],
       [
-       "blau",
+       "Schoko",
        "?",
        "?",
        "?"
       ],
       [
-       "grün",
+       "Erdbeere",
        "?",
        "?",
        "?"
@@ -248,7 +307,7 @@
     "wert": 9
    },
    "c": "3 * 3",
-   "w": "Jede der 3 Möglichkeiten (Eissorten) lässt sich mit allen 3 Waffeln kombinieren: 3 · 3 = 9.",
+   "w": "Jede der 3 Möglichkeiten (Eissorten) lässt sich mit allen 3 Toppings kombinieren: 3 · 3 = 9.",
    "h": "Jede Zeile der Tabelle hat gleich viele Felder."
   },
   {
@@ -258,24 +317,24 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Es gibt 2 Röcke und 3 Blusen. Wie viele Kombinationen aus einem Stück jeder Sorte gibt es? Die Tabelle hilft.",
+    "text": "Es gibt 2 Röcke (Jeansrock, Faltenrock) und 3 Blusen (weiß, blau, gestreift). Wie viele verschiedene Outfits aus einem Rock und einer Bluse gibt es? Die Tabelle hilft.",
     "grafik": {
      "typ": "tabelle",
      "kopf": [
       "",
-      "grün",
-      "gelb",
-      "weiß"
+      "weiß",
+      "blau",
+      "gestreift"
      ],
      "zeilen": [
       [
-       "rot",
+       "Jeansrock",
        "?",
        "?",
        "?"
       ],
       [
-       "blau",
+       "Faltenrock",
        "?",
        "?",
        "?"
@@ -297,30 +356,30 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Es gibt 3 Mützen und 3 Schals. Wie viele Kombinationen aus einem Stück jeder Sorte gibt es? Die Tabelle hilft.",
+    "text": "Es gibt 3 Mützen (Wollmütze, Kappe, Bommelmütze) und 3 Schals (rot, grau, bunt). Wie viele verschiedene Kombinationen aus einer Mütze und einem Schal gibt es? Die Tabelle hilft.",
     "grafik": {
      "typ": "tabelle",
      "kopf": [
       "",
-      "gelb",
-      "weiß",
-      "schwarz"
+      "rot",
+      "grau",
+      "bunt"
      ],
      "zeilen": [
       [
-       "rot",
+       "Wollmütze",
        "?",
        "?",
        "?"
       ],
       [
-       "blau",
+       "Kappe",
        "?",
        "?",
        "?"
       ],
       [
-       "grün",
+       "Bommelmütze",
        "?",
        "?",
        "?"
@@ -342,13 +401,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Es gibt 2 Fahrradrahmen und 2 Lenkerfarben. Wie viele Kombinationen aus einem Stück jeder Sorte gibt es? Die Tabelle hilft.",
+    "text": "Es gibt 2 Rahmenfarben (rot, blau) und 2 Lenkerfarben (silber, schwarz). Wie viele verschiedene Fahrräder aus Rahmenfarbe und Lenkerfarbe gibt es? Die Tabelle hilft.",
     "grafik": {
      "typ": "tabelle",
      "kopf": [
       "",
-      "grün",
-      "gelb"
+      "silber",
+      "schwarz"
      ],
      "zeilen": [
       [
@@ -368,7 +427,7 @@
     "wert": 4
    },
    "c": "2 * 2",
-   "w": "Jede der 2 Möglichkeiten (Fahrradrahmen) lässt sich mit allen 2 Lenkerfarben kombinieren: 2 · 2 = 4.",
+   "w": "Jede der 2 Möglichkeiten (Rahmenfarben) lässt sich mit allen 2 Lenkerfarben kombinieren: 2 · 2 = 4.",
    "h": "Jede Zeile der Tabelle hat gleich viele Felder."
   },
   {
@@ -378,22 +437,22 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Es gibt 2 Brotsorten und 2 Beläge. Wie viele Kombinationen aus einem Stück jeder Sorte gibt es? Die Tabelle hilft.",
+    "text": "Es gibt 2 Brotsorten (Vollkorn, Weißbrot) und 2 Beläge (Käse, Wurst). Wie viele verschiedene belegte Brote mit genau einem Belag gibt es? Die Tabelle hilft.",
     "grafik": {
      "typ": "tabelle",
      "kopf": [
       "",
-      "grün",
-      "gelb"
+      "Käse",
+      "Wurst"
      ],
      "zeilen": [
       [
-       "rot",
+       "Vollkorn",
        "?",
        "?"
       ],
       [
-       "blau",
+       "Weißbrot",
        "?",
        "?"
       ]
@@ -404,7 +463,7 @@
     "wert": 4
    },
    "c": "2 * 2",
-   "w": "Jede der 2 Möglichkeiten (Brotsorten) lässt sich mit allen 2 Beläge kombinieren: 2 · 2 = 4.",
+   "w": "Jede der 2 Möglichkeiten (Brotsorten) lässt sich mit allen 2 Belägen kombinieren: 2 · 2 = 4.",
    "h": "Jede Zeile der Tabelle hat gleich viele Felder."
   },
   {
@@ -414,14 +473,14 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Es gibt 2 Fahrradrahmen und 3 Lenkerfarben. Wie viele Kombinationen aus einem Stück jeder Sorte gibt es? Die Tabelle hilft.",
+    "text": "Es gibt 2 Rahmenfarben (rot, blau) und 3 Lenkerfarben (silber, schwarz, gelb). Wie viele verschiedene Fahrräder aus Rahmenfarbe und Lenkerfarbe gibt es? Die Tabelle hilft.",
     "grafik": {
      "typ": "tabelle",
      "kopf": [
       "",
-      "grün",
-      "gelb",
-      "weiß"
+      "silber",
+      "schwarz",
+      "gelb"
      ],
      "zeilen": [
       [
@@ -443,7 +502,7 @@
     "wert": 6
    },
    "c": "2 * 3",
-   "w": "Jede der 2 Möglichkeiten (Fahrradrahmen) lässt sich mit allen 3 Lenkerfarben kombinieren: 2 · 3 = 6.",
+   "w": "Jede der 2 Möglichkeiten (Rahmenfarben) lässt sich mit allen 3 Lenkerfarben kombinieren: 2 · 3 = 6.",
    "h": "Jede Zeile der Tabelle hat gleich viele Felder."
   },
   {
@@ -451,16 +510,63 @@
    "t": "systematisch",
    "p": "uebung",
    "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viele zweistellige Zahlen kann man aus den Ziffern 3, 5, 8 bilden, wenn jede Ziffer höchstens einmal vorkommen darf?"
-   },
+   "y": "auswahl",
+   "a": [
+    "51",
+    "12",
+    "55",
+    "11"
+   ],
    "o": {
-    "wert": 6
+    "index": 0
    },
-   "c": "3 * 2",
-   "w": "Zehnerziffer: 3 Möglichkeiten, Einerziffer: 2. 3 · 2 = 6.",
-   "h": "Halte die Zehnerziffer fest und schreibe alle passenden Einerziffern auf."
+   "f": {
+    "text": "Jemand schreibt alle zweistelligen Zahlen aus den Ziffern 1, 3, 5 ohne doppelte Ziffer auf: 13, 15, 31, 35, 53. Welche Zahl fehlt?"
+   },
+   "w": "Systematisch: Zehner 1: 13, 15. Zehner 3: 31, 35. Zehner 5: 51, 53. Es fehlt 51.",
+   "h": "Schreibe die Liste geordnet nach der Zehnerziffer auf."
+  },
+  {
+   "l": "systematisch",
+   "t": "systematisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Es fehlt keins.",
+    "Jb",
+    "JJ",
+    "bJ"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Outfits aus den Hosen J, S und den T-Shirts r, g, b werden aufgeschrieben (erst Hose, dann T-Shirt): Jr, Jg, Sr, Sg, Sb. Welches Outfit fehlt?"
+   },
+   "w": "Systematisch: Jr, Jg, Jb; Sr, Sg, Sb. Das sind 6, aufgeschrieben sind 5. Es fehlt Jb.",
+   "h": "Halte die Hose fest und gehe alle T-Shirts durch."
+  },
+  {
+   "l": "systematisch",
+   "t": "systematisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "66",
+    "44",
+    "46",
+    "41"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Jemand schreibt alle zweistelligen Zahlen aus den Ziffern 4, 5, 6 ohne doppelte Ziffer auf: 45, 54, 56, 64, 65. Welche Zahl fehlt?"
+   },
+   "w": "Systematisch: Zehner 4: 45, 46. Zehner 5: 54, 56. Zehner 6: 64, 65. Es fehlt 46.",
+   "h": "Schreibe die Liste geordnet nach der Zehnerziffer auf."
   },
   {
    "l": "systematisch",
@@ -469,71 +575,7 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Wie viele zweistellige Zahlen kann man aus den Ziffern 1, 5, 9 bilden, wenn jede Ziffer höchstens einmal vorkommen darf?"
-   },
-   "o": {
-    "wert": 6
-   },
-   "c": "3 * 2",
-   "w": "Zehnerziffer: 3 Möglichkeiten, Einerziffer: 2. 3 · 2 = 6.",
-   "h": "Halte die Zehnerziffer fest und schreibe alle passenden Einerziffern auf."
-  },
-  {
-   "l": "systematisch",
-   "t": "systematisch",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viele zweistellige Zahlen kann man aus den Ziffern 1, 2, 3, 5 bilden, wenn jede Ziffer mehrmals vorkommen darf?"
-   },
-   "o": {
-    "wert": 16
-   },
-   "c": "4 * 4",
-   "w": "Zehnerziffer: 4 Möglichkeiten, Einerziffer: 4. 4 · 4 = 16.",
-   "h": "Halte die Zehnerziffer fest und schreibe alle passenden Einerziffern auf."
-  },
-  {
-   "l": "systematisch",
-   "t": "systematisch",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viele zweistellige Zahlen kann man aus den Ziffern 4, 5, 6 bilden, wenn jede Ziffer höchstens einmal vorkommen darf?"
-   },
-   "o": {
-    "wert": 6
-   },
-   "c": "3 * 2",
-   "w": "Zehnerziffer: 3 Möglichkeiten, Einerziffer: 2. 3 · 2 = 6.",
-   "h": "Halte die Zehnerziffer fest und schreibe alle passenden Einerziffern auf."
-  },
-  {
-   "l": "systematisch",
-   "t": "systematisch",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viele zweistellige Zahlen kann man aus den Ziffern 2, 6, 7 bilden, wenn jede Ziffer mehrmals vorkommen darf?"
-   },
-   "o": {
-    "wert": 9
-   },
-   "c": "3 * 3",
-   "w": "Zehnerziffer: 3 Möglichkeiten, Einerziffer: 3. 3 · 3 = 9.",
-   "h": "Halte die Zehnerziffer fest und schreibe alle passenden Einerziffern auf."
-  },
-  {
-   "l": "systematisch",
-   "t": "systematisch",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viele zweistellige Zahlen kann man aus den Ziffern 1, 2, 7, 9 bilden, wenn jede Ziffer höchstens einmal vorkommen darf?"
+    "text": "Wie viele zweistellige Zahlen kann man aus den Ziffern 1, 5, 6, 7 bilden, wenn jede Ziffer höchstens einmal vorkommen darf?"
    },
    "o": {
     "wert": 12
@@ -546,16 +588,117 @@
    "l": "systematisch",
    "t": "systematisch",
    "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Es fehlt keins.",
+    "JJ",
+    "rJ",
+    "Jr"
+   ],
+   "o": {
+    "index": 3
+   },
+   "f": {
+    "text": "Outfits aus den Hosen J, S und den T-Shirts r, g, b werden aufgeschrieben (erst Hose, dann T-Shirt): Jg, Jb, Sr, Sg, Sb. Welches Outfit fehlt?"
+   },
+   "w": "Systematisch: Jr, Jg, Jb; Sr, Sg, Sb. Das sind 6, aufgeschrieben sind 5. Es fehlt Jr.",
+   "h": "Halte die Hose fest und gehe alle T-Shirts durch."
+  },
+  {
+   "l": "systematisch",
+   "t": "systematisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele zweistellige Zahlen kann man aus den Ziffern 3, 6, 7, 8 bilden, wenn jede Ziffer mehrmals vorkommen darf?"
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "4 * 4",
+   "w": "Zehnerziffer: 4 Möglichkeiten, Einerziffer: 4. 4 · 4 = 16.",
+   "h": "Halte die Zehnerziffer fest und schreibe alle passenden Einerziffern auf."
+  },
+  {
+   "l": "systematisch",
+   "t": "systematisch",
+   "p": "uebung",
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Bilde aus den Ziffern 2, 3, 7 alle zweistelligen Zahlen ohne doppelte Ziffer. Wie viele davon sind gerade?"
+    "text": "Beim Eis gibt es 2 Sorten, 3 Soßen und 2 Streusel. Ein Becher hat genau eine Sorte, eine Soße und einen Streusel. Wie viele verschiedene Becher gibt es?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "2 * 3 * 2",
+   "w": "2 · 3 = 6 Paare aus Sorte und Soße, jedes mit 2 Streuseln: 12.",
+   "h": "Erst Sorte und Soße kombinieren, dann jeweils alle Streusel."
+  },
+  {
+   "l": "systematisch",
+   "t": "systematisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Beim Eis gibt es 3 Sorten, 2 Soßen und 2 Streusel. Ein Becher hat genau eine Sorte, eine Soße und einen Streusel. Wie viele verschiedene Becher gibt es?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "3 * 2 * 2",
+   "w": "3 · 2 = 6 Paare aus Sorte und Soße, jedes mit 2 Streuseln: 12.",
+   "h": "Erst Sorte und Soße kombinieren, dann jeweils alle Streusel."
+  },
+  {
+   "l": "systematisch",
+   "t": "systematisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Bilde aus den Ziffern 2, 5, 7 alle zweistelligen Zahlen ohne doppelte Ziffer. Wie viele davon sind gerade?"
    },
    "o": {
     "wert": 2
    },
    "c": "1 + 1",
-   "w": "Alle: 23, 27, 32, 37, 72, 73. Gerade: 32, 72 – also 2.",
+   "w": "Alle: 25, 27, 52, 57, 72, 75. Gerade: 52, 72 – also 2.",
+   "h": "Schreibe zuerst alle Zahlen systematisch auf und streiche die unpassenden."
+  },
+  {
+   "l": "systematisch",
+   "t": "systematisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Bilde aus den Ziffern 1, 8, 9 alle zweistelligen Zahlen ohne doppelte Ziffer. Wie viele davon sind gerade?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "1 + 1",
+   "w": "Alle: 18, 19, 81, 89, 91, 98. Gerade: 18, 98 – also 2.",
+   "h": "Schreibe zuerst alle Zahlen systematisch auf und streiche die unpassenden."
+  },
+  {
+   "l": "systematisch",
+   "t": "systematisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Bilde aus den Ziffern 1, 4, 9 alle zweistelligen Zahlen ohne doppelte Ziffer. Wie viele davon sind größer als 50?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "1 + 1",
+   "w": "Alle: 14, 19, 41, 49, 91, 94. Größer als 50: 91, 94 – also 2.",
    "h": "Schreibe zuerst alle Zahlen systematisch auf und streiche die unpassenden."
   },
   {
@@ -577,105 +720,11 @@
   {
    "l": "systematisch",
    "t": "systematisch",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Beim Eis gibt es 2 Sorten, 3 Soßen und 3 Streusel. Ein Becher hat genau eine Sorte, eine Soße und einen Streusel. Wie viele verschiedene Becher gibt es?"
-   },
-   "o": {
-    "wert": 18
-   },
-   "c": "2 * 3 * 3",
-   "w": "2 · 3 = 6 Paare aus Sorte und Soße, jedes mit 3 Streuseln: 18.",
-   "h": "Erst Sorte und Soße kombinieren, dann jeweils alle Streusel."
-  },
-  {
-   "l": "systematisch",
-   "t": "systematisch",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Bilde aus den Ziffern 2, 4, 8 alle zweistelligen Zahlen ohne doppelte Ziffer. Wie viele davon sind ungerade?"
-   },
-   "o": {
-    "wert": 0
-   },
-   "c": "0",
-   "w": "Alle: 24, 28, 42, 48, 82, 84. Ungerade: keine – also 0.",
-   "h": "Schreibe zuerst alle Zahlen systematisch auf und streiche die unpassenden."
-  },
-  {
-   "l": "systematisch",
-   "t": "systematisch",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Bilde aus den Ziffern 1, 7, 9 alle zweistelligen Zahlen ohne doppelte Ziffer. Wie viele davon sind ungerade?"
-   },
-   "o": {
-    "wert": 6
-   },
-   "c": "1 + 1 + 1 + 1 + 1 + 1",
-   "w": "Alle: 17, 19, 71, 79, 91, 97. Ungerade: 17, 19, 71, 79, 91, 97 – also 6.",
-   "h": "Schreibe zuerst alle Zahlen systematisch auf und streiche die unpassenden."
-  },
-  {
-   "l": "systematisch",
-   "t": "systematisch",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Beim Eis gibt es 2 Sorten, 3 Soßen und 2 Streusel. Ein Becher hat genau eine Sorte, eine Soße und einen Streusel. Wie viele verschiedene Becher gibt es?"
-   },
-   "o": {
-    "wert": 12
-   },
-   "c": "2 * 3 * 2",
-   "w": "2 · 3 = 6 Paare aus Sorte und Soße, jedes mit 2 Streuseln: 12.",
-   "h": "Erst Sorte und Soße kombinieren, dann jeweils alle Streusel."
-  },
-  {
-   "l": "systematisch",
-   "t": "systematisch",
    "p": "test",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Wie viele zweistellige Zahlen kann man aus den Ziffern 2, 4, 8 bilden, wenn jede Ziffer mehrmals vorkommen darf?"
-   },
-   "o": {
-    "wert": 9
-   },
-   "c": "3 * 3",
-   "w": "Zehnerziffer: 3 Möglichkeiten, Einerziffer: 3. 3 · 3 = 9."
-  },
-  {
-   "l": "systematisch",
-   "t": "systematisch",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viele zweistellige Zahlen kann man aus den Ziffern 3, 6, 7, 8 bilden, wenn jede Ziffer höchstens einmal vorkommen darf?"
-   },
-   "o": {
-    "wert": 12
-   },
-   "c": "4 * 3",
-   "w": "Zehnerziffer: 4 Möglichkeiten, Einerziffer: 3. 4 · 3 = 12."
-  },
-  {
-   "l": "systematisch",
-   "t": "systematisch",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viele zweistellige Zahlen kann man aus den Ziffern 6, 7, 8 bilden, wenn jede Ziffer höchstens einmal vorkommen darf?"
+    "text": "Wie viele zweistellige Zahlen kann man aus den Ziffern 1, 3, 8 bilden, wenn jede Ziffer höchstens einmal vorkommen darf?"
    },
    "o": {
     "wert": 6
@@ -701,22 +750,22 @@
   {
    "l": "systematisch",
    "t": "systematisch",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Wie viele zweistellige Zahlen kann man aus den Ziffern 2, 3, 4, 7 bilden, wenn jede Ziffer mehrmals vorkommen darf?"
+    "text": "Wie viele zweistellige Zahlen kann man aus den Ziffern 3, 4, 5 bilden, wenn jede Ziffer mehrmals vorkommen darf?"
    },
    "o": {
-    "wert": 16
+    "wert": 9
    },
-   "c": "4 * 4",
-   "w": "Zehnerziffer: 4 Möglichkeiten, Einerziffer: 4. 4 · 4 = 16."
+   "c": "3 * 3",
+   "w": "Zehnerziffer: 3 Möglichkeiten, Einerziffer: 3. 3 · 3 = 9."
   },
   {
    "l": "systematisch",
    "t": "systematisch",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -735,7 +784,7 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Wie viele zweistellige Zahlen kann man aus den Ziffern 3, 4, 7 bilden, wenn jede Ziffer höchstens einmal vorkommen darf?"
+    "text": "Wie viele zweistellige Zahlen kann man aus den Ziffern 2, 7, 8 bilden, wenn jede Ziffer höchstens einmal vorkommen darf?"
    },
    "o": {
     "wert": 6
@@ -750,7 +799,42 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Wie viele zweistellige Zahlen kann man aus den Ziffern 1, 2, 4, 6 bilden, wenn jede Ziffer mehrmals vorkommen darf?"
+    "text": "Wie viele zweistellige Zahlen kann man aus den Ziffern 1, 2, 9 bilden, wenn jede Ziffer höchstens einmal vorkommen darf?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "3 * 2",
+   "w": "Zehnerziffer: 3 Möglichkeiten, Einerziffer: 2. 3 · 2 = 6."
+  },
+  {
+   "l": "systematisch",
+   "t": "systematisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "28",
+    "88",
+    "22",
+    "21"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Jemand schreibt alle zweistelligen Zahlen aus den Ziffern 2, 6, 8 ohne doppelte Ziffer auf: 26, 62, 68, 82, 86. Welche Zahl fehlt?"
+   },
+   "w": "Systematisch: Zehner 2: 26, 28. Zehner 6: 62, 68. Zehner 8: 82, 86. Es fehlt 28."
+  },
+  {
+   "l": "systematisch",
+   "t": "systematisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele zweistellige Zahlen kann man aus den Ziffern 5, 7, 8, 9 bilden, wenn jede Ziffer mehrmals vorkommen darf?"
    },
    "o": {
     "wert": 16
@@ -763,30 +847,40 @@
    "t": "systematisch",
    "p": "sicherung",
    "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viele zweistellige Zahlen kann man aus den Ziffern 1, 6, 8 bilden, wenn jede Ziffer höchstens einmal vorkommen darf?"
-   },
+   "y": "auswahl",
+   "a": [
+    "gK",
+    "Kg",
+    "Es fehlt keins.",
+    "KK"
+   ],
    "o": {
-    "wert": 6
+    "index": 1
    },
-   "c": "3 * 2",
-   "w": "Zehnerziffer: 3 Möglichkeiten, Einerziffer: 2. 3 · 2 = 6."
+   "f": {
+    "text": "Outfits aus den Hosen J, S, K und den T-Shirts r, g, b werden aufgeschrieben (erst Hose, dann T-Shirt): Jr, Jg, Jb, Sr, Sg, Sb, Kr, Kb. Welches Outfit fehlt?"
+   },
+   "w": "Systematisch: Jr, Jg, Jb; Sr, Sg, Sb; Kr, Kg, Kb. Das sind 9, aufgeschrieben sind 8. Es fehlt Kg."
   },
   {
    "l": "systematisch",
    "t": "systematisch",
    "p": "sicherung",
    "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viele zweistellige Zahlen kann man aus den Ziffern 4, 8, 9 bilden, wenn jede Ziffer mehrmals vorkommen darf?"
-   },
+   "y": "auswahl",
+   "a": [
+    "rS",
+    "SS",
+    "Sr",
+    "Es fehlt keins."
+   ],
    "o": {
-    "wert": 9
+    "index": 2
    },
-   "c": "3 * 3",
-   "w": "Zehnerziffer: 3 Möglichkeiten, Einerziffer: 3. 3 · 3 = 9."
+   "f": {
+    "text": "Outfits aus den Hosen J, S und den T-Shirts r, g, b werden aufgeschrieben (erst Hose, dann T-Shirt): Jr, Jg, Jb, Sg, Sb. Welches Outfit fehlt?"
+   },
+   "w": "Systematisch: Jr, Jg, Jb; Sr, Sg, Sb. Das sind 6, aufgeschrieben sind 5. Es fehlt Sr."
   },
   {
    "l": "zaehlprinzip",
@@ -795,158 +889,110 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Eine Kantine bietet 5 Vorspeisen, 6 Hauptspeisen und 3 Nachspeisen an. Wie viele verschiedene Menüs aus je einem Gang gibt es?"
-   },
-   "o": {
-    "wert": 90
-   },
-   "c": "5 * 6 * 3",
-   "w": "Zählprinzip: 5 · 6 · 3 = 90.",
-   "h": "Nimm die Anzahlen der einzelnen Schritte mal."
-  },
-  {
-   "l": "zaehlprinzip",
-   "t": "zaehlprinzip",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Kantine bietet 4 Vorspeisen, 2 Hauptspeisen und 3 Nachspeisen an. Wie viele verschiedene Menüs aus je einem Gang gibt es?"
-   },
-   "o": {
-    "wert": 24
-   },
-   "c": "4 * 2 * 3",
-   "w": "Zählprinzip: 4 · 2 · 3 = 24.",
-   "h": "Nimm die Anzahlen der einzelnen Schritte mal."
-  },
-  {
-   "l": "zaehlprinzip",
-   "t": "zaehlprinzip",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Kantine bietet 3 Vorspeisen, 6 Hauptspeisen und 3 Nachspeisen an. Wie viele verschiedene Menüs aus je einem Gang gibt es?"
-   },
-   "o": {
-    "wert": 54
-   },
-   "c": "3 * 6 * 3",
-   "w": "Zählprinzip: 3 · 6 · 3 = 54.",
-   "h": "Nimm die Anzahlen der einzelnen Schritte mal."
-  },
-  {
-   "l": "zaehlprinzip",
-   "t": "zaehlprinzip",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Kantine bietet 4 Vorspeisen, 5 Hauptspeisen und 3 Nachspeisen an. Wie viele verschiedene Menüs aus je einem Gang gibt es?"
-   },
-   "o": {
-    "wert": 60
-   },
-   "c": "4 * 5 * 3",
-   "w": "Zählprinzip: 4 · 5 · 3 = 60.",
-   "h": "Nimm die Anzahlen der einzelnen Schritte mal."
-  },
-  {
-   "l": "zaehlprinzip",
-   "t": "zaehlprinzip",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Kantine bietet 5 Vorspeisen, 3 Hauptspeisen und 4 Nachspeisen an. Wie viele verschiedene Menüs aus je einem Gang gibt es?"
-   },
-   "o": {
-    "wert": 60
-   },
-   "c": "5 * 3 * 4",
-   "w": "Zählprinzip: 5 · 3 · 4 = 60.",
-   "h": "Nimm die Anzahlen der einzelnen Schritte mal."
-  },
-  {
-   "l": "zaehlprinzip",
-   "t": "zaehlprinzip",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Kantine bietet 2 Vorspeisen, 5 Hauptspeisen und 4 Nachspeisen an. Wie viele verschiedene Menüs aus je einem Gang gibt es?"
-   },
-   "o": {
-    "wert": 40
-   },
-   "c": "2 * 5 * 4",
-   "w": "Zählprinzip: 2 · 5 · 4 = 40.",
-   "h": "Nimm die Anzahlen der einzelnen Schritte mal."
-  },
-  {
-   "l": "zaehlprinzip",
-   "t": "zaehlprinzip",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Kind hat 3 Mützen, 4 Schals und 3 Paar Handschuhe. Wie viele verschiedene Kombinationen aus je einem Teil kann es anziehen?"
+    "text": "Eine Kantine bietet 3 Vorspeisen, 4 Hauptspeisen und 3 Nachspeisen an. Wie viele verschiedene Menüs aus je einem Gang gibt es?"
    },
    "o": {
     "wert": 36
    },
    "c": "3 * 4 * 3",
    "w": "Zählprinzip: 3 · 4 · 3 = 36.",
-   "h": "Mütze UND Schal UND Handschuhe: malnehmen."
+   "h": "Nimm die Anzahlen der einzelnen Schritte mal."
   },
   {
    "l": "zaehlprinzip",
    "t": "zaehlprinzip",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Kind hat 2 Mützen, 2 Schals und 2 Paar Handschuhe. Wie viele verschiedene Kombinationen aus je einem Teil kann es anziehen?"
+    "text": "Eine Kantine bietet 2 Vorspeisen, 2 Hauptspeisen und 2 Nachspeisen an. Wie viele verschiedene Menüs aus je einem Gang gibt es?"
    },
    "o": {
     "wert": 8
    },
    "c": "2 * 2 * 2",
    "w": "Zählprinzip: 2 · 2 · 2 = 8.",
-   "h": "Mütze UND Schal UND Handschuhe: malnehmen."
+   "h": "Nimm die Anzahlen der einzelnen Schritte mal."
   },
   {
    "l": "zaehlprinzip",
    "t": "zaehlprinzip",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Eine Münze wird 3-mal geworfen. Wie viele verschiedene Ergebnisfolgen (Kopf/Zahl) gibt es?"
+    "text": "Eine Kantine bietet 3 Vorspeisen, 3 Hauptspeisen und 3 Nachspeisen an. Wie viele verschiedene Menüs aus je einem Gang gibt es?"
    },
    "o": {
-    "wert": 8
+    "wert": 27
    },
-   "c": "2 ** 3",
-   "w": "Jeder Wurf 2 Möglichkeiten: 2³ = 8.",
-   "h": "Bei jedem Wurf gibt es 2 Möglichkeiten."
+   "c": "3 * 3 * 3",
+   "w": "Zählprinzip: 3 · 3 · 3 = 27.",
+   "h": "Nimm die Anzahlen der einzelnen Schritte mal."
   },
   {
    "l": "zaehlprinzip",
    "t": "zaehlprinzip",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Kind hat 2 Mützen, 4 Schals und 2 Paar Handschuhe. Wie viele verschiedene Kombinationen aus je einem Teil kann es anziehen?"
+    "text": "Eine Kantine bietet 2 Vorspeisen, 3 Hauptspeisen und 4 Nachspeisen an. Wie viele verschiedene Menüs aus je einem Gang gibt es?"
+   },
+   "o": {
+    "wert": 24
+   },
+   "c": "2 * 3 * 4",
+   "w": "Zählprinzip: 2 · 3 · 4 = 24.",
+   "h": "Nimm die Anzahlen der einzelnen Schritte mal."
+  },
+  {
+   "l": "zaehlprinzip",
+   "t": "zaehlprinzip",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kantine bietet 4 Vorspeisen, 2 Hauptspeisen und 2 Nachspeisen an. Wie viele verschiedene Menüs aus je einem Gang gibt es?"
    },
    "o": {
     "wert": 16
    },
-   "c": "2 * 4 * 2",
-   "w": "Zählprinzip: 2 · 4 · 2 = 16.",
-   "h": "Mütze UND Schal UND Handschuhe: malnehmen."
+   "c": "4 * 2 * 2",
+   "w": "Zählprinzip: 4 · 2 · 2 = 16.",
+   "h": "Nimm die Anzahlen der einzelnen Schritte mal."
+  },
+  {
+   "l": "zaehlprinzip",
+   "t": "zaehlprinzip",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kantine bietet 3 Vorspeisen, 3 Hauptspeisen und 2 Nachspeisen an. Wie viele verschiedene Menüs aus je einem Gang gibt es?"
+   },
+   "o": {
+    "wert": 18
+   },
+   "c": "3 * 3 * 2",
+   "w": "Zählprinzip: 3 · 3 · 2 = 18.",
+   "h": "Nimm die Anzahlen der einzelnen Schritte mal."
+  },
+  {
+   "l": "zaehlprinzip",
+   "t": "zaehlprinzip",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Münze wird 5-mal geworfen. Wie viele verschiedene Ergebnisfolgen (Kopf/Zahl) gibt es?"
+   },
+   "o": {
+    "wert": 32
+   },
+   "c": "2 ** 5",
+   "w": "Jeder Wurf 2 Möglichkeiten: 2⁵ = 32.",
+   "h": "Bei jedem Wurf gibt es 2 Möglichkeiten."
   },
   {
    "l": "zaehlprinzip",
@@ -971,145 +1017,19 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Zahlenschloss hat 2 Rädchen mit den Ziffern 0 bis 9. Wie viele Codes gibt es?"
-   },
-   "o": {
-    "wert": 100
-   },
-   "c": "10 ** 2",
-   "w": "Jedes Rädchen: 10 Möglichkeiten. 10 · 10 = 100.",
-   "h": "Jedes Rädchen kann jede Ziffer zeigen – auch doppelt."
-  },
-  {
-   "l": "zaehlprinzip",
-   "t": "zaehlprinzip",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Von A nach B führen 4 Wege, von B nach C 4 Wege. Wie viele verschiedene Wege gibt es von A über B nach C und auf einem der Wege wieder zurück nach A?"
-   },
-   "o": {
-    "wert": 256
-   },
-   "c": "4 * 4 * 4 * 4",
-   "w": "Hin: 4 · 4 = 16. Zurück ebenso 16. Zusammen 16 · 16 = 256.",
-   "h": "Hinweg und Rückweg sind zwei weitere Schritte."
-  },
-  {
-   "l": "zaehlprinzip",
-   "t": "zaehlprinzip",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Vereinsausweis hat einen Code aus 2 Großbuchstaben (A bis Z, 26 Stück) und danach 3 Ziffern (0 bis 9). Wie viele Codes gibt es?"
-   },
-   "o": {
-    "wert": 676000
-   },
-   "c": "26 ** 2 * 10 ** 3",
-   "w": "26 · 26 · 10 · 10 · 10 = 676 000.",
-   "h": "Jede Stelle einzeln: Buchstaben 26, Ziffern 10."
-  },
-  {
-   "l": "zaehlprinzip",
-   "t": "zaehlprinzip",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Von A nach B führen 3 Wege, von B nach C 4 Wege. Wie viele verschiedene Wege gibt es von A über B nach C und auf einem der Wege wieder zurück nach A?"
-   },
-   "o": {
-    "wert": 144
-   },
-   "c": "3 * 4 * 4 * 3",
-   "w": "Hin: 3 · 4 = 12. Zurück ebenso 12. Zusammen 12 · 12 = 144.",
-   "h": "Hinweg und Rückweg sind zwei weitere Schritte."
-  },
-  {
-   "l": "zaehlprinzip",
-   "t": "zaehlprinzip",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Von A nach B führen 3 Wege, von B nach C 6 Wege. Wie viele verschiedene Wege gibt es von A über B nach C und auf einem der Wege wieder zurück nach A?"
-   },
-   "o": {
-    "wert": 324
-   },
-   "c": "3 * 6 * 6 * 3",
-   "w": "Hin: 3 · 6 = 18. Zurück ebenso 18. Zusammen 18 · 18 = 324.",
-   "h": "Hinweg und Rückweg sind zwei weitere Schritte."
-  },
-  {
-   "l": "zaehlprinzip",
-   "t": "zaehlprinzip",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Es gibt 3 Hosen, 2 Pullover und einige Mützen. Insgesamt sind 18 verschiedene Outfits aus je einem Teil möglich. Wie viele Mützen gibt es?"
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "18 / (3 * 2)",
-   "w": "3 · 2 · Mützen = 18, also Mützen = 18 : 6 = 3.",
-   "h": "Rückwärts rechnen: Gesamtzahl durch die bekannten Anzahlen teilen."
-  },
-  {
-   "l": "zaehlprinzip",
-   "t": "zaehlprinzip",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Von A nach B führen 3 Wege, von B nach C 3 Wege. Wie viele verschiedene Wege gibt es von A über B nach C und auf einem der Wege wieder zurück nach A?"
-   },
-   "o": {
-    "wert": 81
-   },
-   "c": "3 * 3 * 3 * 3",
-   "w": "Hin: 3 · 3 = 9. Zurück ebenso 9. Zusammen 9 · 9 = 81.",
-   "h": "Hinweg und Rückweg sind zwei weitere Schritte."
-  },
-  {
-   "l": "zaehlprinzip",
-   "t": "zaehlprinzip",
-   "p": "test",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Münze wird 5-mal geworfen. Wie viele verschiedene Ergebnisfolgen (Kopf/Zahl) gibt es?"
-   },
-   "o": {
-    "wert": 32
-   },
-   "c": "2 ** 5",
-   "w": "Jeder Wurf 2 Möglichkeiten: 2⁵ = 32."
-  },
-  {
-   "l": "zaehlprinzip",
-   "t": "zaehlprinzip",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
     "text": "Eine Münze wird 6-mal geworfen. Wie viele verschiedene Ergebnisfolgen (Kopf/Zahl) gibt es?"
    },
    "o": {
     "wert": 64
    },
    "c": "2 ** 6",
-   "w": "Jeder Wurf 2 Möglichkeiten: 2⁶ = 64."
+   "w": "Jeder Wurf 2 Möglichkeiten: 2⁶ = 64.",
+   "h": "Bei jedem Wurf gibt es 2 Möglichkeiten."
   },
   {
    "l": "zaehlprinzip",
    "t": "zaehlprinzip",
-   "p": "korrektur",
+   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -1119,27 +1039,141 @@
     "wert": 10000
    },
    "c": "10 ** 4",
-   "w": "Jedes Rädchen: 10 Möglichkeiten. 10 · 10 · 10 · 10 = 10 000."
+   "w": "Jedes Rädchen: 10 Möglichkeiten. 10 · 10 · 10 · 10 = 10 000.",
+   "h": "Jedes Rädchen kann jede Ziffer zeigen – auch doppelt."
   },
   {
    "l": "zaehlprinzip",
    "t": "zaehlprinzip",
-   "p": "korrektur",
+   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Kind hat 3 Mützen, 3 Schals und 2 Paar Handschuhe. Wie viele verschiedene Kombinationen aus je einem Teil kann es anziehen?"
+    "text": "Ein Kind hat 5 Mützen, 2 Schals und 2 Paar Handschuhe. Wie viele verschiedene Kombinationen aus je einem Teil kann es anziehen?"
    },
    "o": {
-    "wert": 18
+    "wert": 20
    },
-   "c": "3 * 3 * 2",
-   "w": "Zählprinzip: 3 · 3 · 2 = 18."
+   "c": "5 * 2 * 2",
+   "w": "Zählprinzip: 5 · 2 · 2 = 20.",
+   "h": "Mütze UND Schal UND Handschuhe: malnehmen."
   },
   {
    "l": "zaehlprinzip",
    "t": "zaehlprinzip",
-   "p": "sicherung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Münze wird 3-mal geworfen. Wie viele verschiedene Ergebnisfolgen (Kopf/Zahl) gibt es?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "2 ** 3",
+   "w": "Jeder Wurf 2 Möglichkeiten: 2³ = 8.",
+   "h": "Bei jedem Wurf gibt es 2 Möglichkeiten."
+  },
+  {
+   "l": "zaehlprinzip",
+   "t": "zaehlprinzip",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Es gibt 3 Hosen, 4 Pullover und einige Mützen. Insgesamt sind 48 verschiedene Outfits aus je einem Teil möglich. Wie viele Mützen gibt es?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "48 / (3 * 4)",
+   "w": "3 · 4 · Mützen = 48, also Mützen = 48 : 12 = 4.",
+   "h": "Rückwärts rechnen: Gesamtzahl durch die bekannten Anzahlen teilen."
+  },
+  {
+   "l": "zaehlprinzip",
+   "t": "zaehlprinzip",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Vereinsausweis hat einen Code aus 1 Großbuchstaben (A bis Z, 26 Stück) und danach 3 Ziffern (0 bis 9). Wie viele Codes gibt es?"
+   },
+   "o": {
+    "wert": 26000
+   },
+   "c": "26 ** 1 * 10 ** 3",
+   "w": "26 · 10 · 10 · 10 = 26 000.",
+   "h": "Jede Stelle einzeln: Buchstaben 26, Ziffern 10."
+  },
+  {
+   "l": "zaehlprinzip",
+   "t": "zaehlprinzip",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Es gibt 4 Hosen, 3 Pullover und einige Mützen. Insgesamt sind 24 verschiedene Outfits aus je einem Teil möglich. Wie viele Mützen gibt es?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "24 / (4 * 3)",
+   "w": "4 · 3 · Mützen = 24, also Mützen = 24 : 12 = 2.",
+   "h": "Rückwärts rechnen: Gesamtzahl durch die bekannten Anzahlen teilen."
+  },
+  {
+   "l": "zaehlprinzip",
+   "t": "zaehlprinzip",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind hat 2 Hosen und kann 6 verschiedene Outfits aus Hose und T-Shirt bilden. Wie viele T-Shirts hat es?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "6 / 2",
+   "w": "2 · T-Shirts = 6, also T-Shirts = 6 : 2 = 3.",
+   "h": "Rückwärts rechnen: Gesamtzahl durch die bekannte Anzahl teilen."
+  },
+  {
+   "l": "zaehlprinzip",
+   "t": "zaehlprinzip",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Es gibt 4 Hosen, 3 Pullover und einige Mützen. Insgesamt sind 36 verschiedene Outfits aus je einem Teil möglich. Wie viele Mützen gibt es?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "36 / (4 * 3)",
+   "w": "4 · 3 · Mützen = 36, also Mützen = 36 : 12 = 3.",
+   "h": "Rückwärts rechnen: Gesamtzahl durch die bekannten Anzahlen teilen."
+  },
+  {
+   "l": "zaehlprinzip",
+   "t": "zaehlprinzip",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Es gibt 5 Hosen, 2 Pullover und einige Mützen. Insgesamt sind 20 verschiedene Outfits aus je einem Teil möglich. Wie viele Mützen gibt es?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "20 / (5 * 2)",
+   "w": "5 · 2 · Mützen = 20, also Mützen = 20 : 10 = 2.",
+   "h": "Rückwärts rechnen: Gesamtzahl durch die bekannten Anzahlen teilen."
+  },
+  {
+   "l": "zaehlprinzip",
+   "t": "zaehlprinzip",
+   "p": "test",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -1154,7 +1188,7 @@
   {
    "l": "zaehlprinzip",
    "t": "zaehlprinzip",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -1169,7 +1203,7 @@
   {
    "l": "zaehlprinzip",
    "t": "zaehlprinzip",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -1184,7 +1218,7 @@
   {
    "l": "zaehlprinzip",
    "t": "zaehlprinzip",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -1195,6 +1229,21 @@
    },
    "c": "6 ** 3",
    "w": "Jeder Wurf 6 Möglichkeiten: 6 · 6 · 6 = 216."
+  },
+  {
+   "l": "zaehlprinzip",
+   "t": "zaehlprinzip",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zahlenschloss hat 2 Rädchen mit den Ziffern 0 bis 9. Wie viele Codes gibt es?"
+   },
+   "o": {
+    "wert": 100
+   },
+   "c": "10 ** 2",
+   "w": "Jedes Rädchen: 10 Möglichkeiten. 10 · 10 = 100."
   },
   {
    "l": "zaehlprinzip",
@@ -1227,13 +1276,58 @@
    "w": "Zählprinzip: 4 · 2 · 4 = 32."
   },
   {
+   "l": "zaehlprinzip",
+   "t": "zaehlprinzip",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind hat 2 Mützen, 4 Schals und 4 Paar Handschuhe. Wie viele verschiedene Kombinationen aus je einem Teil kann es anziehen?"
+   },
+   "o": {
+    "wert": 32
+   },
+   "c": "2 * 4 * 4",
+   "w": "Zählprinzip: 2 · 4 · 4 = 32."
+  },
+  {
+   "l": "zaehlprinzip",
+   "t": "zaehlprinzip",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kind hat 3 Mützen, 3 Schals und 4 Paar Handschuhe. Wie viele verschiedene Kombinationen aus je einem Teil kann es anziehen?"
+   },
+   "o": {
+    "wert": 36
+   },
+   "c": "3 * 3 * 4",
+   "w": "Zählprinzip: 3 · 3 · 4 = 36."
+  },
+  {
+   "l": "zaehlprinzip",
+   "t": "zaehlprinzip",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zahlenschloss hat 3 Rädchen mit den Ziffern 0 bis 9. Wie viele Codes gibt es?"
+   },
+   "o": {
+    "wert": 1000
+   },
+   "c": "10 ** 3",
+   "w": "Jedes Rädchen: 10 Möglichkeiten. 10 · 10 · 10 = 1 000."
+  },
+  {
    "l": "reihenfolgen",
    "t": "reihenfolgen",
    "p": "uebung",
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "5 verschiedene Fotos werden nebeneinander an die Wand gehängt. Wie viele verschiedene Reihenfolgen gibt es?"
+    "text": "5 Freunde setzen sich auf 5 Stühle in einer Reihe. Wie viele verschiedene Reihenfolgen gibt es?"
    },
    "o": {
     "wert": 120
@@ -1249,7 +1343,7 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "3 verschiedene Fotos werden nebeneinander an die Wand gehängt. Wie viele verschiedene Reihenfolgen gibt es?"
+    "text": "3 Kinder stellen sich in einer Reihe auf. Wie viele verschiedene Reihenfolgen gibt es?"
    },
    "o": {
     "wert": 6
@@ -1265,13 +1359,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "5 verschiedene Bücher werden nebeneinander ins Regal gestellt. Wie viele verschiedene Reihenfolgen gibt es?"
+    "text": "3 Freunde setzen sich auf 3 Stühle in einer Reihe. Wie viele verschiedene Reihenfolgen gibt es?"
    },
    "o": {
-    "wert": 120
+    "wert": 6
    },
-   "c": "5 * 4 * 3 * 2 * 1",
-   "w": "Für den 1. Platz 5, dann jeweils eins weniger: 5 · 4 · 3 · 2 · 1 = 120.",
+   "c": "3 * 2 * 1",
+   "w": "Für den 1. Platz 3, dann jeweils eins weniger: 3 · 2 · 1 = 6.",
    "h": "Platz 1: alle, Platz 2: eins weniger …"
   },
   {
@@ -1297,13 +1391,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "5 Kinder stellen sich in einer Reihe auf. Wie viele verschiedene Reihenfolgen gibt es?"
+    "text": "3 verschiedene Fotos werden nebeneinander an die Wand gehängt. Wie viele verschiedene Reihenfolgen gibt es?"
    },
    "o": {
-    "wert": 120
+    "wert": 6
    },
-   "c": "5 * 4 * 3 * 2 * 1",
-   "w": "Für den 1. Platz 5, dann jeweils eins weniger: 5 · 4 · 3 · 2 · 1 = 120.",
+   "c": "3 * 2 * 1",
+   "w": "Für den 1. Platz 3, dann jeweils eins weniger: 3 · 2 · 1 = 6.",
    "h": "Platz 1: alle, Platz 2: eins weniger …"
   },
   {
@@ -1313,13 +1407,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "4 Freunde setzen sich auf 4 Stühle in einer Reihe. Wie viele verschiedene Reihenfolgen gibt es?"
+    "text": "3 verschiedene Bücher werden nebeneinander ins Regal gestellt. Wie viele verschiedene Reihenfolgen gibt es?"
    },
    "o": {
-    "wert": 24
+    "wert": 6
    },
-   "c": "4 * 3 * 2 * 1",
-   "w": "Für den 1. Platz 4, dann jeweils eins weniger: 4 · 3 · 2 · 1 = 24.",
+   "c": "3 * 2 * 1",
+   "w": "Für den 1. Platz 3, dann jeweils eins weniger: 3 · 2 · 1 = 6.",
    "h": "Platz 1: alle, Platz 2: eins weniger …"
   },
   {
@@ -1329,13 +1423,45 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Bei einem Lauf starten 5 Kinder. Wie viele Möglichkeiten gibt es für die ersten 2 Plätze?"
+    "text": "Aus 6 Kindern werden 2 für die Ämter Klassensprecher und Stellvertreter gewählt (jedes Kind höchstens ein Amt). Wie viele Möglichkeiten gibt es?"
+   },
+   "o": {
+    "wert": 30
+   },
+   "c": "6 * 5",
+   "w": "Erste Wahl 6, dann jeweils eins weniger: 6 · 5 = 30.",
+   "h": "Nach jeder Wahl bleibt ein Kind weniger übrig."
+  },
+  {
+   "l": "reihenfolgen",
+   "t": "reihenfolgen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus 5 Kindern werden 2 für die Ämter Klassensprecher und Stellvertreter gewählt (jedes Kind höchstens ein Amt). Wie viele Möglichkeiten gibt es?"
    },
    "o": {
     "wert": 20
    },
    "c": "5 * 4",
    "w": "Erste Wahl 5, dann jeweils eins weniger: 5 · 4 = 20.",
+   "h": "Nach jeder Wahl bleibt ein Kind weniger übrig."
+  },
+  {
+   "l": "reihenfolgen",
+   "t": "reihenfolgen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bei einem Lauf starten 6 Kinder. Wie viele Möglichkeiten gibt es für die ersten 2 Plätze?"
+   },
+   "o": {
+    "wert": 30
+   },
+   "c": "6 * 5",
+   "w": "Erste Wahl 6, dann jeweils eins weniger: 6 · 5 = 30.",
    "h": "Nach jeder Wahl bleibt ein Kind weniger übrig."
   },
   {
@@ -1361,13 +1487,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Bei einem Lauf starten 9 Kinder. Wie viele Möglichkeiten gibt es für die ersten 3 Plätze?"
+    "text": "Bei einem Lauf starten 9 Kinder. Wie viele Möglichkeiten gibt es für die ersten 2 Plätze?"
    },
    "o": {
-    "wert": 504
+    "wert": 72
    },
-   "c": "9 * 8 * 7",
-   "w": "Erste Wahl 9, dann jeweils eins weniger: 9 · 8 · 7 = 504.",
+   "c": "9 * 8",
+   "w": "Erste Wahl 9, dann jeweils eins weniger: 9 · 8 = 72.",
    "h": "Nach jeder Wahl bleibt ein Kind weniger übrig."
   },
   {
@@ -1377,45 +1503,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Bei einem Lauf starten 10 Kinder. Wie viele Möglichkeiten gibt es für die ersten 3 Plätze?"
+    "text": "Aus 6 Kindern werden 3 für die Ämter Klassensprecher, Stellvertreter und Kassenwart gewählt (jedes Kind höchstens ein Amt). Wie viele Möglichkeiten gibt es?"
    },
    "o": {
-    "wert": 720
+    "wert": 120
    },
-   "c": "10 * 9 * 8",
-   "w": "Erste Wahl 10, dann jeweils eins weniger: 10 · 9 · 8 = 720.",
-   "h": "Nach jeder Wahl bleibt ein Kind weniger übrig."
-  },
-  {
-   "l": "reihenfolgen",
-   "t": "reihenfolgen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Bei einem Lauf starten 10 Kinder. Wie viele Möglichkeiten gibt es für die ersten 2 Plätze?"
-   },
-   "o": {
-    "wert": 90
-   },
-   "c": "10 * 9",
-   "w": "Erste Wahl 10, dann jeweils eins weniger: 10 · 9 = 90.",
-   "h": "Nach jeder Wahl bleibt ein Kind weniger übrig."
-  },
-  {
-   "l": "reihenfolgen",
-   "t": "reihenfolgen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Bei einem Lauf starten 5 Kinder. Wie viele Möglichkeiten gibt es für die ersten 3 Plätze?"
-   },
-   "o": {
-    "wert": 60
-   },
-   "c": "5 * 4 * 3",
-   "w": "Erste Wahl 5, dann jeweils eins weniger: 5 · 4 · 3 = 60.",
+   "c": "6 * 5 * 4",
+   "w": "Erste Wahl 6, dann jeweils eins weniger: 6 · 5 · 4 = 120.",
    "h": "Nach jeder Wahl bleibt ein Kind weniger übrig."
   },
   {
@@ -1425,13 +1519,13 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Wie viele verschiedene „Wörter“ (auch sinnlose) kann man aus den Buchstaben von BLAU bilden, wenn jeder Buchstabe genau einmal verwendet wird?"
+    "text": "Wie viele verschiedene „Wörter“ (auch sinnlose) kann man aus den Buchstaben von KATZE bilden, wenn jeder Buchstabe genau einmal verwendet wird?"
    },
    "o": {
-    "wert": 24
+    "wert": 120
    },
-   "c": "4 * 3 * 2 * 1",
-   "w": "4 verschiedene Buchstaben: 4 · 3 · 2 · 1 = 24.",
+   "c": "5 * 4 * 3 * 2 * 1",
+   "w": "5 verschiedene Buchstaben: 5 · 4 · 3 · 2 · 1 = 120.",
    "h": "Alle Buchstaben sind verschieden. Wie viele Möglichkeiten für die erste Stelle, die zweite …?"
   },
   {
@@ -1441,30 +1535,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Wie viele verschiedene „Wörter“ (auch sinnlose) kann man aus den Buchstaben von BROT bilden, wenn jeder Buchstabe genau einmal verwendet wird?"
+    "text": "6 Kinder setzen sich auf 6 Stühle in einer Reihe. Ein bestimmtes Kind will unbedingt ganz links sitzen. Wie viele Sitzordnungen gibt es dann?"
    },
    "o": {
-    "wert": 24
+    "wert": 120
    },
-   "c": "4 * 3 * 2 * 1",
-   "w": "4 verschiedene Buchstaben: 4 · 3 · 2 · 1 = 24.",
-   "h": "Alle Buchstaben sind verschieden. Wie viele Möglichkeiten für die erste Stelle, die zweite …?"
-  },
-  {
-   "l": "reihenfolgen",
-   "t": "reihenfolgen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viele verschiedene „Wörter“ (auch sinnlose) kann man aus den Buchstaben von HUND bilden, wenn jeder Buchstabe genau einmal verwendet wird?"
-   },
-   "o": {
-    "wert": 24
-   },
-   "c": "4 * 3 * 2 * 1",
-   "w": "4 verschiedene Buchstaben: 4 · 3 · 2 · 1 = 24.",
-   "h": "Alle Buchstaben sind verschieden. Wie viele Möglichkeiten für die erste Stelle, die zweite …?"
+   "c": "5 * 4 * 3 * 2 * 1",
+   "w": "Der linke Platz ist fest. Die anderen 5 Kinder: 5 · 4 · 3 · 2 · 1 = 120.",
+   "h": "Ein Platz ist schon vergeben. Ordne nur noch die anderen."
   },
   {
    "l": "reihenfolgen",
@@ -1489,7 +1567,23 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Wie viele verschiedene „Wörter“ (auch sinnlose) kann man aus den Buchstaben von MAUS bilden, wenn jeder Buchstabe genau einmal verwendet wird?"
+    "text": "5 Kinder setzen sich auf 5 Stühle in einer Reihe. Ein bestimmtes Kind will unbedingt ganz links sitzen. Wie viele Sitzordnungen gibt es dann?"
+   },
+   "o": {
+    "wert": 24
+   },
+   "c": "4 * 3 * 2 * 1",
+   "w": "Der linke Platz ist fest. Die anderen 4 Kinder: 4 · 3 · 2 · 1 = 24.",
+   "h": "Ein Platz ist schon vergeben. Ordne nur noch die anderen."
+  },
+  {
+   "l": "reihenfolgen",
+   "t": "reihenfolgen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele verschiedene „Wörter“ (auch sinnlose) kann man aus den Buchstaben von HUND bilden, wenn jeder Buchstabe genau einmal verwendet wird?"
    },
    "o": {
     "wert": 24
@@ -1505,34 +1599,19 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "6 Kinder setzen sich auf 6 Stühle in einer Reihe. Ein bestimmtes Kind will unbedingt ganz links sitzen. Wie viele Sitzordnungen gibt es dann?"
+    "text": "Wie viele verschiedene „Wörter“ (auch sinnlose) kann man aus den Buchstaben von MAUS bilden, wenn jeder Buchstabe genau einmal verwendet wird?"
    },
    "o": {
-    "wert": 120
+    "wert": 24
    },
-   "c": "5 * 4 * 3 * 2 * 1",
-   "w": "Der linke Platz ist fest. Die anderen 5 Kinder: 5 · 4 · 3 · 2 · 1 = 120.",
-   "h": "Ein Platz ist schon vergeben. Ordne nur noch die anderen."
+   "c": "4 * 3 * 2 * 1",
+   "w": "4 verschiedene Buchstaben: 4 · 3 · 2 · 1 = 24.",
+   "h": "Alle Buchstaben sind verschieden. Wie viele Möglichkeiten für die erste Stelle, die zweite …?"
   },
   {
    "l": "reihenfolgen",
    "t": "reihenfolgen",
    "p": "test",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Aus 9 Kindern werden 2 für die Ämter Klassensprecher und Stellvertreter gewählt (jedes Kind höchstens ein Amt). Wie viele Möglichkeiten gibt es?"
-   },
-   "o": {
-    "wert": 72
-   },
-   "c": "9 * 8",
-   "w": "Erste Wahl 9, dann jeweils eins weniger: 9 · 8 = 72."
-  },
-  {
-   "l": "reihenfolgen",
-   "t": "reihenfolgen",
-   "p": "korrektur",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -1551,13 +1630,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Bei einem Lauf starten 8 Kinder. Wie viele Möglichkeiten gibt es für die ersten 3 Plätze?"
+    "text": "Bei einem Lauf starten 5 Kinder. Wie viele Möglichkeiten gibt es für die ersten 3 Plätze?"
    },
    "o": {
-    "wert": 336
+    "wert": 60
    },
-   "c": "8 * 7 * 6",
-   "w": "Erste Wahl 8, dann jeweils eins weniger: 8 · 7 · 6 = 336."
+   "c": "5 * 4 * 3",
+   "w": "Erste Wahl 5, dann jeweils eins weniger: 5 · 4 · 3 = 60."
   },
   {
    "l": "reihenfolgen",
@@ -1566,33 +1645,18 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Bei einem Lauf starten 7 Kinder. Wie viele Möglichkeiten gibt es für die ersten 2 Plätze?"
+    "text": "Bei einem Lauf starten 10 Kinder. Wie viele Möglichkeiten gibt es für die ersten 2 Plätze?"
    },
    "o": {
-    "wert": 42
+    "wert": 90
    },
-   "c": "7 * 6",
-   "w": "Erste Wahl 7, dann jeweils eins weniger: 7 · 6 = 42."
+   "c": "10 * 9",
+   "w": "Erste Wahl 10, dann jeweils eins weniger: 10 · 9 = 90."
   },
   {
    "l": "reihenfolgen",
    "t": "reihenfolgen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Bei einem Lauf starten 9 Kinder. Wie viele Möglichkeiten gibt es für die ersten 2 Plätze?"
-   },
-   "o": {
-    "wert": 72
-   },
-   "c": "9 * 8",
-   "w": "Erste Wahl 9, dann jeweils eins weniger: 9 · 8 = 72."
-  },
-  {
-   "l": "reihenfolgen",
-   "t": "reihenfolgen",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -1611,6 +1675,81 @@
    "s": 2,
    "y": "zahl",
    "f": {
+    "text": "Bei einem Lauf starten 10 Kinder. Wie viele Möglichkeiten gibt es für die ersten 3 Plätze?"
+   },
+   "o": {
+    "wert": 720
+   },
+   "c": "10 * 9 * 8",
+   "w": "Erste Wahl 10, dann jeweils eins weniger: 10 · 9 · 8 = 720."
+  },
+  {
+   "l": "reihenfolgen",
+   "t": "reihenfolgen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bei einem Lauf starten 7 Kinder. Wie viele Möglichkeiten gibt es für die ersten 2 Plätze?"
+   },
+   "o": {
+    "wert": 42
+   },
+   "c": "7 * 6",
+   "w": "Erste Wahl 7, dann jeweils eins weniger: 7 · 6 = 42."
+  },
+  {
+   "l": "reihenfolgen",
+   "t": "reihenfolgen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus 9 Kindern werden 2 für die Ämter Klassensprecher und Stellvertreter gewählt (jedes Kind höchstens ein Amt). Wie viele Möglichkeiten gibt es?"
+   },
+   "o": {
+    "wert": 72
+   },
+   "c": "9 * 8",
+   "w": "Erste Wahl 9, dann jeweils eins weniger: 9 · 8 = 72."
+  },
+  {
+   "l": "reihenfolgen",
+   "t": "reihenfolgen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bei einem Lauf starten 5 Kinder. Wie viele Möglichkeiten gibt es für die ersten 2 Plätze?"
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "5 * 4",
+   "w": "Erste Wahl 5, dann jeweils eins weniger: 5 · 4 = 20."
+  },
+  {
+   "l": "reihenfolgen",
+   "t": "reihenfolgen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bei einem Lauf starten 9 Kinder. Wie viele Möglichkeiten gibt es für die ersten 3 Plätze?"
+   },
+   "o": {
+    "wert": 504
+   },
+   "c": "9 * 8 * 7",
+   "w": "Erste Wahl 9, dann jeweils eins weniger: 9 · 8 · 7 = 504."
+  },
+  {
+   "l": "reihenfolgen",
+   "t": "reihenfolgen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
     "text": "Aus 8 Kindern werden 2 für die Ämter Klassensprecher und Stellvertreter gewählt (jedes Kind höchstens ein Amt). Wie viele Möglichkeiten gibt es?"
    },
    "o": {
@@ -1620,49 +1759,172 @@
    "w": "Erste Wahl 8, dann jeweils eins weniger: 8 · 7 = 56."
   },
   {
-   "l": "reihenfolgen",
-   "t": "reihenfolgen",
-   "p": "sicherung",
-   "s": 2,
+   "l": "baumdiagramm",
+   "t": "baumdiagramm",
+   "p": "uebung",
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Bei einem Lauf starten 8 Kinder. Wie viele Möglichkeiten gibt es für die ersten 2 Plätze?"
+    "text": "Wie viele Pfade hat das Baumdiagramm?",
+    "grafik": {
+     "typ": "baum",
+     "aeste": [
+      {
+       "text": "Vanille",
+       "aeste": [
+        {
+         "text": "Waffel"
+        },
+        {
+         "text": "Becher"
+        }
+       ]
+      },
+      {
+       "text": "Schoko",
+       "aeste": [
+        {
+         "text": "Waffel"
+        },
+        {
+         "text": "Becher"
+        }
+       ]
+      },
+      {
+       "text": "Erdbeere",
+       "aeste": [
+        {
+         "text": "Waffel"
+        },
+        {
+         "text": "Becher"
+        }
+       ]
+      }
+     ]
+    }
    },
    "o": {
-    "wert": 56
+    "wert": 6
    },
-   "c": "8 * 7",
-   "w": "Erste Wahl 8, dann jeweils eins weniger: 8 · 7 = 56."
+   "c": "3 * 2",
+   "w": "3 Äste auf der ersten Stufe, an jedem 2 weitere: 3 · 2 = 6 Pfade.",
+   "h": "Zähle die Enden ganz rechts."
   },
   {
-   "l": "reihenfolgen",
-   "t": "reihenfolgen",
-   "p": "sicherung",
-   "s": 2,
+   "l": "baumdiagramm",
+   "t": "baumdiagramm",
+   "p": "uebung",
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Aus 6 Kindern werden 3 für die Ämter Klassensprecher, Stellvertreter und Kassenwart gewählt (jedes Kind höchstens ein Amt). Wie viele Möglichkeiten gibt es?"
+    "text": "Ein Baumdiagramm hat zwei Stufen. Auf der ersten Stufe gibt es 2 Äste, an jedem Ende gehen 3 Äste weiter. Wie viele Pfade hat das Baumdiagramm?",
+    "grafik": {
+     "typ": "baum",
+     "aeste": [
+      {
+       "text": "1",
+       "aeste": [
+        {
+         "text": "a"
+        },
+        {
+         "text": "b"
+        },
+        {
+         "text": "c"
+        }
+       ]
+      },
+      {
+       "text": "2",
+       "aeste": [
+        {
+         "text": "a"
+        },
+        {
+         "text": "b"
+        },
+        {
+         "text": "c"
+        }
+       ]
+      }
+     ]
+    }
    },
    "o": {
-    "wert": 120
+    "wert": 6
    },
-   "c": "6 * 5 * 4",
-   "w": "Erste Wahl 6, dann jeweils eins weniger: 6 · 5 · 4 = 120."
+   "c": "2 * 3",
+   "w": "Jeder der 2 Äste verzweigt sich in 3: 2 · 3 = 6 Pfade.",
+   "h": "Zähle die Enden der zweiten Stufe."
   },
   {
-   "l": "reihenfolgen",
-   "t": "reihenfolgen",
-   "p": "sicherung",
-   "s": 2,
+   "l": "baumdiagramm",
+   "t": "baumdiagramm",
+   "p": "uebung",
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Aus 9 Kindern werden 3 für die Ämter Klassensprecher, Stellvertreter und Kassenwart gewählt (jedes Kind höchstens ein Amt). Wie viele Möglichkeiten gibt es?"
+    "text": "Ein Baumdiagramm hat zwei Stufen. Auf der ersten Stufe gibt es 4 Äste, an jedem Ende gehen 4 Äste weiter. Wie viele Pfade hat das Baumdiagramm?"
    },
    "o": {
-    "wert": 504
+    "wert": 16
    },
-   "c": "9 * 8 * 7",
-   "w": "Erste Wahl 9, dann jeweils eins weniger: 9 · 8 · 7 = 504."
+   "c": "4 * 4",
+   "w": "Jeder der 4 Äste verzweigt sich in 4: 4 · 4 = 16 Pfade.",
+   "h": "Zähle die Enden der zweiten Stufe."
+  },
+  {
+   "l": "baumdiagramm",
+   "t": "baumdiagramm",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Pfade hat das Baumdiagramm?",
+    "grafik": {
+     "typ": "baum",
+     "aeste": [
+      {
+       "text": "Bus",
+       "aeste": [
+        {
+         "text": "Weg A"
+        },
+        {
+         "text": "Weg B"
+        },
+        {
+         "text": "Weg C"
+        }
+       ]
+      },
+      {
+       "text": "Rad",
+       "aeste": [
+        {
+         "text": "Weg A"
+        },
+        {
+         "text": "Weg B"
+        },
+        {
+         "text": "Weg C"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "2 * 3",
+   "w": "2 Äste auf der ersten Stufe, an jedem 3 weitere: 2 · 3 = 6 Pfade.",
+   "h": "Zähle die Enden ganz rechts."
   },
   {
    "l": "baumdiagramm",
@@ -1687,78 +1949,47 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Baumdiagramm hat zwei Stufen. Auf der ersten Stufe gibt es 3 Äste, an jedem Ende gehen 4 Äste weiter. Wie viele Pfade hat das Baumdiagramm?"
+    "text": "Bei wie vielen Pfaden ist „Schoko“ dabei?",
+    "grafik": {
+     "typ": "baum",
+     "aeste": [
+      {
+       "text": "Vanille",
+       "aeste": [
+        {
+         "text": "Waffel"
+        },
+        {
+         "text": "Becher"
+        },
+        {
+         "text": "Tüte"
+        }
+       ]
+      },
+      {
+       "text": "Schoko",
+       "aeste": [
+        {
+         "text": "Waffel"
+        },
+        {
+         "text": "Becher"
+        },
+        {
+         "text": "Tüte"
+        }
+       ]
+      }
+     ]
+    }
    },
    "o": {
-    "wert": 12
+    "wert": 3
    },
-   "c": "3 * 4",
-   "w": "Jeder der 3 Äste verzweigt sich in 4: 3 · 4 = 12 Pfade.",
-   "h": "Zähle die Enden der zweiten Stufe."
-  },
-  {
-   "l": "baumdiagramm",
-   "t": "baumdiagramm",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Baumdiagramm hat zwei Stufen. Auf der ersten Stufe gibt es 2 Äste, an jedem Ende gehen 4 Äste weiter. Wie viele Pfade hat das Baumdiagramm?"
-   },
-   "o": {
-    "wert": 8
-   },
-   "c": "2 * 4",
-   "w": "Jeder der 2 Äste verzweigt sich in 4: 2 · 4 = 8 Pfade.",
-   "h": "Zähle die Enden der zweiten Stufe."
-  },
-  {
-   "l": "baumdiagramm",
-   "t": "baumdiagramm",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Baumdiagramm hat zwei Stufen. Auf der ersten Stufe gibt es 4 Äste, an jedem Ende gehen 3 Äste weiter. Wie viele Pfade hat das Baumdiagramm?"
-   },
-   "o": {
-    "wert": 12
-   },
-   "c": "4 * 3",
-   "w": "Jeder der 4 Äste verzweigt sich in 3: 4 · 3 = 12 Pfade.",
-   "h": "Zähle die Enden der zweiten Stufe."
-  },
-  {
-   "l": "baumdiagramm",
-   "t": "baumdiagramm",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Baumdiagramm hat zwei Stufen. Auf der ersten Stufe gibt es 4 Äste, an jedem Ende gehen 2 Äste weiter. Wie viele Pfade hat das Baumdiagramm?"
-   },
-   "o": {
-    "wert": 8
-   },
-   "c": "4 * 2",
-   "w": "Jeder der 4 Äste verzweigt sich in 2: 4 · 2 = 8 Pfade.",
-   "h": "Zähle die Enden der zweiten Stufe."
-  },
-  {
-   "l": "baumdiagramm",
-   "t": "baumdiagramm",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Baumdiagramm hat zwei Stufen. Auf der ersten Stufe gibt es 2 Äste, an jedem Ende gehen 2 Äste weiter. Wie viele Pfade hat das Baumdiagramm?"
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "2 * 2",
-   "w": "Jeder der 2 Äste verzweigt sich in 2: 2 · 2 = 4 Pfade.",
-   "h": "Zähle die Enden der zweiten Stufe."
+   "c": "3",
+   "w": "Am Ast „Schoko“ hängen 3 weitere Äste: 3 Pfade.",
+   "h": "Folge dem Ast „Schoko“ und zähle seine Enden."
   },
   {
    "l": "baumdiagramm",
@@ -1767,13 +1998,88 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "In einer Dose liegen 5 Kugeln: eine rote, eine blaue, eine grüne, eine gelbe, eine weiße. Es wird zweimal gezogen, ohne Zurücklegen. Wie viele Pfade hat das Baumdiagramm?"
+    "text": "Eine Münze wird 3-mal geworfen. Wie viele Pfade im Baumdiagramm enthalten genau 1-mal Kopf?",
+    "grafik": {
+     "typ": "baum",
+     "aeste": [
+      {
+       "text": "K",
+       "aeste": [
+        {
+         "text": "K",
+         "aeste": [
+          {
+           "text": "K"
+          },
+          {
+           "text": "Z"
+          }
+         ]
+        },
+        {
+         "text": "Z",
+         "aeste": [
+          {
+           "text": "K"
+          },
+          {
+           "text": "Z"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "text": "Z",
+       "aeste": [
+        {
+         "text": "K",
+         "aeste": [
+          {
+           "text": "K"
+          },
+          {
+           "text": "Z"
+          }
+         ]
+        },
+        {
+         "text": "Z",
+         "aeste": [
+          {
+           "text": "K"
+          },
+          {
+           "text": "Z"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
    },
    "o": {
-    "wert": 20
+    "wert": 3
    },
-   "c": "5 * 4",
-   "w": "Stufe 1: 5 Äste, Stufe 2: 4 Äste. 5 · 4 = 20 Pfade.",
+   "c": "1 + 1 + 1",
+   "w": "Pfade: KZZ, ZKZ, ZZK – also 3.",
+   "h": "Schreibe alle Pfade auf (KKZ, KZK …) und zähle die passenden."
+  },
+  {
+   "l": "baumdiagramm",
+   "t": "baumdiagramm",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Dose liegen 5 Kugeln: eine rote, eine blaue, eine grüne, eine gelbe, eine weiße. Es wird zweimal gezogen, mit Zurücklegen. Wie viele Pfade hat das Baumdiagramm?"
+   },
+   "o": {
+    "wert": 25
+   },
+   "c": "5 * 5",
+   "w": "Stufe 1: 5 Äste, Stufe 2: 5 Äste. 5 · 5 = 25 Pfade.",
    "h": "Mit Zurücklegen ist beim zweiten Zug wieder alles da, ohne Zurücklegen eine Kugel weniger."
   },
   {
@@ -1815,7 +2121,66 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Eine Münze wird 3-mal geworfen. Wie viele Pfade im Baumdiagramm enthalten genau 2-mal Kopf?"
+    "text": "Eine Münze wird 3-mal geworfen. Wie viele Pfade im Baumdiagramm enthalten genau 2-mal Kopf?",
+    "grafik": {
+     "typ": "baum",
+     "aeste": [
+      {
+       "text": "K",
+       "aeste": [
+        {
+         "text": "K",
+         "aeste": [
+          {
+           "text": "K"
+          },
+          {
+           "text": "Z"
+          }
+         ]
+        },
+        {
+         "text": "Z",
+         "aeste": [
+          {
+           "text": "K"
+          },
+          {
+           "text": "Z"
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "text": "Z",
+       "aeste": [
+        {
+         "text": "K",
+         "aeste": [
+          {
+           "text": "K"
+          },
+          {
+           "text": "Z"
+          }
+         ]
+        },
+        {
+         "text": "Z",
+         "aeste": [
+          {
+           "text": "K"
+          },
+          {
+           "text": "Z"
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    }
    },
    "o": {
     "wert": 3
@@ -1844,17 +2209,17 @@
    "l": "baumdiagramm",
    "t": "baumdiagramm",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
    "y": "zahl",
    "f": {
-    "text": "In einer Dose liegen 5 Kugeln: eine rote, eine blaue, eine grüne, eine gelbe, eine weiße. Es wird zweimal gezogen, ohne Zurücklegen. Bei wie vielen Pfaden haben beide Kugeln dieselbe Farbe?"
+    "text": "Eine Münze wird dreimal geworfen. Wie viele der 8 Pfade erfüllen: höchstens einmal Kopf?"
    },
    "o": {
-    "wert": 0
+    "wert": 4
    },
-   "c": "0",
-   "w": "Ohne Zurücklegen ist jede Farbe nur einmal da – kein Pfad.",
-   "h": "Kann dieselbe Kugel zweimal gezogen werden?"
+   "c": "1 + 1 + 1 + 1",
+   "w": "Passend: KZZ, ZKZ, ZZK, ZZZ. Das sind 4.",
+   "h": "Schreibe alle 8 Pfade auf: KKK, KKZ, KZK, …"
   },
   {
    "l": "baumdiagramm",
@@ -1911,7 +2276,7 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Eine Münze wird dreimal geworfen. Wie viele der 8 Pfade erfüllen: zweimal hintereinander dasselbe?"
+    "text": "Eine Münze wird dreimal geworfen. Wie viele der 8 Pfade erfüllen: mindestens zweimal hintereinander dasselbe Ergebnis?"
    },
    "o": {
     "wert": 6
@@ -1939,63 +2304,94 @@
   {
    "l": "baumdiagramm",
    "t": "baumdiagramm",
-   "p": "uebung",
-   "s": 3,
+   "p": "test",
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Eine Münze wird dreimal geworfen. Wie viele der 8 Pfade erfüllen: höchstens einmal Kopf?"
+    "text": "In einer Dose liegen 5 Kugeln: eine rote, eine blaue, eine grüne, eine gelbe, eine weiße. Es wird zweimal gezogen, ohne Zurücklegen. Wie viele Pfade hat das Baumdiagramm?"
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "5 * 4",
+   "w": "Stufe 1: 5 Äste, Stufe 2: 4 Äste. 5 · 4 = 20 Pfade."
+  },
+  {
+   "l": "baumdiagramm",
+   "t": "baumdiagramm",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Dose liegen 3 Kugeln: eine rote, eine blaue, eine grüne. Es wird zweimal gezogen, mit Zurücklegen. Wie viele Pfade hat das Baumdiagramm?",
+    "grafik": {
+     "typ": "baum",
+     "aeste": [
+      {
+       "text": "rot",
+       "aeste": [
+        {
+         "text": "rot"
+        },
+        {
+         "text": "blau"
+        },
+        {
+         "text": "grün"
+        }
+       ]
+      },
+      {
+       "text": "blau",
+       "aeste": [
+        {
+         "text": "rot"
+        },
+        {
+         "text": "blau"
+        },
+        {
+         "text": "grün"
+        }
+       ]
+      },
+      {
+       "text": "grün",
+       "aeste": [
+        {
+         "text": "rot"
+        },
+        {
+         "text": "blau"
+        },
+        {
+         "text": "grün"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "3 * 3",
+   "w": "Stufe 1: 3 Äste, Stufe 2: 3 Äste. 3 · 3 = 9 Pfade."
+  },
+  {
+   "l": "baumdiagramm",
+   "t": "baumdiagramm",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Münze wird 4-mal geworfen. Wie viele Pfade im Baumdiagramm enthalten genau 1-mal Kopf?"
    },
    "o": {
     "wert": 4
    },
    "c": "1 + 1 + 1 + 1",
-   "w": "Passend: KZZ, ZKZ, ZZK, ZZZ. Das sind 4.",
-   "h": "Schreibe alle 8 Pfade auf: KKK, KKZ, KZK, …"
-  },
-  {
-   "l": "baumdiagramm",
-   "t": "baumdiagramm",
-   "p": "test",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "In einer Dose liegen 4 Kugeln: eine rote, eine blaue, eine grüne, eine gelbe. Es wird zweimal gezogen, mit Zurücklegen. Wie viele Pfade hat das Baumdiagramm?"
-   },
-   "o": {
-    "wert": 16
-   },
-   "c": "4 * 4",
-   "w": "Stufe 1: 4 Äste, Stufe 2: 4 Äste. 4 · 4 = 16 Pfade."
-  },
-  {
-   "l": "baumdiagramm",
-   "t": "baumdiagramm",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "In einer Dose liegen 5 Kugeln: eine rote, eine blaue, eine grüne, eine gelbe, eine weiße. Es wird zweimal gezogen, mit Zurücklegen. Bei wie vielen Pfaden haben beide Kugeln dieselbe Farbe?"
-   },
-   "o": {
-    "wert": 5
-   },
-   "c": "5",
-   "w": "Mit Zurücklegen: jede der 5 Farben kann zweimal kommen – 5 Pfade."
-  },
-  {
-   "l": "baumdiagramm",
-   "t": "baumdiagramm",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "In einer Dose liegen 3 Kugeln: eine rote, eine blaue, eine grüne. Es wird zweimal gezogen, ohne Zurücklegen. Bei wie vielen Pfaden haben beide Kugeln dieselbe Farbe?"
-   },
-   "o": {
-    "wert": 0
-   },
-   "c": "0",
-   "w": "Ohne Zurücklegen ist jede Farbe nur einmal da – kein Pfad."
+   "w": "Pfade: KZZZ, ZKZZ, ZZKZ, ZZZK – also 4."
   },
   {
    "l": "baumdiagramm",
@@ -2019,13 +2415,58 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "In einer Dose liegen 3 Kugeln: eine rote, eine blaue, eine grüne. Es wird zweimal gezogen, mit Zurücklegen. Wie viele Pfade hat das Baumdiagramm?"
+    "text": "In einer Dose liegen 5 Kugeln: eine rote, eine blaue, eine grüne, eine gelbe, eine weiße. Es wird zweimal gezogen, mit Zurücklegen. Bei wie vielen Pfaden haben beide Kugeln dieselbe Farbe?"
    },
    "o": {
-    "wert": 9
+    "wert": 5
    },
-   "c": "3 * 3",
-   "w": "Stufe 1: 3 Äste, Stufe 2: 3 Äste. 3 · 3 = 9 Pfade."
+   "c": "5",
+   "w": "Mit Zurücklegen: jede der 5 Farben kann zweimal kommen – 5 Pfade."
+  },
+  {
+   "l": "baumdiagramm",
+   "t": "baumdiagramm",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Dose liegen 3 Kugeln: eine rote, eine blaue, eine grüne. Es wird zweimal gezogen, ohne Zurücklegen. Bei wie vielen Pfaden haben beide Kugeln dieselbe Farbe?"
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "0",
+   "w": "Ohne Zurücklegen ist jede Farbe nur einmal da – kein Pfad."
+  },
+  {
+   "l": "baumdiagramm",
+   "t": "baumdiagramm",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Dose liegen 5 Kugeln: eine rote, eine blaue, eine grüne, eine gelbe, eine weiße. Es wird zweimal gezogen, ohne Zurücklegen. Bei wie vielen Pfaden haben beide Kugeln dieselbe Farbe?"
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "0",
+   "w": "Ohne Zurücklegen ist jede Farbe nur einmal da – kein Pfad."
+  },
+  {
+   "l": "baumdiagramm",
+   "t": "baumdiagramm",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Dose liegen 4 Kugeln: eine rote, eine blaue, eine grüne, eine gelbe. Es wird zweimal gezogen, mit Zurücklegen. Wie viele Pfade hat das Baumdiagramm?"
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "4 * 4",
+   "w": "Stufe 1: 4 Äste, Stufe 2: 4 Äste. 4 · 4 = 16 Pfade."
   },
   {
    "l": "baumdiagramm",
@@ -2058,51 +2499,6 @@
    "w": "Pfade: KKKZ, KKZK, KZKK, ZKKK – also 4."
   },
   {
-   "l": "baumdiagramm",
-   "t": "baumdiagramm",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Münze wird 3-mal geworfen. Wie viele Pfade im Baumdiagramm enthalten genau 1-mal Kopf?"
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "1 + 1 + 1",
-   "w": "Pfade: KZZ, ZKZ, ZZK – also 3."
-  },
-  {
-   "l": "baumdiagramm",
-   "t": "baumdiagramm",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Münze wird 4-mal geworfen. Wie viele Pfade im Baumdiagramm enthalten genau 1-mal Kopf?"
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "1 + 1 + 1 + 1",
-   "w": "Pfade: KZZZ, ZKZZ, ZZKZ, ZZZK – also 4."
-  },
-  {
-   "l": "baumdiagramm",
-   "t": "baumdiagramm",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "In einer Dose liegen 3 Kugeln: eine rote, eine blaue, eine grüne. Es wird zweimal gezogen, ohne Zurücklegen. Wie viele Pfade hat das Baumdiagramm?"
-   },
-   "o": {
-    "wert": 6
-   },
-   "c": "3 * 2",
-   "w": "Stufe 1: 3 Äste, Stufe 2: 2 Äste. 3 · 2 = 6 Pfade."
-  },
-  {
    "l": "bedingungen",
    "t": "bedingungen",
    "p": "uebung",
@@ -2125,14 +2521,14 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Wie viele dreistellige Zahlen enden mit der Ziffer 3? (Die erste Ziffer ist nicht 0.)"
+    "text": "Wie viele vierstellige Zahlen gibt es? (Ziffern 0 bis 9, Wiederholung erlaubt, die erste Ziffer ist nicht 0.)"
    },
    "o": {
-    "wert": 90
+    "wert": 9000
    },
-   "c": "9 * 10 ** 1 * 1",
-   "w": "Erste Ziffer 9 Möglichkeiten, mittlere je 10, letzte nur 1 (die 3): 9 · 10 · 1 = 90.",
-   "h": "Die letzte Stelle ist festgelegt – dort gibt es nur eine Möglichkeit."
+   "c": "9 * 10 ** 3",
+   "w": "Erste Ziffer 9 Möglichkeiten, jede weitere 10: 9 · 10 · 10 · 10 = 9 000.",
+   "h": "Die erste Ziffer darf nicht 0 sein."
   },
   {
    "l": "bedingungen",
@@ -2157,13 +2553,29 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Wie viele vierstellige Zahlen enden mit der Ziffer 8? (Die erste Ziffer ist nicht 0.)"
+    "text": "Wie viele dreistellige Zahlen enden mit der Ziffer 5? (Die erste Ziffer ist nicht 0.)"
+   },
+   "o": {
+    "wert": 90
+   },
+   "c": "9 * 10 ** 1 * 1",
+   "w": "Erste Ziffer 9 Möglichkeiten, mittlere je 10, letzte nur 1 (die 5): 9 · 10 · 1 = 90.",
+   "h": "Die letzte Stelle ist festgelegt – dort gibt es nur eine Möglichkeit."
+  },
+  {
+   "l": "bedingungen",
+   "t": "bedingungen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele vierstellige Zahlen enden mit der Ziffer 9? (Die erste Ziffer ist nicht 0.)"
    },
    "o": {
     "wert": 900
    },
    "c": "9 * 10 ** 2 * 1",
-   "w": "Erste Ziffer 9 Möglichkeiten, mittlere je 10, letzte nur 1 (die 8): 9 · 10 · 10 · 1 = 900.",
+   "w": "Erste Ziffer 9 Möglichkeiten, mittlere je 10, letzte nur 1 (die 9): 9 · 10 · 10 · 1 = 900.",
    "h": "Die letzte Stelle ist festgelegt – dort gibt es nur eine Möglichkeit."
   },
   {
@@ -2186,17 +2598,17 @@
    "l": "bedingungen",
    "t": "bedingungen",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Wie viele dreistellige Zahlen enden mit der Ziffer 2? (Die erste Ziffer ist nicht 0.)"
+    "text": "Aus den Ziffern 0, 1, 6, 9 werden dreistellige Zahlen ohne doppelte Ziffer gebildet. Wie viele davon sind gerade?"
    },
    "o": {
-    "wert": 90
+    "wert": 10
    },
-   "c": "9 * 10 ** 1 * 1",
-   "w": "Erste Ziffer 9 Möglichkeiten, mittlere je 10, letzte nur 1 (die 2): 9 · 10 · 1 = 90.",
-   "h": "Die letzte Stelle ist festgelegt – dort gibt es nur eine Möglichkeit."
+   "c": "6 + 4",
+   "w": "Endziffer 0: vorne und in der Mitte die drei anderen Ziffern, 3 · 2 = 6. Andere gerade Endziffern (6): je 2 · 2 = 4, vorne keine 0. Zusammen 10.",
+   "h": "Unterscheide: Endziffer 0 oder eine andere gerade Endziffer."
   },
   {
    "l": "bedingungen",
@@ -2205,13 +2617,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Aus den Ziffern 3, 4, 5, 7 werden dreistellige Zahlen ohne doppelte Ziffer gebildet. Wie viele davon sind gerade?"
+    "text": "Aus den Ziffern 3, 5, 7, 8 werden dreistellige Zahlen ohne doppelte Ziffer gebildet. Wie viele davon sind gerade?"
    },
    "o": {
     "wert": 6
    },
    "c": "1 * 3 * 2",
-   "w": "Gerade heißt: Einerziffer gerade (4) – 1 Möglichkeiten. Dann Hunderter 3, Zehner 2: 1 · 3 · 2 = 6.",
+   "w": "Gerade heißt: Einerziffer gerade (8) – 1 Möglichkeiten. Dann Hunderter 3, Zehner 2: 1 · 3 · 2 = 6.",
    "h": "Beginne mit der Einerziffer – sie hat die stärkste Bedingung."
   },
   {
@@ -2221,30 +2633,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Wie viele zweistellige Zahlen gibt es, in denen keine Ziffer doppelt vorkommt?"
+    "text": "Aus den Ziffern 0, 3, 7, 9 werden dreistellige Zahlen ohne doppelte Ziffer gebildet. Wie viele gibt es?"
    },
    "o": {
-    "wert": 81
+    "wert": 18
    },
-   "c": "9 * 9",
-   "w": "Erste Ziffer: 9 (nicht 0). Dann 9, Zusammen 81.",
-   "h": "Erste Ziffer: keine 0. Danach ist die 0 wieder erlaubt, aber die schon benutzte Ziffer nicht."
-  },
-  {
-   "l": "bedingungen",
-   "t": "bedingungen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Aus den Ziffern 1, 4, 5, 7 werden dreistellige Zahlen ohne doppelte Ziffer gebildet. Wie viele davon sind gerade?"
-   },
-   "o": {
-    "wert": 6
-   },
-   "c": "1 * 3 * 2",
-   "w": "Gerade heißt: Einerziffer gerade (4) – 1 Möglichkeiten. Dann Hunderter 3, Zehner 2: 1 · 3 · 2 = 6.",
-   "h": "Beginne mit der Einerziffer – sie hat die stärkste Bedingung."
+   "c": "3 * 3 * 2",
+   "w": "Hunderter: 3 Möglichkeiten (nicht 0). Zehner: wieder 3 (die 0 ist jetzt erlaubt, die benutzte Ziffer nicht). Einer: 2. 3 · 3 · 2 = 18.",
+   "h": "Die 0 darf nicht vorne stehen. Beginne mit der Hunderterziffer."
   },
   {
    "l": "bedingungen",
@@ -2269,13 +2665,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Aus den Ziffern 2, 5, 6, 9 werden dreistellige Zahlen ohne doppelte Ziffer gebildet. Wie viele davon sind gerade?"
+    "text": "Aus den Ziffern 5, 6, 7, 9 werden dreistellige Zahlen ohne doppelte Ziffer gebildet. Wie viele davon sind gerade?"
    },
    "o": {
-    "wert": 12
+    "wert": 6
    },
-   "c": "2 * 3 * 2",
-   "w": "Gerade heißt: Einerziffer gerade (2, 6) – 2 Möglichkeiten. Dann Hunderter 3, Zehner 2: 2 · 3 · 2 = 12.",
+   "c": "1 * 3 * 2",
+   "w": "Gerade heißt: Einerziffer gerade (6) – 1 Möglichkeiten. Dann Hunderter 3, Zehner 2: 1 · 3 · 2 = 6.",
    "h": "Beginne mit der Einerziffer – sie hat die stärkste Bedingung."
   },
   {
@@ -2285,13 +2681,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Aus den Ziffern 4, 5, 6, 8 werden dreistellige Zahlen ohne doppelte Ziffer gebildet. Wie viele davon sind gerade?"
+    "text": "Aus den Ziffern 2, 4, 5, 7 werden dreistellige Zahlen ohne doppelte Ziffer gebildet. Wie viele davon sind gerade?"
    },
    "o": {
-    "wert": 18
+    "wert": 12
    },
-   "c": "3 * 3 * 2",
-   "w": "Gerade heißt: Einerziffer gerade (4, 6, 8) – 3 Möglichkeiten. Dann Hunderter 3, Zehner 2: 3 · 3 · 2 = 18.",
+   "c": "2 * 3 * 2",
+   "w": "Gerade heißt: Einerziffer gerade (2, 4) – 2 Möglichkeiten. Dann Hunderter 3, Zehner 2: 2 · 3 · 2 = 12.",
    "h": "Beginne mit der Einerziffer – sie hat die stärkste Bedingung."
   },
   {
@@ -2301,30 +2697,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "6 Kinder stellen sich in einer Reihe auf. Zwei Geschwister wollen nebeneinander stehen. Wie viele Reihenfolgen gibt es?"
+    "text": "Aus den Ziffern 0, 1, 5, 6 werden dreistellige Zahlen ohne doppelte Ziffer gebildet. Wie viele gibt es?"
    },
    "o": {
-    "wert": 240
+    "wert": 18
    },
-   "c": "2 * 5 * 4 * 3 * 2 * 1",
-   "w": "Die Geschwister als ein „Block“: 5 Teile, 120 Reihenfolgen. Im Block 2 Möglichkeiten: 2 · 120 = 240.",
-   "h": "Denke dir die beiden zusammengeklebt. Wie viele Teile ordnest du dann?"
-  },
-  {
-   "l": "bedingungen",
-   "t": "bedingungen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "5 Kinder stellen sich in einer Reihe auf. Zwei Geschwister wollen nebeneinander stehen. Wie viele Reihenfolgen gibt es?"
-   },
-   "o": {
-    "wert": 48
-   },
-   "c": "2 * 4 * 3 * 2 * 1",
-   "w": "Die Geschwister als ein „Block“: 4 Teile, 24 Reihenfolgen. Im Block 2 Möglichkeiten: 2 · 24 = 48.",
-   "h": "Denke dir die beiden zusammengeklebt. Wie viele Teile ordnest du dann?"
+   "c": "3 * 3 * 2",
+   "w": "Hunderter: 3 Möglichkeiten (nicht 0). Zehner: wieder 3 (die 0 ist jetzt erlaubt, die benutzte Ziffer nicht). Einer: 2. 3 · 3 · 2 = 18.",
+   "h": "Die 0 darf nicht vorne stehen. Beginne mit der Hunderterziffer."
   },
   {
    "l": "bedingungen",
@@ -2365,14 +2745,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Code hat 4 Ziffern und darf nur die Ziffern 1 bis 6 enthalten, Wiederholung erlaubt. Wie viele Codes gibt es?"
+    "text": "Aus den Ziffern 0, 3, 8, 9 werden dreistellige Zahlen ohne doppelte Ziffer gebildet. Wie viele gibt es?"
    },
    "o": {
-    "wert": 1296
+    "wert": 18
    },
-   "c": "6 ** 4",
-   "w": "Jede Stelle: 6 Möglichkeiten. 6 · 6 · 6 · 6 = 1 296.",
-   "h": "Wie viele Ziffern sind erlaubt? Bei einem Code darf die 0 auch vorne stehen."
+   "c": "3 * 3 * 2",
+   "w": "Hunderter: 3 Möglichkeiten (nicht 0). Zehner: wieder 3 (die 0 ist jetzt erlaubt, die benutzte Ziffer nicht). Einer: 2. 3 · 3 · 2 = 18.",
+   "h": "Die 0 darf nicht vorne stehen. Beginne mit der Hunderterziffer."
   },
   {
    "l": "bedingungen",
@@ -2381,14 +2761,30 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Code hat 3 Ziffern und darf nur die Ziffern 1 bis 6 enthalten, Wiederholung erlaubt. Wie viele Codes gibt es?"
+    "text": "Aus den Ziffern 0, 1, 6, 7 werden dreistellige Zahlen ohne doppelte Ziffer gebildet. Wie viele davon sind gerade?"
    },
    "o": {
-    "wert": 216
+    "wert": 10
    },
-   "c": "6 ** 3",
-   "w": "Jede Stelle: 6 Möglichkeiten. 6 · 6 · 6 = 216.",
-   "h": "Wie viele Ziffern sind erlaubt? Bei einem Code darf die 0 auch vorne stehen."
+   "c": "6 + 4",
+   "w": "Endziffer 0: vorne und in der Mitte die drei anderen Ziffern, 3 · 2 = 6. Andere gerade Endziffern (6): je 2 · 2 = 4, vorne keine 0. Zusammen 10.",
+   "h": "Unterscheide: Endziffer 0 oder eine andere gerade Endziffer."
+  },
+  {
+   "l": "bedingungen",
+   "t": "bedingungen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Aus den Ziffern 0, 4, 6, 7 werden dreistellige Zahlen ohne doppelte Ziffer gebildet. Wie viele gibt es?"
+   },
+   "o": {
+    "wert": 18
+   },
+   "c": "3 * 3 * 2",
+   "w": "Hunderter: 3 Möglichkeiten (nicht 0). Zehner: wieder 3 (die 0 ist jetzt erlaubt, die benutzte Ziffer nicht). Einer: 2. 3 · 3 · 2 = 18.",
+   "h": "Die 0 darf nicht vorne stehen. Beginne mit der Hunderterziffer."
   },
   {
    "l": "bedingungen",
@@ -2397,13 +2793,43 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Aus den Ziffern 2, 4, 7, 8 werden dreistellige Zahlen ohne doppelte Ziffer gebildet. Wie viele davon sind gerade?"
+    "text": "Aus den Ziffern 0, 3, 6, 7 werden dreistellige Zahlen ohne doppelte Ziffer gebildet. Wie viele davon sind gerade?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "6 + 4",
+   "w": "Endziffer 0: vorne und in der Mitte die drei anderen Ziffern, 3 · 2 = 6. Andere gerade Endziffern (6): je 2 · 2 = 4, vorne keine 0. Zusammen 10."
+  },
+  {
+   "l": "bedingungen",
+   "t": "bedingungen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele zweistellige Zahlen gibt es, in denen keine Ziffer doppelt vorkommt?"
+   },
+   "o": {
+    "wert": 81
+   },
+   "c": "9 * 9",
+   "w": "Erste Ziffer: 9 (nicht 0). Dann 9, Zusammen 81."
+  },
+  {
+   "l": "bedingungen",
+   "t": "bedingungen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus den Ziffern 0, 4, 5, 7 werden dreistellige Zahlen ohne doppelte Ziffer gebildet. Wie viele gibt es?"
    },
    "o": {
     "wert": 18
    },
    "c": "3 * 3 * 2",
-   "w": "Gerade heißt: Einerziffer gerade (2, 4, 8) – 3 Möglichkeiten. Dann Hunderter 3, Zehner 2: 3 · 3 · 2 = 18."
+   "w": "Hunderter: 3 Möglichkeiten (nicht 0). Zehner: wieder 3 (die 0 ist jetzt erlaubt, die benutzte Ziffer nicht). Einer: 2. 3 · 3 · 2 = 18."
   },
   {
    "l": "bedingungen",
@@ -2412,52 +2838,7 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Aus den Ziffern 1, 2, 3, 4 werden dreistellige Zahlen ohne doppelte Ziffer gebildet. Wie viele davon sind gerade?"
-   },
-   "o": {
-    "wert": 12
-   },
-   "c": "2 * 3 * 2",
-   "w": "Gerade heißt: Einerziffer gerade (2, 4) – 2 Möglichkeiten. Dann Hunderter 3, Zehner 2: 2 · 3 · 2 = 12."
-  },
-  {
-   "l": "bedingungen",
-   "t": "bedingungen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Aus den Ziffern 3, 5, 6, 7 werden dreistellige Zahlen ohne doppelte Ziffer gebildet. Wie viele davon sind gerade?"
-   },
-   "o": {
-    "wert": 6
-   },
-   "c": "1 * 3 * 2",
-   "w": "Gerade heißt: Einerziffer gerade (6) – 1 Möglichkeiten. Dann Hunderter 3, Zehner 2: 1 · 3 · 2 = 6."
-  },
-  {
-   "l": "bedingungen",
-   "t": "bedingungen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Aus den Ziffern 1, 4, 5, 8 werden dreistellige Zahlen ohne doppelte Ziffer gebildet. Wie viele davon sind gerade?"
-   },
-   "o": {
-    "wert": 12
-   },
-   "c": "2 * 3 * 2",
-   "w": "Gerade heißt: Einerziffer gerade (4, 8) – 2 Möglichkeiten. Dann Hunderter 3, Zehner 2: 2 · 3 · 2 = 12."
-  },
-  {
-   "l": "bedingungen",
-   "t": "bedingungen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Aus den Ziffern 4, 6, 7, 8 werden dreistellige Zahlen ohne doppelte Ziffer gebildet. Wie viele davon sind gerade?"
+    "text": "Aus den Ziffern 4, 5, 6, 8 werden dreistellige Zahlen ohne doppelte Ziffer gebildet. Wie viele davon sind gerade?"
    },
    "o": {
     "wert": 18
@@ -2472,13 +2853,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Aus den Ziffern 4, 5, 6, 9 werden dreistellige Zahlen ohne doppelte Ziffer gebildet. Wie viele davon sind gerade?"
+    "text": "Aus den Ziffern 0, 4, 8, 9 werden dreistellige Zahlen ohne doppelte Ziffer gebildet. Wie viele gibt es?"
    },
    "o": {
-    "wert": 12
+    "wert": 18
    },
-   "c": "2 * 3 * 2",
-   "w": "Gerade heißt: Einerziffer gerade (4, 6) – 2 Möglichkeiten. Dann Hunderter 3, Zehner 2: 2 · 3 · 2 = 12."
+   "c": "3 * 3 * 2",
+   "w": "Hunderter: 3 Möglichkeiten (nicht 0). Zehner: wieder 3 (die 0 ist jetzt erlaubt, die benutzte Ziffer nicht). Einer: 2. 3 · 3 · 2 = 18."
   },
   {
    "l": "bedingungen",
@@ -2487,13 +2868,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Aus den Ziffern 2, 4, 5, 9 werden dreistellige Zahlen ohne doppelte Ziffer gebildet. Wie viele davon sind gerade?"
+    "text": "Aus den Ziffern 3, 4, 6, 8 werden dreistellige Zahlen ohne doppelte Ziffer gebildet. Wie viele davon sind gerade?"
    },
    "o": {
-    "wert": 12
+    "wert": 18
    },
-   "c": "2 * 3 * 2",
-   "w": "Gerade heißt: Einerziffer gerade (2, 4) – 2 Möglichkeiten. Dann Hunderter 3, Zehner 2: 2 · 3 · 2 = 12."
+   "c": "3 * 3 * 2",
+   "w": "Gerade heißt: Einerziffer gerade (4, 6, 8) – 3 Möglichkeiten. Dann Hunderter 3, Zehner 2: 3 · 3 · 2 = 18."
   },
   {
    "l": "bedingungen",
@@ -2502,13 +2883,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Aus den Ziffern 2, 3, 4, 5 werden dreistellige Zahlen ohne doppelte Ziffer gebildet. Wie viele davon sind gerade?"
+    "text": "Aus den Ziffern 0, 3, 4, 7 werden dreistellige Zahlen ohne doppelte Ziffer gebildet. Wie viele davon sind gerade?"
    },
    "o": {
-    "wert": 12
+    "wert": 10
    },
-   "c": "2 * 3 * 2",
-   "w": "Gerade heißt: Einerziffer gerade (2, 4) – 2 Möglichkeiten. Dann Hunderter 3, Zehner 2: 2 · 3 · 2 = 12."
+   "c": "6 + 4",
+   "w": "Endziffer 0: vorne und in der Mitte die drei anderen Ziffern, 3 · 2 = 6. Andere gerade Endziffern (4): je 2 · 2 = 4, vorne keine 0. Zusammen 10."
   },
   {
    "l": "bedingungen",
@@ -2517,13 +2898,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Aus den Ziffern 2, 3, 5, 6 werden dreistellige Zahlen ohne doppelte Ziffer gebildet. Wie viele davon sind gerade?"
+    "text": "Aus den Ziffern 0, 1, 7, 9 werden dreistellige Zahlen ohne doppelte Ziffer gebildet. Wie viele gibt es?"
    },
    "o": {
-    "wert": 12
+    "wert": 18
    },
-   "c": "2 * 3 * 2",
-   "w": "Gerade heißt: Einerziffer gerade (2, 6) – 2 Möglichkeiten. Dann Hunderter 3, Zehner 2: 2 · 3 · 2 = 12."
+   "c": "3 * 3 * 2",
+   "w": "Hunderter: 3 Möglichkeiten (nicht 0). Zehner: wieder 3 (die 0 ist jetzt erlaubt, die benutzte Ziffer nicht). Einer: 2. 3 · 3 · 2 = 18."
   },
   {
    "l": "bedingungen",
@@ -2532,13 +2913,28 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Aus den Ziffern 1, 7, 8, 9 werden dreistellige Zahlen ohne doppelte Ziffer gebildet. Wie viele davon sind gerade?"
+    "text": "Aus den Ziffern 0, 2, 8, 9 werden dreistellige Zahlen ohne doppelte Ziffer gebildet. Wie viele gibt es?"
    },
    "o": {
-    "wert": 6
+    "wert": 18
    },
-   "c": "1 * 3 * 2",
-   "w": "Gerade heißt: Einerziffer gerade (8) – 1 Möglichkeiten. Dann Hunderter 3, Zehner 2: 1 · 3 · 2 = 6."
+   "c": "3 * 3 * 2",
+   "w": "Hunderter: 3 Möglichkeiten (nicht 0). Zehner: wieder 3 (die 0 ist jetzt erlaubt, die benutzte Ziffer nicht). Einer: 2. 3 · 3 · 2 = 18."
+  },
+  {
+   "l": "bedingungen",
+   "t": "bedingungen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus den Ziffern 0, 2, 4, 8 werden dreistellige Zahlen ohne doppelte Ziffer gebildet. Wie viele davon sind gerade?"
+   },
+   "o": {
+    "wert": 18
+   },
+   "c": "6 + 12",
+   "w": "Endziffer 0: vorne und in der Mitte die drei anderen Ziffern, 3 · 2 = 6. Andere gerade Endziffern (2, 4, 8): je 2 · 2 = 4, vorne keine 0. Zusammen 18."
   },
   {
    "l": "grenzen",
@@ -2554,54 +2950,6 @@
    },
    "c": "6 * 5 / 2",
    "w": "Jedes Kind gibt 5 anderen die Hand: 6 · 5 = 30. Jeder Handschlag doppelt gezählt: 30 : 2 = 15.",
-   "h": "Zählprinzip, dann durch 2 – A–B ist derselbe Handschlag wie B–A."
-  },
-  {
-   "l": "grenzen",
-   "t": "grenzen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "8 Kinder geben sich gegenseitig einmal die Hand. Wie viele Handschläge gibt es?"
-   },
-   "o": {
-    "wert": 28
-   },
-   "c": "8 * 7 / 2",
-   "w": "Jedes Kind gibt 7 anderen die Hand: 8 · 7 = 56. Jeder Handschlag doppelt gezählt: 56 : 2 = 28.",
-   "h": "Zählprinzip, dann durch 2 – A–B ist derselbe Handschlag wie B–A."
-  },
-  {
-   "l": "grenzen",
-   "t": "grenzen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "5 Kinder geben sich gegenseitig einmal die Hand. Wie viele Handschläge gibt es?"
-   },
-   "o": {
-    "wert": 10
-   },
-   "c": "5 * 4 / 2",
-   "w": "Jedes Kind gibt 4 anderen die Hand: 5 · 4 = 20. Jeder Handschlag doppelt gezählt: 20 : 2 = 10.",
-   "h": "Zählprinzip, dann durch 2 – A–B ist derselbe Handschlag wie B–A."
-  },
-  {
-   "l": "grenzen",
-   "t": "grenzen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "3 Kinder geben sich gegenseitig einmal die Hand. Wie viele Handschläge gibt es?"
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "3 * 2 / 2",
-   "w": "Jedes Kind gibt 2 anderen die Hand: 3 · 2 = 6. Jeder Handschlag doppelt gezählt: 6 : 2 = 3.",
    "h": "Zählprinzip, dann durch 2 – A–B ist derselbe Handschlag wie B–A."
   },
   {
@@ -2627,6 +2975,38 @@
    "s": 1,
    "y": "zahl",
    "f": {
+    "text": "3 Kinder geben sich gegenseitig einmal die Hand. Wie viele Handschläge gibt es?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3 * 2 / 2",
+   "w": "Jedes Kind gibt 2 anderen die Hand: 3 · 2 = 6. Jeder Handschlag doppelt gezählt: 6 : 2 = 3.",
+   "h": "Zählprinzip, dann durch 2 – A–B ist derselbe Handschlag wie B–A."
+  },
+  {
+   "l": "grenzen",
+   "t": "grenzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "8 Kinder geben sich gegenseitig einmal die Hand. Wie viele Handschläge gibt es?"
+   },
+   "o": {
+    "wert": 28
+   },
+   "c": "8 * 7 / 2",
+   "w": "Jedes Kind gibt 7 anderen die Hand: 8 · 7 = 56. Jeder Handschlag doppelt gezählt: 56 : 2 = 28.",
+   "h": "Zählprinzip, dann durch 2 – A–B ist derselbe Handschlag wie B–A."
+  },
+  {
+   "l": "grenzen",
+   "t": "grenzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
     "text": "4 Kinder geben sich gegenseitig einmal die Hand. Wie viele Handschläge gibt es?"
    },
    "o": {
@@ -2635,6 +3015,58 @@
    "c": "4 * 3 / 2",
    "w": "Jedes Kind gibt 3 anderen die Hand: 4 · 3 = 12. Jeder Handschlag doppelt gezählt: 12 : 2 = 6.",
    "h": "Zählprinzip, dann durch 2 – A–B ist derselbe Handschlag wie B–A."
+  },
+  {
+   "l": "grenzen",
+   "t": "grenzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "5 Kinder geben sich gegenseitig einmal die Hand. Wie viele Handschläge gibt es?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "5 * 4 / 2",
+   "w": "Jedes Kind gibt 4 anderen die Hand: 5 · 4 = 20. Jeder Handschlag doppelt gezählt: 20 : 2 = 10.",
+   "h": "Zählprinzip, dann durch 2 – A–B ist derselbe Handschlag wie B–A."
+  },
+  {
+   "l": "grenzen",
+   "t": "grenzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Zählprinzip, dann durch 2: 10",
+    "Zählprinzip direkt: 20",
+    "Plus rechnen: 5 + 4 = 9"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Es werden aus 5 Kindern ein Klassensprecher und ein Stellvertreter gewählt. Wie zählt man richtig?"
+   },
+   "w": "Die Ämter sind verschieden, die Reihenfolge zählt: Zählprinzip direkt: 20.",
+   "h": "Ist die Reihenfolge der beiden Gewählten wichtig?"
+  },
+  {
+   "l": "grenzen",
+   "t": "grenzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bei einem Turnier spielt jede von 7 Mannschaften genau einmal gegen jede andere. Wie viele Spiele gibt es?"
+   },
+   "o": {
+    "wert": 21
+   },
+   "c": "7 * 6 / 2",
+   "w": "7 · 6 = 42 zählt jedes Spiel doppelt. 42 : 2 = 21 Spiele.",
+   "h": "Spiel A gegen B ist dasselbe wie B gegen A."
   },
   {
    "l": "grenzen",
@@ -2659,13 +3091,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Bei einem Turnier spielt jede von 3 Mannschaften genau einmal gegen jede andere. Wie viele Spiele gibt es?"
+    "text": "Bei einem Turnier spielt jede von 4 Mannschaften genau einmal gegen jede andere. Wie viele Spiele gibt es?"
    },
    "o": {
-    "wert": 3
+    "wert": 6
    },
-   "c": "3 * 2 / 2",
-   "w": "3 · 2 = 6 zählt jedes Spiel doppelt. 6 : 2 = 3 Spiele.",
+   "c": "4 * 3 / 2",
+   "w": "4 · 3 = 12 zählt jedes Spiel doppelt. 12 : 2 = 6 Spiele.",
    "h": "Spiel A gegen B ist dasselbe wie B gegen A."
   },
   {
@@ -2695,48 +3127,12 @@
    "s": 2,
    "y": "auswahl",
    "a": [
-    "Plus rechnen: 6 + 5 = 11",
     "Zählprinzip, dann durch 2: 15",
+    "Plus rechnen: 6 + 5 = 11",
     "Zählprinzip direkt: 30"
    ],
    "o": {
-    "index": 1
-   },
-   "f": {
-    "text": "Es werden aus 6 Kindern 2 für den Tischdienst (gleiche Aufgabe) ausgewählt. Wie zählt man richtig?"
-   },
-   "w": "Beide machen dasselbe, die Reihenfolge ist egal: Zählprinzip, dann durch 2: 15.",
-   "h": "Ist die Reihenfolge der beiden Gewählten wichtig?"
-  },
-  {
-   "l": "grenzen",
-   "t": "grenzen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Bei einem Turnier spielt jede von 4 Mannschaften genau einmal gegen jede andere. Wie viele Spiele gibt es?"
-   },
-   "o": {
-    "wert": 6
-   },
-   "c": "4 * 3 / 2",
-   "w": "4 · 3 = 12 zählt jedes Spiel doppelt. 12 : 2 = 6 Spiele.",
-   "h": "Spiel A gegen B ist dasselbe wie B gegen A."
-  },
-  {
-   "l": "grenzen",
-   "t": "grenzen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Zählprinzip direkt: 30",
-    "Plus rechnen: 6 + 5 = 11",
-    "Zählprinzip, dann durch 2: 15"
-   ],
-   "o": {
-    "index": 0
+    "index": 2
    },
    "f": {
     "text": "Es werden aus 6 Kindern ein Klassensprecher und ein Stellvertreter gewählt. Wie zählt man richtig?"
@@ -2751,62 +3147,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Wie viele Strecken kann man zwischen 8 Punkten zeichnen, von denen keine drei auf einer Geraden liegen?"
-   },
-   "o": {
-    "wert": 28
-   },
-   "c": "8 * 7 / 2",
-   "w": "Jeder Punkt mit 7 anderen: 8 · 7 = 56. Jede Strecke doppelt: 28.",
-   "h": "Die Strecke [AB] ist dieselbe wie [BA]."
-  },
-  {
-   "l": "grenzen",
-   "t": "grenzen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Bei einer Feier gab es 6 Handschläge. Jeder hat jedem genau einmal die Hand gegeben. Wie viele Personen waren da?"
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "4",
-   "w": "Probieren: Bei 4 Personen gibt es 4 · 3 : 2 = 6 Handschläge.",
-   "h": "Probiere: 3 Personen → 3, 4 Personen → 6, 5 Personen → 10 …"
-  },
-  {
-   "l": "grenzen",
-   "t": "grenzen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viele Strecken kann man zwischen 7 Punkten zeichnen, von denen keine drei auf einer Geraden liegen?"
-   },
-   "o": {
-    "wert": 21
-   },
-   "c": "7 * 6 / 2",
-   "w": "Jeder Punkt mit 6 anderen: 7 · 6 = 42. Jede Strecke doppelt: 21.",
-   "h": "Die Strecke [AB] ist dieselbe wie [BA]."
-  },
-  {
-   "l": "grenzen",
-   "t": "grenzen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Bei einer Feier gab es 3 Handschläge. Jeder hat jedem genau einmal die Hand gegeben. Wie viele Personen waren da?"
+    "text": "Wie viele Strecken kann man zwischen 3 Punkten zeichnen, von denen keine drei auf einer Geraden liegen?"
    },
    "o": {
     "wert": 3
    },
-   "c": "3",
-   "w": "Probieren: Bei 3 Personen gibt es 3 · 2 : 2 = 3 Handschläge.",
-   "h": "Probiere: 3 Personen → 3, 4 Personen → 6, 5 Personen → 10 …"
+   "c": "3 * 2 / 2",
+   "w": "Jeder Punkt mit 2 anderen: 3 · 2 = 6. Jede Strecke doppelt: 3.",
+   "h": "Die Strecke [AB] ist dieselbe wie [BA]."
   },
   {
    "l": "grenzen",
@@ -2843,17 +3191,65 @@
   {
    "l": "grenzen",
    "t": "grenzen",
-   "p": "test",
-   "s": 2,
+   "p": "uebung",
+   "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Bei einem Turnier spielt jede von 7 Mannschaften genau einmal gegen jede andere. Wie viele Spiele gibt es?"
+    "text": "Wie viele Strecken kann man zwischen 7 Punkten zeichnen, von denen keine drei auf einer Geraden liegen?"
    },
    "o": {
     "wert": 21
    },
    "c": "7 * 6 / 2",
-   "w": "7 · 6 = 42 zählt jedes Spiel doppelt. 42 : 2 = 21 Spiele."
+   "w": "Jeder Punkt mit 6 anderen: 7 · 6 = 42. Jede Strecke doppelt: 21.",
+   "h": "Die Strecke [AB] ist dieselbe wie [BA]."
+  },
+  {
+   "l": "grenzen",
+   "t": "grenzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Bei einem Turnier spielt jede Mannschaft genau einmal gegen jede andere. Es gibt 6 Spiele. Wie viele Mannschaften sind es?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Probieren: Bei 4 Mannschaften gibt es 4 · 3 : 2 = 6 Spiele.",
+   "h": "Probiere: 3 Mannschaften → 3 Spiele, 4 → 6, 5 → 10 …"
+  },
+  {
+   "l": "grenzen",
+   "t": "grenzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Bei einem Turnier spielt jede Mannschaft genau einmal gegen jede andere. Es gibt 28 Spiele. Wie viele Mannschaften sind es?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "8",
+   "w": "Probieren: Bei 8 Mannschaften gibt es 8 · 7 : 2 = 28 Spiele.",
+   "h": "Probiere: 3 Mannschaften → 3 Spiele, 4 → 6, 5 → 10 …"
+  },
+  {
+   "l": "grenzen",
+   "t": "grenzen",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bei einem Turnier spielt jede von 3 Mannschaften genau einmal gegen jede andere. Wie viele Spiele gibt es?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3 * 2 / 2",
+   "w": "3 · 2 = 6 zählt jedes Spiel doppelt. 6 : 2 = 3 Spiele."
   },
   {
    "l": "grenzen",
@@ -2875,63 +3271,6 @@
    "t": "grenzen",
    "p": "korrektur",
    "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Zählprinzip, dann durch 2: 21",
-    "Zählprinzip direkt: 42",
-    "Plus rechnen: 7 + 6 = 13"
-   ],
-   "o": {
-    "index": 1
-   },
-   "f": {
-    "text": "Es werden aus 7 Kindern ein Klassensprecher und ein Stellvertreter gewählt. Wie zählt man richtig?"
-   },
-   "w": "Die Ämter sind verschieden, die Reihenfolge zählt: Zählprinzip direkt: 42."
-  },
-  {
-   "l": "grenzen",
-   "t": "grenzen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Zählprinzip, dann durch 2: 21",
-    "Plus rechnen: 7 + 6 = 13",
-    "Zählprinzip direkt: 42"
-   ],
-   "o": {
-    "index": 0
-   },
-   "f": {
-    "text": "Es werden aus 7 Kindern 2 für den Tischdienst (gleiche Aufgabe) ausgewählt. Wie zählt man richtig?"
-   },
-   "w": "Beide machen dasselbe, die Reihenfolge ist egal: Zählprinzip, dann durch 2: 21."
-  },
-  {
-   "l": "grenzen",
-   "t": "grenzen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Zählprinzip direkt: 56",
-    "Plus rechnen: 8 + 7 = 15",
-    "Zählprinzip, dann durch 2: 28"
-   ],
-   "o": {
-    "index": 2
-   },
-   "f": {
-    "text": "Es werden aus 8 Kindern 2 für den Tischdienst (gleiche Aufgabe) ausgewählt. Wie zählt man richtig?"
-   },
-   "w": "Beide machen dasselbe, die Reihenfolge ist egal: Zählprinzip, dann durch 2: 28."
-  },
-  {
-   "l": "grenzen",
-   "t": "grenzen",
-   "p": "sicherung",
-   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Bei einem Turnier spielt jede von 5 Mannschaften genau einmal gegen jede andere. Wie viele Spiele gibt es?"
@@ -2945,35 +3284,16 @@
   {
    "l": "grenzen",
    "t": "grenzen",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "auswahl",
    "a": [
-    "Zählprinzip, dann durch 2: 10",
     "Plus rechnen: 5 + 4 = 9",
-    "Zählprinzip direkt: 20"
+    "Zählprinzip direkt: 20",
+    "Zählprinzip, dann durch 2: 10"
    ],
    "o": {
     "index": 2
-   },
-   "f": {
-    "text": "Es werden aus 5 Kindern ein Klassensprecher und ein Stellvertreter gewählt. Wie zählt man richtig?"
-   },
-   "w": "Die Ämter sind verschieden, die Reihenfolge zählt: Zählprinzip direkt: 20."
-  },
-  {
-   "l": "grenzen",
-   "t": "grenzen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Zählprinzip, dann durch 2: 10",
-    "Plus rechnen: 5 + 4 = 9",
-    "Zählprinzip direkt: 20"
-   ],
-   "o": {
-    "index": 0
    },
    "f": {
     "text": "Es werden aus 5 Kindern 2 für den Tischdienst (gleiche Aufgabe) ausgewählt. Wie zählt man richtig?"
@@ -2987,17 +3307,55 @@
    "s": 2,
    "y": "auswahl",
    "a": [
-    "Plus rechnen: 8 + 7 = 15",
     "Zählprinzip, dann durch 2: 28",
+    "Plus rechnen: 8 + 7 = 15",
     "Zählprinzip direkt: 56"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Es werden aus 8 Kindern 2 für den Tischdienst (gleiche Aufgabe) ausgewählt. Wie zählt man richtig?"
+   },
+   "w": "Beide machen dasselbe, die Reihenfolge ist egal: Zählprinzip, dann durch 2: 28."
+  },
+  {
+   "l": "grenzen",
+   "t": "grenzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Plus rechnen: 7 + 6 = 13",
+    "Zählprinzip, dann durch 2: 21",
+    "Zählprinzip direkt: 42"
    ],
    "o": {
     "index": 2
    },
    "f": {
-    "text": "Es werden aus 8 Kindern ein Klassensprecher und ein Stellvertreter gewählt. Wie zählt man richtig?"
+    "text": "Es werden aus 7 Kindern ein Klassensprecher und ein Stellvertreter gewählt. Wie zählt man richtig?"
    },
-   "w": "Die Ämter sind verschieden, die Reihenfolge zählt: Zählprinzip direkt: 56."
+   "w": "Die Ämter sind verschieden, die Reihenfolge zählt: Zählprinzip direkt: 42."
+  },
+  {
+   "l": "grenzen",
+   "t": "grenzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Plus rechnen: 7 + 6 = 13",
+    "Zählprinzip direkt: 42",
+    "Zählprinzip, dann durch 2: 21"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Es werden aus 7 Kindern 2 für den Tischdienst (gleiche Aufgabe) ausgewählt. Wie zählt man richtig?"
+   },
+   "w": "Beide machen dasselbe, die Reihenfolge ist egal: Zählprinzip, dann durch 2: 21."
   },
   {
    "l": "grenzen",
@@ -3007,16 +3365,134 @@
    "y": "auswahl",
    "a": [
     "Zählprinzip direkt: 6",
-    "Zählprinzip, dann durch 2: 3",
-    "Plus rechnen: 3 + 2 = 5"
+    "Plus rechnen: 3 + 2 = 5",
+    "Zählprinzip, dann durch 2: 3"
    ],
    "o": {
-    "index": 1
+    "index": 2
    },
    "f": {
     "text": "Es werden aus 3 Kindern 2 für den Tischdienst (gleiche Aufgabe) ausgewählt. Wie zählt man richtig?"
    },
    "w": "Beide machen dasselbe, die Reihenfolge ist egal: Zählprinzip, dann durch 2: 3."
+  },
+  {
+   "l": "grenzen",
+   "t": "grenzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Zählprinzip, dann durch 2: 6",
+    "Zählprinzip direkt: 12",
+    "Plus rechnen: 4 + 3 = 7"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Es werden aus 4 Kindern ein Klassensprecher und ein Stellvertreter gewählt. Wie zählt man richtig?"
+   },
+   "w": "Die Ämter sind verschieden, die Reihenfolge zählt: Zählprinzip direkt: 12."
+  },
+  {
+   "l": "grenzen",
+   "t": "grenzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Zählprinzip direkt: 56",
+    "Zählprinzip, dann durch 2: 28",
+    "Plus rechnen: 8 + 7 = 15"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Es werden aus 8 Kindern ein Klassensprecher und ein Stellvertreter gewählt. Wie zählt man richtig?"
+   },
+   "w": "Die Ämter sind verschieden, die Reihenfolge zählt: Zählprinzip direkt: 56."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Ja, KZ und ZK sind dasselbe: KK, KZ, ZZ.",
+    "Nein, KZ und ZK sind verschieden: 4 Folgen.",
+    "Nein, es sind 2 Folgen: Kopf oder Zahl."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Eine Münze zweimal geworfen hat 3 mögliche Ergebnisfolgen.“"
+   },
+   "w": "Nein, KZ und ZK sind verschieden: 4 Folgen.",
+   "h": "Und oder oder? Wiederholung? Reihenfolge wichtig?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Nein, jedes Teil zählt nur einmal: 6.",
+    "Ja, 5 + 6 = 11.",
+    "Nein, zu jeder Hose passen alle T-Shirts: 5 · 6 = 30."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Mit 5 Hosen und 6 T-Shirts gibt es 11 Outfits.“"
+   },
+   "w": "Nein, zu jeder Hose passen alle T-Shirts: 5 · 6 = 30.",
+   "h": "Und oder oder? Wiederholung? Reihenfolge wichtig?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Nein, zu jeder Hose passen alle T-Shirts: 5 · 4 = 20.",
+    "Nein, jedes Teil zählt nur einmal: 5.",
+    "Ja, 5 + 4 = 9."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Mit 5 Hosen und 4 T-Shirts gibt es 9 Outfits.“"
+   },
+   "w": "Nein, zu jeder Hose passen alle T-Shirts: 5 · 4 = 20.",
+   "h": "Und oder oder? Wiederholung? Reihenfolge wichtig?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Nein, 2 + 3 = 5.",
+    "Nein, jedes Teil zählt nur einmal: 3.",
+    "Ja, Zählprinzip: 2 · 3 = 6."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Mit 2 Hosen und 3 T-Shirts gibt es 6 Outfits.“"
+   },
+   "w": "Ja, Zählprinzip: 2 · 3 = 6.",
+   "h": "Und oder oder? Wiederholung? Reihenfolge wichtig?"
   },
   {
    "l": "verstehen",
@@ -3026,8 +3502,8 @@
    "y": "auswahl",
    "a": [
     "Ja: KK, KZ, ZK, ZZ.",
-    "Nein, das ist falsch.",
-    "Das kann man nicht entscheiden."
+    "Nein, KZ und ZK sind dasselbe: 3 Folgen.",
+    "Nein, 2 + 2 = 4 ist Zufall, es sind 2 Folgen."
    ],
    "o": {
     "index": 0
@@ -3045,97 +3521,37 @@
    "s": 1,
    "y": "auswahl",
    "a": [
-    "Nein, das ist falsch.",
-    "Ja, Zählprinzip: 5 · 5 = 25.",
-    "Das kann man nicht entscheiden."
-   ],
-   "o": {
-    "index": 1
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Mit 5 Hosen und 5 T-Shirts gibt es 25 Outfits.“"
-   },
-   "w": "Ja, Zählprinzip: 5 · 5 = 25.",
-   "h": "Und oder oder? Wiederholung? Reihenfolge wichtig?"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "a": [
-    "Ja, das stimmt.",
-    "Das kann man nicht entscheiden.",
-    "Nein, KZ und ZK sind verschieden: 4 Folgen."
+    "Nein, jedes Teil zählt nur einmal: 4.",
+    "Nein, 4 + 3 = 7.",
+    "Ja, Zählprinzip: 4 · 3 = 12."
    ],
    "o": {
     "index": 2
    },
    "f": {
-    "text": "Stimmt die Aussage? „Eine Münze zweimal geworfen hat 3 mögliche Ergebnisfolgen.“"
+    "text": "Stimmt die Aussage? „Mit 4 Hosen und 3 T-Shirts gibt es 12 Outfits.“"
    },
-   "w": "Nein, KZ und ZK sind verschieden: 4 Folgen.",
+   "w": "Ja, Zählprinzip: 4 · 3 = 12.",
    "h": "Und oder oder? Wiederholung? Reihenfolge wichtig?"
   },
   {
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "auswahl",
    "a": [
-    "Nein, zu jeder Hose passen alle T-Shirts: 5 · 3 = 15.",
-    "Das kann man nicht entscheiden.",
-    "Ja, das stimmt."
+    "Nein, jeder Handschlag ist doppelt gezählt: 20 : 2 = 10.",
+    "Ja, jedes Kind gibt 4 anderen die Hand: 5 · 4.",
+    "Nein, es sind 5 Handschläge, einer pro Kind."
    ],
    "o": {
     "index": 0
    },
    "f": {
-    "text": "Stimmt die Aussage? „Mit 5 Hosen und 3 T-Shirts gibt es 8 Outfits.“"
+    "text": "Stimmt die Aussage? „Bei 5 Kindern gibt es 20 Handschläge, wenn jeder jedem die Hand gibt.“"
    },
-   "w": "Nein, zu jeder Hose passen alle T-Shirts: 5 · 3 = 15.",
-   "h": "Und oder oder? Wiederholung? Reihenfolge wichtig?"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "a": [
-    "Das kann man nicht entscheiden.",
-    "Nein, das ist falsch.",
-    "Ja, Zählprinzip: 5 · 4 = 20."
-   ],
-   "o": {
-    "index": 2
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Mit 5 Hosen und 4 T-Shirts gibt es 20 Outfits.“"
-   },
-   "w": "Ja, Zählprinzip: 5 · 4 = 20.",
-   "h": "Und oder oder? Wiederholung? Reihenfolge wichtig?"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "a": [
-    "Nein, das ist falsch.",
-    "Das kann man nicht entscheiden.",
-    "Ja, Zählprinzip: 2 · 3 = 6."
-   ],
-   "o": {
-    "index": 2
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Mit 2 Hosen und 3 T-Shirts gibt es 6 Outfits.“"
-   },
-   "w": "Ja, Zählprinzip: 2 · 3 = 6.",
+   "w": "Nein, jeder Handschlag ist doppelt gezählt: 20 : 2 = 10.",
    "h": "Und oder oder? Wiederholung? Reihenfolge wichtig?"
   },
   {
@@ -3145,17 +3561,57 @@
    "s": 2,
    "y": "auswahl",
    "a": [
-    "Ja: 12, 13, 21, 23, 31, 32.",
-    "Nein, das ist falsch.",
-    "Das kann man nicht entscheiden."
+    "Nein, 7 + 6 = 13.",
+    "Ja, 7 · 6 = 42.",
+    "Nein, 7 · 7 = 49."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Für die Plätze 1 und 2 bei 7 Läufern gibt es 42 Möglichkeiten.“"
+   },
+   "w": "Ja, 7 · 6 = 42.",
+   "h": "Und oder oder? Wiederholung? Reihenfolge wichtig?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Nein, 5 + 4 = 9.",
+    "Nein, 5 · 5 = 25.",
+    "Ja, 5 · 4 = 20."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Für die Plätze 1 und 2 bei 5 Läufern gibt es 20 Möglichkeiten.“"
+   },
+   "w": "Ja, 5 · 4 = 20.",
+   "h": "Und oder oder? Wiederholung? Reihenfolge wichtig?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Ja, 8 · 7 = 56.",
+    "Nein, 8 + 7 = 15.",
+    "Nein, 8 · 8 = 64."
    ],
    "o": {
     "index": 0
    },
    "f": {
-    "text": "Stimmt die Aussage? „Mit den Ziffern 1, 2, 3 gibt es 6 zweistellige Zahlen ohne doppelte Ziffer.“"
+    "text": "Stimmt die Aussage? „Für die Plätze 1 und 2 bei 8 Läufern gibt es 56 Möglichkeiten.“"
    },
-   "w": "Ja: 12, 13, 21, 23, 31, 32.",
+   "w": "Ja, 8 · 7 = 56.",
    "h": "Und oder oder? Wiederholung? Reihenfolge wichtig?"
   },
   {
@@ -3165,17 +3621,17 @@
    "s": 2,
    "y": "auswahl",
    "a": [
-    "Das kann man nicht entscheiden.",
-    "Ja, 4 · 3 : 2 = 6.",
-    "Nein, das ist falsch."
+    "Nein, es sind 4 Arten, eine pro Kind.",
+    "Nein, ohne Wiederholung: 4 · 3 · 2 · 1 = 24.",
+    "Ja, jedes Kind kann auf jedem der 4 Plätze stehen: 4 · 4."
    ],
    "o": {
     "index": 1
    },
    "f": {
-    "text": "Stimmt die Aussage? „Bei 4 Kindern gibt es 6 Handschläge, wenn jeder jedem einmal die Hand gibt.“"
+    "text": "Stimmt die Aussage? „4 Kinder können sich auf 16 Arten in eine Reihe stellen.“"
    },
-   "w": "Ja, 4 · 3 : 2 = 6.",
+   "w": "Nein, ohne Wiederholung: 4 · 3 · 2 · 1 = 24.",
    "h": "Und oder oder? Wiederholung? Reihenfolge wichtig?"
   },
   {
@@ -3185,77 +3641,17 @@
    "s": 2,
    "y": "auswahl",
    "a": [
-    "Ja, das stimmt.",
-    "Das kann man nicht entscheiden.",
-    "Nein, ohne Wiederholung: 6."
+    "Nein, es sind 4 Handschläge, einer pro Kind.",
+    "Ja, jedes Kind gibt 3 anderen die Hand: 4 · 3.",
+    "Nein, jeder Handschlag ist doppelt gezählt: 12 : 2 = 6."
    ],
    "o": {
     "index": 2
    },
    "f": {
-    "text": "Stimmt die Aussage? „3 Kinder können sich auf 9 Arten in eine Reihe stellen.“"
+    "text": "Stimmt die Aussage? „Bei 4 Kindern gibt es 12 Handschläge, wenn jeder jedem die Hand gibt.“"
    },
-   "w": "Nein, ohne Wiederholung: 6.",
-   "h": "Und oder oder? Wiederholung? Reihenfolge wichtig?"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Nein, das ist falsch.",
-    "Ja, 6 · 5 = 30.",
-    "Das kann man nicht entscheiden."
-   ],
-   "o": {
-    "index": 1
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Für die Plätze 1 und 2 bei 6 Läufern gibt es 30 Möglichkeiten.“"
-   },
-   "w": "Ja, 6 · 5 = 30.",
-   "h": "Und oder oder? Wiederholung? Reihenfolge wichtig?"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Ja, 3 · 2 : 2 = 3.",
-    "Nein, das ist falsch.",
-    "Das kann man nicht entscheiden."
-   ],
-   "o": {
-    "index": 0
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Bei 3 Kindern gibt es 3 Handschläge, wenn jeder jedem einmal die Hand gibt.“"
-   },
-   "w": "Ja, 3 · 2 : 2 = 3.",
-   "h": "Und oder oder? Wiederholung? Reihenfolge wichtig?"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Nein, das ist falsch.",
-    "Ja, 3 · 2 · 1 = 6.",
-    "Das kann man nicht entscheiden."
-   ],
-   "o": {
-    "index": 1
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „3 Kinder können sich auf 6 Arten in eine Reihe stellen.“"
-   },
-   "w": "Ja, 3 · 2 · 1 = 6.",
+   "w": "Nein, jeder Handschlag ist doppelt gezählt: 12 : 2 = 6.",
    "h": "Und oder oder? Wiederholung? Reihenfolge wichtig?"
   },
   {
@@ -3265,17 +3661,17 @@
    "s": 3,
    "y": "auswahl",
    "a": [
-    "Das kann man nicht entscheiden.",
-    "Nein, das ist falsch.",
-    "Ja, beim Schloss ist auch 0 vorne erlaubt: 10 · 10 · 10 = 1 000."
+    "Nein, die Anzahlen dürfen verschieden sein (z. B. 3 · 4 · 2) – sie dürfen nur nicht vom vorigen Schritt abhängen.",
+    "Ja, sonst muss man addieren.",
+    "Ja, sonst kann man nicht malnehmen."
    ],
    "o": {
-    "index": 2
+    "index": 0
    },
    "f": {
-    "text": "Stimmt die Aussage? „Ein Zahlenschloss mit 3 Rädchen (0–9) hat 1 000 Codes.“"
+    "text": "Stimmt die Aussage? „Das Zählprinzip gilt nur, wenn in jedem Schritt gleich viele Möglichkeiten sind.“"
    },
-   "w": "Ja, beim Schloss ist auch 0 vorne erlaubt: 10 · 10 · 10 = 1 000.",
+   "w": "Nein, die Anzahlen dürfen verschieden sein (z. B. 3 · 4 · 2) – sie dürfen nur nicht vom vorigen Schritt abhängen.",
    "h": "Und oder oder? Wiederholung? Reihenfolge wichtig?"
   },
   {
@@ -3285,32 +3681,12 @@
    "s": 3,
    "y": "auswahl",
    "a": [
-    "Nein, das ist falsch.",
-    "Das kann man nicht entscheiden.",
-    "Ja, (8 · 7) : 2 = 28."
-   ],
-   "o": {
-    "index": 2
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Aus 8 Eissorten 2 verschiedene Kugeln in eine Waffel (Reihenfolge egal): 28 Möglichkeiten.“"
-   },
-   "w": "Ja, (8 · 7) : 2 = 28.",
-   "h": "Und oder oder? Wiederholung? Reihenfolge wichtig?"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "a": [
-    "Ja, das stimmt.",
     "Nein, 6 · 6 = 36 Paare.",
-    "Das kann man nicht entscheiden."
+    "Ja, 6 + 6 = 12.",
+    "Nein, 6 Paare, weil beide Würfel gleich sind."
    ],
    "o": {
-    "index": 1
+    "index": 0
    },
    "f": {
     "text": "Stimmt die Aussage? „Werden zwei Würfel geworfen, gibt es 12 mögliche Paare.“"
@@ -3325,12 +3701,32 @@
    "s": 3,
    "y": "auswahl",
    "a": [
-    "Nein, 9 · 10 · 10 = 900 (100 bis 999).",
-    "Ja, das stimmt.",
-    "Das kann man nicht entscheiden."
+    "Nein, 9 · 10 · 10 = 900, vorne darf keine 0 stehen.",
+    "Ja, beim Schloss ist auch 0 vorne erlaubt: 10 · 10 · 10 = 1 000.",
+    "Nein, 10 + 10 + 10 = 30."
    ],
    "o": {
-    "index": 0
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Zahlenschloss mit 3 Rädchen (0–9) hat 1 000 Codes.“"
+   },
+   "w": "Ja, beim Schloss ist auch 0 vorne erlaubt: 10 · 10 · 10 = 1 000.",
+   "h": "Und oder oder? Wiederholung? Reihenfolge wichtig?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Nein, 9 · 9 · 9 = 729.",
+    "Nein, 9 · 10 · 10 = 900 (100 bis 999).",
+    "Ja, 10 · 10 · 10 = 1 000."
+   ],
+   "o": {
+    "index": 1
    },
    "f": {
     "text": "Stimmt die Aussage? „Es gibt 1 000 dreistellige Zahlen.“"
@@ -3345,17 +3741,17 @@
    "s": 3,
    "y": "auswahl",
    "a": [
-    "Nein, das ist falsch.",
-    "Das kann man nicht entscheiden.",
-    "Ja, (6 · 5) : 2 = 15."
+    "Nein, 5 · 4 = 20.",
+    "Nein, 5 + 4 = 9.",
+    "Ja, (5 · 4) : 2 = 10."
    ],
    "o": {
     "index": 2
    },
    "f": {
-    "text": "Stimmt die Aussage? „Aus 6 Eissorten 2 verschiedene Kugeln in eine Waffel (Reihenfolge egal): 15 Möglichkeiten.“"
+    "text": "Stimmt die Aussage? „Aus 5 Eissorten 2 verschiedene Kugeln in eine Waffel (Reihenfolge egal): 10 Möglichkeiten.“"
    },
-   "w": "Ja, (6 · 5) : 2 = 15.",
+   "w": "Ja, (5 · 4) : 2 = 10.",
    "h": "Und oder oder? Wiederholung? Reihenfolge wichtig?"
   },
   {
@@ -3365,12 +3761,12 @@
    "s": 3,
    "y": "auswahl",
    "a": [
-    "Nein, das ist falsch.",
-    "Ja, (7 · 6) : 2 = 21.",
-    "Das kann man nicht entscheiden."
+    "Nein, 7 · 6 = 42.",
+    "Nein, 7 + 6 = 13.",
+    "Ja, (7 · 6) : 2 = 21."
    ],
    "o": {
-    "index": 1
+    "index": 2
    },
    "f": {
     "text": "Stimmt die Aussage? „Aus 7 Eissorten 2 verschiedene Kugeln in eine Waffel (Reihenfolge egal): 21 Möglichkeiten.“"
@@ -3385,17 +3781,17 @@
    "s": 2,
    "y": "auswahl",
    "a": [
-    "Das kann man nicht entscheiden.",
-    "Nein, ohne Wiederholung: 720.",
-    "Ja, das stimmt."
+    "Nein, ohne Wiederholung: 6 · 5 · 4 · 3 · 2 · 1 = 720.",
+    "Ja, jedes Kind kann auf jedem der 6 Plätze stehen: 6 · 6.",
+    "Nein, es sind 6 Arten, eine pro Kind."
    ],
    "o": {
-    "index": 1
+    "index": 0
    },
    "f": {
     "text": "Stimmt die Aussage? „6 Kinder können sich auf 36 Arten in eine Reihe stellen.“"
    },
-   "w": "Nein, ohne Wiederholung: 720."
+   "w": "Nein, ohne Wiederholung: 6 · 5 · 4 · 3 · 2 · 1 = 720."
   },
   {
    "l": "verstehen",
@@ -3404,17 +3800,17 @@
    "s": 2,
    "y": "auswahl",
    "a": [
-    "Nein, das ist falsch.",
-    "Das kann man nicht entscheiden.",
-    "Ja, 6 · 5 · 4 · 3 · 2 · 1 = 720."
+    "Nein, 5 + 4 = 9.",
+    "Ja, für jeden Platz gibt es 5 Läufer.",
+    "Nein, niemand kann beide Plätze belegen: 5 · 4 = 20."
    ],
    "o": {
     "index": 2
    },
    "f": {
-    "text": "Stimmt die Aussage? „6 Kinder können sich auf 720 Arten in eine Reihe stellen.“"
+    "text": "Stimmt die Aussage? „Für die Plätze 1 und 2 bei 5 Läufern gibt es 25 Möglichkeiten.“"
    },
-   "w": "Ja, 6 · 5 · 4 · 3 · 2 · 1 = 720."
+   "w": "Nein, niemand kann beide Plätze belegen: 5 · 4 = 20."
   },
   {
    "l": "verstehen",
@@ -3423,17 +3819,17 @@
    "s": 2,
    "y": "auswahl",
    "a": [
-    "Das kann man nicht entscheiden.",
-    "Nein, jeder Handschlag ist doppelt gezählt: 15.",
-    "Ja, das stimmt."
+    "Ja, 3 · 2 : 2 = 3.",
+    "Nein, 3 · 3 = 9.",
+    "Nein, 3 · 2 = 6."
    ],
    "o": {
-    "index": 1
+    "index": 0
    },
    "f": {
-    "text": "Stimmt die Aussage? „Bei 6 Kindern gibt es 30 Handschläge, wenn jeder jedem die Hand gibt.“"
+    "text": "Stimmt die Aussage? „Bei 3 Kindern gibt es 3 Handschläge, wenn jeder jedem einmal die Hand gibt.“"
    },
-   "w": "Nein, jeder Handschlag ist doppelt gezählt: 15."
+   "w": "Ja, 3 · 2 : 2 = 3."
   },
   {
    "l": "verstehen",
@@ -3442,17 +3838,17 @@
    "s": 2,
    "y": "auswahl",
    "a": [
-    "Nein, das ist falsch.",
-    "Ja, 5 · 4 · 3 · 2 · 1 = 120.",
-    "Das kann man nicht entscheiden."
+    "Nein, 12 und 21 sind dieselbe Zahl: 3.",
+    "Ja: 12, 13, 21, 23, 31, 32.",
+    "Nein, 3 · 3 = 9."
    ],
    "o": {
     "index": 1
    },
    "f": {
-    "text": "Stimmt die Aussage? „5 Kinder können sich auf 120 Arten in eine Reihe stellen.“"
+    "text": "Stimmt die Aussage? „Mit den Ziffern 1, 2, 3 gibt es 6 zweistellige Zahlen ohne doppelte Ziffer.“"
    },
-   "w": "Ja, 5 · 4 · 3 · 2 · 1 = 120."
+   "w": "Ja: 12, 13, 21, 23, 31, 32."
   },
   {
    "l": "verstehen",
@@ -3461,9 +3857,47 @@
    "s": 2,
    "y": "auswahl",
    "a": [
-    "Ja, das stimmt.",
+    "Ja, für jeden Platz gibt es 7 Läufer.",
+    "Nein, 7 + 6 = 13.",
+    "Nein, niemand kann beide Plätze belegen: 7 · 6 = 42."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Für die Plätze 1 und 2 bei 7 Läufern gibt es 49 Möglichkeiten.“"
+   },
+   "w": "Nein, niemand kann beide Plätze belegen: 7 · 6 = 42."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Nein, jeder Handschlag ist doppelt gezählt: 6 : 2 = 3.",
+    "Nein, es sind 3 Handschläge, einer pro Kind.",
+    "Ja, jedes Kind gibt 2 anderen die Hand: 3 · 2."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Bei 3 Kindern gibt es 6 Handschläge, wenn jeder jedem die Hand gibt.“"
+   },
+   "w": "Nein, jeder Handschlag ist doppelt gezählt: 6 : 2 = 3."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Nein, 8 + 7 = 15.",
     "Nein, niemand kann beide Plätze belegen: 8 · 7 = 56.",
-    "Das kann man nicht entscheiden."
+    "Ja, für jeden Platz gibt es 8 Läufer."
    ],
    "o": {
     "index": 1
@@ -3480,17 +3914,17 @@
    "s": 2,
    "y": "auswahl",
    "a": [
-    "Nein, das ist falsch.",
-    "Ja, 6 · 5 : 2 = 15.",
-    "Das kann man nicht entscheiden."
+    "Nein, es sind 6 Arten, eine pro Kind.",
+    "Ja, 6 · 5 · 4 · 3 · 2 · 1 = 720.",
+    "Nein, 6 · 6 = 36."
    ],
    "o": {
     "index": 1
    },
    "f": {
-    "text": "Stimmt die Aussage? „Bei 6 Kindern gibt es 15 Handschläge, wenn jeder jedem einmal die Hand gibt.“"
+    "text": "Stimmt die Aussage? „6 Kinder können sich auf 720 Arten in eine Reihe stellen.“"
    },
-   "w": "Ja, 6 · 5 : 2 = 15."
+   "w": "Ja, 6 · 5 · 4 · 3 · 2 · 1 = 720."
   },
   {
    "l": "verstehen",
@@ -3499,55 +3933,17 @@
    "s": 2,
    "y": "auswahl",
    "a": [
-    "Das kann man nicht entscheiden.",
-    "Nein, niemand kann beide Plätze belegen: 7 · 6 = 42.",
-    "Ja, das stimmt."
-   ],
-   "o": {
-    "index": 1
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Für die Plätze 1 und 2 bei 7 Läufern gibt es 49 Möglichkeiten.“"
-   },
-   "w": "Nein, niemand kann beide Plätze belegen: 7 · 6 = 42."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Das kann man nicht entscheiden.",
-    "Nein, jeder Handschlag ist doppelt gezählt: 6.",
-    "Ja, das stimmt."
-   ],
-   "o": {
-    "index": 1
-   },
-   "f": {
-    "text": "Stimmt die Aussage? „Bei 4 Kindern gibt es 12 Handschläge, wenn jeder jedem die Hand gibt.“"
-   },
-   "w": "Nein, jeder Handschlag ist doppelt gezählt: 6."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "a": [
-    "Nein, jeder Handschlag ist doppelt gezählt: 3.",
-    "Das kann man nicht entscheiden.",
-    "Ja, das stimmt."
+    "Ja, 6 · 5 = 30.",
+    "Nein, 6 + 5 = 11.",
+    "Nein, 6 · 6 = 36."
    ],
    "o": {
     "index": 0
    },
    "f": {
-    "text": "Stimmt die Aussage? „Bei 3 Kindern gibt es 6 Handschläge, wenn jeder jedem die Hand gibt.“"
+    "text": "Stimmt die Aussage? „Für die Plätze 1 und 2 bei 6 Läufern gibt es 30 Möglichkeiten.“"
    },
-   "w": "Nein, jeder Handschlag ist doppelt gezählt: 3."
+   "w": "Ja, 6 · 5 = 30."
   },
   {
    "l": "verstehen",
@@ -3556,21 +3952,21 @@
    "s": 2,
    "y": "auswahl",
    "a": [
-    "Nein, das ist falsch.",
-    "Ja, 4 · 3 · 2 · 1 = 24.",
-    "Das kann man nicht entscheiden."
+    "Nein, es sind 3 Arten, eine pro Kind.",
+    "Nein, 3 · 3 = 9.",
+    "Ja, 3 · 2 · 1 = 6."
    ],
    "o": {
-    "index": 1
+    "index": 2
    },
    "f": {
-    "text": "Stimmt die Aussage? „4 Kinder können sich auf 24 Arten in eine Reihe stellen.“"
+    "text": "Stimmt die Aussage? „3 Kinder können sich auf 6 Arten in eine Reihe stellen.“"
    },
-   "w": "Ja, 4 · 3 · 2 · 1 = 24."
+   "w": "Ja, 3 · 2 · 1 = 6."
   }
  ],
  "offen": [
-  "Braucht Zeichnung: Baumdiagramm (Lernkarte baumdiagramm) kann die App noch nicht zeichnen; die Bäume sind in Worten beschrieben. Kombinationstabellen sind als Tabelle gezeichnet.",
+  "Zeichnungen: Baumdiagramme (Bildtyp baum) in der Lernkarte baumdiagramm und in Aufgaben mit höchstens etwa 9 Pfaden; größere Bäume bleiben in Worten beschrieben. Kombinationstabellen als Tabelle mit passenden Zeilen- und Spaltenköpfen.",
   "Begriffe wie Permutation, Variation, Kombination, n! und Binomialkoeffizient werden bewusst nicht eingeführt (höhere Klassen); alles läuft über Zählprinzip, Auflisten und „durch 2 teilen“."
  ]
 }

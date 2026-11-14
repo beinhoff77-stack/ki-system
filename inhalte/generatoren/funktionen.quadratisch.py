@@ -14,6 +14,17 @@ def nz(n):
     return R.choice([i for i in range(-n, n + 1) if i != 0])
 
 
+def kpoly(a, d, e):
+    """Koeffizienten [c, b, a] von a(x − d)² + e für das Koordinatensystem."""
+    return [wert(Fr(a) * d * d + e), wert(-2 * Fr(a) * d), wert(Fr(a))]
+
+
+def kos(graphen, punkte=None, x=(-6, 6), y=(-6, 6)):
+    g = {'typ': 'koordinaten', 'x': list(x), 'y': list(y), 'graphen': graphen}
+    if punkte: g['punkte'] = punkte
+    return g
+
+
 def sform(a, d, e):
     """Scheitelform als Text: y = a(x − d)² + e"""
     af = '' if a == 1 else '−' if a == -1 else dz(a)
@@ -24,7 +35,8 @@ def sform(a, d, e):
 
 ETAPPEN = [
     {'lernziel': 'scheitel', 'titel': 'Scheitelpunkt ablesen',
-     'regel': 'In der ⟦Scheitelform⟧ y = a(x − d)² + e liegt der Scheitel bei ⟦S(d | e)⟧. Achtung: In der Klammer steht x ⟦minus⟧ d.',
+     'regel': 'In der ⟦Scheitelform⟧ y = a(x − d)² + e liegt der Scheitel bei ⟦S(d | e)⟧. Warum? Die Klammer (x − d)² ist nie negativ und wird bei ⟦x = d⟧ null – dort ist der tiefste (oder höchste) Punkt. Bei (x + 3)² wird die Klammer bei x = −3 null.',
+     'bild': {'typ': 'koordinaten', 'x': [-6, 1], 'y': [-6, 4], 'graphen': [{'art': 'poly', 'k': [13, 12, 2]}], 'punkte': [{'x': -3, 'y': -5, 'name': 'S(−3 | −5)'}]},
      'schritte': ['y = 2(x + 3)² − 5 = 2(x − (−3))² + (−5).', 'Also d = −3 und e = −5: ⟦S(−3 | −5)⟧.'],
      'probe': 'x = −3 eingesetzt: 2 · 0² − 5 = −5 ✓',
      'fehler': 'Bei y = (x + 3)² − 5 den Scheitel S(3 | −5) abzulesen ist falsch: x + 3 = x − (−3), also ⟦d = −3⟧.'},
@@ -32,16 +44,18 @@ ETAPPEN = [
      'regel': '⟦a > 0⟧: nach oben geöffnet, ⟦a < 0⟧: nach unten. ⟦|a| > 1⟧ gestreckt (schmaler), ⟦|a| < 1⟧ gestaucht (breiter). d verschiebt nach rechts/links, e nach oben/unten.',
      'schritte': ['y = −0,5(x − 1)² + 4: a = −0,5 < 0 und |a| < 1.', 'Die Parabel ist ⟦nach unten geöffnet, gestaucht⟧ und hat den Scheitel S(1 | 4).'],
      'probe': 'Der Scheitel ist hier der höchste Punkt ✓',
+     'bild': {'typ': 'koordinaten', 'x': [-4, 5], 'y': [-3, 6], 'graphen': [{'art': 'poly', 'k': [0, 0, 1], 'name': 'y = x²'}, {'art': 'poly', 'k': [3.5, 1, -0.5], 'name': 'f'}], 'punkte': [{'x': 1, 'y': 4, 'name': 'S(1 | 4)'}]},
      'fehler': '„y = −3x² ist gestaucht, weil −3 < 1“ ist falsch: Es kommt auf den ⟦Betrag⟧ an. |−3| = 3 > 1, die Parabel ist gestreckt.'},
     {'lernziel': 'umformen', 'titel': 'Von der allgemeinen zur Scheitelform',
      'regel': 'Aus y = ax² + bx + c wird mit ⟦quadratischer Ergänzung⟧ die Scheitelform: a ausklammern, (b/(2a))² ergänzen und wieder abziehen. Kurz: ⟦d = −b/(2a)⟧, e = y(d).',
      'schritte': ['y = x² − 6x + 5 = x² − 6x + 9 − 9 + 5.', '= (x − 3)² − 4, also ⟦S(3 | −4)⟧.'],
-     'probe': 'd = −(−6)/(2 · 1) = 3; y(3) = 9 − 18 + 5 = −4 ✓',
+     'probe': 'Mitte der Nullstellen: x² − 6x + 5 = (x − 1)(x − 5), Nullstellen 1 und 5. Die Mitte ist 3, und y(3) = 9 − 18 + 5 = −4. Also S(3 | −4) ✓',
      'fehler': 'y = x² − 6x + 5 = (x − 6)² + 5 ist falsch: In die Klammer gehört die ⟦Hälfte⟧ von 6, und die Ergänzung 9 muss wieder ⟦abgezogen⟧ werden.'},
     {'lernziel': 'nullstellen', 'titel': 'Nullstellen bestimmen',
      'regel': 'Nullstellen: ⟦y = 0 setzen⟧ und die quadratische Gleichung lösen. Die ⟦Anzahl⟧ erkennst du an der Diskriminante oder an Scheitel und Öffnung.',
      'schritte': ['y = x² − 2x − 8: 0 = x² − 2x − 8, D = 4 + 32 = 36.', 'x₁,₂ = (2 ± 6)/2: ⟦x₁ = −2, x₂ = 4⟧.'],
      'probe': '(−2)² − 2 · (−2) − 8 = 4 + 4 − 8 = 0 ✓',
+     'bild': {'typ': 'koordinaten', 'x': [-4, 6], 'y': [-10, 8], 'graphen': [{'art': 'poly', 'k': [-8, -2, 1]}], 'punkte': [{'x': -2, 'y': 0, 'name': '(−2 | 0)'}, {'x': 4, 'y': 0, 'name': '(4 | 0)'}]},
      'fehler': '„S(2 | 3), nach oben geöffnet, hat zwei Nullstellen“ ist falsch: Der tiefste Punkt liegt ⟦über⟧ der x-Achse, es gibt ⟦keine⟧ Nullstelle.'},
     {'lernziel': 'punkte', 'titel': 'Funktionswerte und Punktprobe',
      'regel': 'Für den ⟦Funktionswert⟧ x einsetzen und ausrechnen. ⟦Punktprobe⟧: Liegt P(u | v) auf dem Graphen, muss f(u) = v gelten.',
@@ -55,7 +69,8 @@ ETAPPEN = [
      'fehler': '6 = a(3 − 1)² − 2 ⇒ 6 = 2a − 2 ist falsch: Die Klammer wird ⟦quadriert⟧: (3 − 1)² = 4, also 6 = 4a − 2.'},
     {'lernziel': 'extremwert', 'titel': 'Extremwertprobleme lösen',
      'regel': 'Stelle die Größe, die maximal/minimal werden soll, als ⟦quadratische Funktion⟧ einer Variablen auf. Der ⟦Scheitel⟧ liefert das Maximum bzw. Minimum.',
-     'schritte': ['Rechteck mit Umfang 20 m: Seiten x und 10 − x, A(x) = x(10 − x) = −x² + 10x.', 'A(x) = −(x − 5)² + 25: Maximum bei ⟦x = 5⟧, A = 25 m² (ein Quadrat).'],
+     'schritte': ['Rechteck mit Umfang 20 m: Seiten x und 10 − x. Fläche A(x) = x · (10 − x).', 'A(x) ist null bei x = 0 und x = 10. Die Parabel ist symmetrisch, der Scheitel liegt genau in der Mitte: ⟦x = 5⟧.', 'A(5) = 5 · 5 = ⟦25 m²⟧. Das größte Rechteck ist ein Quadrat.'],
+     'bild': {'typ': 'koordinaten', 'x': [0, 10], 'y': [0, 30], 'graphen': [{'art': 'poly', 'k': [0, 10, -1], 'name': 'A'}], 'punkte': [{'x': 5, 'y': 25, 'name': 'S(5 | 25)'}], 'name_x': 'x in m', 'name_y': 'A in m²'},
      'probe': 'x = 4: A = 24 < 25 ✓',
      'fehler': 'Beim Umfang 20 m die zweite Seite 20 − x zu nennen ist falsch: Der Umfang enthält ⟦jede Seite zweimal⟧, also 2x + 2y = 20 ⇒ y = 10 − x.'},
 ]
@@ -65,24 +80,56 @@ def g_scheitel(s):
     d, e = R.randint(-9, 9), R.randint(-9, 9)
     if s == 1:
         a = 1
+        if R.random() < 0.4:
+            d, e = R.randint(-4, 4), R.randint(-4, 4)
+            a = R.choice([1, -1])
+            return bild(luecken(f'Lies den Scheitel der gezeichneten Parabel ab.', SCH, 'x-Wert, y-Wert', [d, e],
+                                f'Der {"tiefste" if a > 0 else "höchste"} Punkt der Parabel ist S({dz(d)} | {dz(e)}). Gleichung: {sform(a, d, e)}.',
+                                'Suche den tiefsten bzw. höchsten Punkt und lies beide Koordinaten ab.', c=[f'{d}', f'{e}']),
+                        kos([{'art': 'poly', 'k': kpoly(a, d, e)}], x=(d - 5, d + 5), y=(min(e, 0) - 5 if a < 0 else min(e, 0) - 2, max(e, 0) + 2 if a < 0 else max(e, 0) + 6)))
         if R.random() < 0.3: d = 0
     else:
         a = R.choice([-3, -2, -1, 2, 3, 4, Fr(1, 2), Fr(-1, 2)])
-    if s == 3 and R.random() < 0.5:
-        # Scheitelform mit „+ e“ vorne oder ausgeschrieben
-        if e == 0: return None
-        txt = f'y = {dz(e)} {"+" if a > 0 else "−"} {"" if abs(a) == 1 else dz(abs(a))}{minus_klammer(d)}²'
-        if d == 0: return None
-        return luecken(f'Gib den Scheitel der Parabel {txt} an.', SCH, 'x-Wert, y-Wert', [d, e],
-                       f'Umgestellt: {sform(a, d, e)}, also S({dz(d)} | {dz(e)}).', 'Ordne zuerst zur Scheitelform y = a(x − d)² + e.',
-                       c=[f'{d}', f'{e}'])
+    if s == 2 and R.random() < 0.4:
+        a = R.choice([1, -1, 2, -2, 3])
+        d, e = nz(6), nz(6)
+        beschr = ('Normalparabel' if abs(a) == 1 else f'Mit a = {dz(abs(a))} gestreckte Parabel') + f', Scheitel S({dz(d)} | {dz(e)}), nach {"oben" if a > 0 else "unten"} geöffnet'
+        return luecken(f'{beschr}. Gib die Gleichung in Scheitelform an.', '□(x − □)² + □', 'Tippe den Term ein, z. B. −2(x + 3)² + 1.', [a, d, e],
+                       f'a = {dz(a)} ({"nach oben" if a > 0 else "nach unten"}), d = {dz(d)}, e = {dz(e)}: {sform(a, d, e)}.',
+                       'Setze d und e aus dem Scheitel in y = a(x − d)² + e ein. Das Vorzeichen von a bestimmt die Öffnung.',
+                       c=[f'{a}', f'{d}', f'{e}'])
+    if s == 3:
+        if R.random() < 0.6:
+            if e == 0 or d == 0: return None
+            txt = f'y = {dz(e)} {"+" if a > 0 else "−"} {"" if abs(a) == 1 else dz(abs(a))}{minus_klammer(d)}²'
+            return luecken(f'Gib den Scheitel der Parabel {txt} an.', SCH, 'x-Wert, y-Wert', [d, e],
+                           f'Umgestellt: {sform(a, d, e)}, also S({dz(d)} | {dz(e)}).', 'Ordne zuerst zur Scheitelform y = a(x − d)² + e.',
+                           c=[f'{d}', f'{e}'])
+        d, e = -R.randint(1, 9), 0
     return luecken(f'Gib den Scheitel der Parabel {sform(a, d, e)} an.', SCH, 'x-Wert, y-Wert', [d, e],
                    f'{sform(a, d, e)} ist Scheitelform mit d = {dz(d)} und e = {dz(e)}: S({dz(d)} | {dz(e)}).',
-                   'Lies d aus der Klammer (x − d) mit umgedrehtem Vorzeichen ab.', c=[f'{d}', f'{e}'])
+                   'Lies d aus der Klammer (x − d) mit umgedrehtem Vorzeichen ab. Für welches x wird die Klammer null?', c=[f'{d}', f'{e}'])
 
 
 def g_parameter(s):
-    typ = R.choice({1: 'ab', 2: 'abc', 3: 'cde'}[s])
+    typ = R.choice({1: 'ab', 2: 'abcgg', 3: 'cdee'}[s])
+    if typ == 'g':
+        while True:
+            par = [(R.choice([Fr(1, 2), 1, 2, -1, -2, Fr(-1, 2)]), R.randint(-3, 3), R.randint(-3, 3)) for _ in range(3)]
+            if len({p_[0] for p_ in par}) == 3 and len({(p_[1], p_[2]) for p_ in par}) >= 2: break
+        namen = ['A', 'B', 'C']
+        k = R.randrange(3)
+        a, d, e = par[k]
+        g = kos([{'art': 'poly', 'k': kpoly(*par[i]), 'name': namen[i]} for i in range(3)], x=(-6, 6), y=(-6, 6))
+        if R.random() < 0.5:
+            return bild(auswahl(f'Welcher Graph gehört zu {sform(a, d, e)}?', f'Graph {namen[k]}', [f'Graph {n}' for n in namen],
+                                f'{sform(a, d, e)}: Scheitel S({dz(d)} | {dz(e)}), {"nach oben" if a > 0 else "nach unten"} geöffnet, '
+                                f'{"gestreckt" if abs(a) > 1 else "gestaucht" if abs(a) < 1 else "so breit wie die Normalparabel"}. Das passt nur zu Graph {namen[k]}.',
+                                'Prüfe Scheitel, Öffnung und Breite.'), g)
+        return bild(auswahl(f'Welche Gleichung gehört zu Graph {namen[k]}?', sform(a, d, e),
+                            [sform(-a, d, e), sform(a, -d, e) if d else sform(a, d, -e) if e else sform(2 * a, d, e), sform(Fr(1) / a if abs(a) != 1 else 2 * a, d, e)],
+                            f'Graph {namen[k]} hat den Scheitel S({dz(d)} | {dz(e)}) und ist {"nach oben" if a > 0 else "nach unten"} geöffnet: {sform(a, d, e)}.',
+                            'Lies Scheitel und Öffnung ab; vergleiche die Breite mit der Normalparabel.'), g)
     if typ == 'a':
         a = R.choice([-4, -3, -2, -1, Fr(-1, 2), Fr(-1, 4), Fr(1, 4), Fr(1, 2), 2, 3, 5])
         d, e = R.randint(-5, 5), R.randint(-5, 5)
@@ -92,7 +139,7 @@ def g_parameter(s):
         andere = [f'{"nach unten" if a > 0 else "nach oben"} geöffnet, {f}', f'{o} geöffnet, {"gestaucht" if abs(a) > 1 else "gestreckt"}',
                   f'{"nach unten" if a > 0 else "nach oben"} geöffnet, {"gestaucht" if abs(a) > 1 else "gestreckt"}']
         return auswahl(f'Wie sieht die Parabel {sform(a, d, e)} im Vergleich zur Normalparabel aus?', richtig, andere,
-                       f'a = {dz(a)}: {"positiv" if a > 0 else "negativ"} ⇒ {o} geöffnet; |a| = {dz(abs(a))} {">" if abs(a) > 1 else "<"} 1 ⇒ {f}.',
+                       f'a = {dz(a)}: {"positiv" if a > 0 else "negativ"} ⇒ {o} geöffnet; |a| = {dz(abs(a))} {">" if abs(a) > 1 else "<" if abs(a) < 1 else "="} 1 ⇒ {f}.',
                        'Vorzeichen von a: Öffnung. Betrag von a: Streckung oder Stauchung.')
     if typ == 'b':
         d, e = nz(6), nz(6)
@@ -119,14 +166,14 @@ def g_parameter(s):
                        f'y = {dz(schmal) if endlich(schmal) else br(schmal)}x²', [f'y = {dz(a + b - schmal) if endlich(a + b - schmal) else br(a + b - schmal)}x²', 'beide gleich breit', 'Das hängt vom Vorzeichen ab.'],
                        f'Schmaler ist die Parabel mit dem größeren Betrag von a: |{br(schmal)}| > |{br(a + b - schmal)}|.',
                        'Vergleiche die Beträge von a.')
-    e = R.randint(1, 9)
     a = R.choice([-2, -1, 1, 2])
     d = nz(5)
-    n = 'zwei' if (a > 0 and e < 0) or (a < 0 and e > 0) else 'keine'
-    e = e if R.random() < 0.5 else -e
-    n = 'zwei Nullstellen' if (a > 0) != (e > 0) else 'keine Nullstelle'
+    art = R.choice(['zwei', 'eine', 'keine'])
+    e = 0 if art == 'eine' else R.randint(1, 9) * (1 if (art == 'keine') == (a > 0) else -1)
+    n = {'zwei': 'zwei Nullstellen', 'eine': 'genau eine Nullstelle', 'keine': 'keine Nullstelle'}[art]
     return auswahl(f'Ohne zu rechnen: Wie viele Nullstellen hat {sform(a, d, e)}?', n, ['zwei Nullstellen', 'genau eine Nullstelle', 'keine Nullstelle'],
-                   f'Scheitel S({dz(d)} | {dz(e)}) liegt {"über" if e > 0 else "unter"} der x-Achse, Parabel {"nach oben" if a > 0 else "nach unten"} geöffnet: {n}.',
+                   (f'Scheitel S({dz(d)} | 0) liegt auf der x-Achse: {n}.' if e == 0 else
+                    f'Scheitel S({dz(d)} | {dz(e)}) liegt {"über" if e > 0 else "unter"} der x-Achse, Parabel {"nach oben" if a > 0 else "nach unten"} geöffnet: {n}.'),
                    'Wo liegt der Scheitel, und in welche Richtung ist die Parabel geöffnet?')
 
 
@@ -136,6 +183,25 @@ def g_umformen(s):
     if s == 2 and R.random() < 0.4: a = -1
     b, c = -2 * a * d, a * d * d + e
     allg = f'y = {poly(a, b, c)}'
+    if s == 3 and R.random() < 0.35:
+        if abs(a) == 1 or R.random() < 0.4:
+            a, b, c = 1, -2 * d, d * d + e
+            falsch_e = c + d * d
+            if falsch_e == 0: return None
+            return auswahl(f'Jemand formt um: y = {poly(1, b, c)} = {minus_klammer(d)}² {plus(c)} + {dz(d * d)}. Was ist falsch?',
+                           f'Die Ergänzung {dz(d * d)} muss abgezogen werden: y = {minus_klammer(d)}² {plus(e)}.',
+                           ['Nichts, die Umformung stimmt.', f'In die Klammer gehört {minus_klammer(2 * d)}.', f'Es muss y = {minus_klammer(-d)}² {plus(e)} heißen.'],
+                           f'x² {plus_v(b)} = {minus_klammer(d)}² − {dz(d * d)}. Also y = {minus_klammer(d)}² − {dz(d * d)} {plus(c)} = {minus_klammer(d)}² {plus(e)}, nicht {plus(falsch_e)}.',
+                           'Multipliziere die Klammer aus und vergleiche mit dem Ausgangsterm.')
+        if a < 0: return None
+        q = d * d
+        falsch_e = c - q
+        if falsch_e == e or falsch_e == 0: return None
+        return auswahl(f'Jemand formt um: y = {poly(a, b, c)} = {dz(a)}(x² {plus_v(-2 * d)} + {dz(q)}) {plus(c)} − {dz(q)} = {dz(a)}{minus_klammer(d)}² {plus(falsch_e)}. Was ist falsch?',
+                       f'Es muss {dz(a)} · {dz(q)} = {dz(a * q)} abgezogen werden: y = {dz(a)}{minus_klammer(d)}² {plus(e)}.',
+                       ['Nichts, die Umformung stimmt.', f'Die Klammer muss {minus_klammer(2 * d)} heißen.', f'Der Faktor {dz(a)} darf nicht ausgeklammert werden.'],
+                       f'In der Klammer steht {dz(q)}, wegen des Faktors {dz(a)} davor wurde {dz(a * q)} ergänzt. Also {plus(c)} − {dz(a * q)} = {plus(e)}.',
+                       'Was wurde durch das Ergänzen in der Klammer wirklich addiert?')
     if s == 1 and R.random() < 0.5:
         return zahl(f'Bei {allg} liegt der Scheitel bei x = −b/(2a). Berechne die x-Koordinate des Scheitels.',
                     f'x = −({dz(b)})/(2 · {kl(a)}) = {dz(d)}.', 'Lies b und a mit Vorzeichen ab.', d, f'-({b}) / (2 * ({a}))')
@@ -147,8 +213,17 @@ def g_umformen(s):
 
 def g_nullstellen(s):
     if s == 1:
-        p, q = sorted(R.sample([i for i in range(-9, 10)], 2))
-        return luecken(f'Bestimme die Nullstellen von y = {minus_klammer(p)} · {minus_klammer(q)}.'.replace('x · ', 'x · ').replace('= x ·', '= x ·'),
+        p, q = sorted(R.sample([i for i in range(-6, 7)], 2))
+        if R.random() < 0.4 and q - p >= 2:
+            a = R.choice([1, -1])
+            dm = Fr(p + q, 2)
+            em = a * (dm - p) * (dm - q)
+            k = [wert(Fr(a * p * q)), wert(Fr(-a * (p + q))), a]
+            return bild(luecken('Lies die Nullstellen der gezeichneten Parabel ab.', 'x₁ = □; x₂ = □', 'kleinere zuerst', [p, q],
+                                f'Die Parabel schneidet die x-Achse bei x = {dz(p)} und x = {dz(q)}.',
+                                'Wo schneidet der Graph die x-Achse?', c=[f'{p}', f'{q}']),
+                        kos([{'art': 'poly', 'k': k}], x=(p - 3, q + 3), y=(int(min(em, 0)) - 2, int(max(em, 0)) + 3)))
+        return luecken(f'Bestimme die Nullstellen von y = {minus_klammer(p)} · {minus_klammer(q)}.',
                        'x₁ = □; x₂ = □', 'kleinere zuerst', [p, q],
                        f'Ein Produkt ist null, wenn ein Faktor null ist: x = {dz(p)} oder x = {dz(q)}.', 'Setze jeden Faktor gleich null.',
                        c=[f'min({p}, {q})', f'max({p}, {q})'])
@@ -162,11 +237,40 @@ def g_nullstellen(s):
                        f'0 = {poly(a, b, c)}; D = {dz(D)}; x₁,₂ = ({dz(-b)} ± {r}) / {dz(2 * a)}: {dz(p)} und {dz(q)}.',
                        'Setze y = 0 und löse die quadratische Gleichung.',
                        c=[f'min((-({b}) - {r}) / (2 * ({a})), (-({b}) + {r}) / (2 * ({a})))', f'max((-({b}) - {r}) / (2 * ({a})), (-({b}) + {r}) / (2 * ({a})))'])
-    a, b, c = nz(3), nz(8), nz(9)
+    if R.random() < 0.45:
+        a = R.choice([1, 1, -1, 2, -2])
+        d, r = nz(5), R.randint(1, 5)
+        e = -a * r * r
+        return luecken(f'Bestimme die Nullstellen von {sform(a, d, e)}.', 'x₁ = □; x₂ = □', 'kleinere zuerst', [d - r, d + r],
+                       f'0 = {sform(a, d, e)[4:]} ⇔ {minus_klammer(d)}² = {dz(r * r)} ⇔ {minus_klammer(d)[1:-1]} = ±{r}: x₁ = {dz(d - r)}, x₂ = {dz(d + r)}.',
+                       'Setze y = 0, bringe e auf die andere Seite, teile durch a und ziehe die Wurzel.',
+                       c=[f'{d} - ((-({e})) / ({a})) / {r}', f'{d} + ((-({e})) / ({a})) / {r}'])
+    art = R.choice(['zwei', 'eine', 'keine'])
+    a = nz(3)
+    if art == 'zwei':
+        p, q = R.sample(range(-6, 7), 2)
+        b, c = -a * (p + q), a * p * q
+        if R.random() < 0.4: b, c = nz(8), -abs(nz(9)) * (1 if a > 0 else -1)
+    elif art == 'eine':
+        k, r = R.choice([1, 1, 2, 3]), nz(5)
+        a, b, c = k * k * (1 if a > 0 else -1), 2 * k * r * (1 if a > 0 else -1), r * r * (1 if a > 0 else -1)
+    else:
+        b = nz(6)
+        c = ((b * b) // (4 * abs(a)) + R.randint(1, 5)) * (1 if a > 0 else -1)
+    if c == 0 and art != 'zwei': return None
     D = b * b - 4 * a * c
     n = 'zwei Nullstellen' if D > 0 else 'genau eine Nullstelle' if D == 0 else 'keine Nullstelle'
-    return auswahl(f'Wie viele Nullstellen hat der Graph von y = {poly(a, b, c)}?', n, ['zwei Nullstellen', 'genau eine Nullstelle', 'keine Nullstelle'],
+    assert n.startswith({'zwei': 'zwei', 'eine': 'genau', 'keine': 'keine'}[art])
+    return auswahl(f'Wie viele Nullstellen hat die Funktion f mit f(x) = {poly(a, b, c)}?', n, ['zwei Nullstellen', 'genau eine Nullstelle', 'keine Nullstelle'],
                    f'D = {kl(b)}² − 4 · {kl(a)} · {kl(c)} = {dz(D)}, also {n}.', 'Berechne die Diskriminante.')
+
+
+def einsetz(a, b, c, u):
+    """f(u) ausgeschrieben, ohne „+ 0“ und „1 ·“."""
+    t = ('' if a == 1 else '−' if a == -1 else f'{kl(a)} · ') + f'{kl(u)}²'
+    if b: t += f' {"+" if b > 0 else "−"} {"" if abs(b) == 1 else dz(abs(b)) + " · "}{kl(u)}'
+    if c: t += f' {plus(c)}'
+    return t
 
 
 def g_punkte(s):
@@ -174,20 +278,42 @@ def g_punkte(s):
     u = R.randint(-4, 4)
     fu = a * u * u + b * u + c
     if s == 1:
-        return zahl(f'Berechne f({dz(u)}) für f(x) = {poly(a, b, c)}.', f'f({dz(u)}) = {kl(a)} · {kl(u)}² {plus(b)} · {kl(u)} {plus(c)} = {dz(fu)}.',
+        return zahl(f'Berechne f({dz(u)}) für f(x) = {poly(a, b, c)}.', f'f({dz(u)}) = {einsetz(a, b, c, u)} = {dz(fu)}.',
                     'Setze die Zahl mit Klammern ein: erst Potenz, dann Punkt, dann Strich.', fu, f'({a}) * ({u}) ** 2 + ({b}) * ({u}) + ({c})')
     if s == 2:
+        if u == 0: return None
         auf = R.random() < 0.5
-        v = fu if auf else fu + R.choice([-2, -1, 1, 2, 2 * a * u * u])
-        if not auf and v == fu: return None
-        return auswahl(f'Liegt P({dz(u)} | {dz(v)}) auf dem Graphen von f(x) = {poly(a, b, c)}?',
-                       f'{"Ja" if auf else "Nein"}, denn f({dz(u)}) = {dz(fu)}.',
-                       [f'{"Nein" if auf else "Ja"}, denn f({dz(u)}) = {dz(fu)}.', f'{"Ja" if not auf else "Nein"}, denn f({dz(u)}) = {dz(v + 1)}.',
-                        f'{"Ja" if auf else "Nein"}, denn f({dz(u)}) = {dz(-fu) if fu else 1}.'],
-                       f'f({dz(u)}) = {kl(a)} · {kl(u)}² {plus(b)} · {kl(u)} {plus(c)} = {dz(fu)} {"=" if auf else "≠"} {dz(v)}, also {"liegt P auf" if auf else "liegt P nicht auf"} dem Graphen.', 'Setze die x-Koordinate ein und vergleiche mit der y-Koordinate.')
+        f_vz = -a * u * u + b * u + c        # (−u)² als −u² gerechnet
+        f_b = a * u * u - b * u + c          # Vorzeichenfehler bei b · u
+        f_c = a * u * u + b * u              # c vergessen
+        kand = [x for x in dict.fromkeys([f_vz, f_b, f_c, fu + 2 * a, fu - 1]) if x != fu]
+        if auf:
+            v = fu
+            richtig = 'Ja'
+            falsch = [f'Nein, f({dz(u)}) = {dz(x)}' for x in kand[:3]]
+        else:
+            v = kand[0]
+            richtig = f'Nein, f({dz(u)}) = {dz(fu)}'
+            falsch = ['Ja'] + [f'Nein, f({dz(u)}) = {dz(x)}' for x in kand[1:3]]
+        return auswahl(f'Liegt P({dz(u)} | {dz(v)}) auf dem Graphen von f(x) = {poly(a, b, c)}?', richtig, falsch,
+                       f'f({dz(u)}) = {einsetz(a, b, c, u)} = {dz(fu)}. ' + (f'Das ist die y-Koordinate von P, also liegt P auf dem Graphen.' if auf else f'{dz(fu)} ≠ {dz(v)}, also liegt P nicht auf dem Graphen.'),
+                       'Setze die x-Koordinate ein und vergleiche mit der y-Koordinate.')
+    if R.random() < 0.45:
+        if R.random() < 0.5:
+            k, u_ = R.randint(1, 9), R.randint(2, 7)
+            v = u_ * u_ - k
+            return zahl(f'P(u | {dz(v)}) liegt auf dem Graphen von y = x² − {k}, und u > 0. Bestimme u.',
+                        f'u² − {k} = {dz(v)} ⇔ u² = {dz(u_ * u_)} ⇔ u = ±{u_}; wegen u > 0: u = {u_}.',
+                        'Setze die y-Koordinate ein und löse nach u. Beachte u > 0.', u_, f'{u_ * u_} / {u_}')
+        b2 = nz(5)
+        u_ = nz(4)
+        v = -u_ * u_ + b2 * u_
+        return zahl(f'Q({dz(u_)} | v) liegt auf dem Graphen von y = {poly(-1, b2, 0)}. Bestimme v.',
+                    f'v = {einsetz(-1, b2, 0, u_)} = {dz(v)}.', 'Setze die x-Koordinate ein. Achtung: −x² mit x = ' + dz(u_) + ' ergibt −(' + dz(u_) + ')².',
+                    v, f'-({u_}) ** 2 + ({b2}) * ({u_})')
     if u == 0: return None
     return zahl(f'Der Punkt P({dz(u)} | {dz(fu)}) liegt auf dem Graphen von f(x) = {poly(a, b, 0)} + c. Bestimme c.',
-                f'{dz(fu)} = {kl(a)} · {kl(u)}² {plus(b)} · {kl(u)} + c = {dz(a * u * u + b * u)} + c ⇒ c = {dz(c)}.',
+                f'{dz(fu)} = {einsetz(a, b, 0, u)} + c = {dz(a * u * u + b * u)} + c ⇒ c = {dz(c)}.',
                 'Setze die Koordinaten von P ein und löse nach c auf.', c, f'({fu}) - (({a}) * ({u}) ** 2 + ({b}) * ({u}))')
 
 
@@ -207,19 +333,19 @@ def g_bestimmen(s):
         return luecken(f'Bestimme die Parabel y = ax² + bx + c durch {ptxt}.', 'a = □; b = □; c = □', 'Werte von a, b, c', [a, b, c],
                        f'Aus ({dz(xs[0])} | {dz(pts[0][1])}) folgt c = {dz(c)}; die anderen Punkte liefern a = {dz(a)}, b = {dz(b)}: y = {poly(a, b, c)}.',
                        'Setze die Punkte ein; der Punkt mit x = 0 liefert sofort c.', c=cs)
-    if s == 1 or (s == 3 and R.random() < 0.5):
+    if s == 1 or (s == 2 and R.random() < 0.5):
         d, e, a = R.randint(-5, 5), R.randint(-6, 6), nz(3)
         u = d + nz(3)
         v = a * (u - d) ** 2 + e
         return zahl(f'Eine Parabel hat den Scheitel S({dz(d)} | {dz(e)}) und geht durch P({dz(u)} | {dz(v)}). Bestimme a in y = a(x − d)² + e.',
-                    f'{dz(v)} = a · ({dz(u)} − {kl(d)})² {plus(e)} = {dz((u - d) ** 2)}a {plus(e)} ⇒ a = {dz(a)}.',
+                    f'{dz(v)} = a · ({dz(u)} − {kl(d)})² {plus(e)} = {"" if (u - d) ** 2 == 1 else dz((u - d) ** 2)}a{" " + plus(e) if e else ""} ⇒ a = {dz(a)}.',
                     'Setze Scheitel und Punkt in die Scheitelform ein.', a, f'(({v}) - ({e})) / (({u}) - ({d})) ** 2')
     p, q = sorted(R.sample(range(-6, 7), 2))
     a = nz(3)
     u = R.choice([t for t in range(-6, 7) if t not in (p, q)])
     v = a * (u - p) * (u - q)
     return zahl(f'Eine Parabel hat die Nullstellen x₁ = {dz(p)} und x₂ = {dz(q)} und geht durch P({dz(u)} | {dz(v)}). Bestimme a in y = a(x − x₁)(x − x₂).',
-                f'{dz(v)} = a · ({dz(u)} − {kl(p)})({dz(u)} − {kl(q)}) = {dz((u - p) * (u - q))}a ⇒ a = {dz(a)}.',
+                f'{dz(v)} = a · ({dz(u)} − {kl(p)})({dz(u)} − {kl(q)}) = {"" if (u - p) * (u - q) == 1 else "−" if (u - p) * (u - q) == -1 else dz((u - p) * (u - q))}a ⇒ a = {dz(a)}.',
                 'Setze die Nullstellen in die Produktform ein, dann den Punkt.', a, f'({v}) / ((({u}) - ({p})) * (({u}) - ({q})))')
 
 
@@ -250,7 +376,16 @@ def g_extremwert(s):
                     f'Seiten x, x und {dz(L)} − 2x: A(x) = x({dz(L)} − 2x) = −2(x − {dz(x)})² + {dz(2 * x * x)}. Maximum {dz(2 * x * x)} m².',
                     'Zwei Seiten senkrecht zur Wand heißen x; die dritte Seite ist der Rest des Zauns.', 2 * x * x,
                     f'({L} / 4) * ({L} - 2 * ({L} / 4))', einheit='m²')
-    if typ < 0.7:
+    if typ < 0.55:
+        k, xs = R.choice([(Fr(1, 10), 10), (Fr(1, 20), 10), (Fr(1, 10), 5), (Fr(1, 20), 20), (Fr(1, 40), 20), (Fr(1, 5), 5)])
+        bb = 2 * k * xs
+        h0 = Fr(R.randint(3, 4), 2)
+        hm = -k * xs * xs + bb * xs + h0
+        return zahl(f'Ein Ball fliegt auf der Bahn h(x) = −{dz(k)}x² + {dz(bb)}x + {dz(h0)} (x und h in m). Wie hoch fliegt er höchstens?',
+                    f'Scheitel bei x = −{dz(bb)}/(2 · (−{dz(k)})) = {xs}; h({xs}) = −{dz(k)} · {xs * xs} + {dz(bb)} · {xs} + {dz(h0)} = {dz(hm)} m.',
+                    'Die größte Höhe ist der y-Wert des Scheitels. Nutze x = −b/(2a).', hm,
+                    f'-{float(k)} * {xs} ** 2 + {float(bb)} * {xs} + {float(h0)}', einheit='m')
+    if typ < 0.75:
         v, t = R.choice([(10, 1), (20, 2), (15, Fr(3, 2)), (25, Fr(5, 2)), (30, 3), (5, Fr(1, 2))])
         h0 = R.randint(0, 3) * Fr(1, 2)
         # h(t) = −5t² + v t + h0, Scheitel bei t = v/10
@@ -283,6 +418,4 @@ if __name__ == '__main__':
           ETAPPEN, GEN,
           meiden={'scheitel': ['y = 2(x + 3)² − 5 '], 'umformen': ['y = x² − 6x + 5.'], 'nullstellen': ['y = x² − 2x − 8.'],
                   'bestimmen': ['S(1 | −2) und geht durch P(3 | 6)'], 'extremwert': ['mit 20 m Zaun']},
-          offen=['Lernkarten „scheitel“ und „parameter“ brauchen Zeichnung: Parabel im Koordinatensystem (Scheitel und Öffnung am Graphen ablesen, Graph einer Gleichung zuordnen). Bisher nur über Terme und Worte.',
-                 'Lernkarte „nullstellen“: Nullstellen am Graphen ablesen wäre mit Funktionsgraphen-Zeichnung möglich.',
-                 'Parabel durch drei Punkte kommt auch im Thema gleichungen.lgs3 vor (dort ausführlich), hier nur als Stufe-3-Variante.'])
+          offen=['Parabel durch drei Punkte kommt auch im Thema gleichungen.lgs3 vor (dort ausführlich), hier nur als Stufe-3-Variante.'])

@@ -109,10 +109,28 @@ def wahl(*xs):
 
 
 # ---------- Bausteine für Aufgaben ----------
-def zahl(text, w, h, wert_, c, einheit=None, t=None):
+def _toleranz(c):
+    """Aus 'round(…, n)' am Ende des Rechenausdrucks die Toleranz (eine Einheit der letzten Stelle) ableiten."""
+    import re
+    m = re.search(r',\s*(\d+)\)\s*$', c) if c.lstrip().startswith('round(') else None
+    if not m: return None
+    n = int(m.group(1))
+    return 1 if n == 0 else float('0.' + '0' * (n - 1) + '1')
+
+
+def zahl(text, w, h, wert_, c, einheit=None, t=None, toleranz=None, grafik=None):
     a = {'y': 'zahl', 'f': {'text': text}, 'o': {'wert': wert(wert_)}, 'c': c, 'w': w, 'h': h}
     if einheit: a['o']['einheit'] = einheit
+    tol = toleranz if toleranz is not None else _toleranz(c)
+    if tol is not None: a['o']['toleranz'] = tol
+    if grafik: a['f']['grafik'] = grafik
     if t: a['t'] = t
+    return a
+
+
+def bild(a, g):
+    """Grafik an eine Aufgabe hängen (None bleibt None)."""
+    if a is not None and g: a['f']['grafik'] = g
     return a
 
 
@@ -141,7 +159,7 @@ def luecken(text, schablone, hinweis, werte, w, h, c=None, t=None):
 # ---------- Themen-Datei bauen ----------
 def _schluessel(a):
     f = a['f']
-    return (str(f.get('text', '')).strip() + '|' + json.dumps(a.get('a'), ensure_ascii=False) + '|'
+    return (str(f.get('text', '')).strip() + '|' + json.dumps(sorted(a.get('a') or []), ensure_ascii=False) + '|'
             + json.dumps(f.get('schablone'), ensure_ascii=False) + '|' + json.dumps(f.get('grafik'), sort_keys=True))
 
 

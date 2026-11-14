@@ -10,6 +10,33 @@ FIG = ('Zwei Strahlen mit gemeinsamem Anfangspunkt S werden von zwei parallelen 
        'die erste Parallele schneidet in A und B, die zweite in A\' und B\' (A, A\' auf dem einen, B, B\' auf dem anderen Strahl; A liegt näher an S).')
 
 
+import math  # noqa: E402
+
+KURZ = 'Es gilt AB ∥ A\'B\'.'
+
+
+def sfig(sa, sa2, sb, sb2, lab, x=False, winkel=None):
+    """Strahlensatzfigur. lab: {'SA': '3', 'AA': '?', 'SB': .., 'BB': .., 'AB': .., 'AB2': ..}. x=True: X-Figur."""
+    th = math.radians(winkel or R.choice([30, 35, 40, 45]))
+    c, s_ = math.cos(th), math.sin(th)
+    v = -1 if x else 1
+    P = {'S': [0, 0], 'A': [round(float(sa), 3), 0], "A'": [round(v * float(sa2), 3), 0],
+         'B': [round(float(sb) * c, 3), round(float(sb) * s_, 3)], "B'": [round(v * float(sb2) * c, 3), round(v * float(sb2) * s_, 3)]}
+    L = []
+    if x:
+        L += [['A', 'S', lab.get('SA', '')], ['S', "A'", lab.get('SA2', '')], ['B', 'S', lab.get('SB', '')], ['S', "B'", lab.get('SB2', '')]]
+    else:
+        L += [['S', 'A', lab.get('SA', '')], ['A', "A'", lab.get('AA', '')], ['S', 'B', lab.get('SB', '')], ['B', "B'", lab.get('BB', '')]]
+    L += [['A', 'B', lab.get('AB', '')], ["A'", "B'", lab.get('AB2', '')]]
+    return {'typ': 'figur', 'punkte': P, 'linien': L}
+
+
+def kos(punkte, strecken=None, x=(-6, 8), y=(-6, 8)):
+    g = {'typ': 'koordinaten', 'x': list(x), 'y': list(y), 'punkte': punkte}
+    if strecken: g['strecken'] = strecken
+    return g
+
+
 def dec(lo, hi, nd=1):
     """zufällige Dezimalzahl mit nd Nachkommastellen"""
     f = 10 ** nd
@@ -29,6 +56,7 @@ ETAPPEN = [
      'regel': 'Bei einer zentrischen Streckung mit Zentrum Z und ⟦Streckfaktor k⟧ gilt ⟦ZP\' = |k| · ZP⟧; alle Strecken werden mit |k| multipliziert. Bei k < 0 liegt P\' auf der ⟦anderen Seite⟧ von Z.',
      'schritte': ['Z(1 | 2), P(4 | 3), k = 2: Vektor von Z nach P ist (3 | 1).', 'Verdoppeln: (6 | 2), also P\' = (1 + 6 | 2 + 2) = ⟦P\'(7 | 4)⟧.'],
      'probe': 'P\' liegt auf dem Strahl ZP, doppelt so weit von Z entfernt ✓',
+     'bild': {'typ': 'koordinaten', 'x': [0, 9], 'y': [0, 7], 'punkte': [{'x': 1, 'y': 2, 'name': 'Z'}, {'x': 4, 'y': 3, 'name': 'P'}, {'x': 7, 'y': 4, 'name': "P'"}, {'x': 8, 'y': 6, 'name': '2 · P (falsch)', 'offen': True}], 'strecken': [[1, 2, 7, 4]]},
      'fehler': 'P\' = 2 · P = (8 | 6) ist falsch, wenn Z nicht der Ursprung ist: Man streckt den ⟦Abstand von Z⟧, nicht die Koordinaten von P.'},
     {'lernziel': 'aehnlich', 'titel': 'Ähnliche Figuren',
      'regel': 'Zwei Figuren sind ⟦ähnlich⟧, wenn entsprechende Winkel gleich sind und ⟦alle Seiten im gleichen Verhältnis k⟧ stehen. Für Dreiecke genügen zwei gleiche Winkel.',
@@ -39,14 +67,17 @@ ETAPPEN = [
      'regel': 'Werden zwei Strahlen von Parallelen geschnitten, stehen die ⟦Abschnitte auf einem Strahl⟧ im gleichen Verhältnis wie die entsprechenden auf dem anderen: ⟦SA : SA\' = SB : SB\'⟧.',
      'schritte': ['SA = 3 cm, SA\' = 7,5 cm, SB = 4 cm. Gesucht SB\'.', 'SB\' : 4 = 7,5 : 3 = 2,5 ⇒ ⟦SB\' = 10 cm⟧.'],
      'probe': '10 : 4 = 2,5 = 7,5 : 3 ✓',
+     'bild': {'typ': 'figur', 'punkte': {'S': [0, 0], 'A': [3, 0], "A'": [7.5, 0], 'B': [3.277, 2.294], "B'": [8.192, 5.736]}, 'linien': [['S', 'A', '3'], ['A', "A'", '4,5'], ['S', 'B', '4'], ['B', "B'", '?'], ['A', 'B', ''], ["A'", "B'", '']]},
      'fehler': 'SB\' = SB + (SA\' − SA) = 8,5 cm ist falsch: Die Strecken stehen im gleichen ⟦Verhältnis⟧, nicht im gleichen Abstand.'},
     {'lernziel': 'strahlensatz2', 'titel': '2. Strahlensatz (Parallelen)',
      'regel': 'Die ⟦Parallelstrecken⟧ verhalten sich wie die zugehörigen Abschnitte ⟦ab S⟧: ⟦AB : A\'B\' = SA : SA\'⟧. Nicht mit dem Stück AA\' zwischen den Parallelen rechnen!',
      'schritte': ['SA = 5 cm, AA\' = 3 cm, AB = 4 cm. Gesucht A\'B\'. SA\' = 5 + 3 = 8 cm.', 'A\'B\' : 4 = 8 : 5 ⇒ A\'B\' = 4 · 1,6 = ⟦6,4 cm⟧.'],
      'probe': '6,4 : 4 = 1,6 = 8 : 5 ✓',
+     'bild': {'typ': 'figur', 'punkte': {'S': [0, 0], 'A': [5, 0], "A'": [8, 0], 'B': [4.305, 3.939], "B'": [6.889, 6.303]}, 'linien': [['S', 'A', '5'], ['A', "A'", '3'], ['S', 'B', ''], ['B', "B'", ''], ['A', 'B', '4'], ["A'", "B'", '?']]},
      'fehler': 'A\'B\' : AB = AA\' : SA zu rechnen ist falsch: Beim 2. Strahlensatz braucht man Strecken ⟦ab S⟧, also SA\' = SA + AA\'.'},
     {'lernziel': 'flaeche_volumen', 'titel': 'Wirkung auf Fläche und Volumen',
-     'regel': 'Werden alle Längen mit k multipliziert, wird der ⟦Flächeninhalt mit k²⟧ und das ⟦Volumen mit k³⟧ multipliziert.',
+     'regel': 'Werden alle Längen mit k multipliziert, wird der ⟦Flächeninhalt mit k²⟧ und das ⟦Volumen mit k³⟧ multipliziert. Im Bild: Verdoppelst du die Seite eines Quadrats, passen ⟦4 = 2²⟧ alte Quadrate hinein. Bei einem Würfel passen 8 = 2³ alte Würfel in den doppelt so großen.',
+     'bild': {'typ': 'figur', 'punkte': {'_a': [0, 0], '_b': [1, 0], '_c': [2, 0], '_d': [2, 1], '_e': [2, 2], '_f': [1, 2], '_g': [0, 2], '_h': [0, 1], '_m': [1, 1]}, 'flaeche': ['_a', '_b', '_m', '_h'], 'linien': [['_a', '_c', '2 · Seite'], ['_c', '_e'], ['_e', '_g'], ['_g', '_a'], ['_b', '_f'], ['_h', '_d']]},
      'schritte': ['Ein Modell im Maßstab 1 : 20: k = 20. Das Modell hat 300 cm² Bodenfläche.', 'Original: 300 · 20² = 300 · 400 = ⟦120 000 cm²⟧ = 12 m².'],
      'probe': '1 m² = 10 000 cm² ✓',
      'fehler': 'Bei doppelter Seitenlänge auch die doppelte Fläche anzunehmen ist falsch: Die Fläche wächst mit ⟦k² = 4⟧, das Volumen mit k³ = 8.'},
@@ -54,6 +85,7 @@ ETAPPEN = [
      'regel': 'Skizze anfertigen, ⟦Scheitel S und Parallelen⟧ erkennen, Gleichung aufstellen. Steht die Unbekannte in einer Summe, entsteht eine ⟦Bruchgleichung⟧: mit den Nennern multiplizieren.',
      'schritte': ['Ein 2 m hoher Stab wirft 3 m Schatten, ein Baum zur gleichen Zeit 18 m. Strahlen: Sonnenstrahl und Boden, S = Schattenende.', 'h : 2 = 18 : 3 ⇒ h = 2 · 6 = ⟦12 m⟧.'],
      'probe': '12 : 18 = 2 : 3 ✓',
+     'bild': {'typ': 'figur', 'punkte': {'S': [0, 0], '_F1': [3, 0], '_T1': [3, 2], '_F2': [18, 0], '_T2': [18, 12]}, 'linien': [['S', '_F1', '3 m'], ['_F1', '_F2'], ['_F1', '_T1', '2 m'], ['_F2', '_T2', 'h = ?'], ['S', '_T2', '', 'gestrichelt']], 'rechter_winkel': [['_F2', 'S', '_T2'], ['_F1', 'S', '_T1']]},
      'fehler': 'h : 18 = 3 : 2 ist falsch zugeordnet: ⟦Höhe zu Höhe⟧ und ⟦Schatten zu Schatten⟧ (oder Höhe zu Schatten auf beiden Seiten gleich).'},
 ]
 
@@ -67,17 +99,38 @@ def g_streckung(s):
         return zahl(f'Eine Strecke der Länge {dz(l)} cm wird zentrisch mit k = {dz(k)} gestreckt. Wie lang ist die Bildstrecke?',
                     f'Bildstrecke = |k| · Strecke = {dz(k)} · {dz(l)} cm = {dz(b)} cm.', 'Alle Längen werden mit |k| multipliziert.', b,
                     f'{cf(k)} * {cf(l)}', einheit='cm')
-    if s == 2:
-        if R.random() < 0.5:
-            zp = Fr(R.randint(2, 12))
-            k = R.choice([Fr(3, 2), Fr(5, 2), 2, 3, Fr(1, 2), Fr(1, 4)])
-            zpb = zp * k
-            if not ok(zpb, k): return None
-            return zahl(f'Bei einer zentrischen Streckung mit Zentrum Z ist ZP = {dz(zp)} cm und ZP\' = {dz(zpb)} cm (P\' auf dem Strahl ZP). Bestimme k.',
-                        f'k = ZP\' : ZP = {dz(zpb)} : {dz(zp)} = {dz(k)}.', 'Teile die Bildlänge durch die Originallänge.', k, f'{cf(zpb)} / {cf(zp)}')
-        k = R.choice([2, 3, -1, -2])
+    if s == 3 and R.random() < 0.5:
+        k = R.choice([-2, -3, Fr(-1, 2), Fr(1, 2), 2, 3])
         z = (R.randint(-3, 3), R.randint(-3, 3))
-        p = (z[0] + R.randint(-4, 4), z[1] + R.randint(-4, 4))
+        d = (2 * R.randint(-2, 2), 2 * R.randint(-2, 2))
+        if d == (0, 0): return None
+        p = (z[0] + d[0], z[1] + d[1])
+        q = (z[0] + k * d[0], z[1] + k * d[1])
+        if any(Fr(c).denominator != 1 for c in q): return None
+        T = lambda P_: f'({dz(P_[0])} | {dz(P_[1])})'  # noqa: E731
+        if R.random() < 0.5:
+            return zahl(f'Z{T(z)}, P{T(p)} und der Bildpunkt P\'{T(q)}. Bestimme den Streckfaktor k (mit Vorzeichen).',
+                        f'Von Z nach P: ({dz(d[0])} | {dz(d[1])}); von Z nach P\': ({dz(q[0] - z[0])} | {dz(q[1] - z[1])}). Das ist das {dz(k)}-Fache, also k = {dz(k)}.'
+                        + (' P\' liegt auf der anderen Seite von Z.' if k < 0 else ''),
+                        'Vergleiche den Weg von Z nach P mit dem Weg von Z nach P\'. Zeigt er in die Gegenrichtung, ist k negativ.', k,
+                        f'({q[0]} - ({z[0]})) / ({p[0]} - ({z[0]}))' if d[0] else f'({q[1]} - ({z[1]})) / ({p[1]} - ({z[1]}))')
+        if k in (1,) or k < 0 and R.random() < 0.5: return None
+        return luecken(f'P{T(p)} wird mit k = {dz(k)} auf P\'{T(q)} abgebildet. Wo liegt das Zentrum Z?', 'Z(□ | □)', 'x- und y-Koordinate',
+                       [z[0], z[1]],
+                       f'P\' − P = ({dz(q[0] - p[0])} | {dz(q[1] - p[1])}) = (k − 1) · (P − Z). Also P − Z = ({dz(d[0])} | {dz(d[1])}) und Z{T(z)}.',
+                       'Z, P und P\' liegen auf einer Geraden; ZP\' ist das k-Fache von ZP. Setze Z(x | y) an.',
+                       c=[f'({p[0]} * {cf(k)} - ({q[0]})) / ({cf(k)} - 1)', f'({p[1]} * {cf(k)} - ({q[1]})) / ({cf(k)} - 1)'])
+    if s == 2 and R.random() < 0.4:
+        zp = Fr(R.randint(2, 12))
+        k = R.choice([Fr(3, 2), Fr(5, 2), 2, 3, Fr(1, 2), Fr(1, 4)])
+        zpb = zp * k
+        if not ok(zpb, k): return None
+        return zahl(f'Bei einer zentrischen Streckung mit Zentrum Z ist ZP = {dz(zp)} cm und ZP\' = {dz(zpb)} cm (P\' auf dem Strahl ZP). Bestimme k.',
+                    f'k = ZP\' : ZP = {dz(zpb)} : {dz(zp)} = {dz(k)}.', 'Teile die Bildlänge durch die Originallänge.', k, f'{cf(zpb)} / {cf(zp)}')
+    if s == 2:
+        k = R.choice([2, 3, -1, -2])
+        z = (R.randint(-2, 2), R.randint(-2, 2))
+        p = (z[0] + R.randint(-3, 3), z[1] + R.randint(-3, 3))
         if p == z: return None
     else:
         k = R.choice([-2, -3, Fr(-1, 2), Fr(3, 2), Fr(1, 2)])
@@ -86,10 +139,15 @@ def g_streckung(s):
         if p == z: return None
     q = (z[0] + k * (p[0] - z[0]), z[1] + k * (p[1] - z[1]))
     if any(Fr(c).denominator != 1 for c in q): return None
-    return luecken(f'Strecke P({p[0]} | {p[1]}) zentrisch an Z({z[0]} | {z[1]}) mit k = {dz(k)}.'.replace('-', '−'), "P'(□ | □)", 'x- und y-Koordinate',
-                   [q[0], q[1]], f'Von Z nach P: ({dz(p[0] - z[0])} | {dz(p[1] - z[1])}); mal {dz(k)}: ({dz(k * (p[0] - z[0]))} | {dz(k * (p[1] - z[1]))}); P\'({dz(q[0])} | {dz(q[1])}).',
-                   'Bestimme den Weg von Z nach P, multipliziere mit k und gehe ihn von Z aus.',
-                   c=[f'{z[0]} + {cf(k)} * ({p[0]} - ({z[0]}))', f'{z[1]} + {cf(k)} * ({p[1]} - ({z[1]}))'])
+    a = luecken(f'Strecke den Punkt P({dz(p[0])} | {dz(p[1])}) zentrisch mit dem Zentrum Z({dz(z[0])} | {dz(z[1])}) und k = {dz(k)}. Gib den Bildpunkt P\' an.', "P'(□ | □)", 'x- und y-Koordinate',
+                [q[0], q[1]], f'Von Z nach P: ({dz(p[0] - z[0])} | {dz(p[1] - z[1])}); mal {dz(k)}: ({dz(k * (p[0] - z[0]))} | {dz(k * (p[1] - z[1]))}); P\'({dz(q[0])} | {dz(q[1])}).',
+                'Bestimme den Weg von Z nach P, multipliziere mit k und gehe ihn von Z aus.',
+                c=[f'{z[0]} + {cf(k)} * ({p[0]} - ({z[0]}))', f'{z[1]} + {cf(k)} * ({p[1]} - ({z[1]}))'])
+    if s == 2:
+        xs = [z[0], p[0], int(q[0])]; ys = [z[1], p[1], int(q[1])]
+        bild(a, kos([{'x': z[0], 'y': z[1], 'name': 'Z'}, {'x': p[0], 'y': p[1], 'name': 'P'}],
+                    x=(min(xs) - 2, max(xs) + 2), y=(min(ys) - 2, max(ys) + 2)))
+    return a
 
 
 def g_aehnlich(s):
@@ -99,6 +157,25 @@ def g_aehnlich(s):
         if not ok(k * b): return None
         return zahl(f'Zwei Dreiecke sind ähnlich mit k = {dz(k)}. Eine Seite des kleinen Dreiecks ist {b} cm lang. Wie lang ist die entsprechende Seite des großen?',
                     f'{b} cm · {dz(k)} = {dz(k * b)} cm.', 'Entsprechende Seiten: mit k multiplizieren.', k * b, f'{b} * {cf(k)}', einheit='cm')
+    if s == 3 and R.random() < 0.4:
+        sei = R.sample(range(3, 13), 3)
+        a, b, c = sorted(sei)
+        if a + b <= c: return None
+        k = R.choice([Fr(3, 2), 2, Fr(5, 2), Fr(1, 2), Fr(2, 3)])
+        if R.random() < 0.5:
+            gross, frag, erg = k * c, 'kürzeste', k * a
+            t = f'längste Seite ist {dz(k * c)} cm lang. Wie lang ist seine kürzeste Seite?'
+            cexp = f'{a} * {cf(k * c)} / {c}'
+        else:
+            t = f'kürzeste Seite ist {dz(k * a)} cm lang. Wie lang ist seine längste Seite?'
+            erg = k * c
+            cexp = f'{c} * {cf(k * a)} / {a}'
+        if not ok(k * a, k * c): return None
+        return zahl(f'Dreieck 1 hat die Seiten {sei[0]} cm, {sei[1]} cm und {sei[2]} cm. Dreieck 2 ist ähnlich, seine {t}',
+                    f'Sortieren: {a} < {b} < {c}. Längste zu längster, kürzeste zu kürzester: k = {dz(k)}; gesucht {dz(erg)} cm.',
+                    'Ordne die Seiten zuerst der Größe nach; entsprechende Seiten haben den gleichen Rang.', erg, cexp, einheit='cm')
+    if s == 2 and R.random() < 0.35:
+        return g_aehnlich_winkel()
     if s == 2:
         a, b, c = sorted(R.sample(range(3, 13), 3))
         if a + b <= c: return None
@@ -124,6 +201,10 @@ def g_aehnlich(s):
                         'Ja, weil beide Dreiecke drei Seiten haben.', 'Nein, weil die Seiten verschieden lang sind.'],
                        f'{dz(s2[0])} : {a} = {dz(k)}, {dz(s2[1])} : {b} = {dz(k)}, {dz(s2[2])} : {c} = {dz(s2[2] / c) if ok(s2[2] / c) else br(s2[2] / c)}{" – gleich" if aehn else " – verschieden"}.',
                        'Bilde die Verhältnisse entsprechender Seiten (kurz zu kurz, lang zu lang).')
+    return g_aehnlich_winkel()
+
+
+def g_aehnlich_winkel():
     al, be = R.randint(25, 80), R.randint(25, 80)
     ga = 180 - al - be
     if ga <= 10: return None
@@ -142,29 +223,63 @@ def g_aehnlich(s):
                    'Berechne jeweils den dritten Winkel mit der Winkelsumme 180°.')
 
 
+ERG1 = set()
+
+
 def g_strahlensatz1(s):
     sa = Fr(R.randint(2, 9))
     k = R.choice([Fr(3, 2), 2, Fr(5, 2), 3, Fr(5, 4), Fr(7, 4)])
     sb = Fr(R.randint(2, 10))
     sa2, sb2 = k * sa, k * sb
     if not ok(sa2, sb2): return None
+    aa, bb = sa2 - sa, sb2 - sb
     if s == 1:
-        return zahl(f'{FIG} SA = {dz(sa)} cm, SA\' = {dz(sa2)} cm, SB = {dz(sb)} cm. Berechne SB\'.',
-                    f'SB\' : SB = SA\' : SA = {dz(k)} ⇒ SB\' = {dz(sb)} · {dz(k)} = {dz(sb2)} cm.', 'Setze das Verhältnis auf beiden Strahlen gleich.', sb2,
-                    f'{cf(sb)} * {cf(sa2)} / {cf(sa)}', einheit='cm')
+        if sb2 in ERG1 and len(ERG1) < 40: return None
+        ERG1.add(sb2)
+        return bild(zahl(f'{KURZ} SA = {dz(sa)} cm, SA\' = {dz(sa2)} cm, SB = {dz(sb)} cm. Berechne SB\'.',
+                         f'SB\' : SB = SA\' : SA = {dz(k)} ⇒ SB\' = {dz(sb)} · {dz(k)} = {dz(sb2)} cm.', 'Setze das Verhältnis auf beiden Strahlen gleich.', sb2,
+                         f'{cf(sb)} * {cf(sa2)} / {cf(sa)}', einheit='cm'),
+                    sfig(sa, sa2, sb, sb2, {'SA': dz(sa), 'SB': dz(sb)}))
     if s == 2:
-        return zahl(f'{FIG} SA = {dz(sa)} cm, SB = {dz(sb)} cm, SB\' = {dz(sb2)} cm. Berechne SA\'.',
-                    f'SA\' : SA = SB\' : SB = {dz(k)} ⇒ SA\' = {dz(sa)} · {dz(k)} = {dz(sa2)} cm.', 'Welches Verhältnis kennst du vollständig?', sa2,
-                    f'{cf(sa)} * {cf(sb2)} / {cf(sb)}', einheit='cm')
-    aa = sa2 - sa
-    bb = sb2 - sb
-    if R.random() < 0.5:
-        return zahl(f'{FIG} SA = {dz(sa)} cm, AA\' = {dz(aa)} cm, SB = {dz(sb)} cm. Berechne BB\'.',
-                    f'Auch die Abschnitte zwischen den Parallelen stehen im gleichen Verhältnis: BB\' : SB = AA\' : SA ⇒ BB\' = {dz(sb)} · {dz(aa)} : {dz(sa)} = {dz(bb)} cm.',
-                    'Der 1. Strahlensatz gilt auch für die Teilstücke AA\' und BB\'.', bb, f'{cf(sb)} * {cf(aa)} / {cf(sa)}', einheit='cm')
-    return zahl(f'{FIG} SA\' = {dz(sa2)} cm, AA\' = {dz(aa)} cm, SB\' = {dz(sb2)} cm. Berechne SB.',
-                f'SA = {dz(sa2)} − {dz(aa)} = {dz(sa)} cm. SB = SB\' · SA : SA\' = {dz(sb)} cm.', 'Berechne zuerst SA.', sb,
-                f'{cf(sb2)} * ({cf(sa2)} - {cf(aa)}) / {cf(sa2)}', einheit='cm')
+        if sa2 in ERG1 and len(ERG1) < 40: return None
+        ERG1.add(sa2)
+        if R.random() < 0.5:
+            return bild(zahl(f'{KURZ} SA = {dz(sa)} cm, SB = {dz(sb)} cm, SB\' = {dz(sb2)} cm. Berechne SA\'.',
+                             f'SA\' : SA = SB\' : SB = {dz(k)} ⇒ SA\' = {dz(sa)} · {dz(k)} = {dz(sa2)} cm.', 'Welches Verhältnis kennst du vollständig?', sa2,
+                             f'{cf(sa)} * {cf(sb2)} / {cf(sb)}', einheit='cm'),
+                        sfig(sa, sa2, sb, sb2, {'SA': dz(sa), 'SB': dz(sb)}))
+        return bild(zahl(f'{KURZ} SA = {dz(sa)} cm, AA\' = {dz(aa)} cm, SB = {dz(sb)} cm. Berechne SB\'.',
+                         f'SA\' = {dz(sa)} + {dz(aa)} = {dz(sa2)} cm. SB\' = {dz(sb)} · {dz(sa2)} : {dz(sa)} = {dz(sb2)} cm.',
+                         'Berechne zuerst SA\' = SA + AA\'.', sb2, f'{cf(sb)} * ({cf(sa)} + {cf(aa)}) / {cf(sa)}', einheit='cm'),
+                    sfig(sa, sa2, sb, sb2, {'SA': dz(sa), 'AA': dz(aa), 'SB': dz(sb), 'BB': '?'}))
+    typ = R.random()
+    if typ < 0.3:
+        return bild(zahl(f'X-Figur: Die Geraden AA\' und BB\' schneiden sich in S, AB ∥ A\'B\'. SA = {dz(sa)} cm, SB = {dz(sb)} cm, SA\' = {dz(sa2)} cm. Berechne SB\'.',
+                         f'Auch bei der X-Figur gilt SA : SA\' = SB : SB\' ⇒ SB\' = {dz(sb)} · {dz(sa2)} : {dz(sa)} = {dz(sb2)} cm.',
+                         'Die Strahlensätze gelten auch, wenn S zwischen den Parallelen liegt. Strecken immer ab S messen.', sb2,
+                         f'{cf(sb)} * {cf(sa2)} / {cf(sa)}', einheit='cm'),
+                    sfig(sa, sa2, sb, sb2, {'SA': dz(sa), 'SB': dz(sb), 'SA2': dz(sa2), 'SB2': '?'}, x=True))
+    if typ < 0.55:
+        par = R.random() < 0.5
+        bb_ = bb if par else bb + R.choice([-1, 1])
+        if bb_ <= 0: return None
+        q1, q2 = sa / sa2, sb / (sb + bb_)
+        return bild(auswahl(f'SA = {dz(sa)} cm, AA\' = {dz(aa)} cm, SB = {dz(sb)} cm, BB\' = {dz(bb_)} cm. Sind AB und A\'B\' parallel?',
+                            f'Ja, {dz(sa)} : {dz(sa2)} = {dz(sb)} : {dz(sb + bb_)}.' if par else f'Nein, {dz(sa)} : {dz(sa2)} ≠ {dz(sb)} : {dz(sb + bb_)}.',
+                            ([f'Nein, {dz(sa)} : {dz(sa2)} ≠ {dz(sb)} : {dz(sb + bb_)}.'] if par else [f'Ja, {dz(sa)} : {dz(sa2)} = {dz(sb)} : {dz(sb + bb_)}.'])
+                            + ['Ja, weil beide Strahlen bei S beginnen.', f'Nein, weil {dz(aa)} ≠ {dz(bb_)}.' if aa != bb_ else 'Ja, weil AA\' = BB\'.'],
+                            f'Umkehrung des 1. Strahlensatzes: Parallel genau dann, wenn SA : SA\' = SB : SB\'. {dz(sa)} : {dz(sa2)} = {br(q1)}, {dz(sb)} : {dz(sb + bb_)} = {br(q2)}.',
+                            'Berechne SA\' und SB\' und vergleiche die Verhältnisse ab S.'),
+                    sfig(sa, sa2, sb, sb + bb_, {'SA': dz(sa), 'AA': dz(aa), 'SB': dz(sb), 'BB': dz(bb_)}))
+    if typ < 0.8:
+        return bild(zahl(f'{KURZ} SA = {dz(sa)} cm, AA\' = {dz(aa)} cm, SB = {dz(sb)} cm. Berechne BB\'.',
+                         f'Auch die Abschnitte zwischen den Parallelen stehen im gleichen Verhältnis: BB\' : SB = AA\' : SA ⇒ BB\' = {dz(sb)} · {dz(aa)} : {dz(sa)} = {dz(bb)} cm.',
+                         'Der 1. Strahlensatz gilt auch für die Teilstücke AA\' und BB\'.', bb, f'{cf(sb)} * {cf(aa)} / {cf(sa)}', einheit='cm'),
+                    sfig(sa, sa2, sb, sb2, {'SA': dz(sa), 'AA': dz(aa), 'SB': dz(sb), 'BB': '?'}))
+    return bild(zahl(f'{KURZ} SA\' = {dz(sa2)} cm, AA\' = {dz(aa)} cm, SB\' = {dz(sb2)} cm. Berechne SB.',
+                     f'SA = {dz(sa2)} − {dz(aa)} = {dz(sa)} cm. SB = SB\' · SA : SA\' = {dz(sb)} cm.', 'Berechne zuerst SA.', sb,
+                     f'{cf(sb2)} * ({cf(sa2)} - {cf(aa)}) / {cf(sa2)}', einheit='cm'),
+                sfig(sa, sa2, sb, sb2, {'AA': dz(aa), 'SB': '?'}))
 
 
 def g_strahlensatz2(s):
@@ -174,30 +289,44 @@ def g_strahlensatz2(s):
     sa2, ab2 = k * sa, k * ab
     if not ok(sa2, ab2): return None
     aa = sa2 - sa
+    sb = Fr(R.randint(3, 9))
+    F = lambda lab: sfig(sa, sa2, sb, k * sb, lab)  # noqa: E731
     if s == 1:
-        return zahl(f'{FIG} SA = {dz(sa)} cm, SA\' = {dz(sa2)} cm, AB = {dz(ab)} cm. Berechne A\'B\'.',
-                    f'A\'B\' : AB = SA\' : SA = {dz(k)} ⇒ A\'B\' = {dz(ab)} · {dz(k)} = {dz(ab2)} cm.', 'Parallelstrecken verhalten sich wie die Abschnitte ab S.',
-                    ab2, f'{cf(ab)} * {cf(sa2)} / {cf(sa)}', einheit='cm')
+        return bild(zahl(f'{KURZ} SA = {dz(sa)} cm, SA\' = {dz(sa2)} cm, AB = {dz(ab)} cm. Berechne A\'B\'.',
+                         f'A\'B\' : AB = SA\' : SA = {dz(k)} ⇒ A\'B\' = {dz(ab)} · {dz(k)} = {dz(ab2)} cm.', 'Parallelstrecken verhalten sich wie die Abschnitte ab S.',
+                         ab2, f'{cf(ab)} * {cf(sa2)} / {cf(sa)}', einheit='cm'), F({'SA': dz(sa), 'AB': dz(ab), 'AB2': '?'}))
     if s == 2:
         if R.random() < 0.5:
-            return zahl(f'{FIG} SA = {dz(sa)} cm, AA\' = {dz(aa)} cm, AB = {dz(ab)} cm. Berechne A\'B\'.',
-                        f'SA\' = {dz(sa)} + {dz(aa)} = {dz(sa2)} cm. A\'B\' = {dz(ab)} · {dz(sa2)} : {dz(sa)} = {dz(ab2)} cm.',
-                        'Rechne mit SA\' (ab S), nicht mit AA\'.', ab2, f'{cf(ab)} * ({cf(sa)} + {cf(aa)}) / {cf(sa)}', einheit='cm')
-        return zahl(f'{FIG} AB = {dz(ab)} cm, A\'B\' = {dz(ab2)} cm, SA\' = {dz(sa2)} cm. Berechne SA.',
-                    f'SA : SA\' = AB : A\'B\' ⇒ SA = {dz(sa2)} · {dz(ab)} : {dz(ab2)} = {dz(sa)} cm.', 'Stelle das Verhältnis mit der Unbekannten auf.', sa,
-                    f'{cf(sa2)} * {cf(ab)} / {cf(ab2)}', einheit='cm')
-    if R.random() < 0.5:
+            return bild(zahl(f'{KURZ} SA = {dz(sa)} cm, AA\' = {dz(aa)} cm, AB = {dz(ab)} cm. Berechne A\'B\'.',
+                             f'SA\' = {dz(sa)} + {dz(aa)} = {dz(sa2)} cm. A\'B\' = {dz(ab)} · {dz(sa2)} : {dz(sa)} = {dz(ab2)} cm.',
+                             'Rechne mit SA\' (ab S), nicht mit AA\'.', ab2, f'{cf(ab)} * ({cf(sa)} + {cf(aa)}) / {cf(sa)}', einheit='cm'),
+                        F({'SA': dz(sa), 'AA': dz(aa), 'AB': dz(ab), 'AB2': '?'}))
+        return bild(zahl(f'{KURZ} AB = {dz(ab)} cm, A\'B\' = {dz(ab2)} cm, SA\' = {dz(sa2)} cm. Berechne SA.',
+                         f'SA : SA\' = AB : A\'B\' ⇒ SA = {dz(sa2)} · {dz(ab)} : {dz(ab2)} = {dz(sa)} cm.', 'Stelle das Verhältnis mit der Unbekannten auf.', sa,
+                         f'{cf(sa2)} * {cf(ab)} / {cf(ab2)}', einheit='cm'), F({'SA': '?', 'AB': dz(ab), 'AB2': dz(ab2)}))
+    typ = R.random()
+    if typ < 0.25:
         falsch = ab * aa / sa
         if not ok(falsch) or falsch == ab2: return None
-        return auswahl(f'{FIG} SA = {dz(sa)} cm, AA\' = {dz(aa)} cm, AB = {dz(ab)} cm. Jemand rechnet A\'B\' = {dz(ab)} · {dz(aa)} : {dz(sa)} = {dz(falsch)} cm. Was stimmt?',
-                       f'Falsch: Man braucht SA\' = {dz(sa2)} cm, also A\'B\' = {dz(ab2)} cm.',
-                       ['Richtig.', f'Falsch: A\'B\' = {dz(ab + aa)} cm.', f'Falsch: A\'B\' = {dz(ab * sa / sa2) if ok(ab * sa / sa2) else br(ab * sa / sa2)} cm.'],
-                       f'Beim 2. Strahlensatz stehen die Parallelen im Verhältnis der Abschnitte ab S: A\'B\' = {dz(ab)} · {dz(sa2)} : {dz(sa)} = {dz(ab2)} cm.',
-                       'Welche Strecken gehören beim 2. Strahlensatz zusammen?')
-    # Bruchgleichung: AA' gesucht
-    return zahl(f'{FIG} SA = {dz(sa)} cm, AB = {dz(ab)} cm, A\'B\' = {dz(ab2)} cm. Berechne AA\'.',
-                f'(SA + x) : SA = A\'B\' : AB ⇒ ({dz(sa)} + x) : {dz(sa)} = {dz(k)} ⇒ x = {dz(sa)} · {dz(k)} − {dz(sa)} = {dz(aa)} cm.',
-                'Nenne AA\' = x; dann ist SA\' = SA + x.', aa, f'{cf(sa)} * {cf(ab2)} / {cf(ab)} - {cf(sa)}', einheit='cm')
+        return bild(auswahl(f'{KURZ} SA = {dz(sa)} cm, AA\' = {dz(aa)} cm, AB = {dz(ab)} cm. Jemand rechnet A\'B\' = {dz(ab)} · {dz(aa)} : {dz(sa)} = {dz(falsch)} cm. Was stimmt?',
+                            f'Falsch: Man braucht SA\' = {dz(sa2)} cm, also A\'B\' = {dz(ab2)} cm.',
+                            ['Richtig.', f'Falsch: A\'B\' = {dz(ab + aa)} cm.', f'Falsch: A\'B\' = {dz(ab * sa / sa2) if ok(ab * sa / sa2) else br(ab * sa / sa2)} cm.'],
+                            f'Beim 2. Strahlensatz stehen die Parallelen im Verhältnis der Abschnitte ab S: A\'B\' = {dz(ab)} · {dz(sa2)} : {dz(sa)} = {dz(ab2)} cm.',
+                            'Welche Strecken gehören beim 2. Strahlensatz zusammen?'), F({'SA': dz(sa), 'AA': dz(aa), 'AB': dz(ab), 'AB2': '?'}))
+    if typ < 0.45:
+        return bild(auswahl(f'{KURZ} Jemand rechnet AB : A\'B\' = SB : BB\'. Was stimmt?', 'Falsch: Richtig ist AB : A\'B\' = SB : SB\'.',
+                            ['Richtig.', 'Falsch: Richtig ist AB : A\'B\' = SA : AA\'.', 'Falsch: Richtig ist AB : A\'B\' = BB\' : SB.'],
+                            'Beim 2. Strahlensatz stehen die Parallelstrecken im Verhältnis der Strecken ab S – nicht der Teilstücke zwischen den Parallelen.',
+                            'Wo beginnen die Strecken, die beim 2. Strahlensatz verwendet werden?'), F({}))
+    if typ < 0.65:
+        return bild(zahl(f'X-Figur: Die Geraden AA\' und BB\' schneiden sich in S, AB ∥ A\'B\'. SA = {dz(sa)} cm, SA\' = {dz(sa2)} cm, AB = {dz(ab)} cm. Berechne A\'B\'.',
+                         f'A\'B\' : AB = SA\' : SA ⇒ A\'B\' = {dz(ab)} · {dz(sa2)} : {dz(sa)} = {dz(ab2)} cm.',
+                         'Die Strahlensätze gelten auch bei der X-Figur; Strecken ab S messen.', ab2, f'{cf(ab)} * {cf(sa2)} / {cf(sa)}', einheit='cm'),
+                    sfig(sa, sa2, sb, k * sb, {'SA': dz(sa), 'SA2': dz(sa2), 'AB': dz(ab), 'AB2': '?'}, x=True))
+    return bild(zahl(f'{KURZ} SA = {dz(sa)} cm, AB = {dz(ab)} cm, A\'B\' = {dz(ab2)} cm. Berechne AA\'.',
+                     f'(SA + x) : SA = A\'B\' : AB ⇒ ({dz(sa)} + x) : {dz(sa)} = {dz(k)} ⇒ x = {dz(sa)} · {dz(k)} − {dz(sa)} = {dz(aa)} cm.',
+                     'Nenne AA\' = x; dann ist SA\' = SA + x.', aa, f'{cf(sa)} * {cf(ab2)} / {cf(ab)} - {cf(sa)}', einheit='cm'),
+                F({'SA': dz(sa), 'AA': '?', 'AB': dz(ab), 'AB2': dz(ab2)}))
 
 
 def g_flaeche_volumen(s):
@@ -225,7 +354,22 @@ def g_flaeche_volumen(s):
     m = R.choice([10, 20, 25, 50, 100])
     A = R.choice([2, 3, 4, 6, 8, 12])
     typ = R.random()
-    if typ < 0.5:
+    if typ < 0.3:
+        if R.random() < 0.5:
+            b, h = R.choice([(9, 13), (10, 15), (13, 18), (15, 20)])
+            k = R.choice([2, 3])
+            return auswahl(f'Ein Foto {b} cm × {h} cm wird auf {b * k} cm × {h * k} cm vergrößert. Jemand sagt: „Es braucht {k}-mal so viel Papier.“ Was stimmt?',
+                           f'Falsch: k = {k}, die Fläche wird {k * k}-mal so groß.',
+                           ['Richtig, alle Längen sind ' + str(k) + '-mal so groß.', f'Falsch: Die Fläche wird {k ** 3}-mal so groß.', f'Falsch: Die Fläche wird {2 * k}-mal so groß.'],
+                           f'{b} · {h} = {b * h} cm², {b * k} · {h * k} = {b * h * k * k} cm² – das ist das {k * k}-Fache (k² = {k * k}).',
+                           'Berechne beide Flächeninhalte.')
+        k = R.choice([2, 3])
+        return auswahl(f'Jemand sagt: „Ein Würfel mit {"doppelter" if k == 2 else "dreifacher"} Kantenlänge aus demselben Material wiegt {"doppelt" if k == 2 else "dreimal"} so viel.“ Was stimmt?',
+                       f'Falsch: Das Volumen wird {k ** 3}-mal so groß, also auch die Masse.',
+                       ['Richtig, Masse und Kante wachsen gleich.', f'Falsch: Er wiegt {k * k}-mal so viel.', 'Falsch: Er wiegt gleich viel.'],
+                       f'Volumen · k³ = · {k ** 3}. Bei gleichem Material wächst die Masse wie das Volumen.',
+                       'Wie verändert sich das Volumen bei k = ' + str(k) + '?')
+    if typ < 0.65:
         orig = A * m * m
         return zahl(f'Ein Modell im Maßstab 1 : {m} hat eine Grundfläche von {A} cm². Wie groß ist die Grundfläche des Originals in m²?',
                     f'{A} cm² · {m}² = {dz(orig)} cm² = {dz(Fr(orig, 10000))} m².', 'Fläche · k², dann cm² in m² umrechnen (1 m² = 10 000 cm²).',
@@ -238,36 +382,62 @@ def g_flaeche_volumen(s):
                 Fr(orig, 10 ** 6), f'{V} * {m} ** 3 / 1000000', einheit='m³')
 
 
+DINGE = [('ein Baum', 4, 30), ('ein Turm', 15, 60), ('ein Mast', 8, 40), ('ein Haus', 6, 30)]
+
+
+def schatten_fig(st, sch, sch2, h_txt='h = ?'):
+    f = 3 / float(sch)
+    return {'typ': 'figur', 'punkte': {'S': [0, 0], '_F1': [3, 0], '_T1': [3, round(float(st) * f, 3)],
+                                       '_F2': [round(float(sch2) * f, 3), 0], '_T2': [round(float(sch2) * f, 3), round(float(sch2 * st / sch) * f, 3)]},
+            'linien': [['S', '_F1', f'{dz(sch)} m'], ['_F1', '_F2'], ['_F1', '_T1', f'{dz(st)} m'], ['_F2', '_T2', h_txt], ['S', '_T2', '', 'gestrichelt']],
+            'rechter_winkel': [['_F2', 'S', '_T2'], ['_F1', 'S', '_T1']]}
+
+
 def g_anwendung(s):
     typ = R.random()
     if s == 1 or (s == 2 and typ < 0.4):
         st, sch = R.choice([(1, 2), (2, 3), (Fr(3, 2), 2), (1, Fr(5, 4)), (2, 5), (Fr(1, 2), 1)])
-        k = R.randint(3, 15)
+        k = R.randint(3, 30)
         sch2 = sch * k
         h = st * k
         if not ok(h, sch2): return None
-        ding = R.choice(['ein Baum', 'ein Turm', 'ein Mast', 'ein Haus'])
-        return zahl(f'Ein {dz(st)} m langer Stab wirft einen {dz(sch)} m langen Schatten. Zur gleichen Zeit wirft {ding} einen {dz(sch2)} m langen Schatten. Wie hoch ist er?',
-                    f'h : {dz(st)} = {dz(sch2)} : {dz(sch)} ⇒ h = {dz(st)} · {dz(k)} = {dz(h)} m.', 'Höhe zu Höhe wie Schatten zu Schatten.', h,
-                    f'{cf(st)} * {cf(sch2)} / {cf(sch)}', einheit='m')
+        moegl = [d for d, lo, hi in DINGE if lo <= h <= hi]
+        if not moegl: return None
+        ding = R.choice(moegl)
+        return bild(zahl(f'Ein {dz(st)} m langer Stab wirft einen {dz(sch)} m langen Schatten. Zur gleichen Zeit wirft {ding} einen {dz(sch2)} m langen Schatten. Wie hoch ist er?',
+                         f'h : {dz(st)} = {dz(sch2)} : {dz(sch)} ⇒ h = {dz(st)} · {dz(k)} = {dz(h)} m.', 'Höhe zu Höhe wie Schatten zu Schatten.', h,
+                         f'{cf(st)} * {cf(sch2)} / {cf(sch)}', einheit='m'), schatten_fig(st, sch, sch2) if s == 1 else None)
     if s == 2:
-        a, b = R.randint(2, 12), R.randint(2, 12)
-        k = R.choice([2, 3, Fr(3, 2), Fr(5, 2), 4])
-        c = a * k - a
-        x = b * (k - 1)
-        if not ok(c, x): return None
-        return zahl(f'Flussbreite messen: S, A und A\' liegen auf einer Geraden (A am diesseitigen, A\' am jenseitigen Ufer), B und B\' auf einer zweiten Geraden durch S, und AB ∥ A\'B\'. Gemessen: SA = {a} m, SB = {b} m, SB\' = {dz(b * k)} m. Wie breit ist der Fluss (AA\')?',
-                    f'(SA + x) : SA = SB\' : SB ⇒ ({a} + x) : {a} = {dz(k)} ⇒ x = {dz(a * k)} − {a} = {dz(c)} m.',
-                    'Stelle eine Verhältnisgleichung mit x in einer Summe auf.', c, f'{a} * {cf(b * k)} / {b} - {a}', einheit='m')
-    if typ < 0.5:
-        # Bruchgleichung x/(x + d) = p/q
-        p, q = R.choice([(1, 2), (2, 3), (3, 4), (2, 5), (3, 5), (4, 7), (3, 7)])
-        x = R.randint(2, 20) * p
-        d = Fr(x * (q - p), p)
-        if d.denominator != 1: return None
-        return zahl(f'Bei einer Strahlensatzfigur ergibt sich die Gleichung x : (x + {dz(d)}) = {p} : {q}. Löse sie.',
-                    f'{q}x = {p}(x + {dz(d)}) ⇒ {q - p}x = {dz(p * d)} ⇒ x = {dz(x)}.', 'Multipliziere über Kreuz (mit beiden Nennern) und löse die lineare Gleichung.',
-                    x, f'{p} * {cf(d)} / ({q} - {p})')
+        arm = R.choice([60, 65, 70])
+        aug = Fr(arm, 10)
+        sp = R.choice([20, 25, 30, 40, 50, 60])
+        e = Fr(sp * arm) / aug
+        if not ok(e): return None
+        return zahl(f'Daumensprung: Dein Arm ist {arm} cm lang, deine Augen sind {dz(aug)} cm voneinander entfernt. Schließt du abwechselnd ein Auge, springt dein Daumen vor einem Haus um {sp} m hin und her. Wie weit ist das Haus entfernt?',
+                    f'Entfernung : Sprung = Armlänge : Augenabstand ⇒ e = {sp} · {arm} : {dz(aug)} = {dz(e)} m.',
+                    'Das Auge ist S; Augenabstand und Daumensprung sind die parallelen Strecken.', e, f'{sp} * {arm} / {cf(aug)}', einheit='m')
+    if typ < 0.35:
+        h1, h2 = R.choice([(2, 4), (2, 5), (Fr(3, 2), 6), (2, 6), (3, 9), (Fr(5, 2), 10)])
+        d = R.randint(2, 12)
+        x = h1 * d / (h2 - h1)
+        if not ok(x): return None
+        return zahl(f'Ein Baum steht {d} m hinter einer {dz(h1)} m hohen Mauer und ist {dz(h2)} m hoch. Von einem Punkt P auf dem Boden vor der Mauer sieht man die Oberkante der Mauer und die Baumspitze genau in einer Linie. Wie weit ist P von der Mauer entfernt?',
+                    f'x : (x + {d}) = {dz(h1)} : {dz(h2)} ⇒ {dz(h2)}x = {dz(h1)}x + {dz(h1 * d)} ⇒ {dz(h2 - h1)}x = {dz(h1 * d)} ⇒ x = {dz(x)} m.',
+                    'P ist der Scheitel. Mauer und Baum sind die Parallelen; die Entfernung zum Baum ist x + ' + str(d) + '.', x,
+                    f'{cf(h1)} * {d} / ({cf(h2)} - {cf(h1)})', einheit='m')
+    if typ < 0.7:
+        ab = R.choice([20, 24, 30, 36, 40, 45, 50, 60])
+        bc = R.choice([4, 5, 6, 8, 10])
+        cd = R.choice([3, 4, 5, 6, 8])
+        at = Fr(cd * ab, bc)
+        if not ok(at) or at < 5: return None
+        return bild(zahl(f'Flussbreite messen: Du stehst am Ufer bei A, genau gegenüber steht ein Baum T. Du gehst am Ufer {ab} m bis B und steckst einen Stab ein, dann weitere {bc} m bis C. Von C gehst du senkrecht vom Fluss weg, bis du bei D den Stab B und den Baum T in einer Linie siehst. CD = {cd} m. Wie breit ist der Fluss (AT)?',
+                         f'X-Figur mit Scheitel B: AT : CD = AB : BC ⇒ AT = {cd} · {ab} : {bc} = {dz(at)} m.',
+                         'Zeichne eine Skizze: Die Geraden TD und AC schneiden sich in B; AT und CD sind parallel.', at,
+                         f'{cd} * {ab} / {bc}', einheit='m'),
+                    {'typ': 'figur', 'punkte': {'A': [0, 0], 'B': [ab, 0], 'C': [ab + bc, 0], 'D': [ab + bc, -cd], 'T': [0, round(float(at), 3)]},
+                     'linien': [['A', 'B', f'{ab} m'], ['B', 'C', f'{bc} m'], ['C', 'D', f'{cd} m'], ['A', 'T', '?'], ['T', 'D', '', 'gestrichelt']],
+                     'rechter_winkel': [['A', 'B', 'T'], ['C', 'B', 'D']]})
     arm = R.choice([Fr(6, 10), Fr(65, 100), Fr(7, 10)])
     daumen = R.choice([Fr(2, 100), Fr(25, 1000), Fr(3, 100)])
     hb = R.choice([10, 15, 20, 25, 30, 40])
@@ -291,5 +461,4 @@ if __name__ == '__main__':
           ETAPPEN, GEN,
           meiden={'streckung': ['P(4 | 3) zentrisch an Z(1 | 2) mit k = 2.'], 'strahlensatz1': ['SA = 3 cm, SA\' = 7,5 cm, SB = 4 cm'],
                   'strahlensatz2': ['SA = 5 cm, AA\' = 3 cm, AB = 4 cm'], 'anwendung': ['2 m langer Stab wirft einen 3 m langen Schatten. Zur gleichen Zeit wirft ein Baum einen 18']},
-          offen=['Lernkarten „strahlensatz1“, „strahlensatz2“ und „anwendung“ brauchen Zeichnung: Strahlensatzfigur (zwei Strahlen von S, zwei Parallelen, Punkte A, B, A\', B\'). Bisher in jeder Aufgabe als Text beschrieben – das ist lang; eine Skizze würde die Aufgaben deutlich kürzer machen.',
-                 'Lernkarte „streckung“: Zeichnung der zentrischen Streckung im Koordinatensystem wäre hilfreich. X-Figur (Parallelen auf verschiedenen Seiten von S) ist ohne Zeichnung nicht enthalten.'])
+          offen=['Strahlensatzaufgaben zeigen die Figur jetzt als Zeichnung (f.grafik); der Fragetext nennt nur noch die Maße. Bitte in der App prüfen, ob die Beschriftungen bei spitzen Winkeln gut lesbar sind.'])

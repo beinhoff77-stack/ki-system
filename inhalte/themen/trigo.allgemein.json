@@ -55,12 +55,148 @@
      "cos 120° = −cos 60° = ⟦−0,5⟧ (der Punkt liegt links der y-Achse)."
     ],
     "probe": "sin 120° = sin 60° > 0: Punkt liegt oberhalb der x-Achse ✓",
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "_x1": [
+       -1.3,
+       0
+      ],
+      "_x2": [
+       1.3,
+       0
+      ],
+      "_y1": [
+       0,
+       -1.3
+      ],
+      "_y2": [
+       0,
+       1.3
+      ],
+      "P": [
+       -0.5,
+       0.866
+      ],
+      "_F": [
+       -0.5,
+       0
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 1
+      }
+     ],
+     "linien": [
+      [
+       "_x1",
+       "_x2"
+      ],
+      [
+       "_y1",
+       "_y2"
+      ],
+      [
+       "M",
+       "P",
+       "1"
+      ],
+      [
+       "P",
+       "_F",
+       "sin 120°",
+       "gestrichelt"
+      ],
+      [
+       "_F",
+       "M",
+       "cos 120° = −0,5"
+      ]
+     ],
+     "winkel": [
+      [
+       "M",
+       "_x2",
+       "P",
+       "120°"
+      ]
+     ]
+    },
     "fehler": "„cos 120° = 0,5, weil cos 60° = 0,5“ ist falsch: Für Winkel zwischen 90° und 180° ist der Kosinus ⟦negativ⟧."
    },
    {
     "lernziel": "flaeche",
     "titel": "Flächeninhalt mit dem Sinus",
-    "regel": "Kennt man zwei Seiten und den ⟦eingeschlossenen⟧ Winkel, gilt ⟦A = ½ · a · b · sin γ⟧ (entsprechend mit anderen Seiten und Winkeln).",
+    "regel": "Kennt man zwei Seiten und den ⟦eingeschlossenen⟧ Winkel, gilt ⟦A = ½ · a · b · sin γ⟧. Warum? Die Höhe auf b ist h = a · sin γ (rechtwinkliges Teildreieck), und A = ½ · b · h.",
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "C": [
+       0,
+       0
+      ],
+      "A": [
+       9,
+       0
+      ],
+      "B": [
+       5.196,
+       3
+      ],
+      "_H": [
+       5.196,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "C",
+       "A",
+       "b = 9 cm"
+      ],
+      [
+       "C",
+       "B",
+       "a = 6 cm"
+      ],
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "_H",
+       "h",
+       "gestrichelt"
+      ]
+     ],
+     "winkel": [
+      [
+       "C",
+       "A",
+       "B",
+       "30°"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "_H",
+       "A",
+       "B"
+      ]
+     ]
+    },
     "schritte": [
      "a = 6 cm, b = 9 cm, γ = 30°: A = ½ · 6 · 9 · sin 30°.",
      "A = 27 · 0,5 = ⟦13,5 cm²⟧."
@@ -71,7 +207,83 @@
    {
     "lernziel": "sinussatz_seite",
     "titel": "Sinussatz: Seite berechnen",
-    "regel": "In jedem Dreieck gilt der ⟦Sinussatz⟧: ⟦a : sin α = b : sin β = c : sin γ⟧. Kennst du zwei Winkel und eine Seite, berechnest du jede andere Seite.",
+    "regel": "In jedem Dreieck gilt der ⟦Sinussatz⟧: ⟦a : sin α = b : sin β = c : sin γ⟧. Warum? Die Höhe h von C auf c lässt sich zweimal ausrechnen: h = b · sin α (links) und h = a · sin β (rechts). Also b · sin α = a · sin β, und daraus folgt a : sin α = b : sin β. Zu jeder Seite gehört der ⟦gegenüberliegende⟧ Winkel.",
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       7,
+       0
+      ],
+      "C": [
+       2.2,
+       4
+      ],
+      "_H": [
+       2.2,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       "c"
+      ],
+      [
+       "B",
+       "C",
+       "a"
+      ],
+      [
+       "C",
+       "A",
+       "b"
+      ],
+      [
+       "C",
+       "_H",
+       "h",
+       "gestrichelt"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "α"
+      ],
+      [
+       "B",
+       "C",
+       "A",
+       "β"
+      ],
+      [
+       "C",
+       "A",
+       "B",
+       "γ"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "_H",
+       "B",
+       "C"
+      ]
+     ]
+    },
     "schritte": [
      "α = 40°, β = 75°, a = 8 cm. Gesucht b.",
      "b = a · sin β : sin α = 8 · sin 75° : sin 40° ≈ ⟦12,0 cm⟧."
@@ -295,16 +507,62 @@
    "t": "einheitskreis",
    "p": "uebung",
    "s": 2,
-   "y": "zahl",
+   "y": "luecken",
    "f": {
-    "text": "Welcher zweite Winkel zwischen 0° und 180° hat denselben Sinuswert wie 28°?"
+    "text": "Gib den Punkt zum Winkel 360° am Einheitskreis an.",
+    "schablone": "P(□ | □)",
+    "hinweis": "x- und y-Koordinate"
    },
    "o": {
-    "wert": 152,
+    "werte": [
+     1,
+     0
+    ]
+   },
+   "w": "P(cos 360° | sin 360°) = P(1 | 0).",
+   "h": "Der Punkt hat die Koordinaten (cos α | sin α). Wo landet man nach einer Drehung um 360°?",
+   "c": [
+    "1",
+    "0"
+   ]
+  },
+  {
+   "l": "einheitskreis",
+   "t": "einheitskreis",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze: cos 100° = −cos □°.",
+    "schablone": "cos 100° = −cos □°",
+    "hinweis": "Winkel in Grad"
+   },
+   "o": {
+    "werte": [
+     80
+    ]
+   },
+   "w": "cos(180° − α) = −cos α mit α = 80°: cos 100° = −cos 80°.",
+   "h": "Schreibe den Winkel als 180° − α.",
+   "c": [
+    "180 - 100"
+   ]
+  },
+  {
+   "l": "einheitskreis",
+   "t": "einheitskreis",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Welcher zweite Winkel zwischen 0° und 180° hat denselben Sinuswert wie 17°?"
+   },
+   "o": {
+    "wert": 163,
     "einheit": "°"
    },
-   "c": "180 - 28",
-   "w": "sin(180° − α) = sin α: 180° − 28° = 152°.",
+   "c": "180 - 17",
+   "w": "sin(180° − α) = sin α: 180° − 17° = 163°.",
    "h": "Spiegle am Einheitskreis an der y-Achse."
   },
   {
@@ -314,19 +572,43 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Ergänze: cos 106° = −cos □°.",
-    "schablone": "cos 106° = −cos □°",
+    "text": "Ergänze: cos 170° = −cos □°.",
+    "schablone": "cos 170° = −cos □°",
     "hinweis": "Winkel in Grad"
    },
    "o": {
     "werte": [
-     74
+     10
     ]
    },
-   "w": "cos(180° − α) = −cos α mit α = 74°: cos 106° = −cos 74°.",
+   "w": "cos(180° − α) = −cos α mit α = 10°: cos 170° = −cos 10°.",
    "h": "Schreibe den Winkel als 180° − α.",
    "c": [
-    "180 - 106"
+    "180 - 170"
+   ]
+  },
+  {
+   "l": "einheitskreis",
+   "t": "einheitskreis",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib den Punkt zum Winkel 270° am Einheitskreis an.",
+    "schablone": "P(□ | □)",
+    "hinweis": "x- und y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     0,
+     -1
+    ]
+   },
+   "w": "P(cos 270° | sin 270°) = P(0 | −1).",
+   "h": "Der Punkt hat die Koordinaten (cos α | sin α). Wo landet man nach einer Drehung um 270°?",
+   "c": [
+    "0",
+    "-1"
    ]
   },
   {
@@ -336,76 +618,17 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welches Vorzeichen hat sin 205°?"
+    "text": "Welches Vorzeichen hat sin 100°?"
    },
    "a": [
     "null",
-    "positiv",
-    "negativ"
+    "negativ",
+    "positiv"
    ],
    "o": {
     "index": 2
    },
-   "w": "205° liegt im 3. Quadranten; dort ist die y-Koordinate negativ.",
-   "h": "In welchem Quadranten liegt der Punkt? sin = y-Koordinate, cos = x-Koordinate."
-  },
-  {
-   "l": "einheitskreis",
-   "t": "einheitskreis",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Welcher zweite Winkel zwischen 0° und 180° hat denselben Sinuswert wie 69°?"
-   },
-   "o": {
-    "wert": 111,
-    "einheit": "°"
-   },
-   "c": "180 - 69",
-   "w": "sin(180° − α) = sin α: 180° − 69° = 111°.",
-   "h": "Spiegle am Einheitskreis an der y-Achse."
-  },
-  {
-   "l": "einheitskreis",
-   "t": "einheitskreis",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Ergänze: cos 144° = −cos □°.",
-    "schablone": "cos 144° = −cos □°",
-    "hinweis": "Winkel in Grad"
-   },
-   "o": {
-    "werte": [
-     36
-    ]
-   },
-   "w": "cos(180° − α) = −cos α mit α = 36°: cos 144° = −cos 36°.",
-   "h": "Schreibe den Winkel als 180° − α.",
-   "c": [
-    "180 - 144"
-   ]
-  },
-  {
-   "l": "einheitskreis",
-   "t": "einheitskreis",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welches Vorzeichen hat sin 320°?"
-   },
-   "a": [
-    "positiv",
-    "negativ",
-    "null"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "320° liegt im 4. Quadranten; dort ist die y-Koordinate negativ.",
+   "w": "100° liegt im 2. Quadranten; dort ist die y-Koordinate positiv.",
    "h": "In welchem Quadranten liegt der Punkt? sin = y-Koordinate, cos = x-Koordinate."
   },
   {
@@ -429,63 +652,15 @@
    "t": "einheitskreis",
    "p": "uebung",
    "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Für welche Winkel zwischen 0° und 360° gilt sin α = −0,5?",
-    "schablone": "α₁ = □°; α₂ = □°",
-    "hinweis": "kleinerer Winkel zuerst"
-   },
-   "o": {
-    "werte": [
-     210,
-     330
-    ]
-   },
-   "w": "Am Einheitskreis gibt es zwei Punkte mit y-Koordinate −0,5: α = 210° und α = 330°.",
-   "h": "Zeichne die waagrechte bzw. senkrechte Gerade durch den Wert und suche beide Schnittpunkte.",
-   "c": [
-    "210",
-    "330"
-   ]
-  },
-  {
-   "l": "einheitskreis",
-   "t": "einheitskreis",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Für welche Winkel zwischen 0° und 360° gilt cos α = 0,5?",
-    "schablone": "α₁ = □°; α₂ = □°",
-    "hinweis": "kleinerer Winkel zuerst"
-   },
-   "o": {
-    "werte": [
-     60,
-     300
-    ]
-   },
-   "w": "Am Einheitskreis gibt es zwei Punkte mit x-Koordinate 0,5: α = 60° und α = 300°.",
-   "h": "Zeichne die waagrechte bzw. senkrechte Gerade durch den Wert und suche beide Schnittpunkte.",
-   "c": [
-    "60",
-    "300"
-   ]
-  },
-  {
-   "l": "einheitskreis",
-   "t": "einheitskreis",
-   "p": "uebung",
-   "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Es gilt sin 64° ≈ 0,8988. Wie groß ist sin 244° (vier Nachkommastellen)?"
+    "text": "Es gilt sin 85° ≈ 0,9962. Wie groß ist sin 265° (vier Nachkommastellen)?"
    },
    "o": {
-    "wert": -0.8988
+    "wert": -0.9962
    },
-   "c": "-0.8988",
-   "w": "Der Punkt zu 244° ist der am Ursprung gespiegelte Punkt zu 64°: sin 244° = −sin 64° ≈ −0,8988.",
+   "c": "-0.9962",
+   "w": "Der Punkt zu 265° ist der am Ursprung gespiegelte Punkt zu 85°: sin 265° = −sin 85° ≈ −0,9962.",
    "h": "Punktspiegelung am Ursprung ändert das Vorzeichen beider Koordinaten."
   },
   {
@@ -495,13 +670,13 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Es gilt sin 10° ≈ 0,1736. Wie groß ist sin 190° (vier Nachkommastellen)?"
+    "text": "Es gilt sin 40° ≈ 0,6428. Wie groß ist sin 220° (vier Nachkommastellen)?"
    },
    "o": {
-    "wert": -0.1736
+    "wert": -0.6428
    },
-   "c": "-0.1736",
-   "w": "Der Punkt zu 190° ist der am Ursprung gespiegelte Punkt zu 10°: sin 190° = −sin 10° ≈ −0,1736.",
+   "c": "-0.6428",
+   "w": "Der Punkt zu 220° ist der am Ursprung gespiegelte Punkt zu 40°: sin 220° = −sin 40° ≈ −0,6428.",
    "h": "Punktspiegelung am Ursprung ändert das Vorzeichen beider Koordinaten."
   },
   {
@@ -511,95 +686,166 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Es gilt sin 83° ≈ 0,9925. Wie groß ist sin 263° (vier Nachkommastellen)?"
+    "text": "Es gilt sin 5° ≈ 0,0872. Wie groß ist sin 185° (vier Nachkommastellen)?"
    },
    "o": {
-    "wert": -0.9925
+    "wert": -0.0872
    },
-   "c": "-0.9925",
-   "w": "Der Punkt zu 263° ist der am Ursprung gespiegelte Punkt zu 83°: sin 263° = −sin 83° ≈ −0,9925.",
+   "c": "-0.0872",
+   "w": "Der Punkt zu 185° ist der am Ursprung gespiegelte Punkt zu 5°: sin 185° = −sin 5° ≈ −0,0872.",
    "h": "Punktspiegelung am Ursprung ändert das Vorzeichen beider Koordinaten."
+  },
+  {
+   "l": "einheitskreis",
+   "t": "einheitskreis",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt sin 45° ≈ 0,7071. Wie groß ist sin 225° (vier Nachkommastellen)?"
+   },
+   "o": {
+    "wert": -0.7071
+   },
+   "c": "-0.7071",
+   "w": "Der Punkt zu 225° ist der am Ursprung gespiegelte Punkt zu 45°: sin 225° = −sin 45° ≈ −0,7071.",
+   "h": "Punktspiegelung am Ursprung ändert das Vorzeichen beider Koordinaten."
+  },
+  {
+   "l": "einheitskreis",
+   "t": "einheitskreis",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Stimmt die Aussage sin 244° = sin 64°?"
+   },
+   "a": [
+    "Ja.",
+    "Nein, sin 244° = −sin 64°.",
+    "Das hängt vom Taschenrechner ab.",
+    "Nein, sin 244° = sin 26°."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Der Punkt zu 244° entsteht aus dem Punkt zu 64° durch Spiegeln am Ursprung. Dabei wechselt das Vorzeichen der y-Koordinate: sin 244° = −sin 64°.",
+   "h": "Spiegle den Punkt am Einheitskreis und vergleiche die Koordinaten."
   },
   {
    "l": "einheitskreis",
    "t": "einheitskreis",
    "p": "test",
    "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Welcher zweite Winkel zwischen 0° und 180° hat denselben Sinuswert wie 56°?"
-   },
-   "o": {
-    "wert": 124,
-    "einheit": "°"
-   },
-   "c": "180 - 56",
-   "w": "sin(180° − α) = sin α: 180° − 56° = 124°."
-  },
-  {
-   "l": "einheitskreis",
-   "t": "einheitskreis",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Welcher zweite Winkel zwischen 0° und 180° hat denselben Sinuswert wie 34°?"
-   },
-   "o": {
-    "wert": 146,
-    "einheit": "°"
-   },
-   "c": "180 - 34",
-   "w": "sin(180° − α) = sin α: 180° − 34° = 146°."
-  },
-  {
-   "l": "einheitskreis",
-   "t": "einheitskreis",
-   "p": "korrektur",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Ergänze: cos 115° = −cos □°.",
-    "schablone": "cos 115° = −cos □°",
-    "hinweis": "Winkel in Grad"
-   },
-   "o": {
-    "werte": [
-     65
-    ]
-   },
-   "w": "cos(180° − α) = −cos α mit α = 65°: cos 115° = −cos 65°.",
-   "c": [
-    "180 - 115"
-   ]
-  },
-  {
-   "l": "einheitskreis",
-   "t": "einheitskreis",
-   "p": "korrektur",
-   "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welches Vorzeichen hat cos 315°?"
+    "text": "Welches Vorzeichen hat sin 185°?"
    },
    "a": [
-    "null",
     "positiv",
+    "null",
     "negativ"
    ],
    "o": {
-    "index": 1
+    "index": 2
    },
-   "w": "315° liegt im 4. Quadranten; dort ist die x-Koordinate positiv."
+   "w": "185° liegt im 3. Quadranten; dort ist die y-Koordinate negativ."
   },
   {
    "l": "einheitskreis",
    "t": "einheitskreis",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welches Vorzeichen hat sin 25°?"
+    "text": "Im Bild siehst du den Punkt P zum Winkel 290° am Einheitskreis. Welcher Wert passt zu cos 290°?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "_x1": [
+       -1.3,
+       0
+      ],
+      "_x2": [
+       1.3,
+       0
+      ],
+      "_y1": [
+       0,
+       -1.3
+      ],
+      "_y2": [
+       0,
+       1.3
+      ],
+      "P": [
+       0.342,
+       -0.94
+      ],
+      "_F": [
+       0.342,
+       0
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 1
+      }
+     ],
+     "linien": [
+      [
+       "_x1",
+       "_x2"
+      ],
+      [
+       "_y1",
+       "_y2"
+      ],
+      [
+       "M",
+       "P"
+      ],
+      [
+       "P",
+       "_F",
+       "",
+       "gestrichelt"
+      ]
+     ],
+     "winkel": [
+      [
+       "M",
+       "_x2",
+       "P",
+       "290°"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "−0,34",
+    "−0,94",
+    "1,3",
+    "0,34"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "cos 290° ist die x-Koordinate von P. P liegt unterhalb der x-Achse und rechts der y-Achse; |cos 290°| ≈ 0,34."
+  },
+  {
+   "l": "einheitskreis",
+   "t": "einheitskreis",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Vorzeichen hat sin 205°?"
    },
    "a": [
     "null",
@@ -607,62 +853,25 @@
     "positiv"
    ],
    "o": {
-    "index": 2
+    "index": 1
    },
-   "w": "25° liegt im 1. Quadranten; dort ist die y-Koordinate positiv."
+   "w": "205° liegt im 3. Quadranten; dort ist die y-Koordinate negativ."
   },
   {
    "l": "einheitskreis",
    "t": "einheitskreis",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Welcher zweite Winkel zwischen 0° und 180° hat denselben Sinuswert wie 31°?"
+    "text": "Welcher zweite Winkel zwischen 0° und 180° hat denselben Sinuswert wie 8°?"
    },
    "o": {
-    "wert": 149,
+    "wert": 172,
     "einheit": "°"
    },
-   "c": "180 - 31",
-   "w": "sin(180° − α) = sin α: 180° − 31° = 149°."
-  },
-  {
-   "l": "einheitskreis",
-   "t": "einheitskreis",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Welcher zweite Winkel zwischen 0° und 180° hat denselben Sinuswert wie 81°?"
-   },
-   "o": {
-    "wert": 99,
-    "einheit": "°"
-   },
-   "c": "180 - 81",
-   "w": "sin(180° − α) = sin α: 180° − 81° = 99°."
-  },
-  {
-   "l": "einheitskreis",
-   "t": "einheitskreis",
-   "p": "sicherung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Ergänze: cos 151° = −cos □°.",
-    "schablone": "cos 151° = −cos □°",
-    "hinweis": "Winkel in Grad"
-   },
-   "o": {
-    "werte": [
-     29
-    ]
-   },
-   "w": "cos(180° − α) = −cos α mit α = 29°: cos 151° = −cos 29°.",
-   "c": [
-    "180 - 151"
-   ]
+   "c": "180 - 8",
+   "w": "sin(180° − α) = sin α: 180° − 8° = 172°."
   },
   {
    "l": "einheitskreis",
@@ -671,55 +880,452 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welches Vorzeichen hat sin 160°?"
+    "text": "Im Bild siehst du den Punkt P zum Winkel 150° am Einheitskreis. Welcher Wert passt zu cos 150°?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "_x1": [
+       -1.3,
+       0
+      ],
+      "_x2": [
+       1.3,
+       0
+      ],
+      "_y1": [
+       0,
+       -1.3
+      ],
+      "_y2": [
+       0,
+       1.3
+      ],
+      "P": [
+       -0.866,
+       0.5
+      ],
+      "_F": [
+       -0.866,
+       0
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 1
+      }
+     ],
+     "linien": [
+      [
+       "_x1",
+       "_x2"
+      ],
+      [
+       "_y1",
+       "_y2"
+      ],
+      [
+       "M",
+       "P"
+      ],
+      [
+       "P",
+       "_F",
+       "",
+       "gestrichelt"
+      ]
+     ],
+     "winkel": [
+      [
+       "M",
+       "_x2",
+       "P",
+       "150°"
+      ]
+     ]
+    }
    },
    "a": [
-    "negativ",
-    "positiv",
-    "null"
+    "0,87",
+    "−1,3",
+    "−0,87",
+    "0,5"
    ],
    "o": {
-    "index": 1
+    "index": 2
    },
-   "w": "160° liegt im 2. Quadranten; dort ist die y-Koordinate positiv."
+   "w": "cos 150° ist die x-Koordinate von P. P liegt oberhalb der x-Achse und links der y-Achse; |cos 150°| ≈ 0,87."
   },
   {
    "l": "einheitskreis",
    "t": "einheitskreis",
    "p": "sicherung",
    "s": 2,
-   "y": "luecken",
+   "y": "auswahl",
    "f": {
-    "text": "Ergänze: cos 137° = −cos □°.",
-    "schablone": "cos 137° = −cos □°",
-    "hinweis": "Winkel in Grad"
+    "text": "Im Bild siehst du den Punkt P zum Winkel 190° am Einheitskreis. Welcher Wert passt zu sin 190°?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "_x1": [
+       -1.3,
+       0
+      ],
+      "_x2": [
+       1.3,
+       0
+      ],
+      "_y1": [
+       0,
+       -1.3
+      ],
+      "_y2": [
+       0,
+       1.3
+      ],
+      "P": [
+       -0.985,
+       -0.174
+      ],
+      "_F": [
+       -0.985,
+       0
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 1
+      }
+     ],
+     "linien": [
+      [
+       "_x1",
+       "_x2"
+      ],
+      [
+       "_y1",
+       "_y2"
+      ],
+      [
+       "M",
+       "P"
+      ],
+      [
+       "P",
+       "_F",
+       "",
+       "gestrichelt"
+      ]
+     ],
+     "winkel": [
+      [
+       "M",
+       "_x2",
+       "P",
+       "190°"
+      ]
+     ]
+    }
    },
+   "a": [
+    "−0,17",
+    "−1,3",
+    "−0,98",
+    "0,17"
+   ],
    "o": {
-    "werte": [
-     43
-    ]
+    "index": 0
    },
-   "w": "cos(180° − α) = −cos α mit α = 43°: cos 137° = −cos 43°.",
-   "c": [
-    "180 - 137"
-   ]
+   "w": "sin 190° ist die y-Koordinate von P. P liegt unterhalb der x-Achse und links der y-Achse; |sin 190°| ≈ 0,17."
   },
   {
-   "l": "flaeche",
-   "t": "flaeche",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
+   "l": "einheitskreis",
+   "t": "einheitskreis",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
    "f": {
-    "text": "Ein Dreieck hat a = 10 cm, b = 3 cm und den eingeschlossenen Winkel γ = 150°. Berechne den Flächeninhalt."
+    "text": "Im Bild siehst du den Punkt P zum Winkel 250° am Einheitskreis. Welcher Wert passt zu sin 250°?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "_x1": [
+       -1.3,
+       0
+      ],
+      "_x2": [
+       1.3,
+       0
+      ],
+      "_y1": [
+       0,
+       -1.3
+      ],
+      "_y2": [
+       0,
+       1.3
+      ],
+      "P": [
+       -0.342,
+       -0.94
+      ],
+      "_F": [
+       -0.342,
+       0
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 1
+      }
+     ],
+     "linien": [
+      [
+       "_x1",
+       "_x2"
+      ],
+      [
+       "_y1",
+       "_y2"
+      ],
+      [
+       "M",
+       "P"
+      ],
+      [
+       "P",
+       "_F",
+       "",
+       "gestrichelt"
+      ]
+     ],
+     "winkel": [
+      [
+       "M",
+       "_x2",
+       "P",
+       "250°"
+      ]
+     ]
+    }
    },
+   "a": [
+    "−0,34",
+    "0,94",
+    "−1,3",
+    "−0,94"
+   ],
    "o": {
-    "wert": 7.5,
-    "einheit": "cm²"
+    "index": 3
    },
-   "c": "0.5 * 10 * 3 * 0.5",
-   "w": "A = ½ · 10 · 3 · sin 150° = 15 · 0,5 = 7,5 cm².",
-   "h": "Formel A = ½ · a · b · sin γ; sin 30° = sin 150° = 0,5."
+   "w": "sin 250° ist die y-Koordinate von P. P liegt unterhalb der x-Achse und links der y-Achse; |sin 250°| ≈ 0,94."
+  },
+  {
+   "l": "einheitskreis",
+   "t": "einheitskreis",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Vorzeichen hat sin 305°?"
+   },
+   "a": [
+    "positiv",
+    "null",
+    "negativ"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "305° liegt im 4. Quadranten; dort ist die y-Koordinate negativ."
+  },
+  {
+   "l": "einheitskreis",
+   "t": "einheitskreis",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Bild siehst du den Punkt P zum Winkel 170° am Einheitskreis. Welcher Wert passt zu cos 170°?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "_x1": [
+       -1.3,
+       0
+      ],
+      "_x2": [
+       1.3,
+       0
+      ],
+      "_y1": [
+       0,
+       -1.3
+      ],
+      "_y2": [
+       0,
+       1.3
+      ],
+      "P": [
+       -0.985,
+       0.174
+      ],
+      "_F": [
+       -0.985,
+       0
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 1
+      }
+     ],
+     "linien": [
+      [
+       "_x1",
+       "_x2"
+      ],
+      [
+       "_y1",
+       "_y2"
+      ],
+      [
+       "M",
+       "P"
+      ],
+      [
+       "P",
+       "_F",
+       "",
+       "gestrichelt"
+      ]
+     ],
+     "winkel": [
+      [
+       "M",
+       "_x2",
+       "P",
+       "170°"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "−0,98",
+    "−1,3",
+    "0,98",
+    "0,17"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "cos 170° ist die x-Koordinate von P. P liegt oberhalb der x-Achse und links der y-Achse; |cos 170°| ≈ 0,98."
+  },
+  {
+   "l": "einheitskreis",
+   "t": "einheitskreis",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Bild siehst du den Punkt P zum Winkel 190° am Einheitskreis. Welcher Wert passt zu cos 190°?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "_x1": [
+       -1.3,
+       0
+      ],
+      "_x2": [
+       1.3,
+       0
+      ],
+      "_y1": [
+       0,
+       -1.3
+      ],
+      "_y2": [
+       0,
+       1.3
+      ],
+      "P": [
+       -0.985,
+       -0.174
+      ],
+      "_F": [
+       -0.985,
+       0
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 1
+      }
+     ],
+     "linien": [
+      [
+       "_x1",
+       "_x2"
+      ],
+      [
+       "_y1",
+       "_y2"
+      ],
+      [
+       "M",
+       "P"
+      ],
+      [
+       "P",
+       "_F",
+       "",
+       "gestrichelt"
+      ]
+     ],
+     "winkel": [
+      [
+       "M",
+       "_x2",
+       "P",
+       "190°"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "−0,98",
+    "−0,17",
+    "0,98",
+    "−1,3"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "cos 190° ist die x-Koordinate von P. P liegt unterhalb der x-Achse und links der y-Achse; |cos 190°| ≈ 0,98."
   },
   {
    "l": "flaeche",
@@ -745,14 +1351,31 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Dreieck hat a = 12 cm, b = 9 cm und den eingeschlossenen Winkel γ = 30°. Berechne den Flächeninhalt."
+    "text": "Ein Dreieck hat a = 7 cm, b = 5 cm und den eingeschlossenen Winkel γ = 90°. Berechne den Flächeninhalt."
    },
    "o": {
-    "wert": 27,
+    "wert": 17.5,
     "einheit": "cm²"
    },
-   "c": "0.5 * 12 * 9 * 0.5",
-   "w": "A = ½ · 12 · 9 · sin 30° = 54 · 0,5 = 27 cm².",
+   "c": "0.5 * 7 * 5 * 1",
+   "w": "A = ½ · 7 · 5 · sin 90° = 17,5 · 1 = 17,5 cm².",
+   "h": "Formel A = ½ · a · b · sin γ; sin 90° = 1 – das ist die bekannte Formel ½ · Grundseite · Höhe."
+  },
+  {
+   "l": "flaeche",
+   "t": "flaeche",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dreieck hat a = 11 cm, b = 7 cm und den eingeschlossenen Winkel γ = 150°. Berechne den Flächeninhalt."
+   },
+   "o": {
+    "wert": 19.25,
+    "einheit": "cm²"
+   },
+   "c": "0.5 * 11 * 7 * 0.5",
+   "w": "A = ½ · 11 · 7 · sin 150° = 38,5 · 0,5 = 19,25 cm².",
    "h": "Formel A = ½ · a · b · sin γ; sin 30° = sin 150° = 0,5."
   },
   {
@@ -762,14 +1385,14 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Dreieck hat a = 10 cm, b = 6 cm und den eingeschlossenen Winkel γ = 90°. Berechne den Flächeninhalt."
+    "text": "Ein Dreieck hat a = 5 cm, b = 7 cm und den eingeschlossenen Winkel γ = 30°. Berechne den Flächeninhalt."
    },
    "o": {
-    "wert": 30,
+    "wert": 8.75,
     "einheit": "cm²"
    },
-   "c": "0.5 * 10 * 6 * 1",
-   "w": "A = ½ · 10 · 6 · sin 90° = 30 · 1 = 30 cm².",
+   "c": "0.5 * 5 * 7 * 0.5",
+   "w": "A = ½ · 5 · 7 · sin 30° = 17,5 · 0,5 = 8,75 cm².",
    "h": "Formel A = ½ · a · b · sin γ; sin 30° = sin 150° = 0,5."
   },
   {
@@ -779,14 +1402,14 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Dreieck hat a = 13 cm, b = 7 cm und den eingeschlossenen Winkel γ = 150°. Berechne den Flächeninhalt."
+    "text": "Ein Dreieck hat a = 13 cm, b = 4 cm und den eingeschlossenen Winkel γ = 150°. Berechne den Flächeninhalt."
    },
    "o": {
-    "wert": 22.75,
+    "wert": 13,
     "einheit": "cm²"
    },
-   "c": "0.5 * 13 * 7 * 0.5",
-   "w": "A = ½ · 13 · 7 · sin 150° = 45,5 · 0,5 = 22,75 cm².",
+   "c": "0.5 * 13 * 4 * 0.5",
+   "w": "A = ½ · 13 · 4 · sin 150° = 26 · 0,5 = 13 cm².",
    "h": "Formel A = ½ · a · b · sin γ; sin 30° = sin 150° = 0,5."
   },
   {
@@ -796,15 +1419,15 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Dreieck hat a = 12 cm, b = 4 cm und den eingeschlossenen Winkel γ = 30°. Berechne den Flächeninhalt."
+    "text": "Ein Dreieck hat a = 11 cm, b = 12 cm und den eingeschlossenen Winkel γ = 90°. Berechne den Flächeninhalt."
    },
    "o": {
-    "wert": 12,
+    "wert": 66,
     "einheit": "cm²"
    },
-   "c": "0.5 * 12 * 4 * 0.5",
-   "w": "A = ½ · 12 · 4 · sin 30° = 24 · 0,5 = 12 cm².",
-   "h": "Formel A = ½ · a · b · sin γ; sin 30° = sin 150° = 0,5."
+   "c": "0.5 * 11 * 12 * 1",
+   "w": "A = ½ · 11 · 12 · sin 90° = 66 · 1 = 66 cm².",
+   "h": "Formel A = ½ · a · b · sin γ; sin 90° = 1 – das ist die bekannte Formel ½ · Grundseite · Höhe."
   },
   {
    "l": "flaeche",
@@ -813,15 +1436,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Dreieck hat a = 12 cm, b = 8 cm und γ = 77°. Berechne den Flächeninhalt (auf eine Nachkommastelle)."
+    "text": "Ein Dreieck hat a = 12 cm, b = 9 cm und γ = 126°. Berechne den Flächeninhalt (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 46.8,
+    "wert": 43.7,
     "einheit": "cm²",
     "toleranz": 0.1
    },
-   "c": "round(0.5 * 12 * 8 * 0.974370064785, 1)",
-   "w": "A = ½ · 12 · 8 · sin 77° ≈ 46,8 cm².",
+   "c": "round(0.5 * 12 * 9 * 0.809016994375, 1)",
+   "w": "A = ½ · 12 · 9 · sin 126° ≈ 43,7 cm².",
    "h": "Zwei Seiten und der eingeschlossene Winkel."
   },
   {
@@ -831,15 +1454,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Dreieck hat a = 6 cm, b = 12 cm und γ = 28°. Berechne den Flächeninhalt (auf eine Nachkommastelle)."
+    "text": "Ein Dreieck hat a = 11 cm, b = 6 cm und γ = 143°. Berechne den Flächeninhalt (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 16.9,
+    "wert": 19.9,
     "einheit": "cm²",
     "toleranz": 0.1
    },
-   "c": "round(0.5 * 6 * 12 * 0.469471562786, 1)",
-   "w": "A = ½ · 6 · 12 · sin 28° ≈ 16,9 cm².",
+   "c": "round(0.5 * 11 * 6 * 0.601815023152, 1)",
+   "w": "A = ½ · 11 · 6 · sin 143° ≈ 19,9 cm².",
    "h": "Zwei Seiten und der eingeschlossene Winkel."
   },
   {
@@ -849,15 +1472,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Dreieck hat a = 3 cm, b = 8 cm und γ = 84°. Berechne den Flächeninhalt (auf eine Nachkommastelle)."
+    "text": "Ein Dreieck hat a = 10 cm, b = 13 cm und γ = 97°. Berechne den Flächeninhalt (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 11.9,
+    "wert": 64.5,
     "einheit": "cm²",
     "toleranz": 0.1
    },
-   "c": "round(0.5 * 3 * 8 * 0.994521895368, 1)",
-   "w": "A = ½ · 3 · 8 · sin 84° ≈ 11,9 cm².",
+   "c": "round(0.5 * 10 * 13 * 0.992546151641, 1)",
+   "w": "A = ½ · 10 · 13 · sin 97° ≈ 64,5 cm².",
    "h": "Zwei Seiten und der eingeschlossene Winkel."
   },
   {
@@ -867,15 +1490,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Dreieck hat a = 4 cm, b = 10 cm und γ = 87°. Berechne den Flächeninhalt (auf eine Nachkommastelle)."
+    "text": "Ein Dreieck hat a = 9 cm, b = 4 cm und γ = 128°. Berechne den Flächeninhalt (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 20,
+    "wert": 14.2,
     "einheit": "cm²",
     "toleranz": 0.1
    },
-   "c": "round(0.5 * 4 * 10 * 0.998629534755, 1)",
-   "w": "A = ½ · 4 · 10 · sin 87° ≈ 20 cm².",
+   "c": "round(0.5 * 9 * 4 * 0.788010753607, 1)",
+   "w": "A = ½ · 9 · 4 · sin 128° ≈ 14,2 cm².",
    "h": "Zwei Seiten und der eingeschlossene Winkel."
   },
   {
@@ -885,15 +1508,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Dreieck hat a = 8 cm, b = 11 cm und γ = 157°. Berechne den Flächeninhalt (auf eine Nachkommastelle)."
+    "text": "Ein Dreieck hat a = 13 cm, b = 11 cm und γ = 32°. Berechne den Flächeninhalt (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 17.2,
+    "wert": 37.9,
     "einheit": "cm²",
     "toleranz": 0.1
    },
-   "c": "round(0.5 * 8 * 11 * 0.390731128489, 1)",
-   "w": "A = ½ · 8 · 11 · sin 157° ≈ 17,2 cm².",
+   "c": "round(0.5 * 13 * 11 * 0.529919264233, 1)",
+   "w": "A = ½ · 13 · 11 · sin 32° ≈ 37,9 cm².",
    "h": "Zwei Seiten und der eingeschlossene Winkel."
   },
   {
@@ -903,15 +1526,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Dreieck hat a = 7 cm, b = 3 cm und γ = 103°. Berechne den Flächeninhalt (auf eine Nachkommastelle)."
+    "text": "Ein Dreieck hat a = 15 cm, b = 15 cm und γ = 154°. Berechne den Flächeninhalt (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 10.2,
+    "wert": 49.3,
     "einheit": "cm²",
     "toleranz": 0.1
    },
-   "c": "round(0.5 * 7 * 3 * 0.974370064785, 1)",
-   "w": "A = ½ · 7 · 3 · sin 103° ≈ 10,2 cm².",
+   "c": "round(0.5 * 15 * 15 * 0.438371146789, 1)",
+   "w": "A = ½ · 15 · 15 · sin 154° ≈ 49,3 cm².",
    "h": "Zwei Seiten und der eingeschlossene Winkel."
   },
   {
@@ -921,33 +1544,15 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Parallelogramm hat die Seiten 12 cm und 3 cm, die einen Winkel von 66° einschließen. Berechne den Flächeninhalt (auf eine Nachkommastelle)."
+    "text": "Ein Dreieck hat den Flächeninhalt 50 cm², die Seite a = 7 cm und γ = 111°. Wie lang ist b (auf eine Nachkommastelle)?"
    },
    "o": {
-    "wert": 32.9,
-    "einheit": "cm²",
-    "toleranz": 0.1
-   },
-   "c": "round(12 * 3 * 0.913545457643, 1)",
-   "w": "Die Diagonale teilt es in zwei gleiche Dreiecke: A = 2 · ½ · 12 · 3 · sin 66° ≈ 32,9 cm².",
-   "h": "Ein Parallelogramm besteht aus zwei kongruenten Dreiecken."
-  },
-  {
-   "l": "flaeche",
-   "t": "flaeche",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Dreieck hat den Flächeninhalt 37 cm², die Seite a = 5 cm und γ = 155°. Wie lang ist b (auf eine Nachkommastelle)?"
-   },
-   "o": {
-    "wert": 35,
+    "wert": 15.3,
     "einheit": "cm",
     "toleranz": 0.1
    },
-   "c": "round(2 * 37 / (5 * 0.422618261741), 1)",
-   "w": "37 = ½ · 5 · b · sin 155° ⇒ b = 2 · 37 : (5 · sin 155°) ≈ 35 cm.",
+   "c": "round(2 * 50 / (7 * 0.933580426497), 1)",
+   "w": "50 = ½ · 7 · b · sin 111° ⇒ b = 2 · 50 : (7 · sin 111°) ≈ 15,3 cm.",
    "h": "Stelle die Flächenformel nach b um."
   },
   {
@@ -957,15 +1562,15 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Parallelogramm hat die Seiten 5 cm und 7 cm, die einen Winkel von 45° einschließen. Berechne den Flächeninhalt (auf eine Nachkommastelle)."
+    "text": "Ein Parallelogramm hat die Seiten 8 cm und 10 cm, die einen Winkel von 76° einschließen. Berechne den Flächeninhalt (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 24.7,
+    "wert": 77.6,
     "einheit": "cm²",
     "toleranz": 0.1
    },
-   "c": "round(5 * 7 * 0.707106781187, 1)",
-   "w": "Die Diagonale teilt es in zwei gleiche Dreiecke: A = 2 · ½ · 5 · 7 · sin 45° ≈ 24,7 cm².",
+   "c": "round(8 * 10 * 0.970295726276, 1)",
+   "w": "Die Diagonale teilt es in zwei gleiche Dreiecke: A = 2 · ½ · 8 · 10 · sin 76° ≈ 77,6 cm².",
    "h": "Ein Parallelogramm besteht aus zwei kongruenten Dreiecken."
   },
   {
@@ -975,15 +1580,15 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Parallelogramm hat die Seiten 7 cm und 11 cm, die einen Winkel von 95° einschließen. Berechne den Flächeninhalt (auf eine Nachkommastelle)."
+    "text": "Ein Parallelogramm hat die Seiten 7 cm und 5 cm, die einen Winkel von 146° einschließen. Berechne den Flächeninhalt (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 76.7,
+    "wert": 19.6,
     "einheit": "cm²",
     "toleranz": 0.1
    },
-   "c": "round(7 * 11 * 0.996194698092, 1)",
-   "w": "Die Diagonale teilt es in zwei gleiche Dreiecke: A = 2 · ½ · 7 · 11 · sin 95° ≈ 76,7 cm².",
+   "c": "round(7 * 5 * 0.559192903471, 1)",
+   "w": "Die Diagonale teilt es in zwei gleiche Dreiecke: A = 2 · ½ · 7 · 5 · sin 146° ≈ 19,6 cm².",
    "h": "Ein Parallelogramm besteht aus zwei kongruenten Dreiecken."
   },
   {
@@ -993,16 +1598,15 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Parallelogramm hat die Seiten 6 cm und 10 cm, die einen Winkel von 113° einschließen. Berechne den Flächeninhalt (auf eine Nachkommastelle)."
+    "text": "Ein Dreieck hat a = 15 cm, γ = 30° und den Flächeninhalt 30 cm². Berechne b."
    },
    "o": {
-    "wert": 55.2,
-    "einheit": "cm²",
-    "toleranz": 0.1
+    "wert": 8,
+    "einheit": "cm"
    },
-   "c": "round(6 * 10 * 0.920504853452, 1)",
-   "w": "Die Diagonale teilt es in zwei gleiche Dreiecke: A = 2 · ½ · 6 · 10 · sin 113° ≈ 55,2 cm².",
-   "h": "Ein Parallelogramm besteht aus zwei kongruenten Dreiecken."
+   "c": "30.0 / (15 / 4)",
+   "w": "30 = ½ · 15 · b · 0,5 = 3,75 · b ⇒ b = 8 cm.",
+   "h": "Setze sin 30° = 0,5 ein und stelle nach b um."
   },
   {
    "l": "flaeche",
@@ -1011,15 +1615,32 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Parallelogramm hat die Seiten 7 cm und 9 cm, die einen Winkel von 116° einschließen. Berechne den Flächeninhalt (auf eine Nachkommastelle)."
+    "text": "Ein Dreieck hat a = 15 cm, b = 9 cm und den Flächeninhalt 33,75 cm². Wie groß ist der spitze Winkel γ zwischen a und b?"
    },
    "o": {
-    "wert": 56.6,
+    "wert": 30,
+    "einheit": "°"
+   },
+   "c": "30",
+   "w": "33,75 = ½ · 15 · 9 · sin γ ⇒ sin γ = 33,75 : 67,5 = 0,5 ⇒ γ = 30° (spitz).",
+   "h": "Stelle die Flächenformel nach sin γ um."
+  },
+  {
+   "l": "flaeche",
+   "t": "flaeche",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Parallelogramm hat die Seiten 15 cm und 11 cm, die einen Winkel von 110° einschließen. Berechne den Flächeninhalt (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 155,
     "einheit": "cm²",
     "toleranz": 0.1
    },
-   "c": "round(7 * 9 * 0.898794046299, 1)",
-   "w": "Die Diagonale teilt es in zwei gleiche Dreiecke: A = 2 · ½ · 7 · 9 · sin 116° ≈ 56,6 cm².",
+   "c": "round(15 * 11 * 0.939692620786, 1)",
+   "w": "Die Diagonale teilt es in zwei gleiche Dreiecke: A = 2 · ½ · 15 · 11 · sin 110° ≈ 155 cm².",
    "h": "Ein Parallelogramm besteht aus zwei kongruenten Dreiecken."
   },
   {
@@ -1029,15 +1650,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Dreieck hat a = 11 cm, b = 3 cm und γ = 154°. Berechne den Flächeninhalt (auf eine Nachkommastelle)."
+    "text": "Ein Dreieck hat a = 10 cm, b = 12 cm und γ = 49°. Berechne den Flächeninhalt (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 7.2,
+    "wert": 45.3,
     "einheit": "cm²",
     "toleranz": 0.1
    },
-   "c": "round(0.5 * 11 * 3 * 0.438371146789, 1)",
-   "w": "A = ½ · 11 · 3 · sin 154° ≈ 7,2 cm²."
+   "c": "round(0.5 * 10 * 12 * 0.754709580223, 1)",
+   "w": "A = ½ · 10 · 12 · sin 49° ≈ 45,3 cm²."
   },
   {
    "l": "flaeche",
@@ -1046,15 +1667,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Dreieck hat a = 7 cm, b = 4 cm und γ = 111°. Berechne den Flächeninhalt (auf eine Nachkommastelle)."
+    "text": "Ein Dreieck hat a = 8 cm, b = 15 cm und γ = 66°. Berechne den Flächeninhalt (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 13.1,
+    "wert": 54.8,
     "einheit": "cm²",
     "toleranz": 0.1
    },
-   "c": "round(0.5 * 7 * 4 * 0.933580426497, 1)",
-   "w": "A = ½ · 7 · 4 · sin 111° ≈ 13,1 cm²."
+   "c": "round(0.5 * 8 * 15 * 0.913545457643, 1)",
+   "w": "A = ½ · 8 · 15 · sin 66° ≈ 54,8 cm²."
   },
   {
    "l": "flaeche",
@@ -1063,15 +1684,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Dreieck hat a = 10 cm, b = 13 cm und γ = 106°. Berechne den Flächeninhalt (auf eine Nachkommastelle)."
+    "text": "Ein Dreieck hat a = 4 cm, b = 7 cm und γ = 106°. Berechne den Flächeninhalt (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 62.5,
+    "wert": 13.5,
     "einheit": "cm²",
     "toleranz": 0.1
    },
-   "c": "round(0.5 * 10 * 13 * 0.961261695938, 1)",
-   "w": "A = ½ · 10 · 13 · sin 106° ≈ 62,5 cm²."
+   "c": "round(0.5 * 4 * 7 * 0.961261695938, 1)",
+   "w": "A = ½ · 4 · 7 · sin 106° ≈ 13,5 cm²."
   },
   {
    "l": "flaeche",
@@ -1080,15 +1701,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Dreieck hat a = 10 cm, b = 5 cm und γ = 35°. Berechne den Flächeninhalt (auf eine Nachkommastelle)."
+    "text": "Ein Dreieck hat a = 3 cm, b = 13 cm und γ = 59°. Berechne den Flächeninhalt (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 14.3,
+    "wert": 16.7,
     "einheit": "cm²",
     "toleranz": 0.1
    },
-   "c": "round(0.5 * 10 * 5 * 0.573576436351, 1)",
-   "w": "A = ½ · 10 · 5 · sin 35° ≈ 14,3 cm²."
+   "c": "round(0.5 * 3 * 13 * 0.857167300702, 1)",
+   "w": "A = ½ · 3 · 13 · sin 59° ≈ 16,7 cm²."
   },
   {
    "l": "flaeche",
@@ -1097,15 +1718,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Dreieck hat a = 8 cm, b = 7 cm und γ = 59°. Berechne den Flächeninhalt (auf eine Nachkommastelle)."
+    "text": "Ein Dreieck hat a = 12 cm, b = 10 cm und γ = 44°. Berechne den Flächeninhalt (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 24,
+    "wert": 41.7,
     "einheit": "cm²",
     "toleranz": 0.1
    },
-   "c": "round(0.5 * 8 * 7 * 0.857167300702, 1)",
-   "w": "A = ½ · 8 · 7 · sin 59° ≈ 24 cm²."
+   "c": "round(0.5 * 12 * 10 * 0.694658370459, 1)",
+   "w": "A = ½ · 12 · 10 · sin 44° ≈ 41,7 cm²."
   },
   {
    "l": "flaeche",
@@ -1114,15 +1735,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Dreieck hat a = 13 cm, b = 14 cm und γ = 63°. Berechne den Flächeninhalt (auf eine Nachkommastelle)."
+    "text": "Ein Dreieck hat a = 14 cm, b = 13 cm und γ = 133°. Berechne den Flächeninhalt (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 81.1,
+    "wert": 66.6,
     "einheit": "cm²",
     "toleranz": 0.1
    },
-   "c": "round(0.5 * 13 * 14 * 0.891006524188, 1)",
-   "w": "A = ½ · 13 · 14 · sin 63° ≈ 81,1 cm²."
+   "c": "round(0.5 * 14 * 13 * 0.731353701619, 1)",
+   "w": "A = ½ · 14 · 13 · sin 133° ≈ 66,6 cm²."
   },
   {
    "l": "flaeche",
@@ -1131,15 +1752,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Dreieck hat a = 15 cm, b = 11 cm und γ = 107°. Berechne den Flächeninhalt (auf eine Nachkommastelle)."
+    "text": "Ein Dreieck hat a = 5 cm, b = 4 cm und γ = 57°. Berechne den Flächeninhalt (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 78.9,
+    "wert": 8.4,
     "einheit": "cm²",
     "toleranz": 0.1
    },
-   "c": "round(0.5 * 15 * 11 * 0.956304755963, 1)",
-   "w": "A = ½ · 15 · 11 · sin 107° ≈ 78,9 cm²."
+   "c": "round(0.5 * 5 * 4 * 0.838670567945, 1)",
+   "w": "A = ½ · 5 · 4 · sin 57° ≈ 8,4 cm²."
   },
   {
    "l": "flaeche",
@@ -1148,15 +1769,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Dreieck hat a = 15 cm, b = 5 cm und γ = 44°. Berechne den Flächeninhalt (auf eine Nachkommastelle)."
+    "text": "Ein Dreieck hat a = 3 cm, b = 3 cm und γ = 131°. Berechne den Flächeninhalt (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 26,
+    "wert": 3.4,
     "einheit": "cm²",
     "toleranz": 0.1
    },
-   "c": "round(0.5 * 15 * 5 * 0.694658370459, 1)",
-   "w": "A = ½ · 15 · 5 · sin 44° ≈ 26 cm²."
+   "c": "round(0.5 * 3 * 3 * 0.754709580223, 1)",
+   "w": "A = ½ · 3 · 3 · sin 131° ≈ 3,4 cm²."
   },
   {
    "l": "flaeche",
@@ -1165,15 +1786,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Dreieck hat a = 14 cm, b = 12 cm und γ = 124°. Berechne den Flächeninhalt (auf eine Nachkommastelle)."
+    "text": "Ein Dreieck hat a = 12 cm, b = 11 cm und γ = 120°. Berechne den Flächeninhalt (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 69.6,
+    "wert": 57.2,
     "einheit": "cm²",
     "toleranz": 0.1
    },
-   "c": "round(0.5 * 14 * 12 * 0.829037572555, 1)",
-   "w": "A = ½ · 14 · 12 · sin 124° ≈ 69,6 cm²."
+   "c": "round(0.5 * 12 * 11 * 0.866025403784, 1)",
+   "w": "A = ½ · 12 · 11 · sin 120° ≈ 57,2 cm²."
   },
   {
    "l": "flaeche",
@@ -1182,15 +1803,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Dreieck hat a = 3 cm, b = 5 cm und γ = 121°. Berechne den Flächeninhalt (auf eine Nachkommastelle)."
+    "text": "Ein Dreieck hat a = 3 cm, b = 6 cm und γ = 58°. Berechne den Flächeninhalt (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 6.4,
+    "wert": 7.6,
     "einheit": "cm²",
     "toleranz": 0.1
    },
-   "c": "round(0.5 * 3 * 5 * 0.857167300702, 1)",
-   "w": "A = ½ · 3 · 5 · sin 121° ≈ 6,4 cm²."
+   "c": "round(0.5 * 3 * 6 * 0.848048096156, 1)",
+   "w": "A = ½ · 3 · 6 · sin 58° ≈ 7,6 cm²."
   },
   {
    "l": "sinussatz_seite",
@@ -1199,15 +1820,15 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Im Dreieck ABC ist α = 74°, β = 85° und a = 11 cm. Berechne b (auf eine Nachkommastelle)."
+    "text": "Im Dreieck ABC ist α = 85°, β = 34° und a = 13 cm. Berechne b (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 11.4,
+    "wert": 7.3,
     "einheit": "cm",
     "toleranz": 0.1
    },
-   "c": "round(11 * 0.996194698092 / 0.961261695938, 1)",
-   "w": "b : sin β = a : sin α ⇒ b = 11 · sin 85° : sin 74° ≈ 11,4 cm.",
+   "c": "round(13 * 0.559192903471 / 0.996194698092, 1)",
+   "w": "b : sin β = a : sin α ⇒ b = 13 · sin 34° : sin 85° ≈ 7,3 cm.",
    "h": "Sinussatz: Seite und Gegenwinkel bilden ein Paar."
   },
   {
@@ -1217,15 +1838,15 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Im Dreieck ABC ist α = 65°, β = 100° und a = 10 cm. Berechne b (auf eine Nachkommastelle)."
+    "text": "Im Dreieck ABC ist α = 88°, β = 67° und a = 12 cm. Berechne b (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 10.9,
+    "wert": 11.1,
     "einheit": "cm",
     "toleranz": 0.1
    },
-   "c": "round(10 * 0.984807753012 / 0.906307787037, 1)",
-   "w": "b : sin β = a : sin α ⇒ b = 10 · sin 100° : sin 65° ≈ 10,9 cm.",
+   "c": "round(12 * 0.920504853452 / 0.999390827019, 1)",
+   "w": "b : sin β = a : sin α ⇒ b = 12 · sin 67° : sin 88° ≈ 11,1 cm.",
    "h": "Sinussatz: Seite und Gegenwinkel bilden ein Paar."
   },
   {
@@ -1235,15 +1856,15 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Im Dreieck ABC ist α = 97°, β = 34° und a = 8 cm. Berechne b (auf eine Nachkommastelle)."
+    "text": "Im Dreieck ABC ist α = 36°, β = 96° und a = 14 cm. Berechne b (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 4.5,
+    "wert": 23.7,
     "einheit": "cm",
     "toleranz": 0.1
    },
-   "c": "round(8 * 0.559192903471 / 0.992546151641, 1)",
-   "w": "b : sin β = a : sin α ⇒ b = 8 · sin 34° : sin 97° ≈ 4,5 cm.",
+   "c": "round(14 * 0.994521895368 / 0.587785252292, 1)",
+   "w": "b : sin β = a : sin α ⇒ b = 14 · sin 96° : sin 36° ≈ 23,7 cm.",
    "h": "Sinussatz: Seite und Gegenwinkel bilden ein Paar."
   },
   {
@@ -1253,15 +1874,15 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Im Dreieck ABC ist α = 43°, β = 29° und a = 7 cm. Berechne b (auf eine Nachkommastelle)."
+    "text": "Im Dreieck ABC ist α = 46°, β = 100° und a = 8 cm. Berechne b (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 5,
+    "wert": 11,
     "einheit": "cm",
     "toleranz": 0.1
    },
-   "c": "round(7 * 0.484809620246 / 0.681998360062, 1)",
-   "w": "b : sin β = a : sin α ⇒ b = 7 · sin 29° : sin 43° ≈ 5 cm.",
+   "c": "round(8 * 0.984807753012 / 0.719339800339, 1)",
+   "w": "b : sin β = a : sin α ⇒ b = 8 · sin 100° : sin 46° ≈ 11 cm.",
    "h": "Sinussatz: Seite und Gegenwinkel bilden ein Paar."
   },
   {
@@ -1271,15 +1892,15 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Im Dreieck ABC ist α = 63°, β = 23° und a = 13 cm. Berechne b (auf eine Nachkommastelle)."
+    "text": "Im Dreieck ABC ist α = 72°, β = 28° und a = 9 cm. Berechne b (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 5.7,
+    "wert": 4.4,
     "einheit": "cm",
     "toleranz": 0.1
    },
-   "c": "round(13 * 0.390731128489 / 0.891006524188, 1)",
-   "w": "b : sin β = a : sin α ⇒ b = 13 · sin 23° : sin 63° ≈ 5,7 cm.",
+   "c": "round(9 * 0.469471562786 / 0.951056516295, 1)",
+   "w": "b : sin β = a : sin α ⇒ b = 9 · sin 28° : sin 72° ≈ 4,4 cm.",
    "h": "Sinussatz: Seite und Gegenwinkel bilden ein Paar."
   },
   {
@@ -1289,15 +1910,15 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Im Dreieck ABC ist α = 39°, β = 95° und a = 10 cm. Berechne b (auf eine Nachkommastelle)."
+    "text": "Im Dreieck ABC ist α = 50°, β = 88° und a = 9 cm. Berechne b (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 15.8,
+    "wert": 11.7,
     "einheit": "cm",
     "toleranz": 0.1
    },
-   "c": "round(10 * 0.996194698092 / 0.629320391050, 1)",
-   "w": "b : sin β = a : sin α ⇒ b = 10 · sin 95° : sin 39° ≈ 15,8 cm.",
+   "c": "round(9 * 0.999390827019 / 0.766044443119, 1)",
+   "w": "b : sin β = a : sin α ⇒ b = 9 · sin 88° : sin 50° ≈ 11,7 cm.",
    "h": "Sinussatz: Seite und Gegenwinkel bilden ein Paar."
   },
   {
@@ -1307,15 +1928,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Im Dreieck ABC ist α = 32°, β = 100° und a = 10 cm. Berechne c (auf eine Nachkommastelle)."
+    "text": "Im Dreieck ABC ist α = 37°, β = 82° und a = 7 cm. Berechne c (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 14,
+    "wert": 10.2,
     "einheit": "cm",
     "toleranz": 0.1
    },
-   "c": "round(10 * 0.743144825477 / 0.529919264233, 1)",
-   "w": "γ = 180° − 32° − 100° = 48°. c = 10 · sin 48° : sin 32° ≈ 14 cm.",
+   "c": "round(7 * 0.874619707139 / 0.601815023152, 1)",
+   "w": "γ = 180° − 37° − 82° = 61°. c = 7 · sin 61° : sin 37° ≈ 10,2 cm.",
    "h": "Berechne zuerst γ mit der Winkelsumme."
   },
   {
@@ -1325,15 +1946,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Im Dreieck ABC ist α = 38°, β = 30° und a = 5 cm. Berechne c (auf eine Nachkommastelle)."
+    "text": "Im Dreieck ABC ist α = 69°, β = 63° und a = 7 cm. Berechne c (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 7.5,
+    "wert": 5.6,
     "einheit": "cm",
     "toleranz": 0.1
    },
-   "c": "round(5 * 0.927183854567 / 0.615661475326, 1)",
-   "w": "γ = 180° − 38° − 30° = 112°. c = 5 · sin 112° : sin 38° ≈ 7,5 cm.",
+   "c": "round(7 * 0.743144825477 / 0.933580426497, 1)",
+   "w": "γ = 180° − 69° − 63° = 48°. c = 7 · sin 48° : sin 69° ≈ 5,6 cm.",
    "h": "Berechne zuerst γ mit der Winkelsumme."
   },
   {
@@ -1343,183 +1964,21 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Im Dreieck ABC ist α = 22°, β = 23° und a = 12 cm. Berechne c (auf eine Nachkommastelle)."
+    "text": "Im Dreieck ABC ist α = 74°, β = 62° und a = 15 cm. Berechne c (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 22.7,
+    "wert": 10.8,
     "einheit": "cm",
     "toleranz": 0.1
    },
-   "c": "round(12 * 0.707106781187 / 0.374606593416, 1)",
-   "w": "γ = 180° − 22° − 23° = 135°. c = 12 · sin 135° : sin 22° ≈ 22,7 cm.",
+   "c": "round(15 * 0.694658370459 / 0.961261695938, 1)",
+   "w": "γ = 180° − 74° − 62° = 44°. c = 15 · sin 44° : sin 74° ≈ 10,8 cm.",
    "h": "Berechne zuerst γ mit der Winkelsumme."
   },
   {
    "l": "sinussatz_seite",
    "t": "sinussatz_seite",
    "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Im Dreieck ABC ist α = 89°, β = 70° und a = 3 cm. Berechne c (auf eine Nachkommastelle)."
-   },
-   "o": {
-    "wert": 1.1,
-    "einheit": "cm",
-    "toleranz": 0.1
-   },
-   "c": "round(3 * 0.358367949545 / 0.999847695156, 1)",
-   "w": "γ = 180° − 89° − 70° = 21°. c = 3 · sin 21° : sin 89° ≈ 1,1 cm.",
-   "h": "Berechne zuerst γ mit der Winkelsumme."
-  },
-  {
-   "l": "sinussatz_seite",
-   "t": "sinussatz_seite",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Im Dreieck ABC ist α = 49°, β = 39° und a = 15 cm. Berechne c (auf eine Nachkommastelle)."
-   },
-   "o": {
-    "wert": 19.9,
-    "einheit": "cm",
-    "toleranz": 0.1
-   },
-   "c": "round(15 * 0.999390827019 / 0.754709580223, 1)",
-   "w": "γ = 180° − 49° − 39° = 92°. c = 15 · sin 92° : sin 49° ≈ 19,9 cm.",
-   "h": "Berechne zuerst γ mit der Winkelsumme."
-  },
-  {
-   "l": "sinussatz_seite",
-   "t": "sinussatz_seite",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Im Dreieck ABC ist α = 85°, β = 34° und a = 13 cm. Berechne c (auf eine Nachkommastelle)."
-   },
-   "o": {
-    "wert": 11.4,
-    "einheit": "cm",
-    "toleranz": 0.1
-   },
-   "c": "round(13 * 0.874619707139 / 0.996194698092, 1)",
-   "w": "γ = 180° − 85° − 34° = 61°. c = 13 · sin 61° : sin 85° ≈ 11,4 cm.",
-   "h": "Berechne zuerst γ mit der Winkelsumme."
-  },
-  {
-   "l": "sinussatz_seite",
-   "t": "sinussatz_seite",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Zwei Beobachter A und B stehen 117 m voneinander entfernt. Sie sehen einen Baum C auf der anderen Seite eines Sees unter den Winkeln α = 88° (bei A) und β = 67° (bei B) zur Strecke AB. Wie weit ist der Baum von A entfernt (auf ganze Meter)?"
-   },
-   "o": {
-    "wert": 255,
-    "einheit": "m",
-    "toleranz": 1
-   },
-   "c": "round(117 * 0.920504853452 / 0.422618261741, 0)",
-   "w": "γ = 180° − 88° − 67° = 25°. AC = b = 117 · sin 67° : sin 25° ≈ 255 m.",
-   "h": "AC liegt gegenüber von β; AB liegt gegenüber von γ."
-  },
-  {
-   "l": "sinussatz_seite",
-   "t": "sinussatz_seite",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Zwei Beobachter A und B stehen 235 m voneinander entfernt. Sie sehen einen Baum C auf der anderen Seite eines Sees unter den Winkeln α = 96° (bei A) und β = 46° (bei B) zur Strecke AB. Wie weit ist der Baum von A entfernt (auf ganze Meter)?"
-   },
-   "o": {
-    "wert": 275,
-    "einheit": "m",
-    "toleranz": 1
-   },
-   "c": "round(235 * 0.719339800339 / 0.615661475326, 0)",
-   "w": "γ = 180° − 96° − 46° = 38°. AC = b = 235 · sin 46° : sin 38° ≈ 275 m.",
-   "h": "AC liegt gegenüber von β; AB liegt gegenüber von γ."
-  },
-  {
-   "l": "sinussatz_seite",
-   "t": "sinussatz_seite",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Zwei Beobachter A und B stehen 171 m voneinander entfernt. Sie sehen einen Baum C auf der anderen Seite eines Sees unter den Winkeln α = 72° (bei A) und β = 28° (bei B) zur Strecke AB. Wie weit ist der Baum von A entfernt (auf ganze Meter)?"
-   },
-   "o": {
-    "wert": 82,
-    "einheit": "m",
-    "toleranz": 1
-   },
-   "c": "round(171 * 0.469471562786 / 0.984807753012, 0)",
-   "w": "γ = 180° − 72° − 28° = 80°. AC = b = 171 · sin 28° : sin 80° ≈ 82 m.",
-   "h": "AC liegt gegenüber von β; AB liegt gegenüber von γ."
-  },
-  {
-   "l": "sinussatz_seite",
-   "t": "sinussatz_seite",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Zwei Beobachter A und B stehen 300 m voneinander entfernt. Sie sehen einen Baum C auf der anderen Seite eines Sees unter den Winkeln α = 88° (bei A) und β = 71° (bei B) zur Strecke AB. Wie weit ist der Baum von A entfernt (auf ganze Meter)?"
-   },
-   "o": {
-    "wert": 792,
-    "einheit": "m",
-    "toleranz": 1
-   },
-   "c": "round(300 * 0.945518575599 / 0.358367949545, 0)",
-   "w": "γ = 180° − 88° − 71° = 21°. AC = b = 300 · sin 71° : sin 21° ≈ 792 m.",
-   "h": "AC liegt gegenüber von β; AB liegt gegenüber von γ."
-  },
-  {
-   "l": "sinussatz_seite",
-   "t": "sinussatz_seite",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Zwei Beobachter A und B stehen 222 m voneinander entfernt. Sie sehen einen Baum C auf der anderen Seite eines Sees unter den Winkeln α = 54° (bei A) und β = 69° (bei B) zur Strecke AB. Wie weit ist der Baum von A entfernt (auf ganze Meter)?"
-   },
-   "o": {
-    "wert": 247,
-    "einheit": "m",
-    "toleranz": 1
-   },
-   "c": "round(222 * 0.933580426497 / 0.838670567945, 0)",
-   "w": "γ = 180° − 54° − 69° = 57°. AC = b = 222 · sin 69° : sin 57° ≈ 247 m.",
-   "h": "AC liegt gegenüber von β; AB liegt gegenüber von γ."
-  },
-  {
-   "l": "sinussatz_seite",
-   "t": "sinussatz_seite",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Zwei Beobachter A und B stehen 379 m voneinander entfernt. Sie sehen einen Baum C auf der anderen Seite eines Sees unter den Winkeln α = 55° (bei A) und β = 74° (bei B) zur Strecke AB. Wie weit ist der Baum von A entfernt (auf ganze Meter)?"
-   },
-   "o": {
-    "wert": 469,
-    "einheit": "m",
-    "toleranz": 1
-   },
-   "c": "round(379 * 0.961261695938 / 0.777145961457, 0)",
-   "w": "γ = 180° − 55° − 74° = 51°. AC = b = 379 · sin 74° : sin 51° ≈ 469 m.",
-   "h": "AC liegt gegenüber von β; AB liegt gegenüber von γ."
-  },
-  {
-   "l": "sinussatz_seite",
-   "t": "sinussatz_seite",
-   "p": "test",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -1531,12 +1990,13 @@
     "toleranz": 0.1
    },
    "c": "round(6 * 0.874619707139 / 0.406736643076, 1)",
-   "w": "γ = 180° − 24° − 37° = 119°. c = 6 · sin 119° : sin 24° ≈ 12,9 cm."
+   "w": "γ = 180° − 24° − 37° = 119°. c = 6 · sin 119° : sin 24° ≈ 12,9 cm.",
+   "h": "Berechne zuerst γ mit der Winkelsumme."
   },
   {
    "l": "sinussatz_seite",
    "t": "sinussatz_seite",
-   "p": "korrektur",
+   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -1548,12 +2008,13 @@
     "toleranz": 0.1
    },
    "c": "round(3 * 0.731353701619 / 0.743144825477, 1)",
-   "w": "γ = 180° − 48° − 85° = 47°. c = 3 · sin 47° : sin 48° ≈ 3 cm."
+   "w": "γ = 180° − 48° − 85° = 47°. c = 3 · sin 47° : sin 48° ≈ 3 cm.",
+   "h": "Berechne zuerst γ mit der Winkelsumme."
   },
   {
    "l": "sinussatz_seite",
    "t": "sinussatz_seite",
-   "p": "korrektur",
+   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -1565,7 +2026,139 @@
     "toleranz": 0.1
    },
    "c": "round(4 * 0.945518575599 / 0.951056516295, 1)",
-   "w": "γ = 180° − 72° − 37° = 71°. c = 4 · sin 71° : sin 72° ≈ 4 cm."
+   "w": "γ = 180° − 72° − 37° = 71°. c = 4 · sin 71° : sin 72° ≈ 4 cm.",
+   "h": "Berechne zuerst γ mit der Winkelsumme."
+  },
+  {
+   "l": "sinussatz_seite",
+   "t": "sinussatz_seite",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Beobachter A und B stehen 380 m voneinander entfernt. Sie sehen einen Baum C auf der anderen Seite eines Sees unter den Winkeln α = 60° (bei A) und β = 42° (bei B) zur Strecke AB. Wie weit ist der Baum von A entfernt (auf ganze Meter)?"
+   },
+   "o": {
+    "wert": 260,
+    "einheit": "m",
+    "toleranz": 1
+   },
+   "c": "round(380 * 0.669130606359 / 0.978147600734, 0)",
+   "w": "γ = 180° − 60° − 42° = 78°. AC = b = 380 · sin 42° : sin 78° ≈ 260 m.",
+   "h": "AC liegt gegenüber von β; AB liegt gegenüber von γ."
+  },
+  {
+   "l": "sinussatz_seite",
+   "t": "sinussatz_seite",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Beobachter A und B stehen 171 m voneinander entfernt. Sie sehen einen Baum C auf der anderen Seite eines Sees unter den Winkeln α = 47° (bei A) und β = 30° (bei B) zur Strecke AB. Wie weit ist der Baum von A entfernt (auf ganze Meter)?"
+   },
+   "o": {
+    "wert": 88,
+    "einheit": "m",
+    "toleranz": 1
+   },
+   "c": "round(171 * 0.500000000000 / 0.974370064785, 0)",
+   "w": "γ = 180° − 47° − 30° = 103°. AC = b = 171 · sin 30° : sin 103° ≈ 88 m.",
+   "h": "AC liegt gegenüber von β; AB liegt gegenüber von γ."
+  },
+  {
+   "l": "sinussatz_seite",
+   "t": "sinussatz_seite",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Beobachter A und B stehen 115 m voneinander entfernt. Sie sehen einen Baum C auf der anderen Seite eines Sees unter den Winkeln α = 37° (bei A) und β = 61° (bei B) zur Strecke AB. Wie weit ist der Baum von A entfernt (auf ganze Meter)?"
+   },
+   "o": {
+    "wert": 102,
+    "einheit": "m",
+    "toleranz": 1
+   },
+   "c": "round(115 * 0.874619707139 / 0.990268068742, 0)",
+   "w": "γ = 180° − 37° − 61° = 82°. AC = b = 115 · sin 61° : sin 82° ≈ 102 m.",
+   "h": "AC liegt gegenüber von β; AB liegt gegenüber von γ."
+  },
+  {
+   "l": "sinussatz_seite",
+   "t": "sinussatz_seite",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Beobachter A und B stehen 77 m voneinander entfernt. Sie sehen einen Baum C auf der anderen Seite eines Sees unter den Winkeln α = 34° (bei A) und β = 27° (bei B) zur Strecke AB. Wie weit ist der Baum von A entfernt (auf ganze Meter)?"
+   },
+   "o": {
+    "wert": 40,
+    "einheit": "m",
+    "toleranz": 1
+   },
+   "c": "round(77 * 0.453990499740 / 0.874619707139, 0)",
+   "w": "γ = 180° − 34° − 27° = 119°. AC = b = 77 · sin 27° : sin 119° ≈ 40 m.",
+   "h": "AC liegt gegenüber von β; AB liegt gegenüber von γ."
+  },
+  {
+   "l": "sinussatz_seite",
+   "t": "sinussatz_seite",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "α = 25°, β = 81°, a = 6 cm. Jemand rechnet b = 6 · sin 25° : sin 81° ≈ 2,6 cm. Was ist falsch?"
+   },
+   "a": [
+    "Man muss den Kosinussatz nehmen.",
+    "Nichts, die Rechnung stimmt.",
+    "Die Winkel sind vertauscht; richtig ist b = 6 · sin 81° : sin 25° ≈ 14 cm.",
+    "Man braucht γ = 74°: b = 6 · sin 74° : sin 25°."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "b : sin β = a : sin α ⇒ b = a · sin β : sin α. Probe: β > α, also muss b > a sein; 2,6 < 6.",
+   "h": "Welcher Winkel liegt b gegenüber? Er gehört zu b."
+  },
+  {
+   "l": "sinussatz_seite",
+   "t": "sinussatz_seite",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "α = 37°, β = 79°, a = 7 cm. Jemand rechnet b = 7 · sin 37° : sin 79° ≈ 4,3 cm. Was ist falsch?"
+   },
+   "a": [
+    "Die Winkel sind vertauscht; richtig ist b = 7 · sin 79° : sin 37° ≈ 11,4 cm.",
+    "Man muss den Kosinussatz nehmen.",
+    "Nichts, die Rechnung stimmt.",
+    "Man braucht γ = 64°: b = 7 · sin 64° : sin 37°."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "b : sin β = a : sin α ⇒ b = a · sin β : sin α. Probe: β > α, also muss b > a sein; 4,3 < 7.",
+   "h": "Welcher Winkel liegt b gegenüber? Er gehört zu b."
+  },
+  {
+   "l": "sinussatz_seite",
+   "t": "sinussatz_seite",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist α = 45°, β = 89° und a = 11 cm. Berechne c (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 11.2,
+    "einheit": "cm",
+    "toleranz": 0.1
+   },
+   "c": "round(11 * 0.719339800339 / 0.707106781187, 1)",
+   "w": "γ = 180° − 45° − 89° = 46°. c = 11 · sin 46° : sin 45° ≈ 11,2 cm."
   },
   {
    "l": "sinussatz_seite",
@@ -1574,15 +2167,49 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Im Dreieck ABC ist α = 60°, β = 42° und a = 11 cm. Berechne c (auf eine Nachkommastelle)."
+    "text": "Im Dreieck ABC ist α = 83°, β = 58° und a = 14 cm. Berechne c (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 12.4,
+    "wert": 8.9,
     "einheit": "cm",
     "toleranz": 0.1
    },
-   "c": "round(11 * 0.978147600734 / 0.866025403784, 1)",
-   "w": "γ = 180° − 60° − 42° = 78°. c = 11 · sin 78° : sin 60° ≈ 12,4 cm."
+   "c": "round(14 * 0.629320391050 / 0.992546151641, 1)",
+   "w": "γ = 180° − 83° − 58° = 39°. c = 14 · sin 39° : sin 83° ≈ 8,9 cm."
+  },
+  {
+   "l": "sinussatz_seite",
+   "t": "sinussatz_seite",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist α = 92°, β = 42° und a = 10 cm. Berechne c (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 7.2,
+    "einheit": "cm",
+    "toleranz": 0.1
+   },
+   "c": "round(10 * 0.719339800339 / 0.999390827019, 1)",
+   "w": "γ = 180° − 92° − 42° = 46°. c = 10 · sin 46° : sin 92° ≈ 7,2 cm."
+  },
+  {
+   "l": "sinussatz_seite",
+   "t": "sinussatz_seite",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist α = 71°, β = 28° und a = 7 cm. Berechne c (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 7.3,
+    "einheit": "cm",
+    "toleranz": 0.1
+   },
+   "c": "round(7 * 0.987688340595 / 0.945518575599, 1)",
+   "w": "γ = 180° − 71° − 28° = 81°. c = 7 · sin 81° : sin 71° ≈ 7,3 cm."
   },
   {
    "l": "sinussatz_seite",
@@ -1591,15 +2218,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Im Dreieck ABC ist α = 33°, β = 92° und a = 12 cm. Berechne c (auf eine Nachkommastelle)."
+    "text": "Im Dreieck ABC ist α = 22°, β = 30° und a = 7 cm. Berechne c (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 18,
+    "wert": 14.7,
     "einheit": "cm",
     "toleranz": 0.1
    },
-   "c": "round(12 * 0.819152044289 / 0.544639035015, 1)",
-   "w": "γ = 180° − 33° − 92° = 55°. c = 12 · sin 55° : sin 33° ≈ 18 cm."
+   "c": "round(7 * 0.788010753607 / 0.374606593416, 1)",
+   "w": "γ = 180° − 22° − 30° = 128°. c = 7 · sin 128° : sin 22° ≈ 14,7 cm."
   },
   {
    "l": "sinussatz_seite",
@@ -1608,15 +2235,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Im Dreieck ABC ist α = 47°, β = 30° und a = 9 cm. Berechne c (auf eine Nachkommastelle)."
+    "text": "Im Dreieck ABC ist α = 51°, β = 72° und a = 4 cm. Berechne c (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 12,
+    "wert": 4.3,
     "einheit": "cm",
     "toleranz": 0.1
    },
-   "c": "round(9 * 0.974370064785 / 0.731353701619, 1)",
-   "w": "γ = 180° − 47° − 30° = 103°. c = 9 · sin 103° : sin 47° ≈ 12 cm."
+   "c": "round(4 * 0.838670567945 / 0.777145961457, 1)",
+   "w": "γ = 180° − 51° − 72° = 57°. c = 4 · sin 57° : sin 51° ≈ 4,3 cm."
   },
   {
    "l": "sinussatz_seite",
@@ -1625,15 +2252,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Im Dreieck ABC ist α = 65°, β = 50° und a = 5 cm. Berechne c (auf eine Nachkommastelle)."
+    "text": "Im Dreieck ABC ist α = 95°, β = 21° und a = 6 cm. Berechne c (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 5,
+    "wert": 5.4,
     "einheit": "cm",
     "toleranz": 0.1
    },
-   "c": "round(5 * 0.906307787037 / 0.906307787037, 1)",
-   "w": "γ = 180° − 65° − 50° = 65°. c = 5 · sin 65° : sin 65° ≈ 5 cm."
+   "c": "round(6 * 0.898794046299 / 0.996194698092, 1)",
+   "w": "γ = 180° − 95° − 21° = 64°. c = 6 · sin 64° : sin 95° ≈ 5,4 cm."
   },
   {
    "l": "sinussatz_seite",
@@ -1642,15 +2269,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Im Dreieck ABC ist α = 61°, β = 36° und a = 4 cm. Berechne c (auf eine Nachkommastelle)."
+    "text": "Im Dreieck ABC ist α = 36°, β = 65° und a = 15 cm. Berechne c (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 4.5,
+    "wert": 25.1,
     "einheit": "cm",
     "toleranz": 0.1
    },
-   "c": "round(4 * 0.992546151641 / 0.874619707139, 1)",
-   "w": "γ = 180° − 61° − 36° = 83°. c = 4 · sin 83° : sin 61° ≈ 4,5 cm."
+   "c": "round(15 * 0.981627183448 / 0.587785252292, 1)",
+   "w": "γ = 180° − 36° − 65° = 79°. c = 15 · sin 79° : sin 36° ≈ 25,1 cm."
   },
   {
    "l": "sinussatz_seite",
@@ -1659,15 +2286,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Im Dreieck ABC ist α = 27°, β = 30° und a = 11 cm. Berechne c (auf eine Nachkommastelle)."
+    "text": "Im Dreieck ABC ist α = 63°, β = 79° und a = 7 cm. Berechne c (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 20.3,
+    "wert": 4.8,
     "einheit": "cm",
     "toleranz": 0.1
    },
-   "c": "round(11 * 0.838670567945 / 0.453990499740, 1)",
-   "w": "γ = 180° − 27° − 30° = 123°. c = 11 · sin 123° : sin 27° ≈ 20,3 cm."
+   "c": "round(7 * 0.615661475326 / 0.891006524188, 1)",
+   "w": "γ = 180° − 63° − 79° = 38°. c = 7 · sin 38° : sin 63° ≈ 4,8 cm."
   },
   {
    "l": "sinussatz_seite",
@@ -1676,15 +2303,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Im Dreieck ABC ist α = 26°, β = 61° und a = 9 cm. Berechne c (auf eine Nachkommastelle)."
+    "text": "Im Dreieck ABC ist α = 55°, β = 71° und a = 11 cm. Berechne c (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 20.5,
+    "wert": 10.9,
     "einheit": "cm",
     "toleranz": 0.1
    },
-   "c": "round(9 * 0.998629534755 / 0.438371146789, 1)",
-   "w": "γ = 180° − 26° − 61° = 93°. c = 9 · sin 93° : sin 26° ≈ 20,5 cm."
+   "c": "round(11 * 0.809016994375 / 0.819152044289, 1)",
+   "w": "γ = 180° − 55° − 71° = 54°. c = 11 · sin 54° : sin 55° ≈ 10,9 cm."
   },
   {
    "l": "sinussatz_winkel",
@@ -1693,16 +2320,16 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Im Dreieck ABC ist a = 10 cm, b = 3 cm und α = 38°. Berechne β (auf eine Nachkommastelle)."
+    "text": "Im Dreieck ABC ist a = 11 cm, b = 9 cm und α = 30°. Berechne β (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 10.6,
+    "wert": 24.1,
     "einheit": "°",
     "toleranz": 0.1
    },
-   "c": "round(10.643551456955, 1)",
-   "w": "sin β = 3 · sin 38° : 10 ≈ 0,1847; β ≈ 10,6° (eindeutig, weil b < a).",
-   "h": "Sinussatz nach sin β umstellen, dann sin⁻¹."
+   "c": "round(24.147739917022, 1)",
+   "w": "sin β = 9 · sin 30° : 11 = 9 · 0,5 : 11 = 9/22; β ≈ 24,1° (eindeutig, weil b < a).",
+   "h": "Sinussatz nach sin β umstellen; sin 30° = 0,5."
   },
   {
    "l": "sinussatz_winkel",
@@ -1711,16 +2338,16 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Im Dreieck ABC ist a = 10 cm, b = 7 cm und α = 25°. Berechne β (auf eine Nachkommastelle)."
+    "text": "Im Dreieck ABC ist a = 12 cm, b = 4 cm und α = 30°. Berechne β (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 17.2,
+    "wert": 9.6,
     "einheit": "°",
     "toleranz": 0.1
    },
-   "c": "round(17.207481409819, 1)",
-   "w": "sin β = 7 · sin 25° : 10 ≈ 0,2958; β ≈ 17,2° (eindeutig, weil b < a).",
-   "h": "Sinussatz nach sin β umstellen, dann sin⁻¹."
+   "c": "round(9.594068226860, 1)",
+   "w": "sin β = 4 · sin 30° : 12 = 4 · 0,5 : 12 = 1/6; β ≈ 9,6° (eindeutig, weil b < a).",
+   "h": "Sinussatz nach sin β umstellen; sin 30° = 0,5."
   },
   {
    "l": "sinussatz_winkel",
@@ -1729,16 +2356,16 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Im Dreieck ABC ist a = 15 cm, b = 14 cm und α = 58°. Berechne β (auf eine Nachkommastelle)."
+    "text": "Im Dreieck ABC ist a = 6 cm, b = 3 cm und α = 30°. Berechne β (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 52.3,
+    "wert": 14.5,
     "einheit": "°",
     "toleranz": 0.1
    },
-   "c": "round(52.326993998048, 1)",
-   "w": "sin β = 14 · sin 58° : 15 ≈ 0,7915; β ≈ 52,3° (eindeutig, weil b < a).",
-   "h": "Sinussatz nach sin β umstellen, dann sin⁻¹."
+   "c": "round(14.477512185930, 1)",
+   "w": "sin β = 3 · sin 30° : 6 = 3 · 0,5 : 6 = 0,25; β ≈ 14,5° (eindeutig, weil b < a).",
+   "h": "Sinussatz nach sin β umstellen; sin 30° = 0,5."
   },
   {
    "l": "sinussatz_winkel",
@@ -1747,16 +2374,16 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Im Dreieck ABC ist a = 13 cm, b = 5 cm und α = 37°. Berechne β (auf eine Nachkommastelle)."
+    "text": "Im Dreieck ABC ist a = 6 cm, b = 4 cm und α = 30°. Berechne β (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 13.4,
+    "wert": 19.5,
     "einheit": "°",
     "toleranz": 0.1
    },
-   "c": "round(13.383474206892, 1)",
-   "w": "sin β = 5 · sin 37° : 13 ≈ 0,2315; β ≈ 13,4° (eindeutig, weil b < a).",
-   "h": "Sinussatz nach sin β umstellen, dann sin⁻¹."
+   "c": "round(19.471220634491, 1)",
+   "w": "sin β = 4 · sin 30° : 6 = 4 · 0,5 : 6 = 1/3; β ≈ 19,5° (eindeutig, weil b < a).",
+   "h": "Sinussatz nach sin β umstellen; sin 30° = 0,5."
   },
   {
    "l": "sinussatz_winkel",
@@ -1765,141 +2392,141 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Im Dreieck ABC ist a = 14 cm, b = 7 cm und α = 28°. Berechne β (auf eine Nachkommastelle)."
-   },
-   "o": {
-    "wert": 13.6,
-    "einheit": "°",
-    "toleranz": 0.1
-   },
-   "c": "round(13.576048508604, 1)",
-   "w": "sin β = 7 · sin 28° : 14 ≈ 0,2347; β ≈ 13,6° (eindeutig, weil b < a).",
-   "h": "Sinussatz nach sin β umstellen, dann sin⁻¹."
-  },
-  {
-   "l": "sinussatz_winkel",
-   "t": "sinussatz_winkel",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Im Dreieck ABC ist a = 11 cm, b = 6 cm und α = 40°. Berechne β (auf eine Nachkommastelle)."
-   },
-   "o": {
-    "wert": 20.5,
-    "einheit": "°",
-    "toleranz": 0.1
-   },
-   "c": "round(20.524717058136, 1)",
-   "w": "sin β = 6 · sin 40° : 11 ≈ 0,3506; β ≈ 20,5° (eindeutig, weil b < a).",
-   "h": "Sinussatz nach sin β umstellen, dann sin⁻¹."
-  },
-  {
-   "l": "sinussatz_winkel",
-   "t": "sinussatz_winkel",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Im Dreieck ABC ist a = 8 cm, b = 4 cm und α = 39°. Berechne β (auf eine Nachkommastelle)."
-   },
-   "o": {
-    "wert": 18.3,
-    "einheit": "°",
-    "toleranz": 0.1
-   },
-   "c": "round(18.340301332733, 1)",
-   "w": "sin β = 4 · sin 39° : 8 ≈ 0,3147; β ≈ 18,3° (eindeutig, weil b < a).",
-   "h": "Sinussatz nach sin β umstellen, dann sin⁻¹."
-  },
-  {
-   "l": "sinussatz_winkel",
-   "t": "sinussatz_winkel",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Im Dreieck ABC ist a = 9 cm, b = 7 cm und α = 38°. Berechne β (auf eine Nachkommastelle)."
-   },
-   "o": {
-    "wert": 28.6,
-    "einheit": "°",
-    "toleranz": 0.1
-   },
-   "c": "round(28.610177947834, 1)",
-   "w": "sin β = 7 · sin 38° : 9 ≈ 0,4788; β ≈ 28,6° (eindeutig, weil b < a).",
-   "h": "Sinussatz nach sin β umstellen, dann sin⁻¹."
-  },
-  {
-   "l": "sinussatz_winkel",
-   "t": "sinussatz_winkel",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Im Dreieck ABC ist a = 13 cm, b = 7 cm und α = 60°. Berechne β (auf eine Nachkommastelle)."
-   },
-   "o": {
-    "wert": 27.8,
-    "einheit": "°",
-    "toleranz": 0.1
-   },
-   "c": "round(27.795772496028, 1)",
-   "w": "sin β = 7 · sin 60° : 13 ≈ 0,4663; β ≈ 27,8° (eindeutig, weil b < a).",
-   "h": "Sinussatz nach sin β umstellen, dann sin⁻¹."
-  },
-  {
-   "l": "sinussatz_winkel",
-   "t": "sinussatz_winkel",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Im Dreieck ABC ist a = 8 cm, b = 6 cm und α = 61°. Berechne β (auf eine Nachkommastelle)."
-   },
-   "o": {
-    "wert": 41,
-    "einheit": "°",
-    "toleranz": 0.1
-   },
-   "c": "round(40.992845253133, 1)",
-   "w": "sin β = 6 · sin 61° : 8 ≈ 0,656; β ≈ 41° (eindeutig, weil b < a).",
-   "h": "Sinussatz nach sin β umstellen, dann sin⁻¹."
-  },
-  {
-   "l": "sinussatz_winkel",
-   "t": "sinussatz_winkel",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Im Dreieck ABC ist a = 7 cm, b = 5 cm und α = 50°. Berechne β (auf eine Nachkommastelle)."
-   },
-   "o": {
-    "wert": 33.2,
-    "einheit": "°",
-    "toleranz": 0.1
-   },
-   "c": "round(33.173393969834, 1)",
-   "w": "sin β = 5 · sin 50° : 7 ≈ 0,5472; β ≈ 33,2° (eindeutig, weil b < a).",
-   "h": "Sinussatz nach sin β umstellen, dann sin⁻¹."
-  },
-  {
-   "l": "sinussatz_winkel",
-   "t": "sinussatz_winkel",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Im Dreieck ABC ist a = 7 cm, b = 5 cm und α = 26°. Berechne β (auf eine Nachkommastelle)."
+    "text": "Im Dreieck ABC ist a = 8 cm, b = 5 cm und α = 30°. Berechne β (auf eine Nachkommastelle)."
    },
    "o": {
     "wert": 18.2,
     "einheit": "°",
     "toleranz": 0.1
    },
-   "c": "round(18.247492758186, 1)",
-   "w": "sin β = 5 · sin 26° : 7 ≈ 0,3131; β ≈ 18,2° (eindeutig, weil b < a).",
+   "c": "round(18.209956864283, 1)",
+   "w": "sin β = 5 · sin 30° : 8 = 5 · 0,5 : 8 = 0,3125; β ≈ 18,2° (eindeutig, weil b < a).",
+   "h": "Sinussatz nach sin β umstellen; sin 30° = 0,5."
+  },
+  {
+   "l": "sinussatz_winkel",
+   "t": "sinussatz_winkel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist a = 7 cm, b = 5 cm und α = 30°. Berechne β (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 20.9,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(20.924832427638, 1)",
+   "w": "sin β = 5 · sin 30° : 7 = 5 · 0,5 : 7 = 5/14; β ≈ 20,9° (eindeutig, weil b < a).",
+   "h": "Sinussatz nach sin β umstellen; sin 30° = 0,5."
+  },
+  {
+   "l": "sinussatz_winkel",
+   "t": "sinussatz_winkel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist a = 8 cm, b = 3 cm und α = 43°. Berechne β (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 14.8,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(14.817994261366, 1)",
+   "w": "sin β = 3 · sin 43° : 8 ≈ 0,2557; β ≈ 14,8° (eindeutig, weil b < a).",
+   "h": "Sinussatz nach sin β umstellen, dann sin⁻¹."
+  },
+  {
+   "l": "sinussatz_winkel",
+   "t": "sinussatz_winkel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist a = 14 cm, b = 6 cm und α = 65°. Berechne β (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 22.9,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(22.856075058123, 1)",
+   "w": "sin β = 6 · sin 65° : 14 ≈ 0,3884; β ≈ 22,9° (eindeutig, weil b < a).",
+   "h": "Sinussatz nach sin β umstellen, dann sin⁻¹."
+  },
+  {
+   "l": "sinussatz_winkel",
+   "t": "sinussatz_winkel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist a = 10 cm, b = 9 cm und α = 36°. Berechne β (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 31.9,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(31.938367914638, 1)",
+   "w": "sin β = 9 · sin 36° : 10 ≈ 0,529; β ≈ 31,9° (eindeutig, weil b < a).",
+   "h": "Sinussatz nach sin β umstellen, dann sin⁻¹."
+  },
+  {
+   "l": "sinussatz_winkel",
+   "t": "sinussatz_winkel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist a = 6 cm, b = 5 cm und α = 41°. Berechne β (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 33.1,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(33.141997493028, 1)",
+   "w": "sin β = 5 · sin 41° : 6 ≈ 0,5467; β ≈ 33,1° (eindeutig, weil b < a).",
+   "h": "Sinussatz nach sin β umstellen, dann sin⁻¹."
+  },
+  {
+   "l": "sinussatz_winkel",
+   "t": "sinussatz_winkel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist a = 6 cm, b = 4 cm und α = 45°. Berechne β (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 28.1,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(28.125505702056, 1)",
+   "w": "sin β = 4 · sin 45° : 6 ≈ 0,4714; β ≈ 28,1° (eindeutig, weil b < a).",
+   "h": "Sinussatz nach sin β umstellen, dann sin⁻¹."
+  },
+  {
+   "l": "sinussatz_winkel",
+   "t": "sinussatz_winkel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist a = 12 cm, b = 8 cm und α = 60°. Berechne β (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 35.3,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(35.264389682755, 1)",
+   "w": "sin β = 8 · sin 60° : 12 ≈ 0,5774; β ≈ 35,3° (eindeutig, weil b < a).",
    "h": "Sinussatz nach sin β umstellen, dann sin⁻¹."
   },
   {
@@ -1907,20 +2534,65 @@
    "t": "sinussatz_winkel",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
+   "y": "luecken",
    "f": {
-    "text": "Gegeben a = 9 cm, b = 16 cm, α = 68°. Wie viele Dreiecke gibt es?"
+    "text": "Gegeben a = 13 cm, b = 16 cm, α = 40°. Gib alle möglichen Winkel β auf ganze Grad an.",
+    "schablone": "β₁ ≈ □°; β₂ ≈ □°",
+    "hinweis": "spitzer Winkel zuerst"
    },
-   "a": [
-    "genau ein Dreieck",
-    "kein Dreieck",
-    "zwei Dreiecke"
-   ],
    "o": {
-    "index": 1
+    "werte": [
+     52,
+     128
+    ]
    },
-   "w": "sin β = 16 · sin 68° : 9 ≈ 1,6483 > 1: kein Winkel möglich, kein Dreieck.",
-   "h": "Berechne sin β. Ist der Wert kleiner als 1? Ist die gegebene Gegenseite a die kleinere?"
+   "w": "sin β = 16 · sin 40° : 13 ≈ 0,7911: β₁ ≈ 52°, β₂ = 180° − β₁ ≈ 128°. Beide passen, denn 40° + 128° < 180°.",
+   "h": "Zu einem Sinuswert gibt es β und 180° − β. Prüfe, ob beide ins Dreieck passen.",
+   "c": [
+    "round(52.290601621407, 0)",
+    "round(180 - 52.290601621407, 0)"
+   ]
+  },
+  {
+   "l": "sinussatz_winkel",
+   "t": "sinussatz_winkel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Gegeben a = 7 cm, b = 14 cm, α = 30°. Berechne β."
+   },
+   "o": {
+    "wert": 90,
+    "einheit": "°"
+   },
+   "c": "90",
+   "w": "sin β = 14 · 0,5 : 7 = 1 ⇒ β = 90°. Es gibt genau ein Dreieck – es ist rechtwinklig.",
+   "h": "Berechne sin β. Was bedeutet sin β = 1?"
+  },
+  {
+   "l": "sinussatz_winkel",
+   "t": "sinussatz_winkel",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Gegeben a = 9 cm, b = 13 cm, α = 25°. Gib alle möglichen Winkel β auf ganze Grad an.",
+    "schablone": "β₁ ≈ □°; β₂ ≈ □°",
+    "hinweis": "spitzer Winkel zuerst"
+   },
+   "o": {
+    "werte": [
+     38,
+     142
+    ]
+   },
+   "w": "sin β = 13 · sin 25° : 9 ≈ 0,6104: β₁ ≈ 38°, β₂ = 180° − β₁ ≈ 142°. Beide passen, denn 25° + 142° < 180°.",
+   "h": "Zu einem Sinuswert gibt es β und 180° − β. Prüfe, ob beide ins Dreieck passen.",
+   "c": [
+    "round(37.621946758648, 0)",
+    "round(180 - 37.621946758648, 0)"
+   ]
   },
   {
    "l": "sinussatz_winkel",
@@ -1929,37 +2601,17 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Gegeben a = 11 cm, b = 17 cm, α = 33°. Wie viele Dreiecke gibt es?"
+    "text": "Gegeben a = 12 cm, b = 20 cm, α = 36°. Wie viele Dreiecke gibt es?"
    },
    "a": [
-    "genau ein Dreieck",
     "zwei Dreiecke",
+    "genau ein Dreieck",
     "kein Dreieck"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "sin β = 17 · sin 33° : 11 ≈ 0,8417 < 1, und weil b > a passen β und 180° − β: zwei Dreiecke.",
-   "h": "Berechne sin β. Ist der Wert kleiner als 1? Ist die gegebene Gegenseite a die kleinere?"
-  },
-  {
-   "l": "sinussatz_winkel",
-   "t": "sinussatz_winkel",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Gegeben a = 14 cm, b = 20 cm, α = 57°. Wie viele Dreiecke gibt es?"
-   },
-   "a": [
-    "kein Dreieck",
-    "zwei Dreiecke",
-    "genau ein Dreieck"
    ],
    "o": {
     "index": 0
    },
-   "w": "sin β = 20 · sin 57° : 14 ≈ 1,1981 > 1: kein Winkel möglich, kein Dreieck.",
+   "w": "sin β = 20 · sin 36° : 12 ≈ 0,9796 < 1, und weil b > a passen β und 180° − β: zwei Dreiecke.",
    "h": "Berechne sin β. Ist der Wert kleiner als 1? Ist die gegebene Gegenseite a die kleinere?"
   },
   {
@@ -1967,56 +2619,48 @@
    "t": "sinussatz_winkel",
    "p": "uebung",
    "s": 3,
-   "y": "zahl",
+   "y": "luecken",
    "f": {
-    "text": "Gegeben a = 7 cm, b = 10 cm, α = 44°. Es gibt zwei Dreiecke. Berechne den stumpfen Winkel β (auf eine Nachkommastelle)."
+    "text": "Gegeben a = 15 cm, b = 17 cm, α = 37°. Gib alle möglichen Winkel β auf ganze Grad an.",
+    "schablone": "β₁ ≈ □°; β₂ ≈ □°",
+    "hinweis": "spitzer Winkel zuerst"
    },
    "o": {
-    "wert": 97.1,
-    "einheit": "°",
-    "toleranz": 0.1
+    "werte": [
+     43,
+     137
+    ]
    },
-   "c": "round(180 - 82.917247739369, 1)",
-   "w": "sin β ≈ 0,9924: β₁ ≈ 82,9°, β₂ = 180° − β₁ ≈ 97,1° (und 44° + 97,1° < 180°).",
-   "h": "Zu einem Sinuswert gibt es β und 180° − β."
+   "w": "sin β = 17 · sin 37° : 15 ≈ 0,6821: β₁ ≈ 43°, β₂ = 180° − β₁ ≈ 137°. Beide passen, denn 37° + 137° < 180°.",
+   "h": "Zu einem Sinuswert gibt es β und 180° − β. Prüfe, ob beide ins Dreieck passen.",
+   "c": [
+    "round(43.004596202954, 0)",
+    "round(180 - 43.004596202954, 0)"
+   ]
   },
   {
    "l": "sinussatz_winkel",
    "t": "sinussatz_winkel",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
+   "y": "luecken",
    "f": {
-    "text": "Gegeben a = 7 cm, b = 11 cm, α = 36°. Wie viele Dreiecke gibt es?"
-   },
-   "a": [
-    "genau ein Dreieck",
-    "zwei Dreiecke",
-    "kein Dreieck"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "sin β = 11 · sin 36° : 7 ≈ 0,9237 < 1, und weil b > a passen β und 180° − β: zwei Dreiecke.",
-   "h": "Berechne sin β. Ist der Wert kleiner als 1? Ist die gegebene Gegenseite a die kleinere?"
-  },
-  {
-   "l": "sinussatz_winkel",
-   "t": "sinussatz_winkel",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Gegeben a = 15 cm, b = 21 cm, α = 25°. Es gibt zwei Dreiecke. Berechne den stumpfen Winkel β (auf eine Nachkommastelle)."
+    "text": "Gegeben a = 13 cm, b = 19 cm, α = 26°. Gib alle möglichen Winkel β auf ganze Grad an.",
+    "schablone": "β₁ ≈ □°; β₂ ≈ □°",
+    "hinweis": "spitzer Winkel zuerst"
    },
    "o": {
-    "wert": 143.7,
-    "einheit": "°",
-    "toleranz": 0.1
+    "werte": [
+     40,
+     140
+    ]
    },
-   "c": "round(180 - 36.275291141711, 1)",
-   "w": "sin β ≈ 0,5917: β₁ ≈ 36,3°, β₂ = 180° − β₁ ≈ 143,7° (und 25° + 143,7° < 180°).",
-   "h": "Zu einem Sinuswert gibt es β und 180° − β."
+   "w": "sin β = 19 · sin 26° : 13 ≈ 0,6407: β₁ ≈ 40°, β₂ = 180° − β₁ ≈ 140°. Beide passen, denn 26° + 140° < 180°.",
+   "h": "Zu einem Sinuswert gibt es β und 180° − β. Prüfe, ob beide ins Dreieck passen.",
+   "c": [
+    "round(39.843759814611, 0)",
+    "round(180 - 39.843759814611, 0)"
+   ]
   },
   {
    "l": "sinussatz_winkel",
@@ -2025,15 +2669,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Im Dreieck ABC ist a = 13 cm, b = 11 cm und α = 26°. Berechne β (auf eine Nachkommastelle)."
+    "text": "Im Dreieck ABC ist a = 6 cm, b = 3 cm und α = 65°. Berechne β (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 21.8,
+    "wert": 26.9,
     "einheit": "°",
     "toleranz": 0.1
    },
-   "c": "round(21.772949174093, 1)",
-   "w": "sin β = 11 · sin 26° : 13 ≈ 0,3709; β ≈ 21,8° (eindeutig, weil b < a)."
+   "c": "round(26.946215262628, 1)",
+   "w": "sin β = 3 · sin 65° : 6 ≈ 0,4532; β ≈ 26,9° (eindeutig, weil b < a)."
   },
   {
    "l": "sinussatz_winkel",
@@ -2042,15 +2686,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Im Dreieck ABC ist a = 11 cm, b = 6 cm und α = 51°. Berechne β (auf eine Nachkommastelle)."
+    "text": "Im Dreieck ABC ist a = 13 cm, b = 6 cm und α = 55°. Berechne β (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 25.1,
+    "wert": 22.2,
     "einheit": "°",
     "toleranz": 0.1
    },
-   "c": "round(25.080917490230, 1)",
-   "w": "sin β = 6 · sin 51° : 11 ≈ 0,4239; β ≈ 25,1° (eindeutig, weil b < a)."
+   "c": "round(22.214195934796, 1)",
+   "w": "sin β = 6 · sin 55° : 13 ≈ 0,3781; β ≈ 22,2° (eindeutig, weil b < a)."
   },
   {
    "l": "sinussatz_winkel",
@@ -2059,15 +2703,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Im Dreieck ABC ist a = 8 cm, b = 5 cm und α = 53°. Berechne β (auf eine Nachkommastelle)."
+    "text": "Im Dreieck ABC ist a = 8 cm, b = 6 cm und α = 70°. Berechne β (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 29.9,
+    "wert": 44.8,
     "einheit": "°",
     "toleranz": 0.1
    },
-   "c": "round(29.943594815183, 1)",
-   "w": "sin β = 5 · sin 53° : 8 ≈ 0,4991; β ≈ 29,9° (eindeutig, weil b < a)."
+   "c": "round(44.810922533528, 1)",
+   "w": "sin β = 6 · sin 70° : 8 ≈ 0,7048; β ≈ 44,8° (eindeutig, weil b < a)."
   },
   {
    "l": "sinussatz_winkel",
@@ -2076,15 +2720,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Im Dreieck ABC ist a = 6 cm, b = 3 cm und α = 35°. Berechne β (auf eine Nachkommastelle)."
+    "text": "Im Dreieck ABC ist a = 13 cm, b = 4 cm und α = 54°. Berechne β (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 16.7,
+    "wert": 14.4,
     "einheit": "°",
     "toleranz": 0.1
    },
-   "c": "round(16.665768674058, 1)",
-   "w": "sin β = 3 · sin 35° : 6 ≈ 0,2868; β ≈ 16,7° (eindeutig, weil b < a)."
+   "c": "round(14.414103923334, 1)",
+   "w": "sin β = 4 · sin 54° : 13 ≈ 0,2489; β ≈ 14,4° (eindeutig, weil b < a)."
   },
   {
    "l": "sinussatz_winkel",
@@ -2093,15 +2737,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Im Dreieck ABC ist a = 13 cm, b = 11 cm und α = 57°. Berechne β (auf eine Nachkommastelle)."
+    "text": "Im Dreieck ABC ist a = 10 cm, b = 7 cm und α = 38°. Berechne β (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 45.2,
+    "wert": 25.5,
     "einheit": "°",
     "toleranz": 0.1
    },
-   "c": "round(45.205984138708, 1)",
-   "w": "sin β = 11 · sin 57° : 13 ≈ 0,7096; β ≈ 45,2° (eindeutig, weil b < a)."
+   "c": "round(25.528692152622, 1)",
+   "w": "sin β = 7 · sin 38° : 10 ≈ 0,431; β ≈ 25,5° (eindeutig, weil b < a)."
   },
   {
    "l": "sinussatz_winkel",
@@ -2110,15 +2754,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Im Dreieck ABC ist a = 10 cm, b = 3 cm und α = 65°. Berechne β (auf eine Nachkommastelle)."
+    "text": "Im Dreieck ABC ist a = 6 cm, b = 3 cm und α = 55°. Berechne β (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 15.8,
+    "wert": 24.2,
     "einheit": "°",
     "toleranz": 0.1
    },
-   "c": "round(15.776902955193, 1)",
-   "w": "sin β = 3 · sin 65° : 10 ≈ 0,2719; β ≈ 15,8° (eindeutig, weil b < a)."
+   "c": "round(24.178203959791, 1)",
+   "w": "sin β = 3 · sin 55° : 6 ≈ 0,4096; β ≈ 24,2° (eindeutig, weil b < a)."
   },
   {
    "l": "sinussatz_winkel",
@@ -2127,15 +2771,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Im Dreieck ABC ist a = 9 cm, b = 7 cm und α = 70°. Berechne β (auf eine Nachkommastelle)."
+    "text": "Im Dreieck ABC ist a = 9 cm, b = 5 cm und α = 45°. Berechne β (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 47,
+    "wert": 23.1,
     "einheit": "°",
     "toleranz": 0.1
    },
-   "c": "round(46.959550005593, 1)",
-   "w": "sin β = 7 · sin 70° : 9 ≈ 0,7309; β ≈ 47° (eindeutig, weil b < a)."
+   "c": "round(23.131147673095, 1)",
+   "w": "sin β = 5 · sin 45° : 9 ≈ 0,3928; β ≈ 23,1° (eindeutig, weil b < a)."
   },
   {
    "l": "sinussatz_winkel",
@@ -2144,15 +2788,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Im Dreieck ABC ist a = 9 cm, b = 6 cm und α = 68°. Berechne β (auf eine Nachkommastelle)."
+    "text": "Im Dreieck ABC ist a = 7 cm, b = 6 cm und α = 66°. Berechne β (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 38.2,
+    "wert": 51.5,
     "einheit": "°",
     "toleranz": 0.1
    },
-   "c": "round(38.179163813683, 1)",
-   "w": "sin β = 6 · sin 68° : 9 ≈ 0,6181; β ≈ 38,2° (eindeutig, weil b < a)."
+   "c": "round(51.539668404819, 1)",
+   "w": "sin β = 6 · sin 66° : 7 ≈ 0,783; β ≈ 51,5° (eindeutig, weil b < a)."
   },
   {
    "l": "sinussatz_winkel",
@@ -2161,15 +2805,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Im Dreieck ABC ist a = 10 cm, b = 8 cm und α = 59°. Berechne β (auf eine Nachkommastelle)."
+    "text": "Im Dreieck ABC ist a = 8 cm, b = 5 cm und α = 50°. Berechne β (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 43.3,
+    "wert": 28.6,
     "einheit": "°",
     "toleranz": 0.1
    },
-   "c": "round(43.293346910945, 1)",
-   "w": "sin β = 8 · sin 59° : 10 ≈ 0,6857; β ≈ 43,3° (eindeutig, weil b < a)."
+   "c": "round(28.605607088134, 1)",
+   "w": "sin β = 5 · sin 50° : 8 ≈ 0,4788; β ≈ 28,6° (eindeutig, weil b < a)."
   },
   {
    "l": "sinussatz_winkel",
@@ -2178,15 +2822,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Im Dreieck ABC ist a = 8 cm, b = 6 cm und α = 39°. Berechne β (auf eine Nachkommastelle)."
+    "text": "Im Dreieck ABC ist a = 8 cm, b = 7 cm und α = 44°. Berechne β (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 28.2,
+    "wert": 37.4,
     "einheit": "°",
     "toleranz": 0.1
    },
-   "c": "round(28.163568524605, 1)",
-   "w": "sin β = 6 · sin 39° : 8 ≈ 0,472; β ≈ 28,2° (eindeutig, weil b < a)."
+   "c": "round(37.432479419009, 1)",
+   "w": "sin β = 7 · sin 44° : 8 ≈ 0,6078; β ≈ 37,4° (eindeutig, weil b < a)."
   },
   {
    "l": "kosinussatz_seite",
@@ -2195,14 +2839,14 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Im Dreieck ABC ist a = 21 cm, b = 16 cm und γ = 60°. Berechne c."
+    "text": "Im Dreieck ABC ist a = 6 cm, b = 16 cm und γ = 60°. Berechne c."
    },
    "o": {
-    "wert": 19,
+    "wert": 14,
     "einheit": "cm"
    },
-   "c": "(21 ** 2 + 16 ** 2 - 2 * 21 * 16 * (0.5)) / 19",
-   "w": "c² = 21² + 16² − 2 · 21 · 16 · cos 60° = 441 + 256 − 336 = 361, c = 19 cm.",
+   "c": "(6 ** 2 + 16 ** 2 - 2 * 6 * 16 * (0.5)) / 14",
+   "w": "c² = 6² + 16² − 2 · 6 · 16 · cos 60° = 36 + 256 − 96 = 196, c = 14 cm.",
    "h": "Kosinussatz; cos 60° = 0,5."
   },
   {
@@ -2212,32 +2856,15 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Im Dreieck ABC ist a = 16 cm, b = 21 cm und γ = 60°. Berechne c."
+    "text": "Im Dreieck ABC ist a = 5 cm, b = 11 cm und γ = 124°. Berechne c (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 19,
-    "einheit": "cm"
-   },
-   "c": "(16 ** 2 + 21 ** 2 - 2 * 16 * 21 * (0.5)) / 19",
-   "w": "c² = 16² + 21² − 2 · 16 · 21 · cos 60° = 256 + 441 − 336 = 361, c = 19 cm.",
-   "h": "Kosinussatz; cos 60° = 0,5."
-  },
-  {
-   "l": "kosinussatz_seite",
-   "t": "kosinussatz_seite",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Im Dreieck ABC ist a = 12 cm, b = 4 cm und γ = 25°. Berechne c (auf eine Nachkommastelle)."
-   },
-   "o": {
-    "wert": 8.5,
+    "wert": 14.4,
     "einheit": "cm",
     "toleranz": 0.1
    },
-   "c": "round(8.543679093019, 1)",
-   "w": "c² = 144 + 16 − 2 · 12 · 4 · cos 25° ≈ 72,99, c ≈ 8,5 cm.",
+   "c": "round(14.405249716051, 1)",
+   "w": "c² = 25 + 121 − 2 · 5 · 11 · cos 124° ≈ 207,51, c ≈ 14,4 cm.",
    "h": "Kosinussatz mit dem eingeschlossenen Winkel γ."
   },
   {
@@ -2264,14 +2891,14 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Im Dreieck ABC ist a = 3 cm, b = 8 cm und γ = 60°. Berechne c."
+    "text": "Im Dreieck ABC ist a = 8 cm, b = 15 cm und γ = 60°. Berechne c."
    },
    "o": {
-    "wert": 7,
+    "wert": 13,
     "einheit": "cm"
    },
-   "c": "(3 ** 2 + 8 ** 2 - 2 * 3 * 8 * (0.5)) / 7",
-   "w": "c² = 3² + 8² − 2 · 3 · 8 · cos 60° = 9 + 64 − 24 = 49, c = 7 cm.",
+   "c": "(8 ** 2 + 15 ** 2 - 2 * 8 * 15 * (0.5)) / 13",
+   "w": "c² = 8² + 15² − 2 · 8 · 15 · cos 60° = 64 + 225 − 120 = 169, c = 13 cm.",
    "h": "Kosinussatz; cos 60° = 0,5."
   },
   {
@@ -2281,16 +2908,100 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Im Dreieck ABC ist a = 6 cm, b = 14 cm und γ = 61°. Berechne c (auf eine Nachkommastelle)."
+    "text": "Im Dreieck ABC ist a = 15 cm, b = 8 cm und γ = 60°. Berechne c."
    },
    "o": {
-    "wert": 12.3,
-    "einheit": "cm",
-    "toleranz": 0.1
+    "wert": 13,
+    "einheit": "cm"
    },
-   "c": "round(12.269962664923, 1)",
-   "w": "c² = 36 + 196 − 2 · 6 · 14 · cos 61° ≈ 150,55, c ≈ 12,3 cm.",
-   "h": "Kosinussatz mit dem eingeschlossenen Winkel γ."
+   "c": "(15 ** 2 + 8 ** 2 - 2 * 15 * 8 * (0.5)) / 13",
+   "w": "c² = 15² + 8² − 2 · 15 · 8 · cos 60° = 225 + 64 − 120 = 169, c = 13 cm.",
+   "h": "Kosinussatz; cos 60° = 0,5."
+  },
+  {
+   "l": "kosinussatz_seite",
+   "t": "kosinussatz_seite",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist a = 24 cm, b = 9 cm und γ = 60°. Berechne c."
+   },
+   "o": {
+    "wert": 21,
+    "einheit": "cm"
+   },
+   "c": "(24 ** 2 + 9 ** 2 - 2 * 24 * 9 * (0.5)) / 21",
+   "w": "c² = 24² + 9² − 2 · 24 · 9 · cos 60° = 576 + 81 − 216 = 441, c = 21 cm.",
+   "h": "Kosinussatz; cos 60° = 0,5."
+  },
+  {
+   "l": "kosinussatz_seite",
+   "t": "kosinussatz_seite",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist a = 5 cm, b = 21 cm und γ = 60°. Berechne c."
+   },
+   "o": {
+    "wert": 19,
+    "einheit": "cm"
+   },
+   "c": "(5 ** 2 + 21 ** 2 - 2 * 5 * 21 * (0.5)) / 19",
+   "w": "c² = 5² + 21² − 2 · 5 · 21 · cos 60° = 25 + 441 − 105 = 361, c = 19 cm.",
+   "h": "Kosinussatz; cos 60° = 0,5."
+  },
+  {
+   "l": "kosinussatz_seite",
+   "t": "kosinussatz_seite",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist a = 9 cm, b = 15 cm und γ = 120°. Berechne c."
+   },
+   "o": {
+    "wert": 21,
+    "einheit": "cm"
+   },
+   "c": "(9 ** 2 + 15 ** 2 - 2 * 9 * 15 * (-0.5)) / 21",
+   "w": "c² = 9² + 15² − 2 · 9 · 15 · cos 120° = 81 + 225 + 135 = 441, c = 21 cm.",
+   "h": "Kosinussatz; cos 120° = −0,5."
+  },
+  {
+   "l": "kosinussatz_seite",
+   "t": "kosinussatz_seite",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist a = 10 cm, b = 16 cm und γ = 60°. Berechne c."
+   },
+   "o": {
+    "wert": 14,
+    "einheit": "cm"
+   },
+   "c": "(10 ** 2 + 16 ** 2 - 2 * 10 * 16 * (0.5)) / 14",
+   "w": "c² = 10² + 16² − 2 · 10 · 16 · cos 60° = 100 + 256 − 160 = 196, c = 14 cm.",
+   "h": "Kosinussatz; cos 60° = 0,5."
+  },
+  {
+   "l": "kosinussatz_seite",
+   "t": "kosinussatz_seite",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist a = 5 cm, b = 3 cm und γ = 120°. Berechne c."
+   },
+   "o": {
+    "wert": 7,
+    "einheit": "cm"
+   },
+   "c": "(5 ** 2 + 3 ** 2 - 2 * 5 * 3 * (-0.5)) / 7",
+   "w": "c² = 5² + 3² − 2 · 5 · 3 · cos 120° = 25 + 9 + 15 = 49, c = 7 cm.",
+   "h": "Kosinussatz; cos 120° = −0,5."
   },
   {
    "l": "kosinussatz_seite",
@@ -2316,84 +3027,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Im Dreieck ABC ist a = 21 cm, b = 5 cm und γ = 60°. Berechne c."
+    "text": "Im Dreieck ABC ist a = 11 cm, b = 24 cm und γ = 120°. Berechne c."
    },
    "o": {
-    "wert": 19,
+    "wert": 31,
     "einheit": "cm"
    },
-   "c": "(21 ** 2 + 5 ** 2 - 2 * 21 * 5 * (0.5)) / 19",
-   "w": "c² = 21² + 5² − 2 · 21 · 5 · cos 60° = 441 + 25 − 105 = 361, c = 19 cm.",
-   "h": "Kosinussatz; cos 60° = 0,5."
-  },
-  {
-   "l": "kosinussatz_seite",
-   "t": "kosinussatz_seite",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Im Dreieck ABC ist a = 16 cm, b = 5 cm und γ = 120°. Berechne c."
-   },
-   "o": {
-    "wert": 19,
-    "einheit": "cm"
-   },
-   "c": "(16 ** 2 + 5 ** 2 - 2 * 16 * 5 * (-0.5)) / 19",
-   "w": "c² = 16² + 5² − 2 · 16 · 5 · cos 120° = 256 + 25 + 80 = 361, c = 19 cm.",
-   "h": "Kosinussatz; cos 120° = −0,5."
-  },
-  {
-   "l": "kosinussatz_seite",
-   "t": "kosinussatz_seite",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Im Dreieck ABC ist a = 12 cm, b = 5 cm und γ = 130°. Berechne c (auf eine Nachkommastelle)."
-   },
-   "o": {
-    "wert": 15.7,
-    "einheit": "cm",
-    "toleranz": 0.1
-   },
-   "c": "round(15.688674678327, 1)",
-   "w": "c² = 144 + 25 − 2 · 12 · 5 · cos 130° ≈ 246,13, c ≈ 15,7 cm.",
-   "h": "Kosinussatz mit dem eingeschlossenen Winkel γ."
-  },
-  {
-   "l": "kosinussatz_seite",
-   "t": "kosinussatz_seite",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Im Dreieck ABC ist a = 13 cm, b = 10 cm und γ = 71°. Berechne c (auf eine Nachkommastelle)."
-   },
-   "o": {
-    "wert": 13.6,
-    "einheit": "cm",
-    "toleranz": 0.1
-   },
-   "c": "round(13.577638964162, 1)",
-   "w": "c² = 169 + 100 − 2 · 13 · 10 · cos 71° ≈ 184,35, c ≈ 13,6 cm.",
-   "h": "Kosinussatz mit dem eingeschlossenen Winkel γ."
-  },
-  {
-   "l": "kosinussatz_seite",
-   "t": "kosinussatz_seite",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Im Dreieck ABC ist a = 6 cm, b = 10 cm und γ = 120°. Berechne c."
-   },
-   "o": {
-    "wert": 14,
-    "einheit": "cm"
-   },
-   "c": "(6 ** 2 + 10 ** 2 - 2 * 6 * 10 * (-0.5)) / 14",
-   "w": "c² = 6² + 10² − 2 · 6 · 10 · cos 120° = 36 + 100 + 60 = 196, c = 14 cm.",
+   "c": "(11 ** 2 + 24 ** 2 - 2 * 11 * 24 * (-0.5)) / 31",
+   "w": "c² = 11² + 24² − 2 · 11 · 24 · cos 120° = 121 + 576 + 264 = 961, c = 31 cm.",
    "h": "Kosinussatz; cos 120° = −0,5."
   },
   {
@@ -2403,15 +3044,33 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Schiff fährt 9 km nach Osten, dreht dann um 83° nach links und fährt 15 km weiter. Wie weit ist es vom Start entfernt (auf eine Nachkommastelle)?"
+    "text": "Im Dreieck ABC ist a = 4 cm, b = 9 cm und γ = 35°. Berechne c (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 18.4,
+    "wert": 6.2,
+    "einheit": "cm",
+    "toleranz": 0.1
+   },
+   "c": "round(6.166121374997, 1)",
+   "w": "c² = 16 + 81 − 2 · 4 · 9 · cos 35° ≈ 38,02, c ≈ 6,2 cm.",
+   "h": "Kosinussatz mit dem eingeschlossenen Winkel γ."
+  },
+  {
+   "l": "kosinussatz_seite",
+   "t": "kosinussatz_seite",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Schiff fährt 4 km nach Osten, dreht dann um 134° nach links und fährt 15 km weiter. Wie weit ist es vom Start entfernt (auf eine Nachkommastelle)?"
+   },
+   "o": {
+    "wert": 12.6,
     "einheit": "km",
     "toleranz": 0.1
    },
-   "c": "round(18.409365081919, 1)",
-   "w": "Der Winkel im Dreieck am Wendepunkt ist 180° − 83° = 97°. d² = 9² + 15² − 2 · 9 · 15 · cos 97°, d ≈ 18,4 km.",
+   "c": "round(12.555516538356, 1)",
+   "w": "Der Winkel im Dreieck am Wendepunkt ist 180° − 134° = 46°. d² = 4² + 15² − 2 · 4 · 15 · cos 46°, d ≈ 12,6 km.",
    "h": "Skizze! Der Innenwinkel am Wendepunkt ist 180° minus Drehwinkel."
   },
   {
@@ -2421,15 +3080,15 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Schiff fährt 13 km nach Osten, dreht dann um 61° nach links und fährt 8 km weiter. Wie weit ist es vom Start entfernt (auf eine Nachkommastelle)?"
+    "text": "Ein Schiff fährt 8 km nach Osten, dreht dann um 32° nach links und fährt 13 km weiter. Wie weit ist es vom Start entfernt (auf eine Nachkommastelle)?"
    },
    "o": {
-    "wert": 18.3,
+    "wert": 20.2,
     "einheit": "km",
     "toleranz": 0.1
    },
-   "c": "round(18.271299926695, 1)",
-   "w": "Der Winkel im Dreieck am Wendepunkt ist 180° − 61° = 119°. d² = 13² + 8² − 2 · 13 · 8 · cos 119°, d ≈ 18,3 km.",
+   "c": "round(20.233487193278, 1)",
+   "w": "Der Winkel im Dreieck am Wendepunkt ist 180° − 32° = 148°. d² = 8² + 13² − 2 · 8 · 13 · cos 148°, d ≈ 20,2 km.",
    "h": "Skizze! Der Innenwinkel am Wendepunkt ist 180° minus Drehwinkel."
   },
   {
@@ -2439,69 +3098,51 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Im Dreieck ABC ist a = 8 cm, b = 6 cm und γ = 155°. Berechne c (auf eine Nachkommastelle)."
+    "text": "Ein Schiff fährt 7 km nach Osten, dreht dann um 145° nach links und fährt 15 km weiter. Wie weit ist es vom Start entfernt (auf eine Nachkommastelle)?"
    },
    "o": {
-    "wert": 13.7,
-    "einheit": "cm",
-    "toleranz": 0.1
-   },
-   "c": "round(13.674997168392, 1)",
-   "w": "c² = 64 + 36 − 2 · 8 · 6 · cos 155° ≈ 187,01, c ≈ 13,7 cm.",
-   "h": "Kosinussatz mit dem eingeschlossenen Winkel γ."
-  },
-  {
-   "l": "kosinussatz_seite",
-   "t": "kosinussatz_seite",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Im Dreieck ABC ist a = 6 cm, b = 14 cm und γ = 44°. Berechne c (auf eine Nachkommastelle)."
-   },
-   "o": {
-    "wert": 10.5,
-    "einheit": "cm",
-    "toleranz": 0.1
-   },
-   "c": "round(10.542813359967, 1)",
-   "w": "c² = 36 + 196 − 2 · 6 · 14 · cos 44° ≈ 111,15, c ≈ 10,5 cm.",
-   "h": "Kosinussatz mit dem eingeschlossenen Winkel γ."
-  },
-  {
-   "l": "kosinussatz_seite",
-   "t": "kosinussatz_seite",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Im Dreieck ABC ist a = 10 cm, b = 10 cm und γ = 116°. Berechne c (auf eine Nachkommastelle)."
-   },
-   "o": {
-    "wert": 17,
-    "einheit": "cm",
-    "toleranz": 0.1
-   },
-   "c": "round(16.960961923129, 1)",
-   "w": "c² = 100 + 100 − 2 · 10 · 10 · cos 116° ≈ 287,67, c ≈ 17 cm.",
-   "h": "Kosinussatz mit dem eingeschlossenen Winkel γ."
-  },
-  {
-   "l": "kosinussatz_seite",
-   "t": "kosinussatz_seite",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Schiff fährt 3 km nach Osten, dreht dann um 125° nach links und fährt 5 km weiter. Wie weit ist es vom Start entfernt (auf eine Nachkommastelle)?"
-   },
-   "o": {
-    "wert": 4.1,
+    "wert": 10.1,
     "einheit": "km",
     "toleranz": 0.1
    },
-   "c": "round(4.097890543861, 1)",
-   "w": "Der Winkel im Dreieck am Wendepunkt ist 180° − 125° = 55°. d² = 3² + 5² − 2 · 3 · 5 · cos 55°, d ≈ 4,1 km.",
+   "c": "round(10.098419217844, 1)",
+   "w": "Der Winkel im Dreieck am Wendepunkt ist 180° − 145° = 35°. d² = 7² + 15² − 2 · 7 · 15 · cos 35°, d ≈ 10,1 km.",
+   "h": "Skizze! Der Innenwinkel am Wendepunkt ist 180° minus Drehwinkel."
+  },
+  {
+   "l": "kosinussatz_seite",
+   "t": "kosinussatz_seite",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist a = 11 cm, b = 8 cm und γ = 85°. Berechne c (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 13,
+    "einheit": "cm",
+    "toleranz": 0.1
+   },
+   "c": "round(13.025382500196, 1)",
+   "w": "c² = 121 + 64 − 2 · 11 · 8 · cos 85° ≈ 169,66, c ≈ 13 cm.",
+   "h": "Kosinussatz mit dem eingeschlossenen Winkel γ."
+  },
+  {
+   "l": "kosinussatz_seite",
+   "t": "kosinussatz_seite",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Schiff fährt 11 km nach Osten, dreht dann um 152° nach links und fährt 12 km weiter. Wie weit ist es vom Start entfernt (auf eine Nachkommastelle)?"
+   },
+   "o": {
+    "wert": 5.6,
+    "einheit": "km",
+    "toleranz": 0.1
+   },
+   "c": "round(5.648170985836, 1)",
+   "w": "Der Winkel im Dreieck am Wendepunkt ist 180° − 152° = 28°. d² = 11² + 12² − 2 · 11 · 12 · cos 28°, d ≈ 5,6 km.",
    "h": "Skizze! Der Innenwinkel am Wendepunkt ist 180° minus Drehwinkel."
   },
   {
@@ -2511,14 +3152,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Im Dreieck ABC ist a = 14 cm, b = 16 cm und γ = 120°. Berechne c."
+    "text": "Im Dreieck ABC ist a = 5 cm, b = 16 cm und γ = 120°. Berechne c."
    },
    "o": {
-    "wert": 26,
+    "wert": 19,
     "einheit": "cm"
    },
-   "c": "(14 ** 2 + 16 ** 2 - 2 * 14 * 16 * (-0.5)) / 26",
-   "w": "c² = 14² + 16² − 2 · 14 · 16 · cos 120° = 196 + 256 + 224 = 676, c = 26 cm."
+   "c": "(5 ** 2 + 16 ** 2 - 2 * 5 * 16 * (-0.5)) / 19",
+   "w": "c² = 5² + 16² − 2 · 5 · 16 · cos 120° = 25 + 256 + 80 = 361, c = 19 cm."
   },
   {
    "l": "kosinussatz_seite",
@@ -2527,14 +3168,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Im Dreieck ABC ist a = 5 cm, b = 3 cm und γ = 120°. Berechne c."
+    "text": "Im Dreieck ABC ist a = 12 cm, b = 20 cm und γ = 120°. Berechne c."
    },
    "o": {
-    "wert": 7,
+    "wert": 28,
     "einheit": "cm"
    },
-   "c": "(5 ** 2 + 3 ** 2 - 2 * 5 * 3 * (-0.5)) / 7",
-   "w": "c² = 5² + 3² − 2 · 5 · 3 · cos 120° = 25 + 9 + 15 = 49, c = 7 cm."
+   "c": "(12 ** 2 + 20 ** 2 - 2 * 12 * 20 * (-0.5)) / 28",
+   "w": "c² = 12² + 20² − 2 · 12 · 20 · cos 120° = 144 + 400 + 240 = 784, c = 28 cm."
   },
   {
    "l": "kosinussatz_seite",
@@ -2543,52 +3184,20 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Im Dreieck ABC ist a = 11 cm, b = 24 cm und γ = 120°. Berechne c."
+    "text": "Im Dreieck ABC ist a = 9 cm, b = 12 cm und γ = 72°. Berechne c (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 31,
-    "einheit": "cm"
-   },
-   "c": "(11 ** 2 + 24 ** 2 - 2 * 11 * 24 * (-0.5)) / 31",
-   "w": "c² = 11² + 24² − 2 · 11 · 24 · cos 120° = 121 + 576 + 264 = 961, c = 31 cm."
-  },
-  {
-   "l": "kosinussatz_seite",
-   "t": "kosinussatz_seite",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Im Dreieck ABC ist a = 10 cm, b = 4 cm und γ = 107°. Berechne c (auf eine Nachkommastelle)."
-   },
-   "o": {
-    "wert": 11.8,
+    "wert": 12.6,
     "einheit": "cm",
     "toleranz": 0.1
    },
-   "c": "round(11.806343056926, 1)",
-   "w": "c² = 100 + 16 − 2 · 10 · 4 · cos 107° ≈ 139,39, c ≈ 11,8 cm."
+   "c": "round(12.579838203054, 1)",
+   "w": "c² = 81 + 144 − 2 · 9 · 12 · cos 72° ≈ 158,25, c ≈ 12,6 cm."
   },
   {
    "l": "kosinussatz_seite",
    "t": "kosinussatz_seite",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Im Dreieck ABC ist a = 7 cm, b = 15 cm und γ = 60°. Berechne c."
-   },
-   "o": {
-    "wert": 13,
-    "einheit": "cm"
-   },
-   "c": "(7 ** 2 + 15 ** 2 - 2 * 7 * 15 * (0.5)) / 13",
-   "w": "c² = 7² + 15² − 2 · 7 · 15 · cos 60° = 49 + 225 − 105 = 169, c = 13 cm."
-  },
-  {
-   "l": "kosinussatz_seite",
-   "t": "kosinussatz_seite",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -2608,47 +3217,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Im Dreieck ABC ist a = 15 cm, b = 9 cm und γ = 120°. Berechne c."
+    "text": "Im Dreieck ABC ist a = 11 cm, b = 13 cm und γ = 120°. Berechne c (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 21,
-    "einheit": "cm"
-   },
-   "c": "(15 ** 2 + 9 ** 2 - 2 * 15 * 9 * (-0.5)) / 21",
-   "w": "c² = 15² + 9² − 2 · 15 · 9 · cos 120° = 225 + 81 + 135 = 441, c = 21 cm."
-  },
-  {
-   "l": "kosinussatz_seite",
-   "t": "kosinussatz_seite",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Im Dreieck ABC ist a = 15 cm, b = 25 cm und γ = 120°. Berechne c."
-   },
-   "o": {
-    "wert": 35,
-    "einheit": "cm"
-   },
-   "c": "(15 ** 2 + 25 ** 2 - 2 * 15 * 25 * (-0.5)) / 35",
-   "w": "c² = 15² + 25² − 2 · 15 · 25 · cos 120° = 225 + 625 + 375 = 1225, c = 35 cm."
-  },
-  {
-   "l": "kosinussatz_seite",
-   "t": "kosinussatz_seite",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Im Dreieck ABC ist a = 7 cm, b = 8 cm und γ = 97°. Berechne c (auf eine Nachkommastelle)."
-   },
-   "o": {
-    "wert": 11.3,
+    "wert": 20.8,
     "einheit": "cm",
     "toleranz": 0.1
    },
-   "c": "round(11.253860069388, 1)",
-   "w": "c² = 49 + 64 − 2 · 7 · 8 · cos 97° ≈ 126,65, c ≈ 11,3 cm."
+   "c": "round(20.808652046685, 1)",
+   "w": "c² = 121 + 169 − 2 · 11 · 13 · cos 120° ≈ 433, c ≈ 20,8 cm."
   },
   {
    "l": "kosinussatz_seite",
@@ -2657,14 +3234,81 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Im Dreieck ABC ist a = 8 cm, b = 15 cm und γ = 60°. Berechne c."
+    "text": "Im Dreieck ABC ist a = 3 cm, b = 8 cm und γ = 60°. Berechne c."
+   },
+   "o": {
+    "wert": 7,
+    "einheit": "cm"
+   },
+   "c": "(3 ** 2 + 8 ** 2 - 2 * 3 * 8 * (0.5)) / 7",
+   "w": "c² = 3² + 8² − 2 · 3 · 8 · cos 60° = 9 + 64 − 24 = 49, c = 7 cm."
+  },
+  {
+   "l": "kosinussatz_seite",
+   "t": "kosinussatz_seite",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist a = 7 cm, b = 8 cm und γ = 120°. Berechne c."
    },
    "o": {
     "wert": 13,
     "einheit": "cm"
    },
-   "c": "(8 ** 2 + 15 ** 2 - 2 * 8 * 15 * (0.5)) / 13",
-   "w": "c² = 8² + 15² − 2 · 8 · 15 · cos 60° = 64 + 225 − 120 = 169, c = 13 cm."
+   "c": "(7 ** 2 + 8 ** 2 - 2 * 7 * 8 * (-0.5)) / 13",
+   "w": "c² = 7² + 8² − 2 · 7 · 8 · cos 120° = 49 + 64 + 56 = 169, c = 13 cm."
+  },
+  {
+   "l": "kosinussatz_seite",
+   "t": "kosinussatz_seite",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist a = 15 cm, b = 11 cm und γ = 65°. Berechne c (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 14.4,
+    "einheit": "cm",
+    "toleranz": 0.1
+   },
+   "c": "round(14.371359491209, 1)",
+   "w": "c² = 225 + 121 − 2 · 15 · 11 · cos 65° ≈ 206,54, c ≈ 14,4 cm."
+  },
+  {
+   "l": "kosinussatz_seite",
+   "t": "kosinussatz_seite",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist a = 15 cm, b = 13 cm und γ = 112°. Berechne c (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 23.2,
+    "einheit": "cm",
+    "toleranz": 0.1
+   },
+   "c": "round(23.239977870734, 1)",
+   "w": "c² = 225 + 169 − 2 · 15 · 13 · cos 112° ≈ 540,1, c ≈ 23,2 cm."
+  },
+  {
+   "l": "kosinussatz_seite",
+   "t": "kosinussatz_seite",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist a = 12 cm, b = 12 cm und γ = 71°. Berechne c (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 13.9,
+    "einheit": "cm",
+    "toleranz": 0.1
+   },
+   "c": "round(13.936870937063, 1)",
+   "w": "c² = 144 + 144 − 2 · 12 · 12 · cos 71° ≈ 194,24, c ≈ 13,9 cm."
   },
   {
    "l": "kosinussatz_winkel",
@@ -2673,14 +3317,14 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Dreieck hat die Seiten a = 12 cm, b = 20 cm, c = 28 cm. Berechne γ."
+    "text": "Ein Dreieck hat die Seiten a = 15 cm, b = 8 cm, c = 13 cm. Berechne γ."
    },
    "o": {
-    "wert": 120,
+    "wert": 60,
     "einheit": "°"
    },
-   "c": "90 - 60 * ((12 ** 2 + 20 ** 2 - 28 ** 2) / (2 * 12 * 20))",
-   "w": "cos γ = (144 + 400 − 784) : (2 · 12 · 20) = −0,5 ⇒ γ = 120°.",
+   "c": "90 - 60 * ((15 ** 2 + 8 ** 2 - 13 ** 2) / (2 * 15 * 8))",
+   "w": "cos γ = (225 + 64 − 169) : (2 · 15 · 8) = 0,5 ⇒ γ = 60°.",
    "h": "Das Quadrat der Gegenseite von γ wird subtrahiert."
   },
   {
@@ -2690,22 +3334,124 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Dreieck hat die Seiten a = 9 cm, b = 12 cm, c = 10 cm. Berechne γ (auf eine Nachkommastelle)."
+    "text": "Ein Dreieck hat die Seiten a = 5 cm, b = 21 cm, c = 19 cm. Berechne γ."
    },
    "o": {
-    "wert": 54.6,
-    "einheit": "°",
-    "toleranz": 0.1
+    "wert": 60,
+    "einheit": "°"
    },
-   "c": "round(54.640580377760, 1)",
-   "w": "cos γ = (81 + 144 − 100) : 216 ≈ 0,5787 ⇒ γ ≈ 54,6°.",
-   "h": "Kosinussatz nach cos γ umstellen, dann cos⁻¹."
+   "c": "90 - 60 * ((5 ** 2 + 21 ** 2 - 19 ** 2) / (2 * 5 * 21))",
+   "w": "cos γ = (25 + 441 − 361) : (2 · 5 · 21) = 0,5 ⇒ γ = 60°.",
+   "h": "Das Quadrat der Gegenseite von γ wird subtrahiert."
   },
   {
    "l": "kosinussatz_winkel",
    "t": "kosinussatz_winkel",
    "p": "uebung",
    "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten a = 3 cm, b = 4 cm, c = 5 cm. Berechne γ."
+   },
+   "o": {
+    "wert": 90,
+    "einheit": "°"
+   },
+   "c": "90 - 60 * ((3 ** 2 + 4 ** 2 - 5 ** 2) / (2 * 3 * 4))",
+   "w": "cos γ = (9 + 16 − 25) : (2 · 3 · 4) = 0 ⇒ γ = 90°.",
+   "h": "Das Quadrat der Gegenseite von γ wird subtrahiert."
+  },
+  {
+   "l": "kosinussatz_winkel",
+   "t": "kosinussatz_winkel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten a = 25 cm, b = 15 cm, c = 35 cm. Berechne γ."
+   },
+   "o": {
+    "wert": 120,
+    "einheit": "°"
+   },
+   "c": "90 - 60 * ((25 ** 2 + 15 ** 2 - 35 ** 2) / (2 * 25 * 15))",
+   "w": "cos γ = (625 + 225 − 1 225) : (2 · 25 · 15) = −0,5 ⇒ γ = 120°.",
+   "h": "Das Quadrat der Gegenseite von γ wird subtrahiert."
+  },
+  {
+   "l": "kosinussatz_winkel",
+   "t": "kosinussatz_winkel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten a = 9 cm, b = 12 cm, c = 15 cm. Berechne γ."
+   },
+   "o": {
+    "wert": 90,
+    "einheit": "°"
+   },
+   "c": "90 - 60 * ((9 ** 2 + 12 ** 2 - 15 ** 2) / (2 * 9 * 12))",
+   "w": "cos γ = (81 + 144 − 225) : (2 · 9 · 12) = 0 ⇒ γ = 90°.",
+   "h": "Das Quadrat der Gegenseite von γ wird subtrahiert."
+  },
+  {
+   "l": "kosinussatz_winkel",
+   "t": "kosinussatz_winkel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten a = 20 cm, b = 12 cm, c = 28 cm. Berechne γ."
+   },
+   "o": {
+    "wert": 120,
+    "einheit": "°"
+   },
+   "c": "90 - 60 * ((20 ** 2 + 12 ** 2 - 28 ** 2) / (2 * 20 * 12))",
+   "w": "cos γ = (400 + 144 − 784) : (2 · 20 · 12) = −0,5 ⇒ γ = 120°.",
+   "h": "Das Quadrat der Gegenseite von γ wird subtrahiert."
+  },
+  {
+   "l": "kosinussatz_winkel",
+   "t": "kosinussatz_winkel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten a = 16 cm, b = 10 cm, c = 14 cm. Berechne γ."
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "°"
+   },
+   "c": "90 - 60 * ((16 ** 2 + 10 ** 2 - 14 ** 2) / (2 * 16 * 10))",
+   "w": "cos γ = (256 + 100 − 196) : (2 · 16 · 10) = 0,5 ⇒ γ = 60°.",
+   "h": "Das Quadrat der Gegenseite von γ wird subtrahiert."
+  },
+  {
+   "l": "kosinussatz_winkel",
+   "t": "kosinussatz_winkel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten a = 7 cm, b = 3 cm, c = 7 cm. Berechne γ (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 77.6,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(77.626374883811, 1)",
+   "w": "cos γ = (49 + 9 − 49) : 42 ≈ 0,2143 ⇒ γ ≈ 77,6°.",
+   "h": "Kosinussatz nach cos γ umstellen, dann cos⁻¹."
+  },
+  {
+   "l": "kosinussatz_winkel",
+   "t": "kosinussatz_winkel",
+   "p": "uebung",
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Dreieck hat die Seiten a = 6 cm, b = 16 cm, c = 14 cm. Berechne γ."
@@ -2722,7 +3468,206 @@
    "l": "kosinussatz_winkel",
    "t": "kosinussatz_winkel",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten a = 9 cm, b = 7 cm, c = 11 cm. Berechne γ (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 85.9,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(85.903956241848, 1)",
+   "w": "cos γ = (81 + 49 − 121) : 126 ≈ 0,0714 ⇒ γ ≈ 85,9°.",
+   "h": "Kosinussatz nach cos γ umstellen, dann cos⁻¹."
+  },
+  {
+   "l": "kosinussatz_winkel",
+   "t": "kosinussatz_winkel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten a = 15 cm, b = 15 cm, c = 5 cm. Berechne γ (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 19.2,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(19.188136453721, 1)",
+   "w": "cos γ = (225 + 225 − 25) : 450 ≈ 0,9444 ⇒ γ ≈ 19,2°.",
+   "h": "Kosinussatz nach cos γ umstellen, dann cos⁻¹."
+  },
+  {
+   "l": "kosinussatz_winkel",
+   "t": "kosinussatz_winkel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten a = 3 cm, b = 10 cm, c = 12 cm. Berechne γ (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 125.7,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(125.685334712652, 1)",
+   "w": "cos γ = (9 + 100 − 144) : 60 ≈ −0,5833 ⇒ γ ≈ 125,7°.",
+   "h": "Kosinussatz nach cos γ umstellen, dann cos⁻¹."
+  },
+  {
+   "l": "kosinussatz_winkel",
+   "t": "kosinussatz_winkel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten a = 7 cm, b = 6 cm, c = 5 cm. Berechne γ (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 44.4,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(44.415308597193, 1)",
+   "w": "cos γ = (49 + 36 − 25) : 84 ≈ 0,7143 ⇒ γ ≈ 44,4°.",
+   "h": "Kosinussatz nach cos γ umstellen, dann cos⁻¹."
+  },
+  {
+   "l": "kosinussatz_winkel",
+   "t": "kosinussatz_winkel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein dreieckiges Grundstück hat die Seiten 110 m, 130 m und 200 m. Wie groß ist der Winkel gegenüber der 200-m-Seite (auf eine Nachkommastelle)?"
+   },
+   "o": {
+    "wert": 112.6,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(112.619864948040, 1)",
+   "w": "cos γ = (110² + 130² − 200²) : (2 · 110 · 130) ≈ −0,3846 ⇒ γ ≈ 112,6°.",
+   "h": "Kosinussatz nach cos γ umstellen; γ liegt gegenüber der genannten Seite."
+  },
+  {
+   "l": "kosinussatz_winkel",
+   "t": "kosinussatz_winkel",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Dreieck soll die Seiten 8 cm, 5 cm und 13 cm haben. Was ergibt der Kosinussatz für den größten Winkel?"
+   },
+   "a": [
+    "γ = 90°.",
+    "cos γ < −1: γ ist sehr stumpf.",
+    "γ = 120°.",
+    "cos γ = −1: Die Punkte liegen auf einer Geraden, kein Dreieck."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "cos γ = (64 + 25 − 169) : 80 = −1, also γ = 180°. Wegen 8 + 5 = 13 liegt C auf der Strecke AB.",
+   "h": "Rechne cos γ aus. Was bedeutet γ = 180°?"
+  },
+  {
+   "l": "kosinussatz_winkel",
+   "t": "kosinussatz_winkel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten a = 7 cm, b = 7 cm, c = 13 cm. Berechne γ (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 136.4,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(136.426421403476, 1)",
+   "w": "cos γ = (49 + 49 − 169) : 98 ≈ −0,7245 ⇒ γ ≈ 136,4°.",
+   "h": "Kosinussatz nach cos γ umstellen, dann cos⁻¹."
+  },
+  {
+   "l": "kosinussatz_winkel",
+   "t": "kosinussatz_winkel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein dreieckiges Grundstück hat die Seiten 90 m, 30 m und 70 m. Wie groß ist der Winkel gegenüber der 70-m-Seite (auf eine Nachkommastelle)?"
+   },
+   "o": {
+    "wert": 40.6,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(40.601060731066, 1)",
+   "w": "cos γ = (90² + 30² − 70²) : (2 · 90 · 30) ≈ 0,7593 ⇒ γ ≈ 40,6°.",
+   "h": "Kosinussatz nach cos γ umstellen; γ liegt gegenüber der genannten Seite."
+  },
+  {
+   "l": "kosinussatz_winkel",
+   "t": "kosinussatz_winkel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein dreieckiges Grundstück hat die Seiten 100 m, 70 m und 120 m. Wie groß ist der Winkel gegenüber der 120-m-Seite (auf eine Nachkommastelle)?"
+   },
+   "o": {
+    "wert": 88,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(87.953286902327, 1)",
+   "w": "cos γ = (100² + 70² − 120²) : (2 · 100 · 70) ≈ 0,0357 ⇒ γ ≈ 88°.",
+   "h": "Kosinussatz nach cos γ umstellen; γ liegt gegenüber der genannten Seite."
+  },
+  {
+   "l": "kosinussatz_winkel",
+   "t": "kosinussatz_winkel",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten a = 4 cm, b = 8 cm, c = 7 cm. Berechne γ (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 61,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(61.028467776289, 1)",
+   "w": "cos γ = (16 + 64 − 49) : 64 ≈ 0,4844 ⇒ γ ≈ 61°."
+  },
+  {
+   "l": "kosinussatz_winkel",
+   "t": "kosinussatz_winkel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten a = 13 cm, b = 9 cm, c = 11 cm. Berechne γ (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 56.5,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(56.544988426624, 1)",
+   "w": "cos γ = (169 + 81 − 121) : 234 ≈ 0,5513 ⇒ γ ≈ 56,5°."
+  },
+  {
+   "l": "kosinussatz_winkel",
+   "t": "kosinussatz_winkel",
+   "p": "korrektur",
+   "s": 2,
    "y": "zahl",
    "f": {
     "text": "Ein Dreieck hat die Seiten a = 24 cm, b = 11 cm, c = 31 cm. Berechne γ."
@@ -2732,262 +3677,45 @@
     "einheit": "°"
    },
    "c": "90 - 60 * ((24 ** 2 + 11 ** 2 - 31 ** 2) / (2 * 24 * 11))",
-   "w": "cos γ = (576 + 121 − 961) : (2 · 24 · 11) = −0,5 ⇒ γ = 120°.",
-   "h": "Das Quadrat der Gegenseite von γ wird subtrahiert."
+   "w": "cos γ = (576 + 121 − 961) : (2 · 24 · 11) = −0,5 ⇒ γ = 120°."
   },
   {
    "l": "kosinussatz_winkel",
    "t": "kosinussatz_winkel",
-   "p": "uebung",
-   "s": 1,
+   "p": "korrektur",
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Dreieck hat die Seiten a = 11 cm, b = 13 cm, c = 15 cm. Berechne γ (auf eine Nachkommastelle)."
+    "text": "Ein Dreieck hat die Seiten a = 14 cm, b = 7 cm, c = 20 cm. Berechne γ (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 76.9,
+    "wert": 142.3,
     "einheit": "°",
     "toleranz": 0.1
    },
-   "c": "round(76.863441213055, 1)",
-   "w": "cos γ = (121 + 169 − 225) : 286 ≈ 0,2273 ⇒ γ ≈ 76,9°.",
-   "h": "Kosinussatz nach cos γ umstellen, dann cos⁻¹."
+   "c": "round(142.261864041141, 1)",
+   "w": "cos γ = (196 + 49 − 400) : 196 ≈ −0,7908 ⇒ γ ≈ 142,3°."
   },
   {
    "l": "kosinussatz_winkel",
    "t": "kosinussatz_winkel",
-   "p": "uebung",
-   "s": 1,
+   "p": "sicherung",
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Dreieck hat die Seiten a = 3 cm, b = 8 cm, c = 7 cm. Berechne γ."
+    "text": "Ein Dreieck hat die Seiten a = 15 cm, b = 24 cm, c = 21 cm. Berechne γ."
    },
    "o": {
     "wert": 60,
     "einheit": "°"
    },
-   "c": "90 - 60 * ((3 ** 2 + 8 ** 2 - 7 ** 2) / (2 * 3 * 8))",
-   "w": "cos γ = (9 + 64 − 49) : (2 · 3 · 8) = 0,5 ⇒ γ = 60°.",
-   "h": "Das Quadrat der Gegenseite von γ wird subtrahiert."
+   "c": "90 - 60 * ((15 ** 2 + 24 ** 2 - 21 ** 2) / (2 * 15 * 24))",
+   "w": "cos γ = (225 + 576 − 441) : (2 · 15 · 24) = 0,5 ⇒ γ = 60°."
   },
   {
    "l": "kosinussatz_winkel",
    "t": "kosinussatz_winkel",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Dreieck hat die Seiten a = 7 cm, b = 8 cm, c = 13 cm. Berechne γ."
-   },
-   "o": {
-    "wert": 120,
-    "einheit": "°"
-   },
-   "c": "90 - 60 * ((7 ** 2 + 8 ** 2 - 13 ** 2) / (2 * 7 * 8))",
-   "w": "cos γ = (49 + 64 − 169) : (2 · 7 · 8) = −0,5 ⇒ γ = 120°.",
-   "h": "Das Quadrat der Gegenseite von γ wird subtrahiert."
-  },
-  {
-   "l": "kosinussatz_winkel",
-   "t": "kosinussatz_winkel",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Dreieck hat die Seiten a = 15 cm, b = 11 cm, c = 25 cm. Berechne γ (auf eine Nachkommastelle)."
-   },
-   "o": {
-    "wert": 147.7,
-    "einheit": "°",
-    "toleranz": 0.1
-   },
-   "c": "round(147.720669412576, 1)",
-   "w": "cos γ = (225 + 121 − 625) : 330 ≈ −0,8455 ⇒ γ ≈ 147,7°.",
-   "h": "Kosinussatz nach cos γ umstellen, dann cos⁻¹."
-  },
-  {
-   "l": "kosinussatz_winkel",
-   "t": "kosinussatz_winkel",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Dreieck hat die Seiten a = 12 cm, b = 15 cm, c = 25 cm. Berechne γ (auf eine Nachkommastelle)."
-   },
-   "o": {
-    "wert": 135.3,
-    "einheit": "°",
-    "toleranz": 0.1
-   },
-   "c": "round(135.325390435616, 1)",
-   "w": "cos γ = (144 + 225 − 625) : 360 ≈ −0,7111 ⇒ γ ≈ 135,3°.",
-   "h": "Kosinussatz nach cos γ umstellen, dann cos⁻¹."
-  },
-  {
-   "l": "kosinussatz_winkel",
-   "t": "kosinussatz_winkel",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Dreieck hat die Seiten a = 21 cm, b = 16 cm, c = 19 cm. Berechne γ."
-   },
-   "o": {
-    "wert": 60,
-    "einheit": "°"
-   },
-   "c": "90 - 60 * ((21 ** 2 + 16 ** 2 - 19 ** 2) / (2 * 21 * 16))",
-   "w": "cos γ = (441 + 256 − 361) : (2 · 21 · 16) = 0,5 ⇒ γ = 60°.",
-   "h": "Das Quadrat der Gegenseite von γ wird subtrahiert."
-  },
-  {
-   "l": "kosinussatz_winkel",
-   "t": "kosinussatz_winkel",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Dreieck hat die Seiten a = 6 cm, b = 4 cm, c = 4 cm. Berechne γ (auf eine Nachkommastelle)."
-   },
-   "o": {
-    "wert": 41.4,
-    "einheit": "°",
-    "toleranz": 0.1
-   },
-   "c": "round(41.409622109271, 1)",
-   "w": "cos γ = (36 + 16 − 16) : 48 ≈ 0,75 ⇒ γ ≈ 41,4°.",
-   "h": "Kosinussatz nach cos γ umstellen, dann cos⁻¹."
-  },
-  {
-   "l": "kosinussatz_winkel",
-   "t": "kosinussatz_winkel",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Dreieck hat die Seiten a = 4 cm, b = 7 cm, c = 4 cm. Berechne γ (auf eine Nachkommastelle)."
-   },
-   "o": {
-    "wert": 29,
-    "einheit": "°",
-    "toleranz": 0.1
-   },
-   "c": "round(28.955024371860, 1)",
-   "w": "cos γ = (16 + 49 − 16) : 56 ≈ 0,875 ⇒ γ ≈ 29°.",
-   "h": "Kosinussatz nach cos γ umstellen, dann cos⁻¹."
-  },
-  {
-   "l": "kosinussatz_winkel",
-   "t": "kosinussatz_winkel",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Dreieck hat die Seiten a = 13 cm, b = 5 cm, c = 16 cm. Berechne γ (auf eine Nachkommastelle)."
-   },
-   "o": {
-    "wert": 118.5,
-    "einheit": "°",
-    "toleranz": 0.1
-   },
-   "c": "round(118.484635395177, 1)",
-   "w": "cos γ = (169 + 25 − 256) : 130 ≈ −0,4769 ⇒ γ ≈ 118,5°.",
-   "h": "Kosinussatz nach cos γ umstellen, dann cos⁻¹."
-  },
-  {
-   "l": "kosinussatz_winkel",
-   "t": "kosinussatz_winkel",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Dreieck hat die Seiten a = 12 cm, b = 3 cm, c = 12 cm. Berechne γ (auf eine Nachkommastelle)."
-   },
-   "o": {
-    "wert": 82.8,
-    "einheit": "°",
-    "toleranz": 0.1
-   },
-   "c": "round(82.819244218542, 1)",
-   "w": "cos γ = (144 + 9 − 144) : 72 ≈ 0,125 ⇒ γ ≈ 82,8°.",
-   "h": "Kosinussatz nach cos γ umstellen, dann cos⁻¹."
-  },
-  {
-   "l": "kosinussatz_winkel",
-   "t": "kosinussatz_winkel",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Dreieck hat die Seiten a = 14 cm, b = 12 cm, c = 3 cm. Berechne γ (auf eine Nachkommastelle)."
-   },
-   "o": {
-    "wert": 9.9,
-    "einheit": "°",
-    "toleranz": 0.1
-   },
-   "c": "round(9.896759774056, 1)",
-   "w": "cos γ = (196 + 144 − 9) : 336 ≈ 0,9851 ⇒ γ ≈ 9,9°.",
-   "h": "Kosinussatz nach cos γ umstellen, dann cos⁻¹."
-  },
-  {
-   "l": "kosinussatz_winkel",
-   "t": "kosinussatz_winkel",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein dreieckiges Grundstück hat die Seiten 30 m, 140 m und 130 m. Wie groß ist der Winkel gegenüber der 130-m-Seite (auf eine Nachkommastelle)?"
-   },
-   "o": {
-    "wert": 64.6,
-    "einheit": "°",
-    "toleranz": 0.1
-   },
-   "c": "round(64.623066474848, 1)",
-   "w": "cos γ = (30² + 140² − 130²) : (2 · 30 · 140) ≈ 0,4286 ⇒ γ ≈ 64,6°.",
-   "h": "Kosinussatz nach cos γ umstellen; γ liegt gegenüber der genannten Seite."
-  },
-  {
-   "l": "kosinussatz_winkel",
-   "t": "kosinussatz_winkel",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein dreieckiges Grundstück hat die Seiten 100 m, 30 m und 100 m. Wie groß ist der Winkel gegenüber der 100-m-Seite (auf eine Nachkommastelle)?"
-   },
-   "o": {
-    "wert": 81.4,
-    "einheit": "°",
-    "toleranz": 0.1
-   },
-   "c": "round(81.373073441321, 1)",
-   "w": "cos γ = (100² + 30² − 100²) : (2 · 100 · 30) ≈ 0,15 ⇒ γ ≈ 81,4°.",
-   "h": "Kosinussatz nach cos γ umstellen; γ liegt gegenüber der genannten Seite."
-  },
-  {
-   "l": "kosinussatz_winkel",
-   "t": "kosinussatz_winkel",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Dreieck hat die Seiten a = 10 cm, b = 10 cm, c = 15 cm. Berechne γ (auf eine Nachkommastelle)."
-   },
-   "o": {
-    "wert": 97.2,
-    "einheit": "°",
-    "toleranz": 0.1
-   },
-   "c": "round(97.180755781458, 1)",
-   "w": "cos γ = (100 + 100 − 225) : 200 ≈ −0,125 ⇒ γ ≈ 97,2°.",
-   "h": "Kosinussatz nach cos γ umstellen, dann cos⁻¹."
-  },
-  {
-   "l": "kosinussatz_winkel",
-   "t": "kosinussatz_winkel",
-   "p": "test",
+   "p": "sicherung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -3003,51 +3731,19 @@
   {
    "l": "kosinussatz_winkel",
    "t": "kosinussatz_winkel",
-   "p": "korrektur",
+   "p": "sicherung",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Dreieck hat die Seiten a = 11 cm, b = 24 cm, c = 31 cm. Berechne γ."
+    "text": "Ein Dreieck hat die Seiten a = 4 cm, b = 15 cm, c = 16 cm. Berechne γ (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 120,
-    "einheit": "°"
-   },
-   "c": "90 - 60 * ((11 ** 2 + 24 ** 2 - 31 ** 2) / (2 * 11 * 24))",
-   "w": "cos γ = (121 + 576 − 961) : (2 · 11 · 24) = −0,5 ⇒ γ = 120°."
-  },
-  {
-   "l": "kosinussatz_winkel",
-   "t": "kosinussatz_winkel",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Dreieck hat die Seiten a = 4 cm, b = 3 cm, c = 4 cm. Berechne γ (auf eine Nachkommastelle)."
-   },
-   "o": {
-    "wert": 68,
+    "wert": 97.2,
     "einheit": "°",
     "toleranz": 0.1
    },
-   "c": "round(67.975687162958, 1)",
-   "w": "cos γ = (16 + 9 − 16) : 24 ≈ 0,375 ⇒ γ ≈ 68°."
-  },
-  {
-   "l": "kosinussatz_winkel",
-   "t": "kosinussatz_winkel",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Dreieck hat die Seiten a = 14 cm, b = 16 cm, c = 26 cm. Berechne γ."
-   },
-   "o": {
-    "wert": 120,
-    "einheit": "°"
-   },
-   "c": "90 - 60 * ((14 ** 2 + 16 ** 2 - 26 ** 2) / (2 * 14 * 16))",
-   "w": "cos γ = (196 + 256 − 676) : (2 · 14 · 16) = −0,5 ⇒ γ = 120°."
+   "c": "round(97.180755781458, 1)",
+   "w": "cos γ = (16 + 225 − 256) : 120 ≈ −0,125 ⇒ γ ≈ 97,2°."
   },
   {
    "l": "kosinussatz_winkel",
@@ -3056,15 +3752,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Dreieck hat die Seiten a = 9 cm, b = 8 cm, c = 6 cm. Berechne γ (auf eine Nachkommastelle)."
+    "text": "Ein Dreieck hat die Seiten a = 11 cm, b = 3 cm, c = 13 cm. Berechne γ (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 40.8,
+    "wert": 126.2,
     "einheit": "°",
     "toleranz": 0.1
    },
-   "c": "round(40.804437690619, 1)",
-   "w": "cos γ = (81 + 64 − 36) : 144 ≈ 0,7569 ⇒ γ ≈ 40,8°."
+   "c": "round(126.221546619835, 1)",
+   "w": "cos γ = (121 + 9 − 169) : 66 ≈ −0,5909 ⇒ γ ≈ 126,2°."
   },
   {
    "l": "kosinussatz_winkel",
@@ -3073,31 +3769,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Dreieck hat die Seiten a = 20 cm, b = 12 cm, c = 28 cm. Berechne γ."
+    "text": "Ein Dreieck hat die Seiten a = 3 cm, b = 11 cm, c = 10 cm. Berechne γ (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 120,
-    "einheit": "°"
-   },
-   "c": "90 - 60 * ((20 ** 2 + 12 ** 2 - 28 ** 2) / (2 * 20 * 12))",
-   "w": "cos γ = (400 + 144 − 784) : (2 · 20 · 12) = −0,5 ⇒ γ = 120°."
-  },
-  {
-   "l": "kosinussatz_winkel",
-   "t": "kosinussatz_winkel",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Dreieck hat die Seiten a = 7 cm, b = 11 cm, c = 5 cm. Berechne γ (auf eine Nachkommastelle)."
-   },
-   "o": {
-    "wert": 19.7,
+    "wert": 63,
     "einheit": "°",
     "toleranz": 0.1
    },
-   "c": "round(19.685054824659, 1)",
-   "w": "cos γ = (49 + 121 − 25) : 154 ≈ 0,9416 ⇒ γ ≈ 19,7°."
+   "c": "round(62.964308210588, 1)",
+   "w": "cos γ = (9 + 121 − 100) : 66 ≈ 0,4545 ⇒ γ ≈ 63°."
   },
   {
    "l": "kosinussatz_winkel",
@@ -3106,48 +3786,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Dreieck hat die Seiten a = 8 cm, b = 5 cm, c = 7 cm. Berechne γ."
+    "text": "Ein Dreieck hat die Seiten a = 14 cm, b = 15 cm, c = 9 cm. Berechne γ (auf eine Nachkommastelle)."
    },
    "o": {
-    "wert": 60,
-    "einheit": "°"
-   },
-   "c": "90 - 60 * ((8 ** 2 + 5 ** 2 - 7 ** 2) / (2 * 8 * 5))",
-   "w": "cos γ = (64 + 25 − 49) : (2 · 8 · 5) = 0,5 ⇒ γ = 60°."
-  },
-  {
-   "l": "kosinussatz_winkel",
-   "t": "kosinussatz_winkel",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Dreieck hat die Seiten a = 3 cm, b = 15 cm, c = 15 cm. Berechne γ (auf eine Nachkommastelle)."
-   },
-   "o": {
-    "wert": 84.3,
+    "wert": 36,
     "einheit": "°",
     "toleranz": 0.1
    },
-   "c": "round(84.260829522733, 1)",
-   "w": "cos γ = (9 + 225 − 225) : 90 ≈ 0,1 ⇒ γ ≈ 84,3°."
-  },
-  {
-   "l": "kosinussatz_winkel",
-   "t": "kosinussatz_winkel",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Dreieck hat die Seiten a = 7 cm, b = 4 cm, c = 10 cm. Berechne γ (auf eine Nachkommastelle)."
-   },
-   "o": {
-    "wert": 128.7,
-    "einheit": "°",
-    "toleranz": 0.1
-   },
-   "c": "round(128.682187453489, 1)",
-   "w": "cos γ = (49 + 16 − 100) : 56 ≈ −0,625 ⇒ γ ≈ 128,7°."
+   "c": "round(35.950567619618, 1)",
+   "w": "cos γ = (196 + 225 − 81) : 420 ≈ 0,8095 ⇒ γ ≈ 36°."
   },
   {
    "l": "satz_waehlen",
@@ -3156,82 +3803,19 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Im Dreieck ABC sind b, α und γ gegeben. Mit welchem Satz beginnst du, um eine fehlende Seite zu berechnen?"
+    "text": "Im Dreieck ABC ist a = 5 cm, c = 13 cm und β = 66°. Womit berechnest du die Seite b?"
    },
    "a": [
     "Sinussatz",
-    "Flächenformel",
+    "Winkelsumme im Dreieck",
     "Satz des Pythagoras",
-    "Kosinussatz"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "WSW: β über die Winkelsumme, dann b mit Gegenwinkel β – Sinussatz.",
-   "h": "Gibt es ein bekanntes Paar aus Seite und gegenüberliegendem Winkel?"
-  },
-  {
-   "l": "satz_waehlen",
-   "t": "satz_waehlen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Im Dreieck ABC sind a, α und β gegeben. Mit welchem Satz beginnst du, um einen fehlenden Winkel zu berechnen?"
-   },
-   "a": [
-    "Sinussatz",
-    "Satz des Pythagoras",
-    "Flächenformel",
-    "Kosinussatz"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Seite a mit Gegenwinkel α bekannt – Sinussatz.",
-   "h": "Gibt es ein bekanntes Paar aus Seite und gegenüberliegendem Winkel?"
-  },
-  {
-   "l": "satz_waehlen",
-   "t": "satz_waehlen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Im Dreieck ABC sind b, α und γ gegeben. Mit welchem Satz beginnst du, um eine fehlende Seite zu berechnen?"
-   },
-   "a": [
-    "Satz des Pythagoras",
-    "Sinussatz",
-    "Flächenformel",
-    "Kosinussatz"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "WSW: β über die Winkelsumme, dann b mit Gegenwinkel β – Sinussatz.",
-   "h": "Gibt es ein bekanntes Paar aus Seite und gegenüberliegendem Winkel?"
-  },
-  {
-   "l": "satz_waehlen",
-   "t": "satz_waehlen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Im Dreieck ABC sind a, c und β gegeben. Mit welchem Satz beginnst du, um eine fehlende Seite zu berechnen?"
-   },
-   "a": [
-    "Sinussatz",
-    "Satz des Pythagoras",
-    "Flächenformel",
     "Kosinussatz"
    ],
    "o": {
     "index": 3
    },
    "w": "SWS: β liegt zwischen a und c – Kosinussatz.",
-   "h": "Gibt es ein bekanntes Paar aus Seite und gegenüberliegendem Winkel?"
+   "h": "Gibt es ein bekanntes Paar aus Seite und gegenüberliegendem Winkel? Sind schon zwei Winkel bekannt?"
   },
   {
    "l": "satz_waehlen",
@@ -3240,19 +3824,82 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Im Dreieck ABC sind b, c und α gegeben. Mit welchem Satz beginnst du, um einen fehlenden Winkel zu berechnen?"
+    "text": "Im Dreieck ABC ist a = 6 cm, c = 6 cm und β = 52°. Womit berechnest du die Seite b?"
    },
    "a": [
-    "Flächenformel",
     "Sinussatz",
+    "Satz des Pythagoras",
+    "Kosinussatz",
+    "Winkelsumme im Dreieck"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "SWS: β liegt zwischen a und c – Kosinussatz.",
+   "h": "Gibt es ein bekanntes Paar aus Seite und gegenüberliegendem Winkel? Sind schon zwei Winkel bekannt?"
+  },
+  {
+   "l": "satz_waehlen",
+   "t": "satz_waehlen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist b = 13 cm, c = 7 cm und α = 29°. Womit berechnest du die Seite a?"
+   },
+   "a": [
+    "Kosinussatz",
+    "Satz des Pythagoras",
+    "Sinussatz",
+    "Winkelsumme im Dreieck"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "SWS: α liegt zwischen b und c – Kosinussatz.",
+   "h": "Gibt es ein bekanntes Paar aus Seite und gegenüberliegendem Winkel? Sind schon zwei Winkel bekannt?"
+  },
+  {
+   "l": "satz_waehlen",
+   "t": "satz_waehlen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist b = 9 cm, c = 7 cm und β = 21°. Womit berechnest du den Winkel γ?"
+   },
+   "a": [
+    "Sinussatz",
+    "Satz des Pythagoras",
+    "Kosinussatz",
+    "Winkelsumme im Dreieck"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "SsW: b mit Gegenwinkel β bekannt – Sinussatz.",
+   "h": "Gibt es ein bekanntes Paar aus Seite und gegenüberliegendem Winkel? Sind schon zwei Winkel bekannt?"
+  },
+  {
+   "l": "satz_waehlen",
+   "t": "satz_waehlen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC sind a, b und γ gegeben. Womit berechnest du die Seite c?"
+   },
+   "a": [
+    "Sinussatz",
+    "Winkelsumme im Dreieck",
     "Satz des Pythagoras",
     "Kosinussatz"
    ],
    "o": {
     "index": 3
    },
-   "w": "SWS: α liegt zwischen b und c – Kosinussatz.",
-   "h": "Gibt es ein bekanntes Paar aus Seite und gegenüberliegendem Winkel?"
+   "w": "SWS: γ liegt zwischen a und b; zu keiner Seite ist der Gegenwinkel bekannt – Kosinussatz.",
+   "h": "Gibt es ein bekanntes Paar aus Seite und gegenüberliegendem Winkel? Sind schon zwei Winkel bekannt?"
   },
   {
    "l": "satz_waehlen",
@@ -3261,19 +3908,40 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Im Dreieck ABC sind b, α und γ gegeben. Mit welchem Satz beginnst du, um eine fehlende Seite zu berechnen?"
+    "text": "Im Dreieck ABC ist a = 8 cm, b = 6 cm und c = 11 cm. Womit berechnest du einen Winkel?"
    },
    "a": [
+    "Satz des Pythagoras",
     "Sinussatz",
     "Kosinussatz",
-    "Flächenformel",
-    "Satz des Pythagoras"
+    "Winkelsumme im Dreieck"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "SSS: Alle drei Seiten sind bekannt, aber kein Winkel – Kosinussatz nach dem Winkel umstellen.",
+   "h": "Gibt es ein bekanntes Paar aus Seite und gegenüberliegendem Winkel? Sind schon zwei Winkel bekannt?"
+  },
+  {
+   "l": "satz_waehlen",
+   "t": "satz_waehlen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist a = 9 cm, c = 14 cm und β = 26°. Womit berechnest du die Seite b?"
+   },
+   "a": [
+    "Kosinussatz",
+    "Satz des Pythagoras",
+    "Sinussatz",
+    "Winkelsumme im Dreieck"
    ],
    "o": {
     "index": 0
    },
-   "w": "WSW: β über die Winkelsumme, dann b mit Gegenwinkel β – Sinussatz.",
-   "h": "Gibt es ein bekanntes Paar aus Seite und gegenüberliegendem Winkel?"
+   "w": "SWS: β liegt zwischen a und c – Kosinussatz.",
+   "h": "Gibt es ein bekanntes Paar aus Seite und gegenüberliegendem Winkel? Sind schon zwei Winkel bekannt?"
   },
   {
    "l": "satz_waehlen",
@@ -3282,103 +3950,19 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Im Dreieck ABC sind b, c und β gegeben. Mit welchem Satz beginnst du, um einen fehlenden Winkel zu berechnen?"
-   },
-   "a": [
-    "Kosinussatz",
-    "Sinussatz",
-    "Satz des Pythagoras",
-    "Flächenformel"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "SsW: b mit Gegenwinkel β bekannt – Sinussatz.",
-   "h": "Gibt es ein bekanntes Paar aus Seite und gegenüberliegendem Winkel?"
-  },
-  {
-   "l": "satz_waehlen",
-   "t": "satz_waehlen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Im Dreieck ABC sind c, α und β gegeben. Mit welchem Satz beginnst du, um eine fehlende Seite zu berechnen?"
-   },
-   "a": [
-    "Sinussatz",
-    "Flächenformel",
-    "Kosinussatz",
-    "Satz des Pythagoras"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "WSW: γ über die Winkelsumme, dann c mit Gegenwinkel γ – Sinussatz.",
-   "h": "Gibt es ein bekanntes Paar aus Seite und gegenüberliegendem Winkel?"
-  },
-  {
-   "l": "satz_waehlen",
-   "t": "satz_waehlen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Im Dreieck ABC sind a, b und γ gegeben. Mit welchem Satz beginnst du, um einen fehlenden Winkel zu berechnen?"
+    "text": "Im Dreieck ABC ist a = 8 cm, α = 43° und β = 49°. Womit berechnest du die Seite b?"
    },
    "a": [
     "Satz des Pythagoras",
-    "Kosinussatz",
+    "Winkelsumme im Dreieck",
     "Sinussatz",
-    "Flächenformel"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "SWS: γ liegt zwischen a und b; zu keiner Seite ist der Gegenwinkel bekannt – Kosinussatz.",
-   "h": "Gibt es ein bekanntes Paar aus Seite und gegenüberliegendem Winkel?"
-  },
-  {
-   "l": "satz_waehlen",
-   "t": "satz_waehlen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Im Dreieck ABC sind a, α und β gegeben. Mit welchem Satz beginnst du, um eine fehlende Seite zu berechnen?"
-   },
-   "a": [
-    "Kosinussatz",
-    "Sinussatz",
-    "Flächenformel",
-    "Satz des Pythagoras"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Seite a mit Gegenwinkel α bekannt – Sinussatz.",
-   "h": "Gibt es ein bekanntes Paar aus Seite und gegenüberliegendem Winkel?"
-  },
-  {
-   "l": "satz_waehlen",
-   "t": "satz_waehlen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Im Dreieck ABC sind c, α und β gegeben. Mit welchem Satz beginnst du, um eine fehlende Seite zu berechnen?"
-   },
-   "a": [
-    "Sinussatz",
-    "Satz des Pythagoras",
-    "Flächenformel",
     "Kosinussatz"
    ],
    "o": {
-    "index": 0
+    "index": 2
    },
-   "w": "WSW: γ über die Winkelsumme, dann c mit Gegenwinkel γ – Sinussatz.",
-   "h": "Gibt es ein bekanntes Paar aus Seite und gegenüberliegendem Winkel?"
+   "w": "Seite a mit Gegenwinkel α bekannt, β gegeben – Sinussatz.",
+   "h": "Gibt es ein bekanntes Paar aus Seite und gegenüberliegendem Winkel? Sind schon zwei Winkel bekannt?"
   },
   {
    "l": "satz_waehlen",
@@ -3387,121 +3971,122 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Im Dreieck ABC sind a, α und β gegeben. Mit welchem Satz beginnst du, um eine fehlende Seite zu berechnen?"
+    "text": "Im Dreieck ABC ist a = 10 cm, b = 10 cm und α = 56°. Womit berechnest du den Winkel β?"
    },
    "a": [
     "Satz des Pythagoras",
-    "Kosinussatz",
     "Sinussatz",
-    "Flächenformel"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Seite a mit Gegenwinkel α bekannt – Sinussatz.",
-   "h": "Gibt es ein bekanntes Paar aus Seite und gegenüberliegendem Winkel?"
-  },
-  {
-   "l": "satz_waehlen",
-   "t": "satz_waehlen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Gegeben a = 5 cm, b = 9 cm, γ = 123°. Jemand will c mit dem Sinussatz berechnen. Was stimmt?"
-   },
-   "a": [
-    "Das geht nur, wenn γ = 90° ist.",
-    "Man braucht dafür die Flächenformel.",
-    "Das geht nicht direkt: Es fehlt ein Paar Seite/Gegenwinkel. Erst c mit dem Kosinussatz.",
-    "Das geht: c = a · sin γ : sin α."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Bekannt sind a, b und der eingeschlossene Winkel γ (SWS). Zu a und b fehlen α und β – der Sinussatz lässt sich nicht ansetzen.",
-   "h": "Welche Größen braucht der Sinussatz?"
-  },
-  {
-   "l": "satz_waehlen",
-   "t": "satz_waehlen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Gegeben a = 6 cm, b = 4 cm, γ = 34°. Jemand will c mit dem Sinussatz berechnen. Was stimmt?"
-   },
-   "a": [
-    "Man braucht dafür die Flächenformel.",
-    "Das geht: c = a · sin γ : sin α.",
-    "Das geht nicht direkt: Es fehlt ein Paar Seite/Gegenwinkel. Erst c mit dem Kosinussatz.",
-    "Das geht nur, wenn γ = 90° ist."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Bekannt sind a, b und der eingeschlossene Winkel γ (SWS). Zu a und b fehlen α und β – der Sinussatz lässt sich nicht ansetzen.",
-   "h": "Welche Größen braucht der Sinussatz?"
-  },
-  {
-   "l": "satz_waehlen",
-   "t": "satz_waehlen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Gegeben a = 8 cm, b = 10 cm, γ = 119°. Jemand will c mit dem Sinussatz berechnen. Was stimmt?"
-   },
-   "a": [
-    "Man braucht dafür die Flächenformel.",
-    "Das geht nur, wenn γ = 90° ist.",
-    "Das geht nicht direkt: Es fehlt ein Paar Seite/Gegenwinkel. Erst c mit dem Kosinussatz.",
-    "Das geht: c = a · sin γ : sin α."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Bekannt sind a, b und der eingeschlossene Winkel γ (SWS). Zu a und b fehlen α und β – der Sinussatz lässt sich nicht ansetzen.",
-   "h": "Welche Größen braucht der Sinussatz?"
-  },
-  {
-   "l": "satz_waehlen",
-   "t": "satz_waehlen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Dreieck hat die Seiten 4 cm, 10 cm und 11 cm. Ist der größte Winkel spitz, recht oder stumpf?"
-   },
-   "a": [
-    "stumpf",
-    "spitz",
-    "recht"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Der größte Winkel liegt gegenüber 11 cm: cos γ = (16 + 100 − 121) : 80 = −1/16 < 0: stumpf.",
-   "h": "Vorzeichen von a² + b² − c² für die längste Seite c entscheidet."
-  },
-  {
-   "l": "satz_waehlen",
-   "t": "satz_waehlen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Gegeben a = 4 cm, b = 4 cm, γ = 86°. Jemand will c mit dem Sinussatz berechnen. Was stimmt?"
-   },
-   "a": [
-    "Das geht nur, wenn γ = 90° ist.",
-    "Das geht nicht direkt: Es fehlt ein Paar Seite/Gegenwinkel. Erst c mit dem Kosinussatz.",
-    "Man braucht dafür die Flächenformel.",
-    "Das geht: c = a · sin γ : sin α."
+    "Winkelsumme im Dreieck",
+    "Kosinussatz"
    ],
    "o": {
     "index": 1
    },
+   "w": "SsW: Seite a mit Gegenwinkel α bekannt – Sinussatz (auf Mehrdeutigkeit achten).",
+   "h": "Gibt es ein bekanntes Paar aus Seite und gegenüberliegendem Winkel? Sind schon zwei Winkel bekannt?"
+  },
+  {
+   "l": "satz_waehlen",
+   "t": "satz_waehlen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist a = 15 cm, b = 4 cm und γ = 65°. Womit berechnest du die Seite c?"
+   },
+   "a": [
+    "Sinussatz",
+    "Satz des Pythagoras",
+    "Kosinussatz",
+    "Winkelsumme im Dreieck"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "SWS: γ liegt zwischen a und b; zu keiner Seite ist der Gegenwinkel bekannt – Kosinussatz.",
+   "h": "Gibt es ein bekanntes Paar aus Seite und gegenüberliegendem Winkel? Sind schon zwei Winkel bekannt?"
+  },
+  {
+   "l": "satz_waehlen",
+   "t": "satz_waehlen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC sind a, b und α gegeben. Womit berechnest du den Winkel β?"
+   },
+   "a": [
+    "Kosinussatz",
+    "Sinussatz",
+    "Satz des Pythagoras",
+    "Winkelsumme im Dreieck"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "SsW: Seite a mit Gegenwinkel α bekannt – Sinussatz (auf Mehrdeutigkeit achten).",
+   "h": "Gibt es ein bekanntes Paar aus Seite und gegenüberliegendem Winkel? Sind schon zwei Winkel bekannt?"
+  },
+  {
+   "l": "satz_waehlen",
+   "t": "satz_waehlen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist a = 15 cm, α = 27° und β = 45°. Womit berechnest du die Seite b?"
+   },
+   "a": [
+    "Kosinussatz",
+    "Satz des Pythagoras",
+    "Sinussatz",
+    "Winkelsumme im Dreieck"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Seite a mit Gegenwinkel α bekannt, β gegeben – Sinussatz.",
+   "h": "Gibt es ein bekanntes Paar aus Seite und gegenüberliegendem Winkel? Sind schon zwei Winkel bekannt?"
+  },
+  {
+   "l": "satz_waehlen",
+   "t": "satz_waehlen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben sind a, b und α mit a > b. Gesucht ist c. Welcher Weg ist richtig?"
+   },
+   "a": [
+    "c mit dem Satz des Pythagoras.",
+    "1. β mit dem Sinussatz, 2. γ mit der Winkelsumme, 3. c mit dem Sinussatz.",
+    "1. γ mit der Winkelsumme, 2. c mit dem Sinussatz.",
+    "c direkt mit dem Kosinussatz aus a, b und α."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Zu a ist der Gegenwinkel α bekannt: Sinussatz liefert β (eindeutig, weil a > b). Dann γ = 180° − α − β und c = a · sin γ : sin α.",
+   "h": "Welches Paar aus Seite und Gegenwinkel kennst du?"
+  },
+  {
+   "l": "satz_waehlen",
+   "t": "satz_waehlen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben a = 11 cm, b = 7 cm, γ = 102°. Jemand will c mit dem Sinussatz berechnen. Was stimmt?"
+   },
+   "a": [
+    "Das geht nur, wenn γ = 90° ist.",
+    "Das geht: c = a · sin γ : sin α.",
+    "Man braucht dafür die Flächenformel.",
+    "Das geht nicht direkt: Es fehlt ein Paar Seite/Gegenwinkel. Erst c mit dem Kosinussatz."
+   ],
+   "o": {
+    "index": 3
+   },
    "w": "Bekannt sind a, b und der eingeschlossene Winkel γ (SWS). Zu a und b fehlen α und β – der Sinussatz lässt sich nicht ansetzen.",
    "h": "Welche Größen braucht der Sinussatz?"
   },
@@ -3512,7 +4097,7 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Gegeben a = 8 cm, b = 10 cm, γ = 122°. Jemand will c mit dem Sinussatz berechnen. Was stimmt?"
+    "text": "Gegeben a = 6 cm, b = 11 cm, γ = 93°. Jemand will c mit dem Sinussatz berechnen. Was stimmt?"
    },
    "a": [
     "Das geht nur, wenn γ = 90° ist.",
@@ -3529,20 +4114,83 @@
   {
    "l": "satz_waehlen",
    "t": "satz_waehlen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben a = 5 cm, b = 8 cm, γ = 33°. Gesucht ist α. Welcher Weg ist richtig?"
+   },
+   "a": [
+    "1. α mit dem Satz des Pythagoras, 2. c mit dem Sinussatz.",
+    "α direkt mit dem Sinussatz.",
+    "α mit der Winkelsumme.",
+    "1. c mit dem Kosinussatz, 2. α mit dem Kosinussatz (oder Sinussatz)."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "SWS: Zuerst fehlt die dritte Seite c (Kosinussatz). Danach sind alle Seiten bekannt, und α folgt mit dem Kosinussatz.",
+   "h": "Was fehlt dir, bevor du einen Satz für α ansetzen kannst?"
+  },
+  {
+   "l": "satz_waehlen",
+   "t": "satz_waehlen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben a = 4 cm, b = 6 cm, γ = 46°. Gesucht ist α. Welcher Weg ist richtig?"
+   },
+   "a": [
+    "α mit der Winkelsumme.",
+    "α direkt mit dem Sinussatz.",
+    "1. α mit dem Satz des Pythagoras, 2. c mit dem Sinussatz.",
+    "1. c mit dem Kosinussatz, 2. α mit dem Kosinussatz (oder Sinussatz)."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "SWS: Zuerst fehlt die dritte Seite c (Kosinussatz). Danach sind alle Seiten bekannt, und α folgt mit dem Kosinussatz.",
+   "h": "Was fehlt dir, bevor du einen Satz für α ansetzen kannst?"
+  },
+  {
+   "l": "satz_waehlen",
+   "t": "satz_waehlen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Gegeben a = 9 cm, b = 6 cm, γ = 61°. Jemand will c mit dem Sinussatz berechnen. Was stimmt?"
+   },
+   "a": [
+    "Man braucht dafür die Flächenformel.",
+    "Das geht nur, wenn γ = 90° ist.",
+    "Das geht: c = a · sin γ : sin α.",
+    "Das geht nicht direkt: Es fehlt ein Paar Seite/Gegenwinkel. Erst c mit dem Kosinussatz."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Bekannt sind a, b und der eingeschlossene Winkel γ (SWS). Zu a und b fehlen α und β – der Sinussatz lässt sich nicht ansetzen.",
+   "h": "Welche Größen braucht der Sinussatz?"
+  },
+  {
+   "l": "satz_waehlen",
+   "t": "satz_waehlen",
    "p": "test",
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Im Dreieck ABC sind b, c und β gegeben. Mit welchem Satz beginnst du, um einen fehlenden Winkel zu berechnen?"
+    "text": "Im Dreieck ABC ist b = 8 cm, c = 11 cm und β = 75°. Womit berechnest du den Winkel γ?"
    },
    "a": [
-    "Sinussatz",
     "Satz des Pythagoras",
-    "Kosinussatz",
-    "Flächenformel"
+    "Sinussatz",
+    "Winkelsumme im Dreieck",
+    "Kosinussatz"
    ],
    "o": {
-    "index": 0
+    "index": 1
    },
    "w": "SsW: b mit Gegenwinkel β bekannt – Sinussatz."
   },
@@ -3553,118 +4201,58 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Im Dreieck ABC sind a, α und β gegeben. Mit welchem Satz beginnst du, um einen fehlenden Winkel zu berechnen?"
-   },
-   "a": [
-    "Kosinussatz",
-    "Satz des Pythagoras",
-    "Sinussatz",
-    "Flächenformel"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Seite a mit Gegenwinkel α bekannt – Sinussatz."
-  },
-  {
-   "l": "satz_waehlen",
-   "t": "satz_waehlen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Im Dreieck ABC sind b, c und β gegeben. Mit welchem Satz beginnst du, um eine fehlende Seite zu berechnen?"
+    "text": "Im Dreieck ABC ist a = 15 cm, γ = 90° und b = 10 cm. Womit berechnest du die Seite c?"
    },
    "a": [
     "Satz des Pythagoras",
     "Kosinussatz",
-    "Sinussatz",
-    "Flächenformel"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "SsW: b mit Gegenwinkel β bekannt – Sinussatz."
-  },
-  {
-   "l": "satz_waehlen",
-   "t": "satz_waehlen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Im Dreieck ABC sind a, b und c gegeben. Mit welchem Satz beginnst du, um eine fehlende Seite zu berechnen?"
-   },
-   "a": [
-    "Sinussatz",
-    "Satz des Pythagoras",
-    "Kosinussatz",
-    "Flächenformel"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "SSS: Alle drei Seiten sind bekannt, aber kein Winkel – Kosinussatz nach dem Winkel umstellen."
-  },
-  {
-   "l": "satz_waehlen",
-   "t": "satz_waehlen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Im Dreieck ABC sind a, b und c gegeben. Mit welchem Satz beginnst du, um eine fehlende Seite zu berechnen?"
-   },
-   "a": [
-    "Kosinussatz",
-    "Satz des Pythagoras",
-    "Flächenformel",
+    "Winkelsumme im Dreieck",
     "Sinussatz"
    ],
    "o": {
     "index": 0
    },
-   "w": "SSS: Alle drei Seiten sind bekannt, aber kein Winkel – Kosinussatz nach dem Winkel umstellen."
+   "w": "γ = 90°: c ist die Hypotenuse, c² = a² + b² (der Kosinussatz liefert dasselbe)."
   },
   {
    "l": "satz_waehlen",
    "t": "satz_waehlen",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Im Dreieck ABC sind b, c und α gegeben. Mit welchem Satz beginnst du, um eine fehlende Seite zu berechnen?"
+    "text": "Im Dreieck ABC ist a = 5 cm, α = 31° und β = 21°. Womit berechnest du die Seite b?"
    },
    "a": [
-    "Sinussatz",
     "Satz des Pythagoras",
-    "Flächenformel",
-    "Kosinussatz"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "SWS: α liegt zwischen b und c – Kosinussatz."
-  },
-  {
-   "l": "satz_waehlen",
-   "t": "satz_waehlen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Im Dreieck ABC sind b, α und γ gegeben. Mit welchem Satz beginnst du, um eine fehlende Seite zu berechnen?"
-   },
-   "a": [
-    "Flächenformel",
     "Sinussatz",
-    "Kosinussatz",
-    "Satz des Pythagoras"
+    "Winkelsumme im Dreieck",
+    "Kosinussatz"
    ],
    "o": {
     "index": 1
    },
-   "w": "WSW: β über die Winkelsumme, dann b mit Gegenwinkel β – Sinussatz."
+   "w": "Seite a mit Gegenwinkel α bekannt, β gegeben – Sinussatz."
+  },
+  {
+   "l": "satz_waehlen",
+   "t": "satz_waehlen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist b = 12 cm, c = 13 cm und β = 53°. Womit berechnest du den Winkel γ?"
+   },
+   "a": [
+    "Satz des Pythagoras",
+    "Sinussatz",
+    "Kosinussatz",
+    "Winkelsumme im Dreieck"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "SsW: b mit Gegenwinkel β bekannt – Sinussatz."
   },
   {
    "l": "satz_waehlen",
@@ -3673,18 +4261,18 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Im Dreieck ABC sind a, α und β gegeben. Mit welchem Satz beginnst du, um eine fehlende Seite zu berechnen?"
+    "text": "Im Dreieck ABC ist a = 4 cm, α = 72° und β = 36°. Womit berechnest du die Seite b?"
    },
    "a": [
     "Sinussatz",
     "Satz des Pythagoras",
-    "Kosinussatz",
-    "Flächenformel"
+    "Winkelsumme im Dreieck",
+    "Kosinussatz"
    ],
    "o": {
     "index": 0
    },
-   "w": "Seite a mit Gegenwinkel α bekannt – Sinussatz."
+   "w": "Seite a mit Gegenwinkel α bekannt, β gegeben – Sinussatz."
   },
   {
    "l": "satz_waehlen",
@@ -3693,44 +4281,104 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Im Dreieck ABC sind a, b und c gegeben. Mit welchem Satz beginnst du, um einen fehlenden Winkel zu berechnen?"
+    "text": "Im Dreieck ABC sind a, α und β gegeben. Womit berechnest du den Winkel γ?"
    },
    "a": [
-    "Flächenformel",
-    "Satz des Pythagoras",
     "Sinussatz",
-    "Kosinussatz"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "SSS: Alle drei Seiten sind bekannt, aber kein Winkel – Kosinussatz nach dem Winkel umstellen."
-  },
-  {
-   "l": "satz_waehlen",
-   "t": "satz_waehlen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Im Dreieck ABC sind b, α und γ gegeben. Mit welchem Satz beginnst du, um eine fehlende Seite zu berechnen?"
-   },
-   "a": [
-    "Flächenformel",
-    "Sinussatz",
+    "Winkelsumme im Dreieck",
     "Satz des Pythagoras",
     "Kosinussatz"
    ],
    "o": {
     "index": 1
    },
-   "w": "WSW: β über die Winkelsumme, dann b mit Gegenwinkel β – Sinussatz."
+   "w": "Zwei Winkel sind bekannt: γ = 180° − α − β. Dafür brauchst du keinen der beiden Sätze."
+  },
+  {
+   "l": "satz_waehlen",
+   "t": "satz_waehlen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist a = 6 cm, c = 12 cm und β = 42°. Womit berechnest du die Seite b?"
+   },
+   "a": [
+    "Sinussatz",
+    "Kosinussatz",
+    "Satz des Pythagoras",
+    "Winkelsumme im Dreieck"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "SWS: β liegt zwischen a und c – Kosinussatz."
+  },
+  {
+   "l": "satz_waehlen",
+   "t": "satz_waehlen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist a = 12 cm, b = 15 cm und α = 44°. Womit berechnest du den Winkel β?"
+   },
+   "a": [
+    "Winkelsumme im Dreieck",
+    "Kosinussatz",
+    "Satz des Pythagoras",
+    "Sinussatz"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "SsW: Seite a mit Gegenwinkel α bekannt – Sinussatz (auf Mehrdeutigkeit achten)."
+  },
+  {
+   "l": "satz_waehlen",
+   "t": "satz_waehlen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC sind c, α und β gegeben. Womit berechnest du den Winkel γ?"
+   },
+   "a": [
+    "Sinussatz",
+    "Satz des Pythagoras",
+    "Winkelsumme im Dreieck",
+    "Kosinussatz"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Zwei Winkel sind bekannt: γ = 180° − α − β."
+  },
+  {
+   "l": "satz_waehlen",
+   "t": "satz_waehlen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist b = 4 cm, c = 13 cm und β = 32°. Womit berechnest du den Winkel γ?"
+   },
+   "a": [
+    "Sinussatz",
+    "Winkelsumme im Dreieck",
+    "Satz des Pythagoras",
+    "Kosinussatz"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "SsW: b mit Gegenwinkel β bekannt – Sinussatz."
   }
  ],
  "offen": [
-  "Lernkarte „einheitskreis“ braucht Zeichnung: Einheitskreis mit Punkt (cos α | sin α), Quadranten und Spiegelungen. Bisher nur in Worten und über Werte.",
-  "Lernkarten zu Sinus-/Kosinussatz brauchen eine Dreieckskizze mit Standardbezeichnung (a gegenüber α usw.); Anwendungsaufgaben (See, Schiff, Grundstück) würden von einer Skizze stark profitieren.",
+  "Einheitskreis-Aufgaben mit Bild nutzen „figur“ mit Kreis (Koordinatensystem kann keine Kreise). Dreieckskizzen gibt es auf den Lernkarten; die Aufgaben nennen die Maße weiter in Worten.",
   "Additionstheoreme (im „umfang“ der Themenliste genannt) sind bewusst weggelassen: Der LehrplanPLUS-Eintrag dieses Themas nennt nur Sinus- und Kosinussatz; Additionstheoreme gehören nicht zum Stoff der 9. Klasse. Bitte bei der Prüfung bestätigen.",
+  "Gleichungen wie sin α = −0,5 stehen jetzt nur noch im Thema gleichungen.trig (Prüfvorschlag); Stufe 3 von „einheitskreis“ beurteilt Aussagen.",
   "Rechenausdruck c: Winkelfunktionswerte als 12-stellige Konstanten (Prüfskript kennt sin/cos nicht)."
  ]
 }

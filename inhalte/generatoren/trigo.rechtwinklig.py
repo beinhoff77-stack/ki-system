@@ -21,9 +21,11 @@ ETAPPEN = [
      'regel': 'Im rechtwinkligen Dreieck liegt die ⟦Hypotenuse⟧ dem rechten Winkel gegenüber. Bezogen auf einen spitzen Winkel ist die ⟦Gegenkathete⟧ die Kathete gegenüber, die ⟦Ankathete⟧ die Kathete, die am Winkel anliegt.',
      'schritte': ['Dreieck ABC mit γ = 90°: Hypotenuse ist c (gegenüber C).', 'Für α (bei A): Gegenkathete ⟦a⟧, Ankathete ⟦b⟧.'],
      'probe': 'Für β tauschen An- und Gegenkathete: Gegenkathete b, Ankathete a ✓',
+     'bild': {'typ': 'figur', 'punkte': {'A': [0, 0], 'B': [5, 3], 'C': [5, 0]}, 'flaeche': ['A', 'B', 'C'], 'linien': [['A', 'C', 'Ankathete b'], ['C', 'B', 'Gegenkathete a'], ['A', 'B', 'Hypotenuse c']], 'rechter_winkel': [['C', 'A', 'B']], 'winkel': [['A', 'C', 'B', 'α']]},
      'fehler': '„Die Ankathete von α ist c, weil c an A anliegt“ ist falsch: c liegt zwar an A, ist aber die ⟦Hypotenuse⟧. Ankathete ist nur eine ⟦Kathete⟧.'},
     {'lernziel': 'verhaeltnisse', 'titel': 'Sinus, Kosinus, Tangens als Verhältnis',
-     'regel': '⟦sin α = Gegenkathete : Hypotenuse⟧, ⟦cos α = Ankathete : Hypotenuse⟧, ⟦tan α = Gegenkathete : Ankathete⟧.',
+     'regel': '⟦sin α = Gegenkathete : Hypotenuse⟧, ⟦cos α = Ankathete : Hypotenuse⟧, ⟦tan α = Gegenkathete : Ankathete⟧. Warum hängen diese Verhältnisse ⟦nur vom Winkel⟧ ab? Alle rechtwinkligen Dreiecke mit demselben α sind ⟦ähnlich⟧ – ein großes ist nur ein vergrößertes kleines. Beim Vergrößern bleiben die Seitenverhältnisse gleich.',
+     'bild': {'typ': 'figur', 'punkte': {'A': [0, 0], 'B': [15, 8], 'C': [15, 0]}, 'flaeche': ['A', 'B', 'C'], 'linien': [['A', 'C', 'b = 15 cm'], ['C', 'B', 'a = 8 cm'], ['A', 'B', 'c = 17 cm']], 'rechter_winkel': [['C', 'A', 'B']], 'winkel': [['A', 'C', 'B', 'α']]},
      'schritte': ['γ = 90°, a = 8 cm, b = 15 cm, c = 17 cm.', 'sin α = 8/17, cos α = 15/17, ⟦tan α = 8/15⟧.'],
      'probe': 'sin α und cos α sind kleiner als 1 (Hypotenuse ist am längsten) ✓',
      'fehler': 'sin α = b/c ist falsch, wenn γ = 90°: b ist die ⟦Ankathete⟧ von α. Richtig: sin α = a/c.'},
@@ -38,7 +40,7 @@ ETAPPEN = [
      'probe': 'β = 90° − 29,7° = 60,3°; tan 60,3° ≈ 1,75 = 7/4 ✓',
      'fehler': 'α = 4/7 ≈ 0,57° ist falsch: 4/7 ist der ⟦Tangenswert⟧, nicht der Winkel. Erst tan⁻¹ liefert den Winkel.'},
     {'lernziel': 'beziehungen', 'titel': 'Beziehungen zwischen sin, cos, tan',
-     'regel': 'Für spitze Winkel gilt: ⟦sin² α + cos² α = 1⟧, ⟦tan α = sin α : cos α⟧ und ⟦sin α = cos(90° − α)⟧. Besondere Werte: sin 30° = cos 60° = 0,5; tan 45° = 1.',
+     'regel': 'Für spitze Winkel gilt ⟦sin² α + cos² α = 1⟧. Warum? Das ist Pythagoras: a² + b² = c², geteilt durch c², ergibt (a/c)² + (b/c)² = 1. Außerdem: ⟦tan α = sin α : cos α⟧ und ⟦sin α = cos(90° − α)⟧. Besondere Werte: sin 30° = cos 60° = 0,5; tan 45° = 1.',
      'schritte': ['sin α = 0,28 (α spitz): cos² α = 1 − 0,0784 = 0,9216.', 'cos α = ⟦0,96⟧, tan α = 0,28 : 0,96 = 7/24.'],
      'probe': '0,28² + 0,96² = 0,0784 + 0,9216 = 1 ✓',
      'fehler': 'cos α = 1 − sin α = 0,72 ist falsch: Es gilt sin² α + cos² α = 1 – mit den ⟦Quadraten⟧.'},
@@ -46,17 +48,33 @@ ETAPPEN = [
      'regel': 'Skizze, ⟦rechtwinkliges Dreieck⟧ finden, Winkel und Seiten zuordnen. ⟦Steigung in %⟧ = tan(Steigungswinkel) · 100. ⟦Höhenwinkel⟧ wird von der Waagrechten aus gemessen.',
      'schritte': ['Eine Straße steigt mit 8 %: tan α = 0,08.', 'α = tan⁻¹(0,08) ≈ ⟦4,6°⟧.'],
      'probe': '8 m Höhe auf 100 m waagrecht ✓',
+     'bild': {'typ': 'figur', 'punkte': {'A': [0, 0], '_C': [100, 0], '_B': [100, 8]}, 'flaeche': ['A', '_C', '_B'], 'linien': [['A', '_C', '100 m waagrecht'], ['_C', '_B', '8 m'], ['A', '_B']], 'rechter_winkel': [['_C', 'A', '_B']], 'winkel': [['A', '_C', '_B', 'α']]},
      'fehler': '8 % Steigung als Winkel 8° anzugeben ist falsch: 8 % bedeutet ⟦tan α = 0,08⟧, also etwa 4,6°.'},
 ]
 
 
 def g_seiten(s):
+    if s <= 2 and R.random() < (0.5 if s == 2 else 0.35):
+        n = R.sample(['P', 'Q', 'R', 'K', 'L', 'M', 'D', 'E', 'F', 'A', 'B', 'C'], 3)
+        rw, w, d = n  # rechter Winkel bei rw, markierter Winkel bei w
+        bx, hy = R.randint(4, 8), R.randint(3, 6)
+        lage = R.choice([0, 1])
+        P_ = {w: [0, 0], rw: [bx, 0], d: [bx, hy]} if lage == 0 else {w: [bx, 0], rw: [0, 0], d: [0, hy]}
+        art = R.choice(['Gegenkathete', 'Ankathete', 'Hypotenuse'])
+        r = {'Gegenkathete': ''.join(sorted(rw + d)), 'Ankathete': ''.join(sorted(w + rw)), 'Hypotenuse': ''.join(sorted(w + d))}[art]
+        g = {'typ': 'figur', 'punkte': P_, 'flaeche': [w, rw, d], 'linien': [[w, rw], [rw, d], [w, d]],
+             'rechter_winkel': [[rw, w, d]], 'winkel': [[w, rw, d, '']]}
+        frage = (f'Welche Strecke ist die {art} des markierten Winkels bei {w}?' if art != 'Hypotenuse' else 'Welche Strecke ist die Hypotenuse?')
+        return bild(auswahl(frage, r, [''.join(sorted(rw + d)), ''.join(sorted(w + rw)), ''.join(sorted(w + d))],
+                            f'Hypotenuse ist {"".join(sorted(w + d))} (gegenüber dem rechten Winkel bei {rw}). Am Winkel bei {w} liegt {"".join(sorted(w + rw))} an, gegenüber liegt {"".join(sorted(rw + d))}.',
+                            'Suche zuerst den rechten Winkel: Gegenüber liegt die Hypotenuse.'), g)
     if s < 3:
         w = R.choice(['α', 'β'])
         art = R.choice(['Gegenkathete', 'Ankathete', 'Hypotenuse'])
         r = {('α', 'Gegenkathete'): 'a', ('α', 'Ankathete'): 'b', ('β', 'Gegenkathete'): 'b', ('β', 'Ankathete'): 'a'}.get((w, art), 'c')
+        frage = f'Welche Seite ist die {art} von {w}?' if art != 'Hypotenuse' else 'Welche Seite ist die Hypotenuse?'
         if s == 1:
-            return auswahl(f'Im Dreieck ABC ist γ = 90°. Welche Seite ist die {art} von {w}?', r, ['a', 'b', 'c'],
+            return auswahl(f'Im Dreieck ABC ist γ = 90°. {frage}', r, ['a', 'b', 'c'],
                            f'Hypotenuse c liegt gegenüber dem rechten Winkel. Für {w}: Gegenkathete {"a" if w == "α" else "b"}, Ankathete {"b" if w == "α" else "a"}.',
                            'Welche Seite liegt dem Winkel gegenüber, welche liegt an ihm an?')
         rechts = R.choice(['α', 'β'])
@@ -64,20 +82,20 @@ def g_seiten(s):
         hyp = 'a' if rechts == 'α' else 'b'
         w2 = R.choice([andere, 'γ'])
         tab = {('β', 'γ', 'Gegenkathete'): 'c', ('β', 'γ', 'Ankathete'): 'b', ('α', 'γ', 'Gegenkathete'): 'c', ('α', 'γ', 'Ankathete'): 'a'}
-        if w2 == 'γ':
-            r = tab[(andere, 'γ', art)] if art != 'Hypotenuse' else hyp
+        if art == 'Hypotenuse':
+            r = hyp
+        elif w2 == 'γ':
+            r = tab[(andere, 'γ', art)]
         else:
-            ankathete = 'c'
-            gegen = 'b' if andere == 'β' else 'a'
-            r = {'Gegenkathete': gegen, 'Ankathete': ankathete, 'Hypotenuse': hyp}[art]
-        return auswahl(f'Im Dreieck ABC ist {rechts} = 90°. Welche Seite ist die {art} von {w2}?', r, ['a', 'b', 'c'],
-                       f'Der rechte Winkel liegt bei {"A" if rechts == "α" else "B"}, also ist {hyp} die Hypotenuse. Die {art} von {w2} ist {r}.',
+            r = {'Gegenkathete': 'b' if andere == 'β' else 'a', 'Ankathete': 'c'}[art]
+        frage = f'Welche Seite ist die {art} von {w2}?' if art != 'Hypotenuse' else 'Welche Seite ist die Hypotenuse?'
+        return auswahl(f'Im Dreieck ABC ist {rechts} = 90°. {frage}', r, ['a', 'b', 'c'],
+                       f'Der rechte Winkel liegt bei {"A" if rechts == "α" else "B"}, also ist {hyp} die Hypotenuse.' + (f' Die {art} von {w2} ist {r}.' if art != 'Hypotenuse' else ''),
                        'Bestimme zuerst die Hypotenuse: Sie liegt dem rechten Winkel gegenüber.')
     pkt = R.sample(['P', 'Q', 'R', 'K', 'L', 'M', 'D', 'E', 'F'], 3)
     recht, w, dritt = pkt
     art = R.choice(['Gegenkathete', 'Ankathete'])
     r = f'{recht}{dritt}' if art == 'Gegenkathete' else f'{w}{recht}'
-    falsch = [f'{w}{dritt}', f'{dritt}{recht}' if art == 'Ankathete' else f'{w}{recht}', f'{recht}{dritt}' if art == 'Ankathete' else f'{w}{dritt}']
     return auswahl(f'Im Dreieck {"".join(sorted(pkt))} ist der Winkel bei {recht} ein rechter. Welche Strecke ist die {art} des Winkels bei {w}?', r,
                    [f'{w}{dritt}', f'{recht}{dritt}', f'{w}{recht}'],
                    f'Hypotenuse ist {w}{dritt} (gegenüber {recht}). Am Winkel bei {w} liegt die Kathete {w}{recht} an; gegenüber liegt {recht}{dritt}.',
@@ -92,6 +110,19 @@ def g_verhaeltnisse(s):
         return auswahl(f'Im Dreieck ABC ist γ = 90°. Welcher Term ist {f} {w}?', r, [f'{gg}/c', f'{an}/c', f'{gg}/{an}', f'{an}/{gg}'],
                        f'{f} = {"Gegenkathete : Hypotenuse" if f == "sin" else "Ankathete : Hypotenuse" if f == "cos" else "Gegenkathete : Ankathete"}; für {w} ist {gg} die Gegenkathete, {an} die Ankathete: {f} {w} = {r}.',
                        'Bestimme zu dem Winkel zuerst An- und Gegenkathete.')
+    if s == 3 and R.random() < 0.35:
+        rechts = R.choice(['α', 'β'])
+        hyp = 'a' if rechts == 'α' else 'b'
+        wi = R.choice([x for x in ['α', 'β', 'γ'] if x != rechts])
+        ecke = {'α': 'a', 'β': 'b', 'γ': 'c'}
+        gg = ecke[wi]
+        an = ({'a', 'b', 'c'} - {hyp, gg}).pop()
+        f = R.choice(list(FUNK))
+        r = {'sin': f'{gg}/{hyp}', 'cos': f'{an}/{hyp}', 'tan': f'{gg}/{an}'}[f]
+        return auswahl(f'Im Dreieck ABC ist {rechts} = 90°. Welcher Term ist {f} {wi}?', r,
+                       [f'{gg}/{hyp}', f'{an}/{hyp}', f'{gg}/{an}', f'{an}/{gg}', f'{gg}/c' if hyp != 'c' else f'{hyp}/{gg}'],
+                       f'Hypotenuse ist {hyp} (gegenüber dem rechten Winkel). Für {wi}: Gegenkathete {gg}, Ankathete {an}. Also {f} {wi} = {r}.',
+                       'Achtung: Der rechte Winkel liegt nicht bei C. Bestimme zuerst die Hypotenuse.')
     a, b, c = R.choice(TRIPEL)
     f = R.choice(list(FUNK))
     w = R.choice(['α', 'β'])
@@ -125,6 +156,19 @@ def g_seite(s):
         return zahl(f'Im Dreieck ABC ist γ = 90°, α = {al}° und c = {c} cm. Berechne {ziel} (auf eine Nachkommastelle).',
                     f'{ziel} ist {"Gegen" if f == "sin" else "An"}kathete von α: {ziel} = c · {f} α = {c} · {f} {al}° ≈ {dz(v)} cm.',
                     f'Welche Funktion verbindet {ziel} und c?', v, f'round({c} * {K(FUNK[f](al))}, 1)', einheit='cm')
+    if s == 2 and R.random() < 0.5:
+        c = R.randint(5, 25)
+        if R.random() < 0.5:
+            wahr = c * cos(al)
+            t, w, ce = f'α = {al}° und c = {c} cm. Berechne b', f'b ist Ankathete von α: b = c · cos α = {c} · cos {al}°', f'round({c} * {K(cos(al))}, 1)'
+        else:
+            be = 90 - al
+            wahr = c * cos(be)
+            t, w, ce = f'β = {be}° und c = {c} cm. Berechne a', f'a ist Ankathete von β: a = c · cos β = {c} · cos {be}°', f'round({c} * {K(cos(be))}, 1)'
+        v = gerundet(wahr, 1)
+        if v is None: return None
+        return zahl(f'Im Dreieck ABC ist γ = 90°, {t} (auf eine Nachkommastelle).', f'{w} ≈ {dz(v)} cm.',
+                    'Welche Funktion verbindet die bekannte und die gesuchte Seite?', v, ce, einheit='cm')
     if s == 2:
         b = R.randint(3, 20)
         wahr = b * tan(al)
@@ -186,16 +230,30 @@ def g_beziehungen(s):
     if s == 1:
         typ = R.random()
         if typ < 0.5:
-            w, wert = R.choice([('sin 30°', Fr(1, 2)), ('cos 60°', Fr(1, 2)), ('tan 45°', Fr(1)), ('sin 90°', Fr(1)), ('cos 0°', Fr(1)), ('sin 0°', Fr(0)), ('tan 0°', Fr(0))])
-            return zahl(f'Gib den exakten Wert von {w} an.', f'{w} = {dz(wert)} (besonderer Wert, z. B. am halben gleichseitigen bzw. gleichschenklig-rechtwinkligen Dreieck).',
+            w, wert, grund = R.choice([('sin 30°', Fr(1, 2), 'Im halben gleichseitigen Dreieck ist die Gegenkathete von 30° halb so lang wie die Hypotenuse.'),
+                                       ('cos 60°', Fr(1, 2), 'Im halben gleichseitigen Dreieck ist die Ankathete von 60° halb so lang wie die Hypotenuse.'),
+                                       ('tan 45°', Fr(1), 'Im gleichschenklig-rechtwinkligen Dreieck sind beide Katheten gleich lang.'),
+                                       ('cos 45° · sin 45° · 2', Fr(1), 'cos 45° = sin 45°, und 2 · sin² 45° = sin² 45° + cos² 45° = 1.'),
+                                       ('sin² 30° + cos² 30°', Fr(1), 'Für jeden spitzen Winkel gilt sin² α + cos² α = 1.'),
+                                       ('sin 30° + cos 60°', Fr(1), 'Beide sind 0,5.'), ('tan 45° − sin 30°', Fr(1, 2), '1 − 0,5 = 0,5.')])
+            return zahl(f'Gib den exakten Wert von {w} an.', f'{w} = {dz(wert)}. {grund}',
                         'Denke an das halbe gleichseitige Dreieck (30°/60°) und das gleichschenklig-rechtwinklige (45°).', wert, f'{cf(wert)}')
-        al = R.randint(5, 85)
+        al = R.choice([x for x in range(5, 86) if x != 45])
         return auswahl(f'Welcher Ausdruck ist gleich sin {al}°?', f'cos {90 - al}°', [f'cos {al}°', f'sin {90 - al}°', f'tan {al}°'],
                        f'Im rechtwinkligen Dreieck ist die Gegenkathete von α die Ankathete von 90° − α: sin {al}° = cos {90 - al}°.',
                        'Was ist der andere spitze Winkel im rechtwinkligen Dreieck?')
     p, q, r = R.choice(trip)
     if R.random() < 0.5: p, q = q, p
     sn, cs = Fr(p, r), Fr(q, r)
+    if s == 2 and R.random() < 0.3:
+        tn = sn / cs
+        if endlich(tn):
+            return zahl(f'Für einen spitzen Winkel gilt sin α = {dz(sn)} und cos α = {dz(cs)}. Berechne tan α.', f'tan α = sin α : cos α = {dz(sn)} : {dz(cs)} = {dz(tn)}.',
+                        'Nutze tan α = sin α : cos α.', tn, f'{cf(sn)} / {cf(cs)}')
+        v = gerundet(float(tn), 2)
+        if v is None: return None
+        return zahl(f'Für einen spitzen Winkel gilt sin α = {dz(sn)} und cos α = {dz(cs)}. Berechne tan α auf zwei Nachkommastellen.',
+                    f'tan α = sin α : cos α = {dz(sn)} : {dz(cs)} ≈ {dz(v)}.', 'Nutze tan α = sin α : cos α.', v, f'round({cf(sn)} / {cf(cs)}, 2)')
     if not (endlich(sn) and endlich(cs)): return None
     if s == 2:
         typ = R.random()
@@ -208,14 +266,18 @@ def g_beziehungen(s):
         if typ < 0.75:
             return zahl(f'Für einen spitzen Winkel α gilt sin α = {dz(sn)}. Wie groß ist cos(90° − α)?', f'cos(90° − α) = sin α = {dz(sn)}.',
                         'Im rechtwinkligen Dreieck ist 90° − α der andere spitze Winkel.', sn, f'{cf(sn)}')
-        al = R.randint(5, 85)
+        al = R.choice([x for x in range(5, 86) if x != 45])
         return auswahl(f'Welcher Ausdruck ist gleich cos {al}°?', f'sin {90 - al}°', [f'sin {al}°', f'cos {90 - al}°', f'tan {90 - al}°'],
                        f'Die Ankathete von {al}° ist die Gegenkathete von {90 - al}°: cos {al}° = sin {90 - al}°.', 'Was ist der andere spitze Winkel?')
     if R.random() < 0.5:
         tn = sn / cs
-        if not endlich(tn): return None
-        return zahl(f'Für einen spitzen Winkel α gilt cos α = {dz(cs)}. Berechne tan α.', f'sin α = √(1 − {dz(cs)}²) = {dz(sn)}; tan α = {dz(sn)} : {dz(cs)} = {dz(tn)}.',
-                    'Erst sin α über sin² + cos² = 1, dann tan = sin : cos.', tn, f'{cf(sn)} / {cf(cs)}')
+        if endlich(tn):
+            return zahl(f'Für einen spitzen Winkel α gilt cos α = {dz(cs)}. Berechne tan α.', f'sin α = √(1 − {dz(cs)}²) = {dz(sn)}; tan α = {dz(sn)} : {dz(cs)} = {dz(tn)}.',
+                        'Erst sin α über sin² + cos² = 1, dann tan = sin : cos.', tn, f'{cf(sn)} / {cf(cs)}')
+        v = gerundet(float(tn), 2)
+        if v is None: return None
+        return zahl(f'Für einen spitzen Winkel α gilt cos α = {dz(cs)}. Berechne tan α auf zwei Nachkommastellen.', f'sin α = √(1 − {dz(cs)}²) = {dz(sn)}; tan α = {dz(sn)} : {dz(cs)} ≈ {dz(v)}.',
+                    'Erst sin α über sin² + cos² = 1, dann tan = sin : cos.', v, f'round({cf(sn)} / {cf(cs)}, 2)')
     return auswahl(f'Jemand behauptet: „Für einen spitzen Winkel gilt sin α = {dz(sn)} und cos α = {dz(1 - sn)}, weil sin α + cos α = 1.“ Was stimmt?',
                    f'Falsch: Es gilt sin² α + cos² α = 1, also cos α = {dz(cs)}.',
                    ['Richtig.', f'Falsch: cos α = {dz(sn)}, weil Sinus und Kosinus gleich sind.', f'Falsch: cos α = {dz(1 + sn)}.'],
@@ -234,21 +296,47 @@ def g_anwendung(s):
                     f'tan α = {p}/100 = {dz(Fr(p, 100))} ⇒ α ≈ {dz(v)}°.', 'Steigung in % ist der Tangens des Steigungswinkels mal 100.', v,
                     f'round({K(wahr)}, 1)', einheit='°')
     if s == 2:
-        if typ < 0.5:
-            d, w = R.randint(20, 150), R.randint(15, 60)
+        if typ < 0.4:
+            d, w = R.randint(20, 150), R.randint(15, 45)
             wahr = d * tan(w)
             v = gerundet(wahr, 1)
-            if v is None: return None
-            return zahl(f'Aus {d} m Entfernung sieht man die Spitze eines Turms unter dem Höhenwinkel {w}° (Augenhöhe vernachlässigt). Wie hoch ist der Turm?',
+            if v is None or wahr > 120: return None
+            return zahl(f'Aus {d} m Entfernung sieht man die Spitze eines Turms unter dem Höhenwinkel {w}° (Augenhöhe vernachlässigt). Wie hoch ist der Turm? Runde auf eine Nachkommastelle.',
                         f'tan {w}° = h/{d} ⇒ h = {d} · tan {w}° ≈ {dz(v)} m.', 'Entfernung ist die Ankathete, Turmhöhe die Gegenkathete.', v,
                         f'round({d} * {K(tan(w))}, 1)', einheit='m')
-        l, w = R.randint(3, 8), R.randint(60, 78)
+        if typ < 0.65:
+            weg, w = R.randint(2, 20) * 100, R.randint(3, 15)
+            wahr = weg * sin(w)
+            v = gerundet(wahr, 0)
+            if v is None: return None
+            return zahl(f'Ein Wanderweg ist {dz(weg)} m lang und steigt gleichmäßig unter dem Winkel {w}° an. Wie viele Höhenmeter überwindet er? Runde auf ganze Meter.',
+                        f'h = {dz(weg)} · sin {w}° ≈ {dz(v)} m.', 'Die Weglänge ist die Hypotenuse (schräg), die Höhe die Gegenkathete.', v,
+                        f'round({weg} * {K(sin(w))}, 0)', einheit='m')
+        if typ < 0.82:
+            p_ = R.choice([4, 5, 6, 8, 10, 12])
+            h = R.choice([30, 45, 60, 75, 90, 120])
+            L = Fr(h * 100, p_) / 100
+            if not endlich(L): return None
+            return zahl(f'Eine Rampe soll {h} cm Höhe überwinden und höchstens {p_} % Steigung haben. Wie lang muss sie mindestens waagrecht sein (in m)?',
+                        f'Steigung = Höhe : waagrechte Länge ⇒ L = {h} cm : {dz(Fr(p_, 100))} = {dz(L * 100)} cm = {dz(L)} m.',
+                        f'{p_} % Steigung heißt: {p_} cm Höhe auf 100 cm waagrecht.', L, f'{h} / {p_}', einheit='m')
+        l, w = R.randint(3, 8), R.randint(65, 75)
         wahr = l * sin(w)
         v = gerundet(wahr, 2)
         if v is None: return None
-        return zahl(f'Eine {l} m lange Leiter lehnt unter einem Winkel von {w}° zum Boden an einer Wand. In welcher Höhe berührt sie die Wand (auf cm genau, in m)?',
-                    f'sin {w}° = h/{l} ⇒ h = {l} · sin {w}° ≈ {dz(v)} m.', 'Die Leiter ist die Hypotenuse, die Höhe die Gegenkathete zum Bodenwinkel.', v,
+        return zahl(f'Eine {l} m lange Leiter lehnt unter einem Winkel von {w}° zum Boden an einer Wand. In welcher Höhe berührt sie die Wand? Runde auf cm (zwei Nachkommastellen in m).',
+                    f'sin {w}° = h/{l} ⇒ h = {l} · sin {w}° ≈ {format(v, ".2f").replace(".", ",")} m.', 'Die Leiter ist die Hypotenuse, die Höhe die Gegenkathete zum Bodenwinkel.', v,
                     f'round({l} * {K(sin(w))}, 2)', einheit='m')
+    if typ < 0.25:
+        w1, w2 = R.choice([(30, 45), (25, 40), (20, 35), (35, 50), (30, 50), (40, 60)])
+        d = R.choice([30, 40, 50, 60, 80, 100])
+        wahr = d * tan(w1) * tan(w2) / (tan(w2) - tan(w1))
+        v = gerundet(wahr, 0)
+        if v is None: return None
+        return zahl(f'Von einem Punkt sieht man die Spitze eines Turms unter {w1}°. Geht man {d} m näher heran, sieht man sie unter {w2}°. Wie hoch ist der Turm? Runde auf ganze Meter.',
+                    f'x = Abstand vom näheren Punkt: h = x · tan {w2}° und h = (x + {d}) · tan {w1}°. Gleichsetzen: x = {d} · tan {w1}° : (tan {w2}° − tan {w1}°) ≈ {dz(round(wahr / tan(w2), 1))} m, h ≈ {dz(v)} m.',
+                    'Zwei rechtwinklige Dreiecke mit derselben Höhe h: Stelle für jedes eine Gleichung auf.', v,
+                    f'round({K(wahr)}, 0)', einheit='m')
     if typ < 0.35:
         h, w = R.choice([30, 40, 50, 60, 75, 80, 100, 120]), R.randint(4, 12)
         l = R.randint(5, 20) * 10
@@ -262,14 +350,14 @@ def g_anwendung(s):
         wahr = weg * sin(w)
         v = gerundet(wahr, 0)
         if v is None: return None
-        return zahl(f'Ein Wanderweg ist {dz(weg)} m lang und steigt gleichmäßig unter dem Winkel {w}° an. Wie viele Höhenmeter überwindet er (auf ganze Meter)?',
+        return zahl(f'Ein Wanderweg ist {dz(weg)} m lang und steigt gleichmäßig unter dem Winkel {w}° an. Wie viele Höhenmeter überwindet er? Runde auf ganze Meter.',
                     f'h = {dz(weg)} · sin {w}° ≈ {dz(v)} m.', 'Die Weglänge ist die Hypotenuse (schräg), die Höhe die Gegenkathete.', v,
                     f'round({weg} * {K(sin(w))}, 0)', einheit='m')
     h, w1 = R.randint(20, 80), R.randint(20, 40)
     wahr = h / tan(w1)
     v = gerundet(wahr, 1)
     if v is None: return None
-    return zahl(f'Von einem {h} m hohen Leuchtturm sieht man ein Boot unter dem Tiefenwinkel {w1}° (gemessen von der Waagrechten nach unten). Wie weit ist das Boot vom Fuß des Turms entfernt?',
+    return zahl(f'Von einem {h} m hohen Leuchtturm sieht man ein Boot unter dem Tiefenwinkel {w1}° (gemessen von der Waagrechten nach unten). Wie weit ist das Boot vom Fuß des Turms entfernt? Runde auf eine Nachkommastelle.',
                 f'Der Tiefenwinkel ist gleich dem Höhenwinkel vom Boot aus (Wechselwinkel): tan {w1}° = {h}/e ⇒ e = {h} : tan {w1}° ≈ {dz(v)} m.',
                 'Zeichne die Waagrechte am Turm; der Tiefenwinkel taucht unten am Boot als Wechselwinkel wieder auf.', v,
                 f'round({h} / {K(tan(w1))}, 1)', einheit='m')
@@ -288,5 +376,5 @@ if __name__ == '__main__':
           ETAPPEN, GEN,
           meiden={'verhaeltnisse': ['a = 8 cm, b = 15 cm, c = 17 cm'], 'seite': ['α = 35° und c = 10 cm'], 'winkel': ['a = 4 cm und b = 7 cm. Berechne α'],
                   'beziehungen': ['sin α = 0,28'], 'anwendung': ['8 % Steigung']},
-          offen=['Alle Lernkarten brauchen eigentlich eine Dreieckskizze (rechter Winkel, Bezeichnungen a, b, c, α, β). Bisher Standardbezeichnung „Dreieck ABC mit γ = 90°“ in Worten; Anwendungsaufgaben (Höhenwinkel, Tiefenwinkel) würden von einer Skizze stark profitieren.',
+          offen=['Skizzen: Lernkarten haben jetzt Bilder; Aufgaben mit Figur gibt es bei „seiten“ (Stufe 2). Die übrigen Aufgaben nennen das Dreieck weiter in Worten („Dreieck ABC mit γ = 90°“).',
                  'Rechenausdruck c: sin/cos/tan-Werte stehen als 12-stellige Konstanten, weil das Prüfskript keine Winkelfunktionen kennt. Werte nahe an Rundungsgrenzen werden vom Generator verworfen.'])

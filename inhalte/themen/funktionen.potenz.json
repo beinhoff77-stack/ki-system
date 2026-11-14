@@ -60,6 +60,37 @@
      "Aus f(2) = 8 folgt ohne Rechnen ⟦f(−2) = 8⟧."
     ],
     "probe": "0,5 · (−2)⁴ = 0,5 · 16 = 8 ✓",
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      3
+     ],
+     "y": [
+      -2,
+      10
+     ],
+     "graphen": [
+      {
+       "art": "potenz",
+       "a": 0.5,
+       "n": 4,
+       "name": "f"
+      }
+     ],
+     "punkte": [
+      {
+       "x": 2,
+       "y": 8,
+       "name": "(2 | 8)"
+      },
+      {
+       "x": -2,
+       "y": 8,
+       "name": "(−2 | 8)"
+      }
+     ]
+    },
     "fehler": "„y = x³ ist achsensymmetrisch zur y-Achse“ ist falsch: (−2)³ = −8, aber 2³ = 8. Bei ⟦ungeradem⟧ n ist der Graph punktsymmetrisch."
    },
    {
@@ -71,6 +102,55 @@
      "a = −1 spiegelt an der x-Achse: ⟦von links oben nach rechts unten⟧."
     ],
     "probe": "x = 2: −32 (unten), x = −2: 32 (oben) ✓",
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      2
+     ],
+     "y": [
+      -3,
+      3
+     ],
+     "graphen": [
+      {
+       "art": "potenz",
+       "a": 1,
+       "n": 2,
+       "name": "x²"
+      },
+      {
+       "art": "potenz",
+       "a": 1,
+       "n": 3,
+       "name": "x³"
+      },
+      {
+       "art": "potenz",
+       "a": 1,
+       "n": 4,
+       "name": "x⁴"
+      }
+     ],
+     "punkte": [
+      {
+       "x": -1,
+       "y": 1
+      },
+      {
+       "x": 1,
+       "y": 1
+      },
+      {
+       "x": -1,
+       "y": -1
+      },
+      {
+       "x": 0,
+       "y": 0
+      }
+     ]
+    },
     "fehler": "„Alle Potenzfunktionen y = xⁿ gehen durch (−1 | 1)“ ist falsch: Für ungerades n ist (−1)ⁿ = ⟦−1⟧."
    },
    {
@@ -93,12 +173,85 @@
      "f(4) = 1/16 = ⟦0,0625⟧."
     ],
     "probe": "0,0625 · 16 = 1 ✓",
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -4,
+      4
+     ],
+     "graphen": [
+      {
+       "art": "potenz",
+       "a": 1,
+       "n": -2,
+       "name": "x⁻²"
+      },
+      {
+       "art": "potenz",
+       "a": 1,
+       "n": -1,
+       "name": "x⁻¹"
+      }
+     ]
+    },
     "fehler": "f(4) = 4⁻² = −16 ist falsch: Ein negativer Exponent bedeutet ⟦Kehrwert⟧, nicht negatives Ergebnis: 4⁻² = 1/16."
    },
    {
     "lernziel": "wurzelfunktion",
     "titel": "Wurzelfunktionen und Umkehrung",
-    "regel": "y = x^(1/2) = √x und y = x^(1/3) = ∛x sind für ⟦x ≥ 0⟧ definiert. Sie sind die ⟦Umkehrfunktionen⟧ von y = x² bzw. y = x³ (für x ≥ 0): Aus y wird x zurückgerechnet.",
+    "regel": "y = x^(1/2) = √x und y = x^(1/3) = ∛x sind für ⟦x ≥ 0⟧ definiert. Sie sind die ⟦Umkehrfunktionen⟧ von y = x² bzw. y = x³ (für x ≥ 0): Aus y wird x zurückgerechnet. Im Bild: Der Graph von √x ist der Graph von x², ⟦gespiegelt an der Geraden y = x⟧ – x und y tauschen die Rollen.",
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      4
+     ],
+     "y": [
+      0,
+      4
+     ],
+     "graphen": [
+      {
+       "art": "potenz",
+       "a": 1,
+       "n": 2,
+       "name": "x²",
+       "bereich": [
+        0,
+        2
+       ]
+      },
+      {
+       "art": "wurzel",
+       "name": "√x"
+      }
+     ],
+     "strecken": [
+      [
+       0,
+       0,
+       4,
+       4,
+       "gestrichelt"
+      ]
+     ],
+     "punkte": [
+      {
+       "x": 2,
+       "y": 4,
+       "name": "(2 | 4)"
+      },
+      {
+       "x": 4,
+       "y": 2,
+       "name": "(4 | 2)"
+      }
+     ]
+    },
     "schritte": [
      "f(x) = x³ (x ≥ 0). Für welches x ist f(x) = 64?",
      "Umkehrung: x = ∛64 = ⟦4⟧."
@@ -366,16 +519,42 @@
    "t": "werte",
    "p": "uebung",
    "s": 3,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Berechne f(3) für f(x) = −2x⁴."
+    "text": "Berechne f(−3) für f(x) = −3x³."
    },
+   "a": [
+    "−81",
+    "81",
+    "27",
+    "729"
+   ],
    "o": {
-    "wert": -162
+    "index": 1
    },
-   "c": "(-2) * (3) ** 4",
-   "w": "3⁴ = 81; f(3) = −2 · 81 = −162.",
-   "h": "Erst potenzieren, dann mit a multiplizieren. Klammern um negative Zahlen!"
+   "w": "(−3)³ = −27; f(−3) = −3 · (−27) = 81.",
+   "h": "Potenz vor Punkt: Erst (−x)³, dann mit a multiplizieren."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "f(x) = −x⁴. Jemand rechnet f(−2) = (−(−2))⁴ = 16. Was stimmt?"
+   },
+   "a": [
+    "Falsch: f(−2) = −8.",
+    "Falsch: f(−2) = 8.",
+    "Falsch: f(−2) = −(−2)⁴ = −16.",
+    "Richtig."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Erst potenzieren: (−2)⁴ = 16, dann das Minus davor: −16.",
+   "h": "Was wird zuerst gerechnet: die Potenz oder das Minus davor?"
   },
   {
    "l": "werte",
@@ -384,14 +563,35 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Berechne f(2) für f(x) = −x⁵."
+    "text": "Berechne f(−2) für f(x) = −3x⁵."
    },
    "o": {
-    "wert": -32
+    "wert": 96
    },
-   "c": "(-1) * (2) ** 5",
-   "w": "2⁵ = 32; f(2) = −1 · 32 = −32.",
+   "c": "(-3) * (-2) ** 5",
+   "w": "(−2)⁵ = −32; f(−2) = −3 · (−32) = 96.",
    "h": "Erst potenzieren, dann mit a multiplizieren. Klammern um negative Zahlen!"
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Berechne f(−2) für f(x) = −3x³."
+   },
+   "a": [
+    "−24",
+    "24",
+    "18",
+    "216"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "(−2)³ = −8; f(−2) = −3 · (−8) = 24.",
+   "h": "Potenz vor Punkt: Erst (−x)³, dann mit a multiplizieren."
   },
   {
    "l": "werte",
@@ -400,13 +600,13 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Berechne f(−0,5) für f(x) = 2x⁴."
+    "text": "Berechne f(−2) für f(x) = −2x³."
    },
    "o": {
-    "wert": 0.125
+    "wert": 16
    },
-   "c": "(2) * (-0.5) ** 4",
-   "w": "(−0,5)⁴ = 0,0625; f(−0,5) = 2 · 0,0625 = 0,125.",
+   "c": "(-2) * (-2) ** 3",
+   "w": "(−2)³ = −8; f(−2) = −2 · (−8) = 16.",
    "h": "Erst potenzieren, dann mit a multiplizieren. Klammern um negative Zahlen!"
   },
   {
@@ -414,48 +614,21 @@
    "t": "werte",
    "p": "uebung",
    "s": 3,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Berechne f(−3) für f(x) = −3x²."
+    "text": "Berechne f(−2) für f(x) = −2x³."
    },
+   "a": [
+    "−16",
+    "64",
+    "12",
+    "16"
+   ],
    "o": {
-    "wert": -27
+    "index": 3
    },
-   "c": "(-3) * (-3) ** 2",
-   "w": "(−3)² = 9; f(−3) = −3 · 9 = −27.",
-   "h": "Erst potenzieren, dann mit a multiplizieren. Klammern um negative Zahlen!"
-  },
-  {
-   "l": "werte",
-   "t": "werte",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne f(−3) für f(x) = 3x³."
-   },
-   "o": {
-    "wert": -81
-   },
-   "c": "(3) * (-3) ** 3",
-   "w": "(−3)³ = −27; f(−3) = 3 · (−27) = −81.",
-   "h": "Erst potenzieren, dann mit a multiplizieren. Klammern um negative Zahlen!"
-  },
-  {
-   "l": "werte",
-   "t": "werte",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne f(3) für f(x) = 4x⁴."
-   },
-   "o": {
-    "wert": 324
-   },
-   "c": "(4) * (3) ** 4",
-   "w": "3⁴ = 81; f(3) = 4 · 81 = 324.",
-   "h": "Erst potenzieren, dann mit a multiplizieren. Klammern um negative Zahlen!"
+   "w": "(−2)³ = −8; f(−2) = −2 · (−8) = 16.",
+   "h": "Potenz vor Punkt: Erst (−x)³, dann mit a multiplizieren."
   },
   {
    "l": "werte",
@@ -464,13 +637,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne f(3) für f(x) = −3x²."
+    "text": "Berechne f(−2) für f(x) = −2x⁴."
    },
    "o": {
-    "wert": -27
+    "wert": -32
    },
-   "c": "(-3) * (3) ** 2",
-   "w": "3² = 9; f(3) = −3 · 9 = −27."
+   "c": "(-2) * (-2) ** 4",
+   "w": "(−2)⁴ = 16; f(−2) = −2 · 16 = −32."
   },
   {
    "l": "werte",
@@ -479,78 +652,18 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne f(−3) für f(x) = 2x⁵."
+    "text": "Berechne f(3) für f(x) = −4x⁴."
    },
    "o": {
-    "wert": -486
+    "wert": -324
    },
-   "c": "(2) * (-3) ** 5",
-   "w": "(−3)⁵ = −243; f(−3) = 2 · (−243) = −486."
+   "c": "(-4) * (3) ** 4",
+   "w": "3⁴ = 81; f(3) = −4 · 81 = −324."
   },
   {
    "l": "werte",
    "t": "werte",
    "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne f(2) für f(x) = −3x⁴."
-   },
-   "o": {
-    "wert": -48
-   },
-   "c": "(-3) * (2) ** 4",
-   "w": "2⁴ = 16; f(2) = −3 · 16 = −48."
-  },
-  {
-   "l": "werte",
-   "t": "werte",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne f(2) für f(x) = 2x³."
-   },
-   "o": {
-    "wert": 16
-   },
-   "c": "(2) * (2) ** 3",
-   "w": "2³ = 8; f(2) = 2 · 8 = 16."
-  },
-  {
-   "l": "werte",
-   "t": "werte",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne f(−2) für f(x) = −x⁴."
-   },
-   "o": {
-    "wert": -16
-   },
-   "c": "(-1) * (-2) ** 4",
-   "w": "(−2)⁴ = 16; f(−2) = −1 · 16 = −16."
-  },
-  {
-   "l": "werte",
-   "t": "werte",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne f(−3) für f(x) = x³."
-   },
-   "o": {
-    "wert": -27
-   },
-   "c": "(1) * (-3) ** 3",
-   "w": "(−3)³ = −27; f(−3) = 1 · (−27) = −27."
-  },
-  {
-   "l": "werte",
-   "t": "werte",
-   "p": "sicherung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -565,7 +678,7 @@
   {
    "l": "werte",
    "t": "werte",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -608,17 +721,157 @@
    "w": "1² = 1; f(1) = −4 · 1 = −4."
   },
   {
+   "l": "werte",
+   "t": "werte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne f(3) für f(x) = 5x³."
+   },
+   "o": {
+    "wert": 135
+   },
+   "c": "(5) * (3) ** 3",
+   "w": "3³ = 27; f(3) = 5 · 27 = 135."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne f(3) für f(x) = −3x²."
+   },
+   "o": {
+    "wert": -27
+   },
+   "c": "(-3) * (3) ** 2",
+   "w": "3² = 9; f(3) = −3 · 9 = −27."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne f(−3) für f(x) = −3x⁵."
+   },
+   "o": {
+    "wert": 729
+   },
+   "c": "(-3) * (-3) ** 5",
+   "w": "(−3)⁵ = −243; f(−3) = −3 · (−243) = 729."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne f(1) für f(x) = 4x³."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(4) * (1) ** 3",
+   "w": "1³ = 1; f(1) = 4 · 1 = 4."
+  },
+  {
    "l": "symmetrie",
    "t": "symmetrie",
    "p": "uebung",
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Welche Symmetrie hat der Graph von y = 2x⁵?"
+    "text": "Welche Symmetrie hat der Graph von y = −2x⁴?"
    },
    "a": [
-    "achsensymmetrisch zur x-Achse",
+    "punktsymmetrisch zum Ursprung",
     "achsensymmetrisch zur y-Achse",
+    "keine dieser Symmetrien"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "n = 4 ist gerade, also achsensymmetrisch zur y-Achse.",
+   "h": "Ist der Exponent gerade oder ungerade?"
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Symmetrie hat der Graph von y = −4x⁸?"
+   },
+   "a": [
+    "keine dieser Symmetrien",
+    "achsensymmetrisch zur y-Achse",
+    "punktsymmetrisch zum Ursprung"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "n = 8 ist gerade, also achsensymmetrisch zur y-Achse.",
+   "h": "Ist der Exponent gerade oder ungerade?"
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Symmetrie hat der Graph von y = 5x⁶?"
+   },
+   "a": [
+    "achsensymmetrisch zur y-Achse",
+    "punktsymmetrisch zum Ursprung",
+    "keine dieser Symmetrien"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "n = 6 ist gerade, also achsensymmetrisch zur y-Achse.",
+   "h": "Ist der Exponent gerade oder ungerade?"
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Symmetrie hat der Graph von y = −x³?"
+   },
+   "a": [
+    "keine dieser Symmetrien",
+    "punktsymmetrisch zum Ursprung",
+    "achsensymmetrisch zur y-Achse"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "n = 3 ist ungerade, also punktsymmetrisch zum Ursprung.",
+   "h": "Ist der Exponent gerade oder ungerade?"
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Symmetrie hat der Graph von y = 4x⁵?"
+   },
+   "a": [
+    "achsensymmetrisch zur y-Achse",
+    "keine dieser Symmetrien",
     "punktsymmetrisch zum Ursprung"
    ],
    "o": {
@@ -638,7 +891,7 @@
    },
    "a": [
     "achsensymmetrisch zur y-Achse",
-    "achsensymmetrisch zur x-Achse",
+    "keine dieser Symmetrien",
     "punktsymmetrisch zum Ursprung"
    ],
    "o": {
@@ -651,153 +904,115 @@
    "l": "symmetrie",
    "t": "symmetrie",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Symmetrie hat der Graph von y = −4x⁴?"
+    "text": "Welche Symmetrie hat der gezeigte Graph?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      3
+     ],
+     "y": [
+      -5,
+      5
+     ],
+     "graphen": [
+      {
+       "art": "potenz",
+       "a": -0.5,
+       "n": 4
+      }
+     ]
+    }
    },
    "a": [
-    "achsensymmetrisch zur x-Achse",
+    "keine dieser Symmetrien",
+    "achsensymmetrisch zur y-Achse",
+    "punktsymmetrisch zum Ursprung"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Der Graph gehört zu y = −0,5x⁴. Die linke Hälfte ist das Spiegelbild der rechten an der y-Achse.",
+   "h": "Klappe das Bild an der y-Achse oder drehe es um den Ursprung."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Symmetrie hat der gezeigte Graph?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      3
+     ],
+     "y": [
+      -5,
+      5
+     ],
+     "graphen": [
+      {
+       "art": "potenz",
+       "a": 2,
+       "n": 5
+      }
+     ]
+    }
+   },
+   "a": [
+    "keine dieser Symmetrien",
     "punktsymmetrisch zum Ursprung",
     "achsensymmetrisch zur y-Achse"
    ],
    "o": {
-    "index": 2
+    "index": 1
    },
-   "w": "n = 4 ist gerade, also achsensymmetrisch zur y-Achse.",
-   "h": "Ist der Exponent gerade oder ungerade?"
+   "w": "Der Graph gehört zu y = 2x⁵. Dreht man den Graphen um 180° um den Ursprung, liegt er wieder auf sich selbst.",
+   "h": "Klappe das Bild an der y-Achse oder drehe es um den Ursprung."
   },
   {
    "l": "symmetrie",
    "t": "symmetrie",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Symmetrie hat der Graph von y = 4x⁸?"
+    "text": "Welche Symmetrie hat der gezeigte Graph?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      3
+     ],
+     "y": [
+      -5,
+      5
+     ],
+     "graphen": [
+      {
+       "art": "potenz",
+       "a": 2,
+       "n": 2
+      }
+     ]
+    }
    },
    "a": [
-    "achsensymmetrisch zur x-Achse",
+    "keine dieser Symmetrien",
     "achsensymmetrisch zur y-Achse",
     "punktsymmetrisch zum Ursprung"
    ],
    "o": {
     "index": 1
    },
-   "w": "n = 8 ist gerade, also achsensymmetrisch zur y-Achse.",
-   "h": "Ist der Exponent gerade oder ungerade?"
-  },
-  {
-   "l": "symmetrie",
-   "t": "symmetrie",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Symmetrie hat der Graph von y = −x⁸?"
-   },
-   "a": [
-    "achsensymmetrisch zur y-Achse",
-    "punktsymmetrisch zum Ursprung",
-    "achsensymmetrisch zur x-Achse"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "n = 8 ist gerade, also achsensymmetrisch zur y-Achse.",
-   "h": "Ist der Exponent gerade oder ungerade?"
-  },
-  {
-   "l": "symmetrie",
-   "t": "symmetrie",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Symmetrie hat der Graph von y = −4x²?"
-   },
-   "a": [
-    "punktsymmetrisch zum Ursprung",
-    "achsensymmetrisch zur y-Achse",
-    "achsensymmetrisch zur x-Achse"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "n = 2 ist gerade, also achsensymmetrisch zur y-Achse.",
-   "h": "Ist der Exponent gerade oder ungerade?"
-  },
-  {
-   "l": "symmetrie",
-   "t": "symmetrie",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Symmetrie hat der Graph von y = −4x²?"
-   },
-   "a": [
-    "achsensymmetrisch zur x-Achse",
-    "achsensymmetrisch zur y-Achse",
-    "punktsymmetrisch zum Ursprung"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "n = 2 ist gerade, also achsensymmetrisch zur y-Achse.",
-   "h": "Ist der Exponent gerade oder ungerade?"
-  },
-  {
-   "l": "symmetrie",
-   "t": "symmetrie",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Für f(x) = a · x⁵ gilt f(1) = 4. Bestimme f(−1) ohne a zu berechnen."
-   },
-   "o": {
-    "wert": -4
-   },
-   "c": "(4) * (-1) ** 5",
-   "w": "n = 5 ungerade: f(−x) = −f(x), also f(−1) = −4.",
-   "h": "Nutze die Symmetrie des Graphen."
-  },
-  {
-   "l": "symmetrie",
-   "t": "symmetrie",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Für f(x) = a · x⁴ gilt f(1) = 5. Bestimme f(−1) ohne a zu berechnen."
-   },
-   "o": {
-    "wert": 5
-   },
-   "c": "(5) * (-1) ** 4",
-   "w": "n = 4 gerade: f(−x) = f(x), also f(−1) = 5.",
-   "h": "Nutze die Symmetrie des Graphen."
-  },
-  {
-   "l": "symmetrie",
-   "t": "symmetrie",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Symmetrie hat der Graph von y = 3x⁵?"
-   },
-   "a": [
-    "achsensymmetrisch zur y-Achse",
-    "achsensymmetrisch zur x-Achse",
-    "punktsymmetrisch zum Ursprung"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "n = 5 ist ungerade, also punktsymmetrisch zum Ursprung.",
-   "h": "Ist der Exponent gerade oder ungerade?"
+   "w": "Der Graph gehört zu y = 2x². Die linke Hälfte ist das Spiegelbild der rechten an der y-Achse.",
+   "h": "Klappe das Bild an der y-Achse oder drehe es um den Ursprung."
   },
   {
    "l": "symmetrie",
@@ -820,20 +1035,32 @@
    "t": "symmetrie",
    "p": "uebung",
    "s": 2,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Welche Symmetrie hat der Graph von y = −2x⁸?"
+    "text": "Für f(x) = a · x⁸ gilt f(2) = 512. Bestimme f(−2) ohne a zu berechnen."
    },
-   "a": [
-    "punktsymmetrisch zum Ursprung",
-    "achsensymmetrisch zur y-Achse",
-    "achsensymmetrisch zur x-Achse"
-   ],
    "o": {
-    "index": 1
+    "wert": 512
    },
-   "w": "n = 8 ist gerade, also achsensymmetrisch zur y-Achse.",
-   "h": "Ist der Exponent gerade oder ungerade?"
+   "c": "(512) * (-1) ** 8",
+   "w": "n = 8 gerade: f(−x) = f(x), also f(−2) = 512.",
+   "h": "Nutze die Symmetrie des Graphen."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für f(x) = a · x³ gilt f(2) = 32. Bestimme f(−2) ohne a zu berechnen."
+   },
+   "o": {
+    "wert": -32
+   },
+   "c": "(32) * (-1) ** 3",
+   "w": "n = 3 ungerade: f(−x) = −f(x), also f(−2) = −32.",
+   "h": "Nutze die Symmetrie des Graphen."
   },
   {
    "l": "symmetrie",
@@ -842,60 +1069,18 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Jemand behauptet: „y = 4x⁹ ist achsensymmetrisch zur y-Achse, weil 4x⁹ für x = 1 und x = −1 gleich groß ist.“ Was stimmt?"
+    "text": "Welcher Graph ist achsensymmetrisch zur y-Achse: y = x⁸ + 1 oder y = x⁵ + 1?"
    },
    "a": [
-    "Falsch: Der Graph ist zu keiner Achse und keinem Punkt symmetrisch.",
-    "Richtig, das ist die Bedingung für Achsensymmetrie.",
-    "Falsch: f(1) = 4, f(−1) = −4; der Graph ist punktsymmetrisch.",
-    "Richtig, alle Potenzfunktionen sind achsensymmetrisch."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "f(−1) = 4 · (−1)⁹ = −4 ≠ 4 = f(1). Ungerader Exponent: punktsymmetrisch zum Ursprung.",
-   "h": "Rechne f(1) und f(−1) wirklich aus."
-  },
-  {
-   "l": "symmetrie",
-   "t": "symmetrie",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand behauptet: „y = 3x⁹ ist achsensymmetrisch zur y-Achse, weil 3x⁹ für x = 1 und x = −1 gleich groß ist.“ Was stimmt?"
-   },
-   "a": [
-    "Richtig, alle Potenzfunktionen sind achsensymmetrisch.",
-    "Richtig, das ist die Bedingung für Achsensymmetrie.",
-    "Falsch: Der Graph ist zu keiner Achse und keinem Punkt symmetrisch.",
-    "Falsch: f(1) = 3, f(−1) = −3; der Graph ist punktsymmetrisch."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "f(−1) = 3 · (−1)⁹ = −3 ≠ 3 = f(1). Ungerader Exponent: punktsymmetrisch zum Ursprung.",
-   "h": "Rechne f(1) und f(−1) wirklich aus."
-  },
-  {
-   "l": "symmetrie",
-   "t": "symmetrie",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welcher Graph ist achsensymmetrisch zur y-Achse: y = x³ + 1 oder y = x⁴ + 1?"
-   },
-   "a": [
-    "y = x³ + 1",
-    "keiner",
+    "y = x⁵ + 1",
     "beide",
-    "y = x⁴ + 1"
+    "keiner",
+    "y = x⁸ + 1"
    ],
    "o": {
     "index": 3
    },
-   "w": "Bei y = x⁴ + 1 ist der Exponent gerade; die Verschiebung um 1 nach oben ändert die Achsensymmetrie nicht.",
+   "w": "Bei y = x⁸ + 1 ist der Exponent gerade; die Verschiebung um 1 nach oben ändert die Achsensymmetrie nicht.",
    "h": "Eine Verschiebung nach oben erhält die Achsensymmetrie zur y-Achse."
   },
   {
@@ -926,19 +1111,18 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Jemand behauptet: „y = 2x³ ist achsensymmetrisch zur y-Achse, weil 2x³ für x = 1 und x = −1 gleich groß ist.“ Was stimmt?"
+    "text": "Welche Symmetrie hat der Graph von y = x⁴ − x?"
    },
    "a": [
-    "Falsch: Der Graph ist zu keiner Achse und keinem Punkt symmetrisch.",
-    "Richtig, alle Potenzfunktionen sind achsensymmetrisch.",
-    "Richtig, das ist die Bedingung für Achsensymmetrie.",
-    "Falsch: f(1) = 2, f(−1) = −2; der Graph ist punktsymmetrisch."
+    "punktsymmetrisch zum Ursprung",
+    "achsensymmetrisch zur y-Achse",
+    "keine dieser Symmetrien"
    ],
    "o": {
-    "index": 3
+    "index": 2
    },
-   "w": "f(−1) = 2 · (−1)³ = −2 ≠ 2 = f(1). Ungerader Exponent: punktsymmetrisch zum Ursprung.",
-   "h": "Rechne f(1) und f(−1) wirklich aus."
+   "w": "Ein gerader und ein ungerader Exponent: keine dieser Symmetrien. Probe: f(1) = 0, f(−1) = 2.",
+   "h": "Untersuche jeden Summanden: Sind alle Exponenten gerade, alle ungerade oder gemischt?"
   },
   {
    "l": "symmetrie",
@@ -964,70 +1148,221 @@
   {
    "l": "symmetrie",
    "t": "symmetrie",
-   "p": "test",
-   "s": 2,
+   "p": "uebung",
+   "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Welche Symmetrie hat der Graph von y = 3x⁵?"
+    "text": "Welche Symmetrie hat der Graph von y = x⁵ − x³?"
    },
    "a": [
-    "achsensymmetrisch zur x-Achse",
+    "keine dieser Symmetrien",
     "achsensymmetrisch zur y-Achse",
     "punktsymmetrisch zum Ursprung"
    ],
    "o": {
     "index": 2
    },
-   "w": "n = 5 ist ungerade, also punktsymmetrisch zum Ursprung."
+   "w": "Beide Exponenten ungerade: punktsymmetrisch zum Ursprung. Probe: f(1) = 0, f(−1) = 0.",
+   "h": "Untersuche jeden Summanden: Sind alle Exponenten gerade, alle ungerade oder gemischt?"
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Symmetrie hat der Graph von y = x⁶ + x³?"
+   },
+   "a": [
+    "achsensymmetrisch zur y-Achse",
+    "punktsymmetrisch zum Ursprung",
+    "keine dieser Symmetrien"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Ein gerader und ein ungerader Exponent: keine dieser Symmetrien. Probe: f(1) = 2, f(−1) = 0.",
+   "h": "Untersuche jeden Summanden: Sind alle Exponenten gerade, alle ungerade oder gemischt?"
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für f(x) = a · x⁸ gilt f(1) = −4. Bestimme f(−1) ohne a zu berechnen."
+   },
+   "o": {
+    "wert": -4
+   },
+   "c": "(-4) * (-1) ** 8",
+   "w": "n = 8 gerade: f(−x) = f(x), also f(−1) = −4."
   },
   {
    "l": "symmetrie",
    "t": "symmetrie",
    "p": "korrektur",
    "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für f(x) = a · x³ gilt f(2) = −32. Bestimme f(−2) ohne a zu berechnen."
+   },
+   "o": {
+    "wert": 32
+   },
+   "c": "(-32) * (-1) ** 3",
+   "w": "n = 3 ungerade: f(−x) = −f(x), also f(−2) = 32."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für f(x) = a · x⁵ gilt f(3) = −972. Bestimme f(−3) ohne a zu berechnen."
+   },
+   "o": {
+    "wert": 972
+   },
+   "c": "(-972) * (-1) ** 5",
+   "w": "n = 5 ungerade: f(−x) = −f(x), also f(−3) = 972."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für f(x) = a · x⁴ gilt f(2) = −32. Bestimme f(−2) ohne a zu berechnen."
+   },
+   "o": {
+    "wert": -32
+   },
+   "c": "(-32) * (-1) ** 4",
+   "w": "n = 4 gerade: f(−x) = f(x), also f(−2) = −32."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für f(x) = a · x⁴ gilt f(2) = −64. Bestimme f(−2) ohne a zu berechnen."
+   },
+   "o": {
+    "wert": -64
+   },
+   "c": "(-64) * (-1) ** 4",
+   "w": "n = 4 gerade: f(−x) = f(x), also f(−2) = −64."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für f(x) = a · x⁷ gilt f(3) = 2 187. Bestimme f(−3) ohne a zu berechnen."
+   },
+   "o": {
+    "wert": -2187
+   },
+   "c": "(2187) * (-1) ** 7",
+   "w": "n = 7 ungerade: f(−x) = −f(x), also f(−3) = −2 187."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für f(x) = a · x² gilt f(3) = −9. Bestimme f(−3) ohne a zu berechnen."
+   },
+   "o": {
+    "wert": -9
+   },
+   "c": "(-9) * (-1) ** 2",
+   "w": "n = 2 gerade: f(−x) = f(x), also f(−3) = −9."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "sicherung",
+   "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Symmetrie hat der Graph von y = 4x⁹?"
+    "text": "Welche Symmetrie hat der gezeigte Graph?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      3
+     ],
+     "y": [
+      -5,
+      5
+     ],
+     "graphen": [
+      {
+       "art": "potenz",
+       "a": 0.5,
+       "n": 2
+      }
+     ]
+    }
    },
    "a": [
+    "achsensymmetrisch zur y-Achse",
+    "keine dieser Symmetrien",
+    "punktsymmetrisch zum Ursprung"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Der Graph gehört zu y = 0,5x². Die linke Hälfte ist das Spiegelbild der rechten an der y-Achse."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Symmetrie hat der gezeigte Graph?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      3
+     ],
+     "y": [
+      -5,
+      5
+     ],
+     "graphen": [
+      {
+       "art": "potenz",
+       "a": 0.5,
+       "n": 4
+      }
+     ]
+    }
+   },
+   "a": [
+    "keine dieser Symmetrien",
     "punktsymmetrisch zum Ursprung",
-    "achsensymmetrisch zur x-Achse",
     "achsensymmetrisch zur y-Achse"
    ],
    "o": {
-    "index": 0
+    "index": 2
    },
-   "w": "n = 9 ist ungerade, also punktsymmetrisch zum Ursprung."
-  },
-  {
-   "l": "symmetrie",
-   "t": "symmetrie",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Für f(x) = a · x⁸ gilt f(3) = 32 805. Bestimme f(−3) ohne a zu berechnen."
-   },
-   "o": {
-    "wert": 32805
-   },
-   "c": "(32805) * (-1) ** 8",
-   "w": "n = 8 gerade: f(−x) = f(x), also f(−3) = 32 805."
-  },
-  {
-   "l": "symmetrie",
-   "t": "symmetrie",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Für f(x) = a · x⁶ gilt f(1) = 4. Bestimme f(−1) ohne a zu berechnen."
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "(4) * (-1) ** 6",
-   "w": "n = 6 gerade: f(−x) = f(x), also f(−1) = 4."
+   "w": "Der Graph gehört zu y = 0,5x⁴. Die linke Hälfte ist das Spiegelbild der rechten an der y-Achse."
   },
   {
    "l": "symmetrie",
@@ -1036,100 +1371,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Für f(x) = a · x⁹ gilt f(2) = 1 536. Bestimme f(−2) ohne a zu berechnen."
+    "text": "Für f(x) = a · x² gilt f(3) = −18. Bestimme f(−3) ohne a zu berechnen."
    },
    "o": {
-    "wert": -1536
+    "wert": -18
    },
-   "c": "(1536) * (-1) ** 9",
-   "w": "n = 9 ungerade: f(−x) = −f(x), also f(−2) = −1 536."
-  },
-  {
-   "l": "symmetrie",
-   "t": "symmetrie",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Für f(x) = a · x⁸ gilt f(3) = 13 122. Bestimme f(−3) ohne a zu berechnen."
-   },
-   "o": {
-    "wert": 13122
-   },
-   "c": "(13122) * (-1) ** 8",
-   "w": "n = 8 gerade: f(−x) = f(x), also f(−3) = 13 122."
-  },
-  {
-   "l": "symmetrie",
-   "t": "symmetrie",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Symmetrie hat der Graph von y = −4x⁸?"
-   },
-   "a": [
-    "punktsymmetrisch zum Ursprung",
-    "achsensymmetrisch zur y-Achse",
-    "achsensymmetrisch zur x-Achse"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "n = 8 ist gerade, also achsensymmetrisch zur y-Achse."
-  },
-  {
-   "l": "symmetrie",
-   "t": "symmetrie",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Symmetrie hat der Graph von y = −5x⁹?"
-   },
-   "a": [
-    "achsensymmetrisch zur y-Achse",
-    "punktsymmetrisch zum Ursprung",
-    "achsensymmetrisch zur x-Achse"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "n = 9 ist ungerade, also punktsymmetrisch zum Ursprung."
-  },
-  {
-   "l": "symmetrie",
-   "t": "symmetrie",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Symmetrie hat der Graph von y = 3x⁶?"
-   },
-   "a": [
-    "achsensymmetrisch zur y-Achse",
-    "achsensymmetrisch zur x-Achse",
-    "punktsymmetrisch zum Ursprung"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "n = 6 ist gerade, also achsensymmetrisch zur y-Achse."
-  },
-  {
-   "l": "symmetrie",
-   "t": "symmetrie",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Für f(x) = a · x⁵ gilt f(2) = −128. Bestimme f(−2) ohne a zu berechnen."
-   },
-   "o": {
-    "wert": 128
-   },
-   "c": "(-128) * (-1) ** 5",
-   "w": "n = 5 ungerade: f(−x) = −f(x), also f(−2) = 128."
+   "c": "(-18) * (-1) ** 2",
+   "w": "n = 2 gerade: f(−x) = f(x), also f(−3) = −18."
   },
   {
    "l": "verlauf",
@@ -1138,18 +1386,18 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Wie verläuft der Graph von y = x⁴?"
+    "text": "Wie verläuft der Graph von y = x³?"
    },
    "a": [
-    "von links unten nach rechts unten",
-    "von links unten nach rechts oben",
     "von links oben nach rechts oben",
-    "von links oben nach rechts unten"
+    "von links unten nach rechts oben",
+    "von links oben nach rechts unten",
+    "von links unten nach rechts unten"
    ],
    "o": {
-    "index": 2
+    "index": 1
    },
-   "w": "n = 4 gerade, a > 0: von links oben nach rechts oben.",
+   "w": "n = 3 ungerade, a > 0: von links unten nach rechts oben.",
    "h": "Was passiert für große positive und große negative x-Werte?"
   },
   {
@@ -1159,18 +1407,18 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Wie verläuft der Graph von y = x⁴?"
+    "text": "Wie verläuft der Graph von y = −x⁴?"
    },
    "a": [
-    "von links unten nach rechts unten",
     "von links unten nach rechts oben",
+    "von links oben nach rechts oben",
     "von links oben nach rechts unten",
-    "von links oben nach rechts oben"
+    "von links unten nach rechts unten"
    ],
    "o": {
     "index": 3
    },
-   "w": "n = 4 gerade, a > 0: von links oben nach rechts oben.",
+   "w": "n = 4 gerade, a < 0: von links unten nach rechts unten.",
    "h": "Was passiert für große positive und große negative x-Werte?"
   },
   {
@@ -1183,29 +1431,8 @@
     "text": "Wie verläuft der Graph von y = −x⁷?"
    },
    "a": [
-    "von links oben nach rechts unten",
     "von links unten nach rechts oben",
     "von links unten nach rechts unten",
-    "von links oben nach rechts oben"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "n = 7 ungerade, a < 0: von links oben nach rechts unten.",
-   "h": "Was passiert für große positive und große negative x-Werte?"
-  },
-  {
-   "l": "verlauf",
-   "t": "verlauf",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie verläuft der Graph von y = −x⁷?"
-   },
-   "a": [
-    "von links unten nach rechts unten",
-    "von links unten nach rechts oben",
     "von links oben nach rechts unten",
     "von links oben nach rechts oben"
    ],
@@ -1222,18 +1449,18 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Wie verläuft der Graph von y = −x⁹?"
+    "text": "Wie verläuft der Graph von y = x⁶?"
    },
    "a": [
     "von links unten nach rechts oben",
     "von links oben nach rechts oben",
-    "von links oben nach rechts unten",
-    "von links unten nach rechts unten"
+    "von links unten nach rechts unten",
+    "von links oben nach rechts unten"
    ],
    "o": {
-    "index": 2
+    "index": 1
    },
-   "w": "n = 9 ungerade, a < 0: von links oben nach rechts unten.",
+   "w": "n = 6 gerade, a > 0: von links oben nach rechts oben.",
    "h": "Was passiert für große positive und große negative x-Werte?"
   },
   {
@@ -1243,79 +1470,16 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Wie verläuft der Graph von y = −x⁹?"
+    "text": "Wie verläuft der Graph von y = −x²?"
    },
    "a": [
-    "von links unten nach rechts unten",
     "von links oben nach rechts unten",
+    "von links unten nach rechts unten",
     "von links unten nach rechts oben",
     "von links oben nach rechts oben"
    ],
    "o": {
     "index": 1
-   },
-   "w": "n = 9 ungerade, a < 0: von links oben nach rechts unten.",
-   "h": "Was passiert für große positive und große negative x-Werte?"
-  },
-  {
-   "l": "verlauf",
-   "t": "verlauf",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie verläuft der Graph von y = 6x²?"
-   },
-   "a": [
-    "von links oben nach rechts oben",
-    "von links unten nach rechts unten",
-    "von links oben nach rechts unten",
-    "von links unten nach rechts oben"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "n = 2 gerade, a > 0: von links oben nach rechts oben.",
-   "h": "Was passiert für große positive und große negative x-Werte?"
-  },
-  {
-   "l": "verlauf",
-   "t": "verlauf",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie verläuft der Graph von y = −4x⁵?"
-   },
-   "a": [
-    "von links oben nach rechts unten",
-    "von links unten nach rechts unten",
-    "von links oben nach rechts oben",
-    "von links unten nach rechts oben"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "n = 5 ungerade, a < 0: von links oben nach rechts unten.",
-   "h": "Was passiert für große positive und große negative x-Werte?"
-  },
-  {
-   "l": "verlauf",
-   "t": "verlauf",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie verläuft der Graph von y = −5x²?"
-   },
-   "a": [
-    "von links unten nach rechts unten",
-    "von links unten nach rechts oben",
-    "von links oben nach rechts oben",
-    "von links oben nach rechts unten"
-   ],
-   "o": {
-    "index": 0
    },
    "w": "n = 2 gerade, a < 0: von links unten nach rechts unten.",
    "h": "Was passiert für große positive und große negative x-Werte?"
@@ -1324,73 +1488,10 @@
    "l": "verlauf",
    "t": "verlauf",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Wie verläuft der Graph von y = 3x⁹?"
-   },
-   "a": [
-    "von links unten nach rechts oben",
-    "von links oben nach rechts unten",
-    "von links unten nach rechts unten",
-    "von links oben nach rechts oben"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "n = 9 ungerade, a > 0: von links unten nach rechts oben.",
-   "h": "Was passiert für große positive und große negative x-Werte?"
-  },
-  {
-   "l": "verlauf",
-   "t": "verlauf",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie verläuft der Graph von y = −4x²?"
-   },
-   "a": [
-    "von links oben nach rechts oben",
-    "von links unten nach rechts oben",
-    "von links oben nach rechts unten",
-    "von links unten nach rechts unten"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "n = 2 gerade, a < 0: von links unten nach rechts unten.",
-   "h": "Was passiert für große positive und große negative x-Werte?"
-  },
-  {
-   "l": "verlauf",
-   "t": "verlauf",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie verläuft der Graph von y = −3x⁹?"
-   },
-   "a": [
-    "von links unten nach rechts oben",
-    "von links unten nach rechts unten",
-    "von links oben nach rechts oben",
-    "von links oben nach rechts unten"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "n = 9 ungerade, a < 0: von links oben nach rechts unten.",
-   "h": "Was passiert für große positive und große negative x-Werte?"
-  },
-  {
-   "l": "verlauf",
-   "t": "verlauf",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie verläuft der Graph von y = −5x⁶?"
+    "text": "Wie verläuft der Graph von y = x⁷?"
    },
    "a": [
     "von links oben nach rechts unten",
@@ -1399,79 +1500,16 @@
     "von links oben nach rechts oben"
    ],
    "o": {
-    "index": 1
+    "index": 2
    },
-   "w": "n = 6 gerade, a < 0: von links unten nach rechts unten.",
+   "w": "n = 7 ungerade, a > 0: von links unten nach rechts oben.",
    "h": "Was passiert für große positive und große negative x-Werte?"
   },
   {
    "l": "verlauf",
    "t": "verlauf",
    "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welcher Graph liegt für 0 < x < 1 weiter oben: y = x³ oder y = x⁶?"
-   },
-   "a": [
-    "Das hängt von x ab.",
-    "y = x³",
-    "beide gleich",
-    "y = x⁶"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Zwischen 0 und 1 wird die Zahl beim Potenzieren kleiner, z. B. 0,5³ = 0,125 > 0,5⁶ = 0,015625.",
-   "h": "Setze probeweise x = 0,5 ein."
-  },
-  {
-   "l": "verlauf",
-   "t": "verlauf",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Graphen der Form y = xⁿ (n natürlich, n ≥ 2) gehen durch (−1 | 1)? Denke z. B. an n = 6."
-   },
-   "a": [
-    "keiner",
-    "alle mit geradem n",
-    "alle mit ungeradem n",
-    "alle"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "(−1)ⁿ ist 1 für gerades n und −1 für ungerades n. Also gehen die Graphen mit geradem n durch (−1 | 1).",
-   "h": "Berechne (−1)ⁿ für ein gerades und ein ungerades n."
-  },
-  {
-   "l": "verlauf",
-   "t": "verlauf",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welcher Graph liegt für 0 < x < 1 weiter oben: y = x³ oder y = x⁵?"
-   },
-   "a": [
-    "beide gleich",
-    "Das hängt von x ab.",
-    "y = x⁵",
-    "y = x³"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Zwischen 0 und 1 wird die Zahl beim Potenzieren kleiner, z. B. 0,5³ = 0,125 > 0,5⁵ = 0,03125.",
-   "h": "Setze probeweise x = 0,5 ein."
-  },
-  {
-   "l": "verlauf",
-   "t": "verlauf",
-   "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Wie verläuft der Graph von y = 6x³?"
@@ -1492,7 +1530,7 @@
    "l": "verlauf",
    "t": "verlauf",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Wie verläuft der Graph von y = −x³?"
@@ -1512,7 +1550,7 @@
   {
    "l": "verlauf",
    "t": "verlauf",
-   "p": "test",
+   "p": "uebung",
    "s": 2,
    "y": "auswahl",
    "f": {
@@ -1527,27 +1565,307 @@
    "o": {
     "index": 3
    },
-   "w": "n = 3 ungerade, a > 0: von links unten nach rechts oben."
+   "w": "n = 3 ungerade, a > 0: von links unten nach rechts oben.",
+   "h": "Was passiert für große positive und große negative x-Werte?"
   },
   {
    "l": "verlauf",
    "t": "verlauf",
-   "p": "korrektur",
+   "p": "uebung",
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Wie verläuft der Graph von y = −2x⁷?"
+    "text": "Welcher Graph gehört zu y = −x⁴?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      2
+     ],
+     "y": [
+      -4,
+      4
+     ],
+     "graphen": [
+      {
+       "art": "potenz",
+       "a": -1,
+       "n": 5,
+       "name": "g"
+      },
+      {
+       "art": "potenz",
+       "a": -1,
+       "n": 4,
+       "name": "h"
+      },
+      {
+       "art": "potenz",
+       "a": -1,
+       "n": 3,
+       "name": "k"
+      }
+     ]
+    }
    },
    "a": [
+    "Graph k",
+    "Graph h",
+    "Graph g"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "y = −x⁴: n = 4 gerade, a < 0, also von links unten nach rechts unten; durch (1 | −1) und (−1 | −1).",
+   "h": "Prüfe den Verlauf und die Punkte bei x = 1 und x = −1."
+  },
+  {
+   "l": "verlauf",
+   "t": "verlauf",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Graph gehört zu y = x³?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      2
+     ],
+     "y": [
+      -4,
+      4
+     ],
+     "graphen": [
+      {
+       "art": "potenz",
+       "a": 1,
+       "n": 3,
+       "name": "g"
+      },
+      {
+       "art": "potenz",
+       "a": 1,
+       "n": 5,
+       "name": "h"
+      },
+      {
+       "art": "potenz",
+       "a": 1,
+       "n": 4,
+       "name": "k"
+      }
+     ]
+    }
+   },
+   "a": [
+    "Graph g",
+    "Graph k",
+    "Graph h"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "y = x³: n = 3 ungerade, a > 0, also von links unten nach rechts oben; durch (1 | 1) und (−1 | −1).",
+   "h": "Prüfe den Verlauf und die Punkte bei x = 1 und x = −1."
+  },
+  {
+   "l": "verlauf",
+   "t": "verlauf",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie verläuft der Graph von y = −x⁹?"
+   },
+   "a": [
+    "von links oben nach rechts unten",
     "von links unten nach rechts unten",
     "von links oben nach rechts oben",
+    "von links unten nach rechts oben"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "n = 9 ungerade, a < 0: von links oben nach rechts unten.",
+   "h": "Was passiert für große positive und große negative x-Werte?"
+  },
+  {
+   "l": "verlauf",
+   "t": "verlauf",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Graph gehört zu y = x³?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      2
+     ],
+     "y": [
+      -4,
+      4
+     ],
+     "graphen": [
+      {
+       "art": "potenz",
+       "a": 1,
+       "n": 3,
+       "name": "g"
+      },
+      {
+       "art": "potenz",
+       "a": -1,
+       "n": 5,
+       "name": "h"
+      },
+      {
+       "art": "potenz",
+       "a": -1,
+       "n": 4,
+       "name": "k"
+      }
+     ]
+    }
+   },
+   "a": [
+    "Graph k",
+    "Graph h",
+    "Graph g"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "y = x³: n = 3 ungerade, a > 0, also von links unten nach rechts oben; durch (1 | 1) und (−1 | −1).",
+   "h": "Prüfe den Verlauf und die Punkte bei x = 1 und x = −1."
+  },
+  {
+   "l": "verlauf",
+   "t": "verlauf",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Graph liegt für 0 < x < 1 weiter oben: y = x² oder y = x⁷?"
+   },
+   "a": [
+    "Das hängt von x ab.",
+    "beide gleich",
+    "y = x⁷",
+    "y = x²"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Zwischen 0 und 1 wird die Zahl beim Potenzieren kleiner, z. B. 0,5² = 0,25 > 0,5⁷ = 0,0078125.",
+   "h": "Setze probeweise x = 0,5 ein."
+  },
+  {
+   "l": "verlauf",
+   "t": "verlauf",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Graph liegt für x > 1 weiter oben: y = x⁷ oder y = x²?"
+   },
+   "a": [
+    "y = x⁷",
+    "Das hängt von x ab.",
+    "y = x²",
+    "beide gleich"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Für x > 1 wird die Zahl mit jedem weiteren Faktor größer, z. B. 2⁷ = 128 > 2² = 4.",
+   "h": "Setze probeweise x = 2 ein."
+  },
+  {
+   "l": "verlauf",
+   "t": "verlauf",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Graph liegt für 0 < x < 1 weiter oben: y = x⁵ oder y = x³?"
+   },
+   "a": [
+    "Das hängt von x ab.",
+    "y = x³",
+    "beide gleich",
+    "y = x⁵"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Zwischen 0 und 1 wird die Zahl beim Potenzieren kleiner, z. B. 0,5³ = 0,125 > 0,5⁵ = 0,03125.",
+   "h": "Setze probeweise x = 0,5 ein."
+  },
+  {
+   "l": "verlauf",
+   "t": "verlauf",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Für x = 0,5: Ist x⁷ oder x⁴ größer?"
+   },
+   "a": [
+    "Das kann man nicht sagen.",
+    "x⁴",
+    "x⁷",
+    "beide gleich groß"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "0,5⁴ = 0,0625 und 0,5⁷ = 0,0078125: Mit jedem weiteren Faktor 0,5 wird die Zahl kleiner.",
+   "h": "Rechne beide Werte aus."
+  },
+  {
+   "l": "verlauf",
+   "t": "verlauf",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Graphen der Form y = xⁿ (n natürlich, n ≥ 2) gehen durch (−1 | 1)? Denke z. B. an n = 6."
+   },
+   "a": [
+    "alle mit geradem n",
+    "alle",
+    "alle mit ungeradem n",
+    "keiner"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "(−1)ⁿ ist 1 für gerades n und −1 für ungerades n. Also gehen die Graphen mit geradem n durch (−1 | 1).",
+   "h": "Berechne (−1)ⁿ für ein gerades und ein ungerades n."
+  },
+  {
+   "l": "verlauf",
+   "t": "verlauf",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie verläuft der Graph von y = −3x⁵?"
+   },
+   "a": [
     "von links unten nach rechts oben",
+    "von links oben nach rechts oben",
+    "von links unten nach rechts unten",
     "von links oben nach rechts unten"
    ],
    "o": {
     "index": 3
    },
-   "w": "n = 7 ungerade, a < 0: von links oben nach rechts unten."
+   "w": "n = 5 ungerade, a < 0: von links oben nach rechts unten."
   },
   {
    "l": "verlauf",
@@ -1556,38 +1874,88 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Wie verläuft der Graph von y = 3x³?"
+    "text": "Wie verläuft der Graph von y = −2x⁵?"
    },
    "a": [
     "von links oben nach rechts oben",
-    "von links oben nach rechts unten",
     "von links unten nach rechts oben",
-    "von links unten nach rechts unten"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "n = 3 ungerade, a > 0: von links unten nach rechts oben."
-  },
-  {
-   "l": "verlauf",
-   "t": "verlauf",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie verläuft der Graph von y = 2x⁶?"
-   },
-   "a": [
     "von links unten nach rechts unten",
-    "von links oben nach rechts unten",
-    "von links unten nach rechts oben",
-    "von links oben nach rechts oben"
+    "von links oben nach rechts unten"
    ],
    "o": {
     "index": 3
    },
-   "w": "n = 6 gerade, a > 0: von links oben nach rechts oben."
+   "w": "n = 5 ungerade, a < 0: von links oben nach rechts unten."
+  },
+  {
+   "l": "verlauf",
+   "t": "verlauf",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie verläuft der Graph von y = −6x²?"
+   },
+   "a": [
+    "von links oben nach rechts oben",
+    "von links oben nach rechts unten",
+    "von links unten nach rechts unten",
+    "von links unten nach rechts oben"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "n = 2 gerade, a < 0: von links unten nach rechts unten."
+  },
+  {
+   "l": "verlauf",
+   "t": "verlauf",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Graph gehört zu y = x²?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      2
+     ],
+     "y": [
+      -4,
+      4
+     ],
+     "graphen": [
+      {
+       "art": "potenz",
+       "a": -1,
+       "n": 3,
+       "name": "g"
+      },
+      {
+       "art": "potenz",
+       "a": 1,
+       "n": 2,
+       "name": "h"
+      },
+      {
+       "art": "potenz",
+       "a": -1,
+       "n": 4,
+       "name": "k"
+      }
+     ]
+    }
+   },
+   "a": [
+    "Graph k",
+    "Graph g",
+    "Graph h"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "y = x²: n = 2 gerade, a > 0, also von links oben nach rechts oben; durch (1 | 1) und (−1 | 1)."
   },
   {
    "l": "verlauf",
@@ -1596,18 +1964,48 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Wie verläuft der Graph von y = −2x⁶?"
+    "text": "Welcher Graph gehört zu y = x⁴?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      2
+     ],
+     "y": [
+      -4,
+      4
+     ],
+     "graphen": [
+      {
+       "art": "potenz",
+       "a": 1,
+       "n": 4,
+       "name": "g"
+      },
+      {
+       "art": "potenz",
+       "a": 1,
+       "n": 2,
+       "name": "h"
+      },
+      {
+       "art": "potenz",
+       "a": 1,
+       "n": 3,
+       "name": "k"
+      }
+     ]
+    }
    },
    "a": [
-    "von links oben nach rechts unten",
-    "von links oben nach rechts oben",
-    "von links unten nach rechts unten",
-    "von links unten nach rechts oben"
+    "Graph k",
+    "Graph h",
+    "Graph g"
    ],
    "o": {
     "index": 2
    },
-   "w": "n = 6 gerade, a < 0: von links unten nach rechts unten."
+   "w": "y = x⁴: n = 4 gerade, a > 0, also von links oben nach rechts oben; durch (1 | 1) und (−1 | 1)."
   },
   {
    "l": "verlauf",
@@ -1619,13 +2017,13 @@
     "text": "Wie verläuft der Graph von y = −2x²?"
    },
    "a": [
-    "von links unten nach rechts oben",
     "von links oben nach rechts unten",
     "von links unten nach rechts unten",
+    "von links unten nach rechts oben",
     "von links oben nach rechts oben"
    ],
    "o": {
-    "index": 2
+    "index": 1
    },
    "w": "n = 2 gerade, a < 0: von links unten nach rechts unten."
   },
@@ -1636,78 +2034,168 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Wie verläuft der Graph von y = −6x⁸?"
+    "text": "Welcher Graph gehört zu y = x²?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      2
+     ],
+     "y": [
+      -4,
+      4
+     ],
+     "graphen": [
+      {
+       "art": "potenz",
+       "a": -1,
+       "n": 2,
+       "name": "g"
+      },
+      {
+       "art": "potenz",
+       "a": -1,
+       "n": 4,
+       "name": "h"
+      },
+      {
+       "art": "potenz",
+       "a": 1,
+       "n": 2,
+       "name": "k"
+      }
+     ]
+    }
+   },
+   "a": [
+    "Graph h",
+    "Graph g",
+    "Graph k"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "y = x²: n = 2 gerade, a > 0, also von links oben nach rechts oben; durch (1 | 1) und (−1 | 1)."
+  },
+  {
+   "l": "verlauf",
+   "t": "verlauf",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Graph gehört zu y = −x²?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      2
+     ],
+     "y": [
+      -4,
+      4
+     ],
+     "graphen": [
+      {
+       "art": "potenz",
+       "a": 1,
+       "n": 4,
+       "name": "g"
+      },
+      {
+       "art": "potenz",
+       "a": 1,
+       "n": 2,
+       "name": "h"
+      },
+      {
+       "art": "potenz",
+       "a": -1,
+       "n": 2,
+       "name": "k"
+      }
+     ]
+    }
+   },
+   "a": [
+    "Graph g",
+    "Graph h",
+    "Graph k"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "y = −x²: n = 2 gerade, a < 0, also von links unten nach rechts unten; durch (1 | −1) und (−1 | −1)."
+  },
+  {
+   "l": "verlauf",
+   "t": "verlauf",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Graph gehört zu y = x²?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      2
+     ],
+     "y": [
+      -4,
+      4
+     ],
+     "graphen": [
+      {
+       "art": "potenz",
+       "a": 1,
+       "n": 3,
+       "name": "g"
+      },
+      {
+       "art": "potenz",
+       "a": 1,
+       "n": 5,
+       "name": "h"
+      },
+      {
+       "art": "potenz",
+       "a": 1,
+       "n": 2,
+       "name": "k"
+      }
+     ]
+    }
+   },
+   "a": [
+    "Graph k",
+    "Graph g",
+    "Graph h"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "y = x²: n = 2 gerade, a > 0, also von links oben nach rechts oben; durch (1 | 1) und (−1 | 1)."
+  },
+  {
+   "l": "verlauf",
+   "t": "verlauf",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie verläuft der Graph von y = 2x⁴?"
    },
    "a": [
     "von links unten nach rechts oben",
-    "von links unten nach rechts unten",
     "von links oben nach rechts oben",
+    "von links unten nach rechts unten",
     "von links oben nach rechts unten"
    ],
    "o": {
     "index": 1
    },
-   "w": "n = 8 gerade, a < 0: von links unten nach rechts unten."
-  },
-  {
-   "l": "verlauf",
-   "t": "verlauf",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie verläuft der Graph von y = 2x⁹?"
-   },
-   "a": [
-    "von links oben nach rechts oben",
-    "von links unten nach rechts oben",
-    "von links unten nach rechts unten",
-    "von links oben nach rechts unten"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "n = 9 ungerade, a > 0: von links unten nach rechts oben."
-  },
-  {
-   "l": "verlauf",
-   "t": "verlauf",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie verläuft der Graph von y = 6x⁵?"
-   },
-   "a": [
-    "von links oben nach rechts unten",
-    "von links oben nach rechts oben",
-    "von links unten nach rechts unten",
-    "von links unten nach rechts oben"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "n = 5 ungerade, a > 0: von links unten nach rechts oben."
-  },
-  {
-   "l": "verlauf",
-   "t": "verlauf",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie verläuft der Graph von y = −x³?"
-   },
-   "a": [
-    "von links oben nach rechts oben",
-    "von links unten nach rechts unten",
-    "von links unten nach rechts oben",
-    "von links oben nach rechts unten"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "n = 3 ungerade, a < 0: von links oben nach rechts unten."
+   "w": "n = 4 gerade, a > 0: von links oben nach rechts oben."
   },
   {
    "l": "parameter",
@@ -1716,45 +2204,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "y = a · x³ geht durch P(−2 | 8). Bestimme a."
+    "text": "y = a · x³ geht durch P(−2 | −24). Bestimme a."
    },
    "o": {
-    "wert": -1
+    "wert": 3
    },
-   "c": "(8) / (-2) ** 3",
-   "w": "8 = a · (−2)³ = −8a ⇒ a = −1.",
-   "h": "Setze den Punkt ein und teile durch die Potenz."
-  },
-  {
-   "l": "parameter",
-   "t": "parameter",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "y = a · x² geht durch P(2 | −12). Bestimme a."
-   },
-   "o": {
-    "wert": -3
-   },
-   "c": "(-12) / (2) ** 2",
-   "w": "−12 = a · 2² = 4a ⇒ a = −3.",
-   "h": "Setze den Punkt ein und teile durch die Potenz."
-  },
-  {
-   "l": "parameter",
-   "t": "parameter",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "y = a · x³ geht durch P(3 | −81). Bestimme a."
-   },
-   "o": {
-    "wert": -3
-   },
-   "c": "(-81) / (3) ** 3",
-   "w": "−81 = a · 3³ = 27a ⇒ a = −3.",
+   "c": "(-24) / (-2) ** 3",
+   "w": "−24 = a · (−2)³ = −8a ⇒ a = 3.",
    "h": "Setze den Punkt ein und teile durch die Potenz."
   },
   {
@@ -1780,13 +2236,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "y = a · x³ geht durch P(−1 | −6). Bestimme a."
+    "text": "y = a · x² geht durch P(−2 | 16). Bestimme a."
    },
    "o": {
-    "wert": 6
+    "wert": 4
    },
-   "c": "(-6) / (-1) ** 3",
-   "w": "−6 = a · (−1)³ = −1a ⇒ a = 6.",
+   "c": "(16) / (-2) ** 2",
+   "w": "16 = a · (−2)² = 4a ⇒ a = 4.",
    "h": "Setze den Punkt ein und teile durch die Potenz."
   },
   {
@@ -1796,62 +2252,46 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "y = a · x³ geht durch P(−2 | −48). Bestimme a."
+    "text": "y = a · x² geht durch P(1 | −1). Bestimme a."
    },
    "o": {
-    "wert": 6
+    "wert": -1
    },
-   "c": "(-48) / (-2) ** 3",
-   "w": "−48 = a · (−2)³ = −8a ⇒ a = 6.",
+   "c": "(-1) / (1) ** 2",
+   "w": "−1 = a · 1² = a ⇒ a = −1.",
    "h": "Setze den Punkt ein und teile durch die Potenz."
   },
   {
    "l": "parameter",
    "t": "parameter",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "y = xⁿ geht durch P(4 | 16). Bestimme den Exponenten n."
+    "text": "y = a · x² geht durch P(2 | 8). Bestimme a."
    },
    "o": {
     "wert": 2
    },
-   "c": "2",
-   "w": "4ⁿ = 16; probieren: 4² = 16, also n = 2.",
-   "h": "Multipliziere die Basis so oft mit sich selbst, bis das Ergebnis erreicht ist."
+   "c": "(8) / (2) ** 2",
+   "w": "8 = a · 2² = 4a ⇒ a = 2.",
+   "h": "Setze den Punkt ein und teile durch die Potenz."
   },
   {
    "l": "parameter",
    "t": "parameter",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "y = a · x³ geht durch P(3 | 54). Bestimme a."
+    "text": "y = a · x³ geht durch P(−1 | 1). Bestimme a."
    },
    "o": {
-    "wert": 2
+    "wert": -1
    },
-   "c": "(54.0) / (3.0) ** 3",
-   "w": "54 = a · 27 ⇒ a = 2.",
-   "h": "Berechne zuerst die Potenz, dann teilen."
-  },
-  {
-   "l": "parameter",
-   "t": "parameter",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "y = a · x² geht durch P(2 | 16). Bestimme a."
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "(16.0) / (2.0) ** 2",
-   "w": "16 = a · 4 ⇒ a = 4.",
-   "h": "Berechne zuerst die Potenz, dann teilen."
+   "c": "(1) / (-1) ** 3",
+   "w": "1 = a · (−1)³ = −a ⇒ a = −1.",
+   "h": "Setze den Punkt ein und teile durch die Potenz."
   },
   {
    "l": "parameter",
@@ -1876,13 +2316,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "y = a · x² geht durch P(0,5 | −0,75). Bestimme a."
+    "text": "y = a · x⁶ geht durch P(0,5 | −0,0625). Bestimme a."
    },
    "o": {
-    "wert": -3
+    "wert": -4
    },
-   "c": "(-0.75) / (0.5) ** 2",
-   "w": "−0,75 = a · 0,25 ⇒ a = −3.",
+   "c": "(-0.0625) / (0.5) ** 6",
+   "w": "−0,0625 = a · 0,015625 ⇒ a = −4.",
    "h": "Berechne zuerst die Potenz, dann teilen."
   },
   {
@@ -1892,29 +2332,77 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "y = a · x⁶ geht durch P(2 | 256). Bestimme a."
+    "text": "y = xⁿ geht durch P(4 | 256). Bestimme den Exponenten n."
    },
    "o": {
     "wert": 4
    },
-   "c": "(256.0) / (2.0) ** 6",
-   "w": "256 = a · 64 ⇒ a = 4.",
+   "c": "4",
+   "w": "4ⁿ = 256; probieren: 4⁴ = 256, also n = 4.",
+   "h": "Multipliziere die Basis so oft mit sich selbst, bis das Ergebnis erreicht ist."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "y = a · x⁴ geht durch P(3 | 324). Bestimme a."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(324.0) / (3.0) ** 4",
+   "w": "324 = a · 81 ⇒ a = 4.",
    "h": "Berechne zuerst die Potenz, dann teilen."
   },
   {
    "l": "parameter",
    "t": "parameter",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Der Graph von y = a · xⁿ geht durch P(2 | 4) und Q(1 | 1). Bestimme n."
+    "text": "y = a · x³ geht durch P(4 | 64). Bestimme a."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(64.0) / (4.0) ** 3",
+   "w": "64 = a · 64 ⇒ a = 1.",
+   "h": "Berechne zuerst die Potenz, dann teilen."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "y = xⁿ geht durch P(2 | 4). Bestimme den Exponenten n."
    },
    "o": {
     "wert": 2
    },
    "c": "2",
-   "w": "Quotient: 1 : 4 = (1 : 2)ⁿ = 1/4 ⇒ n = 2 (dann a = 1).",
+   "w": "2ⁿ = 4; probieren: 2² = 4, also n = 2.",
+   "h": "Multipliziere die Basis so oft mit sich selbst, bis das Ergebnis erreicht ist."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph von y = a · xⁿ geht durch P(−1 | 1) und Q(−2 | 16). Bestimme n."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Quotient: 16 : 1 = (−2 : (−1))ⁿ = 16 ⇒ n = 4 (dann a = 1).",
    "h": "Teile die beiden Gleichungen durcheinander, dann fällt a weg."
   },
   {
@@ -1924,13 +2412,29 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Der Graph von y = a · xⁿ geht durch P(−1 | 2) und Q(3 | −54). Bestimme n."
+    "text": "Der Graph von y = a · xⁿ geht durch P(−1 | −1) und Q(2 | −16). Bestimme n."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Quotient: −16 : (−1) = (2 : (−1))ⁿ = 16 ⇒ n = 4 (dann a = −1).",
+   "h": "Teile die beiden Gleichungen durcheinander, dann fällt a weg."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph von y = a · xⁿ geht durch P(1 | −1) und Q(−2 | 8). Bestimme n."
    },
    "o": {
     "wert": 3
    },
    "c": "3",
-   "w": "Quotient: −54 : 2 = (3 : −1)ⁿ = −27 ⇒ n = 3 (dann a = −2).",
+   "w": "Quotient: 8 : (−1) = (−2 : 1)ⁿ = −8 ⇒ n = 3 (dann a = −1).",
    "h": "Teile die beiden Gleichungen durcheinander, dann fällt a weg."
   },
   {
@@ -1940,13 +2444,13 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Der Graph von y = a · xⁿ geht durch P(−1 | 4) und Q(−2 | 16). Bestimme n."
+    "text": "Der Graph von y = a · xⁿ geht durch P(3 | 27) und Q(1 | 3). Bestimme n."
    },
    "o": {
     "wert": 2
    },
    "c": "2",
-   "w": "Quotient: 16 : 4 = (−2 : −1)ⁿ = 4 ⇒ n = 2 (dann a = 4).",
+   "w": "Quotient: 3 : 27 = (1 : 3)ⁿ = 1/9 ⇒ n = 2 (dann a = 3).",
    "h": "Teile die beiden Gleichungen durcheinander, dann fällt a weg."
   },
   {
@@ -1956,29 +2460,13 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Der Graph von y = a · xⁿ geht durch P(1 | 4) und Q(−2 | 64). Bestimme n."
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "4",
-   "w": "Quotient: 64 : 4 = (−2 : 1)ⁿ = 16 ⇒ n = 4 (dann a = 4).",
-   "h": "Teile die beiden Gleichungen durcheinander, dann fällt a weg."
-  },
-  {
-   "l": "parameter",
-   "t": "parameter",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Der Graph von y = a · xⁿ geht durch P(2 | 8) und Q(−1 | −1). Bestimme n."
+    "text": "Der Graph von y = a · xⁿ geht durch P(−2 | 24) und Q(1 | −3). Bestimme n."
    },
    "o": {
     "wert": 3
    },
    "c": "3",
-   "w": "Quotient: −1 : 8 = (−1 : 2)ⁿ = −1/8 ⇒ n = 3 (dann a = 1).",
+   "w": "Quotient: −3 : 24 = (1 : (−2))ⁿ = −1/8 ⇒ n = 3 (dann a = −3).",
    "h": "Teile die beiden Gleichungen durcheinander, dann fällt a weg."
   },
   {
@@ -1988,13 +2476,13 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Der Graph von y = a · xⁿ geht durch P(2 | −16) und Q(1 | −1). Bestimme n."
+    "text": "Der Graph von y = a · xⁿ geht durch P(−2 | 16) und Q(3 | 36). Bestimme n."
    },
    "o": {
-    "wert": 4
+    "wert": 2
    },
-   "c": "4",
-   "w": "Quotient: −1 : −16 = (1 : 2)ⁿ = 1/16 ⇒ n = 4 (dann a = −1).",
+   "c": "2",
+   "w": "Quotient: 36 : 16 = (3 : (−2))ⁿ = 9/4 ⇒ n = 2 (dann a = 4).",
    "h": "Teile die beiden Gleichungen durcheinander, dann fällt a weg."
   },
   {
@@ -2004,28 +2492,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "y = xⁿ geht durch P(0,5 | 0,015625). Bestimme den Exponenten n."
+    "text": "y = a · x³ geht durch P(3 | −81). Bestimme a."
    },
    "o": {
-    "wert": 6
+    "wert": -3
    },
-   "c": "6",
-   "w": "0,5ⁿ = 0,015625; probieren: 0,5⁶ = 0,015625, also n = 6."
-  },
-  {
-   "l": "parameter",
-   "t": "parameter",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "y = a · x² geht durch P(5 | −100). Bestimme a."
-   },
-   "o": {
-    "wert": -4
-   },
-   "c": "(-100.0) / (5.0) ** 2",
-   "w": "−100 = a · 25 ⇒ a = −4."
+   "c": "(-81.0) / (3.0) ** 3",
+   "w": "−81 = a · 27 ⇒ a = −3."
   },
   {
    "l": "parameter",
@@ -2049,13 +2522,28 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "y = a · x² geht durch P(5 | −50). Bestimme a."
+    "text": "y = a · x³ geht durch P(4 | −192). Bestimme a."
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "(-192.0) / (4.0) ** 3",
+   "w": "−192 = a · 64 ⇒ a = −3."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "y = a · x⁶ geht durch P(2 | −128). Bestimme a."
    },
    "o": {
     "wert": -2
    },
-   "c": "(-50.0) / (5.0) ** 2",
-   "w": "−50 = a · 25 ⇒ a = −2."
+   "c": "(-128.0) / (2.0) ** 6",
+   "w": "−128 = a · 64 ⇒ a = −2."
   },
   {
    "l": "parameter",
@@ -2064,13 +2552,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "y = xⁿ geht durch P(3 | 27). Bestimme den Exponenten n."
+    "text": "y = a · x³ geht durch P(5 | −125). Bestimme a."
    },
    "o": {
-    "wert": 3
+    "wert": -1
    },
-   "c": "3",
-   "w": "3ⁿ = 27; probieren: 3³ = 27, also n = 3."
+   "c": "(-125.0) / (5.0) ** 3",
+   "w": "−125 = a · 125 ⇒ a = −1."
   },
   {
    "l": "parameter",
@@ -2079,13 +2567,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "y = xⁿ geht durch P(0,5 | 0,03125). Bestimme den Exponenten n."
+    "text": "y = a · x³ geht durch P(4 | −256). Bestimme a."
    },
    "o": {
-    "wert": 5
+    "wert": -4
    },
-   "c": "5",
-   "w": "0,5ⁿ = 0,03125; probieren: 0,5⁵ = 0,03125, also n = 5."
+   "c": "(-256.0) / (4.0) ** 3",
+   "w": "−256 = a · 64 ⇒ a = −4."
   },
   {
    "l": "parameter",
@@ -2094,13 +2582,43 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "y = xⁿ geht durch P(3 | 81). Bestimme den Exponenten n."
+    "text": "y = a · x⁵ geht durch P(0,5 | −0,125). Bestimme a."
+   },
+   "o": {
+    "wert": -4
+   },
+   "c": "(-0.125) / (0.5) ** 5",
+   "w": "−0,125 = a · 0,03125 ⇒ a = −4."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "y = a · x⁴ geht durch P(5 | −2 500). Bestimme a."
+   },
+   "o": {
+    "wert": -4
+   },
+   "c": "(-2500.0) / (5.0) ** 4",
+   "w": "−2 500 = a · 625 ⇒ a = −4."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "y = xⁿ geht durch P(2 | 16). Bestimme den Exponenten n."
    },
    "o": {
     "wert": 4
    },
    "c": "4",
-   "w": "3ⁿ = 81; probieren: 3⁴ = 81, also n = 4."
+   "w": "2ⁿ = 16; probieren: 2⁴ = 16, also n = 4."
   },
   {
    "l": "parameter",
@@ -2109,43 +2627,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "y = xⁿ geht durch P(4 | 64). Bestimme den Exponenten n."
+    "text": "y = a · x⁴ geht durch P(4 | −768). Bestimme a."
    },
    "o": {
-    "wert": 3
+    "wert": -3
    },
-   "c": "3",
-   "w": "4ⁿ = 64; probieren: 4³ = 64, also n = 3."
-  },
-  {
-   "l": "parameter",
-   "t": "parameter",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "y = a · x⁴ geht durch P(0,5 | 0,25). Bestimme a."
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "(0.25) / (0.5) ** 4",
-   "w": "0,25 = a · 0,0625 ⇒ a = 4."
-  },
-  {
-   "l": "parameter",
-   "t": "parameter",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "y = a · x⁴ geht durch P(0,5 | 0,125). Bestimme a."
-   },
-   "o": {
-    "wert": 2
-   },
-   "c": "(0.125) / (0.5) ** 4",
-   "w": "0,125 = a · 0,0625 ⇒ a = 2."
+   "c": "(-768.0) / (4.0) ** 4",
+   "w": "−768 = a · 256 ⇒ a = −3."
   },
   {
    "l": "negativ",
@@ -2154,39 +2642,7 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Berechne f(2) für f(x) = x^(−2). Gib das Ergebnis als Dezimalzahl an."
-   },
-   "o": {
-    "wert": 0.25
-   },
-   "c": "1 / 2 ** 2",
-   "w": "f(2) = 1/2² = 1/4 = 0,25.",
-   "h": "Negativer Exponent: Kehrwert der Potenz."
-  },
-  {
-   "l": "negativ",
-   "t": "negativ",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne f(4) für f(x) = x^(−3). Gib das Ergebnis als Dezimalzahl an."
-   },
-   "o": {
-    "wert": 0.015625
-   },
-   "c": "1 / 4 ** 3",
-   "w": "f(4) = 1/4³ = 1/64 = 0,015625.",
-   "h": "Negativer Exponent: Kehrwert der Potenz."
-  },
-  {
-   "l": "negativ",
-   "t": "negativ",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne f(5) für f(x) = x^(−1). Gib das Ergebnis als Dezimalzahl an."
+    "text": "Berechne f(5) für f(x) = x⁻¹. Gib das Ergebnis als Dezimalzahl an."
    },
    "o": {
     "wert": 0.2
@@ -2202,13 +2658,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Berechne f(4) für f(x) = x^(−1). Gib das Ergebnis als Dezimalzahl an."
+    "text": "Berechne f(4) für f(x) = x⁻³. Gib das Ergebnis als Dezimalzahl an."
    },
    "o": {
-    "wert": 0.25
+    "wert": 0.015625
    },
-   "c": "1 / 4 ** 1",
-   "w": "f(4) = 1/4¹ = 1/4 = 0,25.",
+   "c": "1 / 4 ** 3",
+   "w": "f(4) = 1/4³ = 1/64 = 0,015625.",
    "h": "Negativer Exponent: Kehrwert der Potenz."
   },
   {
@@ -2218,7 +2674,39 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Berechne f(5) für f(x) = x^(−3). Gib das Ergebnis als Dezimalzahl an."
+    "text": "Berechne f(10) für f(x) = x⁻². Gib das Ergebnis als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.01
+   },
+   "c": "1 / 10 ** 2",
+   "w": "f(10) = 1/10² = 1/100 = 0,01.",
+   "h": "Negativer Exponent: Kehrwert der Potenz."
+  },
+  {
+   "l": "negativ",
+   "t": "negativ",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne f(4) für f(x) = x⁻². Gib das Ergebnis als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.0625
+   },
+   "c": "1 / 4 ** 2",
+   "w": "f(4) = 1/4² = 1/16 = 0,0625.",
+   "h": "Negativer Exponent: Kehrwert der Potenz."
+  },
+  {
+   "l": "negativ",
+   "t": "negativ",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne f(5) für f(x) = x⁻³. Gib das Ergebnis als Dezimalzahl an."
    },
    "o": {
     "wert": 0.008
@@ -2234,7 +2722,7 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Berechne f(5) für f(x) = x^(−2). Gib das Ergebnis als Dezimalzahl an."
+    "text": "Berechne f(5) für f(x) = x⁻². Gib das Ergebnis als Dezimalzahl an."
    },
    "o": {
     "wert": 0.04
@@ -2250,13 +2738,29 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne f(1/3) für f(x) = x^(−3)."
+    "text": "Berechne f(1/2) für f(x) = x⁻³."
    },
    "o": {
-    "wert": 27
+    "wert": 8
    },
-   "c": "1 / (1 / 3) ** 3",
-   "w": "f(1/3) = 1/(1/3)³ = 27.",
+   "c": "1 / (1 / 2) ** 3",
+   "w": "f(1/2) = 1/(1/2)³ = 8.",
+   "h": "Der Kehrwert eines Bruchs: Zähler und Nenner tauschen."
+  },
+  {
+   "l": "negativ",
+   "t": "negativ",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne f(1/2) für f(x) = x⁻⁴."
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "1 / (1 / 2) ** 4",
+   "w": "f(1/2) = 1/(1/2)⁴ = 16.",
    "h": "Der Kehrwert eines Bruchs: Zähler und Nenner tauschen."
   },
   {
@@ -2266,17 +2770,17 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Symmetrie hat der Graph von y = x^(−6)?"
+    "text": "Welche Symmetrie hat der Graph von y = −x⁻⁶?"
    },
    "a": [
+    "keine dieser Symmetrien",
     "achsensymmetrisch zur y-Achse",
-    "achsensymmetrisch zur x-Achse",
     "punktsymmetrisch zum Ursprung"
    ],
    "o": {
-    "index": 0
+    "index": 1
    },
-   "w": "x^(−6) = 1/x⁶; n = 6 gerade: achsensymmetrisch zur y-Achse.",
+   "w": "x⁻⁶ = 1/x⁶; n = 6 gerade: achsensymmetrisch zur y-Achse. Der Faktor −1 ändert daran nichts.",
    "h": "Wie bei xⁿ entscheidet, ob n gerade ist."
   },
   {
@@ -2286,18 +2790,34 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Symmetrie hat der Graph von y = x^(−6)?"
+    "text": "Welche Symmetrie hat der Graph von y = x⁻³?"
    },
    "a": [
-    "achsensymmetrisch zur y-Achse",
     "punktsymmetrisch zum Ursprung",
-    "achsensymmetrisch zur x-Achse"
+    "achsensymmetrisch zur y-Achse",
+    "keine dieser Symmetrien"
    ],
    "o": {
     "index": 0
    },
-   "w": "x^(−6) = 1/x⁶; n = 6 gerade: achsensymmetrisch zur y-Achse.",
+   "w": "x⁻³ = 1/x³; n = 3 ungerade: punktsymmetrisch zum Ursprung.",
    "h": "Wie bei xⁿ entscheidet, ob n gerade ist."
+  },
+  {
+   "l": "negativ",
+   "t": "negativ",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne f(1/2) für f(x) = x⁻¹."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "1 / (1 / 2) ** 1",
+   "w": "f(1/2) = 1/(1/2)¹ = 2.",
+   "h": "Der Kehrwert eines Bruchs: Zähler und Nenner tauschen."
   },
   {
    "l": "negativ",
@@ -2306,50 +2826,18 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Symmetrie hat der Graph von y = x^(−6)?"
+    "text": "Welche Symmetrie hat der Graph von y = 2x⁻²?"
    },
    "a": [
-    "achsensymmetrisch zur x-Achse",
+    "keine dieser Symmetrien",
     "punktsymmetrisch zum Ursprung",
     "achsensymmetrisch zur y-Achse"
    ],
    "o": {
     "index": 2
    },
-   "w": "x^(−6) = 1/x⁶; n = 6 gerade: achsensymmetrisch zur y-Achse.",
+   "w": "x⁻² = 1/x²; n = 2 gerade: achsensymmetrisch zur y-Achse. Der Faktor 2 ändert daran nichts.",
    "h": "Wie bei xⁿ entscheidet, ob n gerade ist."
-  },
-  {
-   "l": "negativ",
-   "t": "negativ",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne f(1/3) für f(x) = x^(−4)."
-   },
-   "o": {
-    "wert": 81
-   },
-   "c": "1 / (1 / 3) ** 4",
-   "w": "f(1/3) = 1/(1/3)⁴ = 81.",
-   "h": "Der Kehrwert eines Bruchs: Zähler und Nenner tauschen."
-  },
-  {
-   "l": "negativ",
-   "t": "negativ",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne f(1/2) für f(x) = x^(−2)."
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "1 / (1 / 2) ** 2",
-   "w": "f(1/2) = 1/(1/2)² = 4.",
-   "h": "Der Kehrwert eines Bruchs: Zähler und Nenner tauschen."
   },
   {
    "l": "negativ",
@@ -2358,18 +2846,18 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Was passiert mit y = x^(−2) für sehr große x?"
+    "text": "Was passiert mit y = x⁻¹ für sehr große x?"
    },
    "a": [
-    "y kommt der x-Achse beliebig nahe (bleibt aber positiv).",
     "y wird beliebig groß.",
-    "y wird genau 0.",
-    "y wird negativ."
+    "y kommt der x-Achse beliebig nahe (bleibt aber positiv).",
+    "y wird negativ.",
+    "y wird genau 0."
    ],
    "o": {
-    "index": 0
+    "index": 1
    },
-   "w": "1/x² wird für große x sehr klein, aber nie 0: Die x-Achse ist Asymptote.",
+   "w": "1/x¹ wird für große x sehr klein, aber nie 0: Die x-Achse ist Asymptote.",
    "h": "Setze z. B. x = 100 ein."
   },
   {
@@ -2379,81 +2867,18 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Jemand rechnet 4^(−4) = −256. Was stimmt?"
+    "text": "Für welche x ist f(x) = x⁻³ definiert?"
    },
    "a": [
-    "Falsch: 4^(−4) = 1/256 = 0,00390625",
-    "Richtig",
-    "Falsch: 4^(−4) = 16",
-    "Falsch: 4^(−4) = −1/256"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Ein negativer Exponent bedeutet Kehrwert: 4^(−4) = 1/4⁴ = 0,00390625 > 0.",
-   "h": "Was bedeutet ein negatives Vorzeichen im Exponenten?"
-  },
-  {
-   "l": "negativ",
-   "t": "negativ",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand rechnet 2^(−2) = −4. Was stimmt?"
-   },
-   "a": [
-    "Falsch: 2^(−2) = −1/4",
-    "Falsch: 2^(−2) = 1/4 = 0,25",
-    "Falsch: 2^(−2) = 4",
-    "Richtig"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Ein negativer Exponent bedeutet Kehrwert: 2^(−2) = 1/2² = 0,25 > 0.",
-   "h": "Was bedeutet ein negatives Vorzeichen im Exponenten?"
-  },
-  {
-   "l": "negativ",
-   "t": "negativ",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Für welche x ist f(x) = x^(−2) definiert?"
-   },
-   "a": [
-    "für alle x ≠ 0",
-    "für alle x ≥ 0",
     "für alle x > 0",
-    "für alle x"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "x^(−2) = 1/x²; durch 0 darf man nicht teilen, also x ≠ 0.",
-   "h": "Schreibe die Potenz als Bruch."
-  },
-  {
-   "l": "negativ",
-   "t": "negativ",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Für welche x ist f(x) = x^(−1) definiert?"
-   },
-   "a": [
     "für alle x ≠ 0",
-    "für alle x > 0",
     "für alle x",
     "für alle x ≥ 0"
    ],
    "o": {
-    "index": 0
+    "index": 1
    },
-   "w": "x^(−1) = 1/x¹; durch 0 darf man nicht teilen, also x ≠ 0.",
+   "w": "x⁻³ = 1/x³; durch 0 darf man nicht teilen, also x ≠ 0.",
    "h": "Schreibe die Potenz als Bruch."
   },
   {
@@ -2463,18 +2888,99 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Jemand rechnet 5^(−4) = −625. Was stimmt?"
+    "text": "Was passiert mit y = x⁻⁴ für sehr große x?"
    },
    "a": [
-    "Falsch: 5^(−4) = 1/625 = 0,0016",
-    "Falsch: 5^(−4) = 20",
-    "Falsch: 5^(−4) = −1/625",
+    "y wird negativ.",
+    "y wird genau 0.",
+    "y wird beliebig groß.",
+    "y kommt der x-Achse beliebig nahe (bleibt aber positiv)."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "1/x⁴ wird für große x sehr klein, aber nie 0: Die x-Achse ist Asymptote.",
+   "h": "Setze z. B. x = 100 ein."
+  },
+  {
+   "l": "negativ",
+   "t": "negativ",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Für welche x ist f(x) = x⁻⁴ definiert?"
+   },
+   "a": [
+    "für alle x > 0",
+    "für alle x ≠ 0",
+    "für alle x ≥ 0",
+    "für alle x"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "x⁻⁴ = 1/x⁴; durch 0 darf man nicht teilen, also x ≠ 0.",
+   "h": "Schreibe die Potenz als Bruch."
+  },
+  {
+   "l": "negativ",
+   "t": "negativ",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Was passiert mit y = x⁻³ für x nahe 0, x < 0?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -4,
+      4
+     ],
+     "graphen": [
+      {
+       "art": "potenz",
+       "a": 1,
+       "n": -3
+      }
+     ]
+    }
+   },
+   "a": [
+    "y wird genau 1.",
+    "y kommt 0 beliebig nahe.",
+    "y wird beliebig klein (stark negativ).",
+    "y wird beliebig groß."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Setze z. B. x = −0,01 ein: 1/(−0,01)³ ist betragsmäßig sehr groß, und negativ. Die y-Achse ist Asymptote.",
+   "h": "Setze eine Zahl sehr nahe bei 0 ein."
+  },
+  {
+   "l": "negativ",
+   "t": "negativ",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet 4⁻² = −16. Was stimmt?"
+   },
+   "a": [
+    "Falsch: 4⁻² = 1/16",
+    "Falsch: 4⁻² = −8",
+    "Falsch: 4⁻² = −1/16",
     "Richtig"
    ],
    "o": {
     "index": 0
    },
-   "w": "Ein negativer Exponent bedeutet Kehrwert: 5^(−4) = 1/5⁴ = 0,0016 > 0.",
+   "w": "Ein negativer Exponent bedeutet Kehrwert: 4⁻² = 1/4² = 1/16 > 0.",
    "h": "Was bedeutet ein negatives Vorzeichen im Exponenten?"
   },
   {
@@ -2482,106 +2988,76 @@
    "t": "negativ",
    "p": "test",
    "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne f(1/4) für f(x) = x^(−2)."
-   },
-   "o": {
-    "wert": 16
-   },
-   "c": "1 / (1 / 4) ** 2",
-   "w": "f(1/4) = 1/(1/4)² = 16."
-  },
-  {
-   "l": "negativ",
-   "t": "negativ",
-   "p": "korrektur",
-   "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Symmetrie hat der Graph von y = x^(−2)?"
+    "text": "Welche Symmetrie hat der Graph von y = x⁻⁵?"
    },
    "a": [
-    "achsensymmetrisch zur y-Achse",
+    "keine dieser Symmetrien",
     "punktsymmetrisch zum Ursprung",
-    "achsensymmetrisch zur x-Achse"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "x^(−2) = 1/x²; n = 2 gerade: achsensymmetrisch zur y-Achse."
-  },
-  {
-   "l": "negativ",
-   "t": "negativ",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Symmetrie hat der Graph von y = x^(−2)?"
-   },
-   "a": [
-    "achsensymmetrisch zur y-Achse",
-    "achsensymmetrisch zur x-Achse",
-    "punktsymmetrisch zum Ursprung"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "x^(−2) = 1/x²; n = 2 gerade: achsensymmetrisch zur y-Achse."
-  },
-  {
-   "l": "negativ",
-   "t": "negativ",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Symmetrie hat der Graph von y = x^(−6)?"
-   },
-   "a": [
-    "punktsymmetrisch zum Ursprung",
-    "achsensymmetrisch zur y-Achse",
-    "achsensymmetrisch zur x-Achse"
+    "achsensymmetrisch zur y-Achse"
    ],
    "o": {
     "index": 1
    },
-   "w": "x^(−6) = 1/x⁶; n = 6 gerade: achsensymmetrisch zur y-Achse."
+   "w": "x⁻⁵ = 1/x⁵; n = 5 ungerade: punktsymmetrisch zum Ursprung."
   },
   {
    "l": "negativ",
    "t": "negativ",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne f(1/2) für f(x) = x^(−4)."
-   },
-   "o": {
-    "wert": 16
-   },
-   "c": "1 / (1 / 2) ** 4",
-   "w": "f(1/2) = 1/(1/2)⁴ = 16."
-  },
-  {
-   "l": "negativ",
-   "t": "negativ",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Symmetrie hat der Graph von y = x^(−5)?"
+    "text": "Welche Symmetrie hat der Graph von y = 3x⁻⁵?"
    },
    "a": [
-    "achsensymmetrisch zur x-Achse",
+    "punktsymmetrisch zum Ursprung",
     "achsensymmetrisch zur y-Achse",
+    "keine dieser Symmetrien"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "x⁻⁵ = 1/x⁵; n = 5 ungerade: punktsymmetrisch zum Ursprung. Der Faktor 3 ändert daran nichts."
+  },
+  {
+   "l": "negativ",
+   "t": "negativ",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Symmetrie hat der Graph von y = −x⁻⁴?"
+   },
+   "a": [
+    "achsensymmetrisch zur y-Achse",
+    "punktsymmetrisch zum Ursprung",
+    "keine dieser Symmetrien"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "x⁻⁴ = 1/x⁴; n = 4 gerade: achsensymmetrisch zur y-Achse. Der Faktor −1 ändert daran nichts."
+  },
+  {
+   "l": "negativ",
+   "t": "negativ",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Symmetrie hat der Graph von y = −x⁻⁵?"
+   },
+   "a": [
+    "achsensymmetrisch zur y-Achse",
+    "keine dieser Symmetrien",
     "punktsymmetrisch zum Ursprung"
    ],
    "o": {
     "index": 2
    },
-   "w": "x^(−5) = 1/x⁵; n = 5 ungerade: punktsymmetrisch zum Ursprung."
+   "w": "x⁻⁵ = 1/x⁵; n = 5 ungerade: punktsymmetrisch zum Ursprung. Der Faktor −1 ändert daran nichts."
   },
   {
    "l": "negativ",
@@ -2590,17 +3066,17 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Symmetrie hat der Graph von y = x^(−1)?"
+    "text": "Welche Symmetrie hat der Graph von y = x⁻²?"
    },
    "a": [
+    "achsensymmetrisch zur y-Achse",
     "punktsymmetrisch zum Ursprung",
-    "achsensymmetrisch zur x-Achse",
-    "achsensymmetrisch zur y-Achse"
+    "keine dieser Symmetrien"
    ],
    "o": {
     "index": 0
    },
-   "w": "x^(−1) = 1/x¹; n = 1 ungerade: punktsymmetrisch zum Ursprung."
+   "w": "x⁻² = 1/x²; n = 2 gerade: achsensymmetrisch zur y-Achse."
   },
   {
    "l": "negativ",
@@ -2609,22 +3085,7 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne f(1/3) für f(x) = x^(−1)."
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "1 / (1 / 3) ** 1",
-   "w": "f(1/3) = 1/(1/3)¹ = 3."
-  },
-  {
-   "l": "negativ",
-   "t": "negativ",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne f(1/4) für f(x) = x^(−3)."
+    "text": "Berechne f(1/4) für f(x) = x⁻³."
    },
    "o": {
     "wert": 64
@@ -2639,33 +3100,70 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Symmetrie hat der Graph von y = x^(−5)?"
+    "text": "Welche Symmetrie hat der Graph von y = 3x⁻³?"
    },
    "a": [
-    "achsensymmetrisch zur x-Achse",
+    "achsensymmetrisch zur y-Achse",
     "punktsymmetrisch zum Ursprung",
-    "achsensymmetrisch zur y-Achse"
+    "keine dieser Symmetrien"
    ],
    "o": {
     "index": 1
    },
-   "w": "x^(−5) = 1/x⁵; n = 5 ungerade: punktsymmetrisch zum Ursprung."
+   "w": "x⁻³ = 1/x³; n = 3 ungerade: punktsymmetrisch zum Ursprung. Der Faktor 3 ändert daran nichts."
   },
   {
-   "l": "wurzelfunktion",
-   "t": "wurzelfunktion",
-   "p": "uebung",
-   "s": 1,
+   "l": "negativ",
+   "t": "negativ",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Symmetrie hat der Graph von y = x⁻¹?"
+   },
+   "a": [
+    "keine dieser Symmetrien",
+    "achsensymmetrisch zur y-Achse",
+    "punktsymmetrisch zum Ursprung"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "x⁻¹ = 1/x; n = 1 ungerade: punktsymmetrisch zum Ursprung."
+  },
+  {
+   "l": "negativ",
+   "t": "negativ",
+   "p": "sicherung",
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "f(x) = x² für x ≥ 0. Für welches x ist f(x) = 9?"
+    "text": "Berechne f(1/3) für f(x) = x⁻¹."
    },
    "o": {
     "wert": 3
    },
-   "c": "9 / 3 ** 1",
-   "w": "x² = 9 ⇒ x = √9 = 3 (x ≥ 0).",
-   "h": "Rechne mit der Umkehrung (Wurzel) zurück."
+   "c": "1 / (1 / 3) ** 1",
+   "w": "f(1/3) = 1/(1/3)¹ = 3."
+  },
+  {
+   "l": "negativ",
+   "t": "negativ",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Symmetrie hat der Graph von y = 0,5x⁻⁵?"
+   },
+   "a": [
+    "keine dieser Symmetrien",
+    "achsensymmetrisch zur y-Achse",
+    "punktsymmetrisch zum Ursprung"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "x⁻⁵ = 1/x⁵; n = 5 ungerade: punktsymmetrisch zum Ursprung. Der Faktor 0,5 ändert daran nichts."
   },
   {
    "l": "wurzelfunktion",
@@ -2674,29 +3172,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "f(x) = x³ für x ≥ 0. Für welches x ist f(x) = 8?"
+    "text": "f(x) = x³ für x ≥ 0. Für welches x ist f(x) = 216?"
    },
    "o": {
-    "wert": 2
+    "wert": 6
    },
-   "c": "8 / 2 ** 2",
-   "w": "x³ = 8 ⇒ x = ∛8 = 2 (x ≥ 0).",
-   "h": "Rechne mit der Umkehrung (Wurzel) zurück."
-  },
-  {
-   "l": "wurzelfunktion",
-   "t": "wurzelfunktion",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "f(x) = x² für x ≥ 0. Für welches x ist f(x) = 81?"
-   },
-   "o": {
-    "wert": 9
-   },
-   "c": "81 / 9 ** 1",
-   "w": "x² = 81 ⇒ x = √81 = 9 (x ≥ 0).",
+   "c": "216 / 6 ** 2",
+   "w": "x³ = 216 ⇒ x = ∛216 = 6 (x ≥ 0).",
    "h": "Rechne mit der Umkehrung (Wurzel) zurück."
   },
   {
@@ -2738,13 +3220,45 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "f(x) = x² für x ≥ 0. Für welches x ist f(x) = 16?"
+    "text": "f(x) = x² für x ≥ 0. Für welches x ist f(x) = 9?"
    },
    "o": {
-    "wert": 4
+    "wert": 3
    },
-   "c": "16 / 4 ** 1",
-   "w": "x² = 16 ⇒ x = √16 = 4 (x ≥ 0).",
+   "c": "9 / 3 ** 1",
+   "w": "x² = 9 ⇒ x = √9 = 3 (x ≥ 0).",
+   "h": "Rechne mit der Umkehrung (Wurzel) zurück."
+  },
+  {
+   "l": "wurzelfunktion",
+   "t": "wurzelfunktion",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "f(x) = x² für x ≥ 0. Für welches x ist f(x) = 81?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "81 / 9 ** 1",
+   "w": "x² = 81 ⇒ x = √81 = 9 (x ≥ 0).",
+   "h": "Rechne mit der Umkehrung (Wurzel) zurück."
+  },
+  {
+   "l": "wurzelfunktion",
+   "t": "wurzelfunktion",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "f(x) = x² für x ≥ 0. Für welches x ist f(x) = 100?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "100 / 10 ** 1",
+   "w": "x² = 100 ⇒ x = √100 = 10 (x ≥ 0).",
    "h": "Rechne mit der Umkehrung (Wurzel) zurück."
   },
   {
@@ -2754,61 +3268,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "f(x) = 3x² für x ≥ 0. Für welches x ist f(x) = 48?"
+    "text": "Berechne f(36) für f(x) = x^(1/2)."
    },
    "o": {
-    "wert": 4
+    "wert": 6
    },
-   "c": "(48 / 3) / 4 ** 1",
-   "w": "3x² = 48 ⇒ x² = 16 ⇒ x = 4.",
-   "h": "Erst durch a teilen, dann die Wurzel ziehen."
-  },
-  {
-   "l": "wurzelfunktion",
-   "t": "wurzelfunktion",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "f(x) = 2x² für x ≥ 0. Für welches x ist f(x) = 50?"
-   },
-   "o": {
-    "wert": 5
-   },
-   "c": "(50 / 2) / 5 ** 1",
-   "w": "2x² = 50 ⇒ x² = 25 ⇒ x = 5.",
-   "h": "Erst durch a teilen, dann die Wurzel ziehen."
-  },
-  {
-   "l": "wurzelfunktion",
-   "t": "wurzelfunktion",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "f(x) = 3x³ für x ≥ 0. Für welches x ist f(x) = 192?"
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "(192 / 3) / 4 ** 2",
-   "w": "3x³ = 192 ⇒ x³ = 64 ⇒ x = 4.",
-   "h": "Erst durch a teilen, dann die Wurzel ziehen."
-  },
-  {
-   "l": "wurzelfunktion",
-   "t": "wurzelfunktion",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne f(125) für f(x) = x^(1/3)."
-   },
-   "o": {
-    "wert": 5
-   },
-   "c": "125 / 5 ** 2",
-   "w": "x^(1/3) = ∛x; f(125) = 5.",
+   "c": "36 / 6 ** 1",
+   "w": "x^(1/2) = √x; f(36) = 6.",
    "h": "Hoch 1/n bedeutet n-te Wurzel."
   },
   {
@@ -2818,13 +3284,29 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "f(x) = 3x² für x ≥ 0. Für welches x ist f(x) = 12?"
+    "text": "Berechne f(196) für f(x) = x^(1/2)."
    },
    "o": {
-    "wert": 2
+    "wert": 14
    },
-   "c": "(12 / 3) / 2 ** 1",
-   "w": "3x² = 12 ⇒ x² = 4 ⇒ x = 2.",
+   "c": "196 / 14 ** 1",
+   "w": "x^(1/2) = √x; f(196) = 14.",
+   "h": "Hoch 1/n bedeutet n-te Wurzel."
+  },
+  {
+   "l": "wurzelfunktion",
+   "t": "wurzelfunktion",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "f(x) = 3x² für x ≥ 0. Für welches x ist f(x) = 75?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(75 / 3) / 5 ** 1",
+   "w": "3x² = 75 ⇒ x² = 25 ⇒ x = 5.",
    "h": "Erst durch a teilen, dann die Wurzel ziehen."
   },
   {
@@ -2834,13 +3316,45 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne f(144) für f(x) = x^(1/2)."
+    "text": "Berechne f(49) für f(x) = x^(1/2)."
    },
    "o": {
-    "wert": 12
+    "wert": 7
    },
-   "c": "144 / 12 ** 1",
-   "w": "x^(1/2) = √x; f(144) = 12.",
+   "c": "49 / 7 ** 1",
+   "w": "x^(1/2) = √x; f(49) = 7.",
+   "h": "Hoch 1/n bedeutet n-te Wurzel."
+  },
+  {
+   "l": "wurzelfunktion",
+   "t": "wurzelfunktion",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne f(81) für f(x) = x^(1/2)."
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "81 / 9 ** 1",
+   "w": "x^(1/2) = √x; f(81) = 9.",
+   "h": "Hoch 1/n bedeutet n-te Wurzel."
+  },
+  {
+   "l": "wurzelfunktion",
+   "t": "wurzelfunktion",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne f(8) für f(x) = x^(1/3)."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "8 / 2 ** 2",
+   "w": "x^(1/3) = ∛x; f(8) = 2.",
    "h": "Hoch 1/n bedeutet n-te Wurzel."
   },
   {
@@ -2854,8 +3368,8 @@
    },
    "a": [
     "g(x) = x^(−2)",
-    "g(x) = x / 2",
     "g(x) = −x²",
+    "g(x) = x / 2",
     "g(x) = √x"
    ],
    "o": {
@@ -2871,39 +3385,18 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Welche Funktion ist die Umkehrfunktion von f(x) = x² für x ≥ 0?"
+    "text": "Der Punkt (9 | 81) liegt auf dem Graphen von y = x². Welcher Punkt liegt dann auf dem Graphen von y = √x?"
    },
    "a": [
-    "g(x) = x / 2",
-    "g(x) = √x",
-    "g(x) = x^(−2)",
-    "g(x) = −x²"
+    "(81 | −9)",
+    "(81 | 9)",
+    "(9 | 81)",
+    "(−9 | 81)"
    ],
    "o": {
     "index": 1
    },
-   "w": "Die Umkehrfunktion macht das Quadrieren rückgängig: Aus y = x² folgt x = √y. Also g(x) = √x = x^(1/2).",
-   "h": "Welche Rechnung macht das Quadrieren rückgängig?"
-  },
-  {
-   "l": "wurzelfunktion",
-   "t": "wurzelfunktion",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Der Punkt (8 | 64) liegt auf dem Graphen von y = x². Welcher Punkt liegt dann auf dem Graphen von y = √x?"
-   },
-   "a": [
-    "(-8 | 64)",
-    "(64 | -8)",
-    "(8 | 64)",
-    "(64 | 8)"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Bei der Umkehrfunktion werden x und y vertauscht: √64 = 8, also (64 | 8).",
+   "w": "Bei der Umkehrfunktion werden x und y vertauscht: √81 = 9, also (81 | 9).",
    "h": "Was passiert mit x- und y-Koordinate bei der Umkehrung?"
   },
   {
@@ -2913,19 +3406,55 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Für welche x ist f(x) = x^(1/4) definiert?"
+    "text": "Im Bild siehst du y = x² (für x ≥ 0), y = √x und die Gerade y = x. Wie liegen die beiden Kurven zueinander?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      5
+     ],
+     "y": [
+      0,
+      5
+     ],
+     "graphen": [
+      {
+       "art": "potenz",
+       "a": 1,
+       "n": 2,
+       "name": "x²",
+       "bereich": [
+        0,
+        2.2
+       ]
+      },
+      {
+       "art": "wurzel",
+       "name": "√x"
+      }
+     ],
+     "strecken": [
+      [
+       0,
+       0,
+       5,
+       5,
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    "a": [
-    "für alle x ≠ 0",
-    "für alle x",
-    "für alle x > 1",
-    "für alle x ≥ 0"
+    "Spiegelbildlich zur y-Achse.",
+    "Spiegelbildlich zur x-Achse.",
+    "Sie sind parallel verschoben.",
+    "Spiegelbildlich zur Geraden y = x."
    ],
    "o": {
     "index": 3
    },
-   "w": "x^(1/4) ist die 4. Wurzel; sie ist nur für x ≥ 0 erklärt.",
-   "h": "Aus welchen Zahlen kann man eine Wurzel ziehen?"
+   "w": "Bei der Umkehrfunktion tauschen x und y die Rollen. Das ist eine Spiegelung an y = x: (2 | 4) wird zu (4 | 2).",
+   "h": "Vergleiche einen Punkt auf x² mit dem passenden Punkt auf √x."
   },
   {
    "l": "wurzelfunktion",
@@ -2934,19 +3463,40 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Für welche x ist f(x) = x^(1/2) definiert?"
+    "text": "Der Punkt (2 | 8) liegt auf y = x³. Welcher Punkt liegt auf y = ∛x?"
    },
    "a": [
-    "für alle x > 1",
-    "für alle x",
-    "für alle x ≥ 0",
-    "für alle x ≠ 0"
+    "(2 | −2)",
+    "(8 | 2)",
+    "(2 | 8)",
+    "(8 | −2)"
    ],
    "o": {
-    "index": 2
+    "index": 1
    },
-   "w": "x^(1/2) ist die 2. Wurzel; sie ist nur für x ≥ 0 erklärt.",
-   "h": "Aus welchen Zahlen kann man eine Wurzel ziehen?"
+   "w": "Umkehrfunktion: x und y tauschen. ∛8 = 2, also (8 | 2).",
+   "h": "Was passiert mit x- und y-Koordinate bei der Umkehrung?"
+  },
+  {
+   "l": "wurzelfunktion",
+   "t": "wurzelfunktion",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Der Punkt (2 | 4) liegt auf dem Graphen von y = x². Welcher Punkt liegt dann auf dem Graphen von y = √x?"
+   },
+   "a": [
+    "(4 | −2)",
+    "(4 | 2)",
+    "(2 | 4)",
+    "(−2 | 4)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Bei der Umkehrfunktion werden x und y vertauscht: √4 = 2, also (4 | 2).",
+   "h": "Was passiert mit x- und y-Koordinate bei der Umkehrung?"
   },
   {
    "l": "wurzelfunktion",
@@ -2959,12 +3509,12 @@
    },
    "a": [
     "für alle x ≠ 0",
-    "für alle x > 1",
-    "für alle x ≥ 0",
-    "für alle x"
+    "für alle x",
+    "für alle x > 0",
+    "für alle x ≥ 0"
    ],
    "o": {
-    "index": 2
+    "index": 3
    },
    "w": "x^(1/2) ist die 2. Wurzel; sie ist nur für x ≥ 0 erklärt.",
    "h": "Aus welchen Zahlen kann man eine Wurzel ziehen?"
@@ -2976,13 +3526,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne f(196) für f(x) = x^(1/2)."
+    "text": "Berechne f(27) für f(x) = x^(1/3)."
    },
    "o": {
-    "wert": 14
+    "wert": 3
    },
-   "c": "196 / 14 ** 1",
-   "w": "x^(1/2) = √x; f(196) = 14."
+   "c": "27 / 3 ** 2",
+   "w": "x^(1/3) = ∛x; f(27) = 3."
   },
   {
    "l": "wurzelfunktion",
@@ -2991,13 +3541,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne f(225) für f(x) = x^(1/2)."
+    "text": "f(x) = 2x² für x ≥ 0. Für welches x ist f(x) = 32?"
    },
    "o": {
-    "wert": 15
+    "wert": 4
    },
-   "c": "225 / 15 ** 1",
-   "w": "x^(1/2) = √x; f(225) = 15."
+   "c": "(32 / 2) / 4 ** 1",
+   "w": "2x² = 32 ⇒ x² = 16 ⇒ x = 4."
   },
   {
    "l": "wurzelfunktion",
@@ -3006,33 +3556,18 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "f(x) = 3x³ für x ≥ 0. Für welches x ist f(x) = 648?"
+    "text": "f(x) = 3x³ für x ≥ 0. Für welches x ist f(x) = 24?"
    },
    "o": {
-    "wert": 6
+    "wert": 2
    },
-   "c": "(648 / 3) / 6 ** 2",
-   "w": "3x³ = 648 ⇒ x³ = 216 ⇒ x = 6."
+   "c": "(24 / 3) / 2 ** 2",
+   "w": "3x³ = 24 ⇒ x³ = 8 ⇒ x = 2."
   },
   {
    "l": "wurzelfunktion",
    "t": "wurzelfunktion",
    "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "f(x) = 4x² für x ≥ 0. Für welches x ist f(x) = 100?"
-   },
-   "o": {
-    "wert": 5
-   },
-   "c": "(100 / 4) / 5 ** 1",
-   "w": "4x² = 100 ⇒ x² = 25 ⇒ x = 5."
-  },
-  {
-   "l": "wurzelfunktion",
-   "t": "wurzelfunktion",
-   "p": "sicherung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -3051,13 +3586,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne f(49) für f(x) = x^(1/2)."
+    "text": "Berechne f(125) für f(x) = x^(1/3)."
    },
    "o": {
-    "wert": 7
+    "wert": 5
    },
-   "c": "49 / 7 ** 1",
-   "w": "x^(1/2) = √x; f(49) = 7."
+   "c": "125 / 5 ** 2",
+   "w": "x^(1/3) = ∛x; f(125) = 5."
   },
   {
    "l": "wurzelfunktion",
@@ -3066,43 +3601,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "f(x) = 3x³ für x ≥ 0. Für welches x ist f(x) = 24?"
-   },
-   "o": {
-    "wert": 2
-   },
-   "c": "(24 / 3) / 2 ** 2",
-   "w": "3x³ = 24 ⇒ x³ = 8 ⇒ x = 2."
-  },
-  {
-   "l": "wurzelfunktion",
-   "t": "wurzelfunktion",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "f(x) = 5x³ für x ≥ 0. Für welches x ist f(x) = 40?"
-   },
-   "o": {
-    "wert": 2
-   },
-   "c": "(40 / 5) / 2 ** 2",
-   "w": "5x³ = 40 ⇒ x³ = 8 ⇒ x = 2."
-  },
-  {
-   "l": "wurzelfunktion",
-   "t": "wurzelfunktion",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "f(x) = 2x³ für x ≥ 0. Für welches x ist f(x) = 432?"
+    "text": "f(x) = 5x² für x ≥ 0. Für welches x ist f(x) = 180?"
    },
    "o": {
     "wert": 6
    },
-   "c": "(432 / 2) / 6 ** 2",
-   "w": "2x³ = 432 ⇒ x³ = 216 ⇒ x = 6."
+   "c": "(180 / 5) / 6 ** 1",
+   "w": "5x² = 180 ⇒ x² = 36 ⇒ x = 6."
   },
   {
    "l": "wurzelfunktion",
@@ -3111,17 +3616,61 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne f(4) für f(x) = x^(1/2)."
+    "text": "Berechne f(216) für f(x) = x^(1/3)."
    },
    "o": {
-    "wert": 2
+    "wert": 6
    },
-   "c": "4 / 2 ** 1",
-   "w": "x^(1/2) = √x; f(4) = 2."
+   "c": "216 / 6 ** 2",
+   "w": "x^(1/3) = ∛x; f(216) = 6."
+  },
+  {
+   "l": "wurzelfunktion",
+   "t": "wurzelfunktion",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "f(x) = 3x³ für x ≥ 0. Für welches x ist f(x) = 81?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(81 / 3) / 3 ** 2",
+   "w": "3x³ = 81 ⇒ x³ = 27 ⇒ x = 3."
+  },
+  {
+   "l": "wurzelfunktion",
+   "t": "wurzelfunktion",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "f(x) = 2x³ für x ≥ 0. Für welches x ist f(x) = 250?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(250 / 2) / 5 ** 2",
+   "w": "2x³ = 250 ⇒ x³ = 125 ⇒ x = 5."
+  },
+  {
+   "l": "wurzelfunktion",
+   "t": "wurzelfunktion",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "f(x) = 2x² für x ≥ 0. Für welches x ist f(x) = 18?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(18 / 2) / 3 ** 1",
+   "w": "2x² = 18 ⇒ x² = 9 ⇒ x = 3."
   }
  ],
  "offen": [
-  "Alle Lernkarten profitieren von Funktionsgraphen (y = xⁿ für mehrere n, Asymptoten bei x⁻ⁿ, Spiegelung bei der Umkehrfunktion). Die App kann noch keine Graphen zeichnen; Verlauf und Symmetrie werden deshalb in Worten abgefragt.",
-  "Negative Exponenten werden als „x^(−2)“ geschrieben (Hochstellung von Minuszeichen im Fließtext unsicher)."
+  "Negative Exponenten werden jetzt hochgestellt geschrieben (x⁻², wie in der Regel); bitte in der App prüfen, ob „⁻“ gut lesbar ist."
  ]
 }

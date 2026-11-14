@@ -18,12 +18,13 @@ def kw(r):
 
 ETAPPEN = [
     {'lernziel': 'quadratwurzel', 'titel': 'Quadratwurzeln von Quadratzahlen',
-     'regel': 'Die ⟦Quadratwurzel⟧ √a ist die Zahl ⟦ohne Minus⟧, die mit sich selbst multipliziert a ergibt. Die Zahl unter dem Wurzelzeichen heißt ⟦Radikand⟧.',
-     'schritte': ['Gesucht ist √196: Welche Zahl mal sich selbst ergibt 196?', '14 · 14 = 196, also √196 = ⟦14⟧.'],
+     'regel': 'Die ⟦Quadratwurzel⟧ √a ist die Zahl ⟦ohne Minus⟧, die mit sich selbst multipliziert a ergibt. Anschaulich: Ein Quadrat hat die Fläche a – dann ist √a seine ⟦Seitenlänge⟧. Die Zahl unter dem Wurzelzeichen heißt ⟦Radikand⟧.',
+     'schritte': ['Ein quadratischer Teppich hat 196 dm² Fläche. Wie lang ist eine Seite? Gesucht ist √196.', '196 liegt zwischen 100 = 10² und 225 = 15². Die Endziffer 6 entsteht nur bei 4 · 4 oder 6 · 6. Also kommt 14 oder 16 in Frage.', '14 · 14 = 196, also √196 = ⟦14⟧. Die Seite ist 14 dm lang.'],
      'probe': '14² = 196 ✓',
-     'fehler': '√196 = 98 ist falsch: Wurzelziehen ist nicht halbieren. 98 · 98 = 9 604, nicht 196. Richtig ist ⟦14⟧.'},
+     'fehler': '√196 = 98 ist falsch: Wurzelziehen ist nicht halbieren. 98 · 98 = 9 604, nicht 196. Richtig ist ⟦14⟧.',
+     'bild': {'typ': 'figur', 'punkte': {'A': [0, 0], 'B': [14, 0], 'C': [14, 14], 'D': [0, 14]}, 'flaeche': ['A', 'B', 'C', 'D'], 'linien': [['A', 'B', 'a = ?'], ['B', 'C'], ['C', 'D', 'A = 196 dm²'], ['D', 'A']], 'rechter_winkel': [['A', 'B', 'D']]}},
     {'lernziel': 'wurzel_dezimal', 'titel': 'Wurzeln aus Dezimalzahlen und Brüchen',
-     'regel': 'Bei Dezimalzahlen: Die Wurzel hat ⟦halb so viele Nachkommastellen⟧ wie der Radikand. Bei Brüchen: ⟦Zähler und Nenner⟧ einzeln radizieren.',
+     'regel': 'Bei Dezimalzahlen hat die Wurzel ⟦halb so viele Nachkommastellen⟧ wie der Radikand. Warum? 0,64 = 64/100, und √(64/100) = 8/10 = 0,8 – aus Hundertsteln werden Zehntel. Bei Brüchen ziehst du aus ⟦Zähler und Nenner⟧ einzeln die Wurzel.',
      'schritte': ['√0,64: 0,64 hat 2 Nachkommastellen, √64 = 8, die Wurzel hat 1 Nachkommastelle.', '√0,64 = ⟦0,8⟧, denn 0,8 · 0,8 = 0,64.', '√(4/81) = √4 / √81 = ⟦2/9⟧.'],
      'probe': '0,8² = 0,64 ✓',
      'fehler': '√0,64 = 0,08 ist falsch: 0,08 · 0,08 = 0,0064. Die Wurzel hat ⟦halb so viele⟧ Nachkommastellen, also 0,8.'},
@@ -54,15 +55,49 @@ def g_quadratwurzel(s):
     if s == 1:
         n = R.randint(2, 15)
     elif s == 2:
-        n = R.choice([R.randint(16, 25), 10 * R.randint(2, 9), 100 * R.randint(1, 3)])
+        typ = R.random()
+        if typ < 0.35:
+            n = R.choice([R.randint(16, 25), 10 * R.randint(2, 9)])
+        elif typ < 0.7:
+            n = R.randint(4, 25)
+            return zahl(f'Für welche Zahl x gilt √x = {n}?', f'Quadrieren macht das Wurzelziehen rückgängig: x = {n}² = {dz(n * n)}.',
+                        'Was musst du mit {n} tun, um den Radikanden zu bekommen?'.format(n=n), n * n, f'{n} ** 2')
+        else:
+            w_ = Fr(R.randint(11, 25), 10)
+            if w_.denominator == 1: return None
+            return zahl(f'Für welche Zahl x gilt √x = {dz(w_)}?', f'x = {dz(w_)}² = {dz(w_)} · {dz(w_)} = {dz(w_ * w_)}.',
+                        'Quadriere die Zahl. Achte auf die Nachkommastellen.', w_ * w_, f'{float(w_)} ** 2')
     else:
-        if R.random() < 0.5:
+        typ = R.random()
+        if typ < 0.3:
             a, b = R.randint(2, 20), R.randint(2, 20)
             k = R.randint(2, 5)
             text = f'Berechne {k} · √{dz(a * a)} − √{dz(b * b)}.'
             return zahl(text, f'√{dz(a * a)} = {a} und √{dz(b * b)} = {b}, also {k} · {a} − {b} = {dz(k * a - b)}.',
                         'Ziehe zuerst beide Wurzeln, dann Punkt vor Strich.', k * a - b, f'{k} * ({a * a} / {a}) - ({b * b} / {b})')
-        n = R.randint(26, 40)
+        if typ < 0.55:
+            a, b = R.choice([4, 9, 16, 25, 36]), R.choice([4, 9, 16, 25, 36, 49, 64, 81, 100])
+            if a == b: return None
+            r = isqrt(a * b)
+            return zahl(f'Berechne √({a} · {b}).', f'{a} · {b} = {dz(a * b)}, und {r} · {r} = {dz(a * b)}, also √({a} · {b}) = {r}.',
+                        'Rechne zuerst aus, was unter der Wurzel steht.', r, f'({a} * {b}) / {r}')
+        if typ < 0.8:
+            r = R.randint(3, 15)
+            m = R.randint(r + 1, 40)
+            d = m * m - r * r if R.random() < 0.5 else None
+            if d is not None:
+                g = m * m
+                if isqrt(g - d) ** 2 != g - d or d <= 0: return None
+                return zahl(f'Berechne √({dz(g)} − {dz(d)}).', f'Erst den Radikanden: {dz(g)} − {dz(d)} = {dz(r * r)}. √{dz(r * r)} = {r}.',
+                            'Erst rechnen, was unter der Wurzel steht – nicht die Wurzel aus jeder Zahl einzeln ziehen.', r, f'({g} - {d}) / {r}')
+            x, y = R.randint(1, r * r - 1), None
+            y = r * r - x
+            if isqrt(x) ** 2 == x and isqrt(y) ** 2 == y: return None
+            return zahl(f'Berechne √({dz(x)} + {dz(y)}).', f'Erst den Radikanden: {dz(x)} + {dz(y)} = {dz(r * r)}. √{dz(r * r)} = {r}.',
+                        'Erst rechnen, was unter der Wurzel steht.', r, f'({x} + {y}) / {r}')
+        n = R.randint(11, 30)
+        return zahl(f'Für welche Zahl x gilt √x = {n}?', f'x = {n}² = {dz(n * n)}.',
+                    'Quadrieren macht das Wurzelziehen rückgängig.', n * n, f'{n} ** 2')
     r = n * n
     assert isqrt(r) == n
     return zahl(f'Berechne √{dz(r)}.', f'{n} · {n} = {dz(r)}, also √{dz(r)} = {n}.',
@@ -70,6 +105,19 @@ def g_quadratwurzel(s):
 
 
 def g_wurzel_dezimal(s):
+    if s >= 2 and R.random() < 0.3:
+        n = R.randint(2, 9)
+        if R.random() < 0.5:
+            r = Fr(n * n, 100)
+            return auswahl(f'Was ergibt √{dz(r)}?', dz(Fr(n, 10)), [dz(Fr(n, 100)), dz(r * r), dz(Fr(n * n, 2 * 100)) if (n * n) % 2 == 0 else dz(Fr(n, 1))],
+                           f'{dz(r)} hat 2 Nachkommastellen, die Wurzel also 1: {dz(Fr(n, 10))}² = {dz(r)}.',
+                           'Mache die Probe durch Quadrieren.')
+        if n in (4, 9): return None
+        r = Fr(n * n, 10)
+        return auswahl(f'Was ergibt √{dz(r)}?', f'keine endliche Dezimalzahl, ≈ {dz(round(float(r) ** 0.5, 2))}',
+                       [dz(Fr(n, 10)), dz(Fr(n, 100)), dz(r * r)],
+                       f'{dz(Fr(n, 10))}² = {dz(Fr(n * n, 100))}, nicht {dz(r)}. {dz(r)} hat eine (ungerade) Zahl von Nachkommastellen; seine Wurzel ist ≈ {dz(round(float(r) ** 0.5, 2))}.',
+                       'Quadriere die Antworten zur Probe. Achte auf die Zahl der Nachkommastellen.')
     if s == 1 or (s == 2 and R.random() < 0.5):
         n = R.randint(2, 9) if s == 1 else R.randint(11, 19)
         k = R.choice([1, 2]) if s == 1 else R.choice([1, 2, 3])
@@ -94,14 +142,14 @@ def g_wurzel_dezimal(s):
 
 def g_kubikwurzel(s):
     if s == 1:
-        n = R.randint(1, 6)
+        n = R.randint(2, 10)
         r = n ** 3
         return zahl(f'Berechne ∛{dz(r)}.', f'{n} · {n} · {n} = {dz(r)}, also ∛{dz(r)} = {n}.',
                     'Welche Zahl ergibt dreimal mit sich selbst multipliziert den Radikanden?', kw(r), f'{r} / ({n} * {n})')
     if s == 2:
         typ = R.random()
         if typ < 0.5:
-            n = R.choice([7, 8, 9, 10, 11, 12, 20, 30, 40, 50])
+            n = R.choice([7, 8, 9, 10])
             r = n ** 3
             return zahl(f'Berechne ∛{dz(r)}.', f'{n}³ = {dz(r)}, also ∛{dz(r)} = {n}.',
                         'Probiere Zahlen hoch 3. Endziffer des Radikanden hilft.', kw(r), f'{r} / ({n} * {n})')
@@ -122,6 +170,28 @@ def g_kubikwurzel(s):
 
 
 def g_abschaetzen(s):
+    if s >= 2 and R.random() < (0.3 if s == 2 else 0.5):
+        r = R.choice([x for x in range(2, 99) if isqrt(x) ** 2 != x])
+        z = int((r * 100) ** 0.5)  # Zehntel: z/10 < √r < (z+1)/10
+        while (z + 1) ** 2 <= r * 100: z += 1
+        while z * z > r * 100: z -= 1
+        if R.random() < 0.6:
+            u, o = Fr(z, 10), Fr(z + 1, 10)
+            return auswahl(f'Zwischen welchen Zehnteln liegt √{r}?', f'{dz(u)} und {dz(o)}',
+                           [f'{dz(u - Fr(1, 10))} und {dz(u)}', f'{dz(o)} und {dz(o + Fr(1, 10))}', f'{dz(Fr(r, 2))} und {dz(Fr(r, 2) + Fr(1, 10))}'],
+                           f'{dz(u)}² = {dz(u * u)} < {r} < {dz(o * o)} = {dz(o)}², also {dz(u)} < √{r} < {dz(o)}.',
+                           'Grenze erst ganzzahlig ein, dann quadriere Zehntel wie 2,5; 2,6; …')
+        k = Fr(R.randint(10 * z, 10 * z + 9), 100)
+        gut = abs(k * k - r) <= Fr(5, 100)
+        if gut:
+            richtig = f'Ja, denn {dz(k)}² = {dz(k * k)} liegt sehr nah bei {r}.'
+            falsch = [f'Nein, denn {dz(k)}² = {dz(k * k)} ist nicht genau {r}.', f'Nein, denn {dz(k)} · 2 ≠ {r}.', 'Nein, √' + str(r) + ' ist negativ.']
+        else:
+            richtig = f'Nein, denn {dz(k)}² = {dz(k * k)} weicht deutlich von {r} ab.'
+            falsch = [f'Ja, denn {dz(k)}² = {dz(k * k)} liegt sehr nah bei {r}.', f'Ja, denn {dz(k)} · 2 ≈ {r}.', 'Ja, jede Zahl mit zwei Nachkommastellen ist gut genug.']
+        return auswahl(f'Ist {dz(k)} eine gute Näherung für √{r} (Abweichung des Quadrats höchstens 0,05)?', richtig, falsch,
+                       f'{dz(k)}² = {dz(k * k)}; der Unterschied zu {r} ist {dz(abs(k * k - r))}.',
+                       'Quadriere die Näherung und vergleiche mit dem Radikanden.')
     if s == 3 and R.random() < 0.5:
         n = R.randint(2, 9)
         r = R.randint(n ** 3 + 1, (n + 1) ** 3 - 1)
@@ -156,13 +226,13 @@ def g_wurzel_deuten(s):
     if typ == 'c':
         a, b = R.randint(2, 12), R.randint(2, 12)
         s_ = a * a + b * b
-        rs = isqrt(s_)
-        ist = rs * rs == s_
-        richtig = f'Falsch: √{dz(s_)} {"= " + str(rs) if ist else "ist keine ganze Zahl"}, nicht {a + b}'
+        if isqrt(s_) ** 2 == s_: return None
+        nah = dz(round(s_ ** 0.5, 1))
+        richtig = f'Falsch: Erst addieren, dann Wurzel ziehen: √{dz(s_)} ≈ {nah}. Probe: {a + b}² = {dz((a + b) ** 2)} ≠ {dz(s_)}.'
         return auswahl(f'Jemand rechnet: √({a * a} + {b * b}) = √{a * a} + √{b * b} = {a + b}. Was stimmt?', richtig,
                        ['Richtig, man darf die Wurzel aus jedem Summanden einzeln ziehen', f'Falsch: Das Ergebnis ist {a * b}',
                         f'Richtig, denn {a} + {b} = {a + b}'],
-                       f'Erst den Radikanden berechnen: {a * a} + {b * b} = {dz(s_)}. Probe: {a + b}² = {dz((a + b) ** 2)} ≠ {dz(s_)}.',
+                       f'Erst den Radikanden berechnen: {a * a} + {b * b} = {dz(s_)}, √{dz(s_)} ≈ {nah}. Probe: {a + b}² = {dz((a + b) ** 2)} ≠ {dz(s_)}. Die Wurzel aus einer Summe ist nicht die Summe der Wurzeln.',
                        'Rechne zuerst aus, was unter der Wurzel steht, und mache die Probe durch Quadrieren.')
     if typ == 'd':
         return auswahl(f'Was gilt für √(−{dz(q)})?', 'Sie ist nicht definiert (keine reelle Zahl).',
@@ -214,7 +284,21 @@ def g_wurzel_sache(s):
         return zahl(f'Ein Würfel hat ein Volumen von {dz(n ** 3)} dm³. Wie groß ist seine Oberfläche?',
                     f'a = ∛{dz(n ** 3)} dm = {n} dm. O = 6 · {n}² dm² = {dz(6 * n * n)} dm².',
                     'Bestimme zuerst die Kantenlänge aus dem Volumen.', 6 * n * n, f'6 * ({n ** 3} / ({n} * {n})) ** 2', einheit='dm²')
-    n = R.randint(3, 12)
+    if typ < 0.85:
+        if R.random() < 0.5:
+            A_ = R.choice([x for x in range(50, 900, 10) if isqrt(x) ** 2 != x])
+            w_ = gerundet(A_ ** 0.5, 1)
+            if w_ is None: return None
+            return zahl(f'Ein quadratischer Garten hat {dz(A_)} m² Fläche. Wie lang ist eine Seite? Runde auf eine Nachkommastelle.',
+                        f'a = √{dz(A_)} m ≈ {dz(w_)} m. Probe: {dz(w_)}² ≈ {dz(round(w_ * w_, 2))}.',
+                        'Ziehe die Wurzel mit dem Taschenrechner und runde.', w_, f'round({K(A_ ** 0.5)}, 1)', einheit='m')
+        V = R.choice([x for x in range(100, 2000, 50) if round(x ** (1 / 3)) ** 3 != x])
+        w_ = gerundet(V ** (1 / 3), 1)
+        if w_ is None: return None
+        return zahl(f'Ein würfelförmiger Behälter fasst {dz(V)} cm³. Wie lang ist eine Kante? Runde auf eine Nachkommastelle.',
+                    f'a = ∛{dz(V)} cm ≈ {dz(w_)} cm. Probe: {dz(w_)}³ ≈ {dz(round(w_ ** 3, 1))}.',
+                    'Beim Würfel gilt V = a³. Nutze die ∛-Taste des Taschenrechners.', w_, f'round({K(V ** (1 / 3))}, 1)', einheit='cm')
+    n = R.randint(3, 6)
     k = R.randint(2, 6)
     return zahl(f'{k} gleich große quadratische Fliesen bedecken zusammen {dz(k * n * n)} dm². Wie lang ist eine Fliesenseite?',
                 f'Eine Fliese: {dz(k * n * n)} : {k} = {dz(n * n)} dm². Seite = √{dz(n * n)} dm = {n} dm.',
@@ -234,4 +318,5 @@ if __name__ == '__main__':
           ETAPPEN, GEN,
           meiden={'quadratwurzel': ['√196.'], 'wurzel_dezimal': ['√0,64.', '√(4/81)'], 'kubikwurzel': ['∛343.'],
                   'abschaetzen': ['√90?'], 'wurzel_deuten': ['x² = 25?'], 'wurzel_sache': [' 169 m²']},
-          offen=['Rechenausdruck c bei Wurzeln: Das Prüfskript kann keine Wurzeln rechnen. c prüft deshalb die Umkehrung (z. B. 196 / 14 = 14 bzw. 343 / (7 · 7) = 7).'])
+          offen=['Kubikwurzel aus negativen Zahlen (Prüfvorschlag ∛(−8) = −2) nicht umgesetzt: Die Lernkarte definiert ∛a wie der LehrplanPLUS nur für a ≥ 0; eine Aufgabe mit −2 als richtiger Antwort widerspräche der Erklärung.',
+                 'Rechenausdruck c bei Wurzeln: Das Prüfskript kann keine Wurzeln rechnen. c prüft deshalb die Umkehrung (z. B. 196 / 14 = 14 bzw. 343 / (7 · 7) = 7).'])

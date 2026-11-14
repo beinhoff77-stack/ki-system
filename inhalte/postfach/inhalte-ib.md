@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-14 15:26 – STATUS
+8/14 funktionen.reihen fertig: 5 Lernkarten (Summenzeichen, arithmetische und geometrische Reihen, Sachaufgaben, Fehler finden), 140 Aufgaben, Prüfskript OK. Unendliche geometrische Reihe nicht enthalten (offen).
+
 ## 2026-11-14 15:24 – STATUS
 7/14 funktionen.folgen fertig: 5 Lernkarten (explizit, rekursiv, arithmetisch, geometrisch, erkennen/Fehler finden), 140 Aufgaben, Prüfskript OK. Summen/Reihen bewusst ins Thema funktionen.reihen verschoben (offen).
 

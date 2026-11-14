@@ -154,6 +154,20 @@ function lernKarte({ orte = [], fokus = null, hervor = null, route = false, besc
 
 // ---------- Rahmen der Kinderansicht ----------
 function lernRahmen(kind, aktiv, ...inhalt) {
+  if (lernNeu(kind)) {
+    // W150 Abflug: keine Leiste – ein Menüknopf unten rechts öffnet ein Blatt.
+    const g = lernGestaltung(kind);
+    const blatt = el('dialog', { class: 'lr-blatt', 'aria-label': 'Menü' });
+    const zu = () => { if (blatt.open) blatt.close(); };
+    blatt.addEventListener('click', (ev) => { if (ev.target === blatt) zu(); });
+    lernAnhaengen(blatt, el('div', { class: 'lr-blatt-liste' },
+      ...[['reise', 'Abflugtafel'], ['weg', 'Mein Weg'], ['merkheft', 'Merkheft'], ['weltkarte', 'Weltkarte'], ['reisepass', 'Reisepass']].map(([v, t]) =>
+        el('a', { href: `#/${v}/${kind.id}`, class: v === aktiv ? 'on' : '', ...(v === aktiv ? { 'aria-current': 'page' } : {}), onclick: zu }, t)),
+      el('button', { type: 'button', onclick: () => { try { localStorage.setItem('lern.gestaltung.' + kind.id, g === 'nacht' ? 'tag' : 'nacht'); } catch { /* egal */ } zu(); render(); } }, g === 'nacht' ? 'Helle Ansicht' : 'Dunkle Ansicht'),
+      el('button', { type: 'button', class: 'lr-blatt-zu', onclick: zu }, 'Schließen')));
+    const knopf = el('button', { type: 'button', class: 'lr-menue', 'aria-label': 'Menü', 'aria-haspopup': 'dialog', onclick: () => blatt.showModal() }, el('span', { 'aria-hidden': 'true' }, '≡'));
+    return el('div', { class: lernThema(kind) + ' lr-mit-menue' }, el('div', { class: 'lr-inhalt' }, ...inhalt), knopf, blatt);
+  }
   const nav = el('nav', { class: 'lr-nav', 'aria-label': 'Lernreise' },
     ...[['reise', 'Heute', LI.heute], ['weg', 'Mein Weg', LI.weg], ['merkheft', 'Merkheft', LI.heft], ['weltkarte', 'Karte', LI.karte]].map(([v, t, i]) =>
       el('a', { href: `#/${v}/${kind.id}`, class: v === aktiv ? 'on' : '', ...(v === aktiv ? { 'aria-current': 'page' } : {}) }, lernIcon(i, 24), el('span', {}, t))));
@@ -595,7 +609,7 @@ function lernVorlageFuellen(schablone, werte) {
 // Liefert { node, antwort(), sperren() }; antwort() ist null, solange nichts eingegeben ist.
 function lernAufgabe(a, vorher, opts = {}) {
   const f = a.frage || {};
-  let wert = vorher ?? null; let fehler = null;
+  let wert = vorher ?? null; let fehler = null; let stellenTipp = null, stellenNeu = null;
   const teile = [el('p', { class: 'lern-frage' }, lernText(f.text))];
   if (f.hinweis && a.antworttyp !== 'luecken') teile.push(el('p', { class: 'small muted' }, f.hinweis));
   const felder = [];
@@ -619,6 +633,30 @@ function lernAufgabe(a, vorher, opts = {}) {
     if (wert?.wert) inp.value = wert.wert;
     inp.addEventListener('input', () => { wert = inp.value.trim() ? { wert: inp.value } : null; });
     felder.push(inp);
+    if (opts.stellen && a.antworttyp === 'zahl') {
+      // W150 Abflug (Klasse 5/6): ganze Zahlen laufen in Stellenwert-Kacheln; Spalte antippen, dann Ziffer wählen.
+      const KOEPFE = ['E', 'Z', 'H', 'T', 'ZT', 'HT', 'M', 'ZM', 'HM'];
+      const st = el('div', { class: 'lern-stellen', role: 'group', 'aria-label': 'Stellenwerte' });
+      let pos = null;
+      const zeichne = () => {
+        const v = inp.value.replace(/\s/g, ''); const ok = /^\d{0,9}$/.test(v);
+        st.hidden = !ok; inp.classList.toggle('lern-verdeckt', ok);
+        if (!ok) { pos = null; return; }
+        const n = Math.max(4, v.length);
+        lernErsetze(st, ...Array.from({ length: n }, (_, i) => { const p = n - 1 - i; const z = p < v.length ? v[v.length - 1 - p] : '';
+          return el('button', { type: 'button', class: 'lern-stelle' + (pos === p ? ' dran' : '') + (z ? '' : ' leer'), disabled: inp.disabled, 'aria-label': `${KOEPFE[p]}: ${z || 'leer'}`, 'aria-pressed': String(pos === p),
+            onmousedown: (ev) => ev.preventDefault(), onclick: () => { pos = pos === p ? null : p; zeichne(); } }, el('small', {}, KOEPFE[p]), el('b', {}, z)); }));
+      };
+      stellenTipp = (t) => {
+        if (pos === null || !/^\d$/.test(t)) { pos = null; return false; }
+        const v = inp.value.replace(/\s/g, '');
+        inp.value = pos < v.length ? v.slice(0, v.length - 1 - pos) + t + v.slice(v.length - pos) : t + '0'.repeat(pos - v.length) + v;
+        pos = pos > 0 ? pos - 1 : null; return true;
+      };
+      inp.addEventListener('input', zeichne);
+      stellenNeu = zeichne; zeichne();
+      teile.push(st);
+    }
     teile.push(el('div', { class: 'lern-zeile' }, inp, a.einheit ? el('span', { class: 'lern-einheit-zeichen' }, a.einheit) : null));
   } else if (a.antworttyp === 'luecken' && !lernIstTermVorlage(f.schablone)) {
     // W150: allgemeine Lücken (Bruch □/□, Zahlenpaar x = □; y = □, Punkt S(□ | □) …): je Lücke ein kleines Zahlenfeld.
@@ -667,13 +705,13 @@ function lernAufgabe(a, vorher, opts = {}) {
   if (aktiv && zahlFelder.length > 1) aktiv.classList.add('dran');
   const melde = () => aktiv.dispatchEvent(new Event('input', { bubbles: true }));
   const tasten = zahlFelder.length ? {
-    tippe: (t) => { if (aktiv.disabled) return; aktiv.value += t; melde(); },
+    tippe: (t) => { if (aktiv.disabled) return; if (!(stellenTipp && stellenTipp(t))) aktiv.value += t; melde(); },
     loesche: () => { if (aktiv.disabled) return; if (!aktiv.value && zahlFelder.indexOf(aktiv) > 0) { aktiv = zahlFelder[zahlFelder.indexOf(aktiv) - 1]; zahlFelder.forEach((y) => y.classList.toggle('dran', y === aktiv)); } aktiv.value = aktiv.value.slice(0, -1); melde(); },
     weiter: () => { const i = zahlFelder.indexOf(aktiv); if (i < zahlFelder.length - 1) { aktiv = zahlFelder[i + 1]; zahlFelder.forEach((y) => y.classList.toggle('dran', y === aktiv)); return true; } return false; },
     system: () => { zahlFelder.forEach((x) => x.removeAttribute('inputmode')); aktiv.focus(); },
   } : null;
   return { node: el('div', { class: 'lern-aufgabe' }, ...teile), antwort: () => wert, fehlerText: () => fehler, tasten,
-    sperren: (an = true) => felder.forEach((x) => { x.disabled = an; }) };
+    sperren: (an = true) => { felder.forEach((x) => { x.disabled = an; }); stellenNeu?.(); } };
 }
 
 // W150 Abflug: Tastenfeld im Daumenbereich. Prüfen ist die gelbe Taste.
@@ -997,7 +1035,7 @@ async function viewLernEinheit(arg) {
   const [daten, konto, uebers] = await Promise.all([lernCall('schule_einheit_lesen', { lernender_id: k, einheit_id: eId }),
     lernCall('schule_konto', { lernender_id: k }).catch(() => null), lernCall('schule_uebersicht').catch(() => null)]);
   if (!live()) return;
-  const kind = { id: k, ...(konto?.look || {}) };
+  const kind = { id: k, ...((uebers?.lernende || []).find((x) => x.id === k) || {}), ...(konto?.look || {}) };
   const ort = (uebers?.einheiten || []).find((e) => e.id === eId) || {};
   const titel = ort.stadt ? `${ort.stadt}: ${ort.ort_titel || ort.titel || ''}` : (daten.inhalt?.ziel || 'Lerneinheit').split(/[:;.]/)[0];
   $('#title').textContent = ort.stadt || titel; // kurz: der Ort; das Thema steht als Überschrift darunter
@@ -1116,7 +1154,7 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
       const a = warte[0];
       if (!a) { lernErsetze(flaeche, el('p', { class: 'lr-leise' }, 'Für diese Auswahl gibt es keine Aufgaben.')); return; }
       nr++;
-      const auf = lernAufgabe(a, null, { tasten: neu }); let hilfe = 0; const dock = el('div', { class: 'lr-dock' }); const cid = lernCid();
+      const auf = lernAufgabe(a, null, { tasten: neu, stellen: neu && kind.klasse && kind.klasse <= 6 }); let hilfe = 0; const dock = el('div', { class: 'lr-dock' }); const cid = lernCid();
       const meldung = el('div', { role: 'status', 'aria-live': 'polite' });
       const hilfeBox = el('div', { class: 'lr-hilfebox' });
       const tipp = a.tipp ? el('button', { type: 'button', class: 'lr-knopf-zweit', onclick: () => { hilfe = 1; tipp.remove(); lernAnhaengen(hilfeBox, el('p', { class: 'lr-tipp' }, el('b', {}, 'Tipp: '), lernText(a.tipp), el('small', {}, ' (zählt nicht für die Punkte)'))); } }, 'Tipp') : null;
@@ -1129,6 +1167,9 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
       const erklBox = el('div', { class: 'lr-karte-box lr-nochmal', hidden: !neuHier }, e.regel ? lernErklaerung(e, { kurz: true }) : null,
         neuHier ? el('button', { type: 'button', class: 'lr-knopf-zweit', onclick: () => { erklBox.hidden = true; erkl?.setAttribute('aria-expanded', 'false'); auf.node.querySelector('input')?.focus(); } }, 'Verstanden – los') : null);
       if (neuHier) erkl?.setAttribute('aria-expanded', 'true');
+      const breit = neu && !!e.regel && !!window.matchMedia?.('(min-width: 900px)').matches; // Tablet/Rechner: Erklärung links, Bordkarte rechts
+      if (breit) { erklBox.hidden = false; erklBox.classList.add('lr-seite-links'); erklBox.querySelector(':scope > button')?.remove(); erkl.hidden = true; }
+      flaeche.classList.toggle('lr-zweispaltig', breit);
       const pruefen = el('button', { type: 'button', class: 'lr-knopf' }, 'Prüfen');
       auf.node.addEventListener('input', () => { if (!pruefen.disabled && pruefen.isConnected) lernErsetze(meldung); });
       pruefen.addEventListener('click', async () => {
@@ -1192,12 +1233,12 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
       auf.node.addEventListener('keydown', (ev) => { if (ev.key === 'Enter' && ev.target.tagName === 'INPUT') { ev.preventDefault(); if (pruefen.isConnected) pruefen.click(); } });
       if (neu) {
         lernErsetze(dock, auf.tasten ? lernTastenfeld(auf.tasten, pruefen) : pruefen);
-        lernErsetze(flaeche, neuHier ? erklBox : null,
+        lernErsetze(flaeche, neuHier || breit ? erklBox : null,
           el('section', { class: 'lr-karte-box lr-aufgabe lr-bordkarte' },
             el('div', { class: 'lr-bord-kopf' }, el('span', {}, `BORDKARTE ${nr} · ${ortCode}`), el('span', {}, a.stufe ? ['', 'LEICHT', 'MITTEL', 'SCHWER'][a.stufe] || '' : '')),
             auf.node, el('div', { class: 'lr-perforation', 'aria-hidden': 'true' }),
             el('div', { class: 'lr-knopfzeile' }, tipp, erkl)),
-          hilfeBox, neuHier ? null : erklBox, meldung,
+          hilfeBox, neuHier || breit ? null : erklBox, meldung,
           ctx.leitung ? lernAnmerkung({ einheit_id: ctx.einheit, lernziel: e.lernziel, aufgabe_id: a.id, lernender_id: ctx.kind }, 'Anmerkung zu dieser Aufgabe') : null, dock);
       } else lernErsetze(flaeche,
         neuHier ? erklBox : null,
@@ -1206,7 +1247,7 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
           pruefen, el('div', { class: 'lr-knopfzeile' }, tipp, erkl)),
         hilfeBox, neuHier ? null : erklBox, meldung,
         ctx.leitung ? lernAnmerkung({ einheit_id: ctx.einheit, lernziel: e.lernziel, aufgabe_id: a.id, lernender_id: ctx.kind }, 'Anmerkung zu dieser Aufgabe') : null);
-      if (fein && !neuHier) auf.node.querySelector('input')?.focus({ preventScroll: true });
+      if (fein && (!neuHier || breit)) auf.node.querySelector('input')?.focus({ preventScroll: true });
     };
     zeigeAufgabe();
   };

@@ -170,7 +170,7 @@ test('Lernen: Eltern sehen Kinder, Belohnungen und offene Wünsche', async (t) =
   await page.locator('#bl-titel').fill('Kinoabend');
   await page.locator('#bl-stempel').fill('3');
   await page.getByRole('button', { name: 'Hinzufügen' }).click();
-  await page.waitForTimeout(200);
+  for (let i = 0; i < 40 && !calls.some((c) => c.aktion === 'schule_belohnung_setzen'); i++) await page.waitForTimeout(100);
   assert.deepEqual(calls.filter((c) => c.aktion === 'schule_einloesung_entscheiden').map((c) => c.daten), [{ id: 9, status: 'bestaetigt' }]);
   assert.equal(calls.find((c) => c.aktion === 'schule_belohnung_setzen').daten.kosten_stempel, 3);
 });
@@ -503,20 +503,31 @@ test('Gestaltung Abflug: Abflugtafel, Bordkarte mit Tastenfeld, Kurskorrektur, L
   await page.getByRole('heading', { name: /Abflüge/ }).waitFor();
   assert.equal(await page.locator('.lr.lr-abflug.lr-abflug-nacht').count(), 1);
   const start = page.getByRole('link', { name: /Einsteigen\s*ROM/ });
-  const k = await start.boundingBox(); assert.ok(k.y + k.height <= 844 - 60 && k.y > 844 / 2, 'Einsteigen im Daumenbereich: ' + Math.round(k.y));
+  const k = await start.boundingBox(); assert.ok(k.y + k.height <= 844 && k.y > 844 / 2, 'Einsteigen im Daumenbereich: ' + Math.round(k.y));
   assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth), false);
   fs.mkdirSync(path.join(root, 'test-results'), { recursive: true });
   await page.screenshot({ path: path.join(root, 'test-results/abflug-tafel-390.png') });
+  // Menüblatt statt Leiste
+  assert.equal(await page.locator('.lr-nav').count(), 0);
+  await page.getByRole('button', { name: 'Menü' }).click();
+  await page.getByRole('link', { name: 'Weltkarte' }).waitFor();
+  await page.screenshot({ path: path.join(root, 'test-results/abflug-menue-390.png') });
+  await page.getByRole('button', { name: 'Schließen' }).click();
   await start.click();
   await page.waitForURL(/#\/lerneinheit\/1-1-ueben/);
   await page.getByText(/BORDKARTE 1 · ROM/).waitFor();
-  assert.equal(await page.locator('.lr-nav').isVisible(), false);
   const los = page.getByRole('button', { name: 'Verstanden – los' }); if (await los.count()) await los.click();
   const feld = page.getByRole('group', { name: 'Tastenfeld' });
   const pruefen = feld.getByRole('button', { name: 'Prüfen' });
   { const b = await pruefen.boundingBox(); assert.ok(b.y + b.height <= 844, 'Prüfen ohne Scrollen sichtbar: ' + Math.round(b.y + b.height)); }
   for (const z of ['2', '0', '0']) await feld.getByRole('button', { name: z, exact: true }).click();
   assert.equal(await page.getByRole('textbox', { name: 'Antwort' }).inputValue(), '200');
+  // Stellenwert-Kacheln (Klasse 5): Spalte T antippen, Ziffer wählen, wieder zurück
+  await page.getByRole('button', { name: 'T: leer' }).click();
+  await feld.getByRole('button', { name: '7', exact: true }).click();
+  assert.equal(await page.getByRole('textbox', { name: 'Antwort' }).inputValue(), '7200');
+  await feld.getByRole('button', { name: 'löschen' }).click(); await feld.getByRole('button', { name: 'löschen' }).click(); await feld.getByRole('button', { name: 'löschen' }).click(); await feld.getByRole('button', { name: 'löschen' }).click();
+  for (const z of ['2', '0', '0']) await feld.getByRole('button', { name: z, exact: true }).click();
   await page.screenshot({ path: path.join(root, 'test-results/abflug-bordkarte-390.png') });
   await pruefen.click();
   await page.getByText('FAST – KURSKORREKTUR').waitFor();
@@ -532,6 +543,14 @@ test('Gestaltung Abflug: Abflugtafel, Bordkarte mit Tastenfeld, Kurskorrektur, L
   await page.getByText('GELANDET').waitFor();
   await page.getByRole('link', { name: 'Zur Abflugtafel' }).waitFor();
   await page.screenshot({ path: path.join(root, 'test-results/abflug-gelandet-390.png') });
+  // Andere Aufgabenarten auf der Bordkarte: Zahlenstrahl (ohne Tastenfeld) und Lücken (mit Tastenfeld)
+  for (const nr of [2, 3]) {
+    await page.goto(origin + '/#/lerneinheit/1-1-ueben-' + nr); await page.getByText(/BORDKARTE 1 · ROM/).waitFor();
+    const v = page.getByRole('button', { name: 'Verstanden – los' }); if (await v.count()) await v.click();
+    const b = await page.locator('.lr-dock').getByRole('button', { name: 'Prüfen' }).boundingBox(); assert.ok(b.y + b.height <= 844, 'Prüfen sichtbar bei Karte ' + nr);
+    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth), false);
+    await page.screenshot({ path: path.join(root, `test-results/abflug-karte${nr}-390.png`) });
+  }
   // Tag-Ansicht und Rückweg zum bisherigen Design im Reisepass
   await page.goto(origin + '/#/reisepass/1');
   await page.getByRole('button', { name: 'Abflug hell' }).click();

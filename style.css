@@ -3762,3 +3762,37 @@ body[data-kindmodus] .lern-abmelden, body[data-kindmodus] .app-version { display
 .lr-abflug .lr-lk-punkte { display: flex; align-items: center; gap: 8px; }
 .lr-abflug .lr-lk-punkte small { font-size: 13px; color: var(--lr-leise); }
 .lr-abflug .lr-pfeilknopf { min-height: 40px; }
+
+/* W150 Abflug Stufe 2: Menüblatt statt Leiste, Stellenwert-Kacheln (Klasse 5/6), zweispaltig ab Tablet */
+.lr-mit-menue .lr-inhalt { padding-bottom: 96px; }
+.lr-mit-menue.lr-ohne-nav .lr-inhalt { padding-bottom: 0; }
+.lr-menue { position: fixed; right: max(16px, env(safe-area-inset-right)); bottom: calc(14px + env(safe-area-inset-bottom)); width: 60px; height: 64px; border-radius: 14px; border: 1px solid var(--lr-linie); background: var(--lr-flaeche); color: var(--lr-text); font-size: 28px; line-height: 1; cursor: pointer; z-index: 6; box-shadow: 0 6px 20px rgba(0, 0, 0, .25); }
+.lr-menue:focus-visible { outline: 3px solid var(--lr-akzent); outline-offset: 2px; }
+.lr-ohne-nav .lr-menue { display: none; }
+.lr-mit-menue .lr-dock-start { bottom: 0; padding: 10px 72px calc(14px + env(safe-area-inset-bottom)) 0; }
+.lr-blatt { border: 0; padding: 0; margin: auto auto 0; width: 100%; max-width: 520px; border-radius: 20px 20px 0 0; background: var(--lr-flaeche); color: var(--lr-text); font-family: inherit; }
+.lr-blatt::backdrop { background: rgba(0, 0, 0, .55); }
+.lr-blatt-liste { display: flex; flex-direction: column; padding: 12px 16px calc(16px + env(safe-area-inset-bottom)); gap: 4px; }
+.lr-blatt-liste a, .lr-blatt-liste button { min-height: 56px; display: flex; align-items: center; padding: 0 14px; border-radius: 12px; border: 0; background: transparent; color: var(--lr-text); font: inherit; font-size: 20px; font-weight: 600; text-decoration: none; cursor: pointer; text-align: left; }
+.lr-blatt-liste a.on { box-shadow: inset 4px 0 0 var(--lr-akzent); background: var(--lr-bg); }
+.lr-blatt-liste a:focus-visible, .lr-blatt-liste button:focus-visible { outline: 3px solid var(--lr-akzent); outline-offset: -3px; }
+.lr-blatt-liste .lr-blatt-zu { justify-content: center; border: 1px solid var(--lr-linie); margin-top: 8px; font-size: 18px; }
+.lern-stellen { display: flex; justify-content: center; gap: 6px; flex-wrap: nowrap; }
+.lern-stellen[hidden] { display: none; }
+.lern-stelle { flex: 0 1 46px; min-width: 30px; display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 0; border: 0; background: transparent; color: var(--lr-leise); cursor: pointer; font: inherit; }
+.lern-stelle small { font-family: var(--lr-mono); font-size: 12px; font-weight: 700; letter-spacing: .04em; }
+.lern-stelle b { width: 100%; height: 54px; border-radius: 8px; border: 2px solid var(--lr-linie); background: var(--lr-tafel); color: var(--lr-tafel-text); font-family: var(--lr-mono); font-weight: 800; font-size: 28px; display: flex; align-items: center; justify-content: center; box-sizing: border-box; }
+.lern-stelle.dran b { border-color: var(--lr-akzent); box-shadow: 0 0 0 3px var(--lr-akzent); }
+.lern-stelle:focus-visible b { outline: 3px solid var(--lr-akzent); outline-offset: 2px; }
+.lern-verdeckt { position: absolute !important; opacity: 0; width: 1px !important; min-height: 1px !important; height: 1px; padding: 0; border: 0; pointer-events: none; }
+@media (min-width: 900px) {
+  .lr-abflug .lr-inhalt { max-width: 1040px; }
+  .lr-abflug .lr-ueben-flaeche.lr-zweispaltig { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 12px 20px; align-content: start; }
+  .lr-zweispaltig > * { grid-column: 2; }
+  .lr-zweispaltig > .lr-seite-links { grid-column: 1; grid-row: 1 / span 12; align-self: start; position: sticky; top: 8px; }
+  .lr-zweispaltig > .lr-gelandet { grid-column: 1 / -1; }
+  .lr-abflug .lr-abflugtafel, .lr-abflug .lr-tafelkopf, .lr-abflug .lr-band, .lr-abflug .lr-tafelchips, .lr-abflug .lr-dock-start { max-width: 720px; width: 100%; margin-left: auto; margin-right: auto; box-sizing: border-box; }
+}
+.lr-abflug .lr-blatt-liste button, .lr-abflug .lr-blatt-liste button:hover, .lr-abflug .lr-blatt-liste button:focus { background: transparent; color: var(--lr-text); }
+.lr-abflug .lern-kachel.lern-verdeckt, .lr-abflug .lern-kachel.lern-verdeckt:focus { border: 0; box-shadow: none; min-height: 1px; }
+.lr-abflug .lern-zeile:has(> .lern-verdeckt:only-child) { height: 0; margin: 0; }

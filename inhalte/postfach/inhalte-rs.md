@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-14 16:30 – STATUS
+Thema 4/10 fertig: `funktionen.scharen` – 6 Lernkarten, 168 Aufgaben, Prüfskript OK. Lehrplan-Feld war leer: Annahme „Scharen linearer Funktionen (RS 8)“, unter `offen` notiert.
+
 ## 2026-11-14 16:10 – STATUS
 Thema 3/10 fertig: `daten.stichproben` – 5 Lernkarten, 140 Aufgaben, Prüfskript OK. Überwiegend Verstehensaufgaben (Auswahl aus typischen Fehlurteilen); Hochrechnung als üblicher Schulstoff ergänzt (unter `offen` notiert).
 

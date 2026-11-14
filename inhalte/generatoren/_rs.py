@@ -346,3 +346,13 @@ def cz(x):
     """Bruch als Python-Ausdruck für "c"."""
     x = Fr(x)
     return str(x.numerator) if x.denominator == 1 else f'({x.numerator}/{x.denominator})'
+
+
+def eur(x):
+    """Geldbetrag: ganze Euro ohne Komma, sonst zwei Nachkommastellen (z. B. 2,50)."""
+    x = Fr(x)
+    if x.denominator == 1: return dz(int(x))
+    assert (x * 100).denominator == 1, f'{x} ist kein Centbetrag'
+    s = dz(x)
+    g, _, n = s.partition(',')
+    return g + ',' + (n + '00')[:2]

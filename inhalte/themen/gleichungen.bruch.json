@@ -1224,7 +1224,7 @@
     "wert": 2.24
    },
    "c": "(-8 * (-8) - (8) * (1)) / ((8) + (1) - (-8) - (-8))",
-   "w": "Über Kreuz: (x + 8)(x + 1) = (x − 8)(x − 8). Ausmultiplizieren: x² + 9x + 8 = x² + −16x + 64. x² fällt weg: 25x = 56 → x = 2,24.",
+   "w": "Über Kreuz: (x + 8)(x + 1) = (x − 8)(x − 8). Ausmultiplizieren: x² + 9x + 8 = x² − 16x + 64. x² fällt weg: 25x = 56 → x = 2,24.",
    "h": "Bestimme zuerst D. Dann über Kreuz multiplizieren und die lineare Gleichung lösen."
   },
   {
@@ -1240,7 +1240,7 @@
     "wert": 6
    },
    "c": "(-6 * (-5) - (-6) * (3)) / ((-6) + (3) - (-6) - (-5))",
-   "w": "Über Kreuz: (x − 6)(x + 3) = (x − 6)(x − 5). Ausmultiplizieren: x² + −3x − 18 = x² + −11x + 30. x² fällt weg: 8x = 48 → x = 6.",
+   "w": "Über Kreuz: (x − 6)(x + 3) = (x − 6)(x − 5). Ausmultiplizieren: x² − 3x − 18 = x² − 11x + 30. x² fällt weg: 8x = 48 → x = 6.",
    "h": "Bestimme zuerst D. Dann über Kreuz multiplizieren und die lineare Gleichung lösen."
   },
   {
@@ -1256,7 +1256,7 @@
     "wert": 3.25
    },
    "c": "(2 * (-6) - (5) * (-5)) / ((5) + (-5) - (2) - (-6))",
-   "w": "Über Kreuz: (x + 5)(x − 5) = (x + 2)(x − 6). Ausmultiplizieren: x² + −25 = x² + −4x − 12. x² fällt weg: 4x = 13 → x = 3,25.",
+   "w": "Über Kreuz: (x + 5)(x − 5) = (x + 2)(x − 6). Ausmultiplizieren: x² − 25 = x² − 4x − 12. x² fällt weg: 4x = 13 → x = 3,25.",
    "h": "Bestimme zuerst D. Dann über Kreuz multiplizieren und die lineare Gleichung lösen."
   },
   {
@@ -1438,7 +1438,7 @@
     "wert": 4
    },
    "c": "(1 + 3) / 1",
-   "w": "HN = x. · x: 1 + 3 = 1x → x = 4 : 1 = 4.",
+   "w": "HN = x. · x: 1 + 3 = x → x = 4 : 1 = 4.",
    "h": "Bestimme den Hauptnenner und multipliziere jedes Glied damit."
   },
   {
@@ -1454,7 +1454,7 @@
     "wert": 12
    },
    "c": "(6 + 6) / 1",
-   "w": "HN = x. · x: 6 + 6 = 1x → x = 12 : 1 = 12.",
+   "w": "HN = x. · x: 6 + 6 = x → x = 12 : 1 = 12.",
    "h": "Bestimme den Hauptnenner und multipliziere jedes Glied damit."
   },
   {
@@ -1576,13 +1576,13 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Löse 3/(x − 2) = 2/(x − 2) + −1."
+    "text": "Löse 3/(x − 2) = 2/(x − 2) − 1."
    },
    "o": {
     "wert": 1
    },
    "c": "(3 - 2) / (-1) - (-2)",
-   "w": "HN = x − 2. · (x − 2): 3 = 2 + −1(x − 2) → 1 = −x + 2 → −x = −1 → x = 1.",
+   "w": "HN = x − 2. · (x − 2): 3 = 2 − (x − 2) → 1 = −x + 2 → −x = −1 → x = 1.",
    "h": "Bestimme den Hauptnenner und multipliziere jedes Glied damit."
   },
   {
@@ -1598,7 +1598,7 @@
     "wert": 14
    },
    "c": "(12 - 3) / (1) - (-5)",
-   "w": "HN = x − 5. · (x − 5): 12 = 3 + 1(x − 5) → 9 = x − 5 → x = 14 → x = 14.",
+   "w": "HN = x − 5. · (x − 5): 12 = 3 + (x − 5) → 9 = x − 5 → x = 14.",
    "h": "Bestimme den Hauptnenner und multipliziere jedes Glied damit."
   },
   {

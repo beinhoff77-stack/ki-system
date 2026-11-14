@@ -2921,7 +2921,7 @@
     "einheit": "kg"
    },
    "c": "(6 * 13 - 62) / (6 - 2)",
-   "w": "I: x + y = 13, II: 2x + 6y = 62. y = 13 − x: 2x + 78 − 6x = 62 → -4x = -16 → x = 4.",
+   "w": "I: x + y = 13, II: 2x + 6y = 62. y = 13 − x: 2x + 78 − 6x = 62 → −4x = −16 → x = 4.",
    "h": "Eine Gleichung für die Masse, eine für den Preis."
   },
   {
@@ -2938,7 +2938,7 @@
     "einheit": "kg"
    },
    "c": "(10 * 17 - 116) / (10 - 4)",
-   "w": "I: x + y = 17, II: 4x + 10y = 116. y = 17 − x: 4x + 170 − 10x = 116 → -6x = -54 → x = 9.",
+   "w": "I: x + y = 17, II: 4x + 10y = 116. y = 17 − x: 4x + 170 − 10x = 116 → −6x = −54 → x = 9.",
    "h": "Eine Gleichung für die Masse, eine für den Preis."
   },
   {
@@ -2955,7 +2955,7 @@
     "einheit": "kg"
    },
    "c": "(6 * 17 - 62) / (6 - 2)",
-   "w": "I: x + y = 17, II: 2x + 6y = 62. y = 17 − x: 2x + 102 − 6x = 62 → -4x = -40 → x = 10.",
+   "w": "I: x + y = 17, II: 2x + 6y = 62. y = 17 − x: 2x + 102 − 6x = 62 → −4x = −40 → x = 10.",
    "h": "Eine Gleichung für die Masse, eine für den Preis."
   },
   {

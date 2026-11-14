@@ -45,6 +45,13 @@ ETAPPEN = [
 ]
 
 
+def quad1(p, q):
+    """x² + p·x + q mit richtigen Vorzeichen."""
+    t = lin(p, q) if p else zt(q)
+    if t == '0': return 'x²'
+    return 'x² ' + ('− ' + t[1:] if t.startswith('−') else '+ ' + t)
+
+
 def N(a, b):
     """Nenner a·x + b mit Klammern."""
     return f'({lin(a, b)})' if b else lin(a, b) if a != 1 else 'x'
@@ -111,7 +118,7 @@ def g_ueber_kreuz(R, st):
             x = Fr(a * d, c - a)
             text = f'{a}/x = {c}/{N(1, d)}'
             ex = [0, -d]
-            weg = f'Über Kreuz: {a}({lin(1, d)}) = {c}x → {lin(a, a * d)} = {c}x → {zt(a * d)} = {lin(c - a, 0)} → x = {zt(x)}.'
+            weg = f'Über Kreuz: {a}({lin(1, d)}) = {lin(c, 0)} → {lin(a, a * d)} = {lin(c, 0)} → {zt(a * d)} = {lin(c - a, 0)} → x = {zt(x)}.'
             cc = f'{a} * ({d}) / ({c} - {a})'
         elif st == 2:
             a, c = R.randint(1, 9), R.randint(1, 9); b, d = R.sample([j for j in range(-9, 10) if j], 2)
@@ -127,7 +134,7 @@ def g_ueber_kreuz(R, st):
             x = Fr(c * b - a * d, a + d - c - b)
             text = f'{N(1, a)}/{N(1, b)} = {N(1, c)}/{N(1, d)}'
             ex = [-b, -d]
-            weg = (f'Über Kreuz: ({lin(1, a)})({lin(1, d)}) = ({lin(1, c)})({lin(1, b)}). Ausmultiplizieren: x² + {lin(a + d, a * d)} = x² + {lin(c + b, c * b)}. '
+            weg = (f'Über Kreuz: ({lin(1, a)})({lin(1, d)}) = ({lin(1, c)})({lin(1, b)}). Ausmultiplizieren: {quad1(a + d, a * d)} = {quad1(c + b, c * b)}. '
                    f'x² fällt weg: {lin(a + d - c - b, 0)} = {zt(c * b - a * d)} → x = {zt(x)}.')
             cc = f'({c} * ({b}) - ({a}) * ({d})) / (({a}) + ({d}) - ({c}) - ({b}))'
         if x not in ex and ist_endlich(x) and abs(x) <= 60 and len(zt(x)) <= 6: break
@@ -141,7 +148,7 @@ def g_hauptnenner(R, st):
             a, b, c = R.randint(1, 12), R.randint(1, 12), R.choice([1, 2, 3, 4, 5])
             x = Fr(a + b, c)
             text = f'{a}/x + {b}/x = {c}'
-            weg = f'HN = x. · x: {a} + {b} = {c}x → x = {a + b} : {c} = {zt(x)}.'
+            weg = f'HN = x. · x: {a} + {b} = {lin(c, 0)} → x = {a + b} : {c} = {zt(x)}.'
             cc = f'({a} + {b}) / {c}'
         elif st == 2:
             a, b, k, c = R.randint(1, 9), R.randint(1, 9), R.choice([2, 3, 4, 5]), R.choice([1, 2, 3, 4, -1, -2])
@@ -162,9 +169,10 @@ def g_hauptnenner(R, st):
                 a, b, c, d = R.randint(2, 12), R.randint(1, 9), R.choice([1, 2, 3, 4, -1, -2]), R.choice([j for j in range(-5, 6) if j])
                 if a == b: continue
                 x = Fr(a - b, c) - d
-                text = f'{a}/{N(1, d)} = {b}/{N(1, d)} + {zt(c)}'
-                weg = (f'HN = {lin(1, d)}. · {N(1, d)}: {a} = {b} + {zt(c)}({lin(1, d)}) → {a - b} = {lin(c, c * d)} → '
-                       f'{lin(c, 0)} = {zt(a - b - c * d)} → x = {zt(x)}.')
+                sg = '+' if c > 0 else '−'
+                text = f'{a}/{N(1, d)} = {b}/{N(1, d)} {sg} {zt(abs(c))}'
+                weg = (f'HN = {lin(1, d)}. · {N(1, d)}: {a} = {b} {sg} {"" if abs(c) == 1 else zt(abs(c))}({lin(1, d)}) → {a - b} = {lin(c, c * d)} → '
+                       + (f'{lin(c, 0)} = {zt(a - b - c * d)} → ' if c != 1 else '') + f'x = {zt(x)}.')
                 cc = f'({a} - {b}) / ({c}) - ({d})'
                 if x == -d: continue
         if x != 0 and ist_endlich(x) and len(zt(x)) <= 6: break

@@ -2855,7 +2855,7 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Pool wird befüllt: h(x) = 1x + 30 (x in Minuten, h in cm). Nach wie vielen Minuten steht das Wasser 80 cm hoch?"
+    "text": "Ein Pool wird befüllt: h(x) = x + 30 (x in Minuten, h in cm). Nach wie vielen Minuten steht das Wasser 80 cm hoch?"
    },
    "o": {
     "wert": 50
@@ -3075,7 +3075,7 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Pool wird befüllt: h(x) = 1x + 20 (x in Minuten, h in cm). Nach wie vielen Minuten steht das Wasser 70 cm hoch?"
+    "text": "Ein Pool wird befüllt: h(x) = x + 20 (x in Minuten, h in cm). Nach wie vielen Minuten steht das Wasser 70 cm hoch?"
    },
    "o": {
     "wert": 50
@@ -3120,7 +3120,7 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Eine Kerze brennt ab: h(x) = −1x + 30 (x in Stunden, h in cm). Nach wie vielen Stunden ist die Kerze abgebrannt?"
+    "text": "Eine Kerze brennt ab: h(x) = −x + 30 (x in Stunden, h in cm). Nach wie vielen Stunden ist die Kerze abgebrannt?"
    },
    "o": {
     "wert": 30

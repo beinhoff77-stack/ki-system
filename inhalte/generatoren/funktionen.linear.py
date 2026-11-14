@@ -204,21 +204,21 @@ def g_deuten(R, st):
     if kontext == 'kerze':
         intro = 'Eine Kerze brennt ab:'
         h0, r = R.choice([15, 18, 20, 24, 25, 30]), Fr(R.choice([5, 10, 15, 20, 25, 30]), 10)
-        f, x, y = f'h(x) = −{zt(r)}x + {h0}', 'x in Stunden', 'h in cm'
+        f, x, y = f'h(x) = {lin(-r, h0)}', 'x in Stunden', 'h in cm'
         bed_m, bed_t = f'Die Kerze wird pro Stunde {zt(r)} cm kürzer.', f'Die Kerze ist am Anfang {h0} cm hoch.'
         frage_null, null = 'Nach wie vielen Stunden ist die Kerze abgebrannt?', Fr(h0) / r
         m, t = -r, h0
     elif kontext == 'tank':
         intro = 'Ein Auto fährt, der Tankinhalt sinkt:'
         h0, r = R.choice([40, 45, 50, 60]), Fr(R.choice([5, 6, 8, 10, 15]), 2)
-        f, x, y = f'V(x) = −{zt(r)}x + {h0}', 'x in Stunden Fahrt', 'V in Litern'
+        f, x, y = f'V(x) = {lin(-r, h0)}', 'x in Stunden Fahrt', 'V in Litern'
         bed_m, bed_t = f'Pro Stunde Fahrt werden {zt(r)} Liter verbraucht.', f'Am Anfang sind {h0} Liter im Tank.'
         frage_null, null = 'Nach wie vielen Stunden ist der Tank leer?', Fr(h0) / r
         m, t = -r, h0
     elif kontext == 'handy':
         intro = 'Ein Handytarif:'
         g, p = R.choice([5, 8, 10, 12]), Fr(R.choice([5, 9, 10, 15, 20]), 100)
-        f, x, y = f'K(x) = {zt(p)}x + {g}', 'x in Minuten', 'K in €'
+        f, x, y = f'K(x) = {lin(p, g)}', 'x in Minuten', 'K in €'
         bed_m, bed_t = f'Jede Minute kostet {eur(p)} €.', f'Die Grundgebühr beträgt {g} €.'
         B = g + p * R.choice([20, 40, 50, 60, 100])
         frage_null, null = f'Wie viele Minuten wurde telefoniert, wenn {eur(B)} € zu zahlen sind?', (B - g) / p
@@ -226,7 +226,7 @@ def g_deuten(R, st):
     elif kontext == 'taxi':
         intro = 'Eine Taxifahrt:'
         g, p = Fr(R.choice([7, 8, 9]), 2), Fr(R.choice([18, 20, 22, 24, 25]), 10)
-        f, x, y = f'P(x) = {zt(p)}x + {zt(g)}', 'x in km', 'P in €'
+        f, x, y = f'P(x) = {lin(p, g)}', 'x in km', 'P in €'
         bed_m, bed_t = f'Jeder Kilometer kostet {eur(p)} €.', f'Der Grundpreis beträgt {eur(g)} €.'
         km = R.choice([4, 5, 8, 10, 12, 15])
         frage_null, null = f'Wie weit ist man gefahren, wenn {eur(g + p * km)} € zu zahlen sind?', Fr(km)
@@ -234,7 +234,7 @@ def g_deuten(R, st):
     else:
         intro = 'Ein Pool wird befüllt:'
         h0, r = R.choice([10, 20, 30, 40]), Fr(R.choice([2, 4, 5, 8, 10]), 10)
-        f, x, y = f'h(x) = {zt(r)}x + {h0}', 'x in Minuten', 'h in cm'
+        f, x, y = f'h(x) = {lin(r, h0)}', 'x in Minuten', 'h in cm'
         bed_m, bed_t = f'Der Wasserstand steigt pro Minute um {zt(r)} cm.', f'Am Anfang steht das Wasser {h0} cm hoch.'
         Ziel = h0 + r * R.choice([50, 100, 150, 200])
         frage_null, null = f'Nach wie vielen Minuten steht das Wasser {zt(Ziel)} cm hoch?', (Ziel - h0) / r

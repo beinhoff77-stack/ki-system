@@ -1218,13 +1218,13 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Für welches x ist f(x) = 1, wenn f(x) = 12/x?"
+    "text": "Für welches x ist f(x) = 3, wenn f(x) = 12/x?"
    },
    "o": {
-    "wert": 12
+    "wert": 4
    },
-   "c": "12 / (1)",
-   "w": "12/x = 1 → 12 = 1x → x = 12 : 1 = 12.",
+   "c": "12 / (3)",
+   "w": "12/x = 3 → 12 = 3x → x = 12 : 3 = 4.",
    "h": "Multipliziere mit x, dann teile."
   },
   {
@@ -1234,29 +1234,13 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Für welches x gilt f(x) = 21, wenn f(x) = −4x + 5?"
+    "text": "Für welches x ist f(x) = −6, wenn f(x) = 6/x?"
    },
    "o": {
-    "wert": -4
+    "wert": -1
    },
-   "c": "(21 - (5)) / -4",
-   "w": "−4x + 5 = 21 → −4x = 16 → x = −4.",
-   "h": "Setze den Term gleich dem y-Wert und löse nach x."
-  },
-  {
-   "l": "stelle",
-   "t": "stelle",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Für welches x ist f(x) = −6, wenn f(x) = 9/x?"
-   },
-   "o": {
-    "wert": -1.5
-   },
-   "c": "9 / (-6)",
-   "w": "9/x = −6 → 9 = −6x → x = 9 : (−6) = −1,5.",
+   "c": "6 / (-6)",
+   "w": "6/x = −6 → 6 = −6x → x = 6 : (−6) = −1.",
    "h": "Multipliziere mit x, dann teile."
   },
   {
@@ -1266,14 +1250,30 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Für welches x gilt f(x) = 9,25, wenn f(x) = 1,5x + 1?"
+    "text": "Für welches x gilt f(x) = 3, wenn f(x) = 1,25x + 3?"
    },
    "o": {
-    "wert": 5.5
+    "wert": 0
    },
-   "c": "((37/4) - (1)) / (3/2)",
-   "w": "1,5x + 1 = 9,25 → 1,5x = 8,25 → x = 5,5.",
+   "c": "(3 - (3)) / (5/4)",
+   "w": "1,25x + 3 = 3 → 1,25x = 0 → x = 0.",
    "h": "Setze den Term gleich dem y-Wert und löse nach x."
+  },
+  {
+   "l": "stelle",
+   "t": "stelle",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welches x ist f(x) = 5, wenn f(x) = 16/x?"
+   },
+   "o": {
+    "wert": 3.2
+   },
+   "c": "16 / (5)",
+   "w": "16/x = 5 → 16 = 5x → x = 16 : 5 = 3,2.",
+   "h": "Multipliziere mit x, dann teile."
   },
   {
    "l": "stelle",
@@ -1282,13 +1282,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Für welches x gilt f(x) = −1, wenn f(x) = 4x − 1?"
+    "text": "Für welches x gilt f(x) = −3, wenn f(x) = 3x − 9?"
    },
    "o": {
-    "wert": 0
+    "wert": 2
    },
-   "c": "(-1 - (-1)) / 4",
-   "w": "4x − 1 = −1 → 4x = 0 → x = 0."
+   "c": "(-3 - (-9)) / 3",
+   "w": "3x − 9 = −3 → 3x = 6 → x = 2."
   },
   {
    "l": "stelle",
@@ -1297,13 +1297,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Für welches x gilt f(x) = −29,5, wenn f(x) = 5x + 8?"
+    "text": "Für welches x gilt f(x) = −11, wenn f(x) = −2x?"
    },
    "o": {
-    "wert": -7.5
+    "wert": 5.5
    },
-   "c": "((-59/2) - (8)) / 5",
-   "w": "5x + 8 = −29,5 → 5x = −37,5 → x = −7,5."
+   "c": "(-11 - (0)) / -2",
+   "w": "−2x = −11 → −2x = −11 → x = 5,5."
   },
   {
    "l": "stelle",
@@ -1312,13 +1312,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Für welches x gilt f(x) = −22, wenn f(x) = 6x + 5?"
+    "text": "Für welches x gilt f(x) = 18,5, wenn f(x) = −5x + 6?"
    },
    "o": {
-    "wert": -4.5
+    "wert": -2.5
    },
-   "c": "(-22 - (5)) / 6",
-   "w": "6x + 5 = −22 → 6x = −27 → x = −4,5."
+   "c": "((37/2) - (6)) / -5",
+   "w": "−5x + 6 = 18,5 → −5x = 12,5 → x = −2,5."
   },
   {
    "l": "stelle",
@@ -1327,28 +1327,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Für welches x gilt f(x) = −35, wenn f(x) = −4x + 5?"
-   },
-   "o": {
-    "wert": 10
-   },
-   "c": "(-35 - (5)) / -4",
-   "w": "−4x + 5 = −35 → −4x = −40 → x = 10."
-  },
-  {
-   "l": "stelle",
-   "t": "stelle",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Für welches x gilt f(x) = 75, wenn f(x) = 6x + 9?"
+    "text": "Für welches x gilt f(x) = 3, wenn f(x) = x − 8?"
    },
    "o": {
     "wert": 11
    },
-   "c": "(75 - (9)) / 6",
-   "w": "6x + 9 = 75 → 6x = 66 → x = 11."
+   "c": "(3 - (-8)) / 1",
+   "w": "x − 8 = 3 → x = 11 → x = 11."
   },
   {
    "l": "stelle",
@@ -1426,20 +1411,19 @@
    "w": "−6x + 3 = 12 → −6x = 9 → x = −1,5."
   },
   {
-   "l": "wertetabelle",
-   "t": "wertetabelle",
-   "p": "uebung",
-   "s": 1,
+   "l": "stelle",
+   "t": "stelle",
+   "p": "sicherung",
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Wertetabelle zu f(x) = −6x − 5: (−4 | 19), (2 | −17), (3 | −23), (5 | □). Welcher y-Wert fehlt?"
+    "text": "Für welches x gilt f(x) = −62, wenn f(x) = 4x + 2?"
    },
    "o": {
-    "wert": -35
+    "wert": -16
    },
-   "c": "(-6) * (5) + (-5)",
-   "w": "x = 5 einsetzen: f(5) = −6 · 5 − 5 = −35.",
-   "h": "Setze den x-Wert in den Term ein."
+   "c": "(-62 - (2)) / 4",
+   "w": "4x + 2 = −62 → 4x = −64 → x = −16."
   },
   {
    "l": "wertetabelle",
@@ -1448,29 +1432,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Wertetabelle zu f(x) = −5x + 2: (−3 | 17), (−2 | □), (3 | −13), (4 | −18). Welcher y-Wert fehlt?"
+    "text": "Wertetabelle zu f(x) = −6x + 5: (−3 | 23), (−2 | 17), (3 | −13), (4 | □). Welcher y-Wert fehlt?"
    },
    "o": {
-    "wert": 12
+    "wert": -19
    },
-   "c": "(-5) * (-2) + (2)",
-   "w": "x = −2 einsetzen: f(−2) = −5 · (−2) + 2 = 12.",
-   "h": "Setze den x-Wert in den Term ein."
-  },
-  {
-   "l": "wertetabelle",
-   "t": "wertetabelle",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Wertetabelle zu f(x) = x − 8: (−4 | −12), (−1 | □), (3 | −5), (4 | −4). Welcher y-Wert fehlt?"
-   },
-   "o": {
-    "wert": -9
-   },
-   "c": "(1) * (-1) + (-8)",
-   "w": "x = −1 einsetzen: f(−1) = (−1) − 8 = −9.",
+   "c": "(-6) * (4) + (5)",
+   "w": "x = 4 einsetzen: f(4) = −6 · 4 + 5 = −19.",
    "h": "Setze den x-Wert in den Term ein."
   },
   {
@@ -1480,13 +1448,45 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Wertetabelle zu f(x) = 6x + 7: (−2 | −5), (0 | 7), (1 | □), (3 | 25). Welcher y-Wert fehlt?"
+    "text": "Wertetabelle zu f(x) = −2x + 8: (−4 | □), (−1 | 10), (1 | 6), (2 | 4). Welcher y-Wert fehlt?"
    },
    "o": {
-    "wert": 13
+    "wert": 16
    },
-   "c": "(6) * (1) + (7)",
-   "w": "x = 1 einsetzen: f(1) = 6 · 1 + 7 = 13.",
+   "c": "(-2) * (-4) + (8)",
+   "w": "x = −4 einsetzen: f(−4) = −2 · (−4) + 8 = 16.",
+   "h": "Setze den x-Wert in den Term ein."
+  },
+  {
+   "l": "wertetabelle",
+   "t": "wertetabelle",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wertetabelle zu f(x) = 2x − 2: (−2 | −6), (0 | −2), (2 | 2), (4 | □). Welcher y-Wert fehlt?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "(2) * (4) + (-2)",
+   "w": "x = 4 einsetzen: f(4) = 2 · 4 − 2 = 6.",
+   "h": "Setze den x-Wert in den Term ein."
+  },
+  {
+   "l": "wertetabelle",
+   "t": "wertetabelle",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wertetabelle zu f(x) = −x + 9: (−3 | 12), (1 | 8), (3 | □), (4 | 5). Welcher y-Wert fehlt?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "(-1) * (3) + (9)",
+   "w": "x = 3 einsetzen: f(3) = −3 + 9 = 6.",
    "h": "Setze den x-Wert in den Term ein."
   },
   {
@@ -1496,13 +1496,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Wertetabelle zu f(x) = 2x² − 7: (−2 | 1), (0 | □), (1 | −5), (3 | 11). Welcher y-Wert fehlt?"
+    "text": "Wertetabelle zu f(x) = −2x² + 7: (−3 | −11), (−1 | □), (0 | 7), (1 | 5). Welcher y-Wert fehlt?"
    },
    "o": {
-    "wert": -7
+    "wert": 5
    },
-   "c": "(2) * (0)**2 + (0) * (0) + (-7)",
-   "w": "x = 0 einsetzen: f(0) = 2 · 0² − 7 = −7.",
+   "c": "(-2) * (-1)**2 + (0) * (-1) + (7)",
+   "w": "x = −1 einsetzen: f(−1) = −2 · (−1)² + 7 = 5.",
    "h": "Setze den x-Wert in den Term ein."
   },
   {
@@ -1512,13 +1512,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Wertetabelle zu f(x) = 2x² − 4x − 3: (−2 | 13), (1 | □), (4 | 13), (5 | 27). Welcher y-Wert fehlt?"
+    "text": "Wertetabelle zu f(x) = 3x² − 2x − 4: (−3 | 29), (−1 | 1), (0 | −4), (4 | □). Welcher y-Wert fehlt?"
    },
    "o": {
-    "wert": -5
+    "wert": 36
    },
-   "c": "(2) * (1)**2 + (-4) * (1) + (-3)",
-   "w": "x = 1 einsetzen: f(1) = 2 · 1² − 4 · 1 − 3 = −5.",
+   "c": "(3) * (4)**2 + (-2) * (4) + (-4)",
+   "w": "x = 4 einsetzen: f(4) = 3 · 4² − 2 · 4 − 4 = 36.",
    "h": "Setze den x-Wert in den Term ein."
   },
   {
@@ -1528,13 +1528,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Wertetabelle zu f(x) = −2x − 3: (−2 | □), (−1 | −1), (2 | −7), (5 | −13). Welcher y-Wert fehlt?"
+    "text": "Wertetabelle zu f(x) = 3x² − 4x − 7: (−3 | □), (−2 | 13), (−1 | 0), (4 | 25). Welcher y-Wert fehlt?"
    },
    "o": {
-    "wert": 1
+    "wert": 32
    },
-   "c": "(-2) * (-2) + (-3)",
-   "w": "x = −2 einsetzen: f(−2) = −2 · (−2) − 3 = 1.",
+   "c": "(3) * (-3)**2 + (-4) * (-3) + (-7)",
+   "w": "x = −3 einsetzen: f(−3) = 3 · (−3)² − 4 · (−3) − 7 = 32.",
    "h": "Setze den x-Wert in den Term ein."
   },
   {
@@ -1544,13 +1544,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Wertetabelle zu f(x) = −2x² − 4x + 3: (−4 | □), (−1 | 5), (0 | 3), (2 | −13). Welcher y-Wert fehlt?"
+    "text": "Wertetabelle zu f(x) = −x² + x − 9: (−1 | −11), (1 | −9), (4 | −21), (5 | □). Welcher y-Wert fehlt?"
    },
    "o": {
-    "wert": -13
+    "wert": -29
    },
-   "c": "(-2) * (-4)**2 + (-4) * (-4) + (3)",
-   "w": "x = −4 einsetzen: f(−4) = −2 · (−4)² − 4 · (−4) + 3 = −13.",
+   "c": "(-1) * (5)**2 + (1) * (5) + (-9)",
+   "w": "x = 5 einsetzen: f(5) = −(5)² + 5 − 9 = −29.",
    "h": "Setze den x-Wert in den Term ein."
   },
   {
@@ -1560,13 +1560,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Wertetabelle zu f(x) = −x² + 3: (−3 | −6), (−1 | □), (0 | 3), (2 | −1). Welcher y-Wert fehlt?"
+    "text": "Wertetabelle zu f(x) = −x² − 4x + 3: (−2 | □), (2 | −9), (4 | −29), (5 | −42). Welcher y-Wert fehlt?"
    },
    "o": {
-    "wert": 2
+    "wert": 7
    },
-   "c": "(-1) * (-1)**2 + (0) * (-1) + (3)",
-   "w": "x = −1 einsetzen: f(−1) = −(−1)² + 3 = 2.",
+   "c": "(-1) * (-2)**2 + (-4) * (-2) + (3)",
+   "w": "x = −2 einsetzen: f(−2) = −(−2)² − 4 · (−2) + 3 = 7.",
    "h": "Setze den x-Wert in den Term ein."
   },
   {
@@ -1576,13 +1576,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Wertetabelle zu f(x) = −x² − 5x + 5: (−4 | □), (−2 | 11), (0 | 5), (2 | −9). Welcher y-Wert fehlt?"
+    "text": "Wertetabelle zu f(x) = 3x² − 3x + 4: (−4 | 64), (0 | 4), (3 | 22), (5 | □). Welcher y-Wert fehlt?"
    },
    "o": {
-    "wert": 9
+    "wert": 64
    },
-   "c": "(-1) * (-4)**2 + (-5) * (-4) + (5)",
-   "w": "x = −4 einsetzen: f(−4) = −(−4)² − 5 · (−4) + 5 = 9.",
+   "c": "(3) * (5)**2 + (-3) * (5) + (4)",
+   "w": "x = 5 einsetzen: f(5) = 3 · 5² − 3 · 5 + 4 = 64.",
    "h": "Setze den x-Wert in den Term ein."
   },
   {
@@ -1592,18 +1592,39 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Welcher Funktionsterm passt zur Wertetabelle (0 | 6), (3 | 15), (4 | 18)?"
+    "text": "Welcher Funktionsterm passt zur Wertetabelle (−2 | −13), (−1 | −8), (4 | 17)?"
    },
    "a": [
-    "f(x) = 3x − 6",
-    "f(x) = 3x + 6",
-    "f(x) = −3x + 6",
-    "f(x) = 6x + 3"
+    "f(x) = 5x + 3",
+    "f(x) = −3x + 5",
+    "f(x) = 5x − 3",
+    "f(x) = −5x − 3"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Probe: f(−2) = −13; f(−1) = −8; f(4) = 17. Nur f(x) = 5x − 3 passt zu allen Paaren.",
+   "h": "Setze die x-Werte in jeden Term ein. Der richtige Term passt zu allen Paaren."
+  },
+  {
+   "l": "wertetabelle",
+   "t": "wertetabelle",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm passt zur Wertetabelle (−1 | −1), (1 | −11), (4 | −26)?"
+   },
+   "a": [
+    "f(x) = −5x + 6",
+    "f(x) = −5x − 6",
+    "f(x) = −6x − 5",
+    "f(x) = 5x − 6"
    ],
    "o": {
     "index": 1
    },
-   "w": "Probe: f(0) = 6; f(3) = 15; f(4) = 18. Nur f(x) = 3x + 6 passt zu allen Paaren.",
+   "w": "Probe: f(−1) = −1; f(1) = −11; f(4) = −26. Nur f(x) = −5x − 6 passt zu allen Paaren.",
    "h": "Setze die x-Werte in jeden Term ein. Der richtige Term passt zu allen Paaren."
   },
   {
@@ -1613,18 +1634,18 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Welcher Funktionsterm passt zur Wertetabelle (−3 | 0), (2 | −10), (4 | −14)?"
+    "text": "Welcher Funktionsterm passt zur Wertetabelle (−3 | −5), (0 | −2), (3 | 1)?"
    },
    "a": [
-    "f(x) = −6x − 2",
-    "f(x) = 2x − 6",
-    "f(x) = −2x − 6",
-    "f(x) = −2x + 6"
+    "f(x) = −x − 2",
+    "f(x) = x − 2",
+    "f(x) = −2x + 1",
+    "f(x) = x + 2"
    ],
    "o": {
-    "index": 2
+    "index": 1
    },
-   "w": "Probe: f(−3) = 0; f(2) = −10; f(4) = −14. Nur f(x) = −2x − 6 passt zu allen Paaren.",
+   "w": "Probe: f(−3) = −5; f(0) = −2; f(3) = 1. Nur f(x) = x − 2 passt zu allen Paaren.",
    "h": "Setze die x-Werte in jeden Term ein. Der richtige Term passt zu allen Paaren."
   },
   {
@@ -1634,39 +1655,18 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Welcher Funktionsterm passt zur Wertetabelle (−3 | −12), (−1 | −2), (3 | 18)?"
+    "text": "Welcher Funktionsterm passt zur Wertetabelle (−1 | 0), (2 | −12), (4 | −20)?"
    },
    "a": [
-    "f(x) = 3x + 5",
-    "f(x) = −5x + 3",
-    "f(x) = 5x − 3",
-    "f(x) = 5x + 3"
+    "f(x) = −4x − 4",
+    "f(x) = −4x + 4",
+    "f(x) = −3x − 4",
+    "f(x) = 4x − 4"
    ],
    "o": {
-    "index": 3
+    "index": 0
    },
-   "w": "Probe: f(−3) = −12; f(−1) = −2; f(3) = 18. Nur f(x) = 5x + 3 passt zu allen Paaren.",
-   "h": "Setze die x-Werte in jeden Term ein. Der richtige Term passt zu allen Paaren."
-  },
-  {
-   "l": "wertetabelle",
-   "t": "wertetabelle",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welcher Funktionsterm passt zur Wertetabelle (0 | 3), (1 | 8), (3 | 18)?"
-   },
-   "a": [
-    "f(x) = 5x − 3",
-    "f(x) = −5x + 3",
-    "f(x) = 5x + 3",
-    "f(x) = 3x + 5"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Probe: f(0) = 3; f(1) = 8; f(3) = 18. Nur f(x) = 5x + 3 passt zu allen Paaren.",
+   "w": "Probe: f(−1) = 0; f(2) = −12; f(4) = −20. Nur f(x) = −4x − 4 passt zu allen Paaren.",
    "h": "Setze die x-Werte in jeden Term ein. Der richtige Term passt zu allen Paaren."
   },
   {
@@ -1676,13 +1676,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Wertetabelle zu f(x) = −x + 1: (−3 | 4), (−1 | 2), (1 | □), (4 | −3). Welcher y-Wert fehlt?"
+    "text": "Wertetabelle zu f(x) = x² − x − 9: (−4 | 11), (−3 | 3), (3 | −3), (4 | □). Welcher y-Wert fehlt?"
    },
    "o": {
-    "wert": 0
+    "wert": 3
    },
-   "c": "(-1) * (1) + (1)",
-   "w": "x = 1 einsetzen: f(1) = −1 + 1 = 0."
+   "c": "(1) * (4)**2 + (-1) * (4) + (-9)",
+   "w": "x = 4 einsetzen: f(4) = (4)² − 4 − 9 = 3."
   },
   {
    "l": "wertetabelle",
@@ -1691,13 +1691,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Wertetabelle zu f(x) = 2x − 6: (−4 | −14), (−3 | −12), (1 | −4), (□ | −2). Welcher x-Wert fehlt?"
+    "text": "Wertetabelle zu f(x) = x² + x − 4: (−4 | □), (0 | −4), (1 | −2), (2 | 2). Welcher y-Wert fehlt?"
    },
    "o": {
-    "wert": 2
+    "wert": 8
    },
-   "c": "(-2 - (-6)) / 2",
-   "w": "2x − 6 = −2 lösen: x = 2."
+   "c": "(1) * (-4)**2 + (1) * (-4) + (-4)",
+   "w": "x = −4 einsetzen: f(−4) = (−4)² + (−4) − 4 = 8."
   },
   {
    "l": "wertetabelle",
@@ -1706,33 +1706,18 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Wertetabelle zu f(x) = 5x + 4: (−3 | □), (−2 | −6), (0 | 4), (2 | 14). Welcher y-Wert fehlt?"
+    "text": "Wertetabelle zu f(x) = −5x + 7: (□ | 22), (1 | 2), (2 | −3), (4 | −13). Welcher x-Wert fehlt?"
    },
    "o": {
-    "wert": -11
+    "wert": -3
    },
-   "c": "(5) * (-3) + (4)",
-   "w": "x = −3 einsetzen: f(−3) = 5 · (−3) + 4 = −11."
+   "c": "(22 - (7)) / -5",
+   "w": "−5x + 7 = 22 lösen: x = −3."
   },
   {
    "l": "wertetabelle",
    "t": "wertetabelle",
    "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Wertetabelle zu f(x) = −x² + 5x + 3: (−3 | −21), (−2 | □), (3 | 9), (4 | 7). Welcher y-Wert fehlt?"
-   },
-   "o": {
-    "wert": -11
-   },
-   "c": "(-1) * (-2)**2 + (5) * (-2) + (3)",
-   "w": "x = −2 einsetzen: f(−2) = −(−2)² + 5 · (−2) + 3 = −11."
-  },
-  {
-   "l": "wertetabelle",
-   "t": "wertetabelle",
-   "p": "sicherung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -1820,46 +1805,19 @@
    "w": "5x + 7 = 32 lösen: x = 5."
   },
   {
-   "l": "mengen",
-   "t": "mengen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
+   "l": "wertetabelle",
+   "t": "wertetabelle",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
    "f": {
-    "text": "Gib die maximale Definitionsmenge von f(x) = 1/(x − 2) an."
+    "text": "Wertetabelle zu f(x) = −x² − 4x + 4: (−4 | 4), (−1 | 7), (0 | 4), (4 | □). Welcher y-Wert fehlt?"
    },
-   "a": [
-    "D = ℚ \\ {2}",
-    "D = ℚ \\ {1}",
-    "D = ℚ",
-    "D = ℚ \\ {−2}"
-   ],
    "o": {
-    "index": 0
+    "wert": -28
    },
-   "w": "Der Nenner x − 2 ist 0 für x = 2. Diese Zahl muss raus.",
-   "h": "Welche Zahl macht den Nenner 0?"
-  },
-  {
-   "l": "mengen",
-   "t": "mengen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Gib die maximale Definitionsmenge von f(x) = −8/(x + 8) an."
-   },
-   "a": [
-    "D = ℚ \\ {8}",
-    "D = ℚ",
-    "D = ℚ \\ {0}",
-    "D = ℚ \\ {−8}"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Der Nenner x + 8 ist 0 für x = −8. Diese Zahl muss raus.",
-   "h": "Welche Zahl macht den Nenner 0?"
+   "c": "(-1) * (4)**2 + (-4) * (4) + (4)",
+   "w": "x = 4 einsetzen: f(4) = −(4)² − 4 · 4 + 4 = −28."
   },
   {
    "l": "mengen",
@@ -1907,42 +1865,62 @@
    "l": "mengen",
    "t": "mengen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "f(x) = −5x − 7 mit D = {−2; 1; 2}. Gib die Wertemenge W an."
+    "text": "Gib die maximale Definitionsmenge von f(x) = −7/(x + 7) an."
    },
    "a": [
-    "W = {−17; −12; 3}",
-    "W = {−3; 12; 17}",
-    "W = {−16; −11; 4}",
-    "W = {−2; 1; 2}"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Funktionswerte: f(−2) = 3, f(1) = −12, f(2) = −17. W = {−17; −12; 3}.",
-   "h": "Berechne für jedes x aus D den Funktionswert. Gleiche Werte schreibt man nur einmal."
-  },
-  {
-   "l": "mengen",
-   "t": "mengen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "f(x) = −3x + 4 mit D = {−2; 1; 3}. Gib die Wertemenge W an."
-   },
-   "a": [
-    "W = {−2; 1; 3}",
-    "W = {−10; −1; 5}",
-    "W = {−5; 1; 10}",
-    "W = {−4; 2; 11}"
+    "D = ℚ",
+    "D = ℚ \\ {0}",
+    "D = ℚ \\ {−7}",
+    "D = ℚ \\ {7}"
    ],
    "o": {
     "index": 2
    },
-   "w": "Funktionswerte: f(−2) = 10, f(1) = 1, f(3) = −5. W = {−5; 1; 10}.",
+   "w": "Der Nenner x + 7 ist 0 für x = −7. Diese Zahl muss raus.",
+   "h": "Welche Zahl macht den Nenner 0?"
+  },
+  {
+   "l": "mengen",
+   "t": "mengen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Gib die maximale Definitionsmenge von f(x) = 4/(x + 8) an."
+   },
+   "a": [
+    "D = ℚ",
+    "D = ℚ \\ {−8}",
+    "D = ℚ \\ {8}",
+    "D = ℚ \\ {4}"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Der Nenner x + 8 ist 0 für x = −8. Diese Zahl muss raus.",
+   "h": "Welche Zahl macht den Nenner 0?"
+  },
+  {
+   "l": "mengen",
+   "t": "mengen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "f(x) = −3x² − 3x + 9 mit D = {−1; 0; 2}. Gib die Wertemenge W an."
+   },
+   "a": [
+    "W = {−1; 0; 2}",
+    "W = {−8; 10}",
+    "W = {−9; 9}"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Funktionswerte: f(−1) = 9, f(0) = 9, f(2) = −9. W = {−9; 9}.",
    "h": "Berechne für jedes x aus D den Funktionswert. Gleiche Werte schreibt man nur einmal."
   },
   {
@@ -1952,18 +1930,18 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "f(x) = −x² − 2x − 7 mit D = {−2; 1; 2}. Gib die Wertemenge W an."
+    "text": "f(x) = −5x + 9 mit D = {−2; 1; 2}. Gib die Wertemenge W an."
    },
    "a": [
     "W = {−2; 1; 2}",
-    "W = {7; 10; 15}",
-    "W = {−14; −9; −6}",
-    "W = {−15; −10; −7}"
+    "W = {−19; −4; 1}",
+    "W = {0; 5; 20}",
+    "W = {−1; 4; 19}"
    ],
    "o": {
     "index": 3
    },
-   "w": "Funktionswerte: f(−2) = −7, f(1) = −10, f(2) = −15. W = {−15; −10; −7}.",
+   "w": "Funktionswerte: f(−2) = 19, f(1) = 4, f(2) = −1. W = {−1; 4; 19}.",
    "h": "Berechne für jedes x aus D den Funktionswert. Gleiche Werte schreibt man nur einmal."
   },
   {
@@ -2033,43 +2011,22 @@
    "l": "mengen",
    "t": "mengen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "f(x) = x² + 2 mit D = ℚ. Welche Wertemenge hat f?"
+    "text": "f(x) = 3x − 5 mit D = {−2; 1; 2; 3}. Gib die Wertemenge W an."
    },
    "a": [
-    "W = {y | y ≥ 0}",
-    "W = {y | y ≤ 2}",
-    "W = {y | y ≥ 2}",
-    "W = ℚ"
+    "W = {−4; −1; 2; 11}",
+    "W = {−10; −1; 2; 5}",
+    "W = {−11; −2; 1; 4}",
+    "W = {−2; 1; 2; 3}"
    ],
    "o": {
     "index": 2
    },
-   "w": "x² ist nie negativ, kleinster Wert 0 (bei x = 0). Also f(x) ≥ 2.",
-   "h": "Welchen kleinsten Wert kann x² annehmen?"
-  },
-  {
-   "l": "mengen",
-   "t": "mengen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "f(x) = −x² − 3 mit D = ℚ. Welche Wertemenge hat f?"
-   },
-   "a": [
-    "W = {y | y ≤ 0}",
-    "W = ℚ",
-    "W = {y | y ≤ −3}",
-    "W = {y | y ≥ −3}"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "−x² ist nie positiv, größter Wert 0. Also f(x) ≤ −3.",
-   "h": "Welchen größten Wert kann −x² annehmen?"
+   "w": "Funktionswerte: f(−2) = −11, f(1) = −2, f(2) = 1, f(3) = 4. W = {−11; −2; 1; 4}.",
+   "h": "Berechne für jedes x aus D den Funktionswert. Gleiche Werte schreibt man nur einmal."
   },
   {
    "l": "mengen",
@@ -2116,27 +2073,49 @@
   {
    "l": "mengen",
    "t": "mengen",
-   "p": "test",
-   "s": 2,
+   "p": "uebung",
+   "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "f(x) = −x² + 2x + 6 mit D = {−2; 1; 2; 3}. Gib die Wertemenge W an."
+    "text": "f(x) = 1 mit D = ℚ. Welche Wertemenge hat f?"
    },
    "a": [
-    "W = {−1; 4; 7; 8}",
-    "W = {−2; 1; 2; 3}",
-    "W = {−2; 3; 6; 7}",
-    "W = {−7; −6; −3; 2}"
+    "{0}",
+    "W = ℚ",
+    "W = ℚ \\ {1}",
+    "W = {1}"
    ],
    "o": {
-    "index": 2
+    "index": 3
    },
-   "w": "Funktionswerte: f(−2) = −2, f(1) = 7, f(2) = 6, f(3) = 3. W = {−2; 3; 6; 7}."
+   "w": "Jedem x wird derselbe Wert 1 zugeordnet. Also W = {1}.",
+   "h": "Welche y-Werte können überhaupt herauskommen?"
   },
   {
    "l": "mengen",
    "t": "mengen",
-   "p": "korrektur",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "f(x) = −x² + 5 mit D = ℚ. Welche Wertemenge hat f?"
+   },
+   "a": [
+    "W = ℚ",
+    "W = {y | y ≥ 5}",
+    "W = {y | y ≤ 5}",
+    "W = {y | y ≤ 0}"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "−x² ist nie positiv, größter Wert 0. Also f(x) ≤ 5.",
+   "h": "Welchen größten Wert kann −x² annehmen?"
+  },
+  {
+   "l": "mengen",
+   "t": "mengen",
+   "p": "test",
    "s": 2,
    "y": "auswahl",
    "f": {
@@ -2196,7 +2175,7 @@
   {
    "l": "mengen",
    "t": "mengen",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "auswahl",
    "f": {
@@ -2314,99 +2293,87 @@
    "w": "Funktionswerte: f(−3) = 44, f(−2) = 24, f(1) = 0, f(2) = 4. W = {0; 4; 24; 44}."
   },
   {
-   "l": "nullstellen",
-   "t": "nullstellen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne die Nullstelle von f(x) = 8x + 56."
-   },
-   "o": {
-    "wert": -7
-   },
-   "c": "-(56) / 8",
-   "w": "8x + 56 = 0 → 8x = −56 → x = −7.",
-   "h": "Setze f(x) = 0 und löse nach x."
-  },
-  {
-   "l": "nullstellen",
-   "t": "nullstellen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne die Nullstelle von f(x) = −x − 2."
-   },
-   "o": {
-    "wert": -2
-   },
-   "c": "-(-2) / -1",
-   "w": "−x − 2 = 0 → −x = 2 → x = −2.",
-   "h": "Setze f(x) = 0 und löse nach x."
-  },
-  {
-   "l": "nullstellen",
-   "t": "nullstellen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne die Nullstelle von f(x) = −2x + 2."
-   },
-   "o": {
-    "wert": 1
-   },
-   "c": "-(2) / -2",
-   "w": "−2x + 2 = 0 → −2x = −2 → x = 1.",
-   "h": "Setze f(x) = 0 und löse nach x."
-  },
-  {
-   "l": "nullstellen",
-   "t": "nullstellen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne die Nullstelle von f(x) = 5x − 20."
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "-(-20) / 5",
-   "w": "5x − 20 = 0 → 5x = 20 → x = 4.",
-   "h": "Setze f(x) = 0 und löse nach x."
-  },
-  {
-   "l": "nullstellen",
-   "t": "nullstellen",
-   "p": "uebung",
+   "l": "mengen",
+   "t": "mengen",
+   "p": "sicherung",
    "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "f(x) = x² − 4x − 2 mit D = {−2; −1; 2}. Gib die Wertemenge W an."
+   },
+   "a": [
+    "W = {−2; −1; 2}",
+    "W = {−10; −3; 6}",
+    "W = {−5; 4; 11}",
+    "W = {−6; 3; 10}"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Funktionswerte: f(−2) = 10, f(−1) = 3, f(2) = −6. W = {−6; 3; 10}."
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Berechne die Nullstelle von f(x) = 8x + 16."
+    "text": "Berechne die Nullstelle von f(x) = 8x − 40."
    },
    "o": {
-    "wert": -2
+    "wert": 5
    },
-   "c": "-(16) / 8",
-   "w": "8x + 16 = 0 → 8x = −16 → x = −2.",
+   "c": "-(-40) / 8",
+   "w": "8x − 40 = 0 → 8x = 40 → x = 5.",
    "h": "Setze f(x) = 0 und löse nach x."
   },
   {
    "l": "nullstellen",
    "t": "nullstellen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Berechne die Nullstelle von f(x) = −5x − 8."
+    "text": "Berechne die Nullstelle von f(x) = 8x + 24."
    },
    "o": {
-    "wert": -1.6
+    "wert": -3
    },
-   "c": "-(-8) / -5",
-   "w": "−5x − 8 = 0 → −5x = 8 → x = −1,6.",
+   "c": "-(24) / 8",
+   "w": "8x + 24 = 0 → 8x = −24 → x = −3.",
+   "h": "Setze f(x) = 0 und löse nach x."
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Nullstelle von f(x) = 7x + 35."
+   },
+   "o": {
+    "wert": -5
+   },
+   "c": "-(35) / 7",
+   "w": "7x + 35 = 0 → 7x = −35 → x = −5.",
+   "h": "Setze f(x) = 0 und löse nach x."
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Nullstelle von f(x) = −5x − 15."
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "-(-15) / -5",
+   "w": "−5x − 15 = 0 → −5x = 15 → x = −3.",
    "h": "Setze f(x) = 0 und löse nach x."
   },
   {
@@ -2487,17 +2454,33 @@
    "l": "nullstellen",
    "t": "nullstellen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne die Nullstelle von f(x) = (x + 7)/(x + 6)."
+    "text": "Berechne die Nullstelle von f(x) = −8x + 12."
    },
    "o": {
-    "wert": -7
+    "wert": 1.5
    },
-   "c": "-(7) / (1)",
-   "w": "Ein Bruch ist 0, wenn der Zähler 0 ist (und der Nenner nicht): x + 7 = 0 → x = −7. Nenner dort: −1 ≠ 0.",
-   "h": "Ein Bruch ist 0, wenn sein Zähler 0 ist."
+   "c": "-(12) / -8",
+   "w": "−8x + 12 = 0 → −8x = −12 → x = 1,5.",
+   "h": "Setze f(x) = 0 und löse nach x."
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Nullstelle von f(x) = −8x − 4."
+   },
+   "o": {
+    "wert": -0.5
+   },
+   "c": "-(-4) / -8",
+   "w": "−8x − 4 = 0 → −8x = 4 → x = −0,5.",
+   "h": "Setze f(x) = 0 und löse nach x."
   },
   {
    "l": "nullstellen",
@@ -2506,17 +2489,39 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Welche Nullstellen hat f(x) = x(x + 6)?"
+    "text": "Welche Nullstellen hat f(x) = x(−2x + 9)?"
    },
    "a": [
-    "x = 0 und x = 6",
-    "nur x = −6",
-    "x = 0 und x = −6"
+    "x = 0 und x = 9",
+    "x = 0 und x = −4,5",
+    "nur x = 4,5",
+    "x = 0 und x = 4,5"
    ],
    "o": {
-    "index": 2
+    "index": 3
    },
-   "w": "x = 0 oder x + 6 = 0 → x = −6.",
+   "w": "x = 0 oder −2x + 9 = 0 → x = 4,5.",
+   "h": "Ein Produkt ist 0, wenn einer der Faktoren 0 ist. Vergiss den Faktor x nicht."
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Nullstellen hat f(x) = x(5x − 1)?"
+   },
+   "a": [
+    "x = 0 und x = 0,2",
+    "nur x = 0,2",
+    "x = 0 und x = −0,2",
+    "x = 0 und x = −1"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "x = 0 oder 5x − 1 = 0 → x = 0,2.",
    "h": "Ein Produkt ist 0, wenn einer der Faktoren 0 ist. Vergiss den Faktor x nicht."
   },
   {
@@ -2526,13 +2531,13 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Berechne die Nullstelle von f(x) = (−2x − 10)/(x + 4)."
+    "text": "Berechne die Nullstelle von f(x) = (4x + 2)/(x + 3)."
    },
    "o": {
-    "wert": -5
+    "wert": -0.5
    },
-   "c": "-(-10) / (-2)",
-   "w": "Ein Bruch ist 0, wenn der Zähler 0 ist (und der Nenner nicht): −2x − 10 = 0 → x = −5. Nenner dort: −1 ≠ 0.",
+   "c": "-(2) / (4)",
+   "w": "Ein Bruch ist 0, wenn der Zähler 0 ist (und der Nenner nicht): 4x + 2 = 0 → x = −0,5. Nenner dort: 2,5 ≠ 0.",
    "h": "Ein Bruch ist 0, wenn sein Zähler 0 ist."
   },
   {
@@ -2542,18 +2547,18 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Welche Nullstellen hat f(x) = x(2x − 5)?"
+    "text": "Welche Nullstellen hat f(x) = x(2x + 6)?"
    },
    "a": [
-    "x = 0 und x = 2,5",
-    "x = 0 und x = −2,5",
-    "nur x = 2,5",
-    "x = 0 und x = −5"
+    "x = 0 und x = −3",
+    "x = 0 und x = 3",
+    "x = 0 und x = 6",
+    "nur x = −3"
    ],
    "o": {
     "index": 0
    },
-   "w": "x = 0 oder 2x − 5 = 0 → x = 2,5.",
+   "w": "x = 0 oder 2x + 6 = 0 → x = −3.",
    "h": "Ein Produkt ist 0, wenn einer der Faktoren 0 ist. Vergiss den Faktor x nicht."
   },
   {
@@ -2563,38 +2568,18 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Nullstellen hat f(x) = (x − 3)(x + 2)?"
+    "text": "Welche Nullstellen hat f(x) = (x + 2)(x − 4)?"
    },
    "a": [
-    "x = −2 und x = 3",
-    "x = −3 und x = 2",
-    "x = −6",
-    "x = −3 und x = −2"
+    "x = 2 und x = 4",
+    "x = −8",
+    "x = −2 und x = 4",
+    "x = −4 und x = 2"
    ],
    "o": {
-    "index": 0
+    "index": 2
    },
-   "w": "Ein Produkt ist 0, wenn ein Faktor 0 ist: x − 3 = 0 → x = 3; x + 2 = 0 → x = −2."
-  },
-  {
-   "l": "nullstellen",
-   "t": "nullstellen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Nullstellen hat f(x) = (x + 1)(x − 5)?"
-   },
-   "a": [
-    "x = −5 und x = 1",
-    "x = −5",
-    "x = 1 und x = 5",
-    "x = −1 und x = 5"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Ein Produkt ist 0, wenn ein Faktor 0 ist: x + 1 = 0 → x = −1; x − 5 = 0 → x = 5."
+   "w": "Ein Produkt ist 0, wenn ein Faktor 0 ist: x + 2 = 0 → x = −2; x − 4 = 0 → x = 4."
   },
   {
    "l": "nullstellen",
@@ -2603,33 +2588,58 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne die Nullstelle von f(x) = −3x + 3."
+    "text": "Berechne die Nullstelle von f(x) = 5x − 20."
    },
    "o": {
-    "wert": 1
+    "wert": 4
    },
-   "c": "-(3) / -3",
-   "w": "−3x + 3 = 0 → −3x = −3 → x = 1."
+   "c": "-(-20) / 5",
+   "w": "5x − 20 = 0 → 5x = 20 → x = 4."
   },
   {
    "l": "nullstellen",
    "t": "nullstellen",
    "p": "korrektur",
    "s": 2,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Welche Nullstellen hat f(x) = (x + 7)(x + 6)?"
+    "text": "Berechne die Nullstelle von f(x) = −8x + 20."
    },
-   "a": [
-    "x = 42",
-    "x = 6 und x = 7",
-    "x = 7 und x = −6",
-    "x = −7 und x = −6"
-   ],
    "o": {
-    "index": 3
+    "wert": 2.5
    },
-   "w": "Ein Produkt ist 0, wenn ein Faktor 0 ist: x + 7 = 0 → x = −7; x + 6 = 0 → x = −6."
+   "c": "-(20) / -8",
+   "w": "−8x + 20 = 0 → −8x = −20 → x = 2,5."
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Nullstelle von f(x) = −6x + 18."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "-(18) / -6",
+   "w": "−6x + 18 = 0 → −6x = −18 → x = 3."
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Nullstelle von f(x) = 2x + 6."
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "-(6) / 2",
+   "w": "2x + 6 = 0 → 2x = −6 → x = −3."
   },
   {
    "l": "nullstellen",
@@ -2638,17 +2648,18 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Nullstellen hat f(x) = (x − 6)(x + 6)?"
+    "text": "Welche Nullstellen hat f(x) = (x + 4)(x + 6)?"
    },
    "a": [
-    "x = −6 und x = 6",
-    "x = −36",
-    "keine Nullstelle"
+    "x = −6 und x = −4",
+    "x = 4 und x = −6",
+    "x = 24",
+    "x = 4 und x = 6"
    ],
    "o": {
     "index": 0
    },
-   "w": "Ein Produkt ist 0, wenn ein Faktor 0 ist: x − 6 = 0 → x = 6; x + 6 = 0 → x = −6."
+   "w": "Ein Produkt ist 0, wenn ein Faktor 0 ist: x + 4 = 0 → x = −4; x + 6 = 0 → x = −6."
   },
   {
    "l": "nullstellen",
@@ -2657,18 +2668,38 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Nullstellen hat f(x) = (x + 7)(x − 5)?"
+    "text": "Welche Nullstellen hat f(x) = (x − 2)(x + 3)?"
    },
    "a": [
-    "x = 7 und x = 5",
-    "x = −5 und x = 7",
+    "x = −3 und x = 2",
+    "x = −6",
+    "x = −2 und x = −3",
+    "x = −2 und x = 3"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ein Produkt ist 0, wenn ein Faktor 0 ist: x − 2 = 0 → x = 2; x + 3 = 0 → x = −3."
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Nullstellen hat f(x) = (x − 7)(x + 5)?"
+   },
+   "a": [
     "x = −35",
+    "x = −7 und x = −5",
+    "x = −5 und x = 7",
     "x = −7 und x = 5"
    ],
    "o": {
-    "index": 3
+    "index": 2
    },
-   "w": "Ein Produkt ist 0, wenn ein Faktor 0 ist: x + 7 = 0 → x = −7; x − 5 = 0 → x = 5."
+   "w": "Ein Produkt ist 0, wenn ein Faktor 0 ist: x − 7 = 0 → x = 7; x + 5 = 0 → x = −5."
   },
   {
    "l": "nullstellen",
@@ -2677,56 +2708,18 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Nullstellen hat f(x) = (x + 4)(x − 4)?"
+    "text": "Welche Nullstellen hat f(x) = (x + 4)(x − 1)?"
    },
    "a": [
-    "x = −16",
-    "x = −4 und x = 4",
-    "keine Nullstelle"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Ein Produkt ist 0, wenn ein Faktor 0 ist: x + 4 = 0 → x = −4; x − 4 = 0 → x = 4."
-  },
-  {
-   "l": "nullstellen",
-   "t": "nullstellen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Nullstellen hat f(x) = (x − 4)(x + 4)?"
-   },
-   "a": [
-    "x = −4 und x = 4",
-    "keine Nullstelle",
-    "x = −16"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Ein Produkt ist 0, wenn ein Faktor 0 ist: x − 4 = 0 → x = 4; x + 4 = 0 → x = −4."
-  },
-  {
-   "l": "nullstellen",
-   "t": "nullstellen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Nullstellen hat f(x) = (x − 3)(x + 1)?"
-   },
-   "a": [
-    "x = −3",
-    "x = −3 und x = 1",
-    "x = −3 und x = −1",
-    "x = −1 und x = 3"
+    "x = −1 und x = 4",
+    "x = 4 und x = 1",
+    "x = −4",
+    "x = −4 und x = 1"
    ],
    "o": {
     "index": 3
    },
-   "w": "Ein Produkt ist 0, wenn ein Faktor 0 ist: x − 3 = 0 → x = 3; x + 1 = 0 → x = −1."
+   "w": "Ein Produkt ist 0, wenn ein Faktor 0 ist: x + 4 = 0 → x = −4; x − 1 = 0 → x = 1."
   },
   {
    "l": "nullstellen",
@@ -2735,171 +2728,24 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Nullstellen hat f(x) = (x − 3)(x + 5)?"
+    "text": "Welche Nullstellen hat f(x) = (x − 3)(x − 2)?"
    },
    "a": [
-    "x = −3 und x = −5",
-    "x = −5 und x = 3",
-    "x = −15",
-    "x = −3 und x = 5"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Ein Produkt ist 0, wenn ein Faktor 0 ist: x − 3 = 0 → x = 3; x + 5 = 0 → x = −5."
-  },
-  {
-   "l": "punkt_graph",
-   "t": "punkt_graph",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Welcher Punkt liegt auf dem Graphen von f(x) = 4x + 4?"
-   },
-   "a": [
-    "P(3 | 17)",
-    "P(3 | 16)",
-    "P(−3 | 16)",
-    "P(16 | 3)"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "f(3) = 16, also liegt P(3 | 16) auf dem Graphen.",
-   "h": "Setze die x-Koordinate ein und vergleiche mit der y-Koordinate."
-  },
-  {
-   "l": "punkt_graph",
-   "t": "punkt_graph",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Welcher Punkt liegt auf dem Graphen von f(x) = −3x − 8?"
-   },
-   "a": [
-    "P(1 | −10)",
-    "P(1 | −11)",
-    "P(−1 | −11)",
-    "P(−11 | 1)"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "f(1) = −11, also liegt P(1 | −11) auf dem Graphen.",
-   "h": "Setze die x-Koordinate ein und vergleiche mit der y-Koordinate."
-  },
-  {
-   "l": "punkt_graph",
-   "t": "punkt_graph",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Welcher Punkt liegt auf dem Graphen von f(x) = −5x − 4?"
-   },
-   "a": [
-    "P(−1 | −9)",
-    "P(1 | −9)",
-    "P(1 | −10)",
-    "P(−9 | 1)"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "f(1) = −9, also liegt P(1 | −9) auf dem Graphen.",
-   "h": "Setze die x-Koordinate ein und vergleiche mit der y-Koordinate."
-  },
-  {
-   "l": "punkt_graph",
-   "t": "punkt_graph",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Welcher Punkt liegt auf dem Graphen von f(x) = −x + 9?"
-   },
-   "a": [
-    "P(0 | 9)",
-    "P(1 | 9)",
-    "P(9 | 0)",
-    "P(0 | 10)"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "f(0) = 9, also liegt P(0 | 9) auf dem Graphen.",
-   "h": "Setze die x-Koordinate ein und vergleiche mit der y-Koordinate."
-  },
-  {
-   "l": "punkt_graph",
-   "t": "punkt_graph",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welcher Punkt liegt auf dem Graphen von f(x) = −2x − 1?"
-   },
-   "a": [
-    "P(−2 | 5)",
-    "P(3 | −2)",
-    "P(−2 | 3)",
-    "P(2 | 3)"
+    "x = 6",
+    "x = −3 und x = 2",
+    "x = 2 und x = 3",
+    "x = −3 und x = −2"
    ],
    "o": {
     "index": 2
    },
-   "w": "f(−2) = 3, also liegt P(−2 | 3) auf dem Graphen.",
-   "h": "Setze die x-Koordinate ein und vergleiche mit der y-Koordinate."
+   "w": "Ein Produkt ist 0, wenn ein Faktor 0 ist: x − 3 = 0 → x = 3; x − 2 = 0 → x = 2."
   },
   {
    "l": "punkt_graph",
    "t": "punkt_graph",
    "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welcher Punkt liegt auf dem Graphen von f(x) = 3x² − x − 4?"
-   },
-   "a": [
-    "P(4 | 48)",
-    "P(48 | −4)",
-    "P(−4 | 48)",
-    "P(−4 | 49)"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "f(−4) = 48, also liegt P(−4 | 48) auf dem Graphen.",
-   "h": "Setze die x-Koordinate ein und vergleiche mit der y-Koordinate."
-  },
-  {
-   "l": "punkt_graph",
-   "t": "punkt_graph",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welcher Punkt liegt auf dem Graphen von f(x) = x² + x + 7?"
-   },
-   "a": [
-    "P(0 | 9)",
-    "P(1 | 7)",
-    "P(0 | 7)",
-    "P(7 | 0)"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "f(0) = 7, also liegt P(0 | 7) auf dem Graphen.",
-   "h": "Setze die x-Koordinate ein und vergleiche mit der y-Koordinate."
-  },
-  {
-   "l": "punkt_graph",
-   "t": "punkt_graph",
-   "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Welcher Punkt liegt auf dem Graphen von f(x) = −x + 7?"
@@ -2920,42 +2766,189 @@
    "l": "punkt_graph",
    "t": "punkt_graph",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Welcher Punkt liegt auf dem Graphen von f(x) = 2x² − 3x + 5?"
+    "text": "Welcher Punkt liegt auf dem Graphen von f(x) = 4x − 4?"
    },
    "a": [
-    "P(49 | −4)",
-    "P(4 | 49)",
-    "P(−4 | 50)",
-    "P(−4 | 49)"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "f(−4) = 49, also liegt P(−4 | 49) auf dem Graphen.",
-   "h": "Setze die x-Koordinate ein und vergleiche mit der y-Koordinate."
-  },
-  {
-   "l": "punkt_graph",
-   "t": "punkt_graph",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welcher Punkt liegt auf dem Graphen von f(x) = −2x² + x − 4?"
-   },
-   "a": [
-    "P(3 | −25)",
-    "P(−25 | −3)",
-    "P(−3 | −25)",
-    "P(−3 | −24)"
+    "P(8 | 3)",
+    "P(−3 | 8)",
+    "P(3 | 8)",
+    "P(3 | 9)"
    ],
    "o": {
     "index": 2
    },
-   "w": "f(−3) = −25, also liegt P(−3 | −25) auf dem Graphen.",
+   "w": "f(3) = 8, also liegt P(3 | 8) auf dem Graphen.",
+   "h": "Setze die x-Koordinate ein und vergleiche mit der y-Koordinate."
+  },
+  {
+   "l": "punkt_graph",
+   "t": "punkt_graph",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Punkt liegt auf dem Graphen von f(x) = 3x − 5?"
+   },
+   "a": [
+    "P(2 | 1)",
+    "P(−2 | 1)",
+    "P(1 | 2)",
+    "P(2 | 3)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "f(2) = 1, also liegt P(2 | 1) auf dem Graphen.",
+   "h": "Setze die x-Koordinate ein und vergleiche mit der y-Koordinate."
+  },
+  {
+   "l": "punkt_graph",
+   "t": "punkt_graph",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Punkt liegt auf dem Graphen von f(x) = x − 6?"
+   },
+   "a": [
+    "P(−7 | −1)",
+    "P(−1 | −8)",
+    "P(−1 | −7)",
+    "P(1 | −7)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "f(−1) = −7, also liegt P(−1 | −7) auf dem Graphen.",
+   "h": "Setze die x-Koordinate ein und vergleiche mit der y-Koordinate."
+  },
+  {
+   "l": "punkt_graph",
+   "t": "punkt_graph",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Punkt liegt auf dem Graphen von f(x) = 3x² + 4x − 3?"
+   },
+   "a": [
+    "P(−2 | 1)",
+    "P(−2 | 3)",
+    "P(2 | 1)",
+    "P(1 | −2)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "f(−2) = 1, also liegt P(−2 | 1) auf dem Graphen.",
+   "h": "Setze die x-Koordinate ein und vergleiche mit der y-Koordinate."
+  },
+  {
+   "l": "punkt_graph",
+   "t": "punkt_graph",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Punkt liegt auf dem Graphen von f(x) = x − 6?"
+   },
+   "a": [
+    "P(−10 | −4)",
+    "P(−4 | −10)",
+    "P(−4 | −8)",
+    "P(4 | −10)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "f(−4) = −10, also liegt P(−4 | −10) auf dem Graphen.",
+   "h": "Setze die x-Koordinate ein und vergleiche mit der y-Koordinate."
+  },
+  {
+   "l": "punkt_graph",
+   "t": "punkt_graph",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Punkt liegt auf dem Graphen von f(x) = x² + 3x + 1?"
+   },
+   "a": [
+    "P(3 | 1)",
+    "P(1 | −3)",
+    "P(−3 | 3)",
+    "P(−3 | 1)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "f(−3) = 1, also liegt P(−3 | 1) auf dem Graphen.",
+   "h": "Setze die x-Koordinate ein und vergleiche mit der y-Koordinate."
+  },
+  {
+   "l": "punkt_graph",
+   "t": "punkt_graph",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Punkt liegt auf dem Graphen von f(x) = −x + 8?"
+   },
+   "a": [
+    "P(0 | 8)",
+    "P(1 | 8)",
+    "P(0 | 7)",
+    "P(8 | 0)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "f(0) = 8, also liegt P(0 | 8) auf dem Graphen.",
+   "h": "Setze die x-Koordinate ein und vergleiche mit der y-Koordinate."
+  },
+  {
+   "l": "punkt_graph",
+   "t": "punkt_graph",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Punkt liegt auf dem Graphen von f(x) = 2x² + 3x − 2?"
+   },
+   "a": [
+    "P(3 | 7)",
+    "P(−3 | 9)",
+    "P(−3 | 7)",
+    "P(7 | −3)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "f(−3) = 7, also liegt P(−3 | 7) auf dem Graphen.",
+   "h": "Setze die x-Koordinate ein und vergleiche mit der y-Koordinate."
+  },
+  {
+   "l": "punkt_graph",
+   "t": "punkt_graph",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Punkt liegt auf dem Graphen von f(x) = −4x + 7?"
+   },
+   "a": [
+    "P(11 | −1)",
+    "P(−1 | 12)",
+    "P(−1 | 11)",
+    "P(1 | 11)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "f(−1) = 11, also liegt P(−1 | 11) auf dem Graphen.",
    "h": "Setze die x-Koordinate ein und vergleiche mit der y-Koordinate."
   },
   {
@@ -2965,45 +2958,13 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Der Punkt P(−2 | 6) liegt auf dem Graphen von f(x) = k · x + 4. Bestimme k."
-   },
-   "o": {
-    "wert": -1
-   },
-   "c": "(6 - (4)) / (-2)",
-   "w": "f(−2) = 6: k · (−2) + 4 = 6 → k · (−2) = 2 → k = −1.",
-   "h": "Setze die Koordinaten von P in die Gleichung y = f(x) ein und löse nach k."
-  },
-  {
-   "l": "punkt_graph",
-   "t": "punkt_graph",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Der Punkt P(−2 | 10) liegt auf dem Graphen von f(x) = k · x + 6. Bestimme k."
-   },
-   "o": {
-    "wert": -2
-   },
-   "c": "(10 - (6)) / (-2)",
-   "w": "f(−2) = 10: k · (−2) + 6 = 10 → k · (−2) = 4 → k = −2.",
-   "h": "Setze die Koordinaten von P in die Gleichung y = f(x) ein und löse nach k."
-  },
-  {
-   "l": "punkt_graph",
-   "t": "punkt_graph",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Der Punkt P(−4 | −7) liegt auf dem Graphen von f(x) = k · x + 1. Bestimme k."
+    "text": "Der Punkt P(1 | 4) liegt auf dem Graphen von f(x) = k · x + 2. Bestimme k."
    },
    "o": {
     "wert": 2
    },
-   "c": "(-7 - (1)) / (-4)",
-   "w": "f(−4) = −7: k · (−4) + 1 = −7 → k · (−4) = −8 → k = 2.",
+   "c": "(4 - (2)) / (1)",
+   "w": "f(1) = 4: k · 1 + 2 = 4 → k · 1 = 2 → k = 2.",
    "h": "Setze die Koordinaten von P in die Gleichung y = f(x) ein und löse nach k."
   },
   {
@@ -3013,13 +2974,45 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Der Punkt P(−5 | −1) liegt auf dem Graphen von f(x) = k · x + 4. Bestimme k."
+    "text": "Der Punkt P(4 | 19) liegt auf dem Graphen von f(x) = k · x − 1. Bestimme k."
    },
    "o": {
-    "wert": 1
+    "wert": 5
    },
-   "c": "(-1 - (4)) / (-5)",
-   "w": "f(−5) = −1: k · (−5) + 4 = −1 → k · (−5) = −5 → k = 1.",
+   "c": "(19 - (-1)) / (4)",
+   "w": "f(4) = 19: k · 4 − 1 = 19 → k · 4 = 20 → k = 5.",
+   "h": "Setze die Koordinaten von P in die Gleichung y = f(x) ein und löse nach k."
+  },
+  {
+   "l": "punkt_graph",
+   "t": "punkt_graph",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Punkt P(5 | 15) liegt auf dem Graphen von f(x) = k · x + 5. Bestimme k."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "(15 - (5)) / (5)",
+   "w": "f(5) = 15: k · 5 + 5 = 15 → k · 5 = 10 → k = 2.",
+   "h": "Setze die Koordinaten von P in die Gleichung y = f(x) ein und löse nach k."
+  },
+  {
+   "l": "punkt_graph",
+   "t": "punkt_graph",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Punkt P(−3 | 10) liegt auf dem Graphen von f(x) = k · x + 1. Bestimme k."
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "(10 - (1)) / (-3)",
+   "w": "f(−3) = 10: k · (−3) + 1 = 10 → k · (−3) = 9 → k = −3.",
    "h": "Setze die Koordinaten von P in die Gleichung y = f(x) ein und löse nach k."
   },
   {
@@ -3029,78 +3022,158 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welcher Punkt liegt auf dem Graphen von f(x) = 5x + 8?"
+    "text": "Welcher Punkt liegt auf dem Graphen von f(x) = −3x² + x + 5?"
    },
    "a": [
-    "P(13 | 1)",
-    "P(1 | 12)",
-    "P(1 | 13)",
-    "P(−1 | 13)"
+    "P(−4 | −48)",
+    "P(−4 | −47)",
+    "P(−47 | −4)",
+    "P(4 | −47)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "f(−4) = −47, also liegt P(−4 | −47) auf dem Graphen."
+  },
+  {
+   "l": "punkt_graph",
+   "t": "punkt_graph",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Punkt liegt auf dem Graphen von f(x) = 4x − 2?"
+   },
+   "a": [
+    "P(4 | 14)",
+    "P(−4 | 14)",
+    "P(14 | 4)",
+    "P(4 | 15)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "f(4) = 14, also liegt P(4 | 14) auf dem Graphen."
+  },
+  {
+   "l": "punkt_graph",
+   "t": "punkt_graph",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Punkt liegt auf dem Graphen von f(x) = −3x² − 4?"
+   },
+   "a": [
+    "P(1 | −7)",
+    "P(2 | −7)",
+    "P(−7 | 1)",
+    "P(1 | −8)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "f(1) = −7, also liegt P(1 | −7) auf dem Graphen."
+  },
+  {
+   "l": "punkt_graph",
+   "t": "punkt_graph",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Punkt liegt auf dem Graphen von f(x) = 3x² − x + 3?"
+   },
+   "a": [
+    "P(2 | 14)",
+    "P(2 | 13)",
+    "P(13 | 2)",
+    "P(−2 | 13)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "f(2) = 13, also liegt P(2 | 13) auf dem Graphen."
+  },
+  {
+   "l": "punkt_graph",
+   "t": "punkt_graph",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Punkt liegt auf dem Graphen von f(x) = −5x − 2?"
+   },
+   "a": [
+    "P(1 | −2)",
+    "P(−2 | 0)",
+    "P(0 | −2)",
+    "P(0 | −3)"
    ],
    "o": {
     "index": 2
    },
-   "w": "f(1) = 13, also liegt P(1 | 13) auf dem Graphen."
+   "w": "f(0) = −2, also liegt P(0 | −2) auf dem Graphen."
   },
   {
    "l": "punkt_graph",
    "t": "punkt_graph",
-   "p": "korrektur",
+   "p": "sicherung",
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welcher Punkt liegt auf dem Graphen von f(x) = 2x² − 6?"
+    "text": "Welcher Punkt liegt auf dem Graphen von f(x) = 3x² + 3?"
    },
    "a": [
-    "P(4 | 25)",
-    "P(5 | 26)",
-    "P(26 | 4)",
-    "P(4 | 26)"
+    "P(−2 | 15)",
+    "P(15 | −2)",
+    "P(−1 | 15)",
+    "P(−2 | 17)"
    ],
    "o": {
-    "index": 3
+    "index": 0
    },
-   "w": "f(4) = 26, also liegt P(4 | 26) auf dem Graphen."
+   "w": "f(−2) = 15, also liegt P(−2 | 15) auf dem Graphen."
   },
   {
    "l": "punkt_graph",
    "t": "punkt_graph",
-   "p": "korrektur",
+   "p": "sicherung",
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welcher Punkt liegt auf dem Graphen von f(x) = 2x² − x?"
+    "text": "Welcher Punkt liegt auf dem Graphen von f(x) = 5x − 3?"
    },
    "a": [
-    "P(45 | 5)",
-    "P(−5 | 45)",
-    "P(5 | 46)",
-    "P(5 | 45)"
+    "P(−1 | −8)",
+    "P(−8 | −1)",
+    "P(1 | −8)",
+    "P(−1 | −9)"
    ],
    "o": {
-    "index": 3
+    "index": 0
    },
-   "w": "f(5) = 45, also liegt P(5 | 45) auf dem Graphen."
+   "w": "f(−1) = −8, also liegt P(−1 | −8) auf dem Graphen."
   },
   {
    "l": "punkt_graph",
    "t": "punkt_graph",
-   "p": "korrektur",
+   "p": "sicherung",
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welcher Punkt liegt auf dem Graphen von f(x) = −2x² − 3x + 2?"
+    "text": "Welcher Punkt liegt auf dem Graphen von f(x) = −6x + 9?"
    },
    "a": [
-    "P(−42 | 4)",
-    "P(4 | −42)",
-    "P(4 | −43)",
-    "P(−4 | −42)"
+    "P(21 | −2)",
+    "P(−2 | 21)",
+    "P(−2 | 22)",
+    "P(2 | 21)"
    ],
    "o": {
     "index": 1
    },
-   "w": "f(4) = −42, also liegt P(4 | −42) auf dem Graphen."
+   "w": "f(−2) = 21, also liegt P(−2 | 21) auf dem Graphen."
   },
   {
    "l": "punkt_graph",
@@ -3109,118 +3182,38 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welcher Punkt liegt auf dem Graphen von f(x) = −3x² + 5x + 7?"
+    "text": "Welcher Punkt liegt auf dem Graphen von f(x) = 3x² − 4x + 6?"
    },
    "a": [
-    "P(1 | 7)",
-    "P(7 | 0)",
-    "P(0 | 6)",
-    "P(0 | 7)"
+    "P(3 | 21)",
+    "P(21 | 3)",
+    "P(3 | 20)",
+    "P(−3 | 21)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "f(3) = 21, also liegt P(3 | 21) auf dem Graphen."
+  },
+  {
+   "l": "punkt_graph",
+   "t": "punkt_graph",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Punkt liegt auf dem Graphen von f(x) = −3x² − 3x + 1?"
+   },
+   "a": [
+    "P(−2 | −6)",
+    "P(−5 | −2)",
+    "P(2 | −5)",
+    "P(−2 | −5)"
    ],
    "o": {
     "index": 3
    },
-   "w": "f(0) = 7, also liegt P(0 | 7) auf dem Graphen."
-  },
-  {
-   "l": "punkt_graph",
-   "t": "punkt_graph",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welcher Punkt liegt auf dem Graphen von f(x) = 4x + 6?"
-   },
-   "a": [
-    "P(−5 | 26)",
-    "P(26 | 5)",
-    "P(5 | 27)",
-    "P(5 | 26)"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "f(5) = 26, also liegt P(5 | 26) auf dem Graphen."
-  },
-  {
-   "l": "punkt_graph",
-   "t": "punkt_graph",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welcher Punkt liegt auf dem Graphen von f(x) = −x² − 5x − 2?"
-   },
-   "a": [
-    "P(−1 | 2)",
-    "P(2 | −1)",
-    "P(1 | 2)",
-    "P(−1 | 4)"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "f(−1) = 2, also liegt P(−1 | 2) auf dem Graphen."
-  },
-  {
-   "l": "punkt_graph",
-   "t": "punkt_graph",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welcher Punkt liegt auf dem Graphen von f(x) = x² − 3x − 5?"
-   },
-   "a": [
-    "P(−1 | 4)",
-    "P(4 | −1)",
-    "P(4 | 0)",
-    "P(−4 | −1)"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "f(4) = −1, also liegt P(4 | −1) auf dem Graphen."
-  },
-  {
-   "l": "punkt_graph",
-   "t": "punkt_graph",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welcher Punkt liegt auf dem Graphen von f(x) = 6x + 1?"
-   },
-   "a": [
-    "P(−4 | −23)",
-    "P(4 | −23)",
-    "P(−23 | −4)",
-    "P(−4 | −22)"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "f(−4) = −23, also liegt P(−4 | −23) auf dem Graphen."
-  },
-  {
-   "l": "punkt_graph",
-   "t": "punkt_graph",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welcher Punkt liegt auf dem Graphen von f(x) = 3x² − x + 5?"
-   },
-   "a": [
-    "P(−1 | 9)",
-    "P(1 | 9)",
-    "P(−1 | 8)",
-    "P(9 | −1)"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "f(−1) = 9, also liegt P(−1 | 9) auf dem Graphen."
+   "w": "f(−2) = −5, also liegt P(−2 | −5) auf dem Graphen."
   }
  ],
  "offen": [

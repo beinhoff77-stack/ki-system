@@ -160,7 +160,7 @@ def g_klammern(R, st):
             if p == r: continue
             s = (p - r) * g + q
             txt = (f'{a if a > 0 else "−" + str(-a)}(x {"+" if b >= 0 else "−"} {abs(b)}) − {c}(x {"−" if d >= 0 else "+"} {abs(d)}) {z} {lin(r, s)}')
-        if b != 0 and s.denominator == 1: break
+        if b != 0 and p != 0 and q != 0 and s.denominator == 1: break
     z2, g2 = loese(p, q, z, r, s)
     assert g2 == g
     k = p - r
@@ -277,6 +277,11 @@ def g_pruefen(R, st):
              'Rechne jeden Schritt selbst nach und vergleiche.')
 
 
+def gx(p):
+    """Geldbetrag als Faktor vor x: 1 → x."""
+    return 'x' if p == 1 else f'{eur(p)}x'
+
+
 def g_sachaufgabe(R, st):
     art = R.choice({1: ['aufzug', 'tarif', 'regal'], 2: ['tarif', 'taxi', 'sparen', 'aufzug'], 3: ['kino', 'sparen', 'vergleich']}[st])
     if art == 'aufzug':
@@ -295,14 +300,14 @@ def g_sachaufgabe(R, st):
         g, p, B = R.choice([5, 8, 10, 12]), R.choice([Fr(3, 2), Fr(2), Fr(5, 2), Fr(3), Fr(7, 2)]), R.choice([20, 25, 30, 35, 40])
         n = int((B - g) / p)
         return Z(f'Ein Handytarif kostet im Monat {eur(g)} € Grundgebühr und {eur(p)} € je zusätzliches Datenpaket. Man will höchstens {B} € zahlen. Wie viele Datenpakete kann man höchstens kaufen?',
-                 n, f'({B} - {g}) * {p.denominator} // {p.numerator}', f'{eur(g)} + {eur(p)}x ≤ {B} → {eur(p)}x ≤ {B - g} → x ≤ {ca(Fr(B - g) / p)}. Höchstens {n} Pakete.',
+                 n, f'({B} - {g}) * {p.denominator} // {p.numerator}', f'{eur(g)} + {gx(p)} ≤ {B} → {gx(p)} ≤ {B - g} → x ≤ {ca(Fr(B - g) / p)}. Höchstens {n} Pakete.',
                  'Grundgebühr + Preis · Anzahl ≤ Höchstbetrag.')
     if art == 'taxi':
         g, p, B = R.choice([Fr(7, 2), Fr(4), Fr(9, 2)]), R.choice([Fr(2), Fr(11, 5), Fr(12, 5), Fr(5, 2)]), R.choice([20, 25, 30, 40, 50])
         n = int((B - g) / p)
         return Z(f'Eine Taxifahrt kostet {eur(g)} € Grundpreis und {eur(p)} € je angefangenen Kilometer. Wie viele Kilometer kann man mit {B} € höchstens fahren?',
                  n, f'(({B}) - {cz(g)}) * {p.denominator} // {p.numerator}' if g.denominator == 1 else f'({B} * {g.denominator} - {g.numerator}) * {p.denominator} // ({p.numerator} * {g.denominator})',
-                 f'{eur(g)} + {eur(p)}x ≤ {B} → {eur(p)}x ≤ {eur(B - g)} → x ≤ {ca((B - g) / p)}. Höchstens {n} km.',
+                 f'{eur(g)} + {gx(p)} ≤ {B} → {gx(p)} ≤ {eur(B - g)} → x ≤ {ca((B - g) / p)}. Höchstens {n} km.',
                  'Stelle die Ungleichung auf und runde passend.')
     if art == 'sparen':
         s, w, Zl = R.randint(10, 60), R.choice([4, 5, 6, 7, 8, 12, 15]), R.choice([150, 200, 250, 300, 400])
@@ -315,7 +320,7 @@ def g_sachaufgabe(R, st):
         j = R.choice([45, 50, 60, 70, 80, 90])
         n = int(j / (e - r)) + 1
         return Z(f'Ein Kinobesuch kostet {eur(e)} €. Mit einer Jahreskarte für {j} € zahlt man pro Besuch nur {eur(r)} €. Ab wie vielen Besuchen ist man mit der Jahreskarte billiger?',
-                 n, f'{j} * {(e - r).denominator} // {(e - r).numerator} + 1', f'{j} + {eur(r)}x < {eur(e)}x → {eur(e - r)}x > {j} → x > {ca(j / (e - r))}. Ab {n} Besuchen.',
+                 n, f'{j} * {(e - r).denominator} // {(e - r).numerator} + 1', f'{j} + {gx(r)} < {gx(e)} → {gx(e - r)} > {j} → x > {ca(j / (e - r))}. Ab {n} Besuchen.',
                  'Kosten mit Karte < Kosten ohne Karte. Gesucht ist die kleinste ganze Zahl.')
     # vergleich zweier Tarife
     g1, p1 = R.choice([0, 2, 3]), R.choice([Fr(3, 2), Fr(2), Fr(5, 2)])
@@ -323,7 +328,7 @@ def g_sachaufgabe(R, st):
     n = int((g2 - g1) / (p1 - p2)) + 1
     return Z(f'Fitness-Studio A: {g1} € Grundbetrag, {eur(p1)} € je Besuch. Studio B: {g2} € Grundbetrag, {eur(p2)} € je Besuch. Ab wie vielen Besuchen im Monat ist B billiger?',
              n, f'({g2} - {g1}) * {(p1 - p2).denominator} // {(p1 - p2).numerator} + 1',
-             f'{g2} + {eur(p2)}x < {g1} + {eur(p1)}x → {eur(p1 - p2)}x > {g2 - g1} → x > {ca((g2 - g1) / (p1 - p2))}. Ab {n} Besuchen.',
+             f'{g2} + {gx(p2)} < {g1} + {gx(p1)} → {gx(p1 - p2)} > {g2 - g1} → x > {ca((g2 - g1) / (p1 - p2))}. Ab {n} Besuchen.',
              'Stelle „Kosten B < Kosten A“ auf und löse nach x.')
 
 

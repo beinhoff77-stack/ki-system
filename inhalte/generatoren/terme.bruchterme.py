@@ -138,7 +138,7 @@ def g_kuerzen(R, st):
         c = Fr(p, q); e = e1 - e2
         T = f'{p}{pot("x", e1)}/({q}{pot("x", e2)})'
         r = mono(c, e)
-        return A(R, f'Kürze vollständig: {T}', r, [mono(c, e1 + e2) if e1 + e2 <= 6 else mono(c, e + 1), mono(Fr(p - t, q - t) if q - t else c + 1, e), mono(c, -e), mono(c * 2, e)],
+        return A(R, f'Kürze vollständig: {T}', r, [mono(c, e1 + e2) if e1 + e2 <= 6 else mono(c, e + 1), mono(Fr(p - t, q - t), e) if p - t > 0 and q - t > 0 and Fr(p - t, q - t) != c else mono(3 * c, e), mono(c, -e), mono(c * 2, e)],
                  f'Zahlen: {p}/{q} = {bruch(c)}. Potenzen: {pot("x", e1)}/{pot("x", e2)} = {mono(1, e)}. Ergebnis: {r}.',
                  'Kürze Zahlen und Potenzen von x getrennt. Gleiche Faktoren x fallen weg.')
     if st == 2:
@@ -149,7 +149,7 @@ def g_kuerzen(R, st):
                 if k != m and b: break
             T = f'({lin(k, k * b)})/({lin(m, m * b)})'
             r = bruch(Fr(k, m))
-            return A(R, f'Kürze vollständig: {T}', r, [f'{bruch(Fr(k * b, m * b) + 1)}', f'({lin(k, b)})/({lin(m, b)})', f'{k * b}/{m * b} · x'],
+            return A(R, f'Kürze vollständig: {T}', r, [f'{bruch(Fr(k * b, m * b) + 1)}', f'({lin(k, b)})/({lin(m, b)})', f'{zt(k * b)}/{kl(m * b)} · x'],
                      f'Ausklammern: {k}({lin(1, b)})/({m}({lin(1, b)})). ({lin(1, b)}) kürzen: {r}.', 'Klammere im Zähler und im Nenner die Zahl vor x aus.')
         b, c = R.randint(-8, 8) or 3, R.randint(2, 9)
         T = f'({lin(1, 0)}² {"+" if b > 0 else "−"} {abs(b) if abs(b) != 1 else ""}x)/({c}x)'
@@ -188,7 +188,7 @@ def g_erweitern(R, st):
         a, b = R.randint(1, 9), R.randint(1, 9) * R.choice([-1, 1])
         alt, neu = f'{a}/({lin(1, b)})', f'x² {"+" if b > 0 else "−"} {abs(b) if abs(b) != 1 else ""}x'
         return L(f'Erweitere {alt} auf den Nenner {neu}. Gib den neuen Zähler ein.', '□x', [a], [f'{a}'],
-                 f'{neu} = x({lin(1, b)}). Mit x erweitern: Zähler {a}x.', 'Klammere im neuen Nenner x aus.')
+                 f'{neu} = x({lin(1, b)}). Mit x erweitern: Zähler {lin(a, 0)}.', 'Klammere im neuen Nenner x aus.')
     b, c, f = R.randint(1, 9) * R.choice([-1, 1]), R.randint(1, 9) * R.choice([-1, 1]), R.randint(2, 5)
     alt, neu = f'({lin(1, b)})/({lin(1, c)})', f'{lin(f, f * c)}'
     return L(f'Erweitere {alt} auf den Nenner {neu}. Gib den neuen Zähler ein.', '□x + □', [f, f * b], [f'{f}', f'{f}*({b})'],
@@ -216,12 +216,12 @@ def g_addieren(R, st):
                      'Erweitere den ersten Bruch auf den Hauptnenner.')
         r = f'({lin(a, -b if op == "−" else b)})/x²'
         return A(R, f'Fasse zusammen: {a}/x {op} {b}/x²', r, [f'{zt(a - b if op == "−" else a + b)}/x²', f'{zt(a - b if op == "−" else a + b)}/x³', f'({lin(a, -b if op == "−" else b)})/x³'],
-                 f'Hauptnenner x²: {a}/x = {a}x/x². Ergebnis: {r}.', 'Der Hauptnenner ist x². Erweitere den ersten Bruch mit x.')
+                 f'Hauptnenner x²: {a}/x = {lin(a, 0)}/x². Ergebnis: {r}.', 'Der Hauptnenner ist x². Erweitere den ersten Bruch mit x.')
     a, b, c = R.randint(1, 6), R.randint(1, 6), R.randint(1, 8) * R.choice([-1, 1])
     r = f'({lin(a + b, a * c)})/(x({lin(1, c)}))'
     return A(R, f'Fasse zusammen: {a}/x + {b}/({lin(1, c)})', r,
              [f'{a + b}/(x + {lin(1, c)})', f'{a + b}/(x({lin(1, c)}))', f'({lin(a + b, c)})/(x({lin(1, c)}))'],
-             f'Hauptnenner x({lin(1, c)}). Zähler: {a}({lin(1, c)}) + {b}x = {lin(a + b, a * c)}. Ergebnis: {r}.',
+             f'Hauptnenner x({lin(1, c)}). Zähler: {a}({lin(1, c)}) + {lin(b, 0)} = {lin(a + b, a * c)}. Ergebnis: {r}.',
              'Der Hauptnenner ist das Produkt der beiden Nenner.')
 
 

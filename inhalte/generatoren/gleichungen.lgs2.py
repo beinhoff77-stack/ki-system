@@ -307,7 +307,7 @@ def g_sachaufgabe(R, st):
     x, y = R.randint(2, 12), R.randint(2, 12)
     m, P = x + y, k1 * x + k2 * y
     return Z(f'Ein Händler mischt Nüsse zu {k1} € pro kg mit Nüssen zu {k2} € pro kg. Er erhält {m} kg Mischung im Wert von {P} €. Wie viel kg der billigeren Sorte verwendet er?', x,
-             f'({k2} * {m} - {P}) / ({k2} - {k1})', f'I: x + y = {m}, II: {k1}x + {k2}y = {P}. y = {m} − x: {k1}x + {k2 * m} − {k2}x = {P} → {k1 - k2}x = {P - k2 * m} → x = {x}.',
+             f'({k2} * {m} - {P}) / ({k2} - {k1})', f'I: x + y = {m}, II: {k1}x + {k2}y = {P}. y = {m} − x: {k1}x + {k2 * m} − {k2}x = {P} → {lin(k1 - k2, 0)} = {zt(P - k2 * m)} → x = {x}.',
              'Eine Gleichung für die Masse, eine für den Preis.', einheit='kg')
 
 

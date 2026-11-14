@@ -158,7 +158,7 @@ def g_funktionswert(R, st):
 def g_stelle(R, st):
     if st == 3 and R.random() < .5:
         while True:
-            a, y = nz(R, -24, 24), nz(R, -8, 8)
+            a, y = nz(R, -24, 24), R.choice([k for k in range(-8, 9) if k not in (0, 1, -1)])
             x = Fr(a, y)
             if ist_endlich(x) and len(zt(x)) <= 5: break
         return Z(f'Für welches x ist f(x) = {zt(y)}, wenn f(x) = {zt(a)}/x?', x, f'{a} / ({y})',

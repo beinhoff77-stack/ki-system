@@ -56,14 +56,35 @@ function lernOrte(u, kind) {
   const route = new Map((kind.route || []).map((r) => [r.block_id, r]));
   const einheiten = (u.einheiten || []).filter((e) => e.status !== 'entwurf' || kind.ist_test);
   if (!einheiten.length) return [el('p', { class: 'card muted' }, 'Noch keine freigegebenen Lerneinheiten.')];
+  // Je Kind einordnen: Jetzt dran (Ort auf der Route, nicht „kann schon“, Klassenstufe erreicht) · Kann schon · Später
+  const gruppe = (e) => {
+    const r = route.get(e.block_id);
+    if (kind.ist_test || !kind.route?.length) return 'jetzt';
+    if (r?.kann_schon) return 'kann';
+    if (e.ziel_klasse && kind.klasse && e.ziel_klasse > kind.klasse) return 'spaeter';
+    return 'jetzt';
+  };
+  const pos = (e) => route.get(e.block_id)?.position ?? 1e9;
+  const sortiert = [...einheiten].sort((a, b) => pos(a) - pos(b) || a.id - b.id);
+  const teil = (g) => sortiert.filter((e) => gruppe(e) === g);
+  const jetzt = teil('jetzt'), kann = teil('kann'), spaeter = teil('spaeter');
+  const out = [];
+  out.push(el('h2', { class: 'lern-gruppe' }, 'Jetzt dran'));
+  out.push(...(jetzt.length ? lernOrtKarten(jetzt, kind, stand, route) : [el('p', { class: 'card muted' }, 'Gerade ist hier nichts offen. Neue Einheiten kommen bald.')]));
+  if (kann.length) out.push(el('details', { class: 'lern-weitere' }, el('summary', {}, `Kann schon – zum Wiederholen (${kann.length})`), ...lernOrtKarten(kann, kind, stand, route)));
+  if (spaeter.length) out.push(el('details', { class: 'lern-weitere' }, el('summary', {}, `Später – für höhere Klassen (${spaeter.length})`), ...lernOrtKarten(spaeter, kind, stand, route)));
+  return out;
+}
+
+function lernOrtKarten(einheiten, kind, stand, route) {
   const orte = new Map();
   for (const e of einheiten) { if (!orte.has(e.block_id)) orte.set(e.block_id, []); orte.get(e.block_id).push(e); }
   return [...orte.values()].map((es) => {
     const r = route.get(es[0].block_id);
     const fertig = r?.status === 'fertig';
     return el('section', { class: 'lern-ort' },
-      el('h3', {}, es[0].ort_titel, el('span', { class: 'muted small' }, ' · Ort ' + es[0].ort),
-        fertig ? el('span', { class: 'pill neu' }, 'abgeschlossen') : r?.kann_schon ? el('span', { class: 'pill' }, 'kann schon') : null),
+      el('h3', {}, es[0].ort_titel, el('span', { class: 'muted small' }, ' · Ort ' + es[0].ort + (es[0].ziel_klasse ? ' · Kl. ' + es[0].ziel_klasse : '')),
+        fertig ? el('span', { class: 'pill neu' }, 'abgeschlossen') : null),
       ...es.map((e) => {
         const s = stand.get(e.id) || {};
         const n = e.pflicht_anzahl || 0, f = Number(s.fertig || 0);

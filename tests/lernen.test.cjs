@@ -50,9 +50,11 @@ async function setup(t) {
     const b = JSON.parse(route.request().postData() || '{}'); calls.push(b); const d = b.daten || {};
     let e;
     if (b.aktion === 'schule_uebersicht') e = { ok: true, leitung: true, einheiten: [
-      { id: 1, status: 'geprueft', block_id: 49, ort: 'z1', ort_titel: 'Natürliche und ganze Zahlen', titel: 'Natürliche Zahlen', ziel: 'Große Zahlen lesen.', pflicht_anzahl: 4 },
+      { id: 1, status: 'geprueft', block_id: 49, ort: 'z1', ort_titel: 'Natürliche und ganze Zahlen', titel: 'Natürliche Zahlen', ziel: 'Große Zahlen lesen.', pflicht_anzahl: 4, ziel_klasse: 5 },
+      { id: 2, status: 'geprueft', block_id: 52, ort: 'g4', ort_titel: 'Zinsen', titel: 'Einfache Zinsen', ziel: 'Zinsen berechnen.', pflicht_anzahl: 6, ziel_klasse: 7 },
       { id: 3, status: 'entwurf', block_id: 60, ort: 'a3', ort_titel: 'Terme', titel: 'Terme umformen', ziel: 'Terme umformen.', pflicht_anzahl: 8 }],
-      lernende: [{ id: 1, name: 'Kind A', ist_test: false, route: [], stand: [{ einheit_id: 1, fertig: 2, fehler: 1, gesichert: 0, blocktest: true, laeuft: false }] },
+      lernende: [{ id: 1, name: 'Kind A', klasse: 5, ist_test: false, route: [{ block_id: 49, position: 101, status: 'offen', kann_schon: false }, { block_id: 52, position: 206, status: 'offen', kann_schon: false }], stand: [{ einheit_id: 1, fertig: 2, fehler: 1, gesichert: 0, blocktest: true, laeuft: false }] },
+        { id: 2, name: 'Kind B', klasse: 7, ist_test: false, route: [{ block_id: 49, position: 101, status: 'offen', kann_schon: true }, { block_id: 52, position: 206, status: 'offen', kann_schon: false }], stand: [] },
         { id: 3, name: 'Testkind', ist_test: true, route: [], stand: [] }] };
     else if (b.aktion === 'schule_einheit_lesen') e = { ok: true, einheit_id: d.einheit_id, status: 'geprueft', inhalt: { ziel: 'Natürliche Zahlen: große Zahlen lesen', verstehen: [{ titel: 'Stellenwerte', text: 'Jede Stelle ist zehnmal so viel wert.', beispiel: '2 000 = 2 · 1 000' }], merke: ['Dreiergruppen lesen.'] },
       uebungen: [zeig(AUFG[11]), zeig(AUFG[12]), zeig(AUFG[13])], stand: [{ lernziel: 'stellenwert', pflicht: true, status: 'offen' }], laufender_test: null };
@@ -73,6 +75,15 @@ test('Lernen: Übersicht zeigt Kinder, Fortschritt und Entwürfe nur beim Testki
   await page.goto(origin + '/#/lernen');
   await page.getByRole('tab', { name: 'Kind A' }).waitFor();
   await page.getByText('2 von 4 Lernzielen geschafft').waitFor();
+  // Kind A (Kl. 5): Zinsen (Kl. 7) unter „Später“, eingeklappt
+  assert.equal(await page.locator('details.lern-weitere', { hasText: 'Später' }).count(), 1);
+  assert.equal(await page.getByText('Einfache Zinsen').isVisible(), false);
+  await page.getByRole('tab', { name: 'Kind B' }).click();
+  // Kind B (Kl. 7): Zinsen jetzt dran, z1 unter „Kann schon“
+  assert.equal(await page.getByText('Einfache Zinsen').isVisible(), true);
+  assert.equal(await page.locator('details.lern-weitere', { hasText: 'Kann schon' }).count(), 1);
+  assert.equal(await page.getByText('Natürliche Zahlen', { exact: true }).isVisible(), false);
+  await page.getByRole('tab', { name: 'Kind A' }).click();
   assert.equal(await page.getByText('Terme umformen', { exact: true }).count(), 0);
   await page.getByRole('tab', { name: /Testkind/ }).click();
   await page.getByText('Terme umformen', { exact: true }).waitFor();

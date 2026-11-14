@@ -261,6 +261,8 @@ function lernUeben(ctx) {
 }
 
 // ---------- Test ----------
+const lernNtTitel = (nt) => nt.art === 'wiederholung' ? 'Nachtest wiederholen' : nt.folgerunde ? 'Weiterer Nachtest (bis alles sicher ist)' : `Nachtest ${nt.runde} von 3`;
+
 function lernTestStart(ctx, body) {
   const box = el('div', { class: 'lern-test' });
   const stand = ctx.daten.stand || [];
@@ -291,9 +293,9 @@ function lernTestStart(ctx, body) {
   else {
     if (!blockFertig) box.append(knopf('Test', 'blocktest', 'Eine Aufgabe je Lernziel, ohne Tipps. Die Lösungen siehst du nach dem Abgeben.'));
     if (hatFehler) box.append(knopf('Verbessern', 'korrektur', 'Nur die Lernziele, die noch nicht geklappt haben – mit neuen Aufgaben. Übe sie vorher noch einmal.'));
-    if (nt.grund === 'faellig') box.append(knopf(nt.art === 'wiederholung' ? 'Nachtest wiederholen' : `Nachtest ${nt.runde} von 3`, 'nachtest',
+    if (nt.grund === 'faellig') box.append(knopf(lernNtTitel(nt), 'nachtest',
       'Alle Lernziele der Einheit, ohne Tipps. Ab 80 % zählt die Runde. Unter 60 % geht es auf eine Rückreise zu diesem Ort.'));
-    else if (nt.grund === 'noch_nicht_faellig') box.append(el('div', { class: 'card' }, el('h3', {}, nt.art === 'wiederholung' ? 'Nachtest wiederholen' : `Nachtest ${nt.runde} von 3`),
+    else if (nt.grund === 'noch_nicht_faellig') box.append(el('div', { class: 'card' }, el('h3', {}, lernNtTitel(nt)),
       el('p', { class: 'small' }, `Dran in ${nt.lerntage_noetig - nt.lerntage_seit} Lerntag(en). Ein Lerntag zählt, wenn an dem Tag geübt oder getestet wurde.`)));
     if (nt.grund === 'gesichert') box.append(el('p', { class: 'card' }, 'Alles geschafft und gesichert. 🎉'));
     if (!box.querySelector('.card')) box.append(el('p', { class: 'card' }, 'Gerade gibt es keinen Test. Üb weiter!'));
@@ -349,7 +351,7 @@ function lernTestErgebnis(ctx, box, r) {
       el('h3', {}, `${r.richtig} von ${r.gesamt} richtig`),
       r.einheit_abgeschlossen ? el('p', { class: 'lern-rueck ok' }, el('b', {}, 'Einheit geschafft! 🎉')) : el('p', { class: 'small' }, 'Lernziele mit „noch üben“: erst üben, dann im Reiter Test „Verbessern“.'),
       r.nachtest_ergebnis ? el('p', { class: 'lern-rueck ' + (r.nachtest_ergebnis === 'bestanden' ? 'ok' : 'falsch') }, el('b', {}, {
-        bestanden: `Nachtest-Runde ${r.nachtest_runde} geschafft (ab 80 %).`,
+        bestanden: r.nachtest?.folgerunde && r.nachtest_runde >= 3 ? 'Nachtest geschafft (ab 80 %).' : `Nachtest-Runde ${r.nachtest_runde} geschafft (ab 80 %).`,
         wiederholen: 'Unter 80 %: Diese Runde zählt noch nicht. Verbessere die falschen Lernziele, dann kommt der Nachtest noch einmal.',
         rueckreise: 'Unter 60 %: Rückreise zu diesem Ort. Erst üben und verbessern, dann den Nachtest wiederholen.' }[r.nachtest_ergebnis])) : null,
       ort.abgeschlossen ? el('p', { class: 'lern-rueck ok' }, el('b', {}, 'Ort abgeschlossen – weiter zum nächsten Ort.')) : null,

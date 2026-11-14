@@ -1,0 +1,3983 @@
+{
+ "thema_schluessel": "bruch.dezimal",
+ "thema_id": 22,
+ "block_id": 46,
+ "klasse": {
+  "gym_by": 6,
+  "rs_by": 6,
+  "ib_myp": 1
+ },
+ "autor": "Claude (Opus), Paket Klasse 6",
+ "inhalt": {
+  "ziel": "Dezimalzahlen lesen, vergleichen, runden und zwischen Bruch und Dezimalzahl umwandeln – endlich und periodisch.",
+  "merke": [
+   "Stellen nach dem Komma: Zehntel, Hundertstel, Tausendstel.",
+   "Vergleichen: Nullen anhängen, Stelle für Stelle von links.",
+   "Runden: nur die Ziffer rechts neben der Rundungsstelle zählt (ab 5 aufrunden).",
+   "Bruch → Dezimalzahl: auf 10, 100, 1 000 erweitern oder Zähler : Nenner.",
+   "Endlich nur, wenn der gekürzte Nenner nur 2 und 5 enthält; sonst periodisch (0,3̅)."
+  ],
+  "abschnitte": [
+   {
+    "titel": "Stellenwerte und Ordnung",
+    "lernziele": [
+     "stellenwerte",
+     "vergleichen_ordnen",
+     "runden"
+    ]
+   },
+   {
+    "titel": "Umwandeln",
+    "lernziele": [
+     "bruch_zu_dezimal",
+     "dezimal_zu_bruch",
+     "periodisch"
+    ]
+   },
+   {
+    "titel": "Verstehen",
+    "lernziele": [
+     "verstehen"
+    ]
+   }
+  ],
+  "etappen": [
+   {
+    "lernziel": "stellenwerte",
+    "titel": "Stellenwerte nach dem Komma",
+    "regel": "Nach dem Komma kommen die Stellen ⟦Zehntel (z)⟧, ⟦Hundertstel (h)⟧ und ⟦Tausendstel (t)⟧. In 3,472 steht die 4 für 4 Zehntel, die 7 für 7 Hundertstel und die 2 für 2 Tausendstel.",
+    "schritte": [
+     "3,472 in der Stellenwerttafel: E = 3, z = 4, h = 7, t = 2.",
+     "Die 7 steht bei den Hundertsteln. Ihr Wert ist ⟦7/100 = 0,07⟧."
+    ],
+    "fehler": "Zu sagen, die 7 in 3,472 hat den Wert 7, ist falsch: Sie steht an der ⟦Hundertstelstelle⟧ und bedeutet 7 Hundertstel = 0,07.",
+    "bild": {
+     "typ": "stellentafel",
+     "stellen": [
+      "E",
+      "z",
+      "h",
+      "t"
+     ],
+     "ziffern": [
+      3,
+      4,
+      7,
+      2
+     ],
+     "markiert": 2
+    }
+   },
+   {
+    "lernziel": "vergleichen_ordnen",
+    "titel": "Dezimalzahlen vergleichen",
+    "regel": "Dezimalzahlen vergleichst du ⟦Stelle für Stelle von links⟧: erst die Ganzen, dann die Zehntel, dann die Hundertstel. Tipp: ⟦Hänge Nullen an⟧, bis beide gleich viele Nachkommastellen haben – das ändert den Wert nicht.",
+    "schritte": [
+     "Vergleiche 0,45 und 0,5. Null anhängen: 0,5 = 0,50.",
+     "45 Hundertstel sind weniger als 50 Hundertstel, also ⟦0,45 < 0,5⟧."
+    ],
+    "fehler": "„0,45 ist größer als 0,5, weil 45 > 5“ ist falsch: Die 5 in 0,5 sind 5 ⟦Zehntel⟧ = 50 Hundertstel. Mehr Ziffern heißt ⟦nicht⟧ größer.",
+    "bild": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 1,
+     "abschnitte": 10,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   {
+    "lernziel": "runden",
+    "titel": "Dezimalzahlen runden",
+    "regel": "Beim ⟦Runden⟧ schaust du nur auf die Ziffer ⟦direkt rechts neben der Rundungsstelle⟧. Ist sie 0, 1, 2, 3 oder 4, wird ⟦abgerundet⟧. Ist sie 5, 6, 7, 8 oder 9, wird ⟦aufgerundet⟧.",
+    "schritte": [
+     "Runde 4,368 auf Zehntel. Die Zehntelstelle ist die 3, rechts daneben steht die 6.",
+     "6 ist 5 oder mehr, also aufrunden: 4,368 ≈ ⟦4,4⟧."
+    ],
+    "fehler": "2,349 auf Zehntel: erst 2,35, dann 2,4 – das ist falsch (Kettenrunden). Es zählt nur die Ziffer ⟦direkt rechts⟧ neben der Zehntelstelle, also die 4: ⟦2,3⟧."
+   },
+   {
+    "lernziel": "bruch_zu_dezimal",
+    "titel": "Bruch in Dezimalzahl umwandeln",
+    "regel": "Einen Bruch wandelst du in eine Dezimalzahl um, indem du ihn auf den Nenner ⟦10, 100 oder 1 000 erweiterst⟧. Geht das nicht, ⟦teilst du den Zähler durch den Nenner⟧.",
+    "schritte": [
+     "3/8: Erweitere mit 125, denn 8 · 125 = 1 000.",
+     "3/8 = 375/1 000 = ⟦0,375⟧."
+    ],
+    "probe": "0,375 · 8 = 3 ✓",
+    "fehler": "3/8 = 3,8 ist falsch: Der Bruchstrich ist kein Komma. 3/8 heißt ⟦3 : 8⟧ = 0,375."
+   },
+   {
+    "lernziel": "dezimal_zu_bruch",
+    "titel": "Dezimalzahl als Bruch schreiben",
+    "regel": "Eine endliche Dezimalzahl schreibst du als ⟦Zehnerbruch⟧: Der Nenner hat so viele Nullen, wie die Zahl ⟦Nachkommastellen⟧ hat. Danach ⟦kürzen⟧.",
+    "schritte": [
+     "0,35 hat 2 Nachkommastellen, also Hundertstel: 0,35 = 35/100.",
+     "Kürzen mit 5: 35/100 = ⟦7/20⟧."
+    ],
+    "probe": "7 : 20 = 0,35 ✓",
+    "fehler": "0,35 = 35/10 ist falsch: Zwei Nachkommastellen bedeuten ⟦Hundertstel⟧, also Nenner 100."
+   },
+   {
+    "lernziel": "periodisch",
+    "titel": "Periodische Dezimalzahlen",
+    "regel": "Manche Brüche ergeben eine ⟦periodische Dezimalzahl⟧: Ziffern wiederholen sich ohne Ende, z. B. 1/3 = 0,333… Man setzt einen ⟦Strich über die Periode⟧: 0,3̅. Ein vollständig gekürzter Bruch ist genau dann ⟦endlich⟧, wenn sein Nenner nur die Primfaktoren ⟦2 und 5⟧ hat.",
+    "schritte": [
+     "5/6: Rechne 5 : 6 schriftlich: 0,8333…",
+     "Ab der zweiten Nachkommastelle wiederholt sich die 3: 5/6 = ⟦0,83̅⟧."
+    ],
+    "fehler": "1/3 = 0,3 ist falsch: 0,3 = 3/10, und 3 · 0,3 = 0,9, nicht 1. Richtig ist 1/3 = ⟦0,3̅⟧ – die 3 wiederholt sich ohne Ende."
+   },
+   {
+    "lernziel": "verstehen",
+    "titel": "Aussagen über Dezimalzahlen prüfen",
+    "regel": "Prüfe Aussagen über Dezimalzahlen mit der ⟦Stellenwerttafel⟧ oder mit einem ⟦Gegenbeispiel⟧. Endnullen nach dem Komma ändern den Wert nicht: 4,7 = 4,70.",
+    "schritte": [
+     "Aussage: „Zwischen 0,1 und 0,2 gibt es keine Zahl.“ Hänge eine Null an: 0,10 und 0,20.",
+     "Dazwischen liegt z. B. 0,15. Die Aussage ist ⟦falsch⟧."
+    ],
+    "fehler": "„3,14 ist größer als 3,2, weil 14 > 2“ ist falsch: Man vergleicht ⟦Stelle für Stelle⟧. Zehntel: 1 < 2, also 3,14 < 3,2."
+   }
+  ],
+  "teilfaehigkeiten": [
+   {
+    "k": "stellenwerte",
+    "text": "Stellenwerte nach dem Komma",
+    "lernziele": [
+     "stellenwerte"
+    ]
+   },
+   {
+    "k": "vergleichen_ordnen",
+    "text": "Dezimalzahlen vergleichen",
+    "lernziele": [
+     "vergleichen_ordnen"
+    ]
+   },
+   {
+    "k": "runden",
+    "text": "Dezimalzahlen runden",
+    "lernziele": [
+     "runden"
+    ]
+   },
+   {
+    "k": "bruch_zu_dezimal",
+    "text": "Bruch in Dezimalzahl umwandeln",
+    "lernziele": [
+     "bruch_zu_dezimal"
+    ]
+   },
+   {
+    "k": "dezimal_zu_bruch",
+    "text": "Dezimalzahl als Bruch schreiben",
+    "lernziele": [
+     "dezimal_zu_bruch"
+    ]
+   },
+   {
+    "k": "periodisch",
+    "text": "Periodische Dezimalzahlen",
+    "lernziele": [
+     "periodisch"
+    ]
+   },
+   {
+    "k": "verstehen",
+    "text": "Aussagen über Dezimalzahlen prüfen",
+    "lernziele": [
+     "verstehen"
+    ]
+   }
+  ],
+  "bewertung": {
+   "lernziele_pflicht": [
+    "stellenwerte",
+    "vergleichen_ordnen",
+    "runden",
+    "bruch_zu_dezimal",
+    "dezimal_zu_bruch",
+    "periodisch",
+    "verstehen"
+   ],
+   "lernziele_vertiefung": [],
+   "testaufgaben_je_lernziel": 1
+  },
+  "quellen": {
+   "erklaerungen": "Eigene Fassung (Claude), alle Aufgaben programmgeneriert.",
+   "begriffe": "Fachbegriffe nach LehrplanPLUS Bayern (Gymnasium, Jahrgangsstufe 6)."
+  }
+ },
+ "aufgaben": [
+  {
+   "l": "stellenwerte",
+   "t": "stellenwerte",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Ziffer steht in 18,398 an der Zehntelstelle?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(18.398 * 10**1) // 1 % 10",
+   "w": "Nach dem Komma: 1. Stelle Zehntel, 2. Hundertstel, 3. Tausendstel. Die 1. Stelle von 18,398 ist 3.",
+   "h": "Die Zehntel sind die 1. Stelle nach dem Komma."
+  },
+  {
+   "l": "stellenwerte",
+   "t": "stellenwerte",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Ziffer steht in 3,095 an der Tausendstelstelle?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(3.095 * 10**3) // 1 % 10",
+   "w": "Nach dem Komma: 1. Stelle Zehntel, 2. Hundertstel, 3. Tausendstel. Die 3. Stelle von 3,095 ist 5.",
+   "h": "Die Tausendstel sind die 3. Stelle nach dem Komma."
+  },
+  {
+   "l": "stellenwerte",
+   "t": "stellenwerte",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Ziffer steht in 58,606 an der Zehntelstelle?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "(58.606 * 10**1) // 1 % 10",
+   "w": "Nach dem Komma: 1. Stelle Zehntel, 2. Hundertstel, 3. Tausendstel. Die 1. Stelle von 58,606 ist 6.",
+   "h": "Die Zehntel sind die 1. Stelle nach dem Komma."
+  },
+  {
+   "l": "stellenwerte",
+   "t": "stellenwerte",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Ziffer steht in 92,006 an der Zehntelstelle?"
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "(92.006 * 10**1) // 1 % 10",
+   "w": "Nach dem Komma: 1. Stelle Zehntel, 2. Hundertstel, 3. Tausendstel. Die 1. Stelle von 92,006 ist 0.",
+   "h": "Die Zehntel sind die 1. Stelle nach dem Komma."
+  },
+  {
+   "l": "stellenwerte",
+   "t": "stellenwerte",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Ziffer steht in 96,939 an der Tausendstelstelle?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "(96.939 * 10**3) // 1 % 10",
+   "w": "Nach dem Komma: 1. Stelle Zehntel, 2. Hundertstel, 3. Tausendstel. Die 3. Stelle von 96,939 ist 9.",
+   "h": "Die Tausendstel sind die 3. Stelle nach dem Komma."
+  },
+  {
+   "l": "stellenwerte",
+   "t": "stellenwerte",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Ziffer steht in 45,304 an der Zehntelstelle?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(45.304 * 10**1) // 1 % 10",
+   "w": "Nach dem Komma: 1. Stelle Zehntel, 2. Hundertstel, 3. Tausendstel. Die 1. Stelle von 45,304 ist 3.",
+   "h": "Die Zehntel sind die 1. Stelle nach dem Komma."
+  },
+  {
+   "l": "stellenwerte",
+   "t": "stellenwerte",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "5 Hundertstel",
+    "5 Einer",
+    "5 Tausendstel",
+    "5 Zehntel"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Welchen Wert hat die Ziffer 5 an der 2. Nachkommastelle von 3,254?"
+   },
+   "w": "Die 2. Nachkommastelle sind die Hundertstel: 5 Hundertstel = 0,05.",
+   "h": "Zähle die Stellen nach dem Komma: Zehntel, Hundertstel, Tausendstel."
+  },
+  {
+   "l": "stellenwerte",
+   "t": "stellenwerte",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe als Dezimalzahl: 1 Einer, 0 Zehntel, 4 Hundertstel, 5 Tausendstel."
+   },
+   "o": {
+    "wert": 1.045
+   },
+   "c": "1 + 0/10 + 4/100 + 5/1000",
+   "w": "Ziffern in die Stellen eintragen: 1,045.",
+   "h": "Trage die Ziffern der Reihe nach in die Stellenwerttafel ein. Leere Stellen bekommen eine 0."
+  },
+  {
+   "l": "stellenwerte",
+   "t": "stellenwerte",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "1 Einer",
+    "1 Zehntel",
+    "1 Hundertstel",
+    "1 Tausendstel"
+   ],
+   "o": {
+    "index": 3
+   },
+   "f": {
+    "text": "Welchen Wert hat die Ziffer 1 an der 3. Nachkommastelle von 7,311?"
+   },
+   "w": "Die 3. Nachkommastelle sind die Tausendstel: 1 Tausendstel = 0,001.",
+   "h": "Zähle die Stellen nach dem Komma: Zehntel, Hundertstel, Tausendstel."
+  },
+  {
+   "l": "stellenwerte",
+   "t": "stellenwerte",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe als Dezimalzahl: 8 Einer, 2 Zehntel, 6 Hundertstel, 5 Tausendstel."
+   },
+   "o": {
+    "wert": 8.265
+   },
+   "c": "8 + 2/10 + 6/100 + 5/1000",
+   "w": "Ziffern in die Stellen eintragen: 8,265.",
+   "h": "Trage die Ziffern der Reihe nach in die Stellenwerttafel ein. Leere Stellen bekommen eine 0."
+  },
+  {
+   "l": "stellenwerte",
+   "t": "stellenwerte",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe als Dezimalzahl: 30 Einer, 8 Zehntel, 2 Hundertstel, 5 Tausendstel."
+   },
+   "o": {
+    "wert": 30.825
+   },
+   "c": "30 + 8/10 + 2/100 + 5/1000",
+   "w": "Ziffern in die Stellen eintragen: 30,825.",
+   "h": "Trage die Ziffern der Reihe nach in die Stellenwerttafel ein. Leere Stellen bekommen eine 0."
+  },
+  {
+   "l": "stellenwerte",
+   "t": "stellenwerte",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe als Dezimalzahl: 5 Einer, 6 Zehntel, 0 Hundertstel, 6 Tausendstel."
+   },
+   "o": {
+    "wert": 5.606
+   },
+   "c": "5 + 6/10 + 0/100 + 6/1000",
+   "w": "Ziffern in die Stellen eintragen: 5,606.",
+   "h": "Trage die Ziffern der Reihe nach in die Stellenwerttafel ein. Leere Stellen bekommen eine 0."
+  },
+  {
+   "l": "stellenwerte",
+   "t": "stellenwerte",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe als Dezimalzahl: 8 Zehntel und 25 Hundertstel."
+   },
+   "o": {
+    "wert": 1.05
+   },
+   "c": "8/10 + 25/100",
+   "w": "25 Hundertstel = 2 Zehntel und 5 Hundertstel. Zusammen 10 Zehntel, 5 Hundertstel: 1,05.",
+   "h": "10 Hundertstel sind 1 Zehntel. Bündele zuerst."
+  },
+  {
+   "l": "stellenwerte",
+   "t": "stellenwerte",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Ziffer an der Hundertstelstelle von 16,589 wird um 1 größer. Wie heißt die neue Zahl?"
+   },
+   "o": {
+    "wert": 16.599
+   },
+   "c": "16.589 + 1/10**2",
+   "w": "Ein Hundertstel = 0,01. 16,589 + 0,01 = 16,599.",
+   "h": "Die Zahl wird um ein Hundertstel = 0,01 größer."
+  },
+  {
+   "l": "stellenwerte",
+   "t": "stellenwerte",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe als Dezimalzahl: 7 + 7/100 + 3/1 000"
+   },
+   "o": {
+    "wert": 7.073
+   },
+   "c": "7 + 7/100 + 3/1000",
+   "w": "Keine Zehntel, also eine 0 an der Zehntelstelle: 7,073.",
+   "h": "Welche Stelle bleibt leer? Dort steht eine 0."
+  },
+  {
+   "l": "stellenwerte",
+   "t": "stellenwerte",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Ziffer an der Hundertstelstelle von 18,457 wird um 1 größer. Wie heißt die neue Zahl?"
+   },
+   "o": {
+    "wert": 18.467
+   },
+   "c": "18.457 + 1/10**2",
+   "w": "Ein Hundertstel = 0,01. 18,457 + 0,01 = 18,467.",
+   "h": "Die Zahl wird um ein Hundertstel = 0,01 größer."
+  },
+  {
+   "l": "stellenwerte",
+   "t": "stellenwerte",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Ziffer an der Hundertstelstelle von 0,825 wird um 1 größer. Wie heißt die neue Zahl?"
+   },
+   "o": {
+    "wert": 0.835
+   },
+   "c": "0.825 + 1/10**2",
+   "w": "Ein Hundertstel = 0,01. 0,825 + 0,01 = 0,835.",
+   "h": "Die Zahl wird um ein Hundertstel = 0,01 größer."
+  },
+  {
+   "l": "stellenwerte",
+   "t": "stellenwerte",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe als Dezimalzahl: 9 + 9/100 + 9/1 000"
+   },
+   "o": {
+    "wert": 9.099
+   },
+   "c": "9 + 9/100 + 9/1000",
+   "w": "Keine Zehntel, also eine 0 an der Zehntelstelle: 9,099.",
+   "h": "Welche Stelle bleibt leer? Dort steht eine 0."
+  },
+  {
+   "l": "stellenwerte",
+   "t": "stellenwerte",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "1 Zehntel",
+    "1 Hundertstel",
+    "1 Tausendstel",
+    "1 Einer"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Welchen Wert hat die Ziffer 1 an der 3. Nachkommastelle von 44,121?"
+   },
+   "w": "Die 3. Nachkommastelle sind die Tausendstel: 1 Tausendstel = 0,001."
+  },
+  {
+   "l": "stellenwerte",
+   "t": "stellenwerte",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe als Dezimalzahl: 11 Einer, 0 Zehntel, 4 Hundertstel, 7 Tausendstel."
+   },
+   "o": {
+    "wert": 11.047
+   },
+   "c": "11 + 0/10 + 4/100 + 7/1000",
+   "w": "Ziffern in die Stellen eintragen: 11,047."
+  },
+  {
+   "l": "stellenwerte",
+   "t": "stellenwerte",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe als Dezimalzahl: 12 Einer, 0 Zehntel, 1 Hundertstel, 8 Tausendstel."
+   },
+   "o": {
+    "wert": 12.018
+   },
+   "c": "12 + 0/10 + 1/100 + 8/1000",
+   "w": "Ziffern in die Stellen eintragen: 12,018."
+  },
+  {
+   "l": "stellenwerte",
+   "t": "stellenwerte",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "2 Einer",
+    "2 Zehntel",
+    "2 Hundertstel",
+    "2 Tausendstel"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Welchen Wert hat die Ziffer 2 an der 2. Nachkommastelle von 35,823?"
+   },
+   "w": "Die 2. Nachkommastelle sind die Hundertstel: 2 Hundertstel = 0,02."
+  },
+  {
+   "l": "stellenwerte",
+   "t": "stellenwerte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe als Dezimalzahl: 20 Einer, 0 Zehntel, 3 Hundertstel, 1 Tausendstel."
+   },
+   "o": {
+    "wert": 20.031
+   },
+   "c": "20 + 0/10 + 3/100 + 1/1000",
+   "w": "Ziffern in die Stellen eintragen: 20,031."
+  },
+  {
+   "l": "stellenwerte",
+   "t": "stellenwerte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe als Dezimalzahl: 20 Einer, 0 Zehntel, 2 Hundertstel, 1 Tausendstel."
+   },
+   "o": {
+    "wert": 20.021
+   },
+   "c": "20 + 0/10 + 2/100 + 1/1000",
+   "w": "Ziffern in die Stellen eintragen: 20,021."
+  },
+  {
+   "l": "stellenwerte",
+   "t": "stellenwerte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe als Dezimalzahl: 29 Einer, 9 Zehntel, 7 Hundertstel, 1 Tausendstel."
+   },
+   "o": {
+    "wert": 29.971
+   },
+   "c": "29 + 9/10 + 7/100 + 1/1000",
+   "w": "Ziffern in die Stellen eintragen: 29,971."
+  },
+  {
+   "l": "stellenwerte",
+   "t": "stellenwerte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "3 Zehntel",
+    "3 Hundertstel",
+    "3 Einer",
+    "3 Tausendstel"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Welchen Wert hat die Ziffer 3 an der 1. Nachkommastelle von 34,337?"
+   },
+   "w": "Die 1. Nachkommastelle sind die Zehntel: 3 Zehntel = 0,3."
+  },
+  {
+   "l": "stellenwerte",
+   "t": "stellenwerte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "6 Einer",
+    "6 Zehntel",
+    "6 Tausendstel",
+    "6 Hundertstel"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Welchen Wert hat die Ziffer 6 an der 3. Nachkommastelle von 4,316?"
+   },
+   "w": "Die 3. Nachkommastelle sind die Tausendstel: 6 Tausendstel = 0,006."
+  },
+  {
+   "l": "stellenwerte",
+   "t": "stellenwerte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe als Dezimalzahl: 0 Einer, 2 Zehntel, 8 Hundertstel, 6 Tausendstel."
+   },
+   "o": {
+    "wert": 0.286
+   },
+   "c": "0 + 2/10 + 8/100 + 6/1000",
+   "w": "Ziffern in die Stellen eintragen: 0,286."
+  },
+  {
+   "l": "vergleichen_ordnen",
+   "t": "vergleichen_ordnen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "5,32",
+    "5,2",
+    "Beide sind gleich groß"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Welche Zahl ist größer: 5,2 oder 5,32?"
+   },
+   "w": "Nullen anhängen: 5,2 → 5,20, 5,32 → 5,32. Größer: 5,32.",
+   "h": "Hänge Nullen an, bis beide Zahlen gleich viele Nachkommastellen haben."
+  },
+  {
+   "l": "vergleichen_ordnen",
+   "t": "vergleichen_ordnen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Beide sind gleich groß",
+    "4,16",
+    "4,3"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Welche Zahl ist größer: 4,16 oder 4,3?"
+   },
+   "w": "Nullen anhängen: 4,16 → 4,16, 4,3 → 4,30. Größer: 4,3.",
+   "h": "Hänge Nullen an, bis beide Zahlen gleich viele Nachkommastellen haben."
+  },
+  {
+   "l": "vergleichen_ordnen",
+   "t": "vergleichen_ordnen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "1,4",
+    "Beide sind gleich groß",
+    "1,79"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Welche Zahl ist größer: 1,79 oder 1,4?"
+   },
+   "w": "Nullen anhängen: 1,79 → 1,79, 1,4 → 1,40. Größer: 1,79.",
+   "h": "Hänge Nullen an, bis beide Zahlen gleich viele Nachkommastellen haben."
+  },
+  {
+   "l": "vergleichen_ordnen",
+   "t": "vergleichen_ordnen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "0,23",
+    "0,5",
+    "Beide sind gleich groß"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Welche Zahl ist größer: 0,5 oder 0,23?"
+   },
+   "w": "Nullen anhängen: 0,5 → 0,50, 0,23 → 0,23. Größer: 0,5.",
+   "h": "Hänge Nullen an, bis beide Zahlen gleich viele Nachkommastellen haben."
+  },
+  {
+   "l": "vergleichen_ordnen",
+   "t": "vergleichen_ordnen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "6,26",
+    "6,6",
+    "Beide sind gleich groß"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Welche Zahl ist größer: 6,6 oder 6,26?"
+   },
+   "w": "Nullen anhängen: 6,6 → 6,60, 6,26 → 6,26. Größer: 6,6.",
+   "h": "Hänge Nullen an, bis beide Zahlen gleich viele Nachkommastellen haben."
+  },
+  {
+   "l": "vergleichen_ordnen",
+   "t": "vergleichen_ordnen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "0,4",
+    "0,59",
+    "Beide sind gleich groß"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Welche Zahl ist größer: 0,4 oder 0,59?"
+   },
+   "w": "Nullen anhängen: 0,4 → 0,40, 0,59 → 0,59. Größer: 0,59.",
+   "h": "Hänge Nullen an, bis beide Zahlen gleich viele Nachkommastellen haben."
+  },
+  {
+   "l": "vergleichen_ordnen",
+   "t": "vergleichen_ordnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "1,4",
+    "1,15",
+    "1,273",
+    "1,02"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Welche ist die größte Zahl: 1,02, 1,273, 1,4, 1,15?"
+   },
+   "w": "Geordnet: 1,02 < 1,15 < 1,273 < 1,4. Die größte ist 1,4.",
+   "h": "Vergleiche Stelle für Stelle. Mehr Ziffern heißt nicht größer."
+  },
+  {
+   "l": "vergleichen_ordnen",
+   "t": "vergleichen_ordnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "3,3",
+    "3,287",
+    "3,78",
+    "3,01"
+   ],
+   "o": {
+    "index": 3
+   },
+   "f": {
+    "text": "Welche ist die kleinste Zahl: 3,78, 3,3, 3,287, 3,01?"
+   },
+   "w": "Geordnet: 3,01 < 3,287 < 3,3 < 3,78. Die kleinste ist 3,01.",
+   "h": "Vergleiche Stelle für Stelle. Mehr Ziffern heißt nicht größer."
+  },
+  {
+   "l": "vergleichen_ordnen",
+   "t": "vergleichen_ordnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "3,57",
+    "3,07",
+    "3,548",
+    "3,4"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Welche ist die größte Zahl: 3,548, 3,57, 3,4, 3,07?"
+   },
+   "w": "Geordnet: 3,07 < 3,4 < 3,548 < 3,57. Die größte ist 3,57.",
+   "h": "Vergleiche Stelle für Stelle. Mehr Ziffern heißt nicht größer."
+  },
+  {
+   "l": "vergleichen_ordnen",
+   "t": "vergleichen_ordnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere 0,7 am Zahlenstrahl (von 0 bis 1, 10 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 1,
+     "abschnitte": 10,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 7
+   },
+   "zahl": 0.7,
+   "c": "0.0 + (1.0 - 0.0) * 7 / 10",
+   "w": "Jeder Teil ist 0,1. 0,7 liegt 7 Teile rechts von 0.",
+   "h": "Jeder Strich ist ein Zehntel weiter."
+  },
+  {
+   "l": "vergleichen_ordnen",
+   "t": "vergleichen_ordnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere 1,3 am Zahlenstrahl (von 1 bis 2, 10 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 1,
+     "ende": 2,
+     "abschnitte": 10,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 3
+   },
+   "zahl": 1.3,
+   "c": "1.0 + (2.0 - 1.0) * 3 / 10",
+   "w": "Jeder Teil ist 0,1. 1,3 liegt 3 Teile rechts von 1.",
+   "h": "Jeder Strich ist ein Zehntel weiter."
+  },
+  {
+   "l": "vergleichen_ordnen",
+   "t": "vergleichen_ordnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere 8,6 am Zahlenstrahl (von 8 bis 9, 10 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 8,
+     "ende": 9,
+     "abschnitte": 10,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 6
+   },
+   "zahl": 8.6,
+   "c": "8.0 + (9.0 - 8.0) * 6 / 10",
+   "w": "Jeder Teil ist 0,1. 8,6 liegt 6 Teile rechts von 8.",
+   "h": "Jeder Strich ist ein Zehntel weiter."
+  },
+  {
+   "l": "vergleichen_ordnen",
+   "t": "vergleichen_ordnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere 4,44 am Zahlenstrahl (von 4,4 bis 4,5, 10 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 4.4,
+     "ende": 4.5,
+     "abschnitte": 10,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 4
+   },
+   "zahl": 4.44,
+   "c": "4.4 + (4.5 - 4.4) * 4 / 10",
+   "w": "Jeder Teil ist 0,01. 4,44 liegt 4 Teile rechts von 4,4.",
+   "h": "Von Strich zu Strich geht es um ein Hundertstel weiter."
+  },
+  {
+   "l": "vergleichen_ordnen",
+   "t": "vergleichen_ordnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere 2,83 am Zahlenstrahl (von 2,8 bis 2,9, 10 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 2.8,
+     "ende": 2.9,
+     "abschnitte": 10,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 3
+   },
+   "zahl": 2.83,
+   "c": "2.8 + (2.9 - 2.8) * 3 / 10",
+   "w": "Jeder Teil ist 0,01. 2,83 liegt 3 Teile rechts von 2,8.",
+   "h": "Von Strich zu Strich geht es um ein Hundertstel weiter."
+  },
+  {
+   "l": "vergleichen_ordnen",
+   "t": "vergleichen_ordnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere 4,78 am Zahlenstrahl (von 4,7 bis 4,8, 10 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 4.7,
+     "ende": 4.8,
+     "abschnitte": 10,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 8
+   },
+   "zahl": 4.78,
+   "c": "4.7 + (4.8 - 4.7) * 8 / 10",
+   "w": "Jeder Teil ist 0,01. 4,78 liegt 8 Teile rechts von 4,7.",
+   "h": "Von Strich zu Strich geht es um ein Hundertstel weiter."
+  },
+  {
+   "l": "vergleichen_ordnen",
+   "t": "vergleichen_ordnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl liegt genau in der Mitte zwischen 13,7 und 13,8?"
+   },
+   "o": {
+    "wert": 13.75
+   },
+   "c": "(13.7 + 13.8) / 2",
+   "w": "Null anhängen: 13,70 und 13,80. Die Mitte ist 13,75.",
+   "h": "Hänge an beide Zahlen eine 0 an. Dann siehst du die Hundertstel dazwischen."
+  },
+  {
+   "l": "vergleichen_ordnen",
+   "t": "vergleichen_ordnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl liegt genau in der Mitte zwischen 12,7 und 12,8?"
+   },
+   "o": {
+    "wert": 12.75
+   },
+   "c": "(12.7 + 12.8) / 2",
+   "w": "Null anhängen: 12,70 und 12,80. Die Mitte ist 12,75.",
+   "h": "Hänge an beide Zahlen eine 0 an. Dann siehst du die Hundertstel dazwischen."
+  },
+  {
+   "l": "vergleichen_ordnen",
+   "t": "vergleichen_ordnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere 2,17 am Zahlenstrahl (von 2,1 bis 2,2, 10 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 2.1,
+     "ende": 2.2,
+     "abschnitte": 10,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 7
+   },
+   "zahl": 2.17,
+   "c": "2.1 + (2.2 - 2.1) * 7 / 10",
+   "w": "Jeder Teil ist 0,01. 2,17 liegt 7 Teile rechts von 2,1.",
+   "h": "Von Strich zu Strich geht es um ein Hundertstel weiter."
+  },
+  {
+   "l": "vergleichen_ordnen",
+   "t": "vergleichen_ordnen",
+   "p": "test",
+   "s": 2,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere 8,4 am Zahlenstrahl (von 8 bis 9, 10 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 8,
+     "ende": 9,
+     "abschnitte": 10,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 4
+   },
+   "zahl": 8.4,
+   "c": "8.0 + (9.0 - 8.0) * 4 / 10",
+   "w": "Jeder Teil ist 0,1. 8,4 liegt 4 Teile rechts von 8."
+  },
+  {
+   "l": "vergleichen_ordnen",
+   "t": "vergleichen_ordnen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere 1,1 am Zahlenstrahl (von 1 bis 2, 10 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 1,
+     "ende": 2,
+     "abschnitte": 10,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 1
+   },
+   "zahl": 1.1,
+   "c": "1.0 + (2.0 - 1.0) * 1 / 10",
+   "w": "Jeder Teil ist 0,1. 1,1 liegt 1 Teil rechts von 1."
+  },
+  {
+   "l": "vergleichen_ordnen",
+   "t": "vergleichen_ordnen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere 5,4 am Zahlenstrahl (von 5 bis 6, 10 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 5,
+     "ende": 6,
+     "abschnitte": 10,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 4
+   },
+   "zahl": 5.4,
+   "c": "5.0 + (6.0 - 5.0) * 4 / 10",
+   "w": "Jeder Teil ist 0,1. 5,4 liegt 4 Teile rechts von 5."
+  },
+  {
+   "l": "vergleichen_ordnen",
+   "t": "vergleichen_ordnen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "4,26",
+    "4,06",
+    "4,572",
+    "4,3"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Welche ist die größte Zahl: 4,26, 4,3, 4,572, 4,06?"
+   },
+   "w": "Geordnet: 4,06 < 4,26 < 4,3 < 4,572. Die größte ist 4,572."
+  },
+  {
+   "l": "vergleichen_ordnen",
+   "t": "vergleichen_ordnen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere 0,2 am Zahlenstrahl (von 0 bis 1, 10 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 0,
+     "ende": 1,
+     "abschnitte": 10,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 2
+   },
+   "zahl": 0.2,
+   "c": "0.0 + (1.0 - 0.0) * 2 / 10",
+   "w": "Jeder Teil ist 0,1. 0,2 liegt 2 Teile rechts von 0."
+  },
+  {
+   "l": "vergleichen_ordnen",
+   "t": "vergleichen_ordnen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "0,05",
+    "0,517",
+    "0,33",
+    "0,3"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Welche ist die kleinste Zahl: 0,517, 0,05, 0,33, 0,3?"
+   },
+   "w": "Geordnet: 0,05 < 0,3 < 0,33 < 0,517. Die kleinste ist 0,05."
+  },
+  {
+   "l": "vergleichen_ordnen",
+   "t": "vergleichen_ordnen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "5,1",
+    "5,821",
+    "5,09",
+    "5,3"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Welche ist die kleinste Zahl: 5,1, 5,3, 5,821, 5,09?"
+   },
+   "w": "Geordnet: 5,09 < 5,1 < 5,3 < 5,821. Die kleinste ist 5,09."
+  },
+  {
+   "l": "vergleichen_ordnen",
+   "t": "vergleichen_ordnen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "0,6",
+    "0,911",
+    "0,39",
+    "0,01"
+   ],
+   "o": {
+    "index": 3
+   },
+   "f": {
+    "text": "Welche ist die kleinste Zahl: 0,911, 0,01, 0,6, 0,39?"
+   },
+   "w": "Geordnet: 0,01 < 0,39 < 0,6 < 0,911. Die kleinste ist 0,01."
+  },
+  {
+   "l": "vergleichen_ordnen",
+   "t": "vergleichen_ordnen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "markierung",
+   "f": {
+    "text": "Markiere 2,3 am Zahlenstrahl (von 2 bis 3, 10 gleiche Teile).",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": 2,
+     "ende": 3,
+     "abschnitte": 10,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 3
+   },
+   "zahl": 2.3,
+   "c": "2.0 + (3.0 - 2.0) * 3 / 10",
+   "w": "Jeder Teil ist 0,1. 2,3 liegt 3 Teile rechts von 2."
+  },
+  {
+   "l": "vergleichen_ordnen",
+   "t": "vergleichen_ordnen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "3,7",
+    "3,07",
+    "3,144",
+    "3,46"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Welche ist die kleinste Zahl: 3,46, 3,07, 3,144, 3,7?"
+   },
+   "w": "Geordnet: 3,07 < 3,144 < 3,46 < 3,7. Die kleinste ist 3,07."
+  },
+  {
+   "l": "runden",
+   "t": "runden",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Runde 3,31 auf Zehntel."
+   },
+   "o": {
+    "wert": 3.3
+   },
+   "c": "(3.31 * 10**1 + 1/2) // 1 / 10**1",
+   "w": "Rechts neben der Rundungsstelle steht 1: abrunden. 3,31 ≈ 3,3.",
+   "h": "Schau nur auf die Ziffer rechts neben der Rundungsstelle."
+  },
+  {
+   "l": "runden",
+   "t": "runden",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Runde 22,93 auf Zehntel."
+   },
+   "o": {
+    "wert": 22.9
+   },
+   "c": "(22.93 * 10**1 + 1/2) // 1 / 10**1",
+   "w": "Rechts neben der Rundungsstelle steht 3: abrunden. 22,93 ≈ 22,9.",
+   "h": "Schau nur auf die Ziffer rechts neben der Rundungsstelle."
+  },
+  {
+   "l": "runden",
+   "t": "runden",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Runde 4,7 auf Ganze."
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(4.7 * 10**0 + 1/2) // 1 / 10**0",
+   "w": "Rechts neben der Rundungsstelle steht 7: aufrunden. 4,7 ≈ 5.",
+   "h": "Schau nur auf die Ziffer rechts neben der Rundungsstelle."
+  },
+  {
+   "l": "runden",
+   "t": "runden",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Runde 42,1 auf Ganze."
+   },
+   "o": {
+    "wert": 42
+   },
+   "c": "(42.1 * 10**0 + 1/2) // 1 / 10**0",
+   "w": "Rechts neben der Rundungsstelle steht 1: abrunden. 42,1 ≈ 42.",
+   "h": "Schau nur auf die Ziffer rechts neben der Rundungsstelle."
+  },
+  {
+   "l": "runden",
+   "t": "runden",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Runde 38,4 auf Ganze."
+   },
+   "o": {
+    "wert": 38
+   },
+   "c": "(38.4 * 10**0 + 1/2) // 1 / 10**0",
+   "w": "Rechts neben der Rundungsstelle steht 4: abrunden. 38,4 ≈ 38.",
+   "h": "Schau nur auf die Ziffer rechts neben der Rundungsstelle."
+  },
+  {
+   "l": "runden",
+   "t": "runden",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Runde 45,56 auf Zehntel."
+   },
+   "o": {
+    "wert": 45.6
+   },
+   "c": "(45.56 * 10**1 + 1/2) // 1 / 10**1",
+   "w": "Rechts neben der Rundungsstelle steht 6: aufrunden. 45,56 ≈ 45,6.",
+   "h": "Schau nur auf die Ziffer rechts neben der Rundungsstelle."
+  },
+  {
+   "l": "runden",
+   "t": "runden",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Runde 2,596 auf Hundertstel."
+   },
+   "o": {
+    "wert": 2.6
+   },
+   "c": "(2.596 * 10**2 + 1/2) // 1 / 10**2",
+   "w": "Die Ziffer rechts neben der Hundertstelstelle ist 6: aufrunden. 2,596 ≈ 2,6. Beim Aufrunden einer 9 entsteht ein Übertrag.",
+   "h": "Markiere die Rundungsstelle. Steht rechts daneben 5 oder mehr, wird sie um 1 größer."
+  },
+  {
+   "l": "runden",
+   "t": "runden",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Runde 18,326 auf Hundertstel."
+   },
+   "o": {
+    "wert": 18.33
+   },
+   "c": "(18.326 * 10**2 + 1/2) // 1 / 10**2",
+   "w": "Die Ziffer rechts neben der Hundertstelstelle ist 6: aufrunden. 18,326 ≈ 18,33.",
+   "h": "Markiere die Rundungsstelle. Steht rechts daneben 5 oder mehr, wird sie um 1 größer."
+  },
+  {
+   "l": "runden",
+   "t": "runden",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Runde 3,6286 auf Hundertstel."
+   },
+   "o": {
+    "wert": 3.63
+   },
+   "c": "(3.6286 * 10**2 + 1/2) // 1 / 10**2",
+   "w": "Die Ziffer rechts neben der Hundertstelstelle ist 8: aufrunden. 3,6286 ≈ 3,63.",
+   "h": "Markiere die Rundungsstelle. Steht rechts daneben 5 oder mehr, wird sie um 1 größer."
+  },
+  {
+   "l": "runden",
+   "t": "runden",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Runde 6,9321 auf Hundertstel."
+   },
+   "o": {
+    "wert": 6.93
+   },
+   "c": "(6.9321 * 10**2 + 1/2) // 1 / 10**2",
+   "w": "Die Ziffer rechts neben der Hundertstelstelle ist 2: abrunden. 6,9321 ≈ 6,93.",
+   "h": "Markiere die Rundungsstelle. Steht rechts daneben 5 oder mehr, wird sie um 1 größer."
+  },
+  {
+   "l": "runden",
+   "t": "runden",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Runde 26,45206 auf Tausendstel."
+   },
+   "o": {
+    "wert": 26.452
+   },
+   "c": "(26.45206 * 10**3 + 1/2) // 1 / 10**3",
+   "w": "Die Ziffer rechts neben der Tausendstelstelle ist 0: abrunden. 26,45206 ≈ 26,452.",
+   "h": "Markiere die Rundungsstelle. Steht rechts daneben 5 oder mehr, wird sie um 1 größer."
+  },
+  {
+   "l": "runden",
+   "t": "runden",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Runde 28,13212 auf Tausendstel."
+   },
+   "o": {
+    "wert": 28.132
+   },
+   "c": "(28.13212 * 10**3 + 1/2) // 1 / 10**3",
+   "w": "Die Ziffer rechts neben der Tausendstelstelle ist 1: abrunden. 28,13212 ≈ 28,132.",
+   "h": "Markiere die Rundungsstelle. Steht rechts daneben 5 oder mehr, wird sie um 1 größer."
+  },
+  {
+   "l": "runden",
+   "t": "runden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kilowattstunde Strom kostet 0,252 €. Runde auf ganze Cent."
+   },
+   "o": {
+    "wert": 0.25,
+    "einheit": "€"
+   },
+   "c": "(0.252 * 10**2 + 1/2) // 1 / 10**2",
+   "w": "Cent sind Hundertstel Euro. Die Tausendstelziffer ist 2: 0,252 € ≈ 0,25 €.",
+   "h": "Ein Cent ist ein Hundertstel Euro. Runde auf Hundertstel."
+  },
+  {
+   "l": "runden",
+   "t": "runden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Liter Benzin kostet 1,236 €. Runde auf ganze Cent."
+   },
+   "o": {
+    "wert": 1.24,
+    "einheit": "€"
+   },
+   "c": "(1.236 * 10**2 + 1/2) // 1 / 10**2",
+   "w": "Cent sind Hundertstel Euro. Die Tausendstelziffer ist 6: 1,236 € ≈ 1,24 €.",
+   "h": "Ein Cent ist ein Hundertstel Euro. Runde auf Hundertstel."
+  },
+  {
+   "l": "runden",
+   "t": "runden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "3,2",
+    "3,3",
+    "3,25",
+    "3,4"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Runde 3,249 auf Zehntel."
+   },
+   "w": "Rechts neben der Zehntelstelle steht 4: abrunden, 3,2. Erst auf Hundertstel und dann auf Zehntel zu runden (3,3) ist falsch.",
+   "h": "Nicht in mehreren Schritten runden! Nur die Hundertstelziffer zählt."
+  },
+  {
+   "l": "runden",
+   "t": "runden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "3,08",
+    "3,19",
+    "3,22",
+    "3,02"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Welche Zahl ergibt auf Zehntel gerundet 3,1?"
+   },
+   "w": "Auf 3,1 runden alle Zahlen von 3,05 bis unter 3,15. Also 3,08.",
+   "h": "Runde jede Zahl auf Zehntel und vergleiche."
+  },
+  {
+   "l": "runden",
+   "t": "runden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "6,35",
+    "6,3",
+    "6,4",
+    "6,5"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Runde 6,348 auf Zehntel."
+   },
+   "w": "Rechts neben der Zehntelstelle steht 4: abrunden, 6,3. Erst auf Hundertstel und dann auf Zehntel zu runden (6,4) ist falsch.",
+   "h": "Nicht in mehreren Schritten runden! Nur die Hundertstelziffer zählt."
+  },
+  {
+   "l": "runden",
+   "t": "runden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kilowattstunde Strom kostet 0,385 €. Runde auf ganze Cent."
+   },
+   "o": {
+    "wert": 0.39,
+    "einheit": "€"
+   },
+   "c": "(0.385 * 10**2 + 1/2) // 1 / 10**2",
+   "w": "Cent sind Hundertstel Euro. Die Tausendstelziffer ist 5: 0,385 € ≈ 0,39 €.",
+   "h": "Ein Cent ist ein Hundertstel Euro. Runde auf Hundertstel."
+  },
+  {
+   "l": "runden",
+   "t": "runden",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Runde 30,096 auf Hundertstel."
+   },
+   "o": {
+    "wert": 30.1
+   },
+   "c": "(30.096 * 10**2 + 1/2) // 1 / 10**2",
+   "w": "Die Ziffer rechts neben der Hundertstelstelle ist 6: aufrunden. 30,096 ≈ 30,1. Beim Aufrunden einer 9 entsteht ein Übertrag."
+  },
+  {
+   "l": "runden",
+   "t": "runden",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Runde 24,1349 auf Hundertstel."
+   },
+   "o": {
+    "wert": 24.13
+   },
+   "c": "(24.1349 * 10**2 + 1/2) // 1 / 10**2",
+   "w": "Die Ziffer rechts neben der Hundertstelstelle ist 4: abrunden. 24,1349 ≈ 24,13."
+  },
+  {
+   "l": "runden",
+   "t": "runden",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Runde 19,022 auf Hundertstel."
+   },
+   "o": {
+    "wert": 19.02
+   },
+   "c": "(19.022 * 10**2 + 1/2) // 1 / 10**2",
+   "w": "Die Ziffer rechts neben der Hundertstelstelle ist 2: abrunden. 19,022 ≈ 19,02."
+  },
+  {
+   "l": "runden",
+   "t": "runden",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Runde 19,696 auf Hundertstel."
+   },
+   "o": {
+    "wert": 19.7
+   },
+   "c": "(19.696 * 10**2 + 1/2) // 1 / 10**2",
+   "w": "Die Ziffer rechts neben der Hundertstelstelle ist 6: aufrunden. 19,696 ≈ 19,7. Beim Aufrunden einer 9 entsteht ein Übertrag."
+  },
+  {
+   "l": "runden",
+   "t": "runden",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Runde 21,343 auf Zehntel."
+   },
+   "o": {
+    "wert": 21.3
+   },
+   "c": "(21.343 * 10**1 + 1/2) // 1 / 10**1",
+   "w": "Die Ziffer rechts neben der Zehntelstelle ist 4: abrunden. 21,343 ≈ 21,3."
+  },
+  {
+   "l": "runden",
+   "t": "runden",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Runde 12,997 auf Hundertstel."
+   },
+   "o": {
+    "wert": 13
+   },
+   "c": "(12.997 * 10**2 + 1/2) // 1 / 10**2",
+   "w": "Die Ziffer rechts neben der Hundertstelstelle ist 7: aufrunden. 12,997 ≈ 13. Beim Aufrunden einer 9 entsteht ein Übertrag."
+  },
+  {
+   "l": "runden",
+   "t": "runden",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Runde 0,297 auf Hundertstel."
+   },
+   "o": {
+    "wert": 0.3
+   },
+   "c": "(0.297 * 10**2 + 1/2) // 1 / 10**2",
+   "w": "Die Ziffer rechts neben der Hundertstelstelle ist 7: aufrunden. 0,297 ≈ 0,3. Beim Aufrunden einer 9 entsteht ein Übertrag."
+  },
+  {
+   "l": "runden",
+   "t": "runden",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Runde 8,5757 auf Hundertstel."
+   },
+   "o": {
+    "wert": 8.58
+   },
+   "c": "(8.5757 * 10**2 + 1/2) // 1 / 10**2",
+   "w": "Die Ziffer rechts neben der Hundertstelstelle ist 5: aufrunden. 8,5757 ≈ 8,58."
+  },
+  {
+   "l": "runden",
+   "t": "runden",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Runde 8,564 auf Hundertstel."
+   },
+   "o": {
+    "wert": 8.56
+   },
+   "c": "(8.564 * 10**2 + 1/2) // 1 / 10**2",
+   "w": "Die Ziffer rechts neben der Hundertstelstelle ist 4: abrunden. 8,564 ≈ 8,56."
+  },
+  {
+   "l": "runden",
+   "t": "runden",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Runde 9,2104 auf Tausendstel."
+   },
+   "o": {
+    "wert": 9.21
+   },
+   "c": "(9.2104 * 10**3 + 1/2) // 1 / 10**3",
+   "w": "Die Ziffer rechts neben der Tausendstelstelle ist 4: abrunden. 9,2104 ≈ 9,21."
+  },
+  {
+   "l": "bruch_zu_dezimal",
+   "t": "bruch_zu_dezimal",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe 11/20 als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.55
+   },
+   "c": "11 / 20",
+   "w": "Erweitern mit 5: 11/20 = 55/100 = 0,55.",
+   "h": "Erweitere auf 10, 100 oder 1 000."
+  },
+  {
+   "l": "bruch_zu_dezimal",
+   "t": "bruch_zu_dezimal",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe 8/25 als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.32
+   },
+   "c": "8 / 25",
+   "w": "Erweitern mit 4: 8/25 = 32/100 = 0,32.",
+   "h": "Erweitere auf 10, 100 oder 1 000."
+  },
+  {
+   "l": "bruch_zu_dezimal",
+   "t": "bruch_zu_dezimal",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe 1/5 als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.2
+   },
+   "c": "1 / 5",
+   "w": "Erweitern mit 2: 1/5 = 2/10 = 0,2.",
+   "h": "Erweitere auf 10, 100 oder 1 000."
+  },
+  {
+   "l": "bruch_zu_dezimal",
+   "t": "bruch_zu_dezimal",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe 1/4 als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.25
+   },
+   "c": "1 / 4",
+   "w": "Erweitern mit 25: 1/4 = 25/100 = 0,25.",
+   "h": "Erweitere auf 10, 100 oder 1 000."
+  },
+  {
+   "l": "bruch_zu_dezimal",
+   "t": "bruch_zu_dezimal",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe 1/2 als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.5
+   },
+   "c": "1 / 2",
+   "w": "Erweitern mit 5: 1/2 = 5/10 = 0,5.",
+   "h": "Erweitere auf 10, 100 oder 1 000."
+  },
+  {
+   "l": "bruch_zu_dezimal",
+   "t": "bruch_zu_dezimal",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe 14/25 als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.56
+   },
+   "c": "14 / 25",
+   "w": "Erweitern mit 4: 14/25 = 56/100 = 0,56.",
+   "h": "Erweitere auf 10, 100 oder 1 000."
+  },
+  {
+   "l": "bruch_zu_dezimal",
+   "t": "bruch_zu_dezimal",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "2,5",
+    "5,2",
+    "25",
+    "0,25"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Welche Dezimalzahl ist gleich 5/2?"
+   },
+   "w": "5/2 = 5 : 2 = 2,5. Der Bruchstrich ist kein Komma.",
+   "h": "Der Bruchstrich bedeutet „geteilt durch“."
+  },
+  {
+   "l": "bruch_zu_dezimal",
+   "t": "bruch_zu_dezimal",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "8,25",
+    "33,40",
+    "0,0825",
+    "0,825"
+   ],
+   "o": {
+    "index": 3
+   },
+   "f": {
+    "text": "Welche Dezimalzahl ist gleich 33/40?"
+   },
+   "w": "33/40 = 33 : 40 = 0,825. Der Bruchstrich ist kein Komma.",
+   "h": "Der Bruchstrich bedeutet „geteilt durch“."
+  },
+  {
+   "l": "bruch_zu_dezimal",
+   "t": "bruch_zu_dezimal",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe 5/4 als Dezimalzahl."
+   },
+   "o": {
+    "wert": 1.25
+   },
+   "c": "5 / 4",
+   "w": "Der Bruchstrich heißt „geteilt durch“: 5 : 4 = 1,25.",
+   "h": "Erweitere auf 10, 100 oder 1 000 – oder teile den Zähler durch den Nenner."
+  },
+  {
+   "l": "bruch_zu_dezimal",
+   "t": "bruch_zu_dezimal",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe 3/8 als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.375
+   },
+   "c": "3 / 8",
+   "w": "Der Bruchstrich heißt „geteilt durch“: 3 : 8 = 0,375.",
+   "h": "Erweitere auf 10, 100 oder 1 000 – oder teile den Zähler durch den Nenner."
+  },
+  {
+   "l": "bruch_zu_dezimal",
+   "t": "bruch_zu_dezimal",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "0,1875",
+    "1,875",
+    "18,75",
+    "15,8"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Welche Dezimalzahl ist gleich 15/8?"
+   },
+   "w": "15/8 = 15 : 8 = 1,875. Der Bruchstrich ist kein Komma.",
+   "h": "Der Bruchstrich bedeutet „geteilt durch“."
+  },
+  {
+   "l": "bruch_zu_dezimal",
+   "t": "bruch_zu_dezimal",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe 81/250 als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.324
+   },
+   "c": "81 / 250",
+   "w": "Der Bruchstrich heißt „geteilt durch“: 81 : 250 = 0,324.",
+   "h": "Erweitere auf 10, 100 oder 1 000 – oder teile den Zähler durch den Nenner."
+  },
+  {
+   "l": "bruch_zu_dezimal",
+   "t": "bruch_zu_dezimal",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe 21/7 als Dezimalzahl."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "21 / 7",
+   "w": "Zuerst kürzen mit 7: 21/7 = 3. Dann 3 = 3.",
+   "h": "Kürze zuerst. Dann siehst du, auf welchen Zehnerbruch du erweitern kannst."
+  },
+  {
+   "l": "bruch_zu_dezimal",
+   "t": "bruch_zu_dezimal",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe 7/28 als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.25
+   },
+   "c": "7 / 28",
+   "w": "Zuerst kürzen mit 7: 7/28 = 1/4. Dann 1/4 = 0,25.",
+   "h": "Kürze zuerst. Dann siehst du, auf welchen Zehnerbruch du erweitern kannst."
+  },
+  {
+   "l": "bruch_zu_dezimal",
+   "t": "bruch_zu_dezimal",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 7/8 + 0,5 und gib das Ergebnis als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 1.375
+   },
+   "c": "7/8 + 0.5",
+   "w": "7/8 = 0,875. 0,875 + 0,5 = 1,375.",
+   "h": "Wandle den Bruch zuerst in eine Dezimalzahl um."
+  },
+  {
+   "l": "bruch_zu_dezimal",
+   "t": "bruch_zu_dezimal",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 6/5 + 0,6 und gib das Ergebnis als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 1.8
+   },
+   "c": "6/5 + 0.6",
+   "w": "6/5 = 1,2. 1,2 + 0,6 = 1,8.",
+   "h": "Wandle den Bruch zuerst in eine Dezimalzahl um."
+  },
+  {
+   "l": "bruch_zu_dezimal",
+   "t": "bruch_zu_dezimal",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 1/4 + 0,4 und gib das Ergebnis als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.65
+   },
+   "c": "1/4 + 0.4",
+   "w": "1/4 = 0,25. 0,25 + 0,4 = 0,65.",
+   "h": "Wandle den Bruch zuerst in eine Dezimalzahl um."
+  },
+  {
+   "l": "bruch_zu_dezimal",
+   "t": "bruch_zu_dezimal",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe 77/220 als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.35
+   },
+   "c": "77 / 220",
+   "w": "Zuerst kürzen mit 11: 77/220 = 7/20. Dann 7/20 = 0,35.",
+   "h": "Kürze zuerst. Dann siehst du, auf welchen Zehnerbruch du erweitern kannst."
+  },
+  {
+   "l": "bruch_zu_dezimal",
+   "t": "bruch_zu_dezimal",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "199,250",
+    "0,796",
+    "7,96",
+    "0,0796"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Welche Dezimalzahl ist gleich 199/250?"
+   },
+   "w": "199/250 = 199 : 250 = 0,796. Der Bruchstrich ist kein Komma."
+  },
+  {
+   "l": "bruch_zu_dezimal",
+   "t": "bruch_zu_dezimal",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe 25/8 als Dezimalzahl."
+   },
+   "o": {
+    "wert": 3.125
+   },
+   "c": "25 / 8",
+   "w": "Der Bruchstrich heißt „geteilt durch“: 25 : 8 = 3,125."
+  },
+  {
+   "l": "bruch_zu_dezimal",
+   "t": "bruch_zu_dezimal",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "5,4",
+    "12,5",
+    "1,25",
+    "0,125"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Welche Dezimalzahl ist gleich 5/4?"
+   },
+   "w": "5/4 = 5 : 4 = 1,25. Der Bruchstrich ist kein Komma."
+  },
+  {
+   "l": "bruch_zu_dezimal",
+   "t": "bruch_zu_dezimal",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "7,2",
+    "35",
+    "0,35",
+    "3,5"
+   ],
+   "o": {
+    "index": 3
+   },
+   "f": {
+    "text": "Welche Dezimalzahl ist gleich 7/2?"
+   },
+   "w": "7/2 = 7 : 2 = 3,5. Der Bruchstrich ist kein Komma."
+  },
+  {
+   "l": "bruch_zu_dezimal",
+   "t": "bruch_zu_dezimal",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "1,625",
+    "16,25",
+    "0,1625",
+    "13,8"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Welche Dezimalzahl ist gleich 13/8?"
+   },
+   "w": "13/8 = 13 : 8 = 1,625. Der Bruchstrich ist kein Komma."
+  },
+  {
+   "l": "bruch_zu_dezimal",
+   "t": "bruch_zu_dezimal",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe 11/5 als Dezimalzahl."
+   },
+   "o": {
+    "wert": 2.2
+   },
+   "c": "11 / 5",
+   "w": "Der Bruchstrich heißt „geteilt durch“: 11 : 5 = 2,2."
+  },
+  {
+   "l": "bruch_zu_dezimal",
+   "t": "bruch_zu_dezimal",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "3,75",
+    "0,375",
+    "37,5",
+    "15,4"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Welche Dezimalzahl ist gleich 15/4?"
+   },
+   "w": "15/4 = 15 : 4 = 3,75. Der Bruchstrich ist kein Komma."
+  },
+  {
+   "l": "bruch_zu_dezimal",
+   "t": "bruch_zu_dezimal",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe 1/8 als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.125
+   },
+   "c": "1 / 8",
+   "w": "Der Bruchstrich heißt „geteilt durch“: 1 : 8 = 0,125."
+  },
+  {
+   "l": "bruch_zu_dezimal",
+   "t": "bruch_zu_dezimal",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "7,5",
+    "0,14",
+    "14",
+    "1,4"
+   ],
+   "o": {
+    "index": 3
+   },
+   "f": {
+    "text": "Welche Dezimalzahl ist gleich 7/5?"
+   },
+   "w": "7/5 = 7 : 5 = 1,4. Der Bruchstrich ist kein Komma."
+  },
+  {
+   "l": "bruch_zu_dezimal",
+   "t": "bruch_zu_dezimal",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe 69/20 als Dezimalzahl."
+   },
+   "o": {
+    "wert": 3.45
+   },
+   "c": "69 / 20",
+   "w": "Der Bruchstrich heißt „geteilt durch“: 69 : 20 = 3,45."
+  },
+  {
+   "l": "dezimal_zu_bruch",
+   "t": "dezimal_zu_bruch",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 0,8 als vollständig gekürzten Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     4,
+     5
+    ]
+   },
+   "c": [
+    "(0.8) * 5",
+    "5"
+   ],
+   "w": "1 Nachkommastelle: 0,8 = 8/10 = 4/5.",
+   "h": "So viele Nullen im Nenner wie Nachkommastellen. Dann kürzen."
+  },
+  {
+   "l": "dezimal_zu_bruch",
+   "t": "dezimal_zu_bruch",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 0,5 als vollständig gekürzten Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     1,
+     2
+    ]
+   },
+   "c": [
+    "(0.5) * 2",
+    "2"
+   ],
+   "w": "1 Nachkommastelle: 0,5 = 5/10 = 1/2.",
+   "h": "So viele Nullen im Nenner wie Nachkommastellen. Dann kürzen."
+  },
+  {
+   "l": "dezimal_zu_bruch",
+   "t": "dezimal_zu_bruch",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 0,3 als vollständig gekürzten Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     3,
+     10
+    ]
+   },
+   "c": [
+    "(0.3) * 10",
+    "10"
+   ],
+   "w": "1 Nachkommastelle: 0,3 = 3/10.",
+   "h": "So viele Nullen im Nenner wie Nachkommastellen. Dann kürzen."
+  },
+  {
+   "l": "dezimal_zu_bruch",
+   "t": "dezimal_zu_bruch",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 0,9 als vollständig gekürzten Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     9,
+     10
+    ]
+   },
+   "c": [
+    "(0.9) * 10",
+    "10"
+   ],
+   "w": "1 Nachkommastelle: 0,9 = 9/10.",
+   "h": "So viele Nullen im Nenner wie Nachkommastellen. Dann kürzen."
+  },
+  {
+   "l": "dezimal_zu_bruch",
+   "t": "dezimal_zu_bruch",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 0,4 als vollständig gekürzten Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     2,
+     5
+    ]
+   },
+   "c": [
+    "(0.4) * 5",
+    "5"
+   ],
+   "w": "1 Nachkommastelle: 0,4 = 4/10 = 2/5.",
+   "h": "So viele Nullen im Nenner wie Nachkommastellen. Dann kürzen."
+  },
+  {
+   "l": "dezimal_zu_bruch",
+   "t": "dezimal_zu_bruch",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 0,6 als vollständig gekürzten Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     3,
+     5
+    ]
+   },
+   "c": [
+    "(0.6) * 5",
+    "5"
+   ],
+   "w": "1 Nachkommastelle: 0,6 = 6/10 = 3/5.",
+   "h": "So viele Nullen im Nenner wie Nachkommastellen. Dann kürzen."
+  },
+  {
+   "l": "dezimal_zu_bruch",
+   "t": "dezimal_zu_bruch",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 0,53 als vollständig gekürzten Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     53,
+     100
+    ]
+   },
+   "c": [
+    "(0.53) * 100",
+    "100"
+   ],
+   "w": "2 Nachkommastellen: 0,53 = 53/100.",
+   "h": "So viele Nullen im Nenner wie Nachkommastellen. Dann kürzen."
+  },
+  {
+   "l": "dezimal_zu_bruch",
+   "t": "dezimal_zu_bruch",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 0,375 als vollständig gekürzten Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     3,
+     8
+    ]
+   },
+   "c": [
+    "(0.375) * 8",
+    "8"
+   ],
+   "w": "3 Nachkommastellen: 0,375 = 375/1 000 = 3/8.",
+   "h": "So viele Nullen im Nenner wie Nachkommastellen. Dann kürzen."
+  },
+  {
+   "l": "dezimal_zu_bruch",
+   "t": "dezimal_zu_bruch",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 0,77 als vollständig gekürzten Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     77,
+     100
+    ]
+   },
+   "c": [
+    "(0.77) * 100",
+    "100"
+   ],
+   "w": "2 Nachkommastellen: 0,77 = 77/100.",
+   "h": "So viele Nullen im Nenner wie Nachkommastellen. Dann kürzen."
+  },
+  {
+   "l": "dezimal_zu_bruch",
+   "t": "dezimal_zu_bruch",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 0,27 als vollständig gekürzten Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     27,
+     100
+    ]
+   },
+   "c": [
+    "(0.27) * 100",
+    "100"
+   ],
+   "w": "2 Nachkommastellen: 0,27 = 27/100.",
+   "h": "So viele Nullen im Nenner wie Nachkommastellen. Dann kürzen."
+  },
+  {
+   "l": "dezimal_zu_bruch",
+   "t": "dezimal_zu_bruch",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 0,12 als vollständig gekürzten Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     3,
+     25
+    ]
+   },
+   "c": [
+    "(0.12) * 25",
+    "25"
+   ],
+   "w": "2 Nachkommastellen: 0,12 = 12/100 = 3/25.",
+   "h": "So viele Nullen im Nenner wie Nachkommastellen. Dann kürzen."
+  },
+  {
+   "l": "dezimal_zu_bruch",
+   "t": "dezimal_zu_bruch",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 0,76 als vollständig gekürzten Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     19,
+     25
+    ]
+   },
+   "c": [
+    "(0.76) * 25",
+    "25"
+   ],
+   "w": "2 Nachkommastellen: 0,76 = 76/100 = 19/25.",
+   "h": "So viele Nullen im Nenner wie Nachkommastellen. Dann kürzen."
+  },
+  {
+   "l": "dezimal_zu_bruch",
+   "t": "dezimal_zu_bruch",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "3834/100",
+    "1917/500",
+    "3834/10 000",
+    "417/500"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Welcher Bruch ist gleich 3,834?"
+   },
+   "w": "3,834 = 3834/1 000 = 1917/500.",
+   "h": "Schreibe die Zahl als Zehnerbruch (Nenner 10, 100, 1 000) und kürze."
+  },
+  {
+   "l": "dezimal_zu_bruch",
+   "t": "dezimal_zu_bruch",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 3,34 als vollständig gekürzten Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     167,
+     50
+    ]
+   },
+   "c": [
+    "(3.34) * 50",
+    "50"
+   ],
+   "w": "2 Nachkommastellen: 3,34 = 334/100 = 167/50.",
+   "h": "So viele Nullen im Nenner wie Nachkommastellen. Dann kürzen."
+  },
+  {
+   "l": "dezimal_zu_bruch",
+   "t": "dezimal_zu_bruch",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 3,36 als vollständig gekürzten Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     84,
+     25
+    ]
+   },
+   "c": [
+    "(3.36) * 25",
+    "25"
+   ],
+   "w": "2 Nachkommastellen: 3,36 = 336/100 = 84/25.",
+   "h": "So viele Nullen im Nenner wie Nachkommastellen. Dann kürzen."
+  },
+  {
+   "l": "dezimal_zu_bruch",
+   "t": "dezimal_zu_bruch",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "163/1 000",
+    "63/100",
+    "163/100",
+    "163/10"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Welcher Bruch ist gleich 1,63?"
+   },
+   "w": "1,63 = 163/100 = 163/100.",
+   "h": "Schreibe die Zahl als Zehnerbruch (Nenner 10, 100, 1 000) und kürze."
+  },
+  {
+   "l": "dezimal_zu_bruch",
+   "t": "dezimal_zu_bruch",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "459/250",
+    "209/250",
+    "1836/100",
+    "1836/10 000"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Welcher Bruch ist gleich 1,836?"
+   },
+   "w": "1,836 = 1836/1 000 = 459/250.",
+   "h": "Schreibe die Zahl als Zehnerbruch (Nenner 10, 100, 1 000) und kürze."
+  },
+  {
+   "l": "dezimal_zu_bruch",
+   "t": "dezimal_zu_bruch",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 4,14 als vollständig gekürzten Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     207,
+     50
+    ]
+   },
+   "c": [
+    "(4.14) * 50",
+    "50"
+   ],
+   "w": "2 Nachkommastellen: 4,14 = 414/100 = 207/50.",
+   "h": "So viele Nullen im Nenner wie Nachkommastellen. Dann kürzen."
+  },
+  {
+   "l": "dezimal_zu_bruch",
+   "t": "dezimal_zu_bruch",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 0,959 als vollständig gekürzten Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     959,
+     1000
+    ]
+   },
+   "c": [
+    "(0.959) * 1000",
+    "1000"
+   ],
+   "w": "3 Nachkommastellen: 0,959 = 959/1 000 = 959/1000."
+  },
+  {
+   "l": "dezimal_zu_bruch",
+   "t": "dezimal_zu_bruch",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 0,68 als vollständig gekürzten Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     17,
+     25
+    ]
+   },
+   "c": [
+    "(0.68) * 25",
+    "25"
+   ],
+   "w": "2 Nachkommastellen: 0,68 = 68/100 = 17/25."
+  },
+  {
+   "l": "dezimal_zu_bruch",
+   "t": "dezimal_zu_bruch",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 0,415 als vollständig gekürzten Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     83,
+     200
+    ]
+   },
+   "c": [
+    "(0.415) * 200",
+    "200"
+   ],
+   "w": "3 Nachkommastellen: 0,415 = 415/1 000 = 83/200."
+  },
+  {
+   "l": "dezimal_zu_bruch",
+   "t": "dezimal_zu_bruch",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 0,97 als vollständig gekürzten Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     97,
+     100
+    ]
+   },
+   "c": [
+    "(0.97) * 100",
+    "100"
+   ],
+   "w": "2 Nachkommastellen: 0,97 = 97/100."
+  },
+  {
+   "l": "dezimal_zu_bruch",
+   "t": "dezimal_zu_bruch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 0,63 als vollständig gekürzten Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     63,
+     100
+    ]
+   },
+   "c": [
+    "(0.63) * 100",
+    "100"
+   ],
+   "w": "2 Nachkommastellen: 0,63 = 63/100."
+  },
+  {
+   "l": "dezimal_zu_bruch",
+   "t": "dezimal_zu_bruch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 0,39 als vollständig gekürzten Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     39,
+     100
+    ]
+   },
+   "c": [
+    "(0.39) * 100",
+    "100"
+   ],
+   "w": "2 Nachkommastellen: 0,39 = 39/100."
+  },
+  {
+   "l": "dezimal_zu_bruch",
+   "t": "dezimal_zu_bruch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 0,96 als vollständig gekürzten Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     24,
+     25
+    ]
+   },
+   "c": [
+    "(0.96) * 25",
+    "25"
+   ],
+   "w": "2 Nachkommastellen: 0,96 = 96/100 = 24/25."
+  },
+  {
+   "l": "dezimal_zu_bruch",
+   "t": "dezimal_zu_bruch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 0,495 als vollständig gekürzten Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     99,
+     200
+    ]
+   },
+   "c": [
+    "(0.495) * 200",
+    "200"
+   ],
+   "w": "3 Nachkommastellen: 0,495 = 495/1 000 = 99/200."
+  },
+  {
+   "l": "dezimal_zu_bruch",
+   "t": "dezimal_zu_bruch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 0,801 als vollständig gekürzten Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     801,
+     1000
+    ]
+   },
+   "c": [
+    "(0.801) * 1000",
+    "1000"
+   ],
+   "w": "3 Nachkommastellen: 0,801 = 801/1 000 = 801/1000."
+  },
+  {
+   "l": "dezimal_zu_bruch",
+   "t": "dezimal_zu_bruch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe 0,31 als vollständig gekürzten Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt."
+   },
+   "o": {
+    "werte": [
+     31,
+     100
+    ]
+   },
+   "c": [
+    "(0.31) * 100",
+    "100"
+   ],
+   "w": "2 Nachkommastellen: 0,31 = 31/100."
+  },
+  {
+   "l": "periodisch",
+   "t": "periodisch",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "0,16",
+    "0,1̅6̅",
+    "0,16̅",
+    "0,6̅"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Welche Dezimalzahl ist gleich 1/6?"
+   },
+   "w": "1 : 6 = 0,16̅ – die Ziffern wiederholen sich ohne Ende.",
+   "h": "Rechne den Zähler durch den Nenner schriftlich, bis sich etwas wiederholt."
+  },
+  {
+   "l": "periodisch",
+   "t": "periodisch",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "0,66",
+    "0,3̅",
+    "0,6",
+    "0,6̅"
+   ],
+   "o": {
+    "index": 3
+   },
+   "f": {
+    "text": "Welche Dezimalzahl ist gleich 2/3?"
+   },
+   "w": "2 : 3 = 0,6̅ – die Ziffern wiederholen sich ohne Ende.",
+   "h": "Rechne den Zähler durch den Nenner schriftlich, bis sich etwas wiederholt."
+  },
+  {
+   "l": "periodisch",
+   "t": "periodisch",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "0,6̅",
+    "0,83̅",
+    "0,8̅3̅",
+    "0,83"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Welche Dezimalzahl ist gleich 5/6?"
+   },
+   "w": "5 : 6 = 0,83̅ – die Ziffern wiederholen sich ohne Ende.",
+   "h": "Rechne den Zähler durch den Nenner schriftlich, bis sich etwas wiederholt."
+  },
+  {
+   "l": "periodisch",
+   "t": "periodisch",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "periodisch, weil der Zähler ungerade ist",
+    "periodisch, weil der Nenner einen anderen Primfaktor hat",
+    "endlich, weil der Nenner nur 2 und 5 enthält"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Ist 9/16 als Dezimalzahl endlich oder periodisch?"
+   },
+   "w": "9/16 ist vollständig gekürzt, 16 = 2 · 2 · 2 · 2. Nur 2 und 5: endlich, 9/16 = 0,5625.",
+   "h": "Zerlege den Nenner in Primfaktoren. Nur der Zähler spielt keine Rolle."
+  },
+  {
+   "l": "periodisch",
+   "t": "periodisch",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "periodisch, weil der Nenner einen anderen Primfaktor hat",
+    "periodisch, weil der Zähler gerade ist",
+    "endlich, weil der Nenner nur 2 und 5 enthält"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Ist 2/5 als Dezimalzahl endlich oder periodisch?"
+   },
+   "w": "2/5 ist vollständig gekürzt, 5 = 5. Nur 2 und 5: endlich, 2/5 = 0,4.",
+   "h": "Zerlege den Nenner in Primfaktoren. Nur der Zähler spielt keine Rolle."
+  },
+  {
+   "l": "periodisch",
+   "t": "periodisch",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "0,55",
+    "0,5̅",
+    "0,5",
+    "0,9̅"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Welche Dezimalzahl ist gleich 5/9?"
+   },
+   "w": "5 : 9 = 0,5̅ – die Ziffern wiederholen sich ohne Ende.",
+   "h": "Rechne den Zähler durch den Nenner schriftlich, bis sich etwas wiederholt."
+  },
+  {
+   "l": "periodisch",
+   "t": "periodisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "0,7̅6̅",
+    "0,76",
+    "0,76̅",
+    "0,3̅0̅"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Welche Dezimalzahl ist gleich 23/30?"
+   },
+   "w": "23 : 30 = 0,76̅. Der Strich steht nur über den Ziffern, die sich wiederholen.",
+   "h": "Schriftlich teilen. Sobald ein Rest zum zweiten Mal kommt, wiederholen sich die Ziffern."
+  },
+  {
+   "l": "periodisch",
+   "t": "periodisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "0,1̅5̅",
+    "0,86",
+    "0,86̅",
+    "0,8̅6̅"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Welche Dezimalzahl ist gleich 13/15?"
+   },
+   "w": "13 : 15 = 0,86̅. Der Strich steht nur über den Ziffern, die sich wiederholen.",
+   "h": "Schriftlich teilen. Sobald ein Rest zum zweiten Mal kommt, wiederholen sich die Ziffern."
+  },
+  {
+   "l": "periodisch",
+   "t": "periodisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "0,1̅1̅",
+    "0,1̅8̅",
+    "0,18",
+    "0,18̅1̅"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Welche Dezimalzahl ist gleich 2/11?"
+   },
+   "w": "2 : 11 = 0,1̅8̅. Der Strich steht nur über den Ziffern, die sich wiederholen.",
+   "h": "Schriftlich teilen. Sobald ein Rest zum zweiten Mal kommt, wiederholen sich die Ziffern."
+  },
+  {
+   "l": "periodisch",
+   "t": "periodisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "1,03̅",
+    "1,3̅0̅",
+    "1,0̅3̅",
+    "1,03"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Welche Dezimalzahl ist gleich 31/30?"
+   },
+   "w": "31 : 30 = 1,03̅. Der Strich steht nur über den Ziffern, die sich wiederholen.",
+   "h": "Schriftlich teilen. Sobald ein Rest zum zweiten Mal kommt, wiederholen sich die Ziffern."
+  },
+  {
+   "l": "periodisch",
+   "t": "periodisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "0,90",
+    "0,90̅9̅",
+    "0,1̅1̅",
+    "0,9̅0̅"
+   ],
+   "o": {
+    "index": 3
+   },
+   "f": {
+    "text": "Welche Dezimalzahl ist gleich 10/11?"
+   },
+   "w": "10 : 11 = 0,9̅0̅. Der Strich steht nur über den Ziffern, die sich wiederholen.",
+   "h": "Schriftlich teilen. Sobald ein Rest zum zweiten Mal kommt, wiederholen sich die Ziffern."
+  },
+  {
+   "l": "periodisch",
+   "t": "periodisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "1,42̅8̅5̅7̅1̅4̅",
+    "1,4̅2̅8̅5̅7̅1̅",
+    "1,7̅",
+    "1,42"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Welche Dezimalzahl ist gleich 10/7?"
+   },
+   "w": "10 : 7 = 1,4̅2̅8̅5̅7̅1̅. Der Strich steht nur über den Ziffern, die sich wiederholen.",
+   "h": "Schriftlich teilen. Sobald ein Rest zum zweiten Mal kommt, wiederholen sich die Ziffern."
+  },
+  {
+   "l": "periodisch",
+   "t": "periodisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "2/3 = 0,6̅. Welche Ziffer steht an der 11. Nachkommastelle?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "(2/3 * 10**11) // 1 % 10",
+   "w": "Die Periode 6 hat 1 Ziffern. Sie wiederholt sich, an der 11. Stelle steht 6.",
+   "h": "Wie lang ist die Periode? Zähle in Periodenblöcken weiter."
+  },
+  {
+   "l": "periodisch",
+   "t": "periodisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "endlich, denn nach dem Kürzen enthält der Nenner nur 2 und 5",
+    "periodisch, denn der Zähler ist nicht durch 10 teilbar",
+    "periodisch, denn der Nenner enthält 9"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Ist 36/45 als Dezimalzahl endlich oder periodisch?"
+   },
+   "w": "Zuerst kürzen: 36/45 = 4/5. Der Nenner 5 hat nur die Primfaktoren 2 und 5, also endlich: 0,8.",
+   "h": "Kürze den Bruch zuerst vollständig!"
+  },
+  {
+   "l": "periodisch",
+   "t": "periodisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "periodisch, denn der Zähler ist nicht durch 10 teilbar",
+    "endlich, denn nach dem Kürzen enthält der Nenner nur 2 und 5",
+    "periodisch, denn der Nenner enthält 3"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Ist 54/75 als Dezimalzahl endlich oder periodisch?"
+   },
+   "w": "Zuerst kürzen: 54/75 = 18/25. Der Nenner 25 hat nur die Primfaktoren 2 und 5, also endlich: 0,72.",
+   "h": "Kürze den Bruch zuerst vollständig!"
+  },
+  {
+   "l": "periodisch",
+   "t": "periodisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "periodisch, denn der Zähler ist nicht durch 10 teilbar",
+    "endlich, denn nach dem Kürzen enthält der Nenner nur 2 und 5",
+    "periodisch, denn der Nenner enthält 7"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Ist 7/70 als Dezimalzahl endlich oder periodisch?"
+   },
+   "w": "Zuerst kürzen: 7/70 = 1/10. Der Nenner 10 hat nur die Primfaktoren 2 und 5, also endlich: 0,1.",
+   "h": "Kürze den Bruch zuerst vollständig!"
+  },
+  {
+   "l": "periodisch",
+   "t": "periodisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "8/9 = 0,8̅. Welche Ziffer steht an der 8. Nachkommastelle?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "(8/9 * 10**8) // 1 % 10",
+   "w": "Die Periode 8 hat 1 Ziffern. Sie wiederholt sich, an der 8. Stelle steht 8.",
+   "h": "Wie lang ist die Periode? Zähle in Periodenblöcken weiter."
+  },
+  {
+   "l": "periodisch",
+   "t": "periodisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "1/13 = 0,0̅7̅6̅9̅2̅3̅. Wie viele Ziffern hat die Periode?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "6",
+   "w": "Unter dem Strich stehen 6 Ziffern: 076923.",
+   "h": "Zähle die Ziffern unter dem Periodenstrich."
+  },
+  {
+   "l": "periodisch",
+   "t": "periodisch",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "1,1̅5̅",
+    "1,53̅",
+    "1,5̅3̅",
+    "1,53"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Welche Dezimalzahl ist gleich 23/15?"
+   },
+   "w": "23 : 15 = 1,53̅. Der Strich steht nur über den Ziffern, die sich wiederholen."
+  },
+  {
+   "l": "periodisch",
+   "t": "periodisch",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "1,81̅8̅",
+    "1,8̅1̅",
+    "1,1̅1̅",
+    "1,81"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Welche Dezimalzahl ist gleich 20/11?"
+   },
+   "w": "20 : 11 = 1,8̅1̅. Der Strich steht nur über den Ziffern, die sich wiederholen."
+  },
+  {
+   "l": "periodisch",
+   "t": "periodisch",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "1,2̅2̅",
+    "1,22",
+    "1,2̅2̅7̅",
+    "1,22̅7̅"
+   ],
+   "o": {
+    "index": 3
+   },
+   "f": {
+    "text": "Welche Dezimalzahl ist gleich 27/22?"
+   },
+   "w": "27 : 22 = 1,22̅7̅. Der Strich steht nur über den Ziffern, die sich wiederholen."
+  },
+  {
+   "l": "periodisch",
+   "t": "periodisch",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "0,61",
+    "0,61̅",
+    "0,1̅8̅",
+    "0,6̅1̅"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Welche Dezimalzahl ist gleich 11/18?"
+   },
+   "w": "11 : 18 = 0,61̅. Der Strich steht nur über den Ziffern, die sich wiederholen."
+  },
+  {
+   "l": "periodisch",
+   "t": "periodisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "1,4̅5̅",
+    "1,45̅4̅",
+    "1,45",
+    "1,1̅1̅"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Welche Dezimalzahl ist gleich 16/11?"
+   },
+   "w": "16 : 11 = 1,4̅5̅. Der Strich steht nur über den Ziffern, die sich wiederholen."
+  },
+  {
+   "l": "periodisch",
+   "t": "periodisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "1,90",
+    "1,9̅0̅",
+    "1,1̅1̅",
+    "1,90̅9̅"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Welche Dezimalzahl ist gleich 21/11?"
+   },
+   "w": "21 : 11 = 1,9̅0̅. Der Strich steht nur über den Ziffern, die sich wiederholen."
+  },
+  {
+   "l": "periodisch",
+   "t": "periodisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "1,1̅8̅",
+    "1,72",
+    "1,7̅2̅",
+    "1,72̅"
+   ],
+   "o": {
+    "index": 3
+   },
+   "f": {
+    "text": "Welche Dezimalzahl ist gleich 31/18?"
+   },
+   "w": "31 : 18 = 1,72̅. Der Strich steht nur über den Ziffern, die sich wiederholen."
+  },
+  {
+   "l": "periodisch",
+   "t": "periodisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "1,94",
+    "1,9̅4̅",
+    "1,1̅8̅",
+    "1,94̅"
+   ],
+   "o": {
+    "index": 3
+   },
+   "f": {
+    "text": "Welche Dezimalzahl ist gleich 35/18?"
+   },
+   "w": "35 : 18 = 1,94̅. Der Strich steht nur über den Ziffern, die sich wiederholen."
+  },
+  {
+   "l": "periodisch",
+   "t": "periodisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "1,54̅5̅",
+    "1,5̅4̅",
+    "1,54",
+    "1,1̅1̅"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Welche Dezimalzahl ist gleich 17/11?"
+   },
+   "w": "17 : 11 = 1,5̅4̅. Der Strich steht nur über den Ziffern, die sich wiederholen."
+  },
+  {
+   "l": "periodisch",
+   "t": "periodisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "0,1̅5̅",
+    "0,13̅",
+    "0,1̅3̅",
+    "0,13"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Welche Dezimalzahl ist gleich 2/15?"
+   },
+   "w": "2 : 15 = 0,13̅. Der Strich steht nur über den Ziffern, die sich wiederholen."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Ja, die Aussage stimmt.",
+    "Nein, man vergleicht Stelle für Stelle: Bei den Zehnteln hat die zweite Zahl mehr."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „7,19 ist größer als 7,3, weil die Zahl hinter dem Komma größer ist.“"
+   },
+   "w": "Nein, man vergleicht Stelle für Stelle: Bei den Zehnteln hat die zweite Zahl mehr.",
+   "h": "Prüfe mit der Stellenwerttafel oder suche ein Gegenbeispiel."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Nein, 3,30 = 3,3. Eine Endnull ändert den Wert nicht.",
+    "Ja, die Aussage stimmt.",
+    "Das kann man nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „3,30 ist größer als 3,3, weil es mehr Ziffern hat.“"
+   },
+   "w": "Nein, 3,30 = 3,3. Eine Endnull ändert den Wert nicht.",
+   "h": "Prüfe mit der Stellenwerttafel oder suche ein Gegenbeispiel."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Ja, die Aussage stimmt.",
+    "Nein, man vergleicht Stelle für Stelle: Bei den Zehnteln hat die zweite Zahl mehr."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „7,19 ist größer als 7,4, weil die Zahl hinter dem Komma größer ist.“"
+   },
+   "w": "Nein, man vergleicht Stelle für Stelle: Bei den Zehnteln hat die zweite Zahl mehr.",
+   "h": "Prüfe mit der Stellenwerttafel oder suche ein Gegenbeispiel."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Nein, man vergleicht Stelle für Stelle: Bei den Zehnteln hat die zweite Zahl mehr.",
+    "Ja, die Aussage stimmt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „9,19 ist größer als 9,7, weil die Zahl hinter dem Komma größer ist.“"
+   },
+   "w": "Nein, man vergleicht Stelle für Stelle: Bei den Zehnteln hat die zweite Zahl mehr.",
+   "h": "Prüfe mit der Stellenwerttafel oder suche ein Gegenbeispiel."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Nein, 8,50 = 8,5. Eine Endnull ändert den Wert nicht.",
+    "Ja, die Aussage stimmt.",
+    "Das kann man nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „8,50 ist größer als 8,5, weil es mehr Ziffern hat.“"
+   },
+   "w": "Nein, 8,50 = 8,5. Eine Endnull ändert den Wert nicht.",
+   "h": "Prüfe mit der Stellenwerttafel oder suche ein Gegenbeispiel."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Ja, die Aussage stimmt.",
+    "Das kann man nicht entscheiden.",
+    "Nein, man vergleicht Stelle für Stelle: Bei den Zehnteln hat die zweite Zahl mehr."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „2,14 ist größer als 2,9, weil die Zahl hinter dem Komma größer ist.“"
+   },
+   "w": "Nein, man vergleicht Stelle für Stelle: Bei den Zehnteln hat die zweite Zahl mehr.",
+   "h": "Prüfe mit der Stellenwerttafel oder suche ein Gegenbeispiel."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Ja, die Aussage stimmt.",
+    "Nein, mal 10 verschiebt das Komma: 14,4 · 10 = 144."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „14,4 · 10 = 14,40“"
+   },
+   "w": "Nein, mal 10 verschiebt das Komma: 14,4 · 10 = 144.",
+   "h": "Prüfe mit der Stellenwerttafel oder suche ein Gegenbeispiel."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Nein, die Aussage ist falsch.",
+    "Ja, mal 10 verschiebt das Komma um eine Stelle nach rechts.",
+    "Das kann man nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „0,6 · 10 = 6“"
+   },
+   "w": "Ja, mal 10 verschiebt das Komma um eine Stelle nach rechts.",
+   "h": "Prüfe mit der Stellenwerttafel oder suche ein Gegenbeispiel."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Ja, die Aussage stimmt.",
+    "Nein. 1/3 = 0,3̅. 0,33 ist nur gerundet, denn 3 · 0,33 = 0,99."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „1/3 = 0,33“"
+   },
+   "w": "Nein. 1/3 = 0,3̅. 0,33 ist nur gerundet, denn 3 · 0,33 = 0,99.",
+   "h": "Prüfe mit der Stellenwerttafel oder suche ein Gegenbeispiel."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Nein, z. B. 19,85 liegt dazwischen.",
+    "Ja, die Aussage stimmt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Zwischen 19,8 und 19,9 liegt keine andere Dezimalzahl.“"
+   },
+   "w": "Nein, z. B. 19,85 liegt dazwischen.",
+   "h": "Prüfe mit der Stellenwerttafel oder suche ein Gegenbeispiel."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Ja, die Aussage stimmt.",
+    "Nein, mal 10 verschiebt das Komma: 1,7 · 10 = 17."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „1,7 · 10 = 1,70“"
+   },
+   "w": "Nein, mal 10 verschiebt das Komma: 1,7 · 10 = 17.",
+   "h": "Prüfe mit der Stellenwerttafel oder suche ein Gegenbeispiel."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Nein, mal 10 verschiebt das Komma: 15,7 · 10 = 157.",
+    "Ja, die Aussage stimmt.",
+    "Das kann man nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „15,7 · 10 = 15,70“"
+   },
+   "w": "Nein, mal 10 verschiebt das Komma: 15,7 · 10 = 157.",
+   "h": "Prüfe mit der Stellenwerttafel oder suche ein Gegenbeispiel."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Ja, die Aussage stimmt.",
+    "Das kann man nicht entscheiden.",
+    "Nein, z. B. 3/3 = 1 = 1 ist endlich. Erst kürzen, dann entscheiden."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Jeder Bruch mit dem Nenner 3 ist periodisch.“"
+   },
+   "w": "Nein, z. B. 3/3 = 1 = 1 ist endlich. Erst kürzen, dann entscheiden.",
+   "h": "Prüfe mit der Stellenwerttafel oder suche ein Gegenbeispiel."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Ja, 0,49 hat ein Zehntel mehr.",
+    "Nein, die Aussage ist falsch."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „0,39 ist kleiner als 0,49.“"
+   },
+   "w": "Ja, 0,49 hat ein Zehntel mehr.",
+   "h": "Prüfe mit der Stellenwerttafel oder suche ein Gegenbeispiel."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Nein, rechts neben der Zehntelstelle steht 2, also 0.",
+    "Ja, die Aussage stimmt.",
+    "Das kann man nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „0,1 ist 0,02 auf Zehntel gerundet.“"
+   },
+   "w": "Nein, rechts neben der Zehntelstelle steht 2, also 0.",
+   "h": "Prüfe mit der Stellenwerttafel oder suche ein Gegenbeispiel."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Nein, die Aussage ist falsch.",
+    "Ja, 0,83 hat ein Zehntel mehr."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „0,73 ist kleiner als 0,83.“"
+   },
+   "w": "Ja, 0,83 hat ein Zehntel mehr.",
+   "h": "Prüfe mit der Stellenwerttafel oder suche ein Gegenbeispiel."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Ja, 0,88 hat ein Zehntel mehr.",
+    "Nein, die Aussage ist falsch."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „0,78 ist kleiner als 0,88.“"
+   },
+   "w": "Ja, 0,88 hat ein Zehntel mehr.",
+   "h": "Prüfe mit der Stellenwerttafel oder suche ein Gegenbeispiel."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Nein, die Aussage ist falsch.",
+    "Ja, rechts neben der Zehntelstelle steht 6."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „0,2 ist 0,16 auf Zehntel gerundet.“"
+   },
+   "w": "Ja, rechts neben der Zehntelstelle steht 6.",
+   "h": "Prüfe mit der Stellenwerttafel oder suche ein Gegenbeispiel."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Ja, mal 10 verschiebt das Komma um eine Stelle nach rechts.",
+    "Nein, die Aussage ist falsch."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „12,5 · 10 = 125“"
+   },
+   "w": "Ja, mal 10 verschiebt das Komma um eine Stelle nach rechts."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Ja, mal 10 verschiebt das Komma um eine Stelle nach rechts.",
+    "Nein, die Aussage ist falsch."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „1,1 · 10 = 11“"
+   },
+   "w": "Ja, mal 10 verschiebt das Komma um eine Stelle nach rechts."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Ja, mal 10 verschiebt das Komma um eine Stelle nach rechts.",
+    "Das kann man nicht entscheiden.",
+    "Nein, die Aussage ist falsch."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „0,2 · 10 = 2“"
+   },
+   "w": "Ja, mal 10 verschiebt das Komma um eine Stelle nach rechts."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Ja, die Aussage stimmt.",
+    "Das kann man nicht entscheiden.",
+    "Nein, z. B. 18,55 liegt dazwischen."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Zwischen 18,5 und 18,6 liegt keine andere Dezimalzahl.“"
+   },
+   "w": "Nein, z. B. 18,55 liegt dazwischen."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Ja, die Aussage stimmt.",
+    "Das kann man nicht entscheiden.",
+    "Nein, mal 10 verschiebt das Komma: 3,9 · 10 = 39."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „3,9 · 10 = 3,90“"
+   },
+   "w": "Nein, mal 10 verschiebt das Komma: 3,9 · 10 = 39."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Nein, z. B. 13,45 liegt dazwischen.",
+    "Ja, die Aussage stimmt.",
+    "Das kann man nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Zwischen 13,4 und 13,5 liegt keine andere Dezimalzahl.“"
+   },
+   "w": "Nein, z. B. 13,45 liegt dazwischen."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Nein, die Aussage ist falsch.",
+    "Das kann man nicht entscheiden.",
+    "Ja, mal 10 verschiebt das Komma um eine Stelle nach rechts."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „17,5 · 10 = 175“"
+   },
+   "w": "Ja, mal 10 verschiebt das Komma um eine Stelle nach rechts."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Nein, die Aussage ist falsch.",
+    "Ja, mal 10 verschiebt das Komma um eine Stelle nach rechts.",
+    "Das kann man nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „3,2 · 10 = 32“"
+   },
+   "w": "Ja, mal 10 verschiebt das Komma um eine Stelle nach rechts."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Ja, die Aussage stimmt.",
+    "Das kann man nicht entscheiden.",
+    "Nein, z. B. 13,65 liegt dazwischen."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Zwischen 13,6 und 13,7 liegt keine andere Dezimalzahl.“"
+   },
+   "w": "Nein, z. B. 13,65 liegt dazwischen."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Ja, mal 10 verschiebt das Komma um eine Stelle nach rechts.",
+    "Das kann man nicht entscheiden.",
+    "Nein, die Aussage ist falsch."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „3,4 · 10 = 34“"
+   },
+   "w": "Ja, mal 10 verschiebt das Komma um eine Stelle nach rechts."
+  }
+ ],
+ "offen": [
+  "themenliste.json nennt für dieses Thema keinen lehrplan_gym-Wortlaut; Umfang nach „umfang“ gebaut.",
+  "Periodenstrich als kombinierender Überstrich (U+0305) geschrieben, z. B. 0,83̅. Darstellung in der App prüfen; falls unschön, braucht die App eine eigene Periodendarstellung. Periodische Zahlen kommen deshalb nur in Auswahl-Antworten vor (nie als Eingabe).",
+  "Umwandlung periodische Dezimalzahl → Bruch (z. B. 0,3̅ = 1/3) bewusst nur in einfachen Fällen erklärt; das allgemeine Verfahren ist nicht Stoff der 6. Klasse."
+ ]
+}

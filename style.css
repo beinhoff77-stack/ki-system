@@ -3530,3 +3530,28 @@ body.lern-seite { padding-bottom: 32px; }
 .lern-lueckenzeile { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 1.1rem; font-weight: 600; }
 .lern-bruch { display: inline-flex; flex-direction: column; align-items: center; gap: 4px; }
 .lern-bruchstrich { width: 100%; min-width: 4.6em; height: 3px; border-radius: 2px; background: currentColor; }
+
+/* W150: Zeichnungen (Koordinatensystem, Figur, Diagramme, Tabelle) */
+.lern-zeichnung { width: 100%; max-width: 420px; height: auto; display: block; margin: 0 auto; }
+.lern-zeichnung .gitter { stroke: var(--lr-linie, var(--border)); stroke-width: 1; }
+.lern-zeichnung .achse { stroke: var(--lr-text, var(--text)); stroke-width: 1.6; }
+.lern-zeichnung .spitze { fill: var(--lr-text, var(--text)); }
+.lern-zeichnung .zahl { font-size: 12px; text-anchor: middle; fill: var(--lr-text, var(--text)); }
+.lern-zeichnung .zahl.rechts { text-anchor: end; } .lern-zeichnung .zahl.links { text-anchor: start; }
+.lern-zeichnung .zahl.kursiv { font-style: italic; } .lern-zeichnung .zahl.fett { font-weight: 800; }
+.lern-zeichnung .graph { fill: none; stroke-width: 2.6; stroke-linejoin: round; stroke-linecap: round; }
+.lern-zeichnung .graph0 { stroke: var(--lr-akzent, var(--accent)); } .lern-zeichnung .graph1 { stroke: var(--lr-gut, #0E7C86); } .lern-zeichnung .graph2 { stroke: #8A5BD1; }
+.lern-zeichnung .graphname0 { fill: var(--lr-akzent, var(--accent)); } .lern-zeichnung .graphname1 { fill: var(--lr-gut, #0E7C86); } .lern-zeichnung .graphname2 { fill: #8A5BD1; }
+.lern-zeichnung .hilfslinie { stroke: var(--lr-leise, var(--text-muted)); stroke-width: 1.4; stroke-dasharray: 5 4; fill: none; }
+.lern-zeichnung .strecke { stroke: var(--lr-text, var(--text)); stroke-width: 2.2; stroke-linecap: round; }
+.lern-zeichnung .punkt { fill: var(--lr-text, var(--text)); } .lern-zeichnung .punkt.offen { fill: var(--lr-flaeche, var(--surface)); stroke: var(--lr-text, var(--text)); stroke-width: 1.6; }
+.lern-zeichnung .flaeche { fill: var(--lr-akzent, var(--accent)); fill-opacity: .12; stroke: none; }
+.lern-zeichnung .kreis { fill: none; stroke: var(--lr-text, var(--text)); stroke-width: 2; }
+.lern-zeichnung .winkel { fill: none; stroke: var(--lr-akzent, var(--accent)); stroke-width: 1.8; }
+.lern-zeichnung .saeule0 { fill: var(--lr-akzent, var(--accent)); } .lern-zeichnung .saeule1 { fill: var(--lr-gut, #0E7C86); } .lern-zeichnung .saeule2 { fill: #8A5BD1; } .lern-zeichnung .saeule3 { fill: #D9A21B; }
+.lern-zeichnung .sektor { stroke: var(--lr-flaeche, var(--surface)); stroke-width: 2; }
+.lr-bild-tabelle { overflow-x: auto; }
+.lr-tafel { border-collapse: collapse; margin: 0 auto; font-size: .95rem; }
+.lr-tafel th, .lr-tafel td { border: 1px solid var(--lr-linie, var(--border)); padding: 6px 12px; text-align: center; }
+.lr-tafel th { font-weight: 800; background: var(--lr-bg, var(--surface-muted)); }
+.lern-zeichnung text { paint-order: stroke; stroke: var(--lr-flaeche, var(--surface)); stroke-width: 3px; stroke-linejoin: round; }

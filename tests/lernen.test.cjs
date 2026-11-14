@@ -551,6 +551,12 @@ test('Gestaltung Abflug: Abflugtafel, Bordkarte mit Tastenfeld, Kurskorrektur, L
     assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth), false);
     await page.screenshot({ path: path.join(root, `test-results/abflug-karte${nr}-390.png`) });
   }
+  // Übrige Ansichten im neuen Stil: kein waagrechtes Scrollen, Bilder zum Ansehen
+  for (const v of ['weltkarte', 'reisepass', 'merkheft', 'weg']) {
+    await page.goto(origin + `/#/${v}/1`); await page.locator('.lr.lr-abflug .lr-inhalt > *').first().waitFor(); await page.waitForTimeout(300);
+    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth), false, v);
+    await page.screenshot({ path: path.join(root, `test-results/abflug-${v}-390.png`), fullPage: true });
+  }
   // Tag-Ansicht und Rückweg zum bisherigen Design im Reisepass
   await page.goto(origin + '/#/reisepass/1');
   await page.getByRole('button', { name: 'Abflug hell' }).click();

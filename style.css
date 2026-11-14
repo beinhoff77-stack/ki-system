@@ -3796,3 +3796,14 @@ body[data-kindmodus] .lern-abmelden, body[data-kindmodus] .app-version { display
 .lr-abflug .lr-blatt-liste button, .lr-abflug .lr-blatt-liste button:hover, .lr-abflug .lr-blatt-liste button:focus { background: transparent; color: var(--lr-text); }
 .lr-abflug .lern-kachel.lern-verdeckt, .lr-abflug .lern-kachel.lern-verdeckt:focus { border: 0; box-shadow: none; min-height: 1px; }
 .lr-abflug .lern-zeile:has(> .lern-verdeckt:only-child) { height: 0; margin: 0; }
+/* W150 Abflug Stufe 3: App-Rahmen (Kopfzeile, Seitengrund) passt sich dem Lern-Design an */
+body:has(.lr-abflug-nacht) { background: #0B0F14; }
+body:has(.lr-abflug-tag) { background: #F3F1EA; }
+body:has(.lr-abflug) header.top { font-family: "Space Grotesk", system-ui, sans-serif; border-bottom: 1px solid transparent; }
+body:has(.lr-abflug-nacht) header.top { background: #0B0F14; color: #F2F4F7; border-bottom-color: #2E3947; }
+body:has(.lr-abflug-nacht) header.top h1 { color: #F2F4F7; }
+body:has(.lr-abflug-nacht) header.top .iconbtn { background: #151B24; color: #F2F4F7; border-color: #2E3947; }
+body:has(.lr-abflug-nacht) header.top .ver { color: #A9B3C1; }
+body:has(.lr-abflug-tag) header.top { background: #F3F1EA; color: #11161D; border-bottom-color: #C9C4B6; }
+body:has(.lr-abflug) header.top h1 { font-size: 1.15rem; font-weight: 600; }
+.lr.lr-abflug { min-height: 100dvh; }

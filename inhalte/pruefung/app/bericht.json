@@ -460,6 +460,76 @@
       ],
       "vorschlag": "Legende als drei farbige Punkte mit Wort direkt über der Liste statt Absatz. Zusätzlich je Ort ein Knopf „nach ganz oben“ (oder Ziehen am Griff). „kann es schon“ als Schalter mit 44 px Höhe.",
       "bild": "bilder/29-themenplan-lesen-und-pfeile.png"
+    },
+    {
+      "nr": 30,
+      "bereich": "kind",
+      "ansicht": "alle Kind-Ansichten im Look „Nacht“",
+      "art": "darstellung",
+      "schwere": "mittel",
+      "beschreibung": "Im Look „Nacht“ bleiben Kopfzeile und der leere Streifen darüber beige (Farben des Eltern-Bereichs), darunter beginnt die dunkelblaue Seite. Der Look bricht oben sichtbar ab.",
+      "nachstellen": [
+        "#/reise/2 (Kind B, Studio/Nacht) bei 390 px öffnen",
+        "Oberes Fünftel beige, Rest dunkelblau"
+      ],
+      "vorschlag": "stil.md S1: im Kindmodus Kopfzeile mit var(--lr-bg)/var(--lr-text), padding-top des body auf 0. Vorher/Nachher: bilder/stil-vorher-nachher-nacht-390.png",
+      "bild": "bilder/30-nacht-kopfzeile-beige.png"
+    },
+    {
+      "nr": 31,
+      "bereich": "kind",
+      "ansicht": "alle Kind-Ansichten",
+      "art": "darstellung",
+      "schwere": "mittel",
+      "beschreibung": "Die Kinderschrift ist als font-family: ui-rounded, \"SF Pro Rounded\", \"Nunito\", system-ui … angegeben (style.css Zeile 3184), aber keine Schrift wird geladen (kein @font-face). Auf dem Testgerät (Chrome unter Linux) erscheint die normale Systemschrift. Vermutung, nicht auf Geräten geprüft: auf Windows und Android genauso, auf Apple-Geräten rund.",
+      "nachstellen": [
+        "style.css nach @font-face durchsuchen: keine Kinderschrift",
+        "#/reise/1 im lokalen Chrome: Schrift nicht rund (linke Hälfte des Bildes)"
+      ],
+      "vorschlag": "stil.md S3: Nunito (variabel, OFL, 39 KB woff2) selbst ausliefern, dazu font-variant-numeric: tabular-nums und feste Größenstufen (Aufgabe 26 px, Eingabe 30 px). Datei liegt in entwurf/nunito.woff2.",
+      "bild": "bilder/stil-vorher-nachher-heute-390.png"
+    },
+    {
+      "nr": 32,
+      "bereich": "kind",
+      "ansicht": "reise (Heute), lerneinheit (Üben)",
+      "art": "darstellung",
+      "schwere": "mittel",
+      "beschreibung": "Meinung (Gestaltung): Alles ist gleich laut. Auf Heute stehen sieben gerahmte Kästen übereinander, im Üben sechs Zeilen Steuerung über der Aufgabe. Dadurch springt die eine wichtige Handlung nicht ins Auge (vgl. Befunde 1, 2).",
+      "nachstellen": [
+        "#/reise/1 und #/lerneinheit/1-1-ueben-1 bei 390 px",
+        "Gerahmte Blöcke zählen"
+      ],
+      "vorschlag": "stil.md S2 + S4: eine Hauptkarte pro Seite mit Erdteil-Band, Ort, Route aus Lernkarten-Stationen und einem großen Knopf; Nebeninhalt ohne Rahmen. Entwurf: entwurf/index.html, Bilder stil-entwurf-heute-ozean-390.png und stil-entwurf-ueben-390.png.",
+      "bild": "bilder/stil-vorher-nachher-ueben-390.png"
+    },
+    {
+      "nr": 33,
+      "bereich": "kind",
+      "ansicht": "lerneinheit (Rückmeldung)",
+      "art": "darstellung",
+      "schwere": "niedrig",
+      "beschreibung": "Meinung (Gestaltung): Richtig, falsch und „Lernkarte sitzt“ unterscheiden sich nur durch Text und Farbe. Es fehlt der kurze, spürbare Erfolgsmoment, der bei Kindern das Weitermachen trägt; leere Zustände wirken nüchtern bzw. fehlerhaft („null“).",
+      "nachstellen": [
+        "#/lerneinheit/1-1-ueben-1, richtig und falsch antworten",
+        "Keine Bewegung, keine Figur"
+      ],
+      "vorschlag": "stil.md S5 (Haken springt auf, Stern fliegt, Feld wackelt bei falsch; alles unter 1 s, aus bei „Bewegung reduzieren“) und S6 (Reisefigur für Begrüßung, leere Zustände, Stempel). Entwurf: stil-entwurf-richtig-390.png, stil-entwurf-falsch-390.png.",
+      "bild": "bilder/stil-entwurf-richtig-390.png"
+    },
+    {
+      "nr": 34,
+      "bereich": "kind",
+      "ansicht": "lerneinheit (Üben) am Tablet/Rechner",
+      "art": "darstellung",
+      "schwere": "niedrig",
+      "beschreibung": "Am Rechner steht der Inhalt in einer schmalen Spalte, die untere Leiste geht über die volle Breite, Prüfen liegt unter dem Rand. Der breite Bildschirm wird nicht genutzt, um Erklärung und Aufgabe nebeneinander zu zeigen.",
+      "nachstellen": [
+        "#/lerneinheit/1-1-ueben-1 bei 1280×800",
+        "Rechts und links je etwa 340 px leer, Prüfen nicht sichtbar"
+      ],
+      "vorschlag": "stil.md S7: ab 820 px Seitenleiste links, im Üben zwei Spalten (Erklärung links, bleibt stehen; Aufgabe rechts). Entwurf: bilder/stil-entwurf-ueben-1280.png.",
+      "bild": "bilder/stil-entwurf-ueben-1280.png"
     }
   ],
   "ideen": [

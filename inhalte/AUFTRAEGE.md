@@ -147,3 +147,108 @@ Regeln:
 
 Am Ende: kurze Liste der fertigen Dateien mit Anzahl Lernkarten/Aufgaben und alle "offen"-Punkte.
 ```
+
+
+---
+
+# Zweite Runde (14.11.): Rest Klasse 5, Klasse 7, Klasse 10
+
+Die Pakete Klasse 6, 8 und 9 sind erledigt und eingespielt. Für die neuen Pakete gilt dieselbe Vorgehensweise.
+
+## Paket Klasse 5 Rest (7 Themen) – Kind A, höchste Priorität
+
+```text
+Du baust Mathe-Lerninhalte für eine Lern-App (Gymnasium Bayern, Klasse 5).
+Repository: beinhoff77-stack/ki-system, Ausgangszweig lernen-app. Lege den Zweig inhalte-kl5-rest an und arbeite nur dort.
+
+Lies zuerst vollständig: inhalte/README.md (Format, Regeln, Verbote, Erfahrungen aus der ersten Runde),
+inhalte/vorlage_generator.py (Muster) und die Einträge der unten genannten Themen in inhalte/themenliste.json.
+Als Beispiel für ein fertiges Thema: inhalte/generatoren/zahlen_ganz.py mit inhalte/themen/zahlen.ganz.json.
+
+Aufgabe: Baue diese Themen nacheinander in dieser Reihenfolge. Je Thema ein Generator
+(inhalte/generatoren/<thema_schluessel>.py), der inhalte/themen/<thema_schluessel>.json schreibt.
+
+ 1. groessen.einheiten – Größen und Einheiten (thema_id 25, block_id 55)
+ 2. geometrie.grundbegriffe – Grundbegriffe und Figuren (thema_id 42, block_id 83)
+ 3. geometrie.winkel – Winkelsätze (thema_id 43, block_id 81)
+ 4. geometrie.ortslinien – Ortslinien und Ortsbereiche (thema_id 73, block_id 79)
+ 5. messen.flaechen – Umfang und Flächeninhalt (thema_id 50, block_id 87)
+ 6. messen.koerper_berechnung – Volumen und Oberfläche (thema_id 53, block_id 85)
+ 7. stochastik.kombinatorik – Zählen und Kombinatorik (thema_id 60, block_id 95)
+
+Regeln:
+- Ein Thema ist erst fertig, wenn `python3 -I tools/inhalt_pruefen.py inhalte/themen/<datei>.json` OK meldet
+  und jede Zahl-Aufgabe nachgerechnet ist. Dann Commit + Push auf inhalte-kl5-rest (ein Thema = ein Commit).
+- Eigene Hilfsdatei nur unter dem Namen inhalte/generatoren/_kl5_rest.py. Bestehende Dateien anderer Pakete nicht ändern.
+- Keine Datenbank, keine Serverfunktionen, kein App-Code, kein Merge nach main. Nur Dateien unter inhalte/.
+- Keine Schulbuchaufgaben abschreiben. Lösungen immer vom Programm berechnen lassen.
+- Braucht eine Lernkarte eine Zeichnung, die die App nicht kann: nicht erfinden, sondern im Feld "offen" der Datei notieren.
+- Arbeite ohne Rückfragen durch. Triff bei Unklarheit die fachlich naheliegende Entscheidung und notiere sie unter "offen".
+
+Am Ende: kurze Liste der fertigen Dateien mit Anzahl Lernkarten/Aufgaben und alle "offen"-Punkte.
+```
+
+## Paket Klasse 7 (6 Themen) – Lücken aus dem Vorjahr von Kind B
+
+```text
+Du baust Mathe-Lerninhalte für eine Lern-App (Gymnasium Bayern, Klasse 7).
+Repository: beinhoff77-stack/ki-system, Ausgangszweig lernen-app. Lege den Zweig inhalte-kl7 an und arbeite nur dort.
+
+Lies zuerst vollständig: inhalte/README.md (Format, Regeln, Verbote, Erfahrungen aus der ersten Runde),
+inhalte/vorlage_generator.py (Muster) und die Einträge der unten genannten Themen in inhalte/themenliste.json.
+Als Beispiel für ein fertiges Thema: inhalte/generatoren/zahlen_ganz.py mit inhalte/themen/zahlen.ganz.json.
+
+Aufgabe: Baue diese Themen nacheinander in dieser Reihenfolge. Je Thema ein Generator
+(inhalte/generatoren/<thema_schluessel>.py), der inhalte/themen/<thema_schluessel>.json schreibt.
+
+ 1. bruch.prozent_grundwert – Vermehrter und verminderter Grundwert (thema_id 94, block_id 108)
+ 2. terme.aufstellen – Terme aufstellen und deuten (thema_id 28, block_id 63)
+ 3. abbildungen.kongruenz – Kongruenzabbildungen (thema_id 46, block_id 82)
+ 4. geometrie.konstruktion – Konstruktionen, Kongruenz und Beweise (thema_id 44, block_id 80)
+ 5. geometrie.kreis – Kreis und Tangenten (thema_id 45, block_id 79)
+ 6. daten.boxplot – Median, Quartile, Boxplot (thema_id 95, block_id 111)
+
+Regeln:
+- Ein Thema ist erst fertig, wenn `python3 -I tools/inhalt_pruefen.py inhalte/themen/<datei>.json` OK meldet
+  und jede Zahl-Aufgabe nachgerechnet ist. Dann Commit + Push auf inhalte-kl7 (ein Thema = ein Commit).
+- Eigene Hilfsdatei nur unter dem Namen inhalte/generatoren/_kl7.py. Bestehende Dateien anderer Pakete nicht ändern.
+- Keine Datenbank, keine Serverfunktionen, kein App-Code, kein Merge nach main. Nur Dateien unter inhalte/.
+- Keine Schulbuchaufgaben abschreiben. Lösungen immer vom Programm berechnen lassen.
+- Braucht eine Lernkarte eine Zeichnung, die die App nicht kann: nicht erfinden, sondern im Feld "offen" der Datei notieren.
+- Arbeite ohne Rückfragen durch. Triff bei Unklarheit die fachlich naheliegende Entscheidung und notiere sie unter "offen".
+
+Am Ende: kurze Liste der fertigen Dateien mit Anzahl Lernkarten/Aufgaben und alle "offen"-Punkte.
+```
+
+## Paket Klasse 10 (7 Themen) – Vorrat
+
+```text
+Du baust Mathe-Lerninhalte für eine Lern-App (Gymnasium Bayern, Klasse 10).
+Repository: beinhoff77-stack/ki-system, Ausgangszweig lernen-app. Lege den Zweig inhalte-kl10 an und arbeite nur dort.
+
+Lies zuerst vollständig: inhalte/README.md (Format, Regeln, Verbote, Erfahrungen aus der ersten Runde),
+inhalte/vorlage_generator.py (Muster) und die Einträge der unten genannten Themen in inhalte/themenliste.json.
+Als Beispiel für ein fertiges Thema: inhalte/generatoren/zahlen_ganz.py mit inhalte/themen/zahlen.ganz.json.
+
+Aufgabe: Baue diese Themen nacheinander in dieser Reihenfolge. Je Thema ein Generator
+(inhalte/generatoren/<thema_schluessel>.py), der inhalte/themen/<thema_schluessel>.json schreibt.
+
+ 1. gleichungen.exponential – Exponentialgleichungen (thema_id 10, block_id 56)
+ 2. gleichungen.polynom – Polynomgleichungen (thema_id 11, block_id 56)
+ 3. funktionen.exponential_log – Exponential- und Logarithmusfunktionen (thema_id 37, block_id 68)
+ 4. funktionen.trig – Sinus- und Kosinusfunktion (thema_id 38, block_id 67)
+ 5. funktionen.ganzrational – Ganzrationale Funktionen (thema_id 39, block_id 66)
+ 6. raum.pyramide_kegel_kugel – Pyramide, Kegel, Kugel (thema_id 92, block_id 110)
+ 7. stochastik.mehrstufig – Mehrstufige Zufallsexperimente (thema_id 62, block_id 90)
+
+Regeln:
+- Ein Thema ist erst fertig, wenn `python3 -I tools/inhalt_pruefen.py inhalte/themen/<datei>.json` OK meldet
+  und jede Zahl-Aufgabe nachgerechnet ist. Dann Commit + Push auf inhalte-kl10 (ein Thema = ein Commit).
+- Eigene Hilfsdatei nur unter dem Namen inhalte/generatoren/_kl10.py. Bestehende Dateien anderer Pakete nicht ändern.
+- Keine Datenbank, keine Serverfunktionen, kein App-Code, kein Merge nach main. Nur Dateien unter inhalte/.
+- Keine Schulbuchaufgaben abschreiben. Lösungen immer vom Programm berechnen lassen.
+- Braucht eine Lernkarte eine Zeichnung, die die App nicht kann: nicht erfinden, sondern im Feld "offen" der Datei notieren.
+- Arbeite ohne Rückfragen durch. Triff bei Unklarheit die fachlich naheliegende Entscheidung und notiere sie unter "offen".
+
+Am Ende: kurze Liste der fertigen Dateien mit Anzahl Lernkarten/Aufgaben und alle "offen"-Punkte.
+```

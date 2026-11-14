@@ -840,5 +840,241 @@
    "Wahrscheinlichkeit verknüpfter Ereignisse"
   ],
   "datei": "inhalte/themen/stochastik.verknuepft.json"
+ },
+ {
+  "thema_id": 94,
+  "thema_schluessel": "bruch.prozent_grundwert",
+  "block_id": 108,
+  "ort": "Los Angeles",
+  "gebiet": "Geld und Verhältnisse",
+  "titel": "Vermehrter und verminderter Grundwert",
+  "klasse": {
+   "rs_by": 7,
+   "gym_by": 7
+  },
+  "umfang": "Prozentrechnung mit erhöhtem oder verringertem Grundwert, komplexere Prozentaufgaben",
+  "lehrplan_gym": [
+   "Komplexere Prozentaufgaben lösen",
+   "Mathematische und außermathematische Argumente trennen"
+  ],
+  "datei": "inhalte/themen/bruch.prozent_grundwert.json"
+ },
+ {
+  "thema_id": 28,
+  "thema_schluessel": "terme.aufstellen",
+  "block_id": 63,
+  "ort": "Teheran",
+  "gebiet": "Algebra",
+  "titel": "Terme aufstellen und deuten",
+  "klasse": {
+   "rs_by": 6,
+   "gym_by": 7,
+   "ib_myp": 1
+  },
+  "umfang": "Zusammenhänge und Muster mit Variablen beschreiben, Termwerte berechnen, Termstruktur benennen.",
+  "lehrplan_gym": [
+   "Aufstellen und Interpretieren von Termen"
+  ],
+  "datei": "inhalte/themen/terme.aufstellen.json"
+ },
+ {
+  "thema_id": 46,
+  "thema_schluessel": "abbildungen.kongruenz",
+  "block_id": 82,
+  "ort": "Marrakesch",
+  "gebiet": "Geometrie",
+  "titel": "Kongruenzabbildungen",
+  "klasse": {
+   "rs_by": 6,
+   "gym_by": 7,
+   "ib_myp": 3
+  },
+  "umfang": "Achsenspiegelung, Verschiebung, Drehung, Punktspiegelung; Symmetrie; Parkettierungen.",
+  "lehrplan_gym": [],
+  "datei": "inhalte/themen/abbildungen.kongruenz.json"
+ },
+ {
+  "thema_id": 44,
+  "thema_schluessel": "geometrie.konstruktion",
+  "block_id": 80,
+  "ort": "Addis Abeba",
+  "gebiet": "Geometrie",
+  "titel": "Konstruktionen, Kongruenz und Beweise",
+  "klasse": {
+   "rs_by": 6,
+   "gym_by": 7,
+   "ib_myp": 3
+  },
+  "umfang": "Konstruktionen mit Zirkel und Lineal/Software, Ortslinien, Kongruenzsätze, Satz und Kehrsatz.",
+  "lehrplan_gym": [
+   "Achsen- und punktsymmetrische Figuren",
+   "Kongruenz, besondere Dreiecke und Dreieckskonstruktionen"
+  ],
+  "datei": "inhalte/themen/geometrie.konstruktion.json"
+ },
+ {
+  "thema_id": 45,
+  "thema_schluessel": "geometrie.kreis",
+  "block_id": 79,
+  "ort": "Alexandria",
+  "gebiet": "Geometrie",
+  "titel": "Kreis und Tangenten",
+  "klasse": {
+   "rs_by": 7,
+   "gym_by": 7,
+   "ib_myp": 4
+  },
+  "umfang": "Satz des Thales, Tangenten, Kreiswinkel, Umkreis/Inkreis.",
+  "lehrplan_gym": [
+   "Mit dynamischer Geometriesoftware experimentieren (Umkreis, Inkreis, Thales); Vermutung und Beweis unterscheiden",
+   "Satz des Thales und seine Umkehrung beweisen und anwenden",
+   "Tangente von einem äußeren Punkt konstruieren und die Konstruktion begründen"
+  ],
+  "datei": "inhalte/themen/geometrie.kreis.json"
+ },
+ {
+  "thema_id": 95,
+  "thema_schluessel": "daten.boxplot",
+  "block_id": 111,
+  "ort": "Brisbane",
+  "gebiet": "Daten und Zufall",
+  "titel": "Median, Quartile, Boxplot",
+  "klasse": {
+   "rs_by": 7,
+   "gym_by": 7,
+   "ib_myp": 2
+  },
+  "umfang": "Median, Modalwert, Spannweite, Quartile, Boxplots lesen und vergleichen",
+  "lehrplan_gym": [
+   "Datensätze vergleichen und beurteilen",
+   "Informationen aus Boxplots gewinnen",
+   "Median und arithmetisches Mittel vergleichen",
+   "Spannweite, Quartile, Boxplots"
+  ],
+  "datei": "inhalte/themen/daten.boxplot.json"
+ },
+ {
+  "thema_id": 10,
+  "thema_schluessel": "gleichungen.exponential",
+  "block_id": 56,
+  "ort": "Bangkok",
+  "gebiet": "Algebra",
+  "titel": "Exponentialgleichungen",
+  "klasse": {
+   "rs_by": 10,
+   "gym_by": 10
+  },
+  "umfang": "Exponentialgleichungen mit dem Logarithmus lösen, auch in Wachstumsaufgaben.",
+  "lehrplan_gym": [
+   "Einfache Exponentialgleichungen lösen, auch mit der Potenzregel für Logarithmen"
+  ],
+  "datei": "inhalte/themen/gleichungen.exponential.json"
+ },
+ {
+  "thema_id": 11,
+  "thema_schluessel": "gleichungen.polynom",
+  "block_id": 56,
+  "ort": "Bangkok",
+  "gebiet": "Algebra",
+  "titel": "Polynomgleichungen",
+  "klasse": {
+   "gym_by": 10
+  },
+  "umfang": "Gleichungen höheren Grades durch Ausklammern oder Substitution lösen, Vielfachheit von Lösungen.",
+  "lehrplan_gym": [
+   "Nullstellen mit Vielfachheit bestimmen, biquadratische Gleichungen durch Substitution; Graph skizzieren, mit Software prüfen"
+  ],
+  "datei": "inhalte/themen/gleichungen.polynom.json"
+ },
+ {
+  "thema_id": 37,
+  "thema_schluessel": "funktionen.exponential_log",
+  "block_id": 68,
+  "ort": "Halley-Station",
+  "gebiet": "Funktionen",
+  "titel": "Exponential- und Logarithmusfunktionen",
+  "klasse": {
+   "rs_by": 10,
+   "gym_by": 10,
+   "ib_myp": 4
+  },
+  "umfang": "Exponentielles Wachstum/Zerfall, Logarithmus, Graphen und Modelle.",
+  "lehrplan_gym": [
+   "Exponentielles Wachstum und Logarithmus"
+  ],
+  "datei": "inhalte/themen/funktionen.exponential_log.json"
+ },
+ {
+  "thema_id": 38,
+  "thema_schluessel": "funktionen.trig",
+  "block_id": 67,
+  "ort": "Concordia-Station",
+  "gebiet": "Funktionen",
+  "titel": "Sinus- und Kosinusfunktion",
+  "klasse": {
+   "rs_by": 10,
+   "gym_by": 10,
+   "ib_myp": 4
+  },
+  "umfang": "Sinus-/Kosinusfunktion, Bogenmaß, Periodizität, Parameter.",
+  "lehrplan_gym": [
+   "Sinus- und Kosinusfunktion"
+  ],
+  "datei": "inhalte/themen/funktionen.trig.json"
+ },
+ {
+  "thema_id": 39,
+  "thema_schluessel": "funktionen.ganzrational",
+  "block_id": 66,
+  "ort": "Casey-Station",
+  "gebiet": "Funktionen",
+  "titel": "Ganzrationale Funktionen",
+  "klasse": {
+   "gym_by": 10,
+   "ib_myp": 4
+  },
+  "umfang": "Polynome, Randverhalten, Nullstellen mit Vielfachheit, Symmetrie.",
+  "lehrplan_gym": [
+   "Ganzrationale Funktionen"
+  ],
+  "datei": "inhalte/themen/funktionen.ganzrational.json"
+ },
+ {
+  "thema_id": 92,
+  "thema_schluessel": "raum.pyramide_kegel_kugel",
+  "block_id": 110,
+  "ort": "Santiago de Chile",
+  "gebiet": "Fläche und Raum",
+  "titel": "Pyramide, Kegel, Kugel",
+  "klasse": {
+   "rs_by": 9,
+   "gym_by": 10,
+   "ib_myp": 3
+  },
+  "umfang": "Volumen und Oberfläche von Pyramide, Kegel, Kugel und zusammengesetzten Körpern; Cavalieri; Extremwerte an Körpern",
+  "lehrplan_gym": [
+   "Formel für die Oberfläche des Kegels begründen und anwenden",
+   "Kegel als Grenzfall der Pyramide",
+   "Körperberechnungen in Sachkontexten, auch Längen und Winkel; Strategien vergleichen, einfache Kopfüberlegungen",
+   "Schrägbilder und Netze von Pyramiden und Kegeln"
+  ],
+  "datei": "inhalte/themen/raum.pyramide_kegel_kugel.json"
+ },
+ {
+  "thema_id": 62,
+  "thema_schluessel": "stochastik.mehrstufig",
+  "block_id": 90,
+  "ort": "Darwin",
+  "gebiet": "Daten und Zufall",
+  "titel": "Mehrstufige Zufallsexperimente",
+  "klasse": {
+   "rs_by": 10,
+   "gym_by": 10
+  },
+  "umfang": "Baumdiagramme, Pfadregeln.",
+  "lehrplan_gym": [
+   "Zusammengesetzte Zufallsexperimente und stochastische Simulationen"
+  ],
+  "datei": "inhalte/themen/stochastik.mehrstufig.json"
  }
 ]

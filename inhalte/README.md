@@ -84,3 +84,12 @@ Die App kann bisher nur Zahlenstrahl und Stellenwerttafel zeichnen. Für Geometr
 - Stufe 1 = Grundform direkt nach der Erklärung; Stufe 2 = Standard; Stufe 3 = mehrschrittig, Sonderfälle, Sachaufgabe oder „Fehler finden“.
 - Mindestens eine Lernkarte je Thema prüft **Verstehen** (begründen, Fehler finden, Aussage beurteilen) statt nur Rechnen.
 - Sachaufgaben mit realistischen Zahlen; keine Namen realer Personen.
+
+## Erfahrungen aus der ersten Runde (bitte beachten)
+
+- **Brüche, Zahlenpaare, Punkte als Antwort**: als `luecken` mit Schablone `□/□`, `x = □; y = □`, `S(□ | □)` – die App zeigt je Lücke ein Zahlenfeld (negative ganze Zahlen sind erlaubt). Nicht mehr auf Auswahl ausweichen.
+- **Gerundete Ergebnisse** (π, Wurzeln, sin/cos, Logarithmus): immer `"toleranz"` in `o` setzen (eine Einheit der letzten verlangten Stelle) und im Text sagen, auf wie viele Stellen gerundet wird.
+- **Dubletten** werden über das ganze Thema geprüft, nicht nur je Lernkarte.
+- `__pycache__` nicht einchecken (steht in `.gitignore`). Eigene Hilfsdatei mit eindeutigem Namen (`_kl7.py`), nie `_basis.py`.
+- Stoff höherer Klassen weglassen, auch wenn er im Feld `umfang` steht; maßgeblich ist `lehrplan_gym`. Die Entscheidung unter `offen` notieren.
+- Sachaufgaben auf Plausibilität lesen (realistische Mengen und Preise). Mindestens 10 Aufgaben je Lernkarte selbst durchlesen.

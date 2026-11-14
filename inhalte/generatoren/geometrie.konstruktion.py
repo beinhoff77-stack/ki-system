@@ -29,11 +29,17 @@ def dreieck_bild(al, be, wtexte=('α', 'β', 'γ'), seiten=None):
 
 
 ETAPPEN = [
+    {'lernziel': 'parallelen', 'titel': 'Winkel an Parallelen',
+     'regel': 'Wird ein Paar ⟦paralleler⟧ Geraden von einer dritten Geraden geschnitten, sind ⟦Stufenwinkel⟧ gleich groß (wie verschoben: gleiche Lage an beiden Kreuzungen) und ⟦Wechselwinkel⟧ gleich groß (Z-Form: auf verschiedenen Seiten). Das gilt ⟦nur⟧, wenn die Geraden parallel sind.',
+     'schritte': ['g und h sind parallel. Bei S ist α = 55°.', 'β liegt bei T in derselben Lage wie α bei S (rechts oberhalb): Stufenwinkel, also ⟦β = 55°⟧.', 'γ liegt bei T links unterhalb, α bei S rechts oberhalb – Z-Form: Wechselwinkel, also ⟦γ = 55°⟧.'],
+     'fehler': 'Auch bei nicht parallelen Geraden gleiche Stufenwinkel annehmen. Sind g und h nicht parallel, ist β im Allgemeinen ⟦anders⟧ als α. Umgekehrt gilt: Sind Stufenwinkel gleich, dann sind die Geraden parallel.',
+     'bild': {'typ': 'figur', 'punkte': {'_g1': [-1, 0], '_g2': [8, 0], '_h1': [-1, 3], '_h2': [8, 3], 'S': [2, 0], 'T': [4.1, 3], '_t1': [0.6, -2], '_t2': [5.5, 5]}, 'linien': [['_g1', '_g2', 'g'], ['_h1', '_h2', 'h'], ['_t1', '_t2']], 'winkel': [['S', '_g2', 'T', 'α = 55°'], ['T', '_h2', '_t2', 'β'], ['T', '_h1', 'S', 'γ']]},
+     '_verbot': ['α = 55°']},
     {'lernziel': 'winkelsumme', 'titel': 'Winkel im Dreieck berechnen',
-     'regel': 'In jedem Dreieck ist die ⟦Winkelsumme 180°⟧: α + β + γ = 180°. Ein ⟦Außenwinkel⟧ ist so groß wie die Summe der beiden ⟦nicht anliegenden⟧ Innenwinkel.',
+     'regel': 'In jedem Dreieck ist die ⟦Winkelsumme 180°⟧: α + β + γ = 180°. Warum? Zeichne durch C die Parallele zu [AB]. Links von C taucht α noch einmal auf, rechts β (⟦Wechselwinkel⟧). Zusammen mit γ bilden sie einen ⟦gestreckten Winkel⟧, also 180°.',
      'schritte': ['α = 50°, β = 75°', 'γ = 180° − 50° − 75°', '⟦γ = 55°⟧'],
      'fehler': 'γ = 360° − 50° − 75° ist falsch: 360° ist die Winkelsumme im ⟦Viereck⟧. Im Dreieck sind es 180°.',
-     'bild': dreieck_bild(50, 75, ('α = 50°', 'β = 75°', 'γ = ?')),
+     'bild': {'typ': 'figur', 'punkte': {'A': [0, 0], 'B': [6, 0], 'C': [4.55, 5.42], '_l': [1, 5.42], '_r': [8, 5.42]}, 'flaeche': ['A', 'B', 'C'], 'linien': [['A', 'B'], ['B', 'C'], ['C', 'A'], ['_l', '_r', 'Parallele zu [AB]', 'gestrichelt']], 'winkel': [['A', 'B', 'C', 'α'], ['B', 'C', 'A', 'β'], ['C', '_l', 'A', 'α'], ['C', 'B', '_r', 'β'], ['C', 'A', 'B', 'γ']]},
      '_verbot': ['α = 50°, β = 75°']},
     {'lernziel': 'gleichschenklig', 'titel': 'Gleichschenklige Dreiecke',
      'regel': 'Im ⟦gleichschenkligen Dreieck⟧ sind die beiden ⟦Basiswinkel⟧ gleich groß. Im ⟦gleichseitigen⟧ Dreieck sind alle Winkel 60°.',
@@ -66,6 +72,112 @@ ETAPPEN = [
 ]
 
 
+ZYK = {}
+
+
+def zyklus(name, liste):
+    ZYK[name] = ZYK.get(name, -1) + 1
+    return liste[ZYK[name] % len(liste)]
+
+
+LAGE = {'ro': 'rechts oberhalb', 'lo': 'links oberhalb', 'lu': 'links unterhalb', 'ru': 'rechts unterhalb'}
+
+
+def par_bild(al, marken, parallel=True, be=None):
+    """Zwei Geraden g (unten) und h (oben), geschnitten von einer Geraden durch S und T. marken: [(Punkt 'S'/'T', Lage, Text)]."""
+    c, sn = math.cos(math.radians(al)), math.sin(math.radians(al))
+    tx = round(2 + 3 * c / sn, 2)
+    pk = {'S': [2, 0], 'T': [tx, 3], '_t1': [round(2 - 2 * c / sn, 2), -2], '_t2': [round(tx + 2 * c / sn, 2), 5],
+          '_g1': [-2, 0], '_g2': [round(max(tx, 2) + 4, 2), 0]}
+    if parallel or be is None:
+        pk['_h1'] = [-2, 3]; pk['_h2'] = [round(max(tx, 2) + 4, 2), 3]
+    else:  # h nicht parallel: um T gedreht, sodass β (rechts oberhalb) = be
+        d = be - al
+        k = math.tan(math.radians(d))
+        pk['_h1'] = [round(tx - 4, 2), round(3 - 4 * k, 2)]; pk['_h2'] = [round(tx + 4, 2), round(3 + 4 * k, 2)]
+    unten = {'S': '_t1', 'T': 'S'}; oben = {'S': 'T', 'T': '_t2'}; links = {'S': '_g1', 'T': '_h1'}; rechts = {'S': '_g2', 'T': '_h2'}
+    w = []
+    for P, lage, txt in marken:
+        a, b = {'ro': (rechts[P], oben[P]), 'lo': (oben[P], links[P]), 'lu': (links[P], unten[P]), 'ru': (unten[P], rechts[P])}[lage]
+        w.append([P, a, b, txt])
+    return figur(pk, linien=[['_g1', '_g2', 'g'], ['_h1', '_h2', 'h'], ['_t1', '_t2']], winkel=w)
+
+
+def wert_lage(al, lage):
+    return al if lage in ('ro', 'lu') else 180 - al
+
+
+ART = {('ro', 'ro'): 'Stufenwinkel', ('lo', 'lo'): 'Stufenwinkel', ('lu', 'lu'): 'Stufenwinkel', ('ru', 'ru'): 'Stufenwinkel',
+       ('ro', 'lu'): 'Wechselwinkel', ('lu', 'ro'): 'Wechselwinkel', ('lo', 'ru'): 'Wechselwinkel', ('ru', 'lo'): 'Wechselwinkel'}
+
+
+def g_parallelen(R, st):
+    al = R.choice(range(35, 146, 5))
+    if al == 90: al = 70
+    if st == 1:
+        lage_s = 'ro'
+        lage_t = zyklus('par1', ['ro', 'lu', 'ro', 'lu'])
+        art = ART[(lage_s, lage_t)]
+        a = Z(f'g ∥ h. Bei S ist α = {al}° (rechts oberhalb). Wie groß ist β bei T ({LAGE[lage_t]})?', al, f'{al}',
+              f'β und α sind {art} an Parallelen, also gleich groß: β = {al}°.', 'Stufenwinkel: gleiche Lage. Wechselwinkel: Z-Form. Beide sind an Parallelen gleich groß.', '°')
+        a['f']['grafik'] = par_bild(al, [('S', 'ro', f'{al}°'), ('T', lage_t, 'β')])
+        return a
+    if st == 2:
+        art = zyklus('par2', ['wert', 'name', 'wert', 'parallel?'])
+        if art == 'wert':
+            lage_s, lage_t = R.choice(list(LAGE)), R.choice(list(LAGE))
+            x = wert_lage(al, lage_t) if lage_s == 'ro' else None
+            a_s = wert_lage(al, lage_s)
+            x = wert_lage(al, lage_t)
+            w = f'An S liegt rechts oberhalb {al}°, die Nebenwinkel sind {180 - al}°, der Scheitelwinkel ist {al}°. Bei T sind die Winkel in gleicher Lage gleich (Stufenwinkel): β = {x}°.'
+            a = Z(f'g ∥ h. Bei S ist der markierte Winkel {a_s}° ({LAGE[lage_s]}). Wie groß ist β bei T ({LAGE[lage_t]})?', x, f'{x}',
+                  w, 'Bestimme erst alle vier Winkel bei S (Nebenwinkel: 180° minus, Scheitelwinkel: gleich). Bei T ist es genauso.', '°')
+            a['f']['grafik'] = par_bild(al, [('S', lage_s, f'{a_s}°'), ('T', lage_t, 'β')])
+            return a
+        if art == 'name':
+            paar = R.choice(list(ART) + [('ro', 'lo'), ('ro', 'ru'), ('lu', 'lo')])
+            r = ART.get(paar, 'keins von beiden')
+            a = A(R, f'g ∥ h. Welche Winkel-Beziehung haben der Winkel bei S ({LAGE[paar[0]]}) und der Winkel bei T ({LAGE[paar[1]]})?', r,
+                  [x for x in ['Stufenwinkel', 'Wechselwinkel', 'Scheitelwinkel', 'keins von beiden'] if x != r],
+                  f'{LAGE[paar[0]]} bei S und {LAGE[paar[1]]} bei T: ' + ('gleiche Lage → Stufenwinkel.' if r == 'Stufenwinkel' else 'Z-Form (gegenüberliegende Seiten) → Wechselwinkel.' if r == 'Wechselwinkel'
+                                                                     else 'weder gleiche Lage noch Z-Form; diese Winkel ergänzen sich zu 180°.') + ' Scheitelwinkel liegen am selben Schnittpunkt.',
+                  'Stufenwinkel: gleiche Lage an beiden Kreuzungen. Wechselwinkel: Z-Form.')
+            a['f']['grafik'] = par_bild(al, [('S', paar[0], '1'), ('T', paar[1], '2')])
+            return a
+        be = al + R.choice([0, 0, 5, -5, 10, -10])
+        par = be == al
+        r = 'Ja, die Stufenwinkel sind gleich groß.' if par else 'Nein, die Stufenwinkel sind verschieden groß.'
+        a = A(R, f'Eine Gerade schneidet g in S unter {al}° und h in T unter {be}° (beide Winkel rechts oberhalb). Sind g und h parallel?', r,
+              ['Nein, die Stufenwinkel sind verschieden groß.' if par else 'Ja, die Stufenwinkel sind gleich groß.', 'Ja, zwei Geraden sind immer parallel.',
+               'Das kann man ohne Länge nicht entscheiden.'],
+              f'Stufenwinkel {al}° und {be}°: ' + ('gleich → g ∥ h (Kehrsatz).' if par else 'verschieden → g und h sind nicht parallel.'),
+              'Sind Stufenwinkel gleich, sind die Geraden parallel – und umgekehrt.')
+        a['f']['grafik'] = par_bild(al, [('S', 'ro', f'{al}°'), ('T', 'ro', f'{be}°')], parallel=par, be=be)
+        return a
+    art = zyklus('par3', ['gleichung', 'fehler', 'gleichung', 'fehler'])
+    if art == 'gleichung':
+        k, d = R.choice([2, 3, 4]), R.choice(range(5, 31, 5))
+        x = R.choice([v for v in range(10, 50, 5) if 20 < k * v + d < 160])
+        w = k * x + d
+        neben = R.random() < .5
+        if neben:
+            return Z(f'g ∥ h. Bei S ist ein Winkel ({k}x + {d})° groß (rechts oberhalb), bei T der Winkel links oberhalb {180 - w}°. Berechne x.', x, f'(180 - {180 - w} - {d}) / {k}',
+                     f'Links oberhalb bei T ist Nebenwinkel des Stufenwinkels: ({k}x + {d})° + {180 - w}° = 180° → {k}x = {w - d}° → x = {x}.',
+                     'Der Winkel links oberhalb bei T ergänzt den Stufenwinkel zu 180°.')
+        return Z(f'g ∥ h. Zwei Wechselwinkel sind ({k}x + {d})° und {w}° groß. Berechne x.', x, f'({w} - {d}) / {k}',
+                 f'Wechselwinkel sind gleich: {k}x + {d} = {w} → {k}x = {w - d} → x = {x}.', 'Wechselwinkel an Parallelen sind gleich groß. Stelle eine Gleichung auf.')
+    fall = R.choice([
+        ('Stufenwinkel sind immer gleich groß.', 'Falsch: Nur wenn die beiden Geraden parallel sind.'),
+        ('Wechselwinkel ergänzen sich an Parallelen zu 180°.', 'Falsch: Wechselwinkel an Parallelen sind gleich groß.'),
+        ('Sind zwei Stufenwinkel gleich groß, dann sind die Geraden parallel.', 'Richtig: Das ist der Kehrsatz, und er gilt.'),
+        ('Nebenwinkel sind immer gleich groß.', 'Falsch: Nebenwinkel ergänzen sich zu 180°.'),
+        ('Scheitelwinkel sind gleich groß, auch wenn keine Parallelen da sind.', 'Richtig: Scheitelwinkel liegen an derselben Kreuzung.')])
+    alle = ['Falsch: Nur wenn die beiden Geraden parallel sind.', 'Falsch: Wechselwinkel an Parallelen sind gleich groß.', 'Richtig: Das ist der Kehrsatz, und er gilt.',
+            'Falsch: Nebenwinkel ergänzen sich zu 180°.', 'Richtig: Scheitelwinkel liegen an derselben Kreuzung.', 'Richtig: Das gilt für alle Winkel an Geraden.']
+    return A(R, f'Jemand sagt: „{fall[0]}“ Was stimmt?', fall[1], R.sample([x for x in alle if x != fall[1]], 3), fall[1],
+             'Denke an das Bild mit zwei Geraden und einer Geraden, die beide schneidet.')
+
+
 def g_winkelsumme(R, st):
     while True:
         al, be = R.randint(20, 120), R.randint(20, 120)
@@ -77,21 +189,44 @@ def g_winkelsumme(R, st):
         a['f']['grafik'] = dreieck_bild(al, be, (f'{al}°', f'{be}°', 'γ'))
         return a
     if st == 2:
-        if R.random() < .5:
+        art = zyklus('ws2', ['aussen', 'recht', 'begruendung'])
+        if art == 'aussen':
             return Z(f'Ein Außenwinkel bei C ist der Nebenwinkel von γ. Berechne ihn für α = {al}° und β = {be}°.', al + be, f'{al} + {be}',
                      f'Außenwinkel bei C = α + β = {al}° + {be}° = {al + be}°. (Probe: 180° − γ = 180° − {ga}° = {al + be}°)', 'Außenwinkel = 180° − Innenwinkel, oder Summe der beiden anderen Innenwinkel.', '°')
-        # rechtwinklig
+        if art == 'begruendung':
+            seite = R.choice(['links', 'rechts'])
+            r = 'Wechselwinkel zu α' if seite == 'links' else 'Wechselwinkel zu β'
+            wert = al if seite == 'links' else be
+            a = A(R, f'Im Dreieck ist α = {al}° und β = {be}°. Durch C ist die Parallele zu [AB] gezeichnet. {seite.capitalize()} von C entsteht zwischen Parallele und Dreiecksseite ein Winkel von {wert}°. Warum?',
+                  r, ['Stufenwinkel zu γ', 'Nebenwinkel von γ', 'Scheitelwinkel von ' + ('β' if seite == 'links' else 'α')],
+                  f'Die Parallele durch C und [AB] werden von der Seite {"[AC]" if seite == "links" else "[BC]"} geschnitten: Z-Form, also {r}. Mit γ zusammen ergibt das 180°.',
+                  'Welche Gerade schneidet die beiden Parallelen? Liegen die Winkel in Z-Form?')
+            p = dreieck(al, be)
+            C = p['C']
+            p['_l'] = [round(C[0] - 3, 2), C[1]]; p['_r'] = [round(C[0] + 3, 2), C[1]]
+            a['f']['grafik'] = figur(p, linien=[['A', 'B'], ['B', 'C'], ['C', 'A'], ['_l', '_r', 'Parallele', 'gestrichelt']], flaeche=['A', 'B', 'C'],
+                                     winkel=[['A', 'B', 'C', f'{al}°'], ['B', 'C', 'A', f'{be}°'], ['C', '_l', 'A', f'{al}°' if seite == 'links' else ''], ['C', 'B', '_r', f'{be}°' if seite == 'rechts' else '']])
+            a['f']['grafik']['winkel'] = [w for w in a['f']['grafik']['winkel'] if w[3]]
+            return a
         a2 = R.randint(15, 75)
         a = Z(f'Ein Dreieck ist bei C rechtwinklig, α = {a2}°. Berechne β.', 90 - a2, f'180 - 90 - {a2}', f'β = 180° − 90° − {a2}° = {90 - a2}°.',
               'Ein rechter Winkel hat 90°.', '°')
         a['f']['grafik'] = figur(dreieck(a2, 90 - a2), linien=[['A', 'B'], ['B', 'C'], ['C', 'A']], flaeche=['A', 'B', 'C'],
                                  rechter_winkel=[['C', 'A', 'B']], winkel=[['A', 'B', 'C', f'{a2}°'], ['B', 'C', 'A', 'β']])
         return a
-    # Stufe 3: Winkel im Verhältnis oder mit Variable
+    if zyklus('ws3', ['verh', 'fehler']) == 'fehler':
+        a2 = R.randint(20, 70); s1, s2 = R.randint(95, 130), R.randint(95, 130)
+        fall = R.choice([
+            (f'Ein Dreieck kann zwei stumpfe Winkel haben, zum Beispiel {s1}° und {s2}°.', f'Falsch: {s1}° + {s2}° = {s1 + s2}° ist schon mehr als 180°.',
+             [f'Richtig: Der dritte Winkel ist dann {360 - s1 - s2 if 360 - s1 - s2 > 0 else 10}°.', 'Richtig: Stumpfe Winkel sind in Dreiecken erlaubt.', 'Falsch: Ein Dreieck hat nie einen stumpfen Winkel.']),
+            (f'In einem rechtwinkligen Dreieck ist α = {a2}°, also β = {180 - a2}°.', f'Falsch: β = 180° − 90° − {a2}° = {90 - a2}°.',
+             [f'Richtig: β = 180° − {a2}° = {180 - a2}°.', f'Falsch: β = 90° + {a2}° = {90 + a2}°.', f'Falsch: β = {a2}°, weil beide spitzen Winkel gleich sind.']),
+            (f'Ein Dreieck hat die Winkel {a2}°, {a2 + 30}° und {180 - 2 * a2 - 20}°.', f'Falsch: Die Summe ist {180 + 10}°, nicht 180°.',
+             ['Richtig: Alle drei Winkel sind kleiner als 180°.', f'Richtig: {a2}° + {a2 + 30}° + {180 - 2 * a2 - 20}° = 180°.', 'Falsch: Ein Winkel ist zu klein.'])])
+        return A(R, f'Jemand sagt: „{fall[0]}“ Was stimmt?', fall[1], fall[2], fall[1], 'Rechne die Winkelsumme nach.')
     k = R.choice([2, 3, 4])
     while True:
         x = R.randint(10, 50)
-        d = R.randint(5, 30)
         rest = 180 - x - k * x
         if rest > 0 and rest != x: break
     return Z(f'In einem Dreieck ist β {k}-mal so groß wie α, und γ = {rest}°. Wie groß ist α?', x, f'(180 - {rest}) / ({k} + 1)',
@@ -106,13 +241,23 @@ def g_gleichschenklig(R, st):
               'Die beiden Basiswinkel sind gleich groß.', '°')
         a['f']['grafik'] = figur(dreieck(b, b), linien=[['A', 'B'], ['B', 'C'], ['C', 'A']], flaeche=['A', 'B', 'C'], winkel=[['C', 'A', 'B', f'{g}°'], ['A', 'B', 'C', '?']])
         return a
+    if st == 2 and zyklus('gs2', ['basis', 'stumpf']) == 'stumpf':
+        g = R.choice(range(96, 171, 2))
+        return Z(f'Ein gleichschenkliges Dreieck hat einen Winkel von {g}°. Wie groß sind die beiden anderen Winkel? Gib einen davon an.', (180 - g) // 2, f'(180 - {g}) / 2',
+                 f'{g}° ist stumpf. Zwei solche Winkel hätten zusammen mehr als 180°, also kann {g}° kein Basiswinkel sein – er ist der Spitzenwinkel. Basiswinkel: (180° − {g}°) : 2 = {(180 - g) // 2}°.',
+                 'Kann ein stumpfer Winkel zweimal im Dreieck vorkommen?', '°')
     if st == 2:
         b = R.randint(20, 85)
         a = Z(f'Ein gleichschenkliges Dreieck hat den Basiswinkel {b}°. Wie groß ist der Spitzenwinkel?', 180 - 2 * b, f'180 - 2 * {b}',
               f'Zwei Basiswinkel: 2 · {b}° = {2 * b}°. Spitzenwinkel: 180° − {2 * b}° = {180 - 2 * b}°.', 'Es gibt zwei gleich große Basiswinkel.', '°')
         a['f']['grafik'] = figur(dreieck(b, b), linien=[['A', 'B'], ['B', 'C'], ['C', 'A']], flaeche=['A', 'B', 'C'], winkel=[['A', 'B', 'C', f'{b}°'], ['C', 'A', 'B', '?']])
         return a
-    art = R.choice(['aussen', 'zwei', 'gleichseitig'])
+    art = zyklus('gs3', ['aussen_spitze', 'aussen', 'zwei', 'aussen_spitze', 'gleichseitig'])
+    if art == 'aussen_spitze':
+        w = R.choice(range(20, 179, 2))
+        return Z(f'Der Außenwinkel an der Spitze eines gleichschenkligen Dreiecks ist {w}°. Wie groß ist ein Basiswinkel?', Fr(w, 2), f'{w} / 2',
+                 f'Spitzenwinkel = 180° − {w}° = {180 - w}°. Basiswinkel = (180° − {180 - w}°) : 2 = {zt(Fr(w, 2))}°. Kurz: Der Außenwinkel ist die Summe der beiden Basiswinkel.',
+                 'Erst den Spitzenwinkel aus dem Nebenwinkel bestimmen.', '°')
     if art == 'aussen':
         w = R.choice(range(100, 171, 2))
         return Z(f'Bei einem gleichschenkligen Dreieck ist der Außenwinkel an einem Basiswinkel {w}°. Wie groß ist der Spitzenwinkel?', 180 - 2 * (180 - w),
@@ -128,9 +273,40 @@ def g_gleichschenklig(R, st):
 
 
 SAETZE = ['SSS', 'SWS', 'WSW', 'SsW', 'nicht eindeutig']
+NE = 'keiner – mit diesen Angaben ist das Dreieck nicht eindeutig festgelegt'
+
+
+def ssw_fall(R, fall):
+    """SsW-Lage: Winkel α bei A, Seite c = AB, Seite a = BC (gegenüber α). Liefert (a, c, α)."""
+    for _ in range(500):
+        c = R.randint(5, 12); al = R.choice(range(20, 71, 5)); h = c * math.sin(math.radians(al))
+        if fall == 'eindeutig':
+            a = R.randint(c, c + 4); return a, c, al
+        if fall == 'zwei':
+            a = R.randint(2, c - 1)
+            if h + 0.4 < a: return a, c, al
+        if fall == 'kein':
+            a = R.randint(2, c - 1)
+            if a < h - 0.4: return a, c, al
+        if fall == 'recht':
+            c = R.choice([6, 8, 10, 12]); return c // 2, c, 30
+
+
+SSW_ANTW = {'eindeutig': 'genau ein Dreieck (SsW: der Winkel liegt der längeren Seite gegenüber)', 'zwei': 'zwei verschiedene Dreiecke',
+            'recht': 'genau ein (rechtwinkliges) Dreieck', 'kein': 'kein Dreieck'}
 
 
 def g_kongruenzsatz(R, st):
+    if st == 3:
+        fall = zyklus('ssw3', ['zwei', 'eindeutig', 'kein', 'recht'])
+        a, c, al = ssw_fall(R, fall)
+        h = c * math.sin(math.radians(al))
+        w = {'eindeutig': f'a = {a} cm ist nicht kürzer als c = {c} cm: Der Kreis um B schneidet den freien Schenkel von α nur einmal.',
+             'zwei': f'a = {a} cm ist kürzer als c = {c} cm, aber länger als der Abstand von B zum freien Schenkel (≈ {zt(Fr(str(round(h, 1))))} cm): Der Kreis um B schneidet zweimal.',
+             'kein': f'Der Abstand von B zum freien Schenkel ist ≈ {zt(Fr(str(round(h, 1))))} cm, a = {a} cm ist kürzer: Der Kreis um B erreicht den Schenkel nicht.',
+             'recht': f'Der Abstand von B zum freien Schenkel ist bei α = 30° genau c : 2 = {a} cm: Der Kreis berührt den Schenkel nur in einem Punkt, dort ist der Winkel 90°.'}[fall]
+        return A(R, f'Gegeben: a = {a} cm, c = {c} cm, α = {al}° (α liegt a gegenüber). Wie viele Dreiecke gibt es?', SSW_ANTW[fall],
+                 [v for k, v in SSW_ANTW.items() if k != fall], w, 'Zeichne c und α. Schlage um B einen Kreis mit Radius a: Wie oft trifft er den freien Schenkel?')
     a, b, c = sorted(R.sample(range(3, 12), 3))
     w1, w2 = R.sample(range(25, 80, 5), 2)
     art = R.choice(SAETZE if st > 1 else SAETZE[:3])
@@ -146,15 +322,15 @@ def g_kongruenzsatz(R, st):
         s = seiten[0]; andere = [x for x in 'abc' if x != s]
         txt, gr = f'{s} = {a} cm, {win[andere[0]]} = {w1}°, {win[andere[1]]} = {w2}°', 'Eine Seite und zwei Winkel gegeben (der dritte Winkel folgt aus der Winkelsumme).'
     elif art == 'SsW':
-        gross, klein = 'c', 'a'
         txt, gr = f'a = {a} cm, c = {c} cm, γ = {w1}°', f'γ liegt gegenüber der größeren Seite c = {c} cm.'
     else:
         if R.random() < .5:
             txt, gr = f'α = {w1}°, β = {w2}°, γ = {180 - w1 - w2}°', 'Nur drei Winkel: Form fest, Größe nicht.'
         else:
-            txt, gr = f'a = {a} cm, c = {c} cm, α = {w1}°', f'α liegt gegenüber der kleineren Seite a – es kann zwei verschiedene Dreiecke geben.'
-    return A(R, f'Gegeben: {txt}. Welcher Kongruenzsatz garantiert ein eindeutiges Dreieck?', art if art != 'nicht eindeutig' else 'keiner – das Dreieck ist nicht eindeutig',
-             [s if s != 'nicht eindeutig' else 'keiner – das Dreieck ist nicht eindeutig' for s in SAETZE if s != art][:3], gr,
+            a2, c2, al2 = ssw_fall(R, 'zwei')
+            txt, gr = f'a = {a2} cm, c = {c2} cm, α = {al2}°', 'α liegt gegenüber der kleineren Seite a – hier gibt es zwei verschiedene Dreiecke.'
+    return A(R, f'Gegeben: {txt}. Welcher Kongruenzsatz garantiert ein eindeutiges Dreieck?', art if art != 'nicht eindeutig' else NE,
+             [x if x != 'nicht eindeutig' else NE for x in SAETZE if x != art][:3], gr,
              'Zähle Seiten und Winkel. Liegt der Winkel zwischen den Seiten oder gegenüber?')
 
 
@@ -169,9 +345,19 @@ def g_konstruierbar(R, st):
                   'Ja, mit drei Seiten geht es immer.', 'Nein, alle Seiten müssen gleich lang sein.'],
                  f'{min(a, b)} + {max(a, b)} = {a + b} {">" if a + b > c else "≤"} {c}.' + ('' if ok else ' Die Kreisbögen schneiden sich nicht.'),
                  'Prüfe: Sind die beiden kürzeren Seiten zusammen länger als die längste?')
+    if st == 2 and zyklus('ko2', ['winkel', 'max', 'min']) == 'winkel':
+        c = R.randint(3, 9)
+        al = R.choice(range(30, 131, 5)); be = R.choice([180 - al - R.choice([5, 10, 20, 40]), 180 - al, 180 - al + R.choice([5, 10, 15]), 180 - al - 1])
+        ok = al + be < 180
+        r = f'Ja, γ = 180° − {al}° − {be}° = {180 - al - be}°.' if ok else f'Nein, {al}° + {be}° = {al + be}° ist nicht kleiner als 180°.'
+        return A(R, f'Kann man ein Dreieck mit c = {c} cm, α = {al}° und β = {be}° konstruieren?', r,
+                 [f'Nein, {al}° + {be}° = {al + be}° ist nicht kleiner als 180°.' if ok else f'Ja, γ = 180° − {al}° − {be}° = {180 - al - be}°.',
+                  'Ja, mit einer Seite und zwei Winkeln geht es immer (WSW).', f'Nein, die Seite c = {c} cm ist zu kurz.'],
+                 f'α + β = {al + be}°' + (f' < 180°, γ = {180 - al - be}°.' if ok else ' – die freien Schenkel schneiden sich nicht (oberhalb von AB).'),
+                 'Zwei Winkel eines Dreiecks müssen zusammen weniger als 180° haben.')
     if st == 2:
         a, b = R.randint(2, 12), R.randint(2, 12)
-        if R.random() < .5:
+        if ZYK['ko2'] % 3 == 1:
             return Z(f'Zwei Seiten eines Dreiecks sind {a} cm und {b} cm lang. Die dritte Seite ist ganzzahlig. Wie lang kann sie höchstens sein?', a + b - 1, f'{a} + {b} - 1',
                      f'Die dritte Seite muss kürzer als {a} + {b} = {a + b} cm sein. Größte ganze Zahl: {a + b - 1} cm.', 'Dreiecksungleichung: c < a + b.', 'cm')
         if a == b: b += 1
@@ -215,54 +401,70 @@ def g_vierecke(R, st):
              'Ein Viereck lässt sich in zwei Dreiecke zerlegen: 2 · 180° = 360°.', '°')
 
 
-KEHR = [  # Satz, Kehrsatz, Kehrsatz wahr?, Gegenbeispiel
-    ('Wenn ein Viereck ein Quadrat ist, dann hat es vier gleich lange Seiten.', 'Wenn ein Viereck vier gleich lange Seiten hat, dann ist es ein Quadrat.', False, 'eine Raute mit 60°-Winkel'),
-    ('Wenn ein Dreieck gleichseitig ist, dann sind alle Winkel 60°.', 'Wenn in einem Dreieck alle Winkel 60° sind, dann ist es gleichseitig.', True, ''),
-    ('Wenn ein Dreieck gleichschenklig ist, dann hat es zwei gleich große Winkel.', 'Wenn ein Dreieck zwei gleich große Winkel hat, dann ist es gleichschenklig.', True, ''),
-    ('Wenn ein Viereck ein Rechteck ist, dann sind seine Diagonalen gleich lang.', 'Wenn die Diagonalen eines Vierecks gleich lang sind, dann ist es ein Rechteck.', False, 'ein gleichschenkliges Trapez'),
-    ('Wenn ein Viereck eine Raute ist, dann stehen die Diagonalen senkrecht aufeinander.', 'Wenn die Diagonalen eines Vierecks senkrecht aufeinander stehen, dann ist es eine Raute.', False, 'ein Drachenviereck'),
-    ('Wenn ein Viereck ein Parallelogramm ist, dann halbieren sich seine Diagonalen.', 'Wenn sich die Diagonalen eines Vierecks halbieren, dann ist es ein Parallelogramm.', True, ''),
-    ('Wenn zwei Dreiecke kongruent sind, dann haben sie gleich große Winkel.', 'Wenn zwei Dreiecke gleich große Winkel haben, dann sind sie kongruent.', False, 'zwei verschieden große gleichseitige Dreiecke'),
-    ('Wenn eine Zahl durch 4 teilbar ist, dann ist sie gerade.', 'Wenn eine Zahl gerade ist, dann ist sie durch 4 teilbar.', False, 'die Zahl 6'),
-    ('Wenn ein Dreieck einen rechten Winkel hat, dann sind die beiden anderen Winkel zusammen 90°.', 'Wenn in einem Dreieck zwei Winkel zusammen 90° sind, dann hat es einen rechten Winkel.', True, ''),
-    ('Wenn ein Viereck ein Rechteck ist, dann hat es vier rechte Winkel.', 'Wenn ein Viereck vier rechte Winkel hat, dann ist es ein Rechteck.', True, ''),
-    ('Wenn eine Zahl durch 6 teilbar ist, dann ist sie durch 3 teilbar.', 'Wenn eine Zahl durch 3 teilbar ist, dann ist sie durch 6 teilbar.', False, 'die Zahl 9'),
-    ('Wenn ein Viereck eine Raute ist, dann ist es ein Parallelogramm.', 'Wenn ein Viereck ein Parallelogramm ist, dann ist es eine Raute.', False, 'ein Parallelogramm mit den Seiten 3 cm und 6 cm'),
-    ('Wenn ein Dreieck gleichseitig ist, dann ist es gleichschenklig.', 'Wenn ein Dreieck gleichschenklig ist, dann ist es gleichseitig.', False, 'ein Dreieck mit den Seiten 5 cm, 5 cm und 3 cm'),
-    ('Wenn ein Viereck ein Quadrat ist, dann ist es ein Rechteck.', 'Wenn ein Viereck ein Rechteck ist, dann ist es ein Quadrat.', False, 'ein Rechteck 2 cm × 5 cm'),
+KEHR = [  # Satz, Kehrsatz, Kehrsatz wahr?, Gegenbeispiel, falsche Gegenbeispiele (erfüllen beide Teile bzw. den Wenn-Teil des Kehrsatzes nicht)
+    ('Wenn ein Viereck ein Quadrat ist, dann hat es vier gleich lange Seiten.', 'Wenn ein Viereck vier gleich lange Seiten hat, dann ist es ein Quadrat.', False, 'eine Raute mit 60°-Winkel',
+     ['ein Quadrat mit 3 cm Seitenlänge', 'ein Rechteck 2 cm × 5 cm']),
+    ('Wenn ein Dreieck gleichseitig ist, dann sind alle Winkel 60°.', 'Wenn in einem Dreieck alle Winkel 60° sind, dann ist es gleichseitig.', True, '',
+     ['ein Dreieck mit den Winkeln 50°, 60° und 70°', 'ein gleichschenkliges Dreieck mit 40° an der Spitze']),
+    ('Wenn ein Dreieck gleichschenklig ist, dann hat es zwei gleich große Winkel.', 'Wenn ein Dreieck zwei gleich große Winkel hat, dann ist es gleichschenklig.', True, '',
+     ['ein Dreieck mit den Winkeln 30°, 60° und 90°', 'ein gleichseitiges Dreieck']),
+    ('Wenn ein Viereck ein Rechteck ist, dann sind seine Diagonalen gleich lang.', 'Wenn die Diagonalen eines Vierecks gleich lang sind, dann ist es ein Rechteck.', False, 'ein gleichschenkliges Trapez',
+     ['ein Quadrat', 'eine Raute mit 60°-Winkel']),
+    ('Wenn ein Viereck eine Raute ist, dann stehen die Diagonalen senkrecht aufeinander.', 'Wenn die Diagonalen eines Vierecks senkrecht aufeinander stehen, dann ist es eine Raute.', False,
+     'ein Drachenviereck, das keine Raute ist', ['ein Quadrat', 'ein Rechteck 2 cm × 5 cm']),
+    ('Wenn ein Viereck ein Parallelogramm ist, dann halbieren sich seine Diagonalen.', 'Wenn sich die Diagonalen eines Vierecks halbieren, dann ist es ein Parallelogramm.', True, '',
+     ['ein Drachenviereck, das keine Raute ist', 'ein Rechteck 2 cm × 5 cm']),
+    ('Wenn zwei Dreiecke kongruent sind, dann haben sie gleich große Winkel.', 'Wenn zwei Dreiecke gleich große Winkel haben, dann sind sie kongruent.', False,
+     'zwei verschieden große gleichseitige Dreiecke', ['zwei deckungsgleiche Dreiecke', 'ein Dreieck mit 30°, 60°, 90° und eines mit 45°, 45°, 90°']),
+    ('Wenn eine Zahl durch 4 teilbar ist, dann ist sie gerade.', 'Wenn eine Zahl gerade ist, dann ist sie durch 4 teilbar.', False, 'die Zahl 6', ['die Zahl 8', 'die Zahl 7']),
+    ('Wenn ein Dreieck einen rechten Winkel hat, dann sind die beiden anderen Winkel zusammen 90°.', 'Wenn in einem Dreieck zwei Winkel zusammen 90° sind, dann hat es einen rechten Winkel.', True, '',
+     ['ein Dreieck mit den Winkeln 40°, 60° und 80°', 'ein Dreieck mit den Winkeln 90°, 45° und 45°']),
+    ('Wenn ein Viereck ein Rechteck ist, dann hat es vier rechte Winkel.', 'Wenn ein Viereck vier rechte Winkel hat, dann ist es ein Rechteck.', True, '',
+     ['ein Quadrat', 'eine Raute mit 60°-Winkel']),
+    ('Wenn eine Zahl durch 6 teilbar ist, dann ist sie durch 3 teilbar.', 'Wenn eine Zahl durch 3 teilbar ist, dann ist sie durch 6 teilbar.', False, 'die Zahl 9', ['die Zahl 12', 'die Zahl 8']),
+    ('Wenn ein Viereck eine Raute ist, dann ist es ein Parallelogramm.', 'Wenn ein Viereck ein Parallelogramm ist, dann ist es eine Raute.', False,
+     'ein Parallelogramm mit den Seiten 3 cm und 6 cm', ['ein Quadrat', 'ein Drachenviereck, das keine Raute ist']),
+    ('Wenn ein Dreieck gleichseitig ist, dann ist es gleichschenklig.', 'Wenn ein Dreieck gleichschenklig ist, dann ist es gleichseitig.', False,
+     'ein Dreieck mit den Seiten 5 cm, 5 cm und 3 cm', ['ein Dreieck mit den Seiten 4 cm, 4 cm und 4 cm', 'ein Dreieck mit den Seiten 3 cm, 4 cm und 5 cm']),
+    ('Wenn ein Viereck ein Quadrat ist, dann ist es ein Rechteck.', 'Wenn ein Viereck ein Rechteck ist, dann ist es ein Quadrat.', False, 'ein Rechteck 2 cm × 5 cm',
+     ['ein Quadrat mit 4 cm Seitenlänge', 'eine Raute mit 60°-Winkel']),
 ]
 
 
+def gr(t): return t[0].upper() + t[1:]
+
+
 def g_satz_kehrsatz(R, st):
-    satz, kehr, wahr, gegen = R.choice(KEHR)
+    satz, kehr, wahr, gegen, falsche = R.choice(KEHR)
     if st == 2: st = R.choice([1, 2, 2, 3])
     if st == 1:
-        andere = [k for s, k, _, _ in KEHR if k != kehr]
+        andere = [k for s, k, *_ in KEHR if k != kehr]
         return A(R, f'Wie lautet der Kehrsatz zu: „{satz}“', kehr, [satz] + R.sample(andere, 2), f'Voraussetzung und Behauptung werden vertauscht: „{kehr}“',
                  'Tausche den Wenn-Teil und den Dann-Teil.')
     if st == 2:
         r = 'Der Kehrsatz ist wahr.' if wahr else f'Der Kehrsatz ist falsch, Gegenbeispiel: {gegen}.'
-        f = ['Der Kehrsatz ist wahr.'] if not wahr else []
-        f += [f'Der Kehrsatz ist falsch, Gegenbeispiel: {g}.' for _, _, w, g in KEHR if g and g != gegen][:3 - len(f)]
-        return A(R, f'Satz: „{satz}“ Ist der Kehrsatz „{kehr}“ wahr?', r, f, r, 'Suche ein Gegenbeispiel. Findest du keins, ist der Kehrsatz vermutlich wahr.')
-    r = f'Nein: Bei {gegen} ist die Voraussetzung erfüllt, die Behauptung aber nicht.' if not wahr else 'Ja, der Kehrsatz gilt (ohne Gegenbeispiel).'
+        f = [f'Der Kehrsatz ist falsch, Gegenbeispiel: {g}.' for g in falsche]
+        f += ['Der Kehrsatz ist wahr.'] if not wahr else ['Der Kehrsatz ist falsch, weil Kehrsätze nie stimmen.']
+        w = r + (f' {gr(gegen)} erfüllt den Wenn-Teil des Kehrsatzes, aber nicht den Dann-Teil.' if not wahr else
+                 f' {gr(falsche[0])} und {falsche[1]} sind keine Gegenbeispiele: Bei ihnen ist die Voraussetzung nicht erfüllt oder die Behauptung doch erfüllt.')
+        return A(R, f'Satz: „{satz}“ Ist der Kehrsatz „{kehr}“ wahr?', r, f, w, 'Ein Gegenbeispiel muss den Wenn-Teil des Kehrsatzes erfüllen, den Dann-Teil aber nicht.')
     if wahr:
         return A(R, f'Ein Schüler sagt: „Der Satz ‚{satz}‘ ist wahr, also ist auch der Kehrsatz wahr.“ Ist die Begründung richtig?', 'Nein: Die Begründung ist falsch, auch wenn der Kehrsatz hier zufällig stimmt.',
                  ['Ja, ein Kehrsatz ist immer wahr, wenn der Satz wahr ist.', 'Ja, weil man den Satz nur umdrehen muss.', 'Nein, denn der Satz selbst ist falsch.'],
                  'Aus der Wahrheit eines Satzes folgt nichts über den Kehrsatz; er muss eigens bewiesen werden.', 'Gibt es Sätze, deren Kehrsatz falsch ist?')
-    return A(R, f'Widerlege den Kehrsatz: „{kehr}“ Welches Gegenbeispiel passt?', gegen[0].upper() + gegen[1:],
-             [g[0].upper() + g[1:] for _, _, w, g in KEHR if g and g != gegen][:2] + ['ein Quadrat'] if 'Quadrat' not in kehr else [g[0].upper() + g[1:] for _, _, w, g in KEHR if g and g != gegen][:3],
-             f'{gegen[0].upper() + gegen[1:]} erfüllt die Voraussetzung, aber nicht die Behauptung.', 'Das Gegenbeispiel muss den Wenn-Teil erfüllen, den Dann-Teil nicht.')
+    return A(R, f'Widerlege den Kehrsatz: „{kehr}“ Welches Gegenbeispiel passt?', gr(gegen), [gr(g) for g in falsche],
+             f'{gr(gegen)} erfüllt die Voraussetzung, aber nicht die Behauptung. {gr(falsche[0])} erfüllt beide oder die Voraussetzung nicht.',
+             'Das Gegenbeispiel muss den Wenn-Teil erfüllen, den Dann-Teil nicht.')
 
 
-GEN = {'winkelsumme': g_winkelsumme, 'gleichschenklig': g_gleichschenklig, 'kongruenzsatz': g_kongruenzsatz, 'konstruierbar': g_konstruierbar,
+GEN = {'parallelen': g_parallelen, 'winkelsumme': g_winkelsumme, 'gleichschenklig': g_gleichschenklig, 'kongruenzsatz': g_kongruenzsatz, 'konstruierbar': g_konstruierbar,
        'vierecke': g_vierecke, 'satz_kehrsatz': g_satz_kehrsatz}
 
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
-         [('Winkel', ['winkelsumme', 'gleichschenklig', 'vierecke']), ('Kongruenz und Konstruktion', ['kongruenzsatz', 'konstruierbar']), ('Beweisen', ['satz_kehrsatz'])],
-         'Winkel in Dreiecken und symmetrischen Vierecken berechnen, Kongruenzsätze anwenden, Konstruierbarkeit prüfen und zwischen Satz und Kehrsatz unterscheiden.',
-         ['Winkelsumme: Dreieck 180°, Viereck 360°.', 'Gleichschenklig: Basiswinkel gleich.', 'Kongruenzsätze: SSS, SWS, WSW, SsW. WWW reicht nicht.',
+         [('Winkel', ['parallelen', 'winkelsumme', 'gleichschenklig', 'vierecke']), ('Kongruenz und Konstruktion', ['kongruenzsatz', 'konstruierbar']), ('Beweisen', ['satz_kehrsatz'])],
+         'Winkel an Parallelen nutzen, die Winkelsumme begründen, Winkel in Dreiecken und symmetrischen Vierecken berechnen, Kongruenzsätze anwenden, Konstruierbarkeit prüfen und zwischen Satz und Kehrsatz unterscheiden.',
+         ['An Parallelen: Stufenwinkel und Wechselwinkel sind gleich groß.', 'Winkelsumme: Dreieck 180°, Viereck 360°.', 'Gleichschenklig: Basiswinkel gleich.', 'Kongruenzsätze: SSS, SWS, WSW, SsW. WWW reicht nicht.',
           'Dreiecksungleichung: je zwei Seiten zusammen länger als die dritte.'],
          offen=['Konstruieren mit Zirkel und Lineal (Konstruktionsschritte, Planfigur, Ortslinien) kann die App nicht abfragen, weil das Kind nicht zeichnen kann. '
                 'Gebaut wurden Winkelberechnungen mit Zeichnung, Kongruenzsätze, Konstruierbarkeit und Satz/Kehrsatz.',

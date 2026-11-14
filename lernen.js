@@ -29,13 +29,17 @@ async function lernCall(aktion, daten = {}) {
   return j.ergebnis;
 }
 const lernCid = () => (crypto.randomUUID ? crypto.randomUUID() : Date.now() + '-' + Math.random().toString(16).slice(2));
+// DOM-Helfer: null/undefined/false überspringen (sonst schreibt der Browser das Wort „null“ in die Seite).
+const lernKinder = (kids) => kids.flat().filter((k) => k !== null && k !== undefined && k !== false);
+const lernErsetze = (node, ...kids) => { node.replaceChildren(...lernKinder(kids)); return node; };
+const lernAnhaengen = (node, ...kids) => { node.append(...lernKinder(kids)); return node; };
 const lernText = (t) => String(t ?? '').replace(/(\d) (?=\d{3}(?!\d))/g, '$1 '); // Zahlen wie 20 000 nicht umbrechen
 const lernZahl = (n) => Number(n).toLocaleString('de-DE').replace(/\./g, ' ');
 const lernIcon = (d, size = 24) => {
   const s = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
   s.setAttribute('viewBox', '0 0 24 24'); s.setAttribute('width', size); s.setAttribute('height', size); s.setAttribute('aria-hidden', 'true');
   s.setAttribute('fill', 'none'); s.setAttribute('stroke', 'currentColor'); s.setAttribute('stroke-width', '2.2'); s.setAttribute('stroke-linecap', 'round'); s.setAttribute('stroke-linejoin', 'round');
-  for (const p of d.split('|')) { const e = document.createElementNS('http://www.w3.org/2000/svg', 'path'); e.setAttribute('d', p); s.append(e); }
+  for (const p of d.split('|')) { const e = document.createElementNS('http://www.w3.org/2000/svg', 'path'); e.setAttribute('d', p); lernAnhaengen(s, e); }
   return s;
 };
 const LI = {
@@ -209,34 +213,44 @@ async function viewLernen() {
         el('p', { class: 'small muted' }, 'Codes für Lehrer, Eltern und Kinder – nur für den Bereich Lernen'), el('span', { class: 'lern-kindkarte-los' }, 'Verwalten ›')) : null,
       !seite ? el('a', { class: 'card lern-kindkarte', href: 'lernen/', target: '_blank', rel: 'noopener' }, el('b', {}, 'Eigene Lernen-Seite'),
         el('p', { class: 'small muted' }, 'Für Lehrer und Kinder: Anmeldung mit Lern-Code, ohne Zugriff auf den Rest der App.'), el('span', { class: 'lern-kindkarte-los' }, 'Öffnen ↗')) : null)] : [];
-  main.replaceChildren(...[
-    seite ? null : el('section', { class: 'start-intro' }, el('p', { class: 'eyebrow' }, 'LERNEN SCHULE'), el('h2', {}, 'Mathe Klasse 7/8'),
-      el('p', {}, 'Erklärungen, Aufgaben in drei Stufen und typische Fehler zu Zahlen, Termen, Potenzen, Brüchen, Gleichungen und Gleichungssystemen.')),
-    seite ? null : el('div', { class: 'card learn-resource' },
-      el('p', {}, 'Die Seite öffnet ohne Anmeldung. Du kannst den Link an Leo und die Lehrkraft schicken.'),
-      el('div', { class: 'row' }, el('a', { class: 'btn primary', href: 'mathe/', target: '_blank', rel: 'noopener' }, 'Mathe öffnen ↗'), kopie, status),
-      el('p', { class: 'muted small learn-url' }, url)),
+  // Reihenfolge nach Dringlichkeit: erst, was auf eine Antwort wartet, dann die Kinder, dann Verwalten.
+  const offeneWuensche = (eltern?.einloesungen || []).filter((x) => x.status === 'beantragt');
+  const meldung = el('p', { class: 'small muted', role: 'status' });
+  const entscheide = async (id, status) => { try { await lernCall('schule_einloesung_entscheiden', { id, status }); render(); } catch (err) { meldung.textContent = err.message; } };
+  const neueAntworten = (rm?.rueckmeldungen || []).filter((r) => r.antwort && r.status !== 'offen').slice(0, 3);
+  const wartet = offeneWuensche.length ? el('section', { class: 'card lern-wartet' }, el('p', { class: 'eyebrow' }, 'WARTET AUF DICH'),
+    ...offeneWuensche.map((x) => el('div', { class: 'lern-wunsch' }, el('span', {}, el('b', {}, x.kind), ` möchte „${x.titel}“ einlösen (${lernZahl(x.sterne)} Sterne)`),
+      el('div', { class: 'row' }, el('button', { type: 'button', class: 'primary', onclick: () => entscheide(x.id, 'bestaetigt') }, 'Bestätigen'),
+        el('button', { type: 'button', class: 'secondary', onclick: () => entscheide(x.id, 'abgelehnt') }, 'Ablehnen')))), meldung) : null;
+  lernErsetze(main, ...[
+    wartet,
     el('section', { class: 'start-intro lern-neu' }, el('p', { class: 'eyebrow' }, 'LERNREISE'), el('h2', {}, 'Wer lernt heute?')),
     el('div', { class: 'lern-kinderliste' }, ...(kinder.length ? kinder : [el('p', { class: 'card muted' }, 'Kein Kind freigeschaltet.')])),
     ...steuern,
-    eltern ? lernElternBereich(eltern) : null].filter(Boolean));
+    neueAntworten.length ? el('section', { class: 'card' }, el('h3', {}, 'Antworten auf eure Anmerkungen'),
+      ...neueAntworten.map((r) => el('p', { class: 'small' }, el('b', {}, (r.ort || 'Allgemein') + ': '), r.antwort)), el('a', { class: 'small', href: '#/rueckmeldungen' }, 'Alle Rückmeldungen ›')) : null,
+    eltern ? lernElternBereich(eltern, { ohneWuensche: true }) : null,
+    seite ? null : el('details', { class: 'card lern-weitere' }, el('summary', {}, 'Weitere Lernhilfen'),
+      el('p', {}, 'Mathe-Lernblatt: Erklärungen, Aufgaben in drei Stufen und typische Fehler. Die Seite öffnet ohne Anmeldung.'),
+      el('div', { class: 'row' }, el('a', { class: 'btn secondary', href: 'mathe/', target: '_blank', rel: 'noopener' }, 'Mathe-Lernblatt öffnen ↗'), kopie, status),
+      el('p', { class: 'muted small learn-url' }, url))].filter(Boolean));
 }
 
-function lernElternBereich(e) {
+function lernElternBereich(e, { ohneWuensche = false } = {}) {
   const box = el('section', { class: 'lern-eltern' });
   const offen = (e.einloesungen || []).filter((x) => x.status === 'beantragt');
   const meldung = el('p', { class: 'small muted', role: 'status' });
   const entscheide = async (id, status) => {
     try { await lernCall('schule_einloesung_entscheiden', { id, status }); render(); } catch (err) { meldung.textContent = err.message; }
   };
-  box.append(el('h2', {}, 'Belohnungen'),
+  lernAnhaengen(box, el('h2', {}, 'Belohnungen'),
     el('p', { class: 'small muted' }, 'Die Kinder sammeln Sterne (Üben, Tests) und Stempel (geschaffte Orte) und lösen sie hier ein. Du bestätigst. Abgelehnt gibt die Sterne zurück.'));
-  if (offen.length) box.append(el('div', { class: 'card' }, el('h3', {}, `Offene Wünsche (${offen.length})`),
+  if (offen.length && !ohneWuensche) lernAnhaengen(box, el('div', { class: 'card' }, el('h3', {}, `Offene Wünsche (${offen.length})`),
     ...offen.map((x) => el('div', { class: 'lern-wunsch' }, el('span', {}, el('b', {}, x.kind), ` möchte „${x.titel}“ (${lernZahl(x.sterne)} Sterne)`),
       el('div', { class: 'row' }, el('button', { type: 'button', class: 'primary', onclick: () => entscheide(x.id, 'bestaetigt') }, 'Bestätigen'),
         el('button', { type: 'button', class: 'secondary', onclick: () => entscheide(x.id, 'abgelehnt') }, 'Ablehnen'))))));
   const liste = (e.belohnungen || []);
-  box.append(el('div', { class: 'card' }, el('h3', {}, 'Katalog'),
+  lernAnhaengen(box, el('div', { class: 'card' }, el('h3', {}, 'Katalog'),
     liste.length ? el('ul', { class: 'lern-katalog' }, ...liste.map((b) => el('li', { class: b.aktiv ? '' : 'muted' },
       el('span', {}, el('b', {}, b.titel), ` · ${b.kosten_sterne ? lernZahl(b.kosten_sterne) + ' Sterne' : ''}${b.kosten_sterne && b.kosten_stempel ? ' + ' : ''}${b.kosten_stempel ? b.kosten_stempel + ' Stempel' : ''}${b.kosten_sterne || b.kosten_stempel ? '' : 'gratis'}`),
       el('button', { type: 'button', class: 'secondary', onclick: async () => { try { await lernCall('schule_belohnung_setzen', { id: b.id, aktiv: !b.aktiv }); render(); } catch (err) { meldung.textContent = err.message; } } }, b.aktiv ? 'Ausblenden' : 'Wieder anbieten'))))
@@ -275,24 +289,26 @@ async function viewReise(arg) {
   $('#title').textContent = 'Lernreise ' + kind.name;
   const ortStand = (blockId) => (d.konto?.orte || []).find((o) => o.block_id === blockId);
   const et = n ? lernEtappenZahl(merk.find((m) => m.einheit_id === n.id)) : { n: 0, f: 0 };
-  const teile = [lernKopf(`Hallo ${kind.name}!`, kind.stil === 'studio' ? 'Heute dran' : 'Wohin reist du heute?'), lernStats(d.konto)];
-  if (wdh?.aufgaben?.length) teile.push(el('a', { class: 'lr-zeile lr-wdh', href: `#/wiederholen/${kind.id}` },
-    el('span', { class: 'lr-zeile-icon' }, lernIcon(LI.weg, 22)),
-    el('span', { class: 'lr-zeile-text' }, el('b', {}, `Zuerst: ${wdh.aufgaben.length} ${wdh.aufgaben.length === 1 ? 'Aufgabe' : 'Aufgaben'} zum Wiederholen`),
-      el('small', {}, 'Damit nichts vergessen wird – dauert nur kurz.')), lernIcon(LI.pfeil, 20)));
+  const nWdh = wdh?.aufgaben?.length || 0;
+  const teile = [el('header', { class: 'lr-kopf lr-kopf-kurz' }, el('p', { class: 'lr-gruss' }, `Hallo ${kind.name}!`))];
   if (n) {
     const kont = d.orte.filter((o) => o.kontinent === (d.orte.find((x) => x.block_id === n.block_id)?.kontinent));
     const ortN = d.orte.find((o) => o.block_id === n.block_id) || {};
+    // Ein einziger Startknopf: erst die fälligen Wiederholungen, dann direkt ins Üben des Themas.
+    const ziel = n.laeuft ? `#/lerneinheit/${kind.id}-${n.id}-test` : nWdh ? `#/wiederholen/${kind.id}` : `#/lerneinheit/${kind.id}-${n.id}-ueben`;
     teile.push(el('section', { class: 'lr-karte-box lr-haupt' },
-      el('p', { class: 'lr-ueber' }, `JETZT DRAN · ${(n.erdteil || '').toUpperCase()} · ${(n.kontinent || '').toUpperCase()}`),
-      el('div', { class: 'lr-kartenbild' }, lernKarte({ orte: kont, fokus: kont.slice(0, Math.max(3, kont.indexOf(ortN) + 2)), hervor: LERN_ERDTEIL[ortN.kontinent], route: true,
-        beschriftung: [{ ...ortN, text: `Du bist in ${n.stadt}`, jetzt: true, gross: true }], label: `Karte: ${n.stadt}, ${n.land}`, breite: 340, hoehe: 130 })),
-      el('h2', {}, `${n.stadt}: ${n.titel}`),
-      et.n ? el('div', { class: 'lr-fortschritt' }, el('div', { class: 'lr-balken', role: 'img', 'aria-label': `${et.f} von ${et.n} Etappen` }, el('span', { style: `width:${Math.round(100 * et.f / et.n)}%` })), el('b', {}, `${et.f} von ${et.n} Etappen`)) : null,
-      el('a', { class: 'lr-knopf', href: `#/lerneinheit/${kind.id}-${n.id}` }, n.laeuft ? 'Test weitermachen' : et.f ? 'Weiter geht’s' : 'Losreisen'),
+      el('p', { class: 'lr-ueber' }, `JETZT DRAN · ${(n.stadt || '').toUpperCase()}`),
+      el('h1', { class: 'lr-titel lr-titel-thema' }, n.titel),
+      el('a', { class: 'lr-knopf lr-knopf-start', href: ziel }, n.laeuft ? 'Test weitermachen' : et.f || nWdh ? 'Weiter geht’s' : 'Los geht’s'),
+      nWdh && !n.laeuft ? el('p', { class: 'lr-leise lr-start-info' }, `Erst ${nWdh} ${nWdh === 1 ? 'Wiederholung' : 'Wiederholungen'}, dann ${n.stadt}.`) : null,
+      et.n ? el('div', { class: 'lr-fortschritt' }, el('div', { class: 'lr-balken', role: 'img', 'aria-label': `${et.f} von ${et.n} Lernkarten sitzen` }, el('span', { style: `width:${Math.round(100 * et.f / et.n)}%` })), el('b', {}, `${et.f} von ${et.n} Lernkarten sitzen`)) : null,
+      el('a', { class: 'lr-textlink', href: `#/lerneinheit/${kind.id}-${n.id}` }, 'Erst die Erklärungen ansehen'),
+      el('div', { class: 'lr-kartenbild lr-kartenbild-klein' }, lernKarte({ orte: kont, fokus: kont.slice(0, Math.max(3, kont.indexOf(ortN) + 2)), hervor: LERN_ERDTEIL[ortN.kontinent], route: true,
+        beschriftung: [{ ...ortN, text: `Du bist in ${n.stadt}`, jetzt: true, gross: true }], label: `Karte: ${n.stadt}, ${n.land}`, breite: 340, hoehe: 110 })),
       (() => { const o = ortStand(n.block_id); return o && o.themen > 1 ? el('p', { class: 'lr-leise lr-ortstand' },
         `${n.stadt} hat ${o.themen} Themen, ${o.erledigt} davon geschafft. Den Stempel gibt es, wenn alle geschafft sind.`) : null; })()));
-  } else teile.push(el('section', { class: 'lr-karte-box' }, el('h2', {}, 'Gerade ist nichts offen'), el('p', { class: 'lr-leise' }, 'Neue Orte kommen bald. Schau in deinen Reisepass.')));
+  } else teile.push(el('section', { class: 'lr-karte-box' }, el('h2', {}, 'Gerade ist nichts offen'), el('p', { class: 'lr-leise' }, 'Neue Orte kommen bald. '), nWdh ? el('a', { class: 'lr-knopf', href: `#/wiederholen/${kind.id}` }, `${nWdh} ${nWdh === 1 ? 'Aufgabe' : 'Aufgaben'} wiederholen`) : el('a', { class: 'lr-knopf-zweit', href: `#/reisepass/${kind.id}` }, 'Zum Reisepass')));
+  teile.push(lernStats(d.konto), el('a', { class: 'lr-textlink', href: `#/reisepass/${kind.id}` }, 'Reisepass und Belohnungen ansehen'));
   const jg = d.konto?.jahrgang;
   if (jg?.themen) teile.push(el('section', { class: 'lr-karte-box lr-jgstand' },
     el('p', { class: 'lr-ueber' }, `MEIN STAND · ${(LERN_SCHULART[jg.schulart] || '').toUpperCase()} KLASSE ${jg.klasse}`),
@@ -303,7 +319,7 @@ async function viewReise(arg) {
   if (weitere.length) teile.push(el('h2', { class: 'lr-zwischen' }, 'Auch offen'), ...weitere.map((e) => lernOrtZeile(kind, e)));
   if (d.kann.length) teile.push(el('details', { class: 'lr-mehr' }, el('summary', {}, `Geschafft oder kann schon – zum Wiederholen (${d.kann.length})`), ...d.kann.map((e) => lernOrtZeile(kind, e))));
   if (d.spaeter.length) teile.push(el('details', { class: 'lr-mehr' }, el('summary', {}, `Später – für höhere Klassen (${d.spaeter.length})`), ...d.spaeter.map((e) => lernOrtZeile(kind, e))));
-  main.replaceChildren(lernRahmen(kind, 'reise', ...teile));
+  lernErsetze(main, lernRahmen(kind, 'reise', ...teile));
 }
 
 function lernOrtZeile(kind, e) {
@@ -328,7 +344,7 @@ async function viewWeltkarte(arg) {
   const detail = el('section', { class: 'lr-karte-box' });
   const zeigeKontinent = () => {
     const os = d.orte.filter((o) => o.kontinent === wahl); const k0 = os[0] || {};
-    detail.replaceChildren(
+    lernErsetze(detail, 
       el('p', { class: 'lr-ueber' }, `${(k0.erdteil || '').toUpperCase()} · ${(k0.kontinent_titel || '').toUpperCase()}`),
       os.length && k0.erdteil !== 'Antarktis' ? el('div', { class: 'lr-kartenbild' }, lernKarte({ orte: os, fokus: os, hervor: LERN_ERDTEIL[wahl], route: true,
         beschriftung: os.filter((o) => o.zustand === 'jetzt').map((o) => ({ ...o, text: o.stadt, jetzt: true })), label: `Karte ${k0.erdteil}`, breite: 340, hoehe: 150 })) : null,
@@ -338,14 +354,14 @@ async function viewWeltkarte(arg) {
         el('span', { class: 'lr-zeile-zustand' }, { fertig: 'Stempel', kann: 'kann schon', jetzt: 'jetzt', offen: o.hat_einheit ? '' : 'bald' }[o.zustand])))));
   };
   const knoepfe = el('div', { class: 'lr-chips', role: 'tablist', 'aria-label': 'Kontinente' });
-  const zeichneKnoepfe = () => knoepfe.replaceChildren(...konts.map((o) => {
+  const zeichneKnoepfe = () => lernErsetze(knoepfe, ...konts.map((o) => {
     const [f, n] = zaehl(o.kontinent);
     return el('button', { type: 'button', role: 'tab', class: o.kontinent === wahl ? 'on' : '', 'aria-selected': String(o.kontinent === wahl),
       onclick: () => { wahl = o.kontinent; zeichneKnoepfe(); zeigeKontinent(); } }, `${o.kontinent_titel} `, el('small', {}, `${f}/${n}`));
   }));
   zeichneKnoepfe(); zeigeKontinent();
   const fertig = d.orte.filter((o) => o.zustand === 'fertig' || o.zustand === 'kann').length;
-  main.replaceChildren(lernRahmen(kind, 'weltkarte',
+  lernErsetze(main, lernRahmen(kind, 'weltkarte',
     lernKopf('DEINE MATHE-WELTREISE', `${fertig} von ${d.orte.length} Orten`),
     el('div', { class: 'lr-kartenbild lr-welt' }, lernKarte({ orte: d.orte, label: 'Weltkarte mit allen Orten' })),
     el('p', { class: 'lr-legende' }, el('span', { class: 'lr-dot lr-dot-fertig' }), 'geschafft', el('span', { class: 'lr-dot lr-dot-jetzt' }), 'jetzt dran', el('span', { class: 'lr-dot lr-dot-offen' }), 'noch offen'),
@@ -378,11 +394,11 @@ async function viewReisepass(arg) {
   const setze = async (stil, welt) => {
     try { await lernCall('schule_look_setzen', { lernender_id: kind.id, stil, welt }); render(); } catch (err) { meldung.textContent = err.message; }
   };
-  look.append(el('p', { class: 'lr-ueber' }, 'WELT'), el('div', { class: 'lr-chips' }, ...LERN_WELTEN.map(([w, t]) =>
+  lernAnhaengen(look, el('p', { class: 'lr-ueber' }, 'WELT'), el('div', { class: 'lr-chips' }, ...LERN_WELTEN.map(([w, t]) =>
     el('button', { type: 'button', class: (kind.welt === w ? 'on ' : '') + 'lr-welt-' + w.toLowerCase().replace('ü', 'ue'), 'aria-pressed': String(kind.welt === w), onclick: () => setze(kind.stil || 'entdecker', w) }, t))),
   el('p', { class: 'lr-ueber' }, 'STIL'), el('div', { class: 'lr-chips' }, ...LERN_STILE.map(([s, t, h]) =>
     el('button', { type: 'button', class: kind.stil === s ? 'on' : '', 'aria-pressed': String(kind.stil === s), onclick: () => setze(s, kind.welt || 'Ozean') }, t, el('small', {}, ' · ' + h)))));
-  main.replaceChildren(lernRahmen(kind, 'weg',
+  lernErsetze(main, lernRahmen(kind, 'weg',
     lernKopf('REISEPASS', kind.name), lernStats(konto),
     el('section', { class: 'lr-karte-box' }, el('h2', {}, 'Stempel'),
       stempel.length ? el('div', { class: 'lr-stempelraster' }, ...stempel.map((o, i) => el('div', { class: 'lr-stempel', style: `--dreh:${(i * 37) % 17 - 8}deg` }, el('b', {}, o.stadt), el('small', {}, o.kontinent_titel))))
@@ -843,7 +859,7 @@ function lernPunkte(e, { gross = false } = {}) {
   return el('span', { class: 'lr-punkte' + (gross ? ' gross' : ''), role: 'img', 'aria-label': e.sitzt || e.fertig ? 'sitzt' : `${voll} von ${n} richtig in Folge` },
     ...Array.from({ length: n }, (_, i) => el('i', { class: i < voll ? 'voll' : '' })));
 }
-const lernKartenStatus = (e) => e.faellig ? 'Wiederholen' : e.sitzt || e.fertig ? 'sitzt' : e.serie ? 'am Üben' : 'neu';
+const lernKartenStatus = (e) => e.faellig ? 'Wiederholen' : e.sitzt || e.fertig ? 'sitzt' : e.serie ? 'am Üben' : 'noch nicht geübt';
 // Bereiche: aus inhalt.abschnitte, sonst ein Bereich mit allen Karten.
 function lernBereiche(etappen) {
   const map = new Map();
@@ -864,7 +880,7 @@ async function viewLernEinheit(arg) {
   const kind = { id: k, ...(konto?.look || {}) };
   const ort = (uebers?.einheiten || []).find((e) => e.id === eId) || {};
   const titel = ort.stadt ? `${ort.stadt}: ${ort.ort_titel || ort.titel || ''}` : (daten.inhalt?.ziel || 'Lerneinheit').split(/[:;.]/)[0];
-  $('#title').textContent = titel;
+  $('#title').textContent = ort.stadt || titel; // kurz: der Ort; das Thema steht als Überschrift darunter
   const ctx = { kind: k, einheit: eId, live, daten, ort, titel, kindObj: kind, basis: `#/lerneinheit/${k}-${eId}`, leitung: !!uebers?.leitung };
   const etappen = lernEtappen(daten);
   lernTitel = new Map(etappen.filter((e) => daten.inhalt?.etappen?.length).map((e) => [e.lernziel, e.titel]));
@@ -882,6 +898,7 @@ function lernTestTeil(ctx, etappen) {
   const { daten } = ctx;
   const pflicht = etappen.filter((e) => !e.extra);
   const offen = pflicht.filter((e) => !e.fertig).length;
+  if (!pflicht.length) return el('p', { class: 'lr-gesperrt' }, 'Dieses Thema wird gerade gebaut. Schau bald wieder vorbei.');
   if (daten.laufender_test) return el('a', { class: 'lr-knopf', href: `${ctx.basis}-test` }, 'Angefangenen Test weitermachen');
   if (daten.blocktest_fertig) return el('a', { class: 'lr-zeile', href: `${ctx.basis}-test` }, el('span', { class: 'lr-zeile-icon' }, lernIcon(LI.stempel, 22)),
     el('span', { class: 'lr-zeile-text' }, el('b', {}, 'Test, Verbessern und Nachtests'), el('small', {}, daten.nachtest?.grund === 'faellig' ? 'Ein Nachtest ist jetzt dran.' : 'Hier siehst du, was als Nächstes kommt.')), lernIcon(LI.pfeil, 20));
@@ -898,7 +915,7 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
   const empfohlen = () => etappen.find((e) => e.faellig) || etappen.find((e) => !e.fertig && !e.extra) || etappen.find((e) => !e.fertig) || etappen[0];
   const fehlerKarten = etappen.filter((e) => e.fehler);
   const fortschritt = el('div', { class: 'lr-fortschritt' });
-  const zeichneFortschritt = () => fortschritt.replaceChildren(
+  const zeichneFortschritt = () => lernErsetze(fortschritt, 
     el('div', { class: 'lr-balken', role: 'img', 'aria-label': `${sitzen()} von ${pflicht.length} Lernkarten sitzen` }, el('span', { style: `width:${pflicht.length ? Math.round(100 * sitzen() / pflicht.length) : 0}%` })),
     el('b', {}, `${sitzen()} von ${pflicht.length} sitzen`));
   zeichneFortschritt();
@@ -920,13 +937,13 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
   // --- Erklären: alle Lernkarten untereinander, nach Bereichen
   const kartenBox = new Map();
   const bereiche = lernBereiche(etappen);
-  panels.erklaeren.append(...bereiche.map((b) => el('section', { class: 'lr-bereich' },
+  lernAnhaengen(panels.erklaeren, ...bereiche.map((b) => el('section', { class: 'lr-bereich' },
     bereiche.length > 1 ? el('h2', { class: 'lr-abschnitt' }, b.titel.toUpperCase()) : null,
     ...b.karten.map((e) => {
       const box = el('article', { class: 'lr-karte-box lr-lernkarte' + (e === empfohlen() ? ' jetzt' : '') },
         el('div', { class: 'lr-lernkarte-kopf' }, el('h3', {}, `${e.nr} · ${e.titel}`), el('span', { class: 'lr-lk-status' }, lernPunkte(e), el('small', {}, lernKartenStatus(e)))),
         e.regel ? lernErklaerung(e) : el('p', { class: 'lr-leise' }, 'Für diese Karte gibt es noch keine Erklärung.'),
-        e.aufgaben.length ? el('button', { type: 'button', class: 'lr-knopf-zweit lr-dazu', onclick: () => zeige('ueben', { karte: e }) }, 'Dazu üben ▸') : null,
+        e.aufgaben.length ? el('button', { type: 'button', class: 'lr-knopf-zweit lr-dazu', onclick: () => { erklGesehen.add(e.lernziel); zeige('ueben', { karte: e }); } }, 'Dazu üben ▸') : null,
         ctx.leitung ? lernAnmerkung({ einheit_id: ctx.einheit, lernziel: e.lernziel, lernender_id: ctx.kind }, 'Anmerkung zu dieser Erklärung') : null);
       kartenBox.set(e.lernziel, box);
       return box;
@@ -936,7 +953,7 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
 
   // --- Typische Fehler
   const versucht = etappen.flatMap((e) => e.aufgaben.filter((a) => a.versuche && !a.geloest).map((a) => ({ e, a })));
-  panels.fehler.append(
+  lernAnhaengen(panels.fehler, 
     el('p', { class: 'lr-leise' }, 'Die Stellen, an denen es oft schiefgeht.'),
     ...(fehlerKarten.length ? fehlerKarten.map((e) => el('article', { class: 'lr-karte-box lr-fehlerkarte' },
       el('h3', {}, `${e.nr} · ${e.titel}`), el('div', { class: 'lr-fehler' }, el('b', {}, 'Achtung: '), ...lernMarkiert(e.fehler)),
@@ -947,6 +964,7 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
 
   // --- Üben: eine Lernkarte, Aufgaben nacheinander; Erklärung klappt an der Aufgabe auf
   let aktKarte = null, stufe = 0;
+  const erklGesehen = new Set(); // Karten, deren Erklärung das Kind in dieser Sitzung schon vor sich hatte
   let gezeichnet = null;
   const uebenOeffnen = (karte) => {
     if (karte && karte !== aktKarte) { aktKarte = karte; stufe = 0; }
@@ -955,44 +973,51 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
   };
   const zeichneUeben = () => {
     const e = aktKarte; gezeichnet = e;
-    const chipsKarten = el('div', { class: 'lr-chips lr-chips-scroll', role: 'group', 'aria-label': 'Lernkarte' },
-      ...etappen.filter((x) => x.aufgaben.length).map((x) => el('button', { type: 'button', class: x === e ? 'on' : '', 'aria-pressed': String(x === e), onclick: () => { aktKarte = x; zeichneUeben(); } }, `${x.nr} · ${x.titel}`)));
-    const chipsStufe = el('div', { class: 'lr-chips', role: 'group', 'aria-label': 'Stufe' },
-      ...[[0, 'alle'], [1, 'leicht'], [2, 'mittel'], [3, 'schwer']].filter(([n]) => !n || e.aufgaben.some((a) => a.stufe === n))
-        .map(([n, t]) => el('button', { type: 'button', class: stufe === n ? 'on' : '', 'aria-pressed': String(stufe === n), onclick: () => { stufe = n; zeichneUeben(); } }, t)));
+    const mitAufg = etappen.filter((x) => x.aufgaben.length); const pos = mitAufg.indexOf(e);
+    const wechsel = (d) => el('button', { type: 'button', class: 'lr-pfeilknopf', 'aria-label': d < 0 ? 'Vorige Lernkarte' : 'Nächste Lernkarte', disabled: !mitAufg[pos + d],
+      onclick: () => { aktKarte = mitAufg[pos + d]; stufe = 0; zeichneUeben(); } }, d < 0 ? '‹' : '›');
+    const stufenDa = [1, 2, 3].filter((n) => e.aufgaben.some((a) => a.stufe === n));
+    const chipsStufe = stufenDa.length > 1 ? el('div', { class: 'lr-chips lr-chips-klein', role: 'group', 'aria-label': 'Stufe' },
+      ...[[0, 'alle'], [1, 'leicht'], [2, 'mittel'], [3, 'schwer']].filter(([n]) => !n || stufenDa.includes(n))
+        .map(([n, t]) => el('button', { type: 'button', class: stufe === n ? 'on' : '', 'aria-pressed': String(stufe === n), onclick: () => { stufe = n; zeichneUeben(); } }, t))) : null;
     const punkte = el('div', { class: 'lr-lk-punkte' });
-    const zeichnePunkte = () => punkte.replaceChildren(lernPunkte(e, { gross: true }),
+    const zeichnePunkte = () => lernErsetze(punkte, lernPunkte(e, { gross: true }),
       el('small', {}, e.sitzt || e.fertig ? (e.faellig ? 'Sitzt – heute wiederholen' : 'Sitzt! Du kannst trotzdem weiterüben.') : `${Math.min(e.serie, e.ziel)} von ${e.ziel} richtig hintereinander`));
     zeichnePunkte();
     const flaeche = el('div', { class: 'lr-ueben-flaeche' });
-    panels.ueben.replaceChildren(chipsKarten, chipsStufe, el('div', { class: 'lr-karte-box lr-lk-zeile' }, el('b', {}, `${e.nr} · ${e.titel}`), punkte), flaeche);
+    lernErsetze(panels.ueben, el('div', { class: 'lr-karte-box lr-lk-kopf' }, wechsel(-1),
+      el('div', { class: 'lr-lk-mitte' }, el('small', { class: 'lr-leise' }, `Lernkarte ${pos + 1} von ${mitAufg.length}`), el('b', {}, e.titel), punkte), wechsel(1)), flaeche, chipsStufe);
     const pool = e.aufgaben.filter((a) => !stufe || a.stufe === stufe);
     const warte = [...pool].sort((a, b) => (a.geloest === b.geloest ? 0 : a.geloest ? 1 : -1) || (a.versuche || 0) - (b.versuche || 0) || (a.stufe || 2) - (b.stufe || 2));
     let sterne = 0, nr = 0;
     const naechsteKarte = etappen.slice(e.nr).find((x) => !x.fertig && x.aufgaben.length) || etappen.find((x) => x !== e && !x.fertig && x.aufgaben.length);
     const zeigeAufgabe = () => {
       const a = warte[0];
-      if (!a) { flaeche.replaceChildren(el('p', { class: 'lr-leise' }, 'Für diese Auswahl gibt es keine Aufgaben.')); return; }
+      if (!a) { lernErsetze(flaeche, el('p', { class: 'lr-leise' }, 'Für diese Auswahl gibt es keine Aufgaben.')); return; }
       nr++;
       const auf = lernAufgabe(a); let hilfe = 0; const cid = lernCid();
       const meldung = el('div', { role: 'status', 'aria-live': 'polite' });
       const hilfeBox = el('div', { class: 'lr-hilfebox' });
-      const tipp = a.tipp ? el('button', { type: 'button', class: 'lr-knopf-zweit', onclick: () => { hilfe = 1; tipp.remove(); hilfeBox.append(el('p', { class: 'lr-tipp' }, el('b', {}, 'Tipp: '), lernText(a.tipp), el('small', {}, ' (zählt nicht für die Punkte)'))); } }, 'Tipp') : null;
+      const tipp = a.tipp ? el('button', { type: 'button', class: 'lr-knopf-zweit', onclick: () => { hilfe = 1; tipp.remove(); lernAnhaengen(hilfeBox, el('p', { class: 'lr-tipp' }, el('b', {}, 'Tipp: '), lernText(a.tipp), el('small', {}, ' (zählt nicht für die Punkte)'))); } }, 'Tipp') : null;
       const erkl = e.regel ? el('button', { type: 'button', class: 'lr-knopf-zweit', 'aria-expanded': 'false', onclick: () => {
         const offen = erkl.getAttribute('aria-expanded') === 'true';
         erkl.setAttribute('aria-expanded', String(!offen)); erklBox.hidden = offen;
       } }, 'Erklärung') : null;
-      const erklBox = el('div', { class: 'lr-karte-box lr-nochmal', hidden: true }, e.regel ? lernErklaerung(e, { kurz: true }) : null);
+      const neuHier = nr === 1 && !!e.regel && !e.fertig && !e.serie && !e.aufgaben.some((x) => x.versuche) && !erklGesehen.has(e.lernziel);
+      erklGesehen.add(e.lernziel);
+      const erklBox = el('div', { class: 'lr-karte-box lr-nochmal', hidden: !neuHier }, e.regel ? lernErklaerung(e, { kurz: true }) : null,
+        neuHier ? el('button', { type: 'button', class: 'lr-knopf-zweit', onclick: () => { erklBox.hidden = true; erkl?.setAttribute('aria-expanded', 'false'); auf.node.querySelector('input')?.focus(); } }, 'Verstanden – los') : null);
+      if (neuHier) erkl?.setAttribute('aria-expanded', 'true');
       const pruefen = el('button', { type: 'button', class: 'lr-knopf' }, 'Prüfen');
-      auf.node.addEventListener('input', () => { if (!pruefen.disabled && pruefen.isConnected) meldung.replaceChildren(); });
+      auf.node.addEventListener('input', () => { if (!pruefen.disabled && pruefen.isConnected) lernErsetze(meldung); });
       pruefen.addEventListener('click', async () => {
         const w = auf.antwort();
-        if (!w) { meldung.replaceChildren(el('p', { class: 'lr-hinweis' }, auf.fehlerText() || 'Bitte erst antworten.')); return; }
+        if (!w) { lernErsetze(meldung, el('p', { class: 'lr-hinweis' }, auf.fehlerText() || 'Bitte erst antworten.')); return; }
         pruefen.disabled = true;
         try {
           const r = await lernCall('schule_uebung_pruefen', { lernender_id: ctx.kind, aufgabe_id: a.id, antwort: w, client_id: cid, hilfe });
           if (!ctx.live()) return;
-          if (!r.format_ok) { meldung.replaceChildren(el('p', { class: 'lr-hinweis' }, r.hinweis)); pruefen.disabled = false; return; }
+          if (!r.format_ok) { lernErsetze(meldung, el('p', { class: 'lr-hinweis' }, r.hinweis)); pruefen.disabled = false; return; }
           auf.sperren(); a.loesung = r.loesung; warte.shift(); a.versuche = (a.versuche || 0) + 1;
           if (r.richtig) { if (!a.geloest && !r.wiederholt) sterne += 10; a.geloest = true; warte.push(a); }
           else warte.splice(Math.min(3, warte.length), 0, a);
@@ -1000,17 +1025,17 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
           if (r.karte) { e.serie = r.karte.serie; e.ziel = r.karte.ziel; e.sitzt = r.karte.sitzt; e.fertig = e.fertig || r.karte.sitzt; if (warSitzt && r.karte.sitzt) e.faellig = false; }
           zeichnePunkte(); zeichneFortschritt();
           const jetztSitzt = !!r.karte?.neu_sitzt || (!warSitzt && e.sitzt);
-          const weiter = el('button', { type: 'button', class: 'lr-knopf', onclick: zeigeAufgabe }, 'Nächste Aufgabe');
-          pruefen.replaceWith(weiter);
+          const weiter = el('button', { type: 'button', class: 'lr-knopf lr-weiter', onclick: () => { zeigeAufgabe(); window.scrollTo(0, 0); } }, 'Nächste Aufgabe');
+          pruefen.remove(); meldung.after(weiter); weiter.focus({ preventScroll: true });
           if (!r.richtig && erkl && erklBox.hidden) { erklBox.hidden = false; erkl.setAttribute('aria-expanded', 'true'); }
-          meldung.replaceChildren(r.richtig
+          lernErsetze(meldung, r.richtig
             ? el('div', { class: 'lr-rueck lr-rueck-ok' }, el('b', {}, 'Richtig!'), r.loesungsweg ? el('p', {}, lernText(r.loesungsweg)) : null)
             : el('div', { class: 'lr-rueck lr-rueck-falsch' }, el('b', {}, 'Noch nicht. Richtig ist: ' + lernLoesungText(a)),
               a.antworttyp === 'luecken' && lernIstTermVorlage(a.frage?.schablone) && lernGleichwertigAusgeklammert(a.frage?.schablone, w.werte, r.loesung?.werte)
                 ? el('p', {}, 'Dein Term ist gleichwertig, aber noch nicht vollständig ausgeklammert: Vor die Klammer gehört der größte gemeinsame Faktor.') : null,
               r.loesungsweg ? el('p', {}, el('b', {}, 'So geht’s: '), lernText(r.loesungsweg)) : null,
               el('p', { class: 'lr-leise' }, 'Die Punkte fangen wieder bei 0 an. Die Erklärung steht oben an der Aufgabe.')));
-          if (jetztSitzt) meldung.append(el('section', { class: 'lr-geschafft lr-sitzt' },
+          if (jetztSitzt) lernAnhaengen(meldung, el('section', { class: 'lr-geschafft lr-sitzt' },
             el('div', { class: 'lr-geschafft-haken' }, lernIcon(LI.haken, 48)),
             el('p', { class: 'lr-ueber' }, 'LERNKARTE SITZT'), el('h2', {}, e.titel),
             sterne ? el('p', { class: 'lr-sterne-neu' }, lernIcon(LI.stern, 20), ` +${sterne} Sterne`) : null,
@@ -1018,14 +1043,18 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
             naechsteKarte ? el('button', { type: 'button', class: 'lr-knopf', onclick: () => { aktKarte = naechsteKarte; stufe = 0; zeichneUeben(); window.scrollTo(0, 0); } }, `Nächste Karte: ${naechsteKarte.titel}`)
               : el('button', { type: 'button', class: 'lr-knopf', onclick: () => zeige('erklaeren') }, 'Zur Themen-Übersicht')));
           (jetztSitzt ? meldung : weiter).scrollIntoView?.({ block: 'center', behavior: 'smooth' });
-        } catch (err) { meldung.replaceChildren(el('p', { class: 'err-text' }, err.message)); pruefen.disabled = false; }
+        } catch (err) { lernErsetze(meldung, el('p', { class: 'err-text' }, err.message)); pruefen.disabled = false; }
       });
-      flaeche.replaceChildren(
+      const fein = window.matchMedia?.('(pointer: fine)').matches;
+      auf.node.addEventListener('keydown', (ev) => { if (ev.key === 'Enter' && ev.target.tagName === 'INPUT') { ev.preventDefault(); if (pruefen.isConnected) pruefen.click(); } });
+      lernErsetze(flaeche,
+        neuHier ? erklBox : null,
         el('section', { class: 'lr-karte-box lr-aufgabe' },
           el('p', { class: 'lr-ueber' }, `AUFGABE ${nr}` + (a.stufe ? ` · ${['', 'LEICHT', 'MITTEL', 'SCHWER'][a.stufe] || ''}` : '')), auf.node,
-          el('div', { class: 'lr-knopfzeile' }, tipp, erkl)),
-        hilfeBox, erklBox, meldung, pruefen,
+          pruefen, el('div', { class: 'lr-knopfzeile' }, tipp, erkl)),
+        hilfeBox, neuHier ? null : erklBox, meldung,
         ctx.leitung ? lernAnmerkung({ einheit_id: ctx.einheit, lernziel: e.lernziel, aufgabe_id: a.id, lernender_id: ctx.kind }, 'Anmerkung zu dieser Aufgabe') : null);
+      if (fein && !neuHier) auf.node.querySelector('input')?.focus({ preventScroll: true });
     };
     zeigeAufgabe();
   };
@@ -1038,7 +1067,7 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
     fortschritt,
     daten.status === 'entwurf' ? el('p', { class: 'lr-leise' }, 'Entwurf – nur für das Testkind sichtbar.') : null,
     tabLeiste, panels.erklaeren, panels.ueben, panels.fehler);
-  main.replaceChildren(lernRahmen(kind, 'weg', flaeche));
+  lernErsetze(main, lernRahmen(kind, 'weg', flaeche));
   zeige(start);
 }
 const LERN_SCHULART = { gym_by: 'Gymnasium', rs_by: 'Realschule', ib_myp: 'IB MYP' };
@@ -1049,10 +1078,10 @@ function lernJahrgangText(j) {
 
 function lernEinheitTest(ctx) {
   const body = el('div', { class: 'lern-body' });
-  main.replaceChildren(lernRahmen(ctx.kindObj, 'weg',
+  lernErsetze(main, lernRahmen(ctx.kindObj, 'weg',
     el('header', { class: 'lr-kopf' }, el('p', { class: 'lr-ueber' }, 'TEST'), el('h1', { class: 'lr-titel' }, ctx.titel)),
     el('a', { class: 'lr-zurueck', href: ctx.basis }, '‹ Zu den Etappen'), body));
-  body.append(lernTestStart(ctx, body));
+  lernAnhaengen(body, lernTestStart(ctx, body));
 }
 
 // ---------- Merkheft-Daten ----------
@@ -1102,7 +1131,7 @@ async function viewWeg(arg) {
     const info = o.zustand === 'kann' ? 'konnte ich schon' : nt?.grund === 'faellig' ? 'Nachtest dran' : nt?.grund === 'noch_nicht_faellig' ? `Nachtest in ${nt.lerntage_noetig - nt.lerntage_seit} Lerntagen` : nt?.grund === 'gesichert' ? 'sicher' : 'Stempel';
     return ortZeile(o, info, 'haken', m ? `#/merkheft/${kind.id}` : null);
   });
-  main.replaceChildren(lernRahmen(kind, 'weg',
+  lernErsetze(main, lernRahmen(kind, 'weg',
     el('header', { class: 'lr-kopf' }, el('p', { class: 'lr-ueber' }, `MATHE${kind.klasse ? ' · KLASSE ' + kind.klasse : ''}`), el('h1', { class: 'lr-titel' }, 'Mein Weg')),
     el('div', { class: 'lr-zahlen' }, zahl(kann.length, 'kann ich', 'gut'), zahl(d.jetzt.length, 'gerade dran'), zahl(offen.length, 'kommen noch')),
     el('h2', { class: 'lr-abschnitt lr-abschnitt-jetzt' }, 'GERADE DRAN'),
@@ -1142,11 +1171,11 @@ async function viewMerkheft(arg) {
   const zeichne = () => {
     const q = norm(suche.value.trim());
     const treffer = eintraege.filter(({ m, e }) => !q || [e.titel, e.regel, ...(e.schritte || []), e.fehler, m.stadt, m.ort_titel].some((t) => norm(t).includes(q)));
-    if (!eintraege.length) { liste.replaceChildren(el('p', { class: 'lr-leise' }, 'Noch leer.')); return; }
-    if (!treffer.length) { liste.replaceChildren(el('p', { class: 'lr-leise' }, 'Nichts gefunden.')); return; }
+    if (!eintraege.length) { lernErsetze(liste, el('p', { class: 'lr-leise' }, 'Noch leer.')); return; }
+    if (!treffer.length) { lernErsetze(liste, el('p', { class: 'lr-leise' }, 'Nichts gefunden.')); return; }
     const gruppen = new Map();
     for (const t of treffer) { if (!gruppen.has(t.m.einheit_id)) gruppen.set(t.m.einheit_id, []); gruppen.get(t.m.einheit_id).push(t); }
-    liste.replaceChildren(...[...gruppen.values()].map((ts) => el('section', { class: 'lr-merkgruppe' },
+    lernErsetze(liste, ...[...gruppen.values()].map((ts) => el('section', { class: 'lr-merkgruppe' },
       el('h2', { class: 'lr-abschnitt' }, `${ts[0].m.stadt || ''} · ${ts[0].m.ort_titel || ''}`.toUpperCase()),
       ...ts.map(({ m, e, nr, status }) => el('details', { class: 'lr-merk', ...(q && treffer.length <= 3 ? { open: '' } : {}) },
         el('summary', {}, el('b', {}, e.titel), el('small', { class: 'lr-merk-status' }, status), lernIcon(LI.pfeil, 18)),
@@ -1155,7 +1184,7 @@ async function viewMerkheft(arg) {
   };
   suche.addEventListener('input', zeichne);
   zeichne();
-  main.replaceChildren(lernRahmen(kind, 'merkheft',
+  lernErsetze(main, lernRahmen(kind, 'merkheft',
     el('header', { class: 'lr-kopf' }, el('h1', { class: 'lr-titel' }, 'Merkheft'), el('p', { class: 'lr-leise' }, 'Alle Erklärungen zum Nachlesen – jederzeit, ohne Aufgaben zu lösen.')),
     eintraege.length ? suche : null, liste));
 }
@@ -1171,7 +1200,7 @@ function lernTestStart(ctx, body) {
   const blockFertig = ctx.daten.blocktest_fertig ?? stand.some((s) => s.status !== 'offen');
   const nt = ctx.daten.nachtest || {};
   const start = async (art) => {
-    box.replaceChildren(el('div', { class: 'spinner' }, 'Test wird vorbereitet …'));
+    lernErsetze(box, el('div', { class: 'spinner' }, 'Test wird vorbereitet …'));
     try {
       const r = await lernCall('schule_test_starten', { lernender_id: ctx.kind, einheit_id: ctx.einheit, art });
       if (!ctx.live()) return;
@@ -1180,25 +1209,25 @@ function lernTestStart(ctx, body) {
           : r.grund === 'erst_korrektur' ? 'Erst die Lernziele mit „noch üben“ verbessern, dann kommt der Nachtest.'
           : r.grund === 'vorrat_erschoepft' ? 'Für ' + (r.vorrat_erschoepft || []).map(lernZielName).join(', ') + ' gibt es gerade keine neue Aufgabe. Sag Bescheid, dann kommen neue dazu.'
           : 'Gerade gibt es nichts zu testen.';
-        box.replaceChildren(el('p', { class: 'card' }, t)); return;
+        lernErsetze(box, el('p', { class: 'card' }, t)); return;
       }
       lernTestLauf(ctx, box, r);
-    } catch (e) { box.replaceChildren(el('p', { class: 'card err-text' }, e.message)); }
+    } catch (e) { lernErsetze(box, el('p', { class: 'card err-text' }, e.message)); }
   };
   const knopf = (t, art, text) => el('div', { class: 'card' }, el('h3', {}, t), el('p', { class: 'small' }, text),
     el('button', { type: 'button', class: 'primary', onclick: () => start(art) }, t + ' starten'));
-  if (ctx.daten.verblasst) box.append(el('p', { class: 'lern-hinweis' }, 'Rückreise: Diese Einheit sitzt noch nicht sicher. Erst verbessern, dann den Nachtest wiederholen.'));
-  if (offen) box.append(el('div', { class: 'card' }, el('h3', {}, 'Angefangener Test'), el('p', { class: 'small' }, 'Deine bisherigen Antworten sind gespeichert.'),
+  if (ctx.daten.verblasst) lernAnhaengen(box, el('p', { class: 'lern-hinweis' }, 'Rückreise: Diese Einheit sitzt noch nicht sicher. Erst verbessern, dann den Nachtest wiederholen.'));
+  if (offen) lernAnhaengen(box, el('div', { class: 'card' }, el('h3', {}, 'Angefangener Test'), el('p', { class: 'small' }, 'Deine bisherigen Antworten sind gespeichert.'),
     el('button', { type: 'button', class: 'primary', onclick: () => start(offen.art) }, 'Weitermachen')));
   else {
-    if (!blockFertig) box.append(knopf('Test', 'blocktest', 'Eine Aufgabe je Lernziel, ohne Tipps. Die Lösungen siehst du nach dem Abgeben.'));
-    if (hatFehler) box.append(knopf('Verbessern', 'korrektur', 'Nur die Lernziele, die noch nicht geklappt haben – mit neuen Aufgaben. Übe sie vorher noch einmal.'));
-    if (nt.grund === 'faellig') box.append(knopf(lernNtTitel(nt), 'nachtest',
+    if (!blockFertig) lernAnhaengen(box, knopf('Test', 'blocktest', 'Eine Aufgabe je Lernziel, ohne Tipps. Die Lösungen siehst du nach dem Abgeben.'));
+    if (hatFehler) lernAnhaengen(box, knopf('Verbessern', 'korrektur', 'Nur die Lernziele, die noch nicht geklappt haben – mit neuen Aufgaben. Übe sie vorher noch einmal.'));
+    if (nt.grund === 'faellig') lernAnhaengen(box, knopf(lernNtTitel(nt), 'nachtest',
       'Alle Lernziele der Einheit, ohne Tipps. Ab 80 % zählt die Runde. Unter 60 % geht es auf eine Rückreise zu diesem Ort.'));
-    else if (nt.grund === 'noch_nicht_faellig') box.append(el('div', { class: 'card' }, el('h3', {}, lernNtTitel(nt)),
+    else if (nt.grund === 'noch_nicht_faellig') lernAnhaengen(box, el('div', { class: 'card' }, el('h3', {}, lernNtTitel(nt)),
       el('p', { class: 'small' }, `Dran in ${nt.lerntage_noetig - nt.lerntage_seit} Lerntag(en). Ein Lerntag zählt, wenn an dem Tag geübt oder getestet wurde.`)));
-    if (nt.grund === 'gesichert') box.append(el('p', { class: 'card' }, 'Alles geschafft und gesichert. 🎉'));
-    if (!box.querySelector('.card')) box.append(el('p', { class: 'card' }, 'Gerade gibt es keinen Test. Üb weiter!'));
+    if (nt.grund === 'gesichert') lernAnhaengen(box, el('p', { class: 'card' }, 'Alles geschafft und gesichert. 🎉'));
+    if (!box.querySelector('.card')) lernAnhaengen(box, el('p', { class: 'card' }, 'Gerade gibt es keinen Test. Üb weiter!'));
   }
   return box;
 }
@@ -1213,15 +1242,15 @@ function lernTestLauf(ctx, box, t) {
     const meldung = el('div', { role: 'status', 'aria-live': 'polite' });
     const speichern = async () => {
       const w = auf.antwort();
-      if (!w && auf.fehlerText()) { meldung.replaceChildren(el('p', { class: 'lern-hinweis' }, auf.fehlerText())); return null; }
+      if (!w && auf.fehlerText()) { lernErsetze(meldung, el('p', { class: 'lern-hinweis' }, auf.fehlerText())); return null; }
       if (!w) return gesendet.has(a.id);
       const r = await lernCall('schule_test_antwort', { lernender_id: ctx.kind, sitzung_id: t.sitzung_id, aufgabe_id: a.id, antwort: w, client_id: lernCid() });
-      if (!r.format_ok) { meldung.replaceChildren(el('p', { class: 'lern-hinweis' }, r.hinweis)); return null; }
+      if (!r.format_ok) { lernErsetze(meldung, el('p', { class: 'lern-hinweis' }, r.hinweis)); return null; }
       antworten.set(a.id, w); gesendet.add(a.id); return true;
     };
     const geh = async (d) => {
       try { const ok = await speichern(); if (ok === null) return; i = Math.min(aufg.length - 1, Math.max(0, i + d)); zeige(); }
-      catch (e) { meldung.replaceChildren(el('p', { class: 'err-text' }, e.message)); }
+      catch (e) { lernErsetze(meldung, el('p', { class: 'err-text' }, e.message)); }
     };
     const abgeben = el('button', { type: 'button', class: 'primary', onclick: async () => {
       try {
@@ -1231,9 +1260,9 @@ function lernTestLauf(ctx, box, t) {
         abgeben.disabled = true;
         const r = await lernCall('schule_test_abschliessen', { lernender_id: ctx.kind, sitzung_id: t.sitzung_id });
         if (ctx.live()) lernTestErgebnis(ctx, box, r);
-      } catch (e) { abgeben.disabled = false; meldung.replaceChildren(el('p', { class: 'err-text' }, e.message)); }
+      } catch (e) { abgeben.disabled = false; lernErsetze(meldung, el('p', { class: 'err-text' }, e.message)); }
     } }, 'Abgeben');
-    box.replaceChildren(el('div', { class: 'card' },
+    lernErsetze(box, el('div', { class: 'card' },
       el('p', { class: 'eyebrow' }, `${art} · Aufgabe ${i + 1} von ${aufg.length} · ${gesendet.size} beantwortet`),
       el('div', { class: 'lern-punkte' }, aufg.map((x, j) => el('button', { type: 'button', class: (j === i ? 'on ' : '') + (gesendet.has(x.id) ? 'fertig' : ''), 'aria-label': `Aufgabe ${j + 1}`, onclick: () => { i = j; geh(0); } }, String(j + 1)))),
       auf.node, meldung,
@@ -1247,7 +1276,7 @@ function lernTestLauf(ctx, box, t) {
 
 function lernTestErgebnis(ctx, box, r) {
   const ort = r.ort || {};
-  box.replaceChildren(
+  lernErsetze(box, 
     el('div', { class: 'card lern-ergebnis' },
       el('h3', {}, `${r.richtig} von ${r.gesamt} richtig`),
       r.einheit_abgeschlossen ? el('p', { class: 'lern-rueck ok' }, el('b', {}, 'Einheit geschafft! 🎉')) : el('p', { class: 'small' }, 'Bei „noch üben“: die passenden Etappen noch einmal üben, dann „Verbessern“.'),
@@ -1322,7 +1351,7 @@ async function viewRueckmeldungen() {
     el('p', { class: 'lern-rm-text' }, x.text),
     x.antwort ? el('p', { class: 'lern-rm-antwort' }, el('b', {}, 'Antwort: '), x.antwort) : null,
     el('p', { class: 'small muted' }, `${String(x.von || '').replace(/^[a-z]+:/, '')} · ${new Date(x.am).toLocaleDateString('de-DE')}`));
-  main.replaceChildren(
+  lernErsetze(main, 
     el('section', { class: 'start-intro' }, el('p', { class: 'eyebrow' }, 'AN DIE ENTWICKLUNG'), el('h2', {}, 'Was soll besser werden?'),
       el('p', {}, 'Allgemeine Wünsche hier. Zu einer bestimmten Einheit, Erklärung oder Aufgabe geht es direkt dort über „✎ Anmerkung“ (am einfachsten über das Testkind, das alle Themen sieht).')),
     el('div', { class: 'card' }, lernRueckmeldungForm({}, { offen: true, onGesendet: () => setTimeout(render, 900) })),
@@ -1361,7 +1390,7 @@ async function viewPlan(arg) {
   }));
   const markiere = () => { geaendert = true; speichern.disabled = false; status.textContent = 'Nicht gespeichert.'; };
   const zeichne = () => {
-    liste.replaceChildren(...plan.map((x, i) => {
+    lernErsetze(liste, ...plan.map((x, i) => {
       const o = ortById.get(x.block_id);
       const hoch = el('button', { type: 'button', class: 'iconbtn', 'aria-label': `${ortName(o)} nach oben`, disabled: i === 0, onclick: () => { [plan[i - 1], plan[i]] = [plan[i], plan[i - 1]]; markiere(); zeichne(); } }, '↑');
       const runter = el('button', { type: 'button', class: 'iconbtn', 'aria-label': `${ortName(o)} nach unten`, disabled: i === plan.length - 1, onclick: () => { [plan[i + 1], plan[i]] = [plan[i], plan[i + 1]]; markiere(); zeichne(); } }, '↓');
@@ -1373,7 +1402,7 @@ async function viewPlan(arg) {
           themenListe(o)),
         el('div', { class: 'lern-plan-knoepfe' }, hoch, runter, kann, weg));
     }));
-    if (!plan.length) liste.append(el('li', { class: 'muted' }, 'Der Plan ist leer. Ohne Plan sieht das Kind alle Themen. Füge unten Themen hinzu.'));
+    if (!plan.length) lernAnhaengen(liste, el('li', { class: 'muted' }, 'Der Plan ist leer. Ohne Plan sieht das Kind alle Themen. Füge unten Themen hinzu.'));
   };
   const suche = el('input', { type: 'search', placeholder: 'Thema oder Ort suchen …', 'aria-label': 'Thema suchen' });
   const nurMitEinheit = el('input', { type: 'checkbox' });
@@ -1386,12 +1415,12 @@ async function viewPlan(arg) {
     const gruppen = new Map();
     for (const o of treffer.sort((a, b) => gymKl(a) - gymKl(b))) { const g = gymKl(o); if (!gruppen.has(g)) gruppen.set(g, []); gruppen.get(g).push(o); }
     const kk = p.kind.klasse;
-    vorrat.replaceChildren(...[...gruppen].map(([g, os]) => el('details', { open: !!q || g === kk },
+    lernErsetze(vorrat, ...[...gruppen].map(([g, os]) => el('details', { open: !!q || g === kk },
       el('summary', {}, `${g === 99 ? 'Nicht im Gymnasium-Lehrplan' : `Gymnasium Klasse ${g}`}${g === kk ? ` – ${p.kind.name}s Klasse` : ''} (${os.length} ${os.length === 1 ? 'Ort' : 'Orte'})`),
       el('ul', { class: 'lern-plan-auswahl' }, ...os.map((o) => el('li', {},
         el('button', { type: 'button', class: 'lern-chip', onclick: () => { plan.push({ block_id: o.block_id, kann_schon: false, status: 'offen' }); markiere(); zeichne(); zeichneVorrat(); } }, '+ ' + ortName(o)),
         themenListe(o)))))));
-    if (!treffer.length) vorrat.append(el('p', { class: 'muted small' }, 'Nichts gefunden.'));
+    if (!treffer.length) lernAnhaengen(vorrat, el('p', { class: 'muted small' }, 'Nichts gefunden.'));
   };
   suche.addEventListener('input', zeichneVorrat); nurMitEinheit.addEventListener('change', zeichneVorrat);
   speichern.addEventListener('click', async () => {
@@ -1420,7 +1449,7 @@ async function viewPlan(arg) {
     try { await lernCall('schule_kind_setzen', { lernender_id: kindId, klasse: Number(klIn.value) || null }); kindStatus.textContent = 'Gespeichert.'; setTimeout(render, 700); }
     catch (err) { kindStatus.textContent = err.message; }
   });
-  main.replaceChildren(...[
+  lernErsetze(main, ...[
     el('section', { class: 'start-intro' }, el('p', { class: 'eyebrow' }, `THEMENPLAN · GYMNASIUM KLASSE ${p.kind.klasse || '?'}`), el('h2', {}, p.kind.name),
       el('p', {}, 'Reihenfolge = Reihenfolge in der Lernreise. Hinter jedem Thema steht, in welcher Klasse es laut Lehrplan dran ist (Gym = Gymnasium, RS = Realschule, IB = MYP-Jahr). Punkt: grün = Inhalt fertig, gelb = in Prüfung, grau = noch kein Inhalt.')),
     el('p', { class: 'small' }, el('a', { href: '#/lehrplan' }, 'Welche Themen gibt es für welche Klasse? → Lehrplan-Übersicht')),
@@ -1453,28 +1482,28 @@ async function viewZugaenge() {
   const form = el('form', { class: 'card lern-rm-form' }, el('h3', {}, 'Neuen Zugang anlegen'), name, rolle, kind, el('button', { type: 'submit', class: 'primary' }, 'Code erzeugen'), status);
   form.addEventListener('submit', async (ev) => {
     ev.preventDefault();
-    if (!name.value.trim()) { status.replaceChildren(el('p', { class: 'small' }, 'Bitte einen Namen eingeben.')); return; }
+    if (!name.value.trim()) { lernErsetze(status, el('p', { class: 'small' }, 'Bitte einen Namen eingeben.')); return; }
     try {
       const r = await lernCall('schule_zugang_anlegen', { name: name.value.trim(), rolle: rolle.value, lernender_id: rolle.value === 'kind' ? Number(kind.value) : null });
       const link = new URL(typeof LERN_SEITE !== 'undefined' ? './' : 'lernen/', location.href).href.replace(/#.*$/, '');
-      status.replaceChildren(el('div', { class: 'lern-code-box' },
+      lernErsetze(status, el('div', { class: 'lern-code-box' },
         el('p', {}, el('b', {}, 'Code (wird nur jetzt angezeigt):')), el('p', { class: 'lern-code' }, r.code),
         el('p', { class: 'small' }, 'Anmelden unter: ', el('a', { href: link, target: '_blank', rel: 'noopener' }, link)),
         el('p', { class: 'small muted' }, 'Code und Link getrennt oder persönlich weitergeben. Verloren? Zugang sperren und neu anlegen.')));
       name.value = '';
       lernZugangListe(liste, (await lernCall('schule_zugaenge')).zugaenge, rollenText);
-    } catch (err) { status.replaceChildren(el('p', { class: 'err-text' }, err.message)); }
+    } catch (err) { lernErsetze(status, el('p', { class: 'err-text' }, err.message)); }
   });
   const liste = el('div');
   lernZugangListe(liste, z.zugaenge, rollenText);
-  main.replaceChildren(
+  lernErsetze(main, 
     el('section', { class: 'start-intro' }, el('p', { class: 'eyebrow' }, 'NUR BEREICH LERNEN'), el('h2', {}, 'Zugänge'),
       el('p', {}, 'Ein Lern-Code öffnet nur die Lernen-Seite. Der Server lehnt ihn für alle anderen Bereiche der App ab.')),
     form, liste);
 }
 
 function lernZugangListe(box, zugaenge, rollenText) {
-  box.replaceChildren(el('h3', {}, 'Bestehende Zugänge'), ...(zugaenge.length ? zugaenge.map((g) => el('div', { class: 'card lern-zugang' + (g.aktiv ? '' : ' aus') },
+  lernErsetze(box, el('h3', {}, 'Bestehende Zugänge'), ...(zugaenge.length ? zugaenge.map((g) => el('div', { class: 'card lern-zugang' + (g.aktiv ? '' : ' aus') },
     el('div', { class: 'lern-einheit-kopf' }, el('b', {}, g.name), el('span', { class: 'pill' }, rollenText[g.rolle] + (g.kind ? ' · ' + g.kind : ''))),
     el('p', { class: 'small muted' }, g.aktiv ? (g.zuletzt ? 'Zuletzt angemeldet ' + new Date(g.zuletzt).toLocaleDateString('de-DE') : 'Noch nie angemeldet') : 'Gesperrt'),
     g.aktiv ? el('button', { type: 'button', class: 'secondary', onclick: async (ev) => {
@@ -1508,7 +1537,7 @@ async function viewLehrplan() {
   const klName = (k) => k === 99 ? 'Nicht im Gymnasium-Lehrplan' : `Klasse ${k}` + kinder.filter((c) => c.klasse === k).map((c) => ' · ' + c.name).join('');
   const fuelleKlassen = () => {
     const ks = [...new Set((d.themen || []).map(gk))].sort((a, b) => a - b);
-    klSel.replaceChildren(el('option', { value: '' }, 'Alle Klassen'), ...ks.map((k) => el('option', { value: k, selected: String(k) === String(f.kl) }, klName(k))));
+    lernErsetze(klSel, el('option', { value: '' }, 'Alle Klassen'), ...ks.map((k) => el('option', { value: k, selected: String(k) === String(f.kl) }, klName(k))));
   };
   klSel.addEventListener('change', () => { f.kl = klSel.value; zeichne(); });
   const inhSel = el('select', { 'aria-label': 'Inhalt' }, ...[['', 'Alle Themen'], ['fertig', 'Fertig'], ['pruefung', 'In Prüfung'], ['leer', 'Noch kein Inhalt']]
@@ -1549,7 +1578,7 @@ async function viewLehrplan() {
     const q = f.q.trim().toLowerCase();
     const basis = (d.themen || []).filter((t) => !f.kl || String(gk(t)) === String(f.kl));
     const zahl = (k) => basis.filter((t) => lernInhaltZustand(t).k === k).length;
-    kacheln.replaceChildren(
+    lernErsetze(kacheln, 
       el('div', { class: 'lp-kachel' }, el('b', {}, String(basis.length)), el('small', {}, 'Themen')),
       el('div', { class: 'lp-kachel lp-fertig' }, el('b', {}, String(zahl('fertig'))), el('small', {}, 'fertig')),
       el('div', { class: 'lp-kachel lp-pruefung' }, el('b', {}, String(zahl('pruefung'))), el('small', {}, 'in Prüfung')),
@@ -1560,15 +1589,15 @@ async function viewLehrplan() {
     for (const t of treffer.sort((a, b) => gk(a) - gk(b))) {
       const g = gk(t); if (!gruppen.has(g)) gruppen.set(g, []); gruppen.get(g).push(t);
     }
-    liste.replaceChildren(...[...gruppen].map(([kl, ts]) => el('section', { class: 'lp-gruppe' },
+    lernErsetze(liste, ...[...gruppen].map(([kl, ts]) => el('section', { class: 'lp-gruppe' },
       el('h3', {}, klName(kl), el('small', { class: 'muted' }, ` · ${ts.length} ${ts.length === 1 ? 'Thema' : 'Themen'}`)),
       ...[...ts.reduce((m, t) => m.set(t.gebiet || 'Weitere', [...(m.get(t.gebiet || 'Weitere') || []), t]), new Map())].flatMap(([g, gs]) => [
         el('h4', { class: 'lp-gebiet' }, g, el('small', { class: 'muted' }, ` · ${gs.filter((t) => lernInhaltZustand(t).k === 'fertig').length} von ${gs.length} mit Inhalt`)),
         ...gs.map(zeile)]))));
-    if (!treffer.length) liste.append(el('p', { class: 'muted' }, 'Keine Themen für diese Auswahl.'));
+    if (!treffer.length) lernAnhaengen(liste, el('p', { class: 'muted' }, 'Keine Themen für diese Auswahl.'));
   };
   fuelleKlassen(); zeichne();
-  main.replaceChildren(
+  lernErsetze(main, 
     el('section', { class: 'start-intro' }, el('p', { class: 'eyebrow' }, 'ELTERN UND LEHRER'), el('h2', {}, 'Lehrplan-Übersicht'),
       el('p', {}, 'Alle Mathe-Themen, sortiert nach Klasse im Gymnasium. Hinter jedem Thema steht, wann es laut Lehrplan dran ist: Gym = Gymnasium, RS = Realschule, IB = MYP-Jahr. Grün = Inhalt fertig, gelb = gebaut und in Prüfung, grau = noch nichts da.')),
     el('div', { class: 'card lp-filter' }, el('div', { class: 'row' }, klSel, inhSel, suche)),
@@ -1612,7 +1641,7 @@ async function viewInhalte(arg) {
   });
   const ohneKarte = aufgaben.filter((a) => !etappen.some((e) => e.lernziel === a.lernziel));
   const zahl = (fn) => aufgaben.filter(fn).length;
-  main.replaceChildren(...[
+  lernErsetze(main, ...[
     el('section', { class: 'start-intro' }, el('p', { class: 'eyebrow' }, [d.ort?.stadt, lernJahrgangText(d.thema?.jahrgang)].filter(Boolean).join(' · ').toUpperCase() || 'INHALTE'),
       el('h2', {}, titel),
       el('p', {}, `${['geprueft', 'freigegeben'].includes(d.status) ? 'Fertig' : 'In Prüfung'} · ${etappen.length} Lernkarten · ${zahl((a) => a.pool === 'uebung')} Übungen · ${zahl((a) => a.pool !== 'uebung')} Test- und Nachtestaufgaben`
@@ -1641,7 +1670,7 @@ async function viewWiederholen(arg) {
   const zeige = () => {
     const a = liste[i];
     if (!a) {
-      flaeche.replaceChildren(el('section', { class: 'lr-geschafft' }, el('div', { class: 'lr-geschafft-haken' }, lernIcon(LI.haken, 64)),
+      lernErsetze(flaeche, el('section', { class: 'lr-geschafft' }, el('div', { class: 'lr-geschafft-haken' }, lernIcon(LI.haken, 64)),
         el('p', { class: 'lr-ueber' }, 'WIEDERHOLT'), el('h1', { class: 'lr-titel' }, `${richtig} von ${liste.length} richtig`),
         el('p', { class: 'lr-leise' }, richtig === liste.length ? 'Super – das sitzt noch.' : 'Was nicht geklappt hat, kommt bald nochmal dran. Die Erklärung findest du im Merkheft.')),
         el('a', { class: 'lr-knopf', href: `#/reise/${kind.id}` }, 'Weiter zu Heute'));
@@ -1652,24 +1681,24 @@ async function viewWiederholen(arg) {
     const pruefen = el('button', { type: 'button', class: 'lr-knopf' }, 'Prüfen');
     pruefen.addEventListener('click', async () => {
       const w = auf.antwort();
-      if (!w) { meldung.replaceChildren(el('p', { class: 'lr-hinweis' }, auf.fehlerText() || 'Bitte erst antworten.')); return; }
+      if (!w) { lernErsetze(meldung, el('p', { class: 'lr-hinweis' }, auf.fehlerText() || 'Bitte erst antworten.')); return; }
       pruefen.disabled = true;
       try {
         const x = await lernCall('schule_uebung_pruefen', { lernender_id: kind.id, aufgabe_id: a.id, antwort: w, client_id: cid, hilfe: 0 });
-        if (!x.format_ok) { meldung.replaceChildren(el('p', { class: 'lr-hinweis' }, x.hinweis)); pruefen.disabled = false; return; }
+        if (!x.format_ok) { lernErsetze(meldung, el('p', { class: 'lr-hinweis' }, x.hinweis)); pruefen.disabled = false; return; }
         auf.sperren(); a.loesung = x.loesung; if (x.richtig) richtig++;
-        meldung.replaceChildren(x.richtig ? el('div', { class: 'lr-rueck lr-rueck-ok' }, el('b', {}, 'Richtig!'))
+        lernErsetze(meldung, x.richtig ? el('div', { class: 'lr-rueck lr-rueck-ok' }, el('b', {}, 'Richtig!'))
           : el('div', { class: 'lr-rueck lr-rueck-falsch' }, el('b', {}, 'Noch nicht. Richtig ist: ' + lernLoesungText(a)), x.loesungsweg ? el('p', {}, lernText(x.loesungsweg)) : null,
             el('a', { href: `#/lerneinheit/${kind.id}-${a.einheit_id}` }, 'Zur Lernkarte')));
         i++; pruefen.replaceWith(el('button', { type: 'button', class: 'lr-knopf', onclick: zeige }, i < liste.length ? 'Nächste' : 'Fertig'));
-      } catch (err) { meldung.replaceChildren(el('p', { class: 'err-text' }, err.message)); pruefen.disabled = false; }
+      } catch (err) { lernErsetze(meldung, el('p', { class: 'err-text' }, err.message)); pruefen.disabled = false; }
     });
-    flaeche.replaceChildren(el('header', { class: 'lr-etappe-oben' }, el('p', { class: 'lr-ueber' }, `WIEDERHOLEN ${i + 1} VON ${liste.length} · ${(a.stadt || '').toUpperCase()}`),
+    lernErsetze(flaeche, el('header', { class: 'lr-etappe-oben' }, el('p', { class: 'lr-ueber' }, `WIEDERHOLEN ${i + 1} VON ${liste.length} · ${(a.stadt || '').toUpperCase()}`),
       el('h1', { class: 'lr-titel' }, a.etappe || 'Aufgabe')),
       el('section', { class: 'lr-karte-box lr-aufgabe' }, auf.node), meldung, pruefen);
     window.scrollTo(0, 0);
   };
-  if (!liste.length) flaeche.replaceChildren(el('p', { class: 'lr-leise' }, 'Gerade ist nichts zum Wiederholen dran.'), el('a', { class: 'lr-knopf', href: `#/reise/${kind.id}` }, 'Zu Heute'));
+  if (!liste.length) lernErsetze(flaeche, el('p', { class: 'lr-leise' }, 'Gerade ist nichts zum Wiederholen dran.'), el('a', { class: 'lr-knopf', href: `#/reise/${kind.id}` }, 'Zu Heute'));
   else zeige();
-  main.replaceChildren(lernRahmen(kind, 'reise', flaeche));
+  lernErsetze(main, lernRahmen(kind, 'reise', flaeche));
 }

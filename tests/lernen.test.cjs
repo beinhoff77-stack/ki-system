@@ -152,7 +152,10 @@ async function setup(t, opt = {}) {
 test('Lernen: Eltern sehen Kinder, Belohnungen und offene Wünsche', async (t) => {
   const { page, calls } = await setup(t);
   await page.goto(origin + '/#/lernen');
-  await page.getByRole('heading', { name: 'Mathe Klasse 7/8' }).waitFor();
+  // Oben steht, was auf eine Antwort wartet; das alte Lernblatt ist eingeklappt am Ende.
+  await page.getByText('WARTET AUF DICH').waitFor();
+  assert.equal(await page.getByRole('heading', { name: 'Mathe Klasse 7/8' }).count(), 0);
+  assert.equal(await page.locator('details.lern-weitere').count(), 1);
   await page.getByText('Jetzt: Rom · Natürliche Zahlen (2/4)').waitFor();
   await page.getByText('möchte „Eis“').waitFor();
   await page.getByRole('button', { name: 'Bestätigen' }).click();
@@ -167,7 +170,12 @@ test('Lernen: Eltern sehen Kinder, Belohnungen und offene Wünsche', async (t) =
 test('Lernreise: Heute dran auf der echten Karte, Weltkarte und Reisepass', async (t) => {
   const { page, calls } = await setup(t);
   await page.goto(origin + '/#/reise/1');
-  await page.getByRole('heading', { name: 'Rom: Natürliche Zahlen' }).waitFor();
+  await page.getByRole('heading', { name: 'Natürliche Zahlen', exact: true }).waitFor();
+  // Der Startknopf steht ganz oben, ist beim Öffnen sichtbar und führt direkt ins Üben.
+  const start = page.getByRole('link', { name: /Weiter geht’s|Los geht’s/ });
+  const kasten = await start.boundingBox(); assert.ok(kasten.y + kasten.height < 844 - 80, 'Startknopf über der unteren Leiste: ' + Math.round(kasten.y));
+  assert.match(await start.getAttribute('href'), /#\/lerneinheit\/1-1-ueben$/);
+  assert.equal(await page.locator('.notification-bell').isVisible(), false);
   await page.getByText('MEIN STAND · GYMNASIUM KLASSE 5').waitFor();
   await page.getByText('1 von 14 Themen').waitFor();
   assert.equal(await page.locator('.lr.lr-ozean.lr-entdecker').count(), 1);
@@ -183,7 +191,7 @@ test('Lernreise: Heute dran auf der echten Karte, Weltkarte und Reisepass', asyn
   await page.getByRole('link', { name: 'Mein Weg' }).click();
   await page.getByRole('heading', { name: 'GERADE DRAN' }).waitFor();
   await page.screenshot({ path: path.join(root, 'test-results/lernreise-weg-390.png'), fullPage: true });
-  await page.getByRole('link', { name: /Reisepass/ }).click();
+  await page.getByRole('link', { name: /Reisepass/ }).first().click();
   await page.getByRole('heading', { name: 'Belohnungen' }).waitFor();
   await page.getByText('noch 3 Stempel').waitFor();
   await page.getByRole('button', { name: 'Einlösen' }).click();
@@ -198,10 +206,10 @@ test('Lernreise: Heute dran auf der echten Karte, Weltkarte und Reisepass', asyn
 test('Lernreise: Kind B (Studio, Nacht) – Rom geschafft als Stempel, Zinsen jetzt dran', async (t) => {
   const { page } = await setup(t);
   await page.goto(origin + '/#/reise/2');
-  await page.getByRole('heading', { name: 'New York: Einfache Zinsen' }).waitFor();
+  await page.getByRole('heading', { name: 'Einfache Zinsen', exact: true }).waitFor();
   assert.equal(await page.locator('.lr.lr-nacht.lr-studio').count(), 1);
   await page.screenshot({ path: path.join(root, 'test-results/lernreise-leo-390.png'), fullPage: true });
-  await page.getByText('1 von 2 Etappen').waitFor();
+  await page.getByText('1 von 2 Lernkarten sitzen').waitFor();
   await page.getByRole('link', { name: 'Mein Weg' }).click();
   await page.locator('.lr-wegzeile', { hasText: 'Natürliche und ganze Zahlen' }).waitFor();
   await page.screenshot({ path: path.join(root, 'test-results/lernreise-leo-weg-390.png'), fullPage: true });
@@ -216,7 +224,7 @@ test('Lernen: Thema – Erklären | Üben | Typische Fehler, Punkte bis „sitzt
   await page.goto(origin + '/#/lerneinheit/1-1');
   await page.getByText('0 von 3 sitzen').waitFor();
   assert.equal(await page.locator('.lr-gesperrt').count(), 1);
-  assert.equal(await page.locator('#title').textContent(), 'Rom: Natürliche und ganze Zahlen');
+  assert.equal(await page.locator('#title').textContent(), 'Rom');
   assert.equal(await page.getByRole('tab', { name: 'Erklären' }).getAttribute('aria-selected'), 'true');
   const sichtbar = page.locator('.lr-panel:not([hidden])');
   // Erklären: alle Lernkarten untereinander, ohne Klick nachlesbar.
@@ -227,6 +235,7 @@ test('Lernen: Thema – Erklären | Üben | Typische Fehler, Punkte bis „sitzt
   await page.screenshot({ path: path.join(root, 'test-results/lernen-erklaeren-390.png'), fullPage: true });
   await sichtbar.getByRole('button', { name: 'Dazu üben ▸' }).first().click();
   await page.waitForURL(/#\/lerneinheit\/1-1-ueben-1$/);
+  { const k = await page.getByRole('button', { name: 'Prüfen' }).boundingBox(); assert.ok(k.y + k.height < 844 - 80, 'Prüfen ist beim Öffnen sichtbar: ' + Math.round(k.y)); }
   await page.getByRole('textbox', { name: 'Antwort' }).fill('2.000');
   await page.getByRole('button', { name: 'Prüfen' }).click();
   await page.getByText('Bitte schreibe Dezimalzahlen mit Komma.').waitFor();
@@ -262,6 +271,7 @@ test('Lernen: Thema – Erklären | Üben | Typische Fehler, Punkte bis „sitzt
   await page.getByRole('button', { name: 'Prüfen' }).click();
   await page.getByText('Richtig!').waitFor();
   await page.goto(origin + '/#/lerneinheit/1-1-3');
+  await page.getByRole('button', { name: 'Verstanden – los' }).waitFor(); // neue Karte direkt geöffnet: Erklärung steht über der Aufgabe
   const term = page.getByRole('textbox', { name: 'Dein Term' });
   await term.fill('x²+x+x+1');
   await page.getByRole('button', { name: 'Prüfen' }).click();
@@ -401,7 +411,7 @@ test('Lernen-Seite: Lehrer meldet sich mit Code an, ordnet den Themenplan und sc
   await page.getByLabel('Lern-Code').fill('falsch');
   await page.getByRole('button', { name: 'Anmelden' }).click();
   await page.getByText('Code unbekannt').waitFor();
-  await page.getByLabel('Lern-Code').fill('ABCD-EFGH-JKLM');
+  await page.getByLabel('Lern-Code').fill('abcdefgh jklm');
   await page.getByRole('button', { name: 'Anmelden' }).click();
   await page.getByText('Themenplan Kind A').waitFor();
   assert.equal(await page.getByText('Zugänge', { exact: true }).count(), 0, 'Lehrer verwaltet keine Zugänge');

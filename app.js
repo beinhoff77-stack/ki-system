@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.69.1';
+const APP_VERSION = '0.70.0';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 // Serverfunktionen in der Datenbank-Region (Irland) ausführen: sonst läuft die Funktion nahe beim Gerät (z. B. Asien) und jede DB-Abfrage geht um die Welt (W155b, ~4 s statt ~0,3 s)
 const mitRegion = (u) => u + (u.includes('?') ? '&' : '?') + 'forceFunctionRegion=eu-west-1';
@@ -209,7 +209,17 @@ $('#btn-back').addEventListener('click', () => {
 tabs.addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) route(b.dataset.view); });
 
 function loading(text = 'Lade …') { main.replaceChildren(el('div', { class: 'spinner' }, text)); }
-function showError(e) { main.append(el('div', { class: 'card err-text' }, 'Fehler: ' + (e?.message || e))); }
+function showError(e) {
+  // Lernbereich: verständlich für Kinder, mit „Nochmal versuchen“ statt stehendem „Lade …“.
+  if (document.body.hasAttribute('data-kindmodus') || document.body.dataset.area === 'lernen') {
+    main.replaceChildren(el('div', { class: 'card lern-fehlerseite' }, el('h2', {}, 'Das hat gerade nicht geklappt.'),
+      el('p', {}, 'Prüfe das Internet und versuch es nochmal.'),
+      el('button', { type: 'button', class: 'primary', onclick: () => render() }, 'Nochmal versuchen'),
+      el('p', { class: 'small muted' }, String(e?.message || e))));
+    return;
+  }
+  main.append(el('div', { class: 'card err-text' }, 'Fehler: ' + (e?.message || e)));
+}
 
 async function render() {
   renderGeneration++;

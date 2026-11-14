@@ -4,7 +4,7 @@
    Stellt die Hilfen bereit, die lernen.js erwartet (el, store, route, render, setChrome …). */
 'use strict';
 
-const APP_VERSION = '0.69.1';
+const APP_VERSION = '0.70.0';
 // lernen.js leitet daraus die lernen-api ab; app-api selbst wird von dieser Seite nie aufgerufen.
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 const mitRegion = (u) => u + (u.includes('?') ? '&' : '?') + 'forceFunctionRegion=eu-west-1';
@@ -64,22 +64,34 @@ $('#btn-abmelden').addEventListener('click', async () => {
 });
 
 function loading(text = 'Lade …') { main.replaceChildren(el('div', { class: 'spinner' }, text)); }
-function showError(e) { main.append(el('div', { class: 'card err-text' }, 'Fehler: ' + (e?.message || e))); }
+function showError(e) {
+  // Lernbereich: verständlich für Kinder, mit „Nochmal versuchen“ statt stehendem „Lade …“.
+  if (document.body.hasAttribute('data-kindmodus') || document.body.dataset.area === 'lernen') {
+    main.replaceChildren(el('div', { class: 'card lern-fehlerseite' }, el('h2', {}, 'Das hat gerade nicht geklappt.'),
+      el('p', {}, 'Prüfe das Internet und versuch es nochmal.'),
+      el('button', { type: 'button', class: 'primary', onclick: () => render() }, 'Nochmal versuchen'),
+      el('p', { class: 'small muted' }, String(e?.message || e))));
+    return;
+  }
+  main.append(el('div', { class: 'card err-text' }, 'Fehler: ' + (e?.message || e)));
+}
 
+// Code so senden, wie er vergeben wird: Großbuchstaben, Vierergruppen mit Strich (abcdefghjklm -> ABCD-EFGH-JKLM).
+const lernCodeForm = (t) => { const z = String(t || '').toUpperCase().replace(/[^A-Z0-9]/g, ''); return z.length === 12 ? z.match(/.{4}/g).join('-') : String(t || '').trim().toUpperCase(); };
 function viewLogin() {
   setChrome('Lernen');
   const code = el('input', { type: 'text', id: 'lern-code', autocomplete: 'one-time-code', autocapitalize: 'characters', spellcheck: 'false', placeholder: 'XXXX-XXXX-XXXX', maxlength: '20', required: true });
   const status = el('p', { class: 'small muted', role: 'status' });
   const form = el('form', { class: 'card narrow lern-login' },
     el('h2', {}, 'Anmelden'),
-    el('p', { class: 'muted' }, 'Gib deinen Lern-Code ein. Du bekommst ihn von den Eltern.'),
+    el('p', { class: 'muted' }, 'Gib deinen Lern-Code ein. Du bekommst ihn von deinen Eltern oder deiner Lehrkraft.'),
     el('label', {}, 'Lern-Code', code),
     el('button', { type: 'submit', class: 'primary' }, 'Anmelden'), status,
     el('p', { class: 'muted small' }, 'Die Anmeldung bleibt auf diesem Gerät gespeichert. Sie gilt nur für den Bereich Lernen.'));
   form.addEventListener('submit', async (e) => {
     e.preventDefault(); status.textContent = 'Prüfe …';
     try {
-      const r = await fetch(mitRegion(lernApi() + '/anmelden'), { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ code: code.value }) });
+      const r = await fetch(mitRegion(lernApi() + '/anmelden'), { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ code: lernCodeForm(code.value) }) });
       const j = await r.json().catch(() => ({ ok: false, fehler: 'Keine Antwort' }));
       if (!j.ok) { status.textContent = j.fehler || 'Anmeldung fehlgeschlagen.'; return; }
       store.token = j.ergebnis.token; lernIch = { rolle: j.ergebnis.rolle, name: j.ergebnis.name, lernender_id: j.ergebnis.lernender_id };

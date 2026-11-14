@@ -3560,3 +3560,34 @@ body.lern-seite { padding-bottom: 32px; }
 .lern-zeichnung .median { stroke-width: 3.2; }
 .lern-zeichnung .duenn { stroke-width: 1.5; }
 .lern-zeichnung .zahl.klein { font-size: 11px; }
+
+/* W150 App-Prüfung (Runde 1): Bedienung im Kindmodus */
+body[data-kindmodus]:not([data-area="login"]), body.lern-seite[data-kindmodus] { padding-top: 0; }
+body[data-kindmodus] .notification-bell { display: none !important; }
+body[data-area="lernen"] { --ok: #25663a; --ok-bg: #e7f4eb; --info: #275d98; --info-bg: #e8f1fc; --err: #a72e37; --err-bg: #fbe9eb; --warn: #855e41; --warn-bg: #faf0e3; --muted: #5c6a61; --text-muted: #5c6a61; }
+.lr .lr-knopf:not(:disabled):hover { background: var(--lr-akzent); color: var(--lr-auf-akzent); filter: brightness(1.07); }
+.lr .lr-knopf-zweit:not(:disabled):hover, .lr .lr-pfeilknopf:not(:disabled):hover, .lr .lern-taste:not(:disabled):hover { background: var(--lr-flaeche); filter: brightness(.96); }
+.lr .lr-tabs button:not(:disabled):hover { background: transparent; filter: none; }
+.lr .lr-tabs button[aria-selected="true"]:hover { background: var(--lr-akzent); }
+.lr .lr-chips button:not(:disabled):hover { background: var(--lr-flaeche); }
+.lr .lr-chips button.on:hover { background: var(--lr-akzent); }
+.lr-kopf-kurz .lr-gruss { font-size: 17px; }
+.lr-titel-thema { font-size: 26px; margin: 0 0 4px; }
+.lr-haupt { display: flex; flex-direction: column; gap: 10px; }
+.lr-knopf-start { min-height: 64px; font-size: 20px; text-decoration: none; }
+.lr-start-info { margin: -4px 0 0; text-align: center; font-size: 14px; }
+.lr-textlink { align-self: center; color: var(--lr-leise); font-size: 14px; font-weight: 700; text-decoration: underline; min-height: 32px; display: inline-flex; align-items: center; }
+.lr-kartenbild-klein .lr-karte { aspect-ratio: 340 / 110; }
+.lr-lk-kopf { display: grid; grid-template-columns: 44px 1fr 44px; align-items: center; gap: 6px; padding-top: 8px; padding-bottom: 8px; }
+.lr-lk-mitte { display: flex; flex-direction: column; align-items: center; gap: 2px; text-align: center; min-width: 0; }
+.lr-lk-mitte b { font-size: 1rem; }
+.lr-pfeilknopf { width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--lr-linie); background: var(--lr-flaeche); color: var(--lr-text); font-size: 24px; font-weight: 800; line-height: 1; cursor: pointer; }
+.lr-pfeilknopf:disabled { opacity: .3; cursor: default; }
+.lr-chips-klein button { min-height: 36px; font-size: 14px; padding: 0 12px; }
+.lr-aufgabe .lr-knopf { margin-top: 10px; width: 100%; }
+.lr-aufgabe .lr-knopfzeile { margin-top: 8px; }
+.lr-aufgabe .lr-knopfzeile .lr-knopf-zweit { min-height: 40px; font-size: 15px; }
+.lr-thema .lr-kopf .lr-titel { font-size: 22px; }
+.lr-thema { gap: 10px; }
+.lern-fehlerseite { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; margin: 16px; }
+.lern-fehlerseite .primary { min-height: 52px; font-size: 1.05rem; padding: 0 22px; }

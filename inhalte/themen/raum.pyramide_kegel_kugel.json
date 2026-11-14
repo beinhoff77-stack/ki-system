@@ -1,0 +1,8706 @@
+{
+ "thema_schluessel": "raum.pyramide_kegel_kugel",
+ "thema_id": 92,
+ "block_id": 110,
+ "klasse": {
+  "rs_by": 9,
+  "gym_by": 10,
+  "ib_myp": 3
+ },
+ "autor": "Claude (Paket Klasse 10)",
+ "inhalt": {
+  "ziel": "Volumen und Oberfläche von Pyramide, Kegel und Kugel berechnen, die Kegelformeln begründen und Körper in Sachzusammenhängen untersuchen.",
+  "merke": [
+   "Pyramide und Kegel: V = ⅓ · G · h.",
+   "Quadratische Pyramide: hₛ² = h² + (a/2)², O = a² + 2 · a · hₛ.",
+   "Kegel: s² = r² + h², M = π r s, O = π r² + π r s, Sektorwinkel φ = 360° · r/s.",
+   "Kugel: V = ⁴⁄₃ π r³, O = 4 π r²."
+  ],
+  "abschnitte": [
+   {
+    "titel": "Pyramide",
+    "lernziele": [
+     "pyr_volumen",
+     "pyr_oberflaeche"
+    ]
+   },
+   {
+    "titel": "Kegel",
+    "lernziele": [
+     "kegel_volumen",
+     "kegel_mantel"
+    ]
+   },
+   {
+    "titel": "Kugel",
+    "lernziele": [
+     "kugel"
+    ]
+   },
+   {
+    "titel": "Anwenden und Verstehen",
+    "lernziele": [
+     "sachkontext",
+     "verstehen"
+    ]
+   }
+  ],
+  "etappen": [
+   {
+    "lernziel": "pyr_volumen",
+    "titel": "Volumen einer Pyramide",
+    "regel": "Jede Pyramide hat ⟦ein Drittel⟧ des Volumens eines Prismas mit gleicher Grundfläche und Höhe: ⟦V = ⅓ · G · h⟧.",
+    "schritte": [
+     "Quadratische Pyramide, a = 6 cm, h = 10 cm: G = 6 · 6 = 36 cm².",
+     "V = ⅓ · 36 · 10 = ⟦120 cm³⟧."
+    ],
+    "probe": "Würfelförmiges Prisma 36 · 10 = 360 cm³; ein Drittel davon 120 ✓",
+    "fehler": "V = G · h = 360 cm³ ist falsch: Bei Pyramiden fehlt der Faktor ⟦⅓⟧.",
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       3,
+       10
+      ],
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       6,
+       0
+      ],
+      "_H": [
+       3,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "S"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       "a = 6 cm"
+      ],
+      [
+       "A",
+       "S",
+       ""
+      ],
+      [
+       "B",
+       "S",
+       ""
+      ],
+      [
+       "_H",
+       "S",
+       "h = 10 cm",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "_H",
+       "B",
+       "S"
+      ]
+     ],
+     "label": "Seitenansicht einer quadratischen Pyramide"
+    }
+   },
+   {
+    "lernziel": "pyr_oberflaeche",
+    "titel": "Oberfläche einer Pyramide",
+    "regel": "O = G + M. Bei der quadratischen Pyramide besteht der ⟦Mantel aus 4 Dreiecken⟧ mit der ⟦Seitenhöhe hₛ⟧: M = 4 · ½ · a · hₛ. hₛ folgt aus ⟦hₛ² = h² + (a/2)²⟧.",
+    "schritte": [
+     "a = 6 cm, h = 4 cm: hₛ² = 4² + 3² = 25 ⇒ hₛ = 5 cm.",
+     "O = 36 + 4 · ½ · 6 · 5 = 36 + 60 = ⟦96 cm²⟧."
+    ],
+    "probe": "hₛ ist länger als h ✓",
+    "fehler": "Mit der Körperhöhe h statt der ⟦Seitenhöhe hₛ⟧ zu rechnen ist falsch: Die Dreiecke des Mantels sind schräg, ihre Höhe ist hₛ.",
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       4
+      ],
+      "M": [
+       0,
+       0
+      ],
+      "F": [
+       3.0,
+       0
+      ],
+      "_G": [
+       -3.0,
+       0
+      ]
+     },
+     "flaeche": [
+      "_G",
+      "F",
+      "S"
+     ],
+     "linien": [
+      [
+       "_G",
+       "F",
+       ""
+      ],
+      [
+       "_G",
+       "S",
+       ""
+      ],
+      [
+       "S",
+       "F",
+       "hₛ = ?"
+      ],
+      [
+       "M",
+       "F",
+       "a/2 = 3"
+      ],
+      [
+       "M",
+       "S",
+       "h = 4",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "M",
+       "F",
+       "S"
+      ]
+     ],
+     "label": "Schnitt durch die Pyramide: Höhe, halbe Grundkante, Seitenhöhe"
+    }
+   },
+   {
+    "lernziel": "kegel_volumen",
+    "titel": "Volumen eines Kegels",
+    "regel": "Ein Kegel ist eine „Pyramide mit kreisförmiger Grundfläche“: ⟦V = ⅓ · π · r² · h⟧.",
+    "schritte": [
+     "r = 3 cm, h = 8 cm: V = ⅓ · π · 9 · 8 = 24π cm³.",
+     "V ≈ ⟦75,4 cm³⟧."
+    ],
+    "probe": "Zylinder mit gleichem r und h: 72π ≈ 226 cm³, ein Drittel ✓",
+    "fehler": "V = ⅓ · π · 3 · 8 ist falsch: Der Radius wird ⟦quadriert⟧ (Grundfläche π r²).",
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       8
+      ],
+      "A": [
+       -3,
+       0
+      ],
+      "B": [
+       3,
+       0
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "S"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       ""
+      ],
+      [
+       "A",
+       "S",
+       ""
+      ],
+      [
+       "B",
+       "S",
+       "s"
+      ],
+      [
+       "M",
+       "B",
+       "r = 3"
+      ],
+      [
+       "M",
+       "S",
+       "h = 8",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "M",
+       "B",
+       "S"
+      ]
+     ],
+     "label": "Achsenschnitt eines Kegels"
+    }
+   },
+   {
+    "lernziel": "kegel_mantel",
+    "titel": "Mantel und Oberfläche des Kegels",
+    "regel": "Abgewickelt ist der Mantel ein ⟦Kreissektor⟧ mit Radius s (Mantellinie). Sein Bogen ist so lang wie der Grundkreisumfang 2πr, deshalb ⟦M = π · r · s⟧ und ⟦Mittelpunktswinkel φ = 360° · r : s⟧. O = πr² + πrs.",
+    "schritte": [
+     "r = 3 cm, h = 4 cm: s = √(9 + 16) = 5 cm.",
+     "M = π · 3 · 5 = 15π ≈ ⟦47,1 cm²⟧; φ = 360° · 3/5 = ⟦216°⟧."
+    ],
+    "probe": "Sektoranteil 216/360 = 3/5 = r/s ✓",
+    "fehler": "M = π · r · h ist falsch: Der Mantel wird mit der ⟦Mantellinie s⟧ berechnet, nicht mit der Höhe.",
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "Z": [
+       0,
+       0
+      ],
+      "_0": [
+       4.7553,
+       -1.5451
+      ],
+      "_1": [
+       4.9547,
+       -0.6712
+      ],
+      "_2": [
+       4.995,
+       0.2243
+      ],
+      "_3": [
+       4.8746,
+       1.1126
+      ],
+      "_4": [
+       4.5976,
+       1.9651
+      ],
+      "_5": [
+       4.1729,
+       2.7545
+      ],
+      "_6": [
+       3.614,
+       3.4553
+      ],
+      "_7": [
+       2.9389,
+       4.0451
+      ],
+      "_8": [
+       2.1694,
+       4.5048
+      ],
+      "_9": [
+       1.3302,
+       4.8198
+      ],
+      "_10": [
+       0.4482,
+       4.9799
+      ],
+      "_11": [
+       -0.4482,
+       4.9799
+      ],
+      "_12": [
+       -1.3302,
+       4.8198
+      ],
+      "_13": [
+       -2.1694,
+       4.5048
+      ],
+      "_14": [
+       -2.9389,
+       4.0451
+      ],
+      "_15": [
+       -3.614,
+       3.4553
+      ],
+      "_16": [
+       -4.1729,
+       2.7545
+      ],
+      "_17": [
+       -4.5976,
+       1.9651
+      ],
+      "_18": [
+       -4.8746,
+       1.1126
+      ],
+      "_19": [
+       -4.995,
+       0.2243
+      ],
+      "_20": [
+       -4.9547,
+       -0.6712
+      ],
+      "_21": [
+       -4.7553,
+       -1.5451
+      ]
+     },
+     "flaeche": [
+      "Z",
+      "_0",
+      "_1",
+      "_2",
+      "_3",
+      "_4",
+      "_5",
+      "_6",
+      "_7",
+      "_8",
+      "_9",
+      "_10",
+      "_11",
+      "_12",
+      "_13",
+      "_14",
+      "_15",
+      "_16",
+      "_17",
+      "_18",
+      "_19",
+      "_20",
+      "_21"
+     ],
+     "linien": [
+      [
+       "Z",
+       "_0",
+       "s = 5"
+      ],
+      [
+       "Z",
+       "_21",
+       ""
+      ],
+      [
+       "_0",
+       "_1",
+       ""
+      ],
+      [
+       "_1",
+       "_2",
+       ""
+      ],
+      [
+       "_2",
+       "_3",
+       ""
+      ],
+      [
+       "_3",
+       "_4",
+       ""
+      ],
+      [
+       "_4",
+       "_5",
+       ""
+      ],
+      [
+       "_5",
+       "_6",
+       ""
+      ],
+      [
+       "_6",
+       "_7",
+       ""
+      ],
+      [
+       "_7",
+       "_8",
+       ""
+      ],
+      [
+       "_8",
+       "_9",
+       ""
+      ],
+      [
+       "_9",
+       "_10",
+       ""
+      ],
+      [
+       "_10",
+       "_11",
+       ""
+      ],
+      [
+       "_11",
+       "_12",
+       ""
+      ],
+      [
+       "_12",
+       "_13",
+       ""
+      ],
+      [
+       "_13",
+       "_14",
+       ""
+      ],
+      [
+       "_14",
+       "_15",
+       ""
+      ],
+      [
+       "_15",
+       "_16",
+       ""
+      ],
+      [
+       "_16",
+       "_17",
+       ""
+      ],
+      [
+       "_17",
+       "_18",
+       ""
+      ],
+      [
+       "_18",
+       "_19",
+       ""
+      ],
+      [
+       "_19",
+       "_20",
+       ""
+      ],
+      [
+       "_20",
+       "_21",
+       ""
+      ]
+     ],
+     "winkel": [
+      [
+       "Z",
+       "_0",
+       "_21",
+       "φ = 216°"
+      ]
+     ],
+     "label": "Abgewickelter Kegelmantel: Kreissektor"
+    }
+   },
+   {
+    "lernziel": "kugel",
+    "titel": "Volumen und Oberfläche der Kugel",
+    "regel": "⟦V = ⁴⁄₃ · π · r³⟧ und ⟦O = 4 · π · r²⟧. Ist V oder O gegeben, löst du nach r auf (dritte bzw. Quadratwurzel).",
+    "schritte": [
+     "r = 6 cm: V = ⁴⁄₃ · π · 216 = 288π cm³.",
+     "V ≈ ⟦904,8 cm³⟧; O = 4π · 36 = 144π ≈ ⟦452,4 cm²⟧."
+    ],
+    "probe": "Die Kugel passt in einen Würfel mit 12 cm Kante (1 728 cm³) ✓",
+    "fehler": "V = ⁴⁄₃ · π · r² ist falsch: Ein Volumen hat die Einheit cm³, also ⟦r³⟧.",
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "_P": [
+       6,
+       0
+      ],
+      "_O": [
+       0,
+       6
+      ],
+      "_U": [
+       0,
+       -6
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 6
+      }
+     ],
+     "linien": [
+      [
+       "M",
+       "_P",
+       "r = 6"
+      ],
+      [
+       "_O",
+       "_U",
+       "",
+       "gestrichelt"
+      ]
+     ],
+     "label": "Kugel mit Mittelpunkt M und Radius r"
+    }
+   },
+   {
+    "lernziel": "sachkontext",
+    "titel": "Körper in Sachaufgaben",
+    "regel": "Zusammengesetzte Körper zerlegen und die Teilvolumina ⟦addieren oder abziehen⟧. Fehlende Längen mit ⟦Pythagoras⟧, Winkel mit ⟦tan, sin, cos⟧ im Achsenschnitt bestimmen.",
+    "schritte": [
+     "Eistüte: Kegel r = 2,5 cm, h = 10 cm, darauf eine Halbkugel r = 2,5 cm.",
+     "V = ⅓π · 6,25 · 10 + ⅔π · 15,625 ≈ 65,4 + 32,7 = ⟦98,2 cm³⟧."
+    ],
+    "probe": "Halbkugel = halbes Kugelvolumen ✓",
+    "fehler": "Die Halbkugel mit dem vollen Kugelvolumen zu rechnen ist falsch: Es ist ⟦die Hälfte⟧, also ⅔ · π · r³.",
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "_S": [
+       0,
+       -10
+      ],
+      "_A": [
+       -2.5,
+       0
+      ],
+      "_B": [
+       2.5,
+       0
+      ],
+      "_M": [
+       0,
+       0
+      ],
+      "_0": [
+       2.5,
+       0.0
+      ],
+      "_1": [
+       2.4148,
+       0.647
+      ],
+      "_2": [
+       2.1651,
+       1.25
+      ],
+      "_3": [
+       1.7678,
+       1.7678
+      ],
+      "_4": [
+       1.25,
+       2.1651
+      ],
+      "_5": [
+       0.647,
+       2.4148
+      ],
+      "_6": [
+       0.0,
+       2.5
+      ],
+      "_7": [
+       -0.647,
+       2.4148
+      ],
+      "_8": [
+       -1.25,
+       2.1651
+      ],
+      "_9": [
+       -1.7678,
+       1.7678
+      ],
+      "_10": [
+       -2.1651,
+       1.25
+      ],
+      "_11": [
+       -2.4148,
+       0.647
+      ],
+      "_12": [
+       -2.5,
+       0.0
+      ]
+     },
+     "flaeche": [
+      "_A",
+      "_S",
+      "_B",
+      "_0",
+      "_1",
+      "_2",
+      "_3",
+      "_4",
+      "_5",
+      "_6",
+      "_7",
+      "_8",
+      "_9",
+      "_10",
+      "_11",
+      "_12"
+     ],
+     "linien": [
+      [
+       "_A",
+       "_S",
+       ""
+      ],
+      [
+       "_B",
+       "_S",
+       ""
+      ],
+      [
+       "_M",
+       "_B",
+       "r = 2,5"
+      ],
+      [
+       "_M",
+       "_S",
+       "h = 10",
+       "gestrichelt"
+      ],
+      [
+       "_0",
+       "_1",
+       ""
+      ],
+      [
+       "_1",
+       "_2",
+       ""
+      ],
+      [
+       "_2",
+       "_3",
+       ""
+      ],
+      [
+       "_3",
+       "_4",
+       ""
+      ],
+      [
+       "_4",
+       "_5",
+       ""
+      ],
+      [
+       "_5",
+       "_6",
+       ""
+      ],
+      [
+       "_6",
+       "_7",
+       ""
+      ],
+      [
+       "_7",
+       "_8",
+       ""
+      ],
+      [
+       "_8",
+       "_9",
+       ""
+      ],
+      [
+       "_9",
+       "_10",
+       ""
+      ],
+      [
+       "_10",
+       "_11",
+       ""
+      ],
+      [
+       "_11",
+       "_12",
+       ""
+      ]
+     ],
+     "label": "Eistüte im Schnitt: Kegel mit Halbkugel"
+    }
+   },
+   {
+    "lernziel": "verstehen",
+    "titel": "Zusammenhänge verstehen",
+    "regel": "Gleiche Grundfläche und gleiche Höhe ⇒ ⟦gleiches Volumen⟧ (Prinzip von Cavalieri). Pyramide/Kegel = ⅓ Prisma/Zylinder. Längen · k ⇒ ⟦Flächen · k², Volumina · k³⟧.",
+    "schritte": [
+     "Ein Kegel hat doppelten Radius wie ein anderer, gleiche Höhe.",
+     "Grundfläche · 4, also ⟦Volumen · 4⟧ (nicht · 8, die Höhe bleibt)."
+    ],
+    "probe": "⅓π(2r)²h = 4 · ⅓πr²h ✓",
+    "fehler": "Bei doppeltem Radius das doppelte Kegelvolumen anzunehmen ist falsch: r steht ⟦im Quadrat⟧."
+   }
+  ],
+  "teilfaehigkeiten": [
+   {
+    "k": "pyr_volumen",
+    "text": "Volumen einer Pyramide",
+    "lernziele": [
+     "pyr_volumen"
+    ]
+   },
+   {
+    "k": "pyr_oberflaeche",
+    "text": "Oberfläche einer Pyramide",
+    "lernziele": [
+     "pyr_oberflaeche"
+    ]
+   },
+   {
+    "k": "kegel_volumen",
+    "text": "Volumen eines Kegels",
+    "lernziele": [
+     "kegel_volumen"
+    ]
+   },
+   {
+    "k": "kegel_mantel",
+    "text": "Mantel und Oberfläche des Kegels",
+    "lernziele": [
+     "kegel_mantel"
+    ]
+   },
+   {
+    "k": "kugel",
+    "text": "Volumen und Oberfläche der Kugel",
+    "lernziele": [
+     "kugel"
+    ]
+   },
+   {
+    "k": "sachkontext",
+    "text": "Körper in Sachaufgaben",
+    "lernziele": [
+     "sachkontext"
+    ]
+   },
+   {
+    "k": "verstehen",
+    "text": "Zusammenhänge verstehen",
+    "lernziele": [
+     "verstehen"
+    ]
+   }
+  ],
+  "bewertung": {
+   "lernziele_pflicht": [
+    "pyr_volumen",
+    "pyr_oberflaeche",
+    "kegel_volumen",
+    "kegel_mantel",
+    "kugel",
+    "sachkontext",
+    "verstehen"
+   ],
+   "lernziele_vertiefung": [],
+   "testaufgaben_je_lernziel": 1
+  },
+  "quellen": {
+   "erklaerungen": "Eigene Fassung (Claude), Aufgaben vom Generator erzeugt und berechnet.",
+   "begriffe": "Fachbegriffe nach LehrplanPLUS Bayern."
+  }
+ },
+ "aufgaben": [
+  {
+   "l": "pyr_volumen",
+   "t": "pyr_volumen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide hat die Grundkante a = 7 cm und die Höhe h = 3 cm. Berechne ihr Volumen.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       3.5,
+       3
+      ],
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       7,
+       0
+      ],
+      "_H": [
+       3.5,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "S"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       "a = 7 cm"
+      ],
+      [
+       "A",
+       "S",
+       ""
+      ],
+      [
+       "B",
+       "S",
+       ""
+      ],
+      [
+       "_H",
+       "S",
+       "h = 3 cm",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "_H",
+       "B",
+       "S"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 49,
+    "einheit": "cm³"
+   },
+   "c": "7 ** 2 * 3 / 3",
+   "w": "G = 7² = 49 cm²; V = ⅓ · 49 · 3 = 49 cm³.",
+   "h": "Erst die Grundfläche, dann V = ⅓ · G · h."
+  },
+  {
+   "l": "pyr_volumen",
+   "t": "pyr_volumen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide hat die Grundkante a = 5 cm und die Höhe h = 12 cm. Berechne ihr Volumen.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       2.5,
+       12
+      ],
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       5,
+       0
+      ],
+      "_H": [
+       2.5,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "S"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       "a = 5 cm"
+      ],
+      [
+       "A",
+       "S",
+       ""
+      ],
+      [
+       "B",
+       "S",
+       ""
+      ],
+      [
+       "_H",
+       "S",
+       "h = 12 cm",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "_H",
+       "B",
+       "S"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 100,
+    "einheit": "cm³"
+   },
+   "c": "5 ** 2 * 12 / 3",
+   "w": "G = 5² = 25 cm²; V = ⅓ · 25 · 12 = 100 cm³.",
+   "h": "Erst die Grundfläche, dann V = ⅓ · G · h."
+  },
+  {
+   "l": "pyr_volumen",
+   "t": "pyr_volumen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide hat die Grundkante a = 2 cm und die Höhe h = 6 cm. Berechne ihr Volumen.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       1.0,
+       6
+      ],
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       2,
+       0
+      ],
+      "_H": [
+       1.0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "S"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       "a = 2 cm"
+      ],
+      [
+       "A",
+       "S",
+       ""
+      ],
+      [
+       "B",
+       "S",
+       ""
+      ],
+      [
+       "_H",
+       "S",
+       "h = 6 cm",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "_H",
+       "B",
+       "S"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 8,
+    "einheit": "cm³"
+   },
+   "c": "2 ** 2 * 6 / 3",
+   "w": "G = 2² = 4 cm²; V = ⅓ · 4 · 6 = 8 cm³.",
+   "h": "Erst die Grundfläche, dann V = ⅓ · G · h."
+  },
+  {
+   "l": "pyr_volumen",
+   "t": "pyr_volumen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide hat die Grundkante a = 11 cm und die Höhe h = 9 cm. Berechne ihr Volumen.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       5.5,
+       9
+      ],
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       11,
+       0
+      ],
+      "_H": [
+       5.5,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "S"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       "a = 11 cm"
+      ],
+      [
+       "A",
+       "S",
+       ""
+      ],
+      [
+       "B",
+       "S",
+       ""
+      ],
+      [
+       "_H",
+       "S",
+       "h = 9 cm",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "_H",
+       "B",
+       "S"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 363,
+    "einheit": "cm³"
+   },
+   "c": "11 ** 2 * 9 / 3",
+   "w": "G = 11² = 121 cm²; V = ⅓ · 121 · 9 = 363 cm³.",
+   "h": "Erst die Grundfläche, dann V = ⅓ · G · h."
+  },
+  {
+   "l": "pyr_volumen",
+   "t": "pyr_volumen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide hat die Grundkante a = 12 cm und die Höhe h = 3 cm. Berechne ihr Volumen.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       6.0,
+       3
+      ],
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       12,
+       0
+      ],
+      "_H": [
+       6.0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "S"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       "a = 12 cm"
+      ],
+      [
+       "A",
+       "S",
+       ""
+      ],
+      [
+       "B",
+       "S",
+       ""
+      ],
+      [
+       "_H",
+       "S",
+       "h = 3 cm",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "_H",
+       "B",
+       "S"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 144,
+    "einheit": "cm³"
+   },
+   "c": "12 ** 2 * 3 / 3",
+   "w": "G = 12² = 144 cm²; V = ⅓ · 144 · 3 = 144 cm³.",
+   "h": "Erst die Grundfläche, dann V = ⅓ · G · h."
+  },
+  {
+   "l": "pyr_volumen",
+   "t": "pyr_volumen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide hat die Grundkante a = 5 cm und die Höhe h = 15 cm. Berechne ihr Volumen.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       2.5,
+       15
+      ],
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       5,
+       0
+      ],
+      "_H": [
+       2.5,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "S"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       "a = 5 cm"
+      ],
+      [
+       "A",
+       "S",
+       ""
+      ],
+      [
+       "B",
+       "S",
+       ""
+      ],
+      [
+       "_H",
+       "S",
+       "h = 15 cm",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "_H",
+       "B",
+       "S"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 125,
+    "einheit": "cm³"
+   },
+   "c": "5 ** 2 * 15 / 3",
+   "w": "G = 5² = 25 cm²; V = ⅓ · 25 · 15 = 125 cm³.",
+   "h": "Erst die Grundfläche, dann V = ⅓ · G · h."
+  },
+  {
+   "l": "pyr_volumen",
+   "t": "pyr_volumen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide mit Grundkante 6 cm hat das Volumen 72 cm³. Wie hoch ist sie?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "cm"
+   },
+   "c": "3 * 72 / 6 ** 2",
+   "w": "h = 3V : G = 3 · 72 : 36 = 6 cm.",
+   "h": "Stelle V = ⅓ · G · h nach h um."
+  },
+  {
+   "l": "pyr_volumen",
+   "t": "pyr_volumen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide mit Grundkante 2 cm hat das Volumen 4 cm³. Wie hoch ist sie?"
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "cm"
+   },
+   "c": "3 * 4 / 2 ** 2",
+   "w": "h = 3V : G = 3 · 4 : 4 = 3 cm.",
+   "h": "Stelle V = ⅓ · G · h nach h um."
+  },
+  {
+   "l": "pyr_volumen",
+   "t": "pyr_volumen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Pyramide hat eine rechteckige Grundfläche (7 cm × 3 cm) und die Höhe 4 cm. Berechne ihr Volumen."
+   },
+   "o": {
+    "wert": 28,
+    "einheit": "cm³"
+   },
+   "c": "7 * 3 * 4 / 3",
+   "w": "V = ⅓ · 7 · 3 · 4 = 28 cm³.",
+   "h": "Grundfläche = Länge · Breite."
+  },
+  {
+   "l": "pyr_volumen",
+   "t": "pyr_volumen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Pyramide hat eine rechteckige Grundfläche (9 cm × 4 cm) und die Höhe 16 cm. Berechne ihr Volumen."
+   },
+   "o": {
+    "wert": 192,
+    "einheit": "cm³"
+   },
+   "c": "9 * 4 * 16 / 3",
+   "w": "V = ⅓ · 9 · 4 · 16 = 192 cm³.",
+   "h": "Grundfläche = Länge · Breite."
+  },
+  {
+   "l": "pyr_volumen",
+   "t": "pyr_volumen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide mit Grundkante 6 cm hat das Volumen 228 cm³. Wie hoch ist sie?"
+   },
+   "o": {
+    "wert": 19,
+    "einheit": "cm"
+   },
+   "c": "3 * 228 / 6 ** 2",
+   "w": "h = 3V : G = 3 · 228 : 36 = 19 cm.",
+   "h": "Stelle V = ⅓ · G · h nach h um."
+  },
+  {
+   "l": "pyr_volumen",
+   "t": "pyr_volumen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Pyramide hat eine rechteckige Grundfläche (8 cm × 3 cm) und die Höhe 2 cm. Berechne ihr Volumen."
+   },
+   "o": {
+    "wert": 16,
+    "einheit": "cm³"
+   },
+   "c": "8 * 3 * 2 / 3",
+   "w": "V = ⅓ · 8 · 3 · 2 = 16 cm³.",
+   "h": "Grundfläche = Länge · Breite."
+  },
+  {
+   "l": "pyr_volumen",
+   "t": "pyr_volumen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Pyramide hat als Grundfläche ein Dreieck mit Grundseite 4 cm und Höhe 10 cm. Die Pyramide ist 3 cm hoch. Berechne ihr Volumen."
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "cm³"
+   },
+   "c": "4 * 10 / 2 * 3 / 3",
+   "w": "G = ½ · 4 · 10 = 20 cm²; V = ⅓ · 20 · 3 = 20 cm³.",
+   "h": "Die Grundfläche ist ein Dreieck: G = ½ · g · h_g."
+  },
+  {
+   "l": "pyr_volumen",
+   "t": "pyr_volumen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Pyramide hat als Grundfläche ein Dreieck mit Grundseite 11 cm und Höhe 9 cm. Die Pyramide ist 9 cm hoch. Berechne ihr Volumen."
+   },
+   "o": {
+    "wert": 148.5,
+    "einheit": "cm³"
+   },
+   "c": "11 * 9 / 2 * 9 / 3",
+   "w": "G = ½ · 11 · 9 = 49,5 cm²; V = ⅓ · 49,5 · 9 = 148,5 cm³.",
+   "h": "Die Grundfläche ist ein Dreieck: G = ½ · g · h_g."
+  },
+  {
+   "l": "pyr_volumen",
+   "t": "pyr_volumen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Pyramide hat als Grundfläche ein Dreieck mit Grundseite 12 cm und Höhe 7 cm. Die Pyramide ist 6 cm hoch. Berechne ihr Volumen."
+   },
+   "o": {
+    "wert": 84,
+    "einheit": "cm³"
+   },
+   "c": "12 * 7 / 2 * 6 / 3",
+   "w": "G = ½ · 12 · 7 = 42 cm²; V = ⅓ · 42 · 6 = 84 cm³.",
+   "h": "Die Grundfläche ist ein Dreieck: G = ½ · g · h_g."
+  },
+  {
+   "l": "pyr_volumen",
+   "t": "pyr_volumen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Pyramide hat als Grundfläche ein Dreieck mit Grundseite 6 cm und Höhe 2 cm. Die Pyramide ist 12 cm hoch. Berechne ihr Volumen."
+   },
+   "o": {
+    "wert": 24,
+    "einheit": "cm³"
+   },
+   "c": "6 * 2 / 2 * 12 / 3",
+   "w": "G = ½ · 6 · 2 = 6 cm²; V = ⅓ · 6 · 12 = 24 cm³.",
+   "h": "Die Grundfläche ist ein Dreieck: G = ½ · g · h_g."
+  },
+  {
+   "l": "pyr_volumen",
+   "t": "pyr_volumen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Pyramide hat als Grundfläche ein Dreieck mit Grundseite 4 cm und Höhe 2 cm. Die Pyramide ist 12 cm hoch. Berechne ihr Volumen."
+   },
+   "o": {
+    "wert": 16,
+    "einheit": "cm³"
+   },
+   "c": "4 * 2 / 2 * 12 / 3",
+   "w": "G = ½ · 4 · 2 = 4 cm²; V = ⅓ · 4 · 12 = 16 cm³.",
+   "h": "Die Grundfläche ist ein Dreieck: G = ½ · g · h_g."
+  },
+  {
+   "l": "pyr_volumen",
+   "t": "pyr_volumen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Pyramide hat als Grundfläche ein Dreieck mit Grundseite 10 cm und Höhe 9 cm. Die Pyramide ist 3 cm hoch. Berechne ihr Volumen."
+   },
+   "o": {
+    "wert": 45,
+    "einheit": "cm³"
+   },
+   "c": "10 * 9 / 2 * 3 / 3",
+   "w": "G = ½ · 10 · 9 = 45 cm²; V = ⅓ · 45 · 3 = 45 cm³.",
+   "h": "Die Grundfläche ist ein Dreieck: G = ½ · g · h_g."
+  },
+  {
+   "l": "pyr_volumen",
+   "t": "pyr_volumen",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Pyramide hat eine rechteckige Grundfläche (3 cm × 5 cm) und die Höhe 12 cm. Berechne ihr Volumen."
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "cm³"
+   },
+   "c": "3 * 5 * 12 / 3",
+   "w": "V = ⅓ · 3 · 5 · 12 = 60 cm³."
+  },
+  {
+   "l": "pyr_volumen",
+   "t": "pyr_volumen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide mit Grundkante 9 cm hat das Volumen 189 cm³. Wie hoch ist sie?"
+   },
+   "o": {
+    "wert": 7,
+    "einheit": "cm"
+   },
+   "c": "3 * 189 / 9 ** 2",
+   "w": "h = 3V : G = 3 · 189 : 81 = 7 cm."
+  },
+  {
+   "l": "pyr_volumen",
+   "t": "pyr_volumen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Pyramide hat eine rechteckige Grundfläche (8 cm × 9 cm) und die Höhe 2 cm. Berechne ihr Volumen."
+   },
+   "o": {
+    "wert": 48,
+    "einheit": "cm³"
+   },
+   "c": "8 * 9 * 2 / 3",
+   "w": "V = ⅓ · 8 · 9 · 2 = 48 cm³."
+  },
+  {
+   "l": "pyr_volumen",
+   "t": "pyr_volumen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Pyramide hat eine rechteckige Grundfläche (11 cm × 9 cm) und die Höhe 6 cm. Berechne ihr Volumen."
+   },
+   "o": {
+    "wert": 198,
+    "einheit": "cm³"
+   },
+   "c": "11 * 9 * 6 / 3",
+   "w": "V = ⅓ · 11 · 9 · 6 = 198 cm³."
+  },
+  {
+   "l": "pyr_volumen",
+   "t": "pyr_volumen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Pyramide hat eine rechteckige Grundfläche (5 cm × 3 cm) und die Höhe 18 cm. Berechne ihr Volumen."
+   },
+   "o": {
+    "wert": 90,
+    "einheit": "cm³"
+   },
+   "c": "5 * 3 * 18 / 3",
+   "w": "V = ⅓ · 5 · 3 · 18 = 90 cm³."
+  },
+  {
+   "l": "pyr_volumen",
+   "t": "pyr_volumen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide mit Grundkante 3 cm hat das Volumen 30 cm³. Wie hoch ist sie?"
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "cm"
+   },
+   "c": "3 * 30 / 3 ** 2",
+   "w": "h = 3V : G = 3 · 30 : 9 = 10 cm."
+  },
+  {
+   "l": "pyr_volumen",
+   "t": "pyr_volumen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide mit Grundkante 6 cm hat das Volumen 48 cm³. Wie hoch ist sie?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "cm"
+   },
+   "c": "3 * 48 / 6 ** 2",
+   "w": "h = 3V : G = 3 · 48 : 36 = 4 cm."
+  },
+  {
+   "l": "pyr_volumen",
+   "t": "pyr_volumen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Pyramide hat eine rechteckige Grundfläche (9 cm × 5 cm) und die Höhe 9 cm. Berechne ihr Volumen."
+   },
+   "o": {
+    "wert": 135,
+    "einheit": "cm³"
+   },
+   "c": "9 * 5 * 9 / 3",
+   "w": "V = ⅓ · 9 · 5 · 9 = 135 cm³."
+  },
+  {
+   "l": "pyr_volumen",
+   "t": "pyr_volumen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide mit Grundkante 9 cm hat das Volumen 54 cm³. Wie hoch ist sie?"
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "cm"
+   },
+   "c": "3 * 54 / 9 ** 2",
+   "w": "h = 3V : G = 3 · 54 : 81 = 2 cm."
+  },
+  {
+   "l": "pyr_volumen",
+   "t": "pyr_volumen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide mit Grundkante 12 cm hat das Volumen 528 cm³. Wie hoch ist sie?"
+   },
+   "o": {
+    "wert": 11,
+    "einheit": "cm"
+   },
+   "c": "3 * 528 / 12 ** 2",
+   "w": "h = 3V : G = 3 · 528 : 144 = 11 cm."
+  },
+  {
+   "l": "pyr_oberflaeche",
+   "t": "pyr_oberflaeche",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide hat die Grundkante a = 16 cm und die Höhe h = 6 cm. Berechne die Seitenhöhe hₛ.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       6
+      ],
+      "M": [
+       0,
+       0
+      ],
+      "F": [
+       8.0,
+       0
+      ],
+      "_G": [
+       -8.0,
+       0
+      ]
+     },
+     "flaeche": [
+      "_G",
+      "F",
+      "S"
+     ],
+     "linien": [
+      [
+       "_G",
+       "F",
+       ""
+      ],
+      [
+       "_G",
+       "S",
+       ""
+      ],
+      [
+       "S",
+       "F",
+       "hₛ = ?"
+      ],
+      [
+       "M",
+       "F",
+       "a/2 = 8"
+      ],
+      [
+       "M",
+       "S",
+       "h = 6",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "M",
+       "F",
+       "S"
+      ]
+     ],
+     "label": "Schnitt durch die Pyramide: Höhe, halbe Grundkante, Seitenhöhe"
+    }
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "cm"
+   },
+   "c": "(6 ** 2 + 8 ** 2) / 10",
+   "w": "hₛ² = h² + (a/2)² = 36 + 64 = 100 ⇒ hₛ = 10 cm.",
+   "h": "Rechtwinkliges Dreieck aus h, a/2 und hₛ (siehe Zeichnung)."
+  },
+  {
+   "l": "pyr_oberflaeche",
+   "t": "pyr_oberflaeche",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide hat die Grundkante a = 48 cm und die Höhe h = 7 cm. Berechne die Seitenhöhe hₛ.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       7
+      ],
+      "M": [
+       0,
+       0
+      ],
+      "F": [
+       24.0,
+       0
+      ],
+      "_G": [
+       -24.0,
+       0
+      ]
+     },
+     "flaeche": [
+      "_G",
+      "F",
+      "S"
+     ],
+     "linien": [
+      [
+       "_G",
+       "F",
+       ""
+      ],
+      [
+       "_G",
+       "S",
+       ""
+      ],
+      [
+       "S",
+       "F",
+       "hₛ = ?"
+      ],
+      [
+       "M",
+       "F",
+       "a/2 = 24"
+      ],
+      [
+       "M",
+       "S",
+       "h = 7",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "M",
+       "F",
+       "S"
+      ]
+     ],
+     "label": "Schnitt durch die Pyramide: Höhe, halbe Grundkante, Seitenhöhe"
+    }
+   },
+   "o": {
+    "wert": 25,
+    "einheit": "cm"
+   },
+   "c": "(7 ** 2 + 24 ** 2) / 25",
+   "w": "hₛ² = h² + (a/2)² = 49 + 576 = 625 ⇒ hₛ = 25 cm.",
+   "h": "Rechtwinkliges Dreieck aus h, a/2 und hₛ (siehe Zeichnung)."
+  },
+  {
+   "l": "pyr_oberflaeche",
+   "t": "pyr_oberflaeche",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide hat die Grundkante a = 14 cm und die Höhe h = 24 cm. Berechne die Seitenhöhe hₛ.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       24
+      ],
+      "M": [
+       0,
+       0
+      ],
+      "F": [
+       7.0,
+       0
+      ],
+      "_G": [
+       -7.0,
+       0
+      ]
+     },
+     "flaeche": [
+      "_G",
+      "F",
+      "S"
+     ],
+     "linien": [
+      [
+       "_G",
+       "F",
+       ""
+      ],
+      [
+       "_G",
+       "S",
+       ""
+      ],
+      [
+       "S",
+       "F",
+       "hₛ = ?"
+      ],
+      [
+       "M",
+       "F",
+       "a/2 = 7"
+      ],
+      [
+       "M",
+       "S",
+       "h = 24",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "M",
+       "F",
+       "S"
+      ]
+     ],
+     "label": "Schnitt durch die Pyramide: Höhe, halbe Grundkante, Seitenhöhe"
+    }
+   },
+   "o": {
+    "wert": 25,
+    "einheit": "cm"
+   },
+   "c": "(24 ** 2 + 7 ** 2) / 25",
+   "w": "hₛ² = h² + (a/2)² = 576 + 49 = 625 ⇒ hₛ = 25 cm.",
+   "h": "Rechtwinkliges Dreieck aus h, a/2 und hₛ (siehe Zeichnung)."
+  },
+  {
+   "l": "pyr_oberflaeche",
+   "t": "pyr_oberflaeche",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide hat die Grundkante a = 18 cm und die Höhe h = 12 cm. Berechne die Seitenhöhe hₛ.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       12
+      ],
+      "M": [
+       0,
+       0
+      ],
+      "F": [
+       9.0,
+       0
+      ],
+      "_G": [
+       -9.0,
+       0
+      ]
+     },
+     "flaeche": [
+      "_G",
+      "F",
+      "S"
+     ],
+     "linien": [
+      [
+       "_G",
+       "F",
+       ""
+      ],
+      [
+       "_G",
+       "S",
+       ""
+      ],
+      [
+       "S",
+       "F",
+       "hₛ = ?"
+      ],
+      [
+       "M",
+       "F",
+       "a/2 = 9"
+      ],
+      [
+       "M",
+       "S",
+       "h = 12",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "M",
+       "F",
+       "S"
+      ]
+     ],
+     "label": "Schnitt durch die Pyramide: Höhe, halbe Grundkante, Seitenhöhe"
+    }
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "cm"
+   },
+   "c": "(12 ** 2 + 9 ** 2) / 15",
+   "w": "hₛ² = h² + (a/2)² = 144 + 81 = 225 ⇒ hₛ = 15 cm.",
+   "h": "Rechtwinkliges Dreieck aus h, a/2 und hₛ (siehe Zeichnung)."
+  },
+  {
+   "l": "pyr_oberflaeche",
+   "t": "pyr_oberflaeche",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide hat die Grundkante a = 16 cm und die Höhe h = 15 cm. Berechne die Seitenhöhe hₛ.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       15
+      ],
+      "M": [
+       0,
+       0
+      ],
+      "F": [
+       8.0,
+       0
+      ],
+      "_G": [
+       -8.0,
+       0
+      ]
+     },
+     "flaeche": [
+      "_G",
+      "F",
+      "S"
+     ],
+     "linien": [
+      [
+       "_G",
+       "F",
+       ""
+      ],
+      [
+       "_G",
+       "S",
+       ""
+      ],
+      [
+       "S",
+       "F",
+       "hₛ = ?"
+      ],
+      [
+       "M",
+       "F",
+       "a/2 = 8"
+      ],
+      [
+       "M",
+       "S",
+       "h = 15",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "M",
+       "F",
+       "S"
+      ]
+     ],
+     "label": "Schnitt durch die Pyramide: Höhe, halbe Grundkante, Seitenhöhe"
+    }
+   },
+   "o": {
+    "wert": 17,
+    "einheit": "cm"
+   },
+   "c": "(15 ** 2 + 8 ** 2) / 17",
+   "w": "hₛ² = h² + (a/2)² = 225 + 64 = 289 ⇒ hₛ = 17 cm.",
+   "h": "Rechtwinkliges Dreieck aus h, a/2 und hₛ (siehe Zeichnung)."
+  },
+  {
+   "l": "pyr_oberflaeche",
+   "t": "pyr_oberflaeche",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide hat die Grundkante a = 40 cm und die Höhe h = 15 cm. Berechne die Seitenhöhe hₛ.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       15
+      ],
+      "M": [
+       0,
+       0
+      ],
+      "F": [
+       20.0,
+       0
+      ],
+      "_G": [
+       -20.0,
+       0
+      ]
+     },
+     "flaeche": [
+      "_G",
+      "F",
+      "S"
+     ],
+     "linien": [
+      [
+       "_G",
+       "F",
+       ""
+      ],
+      [
+       "_G",
+       "S",
+       ""
+      ],
+      [
+       "S",
+       "F",
+       "hₛ = ?"
+      ],
+      [
+       "M",
+       "F",
+       "a/2 = 20"
+      ],
+      [
+       "M",
+       "S",
+       "h = 15",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "M",
+       "F",
+       "S"
+      ]
+     ],
+     "label": "Schnitt durch die Pyramide: Höhe, halbe Grundkante, Seitenhöhe"
+    }
+   },
+   "o": {
+    "wert": 25,
+    "einheit": "cm"
+   },
+   "c": "(15 ** 2 + 20 ** 2) / 25",
+   "w": "hₛ² = h² + (a/2)² = 225 + 400 = 625 ⇒ hₛ = 25 cm.",
+   "h": "Rechtwinkliges Dreieck aus h, a/2 und hₛ (siehe Zeichnung)."
+  },
+  {
+   "l": "pyr_oberflaeche",
+   "t": "pyr_oberflaeche",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide hat die Grundkante 6 cm und die Seitenhöhe 5 cm. Berechne die Mantelfläche."
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "cm²"
+   },
+   "c": "4 * 6 * 5 / 2",
+   "w": "M = 4 · ½ · 6 · 5 = 60 cm².",
+   "h": "Der Mantel besteht aus 4 gleichen Dreiecken."
+  },
+  {
+   "l": "pyr_oberflaeche",
+   "t": "pyr_oberflaeche",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide hat die Grundkante 30 cm und die Seitenhöhe 25 cm. Berechne die Mantelfläche."
+   },
+   "o": {
+    "wert": 1500,
+    "einheit": "cm²"
+   },
+   "c": "4 * 30 * 25 / 2",
+   "w": "M = 4 · ½ · 30 · 25 = 1500 cm².",
+   "h": "Der Mantel besteht aus 4 gleichen Dreiecken."
+  },
+  {
+   "l": "pyr_oberflaeche",
+   "t": "pyr_oberflaeche",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide hat die Grundkante 24 cm und die Seitenhöhe 13 cm. Berechne die Mantelfläche."
+   },
+   "o": {
+    "wert": 624,
+    "einheit": "cm²"
+   },
+   "c": "4 * 24 * 13 / 2",
+   "w": "M = 4 · ½ · 24 · 13 = 624 cm².",
+   "h": "Der Mantel besteht aus 4 gleichen Dreiecken."
+  },
+  {
+   "l": "pyr_oberflaeche",
+   "t": "pyr_oberflaeche",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide hat die Grundkante 30 cm und die Seitenhöhe 17 cm. Berechne die Mantelfläche."
+   },
+   "o": {
+    "wert": 1020,
+    "einheit": "cm²"
+   },
+   "c": "4 * 30 * 17 / 2",
+   "w": "M = 4 · ½ · 30 · 17 = 1020 cm².",
+   "h": "Der Mantel besteht aus 4 gleichen Dreiecken."
+  },
+  {
+   "l": "pyr_oberflaeche",
+   "t": "pyr_oberflaeche",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide hat die Grundkante 16 cm und die Seitenhöhe 17 cm. Berechne die Mantelfläche."
+   },
+   "o": {
+    "wert": 544,
+    "einheit": "cm²"
+   },
+   "c": "4 * 16 * 17 / 2",
+   "w": "M = 4 · ½ · 16 · 17 = 544 cm².",
+   "h": "Der Mantel besteht aus 4 gleichen Dreiecken."
+  },
+  {
+   "l": "pyr_oberflaeche",
+   "t": "pyr_oberflaeche",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide hat die Grundkante 40 cm und die Seitenhöhe 25 cm. Berechne die Mantelfläche."
+   },
+   "o": {
+    "wert": 2000,
+    "einheit": "cm²"
+   },
+   "c": "4 * 40 * 25 / 2",
+   "w": "M = 4 · ½ · 40 · 25 = 2000 cm².",
+   "h": "Der Mantel besteht aus 4 gleichen Dreiecken."
+  },
+  {
+   "l": "pyr_oberflaeche",
+   "t": "pyr_oberflaeche",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide hat die Grundkante 30 cm und die Höhe 20 cm. Berechne ihre Oberfläche.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       20
+      ],
+      "M": [
+       0,
+       0
+      ],
+      "F": [
+       15.0,
+       0
+      ],
+      "_G": [
+       -15.0,
+       0
+      ]
+     },
+     "flaeche": [
+      "_G",
+      "F",
+      "S"
+     ],
+     "linien": [
+      [
+       "_G",
+       "F",
+       ""
+      ],
+      [
+       "_G",
+       "S",
+       ""
+      ],
+      [
+       "S",
+       "F",
+       "hₛ"
+      ],
+      [
+       "M",
+       "F",
+       "a/2 = 15"
+      ],
+      [
+       "M",
+       "S",
+       "h = 20",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "M",
+       "F",
+       "S"
+      ]
+     ],
+     "label": "Schnitt durch die Pyramide: Höhe, halbe Grundkante, Seitenhöhe"
+    }
+   },
+   "o": {
+    "wert": 2400,
+    "einheit": "cm²"
+   },
+   "c": "30 ** 2 + 2 * 30 * (20 ** 2 + 15 ** 2) / 25",
+   "w": "hₛ = √(20² + 15²) = 25 cm; O = 30² + 4 · ½ · 30 · 25 = 900 + 1500 = 2 400 cm².",
+   "h": "Erst hₛ mit Pythagoras, dann O = G + M."
+  },
+  {
+   "l": "pyr_oberflaeche",
+   "t": "pyr_oberflaeche",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide hat die Grundkante 24 cm und die Höhe 5 cm. Berechne ihre Oberfläche.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       5
+      ],
+      "M": [
+       0,
+       0
+      ],
+      "F": [
+       12.0,
+       0
+      ],
+      "_G": [
+       -12.0,
+       0
+      ]
+     },
+     "flaeche": [
+      "_G",
+      "F",
+      "S"
+     ],
+     "linien": [
+      [
+       "_G",
+       "F",
+       ""
+      ],
+      [
+       "_G",
+       "S",
+       ""
+      ],
+      [
+       "S",
+       "F",
+       "hₛ"
+      ],
+      [
+       "M",
+       "F",
+       "a/2 = 12"
+      ],
+      [
+       "M",
+       "S",
+       "h = 5",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "M",
+       "F",
+       "S"
+      ]
+     ],
+     "label": "Schnitt durch die Pyramide: Höhe, halbe Grundkante, Seitenhöhe"
+    }
+   },
+   "o": {
+    "wert": 1200,
+    "einheit": "cm²"
+   },
+   "c": "24 ** 2 + 2 * 24 * (5 ** 2 + 12 ** 2) / 13",
+   "w": "hₛ = √(5² + 12²) = 13 cm; O = 24² + 4 · ½ · 24 · 13 = 576 + 624 = 1 200 cm².",
+   "h": "Erst hₛ mit Pythagoras, dann O = G + M."
+  },
+  {
+   "l": "pyr_oberflaeche",
+   "t": "pyr_oberflaeche",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide hat die Grundkante 16 cm und die Höhe 15 cm. Berechne ihre Oberfläche.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       15
+      ],
+      "M": [
+       0,
+       0
+      ],
+      "F": [
+       8.0,
+       0
+      ],
+      "_G": [
+       -8.0,
+       0
+      ]
+     },
+     "flaeche": [
+      "_G",
+      "F",
+      "S"
+     ],
+     "linien": [
+      [
+       "_G",
+       "F",
+       ""
+      ],
+      [
+       "_G",
+       "S",
+       ""
+      ],
+      [
+       "S",
+       "F",
+       "hₛ"
+      ],
+      [
+       "M",
+       "F",
+       "a/2 = 8"
+      ],
+      [
+       "M",
+       "S",
+       "h = 15",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "M",
+       "F",
+       "S"
+      ]
+     ],
+     "label": "Schnitt durch die Pyramide: Höhe, halbe Grundkante, Seitenhöhe"
+    }
+   },
+   "o": {
+    "wert": 800,
+    "einheit": "cm²"
+   },
+   "c": "16 ** 2 + 2 * 16 * (15 ** 2 + 8 ** 2) / 17",
+   "w": "hₛ = √(15² + 8²) = 17 cm; O = 16² + 4 · ½ · 16 · 17 = 256 + 544 = 800 cm².",
+   "h": "Erst hₛ mit Pythagoras, dann O = G + M."
+  },
+  {
+   "l": "pyr_oberflaeche",
+   "t": "pyr_oberflaeche",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide hat die Grundkante 8 cm und die Höhe 3 cm. Berechne ihre Oberfläche.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       3
+      ],
+      "M": [
+       0,
+       0
+      ],
+      "F": [
+       4.0,
+       0
+      ],
+      "_G": [
+       -4.0,
+       0
+      ]
+     },
+     "flaeche": [
+      "_G",
+      "F",
+      "S"
+     ],
+     "linien": [
+      [
+       "_G",
+       "F",
+       ""
+      ],
+      [
+       "_G",
+       "S",
+       ""
+      ],
+      [
+       "S",
+       "F",
+       "hₛ"
+      ],
+      [
+       "M",
+       "F",
+       "a/2 = 4"
+      ],
+      [
+       "M",
+       "S",
+       "h = 3",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "M",
+       "F",
+       "S"
+      ]
+     ],
+     "label": "Schnitt durch die Pyramide: Höhe, halbe Grundkante, Seitenhöhe"
+    }
+   },
+   "o": {
+    "wert": 144,
+    "einheit": "cm²"
+   },
+   "c": "8 ** 2 + 2 * 8 * (3 ** 2 + 4 ** 2) / 5",
+   "w": "hₛ = √(3² + 4²) = 5 cm; O = 8² + 4 · ½ · 8 · 5 = 64 + 80 = 144 cm².",
+   "h": "Erst hₛ mit Pythagoras, dann O = G + M."
+  },
+  {
+   "l": "pyr_oberflaeche",
+   "t": "pyr_oberflaeche",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide hat die Grundkante 6 cm und die Höhe 4 cm. Berechne ihre Oberfläche.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       4
+      ],
+      "M": [
+       0,
+       0
+      ],
+      "F": [
+       3.0,
+       0
+      ],
+      "_G": [
+       -3.0,
+       0
+      ]
+     },
+     "flaeche": [
+      "_G",
+      "F",
+      "S"
+     ],
+     "linien": [
+      [
+       "_G",
+       "F",
+       ""
+      ],
+      [
+       "_G",
+       "S",
+       ""
+      ],
+      [
+       "S",
+       "F",
+       "hₛ"
+      ],
+      [
+       "M",
+       "F",
+       "a/2 = 3"
+      ],
+      [
+       "M",
+       "S",
+       "h = 4",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "M",
+       "F",
+       "S"
+      ]
+     ],
+     "label": "Schnitt durch die Pyramide: Höhe, halbe Grundkante, Seitenhöhe"
+    }
+   },
+   "o": {
+    "wert": 96,
+    "einheit": "cm²"
+   },
+   "c": "6 ** 2 + 2 * 6 * (4 ** 2 + 3 ** 2) / 5",
+   "w": "hₛ = √(4² + 3²) = 5 cm; O = 6² + 4 · ½ · 6 · 5 = 36 + 60 = 96 cm².",
+   "h": "Erst hₛ mit Pythagoras, dann O = G + M."
+  },
+  {
+   "l": "pyr_oberflaeche",
+   "t": "pyr_oberflaeche",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide hat die Grundkante 40 cm und die Höhe 15 cm. Berechne ihre Oberfläche.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       15
+      ],
+      "M": [
+       0,
+       0
+      ],
+      "F": [
+       20.0,
+       0
+      ],
+      "_G": [
+       -20.0,
+       0
+      ]
+     },
+     "flaeche": [
+      "_G",
+      "F",
+      "S"
+     ],
+     "linien": [
+      [
+       "_G",
+       "F",
+       ""
+      ],
+      [
+       "_G",
+       "S",
+       ""
+      ],
+      [
+       "S",
+       "F",
+       "hₛ"
+      ],
+      [
+       "M",
+       "F",
+       "a/2 = 20"
+      ],
+      [
+       "M",
+       "S",
+       "h = 15",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "M",
+       "F",
+       "S"
+      ]
+     ],
+     "label": "Schnitt durch die Pyramide: Höhe, halbe Grundkante, Seitenhöhe"
+    }
+   },
+   "o": {
+    "wert": 3600,
+    "einheit": "cm²"
+   },
+   "c": "40 ** 2 + 2 * 40 * (15 ** 2 + 20 ** 2) / 25",
+   "w": "hₛ = √(15² + 20²) = 25 cm; O = 40² + 4 · ½ · 40 · 25 = 1600 + 2000 = 3 600 cm².",
+   "h": "Erst hₛ mit Pythagoras, dann O = G + M."
+  },
+  {
+   "l": "pyr_oberflaeche",
+   "t": "pyr_oberflaeche",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide hat die Grundkante 18 cm und die Seitenhöhe 15 cm. Berechne die Mantelfläche."
+   },
+   "o": {
+    "wert": 540,
+    "einheit": "cm²"
+   },
+   "c": "4 * 18 * 15 / 2",
+   "w": "M = 4 · ½ · 18 · 15 = 540 cm²."
+  },
+  {
+   "l": "pyr_oberflaeche",
+   "t": "pyr_oberflaeche",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide hat die Grundkante 14 cm und die Seitenhöhe 25 cm. Berechne die Mantelfläche."
+   },
+   "o": {
+    "wert": 700,
+    "einheit": "cm²"
+   },
+   "c": "4 * 14 * 25 / 2",
+   "w": "M = 4 · ½ · 14 · 25 = 700 cm²."
+  },
+  {
+   "l": "pyr_oberflaeche",
+   "t": "pyr_oberflaeche",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide hat die Grundkante 32 cm und die Seitenhöhe 20 cm. Berechne die Mantelfläche."
+   },
+   "o": {
+    "wert": 1280,
+    "einheit": "cm²"
+   },
+   "c": "4 * 32 * 20 / 2",
+   "w": "M = 4 · ½ · 32 · 20 = 1280 cm²."
+  },
+  {
+   "l": "pyr_oberflaeche",
+   "t": "pyr_oberflaeche",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide hat die Grundkante 12 cm und die Seitenhöhe 10 cm. Berechne die Mantelfläche."
+   },
+   "o": {
+    "wert": 240,
+    "einheit": "cm²"
+   },
+   "c": "4 * 12 * 10 / 2",
+   "w": "M = 4 · ½ · 12 · 10 = 240 cm²."
+  },
+  {
+   "l": "pyr_oberflaeche",
+   "t": "pyr_oberflaeche",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide hat die Grundkante 24 cm und die Seitenhöhe 20 cm. Berechne die Mantelfläche."
+   },
+   "o": {
+    "wert": 960,
+    "einheit": "cm²"
+   },
+   "c": "4 * 24 * 20 / 2",
+   "w": "M = 4 · ½ · 24 · 20 = 960 cm²."
+  },
+  {
+   "l": "pyr_oberflaeche",
+   "t": "pyr_oberflaeche",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide hat die Grundkante 48 cm und die Seitenhöhe 25 cm. Berechne die Mantelfläche."
+   },
+   "o": {
+    "wert": 2400,
+    "einheit": "cm²"
+   },
+   "c": "4 * 48 * 25 / 2",
+   "w": "M = 4 · ½ · 48 · 25 = 2400 cm²."
+  },
+  {
+   "l": "pyr_oberflaeche",
+   "t": "pyr_oberflaeche",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide hat die Grundkante 8 cm und die Seitenhöhe 5 cm. Berechne die Mantelfläche."
+   },
+   "o": {
+    "wert": 80,
+    "einheit": "cm²"
+   },
+   "c": "4 * 8 * 5 / 2",
+   "w": "M = 4 · ½ · 8 · 5 = 80 cm²."
+  },
+  {
+   "l": "pyr_oberflaeche",
+   "t": "pyr_oberflaeche",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide hat die Grundkante 16 cm und die Seitenhöhe 10 cm. Berechne die Mantelfläche."
+   },
+   "o": {
+    "wert": 320,
+    "einheit": "cm²"
+   },
+   "c": "4 * 16 * 10 / 2",
+   "w": "M = 4 · ½ · 16 · 10 = 320 cm²."
+  },
+  {
+   "l": "pyr_oberflaeche",
+   "t": "pyr_oberflaeche",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide hat die Grundkante 10 cm und die Seitenhöhe 13 cm. Berechne die Mantelfläche."
+   },
+   "o": {
+    "wert": 260,
+    "einheit": "cm²"
+   },
+   "c": "4 * 10 * 13 / 2",
+   "w": "M = 4 · ½ · 10 · 13 = 260 cm²."
+  },
+  {
+   "l": "pyr_oberflaeche",
+   "t": "pyr_oberflaeche",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide hat die Grundkante 24 cm und die Seitenhöhe 15 cm. Berechne die Mantelfläche."
+   },
+   "o": {
+    "wert": 720,
+    "einheit": "cm²"
+   },
+   "c": "4 * 24 * 15 / 2",
+   "w": "M = 4 · ½ · 24 · 15 = 720 cm²."
+  },
+  {
+   "l": "kegel_volumen",
+   "t": "kegel_volumen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kegel hat den Radius r = 10 cm und die Höhe h = 16 cm. Berechne sein Volumen auf eine Nachkommastelle.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       16
+      ],
+      "A": [
+       -10,
+       0
+      ],
+      "B": [
+       10,
+       0
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "S"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       ""
+      ],
+      [
+       "A",
+       "S",
+       ""
+      ],
+      [
+       "B",
+       "S",
+       ""
+      ],
+      [
+       "M",
+       "B",
+       "r = 10"
+      ],
+      [
+       "M",
+       "S",
+       "h = 16",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "M",
+       "B",
+       "S"
+      ]
+     ],
+     "label": "Achsenschnitt eines Kegels"
+    }
+   },
+   "o": {
+    "wert": 1675.5,
+    "einheit": "cm³",
+    "toleranz": 0.1
+   },
+   "c": "round(10 ** 2 * 16 * 3.141592653590 / 3, 1)",
+   "w": "V = ⅓ · π · 10² · 16 = 1600/3π ≈ 1 675,5 cm³.",
+   "h": "V = ⅓ · π · r² · h; den Radius quadrieren."
+  },
+  {
+   "l": "kegel_volumen",
+   "t": "kegel_volumen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kegel hat den Radius r = 2 cm und die Höhe h = 5 cm. Berechne sein Volumen auf eine Nachkommastelle.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       5
+      ],
+      "A": [
+       -2,
+       0
+      ],
+      "B": [
+       2,
+       0
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "S"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       ""
+      ],
+      [
+       "A",
+       "S",
+       ""
+      ],
+      [
+       "B",
+       "S",
+       ""
+      ],
+      [
+       "M",
+       "B",
+       "r = 2"
+      ],
+      [
+       "M",
+       "S",
+       "h = 5",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "M",
+       "B",
+       "S"
+      ]
+     ],
+     "label": "Achsenschnitt eines Kegels"
+    }
+   },
+   "o": {
+    "wert": 20.9,
+    "einheit": "cm³",
+    "toleranz": 0.1
+   },
+   "c": "round(2 ** 2 * 5 * 3.141592653590 / 3, 1)",
+   "w": "V = ⅓ · π · 2² · 5 = 20/3π ≈ 20,9 cm³.",
+   "h": "V = ⅓ · π · r² · h; den Radius quadrieren."
+  },
+  {
+   "l": "kegel_volumen",
+   "t": "kegel_volumen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kegel hat den Radius r = 11 cm und die Höhe h = 19 cm. Berechne sein Volumen auf eine Nachkommastelle.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       19
+      ],
+      "A": [
+       -11,
+       0
+      ],
+      "B": [
+       11,
+       0
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "S"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       ""
+      ],
+      [
+       "A",
+       "S",
+       ""
+      ],
+      [
+       "B",
+       "S",
+       ""
+      ],
+      [
+       "M",
+       "B",
+       "r = 11"
+      ],
+      [
+       "M",
+       "S",
+       "h = 19",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "M",
+       "B",
+       "S"
+      ]
+     ],
+     "label": "Achsenschnitt eines Kegels"
+    }
+   },
+   "o": {
+    "wert": 2407.5,
+    "einheit": "cm³",
+    "toleranz": 0.1
+   },
+   "c": "round(11 ** 2 * 19 * 3.141592653590 / 3, 1)",
+   "w": "V = ⅓ · π · 11² · 19 = 2299/3π ≈ 2 407,5 cm³.",
+   "h": "V = ⅓ · π · r² · h; den Radius quadrieren."
+  },
+  {
+   "l": "kegel_volumen",
+   "t": "kegel_volumen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kegel hat den Radius r = 3 cm und die Höhe h = 16 cm. Berechne sein Volumen auf eine Nachkommastelle.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       16
+      ],
+      "A": [
+       -3,
+       0
+      ],
+      "B": [
+       3,
+       0
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "S"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       ""
+      ],
+      [
+       "A",
+       "S",
+       ""
+      ],
+      [
+       "B",
+       "S",
+       ""
+      ],
+      [
+       "M",
+       "B",
+       "r = 3"
+      ],
+      [
+       "M",
+       "S",
+       "h = 16",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "M",
+       "B",
+       "S"
+      ]
+     ],
+     "label": "Achsenschnitt eines Kegels"
+    }
+   },
+   "o": {
+    "wert": 150.8,
+    "einheit": "cm³",
+    "toleranz": 0.1
+   },
+   "c": "round(3 ** 2 * 16 * 3.141592653590 / 3, 1)",
+   "w": "V = ⅓ · π · 3² · 16 = 48π ≈ 150,8 cm³.",
+   "h": "V = ⅓ · π · r² · h; den Radius quadrieren."
+  },
+  {
+   "l": "kegel_volumen",
+   "t": "kegel_volumen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kegel hat den Radius r = 12 cm und die Höhe h = 14 cm. Berechne sein Volumen auf eine Nachkommastelle.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       14
+      ],
+      "A": [
+       -12,
+       0
+      ],
+      "B": [
+       12,
+       0
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "S"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       ""
+      ],
+      [
+       "A",
+       "S",
+       ""
+      ],
+      [
+       "B",
+       "S",
+       ""
+      ],
+      [
+       "M",
+       "B",
+       "r = 12"
+      ],
+      [
+       "M",
+       "S",
+       "h = 14",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "M",
+       "B",
+       "S"
+      ]
+     ],
+     "label": "Achsenschnitt eines Kegels"
+    }
+   },
+   "o": {
+    "wert": 2111.2,
+    "einheit": "cm³",
+    "toleranz": 0.1
+   },
+   "c": "round(12 ** 2 * 14 * 3.141592653590 / 3, 1)",
+   "w": "V = ⅓ · π · 12² · 14 = 672π ≈ 2 111,2 cm³.",
+   "h": "V = ⅓ · π · r² · h; den Radius quadrieren."
+  },
+  {
+   "l": "kegel_volumen",
+   "t": "kegel_volumen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kegel hat den Radius r = 12 cm und die Höhe h = 15 cm. Berechne sein Volumen auf eine Nachkommastelle.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       15
+      ],
+      "A": [
+       -12,
+       0
+      ],
+      "B": [
+       12,
+       0
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "S"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       ""
+      ],
+      [
+       "A",
+       "S",
+       ""
+      ],
+      [
+       "B",
+       "S",
+       ""
+      ],
+      [
+       "M",
+       "B",
+       "r = 12"
+      ],
+      [
+       "M",
+       "S",
+       "h = 15",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "M",
+       "B",
+       "S"
+      ]
+     ],
+     "label": "Achsenschnitt eines Kegels"
+    }
+   },
+   "o": {
+    "wert": 2261.9,
+    "einheit": "cm³",
+    "toleranz": 0.1
+   },
+   "c": "round(12 ** 2 * 15 * 3.141592653590 / 3, 1)",
+   "w": "V = ⅓ · π · 12² · 15 = 720π ≈ 2 261,9 cm³.",
+   "h": "V = ⅓ · π · r² · h; den Radius quadrieren."
+  },
+  {
+   "l": "kegel_volumen",
+   "t": "kegel_volumen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein kegelförmiger Trichter hat oben den Durchmesser 18 cm und ist 15 cm tief. Wie viel Flüssigkeit fasst er (in cm³, eine Nachkommastelle)?"
+   },
+   "o": {
+    "wert": 1272.3,
+    "einheit": "cm³",
+    "toleranz": 0.1
+   },
+   "c": "round((18 / 2) ** 2 * 15 * 3.141592653590 / 3, 1)",
+   "w": "r = 18 : 2 = 9 cm; V = ⅓ · π · 81 · 15 ≈ 1 272,3 cm³.",
+   "h": "Achtung: gegeben ist der Durchmesser."
+  },
+  {
+   "l": "kegel_volumen",
+   "t": "kegel_volumen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein kegelförmiger Trichter hat oben den Durchmesser 14 cm und ist 19 cm tief. Wie viel Flüssigkeit fasst er (in cm³, eine Nachkommastelle)?"
+   },
+   "o": {
+    "wert": 974.9,
+    "einheit": "cm³",
+    "toleranz": 0.1
+   },
+   "c": "round((14 / 2) ** 2 * 19 * 3.141592653590 / 3, 1)",
+   "w": "r = 14 : 2 = 7 cm; V = ⅓ · π · 49 · 19 ≈ 974,9 cm³.",
+   "h": "Achtung: gegeben ist der Durchmesser."
+  },
+  {
+   "l": "kegel_volumen",
+   "t": "kegel_volumen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein kegelförmiger Trichter hat oben den Durchmesser 12 cm und ist 5 cm tief. Wie viel Flüssigkeit fasst er (in cm³, eine Nachkommastelle)?"
+   },
+   "o": {
+    "wert": 188.5,
+    "einheit": "cm³",
+    "toleranz": 0.1
+   },
+   "c": "round((12 / 2) ** 2 * 5 * 3.141592653590 / 3, 1)",
+   "w": "r = 12 : 2 = 6 cm; V = ⅓ · π · 36 · 5 ≈ 188,5 cm³.",
+   "h": "Achtung: gegeben ist der Durchmesser."
+  },
+  {
+   "l": "kegel_volumen",
+   "t": "kegel_volumen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein kegelförmiger Trichter hat oben den Durchmesser 8 cm und ist 18 cm tief. Wie viel Flüssigkeit fasst er (in cm³, eine Nachkommastelle)?"
+   },
+   "o": {
+    "wert": 301.6,
+    "einheit": "cm³",
+    "toleranz": 0.1
+   },
+   "c": "round((8 / 2) ** 2 * 18 * 3.141592653590 / 3, 1)",
+   "w": "r = 8 : 2 = 4 cm; V = ⅓ · π · 16 · 18 ≈ 301,6 cm³.",
+   "h": "Achtung: gegeben ist der Durchmesser."
+  },
+  {
+   "l": "kegel_volumen",
+   "t": "kegel_volumen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein kegelförmiger Trichter hat oben den Durchmesser 14 cm und ist 5 cm tief. Wie viel Flüssigkeit fasst er (in cm³, eine Nachkommastelle)?"
+   },
+   "o": {
+    "wert": 256.6,
+    "einheit": "cm³",
+    "toleranz": 0.1
+   },
+   "c": "round((14 / 2) ** 2 * 5 * 3.141592653590 / 3, 1)",
+   "w": "r = 14 : 2 = 7 cm; V = ⅓ · π · 49 · 5 ≈ 256,6 cm³.",
+   "h": "Achtung: gegeben ist der Durchmesser."
+  },
+  {
+   "l": "kegel_volumen",
+   "t": "kegel_volumen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein kegelförmiger Trichter hat oben den Durchmesser 4 cm und ist 18 cm tief. Wie viel Flüssigkeit fasst er (in cm³, eine Nachkommastelle)?"
+   },
+   "o": {
+    "wert": 75.4,
+    "einheit": "cm³",
+    "toleranz": 0.1
+   },
+   "c": "round((4 / 2) ** 2 * 18 * 3.141592653590 / 3, 1)",
+   "w": "r = 4 : 2 = 2 cm; V = ⅓ · π · 4 · 18 ≈ 75,4 cm³.",
+   "h": "Achtung: gegeben ist der Durchmesser."
+  },
+  {
+   "l": "kegel_volumen",
+   "t": "kegel_volumen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kegel mit dem Radius 5 cm hat das Volumen 1 793 cm³. Wie hoch ist er (eine Nachkommastelle)?"
+   },
+   "o": {
+    "wert": 68.5,
+    "einheit": "cm",
+    "toleranz": 0.1
+   },
+   "c": "round(3 * 1793 / (3.141592653590 * 5 ** 2), 1)",
+   "w": "h = 3V : (π r²) = 3 · 1 793 : (π · 25) ≈ 68,5 cm.",
+   "h": "Stelle V = ⅓ · π · r² · h nach h um."
+  },
+  {
+   "l": "kegel_volumen",
+   "t": "kegel_volumen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kegel mit dem Radius 8 cm hat das Volumen 1 601 cm³. Wie hoch ist er (eine Nachkommastelle)?"
+   },
+   "o": {
+    "wert": 23.9,
+    "einheit": "cm",
+    "toleranz": 0.1
+   },
+   "c": "round(3 * 1601 / (3.141592653590 * 8 ** 2), 1)",
+   "w": "h = 3V : (π r²) = 3 · 1 601 : (π · 64) ≈ 23,9 cm.",
+   "h": "Stelle V = ⅓ · π · r² · h nach h um."
+  },
+  {
+   "l": "kegel_volumen",
+   "t": "kegel_volumen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kegel mit dem Radius 4 cm hat das Volumen 978 cm³. Wie hoch ist er (eine Nachkommastelle)?"
+   },
+   "o": {
+    "wert": 58.4,
+    "einheit": "cm",
+    "toleranz": 0.1
+   },
+   "c": "round(3 * 978 / (3.141592653590 * 4 ** 2), 1)",
+   "w": "h = 3V : (π r²) = 3 · 978 : (π · 16) ≈ 58,4 cm.",
+   "h": "Stelle V = ⅓ · π · r² · h nach h um."
+  },
+  {
+   "l": "kegel_volumen",
+   "t": "kegel_volumen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kegel mit dem Radius 10 cm hat das Volumen 420 cm³. Wie hoch ist er (eine Nachkommastelle)?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "cm",
+    "toleranz": 0.1
+   },
+   "c": "round(3 * 420 / (3.141592653590 * 10 ** 2), 1)",
+   "w": "h = 3V : (π r²) = 3 · 420 : (π · 100) ≈ 4 cm.",
+   "h": "Stelle V = ⅓ · π · r² · h nach h um."
+  },
+  {
+   "l": "kegel_volumen",
+   "t": "kegel_volumen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kegel mit dem Radius 10 cm hat das Volumen 1 579 cm³. Wie hoch ist er (eine Nachkommastelle)?"
+   },
+   "o": {
+    "wert": 15.1,
+    "einheit": "cm",
+    "toleranz": 0.1
+   },
+   "c": "round(3 * 1579 / (3.141592653590 * 10 ** 2), 1)",
+   "w": "h = 3V : (π r²) = 3 · 1 579 : (π · 100) ≈ 15,1 cm.",
+   "h": "Stelle V = ⅓ · π · r² · h nach h um."
+  },
+  {
+   "l": "kegel_volumen",
+   "t": "kegel_volumen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kegel mit dem Radius 8 cm hat das Volumen 1 829 cm³. Wie hoch ist er (eine Nachkommastelle)?"
+   },
+   "o": {
+    "wert": 27.3,
+    "einheit": "cm",
+    "toleranz": 0.1
+   },
+   "c": "round(3 * 1829 / (3.141592653590 * 8 ** 2), 1)",
+   "w": "h = 3V : (π r²) = 3 · 1 829 : (π · 64) ≈ 27,3 cm.",
+   "h": "Stelle V = ⅓ · π · r² · h nach h um."
+  },
+  {
+   "l": "kegel_volumen",
+   "t": "kegel_volumen",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein kegelförmiger Trichter hat oben den Durchmesser 22 cm und ist 5 cm tief. Wie viel Flüssigkeit fasst er (in cm³, eine Nachkommastelle)?"
+   },
+   "o": {
+    "wert": 633.6,
+    "einheit": "cm³",
+    "toleranz": 0.1
+   },
+   "c": "round((22 / 2) ** 2 * 5 * 3.141592653590 / 3, 1)",
+   "w": "r = 22 : 2 = 11 cm; V = ⅓ · π · 121 · 5 ≈ 633,6 cm³."
+  },
+  {
+   "l": "kegel_volumen",
+   "t": "kegel_volumen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein kegelförmiger Trichter hat oben den Durchmesser 24 cm und ist 15 cm tief. Wie viel Flüssigkeit fasst er (in cm³, eine Nachkommastelle)?"
+   },
+   "o": {
+    "wert": 2261.9,
+    "einheit": "cm³",
+    "toleranz": 0.1
+   },
+   "c": "round((24 / 2) ** 2 * 15 * 3.141592653590 / 3, 1)",
+   "w": "r = 24 : 2 = 12 cm; V = ⅓ · π · 144 · 15 ≈ 2 261,9 cm³."
+  },
+  {
+   "l": "kegel_volumen",
+   "t": "kegel_volumen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein kegelförmiger Trichter hat oben den Durchmesser 4 cm und ist 3 cm tief. Wie viel Flüssigkeit fasst er (in cm³, eine Nachkommastelle)?"
+   },
+   "o": {
+    "wert": 12.6,
+    "einheit": "cm³",
+    "toleranz": 0.1
+   },
+   "c": "round((4 / 2) ** 2 * 3 * 3.141592653590 / 3, 1)",
+   "w": "r = 4 : 2 = 2 cm; V = ⅓ · π · 4 · 3 ≈ 12,6 cm³."
+  },
+  {
+   "l": "kegel_volumen",
+   "t": "kegel_volumen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein kegelförmiger Trichter hat oben den Durchmesser 14 cm und ist 20 cm tief. Wie viel Flüssigkeit fasst er (in cm³, eine Nachkommastelle)?"
+   },
+   "o": {
+    "wert": 1026.3,
+    "einheit": "cm³",
+    "toleranz": 0.1
+   },
+   "c": "round((14 / 2) ** 2 * 20 * 3.141592653590 / 3, 1)",
+   "w": "r = 14 : 2 = 7 cm; V = ⅓ · π · 49 · 20 ≈ 1 026,3 cm³."
+  },
+  {
+   "l": "kegel_volumen",
+   "t": "kegel_volumen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein kegelförmiger Trichter hat oben den Durchmesser 12 cm und ist 14 cm tief. Wie viel Flüssigkeit fasst er (in cm³, eine Nachkommastelle)?"
+   },
+   "o": {
+    "wert": 527.8,
+    "einheit": "cm³",
+    "toleranz": 0.1
+   },
+   "c": "round((12 / 2) ** 2 * 14 * 3.141592653590 / 3, 1)",
+   "w": "r = 12 : 2 = 6 cm; V = ⅓ · π · 36 · 14 ≈ 527,8 cm³."
+  },
+  {
+   "l": "kegel_volumen",
+   "t": "kegel_volumen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein kegelförmiger Trichter hat oben den Durchmesser 16 cm und ist 10 cm tief. Wie viel Flüssigkeit fasst er (in cm³, eine Nachkommastelle)?"
+   },
+   "o": {
+    "wert": 670.2,
+    "einheit": "cm³",
+    "toleranz": 0.1
+   },
+   "c": "round((16 / 2) ** 2 * 10 * 3.141592653590 / 3, 1)",
+   "w": "r = 16 : 2 = 8 cm; V = ⅓ · π · 64 · 10 ≈ 670,2 cm³."
+  },
+  {
+   "l": "kegel_volumen",
+   "t": "kegel_volumen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein kegelförmiger Trichter hat oben den Durchmesser 4 cm und ist 4 cm tief. Wie viel Flüssigkeit fasst er (in cm³, eine Nachkommastelle)?"
+   },
+   "o": {
+    "wert": 16.8,
+    "einheit": "cm³",
+    "toleranz": 0.1
+   },
+   "c": "round((4 / 2) ** 2 * 4 * 3.141592653590 / 3, 1)",
+   "w": "r = 4 : 2 = 2 cm; V = ⅓ · π · 4 · 4 ≈ 16,8 cm³."
+  },
+  {
+   "l": "kegel_volumen",
+   "t": "kegel_volumen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein kegelförmiger Trichter hat oben den Durchmesser 6 cm und ist 16 cm tief. Wie viel Flüssigkeit fasst er (in cm³, eine Nachkommastelle)?"
+   },
+   "o": {
+    "wert": 150.8,
+    "einheit": "cm³",
+    "toleranz": 0.1
+   },
+   "c": "round((6 / 2) ** 2 * 16 * 3.141592653590 / 3, 1)",
+   "w": "r = 6 : 2 = 3 cm; V = ⅓ · π · 9 · 16 ≈ 150,8 cm³."
+  },
+  {
+   "l": "kegel_volumen",
+   "t": "kegel_volumen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein kegelförmiger Trichter hat oben den Durchmesser 10 cm und ist 17 cm tief. Wie viel Flüssigkeit fasst er (in cm³, eine Nachkommastelle)?"
+   },
+   "o": {
+    "wert": 445.1,
+    "einheit": "cm³",
+    "toleranz": 0.1
+   },
+   "c": "round((10 / 2) ** 2 * 17 * 3.141592653590 / 3, 1)",
+   "w": "r = 10 : 2 = 5 cm; V = ⅓ · π · 25 · 17 ≈ 445,1 cm³."
+  },
+  {
+   "l": "kegel_volumen",
+   "t": "kegel_volumen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein kegelförmiger Trichter hat oben den Durchmesser 16 cm und ist 15 cm tief. Wie viel Flüssigkeit fasst er (in cm³, eine Nachkommastelle)?"
+   },
+   "o": {
+    "wert": 1005.3,
+    "einheit": "cm³",
+    "toleranz": 0.1
+   },
+   "c": "round((16 / 2) ** 2 * 15 * 3.141592653590 / 3, 1)",
+   "w": "r = 16 : 2 = 8 cm; V = ⅓ · π · 64 · 15 ≈ 1 005,3 cm³."
+  },
+  {
+   "l": "kegel_mantel",
+   "t": "kegel_mantel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kegel hat den Radius 16 cm und die Höhe 12 cm. Wie lang ist die Mantellinie s?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       12
+      ],
+      "A": [
+       -16,
+       0
+      ],
+      "B": [
+       16,
+       0
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "S"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       ""
+      ],
+      [
+       "A",
+       "S",
+       ""
+      ],
+      [
+       "B",
+       "S",
+       "s = ?"
+      ],
+      [
+       "M",
+       "B",
+       "r = 16"
+      ],
+      [
+       "M",
+       "S",
+       "h = 12",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "M",
+       "B",
+       "S"
+      ]
+     ],
+     "label": "Achsenschnitt eines Kegels"
+    }
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "cm"
+   },
+   "c": "(16 ** 2 + 12 ** 2) / 20",
+   "w": "s² = r² + h² = 256 + 144 = 400 ⇒ s = 20 cm.",
+   "h": "Pythagoras im Achsenschnitt."
+  },
+  {
+   "l": "kegel_mantel",
+   "t": "kegel_mantel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kegel hat den Radius 4 cm und die Höhe 3 cm. Wie lang ist die Mantellinie s?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       3
+      ],
+      "A": [
+       -4,
+       0
+      ],
+      "B": [
+       4,
+       0
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "S"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       ""
+      ],
+      [
+       "A",
+       "S",
+       ""
+      ],
+      [
+       "B",
+       "S",
+       "s = ?"
+      ],
+      [
+       "M",
+       "B",
+       "r = 4"
+      ],
+      [
+       "M",
+       "S",
+       "h = 3",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "M",
+       "B",
+       "S"
+      ]
+     ],
+     "label": "Achsenschnitt eines Kegels"
+    }
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "cm"
+   },
+   "c": "(4 ** 2 + 3 ** 2) / 5",
+   "w": "s² = r² + h² = 16 + 9 = 25 ⇒ s = 5 cm.",
+   "h": "Pythagoras im Achsenschnitt."
+  },
+  {
+   "l": "kegel_mantel",
+   "t": "kegel_mantel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kegel hat den Radius 7 cm und die Höhe 24 cm. Wie lang ist die Mantellinie s?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       24
+      ],
+      "A": [
+       -7,
+       0
+      ],
+      "B": [
+       7,
+       0
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "S"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       ""
+      ],
+      [
+       "A",
+       "S",
+       ""
+      ],
+      [
+       "B",
+       "S",
+       "s = ?"
+      ],
+      [
+       "M",
+       "B",
+       "r = 7"
+      ],
+      [
+       "M",
+       "S",
+       "h = 24",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "M",
+       "B",
+       "S"
+      ]
+     ],
+     "label": "Achsenschnitt eines Kegels"
+    }
+   },
+   "o": {
+    "wert": 25,
+    "einheit": "cm"
+   },
+   "c": "(7 ** 2 + 24 ** 2) / 25",
+   "w": "s² = r² + h² = 49 + 576 = 625 ⇒ s = 25 cm.",
+   "h": "Pythagoras im Achsenschnitt."
+  },
+  {
+   "l": "kegel_mantel",
+   "t": "kegel_mantel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Der Mantel eines Kegels (r = 15 cm, s = 25 cm) wird abgewickelt. Wie groß ist der Mittelpunktswinkel φ des Kreissektors?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "Z": [
+       0,
+       0
+      ],
+      "_0": [
+       23.7764,
+       -7.7254
+      ],
+      "_1": [
+       24.7737,
+       -3.3558
+      ],
+      "_2": [
+       24.9748,
+       1.1216
+      ],
+      "_3": [
+       24.3732,
+       5.563
+      ],
+      "_4": [
+       22.9882,
+       9.8256
+      ],
+      "_5": [
+       20.8643,
+       13.7724
+      ],
+      "_6": [
+       18.0699,
+       17.2766
+      ],
+      "_7": [
+       14.6946,
+       20.2254
+      ],
+      "_8": [
+       10.8471,
+       22.5242
+      ],
+      "_9": [
+       6.6509,
+       24.0991
+      ],
+      "_10": [
+       2.241,
+       24.8994
+      ],
+      "_11": [
+       -2.241,
+       24.8994
+      ],
+      "_12": [
+       -6.6509,
+       24.0991
+      ],
+      "_13": [
+       -10.8471,
+       22.5242
+      ],
+      "_14": [
+       -14.6946,
+       20.2254
+      ],
+      "_15": [
+       -18.0699,
+       17.2766
+      ],
+      "_16": [
+       -20.8643,
+       13.7724
+      ],
+      "_17": [
+       -22.9882,
+       9.8256
+      ],
+      "_18": [
+       -24.3732,
+       5.563
+      ],
+      "_19": [
+       -24.9748,
+       1.1216
+      ],
+      "_20": [
+       -24.7737,
+       -3.3558
+      ],
+      "_21": [
+       -23.7764,
+       -7.7254
+      ]
+     },
+     "flaeche": [
+      "Z",
+      "_0",
+      "_1",
+      "_2",
+      "_3",
+      "_4",
+      "_5",
+      "_6",
+      "_7",
+      "_8",
+      "_9",
+      "_10",
+      "_11",
+      "_12",
+      "_13",
+      "_14",
+      "_15",
+      "_16",
+      "_17",
+      "_18",
+      "_19",
+      "_20",
+      "_21"
+     ],
+     "linien": [
+      [
+       "Z",
+       "_0",
+       "s = 25"
+      ],
+      [
+       "Z",
+       "_21",
+       ""
+      ],
+      [
+       "_0",
+       "_1",
+       ""
+      ],
+      [
+       "_1",
+       "_2",
+       ""
+      ],
+      [
+       "_2",
+       "_3",
+       ""
+      ],
+      [
+       "_3",
+       "_4",
+       ""
+      ],
+      [
+       "_4",
+       "_5",
+       ""
+      ],
+      [
+       "_5",
+       "_6",
+       ""
+      ],
+      [
+       "_6",
+       "_7",
+       ""
+      ],
+      [
+       "_7",
+       "_8",
+       ""
+      ],
+      [
+       "_8",
+       "_9",
+       ""
+      ],
+      [
+       "_9",
+       "_10",
+       ""
+      ],
+      [
+       "_10",
+       "_11",
+       ""
+      ],
+      [
+       "_11",
+       "_12",
+       ""
+      ],
+      [
+       "_12",
+       "_13",
+       ""
+      ],
+      [
+       "_13",
+       "_14",
+       ""
+      ],
+      [
+       "_14",
+       "_15",
+       ""
+      ],
+      [
+       "_15",
+       "_16",
+       ""
+      ],
+      [
+       "_16",
+       "_17",
+       ""
+      ],
+      [
+       "_17",
+       "_18",
+       ""
+      ],
+      [
+       "_18",
+       "_19",
+       ""
+      ],
+      [
+       "_19",
+       "_20",
+       ""
+      ],
+      [
+       "_20",
+       "_21",
+       ""
+      ]
+     ],
+     "winkel": [
+      [
+       "Z",
+       "_0",
+       "_21",
+       "φ = ?"
+      ]
+     ],
+     "label": "Abgewickelter Kegelmantel: Kreissektor"
+    }
+   },
+   "o": {
+    "wert": 216,
+    "einheit": "°"
+   },
+   "c": "360 * 15 / 25",
+   "w": "Bogenlänge = 2π · 15; Anteil am Kreis mit Radius 25: 15/25. φ = 360° · 15/25 = 216°.",
+   "h": "Der Bogen des Sektors ist so lang wie der Umfang des Grundkreises."
+  },
+  {
+   "l": "kegel_mantel",
+   "t": "kegel_mantel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Der Mantel eines Kegels (r = 16 cm, s = 20 cm) wird abgewickelt. Wie groß ist der Mittelpunktswinkel φ des Kreissektors?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "Z": [
+       0,
+       0
+      ],
+      "_0": [
+       11.7557,
+       -16.1803
+      ],
+      "_1": [
+       14.4559,
+       -13.8213
+      ],
+      "_2": [
+       16.6915,
+       -11.0179
+      ],
+      "_3": [
+       18.3906,
+       -7.8605
+      ],
+      "_4": [
+       19.4986,
+       -4.4504
+      ],
+      "_5": [
+       19.9799,
+       -0.8973
+      ],
+      "_6": [
+       19.819,
+       2.6847
+      ],
+      "_7": [
+       19.0211,
+       6.1803
+      ],
+      "_8": [
+       17.6119,
+       9.4774
+      ],
+      "_9": [
+       15.6366,
+       12.4698
+      ],
+      "_10": [
+       13.1588,
+       15.0614
+      ],
+      "_11": [
+       10.258,
+       17.169
+      ],
+      "_12": [
+       7.0275,
+       18.7247
+      ],
+      "_13": [
+       3.5711,
+       19.6786
+      ],
+      "_14": [
+       0.0,
+       20.0
+      ],
+      "_15": [
+       -3.5711,
+       19.6786
+      ],
+      "_16": [
+       -7.0275,
+       18.7247
+      ],
+      "_17": [
+       -10.258,
+       17.169
+      ],
+      "_18": [
+       -13.1588,
+       15.0614
+      ],
+      "_19": [
+       -15.6366,
+       12.4698
+      ],
+      "_20": [
+       -17.6119,
+       9.4774
+      ],
+      "_21": [
+       -19.0211,
+       6.1803
+      ],
+      "_22": [
+       -19.819,
+       2.6847
+      ],
+      "_23": [
+       -19.9799,
+       -0.8973
+      ],
+      "_24": [
+       -19.4986,
+       -4.4504
+      ],
+      "_25": [
+       -18.3906,
+       -7.8605
+      ],
+      "_26": [
+       -16.6915,
+       -11.0179
+      ],
+      "_27": [
+       -14.4559,
+       -13.8213
+      ],
+      "_28": [
+       -11.7557,
+       -16.1803
+      ]
+     },
+     "flaeche": [
+      "Z",
+      "_0",
+      "_1",
+      "_2",
+      "_3",
+      "_4",
+      "_5",
+      "_6",
+      "_7",
+      "_8",
+      "_9",
+      "_10",
+      "_11",
+      "_12",
+      "_13",
+      "_14",
+      "_15",
+      "_16",
+      "_17",
+      "_18",
+      "_19",
+      "_20",
+      "_21",
+      "_22",
+      "_23",
+      "_24",
+      "_25",
+      "_26",
+      "_27",
+      "_28"
+     ],
+     "linien": [
+      [
+       "Z",
+       "_0",
+       "s = 20"
+      ],
+      [
+       "Z",
+       "_28",
+       ""
+      ],
+      [
+       "_0",
+       "_1",
+       ""
+      ],
+      [
+       "_1",
+       "_2",
+       ""
+      ],
+      [
+       "_2",
+       "_3",
+       ""
+      ],
+      [
+       "_3",
+       "_4",
+       ""
+      ],
+      [
+       "_4",
+       "_5",
+       ""
+      ],
+      [
+       "_5",
+       "_6",
+       ""
+      ],
+      [
+       "_6",
+       "_7",
+       ""
+      ],
+      [
+       "_7",
+       "_8",
+       ""
+      ],
+      [
+       "_8",
+       "_9",
+       ""
+      ],
+      [
+       "_9",
+       "_10",
+       ""
+      ],
+      [
+       "_10",
+       "_11",
+       ""
+      ],
+      [
+       "_11",
+       "_12",
+       ""
+      ],
+      [
+       "_12",
+       "_13",
+       ""
+      ],
+      [
+       "_13",
+       "_14",
+       ""
+      ],
+      [
+       "_14",
+       "_15",
+       ""
+      ],
+      [
+       "_15",
+       "_16",
+       ""
+      ],
+      [
+       "_16",
+       "_17",
+       ""
+      ],
+      [
+       "_17",
+       "_18",
+       ""
+      ],
+      [
+       "_18",
+       "_19",
+       ""
+      ],
+      [
+       "_19",
+       "_20",
+       ""
+      ],
+      [
+       "_20",
+       "_21",
+       ""
+      ],
+      [
+       "_21",
+       "_22",
+       ""
+      ],
+      [
+       "_22",
+       "_23",
+       ""
+      ],
+      [
+       "_23",
+       "_24",
+       ""
+      ],
+      [
+       "_24",
+       "_25",
+       ""
+      ],
+      [
+       "_25",
+       "_26",
+       ""
+      ],
+      [
+       "_26",
+       "_27",
+       ""
+      ],
+      [
+       "_27",
+       "_28",
+       ""
+      ]
+     ],
+     "winkel": [
+      [
+       "Z",
+       "_0",
+       "_28",
+       "φ = ?"
+      ]
+     ],
+     "label": "Abgewickelter Kegelmantel: Kreissektor"
+    }
+   },
+   "o": {
+    "wert": 288,
+    "einheit": "°"
+   },
+   "c": "360 * 16 / 20",
+   "w": "Bogenlänge = 2π · 16; Anteil am Kreis mit Radius 20: 16/20. φ = 360° · 16/20 = 288°.",
+   "h": "Der Bogen des Sektors ist so lang wie der Umfang des Grundkreises."
+  },
+  {
+   "l": "kegel_mantel",
+   "t": "kegel_mantel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Der Mantel eines Kegels (r = 24 cm, s = 30 cm) wird abgewickelt. Wie groß ist der Mittelpunktswinkel φ des Kreissektors?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "Z": [
+       0,
+       0
+      ],
+      "_0": [
+       17.6336,
+       -24.2705
+      ],
+      "_1": [
+       21.6838,
+       -20.7319
+      ],
+      "_2": [
+       25.0372,
+       -16.5269
+      ],
+      "_3": [
+       27.5858,
+       -11.7908
+      ],
+      "_4": [
+       29.2478,
+       -6.6756
+      ],
+      "_5": [
+       29.9698,
+       -1.3459
+      ],
+      "_6": [
+       29.7285,
+       4.027
+      ],
+      "_7": [
+       28.5317,
+       9.2705
+      ],
+      "_8": [
+       26.4179,
+       14.2161
+      ],
+      "_9": [
+       23.4549,
+       18.7047
+      ],
+      "_10": [
+       19.7382,
+       22.5921
+      ],
+      "_11": [
+       15.387,
+       25.7535
+      ],
+      "_12": [
+       10.5412,
+       28.087
+      ],
+      "_13": [
+       5.3567,
+       29.5179
+      ],
+      "_14": [
+       0.0,
+       30.0
+      ],
+      "_15": [
+       -5.3567,
+       29.5179
+      ],
+      "_16": [
+       -10.5412,
+       28.087
+      ],
+      "_17": [
+       -15.387,
+       25.7535
+      ],
+      "_18": [
+       -19.7382,
+       22.5921
+      ],
+      "_19": [
+       -23.4549,
+       18.7047
+      ],
+      "_20": [
+       -26.4179,
+       14.2161
+      ],
+      "_21": [
+       -28.5317,
+       9.2705
+      ],
+      "_22": [
+       -29.7285,
+       4.027
+      ],
+      "_23": [
+       -29.9698,
+       -1.3459
+      ],
+      "_24": [
+       -29.2478,
+       -6.6756
+      ],
+      "_25": [
+       -27.5858,
+       -11.7908
+      ],
+      "_26": [
+       -25.0372,
+       -16.5269
+      ],
+      "_27": [
+       -21.6838,
+       -20.7319
+      ],
+      "_28": [
+       -17.6336,
+       -24.2705
+      ]
+     },
+     "flaeche": [
+      "Z",
+      "_0",
+      "_1",
+      "_2",
+      "_3",
+      "_4",
+      "_5",
+      "_6",
+      "_7",
+      "_8",
+      "_9",
+      "_10",
+      "_11",
+      "_12",
+      "_13",
+      "_14",
+      "_15",
+      "_16",
+      "_17",
+      "_18",
+      "_19",
+      "_20",
+      "_21",
+      "_22",
+      "_23",
+      "_24",
+      "_25",
+      "_26",
+      "_27",
+      "_28"
+     ],
+     "linien": [
+      [
+       "Z",
+       "_0",
+       "s = 30"
+      ],
+      [
+       "Z",
+       "_28",
+       ""
+      ],
+      [
+       "_0",
+       "_1",
+       ""
+      ],
+      [
+       "_1",
+       "_2",
+       ""
+      ],
+      [
+       "_2",
+       "_3",
+       ""
+      ],
+      [
+       "_3",
+       "_4",
+       ""
+      ],
+      [
+       "_4",
+       "_5",
+       ""
+      ],
+      [
+       "_5",
+       "_6",
+       ""
+      ],
+      [
+       "_6",
+       "_7",
+       ""
+      ],
+      [
+       "_7",
+       "_8",
+       ""
+      ],
+      [
+       "_8",
+       "_9",
+       ""
+      ],
+      [
+       "_9",
+       "_10",
+       ""
+      ],
+      [
+       "_10",
+       "_11",
+       ""
+      ],
+      [
+       "_11",
+       "_12",
+       ""
+      ],
+      [
+       "_12",
+       "_13",
+       ""
+      ],
+      [
+       "_13",
+       "_14",
+       ""
+      ],
+      [
+       "_14",
+       "_15",
+       ""
+      ],
+      [
+       "_15",
+       "_16",
+       ""
+      ],
+      [
+       "_16",
+       "_17",
+       ""
+      ],
+      [
+       "_17",
+       "_18",
+       ""
+      ],
+      [
+       "_18",
+       "_19",
+       ""
+      ],
+      [
+       "_19",
+       "_20",
+       ""
+      ],
+      [
+       "_20",
+       "_21",
+       ""
+      ],
+      [
+       "_21",
+       "_22",
+       ""
+      ],
+      [
+       "_22",
+       "_23",
+       ""
+      ],
+      [
+       "_23",
+       "_24",
+       ""
+      ],
+      [
+       "_24",
+       "_25",
+       ""
+      ],
+      [
+       "_25",
+       "_26",
+       ""
+      ],
+      [
+       "_26",
+       "_27",
+       ""
+      ],
+      [
+       "_27",
+       "_28",
+       ""
+      ]
+     ],
+     "winkel": [
+      [
+       "Z",
+       "_0",
+       "_28",
+       "φ = ?"
+      ]
+     ],
+     "label": "Abgewickelter Kegelmantel: Kreissektor"
+    }
+   },
+   "o": {
+    "wert": 288,
+    "einheit": "°"
+   },
+   "c": "360 * 24 / 30",
+   "w": "Bogenlänge = 2π · 24; Anteil am Kreis mit Radius 30: 24/30. φ = 360° · 24/30 = 288°.",
+   "h": "Der Bogen des Sektors ist so lang wie der Umfang des Grundkreises."
+  },
+  {
+   "l": "kegel_mantel",
+   "t": "kegel_mantel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kegel hat den Radius 24 cm und die Mantellinie 26 cm. Berechne die Mantelfläche auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 1960.4,
+    "einheit": "cm²",
+    "toleranz": 0.1
+   },
+   "c": "round(3.141592653590 * 24 * 26, 1)",
+   "w": "M = π · r · s = π · 24 · 26 = 624π ≈ 1 960,4 cm².",
+   "h": "M = π · r · s."
+  },
+  {
+   "l": "kegel_mantel",
+   "t": "kegel_mantel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kegel hat den Radius 24 cm und die Mantellinie 25 cm. Berechne die Mantelfläche auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 1885,
+    "einheit": "cm²",
+    "toleranz": 0.1
+   },
+   "c": "round(3.141592653590 * 24 * 25, 1)",
+   "w": "M = π · r · s = π · 24 · 25 = 600π ≈ 1 885 cm².",
+   "h": "M = π · r · s."
+  },
+  {
+   "l": "kegel_mantel",
+   "t": "kegel_mantel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kegel hat den Radius 18 cm und die Mantellinie 30 cm. Berechne die Mantelfläche auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 1696.5,
+    "einheit": "cm²",
+    "toleranz": 0.1
+   },
+   "c": "round(3.141592653590 * 18 * 30, 1)",
+   "w": "M = π · r · s = π · 18 · 30 = 540π ≈ 1 696,5 cm².",
+   "h": "M = π · r · s."
+  },
+  {
+   "l": "kegel_mantel",
+   "t": "kegel_mantel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kegel hat den Radius 10 cm und die Mantellinie 26 cm. Berechne die Mantelfläche auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 816.8,
+    "einheit": "cm²",
+    "toleranz": 0.1
+   },
+   "c": "round(3.141592653590 * 10 * 26, 1)",
+   "w": "M = π · r · s = π · 10 · 26 = 260π ≈ 816,8 cm².",
+   "h": "M = π · r · s."
+  },
+  {
+   "l": "kegel_mantel",
+   "t": "kegel_mantel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kegel hat den Radius 21 cm und die Mantellinie 29 cm. Berechne die Mantelfläche auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 1913.2,
+    "einheit": "cm²",
+    "toleranz": 0.1
+   },
+   "c": "round(3.141592653590 * 21 * 29, 1)",
+   "w": "M = π · r · s = π · 21 · 29 = 609π ≈ 1 913,2 cm².",
+   "h": "M = π · r · s."
+  },
+  {
+   "l": "kegel_mantel",
+   "t": "kegel_mantel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kegel hat den Radius 15 cm und die Mantellinie 17 cm. Berechne die Mantelfläche auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 801.1,
+    "einheit": "cm²",
+    "toleranz": 0.1
+   },
+   "c": "round(3.141592653590 * 15 * 17, 1)",
+   "w": "M = π · r · s = π · 15 · 17 = 255π ≈ 801,1 cm².",
+   "h": "M = π · r · s."
+  },
+  {
+   "l": "kegel_mantel",
+   "t": "kegel_mantel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Aus einem Kreissektor mit Radius 20 cm und Mittelpunktswinkel 180° wird ein Kegelmantel gerollt. Welchen Radius hat der Grundkreis?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "Z": [
+       0,
+       0
+      ],
+      "_0": [
+       20.0,
+       0.0
+      ],
+      "_1": [
+       19.6962,
+       3.473
+      ],
+      "_2": [
+       18.7939,
+       6.8404
+      ],
+      "_3": [
+       17.3205,
+       10.0
+      ],
+      "_4": [
+       15.3209,
+       12.8558
+      ],
+      "_5": [
+       12.8558,
+       15.3209
+      ],
+      "_6": [
+       10.0,
+       17.3205
+      ],
+      "_7": [
+       6.8404,
+       18.7939
+      ],
+      "_8": [
+       3.473,
+       19.6962
+      ],
+      "_9": [
+       0.0,
+       20.0
+      ],
+      "_10": [
+       -3.473,
+       19.6962
+      ],
+      "_11": [
+       -6.8404,
+       18.7939
+      ],
+      "_12": [
+       -10.0,
+       17.3205
+      ],
+      "_13": [
+       -12.8558,
+       15.3209
+      ],
+      "_14": [
+       -15.3209,
+       12.8558
+      ],
+      "_15": [
+       -17.3205,
+       10.0
+      ],
+      "_16": [
+       -18.7939,
+       6.8404
+      ],
+      "_17": [
+       -19.6962,
+       3.473
+      ],
+      "_18": [
+       -20.0,
+       0.0
+      ]
+     },
+     "flaeche": [
+      "Z",
+      "_0",
+      "_1",
+      "_2",
+      "_3",
+      "_4",
+      "_5",
+      "_6",
+      "_7",
+      "_8",
+      "_9",
+      "_10",
+      "_11",
+      "_12",
+      "_13",
+      "_14",
+      "_15",
+      "_16",
+      "_17",
+      "_18"
+     ],
+     "linien": [
+      [
+       "Z",
+       "_0",
+       "s = 20"
+      ],
+      [
+       "Z",
+       "_18",
+       ""
+      ],
+      [
+       "_0",
+       "_1",
+       ""
+      ],
+      [
+       "_1",
+       "_2",
+       ""
+      ],
+      [
+       "_2",
+       "_3",
+       ""
+      ],
+      [
+       "_3",
+       "_4",
+       ""
+      ],
+      [
+       "_4",
+       "_5",
+       ""
+      ],
+      [
+       "_5",
+       "_6",
+       ""
+      ],
+      [
+       "_6",
+       "_7",
+       ""
+      ],
+      [
+       "_7",
+       "_8",
+       ""
+      ],
+      [
+       "_8",
+       "_9",
+       ""
+      ],
+      [
+       "_9",
+       "_10",
+       ""
+      ],
+      [
+       "_10",
+       "_11",
+       ""
+      ],
+      [
+       "_11",
+       "_12",
+       ""
+      ],
+      [
+       "_12",
+       "_13",
+       ""
+      ],
+      [
+       "_13",
+       "_14",
+       ""
+      ],
+      [
+       "_14",
+       "_15",
+       ""
+      ],
+      [
+       "_15",
+       "_16",
+       ""
+      ],
+      [
+       "_16",
+       "_17",
+       ""
+      ],
+      [
+       "_17",
+       "_18",
+       ""
+      ]
+     ],
+     "winkel": [
+      [
+       "Z",
+       "_0",
+       "_18",
+       "φ = 180°"
+      ]
+     ],
+     "label": "Abgewickelter Kegelmantel: Kreissektor"
+    }
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "cm"
+   },
+   "c": "20 * 180 / 360",
+   "w": "r = s · φ / 360° = 20 · 180/360 = 10 cm.",
+   "h": "Sektorbogen = Grundkreisumfang: 2πr = 2πs · φ/360°."
+  },
+  {
+   "l": "kegel_mantel",
+   "t": "kegel_mantel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kegel hat den Radius 12 cm und die Höhe 9 cm. Berechne seine Oberfläche auf eine Nachkommastelle.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       9
+      ],
+      "A": [
+       -12,
+       0
+      ],
+      "B": [
+       12,
+       0
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "S"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       ""
+      ],
+      [
+       "A",
+       "S",
+       ""
+      ],
+      [
+       "B",
+       "S",
+       "s"
+      ],
+      [
+       "M",
+       "B",
+       "r = 12"
+      ],
+      [
+       "M",
+       "S",
+       "h = 9",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "M",
+       "B",
+       "S"
+      ]
+     ],
+     "label": "Achsenschnitt eines Kegels"
+    }
+   },
+   "o": {
+    "wert": 1017.9,
+    "einheit": "cm²",
+    "toleranz": 0.1
+   },
+   "c": "round(3.141592653590 * 12 ** 2 + 3.141592653590 * 12 * (12 ** 2 + 9 ** 2) / 15, 1)",
+   "w": "s = √(12² + 9²) = 15 cm; O = π · 12² + π · 12 · 15 = 324π ≈ 1 017,9 cm².",
+   "h": "Erst s mit Pythagoras, dann O = πr² + πrs."
+  },
+  {
+   "l": "kegel_mantel",
+   "t": "kegel_mantel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Aus einem Kreissektor mit Radius 15 cm und Mittelpunktswinkel 180° wird ein Kegelmantel gerollt. Welchen Radius hat der Grundkreis?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "Z": [
+       0,
+       0
+      ],
+      "_0": [
+       15.0,
+       0.0
+      ],
+      "_1": [
+       14.7721,
+       2.6047
+      ],
+      "_2": [
+       14.0954,
+       5.1303
+      ],
+      "_3": [
+       12.9904,
+       7.5
+      ],
+      "_4": [
+       11.4907,
+       9.6418
+      ],
+      "_5": [
+       9.6418,
+       11.4907
+      ],
+      "_6": [
+       7.5,
+       12.9904
+      ],
+      "_7": [
+       5.1303,
+       14.0954
+      ],
+      "_8": [
+       2.6047,
+       14.7721
+      ],
+      "_9": [
+       0.0,
+       15.0
+      ],
+      "_10": [
+       -2.6047,
+       14.7721
+      ],
+      "_11": [
+       -5.1303,
+       14.0954
+      ],
+      "_12": [
+       -7.5,
+       12.9904
+      ],
+      "_13": [
+       -9.6418,
+       11.4907
+      ],
+      "_14": [
+       -11.4907,
+       9.6418
+      ],
+      "_15": [
+       -12.9904,
+       7.5
+      ],
+      "_16": [
+       -14.0954,
+       5.1303
+      ],
+      "_17": [
+       -14.7721,
+       2.6047
+      ],
+      "_18": [
+       -15.0,
+       0.0
+      ]
+     },
+     "flaeche": [
+      "Z",
+      "_0",
+      "_1",
+      "_2",
+      "_3",
+      "_4",
+      "_5",
+      "_6",
+      "_7",
+      "_8",
+      "_9",
+      "_10",
+      "_11",
+      "_12",
+      "_13",
+      "_14",
+      "_15",
+      "_16",
+      "_17",
+      "_18"
+     ],
+     "linien": [
+      [
+       "Z",
+       "_0",
+       "s = 15"
+      ],
+      [
+       "Z",
+       "_18",
+       ""
+      ],
+      [
+       "_0",
+       "_1",
+       ""
+      ],
+      [
+       "_1",
+       "_2",
+       ""
+      ],
+      [
+       "_2",
+       "_3",
+       ""
+      ],
+      [
+       "_3",
+       "_4",
+       ""
+      ],
+      [
+       "_4",
+       "_5",
+       ""
+      ],
+      [
+       "_5",
+       "_6",
+       ""
+      ],
+      [
+       "_6",
+       "_7",
+       ""
+      ],
+      [
+       "_7",
+       "_8",
+       ""
+      ],
+      [
+       "_8",
+       "_9",
+       ""
+      ],
+      [
+       "_9",
+       "_10",
+       ""
+      ],
+      [
+       "_10",
+       "_11",
+       ""
+      ],
+      [
+       "_11",
+       "_12",
+       ""
+      ],
+      [
+       "_12",
+       "_13",
+       ""
+      ],
+      [
+       "_13",
+       "_14",
+       ""
+      ],
+      [
+       "_14",
+       "_15",
+       ""
+      ],
+      [
+       "_15",
+       "_16",
+       ""
+      ],
+      [
+       "_16",
+       "_17",
+       ""
+      ],
+      [
+       "_17",
+       "_18",
+       ""
+      ]
+     ],
+     "winkel": [
+      [
+       "Z",
+       "_0",
+       "_18",
+       "φ = 180°"
+      ]
+     ],
+     "label": "Abgewickelter Kegelmantel: Kreissektor"
+    }
+   },
+   "o": {
+    "wert": 7.5,
+    "einheit": "cm"
+   },
+   "c": "15 * 180 / 360",
+   "w": "r = s · φ / 360° = 15 · 180/360 = 7,5 cm.",
+   "h": "Sektorbogen = Grundkreisumfang: 2πr = 2πs · φ/360°."
+  },
+  {
+   "l": "kegel_mantel",
+   "t": "kegel_mantel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Aus einem Kreissektor mit Radius 15 cm und Mittelpunktswinkel 270° wird ein Kegelmantel gerollt. Welchen Radius hat der Grundkreis?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "Z": [
+       0,
+       0
+      ],
+      "_0": [
+       10.6066,
+       -10.6066
+      ],
+      "_1": [
+       12.2873,
+       -8.6036
+      ],
+      "_2": [
+       13.5946,
+       -6.3393
+      ],
+      "_3": [
+       14.4889,
+       -3.8823
+      ],
+      "_4": [
+       14.9429,
+       -1.3073
+      ],
+      "_5": [
+       14.9429,
+       1.3073
+      ],
+      "_6": [
+       14.4889,
+       3.8823
+      ],
+      "_7": [
+       13.5946,
+       6.3393
+      ],
+      "_8": [
+       12.2873,
+       8.6036
+      ],
+      "_9": [
+       10.6066,
+       10.6066
+      ],
+      "_10": [
+       8.6036,
+       12.2873
+      ],
+      "_11": [
+       6.3393,
+       13.5946
+      ],
+      "_12": [
+       3.8823,
+       14.4889
+      ],
+      "_13": [
+       1.3073,
+       14.9429
+      ],
+      "_14": [
+       -1.3073,
+       14.9429
+      ],
+      "_15": [
+       -3.8823,
+       14.4889
+      ],
+      "_16": [
+       -6.3393,
+       13.5946
+      ],
+      "_17": [
+       -8.6036,
+       12.2873
+      ],
+      "_18": [
+       -10.6066,
+       10.6066
+      ],
+      "_19": [
+       -12.2873,
+       8.6036
+      ],
+      "_20": [
+       -13.5946,
+       6.3393
+      ],
+      "_21": [
+       -14.4889,
+       3.8823
+      ],
+      "_22": [
+       -14.9429,
+       1.3073
+      ],
+      "_23": [
+       -14.9429,
+       -1.3073
+      ],
+      "_24": [
+       -14.4889,
+       -3.8823
+      ],
+      "_25": [
+       -13.5946,
+       -6.3393
+      ],
+      "_26": [
+       -12.2873,
+       -8.6036
+      ],
+      "_27": [
+       -10.6066,
+       -10.6066
+      ]
+     },
+     "flaeche": [
+      "Z",
+      "_0",
+      "_1",
+      "_2",
+      "_3",
+      "_4",
+      "_5",
+      "_6",
+      "_7",
+      "_8",
+      "_9",
+      "_10",
+      "_11",
+      "_12",
+      "_13",
+      "_14",
+      "_15",
+      "_16",
+      "_17",
+      "_18",
+      "_19",
+      "_20",
+      "_21",
+      "_22",
+      "_23",
+      "_24",
+      "_25",
+      "_26",
+      "_27"
+     ],
+     "linien": [
+      [
+       "Z",
+       "_0",
+       "s = 15"
+      ],
+      [
+       "Z",
+       "_27",
+       ""
+      ],
+      [
+       "_0",
+       "_1",
+       ""
+      ],
+      [
+       "_1",
+       "_2",
+       ""
+      ],
+      [
+       "_2",
+       "_3",
+       ""
+      ],
+      [
+       "_3",
+       "_4",
+       ""
+      ],
+      [
+       "_4",
+       "_5",
+       ""
+      ],
+      [
+       "_5",
+       "_6",
+       ""
+      ],
+      [
+       "_6",
+       "_7",
+       ""
+      ],
+      [
+       "_7",
+       "_8",
+       ""
+      ],
+      [
+       "_8",
+       "_9",
+       ""
+      ],
+      [
+       "_9",
+       "_10",
+       ""
+      ],
+      [
+       "_10",
+       "_11",
+       ""
+      ],
+      [
+       "_11",
+       "_12",
+       ""
+      ],
+      [
+       "_12",
+       "_13",
+       ""
+      ],
+      [
+       "_13",
+       "_14",
+       ""
+      ],
+      [
+       "_14",
+       "_15",
+       ""
+      ],
+      [
+       "_15",
+       "_16",
+       ""
+      ],
+      [
+       "_16",
+       "_17",
+       ""
+      ],
+      [
+       "_17",
+       "_18",
+       ""
+      ],
+      [
+       "_18",
+       "_19",
+       ""
+      ],
+      [
+       "_19",
+       "_20",
+       ""
+      ],
+      [
+       "_20",
+       "_21",
+       ""
+      ],
+      [
+       "_21",
+       "_22",
+       ""
+      ],
+      [
+       "_22",
+       "_23",
+       ""
+      ],
+      [
+       "_23",
+       "_24",
+       ""
+      ],
+      [
+       "_24",
+       "_25",
+       ""
+      ],
+      [
+       "_25",
+       "_26",
+       ""
+      ],
+      [
+       "_26",
+       "_27",
+       ""
+      ]
+     ],
+     "winkel": [
+      [
+       "Z",
+       "_0",
+       "_27",
+       "φ = 270°"
+      ]
+     ],
+     "label": "Abgewickelter Kegelmantel: Kreissektor"
+    }
+   },
+   "o": {
+    "wert": 11.25,
+    "einheit": "cm"
+   },
+   "c": "15 * 270 / 360",
+   "w": "r = s · φ / 360° = 15 · 270/360 = 11,25 cm.",
+   "h": "Sektorbogen = Grundkreisumfang: 2πr = 2πs · φ/360°."
+  },
+  {
+   "l": "kegel_mantel",
+   "t": "kegel_mantel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Aus einem Kreissektor mit Radius 17 cm und Mittelpunktswinkel 90° wird ein Kegelmantel gerollt. Welchen Radius hat der Grundkreis?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "Z": [
+       0,
+       0
+      ],
+      "_0": [
+       12.0208,
+       12.0208
+      ],
+      "_1": [
+       9.7508,
+       13.9256
+      ],
+      "_2": [
+       7.1845,
+       15.4072
+      ],
+      "_3": [
+       4.3999,
+       16.4207
+      ],
+      "_4": [
+       1.4816,
+       16.9353
+      ],
+      "_5": [
+       -1.4816,
+       16.9353
+      ],
+      "_6": [
+       -4.3999,
+       16.4207
+      ],
+      "_7": [
+       -7.1845,
+       15.4072
+      ],
+      "_8": [
+       -9.7508,
+       13.9256
+      ],
+      "_9": [
+       -12.0208,
+       12.0208
+      ]
+     },
+     "flaeche": [
+      "Z",
+      "_0",
+      "_1",
+      "_2",
+      "_3",
+      "_4",
+      "_5",
+      "_6",
+      "_7",
+      "_8",
+      "_9"
+     ],
+     "linien": [
+      [
+       "Z",
+       "_0",
+       "s = 17"
+      ],
+      [
+       "Z",
+       "_9",
+       ""
+      ],
+      [
+       "_0",
+       "_1",
+       ""
+      ],
+      [
+       "_1",
+       "_2",
+       ""
+      ],
+      [
+       "_2",
+       "_3",
+       ""
+      ],
+      [
+       "_3",
+       "_4",
+       ""
+      ],
+      [
+       "_4",
+       "_5",
+       ""
+      ],
+      [
+       "_5",
+       "_6",
+       ""
+      ],
+      [
+       "_6",
+       "_7",
+       ""
+      ],
+      [
+       "_7",
+       "_8",
+       ""
+      ],
+      [
+       "_8",
+       "_9",
+       ""
+      ]
+     ],
+     "winkel": [
+      [
+       "Z",
+       "_0",
+       "_9",
+       "φ = 90°"
+      ]
+     ],
+     "label": "Abgewickelter Kegelmantel: Kreissektor"
+    }
+   },
+   "o": {
+    "wert": 4.25,
+    "einheit": "cm"
+   },
+   "c": "17 * 90 / 360",
+   "w": "r = s · φ / 360° = 17 · 90/360 = 4,25 cm.",
+   "h": "Sektorbogen = Grundkreisumfang: 2πr = 2πs · φ/360°."
+  },
+  {
+   "l": "kegel_mantel",
+   "t": "kegel_mantel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Aus einem Kreissektor mit Radius 5 cm und Mittelpunktswinkel 270° wird ein Kegelmantel gerollt. Welchen Radius hat der Grundkreis?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "Z": [
+       0,
+       0
+      ],
+      "_0": [
+       3.5355,
+       -3.5355
+      ],
+      "_1": [
+       4.0958,
+       -2.8679
+      ],
+      "_2": [
+       4.5315,
+       -2.1131
+      ],
+      "_3": [
+       4.8296,
+       -1.2941
+      ],
+      "_4": [
+       4.981,
+       -0.4358
+      ],
+      "_5": [
+       4.981,
+       0.4358
+      ],
+      "_6": [
+       4.8296,
+       1.2941
+      ],
+      "_7": [
+       4.5315,
+       2.1131
+      ],
+      "_8": [
+       4.0958,
+       2.8679
+      ],
+      "_9": [
+       3.5355,
+       3.5355
+      ],
+      "_10": [
+       2.8679,
+       4.0958
+      ],
+      "_11": [
+       2.1131,
+       4.5315
+      ],
+      "_12": [
+       1.2941,
+       4.8296
+      ],
+      "_13": [
+       0.4358,
+       4.981
+      ],
+      "_14": [
+       -0.4358,
+       4.981
+      ],
+      "_15": [
+       -1.2941,
+       4.8296
+      ],
+      "_16": [
+       -2.1131,
+       4.5315
+      ],
+      "_17": [
+       -2.8679,
+       4.0958
+      ],
+      "_18": [
+       -3.5355,
+       3.5355
+      ],
+      "_19": [
+       -4.0958,
+       2.8679
+      ],
+      "_20": [
+       -4.5315,
+       2.1131
+      ],
+      "_21": [
+       -4.8296,
+       1.2941
+      ],
+      "_22": [
+       -4.981,
+       0.4358
+      ],
+      "_23": [
+       -4.981,
+       -0.4358
+      ],
+      "_24": [
+       -4.8296,
+       -1.2941
+      ],
+      "_25": [
+       -4.5315,
+       -2.1131
+      ],
+      "_26": [
+       -4.0958,
+       -2.8679
+      ],
+      "_27": [
+       -3.5355,
+       -3.5355
+      ]
+     },
+     "flaeche": [
+      "Z",
+      "_0",
+      "_1",
+      "_2",
+      "_3",
+      "_4",
+      "_5",
+      "_6",
+      "_7",
+      "_8",
+      "_9",
+      "_10",
+      "_11",
+      "_12",
+      "_13",
+      "_14",
+      "_15",
+      "_16",
+      "_17",
+      "_18",
+      "_19",
+      "_20",
+      "_21",
+      "_22",
+      "_23",
+      "_24",
+      "_25",
+      "_26",
+      "_27"
+     ],
+     "linien": [
+      [
+       "Z",
+       "_0",
+       "s = 5"
+      ],
+      [
+       "Z",
+       "_27",
+       ""
+      ],
+      [
+       "_0",
+       "_1",
+       ""
+      ],
+      [
+       "_1",
+       "_2",
+       ""
+      ],
+      [
+       "_2",
+       "_3",
+       ""
+      ],
+      [
+       "_3",
+       "_4",
+       ""
+      ],
+      [
+       "_4",
+       "_5",
+       ""
+      ],
+      [
+       "_5",
+       "_6",
+       ""
+      ],
+      [
+       "_6",
+       "_7",
+       ""
+      ],
+      [
+       "_7",
+       "_8",
+       ""
+      ],
+      [
+       "_8",
+       "_9",
+       ""
+      ],
+      [
+       "_9",
+       "_10",
+       ""
+      ],
+      [
+       "_10",
+       "_11",
+       ""
+      ],
+      [
+       "_11",
+       "_12",
+       ""
+      ],
+      [
+       "_12",
+       "_13",
+       ""
+      ],
+      [
+       "_13",
+       "_14",
+       ""
+      ],
+      [
+       "_14",
+       "_15",
+       ""
+      ],
+      [
+       "_15",
+       "_16",
+       ""
+      ],
+      [
+       "_16",
+       "_17",
+       ""
+      ],
+      [
+       "_17",
+       "_18",
+       ""
+      ],
+      [
+       "_18",
+       "_19",
+       ""
+      ],
+      [
+       "_19",
+       "_20",
+       ""
+      ],
+      [
+       "_20",
+       "_21",
+       ""
+      ],
+      [
+       "_21",
+       "_22",
+       ""
+      ],
+      [
+       "_22",
+       "_23",
+       ""
+      ],
+      [
+       "_23",
+       "_24",
+       ""
+      ],
+      [
+       "_24",
+       "_25",
+       ""
+      ],
+      [
+       "_25",
+       "_26",
+       ""
+      ],
+      [
+       "_26",
+       "_27",
+       ""
+      ]
+     ],
+     "winkel": [
+      [
+       "Z",
+       "_0",
+       "_27",
+       "φ = 270°"
+      ]
+     ],
+     "label": "Abgewickelter Kegelmantel: Kreissektor"
+    }
+   },
+   "o": {
+    "wert": 3.75,
+    "einheit": "cm"
+   },
+   "c": "5 * 270 / 360",
+   "w": "r = s · φ / 360° = 5 · 270/360 = 3,75 cm.",
+   "h": "Sektorbogen = Grundkreisumfang: 2πr = 2πs · φ/360°."
+  },
+  {
+   "l": "kegel_mantel",
+   "t": "kegel_mantel",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kegel hat den Radius 24 cm und die Mantellinie 30 cm. Berechne die Mantelfläche auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 2261.9,
+    "einheit": "cm²",
+    "toleranz": 0.1
+   },
+   "c": "round(3.141592653590 * 24 * 30, 1)",
+   "w": "M = π · r · s = π · 24 · 30 = 720π ≈ 2 261,9 cm²."
+  },
+  {
+   "l": "kegel_mantel",
+   "t": "kegel_mantel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kegel hat den Radius 9 cm und die Mantellinie 15 cm. Berechne die Mantelfläche auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 424.1,
+    "einheit": "cm²",
+    "toleranz": 0.1
+   },
+   "c": "round(3.141592653590 * 9 * 15, 1)",
+   "w": "M = π · r · s = π · 9 · 15 = 135π ≈ 424,1 cm²."
+  },
+  {
+   "l": "kegel_mantel",
+   "t": "kegel_mantel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kegel hat den Radius 20 cm und die Mantellinie 25 cm. Berechne die Mantelfläche auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 1570.8,
+    "einheit": "cm²",
+    "toleranz": 0.1
+   },
+   "c": "round(3.141592653590 * 20 * 25, 1)",
+   "w": "M = π · r · s = π · 20 · 25 = 500π ≈ 1 570,8 cm²."
+  },
+  {
+   "l": "kegel_mantel",
+   "t": "kegel_mantel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kegel hat den Radius 4 cm und die Mantellinie 5 cm. Berechne die Mantelfläche auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 62.8,
+    "einheit": "cm²",
+    "toleranz": 0.1
+   },
+   "c": "round(3.141592653590 * 4 * 5, 1)",
+   "w": "M = π · r · s = π · 4 · 5 = 20π ≈ 62,8 cm²."
+  },
+  {
+   "l": "kegel_mantel",
+   "t": "kegel_mantel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kegel hat den Radius 15 cm und die Mantellinie 25 cm. Berechne die Mantelfläche auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 1178.1,
+    "einheit": "cm²",
+    "toleranz": 0.1
+   },
+   "c": "round(3.141592653590 * 15 * 25, 1)",
+   "w": "M = π · r · s = π · 15 · 25 = 375π ≈ 1 178,1 cm²."
+  },
+  {
+   "l": "kegel_mantel",
+   "t": "kegel_mantel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kegel hat den Radius 3 cm und die Mantellinie 5 cm. Berechne die Mantelfläche auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 47.1,
+    "einheit": "cm²",
+    "toleranz": 0.1
+   },
+   "c": "round(3.141592653590 * 3 * 5, 1)",
+   "w": "M = π · r · s = π · 3 · 5 = 15π ≈ 47,1 cm²."
+  },
+  {
+   "l": "kegel_mantel",
+   "t": "kegel_mantel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kegel hat den Radius 12 cm und die Mantellinie 13 cm. Berechne die Mantelfläche auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 490.1,
+    "einheit": "cm²",
+    "toleranz": 0.1
+   },
+   "c": "round(3.141592653590 * 12 * 13, 1)",
+   "w": "M = π · r · s = π · 12 · 13 = 156π ≈ 490,1 cm²."
+  },
+  {
+   "l": "kegel_mantel",
+   "t": "kegel_mantel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kegel hat den Radius 20 cm und die Mantellinie 29 cm. Berechne die Mantelfläche auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 1822.1,
+    "einheit": "cm²",
+    "toleranz": 0.1
+   },
+   "c": "round(3.141592653590 * 20 * 29, 1)",
+   "w": "M = π · r · s = π · 20 · 29 = 580π ≈ 1 822,1 cm²."
+  },
+  {
+   "l": "kegel_mantel",
+   "t": "kegel_mantel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kegel hat den Radius 5 cm und die Mantellinie 13 cm. Berechne die Mantelfläche auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 204.2,
+    "einheit": "cm²",
+    "toleranz": 0.1
+   },
+   "c": "round(3.141592653590 * 5 * 13, 1)",
+   "w": "M = π · r · s = π · 5 · 13 = 65π ≈ 204,2 cm²."
+  },
+  {
+   "l": "kegel_mantel",
+   "t": "kegel_mantel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kegel hat den Radius 16 cm und die Mantellinie 20 cm. Berechne die Mantelfläche auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 1005.3,
+    "einheit": "cm²",
+    "toleranz": 0.1
+   },
+   "c": "round(3.141592653590 * 16 * 20, 1)",
+   "w": "M = π · r · s = π · 16 · 20 = 320π ≈ 1 005,3 cm²."
+  },
+  {
+   "l": "kugel",
+   "t": "kugel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Oberfläche einer Kugel mit dem Radius 4 cm auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 201.1,
+    "einheit": "cm²",
+    "toleranz": 0.1
+   },
+   "c": "round(4 * 3.141592653590 * 4 ** 2, 1)",
+   "w": "O = 4 · π · 4² ≈ 201,1 cm².",
+   "h": "O = 4 · π · r²."
+  },
+  {
+   "l": "kugel",
+   "t": "kugel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne das Volumen einer Kugel mit dem Radius 9 cm auf eine Nachkommastelle.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "_P": [
+       9.0,
+       0
+      ],
+      "_O": [
+       0,
+       9.0
+      ],
+      "_U": [
+       0,
+       -9.0
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 9.0
+      }
+     ],
+     "linien": [
+      [
+       "M",
+       "_P",
+       "r = 9"
+      ],
+      [
+       "_O",
+       "_U",
+       "",
+       "gestrichelt"
+      ]
+     ],
+     "label": "Kugel mit Mittelpunkt M und Radius r"
+    }
+   },
+   "o": {
+    "wert": 3053.6,
+    "einheit": "cm³",
+    "toleranz": 0.1
+   },
+   "c": "round(4 * 3.141592653590 * 9 ** 3 / 3, 1)",
+   "w": "V = ⁴⁄₃ · π · 9³ ≈ 3 053,6 cm³.",
+   "h": "V = ⁴⁄₃ · π · r³."
+  },
+  {
+   "l": "kugel",
+   "t": "kugel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Oberfläche einer Kugel mit dem Radius 1 cm auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 12.6,
+    "einheit": "cm²",
+    "toleranz": 0.1
+   },
+   "c": "round(4 * 3.141592653590 * 1 ** 2, 1)",
+   "w": "O = 4 · π · 1² ≈ 12,6 cm².",
+   "h": "O = 4 · π · r²."
+  },
+  {
+   "l": "kugel",
+   "t": "kugel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Oberfläche einer Kugel mit dem Radius 11 cm auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 1520.5,
+    "einheit": "cm²",
+    "toleranz": 0.1
+   },
+   "c": "round(4 * 3.141592653590 * 11 ** 2, 1)",
+   "w": "O = 4 · π · 11² ≈ 1 520,5 cm².",
+   "h": "O = 4 · π · r²."
+  },
+  {
+   "l": "kugel",
+   "t": "kugel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne das Volumen einer Kugel mit dem Radius 8 cm auf eine Nachkommastelle.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "_P": [
+       8.0,
+       0
+      ],
+      "_O": [
+       0,
+       8.0
+      ],
+      "_U": [
+       0,
+       -8.0
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 8.0
+      }
+     ],
+     "linien": [
+      [
+       "M",
+       "_P",
+       "r = 8"
+      ],
+      [
+       "_O",
+       "_U",
+       "",
+       "gestrichelt"
+      ]
+     ],
+     "label": "Kugel mit Mittelpunkt M und Radius r"
+    }
+   },
+   "o": {
+    "wert": 2144.7,
+    "einheit": "cm³",
+    "toleranz": 0.1
+   },
+   "c": "round(4 * 3.141592653590 * 8 ** 3 / 3, 1)",
+   "w": "V = ⁴⁄₃ · π · 8³ ≈ 2 144,7 cm³.",
+   "h": "V = ⁴⁄₃ · π · r³."
+  },
+  {
+   "l": "kugel",
+   "t": "kugel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne das Volumen einer Kugel mit dem Radius 4 cm auf eine Nachkommastelle.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "_P": [
+       4.0,
+       0
+      ],
+      "_O": [
+       0,
+       4.0
+      ],
+      "_U": [
+       0,
+       -4.0
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 4.0
+      }
+     ],
+     "linien": [
+      [
+       "M",
+       "_P",
+       "r = 4"
+      ],
+      [
+       "_O",
+       "_U",
+       "",
+       "gestrichelt"
+      ]
+     ],
+     "label": "Kugel mit Mittelpunkt M und Radius r"
+    }
+   },
+   "o": {
+    "wert": 268.1,
+    "einheit": "cm³",
+    "toleranz": 0.1
+   },
+   "c": "round(4 * 3.141592653590 * 4 ** 3 / 3, 1)",
+   "w": "V = ⁴⁄₃ · π · 4³ ≈ 268,1 cm³.",
+   "h": "V = ⁴⁄₃ · π · r³."
+  },
+  {
+   "l": "kugel",
+   "t": "kugel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kugel hat 47 cm Durchmesser. Berechne das Volumen auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 54361.6,
+    "einheit": "cm³",
+    "toleranz": 0.1
+   },
+   "c": "round(4 * 3.141592653590 * 23.5 ** 3 / 3, 1)",
+   "w": "r = 23,5 cm; V = ⁴⁄₃ · π · 23,5³ ≈ 54 361,6 cm³.",
+   "h": "Erst den Radius bestimmen (halber Durchmesser)."
+  },
+  {
+   "l": "kugel",
+   "t": "kugel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Wasserball hat etwa 40 cm Durchmesser. Berechne die Oberfläche auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 5026.5,
+    "einheit": "cm²",
+    "toleranz": 0.1
+   },
+   "c": "round(4 * 3.141592653590 * 20 ** 2, 1)",
+   "w": "r = 20 cm; O = 4 · π · 20² ≈ 5 026,5 cm².",
+   "h": "Erst den Radius bestimmen (halber Durchmesser)."
+  },
+  {
+   "l": "kugel",
+   "t": "kugel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kugel hat 13 cm Durchmesser. Berechne die Oberfläche auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 530.9,
+    "einheit": "cm²",
+    "toleranz": 0.1
+   },
+   "c": "round(4 * 3.141592653590 * 6.5 ** 2, 1)",
+   "w": "r = 6,5 cm; O = 4 · π · 6,5² ≈ 530,9 cm².",
+   "h": "Erst den Radius bestimmen (halber Durchmesser)."
+  },
+  {
+   "l": "kugel",
+   "t": "kugel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kugel hat 52 cm Durchmesser. Berechne die Oberfläche auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 8494.9,
+    "einheit": "cm²",
+    "toleranz": 0.1
+   },
+   "c": "round(4 * 3.141592653590 * 26 ** 2, 1)",
+   "w": "r = 26 cm; O = 4 · π · 26² ≈ 8 494,9 cm².",
+   "h": "Erst den Radius bestimmen (halber Durchmesser)."
+  },
+  {
+   "l": "kugel",
+   "t": "kugel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kugel hat 43 cm Durchmesser. Berechne das Volumen auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 41629.8,
+    "einheit": "cm³",
+    "toleranz": 0.1
+   },
+   "c": "round(4 * 3.141592653590 * 21.5 ** 3 / 3, 1)",
+   "w": "r = 21,5 cm; V = ⁴⁄₃ · π · 21,5³ ≈ 41 629,8 cm³.",
+   "h": "Erst den Radius bestimmen (halber Durchmesser)."
+  },
+  {
+   "l": "kugel",
+   "t": "kugel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Basketball hat etwa 24 cm Durchmesser. Berechne das Volumen auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 7238.2,
+    "einheit": "cm³",
+    "toleranz": 0.1
+   },
+   "c": "round(4 * 3.141592653590 * 12 ** 3 / 3, 1)",
+   "w": "r = 12 cm; V = ⁴⁄₃ · π · 12³ ≈ 7 238,2 cm³.",
+   "h": "Erst den Radius bestimmen (halber Durchmesser)."
+  },
+  {
+   "l": "kugel",
+   "t": "kugel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kugel hat das Volumen 1 197 cm³. Berechne ihren Radius auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 6.59,
+    "einheit": "cm",
+    "toleranz": 0.01
+   },
+   "c": "round(6.586709559843, 2)",
+   "w": "r³ = 3V : (4π) = 3 591 : (4π) ⇒ r = ∛(…) ≈ 6,59 cm.",
+   "h": "Stelle V = ⁴⁄₃πr³ nach r³ um und ziehe die dritte Wurzel."
+  },
+  {
+   "l": "kugel",
+   "t": "kugel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kugel hat die Oberfläche 2 679 cm². Berechne ihren Radius auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 14.6,
+    "einheit": "cm",
+    "toleranz": 0.01
+   },
+   "c": "round(14.600960457162, 2)",
+   "w": "r² = O : (4π) = 2 679 : (4π) ⇒ r ≈ 14,6 cm.",
+   "h": "Stelle O = 4πr² nach r um."
+  },
+  {
+   "l": "kugel",
+   "t": "kugel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kugel hat das Volumen 4 521 cm³. Berechne ihren Radius auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 10.26,
+    "einheit": "cm",
+    "toleranz": 0.01
+   },
+   "c": "round(10.257667858491, 2)",
+   "w": "r³ = 3V : (4π) = 13 563 : (4π) ⇒ r = ∛(…) ≈ 10,26 cm.",
+   "h": "Stelle V = ⁴⁄₃πr³ nach r³ um und ziehe die dritte Wurzel."
+  },
+  {
+   "l": "kugel",
+   "t": "kugel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kugel hat das Volumen 4 623 cm³. Berechne ihren Radius auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 10.33,
+    "einheit": "cm",
+    "toleranz": 0.01
+   },
+   "c": "round(10.334237257902, 2)",
+   "w": "r³ = 3V : (4π) = 13 869 : (4π) ⇒ r = ∛(…) ≈ 10,33 cm.",
+   "h": "Stelle V = ⁴⁄₃πr³ nach r³ um und ziehe die dritte Wurzel."
+  },
+  {
+   "l": "kugel",
+   "t": "kugel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kugel hat das Volumen 3 933 cm³. Berechne ihren Radius auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 9.79,
+    "einheit": "cm",
+    "toleranz": 0.01
+   },
+   "c": "round(9.792158751870, 2)",
+   "w": "r³ = 3V : (4π) = 11 799 : (4π) ⇒ r = ∛(…) ≈ 9,79 cm.",
+   "h": "Stelle V = ⁴⁄₃πr³ nach r³ um und ziehe die dritte Wurzel."
+  },
+  {
+   "l": "kugel",
+   "t": "kugel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kugel hat die Oberfläche 231 cm². Berechne ihren Radius auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 4.29,
+    "einheit": "cm",
+    "toleranz": 0.01
+   },
+   "c": "round(4.287469641538, 2)",
+   "w": "r² = O : (4π) = 231 : (4π) ⇒ r ≈ 4,29 cm.",
+   "h": "Stelle O = 4πr² nach r um."
+  },
+  {
+   "l": "kugel",
+   "t": "kugel",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Tennisball hat etwa 6,7 cm Durchmesser. Berechne das Volumen auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 157.5,
+    "einheit": "cm³",
+    "toleranz": 0.1
+   },
+   "c": "round(4 * 3.141592653590 * 3.35 ** 3 / 3, 1)",
+   "w": "r = 3,35 cm; V = ⁴⁄₃ · π · 3,35³ ≈ 157,5 cm³."
+  },
+  {
+   "l": "kugel",
+   "t": "kugel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kugel hat 5 cm Durchmesser. Berechne die Oberfläche auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 78.5,
+    "einheit": "cm²",
+    "toleranz": 0.1
+   },
+   "c": "round(4 * 3.141592653590 * 2.5 ** 2, 1)",
+   "w": "r = 2,5 cm; O = 4 · π · 2,5² ≈ 78,5 cm²."
+  },
+  {
+   "l": "kugel",
+   "t": "kugel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kugel hat 16 cm Durchmesser. Berechne die Oberfläche auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 804.2,
+    "einheit": "cm²",
+    "toleranz": 0.1
+   },
+   "c": "round(4 * 3.141592653590 * 8 ** 2, 1)",
+   "w": "r = 8 cm; O = 4 · π · 8² ≈ 804,2 cm²."
+  },
+  {
+   "l": "kugel",
+   "t": "kugel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kugel hat 46 cm Durchmesser. Berechne das Volumen auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 50965,
+    "einheit": "cm³",
+    "toleranz": 0.1
+   },
+   "c": "round(4 * 3.141592653590 * 23 ** 3 / 3, 1)",
+   "w": "r = 23 cm; V = ⁴⁄₃ · π · 23³ ≈ 50 965 cm³."
+  },
+  {
+   "l": "kugel",
+   "t": "kugel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kugel hat 56 cm Durchmesser. Berechne die Oberfläche auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 9852,
+    "einheit": "cm²",
+    "toleranz": 0.1
+   },
+   "c": "round(4 * 3.141592653590 * 28 ** 2, 1)",
+   "w": "r = 28 cm; O = 4 · π · 28² ≈ 9 852 cm²."
+  },
+  {
+   "l": "kugel",
+   "t": "kugel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kugel hat 45 cm Durchmesser. Berechne das Volumen auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 47712.9,
+    "einheit": "cm³",
+    "toleranz": 0.1
+   },
+   "c": "round(4 * 3.141592653590 * 22.5 ** 3 / 3, 1)",
+   "w": "r = 22,5 cm; V = ⁴⁄₃ · π · 22,5³ ≈ 47 712,9 cm³."
+  },
+  {
+   "l": "kugel",
+   "t": "kugel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kugel hat 34 cm Durchmesser. Berechne das Volumen auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 20579.5,
+    "einheit": "cm³",
+    "toleranz": 0.1
+   },
+   "c": "round(4 * 3.141592653590 * 17 ** 3 / 3, 1)",
+   "w": "r = 17 cm; V = ⁴⁄₃ · π · 17³ ≈ 20 579,5 cm³."
+  },
+  {
+   "l": "kugel",
+   "t": "kugel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kugel hat 59 cm Durchmesser. Berechne die Oberfläche auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 10935.9,
+    "einheit": "cm²",
+    "toleranz": 0.1
+   },
+   "c": "round(4 * 3.141592653590 * 29.5 ** 2, 1)",
+   "w": "r = 29,5 cm; O = 4 · π · 29,5² ≈ 10 935,9 cm²."
+  },
+  {
+   "l": "kugel",
+   "t": "kugel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Basketball hat etwa 24 cm Durchmesser. Berechne die Oberfläche auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 1809.6,
+    "einheit": "cm²",
+    "toleranz": 0.1
+   },
+   "c": "round(4 * 3.141592653590 * 12 ** 2, 1)",
+   "w": "r = 12 cm; O = 4 · π · 12² ≈ 1 809,6 cm²."
+  },
+  {
+   "l": "kugel",
+   "t": "kugel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Fußball hat etwa 22 cm Durchmesser. Berechne die Oberfläche auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 1520.5,
+    "einheit": "cm²",
+    "toleranz": 0.1
+   },
+   "c": "round(4 * 3.141592653590 * 11 ** 2, 1)",
+   "w": "r = 11 cm; O = 4 · π · 11² ≈ 1 520,5 cm²."
+  },
+  {
+   "l": "sachkontext",
+   "t": "sachkontext",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein kegelförmiger Sandhaufen hat unten 10 m Durchmesser und ist 3,5 m hoch. Wie viel m³ Sand sind es (zwei Nachkommastellen)?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       3.5
+      ],
+      "A": [
+       -5.0,
+       0
+      ],
+      "B": [
+       5.0,
+       0
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "S"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       ""
+      ],
+      [
+       "A",
+       "S",
+       ""
+      ],
+      [
+       "B",
+       "S",
+       ""
+      ],
+      [
+       "M",
+       "B",
+       "r = 5 m"
+      ],
+      [
+       "M",
+       "S",
+       "h = 3,5 m",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "M",
+       "B",
+       "S"
+      ]
+     ],
+     "label": "Achsenschnitt eines Kegels"
+    }
+   },
+   "o": {
+    "wert": 91.63,
+    "einheit": "m³",
+    "toleranz": 0.01
+   },
+   "c": "round(5 ** 2 * 3.5 * 3.141592653590 / 3, 2)",
+   "w": "r = 5 m; V = ⅓ · π · 5² · 3,5 ≈ 91,63 m³.",
+   "h": "Kegelvolumen; Radius ist der halbe Durchmesser."
+  },
+  {
+   "l": "sachkontext",
+   "t": "sachkontext",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein kegelförmiger Sandhaufen hat unten 8,5 m Durchmesser und ist 2,5 m hoch. Wie viel m³ Sand sind es (zwei Nachkommastellen)?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       2.5
+      ],
+      "A": [
+       -4.25,
+       0
+      ],
+      "B": [
+       4.25,
+       0
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "S"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       ""
+      ],
+      [
+       "A",
+       "S",
+       ""
+      ],
+      [
+       "B",
+       "S",
+       ""
+      ],
+      [
+       "M",
+       "B",
+       "r = 4,25 m"
+      ],
+      [
+       "M",
+       "S",
+       "h = 2,5 m",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "M",
+       "B",
+       "S"
+      ]
+     ],
+     "label": "Achsenschnitt eines Kegels"
+    }
+   },
+   "o": {
+    "wert": 47.29,
+    "einheit": "m³",
+    "toleranz": 0.01
+   },
+   "c": "round(4.25 ** 2 * 2.5 * 3.141592653590 / 3, 2)",
+   "w": "r = 4,25 m; V = ⅓ · π · 4,25² · 2,5 ≈ 47,29 m³.",
+   "h": "Kegelvolumen; Radius ist der halbe Durchmesser."
+  },
+  {
+   "l": "sachkontext",
+   "t": "sachkontext",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein kegelförmiger Sandhaufen hat unten 9 m Durchmesser und ist 2 m hoch. Wie viel m³ Sand sind es (zwei Nachkommastellen)?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       2.0
+      ],
+      "A": [
+       -4.5,
+       0
+      ],
+      "B": [
+       4.5,
+       0
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "S"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       ""
+      ],
+      [
+       "A",
+       "S",
+       ""
+      ],
+      [
+       "B",
+       "S",
+       ""
+      ],
+      [
+       "M",
+       "B",
+       "r = 4,5 m"
+      ],
+      [
+       "M",
+       "S",
+       "h = 2 m",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "M",
+       "B",
+       "S"
+      ]
+     ],
+     "label": "Achsenschnitt eines Kegels"
+    }
+   },
+   "o": {
+    "wert": 42.41,
+    "einheit": "m³",
+    "toleranz": 0.01
+   },
+   "c": "round(4.5 ** 2 * 2 * 3.141592653590 / 3, 2)",
+   "w": "r = 4,5 m; V = ⅓ · π · 4,5² · 2 ≈ 42,41 m³.",
+   "h": "Kegelvolumen; Radius ist der halbe Durchmesser."
+  },
+  {
+   "l": "sachkontext",
+   "t": "sachkontext",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein kegelförmiger Sandhaufen hat unten 5 m Durchmesser und ist 1 m hoch. Wie viel m³ Sand sind es (zwei Nachkommastellen)?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       1.0
+      ],
+      "A": [
+       -2.5,
+       0
+      ],
+      "B": [
+       2.5,
+       0
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "S"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       ""
+      ],
+      [
+       "A",
+       "S",
+       ""
+      ],
+      [
+       "B",
+       "S",
+       ""
+      ],
+      [
+       "M",
+       "B",
+       "r = 2,5 m"
+      ],
+      [
+       "M",
+       "S",
+       "h = 1 m",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "M",
+       "B",
+       "S"
+      ]
+     ],
+     "label": "Achsenschnitt eines Kegels"
+    }
+   },
+   "o": {
+    "wert": 6.54,
+    "einheit": "m³",
+    "toleranz": 0.01
+   },
+   "c": "round(2.5 ** 2 * 1 * 3.141592653590 / 3, 2)",
+   "w": "r = 2,5 m; V = ⅓ · π · 2,5² · 1 ≈ 6,54 m³.",
+   "h": "Kegelvolumen; Radius ist der halbe Durchmesser."
+  },
+  {
+   "l": "sachkontext",
+   "t": "sachkontext",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein kegelförmiger Sandhaufen hat unten 3,5 m Durchmesser und ist 1 m hoch. Wie viel m³ Sand sind es (zwei Nachkommastellen)?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       1.0
+      ],
+      "A": [
+       -1.75,
+       0
+      ],
+      "B": [
+       1.75,
+       0
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "S"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       ""
+      ],
+      [
+       "A",
+       "S",
+       ""
+      ],
+      [
+       "B",
+       "S",
+       ""
+      ],
+      [
+       "M",
+       "B",
+       "r = 1,75 m"
+      ],
+      [
+       "M",
+       "S",
+       "h = 1 m",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "M",
+       "B",
+       "S"
+      ]
+     ],
+     "label": "Achsenschnitt eines Kegels"
+    }
+   },
+   "o": {
+    "wert": 3.21,
+    "einheit": "m³",
+    "toleranz": 0.01
+   },
+   "c": "round(1.75 ** 2 * 1 * 3.141592653590 / 3, 2)",
+   "w": "r = 1,75 m; V = ⅓ · π · 1,75² · 1 ≈ 3,21 m³.",
+   "h": "Kegelvolumen; Radius ist der halbe Durchmesser."
+  },
+  {
+   "l": "sachkontext",
+   "t": "sachkontext",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein kegelförmiger Sandhaufen hat unten 2,5 m Durchmesser und ist 0,5 m hoch. Wie viel m³ Sand sind es (zwei Nachkommastellen)?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       0.5
+      ],
+      "A": [
+       -1.25,
+       0
+      ],
+      "B": [
+       1.25,
+       0
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "S"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       ""
+      ],
+      [
+       "A",
+       "S",
+       ""
+      ],
+      [
+       "B",
+       "S",
+       ""
+      ],
+      [
+       "M",
+       "B",
+       "r = 1,25 m"
+      ],
+      [
+       "M",
+       "S",
+       "h = 0,5 m",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "M",
+       "B",
+       "S"
+      ]
+     ],
+     "label": "Achsenschnitt eines Kegels"
+    }
+   },
+   "o": {
+    "wert": 0.82,
+    "einheit": "m³",
+    "toleranz": 0.01
+   },
+   "c": "round(1.25 ** 2 * 0.5 * 3.141592653590 / 3, 2)",
+   "w": "r = 1,25 m; V = ⅓ · π · 1,25² · 0,5 ≈ 0,82 m³.",
+   "h": "Kegelvolumen; Radius ist der halbe Durchmesser."
+  },
+  {
+   "l": "sachkontext",
+   "t": "sachkontext",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Turm besteht aus einem Zylinder (r = 6 m, h = 12 m) mit einem kegelförmigen Dach (gleicher Radius, Dachhöhe 3 m). Berechne das umbaute Volumen auf ganze m³."
+   },
+   "o": {
+    "wert": 1470,
+    "einheit": "m³",
+    "toleranz": 1
+   },
+   "c": "round(3.141592653590 * 6 ** 2 * 12 + 3.141592653590 * 6 ** 2 * 3 / 3, 0)",
+   "w": "V = π · 6² · 12 + ⅓ · π · 6² · 3 ≈ 1 470 m³.",
+   "h": "Zylinder plus Kegel."
+  },
+  {
+   "l": "sachkontext",
+   "t": "sachkontext",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Eistüte ist ein Kegel (r = 2,5 cm, h = 10 cm), oben ist eine Halbkugel Eis mit gleichem Radius. Berechne das Gesamtvolumen (eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 98.2,
+    "einheit": "cm³",
+    "toleranz": 0.1
+   },
+   "c": "round(3.141592653590 * 2.5 ** 2 * 10 / 3 + 2 * 3.141592653590 * 2.5 ** 3 / 3, 1)",
+   "w": "V = ⅓π · 2,5² · 10 + ⅔π · 2,5³ ≈ 98,2 cm³.",
+   "h": "Kegel plus halbe Kugel."
+  },
+  {
+   "l": "sachkontext",
+   "t": "sachkontext",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Turm besteht aus einem Zylinder (r = 4 m, h = 20 m) mit einem kegelförmigen Dach (gleicher Radius, Dachhöhe 6 m). Berechne das umbaute Volumen auf ganze m³."
+   },
+   "o": {
+    "wert": 1106,
+    "einheit": "m³",
+    "toleranz": 1
+   },
+   "c": "round(3.141592653590 * 4 ** 2 * 20 + 3.141592653590 * 4 ** 2 * 6 / 3, 0)",
+   "w": "V = π · 4² · 20 + ⅓ · π · 4² · 6 ≈ 1 106 m³.",
+   "h": "Zylinder plus Kegel."
+  },
+  {
+   "l": "sachkontext",
+   "t": "sachkontext",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Eistüte ist ein Kegel (r = 2,5 cm, h = 12 cm), oben ist eine Halbkugel Eis mit gleichem Radius. Berechne das Gesamtvolumen (eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 111.3,
+    "einheit": "cm³",
+    "toleranz": 0.1
+   },
+   "c": "round(3.141592653590 * 2.5 ** 2 * 12 / 3 + 2 * 3.141592653590 * 2.5 ** 3 / 3, 1)",
+   "w": "V = ⅓π · 2,5² · 12 + ⅔π · 2,5³ ≈ 111,3 cm³.",
+   "h": "Kegel plus halbe Kugel."
+  },
+  {
+   "l": "sachkontext",
+   "t": "sachkontext",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Eistüte ist ein Kegel (r = 3,5 cm, h = 8 cm), oben ist eine Halbkugel Eis mit gleichem Radius. Berechne das Gesamtvolumen (eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 192.4,
+    "einheit": "cm³",
+    "toleranz": 0.1
+   },
+   "c": "round(3.141592653590 * 3.5 ** 2 * 8 / 3 + 2 * 3.141592653590 * 3.5 ** 3 / 3, 1)",
+   "w": "V = ⅓π · 3,5² · 8 + ⅔π · 3,5³ ≈ 192,4 cm³.",
+   "h": "Kegel plus halbe Kugel."
+  },
+  {
+   "l": "sachkontext",
+   "t": "sachkontext",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Turm besteht aus einem Zylinder (r = 3 m, h = 15 m) mit einem kegelförmigen Dach (gleicher Radius, Dachhöhe 6 m). Berechne das umbaute Volumen auf ganze m³."
+   },
+   "o": {
+    "wert": 481,
+    "einheit": "m³",
+    "toleranz": 1
+   },
+   "c": "round(3.141592653590 * 3 ** 2 * 15 + 3.141592653590 * 3 ** 2 * 6 / 3, 0)",
+   "w": "V = π · 3² · 15 + ⅓ · π · 3² · 6 ≈ 481 m³.",
+   "h": "Zylinder plus Kegel."
+  },
+  {
+   "l": "sachkontext",
+   "t": "sachkontext",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kegel hat den Radius 5 cm und die Höhe 17 cm. Wie groß ist sein Öffnungswinkel (Winkel an der Spitze im Achsenschnitt, eine Nachkommastelle)?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       17
+      ],
+      "A": [
+       -5,
+       0
+      ],
+      "B": [
+       5,
+       0
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "S"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       ""
+      ],
+      [
+       "A",
+       "S",
+       ""
+      ],
+      [
+       "B",
+       "S",
+       ""
+      ],
+      [
+       "M",
+       "B",
+       "r = 5"
+      ],
+      [
+       "M",
+       "S",
+       "h = 17",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "M",
+       "B",
+       "S"
+      ]
+     ],
+     "label": "Achsenschnitt eines Kegels"
+    }
+   },
+   "o": {
+    "wert": 32.8,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(32.779080668070, 1)",
+   "w": "tan(α/2) = r : h = 5/17 ⇒ α/2 ≈ 16,39° ⇒ α ≈ 32,8°.",
+   "h": "Im halben Achsenschnitt ist tan(halber Winkel) = r : h."
+  },
+  {
+   "l": "sachkontext",
+   "t": "sachkontext",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kegel hat den Radius 4 cm und die Höhe 11 cm. Wie groß ist sein Öffnungswinkel (Winkel an der Spitze im Achsenschnitt, eine Nachkommastelle)?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       11
+      ],
+      "A": [
+       -4,
+       0
+      ],
+      "B": [
+       4,
+       0
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "S"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       ""
+      ],
+      [
+       "A",
+       "S",
+       ""
+      ],
+      [
+       "B",
+       "S",
+       ""
+      ],
+      [
+       "M",
+       "B",
+       "r = 4"
+      ],
+      [
+       "M",
+       "S",
+       "h = 11",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "M",
+       "B",
+       "S"
+      ]
+     ],
+     "label": "Achsenschnitt eines Kegels"
+    }
+   },
+   "o": {
+    "wert": 40,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(39.966213043800, 1)",
+   "w": "tan(α/2) = r : h = 4/11 ⇒ α/2 ≈ 19,98° ⇒ α ≈ 40°.",
+   "h": "Im halben Achsenschnitt ist tan(halber Winkel) = r : h."
+  },
+  {
+   "l": "sachkontext",
+   "t": "sachkontext",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kugel aus Blei (Dichte 11,3 g/cm³) hat 8 cm Durchmesser. Wie schwer ist sie (auf ganze Gramm)?"
+   },
+   "o": {
+    "wert": 3029,
+    "einheit": "g",
+    "toleranz": 1
+   },
+   "c": "round(4 * 3.141592653590 * 4 ** 3 / 3 * 11.3, 0)",
+   "w": "V = ⁴⁄₃ · π · 4³ ≈ 268,1 cm³; m = V · 11,3 ≈ 3 029 g.",
+   "h": "Masse = Volumen · Dichte."
+  },
+  {
+   "l": "sachkontext",
+   "t": "sachkontext",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kugel aus Kupfer (Dichte 8,9 g/cm³) hat 4 cm Durchmesser. Wie schwer ist sie (auf ganze Gramm)?"
+   },
+   "o": {
+    "wert": 298,
+    "einheit": "g",
+    "toleranz": 1
+   },
+   "c": "round(4 * 3.141592653590 * 2 ** 3 / 3 * 8.9, 0)",
+   "w": "V = ⁴⁄₃ · π · 2³ ≈ 33,5 cm³; m = V · 8,9 ≈ 298 g.",
+   "h": "Masse = Volumen · Dichte."
+  },
+  {
+   "l": "sachkontext",
+   "t": "sachkontext",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kugel aus Stahl (Dichte 7,86 g/cm³) hat 4 cm Durchmesser. Wie schwer ist sie (auf ganze Gramm)?"
+   },
+   "o": {
+    "wert": 263,
+    "einheit": "g",
+    "toleranz": 1
+   },
+   "c": "round(4 * 3.141592653590 * 2 ** 3 / 3 * 7.86, 0)",
+   "w": "V = ⁴⁄₃ · π · 2³ ≈ 33,5 cm³; m = V · 7,86 ≈ 263 g.",
+   "h": "Masse = Volumen · Dichte."
+  },
+  {
+   "l": "sachkontext",
+   "t": "sachkontext",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide (als Modell eines Bauwerks) hat die Grundkante 215 m und die Höhe 143 m. Berechne das Volumen auf ganze m³."
+   },
+   "o": {
+    "wert": 2203392,
+    "einheit": "m³",
+    "toleranz": 1
+   },
+   "c": "round(215 ** 2 * 143 / 3, 0)",
+   "w": "V = ⅓ · 215² · 143 ≈ 2 203 392 m³.",
+   "h": "V = ⅓ · G · h."
+  },
+  {
+   "l": "sachkontext",
+   "t": "sachkontext",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Turm besteht aus einem Zylinder (r = 6 m, h = 15 m) mit einem kegelförmigen Dach (gleicher Radius, Dachhöhe 4 m). Berechne das umbaute Volumen auf ganze m³."
+   },
+   "o": {
+    "wert": 1847,
+    "einheit": "m³",
+    "toleranz": 1
+   },
+   "c": "round(3.141592653590 * 6 ** 2 * 15 + 3.141592653590 * 6 ** 2 * 4 / 3, 0)",
+   "w": "V = π · 6² · 15 + ⅓ · π · 6² · 4 ≈ 1 847 m³."
+  },
+  {
+   "l": "sachkontext",
+   "t": "sachkontext",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Turm besteht aus einem Zylinder (r = 4 m, h = 15 m) mit einem kegelförmigen Dach (gleicher Radius, Dachhöhe 5 m). Berechne das umbaute Volumen auf ganze m³."
+   },
+   "o": {
+    "wert": 838,
+    "einheit": "m³",
+    "toleranz": 1
+   },
+   "c": "round(3.141592653590 * 4 ** 2 * 15 + 3.141592653590 * 4 ** 2 * 5 / 3, 0)",
+   "w": "V = π · 4² · 15 + ⅓ · π · 4² · 5 ≈ 838 m³."
+  },
+  {
+   "l": "sachkontext",
+   "t": "sachkontext",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Turm besteht aus einem Zylinder (r = 3 m, h = 12 m) mit einem kegelförmigen Dach (gleicher Radius, Dachhöhe 6 m). Berechne das umbaute Volumen auf ganze m³."
+   },
+   "o": {
+    "wert": 396,
+    "einheit": "m³",
+    "toleranz": 1
+   },
+   "c": "round(3.141592653590 * 3 ** 2 * 12 + 3.141592653590 * 3 ** 2 * 6 / 3, 0)",
+   "w": "V = π · 3² · 12 + ⅓ · π · 3² · 6 ≈ 396 m³."
+  },
+  {
+   "l": "sachkontext",
+   "t": "sachkontext",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Eistüte ist ein Kegel (r = 3,5 cm, h = 10 cm), oben ist eine Halbkugel Eis mit gleichem Radius. Berechne das Gesamtvolumen (eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 218.1,
+    "einheit": "cm³",
+    "toleranz": 0.1
+   },
+   "c": "round(3.141592653590 * 3.5 ** 2 * 10 / 3 + 2 * 3.141592653590 * 3.5 ** 3 / 3, 1)",
+   "w": "V = ⅓π · 3,5² · 10 + ⅔π · 3,5³ ≈ 218,1 cm³."
+  },
+  {
+   "l": "sachkontext",
+   "t": "sachkontext",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Eistüte ist ein Kegel (r = 3 cm, h = 12 cm), oben ist eine Halbkugel Eis mit gleichem Radius. Berechne das Gesamtvolumen (eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 169.6,
+    "einheit": "cm³",
+    "toleranz": 0.1
+   },
+   "c": "round(3.141592653590 * 3 ** 2 * 12 / 3 + 2 * 3.141592653590 * 3 ** 3 / 3, 1)",
+   "w": "V = ⅓π · 3² · 12 + ⅔π · 3³ ≈ 169,6 cm³."
+  },
+  {
+   "l": "sachkontext",
+   "t": "sachkontext",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Turm besteht aus einem Zylinder (r = 6 m, h = 10 m) mit einem kegelförmigen Dach (gleicher Radius, Dachhöhe 3 m). Berechne das umbaute Volumen auf ganze m³."
+   },
+   "o": {
+    "wert": 1244,
+    "einheit": "m³",
+    "toleranz": 1
+   },
+   "c": "round(3.141592653590 * 6 ** 2 * 10 + 3.141592653590 * 6 ** 2 * 3 / 3, 0)",
+   "w": "V = π · 6² · 10 + ⅓ · π · 6² · 3 ≈ 1 244 m³."
+  },
+  {
+   "l": "sachkontext",
+   "t": "sachkontext",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Turm besteht aus einem Zylinder (r = 4 m, h = 20 m) mit einem kegelförmigen Dach (gleicher Radius, Dachhöhe 5 m). Berechne das umbaute Volumen auf ganze m³."
+   },
+   "o": {
+    "wert": 1089,
+    "einheit": "m³",
+    "toleranz": 1
+   },
+   "c": "round(3.141592653590 * 4 ** 2 * 20 + 3.141592653590 * 4 ** 2 * 5 / 3, 0)",
+   "w": "V = π · 4² · 20 + ⅓ · π · 4² · 5 ≈ 1 089 m³."
+  },
+  {
+   "l": "sachkontext",
+   "t": "sachkontext",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Turm besteht aus einem Zylinder (r = 4 m, h = 15 m) mit einem kegelförmigen Dach (gleicher Radius, Dachhöhe 4 m). Berechne das umbaute Volumen auf ganze m³."
+   },
+   "o": {
+    "wert": 821,
+    "einheit": "m³",
+    "toleranz": 1
+   },
+   "c": "round(3.141592653590 * 4 ** 2 * 15 + 3.141592653590 * 4 ** 2 * 4 / 3, 0)",
+   "w": "V = π · 4² · 15 + ⅓ · π · 4² · 4 ≈ 821 m³."
+  },
+  {
+   "l": "sachkontext",
+   "t": "sachkontext",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Turm besteht aus einem Zylinder (r = 5 m, h = 20 m) mit einem kegelförmigen Dach (gleicher Radius, Dachhöhe 6 m). Berechne das umbaute Volumen auf ganze m³."
+   },
+   "o": {
+    "wert": 1728,
+    "einheit": "m³",
+    "toleranz": 1
+   },
+   "c": "round(3.141592653590 * 5 ** 2 * 20 + 3.141592653590 * 5 ** 2 * 6 / 3, 0)",
+   "w": "V = π · 5² · 20 + ⅓ · π · 5² · 6 ≈ 1 728 m³."
+  },
+  {
+   "l": "sachkontext",
+   "t": "sachkontext",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Turm besteht aus einem Zylinder (r = 6 m, h = 20 m) mit einem kegelförmigen Dach (gleicher Radius, Dachhöhe 3 m). Berechne das umbaute Volumen auf ganze m³."
+   },
+   "o": {
+    "wert": 2375,
+    "einheit": "m³",
+    "toleranz": 1
+   },
+   "c": "round(3.141592653590 * 6 ** 2 * 20 + 3.141592653590 * 6 ** 2 * 3 / 3, 0)",
+   "w": "V = π · 6² · 20 + ⅓ · π · 6² · 3 ≈ 2 375 m³."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei einem Kegel wird nur die Höhe verdreifacht. Wie ändert sich das Volumen?"
+   },
+   "a": [
+    "Es wird 27-mal so groß.",
+    "Es wird 3-mal so groß.",
+    "Es wird 9-mal so groß.",
+    "Es bleibt gleich."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "V = ⅓πr²h: h · 3 ⇒ V · 3.",
+   "h": "Welche Größe steht im Quadrat?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Pyramide hat als Grundfläche ein regelmäßiges 100-Eck. Was passiert, wenn man die Eckenzahl immer weiter erhöht?"
+   },
+   "a": [
+    "Sie nähert sich einem Zylinder.",
+    "Sie nähert sich einem Kegel; V = ⅓ · G · h gilt weiterhin.",
+    "Sie nähert sich einer Kugel.",
+    "Ihr Volumen wird unendlich groß."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Grundfläche nähert sich einem Kreis – der Kegel ist der Grenzfall der Pyramide. Darum gilt auch für ihn V = ⅓ · G · h.",
+   "h": "Welche Form nimmt die Grundfläche an?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Kegel und ein Zylinder haben dieselbe Grundfläche und dieselbe Höhe. Wie verhalten sich ihre Volumina?"
+   },
+   "a": [
+    "Der Kegel hat die Hälfte des Zylindervolumens.",
+    "Der Kegel hat zwei Drittel des Zylindervolumens.",
+    "Beide sind gleich groß.",
+    "Der Kegel hat ein Drittel des Zylindervolumens."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "V_Kegel = ⅓ · G · h, V_Zylinder = G · h.",
+   "h": "Vergleiche die beiden Formeln."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei einem Kegel wird nur der Radius verdreifacht. Wie ändert sich das Volumen?"
+   },
+   "a": [
+    "Es wird 9-mal so groß.",
+    "Es wird 27-mal so groß.",
+    "Es bleibt gleich.",
+    "Es wird 3-mal so groß."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "V = ⅓πr²h: r · 3 ⇒ r² · 9.",
+   "h": "Welche Größe steht im Quadrat?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei einem Kegel wird nur die Höhe verdoppelt. Wie ändert sich das Volumen?"
+   },
+   "a": [
+    "Es wird 4-mal so groß.",
+    "Es bleibt gleich.",
+    "Es wird 8-mal so groß.",
+    "Es wird 2-mal so groß."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "V = ⅓πr²h: h · 2 ⇒ V · 2.",
+   "h": "Welche Größe steht im Quadrat?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei einem Kegel wird nur der Radius verfünffacht. Wie ändert sich das Volumen?"
+   },
+   "a": [
+    "Es wird 25-mal so groß.",
+    "Es bleibt gleich.",
+    "Es wird 5-mal so groß.",
+    "Es wird 125-mal so groß."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "V = ⅓πr²h: r · 5 ⇒ r² · 25.",
+   "h": "Welche Größe steht im Quadrat?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Pyramide hat als Grundfläche ein regelmäßiges 24-Eck. Was passiert, wenn man die Eckenzahl immer weiter erhöht?"
+   },
+   "a": [
+    "Sie nähert sich einem Zylinder.",
+    "Sie nähert sich einem Kegel; V = ⅓ · G · h gilt weiterhin.",
+    "Sie nähert sich einer Kugel.",
+    "Ihr Volumen wird unendlich groß."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Grundfläche nähert sich einem Kreis – der Kegel ist der Grenzfall der Pyramide. Darum gilt auch für ihn V = ⅓ · G · h.",
+   "h": "Welche Form nimmt die Grundfläche an?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei einem Kegel wird nur der Radius vervierfacht. Wie ändert sich das Volumen?"
+   },
+   "a": [
+    "Es bleibt gleich.",
+    "Es wird 64-mal so groß.",
+    "Es wird 16-mal so groß.",
+    "Es wird 4-mal so groß."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "V = ⅓πr²h: r · 4 ⇒ r² · 16.",
+   "h": "Welche Größe steht im Quadrat?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei einem Kegel wird nur der Radius verdoppelt. Wie ändert sich das Volumen?"
+   },
+   "a": [
+    "Es wird 8-mal so groß.",
+    "Es bleibt gleich.",
+    "Es wird 2-mal so groß.",
+    "Es wird 4-mal so groß."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "V = ⅓πr²h: r · 2 ⇒ r² · 4.",
+   "h": "Welche Größe steht im Quadrat?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet die Mantelfläche eines Kegels mit r = 2 cm und h = 3 cm als M = π · r · h. Was stimmt?"
+   },
+   "a": [
+    "Falsch: M = 2π · r · h.",
+    "Falsch: M = π · r² · h.",
+    "Richtig.",
+    "Falsch: In M = π · r · s steht die Mantellinie s, nicht die Höhe h."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Der abgewickelte Mantel ist ein Kreissektor mit Radius s; s ist länger als h (s² = r² + h²).",
+   "h": "Wie lang ist der Radius des abgewickelten Mantels?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet die Mantelfläche eines Kegels mit r = 4 cm und h = 9 cm als M = π · r · h. Was stimmt?"
+   },
+   "a": [
+    "Falsch: In M = π · r · s steht die Mantellinie s, nicht die Höhe h.",
+    "Falsch: M = 2π · r · h.",
+    "Falsch: M = π · r² · h.",
+    "Richtig."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Der abgewickelte Mantel ist ein Kreissektor mit Radius s; s ist länger als h (s² = r² + h²).",
+   "h": "Wie lang ist der Radius des abgewickelten Mantels?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Pyramide hat als Grundfläche ein regelmäßiges 12-Eck. Was passiert, wenn man die Eckenzahl immer weiter erhöht?"
+   },
+   "a": [
+    "Ihr Volumen wird unendlich groß.",
+    "Sie nähert sich einer Kugel.",
+    "Sie nähert sich einem Kegel; V = ⅓ · G · h gilt weiterhin.",
+    "Sie nähert sich einem Zylinder."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Grundfläche nähert sich einem Kreis – der Kegel ist der Grenzfall der Pyramide. Darum gilt auch für ihn V = ⅓ · G · h.",
+   "h": "Welche Form nimmt die Grundfläche an?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet die Mantelfläche eines Kegels mit r = 8 cm und h = 9 cm als M = π · r · h. Was stimmt?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: In M = π · r · s steht die Mantellinie s, nicht die Höhe h.",
+    "Falsch: M = 2π · r · h.",
+    "Falsch: M = π · r² · h."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Der abgewickelte Mantel ist ein Kreissektor mit Radius s; s ist länger als h (s² = r² + h²).",
+   "h": "Wie lang ist der Radius des abgewickelten Mantels?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Kugel passt genau in einen Zylinder (gleicher Radius, Höhe = Durchmesser). Welcher Anteil des Zylinders wird von der Kugel ausgefüllt?"
+   },
+   "a": [
+    "zwei Drittel",
+    "die Hälfte",
+    "drei Viertel",
+    "ein Drittel"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "V_Zylinder = πr² · 2r = 2πr³; V_Kugel = ⁴⁄₃πr³ = ⅔ · 2πr³.",
+   "h": "Setze h = 2r in die Zylinderformel ein."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Der Radius einer Kugel wird verdreifacht. Wie ändert sich das Volumen?"
+   },
+   "a": [
+    "3-mal so groß",
+    "9-mal so groß",
+    "6-mal so groß",
+    "27-mal so groß"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Volumen ~ r³: Faktor 3³ = 27.",
+   "h": "Mit welcher Potenz steht r in der Formel?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Der Radius einer Kugel wird vervierfacht. Wie ändert sich die Oberfläche?"
+   },
+   "a": [
+    "8-mal so groß",
+    "64-mal so groß",
+    "16-mal so groß",
+    "4-mal so groß"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Oberfläche ~ r²: Faktor 4² = 16.",
+   "h": "Mit welcher Potenz steht r in der Formel?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Der Radius einer Kugel wird vervierfacht. Wie ändert sich das Volumen?"
+   },
+   "a": [
+    "4-mal so groß",
+    "16-mal so groß",
+    "64-mal so groß",
+    "8-mal so groß"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Volumen ~ r³: Faktor 4³ = 64.",
+   "h": "Mit welcher Potenz steht r in der Formel?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Der Radius einer Kugel wird verdreifacht. Wie ändert sich die Oberfläche?"
+   },
+   "a": [
+    "3-mal so groß",
+    "9-mal so groß",
+    "27-mal so groß",
+    "6-mal so groß"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Oberfläche ~ r²: Faktor 3² = 9.",
+   "h": "Mit welcher Potenz steht r in der Formel?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet die Mantelfläche eines Kegels mit r = 4 cm und h = 6 cm als M = π · r · h. Was stimmt?"
+   },
+   "a": [
+    "Falsch: In M = π · r · s steht die Mantellinie s, nicht die Höhe h.",
+    "Falsch: M = 2π · r · h.",
+    "Falsch: M = π · r² · h.",
+    "Richtig."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Der abgewickelte Mantel ist ein Kreissektor mit Radius s; s ist länger als h (s² = r² + h²)."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Der Radius einer Kugel wird verdoppelt. Wie ändert sich das Volumen?"
+   },
+   "a": [
+    "8-mal so groß",
+    "2-mal so groß",
+    "4-mal so groß"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Volumen ~ r³: Faktor 2³ = 8."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet die Mantelfläche eines Kegels mit r = 8 cm und h = 11 cm als M = π · r · h. Was stimmt?"
+   },
+   "a": [
+    "Falsch: M = π · r² · h.",
+    "Falsch: M = 2π · r · h.",
+    "Richtig.",
+    "Falsch: In M = π · r · s steht die Mantellinie s, nicht die Höhe h."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Der abgewickelte Mantel ist ein Kreissektor mit Radius s; s ist länger als h (s² = r² + h²)."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei einem Kegel wird nur die Höhe vervierfacht. Wie ändert sich das Volumen?"
+   },
+   "a": [
+    "Es wird 64-mal so groß.",
+    "Es wird 16-mal so groß.",
+    "Es bleibt gleich.",
+    "Es wird 4-mal so groß."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "V = ⅓πr²h: h · 4 ⇒ V · 4."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet die Mantelfläche eines Kegels mit r = 5 cm und h = 9 cm als M = π · r · h. Was stimmt?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: M = π · r² · h.",
+    "Falsch: In M = π · r · s steht die Mantellinie s, nicht die Höhe h.",
+    "Falsch: M = 2π · r · h."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Der abgewickelte Mantel ist ein Kreissektor mit Radius s; s ist länger als h (s² = r² + h²)."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet die Mantelfläche eines Kegels mit r = 4 cm und h = 8 cm als M = π · r · h. Was stimmt?"
+   },
+   "a": [
+    "Falsch: M = π · r² · h.",
+    "Falsch: M = 2π · r · h.",
+    "Falsch: In M = π · r · s steht die Mantellinie s, nicht die Höhe h.",
+    "Richtig."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Der abgewickelte Mantel ist ein Kreissektor mit Radius s; s ist länger als h (s² = r² + h²)."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet die Mantelfläche eines Kegels mit r = 7 cm und h = 9 cm als M = π · r · h. Was stimmt?"
+   },
+   "a": [
+    "Falsch: In M = π · r · s steht die Mantellinie s, nicht die Höhe h.",
+    "Falsch: M = 2π · r · h.",
+    "Falsch: M = π · r² · h.",
+    "Richtig."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Der abgewickelte Mantel ist ein Kreissektor mit Radius s; s ist länger als h (s² = r² + h²)."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet die Mantelfläche eines Kegels mit r = 9 cm und h = 12 cm als M = π · r · h. Was stimmt?"
+   },
+   "a": [
+    "Falsch: M = π · r² · h.",
+    "Richtig.",
+    "Falsch: In M = π · r · s steht die Mantellinie s, nicht die Höhe h.",
+    "Falsch: M = 2π · r · h."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Der abgewickelte Mantel ist ein Kreissektor mit Radius s; s ist länger als h (s² = r² + h²)."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei einem Kegel wird nur die Höhe verfünffacht. Wie ändert sich das Volumen?"
+   },
+   "a": [
+    "Es wird 25-mal so groß.",
+    "Es wird 5-mal so groß.",
+    "Es bleibt gleich.",
+    "Es wird 125-mal so groß."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "V = ⅓πr²h: h · 5 ⇒ V · 5."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet die Mantelfläche eines Kegels mit r = 3 cm und h = 7 cm als M = π · r · h. Was stimmt?"
+   },
+   "a": [
+    "Falsch: M = π · r² · h.",
+    "Falsch: In M = π · r · s steht die Mantellinie s, nicht die Höhe h.",
+    "Richtig.",
+    "Falsch: M = 2π · r · h."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Der abgewickelte Mantel ist ein Kreissektor mit Radius s; s ist länger als h (s² = r² + h²)."
+  }
+ ],
+ "offen": [
+  "Zeichnungen: Achsenschnitt des Kegels, Schnittdreieck der Pyramide (h, a/2, hₛ), abgewickelter Kegelmantel als Kreissektor (Bogen als Vieleck angenähert), Kugel mit Radius, Eistüte im Schnitt – in Lernkarten und passenden Aufgaben.",
+  "Noch nicht möglich und deshalb nicht enthalten: Schrägbilder und Netze von Pyramide und Kegel (Lehrplan „Schrägbilder und Netze von Pyramiden und Kegeln“). Braucht eine Zeichenart für Körper.",
+  "Prinzip von Cavalieri und „Kegel als Grenzfall der Pyramide“ nur als Verstehensfragen (ohne Zeichnung). Extremwerte an Körpern (umfang) weggelassen – nicht im lehrplan_gym.",
+  "Gerundete Ergebnisse mit Toleranz (0,1 bzw. 0,01; bei ganzen Zahlen 1); π als 12-stellige Konstante in c."
+ ]
+}

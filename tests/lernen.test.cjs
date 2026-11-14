@@ -67,7 +67,19 @@ async function setup(t, opt = {}) {
     if (b.aktion === 'schule_ich') e = { ok: true, rolle, name: rolle === 'kind' ? 'Kind A' : 'Herr Lehrer', lernender_id: rolle === 'kind' ? 1 : null, app: !opt.lernSeite };
     if (b.aktion === 'schule_eltern' && rolle !== 'eltern') { await route.fulfill({ status: 400, contentType: 'application/json', body: JSON.stringify({ ok: false, fehler: 'Nur Eltern' }) }); return; }
     if (b.aktion === 'schule_rueckmeldungen') e = { ok: true, rueckmeldungen: [{ id: 4, von: 'lehrer:Herr Lehrer', art: 'mehr_aufgaben', text: 'Mehr Aufgaben zum Runden.', status: 'erledigt', antwort: '6 neue Aufgaben ergänzt.', am: '2026-11-14T09:00:00Z', ort: 'Rom – Natürliche Zahlen' }] };
-    if (['schule_rueckmeldung_geben', 'schule_plan_setzen', 'schule_notiz_setzen'].includes(b.aktion)) e = { ok: true, id: 1 };
+    if (['schule_rueckmeldung_geben', 'schule_plan_setzen', 'schule_notiz_setzen', 'schule_kind_setzen'].includes(b.aktion)) e = { ok: true, id: 1 };
+    if (b.aktion === 'schule_lehrplan_uebersicht') e = { ok: true, kinder: [{ id: 1, name: 'Kind A', klasse: 5, schulart: 'gym_by' }, { id: 2, name: 'Kind B', klasse: 8, schulart: 'gym_by' }],
+      themen: [
+        { thema_id: 1, titel: 'Große natürliche Zahlen', gebiet: 'Zahlen', ort: 'Rom', block_id: 49, jahrgang: { gym_by: 5, rs_by: 5, ib_myp: 1 }, einheit: { id: 1, status: 'geprueft', karten: 3, aufgaben: 24, neu: 6 }, stand: { 1: 'erledigt', 2: 'keine_einheit' }, geplant: [], rueckmeldungen: 1 },
+        { thema_id: 2, titel: 'Teilbarkeit', gebiet: 'Zahlen', ort: 'Athen', block_id: 48, jahrgang: { gym_by: 5, rs_by: 6 }, einheit: { id: 4, status: 'entwurf', karten: 8, aufgaben: 96, neu: 96 }, stand: { 1: 'offen' }, geplant: [1], rueckmeldungen: 0 },
+        { thema_id: 3, titel: 'Brüche addieren', gebiet: 'Zahlen', ort: 'Pisa', block_id: 47, jahrgang: { gym_by: 6, rs_by: 6, ib_myp: 2 }, einheit: null, stand: {}, geplant: [], rueckmeldungen: 0 },
+        { thema_id: 4, titel: 'Lineare Funktionen', gebiet: 'Funktionen', ort: 'Kairo', block_id: 70, jahrgang: { gym_by: 8, rs_by: 8, ib_myp: 3 }, einheit: null, stand: {}, geplant: [], rueckmeldungen: 0 },
+        { thema_id: 5, titel: 'Nur Realschule', gebiet: 'Geld', ort: 'Lima', block_id: 71, jahrgang: { rs_by: 7 }, einheit: null, stand: {}, geplant: [], rueckmeldungen: 0 }] };
+    if (b.aktion === 'schule_inhalt_lesen') e = { ok: true, einheit_id: d.einheit_id, status: 'geprueft', ort: { stadt: 'Rom', titel: 'Natürliche Zahlen' },
+      thema: { titel: 'Große natürliche Zahlen', jahrgang: { gym_by: 5, rs_by: 5 } }, inhalt: { ziel: 'Große Zahlen lesen.', etappen: ETAPPEN },
+      aufgaben: [{ ...AUFG[11], pool: 'uebung', stufe: 1, freigegeben: true, loesungsweg: 'Tausender-Stelle.' }, { ...AUFG[12], pool: 'uebung', stufe: 2, freigegeben: false },
+        { ...AUFG[11], id: 99, pool: 'test', freigegeben: true }],
+      rueckmeldungen: [{ id: 4, art: 'mehr_aufgaben', text: 'Mehr Aufgaben zum Runden.', status: 'offen', lernziel: 'stellenwert', am: '2026-11-14T09:00:00Z' }] };
     if (b.aktion === 'schule_plan_lesen') e = { ok: true, kind: { id: 1, name: 'Kind A', klasse: 5 }, revision: 1,
       plan: [{ route_id: 1, block_id: 49, position: 1, art: 'normal', status: 'offen', kann_schon: false }, { route_id: 2, block_id: 52, position: 2, art: 'normal', status: 'offen', kann_schon: false }],
       orte: [{ block_id: 49, titel: 'Natürliche Zahlen', stadt: 'Rom', kontinent: 'Zahlen', ziel_klasse: 5, einheiten: [{ id: 1, status: 'geprueft', titel: 'Große Zahlen', pflicht: 4, fertig: 2, fehler: 1 }] },
@@ -89,7 +101,7 @@ async function setup(t, opt = {}) {
       lernende: [{ id: 1, name: 'Kind A', klasse: 5, stil: 'entdecker', welt: 'Ozean', ist_test: false, route: [{ block_id: 49, position: 101, status: 'offen', kann_schon: false }, { block_id: 52, position: 206, status: 'offen', kann_schon: false }], stand: [{ einheit_id: 1, fertig: 2, fehler: 1, gesichert: 0, blocktest: true, laeuft: false }] },
         { id: 2, name: 'Kind B', klasse: 7, stil: 'studio', welt: 'Nacht', ist_test: false, route: [{ block_id: 49, position: 101, status: 'fertig', kann_schon: false }, { block_id: 52, position: 206, status: 'offen', kann_schon: false }], stand: [] },
         { id: 3, name: 'Testkind', ist_test: true, route: [], stand: [] }] };
-    else if (b.aktion === 'schule_konto') e = { ok: true, konto: { sterne: 340, sterne_gesamt: 340, stempel: d.lernender_id === 2 ? 1 : 0, lerntage: 12 },
+    else if (b.aktion === 'schule_konto') e = { ok: true, konto: { sterne: 340, sterne_gesamt: 340, stempel: d.lernender_id === 2 ? 1 : 0, lerntage: 12, jahrgang: { schulart: 'gym_by', klasse: 5, themen: 14, mit_inhalt: 2, geschafft: 1 } },
       look: { stil: d.lernender_id === 2 ? 'studio' : 'entdecker', welt: d.lernender_id === 2 ? 'Nacht' : 'Ozean' },
       belohnungen: [{ id: 5, titel: 'Eis', kosten_sterne: 300, kosten_stempel: 0 }, { id: 6, titel: 'Kinoabend', kosten_sterne: 0, kosten_stempel: 3 }], einloesungen: [] };
     else if (b.aktion === 'schule_eltern') e = { ok: true, kinder: [{ id: 1, name: 'Kind A', konto: { sterne: 340, stempel: 0, lerntage: 12 } }], belohnungen: [{ id: 5, titel: 'Eis', kosten_sterne: 300, kosten_stempel: 0, aktiv: true }],
@@ -138,6 +150,8 @@ test('Lernreise: Heute dran auf der echten Karte, Weltkarte und Reisepass', asyn
   const { page, calls } = await setup(t);
   await page.goto(origin + '/#/reise/1');
   await page.getByRole('heading', { name: 'Rom: Natürliche Zahlen' }).waitFor();
+  await page.getByText('MEIN STAND · GYMNASIUM KLASSE 5').waitFor();
+  await page.getByText('1 von 14 Themen').waitFor();
   assert.equal(await page.locator('.lr.lr-ozean.lr-entdecker').count(), 1);
   assert.equal(await page.locator('#areas').isVisible(), false);
   await page.getByText('Du bist in Rom').waitFor();
@@ -278,6 +292,52 @@ test('Lernen: Test ohne Lösungen bis zur Abgabe, danach Auswertung', async (t) 
   await page.getByText('Richtig: ', { exact: false }).first().waitFor();
   assert.deepEqual(calls.filter((c) => c.aktion === 'schule_test_antwort').map((c) => c.daten.antwort), [{ index: 1 }, { index: 2 }]);
   assert.equal(calls.filter((c) => c.aktion === 'schule_test_abschliessen').length, 1);
+});
+
+test('Lehrplan-Übersicht: Themen je Schulart und Klasse mit Inhaltsstand, Inhalte prüfen, Bauen lassen', async (t) => {
+  const { page, calls } = await setup(t);
+  await page.goto(origin + '/#/lehrplan');
+  await page.getByRole('heading', { name: 'Lehrplan-Übersicht' }).waitFor();
+  // Gymnasium: 4 Themen (das reine Realschul-Thema fehlt), 1 fertig, 1 in Prüfung, 2 ohne Inhalt.
+  assert.deepEqual(await page.locator('.lp-kachel b').allTextContents(), ['4', '1', '1', '2']);
+  await page.getByRole('heading', { name: /Klasse 8.*Kind B/ }).waitFor();
+  assert.equal(await page.locator('.lp-zeile', { hasText: 'Nur Realschule' }).count(), 0);
+  await page.locator('.lp-zeile.lp-fertig', { hasText: 'Große natürliche Zahlen' }).getByText('Kind A: geschafft').waitFor();
+  await page.locator('.lp-zeile', { hasText: 'Große natürliche Zahlen' }).getByText('Gym 5 · RS 5 · IB 1').waitFor();
+  fs.mkdirSync(path.join(root, 'test-results'), { recursive: true });
+  await page.screenshot({ path: path.join(root, 'test-results/lehrplan-390.png'), fullPage: true });
+  await page.getByRole('combobox', { name: 'Klasse' }).selectOption('5');
+  assert.deepEqual(await page.locator('.lp-kachel b').allTextContents(), ['2', '1', '1', '0']);
+  await page.getByRole('combobox', { name: 'Klasse' }).selectOption('');
+  await page.getByRole('combobox', { name: 'Inhalt' }).selectOption('leer');
+  await page.locator('.lp-zeile', { hasText: 'Lineare Funktionen' }).getByRole('button', { name: 'Bauen lassen' }).click();
+  await page.getByText('Angefragt ✓').waitFor();
+  const rm = calls.find((c) => c.aktion === 'schule_rueckmeldung_geben').daten;
+  assert.equal(rm.art, 'thema_fehlt'); assert.equal(rm.block_id, 70); assert.match(rm.text, /Lineare Funktionen/);
+  await page.getByRole('button', { name: 'Realschule' }).click();
+  await page.locator('.lp-zeile', { hasText: 'Nur Realschule' }).waitFor();
+  await page.getByRole('combobox', { name: 'Inhalt' }).selectOption('');
+  await page.locator('.lp-zeile', { hasText: 'Große natürliche Zahlen' }).getByRole('link', { name: 'Inhalte ansehen' }).click();
+  await page.waitForURL(/#\/inhalte\/1$/);
+  await page.getByText('3 Lernkarten · 2 Übungen · 1 Test- und Nachtestaufgaben', { exact: false }).waitFor();
+  await page.locator('details.lp-karte > summary').first().click();
+  await page.getByText('ERKLÄRUNG, WIE DAS KIND SIE SIEHT').first().waitFor();
+  await page.locator('.lp-tabelle').first().getByText('frei', { exact: true }).first().waitFor();
+  await page.locator('details.lp-karte > summary', { hasText: '1 in Prüfung' }).waitFor();
+  await page.locator('.lp-tabelle').first().getByText('Tausender-Stelle.').waitFor();
+  await page.getByText('Mehr Aufgaben zum Runden.').waitFor();
+  await page.screenshot({ path: path.join(root, 'test-results/inhalte-390.png'), fullPage: true });
+  const w = await page.evaluate(() => document.documentElement.scrollWidth); assert.ok(w <= 390, 'keine Querverschiebung: ' + w);
+});
+
+test('Kinderplan: Schulart und Klasse setzen', async (t) => {
+  const { page, calls } = await setup(t);
+  await page.goto(origin + '/#/plan/1');
+  await page.getByRole('combobox', { name: 'Schulart' }).selectOption('rs_by');
+  await page.getByRole('spinbutton', { name: 'Klasse' }).fill('6');
+  await page.getByRole('button', { name: 'Speichern', exact: true }).click();
+  await page.getByText('Gespeichert.').first().waitFor();
+  assert.deepEqual(calls.find((c) => c.aktion === 'schule_kind_setzen').daten, { lernender_id: 1, schulart: 'rs_by', klasse: 6 });
 });
 
 test('Lernen-Seite: Lehrer meldet sich mit Code an, ordnet den Themenplan und schreibt Rückmeldungen', async (t) => {

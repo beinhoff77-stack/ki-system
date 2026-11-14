@@ -3471,3 +3471,46 @@ body.lern-seite { padding-bottom: 32px; }
 .lr-meinefehler li span { min-width: 0; }
 .lr-hilfebox:empty { display: none; }
 .lr-ueben-flaeche { display: flex; flex-direction: column; gap: 12px; }
+
+/* W150 Struktur v2: Lehrplan-Übersicht und Inhalte prüfen (Eltern/Lehrer) */
+.lp-hauptkarte { border-left: 4px solid var(--accent, #1F7A3F); }
+.lp-filter { display: flex; flex-direction: column; gap: 10px; }
+.lp-filter .row { flex-wrap: wrap; gap: 8px; }
+.lp-filter select, .lp-filter input[type="search"] { min-height: 40px; flex: 1 1 160px; min-width: 0; }
+.lp-kacheln { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin: 12px 0; }
+.lp-kachel { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 10px; display: flex; flex-direction: column; align-items: flex-start; }
+.lp-kachel b { font-size: 1.5rem; line-height: 1.1; }
+.lp-kachel small { color: var(--text-muted); }
+.lp-kachel.lp-fertig { border-top: 4px solid #1F7A3F; }
+.lp-kachel.lp-pruefung { border-top: 4px solid #C99A00; }
+.lp-kachel.lp-leer { border-top: 4px solid #9AA6B2; }
+.lp-gruppe { display: flex; flex-direction: column; gap: 8px; margin: 16px 0; }
+.lp-gruppe h3 { margin: 0; }
+.lp-zeile { display: flex; gap: 12px; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; background: var(--surface); border: 1px solid var(--border); border-left: 5px solid #9AA6B2; border-radius: 12px; padding: 10px 12px; }
+.lp-zeile.lp-fertig { border-left-color: #1F7A3F; }
+.lp-zeile.lp-pruefung { border-left-color: #C99A00; }
+.lp-text { display: flex; flex-direction: column; gap: 3px; min-width: 0; flex: 1 1 240px; }
+.lp-text > small { color: var(--text-muted); }
+.lp-inhalt { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; font-size: .9rem; }
+.lp-punkt { width: 10px; height: 10px; border-radius: 50%; background: #9AA6B2; flex: none; }
+.lp-fertig .lp-punkt { background: #1F7A3F; }
+.lp-pruefung .lp-punkt { background: #C99A00; }
+.lp-staende { display: flex; flex-wrap: wrap; gap: 6px; }
+.lp-stand { font-size: .8rem; padding: 2px 8px; border-radius: 99px; background: var(--surface-muted); }
+.lp-stand.ok { background: var(--ok-bg); color: var(--ok); }
+.lp-stand.laeuft { background: var(--warn-bg); color: var(--warn); }
+.lp-aktionen { display: flex; gap: 6px; flex-wrap: wrap; }
+.lp-sprung { display: flex; gap: 6px; overflow-x: auto; padding: 4px 0 8px; }
+.lp-sprung .lern-chip { white-space: nowrap; text-decoration: none; }
+.lp-karte > summary { cursor: pointer; }
+.lp-karte-innen { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+.lp-erkl { background: var(--surface-muted); border-radius: 10px; padding: 10px 12px; }
+.lp-tabelle-rahmen { overflow-x: auto; border: 1px solid var(--border); border-radius: 10px; }
+.lp-tabelle { width: 100%; min-width: 600px; border-collapse: collapse; font-size: .85rem; }
+.lp-tabelle td:nth-child(2) { min-width: 200px; }
+.lp-tabelle th, .lp-tabelle td { text-align: left; padding: 6px 10px; border-top: 1px solid var(--border); vertical-align: top; }
+.lp-tabelle thead th { border-top: 0; background: var(--surface-muted); }
+.lp-loesung { font-weight: 800; white-space: nowrap; }
+.lp-ok { color: var(--ok); font-weight: 700; }
+.lp-warte { color: var(--warn); font-weight: 700; }
+@media (max-width: 520px) { .lp-kacheln { grid-template-columns: repeat(2, minmax(0, 1fr)); } }

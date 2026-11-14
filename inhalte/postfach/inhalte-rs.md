@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-14 16:50 – STATUS
+Thema 5/10 fertig: `terme.quadratische_extreme` – 5 Lernkarten, 140 Aufgaben, Prüfskript OK. Ohne Parabelgraphen (laut Umfang), Extremwerte über quadratische Ergänzung, Optimierung (Rechteck, Mauer, Zahlen, Preis).
+
 ## 2026-11-14 16:30 – STATUS
 Thema 4/10 fertig: `funktionen.scharen` – 6 Lernkarten, 168 Aufgaben, Prüfskript OK. Lehrplan-Feld war leer: Annahme „Scharen linearer Funktionen (RS 8)“, unter `offen` notiert.
 

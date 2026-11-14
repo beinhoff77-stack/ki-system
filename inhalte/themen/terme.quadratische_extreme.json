@@ -1,0 +1,3241 @@
+{
+ "thema_schluessel": "terme.quadratische_extreme",
+ "thema_id": 97,
+ "block_id": 112,
+ "klasse": {
+  "rs_by": 8
+ },
+ "autor": "Claude (Paket Realschule)",
+ "inhalt": {
+  "ziel": "Quadratische Terme mit der quadratischen Ergänzung umformen, ihr Minimum oder Maximum bestimmen und einfache Optimierungsaufgaben lösen.",
+  "merke": [
+   "Ergänzen: x² + bx + (b : 2)² = (x + b : 2)².",
+   "Quadratische Ergänzung: (b : 2)² ergänzen und gleich wieder abziehen.",
+   "a(x − d)² + e: für a > 0 Minimum e, für a < 0 Maximum e – jeweils bei x = d.",
+   "Optimieren: Zielgröße als Term in x aufstellen, Extremum bestimmen, im Sachzusammenhang antworten."
+  ],
+  "abschnitte": [
+   {
+    "titel": "Quadratische Ergänzung",
+    "lernziele": [
+     "ergaenzen",
+     "scheitelform"
+    ]
+   },
+   {
+    "titel": "Extremwerte",
+    "lernziele": [
+     "extremwert",
+     "mit_faktor",
+     "optimierung"
+    ]
+   }
+  ],
+  "etappen": [
+   {
+    "lernziel": "ergaenzen",
+    "titel": "Zum Binom ergänzen",
+    "regel": "Ein Term x² + bx wird zu einem vollständigen Quadrat, wenn du ⟦(b : 2)²⟧ ergänzt: ⟦x² + bx + (b : 2)² = (x + b : 2)²⟧. Bild: x² + 6x sind ein Quadrat x mal x und zwei Streifen 3 mal x. Zum großen Quadrat (x + 3)² fehlt nur die ⟦Ecke 3 · 3 = 9⟧.",
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "_a": [
+       0,
+       0
+      ],
+      "_b": [
+       5,
+       0
+      ],
+      "_c": [
+       8,
+       0
+      ],
+      "_d": [
+       8,
+       5
+      ],
+      "_e": [
+       8,
+       8
+      ],
+      "_f": [
+       5,
+       8
+      ],
+      "_g": [
+       0,
+       8
+      ],
+      "_h": [
+       0,
+       5
+      ],
+      "_m": [
+       5,
+       5
+      ]
+     },
+     "flaeche": [
+      "_m",
+      "_d",
+      "_e",
+      "_f"
+     ],
+     "linien": [
+      [
+       "_a",
+       "_b",
+       "x"
+      ],
+      [
+       "_b",
+       "_c",
+       "3"
+      ],
+      [
+       "_c",
+       "_d"
+      ],
+      [
+       "_d",
+       "_e"
+      ],
+      [
+       "_e",
+       "_f"
+      ],
+      [
+       "_f",
+       "_g"
+      ],
+      [
+       "_g",
+       "_h",
+       "3"
+      ],
+      [
+       "_h",
+       "_a",
+       "x"
+      ],
+      [
+       "_b",
+       "_m"
+      ],
+      [
+       "_m",
+       "_f"
+      ],
+      [
+       "_h",
+       "_m"
+      ],
+      [
+       "_m",
+       "_d"
+      ]
+     ]
+    },
+    "schritte": [
+     "x² + 6x: Hälfte von 6 ist 3, und 3² = 9.",
+     "x² + 6x + ⟦9⟧ = ⟦(x + 3)²⟧."
+    ],
+    "probe": "(x + 3)² = x² + 2 · 3 · x + 9 = x² + 6x + 9 ✓",
+    "fehler": "x² + 6x + 36 = (x + 6)² ist falsch: In die Klammer gehört die ⟦Hälfte⟧ von 6, also 3; ergänzt wird 3² = 9."
+   },
+   {
+    "lernziel": "scheitelform",
+    "titel": "Quadratische Ergänzung",
+    "regel": "Bei x² + bx + c ergänzt du (b : 2)² und ⟦ziehst es gleich wieder ab⟧ – so ändert sich der Wert nicht: ⟦x² + bx + c = (x + b : 2)² − (b : 2)² + c⟧.",
+    "schritte": [
+     "x² − 8x + 21 = x² − 8x + 16 − 16 + 21.",
+     "Zusammenfassen: ⟦(x − 4)² + 5⟧."
+    ],
+    "probe": "x = 0: 0 − 0 + 21 = 21 und (0 − 4)² + 5 = 16 + 5 = 21 ✓",
+    "fehler": "x² − 8x + 21 = (x − 4)² + 21 ist falsch: Die ergänzte 16 muss auch wieder ⟦abgezogen⟧ werden, sonst ist der Term um 16 zu groß."
+   },
+   {
+    "lernziel": "extremwert",
+    "titel": "Minimum oder Maximum ablesen",
+    "regel": "Ein Quadrat ist ⟦nie negativ⟧: (x − 4)² ≥ 0, am kleinsten ist es (nämlich 0) für ⟦x = 4⟧. Also hat (x − 4)² + 5 das ⟦Minimum 5 für x = 4⟧. Steht ein ⟦Minus vor der Klammer⟧, z. B. −(x − 4)² + 5, gibt es ein ⟦Maximum⟧ 5 für x = 4.",
+    "schritte": [
+     "T(x) = (x + 2)² − 7: Die Klammer ist 0 für x = −2.",
+     "Kleinster Wert: ⟦T = −7 für x = −2⟧ (Minimum)."
+    ],
+    "probe": "x = −1: (1)² − 7 = −6 > −7 ✓",
+    "fehler": "Bei (x + 2)² − 7 das Minimum bei x = 2 abzulesen ist falsch: (x + 2) wird null für ⟦x = −2⟧."
+   },
+   {
+    "lernziel": "mit_faktor",
+    "titel": "Terme mit Faktor vor x²",
+    "regel": "Steht vor x² ein Faktor a ≠ 1, ⟦klammerst du a aus⟧ den x-Gliedern aus und ergänzt in der Klammer. Ist ⟦a > 0⟧, gibt es ein Minimum; ist ⟦a < 0⟧, ein Maximum.",
+    "schritte": [
+     "T(x) = 2x² − 12x + 23 = 2(x² − 6x) + 23 = 2(x² − 6x + 9 − 9) + 23.",
+     "= 2(x − 3)² − 18 + 23 = ⟦2(x − 3)² + 5⟧. Minimum ⟦T = 5 für x = 3⟧."
+    ],
+    "probe": "T(3) = 18 − 36 + 23 = 5 ✓",
+    "fehler": "2(x² − 6x + 9 − 9) + 23 = 2(x − 3)² − 9 + 23 ist falsch: Die −9 steht in der Klammer und muss ⟦mit 2 multipliziert⟧ werden: −18."
+   },
+   {
+    "lernziel": "optimierung",
+    "titel": "Optimierungsaufgaben",
+    "regel": "Bei Optimierungsaufgaben stellst du die Größe, die möglichst groß oder klein werden soll, als ⟦Term in x⟧ auf. Dann bestimmst du mit der quadratischen Ergänzung das ⟦Extremum⟧ und beantwortest die Frage im Sachzusammenhang.",
+    "schritte": [
+     "Ein Rechteck hat 20 m Umfang. Ist eine Seite x, ist die andere 10 − x. Fläche: A(x) = x(10 − x) = −x² + 10x.",
+     "−x² + 10x = −(x² − 10x + 25 − 25) = −(x − 5)² + 25. ⟦Maximum 25 m² für x = 5 m⟧ – ein Quadrat."
+    ],
+    "probe": "x = 4: 4 · 6 = 24 < 25 ✓",
+    "fehler": "Die Fläche 25 m² als Seitenlänge anzugeben ist falsch: Lies genau, was gefragt ist – die ⟦Stelle x⟧ (Seitenlänge) oder den ⟦Extremwert⟧ (Fläche)."
+   }
+  ],
+  "teilfaehigkeiten": [
+   {
+    "k": "ergaenzen",
+    "text": "Zum Binom ergänzen",
+    "lernziele": [
+     "ergaenzen"
+    ]
+   },
+   {
+    "k": "scheitelform",
+    "text": "Quadratische Ergänzung",
+    "lernziele": [
+     "scheitelform"
+    ]
+   },
+   {
+    "k": "extremwert",
+    "text": "Minimum oder Maximum ablesen",
+    "lernziele": [
+     "extremwert"
+    ]
+   },
+   {
+    "k": "mit_faktor",
+    "text": "Terme mit Faktor vor x²",
+    "lernziele": [
+     "mit_faktor"
+    ]
+   },
+   {
+    "k": "optimierung",
+    "text": "Optimierungsaufgaben",
+    "lernziele": [
+     "optimierung"
+    ]
+   }
+  ],
+  "bewertung": {
+   "lernziele_pflicht": [
+    "ergaenzen",
+    "scheitelform",
+    "extremwert",
+    "mit_faktor",
+    "optimierung"
+   ],
+   "lernziele_vertiefung": [],
+   "testaufgaben_je_lernziel": 1
+  },
+  "quellen": {
+   "erklaerungen": "Eigene Fassung (Claude), Aufgaben vom Generator erzeugt und berechnet.",
+   "begriffe": "Fachbegriffe nach LehrplanPLUS Bayern (Realschule, Wahlpflichtfächergruppe I)."
+  }
+ },
+ "aufgaben": [
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze zu einem vollständigen Quadrat.",
+    "schablone": "x² + 10x + □ = (x + □)²",
+    "hinweis": "Erst die ergänzte Zahl, dann die Zahl in der Klammer."
+   },
+   "o": {
+    "werte": [
+     25,
+     5
+    ]
+   },
+   "w": "Hälfte von 10 ist 5, 5² = 25: x² + 10x + 25 = (x + 5)².",
+   "h": "Halbiere die Zahl vor x und quadriere sie.",
+   "c": [
+    "(10 / 2) ** 2",
+    "10 / 2"
+   ]
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze zu einem vollständigen Quadrat.",
+    "schablone": "x² + 6x + □ = (x + □)²",
+    "hinweis": "Erst die ergänzte Zahl, dann die Zahl in der Klammer."
+   },
+   "o": {
+    "werte": [
+     9,
+     3
+    ]
+   },
+   "w": "Hälfte von 6 ist 3, 3² = 9: x² + 6x + 9 = (x + 3)².",
+   "h": "Halbiere die Zahl vor x und quadriere sie.",
+   "c": [
+    "(6 / 2) ** 2",
+    "6 / 2"
+   ]
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze zu einem vollständigen Quadrat.",
+    "schablone": "x² + 4x + □ = (x + □)²",
+    "hinweis": "Erst die ergänzte Zahl, dann die Zahl in der Klammer."
+   },
+   "o": {
+    "werte": [
+     4,
+     2
+    ]
+   },
+   "w": "Hälfte von 4 ist 2, 2² = 4: x² + 4x + 4 = (x + 2)².",
+   "h": "Halbiere die Zahl vor x und quadriere sie.",
+   "c": [
+    "(4 / 2) ** 2",
+    "4 / 2"
+   ]
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze zu einem vollständigen Quadrat.",
+    "schablone": "x² + 12x + □ = (x + □)²",
+    "hinweis": "Erst die ergänzte Zahl, dann die Zahl in der Klammer."
+   },
+   "o": {
+    "werte": [
+     36,
+     6
+    ]
+   },
+   "w": "Hälfte von 12 ist 6, 6² = 36: x² + 12x + 36 = (x + 6)².",
+   "h": "Halbiere die Zahl vor x und quadriere sie.",
+   "c": [
+    "(12 / 2) ** 2",
+    "12 / 2"
+   ]
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze zu einem vollständigen Quadrat.",
+    "schablone": "x² + 2x + □ = (x + □)²",
+    "hinweis": "Erst die ergänzte Zahl, dann die Zahl in der Klammer."
+   },
+   "o": {
+    "werte": [
+     1,
+     1
+    ]
+   },
+   "w": "Hälfte von 2 ist 1, 1² = 1: x² + 2x + 1 = (x + 1)².",
+   "h": "Halbiere die Zahl vor x und quadriere sie.",
+   "c": [
+    "(2 / 2) ** 2",
+    "2 / 2"
+   ]
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze zu einem vollständigen Quadrat.",
+    "schablone": "x² + 16x + □ = (x + □)²",
+    "hinweis": "Erst die ergänzte Zahl, dann die Zahl in der Klammer."
+   },
+   "o": {
+    "werte": [
+     64,
+     8
+    ]
+   },
+   "w": "Hälfte von 16 ist 8, 8² = 64: x² + 16x + 64 = (x + 8)².",
+   "h": "Halbiere die Zahl vor x und quadriere sie.",
+   "c": [
+    "(16 / 2) ** 2",
+    "16 / 2"
+   ]
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze so, dass ein Binom entsteht.",
+    "schablone": "x² − 6x + □ = (x − □)²",
+    "hinweis": "Erst die ergänzte Zahl, dann die Zahl in der Klammer."
+   },
+   "o": {
+    "werte": [
+     9,
+     3
+    ]
+   },
+   "w": "Hälfte von 6 ist 3, 3² = 9: x² − 6x + 9 = (x − 3)².",
+   "h": "Das Minus bleibt in der Klammer. Ergänzt wird immer eine positive Zahl.",
+   "c": [
+    "(6 / 2) ** 2",
+    "6 / 2"
+   ]
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze so, dass ein Binom entsteht.",
+    "schablone": "x² − 16x + □ = (x − □)²",
+    "hinweis": "Erst die ergänzte Zahl, dann die Zahl in der Klammer."
+   },
+   "o": {
+    "werte": [
+     64,
+     8
+    ]
+   },
+   "w": "Hälfte von 16 ist 8, 8² = 64: x² − 16x + 64 = (x − 8)².",
+   "h": "Das Minus bleibt in der Klammer. Ergänzt wird immer eine positive Zahl.",
+   "c": [
+    "(16 / 2) ** 2",
+    "16 / 2"
+   ]
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze so, dass ein Binom entsteht.",
+    "schablone": "x² − 18x + □ = (x − □)²",
+    "hinweis": "Erst die ergänzte Zahl, dann die Zahl in der Klammer."
+   },
+   "o": {
+    "werte": [
+     81,
+     9
+    ]
+   },
+   "w": "Hälfte von 18 ist 9, 9² = 81: x² − 18x + 81 = (x − 9)².",
+   "h": "Das Minus bleibt in der Klammer. Ergänzt wird immer eine positive Zahl.",
+   "c": [
+    "(18 / 2) ** 2",
+    "18 / 2"
+   ]
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze so, dass ein Binom entsteht.",
+    "schablone": "x² − 8x + □ = (x − □)²",
+    "hinweis": "Erst die ergänzte Zahl, dann die Zahl in der Klammer."
+   },
+   "o": {
+    "werte": [
+     16,
+     4
+    ]
+   },
+   "w": "Hälfte von 8 ist 4, 4² = 16: x² − 8x + 16 = (x − 4)².",
+   "h": "Das Minus bleibt in der Klammer. Ergänzt wird immer eine positive Zahl.",
+   "c": [
+    "(8 / 2) ** 2",
+    "8 / 2"
+   ]
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze so, dass ein Binom entsteht.",
+    "schablone": "x² − 10x + □ = (x − □)²",
+    "hinweis": "Erst die ergänzte Zahl, dann die Zahl in der Klammer."
+   },
+   "o": {
+    "werte": [
+     25,
+     5
+    ]
+   },
+   "w": "Hälfte von 10 ist 5, 5² = 25: x² − 10x + 25 = (x − 5)².",
+   "h": "Das Minus bleibt in der Klammer. Ergänzt wird immer eine positive Zahl.",
+   "c": [
+    "(10 / 2) ** 2",
+    "10 / 2"
+   ]
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe x² + 10x + 25 als Quadrat einer Klammer.",
+    "schablone": "(x + □)²",
+    "hinweis": "Zahl in der Klammer; bei Minus eine negative Zahl."
+   },
+   "o": {
+    "werte": [
+     5
+    ]
+   },
+   "w": "25 = 5² und 10 = 2 · 5: x² + 10x + 25 = (x + 5)².",
+   "h": "Welche Zahl ergibt quadriert die Zahl am Ende? Passt das Doppelte zur Zahl vor x?",
+   "c": [
+    "(10) / 2"
+   ]
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl musst du zu x² + 14x addieren, damit ein Binom entsteht?"
+   },
+   "a": [
+    "14",
+    "49",
+    "−49",
+    "196"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "(b : 2)² = (14 : 2)² = 7² = 49.",
+   "h": "Halbieren, dann quadrieren – das Ergebnis ist nie negativ."
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl muss man zu x² − 3x addieren, damit ein Binom entsteht? Gib sie als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 2.25
+   },
+   "c": "(3 / 2) ** 2",
+   "w": "Hälfte von 3 ist 1,5, und 1,5² = 2,25.",
+   "h": "Auch bei ungeraden Zahlen: halbieren, dann quadrieren."
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand schreibt: x² + 16x + 16 = (x + 8)². Was stimmt?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: Ergänzt werden muss 256.",
+    "Falsch: Richtig ist (x + 16)².",
+    "Falsch: Ergänzt werden muss 64, also x² + 16x + 64 = (x + 8)²."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "(x + 8)² = x² + 16x + 64. Die ergänzte Zahl ist (16 : 2)² = 64, nicht 16.",
+   "h": "Rechne (x + …)² mit der binomischen Formel aus."
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl muss man zu x² + 5x addieren, damit ein Binom entsteht? Gib sie als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 6.25
+   },
+   "c": "(5 / 2) ** 2",
+   "w": "Hälfte von 5 ist 2,5, und 2,5² = 6,25.",
+   "h": "Auch bei ungeraden Zahlen: halbieren, dann quadrieren."
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Zahl muss man zu x² + x addieren, damit ein Binom entsteht? Gib sie als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.25
+   },
+   "c": "(1 / 2) ** 2",
+   "w": "Hälfte von 1 ist 0,5, und 0,5² = 0,25.",
+   "h": "Auch bei ungeraden Zahlen: halbieren, dann quadrieren."
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand schreibt: x² + 6x + 6 = (x + 3)². Was stimmt?"
+   },
+   "a": [
+    "Falsch: Richtig ist (x + 6)².",
+    "Falsch: Ergänzt werden muss 36.",
+    "Falsch: Ergänzt werden muss 9, also x² + 6x + 9 = (x + 3)².",
+    "Richtig."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "(x + 3)² = x² + 6x + 9. Die ergänzte Zahl ist (6 : 2)² = 9, nicht 6.",
+   "h": "Rechne (x + …)² mit der binomischen Formel aus."
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe x² − 2x + 1 als Quadrat einer Klammer.",
+    "schablone": "(x + □)²",
+    "hinweis": "Zahl in der Klammer; bei Minus eine negative Zahl."
+   },
+   "o": {
+    "werte": [
+     -1
+    ]
+   },
+   "w": "1 = 1² und 2 = 2 · 1: x² − 2x + 1 = (x − 1)².",
+   "c": [
+    "(-2) / 2"
+   ]
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze so, dass ein Binom entsteht.",
+    "schablone": "x² − 24x + □ = (x − □)²",
+    "hinweis": "Erst die ergänzte Zahl, dann die Zahl in der Klammer."
+   },
+   "o": {
+    "werte": [
+     144,
+     12
+    ]
+   },
+   "w": "Hälfte von 24 ist 12, 12² = 144: x² − 24x + 144 = (x − 12)².",
+   "c": [
+    "(24 / 2) ** 2",
+    "24 / 2"
+   ]
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe x² − 6x + 9 als Quadrat einer Klammer.",
+    "schablone": "(x + □)²",
+    "hinweis": "Zahl in der Klammer; bei Minus eine negative Zahl."
+   },
+   "o": {
+    "werte": [
+     -3
+    ]
+   },
+   "w": "9 = 3² und 6 = 2 · 3: x² − 6x + 9 = (x − 3)².",
+   "c": [
+    "(-6) / 2"
+   ]
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze so, dass ein Binom entsteht.",
+    "schablone": "x² − 2x + □ = (x − □)²",
+    "hinweis": "Erst die ergänzte Zahl, dann die Zahl in der Klammer."
+   },
+   "o": {
+    "werte": [
+     1,
+     1
+    ]
+   },
+   "w": "Hälfte von 2 ist 1, 1² = 1: x² − 2x + 1 = (x − 1)².",
+   "c": [
+    "(2 / 2) ** 2",
+    "2 / 2"
+   ]
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe x² − 12x + 36 als Quadrat einer Klammer.",
+    "schablone": "(x + □)²",
+    "hinweis": "Zahl in der Klammer; bei Minus eine negative Zahl."
+   },
+   "o": {
+    "werte": [
+     -6
+    ]
+   },
+   "w": "36 = 6² und 12 = 2 · 6: x² − 12x + 36 = (x − 6)².",
+   "c": [
+    "(-12) / 2"
+   ]
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe x² + 4x + 4 als Quadrat einer Klammer.",
+    "schablone": "(x + □)²",
+    "hinweis": "Zahl in der Klammer; bei Minus eine negative Zahl."
+   },
+   "o": {
+    "werte": [
+     2
+    ]
+   },
+   "w": "4 = 2² und 4 = 2 · 2: x² + 4x + 4 = (x + 2)².",
+   "c": [
+    "(4) / 2"
+   ]
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe x² − 14x + 49 als Quadrat einer Klammer.",
+    "schablone": "(x + □)²",
+    "hinweis": "Zahl in der Klammer; bei Minus eine negative Zahl."
+   },
+   "o": {
+    "werte": [
+     -7
+    ]
+   },
+   "w": "49 = 7² und 14 = 2 · 7: x² − 14x + 49 = (x − 7)².",
+   "c": [
+    "(-14) / 2"
+   ]
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe x² − 10x + 25 als Quadrat einer Klammer.",
+    "schablone": "(x + □)²",
+    "hinweis": "Zahl in der Klammer; bei Minus eine negative Zahl."
+   },
+   "o": {
+    "werte": [
+     -5
+    ]
+   },
+   "w": "25 = 5² und 10 = 2 · 5: x² − 10x + 25 = (x − 5)².",
+   "c": [
+    "(-10) / 2"
+   ]
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ergänze so, dass ein Binom entsteht.",
+    "schablone": "x² − 4x + □ = (x − □)²",
+    "hinweis": "Erst die ergänzte Zahl, dann die Zahl in der Klammer."
+   },
+   "o": {
+    "werte": [
+     4,
+     2
+    ]
+   },
+   "w": "Hälfte von 4 ist 2, 2² = 4: x² − 4x + 4 = (x − 2)².",
+   "c": [
+    "(4 / 2) ** 2",
+    "4 / 2"
+   ]
+  },
+  {
+   "l": "ergaenzen",
+   "t": "ergaenzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe x² + 6x + 9 als Quadrat einer Klammer.",
+    "schablone": "(x + □)²",
+    "hinweis": "Zahl in der Klammer; bei Minus eine negative Zahl."
+   },
+   "o": {
+    "werte": [
+     3
+    ]
+   },
+   "w": "9 = 3² und 6 = 2 · 3: x² + 6x + 9 = (x + 3)².",
+   "c": [
+    "(6) / 2"
+   ]
+  },
+  {
+   "l": "scheitelform",
+   "t": "scheitelform",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe T(x) = x² + 4x − 4 mit quadratischer Ergänzung in die Form (x + □)² + □.",
+    "schablone": "T(x) = (x + □)² + □",
+    "hinweis": "Zahl in der Klammer, dann die Zahl dahinter. (x + (−3))² bedeutet (x − 3)²."
+   },
+   "o": {
+    "werte": [
+     2,
+     -8
+    ]
+   },
+   "w": "x² + 4x − 4 = x² + 4x + 4 − 4 − 4 = (x + 2)² − 8.",
+   "h": "Ergänze (b : 2)² und ziehe es gleich wieder ab.",
+   "c": [
+    "(4) / 2",
+    "-4 - ((4) / 2) ** 2"
+   ]
+  },
+  {
+   "l": "scheitelform",
+   "t": "scheitelform",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe T(x) = x² + 8x + 6 mit quadratischer Ergänzung in die Form (x + □)² + □.",
+    "schablone": "T(x) = (x + □)² + □",
+    "hinweis": "Zahl in der Klammer, dann die Zahl dahinter. (x + (−3))² bedeutet (x − 3)²."
+   },
+   "o": {
+    "werte": [
+     4,
+     -10
+    ]
+   },
+   "w": "x² + 8x + 6 = x² + 8x + 16 − 16 + 6 = (x + 4)² − 10.",
+   "h": "Ergänze (b : 2)² und ziehe es gleich wieder ab.",
+   "c": [
+    "(8) / 2",
+    "6 - ((8) / 2) ** 2"
+   ]
+  },
+  {
+   "l": "scheitelform",
+   "t": "scheitelform",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe T(x) = x² − 6x + 5 mit quadratischer Ergänzung in die Form (x + □)² + □.",
+    "schablone": "T(x) = (x + □)² + □",
+    "hinweis": "Zahl in der Klammer, dann die Zahl dahinter. (x + (−3))² bedeutet (x − 3)²."
+   },
+   "o": {
+    "werte": [
+     -3,
+     -4
+    ]
+   },
+   "w": "x² − 6x + 5 = x² − 6x + 9 − 9 + 5 = (x − 3)² − 4.",
+   "h": "Ergänze (b : 2)² und ziehe es gleich wieder ab.",
+   "c": [
+    "(-6) / 2",
+    "5 - ((-6) / 2) ** 2"
+   ]
+  },
+  {
+   "l": "scheitelform",
+   "t": "scheitelform",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe T(x) = x² − 12x + 47 mit quadratischer Ergänzung in die Form (x + □)² + □.",
+    "schablone": "T(x) = (x + □)² + □",
+    "hinweis": "Zahl in der Klammer, dann die Zahl dahinter. (x + (−3))² bedeutet (x − 3)²."
+   },
+   "o": {
+    "werte": [
+     -6,
+     11
+    ]
+   },
+   "w": "x² − 12x + 47 = x² − 12x + 36 − 36 + 47 = (x − 6)² + 11.",
+   "h": "Ergänze (b : 2)² und ziehe es gleich wieder ab.",
+   "c": [
+    "(-12) / 2",
+    "47 - ((-12) / 2) ** 2"
+   ]
+  },
+  {
+   "l": "scheitelform",
+   "t": "scheitelform",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe T(x) = x² − 12x + 39 mit quadratischer Ergänzung in die Form (x + □)² + □.",
+    "schablone": "T(x) = (x + □)² + □",
+    "hinweis": "Zahl in der Klammer, dann die Zahl dahinter. (x + (−3))² bedeutet (x − 3)²."
+   },
+   "o": {
+    "werte": [
+     -6,
+     3
+    ]
+   },
+   "w": "x² − 12x + 39 = x² − 12x + 36 − 36 + 39 = (x − 6)² + 3.",
+   "h": "Ergänze (b : 2)² und ziehe es gleich wieder ab.",
+   "c": [
+    "(-12) / 2",
+    "39 - ((-12) / 2) ** 2"
+   ]
+  },
+  {
+   "l": "scheitelform",
+   "t": "scheitelform",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe T(x) = x² − 6x − 2 mit quadratischer Ergänzung in die Form (x + □)² + □.",
+    "schablone": "T(x) = (x + □)² + □",
+    "hinweis": "Zahl in der Klammer, dann die Zahl dahinter. (x + (−3))² bedeutet (x − 3)²."
+   },
+   "o": {
+    "werte": [
+     -3,
+     -11
+    ]
+   },
+   "w": "x² − 6x − 2 = x² − 6x + 9 − 9 − 2 = (x − 3)² − 11.",
+   "h": "Ergänze (b : 2)² und ziehe es gleich wieder ab.",
+   "c": [
+    "(-6) / 2",
+    "-2 - ((-6) / 2) ** 2"
+   ]
+  },
+  {
+   "l": "scheitelform",
+   "t": "scheitelform",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe T(x) = x² − 6x + 15 mit quadratischer Ergänzung in die Form (x + □)² + □.",
+    "schablone": "T(x) = (x + □)² + □",
+    "hinweis": "Zahl in der Klammer, dann die Zahl dahinter. (x + (−3))² bedeutet (x − 3)²."
+   },
+   "o": {
+    "werte": [
+     -3,
+     6
+    ]
+   },
+   "w": "x² − 6x + 15 = x² − 6x + 9 − 9 + 15 = (x − 3)² + 6.",
+   "h": "Ergänze (b : 2)² und ziehe es gleich wieder ab.",
+   "c": [
+    "(-6) / 2",
+    "15 - ((-6) / 2) ** 2"
+   ]
+  },
+  {
+   "l": "scheitelform",
+   "t": "scheitelform",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe T(x) = x² + 2x + 13 mit quadratischer Ergänzung in die Form (x + □)² + □.",
+    "schablone": "T(x) = (x + □)² + □",
+    "hinweis": "Zahl in der Klammer, dann die Zahl dahinter. (x + (−3))² bedeutet (x − 3)²."
+   },
+   "o": {
+    "werte": [
+     1,
+     12
+    ]
+   },
+   "w": "x² + 2x + 13 = x² + 2x + 1 − 1 + 13 = (x + 1)² + 12.",
+   "h": "Ergänze (b : 2)² und ziehe es gleich wieder ab.",
+   "c": [
+    "(2) / 2",
+    "13 - ((2) / 2) ** 2"
+   ]
+  },
+  {
+   "l": "scheitelform",
+   "t": "scheitelform",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe T(x) = x² + 10x + 30 mit quadratischer Ergänzung in die Form (x + □)² + □.",
+    "schablone": "T(x) = (x + □)² + □",
+    "hinweis": "Zahl in der Klammer, dann die Zahl dahinter. (x + (−3))² bedeutet (x − 3)²."
+   },
+   "o": {
+    "werte": [
+     5,
+     5
+    ]
+   },
+   "w": "x² + 10x + 30 = x² + 10x + 25 − 25 + 30 = (x + 5)² + 5.",
+   "h": "Ergänze (b : 2)² und ziehe es gleich wieder ab.",
+   "c": [
+    "(10) / 2",
+    "30 - ((10) / 2) ** 2"
+   ]
+  },
+  {
+   "l": "scheitelform",
+   "t": "scheitelform",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe T(x) = x² + 14x + 58 mit quadratischer Ergänzung in die Form (x + □)² + □.",
+    "schablone": "T(x) = (x + □)² + □",
+    "hinweis": "Zahl in der Klammer, dann die Zahl dahinter. (x + (−3))² bedeutet (x − 3)²."
+   },
+   "o": {
+    "werte": [
+     7,
+     9
+    ]
+   },
+   "w": "x² + 14x + 58 = x² + 14x + 49 − 49 + 58 = (x + 7)² + 9.",
+   "h": "Ergänze (b : 2)² und ziehe es gleich wieder ab.",
+   "c": [
+    "(14) / 2",
+    "58 - ((14) / 2) ** 2"
+   ]
+  },
+  {
+   "l": "scheitelform",
+   "t": "scheitelform",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe T(x) = x² + 4x + 6 mit quadratischer Ergänzung in die Form (x + □)² + □.",
+    "schablone": "T(x) = (x + □)² + □",
+    "hinweis": "Zahl in der Klammer, dann die Zahl dahinter. (x + (−3))² bedeutet (x − 3)²."
+   },
+   "o": {
+    "werte": [
+     2,
+     2
+    ]
+   },
+   "w": "x² + 4x + 6 = x² + 4x + 4 − 4 + 6 = (x + 2)² + 2.",
+   "h": "Ergänze (b : 2)² und ziehe es gleich wieder ab.",
+   "c": [
+    "(4) / 2",
+    "6 - ((4) / 2) ** 2"
+   ]
+  },
+  {
+   "l": "scheitelform",
+   "t": "scheitelform",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe T(x) = x² + 4x + 14 mit quadratischer Ergänzung in die Form (x + □)² + □.",
+    "schablone": "T(x) = (x + □)² + □",
+    "hinweis": "Zahl in der Klammer, dann die Zahl dahinter. (x + (−3))² bedeutet (x − 3)²."
+   },
+   "o": {
+    "werte": [
+     2,
+     10
+    ]
+   },
+   "w": "x² + 4x + 14 = x² + 4x + 4 − 4 + 14 = (x + 2)² + 10.",
+   "h": "Ergänze (b : 2)² und ziehe es gleich wieder ab.",
+   "c": [
+    "(4) / 2",
+    "14 - ((4) / 2) ** 2"
+   ]
+  },
+  {
+   "l": "scheitelform",
+   "t": "scheitelform",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere T(x) = (x − 6)² − 12 aus.",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. x² − 6x + 4."
+   },
+   "o": {
+    "werte": [
+     1,
+     -12,
+     24
+    ]
+   },
+   "w": "(x − 6)² = x² − 12x + 36, dazu −12: x² − 12x + 24.",
+   "h": "Binomische Formel, dann die Zahl dazurechnen.",
+   "c": [
+    "1",
+    "-12",
+    "24"
+   ]
+  },
+  {
+   "l": "scheitelform",
+   "t": "scheitelform",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere T(x) = (x − 6)² − 5 aus.",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. x² − 6x + 4."
+   },
+   "o": {
+    "werte": [
+     1,
+     -12,
+     31
+    ]
+   },
+   "w": "(x − 6)² = x² − 12x + 36, dazu −5: x² − 12x + 31.",
+   "h": "Binomische Formel, dann die Zahl dazurechnen.",
+   "c": [
+    "1",
+    "-12",
+    "31"
+   ]
+  },
+  {
+   "l": "scheitelform",
+   "t": "scheitelform",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "T(x) = x² + 3x − 4. Welchen kleinsten Wert kann T(x) annehmen?"
+   },
+   "o": {
+    "wert": -6.25
+   },
+   "c": "-4 - (3 / 2) ** 2",
+   "w": "T(x) = (x + 1,5)² − 2,25 − 4 = (x + 1,5)² − 6,25. Kleinster Wert −6,25 für x = −1,5.",
+   "h": "Auch mit Dezimalzahlen: Hälfte von b quadrieren, ergänzen und wieder abziehen."
+  },
+  {
+   "l": "scheitelform",
+   "t": "scheitelform",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "T(x) = x² − x + 4,5. Welchen kleinsten Wert kann T(x) annehmen?"
+   },
+   "o": {
+    "wert": 4.25
+   },
+   "c": "(9/2) - (-1 / 2) ** 2",
+   "w": "T(x) = (x − 0,5)² − 0,25 + 4,5 = (x − 0,5)² + 4,25. Kleinster Wert 4,25 für x = 0,5.",
+   "h": "Auch mit Dezimalzahlen: Hälfte von b quadrieren, ergänzen und wieder abziehen."
+  },
+  {
+   "l": "scheitelform",
+   "t": "scheitelform",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere T(x) = (x + 5)² + 8 aus.",
+    "schablone": "□x² + □x + □",
+    "hinweis": "Tippe den ganzen Term ein, z. B. x² − 6x + 4."
+   },
+   "o": {
+    "werte": [
+     1,
+     10,
+     33
+    ]
+   },
+   "w": "(x + 5)² = x² + 10x + 25, dazu 8: x² + 10x + 33.",
+   "h": "Binomische Formel, dann die Zahl dazurechnen.",
+   "c": [
+    "1",
+    "10",
+    "33"
+   ]
+  },
+  {
+   "l": "scheitelform",
+   "t": "scheitelform",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "T(x) = x² + 7x + 15. Welchen kleinsten Wert kann T(x) annehmen?"
+   },
+   "o": {
+    "wert": 2.75
+   },
+   "c": "15 - (7 / 2) ** 2",
+   "w": "T(x) = (x + 3,5)² − 12,25 + 15 = (x + 3,5)² + 2,75. Kleinster Wert 2,75 für x = −3,5.",
+   "h": "Auch mit Dezimalzahlen: Hälfte von b quadrieren, ergänzen und wieder abziehen."
+  },
+  {
+   "l": "scheitelform",
+   "t": "scheitelform",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe T(x) = x² + 14x + 42 mit quadratischer Ergänzung in die Form (x + □)² + □.",
+    "schablone": "T(x) = (x + □)² + □",
+    "hinweis": "Zahl in der Klammer, dann die Zahl dahinter. (x + (−3))² bedeutet (x − 3)²."
+   },
+   "o": {
+    "werte": [
+     7,
+     -7
+    ]
+   },
+   "w": "x² + 14x + 42 = x² + 14x + 49 − 49 + 42 = (x + 7)² − 7.",
+   "c": [
+    "(14) / 2",
+    "42 - ((14) / 2) ** 2"
+   ]
+  },
+  {
+   "l": "scheitelform",
+   "t": "scheitelform",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe T(x) = x² + 8x + 19 mit quadratischer Ergänzung in die Form (x + □)² + □.",
+    "schablone": "T(x) = (x + □)² + □",
+    "hinweis": "Zahl in der Klammer, dann die Zahl dahinter. (x + (−3))² bedeutet (x − 3)²."
+   },
+   "o": {
+    "werte": [
+     4,
+     3
+    ]
+   },
+   "w": "x² + 8x + 19 = x² + 8x + 16 − 16 + 19 = (x + 4)² + 3.",
+   "c": [
+    "(8) / 2",
+    "19 - ((8) / 2) ** 2"
+   ]
+  },
+  {
+   "l": "scheitelform",
+   "t": "scheitelform",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe T(x) = x² − 10x + 26 mit quadratischer Ergänzung in die Form (x + □)² + □.",
+    "schablone": "T(x) = (x + □)² + □",
+    "hinweis": "Zahl in der Klammer, dann die Zahl dahinter. (x + (−3))² bedeutet (x − 3)²."
+   },
+   "o": {
+    "werte": [
+     -5,
+     1
+    ]
+   },
+   "w": "x² − 10x + 26 = x² − 10x + 25 − 25 + 26 = (x − 5)² + 1.",
+   "c": [
+    "(-10) / 2",
+    "26 - ((-10) / 2) ** 2"
+   ]
+  },
+  {
+   "l": "scheitelform",
+   "t": "scheitelform",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe T(x) = x² + 8x + 28 mit quadratischer Ergänzung in die Form (x + □)² + □.",
+    "schablone": "T(x) = (x + □)² + □",
+    "hinweis": "Zahl in der Klammer, dann die Zahl dahinter. (x + (−3))² bedeutet (x − 3)²."
+   },
+   "o": {
+    "werte": [
+     4,
+     12
+    ]
+   },
+   "w": "x² + 8x + 28 = x² + 8x + 16 − 16 + 28 = (x + 4)² + 12.",
+   "c": [
+    "(8) / 2",
+    "28 - ((8) / 2) ** 2"
+   ]
+  },
+  {
+   "l": "scheitelform",
+   "t": "scheitelform",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe T(x) = x² − 10x + 18 mit quadratischer Ergänzung in die Form (x + □)² + □.",
+    "schablone": "T(x) = (x + □)² + □",
+    "hinweis": "Zahl in der Klammer, dann die Zahl dahinter. (x + (−3))² bedeutet (x − 3)²."
+   },
+   "o": {
+    "werte": [
+     -5,
+     -7
+    ]
+   },
+   "w": "x² − 10x + 18 = x² − 10x + 25 − 25 + 18 = (x − 5)² − 7.",
+   "c": [
+    "(-10) / 2",
+    "18 - ((-10) / 2) ** 2"
+   ]
+  },
+  {
+   "l": "scheitelform",
+   "t": "scheitelform",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe T(x) = x² + 12x + 26 mit quadratischer Ergänzung in die Form (x + □)² + □.",
+    "schablone": "T(x) = (x + □)² + □",
+    "hinweis": "Zahl in der Klammer, dann die Zahl dahinter. (x + (−3))² bedeutet (x − 3)²."
+   },
+   "o": {
+    "werte": [
+     6,
+     -10
+    ]
+   },
+   "w": "x² + 12x + 26 = x² + 12x + 36 − 36 + 26 = (x + 6)² − 10.",
+   "c": [
+    "(12) / 2",
+    "26 - ((12) / 2) ** 2"
+   ]
+  },
+  {
+   "l": "scheitelform",
+   "t": "scheitelform",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe T(x) = x² − 14x + 38 mit quadratischer Ergänzung in die Form (x + □)² + □.",
+    "schablone": "T(x) = (x + □)² + □",
+    "hinweis": "Zahl in der Klammer, dann die Zahl dahinter. (x + (−3))² bedeutet (x − 3)²."
+   },
+   "o": {
+    "werte": [
+     -7,
+     -11
+    ]
+   },
+   "w": "x² − 14x + 38 = x² − 14x + 49 − 49 + 38 = (x − 7)² − 11.",
+   "c": [
+    "(-14) / 2",
+    "38 - ((-14) / 2) ** 2"
+   ]
+  },
+  {
+   "l": "scheitelform",
+   "t": "scheitelform",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe T(x) = x² − 4x − 6 mit quadratischer Ergänzung in die Form (x + □)² + □.",
+    "schablone": "T(x) = (x + □)² + □",
+    "hinweis": "Zahl in der Klammer, dann die Zahl dahinter. (x + (−3))² bedeutet (x − 3)²."
+   },
+   "o": {
+    "werte": [
+     -2,
+     -10
+    ]
+   },
+   "w": "x² − 4x − 6 = x² − 4x + 4 − 4 − 6 = (x − 2)² − 10.",
+   "c": [
+    "(-4) / 2",
+    "-6 - ((-4) / 2) ** 2"
+   ]
+  },
+  {
+   "l": "scheitelform",
+   "t": "scheitelform",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe T(x) = x² − 14x + 58 mit quadratischer Ergänzung in die Form (x + □)² + □.",
+    "schablone": "T(x) = (x + □)² + □",
+    "hinweis": "Zahl in der Klammer, dann die Zahl dahinter. (x + (−3))² bedeutet (x − 3)²."
+   },
+   "o": {
+    "werte": [
+     -7,
+     9
+    ]
+   },
+   "w": "x² − 14x + 58 = x² − 14x + 49 − 49 + 58 = (x − 7)² + 9.",
+   "c": [
+    "(-14) / 2",
+    "58 - ((-14) / 2) ** 2"
+   ]
+  },
+  {
+   "l": "scheitelform",
+   "t": "scheitelform",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bringe T(x) = x² + 6x + 4 mit quadratischer Ergänzung in die Form (x + □)² + □.",
+    "schablone": "T(x) = (x + □)² + □",
+    "hinweis": "Zahl in der Klammer, dann die Zahl dahinter. (x + (−3))² bedeutet (x − 3)²."
+   },
+   "o": {
+    "werte": [
+     3,
+     -5
+    ]
+   },
+   "w": "x² + 6x + 4 = x² + 6x + 9 − 9 + 4 = (x + 3)² − 5.",
+   "c": [
+    "(6) / 2",
+    "4 - ((6) / 2) ** 2"
+   ]
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme Stelle und Wert des Extremums von T(x) = −(x − 1)² + 6.",
+    "schablone": "x = □; T = □",
+    "hinweis": "Erst die Stelle x, dann den Extremwert T."
+   },
+   "o": {
+    "werte": [
+     1,
+     6
+    ]
+   },
+   "w": "Die Klammer ist 0 für x = 1. Maximum T = 6 für x = 1.",
+   "h": "Für welches x wird die Klammer null?",
+   "c": [
+    "1",
+    "6"
+   ]
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme Stelle und Wert des Extremums von T(x) = −(x − 5)².",
+    "schablone": "x = □; T = □",
+    "hinweis": "Erst die Stelle x, dann den Extremwert T."
+   },
+   "o": {
+    "werte": [
+     5,
+     0
+    ]
+   },
+   "w": "Die Klammer ist 0 für x = 5. Maximum T = 0 für x = 5.",
+   "h": "Für welches x wird die Klammer null?",
+   "c": [
+    "5",
+    "0"
+   ]
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme Stelle und Wert des Extremums von T(x) = −(x − 8)² + 10.",
+    "schablone": "x = □; T = □",
+    "hinweis": "Erst die Stelle x, dann den Extremwert T."
+   },
+   "o": {
+    "werte": [
+     8,
+     10
+    ]
+   },
+   "w": "Die Klammer ist 0 für x = 8. Maximum T = 10 für x = 8.",
+   "h": "Für welches x wird die Klammer null?",
+   "c": [
+    "8",
+    "10"
+   ]
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme Stelle und Wert des Extremums von T(x) = −(x + 1)² + 13.",
+    "schablone": "x = □; T = □",
+    "hinweis": "Erst die Stelle x, dann den Extremwert T."
+   },
+   "o": {
+    "werte": [
+     -1,
+     13
+    ]
+   },
+   "w": "Die Klammer ist 0 für x = −1. Maximum T = 13 für x = −1.",
+   "h": "Für welches x wird die Klammer null?",
+   "c": [
+    "-1",
+    "13"
+   ]
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme Stelle und Wert des Extremums von T(x) = −(x − 8)² − 10.",
+    "schablone": "x = □; T = □",
+    "hinweis": "Erst die Stelle x, dann den Extremwert T."
+   },
+   "o": {
+    "werte": [
+     8,
+     -10
+    ]
+   },
+   "w": "Die Klammer ist 0 für x = 8. Maximum T = −10 für x = 8.",
+   "h": "Für welches x wird die Klammer null?",
+   "c": [
+    "8",
+    "-10"
+   ]
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme Stelle und Wert des Extremums von T(x) = −(x − 5)² − 6.",
+    "schablone": "x = □; T = □",
+    "hinweis": "Erst die Stelle x, dann den Extremwert T."
+   },
+   "o": {
+    "werte": [
+     5,
+     -6
+    ]
+   },
+   "w": "Die Klammer ist 0 für x = 5. Maximum T = −6 für x = 5.",
+   "h": "Für welches x wird die Klammer null?",
+   "c": [
+    "5",
+    "-6"
+   ]
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme Stelle und Wert des Extremums von T(x) = −2(x − 5)² − 7.",
+    "schablone": "x = □; T = □",
+    "hinweis": "Erst die Stelle x, dann den Extremwert T."
+   },
+   "o": {
+    "werte": [
+     5,
+     -7
+    ]
+   },
+   "w": "Klammer 0 für x = 5; T = −7. Vorfaktor −2: Maximum.",
+   "h": "Achte auf das Vorzeichen in der Klammer.",
+   "c": [
+    "5",
+    "-7"
+   ]
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme Stelle und Wert des Extremums von T(x) = −(x − 4)² + 14.",
+    "schablone": "x = □; T = □",
+    "hinweis": "Erst die Stelle x, dann den Extremwert T."
+   },
+   "o": {
+    "werte": [
+     4,
+     14
+    ]
+   },
+   "w": "Klammer 0 für x = 4; T = 14. Vorfaktor −1: Maximum.",
+   "h": "Achte auf das Vorzeichen in der Klammer.",
+   "c": [
+    "4",
+    "14"
+   ]
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Hat T(x) = −(x − 2)² + 11 ein Minimum oder ein Maximum?"
+   },
+   "a": [
+    "Maximum 11 für x = 2",
+    "Minimum 11 für x = 2",
+    "Maximum 11 für x = −2",
+    "Maximum 2 für x = 11"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Vorfaktor −1 < 0: Das Quadrat wird abgezogen, also Maximum. Klammer 0 für x = 2, Wert 11.",
+   "h": "Wird das Quadrat addiert oder abgezogen?"
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Hat T(x) = −(x − 4)² − 9 ein Minimum oder ein Maximum?"
+   },
+   "a": [
+    "Maximum −9 für x = −4",
+    "Maximum −9 für x = 4",
+    "Minimum −9 für x = 4",
+    "Maximum 4 für x = −9"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Vorfaktor −1 < 0: Das Quadrat wird abgezogen, also Maximum. Klammer 0 für x = 4, Wert −9.",
+   "h": "Wird das Quadrat addiert oder abgezogen?"
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme Stelle und Wert des Extremums von T(x) = 2(x − 8)² − 4.",
+    "schablone": "x = □; T = □",
+    "hinweis": "Erst die Stelle x, dann den Extremwert T."
+   },
+   "o": {
+    "werte": [
+     8,
+     -4
+    ]
+   },
+   "w": "Klammer 0 für x = 8; T = −4. Vorfaktor 2: Minimum.",
+   "h": "Achte auf das Vorzeichen in der Klammer.",
+   "c": [
+    "8",
+    "-4"
+   ]
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme Stelle und Wert des Extremums von T(x) = 3(x + 1)² + 1.",
+    "schablone": "x = □; T = □",
+    "hinweis": "Erst die Stelle x, dann den Extremwert T."
+   },
+   "o": {
+    "werte": [
+     -1,
+     1
+    ]
+   },
+   "w": "Klammer 0 für x = −1; T = 1. Vorfaktor 3: Minimum.",
+   "h": "Achte auf das Vorzeichen in der Klammer.",
+   "c": [
+    "-1",
+    "1"
+   ]
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme Stelle und Wert des Minimums von T(x) = x² − 8x + 14.",
+    "schablone": "x = □; T = □",
+    "hinweis": "Erst die Stelle x, dann den Extremwert T."
+   },
+   "o": {
+    "werte": [
+     4,
+     -2
+    ]
+   },
+   "w": "T(x) = (x − 4)² − 2. Minimum T = −2 für x = 4.",
+   "h": "Erst quadratisch ergänzen, dann ablesen.",
+   "c": [
+    "-(-8) / 2",
+    "14 - ((-8) / 2) ** 2"
+   ]
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Für welches x ist T(x) = (x − 7)² − 3 am kleinsten – und gibt es auch einen größten Wert?"
+   },
+   "a": [
+    "Kleinster Wert bei x = −3; einen größten Wert gibt es nicht.",
+    "Kleinster Wert bei x = −7; einen größten Wert gibt es nicht.",
+    "Kleinster Wert bei x = 7; größter Wert bei x = −7.",
+    "Kleinster Wert bei x = 7; einen größten Wert gibt es nicht."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die Klammer ist 0 für x = 7. Je weiter x davon weg ist, desto größer wird das Quadrat – ohne Grenze.",
+   "h": "Wie groß kann ein Quadrat werden?"
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über T(x) = −2(x − 3)² + 12 ist richtig?"
+   },
+   "a": [
+    "T(x) ist immer ≤ 12.",
+    "Der Extremwert ist 3.",
+    "T(x) kann für ein x größer als 12 werden.",
+    "Für x = −3 ist T(x) = 12."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "−2(x − 3)² ist nie positiv, also T(x) ≤ 12.",
+   "h": "Was weißt du über das Vorzeichen eines Quadrats?"
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über T(x) = −2(x − 8)² − 15 ist richtig?"
+   },
+   "a": [
+    "Der Extremwert ist 8.",
+    "Für x = −8 ist T(x) = −15.",
+    "T(x) ist immer ≤ −15.",
+    "T(x) kann für ein x größer als −15 werden."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "−2(x − 8)² ist nie positiv, also T(x) ≤ −15.",
+   "h": "Was weißt du über das Vorzeichen eines Quadrats?"
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Für welches x ist T(x) = (x + 4)² − 7 am kleinsten – und gibt es auch einen größten Wert?"
+   },
+   "a": [
+    "Kleinster Wert bei x = −4; größter Wert bei x = 4.",
+    "Kleinster Wert bei x = 4; einen größten Wert gibt es nicht.",
+    "Kleinster Wert bei x = −4; einen größten Wert gibt es nicht.",
+    "Kleinster Wert bei x = −7; einen größten Wert gibt es nicht."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Klammer ist 0 für x = −4. Je weiter x davon weg ist, desto größer wird das Quadrat – ohne Grenze.",
+   "h": "Wie groß kann ein Quadrat werden?"
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme Stelle und Wert des Maximums von T(x) = −x² + 14x − 58.",
+    "schablone": "x = □; T = □",
+    "hinweis": "Erst die Stelle x, dann den Extremwert T."
+   },
+   "o": {
+    "werte": [
+     7,
+     -9
+    ]
+   },
+   "w": "T(x) = −(x² − 14x + 58) = −((x − 7)² + 9) = −(x − 7)² − 9. Maximum T = −9 für x = 7.",
+   "h": "Klammere zuerst −1 aus.",
+   "c": [
+    "-(-14) / 2",
+    "-(((58) - ((-14) / 2) ** 2))"
+   ]
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme Stelle und Wert des Extremums von T(x) = −2(x + 7)² − 12.",
+    "schablone": "x = □; T = □",
+    "hinweis": "Erst die Stelle x, dann den Extremwert T."
+   },
+   "o": {
+    "werte": [
+     -7,
+     -12
+    ]
+   },
+   "w": "Klammer 0 für x = −7; T = −12. Vorfaktor −2: Maximum.",
+   "c": [
+    "-7",
+    "-12"
+   ]
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Hat T(x) = −(x + 7)² + 15 ein Minimum oder ein Maximum?"
+   },
+   "a": [
+    "Minimum 15 für x = −7",
+    "Maximum 15 für x = 7",
+    "Maximum −7 für x = 15",
+    "Maximum 15 für x = −7"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Vorfaktor −1 < 0: Das Quadrat wird abgezogen, also Maximum. Klammer 0 für x = −7, Wert 15."
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme Stelle und Wert des Extremums von T(x) = 3(x + 5)².",
+    "schablone": "x = □; T = □",
+    "hinweis": "Erst die Stelle x, dann den Extremwert T."
+   },
+   "o": {
+    "werte": [
+     -5,
+     0
+    ]
+   },
+   "w": "Klammer 0 für x = −5; T = 0. Vorfaktor 3: Minimum.",
+   "c": [
+    "-5",
+    "0"
+   ]
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme Stelle und Wert des Extremums von T(x) = (x − 2)² + 2.",
+    "schablone": "x = □; T = □",
+    "hinweis": "Erst die Stelle x, dann den Extremwert T."
+   },
+   "o": {
+    "werte": [
+     2,
+     2
+    ]
+   },
+   "w": "Klammer 0 für x = 2; T = 2. Vorfaktor 1: Minimum.",
+   "c": [
+    "2",
+    "2"
+   ]
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Hat T(x) = 3(x + 8)² + 6 ein Minimum oder ein Maximum?"
+   },
+   "a": [
+    "Minimum 6 für x = 8",
+    "Minimum 6 für x = −8",
+    "Maximum 6 für x = −8",
+    "Minimum −8 für x = 6"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Vorfaktor 3 > 0: Das Quadrat wird addiert, also Minimum. Klammer 0 für x = −8, Wert 6."
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme Stelle und Wert des Extremums von T(x) = 0,5(x − 6)² − 5.",
+    "schablone": "x = □; T = □",
+    "hinweis": "Erst die Stelle x, dann den Extremwert T."
+   },
+   "o": {
+    "werte": [
+     6,
+     -5
+    ]
+   },
+   "w": "Klammer 0 für x = 6; T = −5. Vorfaktor 0,5: Minimum.",
+   "c": [
+    "6",
+    "-5"
+   ]
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme Stelle und Wert des Extremums von T(x) = −2(x − 5)² − 1.",
+    "schablone": "x = □; T = □",
+    "hinweis": "Erst die Stelle x, dann den Extremwert T."
+   },
+   "o": {
+    "werte": [
+     5,
+     -1
+    ]
+   },
+   "w": "Klammer 0 für x = 5; T = −1. Vorfaktor −2: Maximum.",
+   "c": [
+    "5",
+    "-1"
+   ]
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Hat T(x) = (x + 7)² − 7 ein Minimum oder ein Maximum?"
+   },
+   "a": [
+    "Minimum −7 für x = 7",
+    "Maximum −7 für x = −7",
+    "Minimum −7 für x = −7"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Vorfaktor 1 > 0: Das Quadrat wird addiert, also Minimum. Klammer 0 für x = −7, Wert −7."
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Hat T(x) = −(x − 5)² + 2 ein Minimum oder ein Maximum?"
+   },
+   "a": [
+    "Maximum 2 für x = 5",
+    "Maximum 5 für x = 2",
+    "Maximum 2 für x = −5",
+    "Minimum 2 für x = 5"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Vorfaktor −1 < 0: Das Quadrat wird abgezogen, also Maximum. Klammer 0 für x = 5, Wert 2."
+  },
+  {
+   "l": "extremwert",
+   "t": "extremwert",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Hat T(x) = −2(x − 5)² − 10 ein Minimum oder ein Maximum?"
+   },
+   "a": [
+    "Maximum −10 für x = 5",
+    "Minimum −10 für x = 5",
+    "Maximum −10 für x = −5",
+    "Maximum 5 für x = −10"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Vorfaktor −2 < 0: Das Quadrat wird abgezogen, also Maximum. Klammer 0 für x = 5, Wert −10."
+  },
+  {
+   "l": "mit_faktor",
+   "t": "mit_faktor",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme Stelle und Wert des Extremums von T(x) = 4x² + 16x + 5.",
+    "schablone": "x = □; T = □",
+    "hinweis": "Erst die Stelle x, dann den Extremwert T."
+   },
+   "o": {
+    "werte": [
+     -2,
+     -11
+    ]
+   },
+   "w": "T(x) = 4(x² + 4x) + 5 = 4(x² + 4x + 4 − 4) + 5 = 4(x + 2)² − 16 + 5 = 4(x + 2)² − 11. Minimum T = −11 für x = −2.",
+   "h": "Klammere 4 aus den x-Gliedern aus, ergänze in der Klammer.",
+   "c": [
+    "-(16) / (2 * (4))",
+    "5 - (16) ** 2 / (4 * (4))"
+   ]
+  },
+  {
+   "l": "mit_faktor",
+   "t": "mit_faktor",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme Stelle und Wert des Extremums von T(x) = 2x² − 16x + 37.",
+    "schablone": "x = □; T = □",
+    "hinweis": "Erst die Stelle x, dann den Extremwert T."
+   },
+   "o": {
+    "werte": [
+     4,
+     5
+    ]
+   },
+   "w": "T(x) = 2(x² − 8x) + 37 = 2(x² − 8x + 16 − 16) + 37 = 2(x − 4)² − 32 + 37 = 2(x − 4)² + 5. Minimum T = 5 für x = 4.",
+   "h": "Klammere 2 aus den x-Gliedern aus, ergänze in der Klammer.",
+   "c": [
+    "-(-16) / (2 * (2))",
+    "37 - (-16) ** 2 / (4 * (2))"
+   ]
+  },
+  {
+   "l": "mit_faktor",
+   "t": "mit_faktor",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme Stelle und Wert des Extremums von T(x) = 3x² − 12x + 8.",
+    "schablone": "x = □; T = □",
+    "hinweis": "Erst die Stelle x, dann den Extremwert T."
+   },
+   "o": {
+    "werte": [
+     2,
+     -4
+    ]
+   },
+   "w": "T(x) = 3(x² − 4x) + 8 = 3(x² − 4x + 4 − 4) + 8 = 3(x − 2)² − 12 + 8 = 3(x − 2)² − 4. Minimum T = −4 für x = 2.",
+   "h": "Klammere 3 aus den x-Gliedern aus, ergänze in der Klammer.",
+   "c": [
+    "-(-12) / (2 * (3))",
+    "8 - (-12) ** 2 / (4 * (3))"
+   ]
+  },
+  {
+   "l": "mit_faktor",
+   "t": "mit_faktor",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme Stelle und Wert des Extremums von T(x) = 5x² − 30x + 36.",
+    "schablone": "x = □; T = □",
+    "hinweis": "Erst die Stelle x, dann den Extremwert T."
+   },
+   "o": {
+    "werte": [
+     3,
+     -9
+    ]
+   },
+   "w": "T(x) = 5(x² − 6x) + 36 = 5(x² − 6x + 9 − 9) + 36 = 5(x − 3)² − 45 + 36 = 5(x − 3)² − 9. Minimum T = −9 für x = 3.",
+   "h": "Klammere 5 aus den x-Gliedern aus, ergänze in der Klammer.",
+   "c": [
+    "-(-30) / (2 * (5))",
+    "36 - (-30) ** 2 / (4 * (5))"
+   ]
+  },
+  {
+   "l": "mit_faktor",
+   "t": "mit_faktor",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme Stelle und Wert des Extremums von T(x) = 3x² + 18x + 32.",
+    "schablone": "x = □; T = □",
+    "hinweis": "Erst die Stelle x, dann den Extremwert T."
+   },
+   "o": {
+    "werte": [
+     -3,
+     5
+    ]
+   },
+   "w": "T(x) = 3(x² + 6x) + 32 = 3(x² + 6x + 9 − 9) + 32 = 3(x + 3)² − 27 + 32 = 3(x + 3)² + 5. Minimum T = 5 für x = −3.",
+   "h": "Klammere 3 aus den x-Gliedern aus, ergänze in der Klammer.",
+   "c": [
+    "-(18) / (2 * (3))",
+    "32 - (18) ** 2 / (4 * (3))"
+   ]
+  },
+  {
+   "l": "mit_faktor",
+   "t": "mit_faktor",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme Stelle und Wert des Extremums von T(x) = 5x² − 30x + 43.",
+    "schablone": "x = □; T = □",
+    "hinweis": "Erst die Stelle x, dann den Extremwert T."
+   },
+   "o": {
+    "werte": [
+     3,
+     -2
+    ]
+   },
+   "w": "T(x) = 5(x² − 6x) + 43 = 5(x² − 6x + 9 − 9) + 43 = 5(x − 3)² − 45 + 43 = 5(x − 3)² − 2. Minimum T = −2 für x = 3.",
+   "h": "Klammere 5 aus den x-Gliedern aus, ergänze in der Klammer.",
+   "c": [
+    "-(-30) / (2 * (5))",
+    "43 - (-30) ** 2 / (4 * (5))"
+   ]
+  },
+  {
+   "l": "mit_faktor",
+   "t": "mit_faktor",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme Stelle und Wert des Extremums von T(x) = 3x² + 30x + 82.",
+    "schablone": "x = □; T = □",
+    "hinweis": "Erst die Stelle x, dann den Extremwert T."
+   },
+   "o": {
+    "werte": [
+     -5,
+     7
+    ]
+   },
+   "w": "T(x) = 3(x² + 10x) + 82 = 3(x² + 10x + 25 − 25) + 82 = 3(x + 5)² − 75 + 82 = 3(x + 5)² + 7. Minimum T = 7 für x = −5.",
+   "h": "Klammere 3 aus den x-Gliedern aus, ergänze in der Klammer.",
+   "c": [
+    "-(30) / (2 * (3))",
+    "82 - (30) ** 2 / (4 * (3))"
+   ]
+  },
+  {
+   "l": "mit_faktor",
+   "t": "mit_faktor",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme Stelle und Wert des Extremums von T(x) = 4x² − 8x + 9.",
+    "schablone": "x = □; T = □",
+    "hinweis": "Erst die Stelle x, dann den Extremwert T."
+   },
+   "o": {
+    "werte": [
+     1,
+     5
+    ]
+   },
+   "w": "T(x) = 4(x² − 2x) + 9 = 4(x² − 2x + 1 − 1) + 9 = 4(x − 1)² − 4 + 9 = 4(x − 1)² + 5. Minimum T = 5 für x = 1.",
+   "h": "Klammere 4 aus den x-Gliedern aus, ergänze in der Klammer.",
+   "c": [
+    "-(-8) / (2 * (4))",
+    "9 - (-8) ** 2 / (4 * (4))"
+   ]
+  },
+  {
+   "l": "mit_faktor",
+   "t": "mit_faktor",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme Stelle und Wert des Extremums von T(x) = −4x² − 40x − 103.",
+    "schablone": "x = □; T = □",
+    "hinweis": "Erst die Stelle x, dann den Extremwert T."
+   },
+   "o": {
+    "werte": [
+     -5,
+     -3
+    ]
+   },
+   "w": "T(x) = −4(x² + 10x) − 103 = −4(x² + 10x + 25 − 25) − 103 = −4(x + 5)² + 100 − 103 = −4(x + 5)² − 3. Maximum T = −3 für x = −5.",
+   "h": "Klammere −4 aus den x-Gliedern aus, ergänze in der Klammer.",
+   "c": [
+    "-(-40) / (2 * (-4))",
+    "-103 - (-40) ** 2 / (4 * (-4))"
+   ]
+  },
+  {
+   "l": "mit_faktor",
+   "t": "mit_faktor",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme Stelle und Wert des Extremums von T(x) = −2x² + 8x − 4.",
+    "schablone": "x = □; T = □",
+    "hinweis": "Erst die Stelle x, dann den Extremwert T."
+   },
+   "o": {
+    "werte": [
+     2,
+     4
+    ]
+   },
+   "w": "T(x) = −2(x² − 4x) − 4 = −2(x² − 4x + 4 − 4) − 4 = −2(x − 2)² + 8 − 4 = −2(x − 2)² + 4. Maximum T = 4 für x = 2.",
+   "h": "Klammere −2 aus den x-Gliedern aus, ergänze in der Klammer.",
+   "c": [
+    "-(8) / (2 * (-2))",
+    "-4 - (8) ** 2 / (4 * (-2))"
+   ]
+  },
+  {
+   "l": "mit_faktor",
+   "t": "mit_faktor",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme Stelle und Wert des Extremums von T(x) = 2x² + 20x + 41.",
+    "schablone": "x = □; T = □",
+    "hinweis": "Erst die Stelle x, dann den Extremwert T."
+   },
+   "o": {
+    "werte": [
+     -5,
+     -9
+    ]
+   },
+   "w": "T(x) = 2(x² + 10x) + 41 = 2(x² + 10x + 25 − 25) + 41 = 2(x + 5)² − 50 + 41 = 2(x + 5)² − 9. Minimum T = −9 für x = −5.",
+   "h": "Klammere 2 aus den x-Gliedern aus, ergänze in der Klammer.",
+   "c": [
+    "-(20) / (2 * (2))",
+    "41 - (20) ** 2 / (4 * (2))"
+   ]
+  },
+  {
+   "l": "mit_faktor",
+   "t": "mit_faktor",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme Stelle und Wert des Extremums von T(x) = −4x² − 16x − 14.",
+    "schablone": "x = □; T = □",
+    "hinweis": "Erst die Stelle x, dann den Extremwert T."
+   },
+   "o": {
+    "werte": [
+     -2,
+     2
+    ]
+   },
+   "w": "T(x) = −4(x² + 4x) − 14 = −4(x² + 4x + 4 − 4) − 14 = −4(x + 2)² + 16 − 14 = −4(x + 2)² + 2. Maximum T = 2 für x = −2.",
+   "h": "Klammere −4 aus den x-Gliedern aus, ergänze in der Klammer.",
+   "c": [
+    "-(-16) / (2 * (-4))",
+    "-14 - (-16) ** 2 / (4 * (-4))"
+   ]
+  },
+  {
+   "l": "mit_faktor",
+   "t": "mit_faktor",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Hat T(x) = −4x² − 32x − 65 ein Minimum oder ein Maximum?"
+   },
+   "a": [
+    "keins von beiden",
+    "beides",
+    "Minimum",
+    "Maximum"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Der Faktor vor x² ist −4 < 0, also Maximum.",
+   "h": "Schau nur auf das Vorzeichen vor x²."
+  },
+  {
+   "l": "mit_faktor",
+   "t": "mit_faktor",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand formt T(x) = 2x² − 20x + 61 um zu 2(x − 5)² + 36. Was stimmt?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: Die abgezogene 25 muss mit 2 multipliziert werden. Richtig: 2(x − 5)² + 11.",
+    "Falsch: Richtig ist (x − 5)² + 11.",
+    "Falsch: Richtig ist 2(x + 5)² + 36."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "T(x) = 2(x² − 10x) + 61 = 2(x² − 10x + 25 − 25) + 61 = 2(x − 5)² − 50 + 61 = 2(x − 5)² + 11. Minimum T = 11 für x = 5.",
+   "h": "Setze x = 0 in beide Terme ein und vergleiche."
+  },
+  {
+   "l": "mit_faktor",
+   "t": "mit_faktor",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme Stelle und Wert des Extremums von T(x) = 0,5x² − 2x − 4.",
+    "schablone": "x = □; T = □",
+    "hinweis": "Erst die Stelle x, dann den Extremwert T."
+   },
+   "o": {
+    "werte": [
+     2,
+     -6
+    ]
+   },
+   "w": "T(x) = 0,5(x² − 4x) − 4 = 0,5(x − 2)² − 2 − 4 = 0,5(x − 2)² − 6. Minimum T = −6 für x = 2.",
+   "h": "Klammere 0,5 aus: Teilen durch 0,5 heißt mal 2.",
+   "c": [
+    "-(-2) / (2 * (1/2))",
+    "-4 - (-2) ** 2 / (4 * (1/2))"
+   ]
+  },
+  {
+   "l": "mit_faktor",
+   "t": "mit_faktor",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme Stelle und Wert des Extremums von T(x) = 0,5x² − 4x + 10.",
+    "schablone": "x = □; T = □",
+    "hinweis": "Erst die Stelle x, dann den Extremwert T."
+   },
+   "o": {
+    "werte": [
+     4,
+     2
+    ]
+   },
+   "w": "T(x) = 0,5(x² − 8x) + 10 = 0,5(x − 4)² − 8 + 10 = 0,5(x − 4)² + 2. Minimum T = 2 für x = 4.",
+   "h": "Klammere 0,5 aus: Teilen durch 0,5 heißt mal 2.",
+   "c": [
+    "-(-4) / (2 * (1/2))",
+    "10 - (-4) ** 2 / (4 * (1/2))"
+   ]
+  },
+  {
+   "l": "mit_faktor",
+   "t": "mit_faktor",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Hat T(x) = 3x² + 12x + 17 ein Minimum oder ein Maximum?"
+   },
+   "a": [
+    "beides",
+    "keins von beiden",
+    "Minimum",
+    "Maximum"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Der Faktor vor x² ist 3 > 0, also Minimum.",
+   "h": "Schau nur auf das Vorzeichen vor x²."
+  },
+  {
+   "l": "mit_faktor",
+   "t": "mit_faktor",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme Stelle und Wert des Extremums von T(x) = −0,5x² − 4x − 6.",
+    "schablone": "x = □; T = □",
+    "hinweis": "Erst die Stelle x, dann den Extremwert T."
+   },
+   "o": {
+    "werte": [
+     -4,
+     2
+    ]
+   },
+   "w": "T(x) = −0,5(x² + 8x) − 6 = −0,5(x + 4)² + 8 − 6 = −0,5(x + 4)² + 2. Maximum T = 2 für x = −4.",
+   "h": "Klammere −0,5 aus: Teilen durch −0,5 heißt mal −2.",
+   "c": [
+    "-(-4) / (2 * (-1/2))",
+    "-6 - (-4) ** 2 / (4 * (-1/2))"
+   ]
+  },
+  {
+   "l": "mit_faktor",
+   "t": "mit_faktor",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme Stelle und Wert des Extremums von T(x) = 2x² + 12x + 7.",
+    "schablone": "x = □; T = □",
+    "hinweis": "Erst die Stelle x, dann den Extremwert T."
+   },
+   "o": {
+    "werte": [
+     -3,
+     -11
+    ]
+   },
+   "w": "T(x) = 2(x² + 6x) + 7 = 2(x² + 6x + 9 − 9) + 7 = 2(x + 3)² − 18 + 7 = 2(x + 3)² − 11. Minimum T = −11 für x = −3.",
+   "c": [
+    "-(12) / (2 * (2))",
+    "7 - (12) ** 2 / (4 * (2))"
+   ]
+  },
+  {
+   "l": "mit_faktor",
+   "t": "mit_faktor",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme Stelle und Wert des Extremums von T(x) = −3x² − 12x − 21.",
+    "schablone": "x = □; T = □",
+    "hinweis": "Erst die Stelle x, dann den Extremwert T."
+   },
+   "o": {
+    "werte": [
+     -2,
+     -9
+    ]
+   },
+   "w": "T(x) = −3(x² + 4x) − 21 = −3(x² + 4x + 4 − 4) − 21 = −3(x + 2)² + 12 − 21 = −3(x + 2)² − 9. Maximum T = −9 für x = −2.",
+   "c": [
+    "-(-12) / (2 * (-3))",
+    "-21 - (-12) ** 2 / (4 * (-3))"
+   ]
+  },
+  {
+   "l": "mit_faktor",
+   "t": "mit_faktor",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme Stelle und Wert des Extremums von T(x) = −4x² − 16x − 15.",
+    "schablone": "x = □; T = □",
+    "hinweis": "Erst die Stelle x, dann den Extremwert T."
+   },
+   "o": {
+    "werte": [
+     -2,
+     1
+    ]
+   },
+   "w": "T(x) = −4(x² + 4x) − 15 = −4(x² + 4x + 4 − 4) − 15 = −4(x + 2)² + 16 − 15 = −4(x + 2)² + 1. Maximum T = 1 für x = −2.",
+   "c": [
+    "-(-16) / (2 * (-4))",
+    "-15 - (-16) ** 2 / (4 * (-4))"
+   ]
+  },
+  {
+   "l": "mit_faktor",
+   "t": "mit_faktor",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme Stelle und Wert des Extremums von T(x) = −4x² − 32x − 61.",
+    "schablone": "x = □; T = □",
+    "hinweis": "Erst die Stelle x, dann den Extremwert T."
+   },
+   "o": {
+    "werte": [
+     -4,
+     3
+    ]
+   },
+   "w": "T(x) = −4(x² + 8x) − 61 = −4(x² + 8x + 16 − 16) − 61 = −4(x + 4)² + 64 − 61 = −4(x + 4)² + 3. Maximum T = 3 für x = −4.",
+   "c": [
+    "-(-32) / (2 * (-4))",
+    "-61 - (-32) ** 2 / (4 * (-4))"
+   ]
+  },
+  {
+   "l": "mit_faktor",
+   "t": "mit_faktor",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme Stelle und Wert des Extremums von T(x) = 4x² − 40x + 88.",
+    "schablone": "x = □; T = □",
+    "hinweis": "Erst die Stelle x, dann den Extremwert T."
+   },
+   "o": {
+    "werte": [
+     5,
+     -12
+    ]
+   },
+   "w": "T(x) = 4(x² − 10x) + 88 = 4(x² − 10x + 25 − 25) + 88 = 4(x − 5)² − 100 + 88 = 4(x − 5)² − 12. Minimum T = −12 für x = 5.",
+   "c": [
+    "-(-40) / (2 * (4))",
+    "88 - (-40) ** 2 / (4 * (4))"
+   ]
+  },
+  {
+   "l": "mit_faktor",
+   "t": "mit_faktor",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme Stelle und Wert des Extremums von T(x) = −2x² − 12x − 28.",
+    "schablone": "x = □; T = □",
+    "hinweis": "Erst die Stelle x, dann den Extremwert T."
+   },
+   "o": {
+    "werte": [
+     -3,
+     -10
+    ]
+   },
+   "w": "T(x) = −2(x² + 6x) − 28 = −2(x² + 6x + 9 − 9) − 28 = −2(x + 3)² + 18 − 28 = −2(x + 3)² − 10. Maximum T = −10 für x = −3.",
+   "c": [
+    "-(-12) / (2 * (-2))",
+    "-28 - (-12) ** 2 / (4 * (-2))"
+   ]
+  },
+  {
+   "l": "mit_faktor",
+   "t": "mit_faktor",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme Stelle und Wert des Extremums von T(x) = −3x² − 12x − 24.",
+    "schablone": "x = □; T = □",
+    "hinweis": "Erst die Stelle x, dann den Extremwert T."
+   },
+   "o": {
+    "werte": [
+     -2,
+     -12
+    ]
+   },
+   "w": "T(x) = −3(x² + 4x) − 24 = −3(x² + 4x + 4 − 4) − 24 = −3(x + 2)² + 12 − 24 = −3(x + 2)² − 12. Maximum T = −12 für x = −2.",
+   "c": [
+    "-(-12) / (2 * (-3))",
+    "-24 - (-12) ** 2 / (4 * (-3))"
+   ]
+  },
+  {
+   "l": "mit_faktor",
+   "t": "mit_faktor",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme Stelle und Wert des Extremums von T(x) = −3x² + 30x − 64.",
+    "schablone": "x = □; T = □",
+    "hinweis": "Erst die Stelle x, dann den Extremwert T."
+   },
+   "o": {
+    "werte": [
+     5,
+     11
+    ]
+   },
+   "w": "T(x) = −3(x² − 10x) − 64 = −3(x² − 10x + 25 − 25) − 64 = −3(x − 5)² + 75 − 64 = −3(x − 5)² + 11. Maximum T = 11 für x = 5.",
+   "c": [
+    "-(30) / (2 * (-3))",
+    "-64 - (30) ** 2 / (4 * (-3))"
+   ]
+  },
+  {
+   "l": "mit_faktor",
+   "t": "mit_faktor",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme Stelle und Wert des Extremums von T(x) = −3x² − 12x − 18.",
+    "schablone": "x = □; T = □",
+    "hinweis": "Erst die Stelle x, dann den Extremwert T."
+   },
+   "o": {
+    "werte": [
+     -2,
+     -6
+    ]
+   },
+   "w": "T(x) = −3(x² + 4x) − 18 = −3(x² + 4x + 4 − 4) − 18 = −3(x + 2)² + 12 − 18 = −3(x + 2)² − 6. Maximum T = −6 für x = −2.",
+   "c": [
+    "-(-12) / (2 * (-3))",
+    "-18 - (-12) ** 2 / (4 * (-3))"
+   ]
+  },
+  {
+   "l": "mit_faktor",
+   "t": "mit_faktor",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme Stelle und Wert des Extremums von T(x) = −5x² − 10x − 11.",
+    "schablone": "x = □; T = □",
+    "hinweis": "Erst die Stelle x, dann den Extremwert T."
+   },
+   "o": {
+    "werte": [
+     -1,
+     -6
+    ]
+   },
+   "w": "T(x) = −5(x² + 2x) − 11 = −5(x² + 2x + 1 − 1) − 11 = −5(x + 1)² + 5 − 11 = −5(x + 1)² − 6. Maximum T = −6 für x = −1.",
+   "c": [
+    "-(-10) / (2 * (-5))",
+    "-11 - (-10) ** 2 / (4 * (-5))"
+   ]
+  },
+  {
+   "l": "optimierung",
+   "t": "optimierung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck hat den Umfang 16 m. Seite x, andere Seite 8 − x. Wie lang muss x sein, damit die Fläche maximal wird?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "m"
+   },
+   "c": "8 / 2",
+   "w": "A(x) = x(8 − x) = −x² + 8x = −(x − 4)² + 16. Maximum für x = 4 m.",
+   "h": "Stelle A(x) auf und ergänze quadratisch."
+  },
+  {
+   "l": "optimierung",
+   "t": "optimierung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck hat den Umfang 28 m. Seite x, andere Seite 14 − x. Wie lang muss x sein, damit die Fläche maximal wird?"
+   },
+   "o": {
+    "wert": 7,
+    "einheit": "m"
+   },
+   "c": "14 / 2",
+   "w": "A(x) = x(14 − x) = −x² + 14x = −(x − 7)² + 49. Maximum für x = 7 m.",
+   "h": "Stelle A(x) auf und ergänze quadratisch."
+  },
+  {
+   "l": "optimierung",
+   "t": "optimierung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Summe zweier Zahlen ist 30. Wie groß kann ihr Produkt höchstens sein?"
+   },
+   "o": {
+    "wert": 225
+   },
+   "c": "(30 / 2) ** 2",
+   "w": "Zahlen x und 30 − x. P(x) = x(30 − x) = −(x − 15)² + 225. Höchstens 225.",
+   "h": "Zweite Zahl: Summe minus erste Zahl. Produkt als Term in x."
+  },
+  {
+   "l": "optimierung",
+   "t": "optimierung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck hat den Umfang 12 m. Seite x, andere Seite 6 − x. Wie lang muss x sein, damit die Fläche maximal wird?"
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "m"
+   },
+   "c": "6 / 2",
+   "w": "A(x) = x(6 − x) = −x² + 6x = −(x − 3)² + 9. Maximum für x = 3 m.",
+   "h": "Stelle A(x) auf und ergänze quadratisch."
+  },
+  {
+   "l": "optimierung",
+   "t": "optimierung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Summe zweier Zahlen ist 7. Wie groß kann ihr Produkt höchstens sein?"
+   },
+   "o": {
+    "wert": 12.25
+   },
+   "c": "(7 / 2) ** 2",
+   "w": "Zahlen x und 7 − x. P(x) = x(7 − x) = −(x − 3,5)² + 12,25. Höchstens 12,25.",
+   "h": "Zweite Zahl: Summe minus erste Zahl. Produkt als Term in x."
+  },
+  {
+   "l": "optimierung",
+   "t": "optimierung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck hat den Umfang 80 m. Seite x, andere Seite 40 − x. Wie lang muss x sein, damit die Fläche maximal wird?"
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "m"
+   },
+   "c": "40 / 2",
+   "w": "A(x) = x(40 − x) = −x² + 40x = −(x − 20)² + 400. Maximum für x = 20 m.",
+   "h": "Stelle A(x) auf und ergänze quadratisch."
+  },
+  {
+   "l": "optimierung",
+   "t": "optimierung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Summe zweier Zahlen ist 11. Wie groß kann ihr Produkt höchstens sein?"
+   },
+   "o": {
+    "wert": 30.25
+   },
+   "c": "(11 / 2) ** 2",
+   "w": "Zahlen x und 11 − x. P(x) = x(11 − x) = −(x − 5,5)² + 30,25. Höchstens 30,25.",
+   "h": "Zweite Zahl: Summe minus erste Zahl. Produkt als Term in x."
+  },
+  {
+   "l": "optimierung",
+   "t": "optimierung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Differenz zweier Zahlen ist 4. Welches ist das kleinste mögliche Produkt?"
+   },
+   "o": {
+    "wert": -4
+   },
+   "c": "-(4 / 2) ** 2",
+   "w": "Zahlen x und x + 4. P(x) = x² + 4x = (x + 2)² − 4. Kleinstes Produkt −4 für x = −2.",
+   "h": "Zahlen x und x + D. Produkt aufstellen, Minimum bestimmen."
+  },
+  {
+   "l": "optimierung",
+   "t": "optimierung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "An einer Mauer wird mit 40 m Zaun ein Rechteck abgegrenzt (Mauer als eine Seite). Wie groß kann die Fläche höchstens werden?"
+   },
+   "o": {
+    "wert": 200,
+    "einheit": "m²"
+   },
+   "c": "40 / 4 * (40 - 2 * 40 / 4)",
+   "w": "A(x) = x(40 − 2x) = −2(x − 10)² + 200. Höchstens 200 m².",
+   "h": "Zwei Seiten x, eine Seite L − 2x. A(x) aufstellen und ergänzen."
+  },
+  {
+   "l": "optimierung",
+   "t": "optimierung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kiosk verkauft täglich 300 Brezen zu je 1 €. Jede Preiserhöhung um 10 ct kostet 15 Käufer. Wie viele Erhöhungen um 10 ct bringen die größten Einnahmen?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(300 / 10 - 15 * 1) / (0.2 * 15)",
+   "w": "E(x) = (1 + 0,1x)(300 − 15x) = −1,5x² + 15x + 300. Quadratische Ergänzung: Maximum für x = 5 (Einnahmen 337,50 €).",
+   "h": "Einnahmen = Preis · Anzahl. Beides hängt von der Zahl x der Erhöhungen ab."
+  },
+  {
+   "l": "optimierung",
+   "t": "optimierung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus 20 m Zaun soll ein rechteckiges Gehege mit möglichst großer Fläche entstehen. Wie groß ist diese Fläche höchstens?"
+   },
+   "o": {
+    "wert": 25,
+    "einheit": "m²"
+   },
+   "c": "(10 / 2) ** 2",
+   "w": "Seiten x und 10 − x. A(x) = −x² + 10x = −(x − 5)² + 25. Höchstens 25 m².",
+   "h": "Halber Umfang = Summe zweier Seiten. A(x) aufstellen und das Maximum bestimmen."
+  },
+  {
+   "l": "optimierung",
+   "t": "optimierung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "An einer langen Mauer wird mit 60 m Zaun ein rechteckiges Beet abgegrenzt (die Mauer ist eine Seite). Die zwei Seiten senkrecht zur Mauer sind je x m lang. Für welches x ist die Fläche maximal?"
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "m"
+   },
+   "c": "60 / 4",
+   "w": "A(x) = x(60 − 2x) = −2x² + 60x = −2(x − 15)² + 450. Maximum für x = 15 m.",
+   "h": "Die Seite parallel zur Mauer ist L − 2x lang."
+  },
+  {
+   "l": "optimierung",
+   "t": "optimierung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Differenz zweier Zahlen ist 10. Welches ist das kleinste mögliche Produkt?"
+   },
+   "o": {
+    "wert": -25
+   },
+   "c": "-(10 / 2) ** 2",
+   "w": "Zahlen x und x + 10. P(x) = x² + 10x = (x + 5)² − 25. Kleinstes Produkt −25 für x = −5.",
+   "h": "Zahlen x und x + D. Produkt aufstellen, Minimum bestimmen."
+  },
+  {
+   "l": "optimierung",
+   "t": "optimierung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "An einer Mauer wird mit 24 m Zaun ein Rechteck abgegrenzt (Mauer als eine Seite). Wie groß kann die Fläche höchstens werden?"
+   },
+   "o": {
+    "wert": 72,
+    "einheit": "m²"
+   },
+   "c": "24 / 4 * (24 - 2 * 24 / 4)",
+   "w": "A(x) = x(24 − 2x) = −2(x − 6)² + 72. Höchstens 72 m².",
+   "h": "Zwei Seiten x, eine Seite L − 2x. A(x) aufstellen und ergänzen."
+  },
+  {
+   "l": "optimierung",
+   "t": "optimierung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kiosk verkauft täglich 200 Brezen zu je 1 €. Jede Preiserhöhung um 10 ct kostet 10 Käufer. Wie viele Erhöhungen um 10 ct bringen die größten Einnahmen?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(200 / 10 - 10 * 1) / (0.2 * 10)",
+   "w": "E(x) = (1 + 0,1x)(200 − 10x) = −x² + 10x + 200. Quadratische Ergänzung: Maximum für x = 5 (Einnahmen 225 €).",
+   "h": "Einnahmen = Preis · Anzahl. Beides hängt von der Zahl x der Erhöhungen ab."
+  },
+  {
+   "l": "optimierung",
+   "t": "optimierung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kiosk verkauft täglich 240 Brezen zu je 1 €. Jede Preiserhöhung um 10 ct kostet 12 Käufer. Wie viele Erhöhungen um 10 ct bringen die größten Einnahmen?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(240 / 10 - 12 * 1) / (0.2 * 12)",
+   "w": "E(x) = (1 + 0,1x)(240 − 12x) = −1,2x² + 12x + 240. Quadratische Ergänzung: Maximum für x = 5 (Einnahmen 270 €).",
+   "h": "Einnahmen = Preis · Anzahl. Beides hängt von der Zahl x der Erhöhungen ab."
+  },
+  {
+   "l": "optimierung",
+   "t": "optimierung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Summe zweier Zahlen ist 18. Wie groß kann ihr Produkt höchstens sein?"
+   },
+   "o": {
+    "wert": 81
+   },
+   "c": "(18 / 2) ** 2",
+   "w": "Zahlen x und 18 − x. P(x) = x(18 − x) = −(x − 9)² + 81. Höchstens 81.",
+   "h": "Zweite Zahl: Summe minus erste Zahl. Produkt als Term in x."
+  },
+  {
+   "l": "optimierung",
+   "t": "optimierung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Summe zweier Zahlen ist 8. Wie groß kann ihr Produkt höchstens sein?"
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "(8 / 2) ** 2",
+   "w": "Zahlen x und 8 − x. P(x) = x(8 − x) = −(x − 4)² + 16. Höchstens 16.",
+   "h": "Zweite Zahl: Summe minus erste Zahl. Produkt als Term in x."
+  },
+  {
+   "l": "optimierung",
+   "t": "optimierung",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus 48 m Zaun soll ein rechteckiges Gehege mit möglichst großer Fläche entstehen. Wie groß ist diese Fläche höchstens?"
+   },
+   "o": {
+    "wert": 144,
+    "einheit": "m²"
+   },
+   "c": "(24 / 2) ** 2",
+   "w": "Seiten x und 24 − x. A(x) = −x² + 24x = −(x − 12)² + 144. Höchstens 144 m²."
+  },
+  {
+   "l": "optimierung",
+   "t": "optimierung",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kiosk verkauft täglich 360 Brezen zu je 1 €. Jede Preiserhöhung um 10 ct kostet 15 Käufer. Wie viele Erhöhungen um 10 ct bringen die größten Einnahmen?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "(360 / 10 - 15 * 1) / (0.2 * 15)",
+   "w": "E(x) = (1 + 0,1x)(360 − 15x) = −1,5x² + 21x + 360. Quadratische Ergänzung: Maximum für x = 7 (Einnahmen 433,50 €)."
+  },
+  {
+   "l": "optimierung",
+   "t": "optimierung",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus 44 m Zaun soll ein rechteckiges Gehege mit möglichst großer Fläche entstehen. Wie groß ist diese Fläche höchstens?"
+   },
+   "o": {
+    "wert": 121,
+    "einheit": "m²"
+   },
+   "c": "(22 / 2) ** 2",
+   "w": "Seiten x und 22 − x. A(x) = −x² + 22x = −(x − 11)² + 121. Höchstens 121 m²."
+  },
+  {
+   "l": "optimierung",
+   "t": "optimierung",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kiosk verkauft täglich 360 Brezen zu je 2 €. Jede Preiserhöhung um 10 ct kostet 15 Käufer. Wie viele Erhöhungen um 10 ct bringen die größten Einnahmen?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "(360 / 10 - 15 * 2) / (0.2 * 15)",
+   "w": "E(x) = (2 + 0,1x)(360 − 15x) = −1,5x² + 6x + 720. Quadratische Ergänzung: Maximum für x = 2 (Einnahmen 726 €)."
+  },
+  {
+   "l": "optimierung",
+   "t": "optimierung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Summe zweier Zahlen ist 10. Wie groß kann ihr Produkt höchstens sein?"
+   },
+   "o": {
+    "wert": 25
+   },
+   "c": "(10 / 2) ** 2",
+   "w": "Zahlen x und 10 − x. P(x) = x(10 − x) = −(x − 5)² + 25. Höchstens 25."
+  },
+  {
+   "l": "optimierung",
+   "t": "optimierung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus 60 m Zaun soll ein rechteckiges Gehege mit möglichst großer Fläche entstehen. Wie groß ist diese Fläche höchstens?"
+   },
+   "o": {
+    "wert": 225,
+    "einheit": "m²"
+   },
+   "c": "(30 / 2) ** 2",
+   "w": "Seiten x und 30 − x. A(x) = −x² + 30x = −(x − 15)² + 225. Höchstens 225 m²."
+  },
+  {
+   "l": "optimierung",
+   "t": "optimierung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Summe zweier Zahlen ist 14. Wie groß kann ihr Produkt höchstens sein?"
+   },
+   "o": {
+    "wert": 49
+   },
+   "c": "(14 / 2) ** 2",
+   "w": "Zahlen x und 14 − x. P(x) = x(14 − x) = −(x − 7)² + 49. Höchstens 49."
+  },
+  {
+   "l": "optimierung",
+   "t": "optimierung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "An einer langen Mauer wird mit 30 m Zaun ein rechteckiges Beet abgegrenzt (die Mauer ist eine Seite). Die zwei Seiten senkrecht zur Mauer sind je x m lang. Für welches x ist die Fläche maximal?"
+   },
+   "o": {
+    "wert": 7.5,
+    "einheit": "m"
+   },
+   "c": "30 / 4",
+   "w": "A(x) = x(30 − 2x) = −2x² + 30x = −2(x − 7,5)² + 112,5. Maximum für x = 7,5 m."
+  },
+  {
+   "l": "optimierung",
+   "t": "optimierung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "An einer Mauer wird mit 16 m Zaun ein Rechteck abgegrenzt (Mauer als eine Seite). Wie groß kann die Fläche höchstens werden?"
+   },
+   "o": {
+    "wert": 32,
+    "einheit": "m²"
+   },
+   "c": "16 / 4 * (16 - 2 * 16 / 4)",
+   "w": "A(x) = x(16 − 2x) = −2(x − 4)² + 32. Höchstens 32 m²."
+  },
+  {
+   "l": "optimierung",
+   "t": "optimierung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "An einer Mauer wird mit 60 m Zaun ein Rechteck abgegrenzt (Mauer als eine Seite). Wie groß kann die Fläche höchstens werden?"
+   },
+   "o": {
+    "wert": 450,
+    "einheit": "m²"
+   },
+   "c": "60 / 4 * (60 - 2 * 60 / 4)",
+   "w": "A(x) = x(60 − 2x) = −2(x − 15)² + 450. Höchstens 450 m²."
+  }
+ ],
+ "offen": [
+  "Laut Umfang ohne vollständige Parabellehre: keine Graphen, nur Termumformung und Extremwerte. Scheitelpunkt/Parabeln folgen in RS 9.",
+  "Schreibweise Extremwert: „x = □; T = □“ statt T_min/T_max (Indizes in der App schwer lesbar)."
+ ]
+}

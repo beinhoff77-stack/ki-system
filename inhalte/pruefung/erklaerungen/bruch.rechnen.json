@@ -1,0 +1,212 @@
+{
+  "thema_schluessel": "bruch.rechnen",
+  "gesamturteil": "brauchbar",
+  "thema_hinweise": [
+    "Die Rechenregeln sind fachlich richtig und knapp. Es fehlt fast überall das Warum: Warum Zähler mal Zähler? Warum mit dem Kehrbruch? Warum zählen die Nachkommastellen zusammen? Für Klasse 6 gibt es zu jeder Regel eine kurze, anschauliche Begründung; sie ist in brueche_mal, brueche_geteilt und dezimal_mal eingebaut.",
+    "Das Flächenmodell für die Multiplikation (2/3 von 3/4 als Rechteck) ist das zentrale Anschauungsmodell dieses Themas; Bild angegeben.",
+    "Mehrere Beispiele sind nackte Zahlen; Wanderung, Pizza und Saftflaschen liegen nahe."
+  ],
+  "karten": [
+    {
+      "lernziel": "brueche_plus_minus",
+      "urteil": "verbessern",
+      "probleme": [
+        "Kein Alltagsbezug.",
+        "Der typische Fehler (Nenner addieren) wird als Regel verboten, aber nicht als Unsinn entlarvt: 4/10 ist kleiner als 3/4 allein."
+      ],
+      "neu": {
+        "schritte": [
+          "Eine Wanderung: Vormittags schaffst du 3/4 der Strecke, nachmittags noch 1/6. Wie viel ist geschafft? 3/4 + 1/6.",
+          "Hauptnenner 12: 3/4 = 9/12 und 1/6 = 2/12.",
+          "9/12 + 2/12 = ⟦11/12⟧ der Strecke."
+        ],
+        "fehler": "3/4 + 1/6 = 4/10 ist falsch. Schon 3/4 allein ist mehr als 4/10 – durch Dazulaufen kann der Weg nicht kürzer werden! Nenner werden ⟦nie addiert⟧: Erst gleichnamig machen, dann nur die Zähler addieren."
+      }
+    },
+    {
+      "lernziel": "dezimal_plus_minus",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "vorzeichen",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "brueche_mal",
+      "urteil": "verbessern",
+      "probleme": [
+        "„Zähler mal Zähler, Nenner mal Nenner“ wird ohne Begründung gegeben.",
+        "Das Flächenmodell fehlt; es erklärt die Regel und zeigt, warum das Ergebnis kleiner wird."
+      ],
+      "neu": {
+        "regel": "„Mal“ heißt bei Brüchen ⟦„von“⟧: 2/3 · 3/4 ist 2/3 von 3/4. Rechne ⟦Zähler mal Zähler, Nenner mal Nenner⟧. ⟦Vorher kürzen⟧ (auch über Kreuz) spart Arbeit. Eine ganze Zahl schreibst du als Bruch mit Nenner 1: 4 = 4/1.",
+        "schritte": [
+          "2/3 · 3/4: Nimm von einem Rechteck 3/4 (3 von 4 Spalten) und davon 2/3 (2 von 3 Zeilen).",
+          "Gefärbt sind 2 · 3 = 6 von 3 · 4 = 12 Kästchen: 6/12 = 1/2. Genau das rechnet „Zähler mal Zähler, Nenner mal Nenner“.",
+          "Mit Kürzen vorher: 3/4 · 8/9 – 3 und 9 durch 3, 8 und 4 durch 4: 1/1 · 2/3 = ⟦2/3⟧."
+        ],
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "_0_0": [
+              0.0,
+              0.0
+            ],
+            "_0_3": [
+              0.0,
+              3.0
+            ],
+            "_1_0": [
+              1.0,
+              0.0
+            ],
+            "_1_3": [
+              1.0,
+              3.0
+            ],
+            "_2_0": [
+              2.0,
+              0.0
+            ],
+            "_2_3": [
+              2.0,
+              3.0
+            ],
+            "_3_0": [
+              3.0,
+              0.0
+            ],
+            "_3_3": [
+              3.0,
+              3.0
+            ],
+            "_4_0": [
+              4.0,
+              0.0
+            ],
+            "_4_3": [
+              4.0,
+              3.0
+            ],
+            "_0_1": [
+              0.0,
+              1.0
+            ],
+            "_4_1": [
+              4.0,
+              1.0
+            ],
+            "_0_2": [
+              0.0,
+              2.0
+            ],
+            "_4_2": [
+              4.0,
+              2.0
+            ],
+            "_3_2": [
+              3.0,
+              2.0
+            ]
+          },
+          "linien": [
+            [
+              "_0_0",
+              "_0_3"
+            ],
+            [
+              "_1_0",
+              "_1_3"
+            ],
+            [
+              "_2_0",
+              "_2_3"
+            ],
+            [
+              "_3_0",
+              "_3_3"
+            ],
+            [
+              "_4_0",
+              "_4_3"
+            ],
+            [
+              "_0_0",
+              "_4_0"
+            ],
+            [
+              "_0_1",
+              "_4_1"
+            ],
+            [
+              "_0_2",
+              "_4_2"
+            ],
+            [
+              "_0_3",
+              "_4_3"
+            ],
+            [
+              "_0_0",
+              "_3_0",
+              "3/4"
+            ],
+            [
+              "_0_0",
+              "_0_2",
+              "2/3"
+            ]
+          ],
+          "flaeche": [
+            "_0_0",
+            "_3_0",
+            "_3_2",
+            "_0_2"
+          ]
+        }
+      },
+      "strategie": "Flächenmodell (Rechteck, Spalten mal Zeilen) für die Bruchmultiplikation; Deutung „mal = von“."
+    },
+    {
+      "lernziel": "brueche_geteilt",
+      "urteil": "verbessern",
+      "probleme": [
+        "Der Kehrbruch wird als Rezept gegeben. Warum Teilen durch 1/2 dasselbe ist wie mal 2, kann ein Kind in Klasse 6 mit Pizzen sofort einsehen."
+      ],
+      "neu": {
+        "regel": "Teilen fragt: ⟦Wie oft passt der Teiler hinein?⟧ Wie viele halbe Pizzen sind 3 Pizzen? 6 Stück – also 3 : 1/2 = 3 · 2. Allgemein: Durch einen Bruch teilst du, indem du mit seinem ⟦Kehrbruch⟧ malnimmst. Kehrbruch heißt ⟦Zähler und Nenner vertauschen⟧: Der Kehrbruch von 3/8 ist 8/3.",
+        "schritte": [
+          "5/6 : 2/3 = 5/6 · 3/2.",
+          "Kürzen (3 und 6 durch 3): 5/2 · 1/2 = ⟦5/4⟧."
+        ]
+      }
+    },
+    {
+      "lernziel": "dezimal_mal",
+      "urteil": "verbessern",
+      "probleme": [
+        "Die Kommaregel wird nicht begründet. Über Zehnerbrüche ist sie in einer Zeile klar."
+      ],
+      "neu": {
+        "regel": "Rechne zuerst ⟦ohne Komma⟧. Das Ergebnis hat so viele ⟦Nachkommastellen wie beide Faktoren zusammen⟧. Warum? 0,3 = 3/10 und 0,04 = 4/100. Mal genommen: 12/1 000 – Zehntel mal Hundertstel gibt Tausendstel."
+      }
+    },
+    {
+      "lernziel": "dezimal_geteilt",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "rechenvorteile",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "gemischt",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "fehler_finden",
+      "urteil": "ok"
+    }
+  ],
+  "neue_karten": []
+}

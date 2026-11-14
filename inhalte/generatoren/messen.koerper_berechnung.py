@@ -46,8 +46,81 @@ ETAPPEN = [
      'fehler': 'Kantenlänge, Oberfläche und Volumen wachsen ⟦verschieden⟧ schnell. Bei doppelter Kantenlänge: Kanten doppelt, Oberfläche ⟦vierfach⟧, Volumen ⟦achtfach⟧.'},
 ]
 
+PRUEFUNG = pruefung_erklaerungen(ETAPPEN, 'messen.koerper_berechnung')   # Schrägbilder in quader und zusammengesetzt
+
 MERKE = ['Quader: 6 Flächen, 12 Kanten, 8 Ecken. Kantenlänge gesamt: 4 · (a + b + c).', 'Oberfläche Quader: O = 2ab + 2ac + 2bc. Würfel: O = 6a².',
          'Zusammengesetzt: Berührflächen fallen weg (je zweimal).', 'Volumen Quader: V = a · b · c (cm³). Würfel: V = a³.']
+
+
+def schraeg(a, b, c, e='cm'):
+    """Schrägbild eines Quaders (Tiefe halb so lang unter 45°, verdeckte Kanten gestrichelt) – wie das Bild der Prüfung."""
+    import math
+    t = round(b * .5 * math.cos(math.radians(45)), 3)
+    pk = {'_A': [0, 0], '_B': [a, 0], '_C': [a + t, t], '_D': [t, t], '_E': [0, c], '_F': [a, c], '_G': [a + t, c + t], '_H': [t, c + t]}
+    lin = [['_A', '_B', f'{a} {e}'], ['_B', '_F', f'{c} {e}'], ['_F', '_E'], ['_E', '_A'], ['_B', '_C', f'{b} {e}'], ['_C', '_G'], ['_G', '_F'], ['_E', '_H'], ['_H', '_G'],
+           ['_A', '_D', '', 'gestrichelt'], ['_D', '_C', '', 'gestrichelt'], ['_D', '_H', '', 'gestrichelt']]
+    return {'typ': 'figur', 'punkte': pk, 'linien': lin}
+
+
+def sort2(a, b):
+    """„lang“ ist die längere Seite (Prüfung)."""
+    return (a, b) if a >= b else (b, a)
+
+
+# ---------- Würfelnetze (Figur aus Linien; Prüfung: Würfelnetz prüfen) ----------
+def _rolle(zellen):
+    """Rollt einen Würfel über die Zellen: Netz genau dann, wenn dabei jede Würfelfläche einmal unten liegt."""
+    zellen = set(zellen)
+    start = min(zellen)
+    lage = {start: {'u': 0, 'o': 1, 'n': 2, 's': 3, 'w': 4, 'e': 5}}
+    stapel = [start]
+    while stapel:
+        x, y = stapel.pop(); f = lage[(x, y)]
+        for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)):
+            z = (x + dx, y + dy)
+            if z not in zellen or z in lage: continue
+            if dx == 1: g = {'u': f['e'], 'e': f['o'], 'o': f['w'], 'w': f['u'], 'n': f['n'], 's': f['s']}
+            elif dx == -1: g = {'u': f['w'], 'w': f['o'], 'o': f['e'], 'e': f['u'], 'n': f['n'], 's': f['s']}
+            elif dy == 1: g = {'u': f['n'], 'n': f['o'], 'o': f['s'], 's': f['u'], 'e': f['e'], 'w': f['w']}
+            else: g = {'u': f['s'], 's': f['o'], 'o': f['n'], 'n': f['u'], 'e': f['e'], 'w': f['w']}
+            lage[z] = g; stapel.append(z)
+    return len(lage) == 6 and len({v['u'] for v in lage.values()}) == 6
+
+
+def _hexomino():
+    zellen = {(0, 0)}
+    while len(zellen) < 6:
+        x, y = R.choice(sorted(zellen)); dx, dy = R.choice(((1, 0), (-1, 0), (0, 1), (0, -1)))
+        zellen.add((x + dx, y + dy))
+    mx, my = min(x for x, _ in zellen), min(y for _, y in zellen)
+    return frozenset((x - mx, y - my) for x, y in zellen)
+
+
+def netzbild(zellen):
+    pk, lin, kanten = {}, [], set()
+    for x, y in zellen:
+        for (x1, y1), (x2, y2) in (((x, y), (x + 1, y)), ((x + 1, y), (x + 1, y + 1)), ((x, y + 1), (x + 1, y + 1)), ((x, y), (x, y + 1))):
+            k = ((x1, y1), (x2, y2))
+            if k in kanten: continue
+            kanten.add(k)
+            for q in k: pk.setdefault(f'_{q[0]}_{q[1]}', list(q))
+            lin.append([f'_{x1}_{y1}', f'_{x2}_{y2}'])
+    return {'typ': 'figur', 'punkte': pk, 'linien': lin}
+
+
+NETZE = {'ja': 0}
+
+
+def g_netz():
+    soll = NETZE['ja'] % 2 == 0; NETZE['ja'] += 1          # abwechselnd Netz / kein Netz
+    for _ in range(500):
+        z = _hexomino()
+        if _rolle(z) == soll and max(x for x, _ in z) <= 4 and max(y for _, y in z) <= 4: break
+    r, f = ('Ja, beim Falten liegt jede Fläche an einer anderen Stelle.', ['Nein, zwei Flächen liegen beim Falten aufeinander.', 'Nein, ein Würfelnetz braucht 8 Quadrate.']) if soll else \
+        ('Nein, beim Falten liegen zwei Quadrate aufeinander, eine Würfelfläche bleibt offen.', ['Ja, es sind 6 Quadrate, das reicht immer.', 'Ja, alle Quadrate hängen zusammen.'])
+    return {**wahl_rund(R, r, f, 3), 'f': {'text': 'Ist das ein Würfelnetz? Stell dir vor, du faltest es zu einem Würfel.', 'grafik': netzbild(sorted(z))},
+            'w': r + ' Sechs zusammenhängende Quadrate allein reichen nicht: Beim Falten muss jedes Quadrat eine eigene Würfelfläche werden.',
+            'h': 'Wähle ein Quadrat als Boden und falte die anderen gedanklich hoch. Liegen zwei aufeinander?'}
 
 
 def qtxt(a, b, c, e='cm'): return f'{a} {e} lang, {b} {e} breit und {c} {e} hoch'
@@ -63,17 +136,26 @@ def g_quader(st):
               ('Wie viele Flächen hat ein Quader?', 6, 'Ein Quader hat 6 Flächen: vorne, hinten, oben, unten, links, rechts.'),
               ('Wie viele Kanten treffen sich an einer Ecke eines Würfels?', 3, 'An jeder Ecke treffen sich 3 Kanten (Länge, Breite, Höhe).'),
               ('Wie viele Flächen eines Würfels sind Quadrate?', 6, 'Beim Würfel sind alle 6 Flächen Quadrate.')]
-        if R.random() < .5:
+        if R.random() < .35:
             t, r, w = R.choice(fr)
             return {'y': 'zahl', 'f': {'text': t}, 'o': {'wert': r}, 'c': f'{r}', 'w': w, 'h': 'Stell dir eine Schachtel vor und zähle.'}
+        if R.random() < .55:          # Ecken/Kanten/Flächen zählen am konkreten Quader (Prüfung)
+            a, b = sort2(R.randint(3, 12), R.randint(2, 9)); c = R.randint(2, 15)
+            if len({a, b, c}) < 3: return g_quader(st)
+            t, r, w = R.choice([(f'Ein Quader ist {qtxt(a, b, c)}. Wie viele seiner Flächen sind {a} cm × {b} cm groß?', 2, f'Oben und unten sind {a} cm × {b} cm groß: 2 Flächen.'),
+                                (f'Ein Quader ist {qtxt(a, b, c)}. Wie viele seiner Kanten sind {c} cm lang?', 4, f'Die 4 senkrechten Kanten sind {c} cm lang.'),
+                                (f'Ein Quader ist {qtxt(a, b, c)}. Wie viele seiner Flächen sind {b} cm × {c} cm groß?', 2, f'Links und rechts sind {b} cm × {c} cm groß: 2 Flächen.')])
+            return {'y': 'zahl', 'f': {'text': t, 'grafik': schraeg(a, b, c)}, 'o': {'wert': r}, 'c': f'{r}', 'w': w, 'h': 'Gegenüberliegende Flächen sind gleich groß. Je 4 Kanten sind gleich lang.'}
         a = R.randint(2, 15)
         return {'y': 'zahl', 'f': {'text': f'Ein Würfel hat die Kantenlänge {a} cm. Wie lang sind alle Kanten zusammen?'}, 'o': {'wert': 12 * a, 'einheit': 'cm'}, 'c': f'12 * {a}',
                 'w': f'12 gleich lange Kanten: 12 · {a} = {12 * a} cm.', 'h': 'Ein Würfel hat 12 gleich lange Kanten.'}
     a, b, c = R.randint(2, 15), R.randint(2, 12), R.randint(2, 10)
+    a, b = sort2(a, b)
     if st == 2:
-        return {'y': 'zahl', 'f': {'text': f'Ein Quader ist {qtxt(a, b, c)}. Wie lang sind alle Kanten zusammen?'}, 'o': {'wert': 4 * (a + b + c), 'einheit': 'cm'}, 'c': f'4 * ({a} + {b} + {c})',
+        return {'y': 'zahl', 'f': {'text': f'Ein Quader ist {qtxt(a, b, c)}. Wie lang sind alle Kanten zusammen?', 'grafik': schraeg(a, b, c)}, 'o': {'wert': 4 * (a + b + c), 'einheit': 'cm'}, 'c': f'4 * ({a} + {b} + {c})',
                 'w': f'Je 4 Kanten gleich: 4 · ({a} + {b} + {c}) = 4 · {a + b + c} = {4 * (a + b + c)} cm.', 'h': 'Jede der drei Kantenlängen kommt viermal vor.'}
-    art = R.randrange(3)
+    art = R.randrange(4)
+    if art == 3: return g_netz()
     if art == 0:
         ges = 4 * (a + b + c)
         return {'y': 'zahl', 'f': {'text': f'Für ein Kantenmodell eines Quaders ({a} cm lang, {b} cm breit) braucht man {ges} cm Draht. Wie hoch ist der Quader?'},
@@ -99,6 +181,7 @@ def g_ober(st):
                 'o': {'wert': O(a, b, c), 'einheit': 'cm²'}, 'c': f'2 * {a} * {b} + 2 * {a} * {c} + 2 * {b} * {c}',
                 'w': f'2 · {a * c} + 2 · {a * b} + 2 · {b * c} = {2 * a * c} + {2 * a * b} + {2 * b * c} = {O(a, b, c)} cm².', 'h': 'Berechne die drei Flächenpaare und addiere.'}
     a, b, c = R.randint(3, 20), R.randint(2, 15), R.randint(2, 12)
+    a, b = sort2(a, b)
     if st == 2:
         e = R.choice(['cm', 'dm', 'm'])
         return {'y': 'zahl', 'f': {'text': f'Ein Quader ist {qtxt(a, b, c, e)}. Berechne den Oberflächeninhalt.'}, 'o': {'wert': O(a, b, c), 'einheit': e + '²'},
@@ -121,18 +204,45 @@ def g_ober(st):
 
 
 # ---------- 3 Sachaufgaben ----------
+SACH = {'aquarium': 0}
+
+
 def g_sach(st):
     if st == 1:
         a, b, c = R.randint(20, 60), R.randint(15, 40), R.randint(10, 30)
+        a, b = sort2(a, b)
         return {'y': 'zahl', 'f': {'text': f'Ein Geschenkkarton ist {qtxt(a, b, c)}. Wie viel cm² Papier braucht man mindestens, um ihn ganz zu bekleben?'}, 'o': {'wert': O(a, b, c), 'einheit': 'cm²'},
                 'c': f'2 * {a} * {b} + 2 * {a} * {c} + 2 * {b} * {c}', 'w': f'Oberfläche: {2 * a * b} + {2 * a * c} + {2 * b * c} = {zt(O(a, b, c))} cm².', 'h': 'Ganz bekleben heißt: alle 6 Flächen.'}
+    if st == 2 and (SACH['aquarium'] >= 5 or R.random() < .5):          # höchstens 5 Aquarium-Aufgaben, weitere Kontexte (Prüfung)
+        art = R.randrange(2)
+        if art == 0:
+            a, b, c = sort2(R.choice([28, 30, 32, 35]), R.choice([18, 20, 22])) + (R.choice([10, 12, 14]),)
+            ob = a * b + 2 * a * c + 2 * b * c
+            return {'y': 'zahl', 'f': {'text': f'Ein Schuhkarton ohne Deckel ist {qtxt(a, b, c)}. Er wird innen mit Stoff ausgekleidet. Wie viel cm² Stoff braucht man?'},
+                    'o': {'wert': ob, 'einheit': 'cm²'}, 'c': f'{a} * {b} + 2 * {a} * {c} + 2 * {b} * {c}',
+                    'w': f'Boden {a} · {b} = {a * b}, vorne/hinten 2 · {a * c} = {2 * a * c}, Seiten 2 · {b * c} = {2 * b * c}. Zusammen {zt(ob)} cm².', 'h': 'Alle Flächen außer dem Deckel.'}
+        a, b, c = R.choice([(12, 6, 20), (10, 6, 18), (14, 6, 20), (8, 5, 20)])          # Schrank in dm
+        ob = 2 * a * c + 2 * b * c + a * b
+        return {'y': 'zahl', 'f': {'text': f'Ein Schrank ist {qtxt(a, b, c, "dm")}. Er wird außen gestrichen, aber nicht auf der Rückseite und nicht unten. Wie viele dm² werden gestrichen?'},
+                'o': {'wert': a * c + 2 * b * c + a * b, 'einheit': 'dm²'}, 'c': f'{a} * {c} + 2 * {b} * {c} + {a} * {b}',
+                'w': f'Vorne {a} · {c} = {a * c}, zwei Seiten 2 · {b} · {c} = {2 * b * c}, oben {a} · {b} = {a * b}. Zusammen {zt(a * c + 2 * b * c + a * b)} dm².',
+                'h': 'Welche Flächen werden gestrichen? Vorne, zwei Seiten, oben.'}
     if st == 2:
+        SACH['aquarium'] += 1
         a, b, c = R.choice([40, 50, 60, 80, 100]), R.choice([25, 30, 40, 50]), R.choice([30, 40, 50])
+        a, b = sort2(a, b)
         ob = a * b + 2 * a * c + 2 * b * c
         return {'y': 'zahl', 'f': {'text': f'Ein Aquarium ohne Deckel ist {qtxt(a, b, c)}. Wie viel cm² Glas braucht man?'}, 'o': {'wert': ob, 'einheit': 'cm²'},
                 'c': f'{a} * {b} + 2 * {a} * {c} + 2 * {b} * {c}', 'w': f'Boden {a * b}, vorne/hinten 2 · {a * c} = {2 * a * c}, Seiten 2 · {b * c} = {2 * b * c}. Zusammen {zt(ob)} cm².',
                 'h': 'Alle Flächen außer dem Deckel.'}
-    art = R.randrange(2)
+    art = R.randrange(3)
+    if art == 2:          # Verpackung mit Überlappung (Prüfung)
+        a, b, c = R.choice([(30, 20, 10), (40, 30, 10), (20, 20, 10), (50, 30, 20), (40, 20, 20)])
+        o = O(a, b, c)
+        return {'y': 'zahl', 'f': {'text': f'Ein Karton {a} cm × {b} cm × {c} cm wird ganz beklebt. Für Überlappungen rechnet man ein Zehntel der Oberfläche dazu. Wie viel cm² Papier braucht man?'},
+                'o': {'wert': o + o // 10, 'einheit': 'cm²'}, 'c': f'2 * ({a} * {b} + {a} * {c} + {b} * {c}) * 11 / 10',
+                'w': f'Oberfläche: 2 · ({a * b} + {a * c} + {b * c}) = {zt(o)} cm². Ein Zehntel: {zt(o // 10)} cm². Zusammen {zt(o + o // 10)} cm².',
+                'h': 'Erst die Oberfläche, dann ein Zehntel davon dazurechnen.'}
     if art == 0:
         l, b, h = R.randint(4, 7), R.randint(3, 5), R.choice([Fr(5, 2), 3])
         t = 2
@@ -177,8 +287,9 @@ def g_zus(st):
 def g_vol(st):
     if st == 1:
         a, b, c = R.randint(2, 6), R.randint(2, 5), R.randint(1, 4)
-        return {'y': 'zahl', 'f': {'text': f'Ein Quader wird aus Einheitswürfeln (1 cm³) gebaut: {a} Würfel lang, {b} Würfel breit, {c} Schichten hoch. Wie viele Würfel sind es?'},
-                'o': {'wert': a * b * c, 'einheit': 'cm³'}, 'c': f'{a} * {b} * {c}', 'w': f'Eine Schicht: {a} · {b} = {a * b}. {c} Schichten: {a * b * c} Würfel, also {a * b * c} cm³.', 'h': 'Zähle zuerst die Würfel einer Schicht.'}
+        a, b = sort2(a, b)
+        return {'y': 'zahl', 'f': {'text': f'Ein Quader wird aus Einheitswürfeln (1 cm³) gebaut: {a} Würfel lang, {b} Würfel breit, {c} {"Schicht" if c == 1 else "Schichten"} hoch. Wie viele Würfel sind es?'},
+                'o': {'wert': a * b * c}, 'c': f'{a} * {b} * {c}', 'w': f'Eine Schicht: {a} · {b} = {a * b}. {c} {"Schicht" if c == 1 else "Schichten"}: {a * b * c} Würfel. Das Volumen ist also {a * b * c} cm³.', 'h': 'Zähle zuerst die Würfel einer Schicht.'}
     if st == 2:
         if R.random() < .5:
             a, b, c = R.randint(3, 15), R.randint(2, 10), R.randint(2, 10)
@@ -199,25 +310,36 @@ def g_vol(st):
 
 
 # ---------- 6 Verstehen ----------
+# Prüfung: alle Antworten mit Begründung; höchstens 6 Oberflächen-Behauptungen
+VERS = {'ober': 0}
+
+
 def g_vers(st):
     a, b, c = R.randint(2, 6), R.randint(2, 6), R.randint(2, 6)
+    if a == 6: a = 5
     if st == 1:
-        aussagen = [('Ein Quader hat 12 Kanten.', True, 'Ja, je 4 in Länge, Breite und Höhe.'), ('Ein Würfel hat 8 Flächen.', False, 'Nein, 6 Flächen – aber 8 Ecken.'),
-                    (f'Ein Würfel mit {a} cm Kantenlänge hat die Oberfläche {6 * a * a} cm².', True, f'Ja, 6 · {a} · {a} = {6 * a * a} cm².'),
-                    (f'Ein Würfel mit {a} cm Kantenlänge hat die Oberfläche {4 * a * a} cm².', False, f'Nein, er hat 6 Flächen: 6 · {a * a} = {6 * a * a} cm².')]
+        aussagen = [('', 'Ein Quader hat 12 Kanten.', 'Ja, je 4 in Länge, Breite und Höhe.', ['Nein, er hat 8 Kanten, eine an jeder Ecke.', 'Nein, er hat 6 Kanten, eine je Fläche.']),
+                    ('', 'Ein Würfel hat 8 Flächen.', 'Nein, 6 Flächen – aber 8 Ecken.', ['Ja, 4 Seitenflächen und je 2 oben und unten.', 'Nein, er hat 12 Flächen.']),
+                    ('ober', f'Ein Würfel mit {a} cm Kantenlänge hat die Oberfläche {6 * a * a} cm².', f'Ja, 6 · {a} · {a} = {6 * a * a} cm².', [f'Nein, {a} · {a} · {a} = {a ** 3} cm².', f'Nein, {a} · {a} = {a * a} cm².']),
+                    ('ober', f'Ein Würfel mit {a} cm Kantenlänge hat die Oberfläche {4 * a * a} cm².', f'Nein, er hat 6 Flächen: 6 · {a * a} = {6 * a * a} cm².', [f'Ja, 4 Seitenflächen zu je {a * a} cm².', f'Nein, {a} · {a} · {a} = {a ** 3} cm².'])]
     elif st == 2:
-        aussagen = [(f'Ein Quader {a} cm × {b} cm × {c} cm hat die Oberfläche {a * b + a * c + b * c} cm².', False, f'Nein, jede Fläche gibt es zweimal: {O(a, b, c)} cm².'),
-                    (f'Ein Quader {a} cm × {b} cm × {c} cm hat die Oberfläche {O(a, b, c)} cm².', True, f'Ja, 2 · ({a * b} + {a * c} + {b * c}) = {O(a, b, c)} cm².'),
-                    ('Klebt man zwei Würfel zusammen, ist die Oberfläche kleiner als bei beiden einzeln.', True, 'Ja, die Klebeflächen liegen innen und fallen weg.'),
-                    ('Oberfläche misst man in cm³.', False, 'Nein, Flächen in cm², Volumen in cm³.')]
+        su = a * b + a * c + b * c
+        aussagen = [('ober', f'Ein Quader {a} cm × {b} cm × {c} cm hat die Oberfläche {su} cm².', f'Nein, jede Fläche gibt es zweimal: {O(a, b, c)} cm².', ['Ja, man addiert die drei verschiedenen Flächen.', f'Nein, {a} · {b} · {c} = {a * b * c} cm².']),
+                    ('ober', f'Ein Quader {a} cm × {b} cm × {c} cm hat die Oberfläche {O(a, b, c)} cm².', f'Ja, 2 · ({a * b} + {a * c} + {b * c}) = {O(a, b, c)} cm².', [f'Nein, {a * b} + {a * c} + {b * c} = {su} cm², jede Fläche einmal.', f'Nein, {a} · {b} · {c} = {a * b * c} cm².']),
+                    ('', 'Klebt man zwei Würfel zusammen, ist die Oberfläche kleiner als bei beiden einzeln.', 'Ja, die Klebeflächen liegen innen und fallen weg.', ['Nein, die Oberfläche bleibt gleich.', 'Nein, sie wird größer, weil der Körper größer ist.']),
+                    ('', 'Oberfläche misst man in cm³.', 'Nein, Flächen in cm², Volumen in cm³.', ['Ja, weil ein Körper drei Kantenlängen hat.', 'Nein, Oberfläche misst man in cm.']),
+                    ('', f'Bei einem Würfel mit {a} cm Kantenlänge sind alle Kanten zusammen {12 * a} cm lang.', f'Ja, 12 · {a} cm = {12 * a} cm.', [f'Nein, 6 · {a} cm = {6 * a} cm.', f'Nein, 8 · {a} cm = {8 * a} cm.']),
+                    ('', f'Bei einem Quader {a} cm × {b} cm × {c} cm sind alle Kanten zusammen {a + b + c} cm lang.', f'Nein, jede Länge kommt viermal vor: 4 · {a + b + c} = {4 * (a + b + c)} cm.', ['Ja, man addiert Länge, Breite und Höhe.', f'Nein, 2 · {a + b + c} = {2 * (a + b + c)} cm.'])]
+        if a * b * c == O(a, b, c): return g_vers(st)
     else:
-        aussagen = [('Verdoppelt man die Kantenlänge eines Würfels, verdoppelt sich die Oberfläche.', False, 'Nein, sie wird viermal so groß.'),
-                    ('Verdoppelt man die Kantenlänge eines Würfels, wird das Volumen achtmal so groß.', True, 'Ja, 2 · 2 · 2 = 8.'),
-                    ('Zwei Quader mit gleichem Volumen haben immer die gleiche Oberfläche.', False, 'Nein: 1 × 1 × 8 (O = 34) und 2 × 2 × 2 (O = 24) haben beide V = 8.'),
-                    (f'Ein Quader {a} × {b} × {c} und ein Quader {c} × {a} × {b} haben dieselbe Oberfläche.', True, 'Ja, es ist derselbe Quader, nur gedreht.')]
-    s, stimmt, grund = R.choice(aussagen)
-    gegen = 'Ja, das stimmt.' if not stimmt else 'Nein, das ist falsch.'
-    return {**wahl(R, grund, [gegen, 'Das kann man nicht entscheiden.'], 3), 'f': {'text': f'Stimmt die Aussage? „{s}“'}, 'w': grund, 'h': 'Rechne ein Beispiel oder stell dir eine Schachtel vor.'}
+        aussagen = [('', 'Verdoppelt man die Kantenlänge eines Würfels, verdoppelt sich die Oberfläche.', 'Nein, sie wird viermal so groß (2 · 2 = 4).', ['Ja, doppelte Kante, doppelte Oberfläche.', 'Nein, sie wird achtmal so groß.']),
+                    ('', 'Verdoppelt man die Kantenlänge eines Würfels, wird das Volumen achtmal so groß.', 'Ja, 2 · 2 · 2 = 8.', ['Nein, doppelt so groß.', 'Nein, viermal so groß.']),
+                    ('', 'Zwei Quader mit gleichem Volumen haben immer die gleiche Oberfläche.', 'Nein: 1 × 1 × 8 (O = 34) und 2 × 2 × 2 (O = 24) haben beide V = 8.', ['Ja, gleich viel Inhalt heißt gleich viel Fläche.', 'Ja, wenn beide Körper Quader sind.']),
+                    ('', f'Ein Quader {a} × {b} × {c} und ein Quader {c} × {a} × {b} haben dieselbe Oberfläche.', 'Ja, es ist derselbe Quader, nur gedreht.', ['Nein, die Höhe ist eine andere, also auch die Oberfläche.', 'Nein, nur das Volumen bleibt gleich.'])]
+    frei = [x for x in aussagen if x[0] != 'ober' or VERS['ober'] < 6]
+    k, s_, grund, f = R.choice(frei)
+    if k == 'ober': VERS['ober'] += 1
+    return {**wahl_rund(R, grund, f, 3), 'f': {'text': f'Stimmt die Aussage? „{s_}“'}, 'w': grund, 'h': 'Rechne ein Beispiel oder stell dir eine Schachtel vor.'}
 
 
 GEN = {'quader': g_quader, 'oberflaeche': g_ober, 'sachaufgaben': g_sach, 'zusammengesetzt': g_zus, 'volumen': g_vol, 'verstehen': g_vers}
@@ -229,7 +351,8 @@ DATEI = datei(E, 'Quader und Würfel beschreiben, ihren Oberflächeninhalt berec
               ETAPPEN, GEN, vertiefung=['volumen'],
               offen=['Prisma, Zylinder, Pyramide, Kegel und Kugel aus „umfang“ weggelassen: Stoff späterer Jahrgangsstufen.',
                      'lehrplan_gym nennt „Volumen“, der LehrplanPLUS Gymnasium Kl. 5 aber nur Oberflächeninhalte von Quadern und zusammengesetzten Körpern (Volumen ab Kl. 6). Deshalb Volumen (nur Quader/Würfel in cm³, ohne Raumeinheiten-Umrechnung) als Vertiefung, nicht Pflicht. Bitte entscheiden.',
-                     'Braucht Zeichnung: Schrägbilder und Netze von Quader und Würfel (Lehrplan „auch mit Netzen und Schrägbildern“) kann die App noch nicht zeichnen. Bisher nur Tabelle der Flächenpaare.'])
+                     'Zeichnungen: Schrägbilder von Quadern (verdeckte Kanten gestrichelt) und Würfelnetze werden als Figur aus Linien gezeichnet (Lernkarten quader, zusammengesetzt; Aufgaben „Ist das ein Würfelnetz?“). Netze von Quadern mit Maßen und das Falten durch das Kind gehen nicht.',
+                     'Prüfpunkt nicht umgesetzt: Volumeneinheiten (1 dm³ = 1 000 cm³, Liter). Raumeinheiten sind laut LehrplanPLUS Stoff der Jahrgangsstufe 6; die Karte volumen ist hier nur Vertiefung und bleibt bei cm³ ohne Umrechnung.'])
 
 if __name__ == '__main__':
     schreibe(DATEI)

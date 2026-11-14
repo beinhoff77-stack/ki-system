@@ -1,0 +1,219 @@
+{
+  "thema_schluessel": "stochastik.mehrstufig",
+  "gesamturteil": "brauchbar",
+  "thema_hinweise": [
+    "Unter „offen“ steht, dass Baumdiagramme nicht gezeichnet werden können; deshalb Pfad-Tabellen. Den Bildtyp „baum“ gibt es jetzt (bis 3 Stufen, Wahrscheinlichkeiten an den Ästen, „?“ für Gesuchtes). In einem Thema über Pfadregeln ist der Baum das zentrale Anschauungsmodell; Bilder für pfad_mult, pfad_add, ohne_zuruecklegen, gegenereignis und baum_ergaenzen angegeben.",
+    "Texte fachlich richtig, sehr gute typische Fehler (3 · 1/6 bei „mindestens eine Sechs“)."
+  ],
+  "karten": [
+    {
+      "lernziel": "pfad_mult",
+      "urteil": "verbessern",
+      "probleme": [
+        "Pfade werden als Tabelle gezeigt; das Wort „entlang des Pfades“ ergibt erst im Baum Sinn."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "baum",
+          "aeste": [
+            {
+              "text": "rot",
+              "p": "3/5",
+              "aeste": [
+                {
+                  "text": "rot",
+                  "p": "3/5"
+                },
+                {
+                  "text": "blau",
+                  "p": "2/5"
+                }
+              ]
+            },
+            {
+              "text": "blau",
+              "p": "2/5",
+              "aeste": [
+                {
+                  "text": "rot",
+                  "p": "3/5"
+                },
+                {
+                  "text": "blau",
+                  "p": "2/5"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "pfad_add",
+      "urteil": "verbessern",
+      "probleme": [
+        "Im Baum sieht man die zwei Pfade (K, Z) und (Z, K), die zum Ereignis gehören; die Tabelle zeigt das schlechter."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "baum",
+          "aeste": [
+            {
+              "text": "K",
+              "p": "1/2",
+              "aeste": [
+                {
+                  "text": "K",
+                  "p": "1/2"
+                },
+                {
+                  "text": "Z",
+                  "p": "1/2"
+                }
+              ]
+            },
+            {
+              "text": "Z",
+              "p": "1/2",
+              "aeste": [
+                {
+                  "text": "K",
+                  "p": "1/2"
+                },
+                {
+                  "text": "Z",
+                  "p": "1/2"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "ohne_zuruecklegen",
+      "urteil": "verbessern",
+      "probleme": [
+        "Dass sich auf der zweiten Stufe die Wahrscheinlichkeiten ändern, sieht man im Baum direkt an den unterschiedlichen Ästen."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "baum",
+          "aeste": [
+            {
+              "text": "rot",
+              "p": "3/5",
+              "aeste": [
+                {
+                  "text": "rot",
+                  "p": "2/4"
+                },
+                {
+                  "text": "blau",
+                  "p": "2/4"
+                }
+              ]
+            },
+            {
+              "text": "blau",
+              "p": "2/5",
+              "aeste": [
+                {
+                  "text": "rot",
+                  "p": "3/4"
+                },
+                {
+                  "text": "blau",
+                  "p": "1/4"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "gegenereignis",
+      "urteil": "verbessern",
+      "probleme": [
+        "Kein Bild. Der Baum mit dem einen Pfad „keine 6 – keine 6 – keine 6“ zeigt, warum das Gegenereignis so viel einfacher ist als die vielen Pfade mit mindestens einer Sechs."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "baum",
+          "aeste": [
+            {
+              "text": "6",
+              "p": "1/6"
+            },
+            {
+              "text": "keine 6",
+              "p": "5/6",
+              "aeste": [
+                {
+                  "text": "6",
+                  "p": "1/6"
+                },
+                {
+                  "text": "keine 6",
+                  "p": "5/6",
+                  "aeste": [
+                    {
+                      "text": "6",
+                      "p": "1/6"
+                    },
+                    {
+                      "text": "keine 6",
+                      "p": "5/6"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "baum_ergaenzen",
+      "urteil": "verbessern",
+      "probleme": [
+        "„Baumdiagramm vervollständigen“ ohne Baumdiagramm."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "baum",
+          "aeste": [
+            {
+              "text": "A",
+              "p": "0,4",
+              "aeste": [
+                {
+                  "text": "B",
+                  "p": "?"
+                },
+                {
+                  "text": "nicht B",
+                  "p": "?"
+                }
+              ]
+            },
+            {
+              "text": "nicht A",
+              "p": "?"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "simulation",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "verstehen",
+      "urteil": "ok"
+    }
+  ],
+  "neue_karten": []
+}

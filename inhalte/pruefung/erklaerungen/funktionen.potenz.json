@@ -1,0 +1,209 @@
+{
+  "thema_schluessel": "funktionen.potenz",
+  "gesamturteil": "brauchbar",
+  "thema_hinweise": [
+    "Unter „offen“ steht, dass keine Graphen gezeichnet werden können. Das geht jetzt (Graph „potenz“, auch mit negativem n, und „wurzel“). Ein Funktionen-Thema, in dem Symmetrie und Verlauf nur in Worten beschrieben werden, ist für Klasse 9 schwer verständlich. Bilder für symmetrie, verlauf, negativ und wurzelfunktion sind angegeben.",
+    "Texte fachlich richtig."
+  ],
+  "karten": [
+    {
+      "lernziel": "werte",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "symmetrie",
+      "urteil": "verbessern",
+      "probleme": [
+        "Symmetrie ist eine Eigenschaft des Graphen; ohne Bild bleibt „achsensymmetrisch“ ein Wort."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "koordinaten",
+          "x": [
+            -3,
+            3
+          ],
+          "y": [
+            -2,
+            10
+          ],
+          "graphen": [
+            {
+              "art": "potenz",
+              "a": 0.5,
+              "n": 4,
+              "name": "f"
+            }
+          ],
+          "punkte": [
+            {
+              "x": 2,
+              "y": 8,
+              "name": "(2 | 8)"
+            },
+            {
+              "x": -2,
+              "y": 8,
+              "name": "(−2 | 8)"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "verlauf",
+      "urteil": "verbessern",
+      "probleme": [
+        "„Von links oben nach rechts oben“ und die gemeinsamen Punkte lassen sich mit einem Bild von y = x², x³, x⁴ auf einen Blick erfassen."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "koordinaten",
+          "x": [
+            -2,
+            2
+          ],
+          "y": [
+            -3,
+            3
+          ],
+          "graphen": [
+            {
+              "art": "potenz",
+              "a": 1,
+              "n": 2,
+              "name": "x²"
+            },
+            {
+              "art": "potenz",
+              "a": 1,
+              "n": 3,
+              "name": "x³"
+            },
+            {
+              "art": "potenz",
+              "a": 1,
+              "n": 4,
+              "name": "x⁴"
+            }
+          ],
+          "punkte": [
+            {
+              "x": -1,
+              "y": 1
+            },
+            {
+              "x": 1,
+              "y": 1
+            },
+            {
+              "x": -1,
+              "y": -1
+            },
+            {
+              "x": 0,
+              "y": 0
+            }
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "parameter",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "negativ",
+      "urteil": "verbessern",
+      "probleme": [
+        "„Die Achsen sind Asymptoten“ ist ohne Bild für Klasse 9 kaum vorstellbar."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "koordinaten",
+          "x": [
+            -4,
+            4
+          ],
+          "y": [
+            -4,
+            4
+          ],
+          "graphen": [
+            {
+              "art": "potenz",
+              "a": 1,
+              "n": -2,
+              "name": "x⁻²"
+            },
+            {
+              "art": "potenz",
+              "a": 1,
+              "n": -1,
+              "name": "x⁻¹"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "wurzelfunktion",
+      "urteil": "verbessern",
+      "probleme": [
+        "Die Umkehrfunktion als Spiegelung an y = x ist das zentrale Bild; es fehlt."
+      ],
+      "neu": {
+        "regel": "y = x^(1/2) = √x und y = x^(1/3) = ∛x sind für ⟦x ≥ 0⟧ definiert. Sie sind die ⟦Umkehrfunktionen⟧ von y = x² bzw. y = x³ (für x ≥ 0): Aus y wird x zurückgerechnet. Im Bild: Der Graph von √x ist der Graph von x², ⟦gespiegelt an der Geraden y = x⟧ – x und y tauschen die Rollen.",
+        "bild": {
+          "typ": "koordinaten",
+          "x": [
+            0,
+            4
+          ],
+          "y": [
+            0,
+            4
+          ],
+          "graphen": [
+            {
+              "art": "potenz",
+              "a": 1,
+              "n": 2,
+              "name": "x²",
+              "bereich": [
+                0,
+                2
+              ]
+            },
+            {
+              "art": "wurzel",
+              "name": "√x"
+            }
+          ],
+          "strecken": [
+            [
+              0,
+              0,
+              4,
+              4,
+              "gestrichelt"
+            ]
+          ],
+          "punkte": [
+            {
+              "x": 2,
+              "y": 4,
+              "name": "(2 | 4)"
+            },
+            {
+              "x": 4,
+              "y": 2,
+              "name": "(4 | 2)"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "neue_karten": []
+}

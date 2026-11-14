@@ -1,0 +1,47 @@
+{
+  "thema_schluessel": "zahlen.reell",
+  "gesamturteil": "gut",
+  "thema_hinweise": [
+    "Fachlich richtig, sinnvolle Reihenfolge. Verbessert: eine verwirrende Probe in „wurzel_mal“ und das Anschauungsmodell „√2 wie eine Variable“ beim Zusammenfassen (3√2 + 5√2 wie 3x + 5x).",
+    "Lehrplanbezug fehlt (lehrplan_gym leer)."
+  ],
+  "karten": [
+    {
+      "lernziel": "zahlarten",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "eingrenzen",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "wurzel_mal",
+      "urteil": "verbessern",
+      "probleme": [
+        "Die Probe „9 : √3 = √27? 81 : 3 = 27 ✓“ ist unverständlich (Fragezeichen, gemischte Rechnung). Einfacher: Quadrieren."
+      ],
+      "neu": {
+        "probe": "Quadriere das Ergebnis: 9² = 81, und 3 · 27 = 81 ✓"
+      }
+    },
+    {
+      "lernziel": "teilweise",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "zusammenfassen",
+      "urteil": "verbessern",
+      "probleme": [
+        "Warum nur gleiche Radikanden zusammengefasst werden dürfen, wird nicht begründet. Der Vergleich mit Termen (3x + 5x = 8x, aber 2x + 4y bleibt) ist für Klasse 9 das natürliche Modell."
+      ],
+      "neu": {
+        "regel": "Behandle √m wie eine Variable: 3x + 5x = 8x, also auch ⟦3√2 + 5√2 = 8√2⟧. Aber 2x + 4y lässt sich nicht zusammenfassen – genauso wenig ⟦2√3 + 4√5⟧. Nur Wurzeln mit ⟦gleichem Radikanden⟧ kann man addieren. Vorher teilweise die Wurzel ziehen, dann zusammenfassen."
+      }
+    },
+    {
+      "lernziel": "nenner_rational",
+      "urteil": "ok"
+    }
+  ],
+  "neue_karten": []
+}

@@ -1,0 +1,403 @@
+{
+  "thema_schluessel": "messen.koerper_darstellung",
+  "gesamturteil": "brauchbar",
+  "thema_hinweise": [
+    "Unter „offen“ steht, dass Netze und Schrägbilder nicht gezeichnet werden können. Fakt: Mit dem Bildtyp „figur“ (Punkte, Linien, gestrichelte Linien, Kreise) lassen sich ein Schrägbild und ein Netz als ebene Zeichnung darstellen – sie sind ja selbst ebene Figuren. Für „netz“, „zylinder“ und „schraegbild“ sind fertige Bilder angegeben. Damit wird auch „Welches Netz ergibt einen Würfel?“ als Aufgabe möglich.",
+    "Überschneidung mit raum.schraegbilder (Karte „laengen“): Schrägbildregeln werden in beiden Themen erklärt. Vorschlag: hier nur Prismen und Zylinder, dort Pyramiden – und dort auf diese Karte verweisen.",
+    "Alltagsbezug fehlt bei Netz und Zylinder fast ganz; naheliegend sind Verpackungen (Schachtel aufschneiden, Etikett der Konservendose abziehen). Eingebaut."
+  ],
+  "karten": [
+    {
+      "lernziel": "prisma",
+      "urteil": "verbessern",
+      "probleme": [
+        "Die Formeln 2n Ecken, 3n Kanten, n + 2 Flächen stehen ohne Warum da. Mit einem Satz Begründung muss das Kind nichts auswendig lernen."
+      ],
+      "neu": {
+        "regel": "Ein ⟦Prisma⟧ hat zwei deckungsgleiche, parallele ⟦Grundflächen⟧ (n-Ecke) und n Rechtecke als ⟦Mantel⟧. Zählen statt auswendig lernen: Ecken – n unten und n oben, also ⟦2n⟧. Kanten – n unten, n oben, n senkrecht, also ⟦3n⟧. Flächen – n Rechtecke und 2 Grundflächen, also ⟦n + 2⟧.",
+        "schritte": [
+          "Ein Bleistift ohne Spitze ist ein sechsseitiges Prisma: n = 6.",
+          "Ecken: 6 unten + 6 oben = 12. Kanten: 6 + 6 + 6 = 18.",
+          "Flächen: 6 Rechtecke + 2 Sechsecke = ⟦8⟧."
+        ],
+        "probe": "Eulerscher Polyedersatz: E + F − K = 12 + 8 − 18 = 2 ✓"
+      }
+    },
+    {
+      "lernziel": "netz",
+      "urteil": "verbessern",
+      "probleme": [
+        "Ein Netz wird nur beschrieben, nicht gezeigt. Gerade hier ist das Bild die Erklärung.",
+        "Alltagsbezug fehlt: eine aufgeschnittene Schachtel."
+      ],
+      "neu": {
+        "regel": "Schneidest du eine Schachtel an einigen Kanten auf und klappst sie flach auf den Tisch, entsteht ein ⟦Netz⟧: 2 Grundflächen und n Rechtecke. Die Rechtecke sind so hoch wie das Prisma; nebeneinander sind sie so breit wie der ⟦Umfang der Grundfläche⟧.",
+        "schritte": [
+          "Schachtel (Quader) 5 cm × 3 cm, Höhe 4 cm.",
+          "Boden und Deckel: 2 · 5 · 3 = 30 cm². Die vier Seiten bilden zusammen einen Streifen: (5 + 3 + 5 + 3) · 4 = 16 · 4 = 64 cm².",
+          "Fläche des Netzes = Oberfläche = 30 + 64 = ⟦94 cm²⟧."
+        ],
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "_a": [
+              0,
+              0
+            ],
+            "_b": [
+              5,
+              0
+            ],
+            "_c": [
+              8,
+              0
+            ],
+            "_d": [
+              13,
+              0
+            ],
+            "_e": [
+              16,
+              0
+            ],
+            "_f": [
+              16,
+              4
+            ],
+            "_g": [
+              13,
+              4
+            ],
+            "_h": [
+              8,
+              4
+            ],
+            "_i": [
+              5,
+              4
+            ],
+            "_j": [
+              0,
+              4
+            ],
+            "_k": [
+              0,
+              7
+            ],
+            "_l": [
+              5,
+              7
+            ],
+            "_m": [
+              0,
+              -3
+            ],
+            "_n": [
+              5,
+              -3
+            ]
+          },
+          "linien": [
+            [
+              "_a",
+              "_b"
+            ],
+            [
+              "_b",
+              "_c",
+              "3 cm"
+            ],
+            [
+              "_c",
+              "_d",
+              "5 cm"
+            ],
+            [
+              "_d",
+              "_e",
+              "3 cm"
+            ],
+            [
+              "_e",
+              "_f",
+              "4 cm"
+            ],
+            [
+              "_f",
+              "_g"
+            ],
+            [
+              "_g",
+              "_h"
+            ],
+            [
+              "_h",
+              "_i"
+            ],
+            [
+              "_i",
+              "_j"
+            ],
+            [
+              "_j",
+              "_a"
+            ],
+            [
+              "_b",
+              "_i"
+            ],
+            [
+              "_c",
+              "_h"
+            ],
+            [
+              "_d",
+              "_g"
+            ],
+            [
+              "_j",
+              "_k"
+            ],
+            [
+              "_k",
+              "_l",
+              "5 cm"
+            ],
+            [
+              "_l",
+              "_i"
+            ],
+            [
+              "_a",
+              "_m"
+            ],
+            [
+              "_m",
+              "_n"
+            ],
+            [
+              "_n",
+              "_b",
+              "3 cm"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "zylinder",
+      "urteil": "verbessern",
+      "probleme": [
+        "Das Abwickeln des Mantels ist ohne Bild und ohne Alltagsbezug schwer vorstellbar. Das Etikett einer Konservendose ist das perfekte Modell."
+      ],
+      "neu": {
+        "regel": "Ein ⟦Zylinder⟧ hat zwei Kreise als Grundflächen. Ziehst du das Etikett einer Konservendose ab, siehst du den ⟦Mantel⟧: ein Rechteck, so hoch wie die Dose und so lang wie der ⟦Umfang⟧ des Grundkreises.",
+        "schritte": [
+          "Dose: Umfang des Grundkreises u = 18,8 cm, Höhe h = 10 cm.",
+          "Das Etikett ist ein Rechteck: 18,8 cm lang, 10 cm hoch.",
+          "Mantelfläche: 18,8 cm · 10 cm = ⟦188 cm²⟧."
+        ],
+        "fehler": "Das Mantelrechteck so lang wie den ⟦Durchmesser⟧ nehmen. Das Etikett muss aber einmal ganz um die Dose herum reichen – also so lang wie der ⟦Umfang⟧. Der Umfang ist gut dreimal so lang wie der Durchmesser.",
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "_a": [
+              0,
+              0
+            ],
+            "_b": [
+              18.8,
+              0
+            ],
+            "_c": [
+              18.8,
+              10
+            ],
+            "_d": [
+              0,
+              10
+            ],
+            "M": [
+              3,
+              13
+            ],
+            "N": [
+              3,
+              -3
+            ]
+          },
+          "linien": [
+            [
+              "_a",
+              "_b",
+              "u ≈ 18,8 cm"
+            ],
+            [
+              "_b",
+              "_c",
+              "h = 10 cm"
+            ],
+            [
+              "_c",
+              "_d"
+            ],
+            [
+              "_d",
+              "_a"
+            ]
+          ],
+          "kreise": [
+            {
+              "m": "M",
+              "r": 3
+            },
+            {
+              "m": "N",
+              "r": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "schraegbild",
+      "urteil": "verbessern",
+      "probleme": [
+        "Ohne Bild bleiben „45°“ und „verkürzt“ abstrakt.",
+        "Der typische Fehler ist missverständlich formuliert („Auch senkrechte Kanten werden nicht verkürzt“). Häufigster Fehler: die Kante nach hinten in voller Länge zeichnen oder statt der Tiefe die Breite verkürzen."
+      ],
+      "neu": {
+        "schritte": [
+          "Quader: 6 cm breit, 4 cm hoch, 8 cm tief.",
+          "Vorderfläche in wahrer Größe: Rechteck 6 cm × 4 cm.",
+          "Kanten nach hinten: unter 45° und halb so lang: 8 cm · 1/2 = ⟦4 cm⟧.",
+          "Unsichtbare Kanten (hinten links unten) zeichnest du ⟦gestrichelt⟧."
+        ],
+        "fehler": "Die Kante nach hinten in voller Länge zeichnen: 8 cm statt 4 cm. Dann wirkt der Quader viel zu tief. Verkürzt werden ⟦nur⟧ die Kanten nach hinten – Breite und Höhe bleiben in wahrer Größe.",
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "A": [
+              0,
+              0
+            ],
+            "B": [
+              6,
+              0
+            ],
+            "C": [
+              8.83,
+              2.83
+            ],
+            "D": [
+              2.83,
+              2.83
+            ],
+            "E": [
+              0,
+              4
+            ],
+            "F": [
+              6,
+              4
+            ],
+            "G": [
+              8.83,
+              6.83
+            ],
+            "H": [
+              2.83,
+              6.83
+            ],
+            "_X": [
+              8.5,
+              0
+            ]
+          },
+          "linien": [
+            [
+              "A",
+              "B",
+              "6 cm"
+            ],
+            [
+              "B",
+              "F",
+              "4 cm"
+            ],
+            [
+              "F",
+              "E"
+            ],
+            [
+              "E",
+              "A"
+            ],
+            [
+              "B",
+              "C",
+              "4 cm"
+            ],
+            [
+              "C",
+              "G"
+            ],
+            [
+              "G",
+              "F"
+            ],
+            [
+              "E",
+              "H"
+            ],
+            [
+              "H",
+              "G"
+            ],
+            [
+              "A",
+              "D",
+              "",
+              "gestrichelt"
+            ],
+            [
+              "D",
+              "C",
+              "",
+              "gestrichelt"
+            ],
+            [
+              "D",
+              "H",
+              "",
+              "gestrichelt"
+            ],
+            [
+              "B",
+              "_X",
+              "",
+              "gestrichelt"
+            ]
+          ],
+          "winkel": [
+            [
+              "B",
+              "_X",
+              "C",
+              "45°"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "ansichten",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "beurteilen",
+      "urteil": "ok"
+    }
+  ],
+  "neue_karten": []
+}

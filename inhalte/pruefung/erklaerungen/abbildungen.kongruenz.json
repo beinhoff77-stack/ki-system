@@ -1,0 +1,153 @@
+{
+  "thema_schluessel": "abbildungen.kongruenz",
+  "gesamturteil": "gut",
+  "thema_hinweise": [
+    "Klar, fachlich richtig, gute Bilder im Koordinatensystem. Lücke: Parkettierungen stehen im Umfang und werden in einer Stufe-3-Aufgabe der Karte „symmetrie“ abgefragt (regelmäßiges 9-Eck), aber in keiner Karte erklärt. Neue Karte „parkett“ hinter „symmetrie“.",
+    "In „drehung“ wird die Regel (x | y) → (−y | x) ohne Begründung gegeben; mit dem gedrehten Steigungsdreieck ist sie einsichtig. Eingebaut.",
+    "Lehrplanbezug fehlt (lehrplan_gym leer)."
+  ],
+  "karten": [
+    {
+      "lernziel": "achsenspiegelung",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "punktspiegelung",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "verschiebung",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "drehung",
+      "urteil": "verbessern",
+      "probleme": [
+        "Die Abbildungsvorschrift für 90° wird als Rezept gegeben. Kinder verwechseln dann (−y | x) und (y | −x)."
+      ],
+      "neu": {
+        "regel": "Bei einer ⟦Drehung⟧ um Z bleibt der Abstand zu Z gleich. Drehung um den Ursprung um 90° gegen den Uhrzeigersinn: Der Weg zu P(4 | 1) ist „4 nach rechts, 1 nach oben“. Gedreht wird daraus „4 nach oben, 1 nach links“. Also ⟦(x | y) → (−y | x)⟧. Um 180°: (x | y) → (−x | −y).",
+        "schritte": [
+          "P(4 | 1): Von O aus 4 nach rechts und 1 nach oben.",
+          "Um 90° gedreht: Aus „4 nach rechts“ wird „4 nach oben“, aus „1 nach oben“ wird „1 nach links“.",
+          "⟦P'(−1 | 4)⟧"
+        ]
+      },
+      "strategie": "Den Weg vom Zentrum zum Punkt als Treppe (rechts/oben) mitdrehen statt eine Formel auswendig zu lernen."
+    },
+    {
+      "lernziel": "symmetrie",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "eigenschaften",
+      "urteil": "ok"
+    }
+  ],
+  "neue_karten": [
+    {
+      "nach": "symmetrie",
+      "lernziel": "parkett",
+      "titel": "Lückenlos auslegen (Parkett)",
+      "regel": "Mit lauter gleichen regelmäßigen Vielecken kann man eine Fläche nur dann ⟦lückenlos⟧ auslegen, wenn die Winkel, die an einer Ecke zusammenstoßen, genau ⟦360°⟧ ergeben. Der Innenwinkel muss also in 360° ⟦aufgehen⟧.",
+      "schritte": [
+        "Gleichseitiges Dreieck: Innenwinkel 60°. 360° : 60° = 6 – sechs Dreiecke passen um eine Ecke ✓",
+        "Quadrat: 360° : 90° = 4 ✓. Regelmäßiges Sechseck: 360° : 120° = 3 ✓ (wie bei Bienenwaben).",
+        "Regelmäßiges Fünfeck: Innenwinkel 108°. 360° : 108° = 3,33… – es bleibt eine Lücke: ⟦kein Parkett⟧."
+      ],
+      "fehler": "„Jedes regelmäßige Vieleck ergibt ein Parkett.“ Falsch: Beim Fünfeck passen drei Ecken (324°) und es bleibt eine Lücke von 36°; vier wären 432°, zu viel. Nur bei ⟦Dreieck, Quadrat und Sechseck⟧ geht 360° glatt auf.",
+      "bild": {
+        "typ": "figur",
+        "punkte": {
+          "O": [
+            0,
+            0
+          ],
+          "_h0": [
+            3.0,
+            0.0
+          ],
+          "_h1": [
+            1.5,
+            2.6
+          ],
+          "_h2": [
+            -1.5,
+            2.6
+          ],
+          "_h3": [
+            -3.0,
+            0.0
+          ],
+          "_h4": [
+            -1.5,
+            -2.6
+          ],
+          "_h5": [
+            1.5,
+            -2.6
+          ]
+        },
+        "linien": [
+          [
+            "O",
+            "_h0"
+          ],
+          [
+            "_h0",
+            "_h1"
+          ],
+          [
+            "O",
+            "_h1"
+          ],
+          [
+            "_h1",
+            "_h2"
+          ],
+          [
+            "O",
+            "_h2"
+          ],
+          [
+            "_h2",
+            "_h3"
+          ],
+          [
+            "O",
+            "_h3"
+          ],
+          [
+            "_h3",
+            "_h4"
+          ],
+          [
+            "O",
+            "_h4"
+          ],
+          [
+            "_h4",
+            "_h5"
+          ],
+          [
+            "O",
+            "_h5"
+          ],
+          [
+            "_h5",
+            "_h0"
+          ]
+        ],
+        "winkel": [
+          [
+            "O",
+            "_h0",
+            "_h1",
+            "60°"
+          ]
+        ]
+      },
+      "begruendung": "Parkettierungen stehen im Umfang und werden in einer Aufgabe der Karte „symmetrie“ abgefragt, aber nirgends erklärt."
+    }
+  ]
+}

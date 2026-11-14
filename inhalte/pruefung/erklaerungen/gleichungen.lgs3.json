@@ -1,0 +1,79 @@
+{
+  "thema_schluessel": "gleichungen.lgs3",
+  "gesamturteil": "gut",
+  "thema_hinweise": [
+    "Fachlich richtig, systematisch aufgebaut, gute typische Fehler. Verbessert: die Parabel durch drei Punkte bekommt ein Bild (die drei Punkte und die gefundene Parabel).",
+    "Vorschlag zu „offen“ (Systeme stehen in einer Zeile): Mit dem Bildtyp „tabelle“ kann ein Gleichungssystem untereinander angezeigt werden, z. B. kopf [\"\", \"Gleichung\"], zeilen [[\"(I)\", \"x + y + z = 6\"], …]. Das gilt auch für f.grafik in Aufgaben."
+  ],
+  "karten": [
+    {
+      "lernziel": "pruefen",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "stufenform",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "eliminieren",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "loesen",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "parabel",
+      "urteil": "verbessern",
+      "probleme": [
+        "Kein Bild. Dass drei Punkte genau eine Parabel festlegen, sieht man erst, wenn Punkte und Parabel zusammen gezeichnet sind."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "koordinaten",
+          "x": [
+            -2,
+            2
+          ],
+          "y": [
+            0,
+            8
+          ],
+          "graphen": [
+            {
+              "art": "poly",
+              "k": [
+                1,
+                -1,
+                2
+              ],
+              "name": "y = 2x² − x + 1"
+            }
+          ],
+          "punkte": [
+            {
+              "x": 0,
+              "y": 1,
+              "name": "(0 | 1)"
+            },
+            {
+              "x": 1,
+              "y": 2,
+              "name": "(1 | 2)"
+            },
+            {
+              "x": -1,
+              "y": 4,
+              "name": "(−1 | 4)"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "sachaufgabe",
+      "urteil": "ok"
+    }
+  ],
+  "neue_karten": []
+}

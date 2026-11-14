@@ -1,0 +1,576 @@
+{
+  "thema_schluessel": "bruch.brueche",
+  "gesamturteil": "brauchbar",
+  "thema_hinweise": [
+    "Lehrplan „Anteile mit Flächendiagrammen veranschaulichen“: Unter „offen“ steht, dass Flächen nur in Worten beschrieben werden. Mit dem Bildtyp „figur“ lassen sich Rechtecke in gleiche Teile zerlegen und einen Teil färben (Gitterlinien + „flaeche“). Fertige Flächendiagramme sind für bruchteil_von, anteil_bestimmen, ganzes_bestimmen und erweitern angegeben. Damit fehlt nur noch das Selbst-Färben durch das Kind.",
+    "Das Streifenmodell (Rechteck in gleiche Teile) ist für alle drei Grundaufgaben dasselbe Bild – Teil, Anteil, Ganzes. Das Kind sieht so, dass es drei Fragen an dasselbe Bild sind; das ist die eleganteste Klammer für den ersten Bereich.",
+    "Fachlich korrekt, gute Reihenfolge."
+  ],
+  "karten": [
+    {
+      "lernziel": "bruchteil_von",
+      "urteil": "verbessern",
+      "probleme": [
+        "Kein Flächendiagramm, obwohl der Lehrplan es ausdrücklich verlangt. Im Streifen sieht das Kind, warum man erst durch 4 teilt (ein Stück) und dann mal 3 nimmt (drei Stücke)."
+      ],
+      "neu": {
+        "schritte": [
+          "3/4 von 20 €: Teile die 20 € in 4 gleiche Teile. Ein Viertel: 20 € : 4 = 5 €.",
+          "Du nimmst 3 solche Teile: 5 € · 3 = ⟦15 €⟧. Das sind drei Viertel."
+        ],
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "_0_0": [
+              0.0,
+              0.0
+            ],
+            "_0_1": [
+              0.0,
+              1.0
+            ],
+            "_1_0": [
+              1.5,
+              0.0
+            ],
+            "_1_1": [
+              1.5,
+              1.0
+            ],
+            "_2_0": [
+              3.0,
+              0.0
+            ],
+            "_2_1": [
+              3.0,
+              1.0
+            ],
+            "_3_0": [
+              4.5,
+              0.0
+            ],
+            "_3_1": [
+              4.5,
+              1.0
+            ],
+            "_4_0": [
+              6.0,
+              0.0
+            ],
+            "_4_1": [
+              6.0,
+              1.0
+            ]
+          },
+          "linien": [
+            [
+              "_0_0",
+              "_0_1"
+            ],
+            [
+              "_1_0",
+              "_1_1"
+            ],
+            [
+              "_2_0",
+              "_2_1"
+            ],
+            [
+              "_3_0",
+              "_3_1"
+            ],
+            [
+              "_4_0",
+              "_4_1"
+            ],
+            [
+              "_0_0",
+              "_4_0"
+            ],
+            [
+              "_0_1",
+              "_4_1"
+            ],
+            [
+              "_0_0",
+              "_4_0",
+              "20 €"
+            ],
+            [
+              "_0_1",
+              "_3_1",
+              "3/4 = 15 €"
+            ]
+          ],
+          "flaeche": [
+            "_0_0",
+            "_3_0",
+            "_3_1",
+            "_0_1"
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "anteil_bestimmen",
+      "urteil": "verbessern",
+      "probleme": [
+        "Das Kürzen 12/30 = 2/5 wird nur gerechnet. Im Bild (30 Kästchen in 5 Spalten, 2 Spalten gefärbt) sieht man, dass 12 von 30 dasselbe ist wie 2 von 5."
+      ],
+      "neu": {
+        "schritte": [
+          "Von 30 Kindern spielen 12 ein Instrument. Anteil = Teil durch Ganzes: 12/30.",
+          "Ordne die 30 Kinder in 5 Spalten zu je 6. Die 12 Musiker füllen genau 2 Spalten.",
+          "Zähler und Nenner durch 6 teilen: 12/30 = ⟦2/5⟧."
+        ],
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "_0_0": [
+              0.0,
+              0.0
+            ],
+            "_0_6": [
+              0.0,
+              6.0
+            ],
+            "_1_0": [
+              1.0,
+              0.0
+            ],
+            "_1_6": [
+              1.0,
+              6.0
+            ],
+            "_2_0": [
+              2.0,
+              0.0
+            ],
+            "_2_6": [
+              2.0,
+              6.0
+            ],
+            "_3_0": [
+              3.0,
+              0.0
+            ],
+            "_3_6": [
+              3.0,
+              6.0
+            ],
+            "_4_0": [
+              4.0,
+              0.0
+            ],
+            "_4_6": [
+              4.0,
+              6.0
+            ],
+            "_5_0": [
+              5.0,
+              0.0
+            ],
+            "_5_6": [
+              5.0,
+              6.0
+            ],
+            "_0_1": [
+              0.0,
+              1.0
+            ],
+            "_5_1": [
+              5.0,
+              1.0
+            ],
+            "_0_2": [
+              0.0,
+              2.0
+            ],
+            "_5_2": [
+              5.0,
+              2.0
+            ],
+            "_0_3": [
+              0.0,
+              3.0
+            ],
+            "_5_3": [
+              5.0,
+              3.0
+            ],
+            "_0_4": [
+              0.0,
+              4.0
+            ],
+            "_5_4": [
+              5.0,
+              4.0
+            ],
+            "_0_5": [
+              0.0,
+              5.0
+            ],
+            "_5_5": [
+              5.0,
+              5.0
+            ]
+          },
+          "linien": [
+            [
+              "_0_0",
+              "_0_6"
+            ],
+            [
+              "_1_0",
+              "_1_6"
+            ],
+            [
+              "_2_0",
+              "_2_6"
+            ],
+            [
+              "_3_0",
+              "_3_6"
+            ],
+            [
+              "_4_0",
+              "_4_6"
+            ],
+            [
+              "_5_0",
+              "_5_6"
+            ],
+            [
+              "_0_0",
+              "_5_0"
+            ],
+            [
+              "_0_1",
+              "_5_1"
+            ],
+            [
+              "_0_2",
+              "_5_2"
+            ],
+            [
+              "_0_3",
+              "_5_3"
+            ],
+            [
+              "_0_4",
+              "_5_4"
+            ],
+            [
+              "_0_5",
+              "_5_5"
+            ],
+            [
+              "_0_6",
+              "_5_6"
+            ]
+          ],
+          "flaeche": [
+            "_0_0",
+            "_2_0",
+            "_2_6",
+            "_0_6"
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "ganzes_bestimmen",
+      "urteil": "verbessern",
+      "probleme": [
+        "Die Rückwärtsrechnung „durch den Zähler, mal den Nenner“ ist ohne Bild ein Rezept. Im Streifenmodell sieht man: 2 Teile sind 12, also ist 1 Teil 6 und 5 Teile sind 30."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "_0_0": [
+              0.0,
+              0.0
+            ],
+            "_0_1": [
+              0.0,
+              1.0
+            ],
+            "_1_0": [
+              1.5,
+              0.0
+            ],
+            "_1_1": [
+              1.5,
+              1.0
+            ],
+            "_2_0": [
+              3.0,
+              0.0
+            ],
+            "_2_1": [
+              3.0,
+              1.0
+            ],
+            "_3_0": [
+              4.5,
+              0.0
+            ],
+            "_3_1": [
+              4.5,
+              1.0
+            ],
+            "_4_0": [
+              6.0,
+              0.0
+            ],
+            "_4_1": [
+              6.0,
+              1.0
+            ],
+            "_5_0": [
+              7.5,
+              0.0
+            ],
+            "_5_1": [
+              7.5,
+              1.0
+            ]
+          },
+          "linien": [
+            [
+              "_0_0",
+              "_0_1"
+            ],
+            [
+              "_1_0",
+              "_1_1"
+            ],
+            [
+              "_2_0",
+              "_2_1"
+            ],
+            [
+              "_3_0",
+              "_3_1"
+            ],
+            [
+              "_4_0",
+              "_4_1"
+            ],
+            [
+              "_5_0",
+              "_5_1"
+            ],
+            [
+              "_0_0",
+              "_5_0"
+            ],
+            [
+              "_0_1",
+              "_5_1"
+            ],
+            [
+              "_0_0",
+              "_5_0",
+              "5/5 = ? Kinder"
+            ],
+            [
+              "_0_1",
+              "_2_1",
+              "2/5 = 12 Kinder"
+            ]
+          ],
+          "flaeche": [
+            "_0_0",
+            "_2_0",
+            "_2_1",
+            "_0_1"
+          ]
+        }
+      },
+      "strategie": "Streifenmodell: Der bekannte Teil wird in seine Stücke zerlegt (12 : 2), dann werden alle Stücke des Ganzen gezählt (· 5)."
+    },
+    {
+      "lernziel": "erweitern",
+      "urteil": "verbessern",
+      "probleme": [
+        "„Die Stücke werden kleiner und es werden mehr“ ist richtig, aber ohne Bild schwer vorstellbar. Eine Schokoladentafel, deren Viertel in je 5 Stücke gebrochen sind, zeigt 3/4 = 15/20 auf einen Blick."
+      ],
+      "neu": {
+        "regel": "⟦Erweitern⟧ heißt: Zähler und Nenner mit ⟦derselben Zahl⟧ malnehmen. Der Wert bleibt gleich – wie bei einer Schokolade, deren Stücke du noch einmal teilst: Du hast danach mehr, aber kleinere Stücke, und gleich viel Schokolade.",
+        "schritte": [
+          "Erweitere 3/4 auf den Nenner 20. Es gilt 4 · 5 = 20.",
+          "Jedes Viertel wird in 5 Stücke geteilt. Aus 3 Vierteln werden 3 · 5 = 15 Stücke von 20.",
+          "Also 3/4 = ⟦15/20⟧."
+        ],
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "_0_0": [
+              0.0,
+              0.0
+            ],
+            "_0_5": [
+              0.0,
+              5.0
+            ],
+            "_1_0": [
+              1.0,
+              0.0
+            ],
+            "_1_5": [
+              1.0,
+              5.0
+            ],
+            "_2_0": [
+              2.0,
+              0.0
+            ],
+            "_2_5": [
+              2.0,
+              5.0
+            ],
+            "_3_0": [
+              3.0,
+              0.0
+            ],
+            "_3_5": [
+              3.0,
+              5.0
+            ],
+            "_4_0": [
+              4.0,
+              0.0
+            ],
+            "_4_5": [
+              4.0,
+              5.0
+            ],
+            "_0_1": [
+              0.0,
+              1.0
+            ],
+            "_4_1": [
+              4.0,
+              1.0
+            ],
+            "_0_2": [
+              0.0,
+              2.0
+            ],
+            "_4_2": [
+              4.0,
+              2.0
+            ],
+            "_0_3": [
+              0.0,
+              3.0
+            ],
+            "_4_3": [
+              4.0,
+              3.0
+            ],
+            "_0_4": [
+              0.0,
+              4.0
+            ],
+            "_4_4": [
+              4.0,
+              4.0
+            ]
+          },
+          "linien": [
+            [
+              "_0_0",
+              "_0_5"
+            ],
+            [
+              "_1_0",
+              "_1_5"
+            ],
+            [
+              "_2_0",
+              "_2_5"
+            ],
+            [
+              "_3_0",
+              "_3_5"
+            ],
+            [
+              "_4_0",
+              "_4_5"
+            ],
+            [
+              "_0_0",
+              "_4_0"
+            ],
+            [
+              "_0_1",
+              "_4_1"
+            ],
+            [
+              "_0_2",
+              "_4_2"
+            ],
+            [
+              "_0_3",
+              "_4_3"
+            ],
+            [
+              "_0_4",
+              "_4_4"
+            ],
+            [
+              "_0_5",
+              "_4_5"
+            ]
+          ],
+          "flaeche": [
+            "_0_0",
+            "_3_0",
+            "_3_5",
+            "_0_5"
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "kuerzen",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "vergleichen",
+      "urteil": "verbessern",
+      "probleme": [
+        "Es fehlt der elegante Weg ohne Hauptnenner: Wie viel fehlt bis zum Ganzen? Er klappt oft im Kopf und hat eine einleuchtende Begründung."
+      ],
+      "neu": {
+        "probe": "Ohne Hauptnenner: 3/4 fehlt 1/4 bis zum Ganzen, 5/6 fehlt nur 1/6. Ein Sechstel ist kleiner als ein Viertel, also ist 5/6 näher an 1 und damit größer ✓"
+      },
+      "strategie": "Restvergleich: Brüche, denen jeweils ein Stammbruch zum Ganzen fehlt, vergleicht man über diesen Rest."
+    },
+    {
+      "lernziel": "zahlenstrahl",
+      "urteil": "verbessern",
+      "probleme": [
+        "Der Zahlenstrahl im Bild zeigt nicht, wo 3/5 liegt. Der Pfeil kann auf den 3. Strich zeigen."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "zahlenstrahl",
+          "start": 0,
+          "ende": 1,
+          "abschnitte": 5,
+          "beschriftet": "anfang_ende",
+          "pfeil": 3
+        }
+      }
+    },
+    {
+      "lernziel": "verstehen",
+      "urteil": "ok"
+    }
+  ],
+  "neue_karten": []
+}

@@ -1,0 +1,353 @@
+{
+  "thema_schluessel": "bruch.prozent",
+  "gesamturteil": "gut",
+  "thema_hinweise": [
+    "Fachlich richtig, sinnvolle Reihenfolge, gute Alltagsbezüge (Rabatt, Zinsen). Verbessert: das Hunderterfeld als Anschauungsmodell für „Prozent = Hundertstel“ und zwei elegante Kopfrechenwege (10 % + 5 %, Erweitern auf 100), die Kinder in Klasse 6 sofort nutzen können."
+  ],
+  "karten": [
+    {
+      "lernziel": "prozent_bedeutung",
+      "urteil": "verbessern",
+      "probleme": [
+        "Kein Anschauungsmodell. Das Hunderterfeld (100 Kästchen, 75 gefärbt) zeigt „Prozent heißt Hundertstel“ auf einen Blick."
+      ],
+      "neu": {
+        "schritte": [
+          "Ein Hunderterfeld hat 100 Kästchen. Jedes Kästchen ist 1 %.",
+          "3/4 in Prozent: Erweitere auf Hundertstel, 3/4 = 75/100.",
+          "Im Feld sind 75 von 100 Kästchen gefärbt: ⟦75 %⟧ = 0,75."
+        ],
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "_0_0": [
+              0.0,
+              0.0
+            ],
+            "_0_10": [
+              0.0,
+              10.0
+            ],
+            "_1_0": [
+              1.0,
+              0.0
+            ],
+            "_1_10": [
+              1.0,
+              10.0
+            ],
+            "_2_0": [
+              2.0,
+              0.0
+            ],
+            "_2_10": [
+              2.0,
+              10.0
+            ],
+            "_3_0": [
+              3.0,
+              0.0
+            ],
+            "_3_10": [
+              3.0,
+              10.0
+            ],
+            "_4_0": [
+              4.0,
+              0.0
+            ],
+            "_4_10": [
+              4.0,
+              10.0
+            ],
+            "_5_0": [
+              5.0,
+              0.0
+            ],
+            "_5_10": [
+              5.0,
+              10.0
+            ],
+            "_6_0": [
+              6.0,
+              0.0
+            ],
+            "_6_10": [
+              6.0,
+              10.0
+            ],
+            "_7_0": [
+              7.0,
+              0.0
+            ],
+            "_7_10": [
+              7.0,
+              10.0
+            ],
+            "_8_0": [
+              8.0,
+              0.0
+            ],
+            "_8_10": [
+              8.0,
+              10.0
+            ],
+            "_9_0": [
+              9.0,
+              0.0
+            ],
+            "_9_10": [
+              9.0,
+              10.0
+            ],
+            "_10_0": [
+              10.0,
+              0.0
+            ],
+            "_10_10": [
+              10.0,
+              10.0
+            ],
+            "_0_1": [
+              0.0,
+              1.0
+            ],
+            "_10_1": [
+              10.0,
+              1.0
+            ],
+            "_0_2": [
+              0.0,
+              2.0
+            ],
+            "_10_2": [
+              10.0,
+              2.0
+            ],
+            "_0_3": [
+              0.0,
+              3.0
+            ],
+            "_10_3": [
+              10.0,
+              3.0
+            ],
+            "_0_4": [
+              0.0,
+              4.0
+            ],
+            "_10_4": [
+              10.0,
+              4.0
+            ],
+            "_0_5": [
+              0.0,
+              5.0
+            ],
+            "_10_5": [
+              10.0,
+              5.0
+            ],
+            "_0_6": [
+              0.0,
+              6.0
+            ],
+            "_10_6": [
+              10.0,
+              6.0
+            ],
+            "_0_7": [
+              0.0,
+              7.0
+            ],
+            "_10_7": [
+              10.0,
+              7.0
+            ],
+            "_0_8": [
+              0.0,
+              8.0
+            ],
+            "_10_8": [
+              10.0,
+              8.0
+            ],
+            "_0_9": [
+              0.0,
+              9.0
+            ],
+            "_10_9": [
+              10.0,
+              9.0
+            ],
+            "_hA": [
+              0,
+              0
+            ],
+            "_hB": [
+              10,
+              0
+            ],
+            "_hC": [
+              10,
+              7
+            ],
+            "_hD": [
+              5,
+              7
+            ],
+            "_hE": [
+              5,
+              8
+            ],
+            "_hF": [
+              0,
+              8
+            ]
+          },
+          "linien": [
+            [
+              "_0_0",
+              "_0_10"
+            ],
+            [
+              "_1_0",
+              "_1_10"
+            ],
+            [
+              "_2_0",
+              "_2_10"
+            ],
+            [
+              "_3_0",
+              "_3_10"
+            ],
+            [
+              "_4_0",
+              "_4_10"
+            ],
+            [
+              "_5_0",
+              "_5_10"
+            ],
+            [
+              "_6_0",
+              "_6_10"
+            ],
+            [
+              "_7_0",
+              "_7_10"
+            ],
+            [
+              "_8_0",
+              "_8_10"
+            ],
+            [
+              "_9_0",
+              "_9_10"
+            ],
+            [
+              "_10_0",
+              "_10_10"
+            ],
+            [
+              "_0_0",
+              "_10_0"
+            ],
+            [
+              "_0_1",
+              "_10_1"
+            ],
+            [
+              "_0_2",
+              "_10_2"
+            ],
+            [
+              "_0_3",
+              "_10_3"
+            ],
+            [
+              "_0_4",
+              "_10_4"
+            ],
+            [
+              "_0_5",
+              "_10_5"
+            ],
+            [
+              "_0_6",
+              "_10_6"
+            ],
+            [
+              "_0_7",
+              "_10_7"
+            ],
+            [
+              "_0_8",
+              "_10_8"
+            ],
+            [
+              "_0_9",
+              "_10_9"
+            ],
+            [
+              "_0_10",
+              "_10_10"
+            ]
+          ],
+          "flaeche": [
+            "_hA",
+            "_hB",
+            "_hC",
+            "_hD",
+            "_hE",
+            "_hF"
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "prozentwert",
+      "urteil": "verbessern",
+      "probleme": [
+        "Es fehlt der eleganteste Kopfrechenweg über 10 % (Komma eine Stelle nach links) und 5 % (die Hälfte davon)."
+      ],
+      "neu": {
+        "schritte": [
+          "15 % von 240 €: 1 % von 240 € sind 240 € : 100 = 2,40 €.",
+          "15 % sind 15 · 2,40 € = ⟦36 €⟧.",
+          "Schneller im Kopf: 10 % sind 24 €, 5 % sind die Hälfte davon, 12 €. Zusammen 24 € + 12 € = 36 €."
+        ]
+      },
+      "strategie": "10 % = Komma eine Stelle nach links; 5 % = Hälfte davon; 15 %, 20 %, 25 % daraus zusammensetzen."
+    },
+    {
+      "lernziel": "prozentsatz",
+      "urteil": "verbessern",
+      "probleme": [
+        "Bei Nennern wie 20, 25, 50 ist Erweitern auf 100 eleganter als Dividieren; der Weg fehlt."
+      ],
+      "neu": {
+        "probe": "Ohne Division: 21/25 mit 4 erweitern ergibt 84/100 = 84 % ✓"
+      },
+      "strategie": "Erweitern auf Hundertstel, wenn der Nenner in 100 passt."
+    },
+    {
+      "lernziel": "grundwert",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "rabatt_aufschlag",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "zinsen",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "verstehen",
+      "urteil": "ok"
+    }
+  ],
+  "neue_karten": []
+}

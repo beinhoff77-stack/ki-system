@@ -1,0 +1,98 @@
+{
+  "thema_schluessel": "gleichungen.bruch",
+  "gesamturteil": "brauchbar",
+  "thema_hinweise": [
+    "Der Lehrplanpunkt „auch graphisch als Schnittpunkt deuten“ fehlte, weil keine Graphen gezeichnet werden konnten. Das geht jetzt. Neue Karte „graphisch“ am Ende; sie zeigt auch den Nutzen: Gleichungen wie 6/x = x − 1, die man in Klasse 8 noch nicht rechnerisch lösen kann, löst man am Graphen.",
+    "Die Verhältnisgleichung hat ein nacktes Zahlenbeispiel, obwohl Rezepte, Mischungen und Maßstäbe der natürliche Anwendungsfall sind; eingebaut.",
+    "Das Über-Kreuz-Multiplizieren wird als Rezept gegeben; die Begründung (beide Seiten mit beiden Nennern malnehmen) ist ergänzt."
+  ],
+  "karten": [
+    {
+      "lernziel": "definitionsmenge",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "ein_bruch",
+      "urteil": "verbessern",
+      "probleme": [
+        "Es fehlt der elegante Weg über die Umkehrfrage: 12 geteilt durch was ergibt 3? Damit löst das Kind viele Aufgaben im Kopf und versteht, was die Gleichung sagt."
+      ],
+      "neu": {
+        "schritte": [
+          "12/(x − 2) = 3. Zuerst D = ℚ \\ {2}.",
+          "Beide Seiten · (x − 2): 12 = 3 · (x − 2) = 3x − 6.",
+          "18 = 3x, also ⟦x = 6⟧. 6 liegt in D.",
+          "Schneller mit der Umkehrfrage: 12 geteilt durch was ergibt 3? Durch 4. Also x − 2 = 4 und x = 6."
+        ],
+        "probe": "12/(6 − 2) = 12/4 = 3 ✓"
+      },
+      "strategie": "Umkehrfrage „Durch was muss ich teilen?“ macht den Nenner zu einer einfachen Unbekannten. Funktioniert immer, wenn nur ein Bruch dasteht."
+    },
+    {
+      "lernziel": "ueber_kreuz",
+      "urteil": "verbessern",
+      "probleme": [
+        "„Über Kreuz“ wird als Trick ohne Warum gegeben. Kinder wenden ihn dann auch bei Summen von Brüchen an, wo er nicht gilt."
+      ],
+      "neu": {
+        "regel": "Steht auf jeder Seite ⟦genau ein⟧ Bruch, multiplizierst du ⟦über Kreuz⟧: aus a/b = c/d wird a · d = c · b. Warum? Du nimmst beide Seiten mit b und mit d mal – dann kürzt sich links das b und rechts das d weg.",
+        "fehler": "Über Kreuz heißt Zähler links mal Nenner ⟦rechts⟧. 4 · (x + 1) = 2 · (x − 3) ist falsch – da wurde jeder Zähler mit dem eigenen Nenner malgenommen. Und Vorsicht: Bei 4/(x + 1) + 1 = 2/(x − 3) steht links eine Summe, dann geht über Kreuz ⟦nicht⟧ – nimm den Hauptnenner."
+      }
+    },
+    {
+      "lernziel": "hauptnenner",
+      "urteil": "verbessern",
+      "probleme": [
+        "Der typische Fehler ist ohne das falsche Ergebnis formuliert; das Kind sieht nicht, was passiert, wenn es die 2 vergisst."
+      ],
+      "neu": {
+        "fehler": "Ein Glied vergessen: Wer bei 5/x + 1/(2x) = 2 nur die Brüche mit 2x malnimmt, bekommt 10 + 1 = 2 – das x ist verschwunden und die Gleichung ist Unsinn. Auch die ⟦2 auf der rechten Seite⟧ wird mit 2x multipliziert: 11 = 4x."
+      }
+    },
+    {
+      "lernziel": "scheinloesung",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "verhaeltnis",
+      "urteil": "verbessern",
+      "probleme": [
+        "Nacktes Zahlenbeispiel, obwohl Verhältnisse im Alltag ständig vorkommen (Rezept, Saft mischen, Maßstab).",
+        "Die Produktgleichheit wird als Rezept gegeben; der direkte Weg über den Faktor ist einfacher und begründet sie."
+      ],
+      "neu": {
+        "regel": "Eine ⟦Verhältnisgleichung⟧ hat die Form a : b = c : d. Es gilt die ⟦Produktgleichheit⟧: a · d = b · c (Außenglieder mal Außenglieder = Innenglieder mal Innenglieder).",
+        "schritte": [
+          "Pfannkuchen: Auf 4 Eier kommen 10 Esslöffel Mehl. Wie viel Mehl für 6 Eier? Das Verhältnis Mehl : Eier bleibt gleich: x : 6 = 10 : 4.",
+          "Produktgleichheit: 4 · x = 6 · 10 = 60.",
+          "⟦x = 15⟧ Esslöffel Mehl."
+        ],
+        "probe": "Mit dem Faktor: Auf 1 Ei kommen 10 : 4 = 2,5 EL, also 6 · 2,5 = 15 ✓",
+        "fehler": "x = 6 · 4 : 10 = 2,4 ist falsch – mit mehr Eiern braucht man nicht weniger Mehl! Die ⟦Außenglieder⟧ x und 4 werden miteinander multipliziert, ebenso die Innenglieder 6 und 10: 4x = 60."
+      }
+    }
+  ],
+  "neue_karten": [
+    {
+      "nach": "verhaeltnis",
+      "lernziel": "graphisch",
+      "titel": "Bruchgleichung am Graphen lösen",
+      "regel": "Jede Seite einer Gleichung ist ein Funktionsterm. Zeichne ⟦beide Graphen⟧. Wo sie sich ⟦schneiden⟧, sind beide Seiten gleich: Die x-Werte der Schnittpunkte sind die Lösungen.",
+      "schritte": [
+        "Gleichung 6/x = x − 1. Links die Hyperbel y = 6/x, rechts die Gerade y = x − 1.",
+        "Die Graphen schneiden sich in (3 | 2) und in (−2 | −3).",
+        "Die Lösungen sind ⟦x = 3⟧ und ⟦x = −2⟧."
+      ],
+      "probe": "6/3 = 2 und 3 − 1 = 2 ✓. 6/(−2) = −3 und −2 − 1 = −3 ✓",
+      "fehler": "Die y-Werte als Lösung angeben: L = {2; −3} ist falsch. Gesucht sind die ⟦x-Werte⟧ der Schnittpunkte, denn x ist die Unbekannte der Gleichung.",
+      "bild": {
+        "typ": "koordinaten",
+        "x": [-6, 6],
+        "y": [-6, 6],
+        "graphen": [{ "art": "hyperbel", "a": 6, "b": 0, "c": 0, "name": "y = 6/x" }, { "art": "linear", "m": 1, "t": -1, "name": "y = x − 1" }],
+        "punkte": [{ "x": 3, "y": 2, "name": "(3 | 2)" }, { "x": -2, "y": -3, "name": "(−2 | −3)" }]
+      },
+      "begruendung": "Lehrplanpunkt „auch graphisch als Schnittpunkt deuten“ fehlte bisher, weil die App keine Graphen zeichnen konnte. Die Karte zeigt auch, wozu das gut ist: Diese Gleichung kann man in Klasse 8 rechnerisch noch nicht lösen."
+    }
+  ]
+}

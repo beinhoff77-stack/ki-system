@@ -1,0 +1,40 @@
+{
+  "thema_schluessel": "gleichungen.exponential",
+  "gesamturteil": "gut",
+  "thema_hinweise": [
+    "Klar, mit Graphen, fachlich richtig. Einzige Lücke: Die Potenzregel log_b(a^r) = r · log_b(a) wird ohne Begründung gegeben, obwohl sie direkt aus dem Potenzgesetz folgt. Eingebaut."
+  ],
+  "karten": [
+    {
+      "lernziel": "logarithmus",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "gleiche_basis",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "mit_log_loesen",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "potenzregel",
+      "urteil": "verbessern",
+      "probleme": [
+        "Die Regel wird als Rezept gegeben. Begründung in einer Zeile: Ist a = b^y, dann ist a^r = b^(y · r) – der Logarithmus von a^r ist also r · y."
+      ],
+      "neu": {
+        "regel": "Ein Exponent im Logarithmus wird zum ⟦Faktor⟧: ⟦log_b(a^r) = r · log_b(a)⟧. Warum? Schreib a = b^y, also y = log_b(a). Dann ist a^r = (b^y)^r = b^(r · y). Der Exponent davon ist r · y = r · log_b(a). So holt man die Unbekannte aus dem Exponenten."
+      }
+    },
+    {
+      "lernziel": "wachstum",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "verstehen",
+      "urteil": "ok"
+    }
+  ],
+  "neue_karten": []
+}

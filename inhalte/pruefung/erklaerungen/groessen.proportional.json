@@ -1,0 +1,113 @@
+{
+  "thema_schluessel": "groessen.proportional",
+  "gesamturteil": "brauchbar",
+  "thema_hinweise": [
+    "Reihenfolge: Laut inhalt.abschnitte gehört „pruefen“ in den ersten Bereich („Proportional – was ist das?“), in inhalt.etappen steht die Karte aber an 6. Stelle nach dem Dreisatz. Vorschlag: „pruefen“ direkt hinter „vervielfachen“ setzen – erst erkennen und prüfen, dann rechnen.",
+    "Die wichtigste Falle (fester Grundbetrag wie Grundgebühr beim Taxi oder Eintritt plus Fahrgeld) kommt in den Erklärungen gar nicht vor, obwohl sie in den Aufgaben auftaucht („Es gibt keinen festen Grundbetrag“). Sie ist jetzt in „erkennen“ als typischer Fehler eingebaut.",
+    "Das Anschauungsmodell für dieses Thema ist die Tabelle mit den Rechenpfeilen (links und rechts dasselbe tun). Die App kann jetzt Tabellen zeichnen; die Karten „erkennen“, „dreisatz“ und „pruefen“ bekommen eine.",
+    "Hinweis an die Aufgaben-Prüfung (Fakt): Die Übung „Ein Rezept für 2 Personen braucht 300 g Kartoffeln … 6 Personen“ ist rechnerisch identisch mit dem vorgerechneten Beispiel der Karte „sach“ (300 g · 3 = 900 g)."
+  ],
+  "karten": [
+    {
+      "lernziel": "erkennen",
+      "urteil": "verbessern",
+      "probleme": [
+        "Der genannte typische Fehler (Alter und Körpergröße) ist ein seltener Fall. Viel häufiger halten Kinder Zuordnungen mit festem Grundbetrag für proportional (Taxi, Handyvertrag mit Grundgebühr, Eintritt plus Fahrgeld).",
+        "Kein Bild: Die Wertetabelle macht „doppelt → doppelt“ auf einen Blick sichtbar."
+      ],
+      "neu": {
+        "regel": "Eine Zuordnung ist ⟦proportional⟧, wenn gilt: doppelte Menge → doppelter Preis, dreifache Menge → dreifacher Preis, halbe Menge → halber Preis. Dazu gehört auch: ⟦nichts kaufen kostet 0 €⟧.",
+        "schritte": [
+          "1 Brötchen kostet 40 ct. 2 Brötchen kosten 80 ct, 3 Brötchen 120 ct.",
+          "Doppelt so viele Brötchen kosten doppelt so viel, dreimal so viele dreimal so viel.",
+          "Die Zuordnung Anzahl → Preis ist ⟦proportional⟧."
+        ],
+        "fehler": "„Je mehr Kilometer, desto teurer – also proportional.“ Falsch beim Taxi: 4 € Grundgebühr plus 2 € pro km. 1 km kostet 6 €, 2 km kosten 8 €, nicht 12 €. Wegen des festen Grundbetrags ist es ⟦nicht proportional⟧. „Je mehr, desto mehr“ reicht nicht – es muss ⟦genau das Doppelte⟧ sein.",
+        "bild": {
+          "typ": "tabelle",
+          "kopf": ["Anzahl Brötchen", "0", "1", "2", "3"],
+          "zeilen": [["Preis", "0 ct", "40 ct", "80 ct", "120 ct"]]
+        }
+      },
+      "strategie": "Schnelltest für Kinder: Frag dich „Was kostet nichts?“ – wenn 0 Stück nicht 0 € kosten, kann es nicht proportional sein."
+    },
+    {
+      "lernziel": "vervielfachen",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "einheit",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "dreisatz",
+      "urteil": "verbessern",
+      "probleme": [
+        "Der typische Fehler („Zeile überspringen und raten“) ist kein konkreter Rechenfehler mit Zahlen.",
+        "Häufigster echter Fehler: in der dritten Zeile mit der falschen Zahl malnehmen (wieder mit der alten Menge) oder in der zweiten Zeile malnehmen statt teilen.",
+        "Die drei Zeilen stehen nur als Text da; als Tabelle sieht das Kind, dass links und rechts immer dasselbe passiert."
+      ],
+      "neu": {
+        "regel": "Der Dreisatz hat ⟦drei Zeilen⟧: 1. Was du weißt. 2. Auf 1 Stück schließen: ⟦beide Seiten teilen⟧. 3. Auf das Gesuchte schließen: ⟦beide Seiten malnehmen⟧. Was du links tust, tust du auch rechts.",
+        "schritte": [
+          "Zeile 1: 4 kg Äpfel kosten 12 €.",
+          "Zeile 2: Links : 4, also auch rechts : 4. 1 kg kostet 12 € : 4 = 3 €.",
+          "Zeile 3: Links · 7, also auch rechts · 7. 7 kg kosten 3 € · 7 = ⟦21 €⟧."
+        ],
+        "probe": "Überschlag: 7 kg sind knapp das Doppelte von 4 kg. 21 € sind knapp das Doppelte von 12 € ✓",
+        "fehler": "In Zeile 3 mit der alten Menge malnehmen: 3 € · 4 = 12 €. Das ist wieder der Preis für 4 kg! Gesucht sind 7 kg, also musst du mit ⟦7⟧ malnehmen: 3 € · 7 = 21 €.",
+        "bild": {
+          "typ": "tabelle",
+          "kopf": ["", "Menge", "Preis"],
+          "zeilen": [["Zeile 1", "4 kg", "12 €"], ["Zeile 2 (: 4)", "1 kg", "3 €"], ["Zeile 3 (· 7)", "7 kg", "21 €"]]
+        }
+      }
+    },
+    {
+      "lernziel": "geschickt",
+      "urteil": "verbessern",
+      "probleme": [
+        "Es fehlt die eleganteste Idee bei proportionalen Zuordnungen: Zeilen dürfen addiert werden (9 Karten = 6 Karten + 3 Karten).",
+        "Der Fehler „von 6 über 4 auf 9“ ist unanschaulich; besser mit Zahlen zeigen, was dabei schiefgeht."
+      ],
+      "neu": {
+        "regel": "Du musst nicht immer auf 1 gehen. Suche eine Zwischenmenge, die ⟦in beide Zahlen passt⟧: von 6 auf 9 geht es bequem über 3. Noch ein Trick: Bei proportionalen Zuordnungen darfst du ⟦Zeilen addieren⟧.",
+        "schritte": [
+          "6 Karten kosten 42 €. Gesucht: 9 Karten.",
+          "3 Karten sind die Hälfte von 6 Karten: 42 € : 2 = 21 €.",
+          "9 Karten sind 3 Karten mal 3: 21 € · 3 = ⟦63 €⟧.",
+          "Oder mit dem Additions-Trick: 9 Karten = 6 Karten + 3 Karten, also 42 € + 21 € = ⟦63 €⟧."
+        ],
+        "probe": "Über 1 Karte: 42 € : 6 = 7 €, und 7 € · 9 = 63 € ✓",
+        "fehler": "Eine Zwischenmenge nehmen, die nicht in beide Zahlen passt, z. B. 4: Von 6 Karten auf 4 Karten musst du durch 1,5 teilen – das ist schwerer als vorher. Die Zwischenmenge muss in ⟦beide⟧ Zahlen ohne Rest passen: 3 passt in 6 und in 9."
+      },
+      "strategie": "Additions-Trick: Bei proportionalen Zuordnungen gehört zur Summe zweier Mengen die Summe der Werte (9 = 6 + 3 → 42 € + 21 €). Begründung kindgerecht: 9 Karten kaufen heißt 6 Karten und noch 3 Karten kaufen."
+    },
+    {
+      "lernziel": "pruefen",
+      "urteil": "verbessern",
+      "probleme": [
+        "Der Quotient wird gut erklärt, aber ohne Tabelle. Eine Tabelle mit Quotientenzeile zeigt sofort, ob alle gleich sind.",
+        "Der Fehler ist allgemein („nur das erste Paar prüfen“); mit einer konkreten Tabelle, bei der erst das dritte Paar abweicht, wird er greifbar."
+      ],
+      "neu": {
+        "regel": "In einer proportionalen Tabelle ist ⟦Preis geteilt durch Menge⟧ immer gleich. Diese Zahl ist der Preis für 1 Stück (1 kg, 1 Liter …).",
+        "schritte": [
+          "Rechne für jedes Paar Preis : Menge: 6 : 2 = 3, 15 : 5 = 3, 24 : 8 = 3.",
+          "Immer 3 € pro kg: Die Tabelle ist ⟦proportional⟧."
+        ],
+        "fehler": "Nur die ersten beiden Paare prüfen. Bei 2 kg → 6 €, 4 kg → 12 €, 10 kg → 25 € stimmen die ersten beiden (je 3 € pro kg), aber 25 : 10 = 2,5. Beim Großeinkauf gibt es Rabatt: ⟦nicht proportional⟧. Prüfe ⟦alle⟧ Paare.",
+        "bild": {
+          "typ": "tabelle",
+          "kopf": ["Menge", "2 kg", "5 kg", "8 kg"],
+          "zeilen": [["Preis", "6 €", "15 €", "24 €"], ["Preis : Menge", "3", "3", "3"]]
+        }
+      }
+    },
+    {
+      "lernziel": "sach",
+      "urteil": "ok"
+    }
+  ],
+  "neue_karten": []
+}

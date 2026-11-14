@@ -1,0 +1,42 @@
+{
+  "thema_schluessel": "zahlen.rationale_exponenten",
+  "gesamturteil": "gut",
+  "thema_hinweise": [
+    "Fachlich richtig und klar. Es fehlt nur die Begründung, warum a^(1/n) die n-te Wurzel ist – sie folgt in einer Zeile aus dem Potenzgesetz und nimmt der Umwandlung das Rezepthafte; eingebaut.",
+    "Lehrplan (Annahme, unsicher): Rationale Exponenten stehen im bayerischen Gymnasium nach meinem Kenntnisstand eher in Jahrgangsstufe 10. Fakt ist nur, dass die Themenliste Klasse 9 angibt – vom Aufbau-Prüfer klären lassen."
+  ],
+  "karten": [
+    {
+      "lernziel": "nte_wurzel",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "potenz_wert",
+      "urteil": "verbessern",
+      "probleme": [
+        "a^(m/n) = (ⁿ√a)^m wird als Definition gegeben, ohne Warum. Mit dem Gesetz (x^p)^q = x^(p·q) ist es einsichtig."
+      ],
+      "neu": {
+        "regel": "Warum ist 27^(1/3) die dritte Wurzel? Weil (27^(1/3))³ = 27^(1/3 · 3) = 27¹ = 27. Also gilt für a > 0: ⟦a^(m/n) = (ⁿ√a)^m⟧ – der ⟦Nenner⟧ ist die Wurzel, der ⟦Zähler⟧ die Potenz. Ein negativer Exponent bedeutet ⟦Kehrwert⟧: a^(−m/n) = 1 / a^(m/n)."
+      },
+      "strategie": "Erst die Wurzel ziehen, dann potenzieren – so bleiben die Zahlen klein: (³√27)² = 9 statt ³√729."
+    },
+    {
+      "lernziel": "umwandeln",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "zusammenfassen",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "gleichung_exp",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "verstehen",
+      "urteil": "ok"
+    }
+  ],
+  "neue_karten": []
+}

@@ -1,0 +1,249 @@
+{
+  "thema_schluessel": "geometrie.kreis",
+  "gesamturteil": "brauchbar",
+  "thema_hinweise": [
+    "Fakt-Fehler im Bild der Karte „thales“: Der Winkel bei A ist mit 35° beschriftet, in der Zeichnung ist er aber etwa 55° groß (C liegt bei (−1,03 | 2,82), also näher an A). Korrigiert: C bei (1,03 | 2,82).",
+    "Reihenfolge: Laut inhalt.abschnitte gehört „beweis“ in den Bereich „Satz des Thales“ (hinter „umkehrung“) und „lage“ vor „tangente“; in inhalt.etappen steht „beweis“ ganz am Ende und „lage“ hinter „umkreis_inkreis“. Vorschlag: der Abschnitts-Reihenfolge folgen.",
+    "Die Karte „beweis“ beschreibt den Beweis mit zwei gleichschenkligen Dreiecken ohne Bild – genau dort braucht es die Zeichnung mit MC. Angegeben, ebenso ein Umkreisbild."
+  ],
+  "karten": [
+    {
+      "lernziel": "thales",
+      "urteil": "verbessern",
+      "probleme": [
+        "Fakt: Im Bild ist der Winkel bei A etwa 55°, beschriftet ist er mit 35°; β wäre in der Zeichnung 35°."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "A": [
+              -3,
+              0
+            ],
+            "B": [
+              3,
+              0
+            ],
+            "C": [
+              1.03,
+              2.82
+            ],
+            "M": [
+              0,
+              0
+            ]
+          },
+          "flaeche": [
+            "A",
+            "B",
+            "C"
+          ],
+          "linien": [
+            [
+              "A",
+              "B"
+            ],
+            [
+              "B",
+              "C"
+            ],
+            [
+              "C",
+              "A"
+            ]
+          ],
+          "rechter_winkel": [
+            [
+              "C",
+              "A",
+              "B"
+            ]
+          ],
+          "winkel": [
+            [
+              "A",
+              "B",
+              "C",
+              "35°"
+            ],
+            [
+              "B",
+              "C",
+              "A",
+              "β"
+            ]
+          ],
+          "kreise": [
+            {
+              "m": "M",
+              "r": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "umkehrung",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "tangente",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "umkreis_inkreis",
+      "urteil": "verbessern",
+      "probleme": [
+        "Kein Bild; dass der Umkreismittelpunkt von allen Ecken gleich weit weg ist, sieht man an den gleich langen Radien."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "A": [
+              0,
+              0
+            ],
+            "B": [
+              6,
+              0
+            ],
+            "C": [
+              2,
+              4
+            ],
+            "M": [
+              3,
+              1
+            ]
+          },
+          "flaeche": [
+            "A",
+            "B",
+            "C"
+          ],
+          "linien": [
+            [
+              "A",
+              "B"
+            ],
+            [
+              "B",
+              "C"
+            ],
+            [
+              "C",
+              "A"
+            ],
+            [
+              "M",
+              "A",
+              "r",
+              "gestrichelt"
+            ],
+            [
+              "M",
+              "C",
+              "r",
+              "gestrichelt"
+            ]
+          ],
+          "kreise": [
+            {
+              "m": "M",
+              "r": 3.162
+            }
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "lage",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "beweis",
+      "urteil": "verbessern",
+      "probleme": [
+        "Der Beweis mit den zwei gleichschenkligen Dreiecken AMC und BMC wird nur in Worten geführt; ohne Bild mit der Strecke MC ist er nicht nachvollziehbar."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "A": [
+              -3,
+              0
+            ],
+            "B": [
+              3,
+              0
+            ],
+            "C": [
+              1.03,
+              2.82
+            ],
+            "M": [
+              0,
+              0
+            ]
+          },
+          "linien": [
+            [
+              "A",
+              "B"
+            ],
+            [
+              "B",
+              "C"
+            ],
+            [
+              "C",
+              "A"
+            ],
+            [
+              "M",
+              "C",
+              "r",
+              "gestrichelt"
+            ]
+          ],
+          "winkel": [
+            [
+              "A",
+              "B",
+              "C",
+              "α"
+            ],
+            [
+              "C",
+              "A",
+              "M",
+              "α"
+            ],
+            [
+              "B",
+              "C",
+              "A",
+              "β"
+            ],
+            [
+              "C",
+              "M",
+              "B",
+              "β"
+            ]
+          ],
+          "kreise": [
+            {
+              "m": "M",
+              "r": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "neue_karten": []
+}

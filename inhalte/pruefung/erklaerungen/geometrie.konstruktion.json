@@ -1,0 +1,211 @@
+{
+  "thema_schluessel": "geometrie.konstruktion",
+  "gesamturteil": "brauchbar",
+  "thema_hinweise": [
+    "Klar und fachlich richtig, Bilder vorhanden. Lücke: Die Winkelsumme 180° wird nur behauptet. In Klasse 7 wird sie mit Stufen- und Wechselwinkeln an Parallelen begründet – diese Winkel kommen im Thema gar nicht vor, und laut geometrie.winkel (Kl. 5, „offen“) gehören sie in Klasse 7. Neue Karte „parallelen“ vor „winkelsumme“; die Begründung der Winkelsumme ist in „winkelsumme“ eingebaut.",
+    "Lehrplan (Annahme, vom Aufbau-Prüfer klären): Stufen-/Wechselwinkel und die Begründung der Winkelsumme gehören nach meinem Kenntnisstand zum LehrplanPLUS Klasse 7; sie stehen in keinem anderen Thema."
+  ],
+  "karten": [
+    {
+      "lernziel": "winkelsumme",
+      "urteil": "verbessern",
+      "probleme": [
+        "Die Winkelsumme wird ohne Begründung gegeben. Mit der Parallelen durch C und den Wechselwinkeln ist der Beweis drei Zeilen lang und für Klasse 7 Pflichtwissen."
+      ],
+      "neu": {
+        "regel": "In jedem Dreieck ist die ⟦Winkelsumme 180°⟧: α + β + γ = 180°. Warum? Zeichne durch C die Parallele zu [AB]. Links von C taucht α noch einmal auf, rechts β (⟦Wechselwinkel⟧). Zusammen mit γ bilden sie einen ⟦gestreckten Winkel⟧, also 180°.",
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "A": [
+              0,
+              0
+            ],
+            "B": [
+              6,
+              0
+            ],
+            "C": [
+              4.55,
+              5.42
+            ],
+            "_l": [
+              1,
+              5.42
+            ],
+            "_r": [
+              8,
+              5.42
+            ]
+          },
+          "flaeche": [
+            "A",
+            "B",
+            "C"
+          ],
+          "linien": [
+            [
+              "A",
+              "B"
+            ],
+            [
+              "B",
+              "C"
+            ],
+            [
+              "C",
+              "A"
+            ],
+            [
+              "_l",
+              "_r",
+              "Parallele zu [AB]",
+              "gestrichelt"
+            ]
+          ],
+          "winkel": [
+            [
+              "A",
+              "B",
+              "C",
+              "α"
+            ],
+            [
+              "B",
+              "C",
+              "A",
+              "β"
+            ],
+            [
+              "C",
+              "_l",
+              "A",
+              "α"
+            ],
+            [
+              "C",
+              "B",
+              "_r",
+              "β"
+            ],
+            [
+              "C",
+              "A",
+              "B",
+              "γ"
+            ]
+          ]
+        }
+      },
+      "strategie": "Beweis über Wechselwinkel an der Parallelen durch C; als Experiment: Ecken eines Papierdreiecks abreißen und aneinanderlegen."
+    },
+    {
+      "lernziel": "gleichschenklig",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "kongruenzsatz",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "konstruierbar",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "vierecke",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "satz_kehrsatz",
+      "urteil": "ok"
+    }
+  ],
+  "neue_karten": [
+    {
+      "nach": "satz_kehrsatz",
+      "lernziel": "parallelen",
+      "titel": "Winkel an Parallelen",
+      "regel": "Wird ein Paar ⟦paralleler⟧ Geraden von einer dritten Geraden geschnitten, sind ⟦Stufenwinkel⟧ gleich groß (wie verschoben: gleiche Lage an beiden Kreuzungen) und ⟦Wechselwinkel⟧ gleich groß (Z-Form: auf verschiedenen Seiten). Das gilt ⟦nur⟧, wenn die Geraden parallel sind.",
+      "schritte": [
+        "g und h sind parallel. Bei S ist α = 55°.",
+        "β liegt bei T in derselben Lage wie α bei S (rechts oberhalb): Stufenwinkel, also ⟦β = 55°⟧.",
+        "γ liegt bei T links unterhalb, α bei S rechts oberhalb – Z-Form: Wechselwinkel, also ⟦γ = 55°⟧."
+      ],
+      "fehler": "Auch bei nicht parallelen Geraden gleiche Stufenwinkel annehmen. Sind g und h nicht parallel, ist β im Allgemeinen ⟦anders⟧ als α. Umgekehrt gilt: Sind Stufenwinkel gleich, dann sind die Geraden parallel.",
+      "bild": {
+        "typ": "figur",
+        "punkte": {
+          "_g1": [
+            -1,
+            0
+          ],
+          "_g2": [
+            8,
+            0
+          ],
+          "_h1": [
+            -1,
+            3
+          ],
+          "_h2": [
+            8,
+            3
+          ],
+          "S": [
+            2,
+            0
+          ],
+          "T": [
+            4.1,
+            3
+          ],
+          "_t1": [
+            0.6,
+            -2
+          ],
+          "_t2": [
+            5.5,
+            5
+          ]
+        },
+        "linien": [
+          [
+            "_g1",
+            "_g2",
+            "g"
+          ],
+          [
+            "_h1",
+            "_h2",
+            "h"
+          ],
+          [
+            "_t1",
+            "_t2"
+          ]
+        ],
+        "winkel": [
+          [
+            "S",
+            "_g2",
+            "T",
+            "α = 55°"
+          ],
+          [
+            "T",
+            "_h2",
+            "_t2",
+            "β"
+          ],
+          [
+            "T",
+            "_h1",
+            "S",
+            "γ"
+          ]
+        ]
+      },
+      "begruendung": "Stufen- und Wechselwinkel sind Grundlage für den Beweis der Winkelsumme und kommen in keinem Thema vor. Hinweis: Die Karte sollte vor „winkelsumme“ stehen; das Format erlaubt nur „nach“, deshalb bitte beim Einbauen an den Anfang setzen."
+    }
+  ]
+}

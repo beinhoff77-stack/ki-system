@@ -1,0 +1,425 @@
+{
+  "thema_schluessel": "stochastik.simulation",
+  "gesamturteil": "gut",
+  "thema_hinweise": [
+    "Reihenfolge: Laut inhalt.abschnitte steht „regel“ vor „zufallsziffern“, in inhalt.etappen ist es umgekehrt. Fachlich ist die Abschnitts-Reihenfolge besser: erst die Regel festlegen, dann mit Ziffern simulieren.",
+    "Lehrplanbezug fehlt (lehrplan_gym leer) – vom Aufbau-Prüfer klären lassen.",
+    "Unter „offen“ steht, dass Monte-Carlo-Bilder fehlen. Mit dem Bildtyp „figur“ geht das: Die Zufallspunkte werden als sehr kleine Kreise gezeichnet (kreise mit Koordinatenpaar als Mittelpunkt). Ein Bild mit 40 Zufallspunkten im Quadrat mit Viertelkreis ist angegeben.",
+    "Hinweis an die Aufgaben-Prüfung (Fakt): In „zufallsziffern“ gibt es den Text „Ziffern 0 bis 0 sind Treffer“ – besser „nur die Ziffer 0 ist Treffer“."
+  ],
+  "karten": [
+    {
+      "lernziel": "zufallsgeraet",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "zufallsziffern",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "regel",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "auswerten",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "monte_carlo",
+      "urteil": "verbessern",
+      "probleme": [
+        "Die Methode wird nur in Worten beschrieben; „zufällig Punkte setzen“ ist ohne Bild für Klasse 8 schwer vorstellbar.",
+        "Das Beispiel nennt eine Figur ohne bekannte Fläche. Mit einem Viertelkreis kann das Kind den Schätzwert mit dem wahren Wert vergleichen – das zeigt, dass Monte-Carlo nur schätzt."
+      ],
+      "neu": {
+        "schritte": [
+          "Quadrat 10 cm × 10 cm = 100 cm². Darin ein Viertelkreis mit r = 10 cm. Im Bild sind 40 Zufallspunkte.",
+          "31 der 40 Punkte liegen im Viertelkreis: Anteil 31 : 40 = 0,775.",
+          "A(Viertelkreis) ≈ 0,775 · 100 cm² = ⟦77,5 cm²⟧."
+        ],
+        "probe": "Genau gerechnet: π · 10² : 4 ≈ 78,5 cm². Die Schätzung liegt nah dran – mit mehr Punkten meist noch näher.",
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "_A": [
+              0,
+              0
+            ],
+            "_B": [
+              10,
+              0
+            ],
+            "_C": [
+              10,
+              10
+            ],
+            "_D": [
+              0,
+              10
+            ],
+            "_k0": [
+              10.0,
+              0.0
+            ],
+            "_k1": [
+              9.85,
+              1.74
+            ],
+            "_k2": [
+              9.4,
+              3.42
+            ],
+            "_k3": [
+              8.66,
+              5.0
+            ],
+            "_k4": [
+              7.66,
+              6.43
+            ],
+            "_k5": [
+              6.43,
+              7.66
+            ],
+            "_k6": [
+              5.0,
+              8.66
+            ],
+            "_k7": [
+              3.42,
+              9.4
+            ],
+            "_k8": [
+              1.74,
+              9.85
+            ],
+            "_k9": [
+              0.0,
+              10.0
+            ]
+          },
+          "flaeche": [
+            "_A",
+            "_k0",
+            "_k1",
+            "_k2",
+            "_k3",
+            "_k4",
+            "_k5",
+            "_k6",
+            "_k7",
+            "_k8",
+            "_k9"
+          ],
+          "linien": [
+            [
+              "_A",
+              "_B",
+              "10 cm"
+            ],
+            [
+              "_B",
+              "_C",
+              "10 cm"
+            ],
+            [
+              "_C",
+              "_D"
+            ],
+            [
+              "_D",
+              "_A"
+            ]
+          ],
+          "kreise": [
+            {
+              "m": [
+                9.4,
+                0.4
+              ],
+              "r": 0.13
+            },
+            {
+              "m": [
+                7.2,
+                1.8
+              ],
+              "r": 0.13
+            },
+            {
+              "m": [
+                9.6,
+                0.5
+              ],
+              "r": 0.13
+            },
+            {
+              "m": [
+                8.6,
+                6.7
+              ],
+              "r": 0.13
+            },
+            {
+              "m": [
+                8.4,
+                9.7
+              ],
+              "r": 0.13
+            },
+            {
+              "m": [
+                2.6,
+                3.5
+              ],
+              "r": 0.13
+            },
+            {
+              "m": [
+                7.0,
+                2.9
+              ],
+              "r": 0.13
+            },
+            {
+              "m": [
+                2.8,
+                2.4
+              ],
+              "r": 0.13
+            },
+            {
+              "m": [
+                8.4,
+                8.5
+              ],
+              "r": 0.13
+            },
+            {
+              "m": [
+                7.8,
+                2.4
+              ],
+              "r": 0.13
+            },
+            {
+              "m": [
+                9.0,
+                5.1
+              ],
+              "r": 0.13
+            },
+            {
+              "m": [
+                2.5,
+                4.6
+              ],
+              "r": 0.13
+            },
+            {
+              "m": [
+                4.2,
+                1.0
+              ],
+              "r": 0.13
+            },
+            {
+              "m": [
+                5.6,
+                3.7
+              ],
+              "r": 0.13
+            },
+            {
+              "m": [
+                5.7,
+                9.0
+              ],
+              "r": 0.13
+            },
+            {
+              "m": [
+                6.4,
+                4.1
+              ],
+              "r": 0.13
+            },
+            {
+              "m": [
+                8.4,
+                9.7
+              ],
+              "r": 0.13
+            },
+            {
+              "m": [
+                4.9,
+                9.2
+              ],
+              "r": 0.13
+            },
+            {
+              "m": [
+                0.5,
+                1.6
+              ],
+              "r": 0.13
+            },
+            {
+              "m": [
+                1.9,
+                9.1
+              ],
+              "r": 0.13
+            },
+            {
+              "m": [
+                6.8,
+                7.1
+              ],
+              "r": 0.13
+            },
+            {
+              "m": [
+                3.0,
+                5.0
+              ],
+              "r": 0.13
+            },
+            {
+              "m": [
+                8.6,
+                1.2
+              ],
+              "r": 0.13
+            },
+            {
+              "m": [
+                1.4,
+                0.7
+              ],
+              "r": 0.13
+            },
+            {
+              "m": [
+                4.7,
+                8.2
+              ],
+              "r": 0.13
+            },
+            {
+              "m": [
+                5.5,
+                4.1
+              ],
+              "r": 0.13
+            },
+            {
+              "m": [
+                5.0,
+                2.0
+              ],
+              "r": 0.13
+            },
+            {
+              "m": [
+                9.2,
+                3.6
+              ],
+              "r": 0.13
+            },
+            {
+              "m": [
+                2.5,
+                3.2
+              ],
+              "r": 0.13
+            },
+            {
+              "m": [
+                8.1,
+                3.3
+              ],
+              "r": 0.13
+            },
+            {
+              "m": [
+                8.8,
+                3.5
+              ],
+              "r": 0.13
+            },
+            {
+              "m": [
+                4.5,
+                1.0
+              ],
+              "r": 0.13
+            },
+            {
+              "m": [
+                8.8,
+                7.8
+              ],
+              "r": 0.13
+            },
+            {
+              "m": [
+                4.8,
+                1.4
+              ],
+              "r": 0.13
+            },
+            {
+              "m": [
+                4.9,
+                3.8
+              ],
+              "r": 0.13
+            },
+            {
+              "m": [
+                8.2,
+                9.0
+              ],
+              "r": 0.13
+            },
+            {
+              "m": [
+                7.3,
+                3.0
+              ],
+              "r": 0.13
+            },
+            {
+              "m": [
+                0.7,
+                8.7
+              ],
+              "r": 0.13
+            },
+            {
+              "m": [
+                9.2,
+                1.8
+              ],
+              "r": 0.13
+            },
+            {
+              "m": [
+                5.0,
+                4.8
+              ],
+              "r": 0.13
+            }
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "beurteilen",
+      "urteil": "ok"
+    }
+  ],
+  "neue_karten": []
+}

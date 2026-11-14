@@ -1,0 +1,355 @@
+{
+  "thema_schluessel": "abbildungen.aehnlichkeit",
+  "gesamturteil": "brauchbar",
+  "thema_hinweise": [
+    "Unter „offen“ steht, dass Strahlensatzfiguren fehlen und jede Aufgabe die Figur lang in Worten beschreibt. Die README nennt Strahlensatzfiguren ausdrücklich als möglichen Inhalt von „figur“. Bilder für streckung, strahlensatz1, strahlensatz2, flaeche_volumen und anwendung sind angegeben; damit können auch die Aufgabentexte stark gekürzt werden (Hinweis an Aufgaben-Prüfung).",
+    "Texte fachlich richtig, gute typische Fehler (addieren statt multiplizieren, Stück zwischen den Parallelen)."
+  ],
+  "karten": [
+    {
+      "lernziel": "streckung",
+      "urteil": "verbessern",
+      "probleme": [
+        "Die Streckung im Koordinatensystem wird nur gerechnet; das Bild zeigt, dass P' auf dem Strahl ZP doppelt so weit weg liegt – und dass 2 · P ein anderer Punkt ist."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "koordinaten",
+          "x": [
+            0,
+            9
+          ],
+          "y": [
+            0,
+            7
+          ],
+          "punkte": [
+            {
+              "x": 1,
+              "y": 2,
+              "name": "Z"
+            },
+            {
+              "x": 4,
+              "y": 3,
+              "name": "P"
+            },
+            {
+              "x": 7,
+              "y": 4,
+              "name": "P'"
+            },
+            {
+              "x": 8,
+              "y": 6,
+              "name": "2 · P (falsch)",
+              "offen": true
+            }
+          ],
+          "strecken": [
+            [
+              1,
+              2,
+              7,
+              4
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "aehnlich",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "strahlensatz1",
+      "urteil": "verbessern",
+      "probleme": [
+        "Keine Figur; „Abschnitte auf einem Strahl“ ist ohne Bild nicht zuzuordnen."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "S": [
+              0,
+              0
+            ],
+            "A": [
+              3,
+              0
+            ],
+            "A'": [
+              7.5,
+              0
+            ],
+            "B": [
+              3.277,
+              2.294
+            ],
+            "B'": [
+              8.192,
+              5.736
+            ]
+          },
+          "linien": [
+            [
+              "S",
+              "A",
+              "3"
+            ],
+            [
+              "A",
+              "A'",
+              "4,5"
+            ],
+            [
+              "S",
+              "B",
+              "4"
+            ],
+            [
+              "B",
+              "B'",
+              "?"
+            ],
+            [
+              "A",
+              "B",
+              ""
+            ],
+            [
+              "A'",
+              "B'",
+              ""
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "strahlensatz2",
+      "urteil": "verbessern",
+      "probleme": [
+        "Keine Figur; der typische Fehler (AA' statt SA') ist nur am Bild wirklich zu verstehen."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "S": [
+              0,
+              0
+            ],
+            "A": [
+              5,
+              0
+            ],
+            "A'": [
+              8,
+              0
+            ],
+            "B": [
+              4.305,
+              3.939
+            ],
+            "B'": [
+              6.889,
+              6.303
+            ]
+          },
+          "linien": [
+            [
+              "S",
+              "A",
+              "5"
+            ],
+            [
+              "A",
+              "A'",
+              "3"
+            ],
+            [
+              "S",
+              "B",
+              ""
+            ],
+            [
+              "B",
+              "B'",
+              ""
+            ],
+            [
+              "A",
+              "B",
+              "4"
+            ],
+            [
+              "A'",
+              "B'",
+              "?"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "flaeche_volumen",
+      "urteil": "verbessern",
+      "probleme": [
+        "k² wird behauptet, aber nicht gezeigt. Ein Quadrat mit doppelter Seite enthält vier kleine Quadrate – das ist der ganze Beweis."
+      ],
+      "neu": {
+        "regel": "Werden alle Längen mit k multipliziert, wird der ⟦Flächeninhalt mit k²⟧ und das ⟦Volumen mit k³⟧ multipliziert. Im Bild: Verdoppelst du die Seite eines Quadrats, passen ⟦4 = 2²⟧ alte Quadrate hinein. Bei einem Würfel passen 8 = 2³ alte Würfel in den doppelt so großen.",
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "_a": [
+              0,
+              0
+            ],
+            "_b": [
+              1,
+              0
+            ],
+            "_c": [
+              2,
+              0
+            ],
+            "_d": [
+              2,
+              1
+            ],
+            "_e": [
+              2,
+              2
+            ],
+            "_f": [
+              1,
+              2
+            ],
+            "_g": [
+              0,
+              2
+            ],
+            "_h": [
+              0,
+              1
+            ],
+            "_m": [
+              1,
+              1
+            ]
+          },
+          "flaeche": [
+            "_a",
+            "_b",
+            "_m",
+            "_h"
+          ],
+          "linien": [
+            [
+              "_a",
+              "_c",
+              "2 · Seite"
+            ],
+            [
+              "_c",
+              "_e"
+            ],
+            [
+              "_e",
+              "_g"
+            ],
+            [
+              "_g",
+              "_a"
+            ],
+            [
+              "_b",
+              "_f"
+            ],
+            [
+              "_h",
+              "_d"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "anwendung",
+      "urteil": "verbessern",
+      "probleme": [
+        "Die Regel verlangt eine Skizze, die Karte zeigt keine."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "S": [
+              0,
+              0
+            ],
+            "_F1": [
+              3,
+              0
+            ],
+            "_T1": [
+              3,
+              2
+            ],
+            "_F2": [
+              18,
+              0
+            ],
+            "_T2": [
+              18,
+              12
+            ]
+          },
+          "linien": [
+            [
+              "S",
+              "_F1",
+              "3 m"
+            ],
+            [
+              "_F1",
+              "_F2"
+            ],
+            [
+              "_F1",
+              "_T1",
+              "2 m"
+            ],
+            [
+              "_F2",
+              "_T2",
+              "h = ?"
+            ],
+            [
+              "S",
+              "_T2",
+              "",
+              "gestrichelt"
+            ]
+          ],
+          "rechter_winkel": [
+            [
+              "_F2",
+              "S",
+              "_T2"
+            ],
+            [
+              "_F1",
+              "S",
+              "_T1"
+            ]
+          ]
+        }
+      }
+    }
+  ],
+  "neue_karten": []
+}

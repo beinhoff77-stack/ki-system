@@ -1,0 +1,30 @@
+{
+  "thema_schluessel": "gleichungen.polynom",
+  "gesamturteil": "gut",
+  "thema_hinweise": [
+    "Klar und fachlich richtig, Graphen vorhanden, sehr guter Fehler „durch x teilen verliert x = 0“. Keine Verbesserung nötig. Überschneidung mit funktionen.ganzrational (Vielfachheit) siehe dort."
+  ],
+  "karten": [
+    {
+      "lernziel": "ausklammern",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "nullprodukt",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "substitution",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "vielfachheit",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "verstehen",
+      "urteil": "ok"
+    }
+  ],
+  "neue_karten": []
+}

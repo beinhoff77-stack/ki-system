@@ -1,0 +1,46 @@
+{
+  "thema_schluessel": "terme.aufstellen",
+  "gesamturteil": "gut",
+  "thema_hinweise": [
+    "Klar, fachlich richtig, gute Alltagsbezüge und typische Fehler. Verbessert: In „muster“ wird der Term 3n + 1 nur über eine Rechnung („Zahl anpassen“) gefunden. Eleganter und mit Begründung: am Bild sehen, dass es ein Anfangsholz gibt und jedes Quadrat 3 Hölzer dazubringt – dann ist der Term kein Rätselraten."
+  ],
+  "karten": [
+    {
+      "lernziel": "struktur",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "termwert",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "uebersetzen",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "sachsituation",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "muster",
+      "urteil": "verbessern",
+      "probleme": [
+        "Der Term wird über „□ anpassen“ gefunden – richtig, aber ohne Einsicht. Das Bild zeigt den Grund: 1 Holz ganz links, dann pro Quadrat 3 neue Hölzer (oben, unten, rechts)."
+      ],
+      "neu": {
+        "schritte": [
+          "Hölzer: Figur 1: 4, Figur 2: 7, Figur 3: 10. Pro Figur kommen 3 Hölzer dazu.",
+          "Schau ins Bild: Ganz links steht 1 senkrechtes Holz. Jedes Quadrat bringt 3 neue Hölzer mit: oben, unten und rechts.",
+          "Figur n hat n Quadrate: 1 + 3 · n Hölzer, also ⟦3n + 1⟧. Figur 10: 31 Hölzer."
+        ],
+        "probe": "n = 2: 3 · 2 + 1 = 7 ✓"
+      },
+      "strategie": "Term aus der Bauweise der Figur ablesen (Anfangsstück + gleiches Stück pro Schritt) statt nur aus der Tabelle."
+    },
+    {
+      "lernziel": "deuten",
+      "urteil": "ok"
+    }
+  ],
+  "neue_karten": []
+}

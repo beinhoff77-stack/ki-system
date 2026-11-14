@@ -15,8 +15,8 @@ def rd(v): return round(v, 2)
 
 
 def thales_bild(al, texte=('α', 'β', 'γ')):
-    """Thaleskreis: AB Durchmesser (r = 3), C auf dem Kreis mit ∠CAB = α (Mittelpunktswinkel 2α)."""
-    phi = math.radians(180 - 2 * al)
+    """Thaleskreis: AB Durchmesser (r = 3), C auf dem Kreis mit ∠CAB = α (∠BMC = 2α, von B aus gemessen)."""
+    phi = math.radians(2 * al)
     C = [rd(3 * math.cos(phi)), rd(3 * math.sin(phi))]
     return figur({'A': [-3, 0], 'B': [3, 0], 'C': C, 'M': [0, 0]}, linien=[['A', 'B'], ['B', 'C'], ['C', 'A']], flaeche=['A', 'B', 'C'],
                  winkel=[w for w in [['A', 'B', 'C', texte[0]], ['B', 'C', 'A', texte[1]]] if w[3]], rechter_winkel=[['C', 'A', 'B']] if texte[2] == '90°' else [],
@@ -39,7 +39,7 @@ ETAPPEN = [
      'regel': '⟦Satz des Thales⟧: Liegt C auf einem Kreis mit dem Durchmesser [AB], dann hat das Dreieck ABC bei C einen ⟦rechten Winkel⟧. Den Kreis nennt man ⟦Thaleskreis⟧.',
      'schritte': ['[AB] ist Durchmesser, C liegt auf dem Kreis, α = 35°.', 'Nach Thales: γ = 90°.', 'β = 180° − 90° − 35° = ⟦55°⟧'],
      'fehler': 'Liegt C auf dem Kreis, aber [AB] ist ⟦kein Durchmesser⟧ (sondern nur eine Sehne), gilt der Satz des Thales nicht – γ ist dann im Allgemeinen kein rechter Winkel.',
-     'bild': thales_bild(35, ('35°', 'β', '90°')),
+     'bild': {'typ': 'figur', 'punkte': {'A': [-3, 0], 'B': [3, 0], 'C': [1.03, 2.82], 'M': [0, 0]}, 'flaeche': ['A', 'B', 'C'], 'linien': [['A', 'B'], ['B', 'C'], ['C', 'A']], 'rechter_winkel': [['C', 'A', 'B']], 'winkel': [['A', 'B', 'C', '35°'], ['B', 'C', 'A', 'β']], 'kreise': [{'m': 'M', 'r': 3}]},
      '_verbot': ['α = 35°']},
     {'lernziel': 'umkehrung', 'titel': 'Umkehrung: Wo liegt der Thaleskreis?',
      'regel': '⟦Umkehrung⟧: Hat das Dreieck ABC bei C einen rechten Winkel, dann liegt C auf dem Kreis mit dem ⟦Durchmesser [AB]⟧. Sein Mittelpunkt ist die ⟦Mitte von [AB]⟧, sein Radius die halbe Länge von [AB].',
@@ -47,6 +47,18 @@ ETAPPEN = [
      'fehler': 'Der Mittelpunkt des Thaleskreises ist nicht C, sondern die ⟦Mitte der Hypotenuse⟧ [AB] – der Seite gegenüber dem rechten Winkel.',
      'bild': ksys([(-2, 1, 'A'), (6, 1, 'B'), (2, 1, 'M'), (2, 5, 'C')], strecken=[(-2, 1, 6, 1), (-2, 1, 2, 5), (6, 1, 2, 5)]),
      '_verbot': ['A(−2 | 1), B(6 | 1)']},
+    {'lernziel': 'beweis', 'titel': 'Vermuten und Beweisen',
+     'regel': 'Messungen mit Geometriesoftware führen zu ⟦Vermutungen⟧. Ein ⟦Beweis⟧ zeigt mit Begründungen, dass eine Aussage ⟦immer⟧ gilt. Beim Thalessatz: MA = MB = MC (Radien) ergibt zwei ⟦gleichschenklige Dreiecke⟧.',
+     'schritte': ['Dreieck AMC ist gleichschenklig: ∠ACM = α. Dreieck BMC: ∠BCM = β.', 'Also γ = α + β. Winkelsumme: α + β + (α + β) = 180°.', '2(α + β) = 180° → ⟦γ = α + β = 90°⟧'],
+     'fehler': 'Hundert gemessene Beispiele mit 90° sind ⟦kein Beweis⟧: Sie zeigen nur, dass die Aussage für diese Beispiele stimmt.',
+     'bild': {'typ': 'figur', 'punkte': {'A': [-3, 0], 'B': [3, 0], 'C': [1.03, 2.82], 'M': [0, 0]}, 'linien': [['A', 'B'], ['B', 'C'], ['C', 'A'], ['M', 'C', 'r', 'gestrichelt']], 'winkel': [['A', 'B', 'C', 'α'], ['C', 'A', 'M', 'α'], ['B', 'C', 'A', 'β'], ['C', 'M', 'B', 'β']], 'kreise': [{'m': 'M', 'r': 3}]}},
+    {'lernziel': 'lage', 'titel': 'Passante, Tangente oder Sekante?',
+     'regel': 'Vergleiche den Abstand d der Geraden vom Mittelpunkt mit dem Radius r: ⟦d > r⟧ Passante (kein Punkt), ⟦d = r⟧ Tangente (ein Punkt), ⟦d < r⟧ Sekante (zwei Punkte).',
+     'schritte': ['r = 4 cm, Abstand der Geraden von M: d = 3 cm', '3 cm < 4 cm', 'Die Gerade ist eine ⟦Sekante⟧ – sie schneidet den Kreis zweimal.'],
+     'fehler': 'Eine Gerade mit d = r schneidet den Kreis nicht zweimal: Sie ⟦berührt⟧ ihn nur in einem Punkt.',
+     'bild': figur({'M': [0, 0], '_1': [-5, 3], '_2': [5, 3], '_F': [0, 3]}, linien=[['_1', '_2', 'g'], ['M', '_F', 'd = 3', 'gestrichelt']], rechter_winkel=[['_F', 'M', '_2']],
+                   kreise=[{'m': 'M', 'r': 4}]),
+     '_verbot': ['d = 3 cm']},
     {'lernziel': 'tangente', 'titel': 'Tangenten und Berührradius',
      'regel': 'Eine ⟦Tangente⟧ berührt den Kreis in genau einem Punkt B. Sie steht ⟦senkrecht⟧ auf dem Berührradius [MB]. Von einem Punkt P außerhalb gibt es ⟦zwei⟧ Tangenten; sie sind von P bis zum Berührpunkt gleich lang.',
      'schritte': ['Die Tangenten von P bilden den Winkel φ = 50°.', 'Viereck MBPB\': zwei rechte Winkel bei B und B\', Winkelsumme 360°.', '∠BMB\' = 360° − 90° − 90° − 50° = ⟦130°⟧'],
@@ -56,36 +68,43 @@ ETAPPEN = [
     {'lernziel': 'umkreis_inkreis', 'titel': 'Umkreis und Inkreis',
      'regel': 'Der ⟦Umkreismittelpunkt⟧ ist der Schnittpunkt der ⟦Mittelsenkrechten⟧ (gleich weit von allen Ecken). Der ⟦Inkreismittelpunkt⟧ ist der Schnittpunkt der ⟦Winkelhalbierenden⟧ (gleich weit von allen Seiten).',
      'schritte': ['Dreieck mit γ = 90°', 'Nach Thales liegt C auf dem Kreis mit Durchmesser [AB].', 'Der Umkreismittelpunkt ist die ⟦Mitte der Seite [AB]⟧.'],
-     'fehler': 'Der Inkreismittelpunkt entsteht nicht aus den Mittelsenkrechten: Er muss von den ⟦Seiten⟧ gleich weit weg sein – dafür braucht man die ⟦Winkelhalbierenden⟧.'},
-    {'lernziel': 'lage', 'titel': 'Passante, Tangente oder Sekante?',
-     'regel': 'Vergleiche den Abstand d der Geraden vom Mittelpunkt mit dem Radius r: ⟦d > r⟧ Passante (kein Punkt), ⟦d = r⟧ Tangente (ein Punkt), ⟦d < r⟧ Sekante (zwei Punkte).',
-     'schritte': ['r = 4 cm, Abstand der Geraden von M: d = 3 cm', '3 cm < 4 cm', 'Die Gerade ist eine ⟦Sekante⟧ – sie schneidet den Kreis zweimal.'],
-     'fehler': 'Eine Gerade mit d = r schneidet den Kreis nicht zweimal: Sie ⟦berührt⟧ ihn nur in einem Punkt.',
-     'bild': figur({'M': [0, 0], '_1': [-5, 3], '_2': [5, 3], '_F': [0, 3]}, linien=[['_1', '_2', 'g'], ['M', '_F', 'd = 3', 'gestrichelt']], rechter_winkel=[['_F', 'M', '_2']],
-                   kreise=[{'m': 'M', 'r': 4}]),
-     '_verbot': ['d = 3 cm']},
-    {'lernziel': 'beweis', 'titel': 'Vermuten und Beweisen',
-     'regel': 'Messungen mit Geometriesoftware führen zu ⟦Vermutungen⟧. Ein ⟦Beweis⟧ zeigt mit Begründungen, dass eine Aussage ⟦immer⟧ gilt. Beim Thalessatz: MA = MB = MC (Radien) ergibt zwei ⟦gleichschenklige Dreiecke⟧.',
-     'schritte': ['Dreieck AMC ist gleichschenklig: ∠ACM = α. Dreieck BMC: ∠BCM = β.', 'Also γ = α + β. Winkelsumme: α + β + (α + β) = 180°.', '2(α + β) = 180° → ⟦γ = α + β = 90°⟧'],
-     'fehler': 'Hundert gemessene Beispiele mit 90° sind ⟦kein Beweis⟧: Sie zeigen nur, dass die Aussage für diese Beispiele stimmt.'},
+     'fehler': 'Der Inkreismittelpunkt entsteht nicht aus den Mittelsenkrechten: Er muss von den ⟦Seiten⟧ gleich weit weg sein – dafür braucht man die ⟦Winkelhalbierenden⟧.',
+     'bild': {'typ': 'figur', 'punkte': {'A': [0, 0], 'B': [6, 0], 'C': [2, 4], 'M': [3, 1]}, 'flaeche': ['A', 'B', 'C'], 'linien': [['A', 'B'], ['B', 'C'], ['C', 'A'], ['M', 'A', 'r', 'gestrichelt'], ['M', 'C', 'r', 'gestrichelt']], 'kreise': [{'m': 'M', 'r': 3.162}]}},
 ]
+
+
+ZYK = {}
+
+
+def zyklus(name, liste):
+    ZYK[name] = ZYK.get(name, -1) + 1
+    return liste[ZYK[name] % len(liste)]
 
 
 def g_thales(R, st):
     al = R.randint(15, 75)
     if al == 45: al = 40
     if st == 1:
-        a = Z(f'[AB] ist ein Durchmesser, C liegt auf dem Kreis. Es ist α = {al}°. Wie groß ist γ?', 90, '180 - 90',
-              f'Nach dem Satz des Thales ist der Winkel bei C ein rechter Winkel: γ = 90°.', 'Was sagt der Satz des Thales über den Winkel bei C?', '°')
-        a['f']['grafik'] = thales_bild(al, (f'{al}°', '', ''))
-        return a
-    if st == 2:
+        if ZYK.get('gamma', 0) < 2:
+            ZYK['gamma'] = ZYK.get('gamma', 0) + 1
+            a = Z(f'[AB] ist ein Durchmesser, C liegt auf dem Kreis. Es ist α = {al}°. Wie groß ist γ?', 90, '180 - 90',
+                  f'Nach dem Satz des Thales ist der Winkel bei C ein rechter Winkel: γ = 90°.', 'Was sagt der Satz des Thales über den Winkel bei C?', '°')
+            a['f']['grafik'] = thales_bild(al, (f'{al}°', '', ''))
+            return a
         a = Z(f'[AB] ist ein Durchmesser, C liegt auf dem Kreis. Es ist α = {al}°. Wie groß ist β?', 90 - al, f'180 - 90 - {al}',
               f'Thales: γ = 90°. β = 180° − 90° − {al}° = {90 - al}°.', 'Erst γ mit Thales, dann die Winkelsumme.', '°')
         a['f']['grafik'] = thales_bild(al, (f'{al}°', 'β', '90°'))
         return a
-    # Stufe 3: Winkel am Mittelpunkt / gleichschenklig
-    art = R.choice(['mitte', 'verhaeltnis'])
+    if st == 2:
+        if R.random() < .5:
+            a = Z(f'[AB] ist ein Durchmesser, C liegt auf dem Kreis. Es ist β = {90 - al}°. Wie groß ist α?', al, f'180 - 90 - {90 - al}',
+                  f'Thales: γ = 90°. α = 180° − 90° − {90 - al}° = {al}°.', 'Erst γ mit Thales, dann die Winkelsumme.', '°')
+            a['f']['grafik'] = thales_bild(al, ('α', f'{90 - al}°', '90°'))
+            return a
+        s_ = R.choice([3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15])
+        return Z(f'Über einer {s_} cm langen Strecke [AB] wird der Thaleskreis gezeichnet. Wie groß ist sein Radius?', Fr(s_, 2), f'{s_} / 2',
+                 f'[AB] ist der Durchmesser: r = {s_} cm : 2 = {zt(Fr(s_, 2))} cm.', 'Die Strecke ist der Durchmesser des Thaleskreises.', 'cm')
+    art = zyklus('th3', ['mitte', 'fenster', 'verhaeltnis', 'leiter'])
     if art == 'mitte':
         a = Z(f'[AB] ist Durchmesser des Kreises um M, C liegt auf dem Kreis, α = {al}°. Wie groß ist der Winkel ∠BMC?', 2 * al, f'2 * {al}',
               f'Dreieck AMC ist gleichschenklig (MA = MC): ∠ACM = {al}°. ∠AMC = 180° − 2 · {al}° = {180 - 2 * al}°. ∠BMC = 180° − {180 - 2 * al}° = {2 * al}°.',
@@ -93,9 +112,22 @@ def g_thales(R, st):
         a['f']['grafik'] = figur({'A': [-3, 0], 'B': [3, 0], 'M': [0, 0], 'C': [rd(3 * math.cos(math.radians(2 * al))), rd(3 * math.sin(math.radians(2 * al)))]},
                                  linien=[['A', 'B'], ['B', 'C'], ['C', 'A'], ['M', 'C', '', 'gestrichelt']], winkel=[['A', 'B', 'C', f'{al}°'], ['M', 'B', 'C', '?']], kreise=[{'m': 'M', 'r': 3}])
         return a
-    k = R.choice([2, 3, 4, 5])
-    return Z(f'[AB] ist Durchmesser, C liegt auf dem Kreis. β ist {k}-mal so groß wie α. Wie groß ist α?', Fr(90, k + 1), f'90 / ({k} + 1)',
-             f'Thales: γ = 90°, also α + β = 90°. α + {k}α = 90° → α = 90° : {k + 1} = {zt(Fr(90, k + 1))}°.', 'α + β = 90°.', '°')
+    if art == 'fenster':
+        dm = R.choice([Fr(1), Fr(12, 10), Fr(15, 10), Fr(8, 10), Fr(2)])
+        w = R.choice([30, 40, 50, 60, 70])
+        return Z(f'Ein Halbkreisfenster hat {zt(dm)} m Durchmesser. Zwei Streben verbinden die Enden des Durchmessers mit einem Punkt auf dem Bogen; '
+                 f'eine Strebe bildet mit dem Durchmesser einen Winkel von {w}°. Welchen Winkel bilden die beiden Streben an dem Punkt auf dem Bogen?', 90, '90',
+                 'Die Streben bilden mit dem Durchmesser ein Dreieck, dessen dritte Ecke auf dem Halbkreis liegt. Nach Thales ist der Winkel dort 90° – egal wie groß das Fenster ist.',
+                 'Welcher Satz handelt von einem Punkt auf einem Halbkreis über einem Durchmesser?', '°')
+    if art == 'verhaeltnis':
+        k = R.choice([2, 3, 4, 5])
+        return Z(f'[AB] ist Durchmesser, C liegt auf dem Kreis. β ist {k}-mal so groß wie α. Wie groß ist α?', Fr(90, k + 1), f'90 / ({k} + 1)',
+                 f'Thales: γ = 90°, also α + β = 90°. α + {k}α = 90° → α = 90° : {k + 1} = {zt(Fr(90, k + 1))}°.', 'α + β = 90°.', '°')
+    s_ = R.choice([6, 8, 10, 12, 14])
+    return Z(f'Eine Ecke eines Zeichendreiecks (rechter Winkel) wird so zwischen zwei Nägel A und B gelegt, dass die Schenkel an den Nägeln anliegen. A und B sind {s_} cm voneinander entfernt. '
+             f'Auf welchem Kreis wandert die Ecke, wenn man das Dreieck verschiebt? Gib seinen Radius an.', Fr(s_, 2), f'{s_} / 2',
+             f'Umkehrung des Thalessatzes: Die Ecke mit dem rechten Winkel liegt auf dem Thaleskreis über [AB], r = {s_} : 2 = {zt(Fr(s_, 2))} cm.',
+             'Rechter Winkel bei der Ecke – an welchen Satz erinnert das?', 'cm')
 
 
 def g_umkehrung(R, st):
@@ -124,10 +156,12 @@ def g_umkehrung(R, st):
     if R.random() < .5:
         be = 90 - al
     lieg = al + be == 90
-    r = 'Ja, denn γ = 90° (Umkehrung des Thalessatzes).' if lieg else f'Nein, denn γ = {180 - al - be}° ist kein rechter Winkel.'
-    return A(R, f'Im Dreieck ABC ist α = {al}° und β = {be}°. Liegt C auf dem Kreis mit dem Durchmesser [AB]?', r,
-             [f'Nein, denn γ = {180 - al - be}° ist kein rechter Winkel.' if lieg else 'Ja, denn γ = 90° (Umkehrung des Thalessatzes).',
-              'Ja, jeder Punkt C liegt auf diesem Kreis.', 'Das kann man ohne Zeichnung nicht entscheiden.'],
+    ja, nein = 'Ja, denn γ = 90° (Umkehrung des Thalessatzes).', f'Nein, denn γ = {180 - al - be}° ist kein rechter Winkel.'
+    if lieg:
+        r, f = ja, ['Nein, denn C müsste auf der Mittelsenkrechten von [AB] liegen.', 'Das kann man ohne Zeichnung nicht entscheiden.', 'Nein, denn α und β sind verschieden groß.']
+    else:
+        r, f = nein, ['Ja, denn α + β < 180°.', 'Ja, weil jedes Dreieck einen Umkreis hat.', 'Das kann man ohne Zeichnung nicht entscheiden.']
+    return A(R, f'Im Dreieck ABC ist α = {al}° und β = {be}°. Liegt C auf dem Kreis mit dem Durchmesser [AB]?', r, f,
              f'γ = 180° − {al}° − {be}° = {180 - al - be}°. ' + ('Rechter Winkel bei C → C liegt auf dem Thaleskreis.' if lieg else 'Kein rechter Winkel → C liegt nicht darauf.'),
              'Berechne γ. C liegt genau dann auf dem Thaleskreis, wenn γ = 90° ist.')
 
@@ -185,7 +219,7 @@ def g_umkreis_inkreis(R, st):
         m = max(al, be, ga)
         r = 'innerhalb des Dreiecks' if m < 90 else ('auf der längsten Seite (Mitte der Hypotenuse)' if m == 90 else 'außerhalb des Dreiecks')
         return A(R, f'Ein Dreieck hat α = {al}°, β = {be}°. Wo liegt der Umkreismittelpunkt?', r,
-                 [x for x in ['innerhalb des Dreiecks', 'auf der längsten Seite (Mitte der Hypotenuse)', 'außerhalb des Dreiecks'] if x != r] + ['immer im Schwerpunkt'],
+                 [x for x in ['innerhalb des Dreiecks', 'auf der längsten Seite (Mitte der Hypotenuse)', 'außerhalb des Dreiecks'] if x != r] + ['auf der kürzesten Seite'],
                  f'γ = {ga}°. Größter Winkel {m}°: ' + ('spitzwinklig → innen.' if m < 90 else 'rechtwinklig → Thales: Mitte der Hypotenuse.' if m == 90 else 'stumpfwinklig → außen.'),
                  'Bestimme den größten Winkel: spitz, rechter oder stumpf?')
     be, ga = R.choice(range(30, 121, 2)), R.choice(range(30, 121, 2))
@@ -217,8 +251,22 @@ def g_lage(R, st):
         n = {'Passante': 0, 'Tangente': 1, 'Sekante': 2}[art]
         return Z(f'Ein Kreis hat den Durchmesser {zt(2 * r)} cm. Eine Gerade hat vom Mittelpunkt den Abstand {zt(d)} cm. Wie viele gemeinsame Punkte haben Kreis und Gerade?', n, f'{n}',
                  f'r = {zt(2 * r)} : 2 = {zt(r)} cm. d {">" if d > r else "=" if d == r else "<"} r → {art}, also {n} gemeinsame Punkte.', 'Achtung: Gegeben ist der Durchmesser, nicht der Radius.')
-    return Z(f'Eine Gerade soll den Kreis mit dem Radius {zt(r)} cm berühren. Welchen Abstand muss sie vom Mittelpunkt haben?', r, cz_(r),
-             f'Tangente: d = r = {zt(r)} cm.', 'Bei einer Tangente ist der Abstand gleich dem Radius.', 'cm')
+    mx, my, rr = R.randint(-3, 4), R.randint(-3, 4), R.randint(2, 5)
+    art = R.choice(ARTEN); senk = R.random() < .5
+    abst = rr + R.choice([1, 2]) if art == 'Passante' else rr if art == 'Tangente' else R.randint(0, rr - 1)
+    c = (mx if senk else my) + R.choice([1, -1]) * abst
+    g = f'x = {zt(c)}' if senk else f'y = {zt(c)}'
+    n = {'Passante': 0, 'Tangente': 1, 'Sekante': 2}[art]
+    w = f'Abstand von M zur Geraden {g}: |{zt(c)} − {kl(mx if senk else my)}| = {abst}. ' + f'd {">" if abst > rr else "=" if abst == rr else "<"} r = {rr} → {art}.'
+    if R.random() < .5:
+        a = A(R, f'Ein Kreis hat den Mittelpunkt M({zt(mx)} | {zt(my)}) und den Radius r = {rr}. Welche Lage hat die Gerade {g}?', art, [x for x in ARTEN if x != art] + ['Durchmesser'], w,
+              f'Die Gerade {g} ist {"senkrecht" if senk else "waagrecht"}. Wie weit ist sie von M entfernt? Vergleiche mit r.')
+    else:
+        a = Z(f'Ein Kreis hat den Mittelpunkt M({zt(mx)} | {zt(my)}) und den Radius r = {rr}. Wie viele gemeinsame Punkte haben der Kreis und die Gerade {g}?', n, f'{n}', w,
+              f'Die Gerade {g} ist {"senkrecht" if senk else "waagrecht"}. Wie weit ist sie von M entfernt? Vergleiche mit r.')
+    e1, e2 = ([c, my - rr - 2], [c, my + rr + 2]) if senk else ([mx - rr - 2, c], [mx + rr + 2, c])
+    a['f']['grafik'] = figur({'M': [mx, my], '_1': e1, '_2': e2}, linien=[['_1', '_2', g]], kreise=[{'m': 'M', 'r': rr}])
+    return a
 
 
 def cz_(x):
@@ -226,23 +274,65 @@ def cz_(x):
     return str(x.numerator) if x.denominator == 1 else f'{x.numerator} / {x.denominator}'
 
 
-BEWEIS = [
-    ('Dreieck AMC ist gleichschenklig.', 'MA und MC sind Radien desselben Kreises.'),
-    ('∠ACM ist genauso groß wie α.', 'Basiswinkel im gleichschenkligen Dreieck AMC sind gleich.'),
-    ('γ = α + β.', 'Die Strecke [MC] teilt γ in die Winkel ∠ACM = α und ∠BCM = β.'),
-    ('α + β + γ = 180°.', 'Winkelsumme im Dreieck ABC.'),
-    ('2γ = 180°, also γ = 90°.', 'In der Winkelsumme wird α + β durch γ ersetzt.'),
-    ('Die Tangente steht senkrecht auf [MB].', 'Eigenschaft der Tangente: Sie steht senkrecht auf dem Berührradius.'),
-    ('Der Berührpunkt B liegt auf dem Thaleskreis über [MP].', 'Bei B ist ein rechter Winkel zwischen MB und PB (Umkehrung des Thalessatzes).'),
+THALES_BEWEIS = [  # (Schritt, Begründung)
+    ('MA = MB = MC.', 'A, B und C liegen auf dem Kreis um M; die Strecken sind Radien.'),
+    ('Die Dreiecke AMC und BMC sind gleichschenklig.', 'Je zwei ihrer Seiten sind gleich lang (Schritt 1).'),
+    ('∠ACM = α und ∠BCM = β.', 'Basiswinkel im gleichschenkligen Dreieck sind gleich groß.'),
+    ('γ = α + β.', 'Die Strecke [MC] teilt den Winkel γ in die beiden Teilwinkel.'),
+    ('α + β + γ = 180°, also 2γ = 180° und γ = 90°.', 'Winkelsumme im Dreieck ABC; α + β wird durch γ ersetzt.'),
 ]
+TANGENTE_BEWEIS = [
+    ('Zeichne den Thaleskreis über [MP]. Er schneidet den Kreis um M in B.', 'Konstruktionsschritt (keine Begründung nötig).'),
+    ('Der Winkel ∠MBP ist 90°.', 'B liegt auf dem Thaleskreis über [MP] (Satz des Thales).'),
+    ('[PB] steht senkrecht auf dem Radius [MB].', 'Das folgt direkt aus Schritt 2: Der Winkel bei B ist ein rechter.'),
+    ('Also ist die Gerade PB eine Tangente an den Kreis.', 'Tangente und Berührradius stehen senkrecht aufeinander (und umgekehrt).'),
+]
+FALSCH_GRUND = ['Stufenwinkel an Parallelen sind gleich groß.', 'Scheitelwinkel sind gleich groß.', 'Nebenwinkel ergänzen sich zu 180°.',
+                'Weil man es in der Zeichnung messen kann.', 'Die Diagonalen eines Rechtecks sind gleich lang.']
+
+
+def _beweis_liste(schritte, mark=None):
+    return ' '.join(f'({i + 1}) {t}' + (' ◀' if i == mark else '') for i, (t, _) in enumerate(schritte))
+
+
+def _beweis_begruenden(R):
+    welcher, k = zyklus('bwk', [('t', 2), ('g', 1), ('t', 0), ('g', 3), ('t', 3), ('g', 2), ('t', 1), ('t', 4)])
+    if welcher == 't':
+        name, B = 'Beweis des Thalessatzes', THALES_BEWEIS
+        frage = f'Welche Begründung gehört zu Schritt ({k + 1})?'
+    else:
+        name, B = 'Begründung der Tangentenkonstruktion von P aus', TANGENTE_BEWEIS
+        frage = 'Welcher bekannte Satz wird bei Schritt (4) benutzt?' if k == 3 else f'Welche Begründung gehört zu Schritt ({k + 1})?'
+    grund = B[k][1]
+    spaeter = [g for j, (_, g) in enumerate(B) if j > k + 1]
+    f = R.sample(FALSCH_GRUND, 3 - min(len(spaeter), 1)) + spaeter[:1]
+    return A(R, f'{name}: {_beweis_liste(B, k)} {frage}', grund, f, f'Schritt ({k + 1}): {B[k][0]} Begründung: {grund}',
+             'Welche bekannte Eigenschaft rechtfertigt genau diesen Schritt – nicht einen früheren oder späteren?')
+
+
+def _beweis_ordnen(R):
+    if R.random() < .6:
+        kaert = [('γ = 90°', 3), ('Die Dreiecke AMC und BMC sind gleichschenklig, weil MA = MB = MC.', 0), ('α + β + (α + β) = 180°', 2),
+                 ('∠ACM = α und ∠BCM = β (Basiswinkel)', 1)]
+        name = 'Beweis des Thalessatzes'
+    else:
+        kaert = [('PB ist Tangente.', 2), ('Der Winkel bei B ist 90°.', 1), ('B liegt auf dem Thaleskreis über [MP].', 0)]
+        name = 'Tangente von P aus'
+    R.shuffle(kaert)
+    n = len(kaert)
+    reihe = [None] * n
+    for nr, (_, pos) in enumerate(kaert): reihe[pos] = nr + 1
+    text = f'{name}: Bringe die Kärtchen in die richtige Reihenfolge. ' + ' '.join(f'Kärtchen {i + 1}: „{t}“' for i, (t, _) in enumerate(kaert))
+    schab = '; '.join(f'{i + 1}. Schritt: □' for i in range(n))
+    return L(text, schab, reihe, [str(v) for v in reihe], 'Richtige Reihenfolge: ' + ' → '.join(f'„{kaert[v - 1][0]}“' for v in reihe) + '.',
+             'Womit fängt der Beweis an? Was folgt woraus?', 'Trage in jedes Feld die Nummer des Kärtchens ein.')
 
 
 def g_beweis(R, st):
-    if st == 3 or (st == 2 and R.random() < .5):
-        aussage, grund = R.choice(BEWEIS)
-        andere = [g for a, g in BEWEIS if g != grund]
-        return A(R, f'Im Beweis (Thales bzw. Tangentenkonstruktion) steht: „{aussage}“ Welche Begründung passt?', grund, R.sample(andere, 3), f'Begründung: {grund}',
-                 'Welche bekannte Eigenschaft rechtfertigt genau diesen Schritt?')
+    if st == 3:
+        return _beweis_ordnen(R) if zyklus('bw3', [1, 0]) else _beweis_begruenden(R)
+    if st == 2 and R.random() < .5:
+        return _beweis_begruenden(R)
     al = [('Eine Behauptung, die in vielen gemessenen Beispielen stimmt, ist damit bewiesen.', False), ('Ein einziges Gegenbeispiel widerlegt eine Vermutung.', True),
           ('Mit Geometriesoftware kann man Vermutungen finden, ein Beweis braucht Begründungen.', True), ('Ein Beweis gilt für alle Fälle, nicht nur für gezeichnete.', True),
           ('Wenn eine Messung 89,8° ergibt, ist der Satz des Thales widerlegt.', False), ('Ein Beweis darf sich auf schon bewiesene Sätze stützen.', True),
@@ -252,7 +342,7 @@ def g_beweis(R, st):
         t = R.choice(wahr)
         return A(R, 'Welche Aussage über Vermutung und Beweis ist richtig?', t, R.sample(falsch, 3), f'Richtig: {t}', 'Was unterscheidet Messen von Begründen?')
     t = R.choice(falsch)
-    return A(R, 'Welche Aussage über Vermutung und Beweis ist FALSCH?', t, R.sample(wahr, 3), f'Falsch: {t} Messungen sind ungenau und decken nie alle Fälle ab.',
+    return A(R, 'Welche Aussage über Vermutung und Beweis ist falsch?', t, R.sample(wahr, 3), f'Falsch: {t} Messungen sind ungenau und decken nie alle Fälle ab.',
              'Was unterscheidet Messen von Begründen?')
 
 

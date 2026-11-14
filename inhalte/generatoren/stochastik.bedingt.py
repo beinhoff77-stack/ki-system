@@ -64,11 +64,11 @@ ETAPPEN = [
      'fehler': '„A und B schließen sich aus, also sind sie unabhängig“ ist falsch: Wenn A eintritt, ⟦kann B nicht mehr eintreten⟧ – das Wissen ändert P(B) auf 0. Unvereinbare Ereignisse (mit P > 0) sind ⟦abhängig⟧.'},
     {'lernziel': 'rueckschluss', 'titel': 'Rückschlüsse mit 1000 Fällen',
      'regel': 'Fragt man „umgekehrt“ (z. B. P(krank | Test positiv)), hilft es, sich ⟦1 000 Fälle⟧ vorzustellen: erst nach der ersten Stufe aufteilen, dann nach der zweiten. Dann ⟦nur die Fälle mit der Bedingung⟧ zählen.',
-     'schritte': ['10 % von 1 000 Geräten sind defekt: 100 defekt, 900 in Ordnung. Ein Prüfgerät meldet 90 % der defekten (90) und irrtümlich 5 % der guten (45).',
+     'schritte': ['10 % von 1 000 Geräten sind defekt: 100 defekt, 900 in Ordnung. Ein Prüfgerät meldet (2. Stufe „ja“) 90 % der defekten (90) und irrtümlich 5 % der guten (45).',
                   'Gemeldet werden 90 + 45 = 135 Geräte.', 'P(defekt | gemeldet) = 90 : 135 = ⟦2/3⟧ ≈ 0,67.'],
      'probe': '90 + 10 = 100 defekte, 45 + 855 = 900 gute ✓',
-     'bild': {'typ': 'baum', 'aeste': [{'text': 'defekt (100)', 'p': '0,1', 'aeste': [{'text': 'gemeldet (90)', 'p': '0,9'}, {'text': 'nicht (10)', 'p': '0,1'}]},
-                                       {'text': 'in Ordnung (900)', 'p': '0,9', 'aeste': [{'text': 'gemeldet (45)', 'p': '0,05'}, {'text': 'nicht (855)', 'p': '0,95'}]}]},
+     'bild': {'typ': 'baum', 'aeste': [{'text': 'defekt (100)', 'p': '0,1', 'aeste': [{'text': 'ja', 'p': '0,9'}, {'text': 'nein', 'p': '0,1'}]},
+                                       {'text': 'ok (900)', 'p': '0,9', 'aeste': [{'text': 'ja', 'p': '0,05'}, {'text': 'nein', 'p': '0,95'}]}]},
      'fehler': 'P(defekt | gemeldet) = 0,9 ist falsch: 0,9 ist P(gemeldet | defekt). Die Bedingung ⟦vertauscht⟧ zu haben ist der häufigste Fehler – unter allen ⟦gemeldeten⟧ Geräten sind auch 45 gute.'},
     {'lernziel': 'verstehen', 'titel': 'Bedingungen richtig lesen',
      'regel': 'Achte darauf, ⟦was gegeben ist⟧ (die Bedingung, hinter dem Strich) und ⟦was gefragt ist⟧ (vor dem Strich). ⟦P(A | B) und P(B | A)⟧ sind meist verschieden, weil durch verschiedene Gruppen geteilt wird.',
@@ -242,10 +242,10 @@ def g_rueckschluss(s):
         tp = k * se // 100
         f = (N - k) * fp // 100
         if k * se % 100 == 0 and (N - k) * fp % 100 == 0 and tp + f > 0: break
-    ctx = R.choice([('Geräte', 'defekt', 'in Ordnung', 'Ein Prüfgerät meldet', 'gemeldet'),
-                    ('Pflanzen', 'von Schädlingen befallen', 'gesund', 'Ein Schnelltest erkennt', 'als befallen erkannt'),
-                    ('E-Mails', 'Spam', 'kein Spam', 'Ein Filter markiert', 'markiert')])
-    D, K, G, T, T2 = ctx
+    ctx = R.choice([('Geräte', 'defekt', 'in Ordnung', 'Ein Prüfgerät meldet', 'gemeldet', 'defekt', 'ok', 'Alarm'),
+                    ('Pflanzen', 'von Schädlingen befallen', 'gesund', 'Ein Schnelltest erkennt', 'als befallen erkannt', 'befallen', 'gesund', 'Alarm'),
+                    ('E-Mails', 'Spam', 'kein Spam', 'Ein Filter markiert', 'markiert', 'Spam', 'kein Spam', 'markiert')])
+    D, K, G, T, T2, KK, GK, TK = ctx
     vor = f'{pk} % der {D} sind {K}. {T} {se} % dieser {D}, aber irrtümlich auch {fp} % der übrigen. Stelle dir {dz(N)} {D} vor.'
     art = R.choice({1: ['anzahl_k', 'anzahl_tp'], 2: ['anzahl_pos', 'anzahl_tp', 'anzahl_f'], 3: ['bayes', 'bayes', 'vergleich']}[s])
     if art == 'anzahl_k':
@@ -261,9 +261,9 @@ def g_rueckschluss(s):
                     'Addiere beide Gruppen, die ein Signal bekommen.', tp + f, f'{tp} + {f}')
     q = Fr(tp, tp + f)
     if art == 'bayes':
-        bild = {'typ': 'baum', 'aeste': [{'text': f'{K} ({k})', 'p': dz(Fr(pk, 100)), 'aeste': [{'text': f'{T2} (?)', 'p': dz(Fr(se, 100))}, {'text': 'nicht', 'p': dz(1 - Fr(se, 100))}]},
-                                         {'text': f'{G} ({N - k})', 'p': dz(1 - Fr(pk, 100)), 'aeste': [{'text': f'{T2} (?)', 'p': dz(Fr(fp, 100))}, {'text': 'nicht', 'p': dz(1 - Fr(fp, 100))}]}]}
-        return mit_grafik(bruch_luecke(vor + f' {EIN[D]} wurde {T2}. Wie groß ist die Wahrscheinlichkeit, dass {"sie" if D != "Geräte" else "es"} wirklich {K} ist? Gib einen gekürzten Bruch an.', q,
+        bild = {'typ': 'baum', 'aeste': [{'text': f'{KK} ({k})', 'p': dz(Fr(pk, 100)), 'aeste': [{'text': 'ja', 'p': dz(Fr(se, 100))}, {'text': 'nein', 'p': dz(1 - Fr(se, 100))}]},
+                                         {'text': f'{GK} ({N - k})', 'p': dz(1 - Fr(pk, 100)), 'aeste': [{'text': 'ja', 'p': dz(Fr(fp, 100))}, {'text': 'nein', 'p': dz(1 - Fr(fp, 100))}]}]}
+        return mit_grafik(bruch_luecke(vor + f' {EIN[D]} wurde {T2}. Wie groß ist die Wahrscheinlichkeit, dass {"sie" if D != "Geräte" else "es"} wirklich {K} ist? Gib einen gekürzten Bruch an. (Im Baum: 2. Stufe „ja“ = {T2}.)', q,
                                        f'{T2.capitalize()}: {dz(tp)} + {dz(f)} = {dz(tp + f)}. Davon wirklich {K}: {dz(tp)}. P = {dz(tp)}/{dz(tp + f)}' + (f' = {br(q)}' if q.denominator != tp + f else '') + f' ≈ {dz(round(float(q), 2))}.',
                                        f'Bedingung „{T2}“: Zähle alle {T2}en und davon die wirklich {K}en.', c=[str(q.numerator), str(q.denominator)]), bild)
     r = f'Kleiner: P({K} | {T2}) ≈ {dz(round(float(q), 2))}' if q < Fr(se, 100) else f'Größer oder gleich: ≈ {dz(round(float(q), 2))}'

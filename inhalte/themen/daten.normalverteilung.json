@@ -128,30 +128,30 @@
     "probe": "34 % + 34 % + 16 % + 16 % = 100 ✓",
     "bild": {
      "typ": "saeulen",
-     "einheit": "%",
+     "einheit": "Anteil in %; Bereiche in σ-Schritten ab μ",
      "werte": [
       {
-       "name": "<μ−2σ",
+       "name": "unter −2",
        "wert": 2.5
       },
       {
-       "name": "μ−2σ…μ−σ",
+       "name": "−2…−1",
        "wert": 13.5
       },
       {
-       "name": "μ−σ…μ",
+       "name": "−1…0",
        "wert": 34
       },
       {
-       "name": "μ…μ+σ",
+       "name": "0…1",
        "wert": 34
       },
       {
-       "name": "μ+σ…μ+2σ",
+       "name": "1…2",
        "wert": 13.5
       },
       {
-       "name": ">μ+2σ",
+       "name": "über 2",
        "wert": 2.5
       }
      ],

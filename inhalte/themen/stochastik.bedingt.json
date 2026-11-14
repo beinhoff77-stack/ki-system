@@ -153,7 +153,7 @@
     "titel": "Rückschlüsse mit 1000 Fällen",
     "regel": "Fragt man „umgekehrt“ (z. B. P(krank | Test positiv)), hilft es, sich ⟦1 000 Fälle⟧ vorzustellen: erst nach der ersten Stufe aufteilen, dann nach der zweiten. Dann ⟦nur die Fälle mit der Bedingung⟧ zählen.",
     "schritte": [
-     "10 % von 1 000 Geräten sind defekt: 100 defekt, 900 in Ordnung. Ein Prüfgerät meldet 90 % der defekten (90) und irrtümlich 5 % der guten (45).",
+     "10 % von 1 000 Geräten sind defekt: 100 defekt, 900 in Ordnung. Ein Prüfgerät meldet (2. Stufe „ja“) 90 % der defekten (90) und irrtümlich 5 % der guten (45).",
      "Gemeldet werden 90 + 45 = 135 Geräte.",
      "P(defekt | gemeldet) = 90 : 135 = ⟦2/3⟧ ≈ 0,67."
     ],
@@ -166,25 +166,25 @@
        "p": "0,1",
        "aeste": [
         {
-         "text": "gemeldet (90)",
+         "text": "ja",
          "p": "0,9"
         },
         {
-         "text": "nicht (10)",
+         "text": "nein",
          "p": "0,1"
         }
        ]
       },
       {
-       "text": "in Ordnung (900)",
+       "text": "ok (900)",
        "p": "0,9",
        "aeste": [
         {
-         "text": "gemeldet (45)",
+         "text": "ja",
          "p": "0,05"
         },
         {
-         "text": "nicht (855)",
+         "text": "nein",
          "p": "0,95"
         }
        ]
@@ -4359,22 +4359,22 @@
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "2 % der Pflanzen sind von Schädlingen befallen. Ein Schnelltest erkennt 90 % dieser Pflanzen, aber irrtümlich auch 5 % der übrigen. Stelle dir 1 000 Pflanzen vor. Eine Pflanze wurde als befallen erkannt. Wie groß ist die Wahrscheinlichkeit, dass sie wirklich von Schädlingen befallen ist? Gib einen gekürzten Bruch an.",
+    "text": "2 % der Pflanzen sind von Schädlingen befallen. Ein Schnelltest erkennt 90 % dieser Pflanzen, aber irrtümlich auch 5 % der übrigen. Stelle dir 1 000 Pflanzen vor. Eine Pflanze wurde als befallen erkannt. Wie groß ist die Wahrscheinlichkeit, dass sie wirklich von Schädlingen befallen ist? Gib einen gekürzten Bruch an. (Im Baum: 2. Stufe „ja“ = als befallen erkannt.)",
     "schablone": "□/□",
     "hinweis": "Zähler und Nenner (gekürzt)",
     "grafik": {
      "typ": "baum",
      "aeste": [
       {
-       "text": "von Schädlingen befallen (20)",
+       "text": "befallen (20)",
        "p": "0,02",
        "aeste": [
         {
-         "text": "als befallen erkannt (?)",
+         "text": "ja",
          "p": "0,9"
         },
         {
-         "text": "nicht",
+         "text": "nein",
          "p": "0,1"
         }
        ]
@@ -4384,11 +4384,11 @@
        "p": "0,98",
        "aeste": [
         {
-         "text": "als befallen erkannt (?)",
+         "text": "ja",
          "p": "0,05"
         },
         {
-         "text": "nicht",
+         "text": "nein",
          "p": "0,95"
         }
        ]
@@ -4416,7 +4416,7 @@
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "10 % der Geräte sind defekt. Ein Prüfgerät meldet 80 % dieser Geräte, aber irrtümlich auch 20 % der übrigen. Stelle dir 1 000 Geräte vor. Ein Gerät wurde gemeldet. Wie groß ist die Wahrscheinlichkeit, dass es wirklich defekt ist? Gib einen gekürzten Bruch an.",
+    "text": "10 % der Geräte sind defekt. Ein Prüfgerät meldet 80 % dieser Geräte, aber irrtümlich auch 20 % der übrigen. Stelle dir 1 000 Geräte vor. Ein Gerät wurde gemeldet. Wie groß ist die Wahrscheinlichkeit, dass es wirklich defekt ist? Gib einen gekürzten Bruch an. (Im Baum: 2. Stufe „ja“ = gemeldet.)",
     "schablone": "□/□",
     "hinweis": "Zähler und Nenner (gekürzt)",
     "grafik": {
@@ -4427,25 +4427,25 @@
        "p": "0,1",
        "aeste": [
         {
-         "text": "gemeldet (?)",
+         "text": "ja",
          "p": "0,8"
         },
         {
-         "text": "nicht",
+         "text": "nein",
          "p": "0,2"
         }
        ]
       },
       {
-       "text": "in Ordnung (900)",
+       "text": "ok (900)",
        "p": "0,9",
        "aeste": [
         {
-         "text": "gemeldet (?)",
+         "text": "ja",
          "p": "0,2"
         },
         {
-         "text": "nicht",
+         "text": "nein",
          "p": "0,8"
         }
        ]
@@ -4473,22 +4473,22 @@
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "10 % der Pflanzen sind von Schädlingen befallen. Ein Schnelltest erkennt 90 % dieser Pflanzen, aber irrtümlich auch 10 % der übrigen. Stelle dir 1 000 Pflanzen vor. Eine Pflanze wurde als befallen erkannt. Wie groß ist die Wahrscheinlichkeit, dass sie wirklich von Schädlingen befallen ist? Gib einen gekürzten Bruch an.",
+    "text": "10 % der Pflanzen sind von Schädlingen befallen. Ein Schnelltest erkennt 90 % dieser Pflanzen, aber irrtümlich auch 10 % der übrigen. Stelle dir 1 000 Pflanzen vor. Eine Pflanze wurde als befallen erkannt. Wie groß ist die Wahrscheinlichkeit, dass sie wirklich von Schädlingen befallen ist? Gib einen gekürzten Bruch an. (Im Baum: 2. Stufe „ja“ = als befallen erkannt.)",
     "schablone": "□/□",
     "hinweis": "Zähler und Nenner (gekürzt)",
     "grafik": {
      "typ": "baum",
      "aeste": [
       {
-       "text": "von Schädlingen befallen (100)",
+       "text": "befallen (100)",
        "p": "0,1",
        "aeste": [
         {
-         "text": "als befallen erkannt (?)",
+         "text": "ja",
          "p": "0,9"
         },
         {
-         "text": "nicht",
+         "text": "nein",
          "p": "0,1"
         }
        ]
@@ -4498,11 +4498,11 @@
        "p": "0,9",
        "aeste": [
         {
-         "text": "als befallen erkannt (?)",
+         "text": "ja",
          "p": "0,1"
         },
         {
-         "text": "nicht",
+         "text": "nein",
          "p": "0,9"
         }
        ]
@@ -4530,7 +4530,7 @@
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "2 % der E-Mails sind Spam. Ein Filter markiert 95 % dieser E-Mails, aber irrtümlich auch 5 % der übrigen. Stelle dir 1 000 E-Mails vor. Eine E-Mail wurde markiert. Wie groß ist die Wahrscheinlichkeit, dass sie wirklich Spam ist? Gib einen gekürzten Bruch an.",
+    "text": "2 % der E-Mails sind Spam. Ein Filter markiert 95 % dieser E-Mails, aber irrtümlich auch 5 % der übrigen. Stelle dir 1 000 E-Mails vor. Eine E-Mail wurde markiert. Wie groß ist die Wahrscheinlichkeit, dass sie wirklich Spam ist? Gib einen gekürzten Bruch an. (Im Baum: 2. Stufe „ja“ = markiert.)",
     "schablone": "□/□",
     "hinweis": "Zähler und Nenner (gekürzt)",
     "grafik": {
@@ -4541,11 +4541,11 @@
        "p": "0,02",
        "aeste": [
         {
-         "text": "markiert (?)",
+         "text": "ja",
          "p": "0,95"
         },
         {
-         "text": "nicht",
+         "text": "nein",
          "p": "0,05"
         }
        ]
@@ -4555,11 +4555,11 @@
        "p": "0,98",
        "aeste": [
         {
-         "text": "markiert (?)",
+         "text": "ja",
          "p": "0,05"
         },
         {
-         "text": "nicht",
+         "text": "nein",
          "p": "0,95"
         }
        ]
@@ -4587,7 +4587,7 @@
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "10 % der Geräte sind defekt. Ein Prüfgerät meldet 95 % dieser Geräte, aber irrtümlich auch 10 % der übrigen. Stelle dir 1 000 Geräte vor. Ein Gerät wurde gemeldet. Wie groß ist die Wahrscheinlichkeit, dass es wirklich defekt ist? Gib einen gekürzten Bruch an.",
+    "text": "10 % der Geräte sind defekt. Ein Prüfgerät meldet 95 % dieser Geräte, aber irrtümlich auch 10 % der übrigen. Stelle dir 1 000 Geräte vor. Ein Gerät wurde gemeldet. Wie groß ist die Wahrscheinlichkeit, dass es wirklich defekt ist? Gib einen gekürzten Bruch an. (Im Baum: 2. Stufe „ja“ = gemeldet.)",
     "schablone": "□/□",
     "hinweis": "Zähler und Nenner (gekürzt)",
     "grafik": {
@@ -4598,25 +4598,25 @@
        "p": "0,1",
        "aeste": [
         {
-         "text": "gemeldet (?)",
+         "text": "ja",
          "p": "0,95"
         },
         {
-         "text": "nicht",
+         "text": "nein",
          "p": "0,05"
         }
        ]
       },
       {
-       "text": "in Ordnung (900)",
+       "text": "ok (900)",
        "p": "0,9",
        "aeste": [
         {
-         "text": "gemeldet (?)",
+         "text": "ja",
          "p": "0,1"
         },
         {
-         "text": "nicht",
+         "text": "nein",
          "p": "0,9"
         }
        ]
@@ -4644,7 +4644,7 @@
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "20 % der Geräte sind defekt. Ein Prüfgerät meldet 95 % dieser Geräte, aber irrtümlich auch 5 % der übrigen. Stelle dir 1 000 Geräte vor. Ein Gerät wurde gemeldet. Wie groß ist die Wahrscheinlichkeit, dass es wirklich defekt ist? Gib einen gekürzten Bruch an.",
+    "text": "20 % der Geräte sind defekt. Ein Prüfgerät meldet 95 % dieser Geräte, aber irrtümlich auch 5 % der übrigen. Stelle dir 1 000 Geräte vor. Ein Gerät wurde gemeldet. Wie groß ist die Wahrscheinlichkeit, dass es wirklich defekt ist? Gib einen gekürzten Bruch an. (Im Baum: 2. Stufe „ja“ = gemeldet.)",
     "schablone": "□/□",
     "hinweis": "Zähler und Nenner (gekürzt)",
     "grafik": {
@@ -4655,25 +4655,25 @@
        "p": "0,2",
        "aeste": [
         {
-         "text": "gemeldet (?)",
+         "text": "ja",
          "p": "0,95"
         },
         {
-         "text": "nicht",
+         "text": "nein",
          "p": "0,05"
         }
        ]
       },
       {
-       "text": "in Ordnung (800)",
+       "text": "ok (800)",
        "p": "0,8",
        "aeste": [
         {
-         "text": "gemeldet (?)",
+         "text": "ja",
          "p": "0,05"
         },
         {
-         "text": "nicht",
+         "text": "nein",
          "p": "0,95"
         }
        ]

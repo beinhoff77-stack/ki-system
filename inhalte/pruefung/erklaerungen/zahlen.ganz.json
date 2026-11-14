@@ -1,0 +1,122 @@
+{
+  "thema_schluessel": "zahlen.ganz",
+  "gesamturteil": "gut",
+  "thema_hinweise": [
+    "Aufbau und Reihenfolge stimmen (deuten → Zahlengerade → ordnen → Betrag → addieren → subtrahieren → Ketten → Sachaufgaben).",
+    "Schwachstelle: Addieren und Subtrahieren werden nur mit der abstrakten Vorzeichenregel erklärt. Für Klasse 5 braucht es zuerst ein Modell – Bewegung auf der Zahlengeraden und den Kontostand (Guthaben/Schulden). Die Regel kommt danach als Abkürzung.",
+    "Der Merksatz „Minus und Minus ergeben Plus“ (Karte subtrahieren) ist ein Rezept ohne Warum und wird von Kindern oft falsch übertragen: (−3) − 5 = +8. Er ist in der neuen Fassung durch die Schulden-Begründung ersetzt."
+  ],
+  "karten": [
+    {
+      "lernziel": "deuten",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "zahlengerade",
+      "urteil": "verbessern",
+      "probleme": [
+        "Der häufigste Fehler ist nicht die falsche Richtung, sondern: jeden Strich als 1 zählen, obwohl ein Abschnitt hier 2 wert ist.",
+        "Im Bild fehlt die Markierung der gesuchten Zahl; der Zahlenstrahl kann einen Pfeil zeigen."
+      ],
+      "neu": {
+        "schritte": [
+          "Die Zahlengerade geht von −10 bis 10. Dazwischen sind 10 gleich lange Abschnitte.",
+          "Von −10 bis 10 sind es 20 Schritte. 20 : 10 = 2, also ist ⟦ein Abschnitt 2 wert⟧.",
+          "Vom Anfang −10 aus zählst du in Zweierschritten: −8, −6, ⟦−4⟧. Die −4 ist der 3. Strich nach dem Anfang."
+        ],
+        "fehler": "Jeden Strich als 1 zählen: Dann wäre der 3. Strich nach −10 die −7. Hier ist aber jeder Abschnitt ⟦2⟧ wert. Rechne immer zuerst aus, wie viel ein Abschnitt wert ist.",
+        "bild": {
+          "typ": "zahlenstrahl",
+          "start": -10,
+          "ende": 10,
+          "abschnitte": 10,
+          "beschriftet": "anfang_ende",
+          "pfeil": 3
+        }
+      }
+    },
+    {
+      "lernziel": "ordnen",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "betrag",
+      "urteil": "verbessern",
+      "probleme": [
+        "„Abstand zur 0“ wird erklärt, aber nicht gezeigt. Ein Zahlenstrahl mit der markierten −7 macht den Abstand sichtbar.",
+        "Kein Alltagsbezug: Der Betrag ist z. B. die Höhe der Schulden oder wie weit ein Taucher unter dem Meer ist."
+      ],
+      "neu": {
+        "regel": "Der ⟦Betrag⟧ einer Zahl ist ihr Abstand zur 0. Ein Abstand ist nie negativ: |−7| = 7 und |7| = 7. Die ⟦Gegenzahl⟧ liegt gleich weit von der 0 weg, aber auf der anderen Seite: Die Gegenzahl von −7 ist 7.",
+        "schritte": [
+          "Ein Taucher ist 7 m unter dem Meeresspiegel: −7 m.",
+          "Wie weit ist er von der Wasseroberfläche weg? 7 m. Also |−7| = ⟦7⟧.",
+          "Ein Vogel 7 m über dem Wasser ist gleich weit weg, nur auf der anderen Seite: Die Gegenzahl von −7 ist ⟦7⟧."
+        ],
+        "fehler": "|−7| = −7 ist falsch. Der Betrag fragt nur „wie weit weg?“ – und ein Abstand ist ⟦nie negativ⟧.",
+        "bild": {
+          "typ": "zahlenstrahl",
+          "start": -10,
+          "ende": 10,
+          "abschnitte": 20,
+          "beschriftet": "anfang_ende",
+          "pfeil": 3
+        }
+      }
+    },
+    {
+      "lernziel": "addieren",
+      "urteil": "neu_schreiben",
+      "probleme": [
+        "Die Erklärung startet mit der abstrakten Vorzeichenregel („Beträge subtrahieren, Vorzeichen der Zahl mit dem größeren Betrag“). Für ein Kind in Klasse 5 ist das beim ersten Lesen kaum verständlich.",
+        "Das Modell (Zahlengerade, Kontostand) steht nur in der Probe. Es gehört an den Anfang; die Regel ist die Abkürzung danach."
+      ],
+      "neu": {
+        "regel": "Stell dir die Zahlengerade vor. ⟦+ eine positive Zahl⟧: Du gehst nach rechts. ⟦+ eine negative Zahl⟧: Du gehst nach links. Abkürzung: Gleiche Vorzeichen – Beträge addieren. Verschiedene Vorzeichen – Beträge subtrahieren; das Ergebnis hat das Vorzeichen der Zahl, die weiter von der 0 weg ist.",
+        "schritte": [
+          "Du hast 7 € Schulden, also −7 €. Dann bekommst du 4 € geschenkt: (−7) + 4.",
+          "Auf der Zahlengeraden: Start bei −7, dann 4 Schritte nach rechts: −6, −5, −4, ⟦−3⟧.",
+          "Du hast noch 3 € Schulden. Mit der Abkürzung: 7 − 4 = 3. Die −7 ist weiter von der 0 weg, also ⟦−3⟧."
+        ],
+        "probe": "Kontostand: Von 7 € Schulden zahlst du 4 € zurück, es bleiben 3 € Schulden ✓",
+        "fehler": "(−7) + 4 = −11 ist falsch. Wer 4 € dazubekommt, hat danach ⟦weniger⟧ Schulden, nicht mehr. Bei verschiedenen Vorzeichen werden die Beträge ⟦subtrahiert⟧: 7 − 4 = 3, also −3.",
+        "bild": {
+          "typ": "zahlenstrahl",
+          "start": -10,
+          "ende": 10,
+          "abschnitte": 20,
+          "beschriftet": "anfang_ende",
+          "pfeil": 7
+        }
+      },
+      "strategie": "Modell zuerst (Zahlengerade als Bewegung, Kontostand als Geschichte), Regel als Abkürzung danach. So kann das Kind jede Regel selbst wieder herleiten."
+    },
+    {
+      "lernziel": "subtrahieren",
+      "urteil": "verbessern",
+      "probleme": [
+        "„Subtrahieren heißt die Gegenzahl addieren“ wird nur behauptet, nicht begründet. Warum 5 − (−3) = 8 ist, bleibt für das Kind ein Rätsel.",
+        "Der Merksatz „Minus und Minus ergeben Plus“ im Fehler ist ein Rezept ohne Warum und verleitet zu (−3) − 5 = 8."
+      ],
+      "neu": {
+        "regel": "Subtrahieren heißt: ⟦die Gegenzahl addieren⟧. Also 3 − 8 = 3 + (−8) und 5 − (−3) = 5 + 3. Warum? Wenn dir jemand ⟦Schulden wegnimmt⟧, wirst du reicher.",
+        "schritte": [
+          "3 − 8: Du hast 3 € und gibst 8 € aus. Das ist 3 + (−8). Von 3 gehst du 8 Schritte nach links: ⟦−5⟧.",
+          "5 − (−3): Du hast 5 €. Jemand streicht dir 3 € Schulden. Danach hast du 3 € mehr: 5 + 3 = ⟦8⟧."
+        ],
+        "probe": "Umkehraufgabe: (−5) + 8 = 3 ✓ und 8 + (−3) = 5 ✓",
+        "fehler": "5 − (−3) = 2 ist falsch. Hier werden nicht 3 € weggenommen, sondern ⟦3 € Schulden⟧. Weniger Schulden heißt mehr Geld: 5 − (−3) = 5 + 3 = 8. Vorsicht auch bei (−3) − 5: Das ist (−3) + (−5) = −8, nicht +8 – hier wird ja keine negative Zahl abgezogen."
+      },
+      "strategie": "Begründung über Schulden streichen statt Merksatz „Minus mal Minus“. Probe immer mit der Umkehraufgabe: Ergebnis + abgezogene Zahl = Startzahl."
+    },
+    {
+      "lernziel": "ketten",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "sach",
+      "urteil": "ok"
+    }
+  ],
+  "neue_karten": []
+}

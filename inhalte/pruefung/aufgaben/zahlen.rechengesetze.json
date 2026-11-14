@@ -1,0 +1,138 @@
+{
+  "thema_schluessel": "zahlen.rechengesetze",
+  "gesamturteil": "brauchbar",
+  "karten": [
+    {
+      "lernziel": "punkt_strich",
+      "urteil": "ok",
+      "stufen": "Gute Steigerung: eine Punktrechnung → zwei → drei Rechenzeichen. Nur ein Aufgabentyp (Berechne).",
+      "fehlende_aufgabentypen": [
+        "Fehler finden (auswahl): ‚Mia rechnet 12 + 3 · 4 = 60. Was hat sie falsch gemacht?‘ Antworten: ‚Sie hat zuerst addiert; richtig ist 12 + 12 = 24‘ (richtig) | ‚Sie hat falsch multipliziert‘ | ‚Nichts, 60 stimmt‘. Beispiel 2: ‚50 − 20 : 5 = 6‘ → ‚Zuerst 20 : 5 = 4, dann 50 − 4 = 46‘."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "klammern",
+      "urteil": "verbessern",
+      "stufen": "Leicht und mittel passen. Schwer ist fast nur die Auswahl ‚Bei welchem Term kommt … heraus?‘, bei der zwei Ablenker denselben Wert haben (12 + 6 · 9 und 12 + (6 · 9)) – das Kind muss nur zwei Werte ausrechnen.",
+      "fehlende_aufgabentypen": [
+        "Klammern setzen (auswahl): ‚Wo musst du Klammern setzen, damit 4 + 6 · 3 = 30 stimmt?‘ Antworten: ‚(4 + 6) · 3‘ (richtig) | ‚4 + (6 · 3)‘ | ‚Keine Klammer nötig‘. Beispiel 2: ‚24 : 4 + 2 = 4‘ → ‚24 : (4 + 2)‘."
+      ],
+      "generator_regeln": [
+        "Bei ‚Bei welchem Term kommt … heraus?‘ müssen alle Ablenker verschiedene Werte haben; statt ‚12 + (6 · 9)‘ z. B. ‚12 · 6 + 9‘ (Reihenfolge vertauscht) verwenden."
+      ]
+    },
+    {
+      "lernziel": "vorteil",
+      "urteil": "verbessern",
+      "stufen": "Stufe 3 enthält ‚Rechne geschickt: 50 · 8‘ und ‚Rechne geschickt: 20 · 140‘ – leichter als Stufe 2 (25 · 32 · 4). Dort wird eine Zerlegung erzwungen, die umständlicher ist als direktes Rechnen.",
+      "fehlende_aufgabentypen": [
+        "Differenz als Summe deuten (Lehrplan!, zahl): ‚Rechne geschickt: 83 − 47 + 17.‘ → 53 (−47 + 17 tauschen: 83 + 17 − 47 = 100 − 47). Beispiel 2: ‚126 − 59 − 26‘ → 41 (126 − 26 = 100, 100 − 59).",
+        "Begründen (auswahl): ‚Warum darf man 45 − 2 nicht zu 2 − 45 tauschen?‘ Antworten: ‚Weil 43 und −43 verschieden sind; das Vertauschungsgesetz gilt nur für Plus und Mal‘ (richtig) | ‚Man darf, das Ergebnis bleibt gleich‘ | ‚Weil 2 kleiner ist als 45‘. Beispiel 2 zu ‚48 : 6 = 6 : 48?‘."
+      ],
+      "generator_regeln": [
+        "‚Rechne geschickt‘ beim Multiplizieren nur mit echten Partnerzahlen (25 und 4, 50 und 2, 125 und 8) in einem Produkt aus drei Faktoren; keine Aufgaben aus zwei Faktoren, die man direkt rechnen kann (20 · 140, 50 · 8)."
+      ]
+    },
+    {
+      "lernziel": "verteilen",
+      "urteil": "verbessern",
+      "stufen": "Stufe 2 enthält ‚Rechne geschickt: 10 · 496‘ – mal 10 braucht kein Verteilungsgesetz. Stufe 3 ist fast nur Auswahl ‚Welcher Term ist gleich …?‘, das ist eher Stufe 2. Die gute Ausklammer-Aufgabe (17 · 104 − 17 · 4) kommt nur einmal vor.",
+      "fehlende_aufgabentypen": [
+        "Ausklammern (zahl, Stufe 3, mehr davon): ‚Rechne geschickt: 23 · 37 + 23 · 63.‘ → 2 300. Beispiel 2: ‚46 · 15 − 46 · 5‘ → 460."
+      ],
+      "generator_regeln": [
+        "Faktor vor der Klammer nie 10, 100 oder 1.",
+        "Stufe 3 zu mindestens der Hälfte aus Ausklammer-Aufgaben."
+      ]
+    },
+    {
+      "lernziel": "mal_ganz",
+      "urteil": "verbessern",
+      "stufen": "Stufe 3 mischt echte Dreierprodukte ((−7) · (−7) · (−5)) mit leichten Zweierprodukten (24 · (−3)). Nur ein Aufgabentyp.",
+      "fehlende_aufgabentypen": [
+        "Vorzeichen ohne Rechnen (auswahl): ‚Ist (−3) · (−5) · (−2) · 4 positiv oder negativ?‘ → negativ (drei Minuszeichen). Beispiel 2: ‚(−1) · (−1) · (−1) · (−1)‘ → positiv, Wert 1.",
+        "Umkehraufgabe (zahl): ‚(−6) · □ = 42‘ → −7. Beispiel 2: ‚□ · (−9) = −72‘ → 8."
+      ],
+      "generator_regeln": [
+        "Stufe 3 nur mit mindestens drei Faktoren oder Umkehraufgaben."
+      ]
+    },
+    {
+      "lernziel": "geteilt_ganz",
+      "urteil": "verbessern",
+      "stufen": "Wie bei mal_ganz: ‚Berechne (−14) : 2.‘ steht in Stufe 3, ist aber Stufe 1. Es fehlt der Sonderfall Division durch 0 bzw. 0 : Zahl.",
+      "fehlende_aufgabentypen": [
+        "Sonderfall null (auswahl): ‚Was ergibt 0 : (−7)?‘ Antworten 0 (richtig) | −7 | ‚geht nicht‘. Beispiel 2: ‚Was ergibt (−7) : 0?‘ → ‚geht nicht, durch 0 darf man nicht teilen‘."
+      ],
+      "generator_regeln": [
+        "Stufe 3: nur Ketten aus zwei Divisionen oder Mischungen mit Mal, keine Einzelrechnung."
+      ]
+    },
+    {
+      "lernziel": "ueberschlag",
+      "urteil": "ok",
+      "stufen": "Gute Steigerung: Plus runden → Mal runden → Ergebnis per Überschlag auswählen. Die Ablenker (Ziffern aneinandergehängt, Faktor 10 daneben) sind typische Fehler.",
+      "fehlende_aufgabentypen": [
+        "Schätzen in Sachsituation (zahl): ‚28 Kinder fahren ins Schullandheim, jedes zahlt 185 €. Überschlage die Gesamtkosten: Runde 28 auf Zehner und 185 auf Hunderter.‘ → 30 · 200 = 6 000 €. Beispiel 2: ‚19 Kisten mit je 52 Flaschen. Runde beide auf Zehner.‘ → 20 · 50 = 1 000."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "schriftlich",
+      "urteil": "verbessern",
+      "stufen": "Stufe 3 = vierstellig mal dreistellig (z. B. 9 570 · 885 = 8 469 450). Das ist nur Fleißarbeit mit hoher Fehlerquote und wird nicht schwerer, nur länger. Der Lösungsweg zeigt nur die Probe, nicht das Verfahren.",
+      "fehlende_aufgabentypen": [
+        "Division mit Null im Ergebnis (zahl): ‚Rechne schriftlich: 4 236 : 6.‘ → 706. Beispiel 2: ‚8 056 : 8‘ → 1 007. Genau hier passiert der typische Fehler (Null vergessen).",
+        "Fehler finden (auswahl): ‚Jemand rechnet 4 236 : 6 = 76. Was ist passiert?‘ → ‚Die 0 im Ergebnis fehlt; richtig 706‘."
+      ],
+      "generator_regeln": [
+        "Multiplikation höchstens dreistellig mal zweistellig; Division durch einstellige oder kleine zweistellige Zahlen.",
+        "Stufe 3 = Null im Ergebnis oder Zwischenschritt mit Übertrag, nicht mehr Stellen."
+      ]
+    },
+    {
+      "lernziel": "termaufbau",
+      "urteil": "ok",
+      "stufen": "Passen: Name des Terms → Art nach letzter Rechnung → Text in Term übersetzen.",
+      "fehlende_aufgabentypen": [
+        "Term in Worte fassen (auswahl): ‚Welcher Satz passt zu (15 − 6) · 4?‘ → ‚Multipliziere die Differenz aus 15 und 6 mit 4‘ | Ablenker ‚Subtrahiere das Produkt aus 6 und 4 von 15‘. Beispiel 2: ‚48 : (2 + 6)‘ → ‚Dividiere 48 durch die Summe aus 2 und 6‘."
+      ],
+      "generator_regeln": [
+        "Bei ‚Subtrahiere das Produkt aus a und b von c‘ nie a = b wählen (derzeit ‚aus 9 und 9 von 90‘)."
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Rechne geschickt: 20 · 140",
+      "art": "loesungsweg",
+      "problem": "Stufe 3, aber der vorgeschlagene Weg (20 = 5 · 4, 140 = 20 · 7, dann 5 · 20 und 4 · 7) ist umständlicher als 2 · 14 = 28 und zwei Nullen anhängen. Gleiches bei ‚Rechne geschickt: 50 · 8‘ (Stufe 3).",
+      "korrektur": "Ersetzen durch ‚Rechne geschickt: 4 · 37 · 25‘ → 3 700, Tipp ‚Welche zwei Zahlen ergeben zusammen 100?‘, Weg ‚4 · 25 = 100, 100 · 37 = 3 700‘."
+    },
+    {
+      "aufgabe": "Rechne geschickt: 10 · 496",
+      "art": "loesungsweg",
+      "problem": "Mal 10 ist einfacher als 10 · (500 − 4). Die Aufgabe übt das Verteilungsgesetz nicht sinnvoll.",
+      "korrektur": "‚Rechne geschickt: 6 · 496‘ → 2 976; Weg ‚6 · (500 − 4) = 3 000 − 24 = 2 976‘."
+    },
+    {
+      "aufgabe": "Rechne schriftlich: 9 570 · 885",
+      "art": "unrealistisch",
+      "problem": "Für Klasse 5 zu lang (Ergebnis 8 469 450), keine neue Schwierigkeit. Lösungsweg nur ‚Probe‘.",
+      "korrektur": "‚Rechne schriftlich: 957 · 48‘ → 45 936. Lösungsweg: ‚957 · 40 = 38 280; 957 · 8 = 7 656; 38 280 + 7 656 = 45 936.‘"
+    },
+    {
+      "aufgabe": "Rechne schriftlich: 5 010 : 6",
+      "art": "loesungsweg",
+      "problem": "Der Lösungsweg zeigt nur die Probe (835 · 6 = 5 010), nicht die schriftliche Division.",
+      "korrektur": "Lösungsweg: ‚50 : 6 = 8 Rest 2. 21 : 6 = 3 Rest 3. 30 : 6 = 5. Ergebnis 835. Probe: 835 · 6 = 5 010.‘"
+    },
+    {
+      "aufgabe": "Berechne (−14) : 2.",
+      "art": "mehrdeutig",
+      "problem": "Als Stufe 3 (schwer) eingestuft, ist aber eine Grundaufgabe. Ebenso ‚Berechne 24 · (−3).‘ in mal_ganz Stufe 3.",
+      "korrektur": "Stufe auf 1 setzen oder ersetzen durch ‚Berechne (−84) : (−4) : 3.‘ → 7."
+    }
+  ]
+}

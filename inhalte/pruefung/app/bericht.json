@@ -1,0 +1,378 @@
+{
+  "stand": "3f6bf0fe33704395c040267b0d3a260ce99947a6",
+  "getestet": [
+    "Vorhandene Tests tests/lernen.test.cjs: 13 von 13 bestanden (lokales Chrome über PW_TEST_EXECUTABLE)",
+    "Eigener Durchlauf inhalte/pruefung/app/durchlauf.test.cjs: 21 Testblöcke bestanden; je 390, 820, 1280 px in hell und dunkel; über 600 Bilder (Vollseite + erster Blick) in test-results/durchlauf",
+    "Kind – Heute, Mein Weg, Weltkarte, Reisepass, Merkheft, Wiederholen (Kind A Entdecker/Ozean und Kind B Studio/Nacht), alle Breiten, hell/dunkel: läuft ohne Absturz, kein waagrechtes Scrollen der Seite; Hauptknopf auf Heute bei 390 und 1280 verdeckt/unter dem Rand (Befund 2)",
+    "Kind – Thema Erklären | Üben | Fehler, alle Breiten: läuft; Prüfen-Knopf bei 390 und 1280 beim Öffnen nicht sichtbar (Befund 1)",
+    "Kind – Antwortarten Zahl, Auswahl (Test, Wiederholen), Zahlenstrahl, Term (mit Hilfsknöpfen hoch 2/plus), Bruch (Zähler/Nenner), Zahlenpaar (x/y, auch mit −1): Eingabe, Format-Hinweis, Richtig/Falsch funktionieren in allen Breiten",
+    "Kind – Tipp, Erklärung an der Aufgabe, falsche Antwort (Erklärung klappt auf, Punkte auf 0), „Lernkarte sitzt“ mit +Sterne und „Nächste Karte“: funktioniert; Hinweis sitzt erscheint im sichtbaren Bereich",
+    "Kind – Test starten, Antworten, Weiter/Zurück, Abgeben mit und ohne offene Aufgaben, Auswertung: funktioniert (Dialog bei offenen Aufgaben, Befund 13)",
+    "Kind – Wiederholen (2 Aufgaben, eine falsch) bis „Wiederholt 1 von 2 richtig“ und zurück zu Heute: funktioniert",
+    "Kind – Merkheft-Suche, Reisepass Einlösen und Look wechseln: funktioniert",
+    "Eltern/Lehrer – Übersicht, Belohnung bestätigen/anlegen, Lehrplan mit Filtern Klasse/Inhalt/Suche, „Bauen lassen“, Inhalte ansehen (inkl. 10 Zeichnungsarten), Anmerkung an Karte und Aufgabe, Themenplan ordnen/hinzufügen/speichern, Rückmeldung (leer → Hinweis, dann gesendet), Zugänge anlegen (ohne Name → Hinweis, mit Name → Code): alles funktioniert in allen Breiten",
+    "Anmeldung /lernen/ als Lehrer (falscher Code → „Code unbekannt“, richtiger Code → Übersicht) und als Kind (landet in Lernreise, Eltern-Ansichten gesperrt): funktioniert",
+    "Leerer Zustand (keine Orte, kein Stand, keine Belohnungen, keine Rückmeldungen/Zugänge, Thema ohne Karten): kein Absturz; zwei Anzeigefehler (Befunde 8, 9)",
+    "Server-Fehler (500) beim Laden und beim Prüfen: kein Absturz, aber keine Wiederholen-Möglichkeit (Befund 21)",
+    "Tastatur (1280 px): Tab-Reihenfolge sinnvoll, Fokusrahmen sichtbar, Zahlenstrahl-Striche per Tab und Enter wählbar; Enter prüft nicht, Fokus geht nach Prüfen verloren, Reiter ohne Pfeiltasten (Befunde 6, 22)",
+    "Zeichnungen (Stellentafel, Zahlenstrahl, Koordinaten, Figur, Säulen, Kreis, Boxplot, Baum, Tabelle): in allen Breiten lesbar, nichts abgeschnitten; Zahlenstrahl im Üben auf dem Handy klein (Befund 7)",
+    "Dunkler Gerätemodus: Bereich Lernen bleibt absichtlich hell; Kindansichten unverändert gut; in Eltern-Ansichten zwei unlesbare Signalfarben (Befund 16)",
+    "Keine JavaScript-Fehler (pageerror) in allen Durchläufen; einzige Konsolenmeldungen sind die gewollt nachgestellten 400/500-Antworten"
+  ],
+  "befunde": [
+    {
+      "nr": 1,
+      "bereich": "kind",
+      "ansicht": "lerneinheit (Üben)",
+      "art": "bedienung",
+      "schwere": "hoch",
+      "beschreibung": "Beim Öffnen einer Aufgabe ist der Knopf „Prüfen“ nicht zu sehen: Handy 390×844 – Oberkante bei 825 px, von der unteren Leiste verdeckt; Rechner 1280×800 – unter dem Bildrand. Über der Aufgabe stehen Pfad, Titel, Balken, Reiter, Kartenauswahl, Stufenauswahl und Kartenzeile. Das Kind tippt die Antwort und muss dann suchen, wie es weitergeht. Richtig wäre: Eingabe und Prüfen ohne Scrollen auf einen Blick.",
+      "nachstellen": [
+        "App bei 390×844 öffnen, #/lerneinheit/1-1-ueben-1",
+        "Ohne zu scrollen: kein Prüfen-Knopf sichtbar (Messung: elementFromPoint in der Knopfmitte = lr-nav)",
+        "Dasselbe bei 1280×800",
+        "Zusatzbild Rechner: bilder/01b-ueben-pruefen-unsichtbar-rechner.png"
+      ],
+      "vorschlag": "Prüfen direkt rechts neben bzw. unter das Antwortfeld in die Aufgabenkarte setzen. Tipp und Erklärung als kleine Textknöpfe in eine Zeile unter Prüfen. Kartenauswahl und Stufenauswahl in eine einklappbare Zeile „Karte 1 von 3 · alle Stufen ▾“. Pfad + Titel + Balken zu einer Zeile zusammenfassen („Rom · 0/3 sitzen“).",
+      "bild": "bilder/01-ueben-pruefen-unsichtbar-handy.png"
+    },
+    {
+      "nr": 2,
+      "bereich": "kind",
+      "ansicht": "reise (Heute)",
+      "art": "bedienung",
+      "schwere": "hoch",
+      "beschreibung": "Der wichtigste Knopf der App („Losreisen“/„Weiter geht’s“) ist beim Öffnen auf dem Handy 390×844 bis auf einen Streifen von der unteren Leiste verdeckt und am Rechner 1280×800 ganz unter dem Rand. Sichtbar sind zuerst Begrüßung, drei Zahlenkästen, die Wiederholen-Zeile und die Karte. Ein Kind sieht nicht sofort, wo es losgeht.",
+      "nachstellen": [
+        "#/reise/1 bei 390×844 öffnen",
+        "Knopf „Weiter geht’s“ liegt bei y=768, Leiste ab y≈780 – Knopfmitte von lr-nav verdeckt",
+        "#/reise/1 bei 1280×800: Knopf bei y=842",
+        "Zusatzbild Rechner: bilder/02b-heute-hauptknopf-unter-rand-rechner.png"
+      ],
+      "vorschlag": "Den großen Knopf direkt unter die Überschrift „Rom: Natürliche Zahlen“ setzen und über die Karte. Die Karte auf 100 px Höhe begrenzen. Die drei Zahlenkästen zu einer schmalen Zeile („0 Stempel · 340 Sterne · 12 Lerntage“) machen. Begrüßung und Frage in eine Zeile.",
+      "bild": "bilder/02-heute-hauptknopf-verdeckt-handy.png"
+    },
+    {
+      "nr": 3,
+      "bereich": "allgemein",
+      "ansicht": "alle Kind-Ansichten und /lernen/",
+      "art": "darstellung",
+      "schwere": "mittel",
+      "beschreibung": "Oben bleibt ein leerer Streifen von 72 px. Ursache im Stil: body[data-area] hat padding-top: 72px für die App-Bereichsleiste; im Kindmodus und auf der eigenen Lernen-Seite gibt es diese Leiste nicht. Auf dem Handy sind das fast 9 % der Höhe – genau der Platz, der dem Hauptknopf fehlt.",
+      "nachstellen": [
+        "#/reise/1 bei 390 px öffnen",
+        "Oben ist eine leere beige Fläche über der Kopfzeile",
+        "Ebenso /lernen/ nach Anmeldung mit Kind-Code"
+      ],
+      "vorschlag": "Für body[data-kindmodus] und body.lern-seite padding-top: 0 setzen.",
+      "bild": "bilder/03-leerer-streifen-oben-handy.png"
+    },
+    {
+      "nr": 4,
+      "bereich": "kind",
+      "ansicht": "alle Kind-Ansichten mit Maus (Tablet/Rechner)",
+      "art": "darstellung",
+      "schwere": "mittel",
+      "beschreibung": "Fährt die Maus über einen großen Knopf (Prüfen, Weiter geht’s, Nächste Aufgabe), wird er beige mit weißer Schrift – fast unlesbar und wirkt ausgeschaltet. Gemessen: ohne Maus rgb(217,72,42)/weiß, mit Maus rgb(238,234,224)/weiß. Ursache: die allgemeine Regel button:not(:disabled):hover überschreibt .lr-knopf. Nach „Nächste Aufgabe“ liegt die Maus noch auf der Stelle, der neue Prüfen-Knopf erscheint also sofort „grau“.",
+      "nachstellen": [
+        "#/lerneinheit/1-1-ueben-1 bei 1280 px",
+        "Maus auf „Prüfen“ bewegen",
+        "Knopf wird beige, Schrift weiß"
+      ],
+      "vorschlag": "Eigene Hover-Regel: .lr-knopf:hover { background: var(--lr-akzent); filter: brightness(1.06); } – ebenso für .lr-knopf-zweit und .lr-tabs button.",
+      "bild": "bilder/04-hover-pruefen-rechner.png"
+    },
+    {
+      "nr": 5,
+      "bereich": "kind",
+      "ansicht": "Kopfzeile in der Lernreise (Hauptapp)",
+      "art": "bedienung",
+      "schwere": "mittel",
+      "beschreibung": "Die Glocke „Mitteilungen“ steht auch in der Lernreise. Ein Tipp darauf führt aus dem Kindmodus in die Council-Mitteilungen der Hauptapp, mit den Leisten „Aufträge / Neuer Auftrag / Werkstatt“. Für ein Kind eine Sackgasse in einem fremden Bereich.",
+      "nachstellen": [
+        "#/reise/1 öffnen",
+        "Glocke oben rechts antippen",
+        "Adresse #/meldungen, Kindmodus aus, App-Bereichsleiste sichtbar"
+      ],
+      "vorschlag": "Im Kindmodus Glocke ausblenden (body[data-kindmodus] .kopf-glocke {display:none}); der Zurück-Pfeil reicht.",
+      "bild": "bilder/05-glocke-fuehrt-in-app-mitteilungen.png"
+    },
+    {
+      "nr": 6,
+      "bereich": "kind",
+      "ansicht": "lerneinheit (Üben)",
+      "art": "bedienung",
+      "schwere": "mittel",
+      "beschreibung": "Drei Kleinigkeiten, die beim Rechnen stören: (1) Enter im Antwortfeld prüft nicht – nichts passiert. (2) Nach „Dazu üben ▸“ steht der Cursor nicht im Antwortfeld (Fokus auf body). (3) Nach „Prüfen“ wird der Knopf ersetzt, der Fokus geht verloren (body) – mit Tastatur muss man von oben neu durchtabben.",
+      "nachstellen": [
+        "#/lerneinheit/1-1 öffnen, „Dazu üben ▸“ tippen",
+        "document.activeElement = BODY",
+        "2000 eintippen, Enter drücken – keine Rückmeldung",
+        "Prüfen klicken – Fokus wieder auf BODY"
+      ],
+      "vorschlag": "Aufgabe als <form> mit submit = Prüfen. Am Rechner nach „Dazu üben“ das erste Eingabefeld fokussieren (auf Touch-Geräten nicht, damit die Tastatur nicht die Aufgabe verdeckt). Nach Prüfen den Fokus auf „Nächste Aufgabe“ setzen; dort löst Enter ebenfalls aus.",
+      "bild": "bilder/06-ueben-enter-und-fokus.png"
+    },
+    {
+      "nr": 7,
+      "bereich": "kind",
+      "ansicht": "lerneinheit (Zahlenstrahl-Aufgabe)",
+      "art": "bedienung",
+      "schwere": "mittel",
+      "beschreibung": "Auf dem Handy sind die Tippziele des Zahlenstrahls nur 21×21 px groß und liegen 31 px auseinander; beschriftet sind nur Anfang und Ende. Ein Kind trifft leicht den Nachbarstrich. Außerdem hat das SVG role=\"img\", die Strich-Knöpfe liegen darin – für Bildschirmleser sind Kinder eines img-Elements laut ARIA nicht bedienbar (Vermutung zur Auswirkung, nicht mit Bildschirmleser geprüft).",
+      "nachstellen": [
+        "#/lerneinheit/1-1-ueben-2 bei 390 px",
+        "Größe der .ziel-Elemente messen: 21×21 px"
+      ],
+      "vorschlag": "Je Strich eine unsichtbare Tippfläche über die volle Höhe und die halbe Abstandsbreite links und rechts (mind. 44 px hoch). Gewählten Strich groß markieren und darüber eine kleine Sprechblase „hier?“ zeigen. SVG mit role=\"group\" statt \"img\".",
+      "bild": "bilder/07-zahlenstrahl-tippziele-handy.png"
+    },
+    {
+      "nr": 8,
+      "bereich": "kind",
+      "ansicht": "weltkarte (leer)",
+      "art": "fehler",
+      "schwere": "mittel",
+      "beschreibung": "Hat das Kind noch keinen Ort, zeigt die Weltkarte eine leere Karte mit „·“ und dem Wort „null“.",
+      "nachstellen": [
+        "Übersicht ohne Orte/Einheiten (schule_uebersicht mit leeren Listen)",
+        "#/weltkarte/1 öffnen"
+      ],
+      "vorschlag": "Bei leerer Ortsliste statt der Erdteil-Box einen Satz: „Deine Reise ist noch nicht geplant. Mama, Papa oder deine Lehrkraft legen bald die ersten Orte fest.“ und einen Knopf „Zu Heute“.",
+      "bild": "bilder/08-weltkarte-leer-null.png"
+    },
+    {
+      "nr": 9,
+      "bereich": "kind",
+      "ansicht": "lerneinheit (Thema ohne Lernkarten)",
+      "art": "fehler",
+      "schwere": "mittel",
+      "beschreibung": "Ein Thema ohne Lernkarten zeigt „0 von 0 sitzen“ und den großen Knopf „Alle Lernkarten sitzen – Test starten“. Das Kind kann einen Test zu einem Thema ohne Erklärung starten.",
+      "nachstellen": [
+        "schule_einheit_lesen mit etappen: [] und uebungen: []",
+        "#/lerneinheit/1-5 öffnen"
+      ],
+      "vorschlag": "In lernTestTeil: wenn keine Pflichtkarte existiert, statt Test-Knopf „Dieses Thema wird gerade gebaut.“ anzeigen.",
+      "bild": "bilder/09-leeres-thema-test-starten.png"
+    },
+    {
+      "nr": 10,
+      "bereich": "kind",
+      "ansicht": "reise (Heute, nichts offen) und Reisepass",
+      "art": "verstaendlichkeit",
+      "schwere": "niedrig",
+      "beschreibung": "Bei nichts Offenem steht „Schau in deinen Reisepass.“ – aber es gibt hier keinen Weg dorthin. Der Reisepass ist nicht in der unteren Leiste; er steht nur ganz unten in „Mein Weg“. Auch die Belohnungen (Grund zum Sternesammeln) sind dadurch versteckt.",
+      "nachstellen": [
+        "Leere Übersicht, #/reise/1",
+        "Kein Link „Reisepass“ auf der Seite; Leiste: Heute, Mein Weg, Merkheft, Karte"
+      ],
+      "vorschlag": "Die drei Zahlenkästen (Stempel/Sterne/Lerntage) als Link zum Reisepass machen; im Text „Schau in deinen Reisepass“ einen Link setzen.",
+      "bild": "bilder/10-heute-leer-reisepass-ohne-weg.png"
+    },
+    {
+      "nr": 11,
+      "bereich": "kind",
+      "ansicht": "weltkarte",
+      "art": "bedienung",
+      "schwere": "niedrig",
+      "beschreibung": "Orte auf der Weltkarte und in der Ortsliste darunter sind nicht antippbar (auf der Seite sind nur die vier Leisten-Links Links). Kinder tippen erfahrungsgemäß zuerst auf die Karte.",
+      "nachstellen": [
+        "#/weltkarte/1",
+        "Auf „Athen: Teilbarkeit“ oder den Punkt Rom tippen – nichts passiert"
+      ],
+      "vorschlag": "Ortszeile mit Inhalt verlinkt auf das Thema; Orte ohne Inhalt zeigen beim Antippen „Kommt bald – hier lernst du dann Teilbarkeit“.",
+      "bild": "bilder/11-weltkarte-orte-nicht-antippbar.png"
+    },
+    {
+      "nr": 12,
+      "bereich": "kind",
+      "ansicht": "Heute, Thema, Test, Weg",
+      "art": "verstaendlichkeit",
+      "schwere": "mittel",
+      "beschreibung": "Für dieselbe Sache gibt es verschiedene Wörter: Heute zeigt „2 von 3 Etappen“, das Thema „0 von 3 sitzen“ (Lernkarten), der Test „‹ Zu den Etappen“, Mein Weg „Test geschrieben“. Kopfzeile „Rom: Natürliche und ganze Zahlen“, Überschrift darunter „Natürliche Zahlen“. Karten ohne Fortschritt tragen den Hinweis „neu“. Ein Zehnjähriger kann daraus nicht ablesen, was noch fehlt.",
+      "nachstellen": [
+        "#/reise/1: „2 von 3 Etappen“",
+        "#/lerneinheit/1-1: „0 von 3 sitzen“, Karte „○ neu“",
+        "#/lerneinheit/1-1-test → Test starten: „‹ Zu den Etappen“"
+      ],
+      "vorschlag": "Ein Wort durchziehen: „Lernkarte“. Heute: „1 von 3 Lernkarten sitzen“. Test: „‹ Zurück zum Thema“. Status statt „neu“: „noch nicht geübt“. Kopfzeile = Ortsname („Rom“), Überschrift = Thema.",
+      "bild": "bilder/12-begriffe-etappe-lernkarte-tablet.png"
+    },
+    {
+      "nr": 13,
+      "bereich": "kind",
+      "ansicht": "lerneinheit (Test)",
+      "art": "bedienung",
+      "schwere": "niedrig",
+      "beschreibung": "Der Test sieht anders aus als der Rest der Lernreise (Eltern-Optik: braune Kleinschrift, kleine Ziffern-Knöpfe, normale Knöpfe statt der großen Kinderknöpfe). „Abgeben“ mit offenen Aufgaben öffnet ein Browser-Fenster („2 Aufgabe(n) ohne Antwort. Sie zählen als falsch. Trotzdem abgeben?“) – im Kindmodus ungewohnt und auf dem Handy leicht wegzutippen.",
+      "nachstellen": [
+        "#/lerneinheit/1-1-test, Test starten",
+        "Ohne Antworten zu Aufgabe 2 und „Abgeben“",
+        "Browser-Dialog erscheint"
+      ],
+      "vorschlag": "Test im Kinderlook (lr-karte-box, lr-knopf). Statt window.confirm eine Hinweisbox in der Seite: „Aufgabe 1 und 2 sind noch leer.“ mit Knöpfen „Zu Aufgabe 1“ (groß) und „Trotzdem abgeben“ (klein).",
+      "bild": "bilder/13-test-abgeben-eltern-optik.png"
+    },
+    {
+      "nr": 14,
+      "bereich": "kind",
+      "ansicht": "lerneinheit (Üben)",
+      "art": "darstellung",
+      "schwere": "niedrig",
+      "beschreibung": "Die Kartenauswahl läuft rechts aus dem Bild („2 · Zah…“), ohne Hinweis, dass man wischen kann. Gibt es nur eine Stufe, steht eine eigene Zeile mit dem einzelnen Knopf „alle“.",
+      "nachstellen": [
+        "#/lerneinheit/1-1-ueben-1 bei 390 px",
+        "Kartenchips: zweiter Chip abgeschnitten; darunter Zeile nur „alle“"
+      ],
+      "vorschlag": "Kartenauswahl als „‹ Karte 1 von 3 ›“ mit Pfeilen; Stufenzeile nur zeigen, wenn mindestens zwei Stufen vorkommen.",
+      "bild": "bilder/14-uebenchips-abgeschnitten-handy.png"
+    },
+    {
+      "nr": 15,
+      "bereich": "kind",
+      "ansicht": "Kopfzeile (Handy)",
+      "art": "darstellung",
+      "schwere": "niedrig",
+      "beschreibung": "Der Titel wird auf dem Handy mit „…“ abgeschnitten („Rom: Natürliche und ganz…“).",
+      "nachstellen": [
+        "#/lerneinheit/1-1 bei 390 px",
+        "#title scrollWidth 294 > clientWidth 242"
+      ],
+      "vorschlag": "Im Kindmodus nur den Ort („Rom“) als Titel; das Thema steht ohnehin als Überschrift darunter.",
+      "bild": "bilder/15-kopfzeile-titel-abgeschnitten.png"
+    },
+    {
+      "nr": 16,
+      "bereich": "eltern_lehrer",
+      "ansicht": "plan, inhalte (dunkler Gerätemodus)",
+      "art": "barrierefreiheit",
+      "schwere": "mittel",
+      "beschreibung": "Der Bereich Lernen erzwingt helle Flächen, übernimmt aber bei dunklem Gerätemodus die dunklen Signalfarben (--err #ffa4ac, --ok #8ed4a4, --warn, --info). Folge: „Entfernen“ im Themenplan rosa auf Weiß (Kontrast 1,9:1), Markierung „frei“ in den Inhalten hellgrün auf Weiß (1,7:1). Bei hellem Modus ist alles lesbar.",
+      "nachstellen": [
+        "Gerät auf dunkel (emulateMedia colorScheme dark)",
+        "#/plan/1 öffnen – „Entfernen“ kaum lesbar",
+        "#/inhalte/1, Karte öffnen – „frei“ kaum lesbar"
+      ],
+      "vorschlag": "Im Block body[data-area=\"lernen\"] (style.css) auch --err, --err-bg, --ok, --ok-bg, --warn, --warn-bg, --info, --info-bg auf die hellen Werte setzen.",
+      "bild": "bilder/16-dunkel-entfernen-unlesbar.png"
+    },
+    {
+      "nr": 17,
+      "bereich": "eltern_lehrer",
+      "ansicht": "inhalte (Handy)",
+      "art": "darstellung",
+      "schwere": "mittel",
+      "beschreibung": "Die Aufgabentabelle passt auf 390 px nicht: Spalte „Stufe“ bricht Buchstabe für Buchstabe („S/tu/fe“, „m/itt/el“), die Lösung ist abgeschnitten, weitere Spalten (frei, Lösungsweg) erreicht man nur durch seitliches Wischen in der Tabelle. Zeilen werden dadurch sehr hoch.",
+      "nachstellen": [
+        "#/inhalte/1 bei 390 px",
+        "Karte „2 · Zahlenstrahl“ öffnen",
+        "Tabelle ansehen"
+      ],
+      "vorschlag": "Unter 600 px jede Aufgabe als Block: Frage (fett), darunter eine Zeile „mittel · Lösung 20 000 · frei ✓“, darunter Lösungsweg klein.",
+      "bild": "bilder/17-inhalte-tabelle-handy.png"
+    },
+    {
+      "nr": 18,
+      "bereich": "eltern_lehrer",
+      "ansicht": "lernen (Übersicht)",
+      "art": "verstaendlichkeit",
+      "schwere": "mittel",
+      "beschreibung": "Die Startseite für Eltern beginnt mit „Mathe Klasse 7/8“ und dem Knopf „Mathe öffnen ↗“ (ein älteres, separates Lernblatt; der Text nennt fest einen Kindernamen). Die Kinder in den Daten sind in Klasse 5 und 7. Die eigentliche Lernreise („Wer lernt heute?“) und die Werkzeuge stehen erst darunter. Der erste und auffälligste Knopf führt also auf eine andere Seite.",
+      "nachstellen": [
+        "#/lernen bei 390 px öffnen",
+        "Erster dunkler Knopf: „Mathe öffnen ↗“"
+      ],
+      "vorschlag": "„Wer lernt heute?“ mit den Kinderkarten ganz nach oben. Das alte Lernblatt in einen eingeklappten Abschnitt „Weitere Lernhilfen“ am Ende; Überschrift ohne feste Klassenstufe.",
+      "bild": "bilder/18-eltern-start-klasse-7-8.png"
+    },
+    {
+      "nr": 19,
+      "bereich": "eltern_lehrer",
+      "ansicht": "lehrplan",
+      "art": "bedienung",
+      "schwere": "niedrig",
+      "beschreibung": "Die vier Zahlenkacheln (5 Themen, 1 fertig, 1 in Prüfung, 3 ohne Inhalt) sehen wie Knöpfe aus, filtern aber nicht. Der Link „Inhalte ansehen“ ist nur 25 px hoch.",
+      "nachstellen": [
+        "#/lehrplan",
+        "Auf Kachel „3 ohne Inhalt“ tippen – nichts passiert",
+        "Höhe „Inhalte ansehen“ gemessen: 25 px"
+      ],
+      "vorschlag": "Kacheln als Filterknöpfe (setzen „Inhalt“-Auswahl, aktive Kachel umrandet). „Inhalte ansehen“ als Knopf mit mindestens 44 px Höhe.",
+      "bild": "bilder/19-lehrplan-kacheln-und-link.png"
+    },
+    {
+      "nr": 20,
+      "bereich": "anmeldung",
+      "ansicht": "/lernen/ Anmeldung",
+      "art": "verstaendlichkeit",
+      "schwere": "niedrig",
+      "beschreibung": "Der Code wird genau so gesendet, wie er getippt wurde. In Kleinbuchstaben („abcd-efgh-jklm“) meldet die nachgestellte Schnittstelle „Code unbekannt“. Ob der echte Server Kleinbuchstaben annimmt, ist nicht geprüft (Vermutung: nein, da der Code in Großbuchstaben ausgegeben wird). Außerdem steht für alle Rollen „Du bekommst ihn von den Eltern“ – auch für Lehrkräfte.",
+      "nachstellen": [
+        "/lernen/ öffnen",
+        "Code klein eintippen, Anmelden",
+        "Meldung „Code unbekannt“"
+      ],
+      "vorschlag": "Vor dem Senden: Großbuchstaben, Leerzeichen und fehlende Striche ergänzen (ABCDEFGHJKLM → ABCD-EFGH-JKLM). Text: „Den Code bekommst du von deinen Eltern oder deiner Lehrkraft.“",
+      "bild": "bilder/20-anmeldung-kleinbuchstaben.png"
+    },
+    {
+      "nr": 21,
+      "bereich": "allgemein",
+      "ansicht": "alle Ansichten bei Server-Fehler",
+      "art": "bedienung",
+      "schwere": "mittel",
+      "beschreibung": "Schlägt das Laden fehl, bleibt „Lade …“ stehen und darunter erscheint „Fehler: Interner Fehler“. Es gibt keinen Knopf zum erneuten Versuch, und der Text ist für ein Kind unverständlich. Nach einem Fehler beim Prüfen steht nur „Interner Fehler“ über dem Knopf.",
+      "nachstellen": [
+        "schule_uebersicht mit Status 500 beantworten",
+        "#/reise/1 öffnen"
+      ],
+      "vorschlag": "Spinner entfernen; Text für Kinder: „Das hat gerade nicht geklappt. Prüfe das Internet und versuch es nochmal.“ mit großem Knopf „Nochmal versuchen“ (ruft render()). Beim Prüfen: Antwort bleibt stehen, Knopf „Nochmal prüfen“.",
+      "bild": "bilder/21-serverfehler-lade-bleibt.png"
+    },
+    {
+      "nr": 22,
+      "bereich": "kind",
+      "ansicht": "lerneinheit (Reiter)",
+      "art": "barrierefreiheit",
+      "schwere": "niedrig",
+      "beschreibung": "Die Reiter Erklären | Üben | Fehler sind als role=\"tab\" ausgezeichnet, die Pfeiltasten wechseln aber nicht (nach Pfeil rechts bleibt „Erklären“ aktiv). Fokusrahmen sind sichtbar, Reihenfolge mit Tab ist sinnvoll.",
+      "nachstellen": [
+        "#/lerneinheit/1-1 bei 1280 px",
+        "Fokus auf „Erklären“, Pfeil rechts",
+        "Aktiver Reiter bleibt „Erklären“"
+      ],
+      "vorschlag": "Pfeil links/rechts wechselt den Reiter (roving tabindex), wie im ARIA-Muster für Reiter.",
+      "bild": "bilder/22-reiter-pfeiltasten.png"
+    },
+    {
+      "nr": 23,
+      "bereich": "eltern_lehrer",
+      "ansicht": "alle Eltern/Lehrer-Ansichten",
+      "art": "barrierefreiheit",
+      "schwere": "niedrig",
+      "beschreibung": "Kleine Schrift unter dem Kontrastwert 4,5:1: Kopfzeilen wie „LERNEN SCHULE“, „ELTERN UND LEHRER“ (10 px, braun auf beige, 3,96:1); erklärende Texte in Grau (#6e7c73 auf #f6f4ec, 3,98:1). Für Lehrkräfte am Beamer oder in der Sonne schlecht lesbar.",
+      "nachstellen": [
+        "#/lernen öffnen",
+        "Farben messen (Messung in durchlauf.test.cjs, Feld kontrast)"
+      ],
+      "vorschlag": "Augenbrauen-Kopfzeilen auf 12 px und #7a5640; --muted im Lernen-Bereich auf #5c6a61 (≥ 4,9:1).",
+      "bild": "bilder/23-kleine-schrift-kontrast.png"
+    },
+    {
+      "nr": 24,
+      "bereich": "kind",
+      "ansicht": "/lernen/ mit Kind-Code",
+      "art": "bedienung",
+      "schwere": "niedrig",
+      "beschreibung": "Nach Anmeldung mit Kind-Code steht oben rechts gut sichtbar „Abmelden“ und die Versionsnummer „v0.69.0“. Ein Kind meldet sich leicht versehentlich ab und kennt danach den Code nicht.",
+      "nachstellen": [
+        "/lernen/ mit Kind-Code anmelden",
+        "Kopfzeile: „Abmelden“ und „v0.69.0“"
+      ],
+      "vorschlag": "Für Kinder „Abmelden“ in den Reisepass (unten, mit Erklärung „Nur wenn du das Gerät abgibst“) verschieben; Versionsnummer im Kindmodus ausblenden.",
+      "bild": "bilder/24-kind-lernseite-abmelden.png"
+    }
+  ],
+  "ideen": [],
+  "top5": []
+}

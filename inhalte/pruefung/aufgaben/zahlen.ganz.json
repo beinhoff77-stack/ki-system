@@ -1,0 +1,135 @@
+{
+  "thema_schluessel": "zahlen.ganz",
+  "gesamturteil": "brauchbar",
+  "karten": [
+    {
+      "lernziel": "deuten",
+      "urteil": "verbessern",
+      "stufen": "Leicht (Zahl hinschreiben) und mittel (Bedeutung auswählen) passen. Schwer ist nur der Abstand von einer negativen zu einer positiven Zahl – gut, aber es gibt nur zwei Vorlagen (Temperatur, Aufzug). Die Auswahlaufgaben sind alle nach demselben Muster gebaut (−x bedeutet ‚x unter null‘).",
+      "fehlende_aufgabentypen": [
+        "Umkehraufgabe: Aus einer Zahl eine Situation erkennen und eine Gegenrichtung bilden. Vorlage: ‚Ein Taucher ist auf −a m. Wie viele Meter muss er nach oben, bis er an der Wasseroberfläche ist?‘ (a = 3…40, Lösung a). Beispiel 1: Taucher auf −14 m → 14 m. Beispiel 2: ‚Ein Konto steht auf −35 €. Wie viel Geld musst du einzahlen, damit es genau 0 € sind?‘ → 35 €.",
+        "Aussage beurteilen (Auswahl ja/nein mit Begründung): ‚Bei −2 °C ist es wärmer als bei −5 °C. Stimmt das?‘ Antworten: ‚Ja, −2 liegt rechts von −5‘ (richtig) | ‚Nein, 5 ist größer als 2‘ (typischer Fehler: Beträge vergleichen) | ‚Nein, beide sind gleich kalt‘. Beispiel 2: ‚Wer hat mehr Schulden: Kontostand −40 € oder −25 €?‘ → ‚−40 €‘; Ablenker ‚−25 €, weil −25 größer ist‘."
+      ],
+      "generator_regeln": [
+        "Bei ‚Was bedeutet die Temperatur −x °C?‘ den Ablenker ‚Es wird x Grad wärmer‘ ersetzen durch ‚wärmer als −y °C‘ mit y < x (Fehler: Beträge verglichen).",
+        "Richtige Antwort nicht in mehr als 40 % der Aufgaben einer Karte an Position 1 setzen (derzeit 7 von 16)."
+      ]
+    },
+    {
+      "lernziel": "zahlengerade",
+      "urteil": "verbessern",
+      "stufen": "Alle 28 Aufgaben sind derselbe Typ ‚Tippe die Markierung an‘. Stufe 3 unterscheidet sich nur durch größere Zahlen (z. B. −500 bis 500), nicht durch einen anderen Gedanken. Das ist ‚nur größer‘, nicht ‚schwerer‘.",
+      "fehlende_aufgabentypen": [
+        "Ablesen (Umkehrung): Zahlenstrahl mit Anfang/Ende und Abschnitten als f.grafik, Frage ‚Ein Abschnitt ist wie viel wert?‘ (zahl). Beispiel 1: −20 bis 20 in 8 Abschnitten → 5. Beispiel 2: −60 bis 40 in 10 Abschnitten → 10.",
+        "Zahl in der Mitte (Stufe 3): ‚Welche Zahl liegt genau in der Mitte zwischen −14 und 6?‘ → −4. Beispiel 2: ‚… zwischen −30 und −10?‘ → −20. Lösung: (a + b) : 2, nur gerade Summen zulassen.",
+        "Schritte zählen: ‚Du startest bei −3 und gehst 7 Schritte nach links. Wo landest du?‘ → −10. Beispiel 2: ‚Start bei −12, 15 Schritte nach rechts‘ → 3."
+      ],
+      "generator_regeln": [
+        "Stufe 3 nicht nur durch größere Zahlen bilden; dort Mitte-Aufgaben oder Abschnittswert-Ablesen einsetzen.",
+        "Mindestens ein Drittel der Ziele bei Markierungsaufgaben positiv wählen (derzeit fast nur negative Ziele)."
+      ]
+    },
+    {
+      "lernziel": "ordnen",
+      "urteil": "verbessern",
+      "stufen": "Stufen passen grundsätzlich (leicht gemischt, mittel nur negativ, schwer Kette/Aussage). Fachfehler im Tipp bei ‚am größten‘ (siehe Fehlerliste).",
+      "fehlende_aufgabentypen": [
+        "Zahl zwischen zwei Zahlen (zahl): ‚Nenne die ganze Zahl, die zwischen −8 und −6 liegt.‘ → −7. Beispiel 2: ‚… zwischen −1 und 1‘ → 0.",
+        "Fehler finden (auswahl): ‚Lena ordnet: −3 < −7 < 2. Was ist falsch?‘ Antworten: ‚−7 ist kleiner als −3, es muss −7 < −3 < 2 heißen‘ (richtig) | ‚2 muss ganz links stehen‘ | ‚Nichts, es stimmt‘. Beispiel 2: ‚−12 > −10, weil 12 > 10.‘ → richtig: ‚Falsch: −12 liegt links von −10, also −12 < −10‘."
+      ],
+      "generator_regeln": [
+        "Bei ‚Welche Zahl ist am größten?‘ den Tipp ‚Wer steht am weitesten rechts?‘ verwenden.",
+        "In leichten Aufgaben mit gemischten Vorzeichen immer eine negative Zahl mit großem Betrag als Ablenker einbauen (z. B. −12 neben 5 und 4), damit der Fehler ‚größter Betrag = größte Zahl‘ geprüft wird."
+      ]
+    },
+    {
+      "lernziel": "betrag",
+      "urteil": "ok",
+      "stufen": "Passen. Gegenzahl kommt nur einmal vor; Betrag und Gegenzahl werden nicht gegeneinander abgegrenzt.",
+      "fehlende_aufgabentypen": [
+        "Betrag oder Gegenzahl? (auswahl): ‚Welche Zahl ist die Gegenzahl von −9, und welche ist ihr Betrag?‘ einfacher als zwei Teilaufgaben: ‚Was ist die Gegenzahl von −9?‘ Antworten 9 | −9 | 0 → 9. Beispiel 2: ‚Was ist die Gegenzahl von 0?‘ → 0 (Sonderfall)."
+      ],
+      "generator_regeln": [
+        "Bei ‚Wie weit ist −x von der 0 entfernt?‘ den Ablenker 0 durch den Fehler 2·x ersetzen (man zählt von −x bis x)."
+      ]
+    },
+    {
+      "lernziel": "addieren",
+      "urteil": "verbessern",
+      "stufen": "Nur reine Rechenaufgaben in drei Vorlagen; Stufe 3 sind dieselben Vorlagen mit größeren Zahlen. Keine Aufgabe zum Verstehen.",
+      "fehlende_aufgabentypen": [
+        "Ergänzen (Umkehraufgabe, zahl): ‚Welche Zahl musst du zu −7 addieren, um 3 zu erhalten?‘ → 10. Beispiel 2: ‚(−15) + □ = −4‘ → 11.",
+        "Vorzeichen vorhersagen ohne Rechnen (auswahl): ‚Ist (−38) + 25 positiv oder negativ?‘ → negativ (größerer Betrag ist negativ). Beispiel 2: ‚(−17) + 40‘ → positiv."
+      ],
+      "generator_regeln": [
+        "Stufe 3: mindestens die Hälfte als Ergänzungs- oder Vorzeichenaufgabe statt größerer Zahlen."
+      ]
+    },
+    {
+      "lernziel": "subtrahieren",
+      "urteil": "verbessern",
+      "stufen": "Stufen passen nur über Zahlengröße. Es fehlt die typische Fehlerstelle ‚Minus Minus‘ als Fehler-finden-Aufgabe.",
+      "fehlende_aufgabentypen": [
+        "Fehler finden (auswahl): ‚Tom rechnet (−8) − (−3) = −11. Welcher Fehler?‘ Antworten: ‚Er hat −3 addiert statt +3; richtig ist −5‘ (richtig) | ‚Er hat richtig gerechnet‘ | ‚Das Ergebnis muss 11 sein‘. Beispiel 2: ‚5 − (−4) = 1‘ → ‚Minus minus wird plus: 5 + 4 = 9‘.",
+        "Abstand zweier Zahlen (zahl): ‚Wie groß ist der Abstand zwischen −13 und 4?‘ → 17. Beispiel 2: ‚… zwischen −25 und −9?‘ → 16."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "ketten",
+      "urteil": "verbessern",
+      "stufen": "Stufe 1 und 2 haben keine Klammern, der Tipp spricht aber immer von ‚Klammern auflösen‘. Stufe 3 bringt Klammern – das ist ein echter Schritt. Der Lösungsweg enthält Leerformeln wie ‚Minus-Zahlen: 12 = 12‘.",
+      "fehlende_aufgabentypen": [
+        "Geschickt rechnen (zahl): Aufgaben, bei denen sich Gegenzahlen aufheben: ‚Berechne 37 − 19 + 19 − 40.‘ → −3. Beispiel 2: ‚(−25) + 48 + 25 − 8‘ → 40. Lösungsweg: ‚+19 und −19 heben sich auf‘."
+      ],
+      "generator_regeln": [
+        "Tipp abhängig von der Aufgabe: ohne Klammern ‚Sammle die Plus-Zahlen und die Minus-Zahlen getrennt.‘",
+        "Im Lösungsweg bei nur einer Zahl nicht ‚Minus-Zahlen: 12 = 12‘ schreiben, sondern ‚Minus-Zahl: 12‘."
+      ]
+    },
+    {
+      "lernziel": "sach",
+      "urteil": "ok",
+      "stufen": "Gute Mischung aus Temperatur, Taucher, Konto. Die Kontoaufgabe (16 Stück) ist überrepräsentiert.",
+      "fehlende_aufgabentypen": [
+        "Rückwärts rechnen (zahl): ‚Nach einem Temperatursturz um 9 Grad sind es −4 °C. Wie warm war es vorher?‘ → 5 °C. Beispiel 2: ‚Nach einer Abhebung von 60 € steht das Konto auf −25 €. Wie hoch war es vorher?‘ → 35 €."
+      ],
+      "generator_regeln": [
+        "Die Kontoaufgabe auf höchstens 8 Aufgaben begrenzen; Rückwärtsaufgaben dafür aufnehmen.",
+        "Im Lösungsweg der 3-Schritte-Temperaturaufgabe die Startzahl nicht unter ‚Minus-Zahlen‘ mischen, sondern Schritt für Schritt rechnen: ‚−6 + 6 = 0; 0 − 6 = −6; −6 − 6 = −12‘."
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Welche Zahl ist am größten?",
+      "art": "falsch",
+      "problem": "Der Tipp lautet ‚Stell dir die Zahlengerade vor: Wer steht am weitesten links?‘ Das führt zur kleinsten Zahl, nicht zur größten. Betrifft alle 4 Übungen dieser Vorlage (z. B. Auswahl −12 | −11 | −9).",
+      "korrektur": "Tipp: ‚Stell dir die Zahlengerade vor: Wer steht am weitesten rechts?‘"
+    },
+    {
+      "aufgabe": "Berechne −6 + 5 − 1.",
+      "art": "loesungsweg",
+      "problem": "Der Tipp ‚Löse zuerst alle Klammern auf …‘ passt nicht: Die Aufgabe hat keine Klammern. Gilt für alle Ketten-Aufgaben der Stufen 1 und 2. Außerdem steht im Lösungsweg ‚Plus-Zahlen: 5 = 5‘.",
+      "korrektur": "Tipp: ‚Sammle die Plus-Zahlen und die Minus-Zahlen getrennt.‘ Lösungsweg: ‚Plus-Zahl: 5. Minus-Zahlen: 6 + 1 = 7. 5 − 7 = −2.‘"
+    },
+    {
+      "aufgabe": "Um 6 Uhr sind es −6 °C. Bis mittags wird es 6 Grad wärmer, bis abends 6 Grad kälter und in der Nacht noch einmal 6 Grad kälter. Wie kalt ist es in der Nacht?",
+      "art": "loesungsweg",
+      "problem": "Alle vier Zahlen sind 6 – das Kind kann die Rollen der Zahlen nicht unterscheiden. Der Lösungsweg ‚−6 + 6 − 6 − 6: Plus 6, Minus 6 + 6 + 6 = 18. 6 − 18 = −12‘ ist schwer lesbar.",
+      "korrektur": "‚Um 6 Uhr sind es −6 °C. Bis mittags wird es 9 Grad wärmer, bis abends 5 Grad kälter und in der Nacht noch einmal 7 Grad kälter. Wie kalt ist es in der Nacht?‘ Lösung −9 °C. Weg: ‚−6 + 9 = 3; 3 − 5 = −2; −2 − 7 = −9.‘"
+    },
+    {
+      "aufgabe": "Was bedeutet die Temperatur −23 °C?",
+      "art": "sprache",
+      "problem": "Ablenker ‚Es wird 23 Grad wärmer‘ beschreibt eine Änderung statt eines Zustands und ist kein typischer Denkfehler; das Kind schließt ihn sofort aus.",
+      "korrektur": "Antworten: ‚23 Grad unter null‘ (richtig) | ‚23 Grad über null‘ | ‚wärmer als −20 °C‘ (Fehler: Beträge verglichen)."
+    },
+    {
+      "aufgabe": "Wie weit ist −36 von der 0 entfernt?",
+      "art": "sprache",
+      "problem": "Ablenker 0 ist kein typischer Fehler. Typisch ist −36 (Vorzeichen übernommen) und 72 (Strecke von −36 bis 36).",
+      "korrektur": "Antworten: −36 | 36 (richtig) | 72"
+    }
+  ]
+}

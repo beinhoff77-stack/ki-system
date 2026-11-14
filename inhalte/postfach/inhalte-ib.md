@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-14 15:12 – STATUS
+2/14 groessen.verhaeltnisse fertig: 6 Lernkarten (kürzen, gleichwertig, aufteilen, Proportionen, Einheitsraten, Änderungsraten), 168 Aufgaben, Prüfskript OK. Hilfsfunktion eu() für Geldbeträge in _ib.py ergänzt.
+
 ## 2026-11-14 15:09 – STATUS
 1/14 mengen.grundbegriffe fertig: 5 Lernkarten, 140 Aufgaben, Prüfskript OK. Venn-Diagramme als figur (Kreise + Rechteck). Hilfsdatei inhalte/generatoren/_ib.py angelegt.
 

@@ -414,3 +414,12 @@ def menge(xs):
 def pz(x, nd=1):
     """Prozentzahl als Text, z. B. 12,5 %."""
     return dz(round(x, nd) if isinstance(x, float) else x) + ' %'
+
+
+def eu(x):
+    """Geldbetrag mit zwei Nachkommastellen: 12,50 € (ganze Euro ohne Komma: 12 €)."""
+    x = Fr(x)
+    if x.denominator == 1: return f'{dz(int(x))} €'
+    ganz = int(abs(x))
+    cent = round((abs(x) - ganz) * 100)
+    return ('−' if x < 0 else '') + f'{dz(ganz)},{cent:02d} €'

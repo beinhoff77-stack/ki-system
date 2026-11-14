@@ -5,16 +5,24 @@ from fractions import Fraction as Fr
 from pathlib import Path
 sys.dont_write_bytecode = True
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _bausatz import A, Z, baue, cz, einsetzen, ist_endlich, kl, lin, zt  # noqa: E402
+from _bausatz import A, L, Z, baue, cz, einsetzen, ist_endlich, kl, lin, mit_bild, zt  # noqa: E402
 
 META = {'thema_schluessel': 'funktionen.grundbegriffe', 'thema_id': 32, 'block_id': 73, 'klasse': {'gym_by': 8, 'rs_by': 8}}
 
 ETAPPEN = [
     {'lernziel': 'eindeutig', 'titel': 'Ist die Zuordnung eine Funktion?',
-     'regel': 'Eine ⟦Funktion⟧ ordnet ⟦jedem⟧ x-Wert aus der Definitionsmenge ⟦genau einen⟧ y-Wert zu. Dass verschiedene x denselben y-Wert haben, ist erlaubt.',
-     'schritte': ['Zuordnung: (1 | 5), (2 | 7), (3 | 5)', 'Jedes x kommt nur einmal vor. Dass 1 und 3 beide auf 5 gehen, stört nicht.', '⟦Es ist eine Funktion.⟧'],
-     'fehler': '(2 | 4), (2 | 6) ist ⟦keine⟧ Funktion: Dem x-Wert 2 sind zwei y-Werte zugeordnet. Umgekehrt wäre (2 | 4), (3 | 4) aber eine Funktion.',
+     'regel': 'Eine ⟦Funktion⟧ ordnet ⟦jedem⟧ x-Wert ⟦genau einen⟧ y-Wert zu. Beispiel: Jedem Kind deiner Klasse wird sein Geburtstag zugeordnet – jedes Kind hat genau einen. Dass zwei Kinder am selben Tag Geburtstag haben, ist erlaubt.',
+     'schritte': ['Zuordnung: (1 | 5), (2 | 7), (3 | 5). Prüfe: Kommt ein x-Wert zweimal vor?',
+                  'Nein, 1, 2 und 3 kommen je einmal vor. Dass 1 und 3 beide den y-Wert 5 haben, stört nicht – wie zwei Kinder mit demselben Geburtstag.',
+                  '⟦Es ist eine Funktion.⟧'],
+     'fehler': '(2 | 4), (2 | 6) ist ⟦keine⟧ Funktion: Der x-Wert 2 hat zwei y-Werte – wie ein Kind mit zwei Geburtstagen. Umgekehrt ist (2 | 4), (3 | 4) eine Funktion: Zwei x-Werte dürfen denselben y-Wert haben.',
+     'bild': {'typ': 'tabelle', 'kopf': ['x', '1', '2', '3'], 'zeilen': [['y', '5', '7', '5']]},
      '_verbot': ['(1 | 5), (2 | 7), (3 | 5)']},
+    {'lernziel': 'mengen', 'titel': 'Definitionsmenge und Wertemenge',
+     'regel': 'Die ⟦Definitionsmenge⟧ D enthält alle x, die man einsetzen darf. Die ⟦Wertemenge⟧ W enthält alle y-Werte, die dabei herauskommen. Verboten ist zum Beispiel alles, was einen ⟦Nenner 0⟧ macht – durch 0 kann man nicht teilen.',
+     'schritte': ['f(x) = 2x + 1 mit D = {0; 1; 3}.', 'Setze alle x ein: f(0) = 1, f(1) = 3, f(3) = 7.', '⟦W = {1; 3; 7}⟧'],
+     'fehler': 'Bei f(x) = 1/(x − 2) ist D nicht ℚ \\ {−2}. Verboten ist das x, für das der Nenner 0 wird: x − 2 = 0, also x = 2. Richtig: ⟦D = ℚ \\ {2}⟧. Probe: f(−2) = 1/(−4) geht problemlos.',
+     '_verbot': ['D = {0; 1; 3}']},
     {'lernziel': 'funktionswert', 'titel': 'Funktionswerte berechnen',
      'regel': 'Der ⟦Funktionsterm⟧ f(x) sagt, wie man aus x den y-Wert berechnet. f(3) heißt: ⟦3 für x einsetzen⟧.',
      'schritte': ['f(x) = 2x² − 3, gesucht f(−2)', 'f(−2) = 2 · (−2)² − 3 = 2 · 4 − 3', '⟦f(−2) = 5⟧'],
@@ -29,22 +37,31 @@ ETAPPEN = [
     {'lernziel': 'wertetabelle', 'titel': 'Wertetabellen lesen und ergänzen',
      'regel': 'In einer ⟦Wertetabelle⟧ steht oben x, unten f(x). Fehlende Werte berechnest du mit dem Term. Ohne Term suchst du eine ⟦Regel⟧, die zu allen Paaren passt.',
      'schritte': ['f(x) = 4 − x²', 'x = −1: 4 − 1 = 3; x = 0: 4; x = 3: 4 − 9 = −5', 'Tabelle: (−1 | 3), (0 | 4), (3 | ⟦−5⟧)'],
-     'fehler': 'Ein Term passt nur, wenn er für ⟦alle⟧ Paare der Tabelle stimmt. Stimmt er für zwei Paare, kann er beim dritten trotzdem falsch sein.',
+     'fehler': 'Einen Term nur an zwei Paaren prüfen. Tabelle (1 | 2), (2 | 4), (3 | 8): f(x) = 2x passt bei x = 1 und x = 2. Aber f(3) = 2 · 3 = 6, nicht 8. Ein Term passt nur, wenn er für ⟦alle⟧ Paare stimmt.',
+     'bild': {'typ': 'tabelle', 'kopf': ['x', '−1', '0', '3'], 'zeilen': [['f(x) = 4 − x²', '3', '4', '−5']]},
      '_verbot': ['4 − x²']},
-    {'lernziel': 'mengen', 'titel': 'Definitionsmenge und Wertemenge',
-     'regel': 'Die ⟦Definitionsmenge⟧ D enthält alle x, die man einsetzen darf. Die ⟦Wertemenge⟧ W enthält alle y-Werte, die dabei herauskommen.',
-     'schritte': ['f(x) = 2x + 1 mit D = {0; 1; 3}', 'f(0) = 1, f(1) = 3, f(3) = 7', '⟦W = {1; 3; 7}⟧'],
-     'fehler': 'Bei f(x) = 1/(x − 2) ist D nicht ℚ: Für x = 2 wird der Nenner 0. Also ⟦D = ℚ \\ {2}⟧.',
-     '_verbot': ['D = {0; 1; 3}']},
+    {'lernziel': 'graph_lesen', 'titel': 'Werte am Graphen ablesen',
+     'regel': 'Der ⟦Graph⟧ zeigt alle Paare (x | f(x)) auf einmal. f(4) ablesen: Bei x = 4 ⟦senkrecht⟧ bis zum Graphen gehen, dann ⟦waagrecht⟧ zur y-Achse. Umgekehrt findest du zu einem y-Wert die passenden x-Werte – manchmal mehrere.',
+     'schritte': ['Der Graph gehört zu f(x) = 0,5x² − 2. Gesucht: f(4).', 'Von x = 4 senkrecht nach oben bis zum Graphen, dann waagrecht nach links: ⟦f(4) = 6⟧.',
+                  'Umgekehrt: Wo ist f(x) = 6? Gehe bei y = 6 waagrecht – du triffst den Graphen ⟦zweimal⟧: bei x = 4 und bei x = −4.'],
+     'probe': 'f(4) = 0,5 · 16 − 2 = 6 ✓ und f(−4) = 0,5 · 16 − 2 = 6 ✓',
+     'fehler': 'Bei „Wo ist f(x) = 6?“ nur x = 4 angeben. Die waagrechte Linie bei y = 6 trifft die Parabel ⟦zweimal⟧. Suche immer die ganze Linie entlang.',
+     'bild': {'typ': 'koordinaten', 'x': [-5, 5], 'y': [-3, 7], 'graphen': [{'art': 'poly', 'k': [-2, 0, 0.5], 'name': 'f'}], 'senkrecht': [4], 'waagrecht': [6],
+              'punkte': [{'x': 4, 'y': 6, 'name': '(4 | 6)'}, {'x': -4, 'y': 6, 'name': '(−4 | 6)'}]}},
     {'lernziel': 'nullstellen', 'titel': 'Nullstellen berechnen',
      'regel': 'Eine ⟦Nullstelle⟧ ist ein x mit f(x) = 0. Dort schneidet der Graph die ⟦x-Achse⟧. Du findest sie, indem du ⟦f(x) = 0⟧ löst.',
      'schritte': ['f(x) = 2x − 7', '2x − 7 = 0 → 2x = 7', '⟦x = 3,5⟧'],
      'fehler': 'Die Nullstelle von f(x) = 2x − 7 ist nicht −7: f(0) = −7 ist der ⟦y-Achsenabschnitt⟧. Für die Nullstelle muss ⟦y = 0⟧ sein.',
+     'bild': {'typ': 'koordinaten', 'x': [-1, 5], 'y': [-8, 3], 'graphen': [{'art': 'linear', 'm': 2, 't': -7, 'name': 'f'}],
+              'punkte': [{'x': 3.5, 'y': 0, 'name': 'N(3,5 | 0)'}, {'x': 0, 'y': -7, 'name': '(0 | −7)'}]},
      '_verbot': ['2x − 7']},
     {'lernziel': 'punkt_graph', 'titel': 'Liegt der Punkt auf dem Graphen?',
      'regel': 'Ein Punkt P(a | b) liegt auf dem ⟦Graphen⟧ von f, wenn ⟦f(a) = b⟧ ist. Setze die x-Koordinate ein und vergleiche mit der y-Koordinate.',
-     'schritte': ['f(x) = x² − 2x, Punkt P(3 | 3)', 'f(3) = 9 − 6 = 3', '3 = 3: ⟦P liegt auf dem Graphen.⟧'],
+     'schritte': ['f(x) = x² − 2x. Liegt P(3 | 3) auf dem Graphen?', 'Setze die x-Koordinate 3 ein: f(3) = 9 − 6 = 3.',
+                  'Das ist genau die y-Koordinate von P: ⟦P liegt auf dem Graphen.⟧', 'Q(3 | 1) hat dieselbe x-Koordinate, aber f(3) = 3 ≠ 1: ⟦Q liegt nicht darauf⟧, sondern darunter.'],
      'fehler': 'Bei P(3 | 1) setzt man nicht die 1 für x ein. Die ⟦erste⟧ Koordinate ist x, die ⟦zweite⟧ ist y.',
+     'bild': {'typ': 'koordinaten', 'x': [-2, 4], 'y': [-2, 5], 'graphen': [{'art': 'poly', 'k': [0, -2, 1], 'name': 'f'}],
+              'punkte': [{'x': 3, 'y': 3, 'name': 'P'}, {'x': 3, 'y': 1, 'name': 'Q', 'offen': True}]},
      '_verbot': ['x² − 2x']},
 ]
 
@@ -89,7 +106,46 @@ SITUATIONEN = [
 ]
 
 
+UMKEHR = [
+    ('Jedem Schüler wird sein Geburtstag zugeordnet. Und umgekehrt: Jedem Geburtstag wird ein Schüler zugeordnet.', 'Die erste ist eine Funktion, die zweite nicht.',
+     'Jeder Schüler hat genau einen Geburtstag. Aber an einem Tag können mehrere Schüler Geburtstag haben (oder keiner).'),
+    ('Jedem Auto wird sein Kennzeichen zugeordnet. Und umgekehrt: Jedem Kennzeichen wird sein Auto zugeordnet.', 'Beide sind Funktionen.',
+     'Jedes Auto hat genau ein Kennzeichen, und jedes vergebene Kennzeichen gehört zu genau einem Auto.'),
+    ('Jeder Zahl wird ihr Quadrat zugeordnet. Und umgekehrt: Jeder Quadratzahl wird eine Zahl zugeordnet, deren Quadrat sie ist.', 'Die erste ist eine Funktion, die zweite nicht.',
+     'Jede Zahl hat genau ein Quadrat. Aber zu 9 gehören 3 und −3 – zwei Werte.'),
+    ('Jedem Menschen wird seine Mutter zugeordnet. Und umgekehrt: Jeder Mutter wird ihr Kind zugeordnet.', 'Die erste ist eine Funktion, die zweite nicht.',
+     'Jeder Mensch hat genau eine (leibliche) Mutter. Eine Mutter kann aber mehrere Kinder haben.'),
+]
+UMK_OPT = ['Die erste ist eine Funktion, die zweite nicht.', 'Beide sind Funktionen.', 'Keine ist eine Funktion.', 'Die zweite ist eine Funktion, die erste nicht.']
+
+
 def g_eindeutig(R, st):
+    if st >= 2 and R.random() < .25:
+        t, ri, w = R.choice(UMKEHR)
+        return A(R, f'{t} Welche Zuordnungen sind Funktionen?', ri, [o for o in UMK_OPT if o != ri], w,
+                 'Prüfe jede Richtung einzeln: Gibt es zu einem Ausgangswert genau einen zugeordneten Wert?')
+    if st >= 2 and R.random() < .3:
+        # Punkte im Koordinatensystem
+        if R.random() < .5:
+            xs = R.sample(range(-3, 5), 4)
+            ps = [(x, R.randint(-3, 4)) for x in xs]
+            doppel = R.random() < .6
+            if doppel:
+                y2 = ps[0][1] + R.choice([-3, -2, 2, 3])
+                ps.append((ps[0][0], y2))
+            gr = {'typ': 'koordinaten', 'x': [-4, 5], 'y': [-6, 7], 'punkte': [{'x': x, 'y': y} for x, y in ps], 'streckung': 1}
+            ri = (f'Nein, bei x = {zt(ps[0][0])} liegen zwei Punkte übereinander.' if doppel else 'Ja, über jedem x liegt höchstens ein Punkt.')
+            fa = ['Ja, alle Punkte liegen im Bild.', 'Nein, zwei Punkte haben denselben y-Wert.' if not doppel else 'Ja, über jedem x liegt höchstens ein Punkt.',
+                  'Ja, kein y kommt doppelt vor.' if doppel else f'Nein, bei x = {zt(ps[0][0])} liegen zwei Punkte übereinander.']
+            return mit_bild(A(R, 'Können diese Punkte zum Graphen einer Funktion gehören?', ri, fa,
+                              'Eine senkrechte Linie darf höchstens einen Punkt treffen. ' + ('Bei x = ' + zt(ps[0][0]) + ' trifft sie zwei.' if doppel else 'Das ist hier überall so.'),
+                              'Ziehe in Gedanken senkrechte Linien durch die Punkte.'), gr)
+        a = R.choice([1, -1, Fr(1, 2)]); c = R.randint(-2, 2)
+        gr = {'typ': 'koordinaten', 'x': [-4, 4], 'y': [-5, 6], 'graphen': [{'art': 'poly', 'k': [c, 0, float(a) if Fr(a).denominator != 1 else int(a)], 'name': 'f'}]}
+        return mit_bild(A(R, 'Ist der gezeichnete Graph der Graph einer Funktion?', 'Ja, jede senkrechte Linie trifft den Graphen höchstens einmal.',
+                          ['Nein, zwei verschiedene x haben denselben y-Wert.', 'Nein, der Graph ist keine Gerade.', 'Das kann man ohne Term nicht entscheiden.'],
+                          'Senkrechte-Linie-Test: Über jedem x liegt genau ein Punkt des Graphen. Dass links und rechts gleiche y-Werte vorkommen, ist erlaubt.',
+                          'Ziehe in Gedanken senkrechte Linien durch das Bild.'), gr)
     if st == 2 and R.random() < .5:
         sit, ok = R.choice(SITUATIONEN)
         r = 'Ja, das ist eine Funktion.' if ok else 'Nein, das ist keine Funktion.'
@@ -142,27 +198,64 @@ def zufall_f(R, st):
     return f'{zt(a)}/({lin(1, b)})', (lambda x: Fr(a) / (x + b)), f'{a} / (({{x}}) + ({b}))'
 
 
+NULL = {'n': 0}
+
+
 def g_funktionswert(R, st):
     while True:
         txt, f, c = zufall_f(R, st)
         x = Fr(R.randint(-6, 6))
+        if x == 0 and NULL['n'] >= 2: continue
         if st == 3 and R.random() < .4: x = Fr(R.choice([-5, -3, -1, 1, 3, 5]), 2)
         try: y = f(x)
         except ZeroDivisionError: continue
         if ist_endlich(y) and len(zt(y)) <= 7: break
+    if x == 0: NULL['n'] += 1
     return Z(f'Berechne f({zt(x)}) für f(x) = {txt}.', y, c.format(x=cz(x)),
              f'x = {zt(x)} einsetzen: f({zt(x)}) = {einsetzen(txt, x)} = {zt(y)}.',
              'Setze die Zahl für jedes x ein. Negative Zahlen in Klammern!')
 
 
+def weg_lin(m, t, y, x):
+    """Lösungsweg m·x + t = y ohne Leerschritte."""
+    teile = [f'{lin(m, t)} = {zt(y)}']
+    if t: teile.append(f'{lin(m, 0)} = {zt(y - t)}')
+    if m != 1: teile.append(f'x = {zt(x)}')
+    w = ' → '.join(dict.fromkeys(teile)) + '.'
+    return w if len(teile) > 1 else f'Ansatz f(x) = {zt(y)}: {w} Probe: f({zt(x)}) = {zt(y)} ✓'
+
+
 def g_stelle(R, st):
-    if st == 3 and R.random() < .5:
+    art = R.choice({1: ['lin', 'lin', 'klammer'], 2: ['lin', 'klammer', 'quad_keine', 'bruch'], 3: ['bruch', 'lin', 'quad_keine', 'konstant']}[st])
+    if art == 'quad_keine':
+        c, y = R.randint(1, 9), None
+        y = c - R.randint(1, 6)
+        r = f'Für kein x: x² + {c} ist mindestens {c}.'
+        return A(R, f'Für welches x gilt f(x) = {zt(y)}, wenn f(x) = x² + {c}?', r,
+                 [f'x = {zt(y - c)}', f'x = {zt(c - y)}', f'Für jedes x.'],
+                 f'x² ist nie negativ, also ist x² + {c} ≥ {c}. Der Wert {zt(y)} ist kleiner als {c} und wird nie erreicht.',
+                 'Wie klein kann x² + eine positive Zahl werden?')
+    if art == 'konstant':
+        c = R.randint(-6, 9); y = c if R.random() < .5 else c + R.choice([-2, 1, 3])
+        r = 'Für jedes x.' if y == c else 'Für kein x.'
+        return A(R, f'Für welches x gilt f(x) = {zt(y)}, wenn f(x) = {zt(c)}?', r,
+                 ['Für jedes x.' if y != c else 'Für kein x.', f'x = {zt(y)}', 'x = 0'],
+                 f'f hat immer den Wert {zt(c)}. ' + ('Also gilt f(x) = ' + zt(y) + ' für jedes x.' if y == c else f'Der Wert {zt(y)} kommt nie vor.'),
+                 'Hängt f(x) überhaupt von x ab?')
+    if art == 'bruch':
         while True:
             a, y = nz(R, -24, 24), R.choice([k for k in range(-8, 9) if k not in (0, 1, -1)])
             x = Fr(a, y)
             if ist_endlich(x) and len(zt(x)) <= 5: break
         return Z(f'Für welches x ist f(x) = {zt(y)}, wenn f(x) = {zt(a)}/x?', x, f'{a} / ({y})',
-                 f'{zt(a)}/x = {zt(y)} → {zt(a)} = {zt(y)}x → x = {zt(a)} : {kl(y)} = {zt(x)}.', 'Multipliziere mit x, dann teile.')
+                 f'{zt(a)}/x = {zt(y)} | · x → {zt(a)} = {zt(y)}x | : {kl(y)} → x = {zt(x)}.', 'Multipliziere mit x, dann teile.')
+    if art == 'klammer':
+        k, p = nz(R, -4, 5), R.randint(-6, 6)
+        x = Fr(R.randint(-6, 8)); y = k * (x - p)
+        if k == 1 or p == 0: return g_stelle(R, st)
+        return Z(f'Für welches x gilt f(x) = {zt(y)}, wenn f(x) = {zt(k)}(x {"−" if p > 0 else "+"} {abs(p)})?', x, f'{cz(y)} / ({k}) + ({p})',
+                 f'{zt(k)}(x {"−" if p > 0 else "+"} {abs(p)}) = {zt(y)} | : {kl(k)} → x {"−" if p > 0 else "+"} {abs(p)} = {zt(Fr(y, k))} → x = {zt(x)}.',
+                 'Teile zuerst durch die Zahl vor der Klammer.')
     while True:
         m = Fr(nz(R, -6, 6)) if st < 3 else Fr(nz(R, -9, 9), R.choice([1, 2, 4]))
         t = Fr(R.randint(-9, 9))
@@ -170,7 +263,7 @@ def g_stelle(R, st):
         y = m * x + t
         if m != 0 and (m, t) != (1, 0) and ist_endlich(y) and len(zt(y)) <= 6: break
     return Z(f'Für welches x gilt f(x) = {zt(y)}, wenn f(x) = {lin(m, t)}?', x, f'({cz(y)} - ({cz(t)})) / {cz(m)}',
-             f'{lin(m, t)} = {zt(y)} → {lin(m, 0)} = {zt(y - t)} → x = {zt(x)}.', 'Setze den Term gleich dem y-Wert und löse nach x.')
+             weg_lin(m, t, y, x), 'Setze den Term gleich dem y-Wert und löse nach x.')
 
 
 def g_wertetabelle(R, st):
@@ -200,6 +293,10 @@ def g_wertetabelle(R, st):
         return Z(f'Wertetabelle zu f(x) = {txt}: {tab}. Welcher x-Wert fehlt?', x0, f'({cz(y0)} - ({cz(t)})) / {cz(m)}',
                  f'{txt} = {zt(y0)} lösen: x = {zt(x0)}.', 'Setze f(x) gleich dem y-Wert und löse nach x.')
     x0, y0 = ps[k]
+    if R.random() < .5:
+        gr = {'typ': 'tabelle', 'kopf': ['x'] + [zt(x) for x in xs], 'zeilen': [['f(x)'] + [zt(y) if i != k else '?' for i, (x, y) in enumerate(ps)]]}
+        return mit_bild(Z(f'Die Tabelle gehört zu f(x) = {txt}. Welcher Wert gehört an die Stelle „?“?', y0, c.format(x=x0),
+                          f'x = {zt(x0)} einsetzen: f({zt(x0)}) = {einsetzen(txt, x0)} = {zt(y0)}.', 'Setze den x-Wert über dem „?“ in den Term ein.'), gr)
     tab = ', '.join(f'({zt(x)} | {zt(y)})' if i != k else f'({zt(x)} | □)' for i, (x, y) in enumerate(ps))
     return Z(f'Wertetabelle zu f(x) = {txt}: {tab}. Welcher y-Wert fehlt?', y0, c.format(x=x0),
              f'x = {zt(x0)} einsetzen: f({zt(x0)}) = {einsetzen(txt, x0)} = {zt(y0)}.', 'Setze den x-Wert in den Term ein.')
@@ -227,20 +324,22 @@ def g_mengen(R, st):
     art = R.choice(['quadrat', 'betrag', 'konst', 'bruch2'])
     c = R.randint(-6, 6)
     if art == 'quadrat':
-        r = f'W = {{y | y ≥ {zt(c)}}}'
-        return A(R, f'f(x) = x² {"+" if c >= 0 else "−"} {abs(c)} mit D = ℚ. Welche Wertemenge hat f?', r, [f'W = {{y | y ≤ {zt(c)}}}', 'W = ℚ', f'W = {{y | y ≥ 0}}' if c else 'W = {y | y > 0}'],
-                 f'x² ist nie negativ, kleinster Wert 0 (bei x = 0). Also f(x) ≥ {zt(c)}.', 'Welchen kleinsten Wert kann x² annehmen?')
+        r = f'Kein Funktionswert ist kleiner als {zt(c)}.'
+        return A(R, f'f(x) = x² {"+" if c >= 0 else "−"} {abs(c)} mit D = ℚ. Welche Aussage über die Funktionswerte stimmt?', r,
+                 [f'Kein Funktionswert ist größer als {zt(c)}.', 'Jede Zahl kommt als Funktionswert vor.', f'Der kleinste Funktionswert ist {zt(c + 1)}.'],
+                 f'x² ist nie negativ, kleinster Wert 0 (bei x = 0). Also f(x) ≥ {zt(c)}; der kleinste Wert {zt(c)} wird bei x = 0 erreicht.',
+                 'Welchen kleinsten Wert kann x² annehmen?')
     if art == 'konst':
-        return A(R, f'f(x) = {zt(c)} mit D = ℚ. Welche Wertemenge hat f?', f'W = {{{zt(c)}}}', ['W = ℚ', f'W = ℚ \\ {{{zt(c)}}}', '{0}'],
+        return A(R, f'f(x) = {zt(c)} mit D = ℚ. Welche Wertemenge hat f?', f'W = {{{zt(c)}}}', ['W = ℚ', f'W = ℚ \\ {{{zt(c)}}}', 'W = {0}' if c else 'W = {1}'],
                  f'Jedem x wird derselbe Wert {zt(c)} zugeordnet. Also W = {{{zt(c)}}}.', 'Welche y-Werte können überhaupt herauskommen?')
     if art == 'bruch2':
         a, b = R.sample([k for k in range(-6, 7) if k], 2)
         return A(R, f'Gib die maximale Definitionsmenge von f(x) = 1/(({lin(1, -a)})({lin(1, -b)})) an.', f'D = ℚ \\ {mengentext([a, b])}',
                  [f'D = ℚ \\ {mengentext([-a, -b])}', f'D = ℚ \\ {{{zt(a)}}}', 'D = ℚ'],
                  f'Der Nenner ist 0 für x = {zt(a)} und für x = {zt(b)}.', 'Ein Produkt ist 0, wenn einer der Faktoren 0 ist.')
-    return A(R, f'f(x) = −x² {"+" if c >= 0 else "−"} {abs(c)} mit D = ℚ. Welche Wertemenge hat f?', f'W = {{y | y ≤ {zt(c)}}}',
-             [f'W = {{y | y ≥ {zt(c)}}}', 'W = ℚ', 'W = {y | y ≤ 0}' if c else 'W = {y | y < 0}'],
-             f'−x² ist nie positiv, größter Wert 0. Also f(x) ≤ {zt(c)}.', 'Welchen größten Wert kann −x² annehmen?')
+    return A(R, f'f(x) = −x² {"+" if c >= 0 else "−"} {abs(c)} mit D = ℚ. Welche Aussage über die Funktionswerte stimmt?', f'Kein Funktionswert ist größer als {zt(c)}.',
+             [f'Kein Funktionswert ist kleiner als {zt(c)}.', 'Jede Zahl kommt als Funktionswert vor.', 'Der größte Funktionswert ist 0.' if c else 'Der größte Funktionswert ist 1.'],
+             f'−x² ist nie positiv, größter Wert 0 (bei x = 0). Also f(x) ≤ {zt(c)}.', 'Welchen größten Wert kann −x² annehmen?')
 
 
 def g_nullstellen(R, st):
@@ -250,7 +349,17 @@ def g_nullstellen(R, st):
             t = -m * x0
             if ist_endlich(x0) and t.denominator == 1: break
         return Z(f'Berechne die Nullstelle von f(x) = {lin(m, t)}.', x0, f'-({cz(t)}) / {cz(m)}',
-                 f'{lin(m, t)} = 0 → {lin(m, 0)} = {zt(-t)} → x = {zt(x0)}.', 'Setze f(x) = 0 und löse nach x.')
+                 weg_lin(m, t, 0, x0), 'Setze f(x) = 0 und löse nach x.')
+    if st >= 2 and R.random() < .3:
+        if R.random() < .6:
+            c = R.randint(1, 9)
+            return A(R, f'Welche Nullstellen hat f(x) = x² + {c}?', 'keine', [f'x = {zt(-c)}', f'x = 0', f'x = {zt(-c)} und x = {zt(c)}'],
+                     f'x² ist nie negativ, also ist x² + {c} ≥ {c} > 0. Der Graph liegt ganz über der x-Achse: keine Nullstelle.',
+                     'Kann x² + eine positive Zahl 0 werden?')
+        c = nz(R, -9, 9)
+        return A(R, f'Welche Nullstellen hat f(x) = {zt(c)}?', 'keine', [f'x = {zt(c)}', 'x = 0', 'jede Zahl'],
+                 f'f hat immer den Wert {zt(c)} ≠ 0. Der Graph ist eine waagrechte Gerade, die die x-Achse nicht trifft.',
+                 'Wann ist f(x) = 0?')
     if st == 2:
         a, b = R.sample([k for k in range(-7, 8) if k], 2)
         r = f'x = {zt(min(a, b))} und x = {zt(max(a, b))}'
@@ -284,27 +393,85 @@ def g_punkt_graph(R, st):
         return Z(f'Der Punkt P({zt(a)} | {zt(b)}) liegt auf dem Graphen von f(x) = k · x {"+" if t >= 0 else "−"} {abs(t)}. Bestimme k.', k, f'({cz(b)} - ({t})) / ({a})',
                  f'f({zt(a)}) = {zt(b)}: k · {kl(a)} {"+" if t >= 0 else "−"} {abs(t)} = {zt(b)} → k · {kl(a)} = {zt(b - t)} → k = {zt(k)}.',
                  'Setze die Koordinaten von P in die Gleichung y = f(x) ein und löse nach k.')
+    if st == 2 and R.random() < .35:
+        # Ablesen am Graphen
+        m, t = R.choice([Fr(1, 2), 1, 2, -1, Fr(-1, 2), 3]), R.randint(-3, 3)
+        while True:
+            x0 = R.randint(-4, 4)
+            y0 = m * x0 + t
+            if y0.denominator == 1 if isinstance(y0, Fr) else True: break
+        gr = {'typ': 'koordinaten', 'x': [-5, 5], 'y': [-6, 6], 'graphen': [{'art': 'linear', 'm': float(m) if Fr(m).denominator != 1 else int(m), 't': t, 'name': 'f'}]}
+        if R.random() < .5:
+            return mit_bild(Z(f'Lies am Graphen ab: f({zt(x0)}) = ?', y0, f'{cz(Fr(m))} * ({x0}) + ({t})',
+                              f'Bei x = {zt(x0)} senkrecht zum Graphen, dann waagrecht zur y-Achse: f({zt(x0)}) = {zt(y0)}.', 'Erst senkrecht zum Graphen, dann waagrecht zur y-Achse.'), gr)
+        return mit_bild(Z(f'An welcher Stelle x hat der Graph den Wert {zt(y0)}?', x0, f'({cz(Fr(y0))} - ({t})) / {cz(Fr(m))}',
+                          f'Bei y = {zt(y0)} waagrecht zum Graphen, dann senkrecht zur x-Achse: x = {zt(x0)}.', 'Erst waagrecht zum Graphen, dann senkrecht zur x-Achse.'), gr)
     txt, f, _ = zufall_f(R, st)
     if '/' in txt: return g_punkt_graph(R, st)
     while True:
         x = Fr(R.randint(-4, 5)); y = f(x)
         if y != x and abs(y) < 60: break
     richtig = f'P({zt(x)} | {zt(y)})'
-    falsch = [f'P({zt(y)} | {zt(x)})', f'P({zt(x)} | {zt(y + R.choice([1, -1, 2]))})', f'P({zt(-x)} | {zt(y)})' if f(-x) != y else f'P({zt(x + 1)} | {zt(y)})']
-    falsch = [p for p in falsch if p != richtig]
+    kand = [(y, x), (x, y + R.choice([1, -1, 2])), (-x, y), (x + 1, y), (x, -y), (x, y - 3)]
+    falsch = []
+    for p_, q_ in kand:      # jeden Ablenker mit f nachprüfen
+        try:
+            if f(Fr(p_)) == q_: continue
+        except ZeroDivisionError:
+            pass
+        t_ = f'P({zt(p_)} | {zt(q_)})'
+        if t_ != richtig and t_ not in falsch: falsch.append(t_)
     return A(R, f'Welcher Punkt liegt auf dem Graphen von f(x) = {txt}?', richtig, falsch,
              f'f({zt(x)}) = {zt(y)}, also liegt {richtig} auf dem Graphen.', 'Setze die x-Koordinate ein und vergleiche mit der y-Koordinate.')
 
 
-GEN = {'eindeutig': g_eindeutig, 'funktionswert': g_funktionswert, 'stelle': g_stelle, 'wertetabelle': g_wertetabelle,
+def g_graph_lesen(R, st):
+    art = R.choice(['lin', 'quad']) if st >= 2 else 'lin'
+    if art == 'lin':
+        m, t = R.choice([Fr(1, 2), 1, 2, -1, Fr(-1, 2), -2]), R.randint(-3, 3)
+        f = lambda x: m * x + t
+        g = {'art': 'linear', 'm': float(m) if Fr(m).denominator != 1 else int(m), 't': t, 'name': 'f'}
+        name = lin(m, t)
+    else:
+        a, c = R.choice([Fr(1, 2), 1, -1, Fr(-1, 2)]), R.randint(-3, 3)
+        f = lambda x: a * x * x + c
+        g = {'art': 'poly', 'k': [c, 0, float(a) if Fr(a).denominator != 1 else int(a)], 'name': 'f'}
+        name = None
+    gr = {'typ': 'koordinaten', 'x': [-5, 5], 'y': [-7, 7], 'graphen': [g]}
+    while True:
+        x0 = R.randint(-4, 4); y0 = f(Fr(x0))
+        if x0 == 0 and R.random() < .7: continue
+        if Fr(y0).denominator == 1 and -6 <= y0 <= 6: break
+    if st == 1 or R.random() < .4:
+        return mit_bild(Z(f'Lies am Graphen ab: f({zt(x0)}) = ?', y0, f'{y0}', f'Bei x = {zt(x0)} senkrecht bis zum Graphen, dann waagrecht zur y-Achse: f({zt(x0)}) = {zt(y0)}.',
+                          'Erst senkrecht zum Graphen, dann waagrecht zur y-Achse.'), gr)
+    if art == 'quad' and x0 != 0:
+        lo, hi = sorted((-x0, x0))
+        if R.random() < .5:
+            return mit_bild(L(f'Für welche x gilt f(x) = {zt(y0)}? Lies am Graphen ab (kleinere Stelle zuerst).', 'x₁ = □; x₂ = □', [lo, hi], [str(lo), str(hi)],
+                              f'Die waagrechte Linie y = {zt(y0)} trifft die Parabel zweimal: bei x = {zt(lo)} und bei x = {zt(hi)}.',
+                              'Gehe bei diesem y-Wert waagrecht durch das ganze Bild. Wie oft triffst du den Graphen?', hinweis='Trage beide Stellen ein.'), gr)
+        return mit_bild(A(R, f'Für welche x gilt f(x) = {zt(y0)}?', f'x = {zt(lo)} und x = {zt(hi)}', [f'nur x = {zt(hi)}', f'x = {zt(y0)}', f'nur x = {zt(lo)}'],
+                          f'Die waagrechte Linie y = {zt(y0)} trifft die Parabel zweimal: bei x = {zt(lo)} und bei x = {zt(hi)}.',
+                          'Gehe bei diesem y-Wert waagrecht durch das ganze Bild.'), gr)
+    if art == 'quad':
+        return mit_bild(A(R, f'Wie oft nimmt f den Wert {zt(y0)} an?', 'genau einmal (am Scheitel)', ['zweimal', 'nie', 'unendlich oft'],
+                          f'y = {zt(y0)} ist der Scheitelwert: Die waagrechte Linie berührt die Parabel nur im Punkt (0 | {zt(y0)}).',
+                          'Gehe bei diesem y-Wert waagrecht durch das Bild.'), gr)
+    return mit_bild(L(f'Lies am Graphen ab: An welcher Stelle hat f den Wert {zt(y0)}? Gib den Punkt an.', 'P(□ | □)', [x0, y0], [str(x0), str(y0)],
+                      f'Bei y = {zt(y0)} waagrecht zum Graphen, dann senkrecht zur x-Achse: x = {zt(x0)}. Punkt P({zt(x0)} | {zt(y0)}).' + (f' Probe: f({zt(x0)}) = {einsetzen(name, x0)} = {zt(y0)}.' if name else ''),
+                      'Erst waagrecht zum Graphen, dann senkrecht zur x-Achse.', hinweis='Trage x und y des Punktes ein.'), gr)
+
+
+GEN = {'graph_lesen': g_graph_lesen, 'eindeutig': g_eindeutig, 'funktionswert': g_funktionswert, 'stelle': g_stelle, 'wertetabelle': g_wertetabelle,
        'mengen': g_mengen, 'nullstellen': g_nullstellen, 'punkt_graph': g_punkt_graph}
 
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
-         [('Was ist eine Funktion?', ['eindeutig', 'mengen']), ('Mit dem Term rechnen', ['funktionswert', 'stelle', 'wertetabelle']),
+         [('Was ist eine Funktion?', ['eindeutig', 'mengen']), ('Mit dem Term rechnen', ['funktionswert', 'stelle', 'wertetabelle', 'graph_lesen']),
           ('Graph und Nullstellen', ['nullstellen', 'punkt_graph'])],
          'Funktionen als eindeutige Zuordnungen erkennen; mit Funktionsterm, Wertetabelle und Graph arbeiten; Definitions- und Wertemenge sowie Nullstellen bestimmen.',
          ['Funktion: Jedem x genau ein y.', 'f(a) berechnen: a einsetzen. f(x) = b lösen: x gesucht.',
           'Nullstelle: f(x) = 0. P(a | b) liegt auf dem Graphen, wenn f(a) = b.'],
-         offen=['Graphen zeichnen und ablesen (Funktionswerte, Nullstellen, Wertemenge am Graphen) sowie „Ist dieser Graph eine Funktion?“ (senkrechte Linie) brauchen ein '
-                'Koordinatensystem in der App; nicht gebaut.'])
+         offen=['„Ist dieser Graph eine Funktion?“ mit einem Gegenbeispiel (Kreis, liegende Parabel) braucht eine Kurve, die die App noch nicht zeichnen kann. '
+                'Gebaut: Punktwolken (zwei Punkte übereinander) und Parabeln als Beispiel für „ja“.'])

@@ -56,22 +56,310 @@
     "titel": "Schrägbilder von Prismen und Pyramiden",
     "regel": "Schrägbild: Strecken ⟦parallel zur Zeichenebene⟧ (Breite, Höhe) in wahrer Länge; Strecken ⟦nach hinten⟧ unter dem Winkel ω (meist 45°) mit dem ⟦Verkürzungsfaktor q⟧ (meist 1/2). Die Höhe einer Pyramide zeichnest du senkrecht in wahrer Länge über dem Fußpunkt.",
     "schritte": [
-     "Quadratische Pyramide: Grundkante 6 cm, Höhe 8 cm, q = 1/2",
-     "Vorderkante 6 cm, Kante nach hinten 6 · 1/2 = 3 cm",
-     "Höhe: ⟦8 cm⟧ senkrecht über dem Diagonalenschnittpunkt"
+     "Quadratische Pyramide: Grundkante 6 cm, Höhe 8 cm, q = 1/2.",
+     "Grundfläche: vordere Kante 6 cm in wahrer Länge, Kanten nach hinten 6 · 1/2 = 3 cm unter 45°.",
+     "Diagonalen der Grundfläche zeichnen. Ihr Schnittpunkt F ist der Fußpunkt der Höhe.",
+     "Von F aus ⟦8 cm⟧ senkrecht nach oben zur Spitze S. Verdeckte Kanten gestrichelt."
     ],
-    "fehler": "Die Höhe einer Pyramide wird nicht verkürzt: Sie steht ⟦senkrecht⟧ und liegt damit parallel zur Zeichenebene."
+    "fehler": "Die Höhe einer Pyramide wird nicht verkürzt: Sie steht ⟦senkrecht⟧ und liegt damit parallel zur Zeichenebene.",
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       6,
+       0
+      ],
+      "C": [
+       8.12,
+       2.12
+      ],
+      "D": [
+       2.12,
+       2.12
+      ],
+      "F": [
+       4.06,
+       1.06
+      ],
+      "S": [
+       4.06,
+       9.06
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "6 cm"
+      ],
+      [
+       "B",
+       "C",
+       "3 cm"
+      ],
+      [
+       "A",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "S",
+       "A"
+      ],
+      [
+       "S",
+       "B"
+      ],
+      [
+       "S",
+       "C"
+      ],
+      [
+       "S",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "F",
+       "S",
+       "h = 8 cm",
+       "gestrichelt"
+      ],
+      [
+       "A",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "B",
+       "D",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "lage",
     "titel": "Parallel, schneidend oder windschief?",
-    "regel": "Zwei Geraden im Raum sind ⟦parallel⟧ (gleiche Richtung), ⟦schneiden sich⟧ (ein gemeinsamer Punkt) oder sind ⟦windschief⟧: nicht parallel und ohne gemeinsamen Punkt. Windschiefe Geraden liegen in keiner gemeinsamen Ebene.",
+    "regel": "Zwei Geraden im Raum sind ⟦parallel⟧ (gleiche Richtung), ⟦schneiden sich⟧ (ein gemeinsamer Punkt) oder sind ⟦windschief⟧: nicht parallel und trotzdem ohne gemeinsamen Punkt. Beispiel: Eine Autobahn und eine Straße, die auf einer Brücke quer darüber führt.",
     "schritte": [
-     "Quader ABCDEFGH (ABCD unten, E über A, F über B, …)",
-     "AB verläuft unten vorne nach rechts, CG senkrecht hinten rechts.",
-     "Nicht parallel und kein gemeinsamer Punkt: ⟦windschief⟧"
+     "Quader ABCDEFGH wie im Bild.",
+     "AB läuft unten vorne nach rechts. CG läuft hinten rechts senkrecht nach oben.",
+     "Sie haben verschiedene Richtungen und treffen sich nie: ⟦windschief⟧."
     ],
-    "fehler": "Geraden ohne Schnittpunkt sind im Raum nicht automatisch parallel. Parallel heißt ⟦gleiche Richtung⟧ – sonst sind sie windschief."
+    "fehler": "Geraden ohne Schnittpunkt sind im Raum nicht automatisch parallel. Parallel heißt ⟦gleiche Richtung⟧ – sonst sind sie windschief.",
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       5,
+       0
+      ],
+      "C": [
+       6.06,
+       1.06
+      ],
+      "D": [
+       1.06,
+       1.06
+      ],
+      "E": [
+       0,
+       2
+      ],
+      "F": [
+       5,
+       2
+      ],
+      "G": [
+       6.06,
+       3.06
+      ],
+      "H": [
+       1.06,
+       3.06
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "F",
+       "E"
+      ],
+      [
+       "E",
+       "A"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "G",
+       "F"
+      ],
+      [
+       "E",
+       "H"
+      ],
+      [
+       "H",
+       "G"
+      ],
+      [
+       "A",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "H",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   {
+    "lernziel": "koordinaten",
+    "titel": "Punkte im Raum mit Koordinaten",
+    "regel": "Im Raum hat ein Punkt ⟦drei Koordinaten⟧ P(x | y | z). Liegt ein Quader mit A im ⟦Ursprung⟧ so, dass AB auf der x-Achse, AD auf der y-Achse und AE auf der z-Achse (nach oben) liegt, liest du die Koordinaten aus den ⟦Kantenlängen⟧ ab.",
+    "schritte": [
+     "Quader: A(0 | 0 | 0), Länge 5 in x-, Breite 3 in y-, Höhe 2 in z-Richtung",
+     "B(5 | 0 | 0), C(5 | 3 | 0), E(0 | 0 | 2)",
+     "G liegt über C: ⟦G(5 | 3 | 2)⟧"
+    ],
+    "fehler": "H liegt nicht bei (0 | 0 | 2) – das ist E. H liegt über D, also H(0 | 3 | 2). Achte darauf, ⟦welche Ecke über welcher⟧ liegt.",
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       5,
+       0
+      ],
+      "C": [
+       6.06,
+       1.06
+      ],
+      "D": [
+       1.06,
+       1.06
+      ],
+      "E": [
+       0,
+       2
+      ],
+      "F": [
+       5,
+       2
+      ],
+      "G": [
+       6.06,
+       3.06
+      ],
+      "H": [
+       1.06,
+       3.06
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "5"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "F",
+       "E"
+      ],
+      [
+       "E",
+       "A"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "G",
+       "F"
+      ],
+      [
+       "E",
+       "H"
+      ],
+      [
+       "H",
+       "G"
+      ],
+      [
+       "A",
+       "D",
+       "3",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "H",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "rotation",
@@ -82,7 +370,94 @@
      "Die Achse ist 7 cm lang: Höhe 7 cm.",
      "Die andere Seite wird zum Radius: ⟦Zylinder mit r = 4 cm, h = 7 cm⟧"
     ],
-    "fehler": "Dreht sich das Rechteck 4 cm × 7 cm um die 7-cm-Seite, ist der Radius nicht 7 cm. Die Seite ⟦auf der Achse⟧ wird zur Höhe, die andere zum Radius."
+    "fehler": "Dreht sich das Rechteck 4 cm × 7 cm um die 7-cm-Seite, ist der Radius nicht 7 cm. Die Seite ⟦auf der Achse⟧ wird zur Höhe, die andere zum Radius.",
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "_a": [
+       0,
+       -1
+      ],
+      "_b": [
+       0,
+       8
+      ],
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       4,
+       0
+      ],
+      "C": [
+       4,
+       7
+      ],
+      "D": [
+       0,
+       7
+      ],
+      "_l": [
+       -4,
+       0
+      ],
+      "_m": [
+       -4,
+       7
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C",
+      "D"
+     ],
+     "linien": [
+      [
+       "_a",
+       "_b",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "A",
+       "B",
+       "4 cm"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "D",
+       "A",
+       "7 cm (Achse)"
+      ],
+      [
+       "_l",
+       "A",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_l",
+       "_m",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_m",
+       "D",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "axialschnitt",
@@ -94,17 +469,6 @@
      "Flächeninhalt: ⟦60 cm²⟧"
     ],
     "fehler": "Der Axialschnitt eines Zylinders ist nicht r breit, sondern ⟦2r⟧: Der Schnitt geht durch die Mitte und erfasst den ganzen Durchmesser."
-   },
-   {
-    "lernziel": "koordinaten",
-    "titel": "Punkte im Raum mit Koordinaten",
-    "regel": "Im Raum hat ein Punkt ⟦drei Koordinaten⟧ P(x | y | z). Liegt ein Quader mit A im ⟦Ursprung⟧ so, dass AB auf der x-Achse, AD auf der y-Achse und AE auf der z-Achse (nach oben) liegt, liest du die Koordinaten aus den ⟦Kantenlängen⟧ ab.",
-    "schritte": [
-     "Quader: A(0 | 0 | 0), Länge 5 in x-, Breite 3 in y-, Höhe 2 in z-Richtung",
-     "B(5 | 0 | 0), C(5 | 3 | 0), E(0 | 0 | 2)",
-     "G liegt über C: ⟦G(5 | 3 | 2)⟧"
-    ],
-    "fehler": "H liegt nicht bei (0 | 0 | 2) – das ist E. H liegt über D, also H(0 | 3 | 2). Achte darauf, ⟦welche Ecke über welcher⟧ liegt."
    }
   ],
   "teilfaehigkeiten": [
@@ -130,6 +494,13 @@
     ]
    },
    {
+    "k": "koordinaten",
+    "text": "Punkte im Raum mit Koordinaten",
+    "lernziele": [
+     "koordinaten"
+    ]
+   },
+   {
     "k": "rotation",
     "text": "Rotationskörper",
     "lernziele": [
@@ -142,13 +513,6 @@
     "lernziele": [
      "axialschnitt"
     ]
-   },
-   {
-    "k": "koordinaten",
-    "text": "Punkte im Raum mit Koordinaten",
-    "lernziele": [
-     "koordinaten"
-    ]
    }
   ],
   "bewertung": {
@@ -156,9 +520,9 @@
     "pyramide",
     "laengen",
     "lage",
+    "koordinaten",
     "rotation",
-    "axialschnitt",
-    "koordinaten"
+    "axialschnitt"
    ],
    "lernziele_vertiefung": [],
    "testaufgaben_je_lernziel": 1
@@ -240,70 +604,6 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Eine Pyramide hat 11 Flächen. Wie viele Ecken hat ihre Grundfläche?"
-   },
-   "o": {
-    "wert": 10
-   },
-   "c": "11 - 1",
-   "w": "n + 1 = 11 → n = 10.",
-   "h": "Kanten 2n, Ecken n + 1, Flächen n + 1."
-  },
-  {
-   "l": "pyramide",
-   "t": "pyramide",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Pyramide hat 6 Ecken. Wie viele Ecken hat ihre Grundfläche?"
-   },
-   "o": {
-    "wert": 5
-   },
-   "c": "6 - 1",
-   "w": "n + 1 = 6 → n = 5.",
-   "h": "Kanten 2n, Ecken n + 1, Flächen n + 1."
-  },
-  {
-   "l": "pyramide",
-   "t": "pyramide",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Pyramide hat 7 Ecken. Wie viele Ecken hat ihre Grundfläche?"
-   },
-   "o": {
-    "wert": 6
-   },
-   "c": "7 - 1",
-   "w": "n + 1 = 7 → n = 6.",
-   "h": "Kanten 2n, Ecken n + 1, Flächen n + 1."
-  },
-  {
-   "l": "pyramide",
-   "t": "pyramide",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Pyramide hat 5 Flächen. Wie viele Ecken hat ihre Grundfläche?"
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "5 - 1",
-   "w": "n + 1 = 5 → n = 4.",
-   "h": "Kanten 2n, Ecken n + 1, Flächen n + 1."
-  },
-  {
-   "l": "pyramide",
-   "t": "pyramide",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
     "text": "Eine Pyramide hat 11 Ecken. Wie viele Ecken hat ihre Grundfläche?"
    },
    "o": {
@@ -320,116 +620,19 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Eine Pyramide hat 8 Flächen. Wie viele Ecken hat ihre Grundfläche?"
+    "text": "Eine Pyramide hat 7 Flächen. Wie viele Ecken hat ihre Grundfläche?"
    },
    "o": {
-    "wert": 7
+    "wert": 6
    },
-   "c": "8 - 1",
-   "w": "n + 1 = 8 → n = 7.",
+   "c": "7 - 1",
+   "w": "n + 1 = 7 → n = 6.",
    "h": "Kanten 2n, Ecken n + 1, Flächen n + 1."
   },
   {
    "l": "pyramide",
    "t": "pyramide",
    "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein zwölfseitigs Prisma und eine sechsseitige Pyramide werden verglichen. Wie viele Kanten haben beide zusammen?"
-   },
-   "o": {
-    "wert": 48
-   },
-   "c": "3 * 12 + 2 * 6",
-   "w": "Prisma: 3 · 12 = 36 Kanten. Pyramide: 2 · 6 = 12 Kanten. Zusammen 48.",
-   "h": "Prisma 3n Kanten, Pyramide 2n Kanten."
-  },
-  {
-   "l": "pyramide",
-   "t": "pyramide",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine sechsseitige Pyramide hat als Grundfläche ein regelmäßiges 6-Eck mit Seitenlänge 7 cm, jede Seitenkante ist 18 cm lang. Wie lang sind alle Kanten zusammen?"
-   },
-   "o": {
-    "wert": 150,
-    "einheit": "cm"
-   },
-   "c": "6 * 7 + 6 * 18",
-   "w": "6 Grundkanten: 42 cm, 6 Seitenkanten: 108 cm. Zusammen 150 cm.",
-   "h": "Grundkanten und Seitenkanten getrennt zählen."
-  },
-  {
-   "l": "pyramide",
-   "t": "pyramide",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine achtseitige Pyramide hat als Grundfläche ein regelmäßiges 8-Eck mit Seitenlänge 5 cm, jede Seitenkante ist 18 cm lang. Wie lang sind alle Kanten zusammen?"
-   },
-   "o": {
-    "wert": 184,
-    "einheit": "cm"
-   },
-   "c": "8 * 5 + 8 * 18",
-   "w": "8 Grundkanten: 40 cm, 8 Seitenkanten: 144 cm. Zusammen 184 cm.",
-   "h": "Grundkanten und Seitenkanten getrennt zählen."
-  },
-  {
-   "l": "pyramide",
-   "t": "pyramide",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine zwölfseitige Pyramide hat als Grundfläche ein regelmäßiges 12-Eck mit Seitenlänge 12 cm, jede Seitenkante ist 7 cm lang. Wie lang sind alle Kanten zusammen?"
-   },
-   "o": {
-    "wert": 228,
-    "einheit": "cm"
-   },
-   "c": "12 * 12 + 12 * 7",
-   "w": "12 Grundkanten: 144 cm, 12 Seitenkanten: 84 cm. Zusammen 228 cm.",
-   "h": "Grundkanten und Seitenkanten getrennt zählen."
-  },
-  {
-   "l": "pyramide",
-   "t": "pyramide",
-   "p": "test",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Pyramide hat 4 Ecken. Wie viele Ecken hat ihre Grundfläche?"
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "4 - 1",
-   "w": "n + 1 = 4 → n = 3."
-  },
-  {
-   "l": "pyramide",
-   "t": "pyramide",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Pyramide hat 20 Kanten. Wie viele Ecken hat ihre Grundfläche?"
-   },
-   "o": {
-    "wert": 10
-   },
-   "c": "20 / 2",
-   "w": "2n = 20 → n = 10."
-  },
-  {
-   "l": "pyramide",
-   "t": "pyramide",
-   "p": "korrektur",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -439,7 +642,152 @@
     "wert": 4
    },
    "c": "5 - 1",
-   "w": "n + 1 = 5 → n = 4."
+   "w": "n + 1 = 5 → n = 4.",
+   "h": "Kanten 2n, Ecken n + 1, Flächen n + 1."
+  },
+  {
+   "l": "pyramide",
+   "t": "pyramide",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Körper hat 9 Flächen und 16 Kanten. Was ist er?"
+   },
+   "a": [
+    "Kegel",
+    "Achtseitiges Prisma",
+    "Siebenseitiges Prisma",
+    "Achtseitige Pyramide"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Pyramide: n + 1 = 9 → n = 8, Kanten 2 · 8 = 16 ✓. Prisma mit 9 Flächen hätte n = 7 und 3 · 7 = 21 Kanten ✗.",
+   "h": "Prüfe beide Möglichkeiten: Pyramide (n + 1 Flächen, 2n Kanten) und Prisma (n + 2 Flächen, 3n Kanten)."
+  },
+  {
+   "l": "pyramide",
+   "t": "pyramide",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Pyramide hat 11 Flächen. Wie viele Ecken hat ihre Grundfläche?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "11 - 1",
+   "w": "n + 1 = 11 → n = 10.",
+   "h": "Kanten 2n, Ecken n + 1, Flächen n + 1."
+  },
+  {
+   "l": "pyramide",
+   "t": "pyramide",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Körper hat 10 Flächen und 24 Kanten. Was ist er?"
+   },
+   "a": [
+    "Achtseitiges Prisma",
+    "Achtseitige Pyramide",
+    "Würfel",
+    "Zwölfseitige Pyramide"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Prisma: n + 2 = 10 → n = 8, Kanten 3 · 8 = 24 ✓. Pyramide mit 10 Flächen hätte n = 9 und 2 · 9 = 18 Kanten ✗.",
+   "h": "Prüfe beide Möglichkeiten: Pyramide (n + 1 Flächen, 2n Kanten) und Prisma (n + 2 Flächen, 3n Kanten)."
+  },
+  {
+   "l": "pyramide",
+   "t": "pyramide",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine zwölfseitige Pyramide hat als Grundfläche ein regelmäßiges 12-Eck mit Seitenlänge 3 cm, jede Seitenkante ist 16 cm lang. Wie lang sind alle Kanten zusammen?"
+   },
+   "o": {
+    "wert": 228,
+    "einheit": "cm"
+   },
+   "c": "12 * 3 + 12 * 16",
+   "w": "12 Grundkanten: 36 cm, 12 Seitenkanten: 192 cm. Zusammen 228 cm.",
+   "h": "Grundkanten und Seitenkanten getrennt zählen."
+  },
+  {
+   "l": "pyramide",
+   "t": "pyramide",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Kanten haben ein zehnseitiges Prisma und eine dreiseitige Pyramide zusammen?"
+   },
+   "o": {
+    "wert": 36
+   },
+   "c": "3 * 10 + 2 * 3",
+   "w": "Prisma: 3 · 10 = 30 Kanten. Pyramide: 2 · 3 = 6 Kanten. Zusammen 36.",
+   "h": "Prisma 3n Kanten, Pyramide 2n Kanten."
+  },
+  {
+   "l": "pyramide",
+   "t": "pyramide",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine sechsseitige Pyramide hat als Grundfläche ein regelmäßiges 6-Eck mit Seitenlänge 7 cm, jede Seitenkante ist 6 cm lang. Wie lang sind alle Kanten zusammen?"
+   },
+   "o": {
+    "wert": 78,
+    "einheit": "cm"
+   },
+   "c": "6 * 7 + 6 * 6",
+   "w": "6 Grundkanten: 42 cm, 6 Seitenkanten: 36 cm. Zusammen 78 cm.",
+   "h": "Grundkanten und Seitenkanten getrennt zählen."
+  },
+  {
+   "l": "pyramide",
+   "t": "pyramide",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Kanten haben ein fünfseitiges Prisma und eine dreiseitige Pyramide zusammen?"
+   },
+   "o": {
+    "wert": 21
+   },
+   "c": "3 * 5 + 2 * 3",
+   "w": "Prisma: 3 · 5 = 15 Kanten. Pyramide: 2 · 3 = 6 Kanten. Zusammen 21.",
+   "h": "Prisma 3n Kanten, Pyramide 2n Kanten."
+  },
+  {
+   "l": "pyramide",
+   "t": "pyramide",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Körper hat 14 Flächen und 36 Kanten. Was ist er?"
+   },
+   "a": [
+    "Kegel",
+    "Zwölfseitiges Prisma",
+    "Zwölfseitige Pyramide",
+    "Würfel"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Prisma: n + 2 = 14 → n = 12, Kanten 3 · 12 = 36 ✓. Pyramide mit 14 Flächen hätte n = 13 und 2 · 13 = 26 Kanten ✗."
   },
   {
    "l": "pyramide",
@@ -448,13 +796,83 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Eine Pyramide hat 6 Kanten. Wie viele Ecken hat ihre Grundfläche?"
+    "text": "Eine Pyramide hat 8 Kanten. Wie viele Ecken hat ihre Grundfläche?"
    },
    "o": {
-    "wert": 3
+    "wert": 4
    },
-   "c": "6 / 2",
-   "w": "2n = 6 → n = 3."
+   "c": "8 / 2",
+   "w": "2n = 8 → n = 4."
+  },
+  {
+   "l": "pyramide",
+   "t": "pyramide",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Körper hat 6 Flächen und 10 Kanten. Was ist er?"
+   },
+   "a": [
+    "Fünfseitiges Prisma",
+    "Vierseitiges Prisma",
+    "Fünfseitige Pyramide",
+    "Kegel"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Pyramide: n + 1 = 6 → n = 5, Kanten 2 · 5 = 10 ✓. Prisma mit 6 Flächen hätte n = 4 und 3 · 4 = 12 Kanten ✗."
+  },
+  {
+   "l": "pyramide",
+   "t": "pyramide",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Pyramide hat 13 Ecken. Wie viele Ecken hat ihre Grundfläche?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "13 - 1",
+   "w": "n + 1 = 13 → n = 12."
+  },
+  {
+   "l": "pyramide",
+   "t": "pyramide",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Körper hat 8 Flächen und 14 Kanten. Was ist er?"
+   },
+   "a": [
+    "Siebenseitiges Prisma",
+    "Sechsseitiges Prisma",
+    "Kegel",
+    "Siebenseitige Pyramide"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Pyramide: n + 1 = 8 → n = 7, Kanten 2 · 7 = 14 ✓. Prisma mit 8 Flächen hätte n = 6 und 3 · 6 = 18 Kanten ✗."
+  },
+  {
+   "l": "pyramide",
+   "t": "pyramide",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Pyramide hat 6 Flächen. Wie viele Ecken hat ihre Grundfläche?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "6 - 1",
+   "w": "n + 1 = 6 → n = 5."
   },
   {
    "l": "pyramide",
@@ -478,7 +896,7 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Eine Pyramide hat 4 Flächen. Wie viele Ecken hat ihre Grundfläche?"
+    "text": "Eine Pyramide hat 4 Ecken. Wie viele Ecken hat ihre Grundfläche?"
    },
    "o": {
     "wert": 3
@@ -493,13 +911,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Eine Pyramide hat 16 Kanten. Wie viele Ecken hat ihre Grundfläche?"
+    "text": "Eine Pyramide hat 6 Kanten. Wie viele Ecken hat ihre Grundfläche?"
    },
    "o": {
-    "wert": 8
+    "wert": 3
    },
-   "c": "16 / 2",
-   "w": "2n = 16 → n = 8."
+   "c": "6 / 2",
+   "w": "2n = 6 → n = 3."
   },
   {
    "l": "pyramide",
@@ -508,43 +926,47 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Eine Pyramide hat 9 Ecken. Wie viele Ecken hat ihre Grundfläche?"
+    "text": "Eine Pyramide hat 7 Ecken. Wie viele Ecken hat ihre Grundfläche?"
    },
    "o": {
-    "wert": 8
+    "wert": 6
    },
-   "c": "9 - 1",
-   "w": "n + 1 = 9 → n = 8."
+   "c": "7 - 1",
+   "w": "n + 1 = 7 → n = 6."
   },
   {
-   "l": "pyramide",
-   "t": "pyramide",
-   "p": "sicherung",
-   "s": 2,
+   "l": "laengen",
+   "t": "laengen",
+   "p": "uebung",
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Eine Pyramide hat 10 Kanten. Wie viele Ecken hat ihre Grundfläche?"
+    "text": "Eine quadratische Pyramide (Grundkante 10 cm, Höhe 3 cm) wird im Schrägbild mit q = 1/2 gezeichnet. Wie lang zeichnest du die vordere Grundkante?"
    },
    "o": {
-    "wert": 5
+    "wert": 10,
+    "einheit": "cm"
+   },
+   "c": "10",
+   "w": "Die vordere Kante liegt parallel zur Zeichenebene: wahre Länge 10 cm.",
+   "h": "Parallel zur Zeichenebene: wahre Länge."
+  },
+  {
+   "l": "laengen",
+   "t": "laengen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine quadratische Pyramide (Grundkante 10 cm, Höhe 9 cm) wird im Schrägbild mit q = 1/2 gezeichnet. Wie lang zeichnest du eine Grundkante, die nach hinten führt?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "cm"
    },
    "c": "10 / 2",
-   "w": "2n = 10 → n = 5."
-  },
-  {
-   "l": "pyramide",
-   "t": "pyramide",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Pyramide hat 14 Kanten. Wie viele Ecken hat ihre Grundfläche?"
-   },
-   "o": {
-    "wert": 7
-   },
-   "c": "14 / 2",
-   "w": "2n = 14 → n = 7."
+   "w": "Nach hinten: 10 · 1/2 = 5 cm.",
+   "h": "Nach hinten: mit q multiplizieren."
   },
   {
    "l": "laengen",
@@ -553,48 +975,14 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Eine quadratische Pyramide (Grundkante 20 cm, Höhe 10 cm) wird im Schrägbild mit q = 1/2 gezeichnet. Wie lang zeichnest du die vordere Grundkante?"
+    "text": "Eine quadratische Pyramide (Grundkante 8 cm, Höhe 5 cm) wird im Schrägbild mit q = 1/2 gezeichnet. Wie lang zeichnest du die Höhe?"
    },
    "o": {
-    "wert": 20,
+    "wert": 5,
     "einheit": "cm"
    },
-   "c": "20",
-   "w": "Die vordere Kante liegt parallel zur Zeichenebene: wahre Länge 20 cm.",
-   "h": "Parallel zur Zeichenebene: wahre Länge."
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Eine quadratische Pyramide (Grundkante 4 cm, Höhe 5 cm) wird im Schrägbild mit q = 1/2 gezeichnet. Wie lang zeichnest du die vordere Grundkante?"
-   },
-   "o": {
-    "wert": 4,
-    "einheit": "cm"
-   },
-   "c": "4",
-   "w": "Die vordere Kante liegt parallel zur Zeichenebene: wahre Länge 4 cm.",
-   "h": "Parallel zur Zeichenebene: wahre Länge."
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Eine quadratische Pyramide (Grundkante 16 cm, Höhe 12 cm) wird im Schrägbild mit q = 1/2 gezeichnet. Wie lang zeichnest du die Höhe?"
-   },
-   "o": {
-    "wert": 12,
-    "einheit": "cm"
-   },
-   "c": "12",
-   "w": "Die Höhe steht senkrecht, also parallel zur Zeichenebene: 12 cm.",
+   "c": "5",
+   "w": "Die Höhe steht senkrecht, also parallel zur Zeichenebene: 5 cm.",
    "h": "Senkrechte Strecken werden nicht verkürzt."
   },
   {
@@ -621,185 +1009,20 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Quader ist 3 cm breit, 3 cm hoch und 9 cm tief. Im Schrägbild (q = 1/2) zeichnest du alle 12 Kanten. Wie lang sind die gezeichneten Kanten zusammen?"
+    "text": "Ein Quader ist 8 cm breit, 6 cm hoch und 17 cm tief. Im Schrägbild (q = 1/2) zeichnest du alle 12 Kanten. Wie lang sind die gezeichneten Kanten zusammen?"
    },
    "o": {
-    "wert": 42,
+    "wert": 90,
     "einheit": "cm"
    },
-   "c": "4 * 3 + 4 * 3 + 4 * 9 / 2",
-   "w": "4 Breiten (12 cm) und 4 Höhen (12 cm) in wahrer Länge, 4 Tiefen zu 4,5 cm (18 cm). Zusammen 42 cm.",
+   "c": "4 * 8 + 4 * 6 + 4 * 17 / 2",
+   "w": "4 Breiten (32 cm) und 4 Höhen (24 cm) in wahrer Länge, 4 Tiefen zu 8,5 cm (34 cm). Zusammen 90 cm.",
    "h": "Nur die 4 Kanten nach hinten werden verkürzt."
   },
   {
    "l": "laengen",
    "t": "laengen",
    "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader ist 13 cm breit, 7 cm hoch und 7 cm tief. Im Schrägbild (q = 1/2) zeichnest du alle 12 Kanten. Wie lang sind die gezeichneten Kanten zusammen?"
-   },
-   "o": {
-    "wert": 94,
-    "einheit": "cm"
-   },
-   "c": "4 * 13 + 4 * 7 + 4 * 7 / 2",
-   "w": "4 Breiten (52 cm) und 4 Höhen (28 cm) in wahrer Länge, 4 Tiefen zu 3,5 cm (14 cm). Zusammen 94 cm.",
-   "h": "Nur die 4 Kanten nach hinten werden verkürzt."
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader ist 3 cm breit, 9 cm hoch und 15 cm tief. Im Schrägbild (q = 1/2) zeichnest du alle 12 Kanten. Wie lang sind die gezeichneten Kanten zusammen?"
-   },
-   "o": {
-    "wert": 78,
-    "einheit": "cm"
-   },
-   "c": "4 * 3 + 4 * 9 + 4 * 15 / 2",
-   "w": "4 Breiten (12 cm) und 4 Höhen (36 cm) in wahrer Länge, 4 Tiefen zu 7,5 cm (30 cm). Zusammen 78 cm.",
-   "h": "Nur die 4 Kanten nach hinten werden verkürzt."
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader ist 10 cm breit, 10 cm hoch und 7 cm tief. Im Schrägbild (q = 1/2) zeichnest du alle 12 Kanten. Wie lang sind die gezeichneten Kanten zusammen?"
-   },
-   "o": {
-    "wert": 94,
-    "einheit": "cm"
-   },
-   "c": "4 * 10 + 4 * 10 + 4 * 7 / 2",
-   "w": "4 Breiten (40 cm) und 4 Höhen (40 cm) in wahrer Länge, 4 Tiefen zu 3,5 cm (14 cm). Zusammen 94 cm.",
-   "h": "Nur die 4 Kanten nach hinten werden verkürzt."
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader ist 9 cm breit, 12 cm hoch und 16 cm tief. Im Schrägbild (q = 1/2) zeichnest du alle 12 Kanten. Wie lang sind die gezeichneten Kanten zusammen?"
-   },
-   "o": {
-    "wert": 116,
-    "einheit": "cm"
-   },
-   "c": "4 * 9 + 4 * 12 + 4 * 16 / 2",
-   "w": "4 Breiten (36 cm) und 4 Höhen (48 cm) in wahrer Länge, 4 Tiefen zu 8 cm (32 cm). Zusammen 116 cm.",
-   "h": "Nur die 4 Kanten nach hinten werden verkürzt."
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader ist 4 cm breit, 7 cm hoch und 2 cm tief. Im Schrägbild (q = 1/2) zeichnest du alle 12 Kanten. Wie lang sind die gezeichneten Kanten zusammen?"
-   },
-   "o": {
-    "wert": 48,
-    "einheit": "cm"
-   },
-   "c": "4 * 4 + 4 * 7 + 4 * 2 / 2",
-   "w": "4 Breiten (16 cm) und 4 Höhen (28 cm) in wahrer Länge, 4 Tiefen zu 1 cm (4 cm). Zusammen 48 cm.",
-   "h": "Nur die 4 Kanten nach hinten werden verkürzt."
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine quadratische Pyramide wird im Schrägbild (q = 2/3, ω = 45°) gezeichnet, eine Grundkante liegt vorne parallel zur Zeichenebene. Welche Strecke erscheint sicher in wahrer Länge?"
-   },
-   "a": [
-    "die Höhe der Pyramide",
-    "eine Seitenkante der Pyramide",
-    "die Grundkante, die nach hinten führt",
-    "eine Diagonale der Grundfläche"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Die Höhe steht senkrecht und liegt parallel zur Zeichenebene. Seitenkanten, Kanten nach hinten und Diagonalen der Grundfläche haben einen Anteil nach hinten und werden verzerrt.",
-   "h": "Welche Strecke liegt parallel zur Zeichenebene?"
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Kante führt 12 cm nach hinten. Wie lang wird sie im Schrägbild mit q = 2/3 gezeichnet?"
-   },
-   "o": {
-    "wert": 8,
-    "einheit": "cm"
-   },
-   "c": "12 * (2/3)",
-   "w": "12 · 2/3 = 8 cm.",
-   "h": "Multipliziere die wahre Länge mit q."
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine quadratische Pyramide wird im Schrägbild (q = 1/2, ω = 45°) gezeichnet, eine Grundkante liegt vorne parallel zur Zeichenebene. Welche Strecke erscheint sicher in wahrer Länge?"
-   },
-   "a": [
-    "eine Seitenkante der Pyramide",
-    "eine Diagonale der Grundfläche",
-    "die Grundkante, die nach hinten führt",
-    "die Höhe der Pyramide"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Die Höhe steht senkrecht und liegt parallel zur Zeichenebene. Seitenkanten, Kanten nach hinten und Diagonalen der Grundfläche haben einen Anteil nach hinten und werden verzerrt.",
-   "h": "Welche Strecke liegt parallel zur Zeichenebene?"
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine quadratische Pyramide wird im Schrägbild (q = 1/3, ω = 45°) gezeichnet, eine Grundkante liegt vorne parallel zur Zeichenebene. Welche Strecke erscheint sicher in wahrer Länge?"
-   },
-   "a": [
-    "eine Seitenkante der Pyramide",
-    "die Grundkante, die nach hinten führt",
-    "die Höhe der Pyramide",
-    "eine Diagonale der Grundfläche"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Die Höhe steht senkrecht und liegt parallel zur Zeichenebene. Seitenkanten, Kanten nach hinten und Diagonalen der Grundfläche haben einen Anteil nach hinten und werden verzerrt.",
-   "h": "Welche Strecke liegt parallel zur Zeichenebene?"
-  },
-  {
-   "l": "laengen",
-   "t": "laengen",
-   "p": "test",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -810,12 +1033,13 @@
     "einheit": "cm"
    },
    "c": "(5/2) * 2",
-   "w": "wahr = gezeichnet : q = 2,5 : 1/2 = 5 cm."
+   "w": "wahr = gezeichnet : q = 2,5 : 1/2 = 5 cm.",
+   "h": "Rechne rückwärts: durch q teilen."
   },
   {
    "l": "laengen",
    "t": "laengen",
-   "p": "korrektur",
+   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -826,12 +1050,13 @@
     "einheit": "cm"
    },
    "c": "6 * 2",
-   "w": "wahr = gezeichnet : q = 6 : 1/2 = 12 cm."
+   "w": "wahr = gezeichnet : q = 6 : 1/2 = 12 cm.",
+   "h": "Rechne rückwärts: durch q teilen."
   },
   {
    "l": "laengen",
    "t": "laengen",
-   "p": "korrektur",
+   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -842,12 +1067,13 @@
     "einheit": "cm"
    },
    "c": "4 * 6 + 4 * 2 + 4 * 5 / 2",
-   "w": "4 Breiten (24 cm) und 4 Höhen (8 cm) in wahrer Länge, 4 Tiefen zu 2,5 cm (10 cm). Zusammen 42 cm."
+   "w": "4 Breiten (24 cm) und 4 Höhen (8 cm) in wahrer Länge, 4 Tiefen zu 2,5 cm (10 cm). Zusammen 42 cm.",
+   "h": "Nur die 4 Kanten nach hinten werden verkürzt."
   },
   {
    "l": "laengen",
    "t": "laengen",
-   "p": "korrektur",
+   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -858,12 +1084,13 @@
     "einheit": "cm"
    },
    "c": "10 * 2",
-   "w": "wahr = gezeichnet : q = 10 : 1/2 = 20 cm."
+   "w": "wahr = gezeichnet : q = 10 : 1/2 = 20 cm.",
+   "h": "Rechne rückwärts: durch q teilen."
   },
   {
    "l": "laengen",
    "t": "laengen",
-   "p": "sicherung",
+   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -874,7 +1101,140 @@
     "einheit": "cm"
    },
    "c": "5 * 2",
-   "w": "wahr = gezeichnet : q = 5 : 1/2 = 10 cm."
+   "w": "wahr = gezeichnet : q = 5 : 1/2 = 10 cm.",
+   "h": "Rechne rückwärts: durch q teilen."
+  },
+  {
+   "l": "laengen",
+   "t": "laengen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kante führt 2 cm nach hinten. Wie lang wird sie im Schrägbild mit q = 1/2 gezeichnet?"
+   },
+   "o": {
+    "wert": 1,
+    "einheit": "cm"
+   },
+   "c": "2 * (1/2)",
+   "w": "2 · 1/2 = 1 cm.",
+   "h": "Multipliziere die wahre Länge mit q."
+  },
+  {
+   "l": "laengen",
+   "t": "laengen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kante führt 6 cm nach hinten. Wie lang wird sie im Schrägbild mit q = 1/3 gezeichnet?"
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "cm"
+   },
+   "c": "6 * (1/3)",
+   "w": "6 · 1/3 = 2 cm.",
+   "h": "Multipliziere die wahre Länge mit q."
+  },
+  {
+   "l": "laengen",
+   "t": "laengen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kante führt 15 cm nach hinten. Wie lang wird sie im Schrägbild mit q = 2/3 gezeichnet?"
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "cm"
+   },
+   "c": "15 * (2/3)",
+   "w": "15 · 2/3 = 10 cm.",
+   "h": "Multipliziere die wahre Länge mit q."
+  },
+  {
+   "l": "laengen",
+   "t": "laengen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kante führt 8 cm nach hinten. Wie lang wird sie im Schrägbild mit q = 1/2 gezeichnet?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "cm"
+   },
+   "c": "8 * (1/2)",
+   "w": "8 · 1/2 = 4 cm.",
+   "h": "Multipliziere die wahre Länge mit q."
+  },
+  {
+   "l": "laengen",
+   "t": "laengen",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Schrägbild (q = 1/2, ω = 45°) eines Prismas ist die nach hinten laufende Kante 4,5 cm lang. Wie tief ist das Prisma wirklich?"
+   },
+   "o": {
+    "wert": 9,
+    "einheit": "cm"
+   },
+   "c": "(9/2) * 2",
+   "w": "wahr = gezeichnet : q = 4,5 : 1/2 = 9 cm."
+  },
+  {
+   "l": "laengen",
+   "t": "laengen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 10 cm breit, 15 cm hoch und 3 cm tief. Im Schrägbild (q = 1/2) zeichnest du alle 12 Kanten. Wie lang sind die gezeichneten Kanten zusammen?"
+   },
+   "o": {
+    "wert": 106,
+    "einheit": "cm"
+   },
+   "c": "4 * 10 + 4 * 15 + 4 * 3 / 2",
+   "w": "4 Breiten (40 cm) und 4 Höhen (60 cm) in wahrer Länge, 4 Tiefen zu 1,5 cm (6 cm). Zusammen 106 cm."
+  },
+  {
+   "l": "laengen",
+   "t": "laengen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Schrägbild (q = 1/2, ω = 45°) eines Prismas ist die nach hinten laufende Kante 7 cm lang. Wie tief ist das Prisma wirklich?"
+   },
+   "o": {
+    "wert": 14,
+    "einheit": "cm"
+   },
+   "c": "7 * 2",
+   "w": "wahr = gezeichnet : q = 7 : 1/2 = 14 cm."
+  },
+  {
+   "l": "laengen",
+   "t": "laengen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 9 cm breit, 14 cm hoch und 5 cm tief. Im Schrägbild (q = 1/2) zeichnest du alle 12 Kanten. Wie lang sind die gezeichneten Kanten zusammen?"
+   },
+   "o": {
+    "wert": 102,
+    "einheit": "cm"
+   },
+   "c": "4 * 9 + 4 * 14 + 4 * 5 / 2",
+   "w": "4 Breiten (36 cm) und 4 Höhen (56 cm) in wahrer Länge, 4 Tiefen zu 2,5 cm (10 cm). Zusammen 102 cm."
   },
   {
    "l": "laengen",
@@ -883,14 +1243,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Im Schrägbild (q = 1/2, ω = 45°) eines Prismas ist die nach hinten laufende Kante 3,5 cm lang. Wie tief ist das Prisma wirklich?"
+    "text": "Ein Quader ist 4 cm breit, 11 cm hoch und 7 cm tief. Im Schrägbild (q = 1/2) zeichnest du alle 12 Kanten. Wie lang sind die gezeichneten Kanten zusammen?"
    },
    "o": {
-    "wert": 7,
+    "wert": 74,
     "einheit": "cm"
    },
-   "c": "(7/2) * 2",
-   "w": "wahr = gezeichnet : q = 3,5 : 1/2 = 7 cm."
+   "c": "4 * 4 + 4 * 11 + 4 * 7 / 2",
+   "w": "4 Breiten (16 cm) und 4 Höhen (44 cm) in wahrer Länge, 4 Tiefen zu 3,5 cm (14 cm). Zusammen 74 cm."
   },
   {
    "l": "laengen",
@@ -915,14 +1275,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Quader ist 15 cm breit, 14 cm hoch und 13 cm tief. Im Schrägbild (q = 1/2) zeichnest du alle 12 Kanten. Wie lang sind die gezeichneten Kanten zusammen?"
+    "text": "Ein Quader ist 4 cm breit, 12 cm hoch und 10 cm tief. Im Schrägbild (q = 1/2) zeichnest du alle 12 Kanten. Wie lang sind die gezeichneten Kanten zusammen?"
    },
    "o": {
-    "wert": 142,
+    "wert": 84,
     "einheit": "cm"
    },
-   "c": "4 * 15 + 4 * 14 + 4 * 13 / 2",
-   "w": "4 Breiten (60 cm) und 4 Höhen (56 cm) in wahrer Länge, 4 Tiefen zu 6,5 cm (26 cm). Zusammen 142 cm."
+   "c": "4 * 4 + 4 * 12 + 4 * 10 / 2",
+   "w": "4 Breiten (16 cm) und 4 Höhen (48 cm) in wahrer Länge, 4 Tiefen zu 5 cm (20 cm). Zusammen 84 cm."
   },
   {
    "l": "laengen",
@@ -931,14 +1291,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Im Schrägbild (q = 1/2, ω = 45°) eines Prismas ist die nach hinten laufende Kante 8,5 cm lang. Wie tief ist das Prisma wirklich?"
+    "text": "Ein Quader ist 4 cm breit, 11 cm hoch und 14 cm tief. Im Schrägbild (q = 1/2) zeichnest du alle 12 Kanten. Wie lang sind die gezeichneten Kanten zusammen?"
    },
    "o": {
-    "wert": 17,
+    "wert": 88,
     "einheit": "cm"
    },
-   "c": "(17/2) * 2",
-   "w": "wahr = gezeichnet : q = 8,5 : 1/2 = 17 cm."
+   "c": "4 * 4 + 4 * 11 + 4 * 14 / 2",
+   "w": "4 Breiten (16 cm) und 4 Höhen (44 cm) in wahrer Länge, 4 Tiefen zu 7 cm (28 cm). Zusammen 88 cm."
   },
   {
    "l": "laengen",
@@ -947,116 +1307,141 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Im Schrägbild (q = 1/2, ω = 45°) eines Prismas ist die nach hinten laufende Kante 4,5 cm lang. Wie tief ist das Prisma wirklich?"
+    "text": "Ein Quader ist 7 cm breit, 15 cm hoch und 2 cm tief. Im Schrägbild (q = 1/2) zeichnest du alle 12 Kanten. Wie lang sind die gezeichneten Kanten zusammen?"
    },
    "o": {
-    "wert": 9,
+    "wert": 92,
     "einheit": "cm"
    },
-   "c": "(9/2) * 2",
-   "w": "wahr = gezeichnet : q = 4,5 : 1/2 = 9 cm."
+   "c": "4 * 7 + 4 * 15 + 4 * 2 / 2",
+   "w": "4 Breiten (28 cm) und 4 Höhen (60 cm) in wahrer Länge, 4 Tiefen zu 1 cm (4 cm). Zusammen 92 cm."
   },
   {
-   "l": "lage",
-   "t": "lage",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden FG und GH zueinander?"
-   },
-   "a": [
-    "schneiden sich",
-    "windschief",
-    "parallel",
-    "identisch"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "FG und GH haben einen gemeinsamen Punkt (G).",
-   "h": "Stell dir den Quader vor (z. B. eine Schachtel). Haben die Geraden dieselbe Richtung? Gibt es einen gemeinsamen Punkt?"
-  },
-  {
-   "l": "lage",
-   "t": "lage",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden CD und BF zueinander?"
-   },
-   "a": [
-    "schneiden sich",
-    "identisch",
-    "parallel",
-    "windschief"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "CD und BF sind nicht parallel und treffen sich nirgends: Sie liegen in keiner gemeinsamen Ebene.",
-   "h": "Stell dir den Quader vor (z. B. eine Schachtel). Haben die Geraden dieselbe Richtung? Gibt es einen gemeinsamen Punkt?"
-  },
-  {
-   "l": "lage",
-   "t": "lage",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden EF und CG zueinander?"
-   },
-   "a": [
-    "windschief",
-    "schneiden sich",
-    "parallel",
-    "identisch"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "EF und CG sind nicht parallel und treffen sich nirgends: Sie liegen in keiner gemeinsamen Ebene.",
-   "h": "Stell dir den Quader vor (z. B. eine Schachtel). Haben die Geraden dieselbe Richtung? Gibt es einen gemeinsamen Punkt?"
-  },
-  {
-   "l": "lage",
-   "t": "lage",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden AB und HE zueinander?"
-   },
-   "a": [
-    "parallel",
-    "windschief",
-    "schneiden sich",
-    "identisch"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "AB und HE sind nicht parallel und treffen sich nirgends: Sie liegen in keiner gemeinsamen Ebene.",
-   "h": "Stell dir den Quader vor (z. B. eine Schachtel). Haben die Geraden dieselbe Richtung? Gibt es einen gemeinsamen Punkt?"
-  },
-  {
-   "l": "lage",
-   "t": "lage",
-   "p": "uebung",
+   "l": "laengen",
+   "t": "laengen",
+   "p": "sicherung",
    "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 10 cm breit, 7 cm hoch und 10 cm tief. Im Schrägbild (q = 1/2) zeichnest du alle 12 Kanten. Wie lang sind die gezeichneten Kanten zusammen?"
+   },
+   "o": {
+    "wert": 88,
+    "einheit": "cm"
+   },
+   "c": "4 * 10 + 4 * 7 + 4 * 10 / 2",
+   "w": "4 Breiten (40 cm) und 4 Höhen (28 cm) in wahrer Länge, 4 Tiefen zu 5 cm (20 cm). Zusammen 88 cm."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "uebung",
+   "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden BF und GH zueinander?"
+    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden BF und GH zueinander?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       5,
+       0
+      ],
+      "C": [
+       6.06,
+       1.06
+      ],
+      "D": [
+       1.06,
+       1.06
+      ],
+      "E": [
+       0,
+       2
+      ],
+      "F": [
+       5,
+       2
+      ],
+      "G": [
+       6.06,
+       3.06
+      ],
+      "H": [
+       1.06,
+       3.06
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "F",
+       "E"
+      ],
+      [
+       "E",
+       "A"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "G",
+       "F"
+      ],
+      [
+       "E",
+       "H"
+      ],
+      [
+       "H",
+       "G"
+      ],
+      [
+       "A",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "H",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    "a": [
-    "identisch",
-    "schneiden sich",
     "windschief",
-    "parallel"
+    "schneiden sich",
+    "parallel",
+    "identisch"
    ],
    "o": {
-    "index": 2
+    "index": 0
    },
    "w": "BF und GH sind nicht parallel und treffen sich nirgends: Sie liegen in keiner gemeinsamen Ebene.",
    "h": "Stell dir den Quader vor (z. B. eine Schachtel). Haben die Geraden dieselbe Richtung? Gibt es einen gemeinsamen Punkt?"
@@ -1065,40 +1450,226 @@
    "l": "lage",
    "t": "lage",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden DA und DH zueinander?"
+    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden BF und DA zueinander?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       5,
+       0
+      ],
+      "C": [
+       6.06,
+       1.06
+      ],
+      "D": [
+       1.06,
+       1.06
+      ],
+      "E": [
+       0,
+       2
+      ],
+      "F": [
+       5,
+       2
+      ],
+      "G": [
+       6.06,
+       3.06
+      ],
+      "H": [
+       1.06,
+       3.06
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "F",
+       "E"
+      ],
+      [
+       "E",
+       "A"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "G",
+       "F"
+      ],
+      [
+       "E",
+       "H"
+      ],
+      [
+       "H",
+       "G"
+      ],
+      [
+       "A",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "H",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    "a": [
     "schneiden sich",
-    "windschief",
     "identisch",
+    "windschief",
     "parallel"
    ],
    "o": {
-    "index": 0
+    "index": 2
    },
-   "w": "DA und DH haben einen gemeinsamen Punkt (D).",
+   "w": "BF und DA sind nicht parallel und treffen sich nirgends: Sie liegen in keiner gemeinsamen Ebene.",
    "h": "Stell dir den Quader vor (z. B. eine Schachtel). Haben die Geraden dieselbe Richtung? Gibt es einen gemeinsamen Punkt?"
   },
   {
    "l": "lage",
    "t": "lage",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden FG und EF zueinander?"
+    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden FG und EF zueinander?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       5,
+       0
+      ],
+      "C": [
+       6.06,
+       1.06
+      ],
+      "D": [
+       1.06,
+       1.06
+      ],
+      "E": [
+       0,
+       2
+      ],
+      "F": [
+       5,
+       2
+      ],
+      "G": [
+       6.06,
+       3.06
+      ],
+      "H": [
+       1.06,
+       3.06
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "F",
+       "E"
+      ],
+      [
+       "E",
+       "A"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "G",
+       "F"
+      ],
+      [
+       "E",
+       "H"
+      ],
+      [
+       "H",
+       "G"
+      ],
+      [
+       "A",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "H",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    "a": [
     "parallel",
+    "identisch",
     "windschief",
-    "schneiden sich",
-    "identisch"
+    "schneiden sich"
    ],
    "o": {
-    "index": 2
+    "index": 3
    },
    "w": "FG und EF haben einen gemeinsamen Punkt (F).",
    "h": "Stell dir den Quader vor (z. B. eine Schachtel). Haben die Geraden dieselbe Richtung? Gibt es einen gemeinsamen Punkt?"
@@ -1107,21 +1678,114 @@
    "l": "lage",
    "t": "lage",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden BF und DH zueinander?"
+    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden BF und EF zueinander?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       5,
+       0
+      ],
+      "C": [
+       6.06,
+       1.06
+      ],
+      "D": [
+       1.06,
+       1.06
+      ],
+      "E": [
+       0,
+       2
+      ],
+      "F": [
+       5,
+       2
+      ],
+      "G": [
+       6.06,
+       3.06
+      ],
+      "H": [
+       1.06,
+       3.06
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "F",
+       "E"
+      ],
+      [
+       "E",
+       "A"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "G",
+       "F"
+      ],
+      [
+       "E",
+       "H"
+      ],
+      [
+       "H",
+       "G"
+      ],
+      [
+       "A",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "H",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    "a": [
-    "windschief",
     "schneiden sich",
+    "windschief",
     "parallel",
     "identisch"
    ],
    "o": {
-    "index": 2
+    "index": 0
    },
-   "w": "BF und DH haben dieselbe Richtung, aber keinen gemeinsamen Punkt.",
+   "w": "BF und EF haben einen gemeinsamen Punkt (F).",
    "h": "Stell dir den Quader vor (z. B. eine Schachtel). Haben die Geraden dieselbe Richtung? Gibt es einen gemeinsamen Punkt?"
   },
   {
@@ -1131,16 +1795,109 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden CD und DA zueinander?"
+    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden CD und DA zueinander?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       5,
+       0
+      ],
+      "C": [
+       6.06,
+       1.06
+      ],
+      "D": [
+       1.06,
+       1.06
+      ],
+      "E": [
+       0,
+       2
+      ],
+      "F": [
+       5,
+       2
+      ],
+      "G": [
+       6.06,
+       3.06
+      ],
+      "H": [
+       1.06,
+       3.06
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "F",
+       "E"
+      ],
+      [
+       "E",
+       "A"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "G",
+       "F"
+      ],
+      [
+       "E",
+       "H"
+      ],
+      [
+       "H",
+       "G"
+      ],
+      [
+       "A",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "H",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    "a": [
-    "schneiden sich",
     "parallel",
+    "schneiden sich",
     "windschief",
     "identisch"
    ],
    "o": {
-    "index": 0
+    "index": 1
    },
    "w": "CD und DA haben einen gemeinsamen Punkt (D).",
    "h": "Stell dir den Quader vor (z. B. eine Schachtel). Haben die Geraden dieselbe Richtung? Gibt es einen gemeinsamen Punkt?"
@@ -1152,112 +1909,100 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden BC und FG zueinander?"
-   },
-   "a": [
-    "parallel",
-    "identisch",
-    "schneiden sich",
-    "windschief"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "BC und FG haben dieselbe Richtung, aber keinen gemeinsamen Punkt.",
-   "h": "Stell dir den Quader vor (z. B. eine Schachtel). Haben die Geraden dieselbe Richtung? Gibt es einen gemeinsamen Punkt?"
-  },
-  {
-   "l": "lage",
-   "t": "lage",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden AE und AH zueinander?"
-   },
-   "a": [
-    "schneiden sich",
-    "windschief",
-    "parallel",
-    "identisch"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "AE und AH haben einen gemeinsamen Punkt (A).",
-   "h": "Stell dir den Quader vor (z. B. eine Schachtel). Haben die Geraden dieselbe Richtung? Gibt es einen gemeinsamen Punkt?"
-  },
-  {
-   "l": "lage",
-   "t": "lage",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden FH und BG zueinander?"
-   },
-   "a": [
-    "parallel",
-    "identisch",
-    "schneiden sich",
-    "windschief"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "FH und BG sind nicht parallel und treffen sich nirgends: Sie liegen in keiner gemeinsamen Ebene.",
-   "h": "Stell dir den Quader vor (z. B. eine Schachtel). Haben die Geraden dieselbe Richtung? Gibt es einen gemeinsamen Punkt?"
-  },
-  {
-   "l": "lage",
-   "t": "lage",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden AF und EG zueinander?"
-   },
-   "a": [
-    "parallel",
-    "schneiden sich",
-    "windschief",
-    "identisch"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "AF und EG sind nicht parallel und treffen sich nirgends: Sie liegen in keiner gemeinsamen Ebene.",
-   "h": "Stell dir den Quader vor (z. B. eine Schachtel). Haben die Geraden dieselbe Richtung? Gibt es einen gemeinsamen Punkt?"
-  },
-  {
-   "l": "lage",
-   "t": "lage",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden AH und BH zueinander?"
-   },
-   "a": [
-    "schneiden sich",
-    "identisch",
-    "parallel",
-    "windschief"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "AH und BH haben einen gemeinsamen Punkt (H).",
-   "h": "Stell dir den Quader vor (z. B. eine Schachtel). Haben die Geraden dieselbe Richtung? Gibt es einen gemeinsamen Punkt?"
-  },
-  {
-   "l": "lage",
-   "t": "lage",
-   "p": "test",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden AE und BF zueinander?"
+    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden BC und FG zueinander?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       5,
+       0
+      ],
+      "C": [
+       6.06,
+       1.06
+      ],
+      "D": [
+       1.06,
+       1.06
+      ],
+      "E": [
+       0,
+       2
+      ],
+      "F": [
+       5,
+       2
+      ],
+      "G": [
+       6.06,
+       3.06
+      ],
+      "H": [
+       1.06,
+       3.06
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "F",
+       "E"
+      ],
+      [
+       "E",
+       "A"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "G",
+       "F"
+      ],
+      [
+       "E",
+       "H"
+      ],
+      [
+       "H",
+       "G"
+      ],
+      [
+       "A",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "H",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    "a": [
     "windschief",
@@ -1268,16 +2013,566 @@
    "o": {
     "index": 1
    },
-   "w": "AE und BF haben dieselbe Richtung, aber keinen gemeinsamen Punkt."
+   "w": "BC und FG haben dieselbe Richtung, aber keinen gemeinsamen Punkt.",
+   "h": "Stell dir den Quader vor (z. B. eine Schachtel). Haben die Geraden dieselbe Richtung? Gibt es einen gemeinsamen Punkt?"
   },
   {
    "l": "lage",
    "t": "lage",
-   "p": "korrektur",
+   "p": "uebung",
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden AB und FG zueinander?"
+    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden EF und CG zueinander?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       5,
+       0
+      ],
+      "C": [
+       6.06,
+       1.06
+      ],
+      "D": [
+       1.06,
+       1.06
+      ],
+      "E": [
+       0,
+       2
+      ],
+      "F": [
+       5,
+       2
+      ],
+      "G": [
+       6.06,
+       3.06
+      ],
+      "H": [
+       1.06,
+       3.06
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "F",
+       "E"
+      ],
+      [
+       "E",
+       "A"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "G",
+       "F"
+      ],
+      [
+       "E",
+       "H"
+      ],
+      [
+       "H",
+       "G"
+      ],
+      [
+       "A",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "H",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "identisch",
+    "parallel",
+    "schneiden sich",
+    "windschief"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "EF und CG sind nicht parallel und treffen sich nirgends: Sie liegen in keiner gemeinsamen Ebene.",
+   "h": "Stell dir den Quader vor (z. B. eine Schachtel). Haben die Geraden dieselbe Richtung? Gibt es einen gemeinsamen Punkt?"
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden AB und HE zueinander?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       5,
+       0
+      ],
+      "C": [
+       6.06,
+       1.06
+      ],
+      "D": [
+       1.06,
+       1.06
+      ],
+      "E": [
+       0,
+       2
+      ],
+      "F": [
+       5,
+       2
+      ],
+      "G": [
+       6.06,
+       3.06
+      ],
+      "H": [
+       1.06,
+       3.06
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "F",
+       "E"
+      ],
+      [
+       "E",
+       "A"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "G",
+       "F"
+      ],
+      [
+       "E",
+       "H"
+      ],
+      [
+       "H",
+       "G"
+      ],
+      [
+       "A",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "H",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "parallel",
+    "schneiden sich",
+    "windschief",
+    "identisch"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "AB und HE sind nicht parallel und treffen sich nirgends: Sie liegen in keiner gemeinsamen Ebene.",
+   "h": "Stell dir den Quader vor (z. B. eine Schachtel). Haben die Geraden dieselbe Richtung? Gibt es einen gemeinsamen Punkt?"
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden AE und HE zueinander?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       5,
+       0
+      ],
+      "C": [
+       6.06,
+       1.06
+      ],
+      "D": [
+       1.06,
+       1.06
+      ],
+      "E": [
+       0,
+       2
+      ],
+      "F": [
+       5,
+       2
+      ],
+      "G": [
+       6.06,
+       3.06
+      ],
+      "H": [
+       1.06,
+       3.06
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "F",
+       "E"
+      ],
+      [
+       "E",
+       "A"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "G",
+       "F"
+      ],
+      [
+       "E",
+       "H"
+      ],
+      [
+       "H",
+       "G"
+      ],
+      [
+       "A",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "H",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "schneiden sich",
+    "parallel",
+    "identisch",
+    "windschief"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "AE und HE haben einen gemeinsamen Punkt (E).",
+   "h": "Stell dir den Quader vor (z. B. eine Schachtel). Haben die Geraden dieselbe Richtung? Gibt es einen gemeinsamen Punkt?"
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden CD und CG zueinander?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       5,
+       0
+      ],
+      "C": [
+       6.06,
+       1.06
+      ],
+      "D": [
+       1.06,
+       1.06
+      ],
+      "E": [
+       0,
+       2
+      ],
+      "F": [
+       5,
+       2
+      ],
+      "G": [
+       6.06,
+       3.06
+      ],
+      "H": [
+       1.06,
+       3.06
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "F",
+       "E"
+      ],
+      [
+       "E",
+       "A"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "G",
+       "F"
+      ],
+      [
+       "E",
+       "H"
+      ],
+      [
+       "H",
+       "G"
+      ],
+      [
+       "A",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "H",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "windschief",
+    "schneiden sich",
+    "identisch",
+    "parallel"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "CD und CG haben einen gemeinsamen Punkt (C).",
+   "h": "Stell dir den Quader vor (z. B. eine Schachtel). Haben die Geraden dieselbe Richtung? Gibt es einen gemeinsamen Punkt?"
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden BH und BC zueinander?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       5,
+       0
+      ],
+      "C": [
+       6.06,
+       1.06
+      ],
+      "D": [
+       1.06,
+       1.06
+      ],
+      "E": [
+       0,
+       2
+      ],
+      "F": [
+       5,
+       2
+      ],
+      "G": [
+       6.06,
+       3.06
+      ],
+      "H": [
+       1.06,
+       3.06
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "F",
+       "E"
+      ],
+      [
+       "E",
+       "A"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "G",
+       "F"
+      ],
+      [
+       "E",
+       "H"
+      ],
+      [
+       "H",
+       "G"
+      ],
+      [
+       "A",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "H",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    "a": [
     "windschief",
@@ -1286,118 +2581,567 @@
     "schneiden sich"
    ],
    "o": {
-    "index": 0
-   },
-   "w": "AB und FG sind nicht parallel und treffen sich nirgends: Sie liegen in keiner gemeinsamen Ebene."
-  },
-  {
-   "l": "lage",
-   "t": "lage",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden BC und DA zueinander?"
-   },
-   "a": [
-    "parallel",
-    "schneiden sich",
-    "identisch",
-    "windschief"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "BC und DA haben dieselbe Richtung, aber keinen gemeinsamen Punkt."
-  },
-  {
-   "l": "lage",
-   "t": "lage",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden GH und EF zueinander?"
-   },
-   "a": [
-    "schneiden sich",
-    "identisch",
-    "windschief",
-    "parallel"
-   ],
-   "o": {
     "index": 3
    },
-   "w": "GH und EF haben dieselbe Richtung, aber keinen gemeinsamen Punkt."
+   "w": "BH und BC haben einen gemeinsamen Punkt (B).",
+   "h": "Stell dir den Quader vor (z. B. eine Schachtel). Haben die Geraden dieselbe Richtung? Gibt es einen gemeinsamen Punkt?"
   },
   {
    "l": "lage",
    "t": "lage",
-   "p": "sicherung",
-   "s": 2,
+   "p": "uebung",
+   "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden GH und DA zueinander?"
+    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden AC und AH zueinander?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       5,
+       0
+      ],
+      "C": [
+       6.06,
+       1.06
+      ],
+      "D": [
+       1.06,
+       1.06
+      ],
+      "E": [
+       0,
+       2
+      ],
+      "F": [
+       5,
+       2
+      ],
+      "G": [
+       6.06,
+       3.06
+      ],
+      "H": [
+       1.06,
+       3.06
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "F",
+       "E"
+      ],
+      [
+       "E",
+       "A"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "G",
+       "F"
+      ],
+      [
+       "E",
+       "H"
+      ],
+      [
+       "H",
+       "G"
+      ],
+      [
+       "A",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "H",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    "a": [
-    "identisch",
     "schneiden sich",
+    "identisch",
     "windschief",
     "parallel"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "AC und AH haben einen gemeinsamen Punkt (A).",
+   "h": "Stell dir den Quader vor (z. B. eine Schachtel). Haben die Geraden dieselbe Richtung? Gibt es einen gemeinsamen Punkt?"
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Kante ist windschief zu BC?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       5,
+       0
+      ],
+      "C": [
+       6.06,
+       1.06
+      ],
+      "D": [
+       1.06,
+       1.06
+      ],
+      "E": [
+       0,
+       2
+      ],
+      "F": [
+       5,
+       2
+      ],
+      "G": [
+       6.06,
+       3.06
+      ],
+      "H": [
+       1.06,
+       3.06
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "F",
+       "E"
+      ],
+      [
+       "E",
+       "A"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "G",
+       "F"
+      ],
+      [
+       "E",
+       "H"
+      ],
+      [
+       "H",
+       "G"
+      ],
+      [
+       "A",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "H",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "AB",
+    "CD",
+    "GH",
+    "FG"
    ],
    "o": {
     "index": 2
    },
-   "w": "GH und DA sind nicht parallel und treffen sich nirgends: Sie liegen in keiner gemeinsamen Ebene."
+   "w": "GH: windschief. FG: parallel; AB: schneiden sich; CD: schneiden sich.",
+   "h": "Prüfe für jede Kante: gleiche Richtung? gemeinsamer Punkt?"
   },
   {
    "l": "lage",
    "t": "lage",
-   "p": "sicherung",
-   "s": 2,
+   "p": "uebung",
+   "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden BF und AE zueinander?"
+    "text": "Welche Kante schneidet GH?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       5,
+       0
+      ],
+      "C": [
+       6.06,
+       1.06
+      ],
+      "D": [
+       1.06,
+       1.06
+      ],
+      "E": [
+       0,
+       2
+      ],
+      "F": [
+       5,
+       2
+      ],
+      "G": [
+       6.06,
+       3.06
+      ],
+      "H": [
+       1.06,
+       3.06
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "F",
+       "E"
+      ],
+      [
+       "E",
+       "A"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "G",
+       "F"
+      ],
+      [
+       "E",
+       "H"
+      ],
+      [
+       "H",
+       "G"
+      ],
+      [
+       "A",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "H",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    "a": [
-    "identisch",
-    "windschief",
-    "schneiden sich",
-    "parallel"
+    "AB",
+    "DA",
+    "AE",
+    "DH"
    ],
    "o": {
     "index": 3
    },
-   "w": "BF und AE haben dieselbe Richtung, aber keinen gemeinsamen Punkt."
+   "w": "DH: schneiden sich. AE: windschief; DA: windschief; AB: parallel.",
+   "h": "Prüfe für jede Kante: gleiche Richtung? gemeinsamer Punkt?"
   },
   {
    "l": "lage",
    "t": "lage",
-   "p": "sicherung",
+   "p": "test",
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden GH und CD zueinander?"
+    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden EF und GH zueinander?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       5,
+       0
+      ],
+      "C": [
+       6.06,
+       1.06
+      ],
+      "D": [
+       1.06,
+       1.06
+      ],
+      "E": [
+       0,
+       2
+      ],
+      "F": [
+       5,
+       2
+      ],
+      "G": [
+       6.06,
+       3.06
+      ],
+      "H": [
+       1.06,
+       3.06
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "F",
+       "E"
+      ],
+      [
+       "E",
+       "A"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "G",
+       "F"
+      ],
+      [
+       "E",
+       "H"
+      ],
+      [
+       "H",
+       "G"
+      ],
+      [
+       "A",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "H",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    "a": [
-    "identisch",
+    "parallel",
     "windschief",
-    "schneiden sich",
-    "parallel"
+    "identisch",
+    "schneiden sich"
    ],
    "o": {
-    "index": 3
+    "index": 0
    },
-   "w": "GH und CD haben dieselbe Richtung, aber keinen gemeinsamen Punkt."
+   "w": "EF und GH haben dieselbe Richtung, aber keinen gemeinsamen Punkt."
   },
   {
    "l": "lage",
    "t": "lage",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden FG und HE zueinander?"
+    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden HE und BF zueinander?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       5,
+       0
+      ],
+      "C": [
+       6.06,
+       1.06
+      ],
+      "D": [
+       1.06,
+       1.06
+      ],
+      "E": [
+       0,
+       2
+      ],
+      "F": [
+       5,
+       2
+      ],
+      "G": [
+       6.06,
+       3.06
+      ],
+      "H": [
+       1.06,
+       3.06
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "F",
+       "E"
+      ],
+      [
+       "E",
+       "A"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "G",
+       "F"
+      ],
+      [
+       "E",
+       "H"
+      ],
+      [
+       "H",
+       "G"
+      ],
+      [
+       "A",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "H",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    "a": [
     "parallel",
@@ -1406,7 +3150,233 @@
     "identisch"
    ],
    "o": {
-    "index": 0
+    "index": 1
+   },
+   "w": "HE und BF sind nicht parallel und treffen sich nirgends: Sie liegen in keiner gemeinsamen Ebene."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden GH und CD zueinander?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       5,
+       0
+      ],
+      "C": [
+       6.06,
+       1.06
+      ],
+      "D": [
+       1.06,
+       1.06
+      ],
+      "E": [
+       0,
+       2
+      ],
+      "F": [
+       5,
+       2
+      ],
+      "G": [
+       6.06,
+       3.06
+      ],
+      "H": [
+       1.06,
+       3.06
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "F",
+       "E"
+      ],
+      [
+       "E",
+       "A"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "G",
+       "F"
+      ],
+      [
+       "E",
+       "H"
+      ],
+      [
+       "H",
+       "G"
+      ],
+      [
+       "A",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "H",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "identisch",
+    "schneiden sich",
+    "parallel",
+    "windschief"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "GH und CD haben dieselbe Richtung, aber keinen gemeinsamen Punkt."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden FG und HE zueinander?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       5,
+       0
+      ],
+      "C": [
+       6.06,
+       1.06
+      ],
+      "D": [
+       1.06,
+       1.06
+      ],
+      "E": [
+       0,
+       2
+      ],
+      "F": [
+       5,
+       2
+      ],
+      "G": [
+       6.06,
+       3.06
+      ],
+      "H": [
+       1.06,
+       3.06
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "F",
+       "E"
+      ],
+      [
+       "E",
+       "A"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "G",
+       "F"
+      ],
+      [
+       "E",
+       "H"
+      ],
+      [
+       "H",
+       "G"
+      ],
+      [
+       "A",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "H",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "identisch",
+    "schneiden sich",
+    "windschief",
+    "parallel"
+   ],
+   "o": {
+    "index": 3
    },
    "w": "FG und HE haben dieselbe Richtung, aber keinen gemeinsamen Punkt."
   },
@@ -1417,16 +3387,109 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden CG und GH zueinander?"
+    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden CG und GH zueinander?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       5,
+       0
+      ],
+      "C": [
+       6.06,
+       1.06
+      ],
+      "D": [
+       1.06,
+       1.06
+      ],
+      "E": [
+       0,
+       2
+      ],
+      "F": [
+       5,
+       2
+      ],
+      "G": [
+       6.06,
+       3.06
+      ],
+      "H": [
+       1.06,
+       3.06
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "F",
+       "E"
+      ],
+      [
+       "E",
+       "A"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "G",
+       "F"
+      ],
+      [
+       "E",
+       "H"
+      ],
+      [
+       "H",
+       "G"
+      ],
+      [
+       "A",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "H",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    "a": [
-    "identisch",
     "schneiden sich",
+    "identisch",
     "windschief",
     "parallel"
    ],
    "o": {
-    "index": 1
+    "index": 0
    },
    "w": "CG und GH haben einen gemeinsamen Punkt (G)."
   },
@@ -1437,13 +3500,106 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden DH und CD zueinander?"
+    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden DH und CD zueinander?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       5,
+       0
+      ],
+      "C": [
+       6.06,
+       1.06
+      ],
+      "D": [
+       1.06,
+       1.06
+      ],
+      "E": [
+       0,
+       2
+      ],
+      "F": [
+       5,
+       2
+      ],
+      "G": [
+       6.06,
+       3.06
+      ],
+      "H": [
+       1.06,
+       3.06
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "F",
+       "E"
+      ],
+      [
+       "E",
+       "A"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "G",
+       "F"
+      ],
+      [
+       "E",
+       "H"
+      ],
+      [
+       "H",
+       "G"
+      ],
+      [
+       "A",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "H",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    "a": [
-    "identisch",
+    "windschief",
     "schneiden sich",
     "parallel",
-    "windschief"
+    "identisch"
    ],
    "o": {
     "index": 1
@@ -1451,46 +3607,850 @@
    "w": "DH und CD haben einen gemeinsamen Punkt (D)."
   },
   {
-   "l": "rotation",
-   "t": "rotation",
-   "p": "uebung",
-   "s": 1,
+   "l": "lage",
+   "t": "lage",
+   "p": "sicherung",
+   "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welcher Körper entsteht, wenn sich ein Rechteck um eine seiner Seiten dreht?"
+    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden AB und AE zueinander?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       5,
+       0
+      ],
+      "C": [
+       6.06,
+       1.06
+      ],
+      "D": [
+       1.06,
+       1.06
+      ],
+      "E": [
+       0,
+       2
+      ],
+      "F": [
+       5,
+       2
+      ],
+      "G": [
+       6.06,
+       3.06
+      ],
+      "H": [
+       1.06,
+       3.06
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "F",
+       "E"
+      ],
+      [
+       "E",
+       "A"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "G",
+       "F"
+      ],
+      [
+       "E",
+       "H"
+      ],
+      [
+       "H",
+       "G"
+      ],
+      [
+       "A",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "H",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    "a": [
-    "Pyramide",
-    "Kugel",
-    "Zylinder",
-    "Kegel"
+    "windschief",
+    "identisch",
+    "schneiden sich",
+    "parallel"
    ],
    "o": {
     "index": 2
    },
-   "w": "Ein Rechteck um eine seiner Seiten gedreht ergibt einen Zylinder.",
-   "h": "Stell dir vor, die Figur ist eine Fahne, die sich schnell um die Achse dreht."
+   "w": "AB und AE haben einen gemeinsamen Punkt (A)."
   },
   {
-   "l": "rotation",
-   "t": "rotation",
-   "p": "uebung",
-   "s": 1,
+   "l": "lage",
+   "t": "lage",
+   "p": "sicherung",
+   "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welcher Körper entsteht, wenn sich ein Halbkreis um seinen Durchmesser dreht?"
+    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden HE und DA zueinander?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       5,
+       0
+      ],
+      "C": [
+       6.06,
+       1.06
+      ],
+      "D": [
+       1.06,
+       1.06
+      ],
+      "E": [
+       0,
+       2
+      ],
+      "F": [
+       5,
+       2
+      ],
+      "G": [
+       6.06,
+       3.06
+      ],
+      "H": [
+       1.06,
+       3.06
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "F",
+       "E"
+      ],
+      [
+       "E",
+       "A"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "G",
+       "F"
+      ],
+      [
+       "E",
+       "H"
+      ],
+      [
+       "H",
+       "G"
+      ],
+      [
+       "A",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "H",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    "a": [
-    "Pyramide",
-    "Kegel",
-    "Zylinder",
-    "Kugel"
+    "schneiden sich",
+    "parallel",
+    "windschief",
+    "identisch"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "HE und DA haben dieselbe Richtung, aber keinen gemeinsamen Punkt."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden BC und AE zueinander?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       5,
+       0
+      ],
+      "C": [
+       6.06,
+       1.06
+      ],
+      "D": [
+       1.06,
+       1.06
+      ],
+      "E": [
+       0,
+       2
+      ],
+      "F": [
+       5,
+       2
+      ],
+      "G": [
+       6.06,
+       3.06
+      ],
+      "H": [
+       1.06,
+       3.06
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "F",
+       "E"
+      ],
+      [
+       "E",
+       "A"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "G",
+       "F"
+      ],
+      [
+       "E",
+       "H"
+      ],
+      [
+       "H",
+       "G"
+      ],
+      [
+       "A",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "H",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "schneiden sich",
+    "parallel",
+    "windschief",
+    "identisch"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "BC und AE sind nicht parallel und treffen sich nirgends: Sie liegen in keiner gemeinsamen Ebene."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden AE und DA zueinander?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       5,
+       0
+      ],
+      "C": [
+       6.06,
+       1.06
+      ],
+      "D": [
+       1.06,
+       1.06
+      ],
+      "E": [
+       0,
+       2
+      ],
+      "F": [
+       5,
+       2
+      ],
+      "G": [
+       6.06,
+       3.06
+      ],
+      "H": [
+       1.06,
+       3.06
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "F",
+       "E"
+      ],
+      [
+       "E",
+       "A"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "G",
+       "F"
+      ],
+      [
+       "E",
+       "H"
+      ],
+      [
+       "H",
+       "G"
+      ],
+      [
+       "A",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "H",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "parallel",
+    "identisch",
+    "windschief",
+    "schneiden sich"
    ],
    "o": {
     "index": 3
    },
-   "w": "Ein Halbkreis um seinen Durchmesser gedreht ergibt einen Kugel.",
-   "h": "Stell dir vor, die Figur ist eine Fahne, die sich schnell um die Achse dreht."
+   "w": "AE und DA haben einen gemeinsamen Punkt (A)."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(3 | 0 | 0), D(0 | 8 | 0) und E(0 | 0 | 5) sind. Welche Koordinaten hat G?"
+   },
+   "a": [
+    "G(3 | 8 | 5)",
+    "G(8 | 3 | 5)",
+    "G(3 | 0 | 5)",
+    "G(3 | 8 | 0)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "G liegt über C: G(3 | 8 | 5).",
+   "h": "Überlege, über welcher Ecke der Grundfläche der Punkt liegt."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(8 | 0 | 0), D(0 | 8 | 0) und E(0 | 0 | 5) sind. Welche Koordinaten hat F?"
+   },
+   "a": [
+    "F(8 | 0 | 0)",
+    "F(8 | 0 | 5)",
+    "F(8 | 8 | 5)",
+    "F(0 | 8 | 5)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "F liegt über B: F(8 | 0 | 5).",
+   "h": "Überlege, über welcher Ecke der Grundfläche der Punkt liegt."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(6 | 0 | 0), D(0 | 9 | 0) und E(0 | 0 | 2) sind. Welche Koordinaten hat H?"
+   },
+   "a": [
+    "H(0 | 9 | 0)",
+    "H(0 | 0 | 2)",
+    "H(0 | 9 | 2)",
+    "H(9 | 0 | 2)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "H liegt über D: H(0 | 9 | 2).",
+   "h": "Überlege, über welcher Ecke der Grundfläche der Punkt liegt."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(2 | 0 | 0), D(0 | 9 | 0) und E(0 | 0 | 8) sind. Welche Koordinaten hat H?"
+   },
+   "a": [
+    "H(0 | 9 | 0)",
+    "H(0 | 0 | 8)",
+    "H(9 | 0 | 8)",
+    "H(0 | 9 | 8)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "H liegt über D: H(0 | 9 | 8).",
+   "h": "Überlege, über welcher Ecke der Grundfläche der Punkt liegt."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(6 | 0 | 0), D(0 | 6 | 0) und E(0 | 0 | 2) sind. Gib die x-Koordinate von C an."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "6",
+   "w": "C(6 | 6 | 0), also x = 6.",
+   "h": "Bestimme erst alle drei Koordinaten des Punktes."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(7 | 0 | 0), D(0 | 8 | 0) und E(0 | 0 | 5) sind. Gib die x-Koordinate von F an."
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "7",
+   "w": "F(7 | 0 | 5), also x = 7.",
+   "h": "Bestimme erst alle drei Koordinaten des Punktes."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(5 | 0 | 0), D(0 | 3 | 0) und E(0 | 0 | 2) sind. Gib die z-Koordinate von C an."
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "0",
+   "w": "C(5 | 3 | 0), also z = 0.",
+   "h": "Bestimme erst alle drei Koordinaten des Punktes."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(5 | 0 | 0), D(0 | 6 | 0) und E(0 | 0 | 3) sind. Gib die z-Koordinate von F an."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "F(5 | 0 | 3), also z = 3.",
+   "h": "Bestimme erst alle drei Koordinaten des Punktes."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(2 | 0 | 0), D(0 | 5 | 0) und E(0 | 0 | 9) sind. Gib die z-Koordinate von F an."
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "9",
+   "w": "F(2 | 0 | 9), also z = 9.",
+   "h": "Bestimme erst alle drei Koordinaten des Punktes."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(9 | 0 | 0), D(0 | 9 | 0) und E(0 | 0 | 2) sind. Gib die z-Koordinate von C an."
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "0",
+   "w": "C(9 | 9 | 0), also z = 0.",
+   "h": "Bestimme erst alle drei Koordinaten des Punktes."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(9 | 0 | 0), D(0 | 9 | 0) und E(0 | 0 | 9) sind. M ist der Mittelpunkt der Strecke AC. Gib die z-Koordinate von M an."
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "(0 + 0) / 2",
+   "w": "A(0 | 0 | 0), C(9 | 9 | 0). Mittelwert der z-Koordinaten: (0 + 0) : 2 = 0.",
+   "h": "Der Mittelpunkt hat in jeder Koordinate den Mittelwert der beiden Endpunkte."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(9 | 0 | 0), D(0 | 7 | 0) und E(0 | 0 | 3) sind. M ist der Mittelpunkt der Strecke CE. Gib die z-Koordinate von M an."
+   },
+   "o": {
+    "wert": 1.5
+   },
+   "c": "(0 + 3) / 2",
+   "w": "C(9 | 7 | 0), E(0 | 0 | 3). Mittelwert der z-Koordinaten: (0 + 3) : 2 = 1,5.",
+   "h": "Der Mittelpunkt hat in jeder Koordinate den Mittelwert der beiden Endpunkte."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(9 | 0 | 0), D(0 | 9 | 0) und E(0 | 0 | 8) sind. M ist der Mittelpunkt der Strecke DF. Gib die z-Koordinate von M an."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(0 + 8) / 2",
+   "w": "D(0 | 9 | 0), F(9 | 0 | 8). Mittelwert der z-Koordinaten: (0 + 8) : 2 = 4.",
+   "h": "Der Mittelpunkt hat in jeder Koordinate den Mittelwert der beiden Endpunkte."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(8 | 0 | 0), D(0 | 4 | 0) und E(0 | 0 | 6) sind. M ist der Mittelpunkt der Strecke CE. Gib die x-Koordinate von M an."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(8 + 0) / 2",
+   "w": "C(8 | 4 | 0), E(0 | 0 | 6). Mittelwert der x-Koordinaten: (8 + 0) : 2 = 4.",
+   "h": "Der Mittelpunkt hat in jeder Koordinate den Mittelwert der beiden Endpunkte."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(3 | 0 | 0), D(0 | 4 | 0) und E(0 | 0 | 2) sind. Gib die z-Koordinate von H an."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "H(0 | 4 | 2), also z = 2."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(2 | 0 | 0), D(0 | 8 | 0) und E(0 | 0 | 3) sind. Gib die x-Koordinate von F an."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "F(2 | 0 | 3), also x = 2."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(5 | 0 | 0), D(0 | 3 | 0) und E(0 | 0 | 7) sind. Gib die z-Koordinate von G an."
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "7",
+   "w": "G(5 | 3 | 7), also z = 7."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(3 | 0 | 0), D(0 | 4 | 0) und E(0 | 0 | 3) sind. Gib die z-Koordinate von G an."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "G(3 | 4 | 3), also z = 3."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(6 | 0 | 0), D(0 | 8 | 0) und E(0 | 0 | 6) sind. Gib die y-Koordinate von C an."
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "8",
+   "w": "C(6 | 8 | 0), also y = 8."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(6 | 0 | 0), D(0 | 2 | 0) und E(0 | 0 | 8) sind. Gib die y-Koordinate von G an."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "G(6 | 2 | 8), also y = 2."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(5 | 0 | 0), D(0 | 6 | 0) und E(0 | 0 | 7) sind. Gib die y-Koordinate von H an."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "6",
+   "w": "H(0 | 6 | 7), also y = 6."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(8 | 0 | 0), D(0 | 3 | 0) und E(0 | 0 | 6) sind. Gib die z-Koordinate von F an."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "6",
+   "w": "F(8 | 0 | 6), also z = 6."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(7 | 0 | 0), D(0 | 6 | 0) und E(0 | 0 | 4) sind. Gib die x-Koordinate von G an."
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "7",
+   "w": "G(7 | 6 | 4), also x = 7."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(3 | 0 | 0), D(0 | 6 | 0) und E(0 | 0 | 8) sind. Gib die y-Koordinate von G an."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "6",
+   "w": "G(3 | 6 | 8), also y = 6."
   },
   {
    "l": "rotation",
@@ -1520,16 +4480,58 @@
    "s": 1,
    "y": "auswahl",
    "f": {
+    "text": "Welcher Körper entsteht, wenn sich ein Halbkreis um seinen Durchmesser dreht?"
+   },
+   "a": [
+    "Kegel",
+    "Zylinder",
+    "Pyramide",
+    "Kugel"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Ein Halbkreis um seinen Durchmesser gedreht ergibt eine Kugel.",
+   "h": "Stell dir vor, die Figur ist eine Fahne, die sich schnell um die Achse dreht."
+  },
+  {
+   "l": "rotation",
+   "t": "rotation",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Körper entsteht, wenn sich ein Rechteck um eine seiner Seiten dreht?"
+   },
+   "a": [
+    "Zylinder",
+    "Pyramide",
+    "Kegel",
+    "Kugel"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ein Rechteck um eine seiner Seiten gedreht ergibt einen Zylinder.",
+   "h": "Stell dir vor, die Figur ist eine Fahne, die sich schnell um die Achse dreht."
+  },
+  {
+   "l": "rotation",
+   "t": "rotation",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
     "text": "Welcher Körper entsteht, wenn sich ein Quadrat um eine seiner Seiten dreht?"
    },
    "a": [
+    "Kegel",
     "Pyramide",
     "Zylinder",
-    "Kugel",
-    "Kegel"
+    "Kugel"
    ],
    "o": {
-    "index": 1
+    "index": 2
    },
    "w": "Ein Quadrat um eine seiner Seiten gedreht ergibt einen Zylinder.",
    "h": "Stell dir vor, die Figur ist eine Fahne, die sich schnell um die Achse dreht."
@@ -1541,100 +4543,121 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Rechteck mit den Seiten 7 cm und 9 cm dreht sich um die 7-cm-Seite. Wie groß ist der Radius des entstehenden Zylinders?"
-   },
-   "o": {
-    "wert": 9,
-    "einheit": "cm"
-   },
-   "c": "9",
-   "w": "Die 7-cm-Seite liegt auf der Achse und wird zur Höhe. Die 9-cm-Seite steht senkrecht dazu und wird zum Radius: r = 9 cm.",
-   "h": "Welche Seite liegt auf der Achse? Die andere wird zum Radius."
-  },
-  {
-   "l": "rotation",
-   "t": "rotation",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Rechteck mit den Seiten 7 cm und 13 cm dreht sich um die 7-cm-Seite. Wie groß ist der Radius des entstehenden Zylinders?"
-   },
-   "o": {
-    "wert": 13,
-    "einheit": "cm"
-   },
-   "c": "13",
-   "w": "Die 7-cm-Seite liegt auf der Achse und wird zur Höhe. Die 13-cm-Seite steht senkrecht dazu und wird zum Radius: r = 13 cm.",
-   "h": "Welche Seite liegt auf der Achse? Die andere wird zum Radius."
-  },
-  {
-   "l": "rotation",
-   "t": "rotation",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Rechteck mit den Seiten 8 cm und 5 cm dreht sich um die 8-cm-Seite. Wie groß ist der Radius des entstehenden Zylinders?"
-   },
-   "o": {
-    "wert": 5,
-    "einheit": "cm"
-   },
-   "c": "5",
-   "w": "Die 8-cm-Seite liegt auf der Achse und wird zur Höhe. Die 5-cm-Seite steht senkrecht dazu und wird zum Radius: r = 5 cm.",
-   "h": "Welche Seite liegt auf der Achse? Die andere wird zum Radius."
-  },
-  {
-   "l": "rotation",
-   "t": "rotation",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein rechtwinkliges Dreieck mit den Katheten 4 cm und 14 cm dreht sich um die 4-cm-Kathete. Wie hoch ist der entstehende Kegel?"
+    "text": "Ein Rechteck mit den Seiten 3 cm und 4 cm dreht sich um die 3-cm-Seite. Wie groß ist der Radius des entstehenden Zylinders?"
    },
    "o": {
     "wert": 4,
     "einheit": "cm"
    },
    "c": "4",
-   "w": "Die Kathete auf der Achse (4 cm) wird zur Höhe, die andere (14 cm) zum Radius.",
-   "h": "Die Seite auf der Drehachse wird zur Höhe."
-  },
-  {
-   "l": "rotation",
-   "t": "rotation",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein rechtwinkliges Dreieck mit den Katheten 6 cm und 9 cm dreht sich um die 6-cm-Kathete. Wie hoch ist der entstehende Kegel?"
-   },
-   "o": {
-    "wert": 6,
-    "einheit": "cm"
-   },
-   "c": "6",
-   "w": "Die Kathete auf der Achse (6 cm) wird zur Höhe, die andere (9 cm) zum Radius.",
-   "h": "Die Seite auf der Drehachse wird zur Höhe."
-  },
-  {
-   "l": "rotation",
-   "t": "rotation",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Rechteck mit den Seiten 9 cm und 5 cm dreht sich um die 9-cm-Seite. Wie groß ist der Radius des entstehenden Zylinders?"
-   },
-   "o": {
-    "wert": 5,
-    "einheit": "cm"
-   },
-   "c": "5",
-   "w": "Die 9-cm-Seite liegt auf der Achse und wird zur Höhe. Die 5-cm-Seite steht senkrecht dazu und wird zum Radius: r = 5 cm.",
+   "w": "Die 3-cm-Seite liegt auf der Achse und wird zur Höhe. Die 4-cm-Seite steht senkrecht dazu und wird zum Radius: r = 4 cm.",
    "h": "Welche Seite liegt auf der Achse? Die andere wird zum Radius."
+  },
+  {
+   "l": "rotation",
+   "t": "rotation",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechtwinkliges Dreieck mit den Katheten 11 cm und 9 cm dreht sich um die 11-cm-Kathete. Wie hoch ist der entstehende Kegel?"
+   },
+   "o": {
+    "wert": 11,
+    "einheit": "cm"
+   },
+   "c": "11",
+   "w": "Die Kathete auf der Achse (11 cm) wird zur Höhe, die andere (9 cm) zum Radius.",
+   "h": "Die Seite auf der Drehachse wird zur Höhe."
+  },
+  {
+   "l": "rotation",
+   "t": "rotation",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechtwinkliges Dreieck mit den Katheten 14 cm und 2 cm dreht sich um die 14-cm-Kathete. Wie hoch ist der entstehende Kegel?"
+   },
+   "o": {
+    "wert": 14,
+    "einheit": "cm"
+   },
+   "c": "14",
+   "w": "Die Kathete auf der Achse (14 cm) wird zur Höhe, die andere (2 cm) zum Radius.",
+   "h": "Die Seite auf der Drehachse wird zur Höhe."
+  },
+  {
+   "l": "rotation",
+   "t": "rotation",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck mit den Seiten 14 cm und 10 cm dreht sich um die 14-cm-Seite. Wie groß ist der Radius des entstehenden Zylinders?"
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "cm"
+   },
+   "c": "10",
+   "w": "Die 14-cm-Seite liegt auf der Achse und wird zur Höhe. Die 10-cm-Seite steht senkrecht dazu und wird zum Radius: r = 10 cm.",
+   "h": "Welche Seite liegt auf der Achse? Die andere wird zum Radius."
+  },
+  {
+   "l": "rotation",
+   "t": "rotation",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck mit den Seiten 11 cm und 7 cm dreht sich um die 11-cm-Seite. Wie groß ist der Radius des entstehenden Zylinders?"
+   },
+   "o": {
+    "wert": 7,
+    "einheit": "cm"
+   },
+   "c": "7",
+   "w": "Die 11-cm-Seite liegt auf der Achse und wird zur Höhe. Die 7-cm-Seite steht senkrecht dazu und wird zum Radius: r = 7 cm.",
+   "h": "Welche Seite liegt auf der Achse? Die andere wird zum Radius."
+  },
+  {
+   "l": "rotation",
+   "t": "rotation",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechtwinkliges Dreieck mit den Katheten 4 cm und 6 cm dreht sich um die 4-cm-Kathete. Wie hoch ist der entstehende Kegel?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "cm"
+   },
+   "c": "4",
+   "w": "Die Kathete auf der Achse (4 cm) wird zur Höhe, die andere (6 cm) zum Radius.",
+   "h": "Die Seite auf der Drehachse wird zur Höhe."
+  },
+  {
+   "l": "rotation",
+   "t": "rotation",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Rechteck dreht sich um seine Mittellinie (parallel zu einer Seite). Was entsteht?"
+   },
+   "a": [
+    "ein Zylinder mit halb so großem Radius wie bei Drehung um die Seite",
+    "ein Kegel",
+    "zwei Zylinder",
+    "ein Zylinder mit doppeltem Radius"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Jede Hälfte überstreicht denselben Zylinder. Der Radius ist der Abstand von der Mittellinie zur Seite: die halbe Breite.",
+   "h": "Stell dir vor, wie jeder Punkt der Figur einen Kreis um die Achse beschreibt."
   },
   {
    "l": "rotation",
@@ -1643,14 +4666,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Rechteck 2 cm × 10 cm dreht sich einmal um die 2-cm-Seite, einmal um die 10-cm-Seite. Um wie viel cm unterscheiden sich die Durchmesser der beiden Zylinder?"
+    "text": "Ein Rechteck 4 cm × 8 cm dreht sich einmal um die 4-cm-Seite, einmal um die 8-cm-Seite. Um wie viel cm unterscheiden sich die Durchmesser der beiden Zylinder?"
    },
    "o": {
-    "wert": 16,
+    "wert": 8,
     "einheit": "cm"
    },
-   "c": "2 * abs(2 - 10)",
-   "w": "Durchmesser 2 · 10 = 20 cm bzw. 2 · 2 = 4 cm. Unterschied 16 cm.",
+   "c": "2 * abs(4 - 8)",
+   "w": "Durchmesser 2 · 8 = 16 cm bzw. 2 · 4 = 8 cm. Unterschied 8 cm.",
    "h": "Der Radius ist jeweils die andere Seite, der Durchmesser das Doppelte."
   },
   {
@@ -1660,14 +4683,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Halbkreis mit dem Durchmesser 16 cm dreht sich um seinen Durchmesser. Welchen Radius hat die entstehende Kugel?"
+    "text": "Ein Halbkreis mit dem Durchmesser 26 cm dreht sich um seinen Durchmesser. Welchen Radius hat die entstehende Kugel?"
    },
    "o": {
-    "wert": 8,
+    "wert": 13,
     "einheit": "cm"
    },
-   "c": "16 / 2",
-   "w": "Der Durchmesser liegt auf der Achse, die Kugel hat denselben Durchmesser 16 cm, also r = 8 cm.",
+   "c": "26 / 2",
+   "w": "Der Durchmesser liegt auf der Achse, die Kugel hat denselben Durchmesser 26 cm, also r = 13 cm.",
    "h": "Der Halbkreis-Durchmesser wird zum Kugel-Durchmesser."
   },
   {
@@ -1677,32 +4700,15 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Rechteck 10 cm × 2 cm dreht sich einmal um die 10-cm-Seite, einmal um die 2-cm-Seite. Um wie viel cm unterscheiden sich die Durchmesser der beiden Zylinder?"
+    "text": "Ein Halbkreis mit dem Durchmesser 18 cm dreht sich um seinen Durchmesser. Welchen Radius hat die entstehende Kugel?"
    },
    "o": {
-    "wert": 16,
+    "wert": 9,
     "einheit": "cm"
    },
-   "c": "2 * abs(10 - 2)",
-   "w": "Durchmesser 2 · 2 = 4 cm bzw. 2 · 10 = 20 cm. Unterschied 16 cm.",
-   "h": "Der Radius ist jeweils die andere Seite, der Durchmesser das Doppelte."
-  },
-  {
-   "l": "rotation",
-   "t": "rotation",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Rechteck 6 cm × 2 cm dreht sich einmal um die 6-cm-Seite, einmal um die 2-cm-Seite. Um wie viel cm unterscheiden sich die Durchmesser der beiden Zylinder?"
-   },
-   "o": {
-    "wert": 8,
-    "einheit": "cm"
-   },
-   "c": "2 * abs(6 - 2)",
-   "w": "Durchmesser 2 · 2 = 4 cm bzw. 2 · 6 = 12 cm. Unterschied 8 cm.",
-   "h": "Der Radius ist jeweils die andere Seite, der Durchmesser das Doppelte."
+   "c": "18 / 2",
+   "w": "Der Durchmesser liegt auf der Achse, die Kugel hat denselben Durchmesser 18 cm, also r = 9 cm.",
+   "h": "Der Halbkreis-Durchmesser wird zum Kugel-Durchmesser."
   },
   {
    "l": "rotation",
@@ -1711,14 +4717,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein rechtwinkliges Dreieck mit den Katheten 12 cm und 14 cm dreht sich um die 12-cm-Kathete. Wie hoch ist der entstehende Kegel?"
+    "text": "Ein rechtwinkliges Dreieck mit den Katheten 6 cm und 4 cm dreht sich um die 6-cm-Kathete. Wie hoch ist der entstehende Kegel?"
    },
    "o": {
-    "wert": 12,
+    "wert": 6,
     "einheit": "cm"
    },
-   "c": "12",
-   "w": "Die Kathete auf der Achse (12 cm) wird zur Höhe, die andere (14 cm) zum Radius."
+   "c": "6",
+   "w": "Die Kathete auf der Achse (6 cm) wird zur Höhe, die andere (4 cm) zum Radius."
   },
   {
    "l": "rotation",
@@ -1727,14 +4733,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein rechtwinkliges Dreieck mit den Katheten 11 cm und 8 cm dreht sich um die 11-cm-Kathete. Wie hoch ist der entstehende Kegel?"
+    "text": "Ein rechtwinkliges Dreieck mit den Katheten 2 cm und 6 cm dreht sich um die 2-cm-Kathete. Wie hoch ist der entstehende Kegel?"
    },
    "o": {
-    "wert": 11,
+    "wert": 2,
     "einheit": "cm"
    },
-   "c": "11",
-   "w": "Die Kathete auf der Achse (11 cm) wird zur Höhe, die andere (8 cm) zum Radius."
+   "c": "2",
+   "w": "Die Kathete auf der Achse (2 cm) wird zur Höhe, die andere (6 cm) zum Radius."
   },
   {
    "l": "rotation",
@@ -1743,110 +4749,30 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein rechtwinkliges Dreieck mit den Katheten 5 cm und 4 cm dreht sich um die 5-cm-Kathete. Wie hoch ist der entstehende Kegel?"
-   },
-   "o": {
-    "wert": 5,
-    "einheit": "cm"
-   },
-   "c": "5",
-   "w": "Die Kathete auf der Achse (5 cm) wird zur Höhe, die andere (4 cm) zum Radius."
-  },
-  {
-   "l": "rotation",
-   "t": "rotation",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Rechteck mit den Seiten 5 cm und 3 cm dreht sich um die 5-cm-Seite. Wie groß ist der Radius des entstehenden Zylinders?"
-   },
-   "o": {
-    "wert": 3,
-    "einheit": "cm"
-   },
-   "c": "3",
-   "w": "Die 5-cm-Seite liegt auf der Achse und wird zur Höhe. Die 3-cm-Seite steht senkrecht dazu und wird zum Radius: r = 3 cm."
-  },
-  {
-   "l": "rotation",
-   "t": "rotation",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Rechteck mit den Seiten 3 cm und 12 cm dreht sich um die 3-cm-Seite. Wie groß ist der Radius des entstehenden Zylinders?"
-   },
-   "o": {
-    "wert": 12,
-    "einheit": "cm"
-   },
-   "c": "12",
-   "w": "Die 3-cm-Seite liegt auf der Achse und wird zur Höhe. Die 12-cm-Seite steht senkrecht dazu und wird zum Radius: r = 12 cm."
-  },
-  {
-   "l": "rotation",
-   "t": "rotation",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein rechtwinkliges Dreieck mit den Katheten 3 cm und 4 cm dreht sich um die 3-cm-Kathete. Wie hoch ist der entstehende Kegel?"
-   },
-   "o": {
-    "wert": 3,
-    "einheit": "cm"
-   },
-   "c": "3",
-   "w": "Die Kathete auf der Achse (3 cm) wird zur Höhe, die andere (4 cm) zum Radius."
-  },
-  {
-   "l": "rotation",
-   "t": "rotation",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Rechteck mit den Seiten 2 cm und 11 cm dreht sich um die 2-cm-Seite. Wie groß ist der Radius des entstehenden Zylinders?"
-   },
-   "o": {
-    "wert": 11,
-    "einheit": "cm"
-   },
-   "c": "11",
-   "w": "Die 2-cm-Seite liegt auf der Achse und wird zur Höhe. Die 11-cm-Seite steht senkrecht dazu und wird zum Radius: r = 11 cm."
-  },
-  {
-   "l": "rotation",
-   "t": "rotation",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Rechteck mit den Seiten 5 cm und 11 cm dreht sich um die 5-cm-Seite. Wie groß ist der Radius des entstehenden Zylinders?"
-   },
-   "o": {
-    "wert": 11,
-    "einheit": "cm"
-   },
-   "c": "11",
-   "w": "Die 5-cm-Seite liegt auf der Achse und wird zur Höhe. Die 11-cm-Seite steht senkrecht dazu und wird zum Radius: r = 11 cm."
-  },
-  {
-   "l": "rotation",
-   "t": "rotation",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Rechteck mit den Seiten 13 cm und 9 cm dreht sich um die 13-cm-Seite. Wie groß ist der Radius des entstehenden Zylinders?"
+    "text": "Ein Rechteck mit den Seiten 6 cm und 9 cm dreht sich um die 6-cm-Seite. Wie groß ist der Radius des entstehenden Zylinders?"
    },
    "o": {
     "wert": 9,
     "einheit": "cm"
    },
    "c": "9",
-   "w": "Die 13-cm-Seite liegt auf der Achse und wird zur Höhe. Die 9-cm-Seite steht senkrecht dazu und wird zum Radius: r = 9 cm."
+   "w": "Die 6-cm-Seite liegt auf der Achse und wird zur Höhe. Die 9-cm-Seite steht senkrecht dazu und wird zum Radius: r = 9 cm."
+  },
+  {
+   "l": "rotation",
+   "t": "rotation",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck mit den Seiten 9 cm und 2 cm dreht sich um die 9-cm-Seite. Wie groß ist der Radius des entstehenden Zylinders?"
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "cm"
+   },
+   "c": "2",
+   "w": "Die 9-cm-Seite liegt auf der Achse und wird zur Höhe. Die 2-cm-Seite steht senkrecht dazu und wird zum Radius: r = 2 cm."
   },
   {
    "l": "rotation",
@@ -1855,14 +4781,94 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein rechtwinkliges Dreieck mit den Katheten 14 cm und 3 cm dreht sich um die 14-cm-Kathete. Wie hoch ist der entstehende Kegel?"
+    "text": "Ein Rechteck mit den Seiten 7 cm und 11 cm dreht sich um die 7-cm-Seite. Wie groß ist der Radius des entstehenden Zylinders?"
    },
    "o": {
-    "wert": 14,
+    "wert": 11,
     "einheit": "cm"
    },
-   "c": "14",
-   "w": "Die Kathete auf der Achse (14 cm) wird zur Höhe, die andere (3 cm) zum Radius."
+   "c": "11",
+   "w": "Die 7-cm-Seite liegt auf der Achse und wird zur Höhe. Die 11-cm-Seite steht senkrecht dazu und wird zum Radius: r = 11 cm."
+  },
+  {
+   "l": "rotation",
+   "t": "rotation",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechtwinkliges Dreieck mit den Katheten 9 cm und 6 cm dreht sich um die 9-cm-Kathete. Wie hoch ist der entstehende Kegel?"
+   },
+   "o": {
+    "wert": 9,
+    "einheit": "cm"
+   },
+   "c": "9",
+   "w": "Die Kathete auf der Achse (9 cm) wird zur Höhe, die andere (6 cm) zum Radius."
+  },
+  {
+   "l": "rotation",
+   "t": "rotation",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck mit den Seiten 3 cm und 13 cm dreht sich um die 3-cm-Seite. Wie groß ist der Radius des entstehenden Zylinders?"
+   },
+   "o": {
+    "wert": 13,
+    "einheit": "cm"
+   },
+   "c": "13",
+   "w": "Die 3-cm-Seite liegt auf der Achse und wird zur Höhe. Die 13-cm-Seite steht senkrecht dazu und wird zum Radius: r = 13 cm."
+  },
+  {
+   "l": "rotation",
+   "t": "rotation",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechtwinkliges Dreieck mit den Katheten 13 cm und 3 cm dreht sich um die 13-cm-Kathete. Wie hoch ist der entstehende Kegel?"
+   },
+   "o": {
+    "wert": 13,
+    "einheit": "cm"
+   },
+   "c": "13",
+   "w": "Die Kathete auf der Achse (13 cm) wird zur Höhe, die andere (3 cm) zum Radius."
+  },
+  {
+   "l": "rotation",
+   "t": "rotation",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechtwinkliges Dreieck mit den Katheten 12 cm und 11 cm dreht sich um die 12-cm-Kathete. Wie hoch ist der entstehende Kegel?"
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "cm"
+   },
+   "c": "12",
+   "w": "Die Kathete auf der Achse (12 cm) wird zur Höhe, die andere (11 cm) zum Radius."
+  },
+  {
+   "l": "rotation",
+   "t": "rotation",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechtwinkliges Dreieck mit den Katheten 13 cm und 14 cm dreht sich um die 13-cm-Kathete. Wie hoch ist der entstehende Kegel?"
+   },
+   "o": {
+    "wert": 13,
+    "einheit": "cm"
+   },
+   "c": "13",
+   "w": "Die Kathete auf der Achse (13 cm) wird zur Höhe, die andere (14 cm) zum Radius."
   },
   {
    "l": "axialschnitt",
@@ -1871,16 +4877,16 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Welche Figur ist der Axialschnitt eines geraden Kegels (r = 12 cm, h = 16 cm)?"
+    "text": "Welche Figur ist der Axialschnitt eines geraden Kegels (r = 8 cm, h = 8 cm)?"
    },
    "a": [
-    "ein Rechteck",
     "ein Kreis",
-    "ein gleichschenkliges Dreieck",
-    "ein Trapez"
+    "ein Rechteck",
+    "ein Trapez",
+    "ein gleichschenkliges Dreieck"
    ],
    "o": {
-    "index": 2
+    "index": 3
    },
    "w": "Schneidet man einen geraden Kegel längs der Achse, entsteht ein gleichschenkliges Dreieck.",
    "h": "Stell dir vor, du schneidest den Körper genau durch die Mitte von oben nach unten."
@@ -1890,26 +4896,9 @@
    "t": "axialschnitt",
    "p": "uebung",
    "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Zylinder hat r = 7 cm und h = 4 cm. Wie breit ist sein Axialschnitt?"
-   },
-   "o": {
-    "wert": 14,
-    "einheit": "cm"
-   },
-   "c": "2 * 7",
-   "w": "Der Axialschnitt ist ein Rechteck mit der Breite 2r = 14 cm (und Höhe 4 cm).",
-   "h": "Der Schnitt geht durch die Mitte: ganzer Durchmesser."
-  },
-  {
-   "l": "axialschnitt",
-   "t": "axialschnitt",
-   "p": "uebung",
-   "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Welche Figur ist der Axialschnitt eines geraden Kegels (r = 4 cm, h = 17 cm)?"
+    "text": "Welche Figur ist der Axialschnitt eines Zylinders (r = 11 cm, h = 11 cm)?"
    },
    "a": [
     "ein Rechteck",
@@ -1918,9 +4907,9 @@
     "ein Kreis"
    ],
    "o": {
-    "index": 1
+    "index": 0
    },
-   "w": "Schneidet man einen geraden Kegel längs der Achse, entsteht ein gleichschenkliges Dreieck.",
+   "w": "Schneidet man einen Zylinder längs der Achse, entsteht ein Rechteck.",
    "h": "Stell dir vor, du schneidest den Körper genau durch die Mitte von oben nach unten."
   },
   {
@@ -1928,21 +4917,34 @@
    "t": "axialschnitt",
    "p": "uebung",
    "s": 1,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Welche Figur ist der Axialschnitt einer Kugel (r = 11 cm)?"
+    "text": "Ein Zylinder hat r = 3 cm und h = 8 cm. Wie breit ist sein Axialschnitt?"
    },
-   "a": [
-    "ein gleichschenkliges Dreieck",
-    "ein Trapez",
-    "ein Kreis",
-    "ein Rechteck"
-   ],
    "o": {
-    "index": 2
+    "wert": 6,
+    "einheit": "cm"
    },
-   "w": "Schneidet man eine Kugel längs der Achse, entsteht ein Kreis.",
-   "h": "Stell dir vor, du schneidest den Körper genau durch die Mitte von oben nach unten."
+   "c": "2 * 3",
+   "w": "Der Axialschnitt ist ein Rechteck mit der Breite 2r = 6 cm (und Höhe 8 cm).",
+   "h": "Der Schnitt geht durch die Mitte: ganzer Durchmesser."
+  },
+  {
+   "l": "axialschnitt",
+   "t": "axialschnitt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zylinder hat r = 3 cm und h = 19 cm. Wie breit ist sein Axialschnitt?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "cm"
+   },
+   "c": "2 * 3",
+   "w": "Der Axialschnitt ist ein Rechteck mit der Breite 2r = 6 cm (und Höhe 19 cm).",
+   "h": "Der Schnitt geht durch die Mitte: ganzer Durchmesser."
   },
   {
    "l": "axialschnitt",
@@ -1951,14 +4953,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Zylinder hat r = 2 cm und h = 18 cm. Wie groß ist der Flächeninhalt seines Axialschnitts?"
+    "text": "Ein Zylinder hat r = 9 cm und h = 14 cm. Wie groß ist der Flächeninhalt seines Axialschnitts?"
    },
    "o": {
-    "wert": 72,
+    "wert": 252,
     "einheit": "cm²"
    },
-   "c": "2 * 2 * 18",
-   "w": "Rechteck 4 cm × 18 cm: A = 72 cm².",
+   "c": "2 * 9 * 14",
+   "w": "Rechteck 18 cm × 14 cm: A = 252 cm².",
    "h": "Rechteck: Breite 2r, Höhe h."
   },
   {
@@ -1968,14 +4970,31 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Zylinder hat r = 2 cm und h = 15 cm. Wie groß ist der Flächeninhalt seines Axialschnitts?"
+    "text": "Ein gerader Kegel hat r = 4 cm und h = 15 cm. Wie groß ist der Flächeninhalt seines Axialschnitts?"
    },
    "o": {
     "wert": 60,
     "einheit": "cm²"
    },
-   "c": "2 * 2 * 15",
-   "w": "Rechteck 4 cm × 15 cm: A = 60 cm².",
+   "c": "2 * 4 * 15 / 2",
+   "w": "Dreieck mit Grundseite 8 cm und Höhe 15 cm: A = 8 · 15 : 2 = 60 cm².",
+   "h": "Dreieck: Grundseite 2r, Höhe h."
+  },
+  {
+   "l": "axialschnitt",
+   "t": "axialschnitt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zylinder hat r = 5 cm und h = 13 cm. Wie groß ist der Flächeninhalt seines Axialschnitts?"
+   },
+   "o": {
+    "wert": 130,
+    "einheit": "cm²"
+   },
+   "c": "2 * 5 * 13",
+   "w": "Rechteck 10 cm × 13 cm: A = 130 cm².",
    "h": "Rechteck: Breite 2r, Höhe h."
   },
   {
@@ -1985,14 +5004,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Zylinder hat r = 4 cm und h = 4 cm. Wie groß ist der Flächeninhalt seines Axialschnitts?"
+    "text": "Ein Zylinder hat r = 2 cm und h = 8 cm. Wie groß ist der Flächeninhalt seines Axialschnitts?"
    },
    "o": {
     "wert": 32,
     "einheit": "cm²"
    },
-   "c": "2 * 4 * 4",
-   "w": "Rechteck 8 cm × 4 cm: A = 32 cm².",
+   "c": "2 * 2 * 8",
+   "w": "Rechteck 4 cm × 8 cm: A = 32 cm².",
    "h": "Rechteck: Breite 2r, Höhe h."
   },
   {
@@ -2002,14 +5021,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein gerader Kegel hat r = 11 cm und h = 5 cm. Wie groß ist der Flächeninhalt seines Axialschnitts?"
+    "text": "Ein gerader Kegel hat r = 8 cm und h = 12 cm. Wie groß ist der Flächeninhalt seines Axialschnitts?"
    },
    "o": {
-    "wert": 55,
+    "wert": 96,
     "einheit": "cm²"
    },
-   "c": "2 * 11 * 5 / 2",
-   "w": "Dreieck mit Grundseite 22 cm und Höhe 5 cm: A = 22 · 5 : 2 = 55 cm².",
+   "c": "2 * 8 * 12 / 2",
+   "w": "Dreieck mit Grundseite 16 cm und Höhe 12 cm: A = 16 · 12 : 2 = 96 cm².",
    "h": "Dreieck: Grundseite 2r, Höhe h."
   },
   {
@@ -2019,48 +5038,31 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein gerader Kegel hat r = 12 cm und h = 13 cm. Wie groß ist der Flächeninhalt seines Axialschnitts?"
+    "text": "Ein gerader Kegel hat r = 7 cm und h = 4 cm. Wie groß ist der Flächeninhalt seines Axialschnitts?"
    },
    "o": {
-    "wert": 156,
+    "wert": 28,
     "einheit": "cm²"
    },
-   "c": "2 * 12 * 13 / 2",
-   "w": "Dreieck mit Grundseite 24 cm und Höhe 13 cm: A = 24 · 13 : 2 = 156 cm².",
+   "c": "2 * 7 * 4 / 2",
+   "w": "Dreieck mit Grundseite 14 cm und Höhe 4 cm: A = 14 · 4 : 2 = 28 cm².",
    "h": "Dreieck: Grundseite 2r, Höhe h."
   },
   {
    "l": "axialschnitt",
    "t": "axialschnitt",
    "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Zylinder hat r = 12 cm und h = 6 cm. Wie groß ist der Flächeninhalt seines Axialschnitts?"
-   },
-   "o": {
-    "wert": 144,
-    "einheit": "cm²"
-   },
-   "c": "2 * 12 * 6",
-   "w": "Rechteck 24 cm × 6 cm: A = 144 cm².",
-   "h": "Rechteck: Breite 2r, Höhe h."
-  },
-  {
-   "l": "axialschnitt",
-   "t": "axialschnitt",
-   "p": "uebung",
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Zylinder hat r = 6 cm und h = 11 cm. Welchen Umfang hat sein Axialschnitt?"
+    "text": "Ein Zylinder hat r = 9 cm und h = 12 cm. Welchen Umfang hat sein Axialschnitt?"
    },
    "o": {
-    "wert": 46,
+    "wert": 60,
     "einheit": "cm"
    },
-   "c": "2 * (2 * 6 + 11)",
-   "w": "Rechteck 12 cm × 11 cm: u = 2 · (12 + 11) = 46 cm.",
+   "c": "2 * (2 * 9 + 12)",
+   "w": "Rechteck 18 cm × 12 cm: u = 2 · (18 + 12) = 60 cm.",
    "h": "Umfang eines Rechtecks: 2 · (Breite + Höhe)."
   },
   {
@@ -2070,31 +5072,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Der Axialschnitt eines Zylinders ist ein Rechteck mit 160 cm² Flächeninhalt. Der Zylinder ist 10 cm hoch. Wie groß ist sein Radius?"
+    "text": "Ein Zylinder hat r = 10 cm und h = 8 cm. Welchen Umfang hat sein Axialschnitt?"
    },
    "o": {
-    "wert": 8,
+    "wert": 56,
     "einheit": "cm"
    },
-   "c": "160 / (2 * 10)",
-   "w": "2r · 10 = 160 → 2r = 16 → r = 8 cm.",
-   "h": "Rechteck: A = 2r · h. Stelle nach r um."
-  },
-  {
-   "l": "axialschnitt",
-   "t": "axialschnitt",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Zylinder hat r = 6 cm und h = 3 cm. Welchen Umfang hat sein Axialschnitt?"
-   },
-   "o": {
-    "wert": 30,
-    "einheit": "cm"
-   },
-   "c": "2 * (2 * 6 + 3)",
-   "w": "Rechteck 12 cm × 3 cm: u = 2 · (12 + 3) = 30 cm.",
+   "c": "2 * (2 * 10 + 8)",
+   "w": "Rechteck 20 cm × 8 cm: u = 2 · (20 + 8) = 56 cm.",
    "h": "Umfang eines Rechtecks: 2 · (Breite + Höhe)."
   },
   {
@@ -2104,15 +5089,32 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Der Axialschnitt eines Zylinders ist ein Rechteck mit 224 cm² Flächeninhalt. Der Zylinder ist 16 cm hoch. Wie groß ist sein Radius?"
+    "text": "Der Axialschnitt eines Zylinders ist ein Rechteck mit 36 cm² Flächeninhalt. Der Zylinder ist 6 cm hoch. Wie groß ist sein Radius?"
    },
    "o": {
-    "wert": 7,
+    "wert": 3,
     "einheit": "cm"
    },
-   "c": "224 / (2 * 16)",
-   "w": "2r · 16 = 224 → 2r = 14 → r = 7 cm.",
+   "c": "36 / (2 * 6)",
+   "w": "2r · 6 = 36 → 2r = 6 → r = 3 cm.",
    "h": "Rechteck: A = 2r · h. Stelle nach r um."
+  },
+  {
+   "l": "axialschnitt",
+   "t": "axialschnitt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zylinder hat r = 8 cm und h = 2 cm. Welchen Umfang hat sein Axialschnitt?"
+   },
+   "o": {
+    "wert": 36,
+    "einheit": "cm"
+   },
+   "c": "2 * (2 * 8 + 2)",
+   "w": "Rechteck 16 cm × 2 cm: u = 2 · (16 + 2) = 36 cm.",
+   "h": "Umfang eines Rechtecks: 2 · (Breite + Höhe)."
   },
   {
    "l": "axialschnitt",
@@ -2121,99 +5123,19 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein gerader Kegel hat r = 7 cm und h = 16 cm. Wie groß ist der Flächeninhalt seines Axialschnitts?"
+    "text": "Ein gerader Kegel hat r = 3 cm und h = 4 cm. Wie groß ist der Flächeninhalt seines Axialschnitts?"
    },
    "o": {
-    "wert": 112,
+    "wert": 12,
     "einheit": "cm²"
    },
-   "c": "2 * 7 * 16 / 2",
-   "w": "Dreieck mit Grundseite 14 cm und Höhe 16 cm: A = 14 · 16 : 2 = 112 cm²."
+   "c": "2 * 3 * 4 / 2",
+   "w": "Dreieck mit Grundseite 6 cm und Höhe 4 cm: A = 6 · 4 : 2 = 12 cm²."
   },
   {
    "l": "axialschnitt",
    "t": "axialschnitt",
    "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein gerader Kegel hat r = 8 cm und h = 19 cm. Wie groß ist der Flächeninhalt seines Axialschnitts?"
-   },
-   "o": {
-    "wert": 152,
-    "einheit": "cm²"
-   },
-   "c": "2 * 8 * 19 / 2",
-   "w": "Dreieck mit Grundseite 16 cm und Höhe 19 cm: A = 16 · 19 : 2 = 152 cm²."
-  },
-  {
-   "l": "axialschnitt",
-   "t": "axialschnitt",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein gerader Kegel hat r = 3 cm und h = 18 cm. Wie groß ist der Flächeninhalt seines Axialschnitts?"
-   },
-   "o": {
-    "wert": 54,
-    "einheit": "cm²"
-   },
-   "c": "2 * 3 * 18 / 2",
-   "w": "Dreieck mit Grundseite 6 cm und Höhe 18 cm: A = 6 · 18 : 2 = 54 cm²."
-  },
-  {
-   "l": "axialschnitt",
-   "t": "axialschnitt",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein gerader Kegel hat r = 12 cm und h = 9 cm. Wie groß ist der Flächeninhalt seines Axialschnitts?"
-   },
-   "o": {
-    "wert": 108,
-    "einheit": "cm²"
-   },
-   "c": "2 * 12 * 9 / 2",
-   "w": "Dreieck mit Grundseite 24 cm und Höhe 9 cm: A = 24 · 9 : 2 = 108 cm²."
-  },
-  {
-   "l": "axialschnitt",
-   "t": "axialschnitt",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Zylinder hat r = 7 cm und h = 11 cm. Wie groß ist der Flächeninhalt seines Axialschnitts?"
-   },
-   "o": {
-    "wert": 154,
-    "einheit": "cm²"
-   },
-   "c": "2 * 7 * 11",
-   "w": "Rechteck 14 cm × 11 cm: A = 154 cm²."
-  },
-  {
-   "l": "axialschnitt",
-   "t": "axialschnitt",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein gerader Kegel hat r = 6 cm und h = 7 cm. Wie groß ist der Flächeninhalt seines Axialschnitts?"
-   },
-   "o": {
-    "wert": 42,
-    "einheit": "cm²"
-   },
-   "c": "2 * 6 * 7 / 2",
-   "w": "Dreieck mit Grundseite 12 cm und Höhe 7 cm: A = 12 · 7 : 2 = 42 cm²."
-  },
-  {
-   "l": "axialschnitt",
-   "t": "axialschnitt",
-   "p": "sicherung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -2229,18 +5151,34 @@
   {
    "l": "axialschnitt",
    "t": "axialschnitt",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein gerader Kegel hat r = 8 cm und h = 10 cm. Wie groß ist der Flächeninhalt seines Axialschnitts?"
+    "text": "Ein Zylinder hat r = 6 cm und h = 17 cm. Wie groß ist der Flächeninhalt seines Axialschnitts?"
    },
    "o": {
-    "wert": 80,
+    "wert": 204,
     "einheit": "cm²"
    },
-   "c": "2 * 8 * 10 / 2",
-   "w": "Dreieck mit Grundseite 16 cm und Höhe 10 cm: A = 16 · 10 : 2 = 80 cm²."
+   "c": "2 * 6 * 17",
+   "w": "Rechteck 12 cm × 17 cm: A = 204 cm²."
+  },
+  {
+   "l": "axialschnitt",
+   "t": "axialschnitt",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zylinder hat r = 7 cm und h = 17 cm. Wie groß ist der Flächeninhalt seines Axialschnitts?"
+   },
+   "o": {
+    "wert": 238,
+    "einheit": "cm²"
+   },
+   "c": "2 * 7 * 17",
+   "w": "Rechteck 14 cm × 17 cm: A = 238 cm²."
   },
   {
    "l": "axialschnitt",
@@ -2249,14 +5187,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein gerader Kegel hat r = 4 cm und h = 3 cm. Wie groß ist der Flächeninhalt seines Axialschnitts?"
+    "text": "Ein gerader Kegel hat r = 4 cm und h = 6 cm. Wie groß ist der Flächeninhalt seines Axialschnitts?"
    },
    "o": {
-    "wert": 12,
+    "wert": 24,
     "einheit": "cm²"
    },
-   "c": "2 * 4 * 3 / 2",
-   "w": "Dreieck mit Grundseite 8 cm und Höhe 3 cm: A = 8 · 3 : 2 = 12 cm²."
+   "c": "2 * 4 * 6 / 2",
+   "w": "Dreieck mit Grundseite 8 cm und Höhe 6 cm: A = 8 · 6 : 2 = 24 cm²."
   },
   {
    "l": "axialschnitt",
@@ -2265,412 +5203,84 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Zylinder hat r = 4 cm und h = 12 cm. Wie groß ist der Flächeninhalt seines Axialschnitts?"
+    "text": "Ein Zylinder hat r = 9 cm und h = 13 cm. Wie groß ist der Flächeninhalt seines Axialschnitts?"
    },
    "o": {
-    "wert": 96,
+    "wert": 234,
     "einheit": "cm²"
    },
-   "c": "2 * 4 * 12",
-   "w": "Rechteck 8 cm × 12 cm: A = 96 cm²."
+   "c": "2 * 9 * 13",
+   "w": "Rechteck 18 cm × 13 cm: A = 234 cm²."
   },
   {
-   "l": "koordinaten",
-   "t": "koordinaten",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(7 | 0 | 0), D(0 | 2 | 0) und E(0 | 0 | 3) sind. Welche Koordinaten hat H?"
-   },
-   "a": [
-    "H(0 | 2 | 3)",
-    "H(0 | 0 | 3)",
-    "H(2 | 0 | 3)",
-    "H(0 | 2 | 0)"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "H liegt über D: H(0 | 2 | 3).",
-   "h": "Überlege, über welcher Ecke der Grundfläche der Punkt liegt."
-  },
-  {
-   "l": "koordinaten",
-   "t": "koordinaten",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(6 | 0 | 0), D(0 | 2 | 0) und E(0 | 0 | 7) sind. Welche Koordinaten hat C?"
-   },
-   "a": [
-    "C(2 | 6 | 0)",
-    "C(6 | 2 | 0)",
-    "C(6 | 0 | 0)",
-    "C(6 | 2 | 7)"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "C liegt unten, rechts hinten: C(6 | 2 | 0).",
-   "h": "Überlege, über welcher Ecke der Grundfläche der Punkt liegt."
-  },
-  {
-   "l": "koordinaten",
-   "t": "koordinaten",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(2 | 0 | 0), D(0 | 2 | 0) und E(0 | 0 | 8) sind. Welche Koordinaten hat H?"
-   },
-   "a": [
-    "H(2 | 0 | 8)",
-    "H(0 | 2 | 8)",
-    "H(0 | 2 | 0)",
-    "H(0 | 0 | 8)"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "H liegt über D: H(0 | 2 | 8).",
-   "h": "Überlege, über welcher Ecke der Grundfläche der Punkt liegt."
-  },
-  {
-   "l": "koordinaten",
-   "t": "koordinaten",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(3 | 0 | 0), D(0 | 4 | 0) und E(0 | 0 | 9) sind. Welche Koordinaten hat H?"
-   },
-   "a": [
-    "H(0 | 0 | 9)",
-    "H(0 | 4 | 0)",
-    "H(0 | 4 | 9)",
-    "H(4 | 0 | 9)"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "H liegt über D: H(0 | 4 | 9).",
-   "h": "Überlege, über welcher Ecke der Grundfläche der Punkt liegt."
-  },
-  {
-   "l": "koordinaten",
-   "t": "koordinaten",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(7 | 0 | 0), D(0 | 2 | 0) und E(0 | 0 | 6) sind. Gib die y-Koordinate von F an."
-   },
-   "o": {
-    "wert": 0
-   },
-   "c": "0",
-   "w": "F(7 | 0 | 6), also y = 0.",
-   "h": "Bestimme erst alle drei Koordinaten des Punktes."
-  },
-  {
-   "l": "koordinaten",
-   "t": "koordinaten",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(8 | 0 | 0), D(0 | 3 | 0) und E(0 | 0 | 8) sind. Gib die y-Koordinate von C an."
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "3",
-   "w": "C(8 | 3 | 0), also y = 3.",
-   "h": "Bestimme erst alle drei Koordinaten des Punktes."
-  },
-  {
-   "l": "koordinaten",
-   "t": "koordinaten",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(5 | 0 | 0), D(0 | 4 | 0) und E(0 | 0 | 8) sind. Gib die x-Koordinate von C an."
-   },
-   "o": {
-    "wert": 5
-   },
-   "c": "5",
-   "w": "C(5 | 4 | 0), also x = 5.",
-   "h": "Bestimme erst alle drei Koordinaten des Punktes."
-  },
-  {
-   "l": "koordinaten",
-   "t": "koordinaten",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(4 | 0 | 0), D(0 | 8 | 0) und E(0 | 0 | 9) sind. Gib die z-Koordinate von H an."
-   },
-   "o": {
-    "wert": 9
-   },
-   "c": "9",
-   "w": "H(0 | 8 | 9), also z = 9.",
-   "h": "Bestimme erst alle drei Koordinaten des Punktes."
-  },
-  {
-   "l": "koordinaten",
-   "t": "koordinaten",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(6 | 0 | 0), D(0 | 4 | 0) und E(0 | 0 | 7) sind. Gib die x-Koordinate von F an."
-   },
-   "o": {
-    "wert": 6
-   },
-   "c": "6",
-   "w": "F(6 | 0 | 7), also x = 6.",
-   "h": "Bestimme erst alle drei Koordinaten des Punktes."
-  },
-  {
-   "l": "koordinaten",
-   "t": "koordinaten",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(2 | 0 | 0), D(0 | 6 | 0) und E(0 | 0 | 6) sind. Gib die x-Koordinate von H an."
-   },
-   "o": {
-    "wert": 0
-   },
-   "c": "0",
-   "w": "H(0 | 6 | 6), also x = 0.",
-   "h": "Bestimme erst alle drei Koordinaten des Punktes."
-  },
-  {
-   "l": "koordinaten",
-   "t": "koordinaten",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(9 | 0 | 0), D(0 | 2 | 0) und E(0 | 0 | 2) sind. M ist der Mittelpunkt der Strecke DF. Gib die y-Koordinate von M an."
-   },
-   "o": {
-    "wert": 1
-   },
-   "c": "(2 + 0) / 2",
-   "w": "D(0 | 2 | 0), F(9 | 0 | 2). Mittelwert der y-Koordinaten: (2 + 0) : 2 = 1.",
-   "h": "Der Mittelpunkt hat in jeder Koordinate den Mittelwert der beiden Endpunkte."
-  },
-  {
-   "l": "koordinaten",
-   "t": "koordinaten",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(8 | 0 | 0), D(0 | 7 | 0) und E(0 | 0 | 9) sind. M ist der Mittelpunkt der Strecke AC. Gib die z-Koordinate von M an."
-   },
-   "o": {
-    "wert": 0
-   },
-   "c": "(0 + 0) / 2",
-   "w": "A(0 | 0 | 0), C(8 | 7 | 0). Mittelwert der z-Koordinaten: (0 + 0) : 2 = 0.",
-   "h": "Der Mittelpunkt hat in jeder Koordinate den Mittelwert der beiden Endpunkte."
-  },
-  {
-   "l": "koordinaten",
-   "t": "koordinaten",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(4 | 0 | 0), D(0 | 7 | 0) und E(0 | 0 | 9) sind. M ist der Mittelpunkt der Strecke BH. Gib die z-Koordinate von M an."
-   },
-   "o": {
-    "wert": 4.5
-   },
-   "c": "(0 + 9) / 2",
-   "w": "B(4 | 0 | 0), H(0 | 7 | 9). Mittelwert der z-Koordinaten: (0 + 9) : 2 = 4,5.",
-   "h": "Der Mittelpunkt hat in jeder Koordinate den Mittelwert der beiden Endpunkte."
-  },
-  {
-   "l": "koordinaten",
-   "t": "koordinaten",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(5 | 0 | 0), D(0 | 3 | 0) und E(0 | 0 | 3) sind. M ist der Mittelpunkt der Strecke AG. Gib die z-Koordinate von M an."
-   },
-   "o": {
-    "wert": 1.5
-   },
-   "c": "(0 + 3) / 2",
-   "w": "A(0 | 0 | 0), G(5 | 3 | 3). Mittelwert der z-Koordinaten: (0 + 3) : 2 = 1,5.",
-   "h": "Der Mittelpunkt hat in jeder Koordinate den Mittelwert der beiden Endpunkte."
-  },
-  {
-   "l": "koordinaten",
-   "t": "koordinaten",
-   "p": "test",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(4 | 0 | 0), D(0 | 8 | 0) und E(0 | 0 | 5) sind. Gib die y-Koordinate von G an."
-   },
-   "o": {
-    "wert": 8
-   },
-   "c": "8",
-   "w": "G(4 | 8 | 5), also y = 8."
-  },
-  {
-   "l": "koordinaten",
-   "t": "koordinaten",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(3 | 0 | 0), D(0 | 5 | 0) und E(0 | 0 | 8) sind. Gib die x-Koordinate von G an."
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "3",
-   "w": "G(3 | 5 | 8), also x = 3."
-  },
-  {
-   "l": "koordinaten",
-   "t": "koordinaten",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(8 | 0 | 0), D(0 | 4 | 0) und E(0 | 0 | 6) sind. Gib die x-Koordinate von H an."
-   },
-   "o": {
-    "wert": 0
-   },
-   "c": "0",
-   "w": "H(0 | 4 | 6), also x = 0."
-  },
-  {
-   "l": "koordinaten",
-   "t": "koordinaten",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(3 | 0 | 0), D(0 | 5 | 0) und E(0 | 0 | 3) sind. Gib die z-Koordinate von G an."
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "3",
-   "w": "G(3 | 5 | 3), also z = 3."
-  },
-  {
-   "l": "koordinaten",
-   "t": "koordinaten",
+   "l": "axialschnitt",
+   "t": "axialschnitt",
    "p": "sicherung",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(9 | 0 | 0), D(0 | 8 | 0) und E(0 | 0 | 8) sind. Gib die y-Koordinate von F an."
+    "text": "Ein gerader Kegel hat r = 8 cm und h = 7 cm. Wie groß ist der Flächeninhalt seines Axialschnitts?"
    },
    "o": {
-    "wert": 0
+    "wert": 56,
+    "einheit": "cm²"
    },
-   "c": "0",
-   "w": "F(9 | 0 | 8), also y = 0."
+   "c": "2 * 8 * 7 / 2",
+   "w": "Dreieck mit Grundseite 16 cm und Höhe 7 cm: A = 16 · 7 : 2 = 56 cm²."
   },
   {
-   "l": "koordinaten",
-   "t": "koordinaten",
+   "l": "axialschnitt",
+   "t": "axialschnitt",
    "p": "sicherung",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(5 | 0 | 0), D(0 | 7 | 0) und E(0 | 0 | 8) sind. Gib die x-Koordinate von G an."
+    "text": "Ein Zylinder hat r = 3 cm und h = 10 cm. Wie groß ist der Flächeninhalt seines Axialschnitts?"
    },
    "o": {
-    "wert": 5
+    "wert": 60,
+    "einheit": "cm²"
    },
-   "c": "5",
-   "w": "G(5 | 7 | 8), also x = 5."
+   "c": "2 * 3 * 10",
+   "w": "Rechteck 6 cm × 10 cm: A = 60 cm²."
   },
   {
-   "l": "koordinaten",
-   "t": "koordinaten",
+   "l": "axialschnitt",
+   "t": "axialschnitt",
    "p": "sicherung",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(5 | 0 | 0), D(0 | 8 | 0) und E(0 | 0 | 7) sind. Gib die y-Koordinate von H an."
+    "text": "Ein gerader Kegel hat r = 5 cm und h = 18 cm. Wie groß ist der Flächeninhalt seines Axialschnitts?"
    },
    "o": {
-    "wert": 8
+    "wert": 90,
+    "einheit": "cm²"
    },
-   "c": "8",
-   "w": "H(0 | 8 | 7), also y = 8."
+   "c": "2 * 5 * 18 / 2",
+   "w": "Dreieck mit Grundseite 10 cm und Höhe 18 cm: A = 10 · 18 : 2 = 90 cm²."
   },
   {
-   "l": "koordinaten",
-   "t": "koordinaten",
+   "l": "axialschnitt",
+   "t": "axialschnitt",
    "p": "sicherung",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(7 | 0 | 0), D(0 | 3 | 0) und E(0 | 0 | 6) sind. Gib die y-Koordinate von H an."
+    "text": "Ein gerader Kegel hat r = 9 cm und h = 10 cm. Wie groß ist der Flächeninhalt seines Axialschnitts?"
    },
    "o": {
-    "wert": 3
+    "wert": 90,
+    "einheit": "cm²"
    },
-   "c": "3",
-   "w": "H(0 | 3 | 6), also y = 3."
-  },
-  {
-   "l": "koordinaten",
-   "t": "koordinaten",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(2 | 0 | 0), D(0 | 5 | 0) und E(0 | 0 | 3) sind. Gib die y-Koordinate von F an."
-   },
-   "o": {
-    "wert": 0
-   },
-   "c": "0",
-   "w": "F(2 | 0 | 3), also y = 0."
-  },
-  {
-   "l": "koordinaten",
-   "t": "koordinaten",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader ABCDEFGH liegt so, dass A(0 | 0 | 0), B(4 | 0 | 0), D(0 | 8 | 0) und E(0 | 0 | 2) sind. Gib die z-Koordinate von F an."
-   },
-   "o": {
-    "wert": 2
-   },
-   "c": "2",
-   "w": "F(4 | 0 | 2), also z = 2."
+   "c": "2 * 9 * 10 / 2",
+   "w": "Dreieck mit Grundseite 18 cm und Höhe 10 cm: A = 18 · 10 : 2 = 90 cm²."
   }
  ],
  "offen": [
-  "Schrägbilder selbst zeichnen und ein 3D-Koordinatensystem mit Quader brauchen eine Zeichenfunktion in der App; nicht gebaut. Lernkarte „lage“ beschreibt den Quader deshalb nur in Worten (Beschriftung ABCDEFGH).",
-  "Lernkarte „koordinaten“: Achsenrichtungen werden in der Lernkarte beschrieben; ein Bild des Quaders im Koordinatensystem wäre wichtig."
+  "Schrägbilder werden jetzt mit dem Bildtyp „figur“ gezeigt (Pyramide, Quader, Rechteck an der Drehachse). Selbst zeichnen lassen kann die App noch nicht.",
+  "Lehrplan: lehrplan_gym ist für dieses Thema leer. Laut Prüfung stehen Raumkoordinaten, windschiefe Geraden und Kegel/Axialschnitte eher in späteren Jahrgangsstufen – bitte im Aufbau klären, ob die Karten „lage“, „koordinaten“ und „axialschnitt“ bleiben.",
+  "Prüfvorschlag „x-Achse schräg nach vorn, y nach rechts“ (Karte koordinaten) nicht umgesetzt: Er lohnt sich nur, wenn die Karte nach der Lehrplan-Klärung bleibt; das Bild der Prüfung zeigt selbst x nach rechts. Entscheidung beim Haupt-Chat.",
+  "Überschneidung mit messen.koerper_darstellung: Schrägbild-Regeln für Prismen stehen dort, hier liegt der Schwerpunkt auf Pyramiden."
  ]
 }

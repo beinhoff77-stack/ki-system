@@ -17,7 +17,7 @@
    "braucht_vorher": [
     "bruch.brueche",
     "zahlen.natuerlich (Kl. 5, fehlt: Stellenwerttafel, Runden)",
-    "groessen.einheiten (Kl. 5, fehlt: Kommaschreibweise bei Größen)"
+    "groessen.einheiten (Kl. 5: Kommaschreibweise bei Größen)"
    ],
    "begruendung": "Dezimalbrüche werden als neue Schreibweise für Brüche eingeführt (M6 1.2); Karte 'periodisch' braucht die Primfaktorzerlegung des Nenners."
   },
@@ -53,7 +53,7 @@
    "thema_schluessel": "messen.flaechen_vielecke",
    "position": 6,
    "braucht_vorher": [
-    "messen.flaechen (Kl. 5, fehlt: Rechteckformel, Einheiten)",
+    "messen.flaechen (Kl. 5: Rechteckformel, Flächeneinheiten)",
     "bruch.rechnen (Dezimalzahlen in Formeln)"
    ],
    "begruendung": "NEU/abgetrennt (Datei fehlt): Parallelogramm, Dreieck, Trapez aus der Rechteckformel herleiten; Oberfläche einfacher Körper (M6 2.1)."
@@ -63,7 +63,8 @@
    "position": 7,
    "braucht_vorher": [
     "messen.flaechen_vielecke",
-    "groessen.einheiten (Kl. 5)"
+    "groessen.einheiten (Kl. 5)",
+    "messen.koerper_berechnung (Kl. 5: Quader, Karte 'volumen' als Vorstufe)"
    ],
    "begruendung": "NEU/abgetrennt (Datei fehlt): Quadervolumen, Volumeneinheiten inkl. Liter (M6 2.2). Wird in Kl. 8 (Prisma, Zylinder) und Kl. 9 (Streckung, Volumen · k³) vorausgesetzt."
   },
@@ -82,7 +83,7 @@
    "position": 9,
    "braucht_vorher": [
     "bruch.prozent",
-    "geometrie.grundbegriffe (Kl. 5, fehlt: Winkel für Kreisdiagramme)"
+    "geometrie.grundbegriffe (Kl. 5: Winkel für Kreisdiagramme)"
    ],
    "begruendung": "Relative Häufigkeiten als Bruch/Dezimal/Prozent; Kreisdiagramm-Winkel."
   },
@@ -106,13 +107,13 @@
   {
    "was_fehlt": "Flächeninhalt von Parallelogramm, Dreieck und Trapez (Herleitung durch Zerlegen/Ergänzen), Oberfläche einfacher Körper.",
    "lehrplan_bezug": "M6 2.1 (Fachlehrplan Gym. Bayern, Wortlaut am 14.11.2026 auf lehrplanplus.bayern.de geprüft)",
-   "wohin": "neues Thema messen.flaechen_vielecke (Kl. 6) – in themenliste.json steht es unter messen.flaechen mit Klasse 5; dort abtrennen. Ohne Zeichnung nicht sinnvoll (Bild 'figur').",
+   "wohin": "neues Thema messen.flaechen_vielecke (Kl. 6) in themenliste.json anlegen; messen.flaechen (Kl. 5) hat diese Figuren zu Recht weggelassen. Ohne Zeichnung nicht sinnvoll (Bild 'figur').",
    "dringlichkeit": "hoch"
   },
   {
    "was_fehlt": "Volumen: Quaderformel, Einheitswürfel, Volumeneinheiten inkl. Liter/Milliliter umrechnen, zusammengesetzte Körper.",
    "lehrplan_bezug": "M6 2.2 (Fachlehrplan Gym. Bayern, Wortlaut am 14.11.2026 auf lehrplanplus.bayern.de geprüft)",
-   "wohin": "neues Thema messen.volumen (Kl. 6), abgetrennt aus messen.koerper_berechnung (dort fälschlich Kl. 5).",
+   "wohin": "neues Thema messen.volumen (Kl. 6). messen.koerper_berechnung (Kl. 5) enthält nur eine Vertiefungskarte 'volumen' ohne Einheitenumrechnung; Liter/Milliliter, Volumeneinheiten und zusammengesetzte Körper fehlen ganz.",
    "dringlichkeit": "hoch"
   },
   {

@@ -58,7 +58,7 @@ def ok(x): return sicher_rundbar(x, 1)
 
 def z1(x):
     """Auf eine Nachkommastelle gerundet, immer mit einer Nachkommastelle geschrieben."""
-    t = z1((x, 1))
+    t = zt(runde(x, 1))
     return t if ',' in t else t + ',0'
 
 
@@ -78,14 +78,14 @@ def g_umfang(R, st):
         r0 = u0 / (2 * PIF)
         if not ok(r0): return g_umfang(R, st)
         return rz(r0, f'Ein Kreis hat den Umfang {zt(u0)} cm. Berechne den Radius. {RUNDE}', f'{cz(u0)} / (2 * {PI})',
-                  f'u = 2πr → r = u : (2π) = {zt(u0)} : (2π) ≈ {z1((r0, 1))} cm.', 'Stelle u = 2πr nach r um.', 'cm')
+                  f'u = 2πr → r = u : (2π) = {zt(u0)} : (2π) ≈ {z1(r0)} cm.', 'Stelle u = 2πr nach r um.', 'cm')
     if R.random() < .4:
         d = 2 * r
         return rz(PIF * d, f'Ein Kreis hat den Durchmesser {zt(d)} cm. Berechne den Umfang. {RUNDE}', f'{PI} * {cz(d)}',
-                  f'u = π · d = π · {zt(d)} ≈ {z1((PIF * d, 1))} cm.', TIPP_PI, 'cm')
+                  f'u = π · d = π · {zt(d)} ≈ {z1(PIF * d)} cm.', TIPP_PI, 'cm')
     kontext = R.choice(['', 'Ein Fahrradreifen', 'Ein runder Tisch', 'Eine Uhr']) if st >= 2 else ''
     text = f'{kontext} hat den Radius {zt(r)} cm. Wie lang ist der Umfang? {RUNDE}' if kontext else f'Berechne den Umfang eines Kreises mit r = {zt(r)} cm. {RUNDE}'
-    return rz(u, text, f'2 * {PI} * {cz(r)}', f'u = 2 · π · {zt(r)} ≈ {z1((u, 1))} cm.', TIPP_PI, 'cm')
+    return rz(u, text, f'2 * {PI} * {cz(r)}', f'u = 2 · π · {zt(r)} ≈ {z1(u)} cm.', TIPP_PI, 'cm')
 
 
 def g_flaeche(R, st):
@@ -100,9 +100,9 @@ def g_flaeche(R, st):
     if R.random() < .4:
         d = 2 * r
         return rz(a, f'Ein Kreis hat den Durchmesser {zt(d)} cm. Berechne den Flächeninhalt. {RUNDE}', f'{PI} * ({cz(d)} / 2) ** 2',
-                  f'r = {zt(d)} : 2 = {zt(r)} cm. A = π · {zt(r)}² ≈ {z1((a, 1))} cm².', 'Zuerst den Radius bestimmen.', 'cm²')
+                  f'r = {zt(d)} : 2 = {zt(r)} cm. A = π · {zt(r)}² ≈ {z1(a)} cm².', 'Zuerst den Radius bestimmen.', 'cm²')
     return rz(a, f'Berechne den Flächeninhalt eines Kreises mit r = {zt(r)} cm. {RUNDE}', f'{PI} * {cz(r)} ** 2',
-              f'A = π · {zt(r)}² = π · {zt(r * r)} ≈ {z1((a, 1))} cm².', 'Erst r² berechnen, dann mal π.', 'cm²')
+              f'A = π · {zt(r)}² = π · {zt(r * r)} ≈ {z1(a)} cm².', 'Erst r² berechnen, dann mal π.', 'cm²')
 
 
 def g_exakt(R, st):
@@ -149,9 +149,9 @@ def g_sektor(R, st):
                  f'Anteil = {al}° : 360° = ' + (zt(teil) if teil.denominator in (2, 4, 5, 8, 10, 20, 40) else f'{teil.numerator}/{teil.denominator} ≈ {z1(teil * 100)} %') + '.', 'Teile den Winkel durch 360°.')
     if R.random() < .5:
         return rz(b, f'Ein Kreisausschnitt hat r = {zt(r)} cm und α = {al}°. Berechne die Bogenlänge. {RUNDE}', f'{al} / 360 * 2 * {PI} * {cz(r)}',
-                  f'b = {al}/360 · 2π · {zt(r)} ≈ {z1((b, 1))} cm.', 'Bogen = Anteil · Umfang.', 'cm')
+                  f'b = {al}/360 · 2π · {zt(r)} ≈ {z1(b)} cm.', 'Bogen = Anteil · Umfang.', 'cm')
     return rz(a, f'Ein Kreisausschnitt hat r = {zt(r)} cm und α = {al}°. Berechne seinen Flächeninhalt. {RUNDE}', f'{al} / 360 * {PI} * {cz(r)} ** 2',
-              f'A = {al}/360 · π · {zt(r)}² ≈ {z1((a, 1))} cm².', 'Fläche = Anteil · ganze Kreisfläche.', 'cm²')
+              f'A = {al}/360 · π · {zt(r)}² ≈ {z1(a)} cm².', 'Fläche = Anteil · ganze Kreisfläche.', 'cm²')
 
 
 def g_zusammengesetzt(R, st):
@@ -161,13 +161,13 @@ def g_zusammengesetzt(R, st):
             a = PIF * (R2 * R2 - r1 * r1)
             if ok(a):
                 return rz(a, f'Ein Kreisring hat den Außenradius {R2} cm und den Innenradius {r1} cm. Berechne seinen Flächeninhalt. {RUNDE}', f'{PI} * ({R2} ** 2 - {r1} ** 2)',
-                          f'A = π · ({R2}² − {r1}²) = π · {R2 * R2 - r1 * r1} ≈ {z1((a, 1))} cm².', 'Großer Kreis minus kleiner Kreis.', 'cm²')
+                          f'A = π · ({R2}² − {r1}²) = π · {R2 * R2 - r1 * r1} ≈ {z1(a)} cm².', 'Großer Kreis minus kleiner Kreis.', 'cm²')
         elif st == 2:
             r = R.randint(2, 15)
             a = PIF * r * r / 4 - Fr(r * r, 2)
             if ok(a):
                 return rz(a, f'Ein Viertelkreis hat r = {r} cm. Man schneidet das rechtwinklige Dreieck aus den beiden Radien und der Sehne ab. Wie groß ist der Rest (Kreisabschnitt)? {RUNDE}',
-                          f'{PI} * {r} ** 2 / 4 - {r} ** 2 / 2', f'Viertelkreis π · {r}² : 4, Dreieck {r} · {r} : 2 = {zt(Fr(r * r, 2))}. A ≈ {z1((a, 1))} cm².',
+                          f'{PI} * {r} ** 2 / 4 - {r} ** 2 / 2', f'Viertelkreis π · {r}² : 4, Dreieck {r} · {r} : 2 = {zt(Fr(r * r, 2))}. A ≈ {z1(a)} cm².',
                           'Viertelkreis minus Dreieck.', 'cm²')
         else:
             art = R.choice(['quadrat', 'halbkreis', 'stadion'])
@@ -176,19 +176,19 @@ def g_zusammengesetzt(R, st):
                 x = a_ * a_ - PIF * Fr(a_, 2) ** 2
                 if ok(x):
                     return rz(x, f'In ein Quadrat mit Seitenlänge {a_} cm wird ein Kreis gezeichnet, der alle vier Seiten berührt. Wie groß ist die Fläche außerhalb des Kreises im Quadrat? {RUNDE}',
-                              f'{a_} ** 2 - {PI} * ({a_} / 2) ** 2', f'Quadrat {a_ * a_} cm², Kreis mit r = {zt(Fr(a_, 2))}: π · {zt(Fr(a_, 2))}². Differenz ≈ {z1((x, 1))} cm².',
+                              f'{a_} ** 2 - {PI} * ({a_} / 2) ** 2', f'Quadrat {a_ * a_} cm², Kreis mit r = {zt(Fr(a_, 2))}: π · {zt(Fr(a_, 2))}². Differenz ≈ {z1(x)} cm².',
                               'Der Kreis hat den Durchmesser = Seitenlänge.', 'cm²')
             elif art == 'halbkreis':
                 x = PIF * a_ + 2 * a_
                 if ok(x):
                     return rz(x, f'Ein Halbkreis hat den Radius {a_} cm. Wie lang ist sein Rand (Bogen und Durchmesser zusammen)? {RUNDE}', f'{PI} * {a_} + 2 * {a_}',
-                              f'Halber Umfang π · {a_}, dazu der Durchmesser {2 * a_} cm. Zusammen ≈ {z1((x, 1))} cm.', 'Der gerade Rand gehört auch dazu.', 'cm')
+                              f'Halber Umfang π · {a_}, dazu der Durchmesser {2 * a_} cm. Zusammen ≈ {z1(x)} cm.', 'Der gerade Rand gehört auch dazu.', 'cm')
             else:
                 l = R.randint(5, 40)
                 x = 2 * l + 2 * PIF * a_
                 if ok(x):
                     return rz(x, f'Eine Laufbahn besteht aus zwei geraden Stücken von je {l} m und zwei Halbkreisen mit Radius {a_} m. Wie lang ist eine Runde? {RUNDE}',
-                              f'2 * {l} + 2 * {PI} * {a_}', f'Gerade: 2 · {l} = {2 * l} m. Zwei Halbkreise = ein Kreis: 2π · {a_}. Zusammen ≈ {z1((x, 1))} m.',
+                              f'2 * {l} + 2 * {PI} * {a_}', f'Gerade: 2 · {l} = {2 * l} m. Zwei Halbkreise = ein Kreis: 2π · {a_}. Zusammen ≈ {z1(x)} m.',
                               'Zwei Halbkreise ergeben zusammen einen ganzen Kreis.', 'm')
 
 
@@ -204,16 +204,16 @@ def g_zylinder(R, st):
         V0 = PIF * r0 * r0 * h0
         if not ok(V0): return g_zylinder(R, st)
         return rz(V0 / 1000, f'Eine zylinderförmige Dose hat r = {zt(r0)} cm und h = {zt(h0)} cm. Wie viele Liter passen hinein? Runde auf eine Nachkommastelle.',
-                  f'{PI} * {cz(r0)} ** 2 * {cz(h0)} / 1000', f'V = π · {zt(r0)}² · {zt(h0)} ≈ {z1((V0, 1))} cm³ = {z1((V0 / 1000, 1))} l (1 l = 1000 cm³).',
+                  f'{PI} * {cz(r0)} ** 2 * {cz(h0)} / 1000', f'V = π · {zt(r0)}² · {zt(h0)} ≈ {z1(V0)} cm³ = {z1(V0 / 1000)} l (1 l = 1000 cm³).',
                   'Rechne in cm³ und teile durch 1000.', 'l') if ok(V0 / 1000) else g_zylinder(R, st)
     if was == 'V':
         return rz(V, f'Ein Zylinder hat r = {zt(r)} cm und h = {zt(h)} cm. Berechne sein Volumen. {RUNDE}', f'{PI} * {cz(r)} ** 2 * {cz(h)}',
-                  f'V = π · {zt(r)}² · {zt(h)} ≈ {z1((V, 1))} cm³.', 'Grundfläche π · r² mal Höhe.', 'cm³')
+                  f'V = π · {zt(r)}² · {zt(h)} ≈ {z1(V)} cm³.', 'Grundfläche π · r² mal Höhe.', 'cm³')
     if was == 'M':
         return rz(M, f'Ein Zylinder hat r = {zt(r)} cm und h = {zt(h)} cm. Berechne seine Mantelfläche. {RUNDE}', f'2 * {PI} * {cz(r)} * {cz(h)}',
-                  f'M = 2π · {zt(r)} · {zt(h)} ≈ {z1((M, 1))} cm².', 'Mantel = Umfang des Grundkreises · Höhe.', 'cm²')
+                  f'M = 2π · {zt(r)} · {zt(h)} ≈ {z1(M)} cm².', 'Mantel = Umfang des Grundkreises · Höhe.', 'cm²')
     return rz(O, f'Ein Zylinder hat r = {zt(r)} cm und h = {zt(h)} cm. Berechne seine Oberfläche. {RUNDE}', f'2 * {PI} * {cz(r)} ** 2 + 2 * {PI} * {cz(r)} * {cz(h)}',
-              f'O = 2π · {zt(r)}² + 2π · {zt(r)} · {zt(h)} ≈ {z1((O, 1))} cm².', 'Zwei Kreise plus Mantel.', 'cm²')
+              f'O = 2π · {zt(r)}² + 2π · {zt(r)} · {zt(h)} ≈ {z1(O)} cm².', 'Zwei Kreise plus Mantel.', 'cm²')
 
 
 def g_verstehen(R, st):

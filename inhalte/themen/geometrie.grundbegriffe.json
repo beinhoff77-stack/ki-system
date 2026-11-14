@@ -1,0 +1,6487 @@
+{
+ "thema_schluessel": "geometrie.grundbegriffe",
+ "thema_id": 42,
+ "block_id": 83,
+ "klasse": {
+  "gym_by": 5,
+  "rs_by": 5,
+  "ib_myp": 1
+ },
+ "autor": "Claude (Opus), Paket Klasse 5 Rest",
+ "inhalt": {
+  "ziel": "Punkte, Strecken, Geraden und Kreise im Koordinatensystem beschreiben, Lagebeziehungen erkennen, Winkelarten bis 360° und besondere Vierecke unterscheiden.",
+  "merke": [
+   "P(x | y): erst x (rechts/links), dann y (oben/unten).",
+   "Waagrechte Strecke: Unterschied der x-Koordinaten.",
+   "g ∥ h: parallel. g ⊥ h: senkrecht. Abstand = Länge des Lots.",
+   "d < r Sekante, d = r Tangente, d > r Passante.",
+   "spitz < 90° = recht < stumpf < 180° = gestreckt < überstumpf < 360°."
+  ],
+  "abschnitte": [
+   {
+    "titel": "Koordinatensystem",
+    "lernziele": [
+     "koordinaten",
+     "strecken"
+    ]
+   },
+   {
+    "titel": "Lagebeziehungen",
+    "lernziele": [
+     "lagebeziehungen",
+     "kreis_lage"
+    ]
+   },
+   {
+    "titel": "Winkel und Vierecke",
+    "lernziele": [
+     "winkelarten",
+     "vierecke",
+     "verstehen"
+    ]
+   }
+  ],
+  "etappen": [
+   {
+    "lernziel": "koordinaten",
+    "titel": "Punkte im Koordinatensystem",
+    "regel": "Im ⟦Koordinatensystem⟧ hat jeder Punkt zwei Koordinaten: P(x | y). Die ⟦x-Koordinate⟧ sagt, wie weit du nach rechts (+) oder links (−) gehst, die ⟦y-Koordinate⟧, wie weit nach oben (+) oder unten (−). O(0 | 0) heißt ⟦Ursprung⟧.",
+    "schritte": [
+     "P(3 | −2): vom Ursprung 3 nach rechts, dann 2 nach unten.",
+     "Verschiebe P um 4 nach links und 5 nach oben: x = 3 − 4 = −1, y = −2 + 5 = 3, also ⟦P′(−1 | 3)⟧."
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      5
+     ],
+     "y": [
+      -4,
+      5
+     ],
+     "punkte": [
+      {
+       "x": 3,
+       "y": -2,
+       "name": "P"
+      },
+      {
+       "x": -1,
+       "y": 3,
+       "name": "P′"
+      }
+     ],
+     "strecken": [
+      [
+       3,
+       -2,
+       -1,
+       -2,
+       "gestrichelt"
+      ],
+      [
+       -1,
+       -2,
+       -1,
+       3,
+       "gestrichelt"
+      ]
+     ]
+    },
+    "fehler": "P(3 | −2) und Q(−2 | 3) zu verwechseln ist falsch: Die ⟦x-Koordinate steht immer zuerst⟧ – erst rechts/links, dann oben/unten."
+   },
+   {
+    "lernziel": "strecken",
+    "titel": "Streckenlängen im Koordinatensystem",
+    "regel": "Haben zwei Punkte dieselbe ⟦y-Koordinate⟧, liegen sie auf einer waagrechten Linie: Die Länge der Strecke ist der ⟦Unterschied der x-Koordinaten⟧. Bei gleicher x-Koordinate (senkrecht) ist es der Unterschied der y-Koordinaten. Die Strecke von A nach B schreibt man [AB].",
+    "schritte": [
+     "A(−3 | 2) und B(4 | 2) haben dieselbe y-Koordinate 2.",
+     "Von −3 bis 0 sind es 3, von 0 bis 4 sind es 4: [AB] ist ⟦7⟧ Einheiten lang."
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      5
+     ],
+     "y": [
+      -1,
+      4
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 2,
+       "name": "A"
+      },
+      {
+       "x": 4,
+       "y": 2,
+       "name": "B"
+      }
+     ],
+     "strecken": [
+      [
+       -3,
+       2,
+       4,
+       2
+      ]
+     ]
+    },
+    "fehler": "„4 − 3 = 1“ ist falsch: Die Punkte liegen auf ⟦verschiedenen Seiten⟧ der 0. Richtig: 4 − (−3) = 4 + 3 = 7."
+   },
+   {
+    "lernziel": "lagebeziehungen",
+    "titel": "Parallel, senkrecht, Abstand",
+    "regel": "Zwei Geraden sind ⟦parallel⟧ (g ∥ h), wenn sie sich nie schneiden und überall gleich weit voneinander entfernt sind. Sie sind ⟦senkrecht⟧ zueinander (g ⊥ h), wenn sie sich im rechten Winkel schneiden. Die Senkrechte von P auf g heißt ⟦Lot⟧; ihre Länge ist der ⟦Abstand⟧ von P zu g.",
+    "schritte": [
+     "Die Gerade g geht waagrecht durch alle Punkte mit der y-Koordinate 1. P(4 | 6).",
+     "Das Lot von P auf g endet bei (4 | 1). Abstand: 6 − 1 = ⟦5⟧ Einheiten."
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      7
+     ],
+     "y": [
+      -1,
+      7
+     ],
+     "punkte": [
+      {
+       "x": 4,
+       "y": 6,
+       "name": "P"
+      }
+     ],
+     "waagrecht": [
+      1
+     ],
+     "strecken": [
+      [
+       4,
+       6,
+       4,
+       1,
+       "gestrichelt"
+      ]
+     ]
+    },
+    "fehler": "Den Abstand von P zu g schräg zu messen ist falsch: Der Abstand ist die ⟦kürzeste⟧ Verbindung, also entlang des ⟦Lots⟧."
+   },
+   {
+    "lernziel": "kreis_lage",
+    "titel": "Kreis, Gerade und zwei Kreise",
+    "regel": "Ein ⟦Kreis⟧ um M mit Radius r besteht aus allen Punkten, die von M den Abstand r haben. Hat eine Gerade von M den Abstand d, ist sie bei d < r eine ⟦Sekante⟧ (2 Schnittpunkte), bei d = r eine ⟦Tangente⟧ (1 Berührpunkt), bei d > r eine ⟦Passante⟧ (kein gemeinsamer Punkt).",
+    "schritte": [
+     "Kreis um M mit r = 4 cm. Die Gerade g hat von M den Abstand 4 cm.",
+     "d = r, also ist g eine ⟦Tangente⟧: Sie berührt den Kreis in genau einem Punkt."
+    ],
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "_T": [
+       0,
+       4
+      ],
+      "_A": [
+       -6,
+       4
+      ],
+      "_B": [
+       6,
+       4
+      ],
+      "_S1": [
+       -6,
+       2
+      ],
+      "_S2": [
+       6,
+       2
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 4
+      }
+     ],
+     "linien": [
+      [
+       "M",
+       "_T",
+       "r = 4 cm"
+      ],
+      [
+       "_A",
+       "_B",
+       "Tangente"
+      ],
+      [
+       "_S1",
+       "_S2",
+       "Sekante"
+      ]
+     ]
+    },
+    "fehler": "Eine Gerade, die den Kreis nur berührt, Sekante zu nennen ist falsch: Eine Sekante ⟦schneidet⟧ den Kreis in zwei Punkten, eine ⟦Tangente⟧ berührt ihn in genau einem."
+   },
+   {
+    "lernziel": "winkelarten",
+    "titel": "Winkelarten bis 360°",
+    "regel": "Ein ⟦Winkel⟧ besteht aus zwei ⟦Schenkeln⟧ mit gemeinsamem ⟦Scheitel⟧. Winkelarten: ⟦spitz⟧ (unter 90°), ⟦recht⟧ (90°), ⟦stumpf⟧ (zwischen 90° und 180°), ⟦gestreckt⟧ (180°), ⟦überstumpf⟧ (zwischen 180° und 360°), ⟦Vollwinkel⟧ (360°).",
+    "schritte": [
+     "α = 235° ist größer als 180° und kleiner als 360°.",
+     "Also ist α ⟦überstumpf⟧."
+    ],
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       0
+      ],
+      "_A": [
+       5,
+       0
+      ],
+      "_B": [
+       -3.536,
+       3.536
+      ]
+     },
+     "linien": [
+      [
+       "S",
+       "_A",
+       "Schenkel"
+      ],
+      [
+       "S",
+       "_B",
+       "Schenkel"
+      ]
+     ],
+     "winkel": [
+      [
+       "S",
+       "_A",
+       "_B",
+       "135°"
+      ]
+     ]
+    },
+    "fehler": "135° spitz zu nennen ist falsch: Spitz sind nur Winkel ⟦unter 90°⟧. 135° liegt zwischen 90° und 180°, ist also ⟦stumpf⟧."
+   },
+   {
+    "lernziel": "vierecke",
+    "titel": "Besondere Vierecke",
+    "regel": "⟦Quadrat⟧: 4 gleich lange Seiten, 4 rechte Winkel. ⟦Rechteck⟧: 4 rechte Winkel. ⟦Raute⟧: 4 gleich lange Seiten. ⟦Parallelogramm⟧: gegenüberliegende Seiten parallel. ⟦Trapez⟧: mindestens zwei Seiten parallel. ⟦Drachenviereck⟧: zwei Paare gleich langer ⟦benachbarter⟧ Seiten.",
+    "schritte": [
+     "Ein Viereck hat 4 gleich lange Seiten, aber keinen rechten Winkel.",
+     "Ohne rechte Winkel ist es kein Quadrat. Es ist eine ⟦Raute⟧."
+    ],
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       4,
+       0
+      ],
+      "C": [
+       6,
+       3
+      ],
+      "D": [
+       2,
+       3
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C",
+      "D"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       "4 cm"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "D",
+       "A"
+      ]
+     ]
+    },
+    "fehler": "„Ein Quadrat ist kein Rechteck“ ist falsch: Ein Quadrat hat 4 rechte Winkel, also alle Eigenschaften eines Rechtecks. Jedes Quadrat ist ⟦auch ein Rechteck⟧ – und auch eine Raute."
+   },
+   {
+    "lernziel": "verstehen",
+    "titel": "Aussagen zur Geometrie prüfen",
+    "regel": "Prüfe geometrische Aussagen mit einer ⟦Skizze⟧ oder einem ⟦Gegenbeispiel⟧. Achte auf genaue Fachbegriffe: Strecke, Gerade, Halbgerade, Lot, Abstand, Tangente.",
+    "schritte": [
+     "Aussage: „Jedes Rechteck ist ein Quadrat.“ Gegenbeispiel: ein Rechteck mit 6 cm und 3 cm Seitenlänge.",
+     "Seine Seiten sind nicht alle gleich lang. Die Aussage ist ⟦falsch⟧."
+    ],
+    "fehler": "Eine Aussage mit nur einem passenden Beispiel für „immer richtig“ zu halten ist ein Fehler. ⟦Ein Gegenbeispiel⟧ genügt, um eine Allaussage zu widerlegen."
+   }
+  ],
+  "teilfaehigkeiten": [
+   {
+    "k": "koordinaten",
+    "text": "Punkte im Koordinatensystem",
+    "lernziele": [
+     "koordinaten"
+    ]
+   },
+   {
+    "k": "strecken",
+    "text": "Streckenlängen im Koordinatensystem",
+    "lernziele": [
+     "strecken"
+    ]
+   },
+   {
+    "k": "lagebeziehungen",
+    "text": "Parallel, senkrecht, Abstand",
+    "lernziele": [
+     "lagebeziehungen"
+    ]
+   },
+   {
+    "k": "kreis_lage",
+    "text": "Kreis, Gerade und zwei Kreise",
+    "lernziele": [
+     "kreis_lage"
+    ]
+   },
+   {
+    "k": "winkelarten",
+    "text": "Winkelarten bis 360°",
+    "lernziele": [
+     "winkelarten"
+    ]
+   },
+   {
+    "k": "vierecke",
+    "text": "Besondere Vierecke",
+    "lernziele": [
+     "vierecke"
+    ]
+   },
+   {
+    "k": "verstehen",
+    "text": "Aussagen zur Geometrie prüfen",
+    "lernziele": [
+     "verstehen"
+    ]
+   }
+  ],
+  "bewertung": {
+   "lernziele_pflicht": [
+    "koordinaten",
+    "strecken",
+    "lagebeziehungen",
+    "kreis_lage",
+    "winkelarten",
+    "vierecke",
+    "verstehen"
+   ],
+   "lernziele_vertiefung": [],
+   "testaufgaben_je_lernziel": 1
+  },
+  "quellen": {
+   "erklaerungen": "Eigene Fassung (Claude), alle Aufgaben programmgeneriert.",
+   "begriffe": "Fachbegriffe nach LehrplanPLUS Bayern (Gymnasium, Jahrgangsstufe 5)."
+  }
+ },
+ "aufgaben": [
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Lies die Koordinaten des Punktes P ab.",
+    "schablone": "P(□ | □)",
+    "hinweis": "Erst die x-Koordinate, dann die y-Koordinate.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      6
+     ],
+     "y": [
+      -5,
+      1
+     ],
+     "punkte": [
+      {
+       "x": 5,
+       "y": -4,
+       "name": "P"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     5,
+     -4
+    ]
+   },
+   "c": [
+    "5",
+    "-4"
+   ],
+   "w": "P liegt bei x = 5 und y = −4: P(5 | −4).",
+   "h": "Erst nach rechts/links schauen (x), dann nach oben/unten (y)."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Verschiebe A(0 | 4) um 4 nach rechts und 1 nach oben. Welche Koordinaten hat der neue Punkt A′?",
+    "schablone": "A′(□ | □)",
+    "hinweis": "Erst die x-Koordinate, dann die y-Koordinate."
+   },
+   "o": {
+    "werte": [
+     4,
+     5
+    ]
+   },
+   "c": [
+    "0 + 4",
+    "4 + 1"
+   ],
+   "w": "x: 0 + 4 = 4, y: 4 + 1 = 5. Also A′(4 | 5).",
+   "h": "Nach rechts und oben wird addiert."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Lies die Koordinaten des Punktes P ab.",
+    "schablone": "P(□ | □)",
+    "hinweis": "Erst die x-Koordinate, dann die y-Koordinate.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      1
+     ],
+     "y": [
+      -3,
+      1
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": -2,
+       "name": "P"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     -3,
+     -2
+    ]
+   },
+   "c": [
+    "-3",
+    "-2"
+   ],
+   "w": "P liegt bei x = −3 und y = −2: P(−3 | −2).",
+   "h": "Erst nach rechts/links schauen (x), dann nach oben/unten (y)."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Punkt P liegt 2 Einheiten links vom Ursprung und 5 Einheiten über ihm. Welche Koordinaten hat P?",
+    "schablone": "P(□ | □)",
+    "hinweis": "Erst die x-Koordinate, dann die y-Koordinate."
+   },
+   "o": {
+    "werte": [
+     -2,
+     5
+    ]
+   },
+   "c": [
+    "-2",
+    "5"
+   ],
+   "w": "Links heißt x = −2, oben heißt y = 5: P(−2 | 5).",
+   "h": "Rechts/links ist die x-Koordinate, oben/unten die y-Koordinate."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Lies die Koordinaten des Punktes P ab.",
+    "schablone": "P(□ | □)",
+    "hinweis": "Erst die x-Koordinate, dann die y-Koordinate.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      4
+     ],
+     "y": [
+      -2,
+      1
+     ],
+     "punkte": [
+      {
+       "x": 3,
+       "y": -1,
+       "name": "P"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     3,
+     -1
+    ]
+   },
+   "c": [
+    "3",
+    "-1"
+   ],
+   "w": "P liegt bei x = 3 und y = −1: P(3 | −1).",
+   "h": "Erst nach rechts/links schauen (x), dann nach oben/unten (y)."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Punkt P liegt 3 Einheiten links vom Ursprung und 5 Einheiten über ihm. Welche Koordinaten hat P?",
+    "schablone": "P(□ | □)",
+    "hinweis": "Erst die x-Koordinate, dann die y-Koordinate."
+   },
+   "o": {
+    "werte": [
+     -3,
+     5
+    ]
+   },
+   "c": [
+    "-3",
+    "5"
+   ],
+   "w": "Links heißt x = −3, oben heißt y = 5: P(−3 | 5).",
+   "h": "Rechts/links ist die x-Koordinate, oben/unten die y-Koordinate."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Verschiebe B(−4 | −3) um 1 nach rechts und 4 nach unten. Welche Koordinaten hat B′?",
+    "schablone": "B′(□ | □)",
+    "hinweis": "Erst die x-Koordinate, dann die y-Koordinate."
+   },
+   "o": {
+    "werte": [
+     -3,
+     -7
+    ]
+   },
+   "c": [
+    "(-4) + (1)",
+    "(-3) + (-4)"
+   ],
+   "w": "x: (−4) + 1 = −3, y: (−3) − 4 = −7. Also B′(−3 | −7).",
+   "h": "Rechts und oben: plus. Links und unten: minus."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Verschiebe B(−1 | 3) um 7 nach rechts und 6 nach unten. Welche Koordinaten hat B′?",
+    "schablone": "B′(□ | □)",
+    "hinweis": "Erst die x-Koordinate, dann die y-Koordinate."
+   },
+   "o": {
+    "werte": [
+     6,
+     -3
+    ]
+   },
+   "c": [
+    "(-1) + (7)",
+    "(3) + (-6)"
+   ],
+   "w": "x: (−1) + 7 = 6, y: 3 − 6 = −3. Also B′(6 | −3).",
+   "h": "Rechts und oben: plus. Links und unten: minus."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Verschiebe B(−5 | 0) um 5 nach links und 7 nach oben. Welche Koordinaten hat B′?",
+    "schablone": "B′(□ | □)",
+    "hinweis": "Erst die x-Koordinate, dann die y-Koordinate."
+   },
+   "o": {
+    "werte": [
+     -10,
+     7
+    ]
+   },
+   "c": [
+    "(-5) + (-5)",
+    "(0) + (7)"
+   ],
+   "w": "x: (−5) − 5 = −10, y: 0 + 7 = 7. Also B′(−10 | 7).",
+   "h": "Rechts und oben: plus. Links und unten: minus."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Verschiebe B(−1 | 3) um 6 nach links und 1 nach unten. Welche Koordinaten hat B′?",
+    "schablone": "B′(□ | □)",
+    "hinweis": "Erst die x-Koordinate, dann die y-Koordinate."
+   },
+   "o": {
+    "werte": [
+     -7,
+     2
+    ]
+   },
+   "c": [
+    "(-1) + (-6)",
+    "(3) + (-1)"
+   ],
+   "w": "x: (−1) − 6 = −7, y: 3 − 1 = 2. Also B′(−7 | 2).",
+   "h": "Rechts und oben: plus. Links und unten: minus."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Verschiebe B(6 | −2) um 7 nach links und 7 nach unten. Welche Koordinaten hat B′?",
+    "schablone": "B′(□ | □)",
+    "hinweis": "Erst die x-Koordinate, dann die y-Koordinate."
+   },
+   "o": {
+    "werte": [
+     -1,
+     -9
+    ]
+   },
+   "c": [
+    "(6) + (-7)",
+    "(-2) + (-7)"
+   ],
+   "w": "x: 6 − 7 = −1, y: (−2) − 7 = −9. Also B′(−1 | −9).",
+   "h": "Rechts und oben: plus. Links und unten: minus."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Verschiebe B(−2 | 1) um 2 nach rechts und 3 nach oben. Welche Koordinaten hat B′?",
+    "schablone": "B′(□ | □)",
+    "hinweis": "Erst die x-Koordinate, dann die y-Koordinate."
+   },
+   "o": {
+    "werte": [
+     0,
+     4
+    ]
+   },
+   "c": [
+    "(-2) + (2)",
+    "(1) + (3)"
+   ],
+   "w": "x: (−2) + 2 = 0, y: 1 + 3 = 4. Also B′(0 | 4).",
+   "h": "Rechts und oben: plus. Links und unten: minus."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Rechteck ABCD hat die Ecken A(−3 | 3), B(3 | 3) und C(3 | 4). Seine Seiten sind parallel zu den Achsen. Welche Koordinaten hat D?",
+    "schablone": "D(□ | □)",
+    "hinweis": "Erst die x-Koordinate, dann die y-Koordinate.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -1,
+      5
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 3,
+       "name": "A"
+      },
+      {
+       "x": 3,
+       "y": 3,
+       "name": "B"
+      },
+      {
+       "x": 3,
+       "y": 4,
+       "name": "C"
+      }
+     ],
+     "strecken": [
+      [
+       -3,
+       3,
+       3,
+       3
+      ],
+      [
+       3,
+       3,
+       3,
+       4
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     -3,
+     4
+    ]
+   },
+   "c": [
+    "-3",
+    "4"
+   ],
+   "w": "D liegt senkrecht über A (x = −3) und waagrecht neben C (y = 4): D(−3 | 4).",
+   "h": "D hat die x-Koordinate von A und die y-Koordinate von C."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Der Punkt P(−5 | 3) wurde verschoben und liegt jetzt bei P′(−10 | 1). Um wie viel wurde er nach rechts und nach oben verschoben? (Nach links oder unten: negative Zahl.)",
+    "schablone": "nach rechts □, nach oben □",
+    "hinweis": "Negative Zahl für links bzw. unten."
+   },
+   "o": {
+    "werte": [
+     -5,
+     -2
+    ]
+   },
+   "c": [
+    "(-10) - (-5)",
+    "(1) - (3)"
+   ],
+   "w": "x: −10 − (−5) = −5, y: 1 − 3 = −2.",
+   "h": "Rechne neue Koordinate minus alte Koordinate."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "M ist der Mittelpunkt der Strecke [AB] mit A(−4 | 0) und B(8 | 0). Welche Koordinaten hat M?",
+    "schablone": "M(□ | □)",
+    "hinweis": "Erst die x-Koordinate, dann die y-Koordinate."
+   },
+   "o": {
+    "werte": [
+     2,
+     0
+    ]
+   },
+   "c": [
+    "(-4 + 8) / 2",
+    "0"
+   ],
+   "w": "[AB] ist 12 lang, die Hälfte ist 6. Von A aus 6 nach rechts: M(2 | 0).",
+   "h": "Die y-Koordinate bleibt gleich. Gehe von A die halbe Länge nach rechts."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Der Punkt P(2 | −3) wurde verschoben und liegt jetzt bei P′(3 | −4). Um wie viel wurde er nach rechts und nach oben verschoben? (Nach links oder unten: negative Zahl.)",
+    "schablone": "nach rechts □, nach oben □",
+    "hinweis": "Negative Zahl für links bzw. unten."
+   },
+   "o": {
+    "werte": [
+     1,
+     -1
+    ]
+   },
+   "c": [
+    "(3) - (2)",
+    "(-4) - (-3)"
+   ],
+   "w": "x: 3 − 2 = 1, y: −4 − (−3) = −1.",
+   "h": "Rechne neue Koordinate minus alte Koordinate."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "M ist der Mittelpunkt der Strecke [AB] mit A(−4 | 0) und B(−2 | 0). Welche Koordinaten hat M?",
+    "schablone": "M(□ | □)",
+    "hinweis": "Erst die x-Koordinate, dann die y-Koordinate."
+   },
+   "o": {
+    "werte": [
+     -3,
+     0
+    ]
+   },
+   "c": [
+    "(-4 + -2) / 2",
+    "0"
+   ],
+   "w": "[AB] ist 2 lang, die Hälfte ist 1. Von A aus 1 nach rechts: M(−3 | 0).",
+   "h": "Die y-Koordinate bleibt gleich. Gehe von A die halbe Länge nach rechts."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Rechteck ABCD hat die Ecken A(2 | 4), B(7 | 4) und C(7 | 7). Seine Seiten sind parallel zu den Achsen. Welche Koordinaten hat D?",
+    "schablone": "D(□ | □)",
+    "hinweis": "Erst die x-Koordinate, dann die y-Koordinate.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      8
+     ],
+     "y": [
+      -1,
+      8
+     ],
+     "punkte": [
+      {
+       "x": 2,
+       "y": 4,
+       "name": "A"
+      },
+      {
+       "x": 7,
+       "y": 4,
+       "name": "B"
+      },
+      {
+       "x": 7,
+       "y": 7,
+       "name": "C"
+      }
+     ],
+     "strecken": [
+      [
+       2,
+       4,
+       7,
+       4
+      ],
+      [
+       7,
+       4,
+       7,
+       7
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     2,
+     7
+    ]
+   },
+   "c": [
+    "2",
+    "7"
+   ],
+   "w": "D liegt senkrecht über A (x = 2) und waagrecht neben C (y = 7): D(2 | 7).",
+   "h": "D hat die x-Koordinate von A und die y-Koordinate von C."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Verschiebe B(4 | 1) um 6 nach rechts und 2 nach oben. Welche Koordinaten hat B′?",
+    "schablone": "B′(□ | □)",
+    "hinweis": "Erst die x-Koordinate, dann die y-Koordinate."
+   },
+   "o": {
+    "werte": [
+     10,
+     3
+    ]
+   },
+   "c": [
+    "(4) + (6)",
+    "(1) + (2)"
+   ],
+   "w": "x: 4 + 6 = 10, y: 1 + 2 = 3. Also B′(10 | 3)."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Verschiebe B(−3 | 5) um 6 nach rechts und 5 nach oben. Welche Koordinaten hat B′?",
+    "schablone": "B′(□ | □)",
+    "hinweis": "Erst die x-Koordinate, dann die y-Koordinate."
+   },
+   "o": {
+    "werte": [
+     3,
+     10
+    ]
+   },
+   "c": [
+    "(-3) + (6)",
+    "(5) + (5)"
+   ],
+   "w": "x: (−3) + 6 = 3, y: 5 + 5 = 10. Also B′(3 | 10)."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Verschiebe B(−3 | −4) um 1 nach rechts und 7 nach unten. Welche Koordinaten hat B′?",
+    "schablone": "B′(□ | □)",
+    "hinweis": "Erst die x-Koordinate, dann die y-Koordinate."
+   },
+   "o": {
+    "werte": [
+     -2,
+     -11
+    ]
+   },
+   "c": [
+    "(-3) + (1)",
+    "(-4) + (-7)"
+   ],
+   "w": "x: (−3) + 1 = −2, y: (−4) − 7 = −11. Also B′(−2 | −11)."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Verschiebe B(4 | −4) um 5 nach rechts und 4 nach unten. Welche Koordinaten hat B′?",
+    "schablone": "B′(□ | □)",
+    "hinweis": "Erst die x-Koordinate, dann die y-Koordinate."
+   },
+   "o": {
+    "werte": [
+     9,
+     -8
+    ]
+   },
+   "c": [
+    "(4) + (5)",
+    "(-4) + (-4)"
+   ],
+   "w": "x: 4 + 5 = 9, y: (−4) − 4 = −8. Also B′(9 | −8)."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Verschiebe B(1 | 2) um 5 nach rechts und 6 nach unten. Welche Koordinaten hat B′?",
+    "schablone": "B′(□ | □)",
+    "hinweis": "Erst die x-Koordinate, dann die y-Koordinate."
+   },
+   "o": {
+    "werte": [
+     6,
+     -4
+    ]
+   },
+   "c": [
+    "(1) + (5)",
+    "(2) + (-6)"
+   ],
+   "w": "x: 1 + 5 = 6, y: 2 − 6 = −4. Also B′(6 | −4)."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "links oben",
+    "rechts oben",
+    "rechts unten",
+    "links unten"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Wo liegt der Punkt P(6 | −5), vom Ursprung aus gesehen?"
+   },
+   "w": "x = 6: rechts, y = −5: unten. Also rechts unten."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Verschiebe B(5 | 5) um 5 nach rechts und 5 nach unten. Welche Koordinaten hat B′?",
+    "schablone": "B′(□ | □)",
+    "hinweis": "Erst die x-Koordinate, dann die y-Koordinate."
+   },
+   "o": {
+    "werte": [
+     10,
+     0
+    ]
+   },
+   "c": [
+    "(5) + (5)",
+    "(5) + (-5)"
+   ],
+   "w": "x: 5 + 5 = 10, y: 5 − 5 = 0. Also B′(10 | 0)."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "links unten",
+    "rechts unten",
+    "links oben",
+    "rechts oben"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Wo liegt der Punkt P(4 | −6), vom Ursprung aus gesehen?"
+   },
+   "w": "x = 4: rechts, y = −6: unten. Also rechts unten."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Verschiebe B(1 | −6) um 3 nach links und 2 nach oben. Welche Koordinaten hat B′?",
+    "schablone": "B′(□ | □)",
+    "hinweis": "Erst die x-Koordinate, dann die y-Koordinate."
+   },
+   "o": {
+    "werte": [
+     -2,
+     -4
+    ]
+   },
+   "c": [
+    "(1) + (-3)",
+    "(-6) + (2)"
+   ],
+   "w": "x: 1 − 3 = −2, y: (−6) + 2 = −4. Also B′(−2 | −4)."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Verschiebe B(3 | −5) um 6 nach links und 7 nach oben. Welche Koordinaten hat B′?",
+    "schablone": "B′(□ | □)",
+    "hinweis": "Erst die x-Koordinate, dann die y-Koordinate."
+   },
+   "o": {
+    "werte": [
+     -3,
+     2
+    ]
+   },
+   "c": [
+    "(3) + (-6)",
+    "(-5) + (7)"
+   ],
+   "w": "x: 3 − 6 = −3, y: (−5) + 7 = 2. Also B′(−3 | 2)."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie lang ist die Strecke [AB] mit A(2 | 1) und B(8 | 1) (in Einheiten)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      9
+     ],
+     "y": [
+      -1,
+      2
+     ],
+     "punkte": [
+      {
+       "x": 2,
+       "y": 1,
+       "name": "A"
+      },
+      {
+       "x": 8,
+       "y": 1,
+       "name": "B"
+      }
+     ],
+     "strecken": [
+      [
+       2,
+       1,
+       8,
+       1
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "8 - 2",
+   "w": "Gleiche y-Koordinate, also waagrecht: 8 − 2 = 6 Einheiten.",
+   "h": "Vergleiche die x-Koordinaten."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie lang ist die Strecke [AB] mit A(2 | 7) und B(8 | 7) (in Einheiten)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      9
+     ],
+     "y": [
+      -1,
+      8
+     ],
+     "punkte": [
+      {
+       "x": 2,
+       "y": 7,
+       "name": "A"
+      },
+      {
+       "x": 8,
+       "y": 7,
+       "name": "B"
+      }
+     ],
+     "strecken": [
+      [
+       2,
+       7,
+       8,
+       7
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "8 - 2",
+   "w": "Gleiche y-Koordinate, also waagrecht: 8 − 2 = 6 Einheiten.",
+   "h": "Vergleiche die x-Koordinaten."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie lang ist die Strecke [CD] mit C(6 | 3) und D(6 | 8) (in Einheiten)?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "8 - 3",
+   "w": "Gleiche x-Koordinate, also senkrecht: 8 − 3 = 5 Einheiten.",
+   "h": "Vergleiche die y-Koordinaten."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie lang ist die Strecke [AB] mit A(4 | 3) und B(11 | 3) (in Einheiten)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      12
+     ],
+     "y": [
+      -1,
+      4
+     ],
+     "punkte": [
+      {
+       "x": 4,
+       "y": 3,
+       "name": "A"
+      },
+      {
+       "x": 11,
+       "y": 3,
+       "name": "B"
+      }
+     ],
+     "strecken": [
+      [
+       4,
+       3,
+       11,
+       3
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "11 - 4",
+   "w": "Gleiche y-Koordinate, also waagrecht: 11 − 4 = 7 Einheiten.",
+   "h": "Vergleiche die x-Koordinaten."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie lang ist die Strecke [AB] mit A(7 | 5) und B(8 | 5) (in Einheiten)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      9
+     ],
+     "y": [
+      -1,
+      6
+     ],
+     "punkte": [
+      {
+       "x": 7,
+       "y": 5,
+       "name": "A"
+      },
+      {
+       "x": 8,
+       "y": 5,
+       "name": "B"
+      }
+     ],
+     "strecken": [
+      [
+       7,
+       5,
+       8,
+       5
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "8 - 7",
+   "w": "Gleiche y-Koordinate, also waagrecht: 8 − 7 = 1 Einheiten.",
+   "h": "Vergleiche die x-Koordinaten."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie lang ist die Strecke [AB] mit A(1 | 3) und B(3 | 3) (in Einheiten)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      4
+     ],
+     "y": [
+      -1,
+      4
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 3,
+       "name": "A"
+      },
+      {
+       "x": 3,
+       "y": 3,
+       "name": "B"
+      }
+     ],
+     "strecken": [
+      [
+       1,
+       3,
+       3,
+       3
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "3 - 1",
+   "w": "Gleiche y-Koordinate, also waagrecht: 3 − 1 = 2 Einheiten.",
+   "h": "Vergleiche die x-Koordinaten."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie lang ist [AB] mit A(−2 | 3) und B(9 | 3) (in Einheiten)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      10
+     ],
+     "y": [
+      -1,
+      4
+     ],
+     "punkte": [
+      {
+       "x": -2,
+       "y": 3,
+       "name": "A"
+      },
+      {
+       "x": 9,
+       "y": 3,
+       "name": "B"
+      }
+     ],
+     "strecken": [
+      [
+       -2,
+       3,
+       9,
+       3
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 11
+   },
+   "c": "(9) - (-2)",
+   "w": "Waagrecht: 9 − (−2) = 9 + 2 = 11 Einheiten.",
+   "h": "Liegt die 0 dazwischen? Dann zähle die beiden Teilstücke zusammen."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie lang ist [AB] mit A(−8 | −3) und B(−7 | −3) (in Einheiten)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -9,
+      1
+     ],
+     "y": [
+      -4,
+      1
+     ],
+     "punkte": [
+      {
+       "x": -8,
+       "y": -3,
+       "name": "A"
+      },
+      {
+       "x": -7,
+       "y": -3,
+       "name": "B"
+      }
+     ],
+     "strecken": [
+      [
+       -8,
+       -3,
+       -7,
+       -3
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(-7) - (-8)",
+   "w": "Waagrecht: −7 − (−8) = −7 + 8 = 1 Einheiten.",
+   "h": "Liegt die 0 dazwischen? Dann zähle die beiden Teilstücke zusammen."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Welchen Abstand hat der Punkt P(−5 | −8) von der x-Achse (in Einheiten)?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "abs(-8)",
+   "w": "Der Abstand zur x-Achse ist der Betrag der y-Koordinate: |−8| = 8.",
+   "h": "Wie weit ist P von der waagrechten Achse entfernt? Schau auf y."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie lang ist [AB] mit A(−3 | 2) und B(6 | 2) (in Einheiten)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      7
+     ],
+     "y": [
+      -1,
+      3
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 2,
+       "name": "A"
+      },
+      {
+       "x": 6,
+       "y": 2,
+       "name": "B"
+      }
+     ],
+     "strecken": [
+      [
+       -3,
+       2,
+       6,
+       2
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "(6) - (-3)",
+   "w": "Waagrecht: 6 − (−3) = 6 + 3 = 9 Einheiten.",
+   "h": "Liegt die 0 dazwischen? Dann zähle die beiden Teilstücke zusammen."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie lang ist [AB] mit A(−2 | 6) und B(9 | 6) (in Einheiten)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      10
+     ],
+     "y": [
+      -1,
+      7
+     ],
+     "punkte": [
+      {
+       "x": -2,
+       "y": 6,
+       "name": "A"
+      },
+      {
+       "x": 9,
+       "y": 6,
+       "name": "B"
+      }
+     ],
+     "strecken": [
+      [
+       -2,
+       6,
+       9,
+       6
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 11
+   },
+   "c": "(9) - (-2)",
+   "w": "Waagrecht: 9 − (−2) = 9 + 2 = 11 Einheiten.",
+   "h": "Liegt die 0 dazwischen? Dann zähle die beiden Teilstücke zusammen."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie lang ist [AB] mit A(−3 | −5) und B(4 | −5) (in Einheiten)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      5
+     ],
+     "y": [
+      -6,
+      1
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": -5,
+       "name": "A"
+      },
+      {
+       "x": 4,
+       "y": -5,
+       "name": "B"
+      }
+     ],
+     "strecken": [
+      [
+       -3,
+       -5,
+       4,
+       -5
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "(4) - (-3)",
+   "w": "Waagrecht: 4 − (−3) = 4 + 3 = 7 Einheiten.",
+   "h": "Liegt die 0 dazwischen? Dann zähle die beiden Teilstücke zusammen."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Auf der senkrechten Linie durch P(5 | 5) liegen zwei Punkte, die von P den Abstand 2 haben. Welche y-Koordinaten haben sie? (kleinere zuerst)",
+    "schablone": "y = □ und y = □",
+    "hinweis": "Die kleinere Zahl zuerst."
+   },
+   "o": {
+    "werte": [
+     3,
+     7
+    ]
+   },
+   "c": [
+    "(5) - 2",
+    "(5) + 2"
+   ],
+   "w": "2 nach unten: 5 − 2 = 3. 2 nach oben: 5 + 2 = 7.",
+   "h": "Gehe vom Punkt aus nach oben und nach unten."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Ameise läuft von A(−1 | 6) 3 nach rechts, 3 nach oben und 6 nach links. Wie viele Einheiten ist sie insgesamt gelaufen?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "3 + 3 + 6",
+   "w": "3 + 3 + 6 = 12 Einheiten. Sie endet bei (−4 | 9).",
+   "h": "Addiere alle Teilstrecken."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Auf der senkrechten Linie durch P(2 | 3) liegen zwei Punkte, die von P den Abstand 3 haben. Welche y-Koordinaten haben sie? (kleinere zuerst)",
+    "schablone": "y = □ und y = □",
+    "hinweis": "Die kleinere Zahl zuerst."
+   },
+   "o": {
+    "werte": [
+     0,
+     6
+    ]
+   },
+   "c": [
+    "(3) - 3",
+    "(3) + 3"
+   ],
+   "w": "3 nach unten: 3 − 3 = 0. 3 nach oben: 3 + 3 = 6.",
+   "h": "Gehe vom Punkt aus nach oben und nach unten."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck hat die Ecken A(−7 | −6), B(3 | −6), C(3 | 2), D(−7 | 2). 1 Einheit = 1 cm. Wie lang ist der Umfang in cm?"
+   },
+   "o": {
+    "wert": 36,
+    "einheit": "cm"
+   },
+   "c": "2 * ((3) - (-7)) + 2 * ((2) - (-6))",
+   "w": "[AB] = 10 cm, [BC] = 8 cm. Umfang: 2 · 10 + 2 · 8 = 36 cm.",
+   "h": "Bestimme eine waagrechte und eine senkrechte Seite."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck hat die Ecken A(5 | −4), B(7 | −4), C(7 | −3), D(5 | −3). 1 Einheit = 1 cm. Wie lang ist der Umfang in cm?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "cm"
+   },
+   "c": "2 * ((7) - (5)) + 2 * ((-3) - (-4))",
+   "w": "[AB] = 2 cm, [BC] = 1 cm. Umfang: 2 · 2 + 2 · 1 = 6 cm.",
+   "h": "Bestimme eine waagrechte und eine senkrechte Seite."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Auf der senkrechten Linie durch P(−3 | 1) liegen zwei Punkte, die von P den Abstand 2 haben. Welche y-Koordinaten haben sie? (kleinere zuerst)",
+    "schablone": "y = □ und y = □",
+    "hinweis": "Die kleinere Zahl zuerst."
+   },
+   "o": {
+    "werte": [
+     -1,
+     3
+    ]
+   },
+   "c": [
+    "(1) - 2",
+    "(1) + 2"
+   ],
+   "w": "2 nach unten: 1 − 2 = −1. 2 nach oben: 1 + 2 = 3.",
+   "h": "Gehe vom Punkt aus nach oben und nach unten."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie lang ist [CD] mit C(−2 | −9) und D(−2 | 3) (in Einheiten)?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "(3) - (-9)",
+   "w": "Senkrecht: 3 − (−9) = 12 Einheiten."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie lang ist [CD] mit C(5 | −6) und D(5 | 4) (in Einheiten)?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "(4) - (-6)",
+   "w": "Senkrecht: 4 − (−6) = 10 Einheiten."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie lang ist [AB] mit A(−5 | −3) und B(6 | −3) (in Einheiten)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      7
+     ],
+     "y": [
+      -4,
+      1
+     ],
+     "punkte": [
+      {
+       "x": -5,
+       "y": -3,
+       "name": "A"
+      },
+      {
+       "x": 6,
+       "y": -3,
+       "name": "B"
+      }
+     ],
+     "strecken": [
+      [
+       -5,
+       -3,
+       6,
+       -3
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 11
+   },
+   "c": "(6) - (-5)",
+   "w": "Waagrecht: 6 − (−5) = 6 + 5 = 11 Einheiten."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Welchen Abstand hat der Punkt P(−6 | −8) von der x-Achse (in Einheiten)?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "abs(-8)",
+   "w": "Der Abstand zur x-Achse ist der Betrag der y-Koordinate: |−8| = 8."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie lang ist [AB] mit A(−5 | 2) und B(9 | 2) (in Einheiten)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      10
+     ],
+     "y": [
+      -1,
+      3
+     ],
+     "punkte": [
+      {
+       "x": -5,
+       "y": 2,
+       "name": "A"
+      },
+      {
+       "x": 9,
+       "y": 2,
+       "name": "B"
+      }
+     ],
+     "strecken": [
+      [
+       -5,
+       2,
+       9,
+       2
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 14
+   },
+   "c": "(9) - (-5)",
+   "w": "Waagrecht: 9 − (−5) = 9 + 5 = 14 Einheiten."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie lang ist [AB] mit A(−7 | −4) und B(7 | −4) (in Einheiten)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -8,
+      8
+     ],
+     "y": [
+      -5,
+      1
+     ],
+     "punkte": [
+      {
+       "x": -7,
+       "y": -4,
+       "name": "A"
+      },
+      {
+       "x": 7,
+       "y": -4,
+       "name": "B"
+      }
+     ],
+     "strecken": [
+      [
+       -7,
+       -4,
+       7,
+       -4
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 14
+   },
+   "c": "(7) - (-7)",
+   "w": "Waagrecht: 7 − (−7) = 7 + 7 = 14 Einheiten."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie lang ist [AB] mit A(−7 | 0) und B(−2 | 0) (in Einheiten)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -8,
+      1
+     ],
+     "y": [
+      -1,
+      1
+     ],
+     "punkte": [
+      {
+       "x": -7,
+       "y": 0,
+       "name": "A"
+      },
+      {
+       "x": -2,
+       "y": 0,
+       "name": "B"
+      }
+     ],
+     "strecken": [
+      [
+       -7,
+       0,
+       -2,
+       0
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(-2) - (-7)",
+   "w": "Waagrecht: −2 − (−7) = −2 + 7 = 5 Einheiten."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie lang ist [CD] mit C(3 | −2) und D(3 | 9) (in Einheiten)?"
+   },
+   "o": {
+    "wert": 11
+   },
+   "c": "(9) - (-2)",
+   "w": "Senkrecht: 9 − (−2) = 11 Einheiten."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie lang ist [AB] mit A(−3 | −2) und B(7 | −2) (in Einheiten)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      8
+     ],
+     "y": [
+      -3,
+      1
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": -2,
+       "name": "A"
+      },
+      {
+       "x": 7,
+       "y": -2,
+       "name": "B"
+      }
+     ],
+     "strecken": [
+      [
+       -3,
+       -2,
+       7,
+       -2
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "(7) - (-3)",
+   "w": "Waagrecht: 7 − (−3) = 7 + 3 = 10 Einheiten."
+  },
+  {
+   "l": "strecken",
+   "t": "strecken",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie lang ist [AB] mit A(−2 | −2) und B(1 | −2) (in Einheiten)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      2
+     ],
+     "y": [
+      -3,
+      1
+     ],
+     "punkte": [
+      {
+       "x": -2,
+       "y": -2,
+       "name": "A"
+      },
+      {
+       "x": 1,
+       "y": -2,
+       "name": "B"
+      }
+     ],
+     "strecken": [
+      [
+       -2,
+       -2,
+       1,
+       -2
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(1) - (-2)",
+   "w": "Waagrecht: 1 − (−2) = 1 + 2 = 3 Einheiten."
+  },
+  {
+   "l": "lagebeziehungen",
+   "t": "lagebeziehungen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "g ist parallel zu h",
+    "g schneidet h",
+    "g ist senkrecht zu h",
+    "g ist gleich lang wie h"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Das Zeichen g ∥ h bedeutet …"
+   },
+   "w": "Richtig ist: g ist parallel zu h. So steht es in der Erklärung.",
+   "h": "Denke an die Fachbegriffe aus der Erklärung."
+  },
+  {
+   "l": "lagebeziehungen",
+   "t": "lagebeziehungen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Halbgerade",
+    "Kreis",
+    "Strecke",
+    "Gerade"
+   ],
+   "o": {
+    "index": 3
+   },
+   "f": {
+    "text": "Eine gerade Linie ohne Anfang und Ende heißt …"
+   },
+   "w": "Richtig ist: Gerade. So steht es in der Erklärung.",
+   "h": "Denke an die Fachbegriffe aus der Erklärung."
+  },
+  {
+   "l": "lagebeziehungen",
+   "t": "lagebeziehungen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Strecke",
+    "Tangente",
+    "Halbgerade",
+    "Gerade"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Eine gerade Linie mit Anfangspunkt, aber ohne Ende heißt …"
+   },
+   "w": "Richtig ist: Halbgerade. So steht es in der Erklärung.",
+   "h": "Denke an die Fachbegriffe aus der Erklärung."
+  },
+  {
+   "l": "lagebeziehungen",
+   "t": "lagebeziehungen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Diagonale",
+    "Halbgerade",
+    "Lot",
+    "Sekante"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Die kürzeste Verbindung von einem Punkt zu einer Geraden heißt …"
+   },
+   "w": "Richtig ist: Lot. So steht es in der Erklärung.",
+   "h": "Denke an die Fachbegriffe aus der Erklärung."
+  },
+  {
+   "l": "lagebeziehungen",
+   "t": "lagebeziehungen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "keine",
+    "genau eine",
+    "unendlich viele",
+    "zwei"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Wie viele Geraden gehen durch zwei verschiedene Punkte?"
+   },
+   "w": "Richtig ist: genau eine. So steht es in der Erklärung.",
+   "h": "Denke an die Fachbegriffe aus der Erklärung."
+  },
+  {
+   "l": "lagebeziehungen",
+   "t": "lagebeziehungen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "g ist senkrecht zu h",
+    "g ist länger als h",
+    "g berührt h",
+    "g ist parallel zu h"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Das Zeichen g ⊥ h bedeutet …"
+   },
+   "w": "Richtig ist: g ist senkrecht zu h. So steht es in der Erklärung.",
+   "h": "Denke an die Fachbegriffe aus der Erklärung."
+  },
+  {
+   "l": "lagebeziehungen",
+   "t": "lagebeziehungen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade g verläuft waagrecht durch alle Punkte mit y = 3. Welchen Abstand hat P(−2 | 2) von g (in Einheiten)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      1
+     ],
+     "y": [
+      -1,
+      4
+     ],
+     "punkte": [
+      {
+       "x": -2,
+       "y": 2,
+       "name": "P"
+      }
+     ],
+     "waagrecht": [
+      3
+     ]
+    }
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "abs((2) - (3))",
+   "w": "Das Lot von P auf g ist senkrecht. Abstand: Unterschied der y-Koordinaten, |2 − 3| = 1.",
+   "h": "Das Lot auf eine waagrechte Gerade ist senkrecht – nur y ändert sich."
+  },
+  {
+   "l": "lagebeziehungen",
+   "t": "lagebeziehungen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade g verläuft waagrecht durch alle Punkte mit y = 4. Welchen Abstand hat P(0 | 8) von g (in Einheiten)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      1
+     ],
+     "y": [
+      -1,
+      9
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 8,
+       "name": "P"
+      }
+     ],
+     "waagrecht": [
+      4
+     ]
+    }
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "abs((8) - (4))",
+   "w": "Das Lot von P auf g ist senkrecht. Abstand: Unterschied der y-Koordinaten, |8 − 4| = 4.",
+   "h": "Das Lot auf eine waagrechte Gerade ist senkrecht – nur y ändert sich."
+  },
+  {
+   "l": "lagebeziehungen",
+   "t": "lagebeziehungen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade h verläuft senkrecht durch alle Punkte mit x = −6. Welchen Abstand hat P(−3 | 5) von h (in Einheiten)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -7,
+      1
+     ],
+     "y": [
+      -1,
+      6
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 5,
+       "name": "P"
+      }
+     ],
+     "senkrecht": [
+      -6
+     ]
+    }
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "abs((-3) - (-6))",
+   "w": "Das Lot auf h ist waagrecht. Abstand: |−3 − (−6)| = 3.",
+   "h": "Das Lot auf eine senkrechte Gerade ist waagrecht – nur x ändert sich."
+  },
+  {
+   "l": "lagebeziehungen",
+   "t": "lagebeziehungen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade h verläuft senkrecht durch alle Punkte mit x = −6. Welchen Abstand hat P(−8 | 2) von h (in Einheiten)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -9,
+      1
+     ],
+     "y": [
+      -1,
+      3
+     ],
+     "punkte": [
+      {
+       "x": -8,
+       "y": 2,
+       "name": "P"
+      }
+     ],
+     "senkrecht": [
+      -6
+     ]
+    }
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "abs((-8) - (-6))",
+   "w": "Das Lot auf h ist waagrecht. Abstand: |−8 − (−6)| = 2.",
+   "h": "Das Lot auf eine senkrechte Gerade ist waagrecht – nur x ändert sich."
+  },
+  {
+   "l": "lagebeziehungen",
+   "t": "lagebeziehungen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade h verläuft senkrecht durch alle Punkte mit x = 4. Welchen Abstand hat P(0 | −3) von h (in Einheiten)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      5
+     ],
+     "y": [
+      -4,
+      1
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": -3,
+       "name": "P"
+      }
+     ],
+     "senkrecht": [
+      4
+     ]
+    }
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "abs((0) - (4))",
+   "w": "Das Lot auf h ist waagrecht. Abstand: |0 − 4| = 4.",
+   "h": "Das Lot auf eine senkrechte Gerade ist waagrecht – nur x ändert sich."
+  },
+  {
+   "l": "lagebeziehungen",
+   "t": "lagebeziehungen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade g verläuft waagrecht durch alle Punkte mit y = 2. Welchen Abstand hat P(5 | −8) von g (in Einheiten)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      6
+     ],
+     "y": [
+      -9,
+      3
+     ],
+     "punkte": [
+      {
+       "x": 5,
+       "y": -8,
+       "name": "P"
+      }
+     ],
+     "waagrecht": [
+      2
+     ]
+    }
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "abs((-8) - (2))",
+   "w": "Das Lot von P auf g ist senkrecht. Abstand: Unterschied der y-Koordinaten, |−8 − 2| = 10.",
+   "h": "Das Lot auf eine waagrechte Gerade ist senkrecht – nur y ändert sich."
+  },
+  {
+   "l": "lagebeziehungen",
+   "t": "lagebeziehungen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Geraden g und h sind parallel und haben den Abstand 4 cm. Die Gerade k ist parallel zu h und hat von h den Abstand 2 cm, liegt aber auf der anderen Seite als g. Welchen Abstand haben g und k?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "cm"
+   },
+   "c": "4 + 2",
+   "w": "h liegt zwischen g und k: 4 + 2 = 6 cm.",
+   "h": "Mach eine Skizze mit drei parallelen Linien."
+  },
+  {
+   "l": "lagebeziehungen",
+   "t": "lagebeziehungen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "g ist die waagrechte Gerade mit y = 4. Die Geraden h₁ und h₂ sind parallel zu g und haben von g den Abstand 3. Welche y-Werte haben h₁ und h₂? (kleinerer zuerst)",
+    "schablone": "y = □ und y = □",
+    "hinweis": "Kleinere Zahl zuerst."
+   },
+   "o": {
+    "werte": [
+     1,
+     7
+    ]
+   },
+   "c": [
+    "(4) - 3",
+    "(4) + 3"
+   ],
+   "w": "3 unter g: 1, 3 über g: 7.",
+   "h": "Es gibt eine Parallele darüber und eine darunter."
+  },
+  {
+   "l": "lagebeziehungen",
+   "t": "lagebeziehungen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "g ist die waagrechte Gerade mit y = −2. Die Geraden h₁ und h₂ sind parallel zu g und haben von g den Abstand 2. Welche y-Werte haben h₁ und h₂? (kleinerer zuerst)",
+    "schablone": "y = □ und y = □",
+    "hinweis": "Kleinere Zahl zuerst."
+   },
+   "o": {
+    "werte": [
+     -4,
+     0
+    ]
+   },
+   "c": [
+    "(-2) - 2",
+    "(-2) + 2"
+   ],
+   "w": "2 unter g: −4, 2 über g: 0.",
+   "h": "Es gibt eine Parallele darüber und eine darunter."
+  },
+  {
+   "l": "lagebeziehungen",
+   "t": "lagebeziehungen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "g ist die waagrechte Gerade mit y = 1. Die Geraden h₁ und h₂ sind parallel zu g und haben von g den Abstand 2. Welche y-Werte haben h₁ und h₂? (kleinerer zuerst)",
+    "schablone": "y = □ und y = □",
+    "hinweis": "Kleinere Zahl zuerst."
+   },
+   "o": {
+    "werte": [
+     -1,
+     3
+    ]
+   },
+   "c": [
+    "(1) - 2",
+    "(1) + 2"
+   ],
+   "w": "2 unter g: −1, 2 über g: 3.",
+   "h": "Es gibt eine Parallele darüber und eine darunter."
+  },
+  {
+   "l": "lagebeziehungen",
+   "t": "lagebeziehungen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "g ist die waagrechte Gerade mit y = −1. Die Geraden h₁ und h₂ sind parallel zu g und haben von g den Abstand 3. Welche y-Werte haben h₁ und h₂? (kleinerer zuerst)",
+    "schablone": "y = □ und y = □",
+    "hinweis": "Kleinere Zahl zuerst."
+   },
+   "o": {
+    "werte": [
+     -4,
+     2
+    ]
+   },
+   "c": [
+    "(-1) - 3",
+    "(-1) + 3"
+   ],
+   "w": "3 unter g: −4, 3 über g: 2.",
+   "h": "Es gibt eine Parallele darüber und eine darunter."
+  },
+  {
+   "l": "lagebeziehungen",
+   "t": "lagebeziehungen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Geraden g und h sind parallel und haben den Abstand 3 cm. Die Gerade k ist parallel zu h und hat von h den Abstand 4 cm, liegt aber auf der anderen Seite als g. Welchen Abstand haben g und k?"
+   },
+   "o": {
+    "wert": 7,
+    "einheit": "cm"
+   },
+   "c": "3 + 4",
+   "w": "h liegt zwischen g und k: 3 + 4 = 7 cm.",
+   "h": "Mach eine Skizze mit drei parallelen Linien."
+  },
+  {
+   "l": "lagebeziehungen",
+   "t": "lagebeziehungen",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade h verläuft senkrecht durch alle Punkte mit x = 6. Welchen Abstand hat P(5 | −4) von h (in Einheiten)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      7
+     ],
+     "y": [
+      -5,
+      1
+     ],
+     "punkte": [
+      {
+       "x": 5,
+       "y": -4,
+       "name": "P"
+      }
+     ],
+     "senkrecht": [
+      6
+     ]
+    }
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "abs((5) - (6))",
+   "w": "Das Lot auf h ist waagrecht. Abstand: |5 − 6| = 1."
+  },
+  {
+   "l": "lagebeziehungen",
+   "t": "lagebeziehungen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade h verläuft senkrecht durch alle Punkte mit x = −3. Welchen Abstand hat P(0 | 0) von h (in Einheiten)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      1
+     ],
+     "y": [
+      -1,
+      1
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 0,
+       "name": "P"
+      }
+     ],
+     "senkrecht": [
+      -3
+     ]
+    }
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "abs((0) - (-3))",
+   "w": "Das Lot auf h ist waagrecht. Abstand: |0 − (−3)| = 3."
+  },
+  {
+   "l": "lagebeziehungen",
+   "t": "lagebeziehungen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade h verläuft senkrecht durch alle Punkte mit x = −6. Welchen Abstand hat P(−3 | 2) von h (in Einheiten)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -7,
+      1
+     ],
+     "y": [
+      -1,
+      3
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 2,
+       "name": "P"
+      }
+     ],
+     "senkrecht": [
+      -6
+     ]
+    }
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "abs((-3) - (-6))",
+   "w": "Das Lot auf h ist waagrecht. Abstand: |−3 − (−6)| = 3."
+  },
+  {
+   "l": "lagebeziehungen",
+   "t": "lagebeziehungen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade g verläuft waagrecht durch alle Punkte mit y = 0. Welchen Abstand hat P(−1 | 3) von g (in Einheiten)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      1
+     ],
+     "y": [
+      -1,
+      4
+     ],
+     "punkte": [
+      {
+       "x": -1,
+       "y": 3,
+       "name": "P"
+      }
+     ],
+     "waagrecht": [
+      0
+     ]
+    }
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "abs((3) - (0))",
+   "w": "Das Lot von P auf g ist senkrecht. Abstand: Unterschied der y-Koordinaten, |3 − 0| = 3."
+  },
+  {
+   "l": "lagebeziehungen",
+   "t": "lagebeziehungen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade h verläuft senkrecht durch alle Punkte mit x = 5. Welchen Abstand hat P(−5 | 4) von h (in Einheiten)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -1,
+      5
+     ],
+     "punkte": [
+      {
+       "x": -5,
+       "y": 4,
+       "name": "P"
+      }
+     ],
+     "senkrecht": [
+      5
+     ]
+    }
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "abs((-5) - (5))",
+   "w": "Das Lot auf h ist waagrecht. Abstand: |−5 − 5| = 10."
+  },
+  {
+   "l": "lagebeziehungen",
+   "t": "lagebeziehungen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade h verläuft senkrecht durch alle Punkte mit x = 1. Welchen Abstand hat P(−1 | −2) von h (in Einheiten)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      2
+     ],
+     "y": [
+      -3,
+      1
+     ],
+     "punkte": [
+      {
+       "x": -1,
+       "y": -2,
+       "name": "P"
+      }
+     ],
+     "senkrecht": [
+      1
+     ]
+    }
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "abs((-1) - (1))",
+   "w": "Das Lot auf h ist waagrecht. Abstand: |−1 − 1| = 2."
+  },
+  {
+   "l": "lagebeziehungen",
+   "t": "lagebeziehungen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade h verläuft senkrecht durch alle Punkte mit x = 1. Welchen Abstand hat P(3 | 4) von h (in Einheiten)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      4
+     ],
+     "y": [
+      -1,
+      5
+     ],
+     "punkte": [
+      {
+       "x": 3,
+       "y": 4,
+       "name": "P"
+      }
+     ],
+     "senkrecht": [
+      1
+     ]
+    }
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "abs((3) - (1))",
+   "w": "Das Lot auf h ist waagrecht. Abstand: |3 − 1| = 2."
+  },
+  {
+   "l": "lagebeziehungen",
+   "t": "lagebeziehungen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade h verläuft senkrecht durch alle Punkte mit x = −3. Welchen Abstand hat P(−1 | −8) von h (in Einheiten)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      1
+     ],
+     "y": [
+      -9,
+      1
+     ],
+     "punkte": [
+      {
+       "x": -1,
+       "y": -8,
+       "name": "P"
+      }
+     ],
+     "senkrecht": [
+      -3
+     ]
+    }
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "abs((-1) - (-3))",
+   "w": "Das Lot auf h ist waagrecht. Abstand: |−1 − (−3)| = 2."
+  },
+  {
+   "l": "lagebeziehungen",
+   "t": "lagebeziehungen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade h verläuft senkrecht durch alle Punkte mit x = 0. Welchen Abstand hat P(2 | 3) von h (in Einheiten)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      3
+     ],
+     "y": [
+      -1,
+      4
+     ],
+     "punkte": [
+      {
+       "x": 2,
+       "y": 3,
+       "name": "P"
+      }
+     ],
+     "senkrecht": [
+      0
+     ]
+    }
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "abs((2) - (0))",
+   "w": "Das Lot auf h ist waagrecht. Abstand: |2 − 0| = 2."
+  },
+  {
+   "l": "lagebeziehungen",
+   "t": "lagebeziehungen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade h verläuft senkrecht durch alle Punkte mit x = 6. Welchen Abstand hat P(0 | 3) von h (in Einheiten)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      7
+     ],
+     "y": [
+      -1,
+      4
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 3,
+       "name": "P"
+      }
+     ],
+     "senkrecht": [
+      6
+     ]
+    }
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "abs((0) - (6))",
+   "w": "Das Lot auf h ist waagrecht. Abstand: |0 − 6| = 6."
+  },
+  {
+   "l": "kreis_lage",
+   "t": "kreis_lage",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Passante (kein gemeinsamer Punkt)",
+    "Sekante (2 Schnittpunkte)",
+    "Tangente (1 Berührpunkt)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Ein Kreis hat den Radius 8 cm. Eine Gerade hat vom Mittelpunkt den Abstand 8 cm. Was ist die Gerade?"
+   },
+   "w": "d = 8 cm, r = 8 cm: d = r, Tangente.",
+   "h": "Vergleiche den Abstand d mit dem Radius r."
+  },
+  {
+   "l": "kreis_lage",
+   "t": "kreis_lage",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Passante (kein gemeinsamer Punkt)",
+    "Sekante (2 Schnittpunkte)",
+    "Tangente (1 Berührpunkt)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Ein Kreis hat den Radius 4 cm. Eine Gerade hat vom Mittelpunkt den Abstand 4 cm. Was ist die Gerade?"
+   },
+   "w": "d = 4 cm, r = 4 cm: d = r, Tangente.",
+   "h": "Vergleiche den Abstand d mit dem Radius r."
+  },
+  {
+   "l": "kreis_lage",
+   "t": "kreis_lage",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Tangente (1 Berührpunkt)",
+    "Sekante (2 Schnittpunkte)",
+    "Passante (kein gemeinsamer Punkt)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Ein Kreis hat den Radius 7 cm. Eine Gerade hat vom Mittelpunkt den Abstand 1 cm. Was ist die Gerade?"
+   },
+   "w": "d = 1 cm, r = 7 cm: d < r, Sekante.",
+   "h": "Vergleiche den Abstand d mit dem Radius r."
+  },
+  {
+   "l": "kreis_lage",
+   "t": "kreis_lage",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Passante (kein gemeinsamer Punkt)",
+    "Tangente (1 Berührpunkt)",
+    "Sekante (2 Schnittpunkte)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Ein Kreis hat den Radius 8 cm. Eine Gerade hat vom Mittelpunkt den Abstand 3 cm. Was ist die Gerade?"
+   },
+   "w": "d = 3 cm, r = 8 cm: d < r, Sekante.",
+   "h": "Vergleiche den Abstand d mit dem Radius r."
+  },
+  {
+   "l": "kreis_lage",
+   "t": "kreis_lage",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Passante (kein gemeinsamer Punkt)",
+    "Tangente (1 Berührpunkt)",
+    "Sekante (2 Schnittpunkte)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Ein Kreis hat den Radius 2 cm. Eine Gerade hat vom Mittelpunkt den Abstand 1 cm. Was ist die Gerade?"
+   },
+   "w": "d = 1 cm, r = 2 cm: d < r, Sekante.",
+   "h": "Vergleiche den Abstand d mit dem Radius r."
+  },
+  {
+   "l": "kreis_lage",
+   "t": "kreis_lage",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Passante (kein gemeinsamer Punkt)",
+    "Tangente (1 Berührpunkt)",
+    "Sekante (2 Schnittpunkte)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Ein Kreis hat den Radius 7 cm. Eine Gerade hat vom Mittelpunkt den Abstand 8 cm. Was ist die Gerade?"
+   },
+   "w": "d = 8 cm, r = 7 cm: d > r, Passante.",
+   "h": "Vergleiche den Abstand d mit dem Radius r."
+  },
+  {
+   "l": "kreis_lage",
+   "t": "kreis_lage",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Kreis um M(2 | 1) mit r = 5. Die Gerade g ist waagrecht mit y = 5. Wie viele gemeinsame Punkte haben Kreis und g?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       2,
+       1
+      ],
+      "_A": [
+       -5,
+       5
+      ],
+      "_B": [
+       9,
+       5
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 5
+      }
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B",
+       "g"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Abstand von M zu g: |5 − 1| = 4. d < r: 2 Punkte.",
+   "h": "Berechne den Abstand von M zur Geraden und vergleiche mit r."
+  },
+  {
+   "l": "kreis_lage",
+   "t": "kreis_lage",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis um M(−2 | −1) hat den Radius 5. Wie heißt die größte y-Koordinate, die ein Punkt auf dem Kreis haben kann?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(-1) + 5",
+   "w": "Der höchste Kreispunkt liegt 5 über M: −1 + 5 = 4.",
+   "h": "Gehe vom Mittelpunkt aus um den Radius nach oben."
+  },
+  {
+   "l": "kreis_lage",
+   "t": "kreis_lage",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis um M(−2 | 0) hat den Radius 5. Wie heißt die größte y-Koordinate, die ein Punkt auf dem Kreis haben kann?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(0) + 5",
+   "w": "Der höchste Kreispunkt liegt 5 über M: 0 + 5 = 5.",
+   "h": "Gehe vom Mittelpunkt aus um den Radius nach oben."
+  },
+  {
+   "l": "kreis_lage",
+   "t": "kreis_lage",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis um M(0 | −1) hat den Radius 5. Wie heißt die größte y-Koordinate, die ein Punkt auf dem Kreis haben kann?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(-1) + 5",
+   "w": "Der höchste Kreispunkt liegt 5 über M: −1 + 5 = 4.",
+   "h": "Gehe vom Mittelpunkt aus um den Radius nach oben."
+  },
+  {
+   "l": "kreis_lage",
+   "t": "kreis_lage",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis um M(1 | 3) hat den Radius 5. Wie heißt die größte y-Koordinate, die ein Punkt auf dem Kreis haben kann?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "(3) + 5",
+   "w": "Der höchste Kreispunkt liegt 5 über M: 3 + 5 = 8.",
+   "h": "Gehe vom Mittelpunkt aus um den Radius nach oben."
+  },
+  {
+   "l": "kreis_lage",
+   "t": "kreis_lage",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis um M(3 | −2) hat den Radius 2. Wie heißt die größte y-Koordinate, die ein Punkt auf dem Kreis haben kann?"
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "(-2) + 2",
+   "w": "Der höchste Kreispunkt liegt 2 über M: −2 + 2 = 0.",
+   "h": "Gehe vom Mittelpunkt aus um den Radius nach oben."
+  },
+  {
+   "l": "kreis_lage",
+   "t": "kreis_lage",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Kreis um M(−1 | −3) mit r = 3 schneidet die waagrechte Linie durch M in zwei Punkten. Welche x-Koordinaten haben sie? (kleinere zuerst)",
+    "schablone": "x = □ und x = □",
+    "hinweis": "Kleinere Zahl zuerst."
+   },
+   "o": {
+    "werte": [
+     -4,
+     2
+    ]
+   },
+   "c": [
+    "(-1) - 3",
+    "(-1) + 3"
+   ],
+   "w": "Von M aus 3 nach links: −4, 3 nach rechts: 2.",
+   "h": "Alle Kreispunkte sind r von M entfernt."
+  },
+  {
+   "l": "kreis_lage",
+   "t": "kreis_lage",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Kreis um M(−1 | −2) mit r = 3 schneidet die waagrechte Linie durch M in zwei Punkten. Welche x-Koordinaten haben sie? (kleinere zuerst)",
+    "schablone": "x = □ und x = □",
+    "hinweis": "Kleinere Zahl zuerst."
+   },
+   "o": {
+    "werte": [
+     -4,
+     2
+    ]
+   },
+   "c": [
+    "(-1) - 3",
+    "(-1) + 3"
+   ],
+   "w": "Von M aus 3 nach links: −4, 3 nach rechts: 2.",
+   "h": "Alle Kreispunkte sind r von M entfernt."
+  },
+  {
+   "l": "kreis_lage",
+   "t": "kreis_lage",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Kreise haben die Radien 2 cm und 2 cm. Ihre Mittelpunkte sind 2 cm voneinander entfernt. Wie viele gemeinsame Punkte haben sie?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "r₁ + r₂ = 4 cm. Abstand kleiner als die Summe (und größer als der Unterschied): 2 Schnittpunkte.",
+   "h": "Vergleiche den Abstand der Mittelpunkte mit r₁ + r₂."
+  },
+  {
+   "l": "kreis_lage",
+   "t": "kreis_lage",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Kreise haben die Radien 5 cm und 5 cm. Ihre Mittelpunkte sind 12 cm voneinander entfernt. Wie viele gemeinsame Punkte haben sie?"
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "0",
+   "w": "r₁ + r₂ = 10 cm. Abstand größer als die Summe: kein gemeinsamer Punkt.",
+   "h": "Vergleiche den Abstand der Mittelpunkte mit r₁ + r₂."
+  },
+  {
+   "l": "kreis_lage",
+   "t": "kreis_lage",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Nein, der Ort liegt außerhalb der Reichweite.",
+    "Ja, der Ort liegt innerhalb der Reichweite.",
+    "Das hängt von der Richtung ab."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Ein Funkmast reicht 4 km weit in jede Richtung. Ein Dorf ist 4 km vom Mast entfernt. Hat das Dorf Empfang?"
+   },
+   "w": "Der Empfangsbereich ist ein Kreis mit Radius 4 km. 4 km ≤ 4 km.",
+   "h": "Alle Punkte bis zum Abstand r liegen im Kreis – in jede Richtung gleich weit."
+  },
+  {
+   "l": "kreis_lage",
+   "t": "kreis_lage",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Kreise haben die Radien 5 cm und 3 cm. Ihre Mittelpunkte sind 10 cm voneinander entfernt. Wie viele gemeinsame Punkte haben sie?"
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "0",
+   "w": "r₁ + r₂ = 8 cm. Abstand größer als die Summe: kein gemeinsamer Punkt.",
+   "h": "Vergleiche den Abstand der Mittelpunkte mit r₁ + r₂."
+  },
+  {
+   "l": "kreis_lage",
+   "t": "kreis_lage",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Kreis um M(−4 | 4) mit r = 3. Die Gerade g ist waagrecht mit y = 0. Wie viele gemeinsame Punkte haben Kreis und g?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       -4,
+       4
+      ],
+      "_A": [
+       -9,
+       0
+      ],
+      "_B": [
+       1,
+       0
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 3
+      }
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B",
+       "g"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "0",
+   "w": "Abstand von M zu g: |0 − 4| = 4. d > r: kein Punkt."
+  },
+  {
+   "l": "kreis_lage",
+   "t": "kreis_lage",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis um M(3 | 4) hat den Radius 6. Wie heißt die größte y-Koordinate, die ein Punkt auf dem Kreis haben kann?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "(4) + 6",
+   "w": "Der höchste Kreispunkt liegt 6 über M: 4 + 6 = 10."
+  },
+  {
+   "l": "kreis_lage",
+   "t": "kreis_lage",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis um M(4 | 2) hat den Radius 6. Wie heißt die größte y-Koordinate, die ein Punkt auf dem Kreis haben kann?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "(2) + 6",
+   "w": "Der höchste Kreispunkt liegt 6 über M: 2 + 6 = 8."
+  },
+  {
+   "l": "kreis_lage",
+   "t": "kreis_lage",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Kreis um M(3 | 0) mit r = 3. Die Gerade g ist waagrecht mit y = 5. Wie viele gemeinsame Punkte haben Kreis und g?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       3,
+       0
+      ],
+      "_A": [
+       -2,
+       5
+      ],
+      "_B": [
+       8,
+       5
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 3
+      }
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B",
+       "g"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "0",
+   "w": "Abstand von M zu g: |5 − 0| = 5. d > r: kein Punkt."
+  },
+  {
+   "l": "kreis_lage",
+   "t": "kreis_lage",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Kreis um M(4 | 3) mit r = 3. Die Gerade g ist waagrecht mit y = 2. Wie viele gemeinsame Punkte haben Kreis und g?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       4,
+       3
+      ],
+      "_A": [
+       -1,
+       2
+      ],
+      "_B": [
+       9,
+       2
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 3
+      }
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B",
+       "g"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Abstand von M zu g: |2 − 3| = 1. d < r: 2 Punkte."
+  },
+  {
+   "l": "kreis_lage",
+   "t": "kreis_lage",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Kreis um M(0 | −1) mit r = 4. Die Gerade g ist waagrecht mit y = −2. Wie viele gemeinsame Punkte haben Kreis und g?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       -1
+      ],
+      "_A": [
+       -6,
+       -2
+      ],
+      "_B": [
+       6,
+       -2
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 4
+      }
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B",
+       "g"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Abstand von M zu g: |−2 − (−1)| = 1. d < r: 2 Punkte."
+  },
+  {
+   "l": "kreis_lage",
+   "t": "kreis_lage",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Kreis um M(4 | −3) mit r = 3. Die Gerade g ist waagrecht mit y = −6. Wie viele gemeinsame Punkte haben Kreis und g?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       4,
+       -3
+      ],
+      "_A": [
+       -1,
+       -6
+      ],
+      "_B": [
+       9,
+       -6
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 3
+      }
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B",
+       "g"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "Abstand von M zu g: |−6 − (−3)| = 3. d = r: 1 Punkt."
+  },
+  {
+   "l": "kreis_lage",
+   "t": "kreis_lage",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Kreis um M(−2 | −1) mit r = 2. Die Gerade g ist waagrecht mit y = 1. Wie viele gemeinsame Punkte haben Kreis und g?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       -2,
+       -1
+      ],
+      "_A": [
+       -6,
+       1
+      ],
+      "_B": [
+       2,
+       1
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 2
+      }
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B",
+       "g"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "Abstand von M zu g: |1 − (−1)| = 2. d = r: 1 Punkt."
+  },
+  {
+   "l": "kreis_lage",
+   "t": "kreis_lage",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Kreis um M(4 | 3) mit r = 5. Die Gerade g ist waagrecht mit y = −4. Wie viele gemeinsame Punkte haben Kreis und g?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       4,
+       3
+      ],
+      "_A": [
+       -3,
+       -4
+      ],
+      "_B": [
+       11,
+       -4
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 5
+      }
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B",
+       "g"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "0",
+   "w": "Abstand von M zu g: |−4 − 3| = 7. d > r: kein Punkt."
+  },
+  {
+   "l": "kreis_lage",
+   "t": "kreis_lage",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis um M(2 | 2) hat den Radius 6. Wie heißt die größte y-Koordinate, die ein Punkt auf dem Kreis haben kann?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "(2) + 6",
+   "w": "Der höchste Kreispunkt liegt 6 über M: 2 + 6 = 8."
+  },
+  {
+   "l": "winkelarten",
+   "t": "winkelarten",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "stumpf",
+    "gestreckt",
+    "spitz",
+    "recht"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Welche Winkelart ist α = 152°?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       0
+      ],
+      "_A": [
+       5,
+       0
+      ],
+      "_B": [
+       -4.415,
+       2.347
+      ]
+     },
+     "linien": [
+      [
+       "S",
+       "_A"
+      ],
+      [
+       "S",
+       "_B"
+      ]
+     ],
+     "winkel": [
+      [
+       "S",
+       "_A",
+       "_B",
+       "α"
+      ]
+     ]
+    }
+   },
+   "w": "152° liegt zwischen 90° und 180°: stumpf.",
+   "h": "Vergleiche mit 90°, 180° und 360°."
+  },
+  {
+   "l": "winkelarten",
+   "t": "winkelarten",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "stumpf",
+    "spitz",
+    "recht",
+    "gestreckt"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Welche Winkelart ist α = 90°?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       0
+      ],
+      "_A": [
+       5,
+       0
+      ],
+      "_B": [
+       0.0,
+       5.0
+      ]
+     },
+     "linien": [
+      [
+       "S",
+       "_A"
+      ],
+      [
+       "S",
+       "_B"
+      ]
+     ],
+     "winkel": [
+      [
+       "S",
+       "_A",
+       "_B",
+       "α"
+      ]
+     ]
+    }
+   },
+   "w": "90° ist genau 90°: rechter Winkel.",
+   "h": "Vergleiche mit 90°, 180° und 360°."
+  },
+  {
+   "l": "winkelarten",
+   "t": "winkelarten",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "gestreckt",
+    "spitz",
+    "stumpf",
+    "recht"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Welche Winkelart ist α = 180°?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       0
+      ],
+      "_A": [
+       5,
+       0
+      ],
+      "_B": [
+       -5.0,
+       0.0
+      ]
+     },
+     "linien": [
+      [
+       "S",
+       "_A"
+      ],
+      [
+       "S",
+       "_B"
+      ]
+     ],
+     "winkel": [
+      [
+       "S",
+       "_A",
+       "_B",
+       "α"
+      ]
+     ]
+    }
+   },
+   "w": "180° ist genau 180°: gestreckt.",
+   "h": "Vergleiche mit 90°, 180° und 360°."
+  },
+  {
+   "l": "winkelarten",
+   "t": "winkelarten",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "recht",
+    "stumpf",
+    "spitz",
+    "überstumpf"
+   ],
+   "o": {
+    "index": 3
+   },
+   "f": {
+    "text": "Welche Winkelart ist α = 213°?"
+   },
+   "w": "213° liegt zwischen 180° und 360°: überstumpf.",
+   "h": "Vergleiche mit 90°, 180° und 360°."
+  },
+  {
+   "l": "winkelarten",
+   "t": "winkelarten",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "recht",
+    "gestreckt",
+    "spitz",
+    "stumpf"
+   ],
+   "o": {
+    "index": 3
+   },
+   "f": {
+    "text": "Welche Winkelart ist α = 126°?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       0
+      ],
+      "_A": [
+       5,
+       0
+      ],
+      "_B": [
+       -2.939,
+       4.045
+      ]
+     },
+     "linien": [
+      [
+       "S",
+       "_A"
+      ],
+      [
+       "S",
+       "_B"
+      ]
+     ],
+     "winkel": [
+      [
+       "S",
+       "_A",
+       "_B",
+       "α"
+      ]
+     ]
+    }
+   },
+   "w": "126° liegt zwischen 90° und 180°: stumpf.",
+   "h": "Vergleiche mit 90°, 180° und 360°."
+  },
+  {
+   "l": "winkelarten",
+   "t": "winkelarten",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "gestreckt",
+    "stumpf",
+    "spitz",
+    "recht"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Welche Winkelart ist α = 8°?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "S": [
+       0,
+       0
+      ],
+      "_A": [
+       5,
+       0
+      ],
+      "_B": [
+       4.951,
+       0.696
+      ]
+     },
+     "linien": [
+      [
+       "S",
+       "_A"
+      ],
+      [
+       "S",
+       "_B"
+      ]
+     ],
+     "winkel": [
+      [
+       "S",
+       "_A",
+       "_B",
+       "α"
+      ]
+     ]
+    }
+   },
+   "w": "8° ist kleiner als 90°: spitz.",
+   "h": "Vergleiche mit 90°, 180° und 360°."
+  },
+  {
+   "l": "winkelarten",
+   "t": "winkelarten",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "stumpf",
+    "recht",
+    "gestreckt",
+    "spitz"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Ein Winkel ist um 10° kleiner als 141°. Welche Winkelart ist er?"
+   },
+   "w": "Der Winkel ist 131°, also stumpf.",
+   "h": "Rechne zuerst die Größe des Winkels aus."
+  },
+  {
+   "l": "winkelarten",
+   "t": "winkelarten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Schenkel bilden einen Winkel von 104°. Wie groß ist der überstumpfe Winkel zwischen denselben Schenkeln (auf der anderen Seite)?"
+   },
+   "o": {
+    "wert": 256,
+    "einheit": "°"
+   },
+   "c": "360 - 104",
+   "w": "Beide Winkel zusammen ergeben den Vollwinkel: 360° − 104° = 256°.",
+   "h": "Beide Winkel zusammen ergeben 360°."
+  },
+  {
+   "l": "winkelarten",
+   "t": "winkelarten",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "recht",
+    "spitz",
+    "gestreckt",
+    "stumpf"
+   ],
+   "o": {
+    "index": 3
+   },
+   "f": {
+    "text": "Ein Winkel ist um 10° kleiner als 175°. Welche Winkelart ist er?"
+   },
+   "w": "Der Winkel ist 165°, also stumpf.",
+   "h": "Rechne zuerst die Größe des Winkels aus."
+  },
+  {
+   "l": "winkelarten",
+   "t": "winkelarten",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "spitz",
+    "recht",
+    "gestreckt",
+    "stumpf"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Ein Winkel ist um 10° kleiner als 47°. Welche Winkelart ist er?"
+   },
+   "w": "Der Winkel ist 37°, also spitz.",
+   "h": "Rechne zuerst die Größe des Winkels aus."
+  },
+  {
+   "l": "winkelarten",
+   "t": "winkelarten",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "gestreckt",
+    "recht",
+    "stumpf",
+    "spitz"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Ein Winkel ist um 10° kleiner als 121°. Welche Winkelart ist er?"
+   },
+   "w": "Der Winkel ist 111°, also stumpf.",
+   "h": "Rechne zuerst die Größe des Winkels aus."
+  },
+  {
+   "l": "winkelarten",
+   "t": "winkelarten",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "recht",
+    "spitz",
+    "gestreckt",
+    "stumpf"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Ein Winkel ist halb so groß wie 72°. Welche Winkelart ist er?"
+   },
+   "w": "Der Winkel ist 36°, also spitz.",
+   "h": "Rechne zuerst die Größe des Winkels aus."
+  },
+  {
+   "l": "winkelarten",
+   "t": "winkelarten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "stumpf",
+    "spitz",
+    "recht",
+    "gestreckt"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Zwei Winkel 30° und 108° liegen direkt nebeneinander (gemeinsamer Schenkel). Welche Art hat der zusammengesetzte Winkel?"
+   },
+   "w": "30° + 108° = 138°, also stumpf.",
+   "h": "Addiere die beiden Winkel."
+  },
+  {
+   "l": "winkelarten",
+   "t": "winkelarten",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Geodreieck misst nur bis 180°. Um α = 314° zu zeichnen, zeichnest du zuerst den Winkel auf der anderen Seite. Wie groß ist er?"
+   },
+   "o": {
+    "wert": 46,
+    "einheit": "°"
+   },
+   "c": "360 - 314",
+   "w": "360° − 314° = 46°. Diesen zeichnest du, der Rest bis zum Vollwinkel ist α.",
+   "h": "α und der andere Winkel ergeben zusammen 360°."
+  },
+  {
+   "l": "winkelarten",
+   "t": "winkelarten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "recht",
+    "stumpf",
+    "spitz",
+    "gestreckt"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Zwei Winkel 107° und 23° liegen direkt nebeneinander (gemeinsamer Schenkel). Welche Art hat der zusammengesetzte Winkel?"
+   },
+   "w": "107° + 23° = 130°, also stumpf.",
+   "h": "Addiere die beiden Winkel."
+  },
+  {
+   "l": "winkelarten",
+   "t": "winkelarten",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Vollwinkel wird in 8 gleich große Winkel geteilt. Wie groß ist ein Winkel?"
+   },
+   "o": {
+    "wert": 45,
+    "einheit": "°"
+   },
+   "c": "360 / 8",
+   "w": "360° : 8 = 45°.",
+   "h": "Ein Vollwinkel hat 360°."
+  },
+  {
+   "l": "winkelarten",
+   "t": "winkelarten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "recht",
+    "spitz",
+    "überstumpf",
+    "stumpf"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Zwei Winkel 137° und 59° liegen direkt nebeneinander (gemeinsamer Schenkel). Welche Art hat der zusammengesetzte Winkel?"
+   },
+   "w": "137° + 59° = 196°, also überstumpf.",
+   "h": "Addiere die beiden Winkel."
+  },
+  {
+   "l": "winkelarten",
+   "t": "winkelarten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "überstumpf",
+    "recht",
+    "spitz",
+    "stumpf"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Zwei Winkel 157° und 143° liegen direkt nebeneinander (gemeinsamer Schenkel). Welche Art hat der zusammengesetzte Winkel?"
+   },
+   "w": "157° + 143° = 300°, also überstumpf.",
+   "h": "Addiere die beiden Winkel."
+  },
+  {
+   "l": "winkelarten",
+   "t": "winkelarten",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "gestreckt",
+    "recht",
+    "spitz",
+    "stumpf"
+   ],
+   "o": {
+    "index": 3
+   },
+   "f": {
+    "text": "Ein Winkel ist halb so groß wie 184°. Welche Winkelart ist er?"
+   },
+   "w": "Der Winkel ist 92°, also stumpf."
+  },
+  {
+   "l": "winkelarten",
+   "t": "winkelarten",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "stumpf",
+    "spitz",
+    "recht",
+    "gestreckt"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Ein Winkel ist halb so groß wie 144°. Welche Winkelart ist er?"
+   },
+   "w": "Der Winkel ist 72°, also spitz."
+  },
+  {
+   "l": "winkelarten",
+   "t": "winkelarten",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "recht",
+    "stumpf",
+    "gestreckt",
+    "spitz"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Ein Winkel ist halb so groß wie 272°. Welche Winkelart ist er?"
+   },
+   "w": "Der Winkel ist 136°, also stumpf."
+  },
+  {
+   "l": "winkelarten",
+   "t": "winkelarten",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "stumpf",
+    "gestreckt",
+    "spitz",
+    "recht"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Ein Winkel ist halb so groß wie 200°. Welche Winkelart ist er?"
+   },
+   "w": "Der Winkel ist 100°, also stumpf."
+  },
+  {
+   "l": "winkelarten",
+   "t": "winkelarten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Schenkel bilden einen Winkel von 152°. Wie groß ist der überstumpfe Winkel zwischen denselben Schenkeln (auf der anderen Seite)?"
+   },
+   "o": {
+    "wert": 208,
+    "einheit": "°"
+   },
+   "c": "360 - 152",
+   "w": "Beide Winkel zusammen ergeben den Vollwinkel: 360° − 152° = 208°."
+  },
+  {
+   "l": "winkelarten",
+   "t": "winkelarten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Schenkel bilden einen Winkel von 58°. Wie groß ist der überstumpfe Winkel zwischen denselben Schenkeln (auf der anderen Seite)?"
+   },
+   "o": {
+    "wert": 302,
+    "einheit": "°"
+   },
+   "c": "360 - 58",
+   "w": "Beide Winkel zusammen ergeben den Vollwinkel: 360° − 58° = 302°."
+  },
+  {
+   "l": "winkelarten",
+   "t": "winkelarten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Schenkel bilden einen Winkel von 114°. Wie groß ist der überstumpfe Winkel zwischen denselben Schenkeln (auf der anderen Seite)?"
+   },
+   "o": {
+    "wert": 246,
+    "einheit": "°"
+   },
+   "c": "360 - 114",
+   "w": "Beide Winkel zusammen ergeben den Vollwinkel: 360° − 114° = 246°."
+  },
+  {
+   "l": "winkelarten",
+   "t": "winkelarten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "stumpf",
+    "spitz",
+    "recht",
+    "gestreckt"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Ein Winkel ist um 10° kleiner als 81°. Welche Winkelart ist er?"
+   },
+   "w": "Der Winkel ist 71°, also spitz."
+  },
+  {
+   "l": "winkelarten",
+   "t": "winkelarten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Schenkel bilden einen Winkel von 33°. Wie groß ist der überstumpfe Winkel zwischen denselben Schenkeln (auf der anderen Seite)?"
+   },
+   "o": {
+    "wert": 327,
+    "einheit": "°"
+   },
+   "c": "360 - 33",
+   "w": "Beide Winkel zusammen ergeben den Vollwinkel: 360° − 33° = 327°."
+  },
+  {
+   "l": "winkelarten",
+   "t": "winkelarten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "stumpf",
+    "spitz",
+    "gestreckt",
+    "recht"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Ein Winkel ist um 10° kleiner als 123°. Welche Winkelart ist er?"
+   },
+   "w": "Der Winkel ist 113°, also stumpf."
+  },
+  {
+   "l": "vierecke",
+   "t": "vierecke",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Raute",
+    "Quadrat",
+    "Drachenviereck",
+    "Rechteck"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Alle Seiten sind 8 cm lang, die Winkel sind 68° und 112°. Welches Viereck ist das (genauester Name)?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       8,
+       0
+      ],
+      "C": [
+       10.997,
+       7.417
+      ],
+      "D": [
+       2.997,
+       7.417
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C",
+      "D"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "D",
+       "A"
+      ]
+     ]
+    }
+   },
+   "w": "Das ist eine Raute.",
+   "h": "Welche Eigenschaften hat es genau? Nimm den genauesten Namen."
+  },
+  {
+   "l": "vierecke",
+   "t": "vierecke",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Drachenviereck",
+    "Rechteck",
+    "Raute",
+    "Quadrat"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Ein Viereck hat 4 gleich lange Seiten, aber keinen rechten Winkel. Wie heißt es?"
+   },
+   "w": "Das ist eine Raute.",
+   "h": "Prüfe Seitenlängen, rechte Winkel und parallele Seiten."
+  },
+  {
+   "l": "vierecke",
+   "t": "vierecke",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Raute",
+    "Trapez",
+    "Drachenviereck",
+    "Parallelogramm"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Ein Viereck hat zwei Paare gleich langer benachbarter Seiten, aber nicht alle vier gleich lang. Wie heißt es?"
+   },
+   "w": "Das ist ein Drachenviereck.",
+   "h": "Prüfe Seitenlängen, rechte Winkel und parallele Seiten."
+  },
+  {
+   "l": "vierecke",
+   "t": "vierecke",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Rechteck",
+    "Quadrat",
+    "Drachenviereck",
+    "Raute"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Alle Seiten sind 7 cm lang, alle Winkel sind 90°. Welches Viereck ist das (genauester Name)?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       7,
+       0
+      ],
+      "C": [
+       7,
+       7
+      ],
+      "D": [
+       0,
+       7
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C",
+      "D"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "D",
+       "A"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "A",
+       "B",
+       "D"
+      ],
+      [
+       "B",
+       "C",
+       "A"
+      ],
+      [
+       "C",
+       "D",
+       "B"
+      ],
+      [
+       "D",
+       "A",
+       "C"
+      ]
+     ]
+    }
+   },
+   "w": "Das ist ein Quadrat.",
+   "h": "Welche Eigenschaften hat es genau? Nimm den genauesten Namen."
+  },
+  {
+   "l": "vierecke",
+   "t": "vierecke",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Quadrat",
+    "Drachenviereck",
+    "Rechteck",
+    "Raute"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Alle Seiten sind 10 cm lang, alle Winkel sind 90°. Welches Viereck ist das (genauester Name)?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       10,
+       0
+      ],
+      "C": [
+       10,
+       10
+      ],
+      "D": [
+       0,
+       10
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C",
+      "D"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "D",
+       "A"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "A",
+       "B",
+       "D"
+      ],
+      [
+       "B",
+       "C",
+       "A"
+      ],
+      [
+       "C",
+       "D",
+       "B"
+      ],
+      [
+       "D",
+       "A",
+       "C"
+      ]
+     ]
+    }
+   },
+   "w": "Das ist ein Quadrat.",
+   "h": "Welche Eigenschaften hat es genau? Nimm den genauesten Namen."
+  },
+  {
+   "l": "vierecke",
+   "t": "vierecke",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Drachenviereck",
+    "Raute",
+    "Rechteck",
+    "Parallelogramm"
+   ],
+   "o": {
+    "index": 3
+   },
+   "f": {
+    "text": "Ein Viereck hat zwei Paare paralleler Seiten, keine rechten Winkel, nicht alle Seiten gleich lang. Wie heißt es?"
+   },
+   "w": "Das ist ein Parallelogramm.",
+   "h": "Prüfe Seitenlängen, rechte Winkel und parallele Seiten."
+  },
+  {
+   "l": "vierecke",
+   "t": "vierecke",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "ABCD ist ein Parallelogramm mit A(−5 | −5), B(1 | −5) und C(2 | 0). Welche Koordinaten hat D?",
+    "schablone": "D(□ | □)",
+    "hinweis": "Erst die x-Koordinate, dann die y-Koordinate.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      3
+     ],
+     "y": [
+      -6,
+      1
+     ],
+     "punkte": [
+      {
+       "x": -5,
+       "y": -5,
+       "name": "A"
+      },
+      {
+       "x": 1,
+       "y": -5,
+       "name": "B"
+      },
+      {
+       "x": 2,
+       "y": 0,
+       "name": "C"
+      }
+     ],
+     "strecken": [
+      [
+       -5,
+       -5,
+       1,
+       -5
+      ],
+      [
+       1,
+       -5,
+       2,
+       0
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     -4,
+     0
+    ]
+   },
+   "c": [
+    "(-5) + 1",
+    "(-5) + 5"
+   ],
+   "w": "Von B nach C geht es 1 nach rechts und 5 nach oben. Dasselbe von A aus: D(−4 | 0).",
+   "h": "Die Seite [AD] ist parallel und gleich lang wie [BC]: gleiche Verschiebung."
+  },
+  {
+   "l": "vierecke",
+   "t": "vierecke",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "ABCD ist ein Parallelogramm mit A(−6 | −4), B(−2 | −4) und C(−1 | 0). Welche Koordinaten hat D?",
+    "schablone": "D(□ | □)",
+    "hinweis": "Erst die x-Koordinate, dann die y-Koordinate.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -7,
+      1
+     ],
+     "y": [
+      -5,
+      1
+     ],
+     "punkte": [
+      {
+       "x": -6,
+       "y": -4,
+       "name": "A"
+      },
+      {
+       "x": -2,
+       "y": -4,
+       "name": "B"
+      },
+      {
+       "x": -1,
+       "y": 0,
+       "name": "C"
+      }
+     ],
+     "strecken": [
+      [
+       -6,
+       -4,
+       -2,
+       -4
+      ],
+      [
+       -2,
+       -4,
+       -1,
+       0
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     -5,
+     0
+    ]
+   },
+   "c": [
+    "(-6) + 1",
+    "(-4) + 4"
+   ],
+   "w": "Von B nach C geht es 1 nach rechts und 4 nach oben. Dasselbe von A aus: D(−5 | 0).",
+   "h": "Die Seite [AD] ist parallel und gleich lang wie [BC]: gleiche Verschiebung."
+  },
+  {
+   "l": "vierecke",
+   "t": "vierecke",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "ABCD ist ein Parallelogramm mit A(−3 | −5), B(3 | −5) und C(6 | −2). Welche Koordinaten hat D?",
+    "schablone": "D(□ | □)",
+    "hinweis": "Erst die x-Koordinate, dann die y-Koordinate.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      7
+     ],
+     "y": [
+      -6,
+      1
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": -5,
+       "name": "A"
+      },
+      {
+       "x": 3,
+       "y": -5,
+       "name": "B"
+      },
+      {
+       "x": 6,
+       "y": -2,
+       "name": "C"
+      }
+     ],
+     "strecken": [
+      [
+       -3,
+       -5,
+       3,
+       -5
+      ],
+      [
+       3,
+       -5,
+       6,
+       -2
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     0,
+     -2
+    ]
+   },
+   "c": [
+    "(-3) + 3",
+    "(-5) + 3"
+   ],
+   "w": "Von B nach C geht es 3 nach rechts und 3 nach oben. Dasselbe von A aus: D(0 | −2).",
+   "h": "Die Seite [AD] ist parallel und gleich lang wie [BC]: gleiche Verschiebung."
+  },
+  {
+   "l": "vierecke",
+   "t": "vierecke",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "ABCD ist ein Parallelogramm mit A(0 | 1), B(6 | 1) und C(9 | 5). Welche Koordinaten hat D?",
+    "schablone": "D(□ | □)",
+    "hinweis": "Erst die x-Koordinate, dann die y-Koordinate.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      10
+     ],
+     "y": [
+      -1,
+      6
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 1,
+       "name": "A"
+      },
+      {
+       "x": 6,
+       "y": 1,
+       "name": "B"
+      },
+      {
+       "x": 9,
+       "y": 5,
+       "name": "C"
+      }
+     ],
+     "strecken": [
+      [
+       0,
+       1,
+       6,
+       1
+      ],
+      [
+       6,
+       1,
+       9,
+       5
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     3,
+     5
+    ]
+   },
+   "c": [
+    "(0) + 3",
+    "(1) + 4"
+   ],
+   "w": "Von B nach C geht es 3 nach rechts und 4 nach oben. Dasselbe von A aus: D(3 | 5).",
+   "h": "Die Seite [AD] ist parallel und gleich lang wie [BC]: gleiche Verschiebung."
+  },
+  {
+   "l": "vierecke",
+   "t": "vierecke",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "ABCD ist ein Parallelogramm mit A(0 | −2), B(3 | −2) und C(4 | 0). Welche Koordinaten hat D?",
+    "schablone": "D(□ | □)",
+    "hinweis": "Erst die x-Koordinate, dann die y-Koordinate.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      5
+     ],
+     "y": [
+      -3,
+      1
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": -2,
+       "name": "A"
+      },
+      {
+       "x": 3,
+       "y": -2,
+       "name": "B"
+      },
+      {
+       "x": 4,
+       "y": 0,
+       "name": "C"
+      }
+     ],
+     "strecken": [
+      [
+       0,
+       -2,
+       3,
+       -2
+      ],
+      [
+       3,
+       -2,
+       4,
+       0
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     1,
+     0
+    ]
+   },
+   "c": [
+    "(0) + 1",
+    "(-2) + 2"
+   ],
+   "w": "Von B nach C geht es 1 nach rechts und 2 nach oben. Dasselbe von A aus: D(1 | 0).",
+   "h": "Die Seite [AD] ist parallel und gleich lang wie [BC]: gleiche Verschiebung."
+  },
+  {
+   "l": "vierecke",
+   "t": "vierecke",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "ABCD ist ein Parallelogramm mit A(−3 | −2), B(0 | −2) und C(1 | 1). Welche Koordinaten hat D?",
+    "schablone": "D(□ | □)",
+    "hinweis": "Erst die x-Koordinate, dann die y-Koordinate.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      2
+     ],
+     "y": [
+      -3,
+      2
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": -2,
+       "name": "A"
+      },
+      {
+       "x": 0,
+       "y": -2,
+       "name": "B"
+      },
+      {
+       "x": 1,
+       "y": 1,
+       "name": "C"
+      }
+     ],
+     "strecken": [
+      [
+       -3,
+       -2,
+       0,
+       -2
+      ],
+      [
+       0,
+       -2,
+       1,
+       1
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     -2,
+     1
+    ]
+   },
+   "c": [
+    "(-3) + 1",
+    "(-2) + 3"
+   ],
+   "w": "Von B nach C geht es 1 nach rechts und 3 nach oben. Dasselbe von A aus: D(−2 | 1).",
+   "h": "Die Seite [AD] ist parallel und gleich lang wie [BC]: gleiche Verschiebung."
+  },
+  {
+   "l": "vierecke",
+   "t": "vierecke",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Nein, es gibt Gegenbeispiele.",
+    "Ja, das stimmt immer.",
+    "Nur manchmal, das hängt von der Größe ab."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Jede Raute ist ein Parallelogramm.“"
+   },
+   "w": "Ja: Das erste Viereck hat alle Eigenschaften des zweiten. Vergleiche die Eigenschaften aus der Erklärung.",
+   "h": "Hat das erste Viereck immer alle Eigenschaften des zweiten?"
+  },
+  {
+   "l": "vierecke",
+   "t": "vierecke",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Ja, das stimmt immer.",
+    "Nein, es gibt Gegenbeispiele.",
+    "Nur manchmal, das hängt von der Größe ab."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Jedes Rechteck ist ein Parallelogramm.“"
+   },
+   "w": "Ja: Das erste Viereck hat alle Eigenschaften des zweiten. Vergleiche die Eigenschaften aus der Erklärung.",
+   "h": "Hat das erste Viereck immer alle Eigenschaften des zweiten?"
+  },
+  {
+   "l": "vierecke",
+   "t": "vierecke",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Ja, das stimmt immer.",
+    "Nur manchmal, das hängt von der Größe ab.",
+    "Nein, es gibt Gegenbeispiele."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Jedes Trapez ist ein Parallelogramm.“"
+   },
+   "w": "Nein: Das zweite Viereck verlangt Eigenschaften, die das erste nicht immer hat. Vergleiche die Eigenschaften aus der Erklärung.",
+   "h": "Hat das erste Viereck immer alle Eigenschaften des zweiten?"
+  },
+  {
+   "l": "vierecke",
+   "t": "vierecke",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Ja, das stimmt immer.",
+    "Nur manchmal, das hängt von der Größe ab.",
+    "Nein, es gibt Gegenbeispiele."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Jede Raute ist ein Quadrat.“"
+   },
+   "w": "Nein: Das zweite Viereck verlangt Eigenschaften, die das erste nicht immer hat. Vergleiche die Eigenschaften aus der Erklärung.",
+   "h": "Hat das erste Viereck immer alle Eigenschaften des zweiten?"
+  },
+  {
+   "l": "vierecke",
+   "t": "vierecke",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Ja, das stimmt immer.",
+    "Nur manchmal, das hängt von der Größe ab.",
+    "Nein, es gibt Gegenbeispiele."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Jedes Rechteck ist ein Quadrat.“"
+   },
+   "w": "Nein: Das zweite Viereck verlangt Eigenschaften, die das erste nicht immer hat. Vergleiche die Eigenschaften aus der Erklärung.",
+   "h": "Hat das erste Viereck immer alle Eigenschaften des zweiten?"
+  },
+  {
+   "l": "vierecke",
+   "t": "vierecke",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Nur manchmal, das hängt von der Größe ab.",
+    "Nein, es gibt Gegenbeispiele.",
+    "Ja, das stimmt immer."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Jedes Drachenviereck ist eine Raute.“"
+   },
+   "w": "Nein: Das zweite Viereck verlangt Eigenschaften, die das erste nicht immer hat. Vergleiche die Eigenschaften aus der Erklärung.",
+   "h": "Hat das erste Viereck immer alle Eigenschaften des zweiten?"
+  },
+  {
+   "l": "vierecke",
+   "t": "vierecke",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "ABCD ist ein Parallelogramm mit A(−5 | −3), B(−2 | −3) und C(1 | 1). Welche Koordinaten hat D?",
+    "schablone": "D(□ | □)",
+    "hinweis": "Erst die x-Koordinate, dann die y-Koordinate.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      2
+     ],
+     "y": [
+      -4,
+      2
+     ],
+     "punkte": [
+      {
+       "x": -5,
+       "y": -3,
+       "name": "A"
+      },
+      {
+       "x": -2,
+       "y": -3,
+       "name": "B"
+      },
+      {
+       "x": 1,
+       "y": 1,
+       "name": "C"
+      }
+     ],
+     "strecken": [
+      [
+       -5,
+       -3,
+       -2,
+       -3
+      ],
+      [
+       -2,
+       -3,
+       1,
+       1
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     -2,
+     1
+    ]
+   },
+   "c": [
+    "(-5) + 3",
+    "(-3) + 4"
+   ],
+   "w": "Von B nach C geht es 3 nach rechts und 4 nach oben. Dasselbe von A aus: D(−2 | 1)."
+  },
+  {
+   "l": "vierecke",
+   "t": "vierecke",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "ABCD ist ein Parallelogramm mit A(−6 | −4), B(0 | −4) und C(2 | 1). Welche Koordinaten hat D?",
+    "schablone": "D(□ | □)",
+    "hinweis": "Erst die x-Koordinate, dann die y-Koordinate.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -7,
+      3
+     ],
+     "y": [
+      -5,
+      2
+     ],
+     "punkte": [
+      {
+       "x": -6,
+       "y": -4,
+       "name": "A"
+      },
+      {
+       "x": 0,
+       "y": -4,
+       "name": "B"
+      },
+      {
+       "x": 2,
+       "y": 1,
+       "name": "C"
+      }
+     ],
+     "strecken": [
+      [
+       -6,
+       -4,
+       0,
+       -4
+      ],
+      [
+       0,
+       -4,
+       2,
+       1
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     -4,
+     1
+    ]
+   },
+   "c": [
+    "(-6) + 2",
+    "(-4) + 5"
+   ],
+   "w": "Von B nach C geht es 2 nach rechts und 5 nach oben. Dasselbe von A aus: D(−4 | 1)."
+  },
+  {
+   "l": "vierecke",
+   "t": "vierecke",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "ABCD ist ein Parallelogramm mit A(−4 | 0), B(2 | 0) und C(4 | 2). Welche Koordinaten hat D?",
+    "schablone": "D(□ | □)",
+    "hinweis": "Erst die x-Koordinate, dann die y-Koordinate.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      5
+     ],
+     "y": [
+      -1,
+      3
+     ],
+     "punkte": [
+      {
+       "x": -4,
+       "y": 0,
+       "name": "A"
+      },
+      {
+       "x": 2,
+       "y": 0,
+       "name": "B"
+      },
+      {
+       "x": 4,
+       "y": 2,
+       "name": "C"
+      }
+     ],
+     "strecken": [
+      [
+       -4,
+       0,
+       2,
+       0
+      ],
+      [
+       2,
+       0,
+       4,
+       2
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     -2,
+     2
+    ]
+   },
+   "c": [
+    "(-4) + 2",
+    "(0) + 2"
+   ],
+   "w": "Von B nach C geht es 2 nach rechts und 2 nach oben. Dasselbe von A aus: D(−2 | 2)."
+  },
+  {
+   "l": "vierecke",
+   "t": "vierecke",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "ABCD ist ein Parallelogramm mit A(−1 | 0), B(4 | 0) und C(7 | 4). Welche Koordinaten hat D?",
+    "schablone": "D(□ | □)",
+    "hinweis": "Erst die x-Koordinate, dann die y-Koordinate.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      8
+     ],
+     "y": [
+      -1,
+      5
+     ],
+     "punkte": [
+      {
+       "x": -1,
+       "y": 0,
+       "name": "A"
+      },
+      {
+       "x": 4,
+       "y": 0,
+       "name": "B"
+      },
+      {
+       "x": 7,
+       "y": 4,
+       "name": "C"
+      }
+     ],
+     "strecken": [
+      [
+       -1,
+       0,
+       4,
+       0
+      ],
+      [
+       4,
+       0,
+       7,
+       4
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     2,
+     4
+    ]
+   },
+   "c": [
+    "(-1) + 3",
+    "(0) + 4"
+   ],
+   "w": "Von B nach C geht es 3 nach rechts und 4 nach oben. Dasselbe von A aus: D(2 | 4)."
+  },
+  {
+   "l": "vierecke",
+   "t": "vierecke",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "ABCD ist ein Parallelogramm mit A(−5 | −4), B(0 | −4) und C(3 | 1). Welche Koordinaten hat D?",
+    "schablone": "D(□ | □)",
+    "hinweis": "Erst die x-Koordinate, dann die y-Koordinate.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      4
+     ],
+     "y": [
+      -5,
+      2
+     ],
+     "punkte": [
+      {
+       "x": -5,
+       "y": -4,
+       "name": "A"
+      },
+      {
+       "x": 0,
+       "y": -4,
+       "name": "B"
+      },
+      {
+       "x": 3,
+       "y": 1,
+       "name": "C"
+      }
+     ],
+     "strecken": [
+      [
+       -5,
+       -4,
+       0,
+       -4
+      ],
+      [
+       0,
+       -4,
+       3,
+       1
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     -2,
+     1
+    ]
+   },
+   "c": [
+    "(-5) + 3",
+    "(-4) + 5"
+   ],
+   "w": "Von B nach C geht es 3 nach rechts und 5 nach oben. Dasselbe von A aus: D(−2 | 1)."
+  },
+  {
+   "l": "vierecke",
+   "t": "vierecke",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "ABCD ist ein Parallelogramm mit A(1 | −2), B(7 | −2) und C(9 | 0). Welche Koordinaten hat D?",
+    "schablone": "D(□ | □)",
+    "hinweis": "Erst die x-Koordinate, dann die y-Koordinate.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      10
+     ],
+     "y": [
+      -3,
+      1
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": -2,
+       "name": "A"
+      },
+      {
+       "x": 7,
+       "y": -2,
+       "name": "B"
+      },
+      {
+       "x": 9,
+       "y": 0,
+       "name": "C"
+      }
+     ],
+     "strecken": [
+      [
+       1,
+       -2,
+       7,
+       -2
+      ],
+      [
+       7,
+       -2,
+       9,
+       0
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     3,
+     0
+    ]
+   },
+   "c": [
+    "(1) + 2",
+    "(-2) + 2"
+   ],
+   "w": "Von B nach C geht es 2 nach rechts und 2 nach oben. Dasselbe von A aus: D(3 | 0)."
+  },
+  {
+   "l": "vierecke",
+   "t": "vierecke",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "ABCD ist ein Parallelogramm mit A(−5 | −1), B(0 | −1) und C(1 | 3). Welche Koordinaten hat D?",
+    "schablone": "D(□ | □)",
+    "hinweis": "Erst die x-Koordinate, dann die y-Koordinate.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      2
+     ],
+     "y": [
+      -2,
+      4
+     ],
+     "punkte": [
+      {
+       "x": -5,
+       "y": -1,
+       "name": "A"
+      },
+      {
+       "x": 0,
+       "y": -1,
+       "name": "B"
+      },
+      {
+       "x": 1,
+       "y": 3,
+       "name": "C"
+      }
+     ],
+     "strecken": [
+      [
+       -5,
+       -1,
+       0,
+       -1
+      ],
+      [
+       0,
+       -1,
+       1,
+       3
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     -4,
+     3
+    ]
+   },
+   "c": [
+    "(-5) + 1",
+    "(-1) + 4"
+   ],
+   "w": "Von B nach C geht es 1 nach rechts und 4 nach oben. Dasselbe von A aus: D(−4 | 3)."
+  },
+  {
+   "l": "vierecke",
+   "t": "vierecke",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "ABCD ist ein Parallelogramm mit A(0 | 2), B(3 | 2) und C(5 | 7). Welche Koordinaten hat D?",
+    "schablone": "D(□ | □)",
+    "hinweis": "Erst die x-Koordinate, dann die y-Koordinate.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      6
+     ],
+     "y": [
+      -1,
+      8
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 2,
+       "name": "A"
+      },
+      {
+       "x": 3,
+       "y": 2,
+       "name": "B"
+      },
+      {
+       "x": 5,
+       "y": 7,
+       "name": "C"
+      }
+     ],
+     "strecken": [
+      [
+       0,
+       2,
+       3,
+       2
+      ],
+      [
+       3,
+       2,
+       5,
+       7
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     2,
+     7
+    ]
+   },
+   "c": [
+    "(0) + 2",
+    "(2) + 5"
+   ],
+   "w": "Von B nach C geht es 2 nach rechts und 5 nach oben. Dasselbe von A aus: D(2 | 7)."
+  },
+  {
+   "l": "vierecke",
+   "t": "vierecke",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "ABCD ist ein Parallelogramm mit A(−6 | −3), B(−1 | −3) und C(2 | 2). Welche Koordinaten hat D?",
+    "schablone": "D(□ | □)",
+    "hinweis": "Erst die x-Koordinate, dann die y-Koordinate.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -7,
+      3
+     ],
+     "y": [
+      -4,
+      3
+     ],
+     "punkte": [
+      {
+       "x": -6,
+       "y": -3,
+       "name": "A"
+      },
+      {
+       "x": -1,
+       "y": -3,
+       "name": "B"
+      },
+      {
+       "x": 2,
+       "y": 2,
+       "name": "C"
+      }
+     ],
+     "strecken": [
+      [
+       -6,
+       -3,
+       -1,
+       -3
+      ],
+      [
+       -1,
+       -3,
+       2,
+       2
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     -3,
+     2
+    ]
+   },
+   "c": [
+    "(-6) + 3",
+    "(-3) + 5"
+   ],
+   "w": "Von B nach C geht es 3 nach rechts und 5 nach oben. Dasselbe von A aus: D(−3 | 2)."
+  },
+  {
+   "l": "vierecke",
+   "t": "vierecke",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "ABCD ist ein Parallelogramm mit A(1 | −6), B(5 | −6) und C(8 | −2). Welche Koordinaten hat D?",
+    "schablone": "D(□ | □)",
+    "hinweis": "Erst die x-Koordinate, dann die y-Koordinate.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      9
+     ],
+     "y": [
+      -7,
+      1
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": -6,
+       "name": "A"
+      },
+      {
+       "x": 5,
+       "y": -6,
+       "name": "B"
+      },
+      {
+       "x": 8,
+       "y": -2,
+       "name": "C"
+      }
+     ],
+     "strecken": [
+      [
+       1,
+       -6,
+       5,
+       -6
+      ],
+      [
+       5,
+       -6,
+       8,
+       -2
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     4,
+     -2
+    ]
+   },
+   "c": [
+    "(1) + 3",
+    "(-6) + 4"
+   ],
+   "w": "Von B nach C geht es 3 nach rechts und 4 nach oben. Dasselbe von A aus: D(4 | −2)."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Nein, das ist falsch.",
+    "Das kann man nicht entscheiden.",
+    "Ja, der Durchmesser ist doppelt so lang: 2 · 5 = 10."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Kreis mit Radius 5 cm hat den Durchmesser 10 cm.“"
+   },
+   "w": "Ja, der Durchmesser ist doppelt so lang: 2 · 5 = 10.",
+   "h": "Mach eine Skizze oder suche ein Gegenbeispiel."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Nein, zuerst steht x: (4 | 3) liegt 4 rechts und 3 oben, (3 | 4) umgekehrt.",
+    "Ja, das stimmt.",
+    "Das kann man nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Der Punkt (4 | 3) ist derselbe wie (3 | 4).“"
+   },
+   "w": "Nein, zuerst steht x: (4 | 3) liegt 4 rechts und 3 oben, (3 | 4) umgekehrt.",
+   "h": "Mach eine Skizze oder suche ein Gegenbeispiel."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Nein, das ist falsch.",
+    "Das kann man nicht entscheiden.",
+    "Ja, der Durchmesser ist doppelt so lang: 2 · 2 = 4."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Kreis mit Radius 2 cm hat den Durchmesser 4 cm.“"
+   },
+   "w": "Ja, der Durchmesser ist doppelt so lang: 2 · 2 = 4.",
+   "h": "Mach eine Skizze oder suche ein Gegenbeispiel."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Nein, 98° ist größer als 90°, also stumpf.",
+    "Das kann man nicht entscheiden.",
+    "Ja, das stimmt."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Winkel von 98° ist spitz.“"
+   },
+   "w": "Nein, 98° ist größer als 90°, also stumpf.",
+   "h": "Mach eine Skizze oder suche ein Gegenbeispiel."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Ja, eine Gerade ist unendlich lang.",
+    "Nein, das ist falsch."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Eine Strecke kann man messen, eine Gerade nicht.“"
+   },
+   "w": "Ja, eine Gerade ist unendlich lang.",
+   "h": "Mach eine Skizze oder suche ein Gegenbeispiel."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Ja, der Durchmesser ist doppelt so lang: 2 · 4 = 8.",
+    "Das kann man nicht entscheiden.",
+    "Nein, das ist falsch."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Kreis mit Radius 4 cm hat den Durchmesser 8 cm.“"
+   },
+   "w": "Ja, der Durchmesser ist doppelt so lang: 2 · 4 = 8.",
+   "h": "Mach eine Skizze oder suche ein Gegenbeispiel."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Nein, das ist falsch.",
+    "Ja, beide stehen im rechten Winkel auf derselben Geraden."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Zwei Geraden, die beide senkrecht zu einer dritten sind, sind parallel zueinander.“"
+   },
+   "w": "Ja, beide stehen im rechten Winkel auf derselben Geraden.",
+   "h": "Mach eine Skizze oder suche ein Gegenbeispiel."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Ja, das stimmt.",
+    "Nein, d = r: Das ist eine Tangente."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Eine Gerade mit Abstand 3 cm vom Mittelpunkt eines Kreises mit r = 3 cm ist eine Sekante.“"
+   },
+   "w": "Nein, d = r: Das ist eine Tangente.",
+   "h": "Mach eine Skizze oder suche ein Gegenbeispiel."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Nein, sie ist 2 + 8 = 10 lang.",
+    "Ja, das stimmt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Die Strecke von (−2 | 0) bis (8 | 0) ist 6 lang.“"
+   },
+   "w": "Nein, sie ist 2 + 8 = 10 lang.",
+   "h": "Mach eine Skizze oder suche ein Gegenbeispiel."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Nein, d = r: Das ist eine Tangente.",
+    "Ja, das stimmt.",
+    "Das kann man nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Eine Gerade mit Abstand 4 cm vom Mittelpunkt eines Kreises mit r = 4 cm ist eine Sekante.“"
+   },
+   "w": "Nein, d = r: Das ist eine Tangente.",
+   "h": "Mach eine Skizze oder suche ein Gegenbeispiel."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Ja, eine negative x-Koordinate heißt links.",
+    "Das kann man nicht entscheiden.",
+    "Nein, das ist falsch."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Der Punkt (−1 | 2) liegt links von der y-Achse.“"
+   },
+   "w": "Ja, eine negative x-Koordinate heißt links.",
+   "h": "Mach eine Skizze oder suche ein Gegenbeispiel."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Nein, sie ist 6 + 7 = 13 lang.",
+    "Ja, das stimmt.",
+    "Das kann man nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Die Strecke von (−6 | 0) bis (7 | 0) ist 1 lang.“"
+   },
+   "w": "Nein, sie ist 6 + 7 = 13 lang.",
+   "h": "Mach eine Skizze oder suche ein Gegenbeispiel."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Nein, möglich sind nur 0, 1 oder 2 gemeinsame Punkte (oder alle, wenn sie gleich sind).",
+    "Ja, das stimmt.",
+    "Das kann man nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Zwei Kreise können genau drei gemeinsame Punkte haben.“"
+   },
+   "w": "Nein, möglich sind nur 0, 1 oder 2 gemeinsame Punkte (oder alle, wenn sie gleich sind).",
+   "h": "Mach eine Skizze oder suche ein Gegenbeispiel."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Ja, das stimmt.",
+    "Nein, Gegenbeispiel: eine Raute ohne rechte Winkel."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Jedes Viereck mit vier gleich langen Seiten ist ein Quadrat.“"
+   },
+   "w": "Nein, Gegenbeispiel: eine Raute ohne rechte Winkel.",
+   "h": "Mach eine Skizze oder suche ein Gegenbeispiel."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Ja, entlang des Lots – das ist die kürzeste Verbindung.",
+    "Nein, das ist falsch.",
+    "Das kann man nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Der Abstand eines Punktes zu einer Geraden wird senkrecht gemessen.“"
+   },
+   "w": "Ja, entlang des Lots – das ist die kürzeste Verbindung.",
+   "h": "Mach eine Skizze oder suche ein Gegenbeispiel."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Nein, 260° liegt zwischen 180° und 360°: überstumpf.",
+    "Ja, das stimmt.",
+    "Das kann man nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Winkel von 260° ist stumpf.“"
+   },
+   "w": "Nein, 260° liegt zwischen 180° und 360°: überstumpf.",
+   "h": "Mach eine Skizze oder suche ein Gegenbeispiel."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Nein, 230° liegt zwischen 180° und 360°: überstumpf.",
+    "Ja, das stimmt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Winkel von 230° ist stumpf.“"
+   },
+   "w": "Nein, 230° liegt zwischen 180° und 360°: überstumpf.",
+   "h": "Mach eine Skizze oder suche ein Gegenbeispiel."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Ja, das stimmt.",
+    "Nein, 200° liegt zwischen 180° und 360°: überstumpf."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Winkel von 200° ist stumpf.“"
+   },
+   "w": "Nein, 200° liegt zwischen 180° und 360°: überstumpf.",
+   "h": "Mach eine Skizze oder suche ein Gegenbeispiel."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Nein, d = r: Das ist eine Tangente.",
+    "Ja, das stimmt.",
+    "Das kann man nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Eine Gerade mit Abstand 5 cm vom Mittelpunkt eines Kreises mit r = 5 cm ist eine Sekante.“"
+   },
+   "w": "Nein, d = r: Das ist eine Tangente."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Ja, eine negative x-Koordinate heißt links.",
+    "Nein, das ist falsch."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Der Punkt (−6 | 2) liegt links von der y-Achse.“"
+   },
+   "w": "Ja, eine negative x-Koordinate heißt links."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Ja, eine negative x-Koordinate heißt links.",
+    "Nein, das ist falsch.",
+    "Das kann man nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Der Punkt (−2 | 4) liegt links von der y-Achse.“"
+   },
+   "w": "Ja, eine negative x-Koordinate heißt links."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Ja, eine negative x-Koordinate heißt links.",
+    "Das kann man nicht entscheiden.",
+    "Nein, das ist falsch."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Der Punkt (−2 | 3) liegt links von der y-Achse.“"
+   },
+   "w": "Ja, eine negative x-Koordinate heißt links."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Nein, sie ist 2 + 3 = 5 lang.",
+    "Das kann man nicht entscheiden.",
+    "Ja, das stimmt."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Die Strecke von (−2 | 0) bis (3 | 0) ist 1 lang.“"
+   },
+   "w": "Nein, sie ist 2 + 3 = 5 lang."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Ja, eine negative x-Koordinate heißt links.",
+    "Nein, das ist falsch.",
+    "Das kann man nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Der Punkt (−8 | 7) liegt links von der y-Achse.“"
+   },
+   "w": "Ja, eine negative x-Koordinate heißt links."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Nein, sie ist 4 + 8 = 12 lang.",
+    "Ja, das stimmt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Die Strecke von (−4 | 0) bis (8 | 0) ist 4 lang.“"
+   },
+   "w": "Nein, sie ist 4 + 8 = 12 lang."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Ja, das stimmt.",
+    "Nein, sie ist 1 + 6 = 7 lang.",
+    "Das kann man nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Die Strecke von (−1 | 0) bis (6 | 0) ist 5 lang.“"
+   },
+   "w": "Nein, sie ist 1 + 6 = 7 lang."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Ja, das stimmt.",
+    "Nein, sie ist 2 + 4 = 6 lang."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Die Strecke von (−2 | 0) bis (4 | 0) ist 2 lang.“"
+   },
+   "w": "Nein, sie ist 2 + 4 = 6 lang."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Ja, das stimmt.",
+    "Nein, sie ist 3 + 1 = 4 lang."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Die Strecke von (−3 | 0) bis (1 | 0) ist 2 lang.“"
+   },
+   "w": "Nein, sie ist 3 + 1 = 4 lang."
+  }
+ ],
+ "offen": [
+  "Zeichnungen (neu ab 14.11.) eingebaut: Koordinatensystem in koordinaten, strecken, lagebeziehungen, vierecke; Figuren für Kreis/Gerade, Winkel und Vierecke. Überstumpfe Winkel werden nicht gezeichnet (unklar, auf welcher Seite die App den Bogen zeichnet).",
+  "Lehrplan „Winkel bis 360° messen und zeichnen“: Messen mit dem Geodreieck und Zeichnen durch das Kind geht in der App nicht; enthalten sind Winkelarten und Rechnen mit Winkelgrößen.",
+  "Dreiecksarten aus „umfang“ weggelassen: LehrplanPLUS Kl. 5 nennt nur die Vierecke Quadrat, Rechteck, Parallelogramm, Raute, Drachenviereck und Trapez."
+ ]
+}

@@ -252,3 +252,205 @@ Regeln:
 
 Am Ende: kurze Liste der fertigen Dateien mit Anzahl Lernkarten/Aufgaben und alle "offen"-Punkte.
 ```
+
+
+---
+
+# Dritte Runde: Prüfergebnisse einarbeiten und Zeichnungen nachrüsten
+
+Erst starten, wenn die Prüfer-Chats für die Themen des Pakets fertig sind (Dateien unter `inhalte/pruefung/erklaerungen/` und `inhalte/pruefung/aufgaben/` auf den Zweigen `pruefung-erklaerungen` und `pruefung-aufgaben`).
+
+Grundsatz: Der **Generator** bleibt die einzige Quelle. Nie die Datei unter `inhalte/themen/` von Hand ändern – immer den Generator ändern und neu laufen lassen.
+
+## Einarbeiten Klasse 5 (11 Themen)
+
+```text
+Du überarbeitest Mathe-Lerninhalte einer Lern-App (Gymnasium Bayern, Klasse 5) nach einer Prüfung.
+Repository: beinhoff77-stack/ki-system. Hole den aktuellen Stand von lernen-app, lege davon den Zweig einarbeiten-kl5 an und führe die Zweige
+origin/pruefung-erklaerungen und origin/pruefung-aufgaben hinein (sie enthalten nur Dateien unter inhalte/pruefung/).
+
+Lies vollständig: inhalte/README.md (besonders „Erfahrungen“ und „Zeichnungen“) und inhalte/pruefung/README.md (Format der Prüfergebnisse).
+
+Themen dieses Pakets: geometrie.grundbegriffe, geometrie.ortslinien, geometrie.winkel, groessen.einheiten, groessen.proportional, messen.flaechen, messen.koerper_berechnung, stochastik.kombinatorik, zahlen.ganz, zahlen.potenzen_basis, zahlen.rechengesetze
+
+Für jedes Thema, zu dem Prüfdateien vorliegen (inhalte/pruefung/erklaerungen/<thema>.json und inhalte/pruefung/aufgaben/<thema>.json):
+1. Erklärungen: Jedes Feld unter karten[].neu wörtlich in die Lernkarte des Generators übernehmen (es ersetzt das alte Feld vollständig).
+   neue_karten als vollständige Lernkarte einbauen – mit eigenem Aufgaben-Generator und allen Pools wie bei jeder Karte.
+2. Aufgaben: Jeden Eintrag unter fehler beheben (im Generator, sodass der Fehler in keiner Variante mehr vorkommt).
+   Jede generator_regel umsetzen. Jeden fehlenden Aufgabentyp aus fehlende_aufgabentypen einbauen und auf die Stufen verteilen;
+   Stufe 3 soll ein anderer Gedanke sein, nicht nur größere Zahlen.
+3. Zeichnungen nachrüsten: Wo die Prüfung ein bild vorschlägt oder das Feld offen der Themen-Datei eine fehlende Zeichnung nennt,
+   die die App inzwischen kann (Koordinatensystem mit Graphen, Figur, Säulen-/Kreisdiagramm, Tabelle, Boxplot, Baumdiagramm),
+   Bilder in Lernkarten (bild) und Aufgaben (f.grafik) einbauen. Erledigte Punkte aus offen streichen.
+4. Brüche, Zahlenpaare, Punkte als Antwort: als luecken (□/□, x = □; y = □, S(□ | □)) statt Auswahl, wo das die bessere Aufgabe ist.
+5. Gerundete Ergebnisse: toleranz in o setzen (eine Einheit der letzten verlangten Stelle).
+6. Bist du mit einem Prüfpunkt fachlich nicht einverstanden: nicht umsetzen, sondern unter offen begründen.
+7. Generator laufen lassen, `python3 -I tools/inhalt_pruefen.py inhalte/themen/<thema>.json` muss OK melden. Mindestens 10 Aufgaben je Lernkarte selbst lesen.
+   Ein Thema = ein Commit, Push auf einarbeiten-kl5. In die Commit-Nachricht: wie viele Prüfpunkte umgesetzt, wie viele abgelehnt.
+
+Themen ohne Prüfdateien überspringen und am Ende nennen.
+
+Verboten: Dateien unter inhalte/pruefung/ ändern, Datenbank, Serverfunktionen, App-Code, Tests, Merge nach main.
+Arbeite ohne Rückfragen durch. Am Ende: je Thema umgesetzte/abgelehnte Punkte, neue Lernkarten, Zahl der Bilder, verbleibende offen-Punkte.
+```
+
+## Einarbeiten Klasse 8 (14 Themen)
+
+```text
+Du überarbeitest Mathe-Lerninhalte einer Lern-App (Gymnasium Bayern, Klasse 8) nach einer Prüfung.
+Repository: beinhoff77-stack/ki-system. Hole den aktuellen Stand von lernen-app, lege davon den Zweig einarbeiten-kl8 an und führe die Zweige
+origin/pruefung-erklaerungen und origin/pruefung-aufgaben hinein (sie enthalten nur Dateien unter inhalte/pruefung/).
+
+Lies vollständig: inhalte/README.md (besonders „Erfahrungen“ und „Zeichnungen“) und inhalte/pruefung/README.md (Format der Prüfergebnisse).
+
+Themen dieses Pakets: funktionen.gebrochen, funktionen.grundbegriffe, funktionen.linear, gleichungen.bruch, gleichungen.formeln, gleichungen.lgs2, gleichungen.ungleichungen, messen.koerper_darstellung, messen.kreisberechnung, raum.schraegbilder, stochastik.grundbegriffe, stochastik.simulation, terme.bruchterme, zahlen.intervalle
+
+Für jedes Thema, zu dem Prüfdateien vorliegen (inhalte/pruefung/erklaerungen/<thema>.json und inhalte/pruefung/aufgaben/<thema>.json):
+1. Erklärungen: Jedes Feld unter karten[].neu wörtlich in die Lernkarte des Generators übernehmen (es ersetzt das alte Feld vollständig).
+   neue_karten als vollständige Lernkarte einbauen – mit eigenem Aufgaben-Generator und allen Pools wie bei jeder Karte.
+2. Aufgaben: Jeden Eintrag unter fehler beheben (im Generator, sodass der Fehler in keiner Variante mehr vorkommt).
+   Jede generator_regel umsetzen. Jeden fehlenden Aufgabentyp aus fehlende_aufgabentypen einbauen und auf die Stufen verteilen;
+   Stufe 3 soll ein anderer Gedanke sein, nicht nur größere Zahlen.
+3. Zeichnungen nachrüsten: Wo die Prüfung ein bild vorschlägt oder das Feld offen der Themen-Datei eine fehlende Zeichnung nennt,
+   die die App inzwischen kann (Koordinatensystem mit Graphen, Figur, Säulen-/Kreisdiagramm, Tabelle, Boxplot, Baumdiagramm),
+   Bilder in Lernkarten (bild) und Aufgaben (f.grafik) einbauen. Erledigte Punkte aus offen streichen.
+4. Brüche, Zahlenpaare, Punkte als Antwort: als luecken (□/□, x = □; y = □, S(□ | □)) statt Auswahl, wo das die bessere Aufgabe ist.
+5. Gerundete Ergebnisse: toleranz in o setzen (eine Einheit der letzten verlangten Stelle).
+6. Bist du mit einem Prüfpunkt fachlich nicht einverstanden: nicht umsetzen, sondern unter offen begründen.
+7. Generator laufen lassen, `python3 -I tools/inhalt_pruefen.py inhalte/themen/<thema>.json` muss OK melden. Mindestens 10 Aufgaben je Lernkarte selbst lesen.
+   Ein Thema = ein Commit, Push auf einarbeiten-kl8. In die Commit-Nachricht: wie viele Prüfpunkte umgesetzt, wie viele abgelehnt.
+
+Themen ohne Prüfdateien überspringen und am Ende nennen.
+
+Verboten: Dateien unter inhalte/pruefung/ ändern, Datenbank, Serverfunktionen, App-Code, Tests, Merge nach main.
+Arbeite ohne Rückfragen durch. Am Ende: je Thema umgesetzte/abgelehnte Punkte, neue Lernkarten, Zahl der Bilder, verbleibende offen-Punkte.
+```
+
+## Einarbeiten Klasse 6 (8 Themen)
+
+```text
+Du überarbeitest Mathe-Lerninhalte einer Lern-App (Gymnasium Bayern, Klasse 6) nach einer Prüfung.
+Repository: beinhoff77-stack/ki-system. Hole den aktuellen Stand von lernen-app, lege davon den Zweig einarbeiten-kl6 an und führe die Zweige
+origin/pruefung-erklaerungen und origin/pruefung-aufgaben hinein (sie enthalten nur Dateien unter inhalte/pruefung/).
+
+Lies vollständig: inhalte/README.md (besonders „Erfahrungen“ und „Zeichnungen“) und inhalte/pruefung/README.md (Format der Prüfergebnisse).
+
+Themen dieses Pakets: bruch.brueche, bruch.dezimal, bruch.prozent, bruch.rechnen, daten.darstellen, daten.kennwerte, terme.potenzgesetze, zahlen.potenzen_zehner
+
+Für jedes Thema, zu dem Prüfdateien vorliegen (inhalte/pruefung/erklaerungen/<thema>.json und inhalte/pruefung/aufgaben/<thema>.json):
+1. Erklärungen: Jedes Feld unter karten[].neu wörtlich in die Lernkarte des Generators übernehmen (es ersetzt das alte Feld vollständig).
+   neue_karten als vollständige Lernkarte einbauen – mit eigenem Aufgaben-Generator und allen Pools wie bei jeder Karte.
+2. Aufgaben: Jeden Eintrag unter fehler beheben (im Generator, sodass der Fehler in keiner Variante mehr vorkommt).
+   Jede generator_regel umsetzen. Jeden fehlenden Aufgabentyp aus fehlende_aufgabentypen einbauen und auf die Stufen verteilen;
+   Stufe 3 soll ein anderer Gedanke sein, nicht nur größere Zahlen.
+3. Zeichnungen nachrüsten: Wo die Prüfung ein bild vorschlägt oder das Feld offen der Themen-Datei eine fehlende Zeichnung nennt,
+   die die App inzwischen kann (Koordinatensystem mit Graphen, Figur, Säulen-/Kreisdiagramm, Tabelle, Boxplot, Baumdiagramm),
+   Bilder in Lernkarten (bild) und Aufgaben (f.grafik) einbauen. Erledigte Punkte aus offen streichen.
+4. Brüche, Zahlenpaare, Punkte als Antwort: als luecken (□/□, x = □; y = □, S(□ | □)) statt Auswahl, wo das die bessere Aufgabe ist.
+5. Gerundete Ergebnisse: toleranz in o setzen (eine Einheit der letzten verlangten Stelle).
+6. Bist du mit einem Prüfpunkt fachlich nicht einverstanden: nicht umsetzen, sondern unter offen begründen.
+7. Generator laufen lassen, `python3 -I tools/inhalt_pruefen.py inhalte/themen/<thema>.json` muss OK melden. Mindestens 10 Aufgaben je Lernkarte selbst lesen.
+   Ein Thema = ein Commit, Push auf einarbeiten-kl6. In die Commit-Nachricht: wie viele Prüfpunkte umgesetzt, wie viele abgelehnt.
+
+Themen ohne Prüfdateien überspringen und am Ende nennen.
+
+Verboten: Dateien unter inhalte/pruefung/ ändern, Datenbank, Serverfunktionen, App-Code, Tests, Merge nach main.
+Arbeite ohne Rückfragen durch. Am Ende: je Thema umgesetzte/abgelehnte Punkte, neue Lernkarten, Zahl der Bilder, verbleibende offen-Punkte.
+```
+
+## Einarbeiten Klasse 9 (14 Themen)
+
+```text
+Du überarbeitest Mathe-Lerninhalte einer Lern-App (Gymnasium Bayern, Klasse 9) nach einer Prüfung.
+Repository: beinhoff77-stack/ki-system. Hole den aktuellen Stand von lernen-app, lege davon den Zweig einarbeiten-kl9 an und führe die Zweige
+origin/pruefung-erklaerungen und origin/pruefung-aufgaben hinein (sie enthalten nur Dateien unter inhalte/pruefung/).
+
+Lies vollständig: inhalte/README.md (besonders „Erfahrungen“ und „Zeichnungen“) und inhalte/pruefung/README.md (Format der Prüfergebnisse).
+
+Themen dieses Pakets: abbildungen.aehnlichkeit, funktionen.potenz, funktionen.quadratisch, gleichungen.lgs3, gleichungen.potenz, gleichungen.quadratisch, gleichungen.trig, stochastik.verknuepft, trigo.allgemein, trigo.pythagoras, trigo.rechtwinklig, zahlen.rationale_exponenten, zahlen.reell, zahlen.wurzeln_basis
+
+Für jedes Thema, zu dem Prüfdateien vorliegen (inhalte/pruefung/erklaerungen/<thema>.json und inhalte/pruefung/aufgaben/<thema>.json):
+1. Erklärungen: Jedes Feld unter karten[].neu wörtlich in die Lernkarte des Generators übernehmen (es ersetzt das alte Feld vollständig).
+   neue_karten als vollständige Lernkarte einbauen – mit eigenem Aufgaben-Generator und allen Pools wie bei jeder Karte.
+2. Aufgaben: Jeden Eintrag unter fehler beheben (im Generator, sodass der Fehler in keiner Variante mehr vorkommt).
+   Jede generator_regel umsetzen. Jeden fehlenden Aufgabentyp aus fehlende_aufgabentypen einbauen und auf die Stufen verteilen;
+   Stufe 3 soll ein anderer Gedanke sein, nicht nur größere Zahlen.
+3. Zeichnungen nachrüsten: Wo die Prüfung ein bild vorschlägt oder das Feld offen der Themen-Datei eine fehlende Zeichnung nennt,
+   die die App inzwischen kann (Koordinatensystem mit Graphen, Figur, Säulen-/Kreisdiagramm, Tabelle, Boxplot, Baumdiagramm),
+   Bilder in Lernkarten (bild) und Aufgaben (f.grafik) einbauen. Erledigte Punkte aus offen streichen.
+4. Brüche, Zahlenpaare, Punkte als Antwort: als luecken (□/□, x = □; y = □, S(□ | □)) statt Auswahl, wo das die bessere Aufgabe ist.
+5. Gerundete Ergebnisse: toleranz in o setzen (eine Einheit der letzten verlangten Stelle).
+6. Bist du mit einem Prüfpunkt fachlich nicht einverstanden: nicht umsetzen, sondern unter offen begründen.
+7. Generator laufen lassen, `python3 -I tools/inhalt_pruefen.py inhalte/themen/<thema>.json` muss OK melden. Mindestens 10 Aufgaben je Lernkarte selbst lesen.
+   Ein Thema = ein Commit, Push auf einarbeiten-kl9. In die Commit-Nachricht: wie viele Prüfpunkte umgesetzt, wie viele abgelehnt.
+
+Themen ohne Prüfdateien überspringen und am Ende nennen.
+
+Verboten: Dateien unter inhalte/pruefung/ ändern, Datenbank, Serverfunktionen, App-Code, Tests, Merge nach main.
+Arbeite ohne Rückfragen durch. Am Ende: je Thema umgesetzte/abgelehnte Punkte, neue Lernkarten, Zahl der Bilder, verbleibende offen-Punkte.
+```
+
+## Einarbeiten Klasse 7 (6 Themen)
+
+```text
+Du überarbeitest Mathe-Lerninhalte einer Lern-App (Gymnasium Bayern, Klasse 7) nach einer Prüfung.
+Repository: beinhoff77-stack/ki-system. Hole den aktuellen Stand von lernen-app, lege davon den Zweig einarbeiten-kl7 an und führe die Zweige
+origin/pruefung-erklaerungen und origin/pruefung-aufgaben hinein (sie enthalten nur Dateien unter inhalte/pruefung/).
+
+Lies vollständig: inhalte/README.md (besonders „Erfahrungen“ und „Zeichnungen“) und inhalte/pruefung/README.md (Format der Prüfergebnisse).
+
+Themen dieses Pakets: abbildungen.kongruenz, bruch.prozent_grundwert, daten.boxplot, geometrie.konstruktion, geometrie.kreis, terme.aufstellen
+
+Für jedes Thema, zu dem Prüfdateien vorliegen (inhalte/pruefung/erklaerungen/<thema>.json und inhalte/pruefung/aufgaben/<thema>.json):
+1. Erklärungen: Jedes Feld unter karten[].neu wörtlich in die Lernkarte des Generators übernehmen (es ersetzt das alte Feld vollständig).
+   neue_karten als vollständige Lernkarte einbauen – mit eigenem Aufgaben-Generator und allen Pools wie bei jeder Karte.
+2. Aufgaben: Jeden Eintrag unter fehler beheben (im Generator, sodass der Fehler in keiner Variante mehr vorkommt).
+   Jede generator_regel umsetzen. Jeden fehlenden Aufgabentyp aus fehlende_aufgabentypen einbauen und auf die Stufen verteilen;
+   Stufe 3 soll ein anderer Gedanke sein, nicht nur größere Zahlen.
+3. Zeichnungen nachrüsten: Wo die Prüfung ein bild vorschlägt oder das Feld offen der Themen-Datei eine fehlende Zeichnung nennt,
+   die die App inzwischen kann (Koordinatensystem mit Graphen, Figur, Säulen-/Kreisdiagramm, Tabelle, Boxplot, Baumdiagramm),
+   Bilder in Lernkarten (bild) und Aufgaben (f.grafik) einbauen. Erledigte Punkte aus offen streichen.
+4. Brüche, Zahlenpaare, Punkte als Antwort: als luecken (□/□, x = □; y = □, S(□ | □)) statt Auswahl, wo das die bessere Aufgabe ist.
+5. Gerundete Ergebnisse: toleranz in o setzen (eine Einheit der letzten verlangten Stelle).
+6. Bist du mit einem Prüfpunkt fachlich nicht einverstanden: nicht umsetzen, sondern unter offen begründen.
+7. Generator laufen lassen, `python3 -I tools/inhalt_pruefen.py inhalte/themen/<thema>.json` muss OK melden. Mindestens 10 Aufgaben je Lernkarte selbst lesen.
+   Ein Thema = ein Commit, Push auf einarbeiten-kl7. In die Commit-Nachricht: wie viele Prüfpunkte umgesetzt, wie viele abgelehnt.
+
+Themen ohne Prüfdateien überspringen und am Ende nennen.
+
+Verboten: Dateien unter inhalte/pruefung/ ändern, Datenbank, Serverfunktionen, App-Code, Tests, Merge nach main.
+Arbeite ohne Rückfragen durch. Am Ende: je Thema umgesetzte/abgelehnte Punkte, neue Lernkarten, Zahl der Bilder, verbleibende offen-Punkte.
+```
+
+## Einarbeiten Klasse 10 (7 Themen)
+
+```text
+Du überarbeitest Mathe-Lerninhalte einer Lern-App (Gymnasium Bayern, Klasse 10) nach einer Prüfung.
+Repository: beinhoff77-stack/ki-system. Hole den aktuellen Stand von lernen-app, lege davon den Zweig einarbeiten-kl10 an und führe die Zweige
+origin/pruefung-erklaerungen und origin/pruefung-aufgaben hinein (sie enthalten nur Dateien unter inhalte/pruefung/).
+
+Lies vollständig: inhalte/README.md (besonders „Erfahrungen“ und „Zeichnungen“) und inhalte/pruefung/README.md (Format der Prüfergebnisse).
+
+Themen dieses Pakets: funktionen.exponential_log, funktionen.ganzrational, funktionen.trig, gleichungen.exponential, gleichungen.polynom, raum.pyramide_kegel_kugel, stochastik.mehrstufig
+
+Für jedes Thema, zu dem Prüfdateien vorliegen (inhalte/pruefung/erklaerungen/<thema>.json und inhalte/pruefung/aufgaben/<thema>.json):
+1. Erklärungen: Jedes Feld unter karten[].neu wörtlich in die Lernkarte des Generators übernehmen (es ersetzt das alte Feld vollständig).
+   neue_karten als vollständige Lernkarte einbauen – mit eigenem Aufgaben-Generator und allen Pools wie bei jeder Karte.
+2. Aufgaben: Jeden Eintrag unter fehler beheben (im Generator, sodass der Fehler in keiner Variante mehr vorkommt).
+   Jede generator_regel umsetzen. Jeden fehlenden Aufgabentyp aus fehlende_aufgabentypen einbauen und auf die Stufen verteilen;
+   Stufe 3 soll ein anderer Gedanke sein, nicht nur größere Zahlen.
+3. Zeichnungen nachrüsten: Wo die Prüfung ein bild vorschlägt oder das Feld offen der Themen-Datei eine fehlende Zeichnung nennt,
+   die die App inzwischen kann (Koordinatensystem mit Graphen, Figur, Säulen-/Kreisdiagramm, Tabelle, Boxplot, Baumdiagramm),
+   Bilder in Lernkarten (bild) und Aufgaben (f.grafik) einbauen. Erledigte Punkte aus offen streichen.
+4. Brüche, Zahlenpaare, Punkte als Antwort: als luecken (□/□, x = □; y = □, S(□ | □)) statt Auswahl, wo das die bessere Aufgabe ist.
+5. Gerundete Ergebnisse: toleranz in o setzen (eine Einheit der letzten verlangten Stelle).
+6. Bist du mit einem Prüfpunkt fachlich nicht einverstanden: nicht umsetzen, sondern unter offen begründen.
+7. Generator laufen lassen, `python3 -I tools/inhalt_pruefen.py inhalte/themen/<thema>.json` muss OK melden. Mindestens 10 Aufgaben je Lernkarte selbst lesen.
+   Ein Thema = ein Commit, Push auf einarbeiten-kl10. In die Commit-Nachricht: wie viele Prüfpunkte umgesetzt, wie viele abgelehnt.
+
+Themen ohne Prüfdateien überspringen und am Ende nennen.
+
+Verboten: Dateien unter inhalte/pruefung/ ändern, Datenbank, Serverfunktionen, App-Code, Tests, Merge nach main.
+Arbeite ohne Rückfragen durch. Am Ende: je Thema umgesetzte/abgelehnte Punkte, neue Lernkarten, Zahl der Bilder, verbleibende offen-Punkte.
+```
+

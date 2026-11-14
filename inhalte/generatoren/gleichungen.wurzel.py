@@ -90,7 +90,7 @@ def g_definitionsmenge(s):
 def g_quadrieren(s):
     if s == 1:
         c = R.randint(1, 12)
-        b = R.randint(-20, 20)
+        b = nz(20)
         x = c * c - b
         return zahl(f'Löse √(x {plus(b)}) = {c}.', f'Quadrieren: x {plus(b)} = {c * c} ⇒ x = {dz(x)}. Probe: √{c * c} = {c} ✓.',
                     'Quadriere beide Seiten.', x, f'{c} ** 2 - ({b})')
@@ -123,7 +123,7 @@ def g_quadrieren(s):
 
 def g_isolieren(s):
     c = R.randint(1, 9)
-    b = R.randint(-15, 15)
+    b = nz(15)
     x = c * c - b
     if s == 1:
         d = R.randint(1, 20)
@@ -159,7 +159,7 @@ def g_isolieren(s):
 
 def g_probe(s):
     c = R.randint(1, 9)
-    b = R.randint(-15, 15)
+    b = nz(15)
     if s == 1:
         return auswahl(f'Welche Lösungsmenge hat √(x {plus(b)}) = −{c}?', 'L = { }', [f'L = {{{dz(c * c - b)}}}', f'L = {{{dz(-c * c - b)}}}', f'L = {{−{c}; {c}}}'],
                        f'Eine Wurzel ist nie negativ. Quadrieren liefert x = {dz(c * c - b)}, aber die Probe ergibt √{c * c} = {c} ≠ −{c}.',
@@ -202,7 +202,7 @@ def zwei_seiten_daten():
         if (r1 + r2) % 2 == 0 or r1 == r2: continue
         c = (1 - r1 - r2) // 2
         b = c * c - r1 * r2
-        if r1 + c >= 0 and r2 + c < 0 and abs(b) <= 40 and abs(c) <= 9 and b != 0:
+        if r1 + c >= 0 and r2 + c < 0 and abs(b) <= 40 and abs(c) <= 9 and b != 0 and c != 0:
             return r1, r2, b, c
     raise SystemExit('keine Daten')
 

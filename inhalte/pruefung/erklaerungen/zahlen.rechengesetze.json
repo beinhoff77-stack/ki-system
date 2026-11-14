@@ -1,0 +1,129 @@
+{
+  "thema_schluessel": "zahlen.rechengesetze",
+  "gesamturteil": "brauchbar",
+  "thema_hinweise": [
+    "Reihenfolge: Laut inhalt.abschnitte gehört „termaufbau“ in den ersten Bereich („Reihenfolge beim Rechnen“), in inhalt.etappen steht die Karte aber ganz am Ende. Vorschlag: „termaufbau“ direkt hinter „klammern“ setzen.",
+    "Lehrplanpunkt „Differenz als Summe deuten“ (Rechenzeichen gehört zur Zahl dahinter, z. B. 47 − 18 + 13 = 47 + 13 − 18) wird in keiner Karte erklärt. Neue Karte „differenz_summe“ hinter „vorteil“.",
+    "Die Vorzeichenregel für mal und geteilt („Minus mal Minus ergibt Plus“) steht ohne jede Begründung da. Für Klasse 5 gibt es eine einfache, einleuchtende Begründung über eine Rechenreihe; sie ist in „mal_ganz“ eingebaut.",
+    "Die Karte „schriftlich“ erklärt das schriftliche Dividieren nur in einem Satz, ohne Beispiel – ein vorgerechnetes Beispiel ist ergänzt."
+  ],
+  "karten": [
+    {
+      "lernziel": "punkt_strich",
+      "urteil": "verbessern",
+      "probleme": [
+        "Die Regel kommt als bloße Vereinbarung. Mit einem Einkauf sieht das Kind, warum zuerst malgenommen wird: Das Produkt ist ein zusammengehöriger Preis."
+      ],
+      "neu": {
+        "regel": "⟦Punktrechnung⟧ (mal und geteilt) kommt vor ⟦Strichrechnung⟧ (plus und minus). Gleichrangiges wird von links nach rechts gerechnet.",
+        "schritte": [
+          "Du kaufst eine Tüte Popcorn für 3 € und 4 Kinokarten zu je 5 €: 3 + 4 · 5.",
+          "Zuerst der Punkt: 4 Karten kosten 4 · 5 = 20 €.",
+          "Dann der Strich: 3 + 20 = ⟦23⟧ €."
+        ],
+        "fehler": "Einfach von links nach rechts: 3 + 4 = 7, 7 · 5 = 35 ist falsch. Das wären 7 Kinokarten – du hast aber nur 4 gekauft. Erst ⟦4 · 5⟧, dann plus 3."
+      }
+    },
+    {
+      "lernziel": "klammern",
+      "urteil": "verbessern",
+      "probleme": [
+        "Die Regel nennt Klammern in Klammern, aber kein Beispiel zeigt es.",
+        "Der typische Fehler ist ohne Zahlen formuliert."
+      ],
+      "neu": {
+        "schritte": [
+          "(3 + 4) · 5: zuerst die Klammer, 3 + 4 = 7. Dann 7 · 5 = ⟦35⟧.",
+          "Klammer in Klammer: 2 · (10 − (3 + 4)). Innen zuerst: 3 + 4 = 7.",
+          "Dann die äußere Klammer: 10 − 7 = 3. Zum Schluss 2 · 3 = ⟦6⟧."
+        ],
+        "probe": "Ohne Klammer wäre 3 + 4 · 5 = 23. Die Klammer ändert das Ergebnis.",
+        "fehler": "Die Klammer übersehen und Punkt vor Strich rechnen: (3 + 4) · 5 = 3 + 20 = 23 ist falsch. Die Klammer sagt: Erst ⟦3 + 4⟧ ausrechnen, dann mal 5. Richtig ist 35."
+      }
+    },
+    {
+      "lernziel": "vorteil",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "verteilen",
+      "urteil": "verbessern",
+      "probleme": [
+        "Das Verteilen wird als Regel gezeigt, aber nicht begründet. Mit einem Einkauf sieht man, warum auch die 2 mal 7 genommen werden muss.",
+        "Kein Alltagsbezug."
+      ],
+      "neu": {
+        "regel": "Eine Zahl mal eine Klammer: mit ⟦jedem⟧ Teil der Klammer malnehmen. 7 · (100 − 2) = 7 · 100 − 7 · 2. Rückwärts: gemeinsamen Faktor ⟦ausklammern⟧, 6 · 13 + 6 · 7 = 6 · (13 + 7) = 6 · 20.",
+        "schritte": [
+          "Ein Verein kauft 7 Sporttaschen zu je 98 €: 7 · 98 = 7 · (100 − 2).",
+          "Stell dir vor, jede Tasche kostet 100 €: 7 · 100 = 700 €. Aber jede Tasche ist 2 € billiger, das sind 7 · 2 = 14 € zu viel.",
+          "700 − 14 = ⟦686⟧ €."
+        ],
+        "fehler": "Nur den ersten Teil malnehmen: 7 · (100 − 2) = 700 − 2 ist falsch. Jede der ⟦7⟧ Taschen ist 2 € billiger, also ziehst du 7 · 2 = 14 ab, nicht nur 2."
+      }
+    },
+    {
+      "lernziel": "mal_ganz",
+      "urteil": "verbessern",
+      "probleme": [
+        "„Minus mal Minus ergibt Plus“ wird nur behauptet. Kinder lernen es dann als Rezept und übertragen es falsch aufs Addieren ((−3) + (−5) = 8).",
+        "Für Klasse 5 gibt es eine einleuchtende Begründung über eine Rechenreihe; sie fehlt."
+      ],
+      "neu": {
+        "regel": "Rechne mit den Beträgen. Dann das Vorzeichen: ⟦gleiche⟧ Vorzeichen ergeben plus, ⟦verschiedene⟧ Vorzeichen ergeben minus.",
+        "schritte": [
+          "Von deinem Konto werden 4-mal je 6 € abgebucht: 4 · (−6) = (−6) + (−6) + (−6) + (−6) = ⟦−24⟧.",
+          "Warum ist Minus mal Minus plus? Schau auf die Reihe: (−6) · 2 = −12, (−6) · 1 = −6, (−6) · 0 = 0.",
+          "Bei jedem Schritt wird das Ergebnis um 6 größer. Also geht es so weiter: (−6) · (−1) = ⟦6⟧, (−6) · (−2) = ⟦12⟧."
+        ],
+        "fehler": "(−6) · (−4) = −24 ist falsch: Zwei gleiche Vorzeichen ergeben ⟦Plus⟧, also 24. Aber Achtung: Die Regel gilt nur für mal und geteilt. Beim Addieren ist (−6) + (−4) = −10."
+      },
+      "strategie": "Begründung über das Fortsetzen einer Rechenreihe (Permanenzprinzip) statt Rezept. Das Kind kann sich die Regel so jederzeit selbst herleiten."
+    },
+    {
+      "lernziel": "geteilt_ganz",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "ueberschlag",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "schriftlich",
+      "urteil": "verbessern",
+      "probleme": [
+        "Das schriftliche Dividieren wird nur in einem Satz beschrieben; ein vorgerechnetes Beispiel fehlt, obwohl die Aufgaben fast nur Divisionen sind."
+      ],
+      "neu": {
+        "schritte": [
+          "Mal: 347 · 26. Rechne 347 · 20 = 6 940 und 347 · 6 = 2 082. Zusammen ⟦9 022⟧. Überschlag: 350 · 25 = 8 750, passt ✓",
+          "Geteilt: 1 476 : 6. Die 1 allein geht nicht, also 14 : 6 = 2, denn 2 · 6 = 12. Rest 14 − 12 = 2.",
+          "Die 7 herunterholen: 27 : 6 = 4, denn 4 · 6 = 24. Rest 3.",
+          "Die 6 herunterholen: 36 : 6 = 6, Rest 0. Ergebnis: ⟦246⟧."
+        ],
+        "probe": "246 · 6 = 1 476 ✓",
+        "fehler": "Beim Malnehmen das Teilprodukt mit der Zehnerziffer nicht um eine Stelle versetzen: 347 · 2 Zehner sind ⟦6 940⟧, nicht 694. Beim Teilen eine Null im Ergebnis vergessen: 1 236 : 6 ist 206, nicht 26 – wenn die heruntergeholte Ziffer nicht reicht, schreibst du ⟦0⟧ ins Ergebnis."
+      }
+    },
+    {
+      "lernziel": "termaufbau",
+      "urteil": "ok"
+    }
+  ],
+  "neue_karten": [
+    {
+      "nach": "vorteil",
+      "lernziel": "differenz_summe",
+      "titel": "Das Minus wandert mit",
+      "regel": "Jede Differenz ist eine Summe: 47 − 18 = 47 + (−18). Das Rechenzeichen ⟦gehört zur Zahl dahinter⟧. Wenn du Zahlen tauschst, nimmst du ihr Zeichen ⟦mit⟧.",
+      "schritte": [
+        "Du hast 47 € und gibst 18 € aus. Dann bekommst du 13 € geschenkt: 47 − 18 + 13.",
+        "Tausche die +13 nach vorn, das Minus bleibt bei der 18: 47 + 13 − 18.",
+        "47 + 13 = 60, und 60 − 18 = ⟦42⟧ €."
+      ],
+      "probe": "Von links nach rechts: 47 − 18 = 29, 29 + 13 = 42 ✓",
+      "fehler": "47 − 18 + 13 = 47 − 31 = 16 ist falsch. Du hast die 13 mit unter das Minus gezogen. Die 13 bekommst du aber ⟦dazu⟧, du gibst sie nicht aus.",
+      "begruendung": "Lehrplanpunkt „Differenz als Summe deuten“ ist sonst nirgends erklärt; der Fehler 47 − 18 + 13 = 47 − 31 ist einer der häufigsten in Klasse 5."
+    }
+  ]
+}

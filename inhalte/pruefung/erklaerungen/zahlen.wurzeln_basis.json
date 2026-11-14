@@ -1,0 +1,108 @@
+{
+  "thema_schluessel": "zahlen.wurzeln_basis",
+  "gesamturteil": "gut",
+  "thema_hinweise": [
+    "Klar und fachlich richtig, gute Fehlerbeispiele (Wurzel ist nicht halbieren). Verbessert: die geometrische Bedeutung der Quadratwurzel (Seite eines Quadrats) gleich auf der ersten Karte mit Bild, ein eleganter Endziffern-Trick und die Begründung der Kommaregel.",
+    "Lehrplanbezug fehlt (lehrplan_gym leer) – vom Aufbau-Prüfer klären lassen. Überschneidung mit zahlen.reell (Karte „eingrenzen“) und zahlen.rationale_exponenten (Karte „nte_wurzel“)."
+  ],
+  "karten": [
+    {
+      "lernziel": "quadratwurzel",
+      "urteil": "verbessern",
+      "probleme": [
+        "Die Wurzel wird nur als Rechenoperation erklärt. Die Bedeutung „Seitenlänge eines Quadrats mit gegebener Fläche“ macht sie anschaulich; sie kommt erst in der letzten Karte.",
+        "Es fehlt ein schneller Weg, die Wurzel einer großen Quadratzahl zu finden."
+      ],
+      "neu": {
+        "regel": "Die ⟦Quadratwurzel⟧ √a ist die Zahl ⟦ohne Minus⟧, die mit sich selbst multipliziert a ergibt. Anschaulich: Ein Quadrat hat die Fläche a – dann ist √a seine ⟦Seitenlänge⟧. Die Zahl unter dem Wurzelzeichen heißt ⟦Radikand⟧.",
+        "schritte": [
+          "Ein quadratischer Teppich hat 196 dm² Fläche. Wie lang ist eine Seite? Gesucht ist √196.",
+          "196 liegt zwischen 100 = 10² und 225 = 15². Die Endziffer 6 entsteht nur bei 4 · 4 oder 6 · 6. Also kommt 14 oder 16 in Frage.",
+          "14 · 14 = 196, also √196 = ⟦14⟧. Die Seite ist 14 dm lang."
+        ],
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "A": [
+              0,
+              0
+            ],
+            "B": [
+              14,
+              0
+            ],
+            "C": [
+              14,
+              14
+            ],
+            "D": [
+              0,
+              14
+            ]
+          },
+          "flaeche": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "linien": [
+            [
+              "A",
+              "B",
+              "a = ?"
+            ],
+            [
+              "B",
+              "C"
+            ],
+            [
+              "C",
+              "D",
+              "A = 196 dm²"
+            ],
+            [
+              "D",
+              "A"
+            ]
+          ],
+          "rechter_winkel": [
+            [
+              "A",
+              "B",
+              "D"
+            ]
+          ]
+        }
+      },
+      "strategie": "Endziffern-Trick mit Eingrenzen: Zwischen welchen Zehnerquadraten liegt die Zahl? Welche Endziffer kann die Wurzel haben? Begründung: Die Endziffer eines Quadrats hängt nur von der Endziffer der Zahl ab."
+    },
+    {
+      "lernziel": "wurzel_dezimal",
+      "urteil": "verbessern",
+      "probleme": [
+        "Die Regel „halb so viele Nachkommastellen“ steht ohne Begründung da. Über Zehnerbrüche ist sie in einer Zeile klar."
+      ],
+      "neu": {
+        "regel": "Bei Dezimalzahlen hat die Wurzel ⟦halb so viele Nachkommastellen⟧ wie der Radikand. Warum? 0,64 = 64/100, und √(64/100) = 8/10 = 0,8 – aus Hundertsteln werden Zehntel. Bei Brüchen ziehst du aus ⟦Zähler und Nenner⟧ einzeln die Wurzel."
+      }
+    },
+    {
+      "lernziel": "kubikwurzel",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "abschaetzen",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "wurzel_deuten",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "wurzel_sache",
+      "urteil": "ok"
+    }
+  ],
+  "neue_karten": []
+}

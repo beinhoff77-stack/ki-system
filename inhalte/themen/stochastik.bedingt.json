@@ -1,0 +1,5437 @@
+{
+ "thema_schluessel": "stochastik.bedingt",
+ "thema_id": 82,
+ "block_id": 88,
+ "klasse": {
+  "ib_myp": 4
+ },
+ "autor": "Claude (Paket IB)",
+ "inhalt": {
+  "ziel": "Bedingte Wahrscheinlichkeiten aus Tafeln, Formeln und Baumdiagrammen bestimmen, Unabhängigkeit prüfen und Rückschlüsse mit Häufigkeiten ziehen.",
+  "merke": [
+   "P(A | B) (conditional probability): Wahrscheinlichkeit von A, wenn B schon feststeht.",
+   "P(A | B) = P(A ∩ B) : P(B); P(A ∩ B) = P(B) · P(A | B).",
+   "Unabhängig (independent): P(A | B) = P(A), also P(A ∩ B) = P(A) · P(B).",
+   "Ohne Zurücklegen: zweite Stufe ändert sich.",
+   "P(A | B) ≠ P(B | A) – die Bedingung steht hinter dem Strich."
+  ],
+  "abschnitte": [
+   {
+    "titel": "Bedingte Wahrscheinlichkeit",
+    "lernziele": [
+     "tafel",
+     "formel",
+     "baum"
+    ]
+   },
+   {
+    "titel": "Abhängigkeit",
+    "lernziele": [
+     "unabhaengig"
+    ]
+   },
+   {
+    "titel": "Schließen und verstehen",
+    "lernziele": [
+     "rueckschluss",
+     "verstehen"
+    ]
+   }
+  ],
+  "etappen": [
+   {
+    "lernziel": "tafel",
+    "titel": "P(A | B) aus der Vierfeldertafel",
+    "regel": "⟦P(A | B)⟧ (lies: „A unter der Bedingung B“, conditional probability) ist die Wahrscheinlichkeit von A, ⟦wenn man schon weiß⟧, dass B eingetreten ist. In der Tafel betrachtest du nur die ⟦Spalte (oder Zeile) von B⟧: P(A | B) = Anzahl „A und B“ : ⟦Anzahl B⟧.",
+    "schritte": [
+     "200 Kinder; 50 fahren Rad, davon tragen 20 eine Brille.",
+     "Bedingung „fährt Rad“: Nur die 50 Radfahrer zählen.",
+     "P(Brille | Rad) = 20 : 50 = ⟦0,4⟧."
+    ],
+    "probe": "Geteilt wird durch die Spaltensumme 50, nicht durch 200 ✓",
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "Rad",
+      "kein Rad",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "Brille",
+       "20",
+       "40",
+       "60"
+      ],
+      [
+       "keine Brille",
+       "30",
+       "110",
+       "140"
+      ],
+      [
+       "Summe",
+       "50",
+       "150",
+       "200"
+      ]
+     ]
+    },
+    "fehler": "P(Brille | Rad) = 20 : 200 = 0,1 ist falsch: Das ist P(Brille ∩ Rad). Unter der Bedingung „Rad“ teilt man durch die ⟦Anzahl der Radfahrer⟧ (50)."
+   },
+   {
+    "lernziel": "formel",
+    "titel": "Die Formel P(A | B)",
+    "regel": "Mit Wahrscheinlichkeiten gilt: ⟦P(A | B) = P(A ∩ B) : P(B)⟧. Umgestellt: ⟦P(A ∩ B) = P(B) · P(A | B)⟧ – die Multiplikationsregel.",
+    "schritte": [
+     "P(B) = 0,4 und P(A ∩ B) = 0,1.",
+     "P(A | B) = 0,1 : 0,4 = ⟦0,25⟧."
+    ],
+    "probe": "0,4 · 0,25 = 0,1 ✓",
+    "fehler": "P(A | B) = 0,1 · 0,4 = 0,04 ist falsch: Für die bedingte Wahrscheinlichkeit wird ⟦geteilt⟧, nicht multipliziert. Multipliziert wird nur für P(A ∩ B)."
+   },
+   {
+    "lernziel": "baum",
+    "titel": "Ziehen ohne Zurücklegen",
+    "regel": "Beim Ziehen ⟦ohne Zurücklegen⟧ ändern sich die Wahrscheinlichkeiten auf der zweiten Stufe: Es ist eine Kugel weniger da. Die Äste der zweiten Stufe sind ⟦bedingte Wahrscheinlichkeiten⟧. Pfadwahrscheinlichkeit: ⟦entlang des Pfades multiplizieren⟧.",
+    "schritte": [
+     "Urne: 3 rote, 2 blaue Kugeln. Zwei Züge ohne Zurücklegen.",
+     "P(1. rot) = 3/5. Danach 2 rote von 4: P(2. rot | 1. rot) = 2/4.",
+     "P(rot, rot) = 3/5 · 2/4 = ⟦3/10⟧."
+    ],
+    "probe": "Alle vier Pfade: 6/20 + 6/20 + 6/20 + 2/20 = 1 ✓",
+    "bild": {
+     "typ": "baum",
+     "aeste": [
+      {
+       "text": "rot",
+       "p": "3/5",
+       "aeste": [
+        {
+         "text": "rot",
+         "p": "2/4"
+        },
+        {
+         "text": "blau",
+         "p": "2/4"
+        }
+       ]
+      },
+      {
+       "text": "blau",
+       "p": "2/5",
+       "aeste": [
+        {
+         "text": "rot",
+         "p": "3/4"
+        },
+        {
+         "text": "blau",
+         "p": "1/4"
+        }
+       ]
+      }
+     ]
+    },
+    "fehler": "P(rot, rot) = 3/5 · 3/5 ist falsch, wenn ⟦nicht zurückgelegt⟧ wird: Beim zweiten Zug sind nur noch 2 rote von 4 Kugeln da."
+   },
+   {
+    "lernziel": "unabhaengig",
+    "titel": "Abhängig oder unabhängig?",
+    "regel": "A und B sind ⟦unabhängig⟧ (independent), wenn das Wissen über B die Wahrscheinlichkeit von A nicht ändert: ⟦P(A | B) = P(A)⟧. Gleichwertig: ⟦P(A ∩ B) = P(A) · P(B)⟧. Sonst sind sie ⟦abhängig⟧.",
+    "schritte": [
+     "P(A) = 0,5, P(B) = 0,4, P(A ∩ B) = 0,2.",
+     "P(A) · P(B) = 0,5 · 0,4 = 0,2 = P(A ∩ B).",
+     "Also sind A und B ⟦unabhängig⟧."
+    ],
+    "probe": "P(A | B) = 0,2 : 0,4 = 0,5 = P(A) ✓",
+    "fehler": "„A und B schließen sich aus, also sind sie unabhängig“ ist falsch: Wenn A eintritt, ⟦kann B nicht mehr eintreten⟧ – das Wissen ändert P(B) auf 0. Unvereinbare Ereignisse (mit P > 0) sind ⟦abhängig⟧."
+   },
+   {
+    "lernziel": "rueckschluss",
+    "titel": "Rückschlüsse mit 1000 Fällen",
+    "regel": "Fragt man „umgekehrt“ (z. B. P(krank | Test positiv)), hilft es, sich ⟦1 000 Fälle⟧ vorzustellen: erst nach der ersten Stufe aufteilen, dann nach der zweiten. Dann ⟦nur die Fälle mit der Bedingung⟧ zählen.",
+    "schritte": [
+     "10 % von 1 000 Geräten sind defekt: 100 defekt, 900 in Ordnung. Ein Prüfgerät meldet (2. Stufe „ja“) 90 % der defekten (90) und irrtümlich 5 % der guten (45).",
+     "Gemeldet werden 90 + 45 = 135 Geräte.",
+     "P(defekt | gemeldet) = 90 : 135 = ⟦2/3⟧ ≈ 0,67."
+    ],
+    "probe": "90 + 10 = 100 defekte, 45 + 855 = 900 gute ✓",
+    "bild": {
+     "typ": "baum",
+     "aeste": [
+      {
+       "text": "defekt (100)",
+       "p": "0,1",
+       "aeste": [
+        {
+         "text": "ja",
+         "p": "0,9"
+        },
+        {
+         "text": "nein",
+         "p": "0,1"
+        }
+       ]
+      },
+      {
+       "text": "ok (900)",
+       "p": "0,9",
+       "aeste": [
+        {
+         "text": "ja",
+         "p": "0,05"
+        },
+        {
+         "text": "nein",
+         "p": "0,95"
+        }
+       ]
+      }
+     ]
+    },
+    "fehler": "P(defekt | gemeldet) = 0,9 ist falsch: 0,9 ist P(gemeldet | defekt). Die Bedingung ⟦vertauscht⟧ zu haben ist der häufigste Fehler – unter allen ⟦gemeldeten⟧ Geräten sind auch 45 gute."
+   },
+   {
+    "lernziel": "verstehen",
+    "titel": "Bedingungen richtig lesen",
+    "regel": "Achte darauf, ⟦was gegeben ist⟧ (die Bedingung, hinter dem Strich) und ⟦was gefragt ist⟧ (vor dem Strich). ⟦P(A | B) und P(B | A)⟧ sind meist verschieden, weil durch verschiedene Gruppen geteilt wird.",
+    "schritte": [
+     "„70 % der Hundebesitzer gehen täglich spazieren.“",
+     "Das ist ⟦P(spazieren | Hund) = 0,7⟧ – nicht P(Hund | spazieren)."
+    ],
+    "probe": "Bedingung „Hundebesitzer“ steht hinter dem Strich ✓",
+    "fehler": "„90 % der Lottogewinner haben Lotto gespielt, also gewinnt man beim Spielen mit 90 %“ ist falsch: Das verwechselt ⟦P(gespielt | gewonnen)⟧ mit ⟦P(gewonnen | gespielt)⟧."
+   }
+  ],
+  "teilfaehigkeiten": [
+   {
+    "k": "tafel",
+    "text": "P(A | B) aus der Vierfeldertafel",
+    "lernziele": [
+     "tafel"
+    ]
+   },
+   {
+    "k": "formel",
+    "text": "Die Formel P(A | B)",
+    "lernziele": [
+     "formel"
+    ]
+   },
+   {
+    "k": "baum",
+    "text": "Ziehen ohne Zurücklegen",
+    "lernziele": [
+     "baum"
+    ]
+   },
+   {
+    "k": "unabhaengig",
+    "text": "Abhängig oder unabhängig?",
+    "lernziele": [
+     "unabhaengig"
+    ]
+   },
+   {
+    "k": "rueckschluss",
+    "text": "Rückschlüsse mit 1000 Fällen",
+    "lernziele": [
+     "rueckschluss"
+    ]
+   },
+   {
+    "k": "verstehen",
+    "text": "Bedingungen richtig lesen",
+    "lernziele": [
+     "verstehen"
+    ]
+   }
+  ],
+  "bewertung": {
+   "lernziele_pflicht": [
+    "tafel",
+    "formel",
+    "baum",
+    "unabhaengig",
+    "verstehen"
+   ],
+   "lernziele_vertiefung": [
+    "rueckschluss"
+   ],
+   "testaufgaben_je_lernziel": 1
+  },
+  "quellen": {
+   "erklaerungen": "Eigene Fassung (Claude), Aufgaben vom Generator erzeugt und berechnet.",
+   "begriffe": "Fachbegriffe deutsch (LehrplanPLUS Bayern), IB-Begriffe beim ersten Auftreten englisch in Klammern."
+  }
+ },
+ "aufgaben": [
+  {
+   "l": "tafel",
+   "t": "tafel",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 500 Befragte einer Umfrage. Berechne P(unter 30 | liest E-Books). Gib das Ergebnis als gekürzten Bruch an.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "unter 30",
+      "ab 30",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "liest E-Books",
+       "32",
+       "105",
+       "137"
+      ],
+      [
+       "liest keine E-Books",
+       "29",
+       "334",
+       "363"
+      ],
+      [
+       "Summe",
+       "61",
+       "439",
+       "500"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     32,
+     137
+    ]
+   },
+   "w": "Bedingung „liest E-Books“: nur diese 137 zählen. Davon „unter 30“: 32. P = 32 : 137.",
+   "h": "Hinter dem Strich steht die Bedingung – durch deren Summe wird geteilt.",
+   "c": [
+    "32",
+    "137"
+   ]
+  },
+  {
+   "l": "tafel",
+   "t": "tafel",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 500 Befragte einer Umfrage. Berechne P(unter 30 | liest E-Books). Gib das Ergebnis als gekürzten Bruch an.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "unter 30",
+      "ab 30",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "liest E-Books",
+       "74",
+       "202",
+       "276"
+      ],
+      [
+       "liest keine E-Books",
+       "158",
+       "66",
+       "224"
+      ],
+      [
+       "Summe",
+       "232",
+       "268",
+       "500"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     37,
+     138
+    ]
+   },
+   "w": "Bedingung „liest E-Books“: nur diese 276 zählen. Davon „unter 30“: 74. P = 74 : 276 = 37/138.",
+   "h": "Hinter dem Strich steht die Bedingung – durch deren Summe wird geteilt.",
+   "c": [
+    "37",
+    "138"
+   ]
+  },
+  {
+   "l": "tafel",
+   "t": "tafel",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 200 Befragte einer Umfrage. Berechne P(unter 30 | liest E-Books). Gib das Ergebnis als gekürzten Bruch an.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "unter 30",
+      "ab 30",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "liest E-Books",
+       "81",
+       "46",
+       "127"
+      ],
+      [
+       "liest keine E-Books",
+       "33",
+       "40",
+       "73"
+      ],
+      [
+       "Summe",
+       "114",
+       "86",
+       "200"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     81,
+     127
+    ]
+   },
+   "w": "Bedingung „liest E-Books“: nur diese 127 zählen. Davon „unter 30“: 81. P = 81 : 127.",
+   "h": "Hinter dem Strich steht die Bedingung – durch deren Summe wird geteilt.",
+   "c": [
+    "81",
+    "127"
+   ]
+  },
+  {
+   "l": "tafel",
+   "t": "tafel",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 400 Befragte einer Umfrage. Berechne P(liest E-Books | unter 30). Gib das Ergebnis als gekürzten Bruch an.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "unter 30",
+      "ab 30",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "liest E-Books",
+       "160",
+       "102",
+       "262"
+      ],
+      [
+       "liest keine E-Books",
+       "91",
+       "47",
+       "138"
+      ],
+      [
+       "Summe",
+       "251",
+       "149",
+       "400"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     160,
+     251
+    ]
+   },
+   "w": "Bedingung „unter 30“: nur diese 251 zählen. Davon „liest E-Books“: 160. P = 160 : 251.",
+   "h": "Hinter dem Strich steht die Bedingung – durch deren Summe wird geteilt.",
+   "c": [
+    "160",
+    "251"
+   ]
+  },
+  {
+   "l": "tafel",
+   "t": "tafel",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 100 Besucher eines Kinos. Berechne P(Erwachsene | Popcorn gekauft). Gib das Ergebnis als gekürzten Bruch an.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "Popcorn gekauft",
+      "kein Popcorn",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "Erwachsene",
+       "5",
+       "29",
+       "34"
+      ],
+      [
+       "Kinder",
+       "17",
+       "49",
+       "66"
+      ],
+      [
+       "Summe",
+       "22",
+       "78",
+       "100"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     5,
+     22
+    ]
+   },
+   "w": "Bedingung „Popcorn gekauft“: nur diese 22 zählen. Davon „Erwachsene“: 5. P = 5 : 22.",
+   "h": "Hinter dem Strich steht die Bedingung – durch deren Summe wird geteilt.",
+   "c": [
+    "5",
+    "22"
+   ]
+  },
+  {
+   "l": "tafel",
+   "t": "tafel",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 100 Befragte einer Umfrage. Berechne P(liest E-Books | unter 30). Gib das Ergebnis als gekürzten Bruch an.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "unter 30",
+      "ab 30",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "liest E-Books",
+       "22",
+       "15",
+       "37"
+      ],
+      [
+       "liest keine E-Books",
+       "11",
+       "52",
+       "63"
+      ],
+      [
+       "Summe",
+       "33",
+       "67",
+       "100"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     2,
+     3
+    ]
+   },
+   "w": "Bedingung „unter 30“: nur diese 33 zählen. Davon „liest E-Books“: 22. P = 22 : 33 = 2/3.",
+   "h": "Hinter dem Strich steht die Bedingung – durch deren Summe wird geteilt.",
+   "c": [
+    "2",
+    "3"
+   ]
+  },
+  {
+   "l": "tafel",
+   "t": "tafel",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 100 Besucher eines Kinos. Berechne P(Popcorn gekauft | Erwachsene). Gib das Ergebnis als gekürzten Bruch an.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "Popcorn gekauft",
+      "kein Popcorn",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "Erwachsene",
+       "7",
+       "14",
+       "21"
+      ],
+      [
+       "Kinder",
+       "67",
+       "12",
+       "79"
+      ],
+      [
+       "Summe",
+       "74",
+       "26",
+       "100"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     1,
+     3
+    ]
+   },
+   "w": "Bedingung „Erwachsene“: nur diese 21 zählen. Davon „Popcorn gekauft“: 7. P = 7 : 21 = 1/3.",
+   "h": "Hinter dem Strich steht die Bedingung – durch deren Summe wird geteilt.",
+   "c": [
+    "1",
+    "3"
+   ]
+  },
+  {
+   "l": "tafel",
+   "t": "tafel",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 500 Mitglieder eines Sportvereins. Berechne P(Fußball | ab 18). Gib das Ergebnis als gekürzten Bruch an.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "unter 18",
+      "ab 18",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "Fußball",
+       "176",
+       "95",
+       "271"
+      ],
+      [
+       "andere Sportart",
+       "67",
+       "162",
+       "229"
+      ],
+      [
+       "Summe",
+       "243",
+       "257",
+       "500"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     95,
+     257
+    ]
+   },
+   "w": "Bedingung „ab 18“: nur diese 257 zählen. Davon „Fußball“: 95. P = 95 : 257.",
+   "h": "Hinter dem Strich steht die Bedingung – durch deren Summe wird geteilt.",
+   "c": [
+    "95",
+    "257"
+   ]
+  },
+  {
+   "l": "tafel",
+   "t": "tafel",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 400 Fahrgäste eines Busses. Berechne P(Monatskarte | pendelt nicht täglich). Gib das Ergebnis als gekürzten Bruch an.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "pendelt täglich",
+      "pendelt nicht täglich",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "Monatskarte",
+       "92",
+       "37",
+       "129"
+      ],
+      [
+       "Einzelticket",
+       "236",
+       "35",
+       "271"
+      ],
+      [
+       "Summe",
+       "328",
+       "72",
+       "400"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     37,
+     72
+    ]
+   },
+   "w": "Bedingung „pendelt nicht täglich“: nur diese 72 zählen. Davon „Monatskarte“: 37. P = 37 : 72.",
+   "h": "Hinter dem Strich steht die Bedingung – durch deren Summe wird geteilt.",
+   "c": [
+    "37",
+    "72"
+   ]
+  },
+  {
+   "l": "tafel",
+   "t": "tafel",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 400 Schülerinnen und Schüler. Berechne P(Fahrrad | Brille). Gib das Ergebnis als gekürzten Bruch an.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "Fahrrad",
+      "kein Fahrrad",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "Brille",
+       "38",
+       "184",
+       "222"
+      ],
+      [
+       "keine Brille",
+       "59",
+       "119",
+       "178"
+      ],
+      [
+       "Summe",
+       "97",
+       "303",
+       "400"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     19,
+     111
+    ]
+   },
+   "w": "Bedingung „Brille“: nur diese 222 zählen. Davon „Fahrrad“: 38. P = 38 : 222 = 19/111.",
+   "h": "Hinter dem Strich steht die Bedingung – durch deren Summe wird geteilt.",
+   "c": [
+    "19",
+    "111"
+   ]
+  },
+  {
+   "l": "tafel",
+   "t": "tafel",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 200 Befragte einer Umfrage. Berechne P(liest E-Books | unter 30). Gib das Ergebnis als gekürzten Bruch an.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "unter 30",
+      "ab 30",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "liest E-Books",
+       "38",
+       "61",
+       "99"
+      ],
+      [
+       "liest keine E-Books",
+       "32",
+       "69",
+       "101"
+      ],
+      [
+       "Summe",
+       "70",
+       "130",
+       "200"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     19,
+     35
+    ]
+   },
+   "w": "Bedingung „unter 30“: nur diese 70 zählen. Davon „liest E-Books“: 38. P = 38 : 70 = 19/35.",
+   "h": "Hinter dem Strich steht die Bedingung – durch deren Summe wird geteilt.",
+   "c": [
+    "19",
+    "35"
+   ]
+  },
+  {
+   "l": "tafel",
+   "t": "tafel",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 100 Besucher eines Kinos. Berechne P(Erwachsene | kein Popcorn). Gib das Ergebnis als gekürzten Bruch an.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "Popcorn gekauft",
+      "kein Popcorn",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "Erwachsene",
+       "28",
+       "43",
+       "71"
+      ],
+      [
+       "Kinder",
+       "17",
+       "12",
+       "29"
+      ],
+      [
+       "Summe",
+       "45",
+       "55",
+       "100"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     43,
+     55
+    ]
+   },
+   "w": "Bedingung „kein Popcorn“: nur diese 55 zählen. Davon „Erwachsene“: 43. P = 43 : 55.",
+   "h": "Hinter dem Strich steht die Bedingung – durch deren Summe wird geteilt.",
+   "c": [
+    "43",
+    "55"
+   ]
+  },
+  {
+   "l": "tafel",
+   "t": "tafel",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 240 Mitglieder eines Sportvereins. Berechne P(andere Sportart | ab 18). Gib das Ergebnis als gekürzten Bruch an.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "unter 18",
+      "ab 18",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "Fußball",
+       "22",
+       "65",
+       "87"
+      ],
+      [
+       "andere Sportart",
+       "90",
+       "63",
+       "153"
+      ],
+      [
+       "Summe",
+       "112",
+       "128",
+       "240"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     63,
+     128
+    ]
+   },
+   "w": "Bedingung „ab 18“: nur diese 128 zählen. Davon „andere Sportart“: 63. P = 63 : 128.",
+   "h": "Hinter dem Strich steht die Bedingung – durch deren Summe wird geteilt.",
+   "c": [
+    "63",
+    "128"
+   ]
+  },
+  {
+   "l": "tafel",
+   "t": "tafel",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 120 Mitglieder eines Sportvereins. Welche Wahrscheinlichkeit ist größer?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "unter 18",
+      "ab 18",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "Fußball",
+       "44",
+       "10",
+       "54"
+      ],
+      [
+       "andere Sportart",
+       "30",
+       "36",
+       "66"
+      ],
+      [
+       "Summe",
+       "74",
+       "46",
+       "120"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "P(unter 18 | Fußball)",
+    "Beide sind gleich",
+    "P(Fußball | unter 18)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "P(Fußball | unter 18) = 44 : 74 ≈ 0,595; P(unter 18 | Fußball) = 44 : 54 ≈ 0,815.",
+   "h": "Gleicher Zähler (A und B), aber verschiedene Nenner: Welche Summe ist kleiner?"
+  },
+  {
+   "l": "tafel",
+   "t": "tafel",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 600 Befragte einer Umfrage. Ein Feld fehlt. Berechne P(liest E-Books | unter 30). Gib das Ergebnis als gekürzten Bruch an.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "unter 30",
+      "ab 30",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "liest E-Books",
+       "?",
+       "59",
+       "146"
+      ],
+      [
+       "liest keine E-Books",
+       "362",
+       "92",
+       "454"
+      ],
+      [
+       "Summe",
+       "449",
+       "151",
+       "600"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     87,
+     449
+    ]
+   },
+   "w": "Fehlendes Feld: 146 − 59 = 87. P(liest E-Books | unter 30) = 87 : 449 = 87/449.",
+   "h": "Ergänze zuerst das fehlende Feld über die Zeilensumme.",
+   "c": [
+    "87",
+    "449"
+   ]
+  },
+  {
+   "l": "tafel",
+   "t": "tafel",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 240 Besucher eines Kinos. Ein Feld fehlt. Berechne P(Erwachsene | Popcorn gekauft). Gib das Ergebnis als gekürzten Bruch an.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "Popcorn gekauft",
+      "kein Popcorn",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "Erwachsene",
+       "?",
+       "58",
+       "148"
+      ],
+      [
+       "Kinder",
+       "27",
+       "65",
+       "92"
+      ],
+      [
+       "Summe",
+       "117",
+       "123",
+       "240"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     10,
+     13
+    ]
+   },
+   "w": "Fehlendes Feld: 148 − 58 = 90. P(Erwachsene | Popcorn gekauft) = 90 : 117 = 10/13.",
+   "h": "Ergänze zuerst das fehlende Feld über die Zeilensumme.",
+   "c": [
+    "10",
+    "13"
+   ]
+  },
+  {
+   "l": "tafel",
+   "t": "tafel",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 120 Mitglieder eines Sportvereins. Welche Wahrscheinlichkeit ist größer?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "unter 18",
+      "ab 18",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "Fußball",
+       "26",
+       "65",
+       "91"
+      ],
+      [
+       "andere Sportart",
+       "6",
+       "23",
+       "29"
+      ],
+      [
+       "Summe",
+       "32",
+       "88",
+       "120"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Beide sind gleich",
+    "P(Fußball | unter 18)",
+    "P(unter 18 | Fußball)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "P(Fußball | unter 18) = 26 : 32 ≈ 0,812; P(unter 18 | Fußball) = 26 : 91 ≈ 0,286.",
+   "h": "Gleicher Zähler (A und B), aber verschiedene Nenner: Welche Summe ist kleiner?"
+  },
+  {
+   "l": "tafel",
+   "t": "tafel",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 240 Fahrgäste eines Busses. Berechne P(Einzelticket | pendelt nicht täglich). Gib das Ergebnis als gekürzten Bruch an.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "pendelt täglich",
+      "pendelt nicht täglich",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "Monatskarte",
+       "56",
+       "56",
+       "112"
+      ],
+      [
+       "Einzelticket",
+       "59",
+       "69",
+       "128"
+      ],
+      [
+       "Summe",
+       "115",
+       "125",
+       "240"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     69,
+     125
+    ]
+   },
+   "w": "Bedingung „pendelt nicht täglich“: nur diese 125 zählen. Davon „Einzelticket“: 69. P = 69 : 125 = 0,552.",
+   "h": "Hinter dem Strich steht die Bedingung – durch deren Summe wird geteilt.",
+   "c": [
+    "69",
+    "125"
+   ]
+  },
+  {
+   "l": "tafel",
+   "t": "tafel",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 100 Besucher eines Kinos. Berechne P(Erwachsene | kein Popcorn). Gib das Ergebnis als gekürzten Bruch an.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "Popcorn gekauft",
+      "kein Popcorn",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "Erwachsene",
+       "15",
+       "22",
+       "37"
+      ],
+      [
+       "Kinder",
+       "6",
+       "57",
+       "63"
+      ],
+      [
+       "Summe",
+       "21",
+       "79",
+       "100"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     22,
+     79
+    ]
+   },
+   "w": "Bedingung „kein Popcorn“: nur diese 79 zählen. Davon „Erwachsene“: 22. P = 22 : 79.",
+   "c": [
+    "22",
+    "79"
+   ]
+  },
+  {
+   "l": "tafel",
+   "t": "tafel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 400 Mitglieder eines Sportvereins. Berechne P(Fußball | unter 18). Gib das Ergebnis als gekürzten Bruch an.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "unter 18",
+      "ab 18",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "Fußball",
+       "44",
+       "25",
+       "69"
+      ],
+      [
+       "andere Sportart",
+       "285",
+       "46",
+       "331"
+      ],
+      [
+       "Summe",
+       "329",
+       "71",
+       "400"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     44,
+     329
+    ]
+   },
+   "w": "Bedingung „unter 18“: nur diese 329 zählen. Davon „Fußball“: 44. P = 44 : 329.",
+   "c": [
+    "44",
+    "329"
+   ]
+  },
+  {
+   "l": "tafel",
+   "t": "tafel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 100 Besucher eines Kinos. Berechne P(Erwachsene | Popcorn gekauft). Gib das Ergebnis als gekürzten Bruch an.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "Popcorn gekauft",
+      "kein Popcorn",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "Erwachsene",
+       "29",
+       "5",
+       "34"
+      ],
+      [
+       "Kinder",
+       "35",
+       "31",
+       "66"
+      ],
+      [
+       "Summe",
+       "64",
+       "36",
+       "100"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     29,
+     64
+    ]
+   },
+   "w": "Bedingung „Popcorn gekauft“: nur diese 64 zählen. Davon „Erwachsene“: 29. P = 29 : 64.",
+   "c": [
+    "29",
+    "64"
+   ]
+  },
+  {
+   "l": "tafel",
+   "t": "tafel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 400 Besucher eines Kinos. Berechne P(Erwachsene | kein Popcorn). Gib das Ergebnis als gekürzten Bruch an.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "Popcorn gekauft",
+      "kein Popcorn",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "Erwachsene",
+       "127",
+       "149",
+       "276"
+      ],
+      [
+       "Kinder",
+       "62",
+       "62",
+       "124"
+      ],
+      [
+       "Summe",
+       "189",
+       "211",
+       "400"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     149,
+     211
+    ]
+   },
+   "w": "Bedingung „kein Popcorn“: nur diese 211 zählen. Davon „Erwachsene“: 149. P = 149 : 211.",
+   "c": [
+    "149",
+    "211"
+   ]
+  },
+  {
+   "l": "tafel",
+   "t": "tafel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 500 Befragte einer Umfrage. Berechne P(liest E-Books | unter 30). Gib das Ergebnis als gekürzten Bruch an.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "unter 30",
+      "ab 30",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "liest E-Books",
+       "131",
+       "37",
+       "168"
+      ],
+      [
+       "liest keine E-Books",
+       "176",
+       "156",
+       "332"
+      ],
+      [
+       "Summe",
+       "307",
+       "193",
+       "500"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     131,
+     307
+    ]
+   },
+   "w": "Bedingung „unter 30“: nur diese 307 zählen. Davon „liest E-Books“: 131. P = 131 : 307.",
+   "c": [
+    "131",
+    "307"
+   ]
+  },
+  {
+   "l": "tafel",
+   "t": "tafel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 100 Fahrgäste eines Busses. Berechne P(Monatskarte | pendelt täglich). Gib das Ergebnis als gekürzten Bruch an.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "pendelt täglich",
+      "pendelt nicht täglich",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "Monatskarte",
+       "24",
+       "9",
+       "33"
+      ],
+      [
+       "Einzelticket",
+       "47",
+       "20",
+       "67"
+      ],
+      [
+       "Summe",
+       "71",
+       "29",
+       "100"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     24,
+     71
+    ]
+   },
+   "w": "Bedingung „pendelt täglich“: nur diese 71 zählen. Davon „Monatskarte“: 24. P = 24 : 71.",
+   "c": [
+    "24",
+    "71"
+   ]
+  },
+  {
+   "l": "tafel",
+   "t": "tafel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 400 Schülerinnen und Schüler. Berechne P(keine Brille | Fahrrad). Gib das Ergebnis als gekürzten Bruch an.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "Fahrrad",
+      "kein Fahrrad",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "Brille",
+       "120",
+       "114",
+       "234"
+      ],
+      [
+       "keine Brille",
+       "98",
+       "68",
+       "166"
+      ],
+      [
+       "Summe",
+       "218",
+       "182",
+       "400"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     49,
+     109
+    ]
+   },
+   "w": "Bedingung „Fahrrad“: nur diese 218 zählen. Davon „keine Brille“: 98. P = 98 : 218 = 49/109.",
+   "c": [
+    "49",
+    "109"
+   ]
+  },
+  {
+   "l": "tafel",
+   "t": "tafel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 400 Fahrgäste eines Busses. Berechne P(Einzelticket | pendelt täglich). Gib das Ergebnis als gekürzten Bruch an.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "pendelt täglich",
+      "pendelt nicht täglich",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "Monatskarte",
+       "49",
+       "106",
+       "155"
+      ],
+      [
+       "Einzelticket",
+       "81",
+       "164",
+       "245"
+      ],
+      [
+       "Summe",
+       "130",
+       "270",
+       "400"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     81,
+     130
+    ]
+   },
+   "w": "Bedingung „pendelt täglich“: nur diese 130 zählen. Davon „Einzelticket“: 81. P = 81 : 130.",
+   "c": [
+    "81",
+    "130"
+   ]
+  },
+  {
+   "l": "tafel",
+   "t": "tafel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 100 Besucher eines Kinos. Berechne P(Kinder | Popcorn gekauft). Gib das Ergebnis als Dezimalzahl an.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "Popcorn gekauft",
+      "kein Popcorn",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "Erwachsene",
+       "24",
+       "11",
+       "35"
+      ],
+      [
+       "Kinder",
+       "36",
+       "29",
+       "65"
+      ],
+      [
+       "Summe",
+       "60",
+       "40",
+       "100"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 0.6
+   },
+   "c": "36 / 60",
+   "w": "Bedingung „Popcorn gekauft“: nur diese 60 zählen. Davon „Kinder“: 36. P = 36 : 60 = 3/5 = 0,6."
+  },
+  {
+   "l": "tafel",
+   "t": "tafel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 500 Mitglieder eines Sportvereins. Berechne P(Fußball | unter 18). Gib das Ergebnis als gekürzten Bruch an.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "unter 18",
+      "ab 18",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "Fußball",
+       "52",
+       "61",
+       "113"
+      ],
+      [
+       "andere Sportart",
+       "103",
+       "284",
+       "387"
+      ],
+      [
+       "Summe",
+       "155",
+       "345",
+       "500"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     52,
+     155
+    ]
+   },
+   "w": "Bedingung „unter 18“: nur diese 155 zählen. Davon „Fußball“: 52. P = 52 : 155.",
+   "c": [
+    "52",
+    "155"
+   ]
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "P(B) = 0,1, P(A ∩ B) = 0,08. Berechne P(A | B)."
+   },
+   "o": {
+    "wert": 0.8
+   },
+   "c": "0.08 / 0.1",
+   "w": "P(A | B) = 0,08 : 0,1 = 0,8.",
+   "h": "P(A | B) = P(A ∩ B) : P(B)."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "P(B) = 0,8, P(A ∩ B) = 0,48. Berechne P(A | B)."
+   },
+   "o": {
+    "wert": 0.6
+   },
+   "c": "0.48 / 0.8",
+   "w": "P(A | B) = 0,48 : 0,8 = 0,6.",
+   "h": "P(A | B) = P(A ∩ B) : P(B)."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "P(B) = 0,5, P(A ∩ B) = 0,1. Berechne P(A | B)."
+   },
+   "o": {
+    "wert": 0.2
+   },
+   "c": "0.1 / 0.5",
+   "w": "P(A | B) = 0,1 : 0,5 = 0,2.",
+   "h": "P(A | B) = P(A ∩ B) : P(B)."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "P(B) = 0,9, P(A ∩ B) = 0,45. Berechne P(A | B)."
+   },
+   "o": {
+    "wert": 0.5
+   },
+   "c": "0.45 / 0.9",
+   "w": "P(A | B) = 0,45 : 0,9 = 0,5.",
+   "h": "P(A | B) = P(A ∩ B) : P(B)."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "P(B) = 0,3, P(A ∩ B) = 0,27. Berechne P(A | B)."
+   },
+   "o": {
+    "wert": 0.9
+   },
+   "c": "0.27 / 0.3",
+   "w": "P(A | B) = 0,27 : 0,3 = 0,9.",
+   "h": "P(A | B) = P(A ∩ B) : P(B)."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "P(B) = 0,3, P(A ∩ B) = 0,09. Berechne P(A | B)."
+   },
+   "o": {
+    "wert": 0.3
+   },
+   "c": "0.09 / 0.3",
+   "w": "P(A | B) = 0,09 : 0,3 = 0,3.",
+   "h": "P(A | B) = P(A ∩ B) : P(B)."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "P(B) = 0,05, P(A ∩ B) = 0,04. Berechne P(A | B)."
+   },
+   "o": {
+    "wert": 0.8
+   },
+   "c": "0.04 / 0.05",
+   "w": "P(A | B) = 0,04 : 0,05 = 0,8.",
+   "h": "P(A | B) = P(A ∩ B) : P(B)."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "P(B) = 0,5, P(A | B) = 0,6. Berechne P(A ∩ B)."
+   },
+   "o": {
+    "wert": 0.3
+   },
+   "c": "0.5 * 0.6",
+   "w": "P(A ∩ B) = P(B) · P(A | B) = 0,5 · 0,6 = 0,3.",
+   "h": "Multiplikationsregel: P(A ∩ B) = P(B) · P(A | B)."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "P(B) = 0,8, P(A | B) = 0,6. Berechne P(A ∩ B)."
+   },
+   "o": {
+    "wert": 0.48
+   },
+   "c": "0.8 * 0.6",
+   "w": "P(A ∩ B) = P(B) · P(A | B) = 0,8 · 0,6 = 0,48.",
+   "h": "Multiplikationsregel: P(A ∩ B) = P(B) · P(A | B)."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "P(B) = 0,04, P(A | B) = 0,5. Berechne P(A ∩ B)."
+   },
+   "o": {
+    "wert": 0.02
+   },
+   "c": "0.04 * 0.5",
+   "w": "P(A ∩ B) = P(B) · P(A | B) = 0,04 · 0,5 = 0,02.",
+   "h": "Multiplikationsregel: P(A ∩ B) = P(B) · P(A | B)."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "P(B) = 0,75, P(A | B) = 0,6. Berechne P(A ∩ B)."
+   },
+   "o": {
+    "wert": 0.45
+   },
+   "c": "0.75 * 0.6",
+   "w": "P(A ∩ B) = P(B) · P(A | B) = 0,75 · 0,6 = 0,45.",
+   "h": "Multiplikationsregel: P(A ∩ B) = P(B) · P(A | B)."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "P(B) = 0,02, P(A ∩ B) = 0,014. Berechne P(A | B)."
+   },
+   "o": {
+    "wert": 0.7
+   },
+   "c": "0.014 / 0.02",
+   "w": "P(A | B) = 0,014 : 0,02 = 0,7.",
+   "h": "P(A | B) = P(A ∩ B) : P(B)."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "8 % der Gäste eines Hotels sind Familien. Von den Familien buchen 40 % ein Zimmer mit Balkon. Wie groß ist die Wahrscheinlichkeit, dass ein zufälliger Gast eine Familie ist und mit Balkon bucht? (Dezimalzahl)"
+   },
+   "o": {
+    "wert": 0.032
+   },
+   "c": "0.08 * 0.4",
+   "w": "P(Familie ∩ Balkon) = P(Familie) · P(Balkon | Familie) = 0,08 · 0,4 = 0,032.",
+   "h": "Die Prozentangabe „von den Familien“ ist eine bedingte Wahrscheinlichkeit."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "P(B) = 0,4, P(A ∩ B) = 0,36. Berechne P(nicht A | B)."
+   },
+   "o": {
+    "wert": 0.1
+   },
+   "c": "1 - 0.36 / 0.4",
+   "w": "P(A | B) = 0,36 : 0,4 = 0,9. P(nicht A | B) = 1 − 0,9 = 0,1.",
+   "h": "Unter derselben Bedingung ergänzen sich A und nicht A zu 1."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "25 % der Gäste eines Hotels sind Familien. Von den Familien buchen 5 % ein Zimmer mit Balkon. Wie groß ist die Wahrscheinlichkeit, dass ein zufälliger Gast eine Familie ist und mit Balkon bucht? (Dezimalzahl)"
+   },
+   "o": {
+    "wert": 0.0125
+   },
+   "c": "0.25 * 0.05",
+   "w": "P(Familie ∩ Balkon) = P(Familie) · P(Balkon | Familie) = 0,25 · 0,05 = 0,0125.",
+   "h": "Die Prozentangabe „von den Familien“ ist eine bedingte Wahrscheinlichkeit."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "P(B) = 0,8, P(A ∩ B) = 0,04. Berechne P(nicht A | B)."
+   },
+   "o": {
+    "wert": 0.95
+   },
+   "c": "1 - 0.04 / 0.8",
+   "w": "P(A | B) = 0,04 : 0,8 = 0,05. P(nicht A | B) = 1 − 0,05 = 0,95.",
+   "h": "Unter derselben Bedingung ergänzen sich A und nicht A zu 1."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "P(B) = 0,04, P(A ∩ B) = 0,02. Berechne P(nicht A | B)."
+   },
+   "o": {
+    "wert": 0.5
+   },
+   "c": "1 - 0.02 / 0.04",
+   "w": "P(A | B) = 0,02 : 0,04 = 0,5. P(nicht A | B) = 1 − 0,5 = 0,5.",
+   "h": "Unter derselben Bedingung ergänzen sich A und nicht A zu 1."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "P(B) = 0,08, P(A ∩ B) = 0,02. Berechne P(nicht A | B)."
+   },
+   "o": {
+    "wert": 0.75
+   },
+   "c": "1 - 0.02 / 0.08",
+   "w": "P(A | B) = 0,02 : 0,08 = 0,25. P(nicht A | B) = 1 − 0,25 = 0,75.",
+   "h": "Unter derselben Bedingung ergänzen sich A und nicht A zu 1."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "P(B) = 0,04, P(A ∩ B) = 0,012. Berechne P(A | B)."
+   },
+   "o": {
+    "wert": 0.3
+   },
+   "c": "0.012 / 0.04",
+   "w": "P(A | B) = 0,012 : 0,04 = 0,3."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "P(B) = 0,02, P(A | B) = 0,9. Berechne P(A ∩ B)."
+   },
+   "o": {
+    "wert": 0.018
+   },
+   "c": "0.02 * 0.9",
+   "w": "P(A ∩ B) = P(B) · P(A | B) = 0,02 · 0,9 = 0,018."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "P(B) = 0,5, P(A ∩ B) = 0,15. Berechne P(A | B)."
+   },
+   "o": {
+    "wert": 0.3
+   },
+   "c": "0.15 / 0.5",
+   "w": "P(A | B) = 0,15 : 0,5 = 0,3."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "P(B) = 0,8, P(A | B) = 0,5. Berechne P(A ∩ B)."
+   },
+   "o": {
+    "wert": 0.4
+   },
+   "c": "0.8 * 0.5",
+   "w": "P(A ∩ B) = P(B) · P(A | B) = 0,8 · 0,5 = 0,4."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "P(B) = 0,02, P(A ∩ B) = 0,006. Berechne P(A | B)."
+   },
+   "o": {
+    "wert": 0.3
+   },
+   "c": "0.006 / 0.02",
+   "w": "P(A | B) = 0,006 : 0,02 = 0,3."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "P(B) = 0,8, P(A ∩ B) = 0,16. Berechne P(A | B)."
+   },
+   "o": {
+    "wert": 0.2
+   },
+   "c": "0.16 / 0.8",
+   "w": "P(A | B) = 0,16 : 0,8 = 0,2."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "P(B) = 0,04, P(A | B) = 0,3. Berechne P(A ∩ B)."
+   },
+   "o": {
+    "wert": 0.012
+   },
+   "c": "0.04 * 0.3",
+   "w": "P(A ∩ B) = P(B) · P(A | B) = 0,04 · 0,3 = 0,012."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "P(B) = 0,4, P(A ∩ B) = 0,04. Berechne P(A | B)."
+   },
+   "o": {
+    "wert": 0.1
+   },
+   "c": "0.04 / 0.4",
+   "w": "P(A | B) = 0,04 : 0,4 = 0,1."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "P(B) = 0,4, P(A ∩ B) = 0,24. Berechne P(A | B)."
+   },
+   "o": {
+    "wert": 0.6
+   },
+   "c": "0.24 / 0.4",
+   "w": "P(A | B) = 0,24 : 0,4 = 0,6."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "P(B) = 0,25, P(A ∩ B) = 0,2. Berechne P(A | B)."
+   },
+   "o": {
+    "wert": 0.8
+   },
+   "c": "0.2 / 0.25",
+   "w": "P(A | B) = 0,2 : 0,25 = 0,8."
+  },
+  {
+   "l": "baum",
+   "t": "baum",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 2 grüne und 6 gelbe Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Die erste Kugel ist grün. Wie groß ist P(2. Kugel grün | 1. Kugel grün)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "baum",
+     "aeste": [
+      {
+       "text": "grün",
+       "p": "2/8",
+       "aeste": [
+        {
+         "text": "grün",
+         "p": "1/7"
+        },
+        {
+         "text": "gelb",
+         "p": "6/7"
+        }
+       ]
+      },
+      {
+       "text": "gelb",
+       "p": "6/8",
+       "aeste": [
+        {
+         "text": "grün",
+         "p": "2/7"
+        },
+        {
+         "text": "gelb",
+         "p": "5/7"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     1,
+     7
+    ]
+   },
+   "w": "Übrig: 1 grüne von 7 Kugeln. P = 1/7.",
+   "h": "Nach dem ersten Zug ist eine Kugel weniger in der Urne.",
+   "c": [
+    "1",
+    "7"
+   ]
+  },
+  {
+   "l": "baum",
+   "t": "baum",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 6 grüne und 2 gelbe Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Berechne P(zweimal grün).",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "baum",
+     "aeste": [
+      {
+       "text": "grün",
+       "p": "6/8",
+       "aeste": [
+        {
+         "text": "grün",
+         "p": "5/7"
+        },
+        {
+         "text": "gelb",
+         "p": "2/7"
+        }
+       ]
+      },
+      {
+       "text": "gelb",
+       "p": "2/8",
+       "aeste": [
+        {
+         "text": "grün",
+         "p": "6/7"
+        },
+        {
+         "text": "gelb",
+         "p": "1/7"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     15,
+     28
+    ]
+   },
+   "w": "P = 6/8 · 5/7 = 15/28.",
+   "h": "Multipliziere die Wahrscheinlichkeiten entlang des Pfades.",
+   "c": [
+    "15",
+    "28"
+   ]
+  },
+  {
+   "l": "baum",
+   "t": "baum",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 6 grüne und 3 gelbe Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Die erste Kugel ist grün. Wie groß ist P(2. Kugel grün | 1. Kugel grün)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     5,
+     8
+    ]
+   },
+   "w": "Übrig: 5 grüne von 8 Kugeln. P = 5/8.",
+   "h": "Nach dem ersten Zug ist eine Kugel weniger in der Urne.",
+   "c": [
+    "5",
+    "8"
+   ]
+  },
+  {
+   "l": "baum",
+   "t": "baum",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 2 rote und 2 blaue Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Die erste Kugel ist rot. Wie groß ist P(2. Kugel rot | 1. Kugel rot)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     1,
+     3
+    ]
+   },
+   "w": "Übrig: 1 rote von 3 Kugeln. P = 1/3.",
+   "h": "Nach dem ersten Zug ist eine Kugel weniger in der Urne.",
+   "c": [
+    "1",
+    "3"
+   ]
+  },
+  {
+   "l": "baum",
+   "t": "baum",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 2 weiße und 5 schwarze Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Die erste Kugel ist weiß. Wie groß ist P(2. Kugel weiß | 1. Kugel weiß)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "baum",
+     "aeste": [
+      {
+       "text": "weiß",
+       "p": "2/7",
+       "aeste": [
+        {
+         "text": "weiß",
+         "p": "1/6"
+        },
+        {
+         "text": "schwarz",
+         "p": "5/6"
+        }
+       ]
+      },
+      {
+       "text": "schwarz",
+       "p": "5/7",
+       "aeste": [
+        {
+         "text": "weiß",
+         "p": "2/6"
+        },
+        {
+         "text": "schwarz",
+         "p": "4/6"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     1,
+     6
+    ]
+   },
+   "w": "Übrig: 1 weiße von 6 Kugeln. P = 1/6.",
+   "h": "Nach dem ersten Zug ist eine Kugel weniger in der Urne.",
+   "c": [
+    "1",
+    "6"
+   ]
+  },
+  {
+   "l": "baum",
+   "t": "baum",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 3 rote und 6 blaue Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Berechne P(zweimal rot).",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "baum",
+     "aeste": [
+      {
+       "text": "rot",
+       "p": "3/9",
+       "aeste": [
+        {
+         "text": "rot",
+         "p": "2/8"
+        },
+        {
+         "text": "blau",
+         "p": "6/8"
+        }
+       ]
+      },
+      {
+       "text": "blau",
+       "p": "6/9",
+       "aeste": [
+        {
+         "text": "rot",
+         "p": "3/8"
+        },
+        {
+         "text": "blau",
+         "p": "5/8"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     1,
+     12
+    ]
+   },
+   "w": "P = 3/9 · 2/8 = 1/12.",
+   "h": "Multipliziere die Wahrscheinlichkeiten entlang des Pfades.",
+   "c": [
+    "1",
+    "12"
+   ]
+  },
+  {
+   "l": "baum",
+   "t": "baum",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 4 grüne und 7 gelbe Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Berechne P(erst grün, dann gelb).",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     14,
+     55
+    ]
+   },
+   "w": "P = 4/11 · 7/10 = 14/55.",
+   "h": "Multipliziere die Wahrscheinlichkeiten entlang des Pfades.",
+   "c": [
+    "14",
+    "55"
+   ]
+  },
+  {
+   "l": "baum",
+   "t": "baum",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 2 rote und 6 blaue Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Berechne P(zweimal blau).",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "baum",
+     "aeste": [
+      {
+       "text": "rot",
+       "p": "2/8",
+       "aeste": [
+        {
+         "text": "rot",
+         "p": "1/7"
+        },
+        {
+         "text": "blau",
+         "p": "6/7"
+        }
+       ]
+      },
+      {
+       "text": "blau",
+       "p": "6/8",
+       "aeste": [
+        {
+         "text": "rot",
+         "p": "2/7"
+        },
+        {
+         "text": "blau",
+         "p": "5/7"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     15,
+     28
+    ]
+   },
+   "w": "P = 6/8 · 5/7 = 15/28.",
+   "h": "Multipliziere die Wahrscheinlichkeiten entlang des Pfades.",
+   "c": [
+    "15",
+    "28"
+   ]
+  },
+  {
+   "l": "baum",
+   "t": "baum",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 5 rote und 7 blaue Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Berechne P(erst rot, dann blau).",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     35,
+     132
+    ]
+   },
+   "w": "P = 5/12 · 7/11 = 35/132.",
+   "h": "Multipliziere die Wahrscheinlichkeiten entlang des Pfades.",
+   "c": [
+    "35",
+    "132"
+   ]
+  },
+  {
+   "l": "baum",
+   "t": "baum",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 2 weiße und 5 schwarze Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Berechne P(erst weiß, dann schwarz).",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "baum",
+     "aeste": [
+      {
+       "text": "weiß",
+       "p": "2/7",
+       "aeste": [
+        {
+         "text": "weiß",
+         "p": "1/6"
+        },
+        {
+         "text": "schwarz",
+         "p": "5/6"
+        }
+       ]
+      },
+      {
+       "text": "schwarz",
+       "p": "5/7",
+       "aeste": [
+        {
+         "text": "weiß",
+         "p": "2/6"
+        },
+        {
+         "text": "schwarz",
+         "p": "4/6"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     5,
+     21
+    ]
+   },
+   "w": "P = 2/7 · 5/6 = 5/21.",
+   "h": "Multipliziere die Wahrscheinlichkeiten entlang des Pfades.",
+   "c": [
+    "5",
+    "21"
+   ]
+  },
+  {
+   "l": "baum",
+   "t": "baum",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 4 grüne und 2 gelbe Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Die erste Kugel ist grün. Wie groß ist P(2. Kugel gelb | 1. Kugel grün)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     2,
+     5
+    ]
+   },
+   "w": "Alle 2 gelben sind noch da, aber nur noch 5 Kugeln insgesamt: P = 2/5.",
+   "h": "Nach dem ersten Zug ist eine Kugel weniger in der Urne.",
+   "c": [
+    "2",
+    "5"
+   ]
+  },
+  {
+   "l": "baum",
+   "t": "baum",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 7 weiße und 6 schwarze Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Berechne P(zweimal schwarz).",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "baum",
+     "aeste": [
+      {
+       "text": "weiß",
+       "p": "7/13",
+       "aeste": [
+        {
+         "text": "weiß",
+         "p": "6/12"
+        },
+        {
+         "text": "schwarz",
+         "p": "6/12"
+        }
+       ]
+      },
+      {
+       "text": "schwarz",
+       "p": "6/13",
+       "aeste": [
+        {
+         "text": "weiß",
+         "p": "7/12"
+        },
+        {
+         "text": "schwarz",
+         "p": "5/12"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     5,
+     26
+    ]
+   },
+   "w": "P = 6/13 · 5/12 = 5/26.",
+   "h": "Multipliziere die Wahrscheinlichkeiten entlang des Pfades.",
+   "c": [
+    "5",
+    "26"
+   ]
+  },
+  {
+   "l": "baum",
+   "t": "baum",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 6 grüne und 7 gelbe Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Berechne die Wahrscheinlichkeit, zwei verschiedenfarbige Kugeln zu ziehen.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "baum",
+     "aeste": [
+      {
+       "text": "grün",
+       "p": "6/13",
+       "aeste": [
+        {
+         "text": "grün",
+         "p": "5/12"
+        },
+        {
+         "text": "gelb",
+         "p": "7/12"
+        }
+       ]
+      },
+      {
+       "text": "gelb",
+       "p": "7/13",
+       "aeste": [
+        {
+         "text": "grün",
+         "p": "6/12"
+        },
+        {
+         "text": "gelb",
+         "p": "6/12"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     7,
+     13
+    ]
+   },
+   "w": "Zwei Pfade: 6/13 · 7/12 + 7/13 · 6/12 = 7/26 + 7/26 = 7/13.",
+   "h": "Welche Pfade passen? Pfade addieren, entlang eines Pfades multiplizieren.",
+   "c": [
+    "7",
+    "13"
+   ]
+  },
+  {
+   "l": "baum",
+   "t": "baum",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 2 rote und 2 blaue Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Berechne die Wahrscheinlichkeit, zwei gleichfarbige Kugeln zu ziehen.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "baum",
+     "aeste": [
+      {
+       "text": "rot",
+       "p": "2/4",
+       "aeste": [
+        {
+         "text": "rot",
+         "p": "1/3"
+        },
+        {
+         "text": "blau",
+         "p": "2/3"
+        }
+       ]
+      },
+      {
+       "text": "blau",
+       "p": "2/4",
+       "aeste": [
+        {
+         "text": "rot",
+         "p": "2/3"
+        },
+        {
+         "text": "blau",
+         "p": "1/3"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     1,
+     3
+    ]
+   },
+   "w": "P(rot, rot) + P(blau, blau) = 1/6 + 1/6 = 1/3.",
+   "h": "Zwei Pfade gehören dazu.",
+   "c": [
+    "1",
+    "3"
+   ]
+  },
+  {
+   "l": "baum",
+   "t": "baum",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 2 grüne und 7 gelbe Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Berechne die Wahrscheinlichkeit, zwei gleichfarbige Kugeln zu ziehen.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "baum",
+     "aeste": [
+      {
+       "text": "grün",
+       "p": "2/9",
+       "aeste": [
+        {
+         "text": "grün",
+         "p": "1/8"
+        },
+        {
+         "text": "gelb",
+         "p": "7/8"
+        }
+       ]
+      },
+      {
+       "text": "gelb",
+       "p": "7/9",
+       "aeste": [
+        {
+         "text": "grün",
+         "p": "2/8"
+        },
+        {
+         "text": "gelb",
+         "p": "6/8"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     11,
+     18
+    ]
+   },
+   "w": "P(grün, grün) + P(gelb, gelb) = 1/36 + 7/12 = 11/18.",
+   "h": "Zwei Pfade gehören dazu.",
+   "c": [
+    "11",
+    "18"
+   ]
+  },
+  {
+   "l": "baum",
+   "t": "baum",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 2 weiße und 4 schwarze Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Berechne die Wahrscheinlichkeit, zwei verschiedenfarbige Kugeln zu ziehen.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "baum",
+     "aeste": [
+      {
+       "text": "weiß",
+       "p": "2/6",
+       "aeste": [
+        {
+         "text": "weiß",
+         "p": "1/5"
+        },
+        {
+         "text": "schwarz",
+         "p": "4/5"
+        }
+       ]
+      },
+      {
+       "text": "schwarz",
+       "p": "4/6",
+       "aeste": [
+        {
+         "text": "weiß",
+         "p": "2/5"
+        },
+        {
+         "text": "schwarz",
+         "p": "3/5"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     8,
+     15
+    ]
+   },
+   "w": "Zwei Pfade: 2/6 · 4/5 + 4/6 · 2/5 = 4/15 + 4/15 = 8/15.",
+   "h": "Welche Pfade passen? Pfade addieren, entlang eines Pfades multiplizieren.",
+   "c": [
+    "8",
+    "15"
+   ]
+  },
+  {
+   "l": "baum",
+   "t": "baum",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 3 grüne und 2 gelbe Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Berechne die Wahrscheinlichkeit, zwei verschiedenfarbige Kugeln zu ziehen.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "baum",
+     "aeste": [
+      {
+       "text": "grün",
+       "p": "3/5",
+       "aeste": [
+        {
+         "text": "grün",
+         "p": "2/4"
+        },
+        {
+         "text": "gelb",
+         "p": "2/4"
+        }
+       ]
+      },
+      {
+       "text": "gelb",
+       "p": "2/5",
+       "aeste": [
+        {
+         "text": "grün",
+         "p": "3/4"
+        },
+        {
+         "text": "gelb",
+         "p": "1/4"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     3,
+     5
+    ]
+   },
+   "w": "Zwei Pfade: 3/5 · 2/4 + 2/5 · 3/4 = 3/10 + 3/10 = 3/5.",
+   "h": "Welche Pfade passen? Pfade addieren, entlang eines Pfades multiplizieren.",
+   "c": [
+    "3",
+    "5"
+   ]
+  },
+  {
+   "l": "baum",
+   "t": "baum",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 5 grüne und 4 gelbe Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Berechne die Wahrscheinlichkeit, zwei gleichfarbige Kugeln zu ziehen.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "baum",
+     "aeste": [
+      {
+       "text": "grün",
+       "p": "5/9",
+       "aeste": [
+        {
+         "text": "grün",
+         "p": "4/8"
+        },
+        {
+         "text": "gelb",
+         "p": "4/8"
+        }
+       ]
+      },
+      {
+       "text": "gelb",
+       "p": "4/9",
+       "aeste": [
+        {
+         "text": "grün",
+         "p": "5/8"
+        },
+        {
+         "text": "gelb",
+         "p": "3/8"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     4,
+     9
+    ]
+   },
+   "w": "P(grün, grün) + P(gelb, gelb) = 5/18 + 1/6 = 4/9.",
+   "h": "Zwei Pfade gehören dazu.",
+   "c": [
+    "4",
+    "9"
+   ]
+  },
+  {
+   "l": "baum",
+   "t": "baum",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 4 weiße und 2 schwarze Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Berechne P(zweimal schwarz).",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "baum",
+     "aeste": [
+      {
+       "text": "weiß",
+       "p": "4/6",
+       "aeste": [
+        {
+         "text": "weiß",
+         "p": "3/5"
+        },
+        {
+         "text": "schwarz",
+         "p": "2/5"
+        }
+       ]
+      },
+      {
+       "text": "schwarz",
+       "p": "2/6",
+       "aeste": [
+        {
+         "text": "weiß",
+         "p": "4/5"
+        },
+        {
+         "text": "schwarz",
+         "p": "1/5"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     1,
+     15
+    ]
+   },
+   "w": "P = 2/6 · 1/5 = 1/15.",
+   "c": [
+    "1",
+    "15"
+   ]
+  },
+  {
+   "l": "baum",
+   "t": "baum",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 4 rote und 5 blaue Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Die erste Kugel ist rot. Wie groß ist P(2. Kugel blau | 1. Kugel rot)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     5,
+     8
+    ]
+   },
+   "w": "Alle 5 blauen sind noch da, aber nur noch 8 Kugeln insgesamt: P = 5/8.",
+   "c": [
+    "5",
+    "8"
+   ]
+  },
+  {
+   "l": "baum",
+   "t": "baum",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 7 weiße und 7 schwarze Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Die erste Kugel ist weiß. Wie groß ist P(2. Kugel schwarz | 1. Kugel weiß)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     7,
+     13
+    ]
+   },
+   "w": "Alle 7 schwarzen sind noch da, aber nur noch 13 Kugeln insgesamt: P = 7/13.",
+   "c": [
+    "7",
+    "13"
+   ]
+  },
+  {
+   "l": "baum",
+   "t": "baum",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 3 grüne und 3 gelbe Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Berechne P(erst grün, dann gelb).",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     3,
+     10
+    ]
+   },
+   "w": "P = 3/6 · 3/5 = 3/10.",
+   "c": [
+    "3",
+    "10"
+   ]
+  },
+  {
+   "l": "baum",
+   "t": "baum",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 5 rote und 2 blaue Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Die erste Kugel ist rot. Wie groß ist P(2. Kugel blau | 1. Kugel rot)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     1,
+     3
+    ]
+   },
+   "w": "Alle 2 blauen sind noch da, aber nur noch 6 Kugeln insgesamt: P = 2/6 = 1/3.",
+   "c": [
+    "1",
+    "3"
+   ]
+  },
+  {
+   "l": "baum",
+   "t": "baum",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 2 grüne und 3 gelbe Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Die erste Kugel ist grün. Wie groß ist P(2. Kugel gelb | 1. Kugel grün)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "baum",
+     "aeste": [
+      {
+       "text": "grün",
+       "p": "2/5",
+       "aeste": [
+        {
+         "text": "grün",
+         "p": "1/4"
+        },
+        {
+         "text": "gelb",
+         "p": "3/4"
+        }
+       ]
+      },
+      {
+       "text": "gelb",
+       "p": "3/5",
+       "aeste": [
+        {
+         "text": "grün",
+         "p": "2/4"
+        },
+        {
+         "text": "gelb",
+         "p": "2/4"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     3,
+     4
+    ]
+   },
+   "w": "Alle 3 gelben sind noch da, aber nur noch 4 Kugeln insgesamt: P = 3/4.",
+   "c": [
+    "3",
+    "4"
+   ]
+  },
+  {
+   "l": "baum",
+   "t": "baum",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 6 rote und 5 blaue Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Berechne P(zweimal rot).",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "baum",
+     "aeste": [
+      {
+       "text": "rot",
+       "p": "6/11",
+       "aeste": [
+        {
+         "text": "rot",
+         "p": "5/10"
+        },
+        {
+         "text": "blau",
+         "p": "5/10"
+        }
+       ]
+      },
+      {
+       "text": "blau",
+       "p": "5/11",
+       "aeste": [
+        {
+         "text": "rot",
+         "p": "6/10"
+        },
+        {
+         "text": "blau",
+         "p": "4/10"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     3,
+     11
+    ]
+   },
+   "w": "P = 6/11 · 5/10 = 3/11.",
+   "c": [
+    "3",
+    "11"
+   ]
+  },
+  {
+   "l": "baum",
+   "t": "baum",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 4 grüne und 2 gelbe Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Berechne P(zweimal gelb).",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     1,
+     15
+    ]
+   },
+   "w": "P = 2/6 · 1/5 = 1/15.",
+   "c": [
+    "1",
+    "15"
+   ]
+  },
+  {
+   "l": "baum",
+   "t": "baum",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 6 grüne und 7 gelbe Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Die erste Kugel ist grün. Wie groß ist P(2. Kugel gelb | 1. Kugel grün)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     7,
+     12
+    ]
+   },
+   "w": "Alle 7 gelben sind noch da, aber nur noch 12 Kugeln insgesamt: P = 7/12.",
+   "c": [
+    "7",
+    "12"
+   ]
+  },
+  {
+   "l": "baum",
+   "t": "baum",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 3 weiße und 2 schwarze Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Berechne P(zweimal weiß).",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "baum",
+     "aeste": [
+      {
+       "text": "weiß",
+       "p": "3/5",
+       "aeste": [
+        {
+         "text": "weiß",
+         "p": "2/4"
+        },
+        {
+         "text": "schwarz",
+         "p": "2/4"
+        }
+       ]
+      },
+      {
+       "text": "schwarz",
+       "p": "2/5",
+       "aeste": [
+        {
+         "text": "weiß",
+         "p": "3/4"
+        },
+        {
+         "text": "schwarz",
+         "p": "1/4"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     3,
+     10
+    ]
+   },
+   "w": "P = 3/5 · 2/4 = 3/10.",
+   "c": [
+    "3",
+    "10"
+   ]
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "P(A) = 0,8, P(B) = 0,8, P(A ∩ B) = 0,6. Sind A und B unabhängig?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "P(A) · P(B) = 0,64 ≠ 0,6: abhängig.",
+   "h": "Vergleiche P(A ∩ B) mit P(A) · P(B)."
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "A und B sind unabhängig. P(A) = 0,9, P(B) = 0,1. Berechne P(A ∩ B)."
+   },
+   "o": {
+    "wert": 0.09
+   },
+   "c": "0.9 * 0.1",
+   "w": "Unabhängig: P(A ∩ B) = P(A) · P(B) = 0,9 · 0,1 = 0,09.",
+   "h": "Bei unabhängigen Ereignissen darf man die Einzelwahrscheinlichkeiten multiplizieren."
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "A und B sind unabhängig. P(A) = 0,5, P(B) = 0,5. Berechne P(A ∩ B)."
+   },
+   "o": {
+    "wert": 0.25
+   },
+   "c": "0.5 * 0.5",
+   "w": "Unabhängig: P(A ∩ B) = P(A) · P(B) = 0,5 · 0,5 = 0,25.",
+   "h": "Bei unabhängigen Ereignissen darf man die Einzelwahrscheinlichkeiten multiplizieren."
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "A und B sind unabhängig. P(A) = 0,4, P(B) = 0,3. Berechne P(A ∩ B)."
+   },
+   "o": {
+    "wert": 0.12
+   },
+   "c": "0.4 * 0.3",
+   "w": "Unabhängig: P(A ∩ B) = P(A) · P(B) = 0,4 · 0,3 = 0,12.",
+   "h": "Bei unabhängigen Ereignissen darf man die Einzelwahrscheinlichkeiten multiplizieren."
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "A und B sind unabhängig. P(A) = 0,9, P(B) = 0,3. Berechne P(A ∩ B)."
+   },
+   "o": {
+    "wert": 0.27
+   },
+   "c": "0.9 * 0.3",
+   "w": "Unabhängig: P(A ∩ B) = P(A) · P(B) = 0,9 · 0,3 = 0,27.",
+   "h": "Bei unabhängigen Ereignissen darf man die Einzelwahrscheinlichkeiten multiplizieren."
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "P(A) = 0,4, P(B) = 0,5, P(A ∩ B) = 0,19. Sind A und B unabhängig?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "P(A) · P(B) = 0,2 ≠ 0,19: abhängig.",
+   "h": "Vergleiche P(A ∩ B) mit P(A) · P(B)."
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 100 Besucher eines Kinos. Sind die Merkmale „Erwachsene“ und „Popcorn gekauft“ unabhängig?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "Popcorn gekauft",
+      "kein Popcorn",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "Erwachsene",
+       "10",
+       "40",
+       "50"
+      ],
+      [
+       "Kinder",
+       "10",
+       "40",
+       "50"
+      ],
+      [
+       "Summe",
+       "20",
+       "80",
+       "100"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "P(Erwachsene) = 0,5, P(Erwachsene | Popcorn gekauft) = 10 : 20 = 0,5. Gleich: unabhängig.",
+   "h": "Vergleiche den Anteil „Erwachsene“ unter allen mit dem Anteil „Erwachsene“ in der Spalte „Popcorn gekauft“."
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "P(A) = 0,7, P(B) = 0,5, P(A ∩ B) = 0,38. Sind A und B unabhängig?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "P(A) · P(B) = 0,35 ≠ 0,38: abhängig.",
+   "h": "Vergleiche P(A ∩ B) mit P(A) · P(B)."
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 400 Besucher eines Kinos. Sind die Merkmale „Erwachsene“ und „Popcorn gekauft“ unabhängig?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "Popcorn gekauft",
+      "kein Popcorn",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "Erwachsene",
+       "32",
+       "48",
+       "80"
+      ],
+      [
+       "Kinder",
+       "128",
+       "192",
+       "320"
+      ],
+      [
+       "Summe",
+       "160",
+       "240",
+       "400"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "P(Erwachsene) = 0,2, P(Erwachsene | Popcorn gekauft) = 32 : 160 = 0,2. Gleich: unabhängig.",
+   "h": "Vergleiche den Anteil „Erwachsene“ unter allen mit dem Anteil „Erwachsene“ in der Spalte „Popcorn gekauft“."
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 200 Schülerinnen und Schüler. Sind die Merkmale „Brille“ und „Fahrrad“ unabhängig?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "Fahrrad",
+      "kein Fahrrad",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "Brille",
+       "80",
+       "20",
+       "100"
+      ],
+      [
+       "keine Brille",
+       "80",
+       "20",
+       "100"
+      ],
+      [
+       "Summe",
+       "160",
+       "40",
+       "200"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "P(Brille) = 0,5, P(Brille | Fahrrad) = 80 : 160 = 0,5. Gleich: unabhängig.",
+   "h": "Vergleiche den Anteil „Brille“ unter allen mit dem Anteil „Brille“ in der Spalte „Fahrrad“."
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "A und B sind unabhängig. P(A) = 0,3, P(B) = 0,2. Berechne P(A ∩ B)."
+   },
+   "o": {
+    "wert": 0.06
+   },
+   "c": "0.3 * 0.2",
+   "w": "Unabhängig: P(A ∩ B) = P(A) · P(B) = 0,3 · 0,2 = 0,06.",
+   "h": "Bei unabhängigen Ereignissen darf man die Einzelwahrscheinlichkeiten multiplizieren."
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 100 Befragte einer Umfrage. Sind die Merkmale „liest E-Books“ und „unter 30“ unabhängig?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "unter 30",
+      "ab 30",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "liest E-Books",
+       "35",
+       "35",
+       "70"
+      ],
+      [
+       "liest keine E-Books",
+       "15",
+       "15",
+       "30"
+      ],
+      [
+       "Summe",
+       "50",
+       "50",
+       "100"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "P(liest E-Books) = 0,7, P(liest E-Books | unter 30) = 35 : 50 = 0,7. Gleich: unabhängig.",
+   "h": "Vergleiche den Anteil „liest E-Books“ unter allen mit dem Anteil „liest E-Books“ in der Spalte „unter 30“."
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "A und B schließen sich aus (A ∩ B = ∅), P(A) = 0,4, P(B) = 0,4. Sind A und B unabhängig?"
+   },
+   "a": [
+    "Das kann man ohne weitere Angaben nicht sagen.",
+    "Unabhängig: Sie haben ja nichts miteinander zu tun.",
+    "Abhängig: Tritt A ein, kann B nicht mehr eintreten.",
+    "Unabhängig, weil P(A ∩ B) = 0 ist."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "P(A ∩ B) = 0, aber P(A) · P(B) = 0,16 ≠ 0. Also abhängig.",
+   "h": "Vergleiche P(A ∩ B) = 0 mit P(A) · P(B)."
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 200 Mitglieder eines Sportvereins. Sind die Merkmale „Fußball“ und „unter 18“ unabhängig?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "unter 18",
+      "ab 18",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "Fußball",
+       "12",
+       "28",
+       "40"
+      ],
+      [
+       "andere Sportart",
+       "48",
+       "112",
+       "160"
+      ],
+      [
+       "Summe",
+       "60",
+       "140",
+       "200"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "P(Fußball) = 0,2, P(Fußball | unter 18) = 12 : 60 = 0,2. Gleich: unabhängig.",
+   "h": "Vergleiche den Anteil „Fußball“ unter allen mit dem Anteil „Fußball“ in der Spalte „unter 18“."
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "A und B sind unabhängig, P(A) = 0,8 und P(B) = 0,3. Wie groß ist P(A | B)?"
+   },
+   "o": {
+    "wert": 0.8
+   },
+   "c": "0.8",
+   "w": "Unabhängig heißt: Das Wissen über B ändert nichts. P(A | B) = P(A) = 0,8.",
+   "h": "Was bedeutet „unabhängig“ für die bedingte Wahrscheinlichkeit?"
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine faire Münze zeigte 3-mal hintereinander Kopf. Wie groß ist die Wahrscheinlichkeit, dass der nächste Wurf Kopf zeigt?"
+   },
+   "a": [
+    "größer als 1/2, Kopf ist gerade dran",
+    "1/2 – die Münze hat kein Gedächtnis.",
+    "1/16",
+    "kleiner als 1/2, Zahl ist jetzt fällig"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Würfe sind unabhängig. P(Kopf | vorher Kopf-Serie) = P(Kopf) = 1/2.",
+   "h": "Hängt der nächste Wurf von den vorherigen ab?"
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "A und B sind unabhängig, P(A) = 0,3 und P(B) = 0,6. Wie groß ist P(A | B)?"
+   },
+   "o": {
+    "wert": 0.3
+   },
+   "c": "0.3",
+   "w": "Unabhängig heißt: Das Wissen über B ändert nichts. P(A | B) = P(A) = 0,3.",
+   "h": "Was bedeutet „unabhängig“ für die bedingte Wahrscheinlichkeit?"
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "A und B sind unabhängig, P(A) = 0,4 und P(B) = 0,6. Wie groß ist P(A | B)?"
+   },
+   "o": {
+    "wert": 0.4
+   },
+   "c": "0.4",
+   "w": "Unabhängig heißt: Das Wissen über B ändert nichts. P(A | B) = P(A) = 0,4.",
+   "h": "Was bedeutet „unabhängig“ für die bedingte Wahrscheinlichkeit?"
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "P(A) = 0,7, P(B) = 0,3, P(A ∩ B) = 0,24. Sind A und B unabhängig?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "P(A) · P(B) = 0,21 ≠ 0,24: abhängig."
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 100 Fahrgäste eines Busses. Sind die Merkmale „Monatskarte“ und „pendelt täglich“ unabhängig?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "pendelt täglich",
+      "pendelt nicht täglich",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "Monatskarte",
+       "12",
+       "48",
+       "60"
+      ],
+      [
+       "Einzelticket",
+       "8",
+       "32",
+       "40"
+      ],
+      [
+       "Summe",
+       "20",
+       "80",
+       "100"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "P(Monatskarte) = 0,6, P(Monatskarte | pendelt täglich) = 12 : 20 = 0,6. Gleich: unabhängig."
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 400 Besucher eines Kinos. Sind die Merkmale „Erwachsene“ und „Popcorn gekauft“ unabhängig?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "Popcorn gekauft",
+      "kein Popcorn",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "Erwachsene",
+       "84",
+       "36",
+       "120"
+      ],
+      [
+       "Kinder",
+       "156",
+       "124",
+       "280"
+      ],
+      [
+       "Summe",
+       "240",
+       "160",
+       "400"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "P(Erwachsene) = 0,3, P(Erwachsene | Popcorn gekauft) = 84 : 240 = 0,35. Verschieden: abhängig."
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "A und B sind unabhängig. P(A) = 0,3, P(B) = 0,3. Berechne P(A ∩ B)."
+   },
+   "o": {
+    "wert": 0.09
+   },
+   "c": "0.3 * 0.3",
+   "w": "Unabhängig: P(A ∩ B) = P(A) · P(B) = 0,3 · 0,3 = 0,09."
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "P(A) = 0,1, P(B) = 0,4, P(A ∩ B) = 0,04. Sind A und B unabhängig?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "P(A) · P(B) = 0,04 = P(A ∩ B): unabhängig."
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 100 Fahrgäste eines Busses. Sind die Merkmale „Monatskarte“ und „pendelt täglich“ unabhängig?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "pendelt täglich",
+      "pendelt nicht täglich",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "Monatskarte",
+       "16",
+       "64",
+       "80"
+      ],
+      [
+       "Einzelticket",
+       "4",
+       "16",
+       "20"
+      ],
+      [
+       "Summe",
+       "20",
+       "80",
+       "100"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "P(Monatskarte) = 0,8, P(Monatskarte | pendelt täglich) = 16 : 20 = 0,8. Gleich: unabhängig."
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Vierfeldertafel zeigt 100 Besucher eines Kinos. Sind die Merkmale „Erwachsene“ und „Popcorn gekauft“ unabhängig?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "Popcorn gekauft",
+      "kein Popcorn",
+      "Summe"
+     ],
+     "zeilen": [
+      [
+       "Erwachsene",
+       "16",
+       "54",
+       "70"
+      ],
+      [
+       "Kinder",
+       "24",
+       "6",
+       "30"
+      ],
+      [
+       "Summe",
+       "40",
+       "60",
+       "100"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "P(Erwachsene) = 0,7, P(Erwachsene | Popcorn gekauft) = 16 : 40 = 0,4. Verschieden: abhängig."
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "A und B sind unabhängig. P(A) = 0,7, P(B) = 0,7. Berechne P(A ∩ B)."
+   },
+   "o": {
+    "wert": 0.49
+   },
+   "c": "0.7 * 0.7",
+   "w": "Unabhängig: P(A ∩ B) = P(A) · P(B) = 0,7 · 0,7 = 0,49."
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "P(A) = 0,9, P(B) = 0,9, P(A ∩ B) = 0,77. Sind A und B unabhängig?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "P(A) · P(B) = 0,81 ≠ 0,77: abhängig."
+  },
+  {
+   "l": "unabhaengig",
+   "t": "unabhaengig",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "P(A) = 0,9, P(B) = 0,8, P(A ∩ B) = 0,72. Sind A und B unabhängig?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "P(A) · P(B) = 0,72 = P(A ∩ B): unabhängig."
+  },
+  {
+   "l": "rueckschluss",
+   "t": "rueckschluss",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "40 % der Geräte sind defekt. Ein Prüfgerät meldet 80 % dieser Geräte, aber irrtümlich auch 10 % der übrigen. Stelle dir 1 000 Geräte vor. Wie viele davon sind defekt?"
+   },
+   "o": {
+    "wert": 400
+   },
+   "c": "1000 * 40 / 100",
+   "w": "40 % von 1 000 = 400.",
+   "h": "Prozent von 1 000 berechnen."
+  },
+  {
+   "l": "rueckschluss",
+   "t": "rueckschluss",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "20 % der Pflanzen sind von Schädlingen befallen. Ein Schnelltest erkennt 95 % dieser Pflanzen, aber irrtümlich auch 20 % der übrigen. Stelle dir 1 000 Pflanzen vor. Wie viele davon sind von Schädlingen befallen?"
+   },
+   "o": {
+    "wert": 200
+   },
+   "c": "1000 * 20 / 100",
+   "w": "20 % von 1 000 = 200.",
+   "h": "Prozent von 1 000 berechnen."
+  },
+  {
+   "l": "rueckschluss",
+   "t": "rueckschluss",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "10 % der E-Mails sind Spam. Ein Filter markiert 90 % dieser E-Mails, aber irrtümlich auch 20 % der übrigen. Stelle dir 1 000 E-Mails vor. Wie viele E-Mails sind Spam und werden markiert?"
+   },
+   "o": {
+    "wert": 90
+   },
+   "c": "1000 * 10 / 100 * 90 / 100",
+   "w": "Spam: 100. Davon 90 %: 90.",
+   "h": "Erst die Gruppe bestimmen, dann den Prozentsatz davon."
+  },
+  {
+   "l": "rueckschluss",
+   "t": "rueckschluss",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "50 % der E-Mails sind Spam. Ein Filter markiert 95 % dieser E-Mails, aber irrtümlich auch 5 % der übrigen. Stelle dir 1 000 E-Mails vor. Wie viele E-Mails sind Spam und werden markiert?"
+   },
+   "o": {
+    "wert": 475
+   },
+   "c": "1000 * 50 / 100 * 95 / 100",
+   "w": "Spam: 500. Davon 95 %: 475.",
+   "h": "Erst die Gruppe bestimmen, dann den Prozentsatz davon."
+  },
+  {
+   "l": "rueckschluss",
+   "t": "rueckschluss",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "40 % der Geräte sind defekt. Ein Prüfgerät meldet 90 % dieser Geräte, aber irrtümlich auch 5 % der übrigen. Stelle dir 1 000 Geräte vor. Wie viele Geräte sind defekt und werden gemeldet?"
+   },
+   "o": {
+    "wert": 360
+   },
+   "c": "1000 * 40 / 100 * 90 / 100",
+   "w": "Defekt: 400. Davon 90 %: 360.",
+   "h": "Erst die Gruppe bestimmen, dann den Prozentsatz davon."
+  },
+  {
+   "l": "rueckschluss",
+   "t": "rueckschluss",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "20 % der E-Mails sind Spam. Ein Filter markiert 95 % dieser E-Mails, aber irrtümlich auch 20 % der übrigen. Stelle dir 1 000 E-Mails vor. Wie viele davon sind Spam?"
+   },
+   "o": {
+    "wert": 200
+   },
+   "c": "1000 * 20 / 100",
+   "w": "20 % von 1 000 = 200.",
+   "h": "Prozent von 1 000 berechnen."
+  },
+  {
+   "l": "rueckschluss",
+   "t": "rueckschluss",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "50 % der Geräte sind defekt. Ein Prüfgerät meldet 80 % dieser Geräte, aber irrtümlich auch 20 % der übrigen. Stelle dir 1 000 Geräte vor. Wie viele Geräte sind defekt und werden gemeldet?"
+   },
+   "o": {
+    "wert": 400
+   },
+   "c": "1000 * 50 / 100 * 80 / 100",
+   "w": "Defekt: 500. Davon 80 %: 400.",
+   "h": "Erst die Gruppe bestimmen, dann den Prozentsatz davon."
+  },
+  {
+   "l": "rueckschluss",
+   "t": "rueckschluss",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "40 % der Pflanzen sind von Schädlingen befallen. Ein Schnelltest erkennt 95 % dieser Pflanzen, aber irrtümlich auch 10 % der übrigen. Stelle dir 1 000 Pflanzen vor. Wie viele Pflanzen werden insgesamt als befallen erkannt?"
+   },
+   "o": {
+    "wert": 440
+   },
+   "c": "380 + 60",
+   "w": "Richtig als befallen erkannt: 380; irrtümlich als befallen erkannt: 60. Zusammen 440.",
+   "h": "Addiere beide Gruppen, die ein Signal bekommen."
+  },
+  {
+   "l": "rueckschluss",
+   "t": "rueckschluss",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "40 % der Pflanzen sind von Schädlingen befallen. Ein Schnelltest erkennt 100 % dieser Pflanzen, aber irrtümlich auch 5 % der übrigen. Stelle dir 1 000 Pflanzen vor. Wie viele Pflanzen sind gesund, werden aber trotzdem als befallen erkannt?"
+   },
+   "o": {
+    "wert": 30
+   },
+   "c": "(1000 - 1000 * 40 / 100) * 5 / 100",
+   "w": "Gesund: 600. Davon 5 %: 30.",
+   "h": "Wie viele sind nicht betroffen? Davon den Fehler-Prozentsatz."
+  },
+  {
+   "l": "rueckschluss",
+   "t": "rueckschluss",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "50 % der Geräte sind defekt. Ein Prüfgerät meldet 80 % dieser Geräte, aber irrtümlich auch 20 % der übrigen. Stelle dir 1 000 Geräte vor. Wie viele Geräte werden insgesamt gemeldet?"
+   },
+   "o": {
+    "wert": 500
+   },
+   "c": "400 + 100",
+   "w": "Richtig gemeldet: 400; irrtümlich gemeldet: 100. Zusammen 500.",
+   "h": "Addiere beide Gruppen, die ein Signal bekommen."
+  },
+  {
+   "l": "rueckschluss",
+   "t": "rueckschluss",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "40 % der Pflanzen sind von Schädlingen befallen. Ein Schnelltest erkennt 90 % dieser Pflanzen, aber irrtümlich auch 10 % der übrigen. Stelle dir 1 000 Pflanzen vor. Wie viele Pflanzen sind von Schädlingen befallen und werden als befallen erkannt?"
+   },
+   "o": {
+    "wert": 360
+   },
+   "c": "1000 * 40 / 100 * 90 / 100",
+   "w": "Von Schädlingen befallen: 400. Davon 90 %: 360.",
+   "h": "Erst die Gruppe bestimmen, dann den Prozentsatz davon."
+  },
+  {
+   "l": "rueckschluss",
+   "t": "rueckschluss",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "50 % der Pflanzen sind von Schädlingen befallen. Ein Schnelltest erkennt 95 % dieser Pflanzen, aber irrtümlich auch 20 % der übrigen. Stelle dir 1 000 Pflanzen vor. Wie viele Pflanzen sind von Schädlingen befallen und werden als befallen erkannt?"
+   },
+   "o": {
+    "wert": 475
+   },
+   "c": "1000 * 50 / 100 * 95 / 100",
+   "w": "Von Schädlingen befallen: 500. Davon 95 %: 475.",
+   "h": "Erst die Gruppe bestimmen, dann den Prozentsatz davon."
+  },
+  {
+   "l": "rueckschluss",
+   "t": "rueckschluss",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "2 % der Pflanzen sind von Schädlingen befallen. Ein Schnelltest erkennt 90 % dieser Pflanzen, aber irrtümlich auch 5 % der übrigen. Stelle dir 1 000 Pflanzen vor. Eine Pflanze wurde als befallen erkannt. Wie groß ist die Wahrscheinlichkeit, dass sie wirklich von Schädlingen befallen ist? Gib einen gekürzten Bruch an. (Im Baum: 2. Stufe „ja“ = als befallen erkannt.)",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "baum",
+     "aeste": [
+      {
+       "text": "befallen (20)",
+       "p": "0,02",
+       "aeste": [
+        {
+         "text": "ja",
+         "p": "0,9"
+        },
+        {
+         "text": "nein",
+         "p": "0,1"
+        }
+       ]
+      },
+      {
+       "text": "gesund (980)",
+       "p": "0,98",
+       "aeste": [
+        {
+         "text": "ja",
+         "p": "0,05"
+        },
+        {
+         "text": "nein",
+         "p": "0,95"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     18,
+     67
+    ]
+   },
+   "w": "Als befallen erkannt: 18 + 49 = 67. Davon wirklich von Schädlingen befallen: 18. P = 18/67 ≈ 0,27.",
+   "h": "Bedingung „als befallen erkannt“: Zähle alle als befallen erkannten und davon die wirklich von Schädlingen befallenen.",
+   "c": [
+    "18",
+    "67"
+   ]
+  },
+  {
+   "l": "rueckschluss",
+   "t": "rueckschluss",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "10 % der Geräte sind defekt. Ein Prüfgerät meldet 80 % dieser Geräte, aber irrtümlich auch 20 % der übrigen. Stelle dir 1 000 Geräte vor. Ein Gerät wurde gemeldet. Wie groß ist die Wahrscheinlichkeit, dass es wirklich defekt ist? Gib einen gekürzten Bruch an. (Im Baum: 2. Stufe „ja“ = gemeldet.)",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "baum",
+     "aeste": [
+      {
+       "text": "defekt (100)",
+       "p": "0,1",
+       "aeste": [
+        {
+         "text": "ja",
+         "p": "0,8"
+        },
+        {
+         "text": "nein",
+         "p": "0,2"
+        }
+       ]
+      },
+      {
+       "text": "ok (900)",
+       "p": "0,9",
+       "aeste": [
+        {
+         "text": "ja",
+         "p": "0,2"
+        },
+        {
+         "text": "nein",
+         "p": "0,8"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     4,
+     13
+    ]
+   },
+   "w": "Gemeldet: 80 + 180 = 260. Davon wirklich defekt: 80. P = 80/260 = 4/13 ≈ 0,31.",
+   "h": "Bedingung „gemeldet“: Zähle alle gemeldeten und davon die wirklich defekten.",
+   "c": [
+    "4",
+    "13"
+   ]
+  },
+  {
+   "l": "rueckschluss",
+   "t": "rueckschluss",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "10 % der Pflanzen sind von Schädlingen befallen. Ein Schnelltest erkennt 90 % dieser Pflanzen, aber irrtümlich auch 10 % der übrigen. Stelle dir 1 000 Pflanzen vor. Eine Pflanze wurde als befallen erkannt. Wie groß ist die Wahrscheinlichkeit, dass sie wirklich von Schädlingen befallen ist? Gib einen gekürzten Bruch an. (Im Baum: 2. Stufe „ja“ = als befallen erkannt.)",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "baum",
+     "aeste": [
+      {
+       "text": "befallen (100)",
+       "p": "0,1",
+       "aeste": [
+        {
+         "text": "ja",
+         "p": "0,9"
+        },
+        {
+         "text": "nein",
+         "p": "0,1"
+        }
+       ]
+      },
+      {
+       "text": "gesund (900)",
+       "p": "0,9",
+       "aeste": [
+        {
+         "text": "ja",
+         "p": "0,1"
+        },
+        {
+         "text": "nein",
+         "p": "0,9"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     1,
+     2
+    ]
+   },
+   "w": "Als befallen erkannt: 90 + 90 = 180. Davon wirklich von Schädlingen befallen: 90. P = 90/180 = 1/2 ≈ 0,5.",
+   "h": "Bedingung „als befallen erkannt“: Zähle alle als befallen erkannten und davon die wirklich von Schädlingen befallenen.",
+   "c": [
+    "1",
+    "2"
+   ]
+  },
+  {
+   "l": "rueckschluss",
+   "t": "rueckschluss",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "2 % der E-Mails sind Spam. Ein Filter markiert 95 % dieser E-Mails, aber irrtümlich auch 5 % der übrigen. Stelle dir 1 000 E-Mails vor. Eine E-Mail wurde markiert. Wie groß ist die Wahrscheinlichkeit, dass sie wirklich Spam ist? Gib einen gekürzten Bruch an. (Im Baum: 2. Stufe „ja“ = markiert.)",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "baum",
+     "aeste": [
+      {
+       "text": "Spam (20)",
+       "p": "0,02",
+       "aeste": [
+        {
+         "text": "ja",
+         "p": "0,95"
+        },
+        {
+         "text": "nein",
+         "p": "0,05"
+        }
+       ]
+      },
+      {
+       "text": "kein Spam (980)",
+       "p": "0,98",
+       "aeste": [
+        {
+         "text": "ja",
+         "p": "0,05"
+        },
+        {
+         "text": "nein",
+         "p": "0,95"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     19,
+     68
+    ]
+   },
+   "w": "Markiert: 19 + 49 = 68. Davon wirklich Spam: 19. P = 19/68 ≈ 0,28.",
+   "h": "Bedingung „markiert“: Zähle alle markierten und davon die wirklich Spamen.",
+   "c": [
+    "19",
+    "68"
+   ]
+  },
+  {
+   "l": "rueckschluss",
+   "t": "rueckschluss",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "10 % der Geräte sind defekt. Ein Prüfgerät meldet 95 % dieser Geräte, aber irrtümlich auch 10 % der übrigen. Stelle dir 1 000 Geräte vor. Ein Gerät wurde gemeldet. Wie groß ist die Wahrscheinlichkeit, dass es wirklich defekt ist? Gib einen gekürzten Bruch an. (Im Baum: 2. Stufe „ja“ = gemeldet.)",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "baum",
+     "aeste": [
+      {
+       "text": "defekt (100)",
+       "p": "0,1",
+       "aeste": [
+        {
+         "text": "ja",
+         "p": "0,95"
+        },
+        {
+         "text": "nein",
+         "p": "0,05"
+        }
+       ]
+      },
+      {
+       "text": "ok (900)",
+       "p": "0,9",
+       "aeste": [
+        {
+         "text": "ja",
+         "p": "0,1"
+        },
+        {
+         "text": "nein",
+         "p": "0,9"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     19,
+     37
+    ]
+   },
+   "w": "Gemeldet: 95 + 90 = 185. Davon wirklich defekt: 95. P = 95/185 = 19/37 ≈ 0,51.",
+   "h": "Bedingung „gemeldet“: Zähle alle gemeldeten und davon die wirklich defekten.",
+   "c": [
+    "19",
+    "37"
+   ]
+  },
+  {
+   "l": "rueckschluss",
+   "t": "rueckschluss",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "20 % der Geräte sind defekt. Ein Prüfgerät meldet 95 % dieser Geräte, aber irrtümlich auch 5 % der übrigen. Stelle dir 1 000 Geräte vor. Ein Gerät wurde gemeldet. Wie groß ist die Wahrscheinlichkeit, dass es wirklich defekt ist? Gib einen gekürzten Bruch an. (Im Baum: 2. Stufe „ja“ = gemeldet.)",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)",
+    "grafik": {
+     "typ": "baum",
+     "aeste": [
+      {
+       "text": "defekt (200)",
+       "p": "0,2",
+       "aeste": [
+        {
+         "text": "ja",
+         "p": "0,95"
+        },
+        {
+         "text": "nein",
+         "p": "0,05"
+        }
+       ]
+      },
+      {
+       "text": "ok (800)",
+       "p": "0,8",
+       "aeste": [
+        {
+         "text": "ja",
+         "p": "0,05"
+        },
+        {
+         "text": "nein",
+         "p": "0,95"
+        }
+       ]
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     19,
+     23
+    ]
+   },
+   "w": "Gemeldet: 190 + 40 = 230. Davon wirklich defekt: 190. P = 190/230 = 19/23 ≈ 0,83.",
+   "h": "Bedingung „gemeldet“: Zähle alle gemeldeten und davon die wirklich defekten.",
+   "c": [
+    "19",
+    "23"
+   ]
+  },
+  {
+   "l": "rueckschluss",
+   "t": "rueckschluss",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "10 % der Pflanzen sind von Schädlingen befallen. Ein Schnelltest erkennt 90 % dieser Pflanzen, aber irrtümlich auch 10 % der übrigen. Stelle dir 1 000 Pflanzen vor. Wie viele Pflanzen sind gesund, werden aber trotzdem als befallen erkannt?"
+   },
+   "o": {
+    "wert": 90
+   },
+   "c": "(1000 - 1000 * 10 / 100) * 10 / 100",
+   "w": "Gesund: 900. Davon 10 %: 90."
+  },
+  {
+   "l": "rueckschluss",
+   "t": "rueckschluss",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "20 % der Geräte sind defekt. Ein Prüfgerät meldet 95 % dieser Geräte, aber irrtümlich auch 10 % der übrigen. Stelle dir 1 000 Geräte vor. Wie viele Geräte sind defekt und werden gemeldet?"
+   },
+   "o": {
+    "wert": 190
+   },
+   "c": "1000 * 20 / 100 * 95 / 100",
+   "w": "Defekt: 200. Davon 95 %: 190."
+  },
+  {
+   "l": "rueckschluss",
+   "t": "rueckschluss",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "50 % der Pflanzen sind von Schädlingen befallen. Ein Schnelltest erkennt 90 % dieser Pflanzen, aber irrtümlich auch 5 % der übrigen. Stelle dir 1 000 Pflanzen vor. Wie viele Pflanzen sind von Schädlingen befallen und werden als befallen erkannt?"
+   },
+   "o": {
+    "wert": 450
+   },
+   "c": "1000 * 50 / 100 * 90 / 100",
+   "w": "Von Schädlingen befallen: 500. Davon 90 %: 450."
+  },
+  {
+   "l": "rueckschluss",
+   "t": "rueckschluss",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "40 % der E-Mails sind Spam. Ein Filter markiert 80 % dieser E-Mails, aber irrtümlich auch 20 % der übrigen. Stelle dir 1 000 E-Mails vor. Wie viele E-Mails werden insgesamt markiert?"
+   },
+   "o": {
+    "wert": 440
+   },
+   "c": "320 + 120",
+   "w": "Richtig markiert: 320; irrtümlich markiert: 120. Zusammen 440."
+  },
+  {
+   "l": "rueckschluss",
+   "t": "rueckschluss",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "25 % der Pflanzen sind von Schädlingen befallen. Ein Schnelltest erkennt 100 % dieser Pflanzen, aber irrtümlich auch 20 % der übrigen. Stelle dir 1 000 Pflanzen vor. Wie viele Pflanzen sind von Schädlingen befallen und werden als befallen erkannt?"
+   },
+   "o": {
+    "wert": 250
+   },
+   "c": "1000 * 25 / 100 * 100 / 100",
+   "w": "Von Schädlingen befallen: 250. Davon 100 %: 250."
+  },
+  {
+   "l": "rueckschluss",
+   "t": "rueckschluss",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "50 % der Geräte sind defekt. Ein Prüfgerät meldet 95 % dieser Geräte, aber irrtümlich auch 10 % der übrigen. Stelle dir 1 000 Geräte vor. Wie viele Geräte werden insgesamt gemeldet?"
+   },
+   "o": {
+    "wert": 525
+   },
+   "c": "475 + 50",
+   "w": "Richtig gemeldet: 475; irrtümlich gemeldet: 50. Zusammen 525."
+  },
+  {
+   "l": "rueckschluss",
+   "t": "rueckschluss",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "10 % der Pflanzen sind von Schädlingen befallen. Ein Schnelltest erkennt 90 % dieser Pflanzen, aber irrtümlich auch 5 % der übrigen. Stelle dir 1 000 Pflanzen vor. Wie viele Pflanzen sind gesund, werden aber trotzdem als befallen erkannt?"
+   },
+   "o": {
+    "wert": 45
+   },
+   "c": "(1000 - 1000 * 10 / 100) * 5 / 100",
+   "w": "Gesund: 900. Davon 5 %: 45."
+  },
+  {
+   "l": "rueckschluss",
+   "t": "rueckschluss",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "25 % der Pflanzen sind von Schädlingen befallen. Ein Schnelltest erkennt 100 % dieser Pflanzen, aber irrtümlich auch 10 % der übrigen. Stelle dir 1 000 Pflanzen vor. Wie viele Pflanzen sind gesund, werden aber trotzdem als befallen erkannt?"
+   },
+   "o": {
+    "wert": 75
+   },
+   "c": "(1000 - 1000 * 25 / 100) * 10 / 100",
+   "w": "Gesund: 750. Davon 10 %: 75."
+  },
+  {
+   "l": "rueckschluss",
+   "t": "rueckschluss",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "20 % der E-Mails sind Spam. Ein Filter markiert 90 % dieser E-Mails, aber irrtümlich auch 20 % der übrigen. Stelle dir 1 000 E-Mails vor. Wie viele E-Mails sind Spam und werden markiert?"
+   },
+   "o": {
+    "wert": 180
+   },
+   "c": "1000 * 20 / 100 * 90 / 100",
+   "w": "Spam: 200. Davon 90 %: 180."
+  },
+  {
+   "l": "rueckschluss",
+   "t": "rueckschluss",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "10 % der E-Mails sind Spam. Ein Filter markiert 100 % dieser E-Mails, aber irrtümlich auch 10 % der übrigen. Stelle dir 1 000 E-Mails vor. Wie viele E-Mails sind kein Spam, werden aber trotzdem markiert?"
+   },
+   "o": {
+    "wert": 90
+   },
+   "c": "(1000 - 1000 * 10 / 100) * 10 / 100",
+   "w": "Kein Spam: 900. Davon 10 %: 90."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "„90 % der Hundebesitzer gehen täglich spazieren.“ Wie schreibt man das als Wahrscheinlichkeit?"
+   },
+   "a": [
+    "P(geht täglich spazieren | Hundebesitzer) = 0,9",
+    "P(Hundebesitzer | geht täglich spazieren) = 0,9",
+    "P(geht täglich spazieren) = 0,9",
+    "P(geht täglich spazieren ∩ Hundebesitzer) = 0,9"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die Gruppe, auf die sich die Prozentangabe bezieht („Hundebesitzer“), ist die Bedingung und steht hinter dem Strich.",
+   "h": "Auf welche Gruppe bezieht sich die Prozentzahl? Diese steht hinter dem Strich."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "„Von den Schülern mit Note 1 lesen 75 % regelmäßig.“ Wie schreibt man das als Wahrscheinlichkeit?"
+   },
+   "a": [
+    "P(Note 1 | liest regelmäßig) = 0,75",
+    "P(liest regelmäßig) = 0,75",
+    "P(liest regelmäßig | Note 1) = 0,75",
+    "P(liest regelmäßig ∩ Note 1) = 0,75"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Gruppe, auf die sich die Prozentangabe bezieht („Note 1“), ist die Bedingung und steht hinter dem Strich.",
+   "h": "Auf welche Gruppe bezieht sich die Prozentzahl? Diese steht hinter dem Strich."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "„Von den verspäteten Flügen fanden 70 % bei Schnee statt.“ Wie schreibt man das als Wahrscheinlichkeit?"
+   },
+   "a": [
+    "P(Schnee ∩ verspätet) = 0,7",
+    "P(Schnee | verspätet) = 0,7",
+    "P(Schnee) = 0,7",
+    "P(verspätet | Schnee) = 0,7"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Gruppe, auf die sich die Prozentangabe bezieht („verspätet“), ist die Bedingung und steht hinter dem Strich.",
+   "h": "Auf welche Gruppe bezieht sich die Prozentzahl? Diese steht hinter dem Strich."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "„Unter den Kunden mit Kundenkarte zahlen 40 % mit dem Handy.“ Wie schreibt man das als Wahrscheinlichkeit?"
+   },
+   "a": [
+    "P(zahlt mit dem Handy) = 0,4",
+    "P(zahlt mit dem Handy | Kundenkarte) = 0,4",
+    "P(Kundenkarte | zahlt mit dem Handy) = 0,4",
+    "P(zahlt mit dem Handy ∩ Kundenkarte) = 0,4"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Gruppe, auf die sich die Prozentangabe bezieht („Kundenkarte“), ist die Bedingung und steht hinter dem Strich.",
+   "h": "Auf welche Gruppe bezieht sich die Prozentzahl? Diese steht hinter dem Strich."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "„60 % der Radfahrer tragen einen Helm.“ Wie schreibt man das als Wahrscheinlichkeit?"
+   },
+   "a": [
+    "P(Helm) = 0,6",
+    "P(Radfahrer | Helm) = 0,6",
+    "P(Helm | Radfahrer) = 0,6",
+    "P(Helm ∩ Radfahrer) = 0,6"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Gruppe, auf die sich die Prozentangabe bezieht („Radfahrer“), ist die Bedingung und steht hinter dem Strich.",
+   "h": "Auf welche Gruppe bezieht sich die Prozentzahl? Diese steht hinter dem Strich."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "„30 % der Pendler, die mit dem Zug fahren, kommen zu spät.“ Wie schreibt man das als Wahrscheinlichkeit?"
+   },
+   "a": [
+    "P(kommt zu spät) = 0,3",
+    "P(kommt zu spät ∩ fährt Zug) = 0,3",
+    "P(kommt zu spät | fährt Zug) = 0,3",
+    "P(fährt Zug | kommt zu spät) = 0,3"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Gruppe, auf die sich die Prozentangabe bezieht („fährt Zug“), ist die Bedingung und steht hinter dem Strich.",
+   "h": "Auf welche Gruppe bezieht sich die Prozentzahl? Diese steht hinter dem Strich."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "In einer Gruppe haben 64 Personen Merkmal A, 20 Merkmal B und 5 beide. Ist P(A | B) = P(B | A)?"
+   },
+   "a": [
+    "Nein: P(A | B) = 5/20, P(B | A) = 5/64.",
+    "Ja, es geht beide Male um dieselben 5 Personen.",
+    "Ja, beide sind 5/84.",
+    "Nein: P(A | B) = 5/64, P(B | A) = 5/20."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Der Zähler 5 ist gleich, aber geteilt wird durch die Bedingung: bei P(A | B) durch 20, bei P(B | A) durch 64.",
+   "h": "Gleicher Zähler – durch welche Gruppe wird jeweils geteilt?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "„60 % der Radfahrer tragen einen Helm.“ Jemand folgert: „Also gehören 60 % aller mit „Helm“ zur Gruppe „Radfahrer“.“ Stimmt das?"
+   },
+   "a": [
+    "Nein, gegeben ist P(Helm | Radfahrer), gefragt wäre P(Radfahrer | Helm).",
+    "Ja, das ist dieselbe Aussage.",
+    "Ja, wenn mehr als 60 Personen befragt wurden.",
+    "Nein, es müssten dann 100 % sein."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die Bedingung wurde vertauscht. Ohne die Größe beider Gruppen kann man P(Radfahrer | Helm) nicht angeben.",
+   "h": "Welche Gruppe ist die Bedingung – vorher und nachher?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "„30 % der Pendler, die mit dem Zug fahren, kommen zu spät.“ Jemand folgert: „Also gehören 30 % aller mit „kommt zu spät“ zur Gruppe „fährt Zug“.“ Stimmt das?"
+   },
+   "a": [
+    "Nein, gegeben ist P(kommt zu spät | fährt Zug), gefragt wäre P(fährt Zug | kommt zu spät).",
+    "Ja, das ist dieselbe Aussage.",
+    "Ja, wenn mehr als 30 Personen befragt wurden.",
+    "Nein, es müssten dann 100 % sein."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die Bedingung wurde vertauscht. Ohne die Größe beider Gruppen kann man P(fährt Zug | kommt zu spät) nicht angeben.",
+   "h": "Welche Gruppe ist die Bedingung – vorher und nachher?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "In einer Gruppe haben 40 Personen Merkmal A, 44 Merkmal B und 35 beide. Ist P(A | B) = P(B | A)?"
+   },
+   "a": [
+    "Nein: P(A | B) = 35/40, P(B | A) = 35/44.",
+    "Ja, beide sind 35/84.",
+    "Nein: P(A | B) = 35/44, P(B | A) = 35/40.",
+    "Ja, es geht beide Male um dieselben 35 Personen."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Der Zähler 35 ist gleich, aber geteilt wird durch die Bedingung: bei P(A | B) durch 44, bei P(B | A) durch 40.",
+   "h": "Gleicher Zähler – durch welche Gruppe wird jeweils geteilt?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "„Von den Gewinnern des Turniers haben 80 % täglich trainiert.“ Jemand folgert: „Also gehören 80 % aller mit „täglich trainiert“ zur Gruppe „Gewinner“.“ Stimmt das?"
+   },
+   "a": [
+    "Nein, gegeben ist P(täglich trainiert | Gewinner), gefragt wäre P(Gewinner | täglich trainiert).",
+    "Ja, wenn mehr als 80 Personen befragt wurden.",
+    "Nein, es müssten dann 100 % sein.",
+    "Ja, das ist dieselbe Aussage."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die Bedingung wurde vertauscht. Ohne die Größe beider Gruppen kann man P(Gewinner | täglich trainiert) nicht angeben.",
+   "h": "Welche Gruppe ist die Bedingung – vorher und nachher?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "„Von den Schülern mit Note 1 lesen 75 % regelmäßig.“ Jemand folgert: „Also gehören 75 % aller mit „liest regelmäßig“ zur Gruppe „Note 1“.“ Stimmt das?"
+   },
+   "a": [
+    "Nein, es müssten dann 100 % sein.",
+    "Nein, gegeben ist P(liest regelmäßig | Note 1), gefragt wäre P(Note 1 | liest regelmäßig).",
+    "Ja, wenn mehr als 75 Personen befragt wurden.",
+    "Ja, das ist dieselbe Aussage."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Bedingung wurde vertauscht. Ohne die Größe beider Gruppen kann man P(Note 1 | liest regelmäßig) nicht angeben.",
+   "h": "Welche Gruppe ist die Bedingung – vorher und nachher?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "In einer Gruppe haben 32 Personen Merkmal A, 43 Merkmal B und 10 beide. Ist P(A | B) = P(B | A)?"
+   },
+   "a": [
+    "Ja, beide sind 10/75.",
+    "Nein: P(A | B) = 10/43, P(B | A) = 10/32.",
+    "Nein: P(A | B) = 10/32, P(B | A) = 10/43.",
+    "Ja, es geht beide Male um dieselben 10 Personen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Der Zähler 10 ist gleich, aber geteilt wird durch die Bedingung: bei P(A | B) durch 43, bei P(B | A) durch 32.",
+   "h": "Gleicher Zähler – durch welche Gruppe wird jeweils geteilt?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Alle Personen mit Merkmal A haben auch Merkmal B, aber nicht umgekehrt. Welche Wahrscheinlichkeit ist größer?"
+   },
+   "a": [
+    "P(B | A) – sie ist sogar 1.",
+    "P(A | B)",
+    "Das lässt sich nicht sagen.",
+    "Beide sind gleich groß."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Wer A hat, hat sicher B: P(B | A) = 1. Unter den B gibt es aber auch Personen ohne A, also P(A | B) < 1.",
+   "h": "Was weißt du sicher über jemanden mit Merkmal A?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Von 166 Kindern einer Schule spielen 58 im Schulorchester. 10 der Orchesterkinder spielen Geige, außerhalb des Orchesters niemand. Wie groß ist P(Geige | Kind dieser Schule), also der Anteil der Geigenspieler an allen Kindern?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     5,
+     83
+    ]
+   },
+   "w": "Gesucht ist der Anteil unter allen 166 Kindern: 10/166 = 5/83. (P(Geige | Orchester) wäre 10/58.)",
+   "h": "Durch welche Gruppe wird geteilt?",
+   "c": [
+    "5",
+    "83"
+   ]
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "In einer Gruppe haben 67 Personen Merkmal A, 61 Merkmal B und 17 beide. Ist P(A | B) = P(B | A)?"
+   },
+   "a": [
+    "Ja, beide sind 17/128.",
+    "Ja, es geht beide Male um dieselben 17 Personen.",
+    "Nein: P(A | B) = 17/61, P(B | A) = 17/67.",
+    "Nein: P(A | B) = 17/67, P(B | A) = 17/61."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Der Zähler 17 ist gleich, aber geteilt wird durch die Bedingung: bei P(A | B) durch 61, bei P(B | A) durch 67.",
+   "h": "Gleicher Zähler – durch welche Gruppe wird jeweils geteilt?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "„Von den verspäteten Flügen fanden 70 % bei Schnee statt.“ Jemand folgert: „Also gehören 70 % aller mit „Schnee“ zur Gruppe „verspätet“.“ Stimmt das?"
+   },
+   "a": [
+    "Ja, wenn mehr als 70 Personen befragt wurden.",
+    "Nein, es müssten dann 100 % sein.",
+    "Ja, das ist dieselbe Aussage.",
+    "Nein, gegeben ist P(Schnee | verspätet), gefragt wäre P(verspätet | Schnee)."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die Bedingung wurde vertauscht. Ohne die Größe beider Gruppen kann man P(verspätet | Schnee) nicht angeben.",
+   "h": "Welche Gruppe ist die Bedingung – vorher und nachher?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Von 125 Kindern einer Schule spielen 29 im Schulorchester. 5 der Orchesterkinder spielen Geige, außerhalb des Orchesters niemand. Wie groß ist P(Geige | Kind dieser Schule), also der Anteil der Geigenspieler an allen Kindern?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     1,
+     25
+    ]
+   },
+   "w": "Gesucht ist der Anteil unter allen 125 Kindern: 5/125 = 1/25. (P(Geige | Orchester) wäre 5/29.)",
+   "h": "Durch welche Gruppe wird geteilt?",
+   "c": [
+    "1",
+    "25"
+   ]
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "In einer Gruppe haben 22 Personen Merkmal A, 80 Merkmal B und 5 beide. Ist P(A | B) = P(B | A)?"
+   },
+   "a": [
+    "Ja, es geht beide Male um dieselben 5 Personen.",
+    "Ja, beide sind 5/102.",
+    "Nein: P(A | B) = 5/80, P(B | A) = 5/22.",
+    "Nein: P(A | B) = 5/22, P(B | A) = 5/80."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Der Zähler 5 ist gleich, aber geteilt wird durch die Bedingung: bei P(A | B) durch 80, bei P(B | A) durch 22."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "In einer Gruppe haben 65 Personen Merkmal A, 80 Merkmal B und 6 beide. Ist P(A | B) = P(B | A)?"
+   },
+   "a": [
+    "Nein: P(A | B) = 6/65, P(B | A) = 6/80.",
+    "Ja, beide sind 6/145.",
+    "Nein: P(A | B) = 6/80, P(B | A) = 6/65.",
+    "Ja, es geht beide Male um dieselben 6 Personen."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Der Zähler 6 ist gleich, aber geteilt wird durch die Bedingung: bei P(A | B) durch 80, bei P(B | A) durch 65."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "„Von den Gewinnern des Turniers haben 80 % täglich trainiert.“ Wie schreibt man das als Wahrscheinlichkeit?"
+   },
+   "a": [
+    "P(täglich trainiert ∩ Gewinner) = 0,8",
+    "P(täglich trainiert | Gewinner) = 0,8",
+    "P(täglich trainiert) = 0,8",
+    "P(Gewinner | täglich trainiert) = 0,8"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Gruppe, auf die sich die Prozentangabe bezieht („Gewinner“), ist die Bedingung und steht hinter dem Strich."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "In einer Gruppe haben 75 Personen Merkmal A, 60 Merkmal B und 41 beide. Ist P(A | B) = P(B | A)?"
+   },
+   "a": [
+    "Nein: P(A | B) = 41/75, P(B | A) = 41/60.",
+    "Nein: P(A | B) = 41/60, P(B | A) = 41/75.",
+    "Ja, beide sind 41/135.",
+    "Ja, es geht beide Male um dieselben 41 Personen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Der Zähler 41 ist gleich, aber geteilt wird durch die Bedingung: bei P(A | B) durch 60, bei P(B | A) durch 75."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "In einer Gruppe haben 27 Personen Merkmal A, 75 Merkmal B und 18 beide. Ist P(A | B) = P(B | A)?"
+   },
+   "a": [
+    "Ja, es geht beide Male um dieselben 18 Personen.",
+    "Ja, beide sind 18/102.",
+    "Nein: P(A | B) = 18/27, P(B | A) = 18/75.",
+    "Nein: P(A | B) = 18/75, P(B | A) = 18/27."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Der Zähler 18 ist gleich, aber geteilt wird durch die Bedingung: bei P(A | B) durch 75, bei P(B | A) durch 27."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "In einer Gruppe haben 41 Personen Merkmal A, 54 Merkmal B und 16 beide. Ist P(A | B) = P(B | A)?"
+   },
+   "a": [
+    "Nein: P(A | B) = 16/54, P(B | A) = 16/41.",
+    "Ja, es geht beide Male um dieselben 16 Personen.",
+    "Nein: P(A | B) = 16/41, P(B | A) = 16/54.",
+    "Ja, beide sind 16/95."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Der Zähler 16 ist gleich, aber geteilt wird durch die Bedingung: bei P(A | B) durch 54, bei P(B | A) durch 41."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "In einer Gruppe haben 60 Personen Merkmal A, 62 Merkmal B und 59 beide. Ist P(A | B) = P(B | A)?"
+   },
+   "a": [
+    "Nein: P(A | B) = 59/60, P(B | A) = 59/62.",
+    "Ja, es geht beide Male um dieselben 59 Personen.",
+    "Ja, beide sind 59/122.",
+    "Nein: P(A | B) = 59/62, P(B | A) = 59/60."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Der Zähler 59 ist gleich, aber geteilt wird durch die Bedingung: bei P(A | B) durch 62, bei P(B | A) durch 60."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "In einer Gruppe haben 27 Personen Merkmal A, 70 Merkmal B und 17 beide. Ist P(A | B) = P(B | A)?"
+   },
+   "a": [
+    "Nein: P(A | B) = 17/70, P(B | A) = 17/27.",
+    "Ja, es geht beide Male um dieselben 17 Personen.",
+    "Ja, beide sind 17/97.",
+    "Nein: P(A | B) = 17/27, P(B | A) = 17/70."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Der Zähler 17 ist gleich, aber geteilt wird durch die Bedingung: bei P(A | B) durch 70, bei P(B | A) durch 27."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "In einer Gruppe haben 36 Personen Merkmal A, 39 Merkmal B und 29 beide. Ist P(A | B) = P(B | A)?"
+   },
+   "a": [
+    "Nein: P(A | B) = 29/39, P(B | A) = 29/36.",
+    "Ja, es geht beide Male um dieselben 29 Personen.",
+    "Ja, beide sind 29/75.",
+    "Nein: P(A | B) = 29/36, P(B | A) = 29/39."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Der Zähler 29 ist gleich, aber geteilt wird durch die Bedingung: bei P(A | B) durch 39, bei P(B | A) durch 36."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "In einer Gruppe haben 25 Personen Merkmal A, 22 Merkmal B und 15 beide. Ist P(A | B) = P(B | A)?"
+   },
+   "a": [
+    "Ja, beide sind 15/47.",
+    "Nein: P(A | B) = 15/25, P(B | A) = 15/22.",
+    "Nein: P(A | B) = 15/22, P(B | A) = 15/25.",
+    "Ja, es geht beide Male um dieselben 15 Personen."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Der Zähler 15 ist gleich, aber geteilt wird durch die Bedingung: bei P(A | B) durch 22, bei P(B | A) durch 25."
+  }
+ ],
+ "offen": [
+  "Schreibweise P(A | B) wie im IB; im bayerischen Gymnasium heißt das P_B(A). Bei der ersten Erklärung beides erwähnen? Bisher nur IB-Schreibweise.",
+  "Überschneidung mit stochastik.verknuepft (Gymnasium Klasse 9, Lernkarte „bedingt“): Hier ausführlicher (Formel, Ziehen ohne Zurücklegen, Unabhängigkeit, Rückschlüsse).",
+  "Satz von Bayes nur über natürliche Häufigkeiten (1 000 Fälle), ohne Formel – passend zu MYP 4."
+ ]
+}

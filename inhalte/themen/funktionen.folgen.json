@@ -1,0 +1,2487 @@
+{
+ "thema_schluessel": "funktionen.folgen",
+ "thema_id": 41,
+ "block_id": 65,
+ "klasse": {
+  "ib_myp": 4
+ },
+ "autor": "Claude (Paket IB)",
+ "inhalt": {
+  "ziel": "Folgenglieder explizit und rekursiv berechnen, arithmetische und geometrische Folgen erkennen, beschreiben und in Sachaufgaben anwenden.",
+  "merke": [
+   "Folge (sequence): a₁, a₂, a₃, …; n ist die Platznummer.",
+   "Rekursiv (recursive): nächstes Glied aus dem vorigen; braucht einen Startwert.",
+   "Arithmetisch: aₙ = a₁ + (n − 1) · d (immer plus d).",
+   "Geometrisch: aₙ = a₁ · qⁿ⁻¹ (immer mal q).",
+   "Art prüfen: Differenzen gleich → arithmetisch, Quotienten gleich → geometrisch."
+  ],
+  "abschnitte": [
+   {
+    "titel": "Folgen beschreiben",
+    "lernziele": [
+     "explizit",
+     "rekursiv"
+    ]
+   },
+   {
+    "titel": "Besondere Folgen",
+    "lernziele": [
+     "arithmetisch",
+     "geometrisch"
+    ]
+   },
+   {
+    "titel": "Erkennen",
+    "lernziele": [
+     "erkennen"
+    ]
+   }
+  ],
+  "etappen": [
+   {
+    "lernziel": "explizit",
+    "titel": "Folgenglieder berechnen",
+    "regel": "Eine ⟦Folge⟧ (sequence) ist eine geordnete Liste von Zahlen, den ⟦Gliedern⟧ (terms) a₁, a₂, a₃, … Bei einer ⟦expliziten Formel⟧ (general term) für aₙ setzt man für n die ⟦Platznummer⟧ ein.",
+    "schritte": [
+     "aₙ = 3n − 2. Gesucht: a₅.",
+     "n = 5 einsetzen: 3 · 5 − 2 = ⟦13⟧."
+    ],
+    "probe": "a₁ = 1, a₂ = 4, a₃ = 7, a₄ = 10, a₅ = 13 ✓",
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "n",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5"
+     ],
+     "zeilen": [
+      [
+       "aₙ = 3n − 2",
+       "1",
+       "4",
+       "7",
+       "10",
+       "13"
+      ]
+     ]
+    },
+    "fehler": "a₅ als „fünfte Zahl in 3n − 2 einsetzen“ mit n = 13 zu verwechseln ist falsch: ⟦n ist die Platznummer⟧, aₙ ist der Wert an diesem Platz."
+   },
+   {
+    "lernziel": "rekursiv",
+    "titel": "Rekursiv weiterrechnen",
+    "regel": "Eine ⟦rekursive Formel⟧ (recursive formula) sagt, wie man aus einem Glied das ⟦nächste⟧ erhält, z. B. aₙ₊₁ = aₙ + 4. Dazu braucht man einen ⟦Startwert⟧ a₁. Man rechnet Schritt für Schritt.",
+    "schritte": [
+     "a₁ = 5, aₙ₊₁ = 2 · aₙ − 1.",
+     "a₂ = 2 · 5 − 1 = 9; a₃ = 2 · 9 − 1 = 17.",
+     "a₄ = 2 · 17 − 1 = ⟦33⟧."
+    ],
+    "probe": "Jedes Glied aus dem vorigen berechnet ✓",
+    "fehler": "a₄ = 2 · 4 − 1 = 7 ist falsch: In der rekursiven Formel setzt man ⟦das vorige Glied⟧ ein, nicht die Platznummer."
+   },
+   {
+    "lernziel": "arithmetisch",
+    "titel": "Arithmetische Folgen",
+    "regel": "Bei einer ⟦arithmetischen Folge⟧ (arithmetic sequence) kommt immer ⟦dieselbe Zahl d⟧ dazu (die Differenz, common difference). Explizit: ⟦aₙ = a₁ + (n − 1) · d⟧.",
+    "schritte": [
+     "Folge 7; 11; 15; 19; … : d = 11 − 7 = 4.",
+     "a₂₀ = 7 + (20 − 1) · 4 = 7 + 76 = ⟦83⟧."
+    ],
+    "probe": "a₄ = 7 + 3 · 4 = 19 ✓",
+    "fehler": "a₂₀ = 7 + 20 · 4 = 87 ist falsch: Von a₁ bis a₂₀ sind es nur ⟦19 Schritte⟧, also (n − 1) · d."
+   },
+   {
+    "lernziel": "geometrisch",
+    "titel": "Geometrische Folgen",
+    "regel": "Bei einer ⟦geometrischen Folge⟧ (geometric sequence) wird immer mit ⟦demselben Faktor q⟧ multipliziert (common ratio): q = a₂ : a₁. Explizit: ⟦aₙ = a₁ · qⁿ⁻¹⟧.",
+    "schritte": [
+     "Folge 3; 6; 12; 24; … : q = 6 : 3 = 2.",
+     "a₇ = 3 · 2⁶ = 3 · 64 = ⟦192⟧."
+    ],
+    "probe": "24 · 2 · 2 · 2 = 192 ✓",
+    "fehler": "a₇ = 3 · 2⁷ = 384 ist falsch: Von a₁ bis a₇ wird nur ⟦6-mal⟧ mit q multipliziert, also qⁿ⁻¹ = q⁶."
+   },
+   {
+    "lernziel": "erkennen",
+    "titel": "Folgen erkennen und prüfen",
+    "regel": "Prüfe ⟦Differenzen⟧ aufeinanderfolgender Glieder (gleich → arithmetisch) und ⟦Quotienten⟧ (gleich → geometrisch). Ist beides nicht konstant, ist die Folge ⟦weder noch⟧ – z. B. Quadratzahlen 1; 4; 9; 16.",
+    "schritte": [
+     "Folge 2; 6; 18; 54: Differenzen 4; 12; 36 – nicht gleich.",
+     "Quotienten 3; 3; 3 – gleich. ⟦Geometrisch mit q = 3⟧."
+    ],
+    "probe": "54 · 3 = 162 wäre das nächste Glied ✓",
+    "fehler": "Aus zwei Gliedern allein auf die Art zu schließen ist falsch: Bei 1; 4 könnte d = 3 oder q = 4 sein. Man braucht ⟦mindestens drei Glieder⟧."
+   }
+  ],
+  "teilfaehigkeiten": [
+   {
+    "k": "explizit",
+    "text": "Folgenglieder berechnen",
+    "lernziele": [
+     "explizit"
+    ]
+   },
+   {
+    "k": "rekursiv",
+    "text": "Rekursiv weiterrechnen",
+    "lernziele": [
+     "rekursiv"
+    ]
+   },
+   {
+    "k": "arithmetisch",
+    "text": "Arithmetische Folgen",
+    "lernziele": [
+     "arithmetisch"
+    ]
+   },
+   {
+    "k": "geometrisch",
+    "text": "Geometrische Folgen",
+    "lernziele": [
+     "geometrisch"
+    ]
+   },
+   {
+    "k": "erkennen",
+    "text": "Folgen erkennen und prüfen",
+    "lernziele": [
+     "erkennen"
+    ]
+   }
+  ],
+  "bewertung": {
+   "lernziele_pflicht": [
+    "explizit",
+    "rekursiv",
+    "arithmetisch",
+    "geometrisch",
+    "erkennen"
+   ],
+   "lernziele_vertiefung": [],
+   "testaufgaben_je_lernziel": 1
+  },
+  "quellen": {
+   "erklaerungen": "Eigene Fassung (Claude), Aufgaben vom Generator erzeugt und berechnet.",
+   "begriffe": "Fachbegriffe deutsch (LehrplanPLUS Bayern), IB-Begriffe beim ersten Auftreten englisch in Klammern."
+  }
+ },
+ "aufgaben": [
+  {
+   "l": "explizit",
+   "t": "explizit",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "aₙ = 5n + 9. Berechne a₁₃."
+   },
+   "o": {
+    "wert": 74
+   },
+   "c": "5 * 13 + (9)",
+   "w": "n = 13 einsetzen: 5 · 13 + 9 = 74.",
+   "h": "Setze die Platznummer für n ein."
+  },
+  {
+   "l": "explizit",
+   "t": "explizit",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "aₙ = −3n − 3. Berechne a₁₂."
+   },
+   "o": {
+    "wert": -39
+   },
+   "c": "-3 * 12 + (-3)",
+   "w": "n = 12 einsetzen: (−3) · 12 − 3 = −39.",
+   "h": "Setze die Platznummer für n ein."
+  },
+  {
+   "l": "explizit",
+   "t": "explizit",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "aₙ = 6n + 10. Berechne a₂."
+   },
+   "o": {
+    "wert": 22
+   },
+   "c": "6 * 2 + (10)",
+   "w": "n = 2 einsetzen: 6 · 2 + 10 = 22.",
+   "h": "Setze die Platznummer für n ein."
+  },
+  {
+   "l": "explizit",
+   "t": "explizit",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "aₙ = −2n + 1. Berechne a₁₁."
+   },
+   "o": {
+    "wert": -21
+   },
+   "c": "-2 * 11 + (1)",
+   "w": "n = 11 einsetzen: (−2) · 11 + 1 = −21.",
+   "h": "Setze die Platznummer für n ein."
+  },
+  {
+   "l": "explizit",
+   "t": "explizit",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "aₙ = 6n + 2. Berechne a₂."
+   },
+   "o": {
+    "wert": 14
+   },
+   "c": "6 * 2 + (2)",
+   "w": "n = 2 einsetzen: 6 · 2 + 2 = 14.",
+   "h": "Setze die Platznummer für n ein."
+  },
+  {
+   "l": "explizit",
+   "t": "explizit",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "aₙ = 6n − 6. Berechne a₁₂."
+   },
+   "o": {
+    "wert": 66
+   },
+   "c": "6 * 12 + (-6)",
+   "w": "n = 12 einsetzen: 6 · 12 − 6 = 66.",
+   "h": "Setze die Platznummer für n ein."
+  },
+  {
+   "l": "explizit",
+   "t": "explizit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "aₙ = 2n² + 2. Berechne a₇."
+   },
+   "o": {
+    "wert": 100
+   },
+   "c": "2 * 7 ** 2 + (2)",
+   "w": "a₇ = 2 · 7² + 2 = 100.",
+   "h": "Erst n quadrieren, dann den Rest."
+  },
+  {
+   "l": "explizit",
+   "t": "explizit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "aₙ = −n² + 4. Berechne a₄."
+   },
+   "o": {
+    "wert": -12
+   },
+   "c": "-1 * 4 ** 2 + (4)",
+   "w": "a₄ = −4² + 4 = −12.",
+   "h": "Erst n quadrieren, dann den Rest."
+  },
+  {
+   "l": "explizit",
+   "t": "explizit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "aₙ = 3n² − 3. Berechne a₆."
+   },
+   "o": {
+    "wert": 105
+   },
+   "c": "3 * 6 ** 2 + (-3)",
+   "w": "a₆ = 3 · 6² − 3 = 105.",
+   "h": "Erst n quadrieren, dann den Rest."
+  },
+  {
+   "l": "explizit",
+   "t": "explizit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "aₙ = n² + 4. Berechne a₆."
+   },
+   "o": {
+    "wert": 40
+   },
+   "c": "1 * 6 ** 2 + (4)",
+   "w": "a₆ = 6² + 4 = 40.",
+   "h": "Erst n quadrieren, dann den Rest."
+  },
+  {
+   "l": "explizit",
+   "t": "explizit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "aₙ = n² − 1. Berechne a₁₁."
+   },
+   "o": {
+    "wert": 120
+   },
+   "c": "1 * 11 ** 2 + (-1)",
+   "w": "a₁₁ = 11² − 1 = 120.",
+   "h": "Erst n quadrieren, dann den Rest."
+  },
+  {
+   "l": "explizit",
+   "t": "explizit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "aₙ = 6n − 3. Berechne a₃₃."
+   },
+   "o": {
+    "wert": 195
+   },
+   "c": "6 * 33 + (-3)",
+   "w": "n = 33 einsetzen: 6 · 33 − 3 = 195.",
+   "h": "Setze die Platznummer für n ein."
+  },
+  {
+   "l": "explizit",
+   "t": "explizit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "aₙ = 2n². Berechne a₈."
+   },
+   "o": {
+    "wert": 128
+   },
+   "c": "2 * 8 ** 2 + (0)",
+   "w": "a₈ = 2 · 8² = 128.",
+   "h": "Erst n quadrieren, dann den Rest."
+  },
+  {
+   "l": "explizit",
+   "t": "explizit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "aₙ = 6n + 3. Um wie viel unterscheiden sich a₁₇ und a₁₆ (a₁₇ − a₁₆)?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "6 * 17 + (3) - (6 * 16 + (3))",
+   "w": "a₁₇ = 105, a₁₆ = 99. Differenz: 6 – so groß wie der Faktor vor n.",
+   "h": "Rechne beide Glieder aus oder überlege, was sich ändert, wenn n um 1 wächst."
+  },
+  {
+   "l": "explizit",
+   "t": "explizit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "aₙ = 5n + 10. Das wievielte Glied hat den Wert 130?"
+   },
+   "o": {
+    "wert": 24
+   },
+   "c": "(130 - (10)) / 5",
+   "w": "5n + 10 = 130 ⇒ 5n = 120 ⇒ n = 24.",
+   "h": "Setze aₙ gleich dem Wert und löse nach n auf."
+  },
+  {
+   "l": "explizit",
+   "t": "explizit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "aₙ = −2n + 4. Um wie viel unterscheiden sich a₉ und a₈ (a₉ − a₈)?"
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "-2 * 9 + (4) - (-2 * 8 + (4))",
+   "w": "a₉ = −14, a₈ = −12. Differenz: −2 – so groß wie der Faktor vor n.",
+   "h": "Rechne beide Glieder aus oder überlege, was sich ändert, wenn n um 1 wächst."
+  },
+  {
+   "l": "explizit",
+   "t": "explizit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "aₙ = 2n − 6. Um wie viel unterscheiden sich a₁₀ und a₉ (a₁₀ − a₉)?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2 * 10 + (-6) - (2 * 9 + (-6))",
+   "w": "a₁₀ = 14, a₉ = 12. Differenz: 2 – so groß wie der Faktor vor n.",
+   "h": "Rechne beide Glieder aus oder überlege, was sich ändert, wenn n um 1 wächst."
+  },
+  {
+   "l": "explizit",
+   "t": "explizit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "aₙ = 6n − 2. Das wievielte Glied hat den Wert 124?"
+   },
+   "o": {
+    "wert": 21
+   },
+   "c": "(124 - (-2)) / 6",
+   "w": "6n − 2 = 124 ⇒ 6n = 126 ⇒ n = 21.",
+   "h": "Setze aₙ gleich dem Wert und löse nach n auf."
+  },
+  {
+   "l": "explizit",
+   "t": "explizit",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "aₙ = 2n + 5. Berechne a₁₉."
+   },
+   "o": {
+    "wert": 43
+   },
+   "c": "2 * 19 + (5)",
+   "w": "n = 19 einsetzen: 2 · 19 + 5 = 43."
+  },
+  {
+   "l": "explizit",
+   "t": "explizit",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "aₙ = 3n − 6. Berechne a₁₆."
+   },
+   "o": {
+    "wert": 42
+   },
+   "c": "3 * 16 + (-6)",
+   "w": "n = 16 einsetzen: 3 · 16 − 6 = 42."
+  },
+  {
+   "l": "explizit",
+   "t": "explizit",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "aₙ = 2n² − 2. Berechne a₁₂."
+   },
+   "o": {
+    "wert": 286
+   },
+   "c": "2 * 12 ** 2 + (-2)",
+   "w": "a₁₂ = 2 · 12² − 2 = 286."
+  },
+  {
+   "l": "explizit",
+   "t": "explizit",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "aₙ = 4n + 6. Berechne a₃₀."
+   },
+   "o": {
+    "wert": 126
+   },
+   "c": "4 * 30 + (6)",
+   "w": "n = 30 einsetzen: 4 · 30 + 6 = 126."
+  },
+  {
+   "l": "explizit",
+   "t": "explizit",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "aₙ = −n² + 2. Berechne a₄."
+   },
+   "o": {
+    "wert": -14
+   },
+   "c": "-1 * 4 ** 2 + (2)",
+   "w": "a₄ = −4² + 2 = −14."
+  },
+  {
+   "l": "explizit",
+   "t": "explizit",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "aₙ = 4n + 11. Berechne a₁₆."
+   },
+   "o": {
+    "wert": 75
+   },
+   "c": "4 * 16 + (11)",
+   "w": "n = 16 einsetzen: 4 · 16 + 11 = 75."
+  },
+  {
+   "l": "explizit",
+   "t": "explizit",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "aₙ = 5n − 3. Berechne a₁₁."
+   },
+   "o": {
+    "wert": 52
+   },
+   "c": "5 * 11 + (-3)",
+   "w": "n = 11 einsetzen: 5 · 11 − 3 = 52."
+  },
+  {
+   "l": "explizit",
+   "t": "explizit",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "aₙ = −3n + 9. Berechne a₃₄."
+   },
+   "o": {
+    "wert": -93
+   },
+   "c": "-3 * 34 + (9)",
+   "w": "n = 34 einsetzen: (−3) · 34 + 9 = −93."
+  },
+  {
+   "l": "explizit",
+   "t": "explizit",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "aₙ = −n² − 2. Berechne a₁₀."
+   },
+   "o": {
+    "wert": -102
+   },
+   "c": "-1 * 10 ** 2 + (-2)",
+   "w": "a₁₀ = −10² − 2 = −102."
+  },
+  {
+   "l": "explizit",
+   "t": "explizit",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "aₙ = −n² − 1. Berechne a₈."
+   },
+   "o": {
+    "wert": -65
+   },
+   "c": "-1 * 8 ** 2 + (-1)",
+   "w": "a₈ = −8² − 1 = −65."
+  },
+  {
+   "l": "rekursiv",
+   "t": "rekursiv",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "a₁ = 11, aₙ₊₁ = aₙ + 3. Berechne a₃."
+   },
+   "o": {
+    "wert": 17
+   },
+   "c": "11 + 2 * (3)",
+   "w": "11; 14; 17 → a₃ = 17.",
+   "h": "Rechne Schritt für Schritt: jedes Mal + 3."
+  },
+  {
+   "l": "rekursiv",
+   "t": "rekursiv",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "a₁ = 10, aₙ₊₁ = aₙ + 5. Berechne a₆."
+   },
+   "o": {
+    "wert": 35
+   },
+   "c": "10 + 5 * (5)",
+   "w": "10; 15; 20; 25; 30; 35 → a₆ = 35.",
+   "h": "Rechne Schritt für Schritt: jedes Mal + 5."
+  },
+  {
+   "l": "rekursiv",
+   "t": "rekursiv",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "a₁ = −5, aₙ₊₁ = aₙ − 3. Berechne a₆."
+   },
+   "o": {
+    "wert": -20
+   },
+   "c": "-5 + 5 * (-3)",
+   "w": "−5; −8; −11; −14; −17; −20 → a₆ = −20.",
+   "h": "Rechne Schritt für Schritt: jedes Mal − 3."
+  },
+  {
+   "l": "rekursiv",
+   "t": "rekursiv",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "a₁ = 2, aₙ₊₁ = 0,5 · aₙ. Berechne a₅."
+   },
+   "o": {
+    "wert": 0.125
+   },
+   "c": "2 * (0.5) ** 4",
+   "w": "2; 1; 0,5; 0,25; 0,125 → a₅ = 0,125.",
+   "h": "Multipliziere jedes Glied mit dem Faktor, um das nächste zu erhalten."
+  },
+  {
+   "l": "rekursiv",
+   "t": "rekursiv",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "a₁ = 1, aₙ₊₁ = −2 · aₙ. Berechne a₃."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "1 * (-2.0) ** 2",
+   "w": "1; −2; 4 → a₃ = 4.",
+   "h": "Multipliziere jedes Glied mit dem Faktor, um das nächste zu erhalten."
+  },
+  {
+   "l": "rekursiv",
+   "t": "rekursiv",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "a₁ = 3, aₙ₊₁ = aₙ + 3. Berechne a₅."
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "3 + 4 * (3)",
+   "w": "3; 6; 9; 12; 15 → a₅ = 15.",
+   "h": "Rechne Schritt für Schritt: jedes Mal + 3."
+  },
+  {
+   "l": "rekursiv",
+   "t": "rekursiv",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "a₁ = 2, aₙ₊₁ = 3 · aₙ + 1. Berechne a₃."
+   },
+   "o": {
+    "wert": 22
+   },
+   "c": "(3) * ((3) * (2) + (1)) + (1)",
+   "w": "a₂ = 3 · 2 + 1 = 7; a₃ = 3 · 7 + 1 = 22.",
+   "h": "Setze immer das gerade berechnete Glied ein."
+  },
+  {
+   "l": "rekursiv",
+   "t": "rekursiv",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "a₁ = 6, aₙ₊₁ = 3 · aₙ. Berechne a₃."
+   },
+   "o": {
+    "wert": 54
+   },
+   "c": "6 * (3.0) ** 2",
+   "w": "6; 18; 54 → a₃ = 54.",
+   "h": "Multipliziere jedes Glied mit dem Faktor, um das nächste zu erhalten."
+  },
+  {
+   "l": "rekursiv",
+   "t": "rekursiv",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "a₁ = 6, aₙ₊₁ = 2 · aₙ. Berechne a₅."
+   },
+   "o": {
+    "wert": 96
+   },
+   "c": "6 * (2.0) ** 4",
+   "w": "6; 12; 24; 48; 96 → a₅ = 96.",
+   "h": "Multipliziere jedes Glied mit dem Faktor, um das nächste zu erhalten."
+  },
+  {
+   "l": "rekursiv",
+   "t": "rekursiv",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "a₁ = 1, aₙ₊₁ = 2 · aₙ + 4. Berechne a₄."
+   },
+   "o": {
+    "wert": 36
+   },
+   "c": "(2) * ((2) * ((2) * (1) + (4)) + (4)) + (4)",
+   "w": "a₂ = 2 · 1 + 4 = 6; a₃ = 2 · 6 + 4 = 16; a₄ = 2 · 16 + 4 = 36.",
+   "h": "Setze immer das gerade berechnete Glied ein."
+  },
+  {
+   "l": "rekursiv",
+   "t": "rekursiv",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "a₁ = 2, aₙ₊₁ = aₙ − 2. Berechne a₃."
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "2 + 2 * (-2)",
+   "w": "2; 0; −2 → a₃ = −2.",
+   "h": "Rechne Schritt für Schritt: jedes Mal − 2."
+  },
+  {
+   "l": "rekursiv",
+   "t": "rekursiv",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "a₁ = −1, aₙ₊₁ = aₙ − 2. Berechne a₄."
+   },
+   "o": {
+    "wert": -7
+   },
+   "c": "-1 + 3 * (-2)",
+   "w": "−1; −3; −5; −7 → a₄ = −7.",
+   "h": "Rechne Schritt für Schritt: jedes Mal − 2."
+  },
+  {
+   "l": "rekursiv",
+   "t": "rekursiv",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "a₁ = 3, a₂ = 5 und aₙ₊₂ = aₙ₊₁ + aₙ (jedes Glied ist die Summe der beiden vorigen). Berechne a₆."
+   },
+   "o": {
+    "wert": 34
+   },
+   "c": "((((5) + (3)) + (5)) + ((5) + (3))) + (((5) + (3)) + (5))",
+   "w": "3; 5; 8; 13; 21; 34 → a₆ = 34.",
+   "h": "Addiere jeweils die zwei letzten Glieder."
+  },
+  {
+   "l": "rekursiv",
+   "t": "rekursiv",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für eine Folge gilt aₙ₊₁ = aₙ + 3 und a₃ = 14. Wie groß ist a₁?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "14 - 2 * (3)",
+   "w": "Rückwärts: a₂ = 14 − 3 = 11, a₁ = 11 − 3 = 8.",
+   "h": "Rückwärts rechnen: Umkehroperation zweimal anwenden."
+  },
+  {
+   "l": "rekursiv",
+   "t": "rekursiv",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für eine Folge gilt aₙ₊₁ = aₙ + 5 und a₃ = 12. Wie groß ist a₁?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "12 - 2 * (5)",
+   "w": "Rückwärts: a₂ = 12 − 5 = 7, a₁ = 7 − 5 = 2.",
+   "h": "Rückwärts rechnen: Umkehroperation zweimal anwenden."
+  },
+  {
+   "l": "rekursiv",
+   "t": "rekursiv",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für eine Folge gilt aₙ₊₁ = aₙ + 6 und a₃ = −10. Wie groß ist a₁?"
+   },
+   "o": {
+    "wert": -22
+   },
+   "c": "-10 - 2 * (6)",
+   "w": "Rückwärts: a₂ = −10 − 6 = −16, a₁ = −16 − 6 = −22.",
+   "h": "Rückwärts rechnen: Umkehroperation zweimal anwenden."
+  },
+  {
+   "l": "rekursiv",
+   "t": "rekursiv",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "a₁ = 0, aₙ₊₁ = −aₙ − 1. Berechne a₄."
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "(-1) * ((-1) * ((-1) * (0) + (-1)) + (-1)) + (-1)",
+   "w": "a₂ = (−1) · 0 − 1 = −1; a₃ = (−1) · (−1) − 1 = 0; a₄ = (−1) · 0 − 1 = −1.",
+   "h": "Setze immer das gerade berechnete Glied ein."
+  },
+  {
+   "l": "rekursiv",
+   "t": "rekursiv",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für eine Folge gilt aₙ₊₁ = aₙ − 3 und a₃ = −10. Wie groß ist a₁?"
+   },
+   "o": {
+    "wert": -4
+   },
+   "c": "-10 - 2 * (-3)",
+   "w": "Rückwärts: a₂ = −10 + 3 = −7, a₁ = −7 + 3 = −4.",
+   "h": "Rückwärts rechnen: Umkehroperation zweimal anwenden."
+  },
+  {
+   "l": "rekursiv",
+   "t": "rekursiv",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "a₁ = 6, aₙ₊₁ = 2 · aₙ. Berechne a₄."
+   },
+   "o": {
+    "wert": 48
+   },
+   "c": "6 * (2.0) ** 3",
+   "w": "6; 12; 24; 48 → a₄ = 48."
+  },
+  {
+   "l": "rekursiv",
+   "t": "rekursiv",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "a₁ = 1, aₙ₊₁ = 3 · aₙ. Berechne a₃."
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "1 * (3.0) ** 2",
+   "w": "1; 3; 9 → a₃ = 9."
+  },
+  {
+   "l": "rekursiv",
+   "t": "rekursiv",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "a₁ = 0, aₙ₊₁ = −2 · aₙ − 4. Berechne a₄."
+   },
+   "o": {
+    "wert": -12
+   },
+   "c": "(-2) * ((-2) * ((-2) * (0) + (-4)) + (-4)) + (-4)",
+   "w": "a₂ = (−2) · 0 − 4 = −4; a₃ = (−2) · (−4) − 4 = 4; a₄ = (−2) · 4 − 4 = −12."
+  },
+  {
+   "l": "rekursiv",
+   "t": "rekursiv",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "a₁ = −1, aₙ₊₁ = −2 · aₙ + 5. Berechne a₃."
+   },
+   "o": {
+    "wert": -9
+   },
+   "c": "(-2) * ((-2) * (-1) + (5)) + (5)",
+   "w": "a₂ = (−2) · (−1) + 5 = 7; a₃ = (−2) · 7 + 5 = −9."
+  },
+  {
+   "l": "rekursiv",
+   "t": "rekursiv",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "a₁ = 0, aₙ₊₁ = aₙ + 7. Berechne a₃."
+   },
+   "o": {
+    "wert": 14
+   },
+   "c": "0 + 2 * (7)",
+   "w": "0; 7; 14 → a₃ = 14."
+  },
+  {
+   "l": "rekursiv",
+   "t": "rekursiv",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "a₁ = 9, aₙ₊₁ = aₙ + 3. Berechne a₄."
+   },
+   "o": {
+    "wert": 18
+   },
+   "c": "9 + 3 * (3)",
+   "w": "9; 12; 15; 18 → a₄ = 18."
+  },
+  {
+   "l": "rekursiv",
+   "t": "rekursiv",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "a₁ = 2, aₙ₊₁ = −2 · aₙ + 5. Berechne a₄."
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "(-2) * ((-2) * ((-2) * (2) + (5)) + (5)) + (5)",
+   "w": "a₂ = (−2) · 2 + 5 = 1; a₃ = (−2) · 1 + 5 = 3; a₄ = (−2) · 3 + 5 = −1."
+  },
+  {
+   "l": "rekursiv",
+   "t": "rekursiv",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "a₁ = 1, aₙ₊₁ = −2 · aₙ. Berechne a₅."
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "1 * (-2.0) ** 4",
+   "w": "1; −2; 4; −8; 16 → a₅ = 16."
+  },
+  {
+   "l": "rekursiv",
+   "t": "rekursiv",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "a₁ = 5, aₙ₊₁ = −2 · aₙ. Berechne a₃."
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "5 * (-2.0) ** 2",
+   "w": "5; −10; 20 → a₃ = 20."
+  },
+  {
+   "l": "rekursiv",
+   "t": "rekursiv",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "a₁ = 3, aₙ₊₁ = −2 · aₙ − 2. Berechne a₄."
+   },
+   "o": {
+    "wert": -30
+   },
+   "c": "(-2) * ((-2) * ((-2) * (3) + (-2)) + (-2)) + (-2)",
+   "w": "a₂ = (−2) · 3 − 2 = −8; a₃ = (−2) · (−8) − 2 = 14; a₄ = (−2) · 14 − 2 = −30."
+  },
+  {
+   "l": "arithmetisch",
+   "t": "arithmetisch",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Arithmetische Folge 19; 25; 31; 37; … Berechne a₁₂."
+   },
+   "o": {
+    "wert": 85
+   },
+   "c": "19 + (12 - 1) * (6)",
+   "w": "d = 6. a₁₂ = 19 + (12 − 1) · 6 = 19 + 66 = 85.",
+   "h": "aₙ = a₁ + (n − 1) · d."
+  },
+  {
+   "l": "arithmetisch",
+   "t": "arithmetisch",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme die Differenz d der arithmetischen Folge 0; −3; −6; −9; …"
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "-3 - (0)",
+   "w": "d = −3 − 0 = −3.",
+   "h": "Ziehe ein Glied vom nächsten ab."
+  },
+  {
+   "l": "arithmetisch",
+   "t": "arithmetisch",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme die Differenz d der arithmetischen Folge 9; 7; 5; 3; …"
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "7 - (9)",
+   "w": "d = 7 − 9 = −2.",
+   "h": "Ziehe ein Glied vom nächsten ab."
+  },
+  {
+   "l": "arithmetisch",
+   "t": "arithmetisch",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme die Differenz d der arithmetischen Folge 13; 15; 17; 19; …"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "15 - (13)",
+   "w": "d = 15 − 13 = 2.",
+   "h": "Ziehe ein Glied vom nächsten ab."
+  },
+  {
+   "l": "arithmetisch",
+   "t": "arithmetisch",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Arithmetische Folge 5; 10; 15; 20; … Berechne a₇."
+   },
+   "o": {
+    "wert": 35
+   },
+   "c": "5 + (7 - 1) * (5)",
+   "w": "d = 5. a₇ = 5 + (7 − 1) · 5 = 5 + 30 = 35.",
+   "h": "aₙ = a₁ + (n − 1) · d."
+  },
+  {
+   "l": "arithmetisch",
+   "t": "arithmetisch",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Arithmetische Folge 7; 14; 21; 28; … Berechne a₇."
+   },
+   "o": {
+    "wert": 49
+   },
+   "c": "7 + (7 - 1) * (7)",
+   "w": "d = 7. a₇ = 7 + (7 − 1) · 7 = 7 + 42 = 49.",
+   "h": "aₙ = a₁ + (n − 1) · d."
+  },
+  {
+   "l": "arithmetisch",
+   "t": "arithmetisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die explizite Formel der arithmetischen Folge 8; 12; 16; 20; … an.",
+    "schablone": "aₙ = □n + □",
+    "hinweis": "Zahlen vor n und am Ende (auch negativ)"
+   },
+   "o": {
+    "werte": [
+     4,
+     4
+    ]
+   },
+   "w": "aₙ = 8 + (n − 1) · 4 = 4n + 4.",
+   "h": "Setze a₁ und d in aₙ = a₁ + (n − 1) · d ein und vereinfache.",
+   "c": [
+    "4",
+    "8 - (4)"
+   ]
+  },
+  {
+   "l": "arithmetisch",
+   "t": "arithmetisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die explizite Formel der arithmetischen Folge −4; −6; −8; −10; … an.",
+    "schablone": "aₙ = □n + □",
+    "hinweis": "Zahlen vor n und am Ende (auch negativ)"
+   },
+   "o": {
+    "werte": [
+     -2,
+     -2
+    ]
+   },
+   "w": "aₙ = −4 + (n − 1) · (−2) = −2n − 2.",
+   "h": "Setze a₁ und d in aₙ = a₁ + (n − 1) · d ein und vereinfache.",
+   "c": [
+    "-2",
+    "-4 - (-2)"
+   ]
+  },
+  {
+   "l": "arithmetisch",
+   "t": "arithmetisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Arithmetische Folge −1; −3; −5; −7; … Berechne a₂₃."
+   },
+   "o": {
+    "wert": -45
+   },
+   "c": "-1 + (23 - 1) * (-2)",
+   "w": "d = −2. a₂₃ = −1 + (23 − 1) · (−2) = −1 − 44 = −45.",
+   "h": "aₙ = a₁ + (n − 1) · d."
+  },
+  {
+   "l": "arithmetisch",
+   "t": "arithmetisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Arithmetische Folge 17; 15; 13; 11; … Berechne a₅₃."
+   },
+   "o": {
+    "wert": -87
+   },
+   "c": "17 + (53 - 1) * (-2)",
+   "w": "d = −2. a₅₃ = 17 + (53 − 1) · (−2) = 17 − 104 = −87.",
+   "h": "aₙ = a₁ + (n − 1) · d."
+  },
+  {
+   "l": "arithmetisch",
+   "t": "arithmetisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die explizite Formel der arithmetischen Folge 6; 4; 2; 0; … an.",
+    "schablone": "aₙ = □n + □",
+    "hinweis": "Zahlen vor n und am Ende (auch negativ)"
+   },
+   "o": {
+    "werte": [
+     -2,
+     8
+    ]
+   },
+   "w": "aₙ = 6 + (n − 1) · (−2) = −2n + 8.",
+   "h": "Setze a₁ und d in aₙ = a₁ + (n − 1) · d ein und vereinfache.",
+   "c": [
+    "-2",
+    "6 - (-2)"
+   ]
+  },
+  {
+   "l": "arithmetisch",
+   "t": "arithmetisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Arithmetische Folge 19; 16; 13; 10; … Berechne a₅₆."
+   },
+   "o": {
+    "wert": -146
+   },
+   "c": "19 + (56 - 1) * (-3)",
+   "w": "d = −3. a₅₆ = 19 + (56 − 1) · (−3) = 19 − 165 = −146.",
+   "h": "aₙ = a₁ + (n − 1) · d."
+  },
+  {
+   "l": "arithmetisch",
+   "t": "arithmetisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Auf einem Sparkonto sind 80 €. Jeden Monat kommen 30 € dazu. Nach wie vielen Monaten sind 440 € auf dem Konto?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "(440 - 80) / 30",
+   "w": "80 + 30 · m = 440 ⇒ 30 · m = 360 ⇒ m = 12.",
+   "h": "Wie oft muss die Rate dazukommen?"
+  },
+  {
+   "l": "arithmetisch",
+   "t": "arithmetisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Arithmetische Folge 6; 10; 14; 18; … Das wievielte Glied ist 114?"
+   },
+   "o": {
+    "wert": 28
+   },
+   "c": "(114 - (6)) / 4 + 1",
+   "w": "6 + (n − 1) · 4 = 114 ⇒ (n − 1) · 4 = 108 ⇒ n − 1 = 27 ⇒ n = 28.",
+   "h": "Setze aₙ ein und löse nach n auf."
+  },
+  {
+   "l": "arithmetisch",
+   "t": "arithmetisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Theater hat in der ersten Reihe 20 Plätze, in jeder weiteren Reihe 3 Plätze mehr. Wie viele Plätze hat Reihe 25?"
+   },
+   "o": {
+    "wert": 92
+   },
+   "c": "20 + (25 - 1) * 3",
+   "w": "a₁ = 20, d = 3. a₂₅ = 20 + (25 − 1) · 3 = 92.",
+   "h": "Arithmetische Folge: a₁ und d herauslesen."
+  },
+  {
+   "l": "arithmetisch",
+   "t": "arithmetisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Arithmetische Folge 0; 6; 12; 18; … Das wievielte Glied ist 78?"
+   },
+   "o": {
+    "wert": 14
+   },
+   "c": "(78 - (0)) / 6 + 1",
+   "w": "0 + (n − 1) · 6 = 78 ⇒ (n − 1) · 6 = 78 ⇒ n − 1 = 13 ⇒ n = 14.",
+   "h": "Setze aₙ ein und löse nach n auf."
+  },
+  {
+   "l": "arithmetisch",
+   "t": "arithmetisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Auf einem Sparkonto sind 50 €. Jeden Monat kommen 20 € dazu. Nach wie vielen Monaten sind 230 € auf dem Konto?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "(230 - 50) / 20",
+   "w": "50 + 20 · m = 230 ⇒ 20 · m = 180 ⇒ m = 9.",
+   "h": "Wie oft muss die Rate dazukommen?"
+  },
+  {
+   "l": "arithmetisch",
+   "t": "arithmetisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Theater hat in der ersten Reihe 23 Plätze, in jeder weiteren Reihe 3 Plätze mehr. Wie viele Plätze hat Reihe 15?"
+   },
+   "o": {
+    "wert": 65
+   },
+   "c": "23 + (15 - 1) * 3",
+   "w": "a₁ = 23, d = 3. a₁₅ = 23 + (15 − 1) · 3 = 65.",
+   "h": "Arithmetische Folge: a₁ und d herauslesen."
+  },
+  {
+   "l": "arithmetisch",
+   "t": "arithmetisch",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die explizite Formel der arithmetischen Folge 19; 14; 9; 4; … an.",
+    "schablone": "aₙ = □n + □",
+    "hinweis": "Zahlen vor n und am Ende (auch negativ)"
+   },
+   "o": {
+    "werte": [
+     -5,
+     24
+    ]
+   },
+   "w": "aₙ = 19 + (n − 1) · (−5) = −5n + 24.",
+   "c": [
+    "-5",
+    "19 - (-5)"
+   ]
+  },
+  {
+   "l": "arithmetisch",
+   "t": "arithmetisch",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die explizite Formel der arithmetischen Folge −4; −1; 2; 5; … an.",
+    "schablone": "aₙ = □n + □",
+    "hinweis": "Zahlen vor n und am Ende (auch negativ)"
+   },
+   "o": {
+    "werte": [
+     3,
+     -7
+    ]
+   },
+   "w": "aₙ = −4 + (n − 1) · 3 = 3n − 7.",
+   "c": [
+    "3",
+    "-4 - (3)"
+   ]
+  },
+  {
+   "l": "arithmetisch",
+   "t": "arithmetisch",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Arithmetische Folge 19; 14; 9; 4; … Berechne a₂₄."
+   },
+   "o": {
+    "wert": -96
+   },
+   "c": "19 + (24 - 1) * (-5)",
+   "w": "d = −5. a₂₄ = 19 + (24 − 1) · (−5) = 19 − 115 = −96."
+  },
+  {
+   "l": "arithmetisch",
+   "t": "arithmetisch",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die explizite Formel der arithmetischen Folge 13; 16; 19; 22; … an.",
+    "schablone": "aₙ = □n + □",
+    "hinweis": "Zahlen vor n und am Ende (auch negativ)"
+   },
+   "o": {
+    "werte": [
+     3,
+     10
+    ]
+   },
+   "w": "aₙ = 13 + (n − 1) · 3 = 3n + 10.",
+   "c": [
+    "3",
+    "13 - (3)"
+   ]
+  },
+  {
+   "l": "arithmetisch",
+   "t": "arithmetisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die explizite Formel der arithmetischen Folge −3; 3; 9; 15; … an.",
+    "schablone": "aₙ = □n + □",
+    "hinweis": "Zahlen vor n und am Ende (auch negativ)"
+   },
+   "o": {
+    "werte": [
+     6,
+     -9
+    ]
+   },
+   "w": "aₙ = −3 + (n − 1) · 6 = 6n − 9.",
+   "c": [
+    "6",
+    "-3 - (6)"
+   ]
+  },
+  {
+   "l": "arithmetisch",
+   "t": "arithmetisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Arithmetische Folge 16; 20; 24; 28; … Berechne a₁₈."
+   },
+   "o": {
+    "wert": 84
+   },
+   "c": "16 + (18 - 1) * (4)",
+   "w": "d = 4. a₁₈ = 16 + (18 − 1) · 4 = 16 + 68 = 84."
+  },
+  {
+   "l": "arithmetisch",
+   "t": "arithmetisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Arithmetische Folge −8; −6; −4; −2; … Berechne a₅₈."
+   },
+   "o": {
+    "wert": 106
+   },
+   "c": "-8 + (58 - 1) * (2)",
+   "w": "d = 2. a₅₈ = −8 + (58 − 1) · 2 = −8 + 114 = 106."
+  },
+  {
+   "l": "arithmetisch",
+   "t": "arithmetisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Arithmetische Folge 20; 18; 16; 14; … Berechne a₄₄."
+   },
+   "o": {
+    "wert": -66
+   },
+   "c": "20 + (44 - 1) * (-2)",
+   "w": "d = −2. a₄₄ = 20 + (44 − 1) · (−2) = 20 − 86 = −66."
+  },
+  {
+   "l": "arithmetisch",
+   "t": "arithmetisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die explizite Formel der arithmetischen Folge 16; 18; 20; 22; … an.",
+    "schablone": "aₙ = □n + □",
+    "hinweis": "Zahlen vor n und am Ende (auch negativ)"
+   },
+   "o": {
+    "werte": [
+     2,
+     14
+    ]
+   },
+   "w": "aₙ = 16 + (n − 1) · 2 = 2n + 14.",
+   "c": [
+    "2",
+    "16 - (2)"
+   ]
+  },
+  {
+   "l": "arithmetisch",
+   "t": "arithmetisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Arithmetische Folge −7; −3; 1; 5; … Berechne a₅₇."
+   },
+   "o": {
+    "wert": 217
+   },
+   "c": "-7 + (57 - 1) * (4)",
+   "w": "d = 4. a₅₇ = −7 + (57 − 1) · 4 = −7 + 224 = 217."
+  },
+  {
+   "l": "geometrisch",
+   "t": "geometrisch",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Geometrische Folge 4; 12; 36; 108; … Berechne a₅."
+   },
+   "o": {
+    "wert": 324
+   },
+   "c": "4 * (3.0) ** (5 - 1)",
+   "w": "q = 3. a₅ = 4 · 3⁴ = 324.",
+   "h": "aₙ = a₁ · qⁿ⁻¹ – der Exponent ist eins kleiner als n."
+  },
+  {
+   "l": "geometrisch",
+   "t": "geometrisch",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme den Faktor q der geometrischen Folge 4; −8; 16; −32; …"
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "-8.0 / 4.0",
+   "w": "Quotient zweier Nachbarglieder: q = −8 : 4 = −2.",
+   "h": "Teile ein Glied durch das vorige."
+  },
+  {
+   "l": "geometrisch",
+   "t": "geometrisch",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Geometrische Folge 5; 10; 20; 40; … Berechne a₇."
+   },
+   "o": {
+    "wert": 320
+   },
+   "c": "5 * (2.0) ** (7 - 1)",
+   "w": "q = 2. a₇ = 5 · 2⁶ = 320.",
+   "h": "aₙ = a₁ · qⁿ⁻¹ – der Exponent ist eins kleiner als n."
+  },
+  {
+   "l": "geometrisch",
+   "t": "geometrisch",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Geometrische Folge 512; 256; 128; 64; … Berechne a₇."
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "512 * (0.5) ** (7 - 1)",
+   "w": "q = 0,5. a₇ = 512 · (0,5)⁶ = 8.",
+   "h": "aₙ = a₁ · qⁿ⁻¹ – der Exponent ist eins kleiner als n."
+  },
+  {
+   "l": "geometrisch",
+   "t": "geometrisch",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme den Faktor q der geometrischen Folge 3; 9; 27; 81; …"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "9.0 / 3.0",
+   "w": "Quotient zweier Nachbarglieder: q = 9 : 3 = 3.",
+   "h": "Teile ein Glied durch das vorige."
+  },
+  {
+   "l": "geometrisch",
+   "t": "geometrisch",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme den Faktor q der geometrischen Folge 2; −4; 8; −16; …"
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "-4.0 / 2.0",
+   "w": "Quotient zweier Nachbarglieder: q = −4 : 2 = −2.",
+   "h": "Teile ein Glied durch das vorige."
+  },
+  {
+   "l": "geometrisch",
+   "t": "geometrisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme den Faktor q der geometrischen Folge 5; 10; 20; 40; …"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "10.0 / 5.0",
+   "w": "Quotient zweier Nachbarglieder: q = 10 : 5 = 2.",
+   "h": "Teile ein Glied durch das vorige."
+  },
+  {
+   "l": "geometrisch",
+   "t": "geometrisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Geometrische Folge 4; −12; 36; −108; … Berechne a₁₀."
+   },
+   "o": {
+    "wert": -78732
+   },
+   "c": "4 * (-3.0) ** (10 - 1)",
+   "w": "q = −3. a₁₀ = 4 · (−3)⁹ = −78 732.",
+   "h": "aₙ = a₁ · qⁿ⁻¹ – der Exponent ist eins kleiner als n."
+  },
+  {
+   "l": "geometrisch",
+   "t": "geometrisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Geometrische Folge mit positiven Gliedern, a₁ = 4 und a₃ = 36. Berechne q."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "a₃ = a₁ · q² ⇒ q² = 36 : 4 = 9 ⇒ q = 3.",
+   "h": "Von a₁ bis a₃ wird zweimal mit q multipliziert."
+  },
+  {
+   "l": "geometrisch",
+   "t": "geometrisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Geometrische Folge 3; −9; 27; −81; … Berechne a₉."
+   },
+   "o": {
+    "wert": 19683
+   },
+   "c": "3 * (-3.0) ** (9 - 1)",
+   "w": "q = −3. a₉ = 3 · (−3)⁸ = 19 683.",
+   "h": "aₙ = a₁ · qⁿ⁻¹ – der Exponent ist eins kleiner als n."
+  },
+  {
+   "l": "geometrisch",
+   "t": "geometrisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Geometrische Folge 5; 10; 20; 40; … Berechne a₆."
+   },
+   "o": {
+    "wert": 160
+   },
+   "c": "5 * (2.0) ** (6 - 1)",
+   "w": "q = 2. a₆ = 5 · 2⁵ = 160.",
+   "h": "aₙ = a₁ · qⁿ⁻¹ – der Exponent ist eins kleiner als n."
+  },
+  {
+   "l": "geometrisch",
+   "t": "geometrisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Geometrische Folge mit positiven Gliedern, a₁ = 3 und a₃ = 12. Berechne q."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "a₃ = a₁ · q² ⇒ q² = 12 : 3 = 4 ⇒ q = 2.",
+   "h": "Von a₁ bis a₃ wird zweimal mit q multipliziert."
+  },
+  {
+   "l": "geometrisch",
+   "t": "geometrisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Auto kostet neu 20 000 €. Sein Wert sinkt jedes Jahr um 10 %. Wie viel ist es nach 3 Jahren noch wert?"
+   },
+   "o": {
+    "wert": 14580,
+    "einheit": "€"
+   },
+   "c": "20000 * 0.9 ** 3",
+   "w": "q = 1 − 0,1 = 0,9. 20 000 · 0,9³ = 14 580 €.",
+   "h": "Abnahme um p % heißt: mal (1 − p/100)."
+  },
+  {
+   "l": "geometrisch",
+   "t": "geometrisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Geometrische Folge 64; 128; 256; 512; … Das wievielte Glied ist 1 024?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "5",
+   "w": "1 024 : 64 = 16 = 2⁴. Also n − 1 = 4, n = 5.",
+   "h": "Teile durch a₁ und überlege, welche Potenz von q herauskommt."
+  },
+  {
+   "l": "geometrisch",
+   "t": "geometrisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Bakterienkultur hat 200 Bakterien und verdoppelt sich jede Stunde. Wie viele Bakterien sind es nach 6 Stunden?"
+   },
+   "o": {
+    "wert": 12800
+   },
+   "c": "200 * 2 ** 6",
+   "w": "Nach jeder Stunde · 2: 200 · 2⁶ = 12 800.",
+   "h": "Achtung: Nach 1 Stunde ist einmal verdoppelt."
+  },
+  {
+   "l": "geometrisch",
+   "t": "geometrisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Bakterienkultur hat 100 Bakterien und verdoppelt sich jede Stunde. Wie viele Bakterien sind es nach 6 Stunden?"
+   },
+   "o": {
+    "wert": 6400
+   },
+   "c": "100 * 2 ** 6",
+   "w": "Nach jeder Stunde · 2: 100 · 2⁶ = 6 400.",
+   "h": "Achtung: Nach 1 Stunde ist einmal verdoppelt."
+  },
+  {
+   "l": "geometrisch",
+   "t": "geometrisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Ball fällt aus 160 cm Höhe und springt jedes Mal auf 50 % der vorigen Höhe zurück. Wie hoch springt er nach dem 3. Aufprall (in cm)?"
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "cm"
+   },
+   "c": "160 * 0.5 ** 3",
+   "w": "q = 0,5. Nach 3 Aufprallen: 160 · 0,5³ = 20 cm.",
+   "h": "Jeder Aufprall: mal q."
+  },
+  {
+   "l": "geometrisch",
+   "t": "geometrisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Bakterienkultur hat 50 Bakterien und verdoppelt sich jede Stunde. Wie viele Bakterien sind es nach 6 Stunden?"
+   },
+   "o": {
+    "wert": 3200
+   },
+   "c": "50 * 2 ** 6",
+   "w": "Nach jeder Stunde · 2: 50 · 2⁶ = 3 200.",
+   "h": "Achtung: Nach 1 Stunde ist einmal verdoppelt."
+  },
+  {
+   "l": "geometrisch",
+   "t": "geometrisch",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Geometrische Folge mit positiven Gliedern, a₁ = 5 und a₃ = 125. Berechne q."
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "5",
+   "w": "a₃ = a₁ · q² ⇒ q² = 125 : 5 = 25 ⇒ q = 5."
+  },
+  {
+   "l": "geometrisch",
+   "t": "geometrisch",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Geometrische Folge mit positiven Gliedern, a₁ = 2 und a₃ = 8. Berechne q."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "a₃ = a₁ · q² ⇒ q² = 8 : 2 = 4 ⇒ q = 2."
+  },
+  {
+   "l": "geometrisch",
+   "t": "geometrisch",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme den Faktor q der geometrischen Folge 2; 4; 8; 16; …"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "4.0 / 2.0",
+   "w": "Quotient zweier Nachbarglieder: q = 4 : 2 = 2."
+  },
+  {
+   "l": "geometrisch",
+   "t": "geometrisch",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Geometrische Folge mit positiven Gliedern, a₁ = 160 und a₃ = 4 000. Berechne q."
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "5",
+   "w": "a₃ = a₁ · q² ⇒ q² = 4 000 : 160 = 25 ⇒ q = 5."
+  },
+  {
+   "l": "geometrisch",
+   "t": "geometrisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Geometrische Folge 64; −192; 576; −1 728; … Berechne a₈."
+   },
+   "o": {
+    "wert": -139968
+   },
+   "c": "64 * (-3.0) ** (8 - 1)",
+   "w": "q = −3. a₈ = 64 · (−3)⁷ = −139 968."
+  },
+  {
+   "l": "geometrisch",
+   "t": "geometrisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Geometrische Folge 64; −192; 576; −1 728; … Berechne a₇."
+   },
+   "o": {
+    "wert": 46656
+   },
+   "c": "64 * (-3.0) ** (7 - 1)",
+   "w": "q = −3. a₇ = 64 · (−3)⁶ = 46 656."
+  },
+  {
+   "l": "geometrisch",
+   "t": "geometrisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme den Faktor q der geometrischen Folge 1; 2; 4; 8; …"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2.0 / 1.0",
+   "w": "Quotient zweier Nachbarglieder: q = 2 : 1 = 2."
+  },
+  {
+   "l": "geometrisch",
+   "t": "geometrisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Geometrische Folge 5; −15; 45; −135; … Berechne a₇."
+   },
+   "o": {
+    "wert": 3645
+   },
+   "c": "5 * (-3.0) ** (7 - 1)",
+   "w": "q = −3. a₇ = 5 · (−3)⁶ = 3 645."
+  },
+  {
+   "l": "geometrisch",
+   "t": "geometrisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Geometrische Folge mit positiven Gliedern, a₁ = 256 und a₃ = 2 304. Berechne q."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "a₃ = a₁ · q² ⇒ q² = 2 304 : 256 = 9 ⇒ q = 3."
+  },
+  {
+   "l": "geometrisch",
+   "t": "geometrisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Geometrische Folge 3; 6; 12; 24; … Berechne a₁₀."
+   },
+   "o": {
+    "wert": 1536
+   },
+   "c": "3 * (2.0) ** (10 - 1)",
+   "w": "q = 2. a₁₀ = 3 · 2⁹ = 1 536."
+  },
+  {
+   "l": "erkennen",
+   "t": "erkennen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Setze die Folge fort: −2; 4; 10; 16; … Wie heißt das nächste Glied?"
+   },
+   "o": {
+    "wert": 22
+   },
+   "c": "22",
+   "w": "Die Folge ist arithmetisch (d = 6). Nächstes Glied: 22.",
+   "h": "Finde zuerst die Regel (plus d, mal q oder ein anderes Muster)."
+  },
+  {
+   "l": "erkennen",
+   "t": "erkennen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Setze die Folge fort: 1; −6; −13; −20; … Wie heißt das nächste Glied?"
+   },
+   "o": {
+    "wert": -27
+   },
+   "c": "-27",
+   "w": "Die Folge ist arithmetisch (d = −7). Nächstes Glied: −27.",
+   "h": "Finde zuerst die Regel (plus d, mal q oder ein anderes Muster)."
+  },
+  {
+   "l": "erkennen",
+   "t": "erkennen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Art von Folge ist 3; 4; 6; 9; …?"
+   },
+   "a": [
+    "geometrisch",
+    "arithmetisch",
+    "weder noch"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Differenzen: 1; 2; 3. Quotienten: 4/3; 1,5; 1,5. Die Folge ist weder arithmetisch noch geometrisch.",
+   "h": "Prüfe die Differenzen und die Quotienten aufeinanderfolgender Glieder."
+  },
+  {
+   "l": "erkennen",
+   "t": "erkennen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Setze die Folge fort: 18; 22; 26; 30; … Wie heißt das nächste Glied?"
+   },
+   "o": {
+    "wert": 34
+   },
+   "c": "34",
+   "w": "Die Folge ist arithmetisch (d = 4). Nächstes Glied: 34.",
+   "h": "Finde zuerst die Regel (plus d, mal q oder ein anderes Muster)."
+  },
+  {
+   "l": "erkennen",
+   "t": "erkennen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Art von Folge ist 1; 2; 4; 7; …?"
+   },
+   "a": [
+    "weder noch",
+    "arithmetisch",
+    "geometrisch"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Differenzen: 1; 2; 3. Quotienten: 2; 2; 1,75. Die Folge ist weder arithmetisch noch geometrisch.",
+   "h": "Prüfe die Differenzen und die Quotienten aufeinanderfolgender Glieder."
+  },
+  {
+   "l": "erkennen",
+   "t": "erkennen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Setze die Folge fort: 5; −10; 20; −40; … Wie heißt das nächste Glied?"
+   },
+   "o": {
+    "wert": 80
+   },
+   "c": "80",
+   "w": "Die Folge ist geometrisch (q = −2). Nächstes Glied: 80.",
+   "h": "Finde zuerst die Regel (plus d, mal q oder ein anderes Muster)."
+  },
+  {
+   "l": "erkennen",
+   "t": "erkennen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Setze die Folge fort: 3; −6; 12; −24; … Wie heißt das nächste Glied?"
+   },
+   "o": {
+    "wert": 48
+   },
+   "c": "48",
+   "w": "Die Folge ist geometrisch (q = −2). Nächstes Glied: 48.",
+   "h": "Finde zuerst die Regel (plus d, mal q oder ein anderes Muster)."
+  },
+  {
+   "l": "erkennen",
+   "t": "erkennen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Art von Folge ist 2; 6; 18; 54; …?"
+   },
+   "a": [
+    "geometrisch",
+    "arithmetisch",
+    "weder noch"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Differenzen: 4; 12; 36. Quotienten: 3; 3; 3. Die Folge ist geometrisch (q = 3).",
+   "h": "Prüfe die Differenzen und die Quotienten aufeinanderfolgender Glieder."
+  },
+  {
+   "l": "erkennen",
+   "t": "erkennen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Art von Folge ist 0; 3; 8; 15; …?"
+   },
+   "a": [
+    "geometrisch",
+    "arithmetisch",
+    "weder noch"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Differenzen: 3; 5; 7. Die Folge ist weder arithmetisch noch geometrisch.",
+   "h": "Prüfe die Differenzen und die Quotienten aufeinanderfolgender Glieder."
+  },
+  {
+   "l": "erkennen",
+   "t": "erkennen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Art von Folge ist 4; 8; 16; 32; …?"
+   },
+   "a": [
+    "arithmetisch",
+    "weder noch",
+    "geometrisch"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Differenzen: 4; 8; 16. Quotienten: 2; 2; 2. Die Folge ist geometrisch (q = 2).",
+   "h": "Prüfe die Differenzen und die Quotienten aufeinanderfolgender Glieder."
+  },
+  {
+   "l": "erkennen",
+   "t": "erkennen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Setze die Folge fort: −8; −12; −16; −20; … Wie heißt das nächste Glied?"
+   },
+   "o": {
+    "wert": -24
+   },
+   "c": "-24",
+   "w": "Die Folge ist arithmetisch (d = −4). Nächstes Glied: −24.",
+   "h": "Finde zuerst die Regel (plus d, mal q oder ein anderes Muster)."
+  },
+  {
+   "l": "erkennen",
+   "t": "erkennen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Setze die Folge fort: 3; 6; 12; 24; … Wie heißt das nächste Glied?"
+   },
+   "o": {
+    "wert": 48
+   },
+   "c": "48",
+   "w": "Die Folge ist geometrisch (q = 2). Nächstes Glied: 48.",
+   "h": "Finde zuerst die Regel (plus d, mal q oder ein anderes Muster)."
+  },
+  {
+   "l": "erkennen",
+   "t": "erkennen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Setze die Folge fort: 2; 11; 20; 29; … Wie heißt das nächste Glied?"
+   },
+   "o": {
+    "wert": 38
+   },
+   "c": "38",
+   "w": "Die Folge ist arithmetisch (d = 9). Nächstes Glied: 38.",
+   "h": "Finde zuerst die Regel (plus d, mal q oder ein anderes Muster)."
+  },
+  {
+   "l": "erkennen",
+   "t": "erkennen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Art von Folge ist 6; 15; 24; 33; …?"
+   },
+   "a": [
+    "arithmetisch",
+    "geometrisch",
+    "weder noch"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Differenzen: 9; 9; 9. Quotienten: 2,5; 1,6; 1,375. Die Folge ist arithmetisch (d = 9).",
+   "h": "Prüfe die Differenzen und die Quotienten aufeinanderfolgender Glieder."
+  },
+  {
+   "l": "erkennen",
+   "t": "erkennen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Setze die Folge fort: 3; 9; 27; 81; … Wie heißt das nächste Glied?"
+   },
+   "o": {
+    "wert": 243
+   },
+   "c": "243",
+   "w": "Die Folge ist geometrisch (q = 3). Nächstes Glied: 243.",
+   "h": "Finde zuerst die Regel (plus d, mal q oder ein anderes Muster)."
+  },
+  {
+   "l": "erkennen",
+   "t": "erkennen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Setze die Folge fort: 2; 8; 32; 128; … Wie heißt das nächste Glied?"
+   },
+   "o": {
+    "wert": 512
+   },
+   "c": "512",
+   "w": "Die Folge ist geometrisch (q = 4). Nächstes Glied: 512.",
+   "h": "Finde zuerst die Regel (plus d, mal q oder ein anderes Muster)."
+  },
+  {
+   "l": "erkennen",
+   "t": "erkennen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Arithmetische Folge mit a₁ = 15, d = 9. Nina rechnet a₁₄ = 15 + 14 · 9 = 141. Stimmt das?"
+   },
+   "a": [
+    "Falsch: richtig ist a₁₄ = 15 + 13 · 9 = 132.",
+    "Falsch: richtig ist a₁₄ = 15 · 9¹³.",
+    "Richtig.",
+    "Falsch: richtig ist a₁₄ = 14 · 9 = 126."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Von a₁ bis a₁₄ sind es nur 13 Schritte. Nina hat einmal zu viel addiert.",
+   "h": "Wie viele Schritte liegen zwischen a₁ und aₙ?"
+  },
+  {
+   "l": "erkennen",
+   "t": "erkennen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Setze die Folge fort: 13; 22; 31; 40; … Wie heißt das nächste Glied?"
+   },
+   "o": {
+    "wert": 49
+   },
+   "c": "49",
+   "w": "Die Folge ist arithmetisch (d = 9). Nächstes Glied: 49.",
+   "h": "Finde zuerst die Regel (plus d, mal q oder ein anderes Muster)."
+  },
+  {
+   "l": "erkennen",
+   "t": "erkennen",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Setze die Folge fort: −1; 4; 9; 14; … Wie heißt das nächste Glied?"
+   },
+   "o": {
+    "wert": 19
+   },
+   "c": "19",
+   "w": "Die Folge ist arithmetisch (d = 5). Nächstes Glied: 19."
+  },
+  {
+   "l": "erkennen",
+   "t": "erkennen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Setze die Folge fort: 6; 15; 24; 33; … Wie heißt das nächste Glied?"
+   },
+   "o": {
+    "wert": 42
+   },
+   "c": "42",
+   "w": "Die Folge ist arithmetisch (d = 9). Nächstes Glied: 42."
+  },
+  {
+   "l": "erkennen",
+   "t": "erkennen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Art von Folge ist 2; 3; 5; 8; …?"
+   },
+   "a": [
+    "geometrisch",
+    "arithmetisch",
+    "weder noch"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Differenzen: 1; 2; 3. Quotienten: 1,5; 5/3; 1,6. Die Folge ist weder arithmetisch noch geometrisch."
+  },
+  {
+   "l": "erkennen",
+   "t": "erkennen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Art von Folge ist 14; 16; 18; 20; …?"
+   },
+   "a": [
+    "geometrisch",
+    "arithmetisch",
+    "weder noch"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Differenzen: 2; 2; 2. Quotienten: 8/7; 1,125; 10/9. Die Folge ist arithmetisch (d = 2)."
+  },
+  {
+   "l": "erkennen",
+   "t": "erkennen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Art von Folge ist 11; 17; 23; 29; …?"
+   },
+   "a": [
+    "geometrisch",
+    "weder noch",
+    "arithmetisch"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Differenzen: 6; 6; 6. Quotienten: 17/11; 23/17; 29/23. Die Folge ist arithmetisch (d = 6)."
+  },
+  {
+   "l": "erkennen",
+   "t": "erkennen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Setze die Folge fort: 9; 15; 21; 27; … Wie heißt das nächste Glied?"
+   },
+   "o": {
+    "wert": 33
+   },
+   "c": "33",
+   "w": "Die Folge ist arithmetisch (d = 6). Nächstes Glied: 33."
+  },
+  {
+   "l": "erkennen",
+   "t": "erkennen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Art von Folge ist 20; 29; 38; 47; …?"
+   },
+   "a": [
+    "weder noch",
+    "geometrisch",
+    "arithmetisch"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Differenzen: 9; 9; 9. Quotienten: 1,45; 38/29; 47/38. Die Folge ist arithmetisch (d = 9)."
+  },
+  {
+   "l": "erkennen",
+   "t": "erkennen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Setze die Folge fort: 4; 6; 8; 10; … Wie heißt das nächste Glied?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "12",
+   "w": "Die Folge ist arithmetisch (d = 2). Nächstes Glied: 12."
+  },
+  {
+   "l": "erkennen",
+   "t": "erkennen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Art von Folge ist −2; −5; −8; −11; …?"
+   },
+   "a": [
+    "arithmetisch",
+    "weder noch",
+    "geometrisch"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Differenzen: −3; −3; −3. Quotienten: 2,5; 1,6; 1,375. Die Folge ist arithmetisch (d = −3)."
+  },
+  {
+   "l": "erkennen",
+   "t": "erkennen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Art von Folge ist 1; 4; 9; 16; …?"
+   },
+   "a": [
+    "geometrisch",
+    "weder noch",
+    "arithmetisch"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Differenzen: 3; 5; 7. Quotienten: 4; 2,25; 16/9. Die Folge ist weder arithmetisch noch geometrisch."
+  }
+ ],
+ "offen": [
+  "Reihen und Summenschreibweise (im Umfang von funktionen.folgen genannt) stehen im eigenen Thema funktionen.reihen, damit sich die beiden Themen nicht doppeln.",
+  "Indizes werden mit tiefgestellten Unicode-Ziffern geschrieben (a₅, aₙ₊₁). Falls die Schrift der App sie nicht darstellt, bitte melden."
+ ]
+}

@@ -1,0 +1,10087 @@
+{
+ "thema_schluessel": "sonder.graphentheorie",
+ "thema_id": 65,
+ "block_id": 98,
+ "klasse": {
+  "ib_myp": 4
+ },
+ "autor": "Claude (Paket IB)",
+ "inhalt": {
+  "ziel": "Graphen mit Knoten, Kanten und Graden beschreiben, Eulerwege erkennen, kürzeste Wege suchen und minimale Spannbäume bestimmen.",
+  "merke": [
+   "Graph (graph): Knoten (vertices) und Kanten (edges). Grad (degree) = Anzahl der Kanten an einem Knoten.",
+   "Summe aller Grade = 2 · Anzahl der Kanten.",
+   "Eulerkreis: alle Grade gerade. Eulerweg: genau zwei ungerade (Start und Ende).",
+   "Kürzester Weg: Umwege prüfen, kleinste Entfernung an jedem Knoten merken (Dijkstra).",
+   "Baum: zusammenhängend, ohne Kreis, n − 1 Kanten. Minimaler Spannbaum: Kruskal."
+  ],
+  "abschnitte": [
+   {
+    "titel": "Grundbegriffe",
+    "lernziele": [
+     "grundbegriffe"
+    ]
+   },
+   {
+    "titel": "Wege",
+    "lernziele": [
+     "euler",
+     "kuerzester"
+    ]
+   },
+   {
+    "titel": "Bäume und Aussagen",
+    "lernziele": [
+     "spannbaum",
+     "verstehen"
+    ]
+   }
+  ],
+  "etappen": [
+   {
+    "lernziel": "grundbegriffe",
+    "titel": "Knoten, Kanten und Grad",
+    "regel": "Ein ⟦Graph⟧ (graph) besteht aus ⟦Knoten⟧ (vertices, Punkte) und ⟦Kanten⟧ (edges, Verbindungslinien). Der ⟦Grad⟧ (degree) eines Knotens ist die Anzahl der Kanten, die ⟦an ihm enden⟧. Weil jede Kante zwei Enden hat, gilt: ⟦Summe aller Grade = 2 · Anzahl der Kanten⟧.",
+    "schritte": [
+     "Graph mit Knoten A, B, C, D und Kanten AB, AC, BC, CD.",
+     "Grade: A 2, B 2, C 3, D 1.",
+     "Summe 2 + 2 + 3 + 1 = 8 = 2 · ⟦4 Kanten⟧."
+    ],
+    "probe": "Jede Kante wurde an beiden Enden gezählt ✓",
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       4,
+       0
+      ],
+      "C": [
+       2,
+       -3
+      ],
+      "D": [
+       6,
+       -3
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "A",
+       "C"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "D"
+      ]
+     ]
+    },
+    "fehler": "Die Summe der Grade (8) als Anzahl der Kanten anzugeben ist falsch: Jede Kante wird ⟦an beiden Enden⟧ gezählt, also 8 : 2 = 4 Kanten."
+   },
+   {
+    "lernziel": "euler",
+    "titel": "Alle Kanten genau einmal",
+    "regel": "Ein ⟦Eulerweg⟧ (Eulerian trail) benutzt jede Kante genau einmal. Endet er am Start, heißt er ⟦Eulerkreis⟧ (Eulerian circuit). Bei einem zusammenhängenden Graphen gilt: ⟦alle Grade gerade⟧ → Eulerkreis; ⟦genau zwei ungerade⟧ → Eulerweg von einem ungeraden zum anderen ungeraden Knoten; sonst keiner.",
+    "schritte": [
+     "Grade: A 2, B 3, C 4, D 3.",
+     "Genau zwei ungerade Knoten (B und D).",
+     "⟦Eulerweg möglich⟧, Start in B, Ende in D (oder umgekehrt), aber kein Eulerkreis."
+    ],
+    "probe": "Wer an einem Knoten ankommt, muss ihn wieder verlassen – nur Start und Ende dürfen ungerade sein ✓",
+    "fehler": "Bei vier ungeraden Knoten einen Eulerweg zu suchen ist zwecklos: An jedem ungeraden Knoten, der nicht Start oder Ende ist, ⟦bleibt eine Kante übrig⟧."
+   },
+   {
+    "lernziel": "kuerzester",
+    "titel": "Kürzeste Wege finden",
+    "regel": "In einem ⟦gewichteten Graphen⟧ (weighted graph) stehen an den Kanten Längen, Zeiten oder Kosten. Für den ⟦kürzesten Weg⟧ (shortest path) gehst du vom Start aus und notierst an jedem Knoten die ⟦kleinste bisher bekannte Entfernung⟧ (Dijkstra-Idee). Ein Umweg kann kürzer sein als die direkte Kante.",
+    "schritte": [
+     "A–B: 7, A–C: 2, C–B: 3.",
+     "Direkt A → B: 7. Über C: 2 + 3 = 5.",
+     "Kürzester Weg ⟦A → C → B mit Länge 5⟧."
+    ],
+    "probe": "Alle Möglichkeiten verglichen: 5 < 7 ✓",
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       6,
+       0
+      ],
+      "C": [
+       3,
+       -3
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "7"
+      ],
+      [
+       "A",
+       "C",
+       "2"
+      ],
+      [
+       "C",
+       "B",
+       "3"
+      ]
+     ]
+    },
+    "fehler": "Immer die ⟦direkte Kante⟧ zu nehmen ist falsch: Hier ist A–B (7) länger als der Umweg über C (5)."
+   },
+   {
+    "lernziel": "spannbaum",
+    "titel": "Minimaler Spannbaum",
+    "regel": "Ein ⟦Baum⟧ (tree) ist ein zusammenhängender Graph ⟦ohne Kreis⟧; mit n Knoten hat er ⟦n − 1 Kanten⟧. Ein ⟦minimaler Spannbaum⟧ (minimum spanning tree) verbindet alle Knoten mit ⟦kleinstem Gesamtgewicht⟧. Kruskal: Kanten der Größe nach nehmen und jede ⟦überspringen, die einen Kreis schließen würde⟧.",
+    "schritte": [
+     "Kanten: AB 4, BC 2, AC 3, CD 5, BD 6.",
+     "Nimm BC (2), AC (3); AB (4) würde Kreis A–B–C schließen → weglassen; CD (5) nehmen.",
+     "Gewicht 2 + 3 + 5 = ⟦10⟧ mit 3 Kanten für 4 Knoten."
+    ],
+    "probe": "4 Knoten → 3 Kanten ✓",
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       4,
+       0
+      ],
+      "C": [
+       2,
+       -3
+      ],
+      "D": [
+       6,
+       -3
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "4"
+      ],
+      [
+       "B",
+       "C",
+       "2"
+      ],
+      [
+       "A",
+       "C",
+       "3"
+      ],
+      [
+       "C",
+       "D",
+       "5"
+      ],
+      [
+       "B",
+       "D",
+       "6"
+      ]
+     ]
+    },
+    "fehler": "Einfach die n − 1 kleinsten Kanten (2, 3, 4) zu nehmen ist falsch: Sie bilden den Kreis A–B–C, und D bleibt unverbunden. Kanten, die einen ⟦Kreis schließen⟧, werden übersprungen."
+   },
+   {
+    "lernziel": "verstehen",
+    "titel": "Aussagen über Graphen prüfen",
+    "regel": "Wichtige Tatsachen: Die ⟦Anzahl der Knoten mit ungeradem Grad ist immer gerade⟧ (wegen Summe der Grade = 2 · Kanten). Ein Baum mit n Knoten hat ⟦genau n − 1 Kanten⟧. Mit einer Gradliste kann man prüfen, ob ein Graph überhaupt möglich ist.",
+    "schritte": [
+     "Gibt es einen Graphen mit den Graden 3, 3, 3?",
+     "Summe 9 ist ungerade, müsste aber 2 · Kanten (gerade) sein. ⟦Unmöglich⟧."
+    ],
+    "probe": "Drei ungerade Knoten – ungerade Anzahl, also nicht möglich ✓",
+    "fehler": "„Ein Graph mit 5 Knoten und 4 Kanten ist immer ein Baum“ ist falsch: Er könnte einen Kreis enthalten und dafür ⟦nicht zusammenhängend⟧ sein."
+   }
+  ],
+  "teilfaehigkeiten": [
+   {
+    "k": "grundbegriffe",
+    "text": "Knoten, Kanten und Grad",
+    "lernziele": [
+     "grundbegriffe"
+    ]
+   },
+   {
+    "k": "euler",
+    "text": "Alle Kanten genau einmal",
+    "lernziele": [
+     "euler"
+    ]
+   },
+   {
+    "k": "kuerzester",
+    "text": "Kürzeste Wege finden",
+    "lernziele": [
+     "kuerzester"
+    ]
+   },
+   {
+    "k": "spannbaum",
+    "text": "Minimaler Spannbaum",
+    "lernziele": [
+     "spannbaum"
+    ]
+   },
+   {
+    "k": "verstehen",
+    "text": "Aussagen über Graphen prüfen",
+    "lernziele": [
+     "verstehen"
+    ]
+   }
+  ],
+  "bewertung": {
+   "lernziele_pflicht": [
+    "grundbegriffe",
+    "euler",
+    "kuerzester",
+    "verstehen"
+   ],
+   "lernziele_vertiefung": [
+    "spannbaum"
+   ],
+   "testaufgaben_je_lernziel": 1
+  },
+  "quellen": {
+   "erklaerungen": "Eigene Fassung (Claude), Aufgaben vom Generator erzeugt und berechnet.",
+   "begriffe": "Fachbegriffe deutsch (LehrplanPLUS Bayern), IB-Begriffe beim ersten Auftreten englisch in Klammern."
+  }
+ },
+ "aufgaben": [
+  {
+   "l": "grundbegriffe",
+   "t": "grundbegriffe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Welchen Grad hat der Knoten E?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "A",
+       "F"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "B",
+       "E"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "E",
+       "F"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "An E enden die Kanten BE, EF: Grad 2.",
+   "h": "Zähle die Linien, die an diesem Punkt enden."
+  },
+  {
+   "l": "grundbegriffe",
+   "t": "grundbegriffe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Kanten hat der Graph?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "A",
+       "F"
+      ],
+      [
+       "B",
+       "E"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "C",
+       "E"
+      ],
+      [
+       "D",
+       "E"
+      ],
+      [
+       "E",
+       "F"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "8",
+   "w": "Kanten: AB, AF, BE, BF, CD, CE, DE, EF – das sind 8.",
+   "h": "Zähle die Verbindungslinien."
+  },
+  {
+   "l": "grundbegriffe",
+   "t": "grundbegriffe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Welchen Grad hat der Knoten C?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "A",
+       "F"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "B",
+       "E"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "C",
+       "E"
+      ],
+      [
+       "D",
+       "E"
+      ],
+      [
+       "E",
+       "F"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "An C enden die Kanten BC, CD, CE: Grad 3.",
+   "h": "Zähle die Linien, die an diesem Punkt enden."
+  },
+  {
+   "l": "grundbegriffe",
+   "t": "grundbegriffe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Welchen Grad hat der Knoten E?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "F"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "B",
+       "E"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "E",
+       "F"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "An E enden die Kanten BE, EF: Grad 2.",
+   "h": "Zähle die Linien, die an diesem Punkt enden."
+  },
+  {
+   "l": "grundbegriffe",
+   "t": "grundbegriffe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Kanten hat der Graph?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "B",
+       "E"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "D",
+       "E"
+      ],
+      [
+       "E",
+       "F"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "7",
+   "w": "Kanten: AB, BC, BE, BF, CD, DE, EF – das sind 7.",
+   "h": "Zähle die Verbindungslinien."
+  },
+  {
+   "l": "grundbegriffe",
+   "t": "grundbegriffe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Kanten hat der Graph?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "A",
+       "G"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "B",
+       "G"
+      ],
+      [
+       "D",
+       "E"
+      ],
+      [
+       "E",
+       "F"
+      ],
+      [
+       "E",
+       "G"
+      ],
+      [
+       "F",
+       "G"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "8",
+   "w": "Kanten: AB, AG, BC, BG, DE, EF, EG, FG – das sind 8.",
+   "h": "Zähle die Verbindungslinien."
+  },
+  {
+   "l": "grundbegriffe",
+   "t": "grundbegriffe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Welchen Grad hat der Knoten E?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "A",
+       "F"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "C",
+       "E"
+      ],
+      [
+       "D",
+       "E"
+      ],
+      [
+       "E",
+       "F"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "An E enden die Kanten CE, DE, EF: Grad 3.",
+   "h": "Zähle die Linien, die an diesem Punkt enden."
+  },
+  {
+   "l": "grundbegriffe",
+   "t": "grundbegriffe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Knoten haben einen ungeraden Grad?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "F"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "C",
+       "E"
+      ],
+      [
+       "D",
+       "E"
+      ],
+      [
+       "E",
+       "F"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Grade: A 1, B 1, C 2, D 2, E 3, F 3. Ungerade: 4.",
+   "h": "Bestimme alle Grade und zähle die ungeraden."
+  },
+  {
+   "l": "grundbegriffe",
+   "t": "grundbegriffe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie groß ist die Summe aller Grade?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "A",
+       "F"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "B",
+       "E"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "C",
+       "E"
+      ],
+      [
+       "D",
+       "E"
+      ],
+      [
+       "E",
+       "F"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 18
+   },
+   "c": "2 * 9",
+   "w": "Grade: A 2, B 4, C 3, D 2, E 4, F 3. Summe 18 = 2 · 9 Kanten.",
+   "h": "Tipp: Summe der Grade = 2 · Anzahl der Kanten."
+  },
+  {
+   "l": "grundbegriffe",
+   "t": "grundbegriffe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie groß ist die Summe aller Grade?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "A",
+       "F"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "C",
+       "E"
+      ],
+      [
+       "E",
+       "F"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 14
+   },
+   "c": "2 * 7",
+   "w": "Grade: A 2, B 3, C 3, D 1, E 2, F 3. Summe 14 = 2 · 7 Kanten.",
+   "h": "Tipp: Summe der Grade = 2 · Anzahl der Kanten."
+  },
+  {
+   "l": "grundbegriffe",
+   "t": "grundbegriffe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie groß ist die Summe aller Grade?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "A",
+       "G"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "B",
+       "G"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "D",
+       "E"
+      ],
+      [
+       "D",
+       "G"
+      ],
+      [
+       "E",
+       "F"
+      ],
+      [
+       "E",
+       "G"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "2 * 10",
+   "w": "Grade: A 2, B 3, C 3, D 3, E 3, F 1, G 5. Summe 20 = 2 · 10 Kanten.",
+   "h": "Tipp: Summe der Grade = 2 · Anzahl der Kanten."
+  },
+  {
+   "l": "grundbegriffe",
+   "t": "grundbegriffe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Knoten haben einen ungeraden Grad?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "E"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "C",
+       "E"
+      ],
+      [
+       "D",
+       "E"
+      ],
+      [
+       "E",
+       "F"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Grade: A 1, B 3, C 2, D 2, E 4, F 2. Ungerade: 2.",
+   "h": "Bestimme alle Grade und zähle die ungeraden."
+  },
+  {
+   "l": "grundbegriffe",
+   "t": "grundbegriffe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einem Graphen hat jeder der 5 Knoten den Grad 4. Wie viele Kanten hat der Graph?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "5 * 4 / 2",
+   "w": "Summe der Grade: 5 · 4 = 20. Kanten: 20 : 2 = 10.",
+   "h": "Summe der Grade = 2 · Anzahl der Kanten."
+  },
+  {
+   "l": "grundbegriffe",
+   "t": "grundbegriffe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle (Adjazenzmatrix, adjacency matrix) zeigt mit 1, welche Knoten durch eine Kante verbunden sind. Welchen Grad hat A?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G"
+     ],
+     "zeilen": [
+      [
+       "A",
+       "0",
+       "1",
+       "0",
+       "0",
+       "0",
+       "1",
+       "1"
+      ],
+      [
+       "B",
+       "1",
+       "0",
+       "1",
+       "0",
+       "0",
+       "0",
+       "1"
+      ],
+      [
+       "C",
+       "0",
+       "1",
+       "0",
+       "0",
+       "0",
+       "0",
+       "0"
+      ],
+      [
+       "D",
+       "0",
+       "0",
+       "0",
+       "0",
+       "1",
+       "0",
+       "1"
+      ],
+      [
+       "E",
+       "0",
+       "0",
+       "0",
+       "1",
+       "0",
+       "1",
+       "1"
+      ],
+      [
+       "F",
+       "1",
+       "0",
+       "0",
+       "0",
+       "1",
+       "0",
+       "0"
+      ],
+      [
+       "G",
+       "1",
+       "1",
+       "0",
+       "1",
+       "1",
+       "0",
+       "0"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "In der Zeile A stehen 3 Einsen: Grad 3.",
+   "h": "Zähle die Einsen in der Zeile des Knotens."
+  },
+  {
+   "l": "grundbegriffe",
+   "t": "grundbegriffe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einem Graphen hat jeder der 8 Knoten den Grad 2. Wie viele Kanten hat der Graph?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "8 * 2 / 2",
+   "w": "Summe der Grade: 8 · 2 = 16. Kanten: 16 : 2 = 8.",
+   "h": "Summe der Grade = 2 · Anzahl der Kanten."
+  },
+  {
+   "l": "grundbegriffe",
+   "t": "grundbegriffe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "7 Personen geben sich gegenseitig je einmal die Hand. Wie viele Handschläge gibt es? (Jede Person ist ein Knoten, jeder Handschlag eine Kante.)"
+   },
+   "o": {
+    "wert": 21
+   },
+   "c": "7 * (7 - 1) / 2",
+   "w": "Jeder Knoten hat Grad 6. Summe 7 · 6 = 42; Kanten: 42 : 2 = 21.",
+   "h": "Jede Person schüttelt allen anderen die Hand."
+  },
+  {
+   "l": "grundbegriffe",
+   "t": "grundbegriffe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "4 Personen geben sich gegenseitig je einmal die Hand. Wie viele Handschläge gibt es? (Jede Person ist ein Knoten, jeder Handschlag eine Kante.)"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "4 * (4 - 1) / 2",
+   "w": "Jeder Knoten hat Grad 3. Summe 4 · 3 = 12; Kanten: 12 : 2 = 6.",
+   "h": "Jede Person schüttelt allen anderen die Hand."
+  },
+  {
+   "l": "grundbegriffe",
+   "t": "grundbegriffe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle (Adjazenzmatrix, adjacency matrix) zeigt mit 1, welche Knoten durch eine Kante verbunden sind. Welchen Grad hat E?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "zeilen": [
+      [
+       "A",
+       "0",
+       "1",
+       "0",
+       "0",
+       "0",
+       "1"
+      ],
+      [
+       "B",
+       "1",
+       "0",
+       "1",
+       "0",
+       "1",
+       "0"
+      ],
+      [
+       "C",
+       "0",
+       "1",
+       "0",
+       "1",
+       "1",
+       "0"
+      ],
+      [
+       "D",
+       "0",
+       "0",
+       "1",
+       "0",
+       "0",
+       "0"
+      ],
+      [
+       "E",
+       "0",
+       "1",
+       "1",
+       "0",
+       "0",
+       "1"
+      ],
+      [
+       "F",
+       "1",
+       "0",
+       "0",
+       "0",
+       "1",
+       "0"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "In der Zeile E stehen 3 Einsen: Grad 3.",
+   "h": "Zähle die Einsen in der Zeile des Knotens."
+  },
+  {
+   "l": "grundbegriffe",
+   "t": "grundbegriffe",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie groß ist die Summe aller Grade?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "F"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "C",
+       "E"
+      ],
+      [
+       "D",
+       "E"
+      ],
+      [
+       "E",
+       "F"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 14
+   },
+   "c": "2 * 7",
+   "w": "Grade: A 1, B 2, C 3, D 2, E 3, F 3. Summe 14 = 2 · 7 Kanten."
+  },
+  {
+   "l": "grundbegriffe",
+   "t": "grundbegriffe",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie groß ist die Summe aller Grade?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "F"
+      ],
+      [
+       "A",
+       "G"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "B",
+       "G"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "E",
+       "G"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "2 * 6",
+   "w": "Grade: A 2, B 2, C 2, D 1, E 1, F 1, G 3. Summe 12 = 2 · 6 Kanten."
+  },
+  {
+   "l": "grundbegriffe",
+   "t": "grundbegriffe",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Welchen Grad hat der Knoten F?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "A",
+       "F"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "B",
+       "G"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "D",
+       "G"
+      ],
+      [
+       "E",
+       "F"
+      ],
+      [
+       "E",
+       "G"
+      ],
+      [
+       "F",
+       "G"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "An F enden die Kanten AF, EF, FG: Grad 3."
+  },
+  {
+   "l": "grundbegriffe",
+   "t": "grundbegriffe",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie groß ist die Summe aller Grade?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "B",
+       "E"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "C",
+       "E"
+      ],
+      [
+       "D",
+       "E"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 14
+   },
+   "c": "2 * 7",
+   "w": "Grade: A 1, B 4, C 3, D 2, E 3, F 1. Summe 14 = 2 · 7 Kanten."
+  },
+  {
+   "l": "grundbegriffe",
+   "t": "grundbegriffe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Welchen Grad hat der Knoten F?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "A",
+       "F"
+      ],
+      [
+       "A",
+       "G"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "B",
+       "G"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "E",
+       "F"
+      ],
+      [
+       "E",
+       "G"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "An F enden die Kanten AF, EF: Grad 2."
+  },
+  {
+   "l": "grundbegriffe",
+   "t": "grundbegriffe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Knoten haben einen ungeraden Grad?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "F"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "B",
+       "G"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "D",
+       "E"
+      ],
+      [
+       "D",
+       "G"
+      ],
+      [
+       "F",
+       "G"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Grade: A 1, B 2, C 3, D 3, E 1, F 2, G 4. Ungerade: 4."
+  },
+  {
+   "l": "grundbegriffe",
+   "t": "grundbegriffe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie groß ist die Summe aller Grade?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "A",
+       "F"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "B",
+       "E"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "C",
+       "E"
+      ],
+      [
+       "D",
+       "E"
+      ],
+      [
+       "E",
+       "F"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "2 * 8",
+   "w": "Grade: A 2, B 4, C 2, D 1, E 4, F 3. Summe 16 = 2 · 8 Kanten."
+  },
+  {
+   "l": "grundbegriffe",
+   "t": "grundbegriffe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Knoten hat den größten Grad?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "A",
+       "G"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "D",
+       "E"
+      ],
+      [
+       "D",
+       "G"
+      ],
+      [
+       "E",
+       "F"
+      ],
+      [
+       "E",
+       "G"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "G",
+    "B",
+    "C",
+    "A"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Grade: A 2, B 2, C 3, D 3, E 3, F 1, G 4. Am größten: G mit 4."
+  },
+  {
+   "l": "grundbegriffe",
+   "t": "grundbegriffe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Knoten haben einen ungeraden Grad?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "B",
+       "E"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "C",
+       "E"
+      ],
+      [
+       "E",
+       "F"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Grade: A 1, B 4, C 3, D 1, E 3, F 2. Ungerade: 4."
+  },
+  {
+   "l": "grundbegriffe",
+   "t": "grundbegriffe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Welchen Grad hat der Knoten C?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "A",
+       "F"
+      ],
+      [
+       "A",
+       "G"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "D",
+       "G"
+      ],
+      [
+       "E",
+       "F"
+      ],
+      [
+       "E",
+       "G"
+      ],
+      [
+       "F",
+       "G"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "An C enden die Kanten BC, CD, CG: Grad 3."
+  },
+  {
+   "l": "euler",
+   "t": "euler",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Hat der Graph einen Eulerweg oder einen Eulerkreis?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "A",
+       "F"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "B",
+       "E"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "D",
+       "E"
+      ],
+      [
+       "E",
+       "F"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Eulerweg, aber kein Eulerkreis",
+    "weder Eulerweg noch Eulerkreis",
+    "Eulerkreis"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Grade: A 2, B 3, C 2, D 2, E 3, F 2. Ungerade: 2 (B, E). Also: Eulerweg, aber kein Eulerkreis.",
+   "h": "Bestimme alle Grade und zähle die ungeraden."
+  },
+  {
+   "l": "euler",
+   "t": "euler",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Hat der Graph einen Eulerweg oder einen Eulerkreis?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "A",
+       "G"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "B",
+       "G"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "D",
+       "G"
+      ],
+      [
+       "E",
+       "F"
+      ],
+      [
+       "E",
+       "G"
+      ],
+      [
+       "F",
+       "G"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Eulerweg, aber kein Eulerkreis",
+    "Eulerkreis",
+    "weder Eulerweg noch Eulerkreis"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Grade: A 2, B 3, C 3, D 2, E 2, F 2, G 6. Ungerade: 2 (B, C). Also: Eulerweg, aber kein Eulerkreis.",
+   "h": "Bestimme alle Grade und zähle die ungeraden."
+  },
+  {
+   "l": "euler",
+   "t": "euler",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Hat der Graph einen Eulerweg oder einen Eulerkreis?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "A",
+       "F"
+      ],
+      [
+       "B",
+       "E"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "D",
+       "E"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "weder Eulerweg noch Eulerkreis",
+    "Eulerkreis",
+    "Eulerweg, aber kein Eulerkreis"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Grade: A 2, B 3, C 1, D 2, E 2, F 2. Ungerade: 2 (B, C). Also: Eulerweg, aber kein Eulerkreis.",
+   "h": "Bestimme alle Grade und zähle die ungeraden."
+  },
+  {
+   "l": "euler",
+   "t": "euler",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Hat der Graph einen Eulerweg oder einen Eulerkreis?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "A",
+       "G"
+      ],
+      [
+       "B",
+       "G"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "D",
+       "E"
+      ],
+      [
+       "E",
+       "F"
+      ],
+      [
+       "E",
+       "G"
+      ],
+      [
+       "F",
+       "G"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Eulerweg, aber kein Eulerkreis",
+    "weder Eulerweg noch Eulerkreis",
+    "Eulerkreis"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Grade: A 2, B 2, C 2, D 2, E 3, F 2, G 5. Ungerade: 2 (E, G). Also: Eulerweg, aber kein Eulerkreis.",
+   "h": "Bestimme alle Grade und zähle die ungeraden."
+  },
+  {
+   "l": "euler",
+   "t": "euler",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Hat der Graph einen Eulerweg oder einen Eulerkreis?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "A",
+       "F"
+      ],
+      [
+       "B",
+       "E"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "C",
+       "E"
+      ],
+      [
+       "D",
+       "E"
+      ],
+      [
+       "E",
+       "F"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Eulerkreis",
+    "weder Eulerweg noch Eulerkreis",
+    "Eulerweg, aber kein Eulerkreis"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Grade: A 2, B 3, C 2, D 2, E 4, F 3. Ungerade: 2 (B, F). Also: Eulerweg, aber kein Eulerkreis.",
+   "h": "Bestimme alle Grade und zähle die ungeraden."
+  },
+  {
+   "l": "euler",
+   "t": "euler",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Hat der Graph einen Eulerweg oder einen Eulerkreis?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "A",
+       "G"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "B",
+       "G"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "D",
+       "E"
+      ],
+      [
+       "D",
+       "G"
+      ],
+      [
+       "E",
+       "F"
+      ],
+      [
+       "F",
+       "G"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Eulerkreis",
+    "weder Eulerweg noch Eulerkreis",
+    "Eulerweg, aber kein Eulerkreis"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Grade: A 2, B 3, C 2, D 3, E 2, F 2, G 4. Ungerade: 2 (B, D). Also: Eulerweg, aber kein Eulerkreis.",
+   "h": "Bestimme alle Grade und zähle die ungeraden."
+  },
+  {
+   "l": "euler",
+   "t": "euler",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Knoten mit ungeradem Grad hat der Graph?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "A",
+       "F"
+      ],
+      [
+       "A",
+       "G"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "B",
+       "G"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "E",
+       "F"
+      ],
+      [
+       "E",
+       "G"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Grade: A 3, B 3, C 3, D 1, E 2, F 2, G 4. Ungerade: 4 (A, B, C, D).",
+   "h": "Bestimme jeden Grad."
+  },
+  {
+   "l": "euler",
+   "t": "euler",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Hat der Graph einen Eulerweg oder einen Eulerkreis?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "A",
+       "F"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "B",
+       "E"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "C",
+       "E"
+      ],
+      [
+       "D",
+       "E"
+      ],
+      [
+       "E",
+       "F"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Eulerkreis",
+    "Eulerweg, aber kein Eulerkreis",
+    "weder Eulerweg noch Eulerkreis"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Grade: A 2, B 4, C 3, D 2, E 4, F 3. Ungerade: 2 (C, F). Also: Eulerweg, aber kein Eulerkreis.",
+   "h": "Bestimme alle Grade und zähle die ungeraden."
+  },
+  {
+   "l": "euler",
+   "t": "euler",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Der Graph hat einen Eulerweg. Wo muss er beginnen?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "A",
+       "F"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "B",
+       "E"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "C",
+       "E"
+      ],
+      [
+       "D",
+       "E"
+      ],
+      [
+       "E",
+       "F"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "in A oder in B",
+    "nur in A",
+    "in jedem beliebigen Knoten",
+    "in C oder in F"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Grade: A 2, B 4, C 3, D 2, E 4, F 3. Ungerade: 2 (C, F). Ein Eulerweg beginnt und endet an den beiden ungeraden Knoten.",
+   "h": "Start und Ende sind die Knoten mit ungeradem Grad."
+  },
+  {
+   "l": "euler",
+   "t": "euler",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Hat der Graph einen Eulerweg oder einen Eulerkreis?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "A",
+       "F"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "D",
+       "E"
+      ],
+      [
+       "D",
+       "G"
+      ],
+      [
+       "E",
+       "F"
+      ],
+      [
+       "E",
+       "G"
+      ],
+      [
+       "F",
+       "G"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Eulerkreis",
+    "Eulerweg, aber kein Eulerkreis",
+    "weder Eulerweg noch Eulerkreis"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Grade: A 2, B 2, C 2, D 3, E 3, F 3, G 3. Ungerade: 4 (D, E, F, G). Also: weder Eulerweg noch Eulerkreis.",
+   "h": "Bestimme alle Grade und zähle die ungeraden."
+  },
+  {
+   "l": "euler",
+   "t": "euler",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Hat der Graph einen Eulerweg oder einen Eulerkreis?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "A",
+       "F"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "B",
+       "E"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "C",
+       "E"
+      ],
+      [
+       "D",
+       "E"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "weder Eulerweg noch Eulerkreis",
+    "Eulerweg, aber kein Eulerkreis",
+    "Eulerkreis"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Grade: A 2, B 4, C 2, D 1, E 3, F 2. Ungerade: 2 (D, E). Also: Eulerweg, aber kein Eulerkreis.",
+   "h": "Bestimme alle Grade und zähle die ungeraden."
+  },
+  {
+   "l": "euler",
+   "t": "euler",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Hat der Graph einen Eulerweg oder einen Eulerkreis?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "F"
+      ],
+      [
+       "A",
+       "G"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "B",
+       "G"
+      ],
+      [
+       "D",
+       "E"
+      ],
+      [
+       "D",
+       "G"
+      ],
+      [
+       "E",
+       "F"
+      ],
+      [
+       "F",
+       "G"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Eulerweg, aber kein Eulerkreis",
+    "weder Eulerweg noch Eulerkreis",
+    "Eulerkreis"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Grade: A 2, B 2, C 1, D 2, E 2, F 3, G 4. Ungerade: 2 (C, F). Also: Eulerweg, aber kein Eulerkreis.",
+   "h": "Bestimme alle Grade und zähle die ungeraden."
+  },
+  {
+   "l": "euler",
+   "t": "euler",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Der Graph hat einen Eulerweg. Wo muss er beginnen?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "A",
+       "F"
+      ],
+      [
+       "B",
+       "E"
+      ],
+      [
+       "C",
+       "E"
+      ],
+      [
+       "D",
+       "E"
+      ],
+      [
+       "E",
+       "F"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "in jedem beliebigen Knoten",
+    "in C oder in D",
+    "nur in A",
+    "in A oder in B"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Grade: A 2, B 2, C 1, D 1, E 4, F 2. Ungerade: 2 (C, D). Ein Eulerweg beginnt und endet an den beiden ungeraden Knoten.",
+   "h": "Start und Ende sind die Knoten mit ungeradem Grad."
+  },
+  {
+   "l": "euler",
+   "t": "euler",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Königsberger Brückenproblem: Zwei Ufer und zwei Inseln sind durch 7 Brücken verbunden; die Grade der vier Landstücke sind 3, 3, 3 und 5. Gibt es einen Spaziergang, der jede Brücke genau einmal benutzt?"
+   },
+   "a": [
+    "Nein: Alle vier Ufer- und Inselknoten haben einen ungeraden Grad.",
+    "Ja, wenn man auf einer Insel startet.",
+    "Nein, weil es mehr als 6 Brücken sind.",
+    "Ja, weil 7 Brücken eine ungerade Zahl sind."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Für einen Eulerweg dürfen höchstens zwei Knoten ungerade sein. Hier sind es vier. (Leonhard Euler, 1736)",
+   "h": "Zähle die Knoten mit ungeradem Grad."
+  },
+  {
+   "l": "euler",
+   "t": "euler",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Hat der Graph einen Eulerweg oder einen Eulerkreis?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "G"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "B",
+       "G"
+      ],
+      [
+       "D",
+       "E"
+      ],
+      [
+       "D",
+       "G"
+      ],
+      [
+       "E",
+       "F"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "weder Eulerweg noch Eulerkreis",
+    "Eulerweg, aber kein Eulerkreis",
+    "Eulerkreis"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Grade: A 1, B 2, C 1, D 2, E 2, F 1, G 3. Ungerade: 4 (A, C, F, G). Also: weder Eulerweg noch Eulerkreis.",
+   "h": "Bestimme alle Grade und zähle die ungeraden."
+  },
+  {
+   "l": "euler",
+   "t": "euler",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Der Graph hat einen Eulerweg. Wo muss er beginnen?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "A",
+       "F"
+      ],
+      [
+       "A",
+       "G"
+      ],
+      [
+       "B",
+       "G"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "D",
+       "E"
+      ],
+      [
+       "D",
+       "G"
+      ],
+      [
+       "E",
+       "G"
+      ],
+      [
+       "F",
+       "G"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "nur in B",
+    "in B oder in C",
+    "in A oder in D",
+    "in jedem beliebigen Knoten"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Grade: A 3, B 2, C 2, D 3, E 2, F 2, G 6. Ungerade: 2 (A, D). Ein Eulerweg beginnt und endet an den beiden ungeraden Knoten.",
+   "h": "Start und Ende sind die Knoten mit ungeradem Grad."
+  },
+  {
+   "l": "euler",
+   "t": "euler",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Der Graph hat einen Eulerweg, aber keinen Eulerkreis. Welche zusätzliche Kante macht daraus einen Graphen mit Eulerkreis?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "A",
+       "F"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "B",
+       "G"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "D",
+       "G"
+      ],
+      [
+       "E",
+       "F"
+      ],
+      [
+       "E",
+       "G"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "eine Kante AC",
+    "eine Kante CE",
+    "eine Kante AE",
+    "eine Kante BD"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die ungeraden Knoten sind B und D. Eine Kante BD macht beide gerade: Dann haben alle Knoten geraden Grad.",
+   "h": "Welche Knoten müssen einen Grad mehr bekommen?"
+  },
+  {
+   "l": "euler",
+   "t": "euler",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Der Graph hat einen Eulerweg, aber keinen Eulerkreis. Welche zusätzliche Kante macht daraus einen Graphen mit Eulerkreis?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "F"
+      ],
+      [
+       "B",
+       "E"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "C",
+       "E"
+      ],
+      [
+       "D",
+       "E"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "eine Kante BC",
+    "eine Kante AE",
+    "eine Kante CD",
+    "eine Kante BD"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die ungeraden Knoten sind A und E. Eine Kante AE macht beide gerade: Dann haben alle Knoten geraden Grad.",
+   "h": "Welche Knoten müssen einen Grad mehr bekommen?"
+  },
+  {
+   "l": "euler",
+   "t": "euler",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Knoten mit ungeradem Grad hat der Graph?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "A",
+       "F"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "B",
+       "E"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "E",
+       "F"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Grade: A 2, B 3, C 2, D 1, E 2, F 2. Ungerade: 2 (B, D)."
+  },
+  {
+   "l": "euler",
+   "t": "euler",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Der Graph hat einen Eulerweg. Wo muss er beginnen?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "F"
+      ],
+      [
+       "A",
+       "G"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "B",
+       "G"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "D",
+       "E"
+      ],
+      [
+       "D",
+       "G"
+      ],
+      [
+       "E",
+       "F"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "nur in A",
+    "in A oder in B",
+    "in C oder in D",
+    "in jedem beliebigen Knoten"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Grade: A 2, B 2, C 3, D 3, E 2, F 2, G 4. Ungerade: 2 (C, D). Ein Eulerweg beginnt und endet an den beiden ungeraden Knoten."
+  },
+  {
+   "l": "euler",
+   "t": "euler",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Hat der Graph einen Eulerweg oder einen Eulerkreis?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "A",
+       "F"
+      ],
+      [
+       "A",
+       "G"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "B",
+       "G"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "D",
+       "E"
+      ],
+      [
+       "D",
+       "G"
+      ],
+      [
+       "E",
+       "F"
+      ],
+      [
+       "E",
+       "G"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "weder Eulerweg noch Eulerkreis",
+    "Eulerweg, aber kein Eulerkreis",
+    "Eulerkreis"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Grade: A 3, B 3, C 2, D 2, E 3, F 2, G 5. Ungerade: 4 (A, B, E, G). Also: weder Eulerweg noch Eulerkreis."
+  },
+  {
+   "l": "euler",
+   "t": "euler",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Hat der Graph einen Eulerweg oder einen Eulerkreis?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "A",
+       "F"
+      ],
+      [
+       "B",
+       "E"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "D",
+       "E"
+      ],
+      [
+       "E",
+       "F"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "weder Eulerweg noch Eulerkreis",
+    "Eulerkreis",
+    "Eulerweg, aber kein Eulerkreis"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Grade: A 2, B 3, C 1, D 2, E 3, F 3. Ungerade: 4 (B, C, E, F). Also: weder Eulerweg noch Eulerkreis."
+  },
+  {
+   "l": "euler",
+   "t": "euler",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Hat der Graph einen Eulerweg oder einen Eulerkreis?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "F"
+      ],
+      [
+       "A",
+       "G"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "B",
+       "G"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "D",
+       "E"
+      ],
+      [
+       "D",
+       "G"
+      ],
+      [
+       "E",
+       "F"
+      ],
+      [
+       "E",
+       "G"
+      ],
+      [
+       "F",
+       "G"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Eulerweg, aber kein Eulerkreis",
+    "weder Eulerweg noch Eulerkreis",
+    "Eulerkreis"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Grade: A 2, B 2, C 3, D 3, E 3, F 3, G 6. Ungerade: 4 (C, D, E, F). Also: weder Eulerweg noch Eulerkreis."
+  },
+  {
+   "l": "euler",
+   "t": "euler",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Knoten mit ungeradem Grad hat der Graph?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "A",
+       "F"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "B",
+       "E"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "C",
+       "E"
+      ],
+      [
+       "D",
+       "E"
+      ],
+      [
+       "E",
+       "F"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Grade: A 2, B 4, C 3, D 2, E 4, F 3. Ungerade: 2 (C, F)."
+  },
+  {
+   "l": "euler",
+   "t": "euler",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Hat der Graph einen Eulerweg oder einen Eulerkreis?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "A",
+       "F"
+      ],
+      [
+       "B",
+       "E"
+      ],
+      [
+       "C",
+       "E"
+      ],
+      [
+       "D",
+       "E"
+      ],
+      [
+       "E",
+       "F"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Eulerweg, aber kein Eulerkreis",
+    "weder Eulerweg noch Eulerkreis",
+    "Eulerkreis"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Grade: A 2, B 2, C 1, D 1, E 4, F 2. Ungerade: 2 (C, D). Also: Eulerweg, aber kein Eulerkreis."
+  },
+  {
+   "l": "euler",
+   "t": "euler",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Hat der Graph einen Eulerweg oder einen Eulerkreis?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "A",
+       "F"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "B",
+       "E"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "C",
+       "E"
+      ],
+      [
+       "D",
+       "E"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "weder Eulerweg noch Eulerkreis",
+    "Eulerkreis",
+    "Eulerweg, aber kein Eulerkreis"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Grade: A 2, B 4, C 3, D 2, E 3, F 2. Ungerade: 2 (C, E). Also: Eulerweg, aber kein Eulerkreis."
+  },
+  {
+   "l": "euler",
+   "t": "euler",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Knoten mit ungeradem Grad hat der Graph?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "F"
+      ],
+      [
+       "B",
+       "E"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "C",
+       "E"
+      ],
+      [
+       "D",
+       "E"
+      ],
+      [
+       "E",
+       "F"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Grade: A 1, B 1, C 2, D 2, E 4, F 2. Ungerade: 2 (A, B)."
+  },
+  {
+   "l": "euler",
+   "t": "euler",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Hat der Graph einen Eulerweg oder einen Eulerkreis?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "A",
+       "F"
+      ],
+      [
+       "A",
+       "G"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "D",
+       "E"
+      ],
+      [
+       "E",
+       "F"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Eulerweg, aber kein Eulerkreis",
+    "weder Eulerweg noch Eulerkreis",
+    "Eulerkreis"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Grade: A 3, B 2, C 3, D 2, E 2, F 2, G 2. Ungerade: 2 (A, C). Also: Eulerweg, aber kein Eulerkreis."
+  },
+  {
+   "l": "kuerzester",
+   "t": "kuerzester",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Zahlen an den Kanten sind Fahrzeiten in Minuten. Wie lange dauert der schnellste Weg von A nach F?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "3"
+      ],
+      [
+       "A",
+       "F",
+       "8"
+      ],
+      [
+       "B",
+       "C",
+       "7"
+      ],
+      [
+       "B",
+       "E",
+       "3"
+      ],
+      [
+       "B",
+       "F",
+       "1"
+      ],
+      [
+       "C",
+       "E",
+       "7"
+      ],
+      [
+       "D",
+       "E",
+       "3"
+      ],
+      [
+       "E",
+       "F",
+       "5"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "min"
+   },
+   "c": "3 + 1",
+   "w": "Schnellster Weg: A → B → F mit 4 Minuten (zweitbester: A → F mit 8).",
+   "h": "Vergleiche mehrere Wege. Notiere an jedem Knoten die kleinste Zeit vom Start."
+  },
+  {
+   "l": "kuerzester",
+   "t": "kuerzester",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Zahlen an den Kanten sind Fahrzeiten in Minuten. Wie lange dauert der schnellste Weg von A nach G?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "F",
+       "6"
+      ],
+      [
+       "B",
+       "C",
+       "4"
+      ],
+      [
+       "B",
+       "G",
+       "9"
+      ],
+      [
+       "C",
+       "D",
+       "6"
+      ],
+      [
+       "C",
+       "G",
+       "7"
+      ],
+      [
+       "D",
+       "G",
+       "3"
+      ],
+      [
+       "E",
+       "F",
+       "2"
+      ],
+      [
+       "E",
+       "G",
+       "7"
+      ],
+      [
+       "F",
+       "G",
+       "8"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 14,
+    "einheit": "min"
+   },
+   "c": "6 + 8",
+   "w": "Schnellster Weg: A → F → G mit 14 Minuten (zweitbester: A → F → E → G mit 15).",
+   "h": "Vergleiche mehrere Wege. Notiere an jedem Knoten die kleinste Zeit vom Start."
+  },
+  {
+   "l": "kuerzester",
+   "t": "kuerzester",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Zahlen an den Kanten sind Fahrzeiten in Minuten. Wie lange dauert der schnellste Weg von A nach C?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "2"
+      ],
+      [
+       "A",
+       "F",
+       "5"
+      ],
+      [
+       "B",
+       "C",
+       "6"
+      ],
+      [
+       "B",
+       "E",
+       "4"
+      ],
+      [
+       "B",
+       "F",
+       "8"
+      ],
+      [
+       "C",
+       "D",
+       "1"
+      ],
+      [
+       "D",
+       "E",
+       "2"
+      ],
+      [
+       "E",
+       "F",
+       "9"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 8,
+    "einheit": "min"
+   },
+   "c": "2 + 6",
+   "w": "Schnellster Weg: A → B → C mit 8 Minuten (zweitbester: A → B → E → D → C mit 9).",
+   "h": "Vergleiche mehrere Wege. Notiere an jedem Knoten die kleinste Zeit vom Start."
+  },
+  {
+   "l": "kuerzester",
+   "t": "kuerzester",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Zahlen an den Kanten sind Fahrzeiten in Minuten. Wie lange dauert der schnellste Weg von A nach B?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "7"
+      ],
+      [
+       "A",
+       "F",
+       "3"
+      ],
+      [
+       "A",
+       "G",
+       "4"
+      ],
+      [
+       "B",
+       "C",
+       "6"
+      ],
+      [
+       "B",
+       "G",
+       "5"
+      ],
+      [
+       "C",
+       "D",
+       "8"
+      ],
+      [
+       "C",
+       "G",
+       "6"
+      ],
+      [
+       "D",
+       "E",
+       "9"
+      ],
+      [
+       "D",
+       "G",
+       "4"
+      ],
+      [
+       "F",
+       "G",
+       "2"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 7,
+    "einheit": "min"
+   },
+   "c": "7",
+   "w": "Schnellster Weg: A → B mit 7 Minuten (zweitbester: A → G → B mit 9).",
+   "h": "Vergleiche mehrere Wege. Notiere an jedem Knoten die kleinste Zeit vom Start."
+  },
+  {
+   "l": "kuerzester",
+   "t": "kuerzester",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Zahlen an den Kanten sind Fahrzeiten in Minuten. Wie lange dauert der schnellste Weg von A nach D?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "6"
+      ],
+      [
+       "A",
+       "G",
+       "7"
+      ],
+      [
+       "B",
+       "G",
+       "9"
+      ],
+      [
+       "C",
+       "D",
+       "2"
+      ],
+      [
+       "C",
+       "G",
+       "3"
+      ],
+      [
+       "D",
+       "E",
+       "8"
+      ],
+      [
+       "D",
+       "G",
+       "6"
+      ],
+      [
+       "E",
+       "F",
+       "3"
+      ],
+      [
+       "E",
+       "G",
+       "8"
+      ],
+      [
+       "F",
+       "G",
+       "3"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "min"
+   },
+   "c": "7 + 3 + 2",
+   "w": "Schnellster Weg: A → G → C → D mit 12 Minuten (zweitbester: A → G → D mit 13).",
+   "h": "Vergleiche mehrere Wege. Notiere an jedem Knoten die kleinste Zeit vom Start."
+  },
+  {
+   "l": "kuerzester",
+   "t": "kuerzester",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Zahlen an den Kanten sind Fahrzeiten in Minuten. Wie lange dauert der schnellste Weg von A nach E?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "4"
+      ],
+      [
+       "A",
+       "F",
+       "8"
+      ],
+      [
+       "A",
+       "G",
+       "8"
+      ],
+      [
+       "B",
+       "C",
+       "6"
+      ],
+      [
+       "C",
+       "D",
+       "1"
+      ],
+      [
+       "C",
+       "G",
+       "4"
+      ],
+      [
+       "D",
+       "E",
+       "1"
+      ],
+      [
+       "E",
+       "F",
+       "2"
+      ],
+      [
+       "E",
+       "G",
+       "8"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "min"
+   },
+   "c": "8 + 2",
+   "w": "Schnellster Weg: A → F → E mit 10 Minuten (zweitbester: A → B → C → D → E mit 12).",
+   "h": "Vergleiche mehrere Wege. Notiere an jedem Knoten die kleinste Zeit vom Start."
+  },
+  {
+   "l": "kuerzester",
+   "t": "kuerzester",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Zahlen an den Kanten sind Fahrzeiten in Minuten. Wie lange dauert der schnellste Weg von A nach C?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "F",
+       "9"
+      ],
+      [
+       "B",
+       "C",
+       "1"
+      ],
+      [
+       "C",
+       "G",
+       "4"
+      ],
+      [
+       "D",
+       "E",
+       "6"
+      ],
+      [
+       "D",
+       "G",
+       "5"
+      ],
+      [
+       "E",
+       "F",
+       "7"
+      ],
+      [
+       "F",
+       "G",
+       "5"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 18,
+    "einheit": "min"
+   },
+   "c": "9 + 5 + 4",
+   "w": "Schnellster Weg: A → F → G → C mit 18 Minuten (zweitbester: A → F → E → D → G → C mit 31).",
+   "h": "Vergleiche mehrere Wege. Notiere an jedem Knoten die kleinste Zeit vom Start."
+  },
+  {
+   "l": "kuerzester",
+   "t": "kuerzester",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Weg von A nach D ist am kürzesten (Kantenzahlen = Längen in km)?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "F",
+       "8"
+      ],
+      [
+       "A",
+       "G",
+       "7"
+      ],
+      [
+       "B",
+       "G",
+       "6"
+      ],
+      [
+       "C",
+       "D",
+       "7"
+      ],
+      [
+       "C",
+       "G",
+       "6"
+      ],
+      [
+       "D",
+       "E",
+       "4"
+      ],
+      [
+       "D",
+       "G",
+       "2"
+      ],
+      [
+       "E",
+       "F",
+       "9"
+      ],
+      [
+       "E",
+       "G",
+       "1"
+      ],
+      [
+       "F",
+       "G",
+       "1"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "A → G → D",
+    "A → F → G → D",
+    "A → G → E → D",
+    "A → F → G → E → D"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "A → G → D: 9 km. Andere: A → F → G → D: 11 km; A → G → E → D: 12 km; A → F → G → E → D: 14 km.",
+   "h": "Rechne für jeden Weg die Summe der Kantenzahlen aus."
+  },
+  {
+   "l": "kuerzester",
+   "t": "kuerzester",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Zahlen an den Kanten sind Fahrzeiten in Minuten. Wie lange dauert der schnellste Weg von A nach E?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "1"
+      ],
+      [
+       "A",
+       "F",
+       "5"
+      ],
+      [
+       "B",
+       "G",
+       "5"
+      ],
+      [
+       "C",
+       "D",
+       "7"
+      ],
+      [
+       "C",
+       "G",
+       "3"
+      ],
+      [
+       "D",
+       "E",
+       "3"
+      ],
+      [
+       "D",
+       "G",
+       "6"
+      ],
+      [
+       "E",
+       "F",
+       "6"
+      ],
+      [
+       "E",
+       "G",
+       "9"
+      ],
+      [
+       "F",
+       "G",
+       "2"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 11,
+    "einheit": "min"
+   },
+   "c": "5 + 6",
+   "w": "Schnellster Weg: A → F → E mit 11 Minuten (zweitbester: A → B → G → F → E mit 14).",
+   "h": "Vergleiche mehrere Wege. Notiere an jedem Knoten die kleinste Zeit vom Start."
+  },
+  {
+   "l": "kuerzester",
+   "t": "kuerzester",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Weg von A nach C ist am kürzesten (Kantenzahlen = Längen in km)?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "8"
+      ],
+      [
+       "A",
+       "F",
+       "5"
+      ],
+      [
+       "B",
+       "E",
+       "8"
+      ],
+      [
+       "B",
+       "F",
+       "4"
+      ],
+      [
+       "C",
+       "D",
+       "7"
+      ],
+      [
+       "C",
+       "E",
+       "2"
+      ],
+      [
+       "D",
+       "E",
+       "7"
+      ],
+      [
+       "E",
+       "F",
+       "7"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "A → F → B → E → C",
+    "A → B → F → E → C",
+    "A → F → E → C",
+    "A → B → E → C"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "A → F → E → C: 14 km. Andere: A → B → E → C: 18 km; A → F → B → E → C: 19 km; A → B → F → E → C: 21 km.",
+   "h": "Rechne für jeden Weg die Summe der Kantenzahlen aus."
+  },
+  {
+   "l": "kuerzester",
+   "t": "kuerzester",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Zahlen an den Kanten sind Fahrzeiten in Minuten. Wie lange dauert der schnellste Weg von A nach C?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "7"
+      ],
+      [
+       "A",
+       "F",
+       "6"
+      ],
+      [
+       "A",
+       "G",
+       "2"
+      ],
+      [
+       "B",
+       "C",
+       "4"
+      ],
+      [
+       "B",
+       "G",
+       "7"
+      ],
+      [
+       "C",
+       "D",
+       "4"
+      ],
+      [
+       "C",
+       "G",
+       "4"
+      ],
+      [
+       "D",
+       "G",
+       "6"
+      ],
+      [
+       "E",
+       "F",
+       "1"
+      ],
+      [
+       "F",
+       "G",
+       "3"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "min"
+   },
+   "c": "2 + 4",
+   "w": "Schnellster Weg: A → G → C mit 6 Minuten (zweitbester: A → B → C mit 11).",
+   "h": "Vergleiche mehrere Wege. Notiere an jedem Knoten die kleinste Zeit vom Start."
+  },
+  {
+   "l": "kuerzester",
+   "t": "kuerzester",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Zahlen an den Kanten sind Fahrzeiten in Minuten. Wie lange dauert der schnellste Weg von A nach E?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "4"
+      ],
+      [
+       "A",
+       "F",
+       "5"
+      ],
+      [
+       "A",
+       "G",
+       "9"
+      ],
+      [
+       "B",
+       "C",
+       "3"
+      ],
+      [
+       "B",
+       "G",
+       "1"
+      ],
+      [
+       "C",
+       "D",
+       "2"
+      ],
+      [
+       "C",
+       "G",
+       "6"
+      ],
+      [
+       "D",
+       "E",
+       "7"
+      ],
+      [
+       "E",
+       "F",
+       "1"
+      ],
+      [
+       "F",
+       "G",
+       "5"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "min"
+   },
+   "c": "5 + 1",
+   "w": "Schnellster Weg: A → F → E mit 6 Minuten (zweitbester: A → B → G → F → E mit 11).",
+   "h": "Vergleiche mehrere Wege. Notiere an jedem Knoten die kleinste Zeit vom Start."
+  },
+  {
+   "l": "kuerzester",
+   "t": "kuerzester",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Zahlen an den Kanten sind Fahrzeiten in Minuten. Wie lange dauert der schnellste Weg von A nach C?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "4"
+      ],
+      [
+       "A",
+       "F",
+       "1"
+      ],
+      [
+       "B",
+       "E",
+       "8"
+      ],
+      [
+       "B",
+       "F",
+       "3"
+      ],
+      [
+       "C",
+       "E",
+       "1"
+      ],
+      [
+       "D",
+       "E",
+       "6"
+      ],
+      [
+       "E",
+       "F",
+       "2"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "min"
+   },
+   "c": "1 + 2 + 1",
+   "w": "Schnellster Weg: A → F → E → C mit 4 Minuten (zweitbester: A → B → F → E → C mit 10).",
+   "h": "Vergleiche mehrere Wege. Notiere an jedem Knoten die kleinste Zeit vom Start."
+  },
+  {
+   "l": "kuerzester",
+   "t": "kuerzester",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Weg von A nach C ist am kürzesten (Kantenzahlen = Längen in km)?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "8"
+      ],
+      [
+       "A",
+       "F",
+       "5"
+      ],
+      [
+       "A",
+       "G",
+       "6"
+      ],
+      [
+       "B",
+       "C",
+       "5"
+      ],
+      [
+       "B",
+       "G",
+       "3"
+      ],
+      [
+       "C",
+       "D",
+       "2"
+      ],
+      [
+       "C",
+       "G",
+       "1"
+      ],
+      [
+       "D",
+       "E",
+       "1"
+      ],
+      [
+       "D",
+       "G",
+       "3"
+      ],
+      [
+       "F",
+       "G",
+       "7"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "A → G → C",
+    "A → B → C",
+    "A → G → D → C",
+    "A → B → G → C"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "A → G → C: 7 km. Andere: A → G → D → C: 11 km; A → B → G → C: 12 km; A → B → C: 13 km.",
+   "h": "Rechne für jeden Weg die Summe der Kantenzahlen aus."
+  },
+  {
+   "l": "kuerzester",
+   "t": "kuerzester",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Zahlen an den Kanten sind Fahrzeiten in Minuten. Wie lange dauert der schnellste Weg von A nach F?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "F",
+       "4"
+      ],
+      [
+       "A",
+       "G",
+       "6"
+      ],
+      [
+       "B",
+       "G",
+       "5"
+      ],
+      [
+       "C",
+       "D",
+       "6"
+      ],
+      [
+       "D",
+       "G",
+       "5"
+      ],
+      [
+       "E",
+       "F",
+       "1"
+      ],
+      [
+       "E",
+       "G",
+       "6"
+      ],
+      [
+       "F",
+       "G",
+       "4"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "min"
+   },
+   "c": "4",
+   "w": "Schnellster Weg: A → F mit 4 Minuten (zweitbester: A → G → F mit 10).",
+   "h": "Vergleiche mehrere Wege. Notiere an jedem Knoten die kleinste Zeit vom Start."
+  },
+  {
+   "l": "kuerzester",
+   "t": "kuerzester",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Zahlen an den Kanten sind Fahrzeiten in Minuten. Wie lange dauert der schnellste Weg von A nach G?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "4"
+      ],
+      [
+       "A",
+       "F",
+       "8"
+      ],
+      [
+       "B",
+       "C",
+       "8"
+      ],
+      [
+       "D",
+       "E",
+       "7"
+      ],
+      [
+       "D",
+       "G",
+       "4"
+      ],
+      [
+       "E",
+       "F",
+       "7"
+      ],
+      [
+       "E",
+       "G",
+       "4"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 19,
+    "einheit": "min"
+   },
+   "c": "8 + 7 + 4",
+   "w": "Schnellster Weg: A → F → E → G mit 19 Minuten (zweitbester: A → F → E → D → G mit 26).",
+   "h": "Vergleiche mehrere Wege. Notiere an jedem Knoten die kleinste Zeit vom Start."
+  },
+  {
+   "l": "kuerzester",
+   "t": "kuerzester",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Zahlen an den Kanten sind Fahrzeiten in Minuten. Wie lange dauert der schnellste Weg von A nach C?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "1"
+      ],
+      [
+       "A",
+       "G",
+       "6"
+      ],
+      [
+       "C",
+       "D",
+       "3"
+      ],
+      [
+       "C",
+       "G",
+       "1"
+      ],
+      [
+       "D",
+       "E",
+       "5"
+      ],
+      [
+       "E",
+       "G",
+       "9"
+      ],
+      [
+       "F",
+       "G",
+       "4"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 7,
+    "einheit": "min"
+   },
+   "c": "6 + 1",
+   "w": "Schnellster Weg: A → G → C mit 7 Minuten (zweitbester: A → G → E → D → C mit 23).",
+   "h": "Vergleiche mehrere Wege. Notiere an jedem Knoten die kleinste Zeit vom Start."
+  },
+  {
+   "l": "kuerzester",
+   "t": "kuerzester",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Zahlen an den Kanten sind Fahrzeiten in Minuten. Wie lange dauert der schnellste Weg von A nach E?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "5"
+      ],
+      [
+       "A",
+       "F",
+       "4"
+      ],
+      [
+       "A",
+       "G",
+       "8"
+      ],
+      [
+       "B",
+       "C",
+       "5"
+      ],
+      [
+       "B",
+       "G",
+       "7"
+      ],
+      [
+       "C",
+       "D",
+       "9"
+      ],
+      [
+       "D",
+       "E",
+       "5"
+      ],
+      [
+       "D",
+       "G",
+       "6"
+      ],
+      [
+       "E",
+       "G",
+       "8"
+      ],
+      [
+       "F",
+       "G",
+       "8"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 16,
+    "einheit": "min"
+   },
+   "c": "8 + 8",
+   "w": "Schnellster Weg: A → G → E mit 16 Minuten (zweitbester: A → G → D → E mit 19).",
+   "h": "Vergleiche mehrere Wege. Notiere an jedem Knoten die kleinste Zeit vom Start."
+  },
+  {
+   "l": "kuerzester",
+   "t": "kuerzester",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Zahlen an den Kanten sind Fahrzeiten in Minuten. Wie lange dauert der schnellste Weg von A nach F?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "2"
+      ],
+      [
+       "A",
+       "F",
+       "6"
+      ],
+      [
+       "B",
+       "C",
+       "9"
+      ],
+      [
+       "B",
+       "E",
+       "2"
+      ],
+      [
+       "B",
+       "F",
+       "8"
+      ],
+      [
+       "C",
+       "D",
+       "9"
+      ],
+      [
+       "C",
+       "E",
+       "5"
+      ],
+      [
+       "D",
+       "E",
+       "3"
+      ],
+      [
+       "E",
+       "F",
+       "8"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "min"
+   },
+   "c": "6",
+   "w": "Schnellster Weg: A → F mit 6 Minuten (zweitbester: A → B → F mit 10)."
+  },
+  {
+   "l": "kuerzester",
+   "t": "kuerzester",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Zahlen an den Kanten sind Fahrzeiten in Minuten. Wie lange dauert der schnellste Weg von A nach E?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "1"
+      ],
+      [
+       "A",
+       "F",
+       "8"
+      ],
+      [
+       "B",
+       "C",
+       "1"
+      ],
+      [
+       "B",
+       "G",
+       "4"
+      ],
+      [
+       "C",
+       "D",
+       "2"
+      ],
+      [
+       "C",
+       "G",
+       "2"
+      ],
+      [
+       "D",
+       "E",
+       "7"
+      ],
+      [
+       "E",
+       "G",
+       "9"
+      ],
+      [
+       "F",
+       "G",
+       "6"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 11,
+    "einheit": "min"
+   },
+   "c": "1 + 1 + 2 + 7",
+   "w": "Schnellster Weg: A → B → C → D → E mit 11 Minuten (zweitbester: A → B → C → G → E mit 13)."
+  },
+  {
+   "l": "kuerzester",
+   "t": "kuerzester",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Zahlen an den Kanten sind Fahrzeiten in Minuten. Wie lange dauert der schnellste Weg von A nach D?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "4"
+      ],
+      [
+       "A",
+       "F",
+       "1"
+      ],
+      [
+       "B",
+       "C",
+       "6"
+      ],
+      [
+       "B",
+       "G",
+       "3"
+      ],
+      [
+       "C",
+       "D",
+       "1"
+      ],
+      [
+       "C",
+       "G",
+       "7"
+      ],
+      [
+       "D",
+       "E",
+       "2"
+      ],
+      [
+       "D",
+       "G",
+       "1"
+      ],
+      [
+       "E",
+       "G",
+       "9"
+      ],
+      [
+       "F",
+       "G",
+       "2"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "min"
+   },
+   "c": "1 + 2 + 1",
+   "w": "Schnellster Weg: A → F → G → D mit 4 Minuten (zweitbester: A → B → G → D mit 8)."
+  },
+  {
+   "l": "kuerzester",
+   "t": "kuerzester",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Weg von A nach C ist am kürzesten (Kantenzahlen = Längen in km)?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "7"
+      ],
+      [
+       "A",
+       "F",
+       "9"
+      ],
+      [
+       "B",
+       "C",
+       "5"
+      ],
+      [
+       "B",
+       "E",
+       "8"
+      ],
+      [
+       "B",
+       "F",
+       "2"
+      ],
+      [
+       "C",
+       "D",
+       "1"
+      ],
+      [
+       "C",
+       "E",
+       "7"
+      ],
+      [
+       "D",
+       "E",
+       "1"
+      ],
+      [
+       "E",
+       "F",
+       "9"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "A → B → E → D → C",
+    "A → B → F → E → D → C",
+    "A → F → B → C",
+    "A → B → C"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "A → B → C: 12 km. Andere: A → F → B → C: 16 km; A → B → E → D → C: 17 km; A → B → F → E → D → C: 20 km."
+  },
+  {
+   "l": "kuerzester",
+   "t": "kuerzester",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Zahlen an den Kanten sind Fahrzeiten in Minuten. Wie lange dauert der schnellste Weg von A nach B?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "6"
+      ],
+      [
+       "A",
+       "F",
+       "4"
+      ],
+      [
+       "B",
+       "C",
+       "9"
+      ],
+      [
+       "B",
+       "E",
+       "9"
+      ],
+      [
+       "B",
+       "F",
+       "5"
+      ],
+      [
+       "C",
+       "D",
+       "5"
+      ],
+      [
+       "C",
+       "E",
+       "4"
+      ],
+      [
+       "D",
+       "E",
+       "2"
+      ],
+      [
+       "E",
+       "F",
+       "7"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "min"
+   },
+   "c": "6",
+   "w": "Schnellster Weg: A → B mit 6 Minuten (zweitbester: A → F → B mit 9)."
+  },
+  {
+   "l": "kuerzester",
+   "t": "kuerzester",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Zahlen an den Kanten sind Fahrzeiten in Minuten. Wie lange dauert der schnellste Weg von A nach C?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "8"
+      ],
+      [
+       "A",
+       "F",
+       "6"
+      ],
+      [
+       "B",
+       "C",
+       "4"
+      ],
+      [
+       "B",
+       "E",
+       "9"
+      ],
+      [
+       "B",
+       "F",
+       "6"
+      ],
+      [
+       "C",
+       "D",
+       "3"
+      ],
+      [
+       "C",
+       "E",
+       "1"
+      ],
+      [
+       "D",
+       "E",
+       "4"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "min"
+   },
+   "c": "8 + 4",
+   "w": "Schnellster Weg: A → B → C mit 12 Minuten (zweitbester: A → F → B → C mit 16)."
+  },
+  {
+   "l": "kuerzester",
+   "t": "kuerzester",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Zahlen an den Kanten sind Fahrzeiten in Minuten. Wie lange dauert der schnellste Weg von A nach F?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "F",
+       "3"
+      ],
+      [
+       "A",
+       "G",
+       "4"
+      ],
+      [
+       "B",
+       "C",
+       "5"
+      ],
+      [
+       "B",
+       "G",
+       "7"
+      ],
+      [
+       "D",
+       "E",
+       "1"
+      ],
+      [
+       "E",
+       "F",
+       "5"
+      ],
+      [
+       "E",
+       "G",
+       "9"
+      ],
+      [
+       "F",
+       "G",
+       "5"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "min"
+   },
+   "c": "3",
+   "w": "Schnellster Weg: A → F mit 3 Minuten (zweitbester: A → G → F mit 9)."
+  },
+  {
+   "l": "kuerzester",
+   "t": "kuerzester",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Zahlen an den Kanten sind Fahrzeiten in Minuten. Wie lange dauert der schnellste Weg von A nach F?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "7"
+      ],
+      [
+       "B",
+       "C",
+       "2"
+      ],
+      [
+       "B",
+       "E",
+       "5"
+      ],
+      [
+       "B",
+       "F",
+       "5"
+      ],
+      [
+       "C",
+       "D",
+       "3"
+      ],
+      [
+       "C",
+       "E",
+       "4"
+      ],
+      [
+       "D",
+       "E",
+       "4"
+      ],
+      [
+       "E",
+       "F",
+       "6"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "min"
+   },
+   "c": "7 + 5",
+   "w": "Schnellster Weg: A → B → F mit 12 Minuten (zweitbester: A → B → E → F mit 18)."
+  },
+  {
+   "l": "kuerzester",
+   "t": "kuerzester",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Weg von A nach G ist am kürzesten (Kantenzahlen = Längen in km)?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "6"
+      ],
+      [
+       "A",
+       "F",
+       "2"
+      ],
+      [
+       "A",
+       "G",
+       "3"
+      ],
+      [
+       "B",
+       "C",
+       "8"
+      ],
+      [
+       "B",
+       "G",
+       "9"
+      ],
+      [
+       "C",
+       "D",
+       "3"
+      ],
+      [
+       "D",
+       "E",
+       "8"
+      ],
+      [
+       "D",
+       "G",
+       "6"
+      ],
+      [
+       "E",
+       "F",
+       "4"
+      ],
+      [
+       "E",
+       "G",
+       "8"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "A → F → E → G",
+    "A → F → E → D → G",
+    "A → G",
+    "A → B → G"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "A → G: 3 km. Andere: A → F → E → G: 14 km; A → B → G: 15 km; A → F → E → D → G: 20 km."
+  },
+  {
+   "l": "kuerzester",
+   "t": "kuerzester",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Zahlen an den Kanten sind Fahrzeiten in Minuten. Wie lange dauert der schnellste Weg von A nach F?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "9"
+      ],
+      [
+       "B",
+       "C",
+       "9"
+      ],
+      [
+       "B",
+       "E",
+       "2"
+      ],
+      [
+       "C",
+       "D",
+       "1"
+      ],
+      [
+       "C",
+       "E",
+       "6"
+      ],
+      [
+       "D",
+       "E",
+       "9"
+      ],
+      [
+       "E",
+       "F",
+       "8"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 19,
+    "einheit": "min"
+   },
+   "c": "9 + 2 + 8",
+   "w": "Schnellster Weg: A → B → E → F mit 19 Minuten (zweitbester: A → B → C → E → F mit 32)."
+  },
+  {
+   "l": "spannbaum",
+   "t": "spannbaum",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Spannbaum verbindet 11 Knoten. Wie viele Kanten hat er?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "11 - 1",
+   "w": "Ein Baum mit n Knoten hat n − 1 Kanten: 11 − 1 = 10.",
+   "h": "Jede neue Kante verbindet genau einen neuen Knoten."
+  },
+  {
+   "l": "spannbaum",
+   "t": "spannbaum",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Spannbaum verbindet 17 Knoten. Wie viele Kanten hat er?"
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "17 - 1",
+   "w": "Ein Baum mit n Knoten hat n − 1 Kanten: 17 − 1 = 16.",
+   "h": "Jede neue Kante verbindet genau einen neuen Knoten."
+  },
+  {
+   "l": "spannbaum",
+   "t": "spannbaum",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Spannbaum verbindet 27 Knoten. Wie viele Kanten hat er?"
+   },
+   "o": {
+    "wert": 26
+   },
+   "c": "27 - 1",
+   "w": "Ein Baum mit n Knoten hat n − 1 Kanten: 27 − 1 = 26.",
+   "h": "Jede neue Kante verbindet genau einen neuen Knoten."
+  },
+  {
+   "l": "spannbaum",
+   "t": "spannbaum",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Zahlen sind Kosten (in Tausend €) für Leitungen zwischen Häusern. Alle Häuser sollen möglichst günstig verbunden werden. Wie hoch sind die Kosten des minimalen Spannbaums?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "G",
+       "12"
+      ],
+      [
+       "B",
+       "C",
+       "2"
+      ],
+      [
+       "B",
+       "G",
+       "9"
+      ],
+      [
+       "C",
+       "D",
+       "10"
+      ],
+      [
+       "C",
+       "G",
+       "13"
+      ],
+      [
+       "D",
+       "G",
+       "5"
+      ],
+      [
+       "E",
+       "F",
+       "14"
+      ],
+      [
+       "F",
+       "G",
+       "8"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 50
+   },
+   "c": "2 + 5 + 8 + 9 + 12 + 14",
+   "w": "Kruskal: BC (2), DG (5), FG (8), BG (9), AG (12), EF (14). Summe: 50.",
+   "h": "Kanten nach Größe sortieren; jede nehmen, die keinen Kreis schließt, bis 6 Kanten da sind."
+  },
+  {
+   "l": "spannbaum",
+   "t": "spannbaum",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Spannbaum verbindet 12 Knoten. Wie viele Kanten hat er?"
+   },
+   "o": {
+    "wert": 11
+   },
+   "c": "12 - 1",
+   "w": "Ein Baum mit n Knoten hat n − 1 Kanten: 12 − 1 = 11.",
+   "h": "Jede neue Kante verbindet genau einen neuen Knoten."
+  },
+  {
+   "l": "spannbaum",
+   "t": "spannbaum",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Zahlen sind Kosten (in Tausend €) für Leitungen zwischen Häusern. Alle Häuser sollen möglichst günstig verbunden werden. Wie hoch sind die Kosten des minimalen Spannbaums?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "3"
+      ],
+      [
+       "A",
+       "F",
+       "6"
+      ],
+      [
+       "A",
+       "G",
+       "7"
+      ],
+      [
+       "B",
+       "C",
+       "1"
+      ],
+      [
+       "B",
+       "G",
+       "8"
+      ],
+      [
+       "C",
+       "D",
+       "13"
+      ],
+      [
+       "C",
+       "G",
+       "9"
+      ],
+      [
+       "D",
+       "G",
+       "10"
+      ],
+      [
+       "E",
+       "G",
+       "2"
+      ],
+      [
+       "F",
+       "G",
+       "14"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 29
+   },
+   "c": "1 + 2 + 3 + 6 + 7 + 10",
+   "w": "Kruskal: BC (1), EG (2), AB (3), AF (6), AG (7), DG (10). Summe: 29.",
+   "h": "Kanten nach Größe sortieren; jede nehmen, die keinen Kreis schließt, bis 6 Kanten da sind."
+  },
+  {
+   "l": "spannbaum",
+   "t": "spannbaum",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Zahlen sind Kosten (in Tausend €) für Leitungen zwischen Häusern. Alle Häuser sollen möglichst günstig verbunden werden. Wie hoch sind die Kosten des minimalen Spannbaums?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "11"
+      ],
+      [
+       "A",
+       "F",
+       "4"
+      ],
+      [
+       "B",
+       "C",
+       "6"
+      ],
+      [
+       "B",
+       "F",
+       "14"
+      ],
+      [
+       "C",
+       "D",
+       "2"
+      ],
+      [
+       "C",
+       "E",
+       "9"
+      ],
+      [
+       "D",
+       "E",
+       "8"
+      ],
+      [
+       "E",
+       "F",
+       "5"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 25
+   },
+   "c": "2 + 4 + 5 + 6 + 8",
+   "w": "Kruskal: CD (2), AF (4), EF (5), BC (6), DE (8). Summe: 25.",
+   "h": "Kanten nach Größe sortieren; jede nehmen, die keinen Kreis schließt, bis 5 Kanten da sind."
+  },
+  {
+   "l": "spannbaum",
+   "t": "spannbaum",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Zahlen sind Kosten (in Tausend €) für Leitungen zwischen Häusern. Alle Häuser sollen möglichst günstig verbunden werden. Wie hoch sind die Kosten des minimalen Spannbaums?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "4"
+      ],
+      [
+       "A",
+       "F",
+       "2"
+      ],
+      [
+       "A",
+       "G",
+       "1"
+      ],
+      [
+       "B",
+       "G",
+       "3"
+      ],
+      [
+       "C",
+       "G",
+       "13"
+      ],
+      [
+       "D",
+       "E",
+       "12"
+      ],
+      [
+       "D",
+       "G",
+       "10"
+      ],
+      [
+       "E",
+       "G",
+       "8"
+      ],
+      [
+       "F",
+       "G",
+       "5"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 37
+   },
+   "c": "1 + 2 + 3 + 8 + 10 + 13",
+   "w": "Kruskal: AG (1), AF (2), BG (3), EG (8), DG (10), CG (13). Summe: 37.",
+   "h": "Kanten nach Größe sortieren; jede nehmen, die keinen Kreis schließt, bis 6 Kanten da sind."
+  },
+  {
+   "l": "spannbaum",
+   "t": "spannbaum",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Zahlen sind Kosten (in Tausend €) für Leitungen zwischen Häusern. Alle Häuser sollen möglichst günstig verbunden werden. Wie hoch sind die Kosten des minimalen Spannbaums?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "3"
+      ],
+      [
+       "A",
+       "F",
+       "4"
+      ],
+      [
+       "B",
+       "G",
+       "12"
+      ],
+      [
+       "C",
+       "D",
+       "11"
+      ],
+      [
+       "C",
+       "G",
+       "7"
+      ],
+      [
+       "D",
+       "E",
+       "8"
+      ],
+      [
+       "D",
+       "G",
+       "14"
+      ],
+      [
+       "E",
+       "F",
+       "2"
+      ],
+      [
+       "E",
+       "G",
+       "10"
+      ],
+      [
+       "F",
+       "G",
+       "1"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 25
+   },
+   "c": "1 + 2 + 3 + 4 + 7 + 8",
+   "w": "Kruskal: FG (1), EF (2), AB (3), AF (4), CG (7), DE (8). Summe: 25.",
+   "h": "Kanten nach Größe sortieren; jede nehmen, die keinen Kreis schließt, bis 6 Kanten da sind."
+  },
+  {
+   "l": "spannbaum",
+   "t": "spannbaum",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Mit welcher Kante beginnt das Kruskal-Verfahren?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "G",
+       "11"
+      ],
+      [
+       "B",
+       "C",
+       "6"
+      ],
+      [
+       "B",
+       "G",
+       "2"
+      ],
+      [
+       "C",
+       "D",
+       "8"
+      ],
+      [
+       "C",
+       "G",
+       "7"
+      ],
+      [
+       "D",
+       "E",
+       "3"
+      ],
+      [
+       "D",
+       "G",
+       "1"
+      ],
+      [
+       "E",
+       "F",
+       "10"
+      ],
+      [
+       "E",
+       "G",
+       "12"
+      ],
+      [
+       "F",
+       "G",
+       "13"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "BC",
+    "EF",
+    "EG",
+    "DG"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Kruskal beginnt mit der leichtesten Kante: DG mit 1.",
+   "h": "Welche Kante hat das kleinste Gewicht?"
+  },
+  {
+   "l": "spannbaum",
+   "t": "spannbaum",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Mit welcher Kante beginnt das Kruskal-Verfahren?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "3"
+      ],
+      [
+       "A",
+       "F",
+       "2"
+      ],
+      [
+       "B",
+       "C",
+       "9"
+      ],
+      [
+       "B",
+       "G",
+       "8"
+      ],
+      [
+       "C",
+       "D",
+       "5"
+      ],
+      [
+       "C",
+       "G",
+       "4"
+      ],
+      [
+       "D",
+       "E",
+       "6"
+      ],
+      [
+       "D",
+       "G",
+       "13"
+      ],
+      [
+       "E",
+       "F",
+       "7"
+      ],
+      [
+       "F",
+       "G",
+       "12"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "AF",
+    "EF",
+    "DE",
+    "BG"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Kruskal beginnt mit der leichtesten Kante: AF mit 2.",
+   "h": "Welche Kante hat das kleinste Gewicht?"
+  },
+  {
+   "l": "spannbaum",
+   "t": "spannbaum",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Mit welcher Kante beginnt das Kruskal-Verfahren?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "11"
+      ],
+      [
+       "A",
+       "F",
+       "5"
+      ],
+      [
+       "A",
+       "G",
+       "1"
+      ],
+      [
+       "C",
+       "D",
+       "8"
+      ],
+      [
+       "D",
+       "G",
+       "9"
+      ],
+      [
+       "E",
+       "F",
+       "2"
+      ],
+      [
+       "E",
+       "G",
+       "6"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "AG",
+    "CD",
+    "AB",
+    "DG"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Kruskal beginnt mit der leichtesten Kante: AG mit 1.",
+   "h": "Welche Kante hat das kleinste Gewicht?"
+  },
+  {
+   "l": "spannbaum",
+   "t": "spannbaum",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Zahlen sind Kosten (in Tausend €) für Leitungen zwischen Häusern. Alle Häuser sollen möglichst günstig verbunden werden. Wie hoch sind die Kosten des minimalen Spannbaums?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "12"
+      ],
+      [
+       "A",
+       "F",
+       "6"
+      ],
+      [
+       "A",
+       "G",
+       "1"
+      ],
+      [
+       "B",
+       "C",
+       "2"
+      ],
+      [
+       "B",
+       "G",
+       "14"
+      ],
+      [
+       "C",
+       "D",
+       "13"
+      ],
+      [
+       "D",
+       "E",
+       "10"
+      ],
+      [
+       "E",
+       "F",
+       "3"
+      ],
+      [
+       "E",
+       "G",
+       "9"
+      ],
+      [
+       "F",
+       "G",
+       "4"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 32
+   },
+   "c": "1 + 2 + 3 + 4 + 10 + 12",
+   "w": "Kruskal: AG (1), BC (2), EF (3), FG (4), DE (10), AB (12). Summe: 32.",
+   "h": "Kanten nach Größe sortieren; jede nehmen, die keinen Kreis schließt, bis 6 Kanten da sind."
+  },
+  {
+   "l": "spannbaum",
+   "t": "spannbaum",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Statt alle Leitungen zu bauen, baut man nur den minimalen Spannbaum (Zahlen = Kosten in Tausend €). Wie viel spart man?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "8"
+      ],
+      [
+       "A",
+       "F",
+       "12"
+      ],
+      [
+       "B",
+       "C",
+       "6"
+      ],
+      [
+       "B",
+       "E",
+       "5"
+      ],
+      [
+       "B",
+       "F",
+       "10"
+      ],
+      [
+       "C",
+       "D",
+       "3"
+      ],
+      [
+       "C",
+       "E",
+       "11"
+      ],
+      [
+       "D",
+       "E",
+       "9"
+      ],
+      [
+       "E",
+       "F",
+       "7"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 42
+   },
+   "c": "71 - 29",
+   "w": "Alle Kanten: 71. Spannbaum: 29. Ersparnis: 71 − 29 = 42.",
+   "h": "Bestimme erst den minimalen Spannbaum."
+  },
+  {
+   "l": "spannbaum",
+   "t": "spannbaum",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Kante überspringt Kruskal als erste, weil sie einen Kreis schließen würde?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "5"
+      ],
+      [
+       "A",
+       "F",
+       "2"
+      ],
+      [
+       "B",
+       "C",
+       "14"
+      ],
+      [
+       "B",
+       "E",
+       "13"
+      ],
+      [
+       "B",
+       "F",
+       "11"
+      ],
+      [
+       "C",
+       "D",
+       "4"
+      ],
+      [
+       "C",
+       "E",
+       "8"
+      ],
+      [
+       "D",
+       "E",
+       "9"
+      ],
+      [
+       "E",
+       "F",
+       "6"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "DE",
+    "AF",
+    "EF",
+    "CE"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Reihenfolge: AF (2), CD (4), AB (5), EF (6), CE (8), DE (9), BF (11), BE (13), BC (14). DE (9) würde einen Kreis schließen.",
+   "h": "Gehe die Kanten nach Größe durch und prüfe jedes Mal: Sind die beiden Enden schon verbunden?"
+  },
+  {
+   "l": "spannbaum",
+   "t": "spannbaum",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Kante überspringt Kruskal als erste, weil sie einen Kreis schließen würde?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "F",
+       "7"
+      ],
+      [
+       "B",
+       "C",
+       "10"
+      ],
+      [
+       "B",
+       "G",
+       "14"
+      ],
+      [
+       "C",
+       "G",
+       "3"
+      ],
+      [
+       "D",
+       "E",
+       "11"
+      ],
+      [
+       "D",
+       "G",
+       "9"
+      ],
+      [
+       "E",
+       "F",
+       "12"
+      ],
+      [
+       "E",
+       "G",
+       "1"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "DE",
+    "EF",
+    "AF",
+    "DG"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Reihenfolge: EG (1), CG (3), AF (7), DG (9), BC (10), DE (11), EF (12), BG (14). DE (11) würde einen Kreis schließen.",
+   "h": "Gehe die Kanten nach Größe durch und prüfe jedes Mal: Sind die beiden Enden schon verbunden?"
+  },
+  {
+   "l": "spannbaum",
+   "t": "spannbaum",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Kante überspringt Kruskal als erste, weil sie einen Kreis schließen würde?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "1"
+      ],
+      [
+       "A",
+       "F",
+       "2"
+      ],
+      [
+       "B",
+       "C",
+       "12"
+      ],
+      [
+       "B",
+       "E",
+       "10"
+      ],
+      [
+       "B",
+       "F",
+       "11"
+      ],
+      [
+       "C",
+       "E",
+       "6"
+      ],
+      [
+       "D",
+       "E",
+       "4"
+      ],
+      [
+       "E",
+       "F",
+       "9"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "EF",
+    "AB",
+    "BE",
+    "AF"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Reihenfolge: AB (1), AF (2), DE (4), CE (6), EF (9), BE (10), BF (11), BC (12). BE (10) würde einen Kreis schließen.",
+   "h": "Gehe die Kanten nach Größe durch und prüfe jedes Mal: Sind die beiden Enden schon verbunden?"
+  },
+  {
+   "l": "spannbaum",
+   "t": "spannbaum",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Kante überspringt Kruskal als erste, weil sie einen Kreis schließen würde?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "14"
+      ],
+      [
+       "A",
+       "F",
+       "10"
+      ],
+      [
+       "B",
+       "C",
+       "2"
+      ],
+      [
+       "B",
+       "E",
+       "5"
+      ],
+      [
+       "B",
+       "F",
+       "4"
+      ],
+      [
+       "C",
+       "D",
+       "12"
+      ],
+      [
+       "C",
+       "E",
+       "8"
+      ],
+      [
+       "D",
+       "E",
+       "7"
+      ],
+      [
+       "E",
+       "F",
+       "6"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "BF",
+    "BC",
+    "DE",
+    "EF"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Reihenfolge: BC (2), BF (4), BE (5), EF (6), DE (7), CE (8), AF (10), CD (12), AB (14). EF (6) würde einen Kreis schließen.",
+   "h": "Gehe die Kanten nach Größe durch und prüfe jedes Mal: Sind die beiden Enden schon verbunden?"
+  },
+  {
+   "l": "spannbaum",
+   "t": "spannbaum",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Zahlen sind Kosten (in Tausend €) für Leitungen zwischen Häusern. Alle Häuser sollen möglichst günstig verbunden werden. Wie hoch sind die Kosten des minimalen Spannbaums?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "3"
+      ],
+      [
+       "B",
+       "C",
+       "14"
+      ],
+      [
+       "C",
+       "D",
+       "1"
+      ],
+      [
+       "C",
+       "G",
+       "5"
+      ],
+      [
+       "D",
+       "E",
+       "9"
+      ],
+      [
+       "D",
+       "G",
+       "13"
+      ],
+      [
+       "E",
+       "F",
+       "11"
+      ],
+      [
+       "E",
+       "G",
+       "8"
+      ],
+      [
+       "F",
+       "G",
+       "2"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 33
+   },
+   "c": "1 + 2 + 3 + 5 + 8 + 14",
+   "w": "Kruskal: CD (1), FG (2), AB (3), CG (5), EG (8), BC (14). Summe: 33."
+  },
+  {
+   "l": "spannbaum",
+   "t": "spannbaum",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Zahlen sind Kosten (in Tausend €) für Leitungen zwischen Häusern. Alle Häuser sollen möglichst günstig verbunden werden. Wie hoch sind die Kosten des minimalen Spannbaums?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "2"
+      ],
+      [
+       "A",
+       "G",
+       "5"
+      ],
+      [
+       "B",
+       "C",
+       "9"
+      ],
+      [
+       "C",
+       "D",
+       "8"
+      ],
+      [
+       "D",
+       "E",
+       "4"
+      ],
+      [
+       "E",
+       "G",
+       "14"
+      ],
+      [
+       "F",
+       "G",
+       "7"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 35
+   },
+   "c": "2 + 4 + 5 + 7 + 8 + 9",
+   "w": "Kruskal: AB (2), DE (4), AG (5), FG (7), CD (8), BC (9). Summe: 35."
+  },
+  {
+   "l": "spannbaum",
+   "t": "spannbaum",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Zahlen sind Kosten (in Tausend €) für Leitungen zwischen Häusern. Alle Häuser sollen möglichst günstig verbunden werden. Wie hoch sind die Kosten des minimalen Spannbaums?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "13"
+      ],
+      [
+       "A",
+       "F",
+       "9"
+      ],
+      [
+       "B",
+       "C",
+       "7"
+      ],
+      [
+       "B",
+       "E",
+       "6"
+      ],
+      [
+       "B",
+       "F",
+       "11"
+      ],
+      [
+       "C",
+       "D",
+       "14"
+      ],
+      [
+       "C",
+       "E",
+       "10"
+      ],
+      [
+       "D",
+       "E",
+       "3"
+      ],
+      [
+       "E",
+       "F",
+       "8"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 33
+   },
+   "c": "3 + 6 + 7 + 8 + 9",
+   "w": "Kruskal: DE (3), BE (6), BC (7), EF (8), AF (9). Summe: 33."
+  },
+  {
+   "l": "spannbaum",
+   "t": "spannbaum",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Zahlen sind Kosten (in Tausend €) für Leitungen zwischen Häusern. Alle Häuser sollen möglichst günstig verbunden werden. Wie hoch sind die Kosten des minimalen Spannbaums?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "14"
+      ],
+      [
+       "A",
+       "F",
+       "8"
+      ],
+      [
+       "B",
+       "C",
+       "12"
+      ],
+      [
+       "C",
+       "D",
+       "4"
+      ],
+      [
+       "C",
+       "G",
+       "2"
+      ],
+      [
+       "E",
+       "F",
+       "6"
+      ],
+      [
+       "E",
+       "G",
+       "11"
+      ],
+      [
+       "F",
+       "G",
+       "1"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 33
+   },
+   "c": "1 + 2 + 4 + 6 + 8 + 12",
+   "w": "Kruskal: FG (1), CG (2), CD (4), EF (6), AF (8), BC (12). Summe: 33."
+  },
+  {
+   "l": "spannbaum",
+   "t": "spannbaum",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Zahlen sind Kosten (in Tausend €) für Leitungen zwischen Häusern. Alle Häuser sollen möglichst günstig verbunden werden. Wie hoch sind die Kosten des minimalen Spannbaums?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "F",
+       "13"
+      ],
+      [
+       "A",
+       "G",
+       "2"
+      ],
+      [
+       "B",
+       "C",
+       "9"
+      ],
+      [
+       "B",
+       "G",
+       "7"
+      ],
+      [
+       "C",
+       "D",
+       "4"
+      ],
+      [
+       "E",
+       "F",
+       "5"
+      ],
+      [
+       "F",
+       "G",
+       "10"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 37
+   },
+   "c": "2 + 4 + 5 + 7 + 9 + 10",
+   "w": "Kruskal: AG (2), CD (4), EF (5), BG (7), BC (9), FG (10). Summe: 37."
+  },
+  {
+   "l": "spannbaum",
+   "t": "spannbaum",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Mit welcher Kante beginnt das Kruskal-Verfahren?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "G",
+       "9"
+      ],
+      [
+       "B",
+       "C",
+       "14"
+      ],
+      [
+       "B",
+       "G",
+       "7"
+      ],
+      [
+       "C",
+       "D",
+       "2"
+      ],
+      [
+       "C",
+       "G",
+       "3"
+      ],
+      [
+       "D",
+       "E",
+       "8"
+      ],
+      [
+       "D",
+       "G",
+       "5"
+      ],
+      [
+       "E",
+       "F",
+       "6"
+      ],
+      [
+       "E",
+       "G",
+       "13"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "BC",
+    "EG",
+    "DG",
+    "CD"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Kruskal beginnt mit der leichtesten Kante: CD mit 2."
+  },
+  {
+   "l": "spannbaum",
+   "t": "spannbaum",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Zahlen sind Kosten (in Tausend €) für Leitungen zwischen Häusern. Alle Häuser sollen möglichst günstig verbunden werden. Wie hoch sind die Kosten des minimalen Spannbaums?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "11"
+      ],
+      [
+       "A",
+       "G",
+       "4"
+      ],
+      [
+       "C",
+       "D",
+       "8"
+      ],
+      [
+       "C",
+       "G",
+       "3"
+      ],
+      [
+       "D",
+       "E",
+       "6"
+      ],
+      [
+       "D",
+       "G",
+       "2"
+      ],
+      [
+       "E",
+       "F",
+       "13"
+      ],
+      [
+       "F",
+       "G",
+       "9"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 35
+   },
+   "c": "2 + 3 + 4 + 6 + 9 + 11",
+   "w": "Kruskal: DG (2), CG (3), AG (4), DE (6), FG (9), AB (11). Summe: 35."
+  },
+  {
+   "l": "spannbaum",
+   "t": "spannbaum",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Mit welcher Kante beginnt das Kruskal-Verfahren?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "2"
+      ],
+      [
+       "A",
+       "F",
+       "1"
+      ],
+      [
+       "B",
+       "C",
+       "7"
+      ],
+      [
+       "B",
+       "E",
+       "14"
+      ],
+      [
+       "B",
+       "F",
+       "5"
+      ],
+      [
+       "C",
+       "D",
+       "6"
+      ],
+      [
+       "C",
+       "E",
+       "4"
+      ],
+      [
+       "D",
+       "E",
+       "8"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "BE",
+    "AF",
+    "DE",
+    "BC"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Kruskal beginnt mit der leichtesten Kante: AF mit 1."
+  },
+  {
+   "l": "spannbaum",
+   "t": "spannbaum",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Zahlen sind Kosten (in Tausend €) für Leitungen zwischen Häusern. Alle Häuser sollen möglichst günstig verbunden werden. Wie hoch sind die Kosten des minimalen Spannbaums?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ],
+      "G": [
+       3.5,
+       -1.4
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "7"
+      ],
+      [
+       "A",
+       "G",
+       "3"
+      ],
+      [
+       "B",
+       "C",
+       "4"
+      ],
+      [
+       "B",
+       "G",
+       "14"
+      ],
+      [
+       "C",
+       "D",
+       "13"
+      ],
+      [
+       "C",
+       "G",
+       "10"
+      ],
+      [
+       "D",
+       "E",
+       "1"
+      ],
+      [
+       "E",
+       "G",
+       "9"
+      ],
+      [
+       "F",
+       "G",
+       "6"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 30
+   },
+   "c": "1 + 3 + 4 + 6 + 7 + 9",
+   "w": "Kruskal: DE (1), AG (3), BC (4), FG (6), AB (7), EG (9). Summe: 30."
+  },
+  {
+   "l": "spannbaum",
+   "t": "spannbaum",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Zahlen sind Kosten (in Tausend €) für Leitungen zwischen Häusern. Alle Häuser sollen möglichst günstig verbunden werden. Wie hoch sind die Kosten des minimalen Spannbaums?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       1.2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       6,
+       -3.5
+      ],
+      "E": [
+       3,
+       -4.7
+      ],
+      "F": [
+       0,
+       -3.5
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B",
+       "11"
+      ],
+      [
+       "A",
+       "F",
+       "3"
+      ],
+      [
+       "B",
+       "C",
+       "1"
+      ],
+      [
+       "B",
+       "E",
+       "13"
+      ],
+      [
+       "B",
+       "F",
+       "8"
+      ],
+      [
+       "C",
+       "D",
+       "6"
+      ],
+      [
+       "E",
+       "F",
+       "14"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 31
+   },
+   "c": "1 + 3 + 6 + 8 + 13",
+   "w": "Kruskal: BC (1), AF (3), CD (6), BF (8), BE (13). Summe: 31."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Kann es einen Graphen (ohne Mehrfachkanten und Schleifen) mit den Graden 2, 2, 2, 2, 2 geben?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Summe 10 ist gerade, und ein solcher Graph lässt sich tatsächlich zeichnen.",
+   "h": "Prüfe zuerst die Summe aller Grade."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Kann es einen Graphen (ohne Mehrfachkanten und Schleifen) mit den Graden 4, 2, 2, 1, 1 geben?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Summe 10 ist gerade, und ein solcher Graph lässt sich tatsächlich zeichnen.",
+   "h": "Prüfe zuerst die Summe aller Grade."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Kann es einen Graphen (ohne Mehrfachkanten und Schleifen) mit den Graden 4, 3, 2, 1, 1 geben?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Summe 11 ist ungerade, müsste aber 2 · Kanten sein: unmöglich.",
+   "h": "Prüfe zuerst die Summe aller Grade."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Baum hat 8 Kanten. Wie viele Knoten hat er?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "8 + 1",
+   "w": "Knoten = Kanten + 1 = 9.",
+   "h": "Bei einem Baum gilt: Kanten = Knoten − 1."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Kann es einen Graphen (ohne Mehrfachkanten und Schleifen) mit den Graden 3, 2, 1, 1, 1, 1 geben?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Summe 9 ist ungerade, müsste aber 2 · Kanten sein: unmöglich.",
+   "h": "Prüfe zuerst die Summe aller Grade."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Baum hat 6 Kanten. Wie viele Knoten hat er?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "6 + 1",
+   "w": "Knoten = Kanten + 1 = 7.",
+   "h": "Bei einem Baum gilt: Kanten = Knoten − 1."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Straßennetz verbindet 6 Orte zusammenhängend mit 6 Straßen. Ist es ein Baum?"
+   },
+   "a": [
+    "Ja – 6 Straßen für 6 Orte ist genau richtig.",
+    "Das hängt von den Längen der Straßen ab.",
+    "Ja – es ist zusammenhängend.",
+    "Nein – es hat 6 Kanten, ein Baum mit 6 Knoten hat aber nur 5."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Ein zusammenhängender Graph mit n Knoten und mehr als n − 1 Kanten enthält einen Kreis.",
+   "h": "Wie viele Kanten hat ein Baum mit n Knoten?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Straßennetz verbindet 5 Orte zusammenhängend mit 5 Straßen. Ist es ein Baum?"
+   },
+   "a": [
+    "Nein – es hat 5 Kanten, ein Baum mit 5 Knoten hat aber nur 4.",
+    "Ja – 5 Straßen für 5 Orte ist genau richtig.",
+    "Ja – es ist zusammenhängend.",
+    "Das hängt von den Längen der Straßen ab."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ein zusammenhängender Graph mit n Knoten und mehr als n − 1 Kanten enthält einen Kreis.",
+   "h": "Wie viele Kanten hat ein Baum mit n Knoten?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Kann ein Graph genau 5 Knoten mit ungeradem Grad haben?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Summe aller Grade ist gerade. Mit 5 ungeraden Summanden (und sonst geraden) wäre sie ungerade – unmöglich.",
+   "h": "Was weißt du über die Summe aller Grade?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Straßennetz verbindet 7 Orte zusammenhängend mit 7 Straßen. Ist es ein Baum?"
+   },
+   "a": [
+    "Das hängt von den Längen der Straßen ab.",
+    "Ja – 7 Straßen für 7 Orte ist genau richtig.",
+    "Nein – es hat 7 Kanten, ein Baum mit 7 Knoten hat aber nur 6.",
+    "Ja – es ist zusammenhängend."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Ein zusammenhängender Graph mit n Knoten und mehr als n − 1 Kanten enthält einen Kreis.",
+   "h": "Wie viele Kanten hat ein Baum mit n Knoten?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Straßennetz verbindet 8 Orte zusammenhängend mit 8 Straßen. Ist es ein Baum?"
+   },
+   "a": [
+    "Ja – es ist zusammenhängend.",
+    "Ja – 8 Straßen für 8 Orte ist genau richtig.",
+    "Das hängt von den Längen der Straßen ab.",
+    "Nein – es hat 8 Kanten, ein Baum mit 8 Knoten hat aber nur 7."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Ein zusammenhängender Graph mit n Knoten und mehr als n − 1 Kanten enthält einen Kreis.",
+   "h": "Wie viele Kanten hat ein Baum mit n Knoten?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Kann ein Graph genau 3 Knoten mit ungeradem Grad haben?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Summe aller Grade ist gerade. Mit 3 ungeraden Summanden (und sonst geraden) wäre sie ungerade – unmöglich.",
+   "h": "Was weißt du über die Summe aller Grade?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Leo sagt: „Mein Graph ist zusammenhängend und hat genau zwei Knoten mit ungeradem Grad, also gibt es einen Eulerkreis.“ Stimmt das?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: Man braucht dafür genau vier ungerade Knoten.",
+    "Falsch: Mit genau zwei ungeraden Knoten gibt es einen Eulerweg, aber keinen Eulerkreis.",
+    "Falsch: Es gibt dann gar keinen Eulerweg."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Eulerkreis: alle Grade gerade. Zwei ungerade Knoten: nur ein Eulerweg von einem zum anderen.",
+   "h": "Wie war die Regel für Eulerkreis und Eulerweg?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Kann ein Graph genau 1 Knoten mit ungeradem Grad haben?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Summe aller Grade ist gerade. Mit 1 ungeraden Summanden (und sonst geraden) wäre sie ungerade – unmöglich.",
+   "h": "Was weißt du über die Summe aller Grade?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Kann es einen Graphen (ohne Mehrfachkanten und Schleifen) mit den Graden 3, 2, 1, 1 geben?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Summe 7 ist ungerade, müsste aber 2 · Kanten sein: unmöglich.",
+   "h": "Prüfe zuerst die Summe aller Grade."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Kann es einen Graphen (ohne Mehrfachkanten und Schleifen) mit den Graden 4, 4, 3, 3, 2 geben?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Summe 16 ist gerade, und ein solcher Graph lässt sich tatsächlich zeichnen.",
+   "h": "Prüfe zuerst die Summe aller Grade."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Straßennetz verbindet 10 Orte zusammenhängend mit 10 Straßen. Ist es ein Baum?"
+   },
+   "a": [
+    "Ja – es ist zusammenhängend.",
+    "Ja – 10 Straßen für 10 Orte ist genau richtig.",
+    "Nein – es hat 10 Kanten, ein Baum mit 10 Knoten hat aber nur 9.",
+    "Das hängt von den Längen der Straßen ab."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Ein zusammenhängender Graph mit n Knoten und mehr als n − 1 Kanten enthält einen Kreis.",
+   "h": "Wie viele Kanten hat ein Baum mit n Knoten?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Kann es einen Graphen (ohne Mehrfachkanten und Schleifen) mit den Graden 4, 4, 3, 3, 2, 1 geben?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Summe 17 ist ungerade, müsste aber 2 · Kanten sein: unmöglich.",
+   "h": "Prüfe zuerst die Summe aller Grade."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Kann es einen Graphen (ohne Mehrfachkanten und Schleifen) mit den Graden 4, 3, 2, 2, 1, 1 geben?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Summe 13 ist ungerade, müsste aber 2 · Kanten sein: unmöglich."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Kann es einen Graphen (ohne Mehrfachkanten und Schleifen) mit den Graden 3, 3, 3, 2 geben?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Summe 11 ist ungerade, müsste aber 2 · Kanten sein: unmöglich."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Kann es einen Graphen (ohne Mehrfachkanten und Schleifen) mit den Graden 2, 2, 2, 1 geben?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Summe 7 ist ungerade, müsste aber 2 · Kanten sein: unmöglich."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Kann es einen Graphen (ohne Mehrfachkanten und Schleifen) mit den Graden 2, 2, 2, 1, 1 geben?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Summe 8 ist gerade, und ein solcher Graph lässt sich tatsächlich zeichnen."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Kann es einen Graphen (ohne Mehrfachkanten und Schleifen) mit den Graden 4, 2, 2, 2, 2, 1 geben?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Summe 13 ist ungerade, müsste aber 2 · Kanten sein: unmöglich."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Kann es einen Graphen (ohne Mehrfachkanten und Schleifen) mit den Graden 2, 1, 1, 1 geben?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Summe 5 ist ungerade, müsste aber 2 · Kanten sein: unmöglich."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Kann es einen Graphen (ohne Mehrfachkanten und Schleifen) mit den Graden 4, 3, 3, 2, 2, 1 geben?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Summe 15 ist ungerade, müsste aber 2 · Kanten sein: unmöglich."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Kann es einen Graphen (ohne Mehrfachkanten und Schleifen) mit den Graden 3, 1, 1, 1 geben?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Summe 6 ist gerade, und ein solcher Graph lässt sich tatsächlich zeichnen."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Kann es einen Graphen (ohne Mehrfachkanten und Schleifen) mit den Graden 4, 4, 4, 2, 1 geben?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Summe 15 ist ungerade, müsste aber 2 · Kanten sein: unmöglich."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Straßennetz verbindet 9 Orte zusammenhängend mit 9 Straßen. Ist es ein Baum?"
+   },
+   "a": [
+    "Das hängt von den Längen der Straßen ab.",
+    "Ja – 9 Straßen für 9 Orte ist genau richtig.",
+    "Nein – es hat 9 Kanten, ein Baum mit 9 Knoten hat aber nur 8.",
+    "Ja – es ist zusammenhängend."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Ein zusammenhängender Graph mit n Knoten und mehr als n − 1 Kanten enthält einen Kreis."
+  }
+ ],
+ "offen": [
+  "Lehrplan-Feld: „Graphentheorie, Graphenalgorithmen (IB-Verlagsinhalt)“ – Auswahl: Grundbegriffe, Adjazenzmatrix (nur ablesen), Euler, Dijkstra-Idee, Kruskal. Hamiltonkreise und Zahlentheorie nicht enthalten.",
+  "Graphen werden als figur gezeichnet (Knoten = beschriftete Punkte, Kanten = Linien mit Gewicht). Die App beschriftet Kantengewichte nach außen – bei Kanten zur Mitte kann die Zahl nah an einer anderen Linie stehen. Bitte in der Ansicht prüfen."
+ ]
+}

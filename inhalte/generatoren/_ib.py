@@ -1,0 +1,461 @@
+"""Gemeinsame Hilfen für die Generatoren des Pakets IB (Werkstatt #150, Vierte Runde).
+
+Wird von inhalte/generatoren/<thema>.py importiert. Enthält nur Formatierung,
+Auswahl-Bau und das Zusammensetzen der Themen-Datei – keine Aufgabeninhalte.
+"""
+import json
+import math
+import random
+from fractions import Fraction as Fr
+from pathlib import Path
+
+HIER = Path(__file__).resolve().parent
+THEMEN = HIER.parent / 'themen'
+LISTE = HIER.parent / 'themenliste.json'
+R = random.Random()
+
+# Themen ohne Lehrplan-Zuordnung (klasse {} in themenliste.json): Das Prüfskript verlangt ein nicht leeres Feld.
+# Annahme (Postfach, FRAGE): eigener Schlüssel, den die App nicht als Schulart auswertet; Niveau Klasse 9/10.
+KLASSE_OHNE = {'zusatz': 10}
+
+# Je Lernkarte: 18 Übungen (6 je Stufe), 1 Test, 3 Korrektur, 6 Sicherung = 28 Aufgaben.
+PLAN = ([('uebung', 1)] * 6 + [('uebung', 2)] * 6 + [('uebung', 3)] * 6
+        + [('test', 2)] + [('korrektur', 2)] * 3 + [('sicherung', 2)] * 6)
+
+
+# Gerade gebauter Pool und laufende Nummer darin (je Lernkarte ab 0) – für Regeln wie
+# „in Korrektur und Sicherung mindestens eine Aufgabe vom Typ …“. Generatoren lesen AKT['pool'] / AKT['nr'].
+AKT = {'pool': None, 'nr': 0}
+
+
+def start(seed):
+    R.seed(seed)
+
+
+# ---------- Zahlen deutsch schreiben ----------
+def _gruppe(s):
+    """Ganzzahlteil ab 5 Stellen mit Leerzeichen gliedern (auch 4 Stellen, wie in der Vorlage)."""
+    neg = s.startswith('-')
+    s = s.lstrip('-')
+    if len(s) >= 4:
+        s = f'{int(s):,}'.replace(',', ' ')
+    return ('−' if neg else '') + s
+
+
+def dz(x):
+    """Zahl als deutscher Text: int, Fraction (nur endliche Dezimalzahl) oder float."""
+    if isinstance(x, Fr):
+        if x.denominator == 1:
+            x = int(x)
+        else:
+            d = x.denominator
+            while d % 2 == 0: d //= 2
+            while d % 5 == 0: d //= 5
+            if d != 1: raise ValueError(f'{x} ist keine endliche Dezimalzahl')
+            x = float(x)
+    if isinstance(x, bool): raise ValueError('bool')
+    if isinstance(x, int):
+        return _gruppe(str(x))
+    s = ('%.10f' % x).rstrip('0').rstrip('.')
+    if s in ('-0', ''): s = '0'
+    ganz, _, rest = s.partition('.')
+    return _gruppe(ganz) + (',' + rest if rest else '')
+
+
+def kl(x):
+    """Negative Zahlen in Rechnungen klammern."""
+    return f'({dz(x)})' if x < 0 else dz(x)
+
+
+def br(x):
+    """Bruch als Text, z. B. 3/4 oder −3/4; ganze Zahlen ohne Nenner."""
+    x = Fr(x)
+    if x.denominator == 1: return dz(int(x))
+    return ('−' if x < 0 else '') + f'{abs(x.numerator)}/{x.denominator}'
+
+
+def wert(x):
+    """Zahl für das JSON-Feld o.wert (int oder exakte Dezimalzahl)."""
+    if isinstance(x, Fr):
+        if x.denominator == 1: return int(x)
+        dz(x)  # wirft, wenn nicht endlich
+        return float(x)
+    if isinstance(x, float) and x.is_integer(): return int(x)
+    return x
+
+
+def endlich(x):
+    """True, wenn der Bruch eine endliche Dezimalzahl ist."""
+    d = Fr(x).denominator
+    while d % 2 == 0: d //= 2
+    while d % 5 == 0: d //= 5
+    return d == 1
+
+
+def K(x):
+    """Konstante (z. B. Sinuswert) mit 12 Nachkommastellen für den Rechenausdruck c."""
+    return format(x, '.12f')
+
+
+def gerundet(wahr, nd):
+    """Gerundeter Wert; None, wenn der Wert zu nah an einer Rundungsgrenze liegt."""
+    t = wahr * 10 ** nd
+    if abs((t - math.floor(t)) - 0.5) < 1e-6: return None
+    v = round(wahr, nd)
+    return int(v) if nd == 0 else v
+
+
+def sin(g): return math.sin(math.radians(g))
+def cos(g): return math.cos(math.radians(g))
+def tan(g): return math.tan(math.radians(g))
+def asin(x): return math.degrees(math.asin(x))
+def acos(x): return math.degrees(math.acos(x))
+def atan(x): return math.degrees(math.atan(x))
+
+
+def wahl(*xs):
+    return R.choice(xs)
+
+
+# ---------- Bausteine für Aufgaben ----------
+def zahl(text, w, h, wert_, c, einheit=None, t=None, tol=None):
+    """tol: Toleranz bei gerundeten Ergebnissen (eine Einheit der letzten verlangten Stelle)."""
+    a = {'y': 'zahl', 'f': {'text': text}, 'o': {'wert': wert(wert_)}, 'c': c, 'w': w, 'h': h}
+    if einheit: a['o']['einheit'] = einheit
+    if tol is not None: a['o']['toleranz'] = tol
+    if t: a['t'] = t
+    return a
+
+
+def auswahl(text, richtig, falsche, w, h, t=None):
+    richtig = str(richtig)
+    opts = []
+    for f in falsche:
+        f = str(f)
+        if f != richtig and f not in opts: opts.append(f)
+    if len(opts) < 2: return None
+    opts = opts[:3] + [richtig]
+    R.shuffle(opts)
+    a = {'y': 'auswahl', 'f': {'text': text}, 'a': opts, 'o': {'index': opts.index(richtig)}, 'w': w, 'h': h}
+    if t: a['t'] = t
+    return a
+
+
+def luecken(text, schablone, hinweis, werte, w, h, c=None, t=None):
+    a = {'y': 'luecken', 'f': {'text': text, 'schablone': schablone, 'hinweis': hinweis},
+         'o': {'werte': [int(v) for v in werte]}, 'w': w, 'h': h}
+    if c is not None: a['c'] = c
+    if t: a['t'] = t
+    return a
+
+
+# ---------- Themen-Datei bauen ----------
+def _schluessel(a):
+    f = a['f']
+    # Antwortreihenfolge zählt nicht: gleiche Frage mit gemischten Antworten ist für das Kind eine Dublette.
+    return (str(f.get('text', '')).strip() + '|' + json.dumps(sorted(a.get('a') or []), ensure_ascii=False) + '|'
+            + json.dumps(f.get('schablone'), ensure_ascii=False) + '|' + json.dumps(f.get('grafik'), sort_keys=True))
+
+
+def bauen(thema, ziel, merke, abschnitte, etappen, gen, offen=(), vertiefung=(), plan=PLAN, meiden=None):
+    """meiden: {lernziel: [Textstücke]} – Aufgaben mit den Zahlen des vorgerechneten Beispiels auslassen."""
+    meiden = meiden or {}
+    meta = next(t for t in json.loads(LISTE.read_text(encoding='utf-8')) if t['thema_schluessel'] == thema)
+    lz = [e['lernziel'] for e in etappen]
+    for e in etappen:
+        assert len(e['titel']) <= 40, e['titel']
+    alle, gesehen = [], set()
+    for e in etappen:
+        beispiele = set(e['schritte'])
+        zaehler = {}
+        for pool, stufe in plan:
+            AKT['pool'], AKT['nr'] = pool, zaehler.get(pool, 0)
+            zaehler[pool] = AKT['nr'] + 1
+            for _ in range(3000):
+                a = gen[e['lernziel']](stufe)
+                if a is None: continue
+                k = _schluessel(a)
+                if a['f']['text'].strip() in beispiele or k in gesehen: continue
+                if any(m in a['f']['text'] for m in meiden.get(e['lernziel'], ())): continue
+                break
+            else:
+                raise SystemExit(f'{thema}: zu wenige verschiedene Aufgaben für {e["lernziel"]} (Stufe {stufe})')
+            gesehen.add(k)
+            if pool == 'uebung':
+                assert a.get('h'), f'Tipp fehlt: {e["lernziel"]}'
+            else:
+                a.pop('h', None)
+            t = a.pop('t', None) or e['lernziel']
+            alle.append({'l': e['lernziel'], 't': t, 'p': pool, 's': stufe, **a})
+    datei = {
+        'thema_schluessel': thema, 'thema_id': meta['thema_id'], 'block_id': meta['block_id'],
+        'klasse': meta['klasse'] or KLASSE_OHNE, 'autor': 'Claude (Paket IB)',
+        'inhalt': {
+            'ziel': ziel,
+            'merke': merke,
+            'abschnitte': [{'titel': t, 'lernziele': l} for t, l in abschnitte],
+            'etappen': etappen,
+            'teilfaehigkeiten': [{'k': e['lernziel'], 'text': e['titel'], 'lernziele': [e['lernziel']]} for e in etappen],
+            'bewertung': {'lernziele_pflicht': [x for x in lz if x not in vertiefung],
+                          'lernziele_vertiefung': list(vertiefung), 'testaufgaben_je_lernziel': 1},
+            'quellen': {'erklaerungen': 'Eigene Fassung (Claude), Aufgaben vom Generator erzeugt und berechnet.',
+                        'begriffe': 'Fachbegriffe deutsch (LehrplanPLUS Bayern), IB-Begriffe beim ersten Auftreten englisch in Klammern.'},
+        },
+        'aufgaben': alle,
+    }
+    if offen: datei['offen'] = list(offen)
+    ziel_pfad = THEMEN / f'{thema}.json'
+    ziel_pfad.parent.mkdir(parents=True, exist_ok=True)
+    ziel_pfad.write_text(json.dumps(datei, ensure_ascii=False, indent=1), encoding='utf-8')
+    print(f'{ziel_pfad.name}: {len(etappen)} Lernkarten, {len(alle)} Aufgaben')
+    return datei
+
+
+HOCHZ = str.maketrans('0123456789', '⁰¹²³⁴⁵⁶⁷⁸⁹')
+
+
+def poly(*k, v='x'):
+    """Polynom aus Koeffizienten (höchster Grad zuerst) als Text, z. B. poly(2, -3, 1) = '2x² − 3x + 1'."""
+    n = len(k) - 1
+    teile = []
+    for i, c in enumerate(k):
+        g = n - i
+        if c == 0: continue
+        c = Fr(c)
+        bet = abs(c)
+        if g == 0:
+            zt_ = dz(bet) if endlich(bet) else br(bet)
+        else:
+            zt_ = '' if bet == 1 else (dz(bet) if endlich(bet) else br(bet))
+            zt_ += v + ('' if g == 1 else str(g).translate(HOCHZ))
+        if not teile:
+            teile.append(('−' if c < 0 else '') + zt_)
+        else:
+            teile.append(('− ' if c < 0 else '+ ') + zt_)
+    return ' '.join(teile) if teile else '0'
+
+
+def plus(x):
+    """'+ 3' oder '− 3' für Term-Anschlüsse"""
+    return f'+ {dz(x)}' if x >= 0 else f'− {dz(-x)}'
+
+
+def plus_v(c, v='x'):
+    """'+ 3x', '− x' (Koeffizient vor Variable)"""
+    if c == 0: return ''
+    b = '' if abs(c) == 1 else dz(abs(c))
+    return f'{"+" if c > 0 else "−"} {b}{v}'
+
+
+def minus_klammer(p, v='x'):
+    """(x − p) bzw. (x + |p|)"""
+    if p == 0: return v
+    return f'({v} − {dz(p)})' if p > 0 else f'({v} + {dz(-p)})'
+
+
+def bruch_luecke(text, q, w, h, c=None, t=None):
+    """Bruch als Lücke □/□ (gekürzt, Vorzeichen im Zähler)."""
+    q = Fr(q)
+    return luecken(text, '□/□', 'Zähler und Nenner (gekürzt)', [q.numerator, q.denominator], w, h, c=c, t=t)
+
+
+def ln(x): return math.log(x)
+def lg(x): return math.log10(x)
+def logb(b, x): return math.log(x) / math.log(b)
+
+
+def _hoch(t):
+    import re
+    return re.sub(r'\^(\d+)(?![\d,])', lambda m: m.group(1).translate(HOCHZ), t)
+
+
+def schoen(gen):
+    """Ganzzahlige Exponenten „^3“ in Fragen, Wegen und Antworten hochstellen."""
+    def wrap(g):
+        def f(s):
+            a = g(s)
+            if a:
+                a['f']['text'] = _hoch(a['f']['text'])
+                a['w'] = _hoch(a['w'])
+                if 'a' in a: a['a'] = [_hoch(x) for x in a['a']]
+            return a
+        return f
+    return {k: wrap(v) for k, v in gen.items()}
+
+
+# ---------- Zeichnungen (App 0.69.0, README „Zeichnungen“) ----------
+def graph_wert(g, x):
+    """Gleiche Formeln wie lernGraphWert in lernen.js – für den automatischen y-Bereich."""
+    a = g.get('a', 1)
+    art = g['art']
+    try:
+        if art == 'linear': return g.get('m', 1) * x + g.get('t', 0)
+        if art == 'poly': return sum(c * x ** i for i, c in enumerate(g['k']))
+        if art == 'hyperbel': return a / (x + g.get('b', 0)) + g.get('c', 0)
+        if art == 'potenz': return a * x ** g.get('n', 2)
+        if art == 'wurzel': return a * math.sqrt(x) if x >= 0 else None
+        if art in ('sin', 'cos'):
+            f = math.sin if art == 'sin' else math.cos
+            arg = g.get('b', 1) * (x if g.get('bogen') else math.radians(x)) + g.get('c', 0)
+            return a * f(arg) + g.get('d', 0)
+        if art == 'exp': return a * g.get('b', 2) ** x + g.get('c', 0)
+        if art == 'log': return math.log(x) / math.log(g.get('b', 10)) if x > 0 else None
+    except (ZeroDivisionError, OverflowError, ValueError):
+        return None
+    return None
+
+
+def _rund_grenze(v, nach_oben):
+    if v == 0: return 0
+    p = 10 ** math.floor(math.log10(abs(v)))
+    for m in (1, 2, 5, 10):
+        if abs(v) <= m * p: break
+    s = m * p
+    if nach_oben: return math.ceil(v / s) * s if v > 0 else -math.floor(-v / s) * s
+    return math.floor(v / s) * s
+
+
+def koord(graphen=(), x=(-5, 5), y=None, punkte=None, waagrecht=None, senkrecht=None, strecken=None, ymax=None, **extra):
+    """Koordinatensystem; ohne y wird der Bereich aus den Graphen und Punkten bestimmt (gerundet, mit Rand)."""
+    b = {'typ': 'koordinaten', 'x': [x[0], x[1]]}
+    if y is None:
+        ws = []
+        for g in graphen:
+            lo, hi = g.get('bereich', x)
+            for i in range(201):
+                v = graph_wert(g, lo + (hi - lo) * i / 200)
+                if v is not None and math.isfinite(v): ws.append(v)
+        ws += [p['y'] for p in (punkte or [])] + list(waagrecht or [])
+        lo, hi = (min(ws), max(ws)) if ws else (-5, 5)
+        if ymax is not None: lo, hi = max(lo, -ymax), min(hi, ymax)
+        lo, hi = min(lo, 0), max(hi, 0)
+        span = (hi - lo) or 2
+        p = 10 ** math.floor(math.log10(span / 8))
+        st = next(m * p for m in (1, 2, 5, 10) if m * p >= span / 8)
+        lo = 0 if lo >= 0 else math.floor((lo - span * 0.05) / st) * st
+        hi = 0 if hi <= 0 else math.ceil((hi + span * 0.05) / st) * st
+        lo, hi = (int(lo) if float(lo).is_integer() else round(lo, 6)), (int(hi) if float(hi).is_integer() else round(hi, 6))
+        y = (lo, hi)
+    b['y'] = [y[0], y[1]]
+    if graphen: b['graphen'] = [dict(g) for g in graphen]
+    if punkte: b['punkte'] = punkte
+    if waagrecht: b['waagrecht'] = list(waagrecht)
+    if senkrecht: b['senkrecht'] = list(senkrecht)
+    if strecken: b['strecken'] = strecken
+    b.update(extra)
+    return b
+
+
+def g_poly(k_hoch, **kw):
+    """Graph aus Koeffizienten (höchster Grad zuerst) – die App erwartet k = [c0, c1, …]."""
+    g = {'art': 'poly', 'k': [float(c) if isinstance(c, Fr) and c.denominator != 1 else int(c) for c in reversed(k_hoch)]}
+    g.update(kw)
+    return g
+
+
+def zahlwert_json(x):
+    x = Fr(x)
+    return int(x) if x.denominator == 1 else float(x)
+
+
+def tabelle(kopf, zeilen):
+    return {'typ': 'tabelle', 'kopf': [str(k) for k in kopf], 'zeilen': [[str(z) for z in zl] for zl in zeilen]}
+
+
+def mit_grafik(a, grafik):
+    """Grafik an eine Aufgabe hängen (f.grafik)."""
+    if a is not None and grafik is not None:
+        a['f']['grafik'] = grafik
+    return a
+
+
+# ---------- Zusätzliche Bausteine Paket IB ----------
+ZWS = '​'  # unsichtbares Zeichen: macht gleiche Beschriftungen in figur.punkte eindeutig
+
+
+def _eindeutig(punkte, name, xy):
+    while name in punkte: name += ZWS
+    punkte[name] = xy
+
+
+def venn(nur_a, beide, nur_b, aussen=None, A='A', B='B', G='G'):
+    """Venn-Diagramm zweier Mengen als figur (zwei Kreise in einem Rechteck = Grundmenge).
+
+    Beschriftungen ohne Punkt-Marker: Sie hängen als Name an winzigen Hilfskreisen (figur.kreise[].name),
+    (Radius 0, also unsichtbar); die App setzt den Text dann links-bündig neben den Kreismittelpunkt. Die Position wird so verschoben,
+    dass der Text mittig im Bereich steht. Lange Listen ("1; 2; 3; 4") werden auf mehrere Zeilen verteilt.
+    """
+    r, d = 3.2, 3.6
+    x0, x1, y0, y1 = -r - 1.4, d + r + 1.4, -r - 1.2, r + 1.2
+    f = min((340 - 144) / (x1 - x0), 220 / (y1 - y0))           # Maßstab wie in lernFigur (px je Einheit)
+    pk = {'_M1': [0, 0], '_M2': [d, 0], '_E1': [x0, y0], '_E2': [x1, y0], '_E3': [x1, y1], '_E4': [x0, y1]}
+    kreise = [{'m': '_M1', 'r': r}, {'m': '_M2', 'r': r}]
+
+    def breite(t):
+        return sum(7.4 if ch.isupper() else 6.6 if ch.isalnum() else 3.6 for ch in t)
+
+    def text(t, cx, cy, links=False):
+        """Text mit Mitte (cx, cy) in Einheiten; links=True: Text beginnt bei cx."""
+        w = breite(t)
+        mx = cx - 6 / f if links is True else cx - (w + 6) / f if links == 'rechts' else cx - (w / 2 + 6) / f
+        kreise.append({'m': [round(mx, 3), round(cy - 8.5 / f, 3)], 'r': 0, 'name': t})
+
+    def bereich(t, cx, cy, max_px):
+        if t is None or str(t) == '': return
+        t = str(t)
+        teile = t.split('; ')
+        zeilen, akt = [], ''
+        for x in teile:
+            neu = x if not akt else akt + '; ' + x
+            if akt and breite(neu) > max_px: zeilen.append(akt); akt = x
+            else: akt = neu
+        zeilen.append(akt)
+        h = 15 / f
+        for i, z in enumerate(zeilen):
+            text(z, cx, cy + (len(zeilen) - 1) / 2 * h - i * h)
+
+    over = (2 * r - d) * f - 8
+    bereich(nur_a, -1.3, 0, (r + (d - r)) * f * 0.75)
+    bereich(beide, d / 2, 0, over)
+    bereich(nur_b, d + 1.3, 0, (r + (d - r)) * f * 0.75)
+    bereich(aussen, x1 - 0.9, y0 + 0.75, 60)
+    if A: text(A, d / 2 - 0.5, r + 0.6, links='rechts')
+    if B: text(B, d / 2 + 0.5, r + 0.6, links=True)
+    if G: text(G, x0 + 0.25, y0 + 0.6, links=True)
+    return {'typ': 'figur', 'punkte': pk, 'kreise': kreise,
+            'linien': [['_E1', '_E2'], ['_E2', '_E3'], ['_E3', '_E4'], ['_E4', '_E1']]}
+
+
+def netz(knoten, kanten):
+    """Graph (Graphentheorie) als figur: knoten {Name: [x, y]}, kanten [(u, v, 'Gewicht' oder '')]."""
+    return {'typ': 'figur', 'punkte': {k: list(v) for k, v in knoten.items()},
+            'linien': [[u, v, str(t)] if t not in (None, '') else [u, v] for u, v, *t0 in kanten for t in [t0[0] if t0 else '']]}
+
+
+def ja_nein(text, richtig, w, h, ja='Ja', nein='Nein', dritte=None, t=None):
+    """Auswahl mit zwei (oder drei) festen Antworten in fester Reihenfolge."""
+    opts = [ja, nein] + ([dritte] if dritte else [])
+    if len(opts) < 3:
+        return {'y': 'auswahl', 'f': {'text': text}, 'a': opts + ['Das lässt sich nicht entscheiden.'],
+                'o': {'index': 0 if richtig else 1}, 'w': w, 'h': h, **({'t': t} if t else {})}
+    return {'y': 'auswahl', 'f': {'text': text}, 'a': opts, 'o': {'index': opts.index(richtig)}, 'w': w, 'h': h, **({'t': t} if t else {})}
+
+
+def menge(xs):
+    """Menge als Text {1; 4; 9} (Semikolon, damit Dezimalkommas eindeutig bleiben)."""
+    xs = list(xs)
+    return '{ }' if not xs else '{' + '; '.join(dz(x) if not isinstance(x, str) else x for x in xs) + '}'
+
+
+def pz(x, nd=1):
+    """Prozentzahl als Text, z. B. 12,5 %."""
+    return dz(round(x, nd) if isinstance(x, float) else x) + ' %'
+
+
+def eu(x):
+    """Geldbetrag mit zwei Nachkommastellen: 12,50 € (ganze Euro ohne Komma: 12 €)."""
+    x = Fr(x)
+    if x.denominator == 1: return f'{dz(int(x))} €'
+    ganz = int(abs(x))
+    cent = round((abs(x) - ganz) * 100)
+    return ('−' if x < 0 else '') + f'{dz(ganz)},{cent:02d} €'

@@ -1,0 +1,2565 @@
+{
+ "thema_schluessel": "finanzen.zinseszins",
+ "thema_id": 72,
+ "block_id": 50,
+ "klasse": {
+  "zusatz": 10
+ },
+ "autor": "Claude (Paket IB)",
+ "inhalt": {
+  "ziel": "Kapital mit Zinseszins berechnen, den Wachstumsfaktor nutzen, rückwärts rechnen und Angebote vergleichen.",
+  "merke": [
+   "Zinseszins (compound interest): Zinsen werden mitverzinst.",
+   "Wachstumsfaktor q = 1 + p/100 (Abnahme: q = 1 − p/100).",
+   "Kₙ = K₀ · qⁿ; rückwärts K₀ = Kₙ : qⁿ.",
+   "Geldbeträge am Ende auf Cent runden."
+  ],
+  "abschnitte": [
+   {
+    "titel": "Verzinsen",
+    "lernziele": [
+     "jahr",
+     "faktor",
+     "formel"
+    ]
+   },
+   {
+    "titel": "Rückwärts und vergleichen",
+    "lernziele": [
+     "rueck",
+     "vergleich"
+    ]
+   }
+  ],
+  "etappen": [
+   {
+    "lernziel": "jahr",
+    "titel": "Zinsen Jahr für Jahr",
+    "regel": "Beim ⟦Zinseszins⟧ (compound interest) werden die Zinsen am Jahresende ⟦zum Kapital addiert⟧ und im nächsten Jahr ⟦mitverzinst⟧. Zinsen eines Jahres = Kapital · p %.",
+    "schritte": [
+     "Anfangskapital 1 000 €, Zinssatz 5 % pro Jahr.",
+     "Jahr 1: 5 % von 1 000 € = 50 € → 1 050 €.",
+     "Jahr 2: 5 % von 1 050 € = 52,50 € → ⟦1 102,50 €⟧."
+    ],
+    "probe": "Im zweiten Jahr gibt es mehr Zinsen (52,50 € > 50 €), weil die 50 € mitverzinst werden ✓",
+    "bild": {
+     "typ": "saeulen",
+     "einheit": "€",
+     "werte": [
+      {
+       "name": "Start",
+       "wert": 1000
+      },
+      {
+       "name": "Jahr 1",
+       "wert": 1050
+      },
+      {
+       "name": "Jahr 2",
+       "wert": 1102.5
+      }
+     ],
+     "y_start": 900,
+     "zahlen": true
+    },
+    "fehler": "Im 2. Jahr wieder 50 € Zinsen zu rechnen (Ergebnis 1 100 €) ist falsch: Das wären ⟦einfache Zinsen⟧. Beim Zinseszins wird das ⟦neue Kapital⟧ 1 050 € verzinst."
+   },
+   {
+    "lernziel": "faktor",
+    "titel": "Der Wachstumsfaktor q",
+    "regel": "Statt Zinsen auszurechnen und zu addieren, multipliziert man mit dem ⟦Wachstumsfaktor⟧ (growth factor) ⟦q = 1 + p/100⟧: bei 4 % ist q = 1,04. Bei einer ⟦Abnahme⟧ um p % ist q = 1 − p/100, z. B. 0,85 bei −15 %.",
+    "schritte": [
+     "Zinssatz 3 %: q = 1 + 3/100 = 1,03.",
+     "2 000 € · 1,03 = ⟦2 060 €⟧ nach einem Jahr."
+    ],
+    "probe": "3 % von 2 000 € = 60 €; 2 000 + 60 = 2 060 ✓",
+    "fehler": "Bei 3 % mit q = 1,3 zu rechnen ist falsch: 1,3 bedeutet ⟦+30 %⟧. 3 % sind 0,03, also q = ⟦1,03⟧."
+   },
+   {
+    "lernziel": "formel",
+    "titel": "Kapital nach n Jahren",
+    "regel": "Nach n Jahren mit gleichem Zinssatz gilt: ⟦Kₙ = K₀ · qⁿ⟧ (K₀ Anfangskapital, q Wachstumsfaktor). Geldbeträge rundet man am Ende auf ⟦Cent⟧ (zwei Nachkommastellen).",
+    "schritte": [
+     "K₀ = 5 000 €, p = 2 %, n = 6 Jahre.",
+     "K₆ = 5 000 € · 1,02⁶ ≈ 5 000 € · 1,126162.",
+     "K₆ ≈ ⟦5 630,81 €⟧."
+    ],
+    "probe": "Mehr als 5 000 € + 6 · 100 € = 5 600 € (einfache Zinsen) ✓",
+    "fehler": "K₆ = 5 000 · 1,02 · 6 = 30 600 € ist falsch: Der Faktor wird ⟦sechsmal multipliziert⟧ (Potenz 1,02⁶), nicht mit 6 malgenommen."
+   },
+   {
+    "lernziel": "rueck",
+    "titel": "Rückwärts rechnen",
+    "regel": "Gesucht ist das ⟦Anfangskapital⟧: ⟦K₀ = Kₙ : qⁿ⟧. Gesucht ist der ⟦Zinssatz⟧: q = Kₙ : K₀ für ein Jahr, bei zwei Jahren ⟦q = √(K₂ : K₀)⟧, dann p = (q − 1) · 100.",
+    "schritte": [
+     "Nach 2 Jahren bei 5 % sind 2 205 € auf dem Konto.",
+     "K₀ = 2 205 € : 1,05² = 2 205 € : 1,1025 = ⟦2 000 €⟧."
+    ],
+    "probe": "2 000 · 1,05 · 1,05 = 2 205 ✓",
+    "fehler": "K₀ = 2 205 € − 2 · 5 % · 2 205 € ist falsch: Prozente beziehen sich auf den ⟦Grundwert am Anfang⟧. Rückwärts wird ⟦durch qⁿ geteilt⟧."
+   },
+   {
+    "lernziel": "vergleich",
+    "titel": "Angebote vergleichen",
+    "regel": "Zinseszins wächst ⟦schneller⟧ als einfache Zinsen, weil auch die Zinsen Zinsen bringen – je länger, desto deutlicher. Zum Vergleich von Angeboten rechnet man den ⟦Endbetrag⟧ aus. Wie lange es bis zur ⟦Verdopplung⟧ dauert, findet man durch Probieren mit qⁿ ≥ 2.",
+    "schritte": [
+     "Bei 7 %: 1,07¹⁰ ≈ 1,967 < 2, 1,07¹¹ ≈ 2,105 ≥ 2.",
+     "Das Kapital hat sich nach ⟦11 Jahren⟧ erstmals verdoppelt."
+    ],
+    "probe": "Faustregel: 72 : 7 ≈ 10,3 – passt ungefähr ✓",
+    "fehler": "„Bei 5 % verdoppelt sich das Geld nach 20 Jahren, weil 20 · 5 % = 100 %“ ist falsch: Das gilt nur für einfache Zinsen. Mit Zinseszins reicht 1,05¹⁵ ≈ 2,08 – also ⟦15 Jahre⟧."
+   }
+  ],
+  "teilfaehigkeiten": [
+   {
+    "k": "jahr",
+    "text": "Zinsen Jahr für Jahr",
+    "lernziele": [
+     "jahr"
+    ]
+   },
+   {
+    "k": "faktor",
+    "text": "Der Wachstumsfaktor q",
+    "lernziele": [
+     "faktor"
+    ]
+   },
+   {
+    "k": "formel",
+    "text": "Kapital nach n Jahren",
+    "lernziele": [
+     "formel"
+    ]
+   },
+   {
+    "k": "rueck",
+    "text": "Rückwärts rechnen",
+    "lernziele": [
+     "rueck"
+    ]
+   },
+   {
+    "k": "vergleich",
+    "text": "Angebote vergleichen",
+    "lernziele": [
+     "vergleich"
+    ]
+   }
+  ],
+  "bewertung": {
+   "lernziele_pflicht": [
+    "jahr",
+    "faktor",
+    "formel",
+    "rueck",
+    "vergleich"
+   ],
+   "lernziele_vertiefung": [],
+   "testaufgaben_je_lernziel": 1
+  },
+  "quellen": {
+   "erklaerungen": "Eigene Fassung (Claude), Aufgaben vom Generator erzeugt und berechnet.",
+   "begriffe": "Fachbegriffe deutsch (LehrplanPLUS Bayern), IB-Begriffe beim ersten Auftreten englisch in Klammern."
+  }
+ },
+ "aufgaben": [
+  {
+   "l": "jahr",
+   "t": "jahr",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "4 000 € werden mit 4 % pro Jahr verzinst. Wie viel Zinsen gibt es im ersten Jahr?"
+   },
+   "o": {
+    "wert": 160,
+    "einheit": "€"
+   },
+   "c": "4000 * 4.0 / 100",
+   "w": "4 % von 4 000 € = 4 000 · 0,04 = 160 €.",
+   "h": "Zinsen = Kapital · p : 100."
+  },
+  {
+   "l": "jahr",
+   "t": "jahr",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "1 000 € werden ein Jahr lang mit 3 % verzinst. Wie hoch ist das Kapital nach einem Jahr?"
+   },
+   "o": {
+    "wert": 1030,
+    "einheit": "€"
+   },
+   "c": "1000 * (1 + 3.0 / 100)",
+   "w": "Zinsen: 30 €. Kapital: 1 030 €.",
+   "h": "Kapital plus Zinsen des Jahres."
+  },
+  {
+   "l": "jahr",
+   "t": "jahr",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "1 200 € werden ein Jahr lang mit 2 % verzinst. Wie hoch ist das Kapital nach einem Jahr?"
+   },
+   "o": {
+    "wert": 1224,
+    "einheit": "€"
+   },
+   "c": "1200 * (1 + 2.0 / 100)",
+   "w": "Zinsen: 24 €. Kapital: 1 224 €.",
+   "h": "Kapital plus Zinsen des Jahres."
+  },
+  {
+   "l": "jahr",
+   "t": "jahr",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "1 200 € werden mit 4 % pro Jahr verzinst. Wie viel Zinsen gibt es im ersten Jahr?"
+   },
+   "o": {
+    "wert": 48,
+    "einheit": "€"
+   },
+   "c": "1200 * 4.0 / 100",
+   "w": "4 % von 1 200 € = 1 200 · 0,04 = 48 €.",
+   "h": "Zinsen = Kapital · p : 100."
+  },
+  {
+   "l": "jahr",
+   "t": "jahr",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "1 500 € werden mit 4 % pro Jahr verzinst. Wie viel Zinsen gibt es im ersten Jahr?"
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "€"
+   },
+   "c": "1500 * 4.0 / 100",
+   "w": "4 % von 1 500 € = 1 500 · 0,04 = 60 €.",
+   "h": "Zinsen = Kapital · p : 100."
+  },
+  {
+   "l": "jahr",
+   "t": "jahr",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "800 € werden mit 4 % pro Jahr verzinst. Wie viel Zinsen gibt es im ersten Jahr?"
+   },
+   "o": {
+    "wert": 32,
+    "einheit": "€"
+   },
+   "c": "800 * 4.0 / 100",
+   "w": "4 % von 800 € = 800 · 0,04 = 32 €.",
+   "h": "Zinsen = Kapital · p : 100."
+  },
+  {
+   "l": "jahr",
+   "t": "jahr",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "2 500 € werden ein Jahr lang mit 6 % verzinst. Wie hoch ist das Kapital nach einem Jahr?"
+   },
+   "o": {
+    "wert": 2650,
+    "einheit": "€"
+   },
+   "c": "2500 * (1 + 6.0 / 100)",
+   "w": "Zinsen: 150 €. Kapital: 2 650 €.",
+   "h": "Kapital plus Zinsen des Jahres."
+  },
+  {
+   "l": "jahr",
+   "t": "jahr",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "1 200 € werden ein Jahr lang mit 1 % verzinst. Wie hoch ist das Kapital nach einem Jahr?"
+   },
+   "o": {
+    "wert": 1212,
+    "einheit": "€"
+   },
+   "c": "1200 * (1 + 1.0 / 100)",
+   "w": "Zinsen: 12 €. Kapital: 1 212 €.",
+   "h": "Kapital plus Zinsen des Jahres."
+  },
+  {
+   "l": "jahr",
+   "t": "jahr",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "1 500 € werden ein Jahr lang mit 4 % verzinst. Wie hoch ist das Kapital nach einem Jahr?"
+   },
+   "o": {
+    "wert": 1560,
+    "einheit": "€"
+   },
+   "c": "1500 * (1 + 4.0 / 100)",
+   "w": "Zinsen: 60 €. Kapital: 1 560 €.",
+   "h": "Kapital plus Zinsen des Jahres."
+  },
+  {
+   "l": "jahr",
+   "t": "jahr",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "2 500 € werden mit 3 % Zinseszins angelegt. Wie viel Zinsen gibt es im zweiten Jahr?"
+   },
+   "o": {
+    "wert": 77.25,
+    "einheit": "€"
+   },
+   "c": "2500 * (1 + 3.0 / 100) * 3.0 / 100",
+   "w": "Nach Jahr 1: 2 575 €. Zinsen im Jahr 2: 3 % davon = 77,25 €.",
+   "h": "Im zweiten Jahr wird das Kapital nach dem ersten Jahr verzinst."
+  },
+  {
+   "l": "jahr",
+   "t": "jahr",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "2 000 € werden ein Jahr lang mit 2 % verzinst. Wie hoch ist das Kapital nach einem Jahr?"
+   },
+   "o": {
+    "wert": 2040,
+    "einheit": "€"
+   },
+   "c": "2000 * (1 + 2.0 / 100)",
+   "w": "Zinsen: 40 €. Kapital: 2 040 €.",
+   "h": "Kapital plus Zinsen des Jahres."
+  },
+  {
+   "l": "jahr",
+   "t": "jahr",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "1 200 € werden mit 2,5 % Zinseszins angelegt. Wie hoch ist das Kapital nach 2 Jahren? Rechne Jahr für Jahr."
+   },
+   "o": {
+    "wert": 1260.75,
+    "einheit": "€"
+   },
+   "c": "1200 * (1 + 2.5 / 100) ** 2",
+   "w": "Jahr 1: 1 200 € + 30 € = 1 230 €. Jahr 2: 1 230 € + 30,75 € = 1 260,75 €.",
+   "h": "Verzinse jedes Jahr das neue Kapital."
+  },
+  {
+   "l": "jahr",
+   "t": "jahr",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "3 200 € werden mit 10 % Zinseszins angelegt. Wie viel Zinsen gibt es im zweiten Jahr?"
+   },
+   "o": {
+    "wert": 352,
+    "einheit": "€"
+   },
+   "c": "3200 * (1 + 10.0 / 100) * 10.0 / 100",
+   "w": "Nach Jahr 1: 3 520 €. Zinsen im Jahr 2: 10 % davon = 352 €.",
+   "h": "Im zweiten Jahr wird das Kapital nach dem ersten Jahr verzinst."
+  },
+  {
+   "l": "jahr",
+   "t": "jahr",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "2 400 € werden mit 4 % Zinseszins angelegt. Wie viel Zinsen gibt es im zweiten Jahr?"
+   },
+   "o": {
+    "wert": 99.84,
+    "einheit": "€"
+   },
+   "c": "2400 * (1 + 4.0 / 100) * 4.0 / 100",
+   "w": "Nach Jahr 1: 2 496 €. Zinsen im Jahr 2: 4 % davon = 99,84 €.",
+   "h": "Im zweiten Jahr wird das Kapital nach dem ersten Jahr verzinst."
+  },
+  {
+   "l": "jahr",
+   "t": "jahr",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "600 € liegen 2 Jahre bei 6 %. Wie viel mehr bringt Zinseszins als einfache Zinsen (jedes Jahr nur Zinsen vom Anfangskapital)?"
+   },
+   "o": {
+    "wert": 2.16,
+    "einheit": "€"
+   },
+   "c": "600 * (1 + 6.0 / 100) ** 2 - 600 - 600 * 6.0 / 100 * 2",
+   "w": "Zinseszins: 674,16 € − 600 € = 74,16 €. Einfach: 2 · 36 € = 72 €. Unterschied: 2,16 €.",
+   "h": "Berechne beide Zinsbeträge und vergleiche."
+  },
+  {
+   "l": "jahr",
+   "t": "jahr",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "2 400 € liegen 3 Jahre bei 5 %. Wie viel mehr bringt Zinseszins als einfache Zinsen (jedes Jahr nur Zinsen vom Anfangskapital)?"
+   },
+   "o": {
+    "wert": 18.3,
+    "einheit": "€"
+   },
+   "c": "2400 * (1 + 5.0 / 100) ** 3 - 2400 - 2400 * 5.0 / 100 * 3",
+   "w": "Zinseszins: 2 778,30 € − 2 400 € = 378,30 €. Einfach: 3 · 120 € = 360 €. Unterschied: 18,30 €.",
+   "h": "Berechne beide Zinsbeträge und vergleiche."
+  },
+  {
+   "l": "jahr",
+   "t": "jahr",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "3 200 € werden mit 5 % Zinseszins angelegt. Wie hoch ist das Kapital nach 3 Jahren? Rechne Jahr für Jahr."
+   },
+   "o": {
+    "wert": 3704.4,
+    "einheit": "€"
+   },
+   "c": "3200 * (1 + 5.0 / 100) ** 3",
+   "w": "Jahr 1: 3 200 € + 160 € = 3 360 €. Jahr 2: 3 360 € + 168 € = 3 528 €. Jahr 3: 3 528 € + 176,40 € = 3 704,40 €.",
+   "h": "Verzinse jedes Jahr das neue Kapital."
+  },
+  {
+   "l": "jahr",
+   "t": "jahr",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "3 200 € liegen 2 Jahre bei 1 %. Wie viel mehr bringt Zinseszins als einfache Zinsen (jedes Jahr nur Zinsen vom Anfangskapital)?"
+   },
+   "o": {
+    "wert": 0.32,
+    "einheit": "€"
+   },
+   "c": "3200 * (1 + 1.0 / 100) ** 2 - 3200 - 3200 * 1.0 / 100 * 2",
+   "w": "Zinseszins: 3 264,32 € − 3 200 € = 64,32 €. Einfach: 2 · 32 € = 64 €. Unterschied: 0,32 €.",
+   "h": "Berechne beide Zinsbeträge und vergleiche."
+  },
+  {
+   "l": "jahr",
+   "t": "jahr",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "5 000 € werden mit 3 % Zinseszins angelegt. Wie viel Zinsen gibt es im zweiten Jahr?"
+   },
+   "o": {
+    "wert": 154.5,
+    "einheit": "€"
+   },
+   "c": "5000 * (1 + 3.0 / 100) * 3.0 / 100",
+   "w": "Nach Jahr 1: 5 150 €. Zinsen im Jahr 2: 3 % davon = 154,50 €."
+  },
+  {
+   "l": "jahr",
+   "t": "jahr",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "500 € werden mit 10 % Zinseszins angelegt. Wie hoch ist das Kapital nach 2 Jahren? Rechne Jahr für Jahr."
+   },
+   "o": {
+    "wert": 605,
+    "einheit": "€"
+   },
+   "c": "500 * (1 + 10.0 / 100) ** 2",
+   "w": "Jahr 1: 500 € + 50 € = 550 €. Jahr 2: 550 € + 55 € = 605 €."
+  },
+  {
+   "l": "jahr",
+   "t": "jahr",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "1 200 € werden mit 8 % Zinseszins angelegt. Wie viel Zinsen gibt es im zweiten Jahr?"
+   },
+   "o": {
+    "wert": 103.68,
+    "einheit": "€"
+   },
+   "c": "1200 * (1 + 8.0 / 100) * 8.0 / 100",
+   "w": "Nach Jahr 1: 1 296 €. Zinsen im Jahr 2: 8 % davon = 103,68 €."
+  },
+  {
+   "l": "jahr",
+   "t": "jahr",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "1 000 € werden mit 3 % Zinseszins angelegt. Wie viel Zinsen gibt es im zweiten Jahr?"
+   },
+   "o": {
+    "wert": 30.9,
+    "einheit": "€"
+   },
+   "c": "1000 * (1 + 3.0 / 100) * 3.0 / 100",
+   "w": "Nach Jahr 1: 1 030 €. Zinsen im Jahr 2: 3 % davon = 30,90 €."
+  },
+  {
+   "l": "jahr",
+   "t": "jahr",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "2 500 € werden ein Jahr lang mit 2 % verzinst. Wie hoch ist das Kapital nach einem Jahr?"
+   },
+   "o": {
+    "wert": 2550,
+    "einheit": "€"
+   },
+   "c": "2500 * (1 + 2.0 / 100)",
+   "w": "Zinsen: 50 €. Kapital: 2 550 €."
+  },
+  {
+   "l": "jahr",
+   "t": "jahr",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "4 000 € werden ein Jahr lang mit 8 % verzinst. Wie hoch ist das Kapital nach einem Jahr?"
+   },
+   "o": {
+    "wert": 4320,
+    "einheit": "€"
+   },
+   "c": "4000 * (1 + 8.0 / 100)",
+   "w": "Zinsen: 320 €. Kapital: 4 320 €."
+  },
+  {
+   "l": "jahr",
+   "t": "jahr",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "4 000 € werden mit 2 % Zinseszins angelegt. Wie viel Zinsen gibt es im zweiten Jahr?"
+   },
+   "o": {
+    "wert": 81.6,
+    "einheit": "€"
+   },
+   "c": "4000 * (1 + 2.0 / 100) * 2.0 / 100",
+   "w": "Nach Jahr 1: 4 080 €. Zinsen im Jahr 2: 2 % davon = 81,60 €."
+  },
+  {
+   "l": "jahr",
+   "t": "jahr",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "800 € werden ein Jahr lang mit 2 % verzinst. Wie hoch ist das Kapital nach einem Jahr?"
+   },
+   "o": {
+    "wert": 816,
+    "einheit": "€"
+   },
+   "c": "800 * (1 + 2.0 / 100)",
+   "w": "Zinsen: 16 €. Kapital: 816 €."
+  },
+  {
+   "l": "jahr",
+   "t": "jahr",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "2 000 € werden mit 1 % Zinseszins angelegt. Wie hoch ist das Kapital nach 2 Jahren? Rechne Jahr für Jahr."
+   },
+   "o": {
+    "wert": 2040.2,
+    "einheit": "€"
+   },
+   "c": "2000 * (1 + 1.0 / 100) ** 2",
+   "w": "Jahr 1: 2 000 € + 20 € = 2 020 €. Jahr 2: 2 020 € + 20,20 € = 2 040,20 €."
+  },
+  {
+   "l": "jahr",
+   "t": "jahr",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "4 000 € werden mit 6 % Zinseszins angelegt. Wie hoch ist das Kapital nach 2 Jahren? Rechne Jahr für Jahr."
+   },
+   "o": {
+    "wert": 4494.4,
+    "einheit": "€"
+   },
+   "c": "4000 * (1 + 6.0 / 100) ** 2",
+   "w": "Jahr 1: 4 000 € + 240 € = 4 240 €. Jahr 2: 4 240 € + 254,40 € = 4 494,40 €."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie groß ist der Wachstumsfaktor q bei einem Zinssatz von 6 %?"
+   },
+   "o": {
+    "wert": 1.06
+   },
+   "c": "1 + 6.0 / 100",
+   "w": "q = 1 + 6/100 = 1 + 0,06 = 1,06.",
+   "h": "q = 1 + p/100."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie groß ist der Wachstumsfaktor q bei einem Zinssatz von 1,5 %?"
+   },
+   "o": {
+    "wert": 1.015
+   },
+   "c": "1 + 1.5 / 100",
+   "w": "q = 1 + 1,5/100 = 1 + 0,015 = 1,015.",
+   "h": "q = 1 + p/100."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie groß ist der Wachstumsfaktor q bei einem Zinssatz von 10 %?"
+   },
+   "o": {
+    "wert": 1.1
+   },
+   "c": "1 + 10.0 / 100",
+   "w": "q = 1 + 10/100 = 1 + 0,1 = 1,1.",
+   "h": "q = 1 + p/100."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie groß ist der Wachstumsfaktor q bei einem Zinssatz von 8 %?"
+   },
+   "o": {
+    "wert": 1.08
+   },
+   "c": "1 + 8.0 / 100",
+   "w": "q = 1 + 8/100 = 1 + 0,08 = 1,08.",
+   "h": "q = 1 + p/100."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie groß ist der Wachstumsfaktor q bei einem Zinssatz von 4 %?"
+   },
+   "o": {
+    "wert": 1.04
+   },
+   "c": "1 + 4.0 / 100",
+   "w": "q = 1 + 4/100 = 1 + 0,04 = 1,04.",
+   "h": "q = 1 + p/100."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie groß ist der Wachstumsfaktor q bei einem Zinssatz von 15 %?"
+   },
+   "o": {
+    "wert": 1.15
+   },
+   "c": "1 + 15.0 / 100",
+   "w": "q = 1 + 15/100 = 1 + 0,15 = 1,15.",
+   "h": "q = 1 + p/100."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kapital wird jedes Jahr mit dem Faktor q = 1,015 multipliziert. Wie hoch ist der Zinssatz in %?"
+   },
+   "o": {
+    "wert": 1.5,
+    "einheit": "%"
+   },
+   "c": "(1.015 - 1) * 100",
+   "w": "q − 1 = 0,015 = 1,5 %.",
+   "h": "Ziehe 1 ab und rechne in Prozent um."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie groß ist der Wachstumsfaktor q bei einem Zinssatz von 2,5 %?"
+   },
+   "o": {
+    "wert": 1.025
+   },
+   "c": "1 + 2.5 / 100",
+   "w": "q = 1 + 2,5/100 = 1 + 0,025 = 1,025.",
+   "h": "q = 1 + p/100."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kapital wird jedes Jahr mit dem Faktor q = 1,04 multipliziert. Wie hoch ist der Zinssatz in %?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "%"
+   },
+   "c": "(1.04 - 1) * 100",
+   "w": "q − 1 = 0,04 = 4 %.",
+   "h": "Ziehe 1 ab und rechne in Prozent um."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Auto verliert jedes Jahr 15 % seines Werts. Mit welchem Faktor wird der Wert jedes Jahr multipliziert?"
+   },
+   "o": {
+    "wert": 0.85
+   },
+   "c": "1 - 15 / 100",
+   "w": "Es bleiben 85 %: q = 1 − 0,15 = 0,85.",
+   "h": "Abnahme: q = 1 − p/100."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Auto verliert jedes Jahr 25 % seines Werts. Mit welchem Faktor wird der Wert jedes Jahr multipliziert?"
+   },
+   "o": {
+    "wert": 0.75
+   },
+   "c": "1 - 25 / 100",
+   "w": "Es bleiben 75 %: q = 1 − 0,25 = 0,75.",
+   "h": "Abnahme: q = 1 − p/100."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Auto verliert jedes Jahr 8 % seines Werts. Mit welchem Faktor wird der Wert jedes Jahr multipliziert?"
+   },
+   "o": {
+    "wert": 0.92
+   },
+   "c": "1 - 8 / 100",
+   "w": "Es bleiben 92 %: q = 1 − 0,08 = 0,92.",
+   "h": "Abnahme: q = 1 − p/100."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Wert einer Maschine wird jährlich mit q = 0,95 multipliziert. Um wie viel Prozent sinkt der Wert pro Jahr?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "%"
+   },
+   "c": "(1 - 0.95) * 100",
+   "w": "1 − 0,95 = 0,05 = 5 %.",
+   "h": "q < 1 bedeutet Abnahme. Was fehlt zu 1?"
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Wert einer Maschine wird jährlich mit q = 0,8 multipliziert. Um wie viel Prozent sinkt der Wert pro Jahr?"
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "%"
+   },
+   "c": "(1 - 0.8) * 100",
+   "w": "1 − 0,8 = 0,2 = 20 %.",
+   "h": "q < 1 bedeutet Abnahme. Was fehlt zu 1?"
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kapital wird jedes Jahr mit dem Faktor q = 1,035 multipliziert. Wie hoch ist der Zinssatz in %?"
+   },
+   "o": {
+    "wert": 3.5,
+    "einheit": "%"
+   },
+   "c": "(1.035 - 1) * 100",
+   "w": "q − 1 = 0,035 = 3,5 %.",
+   "h": "Ziehe 1 ab und rechne in Prozent um."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kapital wird jedes Jahr mit dem Faktor q = 1,005 multipliziert. Wie hoch ist der Zinssatz in %?"
+   },
+   "o": {
+    "wert": 0.5,
+    "einheit": "%"
+   },
+   "c": "(1.005 - 1) * 100",
+   "w": "q − 1 = 0,005 = 0,5 %.",
+   "h": "Ziehe 1 ab und rechne in Prozent um."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Guthaben wird im ersten Jahr mit 10 %, im zweiten mit 4 % verzinst. Mit welchem Faktor wurde es insgesamt multipliziert?"
+   },
+   "o": {
+    "wert": 1.144
+   },
+   "c": "(1 + 10.0 / 100) * (1 + 4.0 / 100)",
+   "w": "1,1 · 1,04 = 1,144.",
+   "h": "Die beiden Faktoren werden multipliziert, nicht die Prozente addiert."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kapital wird jedes Jahr mit dem Faktor q = 1,12 multipliziert. Wie hoch ist der Zinssatz in %?"
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "%"
+   },
+   "c": "(1.12 - 1) * 100",
+   "w": "q − 1 = 0,12 = 12 %.",
+   "h": "Ziehe 1 ab und rechne in Prozent um."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kapital wird jedes Jahr mit dem Faktor q = 1,025 multipliziert. Wie hoch ist der Zinssatz in %?"
+   },
+   "o": {
+    "wert": 2.5,
+    "einheit": "%"
+   },
+   "c": "(1.025 - 1) * 100",
+   "w": "q − 1 = 0,025 = 2,5 %."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Auto verliert jedes Jahr 30 % seines Werts. Mit welchem Faktor wird der Wert jedes Jahr multipliziert?"
+   },
+   "o": {
+    "wert": 0.7
+   },
+   "c": "1 - 30 / 100",
+   "w": "Es bleiben 70 %: q = 1 − 0,3 = 0,7."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kapital wird jedes Jahr mit dem Faktor q = 1,01 multipliziert. Wie hoch ist der Zinssatz in %?"
+   },
+   "o": {
+    "wert": 1,
+    "einheit": "%"
+   },
+   "c": "(1.01 - 1) * 100",
+   "w": "q − 1 = 0,01 = 1 %."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie groß ist der Wachstumsfaktor q bei einem Zinssatz von 5 %?"
+   },
+   "o": {
+    "wert": 1.05
+   },
+   "c": "1 + 5.0 / 100",
+   "w": "q = 1 + 5/100 = 1 + 0,05 = 1,05."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Auto verliert jedes Jahr 5 % seines Werts. Mit welchem Faktor wird der Wert jedes Jahr multipliziert?"
+   },
+   "o": {
+    "wert": 0.95
+   },
+   "c": "1 - 5 / 100",
+   "w": "Es bleiben 95 %: q = 1 − 0,05 = 0,95."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie groß ist der Wachstumsfaktor q bei einem Zinssatz von 0,5 %?"
+   },
+   "o": {
+    "wert": 1.005
+   },
+   "c": "1 + 0.5 / 100",
+   "w": "q = 1 + 0,5/100 = 1 + 0,005 = 1,005."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kapital wird jedes Jahr mit dem Faktor q = 1,15 multipliziert. Wie hoch ist der Zinssatz in %?"
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "%"
+   },
+   "c": "(1.15 - 1) * 100",
+   "w": "q − 1 = 0,15 = 15 %."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie groß ist der Wachstumsfaktor q bei einem Zinssatz von 1 %?"
+   },
+   "o": {
+    "wert": 1.01
+   },
+   "c": "1 + 1.0 / 100",
+   "w": "q = 1 + 1/100 = 1 + 0,01 = 1,01."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kapital wird jedes Jahr mit dem Faktor q = 1,03 multipliziert. Wie hoch ist der Zinssatz in %?"
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "%"
+   },
+   "c": "(1.03 - 1) * 100",
+   "w": "q − 1 = 0,03 = 3 %."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Auto verliert jedes Jahr 12 % seines Werts. Mit welchem Faktor wird der Wert jedes Jahr multipliziert?"
+   },
+   "o": {
+    "wert": 0.88
+   },
+   "c": "1 - 12 / 100",
+   "w": "Es bleiben 88 %: q = 1 − 0,12 = 0,88."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "3 000 € werden 6 Jahre mit 6 % Zinseszins angelegt. Wie hoch ist das Endkapital? (auf Cent)"
+   },
+   "o": {
+    "wert": 4255.56,
+    "einheit": "€",
+    "toleranz": 0.01
+   },
+   "c": "round(3000 * (1 + 6.0 / 100) ** 6, 2)",
+   "w": "Kₙ = 3 000 € · 1,06⁶ ≈ 4 255,56 €.",
+   "h": "Kₙ = K₀ · qⁿ – den Faktor potenzieren."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "8 000 € werden 6 Jahre mit 6 % Zinseszins angelegt. Wie hoch ist das Endkapital? (auf Cent)"
+   },
+   "o": {
+    "wert": 11348.15,
+    "einheit": "€",
+    "toleranz": 0.01
+   },
+   "c": "round(8000 * (1 + 6.0 / 100) ** 6, 2)",
+   "w": "Kₙ = 8 000 € · 1,06⁶ ≈ 11 348,15 €.",
+   "h": "Kₙ = K₀ · qⁿ – den Faktor potenzieren."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "8 000 € werden 6 Jahre mit 1 % Zinseszins angelegt. Wie hoch ist das Endkapital? (auf Cent)"
+   },
+   "o": {
+    "wert": 8492.16,
+    "einheit": "€",
+    "toleranz": 0.01
+   },
+   "c": "round(8000 * (1 + 1.0 / 100) ** 6, 2)",
+   "w": "Kₙ = 8 000 € · 1,01⁶ ≈ 8 492,16 €.",
+   "h": "Kₙ = K₀ · qⁿ – den Faktor potenzieren."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "10 000 € werden 6 Jahre mit 5 % Zinseszins angelegt. Wie hoch ist das Endkapital? (auf Cent)"
+   },
+   "o": {
+    "wert": 13400.96,
+    "einheit": "€",
+    "toleranz": 0.01
+   },
+   "c": "round(10000 * (1 + 5.0 / 100) ** 6, 2)",
+   "w": "Kₙ = 10 000 € · 1,05⁶ ≈ 13 400,96 €.",
+   "h": "Kₙ = K₀ · qⁿ – den Faktor potenzieren."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "5 000 € werden 4 Jahre mit 1,5 % Zinseszins angelegt. Wie hoch ist das Endkapital? (auf Cent)"
+   },
+   "o": {
+    "wert": 5306.82,
+    "einheit": "€",
+    "toleranz": 0.01
+   },
+   "c": "round(5000 * (1 + 1.5 / 100) ** 4, 2)",
+   "w": "Kₙ = 5 000 € · 1,015⁴ ≈ 5 306,82 €.",
+   "h": "Kₙ = K₀ · qⁿ – den Faktor potenzieren."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "3 000 € werden 3 Jahre mit 4 % Zinseszins angelegt. Wie hoch ist das Endkapital? (auf Cent)"
+   },
+   "o": {
+    "wert": 3374.59,
+    "einheit": "€",
+    "toleranz": 0.01
+   },
+   "c": "round(3000 * (1 + 4.0 / 100) ** 3, 2)",
+   "w": "Kₙ = 3 000 € · 1,04³ ≈ 3 374,59 €.",
+   "h": "Kₙ = K₀ · qⁿ – den Faktor potenzieren."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "2 500 € werden 6 Jahre mit 5 % Zinseszins angelegt. Wie hoch ist das Endkapital? (auf Cent)"
+   },
+   "o": {
+    "wert": 3350.24,
+    "einheit": "€",
+    "toleranz": 0.01
+   },
+   "c": "round(2500 * (1 + 5.0 / 100) ** 6, 2)",
+   "w": "Kₙ = 2 500 € · 1,05⁶ ≈ 3 350,24 €.",
+   "h": "Kₙ = K₀ · qⁿ – den Faktor potenzieren."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "5 000 € werden 8 Jahre mit 1,5 % Zinseszins angelegt. Wie viel Zinsen bringt das insgesamt? (auf Cent)"
+   },
+   "o": {
+    "wert": 632.46,
+    "einheit": "€",
+    "toleranz": 0.01
+   },
+   "c": "round(5000 * (1 + 1.5 / 100) ** 8 - 5000, 2)",
+   "w": "Endkapital ≈ 5 632,46 €. Zinsen: 5 632,46 € − 5 000 € = 632,46 €.",
+   "h": "Endkapital minus Anfangskapital."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "3 000 € werden 13 Jahre mit 10 % Zinseszins angelegt. Wie hoch ist das Endkapital? (auf Cent)"
+   },
+   "o": {
+    "wert": 10356.81,
+    "einheit": "€",
+    "toleranz": 0.01
+   },
+   "c": "round(3000 * (1 + 10.0 / 100) ** 13, 2)",
+   "w": "Kₙ = 3 000 € · 1,1¹³ ≈ 10 356,81 €.",
+   "h": "Kₙ = K₀ · qⁿ – den Faktor potenzieren."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "10 000 € werden 6 Jahre mit 1 % Zinseszins angelegt. Wie viel Zinsen bringt das insgesamt? (auf Cent)"
+   },
+   "o": {
+    "wert": 615.2,
+    "einheit": "€",
+    "toleranz": 0.01
+   },
+   "c": "round(10000 * (1 + 1.0 / 100) ** 6 - 10000, 2)",
+   "w": "Endkapital ≈ 10 615,20 €. Zinsen: 10 615,20 € − 10 000 € = 615,20 €.",
+   "h": "Endkapital minus Anfangskapital."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "2 000 € werden 10 Jahre mit 6 % Zinseszins angelegt. Wie viel Zinsen bringt das insgesamt? (auf Cent)"
+   },
+   "o": {
+    "wert": 1581.7,
+    "einheit": "€",
+    "toleranz": 0.01
+   },
+   "c": "round(2000 * (1 + 6.0 / 100) ** 10 - 2000, 2)",
+   "w": "Endkapital ≈ 3 581,70 €. Zinsen: 3 581,70 € − 2 000 € = 1 581,70 €.",
+   "h": "Endkapital minus Anfangskapital."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "3 000 € werden 7 Jahre mit 3 % Zinseszins angelegt. Wie viel Zinsen bringt das insgesamt? (auf Cent)"
+   },
+   "o": {
+    "wert": 689.62,
+    "einheit": "€",
+    "toleranz": 0.01
+   },
+   "c": "round(3000 * (1 + 3.0 / 100) ** 7 - 3000, 2)",
+   "w": "Endkapital ≈ 3 689,62 €. Zinsen: 3 689,62 € − 3 000 € = 689,62 €.",
+   "h": "Endkapital minus Anfangskapital."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "5 000 € werden 12 Jahre mit 3 % Zinseszins angelegt. Wie viel Zinsen bringt das insgesamt? (auf Cent)"
+   },
+   "o": {
+    "wert": 2128.8,
+    "einheit": "€",
+    "toleranz": 0.01
+   },
+   "c": "round(5000 * (1 + 3.0 / 100) ** 12 - 5000, 2)",
+   "w": "Endkapital ≈ 7 128,80 €. Zinsen: 7 128,80 € − 5 000 € = 2 128,80 €.",
+   "h": "Endkapital minus Anfangskapital."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "4 000 € werden 5 Jahre mit 8 % Zinseszins angelegt. Wie hoch ist das Endkapital? (auf Cent)"
+   },
+   "o": {
+    "wert": 5877.31,
+    "einheit": "€",
+    "toleranz": 0.01
+   },
+   "c": "round(4000 * (1 + 8.0 / 100) ** 5, 2)",
+   "w": "Kₙ = 4 000 € · 1,08⁵ ≈ 5 877,31 €.",
+   "h": "Kₙ = K₀ · qⁿ – den Faktor potenzieren."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Auto kostet neu 12 000 € und verliert jedes Jahr 10 % seines Werts. Wie viel ist es nach 6 Jahren noch wert? (auf Cent)"
+   },
+   "o": {
+    "wert": 6377.29,
+    "einheit": "€",
+    "toleranz": 0.01
+   },
+   "c": "round(12000 * 0.9 ** 6, 2)",
+   "w": "W = 12 000 € · 0,9⁶ ≈ 6 377,29 €.",
+   "h": "Abnahme: Faktor q = 1 − p/100."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "1 000 € werden 10 Jahre mit 2 % Zinseszins angelegt. Wie hoch ist das Endkapital? (auf Cent)"
+   },
+   "o": {
+    "wert": 1218.99,
+    "einheit": "€",
+    "toleranz": 0.01
+   },
+   "c": "round(1000 * (1 + 2.0 / 100) ** 10, 2)",
+   "w": "Kₙ = 1 000 € · 1,02¹⁰ ≈ 1 218,99 €.",
+   "h": "Kₙ = K₀ · qⁿ – den Faktor potenzieren."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Auto kostet neu 30 000 € und verliert jedes Jahr 25 % seines Werts. Wie viel ist es nach 3 Jahren noch wert? (auf Cent)"
+   },
+   "o": {
+    "wert": 12656.25,
+    "einheit": "€",
+    "toleranz": 0.01
+   },
+   "c": "round(30000 * 0.75 ** 3, 2)",
+   "w": "W = 30 000 € · 0,75³ ≈ 12 656,25 €.",
+   "h": "Abnahme: Faktor q = 1 − p/100."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "1 000 € werden 6 Jahre mit 3 % Zinseszins angelegt. Wie hoch ist das Endkapital? (auf Cent)"
+   },
+   "o": {
+    "wert": 1194.05,
+    "einheit": "€",
+    "toleranz": 0.01
+   },
+   "c": "round(1000 * (1 + 3.0 / 100) ** 6, 2)",
+   "w": "Kₙ = 1 000 € · 1,03⁶ ≈ 1 194,05 €.",
+   "h": "Kₙ = K₀ · qⁿ – den Faktor potenzieren."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "4 000 € werden 10 Jahre mit 5 % Zinseszins angelegt. Wie viel Zinsen bringt das insgesamt? (auf Cent)"
+   },
+   "o": {
+    "wert": 2515.58,
+    "einheit": "€",
+    "toleranz": 0.01
+   },
+   "c": "round(4000 * (1 + 5.0 / 100) ** 10 - 4000, 2)",
+   "w": "Endkapital ≈ 6 515,58 €. Zinsen: 6 515,58 € − 4 000 € = 2 515,58 €."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "2 000 € werden 11 Jahre mit 10 % Zinseszins angelegt. Wie viel Zinsen bringt das insgesamt? (auf Cent)"
+   },
+   "o": {
+    "wert": 3706.23,
+    "einheit": "€",
+    "toleranz": 0.01
+   },
+   "c": "round(2000 * (1 + 10.0 / 100) ** 11 - 2000, 2)",
+   "w": "Endkapital ≈ 5 706,23 €. Zinsen: 5 706,23 € − 2 000 € = 3 706,23 €."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "3 000 € werden 12 Jahre mit 5 % Zinseszins angelegt. Wie viel Zinsen bringt das insgesamt? (auf Cent)"
+   },
+   "o": {
+    "wert": 2387.57,
+    "einheit": "€",
+    "toleranz": 0.01
+   },
+   "c": "round(3000 * (1 + 5.0 / 100) ** 12 - 3000, 2)",
+   "w": "Endkapital ≈ 5 387,57 €. Zinsen: 5 387,57 € − 3 000 € = 2 387,57 €."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "1 500 € werden 14 Jahre mit 1,5 % Zinseszins angelegt. Wie viel Zinsen bringt das insgesamt? (auf Cent)"
+   },
+   "o": {
+    "wert": 347.63,
+    "einheit": "€",
+    "toleranz": 0.01
+   },
+   "c": "round(1500 * (1 + 1.5 / 100) ** 14 - 1500, 2)",
+   "w": "Endkapital ≈ 1 847,63 €. Zinsen: 1 847,63 € − 1 500 € = 347,63 €."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "4 000 € werden 15 Jahre mit 4 % Zinseszins angelegt. Wie hoch ist das Endkapital? (auf Cent)"
+   },
+   "o": {
+    "wert": 7203.77,
+    "einheit": "€",
+    "toleranz": 0.01
+   },
+   "c": "round(4000 * (1 + 4.0 / 100) ** 15, 2)",
+   "w": "Kₙ = 4 000 € · 1,04¹⁵ ≈ 7 203,77 €."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "2 000 € werden 9 Jahre mit 2,5 % Zinseszins angelegt. Wie hoch ist das Endkapital? (auf Cent)"
+   },
+   "o": {
+    "wert": 2497.73,
+    "einheit": "€",
+    "toleranz": 0.01
+   },
+   "c": "round(2000 * (1 + 2.5 / 100) ** 9, 2)",
+   "w": "Kₙ = 2 000 € · 1,025⁹ ≈ 2 497,73 €."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "1 000 € werden 6 Jahre mit 1,5 % Zinseszins angelegt. Wie viel Zinsen bringt das insgesamt? (auf Cent)"
+   },
+   "o": {
+    "wert": 93.44,
+    "einheit": "€",
+    "toleranz": 0.01
+   },
+   "c": "round(1000 * (1 + 1.5 / 100) ** 6 - 1000, 2)",
+   "w": "Endkapital ≈ 1 093,44 €. Zinsen: 1 093,44 € − 1 000 € = 93,44 €."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "3 000 € werden 14 Jahre mit 6 % Zinseszins angelegt. Wie hoch ist das Endkapital? (auf Cent)"
+   },
+   "o": {
+    "wert": 6782.71,
+    "einheit": "€",
+    "toleranz": 0.01
+   },
+   "c": "round(3000 * (1 + 6.0 / 100) ** 14, 2)",
+   "w": "Kₙ = 3 000 € · 1,06¹⁴ ≈ 6 782,71 €."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "5 000 € werden 10 Jahre mit 3 % Zinseszins angelegt. Wie hoch ist das Endkapital? (auf Cent)"
+   },
+   "o": {
+    "wert": 6719.58,
+    "einheit": "€",
+    "toleranz": 0.01
+   },
+   "c": "round(5000 * (1 + 3.0 / 100) ** 10, 2)",
+   "w": "Kₙ = 5 000 € · 1,03¹⁰ ≈ 6 719,58 €."
+  },
+  {
+   "l": "formel",
+   "t": "formel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "1 500 € werden 6 Jahre mit 1,5 % Zinseszins angelegt. Wie hoch ist das Endkapital? (auf Cent)"
+   },
+   "o": {
+    "wert": 1640.16,
+    "einheit": "€",
+    "toleranz": 0.01
+   },
+   "c": "round(1500 * (1 + 1.5 / 100) ** 6, 2)",
+   "w": "Kₙ = 1 500 € · 1,015⁶ ≈ 1 640,16 €."
+  },
+  {
+   "l": "rueck",
+   "t": "rueck",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Nach einem Jahr mit 2 % Zinsen sind 1 020 € auf dem Konto. Wie viel wurde eingezahlt?"
+   },
+   "o": {
+    "wert": 1000,
+    "einheit": "€"
+   },
+   "c": "1020.0 / (1 + 2.0 / 100)",
+   "w": "K₀ = 1 020 € : 1,02 = 1 000 €.",
+   "h": "Rückwärts: durch q teilen."
+  },
+  {
+   "l": "rueck",
+   "t": "rueck",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Nach einem Jahr mit 3 % Zinsen sind 2 575 € auf dem Konto. Wie viel wurde eingezahlt?"
+   },
+   "o": {
+    "wert": 2500,
+    "einheit": "€"
+   },
+   "c": "2575.0 / (1 + 3.0 / 100)",
+   "w": "K₀ = 2 575 € : 1,03 = 2 500 €.",
+   "h": "Rückwärts: durch q teilen."
+  },
+  {
+   "l": "rueck",
+   "t": "rueck",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Nach einem Jahr mit 10 % Zinsen sind 1 100 € auf dem Konto. Wie viel wurde eingezahlt?"
+   },
+   "o": {
+    "wert": 1000,
+    "einheit": "€"
+   },
+   "c": "1100.0 / (1 + 10.0 / 100)",
+   "w": "K₀ = 1 100 € : 1,1 = 1 000 €.",
+   "h": "Rückwärts: durch q teilen."
+  },
+  {
+   "l": "rueck",
+   "t": "rueck",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Nach einem Jahr mit 5 % Zinsen sind 4 200 € auf dem Konto. Wie viel wurde eingezahlt?"
+   },
+   "o": {
+    "wert": 4000,
+    "einheit": "€"
+   },
+   "c": "4200.0 / (1 + 5.0 / 100)",
+   "w": "K₀ = 4 200 € : 1,05 = 4 000 €.",
+   "h": "Rückwärts: durch q teilen."
+  },
+  {
+   "l": "rueck",
+   "t": "rueck",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Nach einem Jahr mit 2 % Zinsen sind 2 040 € auf dem Konto. Wie viel wurde eingezahlt?"
+   },
+   "o": {
+    "wert": 2000,
+    "einheit": "€"
+   },
+   "c": "2040.0 / (1 + 2.0 / 100)",
+   "w": "K₀ = 2 040 € : 1,02 = 2 000 €.",
+   "h": "Rückwärts: durch q teilen."
+  },
+  {
+   "l": "rueck",
+   "t": "rueck",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Nach einem Jahr mit 4 % Zinsen sind 8 320 € auf dem Konto. Wie viel wurde eingezahlt?"
+   },
+   "o": {
+    "wert": 8000,
+    "einheit": "€"
+   },
+   "c": "8320.0 / (1 + 4.0 / 100)",
+   "w": "K₀ = 8 320 € : 1,04 = 8 000 €.",
+   "h": "Rückwärts: durch q teilen."
+  },
+  {
+   "l": "rueck",
+   "t": "rueck",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus 8 000 € werden in einem Jahr 8 320 €. Wie hoch ist der Zinssatz in %?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "%"
+   },
+   "c": "(8320.0 / 8000 - 1) * 100",
+   "w": "q = 8 320 € : 8 000 € = 1,04, also 4 %.",
+   "h": "Neues Kapital durch altes Kapital ergibt q."
+  },
+  {
+   "l": "rueck",
+   "t": "rueck",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Nach 2 Jahren mit 10 % Zinseszins sind 2 420 € auf dem Konto. Wie hoch war das Anfangskapital?"
+   },
+   "o": {
+    "wert": 2000,
+    "einheit": "€"
+   },
+   "c": "2420.0 / (1 + 10.0 / 100) ** 2",
+   "w": "K₀ = 2 420 € : 1,1² = 2 420 € : 1,21 = 2 000 €.",
+   "h": "Durch qⁿ teilen."
+  },
+  {
+   "l": "rueck",
+   "t": "rueck",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Nach einem Jahr mit 2,5 % Zinsen sind 8 200 € auf dem Konto. Wie viel wurde eingezahlt?"
+   },
+   "o": {
+    "wert": 8000,
+    "einheit": "€"
+   },
+   "c": "8200.0 / (1 + 2.5 / 100)",
+   "w": "K₀ = 8 200 € : 1,025 = 8 000 €.",
+   "h": "Rückwärts: durch q teilen."
+  },
+  {
+   "l": "rueck",
+   "t": "rueck",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Nach 2 Jahren mit 3 % Zinseszins sind 3 394,88 € auf dem Konto. Wie hoch war das Anfangskapital?"
+   },
+   "o": {
+    "wert": 3200,
+    "einheit": "€"
+   },
+   "c": "3394.88 / (1 + 3.0 / 100) ** 2",
+   "w": "K₀ = 3 394,88 € : 1,03² = 3 394,88 € : 1,0609 = 3 200 €.",
+   "h": "Durch qⁿ teilen."
+  },
+  {
+   "l": "rueck",
+   "t": "rueck",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Nach einem Jahr mit 2,5 % Zinsen sind 10 250 € auf dem Konto. Wie viel wurde eingezahlt?"
+   },
+   "o": {
+    "wert": 10000,
+    "einheit": "€"
+   },
+   "c": "10250.0 / (1 + 2.5 / 100)",
+   "w": "K₀ = 10 250 € : 1,025 = 10 000 €.",
+   "h": "Rückwärts: durch q teilen."
+  },
+  {
+   "l": "rueck",
+   "t": "rueck",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Nach einem Jahr mit 4 % Zinsen sind 1 664 € auf dem Konto. Wie viel wurde eingezahlt?"
+   },
+   "o": {
+    "wert": 1600,
+    "einheit": "€"
+   },
+   "c": "1664.0 / (1 + 4.0 / 100)",
+   "w": "K₀ = 1 664 € : 1,04 = 1 600 €.",
+   "h": "Rückwärts: durch q teilen."
+  },
+  {
+   "l": "rueck",
+   "t": "rueck",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Nach 2 Jahren mit 5 % Zinseszins sind 2 205 € auf dem Konto. Wie hoch war das Anfangskapital?"
+   },
+   "o": {
+    "wert": 2000,
+    "einheit": "€"
+   },
+   "c": "2205.0 / (1 + 5.0 / 100) ** 2",
+   "w": "K₀ = 2 205 € : 1,05² = 2 205 € : 1,1025 = 2 000 €.",
+   "h": "Durch qⁿ teilen."
+  },
+  {
+   "l": "rueck",
+   "t": "rueck",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Aus 8 000 € werden in zwei Jahren mit gleichem Zinssatz 8 487,20 €. Wie hoch ist der Zinssatz in %?"
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "%"
+   },
+   "c": "3.0",
+   "w": "q² = 8 487,20 € : 8 000 € = 1,0609, q = √1,0609 = 1,03, also 3 %.",
+   "h": "Erst q² bestimmen, dann die Wurzel ziehen."
+  },
+  {
+   "l": "rueck",
+   "t": "rueck",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Aus 2 000 € werden in zwei Jahren mit gleichem Zinssatz 2 420 €. Wie hoch ist der Zinssatz in %?"
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "%"
+   },
+   "c": "10.0",
+   "w": "q² = 2 420 € : 2 000 € = 1,21, q = √1,21 = 1,1, also 10 %.",
+   "h": "Erst q² bestimmen, dann die Wurzel ziehen."
+  },
+  {
+   "l": "rueck",
+   "t": "rueck",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Aus 1 000 € werden in zwei Jahren mit gleichem Zinssatz 1 210 €. Wie hoch ist der Zinssatz in %?"
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "%"
+   },
+   "c": "10.0",
+   "w": "q² = 1 210 € : 1 000 € = 1,21, q = √1,21 = 1,1, also 10 %.",
+   "h": "Erst q² bestimmen, dann die Wurzel ziehen."
+  },
+  {
+   "l": "rueck",
+   "t": "rueck",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Nach 2 Jahren mit 5 % Zinseszins sind 8 820 € auf dem Konto. Wie hoch war das Anfangskapital?"
+   },
+   "o": {
+    "wert": 8000,
+    "einheit": "€"
+   },
+   "c": "8820.0 / (1 + 5.0 / 100) ** 2",
+   "w": "K₀ = 8 820 € : 1,05² = 8 820 € : 1,1025 = 8 000 €.",
+   "h": "Durch qⁿ teilen."
+  },
+  {
+   "l": "rueck",
+   "t": "rueck",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Nach 3 Jahren mit 10 % Zinseszins sind 1 331 € auf dem Konto. Wie hoch war das Anfangskapital?"
+   },
+   "o": {
+    "wert": 1000,
+    "einheit": "€"
+   },
+   "c": "1331.0 / (1 + 10.0 / 100) ** 3",
+   "w": "K₀ = 1 331 € : 1,1³ = 1 331 € : 1,331 = 1 000 €.",
+   "h": "Durch qⁿ teilen."
+  },
+  {
+   "l": "rueck",
+   "t": "rueck",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Nach 3 Jahren mit 10 % Zinseszins sind 10 648 € auf dem Konto. Wie hoch war das Anfangskapital?"
+   },
+   "o": {
+    "wert": 8000,
+    "einheit": "€"
+   },
+   "c": "10648.0 / (1 + 10.0 / 100) ** 3",
+   "w": "K₀ = 10 648 € : 1,1³ = 10 648 € : 1,331 = 8 000 €."
+  },
+  {
+   "l": "rueck",
+   "t": "rueck",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Nach einem Jahr mit 5 % Zinsen sind 2 625 € auf dem Konto. Wie viel wurde eingezahlt?"
+   },
+   "o": {
+    "wert": 2500,
+    "einheit": "€"
+   },
+   "c": "2625.0 / (1 + 5.0 / 100)",
+   "w": "K₀ = 2 625 € : 1,05 = 2 500 €."
+  },
+  {
+   "l": "rueck",
+   "t": "rueck",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus 2 500 € werden in einem Jahr 2 575 €. Wie hoch ist der Zinssatz in %?"
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "%"
+   },
+   "c": "(2575.0 / 2500 - 1) * 100",
+   "w": "q = 2 575 € : 2 500 € = 1,03, also 3 %."
+  },
+  {
+   "l": "rueck",
+   "t": "rueck",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus 1 000 € werden in einem Jahr 1 020 €. Wie hoch ist der Zinssatz in %?"
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "%"
+   },
+   "c": "(1020.0 / 1000 - 1) * 100",
+   "w": "q = 1 020 € : 1 000 € = 1,02, also 2 %."
+  },
+  {
+   "l": "rueck",
+   "t": "rueck",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus 2 500 € werden in einem Jahr 2 750 €. Wie hoch ist der Zinssatz in %?"
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "%"
+   },
+   "c": "(2750.0 / 2500 - 1) * 100",
+   "w": "q = 2 750 € : 2 500 € = 1,1, also 10 %."
+  },
+  {
+   "l": "rueck",
+   "t": "rueck",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Nach einem Jahr mit 3 % Zinsen sind 2 060 € auf dem Konto. Wie viel wurde eingezahlt?"
+   },
+   "o": {
+    "wert": 2000,
+    "einheit": "€"
+   },
+   "c": "2060.0 / (1 + 3.0 / 100)",
+   "w": "K₀ = 2 060 € : 1,03 = 2 000 €."
+  },
+  {
+   "l": "rueck",
+   "t": "rueck",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus 3 200 € werden in einem Jahr 3 328 €. Wie hoch ist der Zinssatz in %?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "%"
+   },
+   "c": "(3328.0 / 3200 - 1) * 100",
+   "w": "q = 3 328 € : 3 200 € = 1,04, also 4 %."
+  },
+  {
+   "l": "rueck",
+   "t": "rueck",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus 4 000 € werden in einem Jahr 4 200 €. Wie hoch ist der Zinssatz in %?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "%"
+   },
+   "c": "(4200.0 / 4000 - 1) * 100",
+   "w": "q = 4 200 € : 4 000 € = 1,05, also 5 %."
+  },
+  {
+   "l": "rueck",
+   "t": "rueck",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus 3 200 € werden in einem Jahr 3 264 €. Wie hoch ist der Zinssatz in %?"
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "%"
+   },
+   "c": "(3264.0 / 3200 - 1) * 100",
+   "w": "q = 3 264 € : 3 200 € = 1,02, also 2 %."
+  },
+  {
+   "l": "rueck",
+   "t": "rueck",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Nach 3 Jahren mit 10 % Zinseszins sind 5 324 € auf dem Konto. Wie hoch war das Anfangskapital?"
+   },
+   "o": {
+    "wert": 4000,
+    "einheit": "€"
+   },
+   "c": "5324.0 / (1 + 10.0 / 100) ** 3",
+   "w": "K₀ = 5 324 € : 1,1³ = 5 324 € : 1,331 = 4 000 €."
+  },
+  {
+   "l": "vergleich",
+   "t": "vergleich",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "2 000 € werden 3 Jahre mit 5 % angelegt. Womit ist am Ende mehr Geld da: mit einfachen Zinsen oder mit Zinseszins?"
+   },
+   "a": [
+    "Bei beiden gleich viel.",
+    "Das hängt vom Anfangskapital ab.",
+    "Mit Zinseszins.",
+    "Mit einfachen Zinsen."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Einfach: 2 300 €. Zinseszins: 2 315,25 €. Beim Zinseszins werden auch die Zinsen verzinst.",
+   "h": "Werden die Zinsen im zweiten Jahr mitverzinst?"
+  },
+  {
+   "l": "vergleich",
+   "t": "vergleich",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Nach wie vielen ganzen Jahren hat sich ein Kapital bei 12 % Zinseszins erstmals mindestens verdoppelt?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "7",
+   "w": "1,12⁶ ≈ 1,974 < 2, aber 1,12⁷ ≈ 2,211 ≥ 2. Also nach 7 Jahren.",
+   "h": "Probiere: qⁿ ≥ 2. Starte z. B. bei 72 : p."
+  },
+  {
+   "l": "vergleich",
+   "t": "vergleich",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Nach wie vielen ganzen Jahren hat sich ein Kapital bei 15 % Zinseszins erstmals mindestens verdoppelt?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "5",
+   "w": "1,15⁴ ≈ 1,749 < 2, aber 1,15⁵ ≈ 2,011 ≥ 2. Also nach 5 Jahren.",
+   "h": "Probiere: qⁿ ≥ 2. Starte z. B. bei 72 : p."
+  },
+  {
+   "l": "vergleich",
+   "t": "vergleich",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "1 000 € werden 3 Jahre mit 4 % angelegt. Womit ist am Ende mehr Geld da: mit einfachen Zinsen oder mit Zinseszins?"
+   },
+   "a": [
+    "Mit einfachen Zinsen.",
+    "Das hängt vom Anfangskapital ab.",
+    "Bei beiden gleich viel.",
+    "Mit Zinseszins."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Einfach: 1 120 €. Zinseszins: 1 124,86 €. Beim Zinseszins werden auch die Zinsen verzinst.",
+   "h": "Werden die Zinsen im zweiten Jahr mitverzinst?"
+  },
+  {
+   "l": "vergleich",
+   "t": "vergleich",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Nach wie vielen ganzen Jahren hat sich ein Kapital bei 10 % Zinseszins erstmals mindestens verdoppelt?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "8",
+   "w": "1,1⁷ ≈ 1,949 < 2, aber 1,1⁸ ≈ 2,144 ≥ 2. Also nach 8 Jahren.",
+   "h": "Probiere: qⁿ ≥ 2. Starte z. B. bei 72 : p."
+  },
+  {
+   "l": "vergleich",
+   "t": "vergleich",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Nach wie vielen ganzen Jahren hat sich ein Kapital bei 20 % Zinseszins erstmals mindestens verdoppelt?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "1,2³ ≈ 1,728 < 2, aber 1,2⁴ ≈ 2,074 ≥ 2. Also nach 4 Jahren.",
+   "h": "Probiere: qⁿ ≥ 2. Starte z. B. bei 72 : p."
+  },
+  {
+   "l": "vergleich",
+   "t": "vergleich",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "10 000 € sollen 4 Jahre angelegt werden. Bank A bietet 2 % Zinseszins, Bank B 3 % Zinseszins. Welche Bank ist besser?"
+   },
+   "a": [
+    "Bank B",
+    "Beide gleich",
+    "Bank A"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "A: 10 824,32 €, B: 11 255,09 €. Höherer Zinssatz bei gleicher Laufzeit gewinnt.",
+   "h": "Vergleiche die Endbeträge (oder einfach die Zinssätze)."
+  },
+  {
+   "l": "vergleich",
+   "t": "vergleich",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Nach wie vielen ganzen Jahren hat sich ein Kapital bei 4 % Zinseszins erstmals mindestens verdoppelt?"
+   },
+   "o": {
+    "wert": 18
+   },
+   "c": "18",
+   "w": "1,04¹⁷ ≈ 1,948 < 2, aber 1,04¹⁸ ≈ 2,026 ≥ 2. Also nach 18 Jahren.",
+   "h": "Probiere: qⁿ ≥ 2. Starte z. B. bei 72 : p."
+  },
+  {
+   "l": "vergleich",
+   "t": "vergleich",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "1 000 € werden 3 Jahre mit 5 % angelegt. Womit ist am Ende mehr Geld da: mit einfachen Zinsen oder mit Zinseszins?"
+   },
+   "a": [
+    "Das hängt vom Anfangskapital ab.",
+    "Bei beiden gleich viel.",
+    "Mit einfachen Zinsen.",
+    "Mit Zinseszins."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Einfach: 1 150 €. Zinseszins: 1 157,62 €. Beim Zinseszins werden auch die Zinsen verzinst.",
+   "h": "Werden die Zinsen im zweiten Jahr mitverzinst?"
+  },
+  {
+   "l": "vergleich",
+   "t": "vergleich",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "2 000 € sollen 5 Jahre angelegt werden. Bank A bietet 2 % Zinseszins, Bank B 3 % Zinseszins. Welche Bank ist besser?"
+   },
+   "a": [
+    "Bank A",
+    "Bank B",
+    "Beide gleich"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "A: 2 208,16 €, B: 2 318,55 €. Höherer Zinssatz bei gleicher Laufzeit gewinnt.",
+   "h": "Vergleiche die Endbeträge (oder einfach die Zinssätze)."
+  },
+  {
+   "l": "vergleich",
+   "t": "vergleich",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "5 000 € werden 3 Jahre mit 4 % angelegt. Womit ist am Ende mehr Geld da: mit einfachen Zinsen oder mit Zinseszins?"
+   },
+   "a": [
+    "Mit Zinseszins.",
+    "Mit einfachen Zinsen.",
+    "Bei beiden gleich viel.",
+    "Das hängt vom Anfangskapital ab."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Einfach: 5 600 €. Zinseszins: 5 624,32 €. Beim Zinseszins werden auch die Zinsen verzinst.",
+   "h": "Werden die Zinsen im zweiten Jahr mitverzinst?"
+  },
+  {
+   "l": "vergleich",
+   "t": "vergleich",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "10 000 € sollen 4 Jahre angelegt werden. Bank A bietet 2 % Zinseszins, Bank B 4 % Zinseszins. Welche Bank ist besser?"
+   },
+   "a": [
+    "Bank A",
+    "Beide gleich",
+    "Bank B"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "A: 10 824,32 €, B: 11 698,59 €. Höherer Zinssatz bei gleicher Laufzeit gewinnt.",
+   "h": "Vergleiche die Endbeträge (oder einfach die Zinssätze)."
+  },
+  {
+   "l": "vergleich",
+   "t": "vergleich",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "10 000 € für 5 Jahre. Angebot A: 2 % Zinseszins und ein Bonus von 150 €, der am Ende ausgezahlt wird. Angebot B: 3 % Zinseszins ohne Bonus. Was bringt mehr?"
+   },
+   "a": [
+    "Angebot A",
+    "Beide gleich",
+    "Angebot B"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "A: 11 040,81 € + 150 € = 11 190,81 €. B: 11 592,74 €. Mehr bringt B.",
+   "h": "Rechne beide Endbeträge aus – der Bonus zählt einmal."
+  },
+  {
+   "l": "vergleich",
+   "t": "vergleich",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Faustregel: Ein Kapital verdoppelt sich bei p % Zinseszins nach etwa 72 : p Jahren. Nach etwa wie vielen Jahren bei 6 %?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "72 / 6",
+   "w": "72 : 6 = 12 Jahre (Genau: 1,06ⁿ ≥ 2 bei n = 12).",
+   "h": "Teile 72 durch den Zinssatz."
+  },
+  {
+   "l": "vergleich",
+   "t": "vergleich",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Faustregel: Ein Kapital verdoppelt sich bei p % Zinseszins nach etwa 72 : p Jahren. Nach etwa wie vielen Jahren bei 12 %?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "72 / 12",
+   "w": "72 : 12 = 6 Jahre (Genau: 1,12ⁿ ≥ 2 bei n = 7).",
+   "h": "Teile 72 durch den Zinssatz."
+  },
+  {
+   "l": "vergleich",
+   "t": "vergleich",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "2 000 € für 3 Jahre. Angebot A: 2 % Zinseszins und ein Bonus von 200 €, der am Ende ausgezahlt wird. Angebot B: 3 % Zinseszins ohne Bonus. Was bringt mehr?"
+   },
+   "a": [
+    "Beide gleich",
+    "Angebot A",
+    "Angebot B"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "A: 2 122,42 € + 200 € = 2 322,42 €. B: 2 185,45 €. Mehr bringt A.",
+   "h": "Rechne beide Endbeträge aus – der Bonus zählt einmal."
+  },
+  {
+   "l": "vergleich",
+   "t": "vergleich",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "2 000 € für 3 Jahre. Angebot A: 2 % Zinseszins und ein Bonus von 150 €, der am Ende ausgezahlt wird. Angebot B: 3 % Zinseszins ohne Bonus. Was bringt mehr?"
+   },
+   "a": [
+    "Beide gleich",
+    "Angebot A",
+    "Angebot B"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "A: 2 122,42 € + 150 € = 2 272,42 €. B: 2 185,45 €. Mehr bringt A.",
+   "h": "Rechne beide Endbeträge aus – der Bonus zählt einmal."
+  },
+  {
+   "l": "vergleich",
+   "t": "vergleich",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "2 000 € für 5 Jahre. Angebot A: 2 % Zinseszins und ein Bonus von 150 €, der am Ende ausgezahlt wird. Angebot B: 3 % Zinseszins ohne Bonus. Was bringt mehr?"
+   },
+   "a": [
+    "Angebot A",
+    "Beide gleich",
+    "Angebot B"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "A: 2 208,16 € + 150 € = 2 358,16 €. B: 2 318,55 €. Mehr bringt A.",
+   "h": "Rechne beide Endbeträge aus – der Bonus zählt einmal."
+  },
+  {
+   "l": "vergleich",
+   "t": "vergleich",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Nach wie vielen ganzen Jahren hat sich ein Kapital bei 6 % Zinseszins erstmals mindestens verdoppelt?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "12",
+   "w": "1,06¹¹ ≈ 1,898 < 2, aber 1,06¹² ≈ 2,012 ≥ 2. Also nach 12 Jahren."
+  },
+  {
+   "l": "vergleich",
+   "t": "vergleich",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Nach wie vielen ganzen Jahren hat sich ein Kapital bei 8 % Zinseszins erstmals mindestens verdoppelt?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "10",
+   "w": "1,08⁹ ≈ 1,999 < 2, aber 1,08¹⁰ ≈ 2,159 ≥ 2. Also nach 10 Jahren."
+  },
+  {
+   "l": "vergleich",
+   "t": "vergleich",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "5 000 € sollen 5 Jahre angelegt werden. Bank A bietet 4 % Zinseszins, Bank B 2 % Zinseszins. Welche Bank ist besser?"
+   },
+   "a": [
+    "Beide gleich",
+    "Bank A",
+    "Bank B"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "A: 6 083,26 €, B: 5 520,40 €. Höherer Zinssatz bei gleicher Laufzeit gewinnt."
+  },
+  {
+   "l": "vergleich",
+   "t": "vergleich",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "5 000 € werden 3 Jahre mit 3 % angelegt. Womit ist am Ende mehr Geld da: mit einfachen Zinsen oder mit Zinseszins?"
+   },
+   "a": [
+    "Bei beiden gleich viel.",
+    "Mit einfachen Zinsen.",
+    "Das hängt vom Anfangskapital ab.",
+    "Mit Zinseszins."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Einfach: 5 450 €. Zinseszins: 5 463,64 €. Beim Zinseszins werden auch die Zinsen verzinst."
+  },
+  {
+   "l": "vergleich",
+   "t": "vergleich",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "2 000 € werden 3 Jahre mit 4 % angelegt. Womit ist am Ende mehr Geld da: mit einfachen Zinsen oder mit Zinseszins?"
+   },
+   "a": [
+    "Bei beiden gleich viel.",
+    "Mit einfachen Zinsen.",
+    "Das hängt vom Anfangskapital ab.",
+    "Mit Zinseszins."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Einfach: 2 240 €. Zinseszins: 2 249,73 €. Beim Zinseszins werden auch die Zinsen verzinst."
+  },
+  {
+   "l": "vergleich",
+   "t": "vergleich",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Nach wie vielen ganzen Jahren hat sich ein Kapital bei 5 % Zinseszins erstmals mindestens verdoppelt?"
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "15",
+   "w": "1,05¹⁴ ≈ 1,98 < 2, aber 1,05¹⁵ ≈ 2,079 ≥ 2. Also nach 15 Jahren."
+  },
+  {
+   "l": "vergleich",
+   "t": "vergleich",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "2 000 € werden 2 Jahre mit 4 % angelegt. Womit ist am Ende mehr Geld da: mit einfachen Zinsen oder mit Zinseszins?"
+   },
+   "a": [
+    "Das hängt vom Anfangskapital ab.",
+    "Bei beiden gleich viel.",
+    "Mit einfachen Zinsen.",
+    "Mit Zinseszins."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Einfach: 2 160 €. Zinseszins: 2 163,20 €. Beim Zinseszins werden auch die Zinsen verzinst."
+  },
+  {
+   "l": "vergleich",
+   "t": "vergleich",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "5 000 € sollen 3 Jahre angelegt werden. Bank A bietet 3 % Zinseszins, Bank B 2 % Zinseszins. Welche Bank ist besser?"
+   },
+   "a": [
+    "Beide gleich",
+    "Bank A",
+    "Bank B"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "A: 5 463,64 €, B: 5 306,04 €. Höherer Zinssatz bei gleicher Laufzeit gewinnt."
+  },
+  {
+   "l": "vergleich",
+   "t": "vergleich",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "5 000 € sollen 4 Jahre angelegt werden. Bank A bietet 2 % Zinseszins, Bank B 4 % Zinseszins. Welche Bank ist besser?"
+   },
+   "a": [
+    "Bank B",
+    "Beide gleich",
+    "Bank A"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "A: 5 412,16 €, B: 5 849,29 €. Höherer Zinssatz bei gleicher Laufzeit gewinnt."
+  },
+  {
+   "l": "vergleich",
+   "t": "vergleich",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "5 000 € sollen 3 Jahre angelegt werden. Bank A bietet 2 % Zinseszins, Bank B 4 % Zinseszins. Welche Bank ist besser?"
+   },
+   "a": [
+    "Beide gleich",
+    "Bank A",
+    "Bank B"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "A: 5 306,04 €, B: 5 624,32 €. Höherer Zinssatz bei gleicher Laufzeit gewinnt."
+  }
+ ],
+ "offen": [
+  "Ohne Lehrplan-Zuordnung; Niveau Klasse 9/10 angenommen (Potenzen mit Taschenrechner, Rundung auf Cent mit Toleranz 0,01). Logarithmen zur Laufzeit-Berechnung nicht verwendet – Verdopplungszeit durch Probieren.",
+  "Feld klasse: {\"zusatz\": 10} statt {} (Prüfskript verlangt einen Eintrag) – siehe FRAGE im Postfach.",
+  "Überschneidung möglich mit bruch.prozent / Wachstum (Gymnasium Klasse 7 bzw. funktionen.exponential_log Klasse 10); hier eigenständig mit Zinsen."
+ ]
+}

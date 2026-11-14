@@ -17,7 +17,7 @@ ETAPPEN = [
      'schritte': ['3x + 5 < 17   | − 5', '3x < 12   | : 3', '⟦x < 4⟧: Alle Zahlen kleiner als 4 sind Lösungen.'],
      'probe': 'x = 0: 3 · 0 + 5 = 5 < 17 ✓  x = 4: 17 < 17 ✗ – 4 gehört nicht dazu.',
      'fehler': 'Aus 3x + 5 < 17 wird nicht 3x < 22: Die 5 wird ⟦subtrahiert⟧, nicht addiert. Richtig ist 3x < 12.',
-     'bild': {'typ': 'zahlenstrahl', 'start': -2, 'ende': 8, 'abschnitte': 10, 'beschriftet': 'alle'},
+     'bild': {'typ': 'zahlenstrahl', 'start': -2, 'ende': 8, 'abschnitte': 10, 'beschriftet': 'anfang_ende'},
      '_verbot': ['3x + 5 < 17']},
     {'lernziel': 'umdrehen', 'titel': 'Mal negative Zahl: Zeichen umdrehen',
      'regel': 'Multiplizierst oder dividierst du beide Seiten mit einer ⟦negativen⟧ Zahl, musst du das Ungleichheitszeichen ⟦umdrehen⟧: aus < wird >, aus ≤ wird ≥.',

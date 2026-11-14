@@ -1,0 +1,4872 @@
+{
+ "thema_schluessel": "geometrie.ortslinien",
+ "thema_id": 73,
+ "block_id": 79,
+ "klasse": {
+  "gym_by": 5,
+  "rs_by": 7
+ },
+ "autor": "Claude (Opus), Paket Klasse 5 Rest",
+ "inhalt": {
+  "ziel": "Punkte bestimmen, die Abstandsbedingungen zu Punkten oder Geraden erfüllen, und Bedingungen verknüpfen – mit der Grundeigenschaft der Kreislinie.",
+  "merke": [
+   "Abstand r zu M: Kreislinie. Höchstens r: Kreisfläche.",
+   "Abstand d zu g: zwei Parallelen. Höchstens d: Streifen.",
+   "Zwei Bedingungen mit „und“: Schnittpunkte der Ortslinien.",
+   "Kreise um A und B: [AB] > r₁ + r₂ keiner, = genau einer, sonst meist zwei."
+  ],
+  "abschnitte": [
+   {
+    "titel": "Einzelne Bedingungen",
+    "lernziele": [
+     "kreislinie",
+     "parallelen"
+    ]
+   },
+   {
+    "titel": "Bedingungen verknüpfen",
+    "lernziele": [
+     "zwei_kreise",
+     "verknuepfen"
+    ]
+   },
+   {
+    "titel": "Anwenden und verstehen",
+    "lernziele": [
+     "sachsituationen",
+     "verstehen"
+    ]
+   }
+  ],
+  "etappen": [
+   {
+    "lernziel": "kreislinie",
+    "titel": "Punkte mit festem Abstand zu M",
+    "regel": "Alle Punkte, die von einem Punkt M den ⟦Abstand r⟧ haben, liegen auf der ⟦Kreislinie⟧ um M mit Radius r. Punkte mit ⟦weniger als r⟧ Abstand liegen ⟦innerhalb⟧, Punkte mit mehr als r ⟦außerhalb⟧. „Höchstens r“ bedeutet: Kreisfläche mit Rand.",
+    "schritte": [
+     "Kreis um M(0 | 0) mit r = 3. Prüfe P(2 | 0): P ist 2 von M entfernt.",
+     "2 < 3, also liegt P ⟦innerhalb⟧ des Kreises."
+    ],
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "P": [
+       2,
+       0
+      ],
+      "_R": [
+       0,
+       3
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 3
+      }
+     ],
+     "linien": [
+      [
+       "M",
+       "_R",
+       "r = 3"
+      ]
+     ]
+    },
+    "fehler": "Einen Punkt mit Abstand 3 zu M als „innerhalb“ zu bezeichnen ist falsch, wenn r = 3 ist: Er liegt genau ⟦auf⟧ der Kreislinie."
+   },
+   {
+    "lernziel": "parallelen",
+    "titel": "Punkte mit festem Abstand zu g",
+    "regel": "Alle Punkte, die von einer Geraden g den ⟦Abstand d⟧ haben, liegen auf ⟦zwei Parallelen⟧ zu g – eine auf jeder Seite, jeweils im Abstand d. Punkte mit ⟦höchstens d⟧ Abstand bilden einen ⟦Streifen⟧ zwischen diesen Parallelen.",
+    "schritte": [
+     "g ist die waagrechte Gerade mit y = 1. Gesucht: alle Punkte mit Abstand 2 von g.",
+     "Sie liegen auf den Parallelen ⟦y = −1⟧ und ⟦y = 3⟧."
+    ],
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -2,
+      4
+     ],
+     "waagrecht": [
+      1,
+      -1,
+      3
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 3,
+       "name": "P"
+      }
+     ],
+     "strecken": [
+      [
+       0,
+       1,
+       0,
+       3,
+       "gestrichelt"
+      ]
+     ]
+    },
+    "fehler": "Nur eine Parallele einzuzeichnen ist ein häufiger Fehler: Es gibt ⟦auf beiden Seiten⟧ von g Punkte mit Abstand d."
+   },
+   {
+    "lernziel": "zwei_kreise",
+    "titel": "Abstand zu zwei Punkten",
+    "regel": "Gesucht sind Punkte mit Abstand r₁ von A ⟦und⟧ Abstand r₂ von B. Sie liegen auf ⟦beiden⟧ Kreislinien, also in ihren ⟦Schnittpunkten⟧. Ist [AB] länger als r₁ + r₂, gibt es keinen; ist [AB] = r₁ + r₂, genau einen; sonst (meist) zwei.",
+    "schritte": [
+     "A und B sind 8 km voneinander entfernt. Gesucht: Orte 5 km von A und 4 km von B entfernt.",
+     "5 + 4 = 9 > 8: Die Kreise schneiden sich, es gibt ⟦zwei⟧ solche Orte."
+    ],
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       8,
+       0
+      ]
+     },
+     "kreise": [
+      {
+       "m": "A",
+       "r": 5
+      },
+      {
+       "m": "B",
+       "r": 4
+      }
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       "8 km",
+       "gestrichelt"
+      ]
+     ]
+    },
+    "fehler": "Nur einen Schnittpunkt anzugeben ist meistens falsch: Zwei Kreise schneiden sich ⟦oberhalb und unterhalb⟧ der Verbindungslinie, also in ⟦zwei⟧ Punkten."
+   },
+   {
+    "lernziel": "verknuepfen",
+    "titel": "Kreis und Parallelen verknüpfen",
+    "regel": "Bei zwei Bedingungen („und“) suchst du die Punkte, die auf ⟦beiden⟧ Ortslinien liegen. Abstand r von M ⟦und⟧ Abstand d von g: Schneide den Kreis um M mit den ⟦zwei Parallelen⟧ zu g. Jede Parallele schneidet den Kreis in 2, 1 oder 0 Punkten.",
+    "schritte": [
+     "M hat von g den Abstand 5. Gesucht: Punkte mit Abstand 3 von M und Abstand 2 von g. Die Parallelen zu g haben von M den Abstand 5 − 2 = 3 und 5 + 2 = 7.",
+     "Abstand 3 = r: Tangente, 1 Punkt. Abstand 7 > r: kein Punkt. Es gibt genau ⟦einen⟧ Punkt."
+    ],
+    "fehler": "Nur die Parallele auf der Seite von M zu betrachten kann zu wenig Lösungen ergeben, wenn der Kreis über g hinausreicht. Prüfe ⟦beide⟧ Parallelen."
+   },
+   {
+    "lernziel": "sachsituationen",
+    "titel": "Abstände im Alltag",
+    "regel": "Viele Alltagsfragen sind Abstandsbedingungen: ⟦Reichweite⟧ eines Sprengers oder Funkmasts (Kreisfläche), ⟦Leine⟧ eines Hundes (Kreisfläche), ⟦Sicherheitsabstand⟧ zu einer Straße (Streifen). Übersetze die Bedingung in Kreis oder Parallelen.",
+    "schritte": [
+     "Ein Rasensprenger erreicht alles bis 4 m. Ein Beet liegt 3 m vom Sprenger entfernt.",
+     "3 m ≤ 4 m: Das Beet liegt in der Kreisfläche, es wird ⟦gegossen⟧."
+    ],
+    "fehler": "„Höchstens 4 m“ als „genau 4 m“ zu lesen ist falsch: Gemeint ist die ganze ⟦Kreisfläche⟧, nicht nur die Kreislinie."
+   },
+   {
+    "lernziel": "verstehen",
+    "titel": "Ortslinien verstehen",
+    "regel": "Prüfe Aussagen über Punktmengen mit einer ⟦Skizze⟧: Kreis um M für „Abstand zu M“, Parallelenpaar für „Abstand zu g“. Achte auf ⟦genau⟧, ⟦höchstens⟧ und ⟦mindestens⟧.",
+    "schritte": [
+     "Aussage: „Es gibt genau einen Punkt mit Abstand 2 von g.“ Skizze: zwei Parallelen im Abstand 2.",
+     "Auf jeder Parallelen liegen unendlich viele Punkte. Die Aussage ist ⟦falsch⟧."
+    ],
+    "fehler": "Ortslinien bestehen meist aus ⟦unendlich vielen⟧ Punkten. Erst durch eine zweite Bedingung bleiben oft nur einzelne Punkte übrig."
+   }
+  ],
+  "teilfaehigkeiten": [
+   {
+    "k": "kreislinie",
+    "text": "Punkte mit festem Abstand zu M",
+    "lernziele": [
+     "kreislinie"
+    ]
+   },
+   {
+    "k": "parallelen",
+    "text": "Punkte mit festem Abstand zu g",
+    "lernziele": [
+     "parallelen"
+    ]
+   },
+   {
+    "k": "zwei_kreise",
+    "text": "Abstand zu zwei Punkten",
+    "lernziele": [
+     "zwei_kreise"
+    ]
+   },
+   {
+    "k": "verknuepfen",
+    "text": "Kreis und Parallelen verknüpfen",
+    "lernziele": [
+     "verknuepfen"
+    ]
+   },
+   {
+    "k": "sachsituationen",
+    "text": "Abstände im Alltag",
+    "lernziele": [
+     "sachsituationen"
+    ]
+   },
+   {
+    "k": "verstehen",
+    "text": "Ortslinien verstehen",
+    "lernziele": [
+     "verstehen"
+    ]
+   }
+  ],
+  "bewertung": {
+   "lernziele_pflicht": [
+    "kreislinie",
+    "parallelen",
+    "zwei_kreise",
+    "verknuepfen",
+    "sachsituationen",
+    "verstehen"
+   ],
+   "lernziele_vertiefung": [],
+   "testaufgaben_je_lernziel": 1
+  },
+  "quellen": {
+   "erklaerungen": "Eigene Fassung (Claude), alle Aufgaben programmgeneriert.",
+   "begriffe": "Fachbegriffe nach LehrplanPLUS Bayern (Gymnasium, Jahrgangsstufe 5)."
+  }
+ },
+ "aufgaben": [
+  {
+   "l": "kreislinie",
+   "t": "kreislinie",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "auf der Kreislinie",
+    "innerhalb des Kreises",
+    "außerhalb des Kreises"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Ein Kreis um M hat den Radius 6 cm. Der Punkt P ist 10 cm von M entfernt. Wo liegt P?"
+   },
+   "w": "10 cm > 6 cm: P liegt außerhalb des Kreises.",
+   "h": "Vergleiche den Abstand zu M mit dem Radius."
+  },
+  {
+   "l": "kreislinie",
+   "t": "kreislinie",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "außerhalb des Kreises",
+    "innerhalb des Kreises",
+    "auf der Kreislinie"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Ein Kreis um M hat den Radius 6 cm. Der Punkt P ist 5 cm von M entfernt. Wo liegt P?"
+   },
+   "w": "5 cm < 6 cm: P liegt innerhalb des Kreises.",
+   "h": "Vergleiche den Abstand zu M mit dem Radius."
+  },
+  {
+   "l": "kreislinie",
+   "t": "kreislinie",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "außerhalb des Kreises",
+    "innerhalb des Kreises",
+    "auf der Kreislinie"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Ein Kreis um M hat den Radius 9 cm. Der Punkt P ist 2 cm von M entfernt. Wo liegt P?"
+   },
+   "w": "2 cm < 9 cm: P liegt innerhalb des Kreises.",
+   "h": "Vergleiche den Abstand zu M mit dem Radius."
+  },
+  {
+   "l": "kreislinie",
+   "t": "kreislinie",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "innerhalb des Kreises",
+    "auf der Kreislinie",
+    "außerhalb des Kreises"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Ein Kreis um M hat den Radius 8 cm. Der Punkt P ist 3 cm von M entfernt. Wo liegt P?"
+   },
+   "w": "3 cm < 8 cm: P liegt innerhalb des Kreises.",
+   "h": "Vergleiche den Abstand zu M mit dem Radius."
+  },
+  {
+   "l": "kreislinie",
+   "t": "kreislinie",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "innerhalb des Kreises",
+    "außerhalb des Kreises",
+    "auf der Kreislinie"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Ein Kreis um M hat den Radius 4 cm. Der Punkt P ist 7 cm von M entfernt. Wo liegt P?"
+   },
+   "w": "7 cm > 4 cm: P liegt außerhalb des Kreises.",
+   "h": "Vergleiche den Abstand zu M mit dem Radius."
+  },
+  {
+   "l": "kreislinie",
+   "t": "kreislinie",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "auf der Kreislinie",
+    "außerhalb des Kreises",
+    "innerhalb des Kreises"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Ein Kreis um M hat den Radius 3 cm. Der Punkt P ist 2 cm von M entfernt. Wo liegt P?"
+   },
+   "w": "2 cm < 3 cm: P liegt innerhalb des Kreises.",
+   "h": "Vergleiche den Abstand zu M mit dem Radius."
+  },
+  {
+   "l": "kreislinie",
+   "t": "kreislinie",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "innerhalb des Kreises",
+    "auf der Kreislinie",
+    "außerhalb des Kreises"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Kreis um M(−3 | −2) mit r = 4. Wo liegt der Punkt P(−3 | 4)?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       -3,
+       -2
+      ],
+      "P": [
+       -3,
+       4
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 4
+      }
+     ]
+    }
+   },
+   "w": "P liegt senkrecht neben M, Abstand 6. 6 > 4: außerhalb des Kreises.",
+   "h": "P hat mit M eine Koordinate gemeinsam. Der Abstand ist der Unterschied der anderen Koordinate."
+  },
+  {
+   "l": "kreislinie",
+   "t": "kreislinie",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "auf der Kreislinie",
+    "außerhalb des Kreises",
+    "innerhalb des Kreises"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Kreis um M(1 | 0) mit r = 2. Wo liegt der Punkt P(0 | 0)?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       1,
+       0
+      ],
+      "P": [
+       0,
+       0
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 2
+      }
+     ]
+    }
+   },
+   "w": "P liegt waagrecht neben M, Abstand 1. 1 < 2: innerhalb des Kreises.",
+   "h": "P hat mit M eine Koordinate gemeinsam. Der Abstand ist der Unterschied der anderen Koordinate."
+  },
+  {
+   "l": "kreislinie",
+   "t": "kreislinie",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "auf der Kreislinie",
+    "außerhalb des Kreises",
+    "innerhalb des Kreises"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Kreis um M(1 | −2) mit r = 5. Wo liegt der Punkt P(8 | −2)?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       1,
+       -2
+      ],
+      "P": [
+       8,
+       -2
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 5
+      }
+     ]
+    }
+   },
+   "w": "P liegt waagrecht neben M, Abstand 7. 7 > 5: außerhalb des Kreises.",
+   "h": "P hat mit M eine Koordinate gemeinsam. Der Abstand ist der Unterschied der anderen Koordinate."
+  },
+  {
+   "l": "kreislinie",
+   "t": "kreislinie",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "innerhalb des Kreises",
+    "außerhalb des Kreises",
+    "auf der Kreislinie"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Kreis um M(−1 | 3) mit r = 4. Wo liegt der Punkt P(−1 | 2)?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       -1,
+       3
+      ],
+      "P": [
+       -1,
+       2
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 4
+      }
+     ]
+    }
+   },
+   "w": "P liegt senkrecht neben M, Abstand 1. 1 < 4: innerhalb des Kreises.",
+   "h": "P hat mit M eine Koordinate gemeinsam. Der Abstand ist der Unterschied der anderen Koordinate."
+  },
+  {
+   "l": "kreislinie",
+   "t": "kreislinie",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "auf der Kreislinie",
+    "außerhalb des Kreises",
+    "innerhalb des Kreises"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Kreis um M(3 | −3) mit r = 2. Wo liegt der Punkt P(3 | 1)?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       3,
+       -3
+      ],
+      "P": [
+       3,
+       1
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 2
+      }
+     ]
+    }
+   },
+   "w": "P liegt senkrecht neben M, Abstand 4. 4 > 2: außerhalb des Kreises.",
+   "h": "P hat mit M eine Koordinate gemeinsam. Der Abstand ist der Unterschied der anderen Koordinate."
+  },
+  {
+   "l": "kreislinie",
+   "t": "kreislinie",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "außerhalb des Kreises",
+    "innerhalb des Kreises",
+    "auf der Kreislinie"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Kreis um M(−2 | −2) mit r = 2. Wo liegt der Punkt P(−2 | 2)?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       -2,
+       -2
+      ],
+      "P": [
+       -2,
+       2
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 2
+      }
+     ]
+    }
+   },
+   "w": "P liegt senkrecht neben M, Abstand 4. 4 > 2: außerhalb des Kreises.",
+   "h": "P hat mit M eine Koordinate gemeinsam. Der Abstand ist der Unterschied der anderen Koordinate."
+  },
+  {
+   "l": "kreislinie",
+   "t": "kreislinie",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Welche Punkte auf der senkrechten Linie durch M(0 | −3) haben von M den Abstand 2? Gib ihre y-Koordinaten an (kleinere zuerst).",
+    "schablone": "y = □ und y = □",
+    "hinweis": "Kleinere Zahl zuerst."
+   },
+   "o": {
+    "werte": [
+     -5,
+     -1
+    ]
+   },
+   "c": [
+    "(-3) - 2",
+    "(-3) + 2"
+   ],
+   "w": "Von M aus 2 nach unten: −5, 2 nach oben: −1.",
+   "h": "Gehe von M aus nach oben und nach unten."
+  },
+  {
+   "l": "kreislinie",
+   "t": "kreislinie",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Welche Punkte auf der senkrechten Linie durch M(2 | −1) haben von M den Abstand 6? Gib ihre y-Koordinaten an (kleinere zuerst).",
+    "schablone": "y = □ und y = □",
+    "hinweis": "Kleinere Zahl zuerst."
+   },
+   "o": {
+    "werte": [
+     -7,
+     5
+    ]
+   },
+   "c": [
+    "(-1) - 6",
+    "(-1) + 6"
+   ],
+   "w": "Von M aus 6 nach unten: −7, 6 nach oben: 5.",
+   "h": "Gehe von M aus nach oben und nach unten."
+  },
+  {
+   "l": "kreislinie",
+   "t": "kreislinie",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Punkte mit ganzzahligen Koordinaten liegen auf der waagrechten Linie durch M(1 | −3) innerhalb des Kreises um M mit r = 3 (nicht auf dem Rand)?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       1,
+       -3
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 3
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "2 * 3 - 1",
+   "w": "Innerhalb heißt Abstand kleiner als 3: x von −1 bis 3. Das sind 5 Punkte (mit M).",
+   "h": "Zähle die x-Werte, die weniger als r von M entfernt sind – M selbst zählt mit."
+  },
+  {
+   "l": "kreislinie",
+   "t": "kreislinie",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Punkte mit ganzzahligen Koordinaten liegen auf der waagrechten Linie durch M(−3 | −2) innerhalb des Kreises um M mit r = 2 (nicht auf dem Rand)?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       -3,
+       -2
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 2
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "2 * 2 - 1",
+   "w": "Innerhalb heißt Abstand kleiner als 2: x von −4 bis −2. Das sind 3 Punkte (mit M).",
+   "h": "Zähle die x-Werte, die weniger als r von M entfernt sind – M selbst zählt mit."
+  },
+  {
+   "l": "kreislinie",
+   "t": "kreislinie",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Welche Punkte auf der senkrechten Linie durch M(2 | −1) haben von M den Abstand 3? Gib ihre y-Koordinaten an (kleinere zuerst).",
+    "schablone": "y = □ und y = □",
+    "hinweis": "Kleinere Zahl zuerst."
+   },
+   "o": {
+    "werte": [
+     -4,
+     2
+    ]
+   },
+   "c": [
+    "(-1) - 3",
+    "(-1) + 3"
+   ],
+   "w": "Von M aus 3 nach unten: −4, 3 nach oben: 2.",
+   "h": "Gehe von M aus nach oben und nach unten."
+  },
+  {
+   "l": "kreislinie",
+   "t": "kreislinie",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Welche Punkte auf der senkrechten Linie durch M(0 | −3) haben von M den Abstand 6? Gib ihre y-Koordinaten an (kleinere zuerst).",
+    "schablone": "y = □ und y = □",
+    "hinweis": "Kleinere Zahl zuerst."
+   },
+   "o": {
+    "werte": [
+     -9,
+     3
+    ]
+   },
+   "c": [
+    "(-3) - 6",
+    "(-3) + 6"
+   ],
+   "w": "Von M aus 6 nach unten: −9, 6 nach oben: 3.",
+   "h": "Gehe von M aus nach oben und nach unten."
+  },
+  {
+   "l": "kreislinie",
+   "t": "kreislinie",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "auf der Kreislinie",
+    "außerhalb des Kreises",
+    "innerhalb des Kreises"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Kreis um M(3 | 1) mit r = 5. Wo liegt der Punkt P(2 | 1)?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       3,
+       1
+      ],
+      "P": [
+       2,
+       1
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 5
+      }
+     ]
+    }
+   },
+   "w": "P liegt waagrecht neben M, Abstand 1. 1 < 5: innerhalb des Kreises."
+  },
+  {
+   "l": "kreislinie",
+   "t": "kreislinie",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "innerhalb des Kreises",
+    "auf der Kreislinie",
+    "außerhalb des Kreises"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Kreis um M(1 | −2) mit r = 5. Wo liegt der Punkt P(1 | −9)?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       1,
+       -2
+      ],
+      "P": [
+       1,
+       -9
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 5
+      }
+     ]
+    }
+   },
+   "w": "P liegt senkrecht neben M, Abstand 7. 7 > 5: außerhalb des Kreises."
+  },
+  {
+   "l": "kreislinie",
+   "t": "kreislinie",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "innerhalb des Kreises",
+    "außerhalb des Kreises",
+    "auf der Kreislinie"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Kreis um M(1 | 0) mit r = 4. Wo liegt der Punkt P(1 | 3)?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       1,
+       0
+      ],
+      "P": [
+       1,
+       3
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 4
+      }
+     ]
+    }
+   },
+   "w": "P liegt senkrecht neben M, Abstand 3. 3 < 4: innerhalb des Kreises."
+  },
+  {
+   "l": "kreislinie",
+   "t": "kreislinie",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "innerhalb des Kreises",
+    "außerhalb des Kreises",
+    "auf der Kreislinie"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Kreis um M(−2 | 0) mit r = 5. Wo liegt der Punkt P(−2 | 4)?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       -2,
+       0
+      ],
+      "P": [
+       -2,
+       4
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 5
+      }
+     ]
+    }
+   },
+   "w": "P liegt senkrecht neben M, Abstand 4. 4 < 5: innerhalb des Kreises."
+  },
+  {
+   "l": "kreislinie",
+   "t": "kreislinie",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "auf der Kreislinie",
+    "innerhalb des Kreises",
+    "außerhalb des Kreises"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Kreis um M(−1 | 1) mit r = 2. Wo liegt der Punkt P(2 | 1)?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       -1,
+       1
+      ],
+      "P": [
+       2,
+       1
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 2
+      }
+     ]
+    }
+   },
+   "w": "P liegt waagrecht neben M, Abstand 3. 3 > 2: außerhalb des Kreises."
+  },
+  {
+   "l": "kreislinie",
+   "t": "kreislinie",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "außerhalb des Kreises",
+    "innerhalb des Kreises",
+    "auf der Kreislinie"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Kreis um M(1 | 3) mit r = 4. Wo liegt der Punkt P(−5 | 3)?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       1,
+       3
+      ],
+      "P": [
+       -5,
+       3
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 4
+      }
+     ]
+    }
+   },
+   "w": "P liegt waagrecht neben M, Abstand 6. 6 > 4: außerhalb des Kreises."
+  },
+  {
+   "l": "kreislinie",
+   "t": "kreislinie",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "innerhalb des Kreises",
+    "auf der Kreislinie",
+    "außerhalb des Kreises"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Kreis um M(2 | 0) mit r = 5. Wo liegt der Punkt P(2 | 7)?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       2,
+       0
+      ],
+      "P": [
+       2,
+       7
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 5
+      }
+     ]
+    }
+   },
+   "w": "P liegt senkrecht neben M, Abstand 7. 7 > 5: außerhalb des Kreises."
+  },
+  {
+   "l": "kreislinie",
+   "t": "kreislinie",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "außerhalb des Kreises",
+    "innerhalb des Kreises",
+    "auf der Kreislinie"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Kreis um M(−3 | −1) mit r = 3. Wo liegt der Punkt P(1 | −1)?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       -3,
+       -1
+      ],
+      "P": [
+       1,
+       -1
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 3
+      }
+     ]
+    }
+   },
+   "w": "P liegt waagrecht neben M, Abstand 4. 4 > 3: außerhalb des Kreises."
+  },
+  {
+   "l": "kreislinie",
+   "t": "kreislinie",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "außerhalb des Kreises",
+    "innerhalb des Kreises",
+    "auf der Kreislinie"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Kreis um M(−3 | −3) mit r = 5. Wo liegt der Punkt P(4 | −3)?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       -3,
+       -3
+      ],
+      "P": [
+       4,
+       -3
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 5
+      }
+     ]
+    }
+   },
+   "w": "P liegt waagrecht neben M, Abstand 7. 7 > 5: außerhalb des Kreises."
+  },
+  {
+   "l": "kreislinie",
+   "t": "kreislinie",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "innerhalb des Kreises",
+    "auf der Kreislinie",
+    "außerhalb des Kreises"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Kreis um M(−3 | 3) mit r = 2. Wo liegt der Punkt P(−3 | 4)?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       -3,
+       3
+      ],
+      "P": [
+       -3,
+       4
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 2
+      }
+     ]
+    }
+   },
+   "w": "P liegt senkrecht neben M, Abstand 1. 1 < 2: innerhalb des Kreises."
+  },
+  {
+   "l": "parallelen",
+   "t": "parallelen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "g ist die waagrechte Gerade y = 1. Alle Punkte mit Abstand 4 von g liegen auf zwei Parallelen. Welche y-Werte haben sie? (kleinerer zuerst)",
+    "schablone": "y = □ und y = □",
+    "hinweis": "Kleinere Zahl zuerst."
+   },
+   "o": {
+    "werte": [
+     -3,
+     5
+    ]
+   },
+   "c": [
+    "(1) - 4",
+    "(1) + 4"
+   ],
+   "w": "4 unter g: y = −3, 4 über g: y = 5.",
+   "h": "Eine Parallele liegt über g, eine darunter."
+  },
+  {
+   "l": "parallelen",
+   "t": "parallelen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Parallelen zu g haben beide den Abstand 1 cm von g. Wie weit sind die beiden Parallelen voneinander entfernt?"
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "cm"
+   },
+   "c": "2 * 1",
+   "w": "Sie liegen auf verschiedenen Seiten von g: 1 + 1 = 2 cm.",
+   "h": "Mach eine Skizze mit g in der Mitte."
+  },
+  {
+   "l": "parallelen",
+   "t": "parallelen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Parallelen zu g haben beide den Abstand 3 cm von g. Wie weit sind die beiden Parallelen voneinander entfernt?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "cm"
+   },
+   "c": "2 * 3",
+   "w": "Sie liegen auf verschiedenen Seiten von g: 3 + 3 = 6 cm.",
+   "h": "Mach eine Skizze mit g in der Mitte."
+  },
+  {
+   "l": "parallelen",
+   "t": "parallelen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "g ist die waagrechte Gerade y = −3. Alle Punkte mit Abstand 4 von g liegen auf zwei Parallelen. Welche y-Werte haben sie? (kleinerer zuerst)",
+    "schablone": "y = □ und y = □",
+    "hinweis": "Kleinere Zahl zuerst."
+   },
+   "o": {
+    "werte": [
+     -7,
+     1
+    ]
+   },
+   "c": [
+    "(-3) - 4",
+    "(-3) + 4"
+   ],
+   "w": "4 unter g: y = −7, 4 über g: y = 1.",
+   "h": "Eine Parallele liegt über g, eine darunter."
+  },
+  {
+   "l": "parallelen",
+   "t": "parallelen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Parallelen zu g haben beide den Abstand 2 cm von g. Wie weit sind die beiden Parallelen voneinander entfernt?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "cm"
+   },
+   "c": "2 * 2",
+   "w": "Sie liegen auf verschiedenen Seiten von g: 2 + 2 = 4 cm.",
+   "h": "Mach eine Skizze mit g in der Mitte."
+  },
+  {
+   "l": "parallelen",
+   "t": "parallelen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "g ist die waagrechte Gerade y = 2. Alle Punkte mit Abstand 2 von g liegen auf zwei Parallelen. Welche y-Werte haben sie? (kleinerer zuerst)",
+    "schablone": "y = □ und y = □",
+    "hinweis": "Kleinere Zahl zuerst."
+   },
+   "o": {
+    "werte": [
+     0,
+     4
+    ]
+   },
+   "c": [
+    "(2) - 2",
+    "(2) + 2"
+   ],
+   "w": "2 unter g: y = 0, 2 über g: y = 4.",
+   "h": "Eine Parallele liegt über g, eine darunter."
+  },
+  {
+   "l": "parallelen",
+   "t": "parallelen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "außerhalb des Streifens",
+    "auf dem Rand des Streifens",
+    "im Streifen"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "g ist die waagrechte Gerade y = 1. Der Streifen enthält alle Punkte mit höchstens 3 Abstand zu g. Wo liegt P(−1 | −2)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -3,
+      5
+     ],
+     "waagrecht": [
+      1,
+      -2,
+      4
+     ],
+     "punkte": [
+      {
+       "x": -1,
+       "y": -2,
+       "name": "P"
+      }
+     ]
+    }
+   },
+   "w": "Abstand von P zu g: |−2 − 1| = 3. Vergleich mit 3: auf dem Rand des Streifens.",
+   "h": "Berechne den Abstand von P zu g (Unterschied der y-Koordinaten)."
+  },
+  {
+   "l": "parallelen",
+   "t": "parallelen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "außerhalb des Streifens",
+    "im Streifen",
+    "auf dem Rand des Streifens"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "g ist die waagrechte Gerade y = 1. Der Streifen enthält alle Punkte mit höchstens 4 Abstand zu g. Wo liegt P(−1 | 4)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -4,
+      6
+     ],
+     "waagrecht": [
+      1,
+      -3,
+      5
+     ],
+     "punkte": [
+      {
+       "x": -1,
+       "y": 4,
+       "name": "P"
+      }
+     ]
+    }
+   },
+   "w": "Abstand von P zu g: |4 − 1| = 3. Vergleich mit 4: im Streifen.",
+   "h": "Berechne den Abstand von P zu g (Unterschied der y-Koordinaten)."
+  },
+  {
+   "l": "parallelen",
+   "t": "parallelen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "außerhalb des Streifens",
+    "im Streifen",
+    "auf dem Rand des Streifens"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "g ist die waagrechte Gerade y = 2. Der Streifen enthält alle Punkte mit höchstens 2 Abstand zu g. Wo liegt P(3 | 3)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -1,
+      5
+     ],
+     "waagrecht": [
+      2,
+      0,
+      4
+     ],
+     "punkte": [
+      {
+       "x": 3,
+       "y": 3,
+       "name": "P"
+      }
+     ]
+    }
+   },
+   "w": "Abstand von P zu g: |3 − 2| = 1. Vergleich mit 2: im Streifen.",
+   "h": "Berechne den Abstand von P zu g (Unterschied der y-Koordinaten)."
+  },
+  {
+   "l": "parallelen",
+   "t": "parallelen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "im Streifen",
+    "außerhalb des Streifens",
+    "auf dem Rand des Streifens"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "g ist die waagrechte Gerade y = 2. Der Streifen enthält alle Punkte mit höchstens 1 Abstand zu g. Wo liegt P(−3 | 1)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      0,
+      4
+     ],
+     "waagrecht": [
+      2,
+      1,
+      3
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 1,
+       "name": "P"
+      }
+     ]
+    }
+   },
+   "w": "Abstand von P zu g: |1 − 2| = 1. Vergleich mit 1: auf dem Rand des Streifens.",
+   "h": "Berechne den Abstand von P zu g (Unterschied der y-Koordinaten)."
+  },
+  {
+   "l": "parallelen",
+   "t": "parallelen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "im Streifen",
+    "auf dem Rand des Streifens",
+    "außerhalb des Streifens"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "g ist die waagrechte Gerade y = −3. Der Streifen enthält alle Punkte mit höchstens 3 Abstand zu g. Wo liegt P(−1 | 2)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -7,
+      3
+     ],
+     "waagrecht": [
+      -3,
+      -6,
+      0
+     ],
+     "punkte": [
+      {
+       "x": -1,
+       "y": 2,
+       "name": "P"
+      }
+     ]
+    }
+   },
+   "w": "Abstand von P zu g: |2 − (−3)| = 5. Vergleich mit 3: außerhalb des Streifens.",
+   "h": "Berechne den Abstand von P zu g (Unterschied der y-Koordinaten)."
+  },
+  {
+   "l": "parallelen",
+   "t": "parallelen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "auf dem Rand des Streifens",
+    "im Streifen",
+    "außerhalb des Streifens"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "g ist die waagrechte Gerade y = −1. Der Streifen enthält alle Punkte mit höchstens 4 Abstand zu g. Wo liegt P(−2 | −5)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -6,
+      4
+     ],
+     "waagrecht": [
+      -1,
+      -5,
+      3
+     ],
+     "punkte": [
+      {
+       "x": -2,
+       "y": -5,
+       "name": "P"
+      }
+     ]
+    }
+   },
+   "w": "Abstand von P zu g: |−5 − (−1)| = 4. Vergleich mit 4: auf dem Rand des Streifens.",
+   "h": "Berechne den Abstand von P zu g (Unterschied der y-Koordinaten)."
+  },
+  {
+   "l": "parallelen",
+   "t": "parallelen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "g ist die waagrechte Gerade y = −3. Wie viele Punkte mit ganzzahligen Koordinaten auf der senkrechten Linie x = 2 haben von g höchstens den Abstand 4?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "2 * 4 + 1",
+   "w": "y von −7 bis 1: Das sind 9 Werte.",
+   "h": "Zähle alle y-Werte von c − d bis c + d."
+  },
+  {
+   "l": "parallelen",
+   "t": "parallelen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die waagrechten Geraden g: y = 2 und h: y = 8 sind parallel. Wie weit sind sie voneinander entfernt?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "(8) - (2)",
+   "w": "Abstand: 8 − 2 = 6.",
+   "h": "Unterschied der y-Werte."
+  },
+  {
+   "l": "parallelen",
+   "t": "parallelen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "g ist die waagrechte Gerade y = 0. Wie viele Punkte mit ganzzahligen Koordinaten auf der senkrechten Linie x = 2 haben von g höchstens den Abstand 2?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "2 * 2 + 1",
+   "w": "y von −2 bis 2: Das sind 5 Werte.",
+   "h": "Zähle alle y-Werte von c − d bis c + d."
+  },
+  {
+   "l": "parallelen",
+   "t": "parallelen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "g ist die waagrechte Gerade y = −1. Wie viele Punkte mit ganzzahligen Koordinaten auf der senkrechten Linie x = 2 haben von g höchstens den Abstand 1?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "2 * 1 + 1",
+   "w": "y von −2 bis 0: Das sind 3 Werte.",
+   "h": "Zähle alle y-Werte von c − d bis c + d."
+  },
+  {
+   "l": "parallelen",
+   "t": "parallelen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die waagrechten Geraden g: y = 0 und h: y = 6 sind parallel. Welchen y-Wert haben alle Punkte, die von g und h gleich weit entfernt sind?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "((0) + (6)) / 2",
+   "w": "Die Mittelparallele liegt genau in der Mitte: (0 + 6) : 2 = 3.",
+   "h": "Die Mitte zwischen zwei Zahlen: addieren und halbieren."
+  },
+  {
+   "l": "parallelen",
+   "t": "parallelen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "g ist die waagrechte Gerade y = −2. Wie viele Punkte mit ganzzahligen Koordinaten auf der senkrechten Linie x = 2 haben von g höchstens den Abstand 1?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "2 * 1 + 1",
+   "w": "y von −3 bis −1: Das sind 3 Werte.",
+   "h": "Zähle alle y-Werte von c − d bis c + d."
+  },
+  {
+   "l": "parallelen",
+   "t": "parallelen",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "im Streifen",
+    "auf dem Rand des Streifens",
+    "außerhalb des Streifens"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "g ist die waagrechte Gerade y = 1. Der Streifen enthält alle Punkte mit höchstens 2 Abstand zu g. Wo liegt P(4 | −4)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -5,
+      4
+     ],
+     "waagrecht": [
+      1,
+      -1,
+      3
+     ],
+     "punkte": [
+      {
+       "x": 4,
+       "y": -4,
+       "name": "P"
+      }
+     ]
+    }
+   },
+   "w": "Abstand von P zu g: |−4 − 1| = 5. Vergleich mit 2: außerhalb des Streifens."
+  },
+  {
+   "l": "parallelen",
+   "t": "parallelen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "außerhalb des Streifens",
+    "auf dem Rand des Streifens",
+    "im Streifen"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "g ist die waagrechte Gerade y = −1. Der Streifen enthält alle Punkte mit höchstens 2 Abstand zu g. Wo liegt P(0 | −2)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -4,
+      2
+     ],
+     "waagrecht": [
+      -1,
+      -3,
+      1
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": -2,
+       "name": "P"
+      }
+     ]
+    }
+   },
+   "w": "Abstand von P zu g: |−2 − (−1)| = 1. Vergleich mit 2: im Streifen."
+  },
+  {
+   "l": "parallelen",
+   "t": "parallelen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "außerhalb des Streifens",
+    "auf dem Rand des Streifens",
+    "im Streifen"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "g ist die waagrechte Gerade y = 1. Der Streifen enthält alle Punkte mit höchstens 3 Abstand zu g. Wo liegt P(0 | 0)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -3,
+      5
+     ],
+     "waagrecht": [
+      1,
+      -2,
+      4
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 0,
+       "name": "P"
+      }
+     ]
+    }
+   },
+   "w": "Abstand von P zu g: |0 − 1| = 1. Vergleich mit 3: im Streifen."
+  },
+  {
+   "l": "parallelen",
+   "t": "parallelen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "außerhalb des Streifens",
+    "auf dem Rand des Streifens",
+    "im Streifen"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "g ist die waagrechte Gerade y = −1. Der Streifen enthält alle Punkte mit höchstens 3 Abstand zu g. Wo liegt P(0 | 2)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -5,
+      3
+     ],
+     "waagrecht": [
+      -1,
+      -4,
+      2
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 2,
+       "name": "P"
+      }
+     ]
+    }
+   },
+   "w": "Abstand von P zu g: |2 − (−1)| = 3. Vergleich mit 3: auf dem Rand des Streifens."
+  },
+  {
+   "l": "parallelen",
+   "t": "parallelen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "auf dem Rand des Streifens",
+    "außerhalb des Streifens",
+    "im Streifen"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "g ist die waagrechte Gerade y = 1. Der Streifen enthält alle Punkte mit höchstens 3 Abstand zu g. Wo liegt P(−3 | −4)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -5,
+      5
+     ],
+     "waagrecht": [
+      1,
+      -2,
+      4
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": -4,
+       "name": "P"
+      }
+     ]
+    }
+   },
+   "w": "Abstand von P zu g: |−4 − 1| = 5. Vergleich mit 3: außerhalb des Streifens."
+  },
+  {
+   "l": "parallelen",
+   "t": "parallelen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "auf dem Rand des Streifens",
+    "außerhalb des Streifens",
+    "im Streifen"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "g ist die waagrechte Gerade y = 2. Der Streifen enthält alle Punkte mit höchstens 1 Abstand zu g. Wo liegt P(−2 | 4)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      0,
+      5
+     ],
+     "waagrecht": [
+      2,
+      1,
+      3
+     ],
+     "punkte": [
+      {
+       "x": -2,
+       "y": 4,
+       "name": "P"
+      }
+     ]
+    }
+   },
+   "w": "Abstand von P zu g: |4 − 2| = 2. Vergleich mit 1: außerhalb des Streifens."
+  },
+  {
+   "l": "parallelen",
+   "t": "parallelen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "im Streifen",
+    "außerhalb des Streifens",
+    "auf dem Rand des Streifens"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "g ist die waagrechte Gerade y = 1. Der Streifen enthält alle Punkte mit höchstens 3 Abstand zu g. Wo liegt P(4 | 3)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -3,
+      5
+     ],
+     "waagrecht": [
+      1,
+      -2,
+      4
+     ],
+     "punkte": [
+      {
+       "x": 4,
+       "y": 3,
+       "name": "P"
+      }
+     ]
+    }
+   },
+   "w": "Abstand von P zu g: |3 − 1| = 2. Vergleich mit 3: im Streifen."
+  },
+  {
+   "l": "parallelen",
+   "t": "parallelen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "im Streifen",
+    "auf dem Rand des Streifens",
+    "außerhalb des Streifens"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "g ist die waagrechte Gerade y = 3. Der Streifen enthält alle Punkte mit höchstens 1 Abstand zu g. Wo liegt P(−2 | 3)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      1,
+      5
+     ],
+     "waagrecht": [
+      3,
+      2,
+      4
+     ],
+     "punkte": [
+      {
+       "x": -2,
+       "y": 3,
+       "name": "P"
+      }
+     ]
+    }
+   },
+   "w": "Abstand von P zu g: |3 − 3| = 0. Vergleich mit 1: im Streifen."
+  },
+  {
+   "l": "parallelen",
+   "t": "parallelen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "im Streifen",
+    "auf dem Rand des Streifens",
+    "außerhalb des Streifens"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "g ist die waagrechte Gerade y = −2. Der Streifen enthält alle Punkte mit höchstens 4 Abstand zu g. Wo liegt P(2 | 3)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -7,
+      4
+     ],
+     "waagrecht": [
+      -2,
+      -6,
+      2
+     ],
+     "punkte": [
+      {
+       "x": 2,
+       "y": 3,
+       "name": "P"
+      }
+     ]
+    }
+   },
+   "w": "Abstand von P zu g: |3 − (−2)| = 5. Vergleich mit 4: außerhalb des Streifens."
+  },
+  {
+   "l": "parallelen",
+   "t": "parallelen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "auf dem Rand des Streifens",
+    "im Streifen",
+    "außerhalb des Streifens"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "g ist die waagrechte Gerade y = −3. Der Streifen enthält alle Punkte mit höchstens 3 Abstand zu g. Wo liegt P(0 | 0)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -7,
+      1
+     ],
+     "waagrecht": [
+      -3,
+      -6,
+      0
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 0,
+       "name": "P"
+      }
+     ]
+    }
+   },
+   "w": "Abstand von P zu g: |0 − (−3)| = 3. Vergleich mit 3: auf dem Rand des Streifens."
+  },
+  {
+   "l": "zwei_kreise",
+   "t": "zwei_kreise",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "A und B sind 13 km voneinander entfernt. Wie viele Orte gibt es, die 4 km von A und 6 km von B entfernt sind?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       13,
+       0
+      ]
+     },
+     "kreise": [
+      {
+       "m": "A",
+       "r": 4
+      },
+      {
+       "m": "B",
+       "r": 6
+      }
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       "13 km",
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "0",
+   "w": "r₁ + r₂ = 10 km, Abstand 13 km. Abstand größer: kein Ort.",
+   "h": "Vergleiche den Abstand von A und B mit r₁ + r₂."
+  },
+  {
+   "l": "zwei_kreise",
+   "t": "zwei_kreise",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "A und B sind 8 km voneinander entfernt. Wie viele Orte gibt es, die 3 km von A und 5 km von B entfernt sind?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       8,
+       0
+      ]
+     },
+     "kreise": [
+      {
+       "m": "A",
+       "r": 3
+      },
+      {
+       "m": "B",
+       "r": 5
+      }
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       "8 km",
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "r₁ + r₂ = 8 km, Abstand 8 km. Gleich: Die Kreise berühren sich, 1 Ort.",
+   "h": "Vergleiche den Abstand von A und B mit r₁ + r₂."
+  },
+  {
+   "l": "zwei_kreise",
+   "t": "zwei_kreise",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "A und B sind 5 km voneinander entfernt. Wie viele Orte gibt es, die 6 km von A und 2 km von B entfernt sind?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       5,
+       0
+      ]
+     },
+     "kreise": [
+      {
+       "m": "A",
+       "r": 6
+      },
+      {
+       "m": "B",
+       "r": 2
+      }
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       "5 km",
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "r₁ + r₂ = 8 km, Abstand 5 km. Abstand kleiner: 2 Orte.",
+   "h": "Vergleiche den Abstand von A und B mit r₁ + r₂."
+  },
+  {
+   "l": "zwei_kreise",
+   "t": "zwei_kreise",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "A und B sind 16 km voneinander entfernt. Wie viele Orte gibt es, die 8 km von A und 8 km von B entfernt sind?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       16,
+       0
+      ]
+     },
+     "kreise": [
+      {
+       "m": "A",
+       "r": 8
+      },
+      {
+       "m": "B",
+       "r": 8
+      }
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       "16 km",
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "r₁ + r₂ = 16 km, Abstand 16 km. Gleich: Die Kreise berühren sich, 1 Ort.",
+   "h": "Vergleiche den Abstand von A und B mit r₁ + r₂."
+  },
+  {
+   "l": "zwei_kreise",
+   "t": "zwei_kreise",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "A und B sind 10 km voneinander entfernt. Wie viele Orte gibt es, die 3 km von A und 5 km von B entfernt sind?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       10,
+       0
+      ]
+     },
+     "kreise": [
+      {
+       "m": "A",
+       "r": 3
+      },
+      {
+       "m": "B",
+       "r": 5
+      }
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       "10 km",
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "0",
+   "w": "r₁ + r₂ = 8 km, Abstand 10 km. Abstand größer: kein Ort.",
+   "h": "Vergleiche den Abstand von A und B mit r₁ + r₂."
+  },
+  {
+   "l": "zwei_kreise",
+   "t": "zwei_kreise",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "A und B sind 4 km voneinander entfernt. Wie viele Orte gibt es, die 2 km von A und 3 km von B entfernt sind?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       4,
+       0
+      ]
+     },
+     "kreise": [
+      {
+       "m": "A",
+       "r": 2
+      },
+      {
+       "m": "B",
+       "r": 3
+      }
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       "4 km",
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "r₁ + r₂ = 5 km, Abstand 4 km. Abstand kleiner: 2 Orte.",
+   "h": "Vergleiche den Abstand von A und B mit r₁ + r₂."
+  },
+  {
+   "l": "zwei_kreise",
+   "t": "zwei_kreise",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "unendlich viele",
+    "keinen",
+    "zwei",
+    "einen"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Kreis um A mit r = 4 cm und Kreis um B mit r = 6 cm. [AB] = 13 cm. Wie viele Schnittpunkte haben die Kreise?"
+   },
+   "w": "4 + 6 = 10, [AB] = 13: keinen.",
+   "h": "Vergleiche [AB] mit der Summe der Radien."
+  },
+  {
+   "l": "zwei_kreise",
+   "t": "zwei_kreise",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "zwei",
+    "einen",
+    "keinen",
+    "unendlich viele"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Kreis um A mit r = 5 cm und Kreis um B mit r = 8 cm. [AB] = 4 cm. Wie viele Schnittpunkte haben die Kreise?"
+   },
+   "w": "5 + 8 = 13, [AB] = 4: zwei.",
+   "h": "Vergleiche [AB] mit der Summe der Radien."
+  },
+  {
+   "l": "zwei_kreise",
+   "t": "zwei_kreise",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "zwei",
+    "unendlich viele",
+    "einen",
+    "keinen"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Kreis um A mit r = 5 cm und Kreis um B mit r = 4 cm. [AB] = 3 cm. Wie viele Schnittpunkte haben die Kreise?"
+   },
+   "w": "5 + 4 = 9, [AB] = 3: zwei.",
+   "h": "Vergleiche [AB] mit der Summe der Radien."
+  },
+  {
+   "l": "zwei_kreise",
+   "t": "zwei_kreise",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Ort soll 4 km von A und 2 km von B entfernt sein. Wie weit dürfen A und B höchstens auseinander liegen, damit es so einen Ort gibt?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "km"
+   },
+   "c": "4 + 2",
+   "w": "Die Kreise müssen sich mindestens berühren: höchstens 4 + 2 = 6 km.",
+   "h": "Wann berühren sich die beiden Kreise gerade noch?"
+  },
+  {
+   "l": "zwei_kreise",
+   "t": "zwei_kreise",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Ort soll 6 km von A und 3 km von B entfernt sein. Wie weit dürfen A und B höchstens auseinander liegen, damit es so einen Ort gibt?"
+   },
+   "o": {
+    "wert": 9,
+    "einheit": "km"
+   },
+   "c": "6 + 3",
+   "w": "Die Kreise müssen sich mindestens berühren: höchstens 6 + 3 = 9 km.",
+   "h": "Wann berühren sich die beiden Kreise gerade noch?"
+  },
+  {
+   "l": "zwei_kreise",
+   "t": "zwei_kreise",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Ort soll 6 km von A und 5 km von B entfernt sein. Wie weit dürfen A und B höchstens auseinander liegen, damit es so einen Ort gibt?"
+   },
+   "o": {
+    "wert": 11,
+    "einheit": "km"
+   },
+   "c": "6 + 5",
+   "w": "Die Kreise müssen sich mindestens berühren: höchstens 6 + 5 = 11 km.",
+   "h": "Wann berühren sich die beiden Kreise gerade noch?"
+  },
+  {
+   "l": "zwei_kreise",
+   "t": "zwei_kreise",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein großer Kreis um A hat r = 8 cm, ein kleiner Kreis um B hat r = 4 cm. B liegt im großen Kreis, [AB] = 4 cm. Wie viele gemeinsame Punkte haben die Kreise?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "8 − 4 = 4 = [AB]: Der kleine Kreis berührt den großen von innen – genau 1 Punkt.",
+   "h": "Wie weit reicht der kleine Kreis von A aus höchstens? [AB] + r₂."
+  },
+  {
+   "l": "zwei_kreise",
+   "t": "zwei_kreise",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein großer Kreis um A hat r = 9 cm, ein kleiner Kreis um B hat r = 6 cm. B liegt im großen Kreis, [AB] = 3 cm. Wie viele gemeinsame Punkte haben die Kreise?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "9 − 6 = 3 = [AB]: Der kleine Kreis berührt den großen von innen – genau 1 Punkt.",
+   "h": "Wie weit reicht der kleine Kreis von A aus höchstens? [AB] + r₂."
+  },
+  {
+   "l": "zwei_kreise",
+   "t": "zwei_kreise",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein großer Kreis um A hat r = 7 cm, ein kleiner Kreis um B hat r = 5 cm. B liegt im großen Kreis, [AB] = 2 cm. Wie viele gemeinsame Punkte haben die Kreise?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "7 − 5 = 2 = [AB]: Der kleine Kreis berührt den großen von innen – genau 1 Punkt.",
+   "h": "Wie weit reicht der kleine Kreis von A aus höchstens? [AB] + r₂."
+  },
+  {
+   "l": "zwei_kreise",
+   "t": "zwei_kreise",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein großer Kreis um A hat r = 6 cm, ein kleiner Kreis um B hat r = 2 cm. B liegt im großen Kreis, [AB] = 4 cm. Wie viele gemeinsame Punkte haben die Kreise?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "6 − 2 = 4 = [AB]: Der kleine Kreis berührt den großen von innen – genau 1 Punkt.",
+   "h": "Wie weit reicht der kleine Kreis von A aus höchstens? [AB] + r₂."
+  },
+  {
+   "l": "zwei_kreise",
+   "t": "zwei_kreise",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Kreis um A(−1 | 0) mit r = 3 und Kreis um B(7 | 0) mit r = 5 berühren sich. In welchem Punkt T?",
+    "schablone": "T(□ | □)",
+    "hinweis": "Erst die x-Koordinate, dann die y-Koordinate."
+   },
+   "o": {
+    "werte": [
+     2,
+     0
+    ]
+   },
+   "c": [
+    "(-1) + 3",
+    "0"
+   ],
+   "w": "[AB] = 8 = r₁ + r₂: Berührung auf der Strecke [AB], 3 rechts von A: T(2 | 0).",
+   "h": "Der Berührpunkt liegt auf der Verbindungsstrecke, r₁ von A entfernt."
+  },
+  {
+   "l": "zwei_kreise",
+   "t": "zwei_kreise",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein großer Kreis um A hat r = 8 cm, ein kleiner Kreis um B hat r = 3 cm. B liegt im großen Kreis, [AB] = 5 cm. Wie viele gemeinsame Punkte haben die Kreise?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "8 − 3 = 5 = [AB]: Der kleine Kreis berührt den großen von innen – genau 1 Punkt.",
+   "h": "Wie weit reicht der kleine Kreis von A aus höchstens? [AB] + r₂."
+  },
+  {
+   "l": "zwei_kreise",
+   "t": "zwei_kreise",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "zwei",
+    "keinen",
+    "unendlich viele",
+    "einen"
+   ],
+   "o": {
+    "index": 3
+   },
+   "f": {
+    "text": "Kreis um A mit r = 6 cm und Kreis um B mit r = 3 cm. [AB] = 9 cm. Wie viele Schnittpunkte haben die Kreise?"
+   },
+   "w": "6 + 3 = 9, [AB] = 9: genau einen (Berührung)."
+  },
+  {
+   "l": "zwei_kreise",
+   "t": "zwei_kreise",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "unendlich viele",
+    "keinen",
+    "einen",
+    "zwei"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Kreis um A mit r = 8 cm und Kreis um B mit r = 6 cm. [AB] = 18 cm. Wie viele Schnittpunkte haben die Kreise?"
+   },
+   "w": "8 + 6 = 14, [AB] = 18: keinen."
+  },
+  {
+   "l": "zwei_kreise",
+   "t": "zwei_kreise",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "unendlich viele",
+    "zwei",
+    "einen",
+    "keinen"
+   ],
+   "o": {
+    "index": 3
+   },
+   "f": {
+    "text": "Kreis um A mit r = 7 cm und Kreis um B mit r = 6 cm. [AB] = 15 cm. Wie viele Schnittpunkte haben die Kreise?"
+   },
+   "w": "7 + 6 = 13, [AB] = 15: keinen."
+  },
+  {
+   "l": "zwei_kreise",
+   "t": "zwei_kreise",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "keinen",
+    "zwei",
+    "einen",
+    "unendlich viele"
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Kreis um A mit r = 4 cm und Kreis um B mit r = 5 cm. [AB] = 11 cm. Wie viele Schnittpunkte haben die Kreise?"
+   },
+   "w": "4 + 5 = 9, [AB] = 11: keinen."
+  },
+  {
+   "l": "zwei_kreise",
+   "t": "zwei_kreise",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "einen",
+    "zwei",
+    "keinen",
+    "unendlich viele"
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Kreis um A mit r = 5 cm und Kreis um B mit r = 8 cm. [AB] = 17 cm. Wie viele Schnittpunkte haben die Kreise?"
+   },
+   "w": "5 + 8 = 13, [AB] = 17: keinen."
+  },
+  {
+   "l": "zwei_kreise",
+   "t": "zwei_kreise",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "einen",
+    "unendlich viele",
+    "keinen",
+    "zwei"
+   ],
+   "o": {
+    "index": 3
+   },
+   "f": {
+    "text": "Kreis um A mit r = 6 cm und Kreis um B mit r = 4 cm. [AB] = 9 cm. Wie viele Schnittpunkte haben die Kreise?"
+   },
+   "w": "6 + 4 = 10, [AB] = 9: zwei."
+  },
+  {
+   "l": "zwei_kreise",
+   "t": "zwei_kreise",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Ort soll 2 km von A und 4 km von B entfernt sein. Wie weit dürfen A und B höchstens auseinander liegen, damit es so einen Ort gibt?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "km"
+   },
+   "c": "2 + 4",
+   "w": "Die Kreise müssen sich mindestens berühren: höchstens 2 + 4 = 6 km."
+  },
+  {
+   "l": "zwei_kreise",
+   "t": "zwei_kreise",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "keinen",
+    "zwei",
+    "unendlich viele",
+    "einen"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Kreis um A mit r = 7 cm und Kreis um B mit r = 5 cm. [AB] = 10 cm. Wie viele Schnittpunkte haben die Kreise?"
+   },
+   "w": "7 + 5 = 12, [AB] = 10: zwei."
+  },
+  {
+   "l": "zwei_kreise",
+   "t": "zwei_kreise",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "einen",
+    "zwei",
+    "keinen",
+    "unendlich viele"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Kreis um A mit r = 2 cm und Kreis um B mit r = 8 cm. [AB] = 7 cm. Wie viele Schnittpunkte haben die Kreise?"
+   },
+   "w": "2 + 8 = 10, [AB] = 7: zwei."
+  },
+  {
+   "l": "zwei_kreise",
+   "t": "zwei_kreise",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "zwei",
+    "keinen",
+    "unendlich viele",
+    "einen"
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Kreis um A mit r = 4 cm und Kreis um B mit r = 4 cm. [AB] = 10 cm. Wie viele Schnittpunkte haben die Kreise?"
+   },
+   "w": "4 + 4 = 8, [AB] = 10: keinen."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Kreis um M mit r = 3 cm. Die Gerade g hat von M den Abstand 1 cm. Wie viele Punkte liegen auf dem Kreis und gleichzeitig auf g?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "_G1": [
+       -6,
+       1
+      ],
+      "_G2": [
+       6,
+       1
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 3
+      }
+     ],
+     "linien": [
+      [
+       "_G1",
+       "_G2",
+       "g"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "1 cm < 3 cm: Sekante, 2 Punkte.",
+   "h": "Vergleiche den Abstand von M zu g mit r."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Kreis um M mit r = 2 cm. Die Gerade g hat von M den Abstand 3 cm. Wie viele Punkte liegen auf dem Kreis und gleichzeitig auf g?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "_G1": [
+       -5,
+       3
+      ],
+      "_G2": [
+       5,
+       3
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 2
+      }
+     ],
+     "linien": [
+      [
+       "_G1",
+       "_G2",
+       "g"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "0",
+   "w": "3 cm > 2 cm: Passante, kein Punkt.",
+   "h": "Vergleiche den Abstand von M zu g mit r."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Kreis um M mit r = 3 cm. Die Gerade g hat von M den Abstand 4 cm. Wie viele Punkte liegen auf dem Kreis und gleichzeitig auf g?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "_G1": [
+       -6,
+       4
+      ],
+      "_G2": [
+       6,
+       4
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 3
+      }
+     ],
+     "linien": [
+      [
+       "_G1",
+       "_G2",
+       "g"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "0",
+   "w": "4 cm > 3 cm: Passante, kein Punkt.",
+   "h": "Vergleiche den Abstand von M zu g mit r."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Kreis um M mit r = 5 cm. Die Gerade g hat von M den Abstand 7 cm. Wie viele Punkte liegen auf dem Kreis und gleichzeitig auf g?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "_G1": [
+       -8,
+       7
+      ],
+      "_G2": [
+       8,
+       7
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 5
+      }
+     ],
+     "linien": [
+      [
+       "_G1",
+       "_G2",
+       "g"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "0",
+   "w": "7 cm > 5 cm: Passante, kein Punkt.",
+   "h": "Vergleiche den Abstand von M zu g mit r."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Kreis um M mit r = 2 cm. Die Gerade g hat von M den Abstand 2 cm. Wie viele Punkte liegen auf dem Kreis und gleichzeitig auf g?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "_G1": [
+       -5,
+       2
+      ],
+      "_G2": [
+       5,
+       2
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 2
+      }
+     ],
+     "linien": [
+      [
+       "_G1",
+       "_G2",
+       "g"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "2 cm = 2 cm: Tangente, 1 Punkt.",
+   "h": "Vergleiche den Abstand von M zu g mit r."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Kreis um M mit r = 2 cm. Die Gerade g hat von M den Abstand 1 cm. Wie viele Punkte liegen auf dem Kreis und gleichzeitig auf g?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "_G1": [
+       -5,
+       1
+      ],
+      "_G2": [
+       5,
+       1
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 2
+      }
+     ],
+     "linien": [
+      [
+       "_G1",
+       "_G2",
+       "g"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "1 cm < 2 cm: Sekante, 2 Punkte.",
+   "h": "Vergleiche den Abstand von M zu g mit r."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "M hat von g den Abstand 8 cm. Die beiden Parallelen zu g im Abstand 4 cm – welchen Abstand haben sie von M? (kleineren zuerst)",
+    "schablone": "□ cm und □ cm",
+    "hinweis": "Kleineren Abstand zuerst."
+   },
+   "o": {
+    "werte": [
+     4,
+     12
+    ]
+   },
+   "c": [
+    "abs(8 - 4)",
+    "8 + 4"
+   ],
+   "w": "Eine Parallele liegt zwischen M und g oder jenseits: |8 − 4| = 4 cm. Die andere: 8 + 4 = 12 cm.",
+   "h": "Eine Parallele liegt näher an M, die andere weiter weg."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "M hat von g den Abstand 6 cm. Die beiden Parallelen zu g im Abstand 3 cm – welchen Abstand haben sie von M? (kleineren zuerst)",
+    "schablone": "□ cm und □ cm",
+    "hinweis": "Kleineren Abstand zuerst."
+   },
+   "o": {
+    "werte": [
+     3,
+     9
+    ]
+   },
+   "c": [
+    "abs(6 - 3)",
+    "6 + 3"
+   ],
+   "w": "Eine Parallele liegt zwischen M und g oder jenseits: |6 − 3| = 3 cm. Die andere: 6 + 3 = 9 cm.",
+   "h": "Eine Parallele liegt näher an M, die andere weiter weg."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "M hat von g den Abstand 6 cm. Die beiden Parallelen zu g im Abstand 1 cm – welchen Abstand haben sie von M? (kleineren zuerst)",
+    "schablone": "□ cm und □ cm",
+    "hinweis": "Kleineren Abstand zuerst."
+   },
+   "o": {
+    "werte": [
+     5,
+     7
+    ]
+   },
+   "c": [
+    "abs(6 - 1)",
+    "6 + 1"
+   ],
+   "w": "Eine Parallele liegt zwischen M und g oder jenseits: |6 − 1| = 5 cm. Die andere: 6 + 1 = 7 cm.",
+   "h": "Eine Parallele liegt näher an M, die andere weiter weg."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "M hat von g den Abstand 5 cm. Die beiden Parallelen zu g im Abstand 3 cm – welchen Abstand haben sie von M? (kleineren zuerst)",
+    "schablone": "□ cm und □ cm",
+    "hinweis": "Kleineren Abstand zuerst."
+   },
+   "o": {
+    "werte": [
+     2,
+     8
+    ]
+   },
+   "c": [
+    "abs(5 - 3)",
+    "5 + 3"
+   ],
+   "w": "Eine Parallele liegt zwischen M und g oder jenseits: |5 − 3| = 2 cm. Die andere: 5 + 3 = 8 cm.",
+   "h": "Eine Parallele liegt näher an M, die andere weiter weg."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "M hat von g den Abstand 4 cm. Die beiden Parallelen zu g im Abstand 2 cm – welchen Abstand haben sie von M? (kleineren zuerst)",
+    "schablone": "□ cm und □ cm",
+    "hinweis": "Kleineren Abstand zuerst."
+   },
+   "o": {
+    "werte": [
+     2,
+     6
+    ]
+   },
+   "c": [
+    "abs(4 - 2)",
+    "4 + 2"
+   ],
+   "w": "Eine Parallele liegt zwischen M und g oder jenseits: |4 − 2| = 2 cm. Die andere: 4 + 2 = 6 cm.",
+   "h": "Eine Parallele liegt näher an M, die andere weiter weg."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "M hat von g den Abstand 9 cm. Die beiden Parallelen zu g im Abstand 5 cm – welchen Abstand haben sie von M? (kleineren zuerst)",
+    "schablone": "□ cm und □ cm",
+    "hinweis": "Kleineren Abstand zuerst."
+   },
+   "o": {
+    "werte": [
+     4,
+     14
+    ]
+   },
+   "c": [
+    "abs(9 - 5)",
+    "9 + 5"
+   ],
+   "w": "Eine Parallele liegt zwischen M und g oder jenseits: |9 − 5| = 4 cm. Die andere: 9 + 5 = 14 cm.",
+   "h": "Eine Parallele liegt näher an M, die andere weiter weg."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "M hat von g den Abstand 4 cm. Wie viele Punkte haben von M den Abstand 6 cm und von g den Abstand 1 cm?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "_G1": [
+       -9,
+       -4
+      ],
+      "_G2": [
+       9,
+       -4
+      ],
+      "_P1": [
+       -9,
+       -3
+      ],
+      "_P2": [
+       9,
+       -3
+      ],
+      "_Q1": [
+       -9,
+       -5
+      ],
+      "_Q2": [
+       9,
+       -5
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 6
+      }
+     ],
+     "linien": [
+      [
+       "_G1",
+       "_G2",
+       "g"
+      ],
+      [
+       "_P1",
+       "_P2",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_Q1",
+       "_Q2",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Die Parallelen haben von M den Abstand 3 cm und 5 cm. Mit r = 6 cm: 3 cm → 2, 5 cm → 2. Zusammen 4 Punkte.",
+   "h": "Bestimme die Abstände der beiden Parallelen von M und vergleiche jeweils mit r."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "M hat von g den Abstand 7 cm. Wie viele Punkte haben von M den Abstand 5 cm und von g den Abstand 1 cm?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "_G1": [
+       -8,
+       -7
+      ],
+      "_G2": [
+       8,
+       -7
+      ],
+      "_P1": [
+       -8,
+       -6
+      ],
+      "_P2": [
+       8,
+       -6
+      ],
+      "_Q1": [
+       -8,
+       -8
+      ],
+      "_Q2": [
+       8,
+       -8
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 5
+      }
+     ],
+     "linien": [
+      [
+       "_G1",
+       "_G2",
+       "g"
+      ],
+      [
+       "_P1",
+       "_P2",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_Q1",
+       "_Q2",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "0",
+   "w": "Die Parallelen haben von M den Abstand 6 cm und 8 cm. Mit r = 5 cm: 6 cm → 0, 8 cm → 0. Zusammen 0 Punkte.",
+   "h": "Bestimme die Abstände der beiden Parallelen von M und vergleiche jeweils mit r."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "M hat von g den Abstand 1 cm. Wie viele Punkte haben von M den Abstand 5 cm und von g den Abstand 4 cm?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "_G1": [
+       -8,
+       -1
+      ],
+      "_G2": [
+       8,
+       -1
+      ],
+      "_P1": [
+       -8,
+       3
+      ],
+      "_P2": [
+       8,
+       3
+      ],
+      "_Q1": [
+       -8,
+       -5
+      ],
+      "_Q2": [
+       8,
+       -5
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 5
+      }
+     ],
+     "linien": [
+      [
+       "_G1",
+       "_G2",
+       "g"
+      ],
+      [
+       "_P1",
+       "_P2",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_Q1",
+       "_Q2",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "Die Parallelen haben von M den Abstand 3 cm und 5 cm. Mit r = 5 cm: 3 cm → 2, 5 cm → 1. Zusammen 3 Punkte.",
+   "h": "Bestimme die Abstände der beiden Parallelen von M und vergleiche jeweils mit r."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "M hat von g den Abstand 6 cm. Wie viele Punkte haben von M den Abstand 4 cm und von g den Abstand 5 cm?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "_G1": [
+       -7,
+       -6
+      ],
+      "_G2": [
+       7,
+       -6
+      ],
+      "_P1": [
+       -7,
+       -1
+      ],
+      "_P2": [
+       7,
+       -1
+      ],
+      "_Q1": [
+       -7,
+       -11
+      ],
+      "_Q2": [
+       7,
+       -11
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 4
+      }
+     ],
+     "linien": [
+      [
+       "_G1",
+       "_G2",
+       "g"
+      ],
+      [
+       "_P1",
+       "_P2",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_Q1",
+       "_Q2",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Die Parallelen haben von M den Abstand 1 cm und 11 cm. Mit r = 4 cm: 1 cm → 2, 11 cm → 0. Zusammen 2 Punkte.",
+   "h": "Bestimme die Abstände der beiden Parallelen von M und vergleiche jeweils mit r."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "M hat von g den Abstand 9 cm. Wie viele Punkte haben von M den Abstand 6 cm und von g den Abstand 3 cm?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "_G1": [
+       -9,
+       -9
+      ],
+      "_G2": [
+       9,
+       -9
+      ],
+      "_P1": [
+       -9,
+       -6
+      ],
+      "_P2": [
+       9,
+       -6
+      ],
+      "_Q1": [
+       -9,
+       -12
+      ],
+      "_Q2": [
+       9,
+       -12
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 6
+      }
+     ],
+     "linien": [
+      [
+       "_G1",
+       "_G2",
+       "g"
+      ],
+      [
+       "_P1",
+       "_P2",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_Q1",
+       "_Q2",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "Die Parallelen haben von M den Abstand 6 cm und 12 cm. Mit r = 6 cm: 6 cm → 1, 12 cm → 0. Zusammen 1 Punkte.",
+   "h": "Bestimme die Abstände der beiden Parallelen von M und vergleiche jeweils mit r."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "M hat von g den Abstand 1 cm. Wie viele Punkte haben von M den Abstand 6 cm und von g den Abstand 5 cm?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "_G1": [
+       -9,
+       -1
+      ],
+      "_G2": [
+       9,
+       -1
+      ],
+      "_P1": [
+       -9,
+       4
+      ],
+      "_P2": [
+       9,
+       4
+      ],
+      "_Q1": [
+       -9,
+       -6
+      ],
+      "_Q2": [
+       9,
+       -6
+      ]
+     },
+     "kreise": [
+      {
+       "m": "M",
+       "r": 6
+      }
+     ],
+     "linien": [
+      [
+       "_G1",
+       "_G2",
+       "g"
+      ],
+      [
+       "_P1",
+       "_P2",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_Q1",
+       "_Q2",
+       "",
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "Die Parallelen haben von M den Abstand 4 cm und 6 cm. Mit r = 6 cm: 4 cm → 2, 6 cm → 1. Zusammen 3 Punkte.",
+   "h": "Bestimme die Abstände der beiden Parallelen von M und vergleiche jeweils mit r."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "M hat von g den Abstand 9 cm. Die beiden Parallelen zu g im Abstand 2 cm – welchen Abstand haben sie von M? (kleineren zuerst)",
+    "schablone": "□ cm und □ cm",
+    "hinweis": "Kleineren Abstand zuerst."
+   },
+   "o": {
+    "werte": [
+     7,
+     11
+    ]
+   },
+   "c": [
+    "abs(9 - 2)",
+    "9 + 2"
+   ],
+   "w": "Eine Parallele liegt zwischen M und g oder jenseits: |9 − 2| = 7 cm. Die andere: 9 + 2 = 11 cm."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "M hat von g den Abstand 1 cm. Die beiden Parallelen zu g im Abstand 3 cm – welchen Abstand haben sie von M? (kleineren zuerst)",
+    "schablone": "□ cm und □ cm",
+    "hinweis": "Kleineren Abstand zuerst."
+   },
+   "o": {
+    "werte": [
+     2,
+     4
+    ]
+   },
+   "c": [
+    "abs(1 - 3)",
+    "1 + 3"
+   ],
+   "w": "Eine Parallele liegt zwischen M und g oder jenseits: |1 − 3| = 2 cm. Die andere: 1 + 3 = 4 cm."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "M hat von g den Abstand 3 cm. Die beiden Parallelen zu g im Abstand 2 cm – welchen Abstand haben sie von M? (kleineren zuerst)",
+    "schablone": "□ cm und □ cm",
+    "hinweis": "Kleineren Abstand zuerst."
+   },
+   "o": {
+    "werte": [
+     1,
+     5
+    ]
+   },
+   "c": [
+    "abs(3 - 2)",
+    "3 + 2"
+   ],
+   "w": "Eine Parallele liegt zwischen M und g oder jenseits: |3 − 2| = 1 cm. Die andere: 3 + 2 = 5 cm."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "M hat von g den Abstand 6 cm. Die beiden Parallelen zu g im Abstand 4 cm – welchen Abstand haben sie von M? (kleineren zuerst)",
+    "schablone": "□ cm und □ cm",
+    "hinweis": "Kleineren Abstand zuerst."
+   },
+   "o": {
+    "werte": [
+     2,
+     10
+    ]
+   },
+   "c": [
+    "abs(6 - 4)",
+    "6 + 4"
+   ],
+   "w": "Eine Parallele liegt zwischen M und g oder jenseits: |6 − 4| = 2 cm. Die andere: 6 + 4 = 10 cm."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "M hat von g den Abstand 6 cm. Die beiden Parallelen zu g im Abstand 5 cm – welchen Abstand haben sie von M? (kleineren zuerst)",
+    "schablone": "□ cm und □ cm",
+    "hinweis": "Kleineren Abstand zuerst."
+   },
+   "o": {
+    "werte": [
+     1,
+     11
+    ]
+   },
+   "c": [
+    "abs(6 - 5)",
+    "6 + 5"
+   ],
+   "w": "Eine Parallele liegt zwischen M und g oder jenseits: |6 − 5| = 1 cm. Die andere: 6 + 5 = 11 cm."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "M hat von g den Abstand 1 cm. Die beiden Parallelen zu g im Abstand 2 cm – welchen Abstand haben sie von M? (kleineren zuerst)",
+    "schablone": "□ cm und □ cm",
+    "hinweis": "Kleineren Abstand zuerst."
+   },
+   "o": {
+    "werte": [
+     1,
+     3
+    ]
+   },
+   "c": [
+    "abs(1 - 2)",
+    "1 + 2"
+   ],
+   "w": "Eine Parallele liegt zwischen M und g oder jenseits: |1 − 2| = 1 cm. Die andere: 1 + 2 = 3 cm."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "M hat von g den Abstand 2 cm. Die beiden Parallelen zu g im Abstand 5 cm – welchen Abstand haben sie von M? (kleineren zuerst)",
+    "schablone": "□ cm und □ cm",
+    "hinweis": "Kleineren Abstand zuerst."
+   },
+   "o": {
+    "werte": [
+     3,
+     7
+    ]
+   },
+   "c": [
+    "abs(2 - 5)",
+    "2 + 5"
+   ],
+   "w": "Eine Parallele liegt zwischen M und g oder jenseits: |2 − 5| = 3 cm. Die andere: 2 + 5 = 7 cm."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "M hat von g den Abstand 4 cm. Die beiden Parallelen zu g im Abstand 1 cm – welchen Abstand haben sie von M? (kleineren zuerst)",
+    "schablone": "□ cm und □ cm",
+    "hinweis": "Kleineren Abstand zuerst."
+   },
+   "o": {
+    "werte": [
+     3,
+     5
+    ]
+   },
+   "c": [
+    "abs(4 - 1)",
+    "4 + 1"
+   ],
+   "w": "Eine Parallele liegt zwischen M und g oder jenseits: |4 − 1| = 3 cm. Die andere: 4 + 1 = 5 cm."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "M hat von g den Abstand 7 cm. Die beiden Parallelen zu g im Abstand 1 cm – welchen Abstand haben sie von M? (kleineren zuerst)",
+    "schablone": "□ cm und □ cm",
+    "hinweis": "Kleineren Abstand zuerst."
+   },
+   "o": {
+    "werte": [
+     6,
+     8
+    ]
+   },
+   "c": [
+    "abs(7 - 1)",
+    "7 + 1"
+   ],
+   "w": "Eine Parallele liegt zwischen M und g oder jenseits: |7 − 1| = 6 cm. Die andere: 7 + 1 = 8 cm."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "M hat von g den Abstand 5 cm. Die beiden Parallelen zu g im Abstand 5 cm – welchen Abstand haben sie von M? (kleineren zuerst)",
+    "schablone": "□ cm und □ cm",
+    "hinweis": "Kleineren Abstand zuerst."
+   },
+   "o": {
+    "werte": [
+     0,
+     10
+    ]
+   },
+   "c": [
+    "abs(5 - 5)",
+    "5 + 5"
+   ],
+   "w": "Eine Parallele liegt zwischen M und g oder jenseits: |5 − 5| = 0 cm. Die andere: 5 + 5 = 10 cm."
+  },
+  {
+   "l": "sachsituationen",
+   "t": "sachsituationen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Nein.",
+    "Ja.",
+    "Nur wenn es in Richtung Norden liegt."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Ein Rasensprenger erreicht alles bis 2 m. Ein Beet ist 3 m vom Sprenger entfernt. Wird es gegossen?"
+   },
+   "w": "Erreichbar ist die Kreisfläche mit Radius 2 m. 3 m > 2 m: Nein.",
+   "h": "Gilt Abstand ≤ Reichweite?"
+  },
+  {
+   "l": "sachsituationen",
+   "t": "sachsituationen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Ja.",
+    "Nur wenn es in Richtung Norden liegt.",
+    "Nein."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Ein Funkmast reicht 3 km. Ein Haus steht 5 km vom Mast entfernt. Hat es Empfang?"
+   },
+   "w": "Erreichbar ist die Kreisfläche mit Radius 3 km. 5 km > 3 km: Nein.",
+   "h": "Gilt Abstand ≤ Reichweite?"
+  },
+  {
+   "l": "sachsituationen",
+   "t": "sachsituationen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Nein.",
+    "Ja.",
+    "Nur wenn es in Richtung Norden liegt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Ein Funkmast reicht 4 km. Ein Haus steht 4 km vom Mast entfernt. Hat es Empfang?"
+   },
+   "w": "Erreichbar ist die Kreisfläche mit Radius 4 km. 4 km ≤ 4 km: Ja.",
+   "h": "Gilt Abstand ≤ Reichweite?"
+  },
+  {
+   "l": "sachsituationen",
+   "t": "sachsituationen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Ja.",
+    "Nur wenn es in Richtung Norden liegt.",
+    "Nein."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Ein Rasensprenger erreicht alles bis 4 m. Ein Beet ist 3 m vom Sprenger entfernt. Wird es gegossen?"
+   },
+   "w": "Erreichbar ist die Kreisfläche mit Radius 4 m. 3 m ≤ 4 m: Ja.",
+   "h": "Gilt Abstand ≤ Reichweite?"
+  },
+  {
+   "l": "sachsituationen",
+   "t": "sachsituationen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Nur wenn es in Richtung Norden liegt.",
+    "Ja.",
+    "Nein."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Ein Hund ist an einer Leine von 9 m angebunden. Sein Napf steht 6 m vom Pflock entfernt. Erreicht der Hund den Napf?"
+   },
+   "w": "Erreichbar ist die Kreisfläche mit Radius 9 m. 6 m ≤ 9 m: Ja.",
+   "h": "Gilt Abstand ≤ Reichweite?"
+  },
+  {
+   "l": "sachsituationen",
+   "t": "sachsituationen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Nur wenn es in Richtung Norden liegt.",
+    "Nein.",
+    "Ja."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Ein Hund ist an einer Leine von 11 m angebunden. Sein Napf steht 12 m vom Pflock entfernt. Erreicht der Hund den Napf?"
+   },
+   "w": "Erreichbar ist die Kreisfläche mit Radius 11 m. 12 m > 11 m: Nein.",
+   "h": "Gilt Abstand ≤ Reichweite?"
+  },
+  {
+   "l": "sachsituationen",
+   "t": "sachsituationen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Straße ist 11 m breit. Auf beiden Seiten soll ein Sicherheitsstreifen von 1 m frei bleiben. Wie breit ist der Bereich insgesamt, in dem nichts gebaut werden darf?"
+   },
+   "o": {
+    "wert": 13,
+    "einheit": "m"
+   },
+   "c": "11 + 2 * 1",
+   "w": "1 m + 11 m + 1 m = 13 m.",
+   "h": "Der Streifen liegt auf beiden Seiten."
+  },
+  {
+   "l": "sachsituationen",
+   "t": "sachsituationen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Straße ist 17 m breit. Auf beiden Seiten soll ein Sicherheitsstreifen von 3 m frei bleiben. Wie breit ist der Bereich insgesamt, in dem nichts gebaut werden darf?"
+   },
+   "o": {
+    "wert": 23,
+    "einheit": "m"
+   },
+   "c": "17 + 2 * 3",
+   "w": "3 m + 17 m + 3 m = 23 m.",
+   "h": "Der Streifen liegt auf beiden Seiten."
+  },
+  {
+   "l": "sachsituationen",
+   "t": "sachsituationen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Straße ist 11 m breit. Auf beiden Seiten soll ein Sicherheitsstreifen von 3 m frei bleiben. Wie breit ist der Bereich insgesamt, in dem nichts gebaut werden darf?"
+   },
+   "o": {
+    "wert": 17,
+    "einheit": "m"
+   },
+   "c": "11 + 2 * 3",
+   "w": "3 m + 11 m + 3 m = 17 m.",
+   "h": "Der Streifen liegt auf beiden Seiten."
+  },
+  {
+   "l": "sachsituationen",
+   "t": "sachsituationen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Straße ist 12 m breit. Auf beiden Seiten soll ein Sicherheitsstreifen von 4 m frei bleiben. Wie breit ist der Bereich insgesamt, in dem nichts gebaut werden darf?"
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "m"
+   },
+   "c": "12 + 2 * 4",
+   "w": "4 m + 12 m + 4 m = 20 m.",
+   "h": "Der Streifen liegt auf beiden Seiten."
+  },
+  {
+   "l": "sachsituationen",
+   "t": "sachsituationen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Straße ist 10 m breit. Auf beiden Seiten soll ein Sicherheitsstreifen von 1 m frei bleiben. Wie breit ist der Bereich insgesamt, in dem nichts gebaut werden darf?"
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "m"
+   },
+   "c": "10 + 2 * 1",
+   "w": "1 m + 10 m + 1 m = 12 m.",
+   "h": "Der Streifen liegt auf beiden Seiten."
+  },
+  {
+   "l": "sachsituationen",
+   "t": "sachsituationen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Straße ist 7 m breit. Auf beiden Seiten soll ein Sicherheitsstreifen von 1 m frei bleiben. Wie breit ist der Bereich insgesamt, in dem nichts gebaut werden darf?"
+   },
+   "o": {
+    "wert": 9,
+    "einheit": "m"
+   },
+   "c": "7 + 2 * 1",
+   "w": "1 m + 7 m + 1 m = 9 m.",
+   "h": "Der Streifen liegt auf beiden Seiten."
+  },
+  {
+   "l": "sachsituationen",
+   "t": "sachsituationen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Schatz liegt 5 m von einer alten Eiche und 2 m von einem geraden Zaun entfernt. Die Eiche steht 6 m vom Zaun entfernt. An wie vielen Stellen kann der Schatz liegen?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Kreis um die Eiche (r = 5 m) und zwei Parallelen zum Zaun (2 m). Abstände der Parallelen von der Eiche: 4 m und 8 m. Zusammen 2 Stellen.",
+   "h": "Kreis um die Eiche, zwei Parallelen zum Zaun – zähle die Schnittpunkte."
+  },
+  {
+   "l": "sachsituationen",
+   "t": "sachsituationen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Sender A und B stehen 12 km auseinander. Ein Handy hat genau 7 km Abstand zu A und genau 4 km Abstand zu B. An wie vielen Stellen kann es sein?"
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "0",
+   "w": "Kreise mit 7 km und 4 km um A und B. 7 + 4 = 11 km, Abstand 12 km: 0 Stellen.",
+   "h": "Zeichne zwei Kreise und zähle die gemeinsamen Punkte."
+  },
+  {
+   "l": "sachsituationen",
+   "t": "sachsituationen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Sender A und B stehen 8 km auseinander. Ein Handy hat genau 8 km Abstand zu A und genau 8 km Abstand zu B. An wie vielen Stellen kann es sein?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Kreise mit 8 km und 8 km um A und B. 8 + 8 = 16 km, Abstand 8 km: 2 Stellen.",
+   "h": "Zeichne zwei Kreise und zähle die gemeinsamen Punkte."
+  },
+  {
+   "l": "sachsituationen",
+   "t": "sachsituationen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Schatz liegt 2 m von einer alten Eiche und 1 m von einem geraden Zaun entfernt. Die Eiche steht 1 m vom Zaun entfernt. An wie vielen Stellen kann der Schatz liegen?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "Kreis um die Eiche (r = 2 m) und zwei Parallelen zum Zaun (1 m). Abstände der Parallelen von der Eiche: 0 m und 2 m. Zusammen 3 Stellen.",
+   "h": "Kreis um die Eiche, zwei Parallelen zum Zaun – zähle die Schnittpunkte."
+  },
+  {
+   "l": "sachsituationen",
+   "t": "sachsituationen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Sender A und B stehen 10 km auseinander. Ein Handy hat genau 7 km Abstand zu A und genau 5 km Abstand zu B. An wie vielen Stellen kann es sein?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Kreise mit 7 km und 5 km um A und B. 7 + 5 = 12 km, Abstand 10 km: 2 Stellen.",
+   "h": "Zeichne zwei Kreise und zähle die gemeinsamen Punkte."
+  },
+  {
+   "l": "sachsituationen",
+   "t": "sachsituationen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Sender A und B stehen 8 km auseinander. Ein Handy hat genau 6 km Abstand zu A und genau 5 km Abstand zu B. An wie vielen Stellen kann es sein?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Kreise mit 6 km und 5 km um A und B. 6 + 5 = 11 km, Abstand 8 km: 2 Stellen.",
+   "h": "Zeichne zwei Kreise und zähle die gemeinsamen Punkte."
+  },
+  {
+   "l": "sachsituationen",
+   "t": "sachsituationen",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Straße ist 16 m breit. Auf beiden Seiten soll ein Sicherheitsstreifen von 2 m frei bleiben. Wie breit ist der Bereich insgesamt, in dem nichts gebaut werden darf?"
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "m"
+   },
+   "c": "16 + 2 * 2",
+   "w": "2 m + 16 m + 2 m = 20 m."
+  },
+  {
+   "l": "sachsituationen",
+   "t": "sachsituationen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Straße ist 20 m breit. Auf beiden Seiten soll ein Sicherheitsstreifen von 2 m frei bleiben. Wie breit ist der Bereich insgesamt, in dem nichts gebaut werden darf?"
+   },
+   "o": {
+    "wert": 24,
+    "einheit": "m"
+   },
+   "c": "20 + 2 * 2",
+   "w": "2 m + 20 m + 2 m = 24 m."
+  },
+  {
+   "l": "sachsituationen",
+   "t": "sachsituationen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Straße ist 12 m breit. Auf beiden Seiten soll ein Sicherheitsstreifen von 3 m frei bleiben. Wie breit ist der Bereich insgesamt, in dem nichts gebaut werden darf?"
+   },
+   "o": {
+    "wert": 18,
+    "einheit": "m"
+   },
+   "c": "12 + 2 * 3",
+   "w": "3 m + 12 m + 3 m = 18 m."
+  },
+  {
+   "l": "sachsituationen",
+   "t": "sachsituationen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Straße ist 20 m breit. Auf beiden Seiten soll ein Sicherheitsstreifen von 3 m frei bleiben. Wie breit ist der Bereich insgesamt, in dem nichts gebaut werden darf?"
+   },
+   "o": {
+    "wert": 26,
+    "einheit": "m"
+   },
+   "c": "20 + 2 * 3",
+   "w": "3 m + 20 m + 3 m = 26 m."
+  },
+  {
+   "l": "sachsituationen",
+   "t": "sachsituationen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Straße ist 15 m breit. Auf beiden Seiten soll ein Sicherheitsstreifen von 3 m frei bleiben. Wie breit ist der Bereich insgesamt, in dem nichts gebaut werden darf?"
+   },
+   "o": {
+    "wert": 21,
+    "einheit": "m"
+   },
+   "c": "15 + 2 * 3",
+   "w": "3 m + 15 m + 3 m = 21 m."
+  },
+  {
+   "l": "sachsituationen",
+   "t": "sachsituationen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Straße ist 9 m breit. Auf beiden Seiten soll ein Sicherheitsstreifen von 1 m frei bleiben. Wie breit ist der Bereich insgesamt, in dem nichts gebaut werden darf?"
+   },
+   "o": {
+    "wert": 11,
+    "einheit": "m"
+   },
+   "c": "9 + 2 * 1",
+   "w": "1 m + 9 m + 1 m = 11 m."
+  },
+  {
+   "l": "sachsituationen",
+   "t": "sachsituationen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Straße ist 16 m breit. Auf beiden Seiten soll ein Sicherheitsstreifen von 3 m frei bleiben. Wie breit ist der Bereich insgesamt, in dem nichts gebaut werden darf?"
+   },
+   "o": {
+    "wert": 22,
+    "einheit": "m"
+   },
+   "c": "16 + 2 * 3",
+   "w": "3 m + 16 m + 3 m = 22 m."
+  },
+  {
+   "l": "sachsituationen",
+   "t": "sachsituationen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Straße ist 13 m breit. Auf beiden Seiten soll ein Sicherheitsstreifen von 3 m frei bleiben. Wie breit ist der Bereich insgesamt, in dem nichts gebaut werden darf?"
+   },
+   "o": {
+    "wert": 19,
+    "einheit": "m"
+   },
+   "c": "13 + 2 * 3",
+   "w": "3 m + 13 m + 3 m = 19 m."
+  },
+  {
+   "l": "sachsituationen",
+   "t": "sachsituationen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Straße ist 20 m breit. Auf beiden Seiten soll ein Sicherheitsstreifen von 1 m frei bleiben. Wie breit ist der Bereich insgesamt, in dem nichts gebaut werden darf?"
+   },
+   "o": {
+    "wert": 22,
+    "einheit": "m"
+   },
+   "c": "20 + 2 * 1",
+   "w": "1 m + 20 m + 1 m = 22 m."
+  },
+  {
+   "l": "sachsituationen",
+   "t": "sachsituationen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Straße ist 17 m breit. Auf beiden Seiten soll ein Sicherheitsstreifen von 4 m frei bleiben. Wie breit ist der Bereich insgesamt, in dem nichts gebaut werden darf?"
+   },
+   "o": {
+    "wert": 25,
+    "einheit": "m"
+   },
+   "c": "17 + 2 * 4",
+   "w": "4 m + 17 m + 4 m = 25 m."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Nein, er liegt genau auf der Kreislinie.",
+    "Ja, das stimmt.",
+    "Das kann man nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Punkt mit Abstand 7 cm von M liegt innerhalb des Kreises mit r = 7 cm.“"
+   },
+   "w": "Nein, er liegt genau auf der Kreislinie.",
+   "h": "Mach eine Skizze: Kreis für „Abstand zu M“, Parallelen für „Abstand zu g“."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Nein, es sind unendlich viele – auf zwei Parallelen.",
+    "Ja, das stimmt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Es gibt genau einen Punkt mit Abstand 1 cm von der Geraden g.“"
+   },
+   "w": "Nein, es sind unendlich viele – auf zwei Parallelen.",
+   "h": "Mach eine Skizze: Kreis für „Abstand zu M“, Parallelen für „Abstand zu g“."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Ja, auf dem Kreis um M mit r = 7 cm.",
+    "Das kann man nicht entscheiden.",
+    "Nein, das ist falsch."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Alle Punkte mit Abstand 7 cm von M liegen auf einem Kreis.“"
+   },
+   "w": "Ja, auf dem Kreis um M mit r = 7 cm.",
+   "h": "Mach eine Skizze: Kreis für „Abstand zu M“, Parallelen für „Abstand zu g“."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Nein, das ist falsch.",
+    "Ja, auf dem Kreis um M mit r = 5 cm.",
+    "Das kann man nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Alle Punkte mit Abstand 5 cm von M liegen auf einem Kreis.“"
+   },
+   "w": "Ja, auf dem Kreis um M mit r = 5 cm.",
+   "h": "Mach eine Skizze: Kreis für „Abstand zu M“, Parallelen für „Abstand zu g“."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Nein, es sind unendlich viele – auf zwei Parallelen.",
+    "Ja, das stimmt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Es gibt genau einen Punkt mit Abstand 4 cm von der Geraden g.“"
+   },
+   "w": "Nein, es sind unendlich viele – auf zwei Parallelen.",
+   "h": "Mach eine Skizze: Kreis für „Abstand zu M“, Parallelen für „Abstand zu g“."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Ja, das stimmt.",
+    "Das kann man nicht entscheiden.",
+    "Nein, er liegt genau auf der Kreislinie."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Punkt mit Abstand 3 cm von M liegt innerhalb des Kreises mit r = 3 cm.“"
+   },
+   "w": "Nein, er liegt genau auf der Kreislinie.",
+   "h": "Mach eine Skizze: Kreis für „Abstand zu M“, Parallelen für „Abstand zu g“."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Ja, das stimmt.",
+    "Nein, der Streifen geht nach beiden Seiten: 8 cm breit."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Die Punkte mit höchstens 4 cm Abstand von g bilden einen Streifen der Breite 4 cm.“"
+   },
+   "w": "Nein, der Streifen geht nach beiden Seiten: 8 cm breit.",
+   "h": "Mach eine Skizze: Kreis für „Abstand zu M“, Parallelen für „Abstand zu g“."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Ja, das stimmt.",
+    "Nein, der Streifen geht nach beiden Seiten: 4 cm breit."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Die Punkte mit höchstens 2 cm Abstand von g bilden einen Streifen der Breite 2 cm.“"
+   },
+   "w": "Nein, der Streifen geht nach beiden Seiten: 4 cm breit.",
+   "h": "Mach eine Skizze: Kreis für „Abstand zu M“, Parallelen für „Abstand zu g“."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Nein, 9 > 8: Sie haben keinen gemeinsamen Punkt.",
+    "Das kann man nicht entscheiden.",
+    "Ja, das stimmt."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Zwei Kreise mit r = 4 cm, deren Mittelpunkte 9 cm auseinander liegen, schneiden sich.“"
+   },
+   "w": "Nein, 9 > 8: Sie haben keinen gemeinsamen Punkt.",
+   "h": "Mach eine Skizze: Kreis für „Abstand zu M“, Parallelen für „Abstand zu g“."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Ja, das stimmt.",
+    "Nein, der Streifen geht nach beiden Seiten: 2 cm breit."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Die Punkte mit höchstens 1 cm Abstand von g bilden einen Streifen der Breite 1 cm.“"
+   },
+   "w": "Nein, der Streifen geht nach beiden Seiten: 2 cm breit.",
+   "h": "Mach eine Skizze: Kreis für „Abstand zu M“, Parallelen für „Abstand zu g“."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Ja, 4 + 4 = 8 cm.",
+    "Das kann man nicht entscheiden.",
+    "Nein, das ist falsch."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Zwei Kreise mit r = 4 cm, deren Mittelpunkte 8 cm auseinander liegen, berühren sich.“"
+   },
+   "w": "Ja, 4 + 4 = 8 cm.",
+   "h": "Mach eine Skizze: Kreis für „Abstand zu M“, Parallelen für „Abstand zu g“."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Nein, der Streifen geht nach beiden Seiten: 10 cm breit.",
+    "Ja, das stimmt.",
+    "Das kann man nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Die Punkte mit höchstens 5 cm Abstand von g bilden einen Streifen der Breite 5 cm.“"
+   },
+   "w": "Nein, der Streifen geht nach beiden Seiten: 10 cm breit.",
+   "h": "Mach eine Skizze: Kreis für „Abstand zu M“, Parallelen für „Abstand zu g“."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Nein, jede Gerade schneidet einen Kreis höchstens zweimal: höchstens 4.",
+    "Ja, das stimmt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Kreis und zwei Parallelen können 5 Schnittpunkte haben.“"
+   },
+   "w": "Nein, jede Gerade schneidet einen Kreis höchstens zweimal: höchstens 4.",
+   "h": "Mach eine Skizze: Kreis für „Abstand zu M“, Parallelen für „Abstand zu g“."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Nein, zwei verschiedene Kreise haben höchstens 2 gemeinsame Punkte.",
+    "Ja, das stimmt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Zwei Kreise können sich in drei Punkten schneiden.“"
+   },
+   "w": "Nein, zwei verschiedene Kreise haben höchstens 2 gemeinsame Punkte.",
+   "h": "Mach eine Skizze: Kreis für „Abstand zu M“, Parallelen für „Abstand zu g“."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Ja, wenn beide Parallelen den Kreis schneiden (je 2 Punkte).",
+    "Das kann man nicht entscheiden.",
+    "Nein, das ist falsch."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Kreis und zwei Parallelen können zusammen 4 Schnittpunkte haben.“"
+   },
+   "w": "Ja, wenn beide Parallelen den Kreis schneiden (je 2 Punkte).",
+   "h": "Mach eine Skizze: Kreis für „Abstand zu M“, Parallelen für „Abstand zu g“."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Ja, Radius 4 m, Durchmesser 8 m.",
+    "Nein, das ist falsch."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Hund an einer 4 m langen Leine kann eine Kreisfläche mit Durchmesser 8 m erreichen.“"
+   },
+   "w": "Ja, Radius 4 m, Durchmesser 8 m.",
+   "h": "Mach eine Skizze: Kreis für „Abstand zu M“, Parallelen für „Abstand zu g“."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Nein, das ist falsch.",
+    "Das kann man nicht entscheiden.",
+    "Ja, Radius 3 m, Durchmesser 6 m."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Hund an einer 3 m langen Leine kann eine Kreisfläche mit Durchmesser 6 m erreichen.“"
+   },
+   "w": "Ja, Radius 3 m, Durchmesser 6 m.",
+   "h": "Mach eine Skizze: Kreis für „Abstand zu M“, Parallelen für „Abstand zu g“."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Ja, Radius 5 m, Durchmesser 10 m.",
+    "Nein, das ist falsch.",
+    "Das kann man nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Hund an einer 5 m langen Leine kann eine Kreisfläche mit Durchmesser 10 m erreichen.“"
+   },
+   "w": "Ja, Radius 5 m, Durchmesser 10 m.",
+   "h": "Mach eine Skizze: Kreis für „Abstand zu M“, Parallelen für „Abstand zu g“."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Nein, das ist falsch.",
+    "Ja, 5 + 5 = 10 cm."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Zwei Kreise mit r = 5 cm, deren Mittelpunkte 10 cm auseinander liegen, berühren sich.“"
+   },
+   "w": "Ja, 5 + 5 = 10 cm."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Ja, das stimmt.",
+    "Das kann man nicht entscheiden.",
+    "Nein, 13 > 12: Sie haben keinen gemeinsamen Punkt."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Zwei Kreise mit r = 6 cm, deren Mittelpunkte 13 cm auseinander liegen, schneiden sich.“"
+   },
+   "w": "Nein, 13 > 12: Sie haben keinen gemeinsamen Punkt."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Ja, 5 cm auf jeder Seite: 10 cm.",
+    "Nein, das ist falsch.",
+    "Das kann man nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Die Punkte mit höchstens 5 cm Abstand von g bilden einen Streifen der Breite 10 cm.“"
+   },
+   "w": "Ja, 5 cm auf jeder Seite: 10 cm."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Nein, das ist falsch.",
+    "Ja, 1 cm auf jeder Seite: 2 cm."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Die Punkte mit höchstens 1 cm Abstand von g bilden einen Streifen der Breite 2 cm.“"
+   },
+   "w": "Ja, 1 cm auf jeder Seite: 2 cm."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Nein, das ist falsch.",
+    "Das kann man nicht entscheiden.",
+    "Ja, 4 cm auf jeder Seite: 8 cm."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Die Punkte mit höchstens 4 cm Abstand von g bilden einen Streifen der Breite 8 cm.“"
+   },
+   "w": "Ja, 4 cm auf jeder Seite: 8 cm."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Ja, 7 + 7 = 14 cm.",
+    "Nein, das ist falsch."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Zwei Kreise mit r = 7 cm, deren Mittelpunkte 14 cm auseinander liegen, berühren sich.“"
+   },
+   "w": "Ja, 7 + 7 = 14 cm."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Nein, das ist falsch.",
+    "Ja, 6 + 6 = 12 cm."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Zwei Kreise mit r = 6 cm, deren Mittelpunkte 12 cm auseinander liegen, berühren sich.“"
+   },
+   "w": "Ja, 6 + 6 = 12 cm."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Ja, 3 cm auf jeder Seite: 6 cm.",
+    "Nein, das ist falsch.",
+    "Das kann man nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Die Punkte mit höchstens 3 cm Abstand von g bilden einen Streifen der Breite 6 cm.“"
+   },
+   "w": "Ja, 3 cm auf jeder Seite: 6 cm."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Ja, 2 cm auf jeder Seite: 4 cm.",
+    "Das kann man nicht entscheiden.",
+    "Nein, das ist falsch."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Die Punkte mit höchstens 2 cm Abstand von g bilden einen Streifen der Breite 4 cm.“"
+   },
+   "w": "Ja, 2 cm auf jeder Seite: 4 cm."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Ja, das stimmt.",
+    "Das kann man nicht entscheiden.",
+    "Nein, 15 > 14: Sie haben keinen gemeinsamen Punkt."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Zwei Kreise mit r = 7 cm, deren Mittelpunkte 15 cm auseinander liegen, schneiden sich.“"
+   },
+   "w": "Nein, 15 > 14: Sie haben keinen gemeinsamen Punkt."
+  }
+ ],
+ "offen": [
+  "themenliste.json nennt keinen lehrplan_gym-Wortlaut. Gebaut nach LehrplanPLUS Gymnasium Kl. 5, Lernbereich 2: „Punkte bestimmen, die Bedingungen erfüllen (Abstand zu Punkten oder Geraden), Grundeigenschaft der Kreislinie“.",
+  "Mittelsenkrechte („gleich weit von A und B“) und Winkelhalbierende sind Stoff der Jahrgangsstufe 7 und wurden weggelassen.",
+  "Abstände im Koordinatensystem nur waagrecht/senkrecht, weil schräge Abstände den Satz des Pythagoras (Kl. 9) bräuchten.",
+  "Zeichnungen: Kreise, Parallelen, Streifen und Schnittfiguren als Figur bzw. Koordinatensystem. Eine Kreisfläche oder einen Streifen farbig zu füllen kann die App nicht; das Kind kann auch nicht selbst konstruieren."
+ ]
+}

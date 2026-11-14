@@ -222,7 +222,7 @@ def g_deuten(R, st):
         g, p = Fr(R.choice([5, 8, 10])), Fr(R.choice([5, 9, 10]), 100)
         T, x, bm, bg = f'K = {zt(p)}x + {zt(g)}', 'x = Gesprächsminuten, K in €', 'der Preis pro Minute', 'die monatliche Grundgebühr'
     elif kontext == 'kerze':
-        g, p = Fr(R.choice([20, 24, 30])), Fr(-R.choice([1, 2, 3]))
+        g, p = Fr(R.choice([20, 24, 30])), Fr(-R.choice([2, 3]))
         T, x, bm, bg = f'h = {zt(g)} − {zt(-p)}x', 'x = Brenndauer in Stunden, h in cm', 'die Abnahme der Höhe pro Stunde', 'die Höhe der Kerze am Anfang'
     elif kontext == 'konto':
         g, p = Fr(R.choice([50, 80, 120])), Fr(R.choice([5, 10, 15]))
@@ -238,7 +238,7 @@ def g_deuten(R, st):
                  f'{zt(zahl)} ist {r}.', 'Steht die Zahl vor dem x (pro Einheit) oder allein (fest)?')
     if st == 2:
         k = R.choice([j for j in (3, 4, 5, 6, 8, 10) if p * j + g >= 0])
-        return Z(f'{T} ({x}). Berechne {T[0]} für x = {k}.', p * k + g, f'{cz(p)} * {k} + {cz(g)}', f'{zt(p)} · {k} + {zt(g)} = {zt(p * k + g)}.',
+        return Z(f'{T} ({x}). Berechne {T[0]} für x = {k}.', p * k + g, f'{cz(p)} * {k} + {cz(g)}', f'x = {k} einsetzen: {T[0]} = {zt(p)} · {k} + {zt(g)} = {zt(p * k + g)}.',
                  'Setze x ein.')
     # Stufe 3: Fehler finden in einem Term
     k, b = R.randint(2, 6), R.randint(2, 9)

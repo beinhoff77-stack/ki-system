@@ -3159,7 +3159,7 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "h = 20 − 2x (x = Brenndauer in Stunden, h in cm). Was bedeutet die Zahl 20?"
+    "text": "h = 20 − 3x (x = Brenndauer in Stunden, h in cm). Was bedeutet die Zahl 20?"
    },
    "a": [
     "Die Höhe der Kerze am Anfang",
@@ -3201,18 +3201,18 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "h = 20 − 3x (x = Brenndauer in Stunden, h in cm). Was bedeutet die Zahl 3?"
+    "text": "h = 20 − 2x (x = Brenndauer in Stunden, h in cm). Was bedeutet die Zahl 2?"
    },
    "a": [
+    "Die Höhe der Kerze am Anfang",
     "Die Anzahl x",
-    "Der Wert ganz am Ende",
     "Die Abnahme der Höhe pro Stunde",
-    "Die Höhe der Kerze am Anfang"
+    "Der Wert ganz am Ende"
    ],
    "o": {
     "index": 2
    },
-   "w": "3 ist die Abnahme der Höhe pro Stunde.",
+   "w": "2 ist die Abnahme der Höhe pro Stunde.",
    "h": "Steht die Zahl vor dem x (pro Einheit) oder allein (fest)?"
   },
   {
@@ -3222,18 +3222,18 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "h = 24 − 3x (x = Brenndauer in Stunden, h in cm). Was bedeutet die Zahl 24?"
+    "text": "h = 30 − 3x (x = Brenndauer in Stunden, h in cm). Was bedeutet die Zahl 30?"
    },
    "a": [
-    "Die Höhe der Kerze am Anfang",
-    "Der Wert ganz am Ende",
     "Die Abnahme der Höhe pro Stunde",
-    "Die Anzahl x"
+    "Die Höhe der Kerze am Anfang",
+    "Die Anzahl x",
+    "Der Wert ganz am Ende"
    ],
    "o": {
-    "index": 0
+    "index": 1
    },
-   "w": "24 ist die Höhe der Kerze am Anfang.",
+   "w": "30 ist die Höhe der Kerze am Anfang.",
    "h": "Steht die Zahl vor dem x (pro Einheit) oder allein (fest)?"
   },
   {
@@ -3243,13 +3243,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "h = 20 − 3x (x = Brenndauer in Stunden, h in cm). Berechne h für x = 6."
+    "text": "h = 20 − 3x (x = Brenndauer in Stunden, h in cm). Berechne h für x = 4."
    },
    "o": {
-    "wert": 2
+    "wert": 8
    },
-   "c": "-3 * 6 + 20",
-   "w": "−3 · 6 + 20 = 2.",
+   "c": "-3 * 4 + 20",
+   "w": "x = 4 einsetzen: h = −3 · 4 + 20 = 8.",
    "h": "Setze x ein."
   },
   {
@@ -3259,13 +3259,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "K = 0,05x + 10 (x = Gesprächsminuten, K in €). Berechne K für x = 5."
+    "text": "P = 2x + 1 (x = Parkdauer in Stunden, P in €). Berechne P für x = 10."
    },
    "o": {
-    "wert": 10.25
+    "wert": 21
    },
-   "c": "(1/20) * 5 + 10",
-   "w": "0,05 · 5 + 10 = 10,25.",
+   "c": "2 * 10 + 1",
+   "w": "x = 10 einsetzen: P = 2 · 10 + 1 = 21.",
    "h": "Setze x ein."
   },
   {
@@ -3281,7 +3281,7 @@
     "wert": 16
    },
    "c": "(3/2) * 10 + 1",
-   "w": "1,5 · 10 + 1 = 16.",
+   "w": "x = 10 einsetzen: P = 1,5 · 10 + 1 = 16.",
    "h": "Setze x ein."
   },
   {
@@ -3291,13 +3291,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "h = 24 − 1x (x = Brenndauer in Stunden, h in cm). Berechne h für x = 4."
+    "text": "h = 24 − 2x (x = Brenndauer in Stunden, h in cm). Berechne h für x = 4."
    },
    "o": {
-    "wert": 20
+    "wert": 16
    },
-   "c": "-1 * 4 + 24",
-   "w": "−1 · 4 + 24 = 20.",
+   "c": "-2 * 4 + 24",
+   "w": "x = 4 einsetzen: h = −2 · 4 + 24 = 16.",
    "h": "Setze x ein."
   },
   {
@@ -3313,7 +3313,7 @@
     "wert": 12
    },
    "c": "(5/2) * 4 + 2",
-   "w": "2,5 · 4 + 2 = 12.",
+   "w": "x = 4 einsetzen: P = 2,5 · 4 + 2 = 12.",
    "h": "Setze x ein."
   },
   {
@@ -3329,7 +3329,7 @@
     "wert": 22.1
    },
    "c": "(11/5) * 8 + (9/2)",
-   "w": "2,2 · 8 + 4,5 = 22,1.",
+   "w": "x = 8 einsetzen: P = 2,2 · 8 + 4,5 = 22,1.",
    "h": "Setze x ein."
   },
   {
@@ -3402,18 +3402,18 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Jemand übersetzt „das Doppelte von x, vermehrt um 3“ in den Term 2x + 3. Stimmt das?"
+    "text": "Jemand übersetzt „das Doppelte der Summe aus x und 6“ in den Term 2x + 6. Stimmt das?"
    },
    "a": [
     "Richtig übersetzt.",
-    "Falsch: Bei „Differenz aus 3 und x“ steht 3 vorne, richtig ist 3 − x.",
-    "Falsch: Die Summe muss in Klammern stehen, richtig ist 2(x + 3).",
-    "Falsch: richtig wäre 5x."
+    "Falsch: Bei „Differenz aus 6 und x“ steht 6 vorne, richtig ist 6 − x.",
+    "Falsch: Die Summe muss in Klammern stehen, richtig ist 2(x + 6).",
+    "Falsch: richtig wäre 8x."
    ],
    "o": {
-    "index": 0
+    "index": 2
    },
-   "w": "Richtig übersetzt.",
+   "w": "Falsch: Die Summe muss in Klammern stehen, richtig ist 2(x + 6).",
    "h": "Übersetze selbst und vergleiche – achte auf Klammern und Reihenfolge."
   },
   {
@@ -3423,13 +3423,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "K = 0,09x + 5 (x = Gesprächsminuten, K in €). Berechne K für x = 3."
+    "text": "K = 0,05x + 8 (x = Gesprächsminuten, K in €). Berechne K für x = 4."
    },
    "o": {
-    "wert": 5.27
+    "wert": 8.2
    },
-   "c": "(9/100) * 3 + 5",
-   "w": "0,09 · 3 + 5 = 5,27."
+   "c": "(1/20) * 4 + 8",
+   "w": "x = 4 einsetzen: K = 0,05 · 4 + 8 = 8,2."
   },
   {
    "l": "deuten",
@@ -3438,13 +3438,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "K = 0,09x + 10 (x = Gesprächsminuten, K in €). Berechne K für x = 6."
+    "text": "P = 2x + 2 (x = Parkdauer in Stunden, P in €). Berechne P für x = 3."
    },
    "o": {
-    "wert": 10.54
+    "wert": 8
    },
-   "c": "(9/100) * 6 + 10",
-   "w": "0,09 · 6 + 10 = 10,54."
+   "c": "2 * 3 + 2",
+   "w": "x = 3 einsetzen: P = 2 · 3 + 2 = 8."
   },
   {
    "l": "deuten",
@@ -3453,33 +3453,18 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "P = 2,2x + 4 (x = gefahrene km, P in €). Berechne P für x = 10."
+    "text": "h = 24 − 3x (x = Brenndauer in Stunden, h in cm). Berechne h für x = 6."
    },
    "o": {
-    "wert": 26
+    "wert": 6
    },
-   "c": "(11/5) * 10 + 4",
-   "w": "2,2 · 10 + 4 = 26."
+   "c": "-3 * 6 + 24",
+   "w": "x = 6 einsetzen: h = −3 · 6 + 24 = 6."
   },
   {
    "l": "deuten",
    "t": "deuten",
    "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "h = 30 − 3x (x = Brenndauer in Stunden, h in cm). Berechne h für x = 6."
-   },
-   "o": {
-    "wert": 12
-   },
-   "c": "-3 * 6 + 30",
-   "w": "−3 · 6 + 30 = 12."
-  },
-  {
-   "l": "deuten",
-   "t": "deuten",
-   "p": "sicherung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -3489,7 +3474,7 @@
     "wert": 170
    },
    "c": "15 * 8 + 50",
-   "w": "15 · 8 + 50 = 170."
+   "w": "x = 8 einsetzen: S = 15 · 8 + 50 = 170."
   },
   {
    "l": "deuten",
@@ -3504,7 +3489,7 @@
     "wert": 11.5
    },
    "c": "2 * 4 + (7/2)",
-   "w": "2 · 4 + 3,5 = 11,5."
+   "w": "x = 4 einsetzen: P = 2 · 4 + 3,5 = 11,5."
   },
   {
    "l": "deuten",
@@ -3513,13 +3498,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "h = 20 − 3x (x = Brenndauer in Stunden, h in cm). Berechne h für x = 4."
+    "text": "h = 20 − 2x (x = Brenndauer in Stunden, h in cm). Berechne h für x = 4."
    },
    "o": {
-    "wert": 8
+    "wert": 12
    },
-   "c": "-3 * 4 + 20",
-   "w": "−3 · 4 + 20 = 8."
+   "c": "-2 * 4 + 20",
+   "w": "x = 4 einsetzen: h = −2 · 4 + 20 = 12."
   },
   {
    "l": "deuten",
@@ -3528,13 +3513,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "K = 0,1x + 5 (x = Gesprächsminuten, K in €). Berechne K für x = 3."
+    "text": "K = 0,05x + 10 (x = Gesprächsminuten, K in €). Berechne K für x = 3."
    },
    "o": {
-    "wert": 5.3
+    "wert": 10.15
    },
-   "c": "(1/10) * 3 + 5",
-   "w": "0,1 · 3 + 5 = 5,3."
+   "c": "(1/20) * 3 + 10",
+   "w": "x = 3 einsetzen: K = 0,05 · 3 + 10 = 10,15."
   },
   {
    "l": "deuten",
@@ -3549,7 +3534,7 @@
     "wert": 9.5
    },
    "c": "2 * 3 + (7/2)",
-   "w": "2 · 3 + 3,5 = 9,5."
+   "w": "x = 3 einsetzen: P = 2 · 3 + 3,5 = 9,5."
   },
   {
    "l": "deuten",
@@ -3558,13 +3543,28 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "K = 0,09x + 8 (x = Gesprächsminuten, K in €). Berechne K für x = 4."
+    "text": "S = 80 + 5x (x = Anzahl der Wochen, S in €). Berechne S für x = 6."
    },
    "o": {
-    "wert": 8.36
+    "wert": 110
    },
-   "c": "(9/100) * 4 + 8",
-   "w": "0,09 · 4 + 8 = 8,36."
+   "c": "5 * 6 + 80",
+   "w": "x = 6 einsetzen: S = 5 · 6 + 80 = 110."
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "h = 24 − 3x (x = Brenndauer in Stunden, h in cm). Berechne h für x = 4."
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "-3 * 4 + 24",
+   "w": "x = 4 einsetzen: h = −3 · 4 + 24 = 12."
   }
  ],
  "offen": [

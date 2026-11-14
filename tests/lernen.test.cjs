@@ -48,6 +48,8 @@ async function setup(t, opt = {}) {
   const context = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: 'block' });
   t.after(() => context.close());
   if (!opt.lernSeite) await context.addInitScript(() => { localStorage.setItem('ks_token', 'synthetic-test-session'); });
+  // Die bisherigen Tests prüfen das bisherige Design; das neue („Abflug“) hat eigene Tests (opt.gestaltung).
+  await context.addInitScript((g) => { localStorage.setItem('lern.gestaltung', g); }, opt.gestaltung || 'alt');
   const appCalls = [];
   const page = await context.newPage(); page.setDefaultTimeout(5000);
   const errors = []; page.on('pageerror', (e) => errors.push(e.message)); t.after(() => assert.deepEqual(errors, []));
@@ -493,4 +495,50 @@ test('Lernreise mit Themenplan: nur Orte aus dem Plan sind dran', async (t) => {
     return { jetzt: d.jetzt.map((e) => e.id), kann: d.kann.map((e) => e.id), spaeter: d.spaeter.map((e) => e.id), naechste: d.naechste.id };
   });
   assert.deepEqual(gruppen, { jetzt: [2], kann: [1], spaeter: [4], naechste: 2 });
+});
+
+test('Gestaltung Abflug: Abflugtafel, Bordkarte mit Tastenfeld, Kurskorrektur, Landung', async (t) => {
+  const { page } = await setup(t, { gestaltung: 'nacht' });
+  await page.goto(origin + '/#/reise/1');
+  await page.getByRole('heading', { name: /Abflüge/ }).waitFor();
+  assert.equal(await page.locator('.lr.lr-abflug.lr-abflug-nacht').count(), 1);
+  const start = page.getByRole('link', { name: /Einsteigen\s*ROM/ });
+  const k = await start.boundingBox(); assert.ok(k.y + k.height <= 844 - 60 && k.y > 844 / 2, 'Einsteigen im Daumenbereich: ' + Math.round(k.y));
+  assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > window.innerWidth), false);
+  fs.mkdirSync(path.join(root, 'test-results'), { recursive: true });
+  await page.screenshot({ path: path.join(root, 'test-results/abflug-tafel-390.png') });
+  await start.click();
+  await page.waitForURL(/#\/lerneinheit\/1-1-ueben/);
+  await page.getByText(/BORDKARTE 1 · ROM/).waitFor();
+  assert.equal(await page.locator('.lr-nav').isVisible(), false);
+  const los = page.getByRole('button', { name: 'Verstanden – los' }); if (await los.count()) await los.click();
+  const feld = page.getByRole('group', { name: 'Tastenfeld' });
+  const pruefen = feld.getByRole('button', { name: 'Prüfen' });
+  { const b = await pruefen.boundingBox(); assert.ok(b.y + b.height <= 844, 'Prüfen ohne Scrollen sichtbar: ' + Math.round(b.y + b.height)); }
+  for (const z of ['2', '0', '0']) await feld.getByRole('button', { name: z, exact: true }).click();
+  assert.equal(await page.getByRole('textbox', { name: 'Antwort' }).inputValue(), '200');
+  await page.screenshot({ path: path.join(root, 'test-results/abflug-bordkarte-390.png') });
+  await pruefen.click();
+  await page.getByText('FAST – KURSKORREKTUR').waitFor();
+  assert.equal(await page.locator('.lr-kurs-kachel.ab').count() > 0, true);
+  await page.getByText('Richtig ist: 2 000').waitFor();
+  await page.screenshot({ path: path.join(root, 'test-results/abflug-kurs-390.png') });
+  await page.getByRole('button', { name: 'Neue Bordkarte ›' }).click();
+  for (let i = 0; i < 2; i++) {
+    for (const z of ['2', '0', '0', '0']) await page.getByRole('group', { name: 'Tastenfeld' }).getByRole('button', { name: z, exact: true }).click();
+    await page.getByRole('group', { name: 'Tastenfeld' }).getByRole('button', { name: 'Prüfen' }).click();
+    if (i === 0) { await page.getByText(/An Bord/).waitFor(); await page.getByRole('button', { name: 'Neue Bordkarte ›' }).click(); }
+  }
+  await page.getByText('GELANDET').waitFor();
+  await page.getByRole('link', { name: 'Zur Abflugtafel' }).waitFor();
+  await page.screenshot({ path: path.join(root, 'test-results/abflug-gelandet-390.png') });
+  // Tag-Ansicht und Rückweg zum bisherigen Design im Reisepass
+  await page.goto(origin + '/#/reisepass/1');
+  await page.getByRole('button', { name: 'Abflug hell' }).click();
+  await page.locator('.lr.lr-abflug.lr-abflug-tag').waitFor();
+  await page.goto(origin + '/#/reise/1'); await page.getByRole('heading', { name: /Abflüge/ }).waitFor();
+  await page.screenshot({ path: path.join(root, 'test-results/abflug-tafel-tag-390.png') });
+  await page.goto(origin + '/#/reisepass/1');
+  await page.getByRole('button', { name: 'Bisheriges Design' }).click();
+  await page.locator('.lr.lr-ozean').waitFor();
 });

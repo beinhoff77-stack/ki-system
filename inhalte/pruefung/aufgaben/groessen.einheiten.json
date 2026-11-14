@@ -1,0 +1,112 @@
+{
+  "thema_schluessel": "groessen.einheiten",
+  "gesamturteil": "gut",
+  "karten": [
+    {
+      "lernziel": "schaetzen",
+      "urteil": "verbessern",
+      "stufen": "Passt: Einheit wählen, realistischen Wert wählen, Bezugsgröße vervielfachen, Fehler finden. Einzelne Angaben sind sachlich ungenau (Briefmarke), zwei Ablenker sind gleich groß (5 cm und 50 mm).",
+      "fehlende_aufgabentypen": [
+        "Schätzen mit Rechnung (zahl, Stufe 3, toleranz großzügig): Beispiel 1: 'Ein Stapel mit 100 Blatt Papier ist etwa 1 cm hoch. Wie viele Blatt sind etwa in einem 5 cm hohen Stapel?' → 500. Beispiel 2: 'Ein Schritt ist etwa 70 cm. Wie viele Schritte brauchst du etwa für 1 km?' → etwa 1 400 (toleranz 100)."
+      ],
+      "generator_regeln": [
+        "Ablenker verschiedener Größe: nie zwei gleich große Werte in verschiedenen Einheiten (5 cm und 50 mm) in einer Aufgabe.",
+        "Bezugsgrößen sachlich prüfen: Briefmarke unter 1 g; besser 'Ein Brief wiegt ungefähr 20 g'."
+      ]
+    },
+    {
+      "lernziel": "laenge",
+      "urteil": "ok",
+      "stufen": "Passt (umrechnen, zusammengesetzte Größen, zerlegen, vergleichen, teilen).",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "masse",
+      "urteil": "ok",
+      "stufen": "Passt. In Stufe 3 'Welche Größe ist am größten?' ist immer die größte Maßzahl mit der größten Einheit richtig – erkennbar ohne Umrechnen.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Beim Vergleichen auch Fälle, in denen die Angabe in der kleineren Einheit größer ist (z. B. 2 kg gegen 2 503 g als richtige Antwort 2 503 g)."
+      ]
+    },
+    {
+      "lernziel": "zeit",
+      "urteil": "verbessern",
+      "stufen": "Stufe 3 enthält überwiegend 'Ein Lauf dauert … s' – derselbe Typ wie Stufe 2 mit Sekunden statt Minuten. Nur die Schlafenszeit über Mitternacht ist echt schwer.",
+      "fehlende_aufgabentypen": [
+        "Zeitspanne mit Uhrzeiten (luecken, Stufe 2–3): Beispiel 1: 'Ein Film beginnt um 18:45 Uhr und dauert 1 h 50 min. Wann endet er?' Schablone '□:□ Uhr' → [20, 35]. Beispiel 2: 'Der Zug fährt um 7:52 ab und kommt um 9:17 an. Wie lange dauert die Fahrt?' → [1, 25] als '□ h □ min'."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "kommaschreibweise",
+      "urteil": "ok",
+      "stufen": "Passt; Stufe 3 mit Nullen nach dem Komma trifft den Hauptfehler. Tipp mit falscher Grammatik ('1 Stellen').",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Tipp: 'Nach dem Komma steht 1 Stelle' bzw. 'stehen 3 Stellen'."
+      ]
+    },
+    {
+      "lernziel": "rechnen",
+      "urteil": "ok",
+      "stufen": "Passt; Einkauf mit Rückgeld und Rucksack sind gute Sachaufgaben.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "massstab",
+      "urteil": "verbessern",
+      "stufen": "Passt im Aufbau (Karte → Wirklichkeit, Vergrößerung, Wirklichkeit → Plan). Die 'Zimmer' sind unrealistisch groß (10 m × 6 m, 15 m × 10 m).",
+      "fehlende_aufgabentypen": [
+        "Maßstab bestimmen (zahl, Stufe 3): Beispiel 1: 'Auf einem Plan ist ein 6 m langes Zimmer 12 cm lang. Welcher Maßstab? Gib die Zahl x in 1 : x an.' → 50. Beispiel 2: 'Ein 2 km langer Weg ist auf der Karte 8 cm lang.' → 25 000."
+      ],
+      "generator_regeln": [
+        "Zimmer 3–6 m lang; für größere Maße 'Turnhalle', 'Garten' oder 'Grundstück' sagen."
+      ]
+    },
+    {
+      "lernziel": "verstehen",
+      "urteil": "verbessern",
+      "stufen": "Inhaltlich sehr gute Fehlerbilder (6 h = 600 min, 9,5 h = 9 h 50 min, 3 m 1 cm = 3,1 m). Aber die richtige Antwort ist fast immer die einzige mit Begründung; Ablenker 'Nein, das ist falsch.' / 'Das kann man nicht entscheiden.'",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Alle Antworten mit Begründung: z. B. 'Ja, 1 h = 100 min.' / 'Nein, 1 h = 60 min, also 360 min.' / 'Nein, 6 h = 3 600 min.'",
+        "Große Zahlen mit Leerzeichen: 4 000 g."
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Was ist realistisch? Eine Briefmarke wiegt ungefähr …",
+      "art": "unrealistisch",
+      "problem": "Als richtig markiert ist '1 g'; eine Briefmarke wiegt deutlich weniger (meist unter 0,1 g).",
+      "korrektur": "Was ist realistisch? Ein Brief mit zwei Blatt Papier wiegt ungefähr … – Antworten '10 g' (richtig), '1 kg', '100 g', '1 mg'."
+    },
+    {
+      "aufgabe": "Was ist realistisch? Eine Ameise ist ungefähr …",
+      "art": "mehrdeutig",
+      "problem": "Ablenker '5 cm' und '50 mm' sind gleich groß; damit bleiben faktisch nur drei verschiedene Antworten.",
+      "korrektur": "Antworten: '5 mm' (richtig), '5 cm', '5 dm', '5 m'."
+    },
+    {
+      "aufgabe": "Stimmt das? „Ein Klassenzimmer ist etwa 8 m lang.“",
+      "art": "loesungsweg",
+      "problem": "Begründung '(etwa 4 Türbreiten mal 2)' ist unklar: Eine Türbreite ist etwa 1 m; '4 mal 2' passt zu keiner Bezugsgröße.",
+      "korrektur": "Richtige Antwort: 'Ja, das ist realistisch (etwa 8 Türbreiten von je 1 m).'"
+    },
+    {
+      "aufgabe": "Ein Zimmer ist 15 m lang und 10 m breit. Zeichne es im Maßstab 1 : 100. Wie lang und breit wird es auf dem Plan (in cm)?",
+      "art": "unrealistisch",
+      "problem": "150 m² sind kein Zimmer (ebenso 10 m × 6 m und 12 m × 8 m).",
+      "korrektur": "Ein Zimmer ist 5 m lang und 4 m breit. Zeichne es im Maßstab 1 : 50. Wie lang und breit wird es auf dem Plan (in cm)? – Lösung [10, 8]."
+    },
+    {
+      "aufgabe": "Schreibe in Kommaschreibweise: 19 cm 2 mm = ? cm",
+      "art": "sprache",
+      "problem": "Tipp: 'Nach dem Komma stehen 1 Stellen'.",
+      "korrektur": "Tipp: 'Nach dem Komma steht 1 Stelle (mm), fehlende mit 0 auffüllen.'"
+    }
+  ]
+}

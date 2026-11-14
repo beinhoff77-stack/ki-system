@@ -1135,11 +1135,16 @@ async function viewPlan(arg) {
   const speichern = el('button', { type: 'button', class: 'primary', disabled: true }, 'Plan speichern');
   const liste = el('ol', { class: 'lern-plan' });
   const ortName = (o) => o ? `${o.stadt || o.titel}${o.stadt && o.titel !== o.stadt ? ' – ' + o.titel : ''}` : '?';
-  const einheitInfo = (o) => {
-    const e = o?.einheiten || [];
-    if (!e.length) return 'Noch keine Lerneinheit – wird gebaut, wenn das Thema im Plan steht.';
-    return e.map((x) => `${x.titel || 'Einheit'}: ${x.fertig}/${x.pflicht} geschafft${x.fehler ? `, ${x.fehler} × noch üben` : ''}${x.status === 'entwurf' ? ' (Entwurf)' : ''}`).join(' · ');
-  };
+  const gymKl = (o) => Math.min(...(o?.themen || []).map((t) => t.jahrgang?.gym_by || 99));
+  const standText = { erledigt: 'geschafft', laeuft: 'läuft', offen: 'noch nicht begonnen' };
+  const themenListe = (o) => el('ul', { class: 'lern-plan-themen' }, ...(o?.themen || []).map((t) => {
+    const z = lernInhaltZustand(t);
+    return el('li', { class: 'lp-' + z.k },
+      el('i', { class: 'lp-punkt', 'aria-hidden': 'true' }),
+      el('span', {}, el('b', {}, t.titel), el('span', { class: 'lern-plan-jg' }, ' · ' + (lernJahrgangText(t.jahrgang) || 'ohne Lehrplan-Zuordnung'))),
+      el('small', { class: 'muted' }, z.k === 'leer' ? 'noch kein Inhalt' : z.k === 'pruefung' ? 'Inhalt in Prüfung' : (standText[t.stand] || 'Inhalt fertig')),
+      t.einheit ? el('a', { class: 'small', href: `#/inhalte/${t.einheit.id}` }, 'ansehen') : null);
+  }));
   const markiere = () => { geaendert = true; speichern.disabled = false; status.textContent = 'Nicht gespeichert.'; };
   const zeichne = () => {
     liste.replaceChildren(...plan.map((x, i) => {
@@ -1150,8 +1155,8 @@ async function viewPlan(arg) {
       const weg = el('button', { type: 'button', class: 'lern-plan-weg', 'aria-label': `${ortName(o)} aus dem Plan nehmen`, onclick: () => { plan.splice(i, 1); markiere(); zeichne(); zeichneVorrat(); } }, 'Entfernen');
       return el('li', { class: 'lern-plan-zeile' + (x.status === 'fertig' ? ' fertig' : '') },
         el('span', { class: 'lern-plan-nr' }, String(i + 1)),
-        el('div', { class: 'lern-plan-text' }, el('b', {}, ortName(o)), el('small', {}, [o?.kontinent, o?.ziel_klasse ? `Kl. ${o.ziel_klasse}` : null, x.status === 'fertig' ? 'geschafft' : null].filter(Boolean).join(' · ')),
-          el('small', { class: 'muted' }, einheitInfo(o))),
+        el('div', { class: 'lern-plan-text' }, el('b', {}, ortName(o)), el('small', {}, [o?.kontinent, x.status === 'fertig' ? 'geschafft' : null].filter(Boolean).join(' · ')),
+          themenListe(o)),
         el('div', { class: 'lern-plan-knoepfe' }, hoch, runter, kann, weg));
     }));
     if (!plan.length) liste.append(el('li', { class: 'muted' }, 'Der Plan ist leer. Ohne Plan sieht das Kind alle Themen. Füge unten Themen hinzu.'));
@@ -1162,15 +1167,16 @@ async function viewPlan(arg) {
   const zeichneVorrat = () => {
     const q = suche.value.trim().toLowerCase();
     const drin = new Set(plan.map((x) => x.block_id));
-    const treffer = (p.orte || []).filter((o) => !drin.has(o.block_id) && (!nurMitEinheit.checked || o.einheiten?.length)
-      && (!q || `${o.stadt} ${o.titel} ${o.kontinent}`.toLowerCase().includes(q)));
+    const treffer = (p.orte || []).filter((o) => !drin.has(o.block_id) && (o.themen || []).length && (!nurMitEinheit.checked || o.themen.some((t) => t.einheit))
+      && (!q || `${o.stadt} ${o.titel} ${o.kontinent} ${(o.themen || []).map((t) => t.titel).join(' ')}`.toLowerCase().includes(q)));
     const gruppen = new Map();
-    for (const o of treffer) { const g = o.kontinent || 'Weitere'; if (!gruppen.has(g)) gruppen.set(g, []); gruppen.get(g).push(o); }
-    vorrat.replaceChildren(...[...gruppen].map(([g, os]) => el('details', { open: !!q },
-      el('summary', {}, `${g} (${os.length})`),
+    for (const o of treffer.sort((a, b) => gymKl(a) - gymKl(b))) { const g = gymKl(o); if (!gruppen.has(g)) gruppen.set(g, []); gruppen.get(g).push(o); }
+    const kk = p.kind.klasse;
+    vorrat.replaceChildren(...[...gruppen].map(([g, os]) => el('details', { open: !!q || g === kk },
+      el('summary', {}, `${g === 99 ? 'Nicht im Gymnasium-Lehrplan' : `Gymnasium Klasse ${g}`}${g === kk ? ` – ${p.kind.name}s Klasse` : ''} (${os.length} ${os.length === 1 ? 'Ort' : 'Orte'})`),
       el('ul', { class: 'lern-plan-auswahl' }, ...os.map((o) => el('li', {},
         el('button', { type: 'button', class: 'lern-chip', onclick: () => { plan.push({ block_id: o.block_id, kann_schon: false, status: 'offen' }); markiere(); zeichne(); zeichneVorrat(); } }, '+ ' + ortName(o)),
-        el('small', { class: 'muted' }, ` Kl. ${o.ziel_klasse || '?'}${o.einheiten?.length ? ' · Einheit da' : ''}`)))))));
+        themenListe(o)))))));
     if (!treffer.length) vorrat.append(el('p', { class: 'muted small' }, 'Nichts gefunden.'));
   };
   suche.addEventListener('input', zeichneVorrat); nurMitEinheit.addEventListener('change', zeichneVorrat);
@@ -1190,28 +1196,27 @@ async function viewPlan(arg) {
     catch (err) { notizStatus.textContent = err.message; }
   });
   zeichne(); zeichneVorrat();
-  const saSel = el('select', { 'aria-label': 'Schulart' }, ...LERN_SA.map(([k, t]) => el('option', { value: k, selected: (p.kind.schulart || 'gym_by') === k }, t)));
   const klIn = el('input', { type: 'number', min: '1', max: '13', value: p.kind.klasse || '', inputmode: 'numeric', 'aria-label': 'Klasse' });
   const kindStatus = el('span', { class: 'small muted', role: 'status' });
-  const kindForm = el('form', { class: 'card lp-kindform' }, el('h3', {}, 'Schule'), el('div', { class: 'row' }, saSel, klIn,
+  const kindForm = el('form', { class: 'card lp-kindform' }, el('h3', {}, 'Klasse'), el('div', { class: 'row' }, klIn,
     el('button', { type: 'submit', class: 'secondary' }, 'Speichern'), kindStatus),
-    el('p', { class: 'small muted' }, 'Bestimmt, welche Klassenstufe für das Kind gilt (Lehrplan-Übersicht, „Mein Stand“).'));
+    el('p', { class: 'small muted' }, 'Gymnasium. Bestimmt, welche Themen beim Kind als „seine Klasse“ zählen.'));
   kindForm.addEventListener('submit', async (ev) => {
     ev.preventDefault();
-    try { await lernCall('schule_kind_setzen', { lernender_id: kindId, schulart: saSel.value, klasse: Number(klIn.value) || null }); kindStatus.textContent = 'Gespeichert.'; setTimeout(render, 700); }
+    try { await lernCall('schule_kind_setzen', { lernender_id: kindId, klasse: Number(klIn.value) || null }); kindStatus.textContent = 'Gespeichert.'; setTimeout(render, 700); }
     catch (err) { kindStatus.textContent = err.message; }
   });
   main.replaceChildren(...[
-    el('section', { class: 'start-intro' }, el('p', { class: 'eyebrow' }, `THEMENPLAN · ${(LERN_SA.find(([k]) => k === (p.kind.schulart || 'gym_by')) || [])[1] || ''} · KLASSE ${p.kind.klasse || '?'}`.toUpperCase()), el('h2', {}, p.kind.name),
-      el('p', {}, 'Reihenfolge = Reihenfolge in der Lernreise. „Kann es schon“ legt ein Thema zum Wiederholen ab. Was nicht im Plan steht, kommt später.')),
-    kindForm,
+    el('section', { class: 'start-intro' }, el('p', { class: 'eyebrow' }, `THEMENPLAN · GYMNASIUM KLASSE ${p.kind.klasse || '?'}`), el('h2', {}, p.kind.name),
+      el('p', {}, 'Reihenfolge = Reihenfolge in der Lernreise. Hinter jedem Thema steht, in welcher Klasse es laut Lehrplan dran ist (Gym = Gymnasium, RS = Realschule, IB = MYP-Jahr). Punkt: grün = Inhalt fertig, gelb = in Prüfung, grau = noch kein Inhalt.')),
     el('p', { class: 'small' }, el('a', { href: '#/lehrplan' }, 'Welche Themen gibt es für welche Klasse? → Lehrplan-Übersicht')),
     rueck.length ? el('p', { class: 'card small' }, `Automatische Rückreise: ${rueck.map((r) => ortName(ortById.get(r.block_id))).join(', ')} – wird zuerst wiederholt, bis der Nachtest bestanden ist.`) : null,
     liste,
     el('div', { class: 'row lern-plan-speichern' }, speichern, status),
     el('section', { class: 'card' }, el('h3', {}, 'Thema hinzufügen'),
-      el('div', { class: 'row' }, suche, el('label', { class: 'small' }, nurMitEinheit, ' nur mit fertiger Einheit')), vorrat,
+      el('div', { class: 'row' }, suche, el('label', { class: 'small' }, nurMitEinheit, ' nur Orte mit Inhalt')), vorrat,
       el('details', { class: 'lern-anmerkung' }, el('summary', {}, '✎ Thema fehlt in der Liste?'), lernRueckmeldungForm({ lernender_id: kindId }, { offen: true }))),
+    kindForm,
     el('section', { class: 'card' }, el('h3', {}, 'Notizen'), notizForm,
       ...(p.notizen || []).map((n) => el('p', { class: 'small' }, el('b', {}, String(n.von || '').replace(/^[a-z]+:/, '') + ': '), n.text, el('span', { class: 'muted' }, ' · ' + new Date(n.am).toLocaleDateString('de-DE'))))),
     (p.verlauf || []).length ? el('details', { class: 'card' }, el('summary', {}, 'Verlauf'),
@@ -1266,7 +1271,6 @@ function lernZugangListe(box, zugaenge, rollenText) {
 
 
 // ---------- Eltern/Lehrer: Lehrplan-Übersicht (alle Themen je Schulart und Klasse, mit Inhaltsstand) ----------
-const LERN_SA = [['gym_by', 'Gymnasium', 'Gym'], ['rs_by', 'Realschule', 'RS'], ['ib_myp', 'IB MYP', 'IB']];
 const LERN_STAND = { erledigt: ['geschafft', 'ok'], laeuft: ['läuft', 'laeuft'], offen: ['offen', ''], keine_einheit: ['–', 'leer'] };
 function lernInhaltZustand(t) {
   const e = t.einheit;
@@ -1282,20 +1286,17 @@ async function viewLehrplan() {
   const d = await lernCall('schule_lehrplan_uebersicht');
   if (!live()) return;
   const kinder = d.kinder || [];
-  const f = lernLpFilter || (lernLpFilter = { sa: kinder[0]?.schulart || 'gym_by', kl: '', inhalt: '', q: '' });
+  const f = lernLpFilter || (lernLpFilter = { kl: '', inhalt: '', q: '' });
+  const gk = (t) => t.jahrgang?.gym_by || 99; // Gruppe: Klasse im Gymnasium (alle Kinder sind am Gymnasium)
   const kacheln = el('div', { class: 'lp-kacheln' });
   const liste = el('div', { class: 'lp-liste' });
   const klSel = el('select', { 'aria-label': 'Klasse' });
+  const klName = (k) => k === 99 ? 'Nicht im Gymnasium-Lehrplan' : `Klasse ${k}` + kinder.filter((c) => c.klasse === k).map((c) => ' · ' + c.name).join('');
   const fuelleKlassen = () => {
-    const ks = [...new Set((d.themen || []).map((t) => t.jahrgang?.[f.sa]).filter(Boolean))].sort((a, b) => a - b);
-    klSel.replaceChildren(el('option', { value: '' }, 'Alle Klassen'), ...ks.map((k) => el('option', { value: k, selected: String(k) === String(f.kl) },
-      `${f.sa === 'ib_myp' ? 'MYP-Jahr' : 'Klasse'} ${k}` + (kinder.filter((c) => c.schulart === f.sa && c.klasse === k).map((c) => ' · ' + c.name).join('')))));
-    if (f.kl && !ks.includes(Number(f.kl))) f.kl = '';
+    const ks = [...new Set((d.themen || []).map(gk))].sort((a, b) => a - b);
+    klSel.replaceChildren(el('option', { value: '' }, 'Alle Klassen'), ...ks.map((k) => el('option', { value: k, selected: String(k) === String(f.kl) }, klName(k))));
   };
   klSel.addEventListener('change', () => { f.kl = klSel.value; zeichne(); });
-  const saChips = el('div', { class: 'lern-rm-arten', role: 'group', 'aria-label': 'Schulart' }, ...LERN_SA.map(([k, t]) => el('button', { type: 'button', class: 'lern-chip', 'aria-pressed': String(f.sa === k), onclick: (ev) => {
-    f.sa = k; for (const b of saChips.children) b.setAttribute('aria-pressed', String(b === ev.currentTarget)); fuelleKlassen(); zeichne();
-  } }, t)));
   const inhSel = el('select', { 'aria-label': 'Inhalt' }, ...[['', 'Alle Themen'], ['fertig', 'Fertig'], ['pruefung', 'In Prüfung'], ['leer', 'Noch kein Inhalt']]
     .map(([v, t]) => el('option', { value: v, selected: f.inhalt === v }, t)));
   inhSel.addEventListener('change', () => { f.inhalt = inhSel.value; zeichne(); });
@@ -1319,7 +1320,8 @@ async function viewLehrplan() {
     });
     return el('article', { class: 'lp-zeile lp-' + z.k },
       el('div', { class: 'lp-text' }, el('b', {}, t.titel),
-        el('small', {}, [t.gebiet, t.ort, lernJahrgangText(t.jahrgang)].filter(Boolean).join(' · ')),
+        el('span', { class: 'lern-plan-jg' }, lernJahrgangText(t.jahrgang) || 'ohne Lehrplan-Zuordnung'),
+        el('small', {}, [t.gebiet, t.ort].filter(Boolean).join(' · ')),
         el('span', { class: 'lp-inhalt' }, el('i', { class: 'lp-punkt', 'aria-hidden': 'true' }), z.text),
         el('div', { class: 'lp-staende' }, ...stand),
         t.rueckmeldungen ? el('small', { class: 'muted' }, `${t.rueckmeldungen} offene Anmerkung${t.rueckmeldungen > 1 ? 'en' : ''}`) : null),
@@ -1329,7 +1331,7 @@ async function viewLehrplan() {
   };
   const zeichne = () => {
     const q = f.q.trim().toLowerCase();
-    const basis = (d.themen || []).filter((t) => t.jahrgang?.[f.sa] && (!f.kl || String(t.jahrgang[f.sa]) === String(f.kl)));
+    const basis = (d.themen || []).filter((t) => !f.kl || String(gk(t)) === String(f.kl));
     const zahl = (k) => basis.filter((t) => lernInhaltZustand(t).k === k).length;
     kacheln.replaceChildren(
       el('div', { class: 'lp-kachel' }, el('b', {}, String(basis.length)), el('small', {}, 'Themen')),
@@ -1339,20 +1341,19 @@ async function viewLehrplan() {
     const treffer = basis.filter((t) => (!f.inhalt || lernInhaltZustand(t).k === f.inhalt)
       && (!q || `${t.titel} ${t.ort} ${t.gebiet}`.toLowerCase().includes(q)));
     const gruppen = new Map();
-    for (const t of treffer.sort((a, b) => a.jahrgang[f.sa] - b.jahrgang[f.sa])) {
-      const g = t.jahrgang[f.sa]; if (!gruppen.has(g)) gruppen.set(g, []); gruppen.get(g).push(t);
+    for (const t of treffer.sort((a, b) => gk(a) - gk(b))) {
+      const g = gk(t); if (!gruppen.has(g)) gruppen.set(g, []); gruppen.get(g).push(t);
     }
     liste.replaceChildren(...[...gruppen].map(([kl, ts]) => el('section', { class: 'lp-gruppe' },
-      el('h3', {}, `${f.sa === 'ib_myp' ? 'MYP-Jahr' : 'Klasse'} ${kl}`, el('small', { class: 'muted' },
-        ` · ${ts.length} ${ts.length === 1 ? 'Thema' : 'Themen'}` + kinder.filter((c) => c.schulart === f.sa && c.klasse === kl).map((c) => ' · ' + c.name).join(''))),
+      el('h3', {}, klName(kl), el('small', { class: 'muted' }, ` · ${ts.length} ${ts.length === 1 ? 'Thema' : 'Themen'}`)),
       ...ts.map(zeile))));
     if (!treffer.length) liste.append(el('p', { class: 'muted' }, 'Keine Themen für diese Auswahl.'));
   };
   fuelleKlassen(); zeichne();
   main.replaceChildren(
     el('section', { class: 'start-intro' }, el('p', { class: 'eyebrow' }, 'ELTERN UND LEHRER'), el('h2', {}, 'Lehrplan-Übersicht'),
-      el('p', {}, 'Alle Mathe-Themen nach Lehrplan der Schulart: in welcher Klasse sie dran sind, ob es schon Inhalte gibt und wie weit die Kinder sind. Grün = fertig, gelb = gebaut und in Prüfung, grau = noch nichts da.')),
-    el('div', { class: 'card lp-filter' }, saChips, el('div', { class: 'row' }, klSel, inhSel, suche)),
+      el('p', {}, 'Alle Mathe-Themen, sortiert nach Klasse im Gymnasium. Hinter jedem Thema steht, wann es laut Lehrplan dran ist: Gym = Gymnasium, RS = Realschule, IB = MYP-Jahr. Grün = Inhalt fertig, gelb = gebaut und in Prüfung, grau = noch nichts da.')),
+    el('div', { class: 'card lp-filter' }, el('div', { class: 'row' }, klSel, inhSel, suche)),
     kacheln, status, liste);
 }
 

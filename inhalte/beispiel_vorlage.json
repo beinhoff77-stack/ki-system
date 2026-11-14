@@ -1,0 +1,1141 @@
+{
+ "thema_schluessel": "beispiel.vorlage",
+ "thema_id": 0,
+ "block_id": 0,
+ "klasse": {
+  "gym_by": 5,
+  "rs_by": 5
+ },
+ "autor": "Claude (Vorlage)",
+ "inhalt": {
+  "ziel": "Mit ganzen Zahlen addieren, subtrahieren und multiplizieren.",
+  "merke": [
+   "Gleiche Vorzeichen: plus. Verschiedene: minus.",
+   "Minus einer negativen Zahl = plus."
+  ],
+  "abschnitte": [
+   {
+    "titel": "Plus und Minus",
+    "lernziele": [
+     "addieren",
+     "subtrahieren"
+    ]
+   },
+   {
+    "titel": "Mal",
+    "lernziele": [
+     "multiplizieren"
+    ]
+   }
+  ],
+  "etappen": [
+   {
+    "lernziel": "addieren",
+    "titel": "Ganze Zahlen addieren",
+    "regel": "Gleiche Vorzeichen: Beträge ⟦addieren⟧, Vorzeichen behalten. Verschiedene Vorzeichen: Beträge ⟦subtrahieren⟧, Vorzeichen der Zahl mit dem größeren Betrag.",
+    "schritte": [
+     "(−7) + 4: verschiedene Vorzeichen, also 7 − 4 = 3.",
+     "Der größere Betrag (7) ist negativ, also ⟦−3⟧."
+    ],
+    "probe": "−3 − 4 = −7 ✓",
+    "fehler": "(−7) + 4 = −11 ist falsch: Bei verschiedenen Vorzeichen wird nicht addiert, sondern ⟦subtrahiert⟧."
+   },
+   {
+    "lernziel": "subtrahieren",
+    "titel": "Ganze Zahlen subtrahieren",
+    "regel": "Eine Zahl subtrahieren heißt ihre ⟦Gegenzahl addieren⟧: a − (−b) = a + b.",
+    "schritte": [
+     "5 − (−3) wird zu 5 + 3.",
+     "5 + 3 = ⟦8⟧."
+    ],
+    "probe": "8 + (−3) = 5 ✓",
+    "fehler": "5 − (−3) = 2 ist falsch: Minus mal Minus wird ⟦Plus⟧."
+   },
+   {
+    "lernziel": "multiplizieren",
+    "titel": "Ganze Zahlen multiplizieren",
+    "regel": "Gleiche Vorzeichen ergeben ⟦plus⟧, verschiedene Vorzeichen ⟦minus⟧.",
+    "schritte": [
+     "(−6) · 4: Beträge 6 · 4 = 24.",
+     "Verschiedene Vorzeichen, also ⟦−24⟧."
+    ],
+    "probe": "(−24) : 4 = −6 ✓",
+    "fehler": "(−6) · (−4) = −24 ist falsch: Zwei Minus ergeben ⟦Plus⟧, also 24."
+   }
+  ],
+  "teilfaehigkeiten": [
+   {
+    "k": "addieren",
+    "text": "Ganze Zahlen addieren",
+    "lernziele": [
+     "addieren"
+    ]
+   },
+   {
+    "k": "subtrahieren",
+    "text": "Ganze Zahlen subtrahieren",
+    "lernziele": [
+     "subtrahieren"
+    ]
+   },
+   {
+    "k": "multiplizieren",
+    "text": "Ganze Zahlen multiplizieren",
+    "lernziele": [
+     "multiplizieren"
+    ]
+   }
+  ],
+  "bewertung": {
+   "lernziele_pflicht": [
+    "addieren",
+    "subtrahieren",
+    "multiplizieren"
+   ],
+   "lernziele_vertiefung": [],
+   "testaufgaben_je_lernziel": 1
+  },
+  "quellen": {
+   "erklaerungen": "Eigene Fassung (Claude).",
+   "begriffe": "Fachbegriffe nach LehrplanPLUS Bayern."
+  }
+ },
+ "aufgaben": [
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−1) + 5."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(-1) + (5)",
+   "w": "Verschiedene Vorzeichen: Ergebnis (−1) + 5 = 4.",
+   "h": "Vergleiche zuerst die Vorzeichen. Gleich: Beträge addieren. Verschieden: Beträge subtrahieren."
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−8) + (−6)."
+   },
+   "o": {
+    "wert": -14
+   },
+   "c": "(-8) + (-6)",
+   "w": "Gleiche Vorzeichen: Ergebnis (−8) + (−6) = −14.",
+   "h": "Vergleiche zuerst die Vorzeichen. Gleich: Beträge addieren. Verschieden: Beträge subtrahieren."
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−1) + 10."
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "(-1) + (10)",
+   "w": "Verschiedene Vorzeichen: Ergebnis (−1) + 10 = 9.",
+   "h": "Vergleiche zuerst die Vorzeichen. Gleich: Beträge addieren. Verschieden: Beträge subtrahieren."
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−11) + (−10)."
+   },
+   "o": {
+    "wert": -21
+   },
+   "c": "(-11) + (-10)",
+   "w": "Gleiche Vorzeichen: Ergebnis (−11) + (−10) = −21.",
+   "h": "Vergleiche zuerst die Vorzeichen. Gleich: Beträge addieren. Verschieden: Beträge subtrahieren."
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 7 + (−77)."
+   },
+   "o": {
+    "wert": -70
+   },
+   "c": "(7) + (-77)",
+   "w": "Verschiedene Vorzeichen: Ergebnis 7 + (−77) = −70.",
+   "h": "Vergleiche zuerst die Vorzeichen. Gleich: Beträge addieren. Verschieden: Beträge subtrahieren."
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 90 + (−25)."
+   },
+   "o": {
+    "wert": 65
+   },
+   "c": "(90) + (-25)",
+   "w": "Verschiedene Vorzeichen: Ergebnis 90 + (−25) = 65.",
+   "h": "Vergleiche zuerst die Vorzeichen. Gleich: Beträge addieren. Verschieden: Beträge subtrahieren."
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−15) + (−28)."
+   },
+   "o": {
+    "wert": -43
+   },
+   "c": "(-15) + (-28)",
+   "w": "Gleiche Vorzeichen: Ergebnis (−15) + (−28) = −43.",
+   "h": "Vergleiche zuerst die Vorzeichen. Gleich: Beträge addieren. Verschieden: Beträge subtrahieren."
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−89) + 13."
+   },
+   "o": {
+    "wert": -76
+   },
+   "c": "(-89) + (13)",
+   "w": "Verschiedene Vorzeichen: Ergebnis (−89) + 13 = −76.",
+   "h": "Vergleiche zuerst die Vorzeichen. Gleich: Beträge addieren. Verschieden: Beträge subtrahieren."
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−919) + 536."
+   },
+   "o": {
+    "wert": -383
+   },
+   "c": "(-919) + (536)",
+   "w": "Verschiedene Vorzeichen: Ergebnis (−919) + 536 = −383.",
+   "h": "Vergleiche zuerst die Vorzeichen. Gleich: Beträge addieren. Verschieden: Beträge subtrahieren."
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−190) + (−896)."
+   },
+   "o": {
+    "wert": -1086
+   },
+   "c": "(-190) + (-896)",
+   "w": "Gleiche Vorzeichen: Ergebnis (−190) + (−896) = −1 086.",
+   "h": "Vergleiche zuerst die Vorzeichen. Gleich: Beträge addieren. Verschieden: Beträge subtrahieren."
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−880) + 690."
+   },
+   "o": {
+    "wert": -190
+   },
+   "c": "(-880) + (690)",
+   "w": "Verschiedene Vorzeichen: Ergebnis (−880) + 690 = −190.",
+   "h": "Vergleiche zuerst die Vorzeichen. Gleich: Beträge addieren. Verschieden: Beträge subtrahieren."
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 645 + (−715)."
+   },
+   "o": {
+    "wert": -70
+   },
+   "c": "(645) + (-715)",
+   "w": "Verschiedene Vorzeichen: Ergebnis 645 + (−715) = −70.",
+   "h": "Vergleiche zuerst die Vorzeichen. Gleich: Beträge addieren. Verschieden: Beträge subtrahieren."
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−66) + 25."
+   },
+   "o": {
+    "wert": -41
+   },
+   "c": "(-66) + (25)",
+   "w": "Verschiedene Vorzeichen: Ergebnis (−66) + 25 = −41."
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−5) + (−78)."
+   },
+   "o": {
+    "wert": -83
+   },
+   "c": "(-5) + (-78)",
+   "w": "Gleiche Vorzeichen: Ergebnis (−5) + (−78) = −83."
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 74 + (−24)."
+   },
+   "o": {
+    "wert": 50
+   },
+   "c": "(74) + (-24)",
+   "w": "Verschiedene Vorzeichen: Ergebnis 74 + (−24) = 50."
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 23 + (−12)."
+   },
+   "o": {
+    "wert": 11
+   },
+   "c": "(23) + (-12)",
+   "w": "Verschiedene Vorzeichen: Ergebnis 23 + (−12) = 11."
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−68) + (−97)."
+   },
+   "o": {
+    "wert": -165
+   },
+   "c": "(-68) + (-97)",
+   "w": "Gleiche Vorzeichen: Ergebnis (−68) + (−97) = −165."
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−86) + (−73)."
+   },
+   "o": {
+    "wert": -159
+   },
+   "c": "(-86) + (-73)",
+   "w": "Gleiche Vorzeichen: Ergebnis (−86) + (−73) = −159."
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−64) + 45."
+   },
+   "o": {
+    "wert": -19
+   },
+   "c": "(-64) + (45)",
+   "w": "Verschiedene Vorzeichen: Ergebnis (−64) + 45 = −19."
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−48) + (−31)."
+   },
+   "o": {
+    "wert": -79
+   },
+   "c": "(-48) + (-31)",
+   "w": "Gleiche Vorzeichen: Ergebnis (−48) + (−31) = −79."
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−77) + 59."
+   },
+   "o": {
+    "wert": -18
+   },
+   "c": "(-77) + (59)",
+   "w": "Verschiedene Vorzeichen: Ergebnis (−77) + 59 = −18."
+  },
+  {
+   "l": "addieren",
+   "t": "addieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−61) + 26."
+   },
+   "o": {
+    "wert": -35
+   },
+   "c": "(-61) + (26)",
+   "w": "Verschiedene Vorzeichen: Ergebnis (−61) + 26 = −35."
+  },
+  {
+   "l": "subtrahieren",
+   "t": "subtrahieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 9 − (−18)."
+   },
+   "o": {
+    "wert": 27
+   },
+   "c": "(9) - (-18)",
+   "w": "Gegenzahl addieren: 9 − (−18) = 9 + 18 = 27.",
+   "h": "Schreibe die Subtraktion als Addition der Gegenzahl."
+  },
+  {
+   "l": "subtrahieren",
+   "t": "subtrahieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 17 − (−18)."
+   },
+   "o": {
+    "wert": 35
+   },
+   "c": "(17) - (-18)",
+   "w": "Gegenzahl addieren: 17 − (−18) = 17 + 18 = 35.",
+   "h": "Schreibe die Subtraktion als Addition der Gegenzahl."
+  },
+  {
+   "l": "subtrahieren",
+   "t": "subtrahieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 17 − (−1)."
+   },
+   "o": {
+    "wert": 18
+   },
+   "c": "(17) - (-1)",
+   "w": "Gegenzahl addieren: 17 − (−1) = 17 + 1 = 18.",
+   "h": "Schreibe die Subtraktion als Addition der Gegenzahl."
+  },
+  {
+   "l": "subtrahieren",
+   "t": "subtrahieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 9 − (−6)."
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "(9) - (-6)",
+   "w": "Gegenzahl addieren: 9 − (−6) = 9 + 6 = 15.",
+   "h": "Schreibe die Subtraktion als Addition der Gegenzahl."
+  },
+  {
+   "l": "subtrahieren",
+   "t": "subtrahieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−43) − (−5)."
+   },
+   "o": {
+    "wert": -38
+   },
+   "c": "(-43) - (-5)",
+   "w": "Gegenzahl addieren: (−43) − (−5) = (−43) + 5 = −38.",
+   "h": "Schreibe die Subtraktion als Addition der Gegenzahl."
+  },
+  {
+   "l": "subtrahieren",
+   "t": "subtrahieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 97 − (−39)."
+   },
+   "o": {
+    "wert": 136
+   },
+   "c": "(97) - (-39)",
+   "w": "Gegenzahl addieren: 97 − (−39) = 97 + 39 = 136.",
+   "h": "Schreibe die Subtraktion als Addition der Gegenzahl."
+  },
+  {
+   "l": "subtrahieren",
+   "t": "subtrahieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 14 − (−26)."
+   },
+   "o": {
+    "wert": 40
+   },
+   "c": "(14) - (-26)",
+   "w": "Gegenzahl addieren: 14 − (−26) = 14 + 26 = 40.",
+   "h": "Schreibe die Subtraktion als Addition der Gegenzahl."
+  },
+  {
+   "l": "subtrahieren",
+   "t": "subtrahieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 98 − (−72)."
+   },
+   "o": {
+    "wert": 170
+   },
+   "c": "(98) - (-72)",
+   "w": "Gegenzahl addieren: 98 − (−72) = 98 + 72 = 170.",
+   "h": "Schreibe die Subtraktion als Addition der Gegenzahl."
+  },
+  {
+   "l": "subtrahieren",
+   "t": "subtrahieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 890 − (−296)."
+   },
+   "o": {
+    "wert": 1186
+   },
+   "c": "(890) - (-296)",
+   "w": "Gegenzahl addieren: 890 − (−296) = 890 + 296 = 1 186.",
+   "h": "Schreibe die Subtraktion als Addition der Gegenzahl."
+  },
+  {
+   "l": "subtrahieren",
+   "t": "subtrahieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−757) − (−19)."
+   },
+   "o": {
+    "wert": -738
+   },
+   "c": "(-757) - (-19)",
+   "w": "Gegenzahl addieren: (−757) − (−19) = (−757) + 19 = −738.",
+   "h": "Schreibe die Subtraktion als Addition der Gegenzahl."
+  },
+  {
+   "l": "subtrahieren",
+   "t": "subtrahieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 564 − (−278)."
+   },
+   "o": {
+    "wert": 842
+   },
+   "c": "(564) - (-278)",
+   "w": "Gegenzahl addieren: 564 − (−278) = 564 + 278 = 842.",
+   "h": "Schreibe die Subtraktion als Addition der Gegenzahl."
+  },
+  {
+   "l": "subtrahieren",
+   "t": "subtrahieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 968 − (−966)."
+   },
+   "o": {
+    "wert": 1934
+   },
+   "c": "(968) - (-966)",
+   "w": "Gegenzahl addieren: 968 − (−966) = 968 + 966 = 1 934.",
+   "h": "Schreibe die Subtraktion als Addition der Gegenzahl."
+  },
+  {
+   "l": "subtrahieren",
+   "t": "subtrahieren",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−89) − (−65)."
+   },
+   "o": {
+    "wert": -24
+   },
+   "c": "(-89) - (-65)",
+   "w": "Gegenzahl addieren: (−89) − (−65) = (−89) + 65 = −24."
+  },
+  {
+   "l": "subtrahieren",
+   "t": "subtrahieren",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 70 − (−98)."
+   },
+   "o": {
+    "wert": 168
+   },
+   "c": "(70) - (-98)",
+   "w": "Gegenzahl addieren: 70 − (−98) = 70 + 98 = 168."
+  },
+  {
+   "l": "subtrahieren",
+   "t": "subtrahieren",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−25) − (−97)."
+   },
+   "o": {
+    "wert": 72
+   },
+   "c": "(-25) - (-97)",
+   "w": "Gegenzahl addieren: (−25) − (−97) = (−25) + 97 = 72."
+  },
+  {
+   "l": "subtrahieren",
+   "t": "subtrahieren",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−67) − (−10)."
+   },
+   "o": {
+    "wert": -57
+   },
+   "c": "(-67) - (-10)",
+   "w": "Gegenzahl addieren: (−67) − (−10) = (−67) + 10 = −57."
+  },
+  {
+   "l": "subtrahieren",
+   "t": "subtrahieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−69) − (−69)."
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "(-69) - (-69)",
+   "w": "Gegenzahl addieren: (−69) − (−69) = (−69) + 69 = 0."
+  },
+  {
+   "l": "subtrahieren",
+   "t": "subtrahieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−32) − (−74)."
+   },
+   "o": {
+    "wert": 42
+   },
+   "c": "(-32) - (-74)",
+   "w": "Gegenzahl addieren: (−32) − (−74) = (−32) + 74 = 42."
+  },
+  {
+   "l": "subtrahieren",
+   "t": "subtrahieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 66 − (−22)."
+   },
+   "o": {
+    "wert": 88
+   },
+   "c": "(66) - (-22)",
+   "w": "Gegenzahl addieren: 66 − (−22) = 66 + 22 = 88."
+  },
+  {
+   "l": "subtrahieren",
+   "t": "subtrahieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−32) − (−59)."
+   },
+   "o": {
+    "wert": 27
+   },
+   "c": "(-32) - (-59)",
+   "w": "Gegenzahl addieren: (−32) − (−59) = (−32) + 59 = 27."
+  },
+  {
+   "l": "subtrahieren",
+   "t": "subtrahieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−3) − (−9)."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "(-3) - (-9)",
+   "w": "Gegenzahl addieren: (−3) − (−9) = (−3) + 9 = 6."
+  },
+  {
+   "l": "subtrahieren",
+   "t": "subtrahieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−83) − (−46)."
+   },
+   "o": {
+    "wert": -37
+   },
+   "c": "(-83) - (-46)",
+   "w": "Gegenzahl addieren: (−83) − (−46) = (−83) + 46 = −37."
+  },
+  {
+   "l": "multiplizieren",
+   "t": "multiplizieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 4 · (−8)."
+   },
+   "o": {
+    "wert": -32
+   },
+   "c": "(4) * (-8)",
+   "w": "Beträge: 4 · 8 = 32. Verschiedene Vorzeichen, also −32.",
+   "h": "Erst die Beträge multiplizieren, dann das Vorzeichen bestimmen."
+  },
+  {
+   "l": "multiplizieren",
+   "t": "multiplizieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−2) · (−3)."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "(-2) * (-3)",
+   "w": "Beträge: 2 · 3 = 6. Gleiche Vorzeichen, also 6.",
+   "h": "Erst die Beträge multiplizieren, dann das Vorzeichen bestimmen."
+  },
+  {
+   "l": "multiplizieren",
+   "t": "multiplizieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−6) · (−6)."
+   },
+   "o": {
+    "wert": 36
+   },
+   "c": "(-6) * (-6)",
+   "w": "Beträge: 6 · 6 = 36. Gleiche Vorzeichen, also 36.",
+   "h": "Erst die Beträge multiplizieren, dann das Vorzeichen bestimmen."
+  },
+  {
+   "l": "multiplizieren",
+   "t": "multiplizieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 8 · (−7)."
+   },
+   "o": {
+    "wert": -56
+   },
+   "c": "(8) * (-7)",
+   "w": "Beträge: 8 · 7 = 56. Verschiedene Vorzeichen, also −56.",
+   "h": "Erst die Beträge multiplizieren, dann das Vorzeichen bestimmen."
+  },
+  {
+   "l": "multiplizieren",
+   "t": "multiplizieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−12) · (−11)."
+   },
+   "o": {
+    "wert": 132
+   },
+   "c": "(-12) * (-11)",
+   "w": "Beträge: 12 · 11 = 132. Gleiche Vorzeichen, also 132.",
+   "h": "Erst die Beträge multiplizieren, dann das Vorzeichen bestimmen."
+  },
+  {
+   "l": "multiplizieren",
+   "t": "multiplizieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−6) · (−2)."
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "(-6) * (-2)",
+   "w": "Beträge: 6 · 2 = 12. Gleiche Vorzeichen, also 12.",
+   "h": "Erst die Beträge multiplizieren, dann das Vorzeichen bestimmen."
+  },
+  {
+   "l": "multiplizieren",
+   "t": "multiplizieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−8) · (−2)."
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "(-8) * (-2)",
+   "w": "Beträge: 8 · 2 = 16. Gleiche Vorzeichen, also 16.",
+   "h": "Erst die Beträge multiplizieren, dann das Vorzeichen bestimmen."
+  },
+  {
+   "l": "multiplizieren",
+   "t": "multiplizieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 3 · (−12)."
+   },
+   "o": {
+    "wert": -36
+   },
+   "c": "(3) * (-12)",
+   "w": "Beträge: 3 · 12 = 36. Verschiedene Vorzeichen, also −36.",
+   "h": "Erst die Beträge multiplizieren, dann das Vorzeichen bestimmen."
+  },
+  {
+   "l": "multiplizieren",
+   "t": "multiplizieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Was ergibt 2 · (−13)?"
+   },
+   "a": [
+    "26",
+    "−26",
+    "15"
+   ],
+   "o": {
+    "index": 1
+   },
+   "c": "(2) * (-13)",
+   "w": "Beträge: 2 · 13 = 26. Verschiedene Vorzeichen, also −26.",
+   "h": "Erst die Beträge multiplizieren, dann das Vorzeichen bestimmen."
+  },
+  {
+   "l": "multiplizieren",
+   "t": "multiplizieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 11 · (−24)."
+   },
+   "o": {
+    "wert": -264
+   },
+   "c": "(11) * (-24)",
+   "w": "Beträge: 11 · 24 = 264. Verschiedene Vorzeichen, also −264.",
+   "h": "Erst die Beträge multiplizieren, dann das Vorzeichen bestimmen."
+  },
+  {
+   "l": "multiplizieren",
+   "t": "multiplizieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Was ergibt (−16) · (−16)?"
+   },
+   "a": [
+    "−256",
+    "256",
+    "32"
+   ],
+   "o": {
+    "index": 1
+   },
+   "c": "(-16) * (-16)",
+   "w": "Beträge: 16 · 16 = 256. Gleiche Vorzeichen, also 256.",
+   "h": "Erst die Beträge multiplizieren, dann das Vorzeichen bestimmen."
+  },
+  {
+   "l": "multiplizieren",
+   "t": "multiplizieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−27) · (−10)."
+   },
+   "o": {
+    "wert": 270
+   },
+   "c": "(-27) * (-10)",
+   "w": "Beträge: 27 · 10 = 270. Gleiche Vorzeichen, also 270.",
+   "h": "Erst die Beträge multiplizieren, dann das Vorzeichen bestimmen."
+  },
+  {
+   "l": "multiplizieren",
+   "t": "multiplizieren",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−12) · (−7)."
+   },
+   "o": {
+    "wert": 84
+   },
+   "c": "(-12) * (-7)",
+   "w": "Beträge: 12 · 7 = 84. Gleiche Vorzeichen, also 84."
+  },
+  {
+   "l": "multiplizieren",
+   "t": "multiplizieren",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 5 · (−7)."
+   },
+   "o": {
+    "wert": -35
+   },
+   "c": "(5) * (-7)",
+   "w": "Beträge: 5 · 7 = 35. Verschiedene Vorzeichen, also −35."
+  },
+  {
+   "l": "multiplizieren",
+   "t": "multiplizieren",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−4) · (−2)."
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "(-4) * (-2)",
+   "w": "Beträge: 4 · 2 = 8. Gleiche Vorzeichen, also 8."
+  },
+  {
+   "l": "multiplizieren",
+   "t": "multiplizieren",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−14) · (−6)."
+   },
+   "o": {
+    "wert": 84
+   },
+   "c": "(-14) * (-6)",
+   "w": "Beträge: 14 · 6 = 84. Gleiche Vorzeichen, also 84."
+  },
+  {
+   "l": "multiplizieren",
+   "t": "multiplizieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−9) · (−10)."
+   },
+   "o": {
+    "wert": 90
+   },
+   "c": "(-9) * (-10)",
+   "w": "Beträge: 9 · 10 = 90. Gleiche Vorzeichen, also 90."
+  },
+  {
+   "l": "multiplizieren",
+   "t": "multiplizieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−9) · (−2)."
+   },
+   "o": {
+    "wert": 18
+   },
+   "c": "(-9) * (-2)",
+   "w": "Beträge: 9 · 2 = 18. Gleiche Vorzeichen, also 18."
+  },
+  {
+   "l": "multiplizieren",
+   "t": "multiplizieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−14) · (−15)."
+   },
+   "o": {
+    "wert": 210
+   },
+   "c": "(-14) * (-15)",
+   "w": "Beträge: 14 · 15 = 210. Gleiche Vorzeichen, also 210."
+  },
+  {
+   "l": "multiplizieren",
+   "t": "multiplizieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−8) · (−3)."
+   },
+   "o": {
+    "wert": 24
+   },
+   "c": "(-8) * (-3)",
+   "w": "Beträge: 8 · 3 = 24. Gleiche Vorzeichen, also 24."
+  },
+  {
+   "l": "multiplizieren",
+   "t": "multiplizieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−10) · (−12)."
+   },
+   "o": {
+    "wert": 120
+   },
+   "c": "(-10) * (-12)",
+   "w": "Beträge: 10 · 12 = 120. Gleiche Vorzeichen, also 120."
+  },
+  {
+   "l": "multiplizieren",
+   "t": "multiplizieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 4 · (−6)."
+   },
+   "o": {
+    "wert": -24
+   },
+   "c": "(4) * (-6)",
+   "w": "Beträge: 4 · 6 = 24. Verschiedene Vorzeichen, also −24."
+  }
+ ]
+}

@@ -82,9 +82,12 @@ async function setup(t, opt = {}) {
       rueckmeldungen: [{ id: 4, art: 'mehr_aufgaben', text: 'Mehr Aufgaben zum Runden.', status: 'offen', lernziel: 'stellenwert', am: '2026-11-14T09:00:00Z' }] };
     if (b.aktion === 'schule_plan_lesen') e = { ok: true, kind: { id: 1, name: 'Kind A', klasse: 5 }, revision: 1,
       plan: [{ route_id: 1, block_id: 49, position: 1, art: 'normal', status: 'offen', kann_schon: false }, { route_id: 2, block_id: 52, position: 2, art: 'normal', status: 'offen', kann_schon: false }],
-      orte: [{ block_id: 49, titel: 'Natürliche Zahlen', stadt: 'Rom', kontinent: 'Zahlen', ziel_klasse: 5, einheiten: [{ id: 1, status: 'geprueft', titel: 'Große Zahlen', pflicht: 4, fertig: 2, fehler: 1 }] },
-        { block_id: 48, titel: 'Teilbarkeit', stadt: 'Athen', kontinent: 'Zahlen', ziel_klasse: 5, einheiten: [] },
-        { block_id: 52, titel: 'Zinsen', stadt: 'New York', kontinent: 'Geld', ziel_klasse: 7, einheiten: [{ id: 2, status: 'geprueft', titel: 'Zinsen', pflicht: 6, fertig: 0, fehler: 0 }] }],
+      orte: [{ block_id: 49, titel: 'Natürliche Zahlen', stadt: 'Rom', kontinent: 'Zahlen', themen: [
+          { thema_id: 15, titel: 'Natürliche Zahlen und Stellenwertsysteme', jahrgang: { gym_by: 5, rs_by: 5, ib_myp: 1 }, stand: 'laeuft', einheit: { id: 1, status: 'geprueft', karten: 3, aufgaben: 24, neu: 0 } },
+          { thema_id: 16, titel: 'Ganze Zahlen', jahrgang: { gym_by: 5, rs_by: 5, ib_myp: 2 }, stand: 'keine_einheit', einheit: null }] },
+        { block_id: 48, titel: 'Teilbarkeit', stadt: 'Athen', kontinent: 'Zahlen', themen: [{ thema_id: 17, titel: 'Teilbarkeit und Primzahlen', jahrgang: { gym_by: 5, rs_by: 5, ib_myp: 1 }, stand: 'offen', einheit: { id: 4, status: 'entwurf', karten: 8, aufgaben: 96, neu: 96 } }] },
+        { block_id: 52, titel: 'Zinsen', stadt: 'New York', kontinent: 'Geld', themen: [{ thema_id: 71, titel: 'Einfache Zinsen', jahrgang: { gym_by: 6, rs_by: 7 }, stand: 'offen', einheit: { id: 2, status: 'geprueft', karten: 6, aufgaben: 40, neu: 0 } }] },
+        { block_id: 61, titel: 'Ungleichungen', stadt: 'Delhi', kontinent: 'Algebra', themen: [{ thema_id: 3, titel: 'Lineare Ungleichungen', jahrgang: { gym_by: 8, rs_by: 7, ib_myp: 2 }, stand: 'keine_einheit', einheit: null }] }],
       notizen: [], verlauf: [] };
     const geo = (ort, stadt, land, lat, lon, kontinent, kt, erdteil) => ({ ort, stadt, land, lat, lon, kontinent, kontinent_titel: kt, erdteil });
     if (e) { /* oben beantwortet */ }
@@ -298,10 +301,11 @@ test('Lehrplan-Übersicht: Themen je Schulart und Klasse mit Inhaltsstand, Inhal
   const { page, calls } = await setup(t);
   await page.goto(origin + '/#/lehrplan');
   await page.getByRole('heading', { name: 'Lehrplan-Übersicht' }).waitFor();
-  // Gymnasium: 4 Themen (das reine Realschul-Thema fehlt), 1 fertig, 1 in Prüfung, 2 ohne Inhalt.
-  assert.deepEqual(await page.locator('.lp-kachel b').allTextContents(), ['4', '1', '1', '2']);
+  // Alle 5 Themen, nach Gymnasium-Klasse gruppiert; das reine Realschul-Thema steht am Ende.
+  assert.deepEqual(await page.locator('.lp-kachel b').allTextContents(), ['5', '1', '1', '3']);
   await page.getByRole('heading', { name: /Klasse 8.*Kind B/ }).waitFor();
-  assert.equal(await page.locator('.lp-zeile', { hasText: 'Nur Realschule' }).count(), 0);
+  await page.getByRole('heading', { name: /Nicht im Gymnasium-Lehrplan/ }).waitFor();
+  assert.equal(await page.getByRole('button', { name: 'Realschule' }).count(), 0);
   await page.locator('.lp-zeile.lp-fertig', { hasText: 'Große natürliche Zahlen' }).getByText('Kind A: geschafft').waitFor();
   await page.locator('.lp-zeile', { hasText: 'Große natürliche Zahlen' }).getByText('Gym 5 · RS 5 · IB 1').waitFor();
   fs.mkdirSync(path.join(root, 'test-results'), { recursive: true });
@@ -314,8 +318,9 @@ test('Lehrplan-Übersicht: Themen je Schulart und Klasse mit Inhaltsstand, Inhal
   await page.getByText('Angefragt ✓').waitFor();
   const rm = calls.find((c) => c.aktion === 'schule_rueckmeldung_geben').daten;
   assert.equal(rm.art, 'thema_fehlt'); assert.equal(rm.block_id, 70); assert.match(rm.text, /Lineare Funktionen/);
-  await page.getByRole('button', { name: 'Realschule' }).click();
-  await page.locator('.lp-zeile', { hasText: 'Nur Realschule' }).waitFor();
+  await page.getByRole('combobox', { name: 'Klasse' }).selectOption('99');
+  await page.locator('.lp-zeile', { hasText: 'Nur Realschule' }).getByText('RS 7').waitFor();
+  await page.getByRole('combobox', { name: 'Klasse' }).selectOption('');
   await page.getByRole('combobox', { name: 'Inhalt' }).selectOption('');
   await page.locator('.lp-zeile', { hasText: 'Große natürliche Zahlen' }).getByRole('link', { name: 'Inhalte ansehen' }).click();
   await page.waitForURL(/#\/inhalte\/1$/);
@@ -333,11 +338,16 @@ test('Lehrplan-Übersicht: Themen je Schulart und Klasse mit Inhaltsstand, Inhal
 test('Kinderplan: Schulart und Klasse setzen', async (t) => {
   const { page, calls } = await setup(t);
   await page.goto(origin + '/#/plan/1');
-  await page.getByRole('combobox', { name: 'Schulart' }).selectOption('rs_by');
+  // Hinter jedem Thema die Jahrgangsstufe je Schulart, keine Schulart-Auswahl.
+  await page.locator('.lern-plan-zeile', { hasText: 'Rom' }).getByText('Ganze Zahlen').waitFor();
+  await page.locator('.lern-plan-zeile', { hasText: 'Rom' }).getByText('Gym 5 · RS 5 · IB 2').waitFor();
+  assert.equal(await page.getByRole('combobox', { name: 'Schulart' }).count(), 0);
+  await page.locator('summary', { hasText: 'Gymnasium Klasse 5 – Kind As Klasse' }).waitFor();
+  await page.screenshot({ path: path.join(root, 'test-results/themenplan-390.png'), fullPage: true });
   await page.getByRole('spinbutton', { name: 'Klasse' }).fill('6');
   await page.getByRole('button', { name: 'Speichern', exact: true }).click();
   await page.getByText('Gespeichert.').first().waitFor();
-  assert.deepEqual(calls.find((c) => c.aktion === 'schule_kind_setzen').daten, { lernender_id: 1, schulart: 'rs_by', klasse: 6 });
+  assert.deepEqual(calls.find((c) => c.aktion === 'schule_kind_setzen').daten, { lernender_id: 1, klasse: 6 });
 });
 
 test('Lernen-Seite: Lehrer meldet sich mit Code an, ordnet den Themenplan und schreibt Rückmeldungen', async (t) => {
@@ -354,7 +364,6 @@ test('Lernen-Seite: Lehrer meldet sich mit Code an, ordnet den Themenplan und sc
   await page.getByText('Themenplan Kind A').click();
   await page.locator('.lern-plan-zeile').first().waitFor();
   await page.getByRole('button', { name: 'New York – Zinsen nach oben' }).click();
-  await page.locator('summary', { hasText: 'Zahlen' }).click();
   await page.getByRole('button', { name: '+ Athen – Teilbarkeit' }).click();
   await page.locator('.lern-plan-zeile').nth(2).getByLabel('kann es schon').check();
   await page.getByRole('button', { name: 'Plan speichern' }).click();

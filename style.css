@@ -3514,3 +3514,11 @@ body.lern-seite { padding-bottom: 32px; }
 .lp-ok { color: var(--ok); font-weight: 700; }
 .lp-warte { color: var(--warn); font-weight: 700; }
 @media (max-width: 520px) { .lp-kacheln { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.lern-plan-themen { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-direction: column; gap: 4px; }
+.lern-plan-themen li { display: grid; grid-template-columns: 10px 1fr; align-items: start; gap: 2px 8px; font-size: .9rem; }
+.lern-plan-themen li > :not(.lp-punkt) { grid-column: 2; }
+.lern-plan-themen li > .lp-punkt { margin-top: .4em; }
+.lern-plan-themen .lp-punkt { align-self: center; }
+.lern-plan-jg { font-weight: 800; white-space: nowrap; }
+.lp-text > .lern-plan-jg { font-size: .9rem; }
+.lern-plan-auswahl > li { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; padding: 6px 0; border-top: 1px solid var(--border); }

@@ -34,6 +34,10 @@ def loes(f, v):
     return sorted(out)
 
 
+def f1(x):
+    return format(float(x), '.1f').replace('-', '−').replace('.', ',')
+
+
 def schab(n):
     return 'x = □°' if n == 1 else 'x₁ = □°; x₂ = □°'
 
@@ -43,11 +47,13 @@ ETAPPEN = [
      'regel': 'sin x ist die ⟦y-Koordinate⟧ am Einheitskreis. Für −1 < v < 1 gibt es zwei Lösungen: x₁ = sin⁻¹(v) und ⟦x₂ = 180° − x₁⟧ (bei negativem v auf den Bereich 0°–360° umrechnen).',
      'schritte': ['sin x = 0,5: Taschenrechner liefert x₁ = 30°.', 'Zweite Lösung: 180° − 30° = 150°. Also ⟦x₁ = 30°, x₂ = 150°⟧.'],
      'probe': 'sin 150° = sin 30° = 0,5 ✓',
+     'bild': {'typ': 'koordinaten', 'x': [0, 360], 'y': [-1.5, 1.5], 'grad': True, 'schritt_x': 30, 'graphen': [{'art': 'sin', 'a': 1, 'b': 1, 'c': 0, 'd': 0, 'name': 'sin x'}], 'waagrecht': [0.5], 'punkte': [{'x': 30, 'y': 0.5, 'name': '30°'}, {'x': 150, 'y': 0.5, 'name': '150°'}]},
      'fehler': 'Nur x = 30° anzugeben ist unvollständig: Die Gerade y = 0,5 schneidet den Einheitskreis ⟦zweimal⟧, auch bei 150°.'},
     {'lernziel': 'kosinus', 'titel': 'Gleichungen cos x = v',
      'regel': 'cos x ist die ⟦x-Koordinate⟧ am Einheitskreis. Für −1 < v < 1: x₁ = cos⁻¹(v) liegt zwischen 0° und 180°, die zweite Lösung ist ⟦x₂ = 360° − x₁⟧.',
      'schritte': ['cos x = −0,5: Taschenrechner liefert x₁ = 120°.', 'x₂ = 360° − 120° = 240°. Also ⟦x₁ = 120°, x₂ = 240°⟧.'],
      'probe': 'cos 240° = −0,5 ✓',
+     'bild': {'typ': 'koordinaten', 'x': [0, 360], 'y': [-1.5, 1.5], 'grad': True, 'schritt_x': 30, 'graphen': [{'art': 'cos', 'a': 1, 'b': 1, 'c': 0, 'd': 0, 'name': 'cos x'}], 'waagrecht': [-0.5], 'senkrecht': [180], 'punkte': [{'x': 120, 'y': -0.5, 'name': '120°'}, {'x': 240, 'y': -0.5, 'name': '240°'}]},
      'fehler': 'x₂ = 180° − 120° = 60° ist falsch: cos 60° = +0,5. Beim Kosinus spiegelt man an der ⟦x-Achse⟧: x₂ = 360° − x₁.'},
     {'lernziel': 'tangens', 'titel': 'Gleichungen tan x = v',
      'regel': 'Der Tangens wiederholt sich alle ⟦180°⟧. Zu jedem Wert v gibt es im Bereich 0°–360° ⟦genau zwei⟧ Lösungen: x₁ und ⟦x₂ = x₁ + 180°⟧ (x = 90° und 270° sind ausgeschlossen).',
@@ -58,6 +64,7 @@ ETAPPEN = [
      'regel': 'sin x und cos x liegen immer zwischen ⟦−1 und 1⟧: Für |v| > 1 gibt es ⟦keine⟧ Lösung, für v = ±1 genau ⟦eine⟧ im Bereich 0°–360°, sonst zwei. tan x = v hat immer zwei Lösungen.',
      'schritte': ['cos x = −1: Nur der Punkt (−1 | 0) am Einheitskreis hat x-Koordinate −1.', 'Genau eine Lösung: ⟦x = 180°⟧.'],
      'probe': 'cos 180° = −1 ✓',
+     'bild': {'typ': 'koordinaten', 'x': [0, 360], 'y': [-1.5, 2.5], 'grad': True, 'schritt_x': 30, 'graphen': [{'art': 'cos', 'a': 1, 'b': 1, 'c': 0, 'd': 0, 'name': 'cos x'}], 'waagrecht': [-1, 2], 'punkte': [{'x': 180, 'y': -1, 'name': '180°'}]},
      'fehler': '„sin x = 1,2 hat die Lösung sin⁻¹(1,2)“ ist falsch: Der Taschenrechner meldet einen Fehler, weil ⟦sin x nie größer als 1⟧ ist. Keine Lösung.'},
     {'lernziel': 'umformen', 'titel': 'Erst umformen, dann lösen',
      'regel': 'Forme wie bei linearen Gleichungen um, bis ⟦sin x, cos x oder tan x allein⟧ steht. Gilt sin x = cos x, teilst du durch cos x: ⟦tan x = 1⟧.',
@@ -81,8 +88,9 @@ def g_exakt(f, s):
                    'Nutze die besonderen Werte (0°, 30°, 45°, 60°, 90°) und die Symmetrie am Einheitskreis.', c=[str(t) for t in l])
 
 
-def g_allg(f, s, welche):
-    v = Fr(R.randint(-95, 95), 100)
+def g_allg(f, s, welche, vz=0):
+    v = Fr(R.randint(-95, 95), 100) if f != 'tan' else Fr(R.randint(-500, 500), 100)
+    if vz and v * vz <= 0: return None
     if v == 0 or v in TAB[f] or abs(v) == 1: return None
     l = loes(f, float(v))
     if len(l) != 2: return None
@@ -93,7 +101,7 @@ def g_allg(f, s, welche):
     andere = gerundet(l[1 - i], 1)
     if andere is None: return None
     return zahl(f'Löse {f} x = {dz(v)} {B}. Gib die {welche} Lösung auf eine Nachkommastelle an.',
-                f'{f}⁻¹({dz(v)}) ≈ {dz(round({"sin": asin, "cos": acos, "tan": atan}[f](float(v)), 1))}°; Lösungen ≈ {dz(gerundet(l[0], 1))}° und {dz(gerundet(l[1], 1))}°. {welche.capitalize()}: {dz(w_)}°.',
+                f'{f}⁻¹({dz(v)}) ≈ {f1(round({"sin": asin, "cos": acos, "tan": atan}[f](float(v)), 1))}°; Lösungen ≈ {f1(gerundet(l[0], 1))}° und {f1(gerundet(l[1], 1))}°. {welche.capitalize()}: {f1(w_)}°.',
                 {'sin': 'Zweite Lösung über 180° − x₁; negative Werte in den Bereich bis 360° verschieben.',
                  'cos': 'Zweite Lösung über 360° − x₁.', 'tan': 'Zweite Lösung über x₁ + 180°.'}[f],
                 w_, f'round({K(wahr)}, 1)', einheit='°')
@@ -111,34 +119,94 @@ def g_zweite(f):
                 z, {'sin': f'180 - {a}', 'cos': f'360 - {a}', 'tan': f'{a} + 180'}[f], einheit='°')
 
 
+def g_negativ_beide(f):
+    v = -Fr(R.randint(5, 95), 100)
+    l = loes(f, float(v))
+    r = [gerundet(t, 0) for t in l]
+    if None in r or len(r) != 2: return None
+    x1 = {'sin': asin, 'cos': acos}[f](float(v))
+    regel = (f'sin⁻¹({dz(v)}) ≈ {f1(round(x1, 1))}° liegt nicht im Bereich. 180° + {f1(round(-x1, 1))}° ≈ {r[0]}° und 360° − {f1(round(-x1, 1))}° ≈ {r[1]}°.'
+             if f == 'sin' else f'cos⁻¹({dz(v)}) ≈ {f1(round(x1, 1))}°; zweite Lösung 360° − {f1(round(x1, 1))}° ≈ {r[1]}°.')
+    return luecken(f'Löse {f} x = {dz(v)} {B}. Runde auf ganze Grad.', 'x₁ ≈ □°; x₂ ≈ □°', 'kleinere Lösung zuerst', r, regel,
+                   'Negativer Sinus: Der Punkt liegt unterhalb der x-Achse (3. und 4. Quadrant).' if f == 'sin' else 'Die zweite Lösung ist 360° − x₁.',
+                   c=[f'round({K(l[0])}, 0)', f'round({K(l[1])}, 0)'])
+
+
 def g_sinus(s):
     if s == 1: return g_exakt('sin', s) if R.random() < 0.3 else g_zweite('sin')
-    return g_allg('sin', s, R.choice(['kleinere', 'größere'])) if s == 3 or R.random() < 0.5 else g_exakt('sin', s)
+    if s == 2: return g_allg('sin', s, R.choice(['kleinere', 'größere']), vz=1) if R.random() < 0.6 else g_exakt('sin', s)
+    if R.random() < 0.6: return g_negativ_beide('sin')
+    if R.random() < 0.5:
+        w = R.choice([30, 10, 20, 40, 50])
+        v = -sin(w)
+        vt = dz(round(v, 2)) if w != 30 else '−0,5'
+        return auswahl(f'Jemand löst sin x = {vt} {B} so: x₁ = −{w}°, x₂ = 180° − (−{w}°) = {180 + w}°. Was ist falsch?',
+                       f'−{w}° liegt nicht im Bereich; richtig ist 360° − {w}° = {360 - w}°, also {180 + w}° und {360 - w}°.',
+                       ['Nichts, beide Lösungen stimmen.', f'Die zweite Lösung muss 180° − {w}° = {180 - w}° heißen.', f'Richtig wären {w}° und {180 - w}°.'],
+                       f'Der Taschenrechner liefert −{w}°. Im Bereich 0° bis 360° entspricht das {360 - w}°. Zusammen mit {180 + w}° sind das die beiden Lösungen.',
+                       'Liegen beide Angaben im Bereich 0° bis 360°?')
+    v = Fr(R.randint(10, 90), 100)
+    x1 = asin(float(v))
+    a, b = gerundet(x1, 1), gerundet(180 - x1, 1)
+    c_ = gerundet(360 - x1, 1)
+    if None in (a, b, c_): return None
+    return auswahl(f'Jemand gibt für sin x = {dz(v)} {B} die Lösungen {f1(a)}° und {f1(c_)}° an. Was stimmt?',
+                   f'Falsch: Das ist die Regel für den Kosinus; richtig sind {f1(a)}° und {f1(b)}°.',
+                   ['Richtig.', f'Falsch: richtig sind {f1(a)}° und {f1(a + 180)}°.', 'Falsch: Es gibt nur eine Lösung.'],
+                   f'Beim Sinus spiegelt man an der y-Achse: x₂ = 180° − x₁ ≈ {f1(b)}°. Probe: sin {f1(c_)}° ist negativ.',
+                   'Mache für die zweite Angabe die Probe am Einheitskreis.')
 
 
 def g_kosinus(s):
     if s == 1: return g_exakt('cos', s) if R.random() < 0.3 else g_zweite('cos')
-    return g_allg('cos', s, R.choice(['kleinere', 'größere'])) if s == 3 or R.random() < 0.5 else g_exakt('cos', s)
+    if s == 2:
+        typ = R.random()
+        if typ < 0.35:
+            v = Fr(R.randint(-90, 90), 100)
+            if v == 0 or abs(v) == Fr(1, 2): return None
+            x1 = acos(float(v))
+            r = [gerundet(t, 1) for t in (x1, 360 - x1, 180 - x1, x1 + 180)]
+            if None in r: return None
+            return auswahl(f'cos x = {dz(v)} hat die Lösung x₁ ≈ {f1(r[0])}°. Welche ist die zweite Lösung {B}?', f'{f1(r[1])}°',
+                           [f'{f1(r[2])}°', f'{f1(r[3])}°', f'−{f1(r[0])}°'],
+                           f'Beim Kosinus spiegelt man an der x-Achse: x₂ = 360° − x₁ ≈ {f1(r[1])}°. (180° − x₁ wäre die Sinus-Regel, x₁ + 180° die Tangens-Regel.)',
+                           'Welche Spiegelung am Einheitskreis lässt die x-Koordinate gleich?')
+        return g_allg('cos', s, R.choice(['kleinere', 'größere'])) if typ < 0.7 else g_exakt('cos', s)
+    return g_negativ_beide('cos') if R.random() < 0.5 else g_allg('cos', s, R.choice(['kleinere', 'größere']), vz=-1)
 
 
 def g_tangens(s):
     if s == 1: return g_exakt('tan', s) if R.random() < 0.3 else g_zweite('tan')
-    if s == 2 and R.random() < 0.4: return g_exakt('tan', s)
-    if R.random() < 0.6:
-        return g_allg('tan', s, R.choice(['kleinere', 'größere']))
-    v = R.randint(2, 30) * R.choice([1, -1])
-    l = loes('tan', v)
-    w_ = gerundet(l[1], 1)
-    if w_ is None: return None
-    return zahl(f'Löse tan x = {dz(v)} {B}. Gib die größere Lösung auf eine Nachkommastelle an.',
-                f'tan⁻¹({dz(v)}) ≈ {dz(round(atan(v), 1))}°; Lösungen ≈ {dz(gerundet(l[0], 1))}° und {dz(w_)}°.',
-                'Zweite Lösung über x₁ + 180°; negative Werte erst in den Bereich verschieben.', w_, f'round({K(l[1])}, 1)', einheit='°')
+    if s == 2: return g_exakt('tan', s) if R.random() < 0.4 else g_allg('tan', s, R.choice(['kleinere', 'größere']))
+    typ = R.random()
+    if typ < 0.35:
+        if R.random() < 0.5:
+            L, h = R.choice([(12, Fr(3, 2)), (10, 1), (20, 3), (8, Fr(1, 2)), (15, 2), (25, 4), (16, Fr(5, 2))])
+            wahr = atan(float(h / L))
+            v = gerundet(wahr, 1)
+            if v is None: return None
+            return zahl(f'Eine Rampe steigt auf {L} m waagrechter Länge um {dz(h)} m. Unter welchem Winkel steigt sie? Runde auf eine Nachkommastelle.',
+                        f'tan α = {dz(h)} : {L} = {dz(h / L)} ⇒ α = tan⁻¹({dz(h / L)}) ≈ {f1(v)}°.', 'Höhe : waagrechte Länge ist der Tangens des Steigungswinkels.',
+                        v, f'round({K(wahr)}, 1)', einheit='°')
+        p_ = R.choice([6, 8, 12, 15, 18, 22, 25])
+        wahr = atan(p_ / 100)
+        v = gerundet(wahr, 1)
+        if v is None: return None
+        return zahl(f'Ein Weg hat {p_} % Steigung. Wie groß ist der Steigungswinkel? Runde auf eine Nachkommastelle.',
+                    f'tan α = {dz(Fr(p_, 100))} ⇒ α ≈ {f1(v)}°.', '{p} % Steigung heißt tan α = {p}/100.'.format(p=p_), v, f'round({K(wahr)}, 1)', einheit='°')
+    if typ < 0.5:
+        v = R.choice([20, 25, 40, 50, 100])
+        return auswahl(f'tan x = {v} hat im Bereich 0° bis 90° eine Lösung nahe bei 90°. Warum?', 'Weil tan x für x nahe 90° beliebig groß wird.',
+                       ['Weil der Taschenrechner auf 90° rundet.', f'Weil {v} : 90 fast 1 ist.', 'Weil tan 90° = 1 ist.'],
+                       'tan x = sin x : cos x. Für x → 90° geht cos x gegen 0, der Quotient wird riesig. Große Tangenswerte gehören zu Winkeln nahe 90°.',
+                       'Was passiert mit cos x, wenn x sich 90° nähert?')
+    return g_allg('tan', s, R.choice(['kleinere', 'größere']), vz=-1)
 
 
 def g_anzahl(s):
     f = R.choice(['sin', 'cos', 'tan'])
     if s == 1:
-        v = R.choice([Fr(R.randint(11, 30), 10), Fr(-R.randint(11, 30), 10), Fr(R.randint(1, 9), 10), Fr(-R.randint(1, 9), 10)])
+        v = R.choice([Fr(R.randint(12, 30), 10), Fr(-R.randint(12, 30), 10), Fr(R.randint(2, 8), 10), Fr(-R.randint(2, 8), 10)])
     else:
         v = R.choice([Fr(R.randint(11, 30), 10) * R.choice([1, -1]), Fr(R.randint(1, 99), 100) * R.choice([1, -1]), Fr(1), Fr(-1), Fr(0)])
     if f == 'tan': n = 2
@@ -150,17 +218,36 @@ def g_anzahl(s):
         grund = ('tan x nimmt jeden Wert an, mit Periode 180°: zwei Lösungen.' if f == 'tan' else
                  f'|{dz(v)}| > 1, aber {f} x liegt zwischen −1 und 1: keine Lösung.' if n == 0 else
                  f'{f} x = {dz(v)} nur an einem Punkt des Einheitskreises: eine Lösung.' if n == 1 else
-                 f'Die Gerade schneidet den Einheitskreis zweimal: zwei Lösungen.')
-        return auswahl(f'Wie viele Lösungen hat {f} x = {dz(v)} {B}?', txt[n], list(txt.values()), grund,
-                       'Liegt der Wert zwischen −1 und 1? Ist er genau ±1? Beim Tangens ist alles erlaubt.')
+                 f'Die Gerade y = {dz(v)} schneidet den Graphen im Bereich zweimal: zwei Lösungen.')
+        a_ = auswahl(f'Wie viele Lösungen hat {f} x = {dz(v)} {B}?', txt[n], list(txt.values()), grund,
+                     'Liegt der Wert zwischen −1 und 1? Ist er genau ±1? Beim Tangens ist alles erlaubt.')
+        if f != 'tan' and s == 2 and R.random() < 0.5 and abs(v) <= 2:
+            a_['f']['text'] = f'Im Bild siehst du den Graphen von y = {f} x und die Gerade y = {dz(v)}. Wie viele Lösungen hat {f} x = {dz(v)} {B}?'
+            bild(a_, {'typ': 'koordinaten', 'x': [0, 360], 'y': [-2.5, 2.5], 'grad': True, 'schritt_x': 90,
+                      'graphen': [{'art': f, 'a': 1, 'b': 1, 'c': 0, 'd': 0, 'name': f'{f} x'}], 'waagrecht': [wert(v)]})
+        return a_
     typ = R.random()
-    if typ < 0.5:
-        v = Fr(R.randint(11, 25), 10)
+    if typ < 0.35:
+        v = Fr(R.randint(11, 19), 10)
         g = R.choice(['sin', 'cos'])
-        return auswahl(f'Jemand löst {g} x = {dz(v)} und schreibt x ≈ {dz(round(v * 30, 1))}°. Was stimmt?', f'Falsch: {g} x ≤ 1, die Gleichung hat keine Lösung.',
-                       ['Richtig.', f'Falsch: x ≈ {dz(round(v * 60, 1))}°.', 'Falsch: Es gibt unendlich viele Lösungen.'],
-                       f'Am Einheitskreis sind Sinus und Kosinus Koordinaten, also höchstens 1. {dz(v)} > 1 ist unmöglich.',
+        x_ = gerundet(({'sin': asin, 'cos': acos}[g])(float(v - 1)), 1)
+        return auswahl(f'Jemand löst {g} x = {dz(v)}, bekommt am Taschenrechner eine Fehlermeldung und rechnet stattdessen {g}⁻¹({dz(v - 1)}) ≈ {f1(x_)}°. Was stimmt?',
+                       f'Falsch: {g} x ≤ 1, die Gleichung hat keine Lösung.',
+                       [f'Richtig, {dz(v)} − 1 = {dz(v - 1)}.', f'Falsch: x ≈ {f1(360 - x_ if g == "cos" else 180 - x_)}°.', 'Falsch: Es gibt unendlich viele Lösungen.'],
+                       f'Die Fehlermeldung ist richtig: Am Einheitskreis sind Sinus und Kosinus Koordinaten, also höchstens 1. {dz(v)} > 1 ist unmöglich.',
                        'Welche Werte kann sin x bzw. cos x annehmen?')
+    if typ < 0.7:
+        if R.random() < 0.5:
+            k = R.randint(2, 5)
+            return auswahl(f'Für welche Werte von a hat {k} sin x = a {B} genau eine Lösung?', f'a = {k} oder a = −{k}',
+                           ['a = 1 oder a = −1', 'a = 0', f'für alle a mit −{k} < a < {k}'],
+                           f'sin x = a/{k} hat genau eine Lösung, wenn a/{k} = 1 oder a/{k} = −1, also a = ±{k} (x = 90° bzw. 270°).',
+                           f'Teile durch {k}. Wann hat sin x = Wert genau eine Lösung?')
+        k, d = R.randint(2, 5), R.randint(1, 6)
+        return auswahl(f'{k} cos x + {d} = b hat {B} keine Lösung, wenn …', f'b > {k + d} oder b < {d - k}',
+                       [f'b > {k} oder b < −{k}', f'b > 1 oder b < −1', f'{d - k} < b < {k + d}'],
+                       f'{k} cos x + {d} liegt zwischen {k} · (−1) + {d} = {d - k} und {k} · 1 + {d} = {k + d}. Außerhalb davon gibt es keine Lösung.',
+                       'Welche Werte kann der linke Term annehmen, wenn cos x zwischen −1 und 1 liegt?')
     v = R.choice([Fr(1), Fr(-1)])
     g = R.choice(['sin', 'cos'])
     l = TAB[g][v]
@@ -172,8 +259,66 @@ def g_anzahl(s):
                    'Setze beide Winkel zur Probe ein.')
 
 
+ZAEHL = {}
+TEXTE = set()
+
+
+def frei(l, text):
+    """Jede Lösungsmenge höchstens zweimal je Lernkarte (gezählt über verschiedene Aufgabentexte)."""
+    if text in TEXTE: return True
+    if ZAEHL.get(tuple(l), 0) >= 2: return False
+    ZAEHL[tuple(l)] = ZAEHL.get(tuple(l), 0) + 1
+    TEXTE.add(text)
+    return True
+
+
 def g_umformen(s):
-    f = R.choice(['sin', 'cos'] if s < 3 else ['sin', 'cos', 'tan'])
+    if s == 3:
+        typ = R.random()
+        if typ < 0.4:
+            f = R.choice(['sin', 'cos'])
+            v = R.choice([x for x in TAB[f] if len(TAB[f][x]) == 2 and x != 0])
+            l = TAB[f][v]
+            k = R.randint(2, 6)
+            m = R.randint(1, k - 1)
+            d = R.randint(-6, 6)
+            # (k) f x + d = m f x + e  ⇒ (k − m) f x = e − d
+            e = (k - m) * v + d
+            if e.denominator != 1: return None
+            lt = f'{k} {f} x' + (f' {plus(d)}' if d else '')
+            rt = (f'{m} {f} x' if m > 1 else f'{f} x') + (f' {plus(e)}' if e else '')
+            if not frei(l, lt + rt): return None
+            return luecken(f'Löse {lt} = {rt} {B}.', schab(2), 'kleinere Lösung zuerst', l,
+                           f'{f} x auf eine Seite: {k - m} {f} x = {dz(e - d)} ⇒ {f} x = {dz(v)} ⇒ ' + ' und '.join(f'{u}°' for u in l) + '.',
+                           f'Bringe alle {f}-x-Glieder auf eine Seite wie bei einer linearen Gleichung.', c=[str(u) for u in l])
+        if typ < 0.7:
+            if R.random() < 0.5:
+                k = R.choice([4, 2])
+                if k == 4:
+                    return luecken(f'Löse 4 (sin x)² = 1 {B}.', 'x₁ = □°; x₂ = □°; x₃ = □°; x₄ = □°', 'aufsteigend', [30, 150, 210, 330],
+                                   '(sin x)² = 0,25 ⇒ sin x = 0,5 oder sin x = −0,5 ⇒ 30°, 150°, 210°, 330°.',
+                                   'Ziehe die Wurzel: Denke an beide Vorzeichen.', c=['30', '150', '210', '330'])
+                return luecken(f'Löse 2 (cos x)² = 0,5 {B}.', 'x₁ = □°; x₂ = □°; x₃ = □°; x₄ = □°', 'aufsteigend', [60, 120, 240, 300],
+                               '(cos x)² = 0,25 ⇒ cos x = ±0,5 ⇒ 60°, 120°, 240°, 300°.', 'Ziehe die Wurzel: Denke an beide Vorzeichen.', c=['60', '120', '240', '300'])
+            if R.random() < 0.5:
+                if not frei([0, 180], 'cos²'): return None
+                return luecken(f'Löse (cos x)² = 1 {B}.', schab(2), 'kleinere Lösung zuerst', [0, 180],
+                               'cos x = 1 oder cos x = −1 ⇒ x = 0° oder x = 180°.', 'Ziehe die Wurzel: Denke an beide Vorzeichen.', c=['0', '180'])
+            if not frei([90, 270], 'sin²'): return None
+            return luecken(f'Löse (sin x)² = 1 {B}.', schab(2), 'kleinere Lösung zuerst', [90, 270],
+                           'sin x = 1 oder sin x = −1 ⇒ x = 90° oder x = 270°.', 'Ziehe die Wurzel: Denke an beide Vorzeichen.', c=['90', '270'])
+        k = R.choice([1, -1])
+        f_ = R.choice([1, 2, 3])
+        if k == 1:
+            t = 'sin x = cos x' if f_ == 1 else f'{f_} sin x = {f_} cos x'
+            if not frei([45, 225], t): return None
+            return luecken(f'Löse {t} {B}.', schab(2), 'kleinere Lösung zuerst', [45, 225],
+                           'Durch cos x teilen (cos x ≠ 0): tan x = 1 ⇒ x₁ = 45°, x₂ = 225°.', 'Teile beide Seiten durch cos x.', c=['45', '45 + 180'])
+        t = 'sin x = −cos x' if f_ == 1 else f'{f_} sin x + {f_} cos x = 0'
+        if not frei([135, 315], t): return None
+        return luecken(f'Löse {t} {B}.', schab(2), 'kleinere Lösung zuerst', [135, 315],
+                       'Umformen zu sin x = −cos x, durch cos x teilen: tan x = −1 ⇒ x₁ = 135°, x₂ = 315°.', 'Teile beide Seiten durch cos x.', c=['180 - 45', '360 - 45'])
+    f = R.choice(['sin', 'cos'] if s == 1 else ['sin', 'cos', 'tan'])
     v = R.choice([x for x in TAB[f] if (s > 1 or len(TAB[f][x]) == 2)])
     l = TAB[f][v]
     a = R.randint(2, 6)
@@ -182,13 +327,8 @@ def g_umformen(s):
         b = 0
     rechts = a * v + b
     if rechts.denominator != 1: return None
-    if s == 3 and R.random() < 0.4:
-        if f == 'tan': return None
-        return luecken(f'Löse sin x = cos x {B}.', schab(2), 'kleinere Lösung zuerst', [45, 225],
-                       'Durch cos x teilen (cos x ≠ 0): tan x = 1 ⇒ x₁ = 45°, x₂ = 225°.', 'Teile beide Seiten durch cos x.', c=['45', '45 + 180']) if R.random() < 0.5 else \
-            luecken(f'Löse sin x = −cos x {B}.', schab(2), 'kleinere Lösung zuerst', [135, 315],
-                    'Durch cos x teilen: tan x = −1 ⇒ x₁ = 135°, x₂ = 315°.', 'Teile beide Seiten durch cos x.', c=['180 - 45', '360 - 45'])
     t = f'Löse {a} {f} x {plus(b) if b else ""}'.rstrip() + f' = {dz(rechts)} {B}.'
+    if not frei(l, t): return None
     return luecken(t, schab(len(l)), 'kleinere Lösung zuerst' if len(l) > 1 else 'die Lösung', l,
                    f'{a} {f} x = {dz(rechts - b)} ⇒ {f} x = {dz(v)} ⇒ ' + ' und '.join(f'{u}°' for u in l) + '.',
                    'Bringe die Zahl auf die andere Seite und teile durch den Faktor.', c=[str(u) for u in l])
@@ -205,26 +345,39 @@ def g_anwendung(s):
                        schab(2), 'kleinerer Winkel zuerst', l, f'{m} − {r} cos x = {dz(h)} ⇒ cos x = {dz(v)} ⇒ x = {l[0]}° oder {l[1]}°.',
                        'Stelle nach cos x um.', c=[str(u) for u in l])
     if s == 2:
-        al = R.randint(20, 120)
-        v = Fr(R.randint(20, 95), 100)
-        b1 = asin(float(v))
-        b2 = 180 - b1
-        moegl = [b for b in (b1, b2) if al + b < 180 - 1e-9]
-        n = len(moegl)
+        art = R.choice(['eins', 'zwei', 'kein'])
+        for _ in range(50):
+            al = R.randint(20, 160)
+            v = Fr(R.randint(20, 95), 100)
+            b1 = asin(float(v)); b2 = 180 - b1
+            n = sum(1 for b in (b1, b2) if al + b < 180 - 1e-6)
+            if {'eins': 1, 'zwei': 2, 'kein': 0}[art] == n and min(abs(al + b1 - 180), abs(al + b2 - 180)) > 1: break
+        else:
+            return None
         txt = {1: 'genau ein Winkel', 2: 'zwei Winkel', 0: 'kein Winkel'}
         return auswahl(f'In einem Dreieck ist α = {al}° und sin β = {dz(v)}. Wie viele Werte kommen für β in Frage?', txt[n], list(txt.values()),
-                       f'sin β = {dz(v)} ⇒ β ≈ {dz(round(b1, 1))}° oder β ≈ {dz(round(b2, 1))}°. ' +
-                       ' '.join(f'{al}° + {dz(round(b, 1))}° {"<" if al + b < 180 else "≥"} 180°.' for b in (b1, b2)) + f' Also {txt[n]}.',
+                       f'sin β = {dz(v)} ⇒ β ≈ {f1(round(b1, 1))}° oder β ≈ {f1(round(b2, 1))}°. ' +
+                       ' '.join(f'{al}° + {f1(round(b, 1))}° {"<" if al + b < 180 else "≥"} 180°.' for b in (b1, b2)) + f' Also {txt[n]}.',
                        'Bestimme beide Winkel zum Sinuswert und prüfe die Winkelsumme.')
+    if R.random() < 0.4:
+        m, r = R.choice([(5, 2), (4, 2), (6, 3), (8, 4), (3, 1)])
+        v = R.choice([Fr(1, 2), Fr(-1, 2)])
+        h = m + r * v
+        l = SIN[v]
+        return luecken(f'Die Wassertiefe in einem Hafen ist t(x) = {m} + {r} · sin x (in m; x in Grad, 360° entsprechen einem Tag). Für welche x {B} ist das Wasser {dz(h)} m tief?',
+                       schab(2), 'kleinerer Wert zuerst', l, f'{m} + {r} sin x = {dz(h)} ⇒ sin x = {dz(v)} ⇒ x = {l[0]}° oder {l[1]}°.',
+                       'Stelle nach sin x um.', c=[str(u) for u in l])
     al = R.randint(20, 60)
     v = Fr(R.randint(20, 95), 100)
     b1, b2 = asin(float(v)), 180 - asin(float(v))
     if al + b2 >= 180: return None
+    ga = 180 - al - b2
+    if ga >= b2 - 1: return None
     w_ = gerundet(b2, 1)
     if w_ is None: return None
-    return zahl(f'In einem Dreieck ist α = {al}° und sin β = {dz(v)}; außerdem ist β stumpf. Berechne β (auf eine Nachkommastelle).',
-                f'β₁ = sin⁻¹({dz(v)}) ≈ {dz(round(b1, 1))}° ist spitz; stumpf: β = 180° − β₁ ≈ {dz(w_)}° (Winkelsumme: {al}° + {dz(w_)}° < 180° ✓).',
-                'Zu einem Sinuswert gibt es einen spitzen und einen stumpfen Winkel.', w_, f'round(180 - {K(b1)}, 1)', einheit='°')
+    return zahl(f'In einem Dreieck ist α = {al}° und sin β = {dz(v)}. β ist der größte Winkel des Dreiecks. Berechne β (auf eine Nachkommastelle).',
+                f'β₁ = sin⁻¹({dz(v)}) ≈ {f1(round(b1, 1))}° wäre kleiner als der dritte Winkel {f1(round(180 - al - b1, 1))}°. Also β = 180° − β₁ ≈ {f1(w_)}° (dann γ ≈ {f1(round(ga, 1))}°).',
+                'Zu einem Sinuswert gibt es einen spitzen und einen stumpfen Winkel. Welcher kann der größte Winkel sein?', w_, f'round(180 - {K(b1)}, 1)', einheit='°')
 
 
 GEN = {'sinus': g_sinus, 'kosinus': g_kosinus, 'tangens': g_tangens, 'anzahl': g_anzahl, 'umformen': g_umformen, 'anwendung': g_anwendung}
@@ -238,5 +391,5 @@ if __name__ == '__main__':
           ETAPPEN, GEN,
           meiden={'sinus': ['sin x = 0,5 '], 'kosinus': ['cos x = −0,5 '], 'tangens': ['tan x = 1 '], 'anzahl': ['cos x = −1 '],
                   'umformen': ['4 sin x + 1 = 3'], 'anwendung': ['α = 40° und sin β = 0,5']},
-          offen=['Alle Lernkarten brauchen den Einheitskreis bzw. die Graphen von sin, cos, tan als Zeichnung (waagrechte Gerade y = v schneidet den Kreis/Graphen). Bisher nur in Worten.',
+          offen=['Lernkarten „sinus“, „kosinus“, „anzahl“ zeigen jetzt die Graphen mit der Geraden y = v; Aufgaben mit Graph gibt es bei „anzahl“. Für den Tangens gibt es noch keinen Graphentyp (Vorschlag der Prüfung: „tan“ ergänzen).',
                  'Lösungsbereich durchgängig 0° ≤ x < 360°; Bogenmaß ist nicht enthalten (gehört nicht zur 9. Klasse).'])

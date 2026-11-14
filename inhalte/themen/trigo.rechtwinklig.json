@@ -1,0 +1,3105 @@
+{
+ "thema_schluessel": "trigo.rechtwinklig",
+ "thema_id": 55,
+ "block_id": 76,
+ "klasse": {
+  "gym_by": 9,
+  "rs_by": 9,
+  "ib_myp": 3
+ },
+ "autor": "Claude (Paket Klasse 9)",
+ "inhalt": {
+  "ziel": "Sinus, Kosinus und Tangens als Seitenverhältnisse im rechtwinkligen Dreieck nutzen, um Seiten und Winkel zu berechnen.",
+  "merke": [
+   "sin α = Gegenkathete : Hypotenuse; cos α = Ankathete : Hypotenuse; tan α = Gegenkathete : Ankathete.",
+   "Seite gesucht: Gleichung nach der Seite umstellen. Winkel gesucht: Umkehrtaste (DEG).",
+   "sin² α + cos² α = 1; tan α = sin α : cos α; sin α = cos(90° − α).",
+   "Steigung in % = tan α · 100."
+  ],
+  "abschnitte": [
+   {
+    "titel": "Grundbegriffe",
+    "lernziele": [
+     "seiten",
+     "verhaeltnisse"
+    ]
+   },
+   {
+    "titel": "Berechnen",
+    "lernziele": [
+     "seite",
+     "winkel",
+     "beziehungen"
+    ]
+   },
+   {
+    "titel": "Anwenden",
+    "lernziele": [
+     "anwendung"
+    ]
+   }
+  ],
+  "etappen": [
+   {
+    "lernziel": "seiten",
+    "titel": "Ankathete, Gegenkathete, Hypotenuse",
+    "regel": "Im rechtwinkligen Dreieck liegt die ⟦Hypotenuse⟧ dem rechten Winkel gegenüber. Bezogen auf einen spitzen Winkel ist die ⟦Gegenkathete⟧ die Kathete gegenüber, die ⟦Ankathete⟧ die Kathete, die am Winkel anliegt.",
+    "schritte": [
+     "Dreieck ABC mit γ = 90°: Hypotenuse ist c (gegenüber C).",
+     "Für α (bei A): Gegenkathete ⟦a⟧, Ankathete ⟦b⟧."
+    ],
+    "probe": "Für β tauschen An- und Gegenkathete: Gegenkathete b, Ankathete a ✓",
+    "fehler": "„Die Ankathete von α ist c, weil c an A anliegt“ ist falsch: c liegt zwar an A, ist aber die ⟦Hypotenuse⟧. Ankathete ist nur eine ⟦Kathete⟧."
+   },
+   {
+    "lernziel": "verhaeltnisse",
+    "titel": "Sinus, Kosinus, Tangens als Verhältnis",
+    "regel": "⟦sin α = Gegenkathete : Hypotenuse⟧, ⟦cos α = Ankathete : Hypotenuse⟧, ⟦tan α = Gegenkathete : Ankathete⟧.",
+    "schritte": [
+     "γ = 90°, a = 8 cm, b = 15 cm, c = 17 cm.",
+     "sin α = 8/17, cos α = 15/17, ⟦tan α = 8/15⟧."
+    ],
+    "probe": "sin α und cos α sind kleiner als 1 (Hypotenuse ist am längsten) ✓",
+    "fehler": "sin α = b/c ist falsch, wenn γ = 90°: b ist die ⟦Ankathete⟧ von α. Richtig: sin α = a/c."
+   },
+   {
+    "lernziel": "seite",
+    "titel": "Seitenlängen berechnen",
+    "regel": "Wähle die Funktion, in der die ⟦gesuchte und die bekannte Seite⟧ vorkommen. Stelle um, z. B. ⟦a = c · sin α⟧ oder ⟦c = a : sin α⟧.",
+    "schritte": [
+     "γ = 90°, α = 35°, c = 10 cm, gesucht a (Gegenkathete von α).",
+     "a = 10 cm · sin 35° ≈ 10 · 0,5736 ≈ ⟦5,7 cm⟧."
+    ],
+    "probe": "a < c ✓",
+    "fehler": "a = 10 : sin 35° ≈ 17,4 cm ist falsch: Aus sin α = a/c folgt a = ⟦c · sin α⟧. Eine Kathete kann nicht länger als die Hypotenuse sein."
+   },
+   {
+    "lernziel": "winkel",
+    "titel": "Winkel berechnen",
+    "regel": "Kennst du zwei Seiten, berechnest du das Verhältnis und benutzt die ⟦Umkehrtaste⟧: α = sin⁻¹(…), cos⁻¹(…) oder tan⁻¹(…). Der Taschenrechner muss auf ⟦DEG⟧ stehen.",
+    "schritte": [
+     "γ = 90°, a = 4 cm, b = 7 cm: tan α = 4/7 ≈ 0,5714.",
+     "α = tan⁻¹(4/7) ≈ ⟦29,7°⟧."
+    ],
+    "probe": "β = 90° − 29,7° = 60,3°; tan 60,3° ≈ 1,75 = 7/4 ✓",
+    "fehler": "α = 4/7 ≈ 0,57° ist falsch: 4/7 ist der ⟦Tangenswert⟧, nicht der Winkel. Erst tan⁻¹ liefert den Winkel."
+   },
+   {
+    "lernziel": "beziehungen",
+    "titel": "Beziehungen zwischen sin, cos, tan",
+    "regel": "Für spitze Winkel gilt: ⟦sin² α + cos² α = 1⟧, ⟦tan α = sin α : cos α⟧ und ⟦sin α = cos(90° − α)⟧. Besondere Werte: sin 30° = cos 60° = 0,5; tan 45° = 1.",
+    "schritte": [
+     "sin α = 0,28 (α spitz): cos² α = 1 − 0,0784 = 0,9216.",
+     "cos α = ⟦0,96⟧, tan α = 0,28 : 0,96 = 7/24."
+    ],
+    "probe": "0,28² + 0,96² = 0,0784 + 0,9216 = 1 ✓",
+    "fehler": "cos α = 1 − sin α = 0,72 ist falsch: Es gilt sin² α + cos² α = 1 – mit den ⟦Quadraten⟧."
+   },
+   {
+    "lernziel": "anwendung",
+    "titel": "Trigonometrie anwenden",
+    "regel": "Skizze, ⟦rechtwinkliges Dreieck⟧ finden, Winkel und Seiten zuordnen. ⟦Steigung in %⟧ = tan(Steigungswinkel) · 100. ⟦Höhenwinkel⟧ wird von der Waagrechten aus gemessen.",
+    "schritte": [
+     "Eine Straße steigt mit 8 %: tan α = 0,08.",
+     "α = tan⁻¹(0,08) ≈ ⟦4,6°⟧."
+    ],
+    "probe": "8 m Höhe auf 100 m waagrecht ✓",
+    "fehler": "8 % Steigung als Winkel 8° anzugeben ist falsch: 8 % bedeutet ⟦tan α = 0,08⟧, also etwa 4,6°."
+   }
+  ],
+  "teilfaehigkeiten": [
+   {
+    "k": "seiten",
+    "text": "Ankathete, Gegenkathete, Hypotenuse",
+    "lernziele": [
+     "seiten"
+    ]
+   },
+   {
+    "k": "verhaeltnisse",
+    "text": "Sinus, Kosinus, Tangens als Verhältnis",
+    "lernziele": [
+     "verhaeltnisse"
+    ]
+   },
+   {
+    "k": "seite",
+    "text": "Seitenlängen berechnen",
+    "lernziele": [
+     "seite"
+    ]
+   },
+   {
+    "k": "winkel",
+    "text": "Winkel berechnen",
+    "lernziele": [
+     "winkel"
+    ]
+   },
+   {
+    "k": "beziehungen",
+    "text": "Beziehungen zwischen sin, cos, tan",
+    "lernziele": [
+     "beziehungen"
+    ]
+   },
+   {
+    "k": "anwendung",
+    "text": "Trigonometrie anwenden",
+    "lernziele": [
+     "anwendung"
+    ]
+   }
+  ],
+  "bewertung": {
+   "lernziele_pflicht": [
+    "seiten",
+    "verhaeltnisse",
+    "seite",
+    "winkel",
+    "beziehungen",
+    "anwendung"
+   ],
+   "lernziele_vertiefung": [],
+   "testaufgaben_je_lernziel": 1
+  },
+  "quellen": {
+   "erklaerungen": "Eigene Fassung (Claude), Aufgaben vom Generator erzeugt und berechnet.",
+   "begriffe": "Fachbegriffe nach LehrplanPLUS Bayern."
+  }
+ },
+ "aufgaben": [
+  {
+   "l": "seiten",
+   "t": "seiten",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°. Welche Seite ist die Ankathete von β?"
+   },
+   "a": [
+    "b",
+    "c",
+    "a"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Hypotenuse c liegt gegenüber dem rechten Winkel. Für β: Gegenkathete b, Ankathete a.",
+   "h": "Welche Seite liegt dem Winkel gegenüber, welche liegt an ihm an?"
+  },
+  {
+   "l": "seiten",
+   "t": "seiten",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°. Welche Seite ist die Gegenkathete von α?"
+   },
+   "a": [
+    "c",
+    "b",
+    "a"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Hypotenuse c liegt gegenüber dem rechten Winkel. Für α: Gegenkathete a, Ankathete b.",
+   "h": "Welche Seite liegt dem Winkel gegenüber, welche liegt an ihm an?"
+  },
+  {
+   "l": "seiten",
+   "t": "seiten",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°. Welche Seite ist die Hypotenuse von β?"
+   },
+   "a": [
+    "b",
+    "c",
+    "a"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Hypotenuse c liegt gegenüber dem rechten Winkel. Für β: Gegenkathete b, Ankathete a.",
+   "h": "Welche Seite liegt dem Winkel gegenüber, welche liegt an ihm an?"
+  },
+  {
+   "l": "seiten",
+   "t": "seiten",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°. Welche Seite ist die Gegenkathete von β?"
+   },
+   "a": [
+    "c",
+    "a",
+    "b"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Hypotenuse c liegt gegenüber dem rechten Winkel. Für β: Gegenkathete b, Ankathete a.",
+   "h": "Welche Seite liegt dem Winkel gegenüber, welche liegt an ihm an?"
+  },
+  {
+   "l": "seiten",
+   "t": "seiten",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°. Welche Seite ist die Ankathete von α?"
+   },
+   "a": [
+    "c",
+    "b",
+    "a"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Hypotenuse c liegt gegenüber dem rechten Winkel. Für α: Gegenkathete a, Ankathete b.",
+   "h": "Welche Seite liegt dem Winkel gegenüber, welche liegt an ihm an?"
+  },
+  {
+   "l": "seiten",
+   "t": "seiten",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°. Welche Seite ist die Ankathete von β?"
+   },
+   "a": [
+    "a",
+    "b",
+    "c"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Hypotenuse c liegt gegenüber dem rechten Winkel. Für β: Gegenkathete b, Ankathete a.",
+   "h": "Welche Seite liegt dem Winkel gegenüber, welche liegt an ihm an?"
+  },
+  {
+   "l": "seiten",
+   "t": "seiten",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist β = 90°. Welche Seite ist die Gegenkathete von α?"
+   },
+   "a": [
+    "a",
+    "b",
+    "c"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Der rechte Winkel liegt bei B, also ist b die Hypotenuse. Die Gegenkathete von α ist a.",
+   "h": "Bestimme zuerst die Hypotenuse: Sie liegt dem rechten Winkel gegenüber."
+  },
+  {
+   "l": "seiten",
+   "t": "seiten",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist β = 90°. Welche Seite ist die Ankathete von γ?"
+   },
+   "a": [
+    "a",
+    "c",
+    "b"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Der rechte Winkel liegt bei B, also ist b die Hypotenuse. Die Ankathete von γ ist a.",
+   "h": "Bestimme zuerst die Hypotenuse: Sie liegt dem rechten Winkel gegenüber."
+  },
+  {
+   "l": "seiten",
+   "t": "seiten",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist α = 90°. Welche Seite ist die Ankathete von γ?"
+   },
+   "a": [
+    "c",
+    "b",
+    "a"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Der rechte Winkel liegt bei A, also ist a die Hypotenuse. Die Ankathete von γ ist b.",
+   "h": "Bestimme zuerst die Hypotenuse: Sie liegt dem rechten Winkel gegenüber."
+  },
+  {
+   "l": "seiten",
+   "t": "seiten",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist α = 90°. Welche Seite ist die Ankathete von β?"
+   },
+   "a": [
+    "a",
+    "c",
+    "b"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Der rechte Winkel liegt bei A, also ist a die Hypotenuse. Die Ankathete von β ist c.",
+   "h": "Bestimme zuerst die Hypotenuse: Sie liegt dem rechten Winkel gegenüber."
+  },
+  {
+   "l": "seiten",
+   "t": "seiten",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist β = 90°. Welche Seite ist die Hypotenuse von γ?"
+   },
+   "a": [
+    "b",
+    "c",
+    "a"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Der rechte Winkel liegt bei B, also ist b die Hypotenuse. Die Hypotenuse von γ ist b.",
+   "h": "Bestimme zuerst die Hypotenuse: Sie liegt dem rechten Winkel gegenüber."
+  },
+  {
+   "l": "seiten",
+   "t": "seiten",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist β = 90°. Welche Seite ist die Gegenkathete von γ?"
+   },
+   "a": [
+    "c",
+    "b",
+    "a"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Der rechte Winkel liegt bei B, also ist b die Hypotenuse. Die Gegenkathete von γ ist c.",
+   "h": "Bestimme zuerst die Hypotenuse: Sie liegt dem rechten Winkel gegenüber."
+  },
+  {
+   "l": "seiten",
+   "t": "seiten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck DEK ist der Winkel bei D ein rechter. Welche Strecke ist die Ankathete des Winkels bei E?"
+   },
+   "a": [
+    "ED",
+    "EK",
+    "DK"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Hypotenuse ist EK (gegenüber D). Am Winkel bei E liegt die Kathete ED an; gegenüber liegt DK.",
+   "h": "Hypotenuse zuerst: gegenüber dem rechten Winkel."
+  },
+  {
+   "l": "seiten",
+   "t": "seiten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck KPR ist der Winkel bei P ein rechter. Welche Strecke ist die Gegenkathete des Winkels bei K?"
+   },
+   "a": [
+    "KP",
+    "KR",
+    "PR"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Hypotenuse ist KR (gegenüber P). Am Winkel bei K liegt die Kathete KP an; gegenüber liegt PR.",
+   "h": "Hypotenuse zuerst: gegenüber dem rechten Winkel."
+  },
+  {
+   "l": "seiten",
+   "t": "seiten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck DFK ist der Winkel bei F ein rechter. Welche Strecke ist die Gegenkathete des Winkels bei D?"
+   },
+   "a": [
+    "FK",
+    "DF",
+    "DK"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Hypotenuse ist DK (gegenüber F). Am Winkel bei D liegt die Kathete DF an; gegenüber liegt FK.",
+   "h": "Hypotenuse zuerst: gegenüber dem rechten Winkel."
+  },
+  {
+   "l": "seiten",
+   "t": "seiten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck MQR ist der Winkel bei R ein rechter. Welche Strecke ist die Ankathete des Winkels bei Q?"
+   },
+   "a": [
+    "RM",
+    "QR",
+    "QM"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Hypotenuse ist QM (gegenüber R). Am Winkel bei Q liegt die Kathete QR an; gegenüber liegt RM.",
+   "h": "Hypotenuse zuerst: gegenüber dem rechten Winkel."
+  },
+  {
+   "l": "seiten",
+   "t": "seiten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck KLM ist der Winkel bei L ein rechter. Welche Strecke ist die Ankathete des Winkels bei M?"
+   },
+   "a": [
+    "MK",
+    "LK",
+    "ML"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Hypotenuse ist MK (gegenüber L). Am Winkel bei M liegt die Kathete ML an; gegenüber liegt LK.",
+   "h": "Hypotenuse zuerst: gegenüber dem rechten Winkel."
+  },
+  {
+   "l": "seiten",
+   "t": "seiten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck FMR ist der Winkel bei R ein rechter. Welche Strecke ist die Gegenkathete des Winkels bei F?"
+   },
+   "a": [
+    "RM",
+    "FM",
+    "FR"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Hypotenuse ist FM (gegenüber R). Am Winkel bei F liegt die Kathete FR an; gegenüber liegt RM.",
+   "h": "Hypotenuse zuerst: gegenüber dem rechten Winkel."
+  },
+  {
+   "l": "seiten",
+   "t": "seiten",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist α = 90°. Welche Seite ist die Ankathete von γ?"
+   },
+   "a": [
+    "a",
+    "b",
+    "c"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Der rechte Winkel liegt bei A, also ist a die Hypotenuse. Die Ankathete von γ ist b."
+  },
+  {
+   "l": "seiten",
+   "t": "seiten",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist β = 90°. Welche Seite ist die Hypotenuse von γ?"
+   },
+   "a": [
+    "a",
+    "b",
+    "c"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Der rechte Winkel liegt bei B, also ist b die Hypotenuse. Die Hypotenuse von γ ist b."
+  },
+  {
+   "l": "seiten",
+   "t": "seiten",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist α = 90°. Welche Seite ist die Hypotenuse von γ?"
+   },
+   "a": [
+    "c",
+    "a",
+    "b"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Der rechte Winkel liegt bei A, also ist a die Hypotenuse. Die Hypotenuse von γ ist a."
+  },
+  {
+   "l": "seiten",
+   "t": "seiten",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist β = 90°. Welche Seite ist die Hypotenuse von α?"
+   },
+   "a": [
+    "a",
+    "c",
+    "b"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Der rechte Winkel liegt bei B, also ist b die Hypotenuse. Die Hypotenuse von α ist b."
+  },
+  {
+   "l": "seiten",
+   "t": "seiten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist α = 90°. Welche Seite ist die Hypotenuse von β?"
+   },
+   "a": [
+    "b",
+    "a",
+    "c"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Der rechte Winkel liegt bei A, also ist a die Hypotenuse. Die Hypotenuse von β ist a."
+  },
+  {
+   "l": "seiten",
+   "t": "seiten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist α = 90°. Welche Seite ist die Ankathete von γ?"
+   },
+   "a": [
+    "a",
+    "c",
+    "b"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Der rechte Winkel liegt bei A, also ist a die Hypotenuse. Die Ankathete von γ ist b."
+  },
+  {
+   "l": "seiten",
+   "t": "seiten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist α = 90°. Welche Seite ist die Gegenkathete von β?"
+   },
+   "a": [
+    "a",
+    "b",
+    "c"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Der rechte Winkel liegt bei A, also ist a die Hypotenuse. Die Gegenkathete von β ist b."
+  },
+  {
+   "l": "seiten",
+   "t": "seiten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist α = 90°. Welche Seite ist die Gegenkathete von γ?"
+   },
+   "a": [
+    "c",
+    "b",
+    "a"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Der rechte Winkel liegt bei A, also ist a die Hypotenuse. Die Gegenkathete von γ ist c."
+  },
+  {
+   "l": "seiten",
+   "t": "seiten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist β = 90°. Welche Seite ist die Ankathete von α?"
+   },
+   "a": [
+    "b",
+    "a",
+    "c"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Der rechte Winkel liegt bei B, also ist b die Hypotenuse. Die Ankathete von α ist c."
+  },
+  {
+   "l": "seiten",
+   "t": "seiten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist β = 90°. Welche Seite ist die Hypotenuse von α?"
+   },
+   "a": [
+    "c",
+    "b",
+    "a"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Der rechte Winkel liegt bei B, also ist b die Hypotenuse. Die Hypotenuse von α ist b."
+  },
+  {
+   "l": "verhaeltnisse",
+   "t": "verhaeltnisse",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°. Welcher Term ist sin α?"
+   },
+   "a": [
+    "a/c",
+    "b/c",
+    "a/b",
+    "b/a"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "sin = Gegenkathete : Hypotenuse; für α ist a die Gegenkathete, b die Ankathete: sin α = a/c.",
+   "h": "Bestimme zu dem Winkel zuerst An- und Gegenkathete."
+  },
+  {
+   "l": "verhaeltnisse",
+   "t": "verhaeltnisse",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°. Welcher Term ist cos β?"
+   },
+   "a": [
+    "b/c",
+    "a/c",
+    "b/a",
+    "a/b"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "cos = Ankathete : Hypotenuse; für β ist b die Gegenkathete, a die Ankathete: cos β = a/c.",
+   "h": "Bestimme zu dem Winkel zuerst An- und Gegenkathete."
+  },
+  {
+   "l": "verhaeltnisse",
+   "t": "verhaeltnisse",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°. Welcher Term ist tan β?"
+   },
+   "a": [
+    "b/a",
+    "b/c",
+    "a/b",
+    "a/c"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "tan = Gegenkathete : Ankathete; für β ist b die Gegenkathete, a die Ankathete: tan β = b/a.",
+   "h": "Bestimme zu dem Winkel zuerst An- und Gegenkathete."
+  },
+  {
+   "l": "verhaeltnisse",
+   "t": "verhaeltnisse",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°. Welcher Term ist tan α?"
+   },
+   "a": [
+    "b/a",
+    "a/b",
+    "b/c",
+    "a/c"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "tan = Gegenkathete : Ankathete; für α ist a die Gegenkathete, b die Ankathete: tan α = a/b.",
+   "h": "Bestimme zu dem Winkel zuerst An- und Gegenkathete."
+  },
+  {
+   "l": "verhaeltnisse",
+   "t": "verhaeltnisse",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°. Welcher Term ist tan α?"
+   },
+   "a": [
+    "a/c",
+    "a/b",
+    "b/a",
+    "b/c"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "tan = Gegenkathete : Ankathete; für α ist a die Gegenkathete, b die Ankathete: tan α = a/b.",
+   "h": "Bestimme zu dem Winkel zuerst An- und Gegenkathete."
+  },
+  {
+   "l": "verhaeltnisse",
+   "t": "verhaeltnisse",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°. Welcher Term ist cos β?"
+   },
+   "a": [
+    "a/c",
+    "b/a",
+    "a/b",
+    "b/c"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "cos = Ankathete : Hypotenuse; für β ist b die Gegenkathete, a die Ankathete: cos β = a/c.",
+   "h": "Bestimme zu dem Winkel zuerst An- und Gegenkathete."
+  },
+  {
+   "l": "verhaeltnisse",
+   "t": "verhaeltnisse",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, a = 15 cm, b = 36 cm, c = 39 cm. Berechne tan β als Dezimalzahl."
+   },
+   "o": {
+    "wert": 2.4
+   },
+   "c": "36 / 15",
+   "w": "tan β = Gegenkathete : Ankathete = 36 : 15 = 2,4.",
+   "h": "Welche Seiten gehören zu diesem Winkel und dieser Funktion?"
+  },
+  {
+   "l": "verhaeltnisse",
+   "t": "verhaeltnisse",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, a = 8 cm, b = 6 cm, c = 10 cm. Berechne tan β als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.75
+   },
+   "c": "6 / 8",
+   "w": "tan β = Gegenkathete : Ankathete = 6 : 8 = 0,75.",
+   "h": "Welche Seiten gehören zu diesem Winkel und dieser Funktion?"
+  },
+  {
+   "l": "verhaeltnisse",
+   "t": "verhaeltnisse",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, a = 24 cm, b = 10 cm, c = 26 cm. Berechne tan α als Dezimalzahl."
+   },
+   "o": {
+    "wert": 2.4
+   },
+   "c": "24 / 10",
+   "w": "tan α = Gegenkathete : Ankathete = 24 : 10 = 2,4.",
+   "h": "Welche Seiten gehören zu diesem Winkel und dieser Funktion?"
+  },
+  {
+   "l": "verhaeltnisse",
+   "t": "verhaeltnisse",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, a = 72 cm, b = 54 cm, c = 90 cm. Berechne cos β als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.8
+   },
+   "c": "72 / 90",
+   "w": "cos β = Ankathete : Hypotenuse = 72 : 90 = 0,8.",
+   "h": "Welche Seiten gehören zu diesem Winkel und dieser Funktion?"
+  },
+  {
+   "l": "verhaeltnisse",
+   "t": "verhaeltnisse",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, a = 10 cm, b = 24 cm, c = 26 cm. Berechne tan β als Dezimalzahl."
+   },
+   "o": {
+    "wert": 2.4
+   },
+   "c": "24 / 10",
+   "w": "tan β = Gegenkathete : Ankathete = 24 : 10 = 2,4.",
+   "h": "Welche Seiten gehören zu diesem Winkel und dieser Funktion?"
+  },
+  {
+   "l": "verhaeltnisse",
+   "t": "verhaeltnisse",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, a = 48 cm, b = 14 cm, c = 50 cm. Berechne cos α als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.28
+   },
+   "c": "14 / 50",
+   "w": "cos α = Ankathete : Hypotenuse = 14 : 50 = 0,28.",
+   "h": "Welche Seiten gehören zu diesem Winkel und dieser Funktion?"
+  },
+  {
+   "l": "verhaeltnisse",
+   "t": "verhaeltnisse",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, a = 21 cm, b = 72 cm, c = 75 cm. Berechne sin β als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.96
+   },
+   "c": "72 / 75",
+   "w": "sin β = Gegenkathete : Hypotenuse = 72 : 75 = 0,96.",
+   "h": "Welche Seiten gehören zu diesem Winkel und dieser Funktion?"
+  },
+  {
+   "l": "verhaeltnisse",
+   "t": "verhaeltnisse",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, a = 108 cm, b = 144 cm. Berechne zuerst c und dann tan α als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.75
+   },
+   "c": "108 / 144",
+   "w": "c = √(11 664 + 20 736) = 180 cm; tan α = 108 : 144 = 0,75.",
+   "h": "Erst Pythagoras, dann das passende Verhältnis."
+  },
+  {
+   "l": "verhaeltnisse",
+   "t": "verhaeltnisse",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, a = 72 cm, b = 21 cm. Berechne zuerst c und dann sin α als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.96
+   },
+   "c": "72 / (72 ** 2 + 21 ** 2) * 75",
+   "w": "c = √(5 184 + 441) = 75 cm; sin α = 72 : 75 = 0,96.",
+   "h": "Erst Pythagoras, dann das passende Verhältnis."
+  },
+  {
+   "l": "verhaeltnisse",
+   "t": "verhaeltnisse",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, a = 1,2 cm, b = 1,6 cm. Berechne zuerst c und dann tan α als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.75
+   },
+   "c": "1.2 / 1.6",
+   "w": "c = √(1,44 + 2,56) = 2 cm; tan α = 1,2 : 1,6 = 0,75.",
+   "h": "Erst Pythagoras, dann das passende Verhältnis."
+  },
+  {
+   "l": "verhaeltnisse",
+   "t": "verhaeltnisse",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, a = 12 cm, b = 16 cm, c = 20 cm. Berechne sin α als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.6
+   },
+   "c": "12 / 20",
+   "w": "sin α = Gegenkathete : Hypotenuse = 12 : 20 = 0,6.",
+   "h": "Welche Seiten gehören zu diesem Winkel und dieser Funktion?"
+  },
+  {
+   "l": "verhaeltnisse",
+   "t": "verhaeltnisse",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, a = 2,1 cm, b = 2,8 cm. Berechne zuerst c und dann cos α als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.8
+   },
+   "c": "2.8 / (2.1 ** 2 + 2.8 ** 2) * 3.5",
+   "w": "c = √(4,41 + 7,84) = 3,5 cm; cos α = 2,8 : 3,5 = 0,8.",
+   "h": "Erst Pythagoras, dann das passende Verhältnis."
+  },
+  {
+   "l": "verhaeltnisse",
+   "t": "verhaeltnisse",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, a = 56 cm, b = 42 cm, c = 70 cm. Berechne cos α als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.6
+   },
+   "c": "42 / 70",
+   "w": "cos α = Ankathete : Hypotenuse = 42 : 70 = 0,6."
+  },
+  {
+   "l": "verhaeltnisse",
+   "t": "verhaeltnisse",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, a = 75 cm, b = 40 cm, c = 85 cm. Berechne tan α als Dezimalzahl."
+   },
+   "o": {
+    "wert": 1.875
+   },
+   "c": "75 / 40",
+   "w": "tan α = Gegenkathete : Ankathete = 75 : 40 = 1,875."
+  },
+  {
+   "l": "verhaeltnisse",
+   "t": "verhaeltnisse",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, a = 9 cm, b = 12 cm, c = 15 cm. Berechne cos β als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.6
+   },
+   "c": "9 / 15",
+   "w": "cos β = Ankathete : Hypotenuse = 9 : 15 = 0,6."
+  },
+  {
+   "l": "verhaeltnisse",
+   "t": "verhaeltnisse",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, a = 36 cm, b = 27 cm, c = 45 cm. Berechne sin β als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.6
+   },
+   "c": "27 / 45",
+   "w": "sin β = Gegenkathete : Hypotenuse = 27 : 45 = 0,6."
+  },
+  {
+   "l": "verhaeltnisse",
+   "t": "verhaeltnisse",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, a = 48 cm, b = 36 cm, c = 60 cm. Berechne cos β als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.8
+   },
+   "c": "48 / 60",
+   "w": "cos β = Ankathete : Hypotenuse = 48 : 60 = 0,8."
+  },
+  {
+   "l": "verhaeltnisse",
+   "t": "verhaeltnisse",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, a = 44 cm, b = 33 cm, c = 55 cm. Berechne sin β als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.6
+   },
+   "c": "33 / 55",
+   "w": "sin β = Gegenkathete : Hypotenuse = 33 : 55 = 0,6."
+  },
+  {
+   "l": "verhaeltnisse",
+   "t": "verhaeltnisse",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, a = 14 cm, b = 48 cm, c = 50 cm. Berechne cos β als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.28
+   },
+   "c": "14 / 50",
+   "w": "cos β = Ankathete : Hypotenuse = 14 : 50 = 0,28."
+  },
+  {
+   "l": "verhaeltnisse",
+   "t": "verhaeltnisse",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, a = 57 cm, b = 76 cm, c = 95 cm. Berechne cos α als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.8
+   },
+   "c": "76 / 95",
+   "w": "cos α = Ankathete : Hypotenuse = 76 : 95 = 0,8."
+  },
+  {
+   "l": "verhaeltnisse",
+   "t": "verhaeltnisse",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, a = 40 cm, b = 42 cm, c = 58 cm. Berechne tan β als Dezimalzahl."
+   },
+   "o": {
+    "wert": 1.05
+   },
+   "c": "42 / 40",
+   "w": "tan β = Gegenkathete : Ankathete = 42 : 40 = 1,05."
+  },
+  {
+   "l": "verhaeltnisse",
+   "t": "verhaeltnisse",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, a = 20 cm, b = 15 cm, c = 25 cm. Berechne cos α als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.6
+   },
+   "c": "15 / 25",
+   "w": "cos α = Ankathete : Hypotenuse = 15 : 25 = 0,6."
+  },
+  {
+   "l": "seite",
+   "t": "seite",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, α = 20° und c = 12 cm. Berechne b (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 11.3,
+    "einheit": "cm"
+   },
+   "c": "round(12 * 0.939692620786, 1)",
+   "w": "b ist Ankathete von α: b = c · cos α = 12 · cos 20° ≈ 11,3 cm.",
+   "h": "Welche Funktion verbindet b und c?"
+  },
+  {
+   "l": "seite",
+   "t": "seite",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, α = 68° und c = 10 cm. Berechne a (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 9.3,
+    "einheit": "cm"
+   },
+   "c": "round(10 * 0.927183854567, 1)",
+   "w": "a ist Gegenkathete von α: a = c · sin α = 10 · sin 68° ≈ 9,3 cm.",
+   "h": "Welche Funktion verbindet a und c?"
+  },
+  {
+   "l": "seite",
+   "t": "seite",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, α = 32° und c = 15 cm. Berechne a (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 7.9,
+    "einheit": "cm"
+   },
+   "c": "round(15 * 0.529919264233, 1)",
+   "w": "a ist Gegenkathete von α: a = c · sin α = 15 · sin 32° ≈ 7,9 cm.",
+   "h": "Welche Funktion verbindet a und c?"
+  },
+  {
+   "l": "seite",
+   "t": "seite",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, α = 47° und c = 15 cm. Berechne b (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 10.2,
+    "einheit": "cm"
+   },
+   "c": "round(15 * 0.681998360062, 1)",
+   "w": "b ist Ankathete von α: b = c · cos α = 15 · cos 47° ≈ 10,2 cm.",
+   "h": "Welche Funktion verbindet b und c?"
+  },
+  {
+   "l": "seite",
+   "t": "seite",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, α = 69° und c = 5 cm. Berechne a (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 4.7,
+    "einheit": "cm"
+   },
+   "c": "round(5 * 0.933580426497, 1)",
+   "w": "a ist Gegenkathete von α: a = c · sin α = 5 · sin 69° ≈ 4,7 cm.",
+   "h": "Welche Funktion verbindet a und c?"
+  },
+  {
+   "l": "seite",
+   "t": "seite",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, α = 30° und c = 9 cm. Berechne a (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 4.5,
+    "einheit": "cm"
+   },
+   "c": "round(9 * 0.500000000000, 1)",
+   "w": "a ist Gegenkathete von α: a = c · sin α = 9 · sin 30° ≈ 4,5 cm.",
+   "h": "Welche Funktion verbindet a und c?"
+  },
+  {
+   "l": "seite",
+   "t": "seite",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, α = 33° und b = 20 cm. Berechne a (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 13,
+    "einheit": "cm"
+   },
+   "c": "round(20 * 0.649407593198, 1)",
+   "w": "tan α = a/b ⇒ a = b · tan α = 20 · tan 33° ≈ 13 cm.",
+   "h": "a ist Gegenkathete, b Ankathete von α."
+  },
+  {
+   "l": "seite",
+   "t": "seite",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, α = 54° und b = 8 cm. Berechne a (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 11,
+    "einheit": "cm"
+   },
+   "c": "round(8 * 1.376381920471, 1)",
+   "w": "tan α = a/b ⇒ a = b · tan α = 8 · tan 54° ≈ 11 cm.",
+   "h": "a ist Gegenkathete, b Ankathete von α."
+  },
+  {
+   "l": "seite",
+   "t": "seite",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, α = 34° und b = 18 cm. Berechne a (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 12.1,
+    "einheit": "cm"
+   },
+   "c": "round(18 * 0.674508516842, 1)",
+   "w": "tan α = a/b ⇒ a = b · tan α = 18 · tan 34° ≈ 12,1 cm.",
+   "h": "a ist Gegenkathete, b Ankathete von α."
+  },
+  {
+   "l": "seite",
+   "t": "seite",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, α = 18° und b = 19 cm. Berechne a (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 6.2,
+    "einheit": "cm"
+   },
+   "c": "round(19 * 0.324919696233, 1)",
+   "w": "tan α = a/b ⇒ a = b · tan α = 19 · tan 18° ≈ 6,2 cm.",
+   "h": "a ist Gegenkathete, b Ankathete von α."
+  },
+  {
+   "l": "seite",
+   "t": "seite",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, α = 69° und b = 18 cm. Berechne a (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 46.9,
+    "einheit": "cm"
+   },
+   "c": "round(18 * 2.605089064694, 1)",
+   "w": "tan α = a/b ⇒ a = b · tan α = 18 · tan 69° ≈ 46,9 cm.",
+   "h": "a ist Gegenkathete, b Ankathete von α."
+  },
+  {
+   "l": "seite",
+   "t": "seite",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, α = 41° und b = 17 cm. Berechne a (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 14.8,
+    "einheit": "cm"
+   },
+   "c": "round(17 * 0.869286737816, 1)",
+   "w": "tan α = a/b ⇒ a = b · tan α = 17 · tan 41° ≈ 14,8 cm.",
+   "h": "a ist Gegenkathete, b Ankathete von α."
+  },
+  {
+   "l": "seite",
+   "t": "seite",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, α = 55° und a = 12 cm. Berechne b (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 8.4,
+    "einheit": "cm"
+   },
+   "c": "round(12 / 1.428148006742, 1)",
+   "w": "tan α = a/b ⇒ b = a : tan α = 12 : tan 55° ≈ 8,4 cm.",
+   "h": "Die gesuchte Seite steht im Nenner: Stelle die Gleichung durch Multiplizieren und Teilen um."
+  },
+  {
+   "l": "seite",
+   "t": "seite",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, α = 31° und a = 7 cm. Berechne c (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 13.6,
+    "einheit": "cm"
+   },
+   "c": "round(7 / 0.515038074910, 1)",
+   "w": "sin α = a/c ⇒ c = a : sin α = 7 : sin 31° ≈ 13,6 cm.",
+   "h": "Die gesuchte Seite steht im Nenner: Stelle die Gleichung durch Multiplizieren und Teilen um."
+  },
+  {
+   "l": "seite",
+   "t": "seite",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, α = 66° und a = 13 cm. Berechne c (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 14.2,
+    "einheit": "cm"
+   },
+   "c": "round(13 / 0.913545457643, 1)",
+   "w": "sin α = a/c ⇒ c = a : sin α = 13 : sin 66° ≈ 14,2 cm.",
+   "h": "Die gesuchte Seite steht im Nenner: Stelle die Gleichung durch Multiplizieren und Teilen um."
+  },
+  {
+   "l": "seite",
+   "t": "seite",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, α = 12° und a = 4 cm. Berechne b (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 18.8,
+    "einheit": "cm"
+   },
+   "c": "round(4 / 0.212556561670, 1)",
+   "w": "tan α = a/b ⇒ b = a : tan α = 4 : tan 12° ≈ 18,8 cm.",
+   "h": "Die gesuchte Seite steht im Nenner: Stelle die Gleichung durch Multiplizieren und Teilen um."
+  },
+  {
+   "l": "seite",
+   "t": "seite",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, α = 28° und a = 3 cm. Berechne b (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 5.6,
+    "einheit": "cm"
+   },
+   "c": "round(3 / 0.531709431661, 1)",
+   "w": "tan α = a/b ⇒ b = a : tan α = 3 : tan 28° ≈ 5,6 cm.",
+   "h": "Die gesuchte Seite steht im Nenner: Stelle die Gleichung durch Multiplizieren und Teilen um."
+  },
+  {
+   "l": "seite",
+   "t": "seite",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, α = 25° und a = 8 cm. Berechne c (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 18.9,
+    "einheit": "cm"
+   },
+   "c": "round(8 / 0.422618261741, 1)",
+   "w": "sin α = a/c ⇒ c = a : sin α = 8 : sin 25° ≈ 18,9 cm.",
+   "h": "Die gesuchte Seite steht im Nenner: Stelle die Gleichung durch Multiplizieren und Teilen um."
+  },
+  {
+   "l": "seite",
+   "t": "seite",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, α = 23° und b = 4 cm. Berechne a (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 1.7,
+    "einheit": "cm"
+   },
+   "c": "round(4 * 0.424474816210, 1)",
+   "w": "tan α = a/b ⇒ a = b · tan α = 4 · tan 23° ≈ 1,7 cm."
+  },
+  {
+   "l": "seite",
+   "t": "seite",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, α = 53° und b = 5 cm. Berechne a (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 6.6,
+    "einheit": "cm"
+   },
+   "c": "round(5 * 1.327044821620, 1)",
+   "w": "tan α = a/b ⇒ a = b · tan α = 5 · tan 53° ≈ 6,6 cm."
+  },
+  {
+   "l": "seite",
+   "t": "seite",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, α = 29° und b = 7 cm. Berechne a (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 3.9,
+    "einheit": "cm"
+   },
+   "c": "round(7 * 0.554309051453, 1)",
+   "w": "tan α = a/b ⇒ a = b · tan α = 7 · tan 29° ≈ 3,9 cm."
+  },
+  {
+   "l": "seite",
+   "t": "seite",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, α = 35° und b = 7 cm. Berechne a (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 4.9,
+    "einheit": "cm"
+   },
+   "c": "round(7 * 0.700207538210, 1)",
+   "w": "tan α = a/b ⇒ a = b · tan α = 7 · tan 35° ≈ 4,9 cm."
+  },
+  {
+   "l": "seite",
+   "t": "seite",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, α = 57° und b = 5 cm. Berechne a (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 7.7,
+    "einheit": "cm"
+   },
+   "c": "round(5 * 1.539864963815, 1)",
+   "w": "tan α = a/b ⇒ a = b · tan α = 5 · tan 57° ≈ 7,7 cm."
+  },
+  {
+   "l": "seite",
+   "t": "seite",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, α = 66° und b = 18 cm. Berechne a (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 40.4,
+    "einheit": "cm"
+   },
+   "c": "round(18 * 2.246036773904, 1)",
+   "w": "tan α = a/b ⇒ a = b · tan α = 18 · tan 66° ≈ 40,4 cm."
+  },
+  {
+   "l": "seite",
+   "t": "seite",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, α = 57° und b = 16 cm. Berechne a (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 24.6,
+    "einheit": "cm"
+   },
+   "c": "round(16 * 1.539864963815, 1)",
+   "w": "tan α = a/b ⇒ a = b · tan α = 16 · tan 57° ≈ 24,6 cm."
+  },
+  {
+   "l": "seite",
+   "t": "seite",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, α = 25° und b = 3 cm. Berechne a (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 1.4,
+    "einheit": "cm"
+   },
+   "c": "round(3 * 0.466307658155, 1)",
+   "w": "tan α = a/b ⇒ a = b · tan α = 3 · tan 25° ≈ 1,4 cm."
+  },
+  {
+   "l": "seite",
+   "t": "seite",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, α = 60° und b = 7 cm. Berechne a (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 12.1,
+    "einheit": "cm"
+   },
+   "c": "round(7 * 1.732050807569, 1)",
+   "w": "tan α = a/b ⇒ a = b · tan α = 7 · tan 60° ≈ 12,1 cm."
+  },
+  {
+   "l": "seite",
+   "t": "seite",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, α = 49° und b = 13 cm. Berechne a (auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "cm"
+   },
+   "c": "round(13 * 1.150368407221, 1)",
+   "w": "tan α = a/b ⇒ a = b · tan α = 13 · tan 49° ≈ 15 cm."
+  },
+  {
+   "l": "winkel",
+   "t": "winkel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, a = 14 cm und b = 8 cm. Berechne α (in Grad, auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 60.3,
+    "einheit": "°"
+   },
+   "c": "round(60.255118703058, 1)",
+   "w": "tan α = a/b = 14/8 ⇒ α = tan⁻¹(14/8) ≈ 60,3°.",
+   "h": "Bilde das passende Seitenverhältnis und benutze die Umkehrtaste (DEG-Modus)."
+  },
+  {
+   "l": "winkel",
+   "t": "winkel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, a = 15 cm und b = 10 cm. Berechne α (in Grad, auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 56.3,
+    "einheit": "°"
+   },
+   "c": "round(56.309932474020, 1)",
+   "w": "tan α = a/b = 15/10 ⇒ α = tan⁻¹(15/10) ≈ 56,3°.",
+   "h": "Bilde das passende Seitenverhältnis und benutze die Umkehrtaste (DEG-Modus)."
+  },
+  {
+   "l": "winkel",
+   "t": "winkel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, a = 10 cm und b = 9 cm. Berechne α (in Grad, auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 48,
+    "einheit": "°"
+   },
+   "c": "round(48.012787504183, 1)",
+   "w": "tan α = a/b = 10/9 ⇒ α = tan⁻¹(10/9) ≈ 48°.",
+   "h": "Bilde das passende Seitenverhältnis und benutze die Umkehrtaste (DEG-Modus)."
+  },
+  {
+   "l": "winkel",
+   "t": "winkel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, a = 4 cm und b = 5 cm. Berechne α (in Grad, auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 38.7,
+    "einheit": "°"
+   },
+   "c": "round(38.659808254090, 1)",
+   "w": "tan α = a/b = 4/5 ⇒ α = tan⁻¹(4/5) ≈ 38,7°.",
+   "h": "Bilde das passende Seitenverhältnis und benutze die Umkehrtaste (DEG-Modus)."
+  },
+  {
+   "l": "winkel",
+   "t": "winkel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, a = 4 cm und b = 11 cm. Berechne α (in Grad, auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "°"
+   },
+   "c": "round(19.983106521900, 1)",
+   "w": "tan α = a/b = 4/11 ⇒ α = tan⁻¹(4/11) ≈ 20°.",
+   "h": "Bilde das passende Seitenverhältnis und benutze die Umkehrtaste (DEG-Modus)."
+  },
+  {
+   "l": "winkel",
+   "t": "winkel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, a = 2 cm und b = 10 cm. Berechne α (in Grad, auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 11.3,
+    "einheit": "°"
+   },
+   "c": "round(11.309932474020, 1)",
+   "w": "tan α = a/b = 2/10 ⇒ α = tan⁻¹(2/10) ≈ 11,3°.",
+   "h": "Bilde das passende Seitenverhältnis und benutze die Umkehrtaste (DEG-Modus)."
+  },
+  {
+   "l": "winkel",
+   "t": "winkel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, a = 5 cm und c = 18 cm. Berechne α (in Grad, auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 16.1,
+    "einheit": "°"
+   },
+   "c": "round(16.127620213161, 1)",
+   "w": "sin α = a/c = 5/18 ⇒ α = sin⁻¹(5/18) ≈ 16,1°.",
+   "h": "Bilde das passende Seitenverhältnis und benutze die Umkehrtaste (DEG-Modus)."
+  },
+  {
+   "l": "winkel",
+   "t": "winkel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, b = 6 cm und c = 15 cm. Berechne α (in Grad, auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 66.4,
+    "einheit": "°"
+   },
+   "c": "round(66.421821521798, 1)",
+   "w": "cos α = b/c = 6/15 ⇒ α = cos⁻¹(6/15) ≈ 66,4°.",
+   "h": "Bilde das passende Seitenverhältnis und benutze die Umkehrtaste (DEG-Modus)."
+  },
+  {
+   "l": "winkel",
+   "t": "winkel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, a = 10 cm und c = 17 cm. Berechne α (in Grad, auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 36,
+    "einheit": "°"
+   },
+   "c": "round(36.031879072471, 1)",
+   "w": "sin α = a/c = 10/17 ⇒ α = sin⁻¹(10/17) ≈ 36°.",
+   "h": "Bilde das passende Seitenverhältnis und benutze die Umkehrtaste (DEG-Modus)."
+  },
+  {
+   "l": "winkel",
+   "t": "winkel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, a = 11 cm und c = 12 cm. Berechne α (in Grad, auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 66.4,
+    "einheit": "°"
+   },
+   "c": "round(66.443535690899, 1)",
+   "w": "sin α = a/c = 11/12 ⇒ α = sin⁻¹(11/12) ≈ 66,4°.",
+   "h": "Bilde das passende Seitenverhältnis und benutze die Umkehrtaste (DEG-Modus)."
+  },
+  {
+   "l": "winkel",
+   "t": "winkel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, b = 2 cm und c = 8 cm. Berechne α (in Grad, auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 75.5,
+    "einheit": "°"
+   },
+   "c": "round(75.522487814070, 1)",
+   "w": "cos α = b/c = 2/8 ⇒ α = cos⁻¹(2/8) ≈ 75,5°.",
+   "h": "Bilde das passende Seitenverhältnis und benutze die Umkehrtaste (DEG-Modus)."
+  },
+  {
+   "l": "winkel",
+   "t": "winkel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, b = 2 cm und c = 21 cm. Berechne α (in Grad, auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 84.5,
+    "einheit": "°"
+   },
+   "c": "round(84.534976200094, 1)",
+   "w": "cos α = b/c = 2/21 ⇒ α = cos⁻¹(2/21) ≈ 84,5°.",
+   "h": "Bilde das passende Seitenverhältnis und benutze die Umkehrtaste (DEG-Modus)."
+  },
+  {
+   "l": "winkel",
+   "t": "winkel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, a = 12 cm und c = 20 cm. Berechne β (in Grad, auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 53.1,
+    "einheit": "°"
+   },
+   "c": "round(53.130102354156, 1)",
+   "w": "a ist Ankathete von β: cos β = a/c = 12/20 ⇒ β = cos⁻¹(12/20) ≈ 53,1°.",
+   "h": "Bilde das passende Seitenverhältnis und benutze die Umkehrtaste (DEG-Modus)."
+  },
+  {
+   "l": "winkel",
+   "t": "winkel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, a = 14 cm und c = 17 cm. Berechne β (in Grad, auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 34.6,
+    "einheit": "°"
+   },
+   "c": "round(34.560321779998, 1)",
+   "w": "a ist Ankathete von β: cos β = a/c = 14/17 ⇒ β = cos⁻¹(14/17) ≈ 34,6°.",
+   "h": "Bilde das passende Seitenverhältnis und benutze die Umkehrtaste (DEG-Modus)."
+  },
+  {
+   "l": "winkel",
+   "t": "winkel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, a = 3 cm und c = 10 cm. Berechne β (in Grad, auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 72.5,
+    "einheit": "°"
+   },
+   "c": "round(72.542396876278, 1)",
+   "w": "a ist Ankathete von β: cos β = a/c = 3/10 ⇒ β = cos⁻¹(3/10) ≈ 72,5°.",
+   "h": "Bilde das passende Seitenverhältnis und benutze die Umkehrtaste (DEG-Modus)."
+  },
+  {
+   "l": "winkel",
+   "t": "winkel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, a = 12 cm und c = 13 cm. Berechne β (in Grad, auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 22.6,
+    "einheit": "°"
+   },
+   "c": "round(22.619864948040, 1)",
+   "w": "a ist Ankathete von β: cos β = a/c = 12/13 ⇒ β = cos⁻¹(12/13) ≈ 22,6°.",
+   "h": "Bilde das passende Seitenverhältnis und benutze die Umkehrtaste (DEG-Modus)."
+  },
+  {
+   "l": "winkel",
+   "t": "winkel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, a = 2 cm und c = 16 cm. Berechne β (in Grad, auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 82.8,
+    "einheit": "°"
+   },
+   "c": "round(82.819244218542, 1)",
+   "w": "a ist Ankathete von β: cos β = a/c = 2/16 ⇒ β = cos⁻¹(2/16) ≈ 82,8°.",
+   "h": "Bilde das passende Seitenverhältnis und benutze die Umkehrtaste (DEG-Modus)."
+  },
+  {
+   "l": "winkel",
+   "t": "winkel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, a = 2 cm und c = 9 cm. Berechne β (in Grad, auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 77.2,
+    "einheit": "°"
+   },
+   "c": "round(77.160411593096, 1)",
+   "w": "a ist Ankathete von β: cos β = a/c = 2/9 ⇒ β = cos⁻¹(2/9) ≈ 77,2°.",
+   "h": "Bilde das passende Seitenverhältnis und benutze die Umkehrtaste (DEG-Modus)."
+  },
+  {
+   "l": "winkel",
+   "t": "winkel",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, b = 4 cm und c = 8 cm. Berechne α (in Grad, auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "°"
+   },
+   "c": "round(60.000000000000, 1)",
+   "w": "cos α = b/c = 4/8 ⇒ α = cos⁻¹(4/8) ≈ 60°."
+  },
+  {
+   "l": "winkel",
+   "t": "winkel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, a = 12 cm und c = 15 cm. Berechne α (in Grad, auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 53.1,
+    "einheit": "°"
+   },
+   "c": "round(53.130102354156, 1)",
+   "w": "sin α = a/c = 12/15 ⇒ α = sin⁻¹(12/15) ≈ 53,1°."
+  },
+  {
+   "l": "winkel",
+   "t": "winkel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, a = 8 cm und c = 18 cm. Berechne α (in Grad, auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 26.4,
+    "einheit": "°"
+   },
+   "c": "round(26.387799961243, 1)",
+   "w": "sin α = a/c = 8/18 ⇒ α = sin⁻¹(8/18) ≈ 26,4°."
+  },
+  {
+   "l": "winkel",
+   "t": "winkel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, a = 3 cm und c = 12 cm. Berechne α (in Grad, auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 14.5,
+    "einheit": "°"
+   },
+   "c": "round(14.477512185930, 1)",
+   "w": "sin α = a/c = 3/12 ⇒ α = sin⁻¹(3/12) ≈ 14,5°."
+  },
+  {
+   "l": "winkel",
+   "t": "winkel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, b = 2 cm und c = 12 cm. Berechne α (in Grad, auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 80.4,
+    "einheit": "°"
+   },
+   "c": "round(80.405931773140, 1)",
+   "w": "cos α = b/c = 2/12 ⇒ α = cos⁻¹(2/12) ≈ 80,4°."
+  },
+  {
+   "l": "winkel",
+   "t": "winkel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, b = 6 cm und c = 11 cm. Berechne α (in Grad, auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 56.9,
+    "einheit": "°"
+   },
+   "c": "round(56.944268849146, 1)",
+   "w": "cos α = b/c = 6/11 ⇒ α = cos⁻¹(6/11) ≈ 56,9°."
+  },
+  {
+   "l": "winkel",
+   "t": "winkel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, a = 3 cm und c = 14 cm. Berechne α (in Grad, auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 12.4,
+    "einheit": "°"
+   },
+   "c": "round(12.373625116189, 1)",
+   "w": "sin α = a/c = 3/14 ⇒ α = sin⁻¹(3/14) ≈ 12,4°."
+  },
+  {
+   "l": "winkel",
+   "t": "winkel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, a = 10 cm und c = 19 cm. Berechne α (in Grad, auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 31.8,
+    "einheit": "°"
+   },
+   "c": "round(31.756863859297, 1)",
+   "w": "sin α = a/c = 10/19 ⇒ α = sin⁻¹(10/19) ≈ 31,8°."
+  },
+  {
+   "l": "winkel",
+   "t": "winkel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, b = 5 cm und c = 14 cm. Berechne α (in Grad, auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 69.1,
+    "einheit": "°"
+   },
+   "c": "round(69.075167572362, 1)",
+   "w": "cos α = b/c = 5/14 ⇒ α = cos⁻¹(5/14) ≈ 69,1°."
+  },
+  {
+   "l": "winkel",
+   "t": "winkel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist γ = 90°, a = 11 cm und c = 18 cm. Berechne α (in Grad, auf eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 37.7,
+    "einheit": "°"
+   },
+   "c": "round(37.669886964330, 1)",
+   "w": "sin α = a/c = 11/18 ⇒ α = sin⁻¹(11/18) ≈ 37,7°."
+  },
+  {
+   "l": "beziehungen",
+   "t": "beziehungen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Ausdruck ist gleich sin 12°?"
+   },
+   "a": [
+    "cos 78°",
+    "sin 78°",
+    "cos 12°",
+    "tan 12°"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Im rechtwinkligen Dreieck ist die Gegenkathete von α die Ankathete von 90° − α: sin 12° = cos 78°.",
+   "h": "Was ist der andere spitze Winkel im rechtwinkligen Dreieck?"
+  },
+  {
+   "l": "beziehungen",
+   "t": "beziehungen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Ausdruck ist gleich sin 23°?"
+   },
+   "a": [
+    "sin 67°",
+    "cos 67°",
+    "cos 23°",
+    "tan 23°"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Im rechtwinkligen Dreieck ist die Gegenkathete von α die Ankathete von 90° − α: sin 23° = cos 67°.",
+   "h": "Was ist der andere spitze Winkel im rechtwinkligen Dreieck?"
+  },
+  {
+   "l": "beziehungen",
+   "t": "beziehungen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Ausdruck ist gleich sin 79°?"
+   },
+   "a": [
+    "cos 79°",
+    "sin 11°",
+    "tan 79°",
+    "cos 11°"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Im rechtwinkligen Dreieck ist die Gegenkathete von α die Ankathete von 90° − α: sin 79° = cos 11°.",
+   "h": "Was ist der andere spitze Winkel im rechtwinkligen Dreieck?"
+  },
+  {
+   "l": "beziehungen",
+   "t": "beziehungen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Gib den exakten Wert von sin 90° an."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "sin 90° = 1 (besonderer Wert, z. B. am halben gleichseitigen bzw. gleichschenklig-rechtwinkligen Dreieck).",
+   "h": "Denke an das halbe gleichseitige Dreieck (30°/60°) und das gleichschenklig-rechtwinklige (45°)."
+  },
+  {
+   "l": "beziehungen",
+   "t": "beziehungen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Ausdruck ist gleich sin 45°?"
+   },
+   "a": [
+    "tan 45°",
+    "cos 45°",
+    "sin 45°"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Im rechtwinkligen Dreieck ist die Gegenkathete von α die Ankathete von 90° − α: sin 45° = cos 45°.",
+   "h": "Was ist der andere spitze Winkel im rechtwinkligen Dreieck?"
+  },
+  {
+   "l": "beziehungen",
+   "t": "beziehungen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Ausdruck ist gleich sin 49°?"
+   },
+   "a": [
+    "cos 41°",
+    "tan 49°",
+    "sin 41°",
+    "cos 49°"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Im rechtwinkligen Dreieck ist die Gegenkathete von α die Ankathete von 90° − α: sin 49° = cos 41°.",
+   "h": "Was ist der andere spitze Winkel im rechtwinkligen Dreieck?"
+  },
+  {
+   "l": "beziehungen",
+   "t": "beziehungen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für einen spitzen Winkel β gilt cos β = 0,96. Berechne sin β."
+   },
+   "o": {
+    "wert": 0.28
+   },
+   "c": "(1 - 0.96 ** 2) / 0.28",
+   "w": "sin² β = 1 − 0,96² = 0,0784, sin β = 0,28 (positiv, da β spitz).",
+   "h": "Nutze sin² β + cos² β = 1."
+  },
+  {
+   "l": "beziehungen",
+   "t": "beziehungen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für einen spitzen Winkel β gilt cos β = 0,936. Berechne sin β."
+   },
+   "o": {
+    "wert": 0.352
+   },
+   "c": "(1 - 0.936 ** 2) / 0.352",
+   "w": "sin² β = 1 − 0,936² = 0,123904, sin β = 0,352 (positiv, da β spitz).",
+   "h": "Nutze sin² β + cos² β = 1."
+  },
+  {
+   "l": "beziehungen",
+   "t": "beziehungen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Ausdruck ist gleich cos 7°?"
+   },
+   "a": [
+    "sin 83°",
+    "cos 83°",
+    "tan 83°",
+    "sin 7°"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die Ankathete von 7° ist die Gegenkathete von 83°: cos 7° = sin 83°.",
+   "h": "Was ist der andere spitze Winkel?"
+  },
+  {
+   "l": "beziehungen",
+   "t": "beziehungen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für einen spitzen Winkel α gilt sin α = 0,8432. Wie groß ist cos(90° − α)?"
+   },
+   "o": {
+    "wert": 0.8432
+   },
+   "c": "0.8432",
+   "w": "cos(90° − α) = sin α = 0,8432.",
+   "h": "Im rechtwinkligen Dreieck ist 90° − α der andere spitze Winkel."
+  },
+  {
+   "l": "beziehungen",
+   "t": "beziehungen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für einen spitzen Winkel α gilt sin α = 0,8. Berechne cos α."
+   },
+   "o": {
+    "wert": 0.6
+   },
+   "c": "(1 - 0.8 ** 2) / 0.6",
+   "w": "cos² α = 1 − 0,8² = 0,36, cos α = 0,6 (positiv, da α spitz).",
+   "h": "Nutze sin² α + cos² α = 1."
+  },
+  {
+   "l": "beziehungen",
+   "t": "beziehungen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für einen spitzen Winkel α gilt sin α = 0,96. Berechne cos α."
+   },
+   "o": {
+    "wert": 0.28
+   },
+   "c": "(1 - 0.96 ** 2) / 0.28",
+   "w": "cos² α = 1 − 0,96² = 0,0784, cos α = 0,28 (positiv, da α spitz).",
+   "h": "Nutze sin² α + cos² α = 1."
+  },
+  {
+   "l": "beziehungen",
+   "t": "beziehungen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand behauptet: „Für einen spitzen Winkel gilt sin α = 0,96 und cos α = 0,04, weil sin α + cos α = 1.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: Es gilt sin² α + cos² α = 1, also cos α = 0,28.",
+    "Falsch: cos α = 1,96.",
+    "Falsch: cos α = 0,96, weil Sinus und Kosinus gleich sind.",
+    "Richtig."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "0,96² + 0,28² = 0,9216 + 0,0784 = 1. Mit 0,04 wäre 0,96² + 0,04² = 0,9232 ≠ 1.",
+   "h": "Prüfe mit sin² α + cos² α = 1."
+  },
+  {
+   "l": "beziehungen",
+   "t": "beziehungen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für einen spitzen Winkel α gilt cos α = 0,8. Berechne tan α."
+   },
+   "o": {
+    "wert": 0.75
+   },
+   "c": "0.6 / 0.8",
+   "w": "sin α = √(1 − 0,8²) = 0,6; tan α = 0,6 : 0,8 = 0,75.",
+   "h": "Erst sin α über sin² + cos² = 1, dann tan = sin : cos."
+  },
+  {
+   "l": "beziehungen",
+   "t": "beziehungen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand behauptet: „Für einen spitzen Winkel gilt sin α = 0,6 und cos α = 0,4, weil sin α + cos α = 1.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: cos α = 0,6, weil Sinus und Kosinus gleich sind.",
+    "Richtig.",
+    "Falsch: cos α = 1,6.",
+    "Falsch: Es gilt sin² α + cos² α = 1, also cos α = 0,8."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "0,6² + 0,8² = 0,36 + 0,64 = 1. Mit 0,4 wäre 0,6² + 0,4² = 0,52 ≠ 1.",
+   "h": "Prüfe mit sin² α + cos² α = 1."
+  },
+  {
+   "l": "beziehungen",
+   "t": "beziehungen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand behauptet: „Für einen spitzen Winkel gilt sin α = 0,936 und cos α = 0,064, weil sin α + cos α = 1.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: cos α = 0,936, weil Sinus und Kosinus gleich sind.",
+    "Falsch: Es gilt sin² α + cos² α = 1, also cos α = 0,352.",
+    "Falsch: cos α = 1,936.",
+    "Richtig."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "0,936² + 0,352² = 0,876096 + 0,123904 = 1. Mit 0,064 wäre 0,936² + 0,064² = 0,880192 ≠ 1.",
+   "h": "Prüfe mit sin² α + cos² α = 1."
+  },
+  {
+   "l": "beziehungen",
+   "t": "beziehungen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand behauptet: „Für einen spitzen Winkel gilt sin α = 0,96 und cos α = 0,04, weil sin α + cos α = 1.“ Was stimmt?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: cos α = 0,96, weil Sinus und Kosinus gleich sind.",
+    "Falsch: Es gilt sin² α + cos² α = 1, also cos α = 0,28.",
+    "Falsch: cos α = 1,96."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "0,96² + 0,28² = 0,9216 + 0,0784 = 1. Mit 0,04 wäre 0,96² + 0,04² = 0,9232 ≠ 1.",
+   "h": "Prüfe mit sin² α + cos² α = 1."
+  },
+  {
+   "l": "beziehungen",
+   "t": "beziehungen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand behauptet: „Für einen spitzen Winkel gilt sin α = 0,936 und cos α = 0,064, weil sin α + cos α = 1.“ Was stimmt?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: Es gilt sin² α + cos² α = 1, also cos α = 0,352.",
+    "Falsch: cos α = 1,936.",
+    "Falsch: cos α = 0,936, weil Sinus und Kosinus gleich sind."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "0,936² + 0,352² = 0,876096 + 0,123904 = 1. Mit 0,064 wäre 0,936² + 0,064² = 0,880192 ≠ 1.",
+   "h": "Prüfe mit sin² α + cos² α = 1."
+  },
+  {
+   "l": "beziehungen",
+   "t": "beziehungen",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für einen spitzen Winkel α gilt sin α = 0,352. Berechne cos α."
+   },
+   "o": {
+    "wert": 0.936
+   },
+   "c": "(1 - 0.352 ** 2) / 0.936",
+   "w": "cos² α = 1 − 0,352² = 0,876096, cos α = 0,936 (positiv, da α spitz)."
+  },
+  {
+   "l": "beziehungen",
+   "t": "beziehungen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Ausdruck ist gleich cos 23°?"
+   },
+   "a": [
+    "cos 67°",
+    "tan 67°",
+    "sin 23°",
+    "sin 67°"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die Ankathete von 23° ist die Gegenkathete von 67°: cos 23° = sin 67°."
+  },
+  {
+   "l": "beziehungen",
+   "t": "beziehungen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Ausdruck ist gleich cos 57°?"
+   },
+   "a": [
+    "sin 33°",
+    "tan 33°",
+    "cos 33°",
+    "sin 57°"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die Ankathete von 57° ist die Gegenkathete von 33°: cos 57° = sin 33°."
+  },
+  {
+   "l": "beziehungen",
+   "t": "beziehungen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Ausdruck ist gleich cos 53°?"
+   },
+   "a": [
+    "tan 37°",
+    "cos 37°",
+    "sin 53°",
+    "sin 37°"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die Ankathete von 53° ist die Gegenkathete von 37°: cos 53° = sin 37°."
+  },
+  {
+   "l": "beziehungen",
+   "t": "beziehungen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für einen spitzen Winkel α gilt sin α = 0,8432. Berechne cos α."
+   },
+   "o": {
+    "wert": 0.5376
+   },
+   "c": "(1 - 0.8432 ** 2) / 0.5376",
+   "w": "cos² α = 1 − 0,8432² = 0,28901376, cos α = 0,5376 (positiv, da α spitz)."
+  },
+  {
+   "l": "beziehungen",
+   "t": "beziehungen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für einen spitzen Winkel α gilt sin α = 0,5376. Wie groß ist cos(90° − α)?"
+   },
+   "o": {
+    "wert": 0.5376
+   },
+   "c": "0.5376",
+   "w": "cos(90° − α) = sin α = 0,5376."
+  },
+  {
+   "l": "beziehungen",
+   "t": "beziehungen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für einen spitzen Winkel α gilt sin α = 0,936. Wie groß ist cos(90° − α)?"
+   },
+   "o": {
+    "wert": 0.936
+   },
+   "c": "0.936",
+   "w": "cos(90° − α) = sin α = 0,936."
+  },
+  {
+   "l": "beziehungen",
+   "t": "beziehungen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für einen spitzen Winkel β gilt cos β = 0,6. Berechne sin β."
+   },
+   "o": {
+    "wert": 0.8
+   },
+   "c": "(1 - 0.6 ** 2) / 0.8",
+   "w": "sin² β = 1 − 0,6² = 0,64, sin β = 0,8 (positiv, da β spitz)."
+  },
+  {
+   "l": "beziehungen",
+   "t": "beziehungen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für einen spitzen Winkel β gilt cos β = 0,5376. Berechne sin β."
+   },
+   "o": {
+    "wert": 0.8432
+   },
+   "c": "(1 - 0.5376 ** 2) / 0.8432",
+   "w": "sin² β = 1 − 0,5376² = 0,71098624, sin β = 0,8432 (positiv, da β spitz)."
+  },
+  {
+   "l": "beziehungen",
+   "t": "beziehungen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Ausdruck ist gleich cos 53°?"
+   },
+   "a": [
+    "sin 37°",
+    "cos 37°",
+    "tan 37°",
+    "sin 53°"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die Ankathete von 53° ist die Gegenkathete von 37°: cos 53° = sin 37°."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Straße hat 20 % Steigung. Wie groß ist der Steigungswinkel (in Grad, auf eine Nachkommastelle)?"
+   },
+   "o": {
+    "wert": 11.3,
+    "einheit": "°"
+   },
+   "c": "round(11.309932474020, 1)",
+   "w": "tan α = 20/100 = 0,2 ⇒ α ≈ 11,3°.",
+   "h": "Steigung in % ist der Tangens des Steigungswinkels mal 100."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Straße hat 4 % Steigung. Wie groß ist der Steigungswinkel (in Grad, auf eine Nachkommastelle)?"
+   },
+   "o": {
+    "wert": 2.3,
+    "einheit": "°"
+   },
+   "c": "round(2.290610042639, 1)",
+   "w": "tan α = 4/100 = 0,04 ⇒ α ≈ 2,3°.",
+   "h": "Steigung in % ist der Tangens des Steigungswinkels mal 100."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Straße hat 3 % Steigung. Wie groß ist der Steigungswinkel (in Grad, auf eine Nachkommastelle)?"
+   },
+   "o": {
+    "wert": 1.7,
+    "einheit": "°"
+   },
+   "c": "round(1.718358001655, 1)",
+   "w": "tan α = 3/100 = 0,03 ⇒ α ≈ 1,7°.",
+   "h": "Steigung in % ist der Tangens des Steigungswinkels mal 100."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Straße hat 2 % Steigung. Wie groß ist der Steigungswinkel (in Grad, auf eine Nachkommastelle)?"
+   },
+   "o": {
+    "wert": 1.1,
+    "einheit": "°"
+   },
+   "c": "round(1.145762838175, 1)",
+   "w": "tan α = 2/100 = 0,02 ⇒ α ≈ 1,1°.",
+   "h": "Steigung in % ist der Tangens des Steigungswinkels mal 100."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Straße hat 6 % Steigung. Wie groß ist der Steigungswinkel (in Grad, auf eine Nachkommastelle)?"
+   },
+   "o": {
+    "wert": 3.4,
+    "einheit": "°"
+   },
+   "c": "round(3.433630362451, 1)",
+   "w": "tan α = 6/100 = 0,06 ⇒ α ≈ 3,4°.",
+   "h": "Steigung in % ist der Tangens des Steigungswinkels mal 100."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Straße hat 10 % Steigung. Wie groß ist der Steigungswinkel (in Grad, auf eine Nachkommastelle)?"
+   },
+   "o": {
+    "wert": 5.7,
+    "einheit": "°"
+   },
+   "c": "round(5.710593137500, 1)",
+   "w": "tan α = 10/100 = 0,1 ⇒ α ≈ 5,7°.",
+   "h": "Steigung in % ist der Tangens des Steigungswinkels mal 100."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine 8 m lange Leiter lehnt unter einem Winkel von 70° zum Boden an einer Wand. In welcher Höhe berührt sie die Wand (auf cm genau, in m)?"
+   },
+   "o": {
+    "wert": 7.52,
+    "einheit": "m"
+   },
+   "c": "round(8 * 0.939692620786, 2)",
+   "w": "sin 70° = h/8 ⇒ h = 8 · sin 70° ≈ 7,52 m.",
+   "h": "Die Leiter ist die Hypotenuse, die Höhe die Gegenkathete zum Bodenwinkel."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine 3 m lange Leiter lehnt unter einem Winkel von 60° zum Boden an einer Wand. In welcher Höhe berührt sie die Wand (auf cm genau, in m)?"
+   },
+   "o": {
+    "wert": 2.6,
+    "einheit": "m"
+   },
+   "c": "round(3 * 0.866025403784, 2)",
+   "w": "sin 60° = h/3 ⇒ h = 3 · sin 60° ≈ 2,6 m.",
+   "h": "Die Leiter ist die Hypotenuse, die Höhe die Gegenkathete zum Bodenwinkel."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine 5 m lange Leiter lehnt unter einem Winkel von 72° zum Boden an einer Wand. In welcher Höhe berührt sie die Wand (auf cm genau, in m)?"
+   },
+   "o": {
+    "wert": 4.76,
+    "einheit": "m"
+   },
+   "c": "round(5 * 0.951056516295, 2)",
+   "w": "sin 72° = h/5 ⇒ h = 5 · sin 72° ≈ 4,76 m.",
+   "h": "Die Leiter ist die Hypotenuse, die Höhe die Gegenkathete zum Bodenwinkel."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus 146 m Entfernung sieht man die Spitze eines Turms unter dem Höhenwinkel 36° (Augenhöhe vernachlässigt). Wie hoch ist der Turm?"
+   },
+   "o": {
+    "wert": 106.1,
+    "einheit": "m"
+   },
+   "c": "round(146 * 0.726542528005, 1)",
+   "w": "tan 36° = h/146 ⇒ h = 146 · tan 36° ≈ 106,1 m.",
+   "h": "Entfernung ist die Ankathete, Turmhöhe die Gegenkathete."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine 4 m lange Leiter lehnt unter einem Winkel von 68° zum Boden an einer Wand. In welcher Höhe berührt sie die Wand (auf cm genau, in m)?"
+   },
+   "o": {
+    "wert": 3.71,
+    "einheit": "m"
+   },
+   "c": "round(4 * 0.927183854567, 2)",
+   "w": "sin 68° = h/4 ⇒ h = 4 · sin 68° ≈ 3,71 m.",
+   "h": "Die Leiter ist die Hypotenuse, die Höhe die Gegenkathete zum Bodenwinkel."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus 94 m Entfernung sieht man die Spitze eines Turms unter dem Höhenwinkel 21° (Augenhöhe vernachlässigt). Wie hoch ist der Turm?"
+   },
+   "o": {
+    "wert": 36.1,
+    "einheit": "m"
+   },
+   "c": "round(94 * 0.383864035035, 1)",
+   "w": "tan 21° = h/94 ⇒ h = 94 · tan 21° ≈ 36,1 m.",
+   "h": "Entfernung ist die Ankathete, Turmhöhe die Gegenkathete."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Von einem 35 m hohen Leuchtturm sieht man ein Boot unter dem Tiefenwinkel 22° (gemessen von der Waagrechten nach unten). Wie weit ist das Boot vom Fuß des Turms entfernt?"
+   },
+   "o": {
+    "wert": 86.6,
+    "einheit": "m"
+   },
+   "c": "round(35 / 0.404026225835, 1)",
+   "w": "Der Tiefenwinkel ist gleich dem Höhenwinkel vom Boot aus (Wechselwinkel): tan 22° = 35/e ⇒ e = 35 : tan 22° ≈ 86,6 m.",
+   "h": "Zeichne die Waagrechte am Turm; der Tiefenwinkel taucht unten am Boot als Wechselwinkel wieder auf."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Von einem 50 m hohen Leuchtturm sieht man ein Boot unter dem Tiefenwinkel 27° (gemessen von der Waagrechten nach unten). Wie weit ist das Boot vom Fuß des Turms entfernt?"
+   },
+   "o": {
+    "wert": 98.1,
+    "einheit": "m"
+   },
+   "c": "round(50 / 0.509525449494, 1)",
+   "w": "Der Tiefenwinkel ist gleich dem Höhenwinkel vom Boot aus (Wechselwinkel): tan 27° = 50/e ⇒ e = 50 : tan 27° ≈ 98,1 m.",
+   "h": "Zeichne die Waagrechte am Turm; der Tiefenwinkel taucht unten am Boot als Wechselwinkel wieder auf."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Wanderweg ist 1 200 m lang und steigt gleichmäßig unter dem Winkel 6° an. Wie viele Höhenmeter überwindet er (auf ganze Meter)?"
+   },
+   "o": {
+    "wert": 125,
+    "einheit": "m"
+   },
+   "c": "round(1200 * 0.104528463268, 0)",
+   "w": "h = 1 200 · sin 6° ≈ 125 m.",
+   "h": "Die Weglänge ist die Hypotenuse (schräg), die Höhe die Gegenkathete."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Von einem 80 m hohen Leuchtturm sieht man ein Boot unter dem Tiefenwinkel 22° (gemessen von der Waagrechten nach unten). Wie weit ist das Boot vom Fuß des Turms entfernt?"
+   },
+   "o": {
+    "wert": 198,
+    "einheit": "m"
+   },
+   "c": "round(80 / 0.404026225835, 1)",
+   "w": "Der Tiefenwinkel ist gleich dem Höhenwinkel vom Boot aus (Wechselwinkel): tan 22° = 80/e ⇒ e = 80 : tan 22° ≈ 198 m.",
+   "h": "Zeichne die Waagrechte am Turm; der Tiefenwinkel taucht unten am Boot als Wechselwinkel wieder auf."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Wanderweg ist 600 m lang und steigt gleichmäßig unter dem Winkel 4° an. Wie viele Höhenmeter überwindet er (auf ganze Meter)?"
+   },
+   "o": {
+    "wert": 42,
+    "einheit": "m"
+   },
+   "c": "round(600 * 0.069756473744, 0)",
+   "w": "h = 600 · sin 4° ≈ 42 m.",
+   "h": "Die Weglänge ist die Hypotenuse (schräg), die Höhe die Gegenkathete."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Wanderweg ist 400 m lang und steigt gleichmäßig unter dem Winkel 8° an. Wie viele Höhenmeter überwindet er (auf ganze Meter)?"
+   },
+   "o": {
+    "wert": 56,
+    "einheit": "m"
+   },
+   "c": "round(400 * 0.139173100960, 0)",
+   "w": "h = 400 · sin 8° ≈ 56 m.",
+   "h": "Die Weglänge ist die Hypotenuse (schräg), die Höhe die Gegenkathete."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine 4 m lange Leiter lehnt unter einem Winkel von 63° zum Boden an einer Wand. In welcher Höhe berührt sie die Wand (auf cm genau, in m)?"
+   },
+   "o": {
+    "wert": 3.56,
+    "einheit": "m"
+   },
+   "c": "round(4 * 0.891006524188, 2)",
+   "w": "sin 63° = h/4 ⇒ h = 4 · sin 63° ≈ 3,56 m."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine 7 m lange Leiter lehnt unter einem Winkel von 74° zum Boden an einer Wand. In welcher Höhe berührt sie die Wand (auf cm genau, in m)?"
+   },
+   "o": {
+    "wert": 6.73,
+    "einheit": "m"
+   },
+   "c": "round(7 * 0.961261695938, 2)",
+   "w": "sin 74° = h/7 ⇒ h = 7 · sin 74° ≈ 6,73 m."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine 8 m lange Leiter lehnt unter einem Winkel von 61° zum Boden an einer Wand. In welcher Höhe berührt sie die Wand (auf cm genau, in m)?"
+   },
+   "o": {
+    "wert": 7,
+    "einheit": "m"
+   },
+   "c": "round(8 * 0.874619707139, 2)",
+   "w": "sin 61° = h/8 ⇒ h = 8 · sin 61° ≈ 7 m."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus 147 m Entfernung sieht man die Spitze eines Turms unter dem Höhenwinkel 45° (Augenhöhe vernachlässigt). Wie hoch ist der Turm?"
+   },
+   "o": {
+    "wert": 147,
+    "einheit": "m"
+   },
+   "c": "round(147 * 1.000000000000, 1)",
+   "w": "tan 45° = h/147 ⇒ h = 147 · tan 45° ≈ 147 m."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine 3 m lange Leiter lehnt unter einem Winkel von 75° zum Boden an einer Wand. In welcher Höhe berührt sie die Wand (auf cm genau, in m)?"
+   },
+   "o": {
+    "wert": 2.9,
+    "einheit": "m"
+   },
+   "c": "round(3 * 0.965925826289, 2)",
+   "w": "sin 75° = h/3 ⇒ h = 3 · sin 75° ≈ 2,9 m."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus 136 m Entfernung sieht man die Spitze eines Turms unter dem Höhenwinkel 20° (Augenhöhe vernachlässigt). Wie hoch ist der Turm?"
+   },
+   "o": {
+    "wert": 49.5,
+    "einheit": "m"
+   },
+   "c": "round(136 * 0.363970234266, 1)",
+   "w": "tan 20° = h/136 ⇒ h = 136 · tan 20° ≈ 49,5 m."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus 62 m Entfernung sieht man die Spitze eines Turms unter dem Höhenwinkel 32° (Augenhöhe vernachlässigt). Wie hoch ist der Turm?"
+   },
+   "o": {
+    "wert": 38.7,
+    "einheit": "m"
+   },
+   "c": "round(62 * 0.624869351909, 1)",
+   "w": "tan 32° = h/62 ⇒ h = 62 · tan 32° ≈ 38,7 m."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine 7 m lange Leiter lehnt unter einem Winkel von 72° zum Boden an einer Wand. In welcher Höhe berührt sie die Wand (auf cm genau, in m)?"
+   },
+   "o": {
+    "wert": 6.66,
+    "einheit": "m"
+   },
+   "c": "round(7 * 0.951056516295, 2)",
+   "w": "sin 72° = h/7 ⇒ h = 7 · sin 72° ≈ 6,66 m."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine 5 m lange Leiter lehnt unter einem Winkel von 74° zum Boden an einer Wand. In welcher Höhe berührt sie die Wand (auf cm genau, in m)?"
+   },
+   "o": {
+    "wert": 4.81,
+    "einheit": "m"
+   },
+   "c": "round(5 * 0.961261695938, 2)",
+   "w": "sin 74° = h/5 ⇒ h = 5 · sin 74° ≈ 4,81 m."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine 3 m lange Leiter lehnt unter einem Winkel von 62° zum Boden an einer Wand. In welcher Höhe berührt sie die Wand (auf cm genau, in m)?"
+   },
+   "o": {
+    "wert": 2.65,
+    "einheit": "m"
+   },
+   "c": "round(3 * 0.882947592859, 2)",
+   "w": "sin 62° = h/3 ⇒ h = 3 · sin 62° ≈ 2,65 m."
+  }
+ ],
+ "offen": [
+  "Alle Lernkarten brauchen eigentlich eine Dreieckskizze (rechter Winkel, Bezeichnungen a, b, c, α, β). Bisher Standardbezeichnung „Dreieck ABC mit γ = 90°“ in Worten; Anwendungsaufgaben (Höhenwinkel, Tiefenwinkel) würden von einer Skizze stark profitieren.",
+  "Rechenausdruck c: sin/cos/tan-Werte stehen als 12-stellige Konstanten, weil das Prüfskript keine Winkelfunktionen kennt. Werte nahe an Rundungsgrenzen werden vom Generator verworfen."
+ ]
+}

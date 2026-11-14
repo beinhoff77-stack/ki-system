@@ -1,0 +1,3137 @@
+{
+ "thema_schluessel": "messen.koerper_berechnung",
+ "thema_id": 53,
+ "block_id": 85,
+ "klasse": {
+  "gym_by": 5,
+  "rs_by": 6,
+  "ib_myp": 1
+ },
+ "autor": "Claude (Opus), Paket Klasse 5 Rest",
+ "inhalt": {
+  "ziel": "Quader und Würfel beschreiben, ihren Oberflächeninhalt berechnen – auch bei zusammengesetzten Körpern und im Alltag – und ihr Volumen bestimmen.",
+  "merke": [
+   "Quader: 6 Flächen, 12 Kanten, 8 Ecken. Kantenlänge gesamt: 4 · (a + b + c).",
+   "Oberfläche Quader: O = 2ab + 2ac + 2bc. Würfel: O = 6a².",
+   "Zusammengesetzt: Berührflächen fallen weg (je zweimal).",
+   "Volumen Quader: V = a · b · c (cm³). Würfel: V = a³."
+  ],
+  "abschnitte": [
+   {
+    "titel": "Quader und Würfel",
+    "lernziele": [
+     "quader",
+     "oberflaeche"
+    ]
+   },
+   {
+    "titel": "Anwenden",
+    "lernziele": [
+     "sachaufgaben",
+     "zusammengesetzt"
+    ]
+   },
+   {
+    "titel": "Volumen und Verstehen",
+    "lernziele": [
+     "volumen",
+     "verstehen"
+    ]
+   }
+  ],
+  "etappen": [
+   {
+    "lernziel": "quader",
+    "titel": "Quader und Würfel beschreiben",
+    "regel": "Ein ⟦Quader⟧ hat ⟦6 rechteckige Flächen⟧, ⟦12 Kanten⟧ und ⟦8 Ecken⟧. Gegenüberliegende Flächen sind gleich groß. Je 4 Kanten sind gleich lang (Länge a, Breite b, Höhe c). Beim ⟦Würfel⟧ sind alle 12 Kanten gleich lang, alle 6 Flächen sind Quadrate.",
+    "schritte": [
+     "Ein Quader ist 5 cm lang, 3 cm breit und 2 cm hoch. Je 4 Kanten haben dieselbe Länge.",
+     "Kantenlänge insgesamt: 4 · 5 + 4 · 3 + 4 · 2 = ⟦40 cm⟧."
+    ],
+    "fehler": "5 + 3 + 2 = 10 cm als Länge aller Kanten ist falsch: Jede Kantenlänge kommt ⟦viermal⟧ vor, also 4 · (5 + 3 + 2) = 40 cm."
+   },
+   {
+    "lernziel": "oberflaeche",
+    "titel": "Oberflächeninhalt des Quaders",
+    "regel": "Der ⟦Oberflächeninhalt⟧ O ist die Summe aller 6 Flächen. Beim Quader gibt es ⟦3 Paare⟧ gleich großer Rechtecke: ⟦O = 2 · a · b + 2 · a · c + 2 · b · c⟧. Beim Würfel: ⟦O = 6 · a · a⟧.",
+    "schritte": [
+     "Quader: a = 5 cm, b = 3 cm, c = 2 cm. Paare: 2 · 5 · 3 = 30, 2 · 5 · 2 = 20, 2 · 3 · 2 = 12.",
+     "O = 30 + 20 + 12 = ⟦62 cm²⟧."
+    ],
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Flächenpaar",
+      "Anzahl",
+      "Größe einer Fläche",
+      "zusammen"
+     ],
+     "zeilen": [
+      [
+       "vorne und hinten",
+       "2",
+       "5 cm · 2 cm",
+       "20 cm²"
+      ],
+      [
+       "oben und unten",
+       "2",
+       "5 cm · 3 cm",
+       "30 cm²"
+      ],
+      [
+       "links und rechts",
+       "2",
+       "3 cm · 2 cm",
+       "12 cm²"
+      ]
+     ]
+    },
+    "fehler": "Nur die drei sichtbaren Flächen zu addieren (15 + 10 + 6 = 31 cm²) ist falsch: Jede Fläche hat ein ⟦Gegenüber⟧. Es sind ⟦6⟧ Flächen, also doppelt so viel."
+   },
+   {
+    "lernziel": "sachaufgaben",
+    "titel": "Oberflächen im Alltag",
+    "regel": "Überlege bei Sachaufgaben, ⟦welche Flächen wirklich gebraucht werden⟧: Ein Aquarium hat ⟦keinen Deckel⟧, ein Zimmer wird ⟦ohne Boden⟧ gestrichen, Fenster und Türen werden abgezogen.",
+    "schritte": [
+     "Ein Aquarium ohne Deckel: 60 cm lang, 30 cm breit, 40 cm hoch. Boden: 60 · 30 = 1 800 cm².",
+     "Wände: 2 · 60 · 40 + 2 · 30 · 40 = 4 800 + 2 400 = 7 200 cm². Glas: 1 800 + 7 200 = ⟦9 000 cm²⟧."
+    ],
+    "fehler": "Die volle Oberfläche zu nehmen, obwohl der Deckel fehlt, ist falsch: Zieh die ⟦fehlenden Flächen⟧ ab oder addiere nur die vorhandenen."
+   },
+   {
+    "lernziel": "zusammengesetzt",
+    "titel": "Zusammengesetzte Körper",
+    "regel": "Setzt man Körper zusammen, verschwinden die ⟦Berührflächen⟧ – sie liegen innen. Oberfläche = Summe der Einzeloberflächen ⟦minus 2-mal jede Berührfläche⟧. Bei Würfelreihen kannst du auch die ⟦sichtbaren Quadrate zählen⟧.",
+    "schritte": [
+     "3 Würfel mit 1 cm Kantenlänge in einer Reihe. Einzeln: 3 · 6 = 18 Quadrate.",
+     "Zwei Berührstellen verdecken je 2 Quadrate: 18 − 4 = ⟦14 cm²⟧."
+    ],
+    "fehler": "Einfach 3 · 6 cm² = 18 cm² zu rechnen ist falsch: Die Flächen, an denen die Würfel ⟦aneinanderstoßen⟧, gehören nicht mehr zur Oberfläche."
+   },
+   {
+    "lernziel": "volumen",
+    "titel": "Volumen von Quader und Würfel",
+    "regel": "Das ⟦Volumen⟧ (Rauminhalt) sagt, wie viele ⟦Einheitswürfel⟧ in einen Körper passen. Ein Würfel mit 1 cm Kantenlänge hat das Volumen ⟦1 cm³⟧. Quader: ⟦V = a · b · c⟧, Würfel: ⟦V = a · a · a⟧.",
+    "schritte": [
+     "Quader 5 cm × 3 cm × 2 cm: Eine Schicht hat 5 · 3 = 15 Würfel, es gibt 2 Schichten.",
+     "V = 15 · 2 = ⟦30 cm³⟧."
+    ],
+    "fehler": "Volumen und Oberfläche zu verwechseln ist falsch: Das Volumen zählt ⟦Würfel⟧ (cm³), die Oberfläche zählt ⟦Quadrate⟧ (cm²)."
+   },
+   {
+    "lernziel": "verstehen",
+    "titel": "Quader-Aussagen prüfen",
+    "regel": "Prüfe Aussagen über Körper mit einem ⟦Zahlenbeispiel⟧ oder durch ⟦Abzählen⟧ an einem Würfel. Achte darauf, ob nach Kanten (cm), Flächen (cm²) oder Volumen (cm³) gefragt ist.",
+    "schritte": [
+     "Aussage: „Ein Würfel mit doppelter Kantenlänge hat die doppelte Oberfläche.“ Beispiel: a = 1 cm, O = 6 cm².",
+     "a = 2 cm: O = 6 · 2 · 2 = 24 cm², also ⟦viermal⟧ so viel. Die Aussage ist falsch."
+    ],
+    "fehler": "Kantenlänge, Oberfläche und Volumen wachsen ⟦verschieden⟧ schnell. Bei doppelter Kantenlänge: Kanten doppelt, Oberfläche ⟦vierfach⟧, Volumen ⟦achtfach⟧."
+   }
+  ],
+  "teilfaehigkeiten": [
+   {
+    "k": "quader",
+    "text": "Quader und Würfel beschreiben",
+    "lernziele": [
+     "quader"
+    ]
+   },
+   {
+    "k": "oberflaeche",
+    "text": "Oberflächeninhalt des Quaders",
+    "lernziele": [
+     "oberflaeche"
+    ]
+   },
+   {
+    "k": "sachaufgaben",
+    "text": "Oberflächen im Alltag",
+    "lernziele": [
+     "sachaufgaben"
+    ]
+   },
+   {
+    "k": "zusammengesetzt",
+    "text": "Zusammengesetzte Körper",
+    "lernziele": [
+     "zusammengesetzt"
+    ]
+   },
+   {
+    "k": "volumen",
+    "text": "Volumen von Quader und Würfel",
+    "lernziele": [
+     "volumen"
+    ]
+   },
+   {
+    "k": "verstehen",
+    "text": "Quader-Aussagen prüfen",
+    "lernziele": [
+     "verstehen"
+    ]
+   }
+  ],
+  "bewertung": {
+   "lernziele_pflicht": [
+    "quader",
+    "oberflaeche",
+    "sachaufgaben",
+    "zusammengesetzt",
+    "verstehen"
+   ],
+   "lernziele_vertiefung": [
+    "volumen"
+   ],
+   "testaufgaben_je_lernziel": 1
+  },
+  "quellen": {
+   "erklaerungen": "Eigene Fassung (Claude), alle Aufgaben programmgeneriert.",
+   "begriffe": "Fachbegriffe nach LehrplanPLUS Bayern (Gymnasium, Jahrgangsstufe 5)."
+  }
+ },
+ "aufgaben": [
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel hat die Kantenlänge 5 cm. Wie lang sind alle Kanten zusammen?"
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "cm"
+   },
+   "c": "12 * 5",
+   "w": "12 gleich lange Kanten: 12 · 5 = 60 cm.",
+   "h": "Ein Würfel hat 12 gleich lange Kanten."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Kanten treffen sich an einer Ecke eines Würfels?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "An jeder Ecke treffen sich 3 Kanten (Länge, Breite, Höhe).",
+   "h": "Stell dir eine Schachtel vor und zähle."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel hat die Kantenlänge 10 cm. Wie lang sind alle Kanten zusammen?"
+   },
+   "o": {
+    "wert": 120,
+    "einheit": "cm"
+   },
+   "c": "12 * 10",
+   "w": "12 gleich lange Kanten: 12 · 10 = 120 cm.",
+   "h": "Ein Würfel hat 12 gleich lange Kanten."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel hat die Kantenlänge 15 cm. Wie lang sind alle Kanten zusammen?"
+   },
+   "o": {
+    "wert": 180,
+    "einheit": "cm"
+   },
+   "c": "12 * 15",
+   "w": "12 gleich lange Kanten: 12 · 15 = 180 cm.",
+   "h": "Ein Würfel hat 12 gleich lange Kanten."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel hat die Kantenlänge 4 cm. Wie lang sind alle Kanten zusammen?"
+   },
+   "o": {
+    "wert": 48,
+    "einheit": "cm"
+   },
+   "c": "12 * 4",
+   "w": "12 gleich lange Kanten: 12 · 4 = 48 cm.",
+   "h": "Ein Würfel hat 12 gleich lange Kanten."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel hat die Kantenlänge 7 cm. Wie lang sind alle Kanten zusammen?"
+   },
+   "o": {
+    "wert": 84,
+    "einheit": "cm"
+   },
+   "c": "12 * 7",
+   "w": "12 gleich lange Kanten: 12 · 7 = 84 cm.",
+   "h": "Ein Würfel hat 12 gleich lange Kanten."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 13 cm lang, 4 cm breit und 6 cm hoch. Wie lang sind alle Kanten zusammen?"
+   },
+   "o": {
+    "wert": 92,
+    "einheit": "cm"
+   },
+   "c": "4 * (13 + 4 + 6)",
+   "w": "Je 4 Kanten gleich: 4 · (13 + 4 + 6) = 4 · 23 = 92 cm.",
+   "h": "Jede der drei Kantenlängen kommt viermal vor."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 13 cm lang, 2 cm breit und 4 cm hoch. Wie lang sind alle Kanten zusammen?"
+   },
+   "o": {
+    "wert": 76,
+    "einheit": "cm"
+   },
+   "c": "4 * (13 + 2 + 4)",
+   "w": "Je 4 Kanten gleich: 4 · (13 + 2 + 4) = 4 · 19 = 76 cm.",
+   "h": "Jede der drei Kantenlängen kommt viermal vor."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 2 cm lang, 7 cm breit und 5 cm hoch. Wie lang sind alle Kanten zusammen?"
+   },
+   "o": {
+    "wert": 56,
+    "einheit": "cm"
+   },
+   "c": "4 * (2 + 7 + 5)",
+   "w": "Je 4 Kanten gleich: 4 · (2 + 7 + 5) = 4 · 14 = 56 cm.",
+   "h": "Jede der drei Kantenlängen kommt viermal vor."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 9 cm lang, 5 cm breit und 5 cm hoch. Wie lang sind alle Kanten zusammen?"
+   },
+   "o": {
+    "wert": 76,
+    "einheit": "cm"
+   },
+   "c": "4 * (9 + 5 + 5)",
+   "w": "Je 4 Kanten gleich: 4 · (9 + 5 + 5) = 4 · 19 = 76 cm.",
+   "h": "Jede der drei Kantenlängen kommt viermal vor."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 4 cm lang, 4 cm breit und 7 cm hoch. Wie lang sind alle Kanten zusammen?"
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "cm"
+   },
+   "c": "4 * (4 + 4 + 7)",
+   "w": "Je 4 Kanten gleich: 4 · (4 + 4 + 7) = 4 · 15 = 60 cm.",
+   "h": "Jede der drei Kantenlängen kommt viermal vor."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 10 cm lang, 12 cm breit und 7 cm hoch. Wie lang sind alle Kanten zusammen?"
+   },
+   "o": {
+    "wert": 116,
+    "einheit": "cm"
+   },
+   "c": "4 * (10 + 12 + 7)",
+   "w": "Je 4 Kanten gleich: 4 · (10 + 12 + 7) = 4 · 29 = 116 cm.",
+   "h": "Jede der drei Kantenlängen kommt viermal vor."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für ein Kantenmodell eines Quaders (10 cm lang, 12 cm breit) braucht man 120 cm Draht. Wie hoch ist der Quader?"
+   },
+   "o": {
+    "wert": 8,
+    "einheit": "cm"
+   },
+   "c": "120 / 4 - 10 - 12",
+   "w": "120 : 4 = 30 cm für a + b + c. Höhe: 30 − 10 − 12 = 8 cm.",
+   "h": "Teile die Drahtlänge zuerst durch 4."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für ein Kantenmodell eines Quaders (7 cm lang, 6 cm breit) braucht man 68 cm Draht. Wie hoch ist der Quader?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "cm"
+   },
+   "c": "68 / 4 - 7 - 6",
+   "w": "68 : 4 = 17 cm für a + b + c. Höhe: 17 − 7 − 6 = 4 cm.",
+   "h": "Teile die Drahtlänge zuerst durch 4."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 14 cm lang, 12 cm breit und 10 cm hoch. Wie groß ist die größte Seitenfläche?"
+   },
+   "o": {
+    "wert": 168,
+    "einheit": "cm²"
+   },
+   "c": "max(14 * 12, 14 * 10, 12 * 10)",
+   "w": "Flächen: 14 · 12 = 168, 14 · 10 = 140, 12 · 10 = 120. Am größten: 168 cm².",
+   "h": "Es gibt drei verschiedene Rechtecke. Berechne alle drei."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Aus 48 cm Draht wird das Kantenmodell eines Würfels gebogen. Wie lang ist eine Kante?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "cm"
+   },
+   "c": "48 / 12",
+   "w": "12 gleiche Kanten: 48 : 12 = 4 cm.",
+   "h": "Ein Würfel hat 12 gleich lange Kanten."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Aus 108 cm Draht wird das Kantenmodell eines Würfels gebogen. Wie lang ist eine Kante?"
+   },
+   "o": {
+    "wert": 9,
+    "einheit": "cm"
+   },
+   "c": "108 / 12",
+   "w": "12 gleiche Kanten: 108 : 12 = 9 cm.",
+   "h": "Ein Würfel hat 12 gleich lange Kanten."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für ein Kantenmodell eines Quaders (5 cm lang, 7 cm breit) braucht man 68 cm Draht. Wie hoch ist der Quader?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "cm"
+   },
+   "c": "68 / 4 - 5 - 7",
+   "w": "68 : 4 = 17 cm für a + b + c. Höhe: 17 − 5 − 7 = 5 cm.",
+   "h": "Teile die Drahtlänge zuerst durch 4."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 3 cm lang, 2 cm breit und 3 cm hoch. Wie lang sind alle Kanten zusammen?"
+   },
+   "o": {
+    "wert": 32,
+    "einheit": "cm"
+   },
+   "c": "4 * (3 + 2 + 3)",
+   "w": "Je 4 Kanten gleich: 4 · (3 + 2 + 3) = 4 · 8 = 32 cm."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 15 cm lang, 2 cm breit und 9 cm hoch. Wie lang sind alle Kanten zusammen?"
+   },
+   "o": {
+    "wert": 104,
+    "einheit": "cm"
+   },
+   "c": "4 * (15 + 2 + 9)",
+   "w": "Je 4 Kanten gleich: 4 · (15 + 2 + 9) = 4 · 26 = 104 cm."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 8 cm lang, 10 cm breit und 7 cm hoch. Wie lang sind alle Kanten zusammen?"
+   },
+   "o": {
+    "wert": 100,
+    "einheit": "cm"
+   },
+   "c": "4 * (8 + 10 + 7)",
+   "w": "Je 4 Kanten gleich: 4 · (8 + 10 + 7) = 4 · 25 = 100 cm."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 6 cm lang, 5 cm breit und 2 cm hoch. Wie lang sind alle Kanten zusammen?"
+   },
+   "o": {
+    "wert": 52,
+    "einheit": "cm"
+   },
+   "c": "4 * (6 + 5 + 2)",
+   "w": "Je 4 Kanten gleich: 4 · (6 + 5 + 2) = 4 · 13 = 52 cm."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 8 cm lang, 8 cm breit und 4 cm hoch. Wie lang sind alle Kanten zusammen?"
+   },
+   "o": {
+    "wert": 80,
+    "einheit": "cm"
+   },
+   "c": "4 * (8 + 8 + 4)",
+   "w": "Je 4 Kanten gleich: 4 · (8 + 8 + 4) = 4 · 20 = 80 cm."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 15 cm lang, 4 cm breit und 5 cm hoch. Wie lang sind alle Kanten zusammen?"
+   },
+   "o": {
+    "wert": 96,
+    "einheit": "cm"
+   },
+   "c": "4 * (15 + 4 + 5)",
+   "w": "Je 4 Kanten gleich: 4 · (15 + 4 + 5) = 4 · 24 = 96 cm."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 10 cm lang, 7 cm breit und 7 cm hoch. Wie lang sind alle Kanten zusammen?"
+   },
+   "o": {
+    "wert": 96,
+    "einheit": "cm"
+   },
+   "c": "4 * (10 + 7 + 7)",
+   "w": "Je 4 Kanten gleich: 4 · (10 + 7 + 7) = 4 · 24 = 96 cm."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 12 cm lang, 5 cm breit und 9 cm hoch. Wie lang sind alle Kanten zusammen?"
+   },
+   "o": {
+    "wert": 104,
+    "einheit": "cm"
+   },
+   "c": "4 * (12 + 5 + 9)",
+   "w": "Je 4 Kanten gleich: 4 · (12 + 5 + 9) = 4 · 26 = 104 cm."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 5 cm lang, 10 cm breit und 9 cm hoch. Wie lang sind alle Kanten zusammen?"
+   },
+   "o": {
+    "wert": 96,
+    "einheit": "cm"
+   },
+   "c": "4 * (5 + 10 + 9)",
+   "w": "Je 4 Kanten gleich: 4 · (5 + 10 + 9) = 4 · 24 = 96 cm."
+  },
+  {
+   "l": "quader",
+   "t": "quader",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 7 cm lang, 4 cm breit und 9 cm hoch. Wie lang sind alle Kanten zusammen?"
+   },
+   "o": {
+    "wert": 80,
+    "einheit": "cm"
+   },
+   "c": "4 * (7 + 4 + 9)",
+   "w": "Je 4 Kanten gleich: 4 · (7 + 4 + 9) = 4 · 20 = 80 cm."
+  },
+  {
+   "l": "oberflaeche",
+   "t": "oberflaeche",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Oberfläche eines Würfels mit der Kantenlänge 6 cm."
+   },
+   "o": {
+    "wert": 216,
+    "einheit": "cm²"
+   },
+   "c": "6 * 6 * 6",
+   "w": "Eine Fläche: 6 · 6 = 36 cm². Sechs Flächen: 6 · 36 = 216 cm².",
+   "h": "Ein Würfel hat 6 gleich große Quadrate."
+  },
+  {
+   "l": "oberflaeche",
+   "t": "oberflaeche",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Oberfläche eines Würfels mit der Kantenlänge 12 cm."
+   },
+   "o": {
+    "wert": 864,
+    "einheit": "cm²"
+   },
+   "c": "6 * 12 * 12",
+   "w": "Eine Fläche: 12 · 12 = 144 cm². Sechs Flächen: 6 · 144 = 864 cm².",
+   "h": "Ein Würfel hat 6 gleich große Quadrate."
+  },
+  {
+   "l": "oberflaeche",
+   "t": "oberflaeche",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Oberfläche eines Würfels mit der Kantenlänge 8 cm."
+   },
+   "o": {
+    "wert": 384,
+    "einheit": "cm²"
+   },
+   "c": "6 * 8 * 8",
+   "w": "Eine Fläche: 8 · 8 = 64 cm². Sechs Flächen: 6 · 64 = 384 cm².",
+   "h": "Ein Würfel hat 6 gleich große Quadrate."
+  },
+  {
+   "l": "oberflaeche",
+   "t": "oberflaeche",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Oberfläche eines Würfels mit der Kantenlänge 9 cm."
+   },
+   "o": {
+    "wert": 486,
+    "einheit": "cm²"
+   },
+   "c": "6 * 9 * 9",
+   "w": "Eine Fläche: 9 · 9 = 81 cm². Sechs Flächen: 6 · 81 = 486 cm².",
+   "h": "Ein Würfel hat 6 gleich große Quadrate."
+  },
+  {
+   "l": "oberflaeche",
+   "t": "oberflaeche",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 4 cm lang, 3 cm breit und 2 cm hoch. Berechne die Oberfläche. Die Tabelle hilft.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Flächenpaar",
+      "Anzahl",
+      "Größe einer Fläche",
+      "zusammen"
+     ],
+     "zeilen": [
+      [
+       "vorne und hinten",
+       "2",
+       "4 cm · 2 cm",
+       "?"
+      ],
+      [
+       "oben und unten",
+       "2",
+       "4 cm · 3 cm",
+       "?"
+      ],
+      [
+       "links und rechts",
+       "2",
+       "3 cm · 2 cm",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 52,
+    "einheit": "cm²"
+   },
+   "c": "2 * 4 * 3 + 2 * 4 * 2 + 2 * 3 * 2",
+   "w": "2 · 8 + 2 · 12 + 2 · 6 = 16 + 24 + 12 = 52 cm².",
+   "h": "Berechne die drei Flächenpaare und addiere."
+  },
+  {
+   "l": "oberflaeche",
+   "t": "oberflaeche",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 8 cm lang, 6 cm breit und 4 cm hoch. Berechne die Oberfläche. Die Tabelle hilft.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Flächenpaar",
+      "Anzahl",
+      "Größe einer Fläche",
+      "zusammen"
+     ],
+     "zeilen": [
+      [
+       "vorne und hinten",
+       "2",
+       "8 cm · 4 cm",
+       "?"
+      ],
+      [
+       "oben und unten",
+       "2",
+       "8 cm · 6 cm",
+       "?"
+      ],
+      [
+       "links und rechts",
+       "2",
+       "6 cm · 4 cm",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 208,
+    "einheit": "cm²"
+   },
+   "c": "2 * 8 * 6 + 2 * 8 * 4 + 2 * 6 * 4",
+   "w": "2 · 32 + 2 · 48 + 2 · 24 = 64 + 96 + 48 = 208 cm².",
+   "h": "Berechne die drei Flächenpaare und addiere."
+  },
+  {
+   "l": "oberflaeche",
+   "t": "oberflaeche",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 18 cm lang, 8 cm breit und 5 cm hoch. Berechne den Oberflächeninhalt."
+   },
+   "o": {
+    "wert": 548,
+    "einheit": "cm²"
+   },
+   "c": "2 * 18 * 8 + 2 * 18 * 5 + 2 * 8 * 5",
+   "w": "O = 2 · 18 · 8 + 2 · 18 · 5 + 2 · 8 · 5 = 288 + 180 + 80 = 548 cm².",
+   "h": "O = 2ab + 2ac + 2bc."
+  },
+  {
+   "l": "oberflaeche",
+   "t": "oberflaeche",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 9 cm lang, 10 cm breit und 7 cm hoch. Berechne den Oberflächeninhalt."
+   },
+   "o": {
+    "wert": 446,
+    "einheit": "cm²"
+   },
+   "c": "2 * 9 * 10 + 2 * 9 * 7 + 2 * 10 * 7",
+   "w": "O = 2 · 9 · 10 + 2 · 9 · 7 + 2 · 10 · 7 = 180 + 126 + 140 = 446 cm².",
+   "h": "O = 2ab + 2ac + 2bc."
+  },
+  {
+   "l": "oberflaeche",
+   "t": "oberflaeche",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 8 dm lang, 6 dm breit und 9 dm hoch. Berechne den Oberflächeninhalt."
+   },
+   "o": {
+    "wert": 348,
+    "einheit": "dm²"
+   },
+   "c": "2 * 8 * 6 + 2 * 8 * 9 + 2 * 6 * 9",
+   "w": "O = 2 · 8 · 6 + 2 · 8 · 9 + 2 · 6 · 9 = 96 + 144 + 108 = 348 dm².",
+   "h": "O = 2ab + 2ac + 2bc."
+  },
+  {
+   "l": "oberflaeche",
+   "t": "oberflaeche",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 16 cm lang, 3 cm breit und 2 cm hoch. Berechne den Oberflächeninhalt."
+   },
+   "o": {
+    "wert": 172,
+    "einheit": "cm²"
+   },
+   "c": "2 * 16 * 3 + 2 * 16 * 2 + 2 * 3 * 2",
+   "w": "O = 2 · 16 · 3 + 2 · 16 · 2 + 2 · 3 · 2 = 96 + 64 + 12 = 172 cm².",
+   "h": "O = 2ab + 2ac + 2bc."
+  },
+  {
+   "l": "oberflaeche",
+   "t": "oberflaeche",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 5 m lang, 13 m breit und 12 m hoch. Berechne den Oberflächeninhalt."
+   },
+   "o": {
+    "wert": 562,
+    "einheit": "m²"
+   },
+   "c": "2 * 5 * 13 + 2 * 5 * 12 + 2 * 13 * 12",
+   "w": "O = 2 · 5 · 13 + 2 · 5 · 12 + 2 · 13 · 12 = 130 + 120 + 312 = 562 m².",
+   "h": "O = 2ab + 2ac + 2bc."
+  },
+  {
+   "l": "oberflaeche",
+   "t": "oberflaeche",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 15 cm lang, 7 cm breit und 6 cm hoch. Berechne den Oberflächeninhalt."
+   },
+   "o": {
+    "wert": 474,
+    "einheit": "cm²"
+   },
+   "c": "2 * 15 * 7 + 2 * 15 * 6 + 2 * 7 * 6",
+   "w": "O = 2 · 15 · 7 + 2 · 15 · 6 + 2 · 7 · 6 = 210 + 180 + 84 = 474 cm².",
+   "h": "O = 2ab + 2ac + 2bc."
+  },
+  {
+   "l": "oberflaeche",
+   "t": "oberflaeche",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 6 dm lang, 3 dm breit und 15 cm hoch. Berechne die Oberfläche in cm²."
+   },
+   "o": {
+    "wert": 6300,
+    "einheit": "cm²"
+   },
+   "c": "2 * 60 * 30 + 2 * 60 * 15 + 2 * 30 * 15",
+   "w": "In cm: 60, 30, 15. O = 3600 + 1800 + 900 = 6 300 cm².",
+   "h": "Rechne zuerst alle Kanten in cm um."
+  },
+  {
+   "l": "oberflaeche",
+   "t": "oberflaeche",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel hat die Oberfläche 24 cm². Wie lang ist eine Kante?"
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "cm"
+   },
+   "c": "2",
+   "w": "Eine Fläche: 24 : 6 = 4 cm². 2 · 2 = 4, also a = 2 cm.",
+   "h": "Teile durch 6 und überlege, welche Quadratzahl herauskommt."
+  },
+  {
+   "l": "oberflaeche",
+   "t": "oberflaeche",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel hat die Oberfläche 1176 cm². Wie lang ist eine Kante?"
+   },
+   "o": {
+    "wert": 14,
+    "einheit": "cm"
+   },
+   "c": "14",
+   "w": "Eine Fläche: 1176 : 6 = 196 cm². 14 · 14 = 196, also a = 14 cm.",
+   "h": "Teile durch 6 und überlege, welche Quadratzahl herauskommt."
+  },
+  {
+   "l": "oberflaeche",
+   "t": "oberflaeche",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 3 dm lang, 7 dm breit und 31 cm hoch. Berechne die Oberfläche in cm²."
+   },
+   "o": {
+    "wert": 10400,
+    "einheit": "cm²"
+   },
+   "c": "2 * 30 * 70 + 2 * 30 * 31 + 2 * 70 * 31",
+   "w": "In cm: 30, 70, 31. O = 4200 + 1860 + 4340 = 10 400 cm².",
+   "h": "Rechne zuerst alle Kanten in cm um."
+  },
+  {
+   "l": "oberflaeche",
+   "t": "oberflaeche",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel hat die Oberfläche 150 cm². Wie lang ist eine Kante?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "cm"
+   },
+   "c": "5",
+   "w": "Eine Fläche: 150 : 6 = 25 cm². 5 · 5 = 25, also a = 5 cm.",
+   "h": "Teile durch 6 und überlege, welche Quadratzahl herauskommt."
+  },
+  {
+   "l": "oberflaeche",
+   "t": "oberflaeche",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel hat die Oberfläche 600 cm². Wie lang ist eine Kante?"
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "cm"
+   },
+   "c": "10",
+   "w": "Eine Fläche: 600 : 6 = 100 cm². 10 · 10 = 100, also a = 10 cm.",
+   "h": "Teile durch 6 und überlege, welche Quadratzahl herauskommt."
+  },
+  {
+   "l": "oberflaeche",
+   "t": "oberflaeche",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 13 dm lang, 2 dm breit und 7 dm hoch. Berechne den Oberflächeninhalt."
+   },
+   "o": {
+    "wert": 262,
+    "einheit": "dm²"
+   },
+   "c": "2 * 13 * 2 + 2 * 13 * 7 + 2 * 2 * 7",
+   "w": "O = 2 · 13 · 2 + 2 · 13 · 7 + 2 · 2 · 7 = 52 + 182 + 28 = 262 dm²."
+  },
+  {
+   "l": "oberflaeche",
+   "t": "oberflaeche",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 5 m lang, 15 m breit und 8 m hoch. Berechne den Oberflächeninhalt."
+   },
+   "o": {
+    "wert": 470,
+    "einheit": "m²"
+   },
+   "c": "2 * 5 * 15 + 2 * 5 * 8 + 2 * 15 * 8",
+   "w": "O = 2 · 5 · 15 + 2 · 5 · 8 + 2 · 15 · 8 = 150 + 80 + 240 = 470 m²."
+  },
+  {
+   "l": "oberflaeche",
+   "t": "oberflaeche",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 4 cm lang, 12 cm breit und 2 cm hoch. Berechne den Oberflächeninhalt."
+   },
+   "o": {
+    "wert": 160,
+    "einheit": "cm²"
+   },
+   "c": "2 * 4 * 12 + 2 * 4 * 2 + 2 * 12 * 2",
+   "w": "O = 2 · 4 · 12 + 2 · 4 · 2 + 2 · 12 · 2 = 96 + 16 + 48 = 160 cm²."
+  },
+  {
+   "l": "oberflaeche",
+   "t": "oberflaeche",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 19 m lang, 8 m breit und 10 m hoch. Berechne den Oberflächeninhalt."
+   },
+   "o": {
+    "wert": 844,
+    "einheit": "m²"
+   },
+   "c": "2 * 19 * 8 + 2 * 19 * 10 + 2 * 8 * 10",
+   "w": "O = 2 · 19 · 8 + 2 · 19 · 10 + 2 · 8 · 10 = 304 + 380 + 160 = 844 m²."
+  },
+  {
+   "l": "oberflaeche",
+   "t": "oberflaeche",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 4 m lang, 12 m breit und 9 m hoch. Berechne den Oberflächeninhalt."
+   },
+   "o": {
+    "wert": 384,
+    "einheit": "m²"
+   },
+   "c": "2 * 4 * 12 + 2 * 4 * 9 + 2 * 12 * 9",
+   "w": "O = 2 · 4 · 12 + 2 · 4 · 9 + 2 · 12 · 9 = 96 + 72 + 216 = 384 m²."
+  },
+  {
+   "l": "oberflaeche",
+   "t": "oberflaeche",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 19 m lang, 4 m breit und 7 m hoch. Berechne den Oberflächeninhalt."
+   },
+   "o": {
+    "wert": 474,
+    "einheit": "m²"
+   },
+   "c": "2 * 19 * 4 + 2 * 19 * 7 + 2 * 4 * 7",
+   "w": "O = 2 · 19 · 4 + 2 · 19 · 7 + 2 · 4 · 7 = 152 + 266 + 56 = 474 m²."
+  },
+  {
+   "l": "oberflaeche",
+   "t": "oberflaeche",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 6 m lang, 8 m breit und 8 m hoch. Berechne den Oberflächeninhalt."
+   },
+   "o": {
+    "wert": 320,
+    "einheit": "m²"
+   },
+   "c": "2 * 6 * 8 + 2 * 6 * 8 + 2 * 8 * 8",
+   "w": "O = 2 · 6 · 8 + 2 · 6 · 8 + 2 · 8 · 8 = 96 + 96 + 128 = 320 m²."
+  },
+  {
+   "l": "oberflaeche",
+   "t": "oberflaeche",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 3 cm lang, 14 cm breit und 11 cm hoch. Berechne den Oberflächeninhalt."
+   },
+   "o": {
+    "wert": 458,
+    "einheit": "cm²"
+   },
+   "c": "2 * 3 * 14 + 2 * 3 * 11 + 2 * 14 * 11",
+   "w": "O = 2 · 3 · 14 + 2 · 3 · 11 + 2 · 14 · 11 = 84 + 66 + 308 = 458 cm²."
+  },
+  {
+   "l": "oberflaeche",
+   "t": "oberflaeche",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 16 cm lang, 10 cm breit und 8 cm hoch. Berechne den Oberflächeninhalt."
+   },
+   "o": {
+    "wert": 736,
+    "einheit": "cm²"
+   },
+   "c": "2 * 16 * 10 + 2 * 16 * 8 + 2 * 10 * 8",
+   "w": "O = 2 · 16 · 10 + 2 · 16 · 8 + 2 · 10 · 8 = 320 + 256 + 160 = 736 cm²."
+  },
+  {
+   "l": "oberflaeche",
+   "t": "oberflaeche",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 19 cm lang, 12 cm breit und 10 cm hoch. Berechne den Oberflächeninhalt."
+   },
+   "o": {
+    "wert": 1076,
+    "einheit": "cm²"
+   },
+   "c": "2 * 19 * 12 + 2 * 19 * 10 + 2 * 12 * 10",
+   "w": "O = 2 · 19 · 12 + 2 · 19 · 10 + 2 · 12 · 10 = 456 + 380 + 240 = 1076 cm²."
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Geschenkkarton ist 45 cm lang, 23 cm breit und 19 cm hoch. Wie viel cm² Papier braucht man mindestens, um ihn ganz zu bekleben?"
+   },
+   "o": {
+    "wert": 4654,
+    "einheit": "cm²"
+   },
+   "c": "2 * 45 * 23 + 2 * 45 * 19 + 2 * 23 * 19",
+   "w": "Oberfläche: 2070 + 1710 + 874 = 4 654 cm².",
+   "h": "Ganz bekleben heißt: alle 6 Flächen."
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Geschenkkarton ist 32 cm lang, 19 cm breit und 27 cm hoch. Wie viel cm² Papier braucht man mindestens, um ihn ganz zu bekleben?"
+   },
+   "o": {
+    "wert": 3970,
+    "einheit": "cm²"
+   },
+   "c": "2 * 32 * 19 + 2 * 32 * 27 + 2 * 19 * 27",
+   "w": "Oberfläche: 1216 + 1728 + 1026 = 3 970 cm².",
+   "h": "Ganz bekleben heißt: alle 6 Flächen."
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Geschenkkarton ist 44 cm lang, 24 cm breit und 16 cm hoch. Wie viel cm² Papier braucht man mindestens, um ihn ganz zu bekleben?"
+   },
+   "o": {
+    "wert": 4288,
+    "einheit": "cm²"
+   },
+   "c": "2 * 44 * 24 + 2 * 44 * 16 + 2 * 24 * 16",
+   "w": "Oberfläche: 2112 + 1408 + 768 = 4 288 cm².",
+   "h": "Ganz bekleben heißt: alle 6 Flächen."
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Geschenkkarton ist 50 cm lang, 18 cm breit und 29 cm hoch. Wie viel cm² Papier braucht man mindestens, um ihn ganz zu bekleben?"
+   },
+   "o": {
+    "wert": 5744,
+    "einheit": "cm²"
+   },
+   "c": "2 * 50 * 18 + 2 * 50 * 29 + 2 * 18 * 29",
+   "w": "Oberfläche: 1800 + 2900 + 1044 = 5 744 cm².",
+   "h": "Ganz bekleben heißt: alle 6 Flächen."
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Geschenkkarton ist 50 cm lang, 22 cm breit und 23 cm hoch. Wie viel cm² Papier braucht man mindestens, um ihn ganz zu bekleben?"
+   },
+   "o": {
+    "wert": 5512,
+    "einheit": "cm²"
+   },
+   "c": "2 * 50 * 22 + 2 * 50 * 23 + 2 * 22 * 23",
+   "w": "Oberfläche: 2200 + 2300 + 1012 = 5 512 cm².",
+   "h": "Ganz bekleben heißt: alle 6 Flächen."
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Geschenkkarton ist 22 cm lang, 31 cm breit und 22 cm hoch. Wie viel cm² Papier braucht man mindestens, um ihn ganz zu bekleben?"
+   },
+   "o": {
+    "wert": 3696,
+    "einheit": "cm²"
+   },
+   "c": "2 * 22 * 31 + 2 * 22 * 22 + 2 * 31 * 22",
+   "w": "Oberfläche: 1364 + 968 + 1364 = 3 696 cm².",
+   "h": "Ganz bekleben heißt: alle 6 Flächen."
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Aquarium ohne Deckel ist 60 cm lang, 30 cm breit und 30 cm hoch. Wie viel cm² Glas braucht man?"
+   },
+   "o": {
+    "wert": 7200,
+    "einheit": "cm²"
+   },
+   "c": "60 * 30 + 2 * 60 * 30 + 2 * 30 * 30",
+   "w": "Boden 1800, vorne/hinten 2 · 1800 = 3600, Seiten 2 · 900 = 1800. Zusammen 7 200 cm².",
+   "h": "Alle Flächen außer dem Deckel."
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Aquarium ohne Deckel ist 80 cm lang, 40 cm breit und 40 cm hoch. Wie viel cm² Glas braucht man?"
+   },
+   "o": {
+    "wert": 12800,
+    "einheit": "cm²"
+   },
+   "c": "80 * 40 + 2 * 80 * 40 + 2 * 40 * 40",
+   "w": "Boden 3200, vorne/hinten 2 · 3200 = 6400, Seiten 2 · 1600 = 3200. Zusammen 12 800 cm².",
+   "h": "Alle Flächen außer dem Deckel."
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Aquarium ohne Deckel ist 60 cm lang, 30 cm breit und 40 cm hoch. Wie viel cm² Glas braucht man?"
+   },
+   "o": {
+    "wert": 9000,
+    "einheit": "cm²"
+   },
+   "c": "60 * 30 + 2 * 60 * 40 + 2 * 30 * 40",
+   "w": "Boden 1800, vorne/hinten 2 · 2400 = 4800, Seiten 2 · 1200 = 2400. Zusammen 9 000 cm².",
+   "h": "Alle Flächen außer dem Deckel."
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Aquarium ohne Deckel ist 80 cm lang, 30 cm breit und 50 cm hoch. Wie viel cm² Glas braucht man?"
+   },
+   "o": {
+    "wert": 13400,
+    "einheit": "cm²"
+   },
+   "c": "80 * 30 + 2 * 80 * 50 + 2 * 30 * 50",
+   "w": "Boden 2400, vorne/hinten 2 · 4000 = 8000, Seiten 2 · 1500 = 3000. Zusammen 13 400 cm².",
+   "h": "Alle Flächen außer dem Deckel."
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Aquarium ohne Deckel ist 50 cm lang, 50 cm breit und 30 cm hoch. Wie viel cm² Glas braucht man?"
+   },
+   "o": {
+    "wert": 8500,
+    "einheit": "cm²"
+   },
+   "c": "50 * 50 + 2 * 50 * 30 + 2 * 50 * 30",
+   "w": "Boden 2500, vorne/hinten 2 · 1500 = 3000, Seiten 2 · 1500 = 3000. Zusammen 8 500 cm².",
+   "h": "Alle Flächen außer dem Deckel."
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Aquarium ohne Deckel ist 100 cm lang, 25 cm breit und 40 cm hoch. Wie viel cm² Glas braucht man?"
+   },
+   "o": {
+    "wert": 12500,
+    "einheit": "cm²"
+   },
+   "c": "100 * 25 + 2 * 100 * 40 + 2 * 25 * 40",
+   "w": "Boden 2500, vorne/hinten 2 · 4000 = 8000, Seiten 2 · 1000 = 2000. Zusammen 12 500 cm².",
+   "h": "Alle Flächen außer dem Deckel."
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "5 Holzwürfel mit 4 cm Kantenlänge werden einzeln ganz rot angemalt. Wie viel cm² werden angemalt?"
+   },
+   "o": {
+    "wert": 480,
+    "einheit": "cm²"
+   },
+   "c": "5 * 6 * 4 * 4",
+   "w": "Ein Würfel: 6 · 16 = 96 cm². 5 Würfel: 5 · 96 = 480 cm².",
+   "h": "Erst die Oberfläche eines Würfels."
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zimmer ist 6 m lang, 4 m breit und 2,5 m hoch. Wände und Decke werden gestrichen, Boden nicht. Tür und Fenster (2 m² zusammen) bleiben frei. Wie viele m² werden gestrichen?"
+   },
+   "o": {
+    "wert": 72,
+    "einheit": "m²"
+   },
+   "c": "2 * 6 * 2.5 + 2 * 4 * 2.5 + 6 * 4 - 2",
+   "w": "Wände: 2 · 6 · 2,5 + 2 · 4 · 2,5 = 50 m². Decke: 24 m². Minus 2 m²: 72 m².",
+   "h": "Welche Flächen werden gestrichen, welche nicht?"
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "8 Holzwürfel mit 4 cm Kantenlänge werden einzeln ganz rot angemalt. Wie viel cm² werden angemalt?"
+   },
+   "o": {
+    "wert": 768,
+    "einheit": "cm²"
+   },
+   "c": "8 * 6 * 4 * 4",
+   "w": "Ein Würfel: 6 · 16 = 96 cm². 8 Würfel: 8 · 96 = 768 cm².",
+   "h": "Erst die Oberfläche eines Würfels."
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zimmer ist 6 m lang, 4 m breit und 3 m hoch. Wände und Decke werden gestrichen, Boden nicht. Tür und Fenster (2 m² zusammen) bleiben frei. Wie viele m² werden gestrichen?"
+   },
+   "o": {
+    "wert": 82,
+    "einheit": "m²"
+   },
+   "c": "2 * 6 * 3.0 + 2 * 4 * 3.0 + 6 * 4 - 2",
+   "w": "Wände: 2 · 6 · 3 + 2 · 4 · 3 = 60 m². Decke: 24 m². Minus 2 m²: 82 m².",
+   "h": "Welche Flächen werden gestrichen, welche nicht?"
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zimmer ist 4 m lang, 5 m breit und 2,5 m hoch. Wände und Decke werden gestrichen, Boden nicht. Tür und Fenster (2 m² zusammen) bleiben frei. Wie viele m² werden gestrichen?"
+   },
+   "o": {
+    "wert": 63,
+    "einheit": "m²"
+   },
+   "c": "2 * 4 * 2.5 + 2 * 5 * 2.5 + 4 * 5 - 2",
+   "w": "Wände: 2 · 4 · 2,5 + 2 · 5 · 2,5 = 45 m². Decke: 20 m². Minus 2 m²: 63 m².",
+   "h": "Welche Flächen werden gestrichen, welche nicht?"
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zimmer ist 6 m lang, 3 m breit und 3 m hoch. Wände und Decke werden gestrichen, Boden nicht. Tür und Fenster (2 m² zusammen) bleiben frei. Wie viele m² werden gestrichen?"
+   },
+   "o": {
+    "wert": 70,
+    "einheit": "m²"
+   },
+   "c": "2 * 6 * 3.0 + 2 * 3 * 3.0 + 6 * 3 - 2",
+   "w": "Wände: 2 · 6 · 3 + 2 · 3 · 3 = 54 m². Decke: 18 m². Minus 2 m²: 70 m².",
+   "h": "Welche Flächen werden gestrichen, welche nicht?"
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Aquarium ohne Deckel ist 100 cm lang, 30 cm breit und 30 cm hoch. Wie viel cm² Glas braucht man?"
+   },
+   "o": {
+    "wert": 10800,
+    "einheit": "cm²"
+   },
+   "c": "100 * 30 + 2 * 100 * 30 + 2 * 30 * 30",
+   "w": "Boden 3000, vorne/hinten 2 · 3000 = 6000, Seiten 2 · 900 = 1800. Zusammen 10 800 cm²."
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Aquarium ohne Deckel ist 40 cm lang, 25 cm breit und 50 cm hoch. Wie viel cm² Glas braucht man?"
+   },
+   "o": {
+    "wert": 7500,
+    "einheit": "cm²"
+   },
+   "c": "40 * 25 + 2 * 40 * 50 + 2 * 25 * 50",
+   "w": "Boden 1000, vorne/hinten 2 · 2000 = 4000, Seiten 2 · 1250 = 2500. Zusammen 7 500 cm²."
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Aquarium ohne Deckel ist 80 cm lang, 50 cm breit und 50 cm hoch. Wie viel cm² Glas braucht man?"
+   },
+   "o": {
+    "wert": 17000,
+    "einheit": "cm²"
+   },
+   "c": "80 * 50 + 2 * 80 * 50 + 2 * 50 * 50",
+   "w": "Boden 4000, vorne/hinten 2 · 4000 = 8000, Seiten 2 · 2500 = 5000. Zusammen 17 000 cm²."
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Aquarium ohne Deckel ist 100 cm lang, 40 cm breit und 30 cm hoch. Wie viel cm² Glas braucht man?"
+   },
+   "o": {
+    "wert": 12400,
+    "einheit": "cm²"
+   },
+   "c": "100 * 40 + 2 * 100 * 30 + 2 * 40 * 30",
+   "w": "Boden 4000, vorne/hinten 2 · 3000 = 6000, Seiten 2 · 1200 = 2400. Zusammen 12 400 cm²."
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Aquarium ohne Deckel ist 40 cm lang, 30 cm breit und 50 cm hoch. Wie viel cm² Glas braucht man?"
+   },
+   "o": {
+    "wert": 8200,
+    "einheit": "cm²"
+   },
+   "c": "40 * 30 + 2 * 40 * 50 + 2 * 30 * 50",
+   "w": "Boden 1200, vorne/hinten 2 · 2000 = 4000, Seiten 2 · 1500 = 3000. Zusammen 8 200 cm²."
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Aquarium ohne Deckel ist 40 cm lang, 25 cm breit und 40 cm hoch. Wie viel cm² Glas braucht man?"
+   },
+   "o": {
+    "wert": 6200,
+    "einheit": "cm²"
+   },
+   "c": "40 * 25 + 2 * 40 * 40 + 2 * 25 * 40",
+   "w": "Boden 1000, vorne/hinten 2 · 1600 = 3200, Seiten 2 · 1000 = 2000. Zusammen 6 200 cm²."
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Aquarium ohne Deckel ist 60 cm lang, 40 cm breit und 50 cm hoch. Wie viel cm² Glas braucht man?"
+   },
+   "o": {
+    "wert": 12400,
+    "einheit": "cm²"
+   },
+   "c": "60 * 40 + 2 * 60 * 50 + 2 * 40 * 50",
+   "w": "Boden 2400, vorne/hinten 2 · 3000 = 6000, Seiten 2 · 2000 = 4000. Zusammen 12 400 cm²."
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Aquarium ohne Deckel ist 40 cm lang, 25 cm breit und 30 cm hoch. Wie viel cm² Glas braucht man?"
+   },
+   "o": {
+    "wert": 4900,
+    "einheit": "cm²"
+   },
+   "c": "40 * 25 + 2 * 40 * 30 + 2 * 25 * 30",
+   "w": "Boden 1000, vorne/hinten 2 · 1200 = 2400, Seiten 2 · 750 = 1500. Zusammen 4 900 cm²."
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Aquarium ohne Deckel ist 50 cm lang, 50 cm breit und 40 cm hoch. Wie viel cm² Glas braucht man?"
+   },
+   "o": {
+    "wert": 10500,
+    "einheit": "cm²"
+   },
+   "c": "50 * 50 + 2 * 50 * 40 + 2 * 50 * 40",
+   "w": "Boden 2500, vorne/hinten 2 · 2000 = 4000, Seiten 2 · 2000 = 4000. Zusammen 10 500 cm²."
+  },
+  {
+   "l": "sachaufgaben",
+   "t": "sachaufgaben",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Aquarium ohne Deckel ist 100 cm lang, 50 cm breit und 40 cm hoch. Wie viel cm² Glas braucht man?"
+   },
+   "o": {
+    "wert": 17000,
+    "einheit": "cm²"
+   },
+   "c": "100 * 50 + 2 * 100 * 40 + 2 * 50 * 40",
+   "w": "Boden 5000, vorne/hinten 2 · 4000 = 8000, Seiten 2 · 2000 = 4000. Zusammen 17 000 cm²."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "7 Würfel mit 1 cm Kantenlänge werden in einer Reihe zusammengeklebt. Wie groß ist die Oberfläche des Körpers in cm²?"
+   },
+   "o": {
+    "wert": 30,
+    "einheit": "cm²"
+   },
+   "c": "7 * 6 - 2 * (7 - 1)",
+   "w": "Einzeln 42 Quadrate. 6 Klebestellen verdecken je 2: 42 − 12 = 30 cm².",
+   "h": "Jede Klebestelle verdeckt zwei Quadrate."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "2 Würfel mit 1 cm Kantenlänge werden in einer Reihe zusammengeklebt. Wie groß ist die Oberfläche des Körpers in cm²?"
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "cm²"
+   },
+   "c": "2 * 6 - 2 * (2 - 1)",
+   "w": "Einzeln 12 Quadrate. 1 Klebestellen verdecken je 2: 12 − 2 = 10 cm².",
+   "h": "Jede Klebestelle verdeckt zwei Quadrate."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "4 Würfel mit 1 cm Kantenlänge werden in einer Reihe zusammengeklebt. Wie groß ist die Oberfläche des Körpers in cm²?"
+   },
+   "o": {
+    "wert": 18,
+    "einheit": "cm²"
+   },
+   "c": "4 * 6 - 2 * (4 - 1)",
+   "w": "Einzeln 24 Quadrate. 3 Klebestellen verdecken je 2: 24 − 6 = 18 cm².",
+   "h": "Jede Klebestelle verdeckt zwei Quadrate."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "6 Würfel mit 1 cm Kantenlänge werden in einer Reihe zusammengeklebt. Wie groß ist die Oberfläche des Körpers in cm²?"
+   },
+   "o": {
+    "wert": 26,
+    "einheit": "cm²"
+   },
+   "c": "6 * 6 - 2 * (6 - 1)",
+   "w": "Einzeln 36 Quadrate. 5 Klebestellen verdecken je 2: 36 − 10 = 26 cm².",
+   "h": "Jede Klebestelle verdeckt zwei Quadrate."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "3 Würfel mit 1 cm Kantenlänge werden in einer Reihe zusammengeklebt. Wie groß ist die Oberfläche des Körpers in cm²?"
+   },
+   "o": {
+    "wert": 14,
+    "einheit": "cm²"
+   },
+   "c": "3 * 6 - 2 * (3 - 1)",
+   "w": "Einzeln 18 Quadrate. 2 Klebestellen verdecken je 2: 18 − 4 = 14 cm².",
+   "h": "Jede Klebestelle verdeckt zwei Quadrate."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "5 Würfel mit 1 cm Kantenlänge werden in einer Reihe zusammengeklebt. Wie groß ist die Oberfläche des Körpers in cm²?"
+   },
+   "o": {
+    "wert": 22,
+    "einheit": "cm²"
+   },
+   "c": "5 * 6 - 2 * (5 - 1)",
+   "w": "Einzeln 30 Quadrate. 4 Klebestellen verdecken je 2: 30 − 8 = 22 cm².",
+   "h": "Jede Klebestelle verdeckt zwei Quadrate."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "4 Würfel mit 3 cm Kantenlänge werden zu einem Turm aufeinandergestapelt. Wie groß ist die Oberfläche des Turms?"
+   },
+   "o": {
+    "wert": 162,
+    "einheit": "cm²"
+   },
+   "c": "(4 * 6 - 2 * (4 - 1)) * 3 * 3",
+   "w": "18 sichtbare Quadrate zu je 9 cm²: 162 cm².",
+   "h": "Zähle die sichtbaren Quadrate und nimm mal die Fläche eines Quadrats."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "2 Würfel mit 4 cm Kantenlänge werden zu einem Turm aufeinandergestapelt. Wie groß ist die Oberfläche des Turms?"
+   },
+   "o": {
+    "wert": 160,
+    "einheit": "cm²"
+   },
+   "c": "(2 * 6 - 2 * (2 - 1)) * 4 * 4",
+   "w": "10 sichtbare Quadrate zu je 16 cm²: 160 cm².",
+   "h": "Zähle die sichtbaren Quadrate und nimm mal die Fläche eines Quadrats."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "5 Würfel mit 3 cm Kantenlänge werden zu einem Turm aufeinandergestapelt. Wie groß ist die Oberfläche des Turms?"
+   },
+   "o": {
+    "wert": 198,
+    "einheit": "cm²"
+   },
+   "c": "(5 * 6 - 2 * (5 - 1)) * 3 * 3",
+   "w": "22 sichtbare Quadrate zu je 9 cm²: 198 cm².",
+   "h": "Zähle die sichtbaren Quadrate und nimm mal die Fläche eines Quadrats."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "5 Würfel mit 4 cm Kantenlänge werden zu einem Turm aufeinandergestapelt. Wie groß ist die Oberfläche des Turms?"
+   },
+   "o": {
+    "wert": 352,
+    "einheit": "cm²"
+   },
+   "c": "(5 * 6 - 2 * (5 - 1)) * 4 * 4",
+   "w": "22 sichtbare Quadrate zu je 16 cm²: 352 cm².",
+   "h": "Zähle die sichtbaren Quadrate und nimm mal die Fläche eines Quadrats."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "5 Würfel mit 2 cm Kantenlänge werden zu einem Turm aufeinandergestapelt. Wie groß ist die Oberfläche des Turms?"
+   },
+   "o": {
+    "wert": 88,
+    "einheit": "cm²"
+   },
+   "c": "(5 * 6 - 2 * (5 - 1)) * 2 * 2",
+   "w": "22 sichtbare Quadrate zu je 4 cm²: 88 cm².",
+   "h": "Zähle die sichtbaren Quadrate und nimm mal die Fläche eines Quadrats."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "4 Würfel mit 5 cm Kantenlänge werden zu einem Turm aufeinandergestapelt. Wie groß ist die Oberfläche des Turms?"
+   },
+   "o": {
+    "wert": 450,
+    "einheit": "cm²"
+   },
+   "c": "(4 * 6 - 2 * (4 - 1)) * 5 * 5",
+   "w": "18 sichtbare Quadrate zu je 25 cm²: 450 cm².",
+   "h": "Zähle die sichtbaren Quadrate und nimm mal die Fläche eines Quadrats."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei gleiche Quader (4 cm lang, 5 cm breit und 3 cm hoch) werden mit den 5 cm × 3 cm großen Flächen aneinandergeklebt. Wie groß ist die Oberfläche des neuen Quaders?"
+   },
+   "o": {
+    "wert": 158,
+    "einheit": "cm²"
+   },
+   "c": "2 * (2 * (4 * 5 + 4 * 3 + 5 * 3)) - 2 * 5 * 3",
+   "w": "Einzeln je 94 cm², zusammen 188 cm². Minus 2 · 15: 158 cm². (Probe: neuer Quader 8 × 5 × 3.)",
+   "h": "Die Klebefläche verschwindet auf beiden Quadern."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Auf einen Quader (4 cm lang, 3 cm breit und 5 cm hoch) wird mittig ein Würfel mit 2 cm Kantenlänge geklebt. Wie groß ist die Oberfläche des neuen Körpers?"
+   },
+   "o": {
+    "wert": 110,
+    "einheit": "cm²"
+   },
+   "c": "2 * (4 * 3 + 4 * 5 + 3 * 5) + 6 * 2 * 2 - 2 * 2 * 2",
+   "w": "Quader 94 cm², Würfel 24 cm². Berührfläche 4 cm² fällt zweimal weg: 94 + 24 − 8 = 110 cm².",
+   "h": "Addiere beide Oberflächen und ziehe die Berührfläche zweimal ab."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei gleiche Quader (4 cm lang, 4 cm breit und 6 cm hoch) werden mit den 4 cm × 6 cm großen Flächen aneinandergeklebt. Wie groß ist die Oberfläche des neuen Quaders?"
+   },
+   "o": {
+    "wert": 208,
+    "einheit": "cm²"
+   },
+   "c": "2 * (2 * (4 * 4 + 4 * 6 + 4 * 6)) - 2 * 4 * 6",
+   "w": "Einzeln je 128 cm², zusammen 256 cm². Minus 2 · 24: 208 cm². (Probe: neuer Quader 8 × 4 × 6.)",
+   "h": "Die Klebefläche verschwindet auf beiden Quadern."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Auf einen Quader (6 cm lang, 3 cm breit und 3 cm hoch) wird mittig ein Würfel mit 2 cm Kantenlänge geklebt. Wie groß ist die Oberfläche des neuen Körpers?"
+   },
+   "o": {
+    "wert": 106,
+    "einheit": "cm²"
+   },
+   "c": "2 * (6 * 3 + 6 * 3 + 3 * 3) + 6 * 2 * 2 - 2 * 2 * 2",
+   "w": "Quader 90 cm², Würfel 24 cm². Berührfläche 4 cm² fällt zweimal weg: 90 + 24 − 8 = 106 cm².",
+   "h": "Addiere beide Oberflächen und ziehe die Berührfläche zweimal ab."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Auf einen Quader (6 cm lang, 8 cm breit und 4 cm hoch) wird mittig ein Würfel mit 2 cm Kantenlänge geklebt. Wie groß ist die Oberfläche des neuen Körpers?"
+   },
+   "o": {
+    "wert": 224,
+    "einheit": "cm²"
+   },
+   "c": "2 * (6 * 8 + 6 * 4 + 8 * 4) + 6 * 2 * 2 - 2 * 2 * 2",
+   "w": "Quader 208 cm², Würfel 24 cm². Berührfläche 4 cm² fällt zweimal weg: 208 + 24 − 8 = 224 cm².",
+   "h": "Addiere beide Oberflächen und ziehe die Berührfläche zweimal ab."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Auf einen Quader (6 cm lang, 5 cm breit und 6 cm hoch) wird mittig ein Würfel mit 2 cm Kantenlänge geklebt. Wie groß ist die Oberfläche des neuen Körpers?"
+   },
+   "o": {
+    "wert": 208,
+    "einheit": "cm²"
+   },
+   "c": "2 * (6 * 5 + 6 * 6 + 5 * 6) + 6 * 2 * 2 - 2 * 2 * 2",
+   "w": "Quader 192 cm², Würfel 24 cm². Berührfläche 4 cm² fällt zweimal weg: 192 + 24 − 8 = 208 cm².",
+   "h": "Addiere beide Oberflächen und ziehe die Berührfläche zweimal ab."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "4 Würfel mit 2 cm Kantenlänge werden zu einem Turm aufeinandergestapelt. Wie groß ist die Oberfläche des Turms?"
+   },
+   "o": {
+    "wert": 72,
+    "einheit": "cm²"
+   },
+   "c": "(4 * 6 - 2 * (4 - 1)) * 2 * 2",
+   "w": "18 sichtbare Quadrate zu je 4 cm²: 72 cm²."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "2 Würfel mit 3 cm Kantenlänge werden zu einem Turm aufeinandergestapelt. Wie groß ist die Oberfläche des Turms?"
+   },
+   "o": {
+    "wert": 90,
+    "einheit": "cm²"
+   },
+   "c": "(2 * 6 - 2 * (2 - 1)) * 3 * 3",
+   "w": "10 sichtbare Quadrate zu je 9 cm²: 90 cm²."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "4 Würfel mit 4 cm Kantenlänge werden zu einem Turm aufeinandergestapelt. Wie groß ist die Oberfläche des Turms?"
+   },
+   "o": {
+    "wert": 288,
+    "einheit": "cm²"
+   },
+   "c": "(4 * 6 - 2 * (4 - 1)) * 4 * 4",
+   "w": "18 sichtbare Quadrate zu je 16 cm²: 288 cm²."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "6 Würfel mit 3 cm Kantenlänge werden zu einem Turm aufeinandergestapelt. Wie groß ist die Oberfläche des Turms?"
+   },
+   "o": {
+    "wert": 234,
+    "einheit": "cm²"
+   },
+   "c": "(6 * 6 - 2 * (6 - 1)) * 3 * 3",
+   "w": "26 sichtbare Quadrate zu je 9 cm²: 234 cm²."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "6 Würfel mit 4 cm Kantenlänge werden zu einem Turm aufeinandergestapelt. Wie groß ist die Oberfläche des Turms?"
+   },
+   "o": {
+    "wert": 416,
+    "einheit": "cm²"
+   },
+   "c": "(6 * 6 - 2 * (6 - 1)) * 4 * 4",
+   "w": "26 sichtbare Quadrate zu je 16 cm²: 416 cm²."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "3 Würfel mit 2 cm Kantenlänge werden zu einem Turm aufeinandergestapelt. Wie groß ist die Oberfläche des Turms?"
+   },
+   "o": {
+    "wert": 56,
+    "einheit": "cm²"
+   },
+   "c": "(3 * 6 - 2 * (3 - 1)) * 2 * 2",
+   "w": "14 sichtbare Quadrate zu je 4 cm²: 56 cm²."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "3 Würfel mit 3 cm Kantenlänge werden zu einem Turm aufeinandergestapelt. Wie groß ist die Oberfläche des Turms?"
+   },
+   "o": {
+    "wert": 126,
+    "einheit": "cm²"
+   },
+   "c": "(3 * 6 - 2 * (3 - 1)) * 3 * 3",
+   "w": "14 sichtbare Quadrate zu je 9 cm²: 126 cm²."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "2 Würfel mit 5 cm Kantenlänge werden zu einem Turm aufeinandergestapelt. Wie groß ist die Oberfläche des Turms?"
+   },
+   "o": {
+    "wert": 250,
+    "einheit": "cm²"
+   },
+   "c": "(2 * 6 - 2 * (2 - 1)) * 5 * 5",
+   "w": "10 sichtbare Quadrate zu je 25 cm²: 250 cm²."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "3 Würfel mit 5 cm Kantenlänge werden zu einem Turm aufeinandergestapelt. Wie groß ist die Oberfläche des Turms?"
+   },
+   "o": {
+    "wert": 350,
+    "einheit": "cm²"
+   },
+   "c": "(3 * 6 - 2 * (3 - 1)) * 5 * 5",
+   "w": "14 sichtbare Quadrate zu je 25 cm²: 350 cm²."
+  },
+  {
+   "l": "zusammengesetzt",
+   "t": "zusammengesetzt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "6 Würfel mit 2 cm Kantenlänge werden zu einem Turm aufeinandergestapelt. Wie groß ist die Oberfläche des Turms?"
+   },
+   "o": {
+    "wert": 104,
+    "einheit": "cm²"
+   },
+   "c": "(6 * 6 - 2 * (6 - 1)) * 2 * 2",
+   "w": "26 sichtbare Quadrate zu je 4 cm²: 104 cm²."
+  },
+  {
+   "l": "volumen",
+   "t": "volumen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader wird aus Einheitswürfeln (1 cm³) gebaut: 5 Würfel lang, 5 Würfel breit, 4 Schichten hoch. Wie viele Würfel sind es?"
+   },
+   "o": {
+    "wert": 100,
+    "einheit": "cm³"
+   },
+   "c": "5 * 5 * 4",
+   "w": "Eine Schicht: 5 · 5 = 25. 4 Schichten: 100 Würfel, also 100 cm³.",
+   "h": "Zähle zuerst die Würfel einer Schicht."
+  },
+  {
+   "l": "volumen",
+   "t": "volumen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader wird aus Einheitswürfeln (1 cm³) gebaut: 6 Würfel lang, 3 Würfel breit, 1 Schichten hoch. Wie viele Würfel sind es?"
+   },
+   "o": {
+    "wert": 18,
+    "einheit": "cm³"
+   },
+   "c": "6 * 3 * 1",
+   "w": "Eine Schicht: 6 · 3 = 18. 1 Schichten: 18 Würfel, also 18 cm³.",
+   "h": "Zähle zuerst die Würfel einer Schicht."
+  },
+  {
+   "l": "volumen",
+   "t": "volumen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader wird aus Einheitswürfeln (1 cm³) gebaut: 4 Würfel lang, 5 Würfel breit, 1 Schichten hoch. Wie viele Würfel sind es?"
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "cm³"
+   },
+   "c": "4 * 5 * 1",
+   "w": "Eine Schicht: 4 · 5 = 20. 1 Schichten: 20 Würfel, also 20 cm³.",
+   "h": "Zähle zuerst die Würfel einer Schicht."
+  },
+  {
+   "l": "volumen",
+   "t": "volumen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader wird aus Einheitswürfeln (1 cm³) gebaut: 4 Würfel lang, 3 Würfel breit, 2 Schichten hoch. Wie viele Würfel sind es?"
+   },
+   "o": {
+    "wert": 24,
+    "einheit": "cm³"
+   },
+   "c": "4 * 3 * 2",
+   "w": "Eine Schicht: 4 · 3 = 12. 2 Schichten: 24 Würfel, also 24 cm³.",
+   "h": "Zähle zuerst die Würfel einer Schicht."
+  },
+  {
+   "l": "volumen",
+   "t": "volumen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader wird aus Einheitswürfeln (1 cm³) gebaut: 6 Würfel lang, 3 Würfel breit, 4 Schichten hoch. Wie viele Würfel sind es?"
+   },
+   "o": {
+    "wert": 72,
+    "einheit": "cm³"
+   },
+   "c": "6 * 3 * 4",
+   "w": "Eine Schicht: 6 · 3 = 18. 4 Schichten: 72 Würfel, also 72 cm³.",
+   "h": "Zähle zuerst die Würfel einer Schicht."
+  },
+  {
+   "l": "volumen",
+   "t": "volumen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader wird aus Einheitswürfeln (1 cm³) gebaut: 4 Würfel lang, 4 Würfel breit, 4 Schichten hoch. Wie viele Würfel sind es?"
+   },
+   "o": {
+    "wert": 64,
+    "einheit": "cm³"
+   },
+   "c": "4 * 4 * 4",
+   "w": "Eine Schicht: 4 · 4 = 16. 4 Schichten: 64 Würfel, also 64 cm³.",
+   "h": "Zähle zuerst die Würfel einer Schicht."
+  },
+  {
+   "l": "volumen",
+   "t": "volumen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne das Volumen eines Würfels mit der Kantenlänge 6 cm."
+   },
+   "o": {
+    "wert": 216,
+    "einheit": "cm³"
+   },
+   "c": "6 ** 3",
+   "w": "V = 6 · 6 · 6 = 216 cm³.",
+   "h": "Dreimal die Kantenlänge malnehmen."
+  },
+  {
+   "l": "volumen",
+   "t": "volumen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne das Volumen eines Würfels mit der Kantenlänge 7 cm."
+   },
+   "o": {
+    "wert": 343,
+    "einheit": "cm³"
+   },
+   "c": "7 ** 3",
+   "w": "V = 7 · 7 · 7 = 343 cm³.",
+   "h": "Dreimal die Kantenlänge malnehmen."
+  },
+  {
+   "l": "volumen",
+   "t": "volumen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne das Volumen eines Quaders, der 4 cm lang, 9 cm breit und 7 cm hoch ist."
+   },
+   "o": {
+    "wert": 252,
+    "einheit": "cm³"
+   },
+   "c": "4 * 9 * 7",
+   "w": "V = 4 · 9 · 7 = 252 cm³.",
+   "h": "V = Länge · Breite · Höhe."
+  },
+  {
+   "l": "volumen",
+   "t": "volumen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne das Volumen eines Quaders, der 15 cm lang, 7 cm breit und 2 cm hoch ist."
+   },
+   "o": {
+    "wert": 210,
+    "einheit": "cm³"
+   },
+   "c": "15 * 7 * 2",
+   "w": "V = 15 · 7 · 2 = 210 cm³.",
+   "h": "V = Länge · Breite · Höhe."
+  },
+  {
+   "l": "volumen",
+   "t": "volumen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne das Volumen eines Quaders, der 9 cm lang, 8 cm breit und 6 cm hoch ist."
+   },
+   "o": {
+    "wert": 432,
+    "einheit": "cm³"
+   },
+   "c": "9 * 8 * 6",
+   "w": "V = 9 · 8 · 6 = 432 cm³.",
+   "h": "V = Länge · Breite · Höhe."
+  },
+  {
+   "l": "volumen",
+   "t": "volumen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne das Volumen eines Würfels mit der Kantenlänge 4 cm."
+   },
+   "o": {
+    "wert": 64,
+    "einheit": "cm³"
+   },
+   "c": "4 ** 3",
+   "w": "V = 4 · 4 · 4 = 64 cm³.",
+   "h": "Dreimal die Kantenlänge malnehmen."
+  },
+  {
+   "l": "volumen",
+   "t": "volumen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader hat das Volumen 450 cm³. Er ist 10 cm lang und 5 cm breit. Wie hoch ist er?"
+   },
+   "o": {
+    "wert": 9,
+    "einheit": "cm"
+   },
+   "c": "450 / (10 * 5)",
+   "w": "Grundfläche 10 · 5 = 50 cm². Höhe: 450 : 50 = 9 cm.",
+   "h": "Teile das Volumen durch die Grundfläche."
+  },
+  {
+   "l": "volumen",
+   "t": "volumen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader hat das Volumen 96 cm³. Er ist 8 cm lang und 2 cm breit. Wie hoch ist er?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "cm"
+   },
+   "c": "96 / (8 * 2)",
+   "w": "Grundfläche 8 · 2 = 16 cm². Höhe: 96 : 16 = 6 cm.",
+   "h": "Teile das Volumen durch die Grundfläche."
+  },
+  {
+   "l": "volumen",
+   "t": "volumen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel mit 10 cm Kantenlänge wird in kleine Würfel mit 5 cm Kantenlänge zerlegt. Wie viele kleine Würfel entstehen?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "(10 / 5) ** 3",
+   "w": "In jeder Richtung 10 : 5 = 2 Würfel: 2 · 2 · 2 = 8.",
+   "h": "Wie viele kleine Würfel passen in jede Richtung?"
+  },
+  {
+   "l": "volumen",
+   "t": "volumen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader hat das Volumen 250 cm³. Er ist 5 cm lang und 10 cm breit. Wie hoch ist er?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "cm"
+   },
+   "c": "250 / (5 * 10)",
+   "w": "Grundfläche 5 · 10 = 50 cm². Höhe: 250 : 50 = 5 cm.",
+   "h": "Teile das Volumen durch die Grundfläche."
+  },
+  {
+   "l": "volumen",
+   "t": "volumen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel mit 15 cm Kantenlänge wird in kleine Würfel mit 3 cm Kantenlänge zerlegt. Wie viele kleine Würfel entstehen?"
+   },
+   "o": {
+    "wert": 125
+   },
+   "c": "(15 / 3) ** 3",
+   "w": "In jeder Richtung 15 : 3 = 5 Würfel: 5 · 5 · 5 = 125.",
+   "h": "Wie viele kleine Würfel passen in jede Richtung?"
+  },
+  {
+   "l": "volumen",
+   "t": "volumen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader hat das Volumen 42 cm³. Er ist 7 cm lang und 3 cm breit. Wie hoch ist er?"
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "cm"
+   },
+   "c": "42 / (7 * 3)",
+   "w": "Grundfläche 7 · 3 = 21 cm². Höhe: 42 : 21 = 2 cm.",
+   "h": "Teile das Volumen durch die Grundfläche."
+  },
+  {
+   "l": "volumen",
+   "t": "volumen",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne das Volumen eines Würfels mit der Kantenlänge 2 cm."
+   },
+   "o": {
+    "wert": 8,
+    "einheit": "cm³"
+   },
+   "c": "2 ** 3",
+   "w": "V = 2 · 2 · 2 = 8 cm³."
+  },
+  {
+   "l": "volumen",
+   "t": "volumen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne das Volumen eines Würfels mit der Kantenlänge 3 cm."
+   },
+   "o": {
+    "wert": 27,
+    "einheit": "cm³"
+   },
+   "c": "3 ** 3",
+   "w": "V = 3 · 3 · 3 = 27 cm³."
+  },
+  {
+   "l": "volumen",
+   "t": "volumen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne das Volumen eines Quaders, der 12 cm lang, 5 cm breit und 7 cm hoch ist."
+   },
+   "o": {
+    "wert": 420,
+    "einheit": "cm³"
+   },
+   "c": "12 * 5 * 7",
+   "w": "V = 12 · 5 · 7 = 420 cm³."
+  },
+  {
+   "l": "volumen",
+   "t": "volumen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne das Volumen eines Quaders, der 6 cm lang, 5 cm breit und 8 cm hoch ist."
+   },
+   "o": {
+    "wert": 240,
+    "einheit": "cm³"
+   },
+   "c": "6 * 5 * 8",
+   "w": "V = 6 · 5 · 8 = 240 cm³."
+  },
+  {
+   "l": "volumen",
+   "t": "volumen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne das Volumen eines Würfels mit der Kantenlänge 9 cm."
+   },
+   "o": {
+    "wert": 729,
+    "einheit": "cm³"
+   },
+   "c": "9 ** 3",
+   "w": "V = 9 · 9 · 9 = 729 cm³."
+  },
+  {
+   "l": "volumen",
+   "t": "volumen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne das Volumen eines Würfels mit der Kantenlänge 8 cm."
+   },
+   "o": {
+    "wert": 512,
+    "einheit": "cm³"
+   },
+   "c": "8 ** 3",
+   "w": "V = 8 · 8 · 8 = 512 cm³."
+  },
+  {
+   "l": "volumen",
+   "t": "volumen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne das Volumen eines Quaders, der 6 cm lang, 7 cm breit und 7 cm hoch ist."
+   },
+   "o": {
+    "wert": 294,
+    "einheit": "cm³"
+   },
+   "c": "6 * 7 * 7",
+   "w": "V = 6 · 7 · 7 = 294 cm³."
+  },
+  {
+   "l": "volumen",
+   "t": "volumen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne das Volumen eines Quaders, der 9 cm lang, 4 cm breit und 3 cm hoch ist."
+   },
+   "o": {
+    "wert": 108,
+    "einheit": "cm³"
+   },
+   "c": "9 * 4 * 3",
+   "w": "V = 9 · 4 · 3 = 108 cm³."
+  },
+  {
+   "l": "volumen",
+   "t": "volumen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne das Volumen eines Quaders, der 3 cm lang, 4 cm breit und 3 cm hoch ist."
+   },
+   "o": {
+    "wert": 36,
+    "einheit": "cm³"
+   },
+   "c": "3 * 4 * 3",
+   "w": "V = 3 · 4 · 3 = 36 cm³."
+  },
+  {
+   "l": "volumen",
+   "t": "volumen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne das Volumen eines Quaders, der 12 cm lang, 3 cm breit und 5 cm hoch ist."
+   },
+   "o": {
+    "wert": 180,
+    "einheit": "cm³"
+   },
+   "c": "12 * 3 * 5",
+   "w": "V = 12 · 3 · 5 = 180 cm³."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Nein, das ist falsch.",
+    "Ja, 6 · 4 · 4 = 96 cm²."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Würfel mit 4 cm Kantenlänge hat die Oberfläche 96 cm².“"
+   },
+   "w": "Ja, 6 · 4 · 4 = 96 cm².",
+   "h": "Rechne ein Beispiel oder stell dir eine Schachtel vor."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Nein, das ist falsch.",
+    "Ja, 6 · 2 · 2 = 24 cm²."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Würfel mit 2 cm Kantenlänge hat die Oberfläche 24 cm².“"
+   },
+   "w": "Ja, 6 · 2 · 2 = 24 cm².",
+   "h": "Rechne ein Beispiel oder stell dir eine Schachtel vor."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Nein, 6 Flächen – aber 8 Ecken.",
+    "Das kann man nicht entscheiden.",
+    "Ja, das stimmt."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Würfel hat 8 Flächen.“"
+   },
+   "w": "Nein, 6 Flächen – aber 8 Ecken.",
+   "h": "Rechne ein Beispiel oder stell dir eine Schachtel vor."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Ja, je 4 in Länge, Breite und Höhe.",
+    "Nein, das ist falsch."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Quader hat 12 Kanten.“"
+   },
+   "w": "Ja, je 4 in Länge, Breite und Höhe.",
+   "h": "Rechne ein Beispiel oder stell dir eine Schachtel vor."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Ja, das stimmt.",
+    "Nein, er hat 6 Flächen: 6 · 9 = 54 cm²."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Würfel mit 3 cm Kantenlänge hat die Oberfläche 36 cm².“"
+   },
+   "w": "Nein, er hat 6 Flächen: 6 · 9 = 54 cm².",
+   "h": "Rechne ein Beispiel oder stell dir eine Schachtel vor."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Ja, 6 · 5 · 5 = 150 cm².",
+    "Nein, das ist falsch."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Würfel mit 5 cm Kantenlänge hat die Oberfläche 150 cm².“"
+   },
+   "w": "Ja, 6 · 5 · 5 = 150 cm².",
+   "h": "Rechne ein Beispiel oder stell dir eine Schachtel vor."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Ja, das stimmt.",
+    "Nein, jede Fläche gibt es zweimal: 128 cm².",
+    "Das kann man nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Quader 4 cm × 4 cm × 6 cm hat die Oberfläche 64 cm².“"
+   },
+   "w": "Nein, jede Fläche gibt es zweimal: 128 cm².",
+   "h": "Rechne ein Beispiel oder stell dir eine Schachtel vor."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Nein, Flächen in cm², Volumen in cm³.",
+    "Ja, das stimmt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Oberfläche misst man in cm³.“"
+   },
+   "w": "Nein, Flächen in cm², Volumen in cm³.",
+   "h": "Rechne ein Beispiel oder stell dir eine Schachtel vor."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Nein, das ist falsch.",
+    "Ja, die Klebeflächen liegen innen und fallen weg."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Klebt man zwei Würfel zusammen, ist die Oberfläche kleiner als bei beiden einzeln.“"
+   },
+   "w": "Ja, die Klebeflächen liegen innen und fallen weg.",
+   "h": "Rechne ein Beispiel oder stell dir eine Schachtel vor."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Ja, 2 · (18 + 12 + 6) = 72 cm².",
+    "Das kann man nicht entscheiden.",
+    "Nein, das ist falsch."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Quader 6 cm × 3 cm × 2 cm hat die Oberfläche 72 cm².“"
+   },
+   "w": "Ja, 2 · (18 + 12 + 6) = 72 cm².",
+   "h": "Rechne ein Beispiel oder stell dir eine Schachtel vor."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Ja, 2 · (6 + 4 + 6) = 32 cm².",
+    "Das kann man nicht entscheiden.",
+    "Nein, das ist falsch."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Quader 2 cm × 3 cm × 2 cm hat die Oberfläche 32 cm².“"
+   },
+   "w": "Ja, 2 · (6 + 4 + 6) = 32 cm².",
+   "h": "Rechne ein Beispiel oder stell dir eine Schachtel vor."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Nein, das ist falsch.",
+    "Das kann man nicht entscheiden.",
+    "Ja, 2 · (6 + 15 + 10) = 62 cm²."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Quader 3 cm × 2 cm × 5 cm hat die Oberfläche 62 cm².“"
+   },
+   "w": "Ja, 2 · (6 + 15 + 10) = 62 cm².",
+   "h": "Rechne ein Beispiel oder stell dir eine Schachtel vor."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Ja, das stimmt.",
+    "Nein: 1 × 1 × 8 (O = 34) und 2 × 2 × 2 (O = 24) haben beide V = 8."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Zwei Quader mit gleichem Volumen haben immer die gleiche Oberfläche.“"
+   },
+   "w": "Nein: 1 × 1 × 8 (O = 34) und 2 × 2 × 2 (O = 24) haben beide V = 8.",
+   "h": "Rechne ein Beispiel oder stell dir eine Schachtel vor."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Nein, sie wird viermal so groß.",
+    "Ja, das stimmt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Verdoppelt man die Kantenlänge eines Würfels, verdoppelt sich die Oberfläche.“"
+   },
+   "w": "Nein, sie wird viermal so groß.",
+   "h": "Rechne ein Beispiel oder stell dir eine Schachtel vor."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Ja, 2 · 2 · 2 = 8.",
+    "Nein, das ist falsch.",
+    "Das kann man nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Verdoppelt man die Kantenlänge eines Würfels, wird das Volumen achtmal so groß.“"
+   },
+   "w": "Ja, 2 · 2 · 2 = 8.",
+   "h": "Rechne ein Beispiel oder stell dir eine Schachtel vor."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Nein, das ist falsch.",
+    "Das kann man nicht entscheiden.",
+    "Ja, es ist derselbe Quader, nur gedreht."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Quader 5 × 4 × 3 und ein Quader 3 × 5 × 4 haben dieselbe Oberfläche.“"
+   },
+   "w": "Ja, es ist derselbe Quader, nur gedreht.",
+   "h": "Rechne ein Beispiel oder stell dir eine Schachtel vor."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Ja, es ist derselbe Quader, nur gedreht.",
+    "Das kann man nicht entscheiden.",
+    "Nein, das ist falsch."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Quader 3 × 5 × 2 und ein Quader 2 × 3 × 5 haben dieselbe Oberfläche.“"
+   },
+   "w": "Ja, es ist derselbe Quader, nur gedreht.",
+   "h": "Rechne ein Beispiel oder stell dir eine Schachtel vor."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Ja, es ist derselbe Quader, nur gedreht.",
+    "Nein, das ist falsch."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Quader 2 × 3 × 2 und ein Quader 2 × 2 × 3 haben dieselbe Oberfläche.“"
+   },
+   "w": "Ja, es ist derselbe Quader, nur gedreht.",
+   "h": "Rechne ein Beispiel oder stell dir eine Schachtel vor."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Ja, das stimmt.",
+    "Nein, jede Fläche gibt es zweimal: 126 cm².",
+    "Das kann man nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Quader 5 cm × 3 cm × 6 cm hat die Oberfläche 63 cm².“"
+   },
+   "w": "Nein, jede Fläche gibt es zweimal: 126 cm²."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Ja, das stimmt.",
+    "Das kann man nicht entscheiden.",
+    "Nein, jede Fläche gibt es zweimal: 90 cm²."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Quader 5 cm × 5 cm × 2 cm hat die Oberfläche 45 cm².“"
+   },
+   "w": "Nein, jede Fläche gibt es zweimal: 90 cm²."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Nein, das ist falsch.",
+    "Das kann man nicht entscheiden.",
+    "Ja, 2 · (20 + 10 + 8) = 76 cm²."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Quader 5 cm × 4 cm × 2 cm hat die Oberfläche 76 cm².“"
+   },
+   "w": "Ja, 2 · (20 + 10 + 8) = 76 cm²."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Nein, das ist falsch.",
+    "Ja, 2 · (15 + 15 + 25) = 110 cm².",
+    "Das kann man nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Quader 3 cm × 5 cm × 5 cm hat die Oberfläche 110 cm².“"
+   },
+   "w": "Ja, 2 · (15 + 15 + 25) = 110 cm²."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Nein, jede Fläche gibt es zweimal: 48 cm².",
+    "Ja, das stimmt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Quader 2 cm × 2 cm × 5 cm hat die Oberfläche 24 cm².“"
+   },
+   "w": "Nein, jede Fläche gibt es zweimal: 48 cm²."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Nein, jede Fläche gibt es zweimal: 72 cm².",
+    "Das kann man nicht entscheiden.",
+    "Ja, das stimmt."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Quader 2 cm × 6 cm × 3 cm hat die Oberfläche 36 cm².“"
+   },
+   "w": "Nein, jede Fläche gibt es zweimal: 72 cm²."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Nein, jede Fläche gibt es zweimal: 56 cm².",
+    "Ja, das stimmt.",
+    "Das kann man nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Quader 2 cm × 6 cm × 2 cm hat die Oberfläche 28 cm².“"
+   },
+   "w": "Nein, jede Fläche gibt es zweimal: 56 cm²."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Ja, 2 · (18 + 18 + 9) = 90 cm².",
+    "Das kann man nicht entscheiden.",
+    "Nein, das ist falsch."
+   ],
+   "o": {
+    "index": 0
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Quader 6 cm × 3 cm × 3 cm hat die Oberfläche 90 cm².“"
+   },
+   "w": "Ja, 2 · (18 + 18 + 9) = 90 cm²."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Nein, das ist falsch.",
+    "Das kann man nicht entscheiden.",
+    "Ja, 2 · (12 + 4 + 12) = 56 cm²."
+   ],
+   "o": {
+    "index": 2
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Quader 2 cm × 6 cm × 2 cm hat die Oberfläche 56 cm².“"
+   },
+   "w": "Ja, 2 · (12 + 4 + 12) = 56 cm²."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "a": [
+    "Das kann man nicht entscheiden.",
+    "Ja, 2 · (20 + 30 + 24) = 148 cm².",
+    "Nein, das ist falsch."
+   ],
+   "o": {
+    "index": 1
+   },
+   "f": {
+    "text": "Stimmt die Aussage? „Ein Quader 5 cm × 4 cm × 6 cm hat die Oberfläche 148 cm².“"
+   },
+   "w": "Ja, 2 · (20 + 30 + 24) = 148 cm²."
+  }
+ ],
+ "offen": [
+  "Prisma, Zylinder, Pyramide, Kegel und Kugel aus „umfang“ weggelassen: Stoff späterer Jahrgangsstufen.",
+  "lehrplan_gym nennt „Volumen“, der LehrplanPLUS Gymnasium Kl. 5 aber nur Oberflächeninhalte von Quadern und zusammengesetzten Körpern (Volumen ab Kl. 6). Deshalb Volumen (nur Quader/Würfel in cm³, ohne Raumeinheiten-Umrechnung) als Vertiefung, nicht Pflicht. Bitte entscheiden.",
+  "Braucht Zeichnung: Schrägbilder und Netze von Quader und Würfel (Lehrplan „auch mit Netzen und Schrägbildern“) kann die App noch nicht zeichnen. Bisher nur Tabelle der Flächenpaare."
+ ]
+}

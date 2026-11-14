@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Thema gleichungen.polynom – Polynomgleichungen (Klasse 10). Schreibt inhalte/themen/gleichungen.polynom.json."""
+import math
 import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -75,6 +76,22 @@ ETAPPEN = [
      'probe': 'z² + 3z + 2 = 0 ⇒ z = −1, z = −2: beide negativ ✓',
      'fehler': '„Grad 4 heißt genau 4 Lösungen“ ist falsch: Der Grad gibt nur die ⟦Höchstzahl⟧ an.'},
 ]
+
+_E = {e['lernziel']: e for e in ETAPPEN}
+_E['ausklammern']['bild'] = koord([g_poly([1, -5, 6, 0], name='f')], x=(-1, 4), y=(-4, 4),
+                                  punkte=[{'x': 0, 'y': 0}, {'x': 2, 'y': 0}, {'x': 3, 'y': 0}])
+_E['substitution']['bild'] = koord([g_poly([1, 0, -10, 0, 9], name='f')], x=(-4, 4), y=(-20, 20),
+                                   punkte=[{'x': v, 'y': 0} for v in (-3, -1, 1, 3)])
+_E['vielfachheit']['bild'] = koord([g_poly(mal([1, -1], [1, -1], [1, 2], [1, 2], [1, 2]), name='f')], x=(-3, 2), y=(-10, 20),
+                                   punkte=[{'x': 1, 'y': 0, 'name': 'doppelt'}, {'x': -2, 'y': 0, 'name': 'dreifach'}])
+_E['verstehen']['bild'] = koord([g_poly([1, 0, 3, 0, 2], name='f')], x=(-3, 3), y=(-2, 12))
+
+
+def graph_von(kf, nst, x=None):
+    lo, hi = (min(nst) - 1.5, max(nst) + 1.5) if x is None else x
+    ws = [abs(sum(c * t ** (len(kf) - 1 - i) for i, c in enumerate(kf))) for t in [lo + (hi - lo) * j / 50 for j in range(51)]]
+    m = sorted(ws)[int(len(ws) * 0.8)] or 1
+    return koord([g_poly(kf)], x=(math.floor(lo), math.ceil(hi)), ymax=max(4, m * 1.2), punkte=[{'x': v, 'y': 0} for v in sorted(set(nst))])
 
 
 def g_ausklammern(s):
@@ -170,11 +187,12 @@ def g_vielfachheit(s):
     if s == 2:
         ziel, k = R.choice([(p, m), (q, n)])
         vw = k % 2 == 1
-        return auswahl(f'{f}. Wechselt f bei x = {dz(ziel)} das Vorzeichen?', f'{"Ja" if vw else "Nein"}, die Nullstelle ist {k}-fach ({"ungerade" if vw else "gerade"}).',
+        kf = mal(*([[1, -p]] * m + [[1, -q]] * n))
+        return mit_grafik(auswahl(f'{f}. Wechselt f bei x = {dz(ziel)} das Vorzeichen? (Die Zeichnung zeigt den Graphen.)', f'{"Ja" if vw else "Nein"}, die Nullstelle ist {k}-fach ({"ungerade" if vw else "gerade"}).',
                        [f'{"Nein" if vw else "Ja"}, die Nullstelle ist {k}-fach ({"ungerade" if vw else "gerade"}).', 'Ja, an jeder Nullstelle wechselt das Vorzeichen.',
                         'Das hängt vom Leitkoeffizienten ab.'],
                        f'Faktor {faktor(ziel)} hoch {k}: {"ungerade Potenz wechselt das Vorzeichen" if vw else "gerade Potenz bleibt nicht-negativ, kein Vorzeichenwechsel"}.',
-                       'Gerade oder ungerade Vielfachheit?')
+                       'Gerade oder ungerade Vielfachheit? Schneidet oder berührt der Graph die x-Achse?'), graph_von(kf, [p, q]))
     typ = R.random()
     if typ < 0.5:
         a = R.randint(1, 6)
@@ -189,7 +207,7 @@ def g_vielfachheit(s):
 
 
 def g_verstehen(s):
-    typ = R.choice({1: 'ab', 2: 'abcd', 3: 'cde'}[s])
+    typ = R.choice({1: 'ab', 2: 'abcdf', 3: 'cdeff'}[s])
     if typ == 'a':
         n = R.randint(3, 8)
         return auswahl(f'Wie viele Lösungen kann eine Polynomgleichung vom Grad {n} höchstens haben?', str(n), [str(n - 1), str(n + 1), str(2 * n)],
@@ -210,6 +228,17 @@ def g_verstehen(s):
         return auswahl(f'Bei x⁴ − {a * a + b * b}x² + {a * a * b * b} = 0 gibt jemand als Lösung „z = {a * a} und z = {b * b}“ an. Was fehlt?',
                        f'Die Rücksubstitution: x = ±{a} und x = ±{b}.', ['Nichts, die Lösung ist vollständig.', f'Nur x = {a} und x = {b}.', f'Die Probe z = {a * a + b * b}.'],
                        f'z = x² war nur eine Hilfsvariable. Aus x² = {a * a} und x² = {b * b} folgen vier Lösungen.', 'Wonach war gefragt: z oder x?')
+    if typ == 'f':
+        p, q = sorted(R.sample(range(-4, 5), 2))
+        m, n = R.choice([(1, 2), (2, 1), (1, 3), (3, 1), (2, 2)])
+        if p == -q or m == n: return None  # sonst wären zwei Antworten dieselbe Funktion
+        kf = mal(*([[1, -p]] * m + [[1, -q]] * n))
+        t = lambda a, b_: f'f(x) = {faktor(p, a)} · {faktor(q, b_)}'  # noqa: E731
+        richtig = t(m, n)
+        falsch = [t(n, m), t(m + 1 if m % 2 else m - 1 or 1, n), f'f(x) = {faktor(-p, m)} · {faktor(-q, n)}']
+        return mit_grafik(auswahl('Welcher Funktionsterm passt zum gezeichneten Graphen?', richtig, falsch,
+                                  f'Nullstellen bei {dz(p)} und {dz(q)} (nicht {dz(-p)}, {dz(-q)}). Bei x = {dz(p)} {"schneidet" if m % 2 else "berührt"} der Graph die x-Achse ({m}-fach), bei x = {dz(q)} {"schneidet" if n % 2 else "berührt"} er sie ({n}-fach).',
+                                  'Lies die Nullstellen ab und achte darauf, ob der Graph die x-Achse schneidet oder nur berührt.'), graph_von(kf, [p, q]))
     if typ == 'e':
         m = R.randint(1, 9)
         return auswahl(f'Wie viele Lösungen hat x⁴ + {m}x² = 0?', 'genau eine (x = 0)', ['keine', 'zwei', 'vier'],
@@ -228,7 +257,7 @@ if __name__ == '__main__':
           [('Lösungsverfahren', ['ausklammern', 'nullprodukt', 'substitution']), ('Nullstellen deuten', ['vielfachheit', 'verstehen'])],
           ETAPPEN, GEN,
           meiden={'ausklammern': ['x³ − 5x² + 6x = 0'], 'substitution': ['x⁴ − 10x² + 9 = 0'], 'verstehen': ['x⁴ + 3x² + 2 = 0', 'x⁴ − 10x² + 9 = 0']},
-          offen=['Lehrplan: „Graph skizzieren, mit Software prüfen“ – braucht Funktionsgraphen (Nullstellen mit Berühren/Schneiden der x-Achse). Bisher nur rechnerisch und in Worten.',
+          offen=['Zeichnungen: Graphen in den Lernkarten „ausklammern“, „substitution“, „vielfachheit“, „verstehen“; Aufgaben zum Vorzeichenwechsel und „Welcher Term passt zum Graphen?“ zeigen den Graphen. Selbst skizzieren kann das Kind in der App noch nicht (Lehrplan: „Graph skizzieren“).',
                  'Polynomdivision ist nicht enthalten (lehrplan_gym nennt nur Ausklammern und Substitution).',
                  'Lösungen werden als Lücken „x₁ = □; …“ ohne Wiederholung (aufsteigend) abgefragt; die Anzahl der Lücken verrät, wie viele Lösungen es gibt. Wer das vermeiden will, braucht einen Antworttyp „Lösungsmenge“.',
                  'Rechenausdruck c bei Lücken: „x + f(x)“ – ergibt nur dann x, wenn f(x) = 0, prüft also jede Lösung durch Einsetzen.'])

@@ -41,7 +41,44 @@
      "x = 0 oder x² − 5x + 6 = 0 ⇒ ⟦x₁ = 0, x₂ = 2, x₃ = 3⟧."
     ],
     "probe": "3³ − 5 · 9 + 18 = 27 − 45 + 18 = 0 ✓",
-    "fehler": "x³ − 5x² + 6x = 0 durch x zu teilen ist falsch: Dabei geht die Lösung ⟦x = 0⟧ verloren. Ausklammern statt teilen."
+    "fehler": "x³ − 5x² + 6x = 0 durch x zu teilen ist falsch: Dabei geht die Lösung ⟦x = 0⟧ verloren. Ausklammern statt teilen.",
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      4
+     ],
+     "y": [
+      -4,
+      4
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0,
+        6,
+        -5,
+        1
+       ],
+       "name": "f"
+      }
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 0
+      },
+      {
+       "x": 2,
+       "y": 0
+      },
+      {
+       "x": 3,
+       "y": 0
+      }
+     ]
+    }
    },
    {
     "lernziel": "nullprodukt",
@@ -63,7 +100,49 @@
      "x² = 1 ⇒ x = ±1; x² = 9 ⇒ x = ±3: ⟦L = {−3; −1; 1; 3}⟧."
     ],
     "probe": "3⁴ − 10 · 9 + 9 = 81 − 90 + 9 = 0 ✓",
-    "fehler": "Mit z₁ = 1 und z₂ = 9 aufzuhören ist unvollständig: Gesucht ist x, nicht z. Erst die ⟦Rücksubstitution⟧ liefert die vier Lösungen."
+    "fehler": "Mit z₁ = 1 und z₂ = 9 aufzuhören ist unvollständig: Gesucht ist x, nicht z. Erst die ⟦Rücksubstitution⟧ liefert die vier Lösungen.",
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -20,
+      20
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        9,
+        0,
+        -10,
+        0,
+        1
+       ],
+       "name": "f"
+      }
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 0
+      },
+      {
+       "x": -1,
+       "y": 0
+      },
+      {
+       "x": 1,
+       "y": 0
+      },
+      {
+       "x": 3,
+       "y": 0
+      }
+     ]
+    }
    },
    {
     "lernziel": "vielfachheit",
@@ -74,7 +153,44 @@
      "Bei x = 1 ⟦kein Vorzeichenwechsel⟧ (gerade), bei x = −2 ⟦Vorzeichenwechsel⟧ (ungerade)."
     ],
     "probe": "f(0,9) > 0 und f(1,1) > 0 ✓",
-    "fehler": "„(x − 1)² hat die Nullstellen 1 und −1“ ist falsch: (x − 1)² = 0 nur für x = 1. Das ist ⟦eine doppelte⟧ Nullstelle."
+    "fehler": "„(x − 1)² hat die Nullstellen 1 und −1“ ist falsch: (x − 1)² = 0 nur für x = 1. Das ist ⟦eine doppelte⟧ Nullstelle.",
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      2
+     ],
+     "y": [
+      -10,
+      20
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        8,
+        -4,
+        -10,
+        1,
+        4,
+        1
+       ],
+       "name": "f"
+      }
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 0,
+       "name": "doppelt"
+      },
+      {
+       "x": -2,
+       "y": 0,
+       "name": "dreifach"
+      }
+     ]
+    }
    },
    {
     "lernziel": "verstehen",
@@ -85,7 +201,31 @@
      "x⁴ ≥ 0 und 3x² ≥ 0, also ist die linke Seite ≥ 2: ⟦keine Lösung⟧."
     ],
     "probe": "z² + 3z + 2 = 0 ⇒ z = −1, z = −2: beide negativ ✓",
-    "fehler": "„Grad 4 heißt genau 4 Lösungen“ ist falsch: Der Grad gibt nur die ⟦Höchstzahl⟧ an."
+    "fehler": "„Grad 4 heißt genau 4 Lösungen“ ist falsch: Der Grad gibt nur die ⟦Höchstzahl⟧ an.",
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      3
+     ],
+     "y": [
+      -2,
+      12
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        2,
+        0,
+        3,
+        0,
+        1
+       ],
+       "name": "f"
+      }
+     ]
+    }
    }
   ],
   "teilfaehigkeiten": [
@@ -2375,7 +2515,41 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "f(x) = (x − 1) · (x − 3)⁴. Wechselt f bei x = 3 das Vorzeichen?"
+    "text": "f(x) = (x − 1) · (x − 3)⁴. Wechselt f bei x = 3 das Vorzeichen? (Die Zeichnung zeigt den Graphen.)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      5
+     ],
+     "y": [
+      -30,
+      30
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -81,
+        189,
+        -162,
+        66,
+        -13,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 0
+      },
+      {
+       "x": 3,
+       "y": 0
+      }
+     ]
+    }
    },
    "a": [
     "Ja, die Nullstelle ist 4-fach (gerade).",
@@ -2387,7 +2561,7 @@
     "index": 2
    },
    "w": "Faktor (x − 3) hoch 4: gerade Potenz bleibt nicht-negativ, kein Vorzeichenwechsel.",
-   "h": "Gerade oder ungerade Vielfachheit?"
+   "h": "Gerade oder ungerade Vielfachheit? Schneidet oder berührt der Graph die x-Achse?"
   },
   {
    "l": "vielfachheit",
@@ -2396,7 +2570,42 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "f(x) = (x + 2)⁴ · (x − 2)². Wechselt f bei x = −2 das Vorzeichen?"
+    "text": "f(x) = (x + 2)⁴ · (x − 2)². Wechselt f bei x = −2 das Vorzeichen? (Die Zeichnung zeigt den Graphen.)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -20,
+      120
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        64,
+        64,
+        -16,
+        -32,
+        -4,
+        4,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -2,
+       "y": 0
+      },
+      {
+       "x": 2,
+       "y": 0
+      }
+     ]
+    }
    },
    "a": [
     "Nein, die Nullstelle ist 4-fach (gerade).",
@@ -2408,7 +2617,7 @@
     "index": 0
    },
    "w": "Faktor (x + 2) hoch 4: gerade Potenz bleibt nicht-negativ, kein Vorzeichenwechsel.",
-   "h": "Gerade oder ungerade Vielfachheit?"
+   "h": "Gerade oder ungerade Vielfachheit? Schneidet oder berührt der Graph die x-Achse?"
   },
   {
    "l": "vielfachheit",
@@ -2417,7 +2626,41 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "f(x) = (x + 5)³ · (x + 4)². Wechselt f bei x = −4 das Vorzeichen?"
+    "text": "f(x) = (x + 5)³ · (x + 4)². Wechselt f bei x = −4 das Vorzeichen? (Die Zeichnung zeigt den Graphen.)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -7,
+      -2
+     ],
+     "y": [
+      -15,
+      15
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        2000,
+        2200,
+        965,
+        211,
+        23,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -5,
+       "y": 0
+      },
+      {
+       "x": -4,
+       "y": 0
+      }
+     ]
+    }
    },
    "a": [
     "Ja, die Nullstelle ist 2-fach (gerade).",
@@ -2429,7 +2672,7 @@
     "index": 2
    },
    "w": "Faktor (x + 4) hoch 2: gerade Potenz bleibt nicht-negativ, kein Vorzeichenwechsel.",
-   "h": "Gerade oder ungerade Vielfachheit?"
+   "h": "Gerade oder ungerade Vielfachheit? Schneidet oder berührt der Graph die x-Achse?"
   },
   {
    "l": "vielfachheit",
@@ -2438,7 +2681,41 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "f(x) = x⁴ · (x + 4). Wechselt f bei x = −4 das Vorzeichen?"
+    "text": "f(x) = x⁴ · (x + 4). Wechselt f bei x = −4 das Vorzeichen? (Die Zeichnung zeigt den Graphen.)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      2
+     ],
+     "y": [
+      -150,
+      150
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0,
+        0,
+        0,
+        0,
+        4,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -4,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": 0
+      }
+     ]
+    }
    },
    "a": [
     "Ja, an jeder Nullstelle wechselt das Vorzeichen.",
@@ -2450,7 +2727,7 @@
     "index": 2
    },
    "w": "Faktor (x + 4) hoch 1: ungerade Potenz wechselt das Vorzeichen.",
-   "h": "Gerade oder ungerade Vielfachheit?"
+   "h": "Gerade oder ungerade Vielfachheit? Schneidet oder berührt der Graph die x-Achse?"
   },
   {
    "l": "vielfachheit",
@@ -2459,7 +2736,39 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "f(x) = x² · (x + 1). Wechselt f bei x = 0 das Vorzeichen?"
+    "text": "f(x) = x² · (x + 1). Wechselt f bei x = 0 das Vorzeichen? (Die Zeichnung zeigt den Graphen.)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      2
+     ],
+     "y": [
+      -6,
+      6
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0,
+        0,
+        1,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -1,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": 0
+      }
+     ]
+    }
    },
    "a": [
     "Nein, die Nullstelle ist 2-fach (gerade).",
@@ -2471,7 +2780,7 @@
     "index": 0
    },
    "w": "Faktor x hoch 2: gerade Potenz bleibt nicht-negativ, kein Vorzeichenwechsel.",
-   "h": "Gerade oder ungerade Vielfachheit?"
+   "h": "Gerade oder ungerade Vielfachheit? Schneidet oder berührt der Graph die x-Achse?"
   },
   {
    "l": "vielfachheit",
@@ -2480,7 +2789,41 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "f(x) = (x + 5)³ · (x − 3)². Wechselt f bei x = −5 das Vorzeichen?"
+    "text": "f(x) = (x + 5)³ · (x − 3)². Wechselt f bei x = −5 das Vorzeichen? (Die Zeichnung zeigt den Graphen.)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -7,
+      5
+     ],
+     "y": [
+      -1000,
+      1500
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        1125,
+        -75,
+        -190,
+        -6,
+        9,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -5,
+       "y": 0
+      },
+      {
+       "x": 3,
+       "y": 0
+      }
+     ]
+    }
    },
    "a": [
     "Ja, die Nullstelle ist 3-fach (ungerade).",
@@ -2492,7 +2835,7 @@
     "index": 0
    },
    "w": "Faktor (x + 5) hoch 3: ungerade Potenz wechselt das Vorzeichen.",
-   "h": "Gerade oder ungerade Vielfachheit?"
+   "h": "Gerade oder ungerade Vielfachheit? Schneidet oder berührt der Graph die x-Achse?"
   },
   {
    "l": "vielfachheit",
@@ -2629,7 +2972,41 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "f(x) = (x − 3)³ · (x − 2)². Wechselt f bei x = 3 das Vorzeichen?"
+    "text": "f(x) = (x − 3)³ · (x − 2)². Wechselt f bei x = 3 das Vorzeichen? (Die Zeichnung zeigt den Graphen.)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      5
+     ],
+     "y": [
+      -15,
+      15
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -108,
+        216,
+        -171,
+        67,
+        -13,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": 2,
+       "y": 0
+      },
+      {
+       "x": 3,
+       "y": 0
+      }
+     ]
+    }
    },
    "a": [
     "Das hängt vom Leitkoeffizienten ab.",
@@ -2649,7 +3026,41 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "f(x) = (x − 4) · (x − 5)⁴. Wechselt f bei x = 4 das Vorzeichen?"
+    "text": "f(x) = (x − 4) · (x − 5)⁴. Wechselt f bei x = 4 das Vorzeichen? (Die Zeichnung zeigt den Graphen.)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      2,
+      7
+     ],
+     "y": [
+      -15,
+      15
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -2500,
+        2625,
+        -1100,
+        230,
+        -24,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": 4,
+       "y": 0
+      },
+      {
+       "x": 5,
+       "y": 0
+      }
+     ]
+    }
    },
    "a": [
     "Nein, die Nullstelle ist 1-fach (ungerade).",
@@ -2669,7 +3080,41 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "f(x) = (x + 1)³ · (x − 6)². Wechselt f bei x = 6 das Vorzeichen?"
+    "text": "f(x) = (x + 1)³ · (x − 6)². Wechselt f bei x = 6 das Vorzeichen? (Die Zeichnung zeigt den Graphen.)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      8
+     ],
+     "y": [
+      -800,
+      800
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        36,
+        96,
+        73,
+        3,
+        -9,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -1,
+       "y": 0
+      },
+      {
+       "x": 6,
+       "y": 0
+      }
+     ]
+    }
    },
    "a": [
     "Das hängt vom Leitkoeffizienten ab.",
@@ -2689,7 +3134,44 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "f(x) = (x − 3)⁴ · (x − 2)⁴. Wechselt f bei x = 2 das Vorzeichen?"
+    "text": "f(x) = (x − 3)⁴ · (x − 2)⁴. Wechselt f bei x = 2 das Vorzeichen? (Die Zeichnung zeigt den Graphen.)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      5
+     ],
+     "y": [
+      -5,
+      40
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        1296,
+        -4320,
+        6264,
+        -5160,
+        2641,
+        -860,
+        174,
+        -20,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": 2,
+       "y": 0
+      },
+      {
+       "x": 3,
+       "y": 0
+      }
+     ]
+    }
    },
    "a": [
     "Nein, die Nullstelle ist 4-fach (gerade).",
@@ -2709,7 +3191,39 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "f(x) = (x − 6) · (x − 5)². Wechselt f bei x = 5 das Vorzeichen?"
+    "text": "f(x) = (x − 6) · (x − 5)². Wechselt f bei x = 5 das Vorzeichen? (Die Zeichnung zeigt den Graphen.)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      3,
+      8
+     ],
+     "y": [
+      -6,
+      6
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -150,
+        85,
+        -16,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": 5,
+       "y": 0
+      },
+      {
+       "x": 6,
+       "y": 0
+      }
+     ]
+    }
    },
    "a": [
     "Das hängt vom Leitkoeffizienten ab.",
@@ -2729,7 +3243,43 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "f(x) = (x − 4)³ · (x − 6)⁴. Wechselt f bei x = 4 das Vorzeichen?"
+    "text": "f(x) = (x − 4)³ · (x − 6)⁴. Wechselt f bei x = 4 das Vorzeichen? (Die Zeichnung zeigt den Graphen.)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      2,
+      8
+     ],
+     "y": [
+      -80,
+      80
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -82944,
+        117504,
+        -70848,
+        23568,
+        -4672,
+        552,
+        -36,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": 4,
+       "y": 0
+      },
+      {
+       "x": 6,
+       "y": 0
+      }
+     ]
+    }
    },
    "a": [
     "Das hängt vom Leitkoeffizienten ab.",
@@ -2749,7 +3299,43 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "f(x) = (x + 1)³ · (x − 2)⁴. Wechselt f bei x = 2 das Vorzeichen?"
+    "text": "f(x) = (x + 1)³ · (x − 2)⁴. Wechselt f bei x = 2 das Vorzeichen? (Die Zeichnung zeigt den Graphen.)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      4
+     ],
+     "y": [
+      -150,
+      150
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        16,
+        16,
+        -24,
+        -16,
+        17,
+        3,
+        -5,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -1,
+       "y": 0
+      },
+      {
+       "x": 2,
+       "y": 0
+      }
+     ]
+    }
    },
    "a": [
     "Ja, die Nullstelle ist 4-fach (gerade).",
@@ -2769,7 +3355,43 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "f(x) = (x − 4)³ · x⁴. Wechselt f bei x = 0 das Vorzeichen?"
+    "text": "f(x) = (x − 4)³ · x⁴. Wechselt f bei x = 0 das Vorzeichen? (Die Zeichnung zeigt den Graphen.)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      6
+     ],
+     "y": [
+      -200,
+      200
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0,
+        0,
+        0,
+        0,
+        -64,
+        48,
+        -12,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 0
+      },
+      {
+       "x": 4,
+       "y": 0
+      }
+     ]
+    }
    },
    "a": [
     "Ja, die Nullstelle ist 4-fach (gerade).",
@@ -2789,7 +3411,42 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "f(x) = (x + 4)⁴ · (x + 3)². Wechselt f bei x = −3 das Vorzeichen?"
+    "text": "f(x) = (x + 4)⁴ · (x + 3)². Wechselt f bei x = −3 das Vorzeichen? (Die Zeichnung zeigt den Graphen.)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      -1
+     ],
+     "y": [
+      -2,
+      18
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        2304,
+        3840,
+        2656,
+        976,
+        201,
+        22,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -4,
+       "y": 0
+      },
+      {
+       "x": -3,
+       "y": 0
+      }
+     ]
+    }
    },
    "a": [
     "Nein, die Nullstelle ist 2-fach (gerade).",
@@ -2809,7 +3466,41 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "f(x) = (x + 4)³ · (x − 4)². Wechselt f bei x = 4 das Vorzeichen?"
+    "text": "f(x) = (x + 4)³ · (x − 4)². Wechselt f bei x = 4 das Vorzeichen? (Die Zeichnung zeigt den Graphen.)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -1000,
+      1500
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        1024,
+        256,
+        -128,
+        -32,
+        4,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -4,
+       "y": 0
+      },
+      {
+       "x": 4,
+       "y": 0
+      }
+     ]
+    }
    },
    "a": [
     "Ja, an jeder Nullstelle wechselt das Vorzeichen.",
@@ -2976,19 +3667,104 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Wie viele Lösungen kann eine Polynomgleichung vom Grad 5 höchstens haben?"
+    "text": "Welcher Funktionsterm passt zum gezeichneten Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      4
+     ],
+     "y": [
+      -8,
+      8
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0,
+        4,
+        -4,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 0
+      },
+      {
+       "x": 2,
+       "y": 0
+      }
+     ]
+    }
    },
    "a": [
-    "4",
-    "10",
-    "5",
-    "6"
+    "f(x) = x · (x + 2)²",
+    "f(x) = x² · (x − 2)",
+    "f(x) = x · (x − 2)²",
+    "f(x) = x² · (x − 2)²"
    ],
    "o": {
     "index": 2
    },
-   "w": "Eine Gleichung n-ten Grades hat höchstens n Lösungen, hier 5.",
-   "h": "Der Grad ist die Höchstzahl."
+   "w": "Nullstellen bei 0 und 2 (nicht 0, −2). Bei x = 0 schneidet der Graph die x-Achse (1-fach), bei x = 2 berührt er sie (2-fach).",
+   "h": "Lies die Nullstellen ab und achte darauf, ob der Graph die x-Achse schneidet oder nur berührt."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm passt zum gezeichneten Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      3
+     ],
+     "y": [
+      -15,
+      15
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -9,
+        3,
+        5,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 0
+      },
+      {
+       "x": 1,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "f(x) = (x + 3) · (x − 1)²",
+    "f(x) = (x + 3) · (x − 1)",
+    "f(x) = (x + 3)² · (x − 1)",
+    "f(x) = (x − 3)² · (x + 1)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Nullstellen bei −3 und 1 (nicht 3, −1). Bei x = −3 berührt der Graph die x-Achse (2-fach), bei x = 1 schneidet er sie (1-fach).",
+   "h": "Lies die Nullstellen ab und achte darauf, ob der Graph die x-Achse schneidet oder nur berührt."
   },
   {
    "l": "verstehen",
@@ -3018,6 +3794,60 @@
    "s": 2,
    "y": "auswahl",
    "f": {
+    "text": "Welcher Funktionsterm passt zum gezeichneten Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      0
+     ],
+     "y": [
+      -4,
+      14
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        128,
+        160,
+        72,
+        14,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -4,
+       "y": 0
+      },
+      {
+       "x": -2,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "f(x) = (x + 4)⁴ · (x + 2)",
+    "f(x) = (x + 4)³ · (x + 2)",
+    "f(x) = (x − 4)³ · (x − 2)",
+    "f(x) = (x + 4) · (x + 2)³"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Nullstellen bei −4 und −2 (nicht 4, 2). Bei x = −4 schneidet der Graph die x-Achse (3-fach), bei x = −2 schneidet er sie (1-fach).",
+   "h": "Lies die Nullstellen ab und achte darauf, ob der Graph die x-Achse schneidet oder nur berührt."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
     "text": "Jemand löst x³ = 36x, indem er durch x teilt, und erhält x = ±6. Was stimmt?"
    },
    "a": [
@@ -3036,127 +3866,55 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Bei x⁴ − 45x² + 324 = 0 gibt jemand als Lösung „z = 9 und z = 36“ an. Was fehlt?"
+    "text": "Welcher Funktionsterm passt zum gezeichneten Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      4
+     ],
+     "y": [
+      -1,
+      8
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        2,
+        -7,
+        9,
+        -5,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 0
+      },
+      {
+       "x": 2,
+       "y": 0
+      }
+     ]
+    }
    },
    "a": [
-    "Nichts, die Lösung ist vollständig.",
-    "Die Probe z = 45.",
-    "Nur x = 3 und x = 6.",
-    "Die Rücksubstitution: x = ±3 und x = ±6."
+    "f(x) = (x − 1) · (x − 2)³",
+    "f(x) = (x + 1)³ · (x + 2)",
+    "f(x) = (x − 1)⁴ · (x − 2)",
+    "f(x) = (x − 1)³ · (x − 2)"
    ],
    "o": {
     "index": 3
    },
-   "w": "z = x² war nur eine Hilfsvariable. Aus x² = 9 und x² = 36 folgen vier Lösungen.",
-   "h": "Wonach war gefragt: z oder x?"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand löst x³ = 25x, indem er durch x teilt, und erhält x = ±5. Was stimmt?"
-   },
-   "a": [
-    "Falsch: x = 25.",
-    "Richtig, mehr Lösungen gibt es nicht.",
-    "Unvollständig: Auch x = 0 ist Lösung.",
-    "Falsch: Nur x = 5 ist Lösung."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "x³ − 25x = x(x² − 25) = 0 ⇒ x = 0 oder x = ±5. Beim Teilen durch x geht x = 0 verloren.",
-   "h": "Was passiert beim Teilen mit x = 0?"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Bei x⁴ − 61x² + 900 = 0 gibt jemand als Lösung „z = 25 und z = 36“ an. Was fehlt?"
-   },
-   "a": [
-    "Die Rücksubstitution: x = ±5 und x = ±6.",
-    "Nur x = 5 und x = 6.",
-    "Die Probe z = 61.",
-    "Nichts, die Lösung ist vollständig."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "z = x² war nur eine Hilfsvariable. Aus x² = 25 und x² = 36 folgen vier Lösungen.",
-   "h": "Wonach war gefragt: z oder x?"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie viele Lösungen hat x⁴ + 8x² = 0?"
-   },
-   "a": [
-    "genau eine (x = 0)",
-    "vier",
-    "keine",
-    "zwei"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "x²(x² + 8) = 0 ⇒ x² = 0 ⇒ x = 0; x² + 8 = 0 ist unlösbar.",
-   "h": "Klammere x² aus und prüfe beide Faktoren."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Bei x⁴ − 17x² + 16 = 0 gibt jemand als Lösung „z = 1 und z = 16“ an. Was fehlt?"
-   },
-   "a": [
-    "Nichts, die Lösung ist vollständig.",
-    "Die Probe z = 17.",
-    "Nur x = 1 und x = 4.",
-    "Die Rücksubstitution: x = ±1 und x = ±4."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "z = x² war nur eine Hilfsvariable. Aus x² = 1 und x² = 16 folgen vier Lösungen.",
-   "h": "Wonach war gefragt: z oder x?"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie viele Lösungen hat x⁴ + 5x² = 0?"
-   },
-   "a": [
-    "vier",
-    "keine",
-    "genau eine (x = 0)",
-    "zwei"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "x²(x² + 5) = 0 ⇒ x² = 0 ⇒ x = 0; x² + 5 = 0 ist unlösbar.",
-   "h": "Klammere x² aus und prüfe beide Faktoren."
+   "w": "Nullstellen bei 1 und 2 (nicht −1, −2). Bei x = 1 schneidet der Graph die x-Achse (3-fach), bei x = 2 schneidet er sie (1-fach).",
+   "h": "Lies die Nullstellen ab und achte darauf, ob der Graph die x-Achse schneidet oder nur berührt."
   },
   {
    "l": "verstehen",
@@ -3168,13 +3926,13 @@
     "text": "Bei x⁴ − 20x² + 64 = 0 gibt jemand als Lösung „z = 4 und z = 16“ an. Was fehlt?"
    },
    "a": [
-    "Nichts, die Lösung ist vollständig.",
     "Nur x = 2 und x = 4.",
-    "Die Rücksubstitution: x = ±2 und x = ±4.",
-    "Die Probe z = 20."
+    "Nichts, die Lösung ist vollständig.",
+    "Die Probe z = 20.",
+    "Die Rücksubstitution: x = ±2 und x = ±4."
    ],
    "o": {
-    "index": 2
+    "index": 3
    },
    "w": "z = x² war nur eine Hilfsvariable. Aus x² = 4 und x² = 16 folgen vier Lösungen.",
    "h": "Wonach war gefragt: z oder x?"
@@ -3186,19 +3944,146 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Jemand löst x³ = 9x, indem er durch x teilt, und erhält x = ±3. Was stimmt?"
+    "text": "Welcher Funktionsterm passt zum gezeichneten Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      5
+     ],
+     "y": [
+      -8,
+      8
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -3,
+        7,
+        -5,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 0
+      },
+      {
+       "x": 3,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "f(x) = (x − 1)² · (x − 3)",
+    "f(x) = (x − 1) · (x − 3)²",
+    "f(x) = (x + 1)² · (x + 3)",
+    "f(x) = (x − 1) · (x − 3)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Nullstellen bei 1 und 3 (nicht −1, −3). Bei x = 1 berührt der Graph die x-Achse (2-fach), bei x = 3 schneidet er sie (1-fach).",
+   "h": "Lies die Nullstellen ab und achte darauf, ob der Graph die x-Achse schneidet oder nur berührt."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst x³ = 4x, indem er durch x teilt, und erhält x = ±2. Was stimmt?"
    },
    "a": [
     "Richtig, mehr Lösungen gibt es nicht.",
-    "Falsch: Nur x = 3 ist Lösung.",
-    "Unvollständig: Auch x = 0 ist Lösung.",
-    "Falsch: x = 9."
+    "Falsch: Nur x = 2 ist Lösung.",
+    "Falsch: x = 4.",
+    "Unvollständig: Auch x = 0 ist Lösung."
    ],
    "o": {
-    "index": 2
+    "index": 3
    },
-   "w": "x³ − 9x = x(x² − 9) = 0 ⇒ x = 0 oder x = ±3. Beim Teilen durch x geht x = 0 verloren.",
+   "w": "x³ − 4x = x(x² − 4) = 0 ⇒ x = 0 oder x = ±2. Beim Teilen durch x geht x = 0 verloren.",
    "h": "Was passiert beim Teilen mit x = 0?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat x⁴ + 2x² = 0?"
+   },
+   "a": [
+    "keine",
+    "zwei",
+    "vier",
+    "genau eine (x = 0)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "x²(x² + 2) = 0 ⇒ x² = 0 ⇒ x = 0; x² + 2 = 0 ist unlösbar.",
+   "h": "Klammere x² aus und prüfe beide Faktoren."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm passt zum gezeichneten Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      5
+     ],
+     "y": [
+      -10,
+      10
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0,
+        0,
+        -3,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 0
+      },
+      {
+       "x": 3,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "f(x) = x · (x − 3)",
+    "f(x) = x² · (x + 3)",
+    "f(x) = x · (x − 3)²",
+    "f(x) = x² · (x − 3)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Nullstellen bei 0 und 3 (nicht 0, −3). Bei x = 0 berührt der Graph die x-Achse (2-fach), bei x = 3 schneidet er sie (1-fach).",
+   "h": "Lies die Nullstellen ab und achte darauf, ob der Graph die x-Achse schneidet oder nur berührt."
   },
   {
    "l": "verstehen",
@@ -3207,18 +4092,50 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Bei x⁴ − 34x² + 225 = 0 gibt jemand als Lösung „z = 9 und z = 25“ an. Was fehlt?"
+    "text": "Welcher Funktionsterm passt zum gezeichneten Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      1,
+      6
+     ],
+     "y": [
+      -6,
+      6
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -48,
+        40,
+        -11,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": 3,
+       "y": 0
+      },
+      {
+       "x": 4,
+       "y": 0
+      }
+     ]
+    }
    },
    "a": [
-    "Nichts, die Lösung ist vollständig.",
-    "Nur x = 3 und x = 5.",
-    "Die Probe z = 34.",
-    "Die Rücksubstitution: x = ±3 und x = ±5."
+    "f(x) = (x − 3)² · (x − 4)²",
+    "f(x) = (x − 3)² · (x − 4)",
+    "f(x) = (x − 3) · (x − 4)²",
+    "f(x) = (x + 3) · (x + 4)²"
    ],
    "o": {
-    "index": 3
+    "index": 2
    },
-   "w": "z = x² war nur eine Hilfsvariable. Aus x² = 9 und x² = 25 folgen vier Lösungen."
+   "w": "Nullstellen bei 3 und 4 (nicht −3, −4). Bei x = 3 schneidet der Graph die x-Achse (1-fach), bei x = 4 berührt er sie (2-fach)."
   },
   {
    "l": "verstehen",
@@ -3227,23 +4144,83 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Bei x⁴ − 26x² + 25 = 0 gibt jemand als Lösung „z = 1 und z = 25“ an. Was fehlt?"
+    "text": "Wie viele Lösungen kann eine Polynomgleichung vom Grad 5 höchstens haben?"
    },
    "a": [
-    "Die Rücksubstitution: x = ±1 und x = ±5.",
-    "Die Probe z = 26.",
-    "Nichts, die Lösung ist vollständig.",
-    "Nur x = 1 und x = 5."
+    "4",
+    "10",
+    "5",
+    "6"
    ],
    "o": {
-    "index": 0
+    "index": 2
    },
-   "w": "z = x² war nur eine Hilfsvariable. Aus x² = 1 und x² = 25 folgen vier Lösungen."
+   "w": "Eine Gleichung n-ten Grades hat höchstens n Lösungen, hier 5."
   },
   {
    "l": "verstehen",
    "t": "verstehen",
    "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei x⁴ − 5x² + 4 = 0 gibt jemand als Lösung „z = 1 und z = 4“ an. Was fehlt?"
+   },
+   "a": [
+    "Nichts, die Lösung ist vollständig.",
+    "Nur x = 1 und x = 2.",
+    "Die Rücksubstitution: x = ±1 und x = ±2.",
+    "Die Probe z = 5."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "z = x² war nur eine Hilfsvariable. Aus x² = 1 und x² = 4 folgen vier Lösungen."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei x⁴ − 52x² + 576 = 0 gibt jemand als Lösung „z = 16 und z = 36“ an. Was fehlt?"
+   },
+   "a": [
+    "Die Probe z = 52.",
+    "Die Rücksubstitution: x = ±4 und x = ±6.",
+    "Nichts, die Lösung ist vollständig.",
+    "Nur x = 4 und x = 6."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "z = x² war nur eine Hilfsvariable. Aus x² = 16 und x² = 36 folgen vier Lösungen."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei x⁴ − 34x² + 225 = 0 gibt jemand als Lösung „z = 9 und z = 25“ an. Was fehlt?"
+   },
+   "a": [
+    "Nur x = 3 und x = 5.",
+    "Die Rücksubstitution: x = ±3 und x = ±5.",
+    "Die Probe z = 34.",
+    "Nichts, die Lösung ist vollständig."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "z = x² war nur eine Hilfsvariable. Aus x² = 9 und x² = 25 folgen vier Lösungen."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
    "s": 2,
    "y": "auswahl",
    "f": {
@@ -3263,42 +4240,22 @@
   {
    "l": "verstehen",
    "t": "verstehen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie viele Lösungen kann eine Polynomgleichung vom Grad 3 höchstens haben?"
-   },
-   "a": [
-    "2",
-    "4",
-    "3",
-    "6"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Eine Gleichung n-ten Grades hat höchstens n Lösungen, hier 3."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
    "p": "sicherung",
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Jemand löst x³ = 4x, indem er durch x teilt, und erhält x = ±2. Was stimmt?"
+    "text": "Jemand löst x³ = 9x, indem er durch x teilt, und erhält x = ±3. Was stimmt?"
    },
    "a": [
     "Unvollständig: Auch x = 0 ist Lösung.",
-    "Falsch: x = 4.",
-    "Falsch: Nur x = 2 ist Lösung.",
-    "Richtig, mehr Lösungen gibt es nicht."
+    "Falsch: x = 9.",
+    "Richtig, mehr Lösungen gibt es nicht.",
+    "Falsch: Nur x = 3 ist Lösung."
    ],
    "o": {
     "index": 0
    },
-   "w": "x³ − 4x = x(x² − 4) = 0 ⇒ x = 0 oder x = ±2. Beim Teilen durch x geht x = 0 verloren."
+   "w": "x³ − 9x = x(x² − 9) = 0 ⇒ x = 0 oder x = ±3. Beim Teilen durch x geht x = 0 verloren."
   },
   {
    "l": "verstehen",
@@ -3307,58 +4264,51 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Bei x⁴ − 52x² + 576 = 0 gibt jemand als Lösung „z = 16 und z = 36“ an. Was fehlt?"
+    "text": "Welcher Funktionsterm passt zum gezeichneten Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      6
+     ],
+     "y": [
+      -10,
+      20
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        64,
+        -112,
+        60,
+        -13,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 0
+      },
+      {
+       "x": 4,
+       "y": 0
+      }
+     ]
+    }
    },
    "a": [
-    "Die Probe z = 52.",
-    "Nur x = 4 und x = 6.",
-    "Die Rücksubstitution: x = ±4 und x = ±6.",
-    "Nichts, die Lösung ist vollständig."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "z = x² war nur eine Hilfsvariable. Aus x² = 16 und x² = 36 folgen vier Lösungen."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Bei x⁴ − 37x² + 36 = 0 gibt jemand als Lösung „z = 1 und z = 36“ an. Was fehlt?"
-   },
-   "a": [
-    "Die Rücksubstitution: x = ±1 und x = ±6.",
-    "Nur x = 1 und x = 6.",
-    "Die Probe z = 37.",
-    "Nichts, die Lösung ist vollständig."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "z = x² war nur eine Hilfsvariable. Aus x² = 1 und x² = 36 folgen vier Lösungen."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Bei x⁴ − 13x² + 36 = 0 gibt jemand als Lösung „z = 4 und z = 9“ an. Was fehlt?"
-   },
-   "a": [
-    "Nichts, die Lösung ist vollständig.",
-    "Die Rücksubstitution: x = ±2 und x = ±3.",
-    "Die Probe z = 13.",
-    "Nur x = 2 und x = 3."
+    "f(x) = (x − 1)² · (x − 4)³",
+    "f(x) = (x − 1) · (x − 4)³",
+    "f(x) = (x + 1) · (x + 4)³",
+    "f(x) = (x − 1)³ · (x − 4)"
    ],
    "o": {
     "index": 1
    },
-   "w": "z = x² war nur eine Hilfsvariable. Aus x² = 4 und x² = 9 folgen vier Lösungen."
+   "w": "Nullstellen bei 1 und 4 (nicht −1, −4). Bei x = 1 schneidet der Graph die x-Achse (1-fach), bei x = 4 schneidet er sie (3-fach)."
   },
   {
    "l": "verstehen",
@@ -3367,42 +4317,74 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Bei x⁴ − 29x² + 100 = 0 gibt jemand als Lösung „z = 4 und z = 25“ an. Was fehlt?"
+    "text": "Jemand löst x³ = 25x, indem er durch x teilt, und erhält x = ±5. Was stimmt?"
    },
    "a": [
-    "Die Probe z = 29.",
-    "Die Rücksubstitution: x = ±2 und x = ±5.",
-    "Nichts, die Lösung ist vollständig.",
-    "Nur x = 2 und x = 5."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "z = x² war nur eine Hilfsvariable. Aus x² = 4 und x² = 25 folgen vier Lösungen."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Bei x⁴ − 41x² + 400 = 0 gibt jemand als Lösung „z = 16 und z = 25“ an. Was fehlt?"
-   },
-   "a": [
-    "Die Probe z = 41.",
-    "Nichts, die Lösung ist vollständig.",
-    "Nur x = 4 und x = 5.",
-    "Die Rücksubstitution: x = ±4 und x = ±5."
+    "Richtig, mehr Lösungen gibt es nicht.",
+    "Falsch: Nur x = 5 ist Lösung.",
+    "Falsch: x = 25.",
+    "Unvollständig: Auch x = 0 ist Lösung."
    ],
    "o": {
     "index": 3
    },
-   "w": "z = x² war nur eine Hilfsvariable. Aus x² = 16 und x² = 25 folgen vier Lösungen."
+   "w": "x³ − 25x = x(x² − 25) = 0 ⇒ x = 0 oder x = ±5. Beim Teilen durch x geht x = 0 verloren."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm passt zum gezeichneten Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      3
+     ],
+     "y": [
+      -6,
+      6
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0,
+        0,
+        -1,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 0
+      },
+      {
+       "x": 1,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "f(x) = x² · (x − 1)",
+    "f(x) = x · (x − 1)",
+    "f(x) = x · (x − 1)²",
+    "f(x) = x² · (x + 1)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Nullstellen bei 0 und 1 (nicht 0, −1). Bei x = 0 berührt der Graph die x-Achse (2-fach), bei x = 1 schneidet er sie (1-fach)."
   }
  ],
  "offen": [
-  "Lehrplan: „Graph skizzieren, mit Software prüfen“ – braucht Funktionsgraphen (Nullstellen mit Berühren/Schneiden der x-Achse). Bisher nur rechnerisch und in Worten.",
+  "Zeichnungen: Graphen in den Lernkarten „ausklammern“, „substitution“, „vielfachheit“, „verstehen“; Aufgaben zum Vorzeichenwechsel und „Welcher Term passt zum Graphen?“ zeigen den Graphen. Selbst skizzieren kann das Kind in der App noch nicht (Lehrplan: „Graph skizzieren“).",
   "Polynomdivision ist nicht enthalten (lehrplan_gym nennt nur Ausklammern und Substitution).",
   "Lösungen werden als Lücken „x₁ = □; …“ ohne Wiederholung (aufsteigend) abgefragt; die Anzahl der Lücken verrät, wie viele Lösungen es gibt. Wer das vermeiden will, braucht einen Antworttyp „Lösungsmenge“.",
   "Rechenausdruck c bei Lücken: „x + f(x)“ – ergibt nur dann x, wenn f(x) = 0, prüft also jede Lösung durch Einsetzen."

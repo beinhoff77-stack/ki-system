@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-14 15:24 – STATUS
+7/14 funktionen.folgen fertig: 5 Lernkarten (explizit, rekursiv, arithmetisch, geometrisch, erkennen/Fehler finden), 140 Aufgaben, Prüfskript OK. Summen/Reihen bewusst ins Thema funktionen.reihen verschoben (offen).
+
 ## 2026-11-14 15:22 – STATUS
 6/14 funktionen.betrag fertig: 5 Lernkarten (Betrag berechnen, Graph/Knickpunkt, stückweise, Betragsgleichungen, Aussagen prüfen), 140 Aufgaben, V-Graphen aus zwei Geradenstücken, Prüfskript OK.
 

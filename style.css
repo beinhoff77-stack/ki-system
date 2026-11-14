@@ -3616,3 +3616,14 @@ body[data-kindmodus] .lern-abmelden, body[data-kindmodus] .app-version { display
   .lp-tabelle td:nth-child(4) { display: block; font-size: .82rem; margin-top: 2px; }
   .lp-tabelle td:nth-child(4):empty { display: none; }
 }
+
+/* W150: Lernstand („Was wackelt?“) */
+.ls-liste { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.ls-karte { border: 1px solid var(--border); border-left: 5px solid #9AA6B2; border-radius: 10px; padding: 8px 10px; display: flex; flex-direction: column; gap: 2px; background: var(--surface); }
+.ls-kopf { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
+.ls-zustand { font-size: .82rem; font-weight: 700; white-space: nowrap; }
+.ls-ok { border-left-color: var(--ok); } .ls-ok .ls-zustand { color: var(--ok); }
+.ls-wackelt.ls-karte { border-left-color: var(--err); } .ls-karte.ls-wackelt .ls-zustand { color: var(--err); }
+.ls-ueben { border-left-color: #C99A00; } .ls-wdh { border-left-color: var(--info); }
+.ls-fehler summary { cursor: pointer; font-size: .85rem; min-height: 32px; display: flex; align-items: center; }
+.ls-falsch { color: var(--err); } .ls-richtig { color: var(--ok); font-weight: 700; }

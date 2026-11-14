@@ -194,6 +194,8 @@ async function viewLernen() {
       ko ? el('p', { class: 'small muted' }, `${ko.stempel} Stempel · ${lernZahl(ko.sterne)} Sterne · ${ko.lerntage} Lerntage`) : null,
       el('span', { class: 'lern-kindkarte-los' }, 'Lernreise öffnen ›'));
   });
+  const standKarten = u.leitung ? (u.lernende || []).filter((k) => !k.ist_test).map((k) => el('a', { class: 'card lern-kindkarte', href: `#/lernstand/${k.id}` },
+    el('b', {}, `Lernstand ${k.name}`), el('p', { class: 'small muted' }, 'Was sitzt, was wackelt – mit den echten falschen Antworten.'), el('span', { class: 'lern-kindkarte-los' }, 'Ansehen ›'))) : [];
   const offen = (rm?.rueckmeldungen || []).filter((r) => ['offen', 'in_arbeit'].includes(r.status)).length;
   const planKarten = u.leitung ? (u.lernende || []).filter((k) => !k.ist_test).map((k) => el('a', { class: 'card lern-kindkarte', href: `#/plan/${k.id}` },
     el('b', {}, `Themenplan ${k.name}`),
@@ -206,6 +208,7 @@ async function viewLernen() {
       el('a', { class: 'card lern-kindkarte lp-hauptkarte', href: '#/lehrplan' }, el('b', {}, 'Lehrplan-Übersicht'),
         el('p', { class: 'small muted' }, 'Alle Themen je Schulart und Klasse: was fertig ist, was in Prüfung ist, was noch fehlt – mit Inhalten zum Ansehen.'),
         el('span', { class: 'lern-kindkarte-los' }, 'Öffnen ›')),
+      ...standKarten,
       ...planKarten,
       el('a', { class: 'card lern-kindkarte', href: '#/rueckmeldungen' }, el('b', {}, 'Rückmeldungen an die Entwicklung'),
         el('p', { class: 'small muted' }, offen ? `${offen} offen` : 'Thema fehlt, zu ungenau, mehr Aufgaben … hier eintragen'), el('span', { class: 'lern-kindkarte-los' }, 'Öffnen ›')),
@@ -1671,6 +1674,44 @@ async function viewInhalte(arg) {
     lernAnmerkung({ einheit_id: id }, 'Anmerkung zum ganzen Thema'),
     ...karten,
     ohneKarte.length ? el('details', { class: 'card lp-karte' }, el('summary', {}, el('b', {}, `Test- und Nachtestaufgaben ohne Karte (${ohneKarte.length})`)), tabelle(ohneKarte)) : null].filter(Boolean));
+}
+
+// ---------- Eltern/Lehrer: „Was wackelt?“ – Lernstand je Lernkarte mit den echten falschen Antworten ----------
+async function viewLernstand(arg) {
+  setChrome('Lernstand', { back: true, showTabs: false });
+  const live = viewGuard();
+  const kindId = Number(arg);
+  if (!kindId) { route('lernen'); return; }
+  loading();
+  const d = await lernCall('schule_lernstand', { lernender_id: kindId });
+  if (!live()) return;
+  $('#title').textContent = 'Lernstand ' + d.kind.name;
+  const tag = (t) => new Date(t).toLocaleDateString('de-DE', { day: 'numeric', month: 'numeric' });
+  const zustand = (k) => k.faellig ? ['wiederholen', 'wdh'] : k.sitzt ? ['sitzt', 'ok']
+    : k.falsch >= 3 && k.falsch > k.richtig ? ['wackelt', 'wackelt'] : k.richtig + k.falsch ? ['am Üben', 'ueben'] : ['noch nicht geübt', 'neu'];
+  const karte = (k) => {
+    const [text, kl] = zustand(k);
+    return el('li', { class: 'ls-karte ls-' + kl },
+      el('div', { class: 'ls-kopf' }, el('b', {}, k.titel), el('span', { class: 'ls-zustand' }, text)),
+      k.richtig + k.falsch ? el('small', { class: 'muted' }, `${k.richtig} richtig · ${k.falsch} falsch` + (k.mit_tipp ? ` · ${k.mit_tipp}-mal Tipp` : '') + (k.zuletzt ? ` · zuletzt ${tag(k.zuletzt)}` : '')) : null,
+      (k.fehler || []).length ? el('details', { class: 'ls-fehler' }, el('summary', {}, `Letzte falsche Antworten (${k.fehler.length})`),
+        ...k.fehler.map((f) => { const a = { antworttyp: f.antworttyp, antworten: f.antworten, loesung: f.loesung, frage: { text: f.frage, schablone: f.schablone, grafik: f.grafik } };
+          return el('p', { class: 'small' }, el('span', {}, lernText(f.frage || '')), el('br'), el('span', { class: 'ls-falsch' }, 'Antwort: ' + (lernAntwortText(a, f.antwort || {}) || '–')),
+            ' · ', el('span', { class: 'ls-richtig' }, 'richtig: ' + lernLoesungText(a))); })) : null);
+  };
+  const wackelt = (d.einheiten || []).flatMap((e) => (e.karten || []).filter((k) => zustand(k)[1] === 'wackelt').map((k) => ({ ...k, ort: e.ort, thema: e.titel })));
+  const w = d.woche || {};
+  lernErsetze(main,
+    el('section', { class: 'start-intro' }, el('p', { class: 'eyebrow' }, 'LERNSTAND'), el('h2', {}, d.kind.name),
+      el('p', {}, `Letzte 7 Tage: ${w.aufgaben || 0} Aufgaben, davon ${w.richtig || 0} richtig` + (w.mit_tipp ? `, ${w.mit_tipp}-mal mit Tipp` : '') + `. Lerntage in 4 Wochen: ${(d.lerntage || []).length}` + ((d.lerntage || []).length ? ` (zuletzt ${tag(d.lerntage[0])})` : '') + '.')),
+    el('section', { class: 'card ls-wackelt' }, el('h3', {}, 'Was wackelt?'),
+      wackelt.length ? el('ul', { class: 'ls-liste' }, ...wackelt.map((k) => el('li', { class: 'ls-karte ls-wackelt' }, el('div', { class: 'ls-kopf' }, el('b', {}, k.titel), el('span', { class: 'ls-zustand' }, `${k.falsch} falsch`)), el('small', { class: 'muted' }, `${k.ort || ''} · ${k.thema}`))))
+        : el('p', { class: 'muted' }, 'Im Moment nichts: Keine Lernkarte hat deutlich mehr falsche als richtige Antworten.'),
+      el('p', { class: 'small muted' }, '„Wackelt“ heißt: mindestens 3 falsche Antworten und mehr falsche als richtige. Ein Gespräch über genau diese eine Regel hilft meist mehr als weitere Aufgaben.')),
+    ...((d.einheiten || []).length ? d.einheiten.map((e) => el('section', { class: 'card' },
+      el('div', { class: 'lern-einheit-kopf' }, el('h3', {}, `${e.ort ? e.ort + ': ' : ''}${e.titel}`), el('a', { class: 'small', href: `#/inhalte/${e.einheit_id}` }, 'Inhalte ansehen')),
+      el('p', { class: 'small muted' }, `${(e.karten || []).filter((k) => k.sitzt).length} von ${(e.karten || []).length} Lernkarten sitzen` + (e.zuletzt ? ` · zuletzt ${tag(e.zuletzt)}` : '')),
+      el('ul', { class: 'ls-liste' }, ...(e.karten || []).map(karte)))) : [el('p', { class: 'card muted' }, 'Noch nichts gelernt.')]));
 }
 
 // ---------- Wiederholen: fällige Lernkarten, je eine Aufgabe ----------

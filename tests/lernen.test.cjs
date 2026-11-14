@@ -70,6 +70,12 @@ async function setup(t, opt = {}) {
     if (b.aktion === 'schule_eltern' && rolle !== 'eltern') { await route.fulfill({ status: 400, contentType: 'application/json', body: JSON.stringify({ ok: false, fehler: 'Nur Eltern' }) }); return; }
     if (b.aktion === 'schule_rueckmeldungen') e = { ok: true, rueckmeldungen: [{ id: 4, von: 'lehrer:Herr Lehrer', art: 'mehr_aufgaben', text: 'Mehr Aufgaben zum Runden.', status: 'erledigt', antwort: '6 neue Aufgaben ergänzt.', am: '2026-11-14T09:00:00Z', ort: 'Rom – Natürliche Zahlen' }] };
     if (['schule_rueckmeldung_geben', 'schule_plan_setzen', 'schule_notiz_setzen', 'schule_kind_setzen'].includes(b.aktion)) e = { ok: true, id: 1 };
+    if (b.aktion === 'schule_lernstand') e = { ok: true, kind: { id: 1, name: 'Kind A', klasse: 5 }, lerntage: ['2026-11-14', '2026-11-12'], woche: { aufgaben: 30, richtig: 22, mit_tipp: 4 },
+      einheiten: [{ einheit_id: 1, titel: 'Natürliche Zahlen', ort: 'Rom', status: 'geprueft', zuletzt: '2026-11-14T08:00:00Z', karten: [
+        { lernziel: 'stellenwert', titel: 'Welchen Wert hat eine Ziffer?', serie: 2, ziel: 2, sitzt: true, richtig: 6, falsch: 1, mit_tipp: 0, faellig: false, zuletzt: '2026-11-14T08:00:00Z', fehler: [] },
+        { lernziel: 'runden', titel: 'Runden', serie: 0, ziel: 4, sitzt: false, richtig: 2, falsch: 5, mit_tipp: 3, faellig: false, zuletzt: '2026-11-14T08:00:00Z',
+          fehler: [{ frage: 'Runde 929 773 auf Tausender.', antwort: { wert: '929 000' }, antworttyp: 'zahl', loesung: { wert: 930000 }, am: '2026-11-14T08:00:00Z' }] },
+        { lernziel: 'strahl', titel: 'Zahlenstrahl', serie: 0, ziel: 2, sitzt: false, richtig: 0, falsch: 0, mit_tipp: 0, faellig: false, fehler: [] }] }] };
     if (b.aktion === 'schule_lehrplan_uebersicht') e = { ok: true, kinder: [{ id: 1, name: 'Kind A', klasse: 5, schulart: 'gym_by' }, { id: 2, name: 'Kind B', klasse: 8, schulart: 'gym_by' }],
       themen: [
         { thema_id: 1, titel: 'Große natürliche Zahlen', gebiet: 'Zahlen', ort: 'Rom', block_id: 49, jahrgang: { gym_by: 5, rs_by: 5, ib_myp: 1 }, einheit: { id: 1, status: 'geprueft', karten: 3, aufgaben: 24, neu: 6 }, stand: { 1: 'erledigt', 2: 'keine_einheit' }, geplant: [], rueckmeldungen: 1 },
@@ -388,6 +394,21 @@ test('Zeichnungen: Koordinatensystem, Figur, Diagramme und Tabelle in den Erklä
   fs.mkdirSync(path.join(root, 'test-results'), { recursive: true });
   for (const [i, n] of ['gerade', 'hyperbel', 'sinus', 'dreieck', 'thales', 'saeulen', 'kreisd', 'box', 'baum'].entries())
     await page.locator('svg.lern-zeichnung').nth(i).screenshot({ path: path.join(root, `test-results/zeichnung-${n}.png`) });
+});
+
+test('Lernstand: Was wackelt – je Lernkarte mit den echten falschen Antworten', async (t) => {
+  const { page } = await setup(t);
+  await page.goto(origin + '/#/lernen');
+  await page.getByRole('link', { name: /Lernstand Kind A/ }).click();
+  await page.getByRole('heading', { name: 'Was wackelt?' }).waitFor();
+  await page.locator('.ls-wackelt .ls-karte', { hasText: 'Runden' }).getByText('5 falsch').waitFor();
+  await page.getByText('Letzte 7 Tage: 30 Aufgaben, davon 22 richtig, 4-mal mit Tipp.', { exact: false }).waitFor();
+  await page.getByText('Letzte falsche Antworten (1)').click();
+  await page.getByText('Antwort: 929 000').waitFor();
+  await page.getByText('richtig: 930 000').waitFor();
+  await page.locator('.ls-karte.ls-ok', { hasText: 'Welchen Wert hat eine Ziffer?' }).waitFor();
+  fs.mkdirSync(path.join(root, 'test-results'), { recursive: true });
+  await page.screenshot({ path: path.join(root, 'test-results/lernstand-390.png'), fullPage: true });
 });
 
 test('Kinderplan: Schulart und Klasse setzen', async (t) => {

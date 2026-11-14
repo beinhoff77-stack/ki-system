@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="de" class="dunkel">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Entwurf „Abflug“ – Mathe-Lernreise</title>
+<!-- Gestaltungsentwurf (Prüfrunde Gestaltung), kein App-Code. Eine Datei, keine fremden Abhängigkeiten.
+     Schriften: Space Grotesk und JetBrains Mono (SIL OFL 1.1), eingebettet. Karte: Natural Earth (gemeinfrei). -->
+<style>
+@font-face { font-family: "Grotesk"; src: url(/*SCHRIFT:space-grotesk*/) format("woff2"); font-weight: 300 700; }
+@font-face { font-family: "Mono"; src: url(/*SCHRIFT:jetbrains-mono*/) format("woff2"); font-weight: 100 800; }
+:root { /* Tag */
+  --bg: #F3F1EA; --flaeche: #FFFFFF; --flaeche2: #E7E4DA; --linie: #C9C4B6; --text: #11161D; --leise: #4A5563;
+  --gelb: #FFD23F; --auf-gelb: #11161D; --tafel: #11161D; --tafel-text: #FFD23F; --tafel-kachel: #1E2630;
+  --gut: #0B7A4B; --gut-bg: #DDF3E8; --kurs: #A8410F; --kurs-bg: #FFE9DC; --info: #0B5F8A;
+  --ui: "Grotesk", system-ui, sans-serif; --mono: "Mono", ui-monospace, monospace; color-scheme: light;
+}
+html.dunkel { /* Nacht */
+  --bg: #0B0F14; --flaeche: #151B24; --flaeche2: #1D2530; --linie: #2E3947; --text: #F2F4F7; --leise: #A9B3C1;
+  --gelb: #FFD23F; --auf-gelb: #11161D; --tafel: #05080C; --tafel-text: #FFD23F; --tafel-kachel: #161D27;
+  --gut: #45E0A0; --gut-bg: #0F2E22; --kurs: #FFAD7A; --kurs-bg: #33201A; --info: #7CCBFF; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--text); font: 500 18px/1.4 var(--ui); -webkit-font-smoothing: antialiased; font-variant-numeric: tabular-nums; }
+button { font: inherit; color: inherit; cursor: pointer; }
+:focus-visible { outline: 3px solid var(--gelb); outline-offset: 3px; }
+#app { min-height: 100dvh; }
+.mono { font-family: var(--mono); }
+.ueber { font: 700 16px var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--leise); margin: 0; }
+/* Abflugtafel */
+.tafel-seite { padding: 18px 14px 120px; max-width: 1100px; margin: 0 auto; }
+.tafel-kopf { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin: 4px 4px 14px; }
+.tafel-kopf h1 { margin: 0; font: 700 30px var(--ui); letter-spacing: -.02em; }
+.tafel { background: var(--tafel); border-radius: 16px; padding: 10px; color: var(--tafel-text); font-family: var(--mono); }
+.tzeile { display: grid; grid-template-columns: 1.3fr 1fr; gap: 6px 12px; align-items: center; padding: 12px 8px; border-bottom: 1px solid #ffffff1a; width: 100%; text-align: left; background: none; border-left: 0; border-right: 0; border-top: 0; color: inherit; font-family: var(--mono); min-height: 64px; }
+.tzeile:last-child { border-bottom: 0; }
+.tzeile .ziel { font-size: 20px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
+.tzeile .thema { grid-column: 1; font-size: 16px; color: #E9EDF2; font-weight: 500; letter-spacing: 0; }
+.tzeile .status { grid-row: 1 / span 2; grid-column: 2; justify-self: end; text-align: right; font-size: 16px; font-weight: 800; letter-spacing: .06em; }
+.tzeile .status small { display: block; color: #C3CCD8; font-weight: 500; letter-spacing: 0; font-size: 16px; }
+.tzeile .status.st-jetzt small { color: #11161D; }
+.st-jetzt { color: #11161D; background: var(--gelb); padding: 6px 10px; border-radius: 6px; }
+.st-geschafft { color: #45E0A0; } .st-offen { color: #E9EDF2; } .st-spaeter { color: #9AA6B5; }
+.tzeile.erste { padding: 16px 8px 18px; }
+.klappen { display: flex; gap: 3px; margin: 2px 0 6px; flex-wrap: wrap; }
+.klappen span { display: grid; place-items: center; width: 30px; height: 42px; background: var(--tafel-kachel); border-radius: 4px; font: 800 26px var(--mono); position: relative; color: var(--tafel-text); }
+.klappen span::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: #00000099; }
+.klappen.anim span { animation: klappe .5s steps(3) both; } .klappen.anim span:nth-child(n) { animation-delay: calc(var(--i) * 40ms); }
+@keyframes klappe { 0% { transform: scaleY(.1); } 100% { transform: none; } }
+.tafel-unter { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 4px; }
+.routevorschau { display: block; width: 100%; max-width: 640px; padding: 0; border: 0; background: none; border-radius: 18px; overflow: hidden; margin-top: 4px; }
+.chip { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px; border-radius: 99px; background: var(--flaeche); border: 1px solid var(--linie); font: 700 16px var(--mono); color: var(--text); }
+/* Großer gelber Knopf im Daumenbereich */
+.einsteigen { position: fixed; left: 14px; right: 84px; bottom: calc(14px + env(safe-area-inset-bottom)); min-height: 64px; border: 0; border-radius: 16px; background: var(--gelb); color: var(--auf-gelb); font: 700 22px var(--ui); display: flex; align-items: center; justify-content: space-between; padding: 0 22px; z-index: 20; box-shadow: 0 10px 30px #0006; }
+.einsteigen .mono { font-size: 18px; }
+.menueknopf { position: fixed; right: 14px; bottom: calc(14px + env(safe-area-inset-bottom)); width: 60px; height: 64px; border-radius: 16px; border: 1px solid var(--linie); background: var(--flaeche); z-index: 20; display: grid; place-items: center; font: 700 16px var(--ui); }
+.menueknopf svg { width: 26px; height: 26px; }
+.blatt { position: fixed; inset: auto 0 0 0; background: var(--flaeche); border-radius: 22px 22px 0 0; padding: 10px 14px calc(18px + env(safe-area-inset-bottom)); z-index: 40; box-shadow: 0 -10px 40px #0007; animation: hoch .25s ease-out; max-width: 560px; margin: 0 auto; }
+.blatt::before { content: ""; display: block; width: 44px; height: 5px; border-radius: 3px; background: var(--linie); margin: 0 auto 12px; }
+.blatt button { display: flex; align-items: center; justify-content: space-between; width: 100%; min-height: 56px; padding: 0 12px; border: 0; border-bottom: 1px solid var(--linie); background: none; font: 600 19px var(--ui); text-align: left; }
+.blatt button:last-child { border-bottom: 0; } .blatt kbd { font: 600 16px var(--mono); color: var(--leise); }
+.schleier { position: fixed; inset: 0; background: #0008; z-index: 39; border: 0; }
+@keyframes hoch { from { transform: translateY(40px); opacity: 0; } }
+/* Thema: Stapel aus Sicherheitskarte, Bordkarten, Turbulenzen */
+.flug { min-height: 100dvh; display: flex; flex-direction: column; max-width: 1180px; margin: 0 auto; }
+.flugkopf { display: flex; align-items: center; gap: 10px; padding: 10px 12px 8px; }
+.zu { width: 48px; height: 48px; border-radius: 14px; border: 1px solid var(--linie); background: var(--flaeche); font: 700 22px var(--ui); display: grid; place-items: center; flex: none; }
+.flugkopf .wo { min-width: 0; flex: 1; }
+.flugkopf .wo b { display: block; font: 700 19px/1.2 var(--ui); }
+.stapel { display: flex; gap: 4px; padding: 0 12px 8px; }
+.stapel button { flex: 1; min-height: 44px; border: 0; background: none; padding: 0; display: flex; flex-direction: column; gap: 4px; align-items: stretch; font: 700 16px var(--mono); color: var(--leise); text-transform: uppercase; letter-spacing: .04em; }
+.stapel button i { height: 5px; border-radius: 3px; background: var(--linie); display: block; }
+.stapel button.an { color: var(--text); } .stapel button.an i { background: var(--gelb); }
+.flugflaeche { flex: 1; display: flex; flex-direction: column; padding: 0 12px 12px; }
+.einfahren { animation: einfahren .3s ease-out; }
+@keyframes einfahren { from { transform: translateY(30px); opacity: 0; } }
+/* Sicherheitskarte: nummerierte Bildfelder, eins nach dem anderen */
+.sicherheit { background: var(--flaeche); border-radius: 20px; padding: 14px; flex: 1; display: flex; flex-direction: column; }
+.sk-raster { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; flex: 1; }
+.sk-feld { position: relative; border-radius: 14px; border: 2px solid var(--linie); background: var(--flaeche2); padding: 34px 8px 10px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; text-align: center; min-height: 160px; overflow: hidden; }
+.sk-feld .n { position: absolute; top: 6px; left: 8px; width: 28px; height: 28px; border-radius: 50%; background: var(--gelb); color: #11161D; font: 800 16px var(--mono); display: grid; place-items: center; }
+.sk-feld p { margin: 6px 0 0; font: 600 16px/1.3 var(--ui); }
+.sk-feld.zu-noch { border-style: dashed; background: transparent; justify-content: center; color: var(--leise); }
+.sk-feld.zu-noch .n { background: var(--linie); color: var(--text); }
+.sk-feld.an { border-color: var(--gelb); }
+.sk-feld .bild { width: 100%; display: grid; place-items: center; }
+.sk-feld .k-tafel { font-size: 24px; border-spacing: 2px; } .sk-feld .k-tafel td { width: 32px; height: 44px; } .sk-feld .k-tafel-wert, .sk-feld .k-tafel-notiz { font-size: 20px; }
+.sk-feld .k-koord { max-width: 150px; }
+.sk-regel { margin: 12px 2px 0; font: 600 18px/1.35 var(--ui); padding-left: 12px; border-left: 4px solid var(--gelb); }
+/* Bordkarte */
+.bordkarte { position: relative; background: var(--flaeche); border-radius: 20px; display: flex; flex-direction: column; flex: 1; overflow: hidden; }
+.bk-oben { padding: 16px 18px 12px; }
+.bk-oben .zeile { display: flex; justify-content: space-between; gap: 8px; }
+.bk-frage { font: 700 24px/1.25 var(--ui); margin: 10px 0 0; letter-spacing: -.01em; }
+html[data-alter="klein"] .bk-frage { font-size: 26px; }
+.perfo { height: 0; border-top: 3px dashed var(--linie); margin: 0 14px; position: relative; }
+.perfo::before, .perfo::after { content: ""; position: absolute; top: -14px; width: 26px; height: 26px; border-radius: 50%; background: var(--bg); }
+.perfo::before { left: -27px; } .perfo::after { right: -27px; }
+.bk-anzeige { display: flex; justify-content: center; gap: 4px; padding: 14px 10px 6px; min-height: 92px; align-items: flex-end; }
+.bk-anzeige .k { width: 40px; text-align: center; }
+.bk-anzeige .k small { display: block; font: 700 16px var(--mono); color: var(--leise); margin-bottom: 4px; }
+.bk-anzeige .k span { display: grid; place-items: center; height: 58px; border-radius: 8px; background: var(--tafel); color: var(--tafel-text); font: 800 34px var(--mono); position: relative; }
+.bk-anzeige .k span::after { content: ""; position: absolute; left: 0; right: 0; top: 50%; height: 1px; background: #0009; }
+.bk-anzeige .leer { color: transparent !important; }
+.bk-anzeige.lang { font: 800 40px var(--mono); }
+.bk-stubs { display: flex; align-items: center; justify-content: center; gap: 8px; font: 600 16px var(--ui); color: var(--leise); padding: 4px 0 10px; }
+.bk-stubs i { width: 30px; height: 20px; border-radius: 4px; border: 2px dashed var(--gut); display: inline-block; } .bk-stubs i.voll { background: var(--gut); border-style: solid; }
+.bk-hinweis { text-align: center; font-weight: 700; color: var(--kurs); min-height: 24px; margin: 0; }
+.tasten { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; padding: 8px 10px 10px; background: var(--flaeche2); margin-top: auto; }
+.tasten button { min-height: 54px; border-radius: 12px; border: 0; background: var(--flaeche); font: 700 26px var(--mono); }
+.tasten button:active { background: var(--linie); }
+.tasten .textknopf { font: 600 17px var(--ui); background: none; min-height: 44px; }
+.tasten .pruef { grid-column: span 2; background: var(--gelb); color: var(--auf-gelb); font: 700 22px var(--ui); }
+.unterzeile { display: flex; justify-content: space-between; padding: 0 6px; }
+.textknopf { border: 0; background: none; min-height: 44px; padding: 0 10px; font: 600 17px var(--ui); color: var(--text); text-decoration: underline; text-underline-offset: 4px; }
+.tippband { margin: 10px 18px 0; padding: 10px 14px; border-radius: 12px; background: var(--flaeche2); font-size: 17px; }
+.k-strahl { width: 100%; max-width: 460px; display: block; margin: 0 auto; overflow: visible; }
+.k-achse, .k-strich { stroke: var(--text); stroke-width: 3; stroke-linecap: round; } .k-spitze { fill: var(--text); }
+.k-wert, .k-zaehl { font: 700 17px var(--mono); fill: var(--text); text-anchor: middle; } .k-zaehl { fill: var(--info); }
+.k-marker { fill: var(--gelb); stroke: var(--text); stroke-width: 2; } .k-loesung { fill: none; stroke: var(--gut); stroke-width: 4; }
+.k-griff-ring { fill: var(--gelb); stroke: var(--text); stroke-width: 3; } .k-griff-kern { fill: #11161D; } .k-griff-start { opacity: .5; }
+.ziehbar { touch-action: none; cursor: grab; }
+.k-tafel { border-collapse: separate; border-spacing: 3px; font: 800 30px var(--mono); }
+.k-tafel th { font: 700 16px var(--mono); color: var(--leise); }
+.k-tafel td { width: 44px; height: 54px; text-align: center; background: var(--tafel); color: var(--tafel-text); border-radius: 6px; }
+.k-tafel .an { outline: 3px solid var(--gelb); outline-offset: 1px; } .k-tafel th.an { outline: 0; color: var(--text); }
+.k-tafel-notiz, .k-tafel-wert { font: 800 26px var(--mono); margin: 6px 0 0; text-align: center; color: var(--text); }
+.k-koord { width: 100%; max-width: 280px; } .k-gitter { stroke: var(--linie); stroke-width: 1.2; } .k-gerade { stroke: var(--gelb); stroke-width: 4; }
+.k-dreieck { stroke: var(--info); stroke-width: 4; stroke-linecap: round; }
+/* richtig: Abriss fliegt weg; falsch: Kurskorrektur */
+.abriss { position: absolute; right: 14px; top: 12px; padding: 10px 14px; border: 2px dashed var(--gut); border-radius: 10px; color: var(--gut); font: 800 18px var(--mono); background: var(--flaeche); animation: abriss .7s cubic-bezier(.3,1.5,.5,1); transform: rotate(6deg); }
+@keyframes abriss { 0% { transform: rotate(0) translate(-60px, 40px); opacity: 0; } 100% { transform: rotate(6deg); } }
+.ergebnis { margin: 0 14px 12px; border-radius: 16px; padding: 14px 16px; }
+.ergebnis.gut { background: var(--gut-bg); color: var(--gut); font: 700 20px var(--ui); display: flex; align-items: center; gap: 12px; }
+.ergebnis.kurs { background: var(--kurs-bg); }
+.ergebnis.kurs h3 { margin: 0 0 8px; font: 800 18px var(--mono); letter-spacing: .06em; color: var(--kurs); }
+.vergleich { display: grid; grid-template-columns: auto 1fr; gap: 6px 10px; align-items: center; margin: 4px 0 8px; }
+.vergleich .lbl { font: 700 16px var(--mono); color: var(--leise); }
+.vergleich .reihe { display: flex; gap: 3px; justify-content: flex-end; }
+.vergleich .reihe span { width: 32px; height: 42px; display: grid; place-items: center; border-radius: 6px; font: 800 24px var(--mono); background: var(--flaeche); }
+.vergleich .reihe span.diff { background: var(--gelb); color: #11161D; }
+.vergleich .kopf span { background: none; height: 22px; font: 700 16px var(--mono); color: var(--leise); }
+.ergebnis.kurs p { margin: 6px 0 0; font-size: 18px; color: var(--text); }
+.weiterknopf { margin: auto 14px 14px; min-height: 64px; border: 0; border-radius: 16px; background: var(--gelb); color: var(--auf-gelb); font: 700 22px var(--ui); }
+/* Gelandet */
+.gelandet { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; background: var(--tafel); color: var(--tafel-text); border-radius: 20px; }
+.gelandet h2 { font: 800 34px/1.1 var(--mono); margin: 14px 0 6px; letter-spacing: .04em; }
+.gelandet p { color: #E9EDF2; font-size: 19px; margin: 4px 0; }
+.landestempel { width: 170px; height: 120px; border: 4px solid #45E0A0; color: #45E0A0; border-radius: 50% / 40%; display: grid; place-items: center; font: 800 20px/1.15 var(--mono); transform: rotate(-9deg); animation: landen .5s cubic-bezier(.2,1.6,.5,1); }
+@keyframes landen { from { transform: rotate(-9deg) scale(2); opacity: 0; } }
+.gelandet .weiterknopf { margin: 22px 0 0; width: 100%; max-width: 420px; }
+.gelandet .zweit { margin-top: 10px; min-height: 52px; border: 1px solid #ffffff55; background: none; color: #fff; border-radius: 14px; width: 100%; max-width: 420px; font: 600 18px var(--ui); }
+/* Turbulenzen */
+.turb { background: var(--flaeche); border-radius: 20px; padding: 16px; flex: 1; }
+.turb h2 { font: 700 24px var(--ui); margin: 6px 0 12px; }
+.tz { display: grid; grid-template-columns: 18px 1fr; gap: 12px; align-items: start; background: var(--tafel); color: #E9EDF2; border-radius: 12px; padding: 14px; margin-bottom: 8px; font: 600 18px var(--mono); }
+.tz i { width: 16px; height: 16px; border-radius: 50%; margin-top: 4px; } .tz.nein i { background: #FF7A5C; } .tz.ja i { background: #45E0A0; }
+.tz small { display: block; font: 700 16px var(--mono); color: #C3CCD8; letter-spacing: .06em; }
+/* Weltkarte: Flugbögen */
+.welt-seite { padding: 14px 14px 110px; max-width: 1100px; margin: 0 auto; }
+.k-welt { width: 100%; display: block; border-radius: 18px; background: var(--tafel); }
+.k-meer { fill: var(--tafel); } .k-land { fill: #263244; stroke: #344257; stroke-width: .6; vector-effect: non-scaling-stroke; }
+html:not(.dunkel) .k-land { fill: #2A3442; }
+.flugbogen { fill: none; stroke: #45E0A0; stroke-width: 2.4; } .flugbogen.naechst { stroke: var(--gelb); stroke-dasharray: 5 6; }
+.flugort { fill: #E9EDF2; } .flugort.geschafft { fill: #45E0A0; } .flugort.jetzt { fill: var(--gelb); }
+.flugname { font: 700 18px var(--mono); fill: #F2F4F7; }
+.ring { fill: none; stroke: var(--gelb); stroke-width: 2; animation: puls 2.4s ease-out infinite; transform-box: fill-box; transform-origin: center; }
+@keyframes puls { from { transform: scale(.6); opacity: 1; } to { transform: scale(2.2); opacity: 0; } }
+.flugbuch { margin-top: 14px; display: grid; gap: 6px; }
+.flugbuch div { display: grid; grid-template-columns: 1fr auto; padding: 12px 14px; border-radius: 12px; background: var(--flaeche); font-size: 17px; }
+.flugbuch b { font: 800 18px var(--mono); text-transform: uppercase; letter-spacing: .04em; }
+/* Pass */
+.pass-seite { padding: 14px 14px 110px; max-width: 900px; margin: 0 auto; }
+.passbuch { background: #F6EFDF; color: #1B2230; border-radius: 18px; padding: 18px; background-image: repeating-linear-gradient(45deg, #0000 0 14px, #0000000a 14px 15px); }
+.passbuch h2 { font: 800 18px var(--mono); letter-spacing: .1em; margin: 0 0 10px; color: #4A3B1E; }
+.visa { display: flex; flex-wrap: wrap; gap: 14px; }
+.visum { border: 3px solid #0B6B44; color: #0B6B44; border-radius: 10px; padding: 10px 14px; font: 800 18px/1.2 var(--mono); text-transform: uppercase; transform: rotate(-4deg); }
+.visum small { display: block; font: 600 16px var(--mono); text-transform: none; }
+.visum:nth-child(2n) { border-color: #7A2E8C; color: #7A2E8C; transform: rotate(5deg); border-radius: 50%; padding: 20px; }
+.visum.leer { border-style: dashed; border-color: #8A7F66; color: #5E5440; }
+.upgrade { display: flex; align-items: center; gap: 12px; padding: 14px; border-radius: 14px; background: var(--flaeche); margin-top: 10px; }
+.upgrade b { font-size: 19px; } .upgrade small { display: block; color: var(--leise); font: 600 16px var(--mono); }
+.upgrade button { margin-left: auto; min-height: 48px; padding: 0 16px; border-radius: 12px; border: 0; background: var(--gelb); color: #11161D; font-weight: 700; }
+.upgrade button[disabled] { background: var(--flaeche2); color: var(--leise); }
+/* Tower (Erwachsene) */
+.tower { padding: 18px 16px 40px; max-width: 1100px; margin: 0 auto; }
+.tower h1 { font: 700 28px var(--ui); margin: 0; }
+.tower .wartet { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; padding: 14px 16px; border-radius: 14px; background: var(--flaeche); border-left: 6px solid var(--gelb); margin: 14px 0; }
+.tower .wartet .knoepfe { margin-left: auto; display: flex; gap: 8px; }
+.tower .wartet button { min-height: 48px; padding: 0 16px; border-radius: 12px; border: 1px solid var(--linie); background: var(--flaeche2); font-weight: 700; }
+.tower .wartet button.ja { background: var(--gelb); color: #11161D; border: 0; }
+.tw-kinder { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 14px; }
+.tw-kind { background: var(--flaeche); border-radius: 16px; padding: 16px; }
+.tw-kind h2 { margin: 0; font: 700 22px var(--ui); }
+.tw-zahlen { display: flex; gap: 20px; margin: 10px 0; }
+.tw-zahlen div { font: 600 16px var(--ui); color: var(--leise); } .tw-zahlen b { display: block; font: 800 28px var(--mono); color: var(--text); }
+.tw-band { display: flex; gap: 4px; margin: 12px 0 6px; }
+.tw-band i { flex: 1; height: 16px; border-radius: 4px; background: var(--linie); }
+.tw-band i.sitzt { background: var(--gut); } .tw-band i.ueben { background: var(--info); } .tw-band i.wackelt { background: var(--kurs); }
+.tw-liste { display: grid; gap: 4px; margin-top: 8px; }
+.tw-liste div { display: flex; justify-content: space-between; gap: 10px; font-size: 17px; padding: 8px 0; border-bottom: 1px solid var(--linie); }
+.tw-liste span:last-child { font: 700 16px var(--mono); }
+.tw-wackelt { background: var(--kurs-bg); border-radius: 12px; padding: 10px 12px; margin-top: 10px; font-size: 17px; }
+.tw-wackelt b { color: var(--kurs); }
+.tw-tage { display: grid; grid-template-columns: repeat(14, 1fr); gap: 3px; margin-top: 10px; }
+.tw-tage i { aspect-ratio: 1; border-radius: 3px; background: var(--flaeche2); } .tw-tage i.an { background: var(--info); }
+.tw-hilfe { font-size: 16px; color: var(--leise); }
+.c-gut { color: var(--gut); } .c-kurs { color: var(--kurs); } .c-info { color: var(--info); }
+.tastenkuerzel { display: none; font: 600 16px var(--mono); color: var(--leise); text-align: center; padding: 6px; }
+@media (min-width: 820px) {
+  .flugflaeche.zwei { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 14px; }
+  .tafel-seite { padding-top: 26px; }
+  .tzeile { grid-template-columns: 1.1fr 1.6fr .9fr; } .tzeile .thema { grid-column: 2; grid-row: 1; } .tzeile .status { grid-row: 1; grid-column: 3; }
+  .einsteigen { left: auto; right: 90px; width: 420px; }
+  .tastenkuerzel { display: block; }
+  .sk-feld { min-height: 200px; }
+}
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+/*KERN*/
+// ---------- Richtung „Abflug“ ----------
+S.dunkel = true;
+const $ = (s) => document.querySelector(s);
+const breit = () => innerWidth >= 820;
+const MENU = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>';
+const STATUS = { jetzt: ['EINSTEIGEN', 'st-jetzt'], geschafft: ['GELANDET', 'st-geschafft'], offen: ['WARTET', 'st-offen'], spaeter: ['AB KLASSE', 'st-spaeter'] };
+let klappeAnim = true;
+const klappen = (t) => `<div class="klappen${klappeAnim ? ' anim' : ''}" aria-label="${esc(t)}">${t.toUpperCase().split('').map((c, i) => `<span style="--i:${i}" aria-hidden="true">${c === ' ' ? '' : esc(c)}</span>`).join('')}</div>`;
+function menueknopf() {
+  return `<button class="menueknopf" data-akt="zeigen" data-arg="menue" aria-label="Menü" aria-expanded="${S.offen === 'menue'}">${MENU}</button>
+  ${S.offen === 'menue' ? `<button class="schleier" data-akt="zeigen" data-arg="menue" aria-label="Menü schließen"></button><div class="blatt" role="menu">
+    <button data-akt="geh" data-arg="heute">Abflugtafel <kbd>T</kbd></button><button data-akt="geh" data-arg="welt">Weltkarte <kbd>W</kbd></button><button data-akt="geh" data-arg="pass">Reisepass <kbd>P</kbd></button>
+    ${Object.values(DATEN.kinder).filter((c) => c.id !== S.kind).map((c) => `<button data-akt="kind" data-arg="${c.id}">Wechseln zu ${esc(c.name)}</button>`).join('')}
+    <button data-akt="geh" data-arg="eltern">Tower – für Eltern und Lehrkraft</button><button data-akt="dunkel">${S.dunkel ? 'Tag-Ansicht' : 'Nacht-Ansicht'}</button></div>` : ''}`;
+}
+function heute() {
+  const k = kind(); const orte = DATEN.orte.filter((o) => k.alter >= 12 || o.stand[S.kind] !== 'spaeter' || o.klasse <= k.klasse + 1);
+  const reihen = [...orte].sort((a, b) => ['jetzt', 'offen', 'spaeter', 'geschafft'].indexOf(a.stand[S.kind]) - ['jetzt', 'offen', 'spaeter', 'geschafft'].indexOf(b.stand[S.kind]));
+  const o = ortJetzt(); const offen = karten().length - anzahlSitzt();
+  const zeile = (x, i) => { const st = x.stand[S.kind]; const [t, c] = STATUS[st];
+    return `<button class="tzeile${i === 0 ? ' erste' : ''}" data-akt="${st === 'jetzt' ? 'los' : 'zeigen'}" data-arg="${x.id}">
+      ${i === 0 ? `<span>${klappen(x.stadt)}</span>` : `<span class="ziel">${x.stadt}</span>`}<span class="thema">${esc(x.thema)}</span>
+      <span class="status ${c}">${st === 'spaeter' ? t + ' ' + x.klasse : t}${st === 'jetzt' ? '' : ''}<small>${st === 'jetzt' ? `${offen} von ${karten().length} Karten offen` : st === 'geschafft' ? 'Stempel ✓' : 'Klasse ' + x.klasse}</small></span></button>`; };
+  const html = `<main class="tafel-seite"><div class="tafel-kopf"><h1>Abflüge · ${esc(k.name)}</h1><span class="chip">★ ${k.sterne}</span></div>
+    <div class="tafel" role="list" aria-label="Abflugtafel: deine Orte">${reihen.slice(0, k.alter >= 12 ? 9 : 5).map(zeile).join('')}</div>
+    <div class="tafel-unter"><span class="chip">◎ ${DATEN.stempel[S.kind].length} Stempel</span><span class="chip">Abflug, wann es dir passt</span></div>${breit() ? `<button class="routevorschau" data-akt="geh" data-arg="welt" aria-label="Flugroute ansehen">${routeKarte()}</button>` : ''}</main>
+    <button class="einsteigen" data-akt="los" data-fokus="los"><span>Einsteigen</span><span class="mono">${o.stadt.toUpperCase()} ›</span></button>${menueknopf()}`;
+  klappeAnim = false; return html;
+}
+A.los = () => { S.ansicht = 'thema'; S.teil = sitztKarte(S.karte) ? 'ueben' : 'erklaeren'; S.schritt = 0; neu(true); };
+const TEILE = ['erklaeren', 'ueben', 'fehler'];
+const TEILNAME = { erklaeren: 'Sicherheitskarte', ueben: 'Bordkarten', fehler: 'Turbulenzen' };
+function flugkopf() {
+  const c = karteJetzt(), o = ortJetzt();
+  return `<header class="flugkopf"><button class="zu" data-akt="geh" data-arg="heute" aria-label="Zur Abflugtafel">✕</button>
+    <div class="wo"><p class="ueber">${o.stadt} · Karte ${S.karte + 1}/${karten().length}</p><b>${esc(c.titel)}</b></div><span class="chip" aria-label="${kind().sterne} Sterne">★ ${kind().sterne}</span></header>
+    <nav class="stapel" aria-label="Stapel">${TEILE.map((t) => `<button data-akt="teil" data-arg="${t}" class="${S.teil === t || (breit() && t !== 'fehler' && S.teil !== 'fehler') ? 'an' : ''}" aria-current="${S.teil === t}"><i></i>${{ erklaeren: 'Erklärung', ueben: 'Aufgaben', fehler: 'Fallen' }[t]}</button>`).join('')}</nav>`;
+}
+function sicherheitskarte() {
+  const c = karteJetzt(); const n = c.schritte.length;
+  return `<section class="sicherheit" aria-label="Sicherheitskarte – Erklärung in Bildern"><p class="ueber" style="margin:0 0 10px">Sicherheitskarte · tippe Feld ${Math.min(S.schritt + 2, n)}</p>
+    <div class="sk-raster">${c.schritte.map((s, i) => i <= S.schritt
+      ? `<div class="sk-feld${i === S.schritt ? ' an' : ''}"><span class="n">${i + 1}</span><div class="bild">${bildFuer(s)}</div><p>${esc(s.text)}</p></div>`
+      : `<button class="sk-feld zu-noch" data-akt="schritt" data-arg="1" ${i === S.schritt + 1 ? 'data-fokus="feld"' : 'tabindex="-1"'} aria-label="Feld ${i + 1} aufdecken"><span class="n">${i + 1}</span>${i === S.schritt + 1 ? 'Antippen' : ''}</button>`).join('')}</div>
+    ${S.schritt === n - 1 ? `<p class="sk-regel">${esc(c.regel)}</p>${breit() ? '' : '<button class="weiterknopf" style="margin:14px 0 0" data-akt="teil" data-arg="ueben" data-fokus="los">An Bord: Aufgaben ›</button>'}` : ''}</section>`;
+}
+function anzeige(a) {
+  if (a.art === 'strahl') return `<div style="padding:14px 10px 4px">${strahl(a, { ziehbar: !S.ergebnis, wahl: S.strahl, loesung: S.ergebnis === 'falsch' ? a.loesung : null, breite: 360 })}</div>`;
+  if (kind().klasse >= 7 || !/^\d+$/.test(a.loesung)) { const t = S.eingabe ? gruppiere(S.eingabe) : ''; const z = t.padStart(Math.max(4, t.length), ' ').split('');
+    return `<div class="bk-anzeige" aria-label="Deine Antwort: ${S.eingabe || 'leer'}">${z.map((c) => `<div class="k"><span class="${c.trim() ? '' : 'leer'}" ${c.trim() ? '' : 'aria-hidden="true"'}>${c.trim() ? esc(c) : '0'}</span></div>`).join('')}</div>`; }
+  const n = Math.max(5, a.loesung.length, S.eingabe.length); const z = S.eingabe.padStart(n, ' ').split('');
+  return `<div class="bk-anzeige" aria-label="Deine Antwort: ${S.eingabe || 'leer'}">${z.map((d, i) => `<div class="k"><small>${STELLEN[n - 1 - i]}</small><span class="${d.trim() ? '' : 'leer'}" ${d.trim() ? '' : 'aria-hidden="true"'}>${d.trim() || '0'}</span></div>`).join('')}</div>`;
+}
+function vergleich(a) {
+  if (a.art === 'strahl') return '';
+  const n = Math.max(a.loesung.replace('-', '').length, S.eingabe.replace('-', '').length);
+  const reihe = (z, ref) => z.padStart(n, ' ').split('').map((d, i) => `<span class="${d !== ref.padStart(n, ' ')[i] ? 'diff' : ''}">${d.trim()}</span>`).join('');
+  const ganz = /^\d+$/.test(a.loesung) && /^\d+$/.test(S.eingabe);
+  return `<div class="vergleich">${ganz ? `<span></span><div class="reihe kopf">${Array.from({ length: n }, (_, i) => `<span>${STELLEN[n - 1 - i]}</span>`).join('')}</div>` : ''}
+    <span class="lbl">DU</span><div class="reihe">${reihe(S.eingabe.replace('-', '−'), a.loesung.replace('-', '−'))}</div>
+    <span class="lbl">ZIEL</span><div class="reihe">${reihe(a.loesung.replace('-', '−'), S.eingabe.replace('-', '−'))}</div></div>`;
+}
+function bordkarte() {
+  const a = aufgabeJetzt(), c = karteJetzt(), o = ortJetzt(); const n = serie();
+  if (S.neuSitzt) return `<section class="gelandet einfahren" role="status"><p class="ueber" style="color:#C3CCD8">Karte ${S.karte + 1} von ${karten().length}</p>
+    <div class="landestempel">GELANDET<br>${o.stadt.toUpperCase()}</div><h2>${esc(c.kurz).toUpperCase()} ✓</h2><p>Zweimal hintereinander richtig.</p><p>+30 Sterne · kommt in ein paar Tagen zum Wiederholen</p>
+    ${S.karte < karten().length - 1 ? `<button class="weiterknopf" data-akt="naechsteKarte" data-fokus="los">Anschlussflug: ${esc(karten()[S.karte + 1].kurz)} ›</button>` : ''}<button class="zweit" data-akt="geh" data-arg="heute">Zur Abflugtafel</button></section>`;
+  const loesungText = a.art === 'strahl' ? gruppiere(a.start + a.loesung * (a.ende - a.start) / a.n) : gruppiere(a.loesung);
+  return `<section class="bordkarte${S.ergebnis ? '' : ' einfahren'}" aria-label="Bordkarte, Aufgabe ${S.aufgabe + 1}">
+    <div class="bk-oben"><div class="zeile"><p class="ueber">Bordkarte ${S.aufgabe + 1} · ${o.stadt}</p><p class="ueber">${a.art === 'strahl' ? 'Schieben' : 'Tippen'}</p></div>
+      <p class="bk-frage">${esc(a.frage)}</p></div>
+    ${S.ergebnis === 'richtig' ? '<div class="abriss" aria-hidden="true">✓ AN BORD +10</div>' : ''}
+    ${S.tipp && !S.ergebnis ? `<p class="tippband"><b>Tipp:</b> ${esc(a.tipp)}</p>` : ''}
+    <div class="perfo" aria-hidden="true"></div>
+    ${anzeige(a)}
+    <p class="bk-hinweis" role="status">${esc(S.hinweis || '')}</p>
+    <div class="bk-stubs" aria-label="${n} von 2 richtig hintereinander"><i class="${n >= 1 ? 'voll' : ''}"></i><i class="${n >= 2 ? 'voll' : ''}"></i>2 Abrisse = Karte gelandet</div>
+    ${S.ergebnis === 'richtig' ? `<div class="ergebnis gut" role="status">✓ Richtig. ${n === 1 ? 'Noch einmal, dann ist die Karte gelandet.' : ''}</div><button class="weiterknopf" data-akt="weiter" data-fokus="los">Nächste Bordkarte ›</button>`
+    : S.ergebnis === 'falsch' ? `<div class="ergebnis kurs" role="status"><h3>KURSKORREKTUR</h3>${vergleich(a)}<p>Richtig ist <b>${loesungText}</b>. ${esc(diagnose(a))}</p></div><button class="weiterknopf" data-akt="weiter" data-fokus="los">Neue Bordkarte ›</button>`
+    : a.art === 'strahl' ? `<div style="margin-top:auto;padding:10px"><button class="weiterknopf" style="width:100%;margin:0" data-akt="pruefen" data-fokus="pruef">Prüfen</button><div class="unterzeile"><button class="textknopf" data-akt="tipp">Tipp</button><button class="textknopf" data-akt="teil" data-arg="erklaeren">Erklärung</button></div></div>`
+    : `<div class="tasten k-keine-geste">${tastenFuer().map((t) => `<button data-akt="taste" data-arg="${t}" aria-label="${t === '−' ? 'Minus' : t}">${t}</button>`).join('')}<button data-akt="taste" data-arg="⌫" aria-label="Löschen">⌫</button><button class="pruef" data-akt="pruefen" data-fokus="pruef">Prüfen</button>
+        <button class="textknopf" data-akt="tipp" style="grid-column:span 1">Tipp</button><span></span><button class="textknopf" data-akt="teil" data-arg="erklaeren">Erklärung</button></div>`}
+  </section>`;
+}
+function turbulenzen() {
+  const f = karteJetzt().falle;
+  return `<section class="turb"><p class="ueber">Turbulenzen · hier wackelt es oft</p><h2>${esc(f.titel)}</h2>
+    <div class="tz nein"><i></i><span><small>FALSCH</small>${esc(f.falsch)}</span></div><div class="tz ja"><i></i><span><small>RICHTIG</small>${esc(f.richtig)}</span></div>
+    <p style="font-size:19px;margin:12px 2px">${esc(f.warum)}</p><button class="weiterknopf" style="width:100%;margin:6px 0 0" data-akt="teil" data-arg="ueben">Zu den Aufgaben ›</button></section>`;
+}
+function thema() {
+  const teile = { erklaeren: sicherheitskarte, ueben: bordkarte, fehler: turbulenzen };
+  if (breit()) return `<div class="flug">${flugkopf()}<main class="flugflaeche zwei">${S.teil === 'fehler' ? turbulenzen() : sicherheitskarte()}${bordkarte()}</main>
+    <p class="tastenkuerzel">Ziffern · Enter prüft · E Erklärung · F Fallen · Esc Tafel · Leertaste nächstes Bild</p></div>`;
+  return `<div class="flug">${flugkopf()}<main class="flugflaeche">${teile[S.teil]()}</main></div>`;
+}
+function routeKarte() {
+  const k = S.kind; const orte = DATEN.orte.filter((o) => o.stand[k] !== 'spaeter');
+  const weg = DATEN.orte.filter((o) => o.stand[k] === 'geschafft').concat([ortJetzt()]);
+  const naechst = orte.find((o) => o.stand[k] === 'offen');
+  let z = weg.slice(1).map((o, i) => `<path d="${bogen(weg[i], o)}" class="flugbogen"/>`).join('');
+  if (naechst) z += `<path d="${bogen(ortJetzt(), naechst)}" class="flugbogen naechst"/>`;
+  z += orte.map((o) => { const [x, y] = pkt(o); return `${o.stand[k] === 'jetzt' ? `<circle cx="${x}" cy="${y}" r="10" class="ring"/>` : ''}<circle cx="${x}" cy="${y}" r="${o.stand[k] === 'jetzt' ? 6 : 4.5}" class="flugort ${o.stand[k]}"/>`; }).join('');
+  // Ausschnitt um die geflogene Route und den nächsten Ort; Namen an allen Orten im Ausschnitt
+  const im = weg.concat(naechst ? [naechst] : []); const ps = im.map(pkt);
+  const x0 = Math.min(...ps.map((p) => p[0])), x1 = Math.max(...ps.map((p) => p[0])), y0 = Math.min(...ps.map((p) => p[1])), y1 = Math.max(...ps.map((p) => p[1]));
+  const w = Math.max(220, (x1 - x0) * 1.7), h = w * (breit() ? 0.5 : 0.75); const ax = [(x0 + x1) / 2 - w / 2, (y0 + y1) / 2 - h / 2, w, h].map((v) => v.toFixed(1));
+  const f = w / 380;
+  z = z.replace(/stroke-width/g, 'data-x');
+  z = weg.slice(1).map((o, i) => `<path d="${bogen(weg[i], o)}" class="flugbogen" style="stroke-width:${2.6 * f}px"/>`).join('') + (naechst ? `<path d="${bogen(ortJetzt(), naechst)}" class="flugbogen naechst" style="stroke-width:${2.6 * f}px;stroke-dasharray:${5 * f} ${6 * f}"/>` : '')
+    + orte.map((o) => { const [x, y] = pkt(o); return `${o.stand[k] === 'jetzt' ? `<circle cx="${x}" cy="${y}" r="${10 * f}" class="ring" style="stroke-width:${2 * f}px"/>` : ''}<circle cx="${x}" cy="${y}" r="${(o.stand[k] === 'jetzt' ? 6 : 4.5) * f}" class="flugort ${o.stand[k]}"/><text x="${x + 9 * f}" y="${y + (o.stand[k] === 'geschafft' ? 22 : -9) * f}" class="flugname" style="font-size:${18 * f}px">${o.stadt.toUpperCase()}</text>`; }).join('');
+  return weltkarte({ ausschnitt: ax, zusatz: z, label: 'Karte mit Flugroute' });
+}
+function welt() {
+  const k = S.kind; const orte = DATEN.orte.filter((o) => o.stand[k] !== 'spaeter'); const weg = DATEN.orte.filter((o) => o.stand[k] === 'geschafft').concat([ortJetzt()]);
+  return `<main class="welt-seite"><div class="tafel-kopf"><h1>Flugroute</h1><span class="chip">${weg.length - 1} gelandet</span></div>
+    ${routeKarte()}
+    <div class="flugbuch">${orte.map((o) => `<div><span><b>${o.stadt}</b> · ${esc(o.thema)}</span><span class="${{ geschafft: 'c-gut', jetzt: 'c-kurs', offen: '' }[o.stand[k]]}" style="font:700 16px var(--mono)">${STATUS[o.stand[k]][0]}</span></div>`).join('')}</div></main>${menueknopf()}`;
+}
+function pass() {
+  const k = kind(); const st = DATEN.stempel[S.kind].map(ortVon);
+  return `<main class="pass-seite"><div class="tafel-kopf"><h1>Reisepass</h1><span class="chip">★ ${k.sterne}</span></div>
+    <div class="passbuch"><h2>VISA · ${esc(k.name).toUpperCase()}</h2><div class="visa">${st.map((o) => `<div class="visum">${o.stadt}<small>${esc(o.thema)}</small></div>`).join('')}<div class="visum leer">${ortJetzt().stadt}<small>noch offen</small></div></div></div>
+    <h2 style="font:700 22px var(--ui);margin:18px 2px 4px">Einlösen</h2>
+    ${DATEN.belohnungen.map((b) => { const geht = b.art === 'sterne' ? k.sterne >= b.kosten : st.length >= b.kosten;
+      return `<div class="upgrade"><span><b>${b.titel}</b><small>${b.kosten} ${b.art === 'sterne' ? 'Sterne' : 'Stempel'}</small></span><button ${geht ? `data-akt="zeigen" data-arg="w-${b.titel}"` : 'disabled'}>${S.offen === 'w-' + b.titel ? 'Gesendet ✓' : geht ? 'Einlösen' : 'noch ' + (b.kosten - (b.art === 'sterne' ? k.sterne : st.length))}</button></div>`; }).join('')}</main>${menueknopf()}`;
+}
+function eltern() {
+  const w = DATEN.lernstand.a.wunsch;
+  return `<main class="tower"><div class="tafel-kopf"><h1>Tower · Lernstand</h1><button class="textknopf" data-akt="geh" data-arg="heute">Zur Tafel</button></div>
+    ${w ? `<div class="wartet"><span><b>Wartet auf dich:</b> Ida möchte „${w.titel}“ (${w.kosten})</span><span class="knoepfe">${S.offen === 'ok' ? '<b class="c-gut">Bestätigt ✓</b>' : '<button class="ja" data-akt="zeigen" data-arg="ok">Bestätigen</button><button>Ablehnen</button>'}</span></div>` : ''}
+    <div class="tw-kinder">${Object.values(DATEN.kinder).map((c) => { const l = DATEN.lernstand[c.id]; const o = ortVon(c.ort); const wa = l.karten.find((x) => x.zustand === 'wackelt');
+      return `<article class="tw-kind"><h2>${esc(c.name)} <span class="tw-hilfe">· Klasse ${c.klasse} · jetzt ${o.stadt}</span></h2>
+        <div class="tw-zahlen"><div><b>${l.woche.aufgaben}</b>Aufgaben · 7 Tage</div><div><b>${Math.round(100 * l.woche.richtig / l.woche.aufgaben)}%</b>richtig</div><div><b>${l.woche.tipp}</b>mit Tipp</div></div>
+        <div class="tw-band" aria-label="Lernkarten: ${l.karten.map((x) => x.titel + ' ' + x.zustand).join(', ')}">${l.karten.map((x) => `<i class="${x.zustand}"></i>`).join('')}</div>
+        <div class="tw-liste">${l.karten.map((x) => `<div><span>${esc(x.titel)} <span class="tw-hilfe">${x.ort}</span></span><span class="${{ sitzt: 'c-gut', wackelt: 'c-kurs', ueben: 'c-info', offen: '' }[x.zustand]}">${{ sitzt: 'SITZT', wackelt: 'WACKELT', ueben: 'ÜBT', offen: 'OFFEN' }[x.zustand]}</span></div>`).join('')}</div>
+        ${wa ? `<div class="tw-wackelt"><b>Wackelt: ${esc(wa.titel)}</b> – ${wa.falsch} falsch, ${wa.richtig} richtig.<br>Typisch: ${esc(wa.beispiel)}</div>` : ''}
+        <div class="tw-tage" aria-label="${l.tage.filter(Boolean).length} Lerntage in 4 Wochen">${l.tage.map((t) => `<i class="${t ? 'an' : ''}"></i>`).join('')}</div><p class="tw-hilfe" style="margin:6px 0 0">Lerntage, 4 Wochen – ohne Wertung</p></article>`; }).join('')}</div></main>`;
+}
+function zeichne() { $('#app').innerHTML = ({ heute, thema, welt, pass, eltern }[S.ansicht] || heute)(); }
+const stapel = (d) => { if (S.ansicht !== 'thema' || S.ergebnis) return; const i = TEILE.indexOf(S.teil) + d; if (i >= 0 && i < 3) A.teil(TEILE[i]); };
+WISCH.hoch = () => stapel(1); WISCH.runter = () => stapel(-1);
+TASTEN.e = () => A.teil('erklaeren'); TASTEN.f = () => A.teil('fehler'); TASTEN.u = () => A.teil('ueben');
+TASTEN.Escape = () => A.geh('heute'); TASTEN.t = () => A.geh('heute'); TASTEN.w = () => A.geh('welt'); TASTEN.p = () => A.geh('pass');
+TASTEN[' '] = (ev) => { if (S.ansicht === 'thema' && S.teil !== 'fehler' && S.schritt < karteJetzt().schritte.length - 1) { ev.preventDefault(); A.schritt(1); } };
+TASTEN.PageDown = () => stapel(1); TASTEN.PageUp = () => stapel(-1);
+addEventListener('resize', () => neu());
+</script>
+</body>
+</html>

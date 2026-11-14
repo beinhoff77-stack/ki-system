@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Entwurf „Liniennetz“ – Mathe-Lernreise</title>
+<!-- Gestaltungsentwurf (Prüfrunde Gestaltung), kein App-Code. Eine Datei, keine fremden Abhängigkeiten.
+     Schrift: Lexend (SIL OFL 1.1), eingebettet. Karte: Natural Earth (gemeinfrei). -->
+<style>
+@font-face { font-family: "Lexend"; src: url(/*SCHRIFT:lexend*/) format("woff2"); font-weight: 100 900; }
+:root {
+  --bg: #FFFFFF; --flaeche: #F3F4F1; --flaeche2: #E8EAE5; --text: #101418; --leise: #4D5560; --rand: #D5D9DE;
+  --knopf: #101418; --auf-knopf: #FFFFFF; --hier: #FFC400; --gut: #1B7A3E; --gut-bg: #E2F3E8; --stoer: #FFD400; --stoer-text: #101418; --kurs: #A3360B; --kurs-bg: #FDECE2;
+  --L-zahlen: #C2410C; --L-algebra: #2E7D32; --L-geld: #1565C0; --L-funktionen: #7B3FA0; --L-geometrie: #AD1457; --L-daten: #00796B;
+  --font: "Lexend", system-ui, sans-serif; color-scheme: light;
+}
+html.dunkel {
+  --bg: #0E1114; --flaeche: #171B20; --flaeche2: #20262D; --text: #F1F3F5; --leise: #AEB6C0; --rand: #333B45;
+  --knopf: #F1F3F5; --auf-knopf: #0E1114; --hier: #FFC400; --gut: #6BD78F; --gut-bg: #12301E; --kurs: #FF9F78; --kurs-bg: #34201A;
+  --L-zahlen: #FF8A4C; --L-algebra: #6BD46F; --L-geld: #6AB0FF; --L-funktionen: #C792EA; --L-geometrie: #FF7EB0; --L-daten: #4DD0C2; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { margin: 0; }
+body { background: var(--bg); color: var(--text); font: 400 18px/1.45 var(--font); -webkit-font-smoothing: antialiased; font-variant-numeric: tabular-nums; }
+button { font: inherit; color: inherit; cursor: pointer; }
+:focus-visible { outline: 3px solid var(--hier); outline-offset: 2px; }
+#app { max-width: 1180px; margin: 0 auto; min-height: 100dvh; display: flex; flex-direction: column; }
+/* Kopf: wer, Netz, Pass */
+.kopf { display: flex; align-items: center; gap: 8px; padding: 12px 14px; }
+.kopf .wer { display: inline-flex; align-items: center; gap: 10px; min-height: 48px; border: 0; background: none; font-weight: 600; padding: 0 4px; }
+.kopf .wer i { width: 36px; height: 36px; border-radius: 50%; border: 5px solid var(--L-zahlen); background: var(--bg); display: block; }
+.kopf .rechts { margin-left: auto; display: flex; gap: 6px; }
+.kopf .rechts button { min-height: 48px; min-width: 48px; padding: 0 14px; border-radius: 99px; border: 2px solid var(--rand); background: var(--bg); font-weight: 600; font-size: 16px; }
+.kopf .rechts button.an { background: var(--text); color: var(--bg); border-color: var(--text); }
+.menue { position: absolute; top: 64px; left: 12px; z-index: 30; background: var(--bg); border: 2px solid var(--text); border-radius: 12px; padding: 6px; min-width: 250px; }
+.menue button { display: block; width: 100%; text-align: left; border: 0; background: none; min-height: 48px; padding: 0 12px; border-radius: 8px; }
+.menue button:hover { background: var(--flaeche); }
+/* Haltestellenschild */
+.schild { margin: 4px 14px 0; border-radius: 14px; overflow: hidden; background: #101418; color: #FFFFFF; }
+html.dunkel .schild { border: 2px solid var(--rand); }
+.schild .band { height: 10px; background: var(--L, var(--L-zahlen)); }
+.schild .inhalt { display: flex; align-items: center; gap: 14px; padding: 14px 16px 16px; }
+.pille { display: inline-grid; place-items: center; min-width: 52px; height: 36px; padding: 0 10px; border-radius: 8px; background: var(--L, var(--L-zahlen)); color: #fff; font-weight: 700; font-size: 18px; flex: none; }
+html.dunkel .pille { color: #0E1114; }
+.schild h1 { margin: 0; font-size: 34px; line-height: 1.05; font-weight: 700; letter-spacing: -.02em; }
+.schild p { margin: 2px 0 0; font-size: 17px; opacity: .9; }
+html[data-alter="gross"] .schild h1 { font-size: 28px; }
+/* Linienband: Lernkarten als Haltestellen */
+.linie { position: relative; margin: 22px 14px 6px; padding: 0 6px; max-width: 440px; }
+.linie svg { width: 100%; height: auto; display: block; overflow: visible; }
+.lb-strecke { stroke: var(--L, var(--L-zahlen)); stroke-width: 10; stroke-linecap: round; }
+.lb-strecke.offen { stroke: var(--rand); }
+.lb-halt { fill: var(--bg); stroke: var(--text); stroke-width: 5; }
+.lb-halt.ok { fill: var(--L, var(--L-zahlen)); stroke: var(--L, var(--L-zahlen)); }
+.lb-hier { fill: none; stroke: var(--hier); stroke-width: 6; }
+.lb-name { font: 600 17px var(--font); fill: var(--text); text-anchor: middle; }
+.lb-name.leise { fill: var(--leise); font-weight: 400; }
+.lb-ende { fill: var(--bg); stroke: var(--text); stroke-width: 4; }
+.lb-ziel { font: 700 16px var(--font); fill: var(--text); }
+.haltknoepfe { max-width: 440px; display: grid; grid-template-columns: repeat(var(--n), 1fr); margin: -84px 14px 0; position: relative; }
+.haltknoepfe button { min-height: 84px !important; }
+.haltknoepfe button { min-height: 64px; border: 0; background: transparent; border-radius: 12px; }
+.haltknoepfe button:focus-visible { outline-offset: -3px; }
+/* Hauptknopf */
+.haupt { display: flex; align-items: center; justify-content: space-between; gap: 10px; min-height: 64px; border: 0; border-radius: 14px; background: var(--knopf); color: var(--auf-knopf); font: 600 21px var(--font); padding: 0 20px; margin: 14px; }
+.haupt .pille { height: 32px; min-width: 44px; font-size: 16px; }
+.haupt:active { transform: scale(.99); }
+.textknopf { border: 0; background: none; min-height: 44px; padding: 0 10px; font: 500 17px var(--font); color: var(--text); text-decoration: underline; text-underline-offset: 4px; }
+.hinweistext { margin: 0 18px; color: var(--leise); font-size: 16px; }
+/* Netzplan */
+.netz { margin: 10px 14px; border-radius: 14px; background: var(--flaeche); padding: 8px; overflow-x: auto; overscroll-behavior-x: contain; position: relative; }
+.netz svg { width: 600px; max-width: none; height: auto; display: block; }
+.n-strecke { fill: none; stroke-width: 9; stroke-linecap: round; stroke-linejoin: round; }
+.n-strecke.blass { opacity: .28; }
+.n-halt { fill: var(--bg); stroke: var(--text); stroke-width: 4; }
+.n-halt.geschafft { fill: var(--text); }
+.n-name { font: 600 16px var(--font); fill: var(--text); }
+.n-name.leise { fill: var(--leise); font-weight: 400; }
+.n-hier { fill: none; stroke: var(--hier); stroke-width: 6; }
+.n-pille { font: 700 16px var(--font); fill: #fff; }
+html.dunkel .n-pille { fill: #0E1114; }
+.netz-legende { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 14px; }
+.netz-legende span { display: inline-flex; align-items: center; gap: 8px; font-size: 16px; padding: 6px 12px 6px 6px; border-radius: 99px; background: var(--flaeche); }
+.netz-legende b { display: inline-grid; place-items: center; min-width: 38px; height: 28px; border-radius: 6px; color: #fff; font-size: 16px; }
+html.dunkel .netz-legende b { color: #0E1114; }
+.weiterlinie { display: flex; align-items: center; gap: 12px; width: calc(100% - 28px); margin: 18px 14px; min-height: 64px; padding: 10px 14px; border-radius: 14px; border: 2px solid var(--rand); background: var(--bg); text-align: left; font-weight: 600; }
+.weiterlinie small { display: block; font-weight: 400; color: var(--leise); font-size: 16px; } .weiterlinie span:last-child { margin-left: auto; }
+.haltinfo { margin: 0 14px 14px; padding: 14px 16px; border-radius: 14px; border: 2px solid var(--text); }
+.haltinfo h2 { margin: 0 0 4px; font-size: 22px; }
+/* Thema: Mini-Linie Verstehen → Üben → Fallen */
+.mini { display: grid; grid-template-columns: 1fr 1fr 1fr; margin: 14px 14px 0; position: relative; }
+.mini::before { content: ""; position: absolute; left: 16.6%; right: 16.6%; top: 21px; height: 8px; border-radius: 4px; background: var(--L, var(--L-zahlen)); }
+.mini button { position: relative; display: flex; flex-direction: column; align-items: center; gap: 4px; border: 0; background: none; min-height: 72px; font-size: 16px; font-weight: 600; color: var(--leise); padding: 0; }
+.mini button i { width: 30px; height: 30px; border-radius: 50%; border: 5px solid var(--text); background: var(--bg); display: block; margin-top: 10px; }
+.mini button.an { color: var(--text); } .mini button.an i { box-shadow: 0 0 0 6px var(--hier); }
+.flaeche { padding: 6px 14px 14px; flex: 1; display: flex; flex-direction: column; }
+.zwei { display: block; }
+/* Verstehen: Halt für Halt nach unten */
+.halte { position: relative; margin: 8px 0 0 6px; padding-left: 34px; }
+.halte::before { content: ""; position: absolute; left: 11px; top: 14px; bottom: 30px; width: 6px; border-radius: 3px; background: var(--L, var(--L-zahlen)); }
+.halt { position: relative; padding: 4px 0 14px; }
+.halt::before { content: ""; position: absolute; left: -32px; top: 6px; width: 20px; height: 20px; border-radius: 50%; background: var(--bg); border: 4px solid var(--text); }
+.halt.vorbei { color: var(--leise); font-size: 17px; padding-bottom: 8px; }
+.halt.vorbei::before { background: var(--L, var(--L-zahlen)); border-color: var(--L, var(--L-zahlen)); }
+.halt.jetzt::before { box-shadow: 0 0 0 5px var(--hier); }
+.halt.jetzt p { font-size: 22px; font-weight: 600; margin: 0 0 10px; }
+.halt .bild { display: grid; place-items: center; background: var(--flaeche); border-radius: 14px; padding: 14px 8px; margin-bottom: 12px; }
+.halt.kommt { color: var(--leise); }
+.halt.kommt::before { border-color: var(--rand); }
+.regel { margin: 4px 0 12px; padding: 12px 14px; border-radius: 12px; background: var(--flaeche); font-weight: 600; }
+/* Zeichnungen */
+.k-tafel { border-collapse: collapse; font: 700 30px var(--font); }
+.k-tafel th { font-size: 16px; font-weight: 600; color: var(--leise); padding: 4px; }
+.k-tafel td { width: 50px; height: 56px; text-align: center; border: 3px solid var(--text); background: var(--bg); }
+.k-tafel .an { background: var(--hier); color: #101418; } .k-tafel th.an { background: none; color: var(--text); }
+.k-tafel-notiz, .k-tafel-wert { font: 700 26px var(--font); text-align: center; margin: 8px 0 0; }
+.k-strahl { width: 100%; max-width: 460px; overflow: visible; display: block; margin: 0 auto; }
+.k-achse, .k-strich { stroke: var(--text); stroke-width: 3.5; stroke-linecap: round; } .k-spitze { fill: var(--text); }
+.k-wert, .k-zaehl { font: 600 17px var(--font); fill: var(--text); text-anchor: middle; } .k-zaehl { fill: var(--L-zahlen); }
+.k-marker { fill: var(--hier); stroke: var(--text); stroke-width: 3; } .k-loesung { fill: none; stroke: var(--gut); stroke-width: 4; }
+.k-griff-ring { fill: var(--hier); stroke: var(--text); stroke-width: 3; } .k-griff-kern { fill: #101418; } .k-griff-start { opacity: .45; }
+.ziehbar { touch-action: none; cursor: grab; }
+.k-koord { width: 100%; max-width: 280px; } .k-gitter { stroke: var(--rand); stroke-width: 1.2; } .k-gerade { stroke: var(--L-funktionen); stroke-width: 5; }
+.k-dreieck { stroke: var(--hier); stroke-width: 5; stroke-linecap: round; }
+/* Üben: Stellen-Schloss – Spalte antippen, Ziffer wählen */
+.aufgabe { font-size: 24px; line-height: 1.3; font-weight: 600; margin: 4px 0 12px; letter-spacing: -.01em; }
+.schloss { display: flex; justify-content: center; gap: 6px; margin: 4px 0 6px; }
+.schloss button { width: 52px; border: 0; background: none; padding: 0; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.schloss small { font-size: 16px; font-weight: 600; color: var(--leise); }
+.schloss span { width: 52px; height: 66px; border-radius: 12px; border: 3px solid var(--rand); display: grid; place-items: center; font: 700 34px var(--font); background: var(--bg); }
+.schloss .an span { border-color: var(--text); box-shadow: 0 0 0 4px var(--hier); }
+.schloss .an small { color: var(--text); }
+.schloss .null span { color: var(--leise); }
+.schloss .alt span { color: var(--leise); border-style: dashed; }
+.schloss .soll span { border-color: var(--gut); color: var(--gut); }
+.anzeige { font: 700 44px var(--font); text-align: center; min-height: 66px; margin: 4px 0; letter-spacing: .02em; }
+.anzeige.leer { color: var(--leise); }
+.hilfe-zeile { text-align: center; font-size: 16px; color: var(--leise); margin: 0 0 6px; min-height: 24px; }
+.ziffern { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; margin-top: auto; }
+.ziffern.zwoelf { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.ziffern button { min-height: 56px; border-radius: 12px; border: 2px solid var(--rand); background: var(--bg); font: 600 26px var(--font); }
+.ziffern button:active { background: var(--flaeche2); }
+.aktionen { display: grid; grid-template-columns: 1fr 2fr; gap: 6px; margin-top: 6px; }
+.aktionen button { min-height: 60px; border-radius: 12px; border: 2px solid var(--rand); background: var(--bg); font: 600 20px var(--font); }
+.aktionen .pruef { background: var(--knopf); color: var(--auf-knopf); border-color: var(--knopf); }
+.serie { display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 16px; color: var(--leise); margin: 2px 0 8px; }
+.serie svg { width: 92px; height: 24px; }
+.tippzeile { padding: 10px 14px; border-radius: 12px; background: var(--flaeche); margin: 0 0 10px; }
+/* Rückmeldung */
+.rm { border-radius: 14px; padding: 14px 16px; margin: 8px 0; }
+.rm.gut { background: var(--gut-bg); color: var(--gut); font-weight: 600; font-size: 20px; display: flex; align-items: center; gap: 12px; }
+.rm.gut .tick { width: 44px; height: 44px; border-radius: 50%; background: var(--gut); color: var(--bg); display: grid; place-items: center; font-size: 24px; flex: none; animation: pop .4s cubic-bezier(.3,1.7,.5,1); }
+.rm.kurs { background: var(--kurs-bg); }
+.rm.kurs h3 { margin: 0 0 6px; font-size: 20px; color: var(--kurs); }
+.rm.kurs p { margin: 6px 0 0; }
+.umstieg { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 10px 0 2px; font-weight: 600; }
+.umstieg span { padding: 6px 12px; border-radius: 8px; border: 3px solid; } .umstieg .von { border-color: var(--leise); color: var(--leise); text-decoration: line-through; } .umstieg .nach { border-color: var(--gut); color: var(--gut); }
+@keyframes pop { from { transform: scale(.3); } }
+.zeichne { stroke-dasharray: 400; animation: zeichnen .8s ease-out both; } @keyframes zeichnen { from { stroke-dashoffset: 400; } to { stroke-dashoffset: 0; } }
+/* Haltestelle erreicht */
+.erreicht { flex: 1; display: flex; flex-direction: column; justify-content: center; text-align: center; gap: 4px; }
+.erreicht .schild { margin: 10px 0 14px; text-align: left; }
+.erreicht h2 { font-size: 26px; margin: 0; }
+/* Störung = typische Fallen */
+.stoerung { border-radius: 14px; overflow: hidden; border: 3px solid var(--text); }
+.stoerung .kopfband { background: repeating-linear-gradient(-45deg, var(--stoer) 0 18px, #101418 18px 36px); height: 18px; }
+.stoerung .inhalt { padding: 14px 16px; }
+.stoerung h2 { margin: 0 0 10px; font-size: 22px; }
+.vgl { display: grid; gap: 8px; }
+.vgl div { padding: 12px 14px; border-radius: 10px; } .vgl .nein { background: var(--kurs-bg); } .vgl .ja { background: var(--gut-bg); }
+.vgl b { display: block; font-size: 16px; } .vgl .nein b { color: var(--kurs); } .vgl .ja b { color: var(--gut); }
+/* Pass / Netzkarte */
+.netzkarte { margin: 10px 14px; border-radius: 16px; border: 3px solid var(--text); overflow: hidden; }
+.netzkarte .oben { background: var(--text); color: var(--bg); padding: 12px 16px; display: flex; justify-content: space-between; font-weight: 600; }
+.lochreihe { display: flex; flex-wrap: wrap; gap: 10px; padding: 14px 16px; }
+.loch { display: flex; align-items: center; gap: 8px; padding: 6px 12px 6px 6px; border-radius: 99px; background: var(--flaeche); font-size: 16px; }
+.loch i { width: 26px; height: 26px; border-radius: 50%; border: 3px dashed var(--rand); display: block; } .loch.ok i { background: var(--bg); border: 6px solid var(--text); }
+.abzeichen { display: flex; flex-wrap: wrap; gap: 10px; padding: 0 16px 16px; }
+.abzeichen span { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px 8px 8px; border-radius: 12px; border: 2px solid var(--text); font-weight: 600; }
+.abzeichen b { display: inline-grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; color: #fff; }
+html.dunkel .abzeichen b { color: #0E1114; }
+.einloesen { margin: 0 14px; }
+.einloesen div { display: flex; align-items: center; gap: 12px; padding: 12px 0; border-bottom: 2px solid var(--rand); }
+.einloesen small { display: block; color: var(--leise); font-size: 16px; }
+.einloesen button { margin-left: auto; min-height: 48px; padding: 0 16px; border-radius: 12px; border: 0; background: var(--knopf); color: var(--auf-knopf); font-weight: 600; }
+.einloesen button[disabled] { background: var(--flaeche); color: var(--leise); }
+/* Leitstelle (Erwachsene) */
+.leit { padding: 6px 14px 30px; }
+.leit h1 { font-size: 28px; margin: 6px 0 10px; letter-spacing: -.02em; }
+.wartet { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 12px 16px; border-radius: 12px; background: var(--flaeche); border-left: 8px solid var(--hier); margin-bottom: 14px; }
+.wartet .kn { margin-left: auto; display: flex; gap: 8px; }
+.wartet button { min-height: 48px; padding: 0 16px; border-radius: 10px; border: 2px solid var(--text); background: var(--bg); font-weight: 600; }
+.wartet button.ja { background: var(--knopf); color: var(--auf-knopf); }
+.leit-kinder { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 14px; }
+.leit-kind { border: 2px solid var(--rand); border-radius: 14px; padding: 14px 16px; }
+.leit-kind h2 { margin: 0; font-size: 22px; }
+.leit-kind .unter { color: var(--leise); font-size: 16px; margin: 0 0 6px; }
+.lk-linie svg { width: 100%; height: auto; display: block; }
+.lk-namen { display: grid; gap: 2px; font-size: 17px; margin-top: 4px; }
+.lk-namen span { display: flex; justify-content: space-between; gap: 10px; padding: 6px 0; border-bottom: 1px solid var(--rand); font-weight: 600; }
+.lk-namen small { font-size: 16px; font-weight: 400; color: var(--leise); text-align: right; }
+.lk-namen .wackelt small { color: var(--kurs); font-weight: 600; }
+.lk-z { display: flex; gap: 22px; margin: 6px 0; font-size: 16px; color: var(--leise); } .lk-z b { display: block; font-size: 26px; color: var(--text); }
+.st-sitzt { fill: var(--text); } .st-ueben { fill: var(--bg); } .st-offen { fill: var(--bg); } .st-wackelt { fill: var(--kurs); }
+.lk-wackelt { padding: 10px 12px; border-radius: 10px; background: var(--kurs-bg); font-size: 17px; margin-top: 6px; }
+.lk-wackelt b { color: var(--kurs); }
+.lk-tage { display: grid; grid-template-columns: repeat(28, 1fr); gap: 2px; margin-top: 10px; } .lk-tage i { height: 18px; border-radius: 2px; background: var(--flaeche2); } .lk-tage i.an { background: var(--text); }
+.legende { display: flex; flex-wrap: wrap; gap: 14px; font-size: 16px; color: var(--leise); margin-top: 12px; }
+.tasten-hinweis { display: none; text-align: center; font-size: 16px; color: var(--leise); margin: 8px 0 0; }
+@media (min-width: 820px) {
+  .zwei .ziffern { margin-top: 12px; }
+  .zwei { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; }
+  .flaeche { padding: 10px 24px 24px; }
+  .mini { margin: 14px 24px 0; }
+  .schild, .linie, .netz { margin-left: 24px; margin-right: 24px; }
+  .haupt { margin: 14px 24px; max-width: 520px; }
+  .tasten-hinweis { display: block; }
+  .heute-raster { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 0; align-items: start; }
+}
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+/*KERN*/
+// ---------- Richtung „Liniennetz“ ----------
+const $ = (s) => document.querySelector(s);
+const breit = () => innerWidth >= 820;
+const LKURZ = { zahlen: 'Z', algebra: 'A', geld: 'G', funktionen: 'F', geometrie: 'Ge', daten: 'D' };
+const linienFarbe = (g) => `var(--L-${g})`;
+// Schematischer Netzplan (Raster 0–100 × 0–64, nur 0°/45°/90°): Orte als Haltestellen, Gebiete als Linien
+const NETZ = {
+  pos: { lissabon: [8, 14], rom: [26, 14], athen: [42, 14], pisa: [56, 14], newyork: [74, 14], samarkand: [90, 30], kairo: [74, 46], kapstadt: [56, 46], lima: [40, 46], sydney: [42, 28] },
+  oben: ['athen'],
+  linien: [
+    { g: 'zahlen', weg: ['lissabon', 'rom', 'athen', 'pisa'] }, { g: 'geld', weg: ['pisa', 'newyork'] }, { g: 'algebra', weg: ['newyork', 'samarkand'] },
+    { g: 'funktionen', weg: ['samarkand', 'kairo', 'kapstadt'] }, { g: 'geometrie', weg: ['kapstadt', 'lima'] }, { g: 'daten', weg: ['athen', 'sydney'] }],
+};
+function netzplan({ breiteSvg = 600, auswahl = null } = {}) {
+  const k = S.kind; const sx = breiteSvg / 100, sy = sx; const P = (id) => [NETZ.pos[id][0] * sx, NETZ.pos[id][1] * sy];
+  const pfad = (weg) => { let d = ''; weg.forEach((id, i) => { const [x, y] = P(id); if (!i) { d = `M${x} ${y}`; return; } const [px, py] = P(weg[i - 1]); const dx = x - px, dy = y - py;
+    if (dx && dy && Math.abs(dx) !== Math.abs(dy)) { const m = Math.min(Math.abs(dx), Math.abs(dy)); const ex = px + Math.sign(dx) * m, ey = py + Math.sign(dy) * m; d += ` L${ex} ${ey}`; } d += ` L${x} ${y}`; }); return d; };
+  let o = `<svg viewBox="0 ${4 * sy} ${breiteSvg} ${54 * sy}" role="img" aria-label="Netzplan deiner Mathe-Reise">`;
+  for (const l of NETZ.linien) { const blass = l.weg.every((id) => ortVon(id).stand[k] === 'spaeter'); o += `<path d="${pfad(l.weg)}" class="n-strecke${blass ? ' blass' : ''}" style="stroke:${linienFarbe(l.g)}"/>`; }
+  for (const l of NETZ.linien) { const [x, y] = P(l.weg[0]); const [x2, y2] = P(l.weg[1]); const mx = (x + x2) / 2, my = (y + y2) / 2; const senk = Math.abs(x2 - x) < 1;
+    o += `<g transform="translate(${senk ? mx + 34 : mx} ${senk ? my : my - 30})"><rect x="-22" y="-14" width="44" height="28" rx="6" style="fill:${linienFarbe(l.g)}"/><text class="n-pille" text-anchor="middle" y="6">${LKURZ[l.g]}</text></g>`; }
+  for (const id in NETZ.pos) { const or = ortVon(id); const [x, y] = P(id); const st = or.stand[k];
+    o += `${st === 'jetzt' ? `<circle cx="${x}" cy="${y}" r="22" class="n-hier"/>` : ''}<circle cx="${x}" cy="${y}" r="12" class="n-halt ${st}" ${id === auswahl ? 'style="stroke-width:7"' : ''}/>
+      <text x="${x}" y="${NETZ.oben.includes(id) ? y - 24 : y + 40}" text-anchor="middle" class="n-name${st === 'spaeter' ? ' leise' : ''}">${or.stadt}</text>`; }
+  return o + '</svg>';
+}
+function kopf() {
+  const k = kind();
+  return `<header class="kopf"><button class="wer" data-akt="zeigen" data-arg="menue" aria-expanded="${S.offen === 'menue'}"><i aria-hidden="true"></i>${esc(k.name)} ▾</button>
+    <div class="rechts"><button class="${S.ansicht === 'welt' ? 'an' : ''}" data-akt="geh" data-arg="welt" aria-label="Netzplan">Netz</button><button class="${S.ansicht === 'pass' ? 'an' : ''}" data-akt="geh" data-arg="pass" aria-label="Reisepass, ${k.sterne} Sterne">★ ${k.sterne}</button></div></header>
+    ${S.offen === 'menue' ? `<div class="menue" role="menu"><button data-akt="geh" data-arg="heute">Heute</button>${Object.values(DATEN.kinder).filter((c) => c.id !== S.kind).map((c) => `<button data-akt="kind" data-arg="${c.id}">Wechseln zu ${esc(c.name)}</button>`).join('')}
+      <button data-akt="geh" data-arg="eltern">Leitstelle – für Eltern und Lehrkraft</button><button data-akt="dunkel">${S.dunkel ? 'Hell' : 'Dunkel'}</button></div>` : ''}`;
+}
+function schild(titel, unter, g) { return `<div class="schild" style="--L:${linienFarbe(g)}"><div class="band"></div><div class="inhalt"><span class="pille">${LKURZ[g]}${ortJetzt().id === 'rom' ? 1 : 3}</span><div><h1>${esc(titel)}</h1><p>${esc(unter)}</p></div></div></div>`; }
+// Lernkarten des Ortes als Linienband mit Haltestellen
+function linienband(aktiv = null, { zeichnen = false } = {}) {
+  const ks = karten(); const n = ks.length; const W = 360, L = 40, R = W - 70, Y = 50; const x = (i) => L + (R - L) * i / n;
+  const dran = ks.findIndex((_, i) => !sitztKarte(i)); const hier = aktiv ?? dran;
+  let o = `<svg viewBox="0 0 ${W} 112" role="img" aria-label="Lernkarten als Haltestellen: ${ks.map((c, i) => c.kurz + (sitztKarte(i) ? ' sitzt' : '')).join(', ')}">`;
+  for (let i = 0; i < n; i++) o += `<line x1="${x(i)}" y1="${Y}" x2="${x(i + 1)}" y2="${Y}" class="lb-strecke${sitztKarte(i) ? '' : ' offen'}${zeichnen && i === hier - 1 ? ' zeichne' : ''}"/>`;
+  ks.forEach((c, i) => { o += `${i === hier ? `<circle cx="${x(i)}" cy="${Y}" r="20" class="lb-hier"/>` : ''}<circle cx="${x(i)}" cy="${Y}" r="12" class="lb-halt${sitztKarte(i) ? ' ok' : ''}"/><text x="${x(i)}" y="${i % 2 ? Y - 30 : Y + 44}" class="lb-name${i === hier ? '' : ' leise'}">${esc(c.kurz)}</text>`; });
+  o += `<rect x="${x(n) - 12}" y="${Y - 16}" width="64" height="32" rx="16" class="lb-ende"/><text x="${x(n) + 20}" y="${Y + 6}" text-anchor="middle" class="lb-ziel">◎</text><text x="${x(n) + 20}" y="${Y + 44}" class="lb-name leise">Stempel</text>`;
+  return o + '</svg>';
+}
+function heute() {
+  const o = ortJetzt(), g = o.gebiet, ks = karten(); const dran = Math.max(0, ks.findIndex((_, i) => !sitztKarte(i)));
+  return `${kopf()}<main class="heute-raster"><div style="--L:${linienFarbe(g)}">
+    ${schild(o.stadt, `${o.thema} · Linie ${DATEN.gebiete[g].name}`, g)}
+    <div class="linie">${linienband()}</div>
+    <div class="haltknoepfe" style="--n:${ks.length + 1}">${ks.map((c, i) => `<button data-akt="halt" data-arg="${i}" aria-label="Haltestelle ${esc(c.kurz)}"></button>`).join('')}</div>
+    <button class="haupt" data-akt="halt" data-arg="${dran}" data-fokus="los"><span>Einsteigen: ${esc(ks[dran].kurz)}</span><span class="pille" style="--L:${linienFarbe(g)}">›</span></button>
+    <p class="hinweistext">${kind().alter < 12 ? `Noch ${ks.length - anzahlSitzt()} Haltestellen bis zum Stempel von ${o.stadt}.` : 'Tastatur: Enter steigt ein, N öffnet den Netzplan.'}</p></div>
+    <div>${breit() ? `<div class="netz k-keine-geste" style="margin-top:18px">${netzplan()}</div>` : `<button class="weiterlinie" data-akt="geh" data-arg="welt"><span class="pille" style="--L:${linienFarbe(g)}">${LKURZ[g]}</span><span><small>Danach auf deiner Linie</small>${DATEN.orte.filter((x) => x.stand[S.kind] === 'offen').map((x) => x.stadt).join(' · ') || '–'}</span><span>Netz ›</span></button>`}</div></main>`;
+}
+A.halt = (i) => { S.karte = Number(i); S.aufgabe = 0; S.schritt = 0; S.eingabe = ''; S.ziffern = null; S.saeule = null; S.strahl = null; S.ergebnis = null; S.neuSitzt = false; S.ansicht = 'thema'; S.teil = sitztKarte(S.karte) ? 'ueben' : 'erklaeren'; neu(true); };
+const TEILE = ['erklaeren', 'ueben', 'fehler'];
+function miniLinie() {
+  return `<nav class="mini" style="--L:${linienFarbe(ortJetzt().gebiet)}" aria-label="Teile der Haltestelle">${TEILE.map((t) => `<button data-akt="teil" data-arg="${t}" class="${S.teil === t || (breit() && t !== 'fehler' && S.teil !== 'fehler') ? 'an' : ''}" aria-current="${S.teil === t}"><i></i>${{ erklaeren: 'Verstehen', ueben: 'Üben', fehler: 'Störungen' }[t]}</button>`).join('')}</nav>`;
+}
+function verstehen() {
+  const c = karteJetzt(); const n = c.schritte.length;
+  return `<section aria-label="Verstehen"><div class="halte" style="--L:${linienFarbe(ortJetzt().gebiet)}">${c.schritte.map((s, i) => i < S.schritt ? `<div class="halt vorbei">${esc(s.text)}</div>`
+      : i === S.schritt ? `<div class="halt jetzt"><div class="bild">${bildFuer(s)}</div><p aria-live="polite">${esc(s.text)}</p>
+        ${i < n - 1 ? `<button class="haupt" style="margin:0" data-akt="schritt" data-arg="1" data-fokus="weiter"><span>Nächster Halt</span><span>›</span></button>` : `<p class="regel">${esc(c.regel)}</p>${breit() ? '' : '<button class="haupt" style="margin:0" data-akt="teil" data-arg="ueben" data-fokus="los"><span>Weiter zu: Üben</span><span>›</span></button>'}`}</div>`
+      : `<div class="halt kommt">Halt ${i + 1}</div>`).join('')}</div><p class="tasten-hinweis">Leertaste: nächster Halt</p></section>`;
+}
+// Stellen-Schloss: Ziffern in Spalten (nur ganze, positive Zahlen der 5. Klasse)
+function spaltenZahl() { const n = S.ziffern.length; const erst = S.ziffern.findIndex((d) => d != null); if (erst < 0) return ''; return S.ziffern.slice(erst).map((d) => d ?? 0).join('').replace(/^0+(?=\d)/, ''); }
+const schlossModus = (a) => kind().klasse < 7 && a.art === 'zahl' && /^\d+$/.test(a.loesung);
+function schlossVorbereiten(a) { if (!S.ziffern) { const n = Math.max(5, a.loesung.length + 1); const z = (S.eingabe || '').replace(/\D/g, '').slice(-n); S.ziffern = Array(n - z.length).fill(null).concat(z ? z.split('').map(Number) : []); S.saeule = null; } }
+A.saeule = (i) => { if (S.ergebnis) return; S.saeule = Number(i); neu(); };
+A.ziffer = (d) => {
+  const a = aufgabeJetzt(); if (S.ergebnis) return;
+  if (!schlossModus(a)) { taste(d); return; }
+  if (S.saeule == null) { const z = (spaltenZahl() + d).replace(/^0+(?=\d)/, ''); const n = S.ziffern.length; if (z.length > n) return; S.ziffern = Array(n - z.length).fill(null).concat(z.split('').map(Number)); }
+  else { S.ziffern[S.saeule] = Number(d); if (S.saeule < S.ziffern.length - 1) S.saeule++; }
+  S.eingabe = spaltenZahl(); S.hinweis = ''; neu();
+};
+A.loeschen = () => { const a = aufgabeJetzt(); if (!schlossModus(a)) { taste('⌫'); return; } if (S.saeule != null) S.ziffern[S.saeule] = null; else { const z = spaltenZahl().slice(0, -1); const n = S.ziffern.length; S.ziffern = Array(n - z.length).fill(null).concat(z ? z.split('').map(Number) : []); } S.eingabe = spaltenZahl(); neu(); };
+const weiterAlt = A.weiter; A.weiter = () => { S.ziffern = null; S.saeule = null; weiterAlt(); };
+function schloss(a, { alt = false } = {}) {
+  const n = S.ziffern.length; const sollIdx = n - a.loesung.length; const kindIdx = S.ziffern.findIndex((d) => d != null);
+  return `<div class="schloss" role="group" aria-label="Stellen: Spalte antippen, dann Ziffer">${S.ziffern.map((d, i) => {
+    const vorne = i < kindIdx || kindIdx < 0; const cls = alt ? (i === kindIdx && kindIdx !== sollIdx ? 'alt' : i === sollIdx && kindIdx !== sollIdx ? 'soll' : '') : (S.saeule === i ? 'an' : '') + (d == null && !vorne ? ' null' : '');
+    return `<button data-akt="saeule" data-arg="${i}" class="${cls}" aria-label="Spalte ${STELLEN[n - 1 - i]}${d != null ? ', Ziffer ' + d : ''}" ${alt ? 'disabled' : ''}><small>${STELLEN[n - 1 - i]}</small><span>${alt && i === sollIdx && kindIdx !== sollIdx ? a.loesung[0] : d ?? (vorne ? '' : '0')}</span></button>`; }).join('')}</div>`;
+}
+function serieSvg(n) { return `<svg viewBox="0 0 92 24" aria-hidden="true"><line x1="12" y1="12" x2="80" y2="12" stroke="var(--rand)" stroke-width="6"/>${n >= 1 ? '<line x1="12" y1="12" x2="46" y2="12" stroke="var(--gut)" stroke-width="6"/>' : ''}${[12, 46, 80].map((x, i) => `<circle cx="${x}" cy="12" r="8" fill="${i <= n ? 'var(--gut)' : 'var(--bg)'}" stroke="${i <= n ? 'var(--gut)' : 'var(--text)'}" stroke-width="3"/>`).join('')}</svg>`; }
+function ueben() {
+  const a = aufgabeJetzt(), c = karteJetzt(), o = ortJetzt(); const n = serie();
+  if (S.neuSitzt) return `<section class="erreicht" role="status"><p class="hinweistext" style="margin:0">Haltestelle ${S.karte + 1} von ${karten().length} erreicht</p>
+    ${schild(c.kurz + ' ✓', 'Zweimal hintereinander richtig · +30 Sterne', o.gebiet)}<div class="linie" style="margin:0">${linienband(S.karte + 1, { zeichnen: true })}</div>
+    <p class="hinweistext" style="margin:0 0 6px">Sie kommt in ein paar Tagen zum Wiederholen.</p>
+    ${S.karte < karten().length - 1 ? `<button class="haupt" style="margin:8px 0 0" data-akt="halt" data-arg="${S.karte + 1}" data-fokus="los"><span>Weiterfahren: ${esc(karten()[S.karte + 1].kurz)}</span><span>›</span></button>` : ''}
+    <button class="textknopf" data-akt="geh" data-arg="heute">Aussteigen (zu Heute)</button></section>`;
+  if (schlossModus(a)) schlossVorbereiten(a);
+  const loesungText = a.art === 'strahl' ? gruppiere(a.start + a.loesung * (a.ende - a.start) / a.n) : gruppiere(a.loesung);
+  const eingabe = a.art === 'strahl' ? `<div style="padding:6px 0">${strahl(a, { ziehbar: !S.ergebnis, wahl: S.strahl, loesung: S.ergebnis === 'falsch' ? a.loesung : null, breite: 360 })}</div>`
+    : schlossModus(a) ? schloss(a, { alt: S.ergebnis === 'falsch' }) : `<div class="anzeige${S.eingabe ? '' : ' leer'}" aria-live="polite">${S.eingabe ? gruppiere(S.eingabe) : '?'}</div>`;
+  let unten;
+  if (S.ergebnis === 'richtig') unten = `<div class="rm gut" role="status"><span class="tick">✓</span>Richtig${n === 1 ? ' – noch ein Halt bis „sitzt“.' : '.'}</div><button class="haupt" style="margin:8px 0 0" data-akt="weiter" data-fokus="los"><span>Nächste Aufgabe</span><span>›</span></button>`;
+  else if (S.ergebnis === 'falsch') {
+    const n2 = S.ziffern?.length; const kIdx = S.ziffern ? S.ziffern.findIndex((d) => d != null) : -1;
+    const umstieg = schlossModus(a) && kIdx >= 0 && kIdx !== n2 - a.loesung.length ? `<div class="umstieg"><span class="von">${S.ziffern[kIdx]} bei ${STELLEN[n2 - 1 - kIdx]}</span>→<span class="nach">${a.loesung[0]} bei ${STELLEN[a.loesung.length - 1]}</span></div>` : '';
+    unten = `<div class="rm kurs" role="status"><h3>Andere Richtung</h3>${umstieg}<p>Richtig ist <b>${loesungText}</b>. ${esc(diagnose(a))}</p></div><button class="haupt" style="margin:8px 0 0" data-akt="weiter" data-fokus="los"><span>Neue Aufgabe</span><span>›</span></button>`;
+  } else if (a.art === 'strahl') unten = `<p class="hilfe-zeile">Punkt ziehen oder mit ← → schieben</p><button class="haupt" style="margin:auto 0 0" data-akt="pruefen" data-fokus="pruef"><span>Prüfen</span><span>›</span></button>
+      <div style="display:flex;justify-content:space-between"><button class="textknopf" data-akt="tipp">Tipp</button><button class="textknopf" data-akt="teil" data-arg="erklaeren">Verstehen</button></div>`;
+  else {
+    const zwoelf = !schlossModus(a);
+    unten = `<p class="hilfe-zeile">${esc(S.hinweis || (schlossModus(a) ? (S.saeule == null ? 'Tippe eine Spalte an – oder tippe die Zahl einfach ein.' : `Ziffer für die Spalte ${STELLEN[S.ziffern.length - 1 - S.saeule]}`) : ''))}</p>
+      <div class="ziffern k-keine-geste${zwoelf ? ' zwoelf' : ''}">${(zwoelf ? tastenFuer() : ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']).map((t) => `<button data-akt="${zwoelf ? 'taste' : 'ziffer'}" data-arg="${t}" aria-label="${t === '−' ? 'Minus' : t}">${t}</button>`).join('')}</div>
+      <div class="aktionen"><button data-akt="loeschen" aria-label="Löschen">⌫</button><button class="pruef" data-akt="pruefen" data-fokus="pruef">Prüfen</button></div>
+      <div style="display:flex;justify-content:space-between"><button class="textknopf" data-akt="tipp">Tipp</button><button class="textknopf" data-akt="teil" data-arg="erklaeren">Verstehen</button></div>`;
+  }
+  return `<section aria-label="Üben" style="display:flex;flex-direction:column;flex:1"><p class="hinweistext" style="margin:0">Aufgabe ${S.aufgabe + 1}</p>
+    <p class="aufgabe">${esc(a.frage)}</p>${S.tipp && !S.ergebnis ? `<p class="tippzeile"><b>Tipp:</b> ${esc(a.tipp)}</p>` : ''}
+    ${eingabe}<div class="serie" aria-label="${n} von 2 richtig hintereinander">${serieSvg(n)} 2 richtig in Folge = sitzt</div>${unten}
+    <p class="tasten-hinweis">Ziffern tippen · ← → Spalte · Enter prüft</p></section>`;
+}
+function stoerungen() {
+  const f = karteJetzt().falle;
+  return `<section class="stoerung" aria-label="Typische Fehler"><div class="kopfband"></div><div class="inhalt"><p class="hinweistext" style="margin:0 0 4px">Störungsmeldung</p><h2>${esc(f.titel)}</h2>
+    <div class="vgl"><div class="nein"><b>So nicht</b>${esc(f.falsch)}</div><div class="ja"><b>So ja</b>${esc(f.richtig)}</div></div><p>${esc(f.warum)}</p>
+    <button class="haupt" style="margin:6px 0 0" data-akt="teil" data-arg="ueben"><span>Weiter zu: Üben</span><span>›</span></button></div></section>`;
+}
+function thema() {
+  const c = karteJetzt(), o = ortJetzt();
+  const kopfTeil = `${kopf()}<div style="--L:${linienFarbe(o.gebiet)}">${schild(c.kurz, `${o.stadt} · Haltestelle ${S.karte + 1} von ${karten().length}`, o.gebiet)}</div>${miniLinie()}`;
+  const teile = { erklaeren: verstehen, ueben, fehler: stoerungen };
+  if (breit()) return `${kopfTeil}<main class="flaeche zwei">${S.teil === 'fehler' ? stoerungen() : verstehen()}${ueben()}</main>`;
+  return `${kopfTeil}<main class="flaeche">${teile[S.teil]()}</main>`;
+}
+function welt() {
+  const k = S.kind; const id = S.offen && NETZ.pos[S.offen] ? S.offen : kind().ort; const or = ortVon(id); const st = or.stand[k];
+  return `${kopf()}<main><div style="padding:0 14px"><h1 style="font-size:28px;margin:6px 0 2px;letter-spacing:-.02em">Netzplan</h1><p class="hinweistext" style="margin:0">Jede Farbe ist ein Mathe-Gebiet, jede Haltestelle ein Ort. Tippe eine Haltestelle an.</p></div>
+    <div class="netz k-keine-geste">${netzplan({ auswahl: id })}<div class="haltknoepfe-netz">${Object.keys(NETZ.pos).map((h) => `<button data-akt="zeigen" data-arg="${h}" aria-label="${ortVon(h).stadt}" style="position:absolute;left:calc(8px + ${NETZ.pos[h][0] * 6}px - 26px);top:calc(8px + ${(NETZ.pos[h][1] - 4) * 6}px - 26px);width:52px;height:52px;border-radius:50%;border:0;background:transparent"></button>`).join('')}</div></div>
+    <div class="haltinfo"><h2>${or.stadt} <span class="pille" style="--L:${linienFarbe(or.gebiet)};height:28px;min-width:40px;font-size:16px;vertical-align:3px">${LKURZ[or.gebiet]}</span></h2><p style="margin:0">${esc(or.thema)} · Klasse ${or.klasse}</p>
+      <p style="margin:6px 0 0;font-weight:600">${{ geschafft: '✓ Gestempelt', jetzt: 'Du bist hier', offen: 'Kommt als Nächstes', spaeter: 'Ab Klasse ' + or.klasse }[st]}</p>
+      ${st === 'jetzt' ? `<button class="haupt" style="margin:10px 0 0" data-akt="geh" data-arg="heute"><span>Hier einsteigen</span><span>›</span></button>` : ''}</div>
+    <div class="netz-legende">${Object.entries(DATEN.gebiete).map(([g, x]) => `<span><b style="background:${linienFarbe(g)}">${LKURZ[g]}</b>${x.name} · ${x.erdteilName}</span>`).join('')}</div>
+    <div style="padding:0 14px 20px"><p class="hinweistext" style="margin:10px 0 6px">So liegen die Orte auf der Erde</p>${weltkarte({ ausschnitt: [60, 40, 880, 420], klasse: 'erde', zusatz: DATEN.orte.map((x) => { const [px, py] = pkt(x); return `<circle cx="${px}" cy="${py}" r="7" style="fill:${linienFarbe(x.gebiet)}"/>`; }).join('') })}</div></main>`;
+}
+function pass() {
+  const k = kind(); const st = DATEN.stempel[S.kind].map(ortVon); const ks = karten();
+  return `${kopf()}<main><div style="padding:0 14px"><h1 style="font-size:28px;margin:6px 0 2px">Netzkarte</h1><p class="hinweistext" style="margin:0">${esc(k.name)} · ${k.sterne} Sterne</p></div>
+    <div class="netzkarte"><div class="oben"><span>Gültig für: ${esc(k.name)}</span><span>Linie ${DATEN.gebiete[ortJetzt().gebiet].name}</span></div>
+      <div class="lochreihe">${ks.map((c, i) => `<span class="loch${sitztKarte(i) ? ' ok' : ''}"><i></i>${esc(c.kurz)}</span>`).join('')}</div>
+      <div class="abzeichen">${st.map((o) => `<span><b style="background:${linienFarbe(o.gebiet)}">✓</b>${o.stadt}</span>`).join('')}</div></div>
+    <h2 style="font-size:22px;margin:16px 14px 0">Einlösen</h2>
+    <div class="einloesen">${DATEN.belohnungen.map((b) => { const geht = b.art === 'sterne' ? k.sterne >= b.kosten : st.length >= b.kosten;
+      return `<div><span><b>${b.titel}</b><small>${b.kosten} ${b.art === 'sterne' ? 'Sterne' : 'Stempel'}</small></span><button ${geht ? `data-akt="zeigen" data-arg="w-${b.titel}"` : 'disabled'}>${S.offen === 'w-' + b.titel ? 'Gesendet ✓' : geht ? 'Einlösen' : 'noch ' + (b.kosten - (b.art === 'sterne' ? k.sterne : st.length))}</button></div>`; }).join('')}</div></main>`;
+}
+function eltern() {
+  const w = DATEN.lernstand.a.wunsch;
+  const band = (l) => { const n = l.karten.length, W = 360, x = (i) => 20 + (W - 40) * i / (n - 1);
+    return `<svg viewBox="0 0 ${W} 44" role="img" aria-label="${l.karten.map((c) => c.titel + ': ' + c.zustand).join(', ')}"><line x1="20" y1="22" x2="${W - 20}" y2="22" stroke="var(--rand)" stroke-width="8" stroke-linecap="round"/>
+      ${l.karten.map((c, i) => `<circle cx="${x(i)}" cy="22" r="12" class="st-${c.zustand}" stroke="${c.zustand === 'wackelt' ? 'var(--kurs)' : 'var(--text)'}" stroke-width="4"/>${c.zustand === 'ueben' ? `<path d="M${x(i)} 10 a12 12 0 0 1 0 24 z" fill="var(--text)"/>` : ''}${c.zustand === 'wackelt' ? `<text x="${x(i)}" y="28" text-anchor="middle" style="font:700 16px var(--font);fill:var(--bg)">!</text>` : ''}
+        `).join('')}</svg><div class="lk-namen" style="--n:${n}">${l.karten.map((c) => `<span class="${c.zustand}">${{ sitzt: '●', wackelt: '!', ueben: '◐', offen: '○' }[c.zustand]} ${esc(c.titel)}<small>${c.ort} · ${{ sitzt: 'sitzt', wackelt: 'wackelt', ueben: 'übt', offen: 'offen' }[c.zustand]}</small></span>`).join('')}</div>`; };
+  return `${kopf()}<main class="leit"><h1>Leitstelle · Lernstand</h1>
+    ${w ? `<div class="wartet"><span><b>Wartet auf dich:</b> Ida möchte „${w.titel}“ (${w.kosten})</span><span class="kn">${S.offen === 'ok' ? '<b>Bestätigt ✓</b>' : '<button class="ja" data-akt="zeigen" data-arg="ok">Bestätigen</button><button>Ablehnen</button>'}</span></div>` : ''}
+    <div class="leit-kinder">${Object.values(DATEN.kinder).map((c) => { const l = DATEN.lernstand[c.id]; const o = ortVon(c.ort); const wa = l.karten.find((x) => x.zustand === 'wackelt');
+      return `<article class="leit-kind"><h2>${esc(c.name)}</h2><p class="unter">Klasse ${c.klasse} · jetzt ${o.stadt}, ${esc(o.thema)}</p>
+        <div class="lk-z"><span><b>${l.woche.aufgaben}</b>Aufgaben (7 Tage)</span><span><b>${Math.round(100 * l.woche.richtig / l.woche.aufgaben)} %</b>richtig</span><span><b>${l.woche.tipp}</b>mit Tipp</span></div>
+        <div class="lk-linie">${band(l)}</div>${wa ? `<div class="lk-wackelt"><b>Wackelt: ${esc(wa.titel)}</b> (${wa.ort}) – ${wa.falsch} falsch, ${wa.richtig} richtig. Typisch: ${esc(wa.beispiel)}</div>` : ''}
+        <div class="lk-tage" aria-label="${l.tage.filter(Boolean).length} Lerntage in 4 Wochen">${l.tage.map((t) => `<i class="${t ? 'an' : ''}"></i>`).join('')}</div><p class="unter" style="margin:4px 0 0">Lerntage, 4 Wochen – ohne Wertung</p></article>`; }).join('')}</div>
+    <div class="legende"><span>● sitzt</span><span>◐ übt</span><span>○ offen</span><span style="color:var(--kurs)">! wackelt (≥ 3 falsch, mehr falsch als richtig)</span></div></main>`;
+}
+function zeichne() { $('#app').innerHTML = ({ heute, thema, welt, pass, eltern }[S.ansicht] || heute)();
+  const nz = document.querySelector('.netz'); if (nz && nz.scrollWidth > nz.clientWidth) { const id = S.ansicht === 'welt' && S.offen && NETZ.pos[S.offen] ? S.offen : kind().ort; nz.scrollLeft = Math.max(0, NETZ.pos[id][0] * 6 - nz.clientWidth / 2); } }
+TASTEN.ArrowLeft = () => { const a = S.ansicht === 'thema' && S.teil === 'ueben' && aufgabeJetzt(); if (a && schlossModus(a) && !S.ergebnis) { S.saeule = Math.max(0, (S.saeule ?? S.ziffern.length) - 1); neu(); } };
+TASTEN.ArrowRight = () => { const a = S.ansicht === 'thema' && S.teil === 'ueben' && aufgabeJetzt(); if (a && schlossModus(a) && !S.ergebnis) { S.saeule = Math.min(S.ziffern.length - 1, (S.saeule ?? -1) + 1); neu(); } };
+TASTEN[' '] = (e) => { if (S.ansicht === 'thema' && S.teil === 'erklaeren') { e.preventDefault(); S.schritt < karteJetzt().schritte.length - 1 ? A.schritt(1) : A.teil('ueben'); } };
+TASTEN.Escape = () => A.geh('heute'); TASTEN.n = () => A.geh('welt');
+TASTEN.Enter = () => { if (S.ansicht === 'heute') A.halt(Math.max(0, karten().findIndex((_, i) => !sitztKarte(i)))); };
+// Ziffern im Schloss-Modus über die Spalten-Logik statt Anhängen
+document.addEventListener('keydown', (e) => { const a = S.ansicht === 'thema' && S.teil === 'ueben' && aufgabeJetzt(); if (a && schlossModus(a) && !S.ergebnis) { if (/^[0-9]$/.test(e.key)) { e.stopImmediatePropagation(); A.ziffer(e.key); } else if (e.key === 'Backspace') { e.stopImmediatePropagation(); A.loeschen(); } } }, true);
+WISCH.links = () => { if (S.ansicht === 'thema' && !S.ergebnis) { const i = TEILE.indexOf(S.teil); if (i < 2) A.teil(TEILE[i + 1]); } };
+WISCH.rechts = () => { if (S.ansicht === 'thema' && !S.ergebnis) { const i = TEILE.indexOf(S.teil); if (i > 0) A.teil(TEILE[i - 1]); } };
+addEventListener('resize', () => neu());
+</script>
+</body>
+</html>

@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Entwurf „Reiseheft“ – Mathe-Lernreise</title>
+<!-- Gestaltungsentwurf (Prüfrunde Gestaltung), kein App-Code. Eine Datei, keine fremden Abhängigkeiten.
+     Schriften: Caveat und Atkinson Hyperlegible (SIL OFL 1.1), eingebettet. Karte: Natural Earth (gemeinfrei). -->
+<style>
+@font-face { font-family: "Caveat"; src: url(/*SCHRIFT:caveat*/) format("woff2"); font-weight: 400 700; }
+@font-face { font-family: "Atkinson"; src: url(/*SCHRIFT:atkinson-400*/) format("woff2"); font-weight: 400; }
+@font-face { font-family: "Atkinson"; src: url(/*SCHRIFT:atkinson-700*/) format("woff2"); font-weight: 700; }
+:root {
+  --papier: #FBF7EE; --tisch: #E9E1CF; --karo: #DCE3EC; --tinte: #1C2B4A; --leise: #46536B; --akzent: #1C2B4A; --auf-akzent: #FBF7EE;
+  --marker: #F7D154; --gut: #17704A; --gut-hell: #DDF1E5; --zettel: #FFE2B8; --zettel-rand: #E8A34A; --falsch: #9A3B12; --linie: #C9D2DE;
+  --band1: #F4A8A0; --band2: #96D3CB; --band3: #F7D154; --erdteil-EU: #F7D154; --erdteil-AF: #F2A585;
+  --hand: "Caveat", "Segoe Print", cursive; --text: "Atkinson", system-ui, sans-serif;
+  color-scheme: light;
+}
+html.dunkel {
+  --papier: #182033; --tisch: #0F1522; --karo: #26304A; --tinte: #F1EFE8; --leise: #B9C2D6; --akzent: #F7D154; --auf-akzent: #182033;
+  --marker: #8A6D12; --gut: #7FE0AA; --gut-hell: #173A2A; --zettel: #4A3417; --zettel-rand: #C98A3A; --falsch: #FFC29A; --linie: #33405E;
+  --band1: #E7A39B; --band2: #8CCBC3; --band3: #E8C24A; color-scheme: dark;
+}
+/* 13-Jährige: Skizzenbuch statt Kinderheft – Punktraster, keine Handschrift-Überschriften, dichter */
+html[data-alter="gross"] { --hand: "Atkinson", system-ui, sans-serif; }
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html, body { margin: 0; min-height: 100%; }
+body { background: var(--tisch); color: var(--tinte); font: 18px/1.45 var(--text); -webkit-font-smoothing: antialiased; font-variant-numeric: tabular-nums; }
+button { font: inherit; color: inherit; cursor: pointer; }
+:focus-visible { outline: 3px solid var(--tinte); outline-offset: 3px; border-radius: 6px; }
+.papier { background-color: var(--papier);
+  background-image: linear-gradient(var(--karo) 1px, transparent 1px), linear-gradient(90deg, var(--karo) 1px, transparent 1px);
+  background-size: 22px 22px; background-position: -1px -1px; }
+html[data-alter="gross"] .papier { background-image: radial-gradient(var(--karo) 1.4px, transparent 1.6px); background-size: 22px 22px; }
+#app { min-height: 100dvh; display: flex; flex-direction: column; max-width: 1180px; margin: 0 auto; }
+/* Kopf: Name (Menü) links, Sterne rechts – mehr nicht */
+.kopf { display: flex; align-items: center; gap: 10px; padding: 12px 16px 6px; }
+.wer { display: inline-flex; align-items: center; gap: 8px; border: 0; background: transparent; font: 700 18px var(--text); min-height: 44px; padding: 0 6px; border-radius: 10px; }
+.wer .kreis { width: 36px; height: 36px; border-radius: 50%; background: var(--band2); display: grid; place-items: center; font: 700 18px var(--hand); color: #1C2B4A; }
+.sterne { margin-left: auto; font: 700 18px var(--text); display: inline-flex; gap: 6px; align-items: center; min-height: 44px; padding: 0 12px; border-radius: 99px; background: var(--papier); border: 2px solid var(--linie); text-decoration: none; color: var(--tinte); }
+.menue { position: absolute; top: 60px; left: 12px; z-index: 30; background: var(--papier); border: 2px solid var(--tinte); border-radius: 14px; padding: 8px; box-shadow: 6px 6px 0 var(--linie); min-width: 240px; }
+.menue button { display: block; width: 100%; text-align: left; border: 0; background: none; min-height: 48px; padding: 0 12px; border-radius: 8px; font-size: 18px; }
+.menue button:hover { background: var(--gut-hell); }
+/* Die Seite */
+.seiten { flex: 1; display: flex; gap: 0; padding: 4px 10px 92px; align-items: stretch; }
+.seite { flex: 1; position: relative; border-radius: 6px 18px 18px 6px; box-shadow: 0 1px 0 #0001, 0 10px 30px #3a2a1022; padding: 22px 20px 28px; min-height: calc(100dvh - 160px); }
+html.dunkel .seite { box-shadow: 0 10px 30px #0008; }
+.seite.links { border-radius: 18px 6px 6px 18px; }
+.blaettern-vor { animation: vor .32s ease-out; } .blaettern-zurueck { animation: zurueck .32s ease-out; }
+@keyframes vor { from { transform: perspective(1200px) rotateY(-14deg) translateX(30px); opacity: .3; } }
+@keyframes zurueck { from { transform: perspective(1200px) rotateY(14deg) translateX(-30px); opacity: .3; } }
+.band { position: absolute; top: -10px; left: 24px; width: 92px; height: 26px; background: var(--band1); opacity: .9; transform: rotate(-4deg); border-radius: 2px; }
+.band.b2 { left: auto; right: 30px; background: var(--band2); transform: rotate(5deg); }
+h1, h2, h3 { margin: 0; }
+.hand { font-family: var(--hand); font-weight: 700; }
+.titel { font: 700 52px/1 var(--hand); letter-spacing: -.01em; }
+html[data-alter="gross"] .titel { font-size: 38px; letter-spacing: -.02em; }
+.unter { font-size: 18px; color: var(--leise); margin: 4px 0 0; }
+.marker { background: linear-gradient(transparent 55%, var(--marker) 55%, var(--marker) 92%, transparent 92%); padding: 0 2px; }
+/* Heute */
+.heute-kopf { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; margin-top: 8px; }
+.stempelfeld { width: 104px; height: 104px; border-radius: 50%; border: 3px dashed var(--linie); display: grid; place-items: center; text-align: center; font: 700 16px/1.2 var(--text); color: var(--leise); flex: none; transform: rotate(-6deg); }
+.stempelfeld b { font: 700 26px/1 var(--hand); display: block; color: var(--leise); }
+.zettelreihe { display: grid; gap: 14px; margin: 26px 0 22px; }
+.zettelkarte { display: grid; grid-template-columns: 48px 1fr auto; align-items: center; gap: 12px; text-align: left; min-height: 72px; padding: 10px 14px; border: 2px solid var(--tinte); border-radius: 14px; background: var(--papier); box-shadow: 4px 4px 0 var(--linie); }
+.zettelkarte .nr { font: 700 30px/1 var(--hand); text-align: center; }
+.zettelkarte b { font-size: 19px; display: block; } .zettelkarte small { font-size: 16px; color: var(--leise); }
+.zettelkarte.dran { background: var(--gut-hell); border-width: 3px; }
+.zettelkarte .zust { font: 700 16px var(--text); padding: 4px 10px; border-radius: 99px; border: 2px solid currentColor; }
+.zettelkarte .zust.ok { color: var(--gut); }
+.los { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; min-height: 64px; border: 0; border-radius: 16px; background: var(--akzent); color: var(--auf-akzent); font: 700 22px var(--text); box-shadow: 0 5px 0 #0003; }
+.los:active { transform: translateY(3px); box-shadow: 0 2px 0 #0003; }
+.los.zweit { background: transparent; color: var(--tinte); border: 2px solid var(--tinte); box-shadow: none; min-height: 56px; font-size: 19px; }
+.notiz { font: 600 26px/1.15 var(--hand); color: var(--leise); margin: 18px 0 0; transform: rotate(-1.5deg); }
+html[data-alter="gross"] .notiz { font: 400 18px/1.4 var(--text); transform: none; }
+/* Thema: Seitenkopf mit Lernkarte und Seitenpunkten */
+.lk-kopf { display: flex; align-items: flex-start; gap: 6px; margin-bottom: 10px; }
+.zurueck-lasche { flex: none; width: 44px; height: 44px; margin: -2px 2px 0 -6px; border: 2px solid var(--tinte); border-radius: 12px; background: var(--papier); font: 700 24px var(--text); display: grid; place-items: center; }
+.lk-kopf .ort { font-size: 16px; font-weight: 700; color: var(--leise); }
+.lk-kopf h2 { font: 700 30px/1.05 var(--hand); }
+html[data-alter="gross"] .lk-kopf h2 { font-size: 24px; }
+.punkte { display: flex; gap: 0; margin-left: auto; flex: none; margin-top: -6px; }
+.punkte button { width: 44px; height: 44px; border: 0; background: none; display: grid; place-items: center; padding: 0; }
+.punkte i { width: 14px; height: 14px; border-radius: 50%; border: 2.5px solid var(--tinte); display: block; }
+.punkte .an i { background: var(--tinte); }
+.seitenname { font: 700 16px var(--text); letter-spacing: .1em; text-transform: uppercase; color: var(--leise); margin: 0 0 4px; }
+/* Erklären: Bild zuerst, ein Satz, weitertippen */
+.bildflaeche { display: grid; place-items: center; min-height: 230px; padding: 10px 0; border: 0; background: none; width: 100%; }
+.satz { font-size: 22px; line-height: 1.35; font-weight: 700; margin: 10px 0 6px; min-height: 60px; }
+.schrittpunkte { display: flex; gap: 6px; justify-content: center; margin: 6px 0 16px; }
+.schrittpunkte i { width: 26px; height: 6px; border-radius: 3px; background: var(--linie); } .schrittpunkte i.an { background: var(--tinte); }
+.regel { border-left: 4px solid var(--marker); padding: 6px 0 6px 14px; margin: 18px 0 0; font-size: 18px; }
+/* Zeichnungen */
+.k-tafel { border-collapse: collapse; font: 700 30px var(--text); background: var(--papier); }
+.k-tafel th { font-size: 17px; color: var(--leise); padding: 6px 0; }
+.k-tafel th, .k-tafel td { border: 2px solid var(--tinte); width: 54px; text-align: center; }
+.k-tafel td { height: 58px; }
+.k-tafel .an { background: var(--marker); color: #1C2B4A; }
+.k-tafel-notiz, .k-tafel-wert { font: 700 30px var(--hand); text-align: center; margin: 8px 0 0; }
+html[data-alter="gross"] .k-tafel-notiz, html[data-alter="gross"] .k-tafel-wert { font-size: 24px; }
+.k-strahl { width: 100%; max-width: 440px; overflow: visible; }
+.k-achse, .k-strich { stroke: var(--tinte); stroke-width: 3; stroke-linecap: round; } .k-spitze { fill: var(--tinte); }
+.k-wert, .k-zaehl { font: 700 17px var(--text); fill: var(--tinte); text-anchor: middle; } .k-zaehl { fill: var(--falsch); }
+.k-marker { fill: var(--falsch); } .k-loesung { fill: none; stroke: var(--gut); stroke-width: 4; }
+.k-griff-ring { fill: var(--marker); stroke: var(--tinte); stroke-width: 3; } .k-griff-kern { fill: var(--tinte); } .k-griff-start { opacity: .45; }
+.ziehbar { touch-action: none; cursor: grab; }
+.k-koord { width: 100%; max-width: 300px; } .k-gitter { stroke: var(--karo); stroke-width: 1.5; } .k-gerade { stroke: var(--tinte); stroke-width: 4; }
+.k-dreieck { stroke: var(--falsch); stroke-width: 4; stroke-dasharray: 2 6; stroke-linecap: round; }
+/* Üben: Aufgabe oben, Stellenwert-Kästchen, Zahlentasten im Daumenbereich */
+.aufgabe { font-size: 24px; line-height: 1.3; font-weight: 700; margin: 2px 0 14px; }
+html[data-alter="gross"] .aufgabe { font-size: 22px; }
+.kaestchen { display: flex; justify-content: center; gap: 0; margin: 4px 0 6px; }
+.kaestchen div { width: 48px; text-align: center; }
+.kaestchen small { display: block; font-size: 16px; font-weight: 700; color: var(--leise); }
+.kaestchen span { display: grid; place-items: center; height: 58px; border: 2px solid var(--tinte); margin-left: -2px; font: 700 34px var(--text); background: var(--papier); }
+.kaestchen div:first-child span { border-radius: 10px 0 0 10px; } .kaestchen div:last-child span { border-radius: 0 10px 10px 0; }
+.kaestchen .bleistift span { color: var(--leise); text-decoration: line-through 3px var(--falsch); }
+.feld { font: 700 40px var(--text); text-align: center; min-height: 66px; border-bottom: 3px solid var(--tinte); margin: 0 auto 8px; max-width: 260px; }
+.feld.leer { color: var(--leise); }
+.feld.bleistift { color: var(--leise); text-decoration: line-through 3px var(--falsch); }
+.serie { display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 16px; color: var(--leise); font-weight: 700; margin: 4px 0 10px; }
+.serie i { width: 26px; height: 26px; border-radius: 50%; border: 2.5px dashed var(--gut); display: inline-block; } .serie i.voll { background: var(--gut); border-style: solid; }
+.tasten { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; margin-top: 6px; }
+.tasten button { min-height: 50px; border-radius: 12px; border: 2px solid var(--tinte); background: var(--papier); font: 700 26px var(--text); box-shadow: 0 3px 0 var(--linie); }
+.tasten button:active { transform: translateY(2px); box-shadow: none; }
+.tasten .weg { font-size: 22px; } .tasten .pruef { grid-column: span 2; background: var(--gut); color: #fff; border-color: var(--gut); font-size: 22px; }
+html.dunkel .tasten .pruef { color: #0F1522; }
+.mini { border: 0; background: none; font: 700 18px var(--text); color: var(--tinte); text-decoration: underline; text-underline-offset: 4px; min-height: 44px; padding: 0 6px; }
+.tippzettel { background: var(--zettel); border-radius: 4px; padding: 10px 14px; transform: rotate(-1deg); font-size: 18px; box-shadow: 2px 3px 0 #0001; margin: 0 0 10px; }
+.hinweis { text-align: center; font-weight: 700; color: var(--falsch); min-height: 26px; margin: 0; }
+/* richtig: Stempel; falsch: Klebezettel */
+.antwortfeld { position: relative; }
+.stempel-ok { position: absolute; right: -6px; top: -26px; width: 118px; height: 118px; border-radius: 50%; border: 5px solid var(--gut); color: var(--gut); display: grid; place-items: center; text-align: center; font: 700 30px/1 var(--hand); transform: rotate(-12deg); animation: stempeln .4s cubic-bezier(.2,1.6,.5,1); background: color-mix(in srgb, var(--papier) 80%, transparent); }
+html[data-alter="gross"] .stempel-ok { font-size: 24px; }
+.stempel-ok small { display: block; font: 700 16px var(--text); }
+@keyframes stempeln { from { transform: rotate(-12deg) scale(1.8); opacity: 0; } }
+.klebezettel { background: var(--zettel); border-top: 22px solid var(--zettel-rand); border-radius: 4px; padding: 14px 16px 16px; box-shadow: 3px 5px 0 #0002; transform: rotate(-1deg); animation: kleben .35s ease-out; margin: 6px 0 12px; }
+.klebezettel h3 { font: 700 28px var(--hand); margin: 0 0 4px; }
+html[data-alter="gross"] .klebezettel h3 { font-size: 22px; }
+.klebezettel p { margin: 6px 0; font-size: 18px; }
+.klebezettel .k-tafel { font-size: 24px; } .klebezettel .k-tafel th, .klebezettel .k-tafel td { width: 42px; } .klebezettel .k-tafel td { height: 46px; }
+@keyframes kleben { from { transform: translateY(24px) rotate(3deg); opacity: 0; } }
+.gutzeile { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 12px; background: var(--gut-hell); color: var(--gut); font-weight: 700; margin: 6px 0 12px; }
+/* Lernkarte sitzt */
+.sitzt-seite { text-align: center; padding-top: 30px; }
+.grossstempel { width: 220px; height: 220px; margin: 10px auto 18px; border-radius: 50%; border: 7px double var(--gut); color: var(--gut); display: grid; place-items: center; transform: rotate(-8deg); font: 700 40px/1 var(--hand); animation: stempeln .5s cubic-bezier(.2,1.6,.5,1); }
+.grossstempel small { display: block; font: 700 18px var(--text); }
+/* Fallen-Seite */
+.falle { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
+.falle div { border-radius: 14px; padding: 14px; font-size: 18px; min-width: 0; overflow-wrap: anywhere; }
+.falle .nein { background: var(--zettel); } .falle .ja { background: var(--gut-hell); }
+.falle b { display: block; font: 700 26px var(--hand); margin-bottom: 4px; }
+html[data-alter="gross"] .falle b { font: 700 18px var(--text); }
+/* Blätter-Knöpfe: Eselsohren unten links/rechts im Daumenbereich */
+.ecken { position: fixed; left: 0; right: 0; bottom: 0; display: flex; justify-content: space-between; align-items: center; padding: 10px 16px calc(12px + env(safe-area-inset-bottom)); pointer-events: none; z-index: 10; max-width: 1180px; margin: 0 auto; }
+.ecke { pointer-events: auto; min-width: 56px; min-height: 56px; padding: 0 16px; border-radius: 16px; border: 2px solid var(--tinte); background: var(--papier); font: 700 18px var(--text); display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 0 var(--linie); }
+/* Register-Laschen: Heute, Atlas, Pass */
+.register { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); display: flex; gap: 6px; z-index: 10; padding-bottom: env(safe-area-inset-bottom); }
+.register button { min-width: 92px; min-height: 52px; border: 2px solid var(--tinte); border-bottom: 0; border-radius: 14px 14px 0 0; font: 700 18px var(--text); background: var(--band2); color: #1C2B4A; }
+.register button:nth-child(2) { background: var(--band3); } .register button:nth-child(3) { background: var(--band1); }
+.register button.an { padding-bottom: 8px; min-height: 60px; }
+/* Atlas */
+.k-welt { width: 100%; height: auto; display: block; }
+.k-meer { fill: transparent; } .k-land { fill: color-mix(in srgb, var(--marker) 22%, transparent); stroke: var(--tinte); stroke-width: .6; opacity: .9; vector-effect: non-scaling-stroke; }
+.atlas-gross { border: 2px solid var(--tinte); border-radius: 12px; overflow: hidden; margin: 12px 0 6px; background: color-mix(in srgb, var(--band2) 18%, transparent); }
+.atlas-klein { max-width: 340px; opacity: .9; }
+.atlas-route { fill: none; stroke: var(--falsch); stroke-width: 2.6; stroke-dasharray: 2 7; stroke-linecap: round; }
+.atlas-punkt { fill: var(--papier); stroke: var(--tinte); stroke-width: 2.4; } .atlas-punkt.geschafft { fill: var(--gut); stroke: var(--gut); } .atlas-punkt.jetzt { fill: var(--falsch); stroke: var(--falsch); }
+.atlas-name { font: 700 22px var(--hand); fill: var(--tinte); paint-order: stroke; stroke: var(--papier); stroke-width: 5px; }
+.ortliste { display: grid; gap: 8px; margin-top: 12px; }
+.ortliste button { display: flex; align-items: center; gap: 12px; min-height: 56px; border: 0; border-bottom: 2px dashed var(--linie); background: none; text-align: left; font-size: 18px; padding: 6px 4px; }
+.ortliste .p { width: 16px; height: 16px; border-radius: 50%; border: 2.5px solid var(--tinte); flex: none; } .ortliste .p.geschafft { background: var(--gut); border-color: var(--gut); } .ortliste .p.jetzt { background: var(--falsch); border-color: var(--falsch); }
+.ortliste small { margin-left: auto; color: var(--leise); font-size: 16px; }
+/* Pass */
+.stempelbogen { display: flex; flex-wrap: wrap; gap: 18px; margin: 18px 0; }
+.passstempel { width: 128px; height: 128px; border-radius: 50%; border: 4px double var(--gut); color: var(--gut); display: grid; place-items: center; text-align: center; font: 700 26px/1 var(--hand); }
+.passstempel small { display: block; font: 700 16px var(--text); }
+.passstempel.leer { border: 3px dashed var(--linie); color: var(--leise); }
+.ticket { display: flex; align-items: center; gap: 14px; padding: 14px 16px; border: 2px solid var(--tinte); border-radius: 12px; background: var(--papier); margin: 10px 0; position: relative; }
+.ticket::before, .ticket::after { content: ""; position: absolute; left: 64px; width: 16px; height: 16px; border-radius: 50%; background: var(--tisch); border: 2px solid var(--tinte); }
+.ticket::before { top: -9px; } .ticket::after { bottom: -9px; }
+.ticket .t-art { width: 52px; font: 700 26px var(--hand); text-align: center; }
+.ticket b { font-size: 19px; display: block; } .ticket small { color: var(--leise); font-size: 16px; }
+.ticket button { margin-left: auto; min-height: 48px; padding: 0 16px; border-radius: 12px; border: 0; background: var(--akzent); color: var(--auf-akzent); font-weight: 700; }
+.ticket button[disabled] { background: none; color: var(--leise); border: 2px dashed var(--linie); cursor: default; }
+/* Eltern/Lehrkraft: ruhig, sachlich */
+.erw { background: var(--papier); }
+.erw-kopf { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 16px; }
+.erw h1 { font: 700 30px var(--text); letter-spacing: -.01em; }
+.erw h2 { font: 700 22px var(--text); margin: 0 0 6px; }
+.wartet { border: 2px solid var(--tinte); border-radius: 14px; padding: 14px 16px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 18px; }
+.wartet .knoepfe { margin-left: auto; display: flex; gap: 8px; }
+.wartet button { min-height: 48px; padding: 0 18px; border-radius: 12px; border: 2px solid var(--tinte); background: var(--papier); font-weight: 700; }
+.wartet button.ja { background: var(--akzent); color: var(--auf-akzent); }
+.kinderreihe { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+.kindblatt { border: 2px solid var(--linie); border-radius: 14px; padding: 16px; background: var(--papier); }
+.kindblatt .z { display: flex; gap: 18px; margin: 4px 0 12px; font-size: 16px; color: var(--leise); }
+.kindblatt .z b { display: block; font-size: 28px; color: var(--tinte); }
+.kartenraster { display: grid; gap: 6px; margin: 8px 0 12px; }
+.kz { display: grid; grid-template-columns: 22px 1fr auto; gap: 10px; align-items: center; font-size: 17px; min-height: 30px; }
+.kz i { width: 18px; height: 18px; border-radius: 4px; border: 2.5px solid var(--tinte); }
+.kz.sitzt i { background: var(--gut); border-color: var(--gut); } .kz.wackelt i { background: var(--zettel-rand); border-color: var(--zettel-rand); } .kz.ueben i { background: linear-gradient(90deg, var(--tinte) 50%, transparent 50%); }
+.kz small { color: var(--leise); font-size: 16px; }
+.wackelzettel { background: var(--zettel); border-radius: 8px; padding: 10px 12px; font-size: 16px; margin-top: 4px; }
+.tage { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; max-width: 220px; margin-top: 6px; }
+.tage i { aspect-ratio: 1; border-radius: 50%; border: 2px solid var(--linie); } .tage i.an { background: var(--tinte); border-color: var(--tinte); }
+.legende { font-size: 16px; color: var(--leise); display: flex; flex-wrap: wrap; gap: 14px; margin-top: 14px; }
+.legende span { display: inline-flex; align-items: center; gap: 6px; }
+.tastenhilfe { display: none; font-size: 16px; color: var(--leise); text-align: center; margin: 10px 0 0; }
+@media (min-width: 820px) {
+  .seiten { padding: 6px 24px 100px; gap: 0; }
+  .seite { min-height: calc(100dvh - 180px); padding: 30px 34px 34px; }
+  .seiten.doppel .seite.links { border-right: 1px solid var(--linie); }
+  .titel { font-size: 64px; }
+  .tastenhilfe { display: block; }
+  .ecken { display: none; }
+}
+@media (min-width: 1100px) { .seiten.einzel .seite { max-width: 760px; margin: 0 auto; } }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+/*KERN*/
+// ---------- Richtung „Reiseheft“ ----------
+const $ = (s) => document.querySelector(s);
+const breit = () => innerWidth >= 820;
+let letzteSeite = null;
+const ICON_STERN = '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z"/></svg>';
+function kopf() {
+  const k = kind();
+  return `<header class="kopf"><button class="wer" data-akt="zeigen" data-arg="menue" aria-haspopup="true" aria-expanded="${S.offen === 'menue'}"><span class="kreis">${k.name[0]}</span>${esc(k.name)} ▾</button>
+    <button class="sterne" data-akt="geh" data-arg="pass" aria-label="${k.sterne} Sterne – zum Reisepass">${ICON_STERN}${k.sterne}</button></header>
+    ${S.offen === 'menue' ? `<div class="menue" role="menu">${Object.values(DATEN.kinder).map((c) => `<button role="menuitem" data-akt="kind" data-arg="${c.id}">${c.id === S.kind ? '✓ ' : ''}${esc(c.name)} (${c.alter})</button>`).join('')}
+      <button role="menuitem" data-akt="geh" data-arg="eltern">Für Eltern und Lehrkraft</button><button role="menuitem" data-akt="dunkel">${S.dunkel ? 'Helles Heft' : 'Nachtheft (dunkel)'}</button></div>` : ''}`;
+}
+const register = () => `<nav class="register" aria-label="Heft-Register">${[['heute', 'Heute'], ['welt', 'Atlas'], ['pass', 'Pass']].map(([v, t]) => `<button data-akt="geh" data-arg="${v}" class="${S.ansicht === v || (v === 'heute' && S.ansicht === 'thema') ? 'an' : ''}" ${S.ansicht === v ? 'aria-current="page"' : ''}>${t}</button>`).join('')}</nav>`;
+
+function heute() {
+  const o = ortJetzt(), ks = karten(), g = DATEN.gebiete[o.gebiet];
+  const dran = ks.findIndex((_, i) => !sitztKarte(i)); const offen = ks.length - anzahlSitzt();
+  return `<main class="seiten einzel"><section class="seite papier"><span class="band"></span><span class="band b2"></span>
+    <p class="unter">${g.erdteilName} · ${g.name}</p>
+    <div class="heute-kopf"><div><h1 class="titel">${o.stadt}</h1><p class="unter" style="font-size:20px;color:var(--tinte);font-weight:700">${o.thema}</p></div>
+      <div class="stempelfeld" aria-label="Stempelfeld: noch ${offen} Lernkarten">${offen ? `<span><b>${offen}</b>${offen === 1 ? 'Karte' : 'Karten'} bis zum Stempel</span>` : `<span><b>✓</b>gestempelt</span>`}</div></div>
+    <div class="zettelreihe">${ks.map((c, i) => `<button class="zettelkarte${i === dran ? ' dran' : ''}" data-akt="lernkarte" data-arg="${i}">
+      <span class="nr">${i + 1}</span><span><b>${esc(c.titel)}</b><small>${sitztKarte(i) ? 'sitzt' : i === dran ? 'Jetzt dran' : 'danach'}</small></span>
+      ${sitztKarte(i) ? '<span class="zust ok">✓ sitzt</span>' : ''}</button>`).join('')}</div>
+    <button class="los" data-akt="lernkarte" data-arg="${Math.max(0, dran)}" data-fokus="los">Seite aufschlagen ›</button>
+    <p class="notiz">${kind().alter < 12 ? 'Kein Zeitdruck. Mach so viel, wie gerade passt.' : 'Tipp: Mit ← → blätterst du, Ziffern tippst du direkt.'}</p>
+  </section></main>${register()}`;
+}
+A.lernkarte = (i) => { S.karte = Number(i); S.aufgabe = 0; S.eingabe = ''; S.strahl = null; S.ergebnis = null; S.neuSitzt = false; S.ansicht = 'thema'; S.teil = sitztKarte(S.karte) ? 'ueben' : 'erklaeren'; S.schritt = 0; neu(true); };
+
+const TEILE = ['erklaeren', 'ueben', 'fehler'];
+const TEILNAME = { erklaeren: 'Verstehen', ueben: 'Üben', fehler: 'Fallen' };
+function lkKopf() {
+  const c = karteJetzt(), o = ortJetzt();
+  return `<div class="lk-kopf"><button class="zurueck-lasche" data-akt="geh" data-arg="heute" aria-label="Zu Heute">‹</button><div style="min-width:0"><p class="ort">${o.stadt} · Karte ${S.karte + 1}/${karten().length}</p><h2>${esc(c.titel)}</h2></div>
+    <div class="punkte" role="tablist" aria-label="Seiten">${TEILE.map((t) => `<button role="tab" aria-selected="${S.teil === t}" aria-label="${TEILNAME[t]}" data-akt="teil" data-arg="${t}" class="${S.teil === t ? 'an' : ''}"><i></i></button>`).join('')}</div></div>`;
+}
+function seiteErklaeren() {
+  const c = karteJetzt(); const s = c.schritte[S.schritt]; const letzter = S.schritt === c.schritte.length - 1;
+  return `<p class="seitenname">Verstehen · Bild ${S.schritt + 1} von ${c.schritte.length}</p>
+    <button class="bildflaeche" data-akt="${letzter ? 'teil' : 'schritt'}" data-arg="${letzter ? 'ueben' : 1}" aria-label="${letzter ? 'Zum Üben' : 'Nächster Schritt'}">${bildFuer(s, { gross: true })}</button>
+    <p class="satz" aria-live="polite">${esc(s.text)}</p>
+    <div class="schrittpunkte" aria-hidden="true">${c.schritte.map((_, i) => `<i class="${i <= S.schritt ? 'an' : ''}"></i>`).join('')}</div>
+    ${letzter ? `<button class="los" data-akt="teil" data-arg="ueben" data-fokus="los">Jetzt du ›</button><p class="regel"><span class="marker">Merke:</span> ${esc(c.regel)}</p>`
+      : `<button class="los zweit" data-akt="schritt" data-arg="1" data-fokus="schritt">Weiter ›</button>`}
+    <p class="tastenhilfe">Leertaste: weiter · → nächste Seite</p>`;
+}
+function eingabeAnzeige(a) {
+  const falsch = S.ergebnis === 'falsch';
+  if (a.art === 'strahl') return `<div style="padding:8px 0 4px">${strahl(a, { ziehbar: !S.ergebnis, wahl: S.strahl, loesung: falsch ? a.loesung : null, breite: 360 })}</div>`;
+  if (kind().klasse >= 7 || !/^\d+$/.test(a.loesung)) return `<div class="feld${S.eingabe ? '' : ' leer'}${falsch ? ' bleistift' : ''}" aria-live="polite">${S.eingabe ? gruppiere(S.eingabe) : '?'}</div>`;
+  const n = Math.max(4, a.loesung.length + 1, S.eingabe.length); const z = S.eingabe.padStart(n, ' ').split('');
+  return `<div class="kaestchen${falsch ? ' bleistift' : ''}" aria-label="Deine Antwort: ${S.eingabe || 'leer'}">${z.map((d, i) => `<div><small>${STELLEN[n - 1 - i]}</small><span>${d.trim()}</span></div>`).join('')}</div>`;
+}
+function seiteUeben() {
+  const a = aufgabeJetzt(); const c = karteJetzt();
+  if (S.neuSitzt) return `<div class="sitzt-seite"><p class="seitenname">Lernkarte ${S.karte + 1}</p><div class="grossstempel"><span>sitzt!<small>${esc(c.kurz)} · ${ortJetzt().stadt}</small></span></div>
+    <p style="font-size:20px;font-weight:700;margin:0 0 6px">Zweimal hintereinander richtig.</p><p class="unter" style="margin:0 0 22px">+30 Sterne · Die Karte kommt in ein paar Tagen zum Wiederholen.</p>
+    ${S.karte < karten().length - 1 ? `<button class="los" data-akt="lernkarte" data-arg="${S.karte + 1}" data-fokus="los">Nächste Karte: ${esc(karten()[S.karte + 1].kurz)} ›</button>` : ''}
+    <button class="los zweit" style="margin-top:12px" data-akt="geh" data-arg="heute">Fertig für jetzt</button></div>`;
+  const ok = S.ergebnis === 'richtig', falsch = S.ergebnis === 'falsch';
+  const n = serie();
+  return `<p class="seitenname">Üben · Aufgabe ${S.aufgabe + 1}</p>
+    <p class="aufgabe">${esc(a.frage)}</p>
+    ${S.tipp && !S.ergebnis ? `<p class="tippzettel"><b>Tipp:</b> ${esc(a.tipp)}</p>` : ''}
+    <div class="antwortfeld">${eingabeAnzeige(a)}${ok ? `<div class="stempel-ok" aria-hidden="true"><span>stimmt!<small>+10 Sterne</small></span></div>` : ''}</div>
+    <p class="hinweis" role="status">${esc(S.hinweis || '')}</p>
+    <div class="serie" aria-label="${n} von 2 richtig hintereinander"><i class="${n >= 1 ? 'voll' : ''}"></i><i class="${n >= 2 ? 'voll' : ''}"></i> 2 richtig hintereinander = Karte sitzt</div>
+    ${falsch ? `<div class="klebezettel" role="status"><h3>Fast!</h3><p>Richtig ist <b>${a.art === 'strahl' ? gruppiere(a.start + a.loesung * (a.ende - a.start) / a.n) : gruppiere(a.loesung)}</b>.</p>${diagnose(a) ? `<p>${esc(diagnose(a))}</p>` : ''}
+      ${c.bild === 'stellentafel' && a.zahl ? `<div style="display:flex;justify-content:center;margin-top:8px">${stellentafel({ zahl: a.zahl, mark: a.zahl.indexOf(String(a.ziffer)) })}</div>` : ''}</div>
+      <button class="los" data-akt="weiter" data-fokus="los">Noch so eine ›</button>` : ok ? `<div class="gutzeile" role="status">✓ Richtig – ${n === 1 ? 'noch einmal, dann sitzt die Karte.' : 'weiter so.'}</div><button class="los" data-akt="weiter" data-fokus="los">Nächste Aufgabe ›</button>`
+      : `<div class="tasten k-keine-geste" ${a.art === 'strahl' ? 'hidden' : ''}>${tastenFuer().map((t) => `<button data-akt="taste" data-arg="${t}" aria-label="${t === '−' ? 'Minus' : t}">${t}</button>`).join('')}
+          <button class="weg" data-akt="taste" data-arg="⌫" aria-label="Löschen">⌫</button><button class="pruef" data-akt="pruefen" data-fokus="pruef">Prüfen</button></div>
+        ${a.art === 'strahl' ? '<button class="los" data-akt="pruefen" data-fokus="pruef">Prüfen</button>' : ''}
+        <div style="display:flex;justify-content:space-between;margin-top:6px"><button class="mini" data-akt="tipp">Tipp</button><button class="mini" data-akt="teil" data-arg="erklaeren">Nochmal erklären</button></div>`}
+    <p class="tastenhilfe">Ziffern tippen · Enter prüft · ← Erklärung</p>`;
+}
+function seiteFehler() {
+  const c = karteJetzt(); const f = c.falle;
+  return `<p class="seitenname">Fallen · Hier geht es oft schief</p>
+    <h3 class="hand" style="font-size:32px;margin:6px 0 4px">${esc(f.titel)}</h3>
+    <div class="falle"><div class="nein"><b>So nicht</b>${esc(f.falsch)}</div><div class="ja"><b>So ja</b>${esc(f.richtig)}</div></div>
+    <p style="font-size:19px">${esc(f.warum)}</p>
+    <button class="los zweit" data-akt="teil" data-arg="ueben">Zum Üben ›</button>`;
+}
+function thema() {
+  const seiten = { erklaeren: seiteErklaeren, ueben: seiteUeben, fehler: seiteFehler };
+  const richtung = letzteSeite && TEILE.indexOf(S.teil) < TEILE.indexOf(letzteSeite) ? 'blaettern-zurueck' : 'blaettern-vor';
+  const anim = letzteSeite !== S.teil ? richtung : ''; letzteSeite = S.teil;
+  if (breit()) {
+    const links = S.teil === 'fehler' ? 'fehler' : 'erklaeren';
+    return `<main class="seiten doppel"><section class="seite links papier" aria-label="${TEILNAME[links]}">${lkKopf()}${seiten[links]()}</section>
+      <section class="seite papier" aria-label="Üben">${seiteUeben()}</section></main>${register()}`;
+  }
+  const i = TEILE.indexOf(S.teil);
+  return `<main class="seiten einzel"><section class="seite papier ${anim}" aria-label="${TEILNAME[S.teil]}">${lkKopf()}${seiten[S.teil]()}</section></main>
+    <div class="ecken" ${S.teil === 'ueben' ? 'hidden' : ''}><button class="ecke" data-akt="${i ? 'teil' : 'geh'}" data-arg="${i ? TEILE[i - 1] : 'heute'}" aria-label="Zurückblättern">‹ ${i ? TEILNAME[TEILE[i - 1]] : 'Heute'}</button>
+      ${i < 2 ? `<button class="ecke" data-akt="teil" data-arg="${TEILE[i + 1]}" aria-label="Weiterblättern">${TEILNAME[TEILE[i + 1]]} ›</button>` : ''}</div>`;
+}
+function atlas() {
+  const k = S.kind; const orte = DATEN.orte.filter((o) => o.stand[k] !== 'spaeter');
+  const weg = orte.filter((o) => o.stand[k] === 'geschafft' || o.stand[k] === 'jetzt');
+  const jetzt = ortJetzt(); const nah = orte.filter((o) => o.gebiet === jetzt.gebiet || o.stand[k] === 'geschafft');
+  // Ausschnitt um die Orte der aktuellen Weltgegend – groß genug zum Lesen; ganze Welt als kleine Karte darunter
+  const ps = nah.map(pkt); let x0 = Math.min(...ps.map((p) => p[0])), x1 = Math.max(...ps.map((p) => p[0])), y0 = Math.min(...ps.map((p) => p[1])), y1 = Math.max(...ps.map((p) => p[1]));
+  let w = Math.max(160, (x1 - x0) * 1.8), h = w * 0.72; const ax = [((x0 + x1) / 2 - w / 2).toFixed(1), ((y0 + y1) / 2 - h / 2).toFixed(1), w.toFixed(1), h.toFixed(1)];
+  const z = w / 360;
+  const route = weg.length > 1 ? `<path class="atlas-route" style="stroke-width:${2.6 * z}px;stroke-dasharray:${2 * z} ${7 * z}" d="M${weg.map((o) => pkt(o).map((v) => v.toFixed(1)).join(' ')).join(' L')}"/>` : '';
+  const punkte = nah.map((o) => { const [x, y] = pkt(o); return `<circle cx="${x}" cy="${y}" r="${(o.stand[k] === 'jetzt' ? 7 : 5) * z}" style="stroke-width:${2 * z}px" class="atlas-punkt ${o.stand[k]}"/><text x="${x + 9 * z}" y="${y - 7 * z}" class="atlas-name" style="font-size:${22 * z}px;stroke-width:${5 * z}px">${o.stadt}</text>`; }).join('');
+  const nGeschafft = orte.filter((o) => o.stand[k] === 'geschafft').length;
+  return `<main class="seiten einzel"><section class="seite papier"><span class="band"></span>
+    <h1 class="titel" style="font-size:44px">Mein Atlas</h1><p class="unter">${nGeschafft} ${nGeschafft === 1 ? 'Ort' : 'Orte'} geschafft · jetzt in ${jetzt.stadt}</p>
+    <div class="atlas-gross">${weltkarte({ ausschnitt: ax, zusatz: route + punkte, label: 'Karte der Weltgegend ' + DATEN.gebiete[jetzt.gebiet].erdteilName })}</div>
+    <div class="ortliste">${orte.map((o) => `<button data-akt="${o.id === kind().ort ? 'lernkarte' : 'zeigen'}" data-arg="${o.id === kind().ort ? 0 : o.id}"><span class="p ${o.stand[k]}"></span><span><b>${o.stadt}</b> · ${esc(o.thema)}</span><small>${{ geschafft: 'gestempelt', jetzt: 'jetzt hier', offen: 'kommt noch' }[o.stand[k]]}</small></button>`).join('')}</div>
+    <p class="unter" style="margin-top:16px">Die ganze Reise</p>${weltkarte({ ausschnitt: [60, 40, 880, 420], klasse: 'atlas-klein', zusatz: orte.map((o) => { const [x, y] = pkt(o); return `<circle cx="${x}" cy="${y}" r="7" class="atlas-punkt ${o.stand[k]}"/>`; }).join('') })}
+  </section></main>${register()}`;
+}
+function pass() {
+  const k = kind(); const st = DATEN.stempel[S.kind].map(ortVon);
+  return `<main class="seiten einzel"><section class="seite papier"><span class="band b2"></span>
+    <h1 class="titel" style="font-size:44px">Reisepass</h1><p class="unter">${esc(k.name)} · ${k.sterne} Sterne · ${st.length} ${st.length === 1 ? 'Stempel' : 'Stempel'}</p>
+    <div class="stempelbogen">${st.map((o, i) => `<div class="passstempel" style="transform:rotate(${[-8, 6, -3][i % 3]}deg)"><span>${o.stadt}<small>${esc(o.thema)}</small></span></div>`).join('')}
+      <div class="passstempel leer"><span>${ortJetzt().stadt}<small>bald</small></span></div></div>
+    <h2 class="hand" style="font-size:32px">Einlösen</h2>
+    ${DATEN.belohnungen.map((b) => { const geht = b.art === 'sterne' ? k.sterne >= b.kosten : st.length >= b.kosten;
+      return `<div class="ticket"><span class="t-art">${b.art === 'sterne' ? '★' : '◎'}</span><span><b>${b.titel}</b><small>${b.kosten} ${b.art === 'sterne' ? 'Sterne' : 'Stempel'}</small></span>
+      <button ${geht ? `data-akt="zeigen" data-arg="eingeloest-${b.titel}"` : 'disabled'}>${S.offen === 'eingeloest-' + b.titel ? 'Wunsch geschickt ✓' : geht ? 'Einlösen' : `noch ${b.kosten - (b.art === 'sterne' ? k.sterne : st.length)}`}</button></div>`; }).join('')}
+  </section></main>${register()}`;
+}
+function eltern() {
+  const kinder = Object.values(DATEN.kinder);
+  const kartenFarbe = { sitzt: 'sitzt', wackelt: 'wackelt', ueben: 'ueben', offen: '' };
+  return `<main class="seiten einzel"><section class="seite erw">
+    <div class="erw-kopf"><h1>Lernstand</h1><button class="mini" data-akt="geh" data-arg="heute">Zur Kinderansicht</button></div>
+    ${DATEN.lernstand.a.wunsch ? `<div class="wartet"><span><b>Wartet auf dich:</b> Ida möchte „${DATEN.lernstand.a.wunsch.titel}“ einlösen (${DATEN.lernstand.a.wunsch.kosten}).</span>
+      <span class="knoepfe">${S.offen === 'ok' ? '<b>Bestätigt ✓</b>' : '<button class="ja" data-akt="zeigen" data-arg="ok">Bestätigen</button><button>Ablehnen</button>'}</span></div>` : ''}
+    <div class="kinderreihe">${kinder.map((c) => { const l = DATEN.lernstand[c.id]; const o = ortVon(c.ort);
+      return `<article class="kindblatt"><h2>${esc(c.name)} · Klasse ${c.klasse}</h2><p class="unter" style="margin:0 0 6px">Jetzt: ${o.stadt} – ${esc(o.thema)}</p>
+        <div class="z"><span><b>${l.woche.aufgaben}</b>Aufgaben (7 Tage)</span><span><b>${Math.round(100 * l.woche.richtig / l.woche.aufgaben)} %</b>richtig</span><span><b>${l.woche.tipp}</b>mit Tipp</span></div>
+        <div class="kartenraster">${l.karten.map((x) => `<div class="kz ${kartenFarbe[x.zustand]}"><i></i><span>${esc(x.titel)} <small>· ${x.ort}</small></span><small>${{ sitzt: 'sitzt', wackelt: 'wackelt', ueben: 'am Üben', offen: 'offen' }[x.zustand]}</small></div>
+          ${x.beispiel ? `<div class="wackelzettel"><b>Typischer Fehler:</b> ${esc(x.beispiel)}</div>` : ''}`).join('')}</div>
+        <p class="unter" style="font-size:16px;margin:10px 0 0">Lerntage, letzte 4 Wochen (ohne Wertung)</p><div class="tage" aria-label="${l.tage.filter(Boolean).length} Lerntage in 4 Wochen">${l.tage.map((t) => `<i class="${t ? 'an' : ''}"></i>`).join('')}</div></article>`; }).join('')}</div>
+    <div class="legende"><span><i style="width:16px;height:16px;border-radius:4px;background:var(--gut);display:inline-block"></i>sitzt</span><span><i style="width:16px;height:16px;border-radius:4px;background:var(--zettel-rand);display:inline-block"></i>wackelt (≥ 3 falsch, mehr falsch als richtig)</span><span><i style="width:16px;height:16px;border-radius:4px;border:2.5px solid var(--tinte);display:inline-block"></i>offen</span></div>
+  </section></main>`;
+}
+function zeichne() {
+  const v = { heute, thema, welt: atlas, pass, eltern }[S.ansicht] || heute;
+  $('#app').innerHTML = kopf() + v();
+}
+// Tasten und Wischen dieser Richtung
+const blaettern = (d) => { if (S.ansicht !== 'thema') return; const i = TEILE.indexOf(S.teil) + d; if (i >= 0 && i < 3) A.teil(TEILE[i]); };
+TASTEN.ArrowRight = () => blaettern(1); TASTEN.ArrowLeft = () => blaettern(-1);
+TASTEN[' '] = (e) => { if (S.ansicht === 'thema' && S.teil === 'erklaeren') { e.preventDefault(); const c = karteJetzt(); S.schritt < c.schritte.length - 1 ? A.schritt(1) : A.teil('ueben'); } };
+TASTEN.Escape = () => A.geh('heute');
+WISCH.links = () => blaettern(1); WISCH.rechts = () => blaettern(-1);
+addEventListener('resize', () => neu());
+</script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+{
+  "name": "abflug",
+  "leitidee": "Jede Aufgabe ist eine Bordkarte – groß, eine nach der anderen, mit Tasten im Daumenbereich –, und statt einer Startseite zeigt eine Abflugtafel, wohin die Reise als Nächstes geht: Lernen fühlt sich an wie Losfliegen, nicht wie Hausaufgaben.",
+  "fuer_wen": "Stärker für den 13-Jährigen: dunkel, schnell, kühl, Tastenkürzel, dichte Tafel mit allen Orten (9 Zeilen). Die 10-Jährige bekommt dieselbe Tafel mit 5 Zeilen, kurzen Wörtern, Bilderfeldern in der Sicherheitskarte und die Stellenwert-Spalten über den Ziffern; auf Wunsch die Tag-Ansicht (hell). Ab Klasse 7: Tasten mit − und Komma, Anzeige ohne Spaltenköpfe.",
+  "farben": {
+    "hintergrund": "#0B0F14 (Nacht, Standard)",
+    "flaeche": "#151B24",
+    "text": "#F2F4F7",
+    "leise": "#A9B3C1",
+    "akzent": "#FFD23F (Flughafengelb)",
+    "auf_akzent": "#11161D",
+    "gut": "#45E0A0",
+    "falsch": "#FFAD7A auf #33201A (Kurskorrektur, nie Rot)",
+    "linie": "#2E3947",
+    "tafel": "#05080C mit Gelb #FFD23F",
+    "dunkel": {
+      "hinweis": "Die Nacht-Ansicht ist der Standard; die Tag-Variante ist die helle Alternative",
+      "hintergrund": "#F3F1EA",
+      "flaeche": "#FFFFFF",
+      "text": "#11161D",
+      "leise": "#4A5563",
+      "akzent": "#FFD23F",
+      "auf_akzent": "#11161D",
+      "gut": "#0B7A4B",
+      "falsch": "#A8410F auf #FFE9DC",
+      "linie": "#C9C4B6"
+    }
+  },
+  "schrift": {
+    "ueberschrift": "Space Grotesk 700, 24–34 px",
+    "text": "Space Grotesk 500/600, 18 px",
+    "zahlen": "JetBrains Mono 800 in Klapp-Kacheln (34 px), Tafel und Status in Mono 16–20 px Großbuchstaben",
+    "lizenz": "beide SIL OFL 1.1, selbst gehostet (fontsource: @fontsource-variable/space-grotesk, @fontsource-variable/jetbrains-mono); zusammen ca. 63 KB woff2"
+  },
+  "formen": {
+    "radius": "Flächen 16–20 px, Kacheln 4–8 px",
+    "schatten": "keine im Dunkeln; nur der gelbe Knopf hat 0 10 px 30 px Schatten",
+    "rand": "1 px #2E3947; Perforation 3 px gestrichelt mit Lochungen an beiden Seiten",
+    "abstand_raster": "4-px-Raster; Abstände 6/10/14/22 px"
+  },
+  "bausteine": [
+    {
+      "name": "Gelber Einsteigen-Knopf",
+      "aussehen": "schwebt unten im Daumenbereich, links Wort, rechts Ziel in Mono",
+      "zustaende": "normal, gedrückt, Fokus gelber Rahmen",
+      "mindestgroesse": "64 px hoch"
+    },
+    {
+      "name": "Abflugtafel",
+      "aussehen": "schwarze Tafel, gelbe Mono-Großschrift; oberste Zeile in Klapp-Kacheln; Status EINSTEIGEN/WARTET/GELANDET/AB KLASSE",
+      "zustaende": "Zeile antippbar",
+      "mindestgroesse": "64 px je Zeile"
+    },
+    {
+      "name": "Bordkarte",
+      "aussehen": "Karte mit Perforation, oben Frage, darunter Ziffern-Kacheln mit Stellenköpfen, darunter Tastenfeld",
+      "zustaende": "offen, richtig (Abriss „✓ AN BORD +10“ fliegt ab), falsch (Kurskorrektur)",
+      "mindestgroesse": "volle Höhe"
+    },
+    {
+      "name": "Sicherheitskarte",
+      "aussehen": "2 × 2 nummerierte Bildfelder wie die Sicherheitskarte im Flugzeug; noch verdeckte Felder gestrichelt mit „Antippen“",
+      "zustaende": "verdeckt, offen, aktuell (gelber Rand)",
+      "mindestgroesse": "160 px je Feld"
+    },
+    {
+      "name": "Kurskorrektur",
+      "aussehen": "DU- und ZIEL-Zeile in Kacheln untereinander, rechtsbündig mit Stellenköpfen; abweichende Stellen gelb",
+      "zustaende": "erscheint bei falsch",
+      "mindestgroesse": "32 × 42 px je Kachel"
+    },
+    {
+      "name": "Menü-Knopf",
+      "aussehen": "einzelner Knopf unten rechts, öffnet ein Blatt von unten",
+      "zustaende": "zu, offen",
+      "mindestgroesse": "60 × 64 px"
+    }
+  ],
+  "handhabung": [
+    {
+      "ablauf": "Lernen starten",
+      "heute": "Mehrere gleich starke Blöcke auf Heute.",
+      "neu": "1. App öffnet auf der Abflugtafel, oberste Zeile = jetzt dran (Klapp-Kacheln). 2. Gelber Knopf „Einsteigen ROM ›“ unten im Daumenbereich – ein Tipp. 3. Am Rechner Enter.",
+      "warum": "Die eine Handlung ist groß, gelb und dort, wo der Daumen ist."
+    },
+    {
+      "ablauf": "Erklärung lesen",
+      "heute": "Alles auf einmal, viel Text.",
+      "neu": "Sicherheitskarte mit vier Bildfeldern; man deckt Feld für Feld auf (Antippen oder Leertaste). Am Ende die Regel und „An Bord: Aufgaben ›“.",
+      "warum": "Bild zuerst, Comic-Lesefluss, die Abfolge bleibt als Ganzes sichtbar."
+    },
+    {
+      "ablauf": "Aufgabe lösen",
+      "heute": "Systemtastatur, Prüfen unten außer Sicht.",
+      "neu": "1. Bordkarte füllt den Bildschirm: Frage oben, Ziffern-Kacheln in der Mitte, Tastenfeld unten (untere 45 %). 2. Prüfen ist die gelbe Taste. 3. Rechner: Ziffern, Enter, E = Erklärung, F = Fallen, Esc = Tafel.",
+      "warum": "Daumenbereich, Aufgabe nie verdeckt, keine Ablenkung."
+    },
+    {
+      "ablauf": "Richtig / falsch",
+      "heute": "Textkästen, Strafsatz.",
+      "neu": "Richtig: Abriss „✓ AN BORD +10“ fliegt ab, ein Abriss-Feld füllt sich (2 = Karte gelandet). Falsch: „KURSKORREKTUR“ – deine Zahl und die Zielzahl in Kacheln untereinander, die abweichenden Stellen gelb, darunter die Diagnose. Knopf „Neue Bordkarte ›“.",
+      "warum": "Man sieht den Fehler an der Stelle, an der er passiert ist; Wortwahl ohne Wertung."
+    },
+    {
+      "ablauf": "Lernkarte sitzt",
+      "heute": "Kasten unter der Aufgabe.",
+      "neu": "Schwarzer Landebildschirm: Stempel „GELANDET ROM“, Name der Karte in Gelb, „Anschlussflug: Zahlenstrahl ›“ oder „Zur Abflugtafel“.",
+      "warum": "Klarer Abschluss, nächster Schritt als Angebot."
+    },
+    {
+      "ablauf": "Thema wechseln",
+      "heute": "Reiter, Brotkrumen, Zurück, Leiste.",
+      "neu": "Stapel aus drei Teilen (Erklärung · Aufgaben · Fallen): Wischen hoch/runter oder die drei Balken oben antippen; ✕ oben links zurück zur Tafel. Tablet/Rechner: Sicherheitskarte links, Bordkarte rechts gleichzeitig.",
+      "warum": "Nur eine Richtung (vertikal), ein Ausgang."
+    },
+    {
+      "ablauf": "Zahlenstrahl-Aufgabe",
+      "heute": "Man tippt auf einen von neun kleinen Strichen; das Gefühl für Lage und Abstand wird nicht geübt.",
+      "neu": "1. Punkt mit Finger oder Maus über den Strahl ziehen, er rastet auf den Strichen ein. 2. Am Rechner: ← → schiebt ihn. 3. Prüfen. Bei falsch erscheint der richtige Strich grün umkreist neben dem eigenen Punkt.",
+      "warum": "Ziehen übt Schätzen und Abstände; große Griff-Fläche (34 px Durchmesser plus ganze Strahlhöhe als Ziehfläche)."
+    },
+    {
+      "ablauf": "Eltern/Lehrkraft",
+      "heute": "Text, Sätze.",
+      "neu": "„Tower“: oben „Wartet auf dich“, je Kind drei große Zahlen, ein Farbband der Lernkarten, Liste mit SITZT/ÜBT/WACKELT, Wackel-Kasten mit dem typischen Fehler, Lerntage als Kachelraster.",
+      "warum": "Ruhig und auf einen Blick, gleiche Sprache wie die Kinderseite."
+    }
+  ],
+  "navigation": "Keine Leiste. Start ist die Abflugtafel. Ein Menü-Knopf unten rechts öffnet ein Blatt (Tafel T, Weltkarte W, Reisepass P, Kind wechseln, Tower, Tag/Nacht). Im Thema: ✕ zur Tafel, Stapel hoch/runter. Tiefe höchstens 2.",
+  "bewegung": "Klapp-Kacheln der obersten Zeile beim Öffnen (je Zeichen 40 ms versetzt, insgesamt unter 0,8 s). Bordkarte fährt von unten ein (300 ms). Abriss fliegt ab (700 ms). Landestempel (500 ms). Puls-Ring am aktuellen Ort auf der Karte (2,4 s, nur dort). Bei „Bewegung reduzieren“: alles aus, auch der Puls.",
+  "weltreise": "Abflugtafel als Startseite, Orte als Ziele, Lernkarten als Flüge, Erfolge als „gelandet“; Weltkarte mit Flugbögen (grün geflogen, gelb gestrichelt als nächster Flug); Reisepass mit Visa-Stempeln. In der Aufgabe selbst nur Ortsname und Perforation – keine Bilder, die ablenken.",
+  "kontraste": [
+    {
+      "paar": "Nacht: Text auf Grund",
+      "text": "#F2F4F7",
+      "grund": "#0B0F14",
+      "kontrast": 17.44
+    },
+    {
+      "paar": "Nacht: Leise auf Fläche",
+      "text": "#A9B3C1",
+      "grund": "#151B24",
+      "kontrast": 8.16
+    },
+    {
+      "paar": "Tafel: Gelb auf Schwarz",
+      "text": "#FFD23F",
+      "grund": "#05080C",
+      "kontrast": 13.9
+    },
+    {
+      "paar": "Knopf: Schwarz auf Gelb",
+      "text": "#11161D",
+      "grund": "#FFD23F",
+      "kontrast": 12.58
+    },
+    {
+      "paar": "Nacht: Gut auf Fläche",
+      "text": "#45E0A0",
+      "grund": "#151B24",
+      "kontrast": 10.23
+    },
+    {
+      "paar": "Nacht: Kurs auf Kurs-Grund",
+      "text": "#FFAD7A",
+      "grund": "#33201A",
+      "kontrast": 8.45
+    },
+    {
+      "paar": "Tafel: Status-Weiß auf Schwarz",
+      "text": "#E9EDF2",
+      "grund": "#05080C",
+      "kontrast": 17.07
+    },
+    {
+      "paar": "Tag: Text auf Grund",
+      "text": "#11161D",
+      "grund": "#F3F1EA",
+      "kontrast": 16.07
+    },
+    {
+      "paar": "Tag: Leise auf Weiß",
+      "text": "#4A5563",
+      "grund": "#FFFFFF",
+      "kontrast": 7.58
+    },
+    {
+      "paar": "Tag: Gut auf Gut-Grund",
+      "text": "#0B7A4B",
+      "grund": "#DDF3E8",
+      "kontrast": 4.63
+    },
+    {
+      "paar": "Tag: Kurs auf Kurs-Grund",
+      "text": "#A8410F",
+      "grund": "#FFE9DC",
+      "kontrast": 5.23
+    }
+  ],
+  "umsetzung": {
+    "aufwand": "gross",
+    "reihenfolge": [
+      "Schriften und Nacht/Tag-Farben",
+      "Bordkarte mit eigenem Tastenfeld und Ziffern-Kacheln (lernAufgabe neu)",
+      "Thema als Stapel mit Wischen; Tablet zweispaltig",
+      "Sicherheitskarte (Erklärung in Bildfeldern) – braucht Bild je Schritt in den Inhalten",
+      "Kurskorrektur-Vergleich",
+      "Abflugtafel als Startseite, Menü-Blatt statt Leiste",
+      "Weltkarte mit Bögen, Pass, Tower"
+    ],
+    "risiken": [
+      "Dunkle Optik als Standard kann für die 10-Jährige zu kühl wirken – Tag-Ansicht anbieten",
+      "Flughafen-Bild (Abflug, Boarding) erinnert an Zeitpläne; Uhrzeiten sind bewusst weggelassen, „Abflug, wann es dir passt“",
+      "Erklärungen müssen für die Sicherheitskarte je Schritt ein Bild haben (Inhaltsarbeit)",
+      "Wischen hoch/runter kollidiert auf langen Seiten mit Scrollen – Stapel nur auf Bildschirmen ohne Scrollen"
+    ]
+  },
+  "bilder": "handy-/tablet-/rechner-*.png: heute, erklaeren, ueben, richtig, falsch, sitzt, zahlenstrahl, fehler, weltkarte, reisepass, eltern, heute-13, aufgabe-13, hell-heute, hell-ueben"
+}

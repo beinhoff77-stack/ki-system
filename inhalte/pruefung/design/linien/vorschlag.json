@@ -1,0 +1,257 @@
+{
+  "name": "linien",
+  "leitidee": "Die Mathe-Weltreise ist ein Liniennetzplan: Jedes Gebiet ist eine farbige Linie, jede Lernkarte eine Haltestelle – man sieht immer, wo man steht, was die nächste Station ist und wie alles zusammenhängt.",
+  "fuer_wen": "Für beide gleich gut, weil das System klar und unkindlich ist und trotzdem bunt. 10-Jährige: Stellen-Schloss (Ziffer in die richtige Spalte setzen), Hinweistexte, spätere Linien (höhere Klassen) blass. 13-Jähriger: normale Zahlenzeile mit −/Komma-Tasten, Tastaturhinweise, das ganze Netz bis Klasse 8.",
+  "farben": {
+    "hintergrund": "#FFFFFF",
+    "flaeche": "#F3F4F1",
+    "text": "#101418",
+    "leise": "#4D5560",
+    "akzent": "#101418 (Hauptknopf schwarz)",
+    "auf_akzent": "#FFFFFF",
+    "gut": "#1B7A3E",
+    "falsch": "#A3360B auf #FDECE2 („Andere Richtung“)",
+    "linie": "#D5D9DE",
+    "hier": "#FFC400 (Du-bist-hier-Ring, nur Fläche/Rand)",
+    "linien": {
+      "zahlen": "#C2410C",
+      "algebra": "#2E7D32",
+      "geld": "#1565C0",
+      "funktionen": "#7B3FA0",
+      "geometrie": "#AD1457",
+      "daten": "#00796B"
+    },
+    "dunkel": {
+      "hintergrund": "#0E1114",
+      "flaeche": "#171B20",
+      "text": "#F1F3F5",
+      "leise": "#AEB6C0",
+      "akzent": "#F1F3F5",
+      "auf_akzent": "#0E1114",
+      "gut": "#6BD78F",
+      "falsch": "#FF9F78",
+      "linie": "#333B45",
+      "linien": {
+        "zahlen": "#FF8A4C",
+        "algebra": "#6BD46F",
+        "geld": "#6AB0FF",
+        "funktionen": "#C792EA",
+        "geometrie": "#FF7EB0",
+        "daten": "#4DD0C2"
+      }
+    }
+  },
+  "schrift": {
+    "ueberschrift": "Lexend 700, 26–34 px",
+    "text": "Lexend 400/600, 18 px",
+    "zahlen": "Lexend 700 mit tabular-nums (Schloss 34 px, Anzeige 44 px)",
+    "lizenz": "SIL OFL 1.1, selbst gehostet (fontsource: @fontsource-variable/lexend), ca. 40 KB woff2 – nur eine Schriftfamilie"
+  },
+  "formen": {
+    "radius": "Schilder und Knöpfe 12–14 px, Haltestellen kreisrund, Linien-Pillen 6–8 px",
+    "schatten": "keine",
+    "rand": "2–3 px; Linien 8–10 px dick",
+    "abstand_raster": "Netzplan auf 0°/45°/90°-Raster (6 px je Einheit); Abstände 6/14/24 px"
+  },
+  "bausteine": [
+    {
+      "name": "Haltestellenschild",
+      "aussehen": "schwarzes Schild mit Linienfarbe als Band oben, Linien-Pille (Z1), Ortsname groß",
+      "zustaende": "normal, erreicht (mit ✓)",
+      "mindestgroesse": "volle Breite, 90 px hoch"
+    },
+    {
+      "name": "Linienband",
+      "aussehen": "Lernkarten als Haltestellen auf einer Linie, Ende = Stempel; gelber Ring = du bist hier; Namen abwechselnd über/unter der Linie",
+      "zustaende": "Haltestelle offen (hohl), sitzt (gefüllt in Linienfarbe), aktuell (gelber Ring)",
+      "mindestgroesse": "Tippfläche je Haltestelle 84 px hoch"
+    },
+    {
+      "name": "Mini-Linie im Thema",
+      "aussehen": "drei Haltestellen Verstehen · Üben · Störungen auf einer kurzen Linie",
+      "zustaende": "aktuell mit gelbem Ring",
+      "mindestgroesse": "72 px hoch"
+    },
+    {
+      "name": "Stellen-Schloss",
+      "aussehen": "Spalten mit Stellenkopf (ZT, T, H, Z, E); Spalte antippen, dann Ziffer; leere Spalten rechts der ersten Ziffer gelten als 0",
+      "zustaende": "leer, gewählt (gelber Ring), gefüllt, bei falsch: eigene Ziffer gestrichelt, richtige Spalte grün",
+      "mindestgroesse": "52 × 66 px je Spalte"
+    },
+    {
+      "name": "Hauptknopf",
+      "aussehen": "schwarz, weiße Schrift 21 px, rechts Pfeil oder Linien-Pille",
+      "zustaende": "normal, gedrückt, Fokus gelb",
+      "mindestgroesse": "64 px hoch"
+    },
+    {
+      "name": "Störungsmeldung",
+      "aussehen": "Kasten mit gelb-schwarzem Warnband oben, „So nicht“ / „So ja“",
+      "zustaende": "–",
+      "mindestgroesse": "volle Breite"
+    }
+  ],
+  "handhabung": [
+    {
+      "ablauf": "Lernen starten",
+      "heute": "Mehrere gleich starke Blöcke.",
+      "neu": "1. Heute: Haltestellenschild „Rom“, darunter das Linienband (Stellenwert → Zahlenstrahl → Runden → Stempel) mit gelbem Ring. 2. Knopf „Einsteigen: Stellenwert“. 3. Jede Haltestelle ist auch direkt antippbar; am Rechner Enter.",
+      "warum": "Fortschritt und nächste Handlung in einem Bild; das Kind sieht, wie weit es bis zum Stempel ist."
+    },
+    {
+      "ablauf": "Erklärung lesen",
+      "heute": "Alles auf einmal.",
+      "neu": "Senkrechte Linie mit Halten: Der aktuelle Halt zeigt Bild und einen Satz, vergangene Halte schrumpfen zu einer Zeile, kommende sind nur Punkte. „Nächster Halt ›“ oder Leertaste.",
+      "warum": "Lesen wie Fahren: ein Halt nach dem anderen, Rückblick bleibt sichtbar."
+    },
+    {
+      "ablauf": "Aufgabe lösen (5. Klasse, Stellenwert)",
+      "heute": "Systemtastatur; Ziffer und Stelle werden nicht verbunden.",
+      "neu": "1. Spalte antippen (z. B. T), dann Ziffer 2 – fertig, die Spalten rechts gelten als 0. 2. Oder einfach die Zahl tippen wie am Taschenrechner. 3. Ziffernfeld 2 × 5 unten, Prüfen breit. 4. Rechner: Ziffern, ← → wählt die Spalte, Enter prüft.",
+      "warum": "Die Eingabe ist selbst ein Stellenwert-Werkzeug: Wer „In welche Spalte gehört die 2?“ beantwortet, übt genau den Lerninhalt."
+    },
+    {
+      "ablauf": "Richtig / falsch",
+      "heute": "Textkästen, Strafsatz.",
+      "neu": "Richtig: grüner Haken springt auf, die Serie-Linie füllt sich bis zum nächsten Halt. Falsch: „Andere Richtung“ – Umstiegs-Anzeige „2 bei H → 2 bei T“, im Schloss die eigene Ziffer gestrichelt und die richtige Spalte grün; Diagnose in einem Satz.",
+      "warum": "Der Fehler wird als Richtung gezeigt, nicht als Versagen."
+    },
+    {
+      "ablauf": "Lernkarte sitzt",
+      "heute": "Kasten unter der Aufgabe.",
+      "neu": "Schild „Stellenwert ✓“, das Linienband zeichnet die Strecke zur nächsten Haltestelle, „Weiterfahren: Zahlenstrahl ›“ oder „Aussteigen“.",
+      "warum": "Fortschritt wird als Weg sichtbar, nicht als Punkte."
+    },
+    {
+      "ablauf": "Thema wechseln",
+      "heute": "Reiter, Brotkrumen, Zurück, Leiste.",
+      "neu": "Mini-Linie Verstehen · Üben · Störungen oben; Wischen links/rechts. Tablet/Rechner: Verstehen links, Üben rechts gleichzeitig.",
+      "warum": "Gleiche Bildsprache wie das ganze Netz."
+    },
+    {
+      "ablauf": "Zahlenstrahl-Aufgabe",
+      "heute": "Man tippt auf einen von neun kleinen Strichen; das Gefühl für Lage und Abstand wird nicht geübt.",
+      "neu": "1. Punkt mit Finger oder Maus über den Strahl ziehen, er rastet auf den Strichen ein. 2. Am Rechner: ← → schiebt ihn. 3. Prüfen. Bei falsch erscheint der richtige Strich grün umkreist neben dem eigenen Punkt.",
+      "warum": "Ziehen übt Schätzen und Abstände; große Griff-Fläche (34 px Durchmesser plus ganze Strahlhöhe als Ziehfläche)."
+    },
+    {
+      "ablauf": "Eltern/Lehrkraft",
+      "heute": "Text, Sätze.",
+      "neu": "„Leitstelle“: oben „Wartet auf dich“; je Kind die eigene Linie mit Zuständen (● sitzt, ◐ übt, ! wackelt, ○ offen), Liste darunter, Wackel-Kasten mit typischem Fehler, Lerntage als Streifen ohne Wertung.",
+      "warum": "Derselbe Plan, den das Kind sieht – Erwachsene und Kind sprechen über dieselbe Haltestelle."
+    }
+  ],
+  "navigation": "Oben links Name (Menü: Heute, Kind wechseln, Leitstelle, Hell/Dunkel), oben rechts „Netz“ und Sterne (Reisepass). Hauptaktionen immer unten im Daumenbereich. Heute → Haltestelle (Thema) → zurück über Menü/„Aussteigen“. Netzplan: seitlich schiebbar, Haltestelle antippen zeigt Infos und „Hier einsteigen“. Tasten: Enter, N (Netz), Esc (Heute).",
+  "bewegung": "Strecke zeichnet sich zur nächsten Haltestelle (800 ms). Haken springt auf (400 ms). Sonst ruhig, keine Dauerbewegung. Bei „Bewegung reduzieren“ alles aus.",
+  "weltreise": "Die Reise ist der Netzplan selbst: Gebiete als Linien, Orte als Haltestellen, Umstiege zwischen Gebieten; darunter eine kleine echte Erdkarte mit den Orten in Linienfarben. Im Üben nur Schild und Linienfarbe – die Reise ist Orientierung, keine Dekoration.",
+  "kontraste": [
+    {
+      "paar": "Text auf Weiß",
+      "text": "#101418",
+      "grund": "#FFFFFF",
+      "kontrast": 18.5
+    },
+    {
+      "paar": "Leise auf Weiß",
+      "text": "#4D5560",
+      "grund": "#FFFFFF",
+      "kontrast": 7.54
+    },
+    {
+      "paar": "Schild: Weiß auf Schwarz",
+      "text": "#FFFFFF",
+      "grund": "#101418",
+      "kontrast": 18.5
+    },
+    {
+      "paar": "Linie Z: Weiß auf Orange",
+      "text": "#FFFFFF",
+      "grund": "#C2410C",
+      "kontrast": 5.18
+    },
+    {
+      "paar": "Linie A: Weiß auf Grün",
+      "text": "#FFFFFF",
+      "grund": "#2E7D32",
+      "kontrast": 5.13
+    },
+    {
+      "paar": "Linie G: Weiß auf Blau",
+      "text": "#FFFFFF",
+      "grund": "#1565C0",
+      "kontrast": 5.75
+    },
+    {
+      "paar": "Linie F: Weiß auf Violett",
+      "text": "#FFFFFF",
+      "grund": "#7B3FA0",
+      "kontrast": 6.86
+    },
+    {
+      "paar": "Linie Ge: Weiß auf Beere",
+      "text": "#FFFFFF",
+      "grund": "#AD1457",
+      "kontrast": 6.97
+    },
+    {
+      "paar": "Linie D: Weiß auf Petrol",
+      "text": "#FFFFFF",
+      "grund": "#00796B",
+      "kontrast": 5.32
+    },
+    {
+      "paar": "Gut auf Gut-Grund",
+      "text": "#1B7A3E",
+      "grund": "#E2F3E8",
+      "kontrast": 4.67
+    },
+    {
+      "paar": "Kurs auf Kurs-Grund",
+      "text": "#A3360B",
+      "grund": "#FDECE2",
+      "kontrast": 5.91
+    },
+    {
+      "paar": "Dunkel: Text auf Grund",
+      "text": "#F1F3F5",
+      "grund": "#0E1114",
+      "kontrast": 17.02
+    },
+    {
+      "paar": "Dunkel: Leise auf Fläche",
+      "text": "#AEB6C0",
+      "grund": "#171B20",
+      "kontrast": 8.44
+    },
+    {
+      "paar": "Dunkel: Pille dunkel auf Orange",
+      "text": "#0E1114",
+      "grund": "#FF8A4C",
+      "kontrast": 8.11
+    },
+    {
+      "paar": "Dunkel: Knopf dunkel auf hell",
+      "text": "#0E1114",
+      "grund": "#F1F3F5",
+      "kontrast": 17.02
+    }
+  ],
+  "umsetzung": {
+    "aufwand": "mittel",
+    "reihenfolge": [
+      "Schrift Lexend und Linienfarben je Gebiet (Variablen)",
+      "Stellen-Schloss als neue Eingabe für ganze Zahlen der 5./6. Klasse; Zahlenzeile mit −/Komma ab Klasse 7",
+      "Haltestellenschild und Linienband auf Heute",
+      "Thema mit Mini-Linie, Verstehen als Halte-Folge, Tablet zweispaltig",
+      "Rückmeldungen (Umstieg, Haken)",
+      "Netzplan-Ansicht (feste Koordinaten je Ort in den Daten)",
+      "Netzkarte (Pass) und Leitstelle"
+    ],
+    "risiken": [
+      "Netzplan braucht feste Schema-Koordinaten je Ort – bei vielen Orten Pflegeaufwand (könnte aus Gebiet/Reihenfolge erzeugt werden)",
+      "Stellen-Schloss passt nur für ganze Zahlen ohne Vorzeichen; andere Antwortarten brauchen die Zahlenzeile",
+      "Schlichte Optik ist weniger „verspielt“ – die Freude kommt aus Linienfarben und Fortschritt, nicht aus Bildern"
+    ]
+  },
+  "bilder": "handy-/tablet-/rechner-*.png: heute, erklaeren, ueben, richtig, falsch, sitzt, zahlenstrahl, fehler, weltkarte, reisepass, eltern, heute-13, aufgabe-13, dunkel-heute, dunkel-ueben"
+}

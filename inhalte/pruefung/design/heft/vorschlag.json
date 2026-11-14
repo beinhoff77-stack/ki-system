@@ -1,0 +1,241 @@
+{
+  "name": "heft",
+  "leitidee": "Die App ist das karierte Mathe-Reiseheft der Kinder: Jeder Ort ist eine Seite, man blättert statt zu scrollen, rechnet in Kästchen und bekommt Stempel und Klebezettel – vertraut wie ein Schulheft, persönlich wie ein Reisetagebuch.",
+  "fuer_wen": "Stärker für die 10-Jährige: warm, greifbar, Handschrift-Überschriften, Klebeband, Stempel. Für den 13-Jährigen schaltet dasselbe Heft auf „Skizzenbuch“: Punktraster statt Karos, Überschriften in der Textschrift statt Handschrift, Tastenkürzel-Hinweise, normale Zahlenzeile statt Stellenwert-Kästchen und Tasten mit − und Komma (Bilder handy-heute-13.png, handy-aufgabe-13.png).",
+  "farben": {
+    "hintergrund": "#E9E1CF (Tisch)",
+    "flaeche": "#FBF7EE (Papier, Karo #DCE3EC)",
+    "text": "#1C2B4A (Tinte)",
+    "leise": "#46536B",
+    "akzent": "#1C2B4A (Hauptknopf)",
+    "auf_akzent": "#FBF7EE",
+    "gut": "#17704A (Stempelgrün, Prüfen)",
+    "falsch": "#9A3B12 (nur Schrift); Fläche Klebezettel #FFE2B8",
+    "linie": "#C9D2DE",
+    "marker": "#F7D154 (Textmarker, nur als Fläche)",
+    "dunkel": {
+      "hintergrund": "#0F1522",
+      "flaeche": "#182033 (Nachtheft, Raster #26304A)",
+      "text": "#F1EFE8",
+      "leise": "#B9C2D6",
+      "akzent": "#F7D154",
+      "auf_akzent": "#182033",
+      "gut": "#7FE0AA",
+      "falsch": "#FFC29A",
+      "linie": "#33405E"
+    }
+  },
+  "schrift": {
+    "ueberschrift": "Caveat (Handschrift), 700, 30–64 px – nur Überschriften, Notizen, Stempel; beim 13-Jährigen ersetzt durch Atkinson 700",
+    "text": "Atkinson Hyperlegible 400/700, 18 px (Aufgabe 24 px, Kästchen 34 px)",
+    "zahlen": "Atkinson Hyperlegible mit gleich breiten Ziffern (tabular-nums); die Null ist durchgestrichen – gut unterscheidbar von O",
+    "lizenz": "beide SIL OFL 1.1, selbst gehostet (fontsource: @fontsource-variable/caveat, @fontsource/atkinson-hyperlegible); zusammen ca. 110 KB woff2"
+  },
+  "formen": {
+    "radius": "Seite 6/18 px (Buchrücken links), Karten und Tasten 12–16 px",
+    "schatten": "flacher Versatz-Schatten 4 px 4 px 0 in Linienfarbe (wie aufgeklebt), Seiten 0 10 px 30 px weich",
+    "rand": "2 px Tinte an allem, was man antippen kann",
+    "abstand_raster": "22-px-Karoraster als Grundraster; Abstände 6/12/18/24 px"
+  },
+  "bausteine": [
+    {
+      "name": "Hauptknopf",
+      "aussehen": "Tintenblau gefüllt, Papierschrift 22 px, Unterkante 5 px dunkler",
+      "zustaende": "normal; gedrückt (3 px tiefer, Schatten weg); gesperrt (gestrichelt, leise); Fokus 3 px Tinte-Rahmen",
+      "mindestgroesse": "64 px hoch, volle Breite"
+    },
+    {
+      "name": "Stellenwert-Kästchen",
+      "aussehen": "Karos mit Spaltenkopf (E, Z, H, T …), Ziffern laufen von rechts ein wie bei der Kasse",
+      "zustaende": "leer, gefüllt, bei falsch Bleistiftgrau durchgestrichen",
+      "mindestgroesse": "48 × 58 px je Kästchen"
+    },
+    {
+      "name": "Zahlentasten",
+      "aussehen": "3 × 4 Papiertasten mit Tintenrand; 5. Klasse 00/0/000, ab 7. Klasse −/0/,",
+      "zustaende": "normal, gedrückt, Fokus",
+      "mindestgroesse": "50 px hoch, ca. 100 px breit"
+    },
+    {
+      "name": "Stempel „stimmt!“",
+      "aussehen": "grüner Rundstempel, schräg, landet auf der Antwort",
+      "zustaende": "erscheint bei richtig (400 ms)",
+      "mindestgroesse": "118 px"
+    },
+    {
+      "name": "Klebezettel",
+      "aussehen": "orangefarbener Zettel mit Klebestreifen, leicht schräg, mit eigener Antwort im Vergleich und Mini-Stellentafel",
+      "zustaende": "erscheint bei falsch",
+      "mindestgroesse": "volle Breite"
+    },
+    {
+      "name": "Register-Laschen",
+      "aussehen": "drei farbige Laschen unten am Heft: Heute, Atlas, Pass",
+      "zustaende": "aktiv höher",
+      "mindestgroesse": "92 × 52 px"
+    },
+    {
+      "name": "Seitenpunkte",
+      "aussehen": "drei Punkte oben rechts: Verstehen, Üben, Fallen",
+      "zustaende": "aktiv gefüllt",
+      "mindestgroesse": "44 × 44 px Tippfläche"
+    }
+  ],
+  "handhabung": [
+    {
+      "ablauf": "Lernen starten",
+      "heute": "Heute zeigt sieben Blöcke; man muss lesen, was zuerst kommt.",
+      "neu": "1. Heute ist eine Heftseite: Ortsname groß, drei Lernkarten als Zettel, die dran ist grün. 2. Ein Knopf „Seite aufschlagen“. 3. Leeres Stempelfeld zeigt, wie viele Karten noch fehlen.",
+      "warum": "Eine Entscheidung, sichtbares Ziel (Stempelfeld), kein Scrollen."
+    },
+    {
+      "ablauf": "Erklärung lesen",
+      "heute": "Bild, Regel, Schritte und Warnung stehen auf einmal da; die ganze Seite ist 2 100 px lang.",
+      "neu": "1. Großes Bild zuerst (Stellentafel). 2. Darunter ein Satz. 3. Antippen des Bildes, „Weiter“ oder Leertaste: nächstes Bild mit nächstem Satz (Balken zeigt 2 von 4). 4. Beim letzten Bild „Jetzt du ›“ und die Merke-Regel.",
+      "warum": "Ein Gedanke pro Bild, Tempo bestimmt das Kind, wenig Text."
+    },
+    {
+      "ablauf": "Aufgabe lösen",
+      "heute": "Systemtastatur verdeckt die Aufgabe; Prüfen liegt weit unten.",
+      "neu": "1. Aufgabe oben, darunter Stellenwert-Kästchen. 2. Eigene Zahlentasten im Daumenbereich, Prüfen als breiteste Taste. 3. Am Rechner Ziffern und Enter direkt. 4. Tipp und „Nochmal erklären“ als Textknöpfe darunter.",
+      "warum": "Keine Systemtastatur, Aufgabe bleibt sichtbar; beim Tippen sieht das Kind, an welcher Stelle seine Ziffer steht."
+    },
+    {
+      "ablauf": "Richtig / falsch",
+      "heute": "Grüner bzw. rosa Kasten mit viel Text; „Die Punkte fangen wieder bei 0 an“.",
+      "neu": "Richtig: grüner Stempel „stimmt!“ auf der Antwort, ein Satz, „Nächste Aufgabe“. Falsch: eigene Ziffern bleiben in Bleistiftgrau stehen, Klebezettel „Fast!“ mit der richtigen Zahl, der Diagnose („Du hast die 2 bei den Hundertern gelesen …“) und der Stellentafel; Knopf „Noch so eine“. Die zwei Kreise für „2 richtig hintereinander“ leeren sich still.",
+      "warum": "Fehler wird erklärt, nicht bewertet; kein Strafsatz."
+    },
+    {
+      "ablauf": "Lernkarte sitzt",
+      "heute": "Kasten unter der Aufgabe, teils außerhalb des Bildes.",
+      "neu": "Ganze Seite: großer Doppelkreis-Stempel „sitzt!“, ein Satz, „Nächste Karte: …“ oder „Fertig für jetzt“.",
+      "warum": "Erfolg bekommt einen eigenen Moment; gleichwertiger Ausstieg ohne Druck."
+    },
+    {
+      "ablauf": "Thema wechseln (Erklären/Üben/Fehler)",
+      "heute": "Reiter oben, dazu Brotkrumen, Zurück-Pfeil und Leiste.",
+      "neu": "Handy: blättern mit Wischen links/rechts oder den Eselsohr-Knöpfen unten links/rechts (beim Tippen ausgeblendet); Seitenpunkte oben. Tablet/Rechner: Doppelseite – links Verstehen (oder Fallen), rechts Üben, beides gleichzeitig.",
+      "warum": "Ein Navigationsprinzip (Blättern), am Tablet kein Wechseln nötig."
+    },
+    {
+      "ablauf": "Zahlenstrahl-Aufgabe",
+      "heute": "Man tippt auf einen von neun kleinen Strichen; das Gefühl für Lage und Abstand wird nicht geübt.",
+      "neu": "1. Punkt mit Finger oder Maus über den Strahl ziehen, er rastet auf den Strichen ein. 2. Am Rechner: ← → schiebt ihn. 3. Prüfen. Bei falsch erscheint der richtige Strich grün umkreist neben dem eigenen Punkt.",
+      "warum": "Ziehen übt Schätzen und Abstände; große Griff-Fläche (34 px Durchmesser plus ganze Strahlhöhe als Ziehfläche)."
+    },
+    {
+      "ablauf": "Eltern/Lehrkraft",
+      "heute": "Zahlen in Sätzen, Liste mit Text.",
+      "neu": "Seite „Lernstand“: oben „Wartet auf dich“ mit Bestätigen/Ablehnen; je Kind drei Zahlen, Lernkarten als farbige Kästchen (sitzt/übt/wackelt/offen), beim Wackeln der typische Fehler im Klartext, Lerntage als Punktraster ohne Wertung.",
+      "warum": "In 5 Sekunden erfasst, was zu tun ist."
+    }
+  ],
+  "navigation": "Heute ist die Startseite. Register-Laschen unten führen zu Heute, Atlas, Pass. Im Thema: Seitenpunkte oben, Blättern (Wischen, ← →, Eselsohren), Zurück-Lasche ‹ oben links zu Heute. Name oben links öffnet ein Menü (Kind wechseln, Eltern-Seite, Nachtheft). Tiefe höchstens 2 (Heute → Lernkarte).",
+  "bewegung": "Blättern: 320 ms Drehung um den Buchrücken. Stempel: 400 ms Aufsetzen mit Nachfedern. Klebezettel: 350 ms von unten ankleben. Keine Dauerbewegung. Bei „Bewegung reduzieren“ alles aus, Zustände wechseln sofort.",
+  "weltreise": "Jeder Ort ist eine Heftseite mit Klebeband und leerem Stempelfeld; der Atlas ist eine von Hand gezeichnete Karte der aktuellen Weltgegend mit Bleistift-Route; der Reisepass sammelt Rundstempel. Während der Aufgabe ist nur der Ortsname zu sehen – die Reise lenkt nicht ab.",
+  "kontraste": [
+    {
+      "paar": "Text auf Papier",
+      "text": "#1C2B4A",
+      "grund": "#FBF7EE",
+      "kontrast": 13.15
+    },
+    {
+      "paar": "Leise auf Papier",
+      "text": "#46536B",
+      "grund": "#FBF7EE",
+      "kontrast": 7.25
+    },
+    {
+      "paar": "Knopf: Papier auf Tinte",
+      "text": "#FBF7EE",
+      "grund": "#1C2B4A",
+      "kontrast": 13.15
+    },
+    {
+      "paar": "Prüfen: Weiß auf Grün",
+      "text": "#FFFFFF",
+      "grund": "#17704A",
+      "kontrast": 6.08
+    },
+    {
+      "paar": "Grün auf Papier (Stempel)",
+      "text": "#17704A",
+      "grund": "#FBF7EE",
+      "kontrast": 5.69
+    },
+    {
+      "paar": "Falsch-Text auf Papier",
+      "text": "#9A3B12",
+      "grund": "#FBF7EE",
+      "kontrast": 6.53
+    },
+    {
+      "paar": "Text auf Klebezettel",
+      "text": "#1C2B4A",
+      "grund": "#FFE2B8",
+      "kontrast": 11.26
+    },
+    {
+      "paar": "Text auf Grün-hell",
+      "text": "#17704A",
+      "grund": "#DDF1E5",
+      "kontrast": 5.15
+    },
+    {
+      "paar": "Register-Text auf Mint",
+      "text": "#1C2B4A",
+      "grund": "#96D3CB",
+      "kontrast": 8.35
+    },
+    {
+      "paar": "Dunkel: Text auf Papier",
+      "text": "#F1EFE8",
+      "grund": "#182033",
+      "kontrast": 14.11
+    },
+    {
+      "paar": "Dunkel: Leise auf Papier",
+      "text": "#B9C2D6",
+      "grund": "#182033",
+      "kontrast": 9.09
+    },
+    {
+      "paar": "Dunkel: Knopf Nacht auf Gelb",
+      "text": "#182033",
+      "grund": "#F7D154",
+      "kontrast": 10.98
+    },
+    {
+      "paar": "Dunkel: Grün auf Papier",
+      "text": "#7FE0AA",
+      "grund": "#182033",
+      "kontrast": 10.16
+    },
+    {
+      "paar": "Dunkel: Prüfen Text auf Grün",
+      "text": "#0F1522",
+      "grund": "#7FE0AA",
+      "kontrast": 11.42
+    }
+  ],
+  "umsetzung": {
+    "aufwand": "mittel",
+    "reihenfolge": [
+      "Schriften einbinden (Atkinson, Caveat) und Farbvariablen für hell/Nachtheft",
+      "Eigene Zahlentasten mit Stellenwert-Kästchen statt Systemtastatur (lernAufgabe)",
+      "Thema als Seiten mit Blättern; Tablet-Doppelseite",
+      "Erklärung Bild für Bild",
+      "Rückmeldungen: Stempel und Klebezettel mit Diagnose",
+      "Heute als Heftseite; Register statt Leiste",
+      "Atlas, Pass, Lernstand"
+    ],
+    "risiken": [
+      "Handschrift-Optik kann bei viel Text kindlich wirken – deshalb nur für Überschriften und beim 13-Jährigen aus",
+      "Karo-Hintergrund darf Zeichnungen nicht stören (Raster ist hell genug, im Nachtheft abgedunkelt)",
+      "Durchgestrichene Null in Atkinson ist ungewohnt; vor Einbau mit den Kindern prüfen"
+    ]
+  },
+  "bilder": "handy-/tablet-/rechner-*.png: heute, erklaeren, ueben, richtig, falsch, sitzt, zahlenstrahl, fehler, weltkarte, reisepass, eltern, heute-13, aufgabe-13, dunkel-heute, dunkel-ueben"
+}

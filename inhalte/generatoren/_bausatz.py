@@ -100,6 +100,21 @@ def mono(c, e, v='x'):
     return vz + zae + '/' + nen
 
 
+def einsetzen(term, x, var='x'):
+    """Zahl x sichtbar in einen Term einsetzen: 3x² − x → 3 · (−2)² − (−2)."""
+    v = zt(x)
+    out = ''
+    for i, ch in enumerate(term):
+        if ch != var:
+            out += ch; continue
+        nach = term[i + 1:i + 2]
+        vor = term[i - 1:i] if i else ''
+        w = f'({v})' if (Fr(x) < 0 or (nach in HOCH.values() and vor in ('−', ''))) else v
+        if vor.isdigit() or vor == ')': w = ' · ' + w
+        out += w
+    return out
+
+
 def kl(x):
     """Negative Zahlen in Klammern."""
     s = zt(x)
@@ -210,6 +225,7 @@ def baue(meta, etappen, gen, abschnitte, ziel, merke, offen=(), plan=PLAN, seed=
             else:
                 raise SystemExit(f'zu wenige Varianten für {lz} (Stufe {stufe})')
             gesehen.add(text)
+            assert len(a['w']) >= 15, f'Lösungsweg zu kurz: {a}'
             if pool != 'uebung': a.pop('h', None)
             else: assert a.get('h'), f'Tipp fehlt: {lz}'
             if not a.get('h'): a.pop('h', None)

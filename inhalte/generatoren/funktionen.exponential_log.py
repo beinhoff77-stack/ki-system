@@ -101,13 +101,26 @@ def g_werte(s):
                 'Potenziere die Dezimalzahl sorgfältig (Nachkommastellen addieren sich).', v, f'{a} * {cf(b)} ** {x}')
 
 
+# (Größe, Pronomen, mögliche Prozentsätze, Richtungen) – Einwohnerzahlen nur −3 % … +3 %, große Raten bei Bakterien, Medikamenten, Wertverlust.
+DINGE = [('ein Guthaben', 'es', [1, 2, 3, 4, 5, 6], (True,)),
+         ('eine Einwohnerzahl', 'sie', [1, 2, 3], (True, False)),
+         ('ein Bestand an Tieren', 'er', [2, 4, 5, 6, 8, 10, 12, 15], (True, False)),
+         ('der Wert eines Autos', 'er', [8, 10, 12, 15, 18, 20, 25], (False,)),
+         ('eine Bakterienkultur', 'sie', [10, 15, 20, 25, 30, 40], (True,)),
+         ('die Menge eines Medikaments im Blut', 'sie', [10, 12, 15, 18, 20, 25, 30], (False,)),
+         ('die Zahl der Nutzer einer App', 'sie', [5, 8, 10, 12, 15, 20], (True, False))]
+
+
 def g_faktor(s):
-    p = R.choice([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 18, 20, 25, 30, 40])
-    zu = R.random() < 0.5
+    ding, pron, raten, richtungen = R.choice(DINGE)
+    p = R.choice(raten)
+    zu = R.choice(richtungen)
     b = 1 + Fr(p, 100) if zu else 1 - Fr(p, 100)
-    ding = R.choice(['ein Guthaben', 'eine Einwohnerzahl', 'ein Bestand an Tieren', 'der Wert eines Autos', 'eine Pflanzenfläche', 'die Zahl der Nutzer einer App'])
     if s == 1:
-        return zahl(f'{ding[0].upper() + ding[1:]} {"wächst" if zu else "nimmt"} jedes Jahr um {p} % {"" if zu else "ab"}'.rstrip() + '. Wie groß ist der Wachstumsfaktor b?',
+        einheit_zeit = 'Stunde' if 'Bakterien' in ding or 'Medikament' in ding else 'Jahr'
+        return zahl(f'{ding[0].upper() + ding[1:]} {"wächst" if zu else "nimmt"} jede {einheit_zeit} um {p} % {"" if zu else "ab"}'.rstrip() + '. Wie groß ist der Wachstumsfaktor b?'
+                    if einheit_zeit == 'Stunde' else
+                    f'{ding[0].upper() + ding[1:]} {"wächst" if zu else "nimmt"} jedes Jahr um {p} % {"" if zu else "ab"}'.rstrip() + '. Wie groß ist der Wachstumsfaktor b?',
                     f'b = 1 {"+" if zu else "−"} {p}/100 = {dz(b)}.', 'Wie viel Prozent bleiben bzw. kommen dazu?', b, f'1 {"+" if zu else "-"} {p} / 100')
     if s == 2:
         a = R.choice([50, 200, 1500, 8000, 120])
@@ -115,7 +128,7 @@ def g_faktor(s):
                     f'b = {dz(b)} {">" if zu else "<"} 1: {"Zunahme" if zu else "Abnahme"} um |{dz(b)} − 1| · 100 % = {p} %.', 'Vergleiche b mit 1.', p,
                     f'abs({cf(b)} - 1) * 100', einheit='%')
     if R.random() < 0.5:
-        return auswahl(f'Beschreibt f(t) = {R.choice([20, 300, 5000])} · {dz(b)}^t Wachstum oder Zerfall, und um wie viel Prozent pro Schritt?',
+        return auswahl(f'Beschreibt f(t) = {dz(R.choice([20, 300, 5000]))} · {dz(b)}^t Wachstum oder Zerfall, und um wie viel Prozent pro Schritt?',
                        f'{"Wachstum" if zu else "Zerfall"} um {p} %',
                        [f'{"Zerfall" if zu else "Wachstum"} um {p} %', f'{"Wachstum" if zu else "Zerfall"} um {dz(b * 100)} %',
                         f'{"Wachstum" if zu else "Zerfall"} um {100 - p} %'],
@@ -123,9 +136,45 @@ def g_faktor(s):
     n = R.randint(2, 3)
     q = b ** n
     if not endlich(q) or len(dz(q)) > 9: return None
-    return zahl(f'{ding[0].upper() + ding[1:]} ändert sich jedes Jahr um {"+" if zu else "−"}{p} %. Um welchen Faktor ändert er sich in {n} Jahren?',
+    zeit = 'Stunde' if 'Bakterien' in ding or 'Medikament' in ding else 'Jahr'
+    satz = (f'{ding[0].upper() + ding[1:]} {"wächst" if zu else "sinkt"} {"jede Stunde" if zeit == "Stunde" else "jedes Jahr"} um {p} %. '
+            f'Um welchen Faktor ändert {pron} sich in {n} {"Stunden" if zeit == "Stunde" else "Jahren"}?')
+    return zahl(satz,
                 f'Faktor pro Jahr {dz(b)}; in {n} Jahren {dz(b)}^{n} = {dz(q)}.', 'Die Faktoren werden multipliziert, nicht die Prozente addiert.', q,
                 f'{cf(b)} ** {n}')
+
+
+def _lin_oder_exp():
+    a = R.choice([2, 3, 4, 5, 6, 8, 10])
+    exp = R.random() < 0.5
+    if exp:
+        b = R.choice([2, 3])
+        ys = [a * b ** i for i in range(4)]
+        richtig = f'exponentiell, Faktor {b} je Schritt'
+        falsch = [f'linear, +{dz(ys[1] - ys[0])} je Schritt', f'exponentiell, Faktor {dz(ys[1] - ys[0])} je Schritt', 'weder linear noch exponentiell']
+        w = f'{" ; ".join(f"{dz(ys[i + 1])} : {dz(ys[i])} = {b}" for i in range(3))}: immer derselbe Quotient, also exponentiell mit Faktor {b}.'
+    else:
+        d = a * R.choice([1, 2])
+        ys = [a + d * i for i in range(4)]
+        q = Fr(ys[1], ys[0])
+        richtig = f'linear, +{dz(d)} je Schritt'
+        falsch = [f'exponentiell, Faktor {zt(q)} je Schritt', f'linear, +{dz(ys[1])} je Schritt', 'weder linear noch exponentiell']
+        w = f'Differenzen: {", ".join(dz(ys[i + 1] - ys[i]) for i in range(3))} – immer gleich, also linear. Die Quotienten ({zt(Fr(ys[1], ys[0]))}, {zt(Fr(ys[2], ys[1]))}, …) sind nicht gleich.'
+    a_ = auswahl('Die Tabelle zeigt Werte einer Funktion. Ist sie linear oder exponentiell?', richtig, falsch, w,
+                 'Prüfe Differenzen (gleich ⇒ linear) und Quotienten (gleich ⇒ exponentiell) aufeinanderfolgender y-Werte.')
+    return mit_grafik(a_, tabelle(['x', '0', '1', '2', '3'], [['y'] + [dz(y) for y in ys]]))
+
+
+def _halbwertszeit_modell():
+    T, einh, m0 = R.choice([(6, 'h', 80), (4, 'Jahre', 1200), (8, 'h', 160), (5, 'Tage', 400), (3, 'h', 64), (10, 'Jahre', 2000), (12, 'h', 240)])
+    k = R.randint(2, 4)
+    v = Fr(m0, 2 ** k)
+    if not endlich(v): return None
+    stoff, e = ('Ein Medikament', 'mg') if einh == 'h' else ('Ein radioaktiver Stoff', 'g')
+    wo = ' im Blut' if einh == 'h' else ''
+    return zahl(f'{stoff} hat eine Halbwertszeit von {T} {einh}. Anfangs sind {dz(m0)} {e}{wo} vorhanden. Wie viel {e} sind es nach {T * k} {einh}?',
+                f'Modell f(t) = {dz(m0)} · 0,5^(t/{T}). f({T * k}) = {dz(m0)} · 0,5^{k} = {dz(v)} {e}.',
+                'Stelle das Modell mit 0,5 hoch (t : Halbwertszeit) auf.', v, f'{m0} * 0.5 ** ({T * k} / {T})', einheit=e)
 
 
 def g_modell(s):
@@ -136,6 +185,8 @@ def g_modell(s):
         einh = 'min' if T >= 20 else 'h'
         return zahl(f'Eine Kultur enthält zu Beginn {a} Zellen und verdoppelt sich alle {T} {einh}. Wie viele Zellen sind es nach {t} {einh}?',
                     f'{t} : {T} = {k} Verdopplungen: {a} · 2^{k} = {dz(v)}.', 'Wie oft passt die Verdopplungszeit in die Zeitspanne?', v, f'{a} * 2 ** ({t} / {T})')
+    if s == 2 and R.random() < 0.45:
+        return _lin_oder_exp()
     if s == 2:
         a = R.choice([20, 40, 50, 80, 100, 250])
         b = R.choice([Fr(3, 2), 2, 3, Fr(5, 4), Fr(6, 5), Fr(1, 2), Fr(4, 5)])
@@ -143,6 +194,8 @@ def g_modell(s):
         if not endlich(f1): return None
         return zahl(f'Eine Exponentialfunktion hat f(0) = {a} und f(1) = {dz(f1)}. Bestimme den Wachstumsfaktor b in f(x) = a · b^x.',
                     f'a = f(0) = {a}; b = f(1) : f(0) = {dz(f1)} : {a} = {dz(b)}.', 'Teile zwei aufeinanderfolgende Werte.', b, f'{cf(f1)} / {a}')
+    if R.random() < 0.35:
+        return _halbwertszeit_modell()
     a = R.choice([10, 20, 50, 100, 200])
     b = R.choice([2, 3, Fr(3, 2), Fr(1, 2), Fr(6, 5), Fr(9, 10)])
     x1 = R.randint(1, 3)
@@ -166,7 +219,8 @@ def g_graph(s):
     bild = exp_bild(a, b)
     if typ == 'z':
         richtig = (f'{a} · ' if a != 1 else '') + (f'({br(b)})' if not endlich(b) else zt(b)) + '^x'
-        andere = [(f'{a} · ' if a != 1 else '') + (f'({br(1 / b)})' if not endlich(1 / b) else zt(1 / b)) + '^x',
+        kw = 1 / Fr(b)
+        andere = [(f'{a} · ' if a != 1 else '') + (f'({br(kw)})' if not endlich(kw) else zt(kw)) + '^x',
                   f'{a + 1} · ' + (f'({br(b)})' if not endlich(b) else zt(b)) + '^x',
                   f'{zt(b)} · {a if a != 1 else 2}^x']
         return mit_grafik(auswahl('Welcher Funktionsterm f(x) passt zum gezeichneten Graphen?', richtig, andere,
@@ -176,8 +230,15 @@ def g_graph(s):
         return mit_grafik(luecken(f'In welchem Punkt schneidet der Graph von {fx} die y-Achse? (Zur Kontrolle ist der Graph gezeichnet.)', 'S(□ | □)', 'x- und y-Koordinate', [0, a],
                        f'f(0) = {a} · 1 = {a}, also S(0 | {a}).', 'Setze x = 0 ein.', c=['0', f'{a} * {cf(b)} ** 0']), bild)
     if typ == 'b':
-        return auswahl(f'Ist der Graph von {fx} steigend oder fallend?', 'steigend' if steig else 'fallend', ['steigend', 'fallend', 'zuerst steigend, dann fallend'],
-                       f'b = {zt(b)} {">" if steig else "<"} 1 (und a > 0): {"steigend" if steig else "fallend"}.', 'Vergleiche den Wachstumsfaktor mit 1.')
+        w_r, w_f = ('steigend', 'fallend') if steig else ('fallend', 'steigend')
+        richtig = f'{w_r}, weil b = {zt(b)} {">" if steig else "<"} 1'
+        falsch = [f'{w_f}, weil b = {zt(b)} {">" if steig else "<"} 1']
+        # Verwechslung von a und b
+        grund = f'a = {a} > 1' if a > 1 else 'a = 1'
+        falsch += [f'steigend, weil {grund}', f'fallend, weil {grund}']
+        return auswahl(f'Ist der Graph von {fx} steigend oder fallend?', richtig, falsch,
+                       f'Über Steigen oder Fallen entscheidet der Faktor b, nicht a (a > 0): b = {zt(b)} {">" if steig else "<"} 1, also {w_r}.',
+                       'Welche der beiden Zahlen ist der Wachstumsfaktor?')
     if typ == 'c':
         return auswahl(f'Welche Aussage über den Graphen von {fx} ist richtig?', 'Er hat keine Nullstelle.',
                        ['Er schneidet die x-Achse genau einmal.', f'Er geht durch (1 | {a}).', 'Er hat die y-Achse als Asymptote.'],
@@ -188,9 +249,19 @@ def g_graph(s):
         return auswahl(f'Wie entsteht der Graph von g(x) = (1/{b2})^x aus dem Graphen von f(x) = {b2}^x?', 'durch Spiegelung an der y-Achse',
                        ['durch Spiegelung an der x-Achse', 'durch Verschiebung nach unten', 'durch Spiegelung an der Winkelhalbierenden y = x'],
                        f'(1/{b2})^x = {b2}^(−x) = f(−x): Spiegelung an der y-Achse.', 'Schreibe 1/b als b hoch −1.')
-    m = R.choice([1, 2, 3, -1, -2])
-    return auswahl(f'Welche Asymptote hat der Graph von g(x) = {b if isinstance(b, int) else 2}^x {plus(m)}?', f'y = {dz(m)}', ['y = 0', f'y = {dz(-m)}', f'x = {dz(m)}'],
-                   f'b^x nähert sich 0; um {dz(m)} verschoben nähert sich g(x) dem Wert {dz(m)}.', 'Wohin nähert sich b^x, und was bewirkt die Verschiebung?')
+    # verschobener Graph g(x) = B^x + m mit Zeichnung
+    B = b if isinstance(b, int) else 2
+    m = R.choice([1, 2, 3, 4, -1, -2, -3, -4])
+    gb = koord([{'art': 'exp', 'a': 1, 'b': B, 'c': m}], x=(-4, 3), ymax=12, waagrecht=[m])
+    if R.random() < 0.5:
+        a_ = auswahl(f'Die Zeichnung zeigt den Graphen von g(x) = {B}^x {plus(m)}. Welche Gerade ist Asymptote?', f'y = {dz(m)}', ['y = 0', f'y = {dz(-m)}', f'x = {dz(m)}'],
+                     f'{B}^x nähert sich für sehr kleine x der 0; um {dz(m)} verschoben nähert sich g(x) dem Wert {dz(m)}. Asymptote: y = {dz(m)}.',
+                     'Wohin nähert sich b^x, und was bewirkt die Verschiebung?')
+    else:
+        a_ = luecken(f'Die Zeichnung zeigt den Graphen von g(x) = {B}^x {plus(m)}. In welchem Punkt schneidet er die y-Achse?', 'S(□ | □)', 'x- und y-Koordinate',
+                     [0, 1 + m], f'g(0) = {B}⁰ {plus(m)} = 1 {plus(m)} = {dz(1 + m)}, also S(0 | {dz(1 + m)}).', 'Setze x = 0 ein; denk an b⁰ = 1.',
+                     c=['0', f'{B} ** 0 + ({m})'])
+    return mit_grafik(a_, gb)
 
 
 def g_logfunktion(s):
@@ -208,9 +279,29 @@ def g_logfunktion(s):
             return luecken(f'Der Graph von g(x) = {b}^x geht durch P({n} | {dz(x)}). Welcher Punkt liegt deshalb auf dem Graphen von f(x) = {lb(b)}(x)?',
                            'Q(□ | □)', 'x- und y-Koordinate', [x, n], f'Umkehrfunktion: Koordinaten tauschen ⇒ Q({dz(x)} | {n}).',
                            'Bei der Umkehrfunktion werden x und y vertauscht.', c=[f'{b} ** {n}', f'{n}'])
+        if typ < 0.75:
+            # Logarithmus im Kopf: Kehrwerte und Zehnerpotenzen
+            n = R.randint(-3, -1) if b != 10 else R.randint(-4, -1)
+            x = Fr(b) ** n
+            xt = dz(x) if b == 10 else br(x)
+            return zahl(f'Berechne ohne Taschenrechner: {lb(b)}({xt}).', f'{xt} = {b}^({dz(n)}), also {lb(b)}({xt}) = {dz(n)}.',
+                        'Schreibe die Zahl als Potenz der Basis; Kehrwert heißt negativer Exponent.', n, f'{n} + ({b} ** ({n}) - {cf(x)})')
         return auswahl(f'Für welche x ist f(x) = {lb(b)}(x) definiert?', 'für alle x > 0', ['für alle x', 'für alle x ≥ 0', 'für alle x ≠ 0'],
                        f'{b}^y ist immer positiv, also gibt es {lb(b)}(x) nur für x > 0.', 'Welche Werte nimmt b^y an?')
-    if typ < 0.4:
+    if typ < 0.3:
+        # Graph der Logarithmusfunktion mit Zeichnung
+        bb = R.choice([2, 3, 10])
+        gb = koord([{'art': 'log', 'b': bb, 'name': lb(bb) + ' x'}], x=(-1, 9), y=(-3, 4))
+        if R.random() < 0.5:
+            a_ = luecken(f'Die Zeichnung zeigt den Graphen von f(x) = {lb(bb)}(x). In welchem Punkt schneidet er die x-Achse?', 'N(□ | □)', 'x- und y-Koordinate', [1, 0],
+                         f'{lb(bb)}(1) = 0, denn {bb}⁰ = 1. Also N(1 | 0).', 'Für welches x ist der Exponent 0?', c=[f'{bb} ** 0', '0'])
+        else:
+            a_ = auswahl(f'Die Zeichnung zeigt den Graphen von f(x) = {lb(bb)}(x). Welche Gerade ist Asymptote?', 'die y-Achse (x = 0)',
+                         ['die x-Achse (y = 0)', 'die Gerade y = x', 'die Gerade x = 1'],
+                         f'Für x → 0 (x > 0) werden die Werte von {lb(bb)}(x) beliebig klein; der Graph nähert sich der y-Achse, erreicht sie aber nie.',
+                         'Wo ist die Funktion nicht definiert, und wie verhält sich der Graph dort?')
+        return mit_grafik(a_, gb)
+    if typ < 0.45:
         n = R.randint(-3, -1)
         x = Fr(b) ** n
         return zahl(f'Berechne f({zt(x)}) für f(x) = {lb(b)}(x).', f'{b}^({dz(n)}) = {zt(x)}, also f({zt(x)}) = {dz(n)}.',
@@ -227,6 +318,11 @@ def g_logfunktion(s):
                 'Mit dem Taschenrechner: lg x : lg b.', v, f'round({K(logb(b, x))}, 2)', tol=0.01)
 
 
+def d1(v):
+    """Zahl mit genau einer Nachkommastelle (17,0 statt 17)."""
+    return f'{v:.1f}'.replace('.', ',')
+
+
 def g_zeitpunkt(s):
     if s == 1:
         a, b = R.choice([100, 200, 500, 1000]), R.choice([Fr(105, 100), Fr(11, 10), Fr(12, 10), Fr(103, 100), Fr(15, 10)])
@@ -234,8 +330,8 @@ def g_zeitpunkt(s):
         t = log(k) / log(float(b))
         v = gerundet(t, 1)
         if v is None: return None
-        return zahl(f'f(t) = {a} · {dz(b)}^t. Für welches t ist f(t) = {dz(a * k)}? Runde auf eine Nachkommastelle.',
-                    f'{dz(b)}^t = {k} ⇒ t = lg {k} : lg {dz(b)} ≈ {dz(v)}.', 'Erst durch den Anfangswert teilen, dann logarithmieren.', v, f'round({K(t)}, 1)', tol=0.1)
+        return zahl(f'f(t) = {dz(a)} · {dz(b)}^t. Für welches t ist f(t) = {dz(a * k)}? Runde auf eine Nachkommastelle.',
+                    f'{dz(b)}^t = {k} ⇒ t = lg {k} : lg {dz(b)} ≈ {d1(v)}.', 'Erst durch den Anfangswert teilen, dann logarithmieren.', v, f'round({K(t)}, 1)', tol=0.1)
     if s == 2:
         p = R.choice([2, 3, 4, 5, 6, 7, 8, 10, 12, 15, 20])
         zu = R.random() < 0.5
@@ -244,16 +340,17 @@ def g_zeitpunkt(s):
         v = gerundet(T, 1)
         if v is None: return None
         return zahl(f'Ein Bestand {"wächst" if zu else "nimmt"} um {p} % pro Jahr{"" if zu else " ab"}. Berechne die {"Verdopplungszeit" if zu else "Halbwertszeit"} (eine Nachkommastelle).',
-                    f'b = {dz(Fr(100 + (p if zu else -p), 100))}; {"T₂ = lg 2" if zu else "T½ = lg 0,5"} : lg {dz(Fr(100 + (p if zu else -p), 100))} ≈ {dz(v)} Jahre.',
+                    f'b = {dz(Fr(100 + (p if zu else -p), 100))}; {"T₂ = lg 2" if zu else "T½ = lg 0,5"} : lg {dz(Fr(100 + (p if zu else -p), 100))} ≈ {d1(v)} Jahre.',
                     'Löse b^T = 2 bzw. b^T = 0,5.', v, f'round({K(T)}, 1)', einheit='Jahre', tol=0.1)
-    a, c = R.choice([(80, 20), (100, 10), (60, 15), (500, 100), (90, 30)])
-    p = R.choice([5, 8, 10, 15, 20])
+    # Getränk etwa 80–95 °C, Raum 20 °C: Übertemperatur höchstens 75 °C, Endwert 5–30 °C
+    a, c = R.choice([(75, 25), (70, 14), (60, 15), (70, 10), (65, 20), (75, 30), (60, 12), (70, 5)])
+    p = R.choice([5, 6, 8, 10, 12])
     b = 1 - p / 100
     t = log(c / a) / log(b)
     v = gerundet(t, 1)
     if v is None: return None
     return zahl(f'Ein heißes Getränk hat eine Übertemperatur von {a} °C (über der Raumtemperatur), die pro Minute um {p} % abnimmt. Nach wie vielen Minuten beträgt sie nur noch {c} °C (eine Nachkommastelle)?',
-                f'{a} · {dz(Fr(100 - p, 100))}^t = {c} ⇒ t = lg({zt(Fr(c, a))}) : lg {dz(Fr(100 - p, 100))} ≈ {dz(v)} min.', 'Modell aufstellen, durch den Anfangswert teilen, logarithmieren.',
+                f'{a} · {dz(Fr(100 - p, 100))}^t = {c} ⇒ t = lg({zt(Fr(c, a))}) : lg {dz(Fr(100 - p, 100))} ≈ {d1(v)} min.', 'Modell aufstellen, durch den Anfangswert teilen, logarithmieren.',
                 v, f'round({K(t)}, 1)', einheit='min', tol=0.1)
 
 
@@ -268,5 +365,7 @@ if __name__ == '__main__':
           ETAPPEN, GEN,
           meiden={'werte': ['f(3) für f(x) = 5 · 2^x', 'f(−1) für f(x) = 5 · 2^x'], 'faktor': ['um 12 % ab.'], 'modell': ['400 Zellen und verdoppelt sich alle 3 h'],
                   'logfunktion': ['P(3 | 8)'], 'zeitpunkt': ['200 · 1,05^t. Für welches t ist f(t) = 300']},
-          offen=['Zeichnungen: Jede Lernkarte hat ein Koordinatensystem (Exponential- und Logarithmuskurve, Spiegelung an y = x, Zielwert als waagrechte Linie). Aufgaben „Welcher Term passt zum Graphen?“ und y-Achsenabschnitt zeigen den Graphen.',
+          offen=['Prüfung eingearbeitet (Runde 3): realistische Raten je Größe mit passendem Pronomen, Tabelle „linear oder exponentiell?“, Modell aus Halbwertszeit, verschobene Graphen mit Zeichnung, Logarithmus im Kopf, Graph der Logarithmusfunktion, realistische Getränketemperaturen, eine Nachkommastelle immer angezeigt.',
+                 'Nicht übernommen: Vorschlag (Meinung) der Prüfung, in „zeitpunkt“ die Faustregel „Verdopplungszeit ≈ 70 : p“ zu ergänzen. Die Karte ist als „ok“ bewertet; eine Näherungsregel neben der exakten Rechnung lädt dazu ein, sie auch bei großen p (wo sie ungenau wird) zu verwenden. Kann als Zusatz in einer späteren Runde kommen.',
+                 'Zeichnungen: Jede Lernkarte hat ein Koordinatensystem (Exponential- und Logarithmuskurve, Spiegelung an y = x, Zielwert als waagrechte Linie). Aufgaben „Welcher Term passt zum Graphen?“ und y-Achsenabschnitt zeigen den Graphen.',
                  'Gerundete Ergebnisse mit Toleranz 0,1 bzw. 0,01; Logarithmuswerte als 12-stellige Konstanten in c.'])

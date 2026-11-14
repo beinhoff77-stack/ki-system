@@ -146,7 +146,7 @@
    {
     "lernziel": "potenzregel",
     "titel": "Die Potenzregel für Logarithmen",
-    "regel": "Ein Exponent im Logarithmus wird zum ⟦Faktor⟧: ⟦log_b(a^r) = r · log_b(a)⟧. So holt man die Unbekannte aus dem Exponenten.",
+    "regel": "Ein Exponent im Logarithmus wird zum ⟦Faktor⟧: ⟦log_b(a^r) = r · log_b(a)⟧. Warum? Schreib a = b^y, also y = log_b(a). Dann ist a^r = (b^y)^r = b^(r · y). Der Exponent davon ist r · y = r · log_b(a). So holt man die Unbekannte aus dem Exponenten.",
     "schritte": [
      "5^x = 2^(x + 1): beide Seiten mit lg: x · lg 5 = (x + 1) · lg 2.",
      "x(lg 5 − lg 2) = lg 2 ⇒ x = lg 2 : (lg 5 − lg 2) ≈ ⟦0,76⟧."
@@ -491,6 +491,54 @@
    "s": 3,
    "y": "zahl",
    "f": {
+    "text": "Berechne log₃(√3)."
+   },
+   "o": {
+    "wert": 0.5
+   },
+   "c": "0.5 + (3 ** (2 * 0.5) - 3)",
+   "w": "√3 = 3^(1/2) = 3^0,5, also log₃(√3) = 0,5.",
+   "h": "Schreibe die Wurzel als Potenz mit Exponent ½."
+  },
+  {
+   "l": "logarithmus",
+   "t": "logarithmus",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt log₂(x) = 3. Bestimme x."
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "2 ** 3",
+   "w": "log₂(x) = 3 heißt x = 2³ = 8.",
+   "h": "Der Logarithmus ist der Exponent: Basis hoch Logarithmus ergibt x."
+  },
+  {
+   "l": "logarithmus",
+   "t": "logarithmus",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt log_b(16) = 4. Bestimme die Basis b."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2 + (2 ** 4 - 16)",
+   "w": "log_b(16) = 4 heißt b⁴ = 16, also b = 2.",
+   "h": "Schreibe die Gleichung als Potenz: b hoch … ergibt …"
+  },
+  {
+   "l": "logarithmus",
+   "t": "logarithmus",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
     "text": "Berechne log₂(√8)."
    },
    "o": {
@@ -505,16 +553,24 @@
    "t": "logarithmus",
    "p": "uebung",
    "s": 3,
-   "y": "zahl",
+   "y": "luecken",
    "f": {
-    "text": "Berechne log₂(√128)."
+    "text": "Es gilt log₄(x) = −2. Bestimme x als Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
    },
    "o": {
-    "wert": 3.5
+    "werte": [
+     1,
+     16
+    ]
    },
-   "c": "3.5 + (2 ** (2 * 3.5) - 128)",
-   "w": "√128 = 2^(7/2) = 2^3,5, also log₂(√128) = 3,5.",
-   "h": "Schreibe die Wurzel als Potenz mit Exponent ½."
+   "w": "log₄(x) = −2 heißt x = 4^(−2) = 1/16.",
+   "h": "Ein negativer Exponent bedeutet Kehrwert.",
+   "c": [
+    "1",
+    "4 ** 2"
+   ]
   },
   {
    "l": "logarithmus",
@@ -523,62 +579,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Berechne log₂(√32)."
+    "text": "Es gilt log₃(x) = 3. Bestimme x."
    },
    "o": {
-    "wert": 2.5
+    "wert": 27
    },
-   "c": "2.5 + (2 ** (2 * 2.5) - 32)",
-   "w": "√32 = 2^(5/2) = 2^2,5, also log₂(√32) = 2,5.",
-   "h": "Schreibe die Wurzel als Potenz mit Exponent ½."
-  },
-  {
-   "l": "logarithmus",
-   "t": "logarithmus",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne log₂(√2)."
-   },
-   "o": {
-    "wert": 0.5
-   },
-   "c": "0.5 + (2 ** (2 * 0.5) - 2)",
-   "w": "√2 = 2^(1/2) = 2^0,5, also log₂(√2) = 0,5.",
-   "h": "Schreibe die Wurzel als Potenz mit Exponent ½."
-  },
-  {
-   "l": "logarithmus",
-   "t": "logarithmus",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne log₅(√3 125)."
-   },
-   "o": {
-    "wert": 2.5
-   },
-   "c": "2.5 + (5 ** (2 * 2.5) - 3125)",
-   "w": "√3 125 = 5^(5/2) = 5^2,5, also log₅(√3 125) = 2,5.",
-   "h": "Schreibe die Wurzel als Potenz mit Exponent ½."
-  },
-  {
-   "l": "logarithmus",
-   "t": "logarithmus",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne log₅(√5)."
-   },
-   "o": {
-    "wert": 0.5
-   },
-   "c": "0.5 + (5 ** (2 * 0.5) - 5)",
-   "w": "√5 = 5^(1/2) = 5^0,5, also log₅(√5) = 0,5.",
-   "h": "Schreibe die Wurzel als Potenz mit Exponent ½."
+   "c": "3 ** 3",
+   "w": "log₃(x) = 3 heißt x = 3³ = 27.",
+   "h": "Der Logarithmus ist der Exponent: Basis hoch Logarithmus ergibt x."
   },
   {
    "l": "logarithmus",
@@ -587,13 +595,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne log₂(1/4)."
+    "text": "Berechne log₂(1/2)."
    },
    "o": {
-    "wert": -2
+    "wert": -1
    },
-   "c": "-2 + (2 ** (-2) - 0.25)",
-   "w": "2^(−2) = 1/4, also log₂(1/4) = −2."
+   "c": "-1 + (2 ** (-1) - 0.5)",
+   "w": "2^(−1) = 1/2, also log₂(1/2) = −1."
   },
   {
    "l": "logarithmus",
@@ -617,13 +625,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne log₅(1/5)."
+    "text": "Berechne log₄(1/16)."
    },
    "o": {
-    "wert": -1
+    "wert": -2
    },
-   "c": "-1 + (5 ** (-1) - 0.2)",
-   "w": "5^(−1) = 1/5, also log₅(1/5) = −1."
+   "c": "-2 + (4 ** (-2) - 0.0625)",
+   "w": "4^(−2) = 1/16, also log₄(1/16) = −2."
   },
   {
    "l": "logarithmus",
@@ -647,13 +655,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne log₄(1/64)."
+    "text": "Berechne lg(0,001)."
    },
    "o": {
     "wert": -3
    },
-   "c": "-3 + (4 ** (-3) - 0.015625)",
-   "w": "4^(−3) = 1/64, also log₄(1/64) = −3."
+   "c": "-3 + (10 ** (-3) - 0.001)",
+   "w": "10^(−3) = 0,001, also lg(0,001) = −3."
   },
   {
    "l": "logarithmus",
@@ -662,13 +670,28 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne log₂(1/2)."
+    "text": "Berechne log₅(1/5)."
    },
    "o": {
     "wert": -1
    },
-   "c": "-1 + (2 ** (-1) - 0.5)",
-   "w": "2^(−1) = 1/2, also log₂(1/2) = −1."
+   "c": "-1 + (5 ** (-1) - 0.2)",
+   "w": "5^(−1) = 1/5, also log₅(1/5) = −1."
+  },
+  {
+   "l": "logarithmus",
+   "t": "logarithmus",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne log₄(1/64)."
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "-3 + (4 ** (-3) - 0.015625)",
+   "w": "4^(−3) = 1/64, also log₄(1/64) = −3."
   },
   {
    "l": "logarithmus",
@@ -692,28 +715,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne log₄(1/16)."
+    "text": "Berechne log₂(1/4)."
    },
    "o": {
     "wert": -2
    },
-   "c": "-2 + (4 ** (-2) - 0.0625)",
-   "w": "4^(−2) = 1/16, also log₄(1/16) = −2."
-  },
-  {
-   "l": "logarithmus",
-   "t": "logarithmus",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne lg(0,001)."
-   },
-   "o": {
-    "wert": -3
-   },
-   "c": "-3 + (10 ** (-3) - 0.001)",
-   "w": "10^(−3) = 0,001, also lg(0,001) = −3."
+   "c": "-2 + (2 ** (-2) - 0.25)",
+   "w": "2^(−2) = 1/4, also log₂(1/4) = −2."
   },
   {
    "l": "logarithmus",
@@ -833,22 +841,6 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse 5^(x + 4) = 5."
-   },
-   "o": {
-    "wert": -3
-   },
-   "c": "-3 + (5 ** (-3 + (4)) - 5)",
-   "w": "5 = 5¹ ⇒ x + 4 = 1 ⇒ x = −3.",
-   "h": "Rechte Seite als Potenz derselben Basis schreiben, dann Exponenten gleichsetzen."
-  },
-  {
-   "l": "gleiche_basis",
-   "t": "gleiche_basis",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
     "text": "Löse 5^(x − 3) = 5."
    },
    "o": {
@@ -865,14 +857,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse 3^(x − 1) = 9."
+    "text": "Löse 3^x = 1/81."
    },
    "o": {
-    "wert": 3
+    "wert": -4
    },
-   "c": "3 + (3 ** (3 + (-1)) - 9)",
-   "w": "9 = 3² ⇒ x − 1 = 2 ⇒ x = 3.",
-   "h": "Rechte Seite als Potenz derselben Basis schreiben, dann Exponenten gleichsetzen."
+   "c": "-4 + (3 ** (-4 + (0)) * 81 - 1)",
+   "w": "1/81 = 3^(−4) ⇒ x = −4.",
+   "h": "Ein Kehrwert ist eine Potenz mit negativem Exponenten."
   },
   {
    "l": "gleiche_basis",
@@ -881,62 +873,62 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse 5^(x + 3) = 5."
-   },
-   "o": {
-    "wert": -2
-   },
-   "c": "-2 + (5 ** (-2 + (3)) - 5)",
-   "w": "5 = 5¹ ⇒ x + 3 = 1 ⇒ x = −2.",
-   "h": "Rechte Seite als Potenz derselben Basis schreiben, dann Exponenten gleichsetzen."
-  },
-  {
-   "l": "gleiche_basis",
-   "t": "gleiche_basis",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 2^(x − 3) = 8."
-   },
-   "o": {
-    "wert": 6
-   },
-   "c": "6 + (2 ** (6 + (-3)) - 8)",
-   "w": "8 = 2³ ⇒ x − 3 = 3 ⇒ x = 6.",
-   "h": "Rechte Seite als Potenz derselben Basis schreiben, dann Exponenten gleichsetzen."
-  },
-  {
-   "l": "gleiche_basis",
-   "t": "gleiche_basis",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 5^(x − 3) = 25."
-   },
-   "o": {
-    "wert": 5
-   },
-   "c": "5 + (5 ** (5 + (-3)) - 25)",
-   "w": "25 = 5² ⇒ x − 3 = 2 ⇒ x = 5.",
-   "h": "Rechte Seite als Potenz derselben Basis schreiben, dann Exponenten gleichsetzen."
-  },
-  {
-   "l": "gleiche_basis",
-   "t": "gleiche_basis",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 5 · 2^x = 20."
+    "text": "Löse 2^(x + 1) = 8."
    },
    "o": {
     "wert": 2
    },
-   "c": "2 + (2 ** 2 - 20 / 5)",
-   "w": "2^x = 20 : 5 = 4 = 2² ⇒ x = 2.",
-   "h": "Teile zuerst durch den Faktor vor der Potenz."
+   "c": "2 + (2 ** (2 + (1)) - 8)",
+   "w": "8 = 2³ ⇒ x + 1 = 3 ⇒ x = 2.",
+   "h": "Rechte Seite als Potenz derselben Basis schreiben, dann Exponenten gleichsetzen."
+  },
+  {
+   "l": "gleiche_basis",
+   "t": "gleiche_basis",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 5^(x + 3) = 125."
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "0 + (5 ** (0 + (3)) - 125)",
+   "w": "125 = 5³ ⇒ x + 3 = 3 ⇒ x = 0.",
+   "h": "Rechte Seite als Potenz derselben Basis schreiben, dann Exponenten gleichsetzen."
+  },
+  {
+   "l": "gleiche_basis",
+   "t": "gleiche_basis",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 2^(x + 3) = 2."
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "-2 + (2 ** (-2 + (3)) - 2)",
+   "w": "2 = 2¹ ⇒ x + 3 = 1 ⇒ x = −2.",
+   "h": "Rechte Seite als Potenz derselben Basis schreiben, dann Exponenten gleichsetzen."
+  },
+  {
+   "l": "gleiche_basis",
+   "t": "gleiche_basis",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 3^(x + 2) = 1/81."
+   },
+   "o": {
+    "wert": -6
+   },
+   "c": "-6 + (3 ** (-6 + (2)) * 81 - 1)",
+   "w": "1/81 = 3^(−4) ⇒ x + 2 = −4 ⇒ x = −6.",
+   "h": "Ein Kehrwert ist eine Potenz mit negativem Exponenten."
   },
   {
    "l": "gleiche_basis",
@@ -945,14 +937,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Löse (1/3)^x = 9."
+    "text": "Löse 4^x = 128."
    },
    "o": {
-    "wert": -2
+    "wert": 3.5
    },
-   "c": "(-2) + (3 ** (-(-2)) - 9)",
-   "w": "(1/3)^x = 3^(−x) = 3² ⇒ −x = 2 ⇒ x = −2.",
-   "h": "Schreibe 1/b als b hoch −1."
+   "c": "3.5 + (2 ** (2 * 3.5) - 128)",
+   "w": "4 = 2², 128 = 2⁷ ⇒ 2x = 7 ⇒ x = 3,5.",
+   "h": "Schreibe beide Seiten als Potenz von 2."
   },
   {
    "l": "gleiche_basis",
@@ -993,14 +985,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Löse (1/2)^x = 4."
+    "text": "Löse 9^(x − 1) = 243."
    },
    "o": {
-    "wert": -2
+    "wert": 3.5
    },
-   "c": "(-2) + (2 ** (-(-2)) - 4)",
-   "w": "(1/2)^x = 2^(−x) = 2² ⇒ −x = 2 ⇒ x = −2.",
-   "h": "Schreibe 1/b als b hoch −1."
+   "c": "3.5 + (3 ** (2 * (3.5 + (-1))) - 243)",
+   "w": "9 = 3², 243 = 3⁵ ⇒ 2 · (x − 1) = 5 ⇒ x − 1 = 2,5 ⇒ x = 3,5.",
+   "h": "Welche gemeinsame Basis haben 9 und 243?"
   },
   {
    "l": "gleiche_basis",
@@ -1009,34 +1001,35 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Löse 4^x = 32."
+    "text": "Löse 9^x = 2 187."
    },
    "o": {
-    "wert": 2.5
+    "wert": 3.5
    },
-   "c": "2.5 + (2 ** (2 * 2.5) - 32)",
-   "w": "4 = 2², 32 = 2⁵ ⇒ 2x = 5 ⇒ x = 2,5.",
-   "h": "Schreibe beide Seiten als Potenz von 2."
+   "c": "3.5 + (3 ** (2 * 3.5) - 2187)",
+   "w": "9 = 3², 2 187 = 3⁷ ⇒ 2x = 7 ⇒ x = 3,5.",
+   "h": "Schreibe beide Seiten als Potenz von 3."
+  },
+  {
+   "l": "gleiche_basis",
+   "t": "gleiche_basis",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 2 · 5^x = 10."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1 + (5 ** 1 - 10 / 2)",
+   "w": "5^x = 10 : 2 = 5 = 5¹ ⇒ x = 1.",
+   "h": "Teile zuerst durch den Faktor vor der Potenz."
   },
   {
    "l": "gleiche_basis",
    "t": "gleiche_basis",
    "p": "test",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 3^(x − 4) = 3."
-   },
-   "o": {
-    "wert": 5
-   },
-   "c": "5 + (3 ** (5 + (-4)) - 3)",
-   "w": "3 = 3¹ ⇒ x − 4 = 1 ⇒ x = 5."
-  },
-  {
-   "l": "gleiche_basis",
-   "t": "gleiche_basis",
-   "p": "korrektur",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -1055,13 +1048,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse 2^(x + 4) = 2."
+    "text": "Löse 5^(x + 3) = 5."
    },
    "o": {
-    "wert": -3
+    "wert": -2
    },
-   "c": "-3 + (2 ** (-3 + (4)) - 2)",
-   "w": "2 = 2¹ ⇒ x + 4 = 1 ⇒ x = −3."
+   "c": "-2 + (5 ** (-2 + (3)) - 5)",
+   "w": "5 = 5¹ ⇒ x + 3 = 1 ⇒ x = −2."
   },
   {
    "l": "gleiche_basis",
@@ -1070,18 +1063,18 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse 3^(x + 4) = 81."
+    "text": "Löse 3^x = 1/9."
    },
    "o": {
-    "wert": 0
+    "wert": -2
    },
-   "c": "0 + (3 ** (0 + (4)) - 81)",
-   "w": "81 = 3⁴ ⇒ x + 4 = 4 ⇒ x = 0."
+   "c": "-2 + (3 ** (-2 + (0)) * 9 - 1)",
+   "w": "1/9 = 3^(−2) ⇒ x = −2."
   },
   {
    "l": "gleiche_basis",
    "t": "gleiche_basis",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -1100,13 +1093,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse 5^(x − 2) = 5."
+    "text": "Löse 3^(x − 2) = 1/3."
    },
    "o": {
-    "wert": 3
+    "wert": 1
    },
-   "c": "3 + (5 ** (3 + (-2)) - 5)",
-   "w": "5 = 5¹ ⇒ x − 2 = 1 ⇒ x = 3."
+   "c": "1 + (3 ** (1 + (-2)) * 3 - 1)",
+   "w": "1/3 = 3^(−1) ⇒ x − 2 = −1 ⇒ x = 1."
   },
   {
    "l": "gleiche_basis",
@@ -1115,28 +1108,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse 2^(x + 4) = 8."
-   },
-   "o": {
-    "wert": -1
-   },
-   "c": "-1 + (2 ** (-1 + (4)) - 8)",
-   "w": "8 = 2³ ⇒ x + 4 = 3 ⇒ x = −1."
-  },
-  {
-   "l": "gleiche_basis",
-   "t": "gleiche_basis",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 5^(x + 2) = 25."
+    "text": "Löse 3^(x + 2) = 9."
    },
    "o": {
     "wert": 0
    },
-   "c": "0 + (5 ** (0 + (2)) - 25)",
-   "w": "25 = 5² ⇒ x + 2 = 2 ⇒ x = 0."
+   "c": "0 + (3 ** (0 + (2)) - 9)",
+   "w": "9 = 3² ⇒ x + 2 = 2 ⇒ x = 0."
   },
   {
    "l": "gleiche_basis",
@@ -1160,13 +1138,43 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse 2^(x + 2) = 4."
+    "text": "Löse 5^(x − 2) = 1/125."
    },
    "o": {
-    "wert": 0
+    "wert": -1
    },
-   "c": "0 + (2 ** (0 + (2)) - 4)",
-   "w": "4 = 2² ⇒ x + 2 = 2 ⇒ x = 0."
+   "c": "-1 + (5 ** (-1 + (-2)) * 125 - 1)",
+   "w": "1/125 = 5^(−3) ⇒ x − 2 = −3 ⇒ x = −1."
+  },
+  {
+   "l": "gleiche_basis",
+   "t": "gleiche_basis",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 3^(x − 4) = 81."
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "8 + (3 ** (8 + (-4)) - 81)",
+   "w": "81 = 3⁴ ⇒ x − 4 = 4 ⇒ x = 8."
+  },
+  {
+   "l": "gleiche_basis",
+   "t": "gleiche_basis",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 5^(x − 2) = 0,2."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1 + (5 ** (1 + (-2)) * 5 - 1)",
+   "w": "0,2 = 1/5 = 5^(−1) ⇒ x − 2 = −1 ⇒ x = 1."
   },
   {
    "l": "mit_log_loesen",
@@ -1175,121 +1183,7 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Löse 7^x = 65. Runde auf zwei Nachkommastellen. (Die Zeichnung zeigt y = 7^x und y = 65 zum Abschätzen.)",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -1,
-      4
-     ],
-     "y": [
-      0,
-      91
-     ],
-     "graphen": [
-      {
-       "art": "exp",
-       "a": 1,
-       "b": 7
-      }
-     ],
-     "waagrecht": [
-      65
-     ]
-    }
-   },
-   "o": {
-    "wert": 2.15,
-    "toleranz": 0.01
-   },
-   "c": "round(2.145210698409, 2)",
-   "w": "Der Schnittpunkt liegt etwa bei x ≈ 2. Genau: x = log₇(65) = lg 65 : lg 7 ≈ 2,15.",
-   "h": "Schätze mit der Zeichnung, dann logarithmiere beide Seiten."
-  },
-  {
-   "l": "mit_log_loesen",
-   "t": "mit_log_loesen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 5^x = 143. Runde auf zwei Nachkommastellen. (Die Zeichnung zeigt y = 5^x und y = 143 zum Abschätzen.)",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -1,
-      5
-     ],
-     "y": [
-      0,
-      200
-     ],
-     "graphen": [
-      {
-       "art": "exp",
-       "a": 1,
-       "b": 5
-      }
-     ],
-     "waagrecht": [
-      143
-     ]
-    }
-   },
-   "o": {
-    "wert": 3.08,
-    "toleranz": 0.01
-   },
-   "c": "round(3.083588743572, 2)",
-   "w": "Der Schnittpunkt liegt etwa bei x ≈ 3. Genau: x = log₅(143) = lg 143 : lg 5 ≈ 3,08.",
-   "h": "Schätze mit der Zeichnung, dann logarithmiere beide Seiten."
-  },
-  {
-   "l": "mit_log_loesen",
-   "t": "mit_log_loesen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 2^x = 182. Runde auf zwei Nachkommastellen. (Die Zeichnung zeigt y = 2^x und y = 182 zum Abschätzen.)",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -1,
-      9
-     ],
-     "y": [
-      0,
-      255
-     ],
-     "graphen": [
-      {
-       "art": "exp",
-       "a": 1,
-       "b": 2
-      }
-     ],
-     "waagrecht": [
-      182
-     ]
-    }
-   },
-   "o": {
-    "wert": 7.51,
-    "toleranz": 0.01
-   },
-   "c": "round(7.507794640199, 2)",
-   "w": "Der Schnittpunkt liegt etwa bei x ≈ 8. Genau: x = log₂(182) = lg 182 : lg 2 ≈ 7,51.",
-   "h": "Schätze mit der Zeichnung, dann logarithmiere beide Seiten."
-  },
-  {
-   "l": "mit_log_loesen",
-   "t": "mit_log_loesen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 3^x = 119. Runde auf zwei Nachkommastellen. (Die Zeichnung zeigt y = 3^x und y = 119 zum Abschätzen.)",
+    "text": "Löse 3^x = 104. Runde auf zwei Nachkommastellen. (Die Zeichnung zeigt y = 3^x und y = 104 zum Abschätzen.)",
     "grafik": {
      "typ": "koordinaten",
      "x": [
@@ -1298,7 +1192,7 @@
      ],
      "y": [
       0,
-      167
+      146
      ],
      "graphen": [
       {
@@ -1308,16 +1202,16 @@
       }
      ],
      "waagrecht": [
-      119
+      104
      ]
     }
    },
    "o": {
-    "wert": 4.35,
+    "wert": 4.23,
     "toleranz": 0.01
    },
-   "c": "round(4.350145672324, 2)",
-   "w": "Der Schnittpunkt liegt etwa bei x ≈ 4. Genau: x = log₃(119) = lg 119 : lg 3 ≈ 4,35.",
+   "c": "round(4.227506780187, 2)",
+   "w": "Der Schnittpunkt liegt etwa bei x ≈ 4. Genau: x = log₃(104) = lg 104 : lg 3 ≈ 4,23.",
    "h": "Schätze mit der Zeichnung, dann logarithmiere beide Seiten."
   },
   {
@@ -1327,35 +1221,35 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Löse 10^x = 176. Runde auf zwei Nachkommastellen. (Die Zeichnung zeigt y = 10^x und y = 176 zum Abschätzen.)",
+    "text": "Löse 3^x = 174. Runde auf zwei Nachkommastellen. (Die Zeichnung zeigt y = 3^x und y = 174 zum Abschätzen.)",
     "grafik": {
      "typ": "koordinaten",
      "x": [
       -1,
-      4
+      6
      ],
      "y": [
       0,
-      246
+      244
      ],
      "graphen": [
       {
        "art": "exp",
        "a": 1,
-       "b": 10
+       "b": 3
       }
      ],
      "waagrecht": [
-      176
+      174
      ]
     }
    },
    "o": {
-    "wert": 2.25,
+    "wert": 4.7,
     "toleranz": 0.01
    },
-   "c": "round(2.245512667814, 2)",
-   "w": "Der Schnittpunkt liegt etwa bei x ≈ 2. Genau: x = lg(176) = lg 176 : lg 10 ≈ 2,25.",
+   "c": "round(4.695974505682, 2)",
+   "w": "Der Schnittpunkt liegt etwa bei x ≈ 5. Genau: x = log₃(174) = lg 174 : lg 3 ≈ 4,7.",
    "h": "Schätze mit der Zeichnung, dann logarithmiere beide Seiten."
   },
   {
@@ -1365,35 +1259,149 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Löse 7^x = 19. Runde auf zwei Nachkommastellen. (Die Zeichnung zeigt y = 7^x und y = 19 zum Abschätzen.)",
+    "text": "Löse 2^x = 165. Runde auf zwei Nachkommastellen. (Die Zeichnung zeigt y = 2^x und y = 165 zum Abschätzen.)",
     "grafik": {
      "typ": "koordinaten",
      "x": [
       -1,
-      3
+      9
      ],
      "y": [
       0,
-      27
+      231
      ],
      "graphen": [
       {
        "art": "exp",
        "a": 1,
-       "b": 7
+       "b": 2
       }
      ],
      "waagrecht": [
-      19
+      165
      ]
     }
    },
    "o": {
-    "wert": 1.51,
+    "wert": 7.37,
     "toleranz": 0.01
    },
-   "c": "round(1.513142310603, 2)",
-   "w": "Der Schnittpunkt liegt etwa bei x ≈ 2. Genau: x = log₇(19) = lg 19 : lg 7 ≈ 1,51.",
+   "c": "round(7.366322214246, 2)",
+   "w": "Der Schnittpunkt liegt etwa bei x ≈ 7. Genau: x = log₂(165) = lg 165 : lg 2 ≈ 7,37.",
+   "h": "Schätze mit der Zeichnung, dann logarithmiere beide Seiten."
+  },
+  {
+   "l": "mit_log_loesen",
+   "t": "mit_log_loesen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 5^x = 178. Runde auf zwei Nachkommastellen. (Die Zeichnung zeigt y = 5^x und y = 178 zum Abschätzen.)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      5
+     ],
+     "y": [
+      0,
+      249
+     ],
+     "graphen": [
+      {
+       "art": "exp",
+       "a": 1,
+       "b": 5
+      }
+     ],
+     "waagrecht": [
+      178
+     ]
+    }
+   },
+   "o": {
+    "wert": 3.22,
+    "toleranz": 0.01
+   },
+   "c": "round(3.219623143123, 2)",
+   "w": "Der Schnittpunkt liegt etwa bei x ≈ 3. Genau: x = log₅(178) = lg 178 : lg 5 ≈ 3,22.",
+   "h": "Schätze mit der Zeichnung, dann logarithmiere beide Seiten."
+  },
+  {
+   "l": "mit_log_loesen",
+   "t": "mit_log_loesen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 2^x = 13. Runde auf zwei Nachkommastellen. (Die Zeichnung zeigt y = 2^x und y = 13 zum Abschätzen.)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      5
+     ],
+     "y": [
+      0,
+      18
+     ],
+     "graphen": [
+      {
+       "art": "exp",
+       "a": 1,
+       "b": 2
+      }
+     ],
+     "waagrecht": [
+      13
+     ]
+    }
+   },
+   "o": {
+    "wert": 3.7,
+    "toleranz": 0.01
+   },
+   "c": "round(3.700439718141, 2)",
+   "w": "Der Schnittpunkt liegt etwa bei x ≈ 4. Genau: x = log₂(13) = lg 13 : lg 2 ≈ 3,7.",
+   "h": "Schätze mit der Zeichnung, dann logarithmiere beide Seiten."
+  },
+  {
+   "l": "mit_log_loesen",
+   "t": "mit_log_loesen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 3^x = 53. Runde auf zwei Nachkommastellen. (Die Zeichnung zeigt y = 3^x und y = 53 zum Abschätzen.)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      5
+     ],
+     "y": [
+      0,
+      74
+     ],
+     "graphen": [
+      {
+       "art": "exp",
+       "a": 1,
+       "b": 3
+      }
+     ],
+     "waagrecht": [
+      53
+     ]
+    }
+   },
+   "o": {
+    "wert": 3.61,
+    "toleranz": 0.01
+   },
+   "c": "round(3.613915440874, 2)",
+   "w": "Der Schnittpunkt liegt etwa bei x ≈ 4. Genau: x = log₃(53) = lg 53 : lg 3 ≈ 3,61.",
    "h": "Schätze mit der Zeichnung, dann logarithmiere beide Seiten."
   },
   {
@@ -1403,14 +1411,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse 2 · 2^x = 9. Runde auf zwei Nachkommastellen."
+    "text": "Löse 3 · 2^x = 51. Runde auf zwei Nachkommastellen."
    },
    "o": {
-    "wert": 2.17,
+    "wert": 4.09,
     "toleranz": 0.01
    },
-   "c": "round(2.169925001442, 2)",
-   "w": "2^x = 9 : 2 = 4,5 ⇒ x = lg(4,5) : lg 2 ≈ 2,17.",
+   "c": "round(4.087462841250, 2)",
+   "w": "2^x = 51 : 3 = 17 ⇒ x = lg(17) : lg 2 ≈ 4,09.",
    "h": "Erst durch den Faktor teilen, dann logarithmieren."
   },
   {
@@ -1420,14 +1428,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse 9 · 1,5^x = 167. Runde auf zwei Nachkommastellen."
+    "text": "Löse 7 · 1,2^x = 91. Runde auf zwei Nachkommastellen."
    },
    "o": {
-    "wert": 7.2,
+    "wert": 14.07,
     "toleranz": 0.01
    },
-   "c": "round(7.203503277282, 2)",
-   "w": "1,5^x = 167 : 9 = 167/9 ⇒ x = lg(167/9) : lg 1,5 ≈ 7,2.",
+   "c": "round(14.068272576019, 2)",
+   "w": "1,2^x = 91 : 7 = 13 ⇒ x = lg(13) : lg 1,2 ≈ 14,07.",
    "h": "Erst durch den Faktor teilen, dann logarithmieren."
   },
   {
@@ -1437,14 +1445,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse 4 · 1,5^x = 18. Runde auf zwei Nachkommastellen."
+    "text": "Löse 6 · 3^x = 20. Runde auf zwei Nachkommastellen."
    },
    "o": {
-    "wert": 3.71,
+    "wert": 1.1,
     "toleranz": 0.01
    },
-   "c": "round(3.709511291351, 2)",
-   "w": "1,5^x = 18 : 4 = 4,5 ⇒ x = lg(4,5) : lg 1,5 ≈ 3,71.",
+   "c": "round(1.095903274289, 2)",
+   "w": "3^x = 20 : 6 = 10/3 ⇒ x = lg(10/3) : lg 3 ≈ 1,1.",
    "h": "Erst durch den Faktor teilen, dann logarithmieren."
   },
   {
@@ -1454,14 +1462,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse 7 · 1,5^x = 55. Runde auf zwei Nachkommastellen."
+    "text": "Löse 9 · 0,5^x = 6,8. Runde auf zwei Nachkommastellen."
    },
    "o": {
-    "wert": 5.08,
+    "wert": 0.4,
     "toleranz": 0.01
    },
-   "c": "round(5.084094771546, 2)",
-   "w": "1,5^x = 55 : 7 = 55/7 ⇒ x = lg(55/7) : lg 1,5 ≈ 5,08.",
+   "c": "round(0.404390255079, 2)",
+   "w": "0,5^x = 6,8 : 9 = 34/45 ⇒ x = lg(34/45) : lg 0,5 ≈ 0,4.",
    "h": "Erst durch den Faktor teilen, dann logarithmieren."
   },
   {
@@ -1471,14 +1479,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse 4 · 0,8^x = 0,6. Runde auf zwei Nachkommastellen."
+    "text": "Löse 6 · 3^x = 58. Runde auf zwei Nachkommastellen."
    },
    "o": {
-    "wert": 8.5,
+    "wert": 2.07,
     "toleranz": 0.01
    },
-   "c": "round(8.501791666005, 2)",
-   "w": "0,8^x = 0,6 : 4 = 0,15 ⇒ x = lg(0,15) : lg 0,8 ≈ 8,5.",
+   "c": "round(2.065044752111, 2)",
+   "w": "3^x = 58 : 6 = 29/3 ⇒ x = lg(29/3) : lg 3 ≈ 2,07.",
    "h": "Erst durch den Faktor teilen, dann logarithmieren."
   },
   {
@@ -1488,14 +1496,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse 4 · 0,5^x = 2,1. Runde auf zwei Nachkommastellen."
+    "text": "Löse 2 · 1,2^x = 33. Runde auf zwei Nachkommastellen."
    },
    "o": {
-    "wert": 0.93,
+    "wert": 15.38,
     "toleranz": 0.01
    },
-   "c": "round(0.929610672109, 2)",
-   "w": "0,5^x = 2,1 : 4 = 0,525 ⇒ x = lg(0,525) : lg 0,5 ≈ 0,93.",
+   "c": "round(15.375912921118, 2)",
+   "w": "1,2^x = 33 : 2 = 16,5 ⇒ x = lg(16,5) : lg 1,2 ≈ 15,38.",
    "h": "Erst durch den Faktor teilen, dann logarithmieren."
   },
   {
@@ -1505,14 +1513,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Löse 3^(2x) = 273. Runde auf zwei Nachkommastellen."
+    "text": "Löse 2^(2x + 3) = 54. Runde auf zwei Nachkommastellen."
    },
    "o": {
-    "wert": 2.55,
+    "wert": 1.38,
     "toleranz": 0.01
    },
-   "c": "round(2.552980634317, 2)",
-   "w": "2x = log₃(273) ≈ 5,106 ⇒ x ≈ 2,55.",
+   "c": "round(1.377443751082, 2)",
+   "w": "2x + 3 = log₂(54) ≈ 5,7549 ⇒ x ≈ 1,38.",
    "h": "Erst den ganzen Exponenten bestimmen, dann nach x auflösen."
   },
   {
@@ -1522,14 +1530,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Löse 3^(3x) = 137. Runde auf zwei Nachkommastellen."
+    "text": "Löse 5^(3x + 1) = 254. Runde auf zwei Nachkommastellen."
    },
    "o": {
-    "wert": 1.49,
+    "wert": 0.81,
     "toleranz": 0.01
    },
-   "c": "round(1.492786544315, 2)",
-   "w": "3x = log₃(137) ≈ 4,4784 ⇒ x ≈ 1,49.",
+   "c": "round(0.813513074811, 2)",
+   "w": "3x + 1 = log₅(254) ≈ 3,4405 ⇒ x ≈ 0,81.",
    "h": "Erst den ganzen Exponenten bestimmen, dann nach x auflösen."
   },
   {
@@ -1539,14 +1547,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Löse 5^(2x + 2) = 17. Runde auf zwei Nachkommastellen."
+    "text": "Löse 5^(2x − 2) = 41. Runde auf zwei Nachkommastellen."
    },
    "o": {
-    "wert": -0.12,
+    "wert": 2.15,
     "toleranz": 0.01
    },
-   "c": "round(-0.119812786139, 2)",
-   "w": "2x + 2 = log₅(17) ≈ 1,7604 ⇒ x ≈ −0,12.",
+   "c": "round(2.153686028524, 2)",
+   "w": "2x − 2 = log₅(41) ≈ 2,3074 ⇒ x ≈ 2,15.",
    "h": "Erst den ganzen Exponenten bestimmen, dann nach x auflösen."
   },
   {
@@ -1556,14 +1564,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Löse 2^(2x + 3) = 165. Runde auf zwei Nachkommastellen."
+    "text": "Löse 5^(2x − 1) = 45. Runde auf zwei Nachkommastellen."
    },
    "o": {
-    "wert": 2.18,
+    "wert": 1.68,
     "toleranz": 0.01
    },
-   "c": "round(2.183161107123, 2)",
-   "w": "2x + 3 = log₂(165) ≈ 7,3663 ⇒ x ≈ 2,18.",
+   "c": "round(1.682606194486, 2)",
+   "w": "2x − 1 = log₅(45) ≈ 2,3652 ⇒ x ≈ 1,68.",
    "h": "Erst den ganzen Exponenten bestimmen, dann nach x auflösen."
   },
   {
@@ -1573,14 +1581,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Löse 5^(3x + 1) = 12. Runde auf zwei Nachkommastellen."
+    "text": "Löse 2^(3x + 1) = 299. Runde auf zwei Nachkommastellen."
    },
    "o": {
-    "wert": 0.18,
+    "wert": 2.41,
     "toleranz": 0.01
    },
-   "c": "round(0.181319770211, 2)",
-   "w": "3x + 1 = log₅(12) ≈ 1,544 ⇒ x ≈ 0,18.",
+   "c": "round(2.408000558066, 2)",
+   "w": "3x + 1 = log₂(299) ≈ 8,224 ⇒ x ≈ 2,41.",
    "h": "Erst den ganzen Exponenten bestimmen, dann nach x auflösen."
   },
   {
@@ -1590,84 +1598,20 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Löse 2^(2x + 2) = 288. Runde auf zwei Nachkommastellen."
+    "text": "Löse 5^(2x) = 165. Runde auf zwei Nachkommastellen."
    },
    "o": {
-    "wert": 3.08,
+    "wert": 1.59,
     "toleranz": 0.01
    },
-   "c": "round(3.084962500721, 2)",
-   "w": "2x + 2 = log₂(288) ≈ 8,1699 ⇒ x ≈ 3,08.",
+   "c": "round(1.586251148445, 2)",
+   "w": "2x = log₅(165) ≈ 3,1725 ⇒ x ≈ 1,59.",
    "h": "Erst den ganzen Exponenten bestimmen, dann nach x auflösen."
   },
   {
    "l": "mit_log_loesen",
    "t": "mit_log_loesen",
    "p": "test",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 3 · 1,25^x = 60. Runde auf zwei Nachkommastellen."
-   },
-   "o": {
-    "wert": 13.43,
-    "toleranz": 0.01
-   },
-   "c": "round(13.425134878022, 2)",
-   "w": "1,25^x = 60 : 3 = 20 ⇒ x = lg(20) : lg 1,25 ≈ 13,43."
-  },
-  {
-   "l": "mit_log_loesen",
-   "t": "mit_log_loesen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 3 · 1,2^x = 56. Runde auf zwei Nachkommastellen."
-   },
-   "o": {
-    "wert": 16.05,
-    "toleranz": 0.01
-   },
-   "c": "round(16.052624020618, 2)",
-   "w": "1,2^x = 56 : 3 = 56/3 ⇒ x = lg(56/3) : lg 1,2 ≈ 16,05."
-  },
-  {
-   "l": "mit_log_loesen",
-   "t": "mit_log_loesen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 9 · 3^x = 158. Runde auf zwei Nachkommastellen."
-   },
-   "o": {
-    "wert": 2.61,
-    "toleranz": 0.01
-   },
-   "c": "round(2.608172587587, 2)",
-   "w": "3^x = 158 : 9 = 158/9 ⇒ x = lg(158/9) : lg 3 ≈ 2,61."
-  },
-  {
-   "l": "mit_log_loesen",
-   "t": "mit_log_loesen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 2 · 2^x = 23. Runde auf zwei Nachkommastellen."
-   },
-   "o": {
-    "wert": 3.52,
-    "toleranz": 0.01
-   },
-   "c": "round(3.523561956057, 2)",
-   "w": "2^x = 23 : 2 = 11,5 ⇒ x = lg(11,5) : lg 2 ≈ 3,52."
-  },
-  {
-   "l": "mit_log_loesen",
-   "t": "mit_log_loesen",
-   "p": "sicherung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -1683,7 +1627,7 @@
   {
    "l": "mit_log_loesen",
    "t": "mit_log_loesen",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -1699,7 +1643,7 @@
   {
    "l": "mit_log_loesen",
    "t": "mit_log_loesen",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -1715,7 +1659,7 @@
   {
    "l": "mit_log_loesen",
    "t": "mit_log_loesen",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -1761,128 +1705,176 @@
    "w": "0,5^x = 0,9 : 6 = 0,15 ⇒ x = lg(0,15) : lg 0,5 ≈ 2,74."
   },
   {
-   "l": "potenzregel",
-   "t": "potenzregel",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne log₅(25⁶) mit der Potenzregel."
-   },
-   "o": {
-    "wert": 12
-   },
-   "c": "6 * 2 + (5 ** 2 - 25)",
-   "w": "log₅(25⁶) = 6 · log₅(25) = 6 · 2 = 12.",
-   "h": "Ziehe den Exponenten als Faktor vor den Logarithmus."
-  },
-  {
-   "l": "potenzregel",
-   "t": "potenzregel",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne log₂(2⁶) mit der Potenzregel."
-   },
-   "o": {
-    "wert": 6
-   },
-   "c": "6 * 1 + (2 ** 1 - 2)",
-   "w": "log₂(2⁶) = 6 · log₂(2) = 6 · 1 = 6.",
-   "h": "Ziehe den Exponenten als Faktor vor den Logarithmus."
-  },
-  {
-   "l": "potenzregel",
-   "t": "potenzregel",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Schreibe lg(7²) mit der Potenzregel als Vielfaches von lg 7.",
-    "schablone": "□ · lg 7",
-    "hinweis": "Faktor"
-   },
-   "o": {
-    "werte": [
-     2
-    ]
-   },
-   "w": "lg(7²) = 2 · lg 7.",
-   "h": "Der Exponent wird zum Faktor.",
-   "c": [
-    "2"
-   ]
-  },
-  {
-   "l": "potenzregel",
-   "t": "potenzregel",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne log₂(8⁸) mit der Potenzregel."
-   },
-   "o": {
-    "wert": 24
-   },
-   "c": "8 * 3 + (2 ** 3 - 8)",
-   "w": "log₂(8⁸) = 8 · log₂(8) = 8 · 3 = 24.",
-   "h": "Ziehe den Exponenten als Faktor vor den Logarithmus."
-  },
-  {
-   "l": "potenzregel",
-   "t": "potenzregel",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne log₂(2⁹) mit der Potenzregel."
-   },
-   "o": {
-    "wert": 9
-   },
-   "c": "9 * 1 + (2 ** 1 - 2)",
-   "w": "log₂(2⁹) = 9 · log₂(2) = 9 · 1 = 9.",
-   "h": "Ziehe den Exponenten als Faktor vor den Logarithmus."
-  },
-  {
-   "l": "potenzregel",
-   "t": "potenzregel",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Schreibe lg(2³) mit der Potenzregel als Vielfaches von lg 2.",
-    "schablone": "□ · lg 2",
-    "hinweis": "Faktor"
-   },
-   "o": {
-    "werte": [
-     3
-    ]
-   },
-   "w": "lg(2³) = 3 · lg 2.",
-   "h": "Der Exponent wird zum Faktor.",
-   "c": [
-    "3"
-   ]
-  },
-  {
-   "l": "potenzregel",
-   "t": "potenzregel",
-   "p": "uebung",
+   "l": "mit_log_loesen",
+   "t": "mit_log_loesen",
+   "p": "sicherung",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Es gilt lg 3 ≈ 0,4771. Berechne damit lg(3²) (ohne Taschenrechner)."
+    "text": "Löse 7 · 1,25^x = 80. Runde auf zwei Nachkommastellen."
    },
    "o": {
-    "wert": 0.9542
+    "wert": 10.92,
+    "toleranz": 0.01
    },
-   "c": "2 * 0.4771",
-   "w": "lg(3²) = 2 · lg 3 ≈ 2 · 0,4771 = 0,9542.",
-   "h": "Potenzregel: Exponent als Faktor."
+   "c": "round(10.917261427771, 2)",
+   "w": "1,25^x = 80 : 7 = 80/7 ⇒ x = lg(80/7) : lg 1,25 ≈ 10,92."
+  },
+  {
+   "l": "mit_log_loesen",
+   "t": "mit_log_loesen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 2 · 1,2^x = 19. Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 12.35,
+    "toleranz": 0.01
+   },
+   "c": "round(12.347918908737, 2)",
+   "w": "1,2^x = 19 : 2 = 9,5 ⇒ x = lg(9,5) : lg 1,2 ≈ 12,35."
+  },
+  {
+   "l": "mit_log_loesen",
+   "t": "mit_log_loesen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 9 · 3^x = 11. Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 0.18,
+    "toleranz": 0.01
+   },
+   "c": "round(0.182658338644, 2)",
+   "w": "3^x = 11 : 9 = 11/9 ⇒ x = lg(11/9) : lg 3 ≈ 0,18."
+  },
+  {
+   "l": "mit_log_loesen",
+   "t": "mit_log_loesen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 3 · 0,5^x = 1,3. Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 1.21,
+    "toleranz": 0.01
+   },
+   "c": "round(1.206450877467, 2)",
+   "w": "0,5^x = 1,3 : 3 = 13/30 ⇒ x = lg(13/30) : lg 0,5 ≈ 1,21."
+  },
+  {
+   "l": "potenzregel",
+   "t": "potenzregel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne log₂(2⁵) mit der Potenzregel."
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "5 + (2 ** 1 - 2)",
+   "w": "log₂(2⁵) = 5 · log₂(2) = 5 · 1 = 5.",
+   "h": "Ziehe den Exponenten als Faktor vor den Logarithmus."
+  },
+  {
+   "l": "potenzregel",
+   "t": "potenzregel",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe lg(5¹⁴) mit der Potenzregel als Vielfaches von lg 5.",
+    "schablone": "□ · lg 5",
+    "hinweis": "Faktor"
+   },
+   "o": {
+    "werte": [
+     14
+    ]
+   },
+   "w": "lg(5¹⁴) = 14 · lg 5.",
+   "h": "Der Exponent wird zum Faktor.",
+   "c": [
+    "14"
+   ]
+  },
+  {
+   "l": "potenzregel",
+   "t": "potenzregel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne log₂(2³) mit der Potenzregel."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3 + (2 ** 1 - 2)",
+   "w": "log₂(2³) = 3 · log₂(2) = 3 · 1 = 3.",
+   "h": "Ziehe den Exponenten als Faktor vor den Logarithmus."
+  },
+  {
+   "l": "potenzregel",
+   "t": "potenzregel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne log₃(3¹³) mit der Potenzregel."
+   },
+   "o": {
+    "wert": 13
+   },
+   "c": "13 + (3 ** 1 - 3)",
+   "w": "log₃(3¹³) = 13 · log₃(3) = 13 · 1 = 13.",
+   "h": "Ziehe den Exponenten als Faktor vor den Logarithmus."
+  },
+  {
+   "l": "potenzregel",
+   "t": "potenzregel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne log₂(2¹³) mit der Potenzregel."
+   },
+   "o": {
+    "wert": 13
+   },
+   "c": "13 + (2 ** 1 - 2)",
+   "w": "log₂(2¹³) = 13 · log₂(2) = 13 · 1 = 13.",
+   "h": "Ziehe den Exponenten als Faktor vor den Logarithmus."
+  },
+  {
+   "l": "potenzregel",
+   "t": "potenzregel",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe lg(5⁹) mit der Potenzregel als Vielfaches von lg 5.",
+    "schablone": "□ · lg 5",
+    "hinweis": "Faktor"
+   },
+   "o": {
+    "werte": [
+     9
+    ]
+   },
+   "w": "lg(5⁹) = 9 · lg 5.",
+   "h": "Der Exponent wird zum Faktor.",
+   "c": [
+    "9"
+   ]
   },
   {
    "l": "potenzregel",
@@ -1939,13 +1931,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Es gilt lg 7 ≈ 0,8451. Berechne damit lg(7²) (ohne Taschenrechner)."
+    "text": "Es gilt lg 2 ≈ 0,301. Berechne damit lg(2⁶) (ohne Taschenrechner)."
    },
    "o": {
-    "wert": 1.6902
+    "wert": 1.806
    },
-   "c": "2 * 0.8451",
-   "w": "lg(7²) = 2 · lg 7 ≈ 2 · 0,8451 = 1,6902.",
+   "c": "6 * 0.301",
+   "w": "lg(2⁶) = 6 · lg 2 ≈ 6 · 0,301 = 1,806.",
    "h": "Potenzregel: Exponent als Faktor."
   },
   {
@@ -1955,14 +1947,30 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Es gilt lg 7 ≈ 0,8451. Berechne damit lg(7⁴) (ohne Taschenrechner)."
+    "text": "Es gilt lg 5 ≈ 0,699. Berechne damit lg(5⁶) (ohne Taschenrechner)."
    },
    "o": {
-    "wert": 3.3804
+    "wert": 4.194
    },
-   "c": "4 * 0.8451",
-   "w": "lg(7⁴) = 4 · lg 7 ≈ 4 · 0,8451 = 3,3804.",
+   "c": "6 * 0.699",
+   "w": "lg(5⁶) = 6 · lg 5 ≈ 6 · 0,699 = 4,194.",
    "h": "Potenzregel: Exponent als Faktor."
+  },
+  {
+   "l": "potenzregel",
+   "t": "potenzregel",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne log₅(25⁵) mit der Potenzregel."
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "5 * 2 + (5 ** 2 - 25)",
+   "w": "log₅(25⁵) = 5 · log₅(25) = 5 · 2 = 10.",
+   "h": "Ziehe den Exponenten vor und bestimme dann log₅(25)."
   },
   {
    "l": "potenzregel",
@@ -1971,14 +1979,31 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Löse 2^x = 5^(x − 1). Runde auf zwei Nachkommastellen."
+    "text": "Löse 3^x = 2^(x − 2). Runde auf zwei Nachkommastellen."
    },
    "o": {
-    "wert": 1.76,
+    "wert": -3.42,
     "toleranz": 0.01
    },
-   "c": "round(1.756470797366, 2)",
-   "w": "x · lg 2 = (x − 1) · lg 5 ⇒ x(lg 2 − lg 5) = −1 · lg 5 ⇒ x ≈ 1,76.",
+   "c": "round(-3.419022582703, 2)",
+   "w": "x · lg 3 = (x − 2) · lg 2 ⇒ x(lg 3 − lg 2) = −2 · lg 2 ⇒ x ≈ −3,42.",
+   "h": "Logarithmiere beide Seiten, wende die Potenzregel an und sammle die x-Terme."
+  },
+  {
+   "l": "potenzregel",
+   "t": "potenzregel",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 7^x = 5^(x + 2). Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 9.57,
+    "toleranz": 0.01
+   },
+   "c": "round(9.566542123034, 2)",
+   "w": "x · lg 7 = (x + 2) · lg 5 ⇒ x(lg 7 − lg 5) = 2 · lg 5 ⇒ x ≈ 9,57.",
    "h": "Logarithmiere beide Seiten, wende die Potenzregel an und sammle die x-Terme."
   },
   {
@@ -1991,13 +2016,13 @@
     "text": "Welche Umformung ist richtig (x > 0)?"
    },
    "a": [
+    "lg(x⁹) = (lg x)⁹",
     "lg(x⁹) = 9 · lg x",
     "lg(9x) = 9 · lg x",
-    "lg(x⁹) = (lg x)⁹",
     "lg(x + 9) = lg x + lg 9"
    ],
    "o": {
-    "index": 0
+    "index": 1
    },
    "w": "Die Potenzregel holt nur den Exponenten einer Potenz heraus: lg(x⁹) = 9 · lg x. Produkte und Summen sind etwas anderes.",
    "h": "Steht die Zahl als Exponent, als Faktor oder als Summand?"
@@ -2007,17 +2032,21 @@
    "t": "potenzregel",
    "p": "uebung",
    "s": 3,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Löse 3^x = 2^(x + 1). Runde auf zwei Nachkommastellen."
+    "text": "Welche Umformung ist richtig (x > 0)?"
    },
+   "a": [
+    "lg(x⁷) = (lg x)⁷",
+    "lg(x + 7) = lg x + lg 7",
+    "lg(x⁷) = 7 · lg x",
+    "lg(7x) = 7 · lg x"
+   ],
    "o": {
-    "wert": 1.71,
-    "toleranz": 0.01
+    "index": 2
    },
-   "c": "round(1.709511291351, 2)",
-   "w": "x · lg 3 = (x + 1) · lg 2 ⇒ x(lg 3 − lg 2) = 1 · lg 2 ⇒ x ≈ 1,71.",
-   "h": "Logarithmiere beide Seiten, wende die Potenzregel an und sammle die x-Terme."
+   "w": "Die Potenzregel holt nur den Exponenten einer Potenz heraus: lg(x⁷) = 7 · lg x. Produkte und Summen sind etwas anderes.",
+   "h": "Steht die Zahl als Exponent, als Faktor oder als Summand?"
   },
   {
    "l": "potenzregel",
@@ -2029,15 +2058,15 @@
     "text": "Welche Umformung ist richtig (x > 0)?"
    },
    "a": [
-    "lg(x⁵) = 5 · lg x",
-    "lg(x⁵) = (lg x)⁵",
-    "lg(5x) = 5 · lg x",
-    "lg(x + 5) = lg x + lg 5"
+    "lg(x³) = (lg x)³",
+    "lg(x³) = 3 · lg x",
+    "lg(3x) = 3 · lg x",
+    "lg(x + 3) = lg x + lg 3"
    ],
    "o": {
-    "index": 0
+    "index": 1
    },
-   "w": "Die Potenzregel holt nur den Exponenten einer Potenz heraus: lg(x⁵) = 5 · lg x. Produkte und Summen sind etwas anderes.",
+   "w": "Die Potenzregel holt nur den Exponenten einer Potenz heraus: lg(x³) = 3 · lg x. Produkte und Summen sind etwas anderes.",
    "h": "Steht die Zahl als Exponent, als Faktor oder als Summand?"
   },
   {
@@ -2047,31 +2076,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Löse 3^x = 7^(x − 1). Runde auf zwei Nachkommastellen."
+    "text": "Löse 5^x = 3^(x + 2). Runde auf zwei Nachkommastellen."
    },
    "o": {
-    "wert": 2.3,
+    "wert": 4.3,
     "toleranz": 0.01
    },
-   "c": "round(2.296606943119, 2)",
-   "w": "x · lg 3 = (x − 1) · lg 7 ⇒ x(lg 3 − lg 7) = −1 · lg 7 ⇒ x ≈ 2,3.",
-   "h": "Logarithmiere beide Seiten, wende die Potenzregel an und sammle die x-Terme."
-  },
-  {
-   "l": "potenzregel",
-   "t": "potenzregel",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 3^x = 7^(x + 2). Runde auf zwei Nachkommastellen."
-   },
-   "o": {
-    "wert": -4.59,
-    "toleranz": 0.01
-   },
-   "c": "round(-4.593213886238, 2)",
-   "w": "x · lg 3 = (x + 2) · lg 7 ⇒ x(lg 3 − lg 7) = 2 · lg 7 ⇒ x ≈ −4,59.",
+   "c": "round(4.301320206174, 2)",
+   "w": "x · lg 5 = (x + 2) · lg 3 ⇒ x(lg 5 − lg 3) = 2 · lg 3 ⇒ x ≈ 4,3.",
    "h": "Logarithmiere beide Seiten, wende die Potenzregel an und sammle die x-Terme."
   },
   {
@@ -2081,13 +2093,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Es gilt lg 2 ≈ 0,301. Berechne damit lg(2²) (ohne Taschenrechner)."
+    "text": "Berechne log₃(27²) mit der Potenzregel."
    },
    "o": {
-    "wert": 0.602
+    "wert": 6
    },
-   "c": "2 * 0.301",
-   "w": "lg(2²) = 2 · lg 2 ≈ 2 · 0,301 = 0,602."
+   "c": "2 * 3 + (3 ** 3 - 27)",
+   "w": "log₃(27²) = 2 · log₃(27) = 2 · 3 = 6."
   },
   {
    "l": "potenzregel",
@@ -2096,13 +2108,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Es gilt lg 2 ≈ 0,301. Berechne damit lg(2³) (ohne Taschenrechner)."
+    "text": "Löse 7^x = 2^(x − 2). Runde auf zwei Nachkommastellen."
    },
    "o": {
-    "wert": 0.903
+    "wert": -1.11,
+    "toleranz": 0.01
    },
-   "c": "3 * 0.301",
-   "w": "lg(2³) = 3 · lg 2 ≈ 3 · 0,301 = 0,903."
+   "c": "round(-1.106589511330, 2)",
+   "w": "x · lg 7 = (x − 2) · lg 2 ⇒ x(lg 7 − lg 2) = −2 · lg 2 ⇒ x ≈ −1,11."
   },
   {
    "l": "potenzregel",
@@ -2111,13 +2124,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Es gilt lg 2 ≈ 0,301. Berechne damit lg(2⁴) (ohne Taschenrechner)."
+    "text": "Berechne log₅(125⁴) mit der Potenzregel."
    },
    "o": {
-    "wert": 1.204
+    "wert": 12
    },
-   "c": "4 * 0.301",
-   "w": "lg(2⁴) = 4 · lg 2 ≈ 4 · 0,301 = 1,204."
+   "c": "4 * 3 + (5 ** 3 - 125)",
+   "w": "log₅(125⁴) = 4 · log₅(125) = 4 · 3 = 12."
   },
   {
    "l": "potenzregel",
@@ -2126,13 +2139,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Es gilt lg 3 ≈ 0,4771. Berechne damit lg(3³) (ohne Taschenrechner)."
+    "text": "Berechne log₂(4⁵) mit der Potenzregel."
    },
    "o": {
-    "wert": 1.4313
+    "wert": 10
    },
-   "c": "3 * 0.4771",
-   "w": "lg(3³) = 3 · lg 3 ≈ 3 · 0,4771 = 1,4313."
+   "c": "5 * 2 + (2 ** 2 - 4)",
+   "w": "log₂(4⁵) = 5 · log₂(4) = 5 · 2 = 10."
   },
   {
    "l": "potenzregel",
@@ -2141,13 +2154,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Es gilt lg 5 ≈ 0,699. Berechne damit lg(5⁵) (ohne Taschenrechner)."
+    "text": "Löse 5^x = 3^(x + 3). Runde auf zwei Nachkommastellen."
    },
    "o": {
-    "wert": 3.495
+    "wert": 6.45,
+    "toleranz": 0.01
    },
-   "c": "5 * 0.699",
-   "w": "lg(5⁵) = 5 · lg 5 ≈ 5 · 0,699 = 3,495."
+   "c": "round(6.451980309261, 2)",
+   "w": "x · lg 5 = (x + 3) · lg 3 ⇒ x(lg 5 − lg 3) = 3 · lg 3 ⇒ x ≈ 6,45."
   },
   {
    "l": "potenzregel",
@@ -2156,13 +2170,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Es gilt lg 5 ≈ 0,699. Berechne damit lg(5⁴) (ohne Taschenrechner)."
+    "text": "Berechne log₂(4⁷) mit der Potenzregel."
    },
    "o": {
-    "wert": 2.796
+    "wert": 14
    },
-   "c": "4 * 0.699",
-   "w": "lg(5⁴) = 4 · lg 5 ≈ 4 · 0,699 = 2,796."
+   "c": "7 * 2 + (2 ** 2 - 4)",
+   "w": "log₂(4⁷) = 7 · log₂(4) = 7 · 2 = 14."
   },
   {
    "l": "potenzregel",
@@ -2171,13 +2185,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Es gilt lg 2 ≈ 0,301. Berechne damit lg(2⁶) (ohne Taschenrechner)."
+    "text": "Es gilt lg 5 ≈ 0,699. Berechne damit lg(5³) (ohne Taschenrechner)."
    },
    "o": {
-    "wert": 1.806
+    "wert": 2.097
    },
-   "c": "6 * 0.301",
-   "w": "lg(2⁶) = 6 · lg 2 ≈ 6 · 0,301 = 1,806."
+   "c": "3 * 0.699",
+   "w": "lg(5³) = 3 · lg 5 ≈ 3 · 0,699 = 2,097."
   },
   {
    "l": "potenzregel",
@@ -2186,13 +2200,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Es gilt lg 7 ≈ 0,8451. Berechne damit lg(7³) (ohne Taschenrechner)."
+    "text": "Es gilt lg 2 ≈ 0,301. Berechne damit lg(2⁵) (ohne Taschenrechner)."
    },
    "o": {
-    "wert": 2.5353
+    "wert": 1.505
    },
-   "c": "3 * 0.8451",
-   "w": "lg(7³) = 3 · lg 7 ≈ 3 · 0,8451 = 2,5353."
+   "c": "5 * 0.301",
+   "w": "lg(2⁵) = 5 · lg 2 ≈ 5 · 0,301 = 1,505."
   },
   {
    "l": "potenzregel",
@@ -2216,13 +2230,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Es gilt lg 3 ≈ 0,4771. Berechne damit lg(3⁴) (ohne Taschenrechner)."
+    "text": "Berechne log₂(8⁹) mit der Potenzregel."
    },
    "o": {
-    "wert": 1.9084
+    "wert": 27
    },
-   "c": "4 * 0.4771",
-   "w": "lg(3⁴) = 4 · lg 3 ≈ 4 · 0,4771 = 1,9084."
+   "c": "9 * 3 + (2 ** 3 - 8)",
+   "w": "log₂(8⁹) = 9 · log₂(8) = 9 · 3 = 27."
   },
   {
    "l": "wachstum",
@@ -2231,14 +2245,69 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Kapital von 2 000 € wird mit 2 % pro Jahr verzinst (Zinseszins). Wie groß ist es nach 2 Jahren?"
+    "text": "Ein Betrag wächst jedes Jahr um 8 %. Löse 1,08^t = 1,25, um zu sehen, wann er das 1,25-Fache erreicht hat. Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 2.9,
+    "einheit": "Jahre",
+    "toleranz": 0.1
+   },
+   "c": "round(2.899435195004, 1)",
+   "w": "t = lg 1,25 : lg 1,08 ≈ 2,9 Jahre.",
+   "h": "Logarithmiere beide Seiten: t = lg(rechte Seite) : lg(Basis)."
+  },
+  {
+   "l": "wachstum",
+   "t": "wachstum",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kapital von 5 000 € wird mit 6 % pro Jahr verzinst (Zinseszins). Wie groß ist es nach 5 Jahren? Runde auf Cent."
+   },
+   "o": {
+    "wert": 6691.13,
+    "einheit": "€",
+    "toleranz": 0.01
+   },
+   "c": "round(5000 * 1.06 ** 5, 2)",
+   "w": "K = 5 000 · 1,06⁵ ≈ 6 691,13 €.",
+   "h": "Wachstumsfaktor 1 + p/100, so oft multiplizieren wie Jahre vergehen."
+  },
+  {
+   "l": "wachstum",
+   "t": "wachstum",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Betrag wächst jedes Jahr um 10 %. Löse 1,1^t = 1,25, um zu sehen, wann er das 1,25-Fache erreicht hat. Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 2.3,
+    "einheit": "Jahre",
+    "toleranz": 0.1
+   },
+   "c": "round(2.341235236072, 1)",
+   "w": "t = lg 1,25 : lg 1,1 ≈ 2,3 Jahre.",
+   "h": "Logarithmiere beide Seiten: t = lg(rechte Seite) : lg(Basis)."
+  },
+  {
+   "l": "wachstum",
+   "t": "wachstum",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kapital von 2 000 € wird mit 2 % pro Jahr verzinst (Zinseszins). Wie groß ist es nach 2 Jahren? Runde auf Cent."
    },
    "o": {
     "wert": 2080.8,
-    "einheit": "€"
+    "einheit": "€",
+    "toleranz": 0.01
    },
-   "c": "2000 * 1.02 ** 2",
-   "w": "K = 2 000 · 1,02² = 2 080,8 €.",
+   "c": "round(2000 * 1.02 ** 2, 2)",
+   "w": "K = 2 000 · 1,02² ≈ 2 080,80 €.",
    "h": "Wachstumsfaktor 1 + p/100, so oft multiplizieren wie Jahre vergehen."
   },
   {
@@ -2248,15 +2317,16 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Kapital von 5 000 € wird mit 10 % pro Jahr verzinst (Zinseszins). Wie groß ist es nach 3 Jahren?"
+    "text": "Ein Betrag wächst jedes Jahr um 5 %. Löse 1,05^t = 3, um zu sehen, wann er das 3-Fache erreicht hat. Runde auf eine Nachkommastelle."
    },
    "o": {
-    "wert": 6655,
-    "einheit": "€"
+    "wert": 22.5,
+    "einheit": "Jahre",
+    "toleranz": 0.1
    },
-   "c": "5000 * 1.1 ** 3",
-   "w": "K = 5 000 · 1,1³ = 6 655 €.",
-   "h": "Wachstumsfaktor 1 + p/100, so oft multiplizieren wie Jahre vergehen."
+   "c": "round(22.517085305411, 1)",
+   "w": "t = lg 3 : lg 1,05 ≈ 22,5 Jahre.",
+   "h": "Logarithmiere beide Seiten: t = lg(rechte Seite) : lg(Basis)."
   },
   {
    "l": "wachstum",
@@ -2265,65 +2335,15 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Kapital von 1 000 € wird mit 3 % pro Jahr verzinst (Zinseszins). Wie groß ist es nach 3 Jahren?"
+    "text": "Ein Kapital von 1 000 € wird mit 6 % pro Jahr verzinst (Zinseszins). Wie groß ist es nach 2 Jahren? Runde auf Cent."
    },
    "o": {
-    "wert": 1092.727,
-    "einheit": "€"
+    "wert": 1123.6,
+    "einheit": "€",
+    "toleranz": 0.01
    },
-   "c": "1000 * 1.03 ** 3",
-   "w": "K = 1 000 · 1,03³ = 1 092,727 €.",
-   "h": "Wachstumsfaktor 1 + p/100, so oft multiplizieren wie Jahre vergehen."
-  },
-  {
-   "l": "wachstum",
-   "t": "wachstum",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Kapital von 1 000 € wird mit 6 % pro Jahr verzinst (Zinseszins). Wie groß ist es nach 4 Jahren?"
-   },
-   "o": {
-    "wert": 1262.47696,
-    "einheit": "€"
-   },
-   "c": "1000 * 1.06 ** 4",
-   "w": "K = 1 000 · 1,06⁴ = 1 262,47696 €.",
-   "h": "Wachstumsfaktor 1 + p/100, so oft multiplizieren wie Jahre vergehen."
-  },
-  {
-   "l": "wachstum",
-   "t": "wachstum",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Kapital von 10 000 € wird mit 8 % pro Jahr verzinst (Zinseszins). Wie groß ist es nach 4 Jahren?"
-   },
-   "o": {
-    "wert": 13604.8896,
-    "einheit": "€"
-   },
-   "c": "10000 * 1.08 ** 4",
-   "w": "K = 10 000 · 1,08⁴ = 13 604,8896 €.",
-   "h": "Wachstumsfaktor 1 + p/100, so oft multiplizieren wie Jahre vergehen."
-  },
-  {
-   "l": "wachstum",
-   "t": "wachstum",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Kapital von 1 000 € wird mit 10 % pro Jahr verzinst (Zinseszins). Wie groß ist es nach 2 Jahren?"
-   },
-   "o": {
-    "wert": 1210,
-    "einheit": "€"
-   },
-   "c": "1000 * 1.1 ** 2",
-   "w": "K = 1 000 · 1,1² = 1 210 €.",
+   "c": "round(1000 * 1.06 ** 2, 2)",
+   "w": "K = 1 000 · 1,06² ≈ 1 123,60 €.",
    "h": "Wachstumsfaktor 1 + p/100, so oft multiplizieren wie Jahre vergehen."
   },
   {
@@ -2333,14 +2353,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein radioaktiver Stoff hat eine Halbwertszeit von 12 Tagen. Anfangs sind 400 mg vorhanden. Wie viel ist nach 24 Tagen noch da?"
+    "text": "Ein radioaktiver Stoff hat eine Halbwertszeit von 30 Tagen. Anfangs sind 400 mg vorhanden. Wie viel ist nach 90 Tagen noch da?"
    },
    "o": {
-    "wert": 100,
+    "wert": 50,
     "einheit": "mg"
    },
-   "c": "400 * 0.5 ** 2",
-   "w": "24 Tage = 2 Halbwertszeiten: 400 · 0,5² = 100 mg.",
+   "c": "400 * 0.5 ** 3",
+   "w": "90 Tage = 3 Halbwertszeiten: 400 · 0,5³ = 50 mg.",
    "h": "Wie oft passt die Halbwertszeit in die Zeitspanne?"
   },
   {
@@ -2350,15 +2370,50 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Guthaben wird mit 6 % pro Jahr verzinst. Nach wie vielen vollen Jahren hat es sich erstmals verdoppelt?"
+    "text": "Ein Guthaben wird mit 5 % pro Jahr verzinst. Nach wie vielen vollen Jahren hat es sich erstmals verdoppelt?"
    },
    "o": {
-    "wert": 12,
+    "wert": 15,
     "einheit": "Jahre"
    },
-   "c": "-(-11.895661045942 // 1)",
-   "w": "1,06^t = 2 ⇒ t = lg 2 : lg 1,06 ≈ 11,9, also nach 12 Jahren.",
+   "c": "-(-14.206699082890 // 1)",
+   "w": "1,05^t = 2 ⇒ t = lg 2 : lg 1,05 ≈ 14,21, also nach 15 Jahren.",
    "h": "Löse q^t = 2 und runde auf die nächste ganze Zahl nach oben."
+  },
+  {
+   "l": "wachstum",
+   "t": "wachstum",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Wert eines Geräts nimmt jedes Jahr um 20 % ab. Nach wie vielen Jahren ist er auf die Hälfte gesunken (eine Nachkommastelle)?"
+   },
+   "o": {
+    "wert": 3.1,
+    "einheit": "Jahre",
+    "toleranz": 0.1
+   },
+   "c": "round(3.106283719505, 1)",
+   "w": "0,8^t = 0,5 ⇒ t = lg 0,5 : lg 0,8 ≈ 3,1 Jahre.",
+   "h": "Abnahme um p %: Faktor 1 − p/100."
+  },
+  {
+   "l": "wachstum",
+   "t": "wachstum",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein radioaktiver Stoff hat eine Halbwertszeit von 12 Tagen. Anfangs sind 80 mg vorhanden. Wie viel ist nach 48 Tagen noch da?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "mg"
+   },
+   "c": "80 * 0.5 ** 4",
+   "w": "48 Tage = 4 Halbwertszeiten: 80 · 0,5⁴ = 5 mg.",
+   "h": "Wie oft passt die Halbwertszeit in die Zeitspanne?"
   },
   {
    "l": "wachstum",
@@ -2384,49 +2439,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein radioaktiver Stoff hat eine Halbwertszeit von 20 Tagen. Anfangs sind 400 mg vorhanden. Wie viel ist nach 100 Tagen noch da?"
+    "text": "Ein Guthaben wird mit 6 % pro Jahr verzinst. Nach wie vielen vollen Jahren hat es sich erstmals verdoppelt?"
    },
    "o": {
-    "wert": 12.5,
-    "einheit": "mg"
+    "wert": 12,
+    "einheit": "Jahre"
    },
-   "c": "400 * 0.5 ** 5",
-   "w": "100 Tage = 5 Halbwertszeiten: 400 · 0,5⁵ = 12,5 mg.",
-   "h": "Wie oft passt die Halbwertszeit in die Zeitspanne?"
-  },
-  {
-   "l": "wachstum",
-   "t": "wachstum",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein radioaktiver Stoff hat eine Halbwertszeit von 20 Tagen. Anfangs sind 400 mg vorhanden. Wie viel ist nach 80 Tagen noch da?"
-   },
-   "o": {
-    "wert": 25,
-    "einheit": "mg"
-   },
-   "c": "400 * 0.5 ** 4",
-   "w": "80 Tage = 4 Halbwertszeiten: 400 · 0,5⁴ = 25 mg.",
-   "h": "Wie oft passt die Halbwertszeit in die Zeitspanne?"
-  },
-  {
-   "l": "wachstum",
-   "t": "wachstum",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein radioaktiver Stoff hat eine Halbwertszeit von 8 Tagen. Anfangs sind 320 mg vorhanden. Wie viel ist nach 24 Tagen noch da?"
-   },
-   "o": {
-    "wert": 40,
-    "einheit": "mg"
-   },
-   "c": "320 * 0.5 ** 3",
-   "w": "24 Tage = 3 Halbwertszeiten: 320 · 0,5³ = 40 mg.",
-   "h": "Wie oft passt die Halbwertszeit in die Zeitspanne?"
+   "c": "-(-11.895661045942 // 1)",
+   "w": "1,06^t = 2 ⇒ t = lg 2 : lg 1,06 ≈ 11,9, also nach 12 Jahren.",
+   "h": "Löse q^t = 2 und runde auf die nächste ganze Zahl nach oben."
   },
   {
    "l": "wachstum",
@@ -2435,33 +2456,15 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Der Wert eines Geräts nimmt jedes Jahr um 20 % ab. Nach wie vielen Jahren ist er auf die Hälfte gesunken (eine Nachkommastelle)?"
+    "text": "Ein Medikament wird mit einer Halbwertszeit von 8 Stunden abgebaut. Nach welcher Zeit sind noch 30 % vorhanden (eine Nachkommastelle)?"
    },
    "o": {
-    "wert": 3.1,
-    "einheit": "Jahre",
-    "toleranz": 0.1
-   },
-   "c": "round(3.106283719505, 1)",
-   "w": "0,8^t = 0,5 ⇒ t = lg 0,5 : lg 0,8 ≈ 3,1 Jahre.",
-   "h": "Abnahme um p %: Faktor 1 − p/100."
-  },
-  {
-   "l": "wachstum",
-   "t": "wachstum",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Medikament wird mit einer Halbwertszeit von 10 Stunden abgebaut. Nach welcher Zeit sind noch 70 % vorhanden (eine Nachkommastelle)?"
-   },
-   "o": {
-    "wert": 5.1,
+    "wert": 13.9,
     "einheit": "h",
     "toleranz": 0.1
    },
-   "c": "round(5.145731728298, 1)",
-   "w": "0,5^(t/10) = 0,7 ⇒ t = 10 · lg 0,7 : lg 0,5 ≈ 5,1 h.",
+   "c": "round(13.895724753330, 1)",
+   "w": "0,5^(t/8) = 0,3 ⇒ t = 8 · lg 0,3 : lg 0,5 ≈ 13,9 h.",
    "h": "Ansatz N₀ · 0,5^(t/T) und durch N₀ teilen."
   },
   {
@@ -2471,15 +2474,51 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Eine Population wächst um 15 % pro Woche von 1 000 auf 5 000 Tiere. Nach wie vielen Wochen ist das der Fall (eine Nachkommastelle)?"
+    "text": "Ein Medikament wird mit einer Halbwertszeit von 25 Stunden abgebaut. Nach welcher Zeit sind noch 70 % vorhanden (eine Nachkommastelle)?"
    },
    "o": {
-    "wert": 11.5,
+    "wert": 12.9,
+    "einheit": "h",
+    "toleranz": 0.1
+   },
+   "c": "round(12.864329320744, 1)",
+   "w": "0,5^(t/25) = 0,7 ⇒ t = 25 · lg 0,7 : lg 0,5 ≈ 12,9 h.",
+   "h": "Ansatz N₀ · 0,5^(t/T) und durch N₀ teilen."
+  },
+  {
+   "l": "wachstum",
+   "t": "wachstum",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kapital wächst mit Zinseszins in 5 Jahren von 10 000 € auf 13 000 €. Wie hoch ist der Zinssatz? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 5.4,
+    "einheit": "%",
+    "toleranz": 0.1
+   },
+   "c": "round(5.387395206178, 1)",
+   "w": "q⁵ = 13 000 : 10 000 = 1,3 ⇒ q = 1,3^(1/5) ≈ 1,0539, also p ≈ 5,4 %.",
+   "h": "Bestimme den Wachstumsfaktor q pro Jahr; der Zinssatz ist q − 1 in Prozent."
+  },
+  {
+   "l": "wachstum",
+   "t": "wachstum",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Population wächst um 5 % pro Woche von 40 auf 300 Tiere. Nach wie vielen Wochen ist das der Fall (eine Nachkommastelle)?"
+   },
+   "o": {
+    "wert": 41.3,
     "einheit": "Wochen",
     "toleranz": 0.1
    },
-   "c": "round(11.515566291387, 1)",
-   "w": "1 000 · 1,15^t = 5 000 ⇒ t = lg(5) : lg 1,15 ≈ 11,5 Wochen.",
+   "c": "round(41.297319958694, 1)",
+   "w": "40 · 1,05^t = 300 ⇒ t = lg(7,5) : lg 1,05 ≈ 41,3 Wochen.",
    "h": "Teile durch den Anfangswert, dann logarithmieren."
   },
   {
@@ -2489,16 +2528,16 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Eine Population wächst um 20 % pro Woche von 500 auf 2 000 Tiere. Nach wie vielen Wochen ist das der Fall (eine Nachkommastelle)?"
+    "text": "Ein Medikament wird mit einer Halbwertszeit von 25 Stunden abgebaut. Nach welcher Zeit sind noch 30 % vorhanden (eine Nachkommastelle)?"
    },
    "o": {
-    "wert": 7.6,
-    "einheit": "Wochen",
+    "wert": 43.4,
+    "einheit": "h",
     "toleranz": 0.1
    },
-   "c": "round(7.603568033848, 1)",
-   "w": "500 · 1,2^t = 2 000 ⇒ t = lg(4) : lg 1,2 ≈ 7,6 Wochen.",
-   "h": "Teile durch den Anfangswert, dann logarithmieren."
+   "c": "round(43.424139854155, 1)",
+   "w": "0,5^(t/25) = 0,3 ⇒ t = 25 · lg 0,3 : lg 0,5 ≈ 43,4 h.",
+   "h": "Ansatz N₀ · 0,5^(t/T) und durch N₀ teilen."
   },
   {
    "l": "wachstum",
@@ -2507,34 +2546,16 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Der Wert eines Geräts nimmt jedes Jahr um 10 % ab. Nach wie vielen Jahren ist er auf die Hälfte gesunken (eine Nachkommastelle)?"
+    "text": "Eine Bakterienkultur verdreifacht sich in 3 Stunden. Um wie viel Prozent wächst sie pro Stunde? Runde auf eine Nachkommastelle."
    },
    "o": {
-    "wert": 6.6,
-    "einheit": "Jahre",
+    "wert": 44.2,
+    "einheit": "%",
     "toleranz": 0.1
    },
-   "c": "round(6.578813478961, 1)",
-   "w": "0,9^t = 0,5 ⇒ t = lg 0,5 : lg 0,9 ≈ 6,6 Jahre.",
-   "h": "Abnahme um p %: Faktor 1 − p/100."
-  },
-  {
-   "l": "wachstum",
-   "t": "wachstum",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Population wächst um 10 % pro Woche von 1 000 auf 5 000 Tiere. Nach wie vielen Wochen ist das der Fall (eine Nachkommastelle)?"
-   },
-   "o": {
-    "wert": 16.9,
-    "einheit": "Wochen",
-    "toleranz": 0.1
-   },
-   "c": "round(16.886317030755, 1)",
-   "w": "1 000 · 1,1^t = 5 000 ⇒ t = lg(5) : lg 1,1 ≈ 16,9 Wochen.",
-   "h": "Teile durch den Anfangswert, dann logarithmieren."
+   "c": "round(44.224957030741, 1)",
+   "w": "q³ = 3 ⇒ q = 3^(1/3) ≈ 1,4422, also Wachstum ≈ 44,2 % pro Stunde.",
+   "h": "Gesucht ist der Faktor q pro Stunde: q hoch Stundenzahl ergibt die Vervielfachung."
   },
   {
    "l": "wachstum",
@@ -2543,62 +2564,65 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein radioaktiver Stoff hat eine Halbwertszeit von 8 Tagen. Anfangs sind 160 mg vorhanden. Wie viel ist nach 16 Tagen noch da?"
-   },
-   "o": {
-    "wert": 40,
-    "einheit": "mg"
-   },
-   "c": "160 * 0.5 ** 2",
-   "w": "16 Tage = 2 Halbwertszeiten: 160 · 0,5² = 40 mg."
-  },
-  {
-   "l": "wachstum",
-   "t": "wachstum",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Guthaben wird mit 5 % pro Jahr verzinst. Nach wie vielen vollen Jahren hat es sich erstmals verdoppelt?"
-   },
-   "o": {
-    "wert": 15,
-    "einheit": "Jahre"
-   },
-   "c": "-(-14.206699082890 // 1)",
-   "w": "1,05^t = 2 ⇒ t = lg 2 : lg 1,05 ≈ 14,21, also nach 15 Jahren."
-  },
-  {
-   "l": "wachstum",
-   "t": "wachstum",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein radioaktiver Stoff hat eine Halbwertszeit von 30 Tagen. Anfangs sind 200 mg vorhanden. Wie viel ist nach 60 Tagen noch da?"
-   },
-   "o": {
-    "wert": 50,
-    "einheit": "mg"
-   },
-   "c": "200 * 0.5 ** 2",
-   "w": "60 Tage = 2 Halbwertszeiten: 200 · 0,5² = 50 mg."
-  },
-  {
-   "l": "wachstum",
-   "t": "wachstum",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein radioaktiver Stoff hat eine Halbwertszeit von 8 Tagen. Anfangs sind 160 mg vorhanden. Wie viel ist nach 32 Tagen noch da?"
+    "text": "Von 200 mg eines Stoffs sind nach 8 Tagen noch 115 mg übrig. Wie groß ist die Halbwertszeit? Runde auf eine Nachkommastelle."
    },
    "o": {
     "wert": 10,
-    "einheit": "mg"
+    "einheit": "Tage",
+    "toleranz": 0.1
    },
-   "c": "160 * 0.5 ** 4",
-   "w": "32 Tage = 4 Halbwertszeiten: 160 · 0,5⁴ = 10 mg."
+   "c": "round(10.020465060956, 1)",
+   "w": "q⁸ = 115 : 200 = 0,575. Die Halbwertszeit T erfüllt q^T = 0,5, also T = 8 · lg 0,5 : lg 0,575 ≈ 10 Tage."
+  },
+  {
+   "l": "wachstum",
+   "t": "wachstum",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Stoff nimmt pro Tag um 8 % ab. Wie groß ist die Halbwertszeit? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 8.3,
+    "einheit": "Tage",
+    "toleranz": 0.1
+   },
+   "c": "round(8.312950414121, 1)",
+   "w": "Faktor q = 0,92. q^T = 0,5 ⇒ T = lg 0,5 : lg 0,92 ≈ 8,3 Tage."
+  },
+  {
+   "l": "wachstum",
+   "t": "wachstum",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kapital wächst mit Zinseszins in 10 Jahren von 4 000 € auf 5 000 €. Wie hoch ist der Zinssatz? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 2.3,
+    "einheit": "%",
+    "toleranz": 0.1
+   },
+   "c": "round(2.256518256357, 1)",
+   "w": "q¹⁰ = 5 000 : 4 000 = 1,25 ⇒ q = 1,25^(1/10) ≈ 1,0226, also p ≈ 2,3 %."
+  },
+  {
+   "l": "wachstum",
+   "t": "wachstum",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Guthaben wird mit 9 % pro Jahr verzinst. Nach wie vielen vollen Jahren hat es sich erstmals verdoppelt?"
+   },
+   "o": {
+    "wert": 9,
+    "einheit": "Jahre"
+   },
+   "c": "-(-8.043231726932 // 1)",
+   "w": "1,09^t = 2 ⇒ t = lg 2 : lg 1,09 ≈ 8,04, also nach 9 Jahren."
   },
   {
    "l": "wachstum",
@@ -2607,14 +2631,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein radioaktiver Stoff hat eine Halbwertszeit von 12 Tagen. Anfangs sind 320 mg vorhanden. Wie viel ist nach 24 Tagen noch da?"
+    "text": "Eine Population wächst um 3 % pro Woche von 2 000 auf 3 000 Tiere. Nach wie vielen Wochen ist das der Fall (eine Nachkommastelle)?"
    },
    "o": {
-    "wert": 80,
-    "einheit": "mg"
+    "wert": 13.7,
+    "einheit": "Wochen",
+    "toleranz": 0.1
    },
-   "c": "320 * 0.5 ** 2",
-   "w": "24 Tage = 2 Halbwertszeiten: 320 · 0,5² = 80 mg."
+   "c": "round(13.717237416958, 1)",
+   "w": "2 000 · 1,03^t = 3 000 ⇒ t = lg(1,5) : lg 1,03 ≈ 13,7 Wochen."
   },
   {
    "l": "wachstum",
@@ -2639,14 +2664,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein radioaktiver Stoff hat eine Halbwertszeit von 12 Tagen. Anfangs sind 400 mg vorhanden. Wie viel ist nach 36 Tagen noch da?"
+    "text": "Eine Population wächst um 10 % pro Woche von 40 auf 300 Tiere. Nach wie vielen Wochen ist das der Fall (eine Nachkommastelle)?"
    },
    "o": {
-    "wert": 50,
-    "einheit": "mg"
+    "wert": 21.1,
+    "einheit": "Wochen",
+    "toleranz": 0.1
    },
-   "c": "400 * 0.5 ** 3",
-   "w": "36 Tage = 3 Halbwertszeiten: 400 · 0,5³ = 50 mg."
+   "c": "round(21.140480740661, 1)",
+   "w": "40 · 1,1^t = 300 ⇒ t = lg(7,5) : lg 1,1 ≈ 21,1 Wochen."
   },
   {
    "l": "wachstum",
@@ -2655,14 +2681,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Guthaben wird mit 4 % pro Jahr verzinst. Nach wie vielen vollen Jahren hat es sich erstmals verdoppelt?"
+    "text": "Ein radioaktiver Stoff hat eine Halbwertszeit von 30 Tagen. Anfangs sind 200 mg vorhanden. Wie viel ist nach 90 Tagen noch da?"
    },
    "o": {
-    "wert": 18,
-    "einheit": "Jahre"
+    "wert": 25,
+    "einheit": "mg"
    },
-   "c": "-(-17.672987685130 // 1)",
-   "w": "1,04^t = 2 ⇒ t = lg 2 : lg 1,04 ≈ 17,67, also nach 18 Jahren."
+   "c": "200 * 0.5 ** 3",
+   "w": "90 Tage = 3 Halbwertszeiten: 200 · 0,5³ = 25 mg."
   },
   {
    "l": "wachstum",
@@ -2671,14 +2697,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein radioaktiver Stoff hat eine Halbwertszeit von 12 Tagen. Anfangs sind 80 mg vorhanden. Wie viel ist nach 60 Tagen noch da?"
+    "text": "Der Wert eines Geräts nimmt jedes Jahr um 25 % ab. Nach wie vielen Jahren ist er auf die Hälfte gesunken (eine Nachkommastelle)?"
    },
    "o": {
-    "wert": 2.5,
-    "einheit": "mg"
+    "wert": 2.4,
+    "einheit": "Jahre",
+    "toleranz": 0.1
    },
-   "c": "80 * 0.5 ** 5",
-   "w": "60 Tage = 5 Halbwertszeiten: 80 · 0,5⁵ = 2,5 mg."
+   "c": "round(2.409420839653, 1)",
+   "w": "0,75^t = 0,5 ⇒ t = lg 0,5 : lg 0,75 ≈ 2,4 Jahre."
   },
   {
    "l": "wachstum",
@@ -2687,14 +2714,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein radioaktiver Stoff hat eine Halbwertszeit von 30 Tagen. Anfangs sind 160 mg vorhanden. Wie viel ist nach 150 Tagen noch da?"
+    "text": "Ein Kapital von 2 000 € wird mit 2 % pro Jahr verzinst (Zinseszins). Wie groß ist es nach 3 Jahren? Runde auf Cent."
    },
    "o": {
-    "wert": 5,
-    "einheit": "mg"
+    "wert": 2122.42,
+    "einheit": "€",
+    "toleranz": 0.01
    },
-   "c": "160 * 0.5 ** 5",
-   "w": "150 Tage = 5 Halbwertszeiten: 160 · 0,5⁵ = 5 mg."
+   "c": "round(2000 * 1.02 ** 3, 2)",
+   "w": "K = 2 000 · 1,02³ ≈ 2 122,42 €."
   },
   {
    "l": "verstehen",
@@ -2703,19 +2731,40 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Jemand rechnet log₄(64) = 64 : 4 = 16. Was stimmt?"
+    "text": "Welche Lösung hat 5^x = −3 125? Die Zeichnung zeigt y = 5^x und y = −3 125.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -3906.25,
+      3906.25
+     ],
+     "graphen": [
+      {
+       "art": "exp",
+       "a": 1,
+       "b": 5
+      }
+     ],
+     "waagrecht": [
+      -3125
+     ]
+    }
    },
    "a": [
-    "Falsch, log₄(64) = 256",
-    "Falsch, log₄(64) = 32",
-    "Richtig",
-    "Falsch, log₄(64) = 3"
+    "x = −1/5",
+    "keine Lösung",
+    "x = 5",
+    "x = −5"
    ],
    "o": {
-    "index": 3
+    "index": 1
    },
-   "w": "Gesucht ist der Exponent: 4³ = 64.",
-   "h": "Wonach fragt der Logarithmus?"
+   "w": "5^x ist für jedes x positiv (5^(−5) = 1/3 125). Die Gerade y = −3 125 wird nie geschnitten.",
+   "h": "Kann eine Potenz mit positiver Basis negativ sein?"
   },
   {
    "l": "verstehen",
@@ -2724,18 +2773,18 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Jemand rechnet log₂(16) = 16 : 2 = 8. Was stimmt?"
+    "text": "Jemand rechnet log₅(125) = 125 : 5 = 25. Was stimmt?"
    },
    "a": [
+    "Falsch, log₅(125) = 3",
+    "Falsch, log₅(125) = 15 625",
     "Richtig",
-    "Falsch, log₂(16) = 8",
-    "Falsch, log₂(16) = 32",
-    "Falsch, log₂(16) = 4"
+    "Falsch, log₅(125) = 2"
    ],
    "o": {
-    "index": 3
+    "index": 0
    },
-   "w": "Gesucht ist der Exponent: 2⁴ = 16.",
+   "w": "Gesucht ist der Exponent: 5³ = 125.",
    "h": "Wonach fragt der Logarithmus?"
   },
   {
@@ -2766,49 +2815,7 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Jemand rechnet log₂(32) = 32 : 2 = 16. Was stimmt?"
-   },
-   "a": [
-    "Richtig",
-    "Falsch, log₂(32) = 5",
-    "Falsch, log₂(32) = 64",
-    "Falsch, log₂(32) = 16"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Gesucht ist der Exponent: 2⁵ = 32.",
-   "h": "Wonach fragt der Logarithmus?"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Welchen Wert hat lg(1)?"
-   },
-   "a": [
-    "nicht definiert",
-    "0",
-    "1",
-    "10"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "10⁰ = 1, also lg(1) = 0.",
-   "h": "Welcher Exponent macht jede Basis zu 1?"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Lösung hat 3^x = −243? Die Zeichnung zeigt y = 3^x und y = −243.",
+    "text": "Welche Lösung hat 5^x = −25? Die Zeichnung zeigt y = 5^x und y = −25.",
     "grafik": {
      "typ": "koordinaten",
      "x": [
@@ -2816,8 +2823,113 @@
       4
      ],
      "y": [
-      -303.75,
-      303.75
+      -31.25,
+      31.25
+     ],
+     "graphen": [
+      {
+       "art": "exp",
+       "a": 1,
+       "b": 5
+      }
+     ],
+     "waagrecht": [
+      -25
+     ]
+    }
+   },
+   "a": [
+    "keine Lösung",
+    "x = −2",
+    "x = −1/2",
+    "x = 2"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "5^x ist für jedes x positiv (5^(−2) = 1/25). Die Gerade y = −25 wird nie geschnitten.",
+   "h": "Kann eine Potenz mit positiver Basis negativ sein?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Lösung hat 5^x = −15 625? Die Zeichnung zeigt y = 5^x und y = −15 625.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -19531.25,
+      19531.25
+     ],
+     "graphen": [
+      {
+       "art": "exp",
+       "a": 1,
+       "b": 5
+      }
+     ],
+     "waagrecht": [
+      -15625
+     ]
+    }
+   },
+   "a": [
+    "keine Lösung",
+    "x = 6",
+    "x = −1/6",
+    "x = −6"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "5^x ist für jedes x positiv (5^(−6) = 1/15 625). Die Gerade y = −15 625 wird nie geschnitten.",
+   "h": "Kann eine Potenz mit positiver Basis negativ sein?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet log₄(256) = 256 : 4 = 64. Was stimmt?"
+   },
+   "a": [
+    "Falsch, log₄(256) = 4",
+    "Falsch, log₄(256) = 65 536",
+    "Richtig",
+    "Falsch, log₄(256) = 3"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Gesucht ist der Exponent: 4⁴ = 256.",
+   "h": "Wonach fragt der Logarithmus?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Lösung hat 3^x = −81? Die Zeichnung zeigt y = 3^x und y = −81.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -101.25,
+      101.25
      ],
      "graphen": [
       {
@@ -2827,21 +2939,42 @@
       }
      ],
      "waagrecht": [
-      -243
+      -81
      ]
     }
    },
    "a": [
-    "x = 5",
-    "x = −5",
-    "x = −1/5",
-    "keine Lösung"
+    "x = −1/4",
+    "x = −4",
+    "keine Lösung",
+    "x = 4"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "3^x ist für jedes x positiv (3^(−4) = 1/81). Die Gerade y = −81 wird nie geschnitten.",
+   "h": "Kann eine Potenz mit positiver Basis negativ sein?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand formt 5 · 3^x = 39 um zu 15^x = 39. Was stimmt?"
+   },
+   "a": [
+    "Richtig",
+    "Falsch: Es muss 3^x = 34 heißen.",
+    "Falsch: Es muss 3^(5x) = 39 heißen.",
+    "Falsch: Erst durch 5 teilen: 3^x = 7,8."
    ],
    "o": {
     "index": 3
    },
-   "w": "3^x ist für jedes x positiv (3^(−5) = 1/243). Die Gerade y = −243 wird nie geschnitten.",
-   "h": "Kann eine Potenz mit positiver Basis negativ sein?"
+   "w": "5 · 3^x ist ein Produkt; der Faktor 5 gehört nicht zur Basis. Richtig ist 3^x = 39 : 5.",
+   "h": "Was wird zuerst gerechnet: Potenz oder Multiplikation?"
   },
   {
    "l": "verstehen",
@@ -2863,6 +2996,27 @@
    },
    "w": "Für Summen gibt es keine solche Regel: lg(15) ≈ 1,176, aber lg 9 + lg 6 ≈ 1,732.",
    "h": "Prüfe jede Aussage mit dem Taschenrechner."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welchen Wert hat lg(1)?"
+   },
+   "a": [
+    "1",
+    "0",
+    "10",
+    "nicht definiert"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "10⁰ = 1, also lg(1) = 0.",
+   "h": "Welcher Exponent macht jede Basis zu 1?"
   },
   {
    "l": "verstehen",
@@ -2931,85 +3085,85 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Welche Lösung hat 2^x = −4? Die Zeichnung zeigt y = 2^x und y = −4.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -4,
-      4
-     ],
-     "y": [
-      -5.0,
-      5.0
-     ],
-     "graphen": [
-      {
-       "art": "exp",
-       "a": 1,
-       "b": 2
-      }
-     ],
-     "waagrecht": [
-      -4
-     ]
-    }
+    "text": "Jemand formt 2 · 2^x = 76 um zu 4^x = 76. Was stimmt?"
    },
    "a": [
-    "keine Lösung",
-    "x = −1/2",
-    "x = 2",
-    "x = −2"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "2^x ist für jedes x positiv (2^(−2) = 1/4). Die Gerade y = −4 wird nie geschnitten.",
-   "h": "Kann eine Potenz mit positiver Basis negativ sein?"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand formt 4 · 2^x = 78 um zu 8^x = 78. Was stimmt?"
-   },
-   "a": [
-    "Falsch: Erst durch 4 teilen: 2^x = 19,5.",
-    "Richtig",
+    "Falsch: Erst durch 2 teilen: 2^x = 38.",
+    "Falsch: Es muss 2^(2x) = 76 heißen.",
     "Falsch: Es muss 2^x = 74 heißen.",
-    "Falsch: Es muss 2^(4x) = 78 heißen."
+    "Richtig"
    ],
    "o": {
     "index": 0
    },
-   "w": "4 · 2^x ist ein Produkt; der Faktor 4 gehört nicht zur Basis. Richtig ist 2^x = 78 : 4.",
+   "w": "2 · 2^x ist ein Produkt; der Faktor 2 gehört nicht zur Basis. Richtig ist 2^x = 76 : 2.",
    "h": "Was wird zuerst gerechnet: Potenz oder Multiplikation?"
   },
   {
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Welchen Wert hat log₂(1)?"
+    "text": "Welche Aussage ist falsch?"
    },
    "a": [
-    "2",
-    "1",
-    "0",
-    "nicht definiert"
+    "lg(6 + 3) = lg 6 + lg 3",
+    "lg(6³) = 3 · lg 6",
+    "lg 10 = 1",
+    "lg 1 = 0"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Für Summen gibt es keine solche Regel: lg(9) ≈ 0,954, aber lg 6 + lg 3 ≈ 1,255.",
+   "h": "Prüfe jede Aussage mit dem Taschenrechner."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage ist falsch?"
+   },
+   "a": [
+    "lg(3 + 2) = lg 3 + lg 2",
+    "lg(3²) = 2 · lg 3",
+    "lg 10 = 1",
+    "lg 1 = 0"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Für Summen gibt es keine solche Regel: lg(5) ≈ 0,699, aber lg 3 + lg 2 ≈ 0,778.",
+   "h": "Prüfe jede Aussage mit dem Taschenrechner."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand formt 4 · 5^x = 24 um zu 20^x = 24. Was stimmt?"
+   },
+   "a": [
+    "Falsch: Es muss 5^x = 20 heißen.",
+    "Falsch: Es muss 5^(4x) = 24 heißen.",
+    "Falsch: Erst durch 4 teilen: 5^x = 6.",
+    "Richtig"
    ],
    "o": {
     "index": 2
    },
-   "w": "2⁰ = 1, also log₂(1) = 0.",
-   "h": "Welcher Exponent macht jede Basis zu 1?"
+   "w": "4 · 5^x ist ein Produkt; der Faktor 4 gehört nicht zur Basis. Richtig ist 5^x = 24 : 4.",
+   "h": "Was wird zuerst gerechnet: Potenz oder Multiplikation?"
   },
   {
    "l": "verstehen",
@@ -3018,25 +3172,106 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Jemand formt 3 · 5^x = 37 um zu 15^x = 37. Was stimmt?"
+    "text": "Welche Aussage ist falsch?"
    },
    "a": [
-    "Falsch: Erst durch 3 teilen: 5^x = 37/3.",
-    "Richtig",
-    "Falsch: Es muss 5^x = 34 heißen.",
-    "Falsch: Es muss 5^(3x) = 37 heißen."
+    "lg 10 = 1",
+    "lg(6²) = 2 · lg 6",
+    "lg 1 = 0",
+    "lg(6 + 2) = lg 6 + lg 2"
    ],
    "o": {
-    "index": 0
+    "index": 3
    },
-   "w": "3 · 5^x ist ein Produkt; der Faktor 3 gehört nicht zur Basis. Richtig ist 5^x = 37 : 3.",
-   "h": "Was wird zuerst gerechnet: Potenz oder Multiplikation?"
+   "w": "Für Summen gibt es keine solche Regel: lg(8) ≈ 0,903, aber lg 6 + lg 2 ≈ 1,079.",
+   "h": "Prüfe jede Aussage mit dem Taschenrechner."
   },
   {
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
    "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage ist falsch?"
+   },
+   "a": [
+    "lg(9 + 4) = lg 9 + lg 4",
+    "lg 1 = 0",
+    "lg 10 = 1",
+    "lg(9⁴) = 4 · lg 9"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Für Summen gibt es keine solche Regel: lg(13) ≈ 1,114, aber lg 9 + lg 4 ≈ 1,556.",
+   "h": "Prüfe jede Aussage mit dem Taschenrechner."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand formt 5 · 5^x = 39 um zu 25^x = 39. Was stimmt?"
+   },
+   "a": [
+    "Falsch: Erst durch 5 teilen: 5^x = 7,8.",
+    "Falsch: Es muss 5^(5x) = 39 heißen.",
+    "Falsch: Es muss 5^x = 34 heißen.",
+    "Richtig"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "5 · 5^x ist ein Produkt; der Faktor 5 gehört nicht zur Basis. Richtig ist 5^x = 39 : 5."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand formt 4 · 3^x = 56 um zu 12^x = 56. Was stimmt?"
+   },
+   "a": [
+    "Falsch: Es muss 3^x = 52 heißen.",
+    "Falsch: Es muss 3^(4x) = 56 heißen.",
+    "Falsch: Erst durch 4 teilen: 3^x = 14.",
+    "Richtig"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "4 · 3^x ist ein Produkt; der Faktor 4 gehört nicht zur Basis. Richtig ist 3^x = 56 : 4."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet log₃(243) = 243 : 3 = 81. Was stimmt?"
+   },
+   "a": [
+    "Richtig",
+    "Falsch, log₃(243) = 5",
+    "Falsch, log₃(243) = 59 049",
+    "Falsch, log₃(243) = 4"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gesucht ist der Exponent: 3⁵ = 243."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welche Aussage ist falsch?"
@@ -3050,117 +3285,12 @@
    "o": {
     "index": 3
    },
-   "w": "Für Summen gibt es keine solche Regel: lg(12) ≈ 1,079, aber lg 5 + lg 7 ≈ 1,544.",
-   "h": "Prüfe jede Aussage mit dem Taschenrechner."
+   "w": "Für Summen gibt es keine solche Regel: lg(12) ≈ 1,079, aber lg 5 + lg 7 ≈ 1,544."
   },
   {
    "l": "verstehen",
    "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand formt 5 · 3^x = 65 um zu 15^x = 65. Was stimmt?"
-   },
-   "a": [
-    "Falsch: Es muss 3^x = 60 heißen.",
-    "Richtig",
-    "Falsch: Es muss 3^(5x) = 65 heißen.",
-    "Falsch: Erst durch 5 teilen: 3^x = 13."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "5 · 3^x ist ein Produkt; der Faktor 5 gehört nicht zur Basis. Richtig ist 3^x = 65 : 5.",
-   "h": "Was wird zuerst gerechnet: Potenz oder Multiplikation?"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand formt 5 · 5^x = 91 um zu 25^x = 91. Was stimmt?"
-   },
-   "a": [
-    "Richtig",
-    "Falsch: Erst durch 5 teilen: 5^x = 18,2.",
-    "Falsch: Es muss 5^x = 86 heißen.",
-    "Falsch: Es muss 5^(5x) = 91 heißen."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "5 · 5^x ist ein Produkt; der Faktor 5 gehört nicht zur Basis. Richtig ist 5^x = 91 : 5.",
-   "h": "Was wird zuerst gerechnet: Potenz oder Multiplikation?"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Aussage ist falsch?"
-   },
-   "a": [
-    "lg 1 = 0",
-    "lg(7 + 3) = lg 7 + lg 3",
-    "lg(7³) = 3 · lg 7",
-    "lg 10 = 1"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Für Summen gibt es keine solche Regel: lg(10) ≈ 1, aber lg 7 + lg 3 ≈ 1,322.",
-   "h": "Prüfe jede Aussage mit dem Taschenrechner."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Betrag wächst jährlich um 8 %. Welche Gleichung beschreibt, wann er sich verdreifacht hat?"
-   },
-   "a": [
-    "8^t = 3",
-    "1,08^t = 3",
-    "1 + 8t = 3",
-    "0,08^t = 3"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Wachstumsfaktor q = 1 + 8/100 = 1,08; verdreifacht: q^t = 3.",
-   "h": "Wie lautet der Wachstumsfaktor bei p % Zunahme?"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "test",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand rechnet log₅(3 125) = 3 125 : 5 = 625. Was stimmt?"
-   },
-   "a": [
-    "Richtig",
-    "Falsch, log₅(3 125) = 1 562,5",
-    "Falsch, log₅(3 125) = 5",
-    "Falsch, log₅(3 125) = 15 625"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Gesucht ist der Exponent: 5⁵ = 3 125."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "korrektur",
+   "p": "sicherung",
    "s": 2,
    "y": "auswahl",
    "f": {
@@ -3168,39 +3298,39 @@
    },
    "a": [
     "lg 10 = 1",
-    "lg(5 + 2) = lg 5 + lg 2",
     "lg 1 = 0",
-    "lg(5²) = 2 · lg 5"
+    "lg(4 + 2) = lg 4 + lg 2",
+    "lg(4²) = 2 · lg 4"
    ],
    "o": {
-    "index": 1
+    "index": 2
    },
-   "w": "Für Summen gibt es keine solche Regel: lg(7) ≈ 0,845, aber lg 5 + lg 2 ≈ 1."
+   "w": "Für Summen gibt es keine solche Regel: lg(6) ≈ 0,778, aber lg 4 + lg 2 ≈ 0,903."
   },
   {
    "l": "verstehen",
    "t": "verstehen",
-   "p": "korrektur",
+   "p": "sicherung",
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Jemand rechnet log₃(27) = 27 : 3 = 9. Was stimmt?"
+    "text": "Jemand formt 4 · 2^x = 40 um zu 8^x = 40. Was stimmt?"
    },
    "a": [
-    "Falsch, log₃(27) = 3",
+    "Falsch: Erst durch 4 teilen: 2^x = 10.",
     "Richtig",
-    "Falsch, log₃(27) = 13,5",
-    "Falsch, log₃(27) = 81"
+    "Falsch: Es muss 2^(4x) = 40 heißen.",
+    "Falsch: Es muss 2^x = 36 heißen."
    ],
    "o": {
     "index": 0
    },
-   "w": "Gesucht ist der Exponent: 3³ = 27."
+   "w": "4 · 2^x ist ein Produkt; der Faktor 4 gehört nicht zur Basis. Richtig ist 2^x = 40 : 4."
   },
   {
    "l": "verstehen",
    "t": "verstehen",
-   "p": "korrektur",
+   "p": "sicherung",
    "s": 2,
    "y": "auswahl",
    "f": {
@@ -3216,47 +3346,6 @@
     "index": 3
    },
    "w": "3 · 3^x ist ein Produkt; der Faktor 3 gehört nicht zur Basis. Richtig ist 3^x = 83 : 3."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Lösung hat 3^x = −81? Die Zeichnung zeigt y = 3^x und y = −81.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -4,
-      4
-     ],
-     "y": [
-      -101.25,
-      101.25
-     ],
-     "graphen": [
-      {
-       "art": "exp",
-       "a": 1,
-       "b": 3
-      }
-     ],
-     "waagrecht": [
-      -81
-     ]
-    }
-   },
-   "a": [
-    "x = −1/4",
-    "x = −4",
-    "x = 4",
-    "keine Lösung"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "3^x ist für jedes x positiv (3^(−4) = 1/81). Die Gerade y = −81 wird nie geschnitten."
   },
   {
    "l": "verstehen",
@@ -3306,6 +3395,26 @@
    "s": 2,
    "y": "auswahl",
    "f": {
+    "text": "Welchen Wert hat log₂(1)?"
+   },
+   "a": [
+    "nicht definiert",
+    "2",
+    "1",
+    "0"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "2⁰ = 1, also log₂(1) = 0."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
     "text": "Welche Aussage ist falsch?"
    },
    "a": [
@@ -3318,72 +3427,13 @@
     "index": 2
    },
    "w": "Für Summen gibt es keine solche Regel: lg(11) ≈ 1,041, aber lg 9 + lg 2 ≈ 1,255."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Aussage ist falsch?"
-   },
-   "a": [
-    "lg 1 = 0",
-    "lg 10 = 1",
-    "lg(3 + 9) = lg 3 + lg 9",
-    "lg(3⁹) = 9 · lg 3"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Für Summen gibt es keine solche Regel: lg(12) ≈ 1,079, aber lg 3 + lg 9 ≈ 1,431."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand formt 5 · 5^x = 63 um zu 25^x = 63. Was stimmt?"
-   },
-   "a": [
-    "Falsch: Es muss 5^x = 58 heißen.",
-    "Richtig",
-    "Falsch: Es muss 5^(5x) = 63 heißen.",
-    "Falsch: Erst durch 5 teilen: 5^x = 12,6."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "5 · 5^x ist ein Produkt; der Faktor 5 gehört nicht zur Basis. Richtig ist 5^x = 63 : 5."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Aussage ist falsch?"
-   },
-   "a": [
-    "lg(9⁵) = 5 · lg 9",
-    "lg(9 + 5) = lg 9 + lg 5",
-    "lg 10 = 1",
-    "lg 1 = 0"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Für Summen gibt es keine solche Regel: lg(14) ≈ 1,146, aber lg 9 + lg 5 ≈ 1,653."
   }
  ],
  "offen": [
   "Zeichnungen: Lernkarten „logarithmus“, „mit_log_loesen“, „wachstum“ und „verstehen“ haben ein Koordinatensystem; Aufgaben zum Abschätzen (Stufe 1 „mit_log_loesen“) und zu „keine Lösung“ zeigen den Graphen. Die Exponenten heißen in den Graphnamen „2^x“ (Text).",
   "Nur die Potenzregel für Logarithmen (lehrplan_gym). Produkt- und Quotientenregel sind bewusst nicht enthalten.",
   "Rechenausdruck c bei exakten Logarithmen: prüft b^n = x (z. B. „5 + (2 ** 5 − 32)“), weil das Prüfskript keinen Logarithmus kennt; gerundete Lösungen als 12-stellige Konstante mit Toleranz 0,01 bzw. 0,1.",
-  "Schreibweise: Exponenten mit Unbekannten als „2^x“ bzw. „3^(x − 1)“, Logarithmus als „log₂(32)“ und „lg“."
+  "Schreibweise: Exponenten mit Unbekannten als „2^x“ bzw. „3^(x − 1)“, Logarithmus als „log₂(32)“ und „lg“.",
+  "Prüfung eingearbeitet (Runde 3): Potenzregel begründet; neue Aufgabentypen Basis/Argument bestimmen, Kehrwert-Exponenten, gemeinsame Basis mit Verschiebung, Halbwertszeit und Wachstumsrate bestimmen. „wachstum“: in jedem Pool mindestens die Hälfte Zeitfragen; Geldbeträge auf Cent mit Toleranz 0,01."
  ]
 }

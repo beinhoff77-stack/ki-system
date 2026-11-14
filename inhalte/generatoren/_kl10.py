@@ -19,6 +19,11 @@ PLAN = ([('uebung', 1)] * 6 + [('uebung', 2)] * 6 + [('uebung', 3)] * 6
         + [('test', 2)] + [('korrektur', 2)] * 3 + [('sicherung', 2)] * 6)
 
 
+# Gerade gebauter Pool und laufende Nummer darin (je Lernkarte ab 0) – für Regeln wie
+# „in Korrektur und Sicherung mindestens eine Aufgabe vom Typ …“. Generatoren lesen AKT['pool'] / AKT['nr'].
+AKT = {'pool': None, 'nr': 0}
+
+
 def start(seed):
     R.seed(seed)
 
@@ -158,7 +163,10 @@ def bauen(thema, ziel, merke, abschnitte, etappen, gen, offen=(), vertiefung=(),
     alle, gesehen = [], set()
     for e in etappen:
         beispiele = set(e['schritte'])
+        zaehler = {}
         for pool, stufe in plan:
+            AKT['pool'], AKT['nr'] = pool, zaehler.get(pool, 0)
+            zaehler[pool] = AKT['nr'] + 1
             for _ in range(3000):
                 a = gen[e['lernziel']](stufe)
                 if a is None: continue

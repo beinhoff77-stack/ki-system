@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-14 15:37 – STATUS
+12/14 finanzen.zinseszins fertig: 5 Lernkarten (Jahr für Jahr, Wachstumsfaktor, Kₙ = K₀ · qⁿ, rückwärts, Angebote/Verdopplung), 140 Aufgaben, Prüfskript OK. klasse = {"zusatz": 10}.
+
 ## 2026-11-14 15:35 – STATUS
 11/14 daten.normalverteilung fertig: 5 Lernkarten (Glockenkurve, 68-95-99,7-Regel, Teilanteile, z-Wert, Vergleichen), 140 Aufgaben, Prüfskript OK. klasse = {"zusatz": 10} (siehe FRAGE). App-Wunsch (offen): Graphart Glockenkurve mit färbbarer Fläche.
 

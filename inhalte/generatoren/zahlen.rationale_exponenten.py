@@ -32,7 +32,7 @@ ETAPPEN = [
      'probe': '5 · 5 · 5 · 5 = 625 ✓',
      'fehler': '⁴√625 = 625 : 4 ist falsch: Der Wurzelexponent sagt, ⟦wie oft⟧ eine Zahl mit sich selbst multipliziert wird – nicht, wodurch man teilt.'},
     {'lernziel': 'potenz_wert', 'titel': 'Potenzen mit Bruch-Exponent berechnen',
-     'regel': 'Für a > 0 gilt: ⟦a^(m/n) = (ⁿ√a)^m = ⁿ√(a^m)⟧. Ein negativer Exponent bedeutet ⟦Kehrwert⟧: a^(−m/n) = 1 / a^(m/n).',
+     'regel': 'Warum ist 27^(1/3) die dritte Wurzel? Weil (27^(1/3))³ = 27^(1/3 · 3) = 27¹ = 27. Also gilt für a > 0: ⟦a^(m/n) = (ⁿ√a)^m⟧ – der ⟦Nenner⟧ ist die Wurzel, der ⟦Zähler⟧ die Potenz. Ein negativer Exponent bedeutet ⟦Kehrwert⟧: a^(−m/n) = 1 / a^(m/n).',
      'schritte': ['27^(2/3): Nenner 3 heißt dritte Wurzel: ³√27 = 3.', 'Zähler 2 heißt quadrieren: 3² = ⟦9⟧.'],
      'probe': '9³ = 729 = 27² ✓',
      'fehler': '27^(2/3) = 27 · 2 : 3 = 18 ist falsch: Der Nenner bedeutet ⟦Wurzel⟧, der Zähler ⟦Potenz⟧ – man multipliziert nicht mit dem Bruch.'},
@@ -70,8 +70,13 @@ def g_nte_wurzel(s):
             return zahl(f'Berechne {wz(n, dz(a))}.', f'{dz(r)}^{n} = {dz(a)}, also {wz(n, dz(a))} = {dz(r)}.',
                         'Ziehe die Wurzel ohne Komma; die Nachkommastellen werden durch ' + str(n) + ' geteilt.', r,
                         f'{float(a)} / {float(r)} ** {n - 1}')
-        n = R.choice([4, 5, 6])
-        r = R.randint(2, {4: 6, 5: 4, 6: 3}[n])
+        n = R.choice([2, 3, 4, 5])
+        k = R.randint(2, 4)
+        b = R.randint(2, {2: 9, 3: 5, 4: 3, 5: 2}[n] if k < 4 else 2)
+        if b ** (n * k) > 10 ** 7: return None
+        return zahl(f'Berechne {wz(n, "(" + str(b) + "^" + str(n * k) + ")")}.',
+                    f'{b}^{n * k} = ({b}^{k})^{n}, also {wz(n, "(" + str(b) + "^" + str(n * k) + ")")} = {b}^{k} = {dz(b ** k)}.',
+                    'Teile den Exponenten unter der Wurzel durch den Wurzelexponenten.', b ** k, f'{b} ** ({n * k} // {n})')
     else:
         if R.random() < 0.5:
             n1, n2 = R.sample([3, 4, 5], 2)
@@ -94,6 +99,17 @@ def g_nte_wurzel(s):
 
 
 def g_potenz_wert(s):
+    if s >= 2 and R.random() < 0.3:
+        n, m = R.choice([(3, 2), (4, 3), (2, 3), (3, 4), (2, 5), (5, 2), (4, 5)])
+        r = R.randint(2, {2: 6, 3: 4, 4: 3, 5: 2}[n])
+        a = r ** n
+        A_ = f'erst {wz(n, dz(a))} = {r}, dann {r}^{m} = {dz(r ** m)}'
+        B_ = f'erst {dz(a)}^{m} = {dz(a ** m)}, dann {wz(n, dz(a ** m))} = {dz(r ** m)}'
+        return auswahl(f'{pot(dz(a), Fr(m, n))}: Weg A: {A_}. Weg B: {B_}. Was stimmt?',
+                       'Beide Wege sind richtig; A ist im Kopf leichter.',
+                       ['Nur A ist richtig.', 'Nur B ist richtig.', 'Keiner: man rechnet ' + dz(a) + ' · ' + str(m) + ' : ' + str(n) + '.'],
+                       f'(ⁿ√a)^m = ⁿ√(a^m). Beide Wege führen zu {dz(r ** m)}. Erst die Wurzel ziehen hält die Zahlen klein.',
+                       'Prüfe, ob beide Wege dasselbe Ergebnis liefern.')
     n = R.choice([2, 3, 4]) if s < 3 else R.choice([2, 3, 4, 5])
     r = R.randint(2, {2: 12, 3: 5, 4: 3, 5: 2}[n])
     m = 1 if s == 1 else R.randint(2, 3 if n > 2 else 5)
@@ -151,6 +167,31 @@ def g_umwandeln(s):
 def g_zusammenfassen(s):
     def q_txt(q):
         return f'x^({br(q)})' if q.denominator > 1 else f'x^{dz(q)}'
+    if s >= 2 and R.random() < 0.3:
+        if R.random() < 0.5:
+            n = R.choice([2, 3, 4])
+            r = R.randint(2, {2: 12, 3: 5, 4: 3}[n])
+            teiler = [d for d in range(2, r ** n) if (r ** n) % d == 0 and d != r and (r ** n) // d != r]
+            if not teiler: return None
+            a = R.choice(teiler)
+            b = r ** n // a
+            return zahl(f'Berechne {pot(dz(a), Fr(1, n))} · {pot(dz(b), Fr(1, n))}.',
+                        f'Gleicher Exponent: {pot(dz(a), Fr(1, n))} · {pot(dz(b), Fr(1, n))} = ({dz(a)} · {dz(b)})^({br(Fr(1, n))}) = {pot(dz(r ** n), Fr(1, n))} = {r}.',
+                        'Gleicher Exponent: erst die Basen multiplizieren.', r, f'({a} * {b}) / {r} ** {n - 1}')
+        r = R.choice([2, 3])
+        N = R.choice([6, 4]) if r == 3 else R.choice([6, 4, 8])
+        a = r ** N
+        if a > 10 ** 4: return None
+        z1 = R.randint(2, N - 1)
+        p_ = Fr(z1, N)
+        q_ = p_ - Fr(1, N) * R.randint(1, z1 - 1) if z1 > 1 else None
+        if q_ is None or q_ <= 0: return None
+        e = p_ - q_
+        if (e * N).denominator != 1: return None
+        erg = r ** int(e * N)
+        return zahl(f'Berechne {pot(dz(a), p_)} : {pot(dz(a), q_)}.',
+                    f'Gleiche Basis: Exponenten subtrahieren: {br(p_)} − {br(q_)} = {br(e)}. {pot(dz(a), e)} = {dz(erg)}, denn {dz(a)} = {r}^{N}.',
+                    'Gleiche Basis: Beim Teilen werden die Exponenten subtrahiert.', erg, f'{r} ** {int(e * N)}')
     typ = R.choice({1: 'm', 2: 'mdp', 3: 'wk'}[s])
     if typ == 'm':
         p, q = Fr(R.randint(1, 5), R.randint(2, 6)), Fr(R.randint(1, 5), R.randint(2, 6))
@@ -176,10 +217,13 @@ def g_zusammenfassen(s):
         w2 = ('√' if n2 == 2 else wz(n2, '')) + 'x'
         e, t, w = p - q, f'{w1} : {w2}', 'subtrahiert'
     if p.denominator == 1 or q.denominator == 1 or e.denominator == 1 or e == 0: return None
+    tipp = ('Schreibe Wurzeln als Potenzen und wende das passende Potenzgesetz an.' if typ in 'wk' else
+            {'m': 'Gleiche Basis: Beim Malnehmen werden die Exponenten addiert.', 'd': 'Gleiche Basis: Beim Teilen werden die Exponenten subtrahiert.',
+             'p': 'Potenz einer Potenz: Die Exponenten werden multipliziert.'}[typ])
     return luecken(f'Fasse zu einer Potenz zusammen (x > 0): {t}.', 'x^(□/□)', 'Zähler (mit Vorzeichen) / Nenner, gekürzt',
                    [e.numerator, e.denominator],
                    f'Exponenten {w}: {br(p)} und {br(q)} ergibt {br(e)}, also x^({br(e)}).',
-                   'Schreibe Wurzeln als Potenzen und wende das passende Potenzgesetz an.',
+                   tipp,
                    c=[f'{e.numerator}', f'{e.denominator}'])
 
 
@@ -190,12 +234,27 @@ def g_gleichung_exp(s):
         c = r ** n
         return zahl(f'Löse x^{n} = {dz(c)} für x > 0.', f'x = {wz(n, dz(c))} = {r}, denn {r}^{n} = {dz(c)}.',
                     'Ziehe auf beiden Seiten die passende Wurzel.', r, f'{c} / {r} ** {n - 1}')
-    if s == 2:
+    typ = R.random()
+    if s == 2 and typ < 0.35 or s == 3 and typ < 0.1:
         n = R.choice([2, 3, 4])
         c = R.randint(2, {2: 15, 3: 6, 4: 4}[n])
         x = c ** n
         return zahl(f'Löse x^(1/{n}) = {c} für x > 0.', f'Beide Seiten hoch {n}: x = {c}^{n} = {dz(x)}.',
                     'Mit welcher Zahl musst du potenzieren, damit links nur x steht?', x, f'{c} ** {n}')
+    if s == 3 and typ < 0.45:
+        k = R.randint(2, 5)
+        m, n = R.choice([(3, 2), (2, 3), (3, 4), (4, 3)])
+        r = R.randint(2, {2: 5, 3: 4, 4: 3}[n])
+        x, c = r ** n, r ** m
+        return zahl(f'Löse {k} · x^({m}/{n}) = {dz(k * c)} für x > 0.',
+                    f'Erst durch {k} teilen: x^({m}/{n}) = {dz(c)}. Dann hoch {n}/{m}: x = ({wz(m, dz(c))})^{n} = {r}^{n} = {dz(x)}.',
+                    'Bringe zuerst die Potenz allein auf eine Seite.', x, f'{r} ** {n}')
+    if s == 3 and typ < 0.7:
+        n = R.choice([3, 5])
+        r = R.randint(2, 6 if n == 3 else 3)
+        return zahl(f'Löse x^{n} = −{dz(r ** n)}.',
+                    f'Ungerader Exponent: Es gibt genau eine Lösung, und sie ist negativ. (−{r})^{n} = −{dz(r ** n)}, also x = −{r}.',
+                    'Bei ungeradem Exponenten bleibt das Minuszeichen erhalten.', -r, f'-({r ** n} / {r} ** {n - 1})')
     m, n = R.choice([(3, 2), (2, 3), (3, 4), (4, 3), (5, 2), (2, 5), (3, 5)])
     r = R.randint(2, {2: 6, 3: 4, 4: 3, 5: 2}[n] if n != 2 else 5)
     # x = r^n  ⇒  x^(m/n) = r^m
@@ -276,4 +335,4 @@ if __name__ == '__main__':
           meiden={'nte_wurzel': ['⁴√625.'], 'potenz_wert': ['27^(2/3).'], 'umwandeln': ['⁶√(x⁴)'], 'zusammenfassen': ['√x · ³√x.', 'x^(1/2) · x^(1/3).'],
                   'gleichung_exp': ['= 64 für'], 'verstehen': ['25^(−1/2)', '9^(1/2)']},
           offen=['Exponenten werden als Text „x^(2/3)“ geschrieben, weil die App keine Hochstellung von Brüchen kann. Falls eine Formel-Darstellung kommt, Texte umstellen.',
-                 'Gleichungen xⁿ = c mit negativen Lösungen und Lösungsanzahl stehen im Thema gleichungen.potenz; hier nur x > 0.'])
+                 'Gleichungen xⁿ = c: Lösungsanzahl und negative Lösungen stehen ausführlich im Thema gleichungen.potenz; hier nur als Stufe-3-Aufgabe mit ungeradem n (Prüfvorschlag x³ = −125).'])

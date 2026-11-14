@@ -53,7 +53,7 @@
    {
     "lernziel": "potenz_wert",
     "titel": "Potenzen mit Bruch-Exponent berechnen",
-    "regel": "Für a > 0 gilt: ⟦a^(m/n) = (ⁿ√a)^m = ⁿ√(a^m)⟧. Ein negativer Exponent bedeutet ⟦Kehrwert⟧: a^(−m/n) = 1 / a^(m/n).",
+    "regel": "Warum ist 27^(1/3) die dritte Wurzel? Weil (27^(1/3))³ = 27^(1/3 · 3) = 27¹ = 27. Also gilt für a > 0: ⟦a^(m/n) = (ⁿ√a)^m⟧ – der ⟦Nenner⟧ ist die Wurzel, der ⟦Zähler⟧ die Potenz. Ein negativer Exponent bedeutet ⟦Kehrwert⟧: a^(−m/n) = 1 / a^(m/n).",
     "schritte": [
      "27^(2/3): Nenner 3 heißt dritte Wurzel: ³√27 = 3.",
      "Zähler 2 heißt quadrieren: 3² = ⟦9⟧."
@@ -335,14 +335,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne ⁵√1 024."
+    "text": "Berechne ³√(4⁶)."
    },
    "o": {
-    "wert": 4
+    "wert": 16
    },
-   "c": "1024 / 4 ** 4",
-   "w": "4⁵ = 1 024, also ⁵√1 024 = 4.",
-   "h": "Welche Zahl ergibt 5-mal mit sich selbst multipliziert den Radikanden?"
+   "c": "4 ** (6 // 3)",
+   "w": "4⁶ = (4²)³, also ³√(4⁶) = 4² = 16.",
+   "h": "Teile den Exponenten unter der Wurzel durch den Wurzelexponenten."
   },
   {
    "l": "nte_wurzel",
@@ -351,14 +351,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne ⁶√0,004096."
+    "text": "Berechne ⁵√(2²⁰)."
    },
    "o": {
-    "wert": 0.4
+    "wert": 16
    },
-   "c": "0.004096 / 0.4 ** 5",
-   "w": "0,4⁶ = 0,004096, also ⁶√0,004096 = 0,4.",
-   "h": "Ziehe die Wurzel ohne Komma; die Nachkommastellen werden durch 6 geteilt."
+   "c": "2 ** (20 // 5)",
+   "w": "2²⁰ = (2⁴)⁵, also ⁵√(2²⁰) = 2⁴ = 16.",
+   "h": "Teile den Exponenten unter der Wurzel durch den Wurzelexponenten."
   },
   {
    "l": "nte_wurzel",
@@ -463,13 +463,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne ⁶√729."
+    "text": "Berechne ⁶√0,004096."
    },
    "o": {
-    "wert": 3
+    "wert": 0.4
    },
-   "c": "729 / 3 ** 5",
-   "w": "3⁶ = 729, also ⁶√729 = 3."
+   "c": "0.004096 / 0.4 ** 5",
+   "w": "0,4⁶ = 0,004096, also ⁶√0,004096 = 0,4."
   },
   {
    "l": "nte_wurzel",
@@ -478,13 +478,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne ⁴√1 296."
+    "text": "Berechne ³√(2⁶)."
    },
    "o": {
-    "wert": 6
+    "wert": 4
    },
-   "c": "1296 / 6 ** 3",
-   "w": "6⁴ = 1 296, also ⁴√1 296 = 6."
+   "c": "2 ** (6 // 3)",
+   "w": "2⁶ = (2²)³, also ³√(2⁶) = 2² = 4."
   },
   {
    "l": "nte_wurzel",
@@ -523,13 +523,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne ⁶√64."
+    "text": "Berechne √(4⁴)."
    },
    "o": {
-    "wert": 2
+    "wert": 16
    },
-   "c": "64 / 2 ** 5",
-   "w": "2⁶ = 64, also ⁶√64 = 2."
+   "c": "4 ** (4 // 2)",
+   "w": "4⁴ = (4²)², also √(4⁴) = 4² = 16."
   },
   {
    "l": "nte_wurzel",
@@ -538,13 +538,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne ⁴√0,0001."
+    "text": "Berechne ⁵√0,00001."
    },
    "o": {
     "wert": 0.1
    },
-   "c": "0.0001 / 0.1 ** 3",
-   "w": "0,1⁴ = 0,0001, also ⁴√0,0001 = 0,1."
+   "c": "1e-05 / 0.1 ** 4",
+   "w": "0,1⁵ = 0,00001, also ⁵√0,00001 = 0,1."
   },
   {
    "l": "nte_wurzel",
@@ -553,13 +553,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne ⁴√256."
+    "text": "Berechne √(6⁴)."
    },
    "o": {
-    "wert": 4
+    "wert": 36
    },
-   "c": "256 / 4 ** 3",
-   "w": "4⁴ = 256, also ⁴√256 = 4."
+   "c": "6 ** (4 // 2)",
+   "w": "6⁴ = (6²)², also √(6⁴) = 6² = 36."
   },
   {
    "l": "nte_wurzel",
@@ -583,13 +583,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne ⁵√243."
+    "text": "Berechne ⁴√(3¹²)."
    },
    "o": {
-    "wert": 3
+    "wert": 27
    },
-   "c": "243 / 3 ** 4",
-   "w": "3⁵ = 243, also ⁵√243 = 3."
+   "c": "3 ** (12 // 4)",
+   "w": "3¹² = (3³)⁴, also ⁴√(3¹²) = 3³ = 27."
   },
   {
    "l": "nte_wurzel",
@@ -598,13 +598,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne ⁵√0,00001."
+    "text": "Berechne ³√(2¹²)."
    },
    "o": {
-    "wert": 0.1
+    "wert": 16
    },
-   "c": "1e-05 / 0.1 ** 4",
-   "w": "0,1⁵ = 0,00001, also ⁵√0,00001 = 0,1."
+   "c": "2 ** (12 // 3)",
+   "w": "2¹² = (2⁴)³, also ³√(2¹²) = 2⁴ = 16."
   },
   {
    "l": "potenz_wert",
@@ -613,13 +613,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Berechne 64^(1/3)."
+    "text": "Berechne 4^(1/2)."
    },
    "o": {
-    "wert": 4
+    "wert": 2
    },
-   "c": "4 ** 1",
-   "w": "Nenner 3: ³√64 = 4; Zähler 1: Ergebnis 4.",
+   "c": "2 ** 1",
+   "w": "Nenner 2: √4 = 2; Zähler 1: Ergebnis 2.",
    "h": "Der Nenner des Exponenten gibt die Wurzel an, der Zähler die Potenz."
   },
   {
@@ -645,29 +645,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Berechne 16^(1/4)."
+    "text": "Berechne 64^(1/3)."
    },
    "o": {
-    "wert": 2
+    "wert": 4
    },
-   "c": "2 ** 1",
-   "w": "Nenner 4: ⁴√16 = 2; Zähler 1: Ergebnis 2.",
-   "h": "Der Nenner des Exponenten gibt die Wurzel an, der Zähler die Potenz."
-  },
-  {
-   "l": "potenz_wert",
-   "t": "potenz_wert",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 4^(1/2)."
-   },
-   "o": {
-    "wert": 2
-   },
-   "c": "2 ** 1",
-   "w": "Nenner 2: √4 = 2; Zähler 1: Ergebnis 2.",
+   "c": "4 ** 1",
+   "w": "Nenner 3: ³√64 = 4; Zähler 1: Ergebnis 4.",
    "h": "Der Nenner des Exponenten gibt die Wurzel an, der Zähler die Potenz."
   },
   {
@@ -706,17 +690,80 @@
    "l": "potenz_wert",
    "t": "potenz_wert",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Berechne 64^(2/3)."
+    "text": "Berechne 16^(1/4)."
    },
    "o": {
-    "wert": 16
+    "wert": 2
    },
-   "c": "4 ** 2",
-   "w": "Nenner 3: ³√64 = 4; Zähler 2: 4² = 16.",
+   "c": "2 ** 1",
+   "w": "Nenner 4: ⁴√16 = 2; Zähler 1: Ergebnis 2.",
    "h": "Der Nenner des Exponenten gibt die Wurzel an, der Zähler die Potenz."
+  },
+  {
+   "l": "potenz_wert",
+   "t": "potenz_wert",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "16^(5/2): Weg A: erst √16 = 4, dann 4⁵ = 1 024. Weg B: erst 16⁵ = 1 048 576, dann √1 048 576 = 1 024. Was stimmt?"
+   },
+   "a": [
+    "Beide Wege sind richtig; A ist im Kopf leichter.",
+    "Nur B ist richtig.",
+    "Keiner: man rechnet 16 · 5 : 2.",
+    "Nur A ist richtig."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "(ⁿ√a)^m = ⁿ√(a^m). Beide Wege führen zu 1 024. Erst die Wurzel ziehen hält die Zahlen klein.",
+   "h": "Prüfe, ob beide Wege dasselbe Ergebnis liefern."
+  },
+  {
+   "l": "potenz_wert",
+   "t": "potenz_wert",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "64^(2/3): Weg A: erst ³√64 = 4, dann 4² = 16. Weg B: erst 64² = 4 096, dann ³√4 096 = 16. Was stimmt?"
+   },
+   "a": [
+    "Beide Wege sind richtig; A ist im Kopf leichter.",
+    "Keiner: man rechnet 64 · 2 : 3.",
+    "Nur A ist richtig.",
+    "Nur B ist richtig."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "(ⁿ√a)^m = ⁿ√(a^m). Beide Wege führen zu 16. Erst die Wurzel ziehen hält die Zahlen klein.",
+   "h": "Prüfe, ob beide Wege dasselbe Ergebnis liefern."
+  },
+  {
+   "l": "potenz_wert",
+   "t": "potenz_wert",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "16^(5/4): Weg A: erst ⁴√16 = 2, dann 2⁵ = 32. Weg B: erst 16⁵ = 1 048 576, dann ⁴√1 048 576 = 32. Was stimmt?"
+   },
+   "a": [
+    "Nur B ist richtig.",
+    "Beide Wege sind richtig; A ist im Kopf leichter.",
+    "Keiner: man rechnet 16 · 5 : 4.",
+    "Nur A ist richtig."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "(ⁿ√a)^m = ⁿ√(a^m). Beide Wege führen zu 32. Erst die Wurzel ziehen hält die Zahlen klein.",
+   "h": "Prüfe, ob beide Wege dasselbe Ergebnis liefern."
   },
   {
    "l": "potenz_wert",
@@ -725,14 +772,35 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne 8^(2/3)."
+    "text": "Berechne 121^(3/2)."
    },
    "o": {
-    "wert": 4
+    "wert": 1331
    },
-   "c": "2 ** 2",
-   "w": "Nenner 3: ³√8 = 2; Zähler 2: 2² = 4.",
+   "c": "11 ** 3",
+   "w": "Nenner 2: √121 = 11; Zähler 3: 11³ = 1 331.",
    "h": "Der Nenner des Exponenten gibt die Wurzel an, der Zähler die Potenz."
+  },
+  {
+   "l": "potenz_wert",
+   "t": "potenz_wert",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "9^(3/2): Weg A: erst √9 = 3, dann 3³ = 27. Weg B: erst 9³ = 729, dann √729 = 27. Was stimmt?"
+   },
+   "a": [
+    "Beide Wege sind richtig; A ist im Kopf leichter.",
+    "Nur B ist richtig.",
+    "Keiner: man rechnet 9 · 3 : 2.",
+    "Nur A ist richtig."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "(ⁿ√a)^m = ⁿ√(a^m). Beide Wege führen zu 27. Erst die Wurzel ziehen hält die Zahlen klein.",
+   "h": "Prüfe, ob beide Wege dasselbe Ergebnis liefern."
   },
   {
    "l": "potenz_wert",
@@ -741,62 +809,83 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne 36^(3/2)."
+    "text": "Berechne 64^(5/2)."
    },
    "o": {
-    "wert": 216
+    "wert": 32768
    },
-   "c": "6 ** 3",
-   "w": "Nenner 2: √36 = 6; Zähler 3: 6³ = 216.",
+   "c": "8 ** 5",
+   "w": "Nenner 2: √64 = 8; Zähler 5: 8⁵ = 32 768.",
    "h": "Der Nenner des Exponenten gibt die Wurzel an, der Zähler die Potenz."
   },
   {
    "l": "potenz_wert",
    "t": "potenz_wert",
    "p": "uebung",
-   "s": 2,
-   "y": "zahl",
+   "s": 3,
+   "y": "auswahl",
    "f": {
-    "text": "Berechne 121^(5/2)."
+    "text": "27^(4/3): Weg A: erst ³√27 = 3, dann 3⁴ = 81. Weg B: erst 27⁴ = 531 441, dann ³√531 441 = 81. Was stimmt?"
    },
+   "a": [
+    "Beide Wege sind richtig; A ist im Kopf leichter.",
+    "Keiner: man rechnet 27 · 4 : 3.",
+    "Nur A ist richtig.",
+    "Nur B ist richtig."
+   ],
    "o": {
-    "wert": 161051
+    "index": 0
    },
-   "c": "11 ** 5",
-   "w": "Nenner 2: √121 = 11; Zähler 5: 11⁵ = 161 051.",
-   "h": "Der Nenner des Exponenten gibt die Wurzel an, der Zähler die Potenz."
+   "w": "(ⁿ√a)^m = ⁿ√(a^m). Beide Wege führen zu 81. Erst die Wurzel ziehen hält die Zahlen klein.",
+   "h": "Prüfe, ob beide Wege dasselbe Ergebnis liefern."
   },
   {
    "l": "potenz_wert",
    "t": "potenz_wert",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Berechne 4^(3/2)."
+    "text": "Berechne 64^(−3/2). Gib das Ergebnis als Dezimalzahl an."
    },
    "o": {
-    "wert": 8
+    "wert": 0.001953125
    },
-   "c": "2 ** 3",
-   "w": "Nenner 2: √4 = 2; Zähler 3: 2³ = 8.",
-   "h": "Der Nenner des Exponenten gibt die Wurzel an, der Zähler die Potenz."
+   "c": "1 / 8 ** 3",
+   "w": "64^(−3/2) = 1 / 64^(3/2) = 1 / (√64)³ = 1 / 8³ = 1/512 = 0,001953125.",
+   "h": "Negativer Exponent: Kehrwert bilden. Dann Wurzel (Nenner) und Potenz (Zähler)."
   },
   {
    "l": "potenz_wert",
    "t": "potenz_wert",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Berechne 16^(3/4)."
+    "text": "Berechne 64^(−2/3). Gib das Ergebnis als Dezimalzahl an."
    },
    "o": {
-    "wert": 8
+    "wert": 0.0625
    },
-   "c": "2 ** 3",
-   "w": "Nenner 4: ⁴√16 = 2; Zähler 3: 2³ = 8.",
-   "h": "Der Nenner des Exponenten gibt die Wurzel an, der Zähler die Potenz."
+   "c": "1 / 4 ** 2",
+   "w": "64^(−2/3) = 1 / 64^(2/3) = 1 / (³√64)² = 1 / 4² = 1/16 = 0,0625.",
+   "h": "Negativer Exponent: Kehrwert bilden. Dann Wurzel (Nenner) und Potenz (Zähler)."
+  },
+  {
+   "l": "potenz_wert",
+   "t": "potenz_wert",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 32^(−2/5). Gib das Ergebnis als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.25
+   },
+   "c": "1 / 2 ** 2",
+   "w": "32^(−2/5) = 1 / 32^(2/5) = 1 / (⁵√32)² = 1 / 2² = 1/4 = 0,25.",
+   "h": "Negativer Exponent: Kehrwert bilden. Dann Wurzel (Nenner) und Potenz (Zähler)."
   },
   {
    "l": "potenz_wert",
@@ -821,105 +910,60 @@
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "Berechne 27^(−2/3).",
+    "text": "Berechne 81^(−5/2).",
     "schablone": "1/□",
     "hinweis": "Nenner"
    },
    "o": {
     "werte": [
-     9
+     59049
     ]
    },
-   "w": "27^(−2/3) = 1 / 27^(2/3) = 1 / (³√27)² = 1 / 3² = 1/9.",
+   "w": "81^(−5/2) = 1 / 81^(5/2) = 1 / (√81)⁵ = 1 / 9⁵ = 1/59049.",
    "h": "Negativer Exponent: Kehrwert bilden. Dann Wurzel (Nenner) und Potenz (Zähler).",
    "c": [
-    "3 ** 2"
+    "9 ** 5"
    ]
-  },
-  {
-   "l": "potenz_wert",
-   "t": "potenz_wert",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 64^(−3/2). Gib das Ergebnis als Dezimalzahl an."
-   },
-   "o": {
-    "wert": 0.001953125
-   },
-   "c": "1 / 8 ** 3",
-   "w": "64^(−3/2) = 1 / 64^(3/2) = 1 / (√64)³ = 1 / 8³ = 1/512 = 0,001953125.",
-   "h": "Negativer Exponent: Kehrwert bilden. Dann Wurzel (Nenner) und Potenz (Zähler)."
-  },
-  {
-   "l": "potenz_wert",
-   "t": "potenz_wert",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Berechne 81^(−3/4).",
-    "schablone": "1/□",
-    "hinweis": "Nenner"
-   },
-   "o": {
-    "werte": [
-     27
-    ]
-   },
-   "w": "81^(−3/4) = 1 / 81^(3/4) = 1 / (⁴√81)³ = 1 / 3³ = 1/27.",
-   "h": "Negativer Exponent: Kehrwert bilden. Dann Wurzel (Nenner) und Potenz (Zähler).",
-   "c": [
-    "3 ** 3"
-   ]
-  },
-  {
-   "l": "potenz_wert",
-   "t": "potenz_wert",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 16^(−3/4). Gib das Ergebnis als Dezimalzahl an."
-   },
-   "o": {
-    "wert": 0.125
-   },
-   "c": "1 / 2 ** 3",
-   "w": "16^(−3/4) = 1 / 16^(3/4) = 1 / (⁴√16)³ = 1 / 2³ = 1/8 = 0,125.",
-   "h": "Negativer Exponent: Kehrwert bilden. Dann Wurzel (Nenner) und Potenz (Zähler)."
-  },
-  {
-   "l": "potenz_wert",
-   "t": "potenz_wert",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 32^(−2/5). Gib das Ergebnis als Dezimalzahl an."
-   },
-   "o": {
-    "wert": 0.25
-   },
-   "c": "1 / 2 ** 2",
-   "w": "32^(−2/5) = 1 / 32^(2/5) = 1 / (⁵√32)² = 1 / 2² = 1/4 = 0,25.",
-   "h": "Negativer Exponent: Kehrwert bilden. Dann Wurzel (Nenner) und Potenz (Zähler)."
   },
   {
    "l": "potenz_wert",
    "t": "potenz_wert",
    "p": "test",
    "s": 2,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Berechne 25^(5/2)."
+    "text": "81^(3/4): Weg A: erst ⁴√81 = 3, dann 3³ = 27. Weg B: erst 81³ = 531 441, dann ⁴√531 441 = 27. Was stimmt?"
    },
+   "a": [
+    "Beide Wege sind richtig; A ist im Kopf leichter.",
+    "Keiner: man rechnet 81 · 3 : 4.",
+    "Nur A ist richtig.",
+    "Nur B ist richtig."
+   ],
    "o": {
-    "wert": 3125
+    "index": 0
    },
-   "c": "5 ** 5",
-   "w": "Nenner 2: √25 = 5; Zähler 5: 5⁵ = 3 125."
+   "w": "(ⁿ√a)^m = ⁿ√(a^m). Beide Wege führen zu 27. Erst die Wurzel ziehen hält die Zahlen klein."
+  },
+  {
+   "l": "potenz_wert",
+   "t": "potenz_wert",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "16^(3/2): Weg A: erst √16 = 4, dann 4³ = 64. Weg B: erst 16³ = 4 096, dann √4 096 = 64. Was stimmt?"
+   },
+   "a": [
+    "Beide Wege sind richtig; A ist im Kopf leichter.",
+    "Keiner: man rechnet 16 · 3 : 2.",
+    "Nur A ist richtig.",
+    "Nur B ist richtig."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "(ⁿ√a)^m = ⁿ√(a^m). Beide Wege führen zu 64. Erst die Wurzel ziehen hält die Zahlen klein."
   },
   {
    "l": "potenz_wert",
@@ -928,63 +972,18 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne 125^(2/3)."
+    "text": "Berechne 81^(5/2)."
    },
    "o": {
-    "wert": 25
+    "wert": 59049
    },
-   "c": "5 ** 2",
-   "w": "Nenner 3: ³√125 = 5; Zähler 2: 5² = 25."
+   "c": "9 ** 5",
+   "w": "Nenner 2: √81 = 9; Zähler 5: 9⁵ = 59 049."
   },
   {
    "l": "potenz_wert",
    "t": "potenz_wert",
    "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 4^(5/2)."
-   },
-   "o": {
-    "wert": 32
-   },
-   "c": "2 ** 5",
-   "w": "Nenner 2: √4 = 2; Zähler 5: 2⁵ = 32."
-  },
-  {
-   "l": "potenz_wert",
-   "t": "potenz_wert",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 81^(3/4)."
-   },
-   "o": {
-    "wert": 27
-   },
-   "c": "3 ** 3",
-   "w": "Nenner 4: ⁴√81 = 3; Zähler 3: 3³ = 27."
-  },
-  {
-   "l": "potenz_wert",
-   "t": "potenz_wert",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 100^(3/2)."
-   },
-   "o": {
-    "wert": 1000
-   },
-   "c": "10 ** 3",
-   "w": "Nenner 2: √100 = 10; Zähler 3: 10³ = 1 000."
-  },
-  {
-   "l": "potenz_wert",
-   "t": "potenz_wert",
-   "p": "sicherung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -1003,13 +1002,53 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne 36^(5/2)."
+    "text": "Berechne 25^(5/2)."
    },
    "o": {
-    "wert": 7776
+    "wert": 3125
    },
-   "c": "6 ** 5",
-   "w": "Nenner 2: √36 = 6; Zähler 5: 6⁵ = 7 776."
+   "c": "5 ** 5",
+   "w": "Nenner 2: √25 = 5; Zähler 5: 5⁵ = 3 125."
+  },
+  {
+   "l": "potenz_wert",
+   "t": "potenz_wert",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "81^(5/4): Weg A: erst ⁴√81 = 3, dann 3⁵ = 243. Weg B: erst 81⁵ = 3 486 784 401, dann ⁴√3 486 784 401 = 243. Was stimmt?"
+   },
+   "a": [
+    "Beide Wege sind richtig; A ist im Kopf leichter.",
+    "Keiner: man rechnet 81 · 5 : 4.",
+    "Nur A ist richtig.",
+    "Nur B ist richtig."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "(ⁿ√a)^m = ⁿ√(a^m). Beide Wege führen zu 243. Erst die Wurzel ziehen hält die Zahlen klein."
+  },
+  {
+   "l": "potenz_wert",
+   "t": "potenz_wert",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "25^(3/2): Weg A: erst √25 = 5, dann 5³ = 125. Weg B: erst 25³ = 15 625, dann √15 625 = 125. Was stimmt?"
+   },
+   "a": [
+    "Nur A ist richtig.",
+    "Beide Wege sind richtig; A ist im Kopf leichter.",
+    "Keiner: man rechnet 25 · 3 : 2.",
+    "Nur B ist richtig."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "(ⁿ√a)^m = ⁿ√(a^m). Beide Wege führen zu 125. Erst die Wurzel ziehen hält die Zahlen klein."
   },
   {
    "l": "potenz_wert",
@@ -1018,13 +1057,28 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne 144^(5/2)."
+    "text": "Berechne 8^(2/3)."
    },
    "o": {
-    "wert": 248832
+    "wert": 4
    },
-   "c": "12 ** 5",
-   "w": "Nenner 2: √144 = 12; Zähler 5: 12⁵ = 248 832."
+   "c": "2 ** 2",
+   "w": "Nenner 3: ³√8 = 2; Zähler 2: 2² = 4."
+  },
+  {
+   "l": "potenz_wert",
+   "t": "potenz_wert",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 81^(3/2)."
+   },
+   "o": {
+    "wert": 729
+   },
+   "c": "9 ** 3",
+   "w": "Nenner 2: √81 = 9; Zähler 3: 9³ = 729."
   },
   {
    "l": "potenz_wert",
@@ -1042,19 +1096,28 @@
    "w": "Nenner 2: √100 = 10; Zähler 5: 10⁵ = 100 000."
   },
   {
-   "l": "potenz_wert",
-   "t": "potenz_wert",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
+   "l": "umwandeln",
+   "t": "umwandeln",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
    "f": {
-    "text": "Berechne 121^(3/2)."
+    "text": "Schreibe ⁴√(x⁷) (x ≥ 0) als Potenz mit Bruch-Exponent.",
+    "schablone": "x^(□/□)",
+    "hinweis": "Zähler / Nenner"
    },
    "o": {
-    "wert": 1331
+    "werte": [
+     7,
+     4
+    ]
    },
-   "c": "11 ** 3",
-   "w": "Nenner 2: √121 = 11; Zähler 3: 11³ = 1 331."
+   "w": "Wurzelexponent 4 in den Nenner, Exponent 7 in den Zähler: x^(7/4).",
+   "h": "Der Wurzelexponent wird zum Nenner.",
+   "c": [
+    "7",
+    "4"
+   ]
   },
   {
    "l": "umwandeln",
@@ -1078,6 +1141,30 @@
    "c": [
     "1",
     "7"
+   ]
+  },
+  {
+   "l": "umwandeln",
+   "t": "umwandeln",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Schreibe ³√(x⁵) (x ≥ 0) als Potenz mit Bruch-Exponent.",
+    "schablone": "x^(□/□)",
+    "hinweis": "Zähler / Nenner"
+   },
+   "o": {
+    "werte": [
+     5,
+     3
+    ]
+   },
+   "w": "Wurzelexponent 3 in den Nenner, Exponent 5 in den Zähler: x^(5/3).",
+   "h": "Der Wurzelexponent wird zum Nenner.",
+   "c": [
+    "5",
+    "3"
    ]
   },
   {
@@ -1156,48 +1243,24 @@
    "l": "umwandeln",
    "t": "umwandeln",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Schreibe ⁴√(x³) (x ≥ 0) als Potenz mit Bruch-Exponent.",
+    "text": "Schreibe ⁶√(x³) (x ≥ 0) als Potenz. Kürze den Exponenten.",
     "schablone": "x^(□/□)",
-    "hinweis": "Zähler / Nenner"
-   },
-   "o": {
-    "werte": [
-     3,
-     4
-    ]
-   },
-   "w": "Wurzelexponent 4 in den Nenner, Exponent 3 in den Zähler: x^(3/4).",
-   "h": "Der Wurzelexponent wird zum Nenner.",
-   "c": [
-    "3",
-    "4"
-   ]
-  },
-  {
-   "l": "umwandeln",
-   "t": "umwandeln",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Schreibe ⁹√x (x ≥ 0) als Potenz.",
-    "schablone": "x^(□/□)",
-    "hinweis": "Zähler / Nenner"
+    "hinweis": "Zähler / Nenner (gekürzt)"
    },
    "o": {
     "werte": [
      1,
-     9
+     2
     ]
    },
-   "w": "⁹√x = x^(1/9): Wurzelexponent 9 wird Nenner.",
-   "h": "Welche Zahl gehört in den Nenner: der Wurzelexponent oder die Hochzahl?",
+   "w": "x^(3/6), gekürzt x^(1/2).",
+   "h": "Erst umschreiben, dann den Bruch im Exponenten kürzen.",
    "c": [
-    "1",
-    "9"
+    "3 // 3",
+    "6 // 3"
    ]
   },
   {
@@ -1207,21 +1270,21 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Schreibe ¹²√(x⁴) (x ≥ 0) als Potenz. Kürze den Exponenten.",
+    "text": "Schreibe ¹²√(x⁹) (x ≥ 0) als Potenz. Kürze den Exponenten.",
     "schablone": "x^(□/□)",
     "hinweis": "Zähler / Nenner (gekürzt)"
    },
    "o": {
     "werte": [
-     1,
-     3
+     3,
+     4
     ]
    },
-   "w": "x^(4/12), gekürzt x^(1/3).",
+   "w": "x^(9/12), gekürzt x^(3/4).",
    "h": "Erst umschreiben, dann den Bruch im Exponenten kürzen.",
    "c": [
-    "4 // 4",
-    "12 // 4"
+    "9 // 3",
+    "12 // 3"
    ]
   },
   {
@@ -1318,30 +1381,6 @@
    "c": [
     "10 // 2",
     "8 // 2"
-   ]
-  },
-  {
-   "l": "umwandeln",
-   "t": "umwandeln",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Schreibe ¹²√(x³) (x ≥ 0) als Potenz. Kürze den Exponenten.",
-    "schablone": "x^(□/□)",
-    "hinweis": "Zähler / Nenner (gekürzt)"
-   },
-   "o": {
-    "werte": [
-     1,
-     4
-    ]
-   },
-   "w": "x^(3/12), gekürzt x^(1/4).",
-   "h": "Erst umschreiben, dann den Bruch im Exponenten kürzen.",
-   "c": [
-    "3 // 3",
-    "12 // 3"
    ]
   },
   {
@@ -1509,6 +1548,29 @@
    "s": 2,
    "y": "luecken",
    "f": {
+    "text": "Schreibe ¹²√(x⁴) (x ≥ 0) als Potenz. Kürze den Exponenten.",
+    "schablone": "x^(□/□)",
+    "hinweis": "Zähler / Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     1,
+     3
+    ]
+   },
+   "w": "x^(4/12), gekürzt x^(1/3).",
+   "c": [
+    "4 // 4",
+    "12 // 4"
+   ]
+  },
+  {
+   "l": "umwandeln",
+   "t": "umwandeln",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
     "text": "Schreibe ⁶√(x²) (x ≥ 0) als Potenz. Kürze den Exponenten.",
     "schablone": "x^(□/□)",
     "hinweis": "Zähler / Nenner (gekürzt)"
@@ -1532,6 +1594,29 @@
    "s": 2,
    "y": "luecken",
    "f": {
+    "text": "Schreibe ¹²√(x³) (x ≥ 0) als Potenz. Kürze den Exponenten.",
+    "schablone": "x^(□/□)",
+    "hinweis": "Zähler / Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     1,
+     4
+    ]
+   },
+   "w": "x^(3/12), gekürzt x^(1/4).",
+   "c": [
+    "3 // 3",
+    "12 // 3"
+   ]
+  },
+  {
+   "l": "umwandeln",
+   "t": "umwandeln",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
     "text": "Schreibe ⁶√(x⁹) (x ≥ 0) als Potenz. Kürze den Exponenten.",
     "schablone": "x^(□/□)",
     "hinweis": "Zähler / Nenner (gekürzt)"
@@ -1551,7 +1636,7 @@
   {
    "l": "umwandeln",
    "t": "umwandeln",
-   "p": "korrektur",
+   "p": "sicherung",
    "s": 2,
    "y": "luecken",
    "f": {
@@ -1578,29 +1663,6 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Schreibe ⁶√(x³) (x ≥ 0) als Potenz. Kürze den Exponenten.",
-    "schablone": "x^(□/□)",
-    "hinweis": "Zähler / Nenner (gekürzt)"
-   },
-   "o": {
-    "werte": [
-     1,
-     2
-    ]
-   },
-   "w": "x^(3/6), gekürzt x^(1/2).",
-   "c": [
-    "3 // 3",
-    "6 // 3"
-   ]
-  },
-  {
-   "l": "umwandeln",
-   "t": "umwandeln",
-   "p": "sicherung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
     "text": "Schreibe ¹⁰√(x⁴) (x ≥ 0) als Potenz. Kürze den Exponenten.",
     "schablone": "x^(□/□)",
     "hinweis": "Zähler / Nenner (gekürzt)"
@@ -1615,29 +1677,6 @@
    "c": [
     "4 // 2",
     "10 // 2"
-   ]
-  },
-  {
-   "l": "umwandeln",
-   "t": "umwandeln",
-   "p": "sicherung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Schreibe ¹²√(x⁹) (x ≥ 0) als Potenz. Kürze den Exponenten.",
-    "schablone": "x^(□/□)",
-    "hinweis": "Zähler / Nenner (gekürzt)"
-   },
-   "o": {
-    "werte": [
-     3,
-     4
-    ]
-   },
-   "w": "x^(9/12), gekürzt x^(3/4).",
-   "c": [
-    "9 // 3",
-    "12 // 3"
    ]
   },
   {
@@ -1727,7 +1766,7 @@
     ]
    },
    "w": "Exponenten addiert: 2/3 und 4/5 ergibt 22/15, also x^(22/15).",
-   "h": "Schreibe Wurzeln als Potenzen und wende das passende Potenzgesetz an.",
+   "h": "Gleiche Basis: Beim Malnehmen werden die Exponenten addiert.",
    "c": [
     "22",
     "15"
@@ -1751,7 +1790,7 @@
     ]
    },
    "w": "Exponenten addiert: 3/5 und 5/6 ergibt 43/30, also x^(43/30).",
-   "h": "Schreibe Wurzeln als Potenzen und wende das passende Potenzgesetz an.",
+   "h": "Gleiche Basis: Beim Malnehmen werden die Exponenten addiert.",
    "c": [
     "43",
     "30"
@@ -1775,7 +1814,7 @@
     ]
    },
    "w": "Exponenten addiert: 1/4 und 1/6 ergibt 5/12, also x^(5/12).",
-   "h": "Schreibe Wurzeln als Potenzen und wende das passende Potenzgesetz an.",
+   "h": "Gleiche Basis: Beim Malnehmen werden die Exponenten addiert.",
    "c": [
     "5",
     "12"
@@ -1799,7 +1838,7 @@
     ]
    },
    "w": "Exponenten addiert: 3/2 und 5/6 ergibt 7/3, also x^(7/3).",
-   "h": "Schreibe Wurzeln als Potenzen und wende das passende Potenzgesetz an.",
+   "h": "Gleiche Basis: Beim Malnehmen werden die Exponenten addiert.",
    "c": [
     "7",
     "3"
@@ -1823,7 +1862,7 @@
     ]
    },
    "w": "Exponenten addiert: 5/3 und 1/2 ergibt 13/6, also x^(13/6).",
-   "h": "Schreibe Wurzeln als Potenzen und wende das passende Potenzgesetz an.",
+   "h": "Gleiche Basis: Beim Malnehmen werden die Exponenten addiert.",
    "c": [
     "13",
     "6"
@@ -1847,7 +1886,7 @@
     ]
    },
    "w": "Exponenten addiert: 4/5 und 3/4 ergibt 31/20, also x^(31/20).",
-   "h": "Schreibe Wurzeln als Potenzen und wende das passende Potenzgesetz an.",
+   "h": "Gleiche Basis: Beim Malnehmen werden die Exponenten addiert.",
    "c": [
     "31",
     "20"
@@ -1860,21 +1899,77 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Fasse zu einer Potenz zusammen (x > 0): x^(5/4) · x^(1/2).",
+    "text": "Fasse zu einer Potenz zusammen (x > 0): x^(1/5) : x^(2/3).",
     "schablone": "x^(□/□)",
     "hinweis": "Zähler (mit Vorzeichen) / Nenner, gekürzt"
    },
    "o": {
     "werte": [
-     7,
-     4
+     -7,
+     15
     ]
    },
-   "w": "Exponenten addiert: 5/4 und 1/2 ergibt 7/4, also x^(7/4).",
-   "h": "Schreibe Wurzeln als Potenzen und wende das passende Potenzgesetz an.",
+   "w": "Exponenten subtrahiert: 1/5 und 2/3 ergibt −7/15, also x^(−7/15).",
+   "h": "Gleiche Basis: Beim Teilen werden die Exponenten subtrahiert.",
    "c": [
-    "7",
-    "4"
+    "-7",
+    "15"
+   ]
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 256^(1/2) : 256^(3/8)."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2 ** 1",
+   "w": "Gleiche Basis: Exponenten subtrahieren: 1/2 − 3/8 = 1/8. 256^(1/8) = 2, denn 256 = 2⁸.",
+   "h": "Gleiche Basis: Beim Teilen werden die Exponenten subtrahiert."
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 64^(1/2) : 64^(1/6)."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "2 ** 2",
+   "w": "Gleiche Basis: Exponenten subtrahieren: 1/2 − 1/6 = 1/3. 64^(1/3) = 4, denn 64 = 2⁶.",
+   "h": "Gleiche Basis: Beim Teilen werden die Exponenten subtrahiert."
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zu einer Potenz zusammen (x > 0): x^(4/5) : x^(1/5).",
+    "schablone": "x^(□/□)",
+    "hinweis": "Zähler (mit Vorzeichen) / Nenner, gekürzt"
+   },
+   "o": {
+    "werte": [
+     3,
+     5
+    ]
+   },
+   "w": "Exponenten subtrahiert: 4/5 und 1/5 ergibt 3/5, also x^(3/5).",
+   "h": "Gleiche Basis: Beim Teilen werden die Exponenten subtrahiert.",
+   "c": [
+    "3",
+    "5"
    ]
   },
   {
@@ -1884,20 +1979,60 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Fasse zu einer Potenz zusammen (x > 0): x^(3/2) · x^(1/3).",
+    "text": "Fasse zu einer Potenz zusammen (x > 0): x^(5/4) · x^(1/5).",
     "schablone": "x^(□/□)",
     "hinweis": "Zähler (mit Vorzeichen) / Nenner, gekürzt"
    },
    "o": {
     "werte": [
-     11,
+     29,
+     20
+    ]
+   },
+   "w": "Exponenten addiert: 5/4 und 1/5 ergibt 29/20, also x^(29/20).",
+   "h": "Gleiche Basis: Beim Malnehmen werden die Exponenten addiert.",
+   "c": [
+    "29",
+    "20"
+   ]
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 9^(1/4) · 9^(1/4)."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(9 * 9) / 3 ** 3",
+   "w": "Gleicher Exponent: 9^(1/4) · 9^(1/4) = (9 · 9)^(1/4) = 81^(1/4) = 3.",
+   "h": "Gleicher Exponent: erst die Basen multiplizieren."
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zu einer Potenz zusammen (x > 0): ³√x : √x.",
+    "schablone": "x^(□/□)",
+    "hinweis": "Zähler (mit Vorzeichen) / Nenner, gekürzt"
+   },
+   "o": {
+    "werte": [
+     -1,
      6
     ]
    },
-   "w": "Exponenten addiert: 3/2 und 1/3 ergibt 11/6, also x^(11/6).",
+   "w": "Exponenten subtrahiert: 1/3 und 1/2 ergibt −1/6, also x^(−1/6).",
    "h": "Schreibe Wurzeln als Potenzen und wende das passende Potenzgesetz an.",
    "c": [
-    "11",
+    "-1",
     "6"
    ]
   },
@@ -1905,97 +2040,65 @@
    "l": "zusammenfassen",
    "t": "zusammenfassen",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
    "y": "luecken",
    "f": {
-    "text": "Fasse zu einer Potenz zusammen (x > 0): x^(1/6) : x^(3/2).",
+    "text": "Fasse zu einer Potenz zusammen (x > 0): ⁴√x : √x.",
     "schablone": "x^(□/□)",
     "hinweis": "Zähler (mit Vorzeichen) / Nenner, gekürzt"
    },
    "o": {
     "werte": [
-     -4,
-     3
+     -1,
+     4
     ]
    },
-   "w": "Exponenten subtrahiert: 1/6 und 3/2 ergibt −4/3, also x^(−4/3).",
+   "w": "Exponenten subtrahiert: 1/4 und 1/2 ergibt −1/4, also x^(−1/4).",
    "h": "Schreibe Wurzeln als Potenzen und wende das passende Potenzgesetz an.",
    "c": [
-    "-4",
-    "3"
+    "-1",
+    "4"
    ]
   },
   {
    "l": "zusammenfassen",
    "t": "zusammenfassen",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
    "y": "luecken",
    "f": {
-    "text": "Fasse zu einer Potenz zusammen (x > 0): x^(7/4) : x^(5/4).",
+    "text": "Fasse zu einer Potenz zusammen (x > 0): ³√x : ⁵√x.",
     "schablone": "x^(□/□)",
     "hinweis": "Zähler (mit Vorzeichen) / Nenner, gekürzt"
    },
    "o": {
     "werte": [
-     1,
-     2
-    ]
-   },
-   "w": "Exponenten subtrahiert: 7/4 und 5/4 ergibt 1/2, also x^(1/2).",
-   "h": "Schreibe Wurzeln als Potenzen und wende das passende Potenzgesetz an.",
-   "c": [
-    "1",
-    "2"
-   ]
-  },
-  {
-   "l": "zusammenfassen",
-   "t": "zusammenfassen",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Fasse zu einer Potenz zusammen (x > 0): x^(1/2) · x^(4/5).",
-    "schablone": "x^(□/□)",
-    "hinweis": "Zähler (mit Vorzeichen) / Nenner, gekürzt"
-   },
-   "o": {
-    "werte": [
-     13,
-     10
-    ]
-   },
-   "w": "Exponenten addiert: 1/2 und 4/5 ergibt 13/10, also x^(13/10).",
-   "h": "Schreibe Wurzeln als Potenzen und wende das passende Potenzgesetz an.",
-   "c": [
-    "13",
-    "10"
-   ]
-  },
-  {
-   "l": "zusammenfassen",
-   "t": "zusammenfassen",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Fasse zu einer Potenz zusammen (x > 0): x^(4/5) · x^(1/3).",
-    "schablone": "x^(□/□)",
-    "hinweis": "Zähler (mit Vorzeichen) / Nenner, gekürzt"
-   },
-   "o": {
-    "werte": [
-     17,
+     2,
      15
     ]
    },
-   "w": "Exponenten addiert: 4/5 und 1/3 ergibt 17/15, also x^(17/15).",
+   "w": "Exponenten subtrahiert: 1/3 und 1/5 ergibt 2/15, also x^(2/15).",
    "h": "Schreibe Wurzeln als Potenzen und wende das passende Potenzgesetz an.",
    "c": [
-    "17",
+    "2",
     "15"
    ]
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 81^(1/2) : 81^(1/4)."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3 ** 1",
+   "w": "Gleiche Basis: Exponenten subtrahieren: 1/2 − 1/4 = 1/4. 81^(1/4) = 3, denn 81 = 3⁴.",
+   "h": "Gleiche Basis: Beim Teilen werden die Exponenten subtrahiert."
   },
   {
    "l": "zusammenfassen",
@@ -2028,117 +2131,21 @@
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "Fasse zu einer Potenz zusammen (x > 0): ⁴√x : ⁵√x.",
-    "schablone": "x^(□/□)",
-    "hinweis": "Zähler (mit Vorzeichen) / Nenner, gekürzt"
-   },
-   "o": {
-    "werte": [
-     1,
-     20
-    ]
-   },
-   "w": "Exponenten subtrahiert: 1/4 und 1/5 ergibt 1/20, also x^(1/20).",
-   "h": "Schreibe Wurzeln als Potenzen und wende das passende Potenzgesetz an.",
-   "c": [
-    "1",
-    "20"
-   ]
-  },
-  {
-   "l": "zusammenfassen",
-   "t": "zusammenfassen",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Fasse zu einer Potenz zusammen (x > 0): ⁴√x : ³√x.",
-    "schablone": "x^(□/□)",
-    "hinweis": "Zähler (mit Vorzeichen) / Nenner, gekürzt"
-   },
-   "o": {
-    "werte": [
-     -1,
-     12
-    ]
-   },
-   "w": "Exponenten subtrahiert: 1/4 und 1/3 ergibt −1/12, also x^(−1/12).",
-   "h": "Schreibe Wurzeln als Potenzen und wende das passende Potenzgesetz an.",
-   "c": [
-    "-1",
-    "12"
-   ]
-  },
-  {
-   "l": "zusammenfassen",
-   "t": "zusammenfassen",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Fasse zu einer Potenz zusammen (x > 0): ³√x : ⁴√x.",
-    "schablone": "x^(□/□)",
-    "hinweis": "Zähler (mit Vorzeichen) / Nenner, gekürzt"
-   },
-   "o": {
-    "werte": [
-     1,
-     12
-    ]
-   },
-   "w": "Exponenten subtrahiert: 1/3 und 1/4 ergibt 1/12, also x^(1/12).",
-   "h": "Schreibe Wurzeln als Potenzen und wende das passende Potenzgesetz an.",
-   "c": [
-    "1",
-    "12"
-   ]
-  },
-  {
-   "l": "zusammenfassen",
-   "t": "zusammenfassen",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Fasse zu einer Potenz zusammen (x > 0): √x · ⁴√x.",
-    "schablone": "x^(□/□)",
-    "hinweis": "Zähler (mit Vorzeichen) / Nenner, gekürzt"
-   },
-   "o": {
-    "werte": [
-     3,
-     4
-    ]
-   },
-   "w": "Exponenten addiert: 1/2 und 1/4 ergibt 3/4, also x^(3/4).",
-   "h": "Schreibe Wurzeln als Potenzen und wende das passende Potenzgesetz an.",
-   "c": [
-    "3",
-    "4"
-   ]
-  },
-  {
-   "l": "zusammenfassen",
-   "t": "zusammenfassen",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Fasse zu einer Potenz zusammen (x > 0): ³√(x²) · ⁶√x.",
+    "text": "Fasse zu einer Potenz zusammen (x > 0): ⁴√(x³) · √x.",
     "schablone": "x^(□/□)",
     "hinweis": "Zähler (mit Vorzeichen) / Nenner, gekürzt"
    },
    "o": {
     "werte": [
      5,
-     6
+     4
     ]
    },
-   "w": "Exponenten addiert: 2/3 und 1/6 ergibt 5/6, also x^(5/6).",
+   "w": "Exponenten addiert: 3/4 und 1/2 ergibt 5/4, also x^(5/4).",
    "h": "Schreibe Wurzeln als Potenzen und wende das passende Potenzgesetz an.",
    "c": [
     "5",
-    "6"
+    "4"
    ]
   },
   {
@@ -2148,19 +2155,42 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Fasse zu einer Potenz zusammen (x > 0): x^(1/2) : x^(2/3).",
+    "text": "Fasse zu einer Potenz zusammen (x > 0): (x^(1/3))^(2/5).",
     "schablone": "x^(□/□)",
     "hinweis": "Zähler (mit Vorzeichen) / Nenner, gekürzt"
    },
    "o": {
     "werte": [
-     -1,
+     2,
+     15
+    ]
+   },
+   "w": "Exponenten multipliziert: 1/3 und 2/5 ergibt 2/15, also x^(2/15).",
+   "c": [
+    "2",
+    "15"
+   ]
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zu einer Potenz zusammen (x > 0): (x^(1/4))^(2/3).",
+    "schablone": "x^(□/□)",
+    "hinweis": "Zähler (mit Vorzeichen) / Nenner, gekürzt"
+   },
+   "o": {
+    "werte": [
+     1,
      6
     ]
    },
-   "w": "Exponenten subtrahiert: 1/2 und 2/3 ergibt −1/6, also x^(−1/6).",
+   "w": "Exponenten multipliziert: 1/4 und 2/3 ergibt 1/6, also x^(1/6).",
    "c": [
-    "-1",
+    "1",
     "6"
    ]
   },
@@ -2169,223 +2199,160 @@
    "t": "zusammenfassen",
    "p": "korrektur",
    "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Fasse zu einer Potenz zusammen (x > 0): x^(2/3) · x^(5/6).",
-    "schablone": "x^(□/□)",
-    "hinweis": "Zähler (mit Vorzeichen) / Nenner, gekürzt"
-   },
-   "o": {
-    "werte": [
-     3,
-     2
-    ]
-   },
-   "w": "Exponenten addiert: 2/3 und 5/6 ergibt 3/2, also x^(3/2).",
-   "c": [
-    "3",
-    "2"
-   ]
-  },
-  {
-   "l": "zusammenfassen",
-   "t": "zusammenfassen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Fasse zu einer Potenz zusammen (x > 0): x^(3/2) · x^(3/4).",
-    "schablone": "x^(□/□)",
-    "hinweis": "Zähler (mit Vorzeichen) / Nenner, gekürzt"
-   },
-   "o": {
-    "werte": [
-     9,
-     4
-    ]
-   },
-   "w": "Exponenten addiert: 3/2 und 3/4 ergibt 9/4, also x^(9/4).",
-   "c": [
-    "9",
-    "4"
-   ]
-  },
-  {
-   "l": "zusammenfassen",
-   "t": "zusammenfassen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Fasse zu einer Potenz zusammen (x > 0): (x^(2/3))^(3/5).",
-    "schablone": "x^(□/□)",
-    "hinweis": "Zähler (mit Vorzeichen) / Nenner, gekürzt"
-   },
-   "o": {
-    "werte": [
-     2,
-     5
-    ]
-   },
-   "w": "Exponenten multipliziert: 2/3 und 3/5 ergibt 2/5, also x^(2/5).",
-   "c": [
-    "2",
-    "5"
-   ]
-  },
-  {
-   "l": "zusammenfassen",
-   "t": "zusammenfassen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Fasse zu einer Potenz zusammen (x > 0): x^(5/2) · x^(3/4).",
-    "schablone": "x^(□/□)",
-    "hinweis": "Zähler (mit Vorzeichen) / Nenner, gekürzt"
-   },
-   "o": {
-    "werte": [
-     13,
-     4
-    ]
-   },
-   "w": "Exponenten addiert: 5/2 und 3/4 ergibt 13/4, also x^(13/4).",
-   "c": [
-    "13",
-    "4"
-   ]
-  },
-  {
-   "l": "zusammenfassen",
-   "t": "zusammenfassen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Fasse zu einer Potenz zusammen (x > 0): x^(2/3) · x^(5/4).",
-    "schablone": "x^(□/□)",
-    "hinweis": "Zähler (mit Vorzeichen) / Nenner, gekürzt"
-   },
-   "o": {
-    "werte": [
-     23,
-     12
-    ]
-   },
-   "w": "Exponenten addiert: 2/3 und 5/4 ergibt 23/12, also x^(23/12).",
-   "c": [
-    "23",
-    "12"
-   ]
-  },
-  {
-   "l": "zusammenfassen",
-   "t": "zusammenfassen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Fasse zu einer Potenz zusammen (x > 0): (x^(4/3))^(1/2).",
-    "schablone": "x^(□/□)",
-    "hinweis": "Zähler (mit Vorzeichen) / Nenner, gekürzt"
-   },
-   "o": {
-    "werte": [
-     2,
-     3
-    ]
-   },
-   "w": "Exponenten multipliziert: 4/3 und 1/2 ergibt 2/3, also x^(2/3).",
-   "c": [
-    "2",
-    "3"
-   ]
-  },
-  {
-   "l": "zusammenfassen",
-   "t": "zusammenfassen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Fasse zu einer Potenz zusammen (x > 0): (x^(1/6))^(1/2).",
-    "schablone": "x^(□/□)",
-    "hinweis": "Zähler (mit Vorzeichen) / Nenner, gekürzt"
-   },
-   "o": {
-    "werte": [
-     1,
-     12
-    ]
-   },
-   "w": "Exponenten multipliziert: 1/6 und 1/2 ergibt 1/12, also x^(1/12).",
-   "c": [
-    "1",
-    "12"
-   ]
-  },
-  {
-   "l": "zusammenfassen",
-   "t": "zusammenfassen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Fasse zu einer Potenz zusammen (x > 0): (x^(1/3))^(3/5).",
-    "schablone": "x^(□/□)",
-    "hinweis": "Zähler (mit Vorzeichen) / Nenner, gekürzt"
-   },
-   "o": {
-    "werte": [
-     1,
-     5
-    ]
-   },
-   "w": "Exponenten multipliziert: 1/3 und 3/5 ergibt 1/5, also x^(1/5).",
-   "c": [
-    "1",
-    "5"
-   ]
-  },
-  {
-   "l": "zusammenfassen",
-   "t": "zusammenfassen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Fasse zu einer Potenz zusammen (x > 0): (x^(1/5))^(1/6).",
-    "schablone": "x^(□/□)",
-    "hinweis": "Zähler (mit Vorzeichen) / Nenner, gekürzt"
-   },
-   "o": {
-    "werte": [
-     1,
-     30
-    ]
-   },
-   "w": "Exponenten multipliziert: 1/5 und 1/6 ergibt 1/30, also x^(1/30).",
-   "c": [
-    "1",
-    "30"
-   ]
-  },
-  {
-   "l": "gleichung_exp",
-   "t": "gleichung_exp",
-   "p": "uebung",
-   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Löse x⁴ = 16 für x > 0."
+    "text": "Berechne 64^(1/2) : 64^(1/3)."
    },
    "o": {
     "wert": 2
    },
-   "c": "16 / 2 ** 3",
-   "w": "x = ⁴√16 = 2, denn 2⁴ = 16.",
-   "h": "Ziehe auf beiden Seiten die passende Wurzel."
+   "c": "2 ** 1",
+   "w": "Gleiche Basis: Exponenten subtrahieren: 1/2 − 1/3 = 1/6. 64^(1/6) = 2, denn 64 = 2⁶."
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 16^(1/2) : 16^(1/4)."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2 ** 1",
+   "w": "Gleiche Basis: Exponenten subtrahieren: 1/2 − 1/4 = 1/4. 16^(1/4) = 2, denn 16 = 2⁴."
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zu einer Potenz zusammen (x > 0): x^(2/5) : x^(3/4).",
+    "schablone": "x^(□/□)",
+    "hinweis": "Zähler (mit Vorzeichen) / Nenner, gekürzt"
+   },
+   "o": {
+    "werte": [
+     -7,
+     20
+    ]
+   },
+   "w": "Exponenten subtrahiert: 2/5 und 3/4 ergibt −7/20, also x^(−7/20).",
+   "c": [
+    "-7",
+    "20"
+   ]
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 81^(3/4) : 81^(1/2)."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3 ** 1",
+   "w": "Gleiche Basis: Exponenten subtrahieren: 3/4 − 1/2 = 1/4. 81^(1/4) = 3, denn 81 = 3⁴."
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zu einer Potenz zusammen (x > 0): x^(5/2) : x^(2/3).",
+    "schablone": "x^(□/□)",
+    "hinweis": "Zähler (mit Vorzeichen) / Nenner, gekürzt"
+   },
+   "o": {
+    "werte": [
+     11,
+     6
+    ]
+   },
+   "w": "Exponenten subtrahiert: 5/2 und 2/3 ergibt 11/6, also x^(11/6).",
+   "c": [
+    "11",
+    "6"
+   ]
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zu einer Potenz zusammen (x > 0): x^(7/3) : x^(1/2).",
+    "schablone": "x^(□/□)",
+    "hinweis": "Zähler (mit Vorzeichen) / Nenner, gekürzt"
+   },
+   "o": {
+    "werte": [
+     11,
+     6
+    ]
+   },
+   "w": "Exponenten subtrahiert: 7/3 und 1/2 ergibt 11/6, also x^(11/6).",
+   "c": [
+    "11",
+    "6"
+   ]
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zu einer Potenz zusammen (x > 0): (x^(1/2))^(1/2).",
+    "schablone": "x^(□/□)",
+    "hinweis": "Zähler (mit Vorzeichen) / Nenner, gekürzt"
+   },
+   "o": {
+    "werte": [
+     1,
+     4
+    ]
+   },
+   "w": "Exponenten multipliziert: 1/2 und 1/2 ergibt 1/4, also x^(1/4).",
+   "c": [
+    "1",
+    "4"
+   ]
+  },
+  {
+   "l": "zusammenfassen",
+   "t": "zusammenfassen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Fasse zu einer Potenz zusammen (x > 0): x^(4/3) : x^(5/4).",
+    "schablone": "x^(□/□)",
+    "hinweis": "Zähler (mit Vorzeichen) / Nenner, gekürzt"
+   },
+   "o": {
+    "werte": [
+     1,
+     12
+    ]
+   },
+   "w": "Exponenten subtrahiert: 4/3 und 5/4 ergibt 1/12, also x^(1/12).",
+   "c": [
+    "1",
+    "12"
+   ]
   },
   {
    "l": "gleichung_exp",
@@ -2410,13 +2377,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Löse x² = 225 für x > 0."
+    "text": "Löse x² = 169 für x > 0."
    },
    "o": {
-    "wert": 15
+    "wert": 13
    },
-   "c": "225 / 15 ** 1",
-   "w": "x = √225 = 15, denn 15² = 225.",
+   "c": "169 / 13 ** 1",
+   "w": "x = √169 = 13, denn 13² = 169.",
    "h": "Ziehe auf beiden Seiten die passende Wurzel."
   },
   {
@@ -2426,13 +2393,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Löse x⁵ = 243 für x > 0."
+    "text": "Löse x³ = 216 für x > 0."
    },
    "o": {
-    "wert": 3
+    "wert": 6
    },
-   "c": "243 / 3 ** 4",
-   "w": "x = ⁵√243 = 3, denn 3⁵ = 243.",
+   "c": "216 / 6 ** 2",
+   "w": "x = ³√216 = 6, denn 6³ = 216.",
    "h": "Ziehe auf beiden Seiten die passende Wurzel."
   },
   {
@@ -2442,13 +2409,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Löse x² = 121 für x > 0."
+    "text": "Löse x⁴ = 16 für x > 0."
    },
    "o": {
-    "wert": 11
+    "wert": 2
    },
-   "c": "121 / 11 ** 1",
-   "w": "x = √121 = 11, denn 11² = 121.",
+   "c": "16 / 2 ** 3",
+   "w": "x = ⁴√16 = 2, denn 2⁴ = 16.",
    "h": "Ziehe auf beiden Seiten die passende Wurzel."
   },
   {
@@ -2458,13 +2425,29 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Löse x⁴ = 81 für x > 0."
+    "text": "Löse x² = 81 für x > 0."
    },
    "o": {
-    "wert": 3
+    "wert": 9
    },
-   "c": "81 / 3 ** 3",
-   "w": "x = ⁴√81 = 3, denn 3⁴ = 81.",
+   "c": "81 / 9 ** 1",
+   "w": "x = √81 = 9, denn 9² = 81.",
+   "h": "Ziehe auf beiden Seiten die passende Wurzel."
+  },
+  {
+   "l": "gleichung_exp",
+   "t": "gleichung_exp",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x² = 100 für x > 0."
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "100 / 10 ** 1",
+   "w": "x = √100 = 10, denn 10² = 100.",
    "h": "Ziehe auf beiden Seiten die passende Wurzel."
   },
   {
@@ -2490,14 +2473,46 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse x^(1/2) = 12 für x > 0."
+    "text": "Löse x^(3/5) = 8 für x > 0."
    },
    "o": {
-    "wert": 144
+    "wert": 32
    },
-   "c": "12 ** 2",
-   "w": "Beide Seiten hoch 2: x = 12² = 144.",
+   "c": "2 ** 5",
+   "w": "Beide Seiten hoch 5/3: x = 8^(5/3) = (³√8)⁵ = 2⁵ = 32.",
+   "h": "Potenziere mit dem Kehrwert des Exponenten."
+  },
+  {
+   "l": "gleichung_exp",
+   "t": "gleichung_exp",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x^(1/2) = 5 für x > 0."
+   },
+   "o": {
+    "wert": 25
+   },
+   "c": "5 ** 2",
+   "w": "Beide Seiten hoch 2: x = 5² = 25.",
    "h": "Mit welcher Zahl musst du potenzieren, damit links nur x steht?"
+  },
+  {
+   "l": "gleichung_exp",
+   "t": "gleichung_exp",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x^(2/3) = 16 für x > 0."
+   },
+   "o": {
+    "wert": 64
+   },
+   "c": "4 ** 3",
+   "w": "Beide Seiten hoch 3/2: x = 16^(3/2) = (√16)³ = 4³ = 64.",
+   "h": "Potenziere mit dem Kehrwert des Exponenten."
   },
   {
    "l": "gleichung_exp",
@@ -2513,38 +2528,6 @@
    },
    "c": "2 ** 4",
    "w": "Beide Seiten hoch 4: x = 2⁴ = 16.",
-   "h": "Mit welcher Zahl musst du potenzieren, damit links nur x steht?"
-  },
-  {
-   "l": "gleichung_exp",
-   "t": "gleichung_exp",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x^(1/4) = 4 für x > 0."
-   },
-   "o": {
-    "wert": 256
-   },
-   "c": "4 ** 4",
-   "w": "Beide Seiten hoch 4: x = 4⁴ = 256.",
-   "h": "Mit welcher Zahl musst du potenzieren, damit links nur x steht?"
-  },
-  {
-   "l": "gleichung_exp",
-   "t": "gleichung_exp",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x^(1/2) = 7 für x > 0."
-   },
-   "o": {
-    "wert": 49
-   },
-   "c": "7 ** 2",
-   "w": "Beide Seiten hoch 2: x = 7² = 49.",
    "h": "Mit welcher Zahl musst du potenzieren, damit links nur x steht?"
   },
   {
@@ -2570,13 +2553,13 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Löse x^(3/5) = 8 für x > 0."
+    "text": "Löse x^(4/3) = 256 für x > 0."
    },
    "o": {
-    "wert": 32
+    "wert": 64
    },
-   "c": "2 ** 5",
-   "w": "Beide Seiten hoch 5/3: x = 8^(5/3) = (³√8)⁵ = 2⁵ = 32.",
+   "c": "4 ** 3",
+   "w": "Beide Seiten hoch 3/4: x = 256^(3/4) = (⁴√256)³ = 4³ = 64.",
    "h": "Potenziere mit dem Kehrwert des Exponenten."
   },
   {
@@ -2586,84 +2569,68 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Löse x^(3/2) = 8 für x > 0."
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "2 ** 2",
-   "w": "Beide Seiten hoch 2/3: x = 8^(2/3) = (³√8)² = 2² = 4.",
-   "h": "Potenziere mit dem Kehrwert des Exponenten."
-  },
-  {
-   "l": "gleichung_exp",
-   "t": "gleichung_exp",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x^(2/5) = 4 für x > 0."
-   },
-   "o": {
-    "wert": 32
-   },
-   "c": "2 ** 5",
-   "w": "Beide Seiten hoch 5/2: x = 4^(5/2) = (√4)⁵ = 2⁵ = 32.",
-   "h": "Potenziere mit dem Kehrwert des Exponenten."
-  },
-  {
-   "l": "gleichung_exp",
-   "t": "gleichung_exp",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x^(5/2) = 3 125 für x > 0."
-   },
-   "o": {
-    "wert": 25
-   },
-   "c": "5 ** 2",
-   "w": "Beide Seiten hoch 2/5: x = 3 125^(2/5) = (⁵√3 125)² = 5² = 25.",
-   "h": "Potenziere mit dem Kehrwert des Exponenten."
-  },
-  {
-   "l": "gleichung_exp",
-   "t": "gleichung_exp",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x^(5/2) = 243 für x > 0."
-   },
-   "o": {
-    "wert": 9
-   },
-   "c": "3 ** 2",
-   "w": "Beide Seiten hoch 2/5: x = 243^(2/5) = (⁵√243)² = 3² = 9.",
-   "h": "Potenziere mit dem Kehrwert des Exponenten."
-  },
-  {
-   "l": "gleichung_exp",
-   "t": "gleichung_exp",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x^(3/4) = 27 für x > 0."
+    "text": "Löse 2 · x^(3/4) = 54 für x > 0."
    },
    "o": {
     "wert": 81
    },
    "c": "3 ** 4",
-   "w": "Beide Seiten hoch 4/3: x = 27^(4/3) = (³√27)⁴ = 3⁴ = 81.",
-   "h": "Potenziere mit dem Kehrwert des Exponenten."
+   "w": "Erst durch 2 teilen: x^(3/4) = 27. Dann hoch 4/3: x = (³√27)⁴ = 3⁴ = 81.",
+   "h": "Bringe zuerst die Potenz allein auf eine Seite."
   },
   {
    "l": "gleichung_exp",
    "t": "gleichung_exp",
-   "p": "test",
-   "s": 2,
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x⁵ = −243."
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "-(243 / 3 ** 4)",
+   "w": "Ungerader Exponent: Es gibt genau eine Lösung, und sie ist negativ. (−3)⁵ = −243, also x = −3.",
+   "h": "Bei ungeradem Exponenten bleibt das Minuszeichen erhalten."
+  },
+  {
+   "l": "gleichung_exp",
+   "t": "gleichung_exp",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 3 · x^(3/2) = 192 für x > 0."
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "4 ** 2",
+   "w": "Erst durch 3 teilen: x^(3/2) = 64. Dann hoch 2/3: x = (³√64)² = 4² = 16.",
+   "h": "Bringe zuerst die Potenz allein auf eine Seite."
+  },
+  {
+   "l": "gleichung_exp",
+   "t": "gleichung_exp",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 2 · x^(4/3) = 32 für x > 0."
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "2 ** 3",
+   "w": "Erst durch 2 teilen: x^(4/3) = 16. Dann hoch 3/4: x = (⁴√16)³ = 2³ = 8.",
+   "h": "Bringe zuerst die Potenz allein auf eine Seite."
+  },
+  {
+   "l": "gleichung_exp",
+   "t": "gleichung_exp",
+   "p": "uebung",
+   "s": 3,
    "y": "zahl",
    "f": {
     "text": "Löse x^(1/2) = 6 für x > 0."
@@ -2672,37 +2639,38 @@
     "wert": 36
    },
    "c": "6 ** 2",
-   "w": "Beide Seiten hoch 2: x = 6² = 36."
+   "w": "Beide Seiten hoch 2: x = 6² = 36.",
+   "h": "Mit welcher Zahl musst du potenzieren, damit links nur x steht?"
   },
   {
    "l": "gleichung_exp",
    "t": "gleichung_exp",
-   "p": "korrektur",
+   "p": "test",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse x^(1/3) = 2 für x > 0."
-   },
-   "o": {
-    "wert": 8
-   },
-   "c": "2 ** 3",
-   "w": "Beide Seiten hoch 3: x = 2³ = 8."
-  },
-  {
-   "l": "gleichung_exp",
-   "t": "gleichung_exp",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse x^(1/3) = 4 für x > 0."
+    "text": "Löse x^(1/2) = 8 für x > 0."
    },
    "o": {
     "wert": 64
    },
-   "c": "4 ** 3",
-   "w": "Beide Seiten hoch 3: x = 4³ = 64."
+   "c": "8 ** 2",
+   "w": "Beide Seiten hoch 2: x = 8² = 64."
+  },
+  {
+   "l": "gleichung_exp",
+   "t": "gleichung_exp",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x^(1/2) = 11 für x > 0."
+   },
+   "o": {
+    "wert": 121
+   },
+   "c": "11 ** 2",
+   "w": "Beide Seiten hoch 2: x = 11² = 121."
   },
   {
    "l": "gleichung_exp",
@@ -2722,17 +2690,17 @@
   {
    "l": "gleichung_exp",
    "t": "gleichung_exp",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse x^(1/3) = 5 für x > 0."
+    "text": "Löse x^(5/2) = 243 für x > 0."
    },
    "o": {
-    "wert": 125
+    "wert": 9
    },
-   "c": "5 ** 3",
-   "w": "Beide Seiten hoch 3: x = 5³ = 125."
+   "c": "3 ** 2",
+   "w": "Beide Seiten hoch 2/5: x = 243^(2/5) = (⁵√243)² = 3² = 9."
   },
   {
    "l": "gleichung_exp",
@@ -2741,13 +2709,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse x^(1/2) = 8 für x > 0."
+    "text": "Löse x^(3/4) = 27 für x > 0."
    },
    "o": {
-    "wert": 64
+    "wert": 81
    },
-   "c": "8 ** 2",
-   "w": "Beide Seiten hoch 2: x = 8² = 64."
+   "c": "3 ** 4",
+   "w": "Beide Seiten hoch 4/3: x = 27^(4/3) = (³√27)⁴ = 3⁴ = 81."
   },
   {
    "l": "gleichung_exp",
@@ -2756,13 +2724,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse x^(1/2) = 10 für x > 0."
+    "text": "Löse x^(3/2) = 27 für x > 0."
    },
    "o": {
-    "wert": 100
+    "wert": 9
    },
-   "c": "10 ** 2",
-   "w": "Beide Seiten hoch 2: x = 10² = 100."
+   "c": "3 ** 2",
+   "w": "Beide Seiten hoch 2/3: x = 27^(2/3) = (³√27)² = 3² = 9."
   },
   {
    "l": "gleichung_exp",
@@ -2771,13 +2739,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse x^(1/2) = 11 für x > 0."
+    "text": "Löse x^(5/2) = 32 für x > 0."
    },
    "o": {
-    "wert": 121
+    "wert": 4
    },
-   "c": "11 ** 2",
-   "w": "Beide Seiten hoch 2: x = 11² = 121."
+   "c": "2 ** 2",
+   "w": "Beide Seiten hoch 2/5: x = 32^(2/5) = (⁵√32)² = 2² = 4."
   },
   {
    "l": "gleichung_exp",
@@ -2786,13 +2754,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse x^(1/2) = 5 für x > 0."
+    "text": "Löse x^(4/3) = 16 für x > 0."
    },
    "o": {
-    "wert": 25
+    "wert": 8
    },
-   "c": "5 ** 2",
-   "w": "Beide Seiten hoch 2: x = 5² = 25."
+   "c": "2 ** 3",
+   "w": "Beide Seiten hoch 3/4: x = 16^(3/4) = (⁴√16)³ = 2³ = 8."
   },
   {
    "l": "gleichung_exp",
@@ -2801,13 +2769,91 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse x^(1/2) = 14 für x > 0."
+    "text": "Löse x^(2/3) = 9 für x > 0."
    },
    "o": {
-    "wert": 196
+    "wert": 27
    },
-   "c": "14 ** 2",
-   "w": "Beide Seiten hoch 2: x = 14² = 196."
+   "c": "3 ** 3",
+   "w": "Beide Seiten hoch 3/2: x = 9^(3/2) = (√9)³ = 3³ = 27."
+  },
+  {
+   "l": "gleichung_exp",
+   "t": "gleichung_exp",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x^(4/3) = 81 für x > 0."
+   },
+   "o": {
+    "wert": 27
+   },
+   "c": "3 ** 3",
+   "w": "Beide Seiten hoch 3/4: x = 81^(3/4) = (⁴√81)³ = 3³ = 27."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet 81^(1/2) = 40,5. Was stimmt?"
+   },
+   "a": [
+    "Falsch, 81^(1/2) = −9.",
+    "Richtig, hoch 1/2 bedeutet halbieren.",
+    "Falsch, 81^(1/2) = 6 561.",
+    "Falsch, 81^(1/2) = √81 = 9."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Hoch 1/2 bedeutet Quadratwurzel: √81 = 9, denn 9² = 81.",
+   "h": "Was bedeutet der Nenner 2 im Exponenten?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet 36^(1/2) = 18. Was stimmt?"
+   },
+   "a": [
+    "Falsch, 36^(1/2) = −6.",
+    "Falsch, 36^(1/2) = √36 = 6.",
+    "Falsch, 36^(1/2) = 1 296.",
+    "Richtig, hoch 1/2 bedeutet halbieren."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Hoch 1/2 bedeutet Quadratwurzel: √36 = 6, denn 6² = 36.",
+   "h": "Was bedeutet der Nenner 2 im Exponenten?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet 100^(1/2) = 50. Was stimmt?"
+   },
+   "a": [
+    "Richtig, hoch 1/2 bedeutet halbieren.",
+    "Falsch, 100^(1/2) = √100 = 10.",
+    "Falsch, 100^(1/2) = −10.",
+    "Falsch, 100^(1/2) = 10 000."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Hoch 1/2 bedeutet Quadratwurzel: √100 = 10, denn 10² = 100.",
+   "h": "Was bedeutet der Nenner 2 im Exponenten?"
   },
   {
    "l": "verstehen",
@@ -2837,39 +2883,18 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Jemand rechnet 36^(1/2) = 18. Was stimmt?"
+    "text": "Was ist 144^(−1/2)?"
    },
    "a": [
-    "Falsch, 36^(1/2) = −6.",
-    "Falsch, 36^(1/2) = 1 296.",
-    "Falsch, 36^(1/2) = √36 = 6.",
-    "Richtig, hoch 1/2 bedeutet halbieren."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Hoch 1/2 bedeutet Quadratwurzel: √36 = 6, denn 6² = 36.",
-   "h": "Was bedeutet der Nenner 2 im Exponenten?"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Was ist 64^(−1/2)?"
-   },
-   "a": [
-    "1/8",
-    "−8",
-    "−32",
-    "32"
+    "1/12",
+    "72",
+    "−12",
+    "−72"
    ],
    "o": {
     "index": 0
    },
-   "w": "64^(−1/2) = 1 / 64^(1/2) = 1/√64 = 1/8.",
+   "w": "144^(−1/2) = 1 / 144^(1/2) = 1/√144 = 1/12.",
    "h": "Negativer Exponent: Kehrwert. Hoch 1/2: Quadratwurzel."
   },
   {
@@ -2882,13 +2907,13 @@
     "text": "Was ist 36^(−1/2)?"
    },
    "a": [
-    "18",
-    "1/6",
+    "−18",
     "−6",
-    "−18"
+    "18",
+    "1/6"
    ],
    "o": {
-    "index": 1
+    "index": 3
    },
    "w": "36^(−1/2) = 1 / 36^(1/2) = 1/√36 = 1/6.",
    "h": "Negativer Exponent: Kehrwert. Hoch 1/2: Quadratwurzel."
@@ -2897,43 +2922,22 @@
    "l": "verstehen",
    "t": "verstehen",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Was ist 64^(−1/2)?"
+    "text": "Welche Aussage gilt für x ≥ 0?"
    },
    "a": [
-    "−8",
-    "−32",
-    "1/8",
-    "32"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "64^(−1/2) = 1 / 64^(1/2) = 1/√64 = 1/8.",
-   "h": "Negativer Exponent: Kehrwert. Hoch 1/2: Quadratwurzel."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand rechnet 121^(1/2) = 60,5. Was stimmt?"
-   },
-   "a": [
-    "Falsch, 121^(1/2) = −11.",
-    "Richtig, hoch 1/2 bedeutet halbieren.",
-    "Falsch, 121^(1/2) = 14 641.",
-    "Falsch, 121^(1/2) = √121 = 11."
+    "x^(2/8) = x^(8/2)",
+    "x^(2/8) = 2 · x^(1/4)",
+    "x^(2/8) = x²",
+    "x^(2/8) = x^(1/4)"
    ],
    "o": {
     "index": 3
    },
-   "w": "Hoch 1/2 bedeutet Quadratwurzel: √121 = 11, denn 11² = 121.",
-   "h": "Was bedeutet der Nenner 2 im Exponenten?"
+   "w": "Den Bruch im Exponenten darf man kürzen: 2/8 = 1/4.",
+   "h": "Kann man den Bruch im Exponenten kürzen?"
   },
   {
    "l": "verstehen",
@@ -2945,13 +2949,13 @@
     "text": "Ist (−32)^(1/5) nach der Definition aus dem Unterricht erklärt?"
    },
    "a": [
-    "Nein, Bruch-Exponenten sind nur für nicht-negative Basen definiert.",
+    "Ja, (−32)^(1/5) = −32/5.",
     "Ja, (−32)^(1/5) = 2.",
     "Ja, (−32)^(1/5) = −2.",
-    "Ja, (−32)^(1/5) = −32/5."
+    "Nein, Bruch-Exponenten sind nur für nicht-negative Basen definiert."
    ],
    "o": {
-    "index": 0
+    "index": 3
    },
    "w": "Zwar ist (−2)⁵ = −32, aber die Schreibweise a^(1/n) ist nur für a ≥ 0 festgelegt – sonst entstünden Widersprüche (z. B. (−8)^(1/3) und (−8)^(2/6)).",
    "h": "Für welche Basen ist a^(1/n) festgelegt?"
@@ -2963,40 +2967,19 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Was ist 100^(−1/2)?"
+    "text": "Welche Aussage gilt für x ≥ 0?"
    },
    "a": [
-    "−50",
-    "1/10",
-    "−10",
-    "50"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "100^(−1/2) = 1 / 100^(1/2) = 1/√100 = 1/10.",
-   "h": "Negativer Exponent: Kehrwert. Hoch 1/2: Quadratwurzel."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand rechnet 144^(1/2) = 72. Was stimmt?"
-   },
-   "a": [
-    "Richtig, hoch 1/2 bedeutet halbieren.",
-    "Falsch, 144^(1/2) = −12.",
-    "Falsch, 144^(1/2) = 20 736.",
-    "Falsch, 144^(1/2) = √144 = 12."
+    "x^(2/4) = x²",
+    "x^(2/4) = x^(4/2)",
+    "x^(2/4) = 2 · x^(1/2)",
+    "x^(2/4) = x^(1/2)"
    ],
    "o": {
     "index": 3
    },
-   "w": "Hoch 1/2 bedeutet Quadratwurzel: √144 = 12, denn 12² = 144.",
-   "h": "Was bedeutet der Nenner 2 im Exponenten?"
+   "w": "Den Bruch im Exponenten darf man kürzen: 2/4 = 1/2.",
+   "h": "Kann man den Bruch im Exponenten kürzen?"
   },
   {
    "l": "verstehen",
@@ -3005,18 +2988,18 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Was ist 49^(−1/2)?"
+    "text": "Was ist 121^(−1/2)?"
    },
    "a": [
-    "−24,5",
-    "1/7",
-    "24,5",
-    "−7"
+    "60,5",
+    "1/11",
+    "−60,5",
+    "−11"
    ],
    "o": {
     "index": 1
    },
-   "w": "49^(−1/2) = 1 / 49^(1/2) = 1/√49 = 1/7.",
+   "w": "121^(−1/2) = 1 / 121^(1/2) = 1/√121 = 1/11.",
    "h": "Negativer Exponent: Kehrwert. Hoch 1/2: Quadratwurzel."
   },
   {
@@ -3026,38 +3009,40 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Was ist 4^(−1/2)?"
+    "text": "Welche Aussage gilt für x ≥ 0?"
    },
    "a": [
-    "2",
-    "−2",
-    "1/2"
+    "x^(3/12) = 3 · x^(1/4)",
+    "x^(3/12) = x³",
+    "x^(3/12) = x^(12/3)",
+    "x^(3/12) = x^(1/4)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Den Bruch im Exponenten darf man kürzen: 3/12 = 1/4.",
+   "h": "Kann man den Bruch im Exponenten kürzen?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage gilt für x ≥ 0?"
+   },
+   "a": [
+    "x^(2/10) = 2 · x^(1/5)",
+    "x^(2/10) = x²",
+    "x^(2/10) = x^(1/5)",
+    "x^(2/10) = x^(10/2)"
    ],
    "o": {
     "index": 2
    },
-   "w": "4^(−1/2) = 1 / 4^(1/2) = 1/√4 = 1/2.",
-   "h": "Negativer Exponent: Kehrwert. Hoch 1/2: Quadratwurzel."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Was ist 4^(−1/2)?"
-   },
-   "a": [
-    "2",
-    "1/2",
-    "−2"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "4^(−1/2) = 1 / 4^(1/2) = 1/√4 = 1/2.",
-   "h": "Negativer Exponent: Kehrwert. Hoch 1/2: Quadratwurzel."
+   "w": "Den Bruch im Exponenten darf man kürzen: 2/10 = 1/5.",
+   "h": "Kann man den Bruch im Exponenten kürzen?"
   },
   {
    "l": "verstehen",
@@ -3066,39 +3051,18 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Ist (−243)^(1/5) nach der Definition aus dem Unterricht erklärt?"
+    "text": "Jemand rechnet 81^(3/2) = 81 · 3 : 2. Was ist richtig?"
    },
    "a": [
-    "Nein, Bruch-Exponenten sind nur für nicht-negative Basen definiert.",
-    "Ja, (−243)^(1/5) = −243/5.",
-    "Ja, (−243)^(1/5) = 3.",
-    "Ja, (−243)^(1/5) = −3."
+    "81^(3/2) = 243/2",
+    "81^(3/2) = 54",
+    "81^(3/2) = 729",
+    "81^(3/2) = 27"
    ],
    "o": {
-    "index": 0
+    "index": 2
    },
-   "w": "Zwar ist (−3)⁵ = −243, aber die Schreibweise a^(1/n) ist nur für a ≥ 0 festgelegt – sonst entstünden Widersprüche (z. B. (−8)^(1/3) und (−8)^(2/6)).",
-   "h": "Für welche Basen ist a^(1/n) festgelegt?"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand rechnet 64^(2/3) = 64 · 2 : 3. Was ist richtig?"
-   },
-   "a": [
-    "64^(2/3) = 96",
-    "64^(2/3) = 8",
-    "64^(2/3) = 128/3",
-    "64^(2/3) = 16"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Nenner 3: ³√64 = 4; Zähler 2: 4² = 16.",
+   "w": "Nenner 2: √81 = 9; Zähler 3: 9³ = 729.",
    "h": "Nenner = Wurzel, Zähler = Potenz."
   },
   {
@@ -3106,170 +3070,6 @@
    "t": "verstehen",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand rechnet 16^(3/2) = 16 · 3 : 2. Was ist richtig?"
-   },
-   "a": [
-    "16^(3/2) = 32/3",
-    "16^(3/2) = 12",
-    "16^(3/2) = 64",
-    "16^(3/2) = 24"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Nenner 2: √16 = 4; Zähler 3: 4³ = 64.",
-   "h": "Nenner = Wurzel, Zähler = Potenz."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Ist (−243)^(1/5) nach der Definition aus dem Unterricht erklärt?"
-   },
-   "a": [
-    "Nein, Bruch-Exponenten sind nur für nicht-negative Basen definiert.",
-    "Ja, (−243)^(1/5) = 3.",
-    "Ja, (−243)^(1/5) = −3.",
-    "Ja, (−243)^(1/5) = −243/5."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Zwar ist (−3)⁵ = −243, aber die Schreibweise a^(1/n) ist nur für a ≥ 0 festgelegt – sonst entstünden Widersprüche (z. B. (−8)^(1/3) und (−8)^(2/6)).",
-   "h": "Für welche Basen ist a^(1/n) festgelegt?"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Ist (−243)^(1/5) nach der Definition aus dem Unterricht erklärt?"
-   },
-   "a": [
-    "Ja, (−243)^(1/5) = 3.",
-    "Nein, Bruch-Exponenten sind nur für nicht-negative Basen definiert.",
-    "Ja, (−243)^(1/5) = −243/5.",
-    "Ja, (−243)^(1/5) = −3."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Zwar ist (−3)⁵ = −243, aber die Schreibweise a^(1/n) ist nur für a ≥ 0 festgelegt – sonst entstünden Widersprüche (z. B. (−8)^(1/3) und (−8)^(2/6)).",
-   "h": "Für welche Basen ist a^(1/n) festgelegt?"
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand rechnet 1024^(2/5) = 1024 · 2 : 5. Was ist richtig?"
-   },
-   "a": [
-    "1024^(2/5) = 2 560",
-    "1024^(2/5) = 2048/5",
-    "1024^(2/5) = 8",
-    "1024^(2/5) = 16"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Nenner 5: ⁵√1024 = 4; Zähler 2: 4² = 16.",
-   "h": "Nenner = Wurzel, Zähler = Potenz."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "test",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Was ist 49^(−1/2)?"
-   },
-   "a": [
-    "−7",
-    "24,5",
-    "1/7",
-    "−24,5"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "49^(−1/2) = 1 / 49^(1/2) = 1/√49 = 1/7."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ist (−243)^(1/5) nach der Definition aus dem Unterricht erklärt?"
-   },
-   "a": [
-    "Ja, (−243)^(1/5) = −3.",
-    "Ja, (−243)^(1/5) = −243/5.",
-    "Nein, Bruch-Exponenten sind nur für nicht-negative Basen definiert.",
-    "Ja, (−243)^(1/5) = 3."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Zwar ist (−3)⁵ = −243, aber die Schreibweise a^(1/n) ist nur für a ≥ 0 festgelegt – sonst entstünden Widersprüche (z. B. (−8)^(1/3) und (−8)^(2/6))."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand rechnet 16^(1/2) = 8. Was stimmt?"
-   },
-   "a": [
-    "Falsch, 16^(1/2) = 256.",
-    "Falsch, 16^(1/2) = −4.",
-    "Richtig, hoch 1/2 bedeutet halbieren.",
-    "Falsch, 16^(1/2) = √16 = 4."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Hoch 1/2 bedeutet Quadratwurzel: √16 = 4, denn 4² = 16."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Jemand rechnet 81^(1/2) = 40,5. Was stimmt?"
-   },
-   "a": [
-    "Richtig, hoch 1/2 bedeutet halbieren.",
-    "Falsch, 81^(1/2) = 6 561.",
-    "Falsch, 81^(1/2) = √81 = 9.",
-    "Falsch, 81^(1/2) = −9."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Hoch 1/2 bedeutet Quadratwurzel: √81 = 9, denn 9² = 81."
-  },
-  {
-   "l": "verstehen",
-   "t": "verstehen",
-   "p": "sicherung",
-   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welche Aussage gilt für x ≥ 0?"
@@ -3283,67 +3083,170 @@
    "o": {
     "index": 3
    },
-   "w": "Den Bruch im Exponenten darf man kürzen: 3/9 = 1/3."
+   "w": "Den Bruch im Exponenten darf man kürzen: 3/9 = 1/3.",
+   "h": "Kann man den Bruch im Exponenten kürzen?"
   },
   {
    "l": "verstehen",
    "t": "verstehen",
-   "p": "sicherung",
-   "s": 2,
+   "p": "uebung",
+   "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Jemand rechnet 225^(1/2) = 112,5. Was stimmt?"
+    "text": "Jemand rechnet 4^(3/2) = 4 · 3 : 2. Was ist richtig?"
    },
    "a": [
-    "Falsch, 225^(1/2) = −15.",
-    "Falsch, 225^(1/2) = √225 = 15.",
-    "Richtig, hoch 1/2 bedeutet halbieren.",
-    "Falsch, 225^(1/2) = 50 625."
+    "4^(3/2) = 6",
+    "4^(3/2) = 8/3",
+    "4^(3/2) = 8"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Nenner 2: √4 = 2; Zähler 3: 2³ = 8.",
+   "h": "Nenner = Wurzel, Zähler = Potenz."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet 32^(2/5) = 32 · 2 : 5. Was ist richtig?"
+   },
+   "a": [
+    "32^(2/5) = 64/5",
+    "32^(2/5) = 4",
+    "32^(2/5) = 80"
    ],
    "o": {
     "index": 1
    },
-   "w": "Hoch 1/2 bedeutet Quadratwurzel: √225 = 15, denn 15² = 225."
+   "w": "Nenner 5: ⁵√32 = 2; Zähler 2: 2² = 4.",
+   "h": "Nenner = Wurzel, Zähler = Potenz."
   },
   {
    "l": "verstehen",
    "t": "verstehen",
-   "p": "sicherung",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet 27^(2/3) = 27 · 2 : 3. Was ist richtig?"
+   },
+   "a": [
+    "27^(2/3) = 6",
+    "27^(2/3) = 81/2",
+    "27^(2/3) = 9",
+    "27^(2/3) = 18"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Nenner 3: ³√27 = 3; Zähler 2: 3² = 9.",
+   "h": "Nenner = Wurzel, Zähler = Potenz."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet 49^(3/2) = 49 · 3 : 2. Was ist richtig?"
+   },
+   "a": [
+    "49^(3/2) = 21",
+    "49^(3/2) = 343",
+    "49^(3/2) = 147/2",
+    "49^(3/2) = 98/3"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Nenner 2: √49 = 7; Zähler 3: 7³ = 343.",
+   "h": "Nenner = Wurzel, Zähler = Potenz."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "test",
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Ist (−27)^(1/3) nach der Definition aus dem Unterricht erklärt?"
+    "text": "Ist (−8)^(1/3) nach der Definition aus dem Unterricht erklärt?"
    },
    "a": [
-    "Ja, (−27)^(1/3) = −3.",
+    "Ja, (−8)^(1/3) = 2.",
+    "Ja, (−8)^(1/3) = −2.",
     "Nein, Bruch-Exponenten sind nur für nicht-negative Basen definiert.",
-    "Ja, (−27)^(1/3) = −9.",
-    "Ja, (−27)^(1/3) = 3."
+    "Ja, (−8)^(1/3) = −8/3."
    ],
    "o": {
-    "index": 1
+    "index": 2
    },
-   "w": "Zwar ist (−3)³ = −27, aber die Schreibweise a^(1/n) ist nur für a ≥ 0 festgelegt – sonst entstünden Widersprüche (z. B. (−8)^(1/3) und (−8)^(2/6))."
+   "w": "Zwar ist (−2)³ = −8, aber die Schreibweise a^(1/n) ist nur für a ≥ 0 festgelegt – sonst entstünden Widersprüche (z. B. (−8)^(1/3) und (−8)^(2/6))."
   },
   {
    "l": "verstehen",
    "t": "verstehen",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welche Aussage gilt für x ≥ 0?"
    },
    "a": [
-    "x^(2/4) = x^(4/2)",
-    "x^(2/4) = x²",
-    "x^(2/4) = x^(1/2)",
-    "x^(2/4) = 2 · x^(1/2)"
+    "x^(3/15) = x^(1/5)",
+    "x^(3/15) = 3 · x^(1/5)",
+    "x^(3/15) = x^(15/3)",
+    "x^(3/15) = x³"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Den Bruch im Exponenten darf man kürzen: 3/15 = 1/5."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist (−64)^(1/3) nach der Definition aus dem Unterricht erklärt?"
+   },
+   "a": [
+    "Ja, (−64)^(1/3) = −4.",
+    "Ja, (−64)^(1/3) = −64/3.",
+    "Nein, Bruch-Exponenten sind nur für nicht-negative Basen definiert.",
+    "Ja, (−64)^(1/3) = 4."
    ],
    "o": {
     "index": 2
    },
-   "w": "Den Bruch im Exponenten darf man kürzen: 2/4 = 1/2."
+   "w": "Zwar ist (−4)³ = −64, aber die Schreibweise a^(1/n) ist nur für a ≥ 0 festgelegt – sonst entstünden Widersprüche (z. B. (−8)^(1/3) und (−8)^(2/6))."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist (−243)^(1/5) nach der Definition aus dem Unterricht erklärt?"
+   },
+   "a": [
+    "Ja, (−243)^(1/5) = 3.",
+    "Ja, (−243)^(1/5) = −243/5.",
+    "Ja, (−243)^(1/5) = −3.",
+    "Nein, Bruch-Exponenten sind nur für nicht-negative Basen definiert."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Zwar ist (−3)⁵ = −243, aber die Schreibweise a^(1/n) ist nur für a ≥ 0 festgelegt – sonst entstünden Widersprüche (z. B. (−8)^(1/3) und (−8)^(2/6))."
   },
   {
    "l": "verstehen",
@@ -3352,18 +3255,17 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Jemand rechnet 196^(1/2) = 98. Was stimmt?"
+    "text": "Was ist 4^(−1/2)?"
    },
    "a": [
-    "Richtig, hoch 1/2 bedeutet halbieren.",
-    "Falsch, 196^(1/2) = −14.",
-    "Falsch, 196^(1/2) = 38 416.",
-    "Falsch, 196^(1/2) = √196 = 14."
+    "2",
+    "1/2",
+    "−2"
    ],
    "o": {
-    "index": 3
+    "index": 1
    },
-   "w": "Hoch 1/2 bedeutet Quadratwurzel: √196 = 14, denn 14² = 196."
+   "w": "4^(−1/2) = 1 / 4^(1/2) = 1/√4 = 1/2."
   },
   {
    "l": "verstehen",
@@ -3375,19 +3277,99 @@
     "text": "Jemand rechnet 64^(1/2) = 32. Was stimmt?"
    },
    "a": [
-    "Falsch, 64^(1/2) = √64 = 8.",
     "Richtig, hoch 1/2 bedeutet halbieren.",
     "Falsch, 64^(1/2) = −8.",
+    "Falsch, 64^(1/2) = √64 = 8.",
     "Falsch, 64^(1/2) = 4 096."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Hoch 1/2 bedeutet Quadratwurzel: √64 = 8, denn 8² = 64."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet 25^(1/2) = 12,5. Was stimmt?"
+   },
+   "a": [
+    "Falsch, 25^(1/2) = 625.",
+    "Falsch, 25^(1/2) = −5.",
+    "Falsch, 25^(1/2) = √25 = 5.",
+    "Richtig, hoch 1/2 bedeutet halbieren."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Hoch 1/2 bedeutet Quadratwurzel: √25 = 5, denn 5² = 25."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Was ist 64^(−1/2)?"
+   },
+   "a": [
+    "−8",
+    "1/8",
+    "−32",
+    "32"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "64^(−1/2) = 1 / 64^(1/2) = 1/√64 = 1/8."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage gilt für x ≥ 0?"
+   },
+   "a": [
+    "x^(2/6) = x^(1/3)",
+    "x^(2/6) = x²",
+    "x^(2/6) = x^(6/2)",
+    "x^(2/6) = 2 · x^(1/3)"
    ],
    "o": {
     "index": 0
    },
-   "w": "Hoch 1/2 bedeutet Quadratwurzel: √64 = 8, denn 8² = 64."
+   "w": "Den Bruch im Exponenten darf man kürzen: 2/6 = 1/3."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet 225^(1/2) = 112,5. Was stimmt?"
+   },
+   "a": [
+    "Falsch, 225^(1/2) = 50 625.",
+    "Falsch, 225^(1/2) = √225 = 15.",
+    "Falsch, 225^(1/2) = −15.",
+    "Richtig, hoch 1/2 bedeutet halbieren."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Hoch 1/2 bedeutet Quadratwurzel: √225 = 15, denn 15² = 225."
   }
  ],
  "offen": [
   "Exponenten werden als Text „x^(2/3)“ geschrieben, weil die App keine Hochstellung von Brüchen kann. Falls eine Formel-Darstellung kommt, Texte umstellen.",
-  "Gleichungen xⁿ = c mit negativen Lösungen und Lösungsanzahl stehen im Thema gleichungen.potenz; hier nur x > 0."
+  "Gleichungen xⁿ = c: Lösungsanzahl und negative Lösungen stehen ausführlich im Thema gleichungen.potenz; hier nur als Stufe-3-Aufgabe mit ungeradem n (Prüfvorschlag x³ = −125)."
  ]
 }

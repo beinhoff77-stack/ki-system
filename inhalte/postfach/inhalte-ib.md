@@ -2,6 +2,40 @@
 
 Neueste Meldung oben.
 
+## 2026-11-14 15:43 – FERTIG
+Paket IB abgeschlossen: 14 Themen, 72 Lernkarten, 2 016 Aufgaben, alle mit `python3 -I tools/inhalt_pruefen.py` OK (Zweig `inhalte-ib`, je Thema ein Commit; dazu zwei Nachbesserungs-Commits für Zeichnungen).
+
+| Thema | klasse | Karten | Aufgaben | Lernkarten |
+|---|---|---|---|---|
+| mengen.grundbegriffe | ib_myp 1 | 5 | 140 | Elemente, Schnitt, Vereinigung, Venn-Diagramm, Aussagen prüfen |
+| groessen.verhaeltnisse | ib_myp 2 | 6 | 168 | Kürzen, gleichwertig, aufteilen, Proportion, Einheitsrate, Änderungsrate |
+| daten.zweidimensional | ib_myp 3 | 5 | 140 | Streudiagramm, Zusammenhang, Ausgleichsgerade, Ausreißer, Korrelation/Kausalität |
+| daten.standardabweichung | ib_myp 4 | 5 | 140 | Abweichung, Varianz, σ, Eigenschaften, Deuten |
+| stochastik.bedingt | ib_myp 4 | 6 | 168 | Vierfeldertafel, Formel, ohne Zurücklegen, Unabhängigkeit, Rückschluss (1 000 Fälle), Bedingung lesen |
+| funktionen.betrag | ib_myp 4 | 5 | 140 | Betrag, Graph/Knick, stückweise, Gleichungen, Aussagen |
+| funktionen.folgen | ib_myp 4 | 5 | 140 | explizit, rekursiv, arithmetisch, geometrisch, erkennen |
+| funktionen.reihen | ib_myp 4 | 5 | 140 | Summenzeichen, arithm. Reihe, geom. Reihe, Sachaufgaben, Fehler finden |
+| sonder.graphentheorie | ib_myp 4 | 5 | 140 | Grad/Handschlag, Euler, kürzeste Wege, Spannbaum (Kruskal), Aussagen |
+| sonder.optimierung | ib_myp 4 | 5 | 140 | Bereich, Bedingungen aufstellen, Ecken, Eckenprinzip, Sachaufgaben |
+| daten.normalverteilung | zusatz 10 | 5 | 140 | Glockenkurve, 68-95-99,7, Teilanteile, z-Wert, Vergleichen |
+| finanzen.zinseszins | zusatz 10 | 5 | 140 | Jahr für Jahr, Faktor q, Kₙ = K₀ · qⁿ, rückwärts, Angebote/Verdopplung |
+| sonder.logik | zusatz 10 | 5 | 140 | Aussagen, Verneinung, und/oder, Wahrheitstafel, wenn–dann |
+| zahlen.schranken | zusatz 10 | 5 | 140 | Schranken, Messgenauigkeit, Summen/Differenzen, Produkte/Quotienten, Entscheiden |
+
+Umgesetzt:
+- Fachbegriffe deutsch, IB-Begriff beim ersten Auftreten englisch in Klammern. Jede Karte mit Alltagsbeispiel, typischem Fehler mit Zahlen; Stufe 3 mit Fehler finden, Umkehr- oder Sachaufgaben; falsche Antworten aus typischen Denkfehlern.
+- Zeichnungen: Venn-Diagramme (figur, Beschriftung über unsichtbare Hilfskreise mit Radius 0 – keine Punkt-Marker), Graphen der Graphentheorie (figur mit Kantengewichten), Streudiagramme, V-Graphen der Betragsfunktion (zwei Geradenstücke), Randgeraden der Optimierung, Baumdiagramme, Tabellen. Alle Zeichenarten mit dem Original-Zeichencode aus lernen.js gerendert und angesehen.
+- klasse `{"zusatz": 10}` bei den vier Themen ohne Zuordnung (bestätigt in antworten.md, 15:30).
+
+Offen / App-Wünsche (Details je Datei unter "offen"):
+- App-Wunsch: Halbebenen bzw. zulässigen Bereich füllen (sonder.optimierung).
+- App-Wunsch: Graphart Glockenkurve mit färbbarer Fläche (daten.normalverteilung); bisher Säulendiagramm in Glockenform.
+- App-Wunsch (optional): eigene Zeichenart „venn“; Bereich auf dem Zahlenstrahl markieren (zahlen.schranken); Formeldarstellung für ∑ mit Grenzen über/unter dem Zeichen.
+- Inhaltliche Annahmen: σ der Gesamtheit (durch n); unendliche geometrische Reihen nicht enthalten; Reihen/Summen nur in funktionen.reihen (nicht in folgen); Graphentheorie ohne Hamiltonkreise; Optimierung ohne Isogewinngeraden; Normalverteilung nur mit 68-95-99,7-Regel.
+- Schreibweise P(A | B) (IB) statt P_B(A); Überschneidung mit stochastik.verknuepft (Kl. 9) bewusst, hier ausführlicher.
+- Indizes als Unicode (a₅, aₙ₊₁, ∑ₖ₌₁⁵) – bitte in der App-Schrift prüfen.
+- Hilfsdatei: nur inhalte/generatoren/_ib.py; keine fremden Dateien geändert.
+
 ## 2026-11-14 15:41 – STATUS
 14/14 zahlen.schranken fertig: 5 Lernkarten (Schranken, Messgenauigkeit, Summen/Differenzen, Produkte/Quotienten, Entscheiden im ungünstigsten Fall), 140 Aufgaben, Prüfskript OK. klasse = {"zusatz": 10}.
 

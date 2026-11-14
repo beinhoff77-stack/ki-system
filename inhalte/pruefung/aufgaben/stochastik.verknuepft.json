@@ -1,0 +1,103 @@
+{
+  "thema_schluessel": "stochastik.verknuepft",
+  "gesamturteil": "brauchbar",
+  "karten": [
+    {
+      "lernziel": "verknuepfen",
+      "urteil": "verbessern",
+      "stufen": "Stufe 3 enthält vor allem 'Was bedeutet A ∪ B?' – das ist leichter als die Zählaufgaben der Stufe 2. Es wird nur A ∪ B in Worten abgefragt, nie A ∩ B, Ā oder A ∩ B̄. Zahlen nachgerechnet: alle geprüften Anzahlen stimmen.",
+      "fehlende_aufgabentypen": [
+        "Ereignis in Symbolen erkennen (auswahl, Stufe 2): Wortbeschreibung → Symbol. Antworten A ∩ B, A ∪ B, Ā ∩ B, A ∩ B̄. Beispiel 1: 'A: Zahl gerade, B: Zahl größer als 10. Wie schreibt man: Die Zahl ist ungerade und größer als 10?' → Ā ∩ B. Beispiel 2: 'A: Schüler hat ein Rad, B: Schüler hat einen Roller. Wie schreibt man: weder Rad noch Roller?' → Ā ∩ B̄ (Ablenker: Ā ∪ B̄, 'nicht A oder nicht B').",
+        "Ergebnismenge angeben (luecken, Stufe 3, Schablone 'Anzahl: □'): Beispiel 1: '1 bis 30, A: durch 4 teilbar, B: durch 6 teilbar. Wie viele Zahlen liegen in A ∩ B?' → 2 (12, 24). Beispiel 2: '1 bis 40, A: Quadratzahl, B: gerade. Wie viele Zahlen liegen in A ∩ B̄?' → 3 (1, 9, 25)."
+      ],
+      "generator_regeln": [
+        "Stufe 3 = Ereignisse mit 'aber nicht' oder 'weder … noch'; die Bedeutungsfrage zu A ∪ B nach Stufe 1.",
+        "Bei 'Berechne P(„nicht A“)' das Ereignis B weglassen, wenn es für die Frage keine Rolle spielt, oder ausdrücklich als Ablenkung kennzeichnen."
+      ]
+    },
+    {
+      "lernziel": "vierfeld",
+      "urteil": "verbessern",
+      "stufen": "Stufe 1 ('Wie viele haben A nicht?') braucht keine Vierfeldertafel. Stufe 3 unterscheidet sich von Stufe 2 nur durch eine Prozentangabe. Alle Aufgaben stellen die Tafel nur in Worten dar, obwohl die App jetzt Tabellen zeichnen kann.",
+      "fehlende_aufgabentypen": [
+        "Tafel mit Lücken als Grafik (zahl, alle Stufen): f.grafik = {typ: 'tabelle', kopf: ['', 'B', 'nicht B', 'Summe'], zeilen: [...]} mit genau einem '?' im gefragten Feld und 3–5 gegebenen Feldern. Beispiel 1: Zeile A: 30 | ? | 50, Zeile nicht A: 20 | 30 | 50, Summe: 50 | 50 | 100 → 20. Beispiel 2: Zeile A: ? | 12 | 40, Zeile nicht A: 35 | ? | 60, Summe: ? | ? | 100, gefragt 'nicht A und nicht B' → 25 (A ∩ B = 28, B = 63, nicht A ∩ nicht B = 60 − 35 = 25).",
+        "Fehler finden (auswahl, Stufe 3): Tafel, in der eine Randsumme nicht stimmt; das Kind wählt das falsche Feld. Beispiel 1: A: 18 | 22 | 40; nicht A: 25 | 35 | 50; Summe 43 | 57 | 100 → 'Die Zeilensumme nicht A muss 60 sein.' Beispiel 2: A: 12 | 8 | 20; nicht A: 30 | 50 | 80; Summe 42 | 48 | 100 → 'Die Spaltensumme nicht B muss 58 sein.'"
+      ],
+      "generator_regeln": [
+        "Prozentangaben in Stufe 3 ganzzahlig oder mit ,5 (z. B. 40 % oder 31,5 %), aber nicht 39,6 %.",
+        "Merkmale mit Bezug (Alter ↔ Vereinssport) beibehalten; keine Kombination, deren Zahlen unglaubwürdig sind (z. B. 319 von 400 Vereinsmitgliedern spielen Fußball, aber nur 122 sind unter 18 – möglich, aber dann im Text 'Fußballverein' sagen)."
+      ]
+    },
+    {
+      "lernziel": "tafel_wkeit",
+      "urteil": "verbessern",
+      "stufen": "Stufe 1–2 passen, Stufe 3 ('genau eines', A ∪ B) ist echte Steigerung. Alle Aufgaben ohne Sachzusammenhang ('A und B: 141 …'), Sprache formelhaft.",
+      "fehlende_aufgabentypen": [
+        "Wahrscheinlichkeits-Tafel ergänzen (zahl, Stufe 2): Tafel mit Dezimalzahlen als f.grafik. Beispiel 1: P(A ∩ B) = 0,12, P(A) = 0,3, gefragt P(A ∩ B̄) → 0,18. Beispiel 2: P(B) = 0,45, P(Ā ∩ B) = 0,25, P(Ā) = 0,6, gefragt P(Ā ∩ B̄) → 0,35."
+      ],
+      "generator_regeln": [
+        "Statt 'Eine Person/ein Fall wird zufällig ausgewählt' den Gegenstand nennen ('Ein Vereinsmitglied wird zufällig ausgewählt').",
+        "Tafel als f.grafik (typ 'tabelle') zeigen statt als Fließtext."
+      ]
+    },
+    {
+      "lernziel": "additionssatz",
+      "urteil": "ok",
+      "stufen": "Passt: Stufe 1 einsetzen, Stufe 2 Gegenereignis oder Umstellen, Stufe 3 Zählen und Additionssatz kombiniert. Alle geprüften Werte stimmen.",
+      "fehlende_aufgabentypen": [
+        "Sachaufgabe (zahl, Stufe 3): Beispiel 1: 'In einer Klasse spielen 40 % ein Instrument, 50 % machen Sport im Verein, 15 % beides. Wie viel Prozent machen keins von beiden?' → 25. Beispiel 2: 'Bei einem Glücksrad ist P(rot) = 0,3 und P(Zahl gerade) = 0,5, P(rot und gerade) = 0,1. Mit welcher Wahrscheinlichkeit gewinnt man, wenn rot oder gerade gewinnt?' → 0,7."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "bedingt",
+      "urteil": "verbessern",
+      "stufen": "Stufe 1 und 2 sind dieselbe Rechnung (nur P_B(A) statt P_A(B)). Stufe 3 ist eine Formel mit zwei Zahlen und damit leichter als Stufe 2. Es fehlt jede Sachaufgabe, obwohl bedingte Wahrscheinlichkeit gerade dort ihre Bedeutung hat.",
+      "fehlende_aufgabentypen": [
+        "P_A(B) und P_B(A) unterscheiden (auswahl, Stufe 3): Beispiel 1: 'Von 200 Schülern tragen 50 eine Brille; 20 davon sind Mädchen. Insgesamt sind 90 Mädchen. Was ist P(Brille | Mädchen)?' Antworten: 20/90 (richtig), 20/50 (vertauscht), 20/200 (Schnitt statt bedingt), 50/90. Beispiel 2: 'Ein Test zeigt bei 18 von 20 Kranken und bei 9 von 180 Gesunden positiv. Wie groß ist P(krank | positiv)?' → 18/27 = 2/3; Ablenker 18/20 (Verwechslung), 18/200.",
+        "Baumdiagramm (zahl, Stufe 3): f.grafik typ 'baum' mit Pfadwahrscheinlichkeiten. Beispiel 1: P(A) = 0,4, P_A(B) = 0,5, P_Ā(B) = 0,25 → P(B) = 0,35. Beispiel 2: gleiche Werte, gefragt P_B(A) = 0,2 : 0,35 → als luecken '□/□' mit 4/7."
+      ],
+      "generator_regeln": [
+        "In Stufe 3 Formelaufgaben (P(A ∩ B) : P(B)) nicht als schwerste Form verwenden; dorthin Sachaufgaben mit Vertauschungsfalle."
+      ]
+    },
+    {
+      "lernziel": "verstehen",
+      "urteil": "verbessern",
+      "stufen": "Dieselbe Aufgabe ('A und B sind unvereinbar, P(A) = …, P(B) = … Was gilt für P(A ∪ B)?') steht in Stufe 1, Stufe 2 und in der Sicherung – keine Steigerung. Mehrere Aufgaben sind wörtlich doppelt (siehe Fehlerliste). Die falschen Antworten sind gut aus Denkfehlern gebaut (Produkt statt Summe, Produkt abgezogen, P(A ∩ B) = P(A) · P(B) unterstellt).",
+      "fehlende_aufgabentypen": [
+        "Aussage über Grenzen beurteilen (auswahl, Stufe 3): Beispiel 1: 'P(A) = 0,6, P(B) = 0,5. Welcher Wert ist für P(A ∩ B) möglich?' Antworten 0,05 (zu klein, mindestens 0,1), 0,3 (richtig), 0,55 (größer als P(B)), 0,6. Beispiel 2: 'P(A) = 0,4, P(B) = 0,3. Welcher Wert ist für P(A ∪ B) möglich?' → 0,5 richtig; 0,2 (kleiner als P(A)), 0,8 (größer als P(A) + P(B))."
+      ],
+      "generator_regeln": [
+        "Innerhalb des Themas keine Aufgabe zweimal (gleicher Text und gleiche Zahlen), auch nicht mit gemischten Antworten.",
+        "Test- und Korrekturaufgabe einer Lernkarte müssen verschiedene Zahlen haben."
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Jemand behauptet: „P(A) = 0,7 und P(B) = 0,6; A und B können unvereinbar sein.“ Was stimmt?",
+      "art": "mehrdeutig",
+      "problem": "Diese Aufgabe steht wörtlich als Test und als Korrektur. Die Korrektur soll nach einem Fehler im Test eine neue Aufgabe bieten; hier sieht das Kind dieselbe Aufgabe noch einmal.",
+      "korrektur": "Korrekturaufgabe mit anderen Zahlen: „P(A) = 0,6 und P(B) = 0,5; A und B können unvereinbar sein.“ – Lösung 'Falsch: Dann wäre P(A ∪ B) = 1,1 > 1. Es gilt P(A ∩ B) ≥ 0,1.'"
+    },
+    {
+      "aufgabe": "A und B sind unvereinbar, P(A) = 0,2, P(B) = 0,1. Was gilt für P(A ∪ B)?",
+      "art": "mehrdeutig",
+      "problem": "Zwei Mal als Übung Stufe 1 vorhanden (nur Reihenfolge der Antworten anders). Ebenso doppelt: 'P(A) = 0,3, P(B) = 0,2' (Stufe 1 und 2) und „P(A) = 0,9 und P(B) = 0,8 …“ (Übung und Sicherung).",
+      "korrektur": "Zweite Fassung ersetzen durch: 'A und B sind unvereinbar, P(A) = 0,45, P(B) = 0,25. Was gilt für P(A ∪ B)?' – Lösung 0,7."
+    },
+    {
+      "aufgabe": "Vierfeldertafel (Anzahlen): A und B: 141; A und nicht B: 28; nicht A und B: 61; nicht A und nicht B: 20. Gesamt: 250. Eine Person/ein Fall wird zufällig ausgewählt. Berechne P(„A und nicht B“) als Dezimalzahl.",
+      "art": "sprache",
+      "problem": "'Eine Person/ein Fall' ist kein Satz für Schüler; ohne Zusammenhang bleibt offen, was gezogen wird. Gilt für alle Aufgaben der Karte 'tafel_wkeit'.",
+      "korrektur": "In einem Sportverein mit 250 Mitgliedern gilt: Fußball und unter 18: 141; Fußball und mindestens 18: 28; kein Fußball und unter 18: 61; kein Fußball und mindestens 18: 20. Ein Mitglied wird zufällig ausgewählt. Mit welcher Wahrscheinlichkeit spielt es Fußball und ist mindestens 18? Gib das Ergebnis als Dezimalzahl an. – Lösung 0,112."
+    },
+    {
+      "aufgabe": "Untersucht werden 500 Mitglieder eines Sportvereins. A: „spielt Fußball“, B: „ist jünger als 18 Jahre“. 39,6 % haben A. Unter denen mit A haben 46 auch B. Wie viele haben A, aber nicht B?",
+      "art": "unrealistisch",
+      "problem": "Rechnung stimmt (198 − 46 = 152). '39,6 %' ist eine ungewöhnliche Angabe; man würde '198 Mitglieder' oder '40 %' sagen.",
+      "korrektur": "… 40 % haben A. Unter denen mit A sind 46 jünger als 18. Wie viele haben A, aber nicht B? – Lösung 154 (40 % von 500 = 200; 200 − 46 = 154)."
+    }
+  ]
+}

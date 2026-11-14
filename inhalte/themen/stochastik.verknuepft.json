@@ -1,0 +1,2972 @@
+{
+ "thema_schluessel": "stochastik.verknuepft",
+ "thema_id": 63,
+ "block_id": 91,
+ "klasse": {
+  "gym_by": 9,
+  "rs_by": 8,
+  "ib_myp": 4
+ },
+ "autor": "Claude (Paket Klasse 9)",
+ "inhalt": {
+  "ziel": "Ereignisse verknüpfen (und, oder, nicht), Vierfeldertafeln nutzen und Wahrscheinlichkeiten mit dem Additionssatz und als bedingte Wahrscheinlichkeit berechnen.",
+  "merke": [
+   "A ∩ B: A und B. A ∪ B: A oder B (mindestens eines). Ā: nicht A, P(Ā) = 1 − P(A).",
+   "Vierfeldertafel: Zeilen- und Spaltensummen.",
+   "P(A ∪ B) = P(A) + P(B) − P(A ∩ B).",
+   "P_B(A) = P(A ∩ B) : P(B)."
+  ],
+  "abschnitte": [
+   {
+    "titel": "Ereignisse verknüpfen",
+    "lernziele": [
+     "verknuepfen",
+     "additionssatz"
+    ]
+   },
+   {
+    "titel": "Vierfeldertafel",
+    "lernziele": [
+     "vierfeld",
+     "tafel_wkeit"
+    ]
+   },
+   {
+    "titel": "Bedingte Wahrscheinlichkeit und Verstehen",
+    "lernziele": [
+     "bedingt",
+     "verstehen"
+    ]
+   }
+  ],
+  "etappen": [
+   {
+    "lernziel": "verknuepfen",
+    "titel": "Schnitt, Vereinigung, Gegenereignis",
+    "regel": "⟦A ∩ B⟧ („A und B“): beide treten ein. ⟦A ∪ B⟧ („A oder B“): mindestens eines tritt ein. ⟦Ā⟧ („nicht A“): A tritt nicht ein. Bei Laplace-Experimenten: P = Anzahl günstiger : Anzahl möglicher Ergebnisse.",
+    "schritte": [
+     "Zahl aus 1–20, A: gerade, B: durch 3 teilbar. A ∩ B = {6, 12, 18}.",
+     "P(A ∩ B) = 3 : 20 = ⟦0,15⟧."
+    ],
+    "probe": "6, 12, 18 sind gerade und durch 3 teilbar ✓",
+    "fehler": "A ∪ B mit „beide“ zu übersetzen ist falsch: ⟦∪ heißt „oder“⟧ (mindestens eines), ⟦∩ heißt „und“⟧ (beide)."
+   },
+   {
+    "lernziel": "vierfeld",
+    "titel": "Vierfeldertafel ergänzen",
+    "regel": "Eine ⟦Vierfeldertafel⟧ ordnet nach zwei Merkmalen. ⟦Zeilen- und Spaltensummen⟧ müssen stimmen; unten rechts steht die Gesamtzahl. Fehlende Felder durch Ergänzen zur Summe.",
+    "schritte": [
+     "200 Befragte, 80 haben Merkmal A, davon 30 auch Merkmal B.",
+     "A und nicht B: 80 − 30 = ⟦50⟧; nicht A: 200 − 80 = 120."
+    ],
+    "probe": "30 + 50 = 80 ✓",
+    "fehler": "Das Feld „A und nicht B“ als 200 − 30 zu berechnen ist falsch: Man ergänzt innerhalb der ⟦Zeile A⟧ zu deren Summe 80."
+   },
+   {
+    "lernziel": "tafel_wkeit",
+    "titel": "Wahrscheinlichkeiten aus der Tafel",
+    "regel": "Teilt man jede Anzahl durch die ⟦Gesamtzahl⟧, erhält man eine Vierfeldertafel mit Wahrscheinlichkeiten. ⟦P(A) = P(A ∩ B) + P(A ∩ B̄)⟧ (Randsumme).",
+    "schritte": [
+     "Gesamt 400, A und B: 60, A und nicht B: 100.",
+     "P(A ∩ B) = 60 : 400 = 0,15; P(A) = 160 : 400 = ⟦0,4⟧."
+    ],
+    "probe": "0,15 + 0,25 = 0,4 ✓",
+    "fehler": "P(A ∩ B) = 60 : 160 ist falsch, wenn nach der Wahrscheinlichkeit unter ⟦allen⟧ gefragt ist: Man teilt durch die ⟦Gesamtzahl⟧ 400."
+   },
+   {
+    "lernziel": "additionssatz",
+    "titel": "Der Additionssatz",
+    "regel": "⟦P(A ∪ B) = P(A) + P(B) − P(A ∩ B)⟧. Die Schnittmenge wird einmal abgezogen, weil sie sonst ⟦doppelt gezählt⟧ würde. Sind A und B ⟦unvereinbar⟧ (A ∩ B = ∅), gilt P(A ∪ B) = P(A) + P(B).",
+    "schritte": [
+     "P(A) = 0,5, P(B) = 0,3, P(A ∩ B) = 0,1.",
+     "P(A ∪ B) = 0,5 + 0,3 − 0,1 = ⟦0,7⟧."
+    ],
+    "probe": "P(Ā ∩ B̄) = 1 − 0,7 = 0,3 ≥ 0 ✓",
+    "fehler": "P(A ∪ B) = 0,5 + 0,3 = 0,8 ist falsch, wenn A und B gemeinsame Ergebnisse haben: Die ⟦Schnittmenge⟧ wurde doppelt gezählt."
+   },
+   {
+    "lernziel": "bedingt",
+    "titel": "Bedingte Wahrscheinlichkeit",
+    "regel": "⟦P_B(A)⟧ ist die Wahrscheinlichkeit von A, ⟦wenn man schon weiß⟧, dass B eingetreten ist: ⟦P_B(A) = P(A ∩ B) : P(B)⟧. In der Tafel: nur die ⟦Spalte B⟧ betrachten.",
+    "schritte": [
+     "Von 50 Personen mit B haben 20 auch A.",
+     "P_B(A) = 20 : 50 = ⟦0,4⟧."
+    ],
+    "probe": "Man teilt durch die Anzahl in B, nicht durch alle ✓",
+    "fehler": "P_B(A) und P_A(B) zu verwechseln ist ein häufiger Fehler: Die ⟦Bedingung⟧ (unten) bestimmt, ⟦durch welche Anzahl⟧ geteilt wird."
+   },
+   {
+    "lernziel": "verstehen",
+    "titel": "Aussagen über Ereignisse prüfen",
+    "regel": "Prüfe Aussagen mit Mengen und Zahlen: ⟦unvereinbar⟧ heißt A ∩ B = ∅. Das ⟦Gegenereignis⟧ von „mindestens eins“ ist „keins“. Wahrscheinlichkeiten liegen zwischen ⟦0 und 1⟧.",
+    "schritte": [
+     "Behauptung: P(A) = 0,7 und P(B) = 0,6, also sind A und B unvereinbar.",
+     "Wären sie unvereinbar, wäre P(A ∪ B) = 1,3 > 1 – unmöglich. ⟦A und B müssen sich überschneiden⟧."
+    ],
+    "probe": "P(A ∩ B) ≥ 0,7 + 0,6 − 1 = 0,3 ✓",
+    "fehler": "Das Gegenereignis von „mindestens ein Treffer“ ist nicht „mindestens ein Fehlschuss“, sondern ⟦„kein Treffer“⟧."
+   }
+  ],
+  "teilfaehigkeiten": [
+   {
+    "k": "verknuepfen",
+    "text": "Schnitt, Vereinigung, Gegenereignis",
+    "lernziele": [
+     "verknuepfen"
+    ]
+   },
+   {
+    "k": "vierfeld",
+    "text": "Vierfeldertafel ergänzen",
+    "lernziele": [
+     "vierfeld"
+    ]
+   },
+   {
+    "k": "tafel_wkeit",
+    "text": "Wahrscheinlichkeiten aus der Tafel",
+    "lernziele": [
+     "tafel_wkeit"
+    ]
+   },
+   {
+    "k": "additionssatz",
+    "text": "Der Additionssatz",
+    "lernziele": [
+     "additionssatz"
+    ]
+   },
+   {
+    "k": "bedingt",
+    "text": "Bedingte Wahrscheinlichkeit",
+    "lernziele": [
+     "bedingt"
+    ]
+   },
+   {
+    "k": "verstehen",
+    "text": "Aussagen über Ereignisse prüfen",
+    "lernziele": [
+     "verstehen"
+    ]
+   }
+  ],
+  "bewertung": {
+   "lernziele_pflicht": [
+    "verknuepfen",
+    "vierfeld",
+    "tafel_wkeit",
+    "additionssatz",
+    "verstehen"
+   ],
+   "lernziele_vertiefung": [
+    "bedingt"
+   ],
+   "testaufgaben_je_lernziel": 1
+  },
+  "quellen": {
+   "erklaerungen": "Eigene Fassung (Claude), Aufgaben vom Generator erzeugt und berechnet.",
+   "begriffe": "Fachbegriffe nach LehrplanPLUS Bayern."
+  }
+ },
+ "aufgaben": [
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Aus den Zahlen 1 bis 20 wird zufällig eine gezogen. A: „Die Zahl ist gerade.“ B: „Die Zahl ist durch 3 teilbar.“ Berechne P(A ∩ B) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.15
+   },
+   "c": "3 / 20",
+   "w": "A ∩ B: 6, 12, 18. P = 3 : 20 = 0,15.",
+   "h": "Welche Zahlen erfüllen beide Bedingungen?"
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Aus den Zahlen 1 bis 20 wird zufällig eine gezogen. A: „Die Zahl ist durch 3 teilbar.“ B: „Die Zahl ist ungerade.“ Berechne P(A ∩ B) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.15
+   },
+   "c": "3 / 20",
+   "w": "A ∩ B: 3, 9, 15. P = 3 : 20 = 0,15.",
+   "h": "Welche Zahlen erfüllen beide Bedingungen?"
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Aus den Zahlen 1 bis 20 wird zufällig eine gezogen. A: „Die Zahl ist eine Quadratzahl.“ B: „Die Zahl ist eine Primzahl.“ Berechne P(„nicht A“) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.8
+   },
+   "c": "16 / 20",
+   "w": "„nicht A“: 16 Zahlen. P = 16 : 20 = 0,8.",
+   "h": "Gegenereignis: P(Ā) = 1 − P(A)."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Aus den Zahlen 1 bis 20 wird zufällig eine gezogen. A: „Die Zahl ist durch 3 teilbar.“ B: „Die Zahl ist durch 5 teilbar.“ Berechne P(„nicht A“) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.7
+   },
+   "c": "14 / 20",
+   "w": "„nicht A“: 14 Zahlen. P = 14 : 20 = 0,7.",
+   "h": "Gegenereignis: P(Ā) = 1 − P(A)."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Aus den Zahlen 1 bis 20 wird zufällig eine gezogen. A: „Die Zahl ist eine Primzahl.“ B: „Die Zahl ist ungerade.“ Berechne P(„nicht A“) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.6
+   },
+   "c": "12 / 20",
+   "w": "„nicht A“: 1, 4, 6, 8, 9, 10, 12, 14, 15, 16, 18, 20. P = 12 : 20 = 0,6.",
+   "h": "Gegenereignis: P(Ā) = 1 − P(A)."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Aus den Zahlen 1 bis 20 wird zufällig eine gezogen. A: „Die Zahl ist durch 5 teilbar.“ B: „Die Zahl ist durch 4 teilbar.“ Berechne P(A ∩ B) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.05
+   },
+   "c": "1 / 20",
+   "w": "A ∩ B: 20. P = 1 : 20 = 0,05.",
+   "h": "Welche Zahlen erfüllen beide Bedingungen?"
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus den Zahlen 1 bis 50 wird zufällig eine gezogen. A: „Die Zahl ist gerade.“ B: „Die Zahl ist eine Quadratzahl.“ Berechne P(A ∪ B) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.58
+   },
+   "c": "29 / 50",
+   "w": "A ∪ B: 29 Zahlen. P = 29 : 50 = 0,58.",
+   "h": "Zähle alle, die mindestens eine Bedingung erfüllen – keine doppelt."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus den Zahlen 1 bis 20 wird zufällig eine gezogen. A: „Die Zahl ist durch 5 teilbar.“ B: „Die Zahl ist eine Quadratzahl.“ Berechne P(„nicht A“) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.8
+   },
+   "c": "16 / 20",
+   "w": "„nicht A“: 16 Zahlen. P = 16 : 20 = 0,8.",
+   "h": "Gegenereignis: P(Ā) = 1 − P(A)."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus den Zahlen 1 bis 50 wird zufällig eine gezogen. A: „Die Zahl ist durch 5 teilbar.“ B: „Die Zahl ist eine Primzahl.“ Berechne P(A ∪ B) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.48
+   },
+   "c": "24 / 50",
+   "w": "A ∪ B: 24 Zahlen. P = 24 : 50 = 0,48.",
+   "h": "Zähle alle, die mindestens eine Bedingung erfüllen – keine doppelt."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus den Zahlen 1 bis 100 wird zufällig eine gezogen. A: „Die Zahl ist durch 3 teilbar.“ B: „Die Zahl ist durch 4 teilbar.“ Berechne P(A ∪ B) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.5
+   },
+   "c": "50 / 100",
+   "w": "A ∪ B: 50 Zahlen. P = 50 : 100 = 0,5.",
+   "h": "Zähle alle, die mindestens eine Bedingung erfüllen – keine doppelt."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus den Zahlen 1 bis 50 wird zufällig eine gezogen. A: „Die Zahl ist durch 4 teilbar.“ B: „Die Zahl ist eine Primzahl.“ Berechne P(„nicht A“) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.76
+   },
+   "c": "38 / 50",
+   "w": "„nicht A“: 38 Zahlen. P = 38 : 50 = 0,76.",
+   "h": "Gegenereignis: P(Ā) = 1 − P(A)."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus den Zahlen 1 bis 25 wird zufällig eine gezogen. A: „Die Zahl ist durch 4 teilbar.“ B: „Die Zahl ist durch 3 teilbar.“ Berechne P(A ∪ B) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.48
+   },
+   "c": "12 / 25",
+   "w": "A ∪ B: 3, 4, 6, 8, 9, 12, 15, 16, 18, 20, 21, 24. P = 12 : 25 = 0,48.",
+   "h": "Zähle alle, die mindestens eine Bedingung erfüllen – keine doppelt."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Aus den Zahlen 1 bis 20 wird zufällig eine gezogen. A: „Die Zahl ist gerade.“ B: „Die Zahl ist durch 3 teilbar.“ Was bedeutet das Ereignis A ∪ B?"
+   },
+   "a": [
+    "Die Zahl ist weder gerade noch durch 3 teilbar.",
+    "Die Zahl ist gerade und durch 3 teilbar.",
+    "Die Zahl ist gerade oder durch 3 teilbar (oder beides).",
+    "Die Zahl ist gerade, aber nicht durch 3 teilbar."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "A ∪ B: mindestens eines der Ereignisse tritt ein („oder“ im einschließenden Sinn).",
+   "h": "∪ steht für „oder“, ∩ für „und“."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Aus den Zahlen 1 bis 20 wird zufällig eine gezogen. A: „Die Zahl ist durch 5 teilbar.“ B: „Die Zahl ist gerade.“ Was bedeutet das Ereignis A ∪ B?"
+   },
+   "a": [
+    "Die Zahl ist weder durch 5 teilbar noch gerade.",
+    "Die Zahl ist durch 5 teilbar und gerade.",
+    "Die Zahl ist durch 5 teilbar, aber nicht gerade.",
+    "Die Zahl ist durch 5 teilbar oder gerade (oder beides)."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "A ∪ B: mindestens eines der Ereignisse tritt ein („oder“ im einschließenden Sinn).",
+   "h": "∪ steht für „oder“, ∩ für „und“."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Aus den Zahlen 1 bis 50 wird zufällig eine gezogen. A: „Die Zahl ist durch 3 teilbar.“ B: „Die Zahl ist ungerade.“ Berechne P(„A, aber nicht B“) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.16
+   },
+   "c": "8 / 50",
+   "w": "„A, aber nicht B“: 6, 12, 18, 24, 30, 36, 42, 48. P = 8 : 50 = 0,16.",
+   "h": "Nimm die Zahlen aus A und streiche die, die auch in B liegen."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Aus den Zahlen 1 bis 50 wird zufällig eine gezogen. A: „Die Zahl ist eine Quadratzahl.“ B: „Die Zahl ist durch 3 teilbar.“ Was bedeutet das Ereignis A ∪ B?"
+   },
+   "a": [
+    "Die Zahl ist eine Quadratzahl, aber nicht durch 3 teilbar.",
+    "Die Zahl ist weder eine Quadratzahl noch durch 3 teilbar.",
+    "Die Zahl ist eine Quadratzahl und durch 3 teilbar.",
+    "Die Zahl ist eine Quadratzahl oder durch 3 teilbar (oder beides)."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "A ∪ B: mindestens eines der Ereignisse tritt ein („oder“ im einschließenden Sinn).",
+   "h": "∪ steht für „oder“, ∩ für „und“."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Aus den Zahlen 1 bis 50 wird zufällig eine gezogen. A: „Die Zahl ist durch 5 teilbar.“ B: „Die Zahl ist durch 4 teilbar.“ Was bedeutet das Ereignis A ∪ B?"
+   },
+   "a": [
+    "Die Zahl ist durch 5 teilbar und durch 4 teilbar.",
+    "Die Zahl ist durch 5 teilbar oder durch 4 teilbar (oder beides).",
+    "Die Zahl ist durch 5 teilbar, aber nicht durch 4 teilbar.",
+    "Die Zahl ist weder durch 5 teilbar noch durch 4 teilbar."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "A ∪ B: mindestens eines der Ereignisse tritt ein („oder“ im einschließenden Sinn).",
+   "h": "∪ steht für „oder“, ∩ für „und“."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Aus den Zahlen 1 bis 50 wird zufällig eine gezogen. A: „Die Zahl ist durch 3 teilbar.“ B: „Die Zahl ist durch 5 teilbar.“ Was bedeutet das Ereignis A ∪ B?"
+   },
+   "a": [
+    "Die Zahl ist durch 3 teilbar, aber nicht durch 5 teilbar.",
+    "Die Zahl ist durch 3 teilbar oder durch 5 teilbar (oder beides).",
+    "Die Zahl ist durch 3 teilbar und durch 5 teilbar.",
+    "Die Zahl ist weder durch 3 teilbar noch durch 5 teilbar."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "A ∪ B: mindestens eines der Ereignisse tritt ein („oder“ im einschließenden Sinn).",
+   "h": "∪ steht für „oder“, ∩ für „und“."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus den Zahlen 1 bis 20 wird zufällig eine gezogen. A: „Die Zahl ist durch 5 teilbar.“ B: „Die Zahl ist durch 4 teilbar.“ Berechne P(A ∪ B) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.4
+   },
+   "c": "8 / 20",
+   "w": "A ∪ B: 4, 5, 8, 10, 12, 15, 16, 20. P = 8 : 20 = 0,4."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus den Zahlen 1 bis 25 wird zufällig eine gezogen. A: „Die Zahl ist eine Quadratzahl.“ B: „Die Zahl ist durch 5 teilbar.“ Berechne P(„nicht A“) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.8
+   },
+   "c": "20 / 25",
+   "w": "„nicht A“: 20 Zahlen. P = 20 : 25 = 0,8."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus den Zahlen 1 bis 20 wird zufällig eine gezogen. A: „Die Zahl ist eine Primzahl.“ B: „Die Zahl ist durch 3 teilbar.“ Berechne P(A ∪ B) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.65
+   },
+   "c": "13 / 20",
+   "w": "A ∪ B: 13 Zahlen. P = 13 : 20 = 0,65."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus den Zahlen 1 bis 25 wird zufällig eine gezogen. A: „Die Zahl ist eine Primzahl.“ B: „Die Zahl ist ungerade.“ Berechne P(A ∪ B) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.56
+   },
+   "c": "14 / 25",
+   "w": "A ∪ B: 14 Zahlen. P = 14 : 25 = 0,56."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus den Zahlen 1 bis 100 wird zufällig eine gezogen. A: „Die Zahl ist eine Quadratzahl.“ B: „Die Zahl ist durch 5 teilbar.“ Berechne P(A ∩ B) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.02
+   },
+   "c": "2 / 100",
+   "w": "A ∩ B: 25, 100. P = 2 : 100 = 0,02."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus den Zahlen 1 bis 100 wird zufällig eine gezogen. A: „Die Zahl ist eine Quadratzahl.“ B: „Die Zahl ist ungerade.“ Berechne P(A ∩ B) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.05
+   },
+   "c": "5 / 100",
+   "w": "A ∩ B: 1, 9, 25, 49, 81. P = 5 : 100 = 0,05."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus den Zahlen 1 bis 100 wird zufällig eine gezogen. A: „Die Zahl ist eine Quadratzahl.“ B: „Die Zahl ist eine Primzahl.“ Berechne P(A ∪ B) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.35
+   },
+   "c": "35 / 100",
+   "w": "A ∪ B: 35 Zahlen. P = 35 : 100 = 0,35."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus den Zahlen 1 bis 50 wird zufällig eine gezogen. A: „Die Zahl ist eine Quadratzahl.“ B: „Die Zahl ist gerade.“ Berechne P(„nicht A“) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.86
+   },
+   "c": "43 / 50",
+   "w": "„nicht A“: 43 Zahlen. P = 43 : 50 = 0,86."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus den Zahlen 1 bis 100 wird zufällig eine gezogen. A: „Die Zahl ist eine Primzahl.“ B: „Die Zahl ist eine Quadratzahl.“ Berechne P(„nicht A“) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.75
+   },
+   "c": "75 / 100",
+   "w": "„nicht A“: 75 Zahlen. P = 75 : 100 = 0,75."
+  },
+  {
+   "l": "verknuepfen",
+   "t": "verknuepfen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus den Zahlen 1 bis 100 wird zufällig eine gezogen. A: „Die Zahl ist eine Quadratzahl.“ B: „Die Zahl ist durch 5 teilbar.“ Berechne P(A ∪ B) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.28
+   },
+   "c": "28 / 100",
+   "w": "A ∪ B: 28 Zahlen. P = 28 : 100 = 0,28."
+  },
+  {
+   "l": "vierfeld",
+   "t": "vierfeld",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Untersucht werden 400 Fahrgäste eines Zuges. A: „hat einen Sitzplatz reserviert“, B: „fährt in der 1. Klasse“. 286 haben Merkmal A. Wie viele haben Merkmal A nicht?"
+   },
+   "o": {
+    "wert": 114
+   },
+   "c": "400 - 286",
+   "w": "Nicht A = Gesamt − A = 400 − 286 = 114.",
+   "h": "Gesamtzahl minus Anzahl mit A."
+  },
+  {
+   "l": "vierfeld",
+   "t": "vierfeld",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Untersucht werden 300 Besucher eines Freibads. A: „ist Erwachsener“, B: „hat eine Jahreskarte“. 222 haben Merkmal A, davon 71 auch Merkmal B. Wie viele haben A, aber nicht B?"
+   },
+   "o": {
+    "wert": 151
+   },
+   "c": "222 - 71",
+   "w": "In der Zeile A stehen 222 Fälle; davon haben 71 auch B. A ohne B: 222 − 71 = 151.",
+   "h": "Ergänze innerhalb der Zeile A zur Zeilensumme."
+  },
+  {
+   "l": "vierfeld",
+   "t": "vierfeld",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Untersucht werden 150 Mitglieder eines Sportvereins. A: „spielt Fußball“, B: „ist jünger als 18 Jahre“. 59 haben Merkmal A. Wie viele haben Merkmal A nicht?"
+   },
+   "o": {
+    "wert": 91
+   },
+   "c": "150 - 59",
+   "w": "Nicht A = Gesamt − A = 150 − 59 = 91.",
+   "h": "Gesamtzahl minus Anzahl mit A."
+  },
+  {
+   "l": "vierfeld",
+   "t": "vierfeld",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Untersucht werden 250 Teilnehmende einer Umfrage. A: „liest täglich Nachrichten“, B: „ist älter als 40 Jahre“. 188 haben Merkmal A, davon 148 auch Merkmal B. Wie viele haben A, aber nicht B?"
+   },
+   "o": {
+    "wert": 40
+   },
+   "c": "188 - 148",
+   "w": "In der Zeile A stehen 188 Fälle; davon haben 148 auch B. A ohne B: 188 − 148 = 40.",
+   "h": "Ergänze innerhalb der Zeile A zur Zeilensumme."
+  },
+  {
+   "l": "vierfeld",
+   "t": "vierfeld",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Untersucht werden 120 Teilnehmende einer Umfrage. A: „liest täglich Nachrichten“, B: „ist älter als 40 Jahre“. 42 haben Merkmal A. Wie viele haben Merkmal A nicht?"
+   },
+   "o": {
+    "wert": 78
+   },
+   "c": "120 - 42",
+   "w": "Nicht A = Gesamt − A = 120 − 42 = 78.",
+   "h": "Gesamtzahl minus Anzahl mit A."
+  },
+  {
+   "l": "vierfeld",
+   "t": "vierfeld",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Untersucht werden 400 Kunden eines Online-Shops. A: „zahlt per Rechnung“, B: „bestellt zum ersten Mal“. 243 haben Merkmal A. Wie viele haben Merkmal A nicht?"
+   },
+   "o": {
+    "wert": 157
+   },
+   "c": "400 - 243",
+   "w": "Nicht A = Gesamt − A = 400 − 243 = 157.",
+   "h": "Gesamtzahl minus Anzahl mit A."
+  },
+  {
+   "l": "vierfeld",
+   "t": "vierfeld",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Untersucht werden 250 Schülerinnen und Schüler einer Schule. A: „hat ein Haustier“, B: „fährt mit dem Rad zur Schule“. 135 haben A, 156 haben B, 109 haben beides. Wie viele haben weder A noch B?"
+   },
+   "o": {
+    "wert": 68
+   },
+   "c": "250 - 135 - (156 - 109)",
+   "w": "Nicht A: 115; davon mit B: 156 − 109 = 47; weder noch: 115 − 47 = 68.",
+   "h": "Fülle die Tafel Schritt für Schritt: erst Randsummen, dann die inneren Felder."
+  },
+  {
+   "l": "vierfeld",
+   "t": "vierfeld",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Untersucht werden 400 Besucher eines Freibads. A: „ist Erwachsener“, B: „hat eine Jahreskarte“. 324 haben A, 351 haben B, 299 haben beides. Wie viele haben weder A noch B?"
+   },
+   "o": {
+    "wert": 24
+   },
+   "c": "400 - 324 - (351 - 299)",
+   "w": "Nicht A: 76; davon mit B: 351 − 299 = 52; weder noch: 76 − 52 = 24.",
+   "h": "Fülle die Tafel Schritt für Schritt: erst Randsummen, dann die inneren Felder."
+  },
+  {
+   "l": "vierfeld",
+   "t": "vierfeld",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Untersucht werden 150 Schülerinnen und Schüler einer Schule. A: „hat ein Haustier“, B: „fährt mit dem Rad zur Schule“. 89 haben A, 63 haben B, 39 haben beides. Wie viele haben weder A noch B?"
+   },
+   "o": {
+    "wert": 37
+   },
+   "c": "150 - 89 - (63 - 39)",
+   "w": "Nicht A: 61; davon mit B: 63 − 39 = 24; weder noch: 61 − 24 = 37.",
+   "h": "Fülle die Tafel Schritt für Schritt: erst Randsummen, dann die inneren Felder."
+  },
+  {
+   "l": "vierfeld",
+   "t": "vierfeld",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Untersucht werden 150 Teilnehmende einer Umfrage. A: „liest täglich Nachrichten“, B: „ist älter als 40 Jahre“. 52 haben A, 72 haben B, 12 haben beides. Wie viele haben weder A noch B?"
+   },
+   "o": {
+    "wert": 38
+   },
+   "c": "150 - 52 - (72 - 12)",
+   "w": "Nicht A: 98; davon mit B: 72 − 12 = 60; weder noch: 98 − 60 = 38.",
+   "h": "Fülle die Tafel Schritt für Schritt: erst Randsummen, dann die inneren Felder."
+  },
+  {
+   "l": "vierfeld",
+   "t": "vierfeld",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Untersucht werden 300 Kunden eines Online-Shops. A: „zahlt per Rechnung“, B: „bestellt zum ersten Mal“. 252 haben A, 244 haben B, 222 haben beides. Wie viele haben weder A noch B?"
+   },
+   "o": {
+    "wert": 26
+   },
+   "c": "300 - 252 - (244 - 222)",
+   "w": "Nicht A: 48; davon mit B: 244 − 222 = 22; weder noch: 48 − 22 = 26.",
+   "h": "Fülle die Tafel Schritt für Schritt: erst Randsummen, dann die inneren Felder."
+  },
+  {
+   "l": "vierfeld",
+   "t": "vierfeld",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Untersucht werden 200 Kunden eines Online-Shops. A: „zahlt per Rechnung“, B: „bestellt zum ersten Mal“. 41 haben A, 113 haben B, 28 haben beides. Wie viele haben weder A noch B?"
+   },
+   "o": {
+    "wert": 74
+   },
+   "c": "200 - 41 - (113 - 28)",
+   "w": "Nicht A: 159; davon mit B: 113 − 28 = 85; weder noch: 159 − 85 = 74.",
+   "h": "Fülle die Tafel Schritt für Schritt: erst Randsummen, dann die inneren Felder."
+  },
+  {
+   "l": "vierfeld",
+   "t": "vierfeld",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Untersucht werden 500 Mitglieder eines Sportvereins. A: „spielt Fußball“, B: „ist jünger als 18 Jahre“. 39,6 % haben A. Unter denen mit A haben 46 auch B. Wie viele haben A, aber nicht B?"
+   },
+   "o": {
+    "wert": 152
+   },
+   "c": "500 * 0.396 - 46",
+   "w": "A: 39,6 % von 500 = 198; A ohne B: 198 − 46 = 152.",
+   "h": "Rechne zuerst den Prozentsatz in eine Anzahl um."
+  },
+  {
+   "l": "vierfeld",
+   "t": "vierfeld",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Untersucht werden 500 Schülerinnen und Schüler einer Schule. A: „hat ein Haustier“, B: „fährt mit dem Rad zur Schule“. 73 % haben A. Unter denen mit A haben 270 auch B. Wie viele haben A, aber nicht B?"
+   },
+   "o": {
+    "wert": 95
+   },
+   "c": "500 * 0.73 - 270",
+   "w": "A: 73 % von 500 = 365; A ohne B: 365 − 270 = 95.",
+   "h": "Rechne zuerst den Prozentsatz in eine Anzahl um."
+  },
+  {
+   "l": "vierfeld",
+   "t": "vierfeld",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Untersucht werden 250 Besucher eines Freibads. A: „ist Erwachsener“, B: „hat eine Jahreskarte“. 69,2 % haben A. Unter denen mit A haben 137 auch B. Wie viele haben A, aber nicht B?"
+   },
+   "o": {
+    "wert": 36
+   },
+   "c": "250 * 0.692 - 137",
+   "w": "A: 69,2 % von 250 = 173; A ohne B: 173 − 137 = 36.",
+   "h": "Rechne zuerst den Prozentsatz in eine Anzahl um."
+  },
+  {
+   "l": "vierfeld",
+   "t": "vierfeld",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Untersucht werden 200 Fahrgäste eines Zuges. A: „hat einen Sitzplatz reserviert“, B: „fährt in der 1. Klasse“. 31,5 % haben A. Unter denen mit A haben 31 auch B. Wie viele haben A, aber nicht B?"
+   },
+   "o": {
+    "wert": 32
+   },
+   "c": "200 * 0.315 - 31",
+   "w": "A: 31,5 % von 200 = 63; A ohne B: 63 − 31 = 32.",
+   "h": "Rechne zuerst den Prozentsatz in eine Anzahl um."
+  },
+  {
+   "l": "vierfeld",
+   "t": "vierfeld",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Untersucht werden 500 Mitglieder eines Sportvereins. A: „spielt Fußball“, B: „ist jünger als 18 Jahre“. 31,8 % haben A. Unter denen mit A haben 113 auch B. Wie viele haben A, aber nicht B?"
+   },
+   "o": {
+    "wert": 46
+   },
+   "c": "500 * 0.318 - 113",
+   "w": "A: 31,8 % von 500 = 159; A ohne B: 159 − 113 = 46.",
+   "h": "Rechne zuerst den Prozentsatz in eine Anzahl um."
+  },
+  {
+   "l": "vierfeld",
+   "t": "vierfeld",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Untersucht werden 100 Mitglieder eines Sportvereins. A: „spielt Fußball“, B: „ist jünger als 18 Jahre“. 6 haben A, aber nicht B; 49 haben B, aber nicht A; 13 haben keines der Merkmale. Wie viele haben beide Merkmale?"
+   },
+   "o": {
+    "wert": 32
+   },
+   "c": "100 - 6 - 49 - 13",
+   "w": "Beide = Gesamt − die drei anderen Felder: 100 − 6 − 49 − 13 = 32.",
+   "h": "Die vier inneren Felder ergeben zusammen die Gesamtzahl."
+  },
+  {
+   "l": "vierfeld",
+   "t": "vierfeld",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Untersucht werden 250 Teilnehmende einer Umfrage. A: „liest täglich Nachrichten“, B: „ist älter als 40 Jahre“. 48 haben A, 82 haben B, 35 haben beides. Wie viele haben weder A noch B?"
+   },
+   "o": {
+    "wert": 155
+   },
+   "c": "250 - 48 - (82 - 35)",
+   "w": "Nicht A: 202; davon mit B: 82 − 35 = 47; weder noch: 202 − 47 = 155."
+  },
+  {
+   "l": "vierfeld",
+   "t": "vierfeld",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Untersucht werden 400 Mitglieder eines Sportvereins. A: „spielt Fußball“, B: „ist jünger als 18 Jahre“. 319 haben A, 122 haben B, 99 haben beides. Wie viele haben weder A noch B?"
+   },
+   "o": {
+    "wert": 58
+   },
+   "c": "400 - 319 - (122 - 99)",
+   "w": "Nicht A: 81; davon mit B: 122 − 99 = 23; weder noch: 81 − 23 = 58."
+  },
+  {
+   "l": "vierfeld",
+   "t": "vierfeld",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Untersucht werden 200 Schülerinnen und Schüler einer Schule. A: „hat ein Haustier“, B: „fährt mit dem Rad zur Schule“. 93 haben A, 116 haben B, 61 haben beides. Wie viele haben weder A noch B?"
+   },
+   "o": {
+    "wert": 52
+   },
+   "c": "200 - 93 - (116 - 61)",
+   "w": "Nicht A: 107; davon mit B: 116 − 61 = 55; weder noch: 107 − 55 = 52."
+  },
+  {
+   "l": "vierfeld",
+   "t": "vierfeld",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Untersucht werden 400 Besucher eines Freibads. A: „ist Erwachsener“, B: „hat eine Jahreskarte“. 264 haben A, 219 haben B, 107 haben beides. Wie viele haben weder A noch B?"
+   },
+   "o": {
+    "wert": 24
+   },
+   "c": "400 - 264 - (219 - 107)",
+   "w": "Nicht A: 136; davon mit B: 219 − 107 = 112; weder noch: 136 − 112 = 24."
+  },
+  {
+   "l": "vierfeld",
+   "t": "vierfeld",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Untersucht werden 400 Mitglieder eines Sportvereins. A: „spielt Fußball“, B: „ist jünger als 18 Jahre“. 161 haben A, 127 haben B, 87 haben beides. Wie viele haben weder A noch B?"
+   },
+   "o": {
+    "wert": 199
+   },
+   "c": "400 - 161 - (127 - 87)",
+   "w": "Nicht A: 239; davon mit B: 127 − 87 = 40; weder noch: 239 − 40 = 199."
+  },
+  {
+   "l": "vierfeld",
+   "t": "vierfeld",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Untersucht werden 150 Mitglieder eines Sportvereins. A: „spielt Fußball“, B: „ist jünger als 18 Jahre“. 87 haben A, 96 haben B, 80 haben beides. Wie viele haben weder A noch B?"
+   },
+   "o": {
+    "wert": 47
+   },
+   "c": "150 - 87 - (96 - 80)",
+   "w": "Nicht A: 63; davon mit B: 96 − 80 = 16; weder noch: 63 − 16 = 47."
+  },
+  {
+   "l": "vierfeld",
+   "t": "vierfeld",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Untersucht werden 500 Mitglieder eines Sportvereins. A: „spielt Fußball“, B: „ist jünger als 18 Jahre“. 132 haben A, 110 haben B, 20 haben beides. Wie viele haben weder A noch B?"
+   },
+   "o": {
+    "wert": 278
+   },
+   "c": "500 - 132 - (110 - 20)",
+   "w": "Nicht A: 368; davon mit B: 110 − 20 = 90; weder noch: 368 − 90 = 278."
+  },
+  {
+   "l": "vierfeld",
+   "t": "vierfeld",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Untersucht werden 250 Fahrgäste eines Zuges. A: „hat einen Sitzplatz reserviert“, B: „fährt in der 1. Klasse“. 83 haben A, 146 haben B, 32 haben beides. Wie viele haben weder A noch B?"
+   },
+   "o": {
+    "wert": 53
+   },
+   "c": "250 - 83 - (146 - 32)",
+   "w": "Nicht A: 167; davon mit B: 146 − 32 = 114; weder noch: 167 − 114 = 53."
+  },
+  {
+   "l": "vierfeld",
+   "t": "vierfeld",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Untersucht werden 100 Fahrgäste eines Zuges. A: „hat einen Sitzplatz reserviert“, B: „fährt in der 1. Klasse“. 45 haben A, 61 haben B, 26 haben beides. Wie viele haben weder A noch B?"
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "100 - 45 - (61 - 26)",
+   "w": "Nicht A: 55; davon mit B: 61 − 26 = 35; weder noch: 55 − 35 = 20."
+  },
+  {
+   "l": "vierfeld",
+   "t": "vierfeld",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Untersucht werden 400 Teilnehmende einer Umfrage. A: „liest täglich Nachrichten“, B: „ist älter als 40 Jahre“. 296 haben A, 316 haben B, 263 haben beides. Wie viele haben weder A noch B?"
+   },
+   "o": {
+    "wert": 51
+   },
+   "c": "400 - 296 - (316 - 263)",
+   "w": "Nicht A: 104; davon mit B: 316 − 263 = 53; weder noch: 104 − 53 = 51."
+  },
+  {
+   "l": "tafel_wkeit",
+   "t": "tafel_wkeit",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 115; A und nicht B: 15; nicht A und B: 60; nicht A und nicht B: 10. Gesamt: 200. Eine Person/ein Fall wird zufällig ausgewählt. Berechne P(„weder A noch B“) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.05
+   },
+   "c": "10 / 200",
+   "w": "P = 10 : 200 = 0,05.",
+   "h": "Welche Felder gehören zum Ereignis? Teile ihre Summe durch die Gesamtzahl."
+  },
+  {
+   "l": "tafel_wkeit",
+   "t": "tafel_wkeit",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 68; A und nicht B: 52; nicht A und B: 86; nicht A und nicht B: 44. Gesamt: 250. Eine Person/ein Fall wird zufällig ausgewählt. Berechne P(A ∩ B) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.272
+   },
+   "c": "68 / 250",
+   "w": "P = 68 : 250 = 0,272.",
+   "h": "Welche Felder gehören zum Ereignis? Teile ihre Summe durch die Gesamtzahl."
+  },
+  {
+   "l": "tafel_wkeit",
+   "t": "tafel_wkeit",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 141; A und nicht B: 28; nicht A und B: 61; nicht A und nicht B: 20. Gesamt: 250. Eine Person/ein Fall wird zufällig ausgewählt. Berechne P(„A und nicht B“) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.112
+   },
+   "c": "28 / 250",
+   "w": "P = 28 : 250 = 0,112.",
+   "h": "Welche Felder gehören zum Ereignis? Teile ihre Summe durch die Gesamtzahl."
+  },
+  {
+   "l": "tafel_wkeit",
+   "t": "tafel_wkeit",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 9; A und nicht B: 16; nicht A und B: 36; nicht A und nicht B: 39. Gesamt: 100. Eine Person/ein Fall wird zufällig ausgewählt. Berechne P(A ∩ B) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.09
+   },
+   "c": "9 / 100",
+   "w": "P = 9 : 100 = 0,09.",
+   "h": "Welche Felder gehören zum Ereignis? Teile ihre Summe durch die Gesamtzahl."
+  },
+  {
+   "l": "tafel_wkeit",
+   "t": "tafel_wkeit",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 102; A und nicht B: 10; nicht A und B: 62; nicht A und nicht B: 76. Gesamt: 250. Eine Person/ein Fall wird zufällig ausgewählt. Berechne P(A ∩ B) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.408
+   },
+   "c": "102 / 250",
+   "w": "P = 102 : 250 = 0,408.",
+   "h": "Welche Felder gehören zum Ereignis? Teile ihre Summe durch die Gesamtzahl."
+  },
+  {
+   "l": "tafel_wkeit",
+   "t": "tafel_wkeit",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 10; A und nicht B: 38; nicht A und B: 124; nicht A und nicht B: 28. Gesamt: 200. Eine Person/ein Fall wird zufällig ausgewählt. Berechne P(„weder A noch B“) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.14
+   },
+   "c": "28 / 200",
+   "w": "P = 28 : 200 = 0,14.",
+   "h": "Welche Felder gehören zum Ereignis? Teile ihre Summe durch die Gesamtzahl."
+  },
+  {
+   "l": "tafel_wkeit",
+   "t": "tafel_wkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 26; A und nicht B: 221; nicht A und B: 26; nicht A und nicht B: 127. Gesamt: 400. Eine Person/ein Fall wird zufällig ausgewählt. Berechne P(„nicht A“) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.3825
+   },
+   "c": "153 / 400",
+   "w": "P = (26 + 127) : 400 = 0,3825.",
+   "h": "Welche Felder gehören zum Ereignis? Teile ihre Summe durch die Gesamtzahl."
+  },
+  {
+   "l": "tafel_wkeit",
+   "t": "tafel_wkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 6; A und nicht B: 56; nicht A und B: 13; nicht A und nicht B: 25. Gesamt: 100. Eine Person/ein Fall wird zufällig ausgewählt. Berechne P(„nicht A“) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.38
+   },
+   "c": "38 / 100",
+   "w": "P = (13 + 25) : 100 = 0,38.",
+   "h": "Welche Felder gehören zum Ereignis? Teile ihre Summe durch die Gesamtzahl."
+  },
+  {
+   "l": "tafel_wkeit",
+   "t": "tafel_wkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 72; A und nicht B: 58; nicht A und B: 97; nicht A und nicht B: 23. Gesamt: 250. Eine Person/ein Fall wird zufällig ausgewählt. Berechne P(B) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.676
+   },
+   "c": "169 / 250",
+   "w": "P = (72 + 97) : 250 = 0,676.",
+   "h": "Welche Felder gehören zum Ereignis? Teile ihre Summe durch die Gesamtzahl."
+  },
+  {
+   "l": "tafel_wkeit",
+   "t": "tafel_wkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 41; A und nicht B: 74; nicht A und B: 74; nicht A und nicht B: 11. Gesamt: 200. Eine Person/ein Fall wird zufällig ausgewählt. Berechne P(A) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.575
+   },
+   "c": "115 / 200",
+   "w": "P = (41 + 74) : 200 = 0,575.",
+   "h": "Welche Felder gehören zum Ereignis? Teile ihre Summe durch die Gesamtzahl."
+  },
+  {
+   "l": "tafel_wkeit",
+   "t": "tafel_wkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 18; A und nicht B: 31; nicht A und B: 6; nicht A und nicht B: 45. Gesamt: 100. Eine Person/ein Fall wird zufällig ausgewählt. Berechne P(A) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.49
+   },
+   "c": "49 / 100",
+   "w": "P = (18 + 31) : 100 = 0,49.",
+   "h": "Welche Felder gehören zum Ereignis? Teile ihre Summe durch die Gesamtzahl."
+  },
+  {
+   "l": "tafel_wkeit",
+   "t": "tafel_wkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 78; A und nicht B: 28; nicht A und B: 108; nicht A und nicht B: 186. Gesamt: 400. Eine Person/ein Fall wird zufällig ausgewählt. Berechne P(„nicht A“) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.735
+   },
+   "c": "294 / 400",
+   "w": "P = (108 + 186) : 400 = 0,735.",
+   "h": "Welche Felder gehören zum Ereignis? Teile ihre Summe durch die Gesamtzahl."
+  },
+  {
+   "l": "tafel_wkeit",
+   "t": "tafel_wkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 40; A und nicht B: 36; nicht A und B: 17; nicht A und nicht B: 307. Gesamt: 400. Eine Person/ein Fall wird zufällig ausgewählt. Berechne P(„genau eines von A und B“) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.1325
+   },
+   "c": "53 / 400",
+   "w": "P = (36 + 17) : 400 = 0,1325.",
+   "h": "Welche Felder gehören zum Ereignis? Teile ihre Summe durch die Gesamtzahl."
+  },
+  {
+   "l": "tafel_wkeit",
+   "t": "tafel_wkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 37; A und nicht B: 27; nicht A und B: 14; nicht A und nicht B: 22. Gesamt: 100. Eine Person/ein Fall wird zufällig ausgewählt. Berechne P(„mindestens eines von A und B“) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.78
+   },
+   "c": "78 / 100",
+   "w": "P = 1 − 22 : 100 = 0,78.",
+   "h": "Welche Felder gehören zum Ereignis? Teile ihre Summe durch die Gesamtzahl."
+  },
+  {
+   "l": "tafel_wkeit",
+   "t": "tafel_wkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 230; A und nicht B: 64; nicht A und B: 64; nicht A und nicht B: 42. Gesamt: 400. Eine Person/ein Fall wird zufällig ausgewählt. Berechne P(„mindestens eines von A und B“) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.895
+   },
+   "c": "358 / 400",
+   "w": "P = 1 − 42 : 400 = 0,895.",
+   "h": "Welche Felder gehören zum Ereignis? Teile ihre Summe durch die Gesamtzahl."
+  },
+  {
+   "l": "tafel_wkeit",
+   "t": "tafel_wkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 31; A und nicht B: 14; nicht A und B: 32; nicht A und nicht B: 23. Gesamt: 100. Eine Person/ein Fall wird zufällig ausgewählt. Berechne P(A ∪ B) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.77
+   },
+   "c": "77 / 100",
+   "w": "P = (31 + 14 + 32) : 100 = 0,77.",
+   "h": "Welche Felder gehören zum Ereignis? Teile ihre Summe durch die Gesamtzahl."
+  },
+  {
+   "l": "tafel_wkeit",
+   "t": "tafel_wkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 30; A und nicht B: 22; nicht A und B: 8; nicht A und nicht B: 40. Gesamt: 100. Eine Person/ein Fall wird zufällig ausgewählt. Berechne P(„mindestens eines von A und B“) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.6
+   },
+   "c": "60 / 100",
+   "w": "P = 1 − 40 : 100 = 0,6.",
+   "h": "Welche Felder gehören zum Ereignis? Teile ihre Summe durch die Gesamtzahl."
+  },
+  {
+   "l": "tafel_wkeit",
+   "t": "tafel_wkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 126; A und nicht B: 111; nicht A und B: 92; nicht A und nicht B: 71. Gesamt: 400. Eine Person/ein Fall wird zufällig ausgewählt. Berechne P(„mindestens eines von A und B“) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.8225
+   },
+   "c": "329 / 400",
+   "w": "P = 1 − 71 : 400 = 0,8225.",
+   "h": "Welche Felder gehören zum Ereignis? Teile ihre Summe durch die Gesamtzahl."
+  },
+  {
+   "l": "tafel_wkeit",
+   "t": "tafel_wkeit",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 324; A und nicht B: 28; nicht A und B: 69; nicht A und nicht B: 79. Gesamt: 500. Eine Person/ein Fall wird zufällig ausgewählt. Berechne P(A) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.704
+   },
+   "c": "352 / 500",
+   "w": "P = (324 + 28) : 500 = 0,704."
+  },
+  {
+   "l": "tafel_wkeit",
+   "t": "tafel_wkeit",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 332; A und nicht B: 253; nicht A und B: 333; nicht A und nicht B: 82. Gesamt: 1 000. Eine Person/ein Fall wird zufällig ausgewählt. Berechne P(A) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.585
+   },
+   "c": "585 / 1000",
+   "w": "P = (332 + 253) : 1 000 = 0,585."
+  },
+  {
+   "l": "tafel_wkeit",
+   "t": "tafel_wkeit",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 182; A und nicht B: 441; nicht A und B: 302; nicht A und nicht B: 75. Gesamt: 1 000. Eine Person/ein Fall wird zufällig ausgewählt. Berechne P(B) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.484
+   },
+   "c": "484 / 1000",
+   "w": "P = (182 + 302) : 1 000 = 0,484."
+  },
+  {
+   "l": "tafel_wkeit",
+   "t": "tafel_wkeit",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 30; A und nicht B: 49; nicht A und B: 5; nicht A und nicht B: 16. Gesamt: 100. Eine Person/ein Fall wird zufällig ausgewählt. Berechne P(„nicht A“) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.21
+   },
+   "c": "21 / 100",
+   "w": "P = (5 + 16) : 100 = 0,21."
+  },
+  {
+   "l": "tafel_wkeit",
+   "t": "tafel_wkeit",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 131; A und nicht B: 51; nicht A und B: 167; nicht A und nicht B: 151. Gesamt: 500. Eine Person/ein Fall wird zufällig ausgewählt. Berechne P(„nicht A“) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.636
+   },
+   "c": "318 / 500",
+   "w": "P = (167 + 151) : 500 = 0,636."
+  },
+  {
+   "l": "tafel_wkeit",
+   "t": "tafel_wkeit",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 12; A und nicht B: 19; nicht A und B: 26; nicht A und nicht B: 43. Gesamt: 100. Eine Person/ein Fall wird zufällig ausgewählt. Berechne P(„nicht A“) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.69
+   },
+   "c": "69 / 100",
+   "w": "P = (26 + 43) : 100 = 0,69."
+  },
+  {
+   "l": "tafel_wkeit",
+   "t": "tafel_wkeit",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 111; A und nicht B: 249; nicht A und B: 100; nicht A und nicht B: 540. Gesamt: 1 000. Eine Person/ein Fall wird zufällig ausgewählt. Berechne P(B) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.211
+   },
+   "c": "211 / 1000",
+   "w": "P = (111 + 100) : 1 000 = 0,211."
+  },
+  {
+   "l": "tafel_wkeit",
+   "t": "tafel_wkeit",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 202; A und nicht B: 160; nicht A und B: 350; nicht A und nicht B: 288. Gesamt: 1 000. Eine Person/ein Fall wird zufällig ausgewählt. Berechne P(„nicht A“) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.638
+   },
+   "c": "638 / 1000",
+   "w": "P = (350 + 288) : 1 000 = 0,638."
+  },
+  {
+   "l": "tafel_wkeit",
+   "t": "tafel_wkeit",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 41; A und nicht B: 19; nicht A und B: 56; nicht A und nicht B: 134. Gesamt: 250. Eine Person/ein Fall wird zufällig ausgewählt. Berechne P(„nicht A“) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.76
+   },
+   "c": "190 / 250",
+   "w": "P = (56 + 134) : 250 = 0,76."
+  },
+  {
+   "l": "tafel_wkeit",
+   "t": "tafel_wkeit",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 65; A und nicht B: 730; nicht A und B: 148; nicht A und nicht B: 57. Gesamt: 1 000. Eine Person/ein Fall wird zufällig ausgewählt. Berechne P(A) als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.795
+   },
+   "c": "795 / 1000",
+   "w": "P = (65 + 730) : 1 000 = 0,795."
+  },
+  {
+   "l": "additionssatz",
+   "t": "additionssatz",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt P(A) = 0,7, P(B) = 0,2 und P(A ∩ B) = 0,1. Berechne P(A ∪ B)."
+   },
+   "o": {
+    "wert": 0.8
+   },
+   "c": "0.7 + 0.2 - 0.1",
+   "w": "P(A ∪ B) = 0,7 + 0,2 − 0,1 = 0,8.",
+   "h": "Additionssatz: die Schnittmenge einmal abziehen."
+  },
+  {
+   "l": "additionssatz",
+   "t": "additionssatz",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt P(A) = 0,2, P(B) = 0,3 und P(A ∩ B) = 0,1. Berechne P(A ∪ B)."
+   },
+   "o": {
+    "wert": 0.4
+   },
+   "c": "0.2 + 0.3 - 0.1",
+   "w": "P(A ∪ B) = 0,2 + 0,3 − 0,1 = 0,4.",
+   "h": "Additionssatz: die Schnittmenge einmal abziehen."
+  },
+  {
+   "l": "additionssatz",
+   "t": "additionssatz",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt P(A) = 0,3, P(B) = 0,5 und P(A ∩ B) = 0,1. Berechne P(A ∪ B)."
+   },
+   "o": {
+    "wert": 0.7
+   },
+   "c": "0.3 + 0.5 - 0.1",
+   "w": "P(A ∪ B) = 0,3 + 0,5 − 0,1 = 0,7.",
+   "h": "Additionssatz: die Schnittmenge einmal abziehen."
+  },
+  {
+   "l": "additionssatz",
+   "t": "additionssatz",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt P(A) = 0,2, P(B) = 0,5 und P(A ∩ B) = 0,1. Berechne P(A ∪ B)."
+   },
+   "o": {
+    "wert": 0.6
+   },
+   "c": "0.2 + 0.5 - 0.1",
+   "w": "P(A ∪ B) = 0,2 + 0,5 − 0,1 = 0,6.",
+   "h": "Additionssatz: die Schnittmenge einmal abziehen."
+  },
+  {
+   "l": "additionssatz",
+   "t": "additionssatz",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt P(A) = 0,6, P(B) = 0,3 und P(A ∩ B) = 0,2. Berechne P(A ∪ B)."
+   },
+   "o": {
+    "wert": 0.7
+   },
+   "c": "0.6 + 0.3 - 0.2",
+   "w": "P(A ∪ B) = 0,6 + 0,3 − 0,2 = 0,7.",
+   "h": "Additionssatz: die Schnittmenge einmal abziehen."
+  },
+  {
+   "l": "additionssatz",
+   "t": "additionssatz",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt P(A) = 0,5, P(B) = 0,6 und P(A ∩ B) = 0,3. Berechne P(A ∪ B)."
+   },
+   "o": {
+    "wert": 0.8
+   },
+   "c": "0.5 + 0.6 - 0.3",
+   "w": "P(A ∪ B) = 0,5 + 0,6 − 0,3 = 0,8.",
+   "h": "Additionssatz: die Schnittmenge einmal abziehen."
+  },
+  {
+   "l": "additionssatz",
+   "t": "additionssatz",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt P(A) = 0,2, P(B) = 0,7 und P(A ∩ B) = 0,19. Mit welcher Wahrscheinlichkeit tritt keines der beiden Ereignisse ein?"
+   },
+   "o": {
+    "wert": 0.29
+   },
+   "c": "1 - (0.2 + 0.7 - 0.19)",
+   "w": "P(A ∪ B) = 0,71; keines: 1 − 0,71 = 0,29.",
+   "h": "„Keines“ ist das Gegenereignis von A ∪ B."
+  },
+  {
+   "l": "additionssatz",
+   "t": "additionssatz",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt P(A) = 0,2, P(B) = 0,6 und P(A ∪ B) = 0,65. Berechne P(A ∩ B)."
+   },
+   "o": {
+    "wert": 0.15
+   },
+   "c": "0.2 + 0.6 - 0.65",
+   "w": "P(A ∩ B) = P(A) + P(B) − P(A ∪ B) = 0,2 + 0,6 − 0,65 = 0,15.",
+   "h": "Stelle den Additionssatz nach P(A ∩ B) um."
+  },
+  {
+   "l": "additionssatz",
+   "t": "additionssatz",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt P(A) = 0,2, P(B) = 0,5 und P(A ∩ B) = 0,01. Mit welcher Wahrscheinlichkeit tritt keines der beiden Ereignisse ein?"
+   },
+   "o": {
+    "wert": 0.31
+   },
+   "c": "1 - (0.2 + 0.5 - 0.01)",
+   "w": "P(A ∪ B) = 0,69; keines: 1 − 0,69 = 0,31.",
+   "h": "„Keines“ ist das Gegenereignis von A ∪ B."
+  },
+  {
+   "l": "additionssatz",
+   "t": "additionssatz",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt P(A) = 0,3, P(B) = 0,2 und P(A ∩ B) = 0,17. Mit welcher Wahrscheinlichkeit tritt keines der beiden Ereignisse ein?"
+   },
+   "o": {
+    "wert": 0.67
+   },
+   "c": "1 - (0.3 + 0.2 - 0.17)",
+   "w": "P(A ∪ B) = 0,33; keines: 1 − 0,33 = 0,67.",
+   "h": "„Keines“ ist das Gegenereignis von A ∪ B."
+  },
+  {
+   "l": "additionssatz",
+   "t": "additionssatz",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt P(A) = 0,5, P(B) = 0,3 und P(A ∩ B) = 0,22. Mit welcher Wahrscheinlichkeit tritt keines der beiden Ereignisse ein?"
+   },
+   "o": {
+    "wert": 0.42
+   },
+   "c": "1 - (0.5 + 0.3 - 0.22)",
+   "w": "P(A ∪ B) = 0,58; keines: 1 − 0,58 = 0,42.",
+   "h": "„Keines“ ist das Gegenereignis von A ∪ B."
+  },
+  {
+   "l": "additionssatz",
+   "t": "additionssatz",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt P(A) = 0,3, P(B) = 0,3 und P(A ∪ B) = 0,35. Berechne P(A ∩ B)."
+   },
+   "o": {
+    "wert": 0.25
+   },
+   "c": "0.3 + 0.3 - 0.35",
+   "w": "P(A ∩ B) = P(A) + P(B) − P(A ∪ B) = 0,3 + 0,3 − 0,35 = 0,25.",
+   "h": "Stelle den Additionssatz nach P(A ∩ B) um."
+  },
+  {
+   "l": "additionssatz",
+   "t": "additionssatz",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Aus 1 bis 20 wird zufällig eine Zahl gezogen. A: „durch 3 teilbar“, B: „gerade“. Berechne P(A ∪ B) mit dem Additionssatz als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.65
+   },
+   "c": "6 / 20 + 10 / 20 - 3 / 20",
+   "w": "P(A) = 6/20, P(B) = 10/20, P(A ∩ B) = 3/20 (6, 12, 18). P(A ∪ B) = 13/20 = 0,65.",
+   "h": "Bestimme P(A), P(B) und P(A ∩ B) einzeln."
+  },
+  {
+   "l": "additionssatz",
+   "t": "additionssatz",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Aus 1 bis 50 wird zufällig eine Zahl gezogen. A: „gerade“, B: „eine Primzahl“. Berechne P(A ∪ B) mit dem Additionssatz als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.78
+   },
+   "c": "25 / 50 + 15 / 50 - 1 / 50",
+   "w": "P(A) = 25/50, P(B) = 15/50, P(A ∩ B) = 1/50 (2). P(A ∪ B) = 39/50 = 0,78.",
+   "h": "Bestimme P(A), P(B) und P(A ∩ B) einzeln."
+  },
+  {
+   "l": "additionssatz",
+   "t": "additionssatz",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Aus 1 bis 50 wird zufällig eine Zahl gezogen. A: „durch 5 teilbar“, B: „eine Quadratzahl“. Berechne P(A ∪ B) mit dem Additionssatz als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.32
+   },
+   "c": "10 / 50 + 7 / 50 - 1 / 50",
+   "w": "P(A) = 10/50, P(B) = 7/50, P(A ∩ B) = 1/50 (25). P(A ∪ B) = 16/50 = 0,32.",
+   "h": "Bestimme P(A), P(B) und P(A ∩ B) einzeln."
+  },
+  {
+   "l": "additionssatz",
+   "t": "additionssatz",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Aus 1 bis 50 wird zufällig eine Zahl gezogen. A: „durch 4 teilbar“, B: „durch 3 teilbar“. Berechne P(A ∪ B) mit dem Additionssatz als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.48
+   },
+   "c": "12 / 50 + 16 / 50 - 4 / 50",
+   "w": "P(A) = 12/50, P(B) = 16/50, P(A ∩ B) = 4/50 (12, 24, 36, 48). P(A ∪ B) = 24/50 = 0,48.",
+   "h": "Bestimme P(A), P(B) und P(A ∩ B) einzeln."
+  },
+  {
+   "l": "additionssatz",
+   "t": "additionssatz",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Aus 1 bis 50 wird zufällig eine Zahl gezogen. A: „durch 3 teilbar“, B: „durch 4 teilbar“. Berechne P(A ∪ B) mit dem Additionssatz als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.48
+   },
+   "c": "16 / 50 + 12 / 50 - 4 / 50",
+   "w": "P(A) = 16/50, P(B) = 12/50, P(A ∩ B) = 4/50 (12, 24, 36, 48). P(A ∪ B) = 24/50 = 0,48.",
+   "h": "Bestimme P(A), P(B) und P(A ∩ B) einzeln."
+  },
+  {
+   "l": "additionssatz",
+   "t": "additionssatz",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Aus 1 bis 25 wird zufällig eine Zahl gezogen. A: „eine Primzahl“, B: „gerade“. Berechne P(A ∪ B) mit dem Additionssatz als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.8
+   },
+   "c": "9 / 25 + 12 / 25 - 1 / 25",
+   "w": "P(A) = 9/25, P(B) = 12/25, P(A ∩ B) = 1/25 (2). P(A ∪ B) = 20/25 = 0,8.",
+   "h": "Bestimme P(A), P(B) und P(A ∩ B) einzeln."
+  },
+  {
+   "l": "additionssatz",
+   "t": "additionssatz",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt P(A) = 0,5, P(B) = 0,7 und P(A ∪ B) = 0,98. Berechne P(A ∩ B)."
+   },
+   "o": {
+    "wert": 0.22
+   },
+   "c": "0.5 + 0.7 - 0.98",
+   "w": "P(A ∩ B) = P(A) + P(B) − P(A ∪ B) = 0,5 + 0,7 − 0,98 = 0,22."
+  },
+  {
+   "l": "additionssatz",
+   "t": "additionssatz",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt P(A) = 0,4, P(B) = 0,6 und P(A ∪ B) = 0,7. Berechne P(A ∩ B)."
+   },
+   "o": {
+    "wert": 0.3
+   },
+   "c": "0.4 + 0.6 - 0.7",
+   "w": "P(A ∩ B) = P(A) + P(B) − P(A ∪ B) = 0,4 + 0,6 − 0,7 = 0,3."
+  },
+  {
+   "l": "additionssatz",
+   "t": "additionssatz",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt P(A) = 0,2, P(B) = 0,6 und P(A ∩ B) = 0,1. Mit welcher Wahrscheinlichkeit tritt keines der beiden Ereignisse ein?"
+   },
+   "o": {
+    "wert": 0.3
+   },
+   "c": "1 - (0.2 + 0.6 - 0.1)",
+   "w": "P(A ∪ B) = 0,7; keines: 1 − 0,7 = 0,3."
+  },
+  {
+   "l": "additionssatz",
+   "t": "additionssatz",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt P(A) = 0,6, P(B) = 0,2 und P(A ∩ B) = 0,19. Mit welcher Wahrscheinlichkeit tritt keines der beiden Ereignisse ein?"
+   },
+   "o": {
+    "wert": 0.39
+   },
+   "c": "1 - (0.6 + 0.2 - 0.19)",
+   "w": "P(A ∪ B) = 0,61; keines: 1 − 0,61 = 0,39."
+  },
+  {
+   "l": "additionssatz",
+   "t": "additionssatz",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt P(A) = 0,5, P(B) = 0,2 und P(A ∩ B) = 0,03. Mit welcher Wahrscheinlichkeit tritt keines der beiden Ereignisse ein?"
+   },
+   "o": {
+    "wert": 0.33
+   },
+   "c": "1 - (0.5 + 0.2 - 0.03)",
+   "w": "P(A ∪ B) = 0,67; keines: 1 − 0,67 = 0,33."
+  },
+  {
+   "l": "additionssatz",
+   "t": "additionssatz",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt P(A) = 0,6, P(B) = 0,6 und P(A ∪ B) = 0,78. Berechne P(A ∩ B)."
+   },
+   "o": {
+    "wert": 0.42
+   },
+   "c": "0.6 + 0.6 - 0.78",
+   "w": "P(A ∩ B) = P(A) + P(B) − P(A ∪ B) = 0,6 + 0,6 − 0,78 = 0,42."
+  },
+  {
+   "l": "additionssatz",
+   "t": "additionssatz",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt P(A) = 0,3, P(B) = 0,6 und P(A ∪ B) = 0,87. Berechne P(A ∩ B)."
+   },
+   "o": {
+    "wert": 0.03
+   },
+   "c": "0.3 + 0.6 - 0.87",
+   "w": "P(A ∩ B) = P(A) + P(B) − P(A ∪ B) = 0,3 + 0,6 − 0,87 = 0,03."
+  },
+  {
+   "l": "additionssatz",
+   "t": "additionssatz",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt P(A) = 0,5, P(B) = 0,5 und P(A ∩ B) = 0,45. Mit welcher Wahrscheinlichkeit tritt keines der beiden Ereignisse ein?"
+   },
+   "o": {
+    "wert": 0.45
+   },
+   "c": "1 - (0.5 + 0.5 - 0.45)",
+   "w": "P(A ∪ B) = 0,55; keines: 1 − 0,55 = 0,45."
+  },
+  {
+   "l": "additionssatz",
+   "t": "additionssatz",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt P(A) = 0,4, P(B) = 0,3 und P(A ∪ B) = 0,64. Berechne P(A ∩ B)."
+   },
+   "o": {
+    "wert": 0.06
+   },
+   "c": "0.4 + 0.3 - 0.64",
+   "w": "P(A ∩ B) = P(A) + P(B) − P(A ∪ B) = 0,4 + 0,3 − 0,64 = 0,06."
+  },
+  {
+   "l": "additionssatz",
+   "t": "additionssatz",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt P(A) = 0,5, P(B) = 0,5 und P(A ∪ B) = 0,76. Berechne P(A ∩ B)."
+   },
+   "o": {
+    "wert": 0.24
+   },
+   "c": "0.5 + 0.5 - 0.76",
+   "w": "P(A ∩ B) = P(A) + P(B) − P(A ∪ B) = 0,5 + 0,5 − 0,76 = 0,24."
+  },
+  {
+   "l": "bedingt",
+   "t": "bedingt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 25; A und nicht B: 11; nicht A und B: 15; nicht A und nicht B: 49. Berechne P_B(A), also die Wahrscheinlichkeit für A unter der Bedingung B."
+   },
+   "o": {
+    "wert": 0.625
+   },
+   "c": "25 / (25 + 15)",
+   "w": "Nur Spalte B betrachten: 40 Fälle, davon 25 mit A. P_B(A) = 25 : 40 = 0,625.",
+   "h": "Teile durch die Anzahl in der Bedingung B, nicht durch alle."
+  },
+  {
+   "l": "bedingt",
+   "t": "bedingt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 41; A und nicht B: 36; nicht A und B: 84; nicht A und nicht B: 39. Berechne P_B(A), also die Wahrscheinlichkeit für A unter der Bedingung B."
+   },
+   "o": {
+    "wert": 0.328
+   },
+   "c": "41 / (41 + 84)",
+   "w": "Nur Spalte B betrachten: 125 Fälle, davon 41 mit A. P_B(A) = 41 : 125 = 0,328.",
+   "h": "Teile durch die Anzahl in der Bedingung B, nicht durch alle."
+  },
+  {
+   "l": "bedingt",
+   "t": "bedingt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 29; A und nicht B: 154; nicht A und B: 29; nicht A und nicht B: 188. Berechne P_B(A), also die Wahrscheinlichkeit für A unter der Bedingung B."
+   },
+   "o": {
+    "wert": 0.5
+   },
+   "c": "29 / (29 + 29)",
+   "w": "Nur Spalte B betrachten: 58 Fälle, davon 29 mit A. P_B(A) = 29 : 58 = 0,5.",
+   "h": "Teile durch die Anzahl in der Bedingung B, nicht durch alle."
+  },
+  {
+   "l": "bedingt",
+   "t": "bedingt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 21; A und nicht B: 27; nicht A und B: 19; nicht A und nicht B: 33. Berechne P_B(A), also die Wahrscheinlichkeit für A unter der Bedingung B."
+   },
+   "o": {
+    "wert": 0.525
+   },
+   "c": "21 / (21 + 19)",
+   "w": "Nur Spalte B betrachten: 40 Fälle, davon 21 mit A. P_B(A) = 21 : 40 = 0,525.",
+   "h": "Teile durch die Anzahl in der Bedingung B, nicht durch alle."
+  },
+  {
+   "l": "bedingt",
+   "t": "bedingt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 6; A und nicht B: 20; nicht A und B: 69; nicht A und nicht B: 5. Berechne P_B(A), also die Wahrscheinlichkeit für A unter der Bedingung B."
+   },
+   "o": {
+    "wert": 0.08
+   },
+   "c": "6 / (6 + 69)",
+   "w": "Nur Spalte B betrachten: 75 Fälle, davon 6 mit A. P_B(A) = 6 : 75 = 0,08.",
+   "h": "Teile durch die Anzahl in der Bedingung B, nicht durch alle."
+  },
+  {
+   "l": "bedingt",
+   "t": "bedingt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 140; A und nicht B: 166; nicht A und B: 60; nicht A und nicht B: 134. Berechne P_B(A), also die Wahrscheinlichkeit für A unter der Bedingung B."
+   },
+   "o": {
+    "wert": 0.7
+   },
+   "c": "140 / (140 + 60)",
+   "w": "Nur Spalte B betrachten: 200 Fälle, davon 140 mit A. P_B(A) = 140 : 200 = 0,7.",
+   "h": "Teile durch die Anzahl in der Bedingung B, nicht durch alle."
+  },
+  {
+   "l": "bedingt",
+   "t": "bedingt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 27; A und nicht B: 13; nicht A und B: 9; nicht A und nicht B: 151. Berechne P_A(B)."
+   },
+   "o": {
+    "wert": 0.675
+   },
+   "c": "27 / (27 + 13)",
+   "w": "Nur Zeile A: 40 Fälle, davon 27 mit B. P_A(B) = 27 : 40 = 0,675.",
+   "h": "Die Bedingung steht unten: hier A."
+  },
+  {
+   "l": "bedingt",
+   "t": "bedingt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 30; A und nicht B: 18; nicht A und B: 30; nicht A und nicht B: 22. Berechne P_A(B)."
+   },
+   "o": {
+    "wert": 0.625
+   },
+   "c": "30 / (30 + 18)",
+   "w": "Nur Zeile A: 48 Fälle, davon 30 mit B. P_A(B) = 30 : 48 = 0,625.",
+   "h": "Die Bedingung steht unten: hier A."
+  },
+  {
+   "l": "bedingt",
+   "t": "bedingt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 39; A und nicht B: 36; nicht A und B: 13; nicht A und nicht B: 12. Berechne P_A(B)."
+   },
+   "o": {
+    "wert": 0.52
+   },
+   "c": "39 / (39 + 36)",
+   "w": "Nur Zeile A: 75 Fälle, davon 39 mit B. P_A(B) = 39 : 75 = 0,52.",
+   "h": "Die Bedingung steht unten: hier A."
+  },
+  {
+   "l": "bedingt",
+   "t": "bedingt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 30; A und nicht B: 50; nicht A und B: 50; nicht A und nicht B: 270. Berechne P_A(B)."
+   },
+   "o": {
+    "wert": 0.375
+   },
+   "c": "30 / (30 + 50)",
+   "w": "Nur Zeile A: 80 Fälle, davon 30 mit B. P_A(B) = 30 : 80 = 0,375.",
+   "h": "Die Bedingung steht unten: hier A."
+  },
+  {
+   "l": "bedingt",
+   "t": "bedingt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 33; A und nicht B: 33; nicht A und B: 11; nicht A und nicht B: 23. Berechne P_A(B)."
+   },
+   "o": {
+    "wert": 0.5
+   },
+   "c": "33 / (33 + 33)",
+   "w": "Nur Zeile A: 66 Fälle, davon 33 mit B. P_A(B) = 33 : 66 = 0,5.",
+   "h": "Die Bedingung steht unten: hier A."
+  },
+  {
+   "l": "bedingt",
+   "t": "bedingt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 51; A und nicht B: 9; nicht A und B: 17; nicht A und nicht B: 23. Berechne P_A(B)."
+   },
+   "o": {
+    "wert": 0.85
+   },
+   "c": "51 / (51 + 9)",
+   "w": "Nur Zeile A: 60 Fälle, davon 51 mit B. P_A(B) = 51 : 60 = 0,85.",
+   "h": "Die Bedingung steht unten: hier A."
+  },
+  {
+   "l": "bedingt",
+   "t": "bedingt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt P(B) = 0,2 und P(A ∩ B) = 0,15. Berechne P_B(A)."
+   },
+   "o": {
+    "wert": 0.75
+   },
+   "c": "0.15 / 0.2",
+   "w": "P_B(A) = P(A ∩ B) : P(B) = 0,15 : 0,2 = 0,75.",
+   "h": "Formel für die bedingte Wahrscheinlichkeit."
+  },
+  {
+   "l": "bedingt",
+   "t": "bedingt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt P(B) = 0,4 und P(A ∩ B) = 0,2. Berechne P_B(A)."
+   },
+   "o": {
+    "wert": 0.5
+   },
+   "c": "0.2 / 0.4",
+   "w": "P_B(A) = P(A ∩ B) : P(B) = 0,2 : 0,4 = 0,5.",
+   "h": "Formel für die bedingte Wahrscheinlichkeit."
+  },
+  {
+   "l": "bedingt",
+   "t": "bedingt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt P(B) = 0,8 und P(A ∩ B) = 0,2. Berechne P_B(A)."
+   },
+   "o": {
+    "wert": 0.25
+   },
+   "c": "0.2 / 0.8",
+   "w": "P_B(A) = P(A ∩ B) : P(B) = 0,2 : 0,8 = 0,25.",
+   "h": "Formel für die bedingte Wahrscheinlichkeit."
+  },
+  {
+   "l": "bedingt",
+   "t": "bedingt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt P(B) = 0,4 und P(A ∩ B) = 0,3. Berechne P_B(A)."
+   },
+   "o": {
+    "wert": 0.75
+   },
+   "c": "0.3 / 0.4",
+   "w": "P_B(A) = P(A ∩ B) : P(B) = 0,3 : 0,4 = 0,75.",
+   "h": "Formel für die bedingte Wahrscheinlichkeit."
+  },
+  {
+   "l": "bedingt",
+   "t": "bedingt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt P(B) = 0,4 und P(A ∩ B) = 0,1. Berechne P_B(A)."
+   },
+   "o": {
+    "wert": 0.25
+   },
+   "c": "0.1 / 0.4",
+   "w": "P_B(A) = P(A ∩ B) : P(B) = 0,1 : 0,4 = 0,25.",
+   "h": "Formel für die bedingte Wahrscheinlichkeit."
+  },
+  {
+   "l": "bedingt",
+   "t": "bedingt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Es gilt P(B) = 0,5 und P(A ∩ B) = 0,375. Berechne P_B(A)."
+   },
+   "o": {
+    "wert": 0.75
+   },
+   "c": "0.375 / 0.5",
+   "w": "P_B(A) = P(A ∩ B) : P(B) = 0,375 : 0,5 = 0,75.",
+   "h": "Formel für die bedingte Wahrscheinlichkeit."
+  },
+  {
+   "l": "bedingt",
+   "t": "bedingt",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 24; A und nicht B: 36; nicht A und B: 6; nicht A und nicht B: 34. Berechne P_A(B)."
+   },
+   "o": {
+    "wert": 0.4
+   },
+   "c": "24 / (24 + 36)",
+   "w": "Nur Zeile A: 60 Fälle, davon 24 mit B. P_A(B) = 24 : 60 = 0,4."
+  },
+  {
+   "l": "bedingt",
+   "t": "bedingt",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 23; A und nicht B: 17; nicht A und B: 23; nicht A und nicht B: 37. Berechne P_A(B)."
+   },
+   "o": {
+    "wert": 0.575
+   },
+   "c": "23 / (23 + 17)",
+   "w": "Nur Zeile A: 40 Fälle, davon 23 mit B. P_A(B) = 23 : 40 = 0,575."
+  },
+  {
+   "l": "bedingt",
+   "t": "bedingt",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 6; A und nicht B: 18; nicht A und B: 14; nicht A und nicht B: 62. Berechne P_A(B)."
+   },
+   "o": {
+    "wert": 0.25
+   },
+   "c": "6 / (6 + 18)",
+   "w": "Nur Zeile A: 24 Fälle, davon 6 mit B. P_A(B) = 6 : 24 = 0,25."
+  },
+  {
+   "l": "bedingt",
+   "t": "bedingt",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 45; A und nicht B: 27; nicht A und B: 5; nicht A und nicht B: 23. Berechne P_A(B)."
+   },
+   "o": {
+    "wert": 0.625
+   },
+   "c": "45 / (45 + 27)",
+   "w": "Nur Zeile A: 72 Fälle, davon 45 mit B. P_A(B) = 45 : 72 = 0,625."
+  },
+  {
+   "l": "bedingt",
+   "t": "bedingt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 22; A und nicht B: 88; nicht A und B: 28; nicht A und nicht B: 62. Berechne P_A(B)."
+   },
+   "o": {
+    "wert": 0.2
+   },
+   "c": "22 / (22 + 88)",
+   "w": "Nur Zeile A: 110 Fälle, davon 22 mit B. P_A(B) = 22 : 110 = 0,2."
+  },
+  {
+   "l": "bedingt",
+   "t": "bedingt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 21; A und nicht B: 9; nicht A und B: 54; nicht A und nicht B: 16. Berechne P_A(B)."
+   },
+   "o": {
+    "wert": 0.7
+   },
+   "c": "21 / (21 + 9)",
+   "w": "Nur Zeile A: 30 Fälle, davon 21 mit B. P_A(B) = 21 : 30 = 0,7."
+  },
+  {
+   "l": "bedingt",
+   "t": "bedingt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 27; A und nicht B: 18; nicht A und B: 18; nicht A und nicht B: 37. Berechne P_A(B)."
+   },
+   "o": {
+    "wert": 0.6
+   },
+   "c": "27 / (27 + 18)",
+   "w": "Nur Zeile A: 45 Fälle, davon 27 mit B. P_A(B) = 27 : 45 = 0,6."
+  },
+  {
+   "l": "bedingt",
+   "t": "bedingt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 8; A und nicht B: 56; nicht A und B: 8; nicht A und nicht B: 28. Berechne P_A(B)."
+   },
+   "o": {
+    "wert": 0.125
+   },
+   "c": "8 / (8 + 56)",
+   "w": "Nur Zeile A: 64 Fälle, davon 8 mit B. P_A(B) = 8 : 64 = 0,125."
+  },
+  {
+   "l": "bedingt",
+   "t": "bedingt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 81; A und nicht B: 27; nicht A und B: 27; nicht A und nicht B: 65. Berechne P_A(B)."
+   },
+   "o": {
+    "wert": 0.75
+   },
+   "c": "81 / (81 + 27)",
+   "w": "Nur Zeile A: 108 Fälle, davon 81 mit B. P_A(B) = 81 : 108 = 0,75."
+  },
+  {
+   "l": "bedingt",
+   "t": "bedingt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vierfeldertafel (Anzahlen): A und B: 120; A und nicht B: 72; nicht A und B: 180; nicht A und nicht B: 128. Berechne P_A(B)."
+   },
+   "o": {
+    "wert": 0.625
+   },
+   "c": "120 / (120 + 72)",
+   "w": "Nur Zeile A: 192 Fälle, davon 120 mit B. P_A(B) = 120 : 192 = 0,625."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei 4 Losen ist A: „mindestens einmal ein Gewinn“. Was ist das Gegenereignis Ā?"
+   },
+   "a": [
+    "„mindestens einmal kein Gewinn“",
+    "„kein einziges Mal ein Gewinn“",
+    "„höchstens einmal ein Gewinn“",
+    "„genau einmal ein Gewinn“"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Das Gegenereignis umfasst genau die Ergebnisse, die nicht zu A gehören. Nicht „mindestens einmal“ heißt „keinmal“.",
+   "h": "Welche Ergebnisse gehören nicht zu A?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "A und B sind unvereinbar, P(A) = 0,2, P(B) = 0,1. Was gilt für P(A ∪ B)?"
+   },
+   "a": [
+    "P(A ∪ B) = 0,28",
+    "P(A ∪ B) = 0,02",
+    "Das kann man nicht berechnen.",
+    "P(A ∪ B) = 0,3"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Unvereinbar: A ∩ B = ∅, P(A ∩ B) = 0. Also P(A ∪ B) = 0,2 + 0,1 = 0,3.",
+   "h": "Was bedeutet „unvereinbar“ für A ∩ B?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "A und B sind unvereinbar, P(A) = 0,5, P(B) = 0,3. Was gilt für P(A ∪ B)?"
+   },
+   "a": [
+    "P(A ∪ B) = 0,15",
+    "P(A ∪ B) = 0,8",
+    "Das kann man nicht berechnen.",
+    "P(A ∪ B) = 0,65"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Unvereinbar: A ∩ B = ∅, P(A ∩ B) = 0. Also P(A ∪ B) = 0,5 + 0,3 = 0,8.",
+   "h": "Was bedeutet „unvereinbar“ für A ∩ B?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "A und B sind unvereinbar, P(A) = 0,3, P(B) = 0,2. Was gilt für P(A ∪ B)?"
+   },
+   "a": [
+    "P(A ∪ B) = 0,06",
+    "P(A ∪ B) = 0,44",
+    "P(A ∪ B) = 0,5",
+    "Das kann man nicht berechnen."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Unvereinbar: A ∩ B = ∅, P(A ∩ B) = 0. Also P(A ∪ B) = 0,3 + 0,2 = 0,5.",
+   "h": "Was bedeutet „unvereinbar“ für A ∩ B?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei 3 Torschüssen ist A: „mindestens einmal ein Treffer“. Was ist das Gegenereignis Ā?"
+   },
+   "a": [
+    "„höchstens einmal ein Treffer“",
+    "„mindestens einmal kein Treffer“",
+    "„genau einmal ein Treffer“",
+    "„kein einziges Mal ein Treffer“"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Das Gegenereignis umfasst genau die Ergebnisse, die nicht zu A gehören. Nicht „mindestens einmal“ heißt „keinmal“.",
+   "h": "Welche Ergebnisse gehören nicht zu A?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "A und B sind unvereinbar, P(A) = 0,2, P(B) = 0,1. Was gilt für P(A ∪ B)?"
+   },
+   "a": [
+    "P(A ∪ B) = 0,28",
+    "Das kann man nicht berechnen.",
+    "P(A ∪ B) = 0,3",
+    "P(A ∪ B) = 0,02"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Unvereinbar: A ∩ B = ∅, P(A ∩ B) = 0. Also P(A ∪ B) = 0,2 + 0,1 = 0,3.",
+   "h": "Was bedeutet „unvereinbar“ für A ∩ B?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei 4 Torschüssen ist A: „mindestens einmal ein Treffer“. Was ist das Gegenereignis Ā?"
+   },
+   "a": [
+    "„mindestens einmal kein Treffer“",
+    "„höchstens einmal ein Treffer“",
+    "„genau einmal ein Treffer“",
+    "„kein einziges Mal ein Treffer“"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Das Gegenereignis umfasst genau die Ergebnisse, die nicht zu A gehören. Nicht „mindestens einmal“ heißt „keinmal“.",
+   "h": "Welche Ergebnisse gehören nicht zu A?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "A und B sind unvereinbar, P(A) = 0,3, P(B) = 0,5. Was gilt für P(A ∪ B)?"
+   },
+   "a": [
+    "P(A ∪ B) = 0,15",
+    "P(A ∪ B) = 0,8",
+    "P(A ∪ B) = 0,65",
+    "Das kann man nicht berechnen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Unvereinbar: A ∩ B = ∅, P(A ∩ B) = 0. Also P(A ∪ B) = 0,3 + 0,5 = 0,8.",
+   "h": "Was bedeutet „unvereinbar“ für A ∩ B?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "A und B sind unvereinbar, P(A) = 0,1, P(B) = 0,3. Was gilt für P(A ∪ B)?"
+   },
+   "a": [
+    "P(A ∪ B) = 0,4",
+    "P(A ∪ B) = 0,37",
+    "Das kann man nicht berechnen.",
+    "P(A ∪ B) = 0,03"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Unvereinbar: A ∩ B = ∅, P(A ∩ B) = 0. Also P(A ∪ B) = 0,1 + 0,3 = 0,4.",
+   "h": "Was bedeutet „unvereinbar“ für A ∩ B?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "A und B sind unvereinbar, P(A) = 0,3, P(B) = 0,2. Was gilt für P(A ∪ B)?"
+   },
+   "a": [
+    "P(A ∪ B) = 0,44",
+    "P(A ∪ B) = 0,06",
+    "Das kann man nicht berechnen.",
+    "P(A ∪ B) = 0,5"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Unvereinbar: A ∩ B = ∅, P(A ∩ B) = 0. Also P(A ∪ B) = 0,3 + 0,2 = 0,5.",
+   "h": "Was bedeutet „unvereinbar“ für A ∩ B?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "A und B sind unvereinbar, P(A) = 0,4, P(B) = 0,3. Was gilt für P(A ∪ B)?"
+   },
+   "a": [
+    "P(A ∪ B) = 0,7",
+    "P(A ∪ B) = 0,58",
+    "P(A ∪ B) = 0,12",
+    "Das kann man nicht berechnen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Unvereinbar: A ∩ B = ∅, P(A ∩ B) = 0. Also P(A ∪ B) = 0,4 + 0,3 = 0,7.",
+   "h": "Was bedeutet „unvereinbar“ für A ∩ B?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand behauptet: „P(A) = 0,8 und P(B) = 0,7; A und B können unvereinbar sein.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: Dann wäre P(A ∪ B) = 1,5 > 1. Es gilt P(A ∩ B) ≥ 0,5.",
+    "Falsch: Wahrscheinlichkeiten kann man nicht addieren.",
+    "Falsch: P(A ∩ B) = 0,56 muss gelten.",
+    "Richtig, das ist möglich."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Bei unvereinbaren Ereignissen addieren sich die Wahrscheinlichkeiten: 0,8 + 0,7 = 1,5 > 1 ist unmöglich.",
+   "h": "Kann eine Wahrscheinlichkeit größer als 1 sein?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "P(A) = 0,3, P(B) = 0,6, P(A ∩ B) = 0,08. Jemand rechnet P(A ∪ B) = 0,9. Was stimmt?"
+   },
+   "a": [
+    "Falsch: P(A ∪ B) = 0,08.",
+    "Falsch: P(A ∪ B) = 0,98.",
+    "Richtig.",
+    "Falsch: Die Schnittmenge wurde doppelt gezählt; P(A ∪ B) = 0,82."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Additionssatz: 0,3 + 0,6 − 0,08 = 0,82.",
+   "h": "Sind A und B unvereinbar?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "P(A) = 0,6, P(B) = 0,3, P(A ∩ B) = 0,03. Jemand rechnet P(A ∪ B) = 0,9. Was stimmt?"
+   },
+   "a": [
+    "Falsch: P(A ∪ B) = 0,03.",
+    "Richtig.",
+    "Falsch: P(A ∪ B) = 0,93.",
+    "Falsch: Die Schnittmenge wurde doppelt gezählt; P(A ∪ B) = 0,87."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Additionssatz: 0,6 + 0,3 − 0,03 = 0,87.",
+   "h": "Sind A und B unvereinbar?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand behauptet: „P(A) = 0,9 und P(B) = 0,8; A und B können unvereinbar sein.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: Dann wäre P(A ∪ B) = 1,7 > 1. Es gilt P(A ∩ B) ≥ 0,7.",
+    "Richtig, das ist möglich.",
+    "Falsch: Wahrscheinlichkeiten kann man nicht addieren.",
+    "Falsch: P(A ∩ B) = 0,72 muss gelten."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Bei unvereinbaren Ereignissen addieren sich die Wahrscheinlichkeiten: 0,9 + 0,8 = 1,7 > 1 ist unmöglich.",
+   "h": "Kann eine Wahrscheinlichkeit größer als 1 sein?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "P(A) = 0,6, P(B) = 0,4, P(A ∩ B) = 0,02. Jemand rechnet P(A ∪ B) = 1. Was stimmt?"
+   },
+   "a": [
+    "Falsch: P(A ∪ B) = 1,02.",
+    "Falsch: P(A ∪ B) = 0,02.",
+    "Richtig.",
+    "Falsch: Die Schnittmenge wurde doppelt gezählt; P(A ∪ B) = 0,98."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Additionssatz: 0,6 + 0,4 − 0,02 = 0,98.",
+   "h": "Sind A und B unvereinbar?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand behauptet: „P(A) = 0,8 und P(B) = 0,6; A und B können unvereinbar sein.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: Dann wäre P(A ∪ B) = 1,4 > 1. Es gilt P(A ∩ B) ≥ 0,4.",
+    "Falsch: P(A ∩ B) = 0,48 muss gelten.",
+    "Richtig, das ist möglich.",
+    "Falsch: Wahrscheinlichkeiten kann man nicht addieren."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Bei unvereinbaren Ereignissen addieren sich die Wahrscheinlichkeiten: 0,8 + 0,6 = 1,4 > 1 ist unmöglich.",
+   "h": "Kann eine Wahrscheinlichkeit größer als 1 sein?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand behauptet: „P(A) = 0,7 und P(B) = 0,8; A und B können unvereinbar sein.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: Wahrscheinlichkeiten kann man nicht addieren.",
+    "Richtig, das ist möglich.",
+    "Falsch: P(A ∩ B) = 0,56 muss gelten.",
+    "Falsch: Dann wäre P(A ∪ B) = 1,5 > 1. Es gilt P(A ∩ B) ≥ 0,5."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Bei unvereinbaren Ereignissen addieren sich die Wahrscheinlichkeiten: 0,7 + 0,8 = 1,5 > 1 ist unmöglich.",
+   "h": "Kann eine Wahrscheinlichkeit größer als 1 sein?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand behauptet: „P(A) = 0,7 und P(B) = 0,6; A und B können unvereinbar sein.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: Wahrscheinlichkeiten kann man nicht addieren.",
+    "Falsch: Dann wäre P(A ∪ B) = 1,3 > 1. Es gilt P(A ∩ B) ≥ 0,3.",
+    "Richtig, das ist möglich.",
+    "Falsch: P(A ∩ B) = 0,42 muss gelten."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Bei unvereinbaren Ereignissen addieren sich die Wahrscheinlichkeiten: 0,7 + 0,6 = 1,3 > 1 ist unmöglich."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand behauptet: „P(A) = 0,7 und P(B) = 0,4; A und B können unvereinbar sein.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: Wahrscheinlichkeiten kann man nicht addieren.",
+    "Richtig, das ist möglich.",
+    "Falsch: Dann wäre P(A ∪ B) = 1,1 > 1. Es gilt P(A ∩ B) ≥ 0,1.",
+    "Falsch: P(A ∩ B) = 0,28 muss gelten."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Bei unvereinbaren Ereignissen addieren sich die Wahrscheinlichkeiten: 0,7 + 0,4 = 1,1 > 1 ist unmöglich."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei 5 Torschüssen ist A: „mindestens einmal ein Treffer“. Was ist das Gegenereignis Ā?"
+   },
+   "a": [
+    "„kein einziges Mal ein Treffer“",
+    "„mindestens einmal kein Treffer“",
+    "„genau einmal ein Treffer“",
+    "„höchstens einmal ein Treffer“"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Das Gegenereignis umfasst genau die Ergebnisse, die nicht zu A gehören. Nicht „mindestens einmal“ heißt „keinmal“."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand behauptet: „P(A) = 0,7 und P(B) = 0,6; A und B können unvereinbar sein.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: Wahrscheinlichkeiten kann man nicht addieren.",
+    "Richtig, das ist möglich.",
+    "Falsch: P(A ∩ B) = 0,42 muss gelten.",
+    "Falsch: Dann wäre P(A ∪ B) = 1,3 > 1. Es gilt P(A ∩ B) ≥ 0,3."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Bei unvereinbaren Ereignissen addieren sich die Wahrscheinlichkeiten: 0,7 + 0,6 = 1,3 > 1 ist unmöglich."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "A und B sind unvereinbar, P(A) = 0,3, P(B) = 0,4. Was gilt für P(A ∪ B)?"
+   },
+   "a": [
+    "P(A ∪ B) = 0,58",
+    "P(A ∪ B) = 0,12",
+    "Das kann man nicht berechnen.",
+    "P(A ∪ B) = 0,7"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Unvereinbar: A ∩ B = ∅, P(A ∩ B) = 0. Also P(A ∪ B) = 0,3 + 0,4 = 0,7."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand behauptet: „P(A) = 0,9 und P(B) = 0,8; A und B können unvereinbar sein.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: Wahrscheinlichkeiten kann man nicht addieren.",
+    "Richtig, das ist möglich.",
+    "Falsch: P(A ∩ B) = 0,72 muss gelten.",
+    "Falsch: Dann wäre P(A ∪ B) = 1,7 > 1. Es gilt P(A ∩ B) ≥ 0,7."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Bei unvereinbaren Ereignissen addieren sich die Wahrscheinlichkeiten: 0,9 + 0,8 = 1,7 > 1 ist unmöglich."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "A und B sind unvereinbar, P(A) = 0,2, P(B) = 0,4. Was gilt für P(A ∪ B)?"
+   },
+   "a": [
+    "P(A ∪ B) = 0,6",
+    "P(A ∪ B) = 0,08",
+    "Das kann man nicht berechnen.",
+    "P(A ∪ B) = 0,52"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Unvereinbar: A ∩ B = ∅, P(A ∩ B) = 0. Also P(A ∪ B) = 0,2 + 0,4 = 0,6."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei 3 Münzwürfen ist A: „mindestens einmal Kopf“. Was ist das Gegenereignis Ā?"
+   },
+   "a": [
+    "„höchstens einmal Kopf“",
+    "„mindestens einmal nicht Kopf“",
+    "„kein einziges Mal Kopf“",
+    "„genau einmal Kopf“"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Das Gegenereignis umfasst genau die Ergebnisse, die nicht zu A gehören. Nicht „mindestens einmal“ heißt „keinmal“."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei 3 Losen ist A: „mindestens einmal ein Gewinn“. Was ist das Gegenereignis Ā?"
+   },
+   "a": [
+    "„genau einmal ein Gewinn“",
+    "„mindestens einmal kein Gewinn“",
+    "„kein einziges Mal ein Gewinn“",
+    "„höchstens einmal ein Gewinn“"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Das Gegenereignis umfasst genau die Ergebnisse, die nicht zu A gehören. Nicht „mindestens einmal“ heißt „keinmal“."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "A und B sind unvereinbar, P(A) = 0,4, P(B) = 0,2. Was gilt für P(A ∪ B)?"
+   },
+   "a": [
+    "P(A ∪ B) = 0,52",
+    "P(A ∪ B) = 0,6",
+    "P(A ∪ B) = 0,08",
+    "Das kann man nicht berechnen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Unvereinbar: A ∩ B = ∅, P(A ∩ B) = 0. Also P(A ∪ B) = 0,4 + 0,2 = 0,6."
+  }
+ ],
+ "offen": [
+  "Lernkarten „vierfeld“, „tafel_wkeit“ und „bedingt“ brauchen eine Tabellen-Darstellung: Die Vierfeldertafel steht bisher als Aufzählung im Fragetext. Lernkarte „verknuepfen“ würde von einem Venn-Diagramm profitieren. Beides kann die App noch nicht zeichnen.",
+  "Bedingte Wahrscheinlichkeit P_B(A) ist im „umfang“ genannt, im LehrplanPLUS der 9. Klasse aber nicht ausdrücklich; Lernkarte „bedingt“ deshalb als Vertiefung (nicht Pflicht) markiert. Schreibweise P_B(A) im Text (Tiefstellung nicht möglich).",
+  "Ā und B̄ stehen nur in Erklärungen; in Aufgaben wird „nicht A“ ausgeschrieben, weil das Zeichen B̄ (kombinierender Strich) nicht überall sauber dargestellt wird."
+ ]
+}

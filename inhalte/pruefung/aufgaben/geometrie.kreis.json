@@ -1,0 +1,80 @@
+{
+  "thema_schluessel": "geometrie.kreis",
+  "gesamturteil": "brauchbar",
+  "karten": [
+    {
+      "lernziel": "thales",
+      "urteil": "ok",
+      "stufen": "Passt: γ = 90°, dann β über Winkelsumme, Stufe 3 Mittelpunktswinkel ∠BMC. Gute Figuren. Stufe 1 ('Wie groß ist γ?') ist immer 90° – als Einstieg in Ordnung, aber höchstens zwei Aufgaben davon.",
+      "fehlende_aufgabentypen": [
+        "Thales im Alltag (zahl, Stufe 3): Beispiel 1: 'Ein Halbkreisfenster hat 1 m Durchmesser. Zwei Streben verbinden die Enden des Durchmessers mit einem Punkt auf dem Bogen. Welchen Winkel bilden die Streben an diesem Punkt?' → 90°. Beispiel 2: 'Wie lang ist der Radius des Thaleskreises über einer 7 cm langen Strecke?' → 3,5 cm."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "umkehrung",
+      "urteil": "verbessern",
+      "stufen": "Stufen passen. In Stufe 3 ist der Ablenker 'Nein, denn γ = 90° ist kein rechter Winkel.' in sich widersprüchlich und sofort auszuschließen.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Ablenker in Stufe 3: 'Nein, denn C müsste auf der Mittelsenkrechten von [AB] liegen.' und 'Ja, weil jedes Dreieck einen Umkreis hat.'"
+      ]
+    },
+    {
+      "lernziel": "tangente",
+      "urteil": "ok",
+      "stufen": "Passt; Viereck PBMB' mit zwei rechten Winkeln gut genutzt. Werte stimmen.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "umkreis_inkreis",
+      "urteil": "ok",
+      "stufen": "Passt; die Lage des Umkreismittelpunkts (spitz/recht/stumpf) wird gut geübt, Stufe 3 (∠BIC) anspruchsvoll und richtig. Ablenker 'immer im Schwerpunkt' ist selten ein echter Denkfehler.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Ablenker 'immer im Schwerpunkt' ersetzen durch 'auf der kürzesten Seite' (Verwechslung Hypotenuse/Kathete)."
+      ]
+    },
+    {
+      "lernziel": "lage",
+      "urteil": "ok",
+      "stufen": "Passt; 'Achtung Durchmesser' ist eine gute Falle. Stufe 3 ('Abstand bei Tangente = Radius') ist leichter als Stufe 2.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Stufe 3: Abstand aus Koordinaten (Kreis um M(2 | 3), r = 4; Gerade y = −1 → Tangente)."
+      ]
+    },
+    {
+      "lernziel": "beweis",
+      "urteil": "verbessern",
+      "stufen": "Gute Idee, Beweisschritte zu begründen. Zwei Beweise (Thales und Tangentenkonstruktion) werden im Fragetext vermischt ('Im Beweis (Thales bzw. Tangentenkonstruktion) steht …'), ohne dass der Beweis gezeigt wird. Bei '∠ACM ist genauso groß wie α' ist auch der Ablenker 'MA und MC sind Radien desselben Kreises' ein Teil der richtigen Begründung. 'Die Tangente steht senkrecht auf [MB]' mit Begründung 'Eigenschaft der Tangente …' ist zirkulär.",
+      "fehlende_aufgabentypen": [
+        "Beweisschritte ordnen (luecken, Stufe 3, Schablone '1. Schritt: □; 2. Schritt: □; 3. Schritt: □; 4. Schritt: □'): Kärtchen (1) 'γ = 90°', (2) 'Die Dreiecke AMC und BMC sind gleichschenklig, weil MA = MB = MC.', (3) 'α + β + (α + β) = 180°', (4) '∠ACM = α und ∠BCM = β (Basiswinkel)'. Lösung [2, 4, 3, 1]. Zweites Beispiel analog für die Tangentenkonstruktion: (1) 'B liegt auf dem Thaleskreis über [MP]', (2) 'Der Winkel bei B ist 90°', (3) 'PB ist Tangente' → [2, 1, 3] als Begründungskette 'Weil …, liegt …, also …'."
+      ],
+      "generator_regeln": [
+        "Den Beweis als nummerierte Liste im Fragetext zeigen und nur nach der Begründung eines markierten Schritts fragen; Thales und Tangentenkonstruktion getrennt."
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Im Beweis (Thales bzw. Tangentenkonstruktion) steht: „∠ACM ist genauso groß wie α.“ Welche Begründung passt?",
+      "art": "mehrdeutig",
+      "problem": "Ablenker 'MA und MC sind Radien desselben Kreises.' ist der Grund, warum das Dreieck gleichschenklig ist – also Teil der richtigen Begründung. Ohne sichtbaren Beweis weiß das Kind nicht, welcher Schritt gemeint ist.",
+      "korrektur": "Beweis anzeigen: '(1) MA = MC (Radien). (2) Also ist Dreieck AMC gleichschenklig. (3) ∠ACM = α.' Frage: 'Welche Begründung gehört zu Schritt (3)?' – Lösung 'Basiswinkel im gleichschenkligen Dreieck sind gleich groß.'; Ablenker ohne 'Radien'."
+    },
+    {
+      "aufgabe": "Im Dreieck ABC ist α = 49° und β = 58°. Liegt C auf dem Kreis mit dem Durchmesser [AB]?",
+      "art": "loesungsweg",
+      "problem": "Ablenker 'Nein, denn γ = 90° ist kein rechter Winkel.' (in anderen Aufgaben dieser Art) widerspricht sich selbst.",
+      "korrektur": "Antworten: 'Nein, denn γ = 73° ist kein rechter Winkel.' (richtig), 'Ja, denn α + β < 180°.', 'Ja, jeder Punkt C liegt auf diesem Kreis.', 'Das kann man ohne Zeichnung nicht entscheiden.'"
+    },
+    {
+      "aufgabe": "Im Beweis (Thales bzw. Tangentenkonstruktion) steht: „Die Tangente steht senkrecht auf [MB].“ Welche Begründung passt?",
+      "art": "loesungsweg",
+      "problem": "Richtige Antwort 'Eigenschaft der Tangente: Sie steht senkrecht auf dem Berührradius.' wiederholt nur die Aussage; das ist keine Beweisbegründung, sondern ein Satz, der hier vorausgesetzt wird.",
+      "korrektur": "Frage umformulieren: 'Welcher bekannte Satz wird bei diesem Schritt benutzt?' – Lösung 'Tangente und Berührradius stehen senkrecht aufeinander.'"
+    }
+  ]
+}

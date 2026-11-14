@@ -1,0 +1,343 @@
+{
+  "thema_schluessel": "messen.flaechen",
+  "gesamturteil": "gut",
+  "thema_hinweise": [
+    "Sehr gut aufgebaut: Flächeninhalt über Einheitsquadrate begründet, Bilder vorhanden, typische Fehler treffend. Ein Fakt-Fehler im Bild: In „einheiten“ ist das 10×10-Quadrat mit „10 cm“ beschriftet (das wäre 1 dm² = 100 cm²), der Text erklärt aber 1 m² = 100 dm². Beschriftung angepasst.",
+    "Lehrplan „Näherungswerte durch Modellierung mit Rechtecken“ (siehe „offen“) fehlt weiter. Vorschlag für eine spätere Karte: eine krumme Fläche (z. B. ein See) im Koordinatengitter, innen und außen mit Kästchen abschätzen."
+  ],
+  "karten": [
+    {
+      "lernziel": "einheitsquadrate",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "rechteck",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "einheiten",
+      "urteil": "verbessern",
+      "probleme": [
+        "Fakt: Bild und Text passen nicht zusammen. Das Bild ist mit „10 cm“ beschriftet, der Text rechnet 1 m² = 10 dm · 10 dm."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "_A": [
+              0,
+              0
+            ],
+            "_B": [
+              10,
+              0
+            ],
+            "_C": [
+              10,
+              10
+            ],
+            "_D": [
+              0,
+              10
+            ],
+            "_x1u": [
+              1,
+              0
+            ],
+            "_x1o": [
+              1,
+              10
+            ],
+            "_x2u": [
+              2,
+              0
+            ],
+            "_x2o": [
+              2,
+              10
+            ],
+            "_x3u": [
+              3,
+              0
+            ],
+            "_x3o": [
+              3,
+              10
+            ],
+            "_x4u": [
+              4,
+              0
+            ],
+            "_x4o": [
+              4,
+              10
+            ],
+            "_x5u": [
+              5,
+              0
+            ],
+            "_x5o": [
+              5,
+              10
+            ],
+            "_x6u": [
+              6,
+              0
+            ],
+            "_x6o": [
+              6,
+              10
+            ],
+            "_x7u": [
+              7,
+              0
+            ],
+            "_x7o": [
+              7,
+              10
+            ],
+            "_x8u": [
+              8,
+              0
+            ],
+            "_x8o": [
+              8,
+              10
+            ],
+            "_x9u": [
+              9,
+              0
+            ],
+            "_x9o": [
+              9,
+              10
+            ],
+            "_y1l": [
+              0,
+              1
+            ],
+            "_y1r": [
+              10,
+              1
+            ],
+            "_y2l": [
+              0,
+              2
+            ],
+            "_y2r": [
+              10,
+              2
+            ],
+            "_y3l": [
+              0,
+              3
+            ],
+            "_y3r": [
+              10,
+              3
+            ],
+            "_y4l": [
+              0,
+              4
+            ],
+            "_y4r": [
+              10,
+              4
+            ],
+            "_y5l": [
+              0,
+              5
+            ],
+            "_y5r": [
+              10,
+              5
+            ],
+            "_y6l": [
+              0,
+              6
+            ],
+            "_y6r": [
+              10,
+              6
+            ],
+            "_y7l": [
+              0,
+              7
+            ],
+            "_y7r": [
+              10,
+              7
+            ],
+            "_y8l": [
+              0,
+              8
+            ],
+            "_y8r": [
+              10,
+              8
+            ],
+            "_y9l": [
+              0,
+              9
+            ],
+            "_y9r": [
+              10,
+              9
+            ]
+          },
+          "flaeche": [
+            "_A",
+            "_B",
+            "_C",
+            "_D"
+          ],
+          "linien": [
+            [
+              "_A",
+              "_B",
+              "1 m = 10 dm"
+            ],
+            [
+              "_B",
+              "_C",
+              "1 m = 10 dm"
+            ],
+            [
+              "_C",
+              "_D"
+            ],
+            [
+              "_D",
+              "_A"
+            ],
+            [
+              "_x1u",
+              "_x1o",
+              "",
+              "gestrichelt"
+            ],
+            [
+              "_x2u",
+              "_x2o",
+              "",
+              "gestrichelt"
+            ],
+            [
+              "_x3u",
+              "_x3o",
+              "",
+              "gestrichelt"
+            ],
+            [
+              "_x4u",
+              "_x4o",
+              "",
+              "gestrichelt"
+            ],
+            [
+              "_x5u",
+              "_x5o",
+              "",
+              "gestrichelt"
+            ],
+            [
+              "_x6u",
+              "_x6o",
+              "",
+              "gestrichelt"
+            ],
+            [
+              "_x7u",
+              "_x7o",
+              "",
+              "gestrichelt"
+            ],
+            [
+              "_x8u",
+              "_x8o",
+              "",
+              "gestrichelt"
+            ],
+            [
+              "_x9u",
+              "_x9o",
+              "",
+              "gestrichelt"
+            ],
+            [
+              "_y1l",
+              "_y1r",
+              "",
+              "gestrichelt"
+            ],
+            [
+              "_y2l",
+              "_y2r",
+              "",
+              "gestrichelt"
+            ],
+            [
+              "_y3l",
+              "_y3r",
+              "",
+              "gestrichelt"
+            ],
+            [
+              "_y4l",
+              "_y4r",
+              "",
+              "gestrichelt"
+            ],
+            [
+              "_y5l",
+              "_y5r",
+              "",
+              "gestrichelt"
+            ],
+            [
+              "_y6l",
+              "_y6r",
+              "",
+              "gestrichelt"
+            ],
+            [
+              "_y7l",
+              "_y7r",
+              "",
+              "gestrichelt"
+            ],
+            [
+              "_y8l",
+              "_y8r",
+              "",
+              "gestrichelt"
+            ],
+            [
+              "_y9l",
+              "_y9r",
+              "",
+              "gestrichelt"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "kommaschreibweise",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "zerlegen",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "sachaufgaben",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "verstehen",
+      "urteil": "ok"
+    }
+  ],
+  "neue_karten": []
+}

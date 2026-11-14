@@ -43,7 +43,116 @@
    {
     "lernziel": "hypotenuse",
     "titel": "Die Hypotenuse berechnen",
-    "regel": "Im ⟦rechtwinkligen⟧ Dreieck gilt ⟦a² + b² = c²⟧. c ist die ⟦Hypotenuse⟧ (gegenüber dem rechten Winkel, längste Seite), a und b sind die ⟦Katheten⟧.",
+    "regel": "Im ⟦rechtwinkligen⟧ Dreieck gilt ⟦a² + b² = c²⟧. Im Bild: Die beiden Quadrate über den Katheten haben ⟦zusammen genau so viel Fläche⟧ wie das Quadrat über der Hypotenuse. c ist die ⟦Hypotenuse⟧ (gegenüber dem rechten Winkel, längste Seite), a und b sind die ⟦Katheten⟧.",
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "C": [
+       0,
+       0
+      ],
+      "A": [
+       12,
+       0
+      ],
+      "B": [
+       0,
+       9
+      ],
+      "_a1": [
+       -9,
+       0
+      ],
+      "_a2": [
+       -9,
+       9
+      ],
+      "_b1": [
+       0,
+       -12
+      ],
+      "_b2": [
+       12,
+       -12
+      ],
+      "_c1": [
+       21,
+       12
+      ],
+      "_c2": [
+       9,
+       21
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B",
+       "c = 15"
+      ],
+      [
+       "B",
+       "C",
+       "a = 9"
+      ],
+      [
+       "C",
+       "A",
+       "b = 12"
+      ],
+      [
+       "C",
+       "_a1"
+      ],
+      [
+       "_a1",
+       "_a2",
+       "a² = 81"
+      ],
+      [
+       "_a2",
+       "B"
+      ],
+      [
+       "C",
+       "_b1"
+      ],
+      [
+       "_b1",
+       "_b2",
+       "b² = 144"
+      ],
+      [
+       "_b2",
+       "A"
+      ],
+      [
+       "A",
+       "_c1"
+      ],
+      [
+       "_c1",
+       "_c2",
+       "c² = 225"
+      ],
+      [
+       "_c2",
+       "B"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "C",
+       "A",
+       "B"
+      ]
+     ]
+    },
     "schritte": [
      "Katheten 9 cm und 12 cm: c² = 9² + 12² = 81 + 144 = 225.",
      "c = √225 cm = ⟦15 cm⟧."
@@ -70,7 +179,7 @@
      "Seiten 20 cm, 21 cm, 29 cm: längste Seite 29.",
      "20² + 21² = 400 + 441 = 841 = 29² ⇒ ⟦rechtwinklig⟧."
     ],
-    "probe": "29² = 841 ✓",
+    "probe": "Alltag: Wer einen rechten Winkel für ein Beet abstecken will, legt ein Dreieck mit 3 m, 4 m und 5 m. Weil 3² + 4² = 25 = 5², ist der Winkel gegenüber der 5-m-Seite ein rechter ✓",
     "fehler": "6² + 10² = 136 ≠ 8² ⇒ „nicht rechtwinklig“ ist ein Fehlschluss: Man muss die ⟦längste⟧ Seite (10) als c nehmen: 6² + 8² = 100 = 10²."
    },
    {
@@ -82,6 +191,51 @@
      "d = √(36 + 64) = √100 = ⟦10⟧."
     ],
     "probe": "Δx und Δy sind die Katheten ✓",
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      8
+     ],
+     "y": [
+      0,
+      11
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 2,
+       "name": "P"
+      },
+      {
+       "x": 7,
+       "y": 10,
+       "name": "Q"
+      }
+     ],
+     "strecken": [
+      [
+       1,
+       2,
+       7,
+       10
+      ],
+      [
+       1,
+       2,
+       7,
+       2,
+       "gestrichelt"
+      ],
+      [
+       7,
+       2,
+       7,
+       10,
+       "gestrichelt"
+      ]
+     ]
+    },
     "fehler": "d = √(7² + 10²) mit den Koordinaten von Q ist falsch: Man braucht die ⟦Differenzen⟧ der Koordinaten."
    },
    {
@@ -93,6 +247,110 @@
      "Raumdiagonale d = √49 cm = ⟦7 cm⟧."
     ],
     "probe": "Erst Bodendiagonale √13, dann √(13 + 36) = 7 ✓",
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       0
+      ],
+      "C": [
+       3.71,
+       0.71
+      ],
+      "D": [
+       0.71,
+       0.71
+      ],
+      "E": [
+       0,
+       6
+      ],
+      "F": [
+       3,
+       6
+      ],
+      "G": [
+       3.71,
+       6.71
+      ],
+      "H": [
+       0.71,
+       6.71
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "F"
+      ],
+      [
+       "F",
+       "E"
+      ],
+      [
+       "E",
+       "A"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "G"
+      ],
+      [
+       "G",
+       "F"
+      ],
+      [
+       "E",
+       "H"
+      ],
+      [
+       "H",
+       "G"
+      ],
+      [
+       "A",
+       "D",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "C",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "D",
+       "H",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "A",
+       "G",
+       "d = ?"
+      ],
+      [
+       "A",
+       "C",
+       "√13",
+       "gestrichelt"
+      ]
+     ]
+    },
     "fehler": "Raumdiagonale = √(2² + 3²) ist nur die ⟦Bodendiagonale⟧. Die Höhe 6 cm muss auch ins Quadrat und dazu."
    },
    {
@@ -104,6 +362,47 @@
      "h² = 5² − 1,4² = 25 − 1,96 = 23,04 ⇒ h = ⟦4,8 m⟧ (Höhe des oberen Endes)."
     ],
     "probe": "1,4² + 4,8² = 1,96 + 23,04 = 25 ✓",
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "_F": [
+       0,
+       0
+      ],
+      "W": [
+       0,
+       4.8
+      ],
+      "B": [
+       1.4,
+       0
+      ]
+     },
+     "linien": [
+      [
+       "_F",
+       "B",
+       "1,4 m"
+      ],
+      [
+       "_F",
+       "W",
+       "h = ?"
+      ],
+      [
+       "W",
+       "B",
+       "Leiter 5 m"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "_F",
+       "B",
+       "W"
+      ]
+     ]
+    },
     "fehler": "h² = 5² + 1,4² ist falsch: Die ⟦Leiter⟧ liegt gegenüber dem rechten Winkel zwischen Wand und Boden, sie ist die Hypotenuse."
    }
   ],
@@ -176,7 +475,48 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Katheten a = 18 cm und b = 24 cm. Berechne die Hypotenuse c."
+    "text": "Ein rechtwinkliges Dreieck hat die Katheten a = 18 cm und b = 24 cm. Berechne die Hypotenuse c.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "C": [
+       0,
+       0
+      ],
+      "A": [
+       24.0,
+       0
+      ],
+      "B": [
+       0,
+       18.0
+      ]
+     },
+     "linien": [
+      [
+       "B",
+       "C",
+       "a = 18"
+      ],
+      [
+       "C",
+       "A",
+       "b = 24"
+      ],
+      [
+       "A",
+       "B",
+       "c = ?"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "C",
+       "A",
+       "B"
+      ]
+     ]
+    }
    },
    "o": {
     "wert": 30,
@@ -193,7 +533,48 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Katheten a = 21 cm und b = 20 cm. Berechne die Hypotenuse c."
+    "text": "Ein rechtwinkliges Dreieck hat die Katheten a = 21 cm und b = 20 cm. Berechne die Hypotenuse c.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "C": [
+       0,
+       0
+      ],
+      "A": [
+       20.0,
+       0
+      ],
+      "B": [
+       0,
+       21.0
+      ]
+     },
+     "linien": [
+      [
+       "B",
+       "C",
+       "a = 21"
+      ],
+      [
+       "C",
+       "A",
+       "b = 20"
+      ],
+      [
+       "A",
+       "B",
+       "c = ?"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "C",
+       "A",
+       "B"
+      ]
+     ]
+    }
    },
    "o": {
     "wert": 29,
@@ -210,7 +591,48 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Katheten a = 5 cm und b = 12 cm. Berechne die Hypotenuse c."
+    "text": "Ein rechtwinkliges Dreieck hat die Katheten a = 5 cm und b = 12 cm. Berechne die Hypotenuse c.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "C": [
+       0,
+       0
+      ],
+      "A": [
+       12.0,
+       0
+      ],
+      "B": [
+       0,
+       5.0
+      ]
+     },
+     "linien": [
+      [
+       "B",
+       "C",
+       "a = 5"
+      ],
+      [
+       "C",
+       "A",
+       "b = 12"
+      ],
+      [
+       "A",
+       "B",
+       "c = ?"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "C",
+       "A",
+       "B"
+      ]
+     ]
+    }
    },
    "o": {
     "wert": 13,
@@ -227,7 +649,48 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Katheten a = 16 cm und b = 12 cm. Berechne die Hypotenuse c."
+    "text": "Ein rechtwinkliges Dreieck hat die Katheten a = 16 cm und b = 12 cm. Berechne die Hypotenuse c.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "C": [
+       0,
+       0
+      ],
+      "A": [
+       12.0,
+       0
+      ],
+      "B": [
+       0,
+       16.0
+      ]
+     },
+     "linien": [
+      [
+       "B",
+       "C",
+       "a = 16"
+      ],
+      [
+       "C",
+       "A",
+       "b = 12"
+      ],
+      [
+       "A",
+       "B",
+       "c = ?"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "C",
+       "A",
+       "B"
+      ]
+     ]
+    }
    },
    "o": {
     "wert": 20,
@@ -244,7 +707,48 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Katheten a = 8 cm und b = 6 cm. Berechne die Hypotenuse c."
+    "text": "Ein rechtwinkliges Dreieck hat die Katheten a = 8 cm und b = 6 cm. Berechne die Hypotenuse c.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "C": [
+       0,
+       0
+      ],
+      "A": [
+       6.0,
+       0
+      ],
+      "B": [
+       0,
+       8.0
+      ]
+     },
+     "linien": [
+      [
+       "B",
+       "C",
+       "a = 8"
+      ],
+      [
+       "C",
+       "A",
+       "b = 6"
+      ],
+      [
+       "A",
+       "B",
+       "c = ?"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "C",
+       "A",
+       "B"
+      ]
+     ]
+    }
    },
    "o": {
     "wert": 10,
@@ -261,7 +765,48 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Katheten a = 15 cm und b = 20 cm. Berechne die Hypotenuse c."
+    "text": "Ein rechtwinkliges Dreieck hat die Katheten a = 15 cm und b = 20 cm. Berechne die Hypotenuse c.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "C": [
+       0,
+       0
+      ],
+      "A": [
+       20.0,
+       0
+      ],
+      "B": [
+       0,
+       15.0
+      ]
+     },
+     "linien": [
+      [
+       "B",
+       "C",
+       "a = 15"
+      ],
+      [
+       "C",
+       "A",
+       "b = 20"
+      ],
+      [
+       "A",
+       "B",
+       "c = ?"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "C",
+       "A",
+       "B"
+      ]
+     ]
+    }
    },
    "o": {
     "wert": 25,
@@ -278,20 +823,329 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Katheten a = 48 cm und b = 14 cm. Berechne die Hypotenuse c."
+    "text": "Ein rechtwinkliges Dreieck hat die Katheten a = 24 cm und b = 7 cm. Berechne die Hypotenuse c."
    },
    "o": {
-    "wert": 50,
+    "wert": 25,
     "einheit": "cm"
    },
-   "c": "(48 ** 2 + 14 ** 2) / 50",
-   "w": "c² = 2 304 + 196 = 2 500, c = 50 cm.",
+   "c": "(24 ** 2 + 7 ** 2) / 25",
+   "w": "c² = 576 + 49 = 625, c = 25 cm.",
    "h": "Beide Katheten quadrieren, addieren, dann die Wurzel ziehen."
   },
   {
    "l": "hypotenuse",
    "t": "hypotenuse",
    "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechtwinkliges Dreieck hat die Katheten 4 cm und 6 cm. Berechne die Hypotenuse auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 7.2,
+    "einheit": "cm",
+    "toleranz": 0.1
+   },
+   "c": "round(7.211102550928, 1)",
+   "w": "c² = 16 + 36 = 52, c = √52 cm ≈ 7,2 cm.",
+   "h": "Quadrieren, addieren, Wurzel ziehen (Taschenrechner)."
+  },
+  {
+   "l": "hypotenuse",
+   "t": "hypotenuse",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechtwinkliges Dreieck hat die Katheten 13 cm und 7 cm. Berechne die Hypotenuse auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 14.8,
+    "einheit": "cm",
+    "toleranz": 0.1
+   },
+   "c": "round(14.764823060233, 1)",
+   "w": "c² = 169 + 49 = 218, c = √218 cm ≈ 14,8 cm.",
+   "h": "Quadrieren, addieren, Wurzel ziehen (Taschenrechner)."
+  },
+  {
+   "l": "hypotenuse",
+   "t": "hypotenuse",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechtwinkliges Dreieck hat die Katheten a = 27 cm und b = 36 cm. Berechne die Hypotenuse c."
+   },
+   "o": {
+    "wert": 45,
+    "einheit": "cm"
+   },
+   "c": "(27 ** 2 + 36 ** 2) / 45",
+   "w": "c² = 729 + 1 296 = 2 025, c = 45 cm.",
+   "h": "Beide Katheten quadrieren, addieren, dann die Wurzel ziehen."
+  },
+  {
+   "l": "hypotenuse",
+   "t": "hypotenuse",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechtwinkliges Dreieck hat die Katheten 15 cm und 6 cm. Berechne die Hypotenuse auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 16.2,
+    "einheit": "cm",
+    "toleranz": 0.1
+   },
+   "c": "round(16.155494421404, 1)",
+   "w": "c² = 225 + 36 = 261, c = √261 cm ≈ 16,2 cm.",
+   "h": "Quadrieren, addieren, Wurzel ziehen (Taschenrechner)."
+  },
+  {
+   "l": "hypotenuse",
+   "t": "hypotenuse",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechtwinkliges Dreieck hat die Katheten 10 cm und 2 cm. Berechne die Hypotenuse auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 10.2,
+    "einheit": "cm",
+    "toleranz": 0.1
+   },
+   "c": "round(10.198039027186, 1)",
+   "w": "c² = 100 + 4 = 104, c = √104 cm ≈ 10,2 cm.",
+   "h": "Quadrieren, addieren, Wurzel ziehen (Taschenrechner)."
+  },
+  {
+   "l": "hypotenuse",
+   "t": "hypotenuse",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechtwinkliges Dreieck hat die Katheten 11 cm und 5 cm. Berechne die Hypotenuse auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 12.1,
+    "einheit": "cm",
+    "toleranz": 0.1
+   },
+   "c": "round(12.083045973595, 1)",
+   "w": "c² = 121 + 25 = 146, c = √146 cm ≈ 12,1 cm.",
+   "h": "Quadrieren, addieren, Wurzel ziehen (Taschenrechner)."
+  },
+  {
+   "l": "hypotenuse",
+   "t": "hypotenuse",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist α = 90°, b = 15,3 cm und c = 20,4 cm. Berechne a.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       20.4,
+       0
+      ],
+      "C": [
+       0,
+       15.3
+      ]
+     },
+     "linien": [
+      [
+       "C",
+       "A",
+       "b = 15,3"
+      ],
+      [
+       "A",
+       "B",
+       "c = 20,4"
+      ],
+      [
+       "B",
+       "C",
+       "a = ?"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "A",
+       "B",
+       "C"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 25.5,
+    "einheit": "cm"
+   },
+   "c": "(15.3 ** 2 + 20.4 ** 2) / 25.5",
+   "w": "Der rechte Winkel liegt bei A, also ist a die Hypotenuse: a² = 234,09 + 416,16 = 650,25, a = 25,5 cm.",
+   "h": "Welche Seite liegt dem rechten Winkel gegenüber? Das ist die Hypotenuse."
+  },
+  {
+   "l": "hypotenuse",
+   "t": "hypotenuse",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck ABC ist α = 90°, b = 13,5 cm und c = 7,2 cm. Berechne a.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       7.2,
+       0
+      ],
+      "C": [
+       0,
+       13.5
+      ]
+     },
+     "linien": [
+      [
+       "C",
+       "A",
+       "b = 13,5"
+      ],
+      [
+       "A",
+       "B",
+       "c = 7,2"
+      ],
+      [
+       "B",
+       "C",
+       "a = ?"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "A",
+       "B",
+       "C"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 15.3,
+    "einheit": "cm"
+   },
+   "c": "(13.5 ** 2 + 7.2 ** 2) / 15.3",
+   "w": "Der rechte Winkel liegt bei A, also ist a die Hypotenuse: a² = 182,25 + 51,84 = 234,09, a = 15,3 cm.",
+   "h": "Welche Seite liegt dem rechten Winkel gegenüber? Das ist die Hypotenuse."
+  },
+  {
+   "l": "hypotenuse",
+   "t": "hypotenuse",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Im Dreieck PQR ist der Winkel bei Q ein rechter, PQ = 2 cm, QR = 2,1 cm. Berechne PR."
+   },
+   "o": {
+    "wert": 2.9,
+    "einheit": "cm"
+   },
+   "c": "(2 ** 2 + 2.1 ** 2) / 2.9",
+   "w": "PR liegt gegenüber dem rechten Winkel bei Q: PR² = 4 + 4,41 = 8,41, PR = 2,9 cm.",
+   "h": "Die Seite gegenüber dem rechten Winkel ist die Hypotenuse."
+  },
+  {
+   "l": "hypotenuse",
+   "t": "hypotenuse",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechtwinkliges Dreieck hat die Katheten 13 cm und 14 cm. Berechne die Hypotenuse auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 19.1,
+    "einheit": "cm",
+    "toleranz": 0.1
+   },
+   "c": "round(19.104973174543, 1)",
+   "w": "c² = 169 + 196 = 365, c = √365 cm ≈ 19,1 cm.",
+   "h": "Quadrieren, addieren, Wurzel ziehen (Taschenrechner)."
+  },
+  {
+   "l": "hypotenuse",
+   "t": "hypotenuse",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechtwinkliges Dreieck hat die Katheten 13 cm und 13 cm. Berechne die Hypotenuse auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 18.4,
+    "einheit": "cm",
+    "toleranz": 0.1
+   },
+   "c": "round(18.384776310850, 1)",
+   "w": "c² = 169 + 169 = 338, c = √338 cm ≈ 18,4 cm.",
+   "h": "Quadrieren, addieren, Wurzel ziehen (Taschenrechner)."
+  },
+  {
+   "l": "hypotenuse",
+   "t": "hypotenuse",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechtwinkliges Dreieck hat die Katheten 11 cm und 13 cm. Berechne die Hypotenuse auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 17,
+    "einheit": "cm",
+    "toleranz": 0.1
+   },
+   "c": "round(17.029386365926, 1)",
+   "w": "c² = 121 + 169 = 290, c = √290 cm ≈ 17 cm."
+  },
+  {
+   "l": "hypotenuse",
+   "t": "hypotenuse",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechtwinkliges Dreieck hat die Katheten a = 36 cm und b = 48 cm. Berechne die Hypotenuse c."
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "cm"
+   },
+   "c": "(36 ** 2 + 48 ** 2) / 60",
+   "w": "c² = 1 296 + 2 304 = 3 600, c = 60 cm."
+  },
+  {
+   "l": "hypotenuse",
+   "t": "hypotenuse",
+   "p": "korrektur",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -302,197 +1156,7 @@
     "einheit": "cm"
    },
    "c": "(12 ** 2 + 35 ** 2) / 37",
-   "w": "c² = 144 + 1 225 = 1 369, c = 37 cm.",
-   "h": "Beide Katheten quadrieren, addieren, dann die Wurzel ziehen."
-  },
-  {
-   "l": "hypotenuse",
-   "t": "hypotenuse",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Katheten a = 16 cm und b = 30 cm. Berechne die Hypotenuse c."
-   },
-   "o": {
-    "wert": 34,
-    "einheit": "cm"
-   },
-   "c": "(16 ** 2 + 30 ** 2) / 34",
-   "w": "c² = 256 + 900 = 1 156, c = 34 cm.",
-   "h": "Beide Katheten quadrieren, addieren, dann die Wurzel ziehen."
-  },
-  {
-   "l": "hypotenuse",
-   "t": "hypotenuse",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Katheten a = 4 cm und b = 3 cm. Berechne die Hypotenuse c."
-   },
-   "o": {
-    "wert": 5,
-    "einheit": "cm"
-   },
-   "c": "(4 ** 2 + 3 ** 2) / 5",
-   "w": "c² = 16 + 9 = 25, c = 5 cm.",
-   "h": "Beide Katheten quadrieren, addieren, dann die Wurzel ziehen."
-  },
-  {
-   "l": "hypotenuse",
-   "t": "hypotenuse",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Katheten a = 32 cm und b = 24 cm. Berechne die Hypotenuse c."
-   },
-   "o": {
-    "wert": 40,
-    "einheit": "cm"
-   },
-   "c": "(32 ** 2 + 24 ** 2) / 40",
-   "w": "c² = 1 024 + 576 = 1 600, c = 40 cm.",
-   "h": "Beide Katheten quadrieren, addieren, dann die Wurzel ziehen."
-  },
-  {
-   "l": "hypotenuse",
-   "t": "hypotenuse",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Katheten a = 24 cm und b = 10 cm. Berechne die Hypotenuse c."
-   },
-   "o": {
-    "wert": 26,
-    "einheit": "cm"
-   },
-   "c": "(24 ** 2 + 10 ** 2) / 26",
-   "w": "c² = 576 + 100 = 676, c = 26 cm.",
-   "h": "Beide Katheten quadrieren, addieren, dann die Wurzel ziehen."
-  },
-  {
-   "l": "hypotenuse",
-   "t": "hypotenuse",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Katheten a = 6 cm und b = 1,1 cm. Berechne die Hypotenuse c."
-   },
-   "o": {
-    "wert": 6.1,
-    "einheit": "cm"
-   },
-   "c": "(6 ** 2 + 1.1 ** 2) / 6.1",
-   "w": "c² = 36 + 1,21 = 37,21, c = 6,1 cm.",
-   "h": "Beide Katheten quadrieren, addieren, dann die Wurzel ziehen."
-  },
-  {
-   "l": "hypotenuse",
-   "t": "hypotenuse",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Katheten 3 cm und 15 cm. Berechne die Hypotenuse auf eine Nachkommastelle."
-   },
-   "o": {
-    "wert": 15.3,
-    "einheit": "cm",
-    "toleranz": 0.1
-   },
-   "c": "round(15.297058540778, 1)",
-   "w": "c² = 9 + 225 = 234, c = √234 cm ≈ 15,3 cm.",
-   "h": "Quadrieren, addieren, Wurzel ziehen (Taschenrechner)."
-  },
-  {
-   "l": "hypotenuse",
-   "t": "hypotenuse",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Katheten 14 cm und 7 cm. Berechne die Hypotenuse auf eine Nachkommastelle."
-   },
-   "o": {
-    "wert": 15.7,
-    "einheit": "cm",
-    "toleranz": 0.1
-   },
-   "c": "round(15.652475842499, 1)",
-   "w": "c² = 196 + 49 = 245, c = √245 cm ≈ 15,7 cm.",
-   "h": "Quadrieren, addieren, Wurzel ziehen (Taschenrechner)."
-  },
-  {
-   "l": "hypotenuse",
-   "t": "hypotenuse",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Katheten a = 48 cm und b = 55 cm. Berechne die Hypotenuse c."
-   },
-   "o": {
-    "wert": 73,
-    "einheit": "cm"
-   },
-   "c": "(48 ** 2 + 55 ** 2) / 73",
-   "w": "c² = 2 304 + 3 025 = 5 329, c = 73 cm.",
-   "h": "Beide Katheten quadrieren, addieren, dann die Wurzel ziehen."
-  },
-  {
-   "l": "hypotenuse",
-   "t": "hypotenuse",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Katheten a = 48 cm und b = 64 cm. Berechne die Hypotenuse c."
-   },
-   "o": {
-    "wert": 80,
-    "einheit": "cm"
-   },
-   "c": "(48 ** 2 + 64 ** 2) / 80",
-   "w": "c² = 2 304 + 4 096 = 6 400, c = 80 cm.",
-   "h": "Beide Katheten quadrieren, addieren, dann die Wurzel ziehen."
-  },
-  {
-   "l": "hypotenuse",
-   "t": "hypotenuse",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Katheten 7 cm und 3 cm. Berechne die Hypotenuse auf eine Nachkommastelle."
-   },
-   "o": {
-    "wert": 7.6,
-    "einheit": "cm",
-    "toleranz": 0.1
-   },
-   "c": "round(7.615773105864, 1)",
-   "w": "c² = 49 + 9 = 58, c = √58 cm ≈ 7,6 cm.",
-   "h": "Quadrieren, addieren, Wurzel ziehen (Taschenrechner)."
-  },
-  {
-   "l": "hypotenuse",
-   "t": "hypotenuse",
-   "p": "test",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Katheten a = 6 cm und b = 8 cm. Berechne die Hypotenuse c."
-   },
-   "o": {
-    "wert": 10,
-    "einheit": "cm"
-   },
-   "c": "(6 ** 2 + 8 ** 2) / 10",
-   "w": "c² = 36 + 64 = 100, c = 10 cm."
+   "w": "c² = 144 + 1 225 = 1 369, c = 37 cm."
   },
   {
    "l": "hypotenuse",
@@ -501,46 +1165,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Katheten a = 44 cm und b = 33 cm. Berechne die Hypotenuse c."
+    "text": "Ein rechtwinkliges Dreieck hat die Katheten 13 cm und 2 cm. Berechne die Hypotenuse auf eine Nachkommastelle."
    },
    "o": {
-    "wert": 55,
-    "einheit": "cm"
+    "wert": 13.2,
+    "einheit": "cm",
+    "toleranz": 0.1
    },
-   "c": "(44 ** 2 + 33 ** 2) / 55",
-   "w": "c² = 1 936 + 1 089 = 3 025, c = 55 cm."
-  },
-  {
-   "l": "hypotenuse",
-   "t": "hypotenuse",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Katheten a = 15 cm und b = 36 cm. Berechne die Hypotenuse c."
-   },
-   "o": {
-    "wert": 39,
-    "einheit": "cm"
-   },
-   "c": "(15 ** 2 + 36 ** 2) / 39",
-   "w": "c² = 225 + 1 296 = 1 521, c = 39 cm."
-  },
-  {
-   "l": "hypotenuse",
-   "t": "hypotenuse",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Katheten a = 36 cm und b = 15 cm. Berechne die Hypotenuse c."
-   },
-   "o": {
-    "wert": 39,
-    "einheit": "cm"
-   },
-   "c": "(36 ** 2 + 15 ** 2) / 39",
-   "w": "c² = 1 296 + 225 = 1 521, c = 39 cm."
+   "c": "round(13.152946437966, 1)",
+   "w": "c² = 169 + 4 = 173, c = √173 cm ≈ 13,2 cm."
   },
   {
    "l": "hypotenuse",
@@ -549,14 +1182,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Katheten a = 7 cm und b = 24 cm. Berechne die Hypotenuse c."
+    "text": "Ein rechtwinkliges Dreieck hat die Katheten 7 cm und 9 cm. Berechne die Hypotenuse auf eine Nachkommastelle."
    },
    "o": {
-    "wert": 25,
-    "einheit": "cm"
+    "wert": 11.4,
+    "einheit": "cm",
+    "toleranz": 0.1
    },
-   "c": "(7 ** 2 + 24 ** 2) / 25",
-   "w": "c² = 49 + 576 = 625, c = 25 cm."
+   "c": "round(11.401754250991, 1)",
+   "w": "c² = 49 + 81 = 130, c = √130 cm ≈ 11,4 cm."
   },
   {
    "l": "hypotenuse",
@@ -565,14 +1199,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Katheten a = 24 cm und b = 18 cm. Berechne die Hypotenuse c."
+    "text": "Ein rechtwinkliges Dreieck hat die Katheten a = 15 cm und b = 8 cm. Berechne die Hypotenuse c."
    },
    "o": {
-    "wert": 30,
+    "wert": 17,
     "einheit": "cm"
    },
-   "c": "(24 ** 2 + 18 ** 2) / 30",
-   "w": "c² = 576 + 324 = 900, c = 30 cm."
+   "c": "(15 ** 2 + 8 ** 2) / 17",
+   "w": "c² = 225 + 64 = 289, c = 17 cm."
   },
   {
    "l": "hypotenuse",
@@ -581,46 +1215,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Katheten a = 14 cm und b = 48 cm. Berechne die Hypotenuse c."
+    "text": "Ein rechtwinkliges Dreieck hat die Katheten a = 45 cm und b = 28 cm. Berechne die Hypotenuse c."
    },
    "o": {
-    "wert": 50,
+    "wert": 53,
     "einheit": "cm"
    },
-   "c": "(14 ** 2 + 48 ** 2) / 50",
-   "w": "c² = 196 + 2 304 = 2 500, c = 50 cm."
-  },
-  {
-   "l": "hypotenuse",
-   "t": "hypotenuse",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Katheten a = 40 cm und b = 9 cm. Berechne die Hypotenuse c."
-   },
-   "o": {
-    "wert": 41,
-    "einheit": "cm"
-   },
-   "c": "(40 ** 2 + 9 ** 2) / 41",
-   "w": "c² = 1 600 + 81 = 1 681, c = 41 cm."
-  },
-  {
-   "l": "hypotenuse",
-   "t": "hypotenuse",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Katheten a = 9 cm und b = 40 cm. Berechne die Hypotenuse c."
-   },
-   "o": {
-    "wert": 41,
-    "einheit": "cm"
-   },
-   "c": "(9 ** 2 + 40 ** 2) / 41",
-   "w": "c² = 81 + 1 600 = 1 681, c = 41 cm."
+   "c": "(45 ** 2 + 28 ** 2) / 53",
+   "w": "c² = 2 025 + 784 = 2 809, c = 53 cm."
   },
   {
    "l": "hypotenuse",
@@ -639,72 +1241,37 @@
    "w": "c² = 1 764 + 1 600 = 3 364, c = 58 cm."
   },
   {
-   "l": "kathete",
-   "t": "kathete",
-   "p": "uebung",
-   "s": 1,
+   "l": "hypotenuse",
+   "t": "hypotenuse",
+   "p": "sicherung",
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 13 cm und die Kathete b = 12 cm. Berechne die Kathete a."
+    "text": "Ein rechtwinkliges Dreieck hat die Katheten 4 cm und 8 cm. Berechne die Hypotenuse auf eine Nachkommastelle."
    },
    "o": {
-    "wert": 5,
-    "einheit": "cm"
+    "wert": 8.9,
+    "einheit": "cm",
+    "toleranz": 0.1
    },
-   "c": "(13 ** 2 - 12 ** 2) / 5",
-   "w": "a² = 169 − 144 = 25, a = 5 cm.",
-   "h": "Gesucht ist eine Kathete: Subtrahiere."
+   "c": "round(8.944271909999, 1)",
+   "w": "c² = 16 + 64 = 80, c = √80 cm ≈ 8,9 cm."
   },
   {
-   "l": "kathete",
-   "t": "kathete",
-   "p": "uebung",
-   "s": 1,
+   "l": "hypotenuse",
+   "t": "hypotenuse",
+   "p": "sicherung",
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 25 cm und die Kathete b = 24 cm. Berechne die Kathete a."
+    "text": "Ein rechtwinkliges Dreieck hat die Katheten a = 30 cm und b = 40 cm. Berechne die Hypotenuse c."
    },
    "o": {
-    "wert": 7,
+    "wert": 50,
     "einheit": "cm"
    },
-   "c": "(25 ** 2 - 24 ** 2) / 7",
-   "w": "a² = 625 − 576 = 49, a = 7 cm.",
-   "h": "Gesucht ist eine Kathete: Subtrahiere."
-  },
-  {
-   "l": "kathete",
-   "t": "kathete",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 30 cm und die Kathete b = 24 cm. Berechne die Kathete a."
-   },
-   "o": {
-    "wert": 18,
-    "einheit": "cm"
-   },
-   "c": "(30 ** 2 - 24 ** 2) / 18",
-   "w": "a² = 900 − 576 = 324, a = 18 cm.",
-   "h": "Gesucht ist eine Kathete: Subtrahiere."
-  },
-  {
-   "l": "kathete",
-   "t": "kathete",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 10 cm und die Kathete b = 6 cm. Berechne die Kathete a."
-   },
-   "o": {
-    "wert": 8,
-    "einheit": "cm"
-   },
-   "c": "(10 ** 2 - 6 ** 2) / 8",
-   "w": "a² = 100 − 36 = 64, a = 8 cm.",
-   "h": "Gesucht ist eine Kathete: Subtrahiere."
+   "c": "(30 ** 2 + 40 ** 2) / 50",
+   "w": "c² = 900 + 1 600 = 2 500, c = 50 cm."
   },
   {
    "l": "kathete",
@@ -730,275 +1297,88 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 29 cm und die Kathete b = 20 cm. Berechne die Kathete a."
+    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 15 cm und die Kathete b = 12 cm. Berechne die Kathete a."
    },
    "o": {
-    "wert": 21,
+    "wert": 9,
     "einheit": "cm"
    },
-   "c": "(29 ** 2 - 20 ** 2) / 21",
-   "w": "a² = 841 − 400 = 441, a = 21 cm.",
+   "c": "(15 ** 2 - 12 ** 2) / 9",
+   "w": "a² = 225 − 144 = 81, a = 9 cm.",
    "h": "Gesucht ist eine Kathete: Subtrahiere."
   },
   {
    "l": "kathete",
    "t": "kathete",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 45 cm und die Kathete b = 36 cm. Berechne die Kathete a."
+    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 13 cm und die Kathete b = 12 cm. Berechne die Kathete a."
    },
    "o": {
-    "wert": 27,
+    "wert": 5,
     "einheit": "cm"
    },
-   "c": "(45 ** 2 - 36 ** 2) / 27",
-   "w": "a² = 2 025 − 1 296 = 729, a = 27 cm.",
+   "c": "(13 ** 2 - 12 ** 2) / 5",
+   "w": "a² = 169 − 144 = 25, a = 5 cm.",
    "h": "Gesucht ist eine Kathete: Subtrahiere."
   },
   {
    "l": "kathete",
    "t": "kathete",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 39 cm und die Kathete b = 36 cm. Berechne die Kathete a."
+    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 25 cm und die Kathete b = 15 cm. Berechne die Kathete a."
    },
    "o": {
-    "wert": 15,
+    "wert": 20,
     "einheit": "cm"
    },
-   "c": "(39 ** 2 - 36 ** 2) / 15",
-   "w": "a² = 1 521 − 1 296 = 225, a = 15 cm.",
+   "c": "(25 ** 2 - 15 ** 2) / 20",
+   "w": "a² = 625 − 225 = 400, a = 20 cm.",
    "h": "Gesucht ist eine Kathete: Subtrahiere."
   },
   {
    "l": "kathete",
    "t": "kathete",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 60 cm und die Kathete b = 48 cm. Berechne die Kathete a."
+    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 17 cm und die Kathete b = 15 cm. Berechne die Kathete a."
    },
    "o": {
-    "wert": 36,
+    "wert": 8,
     "einheit": "cm"
    },
-   "c": "(60 ** 2 - 48 ** 2) / 36",
-   "w": "a² = 3 600 − 2 304 = 1 296, a = 36 cm.",
+   "c": "(17 ** 2 - 15 ** 2) / 8",
+   "w": "a² = 289 − 225 = 64, a = 8 cm.",
    "h": "Gesucht ist eine Kathete: Subtrahiere."
   },
   {
    "l": "kathete",
    "t": "kathete",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 15 cm und die Kathete b = 9 cm. Berechne die Kathete a."
+    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 5 cm und die Kathete b = 3 cm. Berechne die Kathete a."
    },
    "o": {
-    "wert": 12,
+    "wert": 4,
     "einheit": "cm"
    },
-   "c": "(15 ** 2 - 9 ** 2) / 12",
-   "w": "a² = 225 − 81 = 144, a = 12 cm.",
+   "c": "(5 ** 2 - 3 ** 2) / 4",
+   "w": "a² = 25 − 9 = 16, a = 4 cm.",
    "h": "Gesucht ist eine Kathete: Subtrahiere."
   },
   {
    "l": "kathete",
    "t": "kathete",
    "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 30 cm und die Kathete b = 18 cm. Berechne die Kathete a."
-   },
-   "o": {
-    "wert": 24,
-    "einheit": "cm"
-   },
-   "c": "(30 ** 2 - 18 ** 2) / 24",
-   "w": "a² = 900 − 324 = 576, a = 24 cm.",
-   "h": "Gesucht ist eine Kathete: Subtrahiere."
-  },
-  {
-   "l": "kathete",
-   "t": "kathete",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 34 cm und die Kathete b = 16 cm. Berechne die Kathete a."
-   },
-   "o": {
-    "wert": 30,
-    "einheit": "cm"
-   },
-   "c": "(34 ** 2 - 16 ** 2) / 30",
-   "w": "a² = 1 156 − 256 = 900, a = 30 cm.",
-   "h": "Gesucht ist eine Kathete: Subtrahiere."
-  },
-  {
-   "l": "kathete",
-   "t": "kathete",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse 15 cm und eine Kathete 5 cm. Berechne die andere Kathete auf eine Nachkommastelle."
-   },
-   "o": {
-    "wert": 14.1,
-    "einheit": "cm",
-    "toleranz": 0.1
-   },
-   "c": "round(14.142135623731, 1)",
-   "w": "a² = 225 − 25 = 200, a ≈ 14,1 cm.",
-   "h": "Hypotenusenquadrat minus Kathetenquadrat."
-  },
-  {
-   "l": "kathete",
-   "t": "kathete",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 47,5 cm und die Kathete b = 38 cm. Berechne die Kathete a."
-   },
-   "o": {
-    "wert": 28.5,
-    "einheit": "cm"
-   },
-   "c": "(47.5 ** 2 - 38 ** 2) / 28.5",
-   "w": "a² = 2 256,25 − 1 444 = 812,25, a = 28,5 cm.",
-   "h": "Gesucht ist eine Kathete: Subtrahiere."
-  },
-  {
-   "l": "kathete",
-   "t": "kathete",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 20 cm und die Kathete b = 12 cm. Berechne die Kathete a."
-   },
-   "o": {
-    "wert": 16,
-    "einheit": "cm"
-   },
-   "c": "(20 ** 2 - 12 ** 2) / 16",
-   "w": "a² = 400 − 144 = 256, a = 16 cm.",
-   "h": "Gesucht ist eine Kathete: Subtrahiere."
-  },
-  {
-   "l": "kathete",
-   "t": "kathete",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 74 cm und die Kathete b = 24 cm. Berechne die Kathete a."
-   },
-   "o": {
-    "wert": 70,
-    "einheit": "cm"
-   },
-   "c": "(74 ** 2 - 24 ** 2) / 70",
-   "w": "a² = 5 476 − 576 = 4 900, a = 70 cm.",
-   "h": "Gesucht ist eine Kathete: Subtrahiere."
-  },
-  {
-   "l": "kathete",
-   "t": "kathete",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse 8 cm und eine Kathete 4 cm. Berechne die andere Kathete auf eine Nachkommastelle."
-   },
-   "o": {
-    "wert": 6.9,
-    "einheit": "cm",
-    "toleranz": 0.1
-   },
-   "c": "round(6.928203230276, 1)",
-   "w": "a² = 64 − 16 = 48, a ≈ 6,9 cm.",
-   "h": "Hypotenusenquadrat minus Kathetenquadrat."
-  },
-  {
-   "l": "kathete",
-   "t": "kathete",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse 12 cm und eine Kathete 2 cm. Berechne die andere Kathete auf eine Nachkommastelle."
-   },
-   "o": {
-    "wert": 11.8,
-    "einheit": "cm",
-    "toleranz": 0.1
-   },
-   "c": "round(11.832159566199, 1)",
-   "w": "a² = 144 − 4 = 140, a ≈ 11,8 cm.",
-   "h": "Hypotenusenquadrat minus Kathetenquadrat."
-  },
-  {
-   "l": "kathete",
-   "t": "kathete",
-   "p": "test",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 50 cm und die Kathete b = 30 cm. Berechne die Kathete a."
-   },
-   "o": {
-    "wert": 40,
-    "einheit": "cm"
-   },
-   "c": "(50 ** 2 - 30 ** 2) / 40",
-   "w": "a² = 2 500 − 900 = 1 600, a = 40 cm."
-  },
-  {
-   "l": "kathete",
-   "t": "kathete",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 39 cm und die Kathete b = 15 cm. Berechne die Kathete a."
-   },
-   "o": {
-    "wert": 36,
-    "einheit": "cm"
-   },
-   "c": "(39 ** 2 - 15 ** 2) / 36",
-   "w": "a² = 1 521 − 225 = 1 296, a = 36 cm."
-  },
-  {
-   "l": "kathete",
-   "t": "kathete",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 58 cm und die Kathete b = 42 cm. Berechne die Kathete a."
-   },
-   "o": {
-    "wert": 40,
-    "einheit": "cm"
-   },
-   "c": "(58 ** 2 - 42 ** 2) / 40",
-   "w": "a² = 3 364 − 1 764 = 1 600, a = 40 cm."
-  },
-  {
-   "l": "kathete",
-   "t": "kathete",
-   "p": "korrektur",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -1009,44 +1389,13 @@
     "einheit": "cm"
    },
    "c": "(51 ** 2 - 45 ** 2) / 24",
-   "w": "a² = 2 601 − 2 025 = 576, a = 24 cm."
+   "w": "a² = 2 601 − 2 025 = 576, a = 24 cm.",
+   "h": "Gesucht ist eine Kathete: Subtrahiere."
   },
   {
    "l": "kathete",
    "t": "kathete",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 58 cm und die Kathete b = 40 cm. Berechne die Kathete a."
-   },
-   "o": {
-    "wert": 42,
-    "einheit": "cm"
-   },
-   "c": "(58 ** 2 - 40 ** 2) / 42",
-   "w": "a² = 3 364 − 1 600 = 1 764, a = 42 cm."
-  },
-  {
-   "l": "kathete",
-   "t": "kathete",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 10 cm und die Kathete b = 8 cm. Berechne die Kathete a."
-   },
-   "o": {
-    "wert": 6,
-    "einheit": "cm"
-   },
-   "c": "(10 ** 2 - 8 ** 2) / 6",
-   "w": "a² = 100 − 64 = 36, a = 6 cm."
-  },
-  {
-   "l": "kathete",
-   "t": "kathete",
-   "p": "sicherung",
+   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -1057,7 +1406,258 @@
     "einheit": "cm"
    },
    "c": "(40 ** 2 - 32 ** 2) / 24",
-   "w": "a² = 1 600 − 1 024 = 576, a = 24 cm."
+   "w": "a² = 1 600 − 1 024 = 576, a = 24 cm.",
+   "h": "Gesucht ist eine Kathete: Subtrahiere."
+  },
+  {
+   "l": "kathete",
+   "t": "kathete",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 26 cm und die Kathete b = 24 cm. Berechne die Kathete a."
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "cm"
+   },
+   "c": "(26 ** 2 - 24 ** 2) / 10",
+   "w": "a² = 676 − 576 = 100, a = 10 cm.",
+   "h": "Gesucht ist eine Kathete: Subtrahiere."
+  },
+  {
+   "l": "kathete",
+   "t": "kathete",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 52 cm und die Kathete b = 20 cm. Berechne die Kathete a."
+   },
+   "o": {
+    "wert": 48,
+    "einheit": "cm"
+   },
+   "c": "(52 ** 2 - 20 ** 2) / 48",
+   "w": "a² = 2 704 − 400 = 2 304, a = 48 cm.",
+   "h": "Gesucht ist eine Kathete: Subtrahiere."
+  },
+  {
+   "l": "kathete",
+   "t": "kathete",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 53 cm und die Kathete b = 45 cm. Berechne die Kathete a."
+   },
+   "o": {
+    "wert": 28,
+    "einheit": "cm"
+   },
+   "c": "(53 ** 2 - 45 ** 2) / 28",
+   "w": "a² = 2 809 − 2 025 = 784, a = 28 cm.",
+   "h": "Gesucht ist eine Kathete: Subtrahiere."
+  },
+  {
+   "l": "kathete",
+   "t": "kathete",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 58 cm und die Kathete b = 40 cm. Berechne die Kathete a."
+   },
+   "o": {
+    "wert": 42,
+    "einheit": "cm"
+   },
+   "c": "(58 ** 2 - 40 ** 2) / 42",
+   "w": "a² = 3 364 − 1 600 = 1 764, a = 42 cm.",
+   "h": "Gesucht ist eine Kathete: Subtrahiere."
+  },
+  {
+   "l": "kathete",
+   "t": "kathete",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Hypotenuse 25 cm, Kathete 20 cm. Jemand rechnet a = 25 − 20 = 5 cm. Was ist falsch?"
+   },
+   "a": [
+    "Nichts, die Rechnung stimmt.",
+    "Die Quadrate werden subtrahiert, nicht die Längen: a = √(625 − 400) = 15 cm.",
+    "Man muss die Quadrate addieren: a² = 1025.",
+    "Man muss addieren: a = 45 cm."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "a² = 25² − 20² = 625 − 400 = 225, also a = 15 cm ≠ 5 cm.",
+   "h": "Gilt der Satz für die Längen oder für ihre Quadrate?"
+  },
+  {
+   "l": "kathete",
+   "t": "kathete",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Hypotenuse 10 cm, Kathete 8 cm. Jemand rechnet a² = 10² + 8² = 164, a ≈ 12,8 cm. Was ist falsch?"
+   },
+   "a": [
+    "Nichts, die Rechnung stimmt.",
+    "Bei einer Kathete wird subtrahiert: a² = 100 − 64 = 36, a = 6 cm. Eine Kathete ist nie länger als die Hypotenuse.",
+    "Man muss halbieren: a = 5 cm.",
+    "Man muss die Längen subtrahieren: a = 10 − 8 = 2 cm."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gesucht ist eine Kathete: a² = c² − b² = 100 − 64 = 36, a = 6 cm.",
+   "h": "Ist die gesuchte Seite die Hypotenuse oder eine Kathete?"
+  },
+  {
+   "l": "kathete",
+   "t": "kathete",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 9 cm und die Kathete b = 5,4 cm. Berechne die Kathete a."
+   },
+   "o": {
+    "wert": 7.2,
+    "einheit": "cm"
+   },
+   "c": "(9 ** 2 - 5.4 ** 2) / 7.2",
+   "w": "a² = 81 − 29,16 = 51,84, a = 7,2 cm.",
+   "h": "Gesucht ist eine Kathete: Subtrahiere."
+  },
+  {
+   "l": "kathete",
+   "t": "kathete",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 70 cm und die Kathete b = 42 cm. Berechne die Kathete a."
+   },
+   "o": {
+    "wert": 56,
+    "einheit": "cm"
+   },
+   "c": "(70 ** 2 - 42 ** 2) / 56",
+   "w": "a² = 4 900 − 1 764 = 3 136, a = 56 cm.",
+   "h": "Gesucht ist eine Kathete: Subtrahiere."
+  },
+  {
+   "l": "kathete",
+   "t": "kathete",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Hypotenuse 30 cm, Kathete 24 cm. Jemand rechnet a = 30 − 24 = 6 cm. Was ist falsch?"
+   },
+   "a": [
+    "Die Quadrate werden subtrahiert, nicht die Längen: a = √(900 − 576) = 18 cm.",
+    "Man muss addieren: a = 54 cm.",
+    "Nichts, die Rechnung stimmt.",
+    "Man muss die Quadrate addieren: a² = 1476."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "a² = 30² − 24² = 900 − 576 = 324, also a = 18 cm ≠ 6 cm.",
+   "h": "Gilt der Satz für die Längen oder für ihre Quadrate?"
+  },
+  {
+   "l": "kathete",
+   "t": "kathete",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Hypotenuse 25 cm, Kathete 20 cm. Jemand rechnet a² = 25² + 20² = 1025, a ≈ 32 cm. Was ist falsch?"
+   },
+   "a": [
+    "Man muss halbieren: a = 12,5 cm.",
+    "Nichts, die Rechnung stimmt.",
+    "Bei einer Kathete wird subtrahiert: a² = 625 − 400 = 225, a = 15 cm. Eine Kathete ist nie länger als die Hypotenuse.",
+    "Man muss die Längen subtrahieren: a = 25 − 20 = 5 cm."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Gesucht ist eine Kathete: a² = c² − b² = 625 − 400 = 225, a = 15 cm.",
+   "h": "Ist die gesuchte Seite die Hypotenuse oder eine Kathete?"
+  },
+  {
+   "l": "kathete",
+   "t": "kathete",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 41 cm und die Kathete b = 9 cm. Berechne die Kathete a."
+   },
+   "o": {
+    "wert": 40,
+    "einheit": "cm"
+   },
+   "c": "(41 ** 2 - 9 ** 2) / 40",
+   "w": "a² = 1 681 − 81 = 1 600, a = 40 cm."
+  },
+  {
+   "l": "kathete",
+   "t": "kathete",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 37 cm und die Kathete b = 35 cm. Berechne die Kathete a."
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "cm"
+   },
+   "c": "(37 ** 2 - 35 ** 2) / 12",
+   "w": "a² = 1 369 − 1 225 = 144, a = 12 cm."
+  },
+  {
+   "l": "kathete",
+   "t": "kathete",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 60 cm und die Kathete b = 36 cm. Berechne die Kathete a."
+   },
+   "o": {
+    "wert": 48,
+    "einheit": "cm"
+   },
+   "c": "(60 ** 2 - 36 ** 2) / 48",
+   "w": "a² = 3 600 − 1 296 = 2 304, a = 48 cm."
+  },
+  {
+   "l": "kathete",
+   "t": "kathete",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 20 cm und die Kathete b = 16 cm. Berechne die Kathete a."
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "cm"
+   },
+   "c": "(20 ** 2 - 16 ** 2) / 12",
+   "w": "a² = 400 − 256 = 144, a = 12 cm."
   },
   {
    "l": "kathete",
@@ -1066,14 +1666,30 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 5 cm und die Kathete b = 3 cm. Berechne die Kathete a."
+    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 50 cm und die Kathete b = 40 cm. Berechne die Kathete a."
    },
    "o": {
-    "wert": 4,
+    "wert": 30,
     "einheit": "cm"
    },
-   "c": "(5 ** 2 - 3 ** 2) / 4",
-   "w": "a² = 25 − 9 = 16, a = 4 cm."
+   "c": "(50 ** 2 - 40 ** 2) / 30",
+   "w": "a² = 2 500 − 1 600 = 900, a = 30 cm."
+  },
+  {
+   "l": "kathete",
+   "t": "kathete",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 45 cm und die Kathete b = 36 cm. Berechne die Kathete a."
+   },
+   "o": {
+    "wert": 27,
+    "einheit": "cm"
+   },
+   "c": "(45 ** 2 - 36 ** 2) / 27",
+   "w": "a² = 2 025 − 1 296 = 729, a = 27 cm."
   },
   {
    "l": "kathete",
@@ -1098,35 +1714,46 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 60 cm und die Kathete b = 36 cm. Berechne die Kathete a."
+    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 39 cm und die Kathete b = 36 cm. Berechne die Kathete a."
    },
    "o": {
-    "wert": 48,
+    "wert": 15,
     "einheit": "cm"
    },
-   "c": "(60 ** 2 - 36 ** 2) / 48",
-   "w": "a² = 3 600 − 1 296 = 2 304, a = 48 cm."
+   "c": "(39 ** 2 - 36 ** 2) / 15",
+   "w": "a² = 1 521 − 1 296 = 225, a = 15 cm."
   },
   {
-   "l": "umkehrung",
-   "t": "umkehrung",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
+   "l": "kathete",
+   "t": "kathete",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
    "f": {
-    "text": "Ein Dreieck hat die Seiten 12 cm, 13 cm und 5 cm. Ist es rechtwinklig?"
+    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 25 cm und die Kathete b = 7 cm. Berechne die Kathete a."
    },
-   "a": [
-    "Ja, denn 5² + 12² = 169 = 169 = 13².",
-    "Nein, denn 5² + 12² = 169 = 169 = 13².",
-    "Das kann man ohne Winkelmessung nicht entscheiden.",
-    "Ja, denn 5 + 12 > 13."
-   ],
    "o": {
-    "index": 0
+    "wert": 24,
+    "einheit": "cm"
    },
-   "w": "Längste Seite c = 13: 5² + 12² = 169, 13² = 169. Gleich: rechtwinklig.",
-   "h": "Prüfe a² + b² = c² mit der längsten Seite als c."
+   "c": "(25 ** 2 - 7 ** 2) / 24",
+   "w": "a² = 625 − 49 = 576, a = 24 cm."
+  },
+  {
+   "l": "kathete",
+   "t": "kathete",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechtwinkliges Dreieck hat die Hypotenuse c = 30 cm und die Kathete b = 18 cm. Berechne die Kathete a."
+   },
+   "o": {
+    "wert": 24,
+    "einheit": "cm"
+   },
+   "c": "(30 ** 2 - 18 ** 2) / 24",
+   "w": "a² = 900 − 324 = 576, a = 24 cm."
   },
   {
    "l": "umkehrung",
@@ -1135,18 +1762,18 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Ein Dreieck hat die Seiten 26 cm, 20 cm und 15 cm. Ist es rechtwinklig?"
+    "text": "Ein Dreieck hat die Seiten 13 cm, 5 cm und 12 cm. Ist es rechtwinklig?"
    },
    "a": [
+    "Ja, weil 5 + 12 > 13.",
+    "Ja, es ist rechtwinklig.",
     "Das kann man ohne Winkelmessung nicht entscheiden.",
-    "Nein, denn 15² + 20² = 625 ≠ 676 = 26².",
-    "Ja, denn 15 + 20 > 26.",
-    "Ja, denn 15² + 20² = 625 ≠ 676 = 26²."
+    "Nein, es ist nicht rechtwinklig."
    ],
    "o": {
     "index": 1
    },
-   "w": "Längste Seite c = 26: 15² + 20² = 625, 26² = 676. Verschieden: nicht rechtwinklig.",
+   "w": "Längste Seite 13 cm: 5² + 12² = 25 + 144 = 169 = 13². Also rechtwinklig.",
    "h": "Prüfe a² + b² = c² mit der längsten Seite als c."
   },
   {
@@ -1156,18 +1783,18 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Ein Dreieck hat die Seiten 9 cm, 12 cm und 15 cm. Ist es rechtwinklig?"
+    "text": "Ein Dreieck hat die Seiten 24 cm, 25 cm und 7 cm. Ist es rechtwinklig?"
    },
    "a": [
-    "Nein, denn 9² + 12² = 225 = 225 = 15².",
-    "Ja, denn 9² + 12² = 225 = 225 = 15².",
-    "Ja, denn 9 + 12 > 15.",
+    "Nein, es ist nicht rechtwinklig.",
+    "Ja, weil 7 + 24 > 25.",
+    "Ja, es ist rechtwinklig.",
     "Das kann man ohne Winkelmessung nicht entscheiden."
    ],
    "o": {
-    "index": 1
+    "index": 2
    },
-   "w": "Längste Seite c = 15: 9² + 12² = 225, 15² = 225. Gleich: rechtwinklig.",
+   "w": "Längste Seite 25 cm: 7² + 24² = 49 + 576 = 625 = 25². Also rechtwinklig.",
    "h": "Prüfe a² + b² = c² mit der längsten Seite als c."
   },
   {
@@ -1177,102 +1804,81 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Ein Dreieck hat die Seiten 8 cm, 18 cm und 15 cm. Ist es rechtwinklig?"
+    "text": "Ein Dreieck hat die Seiten 12 cm, 9 cm und 16 cm. Ist es rechtwinklig?"
    },
    "a": [
-    "Ja, denn 8² + 15² = 289 ≠ 324 = 18².",
+    "Nein, es ist nicht rechtwinklig.",
+    "Ja, es ist rechtwinklig.",
     "Das kann man ohne Winkelmessung nicht entscheiden.",
-    "Nein, denn 8² + 15² = 289 ≠ 324 = 18².",
-    "Ja, denn 8 + 15 > 18."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Längste Seite c = 18: 8² + 15² = 289, 18² = 324. Verschieden: nicht rechtwinklig.",
-   "h": "Prüfe a² + b² = c² mit der längsten Seite als c."
-  },
-  {
-   "l": "umkehrung",
-   "t": "umkehrung",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Dreieck hat die Seiten 6 cm, 4 cm und 3 cm. Ist es rechtwinklig?"
-   },
-   "a": [
-    "Ja, denn 3² + 4² = 25 ≠ 36 = 6².",
-    "Ja, denn 3 + 4 > 6.",
-    "Nein, denn 3² + 4² = 25 ≠ 36 = 6².",
-    "Das kann man ohne Winkelmessung nicht entscheiden."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Längste Seite c = 6: 3² + 4² = 25, 6² = 36. Verschieden: nicht rechtwinklig.",
-   "h": "Prüfe a² + b² = c² mit der längsten Seite als c."
-  },
-  {
-   "l": "umkehrung",
-   "t": "umkehrung",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Dreieck hat die Seiten 12 cm, 15 cm und 9 cm. Ist es rechtwinklig?"
-   },
-   "a": [
-    "Ja, denn 9 + 12 > 15.",
-    "Nein, denn 9² + 12² = 225 = 225 = 15².",
-    "Ja, denn 9² + 12² = 225 = 225 = 15².",
-    "Das kann man ohne Winkelmessung nicht entscheiden."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Längste Seite c = 15: 9² + 12² = 225, 15² = 225. Gleich: rechtwinklig.",
-   "h": "Prüfe a² + b² = c² mit der längsten Seite als c."
-  },
-  {
-   "l": "umkehrung",
-   "t": "umkehrung",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Dreieck hat die Seiten 35 cm, 37 cm und 12 cm. Ist es rechtwinklig?"
-   },
-   "a": [
-    "Nein, denn 12² + 35² = 1369 = 1369 = 37².",
-    "Das kann man ohne Winkelmessung nicht entscheiden.",
-    "Ja, denn 12² + 35² = 1369 = 1369 = 37².",
-    "Ja, denn 12 + 35 > 37."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Längste Seite c = 37: 12² + 35² = 1369, 37² = 1369. Gleich: rechtwinklig.",
-   "h": "Prüfe a² + b² = c² mit der längsten Seite als c."
-  },
-  {
-   "l": "umkehrung",
-   "t": "umkehrung",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Dreieck hat die Seiten 60 cm, 25 cm und 65 cm. Ist es rechtwinklig?"
-   },
-   "a": [
-    "Ja, denn 25² + 60² = 4225 = 4225 = 65².",
-    "Nein, denn 25² + 60² = 4225 = 4225 = 65².",
-    "Ja, denn 25 + 60 > 65.",
-    "Das kann man ohne Winkelmessung nicht entscheiden."
+    "Ja, weil 9 + 12 > 16."
    ],
    "o": {
     "index": 0
    },
-   "w": "Längste Seite c = 65: 25² + 60² = 4225, 65² = 4225. Gleich: rechtwinklig.",
+   "w": "Längste Seite 16 cm: 9² + 12² = 81 + 144 = 225, aber 16² = 256. Also nicht rechtwinklig.",
+   "h": "Prüfe a² + b² = c² mit der längsten Seite als c."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten 10 cm, 6 cm und 8 cm. Ist es rechtwinklig?"
+   },
+   "a": [
+    "Ja, es ist rechtwinklig.",
+    "Das kann man ohne Winkelmessung nicht entscheiden.",
+    "Ja, weil 6 + 8 > 10.",
+    "Nein, es ist nicht rechtwinklig."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Längste Seite 10 cm: 6² + 8² = 36 + 64 = 100 = 10². Also rechtwinklig.",
+   "h": "Prüfe a² + b² = c² mit der längsten Seite als c."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten 24 cm, 7 cm und 25 cm. Ist es rechtwinklig?"
+   },
+   "a": [
+    "Ja, weil 7 + 24 > 25.",
+    "Ja, es ist rechtwinklig.",
+    "Das kann man ohne Winkelmessung nicht entscheiden.",
+    "Nein, es ist nicht rechtwinklig."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Längste Seite 25 cm: 7² + 24² = 49 + 576 = 625 = 25². Also rechtwinklig.",
+   "h": "Prüfe a² + b² = c² mit der längsten Seite als c."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten 8 cm, 6 cm und 9 cm. Ist es rechtwinklig?"
+   },
+   "a": [
+    "Nein, es ist nicht rechtwinklig.",
+    "Das kann man ohne Winkelmessung nicht entscheiden.",
+    "Ja, es ist rechtwinklig.",
+    "Ja, weil 6 + 8 > 9."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Längste Seite 9 cm: 6² + 8² = 36 + 64 = 100, aber 9² = 81. Also nicht rechtwinklig.",
    "h": "Prüfe a² + b² = c² mit der längsten Seite als c."
   },
   {
@@ -1282,18 +1888,18 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Ein Dreieck hat die Seiten 52 cm, 39 cm und 66 cm. Ist es rechtwinklig?"
+    "text": "Ein Dreieck hat die Seiten 4 cm, 3 cm und 6 cm. Ist es rechtwinklig?"
    },
    "a": [
-    "Ja, denn 39² + 52² = 4225 ≠ 4356 = 66².",
-    "Ja, denn 39 + 52 > 66.",
+    "Ja, es ist rechtwinklig.",
+    "Ja, weil 3 + 4 > 6.",
     "Das kann man ohne Winkelmessung nicht entscheiden.",
-    "Nein, denn 39² + 52² = 4225 ≠ 4356 = 66²."
+    "Nein, es ist nicht rechtwinklig."
    ],
    "o": {
     "index": 3
    },
-   "w": "Längste Seite c = 66: 39² + 52² = 4225, 66² = 4356. Verschieden: nicht rechtwinklig.",
+   "w": "Längste Seite 6 cm: 3² + 4² = 9 + 16 = 25, aber 6² = 36. Also nicht rechtwinklig.",
    "h": "Prüfe a² + b² = c² mit der längsten Seite als c."
   },
   {
@@ -1303,61 +1909,123 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Ein Dreieck hat die Seiten 34 cm, 16 cm und 30 cm. Ist es rechtwinklig?"
+    "text": "Ein Dreieck hat die Seiten 80 cm, 81 cm und 18 cm. Ist es rechtwinklig?"
    },
    "a": [
-    "Ja, denn 16² + 30² = 1156 = 1156 = 34².",
-    "Nein, denn 16² + 30² = 1156 = 1156 = 34².",
-    "Ja, denn 16 + 30 > 34.",
-    "Das kann man ohne Winkelmessung nicht entscheiden."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Längste Seite c = 34: 16² + 30² = 1156, 34² = 1156. Gleich: rechtwinklig.",
-   "h": "Prüfe a² + b² = c² mit der längsten Seite als c."
-  },
-  {
-   "l": "umkehrung",
-   "t": "umkehrung",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Dreieck hat die Seiten 16 cm, 33 cm und 30 cm. Ist es rechtwinklig?"
-   },
-   "a": [
-    "Nein, denn 16² + 30² = 1156 ≠ 1089 = 33².",
-    "Ja, denn 16 + 30 > 33.",
-    "Ja, denn 16² + 30² = 1156 ≠ 1089 = 33².",
-    "Das kann man ohne Winkelmessung nicht entscheiden."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Längste Seite c = 33: 16² + 30² = 1156, 33² = 1089. Verschieden: nicht rechtwinklig.",
-   "h": "Prüfe a² + b² = c² mit der längsten Seite als c."
-  },
-  {
-   "l": "umkehrung",
-   "t": "umkehrung",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Dreieck hat die Seiten 52 cm, 28 cm und 45 cm. Ist es rechtwinklig?"
-   },
-   "a": [
-    "Ja, denn 28 + 45 > 52.",
-    "Nein, denn 28² + 45² = 2809 ≠ 2704 = 52².",
+    "Ja, es ist rechtwinklig.",
     "Das kann man ohne Winkelmessung nicht entscheiden.",
-    "Ja, denn 28² + 45² = 2809 ≠ 2704 = 52²."
+    "Nein, es ist nicht rechtwinklig.",
+    "Ja, weil 18 + 80 > 81."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Längste Seite 81 cm: 18² + 80² = 324 + 6 400 = 6 724, aber 81² = 6 561. Also nicht rechtwinklig.",
+   "h": "Prüfe a² + b² = c² mit der längsten Seite als c."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten 39 cm, 52 cm und 65 cm. Ist es rechtwinklig?"
+   },
+   "a": [
+    "Das kann man ohne Winkelmessung nicht entscheiden.",
+    "Nein, es ist nicht rechtwinklig.",
+    "Ja, weil 39 + 52 > 65.",
+    "Ja, es ist rechtwinklig."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Längste Seite 65 cm: 39² + 52² = 1 521 + 2 704 = 4 225 = 65². Also rechtwinklig.",
+   "h": "Prüfe a² + b² = c² mit der längsten Seite als c."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten 8 cm, 6 cm und 11 cm. Ist es rechtwinklig?"
+   },
+   "a": [
+    "Nein, es ist nicht rechtwinklig.",
+    "Ja, es ist rechtwinklig.",
+    "Ja, weil 6 + 8 > 11.",
+    "Das kann man ohne Winkelmessung nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Längste Seite 11 cm: 6² + 8² = 36 + 64 = 100, aber 11² = 121. Also nicht rechtwinklig.",
+   "h": "Prüfe a² + b² = c² mit der längsten Seite als c."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten 8 cm, 7 cm und 10 cm. Ist es rechtwinklig?"
+   },
+   "a": [
+    "Das kann man ohne Winkelmessung nicht entscheiden.",
+    "Ja, weil 7 + 8 > 10.",
+    "Ja, es ist rechtwinklig.",
+    "Nein, es ist nicht rechtwinklig."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Längste Seite 10 cm: 7² + 8² = 49 + 64 = 113, aber 10² = 100. Also nicht rechtwinklig.",
+   "h": "Prüfe a² + b² = c² mit der längsten Seite als c."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten 42 cm, 56 cm und 71 cm. Ist es rechtwinklig?"
+   },
+   "a": [
+    "Nein, es ist nicht rechtwinklig.",
+    "Ja, es ist rechtwinklig.",
+    "Das kann man ohne Winkelmessung nicht entscheiden.",
+    "Ja, weil 42 + 56 > 71."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Längste Seite 71 cm: 42² + 56² = 1 764 + 3 136 = 4 900, aber 71² = 5 041. Also nicht rechtwinklig.",
+   "h": "Prüfe a² + b² = c² mit der längsten Seite als c."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten 9 cm, 12 cm und 16 cm. Welcher Winkel liegt der 16-cm-Seite gegenüber?"
+   },
+   "a": [
+    "ein rechter Winkel",
+    "ein stumpfer Winkel",
+    "ein spitzer Winkel"
    ],
    "o": {
     "index": 1
    },
-   "w": "Längste Seite c = 52: 28² + 45² = 2809, 52² = 2704. Verschieden: nicht rechtwinklig.",
-   "h": "Prüfe a² + b² = c² mit der längsten Seite als c."
+   "w": "9² + 12² = 225, 16² = 256. 225 < 256: Die längste Seite ist zu lang für einen rechten Winkel – stumpf.",
+   "h": "Vergleiche a² + b² mit c² für die längste Seite."
   },
   {
    "l": "umkehrung",
@@ -1366,47 +2034,7 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Im Dreieck ABC ist a = 57 cm, b = 95 cm, c = 76 cm. Welcher Winkel ist ein rechter Winkel?"
-   },
-   "a": [
-    "β (bei B)",
-    "α (bei A)",
-    "γ (bei C)"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Längste Seite b = 95 cm; die Summe der anderen Quadrate ist 9025. Der rechte Winkel liegt gegenüber von b: β (bei B).",
-   "h": "Der rechte Winkel liegt gegenüber der längsten Seite."
-  },
-  {
-   "l": "umkehrung",
-   "t": "umkehrung",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Im Dreieck ABC ist a = 56 cm, b = 33 cm, c = 65 cm. Welcher Winkel ist ein rechter Winkel?"
-   },
-   "a": [
-    "γ (bei C)",
-    "β (bei B)",
-    "α (bei A)"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Längste Seite c = 65 cm; die Summe der anderen Quadrate ist 4225. Der rechte Winkel liegt gegenüber von c: γ (bei C).",
-   "h": "Der rechte Winkel liegt gegenüber der längsten Seite."
-  },
-  {
-   "l": "umkehrung",
-   "t": "umkehrung",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Im Dreieck ABC ist a = 63 cm, b = 16 cm, c = 65 cm. Welcher Winkel ist ein rechter Winkel?"
+    "text": "Im Dreieck ABC ist a = 12 cm, b = 13 cm, c = 5 cm. Welcher Winkel ist ein rechter Winkel?"
    },
    "a": [
     "α (bei A)",
@@ -1414,29 +2042,9 @@
     "β (bei B)"
    ],
    "o": {
-    "index": 1
-   },
-   "w": "Längste Seite c = 65 cm; die Summe der anderen Quadrate ist 4225. Der rechte Winkel liegt gegenüber von c: γ (bei C).",
-   "h": "Der rechte Winkel liegt gegenüber der längsten Seite."
-  },
-  {
-   "l": "umkehrung",
-   "t": "umkehrung",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Im Dreieck ABC ist a = 65 cm, b = 52 cm, c = 39 cm. Welcher Winkel ist ein rechter Winkel?"
-   },
-   "a": [
-    "β (bei B)",
-    "γ (bei C)",
-    "α (bei A)"
-   ],
-   "o": {
     "index": 2
    },
-   "w": "Längste Seite a = 65 cm; die Summe der anderen Quadrate ist 4225. Der rechte Winkel liegt gegenüber von a: α (bei A).",
+   "w": "Längste Seite b = 13 cm; die Summe der anderen Quadrate ist 169 = 13². Der rechte Winkel liegt gegenüber von b: β (bei B).",
    "h": "Der rechte Winkel liegt gegenüber der längsten Seite."
   },
   {
@@ -1446,38 +2054,78 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Im Dreieck ABC ist a = 58 cm, b = 40 cm, c = 42 cm. Welcher Winkel ist ein rechter Winkel?"
+    "text": "Im Dreieck ABC ist a = 48 cm, b = 36 cm, c = 60 cm. Welcher Winkel ist ein rechter Winkel?"
    },
    "a": [
-    "γ (bei C)",
     "β (bei B)",
-    "α (bei A)"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Längste Seite a = 58 cm; die Summe der anderen Quadrate ist 3364. Der rechte Winkel liegt gegenüber von a: α (bei A).",
-   "h": "Der rechte Winkel liegt gegenüber der längsten Seite."
-  },
-  {
-   "l": "umkehrung",
-   "t": "umkehrung",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Im Dreieck ABC ist a = 20 cm, b = 25 cm, c = 15 cm. Welcher Winkel ist ein rechter Winkel?"
-   },
-   "a": [
     "γ (bei C)",
-    "β (bei B)",
     "α (bei A)"
    ],
    "o": {
     "index": 1
    },
-   "w": "Längste Seite b = 25 cm; die Summe der anderen Quadrate ist 625. Der rechte Winkel liegt gegenüber von b: β (bei B).",
+   "w": "Längste Seite c = 60 cm; die Summe der anderen Quadrate ist 3 600 = 60². Der rechte Winkel liegt gegenüber von c: γ (bei C).",
    "h": "Der rechte Winkel liegt gegenüber der längsten Seite."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten 8 cm, 15 cm und 18 cm. Welcher Winkel liegt der 18-cm-Seite gegenüber?"
+   },
+   "a": [
+    "ein rechter Winkel",
+    "ein stumpfer Winkel",
+    "ein spitzer Winkel"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "8² + 15² = 289, 18² = 324. 289 < 324: Die längste Seite ist zu lang für einen rechten Winkel – stumpf.",
+   "h": "Vergleiche a² + b² mit c² für die längste Seite."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist a = 13 cm, b = 84 cm, c = 85 cm. Welcher Winkel ist ein rechter Winkel?"
+   },
+   "a": [
+    "γ (bei C)",
+    "α (bei A)",
+    "β (bei B)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Längste Seite c = 85 cm; die Summe der anderen Quadrate ist 7 225 = 85². Der rechte Winkel liegt gegenüber von c: γ (bei C).",
+   "h": "Der rechte Winkel liegt gegenüber der längsten Seite."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten 12 cm, 16 cm und 20 cm. Welcher Winkel liegt der 20-cm-Seite gegenüber?"
+   },
+   "a": [
+    "ein rechter Winkel",
+    "ein spitzer Winkel",
+    "ein stumpfer Winkel"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "12² + 16² = 400, 20² = 400. Gleich: rechter Winkel.",
+   "h": "Vergleiche a² + b² mit c² für die längste Seite."
   },
   {
    "l": "umkehrung",
@@ -1486,18 +2134,18 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Ein Dreieck hat die Seiten 38 cm, 36 cm und 15 cm. Ist es rechtwinklig?"
+    "text": "Ein Dreieck hat die Seiten 42 cm, 56 cm und 70 cm. Ist es rechtwinklig?"
    },
    "a": [
-    "Nein, denn 15² + 36² = 1521 ≠ 1444 = 38².",
     "Das kann man ohne Winkelmessung nicht entscheiden.",
-    "Ja, denn 15 + 36 > 38.",
-    "Ja, denn 15² + 36² = 1521 ≠ 1444 = 38²."
+    "Ja, weil 42 + 56 > 70.",
+    "Nein, es ist nicht rechtwinklig.",
+    "Ja, es ist rechtwinklig."
    ],
    "o": {
-    "index": 0
+    "index": 3
    },
-   "w": "Längste Seite c = 38: 15² + 36² = 1521, 38² = 1444. Verschieden: nicht rechtwinklig."
+   "w": "Längste Seite 70 cm: 42² + 56² = 1 764 + 3 136 = 4 900 = 70². Also rechtwinklig."
   },
   {
    "l": "umkehrung",
@@ -1506,178 +2154,178 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Ein Dreieck hat die Seiten 72 cm, 54 cm und 90 cm. Ist es rechtwinklig?"
+    "text": "Ein Dreieck hat die Seiten 27 cm, 45 cm und 36 cm. Ist es rechtwinklig?"
    },
    "a": [
-    "Ja, denn 54² + 72² = 8100 = 8100 = 90².",
-    "Ja, denn 54 + 72 > 90.",
-    "Nein, denn 54² + 72² = 8100 = 8100 = 90².",
-    "Das kann man ohne Winkelmessung nicht entscheiden."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Längste Seite c = 90: 54² + 72² = 8100, 90² = 8100. Gleich: rechtwinklig."
-  },
-  {
-   "l": "umkehrung",
-   "t": "umkehrung",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Dreieck hat die Seiten 36 cm, 15 cm und 39 cm. Ist es rechtwinklig?"
-   },
-   "a": [
-    "Ja, denn 15 + 36 > 39.",
-    "Ja, denn 15² + 36² = 1521 = 1521 = 39².",
-    "Nein, denn 15² + 36² = 1521 = 1521 = 39².",
-    "Das kann man ohne Winkelmessung nicht entscheiden."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Längste Seite c = 39: 15² + 36² = 1521, 39² = 1521. Gleich: rechtwinklig."
-  },
-  {
-   "l": "umkehrung",
-   "t": "umkehrung",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Dreieck hat die Seiten 78 cm, 72 cm und 30 cm. Ist es rechtwinklig?"
-   },
-   "a": [
-    "Ja, denn 30 + 72 > 78.",
     "Das kann man ohne Winkelmessung nicht entscheiden.",
-    "Ja, denn 30² + 72² = 6084 = 6084 = 78².",
-    "Nein, denn 30² + 72² = 6084 = 6084 = 78²."
+    "Nein, es ist nicht rechtwinklig.",
+    "Ja, es ist rechtwinklig.",
+    "Ja, weil 27 + 36 > 45."
    ],
    "o": {
     "index": 2
    },
-   "w": "Längste Seite c = 78: 30² + 72² = 6084, 78² = 6084. Gleich: rechtwinklig."
+   "w": "Längste Seite 45 cm: 27² + 36² = 729 + 1 296 = 2 025 = 45². Also rechtwinklig."
   },
   {
    "l": "umkehrung",
    "t": "umkehrung",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Ein Dreieck hat die Seiten 96 cm, 100 cm und 28 cm. Ist es rechtwinklig?"
+    "text": "Ein Dreieck hat die Seiten 40 cm, 85 cm und 75 cm. Ist es rechtwinklig?"
    },
    "a": [
-    "Nein, denn 28² + 96² = 10000 = 10000 = 100².",
-    "Ja, denn 28 + 96 > 100.",
-    "Das kann man ohne Winkelmessung nicht entscheiden.",
-    "Ja, denn 28² + 96² = 10000 = 10000 = 100²."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Längste Seite c = 100: 28² + 96² = 10000, 100² = 10000. Gleich: rechtwinklig."
-  },
-  {
-   "l": "umkehrung",
-   "t": "umkehrung",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Dreieck hat die Seiten 18 cm, 81 cm und 80 cm. Ist es rechtwinklig?"
-   },
-   "a": [
-    "Ja, denn 18 + 80 > 81.",
-    "Ja, denn 18² + 80² = 6724 ≠ 6561 = 81².",
-    "Das kann man ohne Winkelmessung nicht entscheiden.",
-    "Nein, denn 18² + 80² = 6724 ≠ 6561 = 81²."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Längste Seite c = 81: 18² + 80² = 6724, 81² = 6561. Verschieden: nicht rechtwinklig."
-  },
-  {
-   "l": "umkehrung",
-   "t": "umkehrung",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Dreieck hat die Seiten 20 cm, 53 cm und 48 cm. Ist es rechtwinklig?"
-   },
-   "a": [
-    "Ja, denn 20² + 48² = 2704 ≠ 2809 = 53².",
-    "Nein, denn 20² + 48² = 2704 ≠ 2809 = 53².",
-    "Das kann man ohne Winkelmessung nicht entscheiden.",
-    "Ja, denn 20 + 48 > 53."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Längste Seite c = 53: 20² + 48² = 2704, 53² = 2809. Verschieden: nicht rechtwinklig."
-  },
-  {
-   "l": "umkehrung",
-   "t": "umkehrung",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Dreieck hat die Seiten 85 cm, 40 cm und 75 cm. Ist es rechtwinklig?"
-   },
-   "a": [
-    "Nein, denn 40² + 75² = 7225 = 7225 = 85².",
-    "Ja, denn 40 + 75 > 85.",
-    "Ja, denn 40² + 75² = 7225 = 7225 = 85².",
+    "Nein, es ist nicht rechtwinklig.",
+    "Ja, weil 40 + 75 > 85.",
+    "Ja, es ist rechtwinklig.",
     "Das kann man ohne Winkelmessung nicht entscheiden."
    ],
    "o": {
     "index": 2
    },
-   "w": "Längste Seite c = 85: 40² + 75² = 7225, 85² = 7225. Gleich: rechtwinklig."
+   "w": "Längste Seite 85 cm: 40² + 75² = 1 600 + 5 625 = 7 225 = 85². Also rechtwinklig."
   },
   {
    "l": "umkehrung",
    "t": "umkehrung",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Ein Dreieck hat die Seiten 24 cm, 15 cm und 20 cm. Ist es rechtwinklig?"
+    "text": "Ein Dreieck hat die Seiten 39 cm, 80 cm und 89 cm. Ist es rechtwinklig?"
    },
    "a": [
-    "Nein, denn 15² + 20² = 625 ≠ 576 = 24².",
+    "Nein, es ist nicht rechtwinklig.",
     "Das kann man ohne Winkelmessung nicht entscheiden.",
-    "Ja, denn 15² + 20² = 625 ≠ 576 = 24².",
-    "Ja, denn 15 + 20 > 24."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Längste Seite c = 24: 15² + 20² = 625, 24² = 576. Verschieden: nicht rechtwinklig."
-  },
-  {
-   "l": "umkehrung",
-   "t": "umkehrung",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Dreieck hat die Seiten 33 cm, 56 cm und 44 cm. Ist es rechtwinklig?"
-   },
-   "a": [
-    "Ja, denn 33 + 44 > 56.",
-    "Das kann man ohne Winkelmessung nicht entscheiden.",
-    "Ja, denn 33² + 44² = 3025 ≠ 3136 = 56².",
-    "Nein, denn 33² + 44² = 3025 ≠ 3136 = 56²."
+    "Ja, weil 39 + 80 > 89.",
+    "Ja, es ist rechtwinklig."
    ],
    "o": {
     "index": 3
    },
-   "w": "Längste Seite c = 56: 33² + 44² = 3025, 56² = 3136. Verschieden: nicht rechtwinklig."
+   "w": "Längste Seite 89 cm: 39² + 80² = 1 521 + 6 400 = 7 921 = 89². Also rechtwinklig."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten 73 cm, 70 cm und 24 cm. Ist es rechtwinklig?"
+   },
+   "a": [
+    "Das kann man ohne Winkelmessung nicht entscheiden.",
+    "Nein, es ist nicht rechtwinklig.",
+    "Ja, es ist rechtwinklig.",
+    "Ja, weil 24 + 70 > 73."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Längste Seite 73 cm: 24² + 70² = 576 + 4 900 = 5 476, aber 73² = 5 329. Also nicht rechtwinklig."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten 29 cm, 21 cm und 20 cm. Ist es rechtwinklig?"
+   },
+   "a": [
+    "Nein, es ist nicht rechtwinklig.",
+    "Ja, es ist rechtwinklig.",
+    "Das kann man ohne Winkelmessung nicht entscheiden.",
+    "Ja, weil 20 + 21 > 29."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Längste Seite 29 cm: 20² + 21² = 400 + 441 = 841 = 29². Also rechtwinklig."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten 25 cm, 65 cm und 60 cm. Ist es rechtwinklig?"
+   },
+   "a": [
+    "Ja, es ist rechtwinklig.",
+    "Das kann man ohne Winkelmessung nicht entscheiden.",
+    "Ja, weil 25 + 60 > 65.",
+    "Nein, es ist nicht rechtwinklig."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Längste Seite 65 cm: 25² + 60² = 625 + 3 600 = 4 225 = 65². Also rechtwinklig."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten 5 cm, 12 cm und 14 cm. Ist es rechtwinklig?"
+   },
+   "a": [
+    "Ja, weil 5 + 12 > 14.",
+    "Ja, es ist rechtwinklig.",
+    "Das kann man ohne Winkelmessung nicht entscheiden.",
+    "Nein, es ist nicht rechtwinklig."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Längste Seite 14 cm: 5² + 12² = 25 + 144 = 169, aber 14² = 196. Also nicht rechtwinklig."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten 51 cm, 45 cm und 24 cm. Ist es rechtwinklig?"
+   },
+   "a": [
+    "Ja, es ist rechtwinklig.",
+    "Das kann man ohne Winkelmessung nicht entscheiden.",
+    "Nein, es ist nicht rechtwinklig.",
+    "Ja, weil 24 + 45 > 51."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Längste Seite 51 cm: 24² + 45² = 576 + 2 025 = 2 601 = 51². Also rechtwinklig."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Dreieck hat die Seiten 24 cm, 25 cm und 10 cm. Ist es rechtwinklig?"
+   },
+   "a": [
+    "Ja, es ist rechtwinklig.",
+    "Ja, weil 10 + 24 > 25.",
+    "Nein, es ist nicht rechtwinklig.",
+    "Das kann man ohne Winkelmessung nicht entscheiden."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Längste Seite 25 cm: 10² + 24² = 100 + 576 = 676, aber 25² = 625. Also nicht rechtwinklig."
   },
   {
    "l": "koordinaten",
@@ -1686,14 +2334,59 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Berechne den Abstand der Punkte P(−6 | 5) und Q(6 | 21) (Einheit 1 cm)."
+    "text": "Berechne den Abstand der Punkte P(6 | −1) und Q(14 | 5) (Einheit 1 cm).",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      5,
+      15
+     ],
+     "y": [
+      -2,
+      6
+     ],
+     "punkte": [
+      {
+       "x": 6,
+       "y": -1,
+       "name": "P"
+      },
+      {
+       "x": 14,
+       "y": 5,
+       "name": "Q"
+      }
+     ],
+     "strecken": [
+      [
+       6,
+       -1,
+       14,
+       5
+      ],
+      [
+       6,
+       -1,
+       14,
+       -1,
+       "gestrichelt"
+      ],
+      [
+       14,
+       -1,
+       14,
+       5,
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    "o": {
-    "wert": 20,
+    "wert": 10,
     "einheit": "cm"
    },
-   "c": "((6 - (-6)) ** 2 + (21 - (5)) ** 2) / 20",
-   "w": "Δx = 12, Δy = 16; d = √(144 + 256) = √400 = 20 cm.",
+   "c": "((14 - (6)) ** 2 + (5 - (-1)) ** 2) / 10",
+   "w": "Δx = 8, Δy = 6; d = √(64 + 36) = √100 = 10 cm.",
    "h": "Bilde die Differenzen der x- und der y-Koordinaten."
   },
   {
@@ -1703,13 +2396,58 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Berechne den Abstand der Punkte P(1 | 6) und Q(7 | 14) (Einheit 1 cm)."
+    "text": "Berechne den Abstand der Punkte P(−1 | 1) und Q(5 | 9) (Einheit 1 cm).",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      6
+     ],
+     "y": [
+      0,
+      10
+     ],
+     "punkte": [
+      {
+       "x": -1,
+       "y": 1,
+       "name": "P"
+      },
+      {
+       "x": 5,
+       "y": 9,
+       "name": "Q"
+      }
+     ],
+     "strecken": [
+      [
+       -1,
+       1,
+       5,
+       9
+      ],
+      [
+       -1,
+       1,
+       5,
+       1,
+       "gestrichelt"
+      ],
+      [
+       5,
+       1,
+       5,
+       9,
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    "o": {
     "wert": 10,
     "einheit": "cm"
    },
-   "c": "((7 - (1)) ** 2 + (14 - (6)) ** 2) / 10",
+   "c": "((5 - (-1)) ** 2 + (9 - (1)) ** 2) / 10",
    "w": "Δx = 6, Δy = 8; d = √(36 + 64) = √100 = 10 cm.",
    "h": "Bilde die Differenzen der x- und der y-Koordinaten."
   },
@@ -1720,14 +2458,59 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Berechne den Abstand der Punkte P(−6 | −1) und Q(1 | 23) (Einheit 1 cm)."
+    "text": "Berechne den Abstand der Punkte P(−1 | 1) und Q(11 | 10) (Einheit 1 cm).",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      12
+     ],
+     "y": [
+      0,
+      11
+     ],
+     "punkte": [
+      {
+       "x": -1,
+       "y": 1,
+       "name": "P"
+      },
+      {
+       "x": 11,
+       "y": 10,
+       "name": "Q"
+      }
+     ],
+     "strecken": [
+      [
+       -1,
+       1,
+       11,
+       10
+      ],
+      [
+       -1,
+       1,
+       11,
+       1,
+       "gestrichelt"
+      ],
+      [
+       11,
+       1,
+       11,
+       10,
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    "o": {
-    "wert": 25,
+    "wert": 15,
     "einheit": "cm"
    },
-   "c": "((1 - (-6)) ** 2 + (23 - (-1)) ** 2) / 25",
-   "w": "Δx = 7, Δy = 24; d = √(49 + 576) = √625 = 25 cm.",
+   "c": "((11 - (-1)) ** 2 + (10 - (1)) ** 2) / 15",
+   "w": "Δx = 12, Δy = 9; d = √(144 + 81) = √225 = 15 cm.",
    "h": "Bilde die Differenzen der x- und der y-Koordinaten."
   },
   {
@@ -1737,14 +2520,59 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Berechne den Abstand der Punkte P(−2 | 2) und Q(22 | 20) (Einheit 1 cm)."
+    "text": "Berechne den Abstand der Punkte P(2 | −1) und Q(14 | 8) (Einheit 1 cm).",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      1,
+      15
+     ],
+     "y": [
+      -2,
+      9
+     ],
+     "punkte": [
+      {
+       "x": 2,
+       "y": -1,
+       "name": "P"
+      },
+      {
+       "x": 14,
+       "y": 8,
+       "name": "Q"
+      }
+     ],
+     "strecken": [
+      [
+       2,
+       -1,
+       14,
+       8
+      ],
+      [
+       2,
+       -1,
+       14,
+       -1,
+       "gestrichelt"
+      ],
+      [
+       14,
+       -1,
+       14,
+       8,
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    "o": {
-    "wert": 30,
+    "wert": 15,
     "einheit": "cm"
    },
-   "c": "((22 - (-2)) ** 2 + (20 - (2)) ** 2) / 30",
-   "w": "Δx = 24, Δy = 18; d = √(576 + 324) = √900 = 30 cm.",
+   "c": "((14 - (2)) ** 2 + (8 - (-1)) ** 2) / 15",
+   "w": "Δx = 12, Δy = 9; d = √(144 + 81) = √225 = 15 cm.",
    "h": "Bilde die Differenzen der x- und der y-Koordinaten."
   },
   {
@@ -1754,13 +2582,58 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Berechne den Abstand der Punkte P(1 | 4) und Q(13 | 9) (Einheit 1 cm)."
+    "text": "Berechne den Abstand der Punkte P(−6 | 3) und Q(6 | 8) (Einheit 1 cm).",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -7,
+      7
+     ],
+     "y": [
+      2,
+      9
+     ],
+     "punkte": [
+      {
+       "x": -6,
+       "y": 3,
+       "name": "P"
+      },
+      {
+       "x": 6,
+       "y": 8,
+       "name": "Q"
+      }
+     ],
+     "strecken": [
+      [
+       -6,
+       3,
+       6,
+       8
+      ],
+      [
+       -6,
+       3,
+       6,
+       3,
+       "gestrichelt"
+      ],
+      [
+       6,
+       3,
+       6,
+       8,
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    "o": {
     "wert": 13,
     "einheit": "cm"
    },
-   "c": "((13 - (1)) ** 2 + (9 - (4)) ** 2) / 13",
+   "c": "((6 - (-6)) ** 2 + (8 - (3)) ** 2) / 13",
    "w": "Δx = 12, Δy = 5; d = √(144 + 25) = √169 = 13 cm.",
    "h": "Bilde die Differenzen der x- und der y-Koordinaten."
   },
@@ -1771,168 +2644,161 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Berechne den Abstand der Punkte P(−1 | 0) und Q(9 | 24) (Einheit 1 cm)."
-   },
-   "o": {
-    "wert": 26,
-    "einheit": "cm"
-   },
-   "c": "((9 - (-1)) ** 2 + (24 - (0)) ** 2) / 26",
-   "w": "Δx = 10, Δy = 24; d = √(100 + 576) = √676 = 26 cm.",
-   "h": "Bilde die Differenzen der x- und der y-Koordinaten."
-  },
-  {
-   "l": "koordinaten",
-   "t": "koordinaten",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne den Abstand der Punkte P(5 | −4) und Q(−4 | −16) (Einheit 1 cm)."
-   },
-   "o": {
-    "wert": 15,
-    "einheit": "cm"
-   },
-   "c": "((-4 - (5)) ** 2 + (-16 - (-4)) ** 2) / 15",
-   "w": "Δx = −9, Δy = −12; d = √(81 + 144) = √225 = 15 cm.",
-   "h": "Bilde die Differenzen der x- und der y-Koordinaten."
-  },
-  {
-   "l": "koordinaten",
-   "t": "koordinaten",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne den Abstand der Punkte P(3 | 5) und Q(24 | −15) (Einheit 1 cm)."
-   },
-   "o": {
-    "wert": 29,
-    "einheit": "cm"
-   },
-   "c": "((24 - (3)) ** 2 + (-15 - (5)) ** 2) / 29",
-   "w": "Δx = 21, Δy = −20; d = √(441 + 400) = √841 = 29 cm.",
-   "h": "Bilde die Differenzen der x- und der y-Koordinaten."
-  },
-  {
-   "l": "koordinaten",
-   "t": "koordinaten",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne den Abstand der Punkte P(−5 | 2) und Q(−21 | −10) (Einheit 1 cm)."
-   },
-   "o": {
-    "wert": 20,
-    "einheit": "cm"
-   },
-   "c": "((-21 - (-5)) ** 2 + (-10 - (2)) ** 2) / 20",
-   "w": "Δx = −16, Δy = −12; d = √(256 + 144) = √400 = 20 cm.",
-   "h": "Bilde die Differenzen der x- und der y-Koordinaten."
-  },
-  {
-   "l": "koordinaten",
-   "t": "koordinaten",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne den Abstand der Punkte P(−5 | 2) und Q(−29 | −5) (Einheit 1 cm)."
-   },
-   "o": {
-    "wert": 25,
-    "einheit": "cm"
-   },
-   "c": "((-29 - (-5)) ** 2 + (-5 - (2)) ** 2) / 25",
-   "w": "Δx = −24, Δy = −7; d = √(576 + 49) = √625 = 25 cm.",
-   "h": "Bilde die Differenzen der x- und der y-Koordinaten."
-  },
-  {
-   "l": "koordinaten",
-   "t": "koordinaten",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne den Abstand der Punkte P(−1 | −1) und Q(7 | −16) (Einheit 1 cm)."
-   },
-   "o": {
-    "wert": 17,
-    "einheit": "cm"
-   },
-   "c": "((7 - (-1)) ** 2 + (-16 - (-1)) ** 2) / 17",
-   "w": "Δx = 8, Δy = −15; d = √(64 + 225) = √289 = 17 cm.",
-   "h": "Bilde die Differenzen der x- und der y-Koordinaten."
-  },
-  {
-   "l": "koordinaten",
-   "t": "koordinaten",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne den Abstand der Punkte P(−5 | 1) und Q(7 | −8) (Einheit 1 cm)."
-   },
-   "o": {
-    "wert": 15,
-    "einheit": "cm"
-   },
-   "c": "((7 - (-5)) ** 2 + (-8 - (1)) ** 2) / 15",
-   "w": "Δx = 12, Δy = −9; d = √(144 + 81) = √225 = 15 cm.",
-   "h": "Bilde die Differenzen der x- und der y-Koordinaten."
-  },
-  {
-   "l": "koordinaten",
-   "t": "koordinaten",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne den Abstand der Punkte P(−1 | −4) und Q(−4 | −8) (Einheit 1 cm)."
+    "text": "Berechne den Abstand der Punkte P(6 | 0) und Q(10 | 3) (Einheit 1 cm).",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      5,
+      11
+     ],
+     "y": [
+      -1,
+      4
+     ],
+     "punkte": [
+      {
+       "x": 6,
+       "y": 0,
+       "name": "P"
+      },
+      {
+       "x": 10,
+       "y": 3,
+       "name": "Q"
+      }
+     ],
+     "strecken": [
+      [
+       6,
+       0,
+       10,
+       3
+      ],
+      [
+       6,
+       0,
+       10,
+       0,
+       "gestrichelt"
+      ],
+      [
+       10,
+       0,
+       10,
+       3,
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    "o": {
     "wert": 5,
     "einheit": "cm"
    },
-   "c": "((-4 - (-1)) ** 2 + (-8 - (-4)) ** 2) / 5",
-   "w": "Δx = −3, Δy = −4; d = √(9 + 16) = √25 = 5 cm.",
+   "c": "((10 - (6)) ** 2 + (3 - (0)) ** 2) / 5",
+   "w": "Δx = 4, Δy = 3; d = √(16 + 9) = √25 = 5 cm.",
    "h": "Bilde die Differenzen der x- und der y-Koordinaten."
   },
   {
    "l": "koordinaten",
    "t": "koordinaten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne den Abstand von P(−2 | −1) und Q(1 | −8) auf zwei Nachkommastellen (Einheit 1 cm)."
-   },
-   "o": {
-    "wert": 7.62,
-    "einheit": "cm",
-    "toleranz": 0.01
-   },
-   "c": "round(7.615773105864, 2)",
-   "w": "Δx = 3, Δy = −7; d = √(9 + 49) = √58 ≈ 7,62 cm.",
-   "h": "Differenzen der Koordinaten quadrieren, addieren, Wurzel ziehen."
-  },
-  {
-   "l": "koordinaten",
-   "t": "koordinaten",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne den Abstand der Punkte P(5 | −6) und Q(−25 | −46) (Einheit 1 cm)."
+    "text": "Berechne den Abstand der Punkte P(1 | 3) und Q(−13 | 51) (Einheit 1 cm)."
    },
    "o": {
     "wert": 50,
     "einheit": "cm"
    },
-   "c": "((-25 - (5)) ** 2 + (-46 - (-6)) ** 2) / 50",
-   "w": "Δx = −30, Δy = −40; d = √(900 + 1 600) = √2 500 = 50 cm.",
+   "c": "((-13 - (1)) ** 2 + (51 - (3)) ** 2) / 50",
+   "w": "Δx = −14, Δy = 48; d = √(196 + 2 304) = √2 500 = 50 cm.",
+   "h": "Bilde die Differenzen der x- und der y-Koordinaten."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Abstand der Punkte P(−3 | −4) und Q(12 | 32) (Einheit 1 cm)."
+   },
+   "o": {
+    "wert": 39,
+    "einheit": "cm"
+   },
+   "c": "((12 - (-3)) ** 2 + (32 - (-4)) ** 2) / 39",
+   "w": "Δx = 15, Δy = 36; d = √(225 + 1 296) = √1 521 = 39 cm.",
+   "h": "Bilde die Differenzen der x- und der y-Koordinaten."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Abstand der Punkte P(2 | −5) und Q(26 | 2) (Einheit 1 cm)."
+   },
+   "o": {
+    "wert": 25,
+    "einheit": "cm"
+   },
+   "c": "((26 - (2)) ** 2 + (2 - (-5)) ** 2) / 25",
+   "w": "Δx = 24, Δy = 7; d = √(576 + 49) = √625 = 25 cm.",
+   "h": "Bilde die Differenzen der x- und der y-Koordinaten."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Abstand der Punkte P(−1 | 5) und Q(26 | −31) (Einheit 1 cm)."
+   },
+   "o": {
+    "wert": 45,
+    "einheit": "cm"
+   },
+   "c": "((26 - (-1)) ** 2 + (-31 - (5)) ** 2) / 45",
+   "w": "Δx = 27, Δy = −36; d = √(729 + 1 296) = √2 025 = 45 cm.",
+   "h": "Bilde die Differenzen der x- und der y-Koordinaten."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Abstand der Punkte P(−1 | −1) und Q(23 | −11) (Einheit 1 cm)."
+   },
+   "o": {
+    "wert": 26,
+    "einheit": "cm"
+   },
+   "c": "((23 - (-1)) ** 2 + (-11 - (-1)) ** 2) / 26",
+   "w": "Δx = 24, Δy = −10; d = √(576 + 100) = √676 = 26 cm.",
+   "h": "Bilde die Differenzen der x- und der y-Koordinaten."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Abstand der Punkte P(4 | −4) und Q(19 | −12) (Einheit 1 cm)."
+   },
+   "o": {
+    "wert": 17,
+    "einheit": "cm"
+   },
+   "c": "((19 - (4)) ** 2 + (-12 - (-4)) ** 2) / 17",
+   "w": "Δx = 15, Δy = −8; d = √(225 + 64) = √289 = 17 cm.",
    "h": "Bilde die Differenzen der x- und der y-Koordinaten."
   },
   {
@@ -1942,15 +2808,15 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Berechne den Abstand von P(0 | 0) und Q(2 | −1) auf zwei Nachkommastellen (Einheit 1 cm)."
+    "text": "Berechne den Abstand von P(1 | −5) und Q(7 | −12) auf zwei Nachkommastellen (Einheit 1 cm)."
    },
    "o": {
-    "wert": 2.24,
+    "wert": 9.22,
     "einheit": "cm",
     "toleranz": 0.01
    },
-   "c": "round(2.236067977500, 2)",
-   "w": "Δx = 2, Δy = −1; d = √(4 + 1) = √5 ≈ 2,24 cm.",
+   "c": "round(9.219544457293, 2)",
+   "w": "Δx = 6, Δy = −7; d = √(36 + 49) = √85 ≈ 9,22 cm.",
    "h": "Differenzen der Koordinaten quadrieren, addieren, Wurzel ziehen."
   },
   {
@@ -1960,15 +2826,15 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Berechne den Abstand von P(−3 | 0) und Q(−5 | −7) auf zwei Nachkommastellen (Einheit 1 cm)."
+    "text": "Berechne den Abstand von P(5 | −5) und Q(0 | −1) auf zwei Nachkommastellen (Einheit 1 cm)."
    },
    "o": {
-    "wert": 7.28,
+    "wert": 6.4,
     "einheit": "cm",
     "toleranz": 0.01
    },
-   "c": "round(7.280109889281, 2)",
-   "w": "Δx = −2, Δy = −7; d = √(4 + 49) = √53 ≈ 7,28 cm.",
+   "c": "round(6.403124237433, 2)",
+   "w": "Δx = −5, Δy = 4; d = √(25 + 16) = √41 ≈ 6,4 cm.",
    "h": "Differenzen der Koordinaten quadrieren, addieren, Wurzel ziehen."
   },
   {
@@ -1978,16 +2844,66 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Berechne den Abstand von P(0 | −2) und Q(6 | −3) auf zwei Nachkommastellen (Einheit 1 cm)."
+    "text": "Berechne den Umfang des Dreiecks A(−6 | 0), B(12 | 0), C(12 | −24) (Einheit 1 cm)."
    },
    "o": {
-    "wert": 6.08,
+    "wert": 72,
+    "einheit": "cm"
+   },
+   "c": "18 + 24 + (18 ** 2 + 24 ** 2) / 30",
+   "w": "AB = 18, BC = 24 (waagrecht bzw. senkrecht), AC = √(324 + 576) = 30. Umfang 18 + 24 + 30 = 72 cm.",
+   "h": "Zwei Seiten liegen parallel zu den Achsen; die dritte berechnest du mit Pythagoras."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "P(−3 | 5) und Q(x | 35) haben den Abstand 50, und x > −3. Bestimme x."
+   },
+   "o": {
+    "wert": 37
+   },
+   "c": "-3 + (1) * (50 ** 2 - (35 - (5)) ** 2) / 40",
+   "w": "Δy = 30; Δx² = 50² − 900 = 1600, Δx = +40; x = −3 + 40 = 37.",
+   "h": "Stelle d² = Δx² + Δy² nach Δx² um. Beachte die Bedingung an x."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Abstand von P(6 | 0) und Q(9 | −6) auf zwei Nachkommastellen (Einheit 1 cm)."
+   },
+   "o": {
+    "wert": 6.71,
     "einheit": "cm",
     "toleranz": 0.01
    },
-   "c": "round(6.082762530298, 2)",
-   "w": "Δx = 6, Δy = −1; d = √(36 + 1) = √37 ≈ 6,08 cm.",
+   "c": "round(6.708203932499, 2)",
+   "w": "Δx = 3, Δy = −6; d = √(9 + 36) = √45 ≈ 6,71 cm.",
    "h": "Differenzen der Koordinaten quadrieren, addieren, Wurzel ziehen."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Umfang des Dreiecks A(−5 | 3), B(19 | 3), C(19 | −7) (Einheit 1 cm)."
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "cm"
+   },
+   "c": "24 + 10 + (24 ** 2 + 10 ** 2) / 26",
+   "w": "AB = 24, BC = 10 (waagrecht bzw. senkrecht), AC = √(576 + 100) = 26. Umfang 24 + 10 + 26 = 60 cm.",
+   "h": "Zwei Seiten liegen parallel zu den Achsen; die dritte berechnest du mit Pythagoras."
   },
   {
    "l": "koordinaten",
@@ -1996,14 +2912,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne den Abstand der Punkte P(6 | −4) und Q(30 | 14) (Einheit 1 cm)."
+    "text": "Berechne den Abstand der Punkte P(−3 | 1) und Q(−27 | 19) (Einheit 1 cm)."
    },
    "o": {
     "wert": 30,
     "einheit": "cm"
    },
-   "c": "((30 - (6)) ** 2 + (14 - (-4)) ** 2) / 30",
-   "w": "Δx = 24, Δy = 18; d = √(576 + 324) = √900 = 30 cm."
+   "c": "((-27 - (-3)) ** 2 + (19 - (1)) ** 2) / 30",
+   "w": "Δx = −24, Δy = 18; d = √(576 + 324) = √900 = 30 cm."
   },
   {
    "l": "koordinaten",
@@ -2012,14 +2928,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne den Abstand der Punkte P(1 | 1) und Q(−4 | −11) (Einheit 1 cm)."
+    "text": "Berechne den Abstand der Punkte P(−2 | −1) und Q(38 | −10) (Einheit 1 cm)."
    },
    "o": {
-    "wert": 13,
+    "wert": 41,
     "einheit": "cm"
    },
-   "c": "((-4 - (1)) ** 2 + (-11 - (1)) ** 2) / 13",
-   "w": "Δx = −5, Δy = −12; d = √(25 + 144) = √169 = 13 cm."
+   "c": "((38 - (-2)) ** 2 + (-10 - (-1)) ** 2) / 41",
+   "w": "Δx = 40, Δy = −9; d = √(1 600 + 81) = √1 681 = 41 cm."
   },
   {
    "l": "koordinaten",
@@ -2028,14 +2944,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne den Abstand der Punkte P(6 | 3) und Q(−12 | 27) (Einheit 1 cm)."
+    "text": "Berechne den Abstand der Punkte P(2 | 2) und Q(10 | −4) (Einheit 1 cm)."
    },
    "o": {
-    "wert": 30,
+    "wert": 10,
     "einheit": "cm"
    },
-   "c": "((-12 - (6)) ** 2 + (27 - (3)) ** 2) / 30",
-   "w": "Δx = −18, Δy = 24; d = √(324 + 576) = √900 = 30 cm."
+   "c": "((10 - (2)) ** 2 + (-4 - (2)) ** 2) / 10",
+   "w": "Δx = 8, Δy = −6; d = √(64 + 36) = √100 = 10 cm."
   },
   {
    "l": "koordinaten",
@@ -2044,46 +2960,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne den Abstand der Punkte P(−3 | −4) und Q(6 | 8) (Einheit 1 cm)."
-   },
-   "o": {
-    "wert": 15,
-    "einheit": "cm"
-   },
-   "c": "((6 - (-3)) ** 2 + (8 - (-4)) ** 2) / 15",
-   "w": "Δx = 9, Δy = 12; d = √(81 + 144) = √225 = 15 cm."
-  },
-  {
-   "l": "koordinaten",
-   "t": "koordinaten",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne den Abstand der Punkte P(2 | −5) und Q(14 | 0) (Einheit 1 cm)."
-   },
-   "o": {
-    "wert": 13,
-    "einheit": "cm"
-   },
-   "c": "((14 - (2)) ** 2 + (0 - (-5)) ** 2) / 13",
-   "w": "Δx = 12, Δy = 5; d = √(144 + 25) = √169 = 13 cm."
-  },
-  {
-   "l": "koordinaten",
-   "t": "koordinaten",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne den Abstand der Punkte P(−1 | 5) und Q(14 | −15) (Einheit 1 cm)."
+    "text": "Berechne den Abstand der Punkte P(1 | 3) und Q(8 | 27) (Einheit 1 cm)."
    },
    "o": {
     "wert": 25,
     "einheit": "cm"
    },
-   "c": "((14 - (-1)) ** 2 + (-15 - (5)) ** 2) / 25",
-   "w": "Δx = 15, Δy = −20; d = √(225 + 400) = √625 = 25 cm."
+   "c": "((8 - (1)) ** 2 + (27 - (3)) ** 2) / 25",
+   "w": "Δx = 7, Δy = 24; d = √(49 + 576) = √625 = 25 cm."
   },
   {
    "l": "koordinaten",
@@ -2092,14 +2976,46 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne den Abstand der Punkte P(−4 | 4) und Q(−24 | −17) (Einheit 1 cm)."
+    "text": "Berechne den Abstand der Punkte P(5 | −2) und Q(−4 | 10) (Einheit 1 cm)."
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "cm"
+   },
+   "c": "((-4 - (5)) ** 2 + (10 - (-2)) ** 2) / 15",
+   "w": "Δx = −9, Δy = 12; d = √(81 + 144) = √225 = 15 cm."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Abstand der Punkte P(2 | −4) und Q(38 | −19) (Einheit 1 cm)."
+   },
+   "o": {
+    "wert": 39,
+    "einheit": "cm"
+   },
+   "c": "((38 - (2)) ** 2 + (-19 - (-4)) ** 2) / 39",
+   "w": "Δx = 36, Δy = −15; d = √(1 296 + 225) = √1 521 = 39 cm."
+  },
+  {
+   "l": "koordinaten",
+   "t": "koordinaten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Abstand der Punkte P(−6 | 1) und Q(15 | 21) (Einheit 1 cm)."
    },
    "o": {
     "wert": 29,
     "einheit": "cm"
    },
-   "c": "((-24 - (-4)) ** 2 + (-17 - (4)) ** 2) / 29",
-   "w": "Δx = −20, Δy = −21; d = √(400 + 441) = √841 = 29 cm."
+   "c": "((15 - (-6)) ** 2 + (21 - (1)) ** 2) / 29",
+   "w": "Δx = 21, Δy = 20; d = √(441 + 400) = √841 = 29 cm."
   },
   {
    "l": "koordinaten",
@@ -2108,14 +3024,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne den Abstand der Punkte P(5 | 0) und Q(10 | 12) (Einheit 1 cm)."
+    "text": "Berechne den Abstand der Punkte P(−2 | 6) und Q(−10 | −9) (Einheit 1 cm)."
    },
    "o": {
-    "wert": 13,
+    "wert": 17,
     "einheit": "cm"
    },
-   "c": "((10 - (5)) ** 2 + (12 - (0)) ** 2) / 13",
-   "w": "Δx = 5, Δy = 12; d = √(25 + 144) = √169 = 13 cm."
+   "c": "((-10 - (-2)) ** 2 + (-9 - (6)) ** 2) / 17",
+   "w": "Δx = −8, Δy = −15; d = √(64 + 225) = √289 = 17 cm."
   },
   {
    "l": "koordinaten",
@@ -2124,14 +3040,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne den Abstand der Punkte P(−4 | −5) und Q(−7 | −9) (Einheit 1 cm)."
+    "text": "Berechne den Abstand der Punkte P(5 | −2) und Q(29 | −20) (Einheit 1 cm)."
    },
    "o": {
-    "wert": 5,
+    "wert": 30,
     "einheit": "cm"
    },
-   "c": "((-7 - (-4)) ** 2 + (-9 - (-5)) ** 2) / 5",
-   "w": "Δx = −3, Δy = −4; d = √(9 + 16) = √25 = 5 cm."
+   "c": "((29 - (5)) ** 2 + (-20 - (-2)) ** 2) / 30",
+   "w": "Δx = 24, Δy = −18; d = √(576 + 324) = √900 = 30 cm."
   },
   {
    "l": "koordinaten",
@@ -2140,14 +3056,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne den Abstand der Punkte P(−5 | 5) und Q(19 | −5) (Einheit 1 cm)."
+    "text": "Berechne den Abstand der Punkte P(6 | 0) und Q(21 | 20) (Einheit 1 cm)."
    },
    "o": {
-    "wert": 26,
+    "wert": 25,
     "einheit": "cm"
    },
-   "c": "((19 - (-5)) ** 2 + (-5 - (5)) ** 2) / 26",
-   "w": "Δx = 24, Δy = −10; d = √(576 + 100) = √676 = 26 cm."
+   "c": "((21 - (6)) ** 2 + (20 - (0)) ** 2) / 25",
+   "w": "Δx = 15, Δy = 20; d = √(225 + 400) = √625 = 25 cm."
   },
   {
    "l": "raum",
@@ -2173,14 +3089,31 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Quader hat die Grundfläche 20 cm × 21 cm. Wie lang ist die Diagonale der Grundfläche?"
+    "text": "Ein Quader hat die Grundfläche 3 cm × 4 cm. Wie lang ist die Diagonale der Grundfläche?"
    },
    "o": {
-    "wert": 29,
+    "wert": 5,
     "einheit": "cm"
    },
-   "c": "(20 ** 2 + 21 ** 2) / 29",
-   "w": "d² = 20² + 21² = 841, d = 29 cm.",
+   "c": "(3 ** 2 + 4 ** 2) / 5",
+   "w": "d² = 3² + 4² = 25, d = 5 cm.",
+   "h": "Die Diagonale teilt das Rechteck in zwei rechtwinklige Dreiecke."
+  },
+  {
+   "l": "raum",
+   "t": "raum",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader hat die Grundfläche 10 cm × 24 cm. Wie lang ist die Diagonale der Grundfläche?"
+   },
+   "o": {
+    "wert": 26,
+    "einheit": "cm"
+   },
+   "c": "(10 ** 2 + 24 ** 2) / 26",
+   "w": "d² = 10² + 24² = 676, d = 26 cm.",
    "h": "Die Diagonale teilt das Rechteck in zwei rechtwinklige Dreiecke."
   },
   {
@@ -2207,6 +3140,23 @@
    "s": 1,
    "y": "zahl",
    "f": {
+    "text": "Ein Quader hat die Grundfläche 15 cm × 20 cm. Wie lang ist die Diagonale der Grundfläche?"
+   },
+   "o": {
+    "wert": 25,
+    "einheit": "cm"
+   },
+   "c": "(15 ** 2 + 20 ** 2) / 25",
+   "w": "d² = 15² + 20² = 625, d = 25 cm.",
+   "h": "Die Diagonale teilt das Rechteck in zwei rechtwinklige Dreiecke."
+  },
+  {
+   "l": "raum",
+   "t": "raum",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
     "text": "Ein Quader hat die Grundfläche 8 cm × 15 cm. Wie lang ist die Diagonale der Grundfläche?"
    },
    "o": {
@@ -2221,51 +3171,17 @@
    "l": "raum",
    "t": "raum",
    "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader hat die Grundfläche 5 cm × 12 cm. Wie lang ist die Diagonale der Grundfläche?"
-   },
-   "o": {
-    "wert": 13,
-    "einheit": "cm"
-   },
-   "c": "(5 ** 2 + 12 ** 2) / 13",
-   "w": "d² = 5² + 12² = 169, d = 13 cm.",
-   "h": "Die Diagonale teilt das Rechteck in zwei rechtwinklige Dreiecke."
-  },
-  {
-   "l": "raum",
-   "t": "raum",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader hat die Grundfläche 12 cm × 16 cm. Wie lang ist die Diagonale der Grundfläche?"
-   },
-   "o": {
-    "wert": 20,
-    "einheit": "cm"
-   },
-   "c": "(12 ** 2 + 16 ** 2) / 20",
-   "w": "d² = 12² + 16² = 400, d = 20 cm.",
-   "h": "Die Diagonale teilt das Rechteck in zwei rechtwinklige Dreiecke."
-  },
-  {
-   "l": "raum",
-   "t": "raum",
-   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Quader hat die Kanten 1 cm, 4 cm und 8 cm. Wie lang ist die Raumdiagonale?"
+    "text": "Ein Quader hat die Kanten 9 cm, 12 cm und 20 cm. Wie lang ist die Raumdiagonale?"
    },
    "o": {
-    "wert": 9,
+    "wert": 25,
     "einheit": "cm"
    },
-   "c": "(1 ** 2 + 4 ** 2 + 8 ** 2) / 9",
-   "w": "d² = 1² + 4² + 8² = 1 + 16 + 64 = 81, d = 9 cm.",
+   "c": "(9 ** 2 + 12 ** 2 + 20 ** 2) / 25",
+   "w": "d² = 9² + 12² + 20² = 81 + 144 + 400 = 625, d = 25 cm.",
    "h": "Raumdiagonale: alle drei Kantenquadrate addieren."
   },
   {
@@ -2275,14 +3191,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Quader hat die Kanten 4 cm, 4 cm und 7 cm. Wie lang ist die Raumdiagonale?"
+    "text": "Ein Quader hat die Kanten 6 cm, 8 cm und 24 cm. Wie lang ist die Raumdiagonale?"
    },
    "o": {
-    "wert": 9,
+    "wert": 26,
     "einheit": "cm"
    },
-   "c": "(4 ** 2 + 4 ** 2 + 7 ** 2) / 9",
-   "w": "d² = 4² + 4² + 7² = 16 + 16 + 49 = 81, d = 9 cm.",
+   "c": "(6 ** 2 + 8 ** 2 + 24 ** 2) / 26",
+   "w": "d² = 6² + 8² + 24² = 36 + 64 + 576 = 676, d = 26 cm.",
    "h": "Raumdiagonale: alle drei Kantenquadrate addieren."
   },
   {
@@ -2292,14 +3208,48 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Quader hat die Kanten 2 cm, 8 cm und 16 cm. Wie lang ist die Raumdiagonale?"
+    "text": "Ein Quader hat die Kanten 4 cm, 6 cm und 12 cm. Wie lang ist die Raumdiagonale?"
    },
    "o": {
-    "wert": 18,
+    "wert": 14,
     "einheit": "cm"
    },
-   "c": "(2 ** 2 + 8 ** 2 + 16 ** 2) / 18",
-   "w": "d² = 2² + 8² + 16² = 4 + 64 + 256 = 324, d = 18 cm.",
+   "c": "(4 ** 2 + 6 ** 2 + 12 ** 2) / 14",
+   "w": "d² = 4² + 6² + 12² = 16 + 36 + 144 = 196, d = 14 cm.",
+   "h": "Raumdiagonale: alle drei Kantenquadrate addieren."
+  },
+  {
+   "l": "raum",
+   "t": "raum",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader hat die Kanten 2 cm, 5 cm und 14 cm. Wie lang ist die Raumdiagonale?"
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "cm"
+   },
+   "c": "(2 ** 2 + 5 ** 2 + 14 ** 2) / 15",
+   "w": "d² = 2² + 5² + 14² = 4 + 25 + 196 = 225, d = 15 cm.",
+   "h": "Raumdiagonale: alle drei Kantenquadrate addieren."
+  },
+  {
+   "l": "raum",
+   "t": "raum",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader hat die Kanten 3 cm, 12 cm und 24 cm. Wie lang ist die Raumdiagonale?"
+   },
+   "o": {
+    "wert": 27,
+    "einheit": "cm"
+   },
+   "c": "(3 ** 2 + 12 ** 2 + 24 ** 2) / 27",
+   "w": "d² = 3² + 12² + 24² = 9 + 144 + 576 = 729, d = 27 cm.",
    "h": "Raumdiagonale: alle drei Kantenquadrate addieren."
   },
   {
@@ -2323,69 +3273,17 @@
    "l": "raum",
    "t": "raum",
    "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader hat die Kanten 8 cm, 8 cm und 14 cm. Wie lang ist die Raumdiagonale?"
-   },
-   "o": {
-    "wert": 18,
-    "einheit": "cm"
-   },
-   "c": "(8 ** 2 + 8 ** 2 + 14 ** 2) / 18",
-   "w": "d² = 8² + 8² + 14² = 64 + 64 + 196 = 324, d = 18 cm.",
-   "h": "Raumdiagonale: alle drei Kantenquadrate addieren."
-  },
-  {
-   "l": "raum",
-   "t": "raum",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader hat die Kanten 12 cm, 12 cm und 21 cm. Wie lang ist die Raumdiagonale?"
-   },
-   "o": {
-    "wert": 27,
-    "einheit": "cm"
-   },
-   "c": "(12 ** 2 + 12 ** 2 + 21 ** 2) / 27",
-   "w": "d² = 12² + 12² + 21² = 144 + 144 + 441 = 729, d = 27 cm.",
-   "h": "Raumdiagonale: alle drei Kantenquadrate addieren."
-  },
-  {
-   "l": "raum",
-   "t": "raum",
-   "p": "uebung",
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Wie lang ist die Raumdiagonale eines Würfels mit 1 cm Kantenlänge? Runde auf eine Nachkommastelle."
+    "text": "Eine quadratische Pyramide hat die Grundkante 18 cm und die Seitenhöhe (Höhe einer Seitenfläche) 15 cm. Wie hoch ist die Pyramide?"
    },
    "o": {
-    "wert": 1.7,
-    "einheit": "cm",
-    "toleranz": 0.1
-   },
-   "c": "round(1.732050807569, 1)",
-   "w": "d² = 3 · 1² = 3, d = √3 ≈ 1,7 cm.",
-   "h": "Beim Würfel sind alle drei Kanten gleich lang."
-  },
-  {
-   "l": "raum",
-   "t": "raum",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine quadratische Pyramide hat die Grundkante 30 cm und die Seitenhöhe (Höhe einer Seitenfläche) 17 cm. Wie hoch ist die Pyramide?"
-   },
-   "o": {
-    "wert": 8,
+    "wert": 12,
     "einheit": "cm"
    },
-   "c": "(17 ** 2 - 15 ** 2) / 8",
-   "w": "Rechtwinkliges Dreieck aus Höhe h, halber Grundkante 15 cm und Seitenhöhe 17 cm: h² = 289 − 225 = 64, h = 8 cm.",
+   "c": "(15 ** 2 - 9 ** 2) / 12",
+   "w": "Rechtwinkliges Dreieck aus Höhe h, halber Grundkante 9 cm und Seitenhöhe 15 cm: h² = 225 − 81 = 144, h = 12 cm.",
    "h": "Suche ein rechtwinkliges Dreieck im Inneren: Spitze, Mittelpunkt der Grundfläche, Mitte einer Grundkante."
   },
   {
@@ -2395,15 +3293,15 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Wie lang ist die Raumdiagonale eines Würfels mit 4 cm Kantenlänge? Runde auf eine Nachkommastelle."
+    "text": "Wie lang ist die Raumdiagonale eines Würfels mit 7 cm Kantenlänge? Runde auf eine Nachkommastelle."
    },
    "o": {
-    "wert": 6.9,
+    "wert": 12.1,
     "einheit": "cm",
     "toleranz": 0.1
    },
-   "c": "round(6.928203230276, 1)",
-   "w": "d² = 3 · 4² = 48, d = √48 ≈ 6,9 cm.",
+   "c": "round(12.124355652982, 1)",
+   "w": "d² = 3 · 7² = 147, d = √147 ≈ 12,1 cm.",
    "h": "Beim Würfel sind alle drei Kanten gleich lang."
   },
   {
@@ -2413,16 +3311,58 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Wie lang ist die Raumdiagonale eines Würfels mit 5 cm Kantenlänge? Runde auf eine Nachkommastelle."
+    "text": "Wie lang ist die Raumdiagonale eines Würfels mit 6 cm Kantenlänge? Runde auf eine Nachkommastelle."
    },
    "o": {
-    "wert": 8.7,
+    "wert": 10.4,
     "einheit": "cm",
     "toleranz": 0.1
    },
-   "c": "round(8.660254037844, 1)",
-   "w": "d² = 3 · 5² = 75, d = √75 ≈ 8,7 cm.",
+   "c": "round(10.392304845413, 1)",
+   "w": "d² = 3 · 6² = 108, d = √108 ≈ 10,4 cm.",
    "h": "Beim Würfel sind alle drei Kanten gleich lang."
+  },
+  {
+   "l": "raum",
+   "t": "raum",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Kiste ist innen 45 cm × 35 cm × 30 cm groß. Passt ein 68 cm langer Stab hinein?"
+   },
+   "a": [
+    "Ja, die Bodendiagonale ist etwa 57 cm.",
+    "Ja, weil 45 + 35 > 68.",
+    "Nein, die Raumdiagonale ist nur etwa 64 cm.",
+    "Ja, die Raumdiagonale ist etwa 64 cm."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Der längste Stab liegt auf der Raumdiagonale: d = √(2 025 + 1 225 + 900) = √4 150 ≈ 64,4 cm. 68 cm > 64,4 cm.",
+   "h": "Der längste Weg in der Kiste ist die Raumdiagonale."
+  },
+  {
+   "l": "raum",
+   "t": "raum",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Kiste ist innen 80 cm × 50 cm × 40 cm groß. Passt ein 106 cm langer Stab hinein?"
+   },
+   "a": [
+    "Ja, die Raumdiagonale ist etwa 102 cm.",
+    "Nein, die Raumdiagonale ist nur etwa 102 cm.",
+    "Ja, die Bodendiagonale ist etwa 94 cm.",
+    "Ja, weil 80 + 50 > 106."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Der längste Stab liegt auf der Raumdiagonale: d = √(6 400 + 2 500 + 1 600) = √10 500 ≈ 102,5 cm. 106 cm > 102,5 cm.",
+   "h": "Der längste Weg in der Kiste ist die Raumdiagonale."
   },
   {
    "l": "raum",
@@ -2431,32 +3371,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Wie lang ist die Raumdiagonale eines Würfels mit 11 cm Kantenlänge? Runde auf eine Nachkommastelle."
+    "text": "Eine quadratische Pyramide hat die Grundkante 42 cm und die Seitenhöhe (Höhe einer Seitenfläche) 29 cm. Wie hoch ist die Pyramide?"
    },
    "o": {
-    "wert": 19.1,
-    "einheit": "cm",
-    "toleranz": 0.1
-   },
-   "c": "round(19.052558883258, 1)",
-   "w": "d² = 3 · 11² = 363, d = √363 ≈ 19,1 cm.",
-   "h": "Beim Würfel sind alle drei Kanten gleich lang."
-  },
-  {
-   "l": "raum",
-   "t": "raum",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine quadratische Pyramide hat die Grundkante 24 cm und die Seitenhöhe (Höhe einer Seitenfläche) 13 cm. Wie hoch ist die Pyramide?"
-   },
-   "o": {
-    "wert": 5,
+    "wert": 20,
     "einheit": "cm"
    },
-   "c": "(13 ** 2 - 12 ** 2) / 5",
-   "w": "Rechtwinkliges Dreieck aus Höhe h, halber Grundkante 12 cm und Seitenhöhe 13 cm: h² = 169 − 144 = 25, h = 5 cm.",
+   "c": "(29 ** 2 - 21 ** 2) / 20",
+   "w": "Rechtwinkliges Dreieck aus Höhe h, halber Grundkante 21 cm und Seitenhöhe 29 cm: h² = 841 − 441 = 400, h = 20 cm.",
    "h": "Suche ein rechtwinkliges Dreieck im Inneren: Spitze, Mittelpunkt der Grundfläche, Mitte einer Grundkante."
   },
   {
@@ -2466,14 +3388,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Quader hat die Kanten 9 cm, 12 cm und 20 cm. Wie lang ist die Raumdiagonale?"
+    "text": "Ein Quader hat die Kanten 2 cm, 8 cm und 16 cm. Wie lang ist die Raumdiagonale?"
    },
    "o": {
-    "wert": 25,
+    "wert": 18,
     "einheit": "cm"
    },
-   "c": "(9 ** 2 + 12 ** 2 + 20 ** 2) / 25",
-   "w": "d² = 9² + 12² + 20² = 81 + 144 + 400 = 625, d = 25 cm."
+   "c": "(2 ** 2 + 8 ** 2 + 16 ** 2) / 18",
+   "w": "d² = 2² + 8² + 16² = 4 + 64 + 256 = 324, d = 18 cm."
   },
   {
    "l": "raum",
@@ -2482,83 +3404,35 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Quader hat die Kanten 1 cm, 6 cm und 18 cm. Wie lang ist die Raumdiagonale?"
+    "text": "Ein Quader hat die Kanten 4 cm, 4 cm und 7 cm. Wie lang ist die Raumdiagonale?"
+   },
+   "o": {
+    "wert": 9,
+    "einheit": "cm"
+   },
+   "c": "(4 ** 2 + 4 ** 2 + 7 ** 2) / 9",
+   "w": "d² = 4² + 4² + 7² = 16 + 16 + 49 = 81, d = 9 cm."
+  },
+  {
+   "l": "raum",
+   "t": "raum",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader hat die Kanten 6 cm, 6 cm und 17 cm. Wie lang ist die Raumdiagonale?"
    },
    "o": {
     "wert": 19,
     "einheit": "cm"
    },
-   "c": "(1 ** 2 + 6 ** 2 + 18 ** 2) / 19",
-   "w": "d² = 1² + 6² + 18² = 1 + 36 + 324 = 361, d = 19 cm."
+   "c": "(6 ** 2 + 6 ** 2 + 17 ** 2) / 19",
+   "w": "d² = 6² + 6² + 17² = 36 + 36 + 289 = 361, d = 19 cm."
   },
   {
    "l": "raum",
    "t": "raum",
    "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader hat die Kanten 2 cm, 5 cm und 14 cm. Wie lang ist die Raumdiagonale?"
-   },
-   "o": {
-    "wert": 15,
-    "einheit": "cm"
-   },
-   "c": "(2 ** 2 + 5 ** 2 + 14 ** 2) / 15",
-   "w": "d² = 2² + 5² + 14² = 4 + 25 + 196 = 225, d = 15 cm."
-  },
-  {
-   "l": "raum",
-   "t": "raum",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader hat die Kanten 6 cm, 8 cm und 24 cm. Wie lang ist die Raumdiagonale?"
-   },
-   "o": {
-    "wert": 26,
-    "einheit": "cm"
-   },
-   "c": "(6 ** 2 + 8 ** 2 + 24 ** 2) / 26",
-   "w": "d² = 6² + 8² + 24² = 36 + 64 + 576 = 676, d = 26 cm."
-  },
-  {
-   "l": "raum",
-   "t": "raum",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader hat die Kanten 3 cm, 6 cm und 22 cm. Wie lang ist die Raumdiagonale?"
-   },
-   "o": {
-    "wert": 23,
-    "einheit": "cm"
-   },
-   "c": "(3 ** 2 + 6 ** 2 + 22 ** 2) / 23",
-   "w": "d² = 3² + 6² + 22² = 9 + 36 + 484 = 529, d = 23 cm."
-  },
-  {
-   "l": "raum",
-   "t": "raum",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Quader hat die Kanten 4 cm, 8 cm und 19 cm. Wie lang ist die Raumdiagonale?"
-   },
-   "o": {
-    "wert": 21,
-    "einheit": "cm"
-   },
-   "c": "(4 ** 2 + 8 ** 2 + 19 ** 2) / 21",
-   "w": "d² = 4² + 8² + 19² = 16 + 64 + 361 = 441, d = 21 cm."
-  },
-  {
-   "l": "raum",
-   "t": "raum",
-   "p": "sicherung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -2594,14 +3468,30 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Quader hat die Kanten 8 cm, 11 cm und 16 cm. Wie lang ist die Raumdiagonale?"
+    "text": "Ein Quader hat die Kanten 3 cm, 4 cm und 12 cm. Wie lang ist die Raumdiagonale?"
    },
    "o": {
-    "wert": 21,
+    "wert": 13,
     "einheit": "cm"
    },
-   "c": "(8 ** 2 + 11 ** 2 + 16 ** 2) / 21",
-   "w": "d² = 8² + 11² + 16² = 64 + 121 + 256 = 441, d = 21 cm."
+   "c": "(3 ** 2 + 4 ** 2 + 12 ** 2) / 13",
+   "w": "d² = 3² + 4² + 12² = 9 + 16 + 144 = 169, d = 13 cm."
+  },
+  {
+   "l": "raum",
+   "t": "raum",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader hat die Kanten 1 cm, 12 cm und 12 cm. Wie lang ist die Raumdiagonale?"
+   },
+   "o": {
+    "wert": 17,
+    "einheit": "cm"
+   },
+   "c": "(1 ** 2 + 12 ** 2 + 12 ** 2) / 17",
+   "w": "d² = 1² + 12² + 12² = 1 + 144 + 144 = 289, d = 17 cm."
   },
   {
    "l": "raum",
@@ -2620,55 +3510,36 @@
    "w": "d² = 6² + 6² + 7² = 36 + 36 + 49 = 121, d = 11 cm."
   },
   {
-   "l": "anwendung",
-   "t": "anwendung",
-   "p": "uebung",
-   "s": 1,
+   "l": "raum",
+   "t": "raum",
+   "p": "sicherung",
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Eine 2,6 m lange Leiter lehnt an einer senkrechten Wand. Ihr Fuß steht 2,4 m von der Wand entfernt. In welcher Höhe berührt sie die Wand?"
+    "text": "Ein Quader hat die Kanten 6 cm, 12 cm und 12 cm. Wie lang ist die Raumdiagonale?"
    },
    "o": {
-    "wert": 1,
-    "einheit": "m"
+    "wert": 18,
+    "einheit": "cm"
    },
-   "c": "(2.6 ** 2 - 2.4 ** 2) / 1",
-   "w": "h² = 2,6² − 2,4² = 6,76 − 5,76 = 1, h = 1 m.",
-   "h": "Die Leiter ist die Hypotenuse."
+   "c": "(6 ** 2 + 12 ** 2 + 12 ** 2) / 18",
+   "w": "d² = 6² + 12² + 12² = 36 + 144 + 144 = 324, d = 18 cm."
   },
   {
-   "l": "anwendung",
-   "t": "anwendung",
-   "p": "uebung",
-   "s": 1,
+   "l": "raum",
+   "t": "raum",
+   "p": "sicherung",
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Eine 2 m lange Leiter lehnt an einer senkrechten Wand. Ihr Fuß steht 1,2 m von der Wand entfernt. In welcher Höhe berührt sie die Wand?"
+    "text": "Ein Quader hat die Kanten 1 cm, 4 cm und 8 cm. Wie lang ist die Raumdiagonale?"
    },
    "o": {
-    "wert": 1.6,
-    "einheit": "m"
+    "wert": 9,
+    "einheit": "cm"
    },
-   "c": "(2 ** 2 - 1.2 ** 2) / 1.6",
-   "w": "h² = 2² − 1,2² = 4 − 1,44 = 2,56, h = 1,6 m.",
-   "h": "Die Leiter ist die Hypotenuse."
-  },
-  {
-   "l": "anwendung",
-   "t": "anwendung",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Eine 4 m lange Leiter lehnt an einer senkrechten Wand. Ihr Fuß steht 2,4 m von der Wand entfernt. In welcher Höhe berührt sie die Wand?"
-   },
-   "o": {
-    "wert": 3.2,
-    "einheit": "m"
-   },
-   "c": "(4 ** 2 - 2.4 ** 2) / 3.2",
-   "w": "h² = 4² − 2,4² = 16 − 5,76 = 10,24, h = 3,2 m.",
-   "h": "Die Leiter ist die Hypotenuse."
+   "c": "(1 ** 2 + 4 ** 2 + 8 ** 2) / 9",
+   "w": "d² = 1² + 4² + 8² = 1 + 16 + 64 = 81, d = 9 cm."
   },
   {
    "l": "anwendung",
@@ -2677,323 +3548,128 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Eine 5,8 m lange Leiter lehnt an einer senkrechten Wand. Ihr Fuß steht 4 m von der Wand entfernt. In welcher Höhe berührt sie die Wand?"
+    "text": "Eine 6 m lange Leiter lehnt an einer senkrechten Wand. Ihr Fuß steht 1,7 m von der Wand entfernt. In welcher Höhe berührt sie die Wand? Runde auf zwei Nachkommastellen."
    },
    "o": {
-    "wert": 4.2,
-    "einheit": "m"
-   },
-   "c": "(5.8 ** 2 - 4 ** 2) / 4.2",
-   "w": "h² = 5,8² − 4² = 33,64 − 16 = 17,64, h = 4,2 m.",
-   "h": "Die Leiter ist die Hypotenuse."
-  },
-  {
-   "l": "anwendung",
-   "t": "anwendung",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Eine 2,6 m lange Leiter lehnt an einer senkrechten Wand. Ihr Fuß steht 1 m von der Wand entfernt. In welcher Höhe berührt sie die Wand?"
-   },
-   "o": {
-    "wert": 2.4,
-    "einheit": "m"
-   },
-   "c": "(2.6 ** 2 - 1 ** 2) / 2.4",
-   "w": "h² = 2,6² − 1² = 6,76 − 1 = 5,76, h = 2,4 m.",
-   "h": "Die Leiter ist die Hypotenuse."
-  },
-  {
-   "l": "anwendung",
-   "t": "anwendung",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Eine 10 m lange Leiter lehnt an einer senkrechten Wand. Ihr Fuß steht 8 m von der Wand entfernt. In welcher Höhe berührt sie die Wand?"
-   },
-   "o": {
-    "wert": 6,
-    "einheit": "m"
-   },
-   "c": "(10 ** 2 - 8 ** 2) / 6",
-   "w": "h² = 10² − 8² = 100 − 64 = 36, h = 6 m.",
-   "h": "Die Leiter ist die Hypotenuse."
-  },
-  {
-   "l": "anwendung",
-   "t": "anwendung",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Fernseher hat einen 60 cm breiten und 80 cm hohen Bildschirm. Wie lang ist die Bildschirmdiagonale?"
-   },
-   "o": {
-    "wert": 100,
-    "einheit": "cm"
-   },
-   "c": "(60 ** 2 + 80 ** 2) / 100",
-   "w": "d² = 60² + 80² = 10 000, d = 100 cm.",
-   "h": "Breite und Höhe sind die Katheten."
-  },
-  {
-   "l": "anwendung",
-   "t": "anwendung",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Fernseher hat einen 40 cm breiten und 96 cm hohen Bildschirm. Wie lang ist die Bildschirmdiagonale?"
-   },
-   "o": {
-    "wert": 104,
-    "einheit": "cm"
-   },
-   "c": "(40 ** 2 + 96 ** 2) / 104",
-   "w": "d² = 40² + 96² = 10 816, d = 104 cm.",
-   "h": "Breite und Höhe sind die Katheten."
-  },
-  {
-   "l": "anwendung",
-   "t": "anwendung",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein gleichschenkliges Dreieck hat die Basis 12 cm und Schenkel von 10 cm. Wie hoch ist es (Höhe auf die Basis)?"
-   },
-   "o": {
-    "wert": 8,
-    "einheit": "cm"
-   },
-   "c": "(10 ** 2 - 6 ** 2) / 8",
-   "w": "Die Höhe halbiert die Basis: h² = 10² − 6² = 64, h = 8 cm.",
-   "h": "Die Höhe teilt das Dreieck in zwei rechtwinklige Dreiecke."
-  },
-  {
-   "l": "anwendung",
-   "t": "anwendung",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein gleichschenkliges Dreieck hat die Basis 24 cm und Schenkel von 20 cm. Wie hoch ist es (Höhe auf die Basis)?"
-   },
-   "o": {
-    "wert": 16,
-    "einheit": "cm"
-   },
-   "c": "(20 ** 2 - 12 ** 2) / 16",
-   "w": "Die Höhe halbiert die Basis: h² = 20² − 12² = 256, h = 16 cm.",
-   "h": "Die Höhe teilt das Dreieck in zwei rechtwinklige Dreiecke."
-  },
-  {
-   "l": "anwendung",
-   "t": "anwendung",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein gleichschenkliges Dreieck hat die Basis 14 cm und Schenkel von 25 cm. Wie hoch ist es (Höhe auf die Basis)?"
-   },
-   "o": {
-    "wert": 24,
-    "einheit": "cm"
-   },
-   "c": "(25 ** 2 - 7 ** 2) / 24",
-   "w": "Die Höhe halbiert die Basis: h² = 25² − 7² = 576, h = 24 cm.",
-   "h": "Die Höhe teilt das Dreieck in zwei rechtwinklige Dreiecke."
-  },
-  {
-   "l": "anwendung",
-   "t": "anwendung",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Fernseher hat einen 48 cm breiten und 64 cm hohen Bildschirm. Wie lang ist die Bildschirmdiagonale?"
-   },
-   "o": {
-    "wert": 80,
-    "einheit": "cm"
-   },
-   "c": "(48 ** 2 + 64 ** 2) / 80",
-   "w": "d² = 48² + 64² = 6 400, d = 80 cm.",
-   "h": "Breite und Höhe sind die Katheten."
-  },
-  {
-   "l": "anwendung",
-   "t": "anwendung",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Rampe steigt auf 450 cm waagrechter Länge um 600 cm an. Wie lang ist die Rampe?"
-   },
-   "o": {
-    "wert": 750,
-    "einheit": "cm"
-   },
-   "c": "(450 ** 2 + 600 ** 2) / 750",
-   "w": "l² = 450² + 600² = 562 500, l = 750 cm.",
-   "h": "Waagrechte Länge und Höhe sind die Katheten."
-  },
-  {
-   "l": "anwendung",
-   "t": "anwendung",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Rampe steigt auf 160 cm waagrechter Länge um 300 cm an. Wie lang ist die Rampe?"
-   },
-   "o": {
-    "wert": 340,
-    "einheit": "cm"
-   },
-   "c": "(160 ** 2 + 300 ** 2) / 340",
-   "w": "l² = 160² + 300² = 115 600, l = 340 cm.",
-   "h": "Waagrechte Länge und Höhe sind die Katheten."
-  },
-  {
-   "l": "anwendung",
-   "t": "anwendung",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein rechteckiger Platz ist 900 m lang und 1200 m breit. Wie viele Meter spart man, wenn man diagonal statt an zwei Seiten entlang geht?"
-   },
-   "o": {
-    "wert": 600,
-    "einheit": "m"
-   },
-   "c": "900 + 1200 - (900 ** 2 + 1200 ** 2) / 1500",
-   "w": "Diagonale: √(900² + 1200²) = 1500 m. Ersparnis: 900 + 1200 − 1500 = 600 m.",
-   "h": "Berechne die Diagonale und vergleiche mit dem Weg entlang der Seiten."
-  },
-  {
-   "l": "anwendung",
-   "t": "anwendung",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Rampe steigt auf 300 cm waagrechter Länge um 400 cm an. Wie lang ist die Rampe?"
-   },
-   "o": {
-    "wert": 500,
-    "einheit": "cm"
-   },
-   "c": "(300 ** 2 + 400 ** 2) / 500",
-   "w": "l² = 300² + 400² = 250 000, l = 500 cm.",
-   "h": "Waagrechte Länge und Höhe sind die Katheten."
-  },
-  {
-   "l": "anwendung",
-   "t": "anwendung",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Wie hoch ist ein gleichseitiges Dreieck mit 13 cm Seitenlänge? Runde auf zwei Nachkommastellen."
-   },
-   "o": {
-    "wert": 11.26,
-    "einheit": "cm",
+    "wert": 5.75,
+    "einheit": "m",
     "toleranz": 0.01
    },
-   "c": "round(11.258330249198, 2)",
-   "w": "h² = 13² − 6,5² = 126,75, h ≈ 11,26 cm.",
-   "h": "Die Höhe halbiert die Grundseite."
+   "c": "round(5.754128952326, 2)",
+   "w": "h² = 6² − 1,7² = 36 − 2,89 = 33,11, h ≈ 5,75 m.",
+   "h": "Die Leiter ist die Hypotenuse."
   },
   {
    "l": "anwendung",
    "t": "anwendung",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Eine Rampe steigt auf 70 cm waagrechter Länge um 240 cm an. Wie lang ist die Rampe?"
+    "text": "Eine 6 m lange Leiter lehnt an einer senkrechten Wand. Ihr Fuß steht 1,9 m von der Wand entfernt. In welcher Höhe berührt sie die Wand? Runde auf zwei Nachkommastellen."
    },
    "o": {
-    "wert": 250,
-    "einheit": "cm"
+    "wert": 5.69,
+    "einheit": "m",
+    "toleranz": 0.01
    },
-   "c": "(70 ** 2 + 240 ** 2) / 250",
-   "w": "l² = 70² + 240² = 62 500, l = 250 cm.",
-   "h": "Waagrechte Länge und Höhe sind die Katheten."
+   "c": "round(5.691221310053, 2)",
+   "w": "h² = 6² − 1,9² = 36 − 3,61 = 32,39, h ≈ 5,69 m.",
+   "h": "Die Leiter ist die Hypotenuse."
   },
   {
    "l": "anwendung",
    "t": "anwendung",
-   "p": "test",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine 7 m lange Leiter lehnt an einer senkrechten Wand. Ihr Fuß steht 1,8 m von der Wand entfernt. In welcher Höhe berührt sie die Wand? Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 6.76,
+    "einheit": "m",
+    "toleranz": 0.01
+   },
+   "c": "round(6.764613810115, 2)",
+   "w": "h² = 7² − 1,8² = 49 − 3,24 = 45,76, h ≈ 6,76 m.",
+   "h": "Die Leiter ist die Hypotenuse."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine 8 m lange Leiter lehnt an einer senkrechten Wand. Ihr Fuß steht 0,7 m von der Wand entfernt. In welcher Höhe berührt sie die Wand? Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 7.97,
+    "einheit": "m",
+    "toleranz": 0.01
+   },
+   "c": "round(7.969316156359, 2)",
+   "w": "h² = 8² − 0,7² = 64 − 0,49 = 63,51, h ≈ 7,97 m.",
+   "h": "Die Leiter ist die Hypotenuse."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine 4,1 m lange Leiter lehnt an einer senkrechten Wand. Ihr Fuß steht 0,9 m von der Wand entfernt. In welcher Höhe berührt sie die Wand?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "m"
+   },
+   "c": "(4.1 ** 2 - 0.9 ** 2) / 4",
+   "w": "h² = 4,1² − 0,9² = 16,81 − 0,81 = 16, h = 4 m.",
+   "h": "Die Leiter ist die Hypotenuse."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine 7 m lange Leiter lehnt an einer senkrechten Wand. Ihr Fuß steht 1,5 m von der Wand entfernt. In welcher Höhe berührt sie die Wand? Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 6.84,
+    "einheit": "m",
+    "toleranz": 0.01
+   },
+   "c": "round(6.837397165589, 2)",
+   "w": "h² = 7² − 1,5² = 49 − 2,25 = 46,75, h ≈ 6,84 m.",
+   "h": "Die Leiter ist die Hypotenuse."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Fernseher hat einen 36 cm breiten und 48 cm hohen Bildschirm. Wie lang ist die Bildschirmdiagonale?"
+    "text": "Ein Fernseher hat einen 96 cm breiten und 54 cm hohen Bildschirm. Wie lang ist die Bildschirmdiagonale? Runde auf eine Nachkommastelle."
    },
    "o": {
-    "wert": 60,
-    "einheit": "cm"
+    "wert": 110.1,
+    "einheit": "cm",
+    "toleranz": 0.1
    },
-   "c": "(36 ** 2 + 48 ** 2) / 60",
-   "w": "d² = 36² + 48² = 3 600, d = 60 cm."
+   "c": "round(110.145358504115, 1)",
+   "w": "d² = 96² + 54² = 12 132, d ≈ 110,1 cm.",
+   "h": "Breite und Höhe sind die Katheten."
   },
   {
    "l": "anwendung",
    "t": "anwendung",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein gleichschenkliges Dreieck hat die Basis 30 cm und Schenkel von 25 cm. Wie hoch ist es (Höhe auf die Basis)?"
-   },
-   "o": {
-    "wert": 20,
-    "einheit": "cm"
-   },
-   "c": "(25 ** 2 - 15 ** 2) / 20",
-   "w": "Die Höhe halbiert die Basis: h² = 25² − 15² = 400, h = 20 cm."
-  },
-  {
-   "l": "anwendung",
-   "t": "anwendung",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Fernseher hat einen 20 cm breiten und 48 cm hohen Bildschirm. Wie lang ist die Bildschirmdiagonale?"
-   },
-   "o": {
-    "wert": 52,
-    "einheit": "cm"
-   },
-   "c": "(20 ** 2 + 48 ** 2) / 52",
-   "w": "d² = 20² + 48² = 2 704, d = 52 cm."
-  },
-  {
-   "l": "anwendung",
-   "t": "anwendung",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein gleichschenkliges Dreieck hat die Basis 20 cm und Schenkel von 26 cm. Wie hoch ist es (Höhe auf die Basis)?"
-   },
-   "o": {
-    "wert": 24,
-    "einheit": "cm"
-   },
-   "c": "(26 ** 2 - 10 ** 2) / 24",
-   "w": "Die Höhe halbiert die Basis: h² = 26² − 10² = 576, h = 24 cm."
-  },
-  {
-   "l": "anwendung",
-   "t": "anwendung",
-   "p": "sicherung",
+   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -3004,12 +3680,30 @@
     "einheit": "cm"
    },
    "c": "(30 ** 2 - 18 ** 2) / 24",
-   "w": "Die Höhe halbiert die Basis: h² = 30² − 18² = 576, h = 24 cm."
+   "w": "Die Höhe halbiert die Basis: h² = 30² − 18² = 576, h = 24 cm.",
+   "h": "Die Höhe teilt das Dreieck in zwei rechtwinklige Dreiecke."
   },
   {
    "l": "anwendung",
    "t": "anwendung",
-   "p": "sicherung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gleichschenkliges Dreieck hat die Basis 16 cm und Schenkel von 17 cm. Wie hoch ist es (Höhe auf die Basis)?"
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "cm"
+   },
+   "c": "(17 ** 2 - 8 ** 2) / 15",
+   "w": "Die Höhe halbiert die Basis: h² = 17² − 8² = 225, h = 15 cm.",
+   "h": "Die Höhe teilt das Dreieck in zwei rechtwinklige Dreiecke."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -3020,44 +3714,170 @@
     "einheit": "cm"
    },
    "c": "(5 ** 2 - 3 ** 2) / 4",
-   "w": "Die Höhe halbiert die Basis: h² = 5² − 3² = 16, h = 4 cm."
+   "w": "Die Höhe halbiert die Basis: h² = 5² − 3² = 16, h = 4 cm.",
+   "h": "Die Höhe teilt das Dreieck in zwei rechtwinklige Dreiecke."
   },
   {
    "l": "anwendung",
    "t": "anwendung",
-   "p": "sicherung",
+   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Eine 6 m lange Leiter lehnt an einer senkrechten Wand. Ihr Fuß steht 4,8 m von der Wand entfernt. In welcher Höhe berührt sie die Wand?"
+    "text": "Ein Fernseher hat einen 64 cm breiten und 48 cm hohen Bildschirm. Wie lang ist die Bildschirmdiagonale?"
    },
    "o": {
-    "wert": 3.6,
-    "einheit": "m"
-   },
-   "c": "(6 ** 2 - 4.8 ** 2) / 3.6",
-   "w": "h² = 6² − 4,8² = 36 − 23,04 = 12,96, h = 3,6 m."
-  },
-  {
-   "l": "anwendung",
-   "t": "anwendung",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Fernseher hat einen 32 cm breiten und 60 cm hohen Bildschirm. Wie lang ist die Bildschirmdiagonale?"
-   },
-   "o": {
-    "wert": 68,
+    "wert": 80,
     "einheit": "cm"
    },
-   "c": "(32 ** 2 + 60 ** 2) / 68",
-   "w": "d² = 32² + 60² = 4 624, d = 68 cm."
+   "c": "(64 ** 2 + 48 ** 2) / 80",
+   "w": "d² = 64² + 48² = 6 400, d = 80 cm.",
+   "h": "Breite und Höhe sind die Katheten."
   },
   {
    "l": "anwendung",
    "t": "anwendung",
-   "p": "sicherung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Fernseher hat einen 112 cm breiten und 63 cm hohen Bildschirm. Wie lang ist die Bildschirmdiagonale? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 128.5,
+    "einheit": "cm",
+    "toleranz": 0.1
+   },
+   "c": "round(128.502918254801, 1)",
+   "w": "d² = 112² + 63² = 16 513, d ≈ 128,5 cm.",
+   "h": "Breite und Höhe sind die Katheten."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie hoch ist ein gleichseitiges Dreieck mit 14 cm Seitenlänge? Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 12.12,
+    "einheit": "cm",
+    "toleranz": 0.01
+   },
+   "c": "round(12.124355652982, 2)",
+   "w": "h² = 14² − 7² = 147, h ≈ 12,12 cm.",
+   "h": "Die Höhe halbiert die Grundseite."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Rampe steigt auf 800 cm waagrechter Länge um 67 cm an. Wie lang ist die Rampe? Runde auf ganze Zentimeter."
+   },
+   "o": {
+    "wert": 803,
+    "einheit": "cm",
+    "toleranz": 1
+   },
+   "c": "round(802.800722471025, 0)",
+   "w": "l² = 800² + 67² = 644 489, l ≈ 802,8 cm ≈ 803 cm.",
+   "h": "Waagrechte Länge und Höhe sind die Katheten."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie hoch ist ein gleichseitiges Dreieck mit 4 cm Seitenlänge? Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 3.46,
+    "einheit": "cm",
+    "toleranz": 0.01
+   },
+   "c": "round(3.464101615138, 2)",
+   "w": "h² = 4² − 2² = 12, h ≈ 3,46 cm.",
+   "h": "Die Höhe halbiert die Grundseite."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechteckiger Platz ist 180 m lang und 240 m breit. Wie viele Meter spart man, wenn man diagonal statt an zwei Seiten entlang geht?"
+   },
+   "o": {
+    "wert": 120,
+    "einheit": "m"
+   },
+   "c": "180 + 240 - (180 ** 2 + 240 ** 2) / 300",
+   "w": "Diagonale: √(180² + 240²) = 300 m. Ersparnis: 180 + 240 − 300 = 120 m.",
+   "h": "Berechne die Diagonale und vergleiche mit dem Weg entlang der Seiten."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein rechteckiger Platz ist 60 m lang und 80 m breit. Wie viele Meter spart man, wenn man diagonal statt an zwei Seiten entlang geht?"
+   },
+   "o": {
+    "wert": 40,
+    "einheit": "m"
+   },
+   "c": "60 + 80 - (60 ** 2 + 80 ** 2) / 100",
+   "w": "Diagonale: √(60² + 80²) = 100 m. Ersparnis: 60 + 80 − 100 = 40 m.",
+   "h": "Berechne die Diagonale und vergleiche mit dem Weg entlang der Seiten."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Rampe steigt auf 600 cm waagrechter Länge um 17 cm an. Wie lang ist die Rampe? Runde auf ganze Zentimeter."
+   },
+   "o": {
+    "wert": 600,
+    "einheit": "cm",
+    "toleranz": 1
+   },
+   "c": "round(600.240785018812, 0)",
+   "w": "l² = 600² + 17² = 360 289, l ≈ 600,2 cm ≈ 600 cm.",
+   "h": "Waagrechte Länge und Höhe sind die Katheten."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Fernseher hat einen 88 cm breiten und 66 cm hohen Bildschirm. Wie lang ist die Bildschirmdiagonale?"
+   },
+   "o": {
+    "wert": 110,
+    "einheit": "cm"
+   },
+   "c": "(88 ** 2 + 66 ** 2) / 110",
+   "w": "d² = 88² + 66² = 12 100, d = 110 cm."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "korrektur",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -3073,22 +3893,135 @@
   {
    "l": "anwendung",
    "t": "anwendung",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gleichschenkliges Dreieck hat die Basis 24 cm und Schenkel von 20 cm. Wie hoch ist es (Höhe auf die Basis)?"
+   },
+   "o": {
+    "wert": 16,
+    "einheit": "cm"
+   },
+   "c": "(20 ** 2 - 12 ** 2) / 16",
+   "w": "Die Höhe halbiert die Basis: h² = 20² − 12² = 256, h = 16 cm."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Fernseher hat einen 144 cm breiten und 81 cm hohen Bildschirm. Wie lang ist die Bildschirmdiagonale? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 165.2,
+    "einheit": "cm",
+    "toleranz": 0.1
+   },
+   "c": "round(165.218037756172, 1)",
+   "w": "d² = 144² + 81² = 27 297, d ≈ 165,2 cm."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
    "p": "sicherung",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Fernseher hat einen 24 cm breiten und 32 cm hohen Bildschirm. Wie lang ist die Bildschirmdiagonale?"
+    "text": "Ein gleichschenkliges Dreieck hat die Basis 12 cm und Schenkel von 10 cm. Wie hoch ist es (Höhe auf die Basis)?"
    },
    "o": {
-    "wert": 40,
+    "wert": 8,
     "einheit": "cm"
    },
-   "c": "(24 ** 2 + 32 ** 2) / 40",
-   "w": "d² = 24² + 32² = 1 600, d = 40 cm."
+   "c": "(10 ** 2 - 6 ** 2) / 8",
+   "w": "Die Höhe halbiert die Basis: h² = 10² − 6² = 64, h = 8 cm."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gleichschenkliges Dreieck hat die Basis 14 cm und Schenkel von 25 cm. Wie hoch ist es (Höhe auf die Basis)?"
+   },
+   "o": {
+    "wert": 24,
+    "einheit": "cm"
+   },
+   "c": "(25 ** 2 - 7 ** 2) / 24",
+   "w": "Die Höhe halbiert die Basis: h² = 25² − 7² = 576, h = 24 cm."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gleichschenkliges Dreieck hat die Basis 40 cm und Schenkel von 29 cm. Wie hoch ist es (Höhe auf die Basis)?"
+   },
+   "o": {
+    "wert": 21,
+    "einheit": "cm"
+   },
+   "c": "(29 ** 2 - 20 ** 2) / 21",
+   "w": "Die Höhe halbiert die Basis: h² = 29² − 20² = 441, h = 21 cm."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Fernseher hat einen 120 cm breiten und 90 cm hohen Bildschirm. Wie lang ist die Bildschirmdiagonale?"
+   },
+   "o": {
+    "wert": 150,
+    "einheit": "cm"
+   },
+   "c": "(120 ** 2 + 90 ** 2) / 150",
+   "w": "d² = 120² + 90² = 22 500, d = 150 cm."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gleichschenkliges Dreieck hat die Basis 18 cm und Schenkel von 15 cm. Wie hoch ist es (Höhe auf die Basis)?"
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "cm"
+   },
+   "c": "(15 ** 2 - 9 ** 2) / 12",
+   "w": "Die Höhe halbiert die Basis: h² = 15² − 9² = 144, h = 12 cm."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein gleichschenkliges Dreieck hat die Basis 20 cm und Schenkel von 26 cm. Wie hoch ist es (Höhe auf die Basis)?"
+   },
+   "o": {
+    "wert": 24,
+    "einheit": "cm"
+   },
+   "c": "(26 ** 2 - 10 ** 2) / 24",
+   "w": "Die Höhe halbiert die Basis: h² = 26² − 10² = 576, h = 24 cm."
   }
  ],
  "offen": [
-  "Alle Lernkarten profitieren von einer Skizze des rechtwinkligen Dreiecks (rechter Winkel markiert, Hypotenuse hervorgehoben); Lernkarte „raum“ braucht ein Schrägbild von Quader/Pyramide mit eingezeichneter Diagonale bzw. Höhe. Bisher alle Maße in Worten.",
+  "Lernkarte „raum“: Das Bild ist ein mit „figur“ nachgebautes Schrägbild (echte Schrägbilder kann die App noch nicht); in den Aufgaben stehen die Quadermaße weiter in Worten.",
   "Gerundete Ergebnisse: Der Wurzelwert steht als 12-stellige Konstante im Rechenausdruck c, weil das Prüfskript keine Wurzeln kennt."
  ]
 }

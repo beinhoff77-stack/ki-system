@@ -1,0 +1,97 @@
+{
+  "thema_schluessel": "groessen.einheiten",
+  "gesamturteil": "gut",
+  "thema_hinweise": [
+    "Klar, kindgerecht, gute Bezugsgrößen und Fehler. Verbessert: die Einheitentafel (Bildtyp „stellentafel“ mit Einheiten als Spalten) für Umrechnen und Kommaschreibweise und ein eleganterer Weg beim Maßstab (zuerst ausrechnen, was 1 cm bedeutet)."
+  ],
+  "karten": [
+    {
+      "lernziel": "schaetzen",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "laenge",
+      "urteil": "verbessern",
+      "probleme": [
+        "Die Einheitentafel wird erst in „kommaschreibweise“ erwähnt, aber nie gezeigt. Sie macht die Umrechnungszahl sichtbar: Jede Spalte ist eine Einheit, von m bis cm sind es zwei Spalten, also zwei Nullen."
+      ],
+      "neu": {
+        "schritte": [
+          "Rechne 7 m in cm um. Schreib die 7 in die Spalte m der Einheitentafel.",
+          "Fülle bis zur Spalte cm mit Nullen auf: dm 0, cm 0.",
+          "Abgelesen: 7 m = ⟦700 cm⟧. Zwei Spalten weiter heißt mal 100."
+        ],
+        "bild": {
+          "typ": "stellentafel",
+          "stellen": [
+            "m",
+            "dm",
+            "cm"
+          ],
+          "ziffern": [
+            7,
+            0,
+            0
+          ],
+          "markiert": 2
+        }
+      }
+    },
+    {
+      "lernziel": "masse",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "zeit",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "kommaschreibweise",
+      "urteil": "verbessern",
+      "probleme": [
+        "Die Einheitentafel wird genannt, aber nicht gezeigt; mit ihr sieht man sofort, warum aus 3 m 5 cm die Zahl 3,05 m wird (die dm-Spalte ist leer, also 0)."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "stellentafel",
+          "stellen": [
+            "m",
+            "dm",
+            "cm"
+          ],
+          "ziffern": [
+            3,
+            0,
+            5
+          ],
+          "markiert": 1
+        }
+      }
+    },
+    {
+      "lernziel": "rechnen",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "massstab",
+      "urteil": "verbessern",
+      "probleme": [
+        "Eleganter und weniger fehleranfällig: zuerst ausrechnen, wie viel 1 cm auf der Karte in Wirklichkeit ist (25 000 cm = 250 m), dann mit dieser Größe weiterrechnen. Dann entsteht der typische Fehler (100 000 m) gar nicht."
+      ],
+      "neu": {
+        "schritte": [
+          "Karte 1 : 25 000. Zuerst: Was ist 1 cm auf der Karte? 25 000 cm = 250 m.",
+          "Die Strecke auf der Karte ist 4 cm: 4 · 250 m = 1 000 m.",
+          "1 000 m = ⟦1 km⟧."
+        ],
+        "probe": "Andersherum: 1 km = 100 000 cm, und 100 000 : 25 000 = 4 cm ✓"
+      },
+      "strategie": "Erst 1 cm in eine passende Einheit umrechnen („1 cm ≙ 250 m“), dann vervielfachen."
+    },
+    {
+      "lernziel": "verstehen",
+      "urteil": "ok"
+    }
+  ],
+  "neue_karten": []
+}

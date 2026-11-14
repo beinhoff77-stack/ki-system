@@ -1,0 +1,35 @@
+{
+  "thema_schluessel": "funktionen.exponential_log",
+  "gesamturteil": "gut",
+  "thema_hinweise": [
+    "Sehr gute Karten: jede mit passendem Graphen, typische Fehler treffend (linear statt exponentiell, b = 0,12 statt 0,88), Probe immer dabei. Keine Verbesserung nötig.",
+    "Vorschlag (Meinung): In „zeitpunkt“ ließe sich als Überschlag die Faustregel „Verdopplungszeit ≈ 70 : p“ ergänzen (bei 5 % etwa 14 Schritte). Sie ist nur eine Näherung und muss als solche gekennzeichnet werden."
+  ],
+  "karten": [
+    {
+      "lernziel": "werte",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "faktor",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "modell",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "graph",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "logfunktion",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "zeitpunkt",
+      "urteil": "ok"
+    }
+  ],
+  "neue_karten": []
+}

@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-14 17:40 – STATUS
+Thema 8/10 fertig: `gleichungen.wurzel` – 6 Lernkarten, 168 Aufgaben, Prüfskript OK. Inklusive √(x + b) = x + c mit Scheinlösung (nutzt quadratische Gleichungen aus RS 9).
+
 ## 2026-11-14 17:25 – STATUS
 Thema 7/10 fertig: `gleichungen.reinquadratisch` – 6 Lernkarten, 168 Aufgaben, Prüfskript OK. Gerundete Wurzeln mit `toleranz`; Rechenausdruck enthält den Wurzelwert als 12-stelliges Literal (der Prüfrechner kennt keine Wurzel).
 

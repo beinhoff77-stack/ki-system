@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-14 15:29 – STATUS
+9/14 sonder.graphentheorie fertig: 5 Lernkarten (Knoten/Kanten/Grad, Euler, kürzeste Wege, minimaler Spannbaum, Aussagen prüfen), 140 Aufgaben mit gezeichneten Graphen (figur), Prüfskript OK.
+
 ## 2026-11-14 15:26 – STATUS
 8/14 funktionen.reihen fertig: 5 Lernkarten (Summenzeichen, arithmetische und geometrische Reihen, Sachaufgaben, Fehler finden), 140 Aufgaben, Prüfskript OK. Unendliche geometrische Reihe nicht enthalten (offen).
 

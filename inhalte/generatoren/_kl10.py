@@ -143,7 +143,8 @@ def luecken(text, schablone, hinweis, werte, w, h, c=None, t=None):
 # ---------- Themen-Datei bauen ----------
 def _schluessel(a):
     f = a['f']
-    return (str(f.get('text', '')).strip() + '|' + json.dumps(a.get('a'), ensure_ascii=False) + '|'
+    # Antwortreihenfolge zählt nicht: gleiche Frage mit gemischten Antworten ist für das Kind eine Dublette.
+    return (str(f.get('text', '')).strip() + '|' + json.dumps(sorted(a.get('a') or []), ensure_ascii=False) + '|'
             + json.dumps(f.get('schablone'), ensure_ascii=False) + '|' + json.dumps(f.get('grafik'), sort_keys=True))
 
 

@@ -1,0 +1,115 @@
+{
+  "thema_schluessel": "trigo.allgemein",
+  "gesamturteil": "brauchbar",
+  "karten": [
+    {
+      "lernziel": "einheitskreis",
+      "urteil": "verbessern",
+      "stufen": "Stufe 1 (exakte Werte) und Stufe 2 (Vorzeichen, cos(180° − α)) passen. Stufe 3 (sin α = −0,5 lösen) ist der Stoff von 'gleichungen.trig' und gehört dort hin. Es wird nur die Beziehung cos(180° − α) = −cos α geübt, nicht sin(180° − α) = sin α als Lücke und nicht der Punkt (cos α | sin α) selbst.",
+      "fehlende_aufgabentypen": [
+        "Punkt am Einheitskreis (luecken, Stufe 2, Schablone 'P(□ | □)' – nur für Winkel mit ganzzahligen Koordinaten): Beispiel 1: 'Gib den Punkt zum Winkel 180° am Einheitskreis an.' → [−1, 0]. Beispiel 2: 'Winkel 270°' → [0, −1].",
+        "Werte schätzen am Bild (auswahl, Stufe 2): f.grafik koordinaten mit Einheitskreis und markiertem Punkt P zum Winkel 130°. Beispiel 1: 'Welcher Wert passt zu cos 130°?' Antworten −0,64 (richtig), 0,64 (Vorzeichen vergessen), 0,77 (sin statt cos), −1,3. Beispiel 2: 'Punkt zum Winkel 250°, welcher Wert passt zu sin 250°?' → −0,94; Ablenker 0,94, −0,34."
+      ],
+      "generator_regeln": [
+        "Stufe 3 = Aussagen beurteilen ('sin 200° = sin 20°? – falsch, sin 200° = −sin 20°'), nicht Gleichungen lösen.",
+        "Bei 'Welches Vorzeichen hat …?' die Antwort 'null' nur anbieten, wenn auch Winkel 0°, 90°, 180°, 270° vorkommen; sonst ist sie nie richtig."
+      ]
+    },
+    {
+      "lernziel": "flaeche",
+      "urteil": "ok",
+      "stufen": "Passt: Stufe 1 mit 30°/150°, Stufe 2 mit Taschenrechner, Stufe 3 Parallelogramm. Werte nachgerechnet, stimmen.",
+      "fehlende_aufgabentypen": [
+        "Umkehraufgabe (zahl, Stufe 3): Beispiel 1: 'Ein Dreieck hat a = 8 cm, b = 5 cm und den Flächeninhalt 10 cm². Wie groß ist der spitze Winkel γ?' → 30° (sin γ = 0,5). Beispiel 2: 'a = 12 cm, γ = 30°, A = 18 cm². Berechne b.' → 6 cm."
+      ],
+      "generator_regeln": [
+        "Tipp mit sin 30° = sin 150° = 0,5 nur bei γ = 30° oder 150°; bei γ = 90° Tipp 'sin 90° = 1, das ist die bekannte Formel ½ · Grundseite · Höhe'.",
+        "Bei 'auf eine Nachkommastelle' 'toleranz': 0.1 setzen (fehlt im ganzen Thema)."
+      ]
+    },
+    {
+      "lernziel": "sinussatz_seite",
+      "urteil": "ok",
+      "stufen": "Passt (direkt, über Winkelsumme, Sachaufgabe See). Werte stimmen.",
+      "fehlende_aufgabentypen": [
+        "Fehler finden (auswahl, Stufe 3): Beispiel 1: 'α = 40°, β = 70°, a = 6 cm. Jemand rechnet b = 6 · sin 40° : sin 70° ≈ 4,1 cm. Was ist falsch?' → 'Die Winkel sind vertauscht; richtig b = 6 · sin 70° : sin 40° ≈ 8,8 cm.' Beispiel 2: 'α = 30°, β = 45°, a = 4 cm; gesucht c. Jemand rechnet c = 4 · sin 45° : sin 30°.' → 'Das ist b; für c braucht man γ = 105°: c ≈ 7,7 cm.'"
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "sinussatz_winkel",
+      "urteil": "verbessern",
+      "stufen": "Stufe 1 und 2 identisch. Stufe 3 gut gewählt (kein Dreieck, zwei Dreiecke), aber in den Zahl-Aufgaben steht 'Es gibt zwei Dreiecke' im Text – der Kern der Aufgabe wird vorweggenommen.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "In Stufe 3 die Anzahl der Dreiecke nicht vorgeben; stattdessen fragen 'Gib alle möglichen Werte für β an' als luecken 'β₁ ≈ □°; β₂ ≈ □°' (ganze Grad).",
+        "Den Fall 'genau ein Dreieck, obwohl b > a' (sin β = 1, rechtwinklig) einmal einbauen: a = 5 cm, b = 10 cm, α = 30° → β = 90°."
+      ]
+    },
+    {
+      "lernziel": "kosinussatz_seite",
+      "urteil": "ok",
+      "stufen": "Passt. Gut: viele Aufgaben mit 60°/120° und ganzzahligem Ergebnis. Schiffsaufgabe (Drehwinkel → Innenwinkel) ist eine echte Stufe-3-Aufgabe; davon mehr.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Bei 'auf eine Nachkommastelle' 'toleranz': 0.1 setzen."
+      ]
+    },
+    {
+      "lernziel": "kosinussatz_winkel",
+      "urteil": "verbessern",
+      "stufen": "Stufe 1 enthält schon Taschenrechner-Werte (76,9°), Stufe 3 ist dieselbe Rechnung. Nur das Grundstück ist eine Sachaufgabe.",
+      "fehlende_aufgabentypen": [
+        "Dreiecksungleichung (auswahl, Stufe 3): Beispiel 1: 'Ein Dreieck soll die Seiten 3 cm, 4 cm und 8 cm haben. Was ergibt der Kosinussatz für den größten Winkel?' → 'cos γ < −1: Es gibt kein solches Dreieck.' Beispiel 2: 'Seiten 5 cm, 5 cm, 10 cm' → 'cos γ = −1: Die Punkte liegen auf einer Geraden, kein Dreieck.'"
+      ],
+      "generator_regeln": [
+        "Stufe 1 nur cos γ = ±0,5 oder 0; Taschenrechnerwerte ab Stufe 2."
+      ]
+    },
+    {
+      "lernziel": "satz_waehlen",
+      "urteil": "verbessern",
+      "stufen": "Gute Idee (Verstehen statt Rechnen), aber zwei Aufgabenvarianten sind fachlich falsch (siehe Fehlerliste). Stufe 1 und 2 sind derselbe Typ; Stufe 3 (Fehler finden SWS) gut, aber 4-mal fast gleich.",
+      "fehlende_aufgabentypen": [
+        "Rechenweg ordnen (auswahl, Stufe 3): Beispiel 1: 'Gegeben a = 7 cm, b = 5 cm, γ = 50°. Gesucht α. Welcher Weg ist richtig?' → '1. c mit dem Kosinussatz, 2. α mit dem Kosinussatz' (Ablenker: 'α direkt mit dem Sinussatz', 'α mit der Winkelsumme'). Beispiel 2: 'Gegeben a, b, α mit a > b. Gesucht c.' → '1. β mit dem Sinussatz, 2. γ mit der Winkelsumme, 3. c mit dem Sinussatz.'"
+      ],
+      "generator_regeln": [
+        "Wenn zwei Winkel gegeben sind, ist der dritte Winkel nie 'fehlend mit Satz' gesucht – die Antwort wäre die Winkelsumme.",
+        "Wenn alle drei Seiten gegeben sind, nur nach einem Winkel fragen, nie nach einer 'fehlenden Seite'.",
+        "Antwort 'Winkelsumme' als vierte Möglichkeit aufnehmen und in passenden Fällen richtig sein lassen."
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Im Dreieck ABC sind a, b und c gegeben. Mit welchem Satz beginnst du, um eine fehlende Seite zu berechnen?",
+      "art": "falsch",
+      "problem": "Alle drei Seiten sind gegeben – es fehlt keine Seite. Die Frage hat keinen Sinn (Korrektur und Sicherung).",
+      "korrektur": "Im Dreieck ABC sind a, b und c gegeben. Mit welchem Satz berechnest du einen Winkel? – Lösung 'Kosinussatz'."
+    },
+    {
+      "aufgabe": "Im Dreieck ABC sind a, α und β gegeben. Mit welchem Satz beginnst du, um einen fehlenden Winkel zu berechnen?",
+      "art": "falsch",
+      "problem": "Der fehlende Winkel γ folgt aus der Winkelsumme γ = 180° − α − β; der Sinussatz ist dafür nicht nötig. Die als richtig markierte Antwort 'Sinussatz' ist fachlich falsch.",
+      "korrektur": "Antworten: 'Winkelsumme im Dreieck' (richtig), 'Sinussatz', 'Kosinussatz', 'Satz des Pythagoras'. Lösungsweg: 'Zwei Winkel sind bekannt: γ = 180° − α − β. Dafür brauchst du keinen der beiden Sätze.'"
+    },
+    {
+      "aufgabe": "Gegeben a = 7 cm, b = 10 cm, α = 44°. Es gibt zwei Dreiecke. Berechne den stumpfen Winkel β (auf eine Nachkommastelle).",
+      "art": "tipp_verraet_loesung",
+      "problem": "'Es gibt zwei Dreiecke' nimmt die entscheidende Prüfung vorweg; außerdem fehlt die Toleranz.",
+      "korrektur": "Gegeben a = 7 cm, b = 10 cm, α = 44°. Gib alle möglichen Winkel β auf ganze Grad an. Schablone 'β₁ ≈ □°; β₂ ≈ □°' – Lösung [83, 97]."
+    },
+    {
+      "aufgabe": "Ein Dreieck hat a = 12 cm, b = 8 cm und γ = 77°. Berechne den Flächeninhalt (auf eine Nachkommastelle).",
+      "art": "mehrdeutig",
+      "problem": "Gerundetes Ergebnis ohne 'toleranz'. Betrifft alle 101 Zahl-Aufgaben mit Rundung in diesem Thema.",
+      "korrektur": "Lösung {\"wert\": 46.8, \"einheit\": \"cm²\", \"toleranz\": 0.1}."
+    },
+    {
+      "aufgabe": "Ein Dreieck hat a = 10 cm, b = 6 cm und den eingeschlossenen Winkel γ = 90°. Berechne den Flächeninhalt.",
+      "art": "loesungsweg",
+      "problem": "Der Tipp lautet 'sin 30° = sin 150° = 0,5' und passt nicht zu γ = 90°.",
+      "korrektur": "Tipp: 'Formel A = ½ · a · b · sin γ; sin 90° = 1.' Lösung 30 cm²."
+    }
+  ]
+}

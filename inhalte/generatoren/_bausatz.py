@@ -128,7 +128,7 @@ def koeff(m, var='x', erstes=True):
     m = Fr(m)
     if m == 0: return ''
     b = '' if abs(m) == 1 and var else zt(abs(m))
-    if var and abs(m) != 1 and m.denominator != 1: b = f'({zt(abs(m))})'
+    if var and abs(m) != 1 and dez(m) is None: b = f'({zt(abs(m))})'
     if erstes: return ('−' if m < 0 else '') + b + var
     return (' − ' if m < 0 else ' + ') + b + var
 

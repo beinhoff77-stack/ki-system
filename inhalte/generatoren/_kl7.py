@@ -123,7 +123,7 @@ def kl(x):
 
 def jw(x):
     """JSON-Wert: int oder exakte endliche Dezimalzahl als float."""
-    x = Fr(x)
+    x = Fr(str(x)) if isinstance(x, float) else Fr(x)
     if x.denominator == 1: return x.numerator
     d = dez(x)
     assert d is not None, f'{x} ist keine endliche Dezimalzahl'
@@ -254,3 +254,33 @@ def baue(meta, etappen, gen, abschnitte, ziel, merke, offen=(), plan=PLAN, seed=
     ziel_pfad.write_text(json.dumps(d, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
     print(f'{ziel_pfad.name}: {len(etappen)} Lernkarten, {len(out)} Aufgaben')
     return d
+
+
+# ---------- Zeichnungen (App 0.69) ----------
+def ksys(punkte=(), senkrecht=(), waagrecht=(), strecken=(), graphen=(), auch=(), rand=1):
+    """Koordinatensystem; Bereich passt sich an alle Punkte (auch an nicht gezeichnete in `auch`) an."""
+    xs = [0] + [p[0] for p in punkte] + [p[0] for p in auch] + list(senkrecht) + [s[0] for s in strecken] + [s[2] for s in strecken]
+    ys = [0] + [p[1] for p in punkte] + [p[1] for p in auch] + list(waagrecht) + [s[1] for s in strecken] + [s[3] for s in strecken]
+    g = {'typ': 'koordinaten', 'x': [int(min(xs)) - rand, int(max(xs)) + rand], 'y': [int(min(ys)) - rand, int(max(ys)) + rand]}
+    if punkte: g['punkte'] = [{'x': jw(p[0]), 'y': jw(p[1]), **({'name': p[2]} if len(p) > 2 and p[2] else {})} for p in punkte]
+    if senkrecht: g['senkrecht'] = [jw(v) for v in senkrecht]
+    if waagrecht: g['waagrecht'] = [jw(v) for v in waagrecht]
+    if strecken: g['strecken'] = [[jw(s[0]), jw(s[1]), jw(s[2]), jw(s[3]), *s[4:]] for s in strecken]
+    if graphen: g['graphen'] = list(graphen)
+    return g
+
+
+def figur(punkte, linien=(), flaeche=None, rechter_winkel=(), winkel=(), kreise=()):
+    g = {'typ': 'figur', 'punkte': {k: [jw(v[0]), jw(v[1])] for k, v in punkte.items()}}
+    if flaeche: g['flaeche'] = list(flaeche)
+    if linien: g['linien'] = [list(l) for l in linien]
+    if rechter_winkel: g['rechter_winkel'] = [list(r) for r in rechter_winkel]
+    if winkel: g['winkel'] = [list(w) for w in winkel]
+    if kreise: g['kreise'] = list(kreise)
+    return g
+
+
+def mit_bild(aufgabe, grafik):
+    """Grafik an eine Aufgabe hängen (nicht bei markierung)."""
+    if aufgabe['y'] != 'markierung': aufgabe['f']['grafik'] = grafik
+    return aufgabe

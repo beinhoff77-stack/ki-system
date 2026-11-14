@@ -5,7 +5,8 @@ from fractions import Fraction as Fr
 from pathlib import Path
 sys.dont_write_bytecode = True
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _kl7 import A, L, Z, baue, kl, zt  # noqa: E402
+import re
+from _kl7 import A, L, Z, baue, figur, kl, ksys, zt  # noqa: E402
 
 META = {'thema_schluessel': 'abbildungen.kongruenz', 'thema_id': 46, 'block_id': 82, 'klasse': {'gym_by': 7, 'rs_by': 6}}
 HP = 'Trage die x- und die y-Koordinate des Bildpunkts ein.'
@@ -15,26 +16,32 @@ ETAPPEN = [
      'regel': 'Bei der ⟦Achsenspiegelung⟧ liegt der Bildpunkt P\' auf der anderen Seite der Achse, ⟦gleich weit⟧ von ihr entfernt; PP\' steht ⟦senkrecht⟧ auf der Achse. An der x-Achse ändert sich das Vorzeichen von y, an der y-Achse das von x.',
      'schritte': ['P(4 | 3) an der Geraden x = 1 spiegeln', 'P ist 3 Einheiten rechts der Achse, P\' 3 Einheiten links: x = 1 − 3 = −2', 'y bleibt: ⟦P\'(−2 | 3)⟧'],
      'fehler': 'Spiegelt man P(4 | 3) an der x-Achse, ist das Bild nicht (−4 | 3): An der ⟦x-Achse⟧ ändert sich die ⟦y-Koordinate⟧, also P\'(4 | −3).',
+     'bild': ksys([(4, 3, 'P'), (-2, 3, "P'")], senkrecht=[1], strecken=[(4, 3, -2, 3, 'gestrichelt')]),
      '_verbot': ['P(4 | 3) an der Geraden x = 1']},
     {'lernziel': 'punktspiegelung', 'titel': 'An einem Punkt spiegeln',
      'regel': 'Bei der ⟦Punktspiegelung⟧ an Z ist Z der ⟦Mittelpunkt⟧ der Strecke PP\'. Man geht von P zu Z und ⟦dieselbe Strecke noch einmal⟧ weiter.',
      'schritte': ['P(1 | 5) an Z(3 | 2) spiegeln', 'Von P nach Z: 2 nach rechts, 3 nach unten', 'Noch einmal: ⟦P\'(5 | −1)⟧'],
      'probe': 'Mittelpunkt von P und P\': ((1 + 5) : 2 | (5 − 1) : 2) = (3 | 2) = Z ✓',
      'fehler': 'Bei der Spiegelung an Z(3 | 2) geht man nicht nur bis Z, sondern ⟦doppelt so weit⟧. P\'(3 | 2) wäre Z selbst.',
+     'bild': ksys([(1, 5, 'P'), (3, 2, 'Z'), (5, -1, "P'")], strecken=[(1, 5, 5, -1, 'gestrichelt')]),
      '_verbot': ['P(1 | 5) an Z(3 | 2)']},
     {'lernziel': 'verschiebung', 'titel': 'Figuren verschieben',
      'regel': 'Bei einer ⟦Verschiebung⟧ wandert jeder Punkt gleich weit in dieselbe Richtung. Der ⟦Verschiebungspfeil⟧ v = (a | b) heißt: a nach rechts (negativ: links), b nach oben (negativ: unten).',
      'schritte': ['A(2 | −1) wird mit v = (−3 | 4) verschoben.', 'x: 2 + (−3) = −1; y: −1 + 4 = 3', '⟦A\'(−1 | 3)⟧'],
      'fehler': 'Bei v = (−3 | 4) addiert man −3 zur ⟦x⟧- und 4 zur ⟦y⟧-Koordinate – nicht umgekehrt.',
+     'bild': ksys([(2, -1, 'A'), (-1, 3, "A'")], strecken=[(2, -1, -1, 3)]),
      '_verbot': ['A(2 | −1)']},
     {'lernziel': 'drehung', 'titel': 'Um einen Punkt drehen',
      'regel': 'Bei einer ⟦Drehung⟧ um Z bleibt der Abstand zu Z gleich. Um den Ursprung gilt (gegen den Uhrzeigersinn): ⟦90°: (x | y) → (−y | x)⟧, 180°: (x | y) → (−x | −y), 270°: (x | y) → (y | −x).',
      'schritte': ['P(4 | 1) um O(0 | 0) um 90° gegen den Uhrzeigersinn drehen', '(x | y) → (−y | x)', '⟦P\'(−1 | 4)⟧'],
      'fehler': 'Bei 90° wird nicht einfach das Vorzeichen geändert: (4 | 1) → (−4 | −1) wäre eine Drehung um ⟦180°⟧.',
+     'bild': ksys([(4, 1, 'P'), (-1, 4, "P'"), (0, 0, 'O')], strecken=[(0, 0, 4, 1, 'gestrichelt'), (0, 0, -1, 4, 'gestrichelt')]),
      '_verbot': ['P(4 | 1) um O(0 | 0)']},
     {'lernziel': 'symmetrie', 'titel': 'Symmetrische Figuren',
      'regel': 'Eine Figur ist ⟦achsensymmetrisch⟧, wenn sie bei einer Spiegelung an einer Achse auf sich selbst fällt; ⟦punktsymmetrisch⟧, wenn sie bei einer Drehung um 180° auf sich fällt. Ein regelmäßiges n-Eck hat ⟦n Symmetrieachsen⟧.',
      'schritte': ['Rechteck (kein Quadrat)', '2 Symmetrieachsen (durch die Seitenmitten)', 'Punktsymmetrisch zum Diagonalenschnittpunkt: ⟦ja⟧'],
+     'bild': figur({'A': [0, 0], 'B': [6, 0], 'C': [6, 3], 'D': [0, 3], '_1': [3, -0.7], '_2': [3, 3.7], '_3': [-0.7, 1.5], '_4': [6.7, 1.5]}, flaeche=['A', 'B', 'C', 'D'],
+                   linien=[['A', 'B'], ['B', 'C'], ['C', 'D'], ['D', 'A'], ['_1', '_2', 'Achse', 'gestrichelt'], ['_3', '_4', 'Achse', 'gestrichelt']]),
      'fehler': 'Die Diagonalen eines Rechtecks sind ⟦keine⟧ Symmetrieachsen (außer beim Quadrat): Spiegelt man daran, fallen die Ecken nicht aufeinander.'},
     {'lernziel': 'eigenschaften', 'titel': 'Was bleibt bei Abbildungen gleich?',
      'regel': 'Kongruenzabbildungen erhalten ⟦Längen, Winkel und Flächeninhalte⟧: Bild und Urbild sind ⟦deckungsgleich⟧. Nur die Achsenspiegelung kehrt den ⟦Umlaufsinn⟧ um. Zwei Achsenspiegelungen nacheinander ergeben eine Verschiebung (parallele Achsen) oder eine Drehung (sich schneidende Achsen).',
@@ -149,7 +156,33 @@ FIG = [  # Name, Symmetrieachsen, punktsymmetrisch
 ]
 
 
+def regel_n(n, r=3):
+    import math
+    return [(round(r * math.cos(math.radians(90 + 360 * k / n)), 2), round(r * math.sin(math.radians(90 + 360 * k / n)), 2)) for k in range(n)]
+
+
+FORM = {'ein Quadrat': [(0, 0), (4, 0), (4, 4), (0, 4)], 'ein Rechteck, das kein Quadrat ist': [(0, 0), (6, 0), (6, 3), (0, 3)],
+        'eine Raute, die kein Quadrat ist': [(0, 0), (3, -2), (6, 0), (3, 2)], 'ein Parallelogramm, das weder Rechteck noch Raute ist': [(0, 0), (5, 0), (7, 3), (2, 3)],
+        'ein Drachenviereck, das keine Raute ist': [(0, 0), (2, -2), (6, 0), (2, 2)], 'ein gleichschenkliges Trapez, das kein Rechteck ist': [(0, 0), (6, 0), (4.5, 3), (1.5, 3)],
+        'ein gleichseitiges Dreieck': regel_n(3), 'ein gleichschenkliges Dreieck, das nicht gleichseitig ist': [(0, 0), (4, 0), (2, 5)],
+        'ein Dreieck mit drei verschieden langen Seiten': [(0, 0), (6, 0), (1.5, 3.5)], 'ein regelmäßiges Sechseck': regel_n(6),
+        'ein regelmäßiges Fünfeck': regel_n(5), 'ein regelmäßiges Achteck': regel_n(8)}
+
+
+def fig_von(name):
+    pk = FORM[name]
+    namen = [chr(65 + i) for i in range(len(pk))]
+    return figur(dict(zip(namen, pk)), linien=[[namen[i], namen[(i + 1) % len(namen)]] for i in range(len(namen))], flaeche=namen)
+
+
 def g_symmetrie(R, st):
+    a = _g_symmetrie(R, st)
+    for name in FORM:
+        if name in a['f']['text']: a['f']['grafik'] = fig_von(name)
+    return a
+
+
+def _g_symmetrie(R, st):
     if st == 1:
         f, n, _ = R.choice(FIG)
         return Z(f'Wie viele Symmetrieachsen hat {f}?', n, f'{n}', f'{f[0].upper() + f[1:]}{"," if ", die" in f else ""} hat {n} Symmetrieachse{"n" if n != 1 else ""}.',
@@ -209,7 +242,31 @@ def g_eigenschaften(R, st):
              'Prüfe jede Aussage an einem einfachen Beispiel.')
 
 
-GEN = {'achsenspiegelung': g_achsenspiegelung, 'punktspiegelung': g_punktspiegelung, 'verschiebung': g_verschiebung, 'drehung': g_drehung,
+PUNKT = re.compile(r"([A-Z]'?)\((−?\d+) \| (−?\d+)\)")
+
+
+def zahl(t): return int(t.replace('−', '-'))
+
+
+def mit_koordinaten(gen):
+    """Zeichnet die im Aufgabentext genannten Punkte, Achsen und den Ursprung ins Koordinatensystem (Lösung nicht)."""
+    def neu(R, st):
+        a = gen(R, st)
+        t = a['f']['text']
+        pkt = [(zahl(x), zahl(y), n) for n, x, y in PUNKT.findall(t)]
+        if 'O(0 | 0)' in t and not any(n == 'O' for *_, n in pkt): pass
+        senk = [zahl(m) for m in re.findall(r'Geraden x = (−?\d+)', t)]
+        waag = [zahl(m) for m in re.findall(r'Geraden y = (−?\d+)', t)]
+        graphen = [{'art': 'linear', 'm': 1, 't': 0, 'name': 'y = x'}] if 'y = x' in t else []
+        auch = []
+        if a['y'] == 'luecken' and re.match(r"^[A-Z]'?\(", a['f']['schablone']): auch.append(tuple(a['o']['werte']))
+        a['f']['grafik'] = ksys(pkt, senkrecht=senk, waagrecht=waag, graphen=graphen, auch=auch)
+        return a
+    return neu
+
+
+GEN = {'achsenspiegelung': mit_koordinaten(g_achsenspiegelung), 'punktspiegelung': mit_koordinaten(g_punktspiegelung),
+       'verschiebung': mit_koordinaten(g_verschiebung), 'drehung': mit_koordinaten(g_drehung),
        'symmetrie': g_symmetrie, 'eigenschaften': g_eigenschaften}
 
 if __name__ == '__main__':
@@ -218,7 +275,7 @@ if __name__ == '__main__':
          'Achsenspiegelung, Punktspiegelung, Verschiebung und Drehung im Koordinatensystem ausführen, Symmetrien von Figuren erkennen und die Eigenschaften von Kongruenzabbildungen begründen.',
          ['Achsenspiegelung: gleich weit auf die andere Seite, senkrecht zur Achse.', 'Punktspiegelung an Z: Z ist Mitte von P und P\'.',
           'Verschiebung v = (a | b): x + a, y + b. Drehung um O um 90°: (x | y) → (−y | x).', 'Längen, Winkel und Flächen bleiben erhalten.'],
-         offen=['Alle Lernkarten arbeiten mit Koordinaten statt mit Zeichnungen. Ein Koordinatensystem, in dem das Kind Punkte und Figuren abbildet, fehlt der App; '
-                'Konstruktionen mit Zirkel und Geodreieck (Achse, Zentrum, Drehwinkel zeichnen) sind deshalb nicht gebaut.',
+         offen=['Aufgaben zu Spiegelung, Verschiebung und Drehung zeigen die gegebenen Punkte, Achsen und Zentren im Koordinatensystem; das Kind gibt den Bildpunkt als Koordinaten ein. '
+                'Selbst zeichnen (Konstruktion mit Zirkel und Geodreieck) kann die App noch nicht – dafür bräuchte es Eingabe durch Zeichnen.',
                 'Parkettierungen nur rechnerisch (Innenwinkel regelmäßiger Vielecke); Bilder von Parketten fehlen.',
                 'Drehungen nur um Vielfache von 90°, weil andere Winkel im Koordinatensystem ohne Trigonometrie nicht exakt berechenbar sind.'])

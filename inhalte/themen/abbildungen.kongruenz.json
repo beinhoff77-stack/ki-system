@@ -48,7 +48,42 @@
      "P ist 3 Einheiten rechts der Achse, P' 3 Einheiten links: x = 1 − 3 = −2",
      "y bleibt: ⟦P'(−2 | 3)⟧"
     ],
-    "fehler": "Spiegelt man P(4 | 3) an der x-Achse, ist das Bild nicht (−4 | 3): An der ⟦x-Achse⟧ ändert sich die ⟦y-Koordinate⟧, also P'(4 | −3)."
+    "fehler": "Spiegelt man P(4 | 3) an der x-Achse, ist das Bild nicht (−4 | 3): An der ⟦x-Achse⟧ ändert sich die ⟦y-Koordinate⟧, also P'(4 | −3).",
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      5
+     ],
+     "y": [
+      -1,
+      4
+     ],
+     "punkte": [
+      {
+       "x": 4,
+       "y": 3,
+       "name": "P"
+      },
+      {
+       "x": -2,
+       "y": 3,
+       "name": "P'"
+      }
+     ],
+     "senkrecht": [
+      1
+     ],
+     "strecken": [
+      [
+       4,
+       3,
+       -2,
+       3,
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "punktspiegelung",
@@ -60,7 +95,44 @@
      "Noch einmal: ⟦P'(5 | −1)⟧"
     ],
     "probe": "Mittelpunkt von P und P': ((1 + 5) : 2 | (5 − 1) : 2) = (3 | 2) = Z ✓",
-    "fehler": "Bei der Spiegelung an Z(3 | 2) geht man nicht nur bis Z, sondern ⟦doppelt so weit⟧. P'(3 | 2) wäre Z selbst."
+    "fehler": "Bei der Spiegelung an Z(3 | 2) geht man nicht nur bis Z, sondern ⟦doppelt so weit⟧. P'(3 | 2) wäre Z selbst.",
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      6
+     ],
+     "y": [
+      -2,
+      6
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 5,
+       "name": "P"
+      },
+      {
+       "x": 3,
+       "y": 2,
+       "name": "Z"
+      },
+      {
+       "x": 5,
+       "y": -1,
+       "name": "P'"
+      }
+     ],
+     "strecken": [
+      [
+       1,
+       5,
+       5,
+       -1,
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "verschiebung",
@@ -71,7 +143,38 @@
      "x: 2 + (−3) = −1; y: −1 + 4 = 3",
      "⟦A'(−1 | 3)⟧"
     ],
-    "fehler": "Bei v = (−3 | 4) addiert man −3 zur ⟦x⟧- und 4 zur ⟦y⟧-Koordinate – nicht umgekehrt."
+    "fehler": "Bei v = (−3 | 4) addiert man −3 zur ⟦x⟧- und 4 zur ⟦y⟧-Koordinate – nicht umgekehrt.",
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      3
+     ],
+     "y": [
+      -2,
+      4
+     ],
+     "punkte": [
+      {
+       "x": 2,
+       "y": -1,
+       "name": "A"
+      },
+      {
+       "x": -1,
+       "y": 3,
+       "name": "A'"
+      }
+     ],
+     "strecken": [
+      [
+       2,
+       -1,
+       -1,
+       3
+      ]
+     ]
+    }
    },
    {
     "lernziel": "drehung",
@@ -82,7 +185,51 @@
      "(x | y) → (−y | x)",
      "⟦P'(−1 | 4)⟧"
     ],
-    "fehler": "Bei 90° wird nicht einfach das Vorzeichen geändert: (4 | 1) → (−4 | −1) wäre eine Drehung um ⟦180°⟧."
+    "fehler": "Bei 90° wird nicht einfach das Vorzeichen geändert: (4 | 1) → (−4 | −1) wäre eine Drehung um ⟦180°⟧.",
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      5
+     ],
+     "y": [
+      -1,
+      5
+     ],
+     "punkte": [
+      {
+       "x": 4,
+       "y": 1,
+       "name": "P"
+      },
+      {
+       "x": -1,
+       "y": 4,
+       "name": "P'"
+      },
+      {
+       "x": 0,
+       "y": 0,
+       "name": "O"
+      }
+     ],
+     "strecken": [
+      [
+       0,
+       0,
+       4,
+       1,
+       "gestrichelt"
+      ],
+      [
+       0,
+       0,
+       -1,
+       4,
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "symmetrie",
@@ -93,6 +240,79 @@
      "2 Symmetrieachsen (durch die Seitenmitten)",
      "Punktsymmetrisch zum Diagonalenschnittpunkt: ⟦ja⟧"
     ],
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       6,
+       0
+      ],
+      "C": [
+       6,
+       3
+      ],
+      "D": [
+       0,
+       3
+      ],
+      "_1": [
+       3,
+       -0.7
+      ],
+      "_2": [
+       3,
+       3.7
+      ],
+      "_3": [
+       -0.7,
+       1.5
+      ],
+      "_4": [
+       6.7,
+       1.5
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C",
+      "D"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "D",
+       "A"
+      ],
+      [
+       "_1",
+       "_2",
+       "Achse",
+       "gestrichelt"
+      ],
+      [
+       "_3",
+       "_4",
+       "Achse",
+       "gestrichelt"
+      ]
+     ]
+    },
     "fehler": "Die Diagonalen eines Rechtecks sind ⟦keine⟧ Symmetrieachsen (außer beim Quadrat): Spiegelt man daran, fallen die Ecken nicht aufeinander."
    },
    {
@@ -178,7 +398,25 @@
    "f": {
     "text": "Spiegle P(5 | 4) an der y-Achse.",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -1,
+      5
+     ],
+     "punkte": [
+      {
+       "x": 5,
+       "y": 4,
+       "name": "P"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -202,7 +440,25 @@
    "f": {
     "text": "Spiegle P(−1 | 8) an der x-Achse.",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      1
+     ],
+     "y": [
+      -9,
+      9
+     ],
+     "punkte": [
+      {
+       "x": -1,
+       "y": 8,
+       "name": "P"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -226,7 +482,25 @@
    "f": {
     "text": "Spiegle P(−2 | −5) an der x-Achse.",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      1
+     ],
+     "y": [
+      -6,
+      6
+     ],
+     "punkte": [
+      {
+       "x": -2,
+       "y": -5,
+       "name": "P"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -250,7 +524,25 @@
    "f": {
     "text": "Spiegle P(−3 | 1) an der y-Achse.",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -1,
+      2
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 1,
+       "name": "P"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -274,7 +566,28 @@
    "f": {
     "text": "Spiegle P(6 | −4) an der Geraden y = 4 (parallel zur x-Achse).",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      7
+     ],
+     "y": [
+      -5,
+      13
+     ],
+     "punkte": [
+      {
+       "x": 6,
+       "y": -4,
+       "name": "P"
+      }
+     ],
+     "waagrecht": [
+      4
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -298,7 +611,28 @@
    "f": {
     "text": "Spiegle P(−4 | −5) an der Geraden y = 2 (parallel zur x-Achse).",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      1
+     ],
+     "y": [
+      -6,
+      10
+     ],
+     "punkte": [
+      {
+       "x": -4,
+       "y": -5,
+       "name": "P"
+      }
+     ],
+     "waagrecht": [
+      2
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -322,7 +656,28 @@
    "f": {
     "text": "Spiegle P(−1 | −7) an der Geraden y = 3 (parallel zur x-Achse).",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      1
+     ],
+     "y": [
+      -8,
+      14
+     ],
+     "punkte": [
+      {
+       "x": -1,
+       "y": -7,
+       "name": "P"
+      }
+     ],
+     "waagrecht": [
+      3
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -346,7 +701,28 @@
    "f": {
     "text": "Spiegle P(2 | −5) an der Geraden x = 3 (senkrecht zur x-Achse).",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      5
+     ],
+     "y": [
+      -6,
+      1
+     ],
+     "punkte": [
+      {
+       "x": 2,
+       "y": -5,
+       "name": "P"
+      }
+     ],
+     "senkrecht": [
+      3
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -370,7 +746,28 @@
    "f": {
     "text": "Spiegle P(−8 | 6) an der Geraden y = 4 (parallel zur x-Achse).",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -9,
+      1
+     ],
+     "y": [
+      -1,
+      7
+     ],
+     "punkte": [
+      {
+       "x": -8,
+       "y": 6,
+       "name": "P"
+      }
+     ],
+     "waagrecht": [
+      4
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -394,7 +791,28 @@
    "f": {
     "text": "Spiegle P(−3 | 1) an der Geraden y = −4 (parallel zur x-Achse).",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      1
+     ],
+     "y": [
+      -10,
+      2
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 1,
+       "name": "P"
+      }
+     ],
+     "waagrecht": [
+      -4
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -418,7 +836,33 @@
    "f": {
     "text": "Spiegle P(−4 | −1) an der Winkelhalbierenden y = x.",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      1
+     ],
+     "y": [
+      -5,
+      1
+     ],
+     "punkte": [
+      {
+       "x": -4,
+       "y": -1,
+       "name": "P"
+      }
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 1,
+       "t": 0,
+       "name": "y = x"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -442,7 +886,33 @@
    "f": {
     "text": "Spiegle P(−7 | −5) an der Winkelhalbierenden y = x.",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -8,
+      1
+     ],
+     "y": [
+      -8,
+      1
+     ],
+     "punkte": [
+      {
+       "x": -7,
+       "y": -5,
+       "name": "P"
+      }
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 1,
+       "t": 0,
+       "name": "y = x"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -466,7 +936,33 @@
    "f": {
     "text": "Spiegle P(5 | 8) an der Winkelhalbierenden y = x.",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      9
+     ],
+     "y": [
+      -1,
+      9
+     ],
+     "punkte": [
+      {
+       "x": 5,
+       "y": 8,
+       "name": "P"
+      }
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 1,
+       "t": 0,
+       "name": "y = x"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -490,7 +986,33 @@
    "f": {
     "text": "Spiegle P(8 | 4) an der Winkelhalbierenden y = x.",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      9
+     ],
+     "y": [
+      -1,
+      9
+     ],
+     "punkte": [
+      {
+       "x": 8,
+       "y": 4,
+       "name": "P"
+      }
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 1,
+       "t": 0,
+       "name": "y = x"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -514,7 +1036,28 @@
    "f": {
     "text": "Spiegle P(−4 | −2) an der Geraden x = −1 (senkrecht zur x-Achse).",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      3
+     ],
+     "y": [
+      -3,
+      1
+     ],
+     "punkte": [
+      {
+       "x": -4,
+       "y": -2,
+       "name": "P"
+      }
+     ],
+     "senkrecht": [
+      -1
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -537,7 +1080,28 @@
    "f": {
     "text": "Spiegle P(−3 | −6) an der Geraden y = 3 (parallel zur x-Achse).",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      1
+     ],
+     "y": [
+      -7,
+      13
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": -6,
+       "name": "P"
+      }
+     ],
+     "waagrecht": [
+      3
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -560,7 +1124,28 @@
    "f": {
     "text": "Spiegle P(1 | 1) an der Geraden x = 2 (senkrecht zur x-Achse).",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      4
+     ],
+     "y": [
+      -1,
+      2
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 1,
+       "name": "P"
+      }
+     ],
+     "senkrecht": [
+      2
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -583,7 +1168,28 @@
    "f": {
     "text": "Spiegle P(7 | 6) an der Geraden x = −5 (senkrecht zur x-Achse).",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -18,
+      8
+     ],
+     "y": [
+      -1,
+      7
+     ],
+     "punkte": [
+      {
+       "x": 7,
+       "y": 6,
+       "name": "P"
+      }
+     ],
+     "senkrecht": [
+      -5
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -606,7 +1212,28 @@
    "f": {
     "text": "Spiegle P(4 | −4) an der Geraden x = 1 (senkrecht zur x-Achse).",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      5
+     ],
+     "y": [
+      -5,
+      1
+     ],
+     "punkte": [
+      {
+       "x": 4,
+       "y": -4,
+       "name": "P"
+      }
+     ],
+     "senkrecht": [
+      1
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -629,7 +1256,28 @@
    "f": {
     "text": "Spiegle P(7 | 1) an der Geraden y = 5 (parallel zur x-Achse).",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      8
+     ],
+     "y": [
+      -1,
+      10
+     ],
+     "punkte": [
+      {
+       "x": 7,
+       "y": 1,
+       "name": "P"
+      }
+     ],
+     "waagrecht": [
+      5
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -652,7 +1300,28 @@
    "f": {
     "text": "Spiegle P(−3 | −2) an der Geraden y = −5 (parallel zur x-Achse).",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      1
+     ],
+     "y": [
+      -9,
+      1
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": -2,
+       "name": "P"
+      }
+     ],
+     "waagrecht": [
+      -5
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -675,7 +1344,28 @@
    "f": {
     "text": "Spiegle P(−2 | −1) an der Geraden x = 5 (senkrecht zur x-Achse).",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      13
+     ],
+     "y": [
+      -2,
+      1
+     ],
+     "punkte": [
+      {
+       "x": -2,
+       "y": -1,
+       "name": "P"
+      }
+     ],
+     "senkrecht": [
+      5
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -698,7 +1388,28 @@
    "f": {
     "text": "Spiegle P(−2 | −6) an der Geraden x = 5 (senkrecht zur x-Achse).",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      13
+     ],
+     "y": [
+      -7,
+      1
+     ],
+     "punkte": [
+      {
+       "x": -2,
+       "y": -6,
+       "name": "P"
+      }
+     ],
+     "senkrecht": [
+      5
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -721,7 +1432,28 @@
    "f": {
     "text": "Spiegle P(−2 | −7) an der Geraden y = 4 (parallel zur x-Achse).",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      1
+     ],
+     "y": [
+      -8,
+      16
+     ],
+     "punkte": [
+      {
+       "x": -2,
+       "y": -7,
+       "name": "P"
+      }
+     ],
+     "waagrecht": [
+      4
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -744,7 +1476,30 @@
    "f": {
     "text": "Spiegle P(−6 | −6) am Ursprung O(0 | 0).",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -7,
+      7
+     ],
+     "y": [
+      -7,
+      7
+     ],
+     "punkte": [
+      {
+       "x": -6,
+       "y": -6,
+       "name": "P"
+      },
+      {
+       "x": 0,
+       "y": 0,
+       "name": "O"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -768,7 +1523,30 @@
    "f": {
     "text": "Spiegle P(−5 | 5) am Ursprung O(0 | 0).",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -6,
+      6
+     ],
+     "punkte": [
+      {
+       "x": -5,
+       "y": 5,
+       "name": "P"
+      },
+      {
+       "x": 0,
+       "y": 0,
+       "name": "O"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -792,7 +1570,30 @@
    "f": {
     "text": "Spiegle P(5 | 1) am Ursprung O(0 | 0).",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -2,
+      2
+     ],
+     "punkte": [
+      {
+       "x": 5,
+       "y": 1,
+       "name": "P"
+      },
+      {
+       "x": 0,
+       "y": 0,
+       "name": "O"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -816,7 +1617,30 @@
    "f": {
     "text": "Spiegle P(−4 | 2) am Ursprung O(0 | 0).",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      5
+     ],
+     "y": [
+      -3,
+      3
+     ],
+     "punkte": [
+      {
+       "x": -4,
+       "y": 2,
+       "name": "P"
+      },
+      {
+       "x": 0,
+       "y": 0,
+       "name": "O"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -840,7 +1664,30 @@
    "f": {
     "text": "Spiegle P(−4 | −4) am Punkt Z(2 | 3).",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      9
+     ],
+     "y": [
+      -5,
+      11
+     ],
+     "punkte": [
+      {
+       "x": -4,
+       "y": -4,
+       "name": "P"
+      },
+      {
+       "x": 2,
+       "y": 3,
+       "name": "Z"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -864,7 +1711,30 @@
    "f": {
     "text": "Spiegle P(2 | −6) am Punkt Z(−4 | −2).",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -11,
+      3
+     ],
+     "y": [
+      -7,
+      3
+     ],
+     "punkte": [
+      {
+       "x": 2,
+       "y": -6,
+       "name": "P"
+      },
+      {
+       "x": -4,
+       "y": -2,
+       "name": "Z"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -888,7 +1758,30 @@
    "f": {
     "text": "Spiegle P(−6 | −3) am Punkt Z(1 | −1).",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -7,
+      9
+     ],
+     "y": [
+      -4,
+      2
+     ],
+     "punkte": [
+      {
+       "x": -6,
+       "y": -3,
+       "name": "P"
+      },
+      {
+       "x": 1,
+       "y": -1,
+       "name": "Z"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -912,7 +1805,30 @@
    "f": {
     "text": "Spiegle P(−7 | 4) am Punkt Z(4 | −4).",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -8,
+      16
+     ],
+     "y": [
+      -13,
+      5
+     ],
+     "punkte": [
+      {
+       "x": -7,
+       "y": 4,
+       "name": "P"
+      },
+      {
+       "x": 4,
+       "y": -4,
+       "name": "Z"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -936,7 +1852,30 @@
    "f": {
     "text": "Spiegle P(−4 | 5) am Punkt Z(1 | −1).",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      7
+     ],
+     "y": [
+      -8,
+      6
+     ],
+     "punkte": [
+      {
+       "x": -4,
+       "y": 5,
+       "name": "P"
+      },
+      {
+       "x": 1,
+       "y": -1,
+       "name": "Z"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -960,7 +1899,30 @@
    "f": {
     "text": "Spiegle P(−6 | 1) am Punkt Z(4 | −1).",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -7,
+      15
+     ],
+     "y": [
+      -4,
+      2
+     ],
+     "punkte": [
+      {
+       "x": -6,
+       "y": 1,
+       "name": "P"
+      },
+      {
+       "x": 4,
+       "y": -1,
+       "name": "Z"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -984,7 +1946,30 @@
    "f": {
     "text": "Spiegle P(5 | −2) am Punkt Z(3 | −4).",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      6
+     ],
+     "y": [
+      -7,
+      1
+     ],
+     "punkte": [
+      {
+       "x": 5,
+       "y": -2,
+       "name": "P"
+      },
+      {
+       "x": 3,
+       "y": -4,
+       "name": "Z"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -1008,7 +1993,30 @@
    "f": {
     "text": "Bei einer Punktspiegelung wird P(−2 | 1) auf P'(−6 | 3) abgebildet. Gib das Zentrum an.",
     "schablone": "Z(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -7,
+      1
+     ],
+     "y": [
+      -1,
+      4
+     ],
+     "punkte": [
+      {
+       "x": -2,
+       "y": 1,
+       "name": "P"
+      },
+      {
+       "x": -6,
+       "y": 3,
+       "name": "P'"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -1032,7 +2040,30 @@
    "f": {
     "text": "Spiegle P(4 | −5) am Punkt Z(1 | −4).",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      5
+     ],
+     "y": [
+      -6,
+      1
+     ],
+     "punkte": [
+      {
+       "x": 4,
+       "y": -5,
+       "name": "P"
+      },
+      {
+       "x": 1,
+       "y": -4,
+       "name": "Z"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -1056,7 +2087,30 @@
    "f": {
     "text": "Bei einer Punktspiegelung wird P(7 | −6) auf P'(−9 | 0) abgebildet. Gib das Zentrum an.",
     "schablone": "Z(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -10,
+      8
+     ],
+     "y": [
+      -7,
+      1
+     ],
+     "punkte": [
+      {
+       "x": 7,
+       "y": -6,
+       "name": "P"
+      },
+      {
+       "x": -9,
+       "y": 0,
+       "name": "P'"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -1080,7 +2134,30 @@
    "f": {
     "text": "Spiegle P(6 | −3) am Punkt Z(−2 | 3).",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -11,
+      7
+     ],
+     "y": [
+      -4,
+      10
+     ],
+     "punkte": [
+      {
+       "x": 6,
+       "y": -3,
+       "name": "P"
+      },
+      {
+       "x": -2,
+       "y": 3,
+       "name": "Z"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -1103,7 +2180,30 @@
    "f": {
     "text": "Spiegle P(−7 | 7) am Punkt Z(−2 | 2).",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -8,
+      4
+     ],
+     "y": [
+      -4,
+      8
+     ],
+     "punkte": [
+      {
+       "x": -7,
+       "y": 7,
+       "name": "P"
+      },
+      {
+       "x": -2,
+       "y": 2,
+       "name": "Z"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -1126,7 +2226,30 @@
    "f": {
     "text": "Spiegle P(−1 | 5) am Punkt Z(2 | 4).",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      6
+     ],
+     "y": [
+      -1,
+      6
+     ],
+     "punkte": [
+      {
+       "x": -1,
+       "y": 5,
+       "name": "P"
+      },
+      {
+       "x": 2,
+       "y": 4,
+       "name": "Z"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -1149,7 +2272,30 @@
    "f": {
     "text": "Spiegle P(7 | 1) am Punkt Z(3 | 3).",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      8
+     ],
+     "y": [
+      -1,
+      6
+     ],
+     "punkte": [
+      {
+       "x": 7,
+       "y": 1,
+       "name": "P"
+      },
+      {
+       "x": 3,
+       "y": 3,
+       "name": "Z"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -1172,7 +2318,30 @@
    "f": {
     "text": "Spiegle P(−4 | −6) am Punkt Z(3 | 2).",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      11
+     ],
+     "y": [
+      -7,
+      11
+     ],
+     "punkte": [
+      {
+       "x": -4,
+       "y": -6,
+       "name": "P"
+      },
+      {
+       "x": 3,
+       "y": 2,
+       "name": "Z"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -1195,7 +2364,30 @@
    "f": {
     "text": "Spiegle P(6 | 2) am Punkt Z(1 | 4).",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      7
+     ],
+     "y": [
+      -1,
+      7
+     ],
+     "punkte": [
+      {
+       "x": 6,
+       "y": 2,
+       "name": "P"
+      },
+      {
+       "x": 1,
+       "y": 4,
+       "name": "Z"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -1218,7 +2410,30 @@
    "f": {
     "text": "Spiegle P(−1 | −1) am Punkt Z(−2 | 2).",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      1
+     ],
+     "y": [
+      -2,
+      6
+     ],
+     "punkte": [
+      {
+       "x": -1,
+       "y": -1,
+       "name": "P"
+      },
+      {
+       "x": -2,
+       "y": 2,
+       "name": "Z"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -1241,7 +2456,30 @@
    "f": {
     "text": "Spiegle P(−5 | −5) am Punkt Z(3 | −3).",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      12
+     ],
+     "y": [
+      -6,
+      1
+     ],
+     "punkte": [
+      {
+       "x": -5,
+       "y": -5,
+       "name": "P"
+      },
+      {
+       "x": 3,
+       "y": -3,
+       "name": "Z"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -1264,7 +2502,30 @@
    "f": {
     "text": "Spiegle P(5 | 6) am Punkt Z(−3 | 4).",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -12,
+      6
+     ],
+     "y": [
+      -1,
+      7
+     ],
+     "punkte": [
+      {
+       "x": 5,
+       "y": 6,
+       "name": "P"
+      },
+      {
+       "x": -3,
+       "y": 4,
+       "name": "Z"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -1287,7 +2548,30 @@
    "f": {
     "text": "Spiegle P(3 | 7) am Punkt Z(1 | 4).",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      4
+     ],
+     "y": [
+      -1,
+      8
+     ],
+     "punkte": [
+      {
+       "x": 3,
+       "y": 7,
+       "name": "P"
+      },
+      {
+       "x": 1,
+       "y": 4,
+       "name": "Z"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -1310,7 +2594,25 @@
    "f": {
     "text": "Verschiebe P(−7 | 3) mit v = (1 | −4).",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -8,
+      1
+     ],
+     "y": [
+      -2,
+      4
+     ],
+     "punkte": [
+      {
+       "x": -7,
+       "y": 3,
+       "name": "P"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -1334,7 +2636,25 @@
    "f": {
     "text": "Verschiebe P(−4 | −1) mit v = (3 | −5).",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      1
+     ],
+     "y": [
+      -7,
+      1
+     ],
+     "punkte": [
+      {
+       "x": -4,
+       "y": -1,
+       "name": "P"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -1358,7 +2678,25 @@
    "f": {
     "text": "Verschiebe P(−5 | 7) mit v = (1 | −6).",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      1
+     ],
+     "y": [
+      -1,
+      8
+     ],
+     "punkte": [
+      {
+       "x": -5,
+       "y": 7,
+       "name": "P"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -1382,7 +2720,25 @@
    "f": {
     "text": "Verschiebe P(3 | −3) mit v = (−1 | −5).",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      4
+     ],
+     "y": [
+      -9,
+      1
+     ],
+     "punkte": [
+      {
+       "x": 3,
+       "y": -3,
+       "name": "P"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -1406,7 +2762,30 @@
    "f": {
     "text": "P(−2 | −5) wird auf P'(−7 | −11) verschoben. Gib den Verschiebungspfeil an.",
     "schablone": "v = (□ | □)",
-    "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird."
+    "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -8,
+      1
+     ],
+     "y": [
+      -12,
+      1
+     ],
+     "punkte": [
+      {
+       "x": -2,
+       "y": -5,
+       "name": "P"
+      },
+      {
+       "x": -7,
+       "y": -11,
+       "name": "P'"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -1430,7 +2809,30 @@
    "f": {
     "text": "P(7 | −6) wird auf P'(9 | −1) verschoben. Gib den Verschiebungspfeil an.",
     "schablone": "v = (□ | □)",
-    "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird."
+    "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      10
+     ],
+     "y": [
+      -7,
+      1
+     ],
+     "punkte": [
+      {
+       "x": 7,
+       "y": -6,
+       "name": "P"
+      },
+      {
+       "x": 9,
+       "y": -1,
+       "name": "P'"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -1454,7 +2856,30 @@
    "f": {
     "text": "P(−4 | 4) wird auf P'(−2 | 6) verschoben. Gib den Verschiebungspfeil an.",
     "schablone": "v = (□ | □)",
-    "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird."
+    "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      1
+     ],
+     "y": [
+      -1,
+      7
+     ],
+     "punkte": [
+      {
+       "x": -4,
+       "y": 4,
+       "name": "P"
+      },
+      {
+       "x": -2,
+       "y": 6,
+       "name": "P'"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -1478,7 +2903,30 @@
    "f": {
     "text": "P(−5 | 5) wird auf P'(−11 | 3) verschoben. Gib den Verschiebungspfeil an.",
     "schablone": "v = (□ | □)",
-    "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird."
+    "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -12,
+      1
+     ],
+     "y": [
+      -1,
+      6
+     ],
+     "punkte": [
+      {
+       "x": -5,
+       "y": 5,
+       "name": "P"
+      },
+      {
+       "x": -11,
+       "y": 3,
+       "name": "P'"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -1502,7 +2950,30 @@
    "f": {
     "text": "P(3 | 2) wird auf P'(8 | −4) verschoben. Gib den Verschiebungspfeil an.",
     "schablone": "v = (□ | □)",
-    "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird."
+    "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      9
+     ],
+     "y": [
+      -5,
+      3
+     ],
+     "punkte": [
+      {
+       "x": 3,
+       "y": 2,
+       "name": "P"
+      },
+      {
+       "x": 8,
+       "y": -4,
+       "name": "P'"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -1526,7 +2997,30 @@
    "f": {
     "text": "P(3 | −1) wird auf P'(0 | 5) verschoben. Gib den Verschiebungspfeil an.",
     "schablone": "v = (□ | □)",
-    "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird."
+    "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      4
+     ],
+     "y": [
+      -2,
+      6
+     ],
+     "punkte": [
+      {
+       "x": 3,
+       "y": -1,
+       "name": "P"
+      },
+      {
+       "x": 0,
+       "y": 5,
+       "name": "P'"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -1550,7 +3044,35 @@
    "f": {
     "text": "Ein Dreieck ABC wird verschoben. A(−4 | −7) wird dabei auf A'(−3 | −9) abgebildet. Wohin kommt B(−4 | 1)?",
     "schablone": "B'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      1
+     ],
+     "y": [
+      -10,
+      2
+     ],
+     "punkte": [
+      {
+       "x": -4,
+       "y": -7,
+       "name": "A"
+      },
+      {
+       "x": -3,
+       "y": -9,
+       "name": "A'"
+      },
+      {
+       "x": -4,
+       "y": 1,
+       "name": "B"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -1574,7 +3096,35 @@
    "f": {
     "text": "Ein Dreieck ABC wird verschoben. A(−3 | −7) wird dabei auf A'(2 | −9) abgebildet. Wohin kommt B(6 | 1)?",
     "schablone": "B'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      12
+     ],
+     "y": [
+      -10,
+      2
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": -7,
+       "name": "A"
+      },
+      {
+       "x": 2,
+       "y": -9,
+       "name": "A'"
+      },
+      {
+       "x": 6,
+       "y": 1,
+       "name": "B"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -1598,7 +3148,35 @@
    "f": {
     "text": "Ein Dreieck ABC wird verschoben. A(5 | −2) wird dabei auf A'(9 | 1) abgebildet. Wohin kommt B(7 | −6)?",
     "schablone": "B'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      12
+     ],
+     "y": [
+      -7,
+      2
+     ],
+     "punkte": [
+      {
+       "x": 5,
+       "y": -2,
+       "name": "A"
+      },
+      {
+       "x": 9,
+       "y": 1,
+       "name": "A'"
+      },
+      {
+       "x": 7,
+       "y": -6,
+       "name": "B"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -1622,7 +3200,35 @@
    "f": {
     "text": "Ein Dreieck ABC wird verschoben. A(−3 | −2) wird dabei auf A'(−2 | 2) abgebildet. Wohin kommt B(−6 | 1)?",
     "schablone": "B'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -7,
+      1
+     ],
+     "y": [
+      -3,
+      6
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": -2,
+       "name": "A"
+      },
+      {
+       "x": -2,
+       "y": 2,
+       "name": "A'"
+      },
+      {
+       "x": -6,
+       "y": 1,
+       "name": "B"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -1646,7 +3252,30 @@
    "f": {
     "text": "P(1 | −3) wird auf P'(7 | −5) verschoben. Gib den Verschiebungspfeil an.",
     "schablone": "v = (□ | □)",
-    "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird."
+    "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      8
+     ],
+     "y": [
+      -6,
+      1
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": -3,
+       "name": "P"
+      },
+      {
+       "x": 7,
+       "y": -5,
+       "name": "P'"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -1669,7 +3298,30 @@
    "f": {
     "text": "P(6 | −4) wird auf P'(11 | 1) verschoben. Gib den Verschiebungspfeil an.",
     "schablone": "v = (□ | □)",
-    "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird."
+    "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      12
+     ],
+     "y": [
+      -5,
+      2
+     ],
+     "punkte": [
+      {
+       "x": 6,
+       "y": -4,
+       "name": "P"
+      },
+      {
+       "x": 11,
+       "y": 1,
+       "name": "P'"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -1692,7 +3344,30 @@
    "f": {
     "text": "P(1 | −2) wird auf P'(4 | 4) verschoben. Gib den Verschiebungspfeil an.",
     "schablone": "v = (□ | □)",
-    "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird."
+    "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      5
+     ],
+     "y": [
+      -3,
+      5
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": -2,
+       "name": "P"
+      },
+      {
+       "x": 4,
+       "y": 4,
+       "name": "P'"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -1715,7 +3390,30 @@
    "f": {
     "text": "P(−1 | 7) wird auf P'(−6 | 1) verschoben. Gib den Verschiebungspfeil an.",
     "schablone": "v = (□ | □)",
-    "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird."
+    "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -7,
+      1
+     ],
+     "y": [
+      -1,
+      8
+     ],
+     "punkte": [
+      {
+       "x": -1,
+       "y": 7,
+       "name": "P"
+      },
+      {
+       "x": -6,
+       "y": 1,
+       "name": "P'"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -1738,7 +3436,30 @@
    "f": {
     "text": "P(2 | −6) wird auf P'(−4 | −9) verschoben. Gib den Verschiebungspfeil an.",
     "schablone": "v = (□ | □)",
-    "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird."
+    "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      3
+     ],
+     "y": [
+      -10,
+      1
+     ],
+     "punkte": [
+      {
+       "x": 2,
+       "y": -6,
+       "name": "P"
+      },
+      {
+       "x": -4,
+       "y": -9,
+       "name": "P'"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -1761,7 +3482,30 @@
    "f": {
     "text": "P(1 | −6) wird auf P'(−3 | −1) verschoben. Gib den Verschiebungspfeil an.",
     "schablone": "v = (□ | □)",
-    "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird."
+    "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      2
+     ],
+     "y": [
+      -7,
+      1
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": -6,
+       "name": "P"
+      },
+      {
+       "x": -3,
+       "y": -1,
+       "name": "P'"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -1784,7 +3528,30 @@
    "f": {
     "text": "P(3 | −7) wird auf P'(0 | −2) verschoben. Gib den Verschiebungspfeil an.",
     "schablone": "v = (□ | □)",
-    "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird."
+    "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      4
+     ],
+     "y": [
+      -8,
+      1
+     ],
+     "punkte": [
+      {
+       "x": 3,
+       "y": -7,
+       "name": "P"
+      },
+      {
+       "x": 0,
+       "y": -2,
+       "name": "P'"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -1807,7 +3574,30 @@
    "f": {
     "text": "P(−6 | 7) wird auf P'(−2 | 6) verschoben. Gib den Verschiebungspfeil an.",
     "schablone": "v = (□ | □)",
-    "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird."
+    "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -7,
+      1
+     ],
+     "y": [
+      -1,
+      8
+     ],
+     "punkte": [
+      {
+       "x": -6,
+       "y": 7,
+       "name": "P"
+      },
+      {
+       "x": -2,
+       "y": 6,
+       "name": "P'"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -1830,7 +3620,30 @@
    "f": {
     "text": "P(−7 | −3) wird auf P'(−3 | 1) verschoben. Gib den Verschiebungspfeil an.",
     "schablone": "v = (□ | □)",
-    "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird."
+    "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -8,
+      1
+     ],
+     "y": [
+      -4,
+      2
+     ],
+     "punkte": [
+      {
+       "x": -7,
+       "y": -3,
+       "name": "P"
+      },
+      {
+       "x": -3,
+       "y": 1,
+       "name": "P'"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -1853,7 +3666,30 @@
    "f": {
     "text": "P(3 | 3) wird auf P'(2 | 5) verschoben. Gib den Verschiebungspfeil an.",
     "schablone": "v = (□ | □)",
-    "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird."
+    "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      4
+     ],
+     "y": [
+      -1,
+      6
+     ],
+     "punkte": [
+      {
+       "x": 3,
+       "y": 3,
+       "name": "P"
+      },
+      {
+       "x": 2,
+       "y": 5,
+       "name": "P'"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -1876,7 +3712,30 @@
    "f": {
     "text": "Drehe P(7 | 1) um O(0 | 0) um 180° gegen den Uhrzeigersinn.",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -8,
+      8
+     ],
+     "y": [
+      -2,
+      2
+     ],
+     "punkte": [
+      {
+       "x": 7,
+       "y": 1,
+       "name": "P"
+      },
+      {
+       "x": 0,
+       "y": 0,
+       "name": "O"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -1900,7 +3759,30 @@
    "f": {
     "text": "Drehe P(−3 | 7) um O(0 | 0) um 180° gegen den Uhrzeigersinn.",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -8,
+      8
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 7,
+       "name": "P"
+      },
+      {
+       "x": 0,
+       "y": 0,
+       "name": "O"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -1924,7 +3806,30 @@
    "f": {
     "text": "Drehe P(−2 | 3) um O(0 | 0) um 90° gegen den Uhrzeigersinn.",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      1
+     ],
+     "y": [
+      -3,
+      4
+     ],
+     "punkte": [
+      {
+       "x": -2,
+       "y": 3,
+       "name": "P"
+      },
+      {
+       "x": 0,
+       "y": 0,
+       "name": "O"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -1948,7 +3853,30 @@
    "f": {
     "text": "Drehe P(−7 | −1) um O(0 | 0) um 180° gegen den Uhrzeigersinn.",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -8,
+      8
+     ],
+     "y": [
+      -2,
+      2
+     ],
+     "punkte": [
+      {
+       "x": -7,
+       "y": -1,
+       "name": "P"
+      },
+      {
+       "x": 0,
+       "y": 0,
+       "name": "O"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -1972,7 +3900,30 @@
    "f": {
     "text": "Drehe P(−7 | −5) um O(0 | 0) um 270° im Uhrzeigersinn.",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -8,
+      6
+     ],
+     "y": [
+      -8,
+      1
+     ],
+     "punkte": [
+      {
+       "x": -7,
+       "y": -5,
+       "name": "P"
+      },
+      {
+       "x": 0,
+       "y": 0,
+       "name": "O"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -1996,7 +3947,30 @@
    "f": {
     "text": "Drehe P(−6 | −4) um O(0 | 0) um 90° im Uhrzeigersinn.",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -7,
+      1
+     ],
+     "y": [
+      -5,
+      7
+     ],
+     "punkte": [
+      {
+       "x": -6,
+       "y": -4,
+       "name": "P"
+      },
+      {
+       "x": 0,
+       "y": 0,
+       "name": "O"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -2020,7 +3994,30 @@
    "f": {
     "text": "Drehe P(−6 | 3) um O(0 | 0) um 90° gegen den Uhrzeigersinn.",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -7,
+      1
+     ],
+     "y": [
+      -7,
+      4
+     ],
+     "punkte": [
+      {
+       "x": -6,
+       "y": 3,
+       "name": "P"
+      },
+      {
+       "x": 0,
+       "y": 0,
+       "name": "O"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -2044,7 +4041,30 @@
    "f": {
     "text": "Drehe P(4 | 7) um O(0 | 0) um 270° gegen den Uhrzeigersinn.",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      8
+     ],
+     "y": [
+      -5,
+      8
+     ],
+     "punkte": [
+      {
+       "x": 4,
+       "y": 7,
+       "name": "P"
+      },
+      {
+       "x": 0,
+       "y": 0,
+       "name": "O"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -2068,7 +4088,30 @@
    "f": {
     "text": "Drehe P(5 | −5) um O(0 | 0) um 270° gegen den Uhrzeigersinn.",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -6,
+      1
+     ],
+     "punkte": [
+      {
+       "x": 5,
+       "y": -5,
+       "name": "P"
+      },
+      {
+       "x": 0,
+       "y": 0,
+       "name": "O"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -2092,7 +4135,30 @@
    "f": {
     "text": "Drehe P(5 | −1) um O(0 | 0) um 90° gegen den Uhrzeigersinn.",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      6
+     ],
+     "y": [
+      -2,
+      6
+     ],
+     "punkte": [
+      {
+       "x": 5,
+       "y": -1,
+       "name": "P"
+      },
+      {
+       "x": 0,
+       "y": 0,
+       "name": "O"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -2116,7 +4182,30 @@
    "f": {
     "text": "Drehe P(7 | 4) um Z(2 | −2) um 270° gegen den Uhrzeigersinn.",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      9
+     ],
+     "y": [
+      -8,
+      5
+     ],
+     "punkte": [
+      {
+       "x": 7,
+       "y": 4,
+       "name": "P"
+      },
+      {
+       "x": 2,
+       "y": -2,
+       "name": "Z"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -2140,7 +4229,30 @@
    "f": {
     "text": "Drehe P(7 | 5) um Z(−3 | −2) um 90° gegen den Uhrzeigersinn.",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -11,
+      8
+     ],
+     "y": [
+      -3,
+      9
+     ],
+     "punkte": [
+      {
+       "x": 7,
+       "y": 5,
+       "name": "P"
+      },
+      {
+       "x": -3,
+       "y": -2,
+       "name": "Z"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -2164,7 +4276,30 @@
    "f": {
     "text": "Drehe P(2 | −5) um Z(−1 | 3) um 90° gegen den Uhrzeigersinn.",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      8
+     ],
+     "y": [
+      -6,
+      7
+     ],
+     "punkte": [
+      {
+       "x": 2,
+       "y": -5,
+       "name": "P"
+      },
+      {
+       "x": -1,
+       "y": 3,
+       "name": "Z"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -2188,7 +4323,30 @@
    "f": {
     "text": "Drehe P(1 | 1) um Z(−3 | −3) um 180° gegen den Uhrzeigersinn.",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -8,
+      2
+     ],
+     "y": [
+      -8,
+      2
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 1,
+       "name": "P"
+      },
+      {
+       "x": -3,
+       "y": -3,
+       "name": "Z"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -2212,7 +4370,30 @@
    "f": {
     "text": "Drehe P(−4 | 6) um O(0 | 0) um 270° im Uhrzeigersinn.",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -7,
+      1
+     ],
+     "y": [
+      -5,
+      7
+     ],
+     "punkte": [
+      {
+       "x": -4,
+       "y": 6,
+       "name": "P"
+      },
+      {
+       "x": 0,
+       "y": 0,
+       "name": "O"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -2235,7 +4416,30 @@
    "f": {
     "text": "Drehe P(−7 | 5) um O(0 | 0) um 90° gegen den Uhrzeigersinn.",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -8,
+      1
+     ],
+     "y": [
+      -8,
+      6
+     ],
+     "punkte": [
+      {
+       "x": -7,
+       "y": 5,
+       "name": "P"
+      },
+      {
+       "x": 0,
+       "y": 0,
+       "name": "O"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -2258,7 +4462,30 @@
    "f": {
     "text": "Drehe P(−5 | −5) um O(0 | 0) um 270° im Uhrzeigersinn.",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -6,
+      1
+     ],
+     "punkte": [
+      {
+       "x": -5,
+       "y": -5,
+       "name": "P"
+      },
+      {
+       "x": 0,
+       "y": 0,
+       "name": "O"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -2281,7 +4508,30 @@
    "f": {
     "text": "Drehe P(−5 | −4) um O(0 | 0) um 270° gegen den Uhrzeigersinn.",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      1
+     ],
+     "y": [
+      -5,
+      6
+     ],
+     "punkte": [
+      {
+       "x": -5,
+       "y": -4,
+       "name": "P"
+      },
+      {
+       "x": 0,
+       "y": 0,
+       "name": "O"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -2304,7 +4554,30 @@
    "f": {
     "text": "Drehe P(−2 | −7) um O(0 | 0) um 270° im Uhrzeigersinn.",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      8
+     ],
+     "y": [
+      -8,
+      1
+     ],
+     "punkte": [
+      {
+       "x": -2,
+       "y": -7,
+       "name": "P"
+      },
+      {
+       "x": 0,
+       "y": 0,
+       "name": "O"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -2327,7 +4600,30 @@
    "f": {
     "text": "Drehe P(−4 | 3) um O(0 | 0) um 270° im Uhrzeigersinn.",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      1
+     ],
+     "y": [
+      -5,
+      4
+     ],
+     "punkte": [
+      {
+       "x": -4,
+       "y": 3,
+       "name": "P"
+      },
+      {
+       "x": 0,
+       "y": 0,
+       "name": "O"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -2350,7 +4646,30 @@
    "f": {
     "text": "Drehe P(−3 | −5) um O(0 | 0) um 270° im Uhrzeigersinn.",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      6
+     ],
+     "y": [
+      -6,
+      1
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": -5,
+       "name": "P"
+      },
+      {
+       "x": 0,
+       "y": 0,
+       "name": "O"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -2373,7 +4692,30 @@
    "f": {
     "text": "Drehe P(2 | 1) um O(0 | 0) um 90° gegen den Uhrzeigersinn.",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      3
+     ],
+     "y": [
+      -1,
+      3
+     ],
+     "punkte": [
+      {
+       "x": 2,
+       "y": 1,
+       "name": "P"
+      },
+      {
+       "x": 0,
+       "y": 0,
+       "name": "O"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -2396,7 +4738,30 @@
    "f": {
     "text": "Drehe P(7 | −7) um O(0 | 0) um 90° gegen den Uhrzeigersinn.",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      8
+     ],
+     "y": [
+      -8,
+      8
+     ],
+     "punkte": [
+      {
+       "x": 7,
+       "y": -7,
+       "name": "P"
+      },
+      {
+       "x": 0,
+       "y": 0,
+       "name": "O"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -2419,7 +4784,30 @@
    "f": {
     "text": "Drehe P(−6 | 5) um O(0 | 0) um 90° im Uhrzeigersinn.",
     "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -7,
+      6
+     ],
+     "y": [
+      -1,
+      7
+     ],
+     "punkte": [
+      {
+       "x": -6,
+       "y": 5,
+       "name": "P"
+      },
+      {
+       "x": 0,
+       "y": 0,
+       "name": "O"
+      }
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -2440,7 +4828,52 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Wie viele Symmetrieachsen hat eine Raute, die kein Quadrat ist?"
+    "text": "Wie viele Symmetrieachsen hat eine Raute, die kein Quadrat ist?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       3,
+       -2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       3,
+       2
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C",
+      "D"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "D",
+       "A"
+      ]
+     ]
+    }
    },
    "o": {
     "wert": 2
@@ -2456,7 +4889,70 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Wie viele Symmetrieachsen hat ein regelmäßiges Sechseck?"
+    "text": "Wie viele Symmetrieachsen hat ein regelmäßiges Sechseck?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       3
+      ],
+      "B": [
+       -2.6,
+       1.5
+      ],
+      "C": [
+       -2.6,
+       -1.5
+      ],
+      "D": [
+       0,
+       -3
+      ],
+      "E": [
+       2.6,
+       -1.5
+      ],
+      "F": [
+       2.6,
+       1.5
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "D",
+       "E"
+      ],
+      [
+       "E",
+       "F"
+      ],
+      [
+       "F",
+       "A"
+      ]
+     ]
+    }
    },
    "o": {
     "wert": 6
@@ -2472,7 +4968,88 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Wie viele Symmetrieachsen hat ein regelmäßiges Achteck?"
+    "text": "Wie viele Symmetrieachsen hat ein regelmäßiges Achteck?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       3
+      ],
+      "B": [
+       -2.12,
+       2.12
+      ],
+      "C": [
+       -3,
+       0
+      ],
+      "D": [
+       -2.12,
+       -2.12
+      ],
+      "E": [
+       0,
+       -3
+      ],
+      "F": [
+       2.12,
+       -2.12
+      ],
+      "G": [
+       3,
+       0
+      ],
+      "H": [
+       2.12,
+       2.12
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F",
+      "G",
+      "H"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "D",
+       "E"
+      ],
+      [
+       "E",
+       "F"
+      ],
+      [
+       "F",
+       "G"
+      ],
+      [
+       "G",
+       "H"
+      ],
+      [
+       "H",
+       "A"
+      ]
+     ]
+    }
    },
    "o": {
     "wert": 8
@@ -2488,7 +5065,43 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Wie viele Symmetrieachsen hat ein Dreieck mit drei verschieden langen Seiten?"
+    "text": "Wie viele Symmetrieachsen hat ein Dreieck mit drei verschieden langen Seiten?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       6,
+       0
+      ],
+      "C": [
+       1.5,
+       3.5
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "A"
+      ]
+     ]
+    }
    },
    "o": {
     "wert": 0
@@ -2521,7 +5134,43 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Ist ein Dreieck mit drei verschieden langen Seiten punktsymmetrisch?"
+    "text": "Ist ein Dreieck mit drei verschieden langen Seiten punktsymmetrisch?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       6,
+       0
+      ],
+      "C": [
+       1.5,
+       3.5
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "A"
+      ]
+     ]
+    }
    },
    "a": [
     "Nein, nach einer Drehung um 180° liegt die Figur anders.",
@@ -2576,7 +5225,52 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Ist ein Drachenviereck, das keine Raute ist punktsymmetrisch?"
+    "text": "Ist ein Drachenviereck, das keine Raute ist punktsymmetrisch?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       2,
+       -2
+      ],
+      "C": [
+       6,
+       0
+      ],
+      "D": [
+       2,
+       2
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C",
+      "D"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "D",
+       "A"
+      ]
+     ]
+    }
    },
    "a": [
     "Nein, nur Kreise sind punktsymmetrisch.",
@@ -2597,7 +5291,43 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Ist ein gleichseitiges Dreieck punktsymmetrisch?"
+    "text": "Ist ein gleichseitiges Dreieck punktsymmetrisch?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       3
+      ],
+      "B": [
+       -2.6,
+       -1.5
+      ],
+      "C": [
+       2.6,
+       -1.5
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "A"
+      ]
+     ]
+    }
    },
    "a": [
     "Ja, eine Drehung um 180° um den Mittelpunkt bildet die Figur auf sich ab.",
@@ -2697,7 +5427,52 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Ist ein Parallelogramm, das weder Rechteck noch Raute ist punktsymmetrisch?"
+    "text": "Ist ein Parallelogramm, das weder Rechteck noch Raute ist punktsymmetrisch?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       5,
+       0
+      ],
+      "C": [
+       7,
+       3
+      ],
+      "D": [
+       2,
+       3
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C",
+      "D"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "D",
+       "A"
+      ]
+     ]
+    }
    },
    "a": [
     "Nein, nach einer Drehung um 180° liegt die Figur anders.",
@@ -2733,7 +5508,70 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Ist ein regelmäßiges Sechseck punktsymmetrisch?"
+    "text": "Ist ein regelmäßiges Sechseck punktsymmetrisch?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       3
+      ],
+      "B": [
+       -2.6,
+       1.5
+      ],
+      "C": [
+       -2.6,
+       -1.5
+      ],
+      "D": [
+       0,
+       -3
+      ],
+      "E": [
+       2.6,
+       -1.5
+      ],
+      "F": [
+       2.6,
+       1.5
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "D",
+       "E"
+      ],
+      [
+       "E",
+       "F"
+      ],
+      [
+       "F",
+       "A"
+      ]
+     ]
+    }
    },
    "a": [
     "Nein, nur Kreise sind punktsymmetrisch.",
@@ -2769,7 +5607,43 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Ist ein gleichschenkliges Dreieck, das nicht gleichseitig ist punktsymmetrisch?"
+    "text": "Ist ein gleichschenkliges Dreieck, das nicht gleichseitig ist punktsymmetrisch?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       4,
+       0
+      ],
+      "C": [
+       2,
+       5
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "A"
+      ]
+     ]
+    }
    },
    "a": [
     "Nein, nach einer Drehung um 180° liegt die Figur anders.",
@@ -2821,7 +5695,52 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Ist ein gleichschenkliges Trapez, das kein Rechteck ist punktsymmetrisch?"
+    "text": "Ist ein gleichschenkliges Trapez, das kein Rechteck ist punktsymmetrisch?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       6,
+       0
+      ],
+      "C": [
+       4.5,
+       3
+      ],
+      "D": [
+       1.5,
+       3
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C",
+      "D"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "D",
+       "A"
+      ]
+     ]
+    }
    },
    "a": [
     "Ja, eine Drehung um 180° um den Mittelpunkt bildet die Figur auf sich ab.",
@@ -2841,7 +5760,61 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Ist ein regelmäßiges Fünfeck punktsymmetrisch?"
+    "text": "Ist ein regelmäßiges Fünfeck punktsymmetrisch?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       3
+      ],
+      "B": [
+       -2.85,
+       0.93
+      ],
+      "C": [
+       -1.76,
+       -2.43
+      ],
+      "D": [
+       1.76,
+       -2.43
+      ],
+      "E": [
+       2.85,
+       0.93
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "D",
+       "E"
+      ],
+      [
+       "E",
+       "A"
+      ]
+     ]
+    }
    },
    "a": [
     "Ja, eine Drehung um 180° um den Mittelpunkt bildet die Figur auf sich ab.",
@@ -3354,7 +6327,7 @@
   }
  ],
  "offen": [
-  "Alle Lernkarten arbeiten mit Koordinaten statt mit Zeichnungen. Ein Koordinatensystem, in dem das Kind Punkte und Figuren abbildet, fehlt der App; Konstruktionen mit Zirkel und Geodreieck (Achse, Zentrum, Drehwinkel zeichnen) sind deshalb nicht gebaut.",
+  "Aufgaben zu Spiegelung, Verschiebung und Drehung zeigen die gegebenen Punkte, Achsen und Zentren im Koordinatensystem; das Kind gibt den Bildpunkt als Koordinaten ein. Selbst zeichnen (Konstruktion mit Zirkel und Geodreieck) kann die App noch nicht – dafür bräuchte es Eingabe durch Zeichnen.",
   "Parkettierungen nur rechnerisch (Innenwinkel regelmäßiger Vielecke); Bilder von Parketten fehlen.",
   "Drehungen nur um Vielfache von 90°, weil andere Winkel im Koordinatensystem ohne Trigonometrie nicht exakt berechenbar sind."
  ]

@@ -11,7 +11,7 @@
         "Fehler finden (auswahl, Stufe 3): Beispiel 1: 'Jemand löst sin x = −0,5 so: x₁ = −30°, x₂ = 180° − (−30°) = 210°. Was ist falsch?' → '−30° liegt nicht im Bereich; richtig ist 330°, also 210° und 330°.' Beispiel 2: 'Jemand gibt für sin x = 0,6 die Lösungen 36,9° und 323,1° an.' → 'Falsch: Das ist die Regel für den Kosinus; richtig 36,9° und 143,1°.'"
       ],
       "generator_regeln": [
-        "Bei 'auf eine Nachkommastelle' immer 'toleranz': 0.1 setzen (heute bei allen 80 gerundeten Zahl-Aufgaben des Themas ohne Toleranz).",
+        "Bei 'auf eine Nachkommastelle' immer 'toleranz': 0.1 setzen (heute bei allen 66 gerundeten Zahl-Aufgaben des Themas ohne Toleranz).",
         "Stufe 3 = negativer Wert mit beiden Lösungen oder Fehler finden; Stufe 2 = positiver Wert mit Taschenrechner."
       ]
     },
@@ -80,7 +80,7 @@
     {
       "aufgabe": "Löse sin x = 0,27 im Bereich 0° ≤ x < 360°. Gib die kleinere Lösung auf eine Nachkommastelle an.",
       "art": "mehrdeutig",
-      "problem": "Gerundetes Ergebnis ohne 'toleranz'. Wer z. B. mit dem gerundeten Zwischenwert rechnet oder anders rundet (15,6°), wird als falsch gewertet. Betrifft alle 80 Zahl-Aufgaben des Themas mit 'auf eine Nachkommastelle'.",
+      "problem": "Gerundetes Ergebnis ohne 'toleranz'. Wer z. B. mit dem gerundeten Zwischenwert rechnet oder anders rundet (15,6°), wird als falsch gewertet. Betrifft alle 66 Zahl-Aufgaben des Themas mit 'auf eine Nachkommastelle'.",
       "korrektur": "Lösung {\"wert\": 15.7, \"einheit\": \"°\", \"toleranz\": 0.1}."
     },
     {

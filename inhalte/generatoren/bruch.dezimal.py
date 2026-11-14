@@ -140,7 +140,7 @@ def g_vgl(st):
         k = R.randint(1, 9)
         x = g + Fr(k, 10)
         return mark(x, g, g + 1, 10, f'Markiere {zt(x)} am Zahlenstrahl (von {g} bis {g + 1}, 10 gleiche Teile).',
-                    f'Jeder Teil ist 0,1. {zt(x)} liegt {k} Teile rechts von {g}.', 'Jeder Strich ist ein Zehntel weiter.')
+                    f'Jeder Teil ist 0,1. {zt(x)} liegt {k} {"Teil" if k == 1 else "Teile"} rechts von {g}.', 'Jeder Strich ist ein Zehntel weiter.')
     art = R.randrange(3)
     if art == 0:
         a = zufall_dez(R, 20, 1)
@@ -155,7 +155,7 @@ def g_vgl(st):
         x = g + Fr(z, 10) + Fr(k, 100)
         s = g + Fr(z, 10)
         return mark(x, s, s + Fr(1, 10), 10, f'Markiere {zt(x)} am Zahlenstrahl (von {zt(s)} bis {zt(s + Fr(1, 10))}, 10 gleiche Teile).',
-                    f'Jeder Teil ist 0,01. {zt(x)} liegt {k} Teile rechts von {zt(s)}.', 'Von Strich zu Strich geht es um ein Hundertstel weiter.')
+                    f'Jeder Teil ist 0,01. {zt(x)} liegt {k} {"Teil" if k == 1 else "Teile"} rechts von {zt(s)}.', 'Von Strich zu Strich geht es um ein Hundertstel weiter.')
     a = zufall_dez(R, 20, R.choice([1, 2]))
     k = len(zt(a).split(',')[1]) + 1
     r = a + Fr(1, 10 ** k)

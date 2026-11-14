@@ -1,5 +1,9 @@
 # Postfach einarbeiten-kl5
 
+## 2026-11-14 16:10 – STATUS
+geometrie.winkel fertig: 19 Prüfpunkte umgesetzt, 0 abgelehnt. Uhr (Zifferblatt mit Zeigern) und Windrose jetzt als Figur in Lernkarten und Aufgaben; der offen-Punkt „Uhr/Windrose nicht zeichenbar“ ist gestrichen. 7 Lernkarten / 196 Aufgaben, Prüfskript OK.
+Weiter mit geometrie.ortslinien.
+
 ## 2026-11-14 15:45 – STATUS
 geometrie.grundbegriffe fertig: 20 Prüfpunkte umgesetzt, 0 abgelehnt. 2 Lernkarten-Bilder ersetzt (Kreis mit Passante, Raute), neue Aufgaben mit Bild: Punkt im Koordinatensystem erkennen, Linienarten erkennen, Winkel schätzen, Viereck aus Koordinaten. 7 Lernkarten / 196 Aufgaben, Prüfskript OK.
 Weiter mit geometrie.winkel.

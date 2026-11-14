@@ -48,7 +48,49 @@
      "2⁵ = 32, also ⟦log₂(32) = 5⟧."
     ],
     "probe": "2 · 2 · 2 · 2 · 2 = 32 ✓",
-    "fehler": "log₂(32) = 32 : 2 = 16 ist falsch: Der Logarithmus fragt nach dem ⟦Exponenten⟧, nicht nach einem Quotienten."
+    "fehler": "log₂(32) = 32 : 2 = 16 ist falsch: Der Logarithmus fragt nach dem ⟦Exponenten⟧, nicht nach einem Quotienten.",
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      6
+     ],
+     "y": [
+      0,
+      36
+     ],
+     "graphen": [
+      {
+       "art": "exp",
+       "a": 1,
+       "b": 2,
+       "name": "y = 2ˣ"
+      }
+     ],
+     "punkte": [
+      {
+       "x": 5,
+       "y": 32,
+       "name": "(5 | 32)"
+      }
+     ],
+     "strecken": [
+      [
+       5,
+       0,
+       5,
+       32,
+       "gestrichelt"
+      ],
+      [
+       0,
+       32,
+       5,
+       32,
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "gleiche_basis",
@@ -70,7 +112,36 @@
      "x = lg 10 : lg 2 ≈ ⟦3,32⟧ (auf zwei Nachkommastellen)."
     ],
     "probe": "2^3,32 ≈ 9,99 ✓",
-    "fehler": "3 · 2^x = 30 ⇒ 6^x = 30 ist falsch: 3 · 2^x ist nicht (3 · 2)^x. Erst ⟦durch 3 teilen⟧, dann logarithmieren."
+    "fehler": "3 · 2^x = 30 ⇒ 6^x = 30 ist falsch: 3 · 2^x ist nicht (3 · 2)^x. Erst ⟦durch 3 teilen⟧, dann logarithmieren.",
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      5
+     ],
+     "y": [
+      0,
+      16
+     ],
+     "graphen": [
+      {
+       "art": "exp",
+       "a": 1,
+       "b": 2,
+       "name": "y = 2ˣ"
+      }
+     ],
+     "punkte": [
+      {
+       "x": 3.32,
+       "y": 10,
+       "name": "x ≈ 3,32"
+      }
+     ],
+     "waagrecht": [
+      10
+     ]
+    }
    },
    {
     "lernziel": "potenzregel",
@@ -92,7 +163,38 @@
      "t = lg 1,5 : lg 1,04 ≈ 10,34, also nach ⟦11 vollen Jahren⟧."
     ],
     "probe": "1 000 · 1,04¹¹ ≈ 1 539 € > 1 500 €, aber 1,04¹⁰ · 1 000 ≈ 1 480 € ✓",
-    "fehler": "Bei 4 % Zinsen q = 4 oder q = 0,04 zu nehmen ist falsch: Der ⟦Wachstumsfaktor⟧ ist q = 1,04."
+    "fehler": "Bei 4 % Zinsen q = 4 oder q = 0,04 zu nehmen ist falsch: Der ⟦Wachstumsfaktor⟧ ist q = 1,04.",
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      15
+     ],
+     "y": [
+      0,
+      2000
+     ],
+     "graphen": [
+      {
+       "art": "exp",
+       "a": 1000,
+       "b": 1.04,
+       "bereich": [
+        0,
+        15
+       ]
+      }
+     ],
+     "waagrecht": [
+      1500
+     ],
+     "senkrecht": [
+      10.34
+     ],
+     "name_x": "t",
+     "name_y": "K",
+     "schritt_y": 250
+    }
    },
    {
     "lernziel": "verstehen",
@@ -103,7 +205,29 @@
      "2^(−3) = 1/8 > 0. Eine Potenz 2^x ist ⟦immer positiv⟧, also keine Lösung."
     ],
     "probe": "lg(−8) zeigt der Taschenrechner als Fehler ✓",
-    "fehler": "„Bei 2^x = −8 einfach x = −3“ ist falsch: Ein negatives Vorzeichen im Exponenten erzeugt einen ⟦Kehrwert⟧, kein negatives Ergebnis."
+    "fehler": "„Bei 2^x = −8 einfach x = −3“ ist falsch: Ein negatives Vorzeichen im Exponenten erzeugt einen ⟦Kehrwert⟧, kein negatives Ergebnis.",
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -10,
+      16
+     ],
+     "graphen": [
+      {
+       "art": "exp",
+       "a": 1,
+       "b": 2,
+       "name": "y = 2ˣ"
+      }
+     ],
+     "waagrecht": [
+      -8
+     ]
+    }
    }
   ],
   "teilfaehigkeiten": [
@@ -1051,15 +1175,36 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Löse 7^x = 65. Runde auf zwei Nachkommastellen."
+    "text": "Löse 7^x = 65. Runde auf zwei Nachkommastellen. (Die Zeichnung zeigt y = 7^x und y = 65 zum Abschätzen.)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      4
+     ],
+     "y": [
+      0,
+      91
+     ],
+     "graphen": [
+      {
+       "art": "exp",
+       "a": 1,
+       "b": 7
+      }
+     ],
+     "waagrecht": [
+      65
+     ]
+    }
    },
    "o": {
     "wert": 2.15,
     "toleranz": 0.01
    },
    "c": "round(2.145210698409, 2)",
-   "w": "x = log₇(65) = lg 65 : lg 7 ≈ 2,15.",
-   "h": "Logarithmiere beide Seiten."
+   "w": "Der Schnittpunkt liegt etwa bei x ≈ 2. Genau: x = log₇(65) = lg 65 : lg 7 ≈ 2,15.",
+   "h": "Schätze mit der Zeichnung, dann logarithmiere beide Seiten."
   },
   {
    "l": "mit_log_loesen",
@@ -1068,15 +1213,36 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Löse 5^x = 143. Runde auf zwei Nachkommastellen."
+    "text": "Löse 5^x = 143. Runde auf zwei Nachkommastellen. (Die Zeichnung zeigt y = 5^x und y = 143 zum Abschätzen.)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      5
+     ],
+     "y": [
+      0,
+      200
+     ],
+     "graphen": [
+      {
+       "art": "exp",
+       "a": 1,
+       "b": 5
+      }
+     ],
+     "waagrecht": [
+      143
+     ]
+    }
    },
    "o": {
     "wert": 3.08,
     "toleranz": 0.01
    },
    "c": "round(3.083588743572, 2)",
-   "w": "x = log₅(143) = lg 143 : lg 5 ≈ 3,08.",
-   "h": "Logarithmiere beide Seiten."
+   "w": "Der Schnittpunkt liegt etwa bei x ≈ 3. Genau: x = log₅(143) = lg 143 : lg 5 ≈ 3,08.",
+   "h": "Schätze mit der Zeichnung, dann logarithmiere beide Seiten."
   },
   {
    "l": "mit_log_loesen",
@@ -1085,15 +1251,36 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Löse 2^x = 182. Runde auf zwei Nachkommastellen."
+    "text": "Löse 2^x = 182. Runde auf zwei Nachkommastellen. (Die Zeichnung zeigt y = 2^x und y = 182 zum Abschätzen.)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      9
+     ],
+     "y": [
+      0,
+      255
+     ],
+     "graphen": [
+      {
+       "art": "exp",
+       "a": 1,
+       "b": 2
+      }
+     ],
+     "waagrecht": [
+      182
+     ]
+    }
    },
    "o": {
     "wert": 7.51,
     "toleranz": 0.01
    },
    "c": "round(7.507794640199, 2)",
-   "w": "x = log₂(182) = lg 182 : lg 2 ≈ 7,51.",
-   "h": "Logarithmiere beide Seiten."
+   "w": "Der Schnittpunkt liegt etwa bei x ≈ 8. Genau: x = log₂(182) = lg 182 : lg 2 ≈ 7,51.",
+   "h": "Schätze mit der Zeichnung, dann logarithmiere beide Seiten."
   },
   {
    "l": "mit_log_loesen",
@@ -1102,15 +1289,36 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Löse 3^x = 119. Runde auf zwei Nachkommastellen."
+    "text": "Löse 3^x = 119. Runde auf zwei Nachkommastellen. (Die Zeichnung zeigt y = 3^x und y = 119 zum Abschätzen.)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      6
+     ],
+     "y": [
+      0,
+      167
+     ],
+     "graphen": [
+      {
+       "art": "exp",
+       "a": 1,
+       "b": 3
+      }
+     ],
+     "waagrecht": [
+      119
+     ]
+    }
    },
    "o": {
     "wert": 4.35,
     "toleranz": 0.01
    },
    "c": "round(4.350145672324, 2)",
-   "w": "x = log₃(119) = lg 119 : lg 3 ≈ 4,35.",
-   "h": "Logarithmiere beide Seiten."
+   "w": "Der Schnittpunkt liegt etwa bei x ≈ 4. Genau: x = log₃(119) = lg 119 : lg 3 ≈ 4,35.",
+   "h": "Schätze mit der Zeichnung, dann logarithmiere beide Seiten."
   },
   {
    "l": "mit_log_loesen",
@@ -1119,15 +1327,36 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Löse 10^x = 176. Runde auf zwei Nachkommastellen."
+    "text": "Löse 10^x = 176. Runde auf zwei Nachkommastellen. (Die Zeichnung zeigt y = 10^x und y = 176 zum Abschätzen.)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      4
+     ],
+     "y": [
+      0,
+      246
+     ],
+     "graphen": [
+      {
+       "art": "exp",
+       "a": 1,
+       "b": 10
+      }
+     ],
+     "waagrecht": [
+      176
+     ]
+    }
    },
    "o": {
     "wert": 2.25,
     "toleranz": 0.01
    },
    "c": "round(2.245512667814, 2)",
-   "w": "x = lg(176) = lg 176 : lg 10 ≈ 2,25.",
-   "h": "Logarithmiere beide Seiten."
+   "w": "Der Schnittpunkt liegt etwa bei x ≈ 2. Genau: x = lg(176) = lg 176 : lg 10 ≈ 2,25.",
+   "h": "Schätze mit der Zeichnung, dann logarithmiere beide Seiten."
   },
   {
    "l": "mit_log_loesen",
@@ -1136,15 +1365,36 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Löse 7^x = 19. Runde auf zwei Nachkommastellen."
+    "text": "Löse 7^x = 19. Runde auf zwei Nachkommastellen. (Die Zeichnung zeigt y = 7^x und y = 19 zum Abschätzen.)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      3
+     ],
+     "y": [
+      0,
+      27
+     ],
+     "graphen": [
+      {
+       "art": "exp",
+       "a": 1,
+       "b": 7
+      }
+     ],
+     "waagrecht": [
+      19
+     ]
+    }
    },
    "o": {
     "wert": 1.51,
     "toleranz": 0.01
    },
    "c": "round(1.513142310603, 2)",
-   "w": "x = log₇(19) = lg 19 : lg 7 ≈ 1,51.",
-   "h": "Logarithmiere beide Seiten."
+   "w": "Der Schnittpunkt liegt etwa bei x ≈ 2. Genau: x = log₇(19) = lg 19 : lg 7 ≈ 1,51.",
+   "h": "Schätze mit der Zeichnung, dann logarithmiere beide Seiten."
   },
   {
    "l": "mit_log_loesen",
@@ -2558,7 +2808,28 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Welche Lösung hat 3^x = −243?"
+    "text": "Welche Lösung hat 3^x = −243? Die Zeichnung zeigt y = 3^x und y = −243.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -303.75,
+      303.75
+     ],
+     "graphen": [
+      {
+       "art": "exp",
+       "a": 1,
+       "b": 3
+      }
+     ],
+     "waagrecht": [
+      -243
+     ]
+    }
    },
    "a": [
     "x = 5",
@@ -2569,7 +2840,7 @@
    "o": {
     "index": 3
    },
-   "w": "3^x ist für jedes x positiv (3^(−5) = 1/243). Eine negative Zahl wird nie erreicht.",
+   "w": "3^x ist für jedes x positiv (3^(−5) = 1/243). Die Gerade y = −243 wird nie geschnitten.",
    "h": "Kann eine Potenz mit positiver Basis negativ sein?"
   },
   {
@@ -2621,7 +2892,28 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Lösung hat 3^x = −9?"
+    "text": "Welche Lösung hat 3^x = −9? Die Zeichnung zeigt y = 3^x und y = −9.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -11.25,
+      11.25
+     ],
+     "graphen": [
+      {
+       "art": "exp",
+       "a": 1,
+       "b": 3
+      }
+     ],
+     "waagrecht": [
+      -9
+     ]
+    }
    },
    "a": [
     "x = 2",
@@ -2632,7 +2924,7 @@
    "o": {
     "index": 2
    },
-   "w": "3^x ist für jedes x positiv (3^(−2) = 1/9). Eine negative Zahl wird nie erreicht.",
+   "w": "3^x ist für jedes x positiv (3^(−2) = 1/9). Die Gerade y = −9 wird nie geschnitten.",
    "h": "Kann eine Potenz mit positiver Basis negativ sein?"
   },
   {
@@ -2642,7 +2934,28 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Lösung hat 2^x = −4?"
+    "text": "Welche Lösung hat 2^x = −4? Die Zeichnung zeigt y = 2^x und y = −4.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -5.0,
+      5.0
+     ],
+     "graphen": [
+      {
+       "art": "exp",
+       "a": 1,
+       "b": 2
+      }
+     ],
+     "waagrecht": [
+      -4
+     ]
+    }
    },
    "a": [
     "keine Lösung",
@@ -2653,7 +2966,7 @@
    "o": {
     "index": 0
    },
-   "w": "2^x ist für jedes x positiv (2^(−2) = 1/4). Eine negative Zahl wird nie erreicht.",
+   "w": "2^x ist für jedes x positiv (2^(−2) = 1/4). Die Gerade y = −4 wird nie geschnitten.",
    "h": "Kann eine Potenz mit positiver Basis negativ sein?"
   },
   {
@@ -2911,7 +3224,28 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Lösung hat 3^x = −81?"
+    "text": "Welche Lösung hat 3^x = −81? Die Zeichnung zeigt y = 3^x und y = −81.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -101.25,
+      101.25
+     ],
+     "graphen": [
+      {
+       "art": "exp",
+       "a": 1,
+       "b": 3
+      }
+     ],
+     "waagrecht": [
+      -81
+     ]
+    }
    },
    "a": [
     "x = −1/4",
@@ -2922,7 +3256,7 @@
    "o": {
     "index": 3
    },
-   "w": "3^x ist für jedes x positiv (3^(−4) = 1/81). Eine negative Zahl wird nie erreicht."
+   "w": "3^x ist für jedes x positiv (3^(−4) = 1/81). Die Gerade y = −81 wird nie geschnitten."
   },
   {
    "l": "verstehen",
@@ -2931,7 +3265,28 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Lösung hat 3^x = −729?"
+    "text": "Welche Lösung hat 3^x = −729? Die Zeichnung zeigt y = 3^x und y = −729.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -911.25,
+      911.25
+     ],
+     "graphen": [
+      {
+       "art": "exp",
+       "a": 1,
+       "b": 3
+      }
+     ],
+     "waagrecht": [
+      -729
+     ]
+    }
    },
    "a": [
     "x = −6",
@@ -2942,7 +3297,7 @@
    "o": {
     "index": 2
    },
-   "w": "3^x ist für jedes x positiv (3^(−6) = 1/729). Eine negative Zahl wird nie erreicht."
+   "w": "3^x ist für jedes x positiv (3^(−6) = 1/729). Die Gerade y = −729 wird nie geschnitten."
   },
   {
    "l": "verstehen",
@@ -3026,9 +3381,9 @@
   }
  ],
  "offen": [
+  "Zeichnungen: Lernkarten „logarithmus“, „mit_log_loesen“, „wachstum“ und „verstehen“ haben ein Koordinatensystem; Aufgaben zum Abschätzen (Stufe 1 „mit_log_loesen“) und zu „keine Lösung“ zeigen den Graphen. Die Exponenten heißen in den Graphnamen „2^x“ (Text).",
   "Nur die Potenzregel für Logarithmen (lehrplan_gym). Produkt- und Quotientenregel sind bewusst nicht enthalten.",
   "Rechenausdruck c bei exakten Logarithmen: prüft b^n = x (z. B. „5 + (2 ** 5 − 32)“), weil das Prüfskript keinen Logarithmus kennt; gerundete Lösungen als 12-stellige Konstante mit Toleranz 0,01 bzw. 0,1.",
-  "Lernkarte „wachstum“ würde von einem Graphen der Wachstumsfunktion profitieren (Ablesen der Zeit).",
   "Schreibweise: Exponenten mit Unbekannten als „2^x“ bzw. „3^(x − 1)“, Logarithmus als „log₂(32)“ und „lg“."
  ]
 }

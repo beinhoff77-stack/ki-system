@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Thema gleichungen.exponential – Exponentialgleichungen (Klasse 10). Schreibt inhalte/themen/gleichungen.exponential.json."""
 import sys
+import math
 from math import ceil, log
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -66,6 +67,16 @@ ETAPPEN = [
      'probe': 'lg(−8) zeigt der Taschenrechner als Fehler ✓',
      'fehler': '„Bei 2^x = −8 einfach x = −3“ ist falsch: Ein negatives Vorzeichen im Exponenten erzeugt einen ⟦Kehrwert⟧, kein negatives Ergebnis.'},
 ]
+
+# Zeichnungen für die Lernkarten
+_E = {e['lernziel']: e for e in ETAPPEN}
+_E['logarithmus']['bild'] = koord([{'art': 'exp', 'a': 1, 'b': 2, 'name': 'y = 2ˣ'}], x=(-1, 6), y=(0, 36), punkte=[{'x': 5, 'y': 32, 'name': '(5 | 32)'}],
+                                  strecken=[[5, 0, 5, 32, 'gestrichelt'], [0, 32, 5, 32, 'gestrichelt']])
+_E['mit_log_loesen']['bild'] = koord([{'art': 'exp', 'a': 1, 'b': 2, 'name': 'y = 2ˣ'}], x=(-1, 5), y=(0, 16), waagrecht=[10],
+                                     punkte=[{'x': 3.32, 'y': 10, 'name': 'x ≈ 3,32'}])
+_E['wachstum']['bild'] = koord([{'art': 'exp', 'a': 1000, 'b': 1.04, 'bereich': [0, 15]}], x=(0, 15), y=(0, 2000), waagrecht=[1500],
+                               senkrecht=[10.34], name_x='t', name_y='K', schritt_y=250)
+_E['verstehen']['bild'] = koord([{'art': 'exp', 'a': 1, 'b': 2, 'name': 'y = 2ˣ'}], x=(-4, 4), y=(-10, 16), waagrecht=[-8])
 
 
 def g_logarithmus(s):
@@ -134,8 +145,11 @@ def g_mit_log_loesen(s):
         x = log(c) / log(b)
         v = gerundet(x, 2)
         if v is None: return None
-        return zahl(f'Löse {b}^x = {c}. Runde auf zwei Nachkommastellen.', f'x = {lb(b)}({c}) = lg {c} : lg {b} ≈ {dz(v)}.',
-                    'Logarithmiere beide Seiten.', v, f'round({K(x)}, 2)', tol=0.01)
+        a = zahl(f'Löse {b}^x = {c}. Runde auf zwei Nachkommastellen. (Die Zeichnung zeigt y = {b}^x und y = {c} zum Abschätzen.)',
+                 f'Der Schnittpunkt liegt etwa bei x ≈ {dz(round(x))}. Genau: x = {lb(b)}({c}) = lg {c} : lg {b} ≈ {dz(v)}.',
+                 'Schätze mit der Zeichnung, dann logarithmiere beide Seiten.', v, f'round({K(x)}, 2)', tol=0.01)
+        xr = (min(-1, math.floor(x) - 1), max(3, math.ceil(x) + 1))
+        return mit_grafik(a, koord([{'art': 'exp', 'a': 1, 'b': b}], x=xr, y=(0, round(c * 1.4)), waagrecht=[c]))
     if s == 2:
         a = R.randint(2, 9)
         q = R.choice([Fr(3, 2), Fr(6, 5), Fr(5, 4), 2, 3, Fr(1, 2), Fr(4, 5)])
@@ -264,9 +278,10 @@ def g_verstehen(s):
     if typ == 'b':
         b = R.choice([2, 3, 5, 10])
         n = R.randint(2, 6)
-        return auswahl(f'Welche Lösung hat {b}^x = −{dz(b ** n)}?', 'keine Lösung', [f'x = −{n}', f'x = {n}', f'x = −1/{n}'],
-                       f'{b}^x ist für jedes x positiv ({b}^(−{n}) = 1/{dz(b ** n)}). Eine negative Zahl wird nie erreicht.',
-                       'Kann eine Potenz mit positiver Basis negativ sein?')
+        a = auswahl(f'Welche Lösung hat {b}^x = −{dz(b ** n)}? Die Zeichnung zeigt y = {b}^x und y = −{dz(b ** n)}.', 'keine Lösung', [f'x = −{n}', f'x = {n}', f'x = −1/{n}'],
+                    f'{b}^x ist für jedes x positiv ({b}^(−{n}) = 1/{dz(b ** n)}). Die Gerade y = −{dz(b ** n)} wird nie geschnitten.',
+                    'Kann eine Potenz mit positiver Basis negativ sein?')
+        return mit_grafik(a, koord([{'art': 'exp', 'a': 1, 'b': b}], x=(-4, 4), y=(-(b ** n) * 1.25, b ** n * 1.25), waagrecht=[-(b ** n)]))
     if typ == 'c':
         b = R.choice([2, 3, 4, 5])
         n = R.randint(2, 5)
@@ -308,7 +323,7 @@ if __name__ == '__main__':
           ETAPPEN, GEN,
           meiden={'logarithmus': ['log₂(32).'], 'gleiche_basis': ['3^(x − 1) = 81.'], 'mit_log_loesen': ['3 · 2^x = 30'],
                   'potenzregel': ['5^x = 2^(x + 1)'], 'wachstum': ['4 % pro Jahr verzinst (Zinseszins). Wie groß'], 'verstehen': ['2^x = −8']},
-          offen=['Nur die Potenzregel für Logarithmen (lehrplan_gym). Produkt- und Quotientenregel sind bewusst nicht enthalten.',
+          offen=['Zeichnungen: Lernkarten „logarithmus“, „mit_log_loesen“, „wachstum“ und „verstehen“ haben ein Koordinatensystem; Aufgaben zum Abschätzen (Stufe 1 „mit_log_loesen“) und zu „keine Lösung“ zeigen den Graphen. Die Exponenten heißen in den Graphnamen „2^x“ (Text).',
+                 'Nur die Potenzregel für Logarithmen (lehrplan_gym). Produkt- und Quotientenregel sind bewusst nicht enthalten.',
                  'Rechenausdruck c bei exakten Logarithmen: prüft b^n = x (z. B. „5 + (2 ** 5 − 32)“), weil das Prüfskript keinen Logarithmus kennt; gerundete Lösungen als 12-stellige Konstante mit Toleranz 0,01 bzw. 0,1.',
-                 'Lernkarte „wachstum“ würde von einem Graphen der Wachstumsfunktion profitieren (Ablesen der Zeit).',
                  'Schreibweise: Exponenten mit Unbekannten als „2^x“ bzw. „3^(x − 1)“, Logarithmus als „log₂(32)“ und „lg“.'])

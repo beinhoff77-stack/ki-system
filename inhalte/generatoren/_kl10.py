@@ -269,3 +269,88 @@ def schoen(gen):
             return a
         return f
     return {k: wrap(v) for k, v in gen.items()}
+
+
+# ---------- Zeichnungen (App 0.69.0, README „Zeichnungen“) ----------
+def graph_wert(g, x):
+    """Gleiche Formeln wie lernGraphWert in lernen.js – für den automatischen y-Bereich."""
+    a = g.get('a', 1)
+    art = g['art']
+    try:
+        if art == 'linear': return g.get('m', 1) * x + g.get('t', 0)
+        if art == 'poly': return sum(c * x ** i for i, c in enumerate(g['k']))
+        if art == 'hyperbel': return a / (x + g.get('b', 0)) + g.get('c', 0)
+        if art == 'potenz': return a * x ** g.get('n', 2)
+        if art == 'wurzel': return a * math.sqrt(x) if x >= 0 else None
+        if art in ('sin', 'cos'):
+            f = math.sin if art == 'sin' else math.cos
+            arg = g.get('b', 1) * (x if g.get('bogen') else math.radians(x)) + g.get('c', 0)
+            return a * f(arg) + g.get('d', 0)
+        if art == 'exp': return a * g.get('b', 2) ** x + g.get('c', 0)
+        if art == 'log': return math.log(x) / math.log(g.get('b', 10)) if x > 0 else None
+    except (ZeroDivisionError, OverflowError, ValueError):
+        return None
+    return None
+
+
+def _rund_grenze(v, nach_oben):
+    if v == 0: return 0
+    p = 10 ** math.floor(math.log10(abs(v)))
+    for m in (1, 2, 5, 10):
+        if abs(v) <= m * p: break
+    s = m * p
+    if nach_oben: return math.ceil(v / s) * s if v > 0 else -math.floor(-v / s) * s
+    return math.floor(v / s) * s
+
+
+def koord(graphen=(), x=(-5, 5), y=None, punkte=None, waagrecht=None, senkrecht=None, strecken=None, ymax=None, **extra):
+    """Koordinatensystem; ohne y wird der Bereich aus den Graphen und Punkten bestimmt (gerundet, mit Rand)."""
+    b = {'typ': 'koordinaten', 'x': [x[0], x[1]]}
+    if y is None:
+        ws = []
+        for g in graphen:
+            lo, hi = g.get('bereich', x)
+            for i in range(201):
+                v = graph_wert(g, lo + (hi - lo) * i / 200)
+                if v is not None and math.isfinite(v): ws.append(v)
+        ws += [p['y'] for p in (punkte or [])] + list(waagrecht or [])
+        lo, hi = (min(ws), max(ws)) if ws else (-5, 5)
+        if ymax is not None: lo, hi = max(lo, -ymax), min(hi, ymax)
+        lo, hi = min(lo, 0), max(hi, 0)
+        span = (hi - lo) or 2
+        p = 10 ** math.floor(math.log10(span / 8))
+        st = next(m * p for m in (1, 2, 5, 10) if m * p >= span / 8)
+        lo, hi = math.floor((lo - span * 0.05) / st) * st, math.ceil((hi + span * 0.05) / st) * st
+        lo, hi = (int(lo) if float(lo).is_integer() else round(lo, 6)), (int(hi) if float(hi).is_integer() else round(hi, 6))
+        y = (lo, hi)
+    b['y'] = [y[0], y[1]]
+    if graphen: b['graphen'] = [dict(g) for g in graphen]
+    if punkte: b['punkte'] = punkte
+    if waagrecht: b['waagrecht'] = list(waagrecht)
+    if senkrecht: b['senkrecht'] = list(senkrecht)
+    if strecken: b['strecken'] = strecken
+    b.update(extra)
+    return b
+
+
+def g_poly(k_hoch, **kw):
+    """Graph aus Koeffizienten (höchster Grad zuerst) – die App erwartet k = [c0, c1, …]."""
+    g = {'art': 'poly', 'k': [float(c) if isinstance(c, Fr) and c.denominator != 1 else int(c) for c in reversed(k_hoch)]}
+    g.update(kw)
+    return g
+
+
+def zahlwert_json(x):
+    x = Fr(x)
+    return int(x) if x.denominator == 1 else float(x)
+
+
+def tabelle(kopf, zeilen):
+    return {'typ': 'tabelle', 'kopf': [str(k) for k in kopf], 'zeilen': [[str(z) for z in zl] for zl in zeilen]}
+
+
+def mit_grafik(a, grafik):
+    """Grafik an eine Aufgabe hängen (f.grafik)."""
+    if a is not None and grafik is not None:
+        a['f']['grafik'] = grafik
+    return a

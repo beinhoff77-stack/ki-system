@@ -2700,21 +2700,45 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Löse 6 tan x − 6 = 0 im Bereich 0° ≤ x < 360°.",
+    "text": "Löse 8 cos x + 1 = 1,8 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
+    "schablone": "x₁ ≈ □°; x₂ ≈ □°",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     84,
+     276
+    ]
+   },
+   "w": "8 cos x = 0,8 ⇒ cos x = 0,1 ⇒ x ≈ 84° und x ≈ 276°.",
+   "h": "Erst nach cos x umstellen, dann mit dem Taschenrechner beide Lösungen bestimmen.",
+   "c": [
+    "round(84.260829522733, 0)",
+    "round(275.739170477267, 0)"
+   ]
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 3 tan x − 6 = −9 im Bereich 0° ≤ x < 360°.",
     "schablone": "x₁ = □°; x₂ = □°",
     "hinweis": "kleinere Lösung zuerst"
    },
    "o": {
     "werte": [
-     45,
-     225
+     135,
+     315
     ]
    },
-   "w": "6 tan x = 6 ⇒ tan x = 1 ⇒ 45° und 225°.",
+   "w": "3 tan x = −3 ⇒ tan x = −1 ⇒ 135° und 315°.",
    "h": "Bringe die Zahl auf die andere Seite und teile durch den Faktor.",
    "c": [
-    "45",
-    "225"
+    "135",
+    "315"
    ]
   },
   {
@@ -2724,19 +2748,21 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Löse 3 cos x + 1 = −2 im Bereich 0° ≤ x < 360°.",
-    "schablone": "x = □°",
-    "hinweis": "die Lösung"
+    "text": "Löse 2 tan x + 5 = 3 im Bereich 0° ≤ x < 360°.",
+    "schablone": "x₁ = □°; x₂ = □°",
+    "hinweis": "kleinere Lösung zuerst"
    },
    "o": {
     "werte": [
-     180
+     135,
+     315
     ]
    },
-   "w": "3 cos x = −3 ⇒ cos x = −1 ⇒ 180°.",
+   "w": "2 tan x = −2 ⇒ tan x = −1 ⇒ 135° und 315°.",
    "h": "Bringe die Zahl auf die andere Seite und teile durch den Faktor.",
    "c": [
-    "180"
+    "135",
+    "315"
    ]
   },
   {
@@ -2746,73 +2772,7 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Löse 6 cos x = −6 im Bereich 0° ≤ x < 360°.",
-    "schablone": "x = □°",
-    "hinweis": "die Lösung"
-   },
-   "o": {
-    "werte": [
-     180
-    ]
-   },
-   "w": "6 cos x = −6 ⇒ cos x = −1 ⇒ 180°.",
-   "h": "Bringe die Zahl auf die andere Seite und teile durch den Faktor.",
-   "c": [
-    "180"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 2 sin x + 8 = 10 im Bereich 0° ≤ x < 360°.",
-    "schablone": "x = □°",
-    "hinweis": "die Lösung"
-   },
-   "o": {
-    "werte": [
-     90
-    ]
-   },
-   "w": "2 sin x = 2 ⇒ sin x = 1 ⇒ 90°.",
-   "h": "Bringe die Zahl auf die andere Seite und teile durch den Faktor.",
-   "c": [
-    "90"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 2 cos x + 1 = 3 im Bereich 0° ≤ x < 360°.",
-    "schablone": "x = □°",
-    "hinweis": "die Lösung"
-   },
-   "o": {
-    "werte": [
-     0
-    ]
-   },
-   "w": "2 cos x = 2 ⇒ cos x = 1 ⇒ 0°.",
-   "h": "Bringe die Zahl auf die andere Seite und teile durch den Faktor.",
-   "c": [
-    "0"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 6 cos x + 5 = 2 im Bereich 0° ≤ x < 360°.",
+    "text": "Löse 6 cos x + 7 = 4 im Bereich 0° ≤ x < 360°.",
     "schablone": "x₁ = □°; x₂ = □°",
     "hinweis": "kleinere Lösung zuerst"
    },
@@ -2833,28 +2793,96 @@
    "l": "umformen",
    "t": "umformen",
    "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 8 cos x + 6 = 0,4 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
+    "schablone": "x₁ ≈ □°; x₂ ≈ □°",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     134,
+     226
+    ]
+   },
+   "w": "8 cos x = −5,6 ⇒ cos x = −0,7 ⇒ x ≈ 134° und x ≈ 226°.",
+   "h": "Erst nach cos x umstellen, dann mit dem Taschenrechner beide Lösungen bestimmen.",
+   "c": [
+    "round(134.427004000806, 0)",
+    "round(225.572995999194, 0)"
+   ]
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 2 cos x − 6 = −5,8 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
+    "schablone": "x₁ ≈ □°; x₂ ≈ □°",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     84,
+     276
+    ]
+   },
+   "w": "2 cos x = 0,2 ⇒ cos x = 0,1 ⇒ x ≈ 84° und x ≈ 276°.",
+   "h": "Erst nach cos x umstellen, dann mit dem Taschenrechner beide Lösungen bestimmen.",
+   "c": [
+    "round(84.260829522733, 0)",
+    "round(275.739170477267, 0)"
+   ]
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "Löse 4 (sin x)² = 1 im Bereich 0° ≤ x < 360°.",
-    "schablone": "x₁ = □°; x₂ = □°; x₃ = □°; x₄ = □°",
-    "hinweis": "aufsteigend"
+    "text": "Löse 3 sin x = 3 cos x im Bereich 0° ≤ x < 360°.",
+    "schablone": "x₁ = □°; x₂ = □°",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     45,
+     225
+    ]
+   },
+   "w": "Durch cos x teilen (cos x ≠ 0): tan x = 1 ⇒ x₁ = 45°, x₂ = 225°.",
+   "h": "Teile beide Seiten durch cos x.",
+   "c": [
+    "45",
+    "45 + 180"
+   ]
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 3 sin x − 3 = sin x − 2 im Bereich 0° ≤ x < 360°.",
+    "schablone": "x₁ = □°; x₂ = □°",
+    "hinweis": "kleinere Lösung zuerst"
    },
    "o": {
     "werte": [
      30,
-     150,
-     210,
-     330
+     150
     ]
    },
-   "w": "(sin x)² = 0,25 ⇒ sin x = 0,5 oder sin x = −0,5 ⇒ 30°, 150°, 210°, 330°.",
-   "h": "Ziehe die Wurzel: Denke an beide Vorzeichen.",
+   "w": "sin x auf eine Seite: 2 sin x = 1 ⇒ sin x = 0,5 ⇒ 30° und 150°.",
+   "h": "Bringe alle sin-x-Glieder auf eine Seite wie bei einer linearen Gleichung.",
    "c": [
     "30",
-    "150",
-    "210",
-    "330"
+    "150"
    ]
   },
   {
@@ -2892,21 +2920,25 @@
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "Löse 2 sin x + 2 cos x = 0 im Bereich 0° ≤ x < 360°.",
-    "schablone": "x₁ = □°; x₂ = □°",
-    "hinweis": "kleinere Lösung zuerst"
+    "text": "Löse 4 (sin x)² = 1 im Bereich 0° ≤ x < 360°.",
+    "schablone": "x₁ = □°; x₂ = □°; x₃ = □°; x₄ = □°",
+    "hinweis": "aufsteigend"
    },
    "o": {
     "werte": [
-     135,
-     315
+     30,
+     150,
+     210,
+     330
     ]
    },
-   "w": "Umformen zu sin x = −cos x, durch cos x teilen: tan x = −1 ⇒ x₁ = 135°, x₂ = 315°.",
-   "h": "Teile beide Seiten durch cos x.",
+   "w": "(sin x)² = 0,25 ⇒ sin x = 0,5 oder sin x = −0,5 ⇒ 30°, 150°, 210°, 330°.",
+   "h": "Ziehe die Wurzel: Denke an beide Vorzeichen.",
    "c": [
-    "180 - 45",
-    "360 - 45"
+    "30",
+    "150",
+    "210",
+    "330"
    ]
   },
   {
@@ -2916,7 +2948,7 @@
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "Löse 3 sin x = 3 cos x im Bereich 0° ≤ x < 360°.",
+    "text": "Löse sin x = cos x im Bereich 0° ≤ x < 360°.",
     "schablone": "x₁ = □°; x₂ = □°",
     "hinweis": "kleinere Lösung zuerst"
    },
@@ -2940,191 +2972,7 @@
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "Löse sin x = −cos x im Bereich 0° ≤ x < 360°.",
-    "schablone": "x₁ = □°; x₂ = □°",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     135,
-     315
-    ]
-   },
-   "w": "Umformen zu sin x = −cos x, durch cos x teilen: tan x = −1 ⇒ x₁ = 135°, x₂ = 315°.",
-   "h": "Teile beide Seiten durch cos x.",
-   "c": [
-    "180 - 45",
-    "360 - 45"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Löse (sin x)² = 1 im Bereich 0° ≤ x < 360°.",
-    "schablone": "x₁ = □°; x₂ = □°",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     90,
-     270
-    ]
-   },
-   "w": "sin x = 1 oder sin x = −1 ⇒ x = 90° oder x = 270°.",
-   "h": "Ziehe die Wurzel: Denke an beide Vorzeichen.",
-   "c": [
-    "90",
-    "270"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "test",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 6 sin x − 2 = −2 im Bereich 0° ≤ x < 360°.",
-    "schablone": "x₁ = □°; x₂ = □°",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     0,
-     180
-    ]
-   },
-   "w": "6 sin x = 0 ⇒ sin x = 0 ⇒ 0° und 180°.",
-   "c": [
-    "0",
-    "180"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 3 tan x − 5 = −8 im Bereich 0° ≤ x < 360°.",
-    "schablone": "x₁ = □°; x₂ = □°",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     135,
-     315
-    ]
-   },
-   "w": "3 tan x = −3 ⇒ tan x = −1 ⇒ 135° und 315°.",
-   "c": [
-    "135",
-    "315"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 3 sin x + 5 = 5 im Bereich 0° ≤ x < 360°.",
-    "schablone": "x₁ = □°; x₂ = □°",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     0,
-     180
-    ]
-   },
-   "w": "3 sin x = 0 ⇒ sin x = 0 ⇒ 0° und 180°.",
-   "c": [
-    "0",
-    "180"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 6 tan x − 7 = −13 im Bereich 0° ≤ x < 360°.",
-    "schablone": "x₁ = □°; x₂ = □°",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     135,
-     315
-    ]
-   },
-   "w": "6 tan x = −6 ⇒ tan x = −1 ⇒ 135° und 315°.",
-   "c": [
-    "135",
-    "315"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 2 tan x − 3 = −1 im Bereich 0° ≤ x < 360°.",
-    "schablone": "x₁ = □°; x₂ = □°",
-    "hinweis": "kleinere Lösung zuerst"
-   },
-   "o": {
-    "werte": [
-     45,
-     225
-    ]
-   },
-   "w": "2 tan x = 2 ⇒ tan x = 1 ⇒ 45° und 225°.",
-   "c": [
-    "45",
-    "225"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 4 cos x − 6 = −2 im Bereich 0° ≤ x < 360°.",
-    "schablone": "x = □°",
-    "hinweis": "die Lösung"
-   },
-   "o": {
-    "werte": [
-     0
-    ]
-   },
-   "w": "4 cos x = 4 ⇒ cos x = 1 ⇒ 0°.",
-   "c": [
-    "0"
-   ]
-  },
-  {
-   "l": "umformen",
-   "t": "umformen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Löse 6 sin x + 5 = 2 im Bereich 0° ≤ x < 360°.",
+    "text": "Löse 5 sin x − 2 = 3 sin x − 3 im Bereich 0° ≤ x < 360°.",
     "schablone": "x₁ = □°; x₂ = □°",
     "hinweis": "kleinere Lösung zuerst"
    },
@@ -3134,7 +2982,8 @@
      330
     ]
    },
-   "w": "6 sin x = −3 ⇒ sin x = −0,5 ⇒ 210° und 330°.",
+   "w": "sin x auf eine Seite: 2 sin x = −1 ⇒ sin x = −0,5 ⇒ 210° und 330°.",
+   "h": "Bringe alle sin-x-Glieder auf eine Seite wie bei einer linearen Gleichung.",
    "c": [
     "210",
     "330"
@@ -3143,55 +2992,57 @@
   {
    "l": "umformen",
    "t": "umformen",
-   "p": "sicherung",
+   "p": "test",
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Löse 4 cos x + 6 = 8 im Bereich 0° ≤ x < 360°.",
-    "schablone": "x₁ = □°; x₂ = □°",
+    "text": "Löse 7 cos x − 2 = −2,7 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
+    "schablone": "x₁ ≈ □°; x₂ ≈ □°",
     "hinweis": "kleinere Lösung zuerst"
    },
    "o": {
     "werte": [
-     60,
-     300
+     96,
+     264
     ]
    },
-   "w": "4 cos x = 2 ⇒ cos x = 0,5 ⇒ 60° und 300°.",
+   "w": "7 cos x = −0,7 ⇒ cos x = −0,1 ⇒ x ≈ 96° und x ≈ 264°.",
    "c": [
-    "60",
-    "300"
+    "round(95.739170477267, 0)",
+    "round(264.260829522733, 0)"
    ]
   },
   {
    "l": "umformen",
    "t": "umformen",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Löse 3 sin x + 3 = 6 im Bereich 0° ≤ x < 360°.",
-    "schablone": "x = □°",
-    "hinweis": "die Lösung"
+    "text": "Löse 5 sin x + 3 = −0,5 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
+    "schablone": "x₁ ≈ □°; x₂ ≈ □°",
+    "hinweis": "kleinere Lösung zuerst"
    },
    "o": {
     "werte": [
-     90
+     224,
+     316
     ]
    },
-   "w": "3 sin x = 3 ⇒ sin x = 1 ⇒ 90°.",
+   "w": "5 sin x = −3,5 ⇒ sin x = −0,7 ⇒ x ≈ 224° und x ≈ 316°.",
    "c": [
-    "90"
+    "round(224.427004000806, 0)",
+    "round(315.572995999194, 0)"
    ]
   },
   {
    "l": "umformen",
    "t": "umformen",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Löse 2 sin x + 1 = −1 im Bereich 0° ≤ x < 360°.",
+    "text": "Löse 2 sin x − 5 = −7 im Bereich 0° ≤ x < 360°.",
     "schablone": "x = □°",
     "hinweis": "die Lösung"
    },
@@ -3206,13 +3057,170 @@
    ]
   },
   {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 4 sin x + 3 = 4,2 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
+    "schablone": "x₁ ≈ □°; x₂ ≈ □°",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     17,
+     163
+    ]
+   },
+   "w": "4 sin x = 1,2 ⇒ sin x = 0,3 ⇒ x ≈ 17° und x ≈ 163°.",
+   "c": [
+    "round(17.457603123722, 0)",
+    "round(162.542396876278, 0)"
+   ]
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 3 sin x − 5 = −7,4 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
+    "schablone": "x₁ ≈ □°; x₂ ≈ □°",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     233,
+     307
+    ]
+   },
+   "w": "3 sin x = −2,4 ⇒ sin x = −0,8 ⇒ x ≈ 233° und x ≈ 307°.",
+   "c": [
+    "round(233.130102354156, 0)",
+    "round(306.869897645844, 0)"
+   ]
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 5 sin x + 6 = 11 im Bereich 0° ≤ x < 360°.",
+    "schablone": "x = □°",
+    "hinweis": "die Lösung"
+   },
+   "o": {
+    "werte": [
+     90
+    ]
+   },
+   "w": "5 sin x = 5 ⇒ sin x = 1 ⇒ 90°.",
+   "c": [
+    "90"
+   ]
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 5 cos x + 8 = 13 im Bereich 0° ≤ x < 360°.",
+    "schablone": "x = □°",
+    "hinweis": "die Lösung"
+   },
+   "o": {
+    "werte": [
+     0
+    ]
+   },
+   "w": "5 cos x = 5 ⇒ cos x = 1 ⇒ 0°.",
+   "c": [
+    "0"
+   ]
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 7 cos x − 4 = −10,3 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
+    "schablone": "x₁ ≈ □°; x₂ ≈ □°",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     154,
+     206
+    ]
+   },
+   "w": "7 cos x = −6,3 ⇒ cos x = −0,9 ⇒ x ≈ 154° und x ≈ 206°.",
+   "c": [
+    "round(154.158067236833, 0)",
+    "round(205.841932763167, 0)"
+   ]
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 8 sin x + 6 = 9,2 im Bereich 0° ≤ x < 360°. Runde auf ganze Grad.",
+    "schablone": "x₁ ≈ □°; x₂ ≈ □°",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     24,
+     156
+    ]
+   },
+   "w": "8 sin x = 3,2 ⇒ sin x = 0,4 ⇒ x ≈ 24° und x ≈ 156°.",
+   "c": [
+    "round(23.578178478202, 0)",
+    "round(156.421821521798, 0)"
+   ]
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Löse 5 tan x + 3 = 3 im Bereich 0° ≤ x < 360°.",
+    "schablone": "x₁ = □°; x₂ = □°",
+    "hinweis": "kleinere Lösung zuerst"
+   },
+   "o": {
+    "werte": [
+     0,
+     180
+    ]
+   },
+   "w": "5 tan x = 0 ⇒ tan x = 0 ⇒ 0° und 180°.",
+   "c": [
+    "0",
+    "180"
+   ]
+  },
+  {
    "l": "anwendung",
    "t": "anwendung",
    "p": "uebung",
    "s": 1,
    "y": "luecken",
    "f": {
-    "text": "Die Höhe einer Gondel eines Riesenrads ist h(x) = 18 − 15 · cos x (in m, x = Drehwinkel in Grad). Für welche Winkel im Bereich 0° ≤ x < 360° ist die Gondel 10,5 m hoch?",
+    "text": "Die Höhe einer Gondel eines Riesenrads ist h(x) = 13 − 10 · cos x (in m, x = Drehwinkel in Grad). Für welche Winkel im Bereich 0° ≤ x < 360° ist die Gondel 8 m hoch?",
     "schablone": "x₁ = □°; x₂ = □°",
     "hinweis": "kleinerer Winkel zuerst"
    },
@@ -3222,7 +3230,7 @@
      300
     ]
    },
-   "w": "18 − 15 cos x = 10,5 ⇒ cos x = 0,5 ⇒ x = 60° oder 300°.",
+   "w": "13 − 10 cos x = 8 ⇒ cos x = 0,5 ⇒ x = 60° oder 300°.",
    "h": "Stelle nach cos x um.",
    "c": [
     "60",
@@ -3236,31 +3244,7 @@
    "s": 1,
    "y": "luecken",
    "f": {
-    "text": "Die Höhe einer Gondel eines Riesenrads ist h(x) = 19 − 15 · cos x (in m, x = Drehwinkel in Grad). Für welche Winkel im Bereich 0° ≤ x < 360° ist die Gondel 11,5 m hoch?",
-    "schablone": "x₁ = □°; x₂ = □°",
-    "hinweis": "kleinerer Winkel zuerst"
-   },
-   "o": {
-    "werte": [
-     60,
-     300
-    ]
-   },
-   "w": "19 − 15 cos x = 11,5 ⇒ cos x = 0,5 ⇒ x = 60° oder 300°.",
-   "h": "Stelle nach cos x um.",
-   "c": [
-    "60",
-    "300"
-   ]
-  },
-  {
-   "l": "anwendung",
-   "t": "anwendung",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Die Höhe einer Gondel eines Riesenrads ist h(x) = 10 − 5 · cos x (in m, x = Drehwinkel in Grad). Für welche Winkel im Bereich 0° ≤ x < 360° ist die Gondel 12,5 m hoch?",
+    "text": "Die Höhe einer Gondel eines Riesenrads ist h(x) = 8 − 5 · cos x (in m, x = Drehwinkel in Grad). Für welche Winkel im Bereich 0° ≤ x < 360° ist die Gondel 10,5 m hoch?",
     "schablone": "x₁ = □°; x₂ = □°",
     "hinweis": "kleinerer Winkel zuerst"
    },
@@ -3270,7 +3254,7 @@
      240
     ]
    },
-   "w": "10 − 5 cos x = 12,5 ⇒ cos x = −0,5 ⇒ x = 120° oder 240°.",
+   "w": "8 − 5 cos x = 10,5 ⇒ cos x = −0,5 ⇒ x = 120° oder 240°.",
    "h": "Stelle nach cos x um.",
    "c": [
     "120",
@@ -3284,31 +3268,7 @@
    "s": 1,
    "y": "luecken",
    "f": {
-    "text": "Die Höhe einer Gondel eines Riesenrads ist h(x) = 11 − 8 · cos x (in m, x = Drehwinkel in Grad). Für welche Winkel im Bereich 0° ≤ x < 360° ist die Gondel 15 m hoch?",
-    "schablone": "x₁ = □°; x₂ = □°",
-    "hinweis": "kleinerer Winkel zuerst"
-   },
-   "o": {
-    "werte": [
-     120,
-     240
-    ]
-   },
-   "w": "11 − 8 cos x = 15 ⇒ cos x = −0,5 ⇒ x = 120° oder 240°.",
-   "h": "Stelle nach cos x um.",
-   "c": [
-    "120",
-    "240"
-   ]
-  },
-  {
-   "l": "anwendung",
-   "t": "anwendung",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Die Höhe einer Gondel eines Riesenrads ist h(x) = 20 − 15 · cos x (in m, x = Drehwinkel in Grad). Für welche Winkel im Bereich 0° ≤ x < 360° ist die Gondel 12,5 m hoch?",
+    "text": "Die Höhe einer Gondel eines Riesenrads ist h(x) = 15 − 12 · cos x (in m, x = Drehwinkel in Grad). Für welche Winkel im Bereich 0° ≤ x < 360° ist die Gondel 9 m hoch?",
     "schablone": "x₁ = □°; x₂ = □°",
     "hinweis": "kleinerer Winkel zuerst"
    },
@@ -3318,7 +3278,7 @@
      300
     ]
    },
-   "w": "20 − 15 cos x = 12,5 ⇒ cos x = 0,5 ⇒ x = 60° oder 300°.",
+   "w": "15 − 12 cos x = 9 ⇒ cos x = 0,5 ⇒ x = 60° oder 300°.",
    "h": "Stelle nach cos x um.",
    "c": [
     "60",
@@ -3332,7 +3292,31 @@
    "s": 1,
    "y": "luecken",
    "f": {
-    "text": "Die Höhe einer Gondel eines Riesenrads ist h(x) = 20 − 15 · cos x (in m, x = Drehwinkel in Grad). Für welche Winkel im Bereich 0° ≤ x < 360° ist die Gondel 27,5 m hoch?",
+    "text": "Die Höhe einer Gondel eines Riesenrads ist h(x) = 16 − 12 · cos x (in m, x = Drehwinkel in Grad). Für welche Winkel im Bereich 0° ≤ x < 360° ist die Gondel 10 m hoch?",
+    "schablone": "x₁ = □°; x₂ = □°",
+    "hinweis": "kleinerer Winkel zuerst"
+   },
+   "o": {
+    "werte": [
+     60,
+     300
+    ]
+   },
+   "w": "16 − 12 cos x = 10 ⇒ cos x = 0,5 ⇒ x = 60° oder 300°.",
+   "h": "Stelle nach cos x um.",
+   "c": [
+    "60",
+    "300"
+   ]
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Die Höhe einer Gondel eines Riesenrads ist h(x) = 14 − 12 · cos x (in m, x = Drehwinkel in Grad). Für welche Winkel im Bereich 0° ≤ x < 360° ist die Gondel 20 m hoch?",
     "schablone": "x₁ = □°; x₂ = □°",
     "hinweis": "kleinerer Winkel zuerst"
    },
@@ -3342,7 +3326,31 @@
      240
     ]
    },
-   "w": "20 − 15 cos x = 27,5 ⇒ cos x = −0,5 ⇒ x = 120° oder 240°.",
+   "w": "14 − 12 cos x = 20 ⇒ cos x = −0,5 ⇒ x = 120° oder 240°.",
+   "h": "Stelle nach cos x um.",
+   "c": [
+    "120",
+    "240"
+   ]
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Die Höhe einer Gondel eines Riesenrads ist h(x) = 17 − 12 · cos x (in m, x = Drehwinkel in Grad). Für welche Winkel im Bereich 0° ≤ x < 360° ist die Gondel 23 m hoch?",
+    "schablone": "x₁ = □°; x₂ = □°",
+    "hinweis": "kleinerer Winkel zuerst"
+   },
+   "o": {
+    "werte": [
+     120,
+     240
+    ]
+   },
+   "w": "17 − 12 cos x = 23 ⇒ cos x = −0,5 ⇒ x = 120° oder 240°.",
    "h": "Stelle nach cos x um.",
    "c": [
     "120",
@@ -3356,17 +3364,17 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "In einem Dreieck ist α = 40° und sin β = 0,89. Wie viele Werte kommen für β in Frage?"
+    "text": "In einem Dreieck ist α = 142° und sin β = 0,7. Wie viele Werte kommen für β in Frage?"
    },
    "a": [
-    "genau ein Winkel",
     "zwei Winkel",
+    "genau ein Winkel",
     "kein Winkel"
    ],
    "o": {
-    "index": 1
+    "index": 2
    },
-   "w": "sin β = 0,89 ⇒ β ≈ 62,9° oder β ≈ 117,1°. 40° + 62,9° < 180°. 40° + 117,1° < 180°. Also zwei Winkel.",
+   "w": "sin β = 0,7 ⇒ β ≈ 44,4° oder β ≈ 135,6°. 142° + 44,4° ≥ 180°. 142° + 135,6° ≥ 180°. Also kein Winkel.",
    "h": "Bestimme beide Winkel zum Sinuswert und prüfe die Winkelsumme."
   },
   {

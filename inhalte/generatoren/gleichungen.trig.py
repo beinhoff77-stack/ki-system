@@ -318,6 +318,20 @@ def g_umformen(s):
         if not frei([135, 315], t): return None
         return luecken(f'Löse {t} {B}.', schab(2), 'kleinere Lösung zuerst', [135, 315],
                        'Umformen zu sin x = −cos x, durch cos x teilen: tan x = −1 ⇒ x₁ = 135°, x₂ = 315°.', 'Teile beide Seiten durch cos x.', c=['180 - 45', '360 - 45'])
+    if s == 2 and R.random() < 0.45:
+        f = R.choice(['sin', 'cos'])
+        a, b = R.randint(2, 8), R.randint(-6, 6)
+        v = Fr(R.randint(-9, 9), 10)
+        if v == 0 or abs(v) == Fr(1, 2): return None
+        rechts = a * v + b
+        l = loes(f, float(v))
+        r = [gerundet(t, 0) for t in l]
+        if None in r or len(r) != 2: return None
+        t = f'Löse {a} {f} x {plus(b) if b else ""}'.rstrip() + f' = {dz(rechts)} {B}. Runde auf ganze Grad.'
+        if not frei(r, t): return None
+        return luecken(t, 'x₁ ≈ □°; x₂ ≈ □°', 'kleinere Lösung zuerst', r,
+                       f'{a} {f} x = {dz(rechts - b)} ⇒ {f} x = {dz(v)} ⇒ x ≈ {r[0]}° und x ≈ {r[1]}°.',
+                       'Erst nach ' + f + ' x umstellen, dann mit dem Taschenrechner beide Lösungen bestimmen.', c=[f'round({K(l[0])}, 0)', f'round({K(l[1])}, 0)'])
     f = R.choice(['sin', 'cos'] if s == 1 else ['sin', 'cos', 'tan'])
     v = R.choice([x for x in TAB[f] if (s > 1 or len(TAB[f][x]) == 2)])
     l = TAB[f][v]

@@ -5,15 +5,19 @@ from fractions import Fraction as Fr
 from pathlib import Path
 sys.dont_write_bytecode = True
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _bausatz import A, Z, baue, cz, ist_endlich, kl, lin, zt  # noqa: E402
+from _bausatz import A, L, Z, baue, cz, ist_endlich, kl, lin, mit_bild, zt  # noqa: E402
 
 META = {'thema_schluessel': 'funktionen.gebrochen', 'thema_id': 34, 'block_id': 71, 'klasse': {'gym_by': 8}}
 
 ETAPPEN = [
     {'lernziel': 'indirekt', 'titel': 'Indirekte Proportionalität',
      'regel': 'Bei einer ⟦indirekten Proportionalität⟧ gehört zum Doppelten von x die Hälfte von y. Das ⟦Produkt x · y⟧ ist immer gleich: y = k/x. Der Graph ist eine ⟦Hyperbel⟧.',
-     'schritte': ['4 Pumpen leeren ein Becken in 6 Stunden.', 'Produkt: 4 · 6 = 24 (Pumpen-Stunden)', '3 Pumpen brauchen 24 : 3 = ⟦8 Stunden⟧.'],
-     'fehler': 'Mehr Pumpen brauchen ⟦weniger⟧ Zeit. Wer 6 : 4 · 3 = 4,5 h rechnet, behandelt die Zuordnung fälschlich als direkt proportional.',
+     'schritte': ['4 Pumpen leeren ein Becken in 6 Stunden. Wie lange brauchen 3 Pumpen?', 'Die ganze Arbeit sind 4 · 6 = 24 Pumpen-Stunden. Das bleibt gleich, egal wie viele Pumpen arbeiten.',
+                  '3 Pumpen brauchen 24 : 3 = ⟦8 Stunden⟧.'],
+     'probe': 'Weniger Pumpen, also mehr Zeit: 8 h > 6 h ✓. Und 3 · 8 = 24 ✓',
+     'fehler': '6 : 4 · 3 = 4,5 h ist falsch – damit wäre das Becken mit weniger Pumpen schneller leer! Das ist die Rechnung für direkte Proportionalität. Hier bleibt das ⟦Produkt⟧ gleich: 3 · 8 = 4 · 6.',
+     'bild': {'typ': 'koordinaten', 'x': [0, 12], 'y': [0, 12], 'graphen': [{'art': 'hyperbel', 'a': 24, 'b': 0, 'c': 0, 'bereich': [1, 12]}],
+              'punkte': [{'x': 3, 'y': 8, 'name': '(3 | 8)'}, {'x': 4, 'y': 6, 'name': '(4 | 6)'}], 'name_x': 'Pumpen', 'name_y': 'h'},
      '_verbot': ['4 Pumpen']},
     {'lernziel': 'definitionsmenge', 'titel': 'Definitionsmenge von a/(x + b) + c',
      'regel': 'f(x) = a/(x + b) + c ist für ⟦x = −b⟧ nicht definiert, weil dann der Nenner 0 ist. Also ⟦D = ℚ \\ {−b}⟧.',
@@ -24,16 +28,21 @@ ETAPPEN = [
      'regel': 'Eine ⟦Asymptote⟧ ist eine Gerade, der sich der Graph immer mehr nähert. Bei f(x) = a/(x + b) + c: ⟦senkrechte⟧ Asymptote x = −b, ⟦waagrechte⟧ Asymptote y = c.',
      'schritte': ['f(x) = 2/(x + 4) − 3', 'Senkrecht: x + 4 = 0 → ⟦x = −4⟧', 'Waagrecht: ⟦y = −3⟧ (für große x wird 2/(x + 4) fast 0)'],
      'fehler': 'Die waagrechte Asymptote von 2/(x + 4) − 3 ist nicht y = 2. Der Zähler a bestimmt sie nicht, sondern die ⟦Verschiebung c = −3⟧.',
+     'bild': {'typ': 'koordinaten', 'x': [-10, 4], 'y': [-8, 3], 'graphen': [{'art': 'hyperbel', 'a': 2, 'b': 4, 'c': -3, 'name': 'f'}], 'senkrecht': [-4], 'waagrecht': [-3]},
      '_verbot': ['2/(x + 4) − 3']},
     {'lernziel': 'achsenpunkte', 'titel': 'Schnittpunkte mit den Achsen',
      'regel': '⟦y-Achse⟧: x = 0 einsetzen (falls 0 in D). ⟦x-Achse⟧ (Nullstelle): f(x) = 0 lösen. Ist c = 0, gibt es ⟦keine⟧ Nullstelle, weil a/(x + b) nie 0 ist.',
      'schritte': ['f(x) = 6/(x + 1) − 2', 'y-Achse: f(0) = 6 − 2 = 4 → (0 | 4)', 'Nullstelle: 6/(x + 1) = 2 → x + 1 = 3 → ⟦x = 2⟧'],
-     'fehler': 'f(x) = 5/(x − 1) hat keine Nullstelle bei x = 0: f(0) = −5. Ein Bruch ist nur 0, wenn der ⟦Zähler 0⟧ ist – und 5 ist nie 0.',
+     'fehler': 'Für die Nullstelle x = 0 einsetzen: f(0) = 4 ist der Schnittpunkt mit der ⟦y-Achse⟧. Die Nullstelle ist dort, wo ⟦y = 0⟧ ist. Merke: Achse x heißt y = 0, Achse y heißt x = 0.',
+     'bild': {'typ': 'koordinaten', 'x': [-6, 6], 'y': [-8, 8], 'graphen': [{'art': 'hyperbel', 'a': 6, 'b': 1, 'c': -2, 'name': 'f'}], 'senkrecht': [-1], 'waagrecht': [-2],
+              'punkte': [{'x': 0, 'y': 4, 'name': '(0 | 4)'}, {'x': 2, 'y': 0, 'name': '(2 | 0)'}]},
      '_verbot': ['6/(x + 1) − 2']},
     {'lernziel': 'parameter', 'titel': 'Verschieben: Einfluss von b und c',
-     'regel': 'Der Graph von a/(x + b) + c entsteht aus a/x durch Verschieben: um ⟦−b in x-Richtung⟧ (bei x − 3 also 3 nach ⟦rechts⟧) und um ⟦c in y-Richtung⟧.',
+     'regel': 'Der Graph von a/(x + b) + c entsteht aus a/x durch Verschieben. Die Lücke liegt dort, wo der Nenner 0 ist: Bei 1/(x − 3) ist das ⟦x = 3⟧, also ist der Graph um 3 nach ⟦rechts⟧ gerutscht. Das +c verschiebt um c nach ⟦oben⟧ (negatives c nach unten).',
      'schritte': ['f(x) = 1/(x − 3) + 2 aus g(x) = 1/x', 'x − 3: um 3 nach rechts', '+ 2: um 2 nach oben. ⟦Asymptoten x = 3, y = 2⟧'],
      'fehler': 'Bei 1/(x − 3) geht es nicht nach links: Das Minus in der Klammer bedeutet eine Verschiebung nach ⟦rechts⟧ (die Lücke liegt bei x = 3).',
+     'bild': {'typ': 'koordinaten', 'x': [-4, 8], 'y': [-4, 6], 'graphen': [{'art': 'hyperbel', 'a': 1, 'b': 0, 'c': 0, 'name': 'g'}, {'art': 'hyperbel', 'a': 1, 'b': -3, 'c': 2, 'name': 'f'}],
+              'senkrecht': [3], 'waagrecht': [2]},
      '_verbot': ['1/(x − 3) + 2']},
     {'lernziel': 'beurteilen', 'titel': 'Aussagen über Hyperbeln prüfen',
      'regel': 'Prüfe Aussagen mit D, den Asymptoten und Funktionswerten. Wichtig: Der Graph von a/(x + b) + c berührt ⟦keine⟧ seiner beiden Asymptoten.',
@@ -55,6 +64,23 @@ def ft(a, b, c):
 
 
 def g_indirekt(R, st):
+    if st >= 2 and R.random() < .25:
+        art = R.choice(['pumpen', 'pizza'])
+        if art == 'pumpen':
+            p1, h1 = R.choice([(4, 6), (3, 8), (2, 12), (6, 4)]); p2 = R.choice([q for q in (2, 3, 4, 6, 8, 12) if q != p1 and (p1 * h1) % q == 0])
+            falsch = Fr(h1 * p2, p1)
+            return A(R, f'Jemand rechnet: {p1} Pumpen brauchen {h1} h, also brauchen {p2} Pumpen {zt(falsch)} h. Was ist falsch?',
+                     f'{"Mehr" if p2 > p1 else "Weniger"} Pumpen brauchen {"weniger" if p2 > p1 else "mehr"} Zeit: {p1} · {h1} = {p1 * h1}, {p1 * h1} : {p2} = {zt(Fr(p1 * h1, p2))} h.',
+                     ['Richtig gerechnet.', f'Es müssten {zt(falsch + 2)} h sein.', f'Man muss {h1} + {p2} rechnen.'],
+                     f'Indirekt proportional: Das Produkt Pumpen · Stunden bleibt gleich ({p1 * h1}). Gerechnet wurde wie bei einer direkten Proportionalität.',
+                     'Mehr Pumpen – mehr oder weniger Zeit?')
+        k1, s1 = R.choice([(6, 2), (4, 3), (8, 3), (6, 4)]); k2 = R.choice([q for q in (2, 3, 4, 6, 8, 12) if q != k1 and (k1 * s1) % q == 0])
+        falsch = Fr(s1 * k2, k1)
+        return A(R, f'{k1} Kinder teilen Pizzastücke, jedes bekommt {s1} Stücke. Jemand rechnet: {k2} Kinder bekommen je {zt(falsch)} Stücke. Was ist falsch?',
+                 f'{"Weniger" if k2 < k1 else "Mehr"} Kinder bekommen {"mehr" if k2 < k1 else "weniger"}: {k1 * s1} : {k2} = {zt(Fr(k1 * s1, k2))} Stücke.',
+                 ['Richtig gerechnet.', f'Es müssten {zt(falsch + 1)} Stücke sein.', 'Man kann es nicht ausrechnen.'],
+                 f'Alle Stücke zusammen: {k1} · {s1} = {k1 * s1}. Die Zahl bleibt gleich, also wird durch die Zahl der Kinder geteilt.',
+                 'Wie viele Stücke gibt es insgesamt?')
     if st == 1:
         k = R.choice([12, 18, 24, 30, 36, 48, 60, 72, 120])
         x1 = R.choice([d for d in range(2, 13) if k % d == 0]); x2 = R.choice([d for d in range(1, 25) if k % d == 0 and d != x1])
@@ -111,6 +137,19 @@ def g_definitionsmenge(R, st):
 
 
 def g_asymptoten(R, st):
+    if st >= 2 and R.random() < .35:
+        a, b, c = R.choice([1, 2, 3, -1, -2]), R.randint(-3, 3), R.randint(-3, 3)
+        gr = {'typ': 'koordinaten', 'x': [-b - 6, -b + 6], 'y': [c - 6, c + 6], 'graphen': [{'art': 'hyperbel', 'a': a, 'b': b, 'c': c, 'name': 'f'}]}
+        if R.random() < .55:
+            return mit_bild(L('Lies die Asymptoten der Hyperbel ab.', 'x = □; y = □', [-b, c], [str(-b), str(c)],
+                              f'Der Graph nähert sich der senkrechten Linie x = {zt(-b)} und der waagrechten Linie y = {zt(c)}, ohne sie zu berühren.',
+                              'Wo ist die Lücke zwischen den beiden Ästen? Welcher Höhe nähert sich der Graph links und rechts?', hinweis='Senkrechte Asymptote x, waagrechte Asymptote y.'), gr)
+        if b == 0 and c == 0: c = R.choice([1, 2, -2])
+        gr['graphen'][0]['c'] = c; gr['y'] = [c - 6, c + 6]
+        return mit_bild(A(R, 'Welcher Term gehört zum gezeichneten Graphen?', f'f(x) = {ft(a, b, c)}',
+                          [f'f(x) = {ft(a, -b, c)}' if b else f'f(x) = {ft(a, c, 0)}', f'f(x) = {ft(a, c, b)}' if c != b else f'f(x) = {ft(a, -c, -b)}', f'f(x) = {ft(-a, b, c)}'],
+                          f'Senkrechte Asymptote x = {zt(-b)} → Nenner {lin(1, b)}. Waagrechte Asymptote y = {zt(c)} → + {kl(c)}. Lage der Äste: a {"positiv (1. und 3. Feld um die Asymptoten)" if a > 0 else "negativ (2. und 4. Feld)"}.',
+                          'Lies erst die Asymptoten ab. Dann prüfe, in welchen Feldern die Äste liegen.'), gr)
     a, b, c = nz(R, -9, 9), R.choice([0] + [k for k in range(-8, 9) if k]) if st == 1 else nz(R, -8, 8), nz(R, -6, 6)
     if st == 3 and R.random() < .5:
         # Term aus Asymptoten bestimmen
@@ -125,7 +164,18 @@ def g_asymptoten(R, st):
              f'Für sehr große x wird {zt(a)}/({lin(1, b)}) fast 0. Also nähert sich f dem Wert {zt(c)}: y = {zt(c)}.', 'Was bleibt übrig, wenn der Bruch fast 0 wird?')
 
 
+ACH = {'null': 0}
+
+
 def g_achsenpunkte(R, st):
+    if st >= 2 and (R.random() < .3 or ACH['null'] >= 10):
+        if R.random() < .5:
+            a, b = nz(R, -9, 9), R.randint(-6, 6)
+            return A(R, f'Welche Nullstelle hat f(x) = {ft(a, b, 0)}?', 'keine Nullstelle', [f'x = {zt(-b)}' if b else f'x = {zt(a)}', 'x = 0' if b else f'x = {zt(-a)}', f'x = {zt(a)}' if b and a != -b else 'x = 1'],
+                     f'{zt(a)}/{"x" if not b else "(" + lin(1, b) + ")"} = 0 wäre nur möglich, wenn der Zähler {zt(a)} null wäre. Keine Nullstelle.', 'Wann ist ein Bruch gleich 0?')
+        a, c = nz(R, -6, 6), nz(R, -5, 5)
+        return A(R, f'Wo schneidet f(x) = {ft(a, 0, c)} die y-Achse?', 'gar nicht, x = 0 gehört nicht zu D', [f'bei y = {zt(c)}', f'bei y = {zt(a + c)}', f'bei y = {zt(a)}'],
+                 f'Auf der y-Achse ist x = 0. Aber {zt(a)}/0 ist nicht definiert: D = ℚ \\ {{0}}. Die y-Achse ist hier die senkrechte Asymptote.', 'Darf man x = 0 einsetzen?')
     while True:
         a, b, c = nz(R, -12, 12), nz(R, -6, 6), R.randint(-6, 6)
         y0 = Fr(a, b) + c
@@ -141,6 +191,7 @@ def g_achsenpunkte(R, st):
         a, b = nz(R, -9, 9), nz(R, -6, 6)
         return A(R, f'Welche Nullstelle hat f(x) = {ft(a, b, 0)}?', 'keine Nullstelle', [f'x = {zt(-b)}', 'x = 0', f'x = {zt(a)}'],
                  f'{zt(a)}/({lin(1, b)}) = 0 wäre nur möglich, wenn der Zähler {zt(a)} null wäre. Keine Nullstelle.', 'Wann ist ein Bruch gleich 0?')
+    ACH['null'] += 1
     return Z(f'Berechne die Nullstelle von f(x) = {ft(a, b, c)}.', x0, f'-({a}) / ({c}) - ({b})',
              f'{zt(a)}/({lin(1, b)}) = {zt(-c)} → {lin(1, b)} = {zt(a)} : {kl(-c)} = {zt(Fr(-a, c))} → x = {zt(x0)}.',
              'Setze f(x) = 0, bringe c auf die andere Seite und multipliziere mit dem Nenner.')
@@ -154,6 +205,18 @@ def verschiebung(b, c):
 
 
 def g_parameter(R, st):
+    if st >= 2 and R.random() < .25:
+        k = R.choice([2, 3, 4, 5])
+        if R.random() < .5:
+            gr = {'typ': 'koordinaten', 'x': [-5, 5], 'y': [-5, 5], 'graphen': [{'art': 'hyperbel', 'a': k, 'name': 'g'}, {'art': 'hyperbel', 'a': -k, 'name': 'f'}]}
+            return mit_bild(A(R, f'Wie unterscheidet sich der Graph von f(x) = −{k}/x vom Graphen von g(x) = {k}/x?', 'Er liegt im 2. und 4. Feld statt im 1. und 3.',
+                              ['Er ist nach unten verschoben.', 'Kein Unterschied.', 'Er ist nach links verschoben.'],
+                              f'Das Minus macht aus jedem Funktionswert die Gegenzahl: f(1) = −{k}, g(1) = {k}. Der Graph wird an der x-Achse gespiegelt; die Asymptoten bleiben x = 0 und y = 0.',
+                              'Vergleiche f(1) und g(1).'), gr)
+        return A(R, f'Wie unterscheidet sich der Graph von f(x) = {k}/x vom Graphen von g(x) = 1/x?', 'Er ist weiter vom Ursprung entfernt (gestreckt).',
+                 ['Er ist nach oben verschoben.', 'Er liegt im 2. und 4. Feld.', 'Er hat andere Asymptoten.'],
+                 f'f(1) = {k}, g(1) = 1: Jeder Funktionswert ist {k}-mal so groß. Die Asymptoten x = 0 und y = 0 bleiben gleich, der Graph rückt nach außen.',
+                 'Vergleiche f(1) und g(1). Ändern sich die Asymptoten?')
     a, b, c = nz(R, -6, 6), nz(R, -7, 7), nz(R, -6, 6)
     if st == 1:
         c = 0 if R.random() < .5 else c
@@ -180,26 +243,46 @@ def g_beurteilen(R, st):
     while True:
         a, b, c = nz(R, -8, 8), nz(R, -6, 6), nz(R, -5, 5)
         x0 = Fr(-a, c) - b
-        if ist_endlich(x0) and x0 != -b and len(zt(x0)) <= 5: break
+        if ist_endlich(x0) and x0 != -b and len(zt(x0)) <= 5 and a != c: break
     f = lambda x: Fr(a) / (x + b) + c
     T = ft(a, b, c)
-    x1 = R.choice([k for k in range(-5, 6) if k != -b])
+    while True:
+        x1 = R.choice([k for k in range(-5, 6) if k != -b])
+        if ist_endlich(f(Fr(x1))): break
+    y0 = f(Fr(0))
+    # (Typ, Aussage, wahr, Richtigstellung) – je Aufgabe höchstens eine Aussage je Typ
     al = [
-        (f'Der Graph schneidet die Gerade y = {zt(c)}.', False), (f'f ist für x = {zt(-b)} nicht definiert.', True),
-        (f'f ist für x = {zt(b)} nicht definiert.', b == -b), (f'Die Nullstelle ist x = {zt(x0)}.', True),
-        (f'f({zt(x1)}) = {zt(f(Fr(x1)))}', True), (f'f({zt(x1)}) = {zt(f(Fr(x1)) + 1)}', False),
-        (f'Die waagrechte Asymptote ist y = {zt(a)}.', a == c), (f'Die senkrechte Asymptote ist x = {zt(-b)}.', True),
-        (f'Der Graph hat zwei Nullstellen.', False), (f'Der Graph schneidet die y-Achse bei y = {zt(f(Fr(0)))}.', True),
+        ('gerade_c', f'Der Graph schneidet die Gerade y = {zt(c)}.', False, f'y = {zt(c)} ist die waagrechte Asymptote; {zt(a)}/({lin(1, b)}) wird nie 0.'),
+        ('d', f'f ist für x = {zt(-b)} nicht definiert.', True, ''),
+        ('d', f'f ist für x = {zt(b)} nicht definiert.', False, f'Nicht definiert ist f nur für x = {zt(-b)}.'),
+        ('null', f'Die Nullstelle ist x = {zt(x0)}.', True, ''),
+        ('null', 'Der Graph hat zwei Nullstellen.', False, f'Es gibt genau eine Nullstelle, x = {zt(x0)}.'),
+        ('wert', f'f({zt(x1)}) = {zt(f(Fr(x1)))}', True, ''),
+        ('wert', f'f({zt(x1)}) = {zt(f(Fr(x1)) + 1)}', False, f'Richtig ist f({zt(x1)}) = {zt(a)}/{kl(x1 + b)} {"+" if c > 0 else "−"} {zt(abs(c))} = {zt(f(Fr(x1)))}.'),
+        ('waag', f'Die waagrechte Asymptote ist y = {zt(a)}.', False, f'Die waagrechte Asymptote ist y = {zt(c)}, nicht y = {zt(a)}.'),
+        ('senk', f'Die senkrechte Asymptote ist x = {zt(-b)}.', True, ''),
+        ('yachse', f'Der Graph schneidet die y-Achse bei y = {zt(y0)}.', True, ''),
     ]
-    al = [(t, w) for t, w in al if not (t.startswith('f(') and not ist_endlich(f(Fr(x1))))]
-    wahr = [t for t, w in al if w]; falsch = [t for t, w in al if not w]
+    al = [x for x in al if not (x[0] == 'yachse' and not ist_endlich(y0))]
+    def waehle(richtig_wahr):
+        kand = [x for x in al if x[2] == richtig_wahr]
+        ziel = R.choice(kand)
+        rest = [x for x in al if x[2] != richtig_wahr and x[0] != ziel[0]]
+        R.shuffle(rest)
+        andere, typen = [], {ziel[0]}
+        for x in rest:
+            if x[0] in typen: continue
+            andere.append(x); typen.add(x[0])
+            if len(andere) == 3: break
+        return ziel, andere
     if st == 1 or (st == 2 and R.random() < .5):
-        t = R.choice(wahr)
-        return A(R, f'Welche Aussage über f(x) = {T} ist richtig?', t, R.sample(falsch, 3),
-                 f'Richtig: {t} Asymptoten x = {zt(-b)}, y = {zt(c)}; Nullstelle {zt(x0)}.', 'Bestimme D, Asymptoten und Nullstelle, dann vergleiche.')
-    t = R.choice(falsch)
-    return A(R, f'Welche Aussage über f(x) = {T} ist FALSCH?', t, R.sample(wahr, 3),
-             f'Falsch: {t} Asymptoten x = {zt(-b)}, y = {zt(c)}; der Graph berührt die Asymptoten nie.', 'Bestimme D, Asymptoten und Nullstelle, dann vergleiche.')
+        ziel, andere = waehle(True)
+        return A(R, f'Welche Aussage über f(x) = {T} ist richtig?', ziel[1], [x[1] for x in andere],
+                 f'Richtig: {ziel[1]} Asymptoten x = {zt(-b)}, y = {zt(c)}; Nullstelle {zt(x0)}.', 'Bestimme D, Asymptoten und Nullstelle, dann vergleiche.')
+    ziel, andere = waehle(False)
+    return A(R, f'Welche Aussage über f(x) = {T} ist FALSCH?', ziel[1], [x[1] for x in andere],
+             f'Falsch ist: {ziel[1].rstrip(".")}. {ziel[3]} Die anderen Aussagen stimmen: Asymptoten x = {zt(-b)} und y = {zt(c)}, Nullstelle {zt(x0)}.',
+             'Bestimme D, Asymptoten und Nullstelle, dann vergleiche.')
 
 
 GEN = {'indirekt': g_indirekt, 'definitionsmenge': g_definitionsmenge, 'asymptoten': g_asymptoten, 'achsenpunkte': g_achsenpunkte,
@@ -212,4 +295,4 @@ if __name__ == '__main__':
          'Indirekte Proportionalitäten erkennen und Funktionen f(x) = a/(x + b) + c untersuchen: Definitionsmenge, Asymptoten, Achsenschnittpunkte, Verschiebungen.',
          ['Indirekt proportional: x · y = konstant, y = k/x.', 'f(x) = a/(x + b) + c: D = ℚ \\ {−b}, Asymptoten x = −b und y = c.',
           'x − 3 in der Klammer: 3 nach rechts. + c: c nach oben.'],
-         offen=['Lehrplan: Graphen mit Asymptoten zeichnen. Die App kann keine Hyperbeln und Asymptoten zeichnen; Aufgaben „Welcher Graph gehört zu …?“ fehlen.'])
+         offen=['Hyperbeln selbst zeichnen lassen (Kind zeichnet) kann die App noch nicht; Ablesen von Asymptoten und „Term zum Graphen“ sind eingebaut.'])

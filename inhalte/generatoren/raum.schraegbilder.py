@@ -5,7 +5,7 @@ from fractions import Fraction as Fr
 from pathlib import Path
 sys.dont_write_bytecode = True
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _bausatz import A, Z, baue, cz, zt  # noqa: E402
+from _bausatz import A, Z, baue, cz, mit_bild, zt  # noqa: E402
 
 META = {'thema_schluessel': 'raum.schraegbilder', 'thema_id': 91, 'block_id': 109, 'klasse': {'gym_by': 8, 'rs_by': 5}}
 
@@ -18,28 +18,38 @@ ETAPPEN = [
      '_verbot': ['Sechsseitige Pyramide']},
     {'lernziel': 'laengen', 'titel': 'Schrägbilder von Prismen und Pyramiden',
      'regel': 'Schrägbild: Strecken ⟦parallel zur Zeichenebene⟧ (Breite, Höhe) in wahrer Länge; Strecken ⟦nach hinten⟧ unter dem Winkel ω (meist 45°) mit dem ⟦Verkürzungsfaktor q⟧ (meist 1/2). Die Höhe einer Pyramide zeichnest du senkrecht in wahrer Länge über dem Fußpunkt.',
-     'schritte': ['Quadratische Pyramide: Grundkante 6 cm, Höhe 8 cm, q = 1/2', 'Vorderkante 6 cm, Kante nach hinten 6 · 1/2 = 3 cm', 'Höhe: ⟦8 cm⟧ senkrecht über dem Diagonalenschnittpunkt'],
+     'schritte': ['Quadratische Pyramide: Grundkante 6 cm, Höhe 8 cm, q = 1/2.', 'Grundfläche: vordere Kante 6 cm in wahrer Länge, Kanten nach hinten 6 · 1/2 = 3 cm unter 45°.',
+                  'Diagonalen der Grundfläche zeichnen. Ihr Schnittpunkt F ist der Fußpunkt der Höhe.', 'Von F aus ⟦8 cm⟧ senkrecht nach oben zur Spitze S. Verdeckte Kanten gestrichelt.'],
      'fehler': 'Die Höhe einer Pyramide wird nicht verkürzt: Sie steht ⟦senkrecht⟧ und liegt damit parallel zur Zeichenebene.',
+     'bild': {'typ': 'figur', 'punkte': {'A': [0, 0], 'B': [6, 0], 'C': [8.12, 2.12], 'D': [2.12, 2.12], 'F': [4.06, 1.06], 'S': [4.06, 9.06]},
+              'linien': [['A', 'B', '6 cm'], ['B', 'C', '3 cm'], ['A', 'D', '', 'gestrichelt'], ['D', 'C', '', 'gestrichelt'], ['S', 'A'], ['S', 'B'], ['S', 'C'], ['S', 'D', '', 'gestrichelt'],
+                         ['F', 'S', 'h = 8 cm', 'gestrichelt'], ['A', 'C', '', 'gestrichelt'], ['B', 'D', '', 'gestrichelt']]},
      '_verbot': ['Grundkante 6 cm, Höhe 8 cm']},
     {'lernziel': 'lage', 'titel': 'Parallel, schneidend oder windschief?',
-     'regel': 'Zwei Geraden im Raum sind ⟦parallel⟧ (gleiche Richtung), ⟦schneiden sich⟧ (ein gemeinsamer Punkt) oder sind ⟦windschief⟧: nicht parallel und ohne gemeinsamen Punkt. Windschiefe Geraden liegen in keiner gemeinsamen Ebene.',
-     'schritte': ['Quader ABCDEFGH (ABCD unten, E über A, F über B, …)', 'AB verläuft unten vorne nach rechts, CG senkrecht hinten rechts.', 'Nicht parallel und kein gemeinsamer Punkt: ⟦windschief⟧'],
-     'fehler': 'Geraden ohne Schnittpunkt sind im Raum nicht automatisch parallel. Parallel heißt ⟦gleiche Richtung⟧ – sonst sind sie windschief.'},
+     'regel': 'Zwei Geraden im Raum sind ⟦parallel⟧ (gleiche Richtung), ⟦schneiden sich⟧ (ein gemeinsamer Punkt) oder sind ⟦windschief⟧: nicht parallel und trotzdem ohne gemeinsamen Punkt. Beispiel: Eine Autobahn und eine Straße, die auf einer Brücke quer darüber führt.',
+     'schritte': ['Quader ABCDEFGH wie im Bild.', 'AB läuft unten vorne nach rechts. CG läuft hinten rechts senkrecht nach oben.', 'Sie haben verschiedene Richtungen und treffen sich nie: ⟦windschief⟧.'],
+     'fehler': 'Geraden ohne Schnittpunkt sind im Raum nicht automatisch parallel. Parallel heißt ⟦gleiche Richtung⟧ – sonst sind sie windschief.',
+     'bild': {'typ': 'figur', 'punkte': {'A': [0, 0], 'B': [5, 0], 'C': [6.06, 1.06], 'D': [1.06, 1.06], 'E': [0, 2], 'F': [5, 2], 'G': [6.06, 3.06], 'H': [1.06, 3.06]}, 'linien': [['A', 'B'], ['B', 'F'], ['F', 'E'], ['E', 'A'], ['B', 'C'], ['C', 'G'], ['G', 'F'], ['E', 'H'], ['H', 'G'], ['A', 'D', '', 'gestrichelt'], ['D', 'C', '', 'gestrichelt'], ['D', 'H', '', 'gestrichelt']]},
+     '_verbot': ['AB und CG']},
+    {'lernziel': 'koordinaten', 'titel': 'Punkte im Raum mit Koordinaten',
+     'regel': 'Im Raum hat ein Punkt ⟦drei Koordinaten⟧ P(x | y | z). Liegt ein Quader mit A im ⟦Ursprung⟧ so, dass AB auf der x-Achse, AD auf der y-Achse und AE auf der z-Achse (nach oben) liegt, liest du die Koordinaten aus den ⟦Kantenlängen⟧ ab.',
+     'schritte': ['Quader: A(0 | 0 | 0), Länge 5 in x-, Breite 3 in y-, Höhe 2 in z-Richtung', 'B(5 | 0 | 0), C(5 | 3 | 0), E(0 | 0 | 2)', 'G liegt über C: ⟦G(5 | 3 | 2)⟧'],
+     'fehler': 'H liegt nicht bei (0 | 0 | 2) – das ist E. H liegt über D, also H(0 | 3 | 2). Achte darauf, ⟦welche Ecke über welcher⟧ liegt.',
+     'bild': {'typ': 'figur', 'punkte': {'A': [0, 0], 'B': [5, 0], 'C': [6.06, 1.06], 'D': [1.06, 1.06], 'E': [0, 2], 'F': [5, 2], 'G': [6.06, 3.06], 'H': [1.06, 3.06]},
+              'linien': [['A', 'B', '5'], ['B', 'F'], ['F', 'E'], ['E', 'A'], ['B', 'C'], ['C', 'G'], ['G', 'F'], ['E', 'H'], ['H', 'G'], ['A', 'D', '3', 'gestrichelt'], ['D', 'C', '', 'gestrichelt'], ['D', 'H', '', 'gestrichelt']]},
+     '_verbot': ['Länge 5 in x-, Breite 3 in y-, Höhe 2 in z']},
     {'lernziel': 'rotation', 'titel': 'Rotationskörper',
      'regel': 'Dreht man eine ebene Figur um eine ⟦Achse⟧, entsteht ein ⟦Rotationskörper⟧. Rechteck um eine Seite → ⟦Zylinder⟧; rechtwinkliges Dreieck um eine Kathete → ⟦Kegel⟧; Halbkreis um den Durchmesser → ⟦Kugel⟧.',
      'schritte': ['Rechteck 4 cm × 7 cm dreht sich um die 7-cm-Seite.', 'Die Achse ist 7 cm lang: Höhe 7 cm.', 'Die andere Seite wird zum Radius: ⟦Zylinder mit r = 4 cm, h = 7 cm⟧'],
      'fehler': 'Dreht sich das Rechteck 4 cm × 7 cm um die 7-cm-Seite, ist der Radius nicht 7 cm. Die Seite ⟦auf der Achse⟧ wird zur Höhe, die andere zum Radius.',
+     'bild': {'typ': 'figur', 'punkte': {'_a': [0, -1], '_b': [0, 8], 'A': [0, 0], 'B': [4, 0], 'C': [4, 7], 'D': [0, 7], '_l': [-4, 0], '_m': [-4, 7]}, 'flaeche': ['A', 'B', 'C', 'D'],
+              'linien': [['_a', '_b', '', 'gestrichelt'], ['A', 'B', '4 cm'], ['B', 'C'], ['C', 'D'], ['D', 'A', '7 cm (Achse)'], ['_l', 'A', '', 'gestrichelt'], ['_l', '_m', '', 'gestrichelt'], ['_m', 'D', '', 'gestrichelt']]},
      '_verbot': ['4 cm × 7 cm']},
     {'lernziel': 'axialschnitt', 'titel': 'Axialschnitte berechnen',
      'regel': 'Ein ⟦Axialschnitt⟧ schneidet einen Rotationskörper ⟦entlang der Achse⟧. Beim Zylinder entsteht ein Rechteck (2r breit, h hoch), beim Kegel ein gleichschenkliges Dreieck (Grundseite 2r, Höhe h), bei der Kugel ein Kreis.',
      'schritte': ['Zylinder r = 3 cm, h = 10 cm', 'Axialschnitt: Rechteck 6 cm × 10 cm', 'Flächeninhalt: ⟦60 cm²⟧'],
      'fehler': 'Der Axialschnitt eines Zylinders ist nicht r breit, sondern ⟦2r⟧: Der Schnitt geht durch die Mitte und erfasst den ganzen Durchmesser.',
      '_verbot': ['r = 3 cm, h = 10 cm']},
-    {'lernziel': 'koordinaten', 'titel': 'Punkte im Raum mit Koordinaten',
-     'regel': 'Im Raum hat ein Punkt ⟦drei Koordinaten⟧ P(x | y | z). Liegt ein Quader mit A im ⟦Ursprung⟧ so, dass AB auf der x-Achse, AD auf der y-Achse und AE auf der z-Achse (nach oben) liegt, liest du die Koordinaten aus den ⟦Kantenlängen⟧ ab.',
-     'schritte': ['Quader: A(0 | 0 | 0), Länge 5 in x-, Breite 3 in y-, Höhe 2 in z-Richtung', 'B(5 | 0 | 0), C(5 | 3 | 0), E(0 | 0 | 2)', 'G liegt über C: ⟦G(5 | 3 | 2)⟧'],
-     'fehler': 'H liegt nicht bei (0 | 0 | 2) – das ist E. H liegt über D, also H(0 | 3 | 2). Achte darauf, ⟦welche Ecke über welcher⟧ liegt.',
-     '_verbot': ['Länge 5 in x-, Breite 3 in y-, Höhe 2 in z']},
 ]
 
 N_ECK = {3: 'dreiseitige', 4: 'vierseitige', 5: 'fünfseitige', 6: 'sechsseitige', 7: 'siebenseitige', 8: 'achtseitige', 10: 'zehnseitige', 12: 'zwölfseitige'}
@@ -47,6 +57,16 @@ N_ECK = {3: 'dreiseitige', 4: 'vierseitige', 5: 'fünfseitige', 6: 'sechsseitige
 
 def g_pyramide(R, st):
     n = R.choice(list(N_ECK))
+    if st >= 2 and R.random() < .3:
+        pyr = R.random() < .5
+        F, K = (n + 1, 2 * n) if pyr else (n + 2, 3 * n)
+        ri = f'{N_ECK[n]} Pyramide' if pyr else f'{N_ECK[n]}s Prisma'
+        fa = [f'{N_ECK[n]}s Prisma' if pyr else f'{N_ECK[n]} Pyramide', f'{N_ECK.get(F - 2, str(F - 2) + "-seitige")}s Prisma' if pyr and F - 2 in N_ECK else f'{N_ECK.get(F - 1, "")} Pyramide' if not pyr and F - 1 in N_ECK else 'Würfel',
+              f'{N_ECK.get(K // 2, "")} Pyramide' if not pyr and K // 2 in N_ECK and K // 2 != n else 'Kegel']
+        w = (f'Pyramide: n + 1 = {F} → n = {n}, Kanten 2 · {n} = {K} ✓.' if pyr else f'Prisma: n + 2 = {F} → n = {n}, Kanten 3 · {n} = {K} ✓.') + \
+            (f' Prisma mit {F} Flächen hätte n = {F - 2} und 3 · {F - 2} = {3 * (F - 2)} Kanten ✗.' if pyr else f' Pyramide mit {F} Flächen hätte n = {F - 1} und 2 · {F - 1} = {2 * (F - 1)} Kanten ✗.')
+        return A(R, f'Ein Körper hat {F} Flächen und {K} Kanten. Was ist er?', ri[0].upper() + ri[1:], [x[0].upper() + x[1:] for x in fa if x], w,
+                 'Prüfe beide Möglichkeiten: Pyramide (n + 1 Flächen, 2n Kanten) und Prisma (n + 2 Flächen, 3n Kanten).')
     if st == 1:
         was, f, c = R.choice([('Ecken', n + 1, f'{n} + 1'), ('Kanten', 2 * n, f'2 * {n}'), ('Flächen', n + 1, f'{n} + 1')])
         return Z(f'Wie viele {was} hat eine {N_ECK[n]} Pyramide?', f, c,
@@ -63,7 +83,7 @@ def g_pyramide(R, st):
                  n * a + n * s, f'{n} * {a} + {n} * {s}', f'{n} Grundkanten: {n * a} cm, {n} Seitenkanten: {n * s} cm. Zusammen {n * (a + s)} cm.',
                  'Grundkanten und Seitenkanten getrennt zählen.', einheit='cm')
     m = R.choice([k for k in N_ECK if k != n])
-    return Z(f'Ein {N_ECK[n][:-1]}s Prisma und eine {N_ECK[m]} Pyramide werden verglichen. Wie viele Kanten haben beide zusammen?', 3 * n + 2 * m, f'3 * {n} + 2 * {m}',
+    return Z(f'Wie viele Kanten haben ein {N_ECK[n]}s Prisma und eine {N_ECK[m]} Pyramide zusammen?', 3 * n + 2 * m, f'3 * {n} + 2 * {m}',
              f'Prisma: 3 · {n} = {3 * n} Kanten. Pyramide: 2 · {m} = {2 * m} Kanten. Zusammen {3 * n + 2 * m}.', 'Prisma 3n Kanten, Pyramide 2n Kanten.')
 
 
@@ -123,19 +143,38 @@ def lage_von(g, h, mass):
 LAGEN = ['parallel', 'schneiden sich', 'windschief']
 
 
+QUADER_BILD = {'typ': 'figur', 'punkte': {'A': [0, 0], 'B': [5, 0], 'C': [6.06, 1.06], 'D': [1.06, 1.06], 'E': [0, 2], 'F': [5, 2], 'G': [6.06, 3.06], 'H': [1.06, 3.06]},
+               'linien': [['A', 'B'], ['B', 'F'], ['F', 'E'], ['E', 'A'], ['B', 'C'], ['C', 'G'], ['G', 'F'], ['E', 'H'], ['H', 'G'], ['A', 'D', '', 'gestrichelt'], ['D', 'C', '', 'gestrichelt'],
+                          ['D', 'H', '', 'gestrichelt']]}
+
+
 def g_lage(R, st):
     mass = (R.randint(3, 9), R.randint(2, 7), R.randint(2, 8))
-    pool = KANTEN if st < 3 else KANTEN + DIAG
+    if st == 3 and R.random() < .5:
+        # Partner finden
+        g = R.choice(KANTEN)
+        art = R.choice(['windschief', 'schneiden sich', 'parallel'])
+        lagen = {h: lage_von(g, h, mass) for h in KANTEN if h != g}
+        treffer = [h for h, l in lagen.items() if l == art]
+        andere = [h for h, l in lagen.items() if l != art and l != 'identisch']
+        h = R.choice(treffer)
+        wort = {'windschief': 'ist windschief zu', 'schneiden sich': 'schneidet', 'parallel': 'ist parallel zu'}[art]
+        fa = R.sample(andere, 3)
+        return mit_bild(A(R, f'Welche Kante {wort} {g}?', h, fa,
+                          f'{h}: {art}. ' + '; '.join(f'{x}: {lagen[x]}' for x in fa) + '.',
+                          'Prüfe für jede Kante: gleiche Richtung? gemeinsamer Punkt?'), QUADER_BILD)
+    pool = KANTEN if st < 3 else DIAG
     while True:
-        g, h = R.sample(pool, 2)
+        g, h = R.sample(KANTEN + DIAG if st == 3 else pool, 2)
         if st == 3 and g in KANTEN and h in KANTEN: continue
         l = lage_von(g, h, mass)
         if l != 'identisch': break
-    return A(R, f'Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden {g} und {h} zueinander?', l, [x for x in LAGEN if x != l] + ['identisch'],
+    a_ = A(R, f'Quader ABCDEFGH (ABCD Grundfläche, E über A, F über B, G über C, H über D). Wie liegen die Geraden {g} und {h} zueinander?', l, [x for x in LAGEN if x != l] + ['identisch'],
              {'parallel': f'{g} und {h} haben dieselbe Richtung, aber keinen gemeinsamen Punkt.',
               'schneiden sich': f'{g} und {h} haben einen gemeinsamen Punkt' + (f' ({"".join(sorted(set(g) & set(h)))})' if set(g) & set(h) else ' im Inneren einer Fläche oder des Quaders') + '.',
               'windschief': f'{g} und {h} sind nicht parallel und treffen sich nirgends: Sie liegen in keiner gemeinsamen Ebene.'}[l],
              'Stell dir den Quader vor (z. B. eine Schachtel). Haben die Geraden dieselbe Richtung? Gibt es einen gemeinsamen Punkt?')
+    return mit_bild(a_, QUADER_BILD)
 
 
 def g_rotation(R, st):
@@ -143,8 +182,9 @@ def g_rotation(R, st):
         fig = R.choice([('ein Rechteck', 'um eine seiner Seiten', 'Zylinder'), ('ein rechtwinkliges Dreieck', 'um eine Kathete', 'Kegel'),
                         ('ein Halbkreis', 'um seinen Durchmesser', 'Kugel'), ('ein Quadrat', 'um eine seiner Seiten', 'Zylinder')])
         r = fig[2]
+        akk = {'Zylinder': 'einen Zylinder', 'Kegel': 'einen Kegel', 'Kugel': 'eine Kugel'}[r]
         return A(R, f'Welcher Körper entsteht, wenn sich {fig[0]} {fig[1]} dreht?', r, [k for k in ['Zylinder', 'Kegel', 'Kugel', 'Pyramide'] if k != r],
-                 f'{fig[0][0].upper() + fig[0][1:]} {fig[1]} gedreht ergibt einen {r}.', 'Stell dir vor, die Figur ist eine Fahne, die sich schnell um die Achse dreht.')
+                 f'{fig[0][0].upper() + fig[0][1:]} {fig[1]} gedreht ergibt {akk}.', 'Stell dir vor, die Figur ist eine Fahne, die sich schnell um die Achse dreht.')
     if st == 2:
         a, b = R.sample(range(2, 15), 2)
         if R.random() < .5:
@@ -153,6 +193,15 @@ def g_rotation(R, st):
                      'Welche Seite liegt auf der Achse? Die andere wird zum Radius.', einheit='cm')
         return Z(f'Ein rechtwinkliges Dreieck mit den Katheten {a} cm und {b} cm dreht sich um die {a}-cm-Kathete. Wie hoch ist der entstehende Kegel?', a, f'{a}',
                  f'Die Kathete auf der Achse ({a} cm) wird zur Höhe, die andere ({b} cm) zum Radius.', 'Die Seite auf der Drehachse wird zur Höhe.', einheit='cm')
+    if R.random() < .35:
+        frage, ri, fa, w = R.choice([
+            ('Ein rechtwinkliges Dreieck dreht sich um seine Hypotenuse. Was entsteht?', 'zwei Kegel, Boden an Boden', ['ein Kegel', 'ein Zylinder', 'eine Kugel'],
+             'Die Höhe auf die Hypotenuse wird zum gemeinsamen Radius. Beide Teildreiecke ergeben je einen Kegel; sie stoßen mit ihren Grundkreisen aneinander.'),
+            ('Ein Rechteck dreht sich um seine Mittellinie (parallel zu einer Seite). Was entsteht?', 'ein Zylinder mit halb so großem Radius wie bei Drehung um die Seite',
+             ['ein Zylinder mit doppeltem Radius', 'zwei Zylinder', 'ein Kegel'], 'Jede Hälfte überstreicht denselben Zylinder. Der Radius ist der Abstand von der Mittellinie zur Seite: die halbe Breite.'),
+            ('Ein gleichschenkliges Dreieck dreht sich um seine Symmetrieachse. Was entsteht?', 'ein Kegel', ['zwei Kegel', 'ein Zylinder', 'eine Pyramide'],
+             'Jede Hälfte ist ein rechtwinkliges Dreieck, das sich um eine Kathete dreht: Beide ergeben denselben Kegel.')])
+        return A(R, frage, ri, fa, w, 'Stell dir vor, wie jeder Punkt der Figur einen Kreis um die Achse beschreibt.')
     a, b = R.sample(range(2, 15), 2)
     if R.random() < .5:
         return Z(f'Ein Rechteck {a} cm × {b} cm dreht sich einmal um die {a}-cm-Seite, einmal um die {b}-cm-Seite. Um wie viel cm unterscheiden sich die Durchmesser der beiden Zylinder?',
@@ -224,6 +273,9 @@ if __name__ == '__main__':
          'Schrägbilder von Prismen und Pyramiden verstehen, Lagebeziehungen im Raum erkennen, Rotationskörper und Axialschnitte beschreiben und Punkte im Raum mit Koordinaten angeben.',
          ['Pyramide: n + 1 Ecken, 2n Kanten, n + 1 Flächen.', 'Schrägbild: parallel zur Zeichenebene wahr, nach hinten mit q verkürzt.',
           'Raum: parallel, schneidend oder windschief.', 'Rechteck → Zylinder, rechtwinkliges Dreieck → Kegel, Halbkreis → Kugel.'],
-         offen=['Schrägbilder selbst zeichnen und ein 3D-Koordinatensystem mit Quader brauchen eine Zeichenfunktion in der App; nicht gebaut. '
-                'Lernkarte „lage“ beschreibt den Quader deshalb nur in Worten (Beschriftung ABCDEFGH).',
-                'Lernkarte „koordinaten“: Achsenrichtungen werden in der Lernkarte beschrieben; ein Bild des Quaders im Koordinatensystem wäre wichtig.'])
+         offen=['Schrägbilder werden jetzt mit dem Bildtyp „figur“ gezeigt (Pyramide, Quader, Rechteck an der Drehachse). Selbst zeichnen lassen kann die App noch nicht.',
+                'Lehrplan: lehrplan_gym ist für dieses Thema leer. Laut Prüfung stehen Raumkoordinaten, windschiefe Geraden und Kegel/Axialschnitte eher in späteren Jahrgangsstufen – '
+                'bitte im Aufbau klären, ob die Karten „lage“, „koordinaten“ und „axialschnitt“ bleiben.',
+                'Prüfvorschlag „x-Achse schräg nach vorn, y nach rechts“ (Karte koordinaten) nicht umgesetzt: Er lohnt sich nur, wenn die Karte nach der Lehrplan-Klärung bleibt; '
+                'das Bild der Prüfung zeigt selbst x nach rechts. Entscheidung beim Haupt-Chat.',
+                'Überschneidung mit messen.koerper_darstellung: Schrägbild-Regeln für Prismen stehen dort, hier liegt der Schwerpunkt auf Pyramiden.'])

@@ -34,19 +34,55 @@
    {
     "lernziel": "lesen",
     "titel": "Intervalle lesen",
-    "regel": "Ein ⟦Intervall⟧ ist ein lückenloser Zahlenbereich. [a; b] heißt: a ≤ x ≤ b. Zeigt eine Klammer ⟦nach außen⟧, gehört die Grenze ⟦nicht⟧ dazu.",
+    "regel": "Ein ⟦Intervall⟧ ist ein lückenloser Zahlenbereich. [a; b] heißt: a ≤ x ≤ b. Zeigt eine Klammer ⟦nach außen⟧, gehört die Grenze ⟦nicht⟧ dazu. Wie im Alltag: „Ab 3 Jahren“ – die 3 gehört dazu. „Unter 5 Jahren“ – die 5 gehört nicht dazu.",
     "schritte": [
-     "[−2; 5[: links Klammer nach innen, −2 gehört dazu.",
-     "Rechts Klammer nach außen, 5 gehört nicht dazu.",
+     "[−2; 5[: Links zeigt die Klammer nach innen, −2 gehört dazu (gefüllter Punkt).",
+     "Rechts zeigt die Klammer nach außen, 5 gehört nicht dazu (leerer Kreis).",
      "Also ⟦−2 ≤ x < 5⟧."
     ],
     "fehler": "]1; 4] heißt nicht 1 ≤ x ≤ 4. Die linke Klammer zeigt ⟦nach außen⟧, also gehört 1 nicht dazu: 1 < x ≤ 4.",
     "bild": {
-     "typ": "zahlenstrahl",
-     "start": -3,
-     "ende": 6,
-     "abschnitte": 9,
-     "beschriftet": "anfang_ende"
+     "typ": "figur",
+     "punkte": {
+      "_l": [
+       -3.5,
+       0
+      ],
+      "_r": [
+       6.5,
+       0
+      ],
+      "−2": [
+       -2,
+       0
+      ],
+      "_e": [
+       5,
+       0
+      ]
+     },
+     "linien": [
+      [
+       "_l",
+       "_r",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "−2",
+       "_e"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": [
+        5,
+        0
+       ],
+       "r": 0.2,
+       "name": "5"
+      }
+     ]
     }
    },
    {
@@ -54,8 +90,9 @@
     "titel": "Zahlenbereiche als Intervall schreiben",
     "regel": "≤ und ≥ → Klammer ⟦nach innen⟧. < und > → Klammer ⟦nach außen⟧. Ist der Bereich nach einer Seite unbegrenzt, schreibst du ⟦−∞⟧ oder ⟦∞⟧ (unendlich) mit Klammer nach außen.",
     "schritte": [
-     "x ≥ 3: Die 3 gehört dazu, nach oben unbegrenzt.",
-     "Intervall: ⟦[3; ∞[⟧"
+     "Achterbahn: Mitfahren darf, wer ⟦mindestens⟧ 140 cm groß ist. Nach oben gibt es keine Grenze: x ≥ 140.",
+     "Die 140 gehört dazu: Klammer nach innen. Nach oben unbegrenzt: ∞ mit Klammer nach außen.",
+     "Intervall: ⟦[140; ∞[⟧"
     ],
     "fehler": "x > 3 ist nicht [3; ∞]. Die 3 gehört nicht dazu, also ]3; …, und bei ∞ steht ⟦immer⟧ eine Klammer nach außen: ]3; ∞[."
    },
@@ -140,11 +177,11 @@
    "a": [
     "−9 ≤ x ≤ −3",
     "−9 ≤ x < −3",
-    "−9 < x ≤ −3",
-    "−9 < x < −3"
+    "−9 < x < −3",
+    "−9 < x ≤ −3"
    ],
    "o": {
-    "index": 2
+    "index": 3
    },
    "w": "Linke Grenze −9: gehört nicht dazu; rechte Grenze −3: gehört dazu. Also −9 < x ≤ −3.",
    "h": "Klammer nach innen: Grenze gehört dazu (≤). Klammer nach außen: Grenze gehört nicht dazu (<)."
@@ -156,18 +193,90 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Was bedeutet das Intervall ]−7; 3[?"
+    "text": "Welches Intervall zeigt das Bild? (Gefüllter Punkt: Grenze gehört dazu. Leerer Kreis: gehört nicht dazu. Strecke bis zum Rand: unbegrenzt.)",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_l": [
+       -9.5,
+       0
+      ],
+      "_r": [
+       11.5,
+       0
+      ],
+      "_a": [
+       -7.0,
+       0
+      ],
+      "_b": [
+       9.0,
+       0
+      ]
+     },
+     "linien": [
+      [
+       "_l",
+       "_r",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_a",
+       "_b"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": [
+        -7.0,
+        0
+       ],
+       "r": 0.25,
+       "name": "−7"
+      },
+      {
+       "m": [
+        9.0,
+        0
+       ],
+       "r": 0.25,
+       "name": "9"
+      }
+     ]
+    }
    },
    "a": [
-    "−7 < x < 3",
-    "−7 < x ≤ 3",
-    "−7 ≤ x ≤ 3",
-    "−7 ≤ x < 3"
+    "[−7; 9]",
+    "]−7; 9[",
+    "[−7; 9[",
+    "]−7; 9]"
    ],
    "o": {
-    "index": 0
+    "index": 1
    },
-   "w": "Linke Grenze −7: gehört nicht dazu; rechte Grenze 3: gehört nicht dazu. Also −7 < x < 3.",
+   "w": "linke Grenze gehört nicht dazu, rechte Grenze gehört nicht dazu: ]−7; 9[.",
+   "h": "Gefüllter Punkt → Klammer nach innen. Leerer Kreis → Klammer nach außen."
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Was bedeutet das Intervall [−2; 1]?"
+   },
+   "a": [
+    "−2 < x < 1",
+    "−2 ≤ x < 1",
+    "−2 ≤ x ≤ 1",
+    "−2 < x ≤ 1"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Linke Grenze −2: gehört dazu; rechte Grenze 1: gehört dazu. Also −2 ≤ x ≤ 1.",
    "h": "Klammer nach innen: Grenze gehört dazu (≤). Klammer nach außen: Grenze gehört nicht dazu (<)."
   },
   {
@@ -177,39 +286,18 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Was bedeutet das Intervall [−3; −1[?"
+    "text": "Was bedeutet das Intervall ]2; 6[?"
    },
    "a": [
-    "−3 < x < −1",
-    "−3 ≤ x ≤ −1",
-    "−3 < x ≤ −1",
-    "−3 ≤ x < −1"
+    "2 < x < 6",
+    "2 ≤ x < 6",
+    "2 < x ≤ 6",
+    "2 ≤ x ≤ 6"
    ],
    "o": {
-    "index": 3
+    "index": 0
    },
-   "w": "Linke Grenze −3: gehört dazu; rechte Grenze −1: gehört nicht dazu. Also −3 ≤ x < −1.",
-   "h": "Klammer nach innen: Grenze gehört dazu (≤). Klammer nach außen: Grenze gehört nicht dazu (<)."
-  },
-  {
-   "l": "lesen",
-   "t": "lesen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Was bedeutet das Intervall ]−8; 8[?"
-   },
-   "a": [
-    "−8 ≤ x < 8",
-    "−8 < x < 8",
-    "−8 < x ≤ 8",
-    "−8 ≤ x ≤ 8"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Linke Grenze −8: gehört nicht dazu; rechte Grenze 8: gehört nicht dazu. Also −8 < x < 8.",
+   "w": "Linke Grenze 2: gehört nicht dazu; rechte Grenze 6: gehört nicht dazu. Also 2 < x < 6.",
    "h": "Klammer nach innen: Grenze gehört dazu (≤). Klammer nach außen: Grenze gehört nicht dazu (<)."
   },
   {
@@ -219,19 +307,52 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Was bedeutet das Intervall [−1; 1]?"
+    "text": "Welches Intervall zeigt das Bild? (Gefüllter Punkt: Grenze gehört dazu. Leerer Kreis: gehört nicht dazu. Strecke bis zum Rand: unbegrenzt.)",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_l": [
+       -2.5,
+       0
+      ],
+      "_r": [
+       4.5,
+       0
+      ],
+      "0": [
+       0.0,
+       0
+      ],
+      "2": [
+       2.0,
+       0
+      ]
+     },
+     "linien": [
+      [
+       "_l",
+       "_r",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "0",
+       "2"
+      ]
+     ]
+    }
    },
    "a": [
-    "−1 < x ≤ 1",
-    "−1 ≤ x < 1",
-    "−1 ≤ x ≤ 1",
-    "−1 < x < 1"
+    "]0; 2]",
+    "[0; 2[",
+    "[0; 2]",
+    "]0; 2["
    ],
    "o": {
     "index": 2
    },
-   "w": "Linke Grenze −1: gehört dazu; rechte Grenze 1: gehört dazu. Also −1 ≤ x ≤ 1.",
-   "h": "Klammer nach innen: Grenze gehört dazu (≤). Klammer nach außen: Grenze gehört nicht dazu (<)."
+   "w": "Linke Grenze gehört dazu, rechte Grenze gehört dazu: [0; 2].",
+   "h": "Gefüllter Punkt → Klammer nach innen. Leerer Kreis → Klammer nach außen."
   },
   {
    "l": "lesen",
@@ -240,58 +361,17 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Was bedeutet das Intervall ]−∞; 1]?"
+    "text": "Was bedeutet das Intervall ]−3; ∞[?"
    },
    "a": [
-    "x ≤ 1",
-    "x ≥ 1",
-    "x < 1"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Linke Grenze −∞: nach unten unbegrenzt; rechte Grenze 1: gehört dazu. Also x ≤ 1.",
-   "h": "Klammer nach innen: Grenze gehört dazu (≤). Klammer nach außen: Grenze gehört nicht dazu (<)."
-  },
-  {
-   "l": "lesen",
-   "t": "lesen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Was bedeutet das Intervall ]−6; −2]?"
-   },
-   "a": [
-    "−6 < x ≤ −2",
-    "−6 ≤ x ≤ −2",
-    "−6 < x < −2",
-    "−6 ≤ x < −2"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Linke Grenze −6: gehört nicht dazu; rechte Grenze −2: gehört dazu. Also −6 < x ≤ −2.",
-   "h": "Klammer nach innen: Grenze gehört dazu (≤). Klammer nach außen: Grenze gehört nicht dazu (<)."
-  },
-  {
-   "l": "lesen",
-   "t": "lesen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Was bedeutet das Intervall [−1; ∞[?"
-   },
-   "a": [
-    "x > −1",
-    "x ≥ −1",
-    "x ≤ −1"
+    "x ≥ −3",
+    "x > −3",
+    "x < −3"
    ],
    "o": {
     "index": 1
    },
-   "w": "Linke Grenze −1: gehört dazu; rechte Grenze ∞: nach oben unbegrenzt. Also x ≥ −1.",
+   "w": "Linke Grenze −3: gehört nicht dazu; rechte Grenze ∞: nach oben unbegrenzt. Also x > −3.",
    "h": "Klammer nach innen: Grenze gehört dazu (≤). Klammer nach außen: Grenze gehört nicht dazu (<)."
   },
   {
@@ -301,17 +381,18 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Was bedeutet das Intervall ]−1; ∞[?"
+    "text": "Was bedeutet das Intervall ]−6; −3]?"
    },
    "a": [
-    "x < −1",
-    "x > −1",
-    "x ≥ −1"
+    "−6 ≤ x < −3",
+    "−6 < x ≤ −3",
+    "−6 ≤ x ≤ −3",
+    "−6 < x < −3"
    ],
    "o": {
     "index": 1
    },
-   "w": "Linke Grenze −1: gehört nicht dazu; rechte Grenze ∞: nach oben unbegrenzt. Also x > −1.",
+   "w": "Linke Grenze −6: gehört nicht dazu; rechte Grenze −3: gehört dazu. Also −6 < x ≤ −3.",
    "h": "Klammer nach innen: Grenze gehört dazu (≤). Klammer nach außen: Grenze gehört nicht dazu (<)."
   },
   {
@@ -321,346 +402,50 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Was bedeutet das Intervall [0; 9]?"
-   },
-   "a": [
-    "0 ≤ x < 9",
-    "0 < x < 9",
-    "0 ≤ x ≤ 9",
-    "0 < x ≤ 9"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Linke Grenze 0: gehört dazu; rechte Grenze 9: gehört dazu. Also 0 ≤ x ≤ 9.",
-   "h": "Klammer nach innen: Grenze gehört dazu (≤). Klammer nach außen: Grenze gehört nicht dazu (<)."
-  },
-  {
-   "l": "lesen",
-   "t": "lesen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Menge ist dasselbe wie [−9; −6]?"
-   },
-   "a": [
-    "{x | −9 ≤ x ≤ −6}",
-    "{x | −9 < x ≤ −6}",
-    "{x | −9 < x < −6}",
-    "{x | −9 ≤ x < −6}"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Linke Grenze −9: gehört dazu; rechte Grenze −6: gehört dazu. Also −9 ≤ x ≤ −6.",
-   "h": "Übersetze jede Klammer einzeln in < oder ≤."
-  },
-  {
-   "l": "lesen",
-   "t": "lesen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Was bedeutet das Intervall ]−∞; 8[?"
-   },
-   "a": [
-    "x < 8",
-    "x > 8",
-    "x ≤ 8"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Linke Grenze −∞: nach unten unbegrenzt; rechte Grenze 8: gehört nicht dazu. Also x < 8.",
-   "h": "Klammer nach innen: Grenze gehört dazu (≤). Klammer nach außen: Grenze gehört nicht dazu (<)."
-  },
-  {
-   "l": "lesen",
-   "t": "lesen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Was bedeutet das Intervall [0,5; ∞[?"
-   },
-   "a": [
-    "x ≥ 0,5",
-    "x ≤ 0,5",
-    "x > 0,5"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Linke Grenze 0,5: gehört dazu; rechte Grenze ∞: nach oben unbegrenzt. Also x ≥ 0,5.",
-   "h": "Klammer nach innen: Grenze gehört dazu (≤). Klammer nach außen: Grenze gehört nicht dazu (<)."
-  },
-  {
-   "l": "lesen",
-   "t": "lesen",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Menge ist dasselbe wie ]0,5; 1,5]?"
-   },
-   "a": [
-    "{x | 0,5 ≤ x ≤ 1,5}",
-    "{x | 0,5 < x ≤ 1,5}",
-    "{x | 0,5 < x < 1,5}",
-    "{x | 0,5 ≤ x < 1,5}"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Linke Grenze 0,5: gehört nicht dazu; rechte Grenze 1,5: gehört dazu. Also 0,5 < x ≤ 1,5.",
-   "h": "Übersetze jede Klammer einzeln in < oder ≤."
-  },
-  {
-   "l": "lesen",
-   "t": "lesen",
-   "p": "test",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Was bedeutet das Intervall ]−∞; 8]?"
-   },
-   "a": [
-    "x < 8",
-    "x ≤ 8",
-    "x ≥ 8"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Linke Grenze −∞: nach unten unbegrenzt; rechte Grenze 8: gehört dazu. Also x ≤ 8."
-  },
-  {
-   "l": "lesen",
-   "t": "lesen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Was bedeutet das Intervall ]−∞; −8[?"
-   },
-   "a": [
-    "x < −8",
-    "x ≤ −8",
-    "x > −8"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Linke Grenze −∞: nach unten unbegrenzt; rechte Grenze −8: gehört nicht dazu. Also x < −8."
-  },
-  {
-   "l": "lesen",
-   "t": "lesen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Was bedeutet das Intervall ]−6; ∞[?"
-   },
-   "a": [
-    "x > −6",
-    "x < −6",
-    "x ≥ −6"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Linke Grenze −6: gehört nicht dazu; rechte Grenze ∞: nach oben unbegrenzt. Also x > −6."
-  },
-  {
-   "l": "lesen",
-   "t": "lesen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Was bedeutet das Intervall ]−4; ∞[?"
-   },
-   "a": [
-    "x > −4",
-    "x < −4",
-    "x ≥ −4"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Linke Grenze −4: gehört nicht dazu; rechte Grenze ∞: nach oben unbegrenzt. Also x > −4."
-  },
-  {
-   "l": "lesen",
-   "t": "lesen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Was bedeutet das Intervall ]−∞; 7]?"
-   },
-   "a": [
-    "x ≤ 7",
-    "x ≥ 7",
-    "x < 7"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Linke Grenze −∞: nach unten unbegrenzt; rechte Grenze 7: gehört dazu. Also x ≤ 7."
-  },
-  {
-   "l": "lesen",
-   "t": "lesen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Was bedeutet das Intervall [−8; −6[?"
-   },
-   "a": [
-    "−8 ≤ x < −6",
-    "−8 < x < −6",
-    "−8 < x ≤ −6",
-    "−8 ≤ x ≤ −6"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Linke Grenze −8: gehört dazu; rechte Grenze −6: gehört nicht dazu. Also −8 ≤ x < −6."
-  },
-  {
-   "l": "lesen",
-   "t": "lesen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Was bedeutet das Intervall ]−∞; −1[?"
-   },
-   "a": [
-    "x > −1",
-    "x ≤ −1",
-    "x < −1"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Linke Grenze −∞: nach unten unbegrenzt; rechte Grenze −1: gehört nicht dazu. Also x < −1."
-  },
-  {
-   "l": "lesen",
-   "t": "lesen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Was bedeutet das Intervall ]−3; −1]?"
-   },
-   "a": [
-    "−3 < x ≤ −1",
-    "−3 ≤ x ≤ −1",
-    "−3 ≤ x < −1",
-    "−3 < x < −1"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Linke Grenze −3: gehört nicht dazu; rechte Grenze −1: gehört dazu. Also −3 < x ≤ −1."
-  },
-  {
-   "l": "lesen",
-   "t": "lesen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Was bedeutet das Intervall [0; 3[?"
-   },
-   "a": [
-    "0 < x < 3",
-    "0 ≤ x < 3",
-    "0 ≤ x ≤ 3",
-    "0 < x ≤ 3"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Linke Grenze 0: gehört dazu; rechte Grenze 3: gehört nicht dazu. Also 0 ≤ x < 3."
-  },
-  {
-   "l": "lesen",
-   "t": "lesen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Was bedeutet das Intervall [−7; 4[?"
-   },
-   "a": [
-    "−7 ≤ x < 4",
-    "−7 ≤ x ≤ 4",
-    "−7 < x ≤ 4",
-    "−7 < x < 4"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Linke Grenze −7: gehört dazu; rechte Grenze 4: gehört nicht dazu. Also −7 ≤ x < 4."
-  },
-  {
-   "l": "schreiben",
-   "t": "schreiben",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Schreibe 1 ≤ x ≤ 8 als Intervall."
-   },
-   "a": [
-    "]1; 8[",
-    "]1; 8]",
-    "[1; 8]",
-    "[1; 8["
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "1 ≤ x ≤ 8 → [1; 8].",
-   "h": "≤ / ≥: Klammer nach innen. < / >: Klammer nach außen. Bei ∞ immer nach außen."
-  },
-  {
-   "l": "schreiben",
-   "t": "schreiben",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Schreibe −1 < x ≤ 8 als Intervall."
-   },
-   "a": [
-    "[−1; 8]",
-    "[−1; 8[",
-    "]−1; 8]",
-    "]−1; 8["
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "−1 < x ≤ 8 → ]−1; 8].",
-   "h": "≤ / ≥: Klammer nach innen. < / >: Klammer nach außen. Bei ∞ immer nach außen."
-  },
-  {
-   "l": "schreiben",
-   "t": "schreiben",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Schreibe 0 ≤ x ≤ 4 als Intervall."
+    "text": "Welches Intervall zeigt das Bild? (Gefüllter Punkt: Grenze gehört dazu. Leerer Kreis: gehört nicht dazu. Strecke bis zum Rand: unbegrenzt.)",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_l": [
+       -2.5,
+       0
+      ],
+      "_r": [
+       6.5,
+       0
+      ],
+      "0": [
+       0.0,
+       0
+      ],
+      "_b": [
+       4.0,
+       0
+      ]
+     },
+     "linien": [
+      [
+       "_l",
+       "_r",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "0",
+       "_b"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": [
+        4.0,
+        0
+       ],
+       "r": 0.25,
+       "name": "4"
+      }
+     ]
+    }
    },
    "a": [
     "[0; 4[",
@@ -669,9 +454,713 @@
     "[0; 4]"
    ],
    "o": {
+    "index": 0
+   },
+   "w": "Linke Grenze gehört dazu, rechte Grenze gehört nicht dazu: [0; 4[.",
+   "h": "Gefüllter Punkt → Klammer nach innen. Leerer Kreis → Klammer nach außen."
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Intervall zeigt das Bild? (Gefüllter Punkt: Grenze gehört dazu. Leerer Kreis: gehört nicht dazu. Strecke bis zum Rand: unbegrenzt.)",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_l": [
+       0.5,
+       0
+      ],
+      "_r": [
+       7.5,
+       0
+      ],
+      "_a": [
+       3.0,
+       0
+      ],
+      "5": [
+       5.0,
+       0
+      ]
+     },
+     "linien": [
+      [
+       "_l",
+       "_r",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_a",
+       "5"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": [
+        3.0,
+        0
+       ],
+       "r": 0.25,
+       "name": "3"
+      }
+     ]
+    }
+   },
+   "a": [
+    "]3; 5[",
+    "[3; 5[",
+    "[3; 5]",
+    "]3; 5]"
+   ],
+   "o": {
     "index": 3
    },
-   "w": "0 ≤ x ≤ 4 → [0; 4].",
+   "w": "linke Grenze gehört nicht dazu, rechte Grenze gehört dazu: ]3; 5].",
+   "h": "Gefüllter Punkt → Klammer nach innen. Leerer Kreis → Klammer nach außen."
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Intervall zeigt das Bild? (Gefüllter Punkt: Grenze gehört dazu. Leerer Kreis: gehört nicht dazu. Strecke bis zum Rand: unbegrenzt.)",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_l": [
+       -11.5,
+       0
+      ],
+      "_r": [
+       7.5,
+       0
+      ],
+      "_a": [
+       -9.0,
+       0
+      ],
+      "5": [
+       5.0,
+       0
+      ]
+     },
+     "linien": [
+      [
+       "_l",
+       "_r",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_a",
+       "5"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": [
+        -9.0,
+        0
+       ],
+       "r": 0.25,
+       "name": "−9"
+      }
+     ]
+    }
+   },
+   "a": [
+    "]−9; 5[",
+    "]−9; 5]",
+    "[−9; 5[",
+    "[−9; 5]"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "linke Grenze gehört nicht dazu, rechte Grenze gehört dazu: ]−9; 5].",
+   "h": "Gefüllter Punkt → Klammer nach innen. Leerer Kreis → Klammer nach außen."
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Aquarium braucht Wasser von mindestens 23 °C bis höchstens 27 °C. Welches Intervall beschreibt die erlaubten Temperaturen (in °C)?"
+   },
+   "a": [
+    "]23; 27[",
+    "[23; 27[",
+    "[23; 27]",
+    "]23; 27]"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "In Zeichen: 23 ≤ x ≤ 27. „mindestens“/„ab“/„bis einschließlich“: Grenze gehört dazu, Klammer nach innen. Intervall: [23; 27].",
+   "h": "Übersetze jedes Wort an einer Grenze: gehört die Zahl dazu oder nicht?"
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Auf dem Karussell dürfen Kinder mitfahren, die mindestens 1,2 m und kleiner als 1,5 m sind. Welches Intervall beschreibt die erlaubten Größen (in m)?"
+   },
+   "a": [
+    "[1,2; 1,5[",
+    "[1,2; 1,5]",
+    "]1,2; 1,5[",
+    "]1,2; 1,5]"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "In Zeichen: 1,2 ≤ x < 1,5. „mindestens“/„ab“/„bis einschließlich“: Grenze gehört dazu, Klammer nach innen. „über“/„mehr als“/„unter“/„kleiner als“: Grenze gehört nicht dazu, Klammer nach außen. Intervall: [1,2; 1,5[.",
+   "h": "Übersetze jedes Wort an einer Grenze: gehört die Zahl dazu oder nicht?"
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Aquarium braucht Wasser von mindestens 24 °C bis höchstens 28 °C. Welches Intervall beschreibt die erlaubten Temperaturen (in °C)?"
+   },
+   "a": [
+    "[24; 28[",
+    "]24; 28[",
+    "]24; 28]",
+    "[24; 28]"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "In Zeichen: 24 ≤ x ≤ 28. „mindestens“/„ab“/„bis einschließlich“: Grenze gehört dazu, Klammer nach innen. Intervall: [24; 28].",
+   "h": "Übersetze jedes Wort an einer Grenze: gehört die Zahl dazu oder nicht?"
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Paket kostet den Normalpreis, wenn es mehr als 2 kg und bis einschließlich 5 kg wiegt. Welches Intervall beschreibt diese Gewichte (in kg)?"
+   },
+   "a": [
+    "[2; 5[",
+    "]2; 5]",
+    "[2; 5]",
+    "]2; 5["
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "In Zeichen: 2 < x ≤ 5. „mindestens“/„ab“/„bis einschließlich“: Grenze gehört dazu, Klammer nach innen. „über“/„mehr als“/„unter“/„kleiner als“: Grenze gehört nicht dazu, Klammer nach außen. Intervall: ]2; 5].",
+   "h": "Übersetze jedes Wort an einer Grenze: gehört die Zahl dazu oder nicht?"
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Was bedeutet das Intervall ]−∞; 6[?"
+   },
+   "a": [
+    "x > 6",
+    "x ≤ 6",
+    "x < 6"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Linke Grenze −∞: nach unten unbegrenzt; rechte Grenze 6: gehört nicht dazu. Also x < 6."
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Was bedeutet das Intervall ]2; 8]?"
+   },
+   "a": [
+    "2 ≤ x ≤ 8",
+    "2 ≤ x < 8",
+    "2 < x ≤ 8",
+    "2 < x < 8"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Linke Grenze 2: gehört nicht dazu; rechte Grenze 8: gehört dazu. Also 2 < x ≤ 8."
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Intervall zeigt das Bild? (Gefüllter Punkt: Grenze gehört dazu. Leerer Kreis: gehört nicht dazu. Strecke bis zum Rand: unbegrenzt.)",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_l": [
+       -0.5,
+       0
+      ],
+      "_r": [
+       8.5,
+       0
+      ],
+      "_b": [
+       6.0,
+       0
+      ]
+     },
+     "linien": [
+      [
+       "_l",
+       "_r",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_l",
+       "_b"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": [
+        6.0,
+        0
+       ],
+       "r": 0.25,
+       "name": "6"
+      }
+     ]
+    }
+   },
+   "a": [
+    "[−∞; 6[",
+    "]6; ∞[",
+    "]−∞; 6]",
+    "]−∞; 6["
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "links unbegrenzt, rechte Grenze gehört nicht dazu: ]−∞; 6[."
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Intervall zeigt das Bild? (Gefüllter Punkt: Grenze gehört dazu. Leerer Kreis: gehört nicht dazu. Strecke bis zum Rand: unbegrenzt.)",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_l": [
+       -5.5,
+       0
+      ],
+      "_r": [
+       3.5,
+       0
+      ],
+      "1": [
+       1.0,
+       0
+      ]
+     },
+     "linien": [
+      [
+       "_l",
+       "_r",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_l",
+       "1"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "]−∞; 1]",
+    "[1; ∞[",
+    "[−∞; 1]",
+    "]−∞; 1["
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "links unbegrenzt, rechte Grenze gehört dazu: ]−∞; 1]."
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Was bedeutet das Intervall [−6; ∞[?"
+   },
+   "a": [
+    "x ≥ −6",
+    "x > −6",
+    "x ≤ −6"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Linke Grenze −6: gehört dazu; rechte Grenze ∞: nach oben unbegrenzt. Also x ≥ −6."
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Intervall zeigt das Bild? (Gefüllter Punkt: Grenze gehört dazu. Leerer Kreis: gehört nicht dazu. Strecke bis zum Rand: unbegrenzt.)",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_l": [
+       -9.5,
+       0
+      ],
+      "_r": [
+       8.5,
+       0
+      ],
+      "−7": [
+       -7.0,
+       0
+      ],
+      "_b": [
+       6.0,
+       0
+      ]
+     },
+     "linien": [
+      [
+       "_l",
+       "_r",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "−7",
+       "_b"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": [
+        6.0,
+        0
+       ],
+       "r": 0.25,
+       "name": "6"
+      }
+     ]
+    }
+   },
+   "a": [
+    "]−7; 6]",
+    "]−7; 6[",
+    "[−7; 6[",
+    "[−7; 6]"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Linke Grenze gehört dazu, rechte Grenze gehört nicht dazu: [−7; 6[."
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Intervall zeigt das Bild? (Gefüllter Punkt: Grenze gehört dazu. Leerer Kreis: gehört nicht dazu. Strecke bis zum Rand: unbegrenzt.)",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_l": [
+       0.5,
+       0
+      ],
+      "_r": [
+       9.5,
+       0
+      ],
+      "7": [
+       7.0,
+       0
+      ]
+     },
+     "linien": [
+      [
+       "_l",
+       "_r",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_l",
+       "7"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "]−∞; 7]",
+    "[7; ∞[",
+    "[−∞; 7]",
+    "]−∞; 7["
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "links unbegrenzt, rechte Grenze gehört dazu: ]−∞; 7]."
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Intervall zeigt das Bild? (Gefüllter Punkt: Grenze gehört dazu. Leerer Kreis: gehört nicht dazu. Strecke bis zum Rand: unbegrenzt.)",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_l": [
+       -7.5,
+       0
+      ],
+      "_r": [
+       1.5,
+       0
+      ],
+      "_a": [
+       -5.0,
+       0
+      ]
+     },
+     "linien": [
+      [
+       "_l",
+       "_r",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_a",
+       "_r"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": [
+        -5.0,
+        0
+       ],
+       "r": 0.25,
+       "name": "−5"
+      }
+     ]
+    }
+   },
+   "a": [
+    "]−5; ∞]",
+    "]−∞; −5[",
+    "[−5; ∞[",
+    "]−5; ∞["
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "linke Grenze gehört nicht dazu, rechts unbegrenzt: ]−5; ∞[."
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Intervall zeigt das Bild? (Gefüllter Punkt: Grenze gehört dazu. Leerer Kreis: gehört nicht dazu. Strecke bis zum Rand: unbegrenzt.)",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_l": [
+       -8.5,
+       0
+      ],
+      "_r": [
+       10.5,
+       0
+      ],
+      "_a": [
+       -6.0,
+       0
+      ],
+      "_b": [
+       8.0,
+       0
+      ]
+     },
+     "linien": [
+      [
+       "_l",
+       "_r",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "_a",
+       "_b"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": [
+        -6.0,
+        0
+       ],
+       "r": 0.25,
+       "name": "−6"
+      },
+      {
+       "m": [
+        8.0,
+        0
+       ],
+       "r": 0.25,
+       "name": "8"
+      }
+     ]
+    }
+   },
+   "a": [
+    "]−6; 8]",
+    "]−6; 8[",
+    "[−6; 8[",
+    "[−6; 8]"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "linke Grenze gehört nicht dazu, rechte Grenze gehört nicht dazu: ]−6; 8[."
+  },
+  {
+   "l": "lesen",
+   "t": "lesen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welches Intervall zeigt das Bild? (Gefüllter Punkt: Grenze gehört dazu. Leerer Kreis: gehört nicht dazu. Strecke bis zum Rand: unbegrenzt.)",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_l": [
+       -9.5,
+       0
+      ],
+      "_r": [
+       11.5,
+       0
+      ],
+      "−7": [
+       -7.0,
+       0
+      ],
+      "_b": [
+       9.0,
+       0
+      ]
+     },
+     "linien": [
+      [
+       "_l",
+       "_r",
+       "",
+       "gestrichelt"
+      ],
+      [
+       "−7",
+       "_b"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": [
+        9.0,
+        0
+       ],
+       "r": 0.25,
+       "name": "9"
+      }
+     ]
+    }
+   },
+   "a": [
+    "]−7; 9]",
+    "[−7; 9]",
+    "[−7; 9[",
+    "]−7; 9["
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Linke Grenze gehört dazu, rechte Grenze gehört nicht dazu: [−7; 9[."
+  },
+  {
+   "l": "schreiben",
+   "t": "schreiben",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Schreibe −3 ≤ x ≤ 8 als Intervall."
+   },
+   "a": [
+    "]−3; 8[",
+    "]−3; 8]",
+    "[−3; 8[",
+    "[−3; 8]"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "−3 ≤ x ≤ 8 → [−3; 8].",
    "h": "≤ / ≥: Klammer nach innen. < / >: Klammer nach außen. Bei ∞ immer nach außen."
   },
   {
@@ -681,79 +1170,60 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Schreibe x ≥ −9 als Intervall."
+    "text": "Schreibe x > −5 als Intervall."
    },
    "a": [
-    "[−9; ∞[",
-    "]−∞; −9]",
-    "]−9; ∞["
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "x ≥ −9 → [−9; ∞[.",
-   "h": "≤ / ≥: Klammer nach innen. < / >: Klammer nach außen. Bei ∞ immer nach außen."
-  },
-  {
-   "l": "schreiben",
-   "t": "schreiben",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Schreibe −1 < x < 9 als Intervall."
-   },
-   "a": [
-    "]−1; 9[",
-    "[−1; 9]",
-    "]−1; 9]",
-    "[−1; 9["
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "−1 < x < 9 → ]−1; 9[.",
-   "h": "≤ / ≥: Klammer nach innen. < / >: Klammer nach außen. Bei ∞ immer nach außen."
-  },
-  {
-   "l": "schreiben",
-   "t": "schreiben",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Schreibe −2 < x < 8 als Intervall."
-   },
-   "a": [
-    "]−2; 8[",
-    "]−2; 8]",
-    "[−2; 8]",
-    "[−2; 8["
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "−2 < x < 8 → ]−2; 8[.",
-   "h": "≤ / ≥: Klammer nach innen. < / >: Klammer nach außen. Bei ∞ immer nach außen."
-  },
-  {
-   "l": "schreiben",
-   "t": "schreiben",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Schreibe x ≤ 9 als Intervall."
-   },
-   "a": [
-    "]−∞; 9[",
-    "]−∞; 9]",
-    "[9; ∞["
+    "]−5; ∞]",
+    "]−5; ∞[",
+    "]−∞; −5[",
+    "[−5; ∞["
    ],
    "o": {
     "index": 1
    },
-   "w": "x ≤ 9 → ]−∞; 9].",
+   "w": "x > −5 → ]−5; ∞[.",
+   "h": "≤ / ≥: Klammer nach innen. < / >: Klammer nach außen. Bei ∞ immer nach außen."
+  },
+  {
+   "l": "schreiben",
+   "t": "schreiben",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Schreibe −6 < x ≤ 6 als Intervall."
+   },
+   "a": [
+    "]−6; 6]",
+    "]−6; 6[",
+    "[−6; 6]",
+    "[−6; 6["
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "−6 < x ≤ 6 → ]−6; 6].",
+   "h": "≤ / ≥: Klammer nach innen. < / >: Klammer nach außen. Bei ∞ immer nach außen."
+  },
+  {
+   "l": "schreiben",
+   "t": "schreiben",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Schreibe x > −9 als Intervall."
+   },
+   "a": [
+    "]−9; ∞[",
+    "]−9; ∞]",
+    "]−∞; −9[",
+    "[−9; ∞["
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "x > −9 → ]−9; ∞[.",
    "h": "≤ / ≥: Klammer nach innen. < / >: Klammer nach außen. Bei ∞ immer nach außen."
   },
   {
@@ -763,18 +1233,39 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Schreibe 2 < x ≤ 3 als Intervall."
+    "text": "Jemand schreibt −9 ≤ x ≤ 6 als ]−9; 6[. Was stimmt?"
    },
    "a": [
-    "[2; 3[",
-    "]2; 3[",
-    "]2; 3]",
-    "[2; 3]"
+    "Falsch: richtig ist [−9; 6[.",
+    "Falsch: richtig ist ]−9; 6].",
+    "Falsch: die Klammer an einer Grenze zeigt in die falsche Richtung, richtig ist [−9; 6].",
+    "Richtig."
    ],
    "o": {
     "index": 2
    },
-   "w": "2 < x ≤ 3 → ]2; 3].",
+   "w": "−9 ≤ x ≤ 6 → [−9; 6]. Gezeigt war ]−9; 6[.",
+   "h": "Übersetze selbst und vergleiche Klammer für Klammer."
+  },
+  {
+   "l": "schreiben",
+   "t": "schreiben",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Schreibe x ≤ 5 als Intervall."
+   },
+   "a": [
+    "[−∞; 5]",
+    "]−∞; 5[",
+    "[5; ∞[",
+    "]−∞; 5]"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "x ≤ 5 → ]−∞; 5].",
    "h": "≤ / ≥: Klammer nach innen. < / >: Klammer nach außen. Bei ∞ immer nach außen."
   },
   {
@@ -784,38 +1275,81 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Schreibe x < 7 als Intervall."
+    "text": "Schreibe x ≥ −3 als Intervall."
    },
    "a": [
-    "]−∞; 7[",
+    "]−∞; −3]",
+    "[−3; ∞[",
+    "]−3; ∞[",
+    "[−3; ∞]"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "x ≥ −3 → [−3; ∞[.",
+   "h": "≤ / ≥: Klammer nach innen. < / >: Klammer nach außen. Bei ∞ immer nach außen."
+  },
+  {
+   "l": "schreiben",
+   "t": "schreiben",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Schreibe x > 6 als Intervall."
+   },
+   "a": [
+    "]−∞; 6[",
+    "]6; ∞]",
+    "[6; ∞[",
+    "]6; ∞["
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "x > 6 → ]6; ∞[.",
+   "h": "≤ / ≥: Klammer nach innen. < / >: Klammer nach außen. Bei ∞ immer nach außen."
+  },
+  {
+   "l": "schreiben",
+   "t": "schreiben",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Schreibe x ≥ −8 als Intervall."
+   },
+   "a": [
+    "]−8; ∞[",
+    "]−∞; −8]",
+    "[−8; ∞[",
+    "[−8; ∞]"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "x ≥ −8 → [−8; ∞[.",
+   "h": "≤ / ≥: Klammer nach innen. < / >: Klammer nach außen. Bei ∞ immer nach außen."
+  },
+  {
+   "l": "schreiben",
+   "t": "schreiben",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Schreibe x ≥ 7 als Intervall."
+   },
+   "a": [
+    "[7; ∞[",
+    "]−∞; 7]",
     "]7; ∞[",
-    "]−∞; 7]"
+    "[7; ∞]"
    ],
    "o": {
     "index": 0
    },
-   "w": "x < 7 → ]−∞; 7[.",
-   "h": "≤ / ≥: Klammer nach innen. < / >: Klammer nach außen. Bei ∞ immer nach außen."
-  },
-  {
-   "l": "schreiben",
-   "t": "schreiben",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Schreibe 1 ≤ x ≤ 4 als Intervall."
-   },
-   "a": [
-    "[1; 4[",
-    "]1; 4]",
-    "]1; 4[",
-    "[1; 4]"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "1 ≤ x ≤ 4 → [1; 4].",
+   "w": "x ≥ 7 → [7; ∞[.",
    "h": "≤ / ≥: Klammer nach innen. < / >: Klammer nach außen. Bei ∞ immer nach außen."
   },
   {
@@ -825,17 +1359,18 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Schreibe als Intervall: alle Zahlen, die mindestens −5 sind."
+    "text": "Schreibe als Intervall: alle Zahlen, die mindestens −12 sind."
    },
    "a": [
-    "]−∞; −5]",
-    "[−5; ∞[",
-    "]−5; ∞["
+    "[−12; ∞]",
+    "[−12; ∞[",
+    "]−∞; −12]",
+    "]−12; ∞["
    ],
    "o": {
     "index": 1
    },
-   "w": "In Zeichen: x ≥ −5. Als Intervall: [−5; ∞[.",
+   "w": "In Zeichen: x ≥ −12. Als Intervall: [−12; ∞[.",
    "h": "„mindestens“ und „höchstens“ schließen die Grenze ein, „größer/kleiner als“ nicht."
   },
   {
@@ -845,18 +1380,18 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Schreibe als Intervall: alle Zahlen zwischen −2 und 6, beide Grenzen eingeschlossen."
+    "text": "Schreibe als Intervall: alle Zahlen zwischen −5 und −3, beide Grenzen eingeschlossen."
    },
    "a": [
-    "[−2; 6[",
-    "]−2; 6[",
-    "[−2; 6]",
-    "]−2; 6]"
+    "[−5; −3[",
+    "]−5; −3[",
+    "[−5; −3]",
+    "]−5; −3]"
    ],
    "o": {
     "index": 2
    },
-   "w": "In Zeichen: −2 ≤ x ≤ 6. Als Intervall: [−2; 6].",
+   "w": "In Zeichen: −5 ≤ x ≤ −3. Als Intervall: [−5; −3].",
    "h": "„mindestens“ und „höchstens“ schließen die Grenze ein, „größer/kleiner als“ nicht."
   },
   {
@@ -866,18 +1401,18 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Schreibe als Intervall: alle Zahlen größer als −10 bis einschließlich 4."
+    "text": "Schreibe als Intervall: alle Zahlen zwischen −9 und −1, beide Grenzen eingeschlossen."
    },
    "a": [
-    "]−10; 4[",
-    "[−10; 4[",
-    "]−10; 4]",
-    "[−10; 4]"
+    "[−9; −1[",
+    "[−9; −1]",
+    "]−9; −1[",
+    "]−9; −1]"
    ],
    "o": {
-    "index": 2
+    "index": 1
    },
-   "w": "In Zeichen: −10 < x ≤ 4. Als Intervall: ]−10; 4].",
+   "w": "In Zeichen: −9 ≤ x ≤ −1. Als Intervall: [−9; −1].",
    "h": "„mindestens“ und „höchstens“ schließen die Grenze ein, „größer/kleiner als“ nicht."
   },
   {
@@ -887,18 +1422,18 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Schreibe als Intervall: alle Zahlen größer als −4 bis einschließlich 12."
+    "text": "Schreibe als Intervall: alle Zahlen zwischen −12 und 8, beide Grenzen ausgeschlossen."
    },
    "a": [
-    "[−4; 12]",
-    "]−4; 12[",
-    "[−4; 12[",
-    "]−4; 12]"
+    "]−12; 8[",
+    "[−12; 8[",
+    "]−12; 8]",
+    "[−12; 8]"
    ],
    "o": {
-    "index": 3
+    "index": 0
    },
-   "w": "In Zeichen: −4 < x ≤ 12. Als Intervall: ]−4; 12].",
+   "w": "In Zeichen: −12 < x < 8. Als Intervall: ]−12; 8[.",
    "h": "„mindestens“ und „höchstens“ schließen die Grenze ein, „größer/kleiner als“ nicht."
   },
   {
@@ -908,37 +1443,17 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Schreibe −9 < x < −2 als Intervall."
+    "text": "Jemand schreibt x > −8 als [−8; ∞[. Was stimmt?"
    },
    "a": [
-    "]−9; −2[",
-    "[−9; −2[",
-    "]−9; −2]",
-    "[−9; −2]"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "−9 < x < −2 → ]−9; −2[."
-  },
-  {
-   "l": "schreiben",
-   "t": "schreiben",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Schreibe x ≥ −7 als Intervall."
-   },
-   "a": [
-    "]−∞; −7]",
-    "]−7; ∞[",
-    "[−7; ∞["
+    "Richtig.",
+    "Falsch: richtig ist ]−∞; −8[.",
+    "Falsch: die Klammer an einer Grenze zeigt in die falsche Richtung, richtig ist ]−8; ∞[."
    ],
    "o": {
     "index": 2
    },
-   "w": "x ≥ −7 → [−7; ∞[."
+   "w": "x > −8 → ]−8; ∞[. Gezeigt war [−8; ∞[."
   },
   {
    "l": "schreiben",
@@ -947,57 +1462,58 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Schreibe x > −8 als Intervall."
+    "text": "Schreibe −7 < x < −5 als Intervall."
    },
    "a": [
-    "]−8; ∞[",
-    "]−∞; −8[",
-    "[−8; ∞["
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "x > −8 → ]−8; ∞[."
-  },
-  {
-   "l": "schreiben",
-   "t": "schreiben",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Schreibe −1 ≤ x ≤ 2 als Intervall."
-   },
-   "a": [
-    "]−1; 2[",
-    "[−1; 2]",
-    "]−1; 2]",
-    "[−1; 2["
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "−1 ≤ x ≤ 2 → [−1; 2]."
-  },
-  {
-   "l": "schreiben",
-   "t": "schreiben",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Schreibe −7 < x < 4 als Intervall."
-   },
-   "a": [
-    "[−7; 4]",
-    "]−7; 4]",
-    "[−7; 4[",
-    "]−7; 4["
+    "[−7; −5]",
+    "]−7; −5]",
+    "[−7; −5[",
+    "]−7; −5["
    ],
    "o": {
     "index": 3
    },
-   "w": "−7 < x < 4 → ]−7; 4[."
+   "w": "−7 < x < −5 → ]−7; −5[."
+  },
+  {
+   "l": "schreiben",
+   "t": "schreiben",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Schreibe −4 < x ≤ 6 als Intervall."
+   },
+   "a": [
+    "]−4; 6]",
+    "[−4; 6]",
+    "[−4; 6[",
+    "]−4; 6["
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "−4 < x ≤ 6 → ]−4; 6]."
+  },
+  {
+   "l": "schreiben",
+   "t": "schreiben",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Schreibe −1 ≤ x < 0 als Intervall."
+   },
+   "a": [
+    "]−1; 0]",
+    "[−1; 0]",
+    "]−1; 0[",
+    "[−1; 0["
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "−1 ≤ x < 0 → [−1; 0[."
   },
   {
    "l": "schreiben",
@@ -1026,18 +1542,38 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Schreibe −4 < x < 5 als Intervall."
+    "text": "Schreibe x < 6 als Intervall."
    },
    "a": [
-    "[−4; 5[",
-    "]−4; 5]",
-    "[−4; 5]",
-    "]−4; 5["
+    "]−∞; 6]",
+    "]−∞; 6[",
+    "[−∞; 6[",
+    "]6; ∞["
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "x < 6 → ]−∞; 6[."
+  },
+  {
+   "l": "schreiben",
+   "t": "schreiben",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Schreibe −3 < x < 7 als Intervall."
+   },
+   "a": [
+    "[−3; 7]",
+    "]−3; 7]",
+    "[−3; 7[",
+    "]−3; 7["
    ],
    "o": {
     "index": 3
    },
-   "w": "−4 < x < 5 → ]−4; 5[."
+   "w": "−3 < x < 7 → ]−3; 7[."
   },
   {
    "l": "schreiben",
@@ -1046,36 +1582,18 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Schreibe x ≥ −6 als Intervall."
+    "text": "Schreibe x > −2 als Intervall."
    },
    "a": [
-    "[−6; ∞[",
-    "]−∞; −6]",
-    "]−6; ∞["
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "x ≥ −6 → [−6; ∞[."
-  },
-  {
-   "l": "schreiben",
-   "t": "schreiben",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Schreibe x < 5 als Intervall."
-   },
-   "a": [
-    "]5; ∞[",
-    "]−∞; 5]",
-    "]−∞; 5["
+    "]−2; ∞]",
+    "]−∞; −2[",
+    "]−2; ∞[",
+    "[−2; ∞["
    ],
    "o": {
     "index": 2
    },
-   "w": "x < 5 → ]−∞; 5[."
+   "w": "x > −2 → ]−2; ∞[."
   },
   {
    "l": "schreiben",
@@ -1084,18 +1602,38 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Schreibe 3 < x ≤ 5 als Intervall."
+    "text": "Schreibe x < 9 als Intervall."
    },
    "a": [
-    "[3; 5]",
-    "]3; 5]",
-    "]3; 5[",
-    "[3; 5["
+    "]−∞; 9]",
+    "]−∞; 9[",
+    "]9; ∞[",
+    "[−∞; 9["
    ],
    "o": {
     "index": 1
    },
-   "w": "3 < x ≤ 5 → ]3; 5]."
+   "w": "x < 9 → ]−∞; 9[."
+  },
+  {
+   "l": "schreiben",
+   "t": "schreiben",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Schreibe −8 < x ≤ −6 als Intervall."
+   },
+   "a": [
+    "]−8; −6]",
+    "]−8; −6[",
+    "[−8; −6[",
+    "[−8; −6]"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "−8 < x ≤ −6 → ]−8; −6]."
   },
   {
    "l": "enthalten",
@@ -1104,18 +1642,18 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Welche Zahl liegt im Intervall ]−5; 4]?"
+    "text": "Welche Zahl liegt im Intervall ]−7; −4]?"
    },
    "a": [
-    "5",
-    "−5",
-    "−6",
-    "−0,5"
+    "−7",
+    "−3",
+    "−8",
+    "−4"
    ],
    "o": {
     "index": 3
    },
-   "w": "]−5; 4] bedeutet −5 < x ≤ 4. −0,5 erfüllt das.",
+   "w": "]−7; −4] bedeutet −7 < x ≤ −4. −4 erfüllt das.",
    "h": "Prüfe besonders die Grenzen: Welche Klammer steht dort?"
   },
   {
@@ -1125,18 +1663,17 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Welche Zahl liegt im Intervall ]−5; 2[?"
+    "text": "Welche Zahl liegt im Intervall [1; 7]?"
    },
    "a": [
-    "−6",
-    "−4,5",
-    "2",
-    "3"
+    "1,5",
+    "8",
+    "0"
    ],
    "o": {
-    "index": 1
+    "index": 0
    },
-   "w": "]−5; 2[ bedeutet −5 < x < 2. −4,5 erfüllt das.",
+   "w": "[1; 7] bedeutet 1 ≤ x ≤ 7. 1,5 erfüllt das.",
    "h": "Prüfe besonders die Grenzen: Welche Klammer steht dort?"
   },
   {
@@ -1146,39 +1683,39 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Welche Zahl liegt im Intervall ]−8; −5]?"
-   },
-   "a": [
-    "−9",
-    "−5",
-    "−4",
-    "−8"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "]−8; −5] bedeutet −8 < x ≤ −5. −5 erfüllt das.",
-   "h": "Prüfe besonders die Grenzen: Welche Klammer steht dort?"
-  },
-  {
-   "l": "enthalten",
-   "t": "enthalten",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Zahl liegt im Intervall [−4; 9[?"
+    "text": "Welche Zahl liegt im Intervall ]7; 10]?"
    },
    "a": [
     "10",
-    "−5",
-    "9",
-    "2,5"
+    "6",
+    "7",
+    "11"
    ],
    "o": {
-    "index": 3
+    "index": 0
    },
-   "w": "[−4; 9[ bedeutet −4 ≤ x < 9. 2,5 erfüllt das.",
+   "w": "]7; 10] bedeutet 7 < x ≤ 10. 10 erfüllt das.",
+   "h": "Prüfe besonders die Grenzen: Welche Klammer steht dort?"
+  },
+  {
+   "l": "enthalten",
+   "t": "enthalten",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl liegt im Intervall [−9; −1[?"
+   },
+   "a": [
+    "−10",
+    "−8,5",
+    "0",
+    "−1"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "[−9; −1[ bedeutet −9 ≤ x < −1. −8,5 erfüllt das.",
    "h": "Prüfe besonders die Grenzen: Welche Klammer steht dort?"
   },
   {
@@ -1188,13 +1725,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Wie viele ganze Zahlen liegen im Intervall [−8; 0[?"
+    "text": "Wie viele ganze Zahlen liegen im Intervall [−7; −6]?"
    },
    "o": {
-    "wert": 8
+    "wert": 2
    },
-   "c": "-1 - (-8) + 1",
-   "w": "Die kleinste ganze Zahl darin ist −8, die größte −1. Anzahl: −1 − (−8) + 1 = 8.",
+   "c": "-6 - (-7) + 1",
+   "w": "Die kleinste ganze Zahl darin ist −7, die größte −6. Anzahl: −6 − (−7) + 1 = 2.",
    "h": "Finde die kleinste und die größte ganze Zahl im Intervall. Achte auf die Klammern."
   },
   {
@@ -1204,29 +1741,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Wie viele ganze Zahlen liegen im Intervall [−6; −3[?"
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "-4 - (-6) + 1",
-   "w": "Die kleinste ganze Zahl darin ist −6, die größte −4. Anzahl: −4 − (−6) + 1 = 3.",
-   "h": "Finde die kleinste und die größte ganze Zahl im Intervall. Achte auf die Klammern."
-  },
-  {
-   "l": "enthalten",
-   "t": "enthalten",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viele ganze Zahlen liegen im Intervall [−3; 2[?"
+    "text": "Wie viele ganze Zahlen liegen im Intervall ]−8; −3]?"
    },
    "o": {
     "wert": 5
    },
-   "c": "1 - (-3) + 1",
-   "w": "Die kleinste ganze Zahl darin ist −3, die größte 1. Anzahl: 1 − (−3) + 1 = 5.",
+   "c": "-3 - (-7) + 1",
+   "w": "Die kleinste ganze Zahl darin ist −7, die größte −3. Anzahl: −3 − (−7) + 1 = 5.",
    "h": "Finde die kleinste und die größte ganze Zahl im Intervall. Achte auf die Klammern."
   },
   {
@@ -1281,40 +1802,38 @@
    "l": "enthalten",
    "t": "enthalten",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Das Intervall ]−4,5; −3[ ist ein Stück des Zahlenstrahls. Wie lang ist es?"
+    "text": "Wie viele ganze Zahlen liegen im Intervall ]−5; −3[?"
    },
    "o": {
-    "wert": 1.5
+    "wert": 1
    },
-   "c": "-3 - ((-9/2))",
-   "w": "Länge = rechte Grenze − linke Grenze = −3 − (−4,5) = 1,5. Die Klammern ändern die Länge nicht.",
-   "h": "Rechne rechte Grenze minus linke Grenze."
+   "c": "-4 - (-4) + 1",
+   "w": "Die kleinste ganze Zahl darin ist −4, die größte −4. Anzahl: −4 − (−4) + 1 = 1.",
+   "h": "Finde die kleinste und die größte ganze Zahl im Intervall. Achte auf die Klammern."
   },
   {
    "l": "enthalten",
    "t": "enthalten",
    "p": "uebung",
    "s": 3,
-   "y": "markierung",
+   "y": "auswahl",
    "f": {
-    "text": "Markiere am Zahlenstrahl die größte ganze Zahl, die im Intervall [−5; 4] liegt.",
-    "grafik": {
-     "typ": "zahlenstrahl",
-     "start": -10,
-     "ende": 10,
-     "abschnitte": 20,
-     "beschriftet": "anfang_ende"
-    }
+    "text": "Welche Zahlen liegen in ]−∞; −4] und gleichzeitig in [−4; ∞[?"
    },
+   "a": [
+    "alle Zahlen",
+    "]−∞; −4[",
+    "nur die −4",
+    "keine Zahl"
+   ],
    "o": {
-    "index": 14
+    "index": 2
    },
-   "zahl": 4,
-   "w": "[−5; 4] bedeutet −5 ≤ x ≤ 4. Die größte ganze Zahl darin ist 4.",
-   "h": "Gehört die Grenze dazu? Wenn nicht, gehe eine ganze Zahl weiter nach innen."
+   "w": "Im ersten Intervall: x ≤ −4. Im zweiten: x ≥ −4. Beides gilt nur für x = −4.",
+   "h": "Schreibe beide Intervalle als Ungleichung. Welche Zahl erfüllt beide?"
   },
   {
    "l": "enthalten",
@@ -1346,13 +1865,29 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Das Intervall ]−2,5; 8,5[ ist ein Stück des Zahlenstrahls. Wie lang ist es?"
+    "text": "Das Intervall ]−5,5; 8,5[ ist ein Stück des Zahlenstrahls. Wie lang ist es?"
    },
    "o": {
-    "wert": 11
+    "wert": 14
    },
-   "c": "(17/2) - ((-5/2))",
-   "w": "Länge = rechte Grenze − linke Grenze = 8,5 − (−2,5) = 11. Die Klammern ändern die Länge nicht.",
+   "c": "(17/2) - ((-11/2))",
+   "w": "Länge = rechte Grenze − linke Grenze = 8,5 − (−5,5) = 14. Die Klammern ändern die Länge nicht.",
+   "h": "Rechne rechte Grenze minus linke Grenze."
+  },
+  {
+   "l": "enthalten",
+   "t": "enthalten",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Das Intervall [−4,5; −1] ist ein Stück des Zahlenstrahls. Wie lang ist es?"
+   },
+   "o": {
+    "wert": 3.5
+   },
+   "c": "-1 - ((-9/2))",
+   "w": "Länge = rechte Grenze − linke Grenze = −1 − (−4,5) = 3,5. Die Klammern ändern die Länge nicht.",
    "h": "Rechne rechte Grenze minus linke Grenze."
   },
   {
@@ -1362,13 +1897,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Wie viele ganze Zahlen liegen im Intervall ]−1; 9[?"
+    "text": "Wie viele ganze Zahlen liegen im Intervall [−8; −6[?"
    },
    "o": {
-    "wert": 9
+    "wert": 2
    },
-   "c": "8 - (0) + 1",
-   "w": "Die kleinste ganze Zahl darin ist 0, die größte 8. Anzahl: 8 − 0 + 1 = 9."
+   "c": "-7 - (-8) + 1",
+   "w": "Die kleinste ganze Zahl darin ist −8, die größte −7. Anzahl: −7 − (−8) + 1 = 2."
   },
   {
    "l": "enthalten",
@@ -1377,48 +1912,18 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Wie viele ganze Zahlen liegen im Intervall [−3; 8[?"
+    "text": "Wie viele ganze Zahlen liegen im Intervall ]−3,5; 2[?"
    },
    "o": {
-    "wert": 11
+    "wert": 5
    },
-   "c": "7 - (-3) + 1",
-   "w": "Die kleinste ganze Zahl darin ist −3, die größte 7. Anzahl: 7 − (−3) + 1 = 11."
+   "c": "1 - (-3) + 1",
+   "w": "Die kleinste ganze Zahl darin ist −3, die größte 1. Anzahl: 1 − (−3) + 1 = 5."
   },
   {
    "l": "enthalten",
    "t": "enthalten",
    "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viele ganze Zahlen liegen im Intervall ]−8; 9]?"
-   },
-   "o": {
-    "wert": 17
-   },
-   "c": "9 - (-7) + 1",
-   "w": "Die kleinste ganze Zahl darin ist −7, die größte 9. Anzahl: 9 − (−7) + 1 = 17."
-  },
-  {
-   "l": "enthalten",
-   "t": "enthalten",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viele ganze Zahlen liegen im Intervall ]7; 8]?"
-   },
-   "o": {
-    "wert": 1
-   },
-   "c": "8 - (8) + 1",
-   "w": "Die kleinste ganze Zahl darin ist 8, die größte 8. Anzahl: 8 − 8 + 1 = 1."
-  },
-  {
-   "l": "enthalten",
-   "t": "enthalten",
-   "p": "sicherung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -1433,7 +1938,7 @@
   {
    "l": "enthalten",
    "t": "enthalten",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -1506,24 +2011,54 @@
    "w": "Die kleinste ganze Zahl darin ist 7, die größte 8. Anzahl: 8 − 7 + 1 = 2."
   },
   {
+   "l": "enthalten",
+   "t": "enthalten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele ganze Zahlen liegen im Intervall ]2; 4[?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "3 - (3) + 1",
+   "w": "Die kleinste ganze Zahl darin ist 3, die größte 3. Anzahl: 3 − 3 + 1 = 1."
+  },
+  {
+   "l": "enthalten",
+   "t": "enthalten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele ganze Zahlen liegen im Intervall [3; 4]?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "4 - (3) + 1",
+   "w": "Die kleinste ganze Zahl darin ist 3, die größte 4. Anzahl: 4 − 3 + 1 = 2."
+  },
+  {
    "l": "beurteilen",
    "t": "beurteilen",
    "p": "uebung",
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage über ]2; 4[ ist richtig?"
+    "text": "Welche Aussage über [−2; 6[ ist richtig?"
    },
    "a": [
-    "]2; 4[ bedeutet 2 < x ≤ 4.",
-    "1,5 liegt in ]2; 4[.",
-    "4 liegt in ]2; 4[.",
-    "3 liegt in ]2; 4[."
+    "7 liegt in [−2; 6[.",
+    "[−2; 6[ bedeutet −2 ≤ x ≤ 6.",
+    "−1 liegt in [−2; 6[.",
+    "[−2; 6[ und ]−2; 6[ enthalten dieselben Zahlen."
    ],
    "o": {
-    "index": 3
+    "index": 2
    },
-   "w": "Richtig ist: 3 liegt in ]2; 4[. Die anderen Aussagen scheitern an einer Grenze oder Klammer.",
+   "w": "Richtig ist: −1 liegt in [−2; 6[. Die anderen Aussagen scheitern an einer Grenze oder Klammer.",
    "h": "Prüfe jede Aussage an den Grenzen des Intervalls."
   },
   {
@@ -1533,39 +2068,18 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage über ]−3; 7] ist richtig?"
+    "text": "Welche Aussage über [−8; −6[ ist richtig?"
    },
    "a": [
-    "−3,5 liegt in ]−3; 7].",
-    "]−3; 7] bedeutet −3 < x ≤ 7.",
-    "]−3; 7] enthält genau 11 ganze Zahlen.",
-    "Die kleinste Zahl in ]−3; 7] ist −3."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Richtig ist: ]−3; 7] bedeutet −3 < x ≤ 7. Die anderen Aussagen scheitern an einer Grenze oder Klammer.",
-   "h": "Prüfe jede Aussage an den Grenzen des Intervalls."
-  },
-  {
-   "l": "beurteilen",
-   "t": "beurteilen",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Aussage über ]1; 5[ ist richtig?"
-   },
-   "a": [
-    "]1; 5[ bedeutet 1 ≤ x ≤ 5.",
-    "5 liegt in ]1; 5[.",
-    "1 liegt in ]1; 5[.",
-    "]1; 5[ bedeutet 1 < x < 5."
+    "−5 liegt in [−8; −6[.",
+    "−8,5 liegt in [−8; −6[.",
+    "−6 liegt in [−8; −6[.",
+    "[−8; −6[ enthält unendlich viele Zahlen."
    ],
    "o": {
     "index": 3
    },
-   "w": "Richtig ist: ]1; 5[ bedeutet 1 < x < 5. Die anderen Aussagen scheitern an einer Grenze oder Klammer.",
+   "w": "Richtig ist: [−8; −6[ enthält unendlich viele Zahlen. Die anderen Aussagen scheitern an einer Grenze oder Klammer.",
    "h": "Prüfe jede Aussage an den Grenzen des Intervalls."
   },
   {
@@ -1578,13 +2092,13 @@
     "text": "Welche Aussage über ]−7; 8[ ist richtig?"
    },
    "a": [
-    "Die kleinste Zahl in ]−7; 8[ ist −7.",
-    "]−7; 8[ enthält genau 15 ganze Zahlen.",
+    "−6 liegt in ]−7; 8[.",
     "8 liegt in ]−7; 8[.",
-    "−6 liegt in ]−7; 8[."
+    "]−7; 8[ enthält genau 15 ganze Zahlen.",
+    "Die kleinste Zahl in ]−7; 8[ ist −7."
    ],
    "o": {
-    "index": 3
+    "index": 0
    },
    "w": "Richtig ist: −6 liegt in ]−7; 8[. Die anderen Aussagen scheitern an einer Grenze oder Klammer.",
    "h": "Prüfe jede Aussage an den Grenzen des Intervalls."
@@ -1593,42 +2107,21 @@
    "l": "beurteilen",
    "t": "beurteilen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage über ]−5; 4] ist FALSCH?"
+    "text": "Welche Aussage über [4; 7[ ist richtig?"
    },
    "a": [
-    "]−5; 4] enthält genau 9 ganze Zahlen.",
-    "−5,5 liegt in ]−5; 4].",
-    "−4 liegt in ]−5; 4].",
-    "4 liegt in ]−5; 4]."
+    "7 liegt in [4; 7[.",
+    "5 liegt in [4; 7[.",
+    "[4; 7[ bedeutet 4 < x < 7.",
+    "3,5 liegt in [4; 7[."
    ],
    "o": {
     "index": 1
    },
-   "w": "Falsch ist: −5,5 liegt in ]−5; 4].",
-   "h": "Suche ein Gegenbeispiel – meist an einer Grenze."
-  },
-  {
-   "l": "beurteilen",
-   "t": "beurteilen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Aussage über ]−2; 4] ist richtig?"
-   },
-   "a": [
-    "Die kleinste Zahl in ]−2; 4] ist −2.",
-    "−2,5 liegt in ]−2; 4].",
-    "]−2; 4] enthält unendlich viele Zahlen.",
-    "]−2; 4] und [−2; 4] enthalten dieselben Zahlen."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Richtig ist: ]−2; 4] enthält unendlich viele Zahlen. Die anderen Aussagen scheitern an einer Grenze oder Klammer.",
+   "w": "Richtig ist: 5 liegt in [4; 7[. Die anderen Aussagen scheitern an einer Grenze oder Klammer.",
    "h": "Prüfe jede Aussage an den Grenzen des Intervalls."
   },
   {
@@ -1638,19 +2131,19 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage über ]3; 6] ist FALSCH?"
+    "text": "Welche Aussage über [4; 7] ist richtig?"
    },
    "a": [
-    "]3; 6] bedeutet 3 ≤ x < 6.",
-    "]3; 6] enthält genau 3 ganze Zahlen.",
-    "4 liegt in ]3; 6].",
-    "]3; 6] enthält unendlich viele Zahlen."
+    "[4; 7] und ]4; 7] enthalten dieselben Zahlen.",
+    "[4; 7] enthält genau 5 ganze Zahlen.",
+    "[4; 7] bedeutet 4 ≤ x ≤ 7.",
+    "[4; 7] bedeutet 4 < x ≤ 7."
    ],
    "o": {
-    "index": 0
+    "index": 2
    },
-   "w": "Falsch ist: ]3; 6] bedeutet 3 ≤ x < 6.",
-   "h": "Suche ein Gegenbeispiel – meist an einer Grenze."
+   "w": "Richtig ist: [4; 7] bedeutet 4 ≤ x ≤ 7. Die anderen Aussagen scheitern an einer Grenze oder Klammer.",
+   "h": "Prüfe jede Aussage an den Grenzen des Intervalls."
   },
   {
    "l": "beurteilen",
@@ -1659,39 +2152,18 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage über [−4; 7[ ist FALSCH?"
+    "text": "Welche Aussage über [−7; 3[ ist FALSCH?"
    },
    "a": [
-    "7 liegt in [−4; 7[.",
-    "[−4; 7[ enthält genau 11 ganze Zahlen.",
-    "−4 liegt in [−4; 7[.",
-    "Die kleinste Zahl in [−4; 7[ ist −4."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Falsch ist: 7 liegt in [−4; 7[.",
-   "h": "Suche ein Gegenbeispiel – meist an einer Grenze."
-  },
-  {
-   "l": "beurteilen",
-   "t": "beurteilen",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Aussage über ]−4; 2] ist FALSCH?"
-   },
-   "a": [
-    "]−4; 2] bedeutet −4 < x ≤ 2.",
-    "−4 liegt in ]−4; 2].",
-    "2 liegt in ]−4; 2].",
-    "]−4; 2] enthält unendlich viele Zahlen."
+    "Die kleinste Zahl in [−7; 3[ ist −7.",
+    "4 liegt in [−7; 3[.",
+    "−7 liegt in [−7; 3[.",
+    "[−7; 3[ enthält unendlich viele Zahlen."
    ],
    "o": {
     "index": 1
    },
-   "w": "Falsch ist: −4 liegt in ]−4; 2].",
+   "w": "Falsch ist: 4 liegt in [−7; 3[.",
    "h": "Suche ein Gegenbeispiel – meist an einer Grenze."
   },
   {
@@ -1701,39 +2173,81 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage über ]0; 5] ist FALSCH?"
+    "text": "Welche Aussage über ]−4; −1[ ist FALSCH?"
    },
    "a": [
-    "]0; 5] enthält unendlich viele Zahlen.",
-    "Die kleinste Zahl in ]0; 5] ist 0.",
-    "5 liegt in ]0; 5].",
-    "1 liegt in ]0; 5]."
+    "−4,5 liegt in ]−4; −1[.",
+    "]−4; −1[ enthält genau 2 ganze Zahlen.",
+    "]−4; −1[ enthält unendlich viele Zahlen.",
+    "]−4; −1[ bedeutet −4 < x < −1."
    ],
    "o": {
-    "index": 1
+    "index": 0
    },
-   "w": "Falsch ist: Die kleinste Zahl in ]0; 5] ist 0. Gehört die linke Grenze nicht dazu, gibt es keine kleinste Zahl: Man kann ihr beliebig nahe kommen.",
+   "w": "Falsch ist: −4,5 liegt in ]−4; −1[.",
    "h": "Suche ein Gegenbeispiel – meist an einer Grenze."
   },
   {
    "l": "beurteilen",
    "t": "beurteilen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage über [−9; 2[ ist FALSCH?"
+    "text": "Welche Aussage über ]−6; 4] ist FALSCH?"
    },
    "a": [
-    "Die kleinste Zahl in [−9; 2[ ist −9.",
-    "[−9; 2[ enthält genau 11 ganze Zahlen.",
-    "−8 liegt in [−9; 2[.",
-    "[−9; 2[ bedeutet −9 < x ≤ 2."
+    "]−6; 4] bedeutet −6 < x ≤ 4.",
+    "]−6; 4] enthält unendlich viele Zahlen.",
+    "4 liegt in ]−6; 4].",
+    "5 liegt in ]−6; 4]."
    ],
    "o": {
     "index": 3
    },
-   "w": "Falsch ist: [−9; 2[ bedeutet −9 < x ≤ 2.",
+   "w": "Falsch ist: 5 liegt in ]−6; 4].",
+   "h": "Suche ein Gegenbeispiel – meist an einer Grenze."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über [−5; −2] ist FALSCH?"
+   },
+   "a": [
+    "[−5; −2] enthält genau 3 ganze Zahlen.",
+    "−2 liegt in [−5; −2].",
+    "−4 liegt in [−5; −2].",
+    "[−5; −2] bedeutet −5 ≤ x ≤ −2."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Falsch ist: [−5; −2] enthält genau 3 ganze Zahlen.",
+   "h": "Suche ein Gegenbeispiel – meist an einer Grenze."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über ]−9; −7] ist FALSCH?"
+   },
+   "a": [
+    "]−9; −7] bedeutet −9 < x ≤ −7.",
+    "−9,5 liegt in ]−9; −7].",
+    "]−9; −7] enthält genau 2 ganze Zahlen.",
+    "−8 liegt in ]−9; −7]."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Falsch ist: −9,5 liegt in ]−9; −7].",
    "h": "Suche ein Gegenbeispiel – meist an einer Grenze."
   },
   {
@@ -1743,18 +2257,18 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage über [−5; 6[ ist FALSCH?"
+    "text": "Welche Aussage über ]−7; 6[ ist FALSCH?"
    },
    "a": [
-    "−5 liegt in [−5; 6[.",
-    "[−5; 6[ bedeutet −5 < x ≤ 6.",
-    "[−5; 6[ bedeutet −5 ≤ x < 6.",
-    "−4 liegt in [−5; 6[."
+    "]−7; 6[ bedeutet −7 < x < 6.",
+    "−6 liegt in ]−7; 6[.",
+    "]−7; 6[ bedeutet −7 ≤ x ≤ 6.",
+    "]−7; 6[ enthält unendlich viele Zahlen."
    ],
    "o": {
-    "index": 1
+    "index": 2
    },
-   "w": "Falsch ist: [−5; 6[ bedeutet −5 < x ≤ 6.",
+   "w": "Falsch ist: ]−7; 6[ bedeutet −7 ≤ x ≤ 6.",
    "h": "Suche ein Gegenbeispiel – meist an einer Grenze."
   },
   {
@@ -1768,12 +2282,12 @@
    },
    "a": [
     "−4 liegt in ]−5; 0].",
-    "]−5; 0] bedeutet −5 ≤ x ≤ 0.",
     "0 liegt in ]−5; 0].",
-    "]−5; 0] enthält unendlich viele Zahlen."
+    "]−5; 0] enthält unendlich viele Zahlen.",
+    "]−5; 0] bedeutet −5 ≤ x ≤ 0."
    ],
    "o": {
-    "index": 1
+    "index": 3
    },
    "w": "Falsch ist: ]−5; 0] bedeutet −5 ≤ x ≤ 0.",
    "h": "Suche ein Gegenbeispiel – meist an einer Grenze."
@@ -1785,18 +2299,39 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage über ]−7; 9] ist FALSCH?"
+    "text": "Welche Aussage über [−3; 9] ist FALSCH?"
    },
    "a": [
-    "9 liegt in ]−7; 9].",
-    "]−7; 9] enthält unendlich viele Zahlen.",
-    "]−7; 9] bedeutet −7 < x ≤ 9.",
-    "−7 liegt in ]−7; 9]."
+    "[−3; 9] enthält unendlich viele Zahlen.",
+    "10 liegt in [−3; 9].",
+    "9 liegt in [−3; 9].",
+    "[−3; 9] enthält genau 13 ganze Zahlen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Falsch ist: 10 liegt in [−3; 9].",
+   "h": "Suche ein Gegenbeispiel – meist an einer Grenze."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über [−8; 3[ ist FALSCH?"
+   },
+   "a": [
+    "[−8; 3[ enthält genau 11 ganze Zahlen.",
+    "−7 liegt in [−8; 3[.",
+    "−8 liegt in [−8; 3[.",
+    "−8,5 liegt in [−8; 3[."
    ],
    "o": {
     "index": 3
    },
-   "w": "Falsch ist: −7 liegt in ]−7; 9].",
+   "w": "Falsch ist: −8,5 liegt in [−8; 3[.",
    "h": "Suche ein Gegenbeispiel – meist an einer Grenze."
   },
   {
@@ -1806,178 +2341,78 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage über ]−4; 3] ist richtig?"
+    "text": "Welche Aussage über ]−7; 2[ ist FALSCH?"
    },
    "a": [
-    "−3 liegt in ]−4; 3].",
-    "−4,5 liegt in ]−4; 3].",
-    "]−4; 3] bedeutet −4 ≤ x ≤ 3.",
-    "−4 liegt in ]−4; 3]."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Richtig ist: −3 liegt in ]−4; 3]. Die anderen Aussagen scheitern an einer Grenze oder Klammer."
-  },
-  {
-   "l": "beurteilen",
-   "t": "beurteilen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Aussage über ]7; 9] ist richtig?"
-   },
-   "a": [
-    "]7; 9] bedeutet 7 ≤ x < 9.",
-    "Die kleinste Zahl in ]7; 9] ist 7.",
-    "]7; 9] und [7; 9] enthalten dieselben Zahlen.",
-    "9 liegt in ]7; 9]."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Richtig ist: 9 liegt in ]7; 9]. Die anderen Aussagen scheitern an einer Grenze oder Klammer."
-  },
-  {
-   "l": "beurteilen",
-   "t": "beurteilen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Aussage über ]0; 4[ ist FALSCH?"
-   },
-   "a": [
-    "1 liegt in ]0; 4[.",
-    "]0; 4[ enthält unendlich viele Zahlen.",
-    "]0; 4[ bedeutet 0 < x < 4.",
-    "5 liegt in ]0; 4[."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Falsch ist: 5 liegt in ]0; 4[."
-  },
-  {
-   "l": "beurteilen",
-   "t": "beurteilen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Aussage über [−7; −2[ ist richtig?"
-   },
-   "a": [
-    "[−7; −2[ enthält genau 6 ganze Zahlen.",
-    "−7,5 liegt in [−7; −2[.",
-    "−1 liegt in [−7; −2[.",
-    "−7 liegt in [−7; −2[."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Richtig ist: −7 liegt in [−7; −2[. Die anderen Aussagen scheitern an einer Grenze oder Klammer."
-  },
-  {
-   "l": "beurteilen",
-   "t": "beurteilen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Aussage über [0; 5[ ist FALSCH?"
-   },
-   "a": [
-    "[0; 5[ enthält unendlich viele Zahlen.",
-    "[0; 5[ bedeutet 0 ≤ x < 5.",
-    "−0,5 liegt in [0; 5[.",
-    "0 liegt in [0; 5[."
+    "]−7; 2[ enthält unendlich viele Zahlen.",
+    "−6 liegt in ]−7; 2[.",
+    "]−7; 2[ und [−7; 2[ enthalten dieselben Zahlen.",
+    "]−7; 2[ bedeutet −7 < x < 2."
    ],
    "o": {
     "index": 2
    },
-   "w": "Falsch ist: −0,5 liegt in [0; 5[."
+   "w": "Falsch ist: ]−7; 2[ und [−7; 2[ enthalten dieselben Zahlen."
   },
   {
    "l": "beurteilen",
    "t": "beurteilen",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage über ]−2; 4[ ist richtig?"
+    "text": "Welche Aussage über ]−5; 0[ ist FALSCH?"
    },
    "a": [
-    "−1 liegt in ]−2; 4[.",
-    "]−2; 4[ und [−2; 4[ enthalten dieselben Zahlen.",
-    "−2 liegt in ]−2; 4[.",
-    "4 liegt in ]−2; 4[."
+    "1 liegt in ]−5; 0[.",
+    "−4 liegt in ]−5; 0[.",
+    "]−5; 0[ bedeutet −5 < x < 0.",
+    "]−5; 0[ enthält unendlich viele Zahlen."
    ],
    "o": {
     "index": 0
    },
-   "w": "Richtig ist: −1 liegt in ]−2; 4[. Die anderen Aussagen scheitern an einer Grenze oder Klammer."
+   "w": "Falsch ist: 1 liegt in ]−5; 0[."
   },
   {
    "l": "beurteilen",
    "t": "beurteilen",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage über ]−7; 3[ ist richtig?"
+    "text": "Welche Aussage über [−7; 3[ ist richtig?"
    },
    "a": [
-    "−6 liegt in ]−7; 3[.",
-    "]−7; 3[ und [−7; 3[ enthalten dieselben Zahlen.",
-    "Die kleinste Zahl in ]−7; 3[ ist −7.",
-    "3 liegt in ]−7; 3[."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Richtig ist: −6 liegt in ]−7; 3[. Die anderen Aussagen scheitern an einer Grenze oder Klammer."
-  },
-  {
-   "l": "beurteilen",
-   "t": "beurteilen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Aussage über ]−2; 7[ ist FALSCH?"
-   },
-   "a": [
-    "]−2; 7[ bedeutet −2 < x < 7.",
-    "−1 liegt in ]−2; 7[.",
-    "]−2; 7[ enthält unendlich viele Zahlen.",
-    "]−2; 7[ enthält genau 9 ganze Zahlen."
+    "−7,5 liegt in [−7; 3[.",
+    "4 liegt in [−7; 3[.",
+    "[−7; 3[ enthält genau 11 ganze Zahlen.",
+    "−7 liegt in [−7; 3[."
    ],
    "o": {
     "index": 3
    },
-   "w": "Falsch ist: ]−2; 7[ enthält genau 9 ganze Zahlen."
+   "w": "Richtig ist: −7 liegt in [−7; 3[. Die anderen Aussagen scheitern an einer Grenze oder Klammer."
   },
   {
    "l": "beurteilen",
    "t": "beurteilen",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage über ]1; 8[ ist FALSCH?"
+    "text": "Welche Aussage über ]−6; 0[ ist richtig?"
    },
    "a": [
-    "]1; 8[ bedeutet 1 < x < 8.",
-    "]1; 8[ enthält unendlich viele Zahlen.",
-    "1 liegt in ]1; 8[.",
-    "2 liegt in ]1; 8[."
+    "−6,5 liegt in ]−6; 0[.",
+    "1 liegt in ]−6; 0[.",
+    "]−6; 0[ enthält unendlich viele Zahlen.",
+    "−6 liegt in ]−6; 0[."
    ],
    "o": {
     "index": 2
    },
-   "w": "Falsch ist: 1 liegt in ]1; 8[."
+   "w": "Richtig ist: ]−6; 0[ enthält unendlich viele Zahlen. Die anderen Aussagen scheitern an einer Grenze oder Klammer."
   },
   {
    "l": "beurteilen",
@@ -1986,21 +2421,123 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage über [−8; −4[ ist richtig?"
+    "text": "Welche Aussage über [−7; −4] ist richtig?"
    },
    "a": [
-    "[−8; −4[ und ]−8; −4[ enthalten dieselben Zahlen.",
-    "[−8; −4[ enthält unendlich viele Zahlen.",
-    "−3 liegt in [−8; −4[.",
-    "−8,5 liegt in [−8; −4[."
+    "−3 liegt in [−7; −4].",
+    "[−7; −4] enthält genau 4 ganze Zahlen.",
+    "−7,5 liegt in [−7; −4].",
+    "[−7; −4] und ]−7; −4] enthalten dieselben Zahlen."
    ],
    "o": {
     "index": 1
    },
-   "w": "Richtig ist: [−8; −4[ enthält unendlich viele Zahlen. Die anderen Aussagen scheitern an einer Grenze oder Klammer."
+   "w": "Richtig ist: [−7; −4] enthält genau 4 ganze Zahlen. Die anderen Aussagen scheitern an einer Grenze oder Klammer."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über [−8; 2[ ist FALSCH?"
+   },
+   "a": [
+    "3 liegt in [−8; 2[.",
+    "−8 liegt in [−8; 2[.",
+    "Die kleinste Zahl in [−8; 2[ ist −8.",
+    "[−8; 2[ bedeutet −8 ≤ x < 2."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Falsch ist: 3 liegt in [−8; 2[."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über [1; 6[ ist richtig?"
+   },
+   "a": [
+    "0,5 liegt in [1; 6[.",
+    "[1; 6[ enthält genau 4 ganze Zahlen.",
+    "Die kleinste Zahl in [1; 6[ ist 1.",
+    "[1; 6[ bedeutet 1 ≤ x ≤ 6."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Richtig ist: Die kleinste Zahl in [1; 6[ ist 1. Die anderen Aussagen scheitern an einer Grenze oder Klammer."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über ]5; 8[ ist FALSCH?"
+   },
+   "a": [
+    "]5; 8[ enthält genau 2 ganze Zahlen.",
+    "Die kleinste Zahl in ]5; 8[ ist 5.",
+    "6 liegt in ]5; 8[.",
+    "]5; 8[ enthält unendlich viele Zahlen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Falsch ist: Die kleinste Zahl in ]5; 8[ ist 5. Gehört die linke Grenze nicht dazu, gibt es keine kleinste Zahl: Man kann ihr beliebig nahe kommen."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über [−1; 2[ ist FALSCH?"
+   },
+   "a": [
+    "[−1; 2[ bedeutet −1 ≤ x < 2.",
+    "0 liegt in [−1; 2[.",
+    "−1 liegt in [−1; 2[.",
+    "3 liegt in [−1; 2[."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Falsch ist: 3 liegt in [−1; 2[."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über ]−4; 0[ ist richtig?"
+   },
+   "a": [
+    "−3 liegt in ]−4; 0[.",
+    "0 liegt in ]−4; 0[.",
+    "−4 liegt in ]−4; 0[.",
+    "1 liegt in ]−4; 0[."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Richtig ist: −3 liegt in ]−4; 0[. Die anderen Aussagen scheitern an einer Grenze oder Klammer."
   }
  ],
  "offen": [
-  "Intervalle als markierter Bereich am Zahlenstrahl (Strecke mit offenem/geschlossenem Randpunkt) kann die App nicht zeichnen. Gebaut: Lernkarte „lesen“ zeigt nur einen beschrifteten Zahlenstrahl; Aufgaben „Welches Intervall zeigt das Bild?“ fehlen."
+  "Intervall am Zahlenstrahl ist mit dem Bildtyp „figur“ nachgebaut (Behelf): gefüllter Punkt = Grenze gehört dazu, leerer Kreis = gehört nicht dazu, Strecke bis zum Rand = unbegrenzt. Ein eigener Bildtyp „intervall“ (Zahlenstrahl mit Endpunkten und Pfeil) wäre klarer – Vorschlag für den Haupt-Chat.",
+  "Prüf-Vorschlag „FALSCH fett anzeigen“ nicht umgesetzt: Aufgabentexte werden ohne Hervorhebung angezeigt; das wäre App-Code. FALSCH steht weiter in Großbuchstaben.",
+  "Lehrplanbezug: Intervalle werden in gleichungen.ungleichungen gebraucht; dieses Thema sollte im Plan davor stehen (Reihenfolge legt der Haupt-Chat fest)."
  ]
 }

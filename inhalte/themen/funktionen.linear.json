@@ -43,36 +43,112 @@
    {
     "lernziel": "ablesen",
     "titel": "Steigung m und Achsenabschnitt t",
-    "regel": "Der Graph von y = m · x + t ist eine ⟦Gerade⟧. ⟦m⟧ ist die Steigung: Gehst du 1 nach rechts, geht es m nach oben. ⟦t⟧ ist der y-Achsenabschnitt: Dort schneidet die Gerade die y-Achse.",
+    "regel": "Der Graph von y = m · x + t ist eine ⟦Gerade⟧. ⟦m⟧ ist die Steigung: Gehst du 1 nach rechts, geht es m nach oben (bei negativem m nach unten) – wie eine Straße bergauf oder bergab. ⟦t⟧ ist der y-Achsenabschnitt: Dort schneidet die Gerade die y-Achse.",
     "schritte": [
-     "y = 5 − 2x umsortieren: y = −2x + 5",
-     "Steigung ⟦m = −2⟧ (fällt), y-Achsenabschnitt ⟦t = 5⟧",
-     "Schnittpunkt mit der y-Achse: (0 | 5)"
+     "y = 5 − 2x umsortieren: y = −2x + 5.",
+     "⟦t = 5⟧: Die Gerade schneidet die y-Achse bei (0 | 5).",
+     "⟦m = −2⟧: Von jedem Punkt aus 1 nach rechts und 2 nach unten – die Gerade fällt. Das zeigt das Steigungsdreieck im Bild."
     ],
-    "fehler": "Bei y = 5 − 2x ist m nicht 5. Die Steigung ist die Zahl ⟦vor dem x⟧, mit Vorzeichen: m = −2."
+    "fehler": "Bei y = 5 − 2x ist m nicht 5. Die Steigung ist die Zahl ⟦vor dem x⟧, mit Vorzeichen: m = −2.",
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      4
+     ],
+     "y": [
+      -2,
+      6
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": -2,
+       "t": 5,
+       "name": "y = −2x + 5"
+      }
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 5,
+       "name": "(0 | 5)"
+      }
+     ],
+     "strecken": [
+      [
+       1,
+       3,
+       2,
+       3,
+       "gestrichelt"
+      ],
+      [
+       2,
+       3,
+       2,
+       1,
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "zwei_punkte",
     "titel": "Steigung aus zwei Punkten",
     "regel": "Durch zwei Punkte P(x₁ | y₁) und Q(x₂ | y₂) geht genau eine Gerade. Ihre Steigung ist ⟦m = (y₂ − y₁) : (x₂ − x₁)⟧ („Höhenunterschied durch Längenunterschied“).",
     "schritte": [
-     "P(1 | 3), Q(4 | 9)",
-     "m = (9 − 3) : (4 − 1) = 6 : 3",
-     "⟦m = 2⟧"
+     "P(1 | 3), Q(4 | 9). Von P nach Q gehst du 4 − 1 = 3 nach rechts.",
+     "Dabei steigst du 9 − 3 = 6 nach oben.",
+     "6 nach oben auf 3 nach rechts heißt: 2 nach oben auf 1 nach rechts. ⟦m = 6 : 3 = 2⟧."
     ],
-    "fehler": "m = (4 − 1) : (9 − 3) = 0,5 ist falsch: Die ⟦y-Differenz⟧ gehört nach oben (in den Zähler), die x-Differenz nach unten."
-   },
-   {
-    "lernziel": "aufstellen",
-    "titel": "Geradengleichung aufstellen",
-    "regel": "Kennst du m und einen Punkt P(a | b), setzt du P in y = m · x + t ein und berechnest ⟦t = b − m · a⟧. Bei zwei Punkten berechnest du ⟦zuerst m⟧.",
-    "schritte": [
-     "m = 3, Punkt P(2 | 1)",
-     "1 = 3 · 2 + t → t = 1 − 6 = −5",
-     "⟦y = 3x − 5⟧"
-    ],
-    "probe": "3 · 2 − 5 = 1 ✓",
-    "fehler": "Bei P(2 | 1) setzt man x = 2 und y = 1 ein – nicht umgekehrt. 2 = 3 · 1 + t führt zu ⟦t = −1⟧ und einer falschen Geraden."
+    "fehler": "m = (4 − 1) : (9 − 3) = 0,5 ist falsch: Die ⟦y-Differenz⟧ gehört nach oben (in den Zähler), die x-Differenz nach unten.",
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      6
+     ],
+     "y": [
+      -1,
+      11
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 2,
+       "t": 1
+      }
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 3,
+       "name": "P"
+      },
+      {
+       "x": 4,
+       "y": 9,
+       "name": "Q"
+      }
+     ],
+     "strecken": [
+      [
+       1,
+       3,
+       4,
+       3,
+       "gestrichelt"
+      ],
+      [
+       4,
+       3,
+       4,
+       9,
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "proportional",
@@ -83,29 +159,168 @@
      "k = 7,50 € : 3 kg = 2,50 € pro kg",
      "⟦y = 2,5 · x⟧, also kosten 8 kg 20 €."
     ],
-    "fehler": "y = 2x + 1 ist ⟦keine⟧ Proportionalität: Für x = 0 ist y = 1, die Gerade geht nicht durch den Ursprung. Verdoppelt man x, verdoppelt sich y nicht."
+    "fehler": "y = 2x + 1 ist ⟦keine⟧ Proportionalität: Für x = 0 ist y = 1, die Gerade geht nicht durch den Ursprung. Verdoppelt man x, verdoppelt sich y nicht.",
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      4
+     ],
+     "y": [
+      0,
+      10
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 2.5,
+       "t": 0,
+       "name": "y = 2,5x"
+      },
+      {
+       "art": "linear",
+       "m": 2,
+       "t": 1,
+       "name": "y = 2x + 1"
+      }
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 0,
+       "name": "O"
+      },
+      {
+       "x": 0,
+       "y": 1
+      }
+     ],
+     "name_x": "kg",
+     "name_y": "€"
+    }
+   },
+   {
+    "lernziel": "aufstellen",
+    "titel": "Geradengleichung aufstellen",
+    "regel": "Kennst du m und einen Punkt P(a | b), setzt du P in y = m · x + t ein und berechnest ⟦t = b − m · a⟧. Bei zwei Punkten berechnest du ⟦zuerst m⟧.",
+    "schritte": [
+     "m = 3, Punkt P(2 | 1). Setze x = 2 und y = 1 in y = 3x + t ein.",
+     "1 = 3 · 2 + t, also t = 1 − 6 = −5.",
+     "⟦y = 3x − 5⟧",
+     "Anschaulich: Von P(2 | 1) gehst du 2 nach links bis zur y-Achse. Bei Steigung 3 geht es dabei 2 · 3 = 6 nach unten: 1 − 6 = −5 = t."
+    ],
+    "probe": "3 · 2 − 5 = 1 ✓",
+    "fehler": "Bei P(2 | 1) setzt man x = 2 und y = 1 ein – nicht umgekehrt. 2 = 3 · 1 + t führt zu ⟦t = −1⟧ und einer falschen Geraden."
    },
    {
     "lernziel": "schnittpunkte",
     "titel": "Schnittpunkte berechnen",
-    "regel": "Schnitt mit der ⟦x-Achse⟧: y = 0 setzen (Nullstelle). Schnitt mit der ⟦y-Achse⟧: x = 0, also (0 | t). Schnitt zweier Geraden: Terme ⟦gleichsetzen⟧.",
+    "regel": "Schnitt mit der ⟦x-Achse⟧: y = 0 setzen (Nullstelle). Schnitt mit der ⟦y-Achse⟧: x = 0, also (0 | t). Schnitt zweier Geraden: Im Schnittpunkt haben beide ⟦dasselbe x und dasselbe y⟧. Deshalb setzt du die Terme ⟦gleich⟧.",
     "schritte": [
      "g: y = 2x − 1, h: y = −x + 5",
      "2x − 1 = −x + 5 → 3x = 6 → x = 2",
      "y = 2 · 2 − 1 = 3: ⟦S(2 | 3)⟧"
     ],
-    "fehler": "Der Schnittpunkt mit der x-Achse von y = 2x − 1 ist nicht (0 | −1). Das ist der Schnitt mit der ⟦y-Achse⟧. Für die x-Achse gilt y = 0: x = 0,5."
+    "fehler": "Der Schnittpunkt mit der x-Achse von y = 2x − 1 ist nicht (0 | −1). Das ist der Schnitt mit der ⟦y-Achse⟧. Für die x-Achse gilt y = 0: x = 0,5.",
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      5
+     ],
+     "y": [
+      -2,
+      6
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 2,
+       "t": -1,
+       "name": "g"
+      },
+      {
+       "art": "linear",
+       "m": -1,
+       "t": 5,
+       "name": "h"
+      }
+     ],
+     "punkte": [
+      {
+       "x": 2,
+       "y": 3,
+       "name": "S(2 | 3)"
+      }
+     ]
+    }
    },
    {
     "lernziel": "lage",
     "titel": "Parallel oder senkrecht?",
-    "regel": "Gleiche Steigung (m₁ = m₂): Die Geraden sind ⟦parallel⟧. Ist ⟦m₁ · m₂ = −1⟧, stehen sie ⟦senkrecht⟧ aufeinander. Sonst schneiden sie sich schräg.",
+    "regel": "Gleiche Steigung (m₁ = m₂): Die Geraden sind ⟦parallel⟧. Ist ⟦m₁ · m₂ = −1⟧, stehen sie ⟦senkrecht⟧ aufeinander. Warum? Drehst du das Steigungsdreieck „1 nach rechts, 2 nach oben“ um 90°, wird daraus „2 nach rechts, 1 nach unten“. Die neue Steigung ist −1/2, und 2 · (−1/2) = −1.",
     "schritte": [
-     "g: y = 2x + 1, h: y = −0,5x + 3",
-     "m₁ · m₂ = 2 · (−0,5) = −1",
+     "g: y = 2x + 1, h: y = −0,5x + 3.",
+     "m₁ · m₂ = 2 · (−0,5) = −1.",
      "⟦g und h sind senkrecht zueinander.⟧"
     ],
-    "fehler": "y = 2x + 1 und y = −2x + 1 stehen nicht senkrecht: 2 · (−2) = −4 ≠ −1. Für senkrecht braucht man den ⟦negativen Kehrwert⟧: −1/2."
+    "fehler": "y = 2x + 1 und y = −2x + 1 stehen nicht senkrecht: 2 · (−2) = −4 ≠ −1. Für senkrecht braucht man den ⟦negativen Kehrwert⟧: −1/2.",
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      4
+     ],
+     "y": [
+      -1,
+      5
+     ],
+     "streckung": 1.14,
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 2,
+       "t": 1,
+       "name": "g"
+      },
+      {
+       "art": "linear",
+       "m": -0.5,
+       "t": 3,
+       "name": "h"
+      }
+     ],
+     "strecken": [
+      [
+       0,
+       1,
+       1,
+       1,
+       "gestrichelt"
+      ],
+      [
+       1,
+       1,
+       1,
+       3,
+       "gestrichelt"
+      ],
+      [
+       0,
+       3,
+       2,
+       3,
+       "gestrichelt"
+      ],
+      [
+       2,
+       3,
+       2,
+       2,
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "deuten",
@@ -135,17 +350,17 @@
     ]
    },
    {
-    "k": "aufstellen",
-    "text": "Geradengleichung aufstellen",
-    "lernziele": [
-     "aufstellen"
-    ]
-   },
-   {
     "k": "proportional",
     "text": "Proportionalität: Ursprungsgerade",
     "lernziele": [
      "proportional"
+    ]
+   },
+   {
+    "k": "aufstellen",
+    "text": "Geradengleichung aufstellen",
+    "lernziele": [
+     "aufstellen"
     ]
    },
    {
@@ -174,8 +389,8 @@
    "lernziele_pflicht": [
     "ablesen",
     "zwei_punkte",
-    "aufstellen",
     "proportional",
+    "aufstellen",
     "schnittpunkte",
     "lage",
     "deuten"
@@ -196,29 +411,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Gib die Steigung m der Geraden y = 6x + 8 an."
+    "text": "Gib den y-Achsenabschnitt t der Geraden y = 5x − 6 an."
    },
    "o": {
-    "wert": 6
+    "wert": -6
    },
-   "c": "6",
-   "w": "In der Form y = m · x + t: y = 6x + 8. Steigung m = 6.",
-   "h": "Bringe die Gleichung in die Form y = m · x + t. m steht vor dem x."
-  },
-  {
-   "l": "ablesen",
-   "t": "ablesen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Gib den y-Achsenabschnitt t der Geraden y = 5x + 9 an."
-   },
-   "o": {
-    "wert": 9
-   },
-   "c": "9",
-   "w": "In der Form y = m · x + t: y = 5x + 9. y-Achsenabschnitt t = 9.",
+   "c": "-6",
+   "w": "In der Form y = m · x + t: y = 5x − 6. y-Achsenabschnitt t = −6.",
    "h": "Bringe die Gleichung in die Form y = m · x + t. t ist die Zahl ohne x."
   },
   {
@@ -228,13 +427,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Gib den y-Achsenabschnitt t der Geraden y = 2x + 8 an."
+    "text": "Gib den y-Achsenabschnitt t der Geraden y = 2x − 7 an."
    },
    "o": {
-    "wert": 8
+    "wert": -7
    },
-   "c": "8",
-   "w": "In der Form y = m · x + t: y = 2x + 8. y-Achsenabschnitt t = 8.",
+   "c": "-7",
+   "w": "In der Form y = m · x + t: y = 2x − 7. y-Achsenabschnitt t = −7.",
    "h": "Bringe die Gleichung in die Form y = m · x + t. t ist die Zahl ohne x."
   },
   {
@@ -244,62 +443,105 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Gib den y-Achsenabschnitt t der Geraden y = −5x + 3 an."
+    "text": "Gib den y-Achsenabschnitt t der Geraden y = −2x − 7 an."
    },
    "o": {
-    "wert": 3
+    "wert": -7
    },
-   "c": "3",
-   "w": "In der Form y = m · x + t: y = −5x + 3. y-Achsenabschnitt t = 3.",
+   "c": "-7",
+   "w": "In der Form y = m · x + t: y = −2x − 7. y-Achsenabschnitt t = −7.",
    "h": "Bringe die Gleichung in die Form y = m · x + t. t ist die Zahl ohne x."
   },
   {
    "l": "ablesen",
    "t": "ablesen",
    "p": "uebung",
-   "s": 2,
-   "y": "zahl",
+   "s": 1,
+   "y": "luecken",
    "f": {
-    "text": "Gib die Steigung m der Geraden y = −3x + 4 an."
+    "text": "Gib die Gleichung der gezeichneten Geraden an: y = …",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 2x − 1.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      3
+     ],
+     "y": [
+      -7,
+      13
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": -3,
+       "t": 3
+      }
+     ]
+    }
    },
    "o": {
-    "wert": -3
+    "werte": [
+     -3,
+     3
+    ]
    },
-   "c": "-3",
-   "w": "In der Form y = m · x + t: y = −3x + 4. Steigung m = −3.",
-   "h": "Bringe die Gleichung in die Form y = m · x + t. m steht vor dem x."
+   "c": [
+    "-3",
+    "3"
+   ],
+   "w": "Schnitt mit der y-Achse bei (0 | 3): t = 3. Von dort 1 nach rechts und 3 nach unten: m = −3. y = −3x + 3.",
+   "h": "Lies zuerst t an der y-Achse ab. Dann gehe 1 nach rechts: Wie weit geht es hoch oder runter?"
   },
   {
    "l": "ablesen",
    "t": "ablesen",
    "p": "uebung",
    "s": 2,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Gib den y-Achsenabschnitt t der Geraden y = 5 − 2,5x an."
+    "text": "Welche Gleichung gehört zur gezeichneten Geraden?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -4,
+      10
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 1.5,
+       "t": 3
+      }
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 3
+      },
+      {
+       "x": 2,
+       "y": 6
+      }
+     ]
+    }
    },
+   "a": [
+    "y = 1,5x + 3",
+    "y = (2/3)x + 3",
+    "y = 1,5x − 3",
+    "y = −1,5x + 3"
+   ],
    "o": {
-    "wert": 5
+    "index": 0
    },
-   "c": "5",
-   "w": "In der Form y = m · x + t: y = −2,5x + 5. y-Achsenabschnitt t = 5.",
-   "h": "Bringe die Gleichung in die Form y = m · x + t. t ist die Zahl ohne x."
-  },
-  {
-   "l": "ablesen",
-   "t": "ablesen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Gib den y-Achsenabschnitt t der Geraden y = −8x − 8 an."
-   },
-   "o": {
-    "wert": -8
-   },
-   "c": "-8",
-   "w": "In der Form y = m · x + t: y = −8x − 8. y-Achsenabschnitt t = −8.",
-   "h": "Bringe die Gleichung in die Form y = m · x + t. t ist die Zahl ohne x."
+   "w": "y-Achsenabschnitt t = 3. Von (0 | 3) nach (2 | 6): 2 nach rechts, 3 nach oben. m = 3 : 2 = 1,5.",
+   "h": "Lies t an der y-Achse ab. Für m: Wie weit geht es hoch oder runter, wenn du 2 nach rechts gehst?"
   },
   {
    "l": "ablesen",
@@ -324,13 +566,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Gib den y-Achsenabschnitt t der Geraden y = 5x + 1 an."
+    "text": "Gib den y-Achsenabschnitt t der Geraden y = 1,5x + 7 an."
    },
    "o": {
-    "wert": 1
+    "wert": 7
    },
-   "c": "1",
-   "w": "In der Form y = m · x + t: y = 5x + 1. y-Achsenabschnitt t = 1.",
+   "c": "7",
+   "w": "In der Form y = m · x + t: y = 1,5x + 7. y-Achsenabschnitt t = 7.",
    "h": "Bringe die Gleichung in die Form y = m · x + t. t ist die Zahl ohne x."
   },
   {
@@ -340,46 +582,90 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Gib die Steigung m der Geraden y = 1 − 5x an."
+    "text": "Das Bild zeigt eine Gerade mit Steigungsdreieck. Wie groß ist die Steigung m?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      5
+     ],
+     "y": [
+      -4,
+      3
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 1.5,
+       "t": -3.5
+      }
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": -2
+      },
+      {
+       "x": 3,
+       "y": 1
+      }
+     ],
+     "strecken": [
+      [
+       1,
+       -2,
+       3,
+       -2,
+       "gestrichelt"
+      ],
+      [
+       3,
+       -2,
+       3,
+       1,
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 1.5
+   },
+   "c": "(3) / (2)",
+   "w": "Das Dreieck geht 2 nach rechts und 3 nach oben: m = 3 : 2 = 1,5.",
+   "h": "Zähle die Kästchen: wie weit nach rechts, wie weit nach oben oder unten? m = hoch : rechts."
+  },
+  {
+   "l": "ablesen",
+   "t": "ablesen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die Steigung m der Geraden y = 4 − 5x an."
    },
    "o": {
     "wert": -5
    },
    "c": "-5",
-   "w": "In der Form y = m · x + t: y = −5x + 1. Steigung m = −5.",
+   "w": "In der Form y = m · x + t: y = −5x + 4. Steigung m = −5.",
    "h": "Bringe die Gleichung in die Form y = m · x + t. m steht vor dem x."
   },
   {
    "l": "ablesen",
    "t": "ablesen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Gib die Steigung m der Geraden y = 4,5x + 4 an."
+    "text": "Gib die Steigung m der Geraden y = 6x + 9 an."
    },
    "o": {
-    "wert": 4.5
+    "wert": 6
    },
-   "c": "(9/2)",
-   "w": "In der Form y = m · x + t: y = 4,5x + 4. Steigung m = 4,5.",
+   "c": "6",
+   "w": "In der Form y = m · x + t: y = 6x + 9. Steigung m = 6.",
    "h": "Bringe die Gleichung in die Form y = m · x + t. m steht vor dem x."
-  },
-  {
-   "l": "ablesen",
-   "t": "ablesen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Gib den y-Achsenabschnitt t der Geraden y = 1,6x − 5,5 an."
-   },
-   "o": {
-    "wert": -5.5
-   },
-   "c": "(-11/2)",
-   "w": "In der Form y = m · x + t: y = 1,6x − 5,5. y-Achsenabschnitt t = −5,5.",
-   "h": "Bringe die Gleichung in die Form y = m · x + t. t ist die Zahl ohne x."
   },
   {
    "l": "ablesen",
@@ -416,17 +702,119 @@
   {
    "l": "ablesen",
    "t": "ablesen",
-   "p": "test",
-   "s": 2,
+   "p": "uebung",
+   "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Gib den y-Achsenabschnitt t der Geraden y = −4x + 8 an."
+    "text": "Das Bild zeigt eine Gerade mit Steigungsdreieck. Wie groß ist die Steigung m?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      1
+     ],
+     "y": [
+      -6,
+      1
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": -1.5,
+       "t": -5.5
+      }
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": -1
+      },
+      {
+       "x": -1,
+       "y": -4
+      }
+     ],
+     "strecken": [
+      [
+       -3,
+       -1,
+       -1,
+       -1,
+       "gestrichelt"
+      ],
+      [
+       -1,
+       -1,
+       -1,
+       -4,
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    "o": {
-    "wert": 8
+    "wert": -1.5
    },
-   "c": "8",
-   "w": "In der Form y = m · x + t: y = −4x + 8. y-Achsenabschnitt t = 8."
+   "c": "(-3) / (2)",
+   "w": "Das Dreieck geht 2 nach rechts und 3 nach unten: m = −3 : 2 = −1,5.",
+   "h": "Zähle die Kästchen: wie weit nach rechts, wie weit nach oben oder unten? m = hoch : rechts."
+  },
+  {
+   "l": "ablesen",
+   "t": "ablesen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Gib den y-Achsenabschnitt t der Geraden 3y = 9x + 27 an."
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "9",
+   "w": "In der Form y = m · x + t: y = 3x + 9. y-Achsenabschnitt t = 9.",
+   "h": "Bringe die Gleichung in die Form y = m · x + t. t ist die Zahl ohne x."
+  },
+  {
+   "l": "ablesen",
+   "t": "ablesen",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Gleichung der gezeichneten Geraden an: y = …",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 2x − 1.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      3
+     ],
+     "y": [
+      -6,
+      14
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 3,
+       "t": 4
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     3,
+     4
+    ]
+   },
+   "c": [
+    "3",
+    "4"
+   ],
+   "w": "Schnitt mit der y-Achse bei (0 | 4): t = 4. Von dort 1 nach rechts und 3 nach oben: m = 3. y = 3x + 4."
   },
   {
    "l": "ablesen",
@@ -435,43 +823,102 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Gib die Steigung m der Geraden y = 4x − 7 an."
+    "text": "Gib den y-Achsenabschnitt t der Geraden y = 2 − 2x an."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "In der Form y = m · x + t: y = −2x + 2. y-Achsenabschnitt t = 2."
+  },
+  {
+   "l": "ablesen",
+   "t": "ablesen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Das Bild zeigt eine Gerade mit Steigungsdreieck. Wie groß ist die Steigung m?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      4
+     ],
+     "y": [
+      -4,
+      3
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 3,
+       "t": -5
+      }
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": -2
+      },
+      {
+       "x": 2,
+       "y": 1
+      }
+     ],
+     "strecken": [
+      [
+       1,
+       -2,
+       2,
+       -2,
+       "gestrichelt"
+      ],
+      [
+       2,
+       -2,
+       2,
+       1,
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(3) / (1)",
+   "w": "Das Dreieck geht 1 nach rechts und 3 nach oben: m = 3 : 1 = 3."
+  },
+  {
+   "l": "ablesen",
+   "t": "ablesen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die Steigung m der Geraden y = −5x an."
+   },
+   "o": {
+    "wert": -5
+   },
+   "c": "-5",
+   "w": "In der Form y = m · x + t: y = −5x. Steigung m = −5."
+  },
+  {
+   "l": "ablesen",
+   "t": "ablesen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die Steigung m der Geraden y = 4x − 1 an."
    },
    "o": {
     "wert": 4
    },
    "c": "4",
-   "w": "In der Form y = m · x + t: y = 4x − 7. Steigung m = 4."
-  },
-  {
-   "l": "ablesen",
-   "t": "ablesen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Gib den y-Achsenabschnitt t der Geraden y = −2x an."
-   },
-   "o": {
-    "wert": 0
-   },
-   "c": "0",
-   "w": "In der Form y = m · x + t: y = −2x. y-Achsenabschnitt t = 0."
-  },
-  {
-   "l": "ablesen",
-   "t": "ablesen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Gib die Steigung m der Geraden y = −4x − 8 an."
-   },
-   "o": {
-    "wert": -4
-   },
-   "c": "-4",
-   "w": "In der Form y = m · x + t: y = −4x − 8. Steigung m = −4."
+   "w": "In der Form y = m · x + t: y = 4x − 1. Steigung m = 4."
   },
   {
    "l": "ablesen",
@@ -480,13 +927,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Gib den y-Achsenabschnitt t der Geraden y = −5x − 7 an."
+    "text": "Gib die Steigung m der Geraden y = −4 − 5x an."
    },
    "o": {
-    "wert": -7
+    "wert": -5
    },
-   "c": "-7",
-   "w": "In der Form y = m · x + t: y = −5x − 7. y-Achsenabschnitt t = −7."
+   "c": "-5",
+   "w": "In der Form y = m · x + t: y = −5x − 4. Steigung m = −5."
   },
   {
    "l": "ablesen",
@@ -495,13 +942,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Gib die Steigung m der Geraden y = −1,5x − 8 an."
+    "text": "Gib den y-Achsenabschnitt t der Geraden y = 2x + 9 an."
    },
    "o": {
-    "wert": -1.5
+    "wert": 9
    },
-   "c": "(-3/2)",
-   "w": "In der Form y = m · x + t: y = −1,5x − 8. Steigung m = −1,5."
+   "c": "9",
+   "w": "In der Form y = m · x + t: y = 2x + 9. y-Achsenabschnitt t = 9."
   },
   {
    "l": "ablesen",
@@ -510,43 +957,57 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Gib die Steigung m der Geraden y = −x − 4 an."
-   },
-   "o": {
-    "wert": -1
-   },
-   "c": "-1",
-   "w": "In der Form y = m · x + t: y = −x − 4. Steigung m = −1."
-  },
-  {
-   "l": "ablesen",
-   "t": "ablesen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Gib die Steigung m der Geraden y = −1 + 7x an."
-   },
-   "o": {
-    "wert": 7
-   },
-   "c": "7",
-   "w": "In der Form y = m · x + t: y = 7x − 1. Steigung m = 7."
-  },
-  {
-   "l": "ablesen",
-   "t": "ablesen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Gib die Steigung m der Geraden y = −3x + 7 an."
+    "text": "Das Bild zeigt eine Gerade mit Steigungsdreieck. Wie groß ist die Steigung m?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      4
+     ],
+     "y": [
+      -5,
+      2
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": -3,
+       "t": 3
+      }
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 0
+      },
+      {
+       "x": 2,
+       "y": -3
+      }
+     ],
+     "strecken": [
+      [
+       1,
+       0,
+       2,
+       0,
+       "gestrichelt"
+      ],
+      [
+       2,
+       0,
+       2,
+       -3,
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    "o": {
     "wert": -3
    },
-   "c": "-3",
-   "w": "In der Form y = m · x + t: y = −3x + 7. Steigung m = −3."
+   "c": "(-3) / (1)",
+   "w": "Das Dreieck geht 1 nach rechts und 3 nach unten: m = −3 : 1 = −3."
   },
   {
    "l": "ablesen",
@@ -555,28 +1016,119 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Gib die Steigung m der Geraden y = 5x − 4 an."
+    "text": "Das Bild zeigt eine Gerade mit Steigungsdreieck. Wie groß ist die Steigung m?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      1
+     ],
+     "y": [
+      1,
+      6
+     ],
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 1,
+       "t": 5
+      }
+     ],
+     "punkte": [
+      {
+       "x": -2,
+       "y": 3
+      },
+      {
+       "x": -1,
+       "y": 4
+      }
+     ],
+     "strecken": [
+      [
+       -2,
+       3,
+       -1,
+       3,
+       "gestrichelt"
+      ],
+      [
+       -1,
+       3,
+       -1,
+       4,
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(1) / (1)",
+   "w": "Das Dreieck geht 1 nach rechts und 1 nach oben: m = 1 : 1 = 1."
+  },
+  {
+   "l": "ablesen",
+   "t": "ablesen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib den y-Achsenabschnitt t der Geraden y = −2x − 5 an."
+   },
+   "o": {
+    "wert": -5
+   },
+   "c": "-5",
+   "w": "In der Form y = m · x + t: y = −2x − 5. y-Achsenabschnitt t = −5."
+  },
+  {
+   "l": "zwei_punkte",
+   "t": "zwei_punkte",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Steigung der Geraden durch P(7 | −4) und Q(−4 | 7)."
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "(7 - (-4)) / (-4 - (7))",
+   "w": "m = (7 − (−4)) : (−4 − 7) = 11 : (−11) = −1.",
+   "h": "m = (y₂ − y₁) : (x₂ − x₁). Achte auf negative Zahlen."
+  },
+  {
+   "l": "zwei_punkte",
+   "t": "zwei_punkte",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Steigung der Geraden durch P(5 | 6) und Q(7 | −4)."
+   },
+   "o": {
+    "wert": -5
+   },
+   "c": "(-4 - (6)) / (7 - (5))",
+   "w": "m = (−4 − 6) : (7 − 5) = −10 : 2 = −5.",
+   "h": "m = (y₂ − y₁) : (x₂ − x₁). Achte auf negative Zahlen."
+  },
+  {
+   "l": "zwei_punkte",
+   "t": "zwei_punkte",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Steigung der Geraden durch P(−3 | −2) und Q(−5 | −12)."
    },
    "o": {
     "wert": 5
    },
-   "c": "5",
-   "w": "In der Form y = m · x + t: y = 5x − 4. Steigung m = 5."
-  },
-  {
-   "l": "zwei_punkte",
-   "t": "zwei_punkte",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne die Steigung der Geraden durch P(7 | −1) und Q(−2 | −37)."
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "(-37 - (-1)) / (-2 - (7))",
-   "w": "m = (−37 − (−1)) : (−2 − 7) = −36 : (−9) = 4.",
+   "c": "(-12 - (-2)) / (-5 - (-3))",
+   "w": "m = (−12 − (−2)) : (−5 − (−3)) = −10 : (−2) = 5.",
    "h": "m = (y₂ − y₁) : (x₂ − x₁). Achte auf negative Zahlen."
   },
   {
@@ -586,45 +1138,60 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Berechne die Steigung der Geraden durch P(−6 | 4) und Q(2 | 36)."
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "(36 - (4)) / (2 - (-6))",
-   "w": "m = (36 − 4) : (2 − (−6)) = 32 : 8 = 4.",
-   "h": "m = (y₂ − y₁) : (x₂ − x₁). Achte auf negative Zahlen."
-  },
-  {
-   "l": "zwei_punkte",
-   "t": "zwei_punkte",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne die Steigung der Geraden durch P(7 | 1) und Q(−5 | 25)."
+    "text": "Lies die Koordinaten von P und Q ab und berechne die Steigung der Strecke PQ.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      2
+     ],
+     "y": [
+      -6,
+      0
+     ],
+     "punkte": [
+      {
+       "x": -1,
+       "y": -2,
+       "name": "P"
+      },
+      {
+       "x": 0,
+       "y": -4,
+       "name": "Q"
+      }
+     ],
+     "strecken": [
+      [
+       -1,
+       -2,
+       0,
+       -4
+      ]
+     ]
+    }
    },
    "o": {
     "wert": -2
    },
-   "c": "(25 - (1)) / (-5 - (7))",
-   "w": "m = (25 − 1) : (−5 − 7) = 24 : (−12) = −2.",
-   "h": "m = (y₂ − y₁) : (x₂ − x₁). Achte auf negative Zahlen."
+   "c": "(-4 - (-2)) / (0 - (-1))",
+   "w": "P(−1 | −2), Q(0 | −4). m = (−4 − (−2)) : (0 − (−1)) = −2 : 1 = −2.",
+   "h": "Erst die Punkte ablesen, dann m = (y₂ − y₁) : (x₂ − x₁)."
   },
   {
    "l": "zwei_punkte",
    "t": "zwei_punkte",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne die Steigung der Geraden durch P(5 | −5) und Q(−1 | 13)."
+    "text": "Berechne die Steigung der Geraden durch P(3 | 3) und Q(5 | 11)."
    },
    "o": {
-    "wert": -3
+    "wert": 4
    },
-   "c": "(13 - (-5)) / (-1 - (5))",
-   "w": "m = (13 − (−5)) : (−1 − 5) = 18 : (−6) = −3.",
+   "c": "(11 - (3)) / (5 - (3))",
+   "w": "m = (11 − 3) : (5 − 3) = 8 : 2 = 4.",
    "h": "m = (y₂ − y₁) : (x₂ − x₁). Achte auf negative Zahlen."
   },
   {
@@ -634,13 +1201,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne die Steigung der Geraden durch P(−1 | −7) und Q(8 | −16)."
+    "text": "Berechne die Steigung der Geraden durch P(−4 | −6) und Q(3 | −14,75)."
    },
    "o": {
-    "wert": -1
+    "wert": -1.25
    },
-   "c": "(-16 - (-7)) / (8 - (-1))",
-   "w": "m = (−16 − (−7)) : (8 − (−1)) = −9 : 9 = −1.",
+   "c": "((-59/4) - (-6)) / (3 - (-4))",
+   "w": "m = (−14,75 − (−6)) : (3 − (−4)) = −8,75 : 7 = −1,25.",
    "h": "m = (y₂ − y₁) : (x₂ − x₁). Achte auf negative Zahlen."
   },
   {
@@ -650,14 +1217,56 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne die Steigung der Geraden durch P(6 | −6) und Q(5 | −18)."
+    "text": "Berechne die Steigung der Geraden durch P(1 | 1) und Q(−3 | 45)."
    },
    "o": {
-    "wert": 12
+    "wert": -11
    },
-   "c": "(-18 - (-6)) / (5 - (6))",
-   "w": "m = (−18 − (−6)) : (5 − 6) = −12 : (−1) = 12.",
+   "c": "(45 - (1)) / (-3 - (1))",
+   "w": "m = (45 − 1) : (−3 − 1) = 44 : (−4) = −11.",
    "h": "m = (y₂ − y₁) : (x₂ − x₁). Achte auf negative Zahlen."
+  },
+  {
+   "l": "zwei_punkte",
+   "t": "zwei_punkte",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Liegen A(−1 | −1), B(1 | 1) und C(3 | 3) auf einer Geraden?"
+   },
+   "a": [
+    "Ja, alle Punkte haben verschiedene x-Werte.",
+    "Das kann man nur mit einer Zeichnung entscheiden.",
+    "Nein, AB hat Steigung 1, BC hat 1.",
+    "Ja, beide Steigungen sind 1."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "m(AB) = (1 − (−1)) : 2 = 1; m(BC) = (3 − 1) : 2 = 1. Gleich, also eine Gerade.",
+   "h": "Berechne die Steigung von A nach B und von B nach C."
+  },
+  {
+   "l": "zwei_punkte",
+   "t": "zwei_punkte",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet für P(0 | 3), Q(6 | −9): m = (−9 − 3) : (0 − 6) = 2. Was ist falsch?"
+   },
+   "a": [
+    "Die Rechnung ist richtig.",
+    "Im Nenner wurde andersherum subtrahiert; richtig −12 : 6 = −2.",
+    "Man muss die Punkte addieren statt subtrahieren.",
+    "Es fehlt ein Minus; richtig ist 0,5."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "m = (y₂ − y₁) : (x₂ − x₁) = −12 : 6 = −2.",
+   "h": "Rechne selbst m = (y₂ − y₁) : (x₂ − x₁) und vergleiche."
   },
   {
    "l": "zwei_punkte",
@@ -666,324 +1275,769 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne die Steigung der Geraden durch P(−4 | 1) und Q(−5 | −3,5)."
+    "text": "Lies die Koordinaten von P und Q ab und berechne die Steigung der Strecke PQ.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      1
+     ],
+     "y": [
+      0,
+      6
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 2,
+       "name": "P"
+      },
+      {
+       "x": -1,
+       "y": 4,
+       "name": "Q"
+      }
+     ],
+     "strecken": [
+      [
+       -3,
+       2,
+       -1,
+       4
+      ]
+     ]
+    }
    },
    "o": {
-    "wert": 4.5
+    "wert": 1
    },
-   "c": "((-7/2) - (1)) / (-5 - (-4))",
-   "w": "m = (−3,5 − 1) : (−5 − (−4)) = −4,5 : (−1) = 4,5.",
-   "h": "m = (y₂ − y₁) : (x₂ − x₁). Achte auf negative Zahlen."
-  },
-  {
-   "l": "zwei_punkte",
-   "t": "zwei_punkte",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne die Steigung der Geraden durch P(−1 | 2) und Q(4 | 9)."
-   },
-   "o": {
-    "wert": 1.4
-   },
-   "c": "(9 - (2)) / (4 - (-1))",
-   "w": "m = (9 − 2) : (4 − (−1)) = 7 : 5 = 1,4.",
-   "h": "m = (y₂ − y₁) : (x₂ − x₁). Achte auf negative Zahlen."
-  },
-  {
-   "l": "zwei_punkte",
-   "t": "zwei_punkte",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne die Steigung der Geraden durch P(−2 | 3) und Q(5 | 24)."
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "(24 - (3)) / (5 - (-2))",
-   "w": "m = (24 − 3) : (5 − (−2)) = 21 : 7 = 3.",
-   "h": "m = (y₂ − y₁) : (x₂ − x₁). Achte auf negative Zahlen."
-  },
-  {
-   "l": "zwei_punkte",
-   "t": "zwei_punkte",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne die Steigung der Geraden durch P(3 | −7) und Q(7 | −0,6)."
-   },
-   "o": {
-    "wert": 1.6
-   },
-   "c": "((-3/5) - (-7)) / (7 - (3))",
-   "w": "m = (−0,6 − (−7)) : (7 − 3) = 6,4 : 4 = 1,6.",
-   "h": "m = (y₂ − y₁) : (x₂ − x₁). Achte auf negative Zahlen."
+   "c": "(4 - (2)) / (-1 - (-3))",
+   "w": "P(−3 | 2), Q(−1 | 4). m = (4 − 2) : (−1 − (−3)) = 2 : 2 = 1.",
+   "h": "Erst die Punkte ablesen, dann m = (y₂ − y₁) : (x₂ − x₁)."
   },
   {
    "l": "zwei_punkte",
    "t": "zwei_punkte",
    "p": "uebung",
    "s": 3,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Berechne die Steigung der Geraden durch P(−1,5 | −2) und Q(−3 | 0,625)."
+    "text": "Liegen A(−1 | 0), B(1 | 6) und C(3 | 14) auf einer Geraden?"
    },
+   "a": [
+    "Ja, alle Punkte haben verschiedene x-Werte.",
+    "Das kann man nur mit einer Zeichnung entscheiden.",
+    "Nein, AB hat Steigung 3, BC hat 4.",
+    "Ja, beide Steigungen sind 3."
+   ],
    "o": {
-    "wert": -1.75
+    "index": 2
    },
-   "c": "((5/8) - (-2)) / (-3 - ((-3/2)))",
-   "w": "m = (0,625 − (−2)) : (−3 − (−1,5)) = 2,625 : (−1,5) = −1,75.",
-   "h": "m = (y₂ − y₁) : (x₂ − x₁). Achte auf negative Zahlen."
+   "w": "m(AB) = (6 − 0) : 2 = 3; m(BC) = (14 − 6) : 2 = 4. Verschieden, also keine Gerade.",
+   "h": "Berechne die Steigung von A nach B und von B nach C."
   },
   {
    "l": "zwei_punkte",
    "t": "zwei_punkte",
    "p": "uebung",
    "s": 3,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Berechne die Steigung der Geraden durch P(3 | 4) und Q(1 | −16)."
+    "text": "Liegen A(0 | 2), B(2 | 8) und C(4 | 14) auf einer Geraden?"
    },
+   "a": [
+    "Nein, AB hat Steigung 3, BC hat 3.",
+    "Das kann man nur mit einer Zeichnung entscheiden.",
+    "Ja, beide Steigungen sind 3.",
+    "Ja, alle Punkte haben verschiedene x-Werte."
+   ],
    "o": {
-    "wert": 10
+    "index": 2
    },
-   "c": "(-16 - (4)) / (1 - (3))",
-   "w": "m = (−16 − 4) : (1 − 3) = −20 : (−2) = 10.",
-   "h": "m = (y₂ − y₁) : (x₂ − x₁). Achte auf negative Zahlen."
+   "w": "m(AB) = (8 − 2) : 2 = 3; m(BC) = (14 − 8) : 2 = 3. Gleich, also eine Gerade.",
+   "h": "Berechne die Steigung von A nach B und von B nach C."
   },
   {
    "l": "zwei_punkte",
    "t": "zwei_punkte",
    "p": "uebung",
    "s": 3,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Berechne die Steigung der Geraden durch P(3,5 | −4) und Q(2,5 | −2,5)."
+    "text": "Jemand rechnet für P(−3 | −3), Q(1 | −11): m = (−11 − (−3)) : (−3 − 1) = 2. Was ist falsch?"
    },
+   "a": [
+    "Man muss die Punkte addieren statt subtrahieren.",
+    "Es fehlt ein Minus; richtig ist 0,5.",
+    "Die Rechnung ist richtig.",
+    "Im Nenner wurde andersherum subtrahiert; richtig −8 : 4 = −2."
+   ],
    "o": {
-    "wert": -1.5
+    "index": 3
    },
-   "c": "((-5/2) - (-4)) / ((5/2) - ((7/2)))",
-   "w": "m = (−2,5 − (−4)) : (2,5 − 3,5) = 1,5 : (−1) = −1,5.",
-   "h": "m = (y₂ − y₁) : (x₂ − x₁). Achte auf negative Zahlen."
+   "w": "m = (y₂ − y₁) : (x₂ − x₁) = −8 : 4 = −2.",
+   "h": "Rechne selbst m = (y₂ − y₁) : (x₂ − x₁) und vergleiche."
   },
   {
    "l": "zwei_punkte",
    "t": "zwei_punkte",
    "p": "uebung",
    "s": 3,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Berechne die Steigung der Geraden durch P(0 | 0) und Q(−0,5 | 1,75)."
+    "text": "Berechne die Steigung der Geraden durch P(1 | 5) und Q(7 | 5)."
    },
+   "a": [
+    "m = 0 (waagrechte Gerade)",
+    "Es gibt keine Steigung.",
+    "m = 6",
+    "m = 1"
+   ],
    "o": {
-    "wert": -3.5
+    "index": 0
    },
-   "c": "((7/4) - (0)) / ((-1/2) - (0))",
-   "w": "m = (1,75 − 0) : (−0,5 − 0) = 1,75 : (−0,5) = −3,5.",
-   "h": "m = (y₂ − y₁) : (x₂ − x₁). Achte auf negative Zahlen."
+   "w": "m = (5 − 5) : (7 − 1) = 0 : 6 = 0. Beide Punkte gleich hoch: waagrecht.",
+   "h": "Was passiert, wenn beide y-Werte gleich sind?"
   },
   {
    "l": "zwei_punkte",
    "t": "zwei_punkte",
    "p": "test",
    "s": 2,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Berechne die Steigung der Geraden durch P(5 | 6) und Q(−4 | 78)."
+    "text": "Liegen A(−3 | 0), B(−1 | 4) und C(1 | 10) auf einer Geraden?"
    },
-   "o": {
-    "wert": -8
-   },
-   "c": "(78 - (6)) / (-4 - (5))",
-   "w": "m = (78 − 6) : (−4 − 5) = 72 : (−9) = −8."
-  },
-  {
-   "l": "zwei_punkte",
-   "t": "zwei_punkte",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne die Steigung der Geraden durch P(−5 | 2) und Q(−3 | −8)."
-   },
-   "o": {
-    "wert": -5
-   },
-   "c": "(-8 - (2)) / (-3 - (-5))",
-   "w": "m = (−8 − 2) : (−3 − (−5)) = −10 : 2 = −5."
-  },
-  {
-   "l": "zwei_punkte",
-   "t": "zwei_punkte",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne die Steigung der Geraden durch P(−4 | 8) und Q(7 | −47)."
-   },
-   "o": {
-    "wert": -5
-   },
-   "c": "(-47 - (8)) / (7 - (-4))",
-   "w": "m = (−47 − 8) : (7 − (−4)) = −55 : 11 = −5."
-  },
-  {
-   "l": "zwei_punkte",
-   "t": "zwei_punkte",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne die Steigung der Geraden durch P(−6 | −6) und Q(3 | 13,8)."
-   },
-   "o": {
-    "wert": 2.2
-   },
-   "c": "((69/5) - (-6)) / (3 - (-6))",
-   "w": "m = (13,8 − (−6)) : (3 − (−6)) = 19,8 : 9 = 2,2."
-  },
-  {
-   "l": "zwei_punkte",
-   "t": "zwei_punkte",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne die Steigung der Geraden durch P(−1 | 3) und Q(−5 | 19)."
-   },
-   "o": {
-    "wert": -4
-   },
-   "c": "(19 - (3)) / (-5 - (-1))",
-   "w": "m = (19 − 3) : (−5 − (−1)) = 16 : (−4) = −4."
-  },
-  {
-   "l": "zwei_punkte",
-   "t": "zwei_punkte",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne die Steigung der Geraden durch P(8 | −1) und Q(−5 | 27,6)."
-   },
-   "o": {
-    "wert": -2.2
-   },
-   "c": "((138/5) - (-1)) / (-5 - (8))",
-   "w": "m = (27,6 − (−1)) : (−5 − 8) = 28,6 : (−13) = −2,2."
-  },
-  {
-   "l": "zwei_punkte",
-   "t": "zwei_punkte",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne die Steigung der Geraden durch P(−6 | 1) und Q(7 | −31,5)."
-   },
-   "o": {
-    "wert": -2.5
-   },
-   "c": "((-63/2) - (1)) / (7 - (-6))",
-   "w": "m = (−31,5 − 1) : (7 − (−6)) = −32,5 : 13 = −2,5."
-  },
-  {
-   "l": "zwei_punkte",
-   "t": "zwei_punkte",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne die Steigung der Geraden durch P(0 | 5) und Q(−1 | 6,6)."
-   },
-   "o": {
-    "wert": -1.6
-   },
-   "c": "((33/5) - (5)) / (-1 - (0))",
-   "w": "m = (6,6 − 5) : (−1 − 0) = 1,6 : (−1) = −1,6."
-  },
-  {
-   "l": "zwei_punkte",
-   "t": "zwei_punkte",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne die Steigung der Geraden durch P(0 | −2) und Q(4 | −12)."
-   },
-   "o": {
-    "wert": -2.5
-   },
-   "c": "(-12 - (-2)) / (4 - (0))",
-   "w": "m = (−12 − (−2)) : (4 − 0) = −10 : 4 = −2,5."
-  },
-  {
-   "l": "zwei_punkte",
-   "t": "zwei_punkte",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne die Steigung der Geraden durch P(−4 | 1) und Q(1 | −6,5)."
-   },
-   "o": {
-    "wert": -1.5
-   },
-   "c": "((-13/2) - (1)) / (1 - (-4))",
-   "w": "m = (−6,5 − 1) : (1 − (−4)) = −7,5 : 5 = −1,5."
-  },
-  {
-   "l": "aufstellen",
-   "t": "aufstellen",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Eine Gerade hat die Steigung −4 und schneidet die y-Achse bei 6. Gib den Funktionsterm an.",
-    "schablone": "□x + □",
-    "hinweis": "Tippe den Term ein, z. B. 3x − 5 oder −x + 2."
-   },
-   "o": {
-    "werte": [
-     -4,
-     6
-    ]
-   },
-   "c": [
-    "-4",
-    "6"
+   "a": [
+    "Ja, alle Punkte haben verschiedene x-Werte.",
+    "Nein, AB hat Steigung 2, BC hat 3.",
+    "Das kann man nur mit einer Zeichnung entscheiden.",
+    "Ja, beide Steigungen sind 2."
    ],
-   "w": "m = −4, t = 6: y = −4x + 6.",
-   "h": "Bestimme m und t und tippe die Gerade als Term ein, z. B. 3x − 5."
+   "o": {
+    "index": 1
+   },
+   "w": "m(AB) = (4 − 0) : 2 = 2; m(BC) = (10 − 4) : 2 = 3. Verschieden, also keine Gerade."
   },
   {
-   "l": "aufstellen",
-   "t": "aufstellen",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
+   "l": "zwei_punkte",
+   "t": "zwei_punkte",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
    "f": {
-    "text": "Eine Gerade hat die Steigung −5 und schneidet die y-Achse bei 0. Gib den Funktionsterm an.",
-    "schablone": "□x + □",
-    "hinweis": "Tippe den Term ein, z. B. 3x − 5 oder −x + 2."
+    "text": "Lies die Koordinaten von P und Q ab und berechne die Steigung der Strecke PQ.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      1
+     ],
+     "y": [
+      -1,
+      4
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 1,
+       "name": "P"
+      },
+      {
+       "x": -1,
+       "y": 2,
+       "name": "Q"
+      }
+     ],
+     "strecken": [
+      [
+       -3,
+       1,
+       -1,
+       2
+      ]
+     ]
+    }
    },
    "o": {
-    "werte": [
-     -5,
-     0
-    ]
+    "wert": 0.5
    },
-   "c": [
-    "-5",
-    "0"
+   "c": "(2 - (1)) / (-1 - (-3))",
+   "w": "P(−3 | 1), Q(−1 | 2). m = (2 − 1) : (−1 − (−3)) = 1 : 2 = 0,5."
+  },
+  {
+   "l": "zwei_punkte",
+   "t": "zwei_punkte",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet für P(3 | 5), Q(4 | 8): m = (8 − 5) : (3 − 4) = −3. Was ist falsch?"
+   },
+   "a": [
+    "Es fehlt ein Minus; richtig ist −1.",
+    "Die Rechnung ist richtig.",
+    "Man muss die Punkte addieren statt subtrahieren.",
+    "Im Nenner wurde andersherum subtrahiert; richtig 3 : 1 = 3."
    ],
-   "w": "m = −5, t = 0: y = −5x.",
-   "h": "Bestimme m und t und tippe die Gerade als Term ein, z. B. 3x − 5."
+   "o": {
+    "index": 3
+   },
+   "w": "m = (y₂ − y₁) : (x₂ − x₁) = 3 : 1 = 3."
+  },
+  {
+   "l": "zwei_punkte",
+   "t": "zwei_punkte",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet für P(−2 | −1), Q(5 | −22): m = (−22 − (−1)) : (−2 − 5) = 3. Was ist falsch?"
+   },
+   "a": [
+    "Es fehlt ein Minus; richtig ist −1.",
+    "Im Nenner wurde andersherum subtrahiert; richtig −21 : 7 = −3.",
+    "Die Rechnung ist richtig.",
+    "Man muss die Punkte addieren statt subtrahieren."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "m = (y₂ − y₁) : (x₂ − x₁) = −21 : 7 = −3."
+  },
+  {
+   "l": "zwei_punkte",
+   "t": "zwei_punkte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Steigung der Geraden durch P(−3 | 0) und Q(−4 | 2,75)."
+   },
+   "o": {
+    "wert": -2.75
+   },
+   "c": "((11/4) - (0)) / (-4 - (-3))",
+   "w": "m = (2,75 − 0) : (−4 − (−3)) = 2,75 : (−1) = −2,75."
+  },
+  {
+   "l": "zwei_punkte",
+   "t": "zwei_punkte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Lies die Koordinaten von P und Q ab und berechne die Steigung der Strecke PQ.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      3
+     ],
+     "y": [
+      -6,
+      0
+     ],
+     "punkte": [
+      {
+       "x": -1,
+       "y": -2,
+       "name": "P"
+      },
+      {
+       "x": 1,
+       "y": -4,
+       "name": "Q"
+      }
+     ],
+     "strecken": [
+      [
+       -1,
+       -2,
+       1,
+       -4
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "(-4 - (-2)) / (1 - (-1))",
+   "w": "P(−1 | −2), Q(1 | −4). m = (−4 − (−2)) : (1 − (−1)) = −2 : 2 = −1."
+  },
+  {
+   "l": "zwei_punkte",
+   "t": "zwei_punkte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet für P(2 | 4), Q(3 | 0): m = (3 − 2) : (0 − 4) = −0,25. Was ist falsch?"
+   },
+   "a": [
+    "x und y vertauscht; richtig (0 − 4) : (3 − 2) = −4.",
+    "Es fehlt ein Minus; richtig ist 4.",
+    "Man muss die Punkte addieren statt subtrahieren.",
+    "Die Rechnung ist richtig."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "m = (y₂ − y₁) : (x₂ − x₁) = −4 : 1 = −4."
+  },
+  {
+   "l": "zwei_punkte",
+   "t": "zwei_punkte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet für P(−1 | 1), Q(4 | −19): m = (−19 − 1) : (−1 − 4) = 4. Was ist falsch?"
+   },
+   "a": [
+    "Es fehlt ein Minus; richtig ist 0,25.",
+    "Man muss die Punkte addieren statt subtrahieren.",
+    "Im Nenner wurde andersherum subtrahiert; richtig −20 : 5 = −4.",
+    "Die Rechnung ist richtig."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "m = (y₂ − y₁) : (x₂ − x₁) = −20 : 5 = −4."
+  },
+  {
+   "l": "zwei_punkte",
+   "t": "zwei_punkte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Steigung der Geraden durch P(6 | −2) und Q(4 | 7)."
+   },
+   "o": {
+    "wert": -4.5
+   },
+   "c": "(7 - (-2)) / (4 - (6))",
+   "w": "m = (7 − (−2)) : (4 − 6) = 9 : (−2) = −4,5."
+  },
+  {
+   "l": "zwei_punkte",
+   "t": "zwei_punkte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet für P(−3 | −1), Q(2 | 4): m = (4 − (−1)) : (−3 − 2) = −1. Was ist falsch?"
+   },
+   "a": [
+    "Es fehlt ein Minus; richtig ist −1.",
+    "Im Nenner wurde andersherum subtrahiert; richtig 5 : 5 = 1.",
+    "Die Rechnung ist richtig.",
+    "Man muss die Punkte addieren statt subtrahieren."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "m = (y₂ − y₁) : (x₂ − x₁) = 5 : 5 = 1."
+  },
+  {
+   "l": "proportional",
+   "t": "proportional",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "6 l Saft kosten 9 €. Wie viel kosten 8 l?"
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "€"
+   },
+   "c": "9 / 6 * 8",
+   "w": "k = 9 : 6 = 1,50 € pro l. y = 1,5 · 8 = 12 €.",
+   "h": "Berechne zuerst den Preis für 1 Einheit (k)."
+  },
+  {
+   "l": "proportional",
+   "t": "proportional",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "6 m Stoff kosten 48 €. Wie viel kosten 1 m?"
+   },
+   "o": {
+    "wert": 8,
+    "einheit": "€"
+   },
+   "c": "48 / 6 * 1",
+   "w": "k = 48 : 6 = 8 € pro m. y = 8 · 1 = 8 €.",
+   "h": "Berechne zuerst den Preis für 1 Einheit (k)."
+  },
+  {
+   "l": "proportional",
+   "t": "proportional",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "2 kg Kirschen kosten 9 €. Wie viel kosten 15 kg?"
+   },
+   "o": {
+    "wert": 67.5,
+    "einheit": "€"
+   },
+   "c": "9 / 2 * 15",
+   "w": "k = 9 : 2 = 4,50 € pro kg. y = 4,5 · 15 = 67,50 €.",
+   "h": "Berechne zuerst den Preis für 1 Einheit (k)."
+  },
+  {
+   "l": "proportional",
+   "t": "proportional",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "2 l Saft kosten 3 €. Wie viel kosten 1 l?"
+   },
+   "o": {
+    "wert": 1.5,
+    "einheit": "€"
+   },
+   "c": "3 / 2 * 1",
+   "w": "k = 3 : 2 = 1,50 € pro l. y = 1,5 · 1 = 1,50 €.",
+   "h": "Berechne zuerst den Preis für 1 Einheit (k)."
+  },
+  {
+   "l": "proportional",
+   "t": "proportional",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade y = k · x geht durch P(1 | 4). Berechne y für x = 5."
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "4 / (1) * (5)",
+   "w": "k = 4 : 1 = 4. y = 4 · 5 = 20.",
+   "h": "Berechne zuerst k = y : x."
+  },
+  {
+   "l": "proportional",
+   "t": "proportional",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade y = k · x geht durch P(6 | 6). Berechne y für x = −2."
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "6 / (6) * (-2)",
+   "w": "k = 6 : 6 = 1. y = 1 · (−2) = −2.",
+   "h": "Berechne zuerst k = y : x."
+  },
+  {
+   "l": "proportional",
+   "t": "proportional",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade y = k · x geht durch P(4 | 3). Berechne y für x = 3."
+   },
+   "o": {
+    "wert": 2.25
+   },
+   "c": "3 / (4) * (3)",
+   "w": "k = 3 : 4 = 0,75. y = 0,75 · 3 = 2,25.",
+   "h": "Berechne zuerst k = y : x."
+  },
+  {
+   "l": "proportional",
+   "t": "proportional",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade y = k · x geht durch P(1 | −1). Berechne y für x = 6."
+   },
+   "o": {
+    "wert": -6
+   },
+   "c": "-1 / (1) * (6)",
+   "w": "k = −1 : 1 = −1. y = −1 · 6 = −6.",
+   "h": "Berechne zuerst k = y : x."
+  },
+  {
+   "l": "proportional",
+   "t": "proportional",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade y = k · x geht durch P(−6 | 12). Berechne y für x = −3."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "12 / (-6) * (-3)",
+   "w": "k = 12 : (−6) = −2. y = −2 · (−3) = 6.",
+   "h": "Berechne zuerst k = y : x."
+  },
+  {
+   "l": "proportional",
+   "t": "proportional",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade y = k · x geht durch P(5 | 8,75). Berechne y für x = −4."
+   },
+   "o": {
+    "wert": -7
+   },
+   "c": "(35/4) / (5) * (-4)",
+   "w": "k = 8,75 : 5 = 1,75. y = 1,75 · (−4) = −7.",
+   "h": "Berechne zuerst k = y : x."
+  },
+  {
+   "l": "proportional",
+   "t": "proportional",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist die Zuordnung (1 | 7), (2 | 14), (9 | 63) proportional?"
+   },
+   "a": [
+    "Nein, die Gerade geht nicht durch den Ursprung.",
+    "Ja, y = 7 · x + 7.",
+    "Nein, die Quotienten y : x sind verschieden.",
+    "Ja, y = 7 · x."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Alle Quotienten y : x sind gleich 7. Also proportional mit k = 7.",
+   "h": "Berechne für jedes Paar den Quotienten y : x."
+  },
+  {
+   "l": "proportional",
+   "t": "proportional",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist die Zuordnung (3 | 24), (5 | 40), (6 | 48) proportional?"
+   },
+   "a": [
+    "Ja, y = 8 · x + 8.",
+    "Nein, die Gerade geht nicht durch den Ursprung.",
+    "Ja, y = 8 · x.",
+    "Nein, die Quotienten y : x sind verschieden."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Alle Quotienten y : x sind gleich 8. Also proportional mit k = 8.",
+   "h": "Berechne für jedes Paar den Quotienten y : x."
+  },
+  {
+   "l": "proportional",
+   "t": "proportional",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist die Zuordnung (1 | 1), (2 | 4), (5 | 25) proportional?"
+   },
+   "a": [
+    "Nein, die Quotienten y : x sind verschieden.",
+    "Ja, y = 1 · x.",
+    "Nein, die Gerade geht nicht durch den Ursprung.",
+    "Ja, weil y mit x wächst."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Quotienten: 1 : 1 = 1; 4 : 2 = 2; 25 : 5 = 5. Verschieden, also nicht proportional (hier gilt y = x²).",
+   "h": "Berechne für jedes Paar den Quotienten y : x."
+  },
+  {
+   "l": "proportional",
+   "t": "proportional",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist die Zuordnung (1 | 7), (6 | 32), (7 | 37) proportional?"
+   },
+   "a": [
+    "Nein, die Quotienten y : x sind verschieden.",
+    "Ja, y = 5 · x.",
+    "Ja, weil y mit x wächst.",
+    "Ja, y = 7 · x."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "7 : 1 = 7, aber 32 : 6 = 16/3. Nicht proportional (es gilt y = 5x + 2).",
+   "h": "Berechne für jedes Paar den Quotienten y : x."
+  },
+  {
+   "l": "proportional",
+   "t": "proportional",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade y = k · x geht durch P(3 | 12). Berechne y für x = 6."
+   },
+   "o": {
+    "wert": 24
+   },
+   "c": "12 / (3) * (6)",
+   "w": "k = 12 : 3 = 4. y = 4 · 6 = 24."
+  },
+  {
+   "l": "proportional",
+   "t": "proportional",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade y = k · x geht durch P(−1 | −1). Berechne y für x = 6."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "-1 / (-1) * (6)",
+   "w": "k = −1 : (−1) = 1. y = 1 · 6 = 6."
+  },
+  {
+   "l": "proportional",
+   "t": "proportional",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade y = k · x geht durch P(−3 | −5,25). Berechne y für x = 1."
+   },
+   "o": {
+    "wert": 1.75
+   },
+   "c": "(-21/4) / (-3) * (1)",
+   "w": "k = −5,25 : (−3) = 1,75. y = 1,75 · 1 = 1,75."
+  },
+  {
+   "l": "proportional",
+   "t": "proportional",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade y = k · x geht durch P(3 | 15). Berechne y für x = 11."
+   },
+   "o": {
+    "wert": 55
+   },
+   "c": "15 / (3) * (11)",
+   "w": "k = 15 : 3 = 5. y = 5 · 11 = 55."
+  },
+  {
+   "l": "proportional",
+   "t": "proportional",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade y = k · x geht durch P(2 | −9). Berechne y für x = −4."
+   },
+   "o": {
+    "wert": 18
+   },
+   "c": "-9 / (2) * (-4)",
+   "w": "k = −9 : 2 = −4,5. y = −4,5 · (−4) = 18."
+  },
+  {
+   "l": "proportional",
+   "t": "proportional",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade y = k · x geht durch P(−5 | 3,75). Berechne y für x = −6."
+   },
+   "o": {
+    "wert": 4.5
+   },
+   "c": "(15/4) / (-5) * (-6)",
+   "w": "k = 3,75 : (−5) = −0,75. y = −0,75 · (−6) = 4,5."
+  },
+  {
+   "l": "proportional",
+   "t": "proportional",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade y = k · x geht durch P(5 | −5). Berechne y für x = −4."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "-5 / (5) * (-4)",
+   "w": "k = −5 : 5 = −1. y = −1 · (−4) = 4."
+  },
+  {
+   "l": "proportional",
+   "t": "proportional",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade y = k · x geht durch P(−5 | −5). Berechne y für x = 9."
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "-5 / (-5) * (9)",
+   "w": "k = −5 : (−5) = 1. y = 1 · 9 = 9."
+  },
+  {
+   "l": "proportional",
+   "t": "proportional",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade y = k · x geht durch P(5 | −3,75). Berechne y für x = 8."
+   },
+   "o": {
+    "wert": -6
+   },
+   "c": "(-15/4) / (5) * (8)",
+   "w": "k = −3,75 : 5 = −0,75. y = −0,75 · 8 = −6."
+  },
+  {
+   "l": "proportional",
+   "t": "proportional",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Gerade y = k · x geht durch P(1 | 1,75). Berechne y für x = 6."
+   },
+   "o": {
+    "wert": 10.5
+   },
+   "c": "(7/4) / (1) * (6)",
+   "w": "k = 1,75 : 1 = 1,75. y = 1,75 · 6 = 10,5."
   },
   {
    "l": "aufstellen",
@@ -992,21 +2046,21 @@
    "s": 1,
    "y": "luecken",
    "f": {
-    "text": "Eine Gerade hat die Steigung 2 und schneidet die y-Achse bei −1. Gib den Funktionsterm an.",
+    "text": "Eine Gerade hat die Steigung 2 und schneidet die y-Achse bei 0. Gib den Funktionsterm an.",
     "schablone": "□x + □",
     "hinweis": "Tippe den Term ein, z. B. 3x − 5 oder −x + 2."
    },
    "o": {
     "werte": [
      2,
-     -1
+     0
     ]
    },
    "c": [
     "2",
-    "-1"
+    "0"
    ],
-   "w": "m = 2, t = −1: y = 2x − 1.",
+   "w": "m = 2, t = 0: y = 2x.",
    "h": "Bestimme m und t und tippe die Gerade als Term ein, z. B. 3x − 5."
   },
   {
@@ -1016,199 +2070,199 @@
    "s": 1,
    "y": "luecken",
    "f": {
-    "text": "Eine Gerade hat die Steigung 1 und schneidet die y-Achse bei 0. Gib den Funktionsterm an.",
+    "text": "Eine Gerade hat die Steigung −3 und schneidet die y-Achse bei −1. Gib den Funktionsterm an.",
     "schablone": "□x + □",
     "hinweis": "Tippe den Term ein, z. B. 3x − 5 oder −x + 2."
    },
    "o": {
     "werte": [
-     1,
-     0
+     -3,
+     -1
     ]
    },
    "c": [
-    "1",
-    "0"
+    "-3",
+    "-1"
    ],
-   "w": "m = 1, t = 0: y = x.",
+   "w": "m = −3, t = −1: y = −3x − 1.",
    "h": "Bestimme m und t und tippe die Gerade als Term ein, z. B. 3x − 5."
   },
   {
    "l": "aufstellen",
    "t": "aufstellen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
-    "text": "Eine Gerade hat die Steigung 3 und geht durch P(3 | 14). Gib den Funktionsterm an.",
-    "schablone": "□x + □",
-    "hinweis": "Tippe den Term ein, z. B. 3x − 5 oder −x + 2."
-   },
-   "o": {
-    "werte": [
-     3,
-     5
-    ]
-   },
-   "c": [
-    "3",
-    "5"
-   ],
-   "w": "14 = 3 · 3 + t → t = 14 − 9 = 5. y = 3x + 5.",
-   "h": "Bestimme m und t und tippe die Gerade als Term ein, z. B. 3x − 5."
-  },
-  {
-   "l": "aufstellen",
-   "t": "aufstellen",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Eine Gerade hat die Steigung 5 und geht durch P(1 | 0). Gib den Funktionsterm an.",
-    "schablone": "□x + □",
-    "hinweis": "Tippe den Term ein, z. B. 3x − 5 oder −x + 2."
-   },
-   "o": {
-    "werte": [
-     5,
-     -5
-    ]
-   },
-   "c": [
-    "5",
-    "-5"
-   ],
-   "w": "0 = 5 · 1 + t → t = 0 − 5 = −5. y = 5x − 5.",
-   "h": "Bestimme m und t und tippe die Gerade als Term ein, z. B. 3x − 5."
-  },
-  {
-   "l": "aufstellen",
-   "t": "aufstellen",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Eine Gerade hat die Steigung 3 und geht durch P(−1 | 5). Gib den Funktionsterm an.",
-    "schablone": "□x + □",
-    "hinweis": "Tippe den Term ein, z. B. 3x − 5 oder −x + 2."
-   },
-   "o": {
-    "werte": [
-     3,
-     8
-    ]
-   },
-   "c": [
-    "3",
-    "8"
-   ],
-   "w": "5 = 3 · (−1) + t → t = 5 − (−3) = 8. y = 3x + 8.",
-   "h": "Bestimme m und t und tippe die Gerade als Term ein, z. B. 3x − 5."
-  },
-  {
-   "l": "aufstellen",
-   "t": "aufstellen",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Eine Gerade hat die Steigung 5 und geht durch P(−5 | −28). Gib den Funktionsterm an.",
-    "schablone": "□x + □",
-    "hinweis": "Tippe den Term ein, z. B. 3x − 5 oder −x + 2."
-   },
-   "o": {
-    "werte": [
-     5,
-     -3
-    ]
-   },
-   "c": [
-    "5",
-    "-3"
-   ],
-   "w": "−28 = 5 · (−5) + t → t = −28 − (−25) = −3. y = 5x − 3.",
-   "h": "Bestimme m und t und tippe die Gerade als Term ein, z. B. 3x − 5."
-  },
-  {
-   "l": "aufstellen",
-   "t": "aufstellen",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Eine Gerade hat die Steigung 1 und geht durch P(−5 | −8). Gib den Funktionsterm an.",
-    "schablone": "□x + □",
-    "hinweis": "Tippe den Term ein, z. B. 3x − 5 oder −x + 2."
-   },
-   "o": {
-    "werte": [
-     1,
-     -3
-    ]
-   },
-   "c": [
-    "1",
-    "-3"
-   ],
-   "w": "−8 = 1 · (−5) + t → t = −8 − (−5) = −3. y = x − 3.",
-   "h": "Bestimme m und t und tippe die Gerade als Term ein, z. B. 3x − 5."
-  },
-  {
-   "l": "aufstellen",
-   "t": "aufstellen",
-   "p": "uebung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Eine Gerade hat die Steigung −1 und geht durch P(−4 | −1). Gib den Funktionsterm an.",
+    "text": "Eine Gerade hat die Steigung −1 und schneidet die y-Achse bei −8. Gib den Funktionsterm an.",
     "schablone": "□x + □",
     "hinweis": "Tippe den Term ein, z. B. 3x − 5 oder −x + 2."
    },
    "o": {
     "werte": [
      -1,
-     -5
+     -8
     ]
    },
    "c": [
     "-1",
-    "-5"
+    "-8"
    ],
-   "w": "−1 = −1 · (−4) + t → t = −1 − 4 = −5. y = −x − 5.",
+   "w": "m = −1, t = −8: y = −x − 8.",
    "h": "Bestimme m und t und tippe die Gerade als Term ein, z. B. 3x − 5."
   },
   {
    "l": "aufstellen",
    "t": "aufstellen",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "luecken",
    "f": {
-    "text": "Eine Gerade geht durch P(−1 | −5) und Q(4 | −25). Gib den Funktionsterm an.",
+    "text": "Eine Gerade hat die Steigung 1 und schneidet die y-Achse bei −2. Gib den Funktionsterm an.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x − 5 oder −x + 2."
+   },
+   "o": {
+    "werte": [
+     1,
+     -2
+    ]
+   },
+   "c": [
+    "1",
+    "-2"
+   ],
+   "w": "m = 1, t = −2: y = x − 2.",
+   "h": "Bestimme m und t und tippe die Gerade als Term ein, z. B. 3x − 5."
+  },
+  {
+   "l": "aufstellen",
+   "t": "aufstellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Gerade hat die Steigung 3 und geht durch P(−3 | −11). Gib den Funktionsterm an.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x − 5 oder −x + 2."
+   },
+   "o": {
+    "werte": [
+     3,
+     -2
+    ]
+   },
+   "c": [
+    "3",
+    "-2"
+   ],
+   "w": "−11 = 3 · (−3) + t → t = −11 − (−9) = −2. y = 3x − 2.",
+   "h": "Bestimme m und t und tippe die Gerade als Term ein, z. B. 3x − 5."
+  },
+  {
+   "l": "aufstellen",
+   "t": "aufstellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Sparschwein enthält 8 €. Jede Woche kommen 2 € dazu. Gib den Betrag B(x) nach x Wochen an.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. −2x + 20."
+   },
+   "o": {
+    "werte": [
+     2,
+     8
+    ]
+   },
+   "c": [
+    "2",
+    "8"
+   ],
+   "w": "Startwert (bei x = 0): t = 8. Änderung pro Einheit: m = 2 (Zunahme). Term: 2x + 8.",
+   "h": "Was ist der Wert am Anfang (t)? Um wie viel ändert er sich pro Einheit (m)?"
+  },
+  {
+   "l": "aufstellen",
+   "t": "aufstellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Gerade hat die Steigung −4 und geht durch P(3 | −4). Gib den Funktionsterm an.",
     "schablone": "□x + □",
     "hinweis": "Tippe den Term ein, z. B. 3x − 5 oder −x + 2."
    },
    "o": {
     "werte": [
      -4,
-     -9
+     8
     ]
    },
    "c": [
     "-4",
-    "-9"
+    "8"
    ],
-   "w": "m = (−25 − (−5)) : (4 − (−1)) = −4. t = −5 − (−4) · (−1) = −9. y = −4x − 9.",
+   "w": "−4 = −4 · 3 + t → t = −4 − (−12) = 8. y = −4x + 8.",
    "h": "Bestimme m und t und tippe die Gerade als Term ein, z. B. 3x − 5."
   },
   {
    "l": "aufstellen",
    "t": "aufstellen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Eine Gerade geht durch P(5 | −16) und Q(−2 | 12). Gib den Funktionsterm an.",
+    "text": "Eine Gerade hat die Steigung 3 und geht durch P(2 | 0). Gib den Funktionsterm an.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x − 5 oder −x + 2."
+   },
+   "o": {
+    "werte": [
+     3,
+     -6
+    ]
+   },
+   "c": [
+    "3",
+    "-6"
+   ],
+   "w": "0 = 3 · 2 + t → t = 0 − 6 = −6. y = 3x − 6.",
+   "h": "Bestimme m und t und tippe die Gerade als Term ein, z. B. 3x − 5."
+  },
+  {
+   "l": "aufstellen",
+   "t": "aufstellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Gerade hat die Steigung −5 und geht durch P(1 | 2). Gib den Funktionsterm an.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x − 5 oder −x + 2."
+   },
+   "o": {
+    "werte": [
+     -5,
+     7
+    ]
+   },
+   "c": [
+    "-5",
+    "7"
+   ],
+   "w": "2 = −5 · 1 + t → t = 2 − (−5) = 7. y = −5x + 7.",
+   "h": "Bestimme m und t und tippe die Gerade als Term ein, z. B. 3x − 5."
+  },
+  {
+   "l": "aufstellen",
+   "t": "aufstellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Gerade hat die Steigung −4 und geht durch P(5 | −16). Gib den Funktionsterm an.",
     "schablone": "□x + □",
     "hinweis": "Tippe den Term ein, z. B. 3x − 5 oder −x + 2."
    },
@@ -1222,7 +2276,7 @@
     "-4",
     "4"
    ],
-   "w": "m = (12 − (−16)) : (−2 − 5) = −4. t = −16 − (−4) · 5 = 4. y = −4x + 4.",
+   "w": "−16 = −4 · 5 + t → t = −16 − (−20) = 4. y = −4x + 4.",
    "h": "Bestimme m und t und tippe die Gerade als Term ein, z. B. 3x − 5."
   },
   {
@@ -1232,33 +2286,439 @@
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "Eine Gerade geht durch P(2 | 3) und Q(−2 | 15). Gib den Funktionsterm an.",
+    "text": "Eine Gerade geht durch P(−4 | 19) und Q(4 | −21). Gib den Funktionsterm an.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x − 5 oder −x + 2."
+   },
+   "o": {
+    "werte": [
+     -5,
+     -1
+    ]
+   },
+   "c": [
+    "-5",
+    "-1"
+   ],
+   "w": "m = (−21 − 19) : (4 − (−4)) = −5. t = 19 − (−5) · (−4) = −1. y = −5x − 1.",
+   "h": "Bestimme m und t und tippe die Gerade als Term ein, z. B. 3x − 5."
+  },
+  {
+   "l": "aufstellen",
+   "t": "aufstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Gerade geht durch P(−5 | −18) und Q(−4 | −15). Gib den Funktionsterm an.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x − 5 oder −x + 2."
+   },
+   "o": {
+    "werte": [
+     3,
+     -3
+    ]
+   },
+   "c": [
+    "3",
+    "-3"
+   ],
+   "w": "m = (−15 − (−18)) : (−4 − (−5)) = 3. t = −18 − 3 · (−5) = −3. y = 3x − 3.",
+   "h": "Bestimme m und t und tippe die Gerade als Term ein, z. B. 3x − 5."
+  },
+  {
+   "l": "aufstellen",
+   "t": "aufstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Handwerker berechnet 30 € Anfahrt und 45 € pro Stunde. Gib die Kosten K(x) für x Stunden an.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. −2x + 20."
+   },
+   "o": {
+    "werte": [
+     45,
+     30
+    ]
+   },
+   "c": [
+    "45",
+    "30"
+   ],
+   "w": "Startwert (bei x = 0): t = 30. Änderung pro Einheit: m = 45 (Zunahme). Term: 45x + 30.",
+   "h": "Was ist der Wert am Anfang (t)? Um wie viel ändert er sich pro Einheit (m)?"
+  },
+  {
+   "l": "aufstellen",
+   "t": "aufstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Wassertank enthält 150 Liter. Pro Minute fließen 4 Liter ab. Gib den Inhalt V(x) nach x Minuten an.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. −2x + 20."
+   },
+   "o": {
+    "werte": [
+     -4,
+     150
+    ]
+   },
+   "c": [
+    "-4",
+    "150"
+   ],
+   "w": "Startwert (bei x = 0): t = 150. Änderung pro Einheit: m = −4 (Abnahme). Term: −4x + 150.",
+   "h": "Was ist der Wert am Anfang (t)? Um wie viel ändert er sich pro Einheit (m)?"
+  },
+  {
+   "l": "aufstellen",
+   "t": "aufstellen",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Gerade hat die Steigung −4 und geht durch P(1 | −13). Gib den Funktionsterm an.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x − 5 oder −x + 2."
+   },
+   "o": {
+    "werte": [
+     -4,
+     -9
+    ]
+   },
+   "c": [
+    "-4",
+    "-9"
+   ],
+   "w": "−13 = −4 · 1 + t → t = −13 − (−4) = −9. y = −4x − 9."
+  },
+  {
+   "l": "aufstellen",
+   "t": "aufstellen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Gerade hat die Steigung −5 und geht durch P(2 | −2). Gib den Funktionsterm an.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x − 5 oder −x + 2."
+   },
+   "o": {
+    "werte": [
+     -5,
+     8
+    ]
+   },
+   "c": [
+    "-5",
+    "8"
+   ],
+   "w": "−2 = −5 · 2 + t → t = −2 − (−10) = 8. y = −5x + 8."
+  },
+  {
+   "l": "aufstellen",
+   "t": "aufstellen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Sparschwein enthält 20 €. Jede Woche kommen 5 € dazu. Gib den Betrag B(x) nach x Wochen an.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. −2x + 20."
+   },
+   "o": {
+    "werte": [
+     5,
+     20
+    ]
+   },
+   "c": [
+    "5",
+    "20"
+   ],
+   "w": "Startwert (bei x = 0): t = 20. Änderung pro Einheit: m = 5 (Zunahme). Term: 5x + 20."
+  },
+  {
+   "l": "aufstellen",
+   "t": "aufstellen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Wassertank enthält 300 Liter. Pro Minute fließen 6 Liter ab. Gib den Inhalt V(x) nach x Minuten an.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. −2x + 20."
+   },
+   "o": {
+    "werte": [
+     -6,
+     300
+    ]
+   },
+   "c": [
+    "-6",
+    "300"
+   ],
+   "w": "Startwert (bei x = 0): t = 300. Änderung pro Einheit: m = −6 (Abnahme). Term: −6x + 300."
+  },
+  {
+   "l": "aufstellen",
+   "t": "aufstellen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Gerade hat die Steigung −4 und geht durch P(−3 | 3). Gib den Funktionsterm an.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x − 5 oder −x + 2."
+   },
+   "o": {
+    "werte": [
+     -4,
+     -9
+    ]
+   },
+   "c": [
+    "-4",
+    "-9"
+   ],
+   "w": "3 = −4 · (−3) + t → t = 3 − 12 = −9. y = −4x − 9."
+  },
+  {
+   "l": "aufstellen",
+   "t": "aufstellen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Gerade hat die Steigung −2 und geht durch P(−2 | 11). Gib den Funktionsterm an.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x − 5 oder −x + 2."
+   },
+   "o": {
+    "werte": [
+     -2,
+     7
+    ]
+   },
+   "c": [
+    "-2",
+    "7"
+   ],
+   "w": "11 = −2 · (−2) + t → t = 11 − 4 = 7. y = −2x + 7."
+  },
+  {
+   "l": "aufstellen",
+   "t": "aufstellen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Gerade hat die Steigung −3 und geht durch P(−4 | 5). Gib den Funktionsterm an.",
     "schablone": "□x + □",
     "hinweis": "Tippe den Term ein, z. B. 3x − 5 oder −x + 2."
    },
    "o": {
     "werte": [
      -3,
-     9
+     -7
     ]
    },
    "c": [
     "-3",
-    "9"
+    "-7"
    ],
-   "w": "m = (15 − 3) : (−2 − 2) = −3. t = 3 − (−3) · 2 = 9. y = −3x + 9.",
-   "h": "Bestimme m und t und tippe die Gerade als Term ein, z. B. 3x − 5."
+   "w": "5 = −3 · (−4) + t → t = 5 − 12 = −7. y = −3x − 7."
   },
   {
    "l": "aufstellen",
    "t": "aufstellen",
-   "p": "uebung",
-   "s": 3,
+   "p": "sicherung",
+   "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Eine Gerade geht durch P(3 | 11) und Q(−4 | −17). Gib den Funktionsterm an.",
+    "text": "Ein Wassertank enthält 200 Liter. Pro Minute fließen 5 Liter ab. Gib den Inhalt V(x) nach x Minuten an.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. −2x + 20."
+   },
+   "o": {
+    "werte": [
+     -5,
+     200
+    ]
+   },
+   "c": [
+    "-5",
+    "200"
+   ],
+   "w": "Startwert (bei x = 0): t = 200. Änderung pro Einheit: m = −5 (Abnahme). Term: −5x + 200."
+  },
+  {
+   "l": "aufstellen",
+   "t": "aufstellen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Gerade hat die Steigung −4 und geht durch P(−2 | 10). Gib den Funktionsterm an.",
     "schablone": "□x + □",
     "hinweis": "Tippe den Term ein, z. B. 3x − 5 oder −x + 2."
+   },
+   "o": {
+    "werte": [
+     -4,
+     2
+    ]
+   },
+   "c": [
+    "-4",
+    "2"
+   ],
+   "w": "10 = −4 · (−2) + t → t = 10 − 8 = 2. y = −4x + 2."
+  },
+  {
+   "l": "aufstellen",
+   "t": "aufstellen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Gerade hat die Steigung −1 und geht durch P(−3 | 4). Gib den Funktionsterm an.",
+    "schablone": "□x + □",
+    "hinweis": "Tippe den Term ein, z. B. 3x − 5 oder −x + 2."
+   },
+   "o": {
+    "werte": [
+     -1,
+     1
+    ]
+   },
+   "c": [
+    "-1",
+    "1"
+   ],
+   "w": "4 = −1 · (−3) + t → t = 4 − 3 = 1. y = −x + 1."
+  },
+  {
+   "l": "schnittpunkte",
+   "t": "schnittpunkte",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Nullstelle von y = −2x − 5 (Schnitt mit der x-Achse)."
+   },
+   "o": {
+    "wert": -2.5
+   },
+   "c": "-(-5) / -2",
+   "w": "−2x − 5 = 0 → −2x = 5 → x = −2,5.",
+   "h": "Auf der x-Achse ist y = 0."
+  },
+  {
+   "l": "schnittpunkte",
+   "t": "schnittpunkte",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "In welchem Punkt schneidet y = −5x + 35 die y-Achse? Gib den y-Wert an."
+   },
+   "o": {
+    "wert": 35
+   },
+   "c": "35",
+   "w": "Auf der y-Achse ist x = 0: y = −5 · 0 + 35 = 35.",
+   "h": "Auf der y-Achse ist x = 0."
+  },
+  {
+   "l": "schnittpunkte",
+   "t": "schnittpunkte",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Nullstelle von y = −x − 9 (Schnitt mit der x-Achse)."
+   },
+   "o": {
+    "wert": -9
+   },
+   "c": "-(-9) / -1",
+   "w": "−x − 9 = 0 → −x = 9 → x = −9.",
+   "h": "Auf der x-Achse ist y = 0."
+  },
+  {
+   "l": "schnittpunkte",
+   "t": "schnittpunkte",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "In welchem Punkt schneidet y = x + 8 die y-Achse? Gib den y-Wert an."
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "8",
+   "w": "Auf der y-Achse ist x = 0: y = 1 · 0 + 8 = 8.",
+   "h": "Auf der y-Achse ist x = 0."
+  },
+  {
+   "l": "schnittpunkte",
+   "t": "schnittpunkte",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne den Schnittpunkt von g: y = x + 5 und h: y = 5x + 5.",
+    "schablone": "S(□ | □)",
+    "hinweis": "Trage x und y des Schnittpunkts ein."
+   },
+   "o": {
+    "werte": [
+     0,
+     5
+    ]
+   },
+   "c": [
+    "(5 - (5)) / (1 - (5))",
+    "1 * (0) + (5)"
+   ],
+   "w": "x + 5 = 5x + 5 → −4x = 0 → x = 0. In g: y = 5. S(0 | 5).",
+   "h": "Setze die beiden Terme gleich. Mit x berechnest du dann y."
+  },
+  {
+   "l": "schnittpunkte",
+   "t": "schnittpunkte",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Schnittpunkt S von g: y = −x − 8 und h: y = −5x − 20. Gib die y-Koordinate an."
+   },
+   "o": {
+    "wert": -5
+   },
+   "c": "-1 * (-20 - (-8)) / (-1 - (-5)) + (-8)",
+   "w": "−x − 8 = −5x − 20 → 4x = −12 → x = −3. In g: y = −5. S(−3 | −5).",
+   "h": "Setze gleich, berechne x und setze x in eine der Gleichungen ein."
+  },
+  {
+   "l": "schnittpunkte",
+   "t": "schnittpunkte",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne den Schnittpunkt von g: y = −2x + 7 und h: y = −x + 3.",
+    "schablone": "S(□ | □)",
+    "hinweis": "Trage x und y des Schnittpunkts ein."
    },
    "o": {
     "werte": [
@@ -1267,1034 +2727,385 @@
     ]
    },
    "c": [
-    "4",
-    "-1"
+    "(3 - (7)) / (-2 - (-1))",
+    "-2 * (4) + (7)"
    ],
-   "w": "m = (−17 − 11) : (−4 − 3) = 4. t = 11 − 4 · 3 = −1. y = 4x − 1.",
-   "h": "Bestimme m und t und tippe die Gerade als Term ein, z. B. 3x − 5."
+   "w": "−2x + 7 = −x + 3 → −x = −4 → x = 4. In g: y = −1. S(4 | −1).",
+   "h": "Setze die beiden Terme gleich. Mit x berechnest du dann y."
   },
   {
-   "l": "aufstellen",
-   "t": "aufstellen",
-   "p": "test",
+   "l": "schnittpunkte",
+   "t": "schnittpunkte",
+   "p": "uebung",
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Eine Gerade hat die Steigung 1 und geht durch P(5 | 12). Gib den Funktionsterm an.",
-    "schablone": "□x + □",
-    "hinweis": "Tippe den Term ein, z. B. 3x − 5 oder −x + 2."
+    "text": "Berechne den Schnittpunkt von g: y = −5x + 6 und h: y = 5x + 16.",
+    "schablone": "S(□ | □)",
+    "hinweis": "Trage x und y des Schnittpunkts ein."
+   },
+   "o": {
+    "werte": [
+     -1,
+     11
+    ]
+   },
+   "c": [
+    "(16 - (6)) / (-5 - (5))",
+    "-5 * (-1) + (6)"
+   ],
+   "w": "−5x + 6 = 5x + 16 → −10x = 10 → x = −1. In g: y = 11. S(−1 | 11).",
+   "h": "Setze die beiden Terme gleich. Mit x berechnest du dann y."
+  },
+  {
+   "l": "schnittpunkte",
+   "t": "schnittpunkte",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne den Schnittpunkt von g: y = 3x + 3 und h: y = 4x + 2.",
+    "schablone": "S(□ | □)",
+    "hinweis": "Trage x und y des Schnittpunkts ein."
    },
    "o": {
     "werte": [
      1,
-     7
-    ]
-   },
-   "c": [
-    "1",
-    "7"
-   ],
-   "w": "12 = 1 · 5 + t → t = 12 − 5 = 7. y = x + 7."
-  },
-  {
-   "l": "aufstellen",
-   "t": "aufstellen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Eine Gerade hat die Steigung 1 und geht durch P(−2 | −1). Gib den Funktionsterm an.",
-    "schablone": "□x + □",
-    "hinweis": "Tippe den Term ein, z. B. 3x − 5 oder −x + 2."
-   },
-   "o": {
-    "werte": [
-     1,
-     1
-    ]
-   },
-   "c": [
-    "1",
-    "1"
-   ],
-   "w": "−1 = 1 · (−2) + t → t = −1 − (−2) = 1. y = x + 1."
-  },
-  {
-   "l": "aufstellen",
-   "t": "aufstellen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Eine Gerade hat die Steigung 2 und geht durch P(−5 | −3). Gib den Funktionsterm an.",
-    "schablone": "□x + □",
-    "hinweis": "Tippe den Term ein, z. B. 3x − 5 oder −x + 2."
-   },
-   "o": {
-    "werte": [
-     2,
-     7
-    ]
-   },
-   "c": [
-    "2",
-    "7"
-   ],
-   "w": "−3 = 2 · (−5) + t → t = −3 − (−10) = 7. y = 2x + 7."
-  },
-  {
-   "l": "aufstellen",
-   "t": "aufstellen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Eine Gerade hat die Steigung 5 und geht durch P(1 | 11). Gib den Funktionsterm an.",
-    "schablone": "□x + □",
-    "hinweis": "Tippe den Term ein, z. B. 3x − 5 oder −x + 2."
-   },
-   "o": {
-    "werte": [
-     5,
      6
     ]
    },
    "c": [
-    "5",
-    "6"
+    "(2 - (3)) / (3 - (4))",
+    "3 * (1) + (3)"
    ],
-   "w": "11 = 5 · 1 + t → t = 11 − 5 = 6. y = 5x + 6."
+   "w": "3x + 3 = 4x + 2 → −x = −1 → x = 1. In g: y = 6. S(1 | 6).",
+   "h": "Setze die beiden Terme gleich. Mit x berechnest du dann y."
   },
   {
-   "l": "aufstellen",
-   "t": "aufstellen",
-   "p": "sicherung",
+   "l": "schnittpunkte",
+   "t": "schnittpunkte",
+   "p": "uebung",
    "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Schnittpunkt S von g: y = 2x − 4 und h: y = −5x − 18. Gib die x-Koordinate an."
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "(-18 - (-4)) / (2 - (-5))",
+   "w": "2x − 4 = −5x − 18 → 7x = −14 → x = −2. In g: y = −8. S(−2 | −8).",
+   "h": "Setze die beiden Terme gleich."
+  },
+  {
+   "l": "schnittpunkte",
+   "t": "schnittpunkte",
+   "p": "uebung",
+   "s": 3,
    "y": "luecken",
    "f": {
-    "text": "Eine Gerade hat die Steigung −3 und geht durch P(3 | −6). Gib den Funktionsterm an.",
-    "schablone": "□x + □",
-    "hinweis": "Tippe den Term ein, z. B. 3x − 5 oder −x + 2."
+    "text": "Berechne den Schnittpunkt von g: y = −3x − 3 und h: y = −2x − 2.",
+    "schablone": "S(□ | □)",
+    "hinweis": "Trage x und y des Schnittpunkts ein."
+   },
+   "o": {
+    "werte": [
+     -1,
+     0
+    ]
+   },
+   "c": [
+    "(-2 - (-3)) / (-3 - (-2))",
+    "-3 * (-1) + (-3)"
+   ],
+   "w": "−3x − 3 = −2x − 2 → −x = 1 → x = −1. In g: y = 0. S(−1 | 0).",
+   "h": "Setze die beiden Terme gleich. Mit x berechnest du dann y."
+  },
+  {
+   "l": "schnittpunkte",
+   "t": "schnittpunkte",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne den Schnittpunkt von g: y = 2x − 5 und h: y = −x − 5.",
+    "schablone": "S(□ | □)",
+    "hinweis": "Trage x und y des Schnittpunkts ein."
+   },
+   "o": {
+    "werte": [
+     0,
+     -5
+    ]
+   },
+   "c": [
+    "(-5 - (-5)) / (2 - (-1))",
+    "2 * (0) + (-5)"
+   ],
+   "w": "2x − 5 = −x − 5 → 3x = 0 → x = 0. In g: y = −5. S(0 | −5).",
+   "h": "Setze die beiden Terme gleich. Mit x berechnest du dann y."
+  },
+  {
+   "l": "schnittpunkte",
+   "t": "schnittpunkte",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne den Schnittpunkt von g: y = −3x − 7 und h: y = 4x + 14.",
+    "schablone": "S(□ | □)",
+    "hinweis": "Trage x und y des Schnittpunkts ein."
    },
    "o": {
     "werte": [
      -3,
-     3
+     2
     ]
    },
    "c": [
-    "-3",
-    "3"
+    "(14 - (-7)) / (-3 - (4))",
+    "-3 * (-3) + (-7)"
    ],
-   "w": "−6 = −3 · 3 + t → t = −6 − (−9) = 3. y = −3x + 3."
+   "w": "−3x − 7 = 4x + 14 → −7x = 21 → x = −3. In g: y = 2. S(−3 | 2).",
+   "h": "Setze die beiden Terme gleich. Mit x berechnest du dann y."
   },
   {
-   "l": "aufstellen",
-   "t": "aufstellen",
-   "p": "sicherung",
+   "l": "schnittpunkte",
+   "t": "schnittpunkte",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne den Schnittpunkt von g: y = 3x + 2 und h: y = −5x + 10.",
+    "schablone": "S(□ | □)",
+    "hinweis": "Trage x und y des Schnittpunkts ein."
+   },
+   "o": {
+    "werte": [
+     1,
+     5
+    ]
+   },
+   "c": [
+    "(10 - (2)) / (3 - (-5))",
+    "3 * (1) + (2)"
+   ],
+   "w": "3x + 2 = −5x + 10 → 8x = 8 → x = 1. In g: y = 5. S(1 | 5).",
+   "h": "Setze die beiden Terme gleich. Mit x berechnest du dann y."
+  },
+  {
+   "l": "schnittpunkte",
+   "t": "schnittpunkte",
+   "p": "test",
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Eine Gerade hat die Steigung 2 und geht durch P(−3 | 3). Gib den Funktionsterm an.",
-    "schablone": "□x + □",
-    "hinweis": "Tippe den Term ein, z. B. 3x − 5 oder −x + 2."
+    "text": "Berechne den Schnittpunkt von g: y = −3x + 8 und h: y = 4x − 6.",
+    "schablone": "S(□ | □)",
+    "hinweis": "Trage x und y des Schnittpunkts ein."
    },
    "o": {
     "werte": [
      2,
-     9
+     2
     ]
    },
    "c": [
-    "2",
-    "9"
+    "(-6 - (8)) / (-3 - (4))",
+    "-3 * (2) + (8)"
    ],
-   "w": "3 = 2 · (−3) + t → t = 3 − (−6) = 9. y = 2x + 9."
+   "w": "−3x + 8 = 4x − 6 → −7x = −14 → x = 2. In g: y = 2. S(2 | 2)."
   },
   {
-   "l": "aufstellen",
-   "t": "aufstellen",
-   "p": "sicherung",
+   "l": "schnittpunkte",
+   "t": "schnittpunkte",
+   "p": "korrektur",
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Eine Gerade hat die Steigung 4 und geht durch P(3 | 3). Gib den Funktionsterm an.",
-    "schablone": "□x + □",
-    "hinweis": "Tippe den Term ein, z. B. 3x − 5 oder −x + 2."
-   },
-   "o": {
-    "werte": [
-     4,
-     -9
-    ]
-   },
-   "c": [
-    "4",
-    "-9"
-   ],
-   "w": "3 = 4 · 3 + t → t = 3 − 12 = −9. y = 4x − 9."
-  },
-  {
-   "l": "aufstellen",
-   "t": "aufstellen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Eine Gerade hat die Steigung −3 und geht durch P(4 | −18). Gib den Funktionsterm an.",
-    "schablone": "□x + □",
-    "hinweis": "Tippe den Term ein, z. B. 3x − 5 oder −x + 2."
-   },
-   "o": {
-    "werte": [
-     -3,
-     -6
-    ]
-   },
-   "c": [
-    "-3",
-    "-6"
-   ],
-   "w": "−18 = −3 · 4 + t → t = −18 − (−12) = −6. y = −3x − 6."
-  },
-  {
-   "l": "aufstellen",
-   "t": "aufstellen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Eine Gerade hat die Steigung −4 und geht durch P(−3 | 10). Gib den Funktionsterm an.",
-    "schablone": "□x + □",
-    "hinweis": "Tippe den Term ein, z. B. 3x − 5 oder −x + 2."
-   },
-   "o": {
-    "werte": [
-     -4,
-     -2
-    ]
-   },
-   "c": [
-    "-4",
-    "-2"
-   ],
-   "w": "10 = −4 · (−3) + t → t = 10 − 12 = −2. y = −4x − 2."
-  },
-  {
-   "l": "aufstellen",
-   "t": "aufstellen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Eine Gerade hat die Steigung −5 und geht durch P(−5 | 26). Gib den Funktionsterm an.",
-    "schablone": "□x + □",
-    "hinweis": "Tippe den Term ein, z. B. 3x − 5 oder −x + 2."
+    "text": "Berechne den Schnittpunkt von g: y = −2x − 7 und h: y = 2x + 13.",
+    "schablone": "S(□ | □)",
+    "hinweis": "Trage x und y des Schnittpunkts ein."
    },
    "o": {
     "werte": [
      -5,
-     1
+     3
     ]
    },
    "c": [
-    "-5",
-    "1"
+    "(13 - (-7)) / (-2 - (2))",
+    "-2 * (-5) + (-7)"
    ],
-   "w": "26 = −5 · (−5) + t → t = 26 − 25 = 1. y = −5x + 1."
+   "w": "−2x − 7 = 2x + 13 → −4x = 20 → x = −5. In g: y = 3. S(−5 | 3)."
   },
   {
-   "l": "proportional",
-   "t": "proportional",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "3 kg Kartoffeln kosten 3,60 €. Wie viel kosten 20 kg?"
-   },
-   "o": {
-    "wert": 24,
-    "einheit": "€"
-   },
-   "c": "(18/5) / 3 * 20",
-   "w": "k = 3,60 : 3 = 1,20 € pro kg. y = 1,2 · 20 = 24 €.",
-   "h": "Berechne zuerst den Preis für 1 Einheit (k)."
-  },
-  {
-   "l": "proportional",
-   "t": "proportional",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "4 kg Äpfel kosten 10 €. Wie viel kosten 8 kg?"
-   },
-   "o": {
-    "wert": 20,
-    "einheit": "€"
-   },
-   "c": "10 / 4 * 8",
-   "w": "k = 10 : 4 = 2,50 € pro kg. y = 2,5 · 8 = 20 €.",
-   "h": "Berechne zuerst den Preis für 1 Einheit (k)."
-  },
-  {
-   "l": "proportional",
-   "t": "proportional",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "4 m Stoff kosten 32 €. Wie viel kosten 20 m?"
-   },
-   "o": {
-    "wert": 160,
-    "einheit": "€"
-   },
-   "c": "32 / 4 * 20",
-   "w": "k = 32 : 4 = 8 € pro m. y = 8 · 20 = 160 €.",
-   "h": "Berechne zuerst den Preis für 1 Einheit (k)."
-  },
-  {
-   "l": "proportional",
-   "t": "proportional",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "5 kg Kartoffeln kosten 6 €. Wie viel kosten 7 kg?"
-   },
-   "o": {
-    "wert": 8.4,
-    "einheit": "€"
-   },
-   "c": "6 / 5 * 7",
-   "w": "k = 6 : 5 = 1,20 € pro kg. y = 1,2 · 7 = 8,40 €.",
-   "h": "Berechne zuerst den Preis für 1 Einheit (k)."
-  },
-  {
-   "l": "proportional",
-   "t": "proportional",
-   "p": "uebung",
+   "l": "schnittpunkte",
+   "t": "schnittpunkte",
+   "p": "korrektur",
    "s": 2,
-   "y": "zahl",
+   "y": "luecken",
    "f": {
-    "text": "Die Gerade y = k · x geht durch P(−5 | −20). Berechne y für x = 12."
+    "text": "Berechne den Schnittpunkt von g: y = 4x − 5 und h: y = 2x − 7.",
+    "schablone": "S(□ | □)",
+    "hinweis": "Trage x und y des Schnittpunkts ein."
    },
    "o": {
-    "wert": 48
+    "werte": [
+     -1,
+     -9
+    ]
    },
-   "c": "-20 / (-5) * (12)",
-   "w": "k = −20 : (−5) = 4. y = 4 · 12 = 48.",
-   "h": "Berechne zuerst k = y : x."
-  },
-  {
-   "l": "proportional",
-   "t": "proportional",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Die Gerade y = k · x geht durch P(1 | 9). Berechne y für x = 12."
-   },
-   "o": {
-    "wert": 108
-   },
-   "c": "9 / (1) * (12)",
-   "w": "k = 9 : 1 = 9. y = 9 · 12 = 108.",
-   "h": "Berechne zuerst k = y : x."
-  },
-  {
-   "l": "proportional",
-   "t": "proportional",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Die Gerade y = k · x geht durch P(3 | 9). Berechne y für x = 11."
-   },
-   "o": {
-    "wert": 33
-   },
-   "c": "9 / (3) * (11)",
-   "w": "k = 9 : 3 = 3. y = 3 · 11 = 33.",
-   "h": "Berechne zuerst k = y : x."
-  },
-  {
-   "l": "proportional",
-   "t": "proportional",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Die Gerade y = k · x geht durch P(6 | 36). Berechne y für x = 11."
-   },
-   "o": {
-    "wert": 66
-   },
-   "c": "36 / (6) * (11)",
-   "w": "k = 36 : 6 = 6. y = 6 · 11 = 66.",
-   "h": "Berechne zuerst k = y : x."
-  },
-  {
-   "l": "proportional",
-   "t": "proportional",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Die Gerade y = k · x geht durch P(−4 | 12). Berechne y für x = 8."
-   },
-   "o": {
-    "wert": -24
-   },
-   "c": "12 / (-4) * (8)",
-   "w": "k = 12 : (−4) = −3. y = −3 · 8 = −24.",
-   "h": "Berechne zuerst k = y : x."
-  },
-  {
-   "l": "proportional",
-   "t": "proportional",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Die Gerade y = k · x geht durch P(4 | −4). Berechne y für x = −7."
-   },
-   "o": {
-    "wert": 7
-   },
-   "c": "-4 / (4) * (-7)",
-   "w": "k = −4 : 4 = −1. y = −1 · (−7) = 7.",
-   "h": "Berechne zuerst k = y : x."
-  },
-  {
-   "l": "proportional",
-   "t": "proportional",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Ist die Zuordnung (1 | 7), (6 | 42), (8 | 56) proportional?"
-   },
-   "a": [
-    "Ja, y = 7 · x + 7.",
-    "Ja, y = 7 · x.",
-    "Nein, die Quotienten y : x sind verschieden.",
-    "Nein, die Gerade geht nicht durch den Ursprung."
+   "c": [
+    "(-7 - (-5)) / (4 - (2))",
+    "4 * (-1) + (-5)"
    ],
-   "o": {
-    "index": 1
-   },
-   "w": "Alle Quotienten y : x sind gleich 7. Also proportional mit k = 7.",
-   "h": "Berechne für jedes Paar den Quotienten y : x."
+   "w": "4x − 5 = 2x − 7 → 2x = −2 → x = −1. In g: y = −9. S(−1 | −9)."
   },
   {
-   "l": "proportional",
-   "t": "proportional",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Ist die Zuordnung (1 | 4), (3 | 12), (6 | 24) proportional?"
-   },
-   "a": [
-    "Ja, y = 4 · x.",
-    "Nein, die Quotienten y : x sind verschieden.",
-    "Nein, die Gerade geht nicht durch den Ursprung.",
-    "Ja, y = 4 · x + 4."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Alle Quotienten y : x sind gleich 4. Also proportional mit k = 4.",
-   "h": "Berechne für jedes Paar den Quotienten y : x."
-  },
-  {
-   "l": "proportional",
-   "t": "proportional",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Ist die Zuordnung (2 | 10), (5 | 25), (7 | 35) proportional?"
-   },
-   "a": [
-    "Ja, y = 5 · x + 5.",
-    "Ja, y = 5 · x.",
-    "Nein, die Quotienten y : x sind verschieden.",
-    "Nein, die Gerade geht nicht durch den Ursprung."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Alle Quotienten y : x sind gleich 5. Also proportional mit k = 5.",
-   "h": "Berechne für jedes Paar den Quotienten y : x."
-  },
-  {
-   "l": "proportional",
-   "t": "proportional",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Ist die Zuordnung (4 | 12), (6 | 18), (7 | 21) proportional?"
-   },
-   "a": [
-    "Nein, die Gerade geht nicht durch den Ursprung.",
-    "Nein, die Quotienten y : x sind verschieden.",
-    "Ja, y = 3 · x.",
-    "Ja, y = 3 · x + 3."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Alle Quotienten y : x sind gleich 3. Also proportional mit k = 3.",
-   "h": "Berechne für jedes Paar den Quotienten y : x."
-  },
-  {
-   "l": "proportional",
-   "t": "proportional",
-   "p": "test",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Die Gerade y = k · x geht durch P(1 | −1). Berechne y für x = 6."
-   },
-   "o": {
-    "wert": -6
-   },
-   "c": "-1 / (1) * (6)",
-   "w": "k = −1 : 1 = −1. y = −1 · 6 = −6."
-  },
-  {
-   "l": "proportional",
-   "t": "proportional",
+   "l": "schnittpunkte",
+   "t": "schnittpunkte",
    "p": "korrektur",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Die Gerade y = k · x geht durch P(−6 | 12). Berechne y für x = −3."
+    "text": "Berechne den Schnittpunkt S von g: y = −3x + 7 und h: y = −5x + 3. Gib die x-Koordinate an."
    },
    "o": {
-    "wert": 6
+    "wert": -2
    },
-   "c": "12 / (-6) * (-3)",
-   "w": "k = 12 : (−6) = −2. y = −2 · (−3) = 6."
+   "c": "(3 - (7)) / (-3 - (-5))",
+   "w": "−3x + 7 = −5x + 3 → 2x = −4 → x = −2. In g: y = 13. S(−2 | 13)."
   },
   {
-   "l": "proportional",
-   "t": "proportional",
-   "p": "korrektur",
+   "l": "schnittpunkte",
+   "t": "schnittpunkte",
+   "p": "sicherung",
    "s": 2,
-   "y": "zahl",
+   "y": "luecken",
    "f": {
-    "text": "Die Gerade y = k · x geht durch P(5 | 8,75). Berechne y für x = −4."
+    "text": "Berechne den Schnittpunkt von g: y = −2x und h: y = 4x − 12.",
+    "schablone": "S(□ | □)",
+    "hinweis": "Trage x und y des Schnittpunkts ein."
    },
    "o": {
-    "wert": -7
+    "werte": [
+     2,
+     -4
+    ]
    },
-   "c": "(35/4) / (5) * (-4)",
-   "w": "k = 8,75 : 5 = 1,75. y = 1,75 · (−4) = −7."
+   "c": [
+    "(-12 - (0)) / (-2 - (4))",
+    "-2 * (2) + (0)"
+   ],
+   "w": "−2x = 4x − 12 → −6x = −12 → x = 2. In g: y = −4. S(2 | −4)."
   },
   {
-   "l": "proportional",
-   "t": "proportional",
-   "p": "korrektur",
+   "l": "schnittpunkte",
+   "t": "schnittpunkte",
+   "p": "sicherung",
    "s": 2,
-   "y": "zahl",
+   "y": "luecken",
    "f": {
-    "text": "Die Gerade y = k · x geht durch P(−1 | 2). Berechne y für x = −7."
+    "text": "Berechne den Schnittpunkt von g: y = 3x + 8 und h: y = 5x + 6.",
+    "schablone": "S(□ | □)",
+    "hinweis": "Trage x und y des Schnittpunkts ein."
    },
    "o": {
-    "wert": 14
+    "werte": [
+     1,
+     11
+    ]
    },
-   "c": "2 / (-1) * (-7)",
-   "w": "k = 2 : (−1) = −2. y = −2 · (−7) = 14."
+   "c": [
+    "(6 - (8)) / (3 - (5))",
+    "3 * (1) + (8)"
+   ],
+   "w": "3x + 8 = 5x + 6 → −2x = −2 → x = 1. In g: y = 11. S(1 | 11)."
   },
   {
-   "l": "proportional",
-   "t": "proportional",
+   "l": "schnittpunkte",
+   "t": "schnittpunkte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne den Schnittpunkt von g: y = 4x + 5 und h: y = −2x − 19.",
+    "schablone": "S(□ | □)",
+    "hinweis": "Trage x und y des Schnittpunkts ein."
+   },
+   "o": {
+    "werte": [
+     -4,
+     -11
+    ]
+   },
+   "c": [
+    "(-19 - (5)) / (4 - (-2))",
+    "4 * (-4) + (5)"
+   ],
+   "w": "4x + 5 = −2x − 19 → 6x = −24 → x = −4. In g: y = −11. S(−4 | −11)."
+  },
+  {
+   "l": "schnittpunkte",
+   "t": "schnittpunkte",
    "p": "sicherung",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Die Gerade y = k · x geht durch P(5 | −45). Berechne y für x = 10."
-   },
-   "o": {
-    "wert": -90
-   },
-   "c": "-45 / (5) * (10)",
-   "w": "k = −45 : 5 = −9. y = −9 · 10 = −90."
-  },
-  {
-   "l": "proportional",
-   "t": "proportional",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Die Gerade y = k · x geht durch P(3 | −0,75). Berechne y für x = −5."
-   },
-   "o": {
-    "wert": 1.25
-   },
-   "c": "(-3/4) / (3) * (-5)",
-   "w": "k = −0,75 : 3 = −0,25. y = −0,25 · (−5) = 1,25."
-  },
-  {
-   "l": "proportional",
-   "t": "proportional",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Die Gerade y = k · x geht durch P(4 | 10). Berechne y für x = 11."
-   },
-   "o": {
-    "wert": 27.5
-   },
-   "c": "10 / (4) * (11)",
-   "w": "k = 10 : 4 = 2,5. y = 2,5 · 11 = 27,5."
-  },
-  {
-   "l": "proportional",
-   "t": "proportional",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Die Gerade y = k · x geht durch P(3 | 3). Berechne y für x = −4."
-   },
-   "o": {
-    "wert": -4
-   },
-   "c": "3 / (3) * (-4)",
-   "w": "k = 3 : 3 = 1. y = 1 · (−4) = −4."
-  },
-  {
-   "l": "proportional",
-   "t": "proportional",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Die Gerade y = k · x geht durch P(2 | 4). Berechne y für x = 1."
+    "text": "Berechne den Schnittpunkt S von g: y = 4x + 4 und h: y = −3x + 18. Gib die x-Koordinate an."
    },
    "o": {
     "wert": 2
    },
-   "c": "4 / (2) * (1)",
-   "w": "k = 4 : 2 = 2. y = 2 · 1 = 2."
-  },
-  {
-   "l": "proportional",
-   "t": "proportional",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Die Gerade y = k · x geht durch P(2 | −4). Berechne y für x = 9."
-   },
-   "o": {
-    "wert": -18
-   },
-   "c": "-4 / (2) * (9)",
-   "w": "k = −4 : 2 = −2. y = −2 · 9 = −18."
-  },
-  {
-   "l": "schnittpunkte",
-   "t": "schnittpunkte",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne die Nullstelle von y = −7x − 42 (Schnitt mit der x-Achse)."
-   },
-   "o": {
-    "wert": -6
-   },
-   "c": "-(-42) / -7",
-   "w": "−7x − 42 = 0 → x = −6.",
-   "h": "Auf der x-Achse ist y = 0."
-  },
-  {
-   "l": "schnittpunkte",
-   "t": "schnittpunkte",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne die Nullstelle von y = 6x + 30 (Schnitt mit der x-Achse)."
-   },
-   "o": {
-    "wert": -5
-   },
-   "c": "-(30) / 6",
-   "w": "6x + 30 = 0 → x = −5.",
-   "h": "Auf der x-Achse ist y = 0."
-  },
-  {
-   "l": "schnittpunkte",
-   "t": "schnittpunkte",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "An welcher Stelle schneidet y = 6x − 30 die y-Achse? Gib den y-Wert an."
-   },
-   "o": {
-    "wert": -30
-   },
-   "c": "-30",
-   "w": "Auf der y-Achse ist x = 0: y = 6 · 0 − 30 = −30.",
-   "h": "Auf der y-Achse ist x = 0."
-  },
-  {
-   "l": "schnittpunkte",
-   "t": "schnittpunkte",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "An welcher Stelle schneidet y = 6x − 21 die y-Achse? Gib den y-Wert an."
-   },
-   "o": {
-    "wert": -21
-   },
-   "c": "-21",
-   "w": "Auf der y-Achse ist x = 0: y = 6 · 0 − 21 = −21.",
-   "h": "Auf der y-Achse ist x = 0."
-  },
-  {
-   "l": "schnittpunkte",
-   "t": "schnittpunkte",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne den Schnittpunkt S von g: y = x + 7 und h: y = 2x + 4. Gib die y-Koordinate an."
-   },
-   "o": {
-    "wert": 10
-   },
-   "c": "1 * (4 - (7)) / (1 - (2)) + (7)",
-   "w": "x + 7 = 2x + 4 → −x = −3 → x = 3; y = 10. S(3 | 10).",
-   "h": "Setze gleich, berechne x und setze x in eine der Gleichungen ein."
-  },
-  {
-   "l": "schnittpunkte",
-   "t": "schnittpunkte",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne den Schnittpunkt S von g: y = 2x − 2 und h: y = 3x + 2. Gib die y-Koordinate an."
-   },
-   "o": {
-    "wert": -10
-   },
-   "c": "2 * (2 - (-2)) / (2 - (3)) + (-2)",
-   "w": "2x − 2 = 3x + 2 → −x = 4 → x = −4; y = −10. S(−4 | −10).",
-   "h": "Setze gleich, berechne x und setze x in eine der Gleichungen ein."
-  },
-  {
-   "l": "schnittpunkte",
-   "t": "schnittpunkte",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne den Schnittpunkt S von g: y = −4x − 4 und h: y = −x + 8. Gib die y-Koordinate an."
-   },
-   "o": {
-    "wert": 12
-   },
-   "c": "-4 * (8 - (-4)) / (-4 - (-1)) + (-4)",
-   "w": "−4x − 4 = −x + 8 → −3x = 12 → x = −4; y = 12. S(−4 | 12).",
-   "h": "Setze gleich, berechne x und setze x in eine der Gleichungen ein."
-  },
-  {
-   "l": "schnittpunkte",
-   "t": "schnittpunkte",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne den Schnittpunkt S von g: y = x − 5 und h: y = 2x − 11. Gib die x-Koordinate an."
-   },
-   "o": {
-    "wert": 6
-   },
-   "c": "(-11 - (-5)) / (1 - (2))",
-   "w": "x − 5 = 2x − 11 → −x = −6 → x = 6; y = 1. S(6 | 1).",
-   "h": "Setze die beiden Terme gleich."
-  },
-  {
-   "l": "schnittpunkte",
-   "t": "schnittpunkte",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne den Schnittpunkt S von g: y = 2x und h: y = −x − 12. Gib die x-Koordinate an."
-   },
-   "o": {
-    "wert": -4
-   },
-   "c": "(-12 - (0)) / (2 - (-1))",
-   "w": "2x = −x − 12 → 3x = −12 → x = −4; y = −8. S(−4 | −8).",
-   "h": "Setze die beiden Terme gleich."
-  },
-  {
-   "l": "schnittpunkte",
-   "t": "schnittpunkte",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne den Schnittpunkt S von g: y = x + 6 und h: y = −2x + 9. Gib die x-Koordinate an."
-   },
-   "o": {
-    "wert": 1
-   },
-   "c": "(9 - (6)) / (1 - (-2))",
-   "w": "x + 6 = −2x + 9 → 3x = 3 → x = 1; y = 7. S(1 | 7).",
-   "h": "Setze die beiden Terme gleich."
-  },
-  {
-   "l": "schnittpunkte",
-   "t": "schnittpunkte",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne den Schnittpunkt S von g: y = −2x + 1 und h: y = −3x + 2. Gib die y-Koordinate an."
-   },
-   "o": {
-    "wert": -1
-   },
-   "c": "-2 * (2 - (1)) / (-2 - (-3)) + (1)",
-   "w": "−2x + 1 = −3x + 2 → x = 1 → x = 1; y = −1. S(1 | −1).",
-   "h": "Setze gleich, berechne x und setze x in eine der Gleichungen ein."
-  },
-  {
-   "l": "schnittpunkte",
-   "t": "schnittpunkte",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne den Schnittpunkt S von g: y = −2x − 6 und h: y = −5x + 6. Gib die y-Koordinate an."
-   },
-   "o": {
-    "wert": -14
-   },
-   "c": "-2 * (6 - (-6)) / (-2 - (-5)) + (-6)",
-   "w": "−2x − 6 = −5x + 6 → 3x = 12 → x = 4; y = −14. S(4 | −14).",
-   "h": "Setze gleich, berechne x und setze x in eine der Gleichungen ein."
-  },
-  {
-   "l": "schnittpunkte",
-   "t": "schnittpunkte",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne den Schnittpunkt S von g: y = −2x − 2 und h: y = −5x + 16. Gib die y-Koordinate an."
-   },
-   "o": {
-    "wert": -14
-   },
-   "c": "-2 * (16 - (-2)) / (-2 - (-5)) + (-2)",
-   "w": "−2x − 2 = −5x + 16 → 3x = 18 → x = 6; y = −14. S(6 | −14).",
-   "h": "Setze gleich, berechne x und setze x in eine der Gleichungen ein."
-  },
-  {
-   "l": "schnittpunkte",
-   "t": "schnittpunkte",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne den Schnittpunkt S von g: y = −3x − 6 und h: y = −1,5x − 6. Gib die x-Koordinate an."
-   },
-   "o": {
-    "wert": 0
-   },
-   "c": "(-6 - (-6)) / (-3 - ((-3/2)))",
-   "w": "−3x − 6 = −1,5x − 6 → −1,5x = 0 → x = 0; y = −6. S(0 | −6).",
-   "h": "Setze die beiden Terme gleich."
-  },
-  {
-   "l": "schnittpunkte",
-   "t": "schnittpunkte",
-   "p": "test",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne den Schnittpunkt S von g: y = x − 8 und h: y = 5x − 8. Gib die y-Koordinate an."
-   },
-   "o": {
-    "wert": -8
-   },
-   "c": "1 * (-8 - (-8)) / (1 - (5)) + (-8)",
-   "w": "x − 8 = 5x − 8 → −4x = 0 → x = 0; y = −8. S(0 | −8)."
-  },
-  {
-   "l": "schnittpunkte",
-   "t": "schnittpunkte",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne den Schnittpunkt S von g: y = 2x + 5 und h: y = −x + 5. Gib die x-Koordinate an."
-   },
-   "o": {
-    "wert": 0
-   },
-   "c": "(5 - (5)) / (2 - (-1))",
-   "w": "2x + 5 = −x + 5 → 3x = 0 → x = 0; y = 5. S(0 | 5)."
-  },
-  {
-   "l": "schnittpunkte",
-   "t": "schnittpunkte",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne den Schnittpunkt S von g: y = 4x + 1 und h: y = 5x + 2. Gib die y-Koordinate an."
-   },
-   "o": {
-    "wert": -3
-   },
-   "c": "4 * (2 - (1)) / (4 - (5)) + (1)",
-   "w": "4x + 1 = 5x + 2 → −x = 1 → x = −1; y = −3. S(−1 | −3)."
-  },
-  {
-   "l": "schnittpunkte",
-   "t": "schnittpunkte",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne den Schnittpunkt S von g: y = −x − 3 und h: y = x − 5. Gib die y-Koordinate an."
-   },
-   "o": {
-    "wert": -4
-   },
-   "c": "-1 * (-5 - (-3)) / (-1 - (1)) + (-3)",
-   "w": "−x − 3 = x − 5 → −2x = −2 → x = 1; y = −4. S(1 | −4)."
+   "c": "(18 - (4)) / (4 - (-3))",
+   "w": "4x + 4 = −3x + 18 → 7x = 14 → x = 2. In g: y = 12. S(2 | 12)."
   },
   {
    "l": "schnittpunkte",
    "t": "schnittpunkte",
    "p": "sicherung",
    "s": 2,
-   "y": "zahl",
+   "y": "luecken",
    "f": {
-    "text": "Berechne den Schnittpunkt S von g: y = −4x − 1 und h: y = −5x − 5. Gib die y-Koordinate an."
+    "text": "Berechne den Schnittpunkt von g: y = 3x + 8 und h: y = x + 16.",
+    "schablone": "S(□ | □)",
+    "hinweis": "Trage x und y des Schnittpunkts ein."
    },
    "o": {
-    "wert": 15
+    "werte": [
+     4,
+     20
+    ]
    },
-   "c": "-4 * (-5 - (-1)) / (-4 - (-5)) + (-1)",
-   "w": "−4x − 1 = −5x − 5 → x = −4 → x = −4; y = 15. S(−4 | 15)."
-  },
-  {
-   "l": "schnittpunkte",
-   "t": "schnittpunkte",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne den Schnittpunkt S von g: y = −4x − 8 und h: y = −3x − 6. Gib die y-Koordinate an."
-   },
-   "o": {
-    "wert": 0
-   },
-   "c": "-4 * (-6 - (-8)) / (-4 - (-3)) + (-8)",
-   "w": "−4x − 8 = −3x − 6 → −x = 2 → x = −2; y = 0. S(−2 | 0)."
-  },
-  {
-   "l": "schnittpunkte",
-   "t": "schnittpunkte",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne den Schnittpunkt S von g: y = −4x + 5 und h: y = x + 20. Gib die x-Koordinate an."
-   },
-   "o": {
-    "wert": -3
-   },
-   "c": "(20 - (5)) / (-4 - (1))",
-   "w": "−4x + 5 = x + 20 → −5x = 15 → x = −3; y = 17. S(−3 | 17)."
-  },
-  {
-   "l": "schnittpunkte",
-   "t": "schnittpunkte",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne den Schnittpunkt S von g: y = x − 3 und h: y = −3x − 15. Gib die x-Koordinate an."
-   },
-   "o": {
-    "wert": -3
-   },
-   "c": "(-15 - (-3)) / (1 - (-3))",
-   "w": "x − 3 = −3x − 15 → 4x = −12 → x = −3; y = −6. S(−3 | −6)."
-  },
-  {
-   "l": "schnittpunkte",
-   "t": "schnittpunkte",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne den Schnittpunkt S von g: y = −5x − 4 und h: y = −4x − 9. Gib die x-Koordinate an."
-   },
-   "o": {
-    "wert": 5
-   },
-   "c": "(-9 - (-4)) / (-5 - (-4))",
-   "w": "−5x − 4 = −4x − 9 → −x = −5 → x = 5; y = −29. S(5 | −29)."
-  },
-  {
-   "l": "schnittpunkte",
-   "t": "schnittpunkte",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne den Schnittpunkt S von g: y = −x − 8 und h: y = −4x + 7. Gib die x-Koordinate an."
-   },
-   "o": {
-    "wert": 5
-   },
-   "c": "(7 - (-8)) / (-1 - (-4))",
-   "w": "−x − 8 = −4x + 7 → 3x = 15 → x = 5; y = −13. S(5 | −13)."
-  },
-  {
-   "l": "lage",
-   "t": "lage",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie liegen die Geraden g: y = −4x + 3 und h: y = −8x + 4 zueinander?"
-   },
-   "a": [
-    "parallel",
-    "senkrecht zueinander",
-    "schneiden sich, aber nicht senkrecht",
-    "identisch (dieselbe Gerade)"
+   "c": [
+    "(16 - (8)) / (3 - (1))",
+    "3 * (4) + (8)"
    ],
-   "o": {
-    "index": 2
+   "w": "3x + 8 = x + 16 → 2x = 8 → x = 4. In g: y = 20. S(4 | 20)."
+  },
+  {
+   "l": "schnittpunkte",
+   "t": "schnittpunkte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne den Schnittpunkt von g: y = −5x + 3 und h: y = −2x − 15.",
+    "schablone": "S(□ | □)",
+    "hinweis": "Trage x und y des Schnittpunkts ein."
    },
-   "w": "Verschiedene Steigungen, und −4 · (−8) = 32 ≠ −1.",
-   "h": "Bringe beide Gleichungen in die Form y = m · x + t und vergleiche die Steigungen."
+   "o": {
+    "werte": [
+     6,
+     -27
+    ]
+   },
+   "c": [
+    "(-15 - (3)) / (-5 - (-2))",
+    "-5 * (6) + (3)"
+   ],
+   "w": "−5x + 3 = −2x − 15 → −3x = −18 → x = 6. In g: y = −27. S(6 | −27)."
   },
   {
    "l": "lage",
@@ -2303,160 +3114,13 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Wie liegen die Geraden g: y = −5x + 3 und h: y = 0,2x + 3 zueinander?"
+    "text": "Wie liegen die Geraden g: y = −4x + 3 und h: y = 4x − 4 zueinander?"
    },
    "a": [
-    "schneiden sich, aber nicht senkrecht",
     "senkrecht zueinander",
+    "schneiden sich, aber nicht senkrecht",
     "parallel",
     "identisch (dieselbe Gerade)"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Produkt der Steigungen: −5 · 0,2 = −1.",
-   "h": "Bringe beide Gleichungen in die Form y = m · x + t und vergleiche die Steigungen."
-  },
-  {
-   "l": "lage",
-   "t": "lage",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie liegen die Geraden g: y = 4x − 5 und h: y = 4x zueinander?"
-   },
-   "a": [
-    "parallel",
-    "senkrecht zueinander",
-    "identisch (dieselbe Gerade)",
-    "schneiden sich, aber nicht senkrecht"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Gleiche Steigung 4, verschiedene y-Achsenabschnitte.",
-   "h": "Bringe beide Gleichungen in die Form y = m · x + t und vergleiche die Steigungen."
-  },
-  {
-   "l": "lage",
-   "t": "lage",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie liegen die Geraden g: y = −x + 4 und h: y = −x + 9 zueinander?"
-   },
-   "a": [
-    "schneiden sich, aber nicht senkrecht",
-    "identisch (dieselbe Gerade)",
-    "senkrecht zueinander",
-    "parallel"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Gleiche Steigung −1, verschiedene y-Achsenabschnitte.",
-   "h": "Bringe beide Gleichungen in die Form y = m · x + t und vergleiche die Steigungen."
-  },
-  {
-   "l": "lage",
-   "t": "lage",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie liegen die Geraden g: y = 1,5x + 4 und h: y = 2,5x − 4 zueinander?"
-   },
-   "a": [
-    "parallel",
-    "senkrecht zueinander",
-    "identisch (dieselbe Gerade)",
-    "schneiden sich, aber nicht senkrecht"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Verschiedene Steigungen, und 1,5 · 2,5 = 3,75 ≠ −1.",
-   "h": "Bringe beide Gleichungen in die Form y = m · x + t und vergleiche die Steigungen."
-  },
-  {
-   "l": "lage",
-   "t": "lage",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie liegen die Geraden g: y = 2,5x − 6 und h: y = 5x − 4 zueinander?"
-   },
-   "a": [
-    "identisch (dieselbe Gerade)",
-    "parallel",
-    "senkrecht zueinander",
-    "schneiden sich, aber nicht senkrecht"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Verschiedene Steigungen, und 2,5 · 5 = 12,5 ≠ −1.",
-   "h": "Bringe beide Gleichungen in die Form y = m · x + t und vergleiche die Steigungen."
-  },
-  {
-   "l": "lage",
-   "t": "lage",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie liegen die Geraden g: y = −4x + 2 und h: y = 0,25x − 1 zueinander?"
-   },
-   "a": [
-    "schneiden sich, aber nicht senkrecht",
-    "parallel",
-    "senkrecht zueinander",
-    "identisch (dieselbe Gerade)"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Produkt der Steigungen: −4 · 0,25 = −1.",
-   "h": "Bringe beide Gleichungen in die Form y = m · x + t und vergleiche die Steigungen."
-  },
-  {
-   "l": "lage",
-   "t": "lage",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie liegen die Geraden g: y = 4x − 1 und h: y = 4x − 5 zueinander?"
-   },
-   "a": [
-    "identisch (dieselbe Gerade)",
-    "schneiden sich, aber nicht senkrecht",
-    "parallel",
-    "senkrecht zueinander"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Gleiche Steigung 4, verschiedene y-Achsenabschnitte.",
-   "h": "Bringe beide Gleichungen in die Form y = m · x + t und vergleiche die Steigungen."
-  },
-  {
-   "l": "lage",
-   "t": "lage",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie liegen die Geraden g: y = −4x und h: y = 4x − 4 zueinander?"
-   },
-   "a": [
-    "identisch (dieselbe Gerade)",
-    "schneiden sich, aber nicht senkrecht",
-    "senkrecht zueinander",
-    "parallel"
    ],
    "o": {
     "index": 1
@@ -2468,52 +3132,73 @@
    "l": "lage",
    "t": "lage",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Wie liegen die Geraden g: y = −2,5x und h: y = 0,4x + 3 zueinander?"
+    "text": "Wie liegen die Geraden g: y = −2x + 6 und h: y = −2x + 4 zueinander?"
    },
    "a": [
     "senkrecht zueinander",
-    "parallel",
     "identisch (dieselbe Gerade)",
+    "parallel",
     "schneiden sich, aber nicht senkrecht"
    ],
    "o": {
-    "index": 0
+    "index": 2
    },
-   "w": "Produkt der Steigungen: −2,5 · 0,4 = −1.",
+   "w": "Gleiche Steigung −2, verschiedene y-Achsenabschnitte.",
    "h": "Bringe beide Gleichungen in die Form y = m · x + t und vergleiche die Steigungen."
   },
   {
    "l": "lage",
    "t": "lage",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Wie liegen die Geraden g: y = −4x − 6 und h: y = −4x − 4 zueinander?"
+    "text": "Wie liegen die Geraden g: y = x − 1 und h: y = 2x + 5 zueinander?"
    },
    "a": [
-    "schneiden sich, aber nicht senkrecht",
     "identisch (dieselbe Gerade)",
+    "parallel",
     "senkrecht zueinander",
-    "parallel"
+    "schneiden sich, aber nicht senkrecht"
    ],
    "o": {
     "index": 3
    },
-   "w": "Gleiche Steigung −4, verschiedene y-Achsenabschnitte.",
+   "w": "Verschiedene Steigungen, und 1 · 2 = 2 ≠ −1.",
    "h": "Bringe beide Gleichungen in die Form y = m · x + t und vergleiche die Steigungen."
   },
   {
    "l": "lage",
    "t": "lage",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Wie liegen die Geraden g: y = x + 2 und h: 2y = 2x + 4 zueinander?"
+    "text": "Wie liegen die Geraden g: y = −4x und h: y = −8x + 5 zueinander?"
+   },
+   "a": [
+    "parallel",
+    "schneiden sich, aber nicht senkrecht",
+    "senkrecht zueinander",
+    "identisch (dieselbe Gerade)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Verschiedene Steigungen, und −4 · (−8) = 32 ≠ −1.",
+   "h": "Bringe beide Gleichungen in die Form y = m · x + t und vergleiche die Steigungen."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie liegen die Geraden g: y = −2x − 6 und h: y = −2x − 2 zueinander?"
    },
    "a": [
     "senkrecht zueinander",
@@ -2522,9 +3207,114 @@
     "identisch (dieselbe Gerade)"
    ],
    "o": {
+    "index": 2
+   },
+   "w": "Gleiche Steigung −2, verschiedene y-Achsenabschnitte.",
+   "h": "Bringe beide Gleichungen in die Form y = m · x + t und vergleiche die Steigungen."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie liegen die Geraden g: y = 2,5x + 4 und h: y = −0,4x + 6 zueinander?"
+   },
+   "a": [
+    "parallel",
+    "schneiden sich, aber nicht senkrecht",
+    "identisch (dieselbe Gerade)",
+    "senkrecht zueinander"
+   ],
+   "o": {
     "index": 3
    },
-   "w": "Umgeformt ist die zweite Gleichung y = x + 2 – genau die erste Gerade.",
+   "w": "Produkt der Steigungen: 2,5 · (−0,4) = −1.",
+   "h": "Bringe beide Gleichungen in die Form y = m · x + t und vergleiche die Steigungen."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie liegen die Geraden g: y = −x − 1 und h: y = −2x + 2 zueinander?"
+   },
+   "a": [
+    "schneiden sich, aber nicht senkrecht",
+    "senkrecht zueinander",
+    "parallel",
+    "identisch (dieselbe Gerade)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Verschiedene Steigungen, und −1 · (−2) = 2 ≠ −1.",
+   "h": "Bringe beide Gleichungen in die Form y = m · x + t und vergleiche die Steigungen."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie liegen die Geraden g: y = 1,5x − 1 und h: y = 1,5x + 3 zueinander?"
+   },
+   "a": [
+    "parallel",
+    "senkrecht zueinander",
+    "schneiden sich, aber nicht senkrecht",
+    "identisch (dieselbe Gerade)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Gleiche Steigung 1,5, verschiedene y-Achsenabschnitte.",
+   "h": "Bringe beide Gleichungen in die Form y = m · x + t und vergleiche die Steigungen."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie liegen die Geraden g: y = −4x + 1 und h: y = −0,25x + 4 zueinander?"
+   },
+   "a": [
+    "identisch (dieselbe Gerade)",
+    "parallel",
+    "senkrecht zueinander",
+    "schneiden sich, aber nicht senkrecht"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Verschiedene Steigungen, und −4 · (−0,25) = 1 ≠ −1.",
+   "h": "Bringe beide Gleichungen in die Form y = m · x + t und vergleiche die Steigungen."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie liegen die Geraden g: y = −2x − 3 und h: y = −4x + 4 zueinander?"
+   },
+   "a": [
+    "senkrecht zueinander",
+    "schneiden sich, aber nicht senkrecht",
+    "identisch (dieselbe Gerade)",
+    "parallel"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Verschiedene Steigungen, und −2 · (−4) = 8 ≠ −1.",
    "h": "Bringe beide Gleichungen in die Form y = m · x + t und vergleiche die Steigungen."
   },
   {
@@ -2534,13 +3324,45 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Gib die Steigung einer Geraden an, die parallel zu y = 5x + 1 ist."
+    "text": "Gib die Steigung einer Geraden an, die senkrecht auf y = −2x steht."
    },
    "o": {
-    "wert": 5
+    "wert": 0.5
    },
-   "c": "5",
-   "w": "Parallele Geraden haben dieselbe Steigung: m = 5.",
+   "c": "-1 / -2",
+   "w": "m₂ = −1 : m₁ = −1 : (−2) = 0,5. Probe: −2 · 0,5 = −1.",
+   "h": "Senkrecht: m₁ · m₂ = −1. Nimm den negativen Kehrwert."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die Steigung einer Geraden an, die parallel zu y = 4x + 6 ist."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Parallele Geraden haben dieselbe Steigung: m = 4.",
+   "h": "Parallel heißt: gleiche Steigung."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die Steigung einer Geraden an, die parallel zu y = 2,5x ist."
+   },
+   "o": {
+    "wert": 2.5
+   },
+   "c": "(5/2)",
+   "w": "Parallele Geraden haben dieselbe Steigung: m = 2,5.",
    "h": "Parallel heißt: gleiche Steigung."
   },
   {
@@ -2550,18 +3372,18 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Wie liegen die Geraden g: y = 4x + 5 und h: y = 4x + 2 zueinander?"
+    "text": "Wie liegen die Geraden g: y = x − 5 und h: y = 2x − 6 zueinander?"
    },
    "a": [
-    "schneiden sich, aber nicht senkrecht",
-    "identisch (dieselbe Gerade)",
     "senkrecht zueinander",
-    "parallel"
+    "parallel",
+    "schneiden sich, aber nicht senkrecht",
+    "identisch (dieselbe Gerade)"
    ],
    "o": {
-    "index": 3
+    "index": 2
    },
-   "w": "Gleiche Steigung 4, verschiedene y-Achsenabschnitte.",
+   "w": "Verschiedene Steigungen, und 1 · 2 = 2 ≠ −1.",
    "h": "Bringe beide Gleichungen in die Form y = m · x + t und vergleiche die Steigungen."
   },
   {
@@ -2571,18 +3393,18 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Wie liegen die Geraden g: y = 3x + 2 und h: y = 3x + 6 zueinander?"
+    "text": "Wie liegen die Geraden g: y = 4x − 5 und h: y = −0,25x − 4 zueinander?"
    },
    "a": [
     "identisch (dieselbe Gerade)",
-    "parallel",
+    "schneiden sich, aber nicht senkrecht",
     "senkrecht zueinander",
-    "schneiden sich, aber nicht senkrecht"
+    "parallel"
    ],
    "o": {
-    "index": 1
+    "index": 2
    },
-   "w": "Gleiche Steigung 3, verschiedene y-Achsenabschnitte."
+   "w": "Produkt der Steigungen: 4 · (−0,25) = −1."
   },
   {
    "l": "lage",
@@ -2591,18 +3413,18 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Wie liegen die Geraden g: y = 2x + 6 und h: y = 2x + 3 zueinander?"
+    "text": "Wie liegen die Geraden g: y = −x + 6 und h: y = 0 zueinander?"
    },
    "a": [
-    "parallel",
-    "identisch (dieselbe Gerade)",
     "schneiden sich, aber nicht senkrecht",
-    "senkrecht zueinander"
+    "parallel",
+    "senkrecht zueinander",
+    "identisch (dieselbe Gerade)"
    ],
    "o": {
     "index": 0
    },
-   "w": "Gleiche Steigung 2, verschiedene y-Achsenabschnitte."
+   "w": "Verschiedene Steigungen, und −1 · 0 = 0 ≠ −1."
   },
   {
    "l": "lage",
@@ -2611,118 +3433,53 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Wie liegen die Geraden g: y = 5x + 1 und h: 2y = 10x + 2 zueinander?"
+    "text": "Wie liegen die Geraden g: y = 1,5x + 3 und h: y = 1,5x + 8 zueinander?"
    },
    "a": [
     "senkrecht zueinander",
-    "schneiden sich, aber nicht senkrecht",
-    "identisch (dieselbe Gerade)",
-    "parallel"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Umgeformt ist die zweite Gleichung y = 5x + 1 – genau die erste Gerade."
-  },
-  {
-   "l": "lage",
-   "t": "lage",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie liegen die Geraden g: y = −x + 4 und h: y = x − 5 zueinander?"
-   },
-   "a": [
     "parallel",
     "schneiden sich, aber nicht senkrecht",
-    "identisch (dieselbe Gerade)",
-    "senkrecht zueinander"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Produkt der Steigungen: −1 · 1 = −1."
-  },
-  {
-   "l": "lage",
-   "t": "lage",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie liegen die Geraden g: y = 4x − 4 und h: 2y = 8x − 8 zueinander?"
-   },
-   "a": [
-    "senkrecht zueinander",
-    "schneiden sich, aber nicht senkrecht",
-    "parallel",
     "identisch (dieselbe Gerade)"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Umgeformt ist die zweite Gleichung y = 4x − 4 – genau die erste Gerade."
-  },
-  {
-   "l": "lage",
-   "t": "lage",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie liegen die Geraden g: y = −1,5x + 6 und h: 2y = −3x + 12 zueinander?"
-   },
-   "a": [
-    "senkrecht zueinander",
-    "schneiden sich, aber nicht senkrecht",
-    "parallel",
-    "identisch (dieselbe Gerade)"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Umgeformt ist die zweite Gleichung y = −1,5x + 6 – genau die erste Gerade."
-  },
-  {
-   "l": "lage",
-   "t": "lage",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie liegen die Geraden g: y = x − 2 und h: 2y = 2x − 4 zueinander?"
-   },
-   "a": [
-    "senkrecht zueinander",
-    "schneiden sich, aber nicht senkrecht",
-    "identisch (dieselbe Gerade)",
-    "parallel"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Umgeformt ist die zweite Gleichung y = x − 2 – genau die erste Gerade."
-  },
-  {
-   "l": "lage",
-   "t": "lage",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie liegen die Geraden g: y = −x − 5 und h: y = −x − 2 zueinander?"
-   },
-   "a": [
-    "schneiden sich, aber nicht senkrecht",
-    "parallel",
-    "identisch (dieselbe Gerade)",
-    "senkrecht zueinander"
    ],
    "o": {
     "index": 1
    },
-   "w": "Gleiche Steigung −1, verschiedene y-Achsenabschnitte."
+   "w": "Gleiche Steigung 1,5, verschiedene y-Achsenabschnitte."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie liegen die Geraden g: y = −2x + 3 und h: y = 0,5x − 1 zueinander?"
+   },
+   "a": [
+    "identisch (dieselbe Gerade)",
+    "schneiden sich, aber nicht senkrecht",
+    "parallel",
+    "senkrecht zueinander"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Produkt der Steigungen: −2 · 0,5 = −1."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die Steigung einer Geraden an, die senkrecht auf y = 5x − 8 steht."
+   },
+   "o": {
+    "wert": -0.2
+   },
+   "c": "-1 / 5",
+   "w": "m₂ = −1 : m₁ = −1 : 5 = −0,2. Probe: 5 · (−0,2) = −1."
   },
   {
    "l": "lage",
@@ -2731,38 +3488,93 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Wie liegen die Geraden g: y = −4x − 3 und h: y = 0,25x − 3 zueinander?"
+    "text": "Wie liegen die Geraden g: y = x + 3 und h: y = −x − 4 zueinander?"
    },
    "a": [
-    "parallel",
-    "identisch (dieselbe Gerade)",
     "senkrecht zueinander",
+    "identisch (dieselbe Gerade)",
+    "parallel",
+    "schneiden sich, aber nicht senkrecht"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Produkt der Steigungen: 1 · (−1) = −1."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie liegen die Geraden g: y = −2,5x − 3 und h: y = 0,4x − 6 zueinander?"
+   },
+   "a": [
+    "schneiden sich, aber nicht senkrecht",
+    "identisch (dieselbe Gerade)",
+    "parallel",
+    "senkrecht zueinander"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Produkt der Steigungen: −2,5 · 0,4 = −1."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie liegen die Geraden g: y = 1,5x + 4 und h: 2y = 3x + 8 zueinander?"
+   },
+   "a": [
+    "senkrecht zueinander",
+    "identisch (dieselbe Gerade)",
+    "schneiden sich, aber nicht senkrecht",
+    "parallel"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Umgeformt ist die zweite Gleichung y = 1,5x + 4 – genau die erste Gerade."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die Steigung einer Geraden an, die senkrecht auf y = x + 3 steht."
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "-1 / 1",
+   "w": "m₂ = −1 : m₁ = −1 : 1 = −1. Probe: 1 · (−1) = −1."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie liegen die Geraden g: y = −2,5x − 1 und h: y = −2,5x + 1 zueinander?"
+   },
+   "a": [
+    "senkrecht zueinander",
+    "identisch (dieselbe Gerade)",
+    "parallel",
     "schneiden sich, aber nicht senkrecht"
    ],
    "o": {
     "index": 2
    },
-   "w": "Produkt der Steigungen: −4 · 0,25 = −1."
-  },
-  {
-   "l": "lage",
-   "t": "lage",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie liegen die Geraden g: y = 0,5x + 6 und h: y = 0,5x + 1 zueinander?"
-   },
-   "a": [
-    "schneiden sich, aber nicht senkrecht",
-    "senkrecht zueinander",
-    "identisch (dieselbe Gerade)",
-    "parallel"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Gleiche Steigung 0,5, verschiedene y-Achsenabschnitte."
+   "w": "Gleiche Steigung −2,5, verschiedene y-Achsenabschnitte."
   },
   {
    "l": "deuten",
@@ -2771,39 +3583,18 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Eine Kerze brennt ab: h(x) = −0,5x + 25 (x in Stunden, h in cm). Was bedeutet die Zahl 25?"
+    "text": "Ein Auto fährt, der Tankinhalt sinkt: V(x) = −3x + 45 (x in Stunden Fahrt, V in Litern). Was bedeutet die Steigung −3?"
    },
    "a": [
-    "Die Kerze wird pro Stunde 0,5 cm kürzer.",
-    "Es ist der Wert am Ende.",
-    "Die Kerze ist am Anfang 25 cm hoch.",
-    "Es ist die Nullstelle."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "t = 25 ist der Wert für x = 0, also zu Beginn. Die Kerze ist am Anfang 25 cm hoch.",
-   "h": "t ist der Wert bei x = 0."
-  },
-  {
-   "l": "deuten",
-   "t": "deuten",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein Auto fährt, der Tankinhalt sinkt: V(x) = −4x + 50 (x in Stunden Fahrt, V in Litern). Was bedeutet die Steigung −4?"
-   },
-   "a": [
-    "Pro Stunde Fahrt werden 4 Liter verbraucht.",
-    "Nach 4 Stunden ist der Vorgang vorbei.",
+    "Am Anfang sind 45 Liter im Tank.",
+    "Nach 3 Stunden ist der Vorgang vorbei.",
     "Die Steigung hat hier keine Bedeutung.",
-    "Am Anfang sind 50 Liter im Tank."
+    "Pro Stunde Fahrt werden 3 Liter verbraucht."
    ],
    "o": {
-    "index": 0
+    "index": 3
    },
-   "w": "m = −4 ist die Änderung von y, wenn x um 1 wächst. Pro Stunde Fahrt werden 4 Liter verbraucht.",
+   "w": "m = −3 ist die Änderung von y, wenn x um 1 wächst. Pro Stunde Fahrt werden 3 Liter verbraucht.",
    "h": "Die Steigung ist die Änderung pro Einheit von x."
   },
   {
@@ -2813,18 +3604,18 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Eine Kerze brennt ab: h(x) = −3x + 25 (x in Stunden, h in cm). Was bedeutet die Zahl 25?"
+    "text": "Ein Handytarif: K(x) = 0,09x + 10 (x in Minuten, K in €). Was bedeutet die Zahl 10?"
    },
    "a": [
     "Es ist die Nullstelle.",
     "Es ist der Wert am Ende.",
-    "Die Kerze wird pro Stunde 3 cm kürzer.",
-    "Die Kerze ist am Anfang 25 cm hoch."
+    "Die Grundgebühr beträgt 10 €.",
+    "Jede Minute kostet 0,09 €."
    ],
    "o": {
-    "index": 3
+    "index": 2
    },
-   "w": "t = 25 ist der Wert für x = 0, also zu Beginn. Die Kerze ist am Anfang 25 cm hoch.",
+   "w": "t = 10 ist der Wert für x = 0, also zu Beginn. Die Grundgebühr beträgt 10 €.",
    "h": "t ist der Wert bei x = 0."
   },
   {
@@ -2834,19 +3625,40 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Ein Pool wird befüllt: h(x) = 0,8x + 40 (x in Minuten, h in cm). Was bedeutet die Zahl 40?"
+    "text": "Eine Kerze brennt ab: h(x) = −x + 15 (x in Stunden, h in cm). Was bedeutet die Zahl 15?"
    },
    "a": [
-    "Am Anfang steht das Wasser 40 cm hoch.",
+    "Die Kerze ist am Anfang 15 cm hoch.",
+    "Es ist die Nullstelle.",
     "Es ist der Wert am Ende.",
-    "Der Wasserstand steigt pro Minute um 0,8 cm.",
-    "Es ist die Nullstelle."
+    "Die Kerze wird pro Stunde 1 cm kürzer."
    ],
    "o": {
     "index": 0
    },
-   "w": "t = 40 ist der Wert für x = 0, also zu Beginn. Am Anfang steht das Wasser 40 cm hoch.",
+   "w": "t = 15 ist der Wert für x = 0, also zu Beginn. Die Kerze ist am Anfang 15 cm hoch.",
    "h": "t ist der Wert bei x = 0."
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Auto fährt, der Tankinhalt sinkt: V(x) = −5x + 50 (x in Stunden Fahrt, V in Litern). Was bedeutet die Steigung −5?"
+   },
+   "a": [
+    "Die Steigung hat hier keine Bedeutung.",
+    "Pro Stunde Fahrt werden 5 Liter verbraucht.",
+    "Am Anfang sind 50 Liter im Tank.",
+    "Nach 5 Stunden ist der Vorgang vorbei."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "m = −5 ist die Änderung von y, wenn x um 1 wächst. Pro Stunde Fahrt werden 5 Liter verbraucht.",
+   "h": "Die Steigung ist die Änderung pro Einheit von x."
   },
   {
    "l": "deuten",
@@ -2855,13 +3667,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Pool wird befüllt: h(x) = x + 30 (x in Minuten, h in cm). Nach wie vielen Minuten steht das Wasser 80 cm hoch?"
+    "text": "Ein Handytarif: K(x) = 0,2x + 5 (x in Minuten, K in €). Wie viele Minuten wurde telefoniert, wenn 15 € zu zahlen sind?"
    },
    "o": {
     "wert": 50
    },
-   "c": "(80 - 30) / 1",
-   "w": "x + 30 = 80 → x = 50 → x = 50.",
+   "c": "(15 - 5) / (1/5)",
+   "w": "0,2x + 5 = 15 → 0,2x = 10 → x = 50.",
    "h": "Setze den Funktionsterm gleich dem gesuchten Wert und löse nach x."
   },
   {
@@ -2869,6 +3681,86 @@
    "t": "deuten",
    "p": "uebung",
    "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Taxifahrt: P(x) = 2,4x + 3,5 (x in km, P in €). Wie weit ist man gefahren, wenn 15,50 € zu zahlen sind?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "((31/2) - (7/2)) / (12/5)",
+   "w": "2,4x + 3,5 = 15,5 → 2,4x = 12 → x = 5.",
+   "h": "Setze den Funktionsterm gleich dem gesuchten Wert und löse nach x."
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Planschbecken wird befüllt: h(x) = 0,6x + 4 (x in Minuten, h in cm). Nach wie vielen Minuten steht das Wasser 28 cm hoch?"
+   },
+   "o": {
+    "wert": 40
+   },
+   "c": "(28 - 4) / (3/5)",
+   "w": "0,6x + 4 = 28 → 0,6x = 24 → x = 40.",
+   "h": "Setze den Funktionsterm gleich dem gesuchten Wert und löse nach x."
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kerze brennt ab: h(x) = −1,5x + 25 (x in Stunden, h in cm). Berechne den Wert für x = 4."
+   },
+   "o": {
+    "wert": 19
+   },
+   "c": "(-3/2) * 4 + 25",
+   "w": "−1,5 · 4 + 25 = 19.",
+   "h": "Setze x = 4 ein."
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Planschbecken wird befüllt: h(x) = 0,5x + 4 (x in Minuten, h in cm). Nach wie vielen Minuten steht das Wasser 29 cm hoch?"
+   },
+   "o": {
+    "wert": 50
+   },
+   "c": "(29 - 4) / (1/2)",
+   "w": "0,5x + 4 = 29 → 0,5x = 25 → x = 50.",
+   "h": "Setze den Funktionsterm gleich dem gesuchten Wert und löse nach x."
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Handytarif: K(x) = 0,05x + 10 (x in Minuten, K in €). Wie viele Minuten wurde telefoniert, wenn 13 € zu zahlen sind?"
+   },
+   "o": {
+    "wert": 60
+   },
+   "c": "(13 - 10) / (1/20)",
+   "w": "0,05x + 10 = 13 → 0,05x = 3 → x = 60.",
+   "h": "Setze den Funktionsterm gleich dem gesuchten Wert und löse nach x."
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "uebung",
+   "s": 3,
    "y": "zahl",
    "f": {
     "text": "Eine Taxifahrt: P(x) = 1,8x + 4,5 (x in km, P in €). Wie weit ist man gefahren, wenn 31,50 € zu zahlen sind?"
@@ -2884,65 +3776,49 @@
    "l": "deuten",
    "t": "deuten",
    "p": "uebung",
-   "s": 2,
-   "y": "zahl",
+   "s": 3,
+   "y": "auswahl",
    "f": {
-    "text": "Eine Taxifahrt: P(x) = 2,2x + 4 (x in km, P in €). Wie weit ist man gefahren, wenn 30,40 € zu zahlen sind?"
+    "text": "Zwei Taxi-Tarife: A: y = 2x + 4, B: y = x + 10 (x in km, y in €). Ab welcher Strecke ist B billiger?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      12
+     ],
+     "y": [
+      0,
+      30
+     ],
+     "name_x": "km",
+     "name_y": "€",
+     "graphen": [
+      {
+       "art": "linear",
+       "m": 2,
+       "t": 4,
+       "name": "A"
+      },
+      {
+       "art": "linear",
+       "m": 1,
+       "t": 10,
+       "name": "B"
+      }
+     ]
+    }
    },
+   "a": [
+    "ab mehr als 6 km",
+    "B ist nie billiger",
+    "bis 6 km",
+    "ab mehr als 10 km"
+   ],
    "o": {
-    "wert": 12
+    "index": 0
    },
-   "c": "((152/5) - 4) / (11/5)",
-   "w": "2,2x + 4 = 30,4 → 2,2x = 26,4 → x = 12.",
-   "h": "Setze den Funktionsterm gleich dem gesuchten Wert und löse nach x."
-  },
-  {
-   "l": "deuten",
-   "t": "deuten",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Pool wird befüllt: h(x) = 0,2x + 40 (x in Minuten, h in cm). Nach wie vielen Minuten steht das Wasser 70 cm hoch?"
-   },
-   "o": {
-    "wert": 150
-   },
-   "c": "(70 - 40) / (1/5)",
-   "w": "0,2x + 40 = 70 → 0,2x = 30 → x = 150.",
-   "h": "Setze den Funktionsterm gleich dem gesuchten Wert und löse nach x."
-  },
-  {
-   "l": "deuten",
-   "t": "deuten",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Taxifahrt: P(x) = 2,5x + 4,5 (x in km, P in €). Wie weit ist man gefahren, wenn 42 € zu zahlen sind?"
-   },
-   "o": {
-    "wert": 15
-   },
-   "c": "(42 - (9/2)) / (5/2)",
-   "w": "2,5x + 4,5 = 42 → 2,5x = 37,5 → x = 15.",
-   "h": "Setze den Funktionsterm gleich dem gesuchten Wert und löse nach x."
-  },
-  {
-   "l": "deuten",
-   "t": "deuten",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Handytarif: K(x) = 0,05x + 5 (x in Minuten, K in €). Wie viele Minuten wurde telefoniert, wenn 8 € zu zahlen sind?"
-   },
-   "o": {
-    "wert": 60
-   },
-   "c": "(8 - 5) / (1/20)",
-   "w": "0,05x + 5 = 8 → 0,05x = 3 → x = 60.",
-   "h": "Setze den Funktionsterm gleich dem gesuchten Wert und löse nach x."
+   "w": "Die Geraden schneiden sich bei x = 6 (beide 16 €). Danach liegt B unter A, weil B flacher ansteigt.",
+   "h": "Suche den Schnittpunkt. Welche Gerade liegt rechts davon tiefer?"
   },
   {
    "l": "deuten",
@@ -2951,60 +3827,18 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Eine Taxifahrt: P(x) = 2,4x + 4,5 (x in km, P in €). Welche Aussage ist richtig?"
+    "text": "Eine Kerze brennt ab: h(x) = −x + 15 (x in Stunden, h in cm). Welche Aussage ist richtig?"
    },
    "a": [
-    "Für x = 1 ist der Wert 4,5.",
-    "Der Grundpreis beträgt 4,50 €.",
-    "Der Wert ändert sich pro Einheit von x um 4,5.",
+    "Die Steigung ist 15.",
+    "Die Kerze wird pro Stunde 1 cm kürzer.",
+    "Für x = 1 ist der Wert 15.",
     "Der Graph ist eine Ursprungsgerade."
    ],
    "o": {
     "index": 1
    },
-   "w": "Der Grundpreis beträgt 4,50 €. Denn m = 2,4 ist die Änderung pro Einheit, t = 4,5 der Anfangswert.",
-   "h": "Ordne m und t ihre Bedeutung zu."
-  },
-  {
-   "l": "deuten",
-   "t": "deuten",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Kerze brennt ab: h(x) = −3x + 18 (x in Stunden, h in cm). Welche Aussage ist richtig?"
-   },
-   "a": [
-    "Der Graph ist eine Ursprungsgerade.",
-    "Die Steigung ist 18.",
-    "Die Kerze ist am Anfang 18 cm hoch.",
-    "Der Wert ändert sich pro Einheit von x um 18."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Die Kerze ist am Anfang 18 cm hoch. Denn m = −3 ist die Änderung pro Einheit, t = 18 der Anfangswert.",
-   "h": "Ordne m und t ihre Bedeutung zu."
-  },
-  {
-   "l": "deuten",
-   "t": "deuten",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Taxifahrt: P(x) = 1,8x + 4,5 (x in km, P in €). Welche Aussage ist richtig?"
-   },
-   "a": [
-    "Der Grundpreis beträgt 4,50 €.",
-    "Für x = 1 ist der Wert 4,5.",
-    "Der Wert ändert sich pro Einheit von x um 4,5.",
-    "Der Graph ist eine Ursprungsgerade."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Der Grundpreis beträgt 4,50 €. Denn m = 1,8 ist die Änderung pro Einheit, t = 4,5 der Anfangswert.",
+   "w": "Die Kerze wird pro Stunde 1 cm kürzer. Denn m = −1 ist die Änderung pro Einheit, t = 15 der Anfangswert.",
    "h": "Ordne m und t ihre Bedeutung zu."
   },
   {
@@ -3014,13 +3848,13 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Auto fährt, der Tankinhalt sinkt: V(x) = −4x + 60 (x in Stunden Fahrt, V in Litern). Nach wie vielen Stunden ist der Tank leer?"
+    "text": "Ein Planschbecken wird befüllt: h(x) = 0,5x + 5 (x in Minuten, h in cm). Nach wie vielen Minuten steht das Wasser 30 cm hoch?"
    },
    "o": {
-    "wert": 15
+    "wert": 50
    },
-   "c": "(0 - 60) / -4",
-   "w": "−4x + 60 = 0 → −4x = −60 → x = 15.",
+   "c": "(30 - 5) / (1/2)",
+   "w": "0,5x + 5 = 30 → 0,5x = 25 → x = 50.",
    "h": "Setze den Funktionsterm gleich dem gesuchten Wert und löse nach x."
   },
   {
@@ -3030,123 +3864,18 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Eine Taxifahrt: P(x) = 2,2x + 4,5 (x in km, P in €). Wie weit ist man gefahren, wenn 13,30 € zu zahlen sind?"
+    "text": "Ein Handytarif: K(x) = 0,15x + 8 (x in Minuten, K in €). Wie viele Minuten wurde telefoniert, wenn 17 € zu zahlen sind?"
    },
    "o": {
-    "wert": 4
+    "wert": 60
    },
-   "c": "((133/10) - (9/2)) / (11/5)",
-   "w": "2,2x + 4,5 = 13,3 → 2,2x = 8,8 → x = 4."
+   "c": "(17 - 8) / (3/20)",
+   "w": "0,15x + 8 = 17 → 0,15x = 9 → x = 60."
   },
   {
    "l": "deuten",
    "t": "deuten",
    "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Auto fährt, der Tankinhalt sinkt: V(x) = −3x + 40 (x in Stunden Fahrt, V in Litern). Berechne den Wert für x = 4."
-   },
-   "o": {
-    "wert": 28
-   },
-   "c": "-3 * 4 + 40",
-   "w": "−3 · 4 + 40 = 28."
-  },
-  {
-   "l": "deuten",
-   "t": "deuten",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Handytarif: K(x) = 0,2x + 12 (x in Minuten, K in €). Wie viele Minuten wurde telefoniert, wenn 32 € zu zahlen sind?"
-   },
-   "o": {
-    "wert": 100
-   },
-   "c": "(32 - 12) / (1/5)",
-   "w": "0,2x + 12 = 32 → 0,2x = 20 → x = 100."
-  },
-  {
-   "l": "deuten",
-   "t": "deuten",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Pool wird befüllt: h(x) = x + 20 (x in Minuten, h in cm). Nach wie vielen Minuten steht das Wasser 70 cm hoch?"
-   },
-   "o": {
-    "wert": 50
-   },
-   "c": "(70 - 20) / 1",
-   "w": "x + 20 = 70 → x = 50 → x = 50."
-  },
-  {
-   "l": "deuten",
-   "t": "deuten",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Kerze brennt ab: h(x) = −0,5x + 18 (x in Stunden, h in cm). Nach wie vielen Stunden ist die Kerze abgebrannt?"
-   },
-   "o": {
-    "wert": 36
-   },
-   "c": "(0 - 18) / (-1/2)",
-   "w": "−0,5x + 18 = 0 → −0,5x = −18 → x = 36."
-  },
-  {
-   "l": "deuten",
-   "t": "deuten",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Taxifahrt: P(x) = 2,2x + 4 (x in km, P in €). Wie weit ist man gefahren, wenn 21,60 € zu zahlen sind?"
-   },
-   "o": {
-    "wert": 8
-   },
-   "c": "((108/5) - 4) / (11/5)",
-   "w": "2,2x + 4 = 21,6 → 2,2x = 17,6 → x = 8."
-  },
-  {
-   "l": "deuten",
-   "t": "deuten",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Kerze brennt ab: h(x) = −x + 30 (x in Stunden, h in cm). Nach wie vielen Stunden ist die Kerze abgebrannt?"
-   },
-   "o": {
-    "wert": 30
-   },
-   "c": "(0 - 30) / -1",
-   "w": "−x + 30 = 0 → −x = −30 → x = 30."
-  },
-  {
-   "l": "deuten",
-   "t": "deuten",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Taxifahrt: P(x) = 2,4x + 4,5 (x in km, P in €). Wie weit ist man gefahren, wenn 14,10 € zu zahlen sind?"
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "((141/10) - (9/2)) / (12/5)",
-   "w": "2,4x + 4,5 = 14,1 → 2,4x = 9,6 → x = 4."
-  },
-  {
-   "l": "deuten",
-   "t": "deuten",
-   "p": "sicherung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -3161,20 +3890,125 @@
   {
    "l": "deuten",
    "t": "deuten",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Pool wird befüllt: h(x) = 0,2x + 40 (x in Minuten, h in cm). Nach wie vielen Minuten steht das Wasser 50 cm hoch?"
+    "text": "Eine Kerze brennt ab: h(x) = −0,5x + 25 (x in Stunden, h in cm). Nach wie vielen Stunden ist die Kerze abgebrannt?"
    },
    "o": {
     "wert": 50
    },
-   "c": "(50 - 40) / (1/5)",
-   "w": "0,2x + 40 = 50 → 0,2x = 10 → x = 50."
+   "c": "(0 - 25) / (-1/2)",
+   "w": "−0,5x + 25 = 0 → −0,5x = −25 → x = 50."
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Auto fährt, der Tankinhalt sinkt: V(x) = −4x + 45 (x in Stunden Fahrt, V in Litern). Nach wie vielen Stunden ist der Tank leer?"
+   },
+   "o": {
+    "wert": 11.25
+   },
+   "c": "(0 - 45) / -4",
+   "w": "−4x + 45 = 0 → −4x = −45 → x = 11,25."
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Handytarif: K(x) = 0,15x + 12 (x in Minuten, K in €). Wie viele Minuten wurde telefoniert, wenn 18 € zu zahlen sind?"
+   },
+   "o": {
+    "wert": 40
+   },
+   "c": "(18 - 12) / (3/20)",
+   "w": "0,15x + 12 = 18 → 0,15x = 6 → x = 40."
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kerze brennt ab: h(x) = −2,5x + 25 (x in Stunden, h in cm). Nach wie vielen Stunden ist die Kerze abgebrannt?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "(0 - 25) / (-5/2)",
+   "w": "−2,5x + 25 = 0 → −2,5x = −25 → x = 10."
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Handytarif: K(x) = 0,09x + 8 (x in Minuten, K in €). Wie viele Minuten wurde telefoniert, wenn 13,40 € zu zahlen sind?"
+   },
+   "o": {
+    "wert": 60
+   },
+   "c": "((67/5) - 8) / (9/100)",
+   "w": "0,09x + 8 = 13,4 → 0,09x = 5,4 → x = 60."
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Planschbecken wird befüllt: h(x) = 0,5x + 2 (x in Minuten, h in cm). Nach wie vielen Minuten steht das Wasser 27 cm hoch?"
+   },
+   "o": {
+    "wert": 50
+   },
+   "c": "(27 - 2) / (1/2)",
+   "w": "0,5x + 2 = 27 → 0,5x = 25 → x = 50."
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Taxifahrt: P(x) = 2x + 3,5 (x in km, P in €). Wie weit ist man gefahren, wenn 13,50 € zu zahlen sind?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "((27/2) - (7/2)) / 2",
+   "w": "2x + 3,5 = 13,5 → 2x = 10 → x = 5."
+  },
+  {
+   "l": "deuten",
+   "t": "deuten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Handytarif: K(x) = 0,05x + 10 (x in Minuten, K in €). Wie viele Minuten wurde telefoniert, wenn 11 € zu zahlen sind?"
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "(11 - 10) / (1/20)",
+   "w": "0,05x + 10 = 11 → 0,05x = 1 → x = 20."
   }
  ],
  "offen": [
-  "Lehrplan: Graphen zeichnen und Parameter am Graphen ablesen (Steigungsdreieck). Die App kann noch kein Koordinatensystem mit Geraden zeichnen; alle Aufgaben arbeiten mit Termen und Punkten."
+  "Graphen selbst zeichnen lassen (Kind zeichnet die Gerade) kann die App noch nicht; Ablesen am Graphen und Steigungsdreieck sind jetzt eingebaut."
  ]
 }

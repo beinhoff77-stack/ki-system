@@ -157,6 +157,20 @@ def lin(m, t, var='x'):
     return s
 
 
+def grenze(x, stellen=2):
+    """Grenze im Lösungsweg: exakt, wenn kurz endlich; sonst „565/12 ≈ 47,08“ (nie „≤ ≈ …“)."""
+    x = Fr(x)
+    d = dez(x)
+    if d is not None and len(d.split(',')[-1]) <= 3: return d
+    return f'{bruch(x)} ≈ {zt(runde(x, stellen))}'
+
+
+def mit_bild(a, grafik):
+    """Zeichnung an eine Aufgabe hängen (f.grafik)."""
+    a['f']['grafik'] = grafik
+    return a
+
+
 def ist_endlich(x):
     return dez(x) is not None
 
@@ -174,12 +188,16 @@ def sicher_rundbar(x, stellen):
 
 
 # ---------- Aufgaben-Bausteine ----------
-def Z(text, wert, c, w, h='', einheit=None):
+def Z(text, wert, c, w, h='', einheit=None, toleranz=None):
     ist = rechne(c)
     assert ist == Fr(wert), f'Nachrechnung falsch: {c} = {ist}, Lösung {wert} ({text})'
     o = {'wert': jw(wert)}
     if einheit: o['einheit'] = einheit
+    if toleranz is not None: o['toleranz'] = toleranz
     return {'y': 'zahl', 'f': {'text': text}, 'o': o, 'c': c, 'w': w, 'h': h}
+
+
+POS = __import__('collections').Counter()
 
 
 def A(R, text, richtig, falsche, w, h=''):
@@ -190,8 +208,14 @@ def A(R, text, richtig, falsche, w, h=''):
         if x != richtig and x not in f: f.append(x)
     assert len(f) >= 2, f'zu wenige falsche Antworten: {text} / {richtig} / {falsche}'
     f = f[:3]
-    a = f + [richtig]
+    a = f[:]
     R.shuffle(a)
+    # Position der richtigen Antwort gleichmäßig verteilen (je Thema gezählt, siehe baue)
+    n = len(a) + 1
+    frei = [i for i in range(n) if POS[(n, i)] == min(POS[(n, j)] for j in range(n))]
+    i = R.choice(frei)
+    POS[(n, i)] += 1
+    a.insert(i, richtig)
     return {'y': 'auswahl', 'f': {'text': text}, 'a': a, 'o': {'index': a.index(richtig)}, 'w': w, 'h': h}
 
 
@@ -211,6 +235,7 @@ def M(text, start, ende, abschnitte, index, w, h=''):
 # ---------- Zusammenbau ----------
 def baue(meta, etappen, gen, abschnitte, ziel, merke, offen=(), plan=PLAN, seed=0, vertiefung=()):
     R = random.Random(seed or meta['thema_id'] * 1000 + 8)
+    POS.clear()
     out = []
     for e in etappen:
         lz = e['lernziel']

@@ -5,41 +5,55 @@ from fractions import Fraction as Fr
 from pathlib import Path
 sys.dont_write_bytecode = True
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _bausatz import A, L, Z, baue, cz, eur, ist_endlich, kl, lin, zt  # noqa: E402
+from _bausatz import A, L, Z, baue, cz, eur, ist_endlich, kl, lin, mit_bild, zt  # noqa: E402
 
 META = {'thema_schluessel': 'funktionen.linear', 'thema_id': 33, 'block_id': 72, 'klasse': {'gym_by': 8, 'rs_by': 8}}
 
 ETAPPEN = [
     {'lernziel': 'ablesen', 'titel': 'Steigung m und Achsenabschnitt t',
-     'regel': 'Der Graph von y = m · x + t ist eine ⟦Gerade⟧. ⟦m⟧ ist die Steigung: Gehst du 1 nach rechts, geht es m nach oben. ⟦t⟧ ist der y-Achsenabschnitt: Dort schneidet die Gerade die y-Achse.',
-     'schritte': ['y = 5 − 2x umsortieren: y = −2x + 5', 'Steigung ⟦m = −2⟧ (fällt), y-Achsenabschnitt ⟦t = 5⟧', 'Schnittpunkt mit der y-Achse: (0 | 5)'],
+     'regel': 'Der Graph von y = m · x + t ist eine ⟦Gerade⟧. ⟦m⟧ ist die Steigung: Gehst du 1 nach rechts, geht es m nach oben (bei negativem m nach unten) – wie eine Straße bergauf oder bergab. ⟦t⟧ ist der y-Achsenabschnitt: Dort schneidet die Gerade die y-Achse.',
+     'schritte': ['y = 5 − 2x umsortieren: y = −2x + 5.', '⟦t = 5⟧: Die Gerade schneidet die y-Achse bei (0 | 5).',
+                  '⟦m = −2⟧: Von jedem Punkt aus 1 nach rechts und 2 nach unten – die Gerade fällt. Das zeigt das Steigungsdreieck im Bild.'],
      'fehler': 'Bei y = 5 − 2x ist m nicht 5. Die Steigung ist die Zahl ⟦vor dem x⟧, mit Vorzeichen: m = −2.',
+     'bild': {'typ': 'koordinaten', 'x': [-1, 4], 'y': [-2, 6], 'graphen': [{'art': 'linear', 'm': -2, 't': 5, 'name': 'y = −2x + 5'}],
+              'punkte': [{'x': 0, 'y': 5, 'name': '(0 | 5)'}], 'strecken': [[1, 3, 2, 3, 'gestrichelt'], [2, 3, 2, 1, 'gestrichelt']]},
      '_verbot': ['y = 5 − 2x']},
     {'lernziel': 'zwei_punkte', 'titel': 'Steigung aus zwei Punkten',
      'regel': 'Durch zwei Punkte P(x₁ | y₁) und Q(x₂ | y₂) geht genau eine Gerade. Ihre Steigung ist ⟦m = (y₂ − y₁) : (x₂ − x₁)⟧ („Höhenunterschied durch Längenunterschied“).',
-     'schritte': ['P(1 | 3), Q(4 | 9)', 'm = (9 − 3) : (4 − 1) = 6 : 3', '⟦m = 2⟧'],
+     'schritte': ['P(1 | 3), Q(4 | 9). Von P nach Q gehst du 4 − 1 = 3 nach rechts.', 'Dabei steigst du 9 − 3 = 6 nach oben.',
+                  '6 nach oben auf 3 nach rechts heißt: 2 nach oben auf 1 nach rechts. ⟦m = 6 : 3 = 2⟧.'],
      'fehler': 'm = (4 − 1) : (9 − 3) = 0,5 ist falsch: Die ⟦y-Differenz⟧ gehört nach oben (in den Zähler), die x-Differenz nach unten.',
+     'bild': {'typ': 'koordinaten', 'x': [-1, 6], 'y': [-1, 11], 'graphen': [{'art': 'linear', 'm': 2, 't': 1}],
+              'punkte': [{'x': 1, 'y': 3, 'name': 'P'}, {'x': 4, 'y': 9, 'name': 'Q'}], 'strecken': [[1, 3, 4, 3, 'gestrichelt'], [4, 3, 4, 9, 'gestrichelt']]},
      '_verbot': ['P(1 | 3), Q(4 | 9)']},
-    {'lernziel': 'aufstellen', 'titel': 'Geradengleichung aufstellen',
-     'regel': 'Kennst du m und einen Punkt P(a | b), setzt du P in y = m · x + t ein und berechnest ⟦t = b − m · a⟧. Bei zwei Punkten berechnest du ⟦zuerst m⟧.',
-     'schritte': ['m = 3, Punkt P(2 | 1)', '1 = 3 · 2 + t → t = 1 − 6 = −5', '⟦y = 3x − 5⟧'],
-     'probe': '3 · 2 − 5 = 1 ✓',
-     'fehler': 'Bei P(2 | 1) setzt man x = 2 und y = 1 ein – nicht umgekehrt. 2 = 3 · 1 + t führt zu ⟦t = −1⟧ und einer falschen Geraden.',
-     '_verbot': ['P(2 | 1)']},
     {'lernziel': 'proportional', 'titel': 'Proportionalität: Ursprungsgerade',
      'regel': 'Bei einer ⟦direkten Proportionalität⟧ gilt y = k · x. Der Graph ist eine Gerade durch den ⟦Ursprung⟧ (t = 0). k ist der Proportionalitätsfaktor, z. B. der Preis pro Stück.',
      'schritte': ['3 kg Äpfel kosten 7,50 €.', 'k = 7,50 € : 3 kg = 2,50 € pro kg', '⟦y = 2,5 · x⟧, also kosten 8 kg 20 €.'],
      'fehler': 'y = 2x + 1 ist ⟦keine⟧ Proportionalität: Für x = 0 ist y = 1, die Gerade geht nicht durch den Ursprung. Verdoppelt man x, verdoppelt sich y nicht.',
+     'bild': {'typ': 'koordinaten', 'x': [0, 4], 'y': [0, 10], 'graphen': [{'art': 'linear', 'm': 2.5, 't': 0, 'name': 'y = 2,5x'}, {'art': 'linear', 'm': 2, 't': 1, 'name': 'y = 2x + 1'}],
+              'punkte': [{'x': 0, 'y': 0, 'name': 'O'}, {'x': 0, 'y': 1}], 'name_x': 'kg', 'name_y': '€'},
      '_verbot': ['3 kg Äpfel kosten 7,50 €']},
+    {'lernziel': 'aufstellen', 'titel': 'Geradengleichung aufstellen',
+     'regel': 'Kennst du m und einen Punkt P(a | b), setzt du P in y = m · x + t ein und berechnest ⟦t = b − m · a⟧. Bei zwei Punkten berechnest du ⟦zuerst m⟧.',
+     'schritte': ['m = 3, Punkt P(2 | 1). Setze x = 2 und y = 1 in y = 3x + t ein.', '1 = 3 · 2 + t, also t = 1 − 6 = −5.', '⟦y = 3x − 5⟧',
+                  'Anschaulich: Von P(2 | 1) gehst du 2 nach links bis zur y-Achse. Bei Steigung 3 geht es dabei 2 · 3 = 6 nach unten: 1 − 6 = −5 = t.'],
+     'probe': '3 · 2 − 5 = 1 ✓',
+     'fehler': 'Bei P(2 | 1) setzt man x = 2 und y = 1 ein – nicht umgekehrt. 2 = 3 · 1 + t führt zu ⟦t = −1⟧ und einer falschen Geraden.',
+     '_verbot': ['P(2 | 1)']},
     {'lernziel': 'schnittpunkte', 'titel': 'Schnittpunkte berechnen',
-     'regel': 'Schnitt mit der ⟦x-Achse⟧: y = 0 setzen (Nullstelle). Schnitt mit der ⟦y-Achse⟧: x = 0, also (0 | t). Schnitt zweier Geraden: Terme ⟦gleichsetzen⟧.',
+     'regel': 'Schnitt mit der ⟦x-Achse⟧: y = 0 setzen (Nullstelle). Schnitt mit der ⟦y-Achse⟧: x = 0, also (0 | t). Schnitt zweier Geraden: Im Schnittpunkt haben beide ⟦dasselbe x und dasselbe y⟧. Deshalb setzt du die Terme ⟦gleich⟧.',
      'schritte': ['g: y = 2x − 1, h: y = −x + 5', '2x − 1 = −x + 5 → 3x = 6 → x = 2', 'y = 2 · 2 − 1 = 3: ⟦S(2 | 3)⟧'],
      'fehler': 'Der Schnittpunkt mit der x-Achse von y = 2x − 1 ist nicht (0 | −1). Das ist der Schnitt mit der ⟦y-Achse⟧. Für die x-Achse gilt y = 0: x = 0,5.',
+     'bild': {'typ': 'koordinaten', 'x': [-1, 5], 'y': [-2, 6], 'graphen': [{'art': 'linear', 'm': 2, 't': -1, 'name': 'g'}, {'art': 'linear', 'm': -1, 't': 5, 'name': 'h'}],
+              'punkte': [{'x': 2, 'y': 3, 'name': 'S(2 | 3)'}]},
      '_verbot': ['y = 2x − 1, h']},
     {'lernziel': 'lage', 'titel': 'Parallel oder senkrecht?',
-     'regel': 'Gleiche Steigung (m₁ = m₂): Die Geraden sind ⟦parallel⟧. Ist ⟦m₁ · m₂ = −1⟧, stehen sie ⟦senkrecht⟧ aufeinander. Sonst schneiden sie sich schräg.',
-     'schritte': ['g: y = 2x + 1, h: y = −0,5x + 3', 'm₁ · m₂ = 2 · (−0,5) = −1', '⟦g und h sind senkrecht zueinander.⟧'],
+     'regel': 'Gleiche Steigung (m₁ = m₂): Die Geraden sind ⟦parallel⟧. Ist ⟦m₁ · m₂ = −1⟧, stehen sie ⟦senkrecht⟧ aufeinander. Warum? Drehst du das Steigungsdreieck „1 nach rechts, 2 nach oben“ um 90°, wird daraus „2 nach rechts, 1 nach unten“. Die neue Steigung ist −1/2, und 2 · (−1/2) = −1.',
+     'schritte': ['g: y = 2x + 1, h: y = −0,5x + 3.', 'm₁ · m₂ = 2 · (−0,5) = −1.', '⟦g und h sind senkrecht zueinander.⟧'],
      'fehler': 'y = 2x + 1 und y = −2x + 1 stehen nicht senkrecht: 2 · (−2) = −4 ≠ −1. Für senkrecht braucht man den ⟦negativen Kehrwert⟧: −1/2.',
+     'bild': {'typ': 'koordinaten', 'x': [-2, 4], 'y': [-1, 5], 'streckung': 1.14,
+              'graphen': [{'art': 'linear', 'm': 2, 't': 1, 'name': 'g'}, {'art': 'linear', 'm': -0.5, 't': 3, 'name': 'h'}],
+              'strecken': [[0, 1, 1, 1, 'gestrichelt'], [1, 1, 1, 3, 'gestrichelt'], [0, 3, 2, 3, 'gestrichelt'], [2, 3, 2, 2, 'gestrichelt']]},
      '_verbot': ['y = −0,5x + 3']},
     {'lernziel': 'deuten', 'titel': 'Lineare Funktionen im Sachzusammenhang',
      'regel': 'In Anwendungen ist ⟦t der Startwert⟧ (bei x = 0) und ⟦m die Änderung pro Einheit⟧ von x. Ein negatives m heißt: Die Größe nimmt ab.',
@@ -60,7 +74,46 @@ def zufall_m(R, st):
     return Fr(nz(R, -9, 9), R.choice([2, 3, 4, 5]))
 
 
+def gm(m):
+    return float(m) if Fr(m).denominator != 1 else int(m)
+
+
+def fenster(m, t, xa=-4, xb=4):
+    ys = [m * xa + t, m * xb + t, 0, t]
+    return [xa, xb], [int(min(ys)) - 1, int(max(ys)) + 1]
+
+
 def g_ablesen(R, st):
+    if R.random() < .4:
+        art = R.choice({1: ['term'], 2: ['term', 'dreieck', 'bruch'], 3: ['dreieck', 'bruch']}[st])
+        if art == 'term':
+            m, t = nz(R, -3, 3), R.randint(-4, 4)
+            X, Y = fenster(m, t, -3, 3)
+            gr = {'typ': 'koordinaten', 'x': X, 'y': Y, 'graphen': [{'art': 'linear', 'm': m, 't': t}]}
+            return mit_bild(L('Gib die Gleichung der gezeichneten Geraden an: y = …', '□x + □', [m, t], [str(m), str(t)],
+                              f'Schnitt mit der y-Achse bei (0 | {zt(t)}): t = {zt(t)}. Von dort 1 nach rechts und {zt(abs(m))} nach {"oben" if m > 0 else "unten"}: m = {zt(m)}. y = {lin(m, t)}.',
+                              'Lies zuerst t an der y-Achse ab. Dann gehe 1 nach rechts: Wie weit geht es hoch oder runter?', 'Tippe den Term ein, z. B. 2x − 1.'), gr)
+        if art == 'dreieck':
+            while True:
+                x1, y1 = R.randint(-3, 1), R.randint(-3, 3)
+                dx = R.choice([1, 2, 3, 4]); dy = nz(R, -6, 6)
+                m = Fr(dy, dx)
+                if ist_endlich(m) and (m.denominator != 1 or st == 2): break
+            x2, y2 = x1 + dx, y1 + dy
+            t = y1 - m * x1
+            gr = {'typ': 'koordinaten', 'x': [x1 - 2, x2 + 2], 'y': [min(y1, y2) - 2, max(y1, y2) + 2], 'graphen': [{'art': 'linear', 'm': gm(m), 't': gm(t)}],
+                  'punkte': [{'x': x1, 'y': y1}, {'x': x2, 'y': y2}], 'strecken': [[x1, y1, x2, y1, 'gestrichelt'], [x2, y1, x2, y2, 'gestrichelt']]}
+            return mit_bild(Z('Das Bild zeigt eine Gerade mit Steigungsdreieck. Wie groß ist die Steigung m?', m, f'({dy}) / ({dx})',
+                              f'Das Dreieck geht {dx} nach rechts und {abs(dy)} nach {"oben" if dy > 0 else "unten"}: m = {zt(dy)} : {dx} = {zt(m)}.',
+                              'Zähle die Kästchen: wie weit nach rechts, wie weit nach oben oder unten? m = hoch : rechts.'), gr)
+        t = R.randint(-3, 3); m = Fr(nz(R, -3, 3), 2)
+        if m.denominator == 1: m = Fr(1, 2)
+        X, Y = fenster(m, t)
+        gr = {'typ': 'koordinaten', 'x': X, 'y': Y, 'graphen': [{'art': 'linear', 'm': gm(m), 't': t}], 'punkte': [{'x': 0, 'y': t}, {'x': 2, 'y': gm(t + 2 * m)}]}
+        return mit_bild(A(R, 'Welche Gleichung gehört zur gezeichneten Geraden?', f'y = {lin(m, t)}',
+                          [f'y = {lin(-m, t)}', f'y = {lin(1 / m, t)}', f'y = {lin(m, -t)}' if t else f'y = {lin(-1 / m, t)}'],
+                          f'y-Achsenabschnitt t = {zt(t)}. Von (0 | {zt(t)}) nach (2 | {zt(t + 2 * m)}): 2 nach rechts, {zt(abs(2 * m))} nach {"oben" if m > 0 else "unten"}. m = {zt(2 * m)} : 2 = {zt(m)}.',
+                          'Lies t an der y-Achse ab. Für m: Wie weit geht es hoch oder runter, wenn du 2 nach rechts gehst?'), gr)
     m = zufall_m(R, st)
     t = Fr(R.randint(-9, 9)) if st < 3 else Fr(R.randint(-20, 20), R.choice([1, 2]))
     if st == 1:
@@ -81,7 +134,67 @@ def g_ablesen(R, st):
              f'In der Form y = m · x + t: y = {lin(m, t)}. y-Achsenabschnitt t = {zt(t)}.', 'Bringe die Gleichung in die Form y = m · x + t. t ist die Zahl ohne x.')
 
 
+ZP = __import__('collections').Counter()
+
+
 def g_zwei_punkte(R, st):
+    arten = {1: ['rechnen', 'rechnen', 'bild'], 2: ['rechnen', 'fehler', 'drei', 'bild'], 3: ['sonder', 'fehler', 'drei', 'rechnen']}[st]
+    arten = [a for a in arten if ZP[(st, a)] < 6] or ['rechnen']
+    art = R.choice(arten)
+    ZP[(st, art)] += 1
+    if art == 'sonder':
+        x1, y1 = R.randint(-5, 5), R.randint(-5, 5)
+        if R.random() < .5:
+            x2 = x1 + nz(R, -6, 6)
+            return A(R, f'Berechne die Steigung der Geraden durch P({zt(x1)} | {zt(y1)}) und Q({zt(x2)} | {zt(y1)}).', 'm = 0 (waagrechte Gerade)',
+                     ['Es gibt keine Steigung.', f'm = {zt(x2 - x1)}', 'm = 1'],
+                     f'm = ({zt(y1)} − {kl(y1)}) : ({zt(x2)} − {kl(x1)}) = 0 : {kl(x2 - x1)} = 0. Beide Punkte gleich hoch: waagrecht.',
+                     'Was passiert, wenn beide y-Werte gleich sind?')
+        y2 = y1 + nz(R, -6, 6)
+        return A(R, f'Berechne die Steigung der Geraden durch P({zt(x1)} | {zt(y1)}) und Q({zt(x1)} | {zt(y2)}).',
+                 'Es gibt keine Steigung, die Gerade ist senkrecht (keine Funktion).', ['m = 0', f'm = {zt(y2 - y1)}', 'm = 1'],
+                 f'x₂ − x₁ = {zt(x1)} − {kl(x1)} = 0. Durch 0 kann man nicht teilen. Die Gerade läuft senkrecht und ist kein Graph einer Funktion.',
+                 'Was steht im Nenner, wenn beide x-Werte gleich sind?')
+    if art == 'fehler':
+        while True:
+            x1, x2 = sorted(R.sample(range(-3, 7), 2)); m = Fr(nz(R, -4, 4)); y1 = R.randint(-4, 5); y2 = y1 + m * (x2 - x1)
+            if y2 != y1: break
+        fehl = R.choice(['nenner', 'tausch'])
+        if fehl == 'nenner':
+            rech = f'm = ({zt(y2)} − {kl(y1)}) : ({zt(x1)} − {kl(x2)}) = {zt(-m)}'
+            ri = f'Im Nenner wurde andersherum subtrahiert; richtig {zt(y2 - y1)} : {zt(x2 - x1)} = {zt(m)}.'
+        else:
+            rech = f'm = ({zt(x2)} − {kl(x1)}) : ({zt(y2)} − {kl(y1)}) = {zt(1 / m)}'
+            ri = f'x und y vertauscht; richtig ({zt(y2)} − {kl(y1)}) : ({zt(x2)} − {kl(x1)}) = {zt(m)}.'
+        fa = ['Die Rechnung ist richtig.', f'Es fehlt ein Minus; richtig ist {zt(-m) if fehl == "tausch" else zt(-1 / m) if ist_endlich(-1 / m) else "−1"}.',
+              'Man muss die Punkte addieren statt subtrahieren.']
+        if not ist_endlich(1 / m) and fehl == 'tausch': return g_zwei_punkte(R, st)
+        return A(R, f'Jemand rechnet für P({zt(x1)} | {zt(y1)}), Q({zt(x2)} | {zt(y2)}): {rech}. Was ist falsch?', ri, fa,
+                 f'm = (y₂ − y₁) : (x₂ − x₁) = {zt(y2 - y1)} : {zt(x2 - x1)} = {zt(m)}.', 'Rechne selbst m = (y₂ − y₁) : (x₂ − x₁) und vergleiche.')
+    if art == 'drei':
+        m1 = Fr(nz(R, -3, 3)); xa = R.randint(-3, 0); ya = R.randint(-2, 3)
+        xb, xc = xa + 2, xa + 4
+        yb = ya + m1 * 2
+        auf = R.random() < .5
+        m2 = m1 if auf else m1 + R.choice([Fr(-1, 2), Fr(1, 2), Fr(1)])
+        yc = yb + m2 * 2
+        ri = f'Ja, beide Steigungen sind {zt(m1)}.' if auf else f'Nein, AB hat Steigung {zt(m1)}, BC hat {zt(m2)}.'
+        fa = ['Ja, alle Punkte haben verschiedene x-Werte.', f'Nein, AB hat Steigung {zt(m1)}, BC hat {zt(m2 if auf else m1 + 1)}.' if auf else f'Ja, beide Steigungen sind {zt(m1)}.',
+              'Das kann man nur mit einer Zeichnung entscheiden.']
+        return A(R, f'Liegen A({zt(xa)} | {zt(ya)}), B({zt(xb)} | {zt(yb)}) und C({zt(xc)} | {zt(yc)}) auf einer Geraden?', ri, fa,
+                 f'm(AB) = ({zt(yb)} − {kl(ya)}) : 2 = {zt(m1)}; m(BC) = ({zt(yc)} − {kl(yb)}) : 2 = {zt(m2)}. ' + ('Gleich, also eine Gerade.' if auf else 'Verschieden, also keine Gerade.'),
+                 'Berechne die Steigung von A nach B und von B nach C.')
+    if art == 'bild':
+        x1, y1 = R.randint(-3, 0), R.randint(-3, 2)
+        dx, dy = R.choice([1, 2, 3]), nz(R, -5, 5)
+        x2, y2 = x1 + dx, y1 + dy
+        m = Fr(dy, dx)
+        if not ist_endlich(m): return g_zwei_punkte(R, st)
+        gr = {'typ': 'koordinaten', 'x': [x1 - 2, x2 + 2], 'y': [min(y1, y2) - 2, max(y1, y2) + 2],
+              'punkte': [{'x': x1, 'y': y1, 'name': 'P'}, {'x': x2, 'y': y2, 'name': 'Q'}], 'strecken': [[x1, y1, x2, y2]]}
+        return mit_bild(Z('Lies die Koordinaten von P und Q ab und berechne die Steigung der Strecke PQ.', m, f'({y2} - ({y1})) / ({x2} - ({x1}))',
+                          f'P({zt(x1)} | {zt(y1)}), Q({zt(x2)} | {zt(y2)}). m = ({zt(y2)} − {kl(y1)}) : ({zt(x2)} − {kl(x1)}) = {zt(dy)} : {dx} = {zt(m)}.',
+                          'Erst die Punkte ablesen, dann m = (y₂ − y₁) : (x₂ − x₁).'), gr)
     while True:
         x1, x2 = R.sample(range(-6, 9), 2)
         if st == 1: m = Fr(nz(R, -5, 5))
@@ -95,8 +208,23 @@ def g_zwei_punkte(R, st):
              'm = (y₂ − y₁) : (x₂ − x₁). Achte auf negative Zahlen.')
 
 
+SACH_AUF = [
+    ('Eine Kerze ist {t} cm lang und brennt pro Stunde {m} cm ab. Gib die Höhe h(x) nach x Stunden an.', -1, [(20, 2), (24, 3), (15, 1), (30, 2)]),
+    ('Ein Handwerker berechnet {t} € Anfahrt und {m} € pro Stunde. Gib die Kosten K(x) für x Stunden an.', 1, [(35, 40), (30, 45), (25, 50), (40, 38)]),
+    ('Ein Wassertank enthält {t} Liter. Pro Minute fließen {m} Liter ab. Gib den Inhalt V(x) nach x Minuten an.', -1, [(200, 5), (150, 4), (300, 6)]),
+    ('Ein Sparschwein enthält {t} €. Jede Woche kommen {m} € dazu. Gib den Betrag B(x) nach x Wochen an.', 1, [(12, 3), (20, 5), (8, 2)]),
+]
+
+
 def g_aufstellen(R, st):
     h = 'Bestimme m und t und tippe die Gerade als Term ein, z. B. 3x − 5.'
+    if st >= 2 and R.random() < .3:
+        t_, vz, werte = R.choice(SACH_AUF)
+        t0, m0 = R.choice(werte)
+        m, t = vz * m0, t0
+        return L(t_.format(t=t0, m=m0), '□x + □', [m, t], [str(m), str(t)],
+                 f'Startwert (bei x = 0): t = {t}. Änderung pro Einheit: m = {zt(m)} ({"Abnahme" if m < 0 else "Zunahme"}). Term: {lin(m, t)}.',
+                 'Was ist der Wert am Anfang (t)? Um wie viel ändert er sich pro Einheit (m)?', 'Tippe den Term ein, z. B. −2x + 20.')
     m, t = nz(R, -5, 5), R.randint(-9, 9)
     if st == 1:
         text = f'Eine Gerade hat die Steigung {zt(m)} und schneidet die y-Achse bei {zt(t)}. Gib den Funktionsterm an.'
@@ -126,8 +254,23 @@ def g_proportional(R, st):
         x2 = R.choice([j for j in range(-8, 13) if j not in (0, a)])
         return Z(f'Die Gerade y = k · x geht durch P({zt(a)} | {zt(b)}). Berechne y für x = {zt(x2)}.', k * x2, f'{cz(b)} / ({a}) * ({x2})',
                  f'k = {zt(b)} : {kl(a)} = {zt(k)}. y = {zt(k)} · {kl(x2)} = {zt(k * x2)}.', 'Berechne zuerst k = y : x.')
-    # Stufe 3: Erkennen
-    k = Fr(nz(R, 2, 9)); t = R.choice([0, 0, nz(R, -5, 5)])
+    # Stufe 3: Erkennen (mindestens die Hälfte „Nein“)
+    art = R.choice(['ja', 'linear', 'nichtlin', 'taxi'])
+    if art == 'taxi':
+        g, p = R.choice([Fr(9, 2), Fr(4), Fr(7, 2)]), R.choice([Fr(9, 5), Fr(2), Fr(11, 5)])
+        km = R.choice([5, 10, 20])
+        return A(R, f'Ein Taxi: 0 km → {eur(g)} €, {km} km → {eur(g + p * km)} €. Ist der Preis proportional zur Strecke?', f'Nein, bei 0 km kostet es schon {eur(g)} €.',
+                 [f'Ja, y = {zt((g + p * km) / km) if ist_endlich((g + p * km) / km) else zt(p)} · x.', 'Ja, weil der Preis mit der Strecke wächst.', 'Nein, weil der Preis zu hoch ist.'],
+                 f'Eine Proportionalität hat bei x = 0 den Wert 0. Hier gibt es einen Grundpreis von {eur(g)} € – die Gerade geht nicht durch den Ursprung.',
+                 'Was müsste bei 0 km herauskommen, wenn es proportional wäre?')
+    if art == 'nichtlin':
+        xs = sorted(R.sample(range(1, 6), 3))
+        ps = ', '.join(f'({x} | {x * x})' for x in xs)
+        return A(R, f'Ist die Zuordnung {ps} proportional?', 'Nein, die Quotienten y : x sind verschieden.',
+                 [f'Ja, y = {xs[0]} · x.', 'Ja, weil y mit x wächst.', 'Nein, die Gerade geht nicht durch den Ursprung.'],
+                 'Quotienten: ' + '; '.join(f'{x * x} : {x} = {x}' for x in xs) + '. Verschieden, also nicht proportional (hier gilt y = x²).',
+                 'Berechne für jedes Paar den Quotienten y : x.')
+    k = Fr(nz(R, 2, 9)); t = 0 if art == 'ja' else nz(R, -5, 5)
     xs = sorted(R.sample(range(1, 10), 3))
     ps = ', '.join(f'({x} | {zt(k * x + t)})' for x in xs)
     if t == 0:
@@ -147,10 +290,10 @@ def g_schnittpunkte(R, st):
             t = -m * x0
             if t.denominator == 1 and x0: break
         if R.random() < .4:
-            return Z(f'An welcher Stelle schneidet y = {lin(m, t)} die y-Achse? Gib den y-Wert an.', t, cz(t),
+            return Z(f'In welchem Punkt schneidet y = {lin(m, t)} die y-Achse? Gib den y-Wert an.', t, cz(t),
                      f'Auf der y-Achse ist x = 0: y = {zt(m)} · 0 {"+" if t >= 0 else "−"} {abs(t)} = {zt(t)}.', 'Auf der y-Achse ist x = 0.')
         return Z(f'Berechne die Nullstelle von y = {lin(m, t)} (Schnitt mit der x-Achse).', x0, f'-({cz(t)}) / {cz(m)}',
-                 f'{lin(m, t)} = 0 → x = {zt(x0)}.', 'Auf der x-Achse ist y = 0.')
+                 f'{lin(m, t)} = 0' + (f' → {lin(m, 0)} = {zt(-t)}' if t else '') + (f' → x = {zt(x0)}.' if m != 1 else '.'), 'Auf der x-Achse ist y = 0.')
     while True:
         m1, m2 = Fr(nz(R, -5, 5)), Fr(nz(R, -5, 5))
         if st == 3: m1, m2 = m1 / R.choice([1, 2]), m2 / R.choice([1, 2])
@@ -158,7 +301,11 @@ def g_schnittpunkte(R, st):
         x = Fr(R.randint(-6, 6)); t1 = Fr(R.randint(-8, 8)); y = m1 * x + t1; t2 = y - m2 * x
         if t2.denominator == 1 and abs(t2) <= 20: break
     g, h = f'g: y = {lin(m1, t1)}', f'h: y = {lin(m2, t2)}'
-    weg = f'{lin(m1, t1)} = {lin(m2, t2)} → {lin(m1 - m2, 0)} = {zt(t2 - t1)} → x = {zt(x)}; y = {zt(y)}. S({zt(x)} | {zt(y)}).'
+    weg = (f'{lin(m1, t1)} = {lin(m2, t2)} → {lin(m1 - m2, 0)} = {zt(t2 - t1)}' + ('' if m1 - m2 == 1 else f' → x = {zt(x)}')
+           + f'. In g: y = {zt(y)}. S({zt(x)} | {zt(y)}).')
+    if y.denominator == 1 and R.random() < .7:
+        return L(f'Berechne den Schnittpunkt von {g} und {h}.', 'S(□ | □)', [x, y], [f'({cz(t2)} - ({cz(t1)})) / ({cz(m1)} - ({cz(m2)}))', f'{cz(m1)} * ({cz(x)}) + ({cz(t1)})'],
+                 weg, 'Setze die beiden Terme gleich. Mit x berechnest du dann y.', hinweis='Trage x und y des Schnittpunkts ein.')
     if R.random() < .5:
         return Z(f'Berechne den Schnittpunkt S von {g} und {h}. Gib die x-Koordinate an.', x, f'({cz(t2)} - ({cz(t1)})) / ({cz(m1)} - ({cz(m2)}))', weg,
                  'Setze die beiden Terme gleich.')
@@ -170,7 +317,7 @@ LAGE = ['parallel', 'senkrecht zueinander', 'schneiden sich, aber nicht senkrech
 
 
 def g_lage(R, st):
-    if st == 3 and R.random() < .55:
+    if (st == 3 and R.random() < .55) or (st == 2 and R.random() < .25):
         m = Fr(nz(R, -6, 6), R.choice([1, 2, 4, 5]))
         if not ist_endlich(-1 / m): m = Fr(nz(R, -5, 5))
         welche = R.choice(['senkrecht', 'parallel'])
@@ -232,11 +379,11 @@ def g_deuten(R, st):
         frage_null, null = f'Wie weit ist man gefahren, wenn {eur(g + p * km)} € zu zahlen sind?', Fr(km)
         m, t = p, g
     else:
-        intro = 'Ein Pool wird befüllt:'
-        h0, r = R.choice([10, 20, 30, 40]), Fr(R.choice([2, 4, 5, 8, 10]), 10)
+        intro = 'Ein Planschbecken wird befüllt:'
+        h0, r = R.choice([2, 4, 5, 6]), Fr(R.choice([3, 4, 5, 6]), 10)
         f, x, y = f'h(x) = {lin(r, h0)}', 'x in Minuten', 'h in cm'
         bed_m, bed_t = f'Der Wasserstand steigt pro Minute um {zt(r)} cm.', f'Am Anfang steht das Wasser {h0} cm hoch.'
-        Ziel = h0 + r * R.choice([50, 100, 150, 200])
+        Ziel = h0 + r * R.choice([20, 30, 40, 50])
         frage_null, null = f'Nach wie vielen Minuten steht das Wasser {zt(Ziel)} cm hoch?', (Ziel - h0) / r
         m, t = r, h0
     if st == 1:
@@ -251,7 +398,22 @@ def g_deuten(R, st):
             return Z(f'{intro} {f} ({x}, {y}). Berechne den Wert für x = 4.', m * 4 + t, f'{cz(m)} * 4 + {cz(t)}',
                      f'{zt(m)} · 4 + {zt(t)} = {zt(m * 4 + t)}.', 'Setze x = 4 ein.')
         return Z(f'{intro} {f} ({x}, {y}). {frage_null}', null, f'({cz(null * m + t)} - {cz(t)}) / {cz(m)}',
-                 f'{lin(m, t)} = {zt(m * null + t)} → {lin(m, 0)} = {zt(m * null)} → x = {zt(null)}.', 'Setze den Funktionsterm gleich dem gesuchten Wert und löse nach x.')
+                 f'{lin(m, t)} = {zt(m * null + t)} → {lin(m, 0)} = {zt(m * null)}' + ('' if m == 1 else f' → x = {zt(null)}') + '.',
+                 'Setze den Funktionsterm gleich dem gesuchten Wert und löse nach x.')
+    if R.random() < .4:
+        # Tarifvergleich am Graphen
+        while True:
+            m1, t1 = R.choice([Fr(2), Fr(5, 2), Fr(3)]), R.choice([2, 3, 4])
+            m2 = m1 - R.choice([Fr(1, 2), Fr(1)])
+            x0 = R.choice([2, 4, 6, 8])
+            t2 = t1 + (m1 - m2) * x0
+            if t2.denominator == 1: break
+        gr = {'typ': 'koordinaten', 'x': [0, 2 * x0], 'y': [0, int(m1 * 2 * x0 + t1) + 2], 'name_x': 'km', 'name_y': '€',
+              'graphen': [{'art': 'linear', 'm': gm(m1), 't': t1, 'name': 'A'}, {'art': 'linear', 'm': gm(m2), 't': gm(t2), 'name': 'B'}]}
+        return mit_bild(A(R, f'Zwei Taxi-Tarife: A: y = {lin(m1, t1)}, B: y = {lin(m2, t2)} (x in km, y in €). Ab welcher Strecke ist B billiger?', f'ab mehr als {x0} km',
+                          [f'bis {x0} km', f'ab mehr als {zt(t2)} km', 'B ist nie billiger'],
+                          f'Die Geraden schneiden sich bei x = {x0} (beide {eur(m1 * x0 + t1)} €). Danach liegt B unter A, weil B flacher ansteigt.',
+                          'Suche den Schnittpunkt. Welche Gerade liegt rechts davon tiefer?'), gr)
     aussagen_w = [bed_m, bed_t]
     aussagen_f = [f'Der Graph ist eine Ursprungsgerade.', f'Die Steigung ist {zt(t)}.', f'Für x = 1 ist der Wert {zt(t)}.', f'Der Wert ändert sich pro Einheit von x um {zt(t)}.']
     r_ = R.choice(aussagen_w)
@@ -269,5 +431,4 @@ if __name__ == '__main__':
          'Lineare Funktionen y = m · x + t deuten, Geradengleichungen aufstellen, Schnittpunkte und Lage von Geraden bestimmen.',
          ['m = Steigung (Änderung pro 1 nach rechts), t = y-Achsenabschnitt.', 'm = (y₂ − y₁) : (x₂ − x₁).',
           'Parallel: m₁ = m₂. Senkrecht: m₁ · m₂ = −1.', 'Proportional: y = k · x, Gerade durch den Ursprung.'],
-         offen=['Lehrplan: Graphen zeichnen und Parameter am Graphen ablesen (Steigungsdreieck). Die App kann noch kein Koordinatensystem mit Geraden zeichnen; '
-                'alle Aufgaben arbeiten mit Termen und Punkten.'])
+         offen=['Graphen selbst zeichnen lassen (Kind zeichnet die Gerade) kann die App noch nicht; Ablesen am Graphen und Steigungsdreieck sind jetzt eingebaut.'])

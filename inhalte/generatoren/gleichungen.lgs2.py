@@ -5,7 +5,7 @@ from fractions import Fraction as Fr
 from pathlib import Path
 sys.dont_write_bytecode = True
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _bausatz import A, Z, baue, cz, eur, kl, lin, zt  # noqa: E402
+from _bausatz import A, L, Z, baue, cz, einsetzen, eur, kl, lin, mit_bild, zt  # noqa: E402
 
 META = {'thema_schluessel': 'gleichungen.lgs2', 'thema_id': 6, 'block_id': 59, 'klasse': {'gym_by': 8, 'rs_by': 9}}
 
@@ -15,34 +15,46 @@ ETAPPEN = [
      'schritte': ['I: x + y = 5   II: 2x − y = 1   Paar (2 | 3)', 'I: 2 + 3 = 5 ✓   II: 4 − 3 = 1 ✓', '⟦(2 | 3) ist Lösung.⟧'],
      'fehler': 'Erfüllt (4 | 1) nur x + y = 5, ist es ⟦keine⟧ Lösung des Systems: In II gilt 8 − 1 = 7 ≠ 1. Beide Gleichungen müssen stimmen.',
      '_verbot': ['x + y = 5']},
+    {'lernziel': 'grafisch', 'titel': 'Gleichungssystem grafisch lösen',
+     'regel': 'Jede lineare Gleichung mit x und y beschreibt eine ⟦Gerade⟧. Ein Punkt auf der Geraden erfüllt die Gleichung. Der ⟦Schnittpunkt⟧ liegt auf beiden Geraden – er ist die Lösung des Systems.',
+     'schritte': ['I: x + y = 5 umstellen zu y = −x + 5. II: 2x − y = 1 umstellen zu y = 2x − 1.', 'Beide Geraden zeichnen. Sie schneiden sich in S(2 | 3).', '⟦L = {(2 | 3)}⟧'],
+     'probe': 'I: 2 + 3 = 5 ✓   II: 4 − 3 = 1 ✓',
+     'fehler': 'Ungenau ablesen und nicht prüfen. Liegt der Schnittpunkt zwischen den Kästchen, ist abgelesen nur eine Schätzung. Setze das Paar ⟦immer in beide Gleichungen⟧ ein; stimmt es nicht genau, rechne mit einem Verfahren.',
+     'bild': {'typ': 'koordinaten', 'x': [-1, 5], 'y': [-2, 6], 'graphen': [{'art': 'linear', 'm': -1, 't': 5, 'name': 'I'}, {'art': 'linear', 'm': 2, 't': -1, 'name': 'II'}],
+              'punkte': [{'x': 2, 'y': 3, 'name': 'S(2 | 3)'}]}},
     {'lernziel': 'einsetzen', 'titel': 'Einsetzungsverfahren',
      'regel': 'Ist eine Gleichung nach einer Variablen aufgelöst (z. B. y = …), ⟦setzt du diesen Term⟧ in die andere Gleichung ein. Dann bleibt eine Gleichung mit nur einer Variablen.',
      'schritte': ['I: y = 2x − 1   II: 3x + y = 9', 'I in II: 3x + (2x − 1) = 9 → 5x = 10 → x = 2', 'x in I: y = 2 · 2 − 1 = 3. ⟦L = {(2 | 3)}⟧'],
      'fehler': 'Beim Einsetzen die ⟦Klammer⟧ nicht vergessen: 3x − (2x − 1) ist 3x − 2x + 1, nicht 3x − 2x − 1.',
      '_verbot': ['y = 2x − 1']},
     {'lernziel': 'gleichsetzen', 'titel': 'Gleichsetzungsverfahren',
-     'regel': 'Sind ⟦beide⟧ Gleichungen nach derselben Variablen aufgelöst, setzt du die rechten Seiten ⟦gleich⟧.',
-     'schritte': ['I: y = 3x − 4   II: y = x + 2', '3x − 4 = x + 2 → 2x = 6 → x = 3', 'y = 3 + 2 = 5. ⟦L = {(3 | 5)}⟧'],
-     'fehler': 'Mit x = 3 ist die Aufgabe nicht fertig: Die Lösung ist ein ⟦Zahlenpaar⟧. Setze x noch ein, um y zu bestimmen.',
-     '_verbot': ['y = 3x − 4']},
+     'regel': 'Sind ⟦beide⟧ Gleichungen nach derselben Variablen aufgelöst, setzt du die rechten Seiten ⟦gleich⟧. Das ist die Frage: Für welches x sind beide y-Werte gleich?',
+     'schritte': ['Fahrradverleih A: y = 2x + 10, Verleih B: y = 4x + 4 (x Stunden, y Preis in €). Wann kosten beide gleich viel?',
+                  'Gleichsetzen: 2x + 10 = 4x + 4 → 6 = 2x → x = 3.', 'y = 2 · 3 + 10 = 16. ⟦L = {(3 | 16)}⟧: Bei 3 Stunden kosten beide 16 €.'],
+     'probe': 'B: 4 · 3 + 4 = 16 ✓',
+     'fehler': 'Mit x = 3 ist die Aufgabe nicht fertig: Die Lösung ist ein ⟦Zahlenpaar⟧. Setze x noch ein, um y zu bestimmen – sonst weißt du nicht, wie viel die 3 Stunden kosten.',
+     '_verbot': ['y = 2x + 10']},
     {'lernziel': 'addition', 'titel': 'Additionsverfahren',
-     'regel': 'Multipliziere die Gleichungen so, dass vor einer Variablen ⟦Gegenzahlen⟧ stehen. Addierst du dann die Gleichungen, ⟦fällt diese Variable weg⟧.',
-     'schritte': ['I: 2x + 3y = 12   II: x − y = 1', 'II · 3: 3x − 3y = 3', 'I + II: 5x = 15 → x = 3; aus II: y = 2. ⟦L = {(3 | 2)}⟧'],
+     'regel': 'Stell dir zwei Waagen im Gleichgewicht vor. Legst du den Inhalt beider linken Schalen zusammen und den beider rechten auch, bleibt es im Gleichgewicht. Deshalb darfst du ⟦Gleichungen addieren⟧. Multipliziere vorher so, dass vor einer Variablen ⟦Gegenzahlen⟧ stehen – dann ⟦fällt sie weg⟧.',
+     'schritte': ['I: 2x + 3y = 12   II: x − y = 1', 'II · 3 ergibt II′: 3x − 3y = 3. Jetzt stehen +3y und −3y da.', 'I + II′: 5x = 15 → x = 3. In II: 3 − y = 1 → y = 2. ⟦L = {(3 | 2)}⟧'],
+     'probe': 'I: 6 + 6 = 12 ✓   II: 3 − 2 = 1 ✓',
      'fehler': 'Wer II mit 3 multipliziert, muss ⟦jedes⟧ Glied multiplizieren – auch die rechte Seite: 3x − 3y = 3, nicht 3x − 3y = 1.',
      '_verbot': ['2x + 3y = 12']},
-    {'lernziel': 'loesbarkeit', 'titel': 'Wie viele Lösungen hat das System?',
-     'regel': 'Fällt beim Rechnen ⟦x und y⟧ weg, entscheidet die Rest-Aussage: Eine ⟦falsche⟧ Aussage (z. B. 0 = 5) heißt keine Lösung, eine ⟦wahre⟧ (0 = 0) heißt unendlich viele Lösungen.',
-     'schritte': ['I: y = 2x + 1   II: y = 2x − 3', 'Gleichsetzen: 2x + 1 = 2x − 3 → 1 = −3', 'Falsche Aussage: ⟦keine Lösung⟧ (parallele Geraden).'],
-     'fehler': 'Bei 0 = 0 ist nicht „x = 0“ die Lösung. Die Aussage ist ⟦immer⟧ wahr: Jedes Paar, das eine Gleichung erfüllt, erfüllt auch die andere – unendlich viele Lösungen.',
-     '_verbot': ['y = 2x + 1']},
     {'lernziel': 'verfahren', 'titel': 'Welches Verfahren ist geschickt?',
      'regel': 'Alle Verfahren führen zum Ziel. ⟦Gleichsetzen⟧, wenn beide Gleichungen nach derselben Variablen aufgelöst sind. ⟦Einsetzen⟧, wenn eine aufgelöst ist. ⟦Addition⟧, wenn vor einer Variablen Gegenzahlen oder Vielfache stehen.',
      'schritte': ['I: 4x + 5y = 3   II: 2x − 5y = 9', 'Vor y stehen 5 und −5: Gegenzahlen.', 'Am geschicktesten: ⟦Additionsverfahren⟧.'],
      'fehler': 'Bei I: y = 3x und II: y = x + 4 musst du nichts umstellen. Hier erst nach x aufzulösen kostet ⟦unnötige⟧ Schritte – gleichsetzen ist schneller.',
      '_verbot': ['4x + 5y = 3']},
+    {'lernziel': 'loesbarkeit', 'titel': 'Wie viele Lösungen hat das System?',
+     'regel': 'Jede Gleichung ist eine Gerade, die Lösung ist ihr Schnittpunkt. Fällt beim Rechnen ⟦x und y⟧ weg, entscheidet die Rest-Aussage: ⟦falsch⟧ (z. B. 1 = −3) heißt keine Lösung – die Geraden sind parallel. ⟦Wahr⟧ (z. B. 0 = 0) heißt unendlich viele Lösungen – beide Gleichungen beschreiben dieselbe Gerade.',
+     'schritte': ['I: y = 2x + 1   II: y = 2x − 3', 'Gleichsetzen: 2x + 1 = 2x − 3 → 1 = −3', 'Falsche Aussage: ⟦keine Lösung⟧ (parallele Geraden).'],
+     'fehler': 'Bei 0 = 0 ist nicht „x = 0“ die Lösung. Die Aussage ist ⟦immer⟧ wahr: Jedes Paar, das eine Gleichung erfüllt, erfüllt auch die andere – unendlich viele Lösungen.',
+     'bild': {'typ': 'koordinaten', 'x': [-3, 3], 'y': [-5, 5], 'graphen': [{'art': 'linear', 'm': 2, 't': 1, 'name': 'I'}, {'art': 'linear', 'm': 2, 't': -3, 'name': 'II'}]},
+     '_verbot': ['y = 2x + 1']},
     {'lernziel': 'sachaufgabe', 'titel': 'Sachaufgaben mit zwei Unbekannten',
      'regel': 'Lege für die beiden gesuchten Größen ⟦Variablen⟧ fest (x, y). Übersetze jede Information in ⟦eine Gleichung⟧, löse das System und antworte im Satz.',
      'schritte': ['In einem Stall sind Hühner (x) und Kaninchen (y): 10 Köpfe, 28 Beine.', 'I: x + y = 10   II: 2x + 4y = 28', 'II − 2 · I: 2y = 8 → y = 4, x = 6. ⟦6 Hühner, 4 Kaninchen⟧'],
+     'probe': 'Ohne Gleichungen: Alle 10 Tiere heben 2 Beine hoch – das sind 20 Beine. Am Boden bleiben 28 − 20 = 8 Beine, und das sind nur die Kaninchen, je 2. Also 8 : 2 = 4 Kaninchen ✓ Genau das rechnet II − 2 · I.',
      'fehler': 'Die Beine-Gleichung ist nicht x + y = 28: Ein Huhn hat ⟦2⟧, ein Kaninchen ⟦4⟧ Beine. Jede Information braucht die passenden Faktoren.',
      '_verbot': ['10 Köpfe, 28 Beine']},
 ]
@@ -70,6 +82,9 @@ def nz(R, lo=-6, hi=6):
 
 
 def frage(R, x, y, text, weg, h, ccx, ccy):
+    """Meist das ganze Zahlenpaar als Lücke, manchmal nur eine Variable."""
+    if R.random() < .75:
+        return L(f'{text} Gib die Lösung an.', 'x = □; y = □', [x, y], [ccx, ccy], weg, h, hinweis='Trage x und y ein.')
     if R.random() < .5:
         return Z(f'{text} Gib x an.', x, ccx, weg, h)
     return Z(f'{text} Gib y an.', y, ccy, weg, h)
@@ -126,12 +141,13 @@ def g_einsetzen(R, st):
         # nach x aufgelöst
         x2, y2 = y, x
         T = sys_text(f'x = {lin(m, t, "y")}', gl(b, a, c))
-        weg = (f'I in II: {zt(b)} · ({lin(m, t, "y")}) {"+" if a > 0 else "−"} {lin(abs(a), 0, "y")} = {zt(c)} → {lin(b * m + a, b * t, "y")} = {zt(c)} → y = {zt(y2)}. '
-               f'In I: x = {zt(x2)}.')
+        vor = {1: '', -1: '−'}.get(b, f'{zt(b)} · ')
+        weg = (f'I in II: {vor}({lin(m, t, "y")}) {"+" if a > 0 else "−"} {lin(abs(a), 0, "y")} = {zt(c)} → {lin(b * m + a, b * t, "y")} = {zt(c)} → y = {zt(y2)}. '
+               f'In I: x = {zt(x2)}. L = {{({zt(x2)} | {zt(y2)})}}.')
         return frage(R, x2, y2, f'Löse mit dem Einsetzungsverfahren: {T}.', weg, h, f'({m}) * ({y2}) + ({t})', f'({c} - ({b}) * ({t})) / (({b}) * ({m}) + ({a}))')
     T = sys_text(f'y = {lin(m, t)}', gl(a, b, c))
     weg = (f'I in II: {g2(a, 0)} {"+" if b > 0 else "−"} {"" if abs(b) == 1 else str(abs(b)) + " · "}({lin(m, t)}) = {zt(c)} → '
-           f'{lin(a + b * m, b * t)} = {zt(c)} → x = {zt(x)}. In I: y = {zt(y)}.')
+           f'{lin(a + b * m, b * t)} = {zt(c)} → x = {zt(x)}. In I: y = {einsetzen(lin(m, t), x) + " = " if einsetzen(lin(m, t), x).strip("()") != zt(y) else ""}{zt(y)}. L = {{({zt(x)} | {zt(y)})}}.')
     return frage(R, x, y, f'Löse mit dem Einsetzungsverfahren: {T}.', weg, h, f'({c} - ({b}) * ({t})) / (({a}) + ({b}) * ({m}))', f'({m}) * ({x}) + ({t})')
 
 
@@ -152,10 +168,10 @@ def g_gleichsetzen(R, st):
         # zweite Gleichung erst umstellen: k·y = k·m2·x + k·t2  (k ≠ 1)  oder  y − m2x = t2
         k = R.choice([2, 3, -2])
         T = sys_text(f'y = {lin(m1, t1)}', gl(-k * m2, k, k * t2))
-        weg = (f'II nach y auflösen: y = {lin(m2, t2)}. Gleichsetzen: {lin(m1, t1)} = {lin(m2, t2)} → {lin(m1 - m2, 0)} = {zt(t2 - t1)} → x = {zt(x)}. y = {zt(y)}.')
+        weg = (f'II nach y auflösen: y = {lin(m2, t2)}. Gleichsetzen: {lin(m1, t1)} = {lin(m2, t2)} → {lin(m1 - m2, 0)} = {zt(t2 - t1)}' + ('' if m1 - m2 == 1 else f' → x = {zt(x)}') + f'. In I: y = {zt(y)}. L = {{({zt(x)} | {zt(y)})}}.')
     else:
         T = sys_text(f'y = {lin(m1, t1)}', f'y = {lin(m2, t2)}')
-        weg = f'{lin(m1, t1)} = {lin(m2, t2)} → {lin(m1 - m2, 0)} = {zt(t2 - t1)} → x = {zt(x)}. In I: y = {zt(y)}.'
+        weg = f'{lin(m1, t1)} = {lin(m2, t2)} → {lin(m1 - m2, 0)} = {zt(t2 - t1)}' + ('' if m1 - m2 == 1 else f' → x = {zt(x)}') + f'. In I: y = {zt(y)}. L = {{({zt(x)} | {zt(y)})}}.'
     return frage(R, x, y, f'Löse mit dem Gleichsetzungsverfahren: {T}.', weg, h if st < 3 else 'Löse zuerst Gleichung II nach y auf.',
                  f'({t2} - ({t1})) / (({m1}) - ({m2}))', f'({m1}) * ({x}) + ({t1})')
 
@@ -186,15 +202,34 @@ def g_addition(R, st):
     teil = []
     if k1 != 1: teil.append(f'I · {kl(k1)}: {gl(k1 * a1, k1 * b1, k1 * c1)}')
     if k2 != 1: teil.append(f'II · {kl(k2)}: {gl(k2 * a2, k2 * b2, k2 * c2)}')
-    weg = ('. '.join(teil) + '. ' if teil else '') + f'Addieren: {lin(A_, 0)} = {zt(C_)} → x = {zt(x)}. Einsetzen: y = {zt(y)}.'
+    add = f'Addieren: {lin(A_, 0)} = {zt(C_)}' + ('' if A_ == 1 else f' → x = {zt(x)}')
+    ein = f'x = {zt(x)} in I: {zt(a1)} · {kl(x)} {"+" if b1 > 0 else "−"} {lin(abs(b1), 0, "y")} = {zt(c1)} → {lin(b1, 0, "y")} = {zt(c1 - a1 * x)}' + ('' if b1 == 1 else f' → y = {zt(y)}')
+    weg = ('. '.join(teil) + '. ' if teil else '') + add + '. ' + ein + f'. L = {{({zt(x)} | {zt(y)})}}.'
     return frage(R, x, y, f'Löse mit dem Additionsverfahren: {T}.', weg, h,
                  f'({k1} * ({c1}) + ({k2}) * ({c2})) / ({k1} * ({a1}) + ({k2}) * ({a2}))', f'({c1} - ({a1}) * ({x})) / ({b1})')
 
 
 ANTW = ['genau eine Lösung', 'keine Lösung', 'unendlich viele Lösungen']
+LAGE = {'genau eine Lösung': 'Sie schneiden sich in genau einem Punkt.', 'keine Lösung': 'Sie sind parallel und verschieden.',
+        'unendlich viele Lösungen': 'Sie sind identisch (liegen aufeinander).'}
 
 
 def g_loesbarkeit(R, st):
+    if st >= 2 and R.random() < .3:
+        art = R.choice(ANTW)
+        if R.random() < .5:
+            return A(R, f'Ein Gleichungssystem hat {art}. Was bedeutet das für die beiden Geraden?', LAGE[art],
+                     [v for k, v in LAGE.items() if k != art] + ['Sie schneiden sich im Ursprung.'],
+                     f'Jede Lösung ist ein gemeinsamer Punkt beider Geraden. {art[0].upper() + art[1:]}: {LAGE[art]}',
+                     'Die Lösungen sind die gemeinsamen Punkte der Geraden.')
+        m = nz(R, -3, 3); t1 = R.randint(-3, 3)
+        t2 = {'genau eine Lösung': None, 'keine Lösung': t1 + R.choice([-3, -2, 2, 3]), 'unendlich viele Lösungen': t1}[art]
+        m2 = m if t2 is not None else R.choice([k for k in (-2, -1, 1, 2, 3) if k != m])
+        if t2 is None: t2 = R.randint(-3, 3)
+        gr = {'typ': 'koordinaten', 'x': [-4, 4], 'y': [-8, 8], 'graphen': [{'art': 'linear', 'm': m, 't': t1, 'name': 'I'}, {'art': 'linear', 'm': m2, 't': t2, 'name': 'II'}]}
+        return mit_bild(A(R, 'Das Bild zeigt die Geraden zu den Gleichungen I und II. Wie viele Lösungen hat das System?', art, [a for a in ANTW if a != art],
+                          f'{LAGE[art]} Also {art}.' + (' (Beide Gleichungen beschreiben dieselbe Gerade – man sieht nur eine Linie.)' if art == ANTW[2] else ''),
+                          'Schneiden sich die Geraden, sind sie parallel oder liegen sie aufeinander?'), gr)
     if st == 3 and R.random() < .6:
         # Parameter so bestimmen, dass keine Lösung
         a1, b1 = nz(R, -5, 5), nz(R, -5, 5); k = R.choice([2, 3, -2, -1])
@@ -235,8 +270,32 @@ def g_loesbarkeit(R, st):
 VERF = ['Einsetzungsverfahren', 'Gleichsetzungsverfahren', 'Additionsverfahren']
 
 
+EFFIZIENZ = [
+    ('addition', 'Einsetzungsverfahren', 'Man muss erst eine Gleichung umstellen und bekommt Brüche; addieren lässt y sofort wegfallen.',
+     ['Das Einsetzungsverfahren geht hier nicht.', 'Es ist nicht umständlicher.', 'Weil man beim Einsetzen immer Klammern braucht.']),
+    ('gleich', 'Additionsverfahren', 'Beide sind schon nach y aufgelöst: Gleichsetzen spart das Umordnen.',
+     ['Das Additionsverfahren geht hier nicht.', 'Es ist nicht umständlicher.', 'Weil beim Addieren immer x wegfällt.']),
+    ('ein', 'Additionsverfahren', 'Eine Gleichung ist schon nach y aufgelöst: Einsetzen spart das Umordnen und Multiplizieren.',
+     ['Das Additionsverfahren geht hier nicht.', 'Es ist nicht umständlicher.', 'Weil man beim Addieren keine Gegenzahlen bekommen kann.']),
+]
+
+
 def g_verfahren(R, st):
-    art = R.choice(VERF)
+    if st == 3 and R.random() < .6:
+        art, gewaehlt, richtig, falsch = R.choice(EFFIZIENZ)
+        x, y = R.randint(-4, 6), R.randint(-4, 6)
+        if art == 'addition':
+            a1, a2, b = R.choice([3, 5, 7]), R.choice([2, 4, 5]), R.choice([2, 3, 4])
+            T = sys_text(gl(a1, b, a1 * x + b * y), gl(a2, -b, a2 * x - b * y))
+        elif art == 'gleich':
+            m1, m2 = R.sample([k for k in range(-4, 5) if k], 2)
+            T = sys_text(f'y = {lin(m1, y - m1 * x)}', f'y = {lin(m2, y - m2 * x)}')
+        else:
+            m = nz(R, -4, 4); a, b = R.choice([2, 3, 5]), R.choice([3, 4, -3])
+            T = sys_text(f'y = {lin(m, y - m * x)}', gl(a, b, a * x + b * y))
+        return A(R, f'Bei {T} wählt jemand das {gewaehlt}. Warum ist das umständlich?', richtig, falsch,
+                 f'{richtig} Alle Verfahren führen zum Ziel, aber das passende spart Schritte.', 'Wie sehen die Gleichungen aus? Was müsste man zuerst tun?')
+    art = R.choice(VERF if st >= 2 else ['Gleichsetzungsverfahren', 'Additionsverfahren'])
     x, y = R.randint(-5, 7), R.randint(-5, 7)
     if art == 'Gleichsetzungsverfahren':
         m1, m2 = R.sample([k for k in range(-5, 6) if k], 2)
@@ -256,24 +315,48 @@ def g_verfahren(R, st):
     else:
         a1, a2, b1 = nz(R), nz(R), R.randint(2, 7)
         if abs(a1) == 1 or abs(a2) == 1: a1, a2 = a1 * 2, a2 * 3
-        T = sys_text(gl(a1, b1, a1 * x + b1 * y), gl(a2, -b1, a2 * x - b1 * y))
-        grund = f'Vor y stehen {b1} und −{b1}: Addieren lässt y sofort wegfallen.'
+        if st >= 2 and R.random() < .5:
+            # Vielfache statt Gegenzahlen: II erst multiplizieren
+            k = R.choice([2, 3])
+            T = sys_text(gl(a1, k * b1, a1 * x + k * b1 * y), gl(a2, -b1, a2 * x - b1 * y))
+            grund = f'Vor y stehen {k * b1} und −{b1}: Nach II · {k} sind es Gegenzahlen, dann addieren.'
+        else:
+            T = sys_text(gl(a1, b1, a1 * x + b1 * y), gl(a2, -b1, a2 * x - b1 * y))
+            grund = f'Vor y stehen {b1} und −{b1}: Addieren lässt y sofort wegfallen.'
     return A(R, f'Welches Verfahren ist für {T} am geschicktesten?', art, [v for v in VERF if v != art], grund,
              'Schau, ob eine Gleichung schon nach x oder y aufgelöst ist, und ob Gegenzahlen vorkommen.')
 
 
 def g_sachaufgabe(R, st):
-    art = R.choice({1: ['zahlen', 'tiere', 'muenzen'], 2: ['eintritt', 'tiere', 'muenzen', 'zahlen'], 3: ['eintritt', 'tarif', 'mischung']}[st])
+    art = R.choice({1: ['zahlen', 'tiere', 'muenzen', 'aufstellen'], 2: ['eintritt', 'tiere', 'muenzen', 'aufstellen'], 3: ['eintritt', 'tarif', 'fitness', 'mischung']}[st])
+    if art == 'aufstellen':
+        p1, p2 = R.choice([(9, Fr(9, 2)), (12, 6), (8, 5), (15, 9), (10, 7)])
+        x, y = R.randint(2, 10), R.randint(2, 12)
+        n, G = x + y, p1 * x + p2 * y
+        ri = f'x + y = {n}; {zt(p1)}x + {zt(p2)}y = {zt(G)}'
+        fa = [f'x + y = {zt(G)}; {zt(p1)}x + {zt(p2)}y = {n}', f'{zt(p1)}x + y = {n}; x + {zt(p2)}y = {zt(G)}', f'x + y = {n}; {zt(p2)}x + {zt(p1)}y = {zt(G)}']
+        return A(R, f'Eine Gruppe aus {n} Personen zahlt {eur(G)} € Eintritt. Erwachsene zahlen {eur(p1)} €, Kinder {eur(p2)} €. Welches Gleichungssystem passt (x Erwachsene, y Kinder)?',
+                 ri, fa, f'Personen: x + y = {n}. Geld: {eur(p1)} € je Erwachsener und {eur(p2)} € je Kind ergibt {zt(p1)}x + {zt(p2)}y = {zt(G)}. (Lösung: {x} Erwachsene, {y} Kinder.)',
+                 'Eine Gleichung zählt die Personen, die andere das Geld.')
+    if art == 'fitness':
+        g1, p1 = R.choice([20, 25, 30]), R.choice([2, 3])
+        p2 = p1 + R.choice([2, 3])
+        n = R.randint(3, 8)
+        g2_ = g1 - (p2 - p1) * n
+        if g2_ <= 0: return g_sachaufgabe(R, st)
+        return Z(f'Fitnessstudio A kostet {g1} € im Monat plus {p1} € pro Besuch, Studio B {g2_} € im Monat plus {p2} € pro Besuch. Bei wie vielen Besuchen im Monat kosten beide gleich viel?', n,
+                 f'({g1} - {g2_}) / ({p2} - {p1})', f'I: y = {lin(p1, g1)}, II: y = {lin(p2, g2_)}. Gleichsetzen: {lin(p1, g1)} = {lin(p2, g2_)} → {g1 - g2_} = {lin(p2 - p1, 0)} → x = {n}. '
+                 f'Kosten dann: y = {p1} · {n} + {g1} = {p1 * n + g1} €.', 'Stelle für jedes Studio y = Grundbetrag + Preis · x auf und setze gleich.')
     if art == 'zahlen':
         a, b = sorted(R.sample(range(3, 60), 2), reverse=True)
         return Z(f'Die Summe zweier Zahlen ist {a + b}, ihre Differenz ist {a - b}. Wie heißt die größere Zahl?', a, f'({a + b} + {a - b}) / 2',
-                 f'I: x + y = {a + b}, II: x − y = {a - b}. I + II: 2x = {2 * a} → x = {a}, y = {b}.', 'Stelle zwei Gleichungen auf und addiere sie.')
+                 f'I: x + y = {a + b}, II: x − y = {a - b}. I + II: 2x = {2 * a} → x = {a}. In I: y = {a + b} − {a} = {b}.', 'Stelle zwei Gleichungen auf und addiere sie.')
     if art == 'tiere':
         x, y = R.randint(3, 25), R.randint(2, 20)
         k = x + y; bn = 2 * x + 4 * y
         if R.random() < .5:
             return Z(f'Auf einem Hof leben Hühner und Kaninchen, zusammen {k} Tiere mit {bn} Beinen. Wie viele Kaninchen sind es?', y, f'({bn} - 2 * {k}) / 2',
-                     f'I: x + y = {k}, II: 2x + 4y = {bn}. II − 2 · I: 2y = {bn - 2 * k} → y = {y}.', 'Hühner haben 2, Kaninchen 4 Beine.')
+                     f'I: x + y = {k}, II: 2x + 4y = {bn}. II − 2 · I: 2y = {bn - 2 * k} → y = {y}. Hühner: x = {k} − {y} = {x}.', 'Hühner haben 2, Kaninchen 4 Beine.')
         return Z(f'Auf einem Hof leben Hühner und Kaninchen, zusammen {k} Tiere mit {bn} Beinen. Wie viele Hühner sind es?', x, f'{k} - ({bn} - 2 * {k}) / 2',
                  f'I: x + y = {k}, II: 2x + 4y = {bn}. II − 2 · I: 2y = {bn - 2 * k} → y = {y}, x = {k} − {y} = {x}.', 'Hühner haben 2, Kaninchen 4 Beine.')
     if art == 'muenzen':
@@ -283,7 +366,7 @@ def g_sachaufgabe(R, st):
         n1, n2 = {Fr(2): '2-€', Fr(1): '1-€', Fr(1, 2): '50-Cent', Fr(1, 5): '20-Cent'}[Fr(w1)], {Fr(2): '2-€', Fr(1): '1-€', Fr(1, 2): '50-Cent', Fr(1, 5): '20-Cent'}[Fr(w2)]
         return Z(f'In einer Spardose sind {n} Münzen, nur {n1}- und {n2}-Stücke, zusammen {eur(W)} €. Wie viele {n1}-Stücke sind es?', x,
                  f'({cz(W)} - {cz(w2)} * {n}) / ({cz(w1)} - {cz(w2)})',
-                 f'I: x + y = {n}, II: {g2(w1, w2)} = {zt(W)}. y = {n} − x einsetzen: {lin(Fr(w1) - Fr(w2), 0)} = {zt(W - Fr(w2) * n)}' + ('' if Fr(w1) - Fr(w2) == 1 else f' → x = {x}') + '.',
+                 f'I: x + y = {n}, II: {g2(w1, w2)} = {zt(W)}. y = {n} − x einsetzen: {lin(Fr(w1) - Fr(w2), 0)} = {zt(W - Fr(w2) * n)}' + ('' if Fr(w1) - Fr(w2) == 1 else f' → x = {x}') + f'. Andere Sorte: y = {n} − {x} = {y}.',
                  'x = Anzahl der wertvolleren Münzen. Eine Gleichung für die Anzahl, eine für den Wert.')
     if art == 'eintritt':
         p1, p2 = R.choice([(12, 7), (9, 5), (15, 8), (Fr(21, 2), 6), (8, Fr(9, 2)), (14, 9)])
@@ -291,7 +374,7 @@ def g_sachaufgabe(R, st):
         n, G = x + y, p1 * x + p2 * y
         return Z(f'Eine Eintrittskarte kostet für Erwachsene {eur(p1)} €, für Kinder {eur(p2)} €. Eine Gruppe aus {n} Personen zahlt {eur(G)} €. Wie viele Kinder sind dabei?', y,
                  f'({cz(p1)} * {n} - {cz(G)}) / ({cz(p1)} - {cz(p2)})',
-                 f'I: x + y = {n}, II: {eur(p1)}x + {eur(p2)}y = {eur(G)}. x = {n} − y einsetzen: {eur(Fr(p1) * n)} − {eur(Fr(p1) - Fr(p2))}y = {eur(G)} → y = {y}.',
+                 f'I: x + y = {n}, II: {eur(p1)}x + {eur(p2)}y = {eur(G)}. x = {n} − y einsetzen: {eur(Fr(p1) * n)} − {eur(Fr(p1) - Fr(p2))}y = {eur(G)} → y = {y}. Erwachsene: x = {n} − {y} = {x}.',
                  'x = Erwachsene, y = Kinder. Eine Gleichung für die Personen, eine für den Preis.')
     if art == 'tarif':
         g1, p1 = R.choice([20, 30, 35, 40, 50]), R.choice([30, 35, 40, 45])
@@ -300,29 +383,57 @@ def g_sachaufgabe(R, st):
         gB = g1 + (p1 - p2) * t
         if gB < 0 or gB.denominator != 1: return g_sachaufgabe(R, st)
         return Z(f'Handwerker A berechnet {g1} € Anfahrt und {p1} € pro Stunde, Handwerker B {zt(gB)} € Anfahrt und {p2} € pro Stunde. Nach wie vielen Stunden kosten beide gleich viel?', t,
-                 f'({g1} - {cz(gB)}) / ({p2} - {p1})', f'I: y = {lin(p1, g1)}, II: y = {lin(p2, gB)}. Gleichsetzen: {lin(p1 - p2, 0)} = {zt(gB - g1)} → x = {zt(t)} h.',
+                 f'({g1} - {cz(gB)}) / ({p2} - {p1})', f'I: y = {lin(p1, g1)}, II: y = {lin(p2, gB)}. Gleichsetzen: {lin(p1 - p2, 0)} = {zt(gB - g1)} → x = {zt(t)} h. Kosten dann: y = {eur(p1 * t + g1)} €.',
                  'Stelle für jeden Handwerker eine Gleichung y = Anfahrt + Preis · x auf und setze gleich.', einheit='h')
-    # Mischung
-    k1, k2 = R.choice([(2, 6), (4, 10), (3, 8), (5, 12)])     # € pro kg
+    # Mischung (realistische Preise: Nüsse 8–20 €/kg, Kaffee 10–30 €/kg)
+    sorte = R.choice([('Erdnüsse', 'Cashewkerne', [(8, 20), (9, 18), (10, 16)]), ('Kaffee der Sorte A', 'Kaffee der Sorte B', [(12, 24), (14, 28), (10, 22), (15, 30)])])
+    k1, k2 = R.choice(sorte[2])
     x, y = R.randint(2, 12), R.randint(2, 12)
     m, P = x + y, k1 * x + k2 * y
-    return Z(f'Ein Händler mischt Nüsse zu {k1} € pro kg mit Nüssen zu {k2} € pro kg. Er erhält {m} kg Mischung im Wert von {P} €. Wie viel kg der billigeren Sorte verwendet er?', x,
-             f'({k2} * {m} - {P}) / ({k2} - {k1})', f'I: x + y = {m}, II: {k1}x + {k2}y = {P}. y = {m} − x: {k1}x + {k2 * m} − {k2}x = {P} → {lin(k1 - k2, 0)} = {zt(P - k2 * m)} → x = {x}.',
+    return Z(f'Ein Händler mischt {sorte[0]} zu {k1} € pro kg mit {sorte[1]} zu {k2} € pro kg. Er erhält {m} kg Mischung im Wert von {P} €. Wie viel kg der billigeren Sorte verwendet er?', x,
+             f'({k2} * {m} - {P}) / ({k2} - {k1})', f'I: x + y = {m}, II: {k1}x + {k2}y = {P}. y = {m} − x: {k1}x + {k2 * m} − {k2}x = {P} → {lin(k1 - k2, 0)} = {zt(P - k2 * m)} → x = {x}. Teurere Sorte: y = {m} − {x} = {y}.',
              'Eine Gleichung für die Masse, eine für den Preis.', einheit='kg')
 
 
-GEN = {'pruefen': g_pruefen, 'einsetzen': g_einsetzen, 'gleichsetzen': g_gleichsetzen, 'addition': g_addition,
+def g_grafisch(R, st):
+    while True:
+        x, y = R.randint(-3, 4), R.randint(-3, 5)
+        ms = [-3, -2, -1, Fr(-1, 2), Fr(1, 2), 1, 2, 3] if st >= 2 else [-2, -1, 1, 2]
+        m1, m2 = R.sample(ms, 2)
+        t1, t2 = y - m1 * x, y - m2 * x
+        if Fr(t1).denominator == 1 and Fr(t2).denominator == 1 and abs(t1) <= 8 and abs(t2) <= 8: break
+    f = lambda m: float(m) if Fr(m).denominator != 1 else int(m)
+    gr = {'typ': 'koordinaten', 'x': [x - 4, x + 4], 'y': [y - 6, y + 6],
+          'graphen': [{'art': 'linear', 'm': f(m1), 't': int(t1), 'name': 'I'}, {'art': 'linear', 'm': f(m2), 't': int(t2), 'name': 'II'}]}
+    def gleich(m, t):
+        if Fr(m).denominator == 2:   # 2y = 2m·x + 2t  →  −(2m)x + 2y = 2t
+            return gl(int(-2 * m), 2, int(2 * t))
+        return gl(int(-m), 1, int(t)) if R.random() < .5 else f'y = {lin(m, t)}'
+    T = sys_text(gleich(m1, t1), gleich(m2, t2))
+    probe = f'Probe: I und II mit x = {zt(x)}, y = {zt(y)} erfüllt.'
+    if st == 3 and R.random() < .5:
+        # ein Kandidat ist abgelesen – prüfen, ob er stimmt
+        p, q = R.choice([(x, y), (x + 1, y), (x, y + 1)])
+        ok = (p, q) == (x, y)
+        return mit_bild(A(R, f'Gegeben: {T}. Jemand liest am Bild den Schnittpunkt ({zt(p)} | {zt(q)}) ab. Stimmt das?',
+                          'Ja, das Paar erfüllt beide Gleichungen.' if ok else f'Nein, richtig ist ({zt(x)} | {zt(y)}).',
+                          ['Nein, richtig ist (' + zt(y) + ' | ' + zt(x) + ').' if (y, x) != (x, y) else 'Nein, richtig ist (0 | 0).',
+                           'Ja, das Paar erfüllt beide Gleichungen.' if not ok else f'Nein, richtig ist ({zt(x + 1)} | {zt(y)}).', 'Das kann man am Bild nicht entscheiden.'],
+                          f'Der Schnittpunkt ist ({zt(x)} | {zt(y)}). {probe}', 'Setze das abgelesene Paar in beide Gleichungen ein.'), gr)
+    return mit_bild(L(f'Lies die Lösung des Gleichungssystems {T} am Schnittpunkt ab.', 'S(□ | □)', [x, y], [str(x), str(y)],
+                      f'Die Geraden schneiden sich in S({zt(x)} | {zt(y)}). L = {{({zt(x)} | {zt(y)})}}. {probe}',
+                      'Suche den Punkt, der auf beiden Geraden liegt. Erst nach rechts/links (x), dann nach oben/unten (y).', hinweis='Trage x und y des Schnittpunkts ein.'), gr)
+
+
+GEN = {'grafisch': g_grafisch, 'pruefen': g_pruefen, 'einsetzen': g_einsetzen, 'gleichsetzen': g_gleichsetzen, 'addition': g_addition,
        'loesbarkeit': g_loesbarkeit, 'verfahren': g_verfahren, 'sachaufgabe': g_sachaufgabe}
 
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
-         [('Grundidee', ['pruefen']), ('Lösungsverfahren', ['einsetzen', 'gleichsetzen', 'addition', 'verfahren']),
+         [('Grundidee', ['pruefen', 'grafisch']), ('Lösungsverfahren', ['einsetzen', 'gleichsetzen', 'addition', 'verfahren']),
           ('Verstehen und Anwenden', ['loesbarkeit', 'sachaufgabe'])],
          'Lineare Gleichungssysteme mit zwei Unbekannten rechnerisch lösen, Lösbarkeit begründen, das passende Verfahren wählen und Sachaufgaben lösen.',
          ['Lösung = Zahlenpaar (x | y), das beide Gleichungen erfüllt.',
           'Gleichsetzen, Einsetzen oder Addieren – Ziel: eine Gleichung mit nur einer Variablen.',
           'Falsche Aussage (0 = 5): keine Lösung. Wahre Aussage (0 = 0): unendlich viele Lösungen.'],
-         offen=['Lehrplan/Umfang: Gleichungssysteme auch grafisch lösen (Schnittpunkt zweier Geraden) und Lösbarkeit an der Lage der Geraden zeigen. '
-                'Dafür braucht die App ein Koordinatensystem mit Geraden; nicht gebaut.',
-                'Die Lösung ist ein Zahlenpaar. Da die App je Aufgabe nur eine Zahl abfragen kann, fragen die Rechenaufgaben abwechselnd nach x oder y. '
-                'Ein Antworttyp „Zahlenpaar“ wäre sinnvoll.'])
+         offen=['Prüfvorschlag „grafisch lösen“ (Karte pruefen) ist in der neuen Karte „grafisch“ umgesetzt.'])

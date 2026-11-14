@@ -32,9 +32,10 @@
     ]
    },
    {
-    "titel": "Verhältnisse",
+    "titel": "Verhältnisse und Graphen",
     "lernziele": [
-     "verhaeltnis"
+     "verhaeltnis",
+     "graphisch"
     ]
    }
   ],
@@ -55,9 +56,10 @@
     "titel": "Bruchgleichungen mit einem Bruch",
     "regel": "Multipliziere beide Seiten mit dem ⟦Nenner⟧. Dann ist der Bruch weg und du löst eine lineare Gleichung. Zum Schluss prüfst du, ob die Lösung in ⟦D⟧ liegt.",
     "schritte": [
-     "12/(x − 2) = 3   D = ℚ \\ {2}",
-     "| · (x − 2): 12 = 3(x − 2) = 3x − 6",
-     "18 = 3x → ⟦x = 6⟧, 6 liegt in D."
+     "12/(x − 2) = 3. Zuerst D = ℚ \\ {2}.",
+     "Beide Seiten · (x − 2): 12 = 3 · (x − 2) = 3x − 6.",
+     "18 = 3x, also ⟦x = 6⟧. 6 liegt in D.",
+     "Schneller mit der Umkehrfrage: 12 geteilt durch was ergibt 3? Durch 4. Also x − 2 = 4 und x = 6."
     ],
     "probe": "12/(6 − 2) = 12/4 = 3 ✓",
     "fehler": "Aus 12/(x − 2) = 3 wird nicht 12 = 3x − 2. Der Nenner wird als ⟦Ganzes⟧ multipliziert: 3 · (x − 2) = 3x − 6."
@@ -65,14 +67,14 @@
    {
     "lernziel": "ueber_kreuz",
     "titel": "Zwei Brüche: über Kreuz multiplizieren",
-    "regel": "Steht auf jeder Seite genau ein Bruch, multiplizierst du ⟦über Kreuz⟧: aus a/b = c/d wird a · d = c · b.",
+    "regel": "Steht auf jeder Seite ⟦genau ein⟧ Bruch, multiplizierst du ⟦über Kreuz⟧: aus a/b = c/d wird a · d = c · b. Warum? Du nimmst beide Seiten mit b und mit d mal – dann kürzt sich links das b und rechts das d weg.",
     "schritte": [
      "4/(x + 1) = 2/(x − 3)   D = ℚ \\ {−1; 3}",
      "Über Kreuz: 4(x − 3) = 2(x + 1)",
      "4x − 12 = 2x + 2 → 2x = 14 → ⟦x = 7⟧"
     ],
     "probe": "4/8 = 0,5 und 2/4 = 0,5 ✓",
-    "fehler": "Über Kreuz heißt Zähler links mal Nenner ⟦rechts⟧. 4 · (x + 1) = 2 · (x − 3) ist falsch – das sind Zähler und Nenner derselben Seite."
+    "fehler": "Über Kreuz heißt Zähler links mal Nenner ⟦rechts⟧. 4 · (x + 1) = 2 · (x − 3) ist falsch – da wurde jeder Zähler mit dem eigenen Nenner malgenommen. Und Vorsicht: Bei 4/(x + 1) + 1 = 2/(x − 3) steht links eine Summe, dann geht über Kreuz ⟦nicht⟧ – nimm den Hauptnenner."
    },
    {
     "lernziel": "hauptnenner",
@@ -83,7 +85,7 @@
      "| · 2x: 10 + 1 = 4x",
      "11 = 4x → ⟦x = 2,75⟧"
     ],
-    "fehler": "Beim Multiplizieren mit dem Hauptnenner darf kein Glied vergessen werden: Auch die ⟦2 auf der rechten Seite⟧ wird mit 2x multipliziert."
+    "fehler": "Ein Glied vergessen: Wer bei 5/x + 1/(2x) = 2 nur die Brüche mit 2x malnimmt, bekommt 10 + 1 = 2 – das x ist verschwunden und die Gleichung ist Unsinn. Auch die ⟦2 auf der rechten Seite⟧ wird mit 2x multipliziert: 11 = 4x."
    },
    {
     "lernziel": "scheinloesung",
@@ -99,13 +101,64 @@
    {
     "lernziel": "verhaeltnis",
     "titel": "Verhältnisgleichungen",
-    "regel": "Eine ⟦Verhältnisgleichung⟧ hat die Form a : b = c : d. Es gilt die ⟦Produktgleichheit⟧: a · d = b · c (Außenglieder mal = Innenglieder mal).",
+    "regel": "Eine ⟦Verhältnisgleichung⟧ hat die Form a : b = c : d. Es gilt die ⟦Produktgleichheit⟧: a · d = b · c (Außenglieder mal Außenglieder = Innenglieder mal Innenglieder).",
     "schritte": [
-     "x : 6 = 10 : 4",
-     "Produktgleichheit: 4x = 6 · 10 = 60",
-     "⟦x = 15⟧"
+     "Pfannkuchen: Auf 4 Eier kommen 10 Esslöffel Mehl. Wie viel Mehl für 6 Eier? Das Verhältnis Mehl : Eier bleibt gleich: x : 6 = 10 : 4.",
+     "Produktgleichheit: 4 · x = 6 · 10 = 60.",
+     "⟦x = 15⟧ Esslöffel Mehl."
     ],
-    "fehler": "Bei x : 6 = 10 : 4 ist x nicht 6 · 4 : 10. Die ⟦Außenglieder⟧ x und 4 werden multipliziert, ebenso die Innenglieder 6 und 10."
+    "probe": "Mit dem Faktor: Auf 1 Ei kommen 10 : 4 = 2,5 EL, also 6 · 2,5 = 15 ✓",
+    "fehler": "x = 6 · 4 : 10 = 2,4 ist falsch – mit mehr Eiern braucht man nicht weniger Mehl! Die ⟦Außenglieder⟧ x und 4 werden miteinander multipliziert, ebenso die Innenglieder 6 und 10: 4x = 60."
+   },
+   {
+    "lernziel": "graphisch",
+    "titel": "Bruchgleichung am Graphen lösen",
+    "regel": "Jede Seite einer Gleichung ist ein Funktionsterm. Zeichne ⟦beide Graphen⟧. Wo sie sich ⟦schneiden⟧, sind beide Seiten gleich: Die x-Werte der Schnittpunkte sind die Lösungen.",
+    "schritte": [
+     "Gleichung 6/x = x − 1. Links die Hyperbel y = 6/x, rechts die Gerade y = x − 1.",
+     "Die Graphen schneiden sich in (3 | 2) und in (−2 | −3).",
+     "Die Lösungen sind ⟦x = 3⟧ und ⟦x = −2⟧."
+    ],
+    "probe": "6/3 = 2 und 3 − 1 = 2 ✓. 6/(−2) = −3 und −2 − 1 = −3 ✓",
+    "fehler": "Die y-Werte als Lösung angeben: L = {2; −3} ist falsch. Gesucht sind die ⟦x-Werte⟧ der Schnittpunkte, denn x ist die Unbekannte der Gleichung.",
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -6,
+      6
+     ],
+     "graphen": [
+      {
+       "art": "hyperbel",
+       "a": 6,
+       "b": 0,
+       "c": 0,
+       "name": "y = 6/x"
+      },
+      {
+       "art": "linear",
+       "m": 1,
+       "t": -1,
+       "name": "y = x − 1"
+      }
+     ],
+     "punkte": [
+      {
+       "x": 3,
+       "y": 2,
+       "name": "(3 | 2)"
+      },
+      {
+       "x": -2,
+       "y": -3,
+       "name": "(−2 | −3)"
+      }
+     ]
+    }
    }
   ],
   "teilfaehigkeiten": [
@@ -150,6 +203,13 @@
     "lernziele": [
      "verhaeltnis"
     ]
+   },
+   {
+    "k": "graphisch",
+    "text": "Bruchgleichung am Graphen lösen",
+    "lernziele": [
+     "graphisch"
+    ]
    }
   ],
   "bewertung": {
@@ -159,7 +219,8 @@
     "ueber_kreuz",
     "hauptnenner",
     "scheinloesung",
-    "verhaeltnis"
+    "verhaeltnis",
+    "graphisch"
    ],
    "lernziele_vertiefung": [],
    "testaufgaben_je_lernziel": 1
@@ -180,31 +241,10 @@
     "text": "Bestimme die Definitionsmenge von 10/(x + 9) = 3."
    },
    "a": [
+    "ℚ \\ {9}",
     "ℚ \\ {−9}",
     "ℚ \\ {0}",
-    "ℚ \\ {9}",
     "ℚ \\ {−9; 3}"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Nenner x + 9 = 0 für x = −9. D = ℚ \\ {−9}.",
-   "h": "Setze den Nenner gleich 0."
-  },
-  {
-   "l": "definitionsmenge",
-   "t": "definitionsmenge",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Bestimme die Definitionsmenge von 10/(x + 9) = 7."
-   },
-   "a": [
-    "ℚ \\ {9}",
-    "ℚ \\ {−9}",
-    "ℚ \\ {−9; 7}",
-    "ℚ \\ {0}"
    ],
    "o": {
     "index": 1
@@ -219,18 +259,18 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Bestimme die Definitionsmenge von 9/(x − 9) = 7."
+    "text": "Bestimme die Definitionsmenge von 1/(x − 2) = 7."
    },
    "a": [
-    "ℚ \\ {7; 9}",
     "ℚ \\ {0}",
-    "ℚ \\ {−9}",
-    "ℚ \\ {9}"
+    "ℚ \\ {−2}",
+    "ℚ \\ {2; 7}",
+    "ℚ \\ {2}"
    ],
    "o": {
     "index": 3
    },
-   "w": "Nenner x − 9 = 0 für x = 9. D = ℚ \\ {9}.",
+   "w": "Nenner x − 2 = 0 für x = 2. D = ℚ \\ {2}.",
    "h": "Setze den Nenner gleich 0."
   },
   {
@@ -240,18 +280,39 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Bestimme die Definitionsmenge von 4/(x + 5) = 6."
+    "text": "Bestimme die Definitionsmenge von 6/(x − 8) = 9."
    },
    "a": [
-    "ℚ \\ {−5}",
-    "ℚ \\ {5}",
-    "ℚ \\ {−5; 6}",
-    "ℚ \\ {0}"
+    "ℚ \\ {−8}",
+    "ℚ \\ {0}",
+    "ℚ \\ {8}",
+    "ℚ \\ {8; 9}"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Nenner x − 8 = 0 für x = 8. D = ℚ \\ {8}.",
+   "h": "Setze den Nenner gleich 0."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Bestimme die Definitionsmenge von 5/(x + 3) = 3."
+   },
+   "a": [
+    "ℚ \\ {−3}",
+    "ℚ \\ {−3; 3}",
+    "ℚ \\ {0}",
+    "ℚ \\ {3}"
    ],
    "o": {
     "index": 0
    },
-   "w": "Nenner x + 5 = 0 für x = −5. D = ℚ \\ {−5}.",
+   "w": "Nenner x + 3 = 0 für x = −3. D = ℚ \\ {−3}.",
    "h": "Setze den Nenner gleich 0."
   },
   {
@@ -261,102 +322,101 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Bestimme die Definitionsmenge von 2/(x + 1) = 6/(x − 9)."
+    "text": "Bestimme die Definitionsmenge von 5/(x + 6) = 2/(x + 1)."
    },
    "a": [
-    "ℚ \\ {9}",
-    "ℚ \\ {−9; 1}",
-    "ℚ \\ {−1}",
-    "ℚ \\ {−1; 9}"
+    "ℚ \\ {−6}",
+    "ℚ \\ {−6; −1}",
+    "ℚ \\ {1; 6}",
+    "ℚ \\ {−1}"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Linker Nenner 0 für x = −6, rechter für x = −1. D = ℚ \\ {−6; −1}.",
+   "h": "Jeder Nenner liefert eine ausgeschlossene Zahl."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Bestimme die Definitionsmenge von 1/(x + 3) = 2/(x − 3)."
+   },
+   "a": [
+    "ℚ \\ {3}",
+    "ℚ \\ {−3; 3}",
+    "ℚ \\ {−3}"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Linker Nenner 0 für x = −3, rechter für x = 3. D = ℚ \\ {−3; 3}.",
+   "h": "Jeder Nenner liefert eine ausgeschlossene Zahl."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Bestimme die Definitionsmenge von 3/(x + 9) = 9/(x − 6)."
+   },
+   "a": [
+    "ℚ \\ {6}",
+    "ℚ \\ {−9}",
+    "ℚ \\ {−9; 6}",
+    "ℚ \\ {−6; 9}"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Linker Nenner 0 für x = −9, rechter für x = 6. D = ℚ \\ {−9; 6}.",
+   "h": "Jeder Nenner liefert eine ausgeschlossene Zahl."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Bestimme die Definitionsmenge von 8/(x − 3) = 2/(x − 1)."
+   },
+   "a": [
+    "ℚ \\ {1; 3}",
+    "ℚ \\ {1}",
+    "ℚ \\ {−3; −1}",
+    "ℚ \\ {3}"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Linker Nenner 0 für x = 3, rechter für x = 1. D = ℚ \\ {1; 3}.",
+   "h": "Jeder Nenner liefert eine ausgeschlossene Zahl."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Bestimme die Definitionsmenge von 1/(x + 6) = 3/(x − 3)."
+   },
+   "a": [
+    "ℚ \\ {−6}",
+    "ℚ \\ {−3; 6}",
+    "ℚ \\ {3}",
+    "ℚ \\ {−6; 3}"
    ],
    "o": {
     "index": 3
    },
-   "w": "Linker Nenner 0 für x = −1, rechter für x = 9. D = ℚ \\ {−1; 9}.",
-   "h": "Jeder Nenner liefert eine ausgeschlossene Zahl."
-  },
-  {
-   "l": "definitionsmenge",
-   "t": "definitionsmenge",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Bestimme die Definitionsmenge von 2/(x − 3) = 1/(x + 8)."
-   },
-   "a": [
-    "ℚ \\ {−8}",
-    "ℚ \\ {3}",
-    "ℚ \\ {−8; 3}",
-    "ℚ \\ {−3; 8}"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Linker Nenner 0 für x = 3, rechter für x = −8. D = ℚ \\ {−8; 3}.",
-   "h": "Jeder Nenner liefert eine ausgeschlossene Zahl."
-  },
-  {
-   "l": "definitionsmenge",
-   "t": "definitionsmenge",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Bestimme die Definitionsmenge von 9/(x − 6) = 9/(x + 4)."
-   },
-   "a": [
-    "ℚ \\ {−4; 6}",
-    "ℚ \\ {−6; 4}",
-    "ℚ \\ {−4}",
-    "ℚ \\ {6}"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Linker Nenner 0 für x = 6, rechter für x = −4. D = ℚ \\ {−4; 6}.",
-   "h": "Jeder Nenner liefert eine ausgeschlossene Zahl."
-  },
-  {
-   "l": "definitionsmenge",
-   "t": "definitionsmenge",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Bestimme die Definitionsmenge von 2/(x − 1) = 4/(x − 7)."
-   },
-   "a": [
-    "ℚ \\ {1; 7}",
-    "ℚ \\ {−7; −1}",
-    "ℚ \\ {1}",
-    "ℚ \\ {7}"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Linker Nenner 0 für x = 1, rechter für x = 7. D = ℚ \\ {1; 7}.",
-   "h": "Jeder Nenner liefert eine ausgeschlossene Zahl."
-  },
-  {
-   "l": "definitionsmenge",
-   "t": "definitionsmenge",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Bestimme die Definitionsmenge von 3/(x − 3) = 8/(x + 8)."
-   },
-   "a": [
-    "ℚ \\ {3}",
-    "ℚ \\ {−8}",
-    "ℚ \\ {−8; 3}",
-    "ℚ \\ {−3; 8}"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Linker Nenner 0 für x = 3, rechter für x = −8. D = ℚ \\ {−8; 3}.",
+   "w": "Linker Nenner 0 für x = −6, rechter für x = 3. D = ℚ \\ {−6; 3}.",
    "h": "Jeder Nenner liefert eine ausgeschlossene Zahl."
   },
   {
@@ -369,13 +429,13 @@
     "text": "Bestimme die Definitionsmenge von 3/(x + 7) = 4/(x − 9)."
    },
    "a": [
-    "ℚ \\ {−7}",
     "ℚ \\ {−9; 7}",
-    "ℚ \\ {−7; 9}",
-    "ℚ \\ {9}"
+    "ℚ \\ {9}",
+    "ℚ \\ {−7}",
+    "ℚ \\ {−7; 9}"
    ],
    "o": {
-    "index": 2
+    "index": 3
    },
    "w": "Linker Nenner 0 für x = −7, rechter für x = 9. D = ℚ \\ {−7; 9}.",
    "h": "Jeder Nenner liefert eine ausgeschlossene Zahl."
@@ -390,13 +450,13 @@
     "text": "Bestimme die Definitionsmenge von 7/(4x + 4) = 9/(x(x + 2))."
    },
    "a": [
-    "ℚ \\ {−2; −1; 0}",
     "ℚ \\ {−2; −1}",
-    "ℚ \\ {0; 1; 2}",
-    "ℚ \\ {−4; −2; 0}"
+    "ℚ \\ {−4; −2; 0}",
+    "ℚ \\ {−2; −1; 0}",
+    "ℚ \\ {0; 1; 2}"
    ],
    "o": {
-    "index": 0
+    "index": 2
    },
    "w": "4x + 4 = 0 für x = −1; x(x + 2) = 0 für x = 0 oder x = −2. D = ℚ \\ {−2; −1; 0}.",
    "h": "Ein Produkt im Nenner ist 0, wenn ein Faktor 0 ist."
@@ -408,15 +468,15 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Bestimme die Definitionsmenge von 8/(4x + 4) = 1/(x(x − 1))."
+    "text": "Bestimme die Definitionsmenge von 6/(4x + 4) = 8/(x(x − 1))."
    },
    "a": [
-    "ℚ \\ {−1; 1}",
     "ℚ \\ {−1; 0; 1}",
+    "ℚ \\ {−1; 1}",
     "ℚ \\ {−4; 0; 1}"
    ],
    "o": {
-    "index": 1
+    "index": 0
    },
    "w": "4x + 4 = 0 für x = −1; x(x − 1) = 0 für x = 0 oder x = 1. D = ℚ \\ {−1; 0; 1}.",
    "h": "Ein Produkt im Nenner ist 0, wenn ein Faktor 0 ist."
@@ -428,18 +488,18 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Bestimme die Definitionsmenge von 5/(4x + 12) = 8/(x(x + 2))."
+    "text": "Bestimme die Definitionsmenge von 4/(3x − 3) = 5/(x(x + 6))."
    },
    "a": [
-    "ℚ \\ {−12; −2; 0}",
-    "ℚ \\ {−3; −2}",
-    "ℚ \\ {−3; −2; 0}",
-    "ℚ \\ {0; 2; 3}"
+    "ℚ \\ {−6; 0; 3}",
+    "ℚ \\ {−6; 0; 1}",
+    "ℚ \\ {−6; 1}",
+    "ℚ \\ {−1; 0; 6}"
    ],
    "o": {
-    "index": 2
+    "index": 1
    },
-   "w": "4x + 12 = 0 für x = −3; x(x + 2) = 0 für x = 0 oder x = −2. D = ℚ \\ {−3; −2; 0}.",
+   "w": "3x − 3 = 0 für x = 1; x(x + 6) = 0 für x = 0 oder x = −6. D = ℚ \\ {−6; 0; 1}.",
    "h": "Ein Produkt im Nenner ist 0, wenn ein Faktor 0 ist."
   },
   {
@@ -449,18 +509,18 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Bestimme die Definitionsmenge von 3/(5x + 5) = 8/(x(x − 2))."
+    "text": "Bestimme die Definitionsmenge von 3/(5x − 10) = 7/(x(x − 6))."
    },
    "a": [
-    "ℚ \\ {−1; 2}",
-    "ℚ \\ {−1; 0; 2}",
-    "ℚ \\ {−5; 0; 2}",
-    "ℚ \\ {−2; 0; 1}"
+    "ℚ \\ {0; 2; 6}",
+    "ℚ \\ {2; 6}",
+    "ℚ \\ {0; 6; 10}",
+    "ℚ \\ {−6; −2; 0}"
    ],
    "o": {
-    "index": 1
+    "index": 0
    },
-   "w": "5x + 5 = 0 für x = −1; x(x − 2) = 0 für x = 0 oder x = 2. D = ℚ \\ {−1; 0; 2}.",
+   "w": "5x − 10 = 0 für x = 2; x(x − 6) = 0 für x = 0 oder x = 6. D = ℚ \\ {0; 2; 6}.",
    "h": "Ein Produkt im Nenner ist 0, wenn ein Faktor 0 ist."
   },
   {
@@ -470,96 +530,78 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Bestimme die Definitionsmenge von 2/(x + 3) = 9/(x − 4)."
+    "text": "Bestimme die Definitionsmenge von 9/(x − 2) = 1/(x + 9)."
    },
    "a": [
-    "ℚ \\ {−3}",
-    "ℚ \\ {−3; 4}",
-    "ℚ \\ {4}",
-    "ℚ \\ {−4; 3}"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Linker Nenner 0 für x = −3, rechter für x = 4. D = ℚ \\ {−3; 4}."
-  },
-  {
-   "l": "definitionsmenge",
-   "t": "definitionsmenge",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Bestimme die Definitionsmenge von 9/(x + 1) = 2/(x − 1)."
-   },
-   "a": [
-    "ℚ \\ {1}",
-    "ℚ \\ {−1; 1}",
-    "ℚ \\ {−1}"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Linker Nenner 0 für x = −1, rechter für x = 1. D = ℚ \\ {−1; 1}."
-  },
-  {
-   "l": "definitionsmenge",
-   "t": "definitionsmenge",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Bestimme die Definitionsmenge von 4/(x − 5) = 3/(x − 8)."
-   },
-   "a": [
-    "ℚ \\ {8}",
-    "ℚ \\ {−8; −5}",
-    "ℚ \\ {5; 8}",
-    "ℚ \\ {5}"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Linker Nenner 0 für x = 5, rechter für x = 8. D = ℚ \\ {5; 8}."
-  },
-  {
-   "l": "definitionsmenge",
-   "t": "definitionsmenge",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Bestimme die Definitionsmenge von 9/(x − 3) = 3/(x + 5)."
-   },
-   "a": [
-    "ℚ \\ {−3; 5}",
-    "ℚ \\ {3}",
-    "ℚ \\ {−5}",
-    "ℚ \\ {−5; 3}"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Linker Nenner 0 für x = 3, rechter für x = −5. D = ℚ \\ {−5; 3}."
-  },
-  {
-   "l": "definitionsmenge",
-   "t": "definitionsmenge",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Bestimme die Definitionsmenge von 7/(x − 9) = 8/(x + 9)."
-   },
-   "a": [
-    "ℚ \\ {−9; 9}",
+    "ℚ \\ {−9; 2}",
+    "ℚ \\ {−2; 9}",
     "ℚ \\ {−9}",
-    "ℚ \\ {9}"
+    "ℚ \\ {2}"
    ],
    "o": {
     "index": 0
    },
-   "w": "Linker Nenner 0 für x = 9, rechter für x = −9. D = ℚ \\ {−9; 9}."
+   "w": "Linker Nenner 0 für x = 2, rechter für x = −9. D = ℚ \\ {−9; 2}."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Bestimme die Definitionsmenge von 5/(x − 8) = 8/(x + 1)."
+   },
+   "a": [
+    "ℚ \\ {8}",
+    "ℚ \\ {−8; 1}",
+    "ℚ \\ {−1}",
+    "ℚ \\ {−1; 8}"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Linker Nenner 0 für x = 8, rechter für x = −1. D = ℚ \\ {−1; 8}."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Bestimme die Definitionsmenge von 1/(x − 9) = 2/(x + 7)."
+   },
+   "a": [
+    "ℚ \\ {−9; 7}",
+    "ℚ \\ {−7; 9}",
+    "ℚ \\ {9}",
+    "ℚ \\ {−7}"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Linker Nenner 0 für x = 9, rechter für x = −7. D = ℚ \\ {−7; 9}."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Bestimme die Definitionsmenge von 3/(x + 6) = 6/(x + 2)."
+   },
+   "a": [
+    "ℚ \\ {−2}",
+    "ℚ \\ {2; 6}",
+    "ℚ \\ {−6; −2}",
+    "ℚ \\ {−6}"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Linker Nenner 0 für x = −6, rechter für x = −2. D = ℚ \\ {−6; −2}."
   },
   {
    "l": "definitionsmenge",
@@ -568,18 +610,38 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Bestimme die Definitionsmenge von 6/(x − 9) = 6/(x − 5)."
+    "text": "Bestimme die Definitionsmenge von 9/(x − 6) = 1/(x + 4)."
    },
    "a": [
-    "ℚ \\ {−9; −5}",
-    "ℚ \\ {9}",
-    "ℚ \\ {5}",
-    "ℚ \\ {5; 9}"
+    "ℚ \\ {6}",
+    "ℚ \\ {−4; 6}",
+    "ℚ \\ {−6; 4}",
+    "ℚ \\ {−4}"
    ],
    "o": {
-    "index": 3
+    "index": 1
    },
-   "w": "Linker Nenner 0 für x = 9, rechter für x = 5. D = ℚ \\ {5; 9}."
+   "w": "Linker Nenner 0 für x = 6, rechter für x = −4. D = ℚ \\ {−4; 6}."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Bestimme die Definitionsmenge von 6/(x − 2) = 6/(x − 5)."
+   },
+   "a": [
+    "ℚ \\ {2; 5}",
+    "ℚ \\ {2}",
+    "ℚ \\ {−5; −2}",
+    "ℚ \\ {5}"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Linker Nenner 0 für x = 2, rechter für x = 5. D = ℚ \\ {2; 5}."
   },
   {
    "l": "definitionsmenge",
@@ -611,8 +673,8 @@
     "text": "Bestimme die Definitionsmenge von 3/(x + 7) = 1/(x − 4)."
    },
    "a": [
-    "ℚ \\ {4}",
     "ℚ \\ {−7}",
+    "ℚ \\ {4}",
     "ℚ \\ {−4; 7}",
     "ℚ \\ {−7; 4}"
    ],
@@ -631,8 +693,8 @@
     "text": "Bestimme die Definitionsmenge von 3/(x − 3) = 8/(x + 9)."
    },
    "a": [
-    "ℚ \\ {−3; 9}",
     "ℚ \\ {−9}",
+    "ℚ \\ {−3; 9}",
     "ℚ \\ {−9; 3}",
     "ℚ \\ {3}"
    ],
@@ -651,13 +713,13 @@
     "text": "Bestimme die Definitionsmenge von 1/(x − 5) = 4/(x − 9)."
    },
    "a": [
-    "ℚ \\ {−9; −5}",
     "ℚ \\ {5; 9}",
+    "ℚ \\ {−9; −5}",
     "ℚ \\ {9}",
     "ℚ \\ {5}"
    ],
    "o": {
-    "index": 1
+    "index": 0
    },
    "w": "Linker Nenner 0 für x = 5, rechter für x = 9. D = ℚ \\ {5; 9}."
   },
@@ -668,13 +730,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Löse −30/x = 5."
+    "text": "Löse 3/x = 3."
    },
    "o": {
-    "wert": -6
+    "wert": 1
    },
-   "c": "-30 / 5",
-   "w": "D = ℚ \\ {0}. · x: −30 = 5x → x = −30 : 5 = −6.",
+   "c": "3 / 3",
+   "w": "D = ℚ \\ {0}. · x: 3 = 3x → x = 3 : 3 = 1. Umkehrfrage: 3 geteilt durch 1 ergibt 3.",
    "h": "Multipliziere mit dem Nenner und löse dann die lineare Gleichung."
   },
   {
@@ -684,29 +746,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Löse −40/x = 5."
-   },
-   "o": {
-    "wert": -8
-   },
-   "c": "-40 / 5",
-   "w": "D = ℚ \\ {0}. · x: −40 = 5x → x = −40 : 5 = −8.",
-   "h": "Multipliziere mit dem Nenner und löse dann die lineare Gleichung."
-  },
-  {
-   "l": "ein_bruch",
-   "t": "ein_bruch",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 6/x = 2."
+    "text": "Löse 2 = 6/x."
    },
    "o": {
     "wert": 3
    },
    "c": "6 / 2",
-   "w": "D = ℚ \\ {0}. · x: 6 = 2x → x = 6 : 2 = 3.",
+   "w": "D = ℚ \\ {0}. · x: 6 = 2x → x = 6 : 2 = 3. Umkehrfrage: 6 geteilt durch 3 ergibt 2.",
    "h": "Multipliziere mit dem Nenner und löse dann die lineare Gleichung."
   },
   {
@@ -716,13 +762,29 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Löse −8/x = −2."
+    "text": "Löse 3 = 21/x."
    },
    "o": {
-    "wert": 4
+    "wert": 7
    },
-   "c": "-8 / -2",
-   "w": "D = ℚ \\ {0}. · x: −8 = −2x → x = −8 : (−2) = 4.",
+   "c": "21 / 3",
+   "w": "D = ℚ \\ {0}. · x: 21 = 3x → x = 21 : 3 = 7. Umkehrfrage: 21 geteilt durch 7 ergibt 3.",
+   "h": "Multipliziere mit dem Nenner und löse dann die lineare Gleichung."
+  },
+  {
+   "l": "ein_bruch",
+   "t": "ein_bruch",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse −2 = 16/x."
+   },
+   "o": {
+    "wert": -8
+   },
+   "c": "16 / -2",
+   "w": "D = ℚ \\ {0}. · x: 16 = −2x → x = 16 : (−2) = −8. Umkehrfrage: 16 geteilt durch −8 ergibt −2.",
    "h": "Multipliziere mit dem Nenner und löse dann die lineare Gleichung."
   },
   {
@@ -732,13 +794,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse −44/(x − 5) = 4."
+    "text": "Löse 90/(5x) = 3."
    },
    "o": {
-    "wert": -6
+    "wert": 6
    },
-   "c": "(-44 - (-20)) / 4",
-   "w": "D = ℚ \\ {5}. · (x − 5): −44 = 4(x − 5) = 4x − 20 → 4x = −24 → x = −6.",
+   "c": "90 / (3 * 5)",
+   "w": "D = ℚ \\ {0}. · 5x: 90 = 15x → x = 90 : 15 = 6.",
    "h": "Multipliziere mit dem Nenner und löse dann die lineare Gleichung."
   },
   {
@@ -748,13 +810,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse 25/(x + 9) = 5."
+    "text": "Löse 84/(4x) = 3."
    },
    "o": {
-    "wert": -4
+    "wert": 7
    },
-   "c": "(25 - (45)) / 5",
-   "w": "D = ℚ \\ {−9}. · (x + 9): 25 = 5(x + 9) = 5x + 45 → 5x = −20 → x = −4.",
+   "c": "84 / (3 * 4)",
+   "w": "D = ℚ \\ {0}. · 4x: 84 = 12x → x = 84 : 12 = 7.",
    "h": "Multipliziere mit dem Nenner und löse dann die lineare Gleichung."
   },
   {
@@ -764,505 +826,393 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse −30/(x + 6) = −2."
-   },
-   "o": {
-    "wert": 9
-   },
-   "c": "(-30 - (-12)) / -2",
-   "w": "D = ℚ \\ {−6}. · (x + 6): −30 = −2(x + 6) = −2x − 12 → −2x = −18 → x = 9.",
-   "h": "Multipliziere mit dem Nenner und löse dann die lineare Gleichung."
-  },
-  {
-   "l": "ein_bruch",
-   "t": "ein_bruch",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 27/(x − 1) = 3."
-   },
-   "o": {
-    "wert": 10
-   },
-   "c": "(27 - (-3)) / 3",
-   "w": "D = ℚ \\ {1}. · (x − 1): 27 = 3(x − 1) = 3x − 3 → 3x = 30 → x = 10.",
-   "h": "Multipliziere mit dem Nenner und löse dann die lineare Gleichung."
-  },
-  {
-   "l": "ein_bruch",
-   "t": "ein_bruch",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 76/(x + 7) = 4."
-   },
-   "o": {
-    "wert": 12
-   },
-   "c": "(76 - (28)) / 4",
-   "w": "D = ℚ \\ {−7}. · (x + 7): 76 = 4(x + 7) = 4x + 28 → 4x = 48 → x = 12.",
-   "h": "Multipliziere mit dem Nenner und löse dann die lineare Gleichung."
-  },
-  {
-   "l": "ein_bruch",
-   "t": "ein_bruch",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 4/(x − 4) = −4."
+    "text": "Löse −4 = 4/(x − 4)."
    },
    "o": {
     "wert": 3
    },
    "c": "(4 - (16)) / -4",
-   "w": "D = ℚ \\ {4}. · (x − 4): 4 = −4(x − 4) = −4x + 16 → −4x = −12 → x = 3.",
+   "w": "D = ℚ \\ {4}. · (x − 4): 4 = −4(x − 4) = −4x + 16 → −4x = −12 → x = 3. Umkehrfrage: 4 geteilt durch −1 ergibt −4, also x − 4 = −1.",
    "h": "Multipliziere mit dem Nenner und löse dann die lineare Gleichung."
   },
   {
    "l": "ein_bruch",
    "t": "ein_bruch",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse (x − 7)/(x − 8) = −1."
+    "text": "Löse −4 = 24/(x + 2)."
    },
    "o": {
-    "wert": 7.5
+    "wert": -8
    },
-   "c": "(-8 + (-7)) / (-1 - 1)",
-   "w": "D = ℚ \\ {8}. · (x − 8): x − 7 = −x + 8 → 2x = 15 → x = 7,5.",
+   "c": "(24 - (-8)) / -4",
+   "w": "D = ℚ \\ {−2}. · (x + 2): 24 = −4(x + 2) = −4x − 8 → −4x = 32 → x = −8. Umkehrfrage: 24 geteilt durch −6 ergibt −4, also x + 2 = −6.",
    "h": "Multipliziere mit dem Nenner und löse dann die lineare Gleichung."
   },
   {
    "l": "ein_bruch",
    "t": "ein_bruch",
    "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Löse (x − 2)/(x − 3) = −3."
-   },
-   "o": {
-    "wert": 2.75
-   },
-   "c": "(-9 + (-2)) / (-3 - 1)",
-   "w": "D = ℚ \\ {3}. · (x − 3): x − 2 = −3x + 9 → 4x = 11 → x = 2,75.",
-   "h": "Multipliziere mit dem Nenner und löse dann die lineare Gleichung."
-  },
-  {
-   "l": "ein_bruch",
-   "t": "ein_bruch",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Löse (x + 2)/(x − 4) = 4."
-   },
-   "o": {
-    "wert": 6
-   },
-   "c": "(16 + (2)) / (4 - 1)",
-   "w": "D = ℚ \\ {4}. · (x − 4): x + 2 = 4x − 16 → −3x = −18 → x = 6.",
-   "h": "Multipliziere mit dem Nenner und löse dann die lineare Gleichung."
-  },
-  {
-   "l": "ein_bruch",
-   "t": "ein_bruch",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Löse (x − 9)/(x − 4) = −3."
-   },
-   "o": {
-    "wert": 5.25
-   },
-   "c": "(-12 + (-9)) / (-3 - 1)",
-   "w": "D = ℚ \\ {4}. · (x − 4): x − 9 = −3x + 12 → 4x = 21 → x = 5,25.",
-   "h": "Multipliziere mit dem Nenner und löse dann die lineare Gleichung."
-  },
-  {
-   "l": "ein_bruch",
-   "t": "ein_bruch",
-   "p": "test",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse 16/(x − 3) = −2."
-   },
-   "o": {
-    "wert": -5
-   },
-   "c": "(16 - (6)) / -2",
-   "w": "D = ℚ \\ {3}. · (x − 3): 16 = −2(x − 3) = −2x + 6 → −2x = 10 → x = −5."
-  },
-  {
-   "l": "ein_bruch",
-   "t": "ein_bruch",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 4/(x + 3) = −4."
-   },
-   "o": {
-    "wert": -4
-   },
-   "c": "(4 - (-12)) / -4",
-   "w": "D = ℚ \\ {−3}. · (x + 3): 4 = −4(x + 3) = −4x − 12 → −4x = 16 → x = −4."
-  },
-  {
-   "l": "ein_bruch",
-   "t": "ein_bruch",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse −20/(x − 7) = −4."
-   },
-   "o": {
-    "wert": 12
-   },
-   "c": "(-20 - (28)) / -4",
-   "w": "D = ℚ \\ {7}. · (x − 7): −20 = −4(x − 7) = −4x + 28 → −4x = −48 → x = 12."
-  },
-  {
-   "l": "ein_bruch",
-   "t": "ein_bruch",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 20/(x − 4) = 5."
-   },
-   "o": {
-    "wert": 8
-   },
-   "c": "(20 - (-20)) / 5",
-   "w": "D = ℚ \\ {4}. · (x − 4): 20 = 5(x − 4) = 5x − 20 → 5x = 40 → x = 8."
-  },
-  {
-   "l": "ein_bruch",
-   "t": "ein_bruch",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 12/(x + 9) = 3."
-   },
-   "o": {
-    "wert": -5
-   },
-   "c": "(12 - (27)) / 3",
-   "w": "D = ℚ \\ {−9}. · (x + 9): 12 = 3(x + 9) = 3x + 27 → 3x = −15 → x = −5."
-  },
-  {
-   "l": "ein_bruch",
-   "t": "ein_bruch",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 40/(x + 4) = 5."
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "(40 - (20)) / 5",
-   "w": "D = ℚ \\ {−4}. · (x + 4): 40 = 5(x + 4) = 5x + 20 → 5x = 20 → x = 4."
-  },
-  {
-   "l": "ein_bruch",
-   "t": "ein_bruch",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 36/(x + 6) = 4."
+    "text": "Löse 36/(3x) = 4."
    },
    "o": {
     "wert": 3
    },
-   "c": "(36 - (24)) / 4",
-   "w": "D = ℚ \\ {−6}. · (x + 6): 36 = 4(x + 6) = 4x + 24 → 4x = 12 → x = 3."
+   "c": "36 / (4 * 3)",
+   "w": "D = ℚ \\ {0}. · 3x: 36 = 12x → x = 36 : 12 = 3.",
+   "h": "Multipliziere mit dem Nenner und löse dann die lineare Gleichung."
   },
   {
    "l": "ein_bruch",
    "t": "ein_bruch",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 15/(x − 6) = 5."
-   },
-   "o": {
-    "wert": 9
-   },
-   "c": "(15 - (-30)) / 5",
-   "w": "D = ℚ \\ {6}. · (x − 6): 15 = 5(x − 6) = 5x − 30 → 5x = 45 → x = 9."
-  },
-  {
-   "l": "ein_bruch",
-   "t": "ein_bruch",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse −76/(x + 7) = −4."
-   },
-   "o": {
-    "wert": 12
-   },
-   "c": "(-76 - (-28)) / -4",
-   "w": "D = ℚ \\ {−7}. · (x + 7): −76 = −4(x + 7) = −4x − 28 → −4x = −48 → x = 12."
-  },
-  {
-   "l": "ein_bruch",
-   "t": "ein_bruch",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 2/(x + 2) = −2."
-   },
-   "o": {
-    "wert": -3
-   },
-   "c": "(2 - (-4)) / -2",
-   "w": "D = ℚ \\ {−2}. · (x + 2): 2 = −2(x + 2) = −2x − 4 → −2x = 6 → x = −3."
-  },
-  {
-   "l": "ueber_kreuz",
-   "t": "ueber_kreuz",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 2/x = 4/(x + 4)."
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "2 * (4) / (4 - 2)",
-   "w": "Über Kreuz: 2(x + 4) = 4x → 2x + 8 = 4x → 8 = 2x → x = 4.",
-   "h": "Bestimme zuerst D. Dann über Kreuz multiplizieren und die lineare Gleichung lösen."
-  },
-  {
-   "l": "ueber_kreuz",
-   "t": "ueber_kreuz",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 5/x = 7/(x + 7)."
-   },
-   "o": {
-    "wert": 17.5
-   },
-   "c": "5 * (7) / (7 - 5)",
-   "w": "Über Kreuz: 5(x + 7) = 7x → 5x + 35 = 7x → 35 = 2x → x = 17,5.",
-   "h": "Bestimme zuerst D. Dann über Kreuz multiplizieren und die lineare Gleichung lösen."
-  },
-  {
-   "l": "ueber_kreuz",
-   "t": "ueber_kreuz",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 6/x = 5/(x + 4)."
-   },
-   "o": {
-    "wert": -24
-   },
-   "c": "6 * (4) / (5 - 6)",
-   "w": "Über Kreuz: 6(x + 4) = 5x → 6x + 24 = 5x → 24 = −x → x = −24.",
-   "h": "Bestimme zuerst D. Dann über Kreuz multiplizieren und die lineare Gleichung lösen."
-  },
-  {
-   "l": "ueber_kreuz",
-   "t": "ueber_kreuz",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 9/x = 4/(x − 7)."
-   },
-   "o": {
-    "wert": 12.6
-   },
-   "c": "9 * (-7) / (4 - 9)",
-   "w": "Über Kreuz: 9(x − 7) = 4x → 9x − 63 = 4x → −63 = −5x → x = 12,6.",
-   "h": "Bestimme zuerst D. Dann über Kreuz multiplizieren und die lineare Gleichung lösen."
-  },
-  {
-   "l": "ueber_kreuz",
-   "t": "ueber_kreuz",
    "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse 6/(x + 7) = 5/(x − 2)."
-   },
-   "o": {
-    "wert": 47
-   },
-   "c": "(5 * (7) - 6 * (-2)) / (6 - 5)",
-   "w": "Über Kreuz: 6(x − 2) = 5(x + 7) → 6x − 12 = 5x + 35 → x = 47 → x = 47.",
-   "h": "Bestimme zuerst D. Dann über Kreuz multiplizieren und die lineare Gleichung lösen."
-  },
-  {
-   "l": "ueber_kreuz",
-   "t": "ueber_kreuz",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 1/(x + 3) = 2/(x − 6)."
-   },
-   "o": {
-    "wert": -12
-   },
-   "c": "(2 * (3) - 1 * (-6)) / (1 - 2)",
-   "w": "Über Kreuz: 1(x − 6) = 2(x + 3) → x − 6 = 2x + 6 → −x = 12 → x = −12.",
-   "h": "Bestimme zuerst D. Dann über Kreuz multiplizieren und die lineare Gleichung lösen."
-  },
-  {
-   "l": "ueber_kreuz",
-   "t": "ueber_kreuz",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 4/(x − 8) = 8/(x − 1)."
-   },
-   "o": {
-    "wert": 15
-   },
-   "c": "(8 * (-8) - 4 * (-1)) / (4 - 8)",
-   "w": "Über Kreuz: 4(x − 1) = 8(x − 8) → 4x − 4 = 8x − 64 → −4x = −60 → x = 15.",
-   "h": "Bestimme zuerst D. Dann über Kreuz multiplizieren und die lineare Gleichung lösen."
-  },
-  {
-   "l": "ueber_kreuz",
-   "t": "ueber_kreuz",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 3/(x − 5) = 5/(x − 7)."
+    "text": "Löse 2 = 10/(x + 3)."
    },
    "o": {
     "wert": 2
    },
-   "c": "(5 * (-5) - 3 * (-7)) / (3 - 5)",
-   "w": "Über Kreuz: 3(x − 7) = 5(x − 5) → 3x − 21 = 5x − 25 → −2x = −4 → x = 2.",
-   "h": "Bestimme zuerst D. Dann über Kreuz multiplizieren und die lineare Gleichung lösen."
+   "c": "(10 - (6)) / 2",
+   "w": "D = ℚ \\ {−3}. · (x + 3): 10 = 2(x + 3) = 2x + 6 → 2x = 4 → x = 2. Umkehrfrage: 10 geteilt durch 5 ergibt 2, also x + 3 = 5.",
+   "h": "Multipliziere mit dem Nenner und löse dann die lineare Gleichung."
   },
   {
-   "l": "ueber_kreuz",
-   "t": "ueber_kreuz",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 4/(x − 6) = 6/(x + 5)."
-   },
-   "o": {
-    "wert": 28
-   },
-   "c": "(6 * (-6) - 4 * (5)) / (4 - 6)",
-   "w": "Über Kreuz: 4(x + 5) = 6(x − 6) → 4x + 20 = 6x − 36 → −2x = −56 → x = 28.",
-   "h": "Bestimme zuerst D. Dann über Kreuz multiplizieren und die lineare Gleichung lösen."
-  },
-  {
-   "l": "ueber_kreuz",
-   "t": "ueber_kreuz",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 2/(x − 8) = 8/(x − 2)."
-   },
-   "o": {
-    "wert": 10
-   },
-   "c": "(8 * (-8) - 2 * (-2)) / (2 - 8)",
-   "w": "Über Kreuz: 2(x − 2) = 8(x − 8) → 2x − 4 = 8x − 64 → −6x = −60 → x = 10.",
-   "h": "Bestimme zuerst D. Dann über Kreuz multiplizieren und die lineare Gleichung lösen."
-  },
-  {
-   "l": "ueber_kreuz",
-   "t": "ueber_kreuz",
+   "l": "ein_bruch",
+   "t": "ein_bruch",
    "p": "uebung",
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Löse (x − 3)/(x + 4) = (x + 4)/(x + 7)."
+    "text": "Löse (x − 3)/(x + 7) = −3."
    },
    "o": {
-    "wert": -9.25
+    "wert": -4.5
    },
-   "c": "(4 * (4) - (-3) * (7)) / ((-3) + (7) - (4) - (4))",
-   "w": "Über Kreuz: (x − 3)(x + 7) = (x + 4)(x + 4). Ausmultiplizieren: x² + 4x − 21 = x² + 8x + 16. x² fällt weg: −4x = 37 → x = −9,25.",
-   "h": "Bestimme zuerst D. Dann über Kreuz multiplizieren und die lineare Gleichung lösen."
+   "c": "(21 + (-3)) / (-3 - 1)",
+   "w": "D = ℚ \\ {−7}. · (x + 7): x − 3 = −3x − 21 → 4x = −18 → x = −4,5.",
+   "h": "Multipliziere mit dem Nenner und löse dann die lineare Gleichung."
   },
   {
-   "l": "ueber_kreuz",
-   "t": "ueber_kreuz",
+   "l": "ein_bruch",
+   "t": "ein_bruch",
    "p": "uebung",
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Löse (x + 8)/(x − 8) = (x − 8)/(x + 1)."
+    "text": "Löse (x + 3)/(x − 9) = 3."
    },
    "o": {
-    "wert": 2.24
+    "wert": 15
    },
-   "c": "(-8 * (-8) - (8) * (1)) / ((8) + (1) - (-8) - (-8))",
-   "w": "Über Kreuz: (x + 8)(x + 1) = (x − 8)(x − 8). Ausmultiplizieren: x² + 9x + 8 = x² − 16x + 64. x² fällt weg: 25x = 56 → x = 2,24.",
-   "h": "Bestimme zuerst D. Dann über Kreuz multiplizieren und die lineare Gleichung lösen."
+   "c": "(27 + (3)) / (3 - 1)",
+   "w": "D = ℚ \\ {9}. · (x − 9): x + 3 = 3x − 27 → −2x = −30 → x = 15.",
+   "h": "Multipliziere mit dem Nenner und löse dann die lineare Gleichung."
   },
   {
-   "l": "ueber_kreuz",
-   "t": "ueber_kreuz",
+   "l": "ein_bruch",
+   "t": "ein_bruch",
    "p": "uebung",
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Löse (x − 6)/(x − 5) = (x − 6)/(x + 3)."
+    "text": "Löse (3x + 5)/(x − 3) = −1."
    },
    "o": {
-    "wert": 6
+    "wert": -0.5
    },
-   "c": "(-6 * (-5) - (-6) * (3)) / ((-6) + (3) - (-6) - (-5))",
-   "w": "Über Kreuz: (x − 6)(x + 3) = (x − 6)(x − 5). Ausmultiplizieren: x² − 3x − 18 = x² − 11x + 30. x² fällt weg: 8x = 48 → x = 6.",
-   "h": "Bestimme zuerst D. Dann über Kreuz multiplizieren und die lineare Gleichung lösen."
+   "c": "(-3 + (5)) / (-1 - 3)",
+   "w": "D = ℚ \\ {3}. · (x − 3): 3x + 5 = −x + 3 → 4x = −2 → x = −0,5. −0,5 liegt in D.",
+   "h": "Multipliziere mit dem Nenner und löse dann die lineare Gleichung."
   },
   {
-   "l": "ueber_kreuz",
-   "t": "ueber_kreuz",
+   "l": "ein_bruch",
+   "t": "ein_bruch",
    "p": "uebung",
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Löse (x + 5)/(x − 6) = (x + 2)/(x − 5)."
+    "text": "Löse (x + 3)/(x + 7) = 3."
    },
    "o": {
-    "wert": 3.25
+    "wert": -9
    },
-   "c": "(2 * (-6) - (5) * (-5)) / ((5) + (-5) - (2) - (-6))",
-   "w": "Über Kreuz: (x + 5)(x − 5) = (x + 2)(x − 6). Ausmultiplizieren: x² − 25 = x² − 4x − 12. x² fällt weg: 4x = 13 → x = 3,25.",
-   "h": "Bestimme zuerst D. Dann über Kreuz multiplizieren und die lineare Gleichung lösen."
+   "c": "(-21 + (3)) / (3 - 1)",
+   "w": "D = ℚ \\ {−7}. · (x + 7): x + 3 = 3x + 21 → −2x = 18 → x = −9.",
+   "h": "Multipliziere mit dem Nenner und löse dann die lineare Gleichung."
   },
   {
-   "l": "ueber_kreuz",
-   "t": "ueber_kreuz",
+   "l": "ein_bruch",
+   "t": "ein_bruch",
    "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse −30/(5x) = −3."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "-30 / (-3 * 5)",
+   "w": "D = ℚ \\ {0}. · 5x: −30 = −15x → x = −30 : (−15) = 2."
+  },
+  {
+   "l": "ein_bruch",
+   "t": "ein_bruch",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 54/(3x) = −3."
+   },
+   "o": {
+    "wert": -6
+   },
+   "c": "54 / (-3 * 3)",
+   "w": "D = ℚ \\ {0}. · 3x: 54 = −9x → x = 54 : (−9) = −6."
+  },
+  {
+   "l": "ein_bruch",
+   "t": "ein_bruch",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse −12/(x + 4) = 2."
+   },
+   "o": {
+    "wert": -10
+   },
+   "c": "(-12 - (8)) / 2",
+   "w": "D = ℚ \\ {−4}. · (x + 4): −12 = 2(x + 4) = 2x + 8 → 2x = −20 → x = −10. Umkehrfrage: −12 geteilt durch −6 ergibt 2, also x + 4 = −6."
+  },
+  {
+   "l": "ein_bruch",
+   "t": "ein_bruch",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 168/(4x) = 6."
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "168 / (6 * 4)",
+   "w": "D = ℚ \\ {0}. · 4x: 168 = 24x → x = 168 : 24 = 7."
+  },
+  {
+   "l": "ein_bruch",
+   "t": "ein_bruch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse −4 = −40/(x + 2)."
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "(-40 - (-8)) / -4",
+   "w": "D = ℚ \\ {−2}. · (x + 2): −40 = −4(x + 2) = −4x − 8 → −4x = −32 → x = 8. Umkehrfrage: −40 geteilt durch 10 ergibt −4, also x + 2 = 10."
+  },
+  {
+   "l": "ein_bruch",
+   "t": "ein_bruch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse −12/(3x) = 4."
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "-12 / (4 * 3)",
+   "w": "D = ℚ \\ {0}. · 3x: −12 = 12x → x = −12 : 12 = −1."
+  },
+  {
+   "l": "ein_bruch",
+   "t": "ein_bruch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse −4 = −12/(x + 2)."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(-12 - (-8)) / -4",
+   "w": "D = ℚ \\ {−2}. · (x + 2): −12 = −4(x + 2) = −4x − 8 → −4x = −4 → x = 1. Umkehrfrage: −12 geteilt durch 3 ergibt −4, also x + 2 = 3."
+  },
+  {
+   "l": "ein_bruch",
+   "t": "ein_bruch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 3 = −36/(x − 7)."
+   },
+   "o": {
+    "wert": -5
+   },
+   "c": "(-36 - (-21)) / 3",
+   "w": "D = ℚ \\ {7}. · (x − 7): −36 = 3(x − 7) = 3x − 21 → 3x = −15 → x = −5. Umkehrfrage: −36 geteilt durch −12 ergibt 3, also x − 7 = −12."
+  },
+  {
+   "l": "ein_bruch",
+   "t": "ein_bruch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 5 = 50/(x − 1)."
+   },
+   "o": {
+    "wert": 11
+   },
+   "c": "(50 - (-5)) / 5",
+   "w": "D = ℚ \\ {1}. · (x − 1): 50 = 5(x − 1) = 5x − 5 → 5x = 55 → x = 11. Umkehrfrage: 50 geteilt durch 10 ergibt 5, also x − 1 = 10."
+  },
+  {
+   "l": "ein_bruch",
+   "t": "ein_bruch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse −36/(3x) = 2."
+   },
+   "o": {
+    "wert": -6
+   },
+   "c": "-36 / (2 * 3)",
+   "w": "D = ℚ \\ {0}. · 3x: −36 = 6x → x = −36 : 6 = −6."
+  },
+  {
+   "l": "ueber_kreuz",
+   "t": "ueber_kreuz",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 6/x = 9/(x − 6)."
+   },
+   "o": {
+    "wert": -12
+   },
+   "c": "6 * (-6) / (9 - 6)",
+   "w": "D = ℚ \\ {0; 6}. Über Kreuz: 6(x − 6) = 9x → 6x − 36 = 9x → −36 = 3x → x = −12. −12 liegt in D.",
+   "h": "Bestimme zuerst D. Dann über Kreuz multiplizieren und die lineare Gleichung lösen."
+  },
+  {
+   "l": "ueber_kreuz",
+   "t": "ueber_kreuz",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 4/x = 8/(x − 8)."
+   },
+   "o": {
+    "wert": -8
+   },
+   "c": "4 * (-8) / (8 - 4)",
+   "w": "D = ℚ \\ {0; 8}. Über Kreuz: 4(x − 8) = 8x → 4x − 32 = 8x → −32 = 4x → x = −8. −8 liegt in D.",
+   "h": "Bestimme zuerst D. Dann über Kreuz multiplizieren und die lineare Gleichung lösen."
+  },
+  {
+   "l": "ueber_kreuz",
+   "t": "ueber_kreuz",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 5/x = 3/(x − 1)."
+   },
+   "o": {
+    "wert": 2.5
+   },
+   "c": "5 * (-1) / (3 - 5)",
+   "w": "D = ℚ \\ {0; 1}. Über Kreuz: 5(x − 1) = 3x → 5x − 5 = 3x → −5 = −2x → x = 2,5. 2,5 liegt in D.",
+   "h": "Bestimme zuerst D. Dann über Kreuz multiplizieren und die lineare Gleichung lösen."
+  },
+  {
+   "l": "ueber_kreuz",
+   "t": "ueber_kreuz",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 3/x = 2/(x − 3)."
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "3 * (-3) / (2 - 3)",
+   "w": "D = ℚ \\ {0; 3}. Über Kreuz: 3(x − 3) = 2x → 3x − 9 = 2x → −9 = −x → x = 9. 9 liegt in D.",
+   "h": "Bestimme zuerst D. Dann über Kreuz multiplizieren und die lineare Gleichung lösen."
+  },
+  {
+   "l": "ueber_kreuz",
+   "t": "ueber_kreuz",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 6/(x + 5) = 2/(x − 6)."
+   },
+   "o": {
+    "wert": 11.5
+   },
+   "c": "(2 * (5) - 6 * (-6)) / (6 - 2)",
+   "w": "D = ℚ \\ {−5; 6}. Über Kreuz: 6(x − 6) = 2(x + 5) → 6x − 36 = 2x + 10 → 4x = 46 → x = 11,5. 11,5 liegt in D.",
+   "h": "Bestimme zuerst D. Dann über Kreuz multiplizieren und die lineare Gleichung lösen."
+  },
+  {
+   "l": "ueber_kreuz",
+   "t": "ueber_kreuz",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 3/(x − 9) = 5/(x + 1)."
+   },
+   "o": {
+    "wert": 24
+   },
+   "c": "(5 * (-9) - 3 * (1)) / (3 - 5)",
+   "w": "D = ℚ \\ {−1; 9}. Über Kreuz: 3(x + 1) = 5(x − 9) → 3x + 3 = 5x − 45 → −2x = −48 → x = 24. 24 liegt in D.",
+   "h": "Bestimme zuerst D. Dann über Kreuz multiplizieren und die lineare Gleichung lösen."
+  },
+  {
+   "l": "ueber_kreuz",
+   "t": "ueber_kreuz",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 7/(x + 1) = 2/(x − 6)."
+   },
+   "o": {
+    "wert": 8.8
+   },
+   "c": "(2 * (1) - 7 * (-6)) / (7 - 2)",
+   "w": "D = ℚ \\ {−1; 6}. Über Kreuz: 7(x − 6) = 2(x + 1) → 7x − 42 = 2x + 2 → 5x = 44 → x = 8,8. 8,8 liegt in D.",
+   "h": "Bestimme zuerst D. Dann über Kreuz multiplizieren und die lineare Gleichung lösen."
+  },
+  {
+   "l": "ueber_kreuz",
+   "t": "ueber_kreuz",
+   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -1272,12 +1222,13 @@
     "wert": 8
    },
    "c": "(2 * (-4) - 4 * (-6)) / (4 - 2)",
-   "w": "Über Kreuz: 4(x − 6) = 2(x − 4) → 4x − 24 = 2x − 8 → 2x = 16 → x = 8."
+   "w": "D = ℚ \\ {4; 6}. Über Kreuz: 4(x − 6) = 2(x − 4) → 4x − 24 = 2x − 8 → 2x = 16 → x = 8. 8 liegt in D.",
+   "h": "Bestimme zuerst D. Dann über Kreuz multiplizieren und die lineare Gleichung lösen."
   },
   {
    "l": "ueber_kreuz",
    "t": "ueber_kreuz",
-   "p": "korrektur",
+   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -1287,12 +1238,13 @@
     "wert": 37
    },
    "c": "(8 * (-2) - 7 * (3)) / (7 - 8)",
-   "w": "Über Kreuz: 7(x + 3) = 8(x − 2) → 7x + 21 = 8x − 16 → −x = −37 → x = 37."
+   "w": "D = ℚ \\ {−3; 2}. Über Kreuz: 7(x + 3) = 8(x − 2) → 7x + 21 = 8x − 16 → −x = −37 → x = 37. 37 liegt in D.",
+   "h": "Bestimme zuerst D. Dann über Kreuz multiplizieren und die lineare Gleichung lösen."
   },
   {
    "l": "ueber_kreuz",
    "t": "ueber_kreuz",
-   "p": "korrektur",
+   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -1302,7 +1254,87 @@
     "wert": -17
    },
    "c": "(4 * (9) - 2 * (1)) / (2 - 4)",
-   "w": "Über Kreuz: 2(x + 1) = 4(x + 9) → 2x + 2 = 4x + 36 → −2x = 34 → x = −17."
+   "w": "D = ℚ \\ {−9; −1}. Über Kreuz: 2(x + 1) = 4(x + 9) → 2x + 2 = 4x + 36 → −2x = 34 → x = −17. −17 liegt in D.",
+   "h": "Bestimme zuerst D. Dann über Kreuz multiplizieren und die lineare Gleichung lösen."
+  },
+  {
+   "l": "ueber_kreuz",
+   "t": "ueber_kreuz",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse (x + 5)/(x + 6) = (x + 8)/(x − 3)."
+   },
+   "o": {
+    "wert": -5.25
+   },
+   "c": "(8 * (6) - (5) * (-3)) / ((5) + (-3) - (8) - (6))",
+   "w": "D = ℚ \\ {−6; 3}. Über Kreuz: (x + 5)(x − 3) = (x + 8)(x + 6). Ausmultiplizieren: x² + 2x − 15 = x² + 14x + 48. x² fällt weg: −12x = 63 → x = −5,25. −5,25 liegt in D.",
+   "h": "Bestimme zuerst D. Dann über Kreuz multiplizieren und die lineare Gleichung lösen."
+  },
+  {
+   "l": "ueber_kreuz",
+   "t": "ueber_kreuz",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse (x + 8)/(x − 4) = (x + 5)/(x + 2)."
+   },
+   "o": {
+    "wert": -4
+   },
+   "c": "(5 * (-4) - (8) * (2)) / ((8) + (2) - (5) - (-4))",
+   "w": "D = ℚ \\ {−2; 4}. Über Kreuz: (x + 8)(x + 2) = (x + 5)(x − 4). Ausmultiplizieren: x² + 10x + 16 = x² + x − 20. x² fällt weg: 9x = −36 → x = −4. −4 liegt in D.",
+   "h": "Bestimme zuerst D. Dann über Kreuz multiplizieren und die lineare Gleichung lösen."
+  },
+  {
+   "l": "ueber_kreuz",
+   "t": "ueber_kreuz",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse (x − 7)/(x − 6) = (x + 2)/(x + 8)."
+   },
+   "o": {
+    "wert": 8.8
+   },
+   "c": "(2 * (-6) - (-7) * (8)) / ((-7) + (8) - (2) - (-6))",
+   "w": "D = ℚ \\ {−8; 6}. Über Kreuz: (x − 7)(x + 8) = (x + 2)(x − 6). Ausmultiplizieren: x² + x − 56 = x² − 4x − 12. x² fällt weg: 5x = 44 → x = 8,8. 8,8 liegt in D.",
+   "h": "Bestimme zuerst D. Dann über Kreuz multiplizieren und die lineare Gleichung lösen."
+  },
+  {
+   "l": "ueber_kreuz",
+   "t": "ueber_kreuz",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse (x + 5)/(x + 1) = (x − 8)/(x − 7)."
+   },
+   "o": {
+    "wert": 5.4
+   },
+   "c": "(-8 * (1) - (5) * (-7)) / ((5) + (-7) - (-8) - (1))",
+   "w": "D = ℚ \\ {−1; 7}. Über Kreuz: (x + 5)(x − 7) = (x − 8)(x + 1). Ausmultiplizieren: x² − 2x − 35 = x² − 7x − 8. x² fällt weg: 5x = 27 → x = 5,4. 5,4 liegt in D.",
+   "h": "Bestimme zuerst D. Dann über Kreuz multiplizieren und die lineare Gleichung lösen."
+  },
+  {
+   "l": "ueber_kreuz",
+   "t": "ueber_kreuz",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 9/(x − 8) = 3/(x − 5)."
+   },
+   "o": {
+    "wert": 3.5
+   },
+   "c": "(3 * (-8) - 9 * (-5)) / (9 - 3)",
+   "w": "D = ℚ \\ {5; 8}. Über Kreuz: 9(x − 5) = 3(x − 8) → 9x − 45 = 3x − 24 → 6x = 21 → x = 3,5. 3,5 liegt in D."
   },
   {
    "l": "ueber_kreuz",
@@ -1311,13 +1343,43 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse 8/(x + 4) = 3/(x + 1)."
+    "text": "Löse 3/(x + 6) = 7/(x + 7)."
    },
    "o": {
-    "wert": 0.8
+    "wert": -5.25
    },
-   "c": "(3 * (4) - 8 * (1)) / (8 - 3)",
-   "w": "Über Kreuz: 8(x + 1) = 3(x + 4) → 8x + 8 = 3x + 12 → 5x = 4 → x = 0,8."
+   "c": "(7 * (6) - 3 * (7)) / (3 - 7)",
+   "w": "D = ℚ \\ {−7; −6}. Über Kreuz: 3(x + 7) = 7(x + 6) → 3x + 21 = 7x + 42 → −4x = 21 → x = −5,25. −5,25 liegt in D."
+  },
+  {
+   "l": "ueber_kreuz",
+   "t": "ueber_kreuz",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 3/(x + 3) = 4/(x + 7)."
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "(4 * (3) - 3 * (7)) / (3 - 4)",
+   "w": "D = ℚ \\ {−7; −3}. Über Kreuz: 3(x + 7) = 4(x + 3) → 3x + 21 = 4x + 12 → −x = −9 → x = 9. 9 liegt in D."
+  },
+  {
+   "l": "ueber_kreuz",
+   "t": "ueber_kreuz",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 2/(x + 1) = 1/(x − 6)."
+   },
+   "o": {
+    "wert": 13
+   },
+   "c": "(1 * (1) - 2 * (-6)) / (2 - 1)",
+   "w": "D = ℚ \\ {−1; 6}. Über Kreuz: 2(x − 6) = 1(x + 1) → 2x − 12 = x + 1 → x = 13. 13 liegt in D."
   },
   {
    "l": "ueber_kreuz",
@@ -1326,13 +1388,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse 7/(x + 3) = 5/(x − 1)."
+    "text": "Löse 1/(x + 9) = 9/(x + 8)."
    },
    "o": {
-    "wert": 11
+    "wert": -9.125
    },
-   "c": "(5 * (3) - 7 * (-1)) / (7 - 5)",
-   "w": "Über Kreuz: 7(x − 1) = 5(x + 3) → 7x − 7 = 5x + 15 → 2x = 22 → x = 11."
+   "c": "(9 * (9) - 1 * (8)) / (1 - 9)",
+   "w": "D = ℚ \\ {−9; −8}. Über Kreuz: 1(x + 8) = 9(x + 9) → x + 8 = 9x + 81 → −8x = 73 → x = −9,125. −9,125 liegt in D."
   },
   {
    "l": "ueber_kreuz",
@@ -1341,13 +1403,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse 6/(x + 8) = 8/(x − 6)."
+    "text": "Löse 4/(x + 7) = 8/(x + 6)."
    },
    "o": {
-    "wert": -50
+    "wert": -8
    },
-   "c": "(8 * (8) - 6 * (-6)) / (6 - 8)",
-   "w": "Über Kreuz: 6(x − 6) = 8(x + 8) → 6x − 36 = 8x + 64 → −2x = 100 → x = −50."
+   "c": "(8 * (7) - 4 * (6)) / (4 - 8)",
+   "w": "D = ℚ \\ {−7; −6}. Über Kreuz: 4(x + 6) = 8(x + 7) → 4x + 24 = 8x + 56 → −4x = 32 → x = −8. −8 liegt in D."
   },
   {
    "l": "ueber_kreuz",
@@ -1356,282 +1418,285 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse 9/(x + 4) = 8/(x − 1)."
-   },
-   "o": {
-    "wert": 41
-   },
-   "c": "(8 * (4) - 9 * (-1)) / (9 - 8)",
-   "w": "Über Kreuz: 9(x − 1) = 8(x + 4) → 9x − 9 = 8x + 32 → x = 41 → x = 41."
-  },
-  {
-   "l": "ueber_kreuz",
-   "t": "ueber_kreuz",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 1/(x + 8) = 6/(x − 5)."
-   },
-   "o": {
-    "wert": -10.6
-   },
-   "c": "(6 * (8) - 1 * (-5)) / (1 - 6)",
-   "w": "Über Kreuz: 1(x − 5) = 6(x + 8) → x − 5 = 6x + 48 → −5x = 53 → x = −10,6."
-  },
-  {
-   "l": "ueber_kreuz",
-   "t": "ueber_kreuz",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 1/(x − 5) = 3/(x + 4)."
-   },
-   "o": {
-    "wert": 9.5
-   },
-   "c": "(3 * (-5) - 1 * (4)) / (1 - 3)",
-   "w": "Über Kreuz: 1(x + 4) = 3(x − 5) → x + 4 = 3x − 15 → −2x = −19 → x = 9,5."
-  },
-  {
-   "l": "ueber_kreuz",
-   "t": "ueber_kreuz",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 6/(x − 5) = 8/(x − 4)."
-   },
-   "o": {
-    "wert": 8
-   },
-   "c": "(8 * (-5) - 6 * (-4)) / (6 - 8)",
-   "w": "Über Kreuz: 6(x − 4) = 8(x − 5) → 6x − 24 = 8x − 40 → −2x = −16 → x = 8."
-  },
-  {
-   "l": "hauptnenner",
-   "t": "hauptnenner",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 3/x + 4/x = 4."
-   },
-   "o": {
-    "wert": 1.75
-   },
-   "c": "(3 + 4) / 4",
-   "w": "HN = x. · x: 3 + 4 = 4x → x = 7 : 4 = 1,75.",
-   "h": "Bestimme den Hauptnenner und multipliziere jedes Glied damit."
-  },
-  {
-   "l": "hauptnenner",
-   "t": "hauptnenner",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 1/x + 3/x = 1."
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "(1 + 3) / 1",
-   "w": "HN = x. · x: 1 + 3 = x → x = 4 : 1 = 4.",
-   "h": "Bestimme den Hauptnenner und multipliziere jedes Glied damit."
-  },
-  {
-   "l": "hauptnenner",
-   "t": "hauptnenner",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 6/x + 6/x = 1."
-   },
-   "o": {
-    "wert": 12
-   },
-   "c": "(6 + 6) / 1",
-   "w": "HN = x. · x: 6 + 6 = x → x = 12 : 1 = 12.",
-   "h": "Bestimme den Hauptnenner und multipliziere jedes Glied damit."
-  },
-  {
-   "l": "hauptnenner",
-   "t": "hauptnenner",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 6/x + 6/x = 3."
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "(6 + 6) / 3",
-   "w": "HN = x. · x: 6 + 6 = 3x → x = 12 : 3 = 4.",
-   "h": "Bestimme den Hauptnenner und multipliziere jedes Glied damit."
-  },
-  {
-   "l": "hauptnenner",
-   "t": "hauptnenner",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 6/x − 6/(2x) = 1."
+    "text": "Löse 9/(x + 6) = 2/(x − 1)."
    },
    "o": {
     "wert": 3
    },
-   "c": "(2 * 6 - 6) / (1 * 2)",
-   "w": "HN = 2x. · 2x: 12 − 6 = 2x → 6 = 2x → x = 3.",
-   "h": "Bestimme den Hauptnenner und multipliziere jedes Glied damit."
+   "c": "(2 * (6) - 9 * (-1)) / (9 - 2)",
+   "w": "D = ℚ \\ {−6; 1}. Über Kreuz: 9(x − 1) = 2(x + 6) → 9x − 9 = 2x + 12 → 7x = 21 → x = 3. 3 liegt in D."
   },
   {
-   "l": "hauptnenner",
-   "t": "hauptnenner",
-   "p": "uebung",
+   "l": "ueber_kreuz",
+   "t": "ueber_kreuz",
+   "p": "sicherung",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse 2/x − 1/(2x) = −2."
+    "text": "Löse 6/(x − 2) = 5/(x + 4)."
    },
    "o": {
-    "wert": -0.75
+    "wert": -34
    },
-   "c": "(2 * 2 - 1) / (-2 * 2)",
-   "w": "HN = 2x. · 2x: 4 − 1 = −4x → 3 = −4x → x = −0,75.",
-   "h": "Bestimme den Hauptnenner und multipliziere jedes Glied damit."
+   "c": "(5 * (-2) - 6 * (4)) / (6 - 5)",
+   "w": "D = ℚ \\ {−4; 2}. Über Kreuz: 6(x + 4) = 5(x − 2) → 6x + 24 = 5x − 10 → x = −34. −34 liegt in D."
   },
   {
-   "l": "hauptnenner",
-   "t": "hauptnenner",
-   "p": "uebung",
+   "l": "ueber_kreuz",
+   "t": "ueber_kreuz",
+   "p": "sicherung",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse 8/x − 5/(4x) = 2."
+    "text": "Löse 3/(x + 3) = 8/(x − 3)."
    },
    "o": {
-    "wert": 3.375
+    "wert": -6.6
    },
-   "c": "(4 * 8 - 5) / (2 * 4)",
-   "w": "HN = 4x. · 4x: 32 − 5 = 8x → 27 = 8x → x = 3,375.",
-   "h": "Bestimme den Hauptnenner und multipliziere jedes Glied damit."
+   "c": "(8 * (3) - 3 * (-3)) / (3 - 8)",
+   "w": "D = ℚ \\ {−3; 3}. Über Kreuz: 3(x − 3) = 8(x + 3) → 3x − 9 = 8x + 24 → −5x = 33 → x = −6,6. −6,6 liegt in D."
   },
   {
-   "l": "hauptnenner",
-   "t": "hauptnenner",
-   "p": "uebung",
+   "l": "ueber_kreuz",
+   "t": "ueber_kreuz",
+   "p": "sicherung",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse 2/x + 9/(5x) = 2."
+    "text": "Löse 5/(x − 1) = 8/(x + 2)."
    },
    "o": {
-    "wert": 1.9
+    "wert": 6
    },
-   "c": "(5 * 2 + 9) / (2 * 5)",
-   "w": "HN = 5x. · 5x: 10 + 9 = 10x → 19 = 10x → x = 1,9.",
-   "h": "Bestimme den Hauptnenner und multipliziere jedes Glied damit."
+   "c": "(8 * (-1) - 5 * (2)) / (5 - 8)",
+   "w": "D = ℚ \\ {−2; 1}. Über Kreuz: 5(x + 2) = 8(x − 1) → 5x + 10 = 8x − 8 → −3x = −18 → x = 6. 6 liegt in D."
   },
   {
    "l": "hauptnenner",
    "t": "hauptnenner",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Löse 1/x + 1/(2x) = −2."
-   },
-   "o": {
-    "wert": -0.75
-   },
-   "c": "(2 * 1 + 1) / (-2 * 2)",
-   "w": "HN = 2x. · 2x: 2 + 1 = −4x → 3 = −4x → x = −0,75.",
-   "h": "Bestimme den Hauptnenner und multipliziere jedes Glied damit."
-  },
-  {
-   "l": "hauptnenner",
-   "t": "hauptnenner",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 8/x − 5/(4x) = 3."
-   },
-   "o": {
-    "wert": 2.25
-   },
-   "c": "(4 * 8 - 5) / (3 * 4)",
-   "w": "HN = 4x. · 4x: 32 − 5 = 12x → 27 = 12x → x = 2,25.",
-   "h": "Bestimme den Hauptnenner und multipliziere jedes Glied damit."
-  },
-  {
-   "l": "hauptnenner",
-   "t": "hauptnenner",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 3/(x − 2) = 2/(x − 2) − 1."
-   },
-   "o": {
-    "wert": 1
-   },
-   "c": "(3 - 2) / (-1) - (-2)",
-   "w": "HN = x − 2. · (x − 2): 3 = 2 − (x − 2) → 1 = −x + 2 → −x = −1 → x = 1.",
-   "h": "Bestimme den Hauptnenner und multipliziere jedes Glied damit."
-  },
-  {
-   "l": "hauptnenner",
-   "t": "hauptnenner",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 12/(x − 5) = 3/(x − 5) + 1."
-   },
-   "o": {
-    "wert": 14
-   },
-   "c": "(12 - 3) / (1) - (-5)",
-   "w": "HN = x − 5. · (x − 5): 12 = 3 + (x − 5) → 9 = x − 5 → x = 14.",
-   "h": "Bestimme den Hauptnenner und multipliziere jedes Glied damit."
-  },
-  {
-   "l": "hauptnenner",
-   "t": "hauptnenner",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 11/(x + 4) = 2/(x + 4) + 2."
-   },
-   "o": {
-    "wert": 0.5
-   },
-   "c": "(11 - 2) / (2) - (4)",
-   "w": "HN = x + 4. · (x + 4): 11 = 2 + 2(x + 4) → 9 = 2x + 8 → 2x = 1 → x = 0,5.",
-   "h": "Bestimme den Hauptnenner und multipliziere jedes Glied damit."
-  },
-  {
-   "l": "hauptnenner",
-   "t": "hauptnenner",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Löse 1/(2x) + 9/(3x) = 1."
+    "text": "Löse 6/x + 1/x = 2."
    },
    "o": {
     "wert": 3.5
    },
-   "c": "(3 * 1 + 2 * 9) / (6 * 1)",
-   "w": "HN = 6x. · 6x: 3 + 18 = 6x → x = 21 : 6 = 3,5.",
+   "c": "(6 + 1) / 2",
+   "w": "HN = x. · x: 6 + 1 = 2x → x = 7 : 2 = 3,5.",
    "h": "Bestimme den Hauptnenner und multipliziere jedes Glied damit."
+  },
+  {
+   "l": "hauptnenner",
+   "t": "hauptnenner",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 5/x + 11/x = 2."
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "(5 + 11) / 2",
+   "w": "HN = x. · x: 5 + 11 = 2x → x = 16 : 2 = 8.",
+   "h": "Bestimme den Hauptnenner und multipliziere jedes Glied damit."
+  },
+  {
+   "l": "hauptnenner",
+   "t": "hauptnenner",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 1/x + 1/x = 5."
+   },
+   "o": {
+    "wert": 0.4
+   },
+   "c": "(1 + 1) / 5",
+   "w": "HN = x. · x: 1 + 1 = 5x → x = 2 : 5 = 0,4.",
+   "h": "Bestimme den Hauptnenner und multipliziere jedes Glied damit."
+  },
+  {
+   "l": "hauptnenner",
+   "t": "hauptnenner",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 10/x + 12/x = 1."
+   },
+   "o": {
+    "wert": 22
+   },
+   "c": "(10 + 12) / 1",
+   "w": "HN = x. · x: 10 + 12 = x → x = 22.",
+   "h": "Bestimme den Hauptnenner und multipliziere jedes Glied damit."
+  },
+  {
+   "l": "hauptnenner",
+   "t": "hauptnenner",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 3/x − 9/(5x) = 2."
+   },
+   "o": {
+    "wert": 0.6
+   },
+   "c": "(5 * 3 - 9) / (2 * 5)",
+   "w": "HN = 5x. · 5x: 15 − 9 = 10x → 6 = 10x → x = 0,6.",
+   "h": "Bestimme den Hauptnenner und multipliziere jedes Glied damit."
+  },
+  {
+   "l": "hauptnenner",
+   "t": "hauptnenner",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 4/x + 5/(4x) = 1."
+   },
+   "o": {
+    "wert": 5.25
+   },
+   "c": "(4 * 4 + 5) / (1 * 4)",
+   "w": "HN = 4x. · 4x: 16 + 5 = 4x → 21 = 4x → x = 5,25.",
+   "h": "Bestimme den Hauptnenner und multipliziere jedes Glied damit."
+  },
+  {
+   "l": "hauptnenner",
+   "t": "hauptnenner",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 9/x − 1/(5x) = 4."
+   },
+   "o": {
+    "wert": 2.2
+   },
+   "c": "(5 * 9 - 1) / (4 * 5)",
+   "w": "HN = 5x. · 5x: 45 − 1 = 20x → 44 = 20x → x = 2,2.",
+   "h": "Bestimme den Hauptnenner und multipliziere jedes Glied damit."
+  },
+  {
+   "l": "hauptnenner",
+   "t": "hauptnenner",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 5/x + 6/(3x) = −1."
+   },
+   "o": {
+    "wert": -7
+   },
+   "c": "(3 * 5 + 6) / (-1 * 3)",
+   "w": "HN = 3x. · 3x: 15 + 6 = −3x → 21 = −3x → x = −7.",
+   "h": "Bestimme den Hauptnenner und multipliziere jedes Glied damit."
+  },
+  {
+   "l": "hauptnenner",
+   "t": "hauptnenner",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 2/x − 7/(2x) = 4."
+   },
+   "o": {
+    "wert": -0.375
+   },
+   "c": "(2 * 2 - 7) / (4 * 2)",
+   "w": "HN = 2x. · 2x: 4 − 7 = 8x → −3 = 8x → x = −0,375.",
+   "h": "Bestimme den Hauptnenner und multipliziere jedes Glied damit."
+  },
+  {
+   "l": "hauptnenner",
+   "t": "hauptnenner",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 7/x − 7/(5x) = 1."
+   },
+   "o": {
+    "wert": 5.6
+   },
+   "c": "(5 * 7 - 7) / (1 * 5)",
+   "w": "HN = 5x. · 5x: 35 − 7 = 5x → 28 = 5x → x = 5,6.",
+   "h": "Bestimme den Hauptnenner und multipliziere jedes Glied damit."
+  },
+  {
+   "l": "hauptnenner",
+   "t": "hauptnenner",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Pumpen leeren einen Teich. Die erste allein schafft es in 6 Stunden, die zweite in 3 Stunden. Wie lange dauert es mit beiden (in Stunden)? Löse 1/6 + 1/3 = 1/x."
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "h"
+   },
+   "c": "6 * 3 / (6 + 3)",
+   "w": "HN = 6x. In einer Zeiteinheit schafft der erste 1/6, der zweite 1/3 der Arbeit. 1/6 + 1/3 = 1/2 = 1/x → x = 2 h.",
+   "h": "Jeder schafft pro Minute bzw. Stunde einen Bruchteil der Arbeit. Zusammen schaffen sie die Summe davon."
+  },
+  {
+   "l": "hauptnenner",
+   "t": "hauptnenner",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Kinder streichen einen Zaun. Das erste bräuchte allein 9 Stunden, das zweite 18 Stunden. Wie lange brauchen sie zusammen (in Stunden)? Löse 1/9 + 1/18 = 1/x."
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "h"
+   },
+   "c": "9 * 18 / (9 + 18)",
+   "w": "HN = 18x. In einer Zeiteinheit schafft der erste 1/9, der zweite 1/18 der Arbeit. 1/9 + 1/18 = 1/6 = 1/x → x = 6 h.",
+   "h": "Jeder schafft pro Minute bzw. Stunde einen Bruchteil der Arbeit. Zusammen schaffen sie die Summe davon."
+  },
+  {
+   "l": "hauptnenner",
+   "t": "hauptnenner",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 3/(x + 5) = 4/(x + 5) + 1."
+   },
+   "o": {
+    "wert": -6
+   },
+   "c": "(3 - 4) / (1) - (5)",
+   "w": "HN = x + 5. · (x + 5): 3 = 4 + (x + 5) → -1 = x + 5 → x = −6.",
+   "h": "Bestimme den Hauptnenner und multipliziere jedes Glied damit."
+  },
+  {
+   "l": "hauptnenner",
+   "t": "hauptnenner",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Kinder streichen einen Zaun. Das erste bräuchte allein 12 Stunden, das zweite 6 Stunden. Wie lange brauchen sie zusammen (in Stunden)? Löse 1/12 + 1/6 = 1/x."
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "h"
+   },
+   "c": "12 * 6 / (12 + 6)",
+   "w": "HN = 12x. In einer Zeiteinheit schafft der erste 1/12, der zweite 1/6 der Arbeit. 1/12 + 1/6 = 1/4 = 1/x → x = 4 h.",
+   "h": "Jeder schafft pro Minute bzw. Stunde einen Bruchteil der Arbeit. Zusammen schaffen sie die Summe davon."
   },
   {
    "l": "hauptnenner",
@@ -1640,13 +1705,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse 8/x − 7/(5x) = 3."
+    "text": "Löse 7/x − 4/(4x) = 1."
    },
    "o": {
-    "wert": 2.2
+    "wert": 6
    },
-   "c": "(5 * 8 - 7) / (3 * 5)",
-   "w": "HN = 5x. · 5x: 40 − 7 = 15x → 33 = 15x → x = 2,2."
+   "c": "(4 * 7 - 4) / (1 * 4)",
+   "w": "HN = 4x. · 4x: 28 − 4 = 4x → 24 = 4x → x = 6."
   },
   {
    "l": "hauptnenner",
@@ -1655,13 +1720,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse 3/x + 2/(2x) = 4."
+    "text": "Löse 7/x − 9/(2x) = −1."
    },
    "o": {
-    "wert": 1
+    "wert": -2.5
    },
-   "c": "(2 * 3 + 2) / (4 * 2)",
-   "w": "HN = 2x. · 2x: 6 + 2 = 8x → 8 = 8x → x = 1."
+   "c": "(2 * 7 - 9) / (-1 * 2)",
+   "w": "HN = 2x. · 2x: 14 − 9 = −2x → 5 = −2x → x = −2,5."
   },
   {
    "l": "hauptnenner",
@@ -1670,13 +1735,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse 7/x + 5/(4x) = 3."
+    "text": "Löse 2/x − 1/(2x) = 1."
    },
    "o": {
-    "wert": 2.75
+    "wert": 1.5
    },
-   "c": "(4 * 7 + 5) / (3 * 4)",
-   "w": "HN = 4x. · 4x: 28 + 5 = 12x → 33 = 12x → x = 2,75."
+   "c": "(2 * 2 - 1) / (1 * 2)",
+   "w": "HN = 2x. · 2x: 4 − 1 = 2x → 3 = 2x → x = 1,5."
   },
   {
    "l": "hauptnenner",
@@ -1685,13 +1750,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse 4/x + 7/(5x) = 4."
+    "text": "Löse 5/x + 2/(2x) = −1."
    },
    "o": {
-    "wert": 1.35
+    "wert": -6
    },
-   "c": "(5 * 4 + 7) / (4 * 5)",
-   "w": "HN = 5x. · 5x: 20 + 7 = 20x → 27 = 20x → x = 1,35."
+   "c": "(2 * 5 + 2) / (-1 * 2)",
+   "w": "HN = 2x. · 2x: 10 + 2 = −2x → 12 = −2x → x = −6."
   },
   {
    "l": "hauptnenner",
@@ -1700,13 +1765,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse 5/x + 6/(3x) = 1."
+    "text": "Löse 7/x + 3/(4x) = 1."
    },
    "o": {
-    "wert": 7
+    "wert": 7.75
    },
-   "c": "(3 * 5 + 6) / (1 * 3)",
-   "w": "HN = 3x. · 3x: 15 + 6 = 3x → 21 = 3x → x = 7."
+   "c": "(4 * 7 + 3) / (1 * 4)",
+   "w": "HN = 4x. · 4x: 28 + 3 = 4x → 31 = 4x → x = 7,75."
   },
   {
    "l": "hauptnenner",
@@ -1715,13 +1780,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse 5/x − 2/(2x) = −1."
+    "text": "Löse 8/x − 5/(4x) = 1."
    },
    "o": {
-    "wert": -4
+    "wert": 6.75
    },
-   "c": "(2 * 5 - 2) / (-1 * 2)",
-   "w": "HN = 2x. · 2x: 10 − 2 = −2x → 8 = −2x → x = −4."
+   "c": "(4 * 8 - 5) / (1 * 4)",
+   "w": "HN = 4x. · 4x: 32 − 5 = 4x → 27 = 4x → x = 6,75."
   },
   {
    "l": "hauptnenner",
@@ -1730,13 +1795,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse 4/x − 5/(2x) = 3."
+    "text": "Löse 6/x − 9/(2x) = 1."
    },
    "o": {
-    "wert": 0.5
+    "wert": 1.5
    },
-   "c": "(2 * 4 - 5) / (3 * 2)",
-   "w": "HN = 2x. · 2x: 8 − 5 = 6x → 3 = 6x → x = 0,5."
+   "c": "(2 * 6 - 9) / (1 * 2)",
+   "w": "HN = 2x. · 2x: 12 − 9 = 2x → 3 = 2x → x = 1,5."
   },
   {
    "l": "hauptnenner",
@@ -1745,13 +1810,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse 9/x − 2/(4x) = −1."
+    "text": "Löse 9/x − 7/(4x) = −2."
    },
    "o": {
-    "wert": -8.5
+    "wert": -3.625
    },
-   "c": "(4 * 9 - 2) / (-1 * 4)",
-   "w": "HN = 4x. · 4x: 36 − 2 = −4x → 34 = −4x → x = −8,5."
+   "c": "(4 * 9 - 7) / (-2 * 4)",
+   "w": "HN = 4x. · 4x: 36 − 7 = −8x → 29 = −8x → x = −3,625."
   },
   {
    "l": "hauptnenner",
@@ -1760,13 +1825,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse 7/x + 3/(5x) = 1."
+    "text": "Löse 2/x + 9/(2x) = 2."
    },
    "o": {
-    "wert": 7.6
+    "wert": 3.25
    },
-   "c": "(5 * 7 + 3) / (1 * 5)",
-   "w": "HN = 5x. · 5x: 35 + 3 = 5x → 38 = 5x → x = 7,6."
+   "c": "(2 * 2 + 9) / (2 * 2)",
+   "w": "HN = 2x. · 2x: 4 + 9 = 4x → 13 = 4x → x = 3,25."
   },
   {
    "l": "hauptnenner",
@@ -1775,136 +1840,31 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse 2/x − 9/(3x) = −2."
+    "text": "Löse 6/x + 5/(5x) = −2."
    },
    "o": {
-    "wert": 0.5
+    "wert": -3.5
    },
-   "c": "(3 * 2 - 9) / (-2 * 3)",
-   "w": "HN = 3x. · 3x: 6 − 9 = −6x → −3 = −6x → x = 0,5."
+   "c": "(5 * 6 + 5) / (-2 * 5)",
+   "w": "HN = 5x. · 5x: 30 + 5 = −10x → 35 = −10x → x = −3,5."
   },
   {
    "l": "scheinloesung",
    "t": "scheinloesung",
    "p": "uebung",
    "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Gib die Lösungsmenge von (x + 7)/(x − 2) = 9/(x − 2) an."
-   },
-   "a": [
-    "L = ℚ",
-    "L = { }",
-    "L = {−2}",
-    "L = {2}"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "D = ℚ \\ {2}. · (x − 2): x + 7 = 9 → x = 2. 2 liegt nicht in D, also Scheinlösung: L = { }.",
-   "h": "Bestimme zuerst D. Prüfe am Ende, ob deine Lösung in D liegt."
-  },
-  {
-   "l": "scheinloesung",
-   "t": "scheinloesung",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Gib die Lösungsmenge von (x − 8)/(x + 2) = −10/(x + 2) an."
-   },
-   "a": [
-    "L = {2}",
-    "L = {−2}",
-    "L = { }",
-    "L = ℚ"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "D = ℚ \\ {−2}. · (x + 2): x − 8 = −10 → x = −2. −2 liegt nicht in D, also Scheinlösung: L = { }.",
-   "h": "Bestimme zuerst D. Prüfe am Ende, ob deine Lösung in D liegt."
-  },
-  {
-   "l": "scheinloesung",
-   "t": "scheinloesung",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Gib die Lösungsmenge von (x − 7)/(x − 4) = 3/(x − 4) an."
-   },
-   "a": [
-    "L = { }",
-    "L = {4}",
-    "L = {10}",
-    "L = {−10}"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "D = ℚ \\ {4}. · (x − 4): x − 7 = 3 → x = 10. 10 liegt in D: L = {10}.",
-   "h": "Bestimme zuerst D. Prüfe am Ende, ob deine Lösung in D liegt."
-  },
-  {
-   "l": "scheinloesung",
-   "t": "scheinloesung",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Gib die Lösungsmenge von (x − 6)/(x + 6) = −12/(x + 6) an."
-   },
-   "a": [
-    "L = { }",
-    "L = {−6}",
-    "L = {6}",
-    "L = ℚ"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "D = ℚ \\ {−6}. · (x + 6): x − 6 = −12 → x = −6. −6 liegt nicht in D, also Scheinlösung: L = { }.",
-   "h": "Bestimme zuerst D. Prüfe am Ende, ob deine Lösung in D liegt."
-  },
-  {
-   "l": "scheinloesung",
-   "t": "scheinloesung",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Gib die Lösungsmenge von (x − 5)/(x − 1) = −1/(x − 1) an."
-   },
-   "a": [
-    "L = {4}",
-    "L = { }",
-    "L = {1}",
-    "L = {−4}"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "D = ℚ \\ {1}. · (x − 1): x − 5 = −1 → x = 4. 4 liegt in D: L = {4}.",
-   "h": "Bestimme zuerst D. Prüfe am Ende, ob deine Lösung in D liegt."
-  },
-  {
-   "l": "scheinloesung",
-   "t": "scheinloesung",
-   "p": "uebung",
-   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Gib die Lösungsmenge von (x − 4)/(x + 7) = 1/(x + 7) an."
    },
    "a": [
-    "L = {−5}",
     "L = { }",
-    "L = {−7}",
-    "L = {5}"
+    "L = {5}",
+    "L = {−5}",
+    "L = {−7}"
    ],
    "o": {
-    "index": 3
+    "index": 1
    },
    "w": "D = ℚ \\ {−7}. · (x + 7): x − 4 = 1 → x = 5. 5 liegt in D: L = {5}.",
    "h": "Bestimme zuerst D. Prüfe am Ende, ob deine Lösung in D liegt."
@@ -1913,14 +1873,14 @@
    "l": "scheinloesung",
    "t": "scheinloesung",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Gib die Lösungsmenge von (x − 5)/(x − 2) = −3/(x − 2) an."
    },
    "a": [
-    "L = {−2}",
     "L = {2}",
+    "L = {−2}",
     "L = ℚ",
     "L = { }"
    ],
@@ -1934,19 +1894,19 @@
    "l": "scheinloesung",
    "t": "scheinloesung",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
     "text": "Gib die Lösungsmenge von (x + 7)/(x − 8) = −8/(x − 8) an."
    },
    "a": [
-    "L = {−15}",
     "L = { }",
     "L = {8}",
+    "L = {−15}",
     "L = {15}"
    ],
    "o": {
-    "index": 0
+    "index": 2
    },
    "w": "D = ℚ \\ {8}. · (x − 8): x + 7 = −8 → x = −15. −15 liegt in D: L = {−15}.",
    "h": "Bestimme zuerst D. Prüfe am Ende, ob deine Lösung in D liegt."
@@ -1955,21 +1915,21 @@
    "l": "scheinloesung",
    "t": "scheinloesung",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Gib die Lösungsmenge von (x − 2)/(x + 6) = 5/(x + 6) an."
+    "text": "Gib die Lösungsmenge von (x − 6)/(x + 2) = −10/(x + 2) an."
    },
    "a": [
-    "L = {7}",
-    "L = {−7}",
-    "L = {−6}",
-    "L = { }"
+    "L = {−4}",
+    "L = { }",
+    "L = {−2}",
+    "L = {4}"
    ],
    "o": {
     "index": 0
    },
-   "w": "D = ℚ \\ {−6}. · (x + 6): x − 2 = 5 → x = 7. 7 liegt in D: L = {7}.",
+   "w": "D = ℚ \\ {−2}. · (x + 2): x − 6 = −10 → x = −4. −4 liegt in D: L = {−4}.",
    "h": "Bestimme zuerst D. Prüfe am Ende, ob deine Lösung in D liegt."
   },
   {
@@ -1982,9 +1942,9 @@
     "text": "Gib die Lösungsmenge von (x + 5)/(x + 4) = −1/(x + 4) an."
    },
    "a": [
-    "L = {6}",
     "L = { }",
     "L = {−4}",
+    "L = {6}",
     "L = {−6}"
    ],
    "o": {
@@ -1997,79 +1957,100 @@
    "l": "scheinloesung",
    "t": "scheinloesung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Gib die Lösungsmenge von 2x/(x − 5) = −5/(x − 5) an."
+    "text": "Gib die Lösungsmenge von (x − 7)/(x − 5) = 6/(x − 5) an."
    },
    "a": [
-    "L = {−2,5}",
-    "L = { }",
     "L = {5}",
-    "L = {2,5}"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "D = ℚ \\ {5}. · (x − 5): 2x = −5 → x = −2,5. −2,5 liegt in D: L = {−2,5}.",
-   "h": "Bestimme zuerst D. Prüfe am Ende, ob deine Lösung in D liegt."
-  },
-  {
-   "l": "scheinloesung",
-   "t": "scheinloesung",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Gib die Lösungsmenge von 4x/(x − 2) = 10/(x − 2) an."
-   },
-   "a": [
-    "L = { }",
-    "L = {2,5}",
-    "L = {−2,5}",
-    "L = {2}"
+    "L = {13}",
+    "L = {−13}",
+    "L = { }"
    ],
    "o": {
     "index": 1
    },
-   "w": "D = ℚ \\ {2}. · (x − 2): 4x = 10 → x = 2,5. 2,5 liegt in D: L = {2,5}.",
+   "w": "D = ℚ \\ {5}. · (x − 5): x − 7 = 6 → x = 13. 13 liegt in D: L = {13}.",
    "h": "Bestimme zuerst D. Prüfe am Ende, ob deine Lösung in D liegt."
   },
   {
    "l": "scheinloesung",
    "t": "scheinloesung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Gib die Lösungsmenge von 3x/(x − 7) = 21/(x − 7) an."
+    "text": "Gib die Lösungsmenge von (x + 1)/(x − 6) = 3/(x − 6) an."
    },
    "a": [
-    "L = {7}",
-    "L = ℚ",
-    "L = {−7}",
-    "L = { }"
+    "L = { }",
+    "L = {2}",
+    "L = {−2}",
+    "L = {6}"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "D = ℚ \\ {6}. · (x − 6): x + 1 = 3 → x = 2. 2 liegt in D: L = {2}.",
+   "h": "Bestimme zuerst D. Prüfe am Ende, ob deine Lösung in D liegt."
+  },
+  {
+   "l": "scheinloesung",
+   "t": "scheinloesung",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Warum ist x = −2 keine Lösung von (x + 1)/(x + 2) = −1/(x + 2), obwohl die Rechnung x = −2 ergibt?"
+   },
+   "a": [
+    "Weil man falsch gerechnet hat.",
+    "Weil −2 nicht im Zähler vorkommt.",
+    "Für x = −2 ist der Nenner 0, die Gleichung ist dort nicht definiert.",
+    "Weil −2 negativ ist."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "D = ℚ \\ {−2}: Für x = −2 wird x + 2 = 0. Die Rechnung ist richtig, aber −2 ist eine Scheinlösung. L = { }.",
+   "h": "Setze die Zahl in den Nenner ein."
+  },
+  {
+   "l": "scheinloesung",
+   "t": "scheinloesung",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Warum ist x = 3 keine Lösung von (x + 8)/(x − 3) = 11/(x − 3), obwohl die Rechnung x = 3 ergibt?"
+   },
+   "a": [
+    "Weil man falsch gerechnet hat.",
+    "Weil 3 nicht im Zähler vorkommt.",
+    "Weil 3 positiv ist.",
+    "Für x = 3 ist der Nenner 0, die Gleichung ist dort nicht definiert."
    ],
    "o": {
     "index": 3
    },
-   "w": "D = ℚ \\ {7}. · (x − 7): 3x = 21 → x = 7. 7 liegt nicht in D, also Scheinlösung: L = { }.",
-   "h": "Bestimme zuerst D. Prüfe am Ende, ob deine Lösung in D liegt."
+   "w": "D = ℚ \\ {3}: Für x = 3 wird x − 3 = 0. Die Rechnung ist richtig, aber 3 ist eine Scheinlösung. L = { }.",
+   "h": "Setze die Zahl in den Nenner ein."
   },
   {
    "l": "scheinloesung",
    "t": "scheinloesung",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Gib die Lösungsmenge von (x + 7)/(x + 6) = 1/(x + 6) an."
    },
    "a": [
     "L = { }",
-    "L = {−6}",
+    "L = {6}",
     "L = ℚ",
-    "L = {6}"
+    "L = {−6}"
    ],
    "o": {
     "index": 0
@@ -2080,42 +2061,106 @@
   {
    "l": "scheinloesung",
    "t": "scheinloesung",
-   "p": "test",
-   "s": 2,
+   "p": "uebung",
+   "s": 3,
    "y": "auswahl",
    "f": {
     "text": "Gib die Lösungsmenge von (x − 6)/(x − 7) = 1/(x − 7) an."
    },
    "a": [
-    "L = {−7}",
-    "L = {7}",
+    "L = ℚ",
     "L = { }",
-    "L = ℚ"
+    "L = {7}",
+    "L = {−7}"
    ],
    "o": {
-    "index": 2
+    "index": 1
    },
-   "w": "D = ℚ \\ {7}. · (x − 7): x − 6 = 1 → x = 7. 7 liegt nicht in D, also Scheinlösung: L = { }."
+   "w": "D = ℚ \\ {7}. · (x − 7): x − 6 = 1 → x = 7. 7 liegt nicht in D, also Scheinlösung: L = { }.",
+   "h": "Bestimme zuerst D. Prüfe am Ende, ob deine Lösung in D liegt."
   },
   {
    "l": "scheinloesung",
    "t": "scheinloesung",
-   "p": "korrektur",
-   "s": 2,
+   "p": "uebung",
+   "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Gib die Lösungsmenge von (x − 4)/(x + 2) = −6/(x + 2) an."
+    "text": "Warum ist x = 6 keine Lösung von (x − 4)/(x − 6) = 2/(x − 6), obwohl die Rechnung x = 6 ergibt?"
+   },
+   "a": [
+    "Weil 6 positiv ist.",
+    "Weil man falsch gerechnet hat.",
+    "Weil 6 nicht im Zähler vorkommt.",
+    "Für x = 6 ist der Nenner 0, die Gleichung ist dort nicht definiert."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "D = ℚ \\ {6}: Für x = 6 wird x − 6 = 0. Die Rechnung ist richtig, aber 6 ist eine Scheinlösung. L = { }.",
+   "h": "Setze die Zahl in den Nenner ein."
+  },
+  {
+   "l": "scheinloesung",
+   "t": "scheinloesung",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Gib die Lösungsmenge von 3x/(x + 2) = −6/(x + 2) an."
    },
    "a": [
     "L = { }",
-    "L = {−2}",
     "L = ℚ",
+    "L = {−2}",
     "L = {2}"
    ],
    "o": {
     "index": 0
    },
-   "w": "D = ℚ \\ {−2}. · (x + 2): x − 4 = −6 → x = −2. −2 liegt nicht in D, also Scheinlösung: L = { }."
+   "w": "D = ℚ \\ {−2}. · (x + 2): 3x = −6 → x = −2. −2 liegt nicht in D, also Scheinlösung: L = { }.",
+   "h": "Bestimme zuerst D. Prüfe am Ende, ob deine Lösung in D liegt."
+  },
+  {
+   "l": "scheinloesung",
+   "t": "scheinloesung",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Warum ist x = 2 keine Lösung von (x − 8)/(x − 2) = −6/(x − 2), obwohl die Rechnung x = 2 ergibt?"
+   },
+   "a": [
+    "Weil 2 nicht im Zähler vorkommt.",
+    "Weil 2 positiv ist.",
+    "Für x = 2 ist der Nenner 0, die Gleichung ist dort nicht definiert.",
+    "Weil man falsch gerechnet hat."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "D = ℚ \\ {2}: Für x = 2 wird x − 2 = 0. Die Rechnung ist richtig, aber 2 ist eine Scheinlösung. L = { }.",
+   "h": "Setze die Zahl in den Nenner ein."
+  },
+  {
+   "l": "scheinloesung",
+   "t": "scheinloesung",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gib die Lösungsmenge von (x + 8)/(x + 2) = 6/(x + 2) an."
+   },
+   "a": [
+    "L = { }",
+    "L = {2}",
+    "L = {−2}",
+    "L = ℚ"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "D = ℚ \\ {−2}. · (x + 2): x + 8 = 6 → x = −2. −2 liegt nicht in D, also Scheinlösung: L = { }."
   },
   {
    "l": "scheinloesung",
@@ -2127,13 +2172,13 @@
     "text": "Gib die Lösungsmenge von (x − 2)/(x + 2) = −4/(x + 2) an."
    },
    "a": [
-    "L = ℚ",
-    "L = { }",
+    "L = {2}",
     "L = {−2}",
-    "L = {2}"
+    "L = { }",
+    "L = ℚ"
    ],
    "o": {
-    "index": 1
+    "index": 2
    },
    "w": "D = ℚ \\ {−2}. · (x + 2): x − 2 = −4 → x = −2. −2 liegt nicht in D, also Scheinlösung: L = { }."
   },
@@ -2144,58 +2189,38 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Gib die Lösungsmenge von (x + 2)/(x + 5) = −3/(x + 5) an."
+    "text": "Warum ist x = −4 keine Lösung von (x + 2)/(x + 4) = −2/(x + 4), obwohl die Rechnung x = −4 ergibt?"
    },
    "a": [
-    "L = ℚ",
-    "L = { }",
-    "L = {5}",
-    "L = {−5}"
+    "Weil −4 negativ ist.",
+    "Für x = −4 ist der Nenner 0, die Gleichung ist dort nicht definiert.",
+    "Weil −4 nicht im Zähler vorkommt.",
+    "Weil man falsch gerechnet hat."
    ],
    "o": {
     "index": 1
    },
-   "w": "D = ℚ \\ {−5}. · (x + 5): x + 2 = −3 → x = −5. −5 liegt nicht in D, also Scheinlösung: L = { }."
+   "w": "D = ℚ \\ {−4}: Für x = −4 wird x + 4 = 0. Die Rechnung ist richtig, aber −4 ist eine Scheinlösung. L = { }."
   },
   {
    "l": "scheinloesung",
    "t": "scheinloesung",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Gib die Lösungsmenge von (x + 1)/(x + 6) = 11/(x + 6) an."
+    "text": "Gib die Lösungsmenge von (x − 4)/(x − 2) = −2/(x − 2) an."
    },
    "a": [
-    "L = {−6}",
-    "L = {10}",
-    "L = { }",
-    "L = {−10}"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "D = ℚ \\ {−6}. · (x + 6): x + 1 = 11 → x = 10. 10 liegt in D: L = {10}."
-  },
-  {
-   "l": "scheinloesung",
-   "t": "scheinloesung",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Gib die Lösungsmenge von (x + 2)/(x + 6) = −4/(x + 6) an."
-   },
-   "a": [
-    "L = {6}",
-    "L = {−6}",
+    "L = {2}",
+    "L = {−2}",
     "L = ℚ",
     "L = { }"
    ],
    "o": {
     "index": 3
    },
-   "w": "D = ℚ \\ {−6}. · (x + 6): x + 2 = −4 → x = −6. −6 liegt nicht in D, also Scheinlösung: L = { }."
+   "w": "D = ℚ \\ {2}. · (x − 2): x − 4 = −2 → x = 2. 2 liegt nicht in D, also Scheinlösung: L = { }."
   },
   {
    "l": "scheinloesung",
@@ -2204,58 +2229,18 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Gib die Lösungsmenge von (x + 6)/(x + 3) = −10/(x + 3) an."
+    "text": "Gib die Lösungsmenge von (x + 8)/(x + 4) = −3/(x + 4) an."
    },
    "a": [
-    "L = {−16}",
     "L = { }",
-    "L = {16}",
-    "L = {−3}"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "D = ℚ \\ {−3}. · (x + 3): x + 6 = −10 → x = −16. −16 liegt in D: L = {−16}."
-  },
-  {
-   "l": "scheinloesung",
-   "t": "scheinloesung",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Gib die Lösungsmenge von (x + 5)/(x − 2) = −3/(x − 2) an."
-   },
-   "a": [
-    "L = {−8}",
-    "L = {8}",
-    "L = { }",
-    "L = {2}"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "D = ℚ \\ {2}. · (x − 2): x + 5 = −3 → x = −8. −8 liegt in D: L = {−8}."
-  },
-  {
-   "l": "scheinloesung",
-   "t": "scheinloesung",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Gib die Lösungsmenge von (x − 1)/(x + 6) = −7/(x + 6) an."
-   },
-   "a": [
-    "L = ℚ",
-    "L = {−6}",
-    "L = { }",
-    "L = {6}"
+    "L = {11}",
+    "L = {−11}",
+    "L = {−4}"
    ],
    "o": {
     "index": 2
    },
-   "w": "D = ℚ \\ {−6}. · (x + 6): x − 1 = −7 → x = −6. −6 liegt nicht in D, also Scheinlösung: L = { }."
+   "w": "D = ℚ \\ {−4}. · (x + 4): x + 8 = −3 → x = −11. −11 liegt in D: L = {−11}."
   },
   {
    "l": "scheinloesung",
@@ -2264,18 +2249,98 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Gib die Lösungsmenge von (x + 5)/(x − 3) = 11/(x − 3) an."
+    "text": "Gib die Lösungsmenge von (x − 2)/(x − 1) = −4/(x − 1) an."
    },
    "a": [
-    "L = {3}",
-    "L = { }",
-    "L = {−6}",
-    "L = {6}"
+    "L = {−2}",
+    "L = {2}",
+    "L = {1}",
+    "L = { }"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "D = ℚ \\ {1}. · (x − 1): x − 2 = −4 → x = −2. −2 liegt in D: L = {−2}."
+  },
+  {
+   "l": "scheinloesung",
+   "t": "scheinloesung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gib die Lösungsmenge von (x + 1)/(x − 4) = 5/(x − 4) an."
+   },
+   "a": [
+    "L = {−4}",
+    "L = {4}",
+    "L = ℚ",
+    "L = { }"
    ],
    "o": {
     "index": 3
    },
-   "w": "D = ℚ \\ {3}. · (x − 3): x + 5 = 11 → x = 6. 6 liegt in D: L = {6}."
+   "w": "D = ℚ \\ {4}. · (x − 4): x + 1 = 5 → x = 4. 4 liegt nicht in D, also Scheinlösung: L = { }."
+  },
+  {
+   "l": "scheinloesung",
+   "t": "scheinloesung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gib die Lösungsmenge von (x − 3)/(x − 7) = −12/(x − 7) an."
+   },
+   "a": [
+    "L = {9}",
+    "L = {−9}",
+    "L = { }",
+    "L = {7}"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "D = ℚ \\ {7}. · (x − 7): x − 3 = −12 → x = −9. −9 liegt in D: L = {−9}."
+  },
+  {
+   "l": "scheinloesung",
+   "t": "scheinloesung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gib die Lösungsmenge von (x − 3)/(x + 2) = 1/(x + 2) an."
+   },
+   "a": [
+    "L = {4}",
+    "L = {−4}",
+    "L = { }",
+    "L = {−2}"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "D = ℚ \\ {−2}. · (x + 2): x − 3 = 1 → x = 4. 4 liegt in D: L = {4}."
+  },
+  {
+   "l": "scheinloesung",
+   "t": "scheinloesung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Gib die Lösungsmenge von (x + 7)/(x − 7) = 8/(x − 7) an."
+   },
+   "a": [
+    "L = { }",
+    "L = {7}",
+    "L = {−1}",
+    "L = {1}"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "D = ℚ \\ {7}. · (x − 7): x + 7 = 8 → x = 1. 1 liegt in D: L = {1}."
   },
   {
    "l": "verhaeltnis",
@@ -2284,13 +2349,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Löse die Verhältnisgleichung x : 6 = 16 : 6."
+    "text": "Löse die Verhältnisgleichung x : 3 = 13 : 10."
    },
    "o": {
-    "wert": 16
+    "wert": 3.9
    },
-   "c": "6 * 16 / 6",
-   "w": "6x = 6 · 16 = 96 → x = 96 : 6 = 16.",
+   "c": "3 * 13 / 10",
+   "w": "10x = 3 · 13 = 39 → x = 39 : 10 = 3,9.",
    "h": "Produktgleichheit: Außenglieder mal = Innenglieder mal."
   },
   {
@@ -2300,273 +2365,51 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Löse die Verhältnisgleichung x : 7 = 20 : 10."
-   },
-   "o": {
-    "wert": 14
-   },
-   "c": "7 * 20 / 10",
-   "w": "10x = 7 · 20 = 140 → x = 140 : 10 = 14.",
-   "h": "Produktgleichheit: Außenglieder mal = Innenglieder mal."
-  },
-  {
-   "l": "verhaeltnis",
-   "t": "verhaeltnis",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Löse die Verhältnisgleichung x : 6 = 5 : 6."
-   },
-   "o": {
-    "wert": 5
-   },
-   "c": "6 * 5 / 6",
-   "w": "6x = 6 · 5 = 30 → x = 30 : 6 = 5.",
-   "h": "Produktgleichheit: Außenglieder mal = Innenglieder mal."
-  },
-  {
-   "l": "verhaeltnis",
-   "t": "verhaeltnis",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Löse die Verhältnisgleichung x : 6 = 5 : 8."
-   },
-   "o": {
-    "wert": 3.75
-   },
-   "c": "6 * 5 / 8",
-   "w": "8x = 6 · 5 = 30 → x = 30 : 8 = 3,75.",
-   "h": "Produktgleichheit: Außenglieder mal = Innenglieder mal."
-  },
-  {
-   "l": "verhaeltnis",
-   "t": "verhaeltnis",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse die Verhältnisgleichung 9 : x = 6 : 2."
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "9 * 2 / 6",
-   "w": "Außenglieder: 9 · 2 = 18. Innenglieder: 6x. Also x = 18 : 6 = 3.",
-   "h": "Produktgleichheit: Außenglieder mal = Innenglieder mal."
-  },
-  {
-   "l": "verhaeltnis",
-   "t": "verhaeltnis",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse die Verhältnisgleichung 6 : x = 3 : 2."
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "6 * 2 / 3",
-   "w": "Außenglieder: 6 · 2 = 12. Innenglieder: 3x. Also x = 12 : 3 = 4.",
-   "h": "Produktgleichheit: Außenglieder mal = Innenglieder mal."
-  },
-  {
-   "l": "verhaeltnis",
-   "t": "verhaeltnis",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse die Verhältnisgleichung 11 : x = 5 : 7."
-   },
-   "o": {
-    "wert": 15.4
-   },
-   "c": "11 * 7 / 5",
-   "w": "Außenglieder: 11 · 7 = 77. Innenglieder: 5x. Also x = 77 : 5 = 15,4.",
-   "h": "Produktgleichheit: Außenglieder mal = Innenglieder mal."
-  },
-  {
-   "l": "verhaeltnis",
-   "t": "verhaeltnis",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse die Verhältnisgleichung 15 : x = 10 : 8."
+    "text": "Löse die Verhältnisgleichung x : 15 = 4 : 5."
    },
    "o": {
     "wert": 12
    },
-   "c": "15 * 8 / 10",
-   "w": "Außenglieder: 15 · 8 = 120. Innenglieder: 10x. Also x = 120 : 10 = 12.",
+   "c": "15 * 4 / 5",
+   "w": "5x = 15 · 4 = 60 → x = 60 : 5 = 12.",
    "h": "Produktgleichheit: Außenglieder mal = Innenglieder mal."
   },
   {
    "l": "verhaeltnis",
    "t": "verhaeltnis",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Löse die Verhältnisgleichung 13 : x = 4 : 13."
+    "text": "Löse die Verhältnisgleichung x : 11 = 6 : 10."
    },
    "o": {
-    "wert": 42.25
+    "wert": 6.6
    },
-   "c": "13 * 13 / 4",
-   "w": "Außenglieder: 13 · 13 = 169. Innenglieder: 4x. Also x = 169 : 4 = 42,25.",
+   "c": "11 * 6 / 10",
+   "w": "10x = 11 · 6 = 66 → x = 66 : 10 = 6,6.",
    "h": "Produktgleichheit: Außenglieder mal = Innenglieder mal."
   },
   {
    "l": "verhaeltnis",
    "t": "verhaeltnis",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Löse die Verhältnisgleichung 8 : x = 4 : 5."
+    "text": "Löse die Verhältnisgleichung x : 2 = 11 : 10."
    },
    "o": {
-    "wert": 10
+    "wert": 2.2
    },
-   "c": "8 * 5 / 4",
-   "w": "Außenglieder: 8 · 5 = 40. Innenglieder: 4x. Also x = 40 : 4 = 10.",
+   "c": "2 * 11 / 10",
+   "w": "10x = 2 · 11 = 22 → x = 22 : 10 = 2,2.",
    "h": "Produktgleichheit: Außenglieder mal = Innenglieder mal."
   },
   {
    "l": "verhaeltnis",
    "t": "verhaeltnis",
    "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Löse die Verhältnisgleichung x : 7 = (x + 7) : 9."
-   },
-   "o": {
-    "wert": 24.5
-   },
-   "c": "7 * (7) / (9 - 7)",
-   "w": "9x = 7(x + 7) = 7x + 49 → 2x = 49 → x = 24,5.",
-   "h": "Produktgleichheit: Außenglieder mal = Innenglieder mal."
-  },
-  {
-   "l": "verhaeltnis",
-   "t": "verhaeltnis",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Löse die Verhältnisgleichung x : 7 = (x + 8) : 6."
-   },
-   "o": {
-    "wert": -56
-   },
-   "c": "7 * (8) / (6 - 7)",
-   "w": "6x = 7(x + 8) = 7x + 56 → −x = 56 → x = −56.",
-   "h": "Produktgleichheit: Außenglieder mal = Innenglieder mal."
-  },
-  {
-   "l": "verhaeltnis",
-   "t": "verhaeltnis",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Für 6 Personen braucht man 600 g Mehl. Wie viel Mehl braucht man für 2 Personen?"
-   },
-   "o": {
-    "wert": 200,
-    "einheit": "g"
-   },
-   "c": "600 * 2 / 6",
-   "w": "x : 2 = 600 : 6 → 6x = 1200 → x = 200 g.",
-   "h": "Stelle eine Verhältnisgleichung auf: Mehl : Personen."
-  },
-  {
-   "l": "verhaeltnis",
-   "t": "verhaeltnis",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Karte hat den Maßstab 1 : 10 000. Zwei Orte sind auf der Karte 1,5 cm voneinander entfernt. Wie weit sind sie in Wirklichkeit entfernt (in km)?"
-   },
-   "o": {
-    "wert": 0.15,
-    "einheit": "km"
-   },
-   "c": "(3/2) * 10000 / 100000",
-   "w": "1 : 10 000 = 1,5 : x → x = 15 000 cm = 0,15 km.",
-   "h": "Rechne erst in cm, dann in km um (1 km = 100 000 cm)."
-  },
-  {
-   "l": "verhaeltnis",
-   "t": "verhaeltnis",
-   "p": "test",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse die Verhältnisgleichung 11 : x = 4 : 18."
-   },
-   "o": {
-    "wert": 49.5
-   },
-   "c": "11 * 18 / 4",
-   "w": "Außenglieder: 11 · 18 = 198. Innenglieder: 4x. Also x = 198 : 4 = 49,5."
-  },
-  {
-   "l": "verhaeltnis",
-   "t": "verhaeltnis",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse die Verhältnisgleichung 2 : x = 2 : 13."
-   },
-   "o": {
-    "wert": 13
-   },
-   "c": "2 * 13 / 2",
-   "w": "Außenglieder: 2 · 13 = 26. Innenglieder: 2x. Also x = 26 : 2 = 13."
-  },
-  {
-   "l": "verhaeltnis",
-   "t": "verhaeltnis",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse die Verhältnisgleichung 2 : x = 6 : 18."
-   },
-   "o": {
-    "wert": 6
-   },
-   "c": "2 * 18 / 6",
-   "w": "Außenglieder: 2 · 18 = 36. Innenglieder: 6x. Also x = 36 : 6 = 6."
-  },
-  {
-   "l": "verhaeltnis",
-   "t": "verhaeltnis",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Löse die Verhältnisgleichung 8 : x = 10 : 20."
-   },
-   "o": {
-    "wert": 16
-   },
-   "c": "8 * 20 / 10",
-   "w": "Außenglieder: 8 · 20 = 160. Innenglieder: 10x. Also x = 160 : 10 = 16."
-  },
-  {
-   "l": "verhaeltnis",
-   "t": "verhaeltnis",
-   "p": "sicherung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -2576,42 +2419,46 @@
     "wert": 6
    },
    "c": "6 * 6 / 6",
-   "w": "Außenglieder: 6 · 6 = 36. Innenglieder: 6x. Also x = 36 : 6 = 6."
+   "w": "Außenglieder: 6 · 6 = 36. Innenglieder: 6x. Also x = 36 : 6 = 6.",
+   "h": "Produktgleichheit: Außenglieder mal = Innenglieder mal."
   },
   {
    "l": "verhaeltnis",
    "t": "verhaeltnis",
-   "p": "sicherung",
+   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse die Verhältnisgleichung 14 : x = 10 : 5."
+    "text": "Löse die Verhältnisgleichung 11 : x = 12 : 3."
    },
    "o": {
-    "wert": 7
+    "wert": 2.75
    },
-   "c": "14 * 5 / 10",
-   "w": "Außenglieder: 14 · 5 = 70. Innenglieder: 10x. Also x = 70 : 10 = 7."
+   "c": "11 * 3 / 12",
+   "w": "Außenglieder: 11 · 3 = 33. Innenglieder: 12x. Also x = 33 : 12 = 2,75.",
+   "h": "Produktgleichheit: Außenglieder mal = Innenglieder mal."
   },
   {
    "l": "verhaeltnis",
    "t": "verhaeltnis",
-   "p": "sicherung",
+   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse die Verhältnisgleichung 5 : x = 3 : 15."
+    "text": "Saft und Wasser werden im Verhältnis 1 : 3 gemischt. Wie viel Wasser (in ml) brauchst du für 100 ml Saft?"
    },
    "o": {
-    "wert": 25
+    "wert": 300,
+    "einheit": "ml"
    },
-   "c": "5 * 15 / 3",
-   "w": "Außenglieder: 5 · 15 = 75. Innenglieder: 3x. Also x = 75 : 3 = 25."
+   "c": "100 * 3 / 1",
+   "w": "Saft : Wasser = 1 : 3 = 100 : x → 1x = 300 → x = 300 ml.",
+   "h": "Stelle die Verhältnisgleichung Saft : Wasser auf."
   },
   {
    "l": "verhaeltnis",
    "t": "verhaeltnis",
-   "p": "sicherung",
+   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -2621,7 +2468,168 @@
     "wert": 12
    },
    "c": "12 * 3 / 3",
-   "w": "Außenglieder: 12 · 3 = 36. Innenglieder: 3x. Also x = 36 : 3 = 12."
+   "w": "Außenglieder: 12 · 3 = 36. Innenglieder: 3x. Also x = 36 : 3 = 12.",
+   "h": "Produktgleichheit: Außenglieder mal = Innenglieder mal."
+  },
+  {
+   "l": "verhaeltnis",
+   "t": "verhaeltnis",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Verhältnisgleichung 9 : x = 8 : 20."
+   },
+   "o": {
+    "wert": 22.5
+   },
+   "c": "9 * 20 / 8",
+   "w": "Außenglieder: 9 · 20 = 180. Innenglieder: 8x. Also x = 180 : 8 = 22,5.",
+   "h": "Produktgleichheit: Außenglieder mal = Innenglieder mal."
+  },
+  {
+   "l": "verhaeltnis",
+   "t": "verhaeltnis",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Verhältnisgleichung 5 : x = 10 : 6."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "5 * 6 / 10",
+   "w": "Außenglieder: 5 · 6 = 30. Innenglieder: 10x. Also x = 30 : 10 = 3.",
+   "h": "Produktgleichheit: Außenglieder mal = Innenglieder mal."
+  },
+  {
+   "l": "verhaeltnis",
+   "t": "verhaeltnis",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Karte hat den Maßstab 1 : 25 000. Zwei Orte sind auf der Karte 1 cm voneinander entfernt. Wie weit sind sie in Wirklichkeit entfernt (in km)?"
+   },
+   "o": {
+    "wert": 0.25,
+    "einheit": "km"
+   },
+   "c": "1 * 25000 / 100000",
+   "w": "1 : 25 000 = 1 : x → x = 25 000 cm = 0,25 km.",
+   "h": "Rechne erst in cm, dann in km um (1 km = 100 000 cm)."
+  },
+  {
+   "l": "verhaeltnis",
+   "t": "verhaeltnis",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Verhältnisgleichung x : 6 = (x + 2) : 3."
+   },
+   "o": {
+    "wert": -4
+   },
+   "c": "6 * (2) / (3 - 6)",
+   "w": "3x = 6(x + 2) = 6x + 12 → −3x = 12 → x = −4.",
+   "h": "Produktgleichheit: Außenglieder mal = Innenglieder mal."
+  },
+  {
+   "l": "verhaeltnis",
+   "t": "verhaeltnis",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Verhältnisgleichung x : 9 = (x − 5) : 7."
+   },
+   "o": {
+    "wert": 22.5
+   },
+   "c": "9 * (-5) / (7 - 9)",
+   "w": "7x = 9(x − 5) = 9x − 45 → −2x = −45 → x = 22,5.",
+   "h": "Produktgleichheit: Außenglieder mal = Innenglieder mal."
+  },
+  {
+   "l": "verhaeltnis",
+   "t": "verhaeltnis",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für 6 Personen braucht man 200 g Mehl. Wie viel Mehl braucht man für 9 Personen?"
+   },
+   "o": {
+    "wert": 300,
+    "einheit": "g"
+   },
+   "c": "200 * 9 / 6",
+   "w": "x : 9 = 200 : 6 → 6x = 1800 → x = 300 g.",
+   "h": "Stelle eine Verhältnisgleichung auf: Mehl : Personen."
+  },
+  {
+   "l": "verhaeltnis",
+   "t": "verhaeltnis",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Verhältnisgleichung 10 : x = 5 : 3."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "10 * 3 / 5",
+   "w": "Außenglieder: 10 · 3 = 30. Innenglieder: 5x. Also x = 30 : 5 = 6."
+  },
+  {
+   "l": "verhaeltnis",
+   "t": "verhaeltnis",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Verhältnisgleichung 9 : x = 3 : 16."
+   },
+   "o": {
+    "wert": 48
+   },
+   "c": "9 * 16 / 3",
+   "w": "Außenglieder: 9 · 16 = 144. Innenglieder: 3x. Also x = 144 : 3 = 48."
+  },
+  {
+   "l": "verhaeltnis",
+   "t": "verhaeltnis",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für Beton mischt man Zement und Kies im Verhältnis 1 : 5. Wie viel kg Zement braucht man für 15 kg Kies?"
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "kg"
+   },
+   "c": "15 * 1 / 5",
+   "w": "Zement : Kies = 1 : 5 = x : 15 → 5x = 15 → x = 3 kg."
+  },
+  {
+   "l": "verhaeltnis",
+   "t": "verhaeltnis",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für ein Grün mischt man gelbe und blaue Farbe im Verhältnis 3 : 4. Wie viele Liter gelbe Farbe braucht man für 12 Liter blaue?"
+   },
+   "o": {
+    "wert": 9,
+    "einheit": "l"
+   },
+   "c": "12 * 3 / 4",
+   "w": "Gelb : Blau = 3 : 4 = x : 12 → 4x = 36 → x = 9 l."
   },
   {
    "l": "verhaeltnis",
@@ -2630,13 +2638,73 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse die Verhältnisgleichung 11 : x = 8 : 16."
+    "text": "Löse die Verhältnisgleichung 11 : x = 5 : 13."
+   },
+   "o": {
+    "wert": 28.6
+   },
+   "c": "11 * 13 / 5",
+   "w": "Außenglieder: 11 · 13 = 143. Innenglieder: 5x. Also x = 143 : 5 = 28,6."
+  },
+  {
+   "l": "verhaeltnis",
+   "t": "verhaeltnis",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Verhältnisgleichung 11 : x = 10 : 15."
+   },
+   "o": {
+    "wert": 16.5
+   },
+   "c": "11 * 15 / 10",
+   "w": "Außenglieder: 11 · 15 = 165. Innenglieder: 10x. Also x = 165 : 10 = 16,5."
+  },
+  {
+   "l": "verhaeltnis",
+   "t": "verhaeltnis",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Verhältnisgleichung 2 : x = 2 : 11."
+   },
+   "o": {
+    "wert": 11
+   },
+   "c": "2 * 11 / 2",
+   "w": "Außenglieder: 2 · 11 = 22. Innenglieder: 2x. Also x = 22 : 2 = 11."
+  },
+  {
+   "l": "verhaeltnis",
+   "t": "verhaeltnis",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Verhältnisgleichung 12 : x = 2 : 12."
+   },
+   "o": {
+    "wert": 72
+   },
+   "c": "12 * 12 / 2",
+   "w": "Außenglieder: 12 · 12 = 144. Innenglieder: 2x. Also x = 144 : 2 = 72."
+  },
+  {
+   "l": "verhaeltnis",
+   "t": "verhaeltnis",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse die Verhältnisgleichung 12 : x = 6 : 11."
    },
    "o": {
     "wert": 22
    },
-   "c": "11 * 16 / 8",
-   "w": "Außenglieder: 11 · 16 = 176. Innenglieder: 8x. Also x = 176 : 8 = 22."
+   "c": "12 * 11 / 6",
+   "w": "Außenglieder: 12 · 11 = 132. Innenglieder: 6x. Also x = 132 : 6 = 22."
   },
   {
    "l": "verhaeltnis",
@@ -2645,16 +2713,1148 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Löse die Verhältnisgleichung 12 : x = 2 : 2."
+    "text": "Löse die Verhältnisgleichung 5 : x = 6 : 12."
    },
    "o": {
-    "wert": 12
+    "wert": 10
    },
-   "c": "12 * 2 / 2",
-   "w": "Außenglieder: 12 · 2 = 24. Innenglieder: 2x. Also x = 24 : 2 = 12."
+   "c": "5 * 12 / 6",
+   "w": "Außenglieder: 5 · 12 = 60. Innenglieder: 6x. Also x = 60 : 6 = 10."
+  },
+  {
+   "l": "graphisch",
+   "t": "graphisch",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Lies die Lösung von 12/(x + 3) = 3 am Schnittpunkt ab.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -7,
+      7
+     ],
+     "y": [
+      -6,
+      6
+     ],
+     "graphen": [
+      {
+       "art": "hyperbel",
+       "a": 12,
+       "b": 3,
+       "c": 0,
+       "name": "y = 12/(x + 3)"
+      },
+      {
+       "art": "linear",
+       "m": 0,
+       "t": 3,
+       "name": "y = 3"
+      }
+     ]
+    }
+   },
+   "a": [
+    "x = 3",
+    "x = 1",
+    "x = 12",
+    "x = −3"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Hyperbel trifft die Gerade y = 3 bei x = 1. Probe: 12 : 4 = 3 ✓",
+   "h": "Suche den Schnittpunkt der Graphen. Die Lösung ist sein x-Wert."
+  },
+  {
+   "l": "graphisch",
+   "t": "graphisch",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Lies die Lösung von 2/(x + 3) = −1 am Schnittpunkt ab.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -7,
+      7
+     ],
+     "y": [
+      -6,
+      6
+     ],
+     "graphen": [
+      {
+       "art": "hyperbel",
+       "a": 2,
+       "b": 3,
+       "c": 0,
+       "name": "y = 2/(x + 3)"
+      },
+      {
+       "art": "linear",
+       "m": 0,
+       "t": -1,
+       "name": "y = −1"
+      }
+     ]
+    }
+   },
+   "a": [
+    "x = 2",
+    "x = −1",
+    "x = −5",
+    "x = −3"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Hyperbel trifft die Gerade y = −1 bei x = −5. Probe: 2 : (−2) = −1 ✓",
+   "h": "Suche den Schnittpunkt der Graphen. Die Lösung ist sein x-Wert."
+  },
+  {
+   "l": "graphisch",
+   "t": "graphisch",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Lies die Lösung von −8/(x + 3) = −2 am Schnittpunkt ab.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -7,
+      7
+     ],
+     "y": [
+      -6,
+      6
+     ],
+     "graphen": [
+      {
+       "art": "hyperbel",
+       "a": -8,
+       "b": 3,
+       "c": 0,
+       "name": "y = −8/(x + 3)"
+      },
+      {
+       "art": "linear",
+       "m": 0,
+       "t": -2,
+       "name": "y = −2"
+      }
+     ]
+    }
+   },
+   "a": [
+    "x = −3",
+    "x = −8",
+    "x = −2",
+    "x = 1"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die Hyperbel trifft die Gerade y = −2 bei x = 1. Probe: −8 : 4 = −2 ✓",
+   "h": "Suche den Schnittpunkt der Graphen. Die Lösung ist sein x-Wert."
+  },
+  {
+   "l": "graphisch",
+   "t": "graphisch",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Lies die Lösung von 12/x = 3 am Schnittpunkt ab.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -7,
+      7
+     ],
+     "y": [
+      -6,
+      6
+     ],
+     "graphen": [
+      {
+       "art": "hyperbel",
+       "a": 12,
+       "b": 0,
+       "c": 0,
+       "name": "y = 12/x"
+      },
+      {
+       "art": "linear",
+       "m": 0,
+       "t": 3,
+       "name": "y = 3"
+      }
+     ]
+    }
+   },
+   "a": [
+    "x = 12",
+    "x = 0",
+    "x = 4",
+    "x = 3"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Hyperbel trifft die Gerade y = 3 bei x = 4. Probe: 12 : 4 = 3 ✓",
+   "h": "Suche den Schnittpunkt der Graphen. Die Lösung ist sein x-Wert."
+  },
+  {
+   "l": "graphisch",
+   "t": "graphisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse 8/x = x − 2 mit den Graphen.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -7,
+      7
+     ],
+     "graphen": [
+      {
+       "art": "hyperbel",
+       "a": 8,
+       "b": 0,
+       "c": 0,
+       "name": "y = 8/x"
+      },
+      {
+       "art": "linear",
+       "m": 1,
+       "t": -2,
+       "name": "y = x − 2"
+      }
+     ]
+    }
+   },
+   "a": [
+    "L = {−4; 2}",
+    "L = {4}",
+    "L = {−2; 4}"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Schnittpunkte (−2 | −4) und (4 | 2). Die x-Werte sind die Lösungen: L = {−2; 4}.",
+   "h": "Suche den Schnittpunkt der Graphen. Die Lösung ist sein x-Wert."
+  },
+  {
+   "l": "graphisch",
+   "t": "graphisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse 3/x = x + 2 mit den Graphen.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -7,
+      7
+     ],
+     "graphen": [
+      {
+       "art": "hyperbel",
+       "a": 3,
+       "b": 0,
+       "c": 0,
+       "name": "y = 3/x"
+      },
+      {
+       "art": "linear",
+       "m": 1,
+       "t": 2,
+       "name": "y = x + 2"
+      }
+     ]
+    }
+   },
+   "a": [
+    "L = {1}",
+    "L = {−3; 1}",
+    "L = {−1; 3}"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Schnittpunkte (−3 | −1) und (1 | 3). Die x-Werte sind die Lösungen: L = {−3; 1}.",
+   "h": "Suche den Schnittpunkt der Graphen. Die Lösung ist sein x-Wert."
+  },
+  {
+   "l": "graphisch",
+   "t": "graphisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse −6/x = x − 5 mit den Graphen.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -7,
+      7
+     ],
+     "graphen": [
+      {
+       "art": "hyperbel",
+       "a": -6,
+       "b": 0,
+       "c": 0,
+       "name": "y = −6/x"
+      },
+      {
+       "art": "linear",
+       "m": 1,
+       "t": -5,
+       "name": "y = x − 5"
+      }
+     ]
+    }
+   },
+   "a": [
+    "L = {−3; −2}",
+    "L = {3}",
+    "L = {2; 3}"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Schnittpunkte (2 | −3) und (3 | −2). Die x-Werte sind die Lösungen: L = {2; 3}.",
+   "h": "Suche den Schnittpunkt der Graphen. Die Lösung ist sein x-Wert."
+  },
+  {
+   "l": "graphisch",
+   "t": "graphisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse −8/x = x − 6 mit den Graphen.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -7,
+      7
+     ],
+     "graphen": [
+      {
+       "art": "hyperbel",
+       "a": -8,
+       "b": 0,
+       "c": 0,
+       "name": "y = −8/x"
+      },
+      {
+       "art": "linear",
+       "m": 1,
+       "t": -6,
+       "name": "y = x − 6"
+      }
+     ]
+    }
+   },
+   "a": [
+    "L = {2; 4}",
+    "L = {4}",
+    "L = {−4; −2}"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Schnittpunkte (2 | −4) und (4 | −2). Die x-Werte sind die Lösungen: L = {2; 4}.",
+   "h": "Suche den Schnittpunkt der Graphen. Die Lösung ist sein x-Wert."
+  },
+  {
+   "l": "graphisch",
+   "t": "graphisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse 12/x = x + 1 mit den Graphen.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -7,
+      7
+     ],
+     "graphen": [
+      {
+       "art": "hyperbel",
+       "a": 12,
+       "b": 0,
+       "c": 0,
+       "name": "y = 12/x"
+      },
+      {
+       "art": "linear",
+       "m": 1,
+       "t": 1,
+       "name": "y = x + 1"
+      }
+     ]
+    }
+   },
+   "a": [
+    "L = {−4; 3}",
+    "L = {−3; 4}",
+    "L = {3}"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Schnittpunkte (−4 | −3) und (3 | 4). Die x-Werte sind die Lösungen: L = {−4; 3}.",
+   "h": "Suche den Schnittpunkt der Graphen. Die Lösung ist sein x-Wert."
+  },
+  {
+   "l": "graphisch",
+   "t": "graphisch",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Graphen zu 8/x = x + 2 schneiden sich zweimal. Gib die größere Lösung an.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -7,
+      7
+     ],
+     "graphen": [
+      {
+       "art": "hyperbel",
+       "a": 8,
+       "b": 0,
+       "c": 0,
+       "name": "y = 8/x"
+      },
+      {
+       "art": "linear",
+       "m": 1,
+       "t": 2,
+       "name": "y = x + 2"
+      }
+     ],
+     "punkte": [
+      {
+       "x": -4,
+       "y": -2
+      },
+      {
+       "x": 2,
+       "y": 4
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Schnittpunkte (−4 | −2) und (2 | 4). Lösungen x = −4 und x = 2; die größere ist 2. Probe: 8 : 2 = 4 und 2 + 2 = 4 ✓",
+   "h": "Suche den Schnittpunkt der Graphen. Die Lösung ist sein x-Wert."
+  },
+  {
+   "l": "graphisch",
+   "t": "graphisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat die Gleichung 4/x + 1 = −3? Entscheide am Bild.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -6,
+      6
+     ],
+     "graphen": [
+      {
+       "art": "hyperbel",
+       "a": 4,
+       "b": 0,
+       "c": 1,
+       "name": "y = 4/x + 1"
+      },
+      {
+       "art": "linear",
+       "m": 0,
+       "t": -3,
+       "name": "y = −3"
+      }
+     ]
+    }
+   },
+   "a": [
+    "1 Lösung",
+    "unendlich viele Lösungen",
+    "2 Lösungen",
+    "0 Lösungen"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die waagrechte Gerade y = −3 schneidet die Hyperbel genau einmal, bei x = −1.",
+   "h": "Zähle die Schnittpunkte der beiden Graphen."
+  },
+  {
+   "l": "graphisch",
+   "t": "graphisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat die Gleichung 3/x − 1 = −1? Entscheide am Bild.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -6,
+      6
+     ],
+     "graphen": [
+      {
+       "art": "hyperbel",
+       "a": 3,
+       "b": 0,
+       "c": -1,
+       "name": "y = 3/x − 1"
+      },
+      {
+       "art": "linear",
+       "m": 0,
+       "t": -1,
+       "name": "y = −1"
+      }
+     ]
+    }
+   },
+   "a": [
+    "unendlich viele Lösungen",
+    "0 Lösungen",
+    "2 Lösungen",
+    "1 Lösung"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Hyperbel kommt der Geraden y = −1 beliebig nahe, trifft sie aber nie: 3/x wäre 0, das geht nicht. L = { }.",
+   "h": "Zähle die Schnittpunkte der beiden Graphen."
+  },
+  {
+   "l": "graphisch",
+   "t": "graphisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat die Gleichung −2/x − 1 = −1? Entscheide am Bild.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -6,
+      6
+     ],
+     "graphen": [
+      {
+       "art": "hyperbel",
+       "a": -2,
+       "b": 0,
+       "c": -1,
+       "name": "y = −2/x − 1"
+      },
+      {
+       "art": "linear",
+       "m": 0,
+       "t": -1,
+       "name": "y = −1"
+      }
+     ]
+    }
+   },
+   "a": [
+    "unendlich viele Lösungen",
+    "2 Lösungen",
+    "1 Lösung",
+    "0 Lösungen"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die Hyperbel kommt der Geraden y = −1 beliebig nahe, trifft sie aber nie: −2/x wäre 0, das geht nicht. L = { }.",
+   "h": "Zähle die Schnittpunkte der beiden Graphen."
+  },
+  {
+   "l": "graphisch",
+   "t": "graphisch",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie viele Lösungen hat die Gleichung 4/x − 2 = x − 2? Entscheide am Bild.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -6,
+      6
+     ],
+     "graphen": [
+      {
+       "art": "hyperbel",
+       "a": 4,
+       "b": 0,
+       "c": -2,
+       "name": "y = 4/x − 2"
+      },
+      {
+       "art": "linear",
+       "m": 1,
+       "t": -2,
+       "name": "y = x − 2"
+      }
+     ]
+    }
+   },
+   "a": [
+    "1 Lösung",
+    "2 Lösungen",
+    "0 Lösungen",
+    "unendlich viele Lösungen"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Gerade y = x − 2 schneidet beide Äste der Hyperbel: zwei Schnittpunkte, also zwei Lösungen.",
+   "h": "Zähle die Schnittpunkte der beiden Graphen."
+  },
+  {
+   "l": "graphisch",
+   "t": "graphisch",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse 4/x = x − 3 mit den Graphen.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -7,
+      7
+     ],
+     "graphen": [
+      {
+       "art": "hyperbel",
+       "a": 4,
+       "b": 0,
+       "c": 0,
+       "name": "y = 4/x"
+      },
+      {
+       "art": "linear",
+       "m": 1,
+       "t": -3,
+       "name": "y = x − 3"
+      }
+     ]
+    }
+   },
+   "a": [
+    "L = {4}",
+    "L = {−1; 4}",
+    "L = {−4; 1}"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Schnittpunkte (−1 | −4) und (4 | 1). Die x-Werte sind die Lösungen: L = {−1; 4}."
+  },
+  {
+   "l": "graphisch",
+   "t": "graphisch",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Graphen zu −5/x = x − 6 schneiden sich zweimal. Gib die größere Lösung an.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -7,
+      7
+     ],
+     "graphen": [
+      {
+       "art": "hyperbel",
+       "a": -5,
+       "b": 0,
+       "c": 0,
+       "name": "y = −5/x"
+      },
+      {
+       "art": "linear",
+       "m": 1,
+       "t": -6,
+       "name": "y = x − 6"
+      }
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": -5
+      },
+      {
+       "x": 5,
+       "y": -1
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "5",
+   "w": "Schnittpunkte (1 | −5) und (5 | −1). Lösungen x = 1 und x = 5; die größere ist 5. Probe: −5 : 5 = −1 und 5 − 6 = −1 ✓"
+  },
+  {
+   "l": "graphisch",
+   "t": "graphisch",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Graphen zu 12/x = x + 1 schneiden sich zweimal. Gib die größere Lösung an.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -7,
+      7
+     ],
+     "graphen": [
+      {
+       "art": "hyperbel",
+       "a": 12,
+       "b": 0,
+       "c": 0,
+       "name": "y = 12/x"
+      },
+      {
+       "art": "linear",
+       "m": 1,
+       "t": 1,
+       "name": "y = x + 1"
+      }
+     ],
+     "punkte": [
+      {
+       "x": -4,
+       "y": -3
+      },
+      {
+       "x": 3,
+       "y": 4
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "Schnittpunkte (−4 | −3) und (3 | 4). Lösungen x = −4 und x = 3; die größere ist 3. Probe: 12 : 3 = 4 und 3 + 1 = 4 ✓"
+  },
+  {
+   "l": "graphisch",
+   "t": "graphisch",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse 10/x = x − 3 mit den Graphen.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -7,
+      7
+     ],
+     "graphen": [
+      {
+       "art": "hyperbel",
+       "a": 10,
+       "b": 0,
+       "c": 0,
+       "name": "y = 10/x"
+      },
+      {
+       "art": "linear",
+       "m": 1,
+       "t": -3,
+       "name": "y = x − 3"
+      }
+     ]
+    }
+   },
+   "a": [
+    "L = {5}",
+    "L = {−5; 2}",
+    "L = {−2; 5}"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Schnittpunkte (−2 | −5) und (5 | 2). Die x-Werte sind die Lösungen: L = {−2; 5}."
+  },
+  {
+   "l": "graphisch",
+   "t": "graphisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse 4/x = x + 3 mit den Graphen.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -7,
+      7
+     ],
+     "graphen": [
+      {
+       "art": "hyperbel",
+       "a": 4,
+       "b": 0,
+       "c": 0,
+       "name": "y = 4/x"
+      },
+      {
+       "art": "linear",
+       "m": 1,
+       "t": 3,
+       "name": "y = x + 3"
+      }
+     ]
+    }
+   },
+   "a": [
+    "L = {1}",
+    "L = {−4; 1}",
+    "L = {−1; 4}"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Schnittpunkte (−4 | −1) und (1 | 4). Die x-Werte sind die Lösungen: L = {−4; 1}."
+  },
+  {
+   "l": "graphisch",
+   "t": "graphisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Graphen zu 3/x = x − 2 schneiden sich zweimal. Gib die größere Lösung an.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -7,
+      7
+     ],
+     "graphen": [
+      {
+       "art": "hyperbel",
+       "a": 3,
+       "b": 0,
+       "c": 0,
+       "name": "y = 3/x"
+      },
+      {
+       "art": "linear",
+       "m": 1,
+       "t": -2,
+       "name": "y = x − 2"
+      }
+     ],
+     "punkte": [
+      {
+       "x": -1,
+       "y": -3
+      },
+      {
+       "x": 3,
+       "y": 1
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "Schnittpunkte (−1 | −3) und (3 | 1). Lösungen x = −1 und x = 3; die größere ist 3. Probe: 3 : 3 = 1 und 3 − 2 = 1 ✓"
+  },
+  {
+   "l": "graphisch",
+   "t": "graphisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse 12/x = x − 1 mit den Graphen.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -7,
+      7
+     ],
+     "graphen": [
+      {
+       "art": "hyperbel",
+       "a": 12,
+       "b": 0,
+       "c": 0,
+       "name": "y = 12/x"
+      },
+      {
+       "art": "linear",
+       "m": 1,
+       "t": -1,
+       "name": "y = x − 1"
+      }
+     ]
+    }
+   },
+   "a": [
+    "L = {−3; 4}",
+    "L = {4}",
+    "L = {−4; 3}"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Schnittpunkte (−3 | −4) und (4 | 3). Die x-Werte sind die Lösungen: L = {−3; 4}."
+  },
+  {
+   "l": "graphisch",
+   "t": "graphisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse −4/x = x + 5 mit den Graphen.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -7,
+      7
+     ],
+     "graphen": [
+      {
+       "art": "hyperbel",
+       "a": -4,
+       "b": 0,
+       "c": 0,
+       "name": "y = −4/x"
+      },
+      {
+       "art": "linear",
+       "m": 1,
+       "t": 5,
+       "name": "y = x + 5"
+      }
+     ]
+    }
+   },
+   "a": [
+    "L = {−1}",
+    "L = {1; 4}",
+    "L = {−4; −1}"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Schnittpunkte (−4 | 1) und (−1 | 4). Die x-Werte sind die Lösungen: L = {−4; −1}."
+  },
+  {
+   "l": "graphisch",
+   "t": "graphisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse 4/x = x mit den Graphen.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -7,
+      7
+     ],
+     "graphen": [
+      {
+       "art": "hyperbel",
+       "a": 4,
+       "b": 0,
+       "c": 0,
+       "name": "y = 4/x"
+      },
+      {
+       "art": "linear",
+       "m": 1,
+       "t": 0,
+       "name": "y = x"
+      }
+     ]
+    }
+   },
+   "a": [
+    "L = {2}",
+    "L = {−2; 2}",
+    "L = {−2}"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Schnittpunkte (−2 | −2) und (2 | 2). Die x-Werte sind die Lösungen: L = {−2; 2}."
+  },
+  {
+   "l": "graphisch",
+   "t": "graphisch",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Die Graphen zu −3/x = x − 4 schneiden sich zweimal. Gib die größere Lösung an.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -7,
+      7
+     ],
+     "graphen": [
+      {
+       "art": "hyperbel",
+       "a": -3,
+       "b": 0,
+       "c": 0,
+       "name": "y = −3/x"
+      },
+      {
+       "art": "linear",
+       "m": 1,
+       "t": -4,
+       "name": "y = x − 4"
+      }
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": -3
+      },
+      {
+       "x": 3,
+       "y": -1
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "Schnittpunkte (1 | −3) und (3 | −1). Lösungen x = 1 und x = 3; die größere ist 3. Probe: −3 : 3 = −1 und 3 − 4 = −1 ✓"
   }
  ],
  "offen": [
-  "Lehrplan: Bruchgleichungen auch graphisch als Schnittpunkt zweier Graphen deuten. Dafür braucht die App Funktionsgraphen; nicht gebaut."
+  "Prüfvorschlag „grafisch deuten“ für ein_bruch ist in der neuen Karte „graphisch“ umgesetzt (dort passt er zum Lernziel)."
  ]
 }

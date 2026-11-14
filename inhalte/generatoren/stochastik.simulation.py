@@ -5,7 +5,8 @@ from fractions import Fraction as Fr
 from pathlib import Path
 sys.dont_write_bytecode = True
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _bausatz import A, Z, baue, bruch, cz, ist_endlich, zt  # noqa: E402
+import json
+from _bausatz import A, Z, baue, bruch, cz, ist_endlich, mit_bild, zt  # noqa: E402
 
 META = {'thema_schluessel': 'stochastik.simulation', 'thema_id': 64, 'block_id': 90, 'klasse': {'gym_by': 8, 'rs_by': 9}}
 
@@ -15,15 +16,15 @@ ETAPPEN = [
      'schritte': ['Ein Spieler trifft mit Wahrscheinlichkeit 0,3.', 'Urne mit 10 Kugeln: 3 rote = Treffer, 7 weiße = kein Treffer.', 'Ziehen ⟦mit Zurücklegen⟧ simuliert einen Wurf.'],
      'fehler': 'Eine Münze passt nicht für p = 0,3: Sie liefert immer ⟦p = 0,5⟧. Das Zufallsgerät muss genau die gesuchte Wahrscheinlichkeit haben.',
      '_verbot': ['Wahrscheinlichkeit 0,3']},
+    {'lernziel': 'regel', 'titel': 'Eine Simulationsregel festlegen',
+     'regel': 'Für p = 0,4 nimmt man ⟦4 von 10⟧ Ziffern als Treffer. Für p = 0,35 reichen einzelne Ziffern nicht: Man nimmt ⟦Zahlen von 00 bis 99⟧ und lässt 35 davon als Treffer gelten.',
+     'schritte': ['p = 0,35 = 35/100', 'Zweistellige Zufallszahlen 00–99 (100 Stück)', 'Regel: ⟦00–34 = Treffer⟧, 35–99 = kein Treffer'],
+     'fehler': 'Die Regel „00–35 = Treffer“ ist für p = 0,35 falsch: Von 00 bis 35 sind es ⟦36⟧ Zahlen.'},
     {'lernziel': 'zufallsziffern', 'titel': 'Mit Zufallsziffern simulieren',
      'regel': 'Zufallsziffern 0–9 kommen ⟦gleich oft⟧ vor (je 1/10). Man legt fest, welche Ziffern als ⟦Treffer⟧ zählen, z. B. 0, 1, 2 für p = 0,3, und zählt dann die Treffer.',
      'schritte': ['Regel: 0–2 = Treffer (p = 0,3)', 'Ziffern: 7 1 4 0 9 2 5 8 3 6', 'Treffer: 1, 0, 2 → ⟦3 Treffer⟧ in 10 Versuchen'],
      'fehler': 'Bei der Regel „0–2 = Treffer“ zählt die 2 mit. 0, 1 und 2 sind ⟦drei⟧ Ziffern, also p = 3/10.',
      '_verbot': ['7 1 4 0 9 2 5 8 3 6']},
-    {'lernziel': 'regel', 'titel': 'Eine Simulationsregel festlegen',
-     'regel': 'Für p = 0,4 nimmt man ⟦4 von 10⟧ Ziffern als Treffer. Für p = 0,35 reichen einzelne Ziffern nicht: Man nimmt ⟦Zahlen von 00 bis 99⟧ und lässt 35 davon als Treffer gelten.',
-     'schritte': ['p = 0,35 = 35/100', 'Zweistellige Zufallszahlen 00–99 (100 Stück)', 'Regel: ⟦00–34 = Treffer⟧, 35–99 = kein Treffer'],
-     'fehler': 'Die Regel „00–35 = Treffer“ ist für p = 0,35 falsch: Von 00 bis 35 sind es ⟦36⟧ Zahlen.'},
     {'lernziel': 'auswerten', 'titel': 'Simulationen auswerten',
      'regel': 'Aus einer Simulation ⟦schätzt⟧ man eine Wahrscheinlichkeit durch die relative Häufigkeit: ⟦Anzahl der Treffer : Anzahl der Durchgänge⟧. Je mehr Durchgänge, desto zuverlässiger.',
      'schritte': ['200 Durchgänge, 46-mal trat „mindestens zwei Sechsen“ ein', 'Relative Häufigkeit 46 : 200 = 0,23', 'Schätzwert: ⟦P ≈ 0,23⟧'],
@@ -31,7 +32,10 @@ ETAPPEN = [
      '_verbot': ['200 Durchgänge, 46-mal']},
     {'lernziel': 'monte_carlo', 'titel': 'Monte-Carlo-Methode',
      'regel': 'Bei der ⟦Monte-Carlo-Methode⟧ setzt man zufällig viele Punkte in ein Quadrat. Der ⟦Anteil der Punkte⟧ in einer Figur schätzt den ⟦Anteil der Fläche⟧: A(Figur) ≈ (Punkte in der Figur : alle Punkte) · A(Quadrat).',
-     'schritte': ['Quadrat 10 cm × 10 cm = 100 cm², 400 Zufallspunkte', '152 Punkte liegen in der Figur: Anteil 152 : 400 = 0,38', 'A(Figur) ≈ 0,38 · 100 cm² = ⟦38 cm²⟧'],
+     'schritte': ['Quadrat 10 cm × 10 cm = 100 cm². Darin ein Viertelkreis mit r = 10 cm. Im Bild sind 40 Zufallspunkte.', '31 der 40 Punkte liegen im Viertelkreis: Anteil 31 : 40 = 0,775.',
+                  'A(Viertelkreis) ≈ 0,775 · 100 cm² = ⟦77,5 cm²⟧.'],
+     'probe': 'Genau gerechnet: π · 10² : 4 ≈ 78,5 cm². Die Schätzung liegt nah dran – mit mehr Punkten meist noch näher.',
+     'bild': {'typ': 'figur', 'punkte': {'_A': [0, 0], '_B': [10, 0], '_C': [10, 10], '_D': [0, 10], '_k0': [10.0, 0.0], '_k1': [9.85, 1.74], '_k2': [9.4, 3.42], '_k3': [8.66, 5.0], '_k4': [7.66, 6.43], '_k5': [6.43, 7.66], '_k6': [5.0, 8.66], '_k7': [3.42, 9.4], '_k8': [1.74, 9.85], '_k9': [0.0, 10.0]}, 'flaeche': ['_A', '_k0', '_k1', '_k2', '_k3', '_k4', '_k5', '_k6', '_k7', '_k8', '_k9'], 'linien': [['_A', '_B', '10 cm'], ['_B', '_C', '10 cm'], ['_C', '_D'], ['_D', '_A']], 'kreise': [{'m': [9.4, 0.4], 'r': 0.13}, {'m': [7.2, 1.8], 'r': 0.13}, {'m': [9.6, 0.5], 'r': 0.13}, {'m': [8.6, 6.7], 'r': 0.13}, {'m': [8.4, 9.7], 'r': 0.13}, {'m': [2.6, 3.5], 'r': 0.13}, {'m': [7.0, 2.9], 'r': 0.13}, {'m': [2.8, 2.4], 'r': 0.13}, {'m': [8.4, 8.5], 'r': 0.13}, {'m': [7.8, 2.4], 'r': 0.13}, {'m': [9.0, 5.1], 'r': 0.13}, {'m': [2.5, 4.6], 'r': 0.13}, {'m': [4.2, 1.0], 'r': 0.13}, {'m': [5.6, 3.7], 'r': 0.13}, {'m': [5.7, 9.0], 'r': 0.13}, {'m': [6.4, 4.1], 'r': 0.13}, {'m': [8.4, 9.7], 'r': 0.13}, {'m': [4.9, 9.2], 'r': 0.13}, {'m': [0.5, 1.6], 'r': 0.13}, {'m': [1.9, 9.1], 'r': 0.13}, {'m': [6.8, 7.1], 'r': 0.13}, {'m': [3.0, 5.0], 'r': 0.13}, {'m': [8.6, 1.2], 'r': 0.13}, {'m': [1.4, 0.7], 'r': 0.13}, {'m': [4.7, 8.2], 'r': 0.13}, {'m': [5.5, 4.1], 'r': 0.13}, {'m': [5.0, 2.0], 'r': 0.13}, {'m': [9.2, 3.6], 'r': 0.13}, {'m': [2.5, 3.2], 'r': 0.13}, {'m': [8.1, 3.3], 'r': 0.13}, {'m': [8.8, 3.5], 'r': 0.13}, {'m': [4.5, 1.0], 'r': 0.13}, {'m': [8.8, 7.8], 'r': 0.13}, {'m': [4.8, 1.4], 'r': 0.13}, {'m': [4.9, 3.8], 'r': 0.13}, {'m': [8.2, 9.0], 'r': 0.13}, {'m': [7.3, 3.0], 'r': 0.13}, {'m': [0.7, 8.7], 'r': 0.13}, {'m': [9.2, 1.8], 'r': 0.13}, {'m': [5.0, 4.8], 'r': 0.13}]},
      'fehler': 'A ≈ 152 cm² ist falsch: Die Anzahl der Punkte ist keine Fläche. Man braucht den ⟦Anteil⟧ der Punkte mal die Quadratfläche.',
      '_verbot': ['152 Punkte']},
     {'lernziel': 'beurteilen', 'titel': 'Ist die Simulation geeignet?',
@@ -79,29 +83,36 @@ def ziffern(R, n, gruppe=4):
     return z, ' '.join(''.join(z[i:i + gruppe]) for i in range(0, n, gruppe))
 
 
+def ziff_regel(k):
+    if k == 1: return 'Nur die Ziffer 0 ist Treffer'
+    if k == 2: return 'Die Ziffern 0 und 1 sind Treffer'
+    return f'Die Ziffern 0 bis {k - 1} sind Treffer'
+
+
 def g_zufallsziffern(R, st):
     if st == 1:
         k = R.choice([2, 3, 4, 5, 6])
         z, txt = ziffern(R, 20)
         treffer = sum(1 for x in z if int(x) < k)
-        return Z(f'Regel: Die Ziffern 0 bis {k - 1} bedeuten Treffer (p = {zt(Fr(k, 10))}). Zähle die Treffer in den Zufallsziffern {txt}.', treffer,
+        return Z(f'Regel: {ziff_regel(k)} (p = {zt(Fr(k, 10))}). Zähle die Treffer in den 20 Zufallsziffern {txt}.', treffer,
                  f'{treffer}', f'Treffer-Ziffern 0–{k - 1}: ' + ', '.join(x for x in z if int(x) < k) + f'. Das sind {treffer}.', 'Gehe die Ziffern einzeln durch.')
     if st == 2:
         k = R.choice([2, 3, 4, 5, 6, 7])
-        z, txt = ziffern(R, 30)
+        z, txt = ziffern(R, 32)
         treffer = sum(1 for x in z if int(x) < k)
-        return Z(f'Regel: Ziffern 0 bis {k - 1} = Treffer. Zufallsziffern: {txt}. Gib die relative Häufigkeit der Treffer als Dezimalzahl an.', Fr(treffer, 30) if ist_endlich(Fr(treffer, 30)) else None,
-                 f'{treffer} / 30', f'{treffer} Treffer bei 30 Versuchen: {treffer} : 30 = {zt(Fr(treffer, 30))}.', 'Treffer zählen und durch die Anzahl der Ziffern teilen.') \
-            if ist_endlich(Fr(treffer, 30)) else Z(f'Regel: Ziffern 0 bis {k - 1} = Treffer. Zufallsziffern: {txt}. Wie viele Nicht-Treffer gibt es?', 30 - treffer,
-                                                   f'30 - {treffer}', f'{treffer} Treffer, also 30 − {treffer} = {30 - treffer} Nicht-Treffer.', 'Zähle die Treffer und ziehe sie von 30 ab.')
+        if R.random() < .6:
+            return Z(f'Regel: {ziff_regel(k)}. Zufallsziffern (32 Stück): {txt}. Gib die relative Häufigkeit der Treffer als Dezimalzahl an.', Fr(treffer, 32),
+                     f'{treffer} / 32', f'{treffer} Treffer bei 32 Versuchen: {treffer} : 32 = {zt(Fr(treffer, 32))}.', 'Treffer zählen und durch die Anzahl der Ziffern teilen.')
+        return Z(f'Regel: {ziff_regel(k)}. Zufallsziffern (32 Stück): {txt}. Wie viele Nicht-Treffer gibt es?', 32 - treffer,
+                 f'32 - {treffer}', f'{treffer} Treffer, also 32 − {treffer} = {32 - treffer} Nicht-Treffer.', 'Zähle die Treffer und ziehe sie von 32 ab.')
     # Stufe 3: Gruppen als ein Durchgang
     k, g = R.choice([(3, 3), (5, 2), (2, 4), (4, 3), (1, 4)])
     z, _ = ziffern(R, g * 8)
     gruppen = [z[i:i + g] for i in range(0, len(z), g)]
     txt = ' '.join(''.join(x) for x in gruppen)
     erf = sum(1 for gr in gruppen if any(int(x) < k for x in gr))
-    return Z(f'Jede {g}er-Gruppe ist ein Durchgang mit {g} Versuchen; Ziffern 0 bis {k - 1} sind Treffer. In wie vielen Durchgängen gab es mindestens einen Treffer? Gruppen: {txt}',
-             erf, f'{erf}', f'Gruppen mit mindestens einer Ziffer 0–{k - 1}: ' + ', '.join(''.join(gr) for gr in gruppen if any(int(x) < k for x in gr)) + f'. Das sind {erf}.',
+    return Z(f'Jede {g}er-Gruppe ist ein Durchgang mit {g} Versuchen; {ziff_regel(k)[0].lower() + ziff_regel(k)[1:]}. In wie vielen Durchgängen gab es mindestens einen Treffer? Gruppen: {txt}',
+             erf, f'{erf}', f'Gruppen mit mindestens einer Treffer-Ziffer ({"0" if k == 1 else "0–" + str(k - 1)}): ' + ', '.join(''.join(gr) for gr in gruppen if any(int(x) < k for x in gr)) + f'. Das sind {erf}.',
              'Prüfe jede Gruppe: Ist mindestens eine Treffer-Ziffer dabei?')
 
 
@@ -117,12 +128,23 @@ def g_regel(R, st):
         return A(R, f'Mit zweistelligen Zufallszahlen 00–99 soll p = {zt(p)} simuliert werden. Welche Regel ist richtig?', f'{r} = Treffer',
                  [f'00 bis {n:02d} = Treffer', f'01 bis {n - 1:02d} = Treffer', f'00 bis {n // 10} = Treffer'],
                  f'Es gibt 100 Zahlen. {zt(p)} · 100 = {n} Treffer-Zahlen: 00, 01, …, {n - 1:02d}.', 'Zähle genau: Von 00 bis 09 sind es 10 Zahlen.')
-    art = R.choice(['wuerfel', 'nenner'])
+    art = R.choice(['wuerfel', 'nenner', 'zwei'])
+    if art == 'zwei':
+        p1, p2 = R.sample([Fr(k, 10) for k in range(1, 10)], 2)
+        a1, a2 = int(p1 * 10), int(p2 * 10)
+        rg = lambda a: '0' if a == 1 else f'0–{a - 1}'
+        return A(R, f'Ein Spieler trifft beim ersten Wurf mit p = {zt(p1)}, beim zweiten mit p = {zt(p2)}. Welche Regel für eine Zweiergruppe von Zufallsziffern passt?',
+                 f'1. Ziffer {rg(a1)} = Treffer, 2. Ziffer {rg(a2)} = Treffer',
+                 [f'beide Ziffern {rg(a1)} = Treffer', f'1. Ziffer 0–{a1} = Treffer, 2. Ziffer 0–{a2} = Treffer', f'1. Ziffer {rg(a2)} = Treffer, 2. Ziffer {rg(a1)} = Treffer'],
+                 f'Jede Ziffer steht für einen Wurf. Erster Wurf: {a1} von 10 Ziffern ({rg(a1)}), zweiter Wurf: {a2} von 10 Ziffern ({rg(a2)}).',
+                 'Jeder Wurf bekommt seine eigene Regel.')
     if art == 'wuerfel':
         k = R.randint(1, 5)
-        return A(R, f'Mit Zufallsziffern soll ein Würfelwurf mit „Augenzahl ≤ {k}“ als Treffer simuliert werden. Welche Regel passt?',
-                 f'Ziffern 1–6 verwenden, 0, 7, 8, 9 überspringen; 1–{k} = Treffer',
-                 [f'Ziffern 0–{k} = Treffer, alle anderen kein Treffer', f'Ziffern 1–{k} = Treffer, 0 und 7–9 kein Treffer', 'Jede Ziffer zählt als eine Augenzahl'],
+        ereig = 'Augenzahl 1' if k == 1 else f'Augenzahl ≤ {k}'
+        tr = '1' if k == 1 else f'1–{k}'
+        return A(R, f'Mit Zufallsziffern soll ein Würfelwurf mit „{ereig}“ als Treffer simuliert werden. Welche Regel passt?',
+                 f'Ziffern 1–6 verwenden, 0, 7, 8, 9 überspringen; {tr} = Treffer',
+                 [f'Ziffern 0–{k} = Treffer, alle anderen kein Treffer', f'Ziffern {tr} = Treffer, 0 und 7–9 kein Treffer', 'Jede Ziffer zählt als eine Augenzahl'],
                  f'Für einen Würfel braucht man 6 gleich wahrscheinliche Ergebnisse. Die Ziffern 1–6 liefern das, wenn man die übrigen überspringt. p = {k}/6.',
                  'Ein Würfel hat 6 gleich wahrscheinliche Ergebnisse – wie bekommt man die mit Ziffern?')
     p = Fr(R.choice([1, 2]), 3)
@@ -132,10 +154,27 @@ def g_regel(R, st):
              f'Welche Anzahl gleich wahrscheinlicher Ziffern ist durch {p.denominator} teilbar?')
 
 
+EREIG = [('„mindestens eine Sechs bei vier Würfen“', Fr(671, 1296), '1 − (5/6)⁴ ≈ 0,518'), ('„alle drei Kinder sind Mädchen“', Fr(1, 8), '(1/2)³ = 0,125'),
+         ('„genau zwei Wappen bei drei Münzwürfen“', Fr(3, 8), '3/8 = 0,375'), ('„der Bus kommt pünktlich“', Fr(4, 5), None), ('„Gewinn beim Losen“', Fr(3, 20), None)]
+
+
+def realistisch(R, n, p):
+    sd = (float(n * p * (1 - p))) ** .5
+    lo, hi = max(1, int(float(n * p) - 2 * sd)), min(n - 1, int(float(n * p) + 2 * sd))
+    return R.randint(lo, hi)
+
+
 def g_auswerten(R, st):
     n = R.choice([50, 80, 100, 125, 200, 250, 400, 500, 1000])
-    k = R.randint(1, n - 1)
-    was = R.choice(['„mindestens eine Sechs bei vier Würfen“', '„alle drei Kinder sind Mädchen“', '„genau zwei Treffer“', '„der Bus kommt pünktlich“', '„Gewinn beim Losen“'])
+    was, pw, pt = R.choice(EREIG)
+    k = realistisch(R, n, pw)
+    if st == 3 and R.random() < .5 and pt:
+        rel = Fr(k, n)
+        return A(R, f'Eine Simulation von {was} ergab {k} Treffer bei {n} Durchgängen. Berechnet ist P = {pt}. Was folgt?',
+                 f'Die Simulation passt gut ({zt(rel) if ist_endlich(rel) and len(zt(rel)) <= 6 else "≈ " + zt(round(float(rel), 3))}).',
+                 ['Die Rechnung muss falsch sein.', 'Simulationen sind wertlos.', 'Die Simulation hätte genau den berechneten Wert ergeben müssen.'],
+                 f'Relative Häufigkeit {k} : {n} liegt nahe beim berechneten Wert. Kleine Abweichungen sind bei Simulationen normal.',
+                 'Vergleiche die relative Häufigkeit mit dem berechneten Wert.')
     if st == 1:
         return Z(f'Eine Simulation mit {n} Durchgängen ergab {k}-mal das Ereignis {was}. Schätze die Wahrscheinlichkeit (als Dezimalzahl).', Fr(k, n), f'{k} / {n}',
                  f'P ≈ {k} : {n} = {zt(Fr(k, n))}.', 'Relative Häufigkeit = Treffer : Durchgänge.')
@@ -164,9 +203,11 @@ def g_monte_carlo(R, st):
                  'Anteil der Punkte mal Fläche des Quadrats.', 'cm²')
     # π schätzen: Viertelkreis im Einheitsquadrat
     k = R.randint(int(n * 0.74), int(n * 0.83))
-    return Z(f'In ein Quadrat mit Seitenlänge 1 wird ein Viertelkreis mit Radius 1 gezeichnet. Von {n} Zufallspunkten liegen {k} im Viertelkreis. Welchen Schätzwert für π erhält man?',
-             4 * Fr(k, n), f'4 * {k} / {n}', f'Viertelkreis A = π/4, Quadrat A = 1. Also π/4 ≈ {k}/{n} → π ≈ 4 · {zt(Fr(k, n))} = {zt(4 * Fr(k, n))}.',
-             'Der Viertelkreis hat die Fläche π/4. Setze den Punkteanteil gleich π/4.')
+    bild = {k_: v for k_, v in ETAPPEN[4]['bild'].items()}
+    bild = json.loads(json.dumps(bild)); bild['linien'] = [[a, b] for a, b, *_ in bild['linien']]
+    return mit_bild(Z(f'In ein Quadrat mit Seitenlänge 1 wird ein Viertelkreis mit Radius 1 gezeichnet (Bild: Ausschnitt mit 40 Punkten). Von {n} Zufallspunkten liegen {k} im Viertelkreis. Welchen Schätzwert für π erhält man?',
+                      4 * Fr(k, n), f'4 * {k} / {n}', f'Viertelkreis A = π/4, Quadrat A = 1. Also π/4 ≈ {k}/{n} → π ≈ 4 · {zt(Fr(k, n))} = {zt(4 * Fr(k, n))}.',
+                      'Der Viertelkreis hat die Fläche π/4. Setze den Punkteanteil gleich π/4.'), bild)
 
 
 def dat(g):
@@ -205,4 +246,5 @@ if __name__ == '__main__':
           'Schätzwert = Treffer : Durchgänge. Monte-Carlo: Fläche ≈ Punkteanteil · Quadratfläche.'],
          offen=['Echte Simulationen (Würfeln, Ziehen, Zufallszahlen am Rechner) sind in der App nicht möglich; die Zufallsziffern werden fest vorgegeben. '
                 'Eine kleine Simulationsfunktion in der App (Knopf „100-mal würfeln“) würde das Thema stark verbessern.',
-                'Monte-Carlo-Bilder (Quadrat mit Punkten) fehlen; die Anzahlen werden in Worten genannt.'])
+                'Lehrplan: lehrplan_gym ist für dieses Thema leer – bitte im Aufbau klären.',
+                'Monte-Carlo-Bild: Quadrat mit Viertelkreis und 40 Punkten (Behelf mit kleinen Kreisen); bei den Flächen-Aufgaben ohne bekannte Figur gibt es kein Bild.'])

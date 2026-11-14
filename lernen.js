@@ -66,10 +66,16 @@ function lernReiseDaten(u, kindId) {
     if (mitPlan && !r) return 'spaeter';
     if (r?.kann_schon || r?.status === 'fertig') return 'kann'; // geschaffte Orte wandern zu „zum Wiederholen“
     if (mitPlan) return 'jetzt'; // im Plan: Eltern/Lehrer haben es bewusst eingeplant
-    if (e.ziel_klasse && kind.klasse && e.ziel_klasse > kind.klasse) return 'spaeter';
+    // Ohne Plan entscheidet die Klasse laut Lehrplan der Schulart: höhere Klassen später,
+    // frühere Klassen nur zum Auffrischen (außer das Kind hat dort schon angefangen), die eigene Klasse ist dran.
+    const kl = e.jahrgang?.[kind.schulart || 'gym_by'] ?? e.ziel_klasse;
+    if (kl && kind.klasse && kl > kind.klasse) return 'spaeter';
+    const s = stand.get(e.id) || {};
+    if (kl && kind.klasse && kl < kind.klasse && !Number(s.fertig || 0) && !s.laeuft && !s.blocktest) return 'frueher';
     return 'jetzt';
   };
-  const pos = (e) => route.get(e.block_id)?.position ?? 1e9;
+  const ortNr = new Map((u.orte || []).map((o, i) => [o.block_id, i])); // Reihenfolge der Weltreise
+  const pos = (e) => route.get(e.block_id)?.position ?? (mitPlan ? 1e9 : 1e6 + (ortNr.get(e.block_id) ?? 9999));
   const mit = einheiten.map((e) => {
     const s = stand.get(e.id) || {};
     const n = e.pflicht_anzahl || 0, f = Number(s.fertig || 0);
@@ -85,7 +91,7 @@ function lernReiseDaten(u, kindId) {
   const orte = (u.orte || []).map((o) => ({ ...o, zustand: ortZustand(o) }));
   const jetzt = mit.filter((e) => e.gruppe === 'jetzt');
   const naechste = jetzt.find((e) => !e.geschafft) || jetzt[0] || null;
-  return { kind, mit, orte, jetzt, naechste, kann: mit.filter((e) => e.gruppe === 'kann'), spaeter: mit.filter((e) => e.gruppe === 'spaeter') };
+  return { kind, mit, orte, jetzt, naechste, kann: mit.filter((e) => e.gruppe === 'kann'), frueher: mit.filter((e) => e.gruppe === 'frueher'), spaeter: mit.filter((e) => e.gruppe === 'spaeter') };
 }
 
 function lernThema(kind) {
@@ -321,6 +327,7 @@ async function viewReise(arg) {
   const weitere = d.jetzt.filter((e) => e !== n);
   if (weitere.length) teile.push(el('h2', { class: 'lr-zwischen' }, 'Auch offen'), ...weitere.map((e) => lernOrtZeile(kind, e)));
   if (d.kann.length) teile.push(el('details', { class: 'lr-mehr' }, el('summary', {}, `Geschafft oder kann schon – zum Wiederholen (${d.kann.length})`), ...d.kann.map((e) => lernOrtZeile(kind, e))));
+  if (d.frueher.length) teile.push(el('details', { class: 'lr-mehr' }, el('summary', {}, `Aus früheren Klassen – zum Auffrischen (${d.frueher.length})`), ...d.frueher.map((e) => lernOrtZeile(kind, e))));
   if (d.spaeter.length) teile.push(el('details', { class: 'lr-mehr' }, el('summary', {}, `Später – für höhere Klassen (${d.spaeter.length})`), ...d.spaeter.map((e) => lernOrtZeile(kind, e))));
   lernErsetze(main, lernRahmen(kind, 'reise', ...teile));
 }
@@ -1173,7 +1180,7 @@ async function viewMerkheft(arg) {
   const { kind } = d;
   $('#title').textContent = 'Merkheft';
   // Einträge: alle Lernkarten der Orte, die gerade dran oder geschafft sind – zum Nachlesen, ohne etwas zu lösen.
-  const sichtbar = new Set([...d.jetzt, ...d.kann].map((e) => e.id));
+  const sichtbar = new Set([...d.jetzt, ...d.kann, ...d.frueher].map((e) => e.id));
   const eintraege = [];
   for (const m of merk) if (sichtbar.has(m.einheit_id)) (m.etappen || []).forEach((e, i) => {
     const k = m.stand?.[e.lernziel] || {};

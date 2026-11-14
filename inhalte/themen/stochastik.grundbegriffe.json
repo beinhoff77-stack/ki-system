@@ -801,7 +801,8 @@
    },
    "o": {
     "wert": 15.8,
-    "einheit": "%"
+    "einheit": "%",
+    "toleranz": 0.1
    },
    "c": "round(38 / 240 * 100, 1)",
    "w": "Insgesamt 38 Sechsen bei 240 Würfen: 38 : 240 ≈ 15,8 %.",
@@ -818,7 +819,8 @@
    },
    "o": {
     "wert": 43.8,
-    "einheit": "%"
+    "einheit": "%",
+    "toleranz": 0.1
    },
    "c": "round(46 / 105 * 100, 1)",
    "w": "Insgesamt 46 Sechsen bei 105 Würfen: 46 : 105 ≈ 43,8 %.",
@@ -835,7 +837,8 @@
    },
    "o": {
     "wert": 73.1,
-    "einheit": "%"
+    "einheit": "%",
+    "toleranz": 0.1
    },
    "c": "round(95 / 130 * 100, 1)",
    "w": "Insgesamt 95 Sechsen bei 130 Würfen: 95 : 130 ≈ 73,1 %.",
@@ -852,7 +855,8 @@
    },
    "o": {
     "wert": 16,
-    "einheit": "%"
+    "einheit": "%",
+    "toleranz": 0.1
    },
    "c": "round(16 / 100 * 100, 1)",
    "w": "Insgesamt 16 Sechsen bei 100 Würfen: 16 : 100 ≈ 16 %.",

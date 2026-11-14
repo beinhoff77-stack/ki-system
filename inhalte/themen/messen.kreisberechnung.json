@@ -1421,7 +1421,8 @@
     "text": "Ein Kreisausschnitt hat den Mittelpunktswinkel 60°. Wie viel Prozent des Kreises sind das? (Runde auf eine Nachkommastelle.)"
    },
    "o": {
-    "wert": 16.7
+    "wert": 16.7,
+    "toleranz": 0.1
    },
    "c": "round(60 / 360 * 100, 1)",
    "w": "Anteil = 60° : 360° = 1/6 ≈ 16,7 %.",
@@ -1469,7 +1470,8 @@
     "text": "Ein Kreisausschnitt hat den Mittelpunktswinkel 40°. Wie viel Prozent des Kreises sind das? (Runde auf eine Nachkommastelle.)"
    },
    "o": {
-    "wert": 11.1
+    "wert": 11.1,
+    "toleranz": 0.1
    },
    "c": "round(40 / 360 * 100, 1)",
    "w": "Anteil = 40° : 360° = 1/9 ≈ 11,1 %.",

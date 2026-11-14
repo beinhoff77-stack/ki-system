@@ -12,6 +12,18 @@ H2 = 'kleinere Lösung zuerst'
 GR = {2: 15, 3: 6, 4: 5, 5: 3, 6: 3, 7: 2, 8: 2}
 
 
+def f2(x):
+    """Zahl mit genau zwei Nachkommastellen (5,60)."""
+    return format(float(x), '.2f').replace('-', '−').replace('.', ',')
+
+
+def eur(x):
+    """Geldbetrag mit zwei Nachkommastellen, Tausender gegliedert."""
+    if Fr(x).denominator == 1: return dz(int(x))
+    ganz, _, rest = format(float(x), '.2f').partition('.')
+    return dz(int(ganz)) + ',' + rest
+
+
 def xn(n, v='x'):
     return f'{v}{str(n).translate(HZ)}'
 
@@ -32,7 +44,8 @@ ETAPPEN = [
      'probe': '(−5) · (−5) · (−5) = 25 · (−5) = −125 ✓',
      'fehler': '„x³ = −125 hat keine Lösung“ ist falsch: Bei ⟦ungeradem⟧ Exponenten ergibt eine negative Zahl hoch n etwas Negatives. x = −5.'},
     {'lernziel': 'anzahl', 'titel': 'Lösungsanzahl begründen',
-     'regel': 'Entscheidend sind ⟦n gerade oder ungerade⟧ und das ⟦Vorzeichen von c⟧. Am Graphen: Wie oft schneidet die Gerade y = c den Graphen von y = xⁿ?',
+     'regel': 'Entscheidend sind ⟦n gerade oder ungerade⟧ und das ⟦Vorzeichen von c⟧. Zähle im Bild, wie oft die waagrechte Gerade y = c den Graphen trifft. y = x⁴ (gerade): Die Gerade y = 4 trifft ⟦zweimal⟧, die Gerade y = −2 ⟦nie⟧. y = x³ (ungerade): Jede waagrechte Gerade trifft ⟦genau einmal⟧.',
+     'bild': {'typ': 'koordinaten', 'x': [-3, 3], 'y': [-4, 6], 'graphen': [{'art': 'potenz', 'a': 1, 'n': 4, 'name': 'x⁴'}, {'art': 'potenz', 'a': 1, 'n': 3, 'name': 'x³'}], 'waagrecht': [4, -2]},
      'schritte': ['x⁶ = −1: n = 6 ist gerade, x⁶ ist nie negativ.', 'Die Gerade y = −1 schneidet den Graphen von y = x⁶ nicht: ⟦keine Lösung⟧.'],
      'probe': 'x⁶ = (x³)² ≥ 0 für jedes x ✓',
      'fehler': '„x⁵ = 32 hat zwei Lösungen 2 und −2“ ist falsch: (−2)⁵ = ⟦−32⟧. Bei ungeradem Exponenten gibt es nur eine Lösung.'},
@@ -55,24 +68,57 @@ ETAPPEN = [
 
 
 def g_gerade(s):
-    n = 2 if s == 1 else R.choice([4, 6]) if s == 2 else R.choice([2, 4, 6, 8])
-    r = R.randint(1 if s == 1 else 2, GR[n])
-    c = r ** n
-    if s == 3 and R.random() < 0.4:
-        if R.random() < 0.5:
+    if s == 1:
+        n, r = 2, R.randint(1, 15)
+    elif s == 2:
+        if R.random() < 0.3:
+            k, m = R.randint(2, 6), R.choice([2, 3, 5, 6, 7])
+            c = k * k * m
+            return auswahl(f'Löse x² = {c}. Gib die Lösungen exakt an.', f'x = ±{k}√{m}',
+                           [f'x = {k}√{m}', f'x = ±{dz(Fr(c, 2)) if c % 2 == 0 else c}', f'x = ±√{k * m}'],
+                           f'x = ±√{c} = ±√({k * k} · {m}) = ±{k}√{m}. Bei x² gibt es zwei Lösungen.',
+                           'Ziehe teilweise die Wurzel und denke an beide Vorzeichen.')
+        n = R.choice([4, 6])
+        r = R.randint(2, GR[n])
+    else:
+        n = R.choice([2, 4, 6, 8])
+        r = R.randint(2, GR[n])
+        c = r ** n
+        typ = R.random()
+        if typ < 0.3:
             return auswahl(f'Welche Lösungsmenge hat {xn(n)} = −{dz(c)}?', 'L = { }', [f'L = {{−{r}}}', f'L = {{−{r}; {r}}}', f'L = {{{r}}}'],
                            f'n = {n} ist gerade, {xn(n)} ist nie negativ. Keine Lösung.', 'Kann eine gerade Potenz negativ sein?')
-        return auswahl(f'Welche Lösungsmenge hat {xn(n)} = 0?', 'L = {0}', ['L = { }', 'L = {−1; 1}', 'L = {0; 1}'],
-                       f'Nur 0 hoch {n} ergibt 0.', 'Welche Zahl hoch n ergibt 0?')
-    if s == 2 and R.random() < 0.3:
-        n, r = 2, R.randint(11, 25)
-        c = r * r
+        if typ < 0.45:
+            a = R.randint(2, 5)
+            return auswahl(f'Welche Lösungsmenge hat {a}{xn(n)} = 0?', 'L = {0}', ['L = { }', f'L = {{−{a}; {a}}}', 'L = {0; 1}'],
+                           f'{xn(n)} = 0, und nur 0 hoch {n} ergibt 0.', 'Welche Zahl hoch n ergibt 0?')
+        if typ < 0.75:
+            return auswahl(f'Jemand löst {xn(n)} = {dz(c)} mit x = {r}. Was stimmt?', f'Unvollständig: Auch −{r} ist Lösung, denn (−{r}){str(n).translate(HZ)} = {dz(c)}.',
+                           ['Richtig, das ist die einzige Lösung.', f'Falsch: Richtig ist nur x = −{r}.', 'Falsch: Es gibt keine Lösung.'],
+                           f'Gerader Exponent, c > 0: zwei Lösungen ±{r}.', 'Mache die Probe mit der Gegenzahl.')
+        return auswahl(f'Jemand löst {xn(n)} = −{dz(c)} mit x = ±{r}. Was stimmt?', f'Falsch: Keine Lösung, denn {xn(n)} ist nie negativ; (±{r}){str(n).translate(HZ)} = {dz(c)}.',
+                       ['Richtig, wie bei positiven Zahlen.', f'Falsch: Nur x = −{r} ist Lösung.', f'Falsch: Nur x = {r} ist Lösung.'],
+                       f'Bei geradem Exponenten ist jede Potenz ≥ 0. Probe: (−{r}){str(n).translate(HZ)} = {dz(c)} ≠ −{dz(c)}.',
+                       'Mache die Probe mit beiden Zahlen.')
+    c = r ** n
     form = R.choice([f'Löse {xn(n)} = {dz(c)}.', f'Löse {xn(n)} − {dz(c)} = 0.', f'Bestimme alle Lösungen von {dz(c)} = {xn(n)}.'])
     return luecken(form, L2, H2, [-r, r], f'n = {n} gerade, c > 0: x = ±{wz(n, dz(c))} = ±{r}.',
                    'Gerader Exponent: Denke an beide Vorzeichen.', c=[f'-({c} / {r} ** {n - 1})', f'{c} / {r} ** {n - 1}'])
 
 
 def g_ungerade(s):
+    if s == 3:
+        n = R.choice([3, 5])
+        if R.random() < 0.5:
+            z = -Fr(R.randint(1, 9), 10) if n == 3 else -Fr(R.randint(1, 5), 10)
+            if R.random() < 0.4: z = -Fr(R.choice([1, 3]), 2)
+            c = z ** n
+            return zahl(f'Löse {xn(n)} = {dz(c)}.', f'n = {n} ungerade: genau eine Lösung, negativ: x = {dz(z)}, denn ({dz(z)}){str(n).translate(HZ)} = {dz(c)}.',
+                        'Ungerader Exponent: Vorzeichen bleibt erhalten. Ziehe die Wurzel ohne Komma.', z, f'{float(c)} / ({float(z)}) ** {n - 1}')
+        p, k = nz9(), R.choice([-4, -3, -2, 2, 3, 4])
+        return zahl(f'Löse {minus_klammer(p)}{str(n).translate(HZ)} = {dz(k ** n)}.' if n == 3 or abs(k) <= 3 else None,
+                    f'{minus_klammer(p)[1:-1]} = {dz(k)}, denn ({dz(k)}){str(n).translate(HZ)} = {dz(k ** n)}. Also x = {dz(p + k)}.',
+                    'Löse zuerst nach der Klammer auf.', p + k, f'{p} + ({k ** n}) / ({k}) ** {n - 1}') if (n == 3 or abs(k) <= 3) else None
     n = 3 if s == 1 else R.choice([3, 5]) if s == 2 else R.choice([3, 5, 7])
     r = R.randint(1, 10 if n == 3 and s > 1 else GR[n])
     neg = s > 1 and R.random() < 0.6 or s == 1 and R.random() < 0.3
@@ -100,6 +146,16 @@ def g_anzahl(s):
     grund = (f'n = {n} ist {"gerade" if n % 2 == 0 else "ungerade"}' +
              (f' und c {"> 0" if c > 0 else "= 0" if c == 0 else "< 0"}' if n % 2 == 0 else '') + f': {txt[k]}.')
     if s < 3:
+        if s == 2 and R.random() < 0.4:
+            n = R.choice([2, 3, 4, 5])
+            c = R.choice([v for v in range(-3, 5) if v])
+            k = (2 if c > 0 else 0) if n % 2 == 0 else 1
+            a_ = auswahl(f'Im Bild siehst du den Graphen von y = {xn(n)} und die Gerade y = {dz(c)}. Wie viele Lösungen hat {xn(n)} = {dz(c)}?',
+                         txt[k], list(txt.values()),
+                         f'Die Gerade y = {dz(c)} trifft den Graphen {"zweimal" if k == 2 else "einmal" if k == 1 else "nie"}: {txt[k]}.',
+                         'Zähle die Schnittpunkte der Geraden mit dem Graphen.')
+            return bild(a_, {'typ': 'koordinaten', 'x': [-3, 3], 'y': [-4, 6],
+                             'graphen': [{'art': 'potenz', 'a': 1, 'n': n, 'name': f'y = {xn(n)}'}], 'waagrecht': [c]})
         return auswahl(f'Wie viele Lösungen hat {xn(n)} = {dz(c)}?', txt[k], list(txt.values()), grund,
                        'Ist der Exponent gerade oder ungerade? Welches Vorzeichen hat c?')
     typ = R.random()
@@ -152,6 +208,10 @@ def g_umformen(s):
                     f'(({rechts} - ({b})) / {a}) / ({x}) ** {n - 1}')
     n = R.choice([2, 3, 4])
     p, r = nz9(), R.randint(1, 4 if n > 2 else 9)
+    if n == 3 and R.random() < 0.4:
+        a, k = R.randint(2, 4), R.choice([-4, -3, -2, 2, 3, 4])
+        return zahl(f'Löse {a}{minus_klammer(p)}³ = {dz(a * k ** 3)}.', f'Erst durch {a}: {minus_klammer(p)}³ = {dz(k ** 3)}. Klammer = {dz(k)}, also x = {dz(p + k)}.',
+                    'Teile zuerst durch den Faktor, dann löse nach der Klammer auf.', p + k, f'{p} + ({a * k ** 3} / {a}) / ({k}) ** 2')
     if n == 3:
         neg = R.random() < 0.5
         k = -r if neg else r
@@ -167,6 +227,18 @@ def nz9():
 
 
 def g_naeherung(s):
+    if s == 2 and R.random() < 0.3:
+        n = R.choice([3, 4])
+        c = R.randint(10, 400)
+        k = int(c ** (1 / n))
+        while (k + 1) ** n <= c: k += 1
+        while k ** n > c: k -= 1
+        if k ** n == c or k < 1: return None
+        t = f'³√{c}' if n == 3 else f'die positive Lösung von x⁴ = {c}'
+        return auswahl(f'Zwischen welchen ganzen Zahlen liegt {t}?', f'{k} und {k + 1}',
+                       [f'{k - 1} und {k}', f'{k + 1} und {k + 2}', f'{c // n} und {c // n + 1}'],
+                       f'{k}{str(n).translate(HZ)} = {dz(k ** n)} < {c} < {dz((k + 1) ** n)} = {k + 1}{str(n).translate(HZ)}.',
+                       'Probiere ganze Zahlen hoch ' + str(n) + '.')
     n = R.choice([3, 3, 4, 5]) if s < 3 else R.choice([3, 4, 5, 6])
     c = R.randint(2, 300)
     if round(c ** (1 / n)) ** n == c: return None
@@ -178,21 +250,29 @@ def g_naeherung(s):
         wahr = c ** (1 / 3)
         v = gerundet(wahr, 2)
         if v is None or round(wahr) ** 3 == c: return None
-        return zahl(f'Löse x³ = {c}. Runde auf zwei Nachkommastellen.', f'x = ³√{c} ≈ {dz(v)}.', 'Nutze die Wurzeltaste des Taschenrechners.',
+        return zahl(f'Löse x³ = {c}. Runde auf zwei Nachkommastellen.', f'x = ³√{c} ≈ {f2(v)}.', 'Nutze die Wurzeltaste des Taschenrechners.',
                     v, f'round({K(wahr)}, 2)')
-    if s == 2 or n % 2:
+    if s == 2:
         neg = n % 2 == 1 and R.random() < 0.5
         cc = -c if neg else c
         x = -v if neg else v
         if n % 2 == 0:
-            return zahl(f'Löse {xn(n)} = {c}. Gib die positive Lösung auf zwei Nachkommastellen an.', f'x = ±{wz(n, c)} ≈ ±{dz(v)}; positiv: {dz(v)}.',
+            return zahl(f'Löse {xn(n)} = {c}. Gib die positive Lösung auf zwei Nachkommastellen an.', f'x = ±{wz(n, c)} ≈ ±{f2(v)}; positiv: {f2(v)}.',
                         'Gerader Exponent: zwei Lösungen ±ⁿ√c.', v, f'round({K(wahr)}, 2)')
         return zahl(f'Löse {xn(n)} = {dz(cc)}. Runde auf zwei Nachkommastellen.',
-                    f'Ungerader Exponent: x = {"−" if neg else ""}{wz(n, c)} ≈ {dz(x)}.', 'Vorzeichen von c beachten.', x,
+                    f'Ungerader Exponent: x = {"−" if neg else ""}{wz(n, c)} ≈ {f2(x)}.', 'Vorzeichen von c beachten.', x,
                     f'round({"-" if neg else ""}{K(wahr)}, 2)')
     a = R.randint(2, 5)
+    if n % 2:
+        b = nz9()
+        neg = R.random() < 0.5
+        cc = -c if neg else c
+        x = -v if neg else v
+        return zahl(f'Löse {a}{xn(n)} {plus(b)} = {dz(a * cc + b)}. Runde auf zwei Nachkommastellen.',
+                    f'{a}{xn(n)} = {dz(a * cc)} ⇒ {xn(n)} = {dz(cc)} ⇒ x = {"−" if neg else ""}{wz(n, c)} ≈ {f2(x)}.',
+                    'Erst die Zahl, dann den Faktor auf die andere Seite bringen.', x, f'round({"-" if neg else ""}{K(wahr)}, 2)')
     return zahl(f'Löse {a}{xn(n)} = {a * c}. Gib die negative Lösung auf zwei Nachkommastellen an.',
-                f'{xn(n)} = {c}, x = ±{wz(n, c)} ≈ ±{dz(v)}; negativ: −{dz(v)}.', 'Erst durch den Faktor teilen.', -v,
+                f'{xn(n)} = {c}, x = ±{wz(n, c)} ≈ ±{f2(v)}; negativ: −{f2(v)}.', 'Erst durch den Faktor teilen.', -v,
                 f'round(-{K(wahr)}, 2)')
 
 
@@ -209,13 +289,26 @@ def g_sachaufgabe(s):
             q = 1 + Fr(p, 100)
             K0 = R.choice([1000, 2000, 4000, 5000, 10000, 20000])
             K2 = K0 * q * q
-            return zahl(f'Ein Guthaben wächst in 2 Jahren bei gleichem Zinssatz (mit Zinseszins) von {dz(K0)} € auf {dz(K2)} €. Wie hoch ist der Zinssatz in Prozent?',
-                        f'{dz(K0)} · q² = {dz(K2)} ⇒ q² = {dz(q * q)} ⇒ q = {dz(q)} (positiv). Zinssatz {p} %.',
+            return zahl(f'Ein Guthaben wächst in 2 Jahren bei gleichem Zinssatz (mit Zinseszins) von {eur(K0)} € auf {eur(K2)} €. Wie hoch ist der Zinssatz in Prozent?',
+                        f'{eur(K0)} · q² = {eur(K2)} ⇒ q² = {dz(q * q)} ⇒ q = {dz(q)} (positiv). Zinssatz {p} %.',
                         'Wachstumsfaktor q pro Jahr: Anfangswert · q · q = Endwert.', p, f'(({float(q * q)}) / {float(q)} - 1) * 100')
-        a = R.randint(3, 12)
-        return zahl(f'Eine quadratische Terrasse ist mit {dz(a * a)} gleich großen quadratischen Platten (Seite 1 m) belegt. Wie lang ist eine Seite der Terrasse?',
-                    f'a² = {dz(a * a)} ⇒ a = {a} m (nur die positive Lösung ist eine Länge).', 'Stelle a² = … auf.', a, f'{a * a} / {a}', einheit='m')
-    if typ < 0.5:
+        a = R.randint(6, 20)
+        pl = R.choice([40, 50])
+        L_ = Fr(a * pl, 100)
+        return zahl(f'Eine quadratische Terrasse ist mit {dz(a * a)} quadratischen Platten mit {pl} cm Seitenlänge belegt. Wie lang ist eine Seite der Terrasse in m?',
+                    f'Platten je Seite: n² = {dz(a * a)} ⇒ n = {a} (nur positiv). Seite: {a} · {dz(Fr(pl, 100))} m = {dz(L_)} m.',
+                    'Wie viele Platten liegen an einer Seite? Stelle n² = … auf.', L_, f'({a * a} / {a}) * {pl} / 100', einheit='m')
+    if typ < 0.35:
+        if R.random() < 0.5:
+            a = R.choice([1, 2, 3, 4, 5])
+            return zahl(f'Ein würfelförmiger Wassertank soll {dz(a ** 3)} m³ fassen. Wie lang muss eine Innenkante sein?',
+                        f'a³ = {dz(a ** 3)} ⇒ a = ³√{dz(a ** 3)} = {a} m.', 'Das Fassungsvermögen ist das Volumen a³.', a, f'{a ** 3} / {a} ** 2', einheit='m')
+        a = R.choice([2, 4, 5, 6, 10])
+        m = Fr(193, 10) * a ** 3
+        return zahl(f'Ein Würfel aus Gold wiegt {dz(m / 1000)} kg (1 cm³ Gold wiegt 19,3 g). Wie lang ist seine Kante?',
+                    f'Volumen: {dz(m)} g : 19,3 g = {dz(a ** 3)} cm³. a³ = {dz(a ** 3)} ⇒ a = {a} cm.',
+                    'Berechne erst das Volumen aus der Masse, dann die Kante.', a, f'({float(m)} / 19.3) / {a} ** 2', einheit='cm')
+    if typ < 0.65:
         l, b, h = R.choice([(2, 4, 8), (4, 4, 4 * 2 * 2), (3, 9, 8), (2, 9, 12), (4, 6, 9), (5, 5, 5), (2, 2, 16), (6, 9, 4), (8, 8, 1), (3, 6, 12)])
         a = round((l * b * h) ** (1 / 3))
         if a ** 3 != l * b * h: return None
@@ -243,5 +336,4 @@ if __name__ == '__main__':
           ETAPPEN, GEN,
           meiden={'gerade': ['x⁴ = 16.'], 'ungerade': ['x³ = −125.'], 'anzahl': ['x⁶ = −1?'], 'umformen': ['= 61.'],
                   'naeherung': ['x³ = 40.'], 'sachaufgabe': ['216 dm³']},
-          offen=['Lernkarte „anzahl“ braucht Zeichnung: Graphen von y = xⁿ (n gerade/ungerade) mit waagrechter Geraden y = c, um die Lösungsanzahl zu begründen (Lehrplan: „mit Skizzen begründen“). Bisher nur in Worten.',
-                 'Rechenausdruck c bei gerundeten Lösungen (Lernkarte „naeherung“): Das Prüfskript kann keine Wurzeln ziehen; der Wurzelwert steht als 12-stellige Konstante im Ausdruck.'])
+          offen=['Rechenausdruck c bei gerundeten Lösungen (Lernkarte „naeherung“): Das Prüfskript kann keine Wurzeln ziehen; der Wurzelwert steht als 12-stellige Konstante im Ausdruck.'])

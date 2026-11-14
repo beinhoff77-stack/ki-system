@@ -320,7 +320,8 @@ def koord(graphen=(), x=(-5, 5), y=None, punkte=None, waagrecht=None, senkrecht=
         span = (hi - lo) or 2
         p = 10 ** math.floor(math.log10(span / 8))
         st = next(m * p for m in (1, 2, 5, 10) if m * p >= span / 8)
-        lo, hi = math.floor((lo - span * 0.05) / st) * st, math.ceil((hi + span * 0.05) / st) * st
+        lo = 0 if lo >= 0 else math.floor((lo - span * 0.05) / st) * st
+        hi = 0 if hi <= 0 else math.ceil((hi + span * 0.05) / st) * st
         lo, hi = (int(lo) if float(lo).is_integer() else round(lo, 6)), (int(hi) if float(hi).is_integer() else round(hi, 6))
         y = (lo, hi)
     b['y'] = [y[0], y[1]]

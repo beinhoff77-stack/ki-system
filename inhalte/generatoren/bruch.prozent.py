@@ -10,20 +10,31 @@ R = random.Random(24)
 E = eintrag_laden('bruch.prozent')
 HB = 'Zähler ins erste Kästchen, Nenner ins zweite. Vollständig gekürzt.'
 
+def hunderterfeld():
+    """Hunderterfeld (10 × 10 Kästchen), 75 Kästchen zeilenweise von unten gefärbt – Bild der Lernkarte prozent_bedeutung."""
+    b = raster(10, 10, 0)
+    b['punkte'].update({'_hA': [0, 0], '_hB': [10, 0], '_hC': [10, 7], '_hD': [5, 7], '_hE': [5, 8], '_hF': [0, 8]})
+    b['flaeche'] = ['_hA', '_hB', '_hC', '_hD', '_hE', '_hF']
+    return b
+
+
 ETAPPEN = [
     {'lernziel': 'prozent_bedeutung', 'titel': 'Was bedeutet Prozent?',
      'regel': '⟦Prozent⟧ heißt ⟦Hundertstel⟧: 1 % = 1/100 = 0,01. So wandelst du um: 35 % = 35/100 = 0,35. Umgekehrt: Dezimalzahl ⟦mal 100⟧ ergibt die Prozentzahl.',
-     'schritte': ['3/4 in Prozent: Erweitere auf Hundertstel, 3/4 = 75/100.', '75/100 = ⟦75 %⟧ = 0,75.'],
+     'schritte': ['Ein Hunderterfeld hat 100 Kästchen. Jedes Kästchen ist 1 %.', '3/4 in Prozent: Erweitere auf Hundertstel, 3/4 = 75/100.',
+                  'Im Feld sind 75 von 100 Kästchen gefärbt: ⟦75 %⟧ = 0,75.'],
+     'bild': hunderterfeld(),
      'fehler': '0,5 = 5 % ist falsch: 0,5 = 50/100 = ⟦50 %⟧. Beim Umwandeln wandert das Komma ⟦zwei⟧ Stellen.'},
     {'lernziel': 'prozentwert', 'titel': 'Prozentwert berechnen',
      'regel': 'Der ⟦Grundwert G⟧ ist das Ganze (100 %). Der ⟦Prozentwert W⟧ ist der Teil davon. Es gilt ⟦W = G · p %⟧. Tipp: Rechne zuerst 1 % aus (G : 100).',
-     'schritte': ['15 % von 240 €: 1 % von 240 € sind 2,40 €.', '15 % sind 15 · 2,40 € = ⟦36 €⟧.'],
+     'schritte': ['15 % von 240 €: 1 % von 240 € sind 240 € : 100 = 2,40 €.', '15 % sind 15 · 2,40 € = ⟦36 €⟧.',
+                  'Schneller im Kopf: 10 % sind 24 €, 5 % sind die Hälfte davon, 12 €. Zusammen 24 € + 12 € = 36 €.'],
      'probe': '36 : 240 = 0,15 = 15 % ✓',
      'fehler': '15 % von 240 € als 240 : 15 = 16 € zu rechnen ist falsch: 15 % heißt ⟦15 Hundertstel⟧. Also 240 · 15 : 100 = 36 €.'},
     {'lernziel': 'prozentsatz', 'titel': 'Prozentsatz berechnen',
      'regel': 'Den ⟦Prozentsatz⟧ findest du mit ⟦p % = W : G⟧ – Teil durch Ganzes. Das Ergebnis als Dezimalzahl mal 100 ergibt die Prozentzahl.',
      'schritte': ['Von 25 Aufgaben sind 21 richtig. 21 : 25 = 0,84.', '0,84 = ⟦84 %⟧.'],
-     'probe': '84 % von 25 = 25 · 0,84 = 21 ✓',
+     'probe': 'Ohne Division: 21/25 mit 4 erweitern ergibt 84/100 = 84 % ✓',
      'fehler': '25 : 21 zu rechnen ist falsch: Der Anteil ist ⟦Teil durch Ganzes⟧, also 21 : 25. Ein Prozentsatz über 100 % wäre hier unmöglich.'},
     {'lernziel': 'grundwert', 'titel': 'Grundwert berechnen',
      'regel': 'Kennst du ⟦Prozentwert und Prozentsatz⟧, findest du den Grundwert rückwärts: ⟦G = W : p %⟧. Oder über 1 %: erst W : p, dann mal 100.',
@@ -70,7 +81,37 @@ def euro(x):
 
 
 # ---------- 1 Bedeutung ----------
+def g_bed_bild(st):
+    """Prozentsatz am Bild ablesen: Hunderterfeld (Stufe 1) oder Kreis (Stufe 2)."""
+    if st == 1:
+        k = R.randint(3, 97)
+        return {'y': 'zahl', 'f': {'text': 'Das Hunderterfeld hat 100 Kästchen. Wie viel Prozent sind gefärbt?',
+                                   'grafik': raster(10, 10, k, label=f'Hunderterfeld, {k} von 100 Kästchen gefärbt')},
+                'o': {'wert': k, 'einheit': '%'}, 'c': f'{k} / 100 * 100',
+                'w': f'Volle Spalten zählen (je 10 Kästchen), dann den Rest: {k} von 100 Kästchen = {k}/100 = {k} %.',
+                'h': 'Jede volle Spalte hat 10 Kästchen. Jedes Kästchen ist 1 %.'}
+    if R.random() < .5:
+        a, b, welcher = R.choice([(1, 3, 'kleinere'), (1, 3, 'größere'), (3, 1, 'kleinere'), (3, 1, 'größere'), (1, 1, 'blaue')])
+        g = (min(a, b) if welcher == 'kleinere' else max(a, b)) if a != b else a
+        p = Fr(g * 100, a + b)
+        werte = [('blau', a), ('weiß', b)]
+        wort = {Fr(1, 4): 'ein Viertel', Fr(3, 4): 'drei Viertel', Fr(1, 2): 'die Hälfte'}[Fr(g, a + b)]
+        return {'y': 'zahl', 'f': {'text': f'Wie viel Prozent des Kreises macht der {welcher} Teil aus?' if a != b else 'Wie viel Prozent des Kreises sind blau?',
+                                   'grafik': kreisdiagramm(werte, zahlen=False)},
+                'o': {'wert': wert(p), 'einheit': '%'}, 'c': f'{g} / {a + b} * 100',
+                'w': f'Der Teil ist {wort} des Kreises: {bruch(Fr(g, a + b))} = {pz(p)}.', 'h': 'Ein halber Kreis ist 50 %, ein Viertelkreis 25 %.'}
+    n = R.choice([4, 5, 10, 20])
+    k = R.randint(1, n - 1)
+    p = Fr(k * 100, n)
+    return {'y': 'zahl', 'f': {'text': f'Der Kreis ist in {n} gleich große Teile geteilt. Wie viel Prozent sind gefärbt?',
+                               'grafik': kreisteile(n, k, label=f'Kreis: {n} gleich große Teile, {k} davon gefärbt')},
+            'o': {'wert': wert(p), 'einheit': '%'}, 'c': f'{k} / {n} * 100',
+            'w': f'{k} von {n} Teilen: {k}/{n} = {k * (100 // n)}/100 = {pz(p)}.', 'h': f'Ein Teil ist 100 % : {n} = {zt(Fr(100, n))} %.'}
+
+
 def g_bed(st):
+    if st in (1, 2) and R.random() < .3:
+        return g_bed_bild(st)
     if st == 1:
         art = R.randrange(3)
         if art == 0:
@@ -132,8 +173,12 @@ def g_pw(st):
         g = R.choice([20, 40, 60, 80, 100, 120, 200, 300, 400, 500, 800, 1000])
         e = R.choice(['€', 'kg', 'm', 'l'])
         w = Fr(g * p, 100)
+        w_ = (f'1 % ist der hundertste Teil: {zt(g)} {e} : 100 = {zt(w)} {e}.' if p == 1 else
+              f'1 % von {zt(g)} {e} = {zt(g)} {e} : 100 = {zt(Fr(g, 100))} {e}. {pz(p)}: {p} · {zt(Fr(g, 100))} = {zt(w)} {e}.')
+        if p in (10, 5) and R.random() < .5:
+            w_ = f'10 % von {zt(g)} {e}: Komma eine Stelle nach links, {zt(Fr(g, 10))} {e}.' + (f' 5 % sind die Hälfte davon: {zt(w)} {e}.' if p == 5 else '')
         return {'y': 'zahl', 'f': {'text': f'Berechne {pz(p)} von {zt(g)} {e}.'}, 'o': {'wert': wert(w), 'einheit': e}, 'c': f'{g} * {p} / 100',
-                'w': f'1 % von {zt(g)} {e} = {zt(Fr(g, 100))} {e}. {pz(p)}: {p} · {zt(Fr(g, 100))} = {zt(w)} {e}.', 'h': 'Rechne erst 1 % aus, dann mal die Prozentzahl.'}
+                'w': w_, 'h': 'Rechne erst 1 % aus, dann mal die Prozentzahl.'}
     if st == 2:
         while True:
             p = R.randint(2, 95)
@@ -143,7 +188,9 @@ def g_pw(st):
         e = R.choice(['€', 'kg', 'km', 'l'])
         return {'y': 'zahl', 'f': {'text': f'Berechne {pz(p)} von {zt(g)} {e}.'}, 'o': {'wert': wert(w), 'einheit': e}, 'c': f'{g} * {p} / 100',
                 'w': f'W = G · p % = {zt(g)} · {zt(Fr(p, 100))} = {zt(w)} {e}.', 'h': 'Schreibe p % als Dezimalzahl und nimm mit dem Grundwert mal.'}
-    art = R.randrange(3)
+    art = R.randrange(4)
+    if art == 3:
+        return schaetzen()
     if art == 0:
         satz, dat, nom = R.choice(DINGE)
         p = R.choice([5, 12, 15, 24, 35, 45, 60, 85])
@@ -164,6 +211,21 @@ def g_pw(st):
             'w': f'{pz(p)} = {bruch(b)}. {bruch(b)} von {zt(g)} = {zt(w)}.', 'h': '50 % = 1/2, 25 % = 1/4, 20 % = 1/5 …'}
 
 
+def schaetzen():
+    """Prozentwert überschlagen: krummer Prozentsatz und krummer Grundwert auf runde Zahlen."""
+    p0, b = R.choice([(25, Fr(1, 4)), (50, Fr(1, 2)), (20, Fr(1, 5)), (10, Fr(1, 10)), (75, Fr(3, 4))])
+    p = p0 + R.choice([-2, -1, 1, 2])
+    g0 = R.choice([40, 60, 80, 120, 200, 300, 400, 600, 800, 1000])
+    g = g0 + R.choice([-3, -2, -1, 1, 2, 3]) * (1 if g0 < 100 else R.choice([1, 2]))
+    e = R.choice(['€', 'kg'])
+    r = g0 * b
+    if r.denominator > 1: return schaetzen()
+    falsch = [f'etwa {zt(p)} {e}', f'etwa {zt(r / 10)} {e}' if (r / 10).denominator == 1 else f'etwa {zt(r * 2)} {e}', f'etwa {zt(r * 10)} {e}']
+    return {**wahl(R, f'etwa {zt(r)} {e}', falsch), 'f': {'text': f'Etwa wie viel sind {pz(p)} von {zt(g)} {e}? Überschlage im Kopf.'},
+            'w': f'{pz(p)} ≈ {pz(p0)} = {bruch(b)}, {zt(g)} {e} ≈ {zt(g0)} {e}. {bruch(b)} von {zt(g0)} {e} = {zt(r)} {e}.',
+            'h': f'Runde {pz(p)} auf einen einfachen Prozentsatz und {zt(g)} auf eine runde Zahl.'}
+
+
 # ---------- 3 Prozentsatz ----------
 def g_ps(st):
     if st == 1:
@@ -174,13 +236,21 @@ def g_ps(st):
         return {'y': 'zahl', 'f': {'text': f'Wie viel Prozent sind {w} von {g}?'}, 'o': {'wert': wert(p), 'einheit': '%'}, 'c': f'{w} / {g} * 100',
                 'w': f'{w} : {g} = {zt(Fr(w, g))} = {pz(p)}.', 'h': 'Teil durch Ganzes, dann mal 100.'}
     if st == 2:
+        # (Satz, Frage, kleinstes/größtes Ganzes, Anteil von/bis in %)
+        lage = R.choice([('In einer Klasse mit {g} Kindern tragen {w} eine Brille.', 'Wie viel Prozent der Kinder sind das?', 20, 32, 15, 50),
+                         ('Von {g} Freiwürfen trifft ein Kind {w}.', 'Wie hoch ist die Trefferquote in Prozent?', 10, 50, 30, 90),
+                         ('Bei einer Klassenarbeit gibt es {g} Punkte. Ein Kind erreicht {w} Punkte.', 'Wie viel Prozent der Punkte sind das?', 20, 60, 40, 100),
+                         ('Von {g} gesäten Samen keimen {w}.', 'Wie viel Prozent der Samen keimen?', 20, 200, 50, 95),
+                         ('Ein Verein hat {g} Mitglieder. {w} davon sind Kinder.', 'Wie viel Prozent der Mitglieder sind Kinder?', 40, 400, 10, 60)])
+        satz, frage, glo, ghi, plo, phi = lage
         while True:
-            g = R.randint(12, 400)
-            w = R.randint(1, g - 1)
+            g = R.randint(glo, ghi)
+            w = R.randint(max(1, g * plo // 100), min(g - (phi < 100), g * phi // 100))
             p = Fr(w * 100, g)
-            if ok(p, 1) and g % 10: break
-        return {'y': 'zahl', 'f': {'text': f'Wie viel Prozent sind {zt(w)} von {zt(g)}?'}, 'o': {'wert': wert(p), 'einheit': '%'}, 'c': f'{w} / {g} * 100',
-                'w': f'{zt(w)} : {zt(g)} = {zt(Fr(w, g))} = {pz(p)}.', 'h': 'p % = W : G.'}
+            if ok(p, 1) and 0 < w: break
+        return {'y': 'zahl', 'f': {'text': satz.format(g=zt(g), w=zt(w)) + ' ' + frage}, 'o': {'wert': wert(p), 'einheit': '%'}, 'c': f'{w} / {g} * 100',
+                'w': f'Teil durch Ganzes: {zt(w)} : {zt(g)} = {zt(Fr(w, g))} = {pz(p)}.' + (f' Oder erweitern: {w}/{g} = {zt(p)}/100.' if 100 % g == 0 else ''),
+                'h': 'Was ist das Ganze (Grundwert), was ist der Teil? p % = W : G.'}
     art = R.randrange(3)
     if art == 0:
         alt = R.choice([20, 40, 50, 60, 80, 120, 150, 200, 250])
@@ -233,16 +303,20 @@ def g_gw(st):
         w = g * p // 100
         return {'y': 'zahl', 'f': {'text': f'{w} Kinder einer Schule fahren mit dem Bus. Das sind {pz(p)} aller Kinder. Wie viele Kinder hat die Schule?'}, 'o': {'wert': g},
                 'c': f'{w} / {p} * 100', 'w': f'{w} : {zt(Fr(p, 100))} = {zt(g)} Kinder.', 'h': 'Gesucht ist das Ganze, also der Grundwert.'}
-    p = R.choice([110, 120, 125, 150, 200])
-    g = R.choice([n for n in range(20, 401, 20)])
-    w = Fr(g * p, 100)
-    if not ok(w): return g_gw(3)
-    return {'y': 'zahl', 'f': {'text': f'Nach einer Erhöhung beträgt ein Wert {pz(p)} des alten Werts, nämlich {zt(w)} €. Wie hoch war der alte Wert?'}, 'o': {'wert': g, 'einheit': '€'},
-            'c': f'{float(w)} / {p} * 100', 'w': f'{zt(w)} : {zt(Fr(p, 100))} = {zt(g)} €.', 'h': f'{pz(p)} = {zt(Fr(p, 100))}. Teile dadurch.'}
+    # Der bekannte Teil ist der Rest: erst dessen Prozentsatz bestimmen (100 % − p %), dann rückwärts.
+    p = R.choice([10, 20, 25, 30, 40, 45, 60, 75])
+    g = R.choice([n for n in range(100, 801, 20) if n * (100 - p) % 100 == 0])
+    rest = g * (100 - p) // 100
+    return {'y': 'zahl', 'f': {'text': f'{pz(p)} der Kinder einer Schule kommen mit dem Bus. Die übrigen {zt(rest)} Kinder kommen zu Fuß oder mit dem Rad. Wie viele Kinder hat die Schule?'},
+            'o': {'wert': g}, 'c': f'{rest} / (100 - {p}) * 100',
+            'w': f'Die übrigen Kinder sind 100 % − {pz(p)} = {pz(100 - p)}. 1 %: {zt(rest)} : {100 - p} = {zt(Fr(rest, 100 - p))}. 100 %: {zt(g)} Kinder.',
+            'h': f'Zu welchem Prozentsatz gehören die {zt(rest)} Kinder? Es sind nicht {pz(p)}.'}
 
 
 # ---------- 5 Rabatt und Aufschlag ----------
 WAREN = {'Eine Jacke': (40, 240), 'Ein Fahrrad': (200, 1000), 'Ein Paar Schuhe': (40, 160), 'Ein Rucksack': (30, 140), 'Eine Spielkonsole': (200, 600), 'Ein Zelt': (60, 400)}
+DER = {'Eine Jacke': 'die Jacke', 'Ein Fahrrad': 'das Fahrrad', 'Ein Paar Schuhe': 'das Paar Schuhe', 'Ein Rucksack': 'der Rucksack',
+       'Eine Spielkonsole': 'die Spielkonsole', 'Ein Zelt': 'das Zelt'}
 
 
 def g_ra(st):
@@ -269,21 +343,16 @@ def _g_ra(st):
             if ok(Fr(g * (100 - p), 100)): break
         if R.random() < .6:
             neu = Fr(g * (100 - p), 100)
-            return {'y': 'zahl', 'f': {'text': f'{ware} kostet {zt(g)} €. Es gibt {pz(p)} Rabatt. Was kostet die Ware jetzt?'}, 'o': {'wert': wert(neu), 'einheit': '€'},
+            return {'y': 'zahl', 'f': {'text': f'{ware} kostet {zt(g)} €. Es gibt {pz(p)} Rabatt. Was kostet {DER[ware]} jetzt?'}, 'o': {'wert': wert(neu), 'einheit': '€'},
                     'c': f'{g} * (100 - {p}) / 100', 'w': f'Man zahlt {pz(100 - p)}: {zt(g)} · {zt(Fr(100 - p, 100))} = {euro(neu)}.', 'h': 'Rechne mit 100 % − Rabatt.'}
         p = R.choice([5, 10, 15, 20, 25])
         neu = Fr(g * (100 + p), 100)
         if not ok(neu): return _g_ra(2)
-        return {'y': 'zahl', 'f': {'text': f'{ware} kostete {zt(g)} €. Der Preis steigt um {pz(p)}. Wie viel kostet die Ware jetzt?'}, 'o': {'wert': wert(neu), 'einheit': '€'},
+        return {'y': 'zahl', 'f': {'text': f'{ware} kostete {zt(g)} €. Der Preis steigt um {pz(p)}. Wie viel kostet {DER[ware]} jetzt?'}, 'o': {'wert': wert(neu), 'einheit': '€'},
                 'c': f'{g} * (100 + {p}) / 100', 'w': f'Neuer Preis = {pz(100 + p)} des alten: {zt(g)} · {zt(Fr(100 + p, 100))} = {euro(neu)}.', 'h': 'Rechne mit 100 % + Aufschlag.'}
     art = R.randrange(3)
     if art == 0:
-        p = R.choice([10, 20, 25, 40, 50, 30])
-        g = R.choice([n for n in range(-(-lo // 20) * 20, hi + 1, 20) if n * (100 - p) % 100 == 0])
-        neu = g * (100 - p) // 100
-        return {'y': 'zahl', 'f': {'text': f'Nach {pz(p)} Rabatt kostet {ware[0].lower() + ware[1:]} {zt(neu)} €. Was kostete die Ware vorher?'},
-                'o': {'wert': g, 'einheit': '€'}, 'c': f'{neu} / ({100 - p} / 100)',
-                'w': f'{zt(neu)} € sind {pz(100 - p)} des alten Preises. 1 %: {zt(Fr(neu, 100 - p))} €, 100 %: {zt(g)} €.', 'h': 'Der neue Preis ist nicht 100 %, sondern 100 % − Rabatt.'}
+        return angebote()
     if art == 1:
         p = R.choice([10, 20, 25, 50])
         g = R.choice([n for n in range(-(-lo // 20) * 20, hi + 1, 20) if n * (100 - p) % 100 == 0])
@@ -291,13 +360,42 @@ def _g_ra(st):
         return {**wahl(R, f'{r} €', [f'{zt(g - p)} €', f'{zt(Fr(g * p, 100))} €', f'{zt(Fr(g * (100 + p), 100))} €']),
                 'f': {'text': f'{ware} kostet {zt(g)} €, es gibt {pz(p)} Rabatt. Welcher neue Preis ist richtig?'},
                 'w': f'{pz(100 - p)} von {zt(g)} € = {r} €. {zt(g - p)} € wäre falsch (dann hätte man {p} Euro statt {pz(p)} abgezogen).', 'h': 'Rabatt in Prozent ist nicht dasselbe wie Rabatt in Euro.'}
-    a, b = R.choice([10, 20, 25]), R.choice([10, 20, 25, 30])
-    g = R.choice([n for n in range(-(-lo // 100) * 100, hi + 1, 100)])
-    neu = Fr(g * (100 - a) * (100 - b), 10000)
-    if not ok(neu): return _g_ra(3)
-    return {'y': 'zahl', 'f': {'text': f'{ware} kostet {zt(g)} €. Erst gibt es {pz(a)} Rabatt, dann auf den neuen Preis noch einmal {pz(b)}. Was kostet die Ware am Ende?'},
-            'o': {'wert': wert(neu), 'einheit': '€'}, 'c': f'{g} * (100 - {a}) / 100 * (100 - {b}) / 100',
-            'w': f'Nach {pz(a)}: {zt(Fr(g * (100 - a), 100))} €. Davon {pz(100 - b)}: {euro(neu)}. Das sind nicht {pz(a + b)} Rabatt insgesamt!', 'h': 'Der zweite Rabatt bezieht sich auf den schon reduzierten Preis.'}
+    # Gutschein: p % Rabatt oder fester Betrag – was spart mehr?
+    p = R.choice([10, 15, 20, 25])
+    g = R.choice([n for n in range(-(-lo // 10) * 10, hi + 1, 10) if n * p % 100 == 0])
+    ersp = g * p // 100
+    fest = ersp + R.choice([-5, -3, -2, 2, 3, 5])
+    if fest <= 0 or fest == ersp: return _g_ra(3)
+    besser = f'der {pz(p)}-Gutschein ({zt(ersp)} € gespart)' if ersp > fest else f'der {zt(fest)}-€-Gutschein ({zt(ersp)} € bei {pz(p)})'
+    r = 'Der Prozent-Gutschein' if ersp > fest else 'Der Euro-Gutschein'
+    falsch = ['Der Euro-Gutschein' if ersp > fest else 'Der Prozent-Gutschein', 'Beide sparen gleich viel']
+    return {**wahl(R, r, falsch, 3), 'f': {'text': f'{ware} kostet {zt(g)} €. Du darfst einen Gutschein einlösen: {pz(p)} Rabatt oder {zt(fest)} € Rabatt. Welcher spart mehr?'},
+            'w': f'{pz(p)} von {zt(g)} € = {zt(ersp)} €. Der andere Gutschein spart {zt(fest)} €. Besser ist {besser}.',
+            'h': 'Rechne den Prozent-Rabatt in Euro um und vergleiche.'}
+
+
+def angebote():
+    """Zwei Läden: verschiedener Preis und verschiedener Rabatt – wo ist es billiger?"""
+    ware = R.choice(list(WAREN))
+    lo, hi = WAREN[ware]
+    pa, pb = R.sample([10, 20, 25, 30, 40, 50], 2)
+    ga = R.choice([n for n in range(-(-lo // 10) * 10, hi + 1, 10) if n * (100 - pa) % 100 == 0])
+    gb_ = [n for n in range(-(-lo // 5) * 5, hi + 1, 5) if n * (100 - pb) % 100 == 0 and n != ga and abs(n * (100 - pb) - ga * (100 - pa)) <= 15 * 100 and n * (100 - pb) != ga * (100 - pa)]
+    if not gb_: return angebote()
+    gb = R.choice(gb_)
+    na, nb = Fr(ga * (100 - pa), 100), Fr(gb * (100 - pb), 100)
+    if (ga < gb) == (na < nb): return angebote()     # nur Fälle, in denen der kleinere Ausgangspreis nicht billiger ist
+    bill, teu = ('A', 'B') if na < nb else ('B', 'A')
+    r = f'Laden {bill} ({euro(min(na, nb))} gegen {euro(max(na, nb))})'
+    klein = 'A' if ga < gb else 'B'
+    mehr = 'A' if pa > pb else 'B'
+    falsch = [f'Laden {klein}, weil der Preis kleiner ist', 'Beide sind gleich teuer', f'Laden {teu} ({euro(max(na, nb))} gegen {euro(min(na, nb))})']
+    if mehr != bill: falsch.insert(1, f'Laden {mehr}, weil der Rabatt größer ist')
+    return {**wahl(R, r, falsch), 'f': {'text': f'Laden A: {DER[ware][0].upper() + DER[ware][1:]} kostet {zt(ga)} € mit {pz(pa)} Rabatt. Laden B: Sie kostet {zt(gb)} € mit {pz(pb)} Rabatt. Wo ist sie billiger?'
+                                         .replace('Sie kostet', 'Es kostet' if DER[ware].startswith('das') else 'Er kostet' if DER[ware].startswith('der') else 'Sie kostet')
+                                         .replace('Wo ist sie billiger', 'Wo ist es billiger' if DER[ware].startswith('das') else 'Wo ist er billiger' if DER[ware].startswith('der') else 'Wo ist sie billiger')},
+            'w': f'A: {pz(100 - pa)} von {zt(ga)} € = {euro(na)}. B: {pz(100 - pb)} von {zt(gb)} € = {euro(nb)}. Billiger ist Laden {bill}.',
+            'h': 'Berechne in beiden Läden den Preis nach dem Rabatt.'}
 
 
 # ---------- 6 Zinsen ----------
@@ -348,29 +446,41 @@ def g_zins(st):
 
 # ---------- 7 Verstehen ----------
 def g_vers(st):
+    """Aussage beurteilen. Je Aussage: richtiger Grund und ein typischer Fehlgrund (statt „kann man nicht entscheiden“)."""
     p = R.choice([10, 20, 25, 50])
     a, b = R.choice([(20, 50), (40, 25), (30, 60), (80, 50), (25, 40), (60, 15)])
     g = R.choice([40, 80, 200, 500])
     if st == 1:
-        aussagen = [(f'{pz(p)} sind dasselbe wie {bruch(Fr(p, 100))}.', True, f'Ja, {p}/100 = {bruch(Fr(p, 100))}.'),
-                    (f'0,{p // 10} sind {p // 10} %.' if p % 10 == 0 else '0,25 sind 2,5 %.', False, 'Nein, mal 100 ergibt die Prozentzahl: ' + (f'0,{p // 10} = {p} %.' if p % 10 == 0 else '0,25 = 25 %.')),
-                    ('100 % sind das Ganze.', True, 'Ja, 100 % = 100/100 = 1 Ganzes.'),
-                    (f'{pz(p)} von {g} € ist mehr als {pz(p)} von {g * 2} €.', False, f'Nein, gleicher Prozentsatz, aber kleinerer Grundwert: {zt(Fr(g * p, 100))} € < {zt(Fr(g * 2 * p, 100))} €.')]
+        aussagen = [(f'{pz(p)} sind dasselbe wie {bruch(Fr(p, 100))}.', True, f'Ja, {p}/100 = {bruch(Fr(p, 100))}.',
+                     f'Nein, {pz(p)} sind {p}/10.'),
+                    (f'0,{p // 10} sind {p // 10} %.' if p % 10 == 0 else '0,25 sind 2,5 %.', False, 'Nein, mal 100 ergibt die Prozentzahl: ' + (f'0,{p // 10} = {p} %.' if p % 10 == 0 else '0,25 = 25 %.'),
+                     'Ja, man lässt einfach die Null vor dem Komma weg.'),
+                    ('100 % sind das Ganze.', True, 'Ja, 100 % = 100/100 = 1 Ganzes.', 'Nein, das Ganze sind 1 %.'),
+                    (f'{pz(p)} von {g} € ist mehr als {pz(p)} von {g * 2} €.', False, f'Nein, gleicher Prozentsatz, aber kleinerer Grundwert: {zt(Fr(g * p, 100))} € < {zt(Fr(g * 2 * p, 100))} €.',
+                     f'Ja, weil {g} € weniger Geld ist und man davon mehr Prozent bekommt.')]
     elif st == 2:
-        aussagen = [(f'{pz(a)} von {b} ist dasselbe wie {pz(b)} von {a}.', True, f'Ja: {a}/100 · {b} = {b}/100 · {a} = {zt(Fr(a * b, 100))}.'),
-                    (f'Erst {pz(p)} billiger, dann {pz(p)} teurer – dann kostet es wieder gleich viel.', False, f'Nein, Beispiel 100 €: → {100 - p} € → {zt(Fr((100 - p) * (100 + p), 100))} €.'),
-                    ('Ein Prozentwert kann größer sein als der Grundwert.', True, 'Ja, wenn der Prozentsatz über 100 % liegt, z. B. 150 % von 20 = 30.'),
-                    (f'{pz(p)} Rabatt auf {g} € heißt: Man zahlt {g - p} €.', False, f'Nein, man spart {zt(Fr(g * p, 100))} € und zahlt {zt(Fr(g * (100 - p), 100))} €.')]
+        aussagen = [(f'{pz(a)} von {b} ist dasselbe wie {pz(b)} von {a}.', True, f'Ja: {a}/100 · {b} = {b}/100 · {a} = {zt(Fr(a * b, 100))}.',
+                     f'Nein, weil {pz(max(a, b))} mehr ist als {pz(min(a, b))}.'),
+                    (f'Erst {pz(p)} billiger, dann {pz(p)} teurer – dann kostet es wieder gleich viel.', False, f'Nein, Beispiel 100 €: → {100 - p} € → {zt(Fr((100 - p) * (100 + p), 100))} €.',
+                     f'Ja, weil − {pz(p)} und + {pz(p)} zusammen 0 % ergeben.'),
+                    ('Ein Prozentwert kann größer sein als der Grundwert.', True, 'Ja, wenn der Prozentsatz über 100 % liegt, z. B. 150 % von 20 = 30.',
+                     'Nein, ein Teil kann nie größer sein als das Ganze.'),
+                    (f'{pz(p)} Rabatt auf {g} € heißt: Man zahlt {g - p} €.', False, f'Nein, man spart {zt(Fr(g * p, 100))} € und zahlt {zt(Fr(g * (100 - p), 100))} €.',
+                     f'Ja, {pz(p)} Rabatt heißt {p} € weniger.')]
     else:
         q = R.choice([10, 20])
         aussagen = [(f'Zweimal {pz(q)} Rabatt nacheinander ist dasselbe wie {pz(2 * q)} Rabatt.', False,
-                     f'Nein, bei 100 €: → {100 - q} € → {zt(Fr((100 - q) ** 2, 100))} €. Mit {pz(2 * q)}: {100 - 2 * q} €.'),
-                    (f'Steigt ein Preis von {g} € auf {g * 2} €, ist er um {pz(100)} gestiegen.', True, f'Ja, Anstieg {g} € von {g} € = 100 %.'),
-                    (f'Sinkt ein Preis von {g * 2} € auf {g} €, ist er um {pz(100)} gesunken.', False, f'Nein, die Senkung ist {g} € von {g * 2} € = 50 %.'),
-                    (f'Bei {pz(3)} Zinsen bekommt man für {zt(g * 10)} € in einem Jahr {zt(Fr(g * 30, 100))} € Zinsen.', True, f'Ja: {zt(g * 10)} · 0,03 = {zt(Fr(g * 30, 100))} €.')]
-    s, stimmt, grund = R.choice(aussagen)
+                     f'Nein, bei 100 €: → {100 - q} € → {zt(Fr((100 - q) ** 2, 100))} €. Mit {pz(2 * q)}: {100 - 2 * q} €.',
+                     f'Ja, weil {pz(q)} + {pz(q)} = {pz(2 * q)}.'),
+                    (f'Steigt ein Preis von {g} € auf {g * 2} €, ist er um {pz(100)} gestiegen.', True, f'Ja, Anstieg {g} € von {g} € = 100 %.',
+                     f'Nein, er ist um {pz(200)} gestiegen, weil er jetzt doppelt so hoch ist.'),
+                    (f'Sinkt ein Preis von {g * 2} € auf {g} €, ist er um {pz(100)} gesunken.', False, f'Nein, die Senkung ist {g} € von {g * 2} € = 50 %.',
+                     'Ja, weil Verdoppeln + 100 % ist, ist Halbieren − 100 %.'),
+                    (f'Bei {pz(3)} Zinsen bekommt man für {zt(g * 10)} € in einem Jahr {zt(Fr(g * 30, 100))} € Zinsen.', True, f'Ja: {zt(g * 10)} · 0,03 = {zt(Fr(g * 30, 100))} €.',
+                     f'Nein, bei {pz(3)} bekommt man 3 € Zinsen.')]
+    s, stimmt, grund, fehlgrund = R.choice(aussagen)
     gegen = 'Ja, die Aussage stimmt.' if not stimmt else 'Nein, die Aussage ist falsch.'
-    return {**wahl(R, grund, [gegen, 'Das kann man nicht entscheiden.'], 3), 'f': {'text': f'Stimmt die Aussage? „{s}“'},
+    return {**wahl(R, grund, [fehlgrund, gegen], 3), 'f': {'text': f'Stimmt die Aussage? „{s}“'},
             'w': grund, 'h': 'Prüfe mit konkreten Zahlen. Achte darauf, worauf sich die Prozente beziehen.'}
 
 
@@ -380,7 +490,7 @@ DATEI = datei(E, 'Prozentangaben verstehen, Prozentwert, Prozentsatz und Grundwe
               [('Grundbegriffe', ['prozent_bedeutung', 'prozentwert', 'prozentsatz', 'grundwert']),
                ('Prozente im Alltag', ['rabatt_aufschlag', 'zinsen', 'verstehen'])],
               ETAPPEN, GEN,
-              offen=['Lehrplan Kl. 6 verlangt nur „einfache Prozentaufgaben (Rabatt, Zins)“; vermehrter/verminderter Grundwert rückwärts und Zinsen für Monate sind als Stufe 3 enthalten. Zinseszins bewusst weggelassen.',
+              offen=['Lehrplan Kl. 6 verlangt nur „einfache Prozentaufgaben (Rabatt, Zins)“. Nach der Prüfung entfernt: vermehrter/verminderter Grundwert rückwärts (Preis nach Rabatt → alter Preis, 200 % des alten Werts) und Doppelrabatt als Rechenaufgabe – das ist Stoff von bruch.prozent_grundwert (Kl. 7). Doppelrabatt bleibt nur als Verstehens-Aussage („zweimal 10 % ≠ 20 %“). Zinsen für Monate bleiben als Stufe 3, Zinseszins weggelassen.',
                      'Prozentangaben im Text mit Leerzeichen vor % (25 %), wie in deutschen Schulbüchern üblich. Eingabe der Prozentzahl ohne %-Zeichen (Einheit „%“ ist hinterlegt).'])
 
 if __name__ == '__main__':

@@ -159,15 +159,19 @@ def pruefe(pfad):
             except (KeyError, ValueError, TypeError): F(f'{wo}: grafik braucht start, ende, abschnitte; o.index')
         if 'c' in a:
             try:
-                ist = rechne(a['c'])
-                soll = zahlwert(o['wert']) if y == 'zahl' else (zahlwert(a['a'][o['index']]) if y == 'auswahl' and isinstance(a['a'][o['index']], (int, float)) else None)
                 if y == 'luecken':
                     ist_l = [rechne(c) for c in a['c']] if isinstance(a['c'], list) else None
-                    if ist_l is None or [zahlwert(v) for v in o['werte']] != ist_l: F(f'{wo}: c (Liste) ergibt {ist_l}, Lösung ist {o["werte"]}')
-                elif soll is not None and ist != soll:
-                    F(f'{wo}: Nachrechnung „{a["c"]}“ = {float(ist):g}, Lösung ist {float(soll):g}')
+                    if ist_l is None or [zahlwert(v) for v in o['werte']] != ist_l:
+                        F(f'{wo}: c (Liste) ergibt {[float(x) for x in ist_l or []]}, Lösung ist {o["werte"]}')
+                else:
+                    ist = rechne(a['c'])
+                    soll = None
+                    if y == 'zahl': soll = zahlwert(o['wert'])
+                    elif y == 'markierung': soll = zahlwert(a.get('zahl', 0)) if 'zahl' in a else None
+                    if soll is not None and ist != soll:
+                        F(f'{wo}: Nachrechnung „{a["c"]}“ = {float(ist):g}, Lösung ist {float(soll):g}')
             except Exception as e:  # noqa: BLE001
-                if y != 'luecken': F(f'{wo}: c nicht rechenbar: {e}')
+                F(f'{wo}: c nicht rechenbar: {e}')
     for (l, p), n in zaehl.items():
         if n < MIN[p]: F(f'Lernkarte {l}: {n} × {p}, mindestens {MIN[p]}')
     for (l, s), n in stufen.items():

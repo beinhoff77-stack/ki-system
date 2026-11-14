@@ -1,0 +1,2840 @@
+{
+ "thema_schluessel": "gleichungen.ungleichungen",
+ "thema_id": 3,
+ "block_id": 61,
+ "klasse": {
+  "gym_by": 8,
+  "rs_by": 7
+ },
+ "autor": "Claude (Paket Klasse 8)",
+ "inhalt": {
+  "ziel": "Lineare Ungleichungen lösen, beim Multiplizieren oder Dividieren mit einer negativen Zahl das Zeichen umdrehen und die Lösungsmenge als Intervall angeben.",
+  "merke": [
+   "Wie bei Gleichungen umformen – aber: Mal oder geteilt durch eine negative Zahl dreht das Zeichen um.",
+   "< und > : Grenze gehört nicht dazu, Klammer nach außen. ≤ und ≥ : Grenze gehört dazu, Klammer nach innen.",
+   "Höchstens = ≤, mindestens = ≥."
+  ],
+  "abschnitte": [
+   {
+    "titel": "Ungleichungen lösen",
+    "lernziele": [
+     "umformen",
+     "umdrehen",
+     "klammern"
+    ]
+   },
+   {
+    "titel": "Lösungsmenge",
+    "lernziele": [
+     "intervall",
+     "pruefen"
+    ]
+   },
+   {
+    "titel": "Anwenden",
+    "lernziele": [
+     "sachaufgabe"
+    ]
+   }
+  ],
+  "etappen": [
+   {
+    "lernziel": "umformen",
+    "titel": "Ungleichungen umformen",
+    "regel": "Eine Ungleichung löst du wie eine Gleichung: Auf beiden Seiten ⟦dasselbe addieren, subtrahieren⟧ oder mit einer ⟦positiven⟧ Zahl multiplizieren bzw. durch sie dividieren. Das Zeichen bleibt dabei gleich.",
+    "schritte": [
+     "3x + 5 < 17   | − 5",
+     "3x < 12   | : 3",
+     "⟦x < 4⟧: Alle Zahlen kleiner als 4 sind Lösungen."
+    ],
+    "probe": "x = 0: 3 · 0 + 5 = 5 < 17 ✓  x = 4: 17 < 17 ✗ – 4 gehört nicht dazu.",
+    "fehler": "Aus 3x + 5 < 17 wird nicht 3x < 22: Die 5 wird ⟦subtrahiert⟧, nicht addiert. Richtig ist 3x < 12.",
+    "bild": {
+     "typ": "zahlenstrahl",
+     "start": -2,
+     "ende": 8,
+     "abschnitte": 10,
+     "beschriftet": "alle"
+    }
+   },
+   {
+    "lernziel": "umdrehen",
+    "titel": "Mal negative Zahl: Zeichen umdrehen",
+    "regel": "Multiplizierst oder dividierst du beide Seiten mit einer ⟦negativen⟧ Zahl, musst du das Ungleichheitszeichen ⟦umdrehen⟧: aus < wird >, aus ≤ wird ≥.",
+    "schritte": [
+     "−2x + 1 ≤ 9   | − 1",
+     "−2x ≤ 8   | : (−2), Zeichen umdrehen",
+     "⟦x ≥ −4⟧"
+    ],
+    "probe": "x = 0: −2 · 0 + 1 = 1 ≤ 9 ✓ – und 0 ≥ −4 passt.",
+    "fehler": "−2x ≤ 8 ergibt nicht x ≤ −4. Prüfe mit x = −5: −2 · (−5) = 10 ≤ 8 ist falsch. Beim Teilen durch (−2) wird das Zeichen ⟦umgedreht⟧: x ≥ −4."
+   },
+   {
+    "lernziel": "klammern",
+    "titel": "Klammern und x auf beiden Seiten",
+    "regel": "Erst ⟦Klammern auflösen⟧ und zusammenfassen, dann alle x-Glieder auf ⟦eine Seite⟧ bringen. Hat x am Ende einen negativen Faktor, Zeichen beim Teilen umdrehen.",
+    "schritte": [
+     "2(x + 3) > 5x − 9",
+     "2x + 6 > 5x − 9   | − 5x − 6",
+     "−3x > −15   | : (−3), Zeichen umdrehen",
+     "⟦x < 5⟧"
+    ],
+    "probe": "x = 0: 2 · 3 = 6 > −9 ✓",
+    "fehler": "2(x + 3) ist nicht 2x + 3: Die 2 wird mit ⟦jedem⟧ Summanden in der Klammer multipliziert, also 2x + 6."
+   },
+   {
+    "lernziel": "intervall",
+    "titel": "Lösungsmenge als Intervall angeben",
+    "regel": "Die Lösungsmenge schreibst du als Intervall. Eckige Klammer ⟦nach innen⟧: Grenze gehört dazu (≤, ≥). Klammer ⟦nach außen⟧: Grenze gehört nicht dazu (<, >). Bei ∞ steht immer eine Klammer nach außen.",
+    "schritte": [
+     "x ≤ 3 → L = ⟦]−∞; 3]⟧",
+     "x > −2 → L = ⟦]−2; ∞[⟧"
+    ],
+    "fehler": "x < 3 ist nicht ]−∞; 3]: Die 3 erfüllt x < 3 nicht, also muss die Klammer ⟦nach außen⟧ zeigen: ]−∞; 3[."
+   },
+   {
+    "lernziel": "pruefen",
+    "titel": "Lösungen prüfen und Fehler finden",
+    "regel": "Ob eine Zahl eine Lösung ist, prüfst du durch ⟦Einsetzen⟧. Bei einer Rechnung prüfst du jeden Schritt, besonders das ⟦Umdrehen des Zeichens⟧.",
+    "schritte": [
+     "Ist 6 eine Lösung von 2x − 3 > 7?",
+     "2 · 6 − 3 = 9 und 9 > 7 ist wahr, also ⟦ja⟧."
+    ],
+    "fehler": "Nur eine Zahl zu testen reicht nicht, um eine ganze Lösungsmenge zu bestätigen. Teste auch eine Zahl ⟦nahe der Grenze⟧ auf der anderen Seite."
+   },
+   {
+    "lernziel": "sachaufgabe",
+    "titel": "Sachaufgaben mit Ungleichungen",
+    "regel": "Wörter wie ⟦höchstens⟧ (≤), ⟦mindestens⟧ (≥), ⟦mehr als⟧ (>) oder ⟦weniger als⟧ (<) führen zu einer Ungleichung. Bei Stückzahlen ist nur eine ⟦ganze Zahl⟧ als Antwort sinnvoll.",
+    "schritte": [
+     "Eintritt 4 €, jede Fahrt 2,50 €, höchstens 20 € ausgeben.",
+     "4 + 2,5x ≤ 20  →  2,5x ≤ 16  →  x ≤ 6,4",
+     "Man kann ⟦höchstens 6⟧ Fahrten machen."
+    ],
+    "fehler": "Aus x ≤ 6,4 folgt nicht „7 Fahrten“ durch Aufrunden: 7 Fahrten kosten 4 + 17,50 = 21,50 €, das ist zu viel. Bei „höchstens“ wird ⟦abgerundet⟧."
+   }
+  ],
+  "teilfaehigkeiten": [
+   {
+    "k": "umformen",
+    "text": "Ungleichungen umformen",
+    "lernziele": [
+     "umformen"
+    ]
+   },
+   {
+    "k": "umdrehen",
+    "text": "Mal negative Zahl: Zeichen umdrehen",
+    "lernziele": [
+     "umdrehen"
+    ]
+   },
+   {
+    "k": "klammern",
+    "text": "Klammern und x auf beiden Seiten",
+    "lernziele": [
+     "klammern"
+    ]
+   },
+   {
+    "k": "intervall",
+    "text": "Lösungsmenge als Intervall angeben",
+    "lernziele": [
+     "intervall"
+    ]
+   },
+   {
+    "k": "pruefen",
+    "text": "Lösungen prüfen und Fehler finden",
+    "lernziele": [
+     "pruefen"
+    ]
+   },
+   {
+    "k": "sachaufgabe",
+    "text": "Sachaufgaben mit Ungleichungen",
+    "lernziele": [
+     "sachaufgabe"
+    ]
+   }
+  ],
+  "bewertung": {
+   "lernziele_pflicht": [
+    "umformen",
+    "umdrehen",
+    "klammern",
+    "intervall",
+    "pruefen",
+    "sachaufgabe"
+   ],
+   "lernziele_vertiefung": [],
+   "testaufgaben_je_lernziel": 1
+  },
+  "quellen": {
+   "erklaerungen": "Eigene Fassung (Claude).",
+   "begriffe": "Fachbegriffe nach LehrplanPLUS Bayern (Gymnasium)."
+  }
+ },
+ "aufgaben": [
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung x − 2 ≤ −8."
+   },
+   "a": [
+    "x ≤ 6",
+    "x ≤ −6",
+    "x ≥ −6",
+    "x ≥ 6"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "+ 2 auf beiden Seiten: x ≤ −6.",
+   "h": "Forme wie bei einer Gleichung um. Das Zeichen bleibt gleich."
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung 4x ≤ −4."
+   },
+   "a": [
+    "x ≥ 1",
+    "x ≤ 1",
+    "x ≥ −1",
+    "x ≤ −1"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": ": 4 auf beiden Seiten: x ≤ −1.",
+   "h": "Forme wie bei einer Gleichung um. Das Zeichen bleibt gleich."
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung 2x < 12."
+   },
+   "a": [
+    "x < −6",
+    "x < 6",
+    "x > 6",
+    "x > −6"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": ": 2 auf beiden Seiten: x < 6.",
+   "h": "Forme wie bei einer Gleichung um. Das Zeichen bleibt gleich."
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 1,
+   "y": "markierung",
+   "f": {
+    "text": "Löse x − 14 < −16. Markiere die Grenze der Lösungsmenge am Zahlenstrahl.",
+    "grafik": {
+     "typ": "zahlenstrahl",
+     "start": -10,
+     "ende": 10,
+     "abschnitte": 20,
+     "beschriftet": "anfang_ende"
+    }
+   },
+   "o": {
+    "index": 8
+   },
+   "zahl": -2,
+   "w": "+ 14 auf beiden Seiten: x < −2. Die Grenze ist −2.",
+   "h": "Rechne zuerst die Grenze aus, dann suche sie auf dem Zahlenstrahl."
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung 7x + 2 > 23."
+   },
+   "a": [
+    "x < 3",
+    "x > −3",
+    "x < −3",
+    "x > 3"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "7x + 2 > 23 | − 2 → 7x > 21 | : 7 → x > 3.",
+   "h": "Erst den Summanden ohne x wegbringen, dann durch die Zahl vor x teilen."
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 2x + 17 > 17. Die Lösung hat die Form x > □. Gib die Zahl an."
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "(17 - (17)) / 2",
+   "w": "2x + 17 > 17 | − 17 → 2x > 0 | : 2 → x > 0.",
+   "h": "Erst den Summanden ohne x wegbringen, dann durch die Zahl vor x teilen."
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 5x − 9 ≤ 16. Die Lösung hat die Form x ≤ □. Gib die Zahl an."
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(16 - (-9)) / 5",
+   "w": "5x − 9 ≤ 16 | + 9 → 5x ≤ 25 | : 5 → x ≤ 5.",
+   "h": "Erst den Summanden ohne x wegbringen, dann durch die Zahl vor x teilen."
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung 8x + 20 > 4."
+   },
+   "a": [
+    "x > 2",
+    "x < −2",
+    "x < 2",
+    "x > −2"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "8x + 20 > 4 | − 20 → 8x > −16 | : 8 → x > −2.",
+   "h": "Erst den Summanden ohne x wegbringen, dann durch die Zahl vor x teilen."
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung 3x − 3 < −3."
+   },
+   "a": [
+    "x < 1",
+    "x < 0",
+    "x > 0",
+    "x > 1"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "3x − 3 < −3 | + 3 → 3x < 0 | : 3 → x < 0.",
+   "h": "Erst den Summanden ohne x wegbringen, dann durch die Zahl vor x teilen."
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung 8x − 8 ≥ 8."
+   },
+   "a": [
+    "x ≤ −2",
+    "x ≥ 2",
+    "x ≤ 2",
+    "x ≥ −2"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "8x − 8 ≥ 8 | + 8 → 8x ≥ 16 | : 8 → x ≥ 2.",
+   "h": "Erst den Summanden ohne x wegbringen, dann durch die Zahl vor x teilen."
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung 8x − 6 ≥ 6x − 13."
+   },
+   "a": [
+    "x ≤ −3,5",
+    "x ≤ 3,5",
+    "x ≥ 3,5",
+    "x ≥ −3,5"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "| − 6x → 2x − 6 ≥ −13 | + 6 → 2x ≥ −7 | : 2 → x ≥ −3,5.",
+   "h": "Bringe alle x-Glieder auf die linke Seite, alle Zahlen auf die rechte."
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung 8x − 13 ≥ 3x − 43."
+   },
+   "a": [
+    "x ≥ 6",
+    "x ≤ −6",
+    "x ≤ 6",
+    "x ≥ −6"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "| − 3x → 5x − 13 ≥ −43 | + 13 → 5x ≥ −30 | : 5 → x ≥ −6.",
+   "h": "Bringe alle x-Glieder auf die linke Seite, alle Zahlen auf die rechte."
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung 6x − 12 ≤ 3x − 15."
+   },
+   "a": [
+    "x ≥ −1",
+    "x ≤ −1",
+    "x ≥ 1",
+    "x ≤ 1"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "| − 3x → 3x − 12 ≤ −15 | + 12 → 3x ≤ −3 | : 3 → x ≤ −1.",
+   "h": "Bringe alle x-Glieder auf die linke Seite, alle Zahlen auf die rechte."
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 7x + 4 ≤ 2x − 21. Die Lösung hat die Form x ≤ □. Gib die Zahl an."
+   },
+   "o": {
+    "wert": -5
+   },
+   "c": "(-21 - (4)) / (7 - 2)",
+   "w": "| − 2x → 5x + 4 ≤ −21 | − 4 → 5x ≤ −25 | : 5 → x ≤ −5.",
+   "h": "Bringe alle x-Glieder auf die linke Seite, alle Zahlen auf die rechte."
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung 3x − 18 < 6."
+   },
+   "a": [
+    "x > −8",
+    "x > 8",
+    "x < −8",
+    "x < 8"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "3x − 18 < 6 | + 18 → 3x < 24 | : 3 → x < 8."
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 2x + 4 > −8. Die Lösung hat die Form x > □. Gib die Zahl an."
+   },
+   "o": {
+    "wert": -6
+   },
+   "c": "(-8 - (4)) / 2",
+   "w": "2x + 4 > −8 | − 4 → 2x > −12 | : 2 → x > −6."
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung 5x + 15 < 45."
+   },
+   "a": [
+    "x < −6",
+    "x > 6",
+    "x > −6",
+    "x < 6"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "5x + 15 < 45 | − 15 → 5x < 30 | : 5 → x < 6."
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung 9x + 3 > −24."
+   },
+   "a": [
+    "x > 3",
+    "x < 3",
+    "x < −3",
+    "x > −3"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "9x + 3 > −24 | − 3 → 9x > −27 | : 9 → x > −3."
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung 4x + 17 < 9."
+   },
+   "a": [
+    "x > 2",
+    "x > −2",
+    "x < −2",
+    "x < 2"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "4x + 17 < 9 | − 17 → 4x < −8 | : 4 → x < −2."
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 3x − 1 < 14. Die Lösung hat die Form x < □. Gib die Zahl an."
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(14 - (-1)) / 3",
+   "w": "3x − 1 < 14 | + 1 → 3x < 15 | : 3 → x < 5."
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 9x − 18 > −9. Die Lösung hat die Form x > □. Gib die Zahl an."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(-9 - (-18)) / 9",
+   "w": "9x − 18 > −9 | + 18 → 9x > 9 | : 9 → x > 1."
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung 3x + 18 ≥ −6."
+   },
+   "a": [
+    "x ≤ 8",
+    "x ≤ −8",
+    "x ≥ −8",
+    "x ≥ 8"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "3x + 18 ≥ −6 | − 18 → 3x ≥ −24 | : 3 → x ≥ −8."
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung 4x + 19 < 55."
+   },
+   "a": [
+    "x < 9",
+    "x > 9",
+    "x < −9",
+    "x > −9"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "4x + 19 < 55 | − 19 → 4x < 36 | : 4 → x < 9."
+  },
+  {
+   "l": "umformen",
+   "t": "umformen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 5x + 11 < −4. Die Lösung hat die Form x < □. Gib die Zahl an."
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "(-4 - (11)) / 5",
+   "w": "5x + 11 < −4 | − 11 → 5x < −15 | : 5 → x < −3."
+  },
+  {
+   "l": "umdrehen",
+   "t": "umdrehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung −8x ≥ −48."
+   },
+   "a": [
+    "x ≥ −6",
+    "x ≥ 6",
+    "x ≤ 6",
+    "x ≤ −6"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": ": (−8) auf beiden Seiten, Zeichen umdrehen → x ≤ 6.",
+   "h": "Teilst du durch eine negative Zahl, drehst du das Zeichen um."
+  },
+  {
+   "l": "umdrehen",
+   "t": "umdrehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung −4x > 28."
+   },
+   "a": [
+    "x < −7",
+    "x > −7",
+    "x < 7",
+    "x > 7"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": ": (−4) auf beiden Seiten, Zeichen umdrehen → x < −7.",
+   "h": "Teilst du durch eine negative Zahl, drehst du das Zeichen um."
+  },
+  {
+   "l": "umdrehen",
+   "t": "umdrehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung −2x ≤ −18."
+   },
+   "a": [
+    "x ≥ 9",
+    "x ≥ −9",
+    "x ≤ 9",
+    "x ≤ −9"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": ": (−2) auf beiden Seiten, Zeichen umdrehen → x ≥ 9.",
+   "h": "Teilst du durch eine negative Zahl, drehst du das Zeichen um."
+  },
+  {
+   "l": "umdrehen",
+   "t": "umdrehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung −2x < −2."
+   },
+   "a": [
+    "x < −1",
+    "x > 1",
+    "x > −1",
+    "x < 1"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": ": (−2) auf beiden Seiten, Zeichen umdrehen → x > 1.",
+   "h": "Teilst du durch eine negative Zahl, drehst du das Zeichen um."
+  },
+  {
+   "l": "umdrehen",
+   "t": "umdrehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse −9x + 1 > −17. Die Lösung hat die Form x < □. Gib die Zahl an."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "(-17 - (1)) / (-9 - (0))",
+   "w": "| − 1 → −9x > −18 | : (−9), Zeichen umdrehen → x < 2.",
+   "h": "Teilst du durch eine negative Zahl, drehst du das Zeichen um."
+  },
+  {
+   "l": "umdrehen",
+   "t": "umdrehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung −7x − 5 ≥ −54."
+   },
+   "a": [
+    "x ≥ −7",
+    "x ≤ 7",
+    "x ≤ −7",
+    "x ≥ 7"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "| + 5 → −7x ≥ −49 | : (−7), Zeichen umdrehen → x ≤ 7.",
+   "h": "Teilst du durch eine negative Zahl, drehst du das Zeichen um."
+  },
+  {
+   "l": "umdrehen",
+   "t": "umdrehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse −6x + 8 ≥ 20. Die Lösung hat die Form x ≤ □. Gib die Zahl an."
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "(20 - (8)) / (-6 - (0))",
+   "w": "| − 8 → −6x ≥ 12 | : (−6), Zeichen umdrehen → x ≤ −2.",
+   "h": "Teilst du durch eine negative Zahl, drehst du das Zeichen um."
+  },
+  {
+   "l": "umdrehen",
+   "t": "umdrehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung −4x + 6 > 14."
+   },
+   "a": [
+    "x < −2",
+    "x > 2",
+    "x < 2",
+    "x > −2"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "| − 6 → −4x > 8 | : (−4), Zeichen umdrehen → x < −2.",
+   "h": "Teilst du durch eine negative Zahl, drehst du das Zeichen um."
+  },
+  {
+   "l": "umdrehen",
+   "t": "umdrehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse −5x + 7 > −13. Die Lösung hat die Form x < □. Gib die Zahl an."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(-13 - (7)) / (-5 - (0))",
+   "w": "| − 7 → −5x > −20 | : (−5), Zeichen umdrehen → x < 4.",
+   "h": "Teilst du durch eine negative Zahl, drehst du das Zeichen um."
+  },
+  {
+   "l": "umdrehen",
+   "t": "umdrehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung −4x + 7 ≤ −9."
+   },
+   "a": [
+    "x ≤ −4",
+    "x ≥ −4",
+    "x ≤ 4",
+    "x ≥ 4"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "| − 7 → −4x ≤ −16 | : (−4), Zeichen umdrehen → x ≥ 4.",
+   "h": "Teilst du durch eine negative Zahl, drehst du das Zeichen um."
+  },
+  {
+   "l": "umdrehen",
+   "t": "umdrehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung 3x − 14 > 7x − 10."
+   },
+   "a": [
+    "x > −1",
+    "x < 1",
+    "x > 1",
+    "x < −1"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "| − 7x → −4x − 14 > −10 | + 14 → −4x > 4 | : (−4), Zeichen umdrehen → x < −1.",
+   "h": "Alle x nach links bringen. Ist der Faktor vor x negativ, beim Teilen das Zeichen umdrehen."
+  },
+  {
+   "l": "umdrehen",
+   "t": "umdrehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung 5x + 12 ≥ 7x + 18."
+   },
+   "a": [
+    "x ≥ −3",
+    "x ≤ 3",
+    "x ≤ −3",
+    "x ≥ 3"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "| − 7x → −2x + 12 ≥ 18 | − 12 → −2x ≥ 6 | : (−2), Zeichen umdrehen → x ≤ −3.",
+   "h": "Alle x nach links bringen. Ist der Faktor vor x negativ, beim Teilen das Zeichen umdrehen."
+  },
+  {
+   "l": "umdrehen",
+   "t": "umdrehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 2x + 14 < 3x + 22. Die Lösung hat die Form x > □. Gib die Zahl an."
+   },
+   "o": {
+    "wert": -8
+   },
+   "c": "(22 - (14)) / (2 - (3))",
+   "w": "| − 3x → −x + 14 < 22 | − 14 → −x < 8 | : (−1), Zeichen umdrehen → x > −8.",
+   "h": "Alle x nach links bringen. Ist der Faktor vor x negativ, beim Teilen das Zeichen umdrehen."
+  },
+  {
+   "l": "umdrehen",
+   "t": "umdrehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse x + 6 > 4x − 18. Die Lösung hat die Form x < □. Gib die Zahl an."
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "(-18 - (6)) / (1 - (4))",
+   "w": "| − 4x → −3x + 6 > −18 | − 6 → −3x > −24 | : (−3), Zeichen umdrehen → x < 8.",
+   "h": "Alle x nach links bringen. Ist der Faktor vor x negativ, beim Teilen das Zeichen umdrehen."
+  },
+  {
+   "l": "umdrehen",
+   "t": "umdrehen",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung −8x + 11 > 27."
+   },
+   "a": [
+    "x < 2",
+    "x < −2",
+    "x > −2",
+    "x > 2"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "| − 11 → −8x > 16 | : (−8), Zeichen umdrehen → x < −2."
+  },
+  {
+   "l": "umdrehen",
+   "t": "umdrehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung −4x − 7 ≥ −31."
+   },
+   "a": [
+    "x ≤ 6",
+    "x ≥ 6",
+    "x ≤ −6",
+    "x ≥ −6"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "| + 7 → −4x ≥ −24 | : (−4), Zeichen umdrehen → x ≤ 6."
+  },
+  {
+   "l": "umdrehen",
+   "t": "umdrehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse −2x − 15 < −21. Die Lösung hat die Form x > □. Gib die Zahl an."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(-21 - (-15)) / (-2 - (0))",
+   "w": "| + 15 → −2x < −6 | : (−2), Zeichen umdrehen → x > 3."
+  },
+  {
+   "l": "umdrehen",
+   "t": "umdrehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung −4x + 3 ≥ −5."
+   },
+   "a": [
+    "x ≤ 2",
+    "x ≥ −2",
+    "x ≥ 2",
+    "x ≤ −2"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "| − 3 → −4x ≥ −8 | : (−4), Zeichen umdrehen → x ≤ 2."
+  },
+  {
+   "l": "umdrehen",
+   "t": "umdrehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung −7x − 12 ≤ −19."
+   },
+   "a": [
+    "x ≤ −1",
+    "x ≥ −1",
+    "x ≥ 1",
+    "x ≤ 1"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "| + 12 → −7x ≤ −7 | : (−7), Zeichen umdrehen → x ≥ 1."
+  },
+  {
+   "l": "umdrehen",
+   "t": "umdrehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung −8x + 15 ≤ 39."
+   },
+   "a": [
+    "x ≤ 3",
+    "x ≥ −3",
+    "x ≥ 3",
+    "x ≤ −3"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "| − 15 → −8x ≤ 24 | : (−8), Zeichen umdrehen → x ≥ −3."
+  },
+  {
+   "l": "umdrehen",
+   "t": "umdrehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung −3x + 11 ≥ 35."
+   },
+   "a": [
+    "x ≥ 8",
+    "x ≥ −8",
+    "x ≤ −8",
+    "x ≤ 8"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "| − 11 → −3x ≥ 24 | : (−3), Zeichen umdrehen → x ≤ −8."
+  },
+  {
+   "l": "umdrehen",
+   "t": "umdrehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse −5x − 12 < 13. Die Lösung hat die Form x > □. Gib die Zahl an."
+   },
+   "o": {
+    "wert": -5
+   },
+   "c": "(13 - (-12)) / (-5 - (0))",
+   "w": "| + 12 → −5x < 25 | : (−5), Zeichen umdrehen → x > −5."
+  },
+  {
+   "l": "umdrehen",
+   "t": "umdrehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse −5x + 13 ≤ 8. Die Lösung hat die Form x ≥ □. Gib die Zahl an."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(8 - (13)) / (-5 - (0))",
+   "w": "| − 13 → −5x ≤ −5 | : (−5), Zeichen umdrehen → x ≥ 1."
+  },
+  {
+   "l": "umdrehen",
+   "t": "umdrehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse −2x − 8 ≤ −4. Die Lösung hat die Form x ≥ □. Gib die Zahl an."
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "(-4 - (-8)) / (-2 - (0))",
+   "w": "| + 8 → −2x ≤ 4 | : (−2), Zeichen umdrehen → x ≥ −2."
+  },
+  {
+   "l": "klammern",
+   "t": "klammern",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung 4(x − 4) > 4."
+   },
+   "a": [
+    "x > −3",
+    "x < 5",
+    "x > −5",
+    "x > 5"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Klammern auflösen: 4x − 16 > 4. + 16: 4x > 20. : 4 → x > 5.",
+   "h": "Löse zuerst die Klammern auf. Achte am Ende auf das Vorzeichen vor x."
+  },
+  {
+   "l": "klammern",
+   "t": "klammern",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung −2(x − 5) < −2."
+   },
+   "a": [
+    "x > −4",
+    "x > 6",
+    "x > −6",
+    "x < 6"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Klammern auflösen: −2x + 10 < −2. − 10: −2x < −12. : (−2), Zeichen umdrehen → x > 6.",
+   "h": "Löse zuerst die Klammern auf. Achte am Ende auf das Vorzeichen vor x."
+  },
+  {
+   "l": "klammern",
+   "t": "klammern",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung 2(x + 1) > 10."
+   },
+   "a": [
+    "x > 4",
+    "x > 6",
+    "x > −4",
+    "x < 4"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Klammern auflösen: 2x + 2 > 10. − 2: 2x > 8. : 2 → x > 4.",
+   "h": "Löse zuerst die Klammern auf. Achte am Ende auf das Vorzeichen vor x."
+  },
+  {
+   "l": "klammern",
+   "t": "klammern",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung −3(x − 2) ≤ 0."
+   },
+   "a": [
+    "x ≥ 2",
+    "x ≥ −2",
+    "x ≤ 2",
+    "x ≤ −2"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Klammern auflösen: −3x + 6 ≤ 0. − 6: −3x ≤ −6. : (−3), Zeichen umdrehen → x ≥ 2.",
+   "h": "Löse zuerst die Klammern auf. Achte am Ende auf das Vorzeichen vor x."
+  },
+  {
+   "l": "klammern",
+   "t": "klammern",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 5(x + 2) < 2x + 1. Die Lösung hat die Form x < □. Gib die Zahl an."
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "(1 - (10)) / ((5) - (2))",
+   "w": "Klammern auflösen: 5x + 10 < 2x + 1. − 2x: 3x + 10 < 1. − 10: 3x < −9. : 3 → x < −3.",
+   "h": "Löse zuerst die Klammern auf. Achte am Ende auf das Vorzeichen vor x."
+  },
+  {
+   "l": "klammern",
+   "t": "klammern",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung 5(x − 2) > 3x − 22."
+   },
+   "a": [
+    "x > 6",
+    "x > −6",
+    "x > −16",
+    "x < −6"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Klammern auflösen: 5x − 10 > 3x − 22. − 3x: 2x − 10 > −22. + 10: 2x > −12. : 2 → x > −6.",
+   "h": "Löse zuerst die Klammern auf. Achte am Ende auf das Vorzeichen vor x."
+  },
+  {
+   "l": "klammern",
+   "t": "klammern",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung −2(x − 1) < −4x − 6."
+   },
+   "a": [
+    "x < −2",
+    "x < −4",
+    "x < 4",
+    "x > −4"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Klammern auflösen: −2x + 2 < −4x − 6. + 4x: 2x + 2 < −6. − 2: 2x < −8. : 2 → x < −4.",
+   "h": "Löse zuerst die Klammern auf. Achte am Ende auf das Vorzeichen vor x."
+  },
+  {
+   "l": "klammern",
+   "t": "klammern",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung −3(x − 1) ≥ −4x + 7."
+   },
+   "a": [
+    "x ≥ 10",
+    "x ≥ 4",
+    "x ≤ 4",
+    "x ≥ −4"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Klammern auflösen: −3x + 3 ≥ −4x + 7. + 4x: x + 3 ≥ 7. − 3: x ≥ 4. : 1 → x ≥ 4.",
+   "h": "Löse zuerst die Klammern auf. Achte am Ende auf das Vorzeichen vor x."
+  },
+  {
+   "l": "klammern",
+   "t": "klammern",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung −3(x − 4) < 5x + 4."
+   },
+   "a": [
+    "x < 1",
+    "x > 1",
+    "x > −2",
+    "x > −1"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Klammern auflösen: −3x + 12 < 5x + 4. − 5x: −8x + 12 < 4. − 12: −8x < −8. : (−8), Zeichen umdrehen → x > 1.",
+   "h": "Löse zuerst die Klammern auf. Achte am Ende auf das Vorzeichen vor x."
+  },
+  {
+   "l": "klammern",
+   "t": "klammern",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung −3(x + 1) ≥ 4x − 17."
+   },
+   "a": [
+    "x ≥ 2",
+    "x ≤ 2",
+    "x ≤ −2",
+    "x ≤ 20/7"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Klammern auflösen: −3x − 3 ≥ 4x − 17. − 4x: −7x − 3 ≥ −17. + 3: −7x ≥ −14. : (−7), Zeichen umdrehen → x ≤ 2.",
+   "h": "Löse zuerst die Klammern auf. Achte am Ende auf das Vorzeichen vor x."
+  },
+  {
+   "l": "klammern",
+   "t": "klammern",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung 2(x − 1) − 3(x − 2) > 9."
+   },
+   "a": [
+    "x < 5",
+    "x < −13",
+    "x < −5",
+    "x > −5"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Klammern auflösen: −x + 4 > 9. − 4: −x > 5. : (−1), Zeichen umdrehen → x < −5.",
+   "h": "Löse zuerst die Klammern auf. Achte am Ende auf das Vorzeichen vor x."
+  },
+  {
+   "l": "klammern",
+   "t": "klammern",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 5(x + 2) − 4(x + 4) ≤ 1. Die Lösung hat die Form x ≤ □. Gib die Zahl an."
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "(1 - (-6)) / ((1) - (0))",
+   "w": "Klammern auflösen: x − 6 ≤ 1. + 6: x ≤ 7. : 1 → x ≤ 7.",
+   "h": "Löse zuerst die Klammern auf. Achte am Ende auf das Vorzeichen vor x."
+  },
+  {
+   "l": "klammern",
+   "t": "klammern",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse −3(x − 2) − 5(x + 2) > −2x + 26. Die Lösung hat die Form x < □. Gib die Zahl an."
+   },
+   "o": {
+    "wert": -5
+   },
+   "c": "(26 - (-4)) / ((-8) - (-2))",
+   "w": "Klammern auflösen: −8x − 4 > −2x + 26. + 2x: −6x − 4 > 26. + 4: −6x > 30. : (−6), Zeichen umdrehen → x < −5.",
+   "h": "Löse zuerst die Klammern auf. Achte am Ende auf das Vorzeichen vor x."
+  },
+  {
+   "l": "klammern",
+   "t": "klammern",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 3(x − 3) − 3(x − 3) ≤ 3x − 9. Die Lösung hat die Form x ≥ □. Gib die Zahl an."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(-9 - (0)) / ((0) - (3))",
+   "w": "Klammern auflösen: 0 ≤ 3x − 9. − 3x: −3x ≤ −9. + 0: −3x ≤ −9. : (−3), Zeichen umdrehen → x ≥ 3.",
+   "h": "Löse zuerst die Klammern auf. Achte am Ende auf das Vorzeichen vor x."
+  },
+  {
+   "l": "klammern",
+   "t": "klammern",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse −3(x + 5) ≤ −4x − 12. Die Lösung hat die Form x ≤ □. Gib die Zahl an."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(-12 - (-15)) / ((-3) - (-4))",
+   "w": "Klammern auflösen: −3x − 15 ≤ −4x − 12. + 4x: x − 15 ≤ −12. + 15: x ≤ 3. : 1 → x ≤ 3."
+  },
+  {
+   "l": "klammern",
+   "t": "klammern",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung 4(x + 1) > −3x − 31."
+   },
+   "a": [
+    "x > −5",
+    "x > −27/7",
+    "x < −5",
+    "x > 5"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Klammern auflösen: 4x + 4 > −3x − 31. + 3x: 7x + 4 > −31. − 4: 7x > −35. : 7 → x > −5."
+  },
+  {
+   "l": "klammern",
+   "t": "klammern",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung 5(x − 4) ≤ −4x − 29."
+   },
+   "a": [
+    "x ≥ −1",
+    "x ≤ −49/9",
+    "x ≤ −1",
+    "x ≤ 1"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Klammern auflösen: 5x − 20 ≤ −4x − 29. + 4x: 9x − 20 ≤ −29. + 20: 9x ≤ −9. : 9 → x ≤ −1."
+  },
+  {
+   "l": "klammern",
+   "t": "klammern",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 5(x + 6) > 4x + 34. Die Lösung hat die Form x > □. Gib die Zahl an."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(34 - (30)) / ((5) - (4))",
+   "w": "Klammern auflösen: 5x + 30 > 4x + 34. − 4x: x + 30 > 34. − 30: x > 4. : 1 → x > 4."
+  },
+  {
+   "l": "klammern",
+   "t": "klammern",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung 5(x − 1) ≤ −x − 47."
+   },
+   "a": [
+    "x ≤ −7",
+    "x ≥ −7",
+    "x ≤ −26/3",
+    "x ≤ 7"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Klammern auflösen: 5x − 5 ≤ −x − 47. + x: 6x − 5 ≤ −47. + 5: 6x ≤ −42. : 6 → x ≤ −7."
+  },
+  {
+   "l": "klammern",
+   "t": "klammern",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung 4(x + 3) ≤ 3x + 15."
+   },
+   "a": [
+    "x ≤ −3",
+    "x ≤ 3",
+    "x ≥ 3",
+    "x ≤ 27"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Klammern auflösen: 4x + 12 ≤ 3x + 15. − 3x: x + 12 ≤ 15. − 12: x ≤ 3. : 1 → x ≤ 3."
+  },
+  {
+   "l": "klammern",
+   "t": "klammern",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung 4(x − 5) > 4."
+   },
+   "a": [
+    "x > 6",
+    "x > −6",
+    "x < 6",
+    "x > −4"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Klammern auflösen: 4x − 20 > 4. + 20: 4x > 24. : 4 → x > 6."
+  },
+  {
+   "l": "klammern",
+   "t": "klammern",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung −2(x + 1) < x + 7."
+   },
+   "a": [
+    "x < −3",
+    "x > −5/3",
+    "x > −3",
+    "x > 3"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Klammern auflösen: −2x − 2 < x + 7. − x: −3x − 2 < 7. + 2: −3x < 9. : (−3), Zeichen umdrehen → x > −3."
+  },
+  {
+   "l": "klammern",
+   "t": "klammern",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung 5(x + 2) ≥ −3x + 26."
+   },
+   "a": [
+    "x ≥ 4,5",
+    "x ≥ 2",
+    "x ≥ −2",
+    "x ≤ 2"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Klammern auflösen: 5x + 10 ≥ −3x + 26. + 3x: 8x + 10 ≥ 26. − 10: 8x ≥ 16. : 8 → x ≥ 2."
+  },
+  {
+   "l": "klammern",
+   "t": "klammern",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse die Ungleichung 3(x + 6) > −3x + 48."
+   },
+   "a": [
+    "x < 5",
+    "x > −5",
+    "x > 11",
+    "x > 5"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Klammern auflösen: 3x + 18 > −3x + 48. + 3x: 6x + 18 > 48. − 18: 6x > 30. : 6 → x > 5."
+  },
+  {
+   "l": "intervall",
+   "t": "intervall",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Schreibe die Lösungsmenge von x ≤ 6 als Intervall."
+   },
+   "a": [
+    "L = ]−∞; 6]",
+    "L = ]−∞; 6[",
+    "L = [6; ∞[",
+    "L = ]6; ∞["
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die Grenze gehört dazu, und x ist kleiner als 6: L = ]−∞; 6].",
+   "h": "Zeigt das Zeichen nach links (<, ≤), reicht das Intervall bis −∞. Gehört die Grenze dazu?"
+  },
+  {
+   "l": "intervall",
+   "t": "intervall",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Schreibe die Lösungsmenge von x ≤ 4 als Intervall."
+   },
+   "a": [
+    "L = [4; ∞[",
+    "L = ]4; ∞[",
+    "L = ]−∞; 4[",
+    "L = ]−∞; 4]"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die Grenze gehört dazu, und x ist kleiner als 4: L = ]−∞; 4].",
+   "h": "Zeigt das Zeichen nach links (<, ≤), reicht das Intervall bis −∞. Gehört die Grenze dazu?"
+  },
+  {
+   "l": "intervall",
+   "t": "intervall",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Schreibe die Lösungsmenge von x < −2 als Intervall."
+   },
+   "a": [
+    "L = ]−∞; −2]",
+    "L = ]−∞; −2[",
+    "L = [−2; ∞[",
+    "L = ]−2; ∞["
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Grenze gehört nicht dazu, und x ist kleiner als −2: L = ]−∞; −2[.",
+   "h": "Zeigt das Zeichen nach links (<, ≤), reicht das Intervall bis −∞. Gehört die Grenze dazu?"
+  },
+  {
+   "l": "intervall",
+   "t": "intervall",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Schreibe die Lösungsmenge von x > 4 als Intervall."
+   },
+   "a": [
+    "L = [4; ∞[",
+    "L = ]−∞; 4]",
+    "L = ]4; ∞[",
+    "L = ]−∞; 4["
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Grenze gehört nicht dazu, und x ist größer als 4: L = ]4; ∞[.",
+   "h": "Zeigt das Zeichen nach links (<, ≤), reicht das Intervall bis −∞. Gehört die Grenze dazu?"
+  },
+  {
+   "l": "intervall",
+   "t": "intervall",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse 4x + 8 > −4 und gib die Lösungsmenge als Intervall an."
+   },
+   "a": [
+    "L = [−3; ∞[",
+    "L = ]−∞; −3]",
+    "L = ]−3; ∞[",
+    "L = ]−∞; −3["
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "4x + 8 > −4 → 4x > −12 → x > −3. L = ]−3; ∞[.",
+   "h": "Erst lösen, dann das Intervall aufschreiben. Achte auf negative Faktoren vor x."
+  },
+  {
+   "l": "intervall",
+   "t": "intervall",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse 2x − 3 ≤ −9 und gib die Lösungsmenge als Intervall an."
+   },
+   "a": [
+    "L = [−3; ∞[",
+    "L = ]−3; ∞[",
+    "L = ]−∞; −3[",
+    "L = ]−∞; −3]"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "2x − 3 ≤ −9 → 2x ≤ −6 → x ≤ −3. L = ]−∞; −3].",
+   "h": "Erst lösen, dann das Intervall aufschreiben. Achte auf negative Faktoren vor x."
+  },
+  {
+   "l": "intervall",
+   "t": "intervall",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse 4x − 11 ≥ −43 und gib die Lösungsmenge als Intervall an."
+   },
+   "a": [
+    "L = ]−8; ∞[",
+    "L = [−8; ∞[",
+    "L = ]−∞; −8[",
+    "L = ]−∞; −8]"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "4x − 11 ≥ −43 → 4x ≥ −32 → x ≥ −8. L = [−8; ∞[.",
+   "h": "Erst lösen, dann das Intervall aufschreiben. Achte auf negative Faktoren vor x."
+  },
+  {
+   "l": "intervall",
+   "t": "intervall",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse 2x − 8 ≥ −24 und gib die Lösungsmenge als Intervall an."
+   },
+   "a": [
+    "L = ]−∞; −8]",
+    "L = ]−∞; −8[",
+    "L = ]−8; ∞[",
+    "L = [−8; ∞["
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "2x − 8 ≥ −24 → 2x ≥ −16 → x ≥ −8. L = [−8; ∞[.",
+   "h": "Erst lösen, dann das Intervall aufschreiben. Achte auf negative Faktoren vor x."
+  },
+  {
+   "l": "intervall",
+   "t": "intervall",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse 2x − 2 < −16 und gib die Lösungsmenge als Intervall an."
+   },
+   "a": [
+    "L = ]−7; ∞[",
+    "L = ]−∞; −7]",
+    "L = [−7; ∞[",
+    "L = ]−∞; −7["
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "2x − 2 < −16 → 2x < −14 → x < −7. L = ]−∞; −7[.",
+   "h": "Erst lösen, dann das Intervall aufschreiben. Achte auf negative Faktoren vor x."
+  },
+  {
+   "l": "intervall",
+   "t": "intervall",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse 5x − 10 < −10 und gib die Lösungsmenge als Intervall an."
+   },
+   "a": [
+    "L = [0; ∞[",
+    "L = ]0; ∞[",
+    "L = ]−∞; 0]",
+    "L = ]−∞; 0["
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "5x − 10 < −10 → 5x < 0 → x < 0. L = ]−∞; 0[.",
+   "h": "Erst lösen, dann das Intervall aufschreiben. Achte auf negative Faktoren vor x."
+  },
+  {
+   "l": "intervall",
+   "t": "intervall",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse −7 < 5x + 8 < 3 und gib die Lösungsmenge als Intervall an."
+   },
+   "a": [
+    "L = ]−3; −1[",
+    "L = ]−7; 3[",
+    "L = ]0,2; 2,2[",
+    "L = [−3; −1]"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Auf allen drei Teilen − 8: −15 < 5x < −5. Durch 5: −3 < x < −1. L = ]−3; −1[.",
+   "h": "Rechne auf allen drei Teilen gleichzeitig. Dann gibt es eine linke und eine rechte Grenze."
+  },
+  {
+   "l": "intervall",
+   "t": "intervall",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse −16 < 2x − 6 < −4 und gib die Lösungsmenge als Intervall an."
+   },
+   "a": [
+    "L = ]−5; 1[",
+    "L = ]−11; −5[",
+    "L = [−5; 1]",
+    "L = ]−16; −4["
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Auf allen drei Teilen + 6: −10 < 2x < 2. Durch 2: −5 < x < 1. L = ]−5; 1[.",
+   "h": "Rechne auf allen drei Teilen gleichzeitig. Dann gibt es eine linke und eine rechte Grenze."
+  },
+  {
+   "l": "intervall",
+   "t": "intervall",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse −22 ≤ 4x − 6 ≤ 10 und gib die Lösungsmenge als Intervall an."
+   },
+   "a": [
+    "L = [−7; 1]",
+    "L = ]−4; 4[",
+    "L = [−22; 10]",
+    "L = [−4; 4]"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Auf allen drei Teilen + 6: −16 ≤ 4x ≤ 16. Durch 4: −4 ≤ x ≤ 4. L = [−4; 4].",
+   "h": "Rechne auf allen drei Teilen gleichzeitig. Dann gibt es eine linke und eine rechte Grenze."
+  },
+  {
+   "l": "intervall",
+   "t": "intervall",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse −12 < 2x − 4 < 2 und gib die Lösungsmenge als Intervall an."
+   },
+   "a": [
+    "L = [−4; 3]",
+    "L = ]−8; −1[",
+    "L = ]−4; 3[",
+    "L = ]−12; 2["
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Auf allen drei Teilen + 4: −8 < 2x < 6. Durch 2: −4 < x < 3. L = ]−4; 3[.",
+   "h": "Rechne auf allen drei Teilen gleichzeitig. Dann gibt es eine linke und eine rechte Grenze."
+  },
+  {
+   "l": "intervall",
+   "t": "intervall",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse 4x + 12 ≥ 44 und gib die Lösungsmenge als Intervall an."
+   },
+   "a": [
+    "L = ]−∞; 8]",
+    "L = [8; ∞[",
+    "L = ]−∞; 8[",
+    "L = ]8; ∞["
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "4x + 12 ≥ 44 → 4x ≥ 32 → x ≥ 8. L = [8; ∞[."
+  },
+  {
+   "l": "intervall",
+   "t": "intervall",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse −2x + 10 < 20 und gib die Lösungsmenge als Intervall an."
+   },
+   "a": [
+    "L = ]−5; ∞[",
+    "L = ]−∞; −5]",
+    "L = ]−∞; −5[",
+    "L = [−5; ∞["
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "−2x + 10 < 20 → −2x < 10 → x > −5 (Zeichen umgedreht, da durch eine negative Zahl geteilt). L = ]−5; ∞[."
+  },
+  {
+   "l": "intervall",
+   "t": "intervall",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse 3x − 12 ≤ 12 und gib die Lösungsmenge als Intervall an."
+   },
+   "a": [
+    "L = ]−∞; 8]",
+    "L = ]8; ∞[",
+    "L = [8; ∞[",
+    "L = ]−∞; 8["
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "3x − 12 ≤ 12 → 3x ≤ 24 → x ≤ 8. L = ]−∞; 8]."
+  },
+  {
+   "l": "intervall",
+   "t": "intervall",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse −2x + 6 < 4 und gib die Lösungsmenge als Intervall an."
+   },
+   "a": [
+    "L = ]−∞; 1]",
+    "L = ]−∞; 1[",
+    "L = [1; ∞[",
+    "L = ]1; ∞["
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "−2x + 6 < 4 → −2x < −2 → x > 1 (Zeichen umgedreht, da durch eine negative Zahl geteilt). L = ]1; ∞[."
+  },
+  {
+   "l": "intervall",
+   "t": "intervall",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse 4x + 2 ≥ 22 und gib die Lösungsmenge als Intervall an."
+   },
+   "a": [
+    "L = ]−∞; 5[",
+    "L = ]−∞; 5]",
+    "L = [5; ∞[",
+    "L = ]5; ∞["
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "4x + 2 ≥ 22 → 4x ≥ 20 → x ≥ 5. L = [5; ∞[."
+  },
+  {
+   "l": "intervall",
+   "t": "intervall",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse −3x − 7 < −16 und gib die Lösungsmenge als Intervall an."
+   },
+   "a": [
+    "L = ]3; ∞[",
+    "L = ]−∞; 3[",
+    "L = ]−∞; 3]",
+    "L = [3; ∞["
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "−3x − 7 < −16 → −3x < −9 → x > 3 (Zeichen umgedreht, da durch eine negative Zahl geteilt). L = ]3; ∞[."
+  },
+  {
+   "l": "intervall",
+   "t": "intervall",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse −3x + 6 ≤ 0 und gib die Lösungsmenge als Intervall an."
+   },
+   "a": [
+    "L = ]2; ∞[",
+    "L = ]−∞; 2]",
+    "L = [2; ∞[",
+    "L = ]−∞; 2["
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "−3x + 6 ≤ 0 → −3x ≤ −6 → x ≥ 2 (Zeichen umgedreht, da durch eine negative Zahl geteilt). L = [2; ∞[."
+  },
+  {
+   "l": "intervall",
+   "t": "intervall",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse 3x + 8 ≤ −13 und gib die Lösungsmenge als Intervall an."
+   },
+   "a": [
+    "L = ]−∞; −7[",
+    "L = [−7; ∞[",
+    "L = ]−∞; −7]",
+    "L = ]−7; ∞["
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "3x + 8 ≤ −13 → 3x ≤ −21 → x ≤ −7. L = ]−∞; −7]."
+  },
+  {
+   "l": "intervall",
+   "t": "intervall",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse −3x + 12 < −6 und gib die Lösungsmenge als Intervall an."
+   },
+   "a": [
+    "L = ]6; ∞[",
+    "L = ]−∞; 6[",
+    "L = ]−∞; 6]",
+    "L = [6; ∞["
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "−3x + 12 < −6 → −3x < −18 → x > 6 (Zeichen umgedreht, da durch eine negative Zahl geteilt). L = ]6; ∞[."
+  },
+  {
+   "l": "intervall",
+   "t": "intervall",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse 5x − 5 > 20 und gib die Lösungsmenge als Intervall an."
+   },
+   "a": [
+    "L = [5; ∞[",
+    "L = ]−∞; 5]",
+    "L = ]−∞; 5[",
+    "L = ]5; ∞["
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "5x − 5 > 20 → 5x > 25 → x > 5. L = ]5; ∞[."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl ist eine Lösung von 6x − 9 > −9?"
+   },
+   "a": [
+    "3",
+    "−3",
+    "0",
+    "−1"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Einsetzen: 6 · 3 − 9 = 9, und 9 > −9 ist wahr. Lösung ist x > 0.",
+   "h": "Setze jede Zahl ein oder löse die Ungleichung zuerst."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl ist eine Lösung von 4x + 7 < 27?"
+   },
+   "a": [
+    "8",
+    "6",
+    "5",
+    "4"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Einsetzen: 4 · 4 + 7 = 23, und 23 < 27 ist wahr. Lösung ist x < 5.",
+   "h": "Setze jede Zahl ein oder löse die Ungleichung zuerst."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl ist KEINE Lösung von 2x + 8 ≥ 4?"
+   },
+   "a": [
+    "−2",
+    "1",
+    "−1",
+    "−3"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Einsetzen: 2 · (−3) + 8 = 2, und 2 ≥ 4 ist falsch. Lösung ist x ≥ −2.",
+   "h": "Setze jede Zahl ein oder löse die Ungleichung zuerst."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl ist eine Lösung von 4x − 4 > 0?"
+   },
+   "a": [
+    "4",
+    "1",
+    "0",
+    "−2"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Einsetzen: 4 · 4 − 4 = 12, und 12 > 0 ist wahr. Lösung ist x > 1.",
+   "h": "Setze jede Zahl ein oder löse die Ungleichung zuerst."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die kleinste ganze Zahl an, die −2x + 2 < 7 erfüllt."
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "-((--5) // 2)",
+   "w": "Lösen: x > −2,5 (Zeichen umgedreht). Die kleinste ganze Zahl ist −2.",
+   "h": "Löse zuerst die Ungleichung. Liegt die Grenze zwischen zwei ganzen Zahlen, überlege, welche noch passt."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die größte ganze Zahl an, die 5x + 3 < 16 erfüllt."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "13 // 5",
+   "w": "Lösen: x < 2,6. Die größte ganze Zahl ist 2.",
+   "h": "Löse zuerst die Ungleichung. Liegt die Grenze zwischen zwei ganzen Zahlen, überlege, welche noch passt."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die größte ganze Zahl an, die −4x + 12 > −2 erfüllt."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "7 // 2",
+   "w": "Lösen: x < 3,5 (Zeichen umgedreht). Die größte ganze Zahl ist 3.",
+   "h": "Löse zuerst die Ungleichung. Liegt die Grenze zwischen zwei ganzen Zahlen, überlege, welche noch passt."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die kleinste ganze Zahl an, die 3x + 3 > 16 erfüllt."
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "-((-13) // 3)",
+   "w": "Lösen: x > 13/3. Die kleinste ganze Zahl ist 5.",
+   "h": "Löse zuerst die Ungleichung. Liegt die Grenze zwischen zwei ganzen Zahlen, überlege, welche noch passt."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die größte ganze Zahl an, die −4x − 3 > −10 erfüllt."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "7 // 4",
+   "w": "Lösen: x < 1,75 (Zeichen umgedreht). Die größte ganze Zahl ist 1.",
+   "h": "Löse zuerst die Ungleichung. Liegt die Grenze zwischen zwei ganzen Zahlen, überlege, welche noch passt."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die größte ganze Zahl an, die −4x − 4 ≥ −17 erfüllt."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "13 // 4",
+   "w": "Lösen: x ≤ 3,25 (Zeichen umgedreht). Die größte ganze Zahl ist 3.",
+   "h": "Löse zuerst die Ungleichung. Liegt die Grenze zwischen zwei ganzen Zahlen, überlege, welche noch passt."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst −6x − 12 ≤ −30 so: + 12 ergibt −6x ≤ −18; durch (−6) ergibt x ≥ −3. Was stimmt?"
+   },
+   "a": [
+    "Beim Teilen durch die negative Zahl wurde das Zeichen nicht umgedreht.",
+    "Im ersten Schritt wurde falsch gerechnet: richtig ist −6x ≤ −18.",
+    "Die Rechnung ist richtig.",
+    "Beim Teilen wurde das Vorzeichen des Ergebnisses falsch bestimmt."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Richtig: −6x ≤ −18, durch (−6) mit Umdrehen: x ≥ 3.",
+   "h": "Rechne jeden Schritt selbst nach und vergleiche."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst −6x + 10 < 40 so: − 10 ergibt −6x < 30; durch (−6) ergibt x < −5. Was stimmt?"
+   },
+   "a": [
+    "Die Rechnung ist richtig.",
+    "Beim Teilen durch die negative Zahl wurde das Zeichen nicht umgedreht.",
+    "Im ersten Schritt wurde falsch gerechnet: richtig ist −6x < 30.",
+    "Beim Teilen wurde das Vorzeichen des Ergebnisses falsch bestimmt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Richtig: −6x < 30, durch (−6) mit Umdrehen: x > −5.",
+   "h": "Rechne jeden Schritt selbst nach und vergleiche."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst −2x − 6 ≥ −18 so: + 6 ergibt −2x ≥ −24; durch (−2) ergibt x ≤ 12. Was stimmt?"
+   },
+   "a": [
+    "Die Rechnung ist richtig.",
+    "Beim Teilen wurde das Vorzeichen des Ergebnisses falsch bestimmt.",
+    "Im ersten Schritt wurde falsch gerechnet: richtig ist −2x ≥ −12.",
+    "Beim Teilen durch die negative Zahl wurde das Zeichen nicht umgedreht."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Richtig: −2x ≥ −12, durch (−2) mit Umdrehen: x ≤ 6.",
+   "h": "Rechne jeden Schritt selbst nach und vergleiche."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst −3x + 2 ≥ 11 so: − 2 ergibt −3x ≥ 13; durch (−3) ergibt x ≤ −13/3. Was stimmt?"
+   },
+   "a": [
+    "Beim Teilen wurde das Vorzeichen des Ergebnisses falsch bestimmt.",
+    "Im ersten Schritt wurde falsch gerechnet: richtig ist −3x ≥ 9.",
+    "Beim Teilen durch die negative Zahl wurde das Zeichen nicht umgedreht.",
+    "Die Rechnung ist richtig."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Richtig: −3x ≥ 9, durch (−3) mit Umdrehen: x ≤ −3.",
+   "h": "Rechne jeden Schritt selbst nach und vergleiche."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die kleinste ganze Zahl an, die 4x − 11 ≥ −20 erfüllt."
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "-((--9) // 4)",
+   "w": "Lösen: x ≥ −2,25. Die kleinste ganze Zahl ist −2."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die kleinste ganze Zahl an, die 2x − 3 > 12 erfüllt."
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "-((-15) // 2)",
+   "w": "Lösen: x > 7,5. Die kleinste ganze Zahl ist 8."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die größte ganze Zahl an, die −3x + 3 ≥ 11 erfüllt."
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "-8 // 3",
+   "w": "Lösen: x ≤ −8/3 (Zeichen umgedreht). Die größte ganze Zahl ist −3."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die kleinste ganze Zahl an, die 3x + 11 > 3 erfüllt."
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "-((--8) // 3)",
+   "w": "Lösen: x > −8/3. Die kleinste ganze Zahl ist −2."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die größte ganze Zahl an, die −4x − 9 ≥ 6 erfüllt."
+   },
+   "o": {
+    "wert": -4
+   },
+   "c": "-15 // 4",
+   "w": "Lösen: x ≤ −3,75 (Zeichen umgedreht). Die größte ganze Zahl ist −4."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die kleinste ganze Zahl an, die 5x + 3 > 19 erfüllt."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "-((-16) // 5)",
+   "w": "Lösen: x > 3,2. Die kleinste ganze Zahl ist 4."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die kleinste ganze Zahl an, die 2x − 2 > 3 erfüllt."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "-((-5) // 2)",
+   "w": "Lösen: x > 2,5. Die kleinste ganze Zahl ist 3."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die kleinste ganze Zahl an, die 2x − 2 ≥ −13 erfüllt."
+   },
+   "o": {
+    "wert": -5
+   },
+   "c": "-((--11) // 2)",
+   "w": "Lösen: x ≥ −5,5. Die kleinste ganze Zahl ist −5."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die kleinste ganze Zahl an, die −2x + 7 ≤ 8 erfüllt."
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "-((--1) // 2)",
+   "w": "Lösen: x ≥ −0,5 (Zeichen umgedreht). Die kleinste ganze Zahl ist 0."
+  },
+  {
+   "l": "pruefen",
+   "t": "pruefen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib die größte ganze Zahl an, die 2x + 1 ≤ −18 erfüllt."
+   },
+   "o": {
+    "wert": -10
+   },
+   "c": "-19 // 2",
+   "w": "Lösen: x ≤ −9,5. Die größte ganze Zahl ist −10."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Regalbrett trägt höchstens 80 kg. Ein Karton wiegt 3 kg. Wie viele Kartons passen höchstens darauf?"
+   },
+   "o": {
+    "wert": 26
+   },
+   "c": "80 // 3",
+   "w": "3x ≤ 80 → x ≤ ≈ 26,67. Höchstens 26 Kartons.",
+   "h": "Teile und runde ab."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Regalbrett trägt höchstens 60 kg. Ein Karton wiegt 8 kg. Wie viele Kartons passen höchstens darauf?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "60 // 8",
+   "w": "8x ≤ 60 → x ≤ 7,5. Höchstens 7 Kartons.",
+   "h": "Teile und runde ab."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Handytarif kostet im Monat 12 € Grundgebühr und 2 € je zusätzliches Datenpaket. Man will höchstens 35 € zahlen. Wie viele Datenpakete kann man höchstens kaufen?"
+   },
+   "o": {
+    "wert": 11
+   },
+   "c": "(35 - 12) * 1 // 2",
+   "w": "12 + 2x ≤ 35 → 2x ≤ 23 → x ≤ 11,5. Höchstens 11 Pakete.",
+   "h": "Grundgebühr + Preis · Anzahl ≤ Höchstbetrag."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Handytarif kostet im Monat 5 € Grundgebühr und 3,50 € je zusätzliches Datenpaket. Man will höchstens 25 € zahlen. Wie viele Datenpakete kann man höchstens kaufen?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(25 - 5) * 2 // 7",
+   "w": "5 + 3,50x ≤ 25 → 3,50x ≤ 20 → x ≤ ≈ 5,71. Höchstens 5 Pakete.",
+   "h": "Grundgebühr + Preis · Anzahl ≤ Höchstbetrag."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Taxifahrt kostet 4 € Grundpreis und 2 € je angefangenen Kilometer. Wie viele Kilometer kann man mit 20 € höchstens fahren?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "((20) - 4) * 1 // 2",
+   "w": "4 + 2x ≤ 20 → 2x ≤ 16 → x ≤ 8. Höchstens 8 km.",
+   "h": "Stelle die Ungleichung auf und runde passend."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Aufzug darf höchstens 800 kg tragen. Eine Person (86 kg) will Kisten zu je 25 kg mitnehmen. Wie viele Kisten darf sie höchstens einladen?"
+   },
+   "o": {
+    "wert": 28
+   },
+   "c": "(800 - 86) // 25",
+   "w": "86 + 25x ≤ 800 → 25x ≤ 714 → x ≤ 28,56. Höchstens 28 Kisten.",
+   "h": "Stelle eine Ungleichung mit „≤“ auf. Nur ganze Kisten sind möglich."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Aufzug darf höchstens 450 kg tragen. Eine Person (92 kg) will Kisten zu je 35 kg mitnehmen. Wie viele Kisten darf sie höchstens einladen?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "(450 - 92) // 35",
+   "w": "92 + 35x ≤ 450 → 35x ≤ 358 → x ≤ ≈ 10,23. Höchstens 10 Kisten.",
+   "h": "Stelle eine Ungleichung mit „≤“ auf. Nur ganze Kisten sind möglich."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Handytarif kostet im Monat 12 € Grundgebühr und 3,50 € je zusätzliches Datenpaket. Man will höchstens 40 € zahlen. Wie viele Datenpakete kann man höchstens kaufen?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "(40 - 12) * 2 // 7",
+   "w": "12 + 3,50x ≤ 40 → 3,50x ≤ 28 → x ≤ 8. Höchstens 8 Pakete.",
+   "h": "Grundgebühr + Preis · Anzahl ≤ Höchstbetrag."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Handytarif kostet im Monat 8 € Grundgebühr und 2 € je zusätzliches Datenpaket. Man will höchstens 35 € zahlen. Wie viele Datenpakete kann man höchstens kaufen?"
+   },
+   "o": {
+    "wert": 13
+   },
+   "c": "(35 - 8) * 1 // 2",
+   "w": "8 + 2x ≤ 35 → 2x ≤ 27 → x ≤ 13,5. Höchstens 13 Pakete.",
+   "h": "Grundgebühr + Preis · Anzahl ≤ Höchstbetrag."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Handytarif kostet im Monat 10 € Grundgebühr und 1,50 € je zusätzliches Datenpaket. Man will höchstens 40 € zahlen. Wie viele Datenpakete kann man höchstens kaufen?"
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "(40 - 10) * 2 // 3",
+   "w": "10 + 1,50x ≤ 40 → 1,50x ≤ 30 → x ≤ 20. Höchstens 20 Pakete.",
+   "h": "Grundgebühr + Preis · Anzahl ≤ Höchstbetrag."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Fitness-Studio A: 3 € Grundbetrag, 2 € je Besuch. Studio B: 9 € Grundbetrag, 1 € je Besuch. Ab wie vielen Besuchen im Monat ist B billiger?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "(9 - 3) * 1 // 1 + 1",
+   "w": "9 + 1x < 3 + 2x → 1x > 6 → x > 6. Ab 7 Besuchen.",
+   "h": "Stelle „Kosten B < Kosten A“ auf und löse nach x."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Auf einem Sparbuch sind 50 €. Jede Woche kommen 8 € dazu. Nach wie vielen Wochen sind zum ersten Mal mehr als 250 € darauf?"
+   },
+   "o": {
+    "wert": 26
+   },
+   "c": "(250 - 50) // 8 + 1",
+   "w": "50 + 8x > 250 → x > 25. Kleinste ganze Zahl: 26 Wochen.",
+   "h": "„Mehr als“ bedeutet >. Gesucht ist die kleinste passende ganze Zahl."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Auf einem Sparbuch sind 59 €. Jede Woche kommen 6 € dazu. Nach wie vielen Wochen sind zum ersten Mal mehr als 250 € darauf?"
+   },
+   "o": {
+    "wert": 32
+   },
+   "c": "(250 - 59) // 6 + 1",
+   "w": "59 + 6x > 250 → x > ≈ 31,83. Kleinste ganze Zahl: 32 Wochen.",
+   "h": "„Mehr als“ bedeutet >. Gesucht ist die kleinste passende ganze Zahl."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Auf einem Sparbuch sind 36 €. Jede Woche kommen 5 € dazu. Nach wie vielen Wochen sind zum ersten Mal mehr als 150 € darauf?"
+   },
+   "o": {
+    "wert": 23
+   },
+   "c": "(150 - 36) // 5 + 1",
+   "w": "36 + 5x > 150 → x > 22,8. Kleinste ganze Zahl: 23 Wochen.",
+   "h": "„Mehr als“ bedeutet >. Gesucht ist die kleinste passende ganze Zahl."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Handytarif kostet im Monat 10 € Grundgebühr und 2,50 € je zusätzliches Datenpaket. Man will höchstens 40 € zahlen. Wie viele Datenpakete kann man höchstens kaufen?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "(40 - 10) * 2 // 5",
+   "w": "10 + 2,50x ≤ 40 → 2,50x ≤ 30 → x ≤ 12. Höchstens 12 Pakete."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Handytarif kostet im Monat 12 € Grundgebühr und 2,50 € je zusätzliches Datenpaket. Man will höchstens 20 € zahlen. Wie viele Datenpakete kann man höchstens kaufen?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(20 - 12) * 2 // 5",
+   "w": "12 + 2,50x ≤ 20 → 2,50x ≤ 8 → x ≤ 3,2. Höchstens 3 Pakete."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Taxifahrt kostet 3,50 € Grundpreis und 2,50 € je angefangenen Kilometer. Wie viele Kilometer kann man mit 50 € höchstens fahren?"
+   },
+   "o": {
+    "wert": 18
+   },
+   "c": "(50 * 2 - 7) * 2 // (5 * 2)",
+   "w": "3,50 + 2,50x ≤ 50 → 2,50x ≤ 46,50 → x ≤ 18,6. Höchstens 18 km."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Aufzug darf höchstens 800 kg tragen. Eine Person (77 kg) will Kisten zu je 15 kg mitnehmen. Wie viele Kisten darf sie höchstens einladen?"
+   },
+   "o": {
+    "wert": 48
+   },
+   "c": "(800 - 77) // 15",
+   "w": "77 + 15x ≤ 800 → 15x ≤ 723 → x ≤ 48,2. Höchstens 48 Kisten."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Auf einem Sparbuch sind 60 €. Jede Woche kommen 6 € dazu. Nach wie vielen Wochen sind zum ersten Mal mehr als 200 € darauf?"
+   },
+   "o": {
+    "wert": 24
+   },
+   "c": "(200 - 60) // 6 + 1",
+   "w": "60 + 6x > 200 → x > ≈ 23,33. Kleinste ganze Zahl: 24 Wochen."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Handytarif kostet im Monat 12 € Grundgebühr und 3 € je zusätzliches Datenpaket. Man will höchstens 25 € zahlen. Wie viele Datenpakete kann man höchstens kaufen?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(25 - 12) * 1 // 3",
+   "w": "12 + 3x ≤ 25 → 3x ≤ 13 → x ≤ ≈ 4,33. Höchstens 4 Pakete."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Taxifahrt kostet 3,50 € Grundpreis und 2,40 € je angefangenen Kilometer. Wie viele Kilometer kann man mit 50 € höchstens fahren?"
+   },
+   "o": {
+    "wert": 19
+   },
+   "c": "(50 * 2 - 7) * 5 // (12 * 2)",
+   "w": "3,50 + 2,40x ≤ 50 → 2,40x ≤ 46,50 → x ≤ 19,375. Höchstens 19 km."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Handytarif kostet im Monat 8 € Grundgebühr und 3 € je zusätzliches Datenpaket. Man will höchstens 35 € zahlen. Wie viele Datenpakete kann man höchstens kaufen?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "(35 - 8) * 1 // 3",
+   "w": "8 + 3x ≤ 35 → 3x ≤ 27 → x ≤ 9. Höchstens 9 Pakete."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Handytarif kostet im Monat 8 € Grundgebühr und 3,50 € je zusätzliches Datenpaket. Man will höchstens 25 € zahlen. Wie viele Datenpakete kann man höchstens kaufen?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(25 - 8) * 2 // 7",
+   "w": "8 + 3,50x ≤ 25 → 3,50x ≤ 17 → x ≤ ≈ 4,86. Höchstens 4 Pakete."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Handytarif kostet im Monat 10 € Grundgebühr und 3,50 € je zusätzliches Datenpaket. Man will höchstens 30 € zahlen. Wie viele Datenpakete kann man höchstens kaufen?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(30 - 10) * 2 // 7",
+   "w": "10 + 3,50x ≤ 30 → 3,50x ≤ 20 → x ≤ ≈ 5,71. Höchstens 5 Pakete."
+  }
+ ],
+ "offen": [
+  "Lehrplan nennt auch das graphische Lösen von Ungleichungen (Geraden im Koordinatensystem). Dafür braucht die App eine Zeichnung von Funktionsgraphen; nicht gebaut.",
+  "Lernkarte „umformen“: Lösungsmenge als markierter Bereich auf dem Zahlenstrahl (offener/geschlossener Kreis, Schraffur) kann die App nicht zeichnen; es wird nur die Grenze markiert."
+ ]
+}

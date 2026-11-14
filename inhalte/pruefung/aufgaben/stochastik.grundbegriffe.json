@@ -19,8 +19,7 @@
         "Häufigkeitstabelle auswerten (zahl, f.grafik tabelle): Tabelle ‚Augenzahl 1–6 | Anzahl 9, 11, 10, 8, 12, 10‘ → ‚relative Häufigkeit der 5?‘ → 0,2. Beispiel 2: Säulendiagramm (saeulen) Lieblingsfarben, ‚Anteil Blau?‘."
       ],
       "generator_regeln": [
-        "Bei einem fairen Würfel absolute Häufigkeiten der Sechs nahe n/6 wählen (z. B. zwischen 0,12 · n und 0,22 · n); große Abweichungen nur mit ausdrücklichem Hinweis ‚gezinkter Würfel‘.",
-        "Bei ‚Runde auf eine Nachkommastelle‘ toleranz 0,1 setzen."
+        "Bei einem fairen Würfel absolute Häufigkeiten der Sechs nahe n/6 wählen (z. B. zwischen 0,12 · n und 0,22 · n); große Abweichungen nur mit ausdrücklichem Hinweis ‚gezinkter Würfel‘."
       ]
     },
     {
@@ -75,12 +74,6 @@
       "art": "mehrdeutig",
       "problem": "Das Experiment fehlt. ‚die Zahl ist 1 oder 2‘ ist nur beim Würfeln richtig; allgemein wäre es ‚die Zahl ist höchstens 2‘. Zwei Ablenker (‚mindestens eine Kugel ist nicht rot‘, ‚mindestens drei Treffer‘) gehören zu anderen Aufgaben.",
       "korrektur": "‚Beim Würfeln mit einem Spielwürfel: Wie heißt das Gegenereignis zu „die Augenzahl ist größer als 2“?‘ Antworten: ‚die Augenzahl ist 1 oder 2‘ (richtig) | ‚die Augenzahl ist kleiner als 2‘ | ‚die Augenzahl ist 3, 4, 5 oder 6‘ | ‚die Augenzahl ist höchstens 3‘."
-    },
-    {
-      "aufgabe": "Zwei Gruppen werfen einen Würfel: Gruppe A 40-mal mit 3 Sechsen, Gruppe B 200-mal mit 35 Sechsen. Wie groß ist die relative Häufigkeit der Sechs insgesamt in Prozent? (Runde auf eine Nachkommastelle.)",
-      "art": "mehrdeutig",
-      "problem": "Gerundetes Ergebnis 15,8 % ohne Toleranz (alle 4 Aufgaben dieser Vorlage).",
-      "korrektur": "o = {\"wert\": 15.8, \"einheit\": \"%\", \"toleranz\": 0.1}"
     },
     {
       "aufgabe": "Ein fairer Würfel mit den Zahlen 1 bis 12 wird geworfen. Wie groß ist die Wahrscheinlichkeit für eine Primzahl?",

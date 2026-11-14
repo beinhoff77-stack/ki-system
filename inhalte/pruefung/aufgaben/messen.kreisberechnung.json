@@ -33,14 +33,12 @@
     {
       "lernziel": "sektor",
       "urteil": "verbessern",
-      "stufen": "Passen. Zwei Prozent-Aufgaben verlangen Runden, haben aber keine Toleranz.",
+      "stufen": "Passen.",
       "fehlende_aufgabentypen": [
         "Winkel aus Bogen (zahl, Stufe 3): ‚Ein Kreisausschnitt mit r = 6 cm hat die Bogenlänge 3π cm. Wie groß ist der Mittelpunktswinkel?‘ → 90°. Beispiel 2: ‚r = 10 cm, Fläche 25π cm²‘ → 90°.",
         "Sachaufgabe (zahl): ‚Ein Scheibenwischer (Länge 50 cm) überstreicht 120°. Wie groß ist die gewischte Fläche, wenn die inneren 10 cm nicht wischen? (auf ganze cm² runden)‘ → 120/360 · π · (50² − 10²) ≈ 2 513 cm²."
       ],
-      "generator_regeln": [
-        "Bei ‚Runde auf eine Nachkommastelle‘ immer toleranz 0,1 setzen."
-      ]
+      "generator_regeln": []
     },
     {
       "lernziel": "zusammengesetzt",
@@ -82,12 +80,6 @@
       "art": "unrealistisch",
       "problem": "Ein Tisch mit 28 cm Durchmesser ist ein Hocker. Ebenso ‚Radius 6 cm‘, ‚8,2 cm‘, ‚13 cm‘.",
       "korrektur": "‚Ein runder Tisch hat den Radius 55 cm. Wie lang ist der Umfang? Runde auf eine Nachkommastelle.‘ → 345,6 cm."
-    },
-    {
-      "aufgabe": "Ein Kreisausschnitt hat den Mittelpunktswinkel 60°. Wie viel Prozent des Kreises sind das? (Runde auf eine Nachkommastelle.)",
-      "art": "mehrdeutig",
-      "problem": "Gerundetes Ergebnis (16,7) ohne Toleranz; wer 16,66 eingibt, wird als falsch gewertet. Ebenso bei 40° (11,1). Außerdem fehlt die Einheit % in der Antwort.",
-      "korrektur": "o = {\"wert\": 16.7, \"einheit\": \"%\", \"toleranz\": 0.1}"
     }
   ]
 }

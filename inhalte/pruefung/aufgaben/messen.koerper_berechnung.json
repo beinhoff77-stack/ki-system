@@ -1,0 +1,83 @@
+{
+  "thema_schluessel": "messen.koerper_berechnung",
+  "gesamturteil": "brauchbar",
+  "karten": [
+    {
+      "lernziel": "quader",
+      "urteil": "verbessern",
+      "stufen": "Alle 28 Aufgaben fragen nach der Summe der Kantenlängen. Die Eigenschaften (6 Flächen, 12 Kanten, 8 Ecken; welche Flächen gleich groß) werden hier nicht geübt, nur in 'verstehen'.",
+      "fehlende_aufgabentypen": [
+        "Ecken/Kanten/Flächen zählen (zahl, Stufe 1): Beispiel 1: 'Wie viele Kanten treffen sich an einer Ecke eines Quaders?' → 3. Beispiel 2: 'Wie viele Flächen eines Quaders sind 4 cm × 6 cm groß, wenn er 4 cm × 6 cm × 9 cm misst?' → 2.",
+        "Würfelnetz prüfen (auswahl, Stufe 3): braucht Zeichnung (Netze) – unter 'offen' notieren, bis die App Netze zeichnen kann."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "oberflaeche",
+      "urteil": "ok",
+      "stufen": "Passt: Würfel und Quader mit Hilfstabelle, Formel, Einheiten umrechnen. Gute Nutzung der Tabelle.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "sachaufgaben",
+      "urteil": "verbessern",
+      "stufen": "Stufe 2 bis Sicherung bestehen fast nur aus der Aquarium-Aufgabe (10 von 15 gesehenen). Stufe 3 (Zimmer streichen, Würfel anmalen) ist gut. Geschenkkarton '22 cm lang, 31 cm breit' – 'lang' sollte die längere Seite sein.",
+      "fehlende_aufgabentypen": [
+        "Verpackung mit Überlappung (zahl, Stufe 3): Beispiel 1: 'Ein Karton 30 cm × 20 cm × 10 cm wird beklebt. Für Überlappungen rechnet man 10 % dazu. Wie viel cm² Papier braucht man?' → 2 420 cm² (2 200 + 220). Beispiel 2: 'Ein Schuhkarton ohne Deckel, 30 cm × 20 cm × 12 cm, wird innen mit Stoff ausgekleidet. Wie viel cm²?' → 1 800 cm² (600 + 2 · 360 + 2 · 240)."
+      ],
+      "generator_regeln": [
+        "Höchstens 5 Aquarium-Aufgaben je Lernkarte; weitere Kontexte (Schuhkarton, Zelt-Boden, Schrank streichen)."
+      ]
+    },
+    {
+      "lernziel": "zusammengesetzt",
+      "urteil": "ok",
+      "stufen": "Passt (Reihe, Turm, zwei Quader, Würfel auf Quader). Werte nachgerechnet.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "volumen",
+      "urteil": "verbessern",
+      "stufen": "Stufen passen. Annahme, bitte am Lehrplan prüfen: Das Volumen von Quader und Würfel steht im LehrplanPLUS Gymnasium Bayern erst in Klasse 6; in Klasse 5 ist es ggf. zu früh. Bei den Einheitswürfel-Aufgaben passt die Einheit nicht zur Frage (siehe Fehlerliste).",
+      "fehlende_aufgabentypen": [
+        "Volumeneinheiten (zahl, Stufe 2): Beispiel 1: 'Wie viele cm³ sind 1 dm³?' → 1 000. Beispiel 2: 'Ein Aquarium 50 cm × 30 cm × 40 cm. Wie viele Liter passen hinein?' → 60."
+      ],
+      "generator_regeln": [
+        "Bei 'Wie viele Würfel sind es?' Lösung ohne Einheit; oder Frage 'Wie groß ist das Volumen?' mit cm³.",
+        "'1 Schicht', nicht '1 Schichten'."
+      ]
+    },
+    {
+      "lernziel": "verstehen",
+      "urteil": "verbessern",
+      "stufen": "Gute Inhalte (gleiches Volumen – verschiedene Oberfläche, Verdoppeln). Stufe 2 und Sicherung sind fast nur 'Ein Quader … hat die Oberfläche …'. Die richtige Antwort ist wie in den anderen Klasse-5-Themen die einzige mit Begründung.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Alle Antworten mit Begründung (z. B. 'Nein, 4 · 4 + 4 · 6 + 4 · 6 = 64 cm², jede Fläche einmal.' als Ablenker).",
+        "Höchstens 6 Oberflächen-Behauptungen je Karte."
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Ein Quader wird aus Einheitswürfeln (1 cm³) gebaut: 4 Würfel lang, 5 Würfel breit, 1 Schichten hoch. Wie viele Würfel sind es?",
+      "art": "sprache",
+      "problem": "Gefragt ist eine Anzahl, die Lösung hat aber die Einheit cm³ ('20 cm³'). Außerdem '1 Schichten'.",
+      "korrektur": "Ein Quader wird aus Einheitswürfeln (1 cm³) gebaut: 4 Würfel lang, 5 Würfel breit, 1 Schicht hoch. Wie viele Würfel sind es? – Lösung 20 (ohne Einheit)."
+    },
+    {
+      "aufgabe": "Ein Geschenkkarton ist 22 cm lang, 31 cm breit und 22 cm hoch. Wie viel cm² Papier braucht man mindestens, um ihn ganz zu bekleben?",
+      "art": "sprache",
+      "problem": "'breit' ist größer als 'lang'.",
+      "korrektur": "Ein Geschenkkarton ist 31 cm lang, 22 cm breit und 22 cm hoch. … – Lösung 3 696 cm²."
+    },
+    {
+      "aufgabe": "Stimmt die Aussage? „Ein Würfel mit 4 cm Kantenlänge hat die Oberfläche 96 cm².“",
+      "art": "loesungsweg",
+      "problem": "Richtige Antwort ist die einzige mit Rechnung; Ablenker 'Nein, das ist falsch.' / 'Das kann man nicht entscheiden.'",
+      "korrektur": "Antworten: 'Ja, 6 · 4 · 4 = 96 cm².' (richtig), 'Nein, 4 · 4 · 4 = 64 cm².' (Volumen statt Oberfläche), 'Nein, 4 · 4 = 16 cm².'"
+    }
+  ]
+}

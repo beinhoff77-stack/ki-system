@@ -1,0 +1,49 @@
+{
+  "thema_schluessel": "gleichungen.polynom",
+  "gesamturteil": "gut",
+  "karten": [
+    {
+      "lernziel": "ausklammern",
+      "urteil": "ok",
+      "stufen": "Passt (x ausklammern, dann quadratische Gleichung, dann x² ausklammern). Alle Lösungen per Programm nachgerechnet.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "nullprodukt",
+      "urteil": "ok",
+      "stufen": "Passt; Stufe 3 mit nie null werdendem Faktor x² + c gut. Alle Lösungen stimmen.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "substitution",
+      "urteil": "ok",
+      "stufen": "Gute Stufung: erst nur z, dann alle x, dann Fälle mit negativem z bzw. ohne Lösung. Alle Lösungen nachgerechnet (z. B. 2x⁴ − 94x² − 196 = 0 → z = 49 oder z = −2 → x = ±7).",
+      "fehlende_aufgabentypen": [
+        "Substitution mit nicht-ganzzahligen x (luecken mit Wurzeleingabe oder zahl mit Toleranz, Stufe 3): Beispiel 1: 'Löse x⁴ − 7x² + 12 = 0. Gib die positiven Lösungen auf zwei Nachkommastellen an.' → 1,73 und 2. Beispiel 2: 'Löse x⁴ − 6x² + 5 = 0, positive Lösungen' → 1 und 2,24."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "vielfachheit",
+      "urteil": "verbessern",
+      "stufen": "Grafiken passen zu den Termen. Bei 'Wechselt f das Vorzeichen?' ist der Graph immer mitgezeichnet – die Frage lässt sich durch Hinschauen statt über die Vielfachheit beantworten. Antwortverteilung 11 × 'Nein' zu 5 × 'Ja'.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "In Stufe 3 und in Korrektur/Sicherung die Vorzeichenwechsel-Frage ohne Grafik stellen.",
+        "'Ja' und 'Nein' als richtige Antwort etwa gleich oft."
+      ]
+    },
+    {
+      "lernziel": "verstehen",
+      "urteil": "ok",
+      "stufen": "Gute Fehlvorstellungen (durch x teilen, Rücksubstitution vergessen, Grad ungerade ⇒ mindestens eine Lösung). Alle Graph-Term-Zuordnungen per Programm geprüft: jeweils genau ein Term passt.",
+      "fehlende_aufgabentypen": [
+        "Sachaufgabe mit Polynomgleichung (zahl, Stufe 3) – fehlt im ganzen Thema: Beispiel 1: 'Ein Quader hat die Kantenlängen x, x und x + 3 (in cm) und das Volumen 112 cm³. Bestimme x.' → x³ + 3x² − 112 = 0, x = 4 (durch Probieren von Teilern von 112). Beispiel 2: 'Aus einem 20 cm × 20 cm großen Karton werden an den Ecken Quadrate der Seitenlänge x cm ausgeschnitten; die Schachtel hat das Volumen V = x · (20 − 2x)². Für welches ganzzahlige x ist V = 512 cm³?' → x = 2 (weitere Lösung 9 − √17 ≈ 4,88; 9 + √17 ≈ 13,1 ist sinnlos, weil x < 10)."
+      ],
+      "generator_regeln": []
+    }
+  ],
+  "fehler": []
+}

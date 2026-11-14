@@ -1,0 +1,73 @@
+{
+  "thema_schluessel": "zahlen.rationale_exponenten",
+  "gesamturteil": "brauchbar",
+  "karten": [
+    {
+      "lernziel": "nte_wurzel",
+      "urteil": "verbessern",
+      "stufen": "22 Aufgaben ‚Berechne ⁿ√a‘ in Stufe 1 und 2 – kein Unterschied. Stufe 3 (Bruch, Term) passt.",
+      "fehlende_aufgabentypen": [
+        "Wurzel aus Potenz (zahl, Stufe 2): ‚Berechne ⁴√(3⁸).‘ → 9. Beispiel 2: ‚³√(2⁹)‘ → 8."
+      ],
+      "generator_regeln": [
+        "Stufe 2: Radikanden als Potenz oder Dezimalzahl (⁴√0,0016 = 0,2)."
+      ]
+    },
+    {
+      "lernziel": "potenz_wert",
+      "urteil": "verbessern",
+      "stufen": "Wie oben: 22 Aufgaben ‚Berechne a^(1/n)‘ bzw. a^(m/n) in Stufe 1 und 2. Stufe 3 mit negativem Exponenten gut.",
+      "fehlende_aufgabentypen": [
+        "Rechenweg begründen (auswahl): ‚8^(2/3): Weg A: erst ³√8 = 2, dann 2² = 4. Weg B: erst 8² = 64, dann ³√64 = 4. Was stimmt?‘ → ‚Beide Wege sind richtig; A ist im Kopf leichter.‘ | ‚Nur A ist richtig.‘ | ‚Nur B ist richtig.‘ Beispiel 2: 16^(3/4) → erst ⁴√16 = 2, dann 2³ = 8."
+      ],
+      "generator_regeln": [
+        "Stufe 2 nur Exponenten mit Zähler ≠ 1."
+      ]
+    },
+    {
+      "lernziel": "umwandeln",
+      "urteil": "ok",
+      "stufen": "Passen (Wurzel → Potenz, kürzen, negativer Exponent, Rückweg). Alle Lückenaufgaben nachgeprüft.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "zusammenfassen",
+      "urteil": "ok",
+      "stufen": "Passen; Stufe 3 mit Wurzeln statt Potenzen. Alle 28 nachgeprüft. Der Tipp ‚Schreibe Wurzeln als Potenzen‘ steht auch bei Aufgaben ohne Wurzel.",
+      "fehlende_aufgabentypen": [
+        "Mit Zahlen statt x (zahl): ‚Berechne 4^(1/3) · 16^(1/3).‘ → 4. Beispiel 2: ‚27^(5/6) : 27^(1/2)‘ → 3."
+      ],
+      "generator_regeln": [
+        "Tipp abhängig von der Aufgabe: ohne Wurzeln ‚Gleiche Basis: Exponenten addieren (beim Malnehmen) bzw. subtrahieren (beim Teilen).‘"
+      ]
+    },
+    {
+      "lernziel": "gleichung_exp",
+      "urteil": "verbessern",
+      "stufen": "22 von 28 Aufgaben sind ‚Löse x^(1/n) = a‘ – auch alle 6 Stufe-3-Aufgaben. Es fehlen Gleichungen mit Bruch-Exponent m/n und mit Koeffizient.",
+      "fehlende_aufgabentypen": [
+        "Exponent m/n (zahl, Stufe 3): ‚Löse x^(2/3) = 9 für x > 0.‘ → 27. Beispiel 2: ‚Löse 2 · x^(3/4) = 54.‘ → x^(3/4) = 27 → x = 81.",
+        "Ungerade Potenz ohne Einschränkung (zahl): ‚Löse x³ = −125.‘ → −5."
+      ],
+      "generator_regeln": [
+        "Vorlage ‚Löse x^(1/n) = a‘ höchstens 10-mal."
+      ]
+    },
+    {
+      "lernziel": "verstehen",
+      "urteil": "ok",
+      "stufen": "Gute Fehlvorstellungen (hoch 1/2 = halbieren, Kehrwert vs. Minus, negative Basis, kürzen im Exponenten).",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Löse x^(1/3) = 3 für x > 0.",
+      "art": "mehrdeutig",
+      "problem": "Rechnung richtig; aber dieselbe Vorlage wird in allen Stufen (auch 6-mal als ‚schwer‘) verwendet – Stufe 3 ist nicht schwerer.",
+      "korrektur": "Stufe-3-Aufgaben ersetzen durch ‚Löse x^(2/3) = 9 für x > 0.‘ → 27 und ‚Löse 2 · x^(3/4) = 54 für x > 0.‘ → 81."
+    }
+  ]
+}

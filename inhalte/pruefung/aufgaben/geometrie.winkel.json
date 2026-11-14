@@ -1,0 +1,87 @@
+{
+  "thema_schluessel": "geometrie.winkel",
+  "gesamturteil": "brauchbar",
+  "karten": [
+    {
+      "lernziel": "ergaenzen",
+      "urteil": "ok",
+      "stufen": "Passt: Stufe 1 zu 90°/180°, Stufe 2 zu 360° und zwei bekannte Winkel, Stufe 3 Text mit Unterschied. Gute Zeichnungen. 'β ist 33° größer als α' führt auf 73,5° – für Klasse 5 lösbar, aber ungerade Unterschiede besser vermeiden.",
+      "fehlende_aufgabentypen": [
+        "Fehler finden (auswahl, Stufe 3): Beispiel 1: 'Jemand rechnet: α = 35° und β bilden einen rechten Winkel, also β = 180° − 35° = 145°. Was ist falsch?' → 'Rechter Winkel heißt 90°: β = 55°.' Beispiel 2: 'α = 250° wird zum Vollwinkel ergänzt: β = 250° − 180° = 70°.' → 'Vollwinkel ist 360°: β = 110°.'"
+      ],
+      "generator_regeln": [
+        "Bei 'β ist … größer als α' den Unterschied gerade wählen, damit ganze Gradzahlen entstehen."
+      ]
+    },
+    {
+      "lernziel": "kreuzung",
+      "urteil": "ok",
+      "stufen": "Passt. Hinweis (Annahme, bitte am Lehrplan prüfen): Neben- und Scheitelwinkel an Geradenkreuzungen werden im LehrplanPLUS Gymnasium Bayern meist erst in Klasse 7 behandelt; in Klasse 5 genügt 'nebeneinanderliegende Winkel ergänzen'.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Stufe 3 'Wie groß sind alle vier Winkel zusammen?' ist zu leicht (immer 360°); ersetzen durch 'α ist doppelt so groß wie β' (→ 120° und 60°)."
+      ]
+    },
+    {
+      "lernziel": "um_punkt",
+      "urteil": "ok",
+      "stufen": "Passt; Stufe 3 mit Anteilen (α, α, 2α) gut. Werte stimmen.",
+      "fehlende_aufgabentypen": [
+        "Torte/Kreisdiagramm (zahl, Stufe 3): Beispiel 1: 'Eine Torte wird in 8 gleiche Stücke geschnitten. Wie groß ist der Winkel eines Stücks an der Spitze?' → 45°. Beispiel 2: 'Eine Pizza wird in 12 gleiche Stücke geschnitten, 5 sind gegessen. Wie groß ist der Winkel des Rests?' → 210°."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "uhr",
+      "urteil": "ok",
+      "stufen": "Passt, schön lebensnah. Stufe 3 (Stundenzeiger bei halben Stunden) ist anspruchsvoll und richtig gerechnet. 'Minutenzeiger in 135 Minuten: 810°' ist für Klasse 5 ungewohnt, aber korrekt.",
+      "fehlende_aufgabentypen": [
+        "Uhr als Bild: Sobald die App Uhren zeichnen kann, Uhrzeit ablesen und Winkel bestimmen; bis dahin unter 'offen' notieren."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "drehungen",
+      "urteil": "ok",
+      "stufen": "Passt: Windrose gut genutzt, Ablenker sind typische Fehler (Gegenrichtung, 45° zu wenig). Drehungen gegen den Uhrzeigersinn fehlen.",
+      "fehlende_aufgabentypen": [
+        "Gegen den Uhrzeigersinn (auswahl, Stufe 3): Beispiel 1: 'Du schaust nach Norden und drehst dich um 90° gegen den Uhrzeigersinn. Wohin schaust du?' → Westen (Ablenker Osten). Beispiel 2: 'Von Südosten 135° gegen den Uhrzeigersinn' → Norden."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "figuren",
+      "urteil": "verbessern",
+      "stufen": "Stufe 2 und Sicherung bestehen fast nur aus 'Ein Teil ist um x° größer als der andere' (8 von 15 gesehenen). Schrankenaufgabe (Stufe 3) ist gut.",
+      "fehlende_aufgabentypen": [
+        "Quadrat-Diagonale (auswahl, Stufe 2): Beispiel 1: 'Im Quadrat teilt die Diagonale den Eckwinkel. Wie groß ist jeder Teil?' → 45°. Beispiel 2: 'Im Rechteck (nicht Quadrat) teilt die Diagonale den Eckwinkel in 30° und …' → 60°; Aussage 'Beide Teile sind 45°' ist falsch."
+      ],
+      "generator_regeln": [
+        "Höchstens 4 Aufgaben vom Typ 'um x° größer' je Lernkarte."
+      ]
+    },
+    {
+      "lernziel": "verstehen",
+      "urteil": "verbessern",
+      "stufen": "Die richtige Antwort ist fast immer die einzige mit Begründung ('Ja, 40 · 6° = 240°.'); die Ablenker lauten 'Nein, das ist falsch.' und 'Das kann man nicht entscheiden.'. Das Kind findet die Lösung über die Antwortlänge.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Alle Antworten gleich gebaut, jeweils mit Zahl: z. B. 'Ja, 40 · 6° = 240°.' / 'Nein, 40 · 6° = 200°.' / 'Nein, 40 · 3° = 120°.'"
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Stimmt die Aussage? „In 40 Minuten dreht sich der Minutenzeiger um 240°.“",
+      "art": "loesungsweg",
+      "problem": "Antworten: 'Ja, 40 · 6° = 240°.' (richtig), 'Nein, das ist falsch.', 'Das kann man nicht entscheiden.' – richtige Antwort an der Begründung erkennbar. Muster in der ganzen Lernkarte 'verstehen'.",
+      "korrektur": "Antworten: 'Ja, denn 40 · 6° = 240°.' (richtig), 'Nein, denn 40 · 30° = 1 200°.' (Stunden- statt Minutenschritt), 'Nein, denn 40 Minuten sind zwei Drittel von 360°, also 200°.'"
+    },
+    {
+      "aufgabe": "Zwei Geraden schneiden sich. α = 107°. Wie groß sind alle vier Winkel zusammen?",
+      "art": "tipp_verraet_loesung",
+      "problem": "Die Antwort (360°) hängt nicht von α ab und steht in der Regel; als Stufe-3-Aufgabe zu leicht.",
+      "korrektur": "Zwei Geraden schneiden sich. Ein Winkel ist dreimal so groß wie sein Nachbarwinkel. Wie groß ist der größere Winkel? – Lösung 135° (4 Teile = 180°, ein Teil 45°)."
+    }
+  ]
+}

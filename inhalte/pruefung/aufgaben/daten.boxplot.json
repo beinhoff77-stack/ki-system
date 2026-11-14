@@ -1,0 +1,78 @@
+{
+  "thema_schluessel": "daten.boxplot",
+  "gesamturteil": "brauchbar",
+  "karten": [
+    {
+      "lernziel": "median",
+      "urteil": "ok",
+      "stufen": "Passt (ungerade Anzahl, gerade Anzahl, längere Listen). Werte stimmen. Stufe 3 unterscheidet sich nur durch die Länge der Liste.",
+      "fehlende_aufgabentypen": [
+        "Median aus Häufigkeitstabelle (zahl, Stufe 3): f.grafik typ 'tabelle'. Beispiel 1: 'Note 1: 3-mal, 2: 7-mal, 3: 8-mal, 4: 5-mal, 5: 2-mal. Median?' → 3 (25 Werte, 13. Wert). Beispiel 2: 'Tore 0: 4, 1: 6, 2: 5, 3: 3 Spiele' → 1 (18 Werte; der 9. und 10. Wert sind beide 1)."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "kennwerte",
+      "urteil": "ok",
+      "stufen": "Passt; Stufe 3 (fehlender Wert aus Mittelwert) gut. Datensätze ohne Sachzusammenhang ('Werte: …').",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Modalwert nur, wenn er eindeutig ist (prüfen, dass kein zweiter Wert gleich oft vorkommt)."
+      ]
+    },
+    {
+      "lernziel": "quartile",
+      "urteil": "ok",
+      "stufen": "Passt. Die Regel 'bei ungerader Anzahl ohne den Median' ist eine von mehreren üblichen Festlegungen; im Lösungsweg so nennen, damit Kinder mit anderer Schulbuchregel nicht verunsichert werden. Stichproben nachgerechnet, stimmen.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "boxplot",
+      "urteil": "verbessern",
+      "stufen": "Die Karte heißt 'Informationen aus Boxplots', zeigt aber keinen einzigen Boxplot – die Kennwerte stehen in einer Tabelle. Die App kann jetzt typ 'boxplot' zeichnen. Stufe 1 ('Gib den Median an', der in der Tabelle steht) ist reines Abschreiben.",
+      "fehlende_aufgabentypen": [
+        "Boxplot ablesen (zahl, Stufe 1–2): f.grafik {typ: 'boxplot', achse, reihen: [{min, q1, median, q3, max}]}. Beispiel 1: Boxplot Weitsprung 260/320/325/340/375 cm: 'Wie groß ist der Quartilsabstand?' → 20. Beispiel 2: Boxplot Taschengeld 8/12/16/25/32 €: 'Wie viel Prozent der Kinder bekommen mehr als 16 €?' → 50.",
+        "Boxplot zu Daten zuordnen (auswahl, Stufe 3): Datenliste und drei Boxplots als f.grafik (mehrere Reihen). Beispiel 1: Daten 2; 4; 5; 7; 9; 12; 20 → Reihe mit 2/4/7/12/20. Beispiel 2: Daten 10; 11; 15; 18; 30 → Reihe mit 10/10,5/15/24/30."
+      ],
+      "generator_regeln": [
+        "Alle Aufgaben dieser Karte mit f.grafik typ 'boxplot' statt Tabelle; Kennwerte nicht zusätzlich im Text nennen (sonst wird nicht abgelesen)."
+      ]
+    },
+    {
+      "lernziel": "mittel_median",
+      "urteil": "ok",
+      "stufen": "Passt. Ablenker 'Beide sind gleich gut, sie sind ja gleich groß' ist bei deutlichen Ausreißern leicht auszuschließen; besser ein Datensatz ohne Ausreißer, bei dem 'beide etwa gleich' richtig ist.",
+      "fehlende_aufgabentypen": [
+        "Sachentscheidung (auswahl, Stufe 3): Beispiel 1: 'In einer Firma verdienen 9 Personen je 3 000 €, die Chefin 30 000 €. Welche Angabe beschreibt das typische Gehalt?' → Median 3 000 € (Mittelwert 5 700 €). Beispiel 2: 'Wartezeiten 5, 6, 6, 7, 8 min' → 'Mittelwert und Median sind fast gleich, beide passen.'"
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "vergleichen",
+      "urteil": "verbessern",
+      "stufen": "Alle 24 Aufgaben nachgeprüft: In jeder ist genau eine Antwort passend. Gute Ablenker (Quartil mit Minimum verwechselt, 'größere Spannweite heißt mehr Werte'). Aber: keine Boxplots, nur Tabellen mit fünf Zahlen ohne Spaltenköpfe im Text ('A: 0; 7; 12; 23; 34'). Wechsel zwischen 'richtig' und 'FALSCH' ohne Hervorhebung außer Großbuchstaben.",
+      "fehlende_aufgabentypen": [
+        "Zwei Boxplots vergleichen (auswahl, Stufe 2–3): f.grafik typ 'boxplot' mit zwei Reihen (Klasse 7a, 7b). Beispiel 1: 'Welche Klasse war beim Sprint schneller?' → 'Die Klasse mit dem kleineren Median.' Beispiel 2: 'In welcher Klasse sind die Leistungen gleichmäßiger?' → 'Die Klasse mit dem kleineren Quartilsabstand.'"
+      ],
+      "generator_regeln": [
+        "Kennwerte als f.grafik typ 'boxplot' (zwei Reihen) zeigen.",
+        "Frage 'FALSCH' durch 'Welche Aussage stimmt nicht?' ersetzen."
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Kennwerte eines Boxplots (Punkte im Test): Minimum 2, unteres Quartil 13, Median 15, oberes Quartil 22, Maximum 33. Gib den Median an.",
+      "art": "mehrdeutig",
+      "problem": "Der gesuchte Wert steht wörtlich im Fragetext; es wird nichts abgelesen oder gerechnet. Ein Boxplot wird nicht gezeigt, obwohl die Karte 'Informationen aus Boxplots' heißt.",
+      "korrektur": "f.grafik {\"typ\": \"boxplot\", \"achse\": [0, 35], \"einheit\": \"Punkte\", \"reihen\": [{\"name\": \"Test\", \"min\": 2, \"q1\": 13, \"median\": 15, \"q3\": 22, \"max\": 33}]}; Frage: 'Lies den Median ab.' – Lösung 15."
+    },
+    {
+      "aufgabe": "Vergleiche die Gruppen A und B (siehe Tabelle). Welche Aussage ist richtig? A: 0; 7; 12; 23; 34 / B: 4; 16; 18; 28; 43",
+      "art": "sprache",
+      "problem": "Die fünf Zahlen sind im Text nicht benannt (Minimum, Q₁, Median, Q₃, Maximum); 'Gruppe A' hat keinen Sachbezug.",
+      "korrektur": "Zwei Klassen haben beim Weitwurf diese Ergebnisse in m (Boxplot mit Reihen 'Klasse 7a': 0/7/12/23/34 und 'Klasse 7b': 4/16/18/28/43). Welche Aussage ist richtig? – Lösung 'Der Median der 7a ist kleiner als der der 7b.'"
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "thema_schluessel": "stochastik.simulation",
+  "gesamturteil": "brauchbar",
+  "karten": [
+    {
+      "lernziel": "zufallsgeraet",
+      "urteil": "ok",
+      "stufen": "Passen: Gerät auswählen → Urnenzahl/Winkel berechnen. Kontexte kindgerecht.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "zufallsziffern",
+      "urteil": "ok",
+      "stufen": "Gute Steigerung bis Durchgänge mit 3er-Gruppen. Alle 24 Zählaufgaben nachgezählt: richtig.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Ziffernblöcke einheitlich als 4er-Gruppen; letzte Gruppe nicht verkürzen (‚… 0685 78‘ wirkt wie ein Tippfehler) oder die Anzahl der Ziffern im Text nennen."
+      ]
+    },
+    {
+      "lernziel": "regel",
+      "urteil": "verbessern",
+      "stufen": "Gut: 0–99 mit Zählfehler-Ablenkern (01–40, 00–41), Stufe 3 Überspringen von Ziffern. Sprachlich holprig: ‚1–1 = Treffer‘.",
+      "fehlende_aufgabentypen": [
+        "Regel für zwei Ereignisse (auswahl, Stufe 3): ‚Ein Spieler trifft mit 0,6 beim ersten und 0,3 beim zweiten Wurf. Welche Regel für eine Zweiergruppe von Zufallsziffern passt?‘ → ‚1. Ziffer 0–5 = Treffer, 2. Ziffer 0–2 = Treffer‘ | ‚beide Ziffern 0–5‘ | ‚1. Ziffer 0–6, 2. Ziffer 0–3‘."
+      ],
+      "generator_regeln": [
+        "Bei p = 1/6 nicht ‚1–1 = Treffer‘, sondern ‚1 = Treffer‘ schreiben."
+      ]
+    },
+    {
+      "lernziel": "auswerten",
+      "urteil": "verbessern",
+      "stufen": "Rechnerisch passend. Die vorgegebenen Simulationsergebnisse sind aber oft unmöglich weit von der echten Wahrscheinlichkeit entfernt (siehe Fehlerliste) – das untergräbt das Vertrauen in Simulationen, das die Karte aufbauen soll.",
+      "fehlende_aufgabentypen": [
+        "Simulation mit echter Wahrscheinlichkeit vergleichen (auswahl, Stufe 3): ‚Die Simulation ‚drei Kinder, alle Mädchen‘ ergab 27 von 200. Berechnet ist P = 1/8 = 0,125. Was folgt?‘ → ‚Die Simulation passt gut (0,135).‘ | ‚Die Rechnung muss falsch sein.‘ | ‚Simulationen sind wertlos.‘ Beispiel 2: ‚mindestens eine Sechs bei vier Würfen: 260 von 500, berechnet 0,518‘ → passt."
+      ],
+      "generator_regeln": [
+        "Für Ereignisse mit bekannter Wahrscheinlichkeit (alle drei Kinder Mädchen: 0,125; mindestens eine Sechs bei vier Würfen: ≈ 0,518) die simulierte Trefferzahl nahe n · p wählen (Abweichung höchstens etwa 2·√(n·p·(1−p)))."
+      ]
+    },
+    {
+      "lernziel": "monte_carlo",
+      "urteil": "ok",
+      "stufen": "Passen; π-Schätzung in Stufe 3 sehr schön. Werte realistisch (413 von 500 → 3,304).",
+      "fehlende_aufgabentypen": [
+        "Figur zeigen (f.grafik figur mit Quadrat und Kreis): würde die Aufgabe anschaulicher machen; Text bleibt gleich."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "beurteilen",
+      "urteil": "ok",
+      "stufen": "Gute Verstehenskarte (Gerät passt / passt nicht, ohne Zurücklegen). Ablenker ‚p vertauscht‘ ist ein guter Fehler.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Eine Simulation mit 200 Durchgängen ergab 158-mal das Ereignis „alle drei Kinder sind Mädchen“. Schätze die Wahrscheinlichkeit (als Dezimalzahl).",
+      "art": "unrealistisch",
+      "problem": "Die echte Wahrscheinlichkeit ist 1/8 = 0,125; erwartet wären etwa 25 Treffer, 158 ist praktisch unmöglich. Ebenso ‚125 Durchgänge, 38-mal alle drei Kinder sind Mädchen‘ (0,304).",
+      "korrektur": "‚Eine Simulation mit 200 Durchgängen ergab 27-mal das Ereignis „alle drei Kinder sind Mädchen“. Schätze die Wahrscheinlichkeit (als Dezimalzahl).‘ → 0,135."
+    },
+    {
+      "aufgabe": "Eine Simulation mit 80 Durchgängen ergab 11-mal „mindestens eine Sechs bei vier Würfen“. Wie oft ist das Ereignis bei 2000 echten Durchgängen etwa zu erwarten?",
+      "art": "unrealistisch",
+      "problem": "Echte Wahrscheinlichkeit ≈ 0,518; 11 von 80 (0,1375) ist weit daneben. Ergebnis 275 bei 2000 widerspricht der Realität (≈ 1 036).",
+      "korrektur": "‚Eine Simulation mit 80 Durchgängen ergab 42-mal „mindestens eine Sechs bei vier Würfen“. Wie oft ist das Ereignis bei 2000 echten Durchgängen etwa zu erwarten?‘ → 1 050."
+    },
+    {
+      "aufgabe": "Mit Zufallsziffern soll ein Würfelwurf mit „Augenzahl ≤ 1“ als Treffer simuliert werden. Welche Regel passt?",
+      "art": "sprache",
+      "problem": "Richtige Antwort ‚Ziffern 1–6 verwenden, 0, 7, 8, 9 überspringen; 1–1 = Treffer‘ – ‚1–1‘ ist unschön; ‚Augenzahl ≤ 1‘ heißt einfach ‚Augenzahl 1‘.",
+      "korrektur": "Frage: ‚… mit „Augenzahl 1“ als Treffer …‘; Antwort: ‚Ziffern 1–6 verwenden, 0, 7, 8, 9 überspringen; 1 = Treffer‘."
+    }
+  ]
+}

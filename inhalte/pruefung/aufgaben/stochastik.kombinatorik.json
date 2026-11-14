@@ -1,0 +1,99 @@
+{
+  "thema_schluessel": "stochastik.kombinatorik",
+  "gesamturteil": "gut",
+  "karten": [
+    {
+      "lernziel": "systematisch",
+      "urteil": "verbessern",
+      "stufen": "Passt: Tabelle, Ziffern mit/ohne Wiederholung, Bedingung gerade/ungerade. Die Hilfstabelle hat immer die Zeilen 'rot', 'blau', 'grün' – auch bei Brotsorten und Belägen.",
+      "fehlende_aufgabentypen": [
+        "Liste vervollständigen (auswahl, Stufe 2): Beispiel 1: 'Jemand schreibt alle zweistelligen Zahlen aus 1, 2, 3 ohne doppelte Ziffer auf: 12, 13, 21, 31, 32. Welche fehlt?' → 23. Beispiel 2: 'Outfits aus Hosen J, S und T-Shirts r, g, b: Jr, Jg, Jb, Sr, Sb. Welches fehlt?' → Sg."
+      ],
+      "generator_regeln": [
+        "Zeilen- und Spaltenköpfe der Hilfstabelle passend zum Sachkontext (z. B. 'Vollkorn', 'Weißbrot' × 'Käse', 'Wurst')."
+      ]
+    },
+    {
+      "lernziel": "zaehlprinzip",
+      "urteil": "ok",
+      "stufen": "Passt. Stufe-3-Formulierung zum Rückweg ist missverständlich (siehe Fehlerliste).",
+      "fehlende_aufgabentypen": [
+        "Umkehraufgabe (zahl, Stufe 3): Beispiel 1: 'Ein Kind hat 4 Hosen und kann 24 verschiedene Outfits aus Hose und T-Shirt bilden. Wie viele T-Shirts hat es?' → 6. Beispiel 2: 'Ein Zahlenschloss hat 1 000 Codes und Rädchen mit 0–9. Wie viele Rädchen?' → 3."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "reihenfolgen",
+      "urteil": "ok",
+      "stufen": "Passt (alle anordnen, erste k Plätze, Ämter, Bedingung 'ganz links').",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "baumdiagramm",
+      "urteil": "verbessern",
+      "stufen": "Gute Inhalte (mit/ohne Zurücklegen, Augensumme). Kein einziges Baumdiagramm wird gezeigt, obwohl die App jetzt typ 'baum' zeichnen kann. Formulierung 'zweimal hintereinander dasselbe' ist offen (genau zweimal oder mindestens zweimal?).",
+      "fehlende_aufgabentypen": [
+        "Pfade am Bild ablesen (zahl, Stufe 1): f.grafik typ 'baum' mit zwei Stufen (z. B. Eis: Vanille/Schoko, dann Waffel/Becher/Tüte). Beispiel 1: 'Wie viele Pfade hat das Baumdiagramm?' → 6. Beispiel 2: 'Bei wie vielen Pfaden ist Schoko dabei?' → 3."
+      ],
+      "generator_regeln": [
+        "In Stufe 1–2 das Baumdiagramm als f.grafik mitgeben (höchstens etwa 8 Blätter)."
+      ]
+    },
+    {
+      "lernziel": "bedingungen",
+      "urteil": "ok",
+      "stufen": "Passt; Stufe 2 bis Sicherung bestehen aber fast nur aus 'dreistellige gerade Zahlen aus vier Ziffern' (10 von 15 gesehenen).",
+      "fehlende_aufgabentypen": [
+        "Ziffer 0 in der Auswahl (zahl, Stufe 3): Beispiel 1: 'Aus 0, 1, 2, 3 werden dreistellige Zahlen ohne doppelte Ziffer gebildet. Wie viele gibt es?' → 18 (3 · 3 · 2). Beispiel 2: 'Wie viele davon sind gerade?' → 10 (Endziffer 0: 3 · 2 = 6; Endziffer 2: 2 · 2 = 4)."
+      ],
+      "generator_regeln": [
+        "Höchstens 5 Aufgaben 'gerade dreistellige Zahlen' je Karte."
+      ]
+    },
+    {
+      "lernziel": "grenzen",
+      "urteil": "ok",
+      "stufen": "Sehr gute Verstehen-Karte; die Ablenker (plus rechnen, nicht durch 2 teilen, fälschlich durch 2 teilen) sind genau die typischen Fehler. Stufe 3 fehlt in der Übung (nur Stufe 1–2 gesehen).",
+      "fehlende_aufgabentypen": [
+        "Stufe 3 (zahl): Beispiel 1: 'In einer Gruppe gab es 28 Handschläge, jeder hat jedem einmal die Hand gegeben. Wie viele Personen?' → 8. Beispiel 2: 'Ein Turnier mit 'jeder gegen jeden' hat 15 Spiele. Wie viele Mannschaften?' → 6."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "verstehen",
+      "urteil": "verbessern",
+      "stufen": "Inhaltlich gut (KZ ≠ ZK, 0 vorne beim Schloss, Handschläge doppelt gezählt). Die richtige Antwort ist wie in den anderen Klasse-5-Themen die einzige mit Begründung.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Ablenker mit falscher Begründung: z. B. 'Nein, KZ und ZK sind dasselbe: 3 Folgen.' / 'Nein, 2 + 2 = 4 ist Zufall, es sind 2 Folgen.'"
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Es gibt 2 Brotsorten und 2 Beläge. Wie viele Kombinationen aus einem Stück jeder Sorte gibt es? Die Tabelle hilft.",
+      "art": "sprache",
+      "problem": "Die Hilfstabelle hat die Zeilen 'rot' und 'blau' – für Brotsorten unpassend und verwirrend. 'aus einem Stück jeder Sorte' passt bei Belägen nicht.",
+      "korrektur": "Es gibt 2 Brotsorten (Vollkorn, Weißbrot) und 2 Beläge (Käse, Wurst). Wie viele verschiedene belegte Brote mit genau einem Belag gibt es? Tabelle mit Zeilen 'Vollkorn', 'Weißbrot' und Spalten 'Käse', 'Wurst'. – Lösung 4."
+    },
+    {
+      "aufgabe": "Von A nach B führen 4 Wege, von B nach C 4 Wege. Wie viele verschiedene Wege gibt es von A über B nach C und auf einem der Wege wieder zurück nach A?",
+      "art": "mehrdeutig",
+      "problem": "'auf einem der Wege wieder zurück' kann heißen 'auf demselben Weg zurück' (16) oder 'auf irgendeinem Weg zurück' (256). Lösung 256 setzt die zweite Deutung voraus.",
+      "korrektur": "Von A nach B führen 4 Wege, von B nach C 4 Wege. Jemand geht von A über B nach C und danach über B zurück nach A; dabei darf er jeden Weg beliebig wählen, auch denselben. Wie viele verschiedene Touren gibt es? – Lösung 256."
+    },
+    {
+      "aufgabe": "Eine Münze wird dreimal geworfen. Wie viele der 8 Pfade erfüllen: zweimal hintereinander dasselbe?",
+      "art": "mehrdeutig",
+      "problem": "Lösung 6 zählt KKK und ZZZ mit ('mindestens zweimal hintereinander'); wer 'genau zweimal' versteht, kommt auf 4.",
+      "korrektur": "Eine Münze wird dreimal geworfen. Bei wie vielen der 8 Pfade kommt mindestens zweimal hintereinander dasselbe Ergebnis? – Lösung 6 (KKK, KKZ, ZKK, ZZZ, ZZK, KZZ)."
+    },
+    {
+      "aufgabe": "Stimmt die Aussage? „Mit 5 Hosen und 5 T-Shirts gibt es 25 Outfits.“",
+      "art": "loesungsweg",
+      "problem": "Richtige Antwort ist die einzige mit Begründung ('Ja, Zählprinzip: 5 · 5 = 25.'); Ablenker ohne Inhalt.",
+      "korrektur": "Antworten: 'Ja, 5 · 5 = 25.' (richtig), 'Nein, 5 + 5 = 10.', 'Nein, jedes Teil zählt nur einmal: 5.'"
+    }
+  ]
+}

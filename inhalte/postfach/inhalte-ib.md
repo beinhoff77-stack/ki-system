@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-14 15:21 – STATUS
+5/14 stochastik.bedingt fertig: 6 Lernkarten (Vierfeldertafel, Formel, Ziehen ohne Zurücklegen, Unabhängigkeit, Rückschluss mit 1 000 Fällen, Bedingungen lesen), 168 Aufgaben mit Tafeln und Baumdiagrammen, Prüfskript OK. Schreibweise P(A | B) wie im IB – Hinweis unter offen.
+
 ## 2026-11-14 15:18 – STATUS
 4/14 daten.standardabweichung fertig: 5 Lernkarten (Abweichungen, Varianz, σ, Eigenschaften, Deuten), 140 Aufgaben, Prüfskript OK. σ der Gesamtheit (durch n), Annahme unter offen.
 

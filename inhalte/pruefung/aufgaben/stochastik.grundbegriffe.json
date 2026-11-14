@@ -1,0 +1,85 @@
+{
+  "thema_schluessel": "stochastik.grundbegriffe",
+  "gesamturteil": "brauchbar",
+  "karten": [
+    {
+      "lernziel": "begriffe",
+      "urteil": "ok",
+      "stufen": "Gut: Ergebnisraum zählen → Ereignis als Menge → Paare/Reihenfolge. Alle Mengen-Auswahlaufgaben nachgeprüft. Ablenker (1 als Primzahl, Grenze mitgenommen, Gegenmenge) sind typische Fehler.",
+      "fehlende_aufgabentypen": [
+        "Ereignis in Worten zu einer Menge (auswahl): ‚Würfel 1 bis 6, E = {1; 2; 3}. Wie kann man E beschreiben?‘ → ‚Augenzahl kleiner als 4‘ | ‚Augenzahl ungerade‘ | ‚Augenzahl höchstens 2‘. Beispiel 2: E = {2; 3; 5} → ‚Primzahl‘."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "rel_haeufigkeit",
+      "urteil": "verbessern",
+      "stufen": "Stufen passen; Stufe 3 (Gruppen zusammenfassen, nicht Prozente mitteln) ist sehr gut. Aber die Würfelzahlen sind unrealistisch (siehe Fehlerliste) und widersprechen dem Gesetz der großen Zahlen aus derselben Lerneinheit.",
+      "fehlende_aufgabentypen": [
+        "Häufigkeitstabelle auswerten (zahl, f.grafik tabelle): Tabelle ‚Augenzahl 1–6 | Anzahl 9, 11, 10, 8, 12, 10‘ → ‚relative Häufigkeit der 5?‘ → 0,2. Beispiel 2: Säulendiagramm (saeulen) Lieblingsfarben, ‚Anteil Blau?‘."
+      ],
+      "generator_regeln": [
+        "Bei einem fairen Würfel absolute Häufigkeiten der Sechs nahe n/6 wählen (z. B. zwischen 0,12 · n und 0,22 · n); große Abweichungen nur mit ausdrücklichem Hinweis ‚gezinkter Würfel‘."
+      ]
+    },
+    {
+      "lernziel": "laplace",
+      "urteil": "ok",
+      "stufen": "Gute Steigerung bis Augensumme mit zwei Würfeln (mit Ablenker 1/11) und Umkehraufgabe (Kugeln dazulegen). Alle Auswahlaufgaben nachgeprüft.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Lösungsweg nicht ‚P = 5/12 = 5/12‘ (Doppelung), sondern nur kürzen, wenn es etwas zu kürzen gibt."
+      ]
+    },
+    {
+      "lernziel": "gegenereignis",
+      "urteil": "verbessern",
+      "stufen": "Die Auswahlaufgaben haben meist nur einen echten Ablenker; die übrigen stammen aus anderen Aufgaben (‚keine Sechs‘, ‚mindestens eine Kugel ist nicht rot‘ als Antwort auf ‚die Zahl ist größer als 2‘) und lassen sich ohne Nachdenken ausschließen. Teilweise fehlt das Zufallsexperiment.",
+      "fehlende_aufgabentypen": [
+        "Gegenwahrscheinlichkeit geschickt nutzen (zahl, Stufe 3): ‚Bei einem Glücksrad ist P(rot) = 0,15 und P(blau) = 0,35. Wie groß ist P(weder rot noch blau)?‘ → 0,5. Beispiel 2: ‚P(mindestens eine Sechs bei zwei Würfen)‘ über 1 − 25/36 → 11/36 als auswahl."
+      ],
+      "generator_regeln": [
+        "Alle Ablenker müssen sich auf dasselbe Ereignis beziehen und einen typischen Fehler zeigen: ‚höchstens zwei Treffer‘ → Ablenker ‚mindestens zwei Treffer‘, ‚weniger als zwei Treffer‘, ‚genau drei Treffer‘.",
+        "Bei Zahlenereignissen immer das Experiment nennen (‚Beim Würfeln mit einem Spielwürfel: …‘)."
+      ]
+    },
+    {
+      "lernziel": "grosse_zahlen",
+      "urteil": "ok",
+      "stufen": "Passen; Stufe 3 Aussagen (Spielerfehlschluss, ‚genau‘, ‚immer‘) sind gut gewählt.",
+      "fehlende_aufgabentypen": [
+        "Schätzen aus Daten (zahl): ‚Eine Reißzwecke landete bei 1 000 Würfen 612-mal auf dem Kopf. Schätze P(Kopf) auf zwei Nachkommastellen.‘ → 0,61 (toleranz 0,01). Beispiel 2: ‚Ein Legostein lag bei 400 Würfen 92-mal auf der Seite.‘ → 0,23."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "laplace_pruefen",
+      "urteil": "ok",
+      "stufen": "Gute Vielfalt (Würfel, Karten, Legostein, Reißzwecke, Glücksräder). Stufe 3 Wahrscheinlichkeit aus Winkeln ist ein guter Übergang.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Ablenker ‚Nein, dafür braucht man genau 6 Felder.‘ nur bei Glücksrädern mit ≠ 6 Feldern verwenden (sonst zu offensichtlich falsch)."
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Bei 80 Würfen kam 62-mal die Sechs. Berechne die relative Häufigkeit als Dezimalzahl.",
+      "art": "unrealistisch",
+      "problem": "Bei einem normalen Würfel erwartet man etwa 13 Sechsen. 62 von 80 (ebenso 329 von 500 oder 20 von 400) widerspricht dem, was das Kind in ‚grosse_zahlen‘ lernt.",
+      "korrektur": "‚Bei 80 Würfen kam 15-mal die Sechs. Berechne die relative Häufigkeit als Dezimalzahl.‘ → 0,1875."
+    },
+    {
+      "aufgabe": "Wie heißt das Gegenereignis zu „die Zahl ist größer als 2“?",
+      "art": "mehrdeutig",
+      "problem": "Das Experiment fehlt. ‚die Zahl ist 1 oder 2‘ ist nur beim Würfeln richtig; allgemein wäre es ‚die Zahl ist höchstens 2‘. Zwei Ablenker (‚mindestens eine Kugel ist nicht rot‘, ‚mindestens drei Treffer‘) gehören zu anderen Aufgaben.",
+      "korrektur": "‚Beim Würfeln mit einem Spielwürfel: Wie heißt das Gegenereignis zu „die Augenzahl ist größer als 2“?‘ Antworten: ‚die Augenzahl ist 1 oder 2‘ (richtig) | ‚die Augenzahl ist kleiner als 2‘ | ‚die Augenzahl ist 3, 4, 5 oder 6‘ | ‚die Augenzahl ist höchstens 3‘."
+    },
+    {
+      "aufgabe": "Ein fairer Würfel mit den Zahlen 1 bis 12 wird geworfen. Wie groß ist die Wahrscheinlichkeit für eine Primzahl?",
+      "art": "loesungsweg",
+      "problem": "Lösungsweg ‚P = 5/12 = 5/12.‘ und ‚P = 1/32 = 1/32.‘ – Doppelung; die günstigen Ergebnisse werden nicht aufgezählt.",
+      "korrektur": "Lösungsweg: ‚Primzahlen bis 12: 2, 3, 5, 7, 11 – das sind 5 von 12 Ergebnissen. P = 5/12.‘"
+    }
+  ]
+}

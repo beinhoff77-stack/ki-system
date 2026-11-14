@@ -1,0 +1,83 @@
+{
+  "thema_schluessel": "zahlen.wurzeln_basis",
+  "gesamturteil": "brauchbar",
+  "karten": [
+    {
+      "lernziel": "quadratwurzel",
+      "urteil": "verbessern",
+      "stufen": "27 von 28 Aufgaben sind ‚Berechne √n‘ – auch in Stufe 3 (nur größere Quadratzahlen). Nur eine echte Stufe-3-Aufgabe (5 · √81 − √25).",
+      "fehlende_aufgabentypen": [
+        "Wurzel und Quadrat als Umkehrung (zahl, Stufe 2): ‚√x = 7. Wie groß ist x?‘ → 49. Beispiel 2: ‚√x = 1,2‘ → 1,44.",
+        "Terme mit Wurzeln (zahl, Stufe 3): ‚Berechne √(9 · 16).‘ → 12; ‚Berechne √(100 − 36).‘ → 8 (erst Radikand ausrechnen)."
+      ],
+      "generator_regeln": [
+        "Vorlage ‚Berechne √n‘ höchstens 12-mal; Stufe 3 nur mit Termen oder Umkehraufgaben."
+      ]
+    },
+    {
+      "lernziel": "wurzel_dezimal",
+      "urteil": "ok",
+      "stufen": "Passen (Dezimalzahl → Bruch → Faktor davor).",
+      "fehlende_aufgabentypen": [
+        "Typischer Kommafehler (auswahl): ‚Was ergibt √0,9?‘ → ‚keine endliche Dezimalzahl, ≈ 0,95‘ | 0,3 | 0,03 | 0,81. Beispiel 2: ‚√0,09‘ → 0,3 (hier stimmt es). Ziel: 0,3² = 0,09, nicht 0,9."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "kubikwurzel",
+      "urteil": "verbessern",
+      "stufen": "22 Aufgaben ‚Berechne ∛n‘ in Stufe 1 und 2. Kubikwurzel negativer Zahlen fehlt.",
+      "fehlende_aufgabentypen": [
+        "Negative Radikanden (auswahl): ‚Was ist ∛(−8)?‘ → −2 | nicht definiert | 2. Hinweis: In der Schule wird die dritte Wurzel oft nur für nichtnegative Zahlen definiert – vorher festlegen, welche Konvention die Erklärung nutzt, sonst weglassen."
+      ],
+      "generator_regeln": [
+        "‚Berechne ∛1‘ nicht mehrfach; Radikanden 8 bis 1 000."
+      ]
+    },
+    {
+      "lernziel": "abschaetzen",
+      "urteil": "verbessern",
+      "stufen": "Nur ganzzahlige Grenzen. Die Näherung auf Zehntel (Intervallschachtelung) fehlt, obwohl sie zum Verständnis irrationaler Wurzeln führt.",
+      "fehlende_aufgabentypen": [
+        "Auf Zehntel einschachteln (luecken ‚□/10 < √7 < □/10‘ oder auswahl): ‚Zwischen welchen Zehnteln liegt √7?‘ → 2,6 < √7 < 2,7 (2,6² = 6,76; 2,7² = 7,29). Beispiel 2: ‚√50‘ → 7,0 < √50 < 7,1.",
+        "Näherung prüfen (auswahl): ‚Ist 1,41 eine gute Näherung für √2?‘ → ‚Ja, 1,41² = 1,9881.‘"
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "wurzel_deuten",
+      "urteil": "verbessern",
+      "stufen": "Gute Fehlvorstellungen (Wurzel aus Negativem, ±, (√a)², Summenregel, halbieren). Die richtige Begründung bei der Summenfalle ist aber schwach (siehe Fehlerliste). Richtige Antwort steht in 10 von 28 Fällen an Position 4.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Bei ‚√(a + b) = √a + √b‘ nie a + b als Quadratzahl wählen (sonst wäre ‚√(a + b) ist keine ganze Zahl‘ falsch); besser die Begründung allgemein formulieren.",
+        "Jede Aufgabe nur einmal je Karte (√(81 + 64) kommt doppelt vor)."
+      ]
+    },
+    {
+      "lernziel": "wurzel_sache",
+      "urteil": "ok",
+      "stufen": "Passen (Seite → Umfang → Oberfläche aus Volumen). Kontexte realistisch; Fliesen mit 12 dm Seitenlänge sind ungewöhnlich groß.",
+      "fehlende_aufgabentypen": [
+        "Gerundete Wurzel in Sachaufgabe (zahl, toleranz 0,1): ‚Ein quadratischer Garten hat 200 m². Wie lang ist eine Seite? Runde auf eine Nachkommastelle.‘ → 14,1 m. Beispiel 2: ‚Ein Würfel hat 500 cm³.‘ → 7,9 cm."
+      ],
+      "generator_regeln": [
+        "Fliesen höchstens 6 dm Seitenlänge."
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Jemand rechnet: √(16 + 4) = √16 + √4 = 6. Was stimmt?",
+      "art": "mehrdeutig",
+      "problem": "Als richtig gilt ‚Falsch: √20 ist keine ganze Zahl, nicht 6‘. Das ist nicht der Grund des Fehlers – auch wenn √(a + b) zufällig ganz wäre (z. B. √(9 + 16) = 5), bliebe √9 + √16 = 7 falsch. Kinder lernen so ein falsches Kriterium.",
+      "korrektur": "Richtige Antwort: ‚Falsch: Erst addieren, dann Wurzel ziehen: √20 ≈ 4,5. Probe: 6² = 36 ≠ 20.‘ Ablenker: ‚Richtig, man darf die Wurzel aus jedem Summanden einzeln ziehen.‘ | ‚Falsch: Das Ergebnis ist 8.‘ | ‚Richtig, denn 4 + 2 = 6.‘"
+    },
+    {
+      "aufgabe": "Berechne √64.",
+      "art": "mehrdeutig",
+      "problem": "Kein Rechenfehler: Die Vorlage ‚Berechne √n‘ ist mit 27 Aufgaben über alle Stufen verteilt; Stufe 3 (5 Aufgaben) unterscheidet sich nur durch größere Zahlen.",
+      "korrektur": "Stufe-3-Aufgaben ersetzen, z. B. ‚Berechne √(100 − 36).‘ → 8; ‚Für welche Zahl x gilt √x = 13?‘ → 169."
+    }
+  ]
+}

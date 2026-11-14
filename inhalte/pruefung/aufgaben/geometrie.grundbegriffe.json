@@ -1,0 +1,111 @@
+{
+  "thema_schluessel": "geometrie.grundbegriffe",
+  "gesamturteil": "brauchbar",
+  "karten": [
+    {
+      "lernziel": "koordinaten",
+      "urteil": "ok",
+      "stufen": "Passt: Stufe 1 ablesen, Stufe 2 verschieben, Stufe 3 fehlende Rechteckecke, Mittelpunkt, Verschiebung rückwärts. Gute Nutzung der Zeichnung. Alle Werte stimmen.",
+      "fehlende_aufgabentypen": [
+        "Punkt einzeichnen lassen geht noch nicht; ersatzweise Auswahl mit Bild (auswahl, Stufe 1): f.grafik koordinaten mit vier Punkten A–D. Beispiel 1: 'Welcher Punkt ist (−2 | 3)?' → der Punkt mit x = −2, y = 3 (Ablenker: (3 | −2), (2 | 3), (−2 | −3)). Beispiel 2: 'Welcher Punkt ist (0 | −4)?' (Ablenker (−4 | 0))."
+      ],
+      "generator_regeln": [
+        "Bei 'Wo liegt der Punkt …, vom Ursprung aus gesehen?' auch Punkte auf einer Achse verwenden (Antwort 'auf der x-Achse, rechts')."
+      ]
+    },
+    {
+      "lernziel": "strecken",
+      "urteil": "ok",
+      "stufen": "Passt. Stufe 2 mit Vorzeichenwechsel, Stufe 3 Umfang und zwei Punkte im Abstand. Lösungsweg schreibt '1 Einheiten'.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Einzahl/Mehrzahl: '1 Einheit', '2 Einheiten'."
+      ]
+    },
+    {
+      "lernziel": "lagebeziehungen",
+      "urteil": "verbessern",
+      "stufen": "Stufe 1 ist reines Begriffe-Abfragen; der Lösungsweg erklärt nichts ('So steht es in der Erklärung.'). Stufe 2/3 (Abstand zur Geraden, Parallelen im Abstand) sind gut.",
+      "fehlende_aufgabentypen": [
+        "Begriff am Bild erkennen (auswahl, Stufe 1): f.grafik figur mit einer Strecke [AB], einer Halbgeraden und einer Geraden (Pfeilenden als Hilfspunkte). Beispiel 1: 'Welche Linie ist eine Halbgerade?' Beispiel 2: 'Welche Linie hat eine messbare Länge?' → die Strecke [AB]."
+      ],
+      "generator_regeln": [
+        "Lösungsweg mit Begründung statt 'So steht es in der Erklärung', z. B. 'Eine Halbgerade hat einen Anfangspunkt, geht aber auf einer Seite unendlich weiter.'"
+      ]
+    },
+    {
+      "lernziel": "kreis_lage",
+      "urteil": "verbessern",
+      "stufen": "Stufen passen. Zwei Stufe-3-Aufgaben haben dieselbe Lösung (M(−1 | −3) und M(−1 | −2), jeweils r = 3 → −4 und 2). Die Funkmast-Aufgabe ist am Rand der Reichweite nicht eindeutig.",
+      "fehlende_aufgabentypen": [
+        "Zwei Kreise ohne gemeinsamen Punkt (zahl, Stufe 3): Beispiel 1: 'Radien 3 cm und 2 cm, Mittelpunkte 7 cm entfernt. Wie viele gemeinsame Punkte?' → 0. Beispiel 2: 'Radien 5 cm und 2 cm, Mittelpunkte 3 cm entfernt' → 1 (innen berührend)."
+      ],
+      "generator_regeln": [
+        "Sachaufgaben nicht genau auf die Grenze legen (Abstand = Reichweite), oder 'mindestens bis 4 km' sagen."
+      ]
+    },
+    {
+      "lernziel": "winkelarten",
+      "urteil": "ok",
+      "stufen": "Passt: Stufe 1 ablesen mit Bild, Stufe 2 Winkel erst ausrechnen, Stufe 3 zusammengesetzte Winkel. Die Formulierung 'Ein Winkel ist um 10° kleiner als 141°' ist umständlich.",
+      "fehlende_aufgabentypen": [
+        "Winkel schätzen (auswahl, Stufe 2): f.grafik figur mit Winkel ohne Gradzahl. Beispiel 1: Winkel 40° gezeichnet: 'Welche Größe passt?' → 40° (Ablenker 140°, 90°, 10°). Beispiel 2: Winkel 120° → 120° (Ablenker 60°, 30°, 220°)."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "vierecke",
+      "urteil": "verbessern",
+      "stufen": "Stufe 1 und 3 gut. Stufe 2 besteht nur aus 'vierte Parallelogrammecke' (alle 16 Lückenaufgaben). Der Lösungsweg in Stufe 3 ('Das erste Viereck hat alle Eigenschaften des zweiten') ist allgemein statt konkret. Ablenker 'Nur manchmal, das hängt von der Größe ab' ist kein echter Denkfehler.",
+      "fehlende_aufgabentypen": [
+        "Viereck aus Koordinaten erkennen (auswahl, Stufe 2): Beispiel 1: 'A(0 | 0), B(4 | 0), C(4 | 4), D(0 | 4). Genauester Name?' → Quadrat. Beispiel 2: 'A(0 | 0), B(5 | 0), C(4 | 3), D(1 | 3)' → Trapez (Ablenker Parallelogramm)."
+      ],
+      "generator_regeln": [
+        "Lösungsweg konkret: 'Jede Raute hat zwei Paare paralleler Seiten. Also ist jede Raute ein Parallelogramm.'",
+        "Ablenker statt 'hängt von der Größe ab': 'Nein, nur wenn alle Winkel 90° sind' (Verwechslung mit Quadrat)."
+      ]
+    },
+    {
+      "lernziel": "verstehen",
+      "urteil": "verbessern",
+      "stufen": "Die Idee ist gut. Aber in fast allen Aufgaben ist die richtige Antwort die einzige mit Begründung; die Ablenker lauten nur 'Nein, das ist falsch.' / 'Ja, das stimmt.' / 'Das kann man nicht entscheiden.' Das Kind erkennt die richtige Antwort an der Länge. Stufe 2 und Sicherung bestehen zu großen Teilen aus 'Der Punkt (−… | …) liegt links von der y-Achse' und 'Die Strecke von (−a | 0) bis (b | 0) ist … lang'.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Jede Antwort mit gleich gebauter Begründung: z. B. 'Ja, denn 7 − 6 = 1.' (falsch), 'Nein, sie ist 6 + 7 = 13 lang.' (richtig), 'Nein, sie ist 7 lang, man zählt nur bis zur größeren Zahl.' (falsch).",
+        "Höchstens 4 Aufgaben desselben Musters je Lernkarte."
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Stimmt die Aussage? „Ein Kreis mit Radius 5 cm hat den Durchmesser 10 cm.“",
+      "art": "loesungsweg",
+      "problem": "Richtige Antwort 'Ja, der Durchmesser ist doppelt so lang: 2 · 5 = 10.' ist die einzige mit Begründung; Ablenker 'Nein, das ist falsch.' und 'Das kann man nicht entscheiden.' – lösbar ohne Fachwissen. Muster in der ganzen Lernkarte 'verstehen'.",
+      "korrektur": "Antworten: 'Ja, der Durchmesser ist doppelt so lang: 2 · 5 cm = 10 cm.' (richtig), 'Nein, der Durchmesser ist halb so lang: 2,5 cm.', 'Nein, der Durchmesser ist so lang wie der Radius: 5 cm.'"
+    },
+    {
+      "aufgabe": "Ein Funkmast reicht 4 km weit in jede Richtung. Ein Dorf ist 4 km vom Mast entfernt. Hat das Dorf Empfang?",
+      "art": "mehrdeutig",
+      "problem": "Genau am Rand ist 'reicht 4 km weit' nicht eindeutig; die richtige Antwort hängt an der Deutung von 'bis 4 km'.",
+      "korrektur": "Ein Funkmast reicht 4 km weit in jede Richtung. Ein Dorf ist 3 km vom Mast entfernt, ein anderes 5 km. Welches Dorf hat Empfang? – Lösung 'Nur das Dorf in 3 km Entfernung.'"
+    },
+    {
+      "aufgabe": "Das Zeichen g ∥ h bedeutet …",
+      "art": "loesungsweg",
+      "problem": "Lösungsweg 'Richtig ist: g ist parallel zu h. So steht es in der Erklärung.' erklärt nichts (alle Begriffsfragen der Karte 'lagebeziehungen').",
+      "korrektur": "Lösungsweg: 'Das Zeichen ∥ sieht aus wie zwei parallele Striche: g und h schneiden sich nie und haben überall denselben Abstand.'"
+    },
+    {
+      "aufgabe": "Wie lang ist die Strecke [AB] mit A(7 | 5) und B(8 | 5) (in Einheiten)?",
+      "art": "sprache",
+      "problem": "Lösungsweg '8 − 7 = 1 Einheiten'.",
+      "korrektur": "Lösungsweg: 'Gleiche y-Koordinate, also waagrecht: 8 − 7 = 1 Einheit.'"
+    },
+    {
+      "aufgabe": "Ein Kreis um M(−1 | −2) mit r = 3 schneidet die waagrechte Linie durch M in zwei Punkten. Welche x-Koordinaten haben sie? (kleinere zuerst)",
+      "art": "mehrdeutig",
+      "problem": "Praktisch gleiche Aufgabe wie 'Ein Kreis um M(−1 | −3) mit r = 3 …' (gleiche Lösung −4 und 2), beide in Stufe 3.",
+      "korrektur": "Ein Kreis um M(2 | −2) mit r = 5 schneidet die waagrechte Linie durch M in zwei Punkten. Welche x-Koordinaten haben sie? (kleinere zuerst) – Lösung [−3, 7]."
+    }
+  ]
+}

@@ -1,0 +1,91 @@
+{
+  "thema_schluessel": "zahlen.potenzen_zehner",
+  "gesamturteil": "gut",
+  "karten": [
+    {
+      "lernziel": "zehnerpotenz",
+      "urteil": "ok",
+      "stufen": "Passen (Nullen zählen → Zahlwörter → Verhältnis zweier Zehnerpotenzen). Ablenker 10 · 3 = 30 gut. Kleine Sprachfehler.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Einzahl/Mehrzahl: ‚1 Null‘ statt ‚1 Nullen‘; ‚Tausend‘ statt ‚Eine Tausend‘."
+      ]
+    },
+    {
+      "lernziel": "gross_wissenschaftlich",
+      "urteil": "ok",
+      "stufen": "Gut; Ablenker 43,7 · 10⁸ (zwei Ziffern vor dem Komma) und um 1 falscher Exponent sind typische Fehler. Alle Auswahlaufgaben nachgeprüft.",
+      "fehlende_aufgabentypen": [
+        "Sachgrößen (zahl): ‚Die Erde ist etwa 150 000 000 km von der Sonne entfernt. Schreibe als a · 10ⁿ: n = ?‘ → 8. Beispiel 2: ‚Auf der Erde leben etwa 8 100 000 000 Menschen.‘ → 9."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "vorsilben_gross",
+      "urteil": "verbessern",
+      "stufen": "Gut aufgebaut. Viele Aufgaben benutzen Einheiten, die im Alltag nicht vorkommen (Mg, Gg, Tg, Mm, Gm, Tm). Das erschwert unnötig und vermittelt falsche Gewohnheiten (Masse misst man in t, Längen in km).",
+      "fehlende_aufgabentypen": [
+        "Speicher und Daten (zahl): ‚Ein Foto hat 4 MB. Wie viele Fotos passen auf eine 64-GB-Karte? (1 GB = 1 000 MB)‘ → 16 000. Beispiel 2: ‚Ein Film hat 2,5 GB. Wie viele MB?‘ → 2 500."
+      ],
+      "generator_regeln": [
+        "Nur gebräuchliche Kombinationen: kW, MW, GW, TW (Leistung/Energie), kHz, MHz, GHz, kB, MB, GB, TB, km, kg, t. Keine Mg/Gg/Tg/Mm/Gm/Tm."
+      ]
+    },
+    {
+      "lernziel": "negativer_exponent",
+      "urteil": "ok",
+      "stufen": "Passen; Ablenker ‚negativ‘ (−9, −1 000 000 000) treffen die Fehlvorstellung genau.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "klein_wissenschaftlich",
+      "urteil": "ok",
+      "stufen": "Passen; Sachbezug (Staubkorn, Papier) gut.",
+      "fehlende_aufgabentypen": [
+        "Rechnen mit kleinen Größen (zahl, Stufe 3): ‚Ein Bakterium ist 2 · 10⁻⁶ m lang. Wie viele liegen hintereinander auf 1 mm?‘ → 500. Beispiel 2: ‚Ein Haar ist 8 · 10⁻⁵ m dick. Wie viele Haare nebeneinander ergeben 1 cm?‘ → 125."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "vorsilben_klein",
+      "urteil": "verbessern",
+      "stufen": "Gut (ms, µm, ns, Fadendicke). Der Lösungsweg schreibt ‚m = 10⁻³: 610 mm = …‘ – hier ist ‚m‘ zugleich Meter und Milli; das verwirrt.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Im Lösungsweg die Vorsilbe ausschreiben: ‚Milli = 10⁻³: 610 mm = 610 · 0,001 m = 0,61 m.‘"
+      ]
+    },
+    {
+      "lernziel": "vergleichen_pruefen",
+      "urteil": "ok",
+      "stufen": "Passen. Tipp ‚Der Exponent entscheidet. −7 ist kleiner als −4.‘ nennt Zahlen, die in der Aufgabe gar nicht vorkommen.",
+      "fehlende_aufgabentypen": [
+        "Gleicher Exponent (auswahl): ‚Welche Zahl ist größer: 3,9 · 10⁵ oder 4,1 · 10⁵?‘ → 4,1 · 10⁵. Beispiel 2: ‚9,5 · 10⁻³ oder 1,2 · 10⁻²?‘ → 1,2 · 10⁻² (Exponent größer, obwohl Vorzahl kleiner)."
+      ],
+      "generator_regeln": [
+        "Tipp mit den Exponenten der Aufgabe füllen."
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Wie viele Gramm (g) sind 21 Mg?",
+      "art": "unrealistisch",
+      "problem": "Megagramm (Mg) wird im Alltag nicht verwendet (man sagt Tonne). Ebenso ‚9 400 000 000 g = ? Gg‘, ‚1 600 000 000 000 g = ? Tg‘, ‚8,6 Mm = ? m‘, ‚7,1 Gm‘, ‚7 900 000 000 000 m = ? Tm‘.",
+      "korrektur": "‚Wie viele Gramm sind 21 t? (1 t = 10⁶ g)‘ → 21 000 000 g; für Längen: ‚Wie viele Meter sind 8,6 Megameter?‘ ersetzen durch ‚Wie viele Meter sind 8 600 km?‘ → 8 600 000 m."
+    },
+    {
+      "aufgabe": "Wie viele Nullen hat die Zahl 10¹, wenn du sie ausschreibst?",
+      "art": "sprache",
+      "problem": "Lösungsweg: ‚Das sind 1 Nullen‘.",
+      "korrektur": "Lösungsweg: ‚10¹ = 10. Das ist 1 Null – genauso viele, wie der Exponent angibt.‘"
+    },
+    {
+      "aufgabe": "Rechne um: 610 mm = ? m",
+      "art": "loesungsweg",
+      "problem": "Lösungsweg ‚m = 10⁻³: 610 mm = 610 · 0,001 m‘ – ‚m‘ steht für Milli und für Meter; für Kinder nicht unterscheidbar.",
+      "korrektur": "Lösungsweg: ‚Milli bedeutet 10⁻³ = 0,001: 610 mm = 610 · 0,001 m = 0,61 m.‘"
+    }
+  ]
+}

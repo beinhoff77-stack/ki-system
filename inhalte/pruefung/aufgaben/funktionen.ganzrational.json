@@ -1,0 +1,68 @@
+{
+  "thema_schluessel": "funktionen.ganzrational",
+  "gesamturteil": "gut",
+  "karten": [
+    {
+      "lernziel": "grad",
+      "urteil": "ok",
+      "stufen": "Passt: Grundform, ungeordnete Summen, Produktform (Stufe 3). Absolutglied −2 304 nachgerechnet.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "ausmultiplizieren",
+      "urteil": "ok",
+      "stufen": "Passt (zwei Klammern, drei Klammern, Quadrat mit Faktor). Ergebnisse stimmen.",
+      "fehlende_aufgabentypen": [
+        "Rückwärts: Produktform finden (luecken, Stufe 3, Schablone '(x − □)(x − □)(x − □)' mit kleinster Nullstelle zuerst): Beispiel 1: 'f(x) = x³ − 6x² + 11x − 6, eine Nullstelle ist 1.' → [1, 2, 3]. Beispiel 2: 'f(x) = x³ − 7x − 6, eine Nullstelle ist −1.' → [−2, −1, 3]."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "randverhalten",
+      "urteil": "verbessern",
+      "stufen": "Alle 28 Aufgaben sind dieselbe Frage ('Wie verläuft der Graph … für sehr kleine und sehr große x?'); Stufe 3 unterscheidet sich nur durch ungeordnete Glieder und große Koeffizienten bei kleineren Potenzen (Falle: '30x⁴ … − 5x⁵' – gut). Kein Graph, keine Grenzwertschreibweise.",
+      "fehlende_aufgabentypen": [
+        "Randverhalten am Graphen → Term (auswahl, Stufe 2): f.grafik poly eines Grades 3 mit negativem Leitkoeffizienten. 'Welche Aussage über den Leitkoeffizienten und den Grad passt?' → 'Grad ungerade, Leitkoeffizient negativ'. Beispiel 2: Graph Grad 4, beide Enden unten → 'Grad gerade, Leitkoeffizient negativ'.",
+        "Produktform (auswahl, Stufe 3): Beispiel 1: 'f(x) = −(x − 1)²(x + 2)³ – Verlauf?' → von links oben nach rechts unten (Grad 5, Leitkoeffizient −1). Beispiel 2: 'f(x) = 2x(x − 3)³' → von links oben nach rechts oben."
+      ],
+      "generator_regeln": [
+        "Höchstens 14 Aufgaben dieses Fragetyps je Karte."
+      ]
+    },
+    {
+      "lernziel": "symmetrie",
+      "urteil": "ok",
+      "stufen": "Passt; Stufe 3 (Funktionswert aus Symmetrie) gut. Falle 'Absolutglied zerstört Punktsymmetrie' ist enthalten.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "nullstellen",
+      "urteil": "verbessern",
+      "stufen": "Gute Stufen (Produktform, Vielfachheit am Graphen, Substitution/Ausklammern). Bei den Vielfachheits-Aufgaben steht die Produktform schon im Fragetext; die Frage 'An welcher Nullstelle …' (Einzahl) hat teils zwei Antworten ('x = 2 und x = −5').",
+      "fehlende_aufgabentypen": [
+        "Substitution mit weniger als vier Lösungen (luecken, Stufe 3, Schablone 'x₁ = □; x₂ = □'): Beispiel 1: 'f(x) = x⁴ − 3x² − 4' → [−2, 2] (z = 4 oder z = −1, z = −1 liefert nichts). Beispiel 2: 'f(x) = x⁴ − x² − 12' → [−2, 2]."
+      ],
+      "generator_regeln": [
+        "Frage 'An welchen Nullstellen berührt der Graph die x-Achse?' (Mehrzahl), wenn mehrere möglich sind.",
+        "In Stufe 3 nur die ausmultiplizierte Form angeben und eine Nullstelle verraten; Vielfachheit am Graphen ablesen lassen."
+      ]
+    },
+    {
+      "lernziel": "graph_term",
+      "urteil": "ok",
+      "stufen": "Sehr gute Karte: alle 28 Graphen per Programm nachgeprüft – genau ein Term passt jeweils. Ablenker mit vertauschten Vorzeichen und falscher Vielfachheit sind typische Fehler.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "f(x) = x⁵ + 6x⁴ − 11x³ − 60x² + 100x = x · (x − 2)² · (x + 5)². An welcher Nullstelle berührt der Graph die x-Achse, ohne sie zu schneiden?",
+      "art": "sprache",
+      "problem": "Einzahl in der Frage ('An welcher Nullstelle'), richtige Antwort sind aber zwei Stellen ('x = 2 und x = −5'). Gleiches bei allen Aufgaben mit zwei doppelten Faktoren.",
+      "korrektur": "f(x) = x⁵ + 6x⁴ − 11x³ − 60x² + 100x = x · (x − 2)² · (x + 5)². An welchen Nullstellen berührt der Graph die x-Achse, ohne sie zu schneiden? – Lösung 'x = 2 und x = −5'."
+    }
+  ]
+}

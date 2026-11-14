@@ -47,7 +47,7 @@ function parseHash() {
 }
 window.addEventListener('hashchange', render);
 
-const KIND_ANSICHTEN = ['reise', 'weltkarte', 'reisepass', 'lerneinheit', 'weg', 'merkheft'];
+const KIND_ANSICHTEN = ['reise', 'weltkarte', 'reisepass', 'lerneinheit', 'weg', 'merkheft', 'wiederholen'];
 function setChrome(title, { back = false } = {}) {
   document.body.dataset.area = 'lernen';
   document.body.toggleAttribute('data-kindmodus', KIND_ANSICHTEN.includes(current.view));
@@ -102,7 +102,7 @@ async function render() {
   // Kinder kommen nur in ihre eigene Lernreise.
   if (lernIch?.rolle === 'kind' && !KIND_ANSICHTEN.includes(current.view)) { route('reise', lernIch.lernender_id); return; }
   const views = { login: viewLogin, lernen: viewLernen, lerneinheit: viewLernEinheit, reise: viewReise, weltkarte: viewWeltkarte, reisepass: viewReisepass,
-    weg: viewWeg, merkheft: viewMerkheft, plan: viewPlan, rueckmeldungen: viewRueckmeldungen, zugaenge: viewZugaenge };
+    weg: viewWeg, merkheft: viewMerkheft, wiederholen: viewWiederholen, plan: viewPlan, rueckmeldungen: viewRueckmeldungen, zugaenge: viewZugaenge };
   const fn = views[current.view] || (() => route('lernen'));
   try { await fn(current.arg); } catch (e) { if (live()) showError(e); }
 }

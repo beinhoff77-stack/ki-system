@@ -51,7 +51,7 @@ async function setup(t, opt = {}) {
   const errors = []; page.on('pageerror', (e) => errors.push(e.message)); t.after(() => assert.deepEqual(errors, []));
   await page.route('https://cdnjs.cloudflare.com/**', (r) => r.abort());
   await page.route('**/functions/v1/app-api/**', (r) => appCalls.push(r.request().url()) && r.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: {} }) }));
-  const calls = []; const stand = { test: null, antworten: {} };
+  const calls = []; const stand = { test: null, antworten: {}, karten: {} };
   const rolle = opt.rolle || 'eltern';
   await page.route('**/functions/v1/lernen-api/**', async (route) => {
     const b = JSON.parse(route.request().postData() || '{}'); const d = b.daten || {};
@@ -97,11 +97,17 @@ async function setup(t, opt = {}) {
     else if (['schule_einloesen', 'schule_look_setzen', 'schule_belohnung_setzen', 'schule_einloesung_entscheiden'].includes(b.aktion)) e = { ok: true };
     else if (b.aktion === 'schule_einheit_lesen') e = { ok: true, einheit_id: d.einheit_id, status: 'geprueft', inhalt: { ziel: 'Natürliche Zahlen: große Zahlen lesen', etappen: ETAPPEN },
       uebungen: [zeig(AUFG[11]), zeig(AUFG[12]), zeig(AUFG[13])], stand: ETAPPEN.map((x) => ({ lernziel: x.lernziel, pflicht: true, status: 'offen' })),
-      etappen_stand: { stellenwert: { fertig: false }, strahl: { fertig: false }, binomisch: { fertig: false } }, laufender_test: null };
+      etappen_stand: { stellenwert: { fertig: false, ziel: 2 }, strahl: { fertig: false, ziel: 2 }, binomisch: { fertig: false, ziel: 2 } }, laufender_test: null };
     else if (b.aktion === 'schule_merkheft') e = { ok: true, einheiten: [{ einheit_id: 1, block_id: 49, stadt: 'Rom', ort_titel: 'Natürliche und ganze Zahlen', etappen: ETAPPEN,
       stand: { stellenwert: { fertig: true }, strahl: { fertig: true } }, blocktest_fertig: false, nachtest: { grund: 'einheit_offen' } },
       { einheit_id: 2, block_id: 52, stadt: 'New York', ort_titel: 'Zinsen', etappen: ETAPPEN.slice(0, 2), stand: { stellenwert: { fertig: true } }, blocktest_fertig: false, nachtest: { grund: 'einheit_offen' } }] };
-    else if (b.aktion === 'schule_uebung_pruefen') { const a = AUFG[d.aufgabe_id]; e = { ok: true, ...bewerte(a, d.antwort), loesung: a.loesung, loesungsweg: 'Weg zur Lösung.' }; }
+    else if (b.aktion === 'schule_uebung_pruefen') {
+      const a = AUFG[d.aufgabe_id]; const r = bewerte(a, d.antwort);
+      const k = stand.karten[a.lernziel] ||= { serie: 0, ziel: 2, sitzt: false };
+      let neu = false;
+      if (r.format_ok) { if (r.richtig && !d.hilfe) k.serie++; else if (!r.richtig) k.serie = 0; if (!k.sitzt && k.serie >= k.ziel) { k.sitzt = true; neu = true; } }
+      e = { ok: true, ...r, loesung: a.loesung, loesungsweg: 'Weg zur Lösung.', karte: { ...k, neu_sitzt: neu } };
+    }
     else if (b.aktion === 'schule_test_starten') { stand.test = 77; e = { ok: true, sitzung_id: 77, art: d.art, aufgaben: [AUFG[14], AUFG[12]].map((a) => { const { loesung, ...r } = a; return r; }), beantwortet: [] }; }
     else if (b.aktion === 'schule_test_antwort') { const a = AUFG[d.aufgabe_id]; const r = bewerte(a, d.antwort); if (r.format_ok) stand.antworten[a.id] = { w: d.antwort, ok: r.richtig }; e = { ok: true, format_ok: r.format_ok, hinweis: r.hinweis, gespeichert: r.format_ok }; }
     else if (b.aktion === 'schule_test_abschliessen') {
@@ -173,44 +179,54 @@ test('Lernreise: Kind B (Studio, Nacht) – Rom geschafft als Stempel, Zinsen je
   await page.getByText('Terme umformen', { exact: false }).first().waitFor();
 });
 
-test('Lernen: Etappen – kurz erklärt, selbst probieren, falsche Aufgabe kommt noch einmal', async (t) => {
+test('Lernen: Lernkarte – Erklärung | Üben ohne Neustart, Punkte bis „sitzt“, Fehler führt zur Erklärung', async (t) => {
   const { page, calls } = await setup(t);
   await page.goto(origin + '/#/lerneinheit/1-1');
-  await page.getByText('0 von 3 Etappen').waitFor();
+  await page.getByText('0 von 3 sitzen').waitFor();
   assert.equal(await page.locator('.lr-gesperrt').count(), 1);
   assert.equal(await page.locator('#title').textContent(), 'Rom: Natürliche und ganze Zahlen');
   fs.mkdirSync(path.join(root, 'test-results'), { recursive: true });
   await page.screenshot({ path: path.join(root, 'test-results/lernen-etappen-390.png'), fullPage: true });
-  await page.getByRole('link', { name: 'Los geht’s' }).click();
+  await page.getByRole('link', { name: 'Weiter mit: Welchen Wert hat eine Ziffer?' }).click();
   await page.locator('.lr-stellentafel').waitFor();
+  assert.equal(await page.getByRole('tab', { name: 'Erklärung' }).getAttribute('aria-selected'), 'true');
   await page.locator('mark', { hasText: '10-mal' }).waitFor();
   await page.getByText('ACHTUNG, TYPISCHER FEHLER').waitFor();
   await page.screenshot({ path: path.join(root, 'test-results/lernen-erklaert-390.png'), fullPage: true });
-  await page.getByRole('button', { name: 'Jetzt du' }).click();
+  await page.getByRole('button', { name: 'Jetzt üben' }).click();
   await page.getByRole('textbox', { name: 'Antwort' }).fill('2.000');
   await page.getByRole('button', { name: 'Prüfen' }).click();
   await page.getByText('Bitte schreibe Dezimalzahlen mit Komma.').waitFor();
   await page.getByRole('textbox', { name: 'Antwort' }).fill('2 000');
   await page.getByRole('button', { name: 'Prüfen' }).click();
   await page.getByText('Richtig!').waitFor();
-  await page.getByRole('button', { name: 'Etappe abschließen' }).click();
-  await page.getByText('ETAPPE 1 GESCHAFFT').waitFor();
+  await page.getByText('1 von 2 richtig hintereinander').waitFor();
+  // Zur Erklärung und zurück: Aufgabe und Rückmeldung bleiben stehen.
+  await page.getByRole('tab', { name: 'Erklärung' }).click();
+  await page.locator('.lr-stellentafel').waitFor();
+  await page.getByRole('tab', { name: 'Üben' }).click();
+  await page.getByText('Richtig!').waitFor();
+  await page.getByRole('button', { name: 'Nächste Aufgabe' }).click();
+  await page.getByRole('textbox', { name: 'Antwort' }).fill('2000');
+  await page.getByRole('button', { name: 'Prüfen' }).click();
+  await page.getByText('LERNKARTE SITZT').waitFor();
   await page.getByText('+10 Sterne').waitFor();
-  await page.getByRole('link', { name: 'Weiter zu Etappe 2' }).click();
-  await page.getByRole('button', { name: 'Jetzt du' }).click();
-  await page.getByRole('button', { name: 'Nochmal erklären' }).click();
-  await page.locator('.lr-nochmal').waitFor();
+  await page.getByRole('link', { name: 'Nächste Karte: Zahlenstrahl' }).click();
+  await page.getByRole('button', { name: 'Jetzt üben' }).click();
   await page.getByRole('button', { name: 'Markierung 3' }).click();
   await page.getByRole('button', { name: 'Prüfen' }).click();
   await page.getByText('Richtig ist: 20 000 (der 4. Strich nach dem Anfang)').waitFor();
-  await page.getByText('kommt gleich noch einmal').waitFor();
   await page.screenshot({ path: path.join(root, 'test-results/lernen-probieren-390.png'), fullPage: true });
-  await page.getByRole('button', { name: 'Weiter' }).click();
+  await page.getByRole('button', { name: 'Erklärung ansehen' }).click();
+  await page.getByText('100 : 10 = 10').waitFor();
+  await page.getByRole('tab', { name: 'Üben' }).click();
+  await page.getByText('Richtig ist: 20 000').waitFor();
+  await page.getByRole('button', { name: 'Nächste Aufgabe' }).click();
   await page.getByRole('button', { name: 'Markierung 4' }).click();
   await page.getByRole('button', { name: 'Prüfen' }).click();
   await page.getByText('Richtig!').waitFor();
   await page.goto(origin + '/#/lerneinheit/1-1-3');
-  await page.getByRole('button', { name: 'Jetzt du' }).click();
+  await page.getByRole('button', { name: 'Jetzt üben' }).click();
   const term = page.getByRole('textbox', { name: 'Dein Term' });
   await term.fill('x²+x+x+1');
   await page.getByRole('button', { name: 'Prüfen' }).click();
@@ -224,23 +240,24 @@ test('Lernen: Etappen – kurz erklärt, selbst probieren, falsche Aufgabe kommt
   await page.getByRole('button', { name: 'Prüfen' }).click();
   await page.getByText('Richtig!').waitFor();
   const p = calls.filter((c) => c.aktion === 'schule_uebung_pruefen');
-  assert.deepEqual(p.map((c) => c.daten.antwort), [{ wert: '2.000' }, { wert: '2 000' }, { index: 3 }, { index: 4 }, { werte: ['1', '2', '1'] }]);
+  assert.deepEqual(p.map((c) => c.daten.antwort), [{ wert: '2.000' }, { wert: '2 000' }, { wert: '2000' }, { index: 3 }, { index: 4 }, { werte: ['1', '2', '1'] }]);
   assert.ok(p.every((c) => c.daten.lernender_id === 1 && c.daten.client_id));
   const w = await page.evaluate(() => document.documentElement.scrollWidth); assert.ok(w <= 390, 'keine Querverschiebung: ' + w);
 });
 
-test('Lernen: Merkheft mit Suche und Weg zurück zur Etappe', async (t) => {
+test('Lernen: Merkheft zeigt alle Lernkarten zum Nachlesen, mit Suche und Weg zum Üben', async (t) => {
   const { page } = await setup(t);
   await page.goto(origin + '/#/merkheft/2');
   await page.locator('details.lr-merk').first().waitFor();
   assert.equal(await page.locator('.lr.lr-nacht.lr-studio').count(), 1);
-  assert.equal(await page.locator('details.lr-merk').count(), 3);
-  await page.getByRole('searchbox').fill('binom');
+  assert.equal(await page.locator('details.lr-merk').count(), 5);
+  await page.getByText('am Üben').first().waitFor().catch(() => {});
+  await page.getByRole('searchbox').fill('binomxyz');
   await page.getByText('Nichts gefunden.').waitFor();
   await page.getByRole('searchbox').fill('zahlenstrahl');
-  await page.locator('details.lr-merk[open]', { hasText: 'Zahlenstrahl' }).waitFor();
+  await page.locator('details.lr-merk[open]', { hasText: 'Zahlenstrahl' }).first().waitFor();
   await page.screenshot({ path: path.join(root, 'test-results/lernen-merkheft-390.png'), fullPage: true });
-  await page.getByRole('link', { name: 'Nochmal üben' }).click();
+  await page.getByRole('link', { name: 'Üben' }).first().click();
   await page.waitForURL(/#\/lerneinheit\/2-1-2$/);
 });
 
@@ -295,11 +312,12 @@ test('Lernen-Seite: Anmerkung direkt an einer Aufgabe, Kind-Code nur Lernreise',
   const { page, calls } = await setup(t, { lernSeite: true, rolle: 'lehrer' });
   await page.addInitScript(() => localStorage.setItem('lern_token', 't'.repeat(64)));
   await page.goto(origin + '/lernen/#/lerneinheit/3-1-1');
-  await page.getByRole('button', { name: 'Jetzt du' }).click();
+  await page.getByRole('button', { name: 'Jetzt üben' }).click();
   await page.getByText('✎ Anmerkung zu dieser Aufgabe').click();
-  await page.getByRole('button', { name: 'Schwieriger' }).click();
-  await page.getByLabel('Deine Anmerkung').fill('Zu leicht für Klasse 5.');
-  await page.getByRole('button', { name: 'Senden' }).click();
+  const offen = page.locator('.lr-panel:not([hidden])');
+  await offen.getByRole('button', { name: 'Schwieriger' }).click();
+  await offen.getByLabel('Deine Anmerkung').fill('Zu leicht für Klasse 5.');
+  await offen.getByRole('button', { name: 'Senden' }).click();
   await page.getByText('Danke – ist bei der Entwicklung angekommen.').waitFor();
   assert.deepEqual(calls.find((c) => c.aktion === 'schule_rueckmeldung_geben').daten,
     { einheit_id: 1, lernziel: 'stellenwert', aufgabe_id: 11, lernender_id: 3, art: 'schwieriger', text: 'Zu leicht für Klasse 5.' });

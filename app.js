@@ -176,9 +176,9 @@ function parseHash() {
 window.addEventListener('hashchange', render);
 
 function setChrome(title, { back = false, showTabs = true, tab = null } = {}) {
-  const area = current.view === 'login' ? 'login' : current.view === 'start' ? 'start' : ['lernen', 'lerneinheit', 'reise', 'weltkarte', 'reisepass', 'weg', 'merkheft', 'plan', 'rueckmeldungen', 'zugaenge'].includes(current.view) ? 'lernen' : ['suche', 'ergebnisse', 'viertel', 'anzeige', 'reisen', 'etappe', 'papierkorb', 'highlights'].includes(current.view) ? 'unterkunft' : 'council';
+  const area = current.view === 'login' ? 'login' : current.view === 'start' ? 'start' : ['lernen', 'lerneinheit', 'reise', 'weltkarte', 'reisepass', 'weg', 'merkheft', 'wiederholen', 'plan', 'rueckmeldungen', 'zugaenge'].includes(current.view) ? 'lernen' : ['suche', 'ergebnisse', 'viertel', 'anzeige', 'reisen', 'etappe', 'papierkorb', 'highlights'].includes(current.view) ? 'unterkunft' : 'council';
   document.body.dataset.area = area;
-  document.body.toggleAttribute('data-kindmodus', ['reise', 'weltkarte', 'reisepass', 'lerneinheit', 'weg', 'merkheft'].includes(current.view)); // W150: Lernreise der Kinder ohne App-Bereichsleiste
+  document.body.toggleAttribute('data-kindmodus', ['reise', 'weltkarte', 'reisepass', 'lerneinheit', 'weg', 'merkheft', 'wiederholen'].includes(current.view)); // W150: Lernreise der Kinder ohne App-Bereichsleiste
   for (const meta of document.querySelectorAll('meta[name="theme-color"]')) meta.content = ['unterkunft', 'start', 'lernen'].includes(area) ? '#f6f4ec' : meta.media.includes('dark') ? '#101721' : '#f4f6f8';
   $('#areas').hidden = area === 'login';
   $('#notifications-link').hidden=area==='login';
@@ -218,7 +218,7 @@ async function render() {
   disposeSuche = () => {};
   current = parseHash();
   if (!store.token && current.view !== 'login') { route('login'); return; }
-  const views = { highlights: viewHighlights, reisen: viewReisen, etappe: viewDecisionPlace, papierkorb: viewPapierkorb, meldungen: viewMeldungen, start: viewStart, lernen: viewLernen, lerneinheit: viewLernEinheit, reise: viewReise, weltkarte: viewWeltkarte, reisepass: viewReisepass, weg: viewWeg, merkheft: viewMerkheft, plan: viewPlan, rueckmeldungen: viewRueckmeldungen, zugaenge: viewZugaenge, login: viewLogin, auftraege: viewAuftraege, auftrag: viewAuftrag, neu: viewNeu, einstellungen: viewEinstellungen, anzeige: viewAnzeige, werkstatt: viewWerkstatt, suche: viewSuche, viertel: viewViertel, ergebnisse: () => viewSuche(null, { historyOnly: true }) };
+  const views = { highlights: viewHighlights, reisen: viewReisen, etappe: viewDecisionPlace, papierkorb: viewPapierkorb, meldungen: viewMeldungen, start: viewStart, lernen: viewLernen, lerneinheit: viewLernEinheit, reise: viewReise, weltkarte: viewWeltkarte, reisepass: viewReisepass, weg: viewWeg, merkheft: viewMerkheft, wiederholen: viewWiederholen, plan: viewPlan, rueckmeldungen: viewRueckmeldungen, zugaenge: viewZugaenge, login: viewLogin, auftraege: viewAuftraege, auftrag: viewAuftrag, neu: viewNeu, einstellungen: viewEinstellungen, anzeige: viewAnzeige, werkstatt: viewWerkstatt, suche: viewSuche, viertel: viewViertel, ergebnisse: () => viewSuche(null, { historyOnly: true }) };
   const fn = views[current.view] || (() => route('start'));
   try { await fn(current.arg); } catch (e) { if (live()) showError(e); }
 }

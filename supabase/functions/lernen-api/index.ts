@@ -1,6 +1,7 @@
 // lernen-api (Werkstatt #150, Claude): Schnittstelle der App für „Lernen Schule“.
 // Gleiche Anmeldung wie app-api (Sitzungs-Token -> app.sitzung), ruft nur die api.schule_*-Funktionen als council_mcp auf.
 // Die Datenbank prüft Zugriff (schule.zugriff) und Sichtbarkeit (Entwürfe nur fürs Testkind) bei jeder Aktion.
+// v0.5.1: schule_wiederholung (fällige Lernkarten).
 // v0.5.0: eigene Lern-Zugänge (Code -> Lern-Sitzung, Schlüssel 'lern:<hash>' gilt nur für schule-Funktionen), Themenplan, Rückmeldungen, Zugänge.
 // v0.4.0: Merkheft/Etappenfortschritt. v0.3.0: Elternübersicht. v0.2.0: Sterne-Konto, Belohnungen einlösen/pflegen, Look wählen.
 // Wege: POST /lernen-api/aktion  Bearer-Token, { aktion, daten } -> { ok, ergebnis }
@@ -10,7 +11,7 @@ import { Hono } from 'npm:hono@^4.9.7'
 import postgres from 'npm:postgres@3.4.5'
 
 const sql = postgres(Deno.env.get('SUPABASE_DB_URL')!, { prepare: false, max: 3, idle_timeout: 20 })
-const VERSION = '0.5.0'
+const VERSION = '0.5.1'
 
 const AKTIONEN: Record<string, string[]> = {
   schule_uebersicht: [],
@@ -35,6 +36,7 @@ const AKTIONEN: Record<string, string[]> = {
   schule_zugang_sperren: ['id'],
   schule_rueckmeldung_geben: ['art', 'text', 'block_id?', 'einheit_id?', 'lernziel?', 'aufgabe_id?', 'lernender_id?'],
   schule_rueckmeldungen: [],
+  schule_wiederholung: ['lernender_id', 'anzahl?'],
 }
 
 const CORS = { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Headers': 'Content-Type, Authorization', 'Access-Control-Allow-Methods': 'GET, POST, OPTIONS' }

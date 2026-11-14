@@ -3419,3 +3419,32 @@ body[data-kindmodus] header.top h1 { font-size: 1.15rem; white-space: nowrap; ov
 .lern-login input { font: 600 1.2rem ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .06em; text-transform: uppercase; }
 .lern-seite .lern-abmelden { margin-left: auto; min-height: 40px; padding: 0 12px; border-radius: 10px; border: 1px solid var(--border); background: var(--surface); font: inherit; font-size: .9rem; cursor: pointer; }
 body.lern-seite { padding-bottom: 32px; }
+
+/* W150: Lernkarten – Punkte, Bereiche, Umschalter Erklärung | Üben, Wiederholen, Erklärung der Zahlen */
+.lr-punkte { display: inline-flex; gap: 4px; align-items: center; flex: none; }
+.lr-punkte i { width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--lr-gut); box-sizing: border-box; }
+.lr-punkte i.voll { background: var(--lr-gut); }
+.lr-punkte.gross i { width: 16px; height: 16px; border-width: 3px; }
+.lr-lk-punkte { display: flex; align-items: center; gap: 10px; }
+.lr-lk-punkte small { color: var(--lr-leise); font-weight: 700; }
+.lr-bereich { display: flex; flex-direction: column; gap: 8px; }
+.lr-lks { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.lr-lk a { display: flex; align-items: center; gap: 12px; background: var(--lr-flaeche); border: 1px solid var(--lr-linie); border-radius: var(--lr-radius-klein); padding: 12px 14px; color: var(--lr-text); text-decoration: none; min-height: 52px; }
+.lr-lk.jetzt a { border: 2px solid var(--lr-akzent); }
+.lr-lk-text { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.lr-lk-text small { color: var(--lr-leise); font-weight: 600; }
+.lr-lk.fertig .lr-lk-text b::after { content: ' ✓'; color: var(--lr-gut); }
+.lr-regelhinweis { margin: 0; }
+.lr-tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; background: var(--lr-flaeche); border: 1px solid var(--lr-linie); border-radius: 99px; padding: 4px; position: sticky; top: 8px; z-index: 3; }
+.lr-tabs button { min-height: 44px; border: 0; border-radius: 99px; background: transparent; color: var(--lr-text); font: inherit; font-weight: 800; cursor: pointer; }
+.lr-tabs button[aria-selected="true"] { background: var(--lr-akzent); color: var(--lr-auf-akzent); }
+.lr-panel { display: flex; flex-direction: column; gap: 12px; }
+.lr-panel[hidden] { display: none; }
+.lr-stats-box > summary { list-style: none; cursor: pointer; }
+.lr-stats-box > summary::-webkit-details-marker { display: none; }
+.lr-stats-erkl { margin-top: 8px; background: var(--lr-flaeche); border: 1px solid var(--lr-linie); border-radius: var(--lr-radius-klein); padding: 10px 14px; color: var(--lr-text); }
+.lr-stats-erkl p { margin: 6px 0; }
+.lr-merk-status { margin-left: auto; margin-right: 8px; color: var(--lr-leise); font-weight: 700; white-space: nowrap; }
+.lr-ortstand { margin: 0; }
+.lr-wdh { border: 2px solid var(--lr-akzent); }
+.lr-sitzt { margin-top: 12px; }

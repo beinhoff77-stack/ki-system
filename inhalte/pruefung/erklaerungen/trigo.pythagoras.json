@@ -1,0 +1,361 @@
+{
+  "thema_schluessel": "trigo.pythagoras",
+  "gesamturteil": "gut",
+  "thema_hinweise": [
+    "Fachlich richtig, gute typische Fehler. Unter „offen“ steht, dass alle Karten eine Skizze bräuchten. Mit „figur“ und „koordinaten“ geht das jetzt: Dreieck mit den drei Quadraten (das klassische Bild des Satzes), Steigungsdreieck im Koordinatensystem, Quader mit Raumdiagonale, Leiter an der Wand.",
+    "Lehrplanbezug fehlt (lehrplan_gym leer)."
+  ],
+  "karten": [
+    {
+      "lernziel": "hypotenuse",
+      "urteil": "verbessern",
+      "probleme": [
+        "Der Satz wird als Formel gegeben, ohne das Bild, das ihm seinen Sinn gibt: Die Quadrate über den Katheten haben zusammen dieselbe Fläche wie das Quadrat über der Hypotenuse."
+      ],
+      "neu": {
+        "regel": "Im ⟦rechtwinkligen⟧ Dreieck gilt ⟦a² + b² = c²⟧. Im Bild: Die beiden Quadrate über den Katheten haben ⟦zusammen genau so viel Fläche⟧ wie das Quadrat über der Hypotenuse. c ist die ⟦Hypotenuse⟧ (gegenüber dem rechten Winkel, längste Seite), a und b sind die ⟦Katheten⟧.",
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "C": [
+              0,
+              0
+            ],
+            "A": [
+              12,
+              0
+            ],
+            "B": [
+              0,
+              9
+            ],
+            "_a1": [
+              -9,
+              0
+            ],
+            "_a2": [
+              -9,
+              9
+            ],
+            "_b1": [
+              0,
+              -12
+            ],
+            "_b2": [
+              12,
+              -12
+            ],
+            "_c1": [
+              21,
+              12
+            ],
+            "_c2": [
+              9,
+              21
+            ]
+          },
+          "flaeche": [
+            "A",
+            "B",
+            "C"
+          ],
+          "linien": [
+            [
+              "A",
+              "B",
+              "c = 15"
+            ],
+            [
+              "B",
+              "C",
+              "a = 9"
+            ],
+            [
+              "C",
+              "A",
+              "b = 12"
+            ],
+            [
+              "C",
+              "_a1"
+            ],
+            [
+              "_a1",
+              "_a2",
+              "a² = 81"
+            ],
+            [
+              "_a2",
+              "B"
+            ],
+            [
+              "C",
+              "_b1"
+            ],
+            [
+              "_b1",
+              "_b2",
+              "b² = 144"
+            ],
+            [
+              "_b2",
+              "A"
+            ],
+            [
+              "A",
+              "_c1"
+            ],
+            [
+              "_c1",
+              "_c2",
+              "c² = 225"
+            ],
+            [
+              "_c2",
+              "B"
+            ]
+          ],
+          "rechter_winkel": [
+            [
+              "C",
+              "A",
+              "B"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "kathete",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "umkehrung",
+      "urteil": "verbessern",
+      "probleme": [
+        "Kein Alltagsbezug. Die Umkehrung ist uralte Praxis: Mit einer Schnur mit Knoten im Abstand 3, 4 und 5 legen Handwerker einen rechten Winkel aus."
+      ],
+      "neu": {
+        "probe": "Alltag: Wer einen rechten Winkel für ein Beet abstecken will, legt ein Dreieck mit 3 m, 4 m und 5 m. Weil 3² + 4² = 25 = 5², ist der Winkel gegenüber der 5-m-Seite ein rechter ✓"
+      }
+    },
+    {
+      "lernziel": "koordinaten",
+      "urteil": "verbessern",
+      "probleme": [
+        "Das Steigungsdreieck wird genannt, aber nicht gezeigt."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "koordinaten",
+          "x": [
+            0,
+            8
+          ],
+          "y": [
+            0,
+            11
+          ],
+          "punkte": [
+            {
+              "x": 1,
+              "y": 2,
+              "name": "P"
+            },
+            {
+              "x": 7,
+              "y": 10,
+              "name": "Q"
+            }
+          ],
+          "strecken": [
+            [
+              1,
+              2,
+              7,
+              10
+            ],
+            [
+              1,
+              2,
+              7,
+              2,
+              "gestrichelt"
+            ],
+            [
+              7,
+              2,
+              7,
+              10,
+              "gestrichelt"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "raum",
+      "urteil": "verbessern",
+      "probleme": [
+        "Wo das rechtwinklige Dreieck im Quader liegt (Bodendiagonale, Höhe, Raumdiagonale), sieht man nur im Schrägbild."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "A": [
+              0,
+              0
+            ],
+            "B": [
+              3,
+              0
+            ],
+            "C": [
+              3.71,
+              0.71
+            ],
+            "D": [
+              0.71,
+              0.71
+            ],
+            "E": [
+              0,
+              6
+            ],
+            "F": [
+              3,
+              6
+            ],
+            "G": [
+              3.71,
+              6.71
+            ],
+            "H": [
+              0.71,
+              6.71
+            ]
+          },
+          "linien": [
+            [
+              "A",
+              "B"
+            ],
+            [
+              "B",
+              "F"
+            ],
+            [
+              "F",
+              "E"
+            ],
+            [
+              "E",
+              "A"
+            ],
+            [
+              "B",
+              "C"
+            ],
+            [
+              "C",
+              "G"
+            ],
+            [
+              "G",
+              "F"
+            ],
+            [
+              "E",
+              "H"
+            ],
+            [
+              "H",
+              "G"
+            ],
+            [
+              "A",
+              "D",
+              "",
+              "gestrichelt"
+            ],
+            [
+              "D",
+              "C",
+              "",
+              "gestrichelt"
+            ],
+            [
+              "D",
+              "H",
+              "",
+              "gestrichelt"
+            ],
+            [
+              "A",
+              "G",
+              "d = ?"
+            ],
+            [
+              "A",
+              "C",
+              "√13",
+              "gestrichelt"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "anwendung",
+      "urteil": "verbessern",
+      "probleme": [
+        "Die Regel sagt „Skizze machen“, aber die Karte zeigt keine."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "_F": [
+              0,
+              0
+            ],
+            "W": [
+              0,
+              4.8
+            ],
+            "B": [
+              1.4,
+              0
+            ]
+          },
+          "linien": [
+            [
+              "_F",
+              "B",
+              "1,4 m"
+            ],
+            [
+              "_F",
+              "W",
+              "h = ?"
+            ],
+            [
+              "W",
+              "B",
+              "Leiter 5 m"
+            ]
+          ],
+          "rechter_winkel": [
+            [
+              "_F",
+              "B",
+              "W"
+            ]
+          ]
+        }
+      }
+    }
+  ],
+  "neue_karten": []
+}

@@ -462,6 +462,109 @@
       "bild": "bilder/29-themenplan-lesen-und-pfeile.png"
     }
   ],
-  "ideen": [],
-  "top5": []
+  "ideen": [
+    {
+      "titel": "Tagesetappe: ein Knopf, zehn Minuten, ein fertiger Moment",
+      "fuer": "kind",
+      "nutzen": "Kinder wissen sofort, was zu tun ist, und erleben jeden Tag ein klares Ende („heute geschafft“) statt einer endlosen Liste. Kurze Einheiten passen zu unterwegs (Auto, Flughafen) und machen das Anfangen leicht.",
+      "beschreibung": "Auf Heute oben ein großer Knopf „Tagesetappe starten · ca. 10 Min.“. Der Server stellt eine Folge zusammen: fällige Wiederholungen (höchstens 3), dann Übungen der empfohlenen Lernkarte, bis sie sitzt oder 8 Aufgaben erreicht sind. Oben ein dünner Balken mit 8 Feldern statt Seitenwechsel. Am Ende ein Abschlussbild: Flugzeug fliegt auf der Karte ein Stück weiter, „Tagesetappe geschafft – 4 richtig beim ersten Versuch“, Knopf „Noch eine Runde“ (klein) und „Fertig für heute“ (groß). Abbrechen jederzeit über ✕, der Fortschritt bleibt. Kein Zeitdruck, keine Uhr sichtbar.",
+      "aufwand": "mittel",
+      "rang": 1
+    },
+    {
+      "titel": "„Was wackelt?“ – Lernstand je Lernkarte für Eltern und Lehrer",
+      "fuer": "eltern_lehrer",
+      "nutzen": "Erwachsene sehen auf einen Blick, wo das Kind hängt, statt Sterne oder Prozent zu deuten. Hilfe kann gezielt einsetzen (ein Gespräch über genau eine Regel).",
+      "beschreibung": "Neue Ansicht #/stand/<kind>, erreichbar über die Kinderkarte. Liste der Lernkarten des aktuellen Ortes mit drei Zuständen: sitzt (grün), wackelt (gelb: sitzt, aber letzte Wiederholung falsch oder Tipp oft gebraucht), hängt (rot: 3 falsche Antworten hintereinander oder mehr als 6 Versuche ohne „sitzt“). Antippen einer Karte zeigt die letzten falschen Antworten des Kindes im Klartext („schrieb 200 statt 2 000“), die Erklärung wie das Kind sie sieht und die Knöpfe „Anmerkung an Entwicklung“ und „Karte im Plan nach vorn“. Oben ein Satz: „Hängt gerade bei: Zahlenstrahl (seit 2 Tagen)“.",
+      "aufwand": "mittel",
+      "rang": 2
+    },
+    {
+      "titel": "Unterwegs-Paket (ohne Netz lernen)",
+      "fuer": "kind",
+      "nutzen": "Auf der Weltreise gibt es oft kein Netz (Flug, Fähre, Roaming). Ohne Paket fällt Lernen genau dann aus, wenn Zeit wäre.",
+      "beschreibung": "In Heute ein kleiner Knopf „Für unterwegs laden“ (und automatisch beim Öffnen im WLAN). Lädt Erklärungen und 30 Übungsaufgaben der nächsten zwei Lernkarten samt Bewertungsregeln für einfache Antworttypen (Zahl, Auswahl, Markierung) in den Gerätespeicher. Ohne Netz: Üben geht weiter, oben ein Hinweis „Unterwegs-Modus – wird später gespeichert“. Antworten mit client_id in einer Warteschlange; beim nächsten Netz an schule_uebung_pruefen senden, Server zählt Sterne nach. Tests nur online.",
+      "aufwand": "gross",
+      "rang": 3
+    },
+    {
+      "titel": "Fehler-Detektiv: die Fehlerkarte zur falschen Antwort",
+      "fuer": "kind",
+      "nutzen": "Das Kind erfährt nicht nur „falsch“, sondern warum – mit seinem eigenen Fehler als Beispiel. So wird aus dem Fehler die Lerngelegenheit, die der Reiter „Fehler“ heute nur allgemein zeigt.",
+      "beschreibung": "Aufgaben bekommen optional typische_fehler: [{ antwort: 200, text: \"Du hast die 2 bei den Hundertern gelesen. Zähl die Stellen von rechts: E, Z, H, T.\" }]. Trifft die Antwort einen Eintrag, zeigt die Rückmeldung statt „Noch nicht“ einen gelben Kasten „Fehler-Detektiv: Das ist ein typischer Fehler!“ mit dem Text und der passenden Zeichnung der Lernkarte. Erkannte Fehler sammeln sich im Reiter „Fehler“ unter „Deine Fehler – schon verstanden?“ mit Knopf „Nochmal so eine Aufgabe“.",
+      "aufwand": "mittel",
+      "rang": 4
+    },
+    {
+      "titel": "Die Route wächst sichtbar mit",
+      "fuer": "kind",
+      "nutzen": "Fortschritt wird als Reise sichtbar, nicht als Prozentzahl. Die Weltreise wird zum roten Faden: jede gelernte Karte bringt das Kind sichtbar weiter.",
+      "beschreibung": "Auf Heute und Weltkarte verbindet eine gestrichelte Linie die Orte des Plans. Jede sitzende Lernkarte färbt ein Stück der Strecke zum nächsten Ort durch (bei 3 Karten: Drittel). Beim Wechsel „Lernkarte sitzt“ fliegt ein kleines Flugzeug das neue Stück ab (1 Sekunde, abschaltbar bei „Bewegung reduzieren“). Orte sind antippbar: geschafft → Stempel und Merkheft dieses Ortes; dran → Thema; später → „Kommt nach Athen“.",
+      "aufwand": "mittel",
+      "rang": 5
+    },
+    {
+      "titel": "„Ich hänge fest“ – Frage an Lehrkraft oder Eltern",
+      "fuer": "kind",
+      "nutzen": "Statt aufzugeben oder zu raten, holt sich das Kind Hilfe mit genau der Aufgabe. Lehrer und Eltern sehen die Frage im Zusammenhang und antworten kurz.",
+      "beschreibung": "Nach zwei falschen Antworten zur selben Karte erscheint unter der Rückmeldung ein Knopf „Ich hänge fest – frag nach“. Es öffnet ein Feld „Was verstehst du nicht?“ (optional, mit Sprachnotiz-Knopf) und schickt Aufgabe, Antworten und Karte an die Leitung (neue Rückmeldungsart frage_kind). Eltern/Lehrer sehen sie oben unter „Wartet auf dich“, antworten mit Text. Die Antwort erscheint beim Kind in Heute („Antwort von Frau X“) und wird im Merkheft an die Karte geheftet.",
+      "aufwand": "mittel",
+      "rang": 6
+    },
+    {
+      "titel": "Wochenbrief für Eltern mit Gesprächsfrage",
+      "fuer": "eltern_lehrer",
+      "nutzen": "Eltern bleiben ohne Kontrollblick im Bild und bekommen einen Anlass, mit dem Kind über Mathe zu reden – das festigt mehr als zusätzliche Aufgaben.",
+      "beschreibung": "Jeden Sonntag eine Karte oben in der Eltern-Übersicht (optional als Mitteilung): Lerntage der Woche, neue sitzende Lernkarten (Namen), was wackelt (aus Idee 2), Ort auf der Reise. Dazu eine Gesprächsfrage aus der zuletzt gelernten Karte, z. B. „Frag mal: Warum ist die 2 in 182 887 zweitausend wert?“ mit der Antwort zum Aufklappen. Keine Vergleiche, keine Rangliste.",
+      "aufwand": "klein",
+      "rang": 7
+    },
+    {
+      "titel": "Erklär’s mir: Kind wird zum Reiseführer",
+      "fuer": "kind",
+      "nutzen": "Wer etwas erklärt, versteht es besser. Belohnt wird Verstehen, nicht Klicken – und Eltern sind beteiligt.",
+      "beschreibung": "Nach „Lernkarte sitzt“ ein freiwilliger Knopf „Erklär es jemandem“ (klein, unter „Nächste Karte“). Er zeigt die Regel und ein Beispiel groß als „Reiseführer-Karte“ zum Vorzeigen. Eltern bestätigen auf ihrem Gerät in der Übersicht „Hat es mir erklärt ✓“; dafür gibt es einen Stempel-Teil „Reiseführer“ im Reisepass (5 Teile = 1 Sonderstempel). Kein Muss, keine Erinnerung.",
+      "aufwand": "klein",
+      "rang": 8
+    },
+    {
+      "titel": "Postkarte aus jeder Stadt",
+      "fuer": "kind",
+      "nutzen": "Eine Belohnung, die zum Lernen passt: neugierig machende Mathe am Ort statt nur Punkte. Stärkt den roten Faden der Weltreise.",
+      "beschreibung": "Ist ein Ort geschafft, bekommt das Kind zusätzlich zum Stempel eine Postkarte: Bild (gezeichnete Ansicht, keine Fotos realer Personen), zwei Sätze Ortsmathematik (Rom: „Hier schrieb man Zahlen mit Buchstaben: MMXXVI = ?“) und eine Rätselfrage zum Antippen. Postkarten sammeln sich im Reisepass unter „Post“. Inhalte je Ort im Inhaltsformat (Feld postkarte).",
+      "aufwand": "mittel",
+      "rang": 9
+    },
+    {
+      "titel": "Empfehlung der Lehrkraft als Reiseziel",
+      "fuer": "eltern_lehrer",
+      "nutzen": "Lehrkräfte steuern sanft, was als Nächstes dran ist (passend zum Unterricht), ohne Termine und Druck für das Kind.",
+      "beschreibung": "Im Themenplan je Ort ein Knopf „Als Nächstes empfehlen“ mit optionalem Satz („Passt zu unserer Klassenarbeit“). Beim Kind steht auf Heute über dem Ort ein Fähnchen „Tipp von Frau X“ mit dem Satz; der Ort rückt in der Lernreise an Platz 1. Kein Datum, kein Countdown.",
+      "aufwand": "klein",
+      "rang": 10
+    },
+    {
+      "titel": "Wie sicher bist du? – vor und nach dem Test",
+      "fuer": "kind",
+      "nutzen": "Kinder lernen, ihr Können einzuschätzen; Eltern/Lehrer sehen, wo das Kind sich über- oder unterschätzt.",
+      "beschreibung": "Vor „Test starten“ drei große Knöpfe: „Noch unsicher“, „Geht so“, „Kann ich“ (überspringbar). In der Auswertung ein Satz: „Du warst ‚geht so‘ – und hast 5 von 6 richtig. Du kannst mehr, als du denkst!“ bzw. freundlich bei Überschätzung „Die Karte Zahlenstrahl üben wir nochmal.“ In der Wackelt-Ansicht (Idee 2) eine Spalte „Einschätzung“.",
+      "aufwand": "klein",
+      "rang": 11
+    },
+    {
+      "titel": "Reisetagebuch statt Serie",
+      "fuer": "kind",
+      "nutzen": "Zeigt Regelmäßigkeit wohlwollend, ohne dass eine Pause etwas zerstört.",
+      "beschreibung": "Im Reisepass ein Monatskalender mit kleinen Flugzeug-Symbolen an Lerntagen und dem Ort des Tages. Oben: „Diesen Monat 9 Reisetage“. Das Kind kann selbst ein Wochenziel wählen (2, 3 oder 4 Tage); erreicht → kleiner Haken, nicht erreicht → nichts passiert, kein Verfall, keine Erinnerung mit Druck.",
+      "aufwand": "klein",
+      "rang": 12
+    }
+  ],
+  "top5": [
+    "1 Klick bis zur ersten Aufgabe: Hauptknopf auf Heute ganz oben und als einziger Startknopf; er öffnet direkt „Üben“ der empfohlenen Lernkarte mit der Kurz-Erklärung darüber (Befunde 2, 26, 27; Idee 1).",
+    "Übungsseite verdichten: Prüfen direkt unter die Eingabe, Enter prüft, Fokus wandert zu „Nächste Aufgabe“; Kartenauswahl/Stufen einklappen; leeren 72-px-Streifen oben entfernen; Zahlenstrahl mit großen Tippflächen (Befunde 1, 3, 6, 7, 14).",
+    "Sichtbare Anzeigefehler beheben: „null“ im Reiter Fehler und auf der leeren Weltkarte, Test-Knopf bei Thema ohne Karten, beige Hover-Farbe der Hauptknöpfe, dunkle Signalfarben auf hellen Flächen (Befunde 4, 8, 9, 16, 25).",
+    "Kindmodus dicht machen und vereinfachen: Glocke ausblenden, Abmelden in den Reisepass, Reisepass über die Zahlenkästen erreichbar, ein Begriff „Lernkarte“ statt Etappe/Karte, kindgerechte Fehlerseite mit „Nochmal versuchen“ (Befunde 5, 10, 12, 21, 24).",
+    "Eltern/Lehrer-Start neu ordnen: oben „Wartet auf dich“ (Wünsche, Antworten), darunter je Kind „Was wackelt?“ (Lernstand je Lernkarte mit den echten falschen Antworten); altes Lernblatt nach unten (Befunde 18, 28; Idee 2)."
+  ]
 }

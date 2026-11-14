@@ -1,0 +1,73 @@
+{
+  "thema_schluessel": "raum.schraegbilder",
+  "gesamturteil": "brauchbar",
+  "karten": [
+    {
+      "lernziel": "pyramide",
+      "urteil": "verbessern",
+      "stufen": "Gleiche Logik wie beim Prisma (zählen → rückwärts → Kantensumme). Stufe 3 enthält eine künstliche Aufgabe (‚… werden verglichen. Wie viele Kanten haben beide zusammen?‘) und einen Tippfehler.",
+      "fehlende_aufgabentypen": [
+        "Prisma oder Pyramide? (auswahl): ‚Ein Körper hat 7 Flächen und 12 Kanten. Was ist er?‘ → ‚sechsseitige Pyramide‘ | ‚fünfseitiges Prisma‘ | ‚sechsseitiges Prisma‘. Lösung: Pyramide n + 1 = 7, 2n = 12 ✓; Prisma n + 2 = 7 → n = 5, 3n = 15 ✗. Beispiel 2: ‚8 Flächen, 18 Kanten‘ → sechsseitiges Prisma."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "laengen",
+      "urteil": "ok",
+      "stufen": "Passen; Stufe 3 ‚sicher in wahrer Länge‘ ist gute Verstehensaufgabe.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "lage",
+      "urteil": "verbessern",
+      "stufen": "Alle 24 Aufgaben sind dieselbe Frage (‚Wie liegen die Geraden … zueinander?‘) am selben Quader; die Stufen unterscheiden sich nicht erkennbar. Alle 24 nachgeprüft (Raumgeometrie). ‚identisch‘ ist nie richtig, ‚windschief‘ / ‚parallel‘ / ‚schneiden sich‘ je 8-mal – gut verteilt.",
+      "fehlende_aufgabentypen": [
+        "Partner finden (auswahl): ‚Welche Kante ist windschief zu AB?‘ → ‚CG‘ | ‚GH‘ (parallel) | ‚BF‘ (schneidet) | ‚DC‘ (parallel). Beispiel 2: ‚Welche Kante schneidet EH?‘ → ‚HG‘ | ‚BC‘ (parallel) | ‚FG‘ (parallel).",
+        "Diagonalen (auswahl, Stufe 3): ‚Wie liegen die Raumdiagonalen AG und BH zueinander?‘ → ‚schneiden sich (im Mittelpunkt des Quaders)‘. Beispiel 2: ‚Flächendiagonale AC und Kante EF‘ → windschief."
+      ],
+      "generator_regeln": [
+        "Stufe 3 nur mit Diagonalen oder ‚Partner finden‘."
+      ]
+    },
+    {
+      "lernziel": "rotation",
+      "urteil": "verbessern",
+      "stufen": "Leicht (Körper benennen) und mittel (Radius/Höhe) passen; Stufe 3 sinnvoll. Grammatikfehler im Lösungsweg.",
+      "fehlende_aufgabentypen": [
+        "Rotation um die andere Achse (auswahl): ‚Ein rechtwinkliges Dreieck dreht sich um seine Hypotenuse. Was entsteht?‘ → ‚zwei Kegel, Boden an Boden‘ | ‚ein Kegel‘ | ‚ein Zylinder‘. Beispiel 2: ‚Ein Rechteck dreht sich um seine Mittellinie (parallel zu einer Seite)‘ → ‚ein Zylinder (mit halbem Radius)‘."
+      ],
+      "generator_regeln": [
+        "Artikel im Lösungsweg an den Körper anpassen: ‚einen Zylinder/Kegel‘, ‚eine Kugel‘."
+      ]
+    },
+    {
+      "lernziel": "axialschnitt",
+      "urteil": "ok",
+      "stufen": "Passen: Form → Fläche → Umfang/Rückwärts.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "koordinaten",
+      "urteil": "ok",
+      "stufen": "Passen; Mittelpunkt in Stufe 3 ist ein echter Schritt. Alle Auswahlaufgaben nachgeprüft. Hinweis für den Aufbau-Prüfer: Raumkoordinaten stehen nicht im Lehrplan Klasse 8 (Feld lehrplan_gym ist leer) – prüfen, ob die Karte bleiben soll.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Ein zwölfseitigs Prisma und eine sechsseitige Pyramide werden verglichen. Wie viele Kanten haben beide zusammen?",
+      "art": "sprache",
+      "problem": "Tippfehler ‚zwölfseitigs‘; außerdem passt ‚werden verglichen‘ nicht zur Frage nach der Summe.",
+      "korrektur": "‚Wie viele Kanten haben ein zwölfseitiges Prisma und eine sechsseitige Pyramide zusammen?‘ → 48."
+    },
+    {
+      "aufgabe": "Welcher Körper entsteht, wenn sich ein Halbkreis um seinen Durchmesser dreht?",
+      "art": "sprache",
+      "problem": "Lösungsweg: ‚… ergibt einen Kugel.‘",
+      "korrektur": "Lösungsweg: ‚Ein Halbkreis um seinen Durchmesser gedreht ergibt eine Kugel.‘"
+    }
+  ]
+}

@@ -197,6 +197,9 @@ def Z(text, wert, c, w, h='', einheit=None, toleranz=None):
     return {'y': 'zahl', 'f': {'text': text}, 'o': o, 'c': c, 'w': w, 'h': h}
 
 
+POS = __import__('collections').Counter()
+
+
 def A(R, text, richtig, falsche, w, h=''):
     richtig = str(richtig)
     f = []
@@ -205,8 +208,14 @@ def A(R, text, richtig, falsche, w, h=''):
         if x != richtig and x not in f: f.append(x)
     assert len(f) >= 2, f'zu wenige falsche Antworten: {text} / {richtig} / {falsche}'
     f = f[:3]
-    a = f + [richtig]
+    a = f[:]
     R.shuffle(a)
+    # Position der richtigen Antwort gleichmäßig verteilen (je Thema gezählt, siehe baue)
+    n = len(a) + 1
+    frei = [i for i in range(n) if POS[(n, i)] == min(POS[(n, j)] for j in range(n))]
+    i = R.choice(frei)
+    POS[(n, i)] += 1
+    a.insert(i, richtig)
     return {'y': 'auswahl', 'f': {'text': text}, 'a': a, 'o': {'index': a.index(richtig)}, 'w': w, 'h': h}
 
 
@@ -226,6 +235,7 @@ def M(text, start, ende, abschnitte, index, w, h=''):
 # ---------- Zusammenbau ----------
 def baue(meta, etappen, gen, abschnitte, ziel, merke, offen=(), plan=PLAN, seed=0, vertiefung=()):
     R = random.Random(seed or meta['thema_id'] * 1000 + 8)
+    POS.clear()
     out = []
     for e in etappen:
         lz = e['lernziel']

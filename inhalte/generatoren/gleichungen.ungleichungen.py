@@ -3,6 +3,7 @@
 import sys
 from fractions import Fraction as Fr
 from pathlib import Path
+sys.dont_write_bytecode = True
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from _bausatz import A, M, Z, baue, ca, cz, eur, kl, lin, zt  # noqa: E402
 

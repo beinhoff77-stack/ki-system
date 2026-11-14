@@ -65,12 +65,425 @@
    {
     "lernziel": "quadrat",
     "titel": "Quadratzahlen bis 400",
-    "regel": "„Hoch 2“ heißt ⟦Quadrat⟧: die Zahl mal sich selbst. Die Quadratzahlen von 1² bis 20² solltest du auswendig können: … 11² = 121, 12² = 144, 13² = 169, 14² = 196, 15² = 225, 16² = 256, 17² = 289, 18² = 324, 19² = 361, 20² = 400.",
+    "regel": "„Hoch 2“ heißt ⟦Quadrat⟧: die Zahl mal sich selbst. Der Name kommt vom Quadrat: Ein Quadrat mit 14 Fliesen pro Reihe und 14 Reihen hat 14 · 14 = 14² Fliesen. Die Quadratzahlen von 1² bis 20² solltest du auswendig können: … 11² = 121, 12² = 144, 13² = 169, 14² = 196, 15² = 225, 16² = 256, 17² = 289, 18² = 324, 19² = 361, 20² = 400.",
     "schritte": [
-     "14² = 14 · 14",
-     "14 · 10 = 140 und 14 · 4 = 56, zusammen ⟦196⟧"
+     "Ein quadratischer Badboden hat 14 Fliesen pro Reihe und 14 Reihen. Das sind 14² Fliesen.",
+     "Zerlege: 14 · 10 = 140 und 14 · 4 = 56.",
+     "Zusammen: 140 + 56 = ⟦196⟧ Fliesen."
     ],
-    "fehler": "14² = 28 ist falsch: Das wäre 14 · 2. Quadrat heißt 14 · ⟦14⟧."
+    "fehler": "14² = 28 ist falsch: Das wäre 14 · 2. Quadrat heißt 14 · ⟦14⟧. Denk an die Fliesen: 14 Reihen mit je 14 Fliesen sind viel mehr als 28.",
+    "probe": "Nachbar-Trick: 15² = 225. Vom Quadrat mit 14 · 14 Fliesen zum Quadrat mit 15 · 15 kommen eine Reihe und eine Spalte dazu, also 14 + 15 = 29 Fliesen. 196 + 29 = 225 ✓",
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "_A": [
+       0,
+       0
+      ],
+      "_B": [
+       14,
+       0
+      ],
+      "_C": [
+       14,
+       14
+      ],
+      "_D": [
+       0,
+       14
+      ],
+      "_x1u": [
+       1,
+       0
+      ],
+      "_x1o": [
+       1,
+       14
+      ],
+      "_y1l": [
+       0,
+       1
+      ],
+      "_y1r": [
+       14,
+       1
+      ],
+      "_x2u": [
+       2,
+       0
+      ],
+      "_x2o": [
+       2,
+       14
+      ],
+      "_y2l": [
+       0,
+       2
+      ],
+      "_y2r": [
+       14,
+       2
+      ],
+      "_x3u": [
+       3,
+       0
+      ],
+      "_x3o": [
+       3,
+       14
+      ],
+      "_y3l": [
+       0,
+       3
+      ],
+      "_y3r": [
+       14,
+       3
+      ],
+      "_x4u": [
+       4,
+       0
+      ],
+      "_x4o": [
+       4,
+       14
+      ],
+      "_y4l": [
+       0,
+       4
+      ],
+      "_y4r": [
+       14,
+       4
+      ],
+      "_x5u": [
+       5,
+       0
+      ],
+      "_x5o": [
+       5,
+       14
+      ],
+      "_y5l": [
+       0,
+       5
+      ],
+      "_y5r": [
+       14,
+       5
+      ],
+      "_x6u": [
+       6,
+       0
+      ],
+      "_x6o": [
+       6,
+       14
+      ],
+      "_y6l": [
+       0,
+       6
+      ],
+      "_y6r": [
+       14,
+       6
+      ],
+      "_x7u": [
+       7,
+       0
+      ],
+      "_x7o": [
+       7,
+       14
+      ],
+      "_y7l": [
+       0,
+       7
+      ],
+      "_y7r": [
+       14,
+       7
+      ],
+      "_x8u": [
+       8,
+       0
+      ],
+      "_x8o": [
+       8,
+       14
+      ],
+      "_y8l": [
+       0,
+       8
+      ],
+      "_y8r": [
+       14,
+       8
+      ],
+      "_x9u": [
+       9,
+       0
+      ],
+      "_x9o": [
+       9,
+       14
+      ],
+      "_y9l": [
+       0,
+       9
+      ],
+      "_y9r": [
+       14,
+       9
+      ],
+      "_x10u": [
+       10,
+       0
+      ],
+      "_x10o": [
+       10,
+       14
+      ],
+      "_y10l": [
+       0,
+       10
+      ],
+      "_y10r": [
+       14,
+       10
+      ],
+      "_x11u": [
+       11,
+       0
+      ],
+      "_x11o": [
+       11,
+       14
+      ],
+      "_y11l": [
+       0,
+       11
+      ],
+      "_y11r": [
+       14,
+       11
+      ],
+      "_x12u": [
+       12,
+       0
+      ],
+      "_x12o": [
+       12,
+       14
+      ],
+      "_y12l": [
+       0,
+       12
+      ],
+      "_y12r": [
+       14,
+       12
+      ],
+      "_x13u": [
+       13,
+       0
+      ],
+      "_x13o": [
+       13,
+       14
+      ],
+      "_y13l": [
+       0,
+       13
+      ],
+      "_y13r": [
+       14,
+       13
+      ]
+     },
+     "flaeche": [
+      "_A",
+      "_B",
+      "_C",
+      "_D"
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B",
+       "14 Fliesen"
+      ],
+      [
+       "_B",
+       "_C"
+      ],
+      [
+       "_C",
+       "_D"
+      ],
+      [
+       "_D",
+       "_A",
+       "14 Fliesen"
+      ],
+      [
+       "_x1u",
+       "_x1o",
+       null,
+       "gestrichelt"
+      ],
+      [
+       "_y1l",
+       "_y1r",
+       null,
+       "gestrichelt"
+      ],
+      [
+       "_x2u",
+       "_x2o",
+       null,
+       "gestrichelt"
+      ],
+      [
+       "_y2l",
+       "_y2r",
+       null,
+       "gestrichelt"
+      ],
+      [
+       "_x3u",
+       "_x3o",
+       null,
+       "gestrichelt"
+      ],
+      [
+       "_y3l",
+       "_y3r",
+       null,
+       "gestrichelt"
+      ],
+      [
+       "_x4u",
+       "_x4o",
+       null,
+       "gestrichelt"
+      ],
+      [
+       "_y4l",
+       "_y4r",
+       null,
+       "gestrichelt"
+      ],
+      [
+       "_x5u",
+       "_x5o",
+       null,
+       "gestrichelt"
+      ],
+      [
+       "_y5l",
+       "_y5r",
+       null,
+       "gestrichelt"
+      ],
+      [
+       "_x6u",
+       "_x6o",
+       null,
+       "gestrichelt"
+      ],
+      [
+       "_y6l",
+       "_y6r",
+       null,
+       "gestrichelt"
+      ],
+      [
+       "_x7u",
+       "_x7o",
+       null,
+       "gestrichelt"
+      ],
+      [
+       "_y7l",
+       "_y7r",
+       null,
+       "gestrichelt"
+      ],
+      [
+       "_x8u",
+       "_x8o",
+       null,
+       "gestrichelt"
+      ],
+      [
+       "_y8l",
+       "_y8r",
+       null,
+       "gestrichelt"
+      ],
+      [
+       "_x9u",
+       "_x9o",
+       null,
+       "gestrichelt"
+      ],
+      [
+       "_y9l",
+       "_y9r",
+       null,
+       "gestrichelt"
+      ],
+      [
+       "_x10u",
+       "_x10o",
+       null,
+       "gestrichelt"
+      ],
+      [
+       "_y10l",
+       "_y10r",
+       null,
+       "gestrichelt"
+      ],
+      [
+       "_x11u",
+       "_x11o",
+       null,
+       "gestrichelt"
+      ],
+      [
+       "_y11l",
+       "_y11r",
+       null,
+       "gestrichelt"
+      ],
+      [
+       "_x12u",
+       "_x12o",
+       null,
+       "gestrichelt"
+      ],
+      [
+       "_y12l",
+       "_y12r",
+       null,
+       "gestrichelt"
+      ],
+      [
+       "_x13u",
+       "_x13o",
+       null,
+       "gestrichelt"
+      ],
+      [
+       "_y13l",
+       "_y13r",
+       null,
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "vertauschen",
@@ -88,21 +501,22 @@
     "titel": "Zehnerpotenzen für große Zahlen",
     "regel": "Bei Zehnerpotenzen sagt der Exponent, ⟦wie viele Nullen⟧ die Zahl hat: 10³ = 1 000, 10⁶ = 1 000 000. Große Zahlen schreibt man kurz als Produkt: 3 · 10⁵ = 300 000.",
     "schritte": [
-     "7 · 10⁴: 10⁴ hat 4 Nullen, also 10 000.",
-     "7 · 10 000 = ⟦70 000⟧"
+     "Ein großes Fußballstadion hat rund 7 · 10⁴ Plätze.",
+     "10⁴ ist eine 1 mit 4 Nullen: 10 000.",
+     "7 · 10 000 = ⟦70 000⟧ Plätze."
     ],
-    "fehler": "10⁴ = 40 ist falsch. 10⁴ = 10 · 10 · 10 · 10 = ⟦10 000⟧, eine 1 mit 4 Nullen."
+    "fehler": "7 · 10⁴ = 700 000 ist falsch: Hinter die 7 kommen genau ⟦4⟧ Nullen, also 70 000. Und 10⁴ ist nicht 40: 10⁴ = 10 · 10 · 10 · 10 = ⟦10 000⟧."
    },
    {
     "lernziel": "negativ",
     "titel": "Potenzen mit negativer Basis",
-    "regel": "Steht eine negative Zahl in Klammern, wird sie ⟦samt Minus⟧ malgenommen. Gerader Exponent: Ergebnis ⟦positiv⟧. Ungerader Exponent: Ergebnis ⟦negativ⟧.",
+    "regel": "Steht eine negative Zahl ⟦in Klammern⟧, wird sie samt Minus malgenommen. Je zwei Minus-Faktoren ergeben zusammen Plus. Gerader Exponent: Alle Minus finden einen Partner, das Ergebnis ist ⟦positiv⟧. Ungerader Exponent: Ein Minus bleibt übrig, das Ergebnis ist ⟦negativ⟧.",
     "schritte": [
      "(−2)³ = (−2) · (−2) · (−2)",
-     "(−2) · (−2) = 4, dann 4 · (−2) = ⟦−8⟧"
+     "(−2) · (−2) = 4, dann 4 · (−2) = ⟦−8⟧. Ein Minus ist übrig geblieben."
     ],
-    "probe": "(−2)² = 4 ist positiv (gerader Exponent), (−2)³ = −8 negativ (ungerader Exponent) ✓",
-    "fehler": "(−3)² = −9 ist falsch: (−3) · (−3) = ⟦9⟧, denn Minus mal Minus ergibt Plus."
+    "probe": "(−2)² = (−2) · (−2) = 4: zwei Minus, ein Paar, positiv ✓",
+    "fehler": "−3² und (−3)² verwechseln. In (−3)² ist die −3 die Basis: (−3) · (−3) = ⟦9⟧. In −3² ohne Klammer gehört nur die 3 zur Basis: −3² = −(3 · 3) = ⟦−9⟧."
    },
    {
     "lernziel": "sach",
@@ -185,8 +599,8 @@
    },
    "a": [
     "3²",
-    "3 · 2",
-    "2³"
+    "2³",
+    "3 · 2"
    ],
    "o": {
     "index": 0
@@ -204,12 +618,12 @@
     "text": "Schreibe als Potenz: 8 · 8 · 8 · 8"
    },
    "a": [
-    "8⁴",
     "4⁸",
+    "8⁴",
     "8 · 4"
    ],
    "o": {
-    "index": 0
+    "index": 1
    },
    "w": "Der Faktor 8 steht 4-mal da. Basis 8, Exponent 4: 8⁴.",
    "h": "Zähle, wie oft der Faktor dasteht. Das ist der Exponent."
@@ -219,20 +633,16 @@
    "t": "begriff",
    "p": "uebung",
    "s": 1,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Schreibe als Potenz: 9 · 9 · 9 · 9 · 9 · 9"
+    "text": "Berechne 15¹."
    },
-   "a": [
-    "9 · 6",
-    "9⁶",
-    "6⁹"
-   ],
    "o": {
-    "index": 1
+    "wert": 15
    },
-   "w": "Der Faktor 9 steht 6-mal da. Basis 9, Exponent 6: 9⁶.",
-   "h": "Zähle, wie oft der Faktor dasteht. Das ist der Exponent."
+   "c": "15**1",
+   "w": "Der Exponent 1 sagt: Die 15 steht einmal als Faktor da. Also 15¹ = 15.",
+   "h": "Wie oft steht die Basis als Faktor da?"
   },
   {
    "l": "schreibweise",
@@ -245,11 +655,11 @@
    },
    "a": [
     "2¹²",
-    "12²",
-    "12 · 2"
+    "12 · 2",
+    "12²"
    ],
    "o": {
-    "index": 1
+    "index": 2
    },
    "w": "Der Faktor 12 steht 2-mal da. Basis 12, Exponent 2: 12².",
    "h": "Zähle, wie oft der Faktor dasteht. Das ist der Exponent."
@@ -261,17 +671,17 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Schreibe als Potenz: 6 · 6"
+    "text": "Schreibe als Potenz: 2 · 2 · 2"
    },
    "a": [
-    "6 · 2",
-    "2⁶",
-    "6²"
+    "2³",
+    "2 · 3",
+    "3²"
    ],
    "o": {
-    "index": 2
+    "index": 0
    },
-   "w": "Der Faktor 6 steht 2-mal da. Basis 6, Exponent 2: 6².",
+   "w": "Der Faktor 2 steht 3-mal da. Basis 2, Exponent 3: 2³.",
    "h": "Zähle, wie oft der Faktor dasteht. Das ist der Exponent."
   },
   {
@@ -279,16 +689,20 @@
    "t": "begriff",
    "p": "uebung",
    "s": 2,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Wie heißt die Basis der Potenz 4²?"
+    "text": "Schreibe 12 als Potenz mit der Basis 12."
    },
+   "a": [
+    "1¹²",
+    "12¹",
+    "12⁰"
+   ],
    "o": {
-    "wert": 4
+    "index": 1
    },
-   "c": "4",
-   "w": "In 4² ist 4 die Basis (unten, der Faktor) und 2 der Exponent (oben, die Anzahl).",
-   "h": "Die Basis steht unten, der Exponent klein oben."
+   "w": "Die 12 steht einmal als Faktor da: 12 = 12¹. 1¹² wäre 1 · 1 · … · 1 = 1.",
+   "h": "Wie oft steht die Basis als Faktor da?"
   },
   {
    "l": "schreibweise",
@@ -297,28 +711,12 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Wie heißt die Basis der Potenz 9⁴?"
+    "text": "Wie heißt der Exponent der Potenz 8⁶?"
    },
    "o": {
-    "wert": 9
+    "wert": 6
    },
-   "c": "9",
-   "w": "In 9⁴ ist 9 die Basis (unten, der Faktor) und 4 der Exponent (oben, die Anzahl).",
-   "h": "Die Basis steht unten, der Exponent klein oben."
-  },
-  {
-   "l": "schreibweise",
-   "t": "begriff",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Wie heißt die Basis der Potenz 8⁶?"
-   },
-   "o": {
-    "wert": 8
-   },
-   "c": "8",
+   "c": "6",
    "w": "In 8⁶ ist 8 die Basis (unten, der Faktor) und 6 der Exponent (oben, die Anzahl).",
    "h": "Die Basis steht unten, der Exponent klein oben."
   },
@@ -329,14 +727,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Wie heißt der Exponent der Potenz 10²?"
+    "text": "2 hoch wie viel ergibt 256?"
    },
    "o": {
-    "wert": 2
+    "wert": 8
    },
-   "c": "2",
-   "w": "In 10² ist 10 die Basis (unten, der Faktor) und 2 der Exponent (oben, die Anzahl).",
-   "h": "Die Basis steht unten, der Exponent klein oben."
+   "c": "8",
+   "w": "Immer wieder mal 2: 2, 4, 8, 16, 32, 64, 128, 256. Das sind 8 Faktoren, also 2⁸ = 256.",
+   "h": "Nimm 2 so oft mal 2, bis die Zahl erreicht ist. Zähle die Faktoren."
   },
   {
    "l": "schreibweise",
@@ -345,14 +743,30 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Wie heißt die Basis der Potenz 2⁴?"
+    "text": "5 hoch wie viel ergibt 125?"
    },
    "o": {
-    "wert": 2
+    "wert": 3
    },
-   "c": "2",
-   "w": "In 2⁴ ist 2 die Basis (unten, der Faktor) und 4 der Exponent (oben, die Anzahl).",
-   "h": "Die Basis steht unten, der Exponent klein oben."
+   "c": "3",
+   "w": "Immer wieder mal 5: 5, 25, 125. Das sind 3 Faktoren, also 5³ = 125.",
+   "h": "Nimm 5 so oft mal 5, bis die Zahl erreicht ist. Zähle die Faktoren."
+  },
+  {
+   "l": "schreibweise",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "10 hoch wie viel ergibt 10 000?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Immer wieder mal 10: 10, 100, 1 000, 10 000. Das sind 4 Faktoren, also 10⁴ = 10 000.",
+   "h": "Nimm 10 so oft mal 10, bis die Zahl erreicht ist. Zähle die Faktoren."
   },
   {
    "l": "schreibweise",
@@ -361,18 +775,18 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Was bedeutet 8⁶?"
+    "text": "Was bedeutet 2⁷?"
    },
    "a": [
-    "8 + 8 + 8 + 8 + 8 + 8",
-    "6 · 6 · 6 · 6 · 6 · 6 · 6 · 6",
-    "8 · 6",
-    "8 · 8 · 8 · 8 · 8 · 8"
+    "2 + 2 + 2 + 2 + 2 + 2 + 2",
+    "2 · 2 · 2 · 2 · 2 · 2 · 2",
+    "2 · 7",
+    "7 · 7"
    ],
    "o": {
-    "index": 3
+    "index": 1
    },
-   "w": "8⁶ heißt: 8 steht 6-mal als Faktor da, also 8 · 8 · 8 · 8 · 8 · 8.",
+   "w": "2⁷ heißt: 2 steht 7-mal als Faktor da, also 2 · 2 · 2 · 2 · 2 · 2 · 2.",
    "h": "Der Exponent sagt, wie oft die Basis als Faktor dasteht."
   },
   {
@@ -382,18 +796,18 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Was bedeutet 7³?"
+    "text": "Was bedeutet 5⁴?"
    },
    "a": [
-    "3 · 3 · 3 · 3 · 3 · 3 · 3",
-    "7 · 3",
-    "7 + 7 + 7",
-    "7 · 7 · 7"
+    "5 + 5 + 5 + 5",
+    "5 · 4",
+    "5 · 5 · 5 · 5",
+    "4 · 4 · 4 · 4 · 4"
    ],
    "o": {
-    "index": 3
+    "index": 2
    },
-   "w": "7³ heißt: 7 steht 3-mal als Faktor da, also 7 · 7 · 7.",
+   "w": "5⁴ heißt: 5 steht 4-mal als Faktor da, also 5 · 5 · 5 · 5.",
    "h": "Der Exponent sagt, wie oft die Basis als Faktor dasteht."
   },
   {
@@ -403,60 +817,55 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Was bedeutet 4⁶?"
+    "text": "Was bedeutet 10⁴?"
    },
    "a": [
-    "4 · 4 · 4 · 4 · 4 · 4",
-    "4 + 4 + 4 + 4 + 4 + 4",
-    "4 · 6",
-    "6 · 6 · 6 · 6"
+    "10 + 10 + 10 + 10",
+    "4 · 4 · 4 · 4 · 4 · 4 · 4 · 4 · 4 · 4",
+    "10 · 4",
+    "10 · 10 · 10 · 10"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "10⁴ heißt: 10 steht 4-mal als Faktor da, also 10 · 10 · 10 · 10.",
+   "h": "Der Exponent sagt, wie oft die Basis als Faktor dasteht."
+  },
+  {
+   "l": "schreibweise",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "5 hoch wie viel ergibt 625?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Immer wieder mal 5: 5, 25, 125, 625. Das sind 4 Faktoren, also 5⁴ = 625.",
+   "h": "Nimm 5 so oft mal 5, bis die Zahl erreicht ist. Zähle die Faktoren."
+  },
+  {
+   "l": "schreibweise",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Was bedeutet 3²?"
+   },
+   "a": [
+    "3 · 3",
+    "3 + 3",
+    "3 · 2",
+    "2 · 2 · 2"
    ],
    "o": {
     "index": 0
    },
-   "w": "4⁶ heißt: 4 steht 6-mal als Faktor da, also 4 · 4 · 4 · 4 · 4 · 4.",
-   "h": "Der Exponent sagt, wie oft die Basis als Faktor dasteht."
-  },
-  {
-   "l": "schreibweise",
-   "t": "begriff",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Was bedeutet 3⁵?"
-   },
-   "a": [
-    "3 + 3 + 3 + 3 + 3",
-    "3 · 5",
-    "5 · 5 · 5",
-    "3 · 3 · 3 · 3 · 3"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "3⁵ heißt: 3 steht 5-mal als Faktor da, also 3 · 3 · 3 · 3 · 3.",
-   "h": "Der Exponent sagt, wie oft die Basis als Faktor dasteht."
-  },
-  {
-   "l": "schreibweise",
-   "t": "begriff",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Was bedeutet 4³?"
-   },
-   "a": [
-    "4 + 4 + 4",
-    "3 · 3 · 3 · 3",
-    "4 · 3",
-    "4 · 4 · 4"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "4³ heißt: 4 steht 3-mal als Faktor da, also 4 · 4 · 4.",
+   "w": "3² heißt: 3 steht 2-mal als Faktor da, also 3 · 3.",
    "h": "Der Exponent sagt, wie oft die Basis als Faktor dasteht."
   },
   {
@@ -466,88 +875,70 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Wie heißt die Basis der Potenz 3⁵?"
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "3",
-   "w": "In 3⁵ ist 3 die Basis (unten, der Faktor) und 5 der Exponent (oben, die Anzahl)."
-  },
-  {
-   "l": "schreibweise",
-   "t": "begriff",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Wie heißt der Exponent der Potenz 6⁵?"
-   },
-   "o": {
-    "wert": 5
-   },
-   "c": "5",
-   "w": "In 6⁵ ist 6 die Basis (unten, der Faktor) und 5 der Exponent (oben, die Anzahl)."
-  },
-  {
-   "l": "schreibweise",
-   "t": "begriff",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Wie heißt die Basis der Potenz 5²?"
-   },
-   "o": {
-    "wert": 5
-   },
-   "c": "5",
-   "w": "In 5² ist 5 die Basis (unten, der Faktor) und 2 der Exponent (oben, die Anzahl)."
-  },
-  {
-   "l": "schreibweise",
-   "t": "begriff",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Wie heißt der Exponent der Potenz 10⁵?"
-   },
-   "o": {
-    "wert": 5
-   },
-   "c": "5",
-   "w": "In 10⁵ ist 10 die Basis (unten, der Faktor) und 5 der Exponent (oben, die Anzahl)."
-  },
-  {
-   "l": "schreibweise",
-   "t": "begriff",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Wie heißt die Basis der Potenz 5⁴?"
-   },
-   "o": {
-    "wert": 5
-   },
-   "c": "5",
-   "w": "In 5⁴ ist 5 die Basis (unten, der Faktor) und 4 der Exponent (oben, die Anzahl)."
-  },
-  {
-   "l": "schreibweise",
-   "t": "begriff",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Wie heißt der Exponent der Potenz 9⁴?"
+    "text": "4 hoch wie viel ergibt 256?"
    },
    "o": {
     "wert": 4
    },
    "c": "4",
-   "w": "In 9⁴ ist 9 die Basis (unten, der Faktor) und 4 der Exponent (oben, die Anzahl)."
+   "w": "Immer wieder mal 4: 4, 16, 64, 256. Das sind 4 Faktoren, also 4⁴ = 256."
+  },
+  {
+   "l": "schreibweise",
+   "t": "begriff",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Schreibe 4 als Potenz mit der Basis 4."
+   },
+   "a": [
+    "4¹",
+    "1⁴",
+    "4⁰"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die 4 steht einmal als Faktor da: 4 = 4¹. 1⁴ wäre 1 · 1 · … · 1 = 1."
+  },
+  {
+   "l": "schreibweise",
+   "t": "begriff",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Schreibe 27 als Potenz mit der Basis 27."
+   },
+   "a": [
+    "1²⁷",
+    "27¹",
+    "27⁰"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die 27 steht einmal als Faktor da: 27 = 27¹. 1²⁷ wäre 1 · 1 · … · 1 = 1."
+  },
+  {
+   "l": "schreibweise",
+   "t": "begriff",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Schreibe 7 als Potenz mit der Basis 7."
+   },
+   "a": [
+    "1⁷",
+    "7⁰",
+    "7¹"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die 7 steht einmal als Faktor da: 7 = 7¹. 1⁷ wäre 1 · 1 · … · 1 = 1."
   },
   {
    "l": "schreibweise",
@@ -556,13 +947,43 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Wie heißt der Exponent der Potenz 11⁶?"
+    "text": "2 hoch wie viel ergibt 128?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "7",
+   "w": "Immer wieder mal 2: 2, 4, 8, 16, 32, 64, 128. Das sind 7 Faktoren, also 2⁷ = 128."
+  },
+  {
+   "l": "schreibweise",
+   "t": "begriff",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie heißt die Basis der Potenz 7⁶?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "7",
+   "w": "In 7⁶ ist 7 die Basis (unten, der Faktor) und 6 der Exponent (oben, die Anzahl)."
+  },
+  {
+   "l": "schreibweise",
+   "t": "begriff",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie heißt der Exponent der Potenz 3⁶?"
    },
    "o": {
     "wert": 6
    },
    "c": "6",
-   "w": "In 11⁶ ist 11 die Basis (unten, der Faktor) und 6 der Exponent (oben, die Anzahl)."
+   "w": "In 3⁶ ist 3 die Basis (unten, der Faktor) und 6 der Exponent (oben, die Anzahl)."
   },
   {
    "l": "schreibweise",
@@ -571,13 +992,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Wie heißt der Exponent der Potenz 12⁶?"
+    "text": "10 hoch wie viel ergibt 10 000 000?"
    },
    "o": {
-    "wert": 6
+    "wert": 7
    },
-   "c": "6",
-   "w": "In 12⁶ ist 12 die Basis (unten, der Faktor) und 6 der Exponent (oben, die Anzahl)."
+   "c": "7",
+   "w": "Immer wieder mal 10: 10, 100, 1 000, 10 000, 100 000, 1 000 000, 10 000 000. Das sind 7 Faktoren, also 10⁷ = 10 000 000."
   },
   {
    "l": "schreibweise",
@@ -586,28 +1007,32 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Wie heißt die Basis der Potenz 6²?"
+    "text": "2 hoch wie viel ergibt 8?"
    },
    "o": {
-    "wert": 6
+    "wert": 3
    },
-   "c": "6",
-   "w": "In 6² ist 6 die Basis (unten, der Faktor) und 2 der Exponent (oben, die Anzahl)."
+   "c": "3",
+   "w": "Immer wieder mal 2: 2, 4, 8. Das sind 3 Faktoren, also 2³ = 8."
   },
   {
    "l": "schreibweise",
    "t": "begriff",
    "p": "sicherung",
    "s": 2,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Wie heißt die Basis der Potenz 9²?"
+    "text": "Schreibe 5 als Potenz mit der Basis 5."
    },
+   "a": [
+    "5¹",
+    "5⁰",
+    "1⁵"
+   ],
    "o": {
-    "wert": 9
+    "index": 0
    },
-   "c": "9",
-   "w": "In 9² ist 9 die Basis (unten, der Faktor) und 2 der Exponent (oben, die Anzahl)."
+   "w": "Die 5 steht einmal als Faktor da: 5 = 5¹. 1⁵ wäre 1 · 1 · … · 1 = 1."
   },
   {
    "l": "berechnen",
@@ -616,13 +1041,45 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Berechne 5³."
+    "text": "Berechne 1⁵."
    },
    "o": {
-    "wert": 125
+    "wert": 1
    },
-   "c": "5**3",
-   "w": "5³ = 5 · 5 · 5. Schritt für Schritt: 5 · 5 = 25, 25 · 5 = 125.",
+   "c": "1**5",
+   "w": "1⁵ = 1 · 1 · 1 · 1 · 1. Schritt für Schritt: 1 · 1 = 1, 1 · 1 = 1, 1 · 1 = 1, 1 · 1 = 1.",
+   "h": "Schreibe die Potenz als Produkt und rechne von links nach rechts."
+  },
+  {
+   "l": "berechnen",
+   "t": "berechnen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 1⁸."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1**8",
+   "w": "1⁸ = 1 · 1 · 1 · 1 · 1 · 1 · 1 · 1. Schritt für Schritt: 1 · 1 = 1, 1 · 1 = 1, 1 · 1 = 1, 1 · 1 = 1, 1 · 1 = 1, 1 · 1 = 1, 1 · 1 = 1.",
+   "h": "Schreibe die Potenz als Produkt und rechne von links nach rechts."
+  },
+  {
+   "l": "berechnen",
+   "t": "berechnen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 10³."
+   },
+   "o": {
+    "wert": 1000
+   },
+   "c": "10**3",
+   "w": "10³ = 10 · 10 · 10. Schritt für Schritt: 10 · 10 = 100, 100 · 10 = 1 000.",
    "h": "Schreibe die Potenz als Produkt und rechne von links nach rechts."
   },
   {
@@ -661,32 +1118,16 @@
    "l": "berechnen",
    "t": "berechnen",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne 2³."
+    "text": "Berechne 10⁴."
    },
    "o": {
-    "wert": 8
+    "wert": 10000
    },
-   "c": "2**3",
-   "w": "2³ = 2 · 2 · 2. Schritt für Schritt: 2 · 2 = 4, 4 · 2 = 8.",
-   "h": "Schreibe die Potenz als Produkt und rechne von links nach rechts."
-  },
-  {
-   "l": "berechnen",
-   "t": "berechnen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 10³."
-   },
-   "o": {
-    "wert": 1000
-   },
-   "c": "10**3",
-   "w": "10³ = 10 · 10 · 10. Schritt für Schritt: 10 · 10 = 100, 100 · 10 = 1 000.",
+   "c": "10**4",
+   "w": "10⁴ = 10 · 10 · 10 · 10. Schritt für Schritt: 10 · 10 = 100, 100 · 10 = 1 000, 1 000 · 10 = 10 000.",
    "h": "Schreibe die Potenz als Produkt und rechne von links nach rechts."
   },
   {
@@ -710,15 +1151,35 @@
    "t": "berechnen",
    "p": "uebung",
    "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet 2⁴ = 8. Was ist falsch?"
+   },
+   "a": [
+    "Das ist richtig gerechnet.",
+    "Es wurde 2 · 4 gerechnet. Richtig ist 2 · 2 · 2 · 2 = 16.",
+    "Richtig ist 2 + 4 = 6."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Der Exponent 4 zählt die Faktoren: 2 · 2 · 2 · 2 = 16. 2 · 4 = 8 ist etwas anderes.",
+   "h": "Was bedeutet der Exponent?"
+  },
+  {
+   "l": "berechnen",
+   "t": "berechnen",
+   "p": "uebung",
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne 50²."
+    "text": "Berechne 3⁵."
    },
    "o": {
-    "wert": 2500
+    "wert": 243
    },
-   "c": "50**2",
-   "w": "50² = 50 · 50. Schritt für Schritt: 50 · 50 = 2 500.",
+   "c": "3**5",
+   "w": "3⁵ = 3 · 3 · 3 · 3 · 3. Schritt für Schritt: 3 · 3 = 9, 9 · 3 = 27, 27 · 3 = 81, 81 · 3 = 243.",
    "h": "Schreibe die Potenz als Produkt und rechne von links nach rechts."
   },
   {
@@ -728,45 +1189,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne 2⁶."
+    "text": "Berechne 4⁴."
    },
    "o": {
-    "wert": 64
+    "wert": 256
    },
-   "c": "2**6",
-   "w": "2⁶ = 2 · 2 · 2 · 2 · 2 · 2. Schritt für Schritt: 2 · 2 = 4, 4 · 2 = 8, 8 · 2 = 16, 16 · 2 = 32, 32 · 2 = 64.",
-   "h": "Schreibe die Potenz als Produkt und rechne von links nach rechts."
-  },
-  {
-   "l": "berechnen",
-   "t": "berechnen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 9³."
-   },
-   "o": {
-    "wert": 729
-   },
-   "c": "9**3",
-   "w": "9³ = 9 · 9 · 9. Schritt für Schritt: 9 · 9 = 81, 81 · 9 = 729.",
-   "h": "Schreibe die Potenz als Produkt und rechne von links nach rechts."
-  },
-  {
-   "l": "berechnen",
-   "t": "berechnen",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 25²."
-   },
-   "o": {
-    "wert": 625
-   },
-   "c": "25**2",
-   "w": "25² = 25 · 25. Schritt für Schritt: 25 · 25 = 625.",
+   "c": "4**4",
+   "w": "4⁴ = 4 · 4 · 4 · 4. Schritt für Schritt: 4 · 4 = 16, 16 · 4 = 64, 64 · 4 = 256.",
    "h": "Schreibe die Potenz als Produkt und rechne von links nach rechts."
   },
   {
@@ -776,14 +1205,54 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Berechne 3⁷."
+    "text": "Berechne 2¹²."
    },
    "o": {
-    "wert": 2187
+    "wert": 4096
    },
-   "c": "3**7",
-   "w": "3⁷ = 3 · 3 · 3 · 3 · 3 · 3 · 3. Schritt für Schritt: 3 · 3 = 9, 9 · 3 = 27, 27 · 3 = 81, 81 · 3 = 243, 243 · 3 = 729, 729 · 3 = 2 187.",
+   "c": "2**12",
+   "w": "2¹² = 2 · 2 · 2 · 2 · 2 · 2 · 2 · 2 · 2 · 2 · 2 · 2. Schritt für Schritt: 2 · 2 = 4, 4 · 2 = 8, 8 · 2 = 16, 16 · 2 = 32, 32 · 2 = 64, 64 · 2 = 128, 128 · 2 = 256, 256 · 2 = 512, 512 · 2 = 1 024, 1 024 · 2 = 2 048, 2 048 · 2 = 4 096.",
    "h": "Schreibe die Potenz als Produkt und rechne von links nach rechts."
+  },
+  {
+   "l": "berechnen",
+   "t": "berechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet 5³ = 15. Was ist falsch?"
+   },
+   "a": [
+    "Es wurde 5 · 3 gerechnet. Richtig ist 5 · 5 · 5 = 125.",
+    "Das ist richtig gerechnet.",
+    "Richtig ist 3 · 3 · 3 · 3 · 3 = 243."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Der Exponent 3 zählt die Faktoren: 5 · 5 · 5 = 125. 5 · 3 = 15 ist etwas anderes.",
+   "h": "Was bedeutet der Exponent?"
+  },
+  {
+   "l": "berechnen",
+   "t": "berechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet 7² = 14. Was ist falsch?"
+   },
+   "a": [
+    "Richtig ist 2 · 2 · 2 · 2 · 2 · 2 · 2 = 128.",
+    "Es wurde 7 · 2 gerechnet. Richtig ist 7 · 7 = 49.",
+    "Das ist richtig gerechnet."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Der Exponent 2 zählt die Faktoren: 7 · 7 = 49. 7 · 2 = 14 ist etwas anderes.",
+   "h": "Was bedeutet der Exponent?"
   },
   {
    "l": "berechnen",
@@ -806,48 +1275,20 @@
    "t": "berechnen",
    "p": "uebung",
    "s": 3,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Berechne 30³."
+    "text": "Jemand rechnet 9² = 18. Was ist falsch?"
    },
+   "a": [
+    "Richtig ist 2 · 2 · 2 · 2 · 2 · 2 · 2 · 2 · 2 = 512.",
+    "Das ist richtig gerechnet.",
+    "Es wurde 9 · 2 gerechnet. Richtig ist 9 · 9 = 81."
+   ],
    "o": {
-    "wert": 27000
+    "index": 2
    },
-   "c": "30**3",
-   "w": "30³ = 30 · 30 · 30. Schritt für Schritt: 30 · 30 = 900, 900 · 30 = 27 000.",
-   "h": "Schreibe die Potenz als Produkt und rechne von links nach rechts."
-  },
-  {
-   "l": "berechnen",
-   "t": "berechnen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 6⁴."
-   },
-   "o": {
-    "wert": 1296
-   },
-   "c": "6**4",
-   "w": "6⁴ = 6 · 6 · 6 · 6. Schritt für Schritt: 6 · 6 = 36, 36 · 6 = 216, 216 · 6 = 1 296.",
-   "h": "Schreibe die Potenz als Produkt und rechne von links nach rechts."
-  },
-  {
-   "l": "berechnen",
-   "t": "berechnen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 2⁹."
-   },
-   "o": {
-    "wert": 512
-   },
-   "c": "2**9",
-   "w": "2⁹ = 2 · 2 · 2 · 2 · 2 · 2 · 2 · 2 · 2. Schritt für Schritt: 2 · 2 = 4, 4 · 2 = 8, 8 · 2 = 16, 16 · 2 = 32, 32 · 2 = 64, 64 · 2 = 128, 128 · 2 = 256, 256 · 2 = 512.",
-   "h": "Schreibe die Potenz als Produkt und rechne von links nach rechts."
+   "w": "Der Exponent 2 zählt die Faktoren: 9 · 9 = 81. 9 · 2 = 18 ist etwas anderes.",
+   "h": "Was bedeutet der Exponent?"
   },
   {
    "l": "berechnen",
@@ -856,28 +1297,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne 8³."
+    "text": "Berechne 50²."
    },
    "o": {
-    "wert": 512
+    "wert": 2500
    },
-   "c": "8**3",
-   "w": "8³ = 8 · 8 · 8. Schritt für Schritt: 8 · 8 = 64, 64 · 8 = 512."
-  },
-  {
-   "l": "berechnen",
-   "t": "berechnen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 6³."
-   },
-   "o": {
-    "wert": 216
-   },
-   "c": "6**3",
-   "w": "6³ = 6 · 6 · 6. Schritt für Schritt: 6 · 6 = 36, 36 · 6 = 216."
+   "c": "50**2",
+   "w": "50² = 50 · 50. Schritt für Schritt: 50 · 50 = 2 500."
   },
   {
    "l": "berechnen",
@@ -901,13 +1327,28 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne 30²."
+    "text": "Berechne 40²."
    },
    "o": {
-    "wert": 900
+    "wert": 1600
    },
-   "c": "30**2",
-   "w": "30² = 30 · 30. Schritt für Schritt: 30 · 30 = 900."
+   "c": "40**2",
+   "w": "40² = 40 · 40. Schritt für Schritt: 40 · 40 = 1 600."
+  },
+  {
+   "l": "berechnen",
+   "t": "berechnen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 10⁵."
+   },
+   "o": {
+    "wert": 100000
+   },
+   "c": "10**5",
+   "w": "10⁵ = 10 · 10 · 10 · 10 · 10. Schritt für Schritt: 10 · 10 = 100, 100 · 10 = 1 000, 1 000 · 10 = 10 000, 10 000 · 10 = 100 000."
   },
   {
    "l": "berechnen",
@@ -916,13 +1357,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne 10⁴."
+    "text": "Berechne 2⁶."
    },
    "o": {
-    "wert": 10000
+    "wert": 64
    },
-   "c": "10**4",
-   "w": "10⁴ = 10 · 10 · 10 · 10. Schritt für Schritt: 10 · 10 = 100, 100 · 10 = 1 000, 1 000 · 10 = 10 000."
+   "c": "2**6",
+   "w": "2⁶ = 2 · 2 · 2 · 2 · 2 · 2. Schritt für Schritt: 2 · 2 = 4, 4 · 2 = 8, 8 · 2 = 16, 16 · 2 = 32, 32 · 2 = 64."
   },
   {
    "l": "berechnen",
@@ -931,28 +1372,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne 4⁴."
+    "text": "Berechne 3⁶."
    },
    "o": {
-    "wert": 256
+    "wert": 729
    },
-   "c": "4**4",
-   "w": "4⁴ = 4 · 4 · 4 · 4. Schritt für Schritt: 4 · 4 = 16, 16 · 4 = 64, 64 · 4 = 256."
-  },
-  {
-   "l": "berechnen",
-   "t": "berechnen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 3⁴."
-   },
-   "o": {
-    "wert": 81
-   },
-   "c": "3**4",
-   "w": "3⁴ = 3 · 3 · 3 · 3. Schritt für Schritt: 3 · 3 = 9, 9 · 3 = 27, 27 · 3 = 81."
+   "c": "3**6",
+   "w": "3⁶ = 3 · 3 · 3 · 3 · 3 · 3. Schritt für Schritt: 3 · 3 = 9, 9 · 3 = 27, 27 · 3 = 81, 81 · 3 = 243, 243 · 3 = 729."
   },
   {
    "l": "berechnen",
@@ -974,15 +1400,19 @@
    "t": "berechnen",
    "p": "sicherung",
    "s": 2,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Berechne 7³."
+    "text": "Jemand rechnet 4² = 8. Was ist falsch?"
    },
+   "a": [
+    "Das ist richtig gerechnet.",
+    "Es wurde 4 · 2 gerechnet. Richtig ist 4 · 4 = 16.",
+    "Richtig ist 4 + 2 = 6."
+   ],
    "o": {
-    "wert": 343
+    "index": 1
    },
-   "c": "7**3",
-   "w": "7³ = 7 · 7 · 7. Schritt für Schritt: 7 · 7 = 49, 49 · 7 = 343."
+   "w": "Der Exponent 2 zählt die Faktoren: 4 · 4 = 16. 4 · 2 = 8 ist etwas anderes."
   },
   {
    "l": "berechnen",
@@ -991,13 +1421,28 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne 40²."
+    "text": "Berechne 1²⁰."
    },
    "o": {
-    "wert": 1600
+    "wert": 1
    },
-   "c": "40**2",
-   "w": "40² = 40 · 40. Schritt für Schritt: 40 · 40 = 1 600."
+   "c": "1**20",
+   "w": "1²⁰ = 1 · 1 · 1 · 1 · 1 · 1 · 1 · 1 · 1 · 1 · 1 · 1 · 1 · 1 · 1 · 1 · 1 · 1 · 1 · 1. Schritt für Schritt: 1 · 1 = 1, 1 · 1 = 1, 1 · 1 = 1, 1 · 1 = 1, 1 · 1 = 1, 1 · 1 = 1, 1 · 1 = 1, 1 · 1 = 1, 1 · 1 = 1, 1 · 1 = 1, 1 · 1 = 1, 1 · 1 = 1, 1 · 1 = 1, 1 · 1 = 1, 1 · 1 = 1, 1 · 1 = 1, 1 · 1 = 1, 1 · 1 = 1, 1 · 1 = 1."
+  },
+  {
+   "l": "berechnen",
+   "t": "berechnen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 9³."
+   },
+   "o": {
+    "wert": 729
+   },
+   "c": "9**3",
+   "w": "9³ = 9 · 9 · 9. Schritt für Schritt: 9 · 9 = 81, 81 · 9 = 729."
   },
   {
    "l": "quadrat",
@@ -1006,13 +1451,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Berechne 3²."
+    "text": "Berechne 7²."
    },
    "o": {
-    "wert": 9
+    "wert": 49
    },
-   "c": "3**2",
-   "w": "3² = 3 · 3 = 9.",
+   "c": "7**2",
+   "w": "7² = 7 · 7 = 49.",
    "h": "Hoch 2 heißt: die Zahl mal sich selbst."
   },
   {
@@ -1038,38 +1483,6 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Berechne 2²."
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "2**2",
-   "w": "2² = 2 · 2 = 4.",
-   "h": "Hoch 2 heißt: die Zahl mal sich selbst."
-  },
-  {
-   "l": "quadrat",
-   "t": "berechnen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 9²."
-   },
-   "o": {
-    "wert": 81
-   },
-   "c": "9**2",
-   "w": "9² = 9 · 9 = 81.",
-   "h": "Hoch 2 heißt: die Zahl mal sich selbst."
-  },
-  {
-   "l": "quadrat",
-   "t": "berechnen",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
     "text": "Berechne 6²."
    },
    "o": {
@@ -1077,6 +1490,54 @@
    },
    "c": "6**2",
    "w": "6² = 6 · 6 = 36.",
+   "h": "Hoch 2 heißt: die Zahl mal sich selbst."
+  },
+  {
+   "l": "quadrat",
+   "t": "berechnen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 8²."
+   },
+   "o": {
+    "wert": 64
+   },
+   "c": "8**2",
+   "w": "8² = 8 · 8 = 64.",
+   "h": "Hoch 2 heißt: die Zahl mal sich selbst."
+  },
+  {
+   "l": "quadrat",
+   "t": "berechnen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 3²."
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "3**2",
+   "w": "3² = 3 · 3 = 9.",
+   "h": "Hoch 2 heißt: die Zahl mal sich selbst."
+  },
+  {
+   "l": "quadrat",
+   "t": "berechnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 12²."
+   },
+   "o": {
+    "wert": 144
+   },
+   "c": "12**2",
+   "w": "12² = 12 · 12 = 144.",
    "h": "Hoch 2 heißt: die Zahl mal sich selbst."
   },
   {
@@ -1093,7 +1554,7 @@
    },
    "c": "16",
    "w": "Gesucht ist die Zahl, die mit sich selbst malgenommen 256 ergibt: 16 · 16 = 256.",
-   "h": "Probiere mit den Quadratzahlen, die du kennst: 10² = 100, 15² = 225, 20² = 400."
+   "h": "Welche Zahl mal sich selbst ergibt 256? Beginne bei einer Zahl, deren Quadrat du kennst, und probiere weiter."
   },
   {
    "l": "quadrat",
@@ -1102,13 +1563,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne 15²."
+    "text": "Berechne 11²."
    },
    "o": {
-    "wert": 225
+    "wert": 121
    },
-   "c": "15**2",
-   "w": "15² = 15 · 15 = 225.",
+   "c": "11**2",
+   "w": "11² = 11 · 11 = 121.",
    "h": "Hoch 2 heißt: die Zahl mal sich selbst."
   },
   {
@@ -1118,14 +1579,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Welche natürliche Zahl ergibt im Quadrat 400?"
+    "text": "Welche natürliche Zahl ergibt im Quadrat 324?"
    },
    "o": {
-    "wert": 20
+    "wert": 18
    },
-   "c": "20",
-   "w": "Gesucht ist die Zahl, die mit sich selbst malgenommen 400 ergibt: 20 · 20 = 400.",
-   "h": "Probiere mit den Quadratzahlen, die du kennst: 10² = 100, 15² = 225, 20² = 400."
+   "c": "18",
+   "w": "Gesucht ist die Zahl, die mit sich selbst malgenommen 324 ergibt: 18 · 18 = 324.",
+   "h": "Welche Zahl mal sich selbst ergibt 324? Beginne bei einer Zahl, deren Quadrat du kennst, und probiere weiter."
   },
   {
    "l": "quadrat",
@@ -1134,30 +1595,30 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne 18²."
+    "text": "Berechne 20²."
    },
    "o": {
-    "wert": 324
+    "wert": 400
    },
-   "c": "18**2",
-   "w": "18² = 18 · 18 = 324.",
+   "c": "20**2",
+   "w": "20² = 20 · 20 = 400.",
    "h": "Hoch 2 heißt: die Zahl mal sich selbst."
   },
   {
    "l": "quadrat",
    "t": "berechnen",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Berechne 17²."
+    "text": "Berechne 20² − 2²."
    },
    "o": {
-    "wert": 289
+    "wert": 396
    },
-   "c": "17**2",
-   "w": "17² = 17 · 17 = 289.",
-   "h": "Hoch 2 heißt: die Zahl mal sich selbst."
+   "c": "20**2 - 2**2",
+   "w": "Erst die Quadrate: 20² = 400 und 2² = 4. Dann 400 − 4 = 396.",
+   "h": "Rechne zuerst beide Quadrate aus, dann die Differenz."
   },
   {
    "l": "quadrat",
@@ -1169,47 +1630,15 @@
     "text": "Welche Zahl ist eine Quadratzahl?"
    },
    "a": [
-    "254",
-    "256",
-    "97"
+    "30",
+    "226",
+    "225"
    ],
    "o": {
-    "index": 1
+    "index": 2
    },
-   "w": "256 = 16 · 16 = 16². Die anderen Zahlen sind kein Quadrat einer natürlichen Zahl.",
+   "w": "225 = 15 · 15 = 15². 30 wäre 15 · 2, nicht 15 · 15. 226 liegt neben 225, ist aber selbst kein Quadrat.",
    "h": "Eine Quadratzahl ist eine Zahl mal sich selbst."
-  },
-  {
-   "l": "quadrat",
-   "t": "berechnen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Welche Quadratzahl liegt zwischen 356 und 366?"
-   },
-   "o": {
-    "wert": 361
-   },
-   "c": "19**2",
-   "w": "In diesem Bereich liegt 19 · 19 = 361. Die Nachbarn 324 und 400 liegen außerhalb.",
-   "h": "Gehe die Quadratzahlen der Reihe nach durch."
-  },
-  {
-   "l": "quadrat",
-   "t": "berechnen",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Welche Quadratzahl liegt zwischen 354 und 367?"
-   },
-   "o": {
-    "wert": 361
-   },
-   "c": "19**2",
-   "w": "In diesem Bereich liegt 19 · 19 = 361. Die Nachbarn 324 und 400 liegen außerhalb.",
-   "h": "Gehe die Quadratzahlen der Reihe nach durch."
   },
   {
    "l": "quadrat",
@@ -1221,14 +1650,34 @@
     "text": "Welche Zahl ist eine Quadratzahl?"
    },
    "a": [
-    "73",
-    "144",
-    "143"
+    "121",
+    "22",
+    "122"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "121 = 11 · 11 = 11². 22 wäre 11 · 2, nicht 11 · 11. 122 liegt neben 121, ist aber selbst kein Quadrat.",
+   "h": "Eine Quadratzahl ist eine Zahl mal sich selbst."
+  },
+  {
+   "l": "quadrat",
+   "t": "berechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zahl ist eine Quadratzahl?"
+   },
+   "a": [
+    "124",
+    "121",
+    "22"
    ],
    "o": {
     "index": 1
    },
-   "w": "144 = 12 · 12 = 12². Die anderen Zahlen sind kein Quadrat einer natürlichen Zahl.",
+   "w": "121 = 11 · 11 = 11². 22 wäre 11 · 2, nicht 11 · 11. 124 liegt neben 121, ist aber selbst kein Quadrat.",
    "h": "Eine Quadratzahl ist eine Zahl mal sich selbst."
   },
   {
@@ -1238,14 +1687,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Welche Quadratzahl liegt zwischen 283 und 297?"
+    "text": "Wie viele Quadratzahlen liegen zwischen 120 und 170?"
    },
    "o": {
-    "wert": 289
+    "wert": 3
    },
-   "c": "17**2",
-   "w": "In diesem Bereich liegt 17 · 17 = 289. Die Nachbarn 256 und 324 liegen außerhalb.",
-   "h": "Gehe die Quadratzahlen der Reihe nach durch."
+   "c": "3",
+   "w": "Zwischen 120 und 170 liegen: 121, 144, 169. Das sind 3.",
+   "h": "Schreibe die Quadratzahlen der Reihe nach auf und zähle, welche dazwischen liegen."
   },
   {
    "l": "quadrat",
@@ -1254,13 +1703,28 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne 16²."
+    "text": "Welche natürliche Zahl ergibt im Quadrat 361?"
    },
    "o": {
-    "wert": 256
+    "wert": 19
    },
-   "c": "16**2",
-   "w": "16² = 16 · 16 = 256."
+   "c": "19",
+   "w": "Gesucht ist die Zahl, die mit sich selbst malgenommen 361 ergibt: 19 · 19 = 361."
+  },
+  {
+   "l": "quadrat",
+   "t": "berechnen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 13²."
+   },
+   "o": {
+    "wert": 169
+   },
+   "c": "13**2",
+   "w": "13² = 13 · 13 = 169."
   },
   {
    "l": "quadrat",
@@ -1284,43 +1748,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Welche natürliche Zahl ergibt im Quadrat 196?"
+    "text": "Welche natürliche Zahl ergibt im Quadrat 144?"
    },
    "o": {
-    "wert": 14
+    "wert": 12
    },
-   "c": "14",
-   "w": "Gesucht ist die Zahl, die mit sich selbst malgenommen 196 ergibt: 14 · 14 = 196."
-  },
-  {
-   "l": "quadrat",
-   "t": "berechnen",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 13²."
-   },
-   "o": {
-    "wert": 169
-   },
-   "c": "13**2",
-   "w": "13² = 13 · 13 = 169."
-  },
-  {
-   "l": "quadrat",
-   "t": "berechnen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 12²."
-   },
-   "o": {
-    "wert": 144
-   },
-   "c": "12**2",
-   "w": "12² = 12 · 12 = 144."
+   "c": "12",
+   "w": "Gesucht ist die Zahl, die mit sich selbst malgenommen 144 ergibt: 12 · 12 = 144."
   },
   {
    "l": "quadrat",
@@ -1344,6 +1778,66 @@
    "s": 2,
    "y": "zahl",
    "f": {
+    "text": "Berechne 17²."
+   },
+   "o": {
+    "wert": 289
+   },
+   "c": "17**2",
+   "w": "17² = 17 · 17 = 289."
+  },
+  {
+   "l": "quadrat",
+   "t": "berechnen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Welche natürliche Zahl ergibt im Quadrat 169?"
+   },
+   "o": {
+    "wert": 13
+   },
+   "c": "13",
+   "w": "Gesucht ist die Zahl, die mit sich selbst malgenommen 169 ergibt: 13 · 13 = 169."
+  },
+  {
+   "l": "quadrat",
+   "t": "berechnen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 15²."
+   },
+   "o": {
+    "wert": 225
+   },
+   "c": "15**2",
+   "w": "15² = 15 · 15 = 225."
+  },
+  {
+   "l": "quadrat",
+   "t": "berechnen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Welche natürliche Zahl ergibt im Quadrat 400?"
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "20",
+   "w": "Gesucht ist die Zahl, die mit sich selbst malgenommen 400 ergibt: 20 · 20 = 400."
+  },
+  {
+   "l": "quadrat",
+   "t": "berechnen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
     "text": "Berechne 19²."
    },
    "o": {
@@ -1353,108 +1847,23 @@
    "w": "19² = 19 · 19 = 361."
   },
   {
-   "l": "quadrat",
-   "t": "berechnen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Welche natürliche Zahl ergibt im Quadrat 324?"
-   },
-   "o": {
-    "wert": 18
-   },
-   "c": "18",
-   "w": "Gesucht ist die Zahl, die mit sich selbst malgenommen 324 ergibt: 18 · 18 = 324."
-  },
-  {
-   "l": "quadrat",
-   "t": "berechnen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 11²."
-   },
-   "o": {
-    "wert": 121
-   },
-   "c": "11**2",
-   "w": "11² = 11 · 11 = 121."
-  },
-  {
-   "l": "quadrat",
-   "t": "berechnen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 20²."
-   },
-   "o": {
-    "wert": 400
-   },
-   "c": "20**2",
-   "w": "20² = 20 · 20 = 400."
-  },
-  {
    "l": "vertauschen",
    "t": "begriff",
    "p": "uebung",
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Vergleiche 5³ und 3⁵. Was stimmt?"
+    "text": "Vergleiche 2⁴ und 4². Was stimmt?"
    },
    "a": [
-    "3⁵ ist größer",
-    "Beide sind gleich groß",
-    "5³ ist größer"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "5³ = 125 und 3⁵ = 243. Also ist 3⁵ größer.",
-   "h": "Rechne beide Potenzen aus und vergleiche."
-  },
-  {
-   "l": "vertauschen",
-   "t": "begriff",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Vergleiche 2³ und 3². Was stimmt?"
-   },
-   "a": [
-    "2³ ist größer",
-    "Beide sind gleich groß",
-    "3² ist größer"
+    "4² ist größer",
+    "2⁴ ist größer",
+    "Beide sind gleich groß"
    ],
    "o": {
     "index": 2
    },
-   "w": "2³ = 8 und 3² = 9. Also ist 3² größer.",
-   "h": "Rechne beide Potenzen aus und vergleiche."
-  },
-  {
-   "l": "vertauschen",
-   "t": "begriff",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Vergleiche 5² und 2⁵. Was stimmt?"
-   },
-   "a": [
-    "2⁵ ist größer",
-    "Beide sind gleich groß",
-    "5² ist größer"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "5² = 25 und 2⁵ = 32. Also ist 2⁵ größer.",
+   "w": "2⁴ = 16 und 4² = 16. Hier sind beide gleich – das ist ein seltener Sonderfall.",
    "h": "Rechne beide Potenzen aus und vergleiche."
   },
   {
@@ -1474,7 +1883,7 @@
    "o": {
     "index": 0
    },
-   "w": "4³ = 64 und 3⁴ = 81. Also ist 3⁴ größer.",
+   "w": "4³ = 64 und 3⁴ = 81. Also: 3⁴ ist größer.",
    "h": "Rechne beide Potenzen aus und vergleiche."
   },
   {
@@ -1487,47 +1896,55 @@
     "text": "Vergleiche 5² und 2⁵. Was stimmt?"
    },
    "a": [
+    "Beide sind gleich groß",
     "2⁵ ist größer",
-    "5² ist größer",
-    "Beide sind gleich groß"
+    "5² ist größer"
    ],
    "o": {
-    "index": 0
+    "index": 1
    },
-   "w": "5² = 25 und 2⁵ = 32. Also ist 2⁵ größer.",
+   "w": "5² = 25 und 2⁵ = 32. Also: 2⁵ ist größer.",
    "h": "Rechne beide Potenzen aus und vergleiche."
   },
   {
    "l": "vertauschen",
    "t": "begriff",
    "p": "uebung",
-   "s": 2,
-   "y": "zahl",
+   "s": 1,
+   "y": "auswahl",
    "f": {
-    "text": "Um wie viel unterscheiden sich 7² und 2⁷? Gib den Unterschied als positive Zahl an."
+    "text": "Vergleiche 2³ und 3². Was stimmt?"
    },
+   "a": [
+    "2³ ist größer",
+    "Beide sind gleich groß",
+    "3² ist größer"
+   ],
    "o": {
-    "wert": 79
+    "index": 2
    },
-   "c": "abs(7**2 - 2**7)",
-   "w": "7² = 49 und 2⁷ = 128. Unterschied: 128 − 49 = 79.",
-   "h": "Rechne beide Potenzen aus. Ziehe die kleinere von der größeren ab."
+   "w": "2³ = 8 und 3² = 9. Also: 3² ist größer.",
+   "h": "Rechne beide Potenzen aus und vergleiche."
   },
   {
    "l": "vertauschen",
    "t": "begriff",
    "p": "uebung",
-   "s": 2,
-   "y": "zahl",
+   "s": 1,
+   "y": "auswahl",
    "f": {
-    "text": "Um wie viel unterscheiden sich 7³ und 3⁷? Gib den Unterschied als positive Zahl an."
+    "text": "Vergleiche 5³ und 3⁵. Was stimmt?"
    },
+   "a": [
+    "3⁵ ist größer",
+    "Beide sind gleich groß",
+    "5³ ist größer"
+   ],
    "o": {
-    "wert": 1844
+    "index": 0
    },
-   "c": "abs(7**3 - 3**7)",
-   "w": "7³ = 343 und 3⁷ = 2 187. Unterschied: 2 187 − 343 = 1 844.",
-   "h": "Rechne beide Potenzen aus. Ziehe die kleinere von der größeren ab."
+   "w": "5³ = 125 und 3⁵ = 243. Also: 3⁵ ist größer.",
+   "h": "Rechne beide Potenzen aus und vergleiche."
   },
   {
    "l": "vertauschen",
@@ -1536,17 +1953,37 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Vergleiche 3⁶ und 6³. Was stimmt?"
+    "text": "Vergleiche 4⁵ und 5⁴. Was stimmt?"
    },
    "a": [
     "Beide sind gleich groß",
+    "4⁵ ist größer",
+    "5⁴ ist größer"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "4⁵ = 1 024 und 5⁴ = 625. Also: 4⁵ ist größer.",
+   "h": "Rechne beide Potenzen aus und vergleiche."
+  },
+  {
+   "l": "vertauschen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Vergleiche 6³ und 3⁶. Was stimmt?"
+   },
+   "a": [
     "6³ ist größer",
+    "Beide sind gleich groß",
     "3⁶ ist größer"
    ],
    "o": {
     "index": 2
    },
-   "w": "3⁶ = 729 und 6³ = 216. Also ist 3⁶ größer.",
+   "w": "6³ = 216 und 3⁶ = 729. Also: 3⁶ ist größer.",
    "h": "Rechne beide Potenzen aus und vergleiche."
   },
   {
@@ -1554,20 +1991,16 @@
    "t": "begriff",
    "p": "uebung",
    "s": 2,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Vergleiche 2⁸ und 8². Was stimmt?"
+    "text": "Um wie viel unterscheiden sich 9² und 2⁹? Gib den Unterschied als positive Zahl an."
    },
-   "a": [
-    "Beide sind gleich groß",
-    "8² ist größer",
-    "2⁸ ist größer"
-   ],
    "o": {
-    "index": 2
+    "wert": 431
    },
-   "w": "2⁸ = 256 und 8² = 64. Also ist 2⁸ größer.",
-   "h": "Rechne beide Potenzen aus und vergleiche."
+   "c": "abs(9**2 - 2**9)",
+   "w": "9² = 81 und 2⁹ = 512. Unterschied: 512 − 81 = 431.",
+   "h": "Rechne beide Potenzen aus. Ziehe die kleinere von der größeren ab."
   },
   {
    "l": "vertauschen",
@@ -1576,34 +2009,54 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Vergleiche 2⁷ und 7². Was stimmt?"
+    "text": "Vergleiche 7² und 2⁷. Was stimmt?"
    },
    "a": [
-    "Beide sind gleich groß",
+    "2⁷ ist größer",
     "7² ist größer",
-    "2⁷ ist größer"
+    "Beide sind gleich groß"
    ],
    "o": {
-    "index": 2
+    "index": 0
    },
-   "w": "2⁷ = 128 und 7² = 49. Also ist 2⁷ größer.",
+   "w": "7² = 49 und 2⁷ = 128. Also: 2⁷ ist größer.",
    "h": "Rechne beide Potenzen aus und vergleiche."
+  },
+  {
+   "l": "vertauschen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Um wie viel unterscheiden sich 8² und 2⁸? Gib den Unterschied als positive Zahl an."
+   },
+   "o": {
+    "wert": 192
+   },
+   "c": "abs(8**2 - 2**8)",
+   "w": "8² = 64 und 2⁸ = 256. Unterschied: 256 − 64 = 192.",
+   "h": "Rechne beide Potenzen aus. Ziehe die kleinere von der größeren ab."
   },
   {
    "l": "vertauschen",
    "t": "begriff",
    "p": "uebung",
    "s": 3,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Um wie viel unterscheiden sich 3¹⁰ und 10³? Gib den Unterschied als positive Zahl an."
+    "text": "Jemand sagt: 2⁸ ist größer als 9², weil 8 der größere Exponent ist. Stimmt das?"
    },
+   "a": [
+    "Nein, 9² ist größer.",
+    "Die Aussage stimmt (256 > 81), aber die Begründung nicht: Es kommt auch auf die Basis an.",
+    "Ja, der größere Exponent ergibt immer die größere Zahl."
+   ],
    "o": {
-    "wert": 58049
+    "index": 1
    },
-   "c": "abs(3**10 - 10**3)",
-   "w": "3¹⁰ = 59 049 und 10³ = 1 000. Unterschied: 59 049 − 1 000 = 58 049.",
-   "h": "Rechne beide Potenzen aus. Ziehe die kleinere von der größeren ab."
+   "w": "2⁸ = 256 und 9² = 81. Ob eine Potenz größer ist, hängt von Basis und Exponent ab – nur ausrechnen hilft.",
+   "h": "Rechne beide Potenzen aus."
   },
   {
    "l": "vertauschen",
@@ -1615,14 +2068,14 @@
     "text": "Vergleiche 9³ und 3⁹. Was stimmt?"
    },
    "a": [
-    "3⁹ ist größer",
     "Beide sind gleich groß",
-    "9³ ist größer"
+    "9³ ist größer",
+    "3⁹ ist größer"
    ],
    "o": {
-    "index": 0
+    "index": 2
    },
-   "w": "9³ = 729 und 3⁹ = 19 683. Also ist 3⁹ größer.",
+   "w": "9³ = 729 und 3⁹ = 19 683. Also: 3⁹ ist größer.",
    "h": "Rechne beide Potenzen aus und vergleiche."
   },
   {
@@ -1632,65 +2085,77 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Vergleiche 2¹¹ und 11². Was stimmt?"
+    "text": "Jemand sagt: 2⁵ ist größer als 6², weil 5 der größere Exponent ist. Stimmt das?"
+   },
+   "a": [
+    "Nein: 2⁵ = 32, aber 6² = 36.",
+    "Man kann die beiden nicht vergleichen.",
+    "Ja, der größere Exponent ergibt immer die größere Zahl."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "2⁵ = 32 und 6² = 36. Ob eine Potenz größer ist, hängt von Basis und Exponent ab – nur ausrechnen hilft.",
+   "h": "Rechne beide Potenzen aus."
+  },
+  {
+   "l": "vertauschen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Gilt immer: Basis hoch Exponent = Exponent hoch Basis?"
+   },
+   "a": [
+    "Nur bei geraden Zahlen.",
+    "Nein, z. B. 2³ = 8, aber 3² = 9.",
+    "Ja, immer."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Ein Gegenbeispiel genügt: 2³ = 8, aber 3² = 9. Nur bei 2⁴ = 4² = 16 kommt zufällig dasselbe heraus.",
+   "h": "Suche ein Beispiel, bei dem es nicht stimmt."
+  },
+  {
+   "l": "vertauschen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Vergleiche 3⁸ und 8³. Was stimmt?"
    },
    "a": [
     "Beide sind gleich groß",
-    "11² ist größer",
-    "2¹¹ ist größer"
+    "8³ ist größer",
+    "3⁸ ist größer"
    ],
    "o": {
     "index": 2
    },
-   "w": "2¹¹ = 2 048 und 11² = 121. Also ist 2¹¹ größer.",
+   "w": "3⁸ = 6 561 und 8³ = 512. Also: 3⁸ ist größer.",
    "h": "Rechne beide Potenzen aus und vergleiche."
-  },
-  {
-   "l": "vertauschen",
-   "t": "begriff",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Um wie viel unterscheiden sich 9³ und 3⁹? Gib den Unterschied als positive Zahl an."
-   },
-   "o": {
-    "wert": 18954
-   },
-   "c": "abs(9**3 - 3**9)",
-   "w": "9³ = 729 und 3⁹ = 19 683. Unterschied: 19 683 − 729 = 18 954.",
-   "h": "Rechne beide Potenzen aus. Ziehe die kleinere von der größeren ab."
-  },
-  {
-   "l": "vertauschen",
-   "t": "begriff",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Um wie viel unterscheiden sich 3⁹ und 9³? Gib den Unterschied als positive Zahl an."
-   },
-   "o": {
-    "wert": 18954
-   },
-   "c": "abs(3**9 - 9**3)",
-   "w": "3⁹ = 19 683 und 9³ = 729. Unterschied: 19 683 − 729 = 18 954.",
-   "h": "Rechne beide Potenzen aus. Ziehe die kleinere von der größeren ab."
   },
   {
    "l": "vertauschen",
    "t": "begriff",
    "p": "test",
    "s": 2,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Um wie viel unterscheiden sich 6⁴ und 4⁶? Gib den Unterschied als positive Zahl an."
+    "text": "Vergleiche 7³ und 3⁷. Was stimmt?"
    },
+   "a": [
+    "3⁷ ist größer",
+    "Beide sind gleich groß",
+    "7³ ist größer"
+   ],
    "o": {
-    "wert": 2800
+    "index": 0
    },
-   "c": "abs(6**4 - 4**6)",
-   "w": "6⁴ = 1 296 und 4⁶ = 4 096. Unterschied: 4 096 − 1 296 = 2 800."
+   "w": "7³ = 343 und 3⁷ = 2 187. Also: 3⁷ ist größer."
   },
   {
    "l": "vertauschen",
@@ -1699,47 +2164,55 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Vergleiche 3⁷ und 7³. Was stimmt?"
+    "text": "Bei welchem Paar sind beide Potenzen gleich groß?"
    },
    "a": [
-    "Beide sind gleich groß",
-    "7³ ist größer",
-    "3⁷ ist größer"
+    "3⁴ und 4³",
+    "2⁴ und 4²",
+    "2³ und 3²"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "2⁴ = 16 und 4² = 16. Bei den anderen Paaren kommt Verschiedenes heraus, z. B. 2³ = 8, aber 3² = 9."
+  },
+  {
+   "l": "vertauschen",
+   "t": "begriff",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: 2⁴ ist größer als 6², weil 4 der größere Exponent ist. Stimmt das?"
+   },
+   "a": [
+    "Ja, der größere Exponent ergibt immer die größere Zahl.",
+    "Man kann die beiden nicht vergleichen.",
+    "Nein: 2⁴ = 16, aber 6² = 36."
    ],
    "o": {
     "index": 2
    },
-   "w": "3⁷ = 2 187 und 7³ = 343. Also ist 3⁷ größer."
+   "w": "2⁴ = 16 und 6² = 36. Ob eine Potenz größer ist, hängt von Basis und Exponent ab – nur ausrechnen hilft."
   },
   {
    "l": "vertauschen",
    "t": "begriff",
    "p": "korrektur",
    "s": 2,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Um wie viel unterscheiden sich 8² und 2⁸? Gib den Unterschied als positive Zahl an."
+    "text": "Jemand sagt: 2³ ist größer als 10², weil 3 der größere Exponent ist. Stimmt das?"
    },
+   "a": [
+    "Nein: 2³ = 8, aber 10² = 100.",
+    "Man kann die beiden nicht vergleichen.",
+    "Ja, der größere Exponent ergibt immer die größere Zahl."
+   ],
    "o": {
-    "wert": 192
+    "index": 0
    },
-   "c": "abs(8**2 - 2**8)",
-   "w": "8² = 64 und 2⁸ = 256. Unterschied: 256 − 64 = 192."
-  },
-  {
-   "l": "vertauschen",
-   "t": "begriff",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Um wie viel unterscheiden sich 2⁷ und 7²? Gib den Unterschied als positive Zahl an."
-   },
-   "o": {
-    "wert": 79
-   },
-   "c": "abs(2**7 - 7**2)",
-   "w": "2⁷ = 128 und 7² = 49. Unterschied: 128 − 49 = 79."
+   "w": "2³ = 8 und 10² = 100. Ob eine Potenz größer ist, hängt von Basis und Exponent ab – nur ausrechnen hilft."
   },
   {
    "l": "vertauschen",
@@ -1748,47 +2221,36 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Vergleiche 6⁴ und 4⁶. Was stimmt?"
+    "text": "Bei welchem Paar sind beide Potenzen gleich groß?"
    },
    "a": [
-    "6⁴ ist größer",
-    "Beide sind gleich groß",
-    "4⁶ ist größer"
+    "3⁴ und 4³",
+    "2⁴ und 4²",
+    "2⁵ und 5²"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "2⁴ = 16 und 4² = 16. Bei den anderen Paaren kommt Verschiedenes heraus, z. B. 2³ = 8, aber 3² = 9."
+  },
+  {
+   "l": "vertauschen",
+   "t": "begriff",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: 2⁶ ist größer als 10², weil 6 der größere Exponent ist. Stimmt das?"
+   },
+   "a": [
+    "Ja, der größere Exponent ergibt immer die größere Zahl.",
+    "Man kann die beiden nicht vergleichen.",
+    "Nein: 2⁶ = 64, aber 10² = 100."
    ],
    "o": {
     "index": 2
    },
-   "w": "6⁴ = 1 296 und 4⁶ = 4 096. Also ist 4⁶ größer."
-  },
-  {
-   "l": "vertauschen",
-   "t": "begriff",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Um wie viel unterscheiden sich 9² und 2⁹? Gib den Unterschied als positive Zahl an."
-   },
-   "o": {
-    "wert": 431
-   },
-   "c": "abs(9**2 - 2**9)",
-   "w": "9² = 81 und 2⁹ = 512. Unterschied: 512 − 81 = 431."
-  },
-  {
-   "l": "vertauschen",
-   "t": "begriff",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Um wie viel unterscheiden sich 2⁸ und 8²? Gib den Unterschied als positive Zahl an."
-   },
-   "o": {
-    "wert": 192
-   },
-   "c": "abs(2**8 - 8**2)",
-   "w": "2⁸ = 256 und 8² = 64. Unterschied: 256 − 64 = 192."
+   "w": "2⁶ = 64 und 10² = 100. Ob eine Potenz größer ist, hängt von Basis und Exponent ab – nur ausrechnen hilft."
   },
   {
    "l": "vertauschen",
@@ -1797,17 +2259,17 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Vergleiche 7² und 2⁷. Was stimmt?"
+    "text": "Jemand sagt: 2⁸ ist größer als 7², weil 8 der größere Exponent ist. Stimmt das?"
    },
    "a": [
-    "7² ist größer",
-    "2⁷ ist größer",
-    "Beide sind gleich groß"
+    "Nein, 7² ist größer.",
+    "Ja, der größere Exponent ergibt immer die größere Zahl.",
+    "Die Aussage stimmt (256 > 49), aber die Begründung nicht: Es kommt auch auf die Basis an."
    ],
    "o": {
-    "index": 1
+    "index": 2
    },
-   "w": "7² = 49 und 2⁷ = 128. Also ist 2⁷ größer."
+   "w": "2⁸ = 256 und 7² = 49. Ob eine Potenz größer ist, hängt von Basis und Exponent ab – nur ausrechnen hilft."
   },
   {
    "l": "vertauschen",
@@ -1816,17 +2278,17 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Vergleiche 2⁷ und 7². Was stimmt?"
+    "text": "Jemand sagt: 2³ ist größer als 9², weil 3 der größere Exponent ist. Stimmt das?"
    },
    "a": [
-    "Beide sind gleich groß",
-    "2⁷ ist größer",
-    "7² ist größer"
+    "Nein: 2³ = 8, aber 9² = 81.",
+    "Man kann die beiden nicht vergleichen.",
+    "Ja, der größere Exponent ergibt immer die größere Zahl."
    ],
    "o": {
-    "index": 1
+    "index": 0
    },
-   "w": "2⁷ = 128 und 7² = 49. Also ist 2⁷ größer."
+   "w": "2³ = 8 und 9² = 81. Ob eine Potenz größer ist, hängt von Basis und Exponent ab – nur ausrechnen hilft."
   },
   {
    "l": "vertauschen",
@@ -1835,17 +2297,36 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Vergleiche 3⁶ und 6³. Was stimmt?"
+    "text": "Jemand sagt: 2⁴ ist größer als 8², weil 4 der größere Exponent ist. Stimmt das?"
    },
    "a": [
-    "Beide sind gleich groß",
-    "3⁶ ist größer",
-    "6³ ist größer"
+    "Man kann die beiden nicht vergleichen.",
+    "Nein: 2⁴ = 16, aber 8² = 64.",
+    "Ja, der größere Exponent ergibt immer die größere Zahl."
    ],
    "o": {
     "index": 1
    },
-   "w": "3⁶ = 729 und 6³ = 216. Also ist 3⁶ größer."
+   "w": "2⁴ = 16 und 8² = 64. Ob eine Potenz größer ist, hängt von Basis und Exponent ab – nur ausrechnen hilft."
+  },
+  {
+   "l": "vertauschen",
+   "t": "begriff",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: 2⁸ ist größer als 4², weil 8 der größere Exponent ist. Stimmt das?"
+   },
+   "a": [
+    "Ja, der größere Exponent ergibt immer die größere Zahl.",
+    "Nein, 4² ist größer.",
+    "Die Aussage stimmt (256 > 16), aber die Begründung nicht: Es kommt auch auf die Basis an."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "2⁸ = 256 und 4² = 16. Ob eine Potenz größer ist, hängt von Basis und Exponent ab – nur ausrechnen hilft."
   },
   {
    "l": "zehner",
@@ -1854,13 +2335,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Wie viele Nullen hat die Zahl 10⁵?"
+    "text": "Wie viele Nullen hat die Zahl 10⁸?"
    },
    "o": {
-    "wert": 5
+    "wert": 8
    },
-   "c": "5",
-   "w": "Bei Zehnerpotenzen ist der Exponent die Anzahl der Nullen: 5.",
+   "c": "8",
+   "w": "Bei Zehnerpotenzen ist der Exponent die Anzahl der Nullen: 8.",
    "h": "Schau auf den Exponenten."
   },
   {
@@ -1870,14 +2351,30 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Schreibe 10⁶ als Zahl."
+    "text": "Schreibe 10⁴ als Zahl."
    },
    "o": {
-    "wert": 1000000
+    "wert": 10000
    },
-   "c": "10**6",
-   "w": "Der Exponent 6 sagt: eine 1 mit 6 Nullen, also 1 000 000.",
+   "c": "10**4",
+   "w": "Der Exponent 4 sagt: eine 1 mit 4 Nullen, also 10 000.",
    "h": "Der Exponent ist die Anzahl der Nullen."
+  },
+  {
+   "l": "zehner",
+   "t": "zehner",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Nullen hat die Zahl 10⁷?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "7",
+   "w": "Bei Zehnerpotenzen ist der Exponent die Anzahl der Nullen: 7.",
+   "h": "Schau auf den Exponenten."
   },
   {
    "l": "zehner",
@@ -1915,17 +2412,17 @@
    "l": "zehner",
    "t": "zehner",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Schreibe 10⁵ als Zahl."
+    "text": "4 300 000 = 43 · 10 hoch … Welcher Exponent passt?"
    },
    "o": {
-    "wert": 100000
+    "wert": 5
    },
-   "c": "10**5",
-   "w": "Der Exponent 5 sagt: eine 1 mit 5 Nullen, also 100 000.",
-   "h": "Der Exponent ist die Anzahl der Nullen."
+   "c": "5",
+   "w": "Hinter der 43 stehen 5 Nullen. Also 4 300 000 = 43 · 10⁵.",
+   "h": "Zähle nur die Nullen hinter der 43."
   },
   {
    "l": "zehner",
@@ -1934,30 +2431,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "7 000 = 7 · 10 hoch … Welcher Exponent passt?"
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "3",
-   "w": "7 000 hat hinter der 7 genau 3 Nullen. Also 7 · 10³.",
-   "h": "Zähle die Nullen hinter der ersten Ziffer."
-  },
-  {
-   "l": "zehner",
-   "t": "zehner",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "40 000 = 4 · 10 hoch … Welcher Exponent passt?"
+    "text": "510 000 = 51 · 10 hoch … Welcher Exponent passt?"
    },
    "o": {
     "wert": 4
    },
    "c": "4",
-   "w": "40 000 hat hinter der 4 genau 4 Nullen. Also 4 · 10⁴.",
-   "h": "Zähle die Nullen hinter der ersten Ziffer."
+   "w": "Hinter der 51 stehen 4 Nullen. Also 510 000 = 51 · 10⁴.",
+   "h": "Zähle nur die Nullen hinter der 51."
   },
   {
    "l": "zehner",
@@ -1966,29 +2447,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "50 000 000 = 5 · 10 hoch … Welcher Exponent passt?"
+    "text": "Schreibe 7 · 10⁹ als Zahl."
    },
    "o": {
-    "wert": 7
+    "wert": 7000000000
    },
-   "c": "7",
-   "w": "50 000 000 hat hinter der 5 genau 7 Nullen. Also 5 · 10⁷.",
-   "h": "Zähle die Nullen hinter der ersten Ziffer."
-  },
-  {
-   "l": "zehner",
-   "t": "zehner",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Schreibe 4 · 10⁸ als Zahl."
-   },
-   "o": {
-    "wert": 400000000
-   },
-   "c": "4 * 10**8",
-   "w": "10⁸ = 100 000 000. 4 · 100 000 000 = 400 000 000.",
+   "c": "7 * 10**9",
+   "w": "10⁹ = 1 000 000 000. 7 · 1 000 000 000 = 7 000 000 000.",
    "h": "Schreibe zuerst die Zehnerpotenz als Zahl, nimm dann mal."
   },
   {
@@ -1998,30 +2463,34 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Schreibe 5 · 10⁶ als Zahl."
+    "text": "Schreibe 7 · 10⁴ als Zahl."
    },
    "o": {
-    "wert": 5000000
+    "wert": 70000
    },
-   "c": "5 * 10**6",
-   "w": "10⁶ = 1 000 000. 5 · 1 000 000 = 5 000 000.",
+   "c": "7 * 10**4",
+   "w": "10⁴ = 10 000. 7 · 10 000 = 70 000.",
    "h": "Schreibe zuerst die Zehnerpotenz als Zahl, nimm dann mal."
   },
   {
    "l": "zehner",
    "t": "zehner",
    "p": "uebung",
-   "s": 3,
-   "y": "zahl",
+   "s": 2,
+   "y": "auswahl",
    "f": {
-    "text": "Schreibe 48 · 10⁸ als Zahl."
+    "text": "Ein Jahr hat etwa 31 Millionen Sekunden. Welche Schreibweise passt?"
    },
+   "a": [
+    "31 · 10⁶",
+    "31 · 10⁹",
+    "31 · 10³"
+   ],
    "o": {
-    "wert": 4800000000
+    "index": 0
    },
-   "c": "48 * 10**8",
-   "w": "10⁸ = 100 000 000. An 48 werden 8 Nullen angehängt: 4 800 000 000.",
-   "h": "Mal 10 hoch n heißt: n Nullen anhängen."
+   "w": "Tausend = 10³, Million = 10⁶, Milliarde = 10⁹. Also 31 · 10⁶ = 31 000 000.",
+   "h": "Tausend hat 3 Nullen, eine Million 6, eine Milliarde 9."
   },
   {
    "l": "zehner",
@@ -2030,18 +2499,18 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Wie schreibt man 9 Milliarden mit einer Zehnerpotenz?"
+    "text": "Wie schreibt man 8 Milliarden mit einer Zehnerpotenz?"
    },
    "a": [
-    "9 · 10⁶",
-    "9 · 10⁹",
-    "9 · 10¹²",
-    "9⁹"
+    "8 · 10⁶",
+    "8 · 10⁹",
+    "8⁹",
+    "8 · 10¹²"
    ],
    "o": {
     "index": 1
    },
-   "w": "1 Milliarde = 1 000 000 000 = 10⁹. Also 9 Milliarden = 9 · 10⁹.",
+   "w": "1 Milliarde = 1 000 000 000 = 10⁹. Also 8 Milliarden = 8 · 10⁹.",
    "h": "Eine Million hat 6 Nullen, eine Milliarde 9."
   },
   {
@@ -2051,13 +2520,13 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Schreibe 92 · 10³ als Zahl."
+    "text": "Schreibe 44 · 10⁶ als Zahl."
    },
    "o": {
-    "wert": 92000
+    "wert": 44000000
    },
-   "c": "92 * 10**3",
-   "w": "10³ = 1 000. An 92 werden 3 Nullen angehängt: 92 000.",
+   "c": "44 * 10**6",
+   "w": "10⁶ = 1 000 000. An 44 werden 6 Nullen angehängt: 44 000 000.",
    "h": "Mal 10 hoch n heißt: n Nullen anhängen."
   },
   {
@@ -2065,16 +2534,21 @@
    "t": "zehner",
    "p": "uebung",
    "s": 3,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Schreibe 22 · 10⁵ als Zahl."
+    "text": "Wie schreibt man 2 Millionen mit einer Zehnerpotenz?"
    },
+   "a": [
+    "2⁶",
+    "2 · 10⁹",
+    "2 · 10⁶",
+    "2 · 10³"
+   ],
    "o": {
-    "wert": 2200000
+    "index": 2
    },
-   "c": "22 * 10**5",
-   "w": "10⁵ = 100 000. An 22 werden 5 Nullen angehängt: 2 200 000.",
-   "h": "Mal 10 hoch n heißt: n Nullen anhängen."
+   "w": "1 Million = 1 000 000 = 10⁶. Also 2 Millionen = 2 · 10⁶.",
+   "h": "Eine Million hat 6 Nullen, eine Milliarde 9."
   },
   {
    "l": "zehner",
@@ -2087,12 +2561,12 @@
    },
    "a": [
     "3 · 10¹²",
+    "3 · 10⁶",
     "3⁹",
-    "3 · 10⁹",
-    "3 · 10⁶"
+    "3 · 10⁹"
    ],
    "o": {
-    "index": 2
+    "index": 3
    },
    "w": "1 Milliarde = 1 000 000 000 = 10⁹. Also 3 Milliarden = 3 · 10⁹.",
    "h": "Eine Million hat 6 Nullen, eine Milliarde 9."
@@ -2100,7 +2574,162 @@
   {
    "l": "zehner",
    "t": "zehner",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "75 800 000 = 758 · 10 hoch … Welcher Exponent passt?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "5",
+   "w": "Hinter der 758 stehen 5 Nullen. Also 75 800 000 = 758 · 10⁵.",
+   "h": "Zähle nur die Nullen hinter der 758."
+  },
+  {
+   "l": "zehner",
+   "t": "zehner",
    "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe 7 · 10⁵ als Zahl."
+   },
+   "o": {
+    "wert": 700000
+   },
+   "c": "7 * 10**5",
+   "w": "10⁵ = 100 000. 7 · 100 000 = 700 000."
+  },
+  {
+   "l": "zehner",
+   "t": "zehner",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "58 000 = 58 · 10 hoch … Welcher Exponent passt?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "Hinter der 58 stehen 3 Nullen. Also 58 000 = 58 · 10³."
+  },
+  {
+   "l": "zehner",
+   "t": "zehner",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe 8 · 10⁶ als Zahl."
+   },
+   "o": {
+    "wert": 8000000
+   },
+   "c": "8 * 10**6",
+   "w": "10⁶ = 1 000 000. 8 · 1 000 000 = 8 000 000."
+  },
+  {
+   "l": "zehner",
+   "t": "zehner",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "35 000 = 35 · 10 hoch … Welcher Exponent passt?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "Hinter der 35 stehen 3 Nullen. Also 35 000 = 35 · 10³."
+  },
+  {
+   "l": "zehner",
+   "t": "zehner",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Auf der Erde leben etwa 8 Milliarden Menschen. Welche Schreibweise passt?"
+   },
+   "a": [
+    "8 · 10⁶",
+    "8 · 10⁹",
+    "8 · 10¹²"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Tausend = 10³, Million = 10⁶, Milliarde = 10⁹. Also 8 · 10⁹ = 8 000 000 000."
+  },
+  {
+   "l": "zehner",
+   "t": "zehner",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe 7 · 10⁶ als Zahl."
+   },
+   "o": {
+    "wert": 7000000
+   },
+   "c": "7 * 10**6",
+   "w": "10⁶ = 1 000 000. 7 · 1 000 000 = 7 000 000."
+  },
+  {
+   "l": "zehner",
+   "t": "zehner",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "5 000 = 5 · 10 hoch … Welcher Exponent passt?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "5 000 hat hinter der 5 genau 3 Nullen. Also 5 · 10³."
+  },
+  {
+   "l": "zehner",
+   "t": "zehner",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "7 000 000 000 = 7 · 10 hoch … Welcher Exponent passt?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "9",
+   "w": "7 000 000 000 hat hinter der 7 genau 9 Nullen. Also 7 · 10⁹."
+  },
+  {
+   "l": "zehner",
+   "t": "zehner",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Schreibe 3 · 10⁶ als Zahl."
+   },
+   "o": {
+    "wert": 3000000
+   },
+   "c": "3 * 10**6",
+   "w": "10⁶ = 1 000 000. 3 · 1 000 000 = 3 000 000."
+  },
+  {
+   "l": "zehner",
+   "t": "zehner",
+   "p": "sicherung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -2113,154 +2742,19 @@
    "w": "10³ = 1 000. 5 · 1 000 = 5 000."
   },
   {
-   "l": "zehner",
-   "t": "zehner",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "500 000 = 5 · 10 hoch … Welcher Exponent passt?"
-   },
-   "o": {
-    "wert": 5
-   },
-   "c": "5",
-   "w": "500 000 hat hinter der 5 genau 5 Nullen. Also 5 · 10⁵."
-  },
-  {
-   "l": "zehner",
-   "t": "zehner",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Schreibe 4 · 10⁹ als Zahl."
-   },
-   "o": {
-    "wert": 4000000000
-   },
-   "c": "4 * 10**9",
-   "w": "10⁹ = 1 000 000 000. 4 · 1 000 000 000 = 4 000 000 000."
-  },
-  {
-   "l": "zehner",
-   "t": "zehner",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "500 000 000 = 5 · 10 hoch … Welcher Exponent passt?"
-   },
-   "o": {
-    "wert": 8
-   },
-   "c": "8",
-   "w": "500 000 000 hat hinter der 5 genau 8 Nullen. Also 5 · 10⁸."
-  },
-  {
-   "l": "zehner",
-   "t": "zehner",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Schreibe 4 · 10⁴ als Zahl."
-   },
-   "o": {
-    "wert": 40000
-   },
-   "c": "4 * 10**4",
-   "w": "10⁴ = 10 000. 4 · 10 000 = 40 000."
-  },
-  {
-   "l": "zehner",
-   "t": "zehner",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "50 000 = 5 · 10 hoch … Welcher Exponent passt?"
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "4",
-   "w": "50 000 hat hinter der 5 genau 4 Nullen. Also 5 · 10⁴."
-  },
-  {
-   "l": "zehner",
-   "t": "zehner",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Schreibe 8 · 10⁵ als Zahl."
-   },
-   "o": {
-    "wert": 800000
-   },
-   "c": "8 * 10**5",
-   "w": "10⁵ = 100 000. 8 · 100 000 = 800 000."
-  },
-  {
-   "l": "zehner",
-   "t": "zehner",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Schreibe 6 · 10⁹ als Zahl."
-   },
-   "o": {
-    "wert": 6000000000
-   },
-   "c": "6 * 10**9",
-   "w": "10⁹ = 1 000 000 000. 6 · 1 000 000 000 = 6 000 000 000."
-  },
-  {
-   "l": "zehner",
-   "t": "zehner",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "2 000 000 = 2 · 10 hoch … Welcher Exponent passt?"
-   },
-   "o": {
-    "wert": 6
-   },
-   "c": "6",
-   "w": "2 000 000 hat hinter der 2 genau 6 Nullen. Also 2 · 10⁶."
-  },
-  {
-   "l": "zehner",
-   "t": "zehner",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Schreibe 7 · 10⁹ als Zahl."
-   },
-   "o": {
-    "wert": 7000000000
-   },
-   "c": "7 * 10**9",
-   "w": "10⁹ = 1 000 000 000. 7 · 1 000 000 000 = 7 000 000 000."
-  },
-  {
    "l": "negativ",
    "t": "negativ",
    "p": "uebung",
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Berechne (−3)³."
+    "text": "Berechne (−4)³."
    },
    "o": {
-    "wert": -27
+    "wert": -64
    },
-   "c": "(-3)**3",
-   "w": "(−3)³ = (−3) · (−3) · (−3). Betrag: 3 hoch 3 = 27. Exponent 3 ist ungerade, also −27.",
+   "c": "(-4)**3",
+   "w": "(−4)³ = (−4) · (−4) · (−4). Betrag: 4 hoch 3 = 64. Exponent 3 ist ungerade, also −64.",
    "h": "Rechne erst ohne Vorzeichen. Dann: gerader Exponent positiv, ungerader negativ."
   },
   {
@@ -2270,13 +2764,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Berechne (−2)³."
+    "text": "Berechne (−1)²."
    },
    "o": {
-    "wert": -8
+    "wert": 1
    },
-   "c": "(-2)**3",
-   "w": "(−2)³ = (−2) · (−2) · (−2). Betrag: 2 hoch 3 = 8. Exponent 3 ist ungerade, also −8.",
+   "c": "(-1)**2",
+   "w": "(−1)² = (−1) · (−1). Betrag: 1 hoch 2 = 1. Exponent 2 ist gerade, also 1.",
    "h": "Rechne erst ohne Vorzeichen. Dann: gerader Exponent positiv, ungerader negativ."
   },
   {
@@ -2302,6 +2796,38 @@
    "s": 1,
    "y": "zahl",
    "f": {
+    "text": "Berechne (−3)²."
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "(-3)**2",
+   "w": "(−3)² = (−3) · (−3). Betrag: 3 hoch 2 = 9. Exponent 2 ist gerade, also 9.",
+   "h": "Rechne erst ohne Vorzeichen. Dann: gerader Exponent positiv, ungerader negativ."
+  },
+  {
+   "l": "negativ",
+   "t": "negativ",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−3)³."
+   },
+   "o": {
+    "wert": -27
+   },
+   "c": "(-3)**3",
+   "w": "(−3)³ = (−3) · (−3) · (−3). Betrag: 3 hoch 3 = 27. Exponent 3 ist ungerade, also −27.",
+   "h": "Rechne erst ohne Vorzeichen. Dann: gerader Exponent positiv, ungerader negativ."
+  },
+  {
+   "l": "negativ",
+   "t": "negativ",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
     "text": "Berechne (−5)³."
    },
    "o": {
@@ -2315,17 +2841,17 @@
    "l": "negativ",
    "t": "negativ",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne (−2)²."
+    "text": "Berechne (−2)² + (−2²)."
    },
    "o": {
-    "wert": 4
+    "wert": 0
    },
-   "c": "(-2)**2",
-   "w": "(−2)² = (−2) · (−2). Betrag: 2 hoch 2 = 4. Exponent 2 ist gerade, also 4.",
-   "h": "Rechne erst ohne Vorzeichen. Dann: gerader Exponent positiv, ungerader negativ."
+   "c": "(-2)**2 + (-(2**2))",
+   "w": "(−2)² = 4 (gerader Exponent). −2² = −4 (ohne Klammer). Zusammen 4 + (−4) = 0.",
+   "h": "Rechne beide Teile einzeln aus. Achte auf die Klammer."
   },
   {
    "l": "negativ",
@@ -2334,18 +2860,18 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Ist (−4)¹³ positiv oder negativ? (Du musst nicht ausrechnen.)"
+    "text": "Ist (−9)⁴ positiv oder negativ? (Du musst nicht ausrechnen.)"
    },
    "a": [
-    "null",
-    "negativ",
-    "positiv"
+    "positiv",
+    "negativ, weil die Basis negativ ist",
+    "negativ, weil ein Minus übrig bleibt"
    ],
    "o": {
-    "index": 1
+    "index": 0
    },
-   "w": "Der Exponent 13 ist ungerade. Je zwei Minus ergeben Plus, eines bleibt übrig: Das Ergebnis ist negativ.",
-   "h": "Gerader Exponent: positiv. Ungerader Exponent: negativ."
+   "w": "Der Exponent 4 ist gerade. Je zwei Minus ergeben Plus: Das Ergebnis ist positiv.",
+   "h": "Bilde Paare aus den Minus-Faktoren. Bleibt eines übrig?"
   },
   {
    "l": "negativ",
@@ -2354,14 +2880,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne (−3)⁴."
+    "text": "Berechne (−3)² + (−3²)."
    },
    "o": {
-    "wert": 81
+    "wert": 0
    },
-   "c": "(-3)**4",
-   "w": "(−3)⁴ = (−3) · (−3) · (−3) · (−3). Betrag: 3 hoch 4 = 81. Exponent 4 ist gerade, also 81.",
-   "h": "Rechne erst ohne Vorzeichen. Dann: gerader Exponent positiv, ungerader negativ."
+   "c": "(-3)**2 + (-(3**2))",
+   "w": "(−3)² = 9 (gerader Exponent). −3² = −9 (ohne Klammer). Zusammen 9 + (−9) = 0.",
+   "h": "Rechne beide Teile einzeln aus. Achte auf die Klammer."
   },
   {
    "l": "negativ",
@@ -2370,49 +2896,73 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Ist (−7)⁵ positiv oder negativ? (Du musst nicht ausrechnen.)"
+    "text": "Ist (−2)⁹ positiv oder negativ? (Du musst nicht ausrechnen.)"
    },
    "a": [
-    "null",
+    "positiv, weil 9 positiv ist",
     "negativ",
-    "positiv"
+    "positiv, weil Minus mal Minus Plus ist"
    ],
    "o": {
     "index": 1
    },
-   "w": "Der Exponent 5 ist ungerade. Je zwei Minus ergeben Plus, eines bleibt übrig: Das Ergebnis ist negativ.",
-   "h": "Gerader Exponent: positiv. Ungerader Exponent: negativ."
+   "w": "Der Exponent 9 ist ungerade. Je zwei Minus ergeben Plus, eines bleibt übrig: Das Ergebnis ist negativ.",
+   "h": "Bilde Paare aus den Minus-Faktoren. Bleibt eines übrig?"
   },
   {
    "l": "negativ",
    "t": "negativ",
    "p": "uebung",
-   "s": 2,
-   "y": "zahl",
+   "s": 3,
+   "y": "auswahl",
    "f": {
-    "text": "Berechne (−1)⁵."
+    "text": "Was ist −4²?"
    },
+   "a": [
+    "−8",
+    "16",
+    "−16"
+   ],
    "o": {
-    "wert": -1
+    "index": 2
    },
-   "c": "(-1)**5",
-   "w": "(−1)⁵ = (−1) · (−1) · (−1) · (−1) · (−1). Betrag: 1 hoch 5 = 1. Exponent 5 ist ungerade, also −1.",
-   "h": "Rechne erst ohne Vorzeichen. Dann: gerader Exponent positiv, ungerader negativ."
+   "w": "Ohne Klammer gehört das Hoch nur zur 4: −4² = −(4 · 4) = −16. Mit Klammer wäre (−4)² = 16.",
+   "h": "Gehört das Minus zur Basis? Achte auf die Klammer."
   },
   {
    "l": "negativ",
    "t": "negativ",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Was ist −5⁴?"
+   },
+   "a": [
+    "−625",
+    "625",
+    "−20"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ohne Klammer gehört das Hoch nur zur 5: −5⁴ = −(5 · 5 · 5 · 5) = −625. Mit Klammer wäre (−5)⁴ = 625.",
+   "h": "Gehört das Minus zur Basis? Achte auf die Klammer."
+  },
+  {
+   "l": "negativ",
+   "t": "negativ",
+   "p": "uebung",
+   "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Berechne (−4)⁴."
+    "text": "Berechne (−5)⁵."
    },
    "o": {
-    "wert": 256
+    "wert": -3125
    },
-   "c": "(-4)**4",
-   "w": "(−4)⁴ = (−4) · (−4) · (−4) · (−4). Betrag: 4 hoch 4 = 256. Exponent 4 ist gerade, also 256.",
+   "c": "(-5)**5",
+   "w": "(−5)⁵ = (−5) · (−5) · (−5) · (−5) · (−5). Betrag: 5 hoch 5 = 3 125. Exponent 5 ist ungerade, also −3 125.",
    "h": "Rechne erst ohne Vorzeichen. Dann: gerader Exponent positiv, ungerader negativ."
   },
   {
@@ -2422,110 +2972,51 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Berechne (−9)⁴."
+    "text": "Berechne (−8)² + (−8²)."
    },
    "o": {
-    "wert": 6561
+    "wert": 0
    },
-   "c": "(-9)**4",
-   "w": "(−9)⁴ = (−9) · (−9) · (−9) · (−9). Betrag: 9 hoch 4 = 6 561. Exponent 4 ist gerade, also 6 561.",
-   "h": "Rechne erst ohne Vorzeichen. Dann: gerader Exponent positiv, ungerader negativ."
+   "c": "(-8)**2 + (-(8**2))",
+   "w": "(−8)² = 64 (gerader Exponent). −8² = −64 (ohne Klammer). Zusammen 64 + (−64) = 0.",
+   "h": "Rechne beide Teile einzeln aus. Achte auf die Klammer."
   },
   {
    "l": "negativ",
    "t": "negativ",
    "p": "uebung",
    "s": 3,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Berechne (−6)⁴."
+    "text": "Was ist −2⁴?"
    },
+   "a": [
+    "16",
+    "−16",
+    "−8"
+   ],
    "o": {
-    "wert": 1296
+    "index": 1
    },
-   "c": "(-6)**4",
-   "w": "(−6)⁴ = (−6) · (−6) · (−6) · (−6). Betrag: 6 hoch 4 = 1 296. Exponent 4 ist gerade, also 1 296.",
-   "h": "Rechne erst ohne Vorzeichen. Dann: gerader Exponent positiv, ungerader negativ."
-  },
-  {
-   "l": "negativ",
-   "t": "negativ",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne (−7)³."
-   },
-   "o": {
-    "wert": -343
-   },
-   "c": "(-7)**3",
-   "w": "(−7)³ = (−7) · (−7) · (−7). Betrag: 7 hoch 3 = 343. Exponent 3 ist ungerade, also −343.",
-   "h": "Rechne erst ohne Vorzeichen. Dann: gerader Exponent positiv, ungerader negativ."
-  },
-  {
-   "l": "negativ",
-   "t": "negativ",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne (−7)⁵."
-   },
-   "o": {
-    "wert": -16807
-   },
-   "c": "(-7)**5",
-   "w": "(−7)⁵ = (−7) · (−7) · (−7) · (−7) · (−7). Betrag: 7 hoch 5 = 16 807. Exponent 5 ist ungerade, also −16 807.",
-   "h": "Rechne erst ohne Vorzeichen. Dann: gerader Exponent positiv, ungerader negativ."
-  },
-  {
-   "l": "negativ",
-   "t": "negativ",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne (−4)⁵."
-   },
-   "o": {
-    "wert": -1024
-   },
-   "c": "(-4)**5",
-   "w": "(−4)⁵ = (−4) · (−4) · (−4) · (−4) · (−4). Betrag: 4 hoch 5 = 1 024. Exponent 5 ist ungerade, also −1 024.",
-   "h": "Rechne erst ohne Vorzeichen. Dann: gerader Exponent positiv, ungerader negativ."
+   "w": "Ohne Klammer gehört das Hoch nur zur 2: −2⁴ = −(2 · 2 · 2 · 2) = −16. Mit Klammer wäre (−2)⁴ = 16.",
+   "h": "Gehört das Minus zur Basis? Achte auf die Klammer."
   },
   {
    "l": "negativ",
    "t": "negativ",
    "p": "test",
    "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne (−3)⁵."
-   },
-   "o": {
-    "wert": -243
-   },
-   "c": "(-3)**5",
-   "w": "(−3)⁵ = (−3) · (−3) · (−3) · (−3) · (−3). Betrag: 3 hoch 5 = 243. Exponent 5 ist ungerade, also −243."
-  },
-  {
-   "l": "negativ",
-   "t": "negativ",
-   "p": "korrektur",
-   "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Ist (−7)⁷ positiv oder negativ? (Du musst nicht ausrechnen.)"
+    "text": "Ist (−6)⁷ positiv oder negativ? (Du musst nicht ausrechnen.)"
    },
    "a": [
-    "positiv",
     "negativ",
-    "null"
+    "positiv, weil 7 positiv ist",
+    "positiv, weil Minus mal Minus Plus ist"
    ],
    "o": {
-    "index": 1
+    "index": 0
    },
    "w": "Der Exponent 7 ist ungerade. Je zwei Minus ergeben Plus, eines bleibt übrig: Das Ergebnis ist negativ."
   },
@@ -2551,12 +3042,12 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Ist (−7)¹⁵ positiv oder negativ? (Du musst nicht ausrechnen.)"
+    "text": "Ist (−6)¹⁵ positiv oder negativ? (Du musst nicht ausrechnen.)"
    },
    "a": [
-    "null",
+    "positiv, weil 15 positiv ist",
     "negativ",
-    "positiv"
+    "positiv, weil Minus mal Minus Plus ist"
    ],
    "o": {
     "index": 1
@@ -2566,21 +3057,59 @@
   {
    "l": "negativ",
    "t": "negativ",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist (−9)¹² positiv oder negativ? (Du musst nicht ausrechnen.)"
+   },
+   "a": [
+    "negativ, weil ein Minus übrig bleibt",
+    "negativ, weil die Basis negativ ist",
+    "positiv"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Der Exponent 12 ist gerade. Je zwei Minus ergeben Plus: Das Ergebnis ist positiv."
+  },
+  {
+   "l": "negativ",
+   "t": "negativ",
    "p": "sicherung",
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Ist (−4)¹⁴ positiv oder negativ? (Du musst nicht ausrechnen.)"
+    "text": "Ist (−4)¹² positiv oder negativ? (Du musst nicht ausrechnen.)"
    },
    "a": [
-    "null",
     "positiv",
-    "negativ"
+    "negativ, weil die Basis negativ ist",
+    "negativ, weil ein Minus übrig bleibt"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Der Exponent 12 ist gerade. Je zwei Minus ergeben Plus: Das Ergebnis ist positiv."
+  },
+  {
+   "l": "negativ",
+   "t": "negativ",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist (−7)⁷ positiv oder negativ? (Du musst nicht ausrechnen.)"
+   },
+   "a": [
+    "positiv, weil 7 positiv ist",
+    "negativ",
+    "positiv, weil Minus mal Minus Plus ist"
    ],
    "o": {
     "index": 1
    },
-   "w": "Der Exponent 14 ist gerade. Je zwei Minus ergeben Plus: Das Ergebnis ist positiv."
+   "w": "Der Exponent 7 ist ungerade. Je zwei Minus ergeben Plus, eines bleibt übrig: Das Ergebnis ist negativ."
   },
   {
    "l": "negativ",
@@ -2589,13 +3118,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne (−5)⁵."
+    "text": "Berechne (−2)³."
    },
    "o": {
-    "wert": -3125
+    "wert": -8
    },
-   "c": "(-5)**5",
-   "w": "(−5)⁵ = (−5) · (−5) · (−5) · (−5) · (−5). Betrag: 5 hoch 5 = 3 125. Exponent 5 ist ungerade, also −3 125."
+   "c": "(-2)**3",
+   "w": "(−2)³ = (−2) · (−2) · (−2). Betrag: 2 hoch 3 = 8. Exponent 3 ist ungerade, also −8."
   },
   {
    "l": "negativ",
@@ -2604,15 +3133,15 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Ist (−5)⁴ positiv oder negativ? (Du musst nicht ausrechnen.)"
+    "text": "Ist (−4)⁴ positiv oder negativ? (Du musst nicht ausrechnen.)"
    },
    "a": [
-    "negativ",
-    "positiv",
-    "null"
+    "negativ, weil ein Minus übrig bleibt",
+    "negativ, weil die Basis negativ ist",
+    "positiv"
    ],
    "o": {
-    "index": 1
+    "index": 2
    },
    "w": "Der Exponent 4 ist gerade. Je zwei Minus ergeben Plus: Das Ergebnis ist positiv."
   },
@@ -2621,49 +3150,50 @@
    "t": "negativ",
    "p": "sicherung",
    "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne (−2)⁴."
-   },
-   "o": {
-    "wert": 16
-   },
-   "c": "(-2)**4",
-   "w": "(−2)⁴ = (−2) · (−2) · (−2) · (−2). Betrag: 2 hoch 4 = 16. Exponent 4 ist gerade, also 16."
-  },
-  {
-   "l": "negativ",
-   "t": "negativ",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne (−1)⁴."
-   },
-   "o": {
-    "wert": 1
-   },
-   "c": "(-1)**4",
-   "w": "(−1)⁴ = (−1) · (−1) · (−1) · (−1). Betrag: 1 hoch 4 = 1. Exponent 4 ist gerade, also 1."
-  },
-  {
-   "l": "negativ",
-   "t": "negativ",
-   "p": "sicherung",
-   "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Ist (−7)¹¹ positiv oder negativ? (Du musst nicht ausrechnen.)"
+    "text": "Was ist −8²?"
    },
    "a": [
-    "negativ",
-    "positiv",
-    "null"
+    "−64",
+    "−16",
+    "64"
    ],
    "o": {
     "index": 0
    },
-   "w": "Der Exponent 11 ist ungerade. Je zwei Minus ergeben Plus, eines bleibt übrig: Das Ergebnis ist negativ."
+   "w": "Ohne Klammer gehört das Hoch nur zur 8: −8² = −(8 · 8) = −64. Mit Klammer wäre (−8)² = 64."
+  },
+  {
+   "l": "negativ",
+   "t": "negativ",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−1)⁵."
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "(-1)**5",
+   "w": "(−1)⁵ = (−1) · (−1) · (−1) · (−1) · (−1). Betrag: 1 hoch 5 = 1. Exponent 5 ist ungerade, also −1."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Seerose bedeckt 1 m². Jede Woche verdoppelt sich die Fläche. Wie viele m² sind es nach 6 Wochen?"
+   },
+   "o": {
+    "wert": 64
+   },
+   "c": "2**6",
+   "w": "6-mal verdoppeln: 2 · 2 · 2 · 2 · 2 · 2 = 2⁶ = 64.",
+   "h": "Jedes Verdoppeln ist ein Faktor 2."
   },
   {
    "l": "sach",
@@ -2688,23 +3218,7 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Gerücht: Zu Beginn weiß es 1 Kind. Jeden Tag verdoppelt sich die Zahl der Kinder, die es wissen. Wie viele sind es nach 5 Tagen?"
-   },
-   "o": {
-    "wert": 32
-   },
-   "c": "2**5",
-   "w": "5-mal verdoppeln: 2 · 2 · 2 · 2 · 2 = 2⁵ = 32.",
-   "h": "Jedes Verdoppeln ist ein Faktor 2."
-  },
-  {
-   "l": "sach",
-   "t": "anwenden",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Gerücht: Zu Beginn weiß es 1 Kind. Jeden Tag verdoppelt sich die Zahl der Kinder, die es wissen. Wie viele sind es nach 3 Tagen?"
+    "text": "Eine Seerose bedeckt 1 m². Jede Woche verdoppelt sich die Fläche. Wie viele m² sind es nach 3 Wochen?"
    },
    "o": {
     "wert": 8
@@ -2720,7 +3234,23 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Blatt Papier wird 4-mal gefaltet. Jedes Falten verdoppelt die Zahl der Lagen. Wie viele Lagen sind es dann?"
+    "text": "Ein Blatt Papier wird 3-mal gefaltet. Jedes Falten verdoppelt die Zahl der Lagen. Wie viele Lagen sind es dann?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "2**3",
+   "w": "3-mal verdoppeln: 2 · 2 · 2 = 2³ = 8.",
+   "h": "Jedes Verdoppeln ist ein Faktor 2."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Gerücht: Zu Beginn weiß es 1 Kind. Jeden Tag verdoppelt sich die Zahl der Kinder, die es wissen. Wie viele sind es nach 4 Tagen?"
    },
    "o": {
     "wert": 16
@@ -2733,48 +3263,16 @@
    "l": "sach",
    "t": "anwenden",
    "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Blatt Papier wird 2-mal gefaltet. Jedes Falten verdoppelt die Zahl der Lagen. Wie viele Lagen sind es dann?"
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "2**2",
-   "w": "2-mal verdoppeln: 2 · 2 = 2² = 4.",
-   "h": "Jedes Verdoppeln ist ein Faktor 2."
-  },
-  {
-   "l": "sach",
-   "t": "anwenden",
-   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein quadratischer Platz ist 20 m lang und 20 m breit. Er wird mit Platten von 1 m² belegt. Wie viele Platten braucht man?"
+    "text": "Ein Würfel hat die Kantenlänge 8 cm. Er wird aus kleinen Würfeln mit 1 cm Kantenlänge gebaut. Wie viele kleine Würfel braucht man?"
    },
    "o": {
-    "wert": 400
+    "wert": 512
    },
-   "c": "20**2",
-   "w": "20 Reihen mit je 20 Platten: 20² = 400.",
-   "h": "Reihen mal Platten pro Reihe. Beide Zahlen sind gleich."
-  },
-  {
-   "l": "sach",
-   "t": "anwenden",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Würfel hat die Kantenlänge 3 cm. Er wird aus kleinen Würfeln mit 1 cm Kantenlänge gebaut. Wie viele kleine Würfel braucht man?"
-   },
-   "o": {
-    "wert": 27
-   },
-   "c": "3**3",
-   "w": "In jeder Richtung 3 Würfel: 3 · 3 · 3 = 3³ = 27.",
+   "c": "8**3",
+   "w": "In jeder Richtung 8 Würfel: 8 · 8 · 8 = 8³ = 512.",
    "h": "Länge mal Breite mal Höhe, alle drei sind gleich."
   },
   {
@@ -2784,13 +3282,30 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Würfel hat die Kantenlänge 4 cm. Er wird aus kleinen Würfeln mit 1 cm Kantenlänge gebaut. Wie viele kleine Würfel braucht man?"
+    "text": "Ein quadratischer Platz ist mit 169 Platten von 1 m² belegt. Wie lang ist eine Seite?"
    },
    "o": {
-    "wert": 64
+    "wert": 13,
+    "einheit": "m"
    },
-   "c": "4**3",
-   "w": "In jeder Richtung 4 Würfel: 4 · 4 · 4 = 4³ = 64.",
+   "c": "13",
+   "w": "Seite mal Seite = 169. Gesucht ist die Zahl mit 13 · 13 = 169. Eine Seite ist 13 m lang.",
+   "h": "Welche Zahl mal sich selbst ergibt die Anzahl der Platten?"
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel hat die Kantenlänge 6 cm. Er wird aus kleinen Würfeln mit 1 cm Kantenlänge gebaut. Wie viele kleine Würfel braucht man?"
+   },
+   "o": {
+    "wert": 216
+   },
+   "c": "6**3",
+   "w": "In jeder Richtung 6 Würfel: 6 · 6 · 6 = 6³ = 216.",
    "h": "Länge mal Breite mal Höhe, alle drei sind gleich."
   },
   {
@@ -2800,13 +3315,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein quadratischer Platz ist 18 m lang und 18 m breit. Er wird mit Platten von 1 m² belegt. Wie viele Platten braucht man?"
+    "text": "Ein quadratischer Platz ist 11 m lang und 11 m breit. Er wird mit Platten von 1 m² belegt. Wie viele Platten braucht man?"
    },
    "o": {
-    "wert": 324
+    "wert": 121
    },
-   "c": "18**2",
-   "w": "18 Reihen mit je 18 Platten: 18² = 324.",
+   "c": "11**2",
+   "w": "11 Reihen mit je 11 Platten: 11² = 121.",
    "h": "Reihen mal Platten pro Reihe. Beide Zahlen sind gleich."
   },
   {
@@ -2816,14 +3331,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein quadratischer Platz ist 17 m lang und 17 m breit. Er wird mit Platten von 1 m² belegt. Wie viele Platten braucht man?"
+    "text": "Ein großer Würfel besteht aus 8 kleinen Würfeln. Wie viele kleine Würfel liegen an einer Kante?"
    },
    "o": {
-    "wert": 289
+    "wert": 2
    },
-   "c": "17**2",
-   "w": "17 Reihen mit je 17 Platten: 17² = 289.",
-   "h": "Reihen mal Platten pro Reihe. Beide Zahlen sind gleich."
+   "c": "2",
+   "w": "Gesucht ist die Zahl, die dreimal mit sich malgenommen 8 ergibt: 2 · 2 · 2 = 8.",
+   "h": "Welche Zahl hoch 3 ergibt die Anzahl? Probiere kleine Zahlen."
   },
   {
    "l": "sach",
@@ -2832,13 +3347,29 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "In einer Schale sind 5 Bakterien. Jede Stunde verfünffacht sich die Anzahl. Wie viele sind es nach 4 Stunden?"
+    "text": "In einer Schale sind 2 Bakterien. Alle 20 Minuten verdoppelt sich die Anzahl. Wie viele sind es nach 2 Stunden?"
    },
    "o": {
-    "wert": 3125
+    "wert": 128
    },
-   "c": "5 * 5**4",
-   "w": "4-mal mal 5: 5⁴ = 625. Mal Startwert 5: 3 125.",
+   "c": "2 * 2**6",
+   "w": "In 2 Stunden gibt es 6-mal 20 Minuten, also 6 Verdopplungen: 2⁶ = 64. Mal Startwert 2: 128.",
+   "h": "Wie oft passen 20 Minuten in die Zeit? So oft wird verdoppelt. Vergiss den Startwert nicht."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kettenbrief startet mit 1 Brief. In jeder Runde verzehnfacht sich die Zahl der Briefe. Wie viele Briefe sind es nach 6 Runden?"
+   },
+   "o": {
+    "wert": 1000000
+   },
+   "c": "1 * 10**6",
+   "w": "6-mal mal 10: 10⁶ = 1 000 000.",
    "h": "Jede Runde ist derselbe Faktor. Schreibe das als Potenz und vergiss den Startwert nicht."
   },
   {
@@ -2848,13 +3379,13 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "In einer Schale sind 3 Bakterien. Jede Stunde verdreifacht sich die Anzahl. Wie viele sind es nach 6 Stunden?"
+    "text": "Ein Kettenbrief startet mit 3 Briefen. In jeder Runde verdoppelt sich die Zahl der Briefe. Wie viele Briefe sind es nach 10 Runden?"
    },
    "o": {
-    "wert": 2187
+    "wert": 3072
    },
-   "c": "3 * 3**6",
-   "w": "6-mal mal 3: 3⁶ = 729. Mal Startwert 3: 2 187.",
+   "c": "3 * 2**10",
+   "w": "10-mal mal 2: 2¹⁰ = 1 024. Mal Startwert 3: 3 072.",
    "h": "Jede Runde ist derselbe Faktor. Schreibe das als Potenz und vergiss den Startwert nicht."
   },
   {
@@ -2864,14 +3395,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "In einer Schale ist 1 Bakterium. Jede Stunde verfünffacht sich die Anzahl. Wie viele sind es nach 3 Stunden?"
+    "text": "In einer Schale sind 5 Bakterien. Alle 20 Minuten verdoppelt sich die Anzahl. Wie viele sind es nach 3 Stunden?"
    },
    "o": {
-    "wert": 125
+    "wert": 2560
    },
-   "c": "1 * 5**3",
-   "w": "3-mal mal 5: 5³ = 125.",
-   "h": "Jede Runde ist derselbe Faktor. Schreibe das als Potenz und vergiss den Startwert nicht."
+   "c": "5 * 2**9",
+   "w": "In 3 Stunden gibt es 9-mal 20 Minuten, also 9 Verdopplungen: 2⁹ = 512. Mal Startwert 5: 2 560.",
+   "h": "Wie oft passen 20 Minuten in die Zeit? So oft wird verdoppelt. Vergiss den Startwert nicht."
   },
   {
    "l": "sach",
@@ -2880,30 +3411,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "In einer Schale ist 1 Bakterium. Jede Stunde verfünffacht sich die Anzahl. Wie viele sind es nach 4 Stunden?"
+    "text": "In einer Schale sind 2 Bakterien. Alle 20 Minuten verdoppelt sich die Anzahl. Wie viele sind es nach 1 Stunde?"
    },
    "o": {
-    "wert": 625
+    "wert": 16
    },
-   "c": "1 * 5**4",
-   "w": "4-mal mal 5: 5⁴ = 625.",
-   "h": "Jede Runde ist derselbe Faktor. Schreibe das als Potenz und vergiss den Startwert nicht."
-  },
-  {
-   "l": "sach",
-   "t": "anwenden",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "In einer Schale sind 2 Bakterien. Jede Stunde verfünffacht sich die Anzahl. Wie viele sind es nach 3 Stunden?"
-   },
-   "o": {
-    "wert": 250
-   },
-   "c": "2 * 5**3",
-   "w": "3-mal mal 5: 5³ = 125. Mal Startwert 2: 250.",
-   "h": "Jede Runde ist derselbe Faktor. Schreibe das als Potenz und vergiss den Startwert nicht."
+   "c": "2 * 2**3",
+   "w": "In 1 Stunde gibt es 3-mal 20 Minuten, also 3 Verdopplungen: 2³ = 8. Mal Startwert 2: 16.",
+   "h": "Wie oft passen 20 Minuten in die Zeit? So oft wird verdoppelt. Vergiss den Startwert nicht."
   },
   {
    "l": "sach",
@@ -2912,28 +3427,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Würfel hat die Kantenlänge 11 cm. Er wird aus kleinen Würfeln mit 1 cm Kantenlänge gebaut. Wie viele kleine Würfel braucht man?"
+    "text": "Ein großer Würfel besteht aus 343 kleinen Würfeln. Wie viele kleine Würfel liegen an einer Kante?"
    },
    "o": {
-    "wert": 1331
+    "wert": 7
    },
-   "c": "11**3",
-   "w": "In jeder Richtung 11 Würfel: 11 · 11 · 11 = 11³ = 1 331."
-  },
-  {
-   "l": "sach",
-   "t": "anwenden",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Würfel hat die Kantenlänge 10 cm. Er wird aus kleinen Würfeln mit 1 cm Kantenlänge gebaut. Wie viele kleine Würfel braucht man?"
-   },
-   "o": {
-    "wert": 1000
-   },
-   "c": "10**3",
-   "w": "In jeder Richtung 10 Würfel: 10 · 10 · 10 = 10³ = 1 000."
+   "c": "7",
+   "w": "Gesucht ist die Zahl, die dreimal mit sich malgenommen 343 ergibt: 7 · 7 · 7 = 343."
   },
   {
    "l": "sach",
@@ -2957,48 +3457,18 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Würfel hat die Kantenlänge 5 cm. Er wird aus kleinen Würfeln mit 1 cm Kantenlänge gebaut. Wie viele kleine Würfel braucht man?"
+    "text": "Ein Würfel hat die Kantenlänge 10 cm. Er wird aus kleinen Würfeln mit 1 cm Kantenlänge gebaut. Wie viele kleine Würfel braucht man?"
    },
    "o": {
-    "wert": 125
+    "wert": 1000
    },
-   "c": "5**3",
-   "w": "In jeder Richtung 5 Würfel: 5 · 5 · 5 = 5³ = 125."
+   "c": "10**3",
+   "w": "In jeder Richtung 10 Würfel: 10 · 10 · 10 = 10³ = 1 000."
   },
   {
    "l": "sach",
    "t": "anwenden",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein quadratischer Platz ist 19 m lang und 19 m breit. Er wird mit Platten von 1 m² belegt. Wie viele Platten braucht man?"
-   },
-   "o": {
-    "wert": 361
-   },
-   "c": "19**2",
-   "w": "19 Reihen mit je 19 Platten: 19² = 361."
-  },
-  {
-   "l": "sach",
-   "t": "anwenden",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Würfel hat die Kantenlänge 8 cm. Er wird aus kleinen Würfeln mit 1 cm Kantenlänge gebaut. Wie viele kleine Würfel braucht man?"
-   },
-   "o": {
-    "wert": 512
-   },
-   "c": "8**3",
-   "w": "In jeder Richtung 8 Würfel: 8 · 8 · 8 = 8³ = 512."
-  },
-  {
-   "l": "sach",
-   "t": "anwenden",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -3017,13 +3487,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein quadratischer Platz ist 13 m lang und 13 m breit. Er wird mit Platten von 1 m² belegt. Wie viele Platten braucht man?"
+    "text": "Ein quadratischer Platz ist mit 400 Platten von 1 m² belegt. Wie lang ist eine Seite?"
    },
    "o": {
-    "wert": 169
+    "wert": 20,
+    "einheit": "m"
    },
-   "c": "13**2",
-   "w": "13 Reihen mit je 13 Platten: 13² = 169."
+   "c": "20",
+   "w": "Seite mal Seite = 400. Gesucht ist die Zahl mit 20 · 20 = 400. Eine Seite ist 20 m lang."
   },
   {
    "l": "sach",
@@ -3032,13 +3503,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein quadratischer Platz ist 11 m lang und 11 m breit. Er wird mit Platten von 1 m² belegt. Wie viele Platten braucht man?"
+    "text": "Ein Würfel hat die Kantenlänge 9 cm. Er wird aus kleinen Würfeln mit 1 cm Kantenlänge gebaut. Wie viele kleine Würfel braucht man?"
    },
    "o": {
-    "wert": 121
+    "wert": 729
    },
-   "c": "11**2",
-   "w": "11 Reihen mit je 11 Platten: 11² = 121."
+   "c": "9**3",
+   "w": "In jeder Richtung 9 Würfel: 9 · 9 · 9 = 9³ = 729."
   },
   {
    "l": "sach",
@@ -3047,13 +3518,59 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Würfel hat die Kantenlänge 6 cm. Er wird aus kleinen Würfeln mit 1 cm Kantenlänge gebaut. Wie viele kleine Würfel braucht man?"
+    "text": "Ein quadratischer Platz ist mit 196 Platten von 1 m² belegt. Wie lang ist eine Seite?"
    },
    "o": {
-    "wert": 216
+    "wert": 14,
+    "einheit": "m"
    },
-   "c": "6**3",
-   "w": "In jeder Richtung 6 Würfel: 6 · 6 · 6 = 6³ = 216."
+   "c": "14",
+   "w": "Seite mal Seite = 196. Gesucht ist die Zahl mit 14 · 14 = 196. Eine Seite ist 14 m lang."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein großer Würfel besteht aus 64 kleinen Würfeln. Wie viele kleine Würfel liegen an einer Kante?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Gesucht ist die Zahl, die dreimal mit sich malgenommen 64 ergibt: 4 · 4 · 4 = 64."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein quadratischer Platz ist 15 m lang und 15 m breit. Er wird mit Platten von 1 m² belegt. Wie viele Platten braucht man?"
+   },
+   "o": {
+    "wert": 225
+   },
+   "c": "15**2",
+   "w": "15 Reihen mit je 15 Platten: 15² = 225."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein quadratischer Platz ist 17 m lang und 17 m breit. Er wird mit Platten von 1 m² belegt. Wie viele Platten braucht man?"
+   },
+   "o": {
+    "wert": 289
+   },
+   "c": "17**2",
+   "w": "17 Reihen mit je 17 Platten: 17² = 289."
   }
  ]
 }

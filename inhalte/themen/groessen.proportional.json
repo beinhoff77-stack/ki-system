@@ -10,7 +10,7 @@
  "autor": "Claude (Generator groessen_proportional.py)",
  "offen": [
   "Produktgleichheit (indirekte Proportionalität) steht im „umfang“, gehört aber zum Thema groessen.indirekt (Kl. 8) und ist hier weggelassen.",
-  "Darstellung im Koordinatensystem (Ursprungsgerade) fehlt, weil die App noch keine Graphen zeichnen kann."
+  "Darstellung als Graph (Ursprungsgerade) bewusst weggelassen: Die App kann sie inzwischen zeichnen, lehrplan_gym Kl. 5 verlangt aber nur Schlussrechnung und Dreisatz; ein Graph wäre Stoff einer höheren Jahrgangsstufe. Dargestellt wird mit Tabellen (Lernkarten erkennen, pruefen, dreisatz und Aufgaben)."
  ],
  "inhalt": {
   "ziel": "Proportionale Zuordnungen erkennen und mit dem Dreisatz in Sachaufgaben rechnen.",
@@ -48,12 +48,32 @@
    {
     "lernziel": "erkennen",
     "titel": "Was heißt proportional?",
-    "regel": "Eine Zuordnung ist ⟦proportional⟧, wenn gilt: doppelte Menge → doppelter Wert, dreifache Menge → dreifacher Wert, halbe Menge → halber Wert.",
+    "regel": "Eine Zuordnung ist ⟦proportional⟧, wenn gilt: doppelte Menge → doppelter Preis, dreifache Menge → dreifacher Preis, halbe Menge → halber Preis. Dazu gehört auch: ⟦nichts kaufen kostet 0 €⟧.",
     "schritte": [
      "1 Brötchen kostet 40 ct. 2 Brötchen kosten 80 ct, 3 Brötchen 120 ct.",
-     "Doppelt so viele Brötchen kosten doppelt so viel: Die Zuordnung ist ⟦proportional⟧."
+     "Doppelt so viele Brötchen kosten doppelt so viel, dreimal so viele dreimal so viel.",
+     "Die Zuordnung Anzahl → Preis ist ⟦proportional⟧."
     ],
-    "fehler": "„Je mehr, desto mehr“ reicht nicht. Ein Kind wird älter und größer, aber mit 10 Jahren ist es nicht doppelt so groß wie mit 5. Es muss ⟦genau das Doppelte⟧ sein."
+    "fehler": "„Je mehr Kilometer, desto teurer – also proportional.“ Falsch beim Taxi: 4 € Grundgebühr plus 2 € pro km. 1 km kostet 6 €, 2 km kosten 8 €, nicht 12 €. Wegen des festen Grundbetrags ist es ⟦nicht proportional⟧. „Je mehr, desto mehr“ reicht nicht – es muss ⟦genau das Doppelte⟧ sein.",
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Anzahl Brötchen",
+      "0",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "Preis",
+       "0 ct",
+       "40 ct",
+       "80 ct",
+       "120 ct"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "vervielfachen",
@@ -65,6 +85,39 @@
      "Also auch der Preis mal 3: 6 € · 3 = ⟦18 €⟧."
     ],
     "fehler": "Auf beiden Seiten dieselbe Zahl ⟦addieren⟧: Von 3 kg auf 9 kg sind es +6 kg, aber der Preis steigt nicht um 6 €. Gerechnet wird mit ⟦mal und geteilt⟧."
+   },
+   {
+    "lernziel": "pruefen",
+    "titel": "Ist die Tabelle proportional?",
+    "regel": "In einer proportionalen Tabelle ist ⟦Preis geteilt durch Menge⟧ immer gleich. Diese Zahl ist der Preis für 1 Stück (1 kg, 1 Liter …).",
+    "schritte": [
+     "Rechne für jedes Paar Preis : Menge: 6 : 2 = 3, 15 : 5 = 3, 24 : 8 = 3.",
+     "Immer 3 € pro kg: Die Tabelle ist ⟦proportional⟧."
+    ],
+    "fehler": "Nur die ersten beiden Paare prüfen. Bei 2 kg → 6 €, 4 kg → 12 €, 10 kg → 25 € stimmen die ersten beiden (je 3 € pro kg), aber 25 : 10 = 2,5. Beim Großeinkauf gibt es Rabatt: ⟦nicht proportional⟧. Prüfe ⟦alle⟧ Paare.",
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "Menge",
+      "2 kg",
+      "5 kg",
+      "8 kg"
+     ],
+     "zeilen": [
+      [
+       "Preis",
+       "6 €",
+       "15 €",
+       "24 €"
+      ],
+      [
+       "Preis : Menge",
+       "3",
+       "3",
+       "3"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "einheit",
@@ -80,37 +133,52 @@
    {
     "lernziel": "dreisatz",
     "titel": "Der Dreisatz",
-    "regel": "Der Dreisatz hat ⟦drei Zeilen⟧: 1. Was du weißt. 2. Auf die Einheit schließen (geteilt). 3. Auf das Gesuchte schließen (mal).",
+    "regel": "Der Dreisatz hat ⟦drei Zeilen⟧: 1. Was du weißt. 2. Auf 1 Stück schließen: ⟦beide Seiten teilen⟧. 3. Auf das Gesuchte schließen: ⟦beide Seiten malnehmen⟧. Was du links tust, tust du auch rechts.",
     "schritte": [
-     "4 kg kosten 12 €.",
-     "1 kg kostet 12 € : 4 = 3 €.",
-     "7 kg kosten 3 € · 7 = ⟦21 €⟧."
+     "Zeile 1: 4 kg Äpfel kosten 12 €.",
+     "Zeile 2: Links : 4, also auch rechts : 4. 1 kg kostet 12 € : 4 = 3 €.",
+     "Zeile 3: Links · 7, also auch rechts · 7. 7 kg kosten 3 € · 7 = ⟦21 €⟧."
     ],
-    "probe": "Überschlag: 7 kg ist etwas weniger als das Doppelte von 4 kg, 21 € etwas weniger als 24 € ✓",
-    "fehler": "Die mittlere Zeile überspringen und raten. Schreibe ⟦immer alle drei Zeilen⟧ auf, dann siehst du, was du teilen und malnehmen musst."
+    "probe": "Überschlag: 7 kg sind knapp das Doppelte von 4 kg. 21 € sind knapp das Doppelte von 12 € ✓",
+    "fehler": "In Zeile 3 mit der alten Menge malnehmen: 3 € · 4 = 12 €. Das ist wieder der Preis für 4 kg! Gesucht sind 7 kg, also musst du mit ⟦7⟧ malnehmen: 3 € · 7 = 21 €.",
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "",
+      "Menge",
+      "Preis"
+     ],
+     "zeilen": [
+      [
+       "Zeile 1",
+       "4 kg",
+       "12 €"
+      ],
+      [
+       "Zeile 2 (: 4)",
+       "1 kg",
+       "3 €"
+      ],
+      [
+       "Zeile 3 (· 7)",
+       "7 kg",
+       "21 €"
+      ]
+     ]
+    }
    },
    {
     "lernziel": "geschickt",
     "titel": "Geschickte Zwischenschritte",
-    "regel": "Du musst nicht immer auf 1 gehen. Suche eine Zwischenmenge, die ⟦in beiden Zahlen steckt⟧: von 6 auf 9 geht es bequem über 3.",
+    "regel": "Du musst nicht immer auf 1 gehen. Suche eine Zwischenmenge, die ⟦in beide Zahlen passt⟧: von 6 auf 9 geht es bequem über 3. Noch ein Trick: Bei proportionalen Zuordnungen darfst du ⟦Zeilen addieren⟧.",
     "schritte": [
      "6 Karten kosten 42 €. Gesucht: 9 Karten.",
-     "3 Karten kosten 42 € : 2 = 21 €.",
-     "9 Karten kosten 21 € · 3 = ⟦63 €⟧."
+     "3 Karten sind die Hälfte von 6 Karten: 42 € : 2 = 21 €.",
+     "9 Karten sind 3 Karten mal 3: 21 € · 3 = ⟦63 €⟧.",
+     "Oder mit dem Additions-Trick: 9 Karten = 6 Karten + 3 Karten, also 42 € + 21 € = ⟦63 €⟧."
     ],
-    "probe": "Über die Einheit: 1 Karte kostet 7 €, 9 Karten 63 € ✓",
-    "fehler": "Einen Zwischenschritt wählen, der nicht in beide Zahlen passt (z. B. von 6 über 4 auf 9). Der Zwischenschritt muss ein ⟦gemeinsamer Teiler⟧ sein."
-   },
-   {
-    "lernziel": "pruefen",
-    "titel": "Ist die Tabelle proportional?",
-    "regel": "In einer proportionalen Tabelle ist ⟦Wert geteilt durch Menge⟧ immer gleich. Dieser Quotient ist der Wert für 1 Stück.",
-    "schritte": [
-     "2 kg → 6 €, 5 kg → 15 €, 8 kg → 24 €.",
-     "6 : 2 = 3, 15 : 5 = 3, 24 : 8 = 3.",
-     "Immer 3 € pro kg: Die Tabelle ist ⟦proportional⟧."
-    ],
-    "fehler": "Nur das erste Paar prüfen. Erst wenn ⟦alle⟧ Quotienten gleich sind, ist die Zuordnung proportional."
+    "probe": "Über 1 Karte: 42 € : 6 = 7 €, und 7 € · 9 = 63 € ✓",
+    "fehler": "Eine Zwischenmenge nehmen, die nicht in beide Zahlen passt, z. B. 4: Von 6 Karten auf 4 Karten musst du durch 1,5 teilen – das ist schwerer als vorher. Die Zwischenmenge muss in ⟦beide⟧ Zahlen ohne Rest passen: 3 passt in 6 und in 9."
    },
    {
     "lernziel": "sach",
@@ -161,10 +229,10 @@
    "lernziele_pflicht": [
     "erkennen",
     "vervielfachen",
+    "pruefen",
     "einheit",
     "dreisatz",
     "geschickt",
-    "pruefen",
     "sach"
    ],
    "lernziele_vertiefung": [],
@@ -187,12 +255,12 @@
     "text": "Welche Zuordnung ist nicht proportional?"
    },
    "a": [
-    "Zeit bei gleichem Tempo → gefahrene Strecke",
     "Anzahl der Geschwister → Taschengeld",
-    "Menge Wasser aus einem Hahn → Zeit, die der Hahn läuft"
+    "Menge Wasser aus einem Hahn → Zeit, die der Hahn läuft",
+    "Zeit bei gleichem Tempo → gefahrene Strecke"
    ],
    "o": {
-    "index": 1
+    "index": 0
    },
    "w": "Bei „Anzahl der Geschwister → Taschengeld“ gehört zum Doppelten nicht das Doppelte. Die beiden anderen sind proportional.",
    "h": "Prüfe: Gehört zur doppelten Menge genau der doppelte Wert?"
@@ -208,11 +276,11 @@
    },
    "a": [
     "Parkdauer → Parkgebühr, wenn die erste Stunde frei ist",
-    "Alter eines Kindes → Körpergröße",
-    "Menge Wasser aus einem Hahn → Zeit, die der Hahn läuft"
+    "Menge Wasser aus einem Hahn → Zeit, die der Hahn läuft",
+    "Alter eines Kindes → Körpergröße"
    ],
    "o": {
-    "index": 2
+    "index": 1
    },
    "w": "Nur bei „Menge Wasser aus einem Hahn → Zeit, die der Hahn läuft“ gehört zum Doppelten immer genau das Doppelte.",
    "h": "Prüfe: Gehört zur doppelten Menge genau der doppelte Wert?"
@@ -227,28 +295,8 @@
     "text": "Welche Zuordnung ist nicht proportional?"
    },
    "a": [
-    "Zeit bei gleichem Tempo → gefahrene Strecke",
-    "Anzahl der Musiker → Dauer des Liedes",
-    "Anzahl gleicher Schritte → zurückgelegter Weg"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Bei „Anzahl der Musiker → Dauer des Liedes“ gehört zum Doppelten nicht das Doppelte. Die beiden anderen sind proportional.",
-   "h": "Prüfe: Gehört zur doppelten Menge genau der doppelte Wert?"
-  },
-  {
-   "l": "erkennen",
-   "t": "begriff",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Zuordnung ist nicht proportional?"
-   },
-   "a": [
-    "Benzinmenge → Preis an der Tankstelle",
-    "Anzahl gleicher Fliesen → bedeckte Fläche",
+    "Seitenlänge eines Quadrats → Umfang",
+    "Anzahl gleicher Schritte → zurückgelegter Weg",
     "Anzahl der Geschwister → Taschengeld"
    ],
    "o": {
@@ -267,14 +315,34 @@
     "text": "Welche Zuordnung ist nicht proportional?"
    },
    "a": [
-    "Seitenlänge eines Quadrats → Umfang",
-    "Anzahl der Musiker → Dauer des Liedes",
-    "Benzinmenge → Preis an der Tankstelle"
+    "Alter eines Kindes → Körpergröße",
+    "Benzinmenge → Preis an der Tankstelle",
+    "Zeit bei gleichem Tempo → gefahrene Strecke"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Bei „Alter eines Kindes → Körpergröße“ gehört zum Doppelten nicht das Doppelte. Die beiden anderen sind proportional.",
+   "h": "Prüfe: Gehört zur doppelten Menge genau der doppelte Wert?"
+  },
+  {
+   "l": "erkennen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Zuordnung ist proportional?"
+   },
+   "a": [
+    "Anzahl der Kerzen → Brenndauer der Kerzen",
+    "Menge Wasser aus einem Hahn → Zeit, die der Hahn läuft",
+    "Anzahl der Musiker → Dauer des Liedes"
    ],
    "o": {
     "index": 1
    },
-   "w": "Bei „Anzahl der Musiker → Dauer des Liedes“ gehört zum Doppelten nicht das Doppelte. Die beiden anderen sind proportional.",
+   "w": "Nur bei „Menge Wasser aus einem Hahn → Zeit, die der Hahn läuft“ gehört zum Doppelten immer genau das Doppelte.",
    "h": "Prüfe: Gehört zur doppelten Menge genau der doppelte Wert?"
   },
   {
@@ -284,61 +352,18 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Eine Zuordnung ist proportional. 4 Hefte kosten 12 €. Was gilt dann für 40 Hefte?"
+    "text": "Ein Quadrat mit 2 cm Seitenlänge hat 4 cm² Fläche, eines mit 4 cm Seitenlänge hat 16 cm². Ist Seitenlänge → Flächeninhalt proportional?"
    },
    "a": [
-    "22 €",
-    "42 €",
-    "123 €",
-    "120 €"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "40 ist das 10-Fache von 4. Also auch der Wert mal 10: 12 · 10 = 120 €.",
-   "h": "Wie oft passt die erste Menge in die zweite? Der Wert wird genauso oft genommen."
-  },
-  {
-   "l": "erkennen",
-   "t": "begriff",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Zuordnung ist proportional. 6 Hefte kosten 12 €. Was gilt dann für 60 Hefte?"
-   },
-   "a": [
-    "120 €",
-    "32 €",
-    "22 €",
-    "122 €"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "60 ist das 10-Fache von 6. Also auch der Wert mal 10: 12 · 10 = 120 €.",
-   "h": "Wie oft passt die erste Menge in die zweite? Der Wert wird genauso oft genommen."
-  },
-  {
-   "l": "erkennen",
-   "t": "begriff",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Zuordnung ist proportional. In 3 Minuten laufen 27 Liter aus dem Hahn. Was gilt dann für 6 Minuten?"
-   },
-   "a": [
-    "45 Liter",
-    "29 Liter",
-    "54 Liter",
-    "63 Liter"
+    "Ja, je länger die Seite, desto größer die Fläche.",
+    "Ja, beide Zahlen werden größer.",
+    "Nein, doppelte Seite gibt vierfache Fläche."
    ],
    "o": {
     "index": 2
    },
-   "w": "6 ist das 2-Fache von 3. Also auch der Wert mal 2: 27 · 2 = 54 Liter.",
-   "h": "Wie oft passt die erste Menge in die zweite? Der Wert wird genauso oft genommen."
+   "w": "Zum Doppelten der Seite (2 → 4 cm) gehört das Vierfache der Fläche (4 → 16 cm²), nicht das Doppelte. „Je mehr, desto mehr“ reicht nicht.",
+   "h": "Prüfe mit den Zahlen: Gehört zum Doppelten genau das Doppelte?"
   },
   {
    "l": "erkennen",
@@ -347,100 +372,78 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Eine Zuordnung ist proportional. In 6 Minuten laufen 54 Liter aus dem Hahn. Was gilt dann für 18 Minuten?"
+    "text": "Ein Quadrat mit 6 cm Seitenlänge hat 36 cm² Fläche, eines mit 12 cm Seitenlänge hat 144 cm². Ist Seitenlänge → Flächeninhalt proportional?"
    },
    "a": [
-    "57 Liter",
-    "171 Liter",
-    "81 Liter",
-    "162 Liter"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "18 ist das 3-Fache von 6. Also auch der Wert mal 3: 54 · 3 = 162 Liter.",
-   "h": "Wie oft passt die erste Menge in die zweite? Der Wert wird genauso oft genommen."
-  },
-  {
-   "l": "erkennen",
-   "t": "begriff",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Zuordnung ist proportional. 2 Brötchen kosten 60 ct. Was gilt dann für 10 Brötchen?"
-   },
-   "a": [
-    "330 ct",
-    "300 ct",
-    "210 ct",
-    "65 ct"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "10 ist das 5-Fache von 2. Also auch der Wert mal 5: 60 · 5 = 300 ct.",
-   "h": "Wie oft passt die erste Menge in die zweite? Der Wert wird genauso oft genommen."
-  },
-  {
-   "l": "erkennen",
-   "t": "begriff",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "1 Packung enthält 12 Kekse. Es gibt keinen festen Grundbetrag. Ist die Zuordnung proportional, und was gilt für 6 Packungen?"
-   },
-   "a": [
-    "Nein, das kann man nicht wissen",
-    "Ja, 6 Packungen: 18 Kekse",
-    "Ja, 6 Packungen: 72 Kekse"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Jede Einheit bringt 12 Kekse, ohne festen Anteil: proportional. 6 · 12 = 72 Kekse.",
-   "h": "Gibt es einen festen Anteil, der nicht von der Menge abhängt? Wenn nicht, ist es proportional."
-  },
-  {
-   "l": "erkennen",
-   "t": "begriff",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "1 Schritt ist 60 cm. Es gibt keinen festen Grundbetrag. Ist die Zuordnung proportional, und was gilt für 3 Schritte?"
-   },
-   "a": [
-    "Nein, das kann man nicht wissen",
-    "Ja, 3 Schritte: 180 cm",
-    "Ja, 3 Schritte: 63 cm"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Jede Einheit bringt 60 cm, ohne festen Anteil: proportional. 3 · 60 = 180 cm.",
-   "h": "Gibt es einen festen Anteil, der nicht von der Menge abhängt? Wenn nicht, ist es proportional."
-  },
-  {
-   "l": "erkennen",
-   "t": "begriff",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "1 Liter Farbe reicht für 6 m². Es gibt keinen festen Grundbetrag. Ist die Zuordnung proportional, und was gilt für 4 Liter Farbe?"
-   },
-   "a": [
-    "Ja, 4 Liter Farbe: 24 m²",
-    "Ja, 4 Liter Farbe: 10 m²",
-    "Nein, das kann man nicht wissen"
+    "Nein, doppelte Seite gibt vierfache Fläche.",
+    "Ja, beide Zahlen werden größer.",
+    "Ja, je länger die Seite, desto größer die Fläche."
    ],
    "o": {
     "index": 0
    },
-   "w": "Jede Einheit bringt 6 m², ohne festen Anteil: proportional. 4 · 6 = 24 m².",
-   "h": "Gibt es einen festen Anteil, der nicht von der Menge abhängt? Wenn nicht, ist es proportional."
+   "w": "Zum Doppelten der Seite (6 → 12 cm) gehört das Vierfache der Fläche (36 → 144 cm²), nicht das Doppelte. „Je mehr, desto mehr“ reicht nicht.",
+   "h": "Prüfe mit den Zahlen: Gehört zum Doppelten genau das Doppelte?"
+  },
+  {
+   "l": "erkennen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Quadrat mit 5 cm Seitenlänge hat 25 cm² Fläche, eines mit 10 cm Seitenlänge hat 100 cm². Ist Seitenlänge → Flächeninhalt proportional?"
+   },
+   "a": [
+    "Ja, je länger die Seite, desto größer die Fläche.",
+    "Nein, doppelte Seite gibt vierfache Fläche.",
+    "Ja, beide Zahlen werden größer."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Zum Doppelten der Seite (5 → 10 cm) gehört das Vierfache der Fläche (25 → 100 cm²), nicht das Doppelte. „Je mehr, desto mehr“ reicht nicht.",
+   "h": "Prüfe mit den Zahlen: Gehört zum Doppelten genau das Doppelte?"
+  },
+  {
+   "l": "erkennen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "5 gleiche Flaschen Saft wiegen zusammen 10 kg, 10 solche Flaschen wiegen 20 kg. Ist Anzahl → Gewicht proportional?"
+   },
+   "a": [
+    "Nein, man braucht dafür eine Grundgebühr.",
+    "Nein, das Gewicht wird ja größer.",
+    "Ja, zum Doppelten gehört genau das Doppelte."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "10 Flaschen sind doppelt so viele wie 5, und 20 kg ist genau das Doppelte von 10 kg. Jede Flasche wiegt gleich viel: proportional.",
+   "h": "Prüfe mit den Zahlen: Gehört zum Doppelten genau das Doppelte?"
+  },
+  {
+   "l": "erkennen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Quadrat mit 4 cm Seitenlänge hat 16 cm² Fläche, eines mit 8 cm Seitenlänge hat 64 cm². Ist Seitenlänge → Flächeninhalt proportional?"
+   },
+   "a": [
+    "Nein, doppelte Seite gibt vierfache Fläche.",
+    "Ja, beide Zahlen werden größer.",
+    "Ja, je länger die Seite, desto größer die Fläche."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Zum Doppelten der Seite (4 → 8 cm) gehört das Vierfache der Fläche (16 → 64 cm²), nicht das Doppelte. „Je mehr, desto mehr“ reicht nicht.",
+   "h": "Prüfe mit den Zahlen: Gehört zum Doppelten genau das Doppelte?"
   },
   {
    "l": "erkennen",
@@ -452,12 +455,12 @@
     "text": "Ein Quadrat hat die Seitenlänge 8 cm. Die Seitenlänge wird verdoppelt. Was stimmt?"
    },
    "a": [
-    "Der Umfang verdoppelt sich, der Flächeninhalt vervierfacht sich",
     "Umfang und Flächeninhalt vervierfachen sich",
+    "Der Umfang verdoppelt sich, der Flächeninhalt vervierfacht sich",
     "Umfang und Flächeninhalt verdoppeln sich"
    ],
    "o": {
-    "index": 0
+    "index": 1
    },
    "w": "Umfang: 4 · 8 = 32 cm, danach 4 · 16 = 64 cm (doppelt). Fläche: 64 cm², danach 256 cm² (vierfach). Nur der Umfang ist proportional zur Seitenlänge.",
    "h": "Rechne Umfang und Flächeninhalt vorher und nachher aus."
@@ -469,18 +472,78 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "In 1 Minute laufen 9 Liter aus dem Hahn. Es gibt keinen festen Grundbetrag. Ist die Zuordnung proportional, und was gilt für 3 Minuten?"
+    "text": "Eine Taxifahrt kostet 2 € Grundgebühr und 1 € je km. 3 km: 5 €, 6 km: 8 €. Ist Kilometer → Preis proportional?"
    },
    "a": [
-    "Ja, 3 Minuten: 12 Liter",
-    "Nein, das kann man nicht wissen",
-    "Ja, 3 Minuten: 27 Liter"
+    "Ja, denn jeder Kilometer kostet gleich viel.",
+    "Ja, denn der Preis wird größer.",
+    "Nein, denn für das Doppelte zahlt man nicht das Doppelte."
    ],
    "o": {
     "index": 2
    },
-   "w": "Jede Einheit bringt 9 Liter, ohne festen Anteil: proportional. 3 · 9 = 27 Liter.",
-   "h": "Gibt es einen festen Anteil, der nicht von der Menge abhängt? Wenn nicht, ist es proportional."
+   "w": "Proportional wäre: 6 km kosten 2 · 5 € = 10 €. Es sind aber 8 €. Die feste Gebühr von 2 € zahlt man nur einmal.",
+   "h": "Vergleiche: Kostet das Doppelte auch doppelt so viel?"
+  },
+  {
+   "l": "erkennen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Kletterpark kostet 3 € Eintritt und 2 € je Stunde. 3 Stunden: 9 €, 6 Stunden: 15 €. Ist Stunden → Preis proportional?"
+   },
+   "a": [
+    "Nein, denn für das Doppelte zahlt man nicht das Doppelte.",
+    "Ja, denn jede Stunde kostet gleich viel.",
+    "Ja, denn der Preis wird größer."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Proportional wäre: 6 Stunden kosten 2 · 9 € = 18 €. Es sind aber 15 €. Die feste Gebühr von 3 € zahlt man nur einmal.",
+   "h": "Vergleiche: Kostet das Doppelte auch doppelt so viel?"
+  },
+  {
+   "l": "erkennen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Packung enthält 16 Kekse. Ist „Anzahl Packungen → Anzahl Kekse“ proportional, und was gilt für 3 Packungen?"
+   },
+   "a": [
+    "Ja; 3 Packungen: 19 Kekse",
+    "Ja; 3 Packungen: 48 Kekse",
+    "Nein, das kann man nicht wissen"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Jedes Stück bringt gleich viel, und 0 Stück ergeben 0: proportional. 3 · 16 = 48 Kekse.",
+   "h": "Frag dich: Was kostet nichts? Gibt es einen festen Betrag, der immer dazukommt?"
+  },
+  {
+   "l": "erkennen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Taxifahrt kostet 4 € Grundgebühr und 1 € je km. 3 km: 7 €, 6 km: 10 €. Ist Kilometer → Preis proportional?"
+   },
+   "a": [
+    "Ja, denn jeder Kilometer kostet gleich viel.",
+    "Ja, denn der Preis wird größer.",
+    "Nein, denn für das Doppelte zahlt man nicht das Doppelte."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Proportional wäre: 6 km kosten 2 · 7 € = 14 €. Es sind aber 10 €. Die feste Gebühr von 4 € zahlt man nur einmal.",
+   "h": "Vergleiche: Kostet das Doppelte auch doppelt so viel?"
   },
   {
    "l": "erkennen",
@@ -489,18 +552,17 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Eine Zuordnung ist proportional. 2 Hefte kosten 6 €. Was gilt dann für 20 Hefte?"
+    "text": "Ein Quadrat mit 3 cm Seitenlänge hat 9 cm² Fläche, eines mit 6 cm Seitenlänge hat 36 cm². Ist Seitenlänge → Flächeninhalt proportional?"
    },
    "a": [
-    "16 €",
-    "63 €",
-    "60 €",
-    "36 €"
+    "Nein, doppelte Seite gibt vierfache Fläche.",
+    "Ja, je länger die Seite, desto größer die Fläche.",
+    "Ja, beide Zahlen werden größer."
    ],
    "o": {
-    "index": 2
+    "index": 0
    },
-   "w": "20 ist das 10-Fache von 2. Also auch der Wert mal 10: 6 · 10 = 60 €."
+   "w": "Zum Doppelten der Seite (3 → 6 cm) gehört das Vierfache der Fläche (9 → 36 cm²), nicht das Doppelte. „Je mehr, desto mehr“ reicht nicht."
   },
   {
    "l": "erkennen",
@@ -509,157 +571,55 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Eine Zuordnung ist proportional. 2 Hefte kosten 6 €. Was gilt dann für 10 Hefte?"
+    "text": "6 gleiche Flaschen Saft wiegen zusammen 18 kg, 12 solche Flaschen wiegen 36 kg. Ist Anzahl → Gewicht proportional?"
    },
    "a": [
-    "21 €",
-    "33 €",
-    "11 €",
-    "30 €"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "10 ist das 5-Fache von 2. Also auch der Wert mal 5: 6 · 5 = 30 €."
-  },
-  {
-   "l": "erkennen",
-   "t": "begriff",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Zuordnung ist proportional. 4 Brötchen kosten 120 ct. Was gilt dann für 12 Brötchen?"
-   },
-   "a": [
-    "123 ct",
-    "390 ct",
-    "210 ct",
-    "360 ct"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "12 ist das 3-Fache von 4. Also auch der Wert mal 3: 120 · 3 = 360 ct."
-  },
-  {
-   "l": "erkennen",
-   "t": "begriff",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Zuordnung ist proportional. 5 Hefte kosten 15 €. Was gilt dann für 50 Hefte?"
-   },
-   "a": [
-    "45 €",
-    "153 €",
-    "25 €",
-    "150 €"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "50 ist das 10-Fache von 5. Also auch der Wert mal 10: 15 · 10 = 150 €."
-  },
-  {
-   "l": "erkennen",
-   "t": "begriff",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Zuordnung ist proportional. 6 Packungen enthalten 144 Kekse. Was gilt dann für 30 Packungen?"
-   },
-   "a": [
-    "149 Kekse",
-    "744 Kekse",
-    "264 Kekse",
-    "720 Kekse"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "30 ist das 5-Fache von 6. Also auch der Wert mal 5: 144 · 5 = 720 Kekse."
-  },
-  {
-   "l": "erkennen",
-   "t": "begriff",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Zuordnung ist proportional. 3 Liter Farbe reichen für 24 m². Was gilt dann für 12 Liter Farbe?"
-   },
-   "a": [
-    "104 m²",
-    "56 m²",
-    "96 m²",
-    "28 m²"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "12 ist das 4-Fache von 3. Also auch der Wert mal 4: 24 · 4 = 96 m²."
-  },
-  {
-   "l": "erkennen",
-   "t": "begriff",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Zuordnung ist proportional. In 4 Minuten laufen 36 Liter aus dem Hahn. Was gilt dann für 8 Minuten?"
-   },
-   "a": [
-    "38 Liter",
-    "54 Liter",
-    "81 Liter",
-    "72 Liter"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "8 ist das 2-Fache von 4. Also auch der Wert mal 2: 36 · 2 = 72 Liter."
-  },
-  {
-   "l": "erkennen",
-   "t": "begriff",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Zuordnung ist proportional. 3 Hefte kosten 3 €. Was gilt dann für 15 Hefte?"
-   },
-   "a": [
-    "30 €",
-    "8 €",
-    "15 €"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "15 ist das 5-Fache von 3. Also auch der Wert mal 5: 3 · 5 = 15 €."
-  },
-  {
-   "l": "erkennen",
-   "t": "begriff",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Eine Zuordnung ist proportional. 4 kg Äpfel kosten 8 €. Was gilt dann für 16 kg Äpfel?"
-   },
-   "a": [
-    "34 €",
-    "32 €",
-    "12 €",
-    "16 €"
+    "Nein, das Gewicht wird ja größer.",
+    "Ja, zum Doppelten gehört genau das Doppelte.",
+    "Nein, man braucht dafür eine Grundgebühr."
    ],
    "o": {
     "index": 1
    },
-   "w": "16 ist das 4-Fache von 4. Also auch der Wert mal 4: 8 · 4 = 32 €."
+   "w": "12 Flaschen sind doppelt so viele wie 6, und 36 kg ist genau das Doppelte von 18 kg. Jede Flasche wiegt gleich viel: proportional."
+  },
+  {
+   "l": "erkennen",
+   "t": "begriff",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "6 gleiche Flaschen Saft wiegen zusammen 12 kg, 12 solche Flaschen wiegen 24 kg. Ist Anzahl → Gewicht proportional?"
+   },
+   "a": [
+    "Nein, das Gewicht wird ja größer.",
+    "Nein, man braucht dafür eine Grundgebühr.",
+    "Ja, zum Doppelten gehört genau das Doppelte."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "12 Flaschen sind doppelt so viele wie 6, und 24 kg ist genau das Doppelte von 12 kg. Jede Flasche wiegt gleich viel: proportional."
+  },
+  {
+   "l": "erkennen",
+   "t": "begriff",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "2 gleiche Flaschen Saft wiegen zusammen 6 kg, 4 solche Flaschen wiegen 12 kg. Ist Anzahl → Gewicht proportional?"
+   },
+   "a": [
+    "Nein, man braucht dafür eine Grundgebühr.",
+    "Nein, das Gewicht wird ja größer.",
+    "Ja, zum Doppelten gehört genau das Doppelte."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "4 Flaschen sind doppelt so viele wie 2, und 12 kg ist genau das Doppelte von 6 kg. Jede Flasche wiegt gleich viel: proportional."
   },
   {
    "l": "erkennen",
@@ -668,18 +628,112 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Eine Zuordnung ist proportional. 2 Schritte sind 130 cm. Was gilt dann für 20 Schritte?"
+    "text": "Mit 4 Jahren ist ein Kind 103 cm groß. Ist es mit 8 Jahren 206 cm groß?"
    },
    "a": [
-    "140 cm",
-    "1 365 cm",
-    "780 cm",
-    "1 300 cm"
+    "Ja, doppeltes Alter heißt doppelte Größe.",
+    "Ja, weil Kinder mit dem Alter wachsen.",
+    "Nein, Alter und Größe sind nicht proportional."
    ],
    "o": {
-    "index": 3
+    "index": 2
    },
-   "w": "20 ist das 10-Fache von 2. Also auch der Wert mal 10: 130 · 10 = 1 300 cm."
+   "w": "206 cm wären über 2 m – so groß ist kein Kind mit 8 Jahren. Das Kind wächst zwar, aber nicht auf das Doppelte."
+  },
+  {
+   "l": "erkennen",
+   "t": "begriff",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Mit 7 Jahren ist ein Kind 122 cm groß. Ist es mit 14 Jahren 244 cm groß?"
+   },
+   "a": [
+    "Ja, weil Kinder mit dem Alter wachsen.",
+    "Ja, doppeltes Alter heißt doppelte Größe.",
+    "Nein, Alter und Größe sind nicht proportional."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "244 cm wären über 2 m – so groß ist kein Kind mit 14 Jahren. Das Kind wächst zwar, aber nicht auf das Doppelte."
+  },
+  {
+   "l": "erkennen",
+   "t": "begriff",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "3 gleiche Flaschen Saft wiegen zusammen 3 kg, 6 solche Flaschen wiegen 6 kg. Ist Anzahl → Gewicht proportional?"
+   },
+   "a": [
+    "Ja, zum Doppelten gehört genau das Doppelte.",
+    "Nein, das Gewicht wird ja größer.",
+    "Nein, man braucht dafür eine Grundgebühr."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "6 Flaschen sind doppelt so viele wie 3, und 6 kg ist genau das Doppelte von 3 kg. Jede Flasche wiegt gleich viel: proportional."
+  },
+  {
+   "l": "erkennen",
+   "t": "begriff",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Mit 6 Jahren ist ein Kind 116 cm groß. Ist es mit 12 Jahren 232 cm groß?"
+   },
+   "a": [
+    "Ja, weil Kinder mit dem Alter wachsen.",
+    "Nein, Alter und Größe sind nicht proportional.",
+    "Ja, doppeltes Alter heißt doppelte Größe."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "232 cm wären über 2 m – so groß ist kein Kind mit 12 Jahren. Das Kind wächst zwar, aber nicht auf das Doppelte."
+  },
+  {
+   "l": "erkennen",
+   "t": "begriff",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "5 gleiche Flaschen Saft wiegen zusammen 5 kg, 10 solche Flaschen wiegen 10 kg. Ist Anzahl → Gewicht proportional?"
+   },
+   "a": [
+    "Ja, zum Doppelten gehört genau das Doppelte.",
+    "Nein, das Gewicht wird ja größer.",
+    "Nein, man braucht dafür eine Grundgebühr."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "10 Flaschen sind doppelt so viele wie 5, und 10 kg ist genau das Doppelte von 5 kg. Jede Flasche wiegt gleich viel: proportional."
+  },
+  {
+   "l": "erkennen",
+   "t": "begriff",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "5 gleiche Flaschen Saft wiegen zusammen 15 kg, 10 solche Flaschen wiegen 30 kg. Ist Anzahl → Gewicht proportional?"
+   },
+   "a": [
+    "Ja, zum Doppelten gehört genau das Doppelte.",
+    "Nein, man braucht dafür eine Grundgebühr.",
+    "Nein, das Gewicht wird ja größer."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "10 Flaschen sind doppelt so viele wie 5, und 30 kg ist genau das Doppelte von 15 kg. Jede Flasche wiegt gleich viel: proportional."
   },
   {
    "l": "vervielfachen",
@@ -688,14 +742,65 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "2 Liter Farbe reichen für 12 m². 4 Liter Farbe reichen für wie viele m²?"
+    "text": "In 3 Minuten laufen 27 Liter aus dem Hahn. In 9 Minuten laufen wie viele Liter aus dem Hahn?"
    },
    "o": {
-    "wert": 24,
+    "wert": 81,
+    "einheit": "Liter"
+   },
+   "c": "27*3",
+   "w": "9 ist das 3-Fache von 3. Also: 27 · 3 = 81 Liter.",
+   "h": "Mit welcher Zahl musst du die Menge malnehmen? Nimm den Wert mit derselben Zahl mal."
+  },
+  {
+   "l": "vervielfachen",
+   "t": "tabelle",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "2 Brötchen kosten 80 ct. 20 Brötchen kosten wie viel ct?"
+   },
+   "o": {
+    "wert": 800,
+    "einheit": "ct"
+   },
+   "c": "80*10",
+   "w": "20 ist das 10-Fache von 2. Also: 80 · 10 = 800 ct.",
+   "h": "Mit welcher Zahl musst du die Menge malnehmen? Nimm den Wert mit derselben Zahl mal."
+  },
+  {
+   "l": "vervielfachen",
+   "t": "tabelle",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "4 Hefte kosten 12 €. 12 Hefte kosten wie viel €?"
+   },
+   "o": {
+    "wert": 36,
+    "einheit": "€"
+   },
+   "c": "12*3",
+   "w": "12 ist das 3-Fache von 4. Also: 12 · 3 = 36 €.",
+   "h": "Mit welcher Zahl musst du die Menge malnehmen? Nimm den Wert mit derselben Zahl mal."
+  },
+  {
+   "l": "vervielfachen",
+   "t": "tabelle",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "5 Liter Farbe reichen für 60 m². 50 Liter Farbe reichen für wie viele m²?"
+   },
+   "o": {
+    "wert": 600,
     "einheit": "m²"
    },
-   "c": "12*2",
-   "w": "4 ist das 2-Fache von 2. Also: 12 · 2 = 24 m².",
+   "c": "60*10",
+   "w": "50 ist das 10-Fache von 5. Also: 60 · 10 = 600 m².",
    "h": "Mit welcher Zahl musst du die Menge malnehmen? Nimm den Wert mit derselben Zahl mal."
   },
   {
@@ -705,134 +810,15 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "2 Eintrittskarten kosten 18 €. 20 Eintrittskarten kosten wie viel €?"
+    "text": "4 Schritte sind 280 cm. 12 Schritte sind wie viele cm?"
    },
    "o": {
-    "wert": 180,
-    "einheit": "€"
-   },
-   "c": "18*10",
-   "w": "20 ist das 10-Fache von 2. Also: 18 · 10 = 180 €.",
-   "h": "Mit welcher Zahl musst du die Menge malnehmen? Nimm den Wert mit derselben Zahl mal."
-  },
-  {
-   "l": "vervielfachen",
-   "t": "tabelle",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "3 Eintrittskarten kosten 27 €. 30 Eintrittskarten kosten wie viel €?"
-   },
-   "o": {
-    "wert": 270,
-    "einheit": "€"
-   },
-   "c": "27*10",
-   "w": "30 ist das 10-Fache von 3. Also: 27 · 10 = 270 €.",
-   "h": "Mit welcher Zahl musst du die Menge malnehmen? Nimm den Wert mit derselben Zahl mal."
-  },
-  {
-   "l": "vervielfachen",
-   "t": "tabelle",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "5 Hefte kosten 5 €. 15 Hefte kosten wie viel €?"
-   },
-   "o": {
-    "wert": 15,
-    "einheit": "€"
-   },
-   "c": "5*3",
-   "w": "15 ist das 3-Fache von 5. Also: 5 · 3 = 15 €.",
-   "h": "Mit welcher Zahl musst du die Menge malnehmen? Nimm den Wert mit derselben Zahl mal."
-  },
-  {
-   "l": "vervielfachen",
-   "t": "tabelle",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "5 Eintrittskarten kosten 35 €. 50 Eintrittskarten kosten wie viel €?"
-   },
-   "o": {
-    "wert": 350,
-    "einheit": "€"
-   },
-   "c": "35*10",
-   "w": "50 ist das 10-Fache von 5. Also: 35 · 10 = 350 €.",
-   "h": "Mit welcher Zahl musst du die Menge malnehmen? Nimm den Wert mit derselben Zahl mal."
-  },
-  {
-   "l": "vervielfachen",
-   "t": "tabelle",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "9 Liter Farbe reichen für 72 m². 3 Liter Farbe reichen für wie viele m²?"
-   },
-   "o": {
-    "wert": 24,
-    "einheit": "m²"
-   },
-   "c": "72/3",
-   "w": "3 ist der 3. Teil von 9. Also: 72 : 3 = 24 m².",
-   "h": "Durch welche Zahl musst du die Menge teilen? Teile den Wert durch dieselbe Zahl."
-  },
-  {
-   "l": "vervielfachen",
-   "t": "tabelle",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "8 Hefte kosten 24 €. 4 Hefte kosten wie viel €?"
-   },
-   "o": {
-    "wert": 12,
-    "einheit": "€"
-   },
-   "c": "24/2",
-   "w": "4 ist der 2. Teil von 8. Also: 24 : 2 = 12 €.",
-   "h": "Durch welche Zahl musst du die Menge teilen? Teile den Wert durch dieselbe Zahl."
-  },
-  {
-   "l": "vervielfachen",
-   "t": "tabelle",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "In 18 Stunden fährt ein Radfahrer 270 km. In 6 Stunden fährt ein Radfahrer wie viele km?"
-   },
-   "o": {
-    "wert": 90,
-    "einheit": "km"
-   },
-   "c": "270/3",
-   "w": "6 ist der 3. Teil von 18. Also: 270 : 3 = 90 km.",
-   "h": "Durch welche Zahl musst du die Menge teilen? Teile den Wert durch dieselbe Zahl."
-  },
-  {
-   "l": "vervielfachen",
-   "t": "tabelle",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "16 Schritte sind 1 200 cm. 4 Schritte sind wie viele cm?"
-   },
-   "o": {
-    "wert": 300,
+    "wert": 840,
     "einheit": "cm"
    },
-   "c": "1200/4",
-   "w": "4 ist der 4. Teil von 16. Also: 1 200 : 4 = 300 cm.",
-   "h": "Durch welche Zahl musst du die Menge teilen? Teile den Wert durch dieselbe Zahl."
+   "c": "280*3",
+   "w": "12 ist das 3-Fache von 4. Also: 280 · 3 = 840 cm.",
+   "h": "Mit welcher Zahl musst du die Menge malnehmen? Nimm den Wert mit derselben Zahl mal."
   },
   {
    "l": "vervielfachen",
@@ -841,15 +827,173 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "In 24 Stunden fährt ein Radfahrer 432 km. In 6 Stunden fährt ein Radfahrer wie viele km?"
+    "text": "3 Hefte kosten 9 €. Wie viele Hefte bekommst du für 18 €?"
    },
    "o": {
-    "wert": 108,
-    "einheit": "km"
+    "wert": 6
    },
-   "c": "432/4",
-   "w": "6 ist der 4. Teil von 24. Also: 432 : 4 = 108 km.",
-   "h": "Durch welche Zahl musst du die Menge teilen? Teile den Wert durch dieselbe Zahl."
+   "c": "18/9*3",
+   "w": "18 ist das 2-Fache von 9 (18 : 9 = 2). Also auch die Menge mal 2: 3 · 2 = 6.",
+   "h": "Wie oft passt der bekannte Wert in den neuen Wert? Nimm die Menge genauso oft."
+  },
+  {
+   "l": "vervielfachen",
+   "t": "tabelle",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "2 Brötchen kosten 90 ct. Wie viele Brötchen bekommst du für 270 ct?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "270/90*2",
+   "w": "270 ist das 3-Fache von 90 (270 : 90 = 3). Also auch die Menge mal 3: 2 · 3 = 6.",
+   "h": "Wie oft passt der bekannte Wert in den neuen Wert? Nimm die Menge genauso oft."
+  },
+  {
+   "l": "vervielfachen",
+   "t": "tabelle",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Zuordnung ist proportional. Ergänze die Tabelle.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Menge",
+      "2 Minuten",
+      "8 Minuten",
+      "1 Minute"
+     ],
+     "zeilen": [
+      [
+       "Liter",
+       "18",
+       "?",
+       "?"
+      ]
+     ]
+    },
+    "schablone": "8 Minuten: □ Liter; 1 Minute: □ Liter",
+    "hinweis": "Trage die fehlenden Werte als Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     72,
+     9
+    ]
+   },
+   "c": [
+    "18/2*8",
+    "18/2*1"
+   ],
+   "w": "Erst auf 1 schließen: 18 : 2 = 9 Liter. Dann 8 · 9 = 72 Liter.",
+   "h": "Was du links tust, tust du auch rechts. Am einfachsten über 1 Stück."
+  },
+  {
+   "l": "vervielfachen",
+   "t": "tabelle",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "4 kg Äpfel kosten 8 €. Wie viele kg Äpfel bekommst du für 16 €?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "16/8*4",
+   "w": "16 ist das 2-Fache von 8 (16 : 8 = 2). Also auch die Menge mal 2: 4 · 2 = 8.",
+   "h": "Wie oft passt der bekannte Wert in den neuen Wert? Nimm die Menge genauso oft."
+  },
+  {
+   "l": "vervielfachen",
+   "t": "tabelle",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Zuordnung ist proportional. Ergänze die Tabelle.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Menge",
+      "5 kg Äpfel",
+      "10 kg Äpfel",
+      "1 kg Äpfel"
+     ],
+     "zeilen": [
+      [
+       "€",
+       "10",
+       "?",
+       "?"
+      ]
+     ]
+    },
+    "schablone": "10 kg Äpfel: □ €; 1 kg Äpfel: □ €",
+    "hinweis": "Trage die fehlenden Werte als Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     20,
+     2
+    ]
+   },
+   "c": [
+    "10/5*10",
+    "10/5*1"
+   ],
+   "w": "Erst auf 1 schließen: 10 : 5 = 2 €. Dann 10 · 2 = 20 €.",
+   "h": "Was du links tust, tust du auch rechts. Am einfachsten über 1 Stück."
+  },
+  {
+   "l": "vervielfachen",
+   "t": "tabelle",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die Zuordnung ist proportional. Ergänze die Tabelle.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Menge",
+      "4 Schritte",
+      "12 Schritte",
+      "1 Schritt",
+      "16 Schritte"
+     ],
+     "zeilen": [
+      [
+       "cm",
+       "260",
+       "?",
+       "?",
+       "?"
+      ]
+     ]
+    },
+    "schablone": "12 Schritte: □ cm; 1 Schritt: □ cm; 16 Schritte: □ cm",
+    "hinweis": "Trage die fehlenden Werte als Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     780,
+     65,
+     1040
+    ]
+   },
+   "c": [
+    "260/4*12",
+    "260/4*1",
+    "260/4*16"
+   ],
+   "w": "Erst auf 1 schließen: 260 : 4 = 65 cm. Dann 12 · 65 = 780, 16 · 65 = 1 040 cm.",
+   "h": "Was du links tust, tust du auch rechts. Am einfachsten über 1 Stück."
   },
   {
    "l": "vervielfachen",
@@ -858,31 +1002,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "20 Schritte sind 1 200 cm. 8 Schritte sind wie viele cm?"
+    "text": "18 kg Äpfel kosten 54 €. 12 kg Äpfel kosten wie viel €?"
    },
    "o": {
-    "wert": 480,
-    "einheit": "cm"
-   },
-   "c": "1200/5*2",
-   "w": "Erst durch 5: 4 Schritte → 240 cm. Dann mal 2: 480 cm.",
-   "h": "Gehe über eine kleinere Menge, die in beiden Mengen steckt."
-  },
-  {
-   "l": "vervielfachen",
-   "t": "tabelle",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "12 Hefte kosten 36 €. 16 Hefte kosten wie viel €?"
-   },
-   "o": {
-    "wert": 48,
+    "wert": 36,
     "einheit": "€"
    },
-   "c": "36/3*4",
-   "w": "Erst durch 3: 4 Hefte → 12 €. Dann mal 4: 48 €.",
+   "c": "54/6*4",
+   "w": "Erst durch 6: 3 kg Äpfel → 9 €. Dann mal 4: 36 €.",
    "h": "Gehe über eine kleinere Menge, die in beiden Mengen steckt."
   },
   {
@@ -890,17 +1017,90 @@
    "t": "tabelle",
    "p": "uebung",
    "s": 3,
-   "y": "zahl",
+   "y": "luecken",
    "f": {
-    "text": "24 Liter Farbe reichen für 144 m². 20 Liter Farbe reichen für wie viele m²?"
+    "text": "Die Zuordnung ist proportional. Ergänze die Tabelle.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Menge",
+      "5 Schritte",
+      "15 Schritte",
+      "1 Schritt",
+      "10 Schritte"
+     ],
+     "zeilen": [
+      [
+       "cm",
+       "375",
+       "?",
+       "?",
+       "?"
+      ]
+     ]
+    },
+    "schablone": "15 Schritte: □ cm; 1 Schritt: □ cm; 10 Schritte: □ cm",
+    "hinweis": "Trage die fehlenden Werte als Zahlen ein."
    },
    "o": {
-    "wert": 120,
-    "einheit": "m²"
+    "werte": [
+     1125,
+     75,
+     750
+    ]
    },
-   "c": "144/6*5",
-   "w": "Erst durch 6: 4 Liter Farbe → 24 m². Dann mal 5: 120 m².",
-   "h": "Gehe über eine kleinere Menge, die in beiden Mengen steckt."
+   "c": [
+    "375/5*15",
+    "375/5*1",
+    "375/5*10"
+   ],
+   "w": "Erst auf 1 schließen: 375 : 5 = 75 cm. Dann 15 · 75 = 1 125, 10 · 75 = 750 cm.",
+   "h": "Was du links tust, tust du auch rechts. Am einfachsten über 1 Stück."
+  },
+  {
+   "l": "vervielfachen",
+   "t": "tabelle",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die Zuordnung ist proportional. Ergänze die Tabelle.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Menge",
+      "4 Eintrittskarten",
+      "12 Eintrittskarten",
+      "1 Karte",
+      "16 Eintrittskarten"
+     ],
+     "zeilen": [
+      [
+       "€",
+       "36",
+       "?",
+       "?",
+       "?"
+      ]
+     ]
+    },
+    "schablone": "12 Eintrittskarten: □ €; 1 Karte: □ €; 16 Eintrittskarten: □ €",
+    "hinweis": "Trage die fehlenden Werte als Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     108,
+     9,
+     144
+    ]
+   },
+   "c": [
+    "36/4*12",
+    "36/4*1",
+    "36/4*16"
+   ],
+   "w": "Erst auf 1 schließen: 36 : 4 = 9 €. Dann 12 · 9 = 108, 16 · 9 = 144 €.",
+   "h": "Was du links tust, tust du auch rechts. Am einfachsten über 1 Stück."
   },
   {
    "l": "vervielfachen",
@@ -909,31 +1109,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "12 Hefte kosten 36 €. 20 Hefte kosten wie viel €?"
+    "text": "18 kg Äpfel kosten 72 €. 15 kg Äpfel kosten wie viel €?"
    },
    "o": {
     "wert": 60,
     "einheit": "€"
    },
-   "c": "36/3*5",
-   "w": "Erst durch 3: 4 Hefte → 12 €. Dann mal 5: 60 €.",
-   "h": "Gehe über eine kleinere Menge, die in beiden Mengen steckt."
-  },
-  {
-   "l": "vervielfachen",
-   "t": "tabelle",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "In 12 Stunden fährt ein Radfahrer 144 km. In 4 Stunden fährt ein Radfahrer wie viele km?"
-   },
-   "o": {
-    "wert": 48,
-    "einheit": "km"
-   },
-   "c": "144/6*2",
-   "w": "Erst durch 6: 2 Stunden → 24 km. Dann mal 2: 48 km.",
+   "c": "72/6*5",
+   "w": "Erst durch 6: 3 kg Äpfel → 12 €. Dann mal 5: 60 €.",
    "h": "Gehe über eine kleinere Menge, die in beiden Mengen steckt."
   },
   {
@@ -941,16 +1124,80 @@
    "t": "tabelle",
    "p": "test",
    "s": 2,
-   "y": "zahl",
+   "y": "luecken",
    "f": {
-    "text": "6 Hefte kosten 6 €. 3 Hefte kosten wie viel €?"
+    "text": "Die Zuordnung ist proportional. Ergänze die Tabelle.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Menge",
+      "2 kg Äpfel",
+      "8 kg Äpfel",
+      "1 kg Äpfel"
+     ],
+     "zeilen": [
+      [
+       "€",
+       "6",
+       "?",
+       "?"
+      ]
+     ]
+    },
+    "schablone": "8 kg Äpfel: □ €; 1 kg Äpfel: □ €",
+    "hinweis": "Trage die fehlenden Werte als Zahlen ein."
    },
    "o": {
-    "wert": 3,
-    "einheit": "€"
+    "werte": [
+     24,
+     3
+    ]
    },
-   "c": "6/2",
-   "w": "3 ist der 2. Teil von 6. Also: 6 : 2 = 3 €."
+   "c": [
+    "6/2*8",
+    "6/2*1"
+   ],
+   "w": "Erst auf 1 schließen: 6 : 2 = 3 €. Dann 8 · 3 = 24 €."
+  },
+  {
+   "l": "vervielfachen",
+   "t": "tabelle",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Zuordnung ist proportional. Ergänze die Tabelle.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Menge",
+      "4 Schritte",
+      "8 Schritte",
+      "1 Schritt"
+     ],
+     "zeilen": [
+      [
+       "cm",
+       "280",
+       "?",
+       "?"
+      ]
+     ]
+    },
+    "schablone": "8 Schritte: □ cm; 1 Schritt: □ cm",
+    "hinweis": "Trage die fehlenden Werte als Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     560,
+     70
+    ]
+   },
+   "c": [
+    "280/4*8",
+    "280/4*1"
+   ],
+   "w": "Erst auf 1 schließen: 280 : 4 = 70 cm. Dann 8 · 70 = 560 cm."
   },
   {
    "l": "vervielfachen",
@@ -959,14 +1206,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "In 8 Minuten laufen 72 Liter aus dem Hahn. In 4 Minuten laufen wie viele Liter aus dem Hahn?"
+    "text": "2 Hefte kosten 8 €. Wie viele Hefte bekommst du für 32 €?"
    },
    "o": {
-    "wert": 36,
-    "einheit": "Liter"
+    "wert": 8
    },
-   "c": "72/2",
-   "w": "4 ist der 2. Teil von 8. Also: 72 : 2 = 36 Liter."
+   "c": "32/8*2",
+   "w": "32 ist das 4-Fache von 8 (32 : 8 = 4). Also auch die Menge mal 4: 2 · 4 = 8."
   },
   {
    "l": "vervielfachen",
@@ -975,30 +1221,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "25 kg Äpfel kosten 75 €. 5 kg Äpfel kosten wie viel €?"
+    "text": "2 Liter Farbe reichen für 24 m². Wie viele Liter Farbe braucht man für 48 m²?"
    },
    "o": {
-    "wert": 15,
-    "einheit": "€"
+    "wert": 4
    },
-   "c": "75/5",
-   "w": "5 ist der 5. Teil von 25. Also: 75 : 5 = 15 €."
-  },
-  {
-   "l": "vervielfachen",
-   "t": "tabelle",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "24 Liter Farbe reichen für 192 m². 6 Liter Farbe reichen für wie viele m²?"
-   },
-   "o": {
-    "wert": 48,
-    "einheit": "m²"
-   },
-   "c": "192/4",
-   "w": "6 ist der 4. Teil von 24. Also: 192 : 4 = 48 m²."
+   "c": "48/24*2",
+   "w": "48 ist das 2-Fache von 24 (48 : 24 = 2). Also auch die Menge mal 2: 2 · 2 = 4."
   },
   {
    "l": "vervielfachen",
@@ -1007,14 +1236,53 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "In 10 Stunden fährt ein Radfahrer 120 km. In 2 Stunden fährt ein Radfahrer wie viele km?"
+    "text": "2 Eintrittskarten kosten 14 €. Wie viele Eintrittskarten bekommst du für 28 €?"
    },
    "o": {
-    "wert": 24,
-    "einheit": "km"
+    "wert": 4
    },
-   "c": "120/5",
-   "w": "2 ist der 5. Teil von 10. Also: 120 : 5 = 24 km."
+   "c": "28/14*2",
+   "w": "28 ist das 2-Fache von 14 (28 : 14 = 2). Also auch die Menge mal 2: 2 · 2 = 4."
+  },
+  {
+   "l": "vervielfachen",
+   "t": "tabelle",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Die Zuordnung ist proportional. Ergänze die Tabelle.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Menge",
+      "3 Schritte",
+      "9 Schritte",
+      "1 Schritt"
+     ],
+     "zeilen": [
+      [
+       "cm",
+       "225",
+       "?",
+       "?"
+      ]
+     ]
+    },
+    "schablone": "9 Schritte: □ cm; 1 Schritt: □ cm",
+    "hinweis": "Trage die fehlenden Werte als Zahlen ein."
+   },
+   "o": {
+    "werte": [
+     675,
+     75
+    ]
+   },
+   "c": [
+    "225/3*9",
+    "225/3*1"
+   ],
+   "w": "Erst auf 1 schließen: 225 : 3 = 75 cm. Dann 9 · 75 = 675 cm."
   },
   {
    "l": "vervielfachen",
@@ -1023,78 +1291,555 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "12 Packungen enthalten 192 Kekse. 4 Packungen enthalten wie viele Kekse?"
+    "text": "In 2 Minuten laufen 16 Liter aus dem Hahn. Wie viele Minuten dauert es, bis 64 Liter gelaufen sind?"
    },
    "o": {
-    "wert": 64,
+    "wert": 8
+   },
+   "c": "64/16*2",
+   "w": "64 ist das 4-Fache von 16 (64 : 16 = 4). Also auch die Menge mal 4: 2 · 4 = 8."
+  },
+  {
+   "l": "vervielfachen",
+   "t": "tabelle",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "4 Schritte sind 300 cm. Wie viele Schritte sind 900 cm?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "900/300*4",
+   "w": "900 ist das 3-Fache von 300 (900 : 300 = 3). Also auch die Menge mal 3: 4 · 3 = 12."
+  },
+  {
+   "l": "vervielfachen",
+   "t": "tabelle",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "2 Brötchen kosten 80 ct. Wie viele Brötchen bekommst du für 240 ct?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "240/80*2",
+   "w": "240 ist das 3-Fache von 80 (240 : 80 = 3). Also auch die Menge mal 3: 2 · 3 = 6."
+  },
+  {
+   "l": "vervielfachen",
+   "t": "tabelle",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "24 Packungen enthalten 576 Kekse. 6 Packungen enthalten wie viele Kekse?"
+   },
+   "o": {
+    "wert": 144,
     "einheit": "Kekse"
    },
-   "c": "192/3",
-   "w": "4 ist der 3. Teil von 12. Also: 192 : 3 = 64 Kekse."
+   "c": "576/4",
+   "w": "6 ist ein Viertel von 24, denn 24 : 4 = 6. Also auch der Wert geteilt durch 4: 576 : 4 = 144 Kekse."
   },
   {
-   "l": "vervielfachen",
-   "t": "tabelle",
-   "p": "sicherung",
-   "s": 2,
+   "l": "pruefen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "24 Brötchen kosten 720 ct. 6 Brötchen kosten wie viel ct?"
+    "text": "Eine proportionale Tabelle: 3 → 36, 4 → 48, 11 → 132. Welcher Wert gehört zu 1?"
    },
    "o": {
-    "wert": 180,
-    "einheit": "ct"
+    "wert": 12
    },
-   "c": "720/4",
-   "w": "6 ist der 4. Teil von 24. Also: 720 : 4 = 180 ct."
+   "c": "36/3",
+   "w": "Wert geteilt durch Menge: 36 : 3 = 12. Das stimmt auch für die anderen Paare.",
+   "h": "Teile einen Wert durch seine Menge."
   },
   {
-   "l": "vervielfachen",
-   "t": "tabelle",
-   "p": "sicherung",
-   "s": 2,
+   "l": "pruefen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "12 Liter Farbe reichen für 144 m². 3 Liter Farbe reichen für wie viele m²?"
+    "text": "Eine proportionale Tabelle: 7 → 49, 8 → 56, 12 → 84. Welcher Wert gehört zu 1?"
    },
    "o": {
-    "wert": 36,
-    "einheit": "m²"
+    "wert": 7
    },
-   "c": "144/4",
-   "w": "3 ist der 4. Teil von 12. Also: 144 : 4 = 36 m²."
+   "c": "49/7",
+   "w": "Wert geteilt durch Menge: 49 : 7 = 7. Das stimmt auch für die anderen Paare.",
+   "h": "Teile einen Wert durch seine Menge."
   },
   {
-   "l": "vervielfachen",
-   "t": "tabelle",
-   "p": "sicherung",
-   "s": 2,
+   "l": "pruefen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "10 Schritte sind 600 cm. 2 Schritte sind wie viele cm?"
+    "text": "Eine proportionale Tabelle: 6 → 72, 8 → 96, 12 → 144. Welcher Wert gehört zu 1?"
    },
    "o": {
-    "wert": 120,
-    "einheit": "cm"
+    "wert": 12
    },
-   "c": "600/5",
-   "w": "2 ist der 5. Teil von 10. Also: 600 : 5 = 120 cm."
+   "c": "72/6",
+   "w": "Wert geteilt durch Menge: 72 : 6 = 12. Das stimmt auch für die anderen Paare.",
+   "h": "Teile einen Wert durch seine Menge."
   },
   {
-   "l": "vervielfachen",
-   "t": "tabelle",
-   "p": "sicherung",
-   "s": 2,
+   "l": "pruefen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "12 Schritte sind 900 cm. 3 Schritte sind wie viele cm?"
+    "text": "Eine proportionale Tabelle: 6 → 42, 8 → 56, 9 → 63. Welcher Wert gehört zu 1?"
    },
    "o": {
-    "wert": 225,
-    "einheit": "cm"
+    "wert": 7
    },
-   "c": "900/4",
-   "w": "3 ist der 4. Teil von 12. Also: 900 : 4 = 225 cm."
+   "c": "42/6",
+   "w": "Wert geteilt durch Menge: 42 : 6 = 7. Das stimmt auch für die anderen Paare.",
+   "h": "Teile einen Wert durch seine Menge."
+  },
+  {
+   "l": "pruefen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine proportionale Tabelle: 6 → 36, 10 → 60, 12 → 72. Welcher Wert gehört zu 1?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "36/6",
+   "w": "Wert geteilt durch Menge: 36 : 6 = 6. Das stimmt auch für die anderen Paare.",
+   "h": "Teile einen Wert durch seine Menge."
+  },
+  {
+   "l": "pruefen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Paare gehören zu einer proportionalen Zuordnung, eines passt nicht. Welches?"
+   },
+   "a": [
+    "6 → 48",
+    "9 → 75",
+    "11 → 88"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Bei den beiden anderen ist Wert : Menge = 8. Bei 9 → 75 müsste der Wert 72 sein.",
+   "h": "Rechne bei jedem Paar Wert geteilt durch Menge."
+  },
+  {
+   "l": "pruefen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Tabelle gehört zu einer proportionalen Zuordnung?"
+   },
+   "a": [
+    "6 → 36, 7 → 49, 8 → 64",
+    "6 → 12, 7 → 14, 8 → 16",
+    "6 → 15, 7 → 17, 8 → 19"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Nur bei 6 → 12, 7 → 14, 8 → 16 ist Wert : Menge immer gleich (2). Bei den anderen ändert sich der Quotient.",
+   "h": "Proportional heißt: Wert geteilt durch Menge ist bei allen Paaren gleich."
+  },
+  {
+   "l": "pruefen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Paare gehören zu einer proportionalen Zuordnung, eines passt nicht. Welches?"
+   },
+   "a": [
+    "3 → 15",
+    "5 → 24",
+    "9 → 45"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Bei den beiden anderen ist Wert : Menge = 5. Bei 5 → 24 müsste der Wert 25 sein.",
+   "h": "Rechne bei jedem Paar Wert geteilt durch Menge."
+  },
+  {
+   "l": "pruefen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Tabelle gehört zu einer proportionalen Zuordnung?"
+   },
+   "a": [
+    "2 → 17, 7 → 42, 9 → 52",
+    "2 → 4, 7 → 49, 9 → 81",
+    "2 → 10, 7 → 35, 9 → 45"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Nur bei 2 → 10, 7 → 35, 9 → 45 ist Wert : Menge immer gleich (5). Bei den anderen ändert sich der Quotient.",
+   "h": "Proportional heißt: Wert geteilt durch Menge ist bei allen Paaren gleich."
+  },
+  {
+   "l": "pruefen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Tabelle gehört zu einer proportionalen Zuordnung?"
+   },
+   "a": [
+    "6 → 30, 8 → 40, 10 → 50",
+    "6 → 36, 8 → 46, 10 → 56",
+    "6 → 36, 8 → 64, 10 → 100"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Nur bei 6 → 30, 8 → 40, 10 → 50 ist Wert : Menge immer gleich (5). Bei den anderen ändert sich der Quotient.",
+   "h": "Proportional heißt: Wert geteilt durch Menge ist bei allen Paaren gleich."
+  },
+  {
+   "l": "pruefen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle gehört zu einer proportionalen Zuordnung. Welcher Wert fehlt?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Menge",
+      "6",
+      "10",
+      "12"
+     ],
+     "zeilen": [
+      [
+       "Wert",
+       "9",
+       "15",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 18
+   },
+   "c": "9/3*6",
+   "w": "Für 1 gäbe es keine ganze Zahl. Nimm 2: 6 ist 3-mal 2, also gehört zu 2 der Wert 9 : 3 = 3. 12 ist 6-mal 2: 3 · 6 = 18.",
+   "h": "Suche eine kleine Menge, für die der Wert eine ganze Zahl ist."
+  },
+  {
+   "l": "pruefen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle gehört zu einer proportionalen Zuordnung. Welcher Wert fehlt?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Menge",
+      "16",
+      "20",
+      "28"
+     ],
+     "zeilen": [
+      [
+       "Wert",
+       "12",
+       "15",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 21
+   },
+   "c": "12/4*7",
+   "w": "Für 1 gäbe es keine ganze Zahl. Nimm 4: 16 ist 4-mal 4, also gehört zu 4 der Wert 12 : 4 = 3. 28 ist 7-mal 4: 3 · 7 = 21.",
+   "h": "Suche eine kleine Menge, für die der Wert eine ganze Zahl ist."
+  },
+  {
+   "l": "pruefen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Tabelle: 1 → 7, 2 → 12, 3 → 17. Ist die Zuordnung proportional?"
+   },
+   "a": [
+    "Ja, der Wert wird immer um 5 größer.",
+    "Nein, 7 · 2 wäre 14, nicht 12.",
+    "Ja, je mehr, desto mehr."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Proportional hieße: Zum Doppelten (2) gehört das Doppelte von 7, also 14. In der Tabelle steht 12. Gleich große Schritte allein reichen nicht.",
+   "h": "Rechne für jedes Paar Wert geteilt durch Menge."
+  },
+  {
+   "l": "pruefen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Tabelle: 2 → 8, 3 → 12, 4 → 16. Ist die Zuordnung proportional?"
+   },
+   "a": [
+    "Nein, zu 1 fehlt der Wert.",
+    "Nein, der Wert wird immer um 4 größer, das ist nicht proportional.",
+    "Ja, Wert : Menge ist immer 4."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "8 : 2 = 12 : 3 = 16 : 4 = 4. Alle Quotienten sind gleich: proportional.",
+   "h": "Rechne für jedes Paar Wert geteilt durch Menge."
+  },
+  {
+   "l": "pruefen",
+   "t": "begriff",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Tabelle: 2 → 6, 3 → 9, 4 → 12. Ist die Zuordnung proportional?"
+   },
+   "a": [
+    "Ja, Wert : Menge ist immer 3.",
+    "Nein, der Wert wird immer um 3 größer, das ist nicht proportional.",
+    "Nein, zu 1 fehlt der Wert."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "6 : 2 = 9 : 3 = 12 : 4 = 3. Alle Quotienten sind gleich: proportional.",
+   "h": "Rechne für jedes Paar Wert geteilt durch Menge."
+  },
+  {
+   "l": "pruefen",
+   "t": "begriff",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Paare gehören zu einer proportionalen Zuordnung, eines passt nicht. Welches?"
+   },
+   "a": [
+    "2 → 10",
+    "8 → 39",
+    "9 → 45"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Bei den beiden anderen ist Wert : Menge = 5. Bei 8 → 39 müsste der Wert 40 sein."
+  },
+  {
+   "l": "pruefen",
+   "t": "begriff",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Paare gehören zu einer proportionalen Zuordnung, eines passt nicht. Welches?"
+   },
+   "a": [
+    "5 → 76",
+    "9 → 135",
+    "10 → 150"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Bei den beiden anderen ist Wert : Menge = 15. Bei 5 → 76 müsste der Wert 75 sein."
+  },
+  {
+   "l": "pruefen",
+   "t": "begriff",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Paare gehören zu einer proportionalen Zuordnung, eines passt nicht. Welches?"
+   },
+   "a": [
+    "2 → 11",
+    "3 → 12",
+    "12 → 48"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Bei den beiden anderen ist Wert : Menge = 4. Bei 2 → 11 müsste der Wert 8 sein."
+  },
+  {
+   "l": "pruefen",
+   "t": "begriff",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Paare gehören zu einer proportionalen Zuordnung, eines passt nicht. Welches?"
+   },
+   "a": [
+    "6 → 27",
+    "7 → 28",
+    "11 → 44"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Bei den beiden anderen ist Wert : Menge = 4. Bei 6 → 27 müsste der Wert 24 sein."
+  },
+  {
+   "l": "pruefen",
+   "t": "begriff",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Tabelle gehört zu einer proportionalen Zuordnung?"
+   },
+   "a": [
+    "2 → 4, 6 → 36, 10 → 100",
+    "2 → 8, 6 → 24, 10 → 40",
+    "2 → 14, 6 → 30, 10 → 46"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Nur bei 2 → 8, 6 → 24, 10 → 40 ist Wert : Menge immer gleich (4). Bei den anderen ändert sich der Quotient."
+  },
+  {
+   "l": "pruefen",
+   "t": "begriff",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Paare gehören zu einer proportionalen Zuordnung, eines passt nicht. Welches?"
+   },
+   "a": [
+    "5 → 28",
+    "10 → 50",
+    "12 → 60"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Bei den beiden anderen ist Wert : Menge = 5. Bei 5 → 28 müsste der Wert 25 sein."
+  },
+  {
+   "l": "pruefen",
+   "t": "begriff",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Tabelle gehört zu einer proportionalen Zuordnung?"
+   },
+   "a": [
+    "3 → 13, 8 → 28, 12 → 40",
+    "3 → 9, 8 → 64, 12 → 144",
+    "3 → 9, 8 → 24, 12 → 36"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Nur bei 3 → 9, 8 → 24, 12 → 36 ist Wert : Menge immer gleich (3). Bei den anderen ändert sich der Quotient."
+  },
+  {
+   "l": "pruefen",
+   "t": "begriff",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Paare gehören zu einer proportionalen Zuordnung, eines passt nicht. Welches?"
+   },
+   "a": [
+    "4 → 28",
+    "6 → 45",
+    "11 → 77"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Bei den beiden anderen ist Wert : Menge = 7. Bei 6 → 45 müsste der Wert 42 sein."
+  },
+  {
+   "l": "pruefen",
+   "t": "begriff",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Tabelle gehört zu einer proportionalen Zuordnung?"
+   },
+   "a": [
+    "4 → 24, 7 → 42, 8 → 48",
+    "4 → 31, 7 → 49, 8 → 55",
+    "4 → 16, 7 → 49, 8 → 64"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Nur bei 4 → 24, 7 → 42, 8 → 48 ist Wert : Menge immer gleich (6). Bei den anderen ändert sich der Quotient."
+  },
+  {
+   "l": "pruefen",
+   "t": "begriff",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Paare gehören zu einer proportionalen Zuordnung, eines passt nicht. Welches?"
+   },
+   "a": [
+    "7 → 13",
+    "8 → 16",
+    "9 → 18"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Bei den beiden anderen ist Wert : Menge = 2. Bei 7 → 13 müsste der Wert 14 sein."
   },
   {
    "l": "einheit",
@@ -1103,31 +1848,14 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "5 Schritte sind 375 cm. 1 Schritt ist wie viele cm?"
+    "text": "4 kg Äpfel kosten 16 €. 1 kg Äpfel kostet wie viel €?"
    },
    "o": {
-    "wert": 75,
-    "einheit": "cm"
-   },
-   "c": "375/5",
-   "w": "Beide Seiten geteilt durch 5: 375 : 5 = 75 cm.",
-   "h": "Teile den Wert durch die Anzahl."
-  },
-  {
-   "l": "einheit",
-   "t": "dreisatz",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "2 kg Äpfel kosten 6 €. 1 kg Äpfel kostet wie viel €?"
-   },
-   "o": {
-    "wert": 3,
+    "wert": 4,
     "einheit": "€"
    },
-   "c": "6/2",
-   "w": "Beide Seiten geteilt durch 2: 6 : 2 = 3 €.",
+   "c": "16/4",
+   "w": "Beide Seiten geteilt durch 4: 16 € : 4 = 4 €.",
    "h": "Teile den Wert durch die Anzahl."
   },
   {
@@ -1137,31 +1865,31 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "2 Liter Farbe reichen für 12 m². 1 Liter Farbe reicht für wie viele m²?"
-   },
-   "o": {
-    "wert": 6,
-    "einheit": "m²"
-   },
-   "c": "12/2",
-   "w": "Beide Seiten geteilt durch 2: 12 : 2 = 6 m².",
-   "h": "Teile den Wert durch die Anzahl."
-  },
-  {
-   "l": "einheit",
-   "t": "dreisatz",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "5 Liter Farbe reichen für 60 m². 1 Liter Farbe reicht für wie viele m²?"
+    "text": "2 Packungen enthalten 24 Kekse. 1 Packung enthält wie viele Kekse?"
    },
    "o": {
     "wert": 12,
-    "einheit": "m²"
+    "einheit": "Kekse"
    },
-   "c": "60/5",
-   "w": "Beide Seiten geteilt durch 5: 60 : 5 = 12 m².",
+   "c": "24/2",
+   "w": "Beide Seiten geteilt durch 2: 24 Kekse : 2 = 12 Kekse.",
+   "h": "Teile den Wert durch die Anzahl."
+  },
+  {
+   "l": "einheit",
+   "t": "dreisatz",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "6 Hefte kosten 24 €. 1 Heft kostet wie viel €?"
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "€"
+   },
+   "c": "24/6",
+   "w": "Beide Seiten geteilt durch 6: 24 € : 6 = 4 €.",
    "h": "Teile den Wert durch die Anzahl."
   },
   {
@@ -1178,24 +1906,24 @@
     "einheit": "Kekse"
    },
    "c": "120/5",
-   "w": "Beide Seiten geteilt durch 5: 120 : 5 = 24 Kekse.",
+   "w": "Beide Seiten geteilt durch 5: 120 Kekse : 5 = 24 Kekse.",
    "h": "Teile den Wert durch die Anzahl."
   },
   {
    "l": "einheit",
    "t": "dreisatz",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "8 Eintrittskarten kosten 72 €. 1 Karte kostet wie viel €?"
+    "text": "3 Eintrittskarten kosten 27 €. 1 Karte kostet wie viel €?"
    },
    "o": {
     "wert": 9,
     "einheit": "€"
    },
-   "c": "72/8",
-   "w": "Beide Seiten geteilt durch 8: 72 : 8 = 9 €.",
+   "c": "27/3",
+   "w": "Beide Seiten geteilt durch 3: 27 € : 3 = 9 €.",
    "h": "Teile den Wert durch die Anzahl."
   },
   {
@@ -1205,14 +1933,31 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "8 kg Äpfel kosten 32 €. 1 kg Äpfel kostet wie viel €?"
+    "text": "9 Brötchen kosten 405 ct. 1 Brötchen kostet wie viel ct?"
+   },
+   "o": {
+    "wert": 45,
+    "einheit": "ct"
+   },
+   "c": "405/9",
+   "w": "Beide Seiten geteilt durch 9: 405 ct : 9 = 45 ct.",
+   "h": "Teile den Wert durch die Anzahl."
+  },
+  {
+   "l": "einheit",
+   "t": "dreisatz",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "9 kg Äpfel kosten 36 €. 1 kg Äpfel kostet wie viel €?"
    },
    "o": {
     "wert": 4,
     "einheit": "€"
    },
-   "c": "32/8",
-   "w": "Beide Seiten geteilt durch 8: 32 : 8 = 4 €.",
+   "c": "36/9",
+   "w": "Beide Seiten geteilt durch 9: 36 € : 9 = 4 €.",
    "h": "Teile den Wert durch die Anzahl."
   },
   {
@@ -1222,14 +1967,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "In 12 Minuten laufen 96 Liter aus dem Hahn. In 1 Minute laufen wie viele Liter aus dem Hahn?"
+    "text": "In 8 Minuten laufen 48 Liter aus dem Hahn. In 1 Minute laufen wie viele Liter aus dem Hahn?"
    },
    "o": {
-    "wert": 8,
+    "wert": 6,
     "einheit": "Liter"
    },
-   "c": "96/12",
-   "w": "Beide Seiten geteilt durch 12: 96 : 12 = 8 Liter.",
+   "c": "48/8",
+   "w": "Beide Seiten geteilt durch 8: 48 Liter : 8 = 6 Liter.",
    "h": "Teile den Wert durch die Anzahl."
   },
   {
@@ -1239,100 +1984,92 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "8 Schritte sind 480 cm. 1 Schritt ist wie viele cm?"
-   },
-   "o": {
-    "wert": 60,
-    "einheit": "cm"
-   },
-   "c": "480/8",
-   "w": "Beide Seiten geteilt durch 8: 480 : 8 = 60 cm.",
-   "h": "Teile den Wert durch die Anzahl."
-  },
-  {
-   "l": "einheit",
-   "t": "dreisatz",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "11 Packungen enthalten 264 Kekse. 1 Packung enthält wie viele Kekse?"
-   },
-   "o": {
-    "wert": 24,
-    "einheit": "Kekse"
-   },
-   "c": "264/11",
-   "w": "Beide Seiten geteilt durch 11: 264 : 11 = 24 Kekse.",
-   "h": "Teile den Wert durch die Anzahl."
-  },
-  {
-   "l": "einheit",
-   "t": "dreisatz",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "15 Packungen enthalten 360 Kekse. 1 Packung enthält wie viele Kekse?"
-   },
-   "o": {
-    "wert": 24,
-    "einheit": "Kekse"
-   },
-   "c": "360/15",
-   "w": "Beide Seiten geteilt durch 15: 360 : 15 = 24 Kekse.",
-   "h": "Teile den Wert durch die Anzahl."
-  },
-  {
-   "l": "einheit",
-   "t": "dreisatz",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "25 Hefte kosten 50 €. 1 Heft kostet wie viel €?"
-   },
-   "o": {
-    "wert": 2,
-    "einheit": "€"
-   },
-   "c": "50/25",
-   "w": "Beide Seiten geteilt durch 25: 50 : 25 = 2 €.",
-   "h": "Teile den Wert durch die Anzahl."
-  },
-  {
-   "l": "einheit",
-   "t": "dreisatz",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "40 Packungen enthalten 480 Kekse. 1 Packung enthält wie viele Kekse?"
+    "text": "10 Packungen enthalten 120 Kekse. 1 Packung enthält wie viele Kekse?"
    },
    "o": {
     "wert": 12,
     "einheit": "Kekse"
    },
-   "c": "480/40",
-   "w": "Beide Seiten geteilt durch 40: 480 : 40 = 12 Kekse.",
+   "c": "120/10",
+   "w": "Beide Seiten geteilt durch 10: 120 Kekse : 10 = 12 Kekse.",
    "h": "Teile den Wert durch die Anzahl."
   },
   {
    "l": "einheit",
    "t": "dreisatz",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "25 Hefte kosten 75 €. 1 Heft kostet wie viel €?"
+    "text": "12 Eintrittskarten kosten 144 €. 1 Karte kostet wie viel €?"
    },
    "o": {
-    "wert": 3,
+    "wert": 12,
     "einheit": "€"
    },
-   "c": "75/25",
-   "w": "Beide Seiten geteilt durch 25: 75 : 25 = 3 €.",
+   "c": "144/12",
+   "w": "Beide Seiten geteilt durch 12: 144 € : 12 = 12 €.",
    "h": "Teile den Wert durch die Anzahl."
+  },
+  {
+   "l": "einheit",
+   "t": "dreisatz",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet: 7 Hefte kosten 21 €, also kostet 1 Heft 7 : 21 €. Was ist falsch?"
+   },
+   "a": [
+    "Es muss 21 − 7 = 14 € heißen.",
+    "Menge und Wert sind vertauscht. Richtig: 21 : 7 = 3 €.",
+    "Nichts, so rechnet man."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Auf die Einheit schließen heißt: Wert geteilt durch Anzahl. 21 : 7 = 3 €. Probe: 7 · 3 € = 21 € ✓",
+   "h": "Mach die Probe: Anzahl mal Preis für 1 Stück muss den Gesamtpreis ergeben."
+  },
+  {
+   "l": "einheit",
+   "t": "dreisatz",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet: 7 kg kosten 35 €, also kostet 1 kg 35 − 7 = 28 €. Was ist falsch?"
+   },
+   "a": [
+    "Nichts, das stimmt.",
+    "Es muss 7 : 35 heißen.",
+    "Es wurde subtrahiert statt geteilt. Richtig: 35 : 7 = 5 €."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Auf die Einheit schließen heißt: Wert geteilt durch Anzahl. 35 : 7 = 5 €. Probe: 7 · 5 € = 35 € ✓",
+   "h": "Mach die Probe: Anzahl mal Preis für 1 Stück muss den Gesamtpreis ergeben."
+  },
+  {
+   "l": "einheit",
+   "t": "dreisatz",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet: 3 Hefte kosten 27 €, also kostet 1 Heft 3 : 27 €. Was ist falsch?"
+   },
+   "a": [
+    "Menge und Wert sind vertauscht. Richtig: 27 : 3 = 9 €.",
+    "Es muss 27 − 3 = 24 € heißen.",
+    "Nichts, so rechnet man."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Auf die Einheit schließen heißt: Wert geteilt durch Anzahl. 27 : 3 = 9 €. Probe: 3 · 9 € = 27 € ✓",
+   "h": "Mach die Probe: Anzahl mal Preis für 1 Stück muss den Gesamtpreis ergeben."
   },
   {
    "l": "einheit",
@@ -1341,15 +2078,35 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "In 50 Minuten laufen 450 Liter aus dem Hahn. In 1 Minute laufen wie viele Liter aus dem Hahn?"
+    "text": "4 gleiche Pakete wiegen zusammen 2 kg. Wie viel Gramm wiegt 1 Paket?"
    },
    "o": {
-    "wert": 9,
-    "einheit": "Liter"
+    "wert": 500,
+    "einheit": "g"
    },
-   "c": "450/50",
-   "w": "Beide Seiten geteilt durch 50: 450 : 50 = 9 Liter.",
-   "h": "Teile den Wert durch die Anzahl."
+   "c": "2*1000/4",
+   "w": "Erst in Gramm umrechnen: 2 kg = 2 000 g. Dann 2 000 g : 4 = 500 g.",
+   "h": "Rechne zuerst kg in g um."
+  },
+  {
+   "l": "einheit",
+   "t": "dreisatz",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet: 4 Hefte kosten 36 €, also kostet 1 Heft 4 : 36 €. Was ist falsch?"
+   },
+   "a": [
+    "Nichts, so rechnet man.",
+    "Menge und Wert sind vertauscht. Richtig: 36 : 4 = 9 €.",
+    "Es muss 36 − 4 = 32 € heißen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Auf die Einheit schließen heißt: Wert geteilt durch Anzahl. 36 : 4 = 9 €. Probe: 4 · 9 € = 36 € ✓",
+   "h": "Mach die Probe: Anzahl mal Preis für 1 Stück muss den Gesamtpreis ergeben."
   },
   {
    "l": "einheit",
@@ -1358,14 +2115,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "12 Hefte kosten 12 €. 1 Heft kostet wie viel €?"
+    "text": "9 Packungen enthalten 216 Kekse. 1 Packung enthält wie viele Kekse?"
    },
    "o": {
-    "wert": 1,
-    "einheit": "€"
+    "wert": 24,
+    "einheit": "Kekse"
    },
-   "c": "12/12",
-   "w": "Beide Seiten geteilt durch 12: 12 : 12 = 1 €."
+   "c": "216/9",
+   "w": "Beide Seiten geteilt durch 9: 216 Kekse : 9 = 24 Kekse."
   },
   {
    "l": "einheit",
@@ -1374,14 +2131,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "8 Schritte sind 600 cm. 1 Schritt ist wie viele cm?"
+    "text": "9 Schritte sind 540 cm. 1 Schritt ist wie viele cm?"
    },
    "o": {
-    "wert": 75,
+    "wert": 60,
     "einheit": "cm"
    },
-   "c": "600/8",
-   "w": "Beide Seiten geteilt durch 8: 600 : 8 = 75 cm."
+   "c": "540/9",
+   "w": "Beide Seiten geteilt durch 9: 540 cm : 9 = 60 cm."
   },
   {
    "l": "einheit",
@@ -1390,19 +2147,83 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "10 Eintrittskarten kosten 70 €. 1 Karte kostet wie viel €?"
+    "text": "In 9 Minuten laufen 54 Liter aus dem Hahn. In 1 Minute laufen wie viele Liter aus dem Hahn?"
    },
    "o": {
-    "wert": 7,
-    "einheit": "€"
+    "wert": 6,
+    "einheit": "Liter"
    },
-   "c": "70/10",
-   "w": "Beide Seiten geteilt durch 10: 70 : 10 = 7 €."
+   "c": "54/9",
+   "w": "Beide Seiten geteilt durch 9: 54 Liter : 9 = 6 Liter."
   },
   {
    "l": "einheit",
    "t": "dreisatz",
    "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "12 Liter Farbe reichen für 72 m². 1 Liter Farbe reicht für wie viele m²?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "m²"
+   },
+   "c": "72/12",
+   "w": "Beide Seiten geteilt durch 12: 72 m² : 12 = 6 m²."
+  },
+  {
+   "l": "einheit",
+   "t": "dreisatz",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "12 Brötchen kosten 720 ct. 1 Brötchen kostet wie viel ct?"
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "ct"
+   },
+   "c": "720/12",
+   "w": "Beide Seiten geteilt durch 12: 720 ct : 12 = 60 ct."
+  },
+  {
+   "l": "einheit",
+   "t": "dreisatz",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "9 Liter Farbe reichen für 72 m². 1 Liter Farbe reicht für wie viele m²?"
+   },
+   "o": {
+    "wert": 8,
+    "einheit": "m²"
+   },
+   "c": "72/9",
+   "w": "Beide Seiten geteilt durch 9: 72 m² : 9 = 8 m²."
+  },
+  {
+   "l": "einheit",
+   "t": "dreisatz",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "8 kg Äpfel kosten 16 €. 1 kg Äpfel kostet wie viel €?"
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "€"
+   },
+   "c": "16/8",
+   "w": "Beide Seiten geteilt durch 8: 16 € : 8 = 2 €."
+  },
+  {
+   "l": "einheit",
+   "t": "dreisatz",
+   "p": "sicherung",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -1413,7 +2234,7 @@
     "einheit": "€"
    },
    "c": "30/10",
-   "w": "Beide Seiten geteilt durch 10: 30 : 10 = 3 €."
+   "w": "Beide Seiten geteilt durch 10: 30 € : 10 = 3 €."
   },
   {
    "l": "einheit",
@@ -1422,297 +2243,199 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "In 10 Stunden fährt ein Radfahrer 150 km. In 1 Stunde fährt ein Radfahrer wie viele km?"
-   },
-   "o": {
-    "wert": 15,
-    "einheit": "km"
-   },
-   "c": "150/10",
-   "w": "Beide Seiten geteilt durch 10: 150 : 10 = 15 km."
-  },
-  {
-   "l": "einheit",
-   "t": "dreisatz",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "9 Liter Farbe reichen für 54 m². 1 Liter Farbe reicht für wie viele m²?"
-   },
-   "o": {
-    "wert": 6,
-    "einheit": "m²"
-   },
-   "c": "54/9",
-   "w": "Beide Seiten geteilt durch 9: 54 : 9 = 6 m²."
-  },
-  {
-   "l": "einheit",
-   "t": "dreisatz",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "10 Hefte kosten 20 €. 1 Heft kostet wie viel €?"
-   },
-   "o": {
-    "wert": 2,
-    "einheit": "€"
-   },
-   "c": "20/10",
-   "w": "Beide Seiten geteilt durch 10: 20 : 10 = 2 €."
-  },
-  {
-   "l": "einheit",
-   "t": "dreisatz",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "9 kg Äpfel kosten 18 €. 1 kg Äpfel kostet wie viel €?"
-   },
-   "o": {
-    "wert": 2,
-    "einheit": "€"
-   },
-   "c": "18/9",
-   "w": "Beide Seiten geteilt durch 9: 18 : 9 = 2 €."
-  },
-  {
-   "l": "einheit",
-   "t": "dreisatz",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "In 9 Minuten laufen 72 Liter aus dem Hahn. In 1 Minute laufen wie viele Liter aus dem Hahn?"
-   },
-   "o": {
-    "wert": 8,
-    "einheit": "Liter"
-   },
-   "c": "72/9",
-   "w": "Beide Seiten geteilt durch 9: 72 : 9 = 8 Liter."
-  },
-  {
-   "l": "einheit",
-   "t": "dreisatz",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "9 Packungen enthalten 144 Kekse. 1 Packung enthält wie viele Kekse?"
-   },
-   "o": {
-    "wert": 16,
-    "einheit": "Kekse"
-   },
-   "c": "144/9",
-   "w": "Beide Seiten geteilt durch 9: 144 : 9 = 16 Kekse."
-  },
-  {
-   "l": "dreisatz",
-   "t": "dreisatz",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "5 Eintrittskarten kosten 60 €. 8 Eintrittskarten kosten wie viel €?"
-   },
-   "o": {
-    "wert": 96,
-    "einheit": "€"
-   },
-   "c": "60/5*8",
-   "w": "1. 5 Eintrittskarten kosten 60 €. 2. Geteilt durch 5: 1 Karte kostet 12 €. 3. Mal 8: 12 · 8 = 96 €.",
-   "h": "Drei Zeilen: was du weißt, dann auf 1 schließen (teilen), dann auf das Gesuchte (malnehmen)."
-  },
-  {
-   "l": "dreisatz",
-   "t": "dreisatz",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "4 Liter Farbe reichen für 48 m². 9 Liter Farbe reichen für wie viele m²?"
-   },
-   "o": {
-    "wert": 108,
-    "einheit": "m²"
-   },
-   "c": "48/4*9",
-   "w": "1. 4 Liter Farbe reichen für 48 m². 2. Geteilt durch 4: 1 Liter Farbe reicht für 12 m². 3. Mal 9: 12 · 9 = 108 m².",
-   "h": "Drei Zeilen: was du weißt, dann auf 1 schließen (teilen), dann auf das Gesuchte (malnehmen)."
-  },
-  {
-   "l": "dreisatz",
-   "t": "dreisatz",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "In 4 Minuten laufen 36 Liter aus dem Hahn. In 6 Minuten laufen wie viele Liter aus dem Hahn?"
-   },
-   "o": {
-    "wert": 54,
-    "einheit": "Liter"
-   },
-   "c": "36/4*6",
-   "w": "1. In 4 Minuten laufen 36 Liter aus dem Hahn. 2. Geteilt durch 4: In 1 Minute laufen 9 Liter aus dem Hahn. 3. Mal 6: 9 · 6 = 54 Liter.",
-   "h": "Drei Zeilen: was du weißt, dann auf 1 schließen (teilen), dann auf das Gesuchte (malnehmen)."
-  },
-  {
-   "l": "dreisatz",
-   "t": "dreisatz",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "In 3 Stunden fährt ein Radfahrer 45 km. In 8 Stunden fährt ein Radfahrer wie viele km?"
-   },
-   "o": {
-    "wert": 120,
-    "einheit": "km"
-   },
-   "c": "45/3*8",
-   "w": "1. In 3 Stunden fährt ein Radfahrer 45 km. 2. Geteilt durch 3: In 1 Stunde fährt ein Radfahrer 15 km. 3. Mal 8: 15 · 8 = 120 km.",
-   "h": "Drei Zeilen: was du weißt, dann auf 1 schließen (teilen), dann auf das Gesuchte (malnehmen)."
-  },
-  {
-   "l": "dreisatz",
-   "t": "dreisatz",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "4 Hefte kosten 12 €. 6 Hefte kosten wie viel €?"
-   },
-   "o": {
-    "wert": 18,
-    "einheit": "€"
-   },
-   "c": "12/4*6",
-   "w": "1. 4 Hefte kosten 12 €. 2. Geteilt durch 4: 1 Heft kostet 3 €. 3. Mal 6: 3 · 6 = 18 €.",
-   "h": "Drei Zeilen: was du weißt, dann auf 1 schließen (teilen), dann auf das Gesuchte (malnehmen)."
-  },
-  {
-   "l": "dreisatz",
-   "t": "dreisatz",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "6 Hefte kosten 18 €. 4 Hefte kosten wie viel €?"
-   },
-   "o": {
-    "wert": 12,
-    "einheit": "€"
-   },
-   "c": "18/6*4",
-   "w": "1. 6 Hefte kosten 18 €. 2. Geteilt durch 6: 1 Heft kostet 3 €. 3. Mal 4: 3 · 4 = 12 €.",
-   "h": "Drei Zeilen: was du weißt, dann auf 1 schließen (teilen), dann auf das Gesuchte (malnehmen)."
-  },
-  {
-   "l": "dreisatz",
-   "t": "dreisatz",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "In 5 Minuten laufen 30 Liter aus dem Hahn. In 11 Minuten laufen wie viele Liter aus dem Hahn?"
-   },
-   "o": {
-    "wert": 66,
-    "einheit": "Liter"
-   },
-   "c": "30/5*11",
-   "w": "1. In 5 Minuten laufen 30 Liter aus dem Hahn. 2. Geteilt durch 5: In 1 Minute laufen 6 Liter aus dem Hahn. 3. Mal 11: 6 · 11 = 66 Liter.",
-   "h": "Drei Zeilen: was du weißt, dann auf 1 schließen (teilen), dann auf das Gesuchte (malnehmen)."
-  },
-  {
-   "l": "dreisatz",
-   "t": "dreisatz",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "3 Brötchen kosten 90 ct. 8 Brötchen kosten wie viel ct?"
-   },
-   "o": {
-    "wert": 240,
-    "einheit": "ct"
-   },
-   "c": "90/3*8",
-   "w": "1. 3 Brötchen kosten 90 ct. 2. Geteilt durch 3: 1 Brötchen kostet 30 ct. 3. Mal 8: 30 · 8 = 240 ct.",
-   "h": "Drei Zeilen: was du weißt, dann auf 1 schließen (teilen), dann auf das Gesuchte (malnehmen)."
-  },
-  {
-   "l": "dreisatz",
-   "t": "dreisatz",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "9 Brötchen kosten 405 ct. 7 Brötchen kosten wie viel ct?"
-   },
-   "o": {
-    "wert": 315,
-    "einheit": "ct"
-   },
-   "c": "405/9*7",
-   "w": "1. 9 Brötchen kosten 405 ct. 2. Geteilt durch 9: 1 Brötchen kostet 45 ct. 3. Mal 7: 45 · 7 = 315 ct.",
-   "h": "Drei Zeilen: was du weißt, dann auf 1 schließen (teilen), dann auf das Gesuchte (malnehmen)."
-  },
-  {
-   "l": "dreisatz",
-   "t": "dreisatz",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "In 8 Stunden fährt ein Radfahrer 96 km. In 5 Stunden fährt ein Radfahrer wie viele km?"
-   },
-   "o": {
-    "wert": 60,
-    "einheit": "km"
-   },
-   "c": "96/8*5",
-   "w": "1. In 8 Stunden fährt ein Radfahrer 96 km. 2. Geteilt durch 8: In 1 Stunde fährt ein Radfahrer 12 km. 3. Mal 5: 12 · 5 = 60 km.",
-   "h": "Drei Zeilen: was du weißt, dann auf 1 schließen (teilen), dann auf das Gesuchte (malnehmen)."
-  },
-  {
-   "l": "dreisatz",
-   "t": "dreisatz",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "20 Hefte kosten 20 €. 7 Hefte kosten wie viel €?"
+    "text": "10 Eintrittskarten kosten 70 €. 1 Karte kostet wie viel €?"
    },
    "o": {
     "wert": 7,
     "einheit": "€"
    },
-   "c": "20/20*7",
-   "w": "1. 20 Hefte kosten 20 €. 2. Geteilt durch 20: 1 Heft kostet 1 €. 3. Mal 7: 1 · 7 = 7 €.",
+   "c": "70/10",
+   "w": "Beide Seiten geteilt durch 10: 70 € : 10 = 7 €."
+  },
+  {
+   "l": "einheit",
+   "t": "dreisatz",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "8 Schritte sind 560 cm. 1 Schritt ist wie viele cm?"
+   },
+   "o": {
+    "wert": 70,
+    "einheit": "cm"
+   },
+   "c": "560/8",
+   "w": "Beide Seiten geteilt durch 8: 560 cm : 8 = 70 cm."
+  },
+  {
+   "l": "dreisatz",
+   "t": "dreisatz",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "2 Brötchen kosten 120 ct. 7 Brötchen kosten wie viel ct?"
+   },
+   "o": {
+    "wert": 420,
+    "einheit": "ct"
+   },
+   "c": "120/2*7",
+   "w": "1. 2 Brötchen kosten 120 ct. 2. Geteilt durch 2: 1 Brötchen kostet 60 ct. 3. Mal 7: 60 · 7 = 420 ct.",
    "h": "Drei Zeilen: was du weißt, dann auf 1 schließen (teilen), dann auf das Gesuchte (malnehmen)."
   },
   {
    "l": "dreisatz",
    "t": "dreisatz",
    "p": "uebung",
-   "s": 3,
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "In 12 Minuten laufen 108 Liter aus dem Hahn. In 11 Minuten laufen wie viele Liter aus dem Hahn?"
+    "text": "5 Brötchen kosten 200 ct. 9 Brötchen kosten wie viel ct?"
    },
    "o": {
-    "wert": 99,
+    "wert": 360,
+    "einheit": "ct"
+   },
+   "c": "200/5*9",
+   "w": "1. 5 Brötchen kosten 200 ct. 2. Geteilt durch 5: 1 Brötchen kostet 40 ct. 3. Mal 9: 40 · 9 = 360 ct.",
+   "h": "Drei Zeilen: was du weißt, dann auf 1 schließen (teilen), dann auf das Gesuchte (malnehmen)."
+  },
+  {
+   "l": "dreisatz",
+   "t": "dreisatz",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "In 3 Minuten laufen 18 Liter aus dem Hahn. In 8 Minuten laufen wie viele Liter aus dem Hahn?"
+   },
+   "o": {
+    "wert": 48,
     "einheit": "Liter"
    },
-   "c": "108/12*11",
-   "w": "1. In 12 Minuten laufen 108 Liter aus dem Hahn. 2. Geteilt durch 12: In 1 Minute laufen 9 Liter aus dem Hahn. 3. Mal 11: 9 · 11 = 99 Liter.",
+   "c": "18/3*8",
+   "w": "1. In 3 Minuten laufen 18 Liter aus dem Hahn. 2. Geteilt durch 3: In 1 Minute laufen 6 Liter aus dem Hahn. 3. Mal 8: 6 · 8 = 48 Liter.",
+   "h": "Drei Zeilen: was du weißt, dann auf 1 schließen (teilen), dann auf das Gesuchte (malnehmen)."
+  },
+  {
+   "l": "dreisatz",
+   "t": "dreisatz",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "5 Schritte sind 300 cm. 7 Schritte sind wie viele cm?"
+   },
+   "o": {
+    "wert": 420,
+    "einheit": "cm"
+   },
+   "c": "300/5*7",
+   "w": "1. 5 Schritte sind 300 cm. 2. Geteilt durch 5: 1 Schritt ist 60 cm. 3. Mal 7: 60 · 7 = 420 cm.",
+   "h": "Drei Zeilen: was du weißt, dann auf 1 schließen (teilen), dann auf das Gesuchte (malnehmen)."
+  },
+  {
+   "l": "dreisatz",
+   "t": "dreisatz",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "5 Packungen enthalten 60 Kekse. 8 Packungen enthalten wie viele Kekse?"
+   },
+   "o": {
+    "wert": 96,
+    "einheit": "Kekse"
+   },
+   "c": "60/5*8",
+   "w": "1. 5 Packungen enthalten 60 Kekse. 2. Geteilt durch 5: 1 Packung enthält 12 Kekse. 3. Mal 8: 12 · 8 = 96 Kekse.",
+   "h": "Drei Zeilen: was du weißt, dann auf 1 schließen (teilen), dann auf das Gesuchte (malnehmen)."
+  },
+  {
+   "l": "dreisatz",
+   "t": "dreisatz",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "4 kg Äpfel kosten 12 €. 11 kg Äpfel kosten wie viel €?"
+   },
+   "o": {
+    "wert": 33,
+    "einheit": "€"
+   },
+   "c": "12/4*11",
+   "w": "1. 4 kg Äpfel kosten 12 €. 2. Geteilt durch 4: 1 kg Äpfel kostet 3 €. 3. Mal 11: 3 · 11 = 33 €.",
+   "h": "Drei Zeilen: was du weißt, dann auf 1 schließen (teilen), dann auf das Gesuchte (malnehmen)."
+  },
+  {
+   "l": "dreisatz",
+   "t": "dreisatz",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In 4 Minuten laufen 24 Liter aus dem Hahn. In 7 Minuten laufen wie viele Liter aus dem Hahn?"
+   },
+   "o": {
+    "wert": 42,
+    "einheit": "Liter"
+   },
+   "c": "24/4*7",
+   "w": "1. In 4 Minuten laufen 24 Liter aus dem Hahn. 2. Geteilt durch 4: In 1 Minute laufen 6 Liter aus dem Hahn. 3. Mal 7: 6 · 7 = 42 Liter.",
+   "h": "Drei Zeilen: was du weißt, dann auf 1 schließen (teilen), dann auf das Gesuchte (malnehmen)."
+  },
+  {
+   "l": "dreisatz",
+   "t": "dreisatz",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "7 Eintrittskarten kosten 98 €. 4 Eintrittskarten kosten wie viel €?"
+   },
+   "o": {
+    "wert": 56,
+    "einheit": "€"
+   },
+   "c": "98/7*4",
+   "w": "1. 7 Eintrittskarten kosten 98 €. 2. Geteilt durch 7: 1 Karte kostet 14 €. 3. Mal 4: 14 · 4 = 56 €.",
+   "h": "Drei Zeilen: was du weißt, dann auf 1 schließen (teilen), dann auf das Gesuchte (malnehmen)."
+  },
+  {
+   "l": "dreisatz",
+   "t": "dreisatz",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In 5 Minuten laufen 30 Liter aus dem Hahn. In 8 Minuten laufen wie viele Liter aus dem Hahn?"
+   },
+   "o": {
+    "wert": 48,
+    "einheit": "Liter"
+   },
+   "c": "30/5*8",
+   "w": "1. In 5 Minuten laufen 30 Liter aus dem Hahn. 2. Geteilt durch 5: In 1 Minute laufen 6 Liter aus dem Hahn. 3. Mal 8: 6 · 8 = 48 Liter.",
+   "h": "Drei Zeilen: was du weißt, dann auf 1 schließen (teilen), dann auf das Gesuchte (malnehmen)."
+  },
+  {
+   "l": "dreisatz",
+   "t": "dreisatz",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "5 kg Äpfel kosten 15 €. 8 kg Äpfel kosten wie viel €?"
+   },
+   "o": {
+    "wert": 24,
+    "einheit": "€"
+   },
+   "c": "15/5*8",
+   "w": "1. 5 kg Äpfel kosten 15 €. 2. Geteilt durch 5: 1 kg Äpfel kostet 3 €. 3. Mal 8: 3 · 8 = 24 €.",
    "h": "Drei Zeilen: was du weißt, dann auf 1 schließen (teilen), dann auf das Gesuchte (malnehmen)."
   },
   {
@@ -1722,14 +2445,46 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "15 Hefte kosten 30 €. 9 Hefte kosten wie viel €?"
+    "text": "In 8 Minuten laufen 72 Liter aus dem Hahn. Wie viele Minuten braucht der Hahn für 81 Liter?"
    },
    "o": {
-    "wert": 18,
+    "wert": 9
+   },
+   "c": "81/(72/8)",
+   "w": "1. In 8 Minuten laufen 72 Liter aus dem Hahn. 2. Auf 1 schließen: In 1 Minute laufen 9 Liter aus dem Hahn. 3. 81 : 9 = 9.",
+   "h": "Schließe zuerst auf 1 Stück. Dann: Wie oft passt der Wert für 1 Stück in den gesuchten Wert?"
+  },
+  {
+   "l": "dreisatz",
+   "t": "dreisatz",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "6 Liter Farbe reichen für 72 m². Wie viele Liter Farbe braucht man für 108 m²?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "108/(72/6)",
+   "w": "1. 6 Liter Farbe reichen für 72 m². 2. Auf 1 schließen: 1 Liter Farbe reicht für 12 m². 3. 108 : 12 = 9.",
+   "h": "Schließe zuerst auf 1 Stück. Dann: Wie oft passt der Wert für 1 Stück in den gesuchten Wert?"
+  },
+  {
+   "l": "dreisatz",
+   "t": "dreisatz",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "20 Hefte kosten 80 €. 11 Hefte kosten wie viel €?"
+   },
+   "o": {
+    "wert": 44,
     "einheit": "€"
    },
-   "c": "30/15*9",
-   "w": "1. 15 Hefte kosten 30 €. 2. Geteilt durch 15: 1 Heft kostet 2 €. 3. Mal 9: 2 · 9 = 18 €.",
+   "c": "80/20*11",
+   "w": "1. 20 Hefte kosten 80 €. 2. Geteilt durch 20: 1 Heft kostet 4 €. 3. Mal 11: 4 · 11 = 44 €.",
    "h": "Drei Zeilen: was du weißt, dann auf 1 schließen (teilen), dann auf das Gesuchte (malnehmen)."
   },
   {
@@ -1739,15 +2494,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "15 kg Äpfel kosten 60 €. 35 kg Äpfel kosten wie viel €?"
+    "text": "6 Hefte kosten 18 €. Wie viele Hefte bekommst du für 21 €?"
    },
    "o": {
-    "wert": 140,
-    "einheit": "€"
+    "wert": 7
    },
-   "c": "60/15*35",
-   "w": "1. 15 kg Äpfel kosten 60 €. 2. Geteilt durch 15: 1 kg Äpfel kostet 4 €. 3. Mal 35: 4 · 35 = 140 €.",
-   "h": "Drei Zeilen: was du weißt, dann auf 1 schließen (teilen), dann auf das Gesuchte (malnehmen)."
+   "c": "21/(18/6)",
+   "w": "1. 6 Hefte kosten 18 €. 2. Auf 1 schließen: 1 Heft kostet 3 €. 3. 21 : 3 = 7.",
+   "h": "Schließe zuerst auf 1 Stück. Dann: Wie oft passt der Wert für 1 Stück in den gesuchten Wert?"
   },
   {
    "l": "dreisatz",
@@ -1756,14 +2510,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "12 Hefte kosten 12 €. 11 Hefte kosten wie viel €?"
+    "text": "20 Liter Farbe reichen für 120 m². 30 Liter Farbe reichen für wie viele m²?"
    },
    "o": {
-    "wert": 11,
-    "einheit": "€"
+    "wert": 180,
+    "einheit": "m²"
    },
-   "c": "12/12*11",
-   "w": "1. 12 Hefte kosten 12 €. 2. Geteilt durch 12: 1 Heft kostet 1 €. 3. Mal 11: 1 · 11 = 11 €.",
+   "c": "120/20*30",
+   "w": "1. 20 Liter Farbe reichen für 120 m². 2. Geteilt durch 20: 1 Liter Farbe reicht für 6 m². 3. Mal 30: 6 · 30 = 180 m².",
    "h": "Drei Zeilen: was du weißt, dann auf 1 schließen (teilen), dann auf das Gesuchte (malnehmen)."
   },
   {
@@ -1773,14 +2527,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "In 8 Minuten laufen 72 Liter aus dem Hahn. In 6 Minuten laufen wie viele Liter aus dem Hahn?"
+    "text": "6 Brötchen kosten 240 ct. 4 Brötchen kosten wie viel ct?"
    },
    "o": {
-    "wert": 54,
-    "einheit": "Liter"
+    "wert": 160,
+    "einheit": "ct"
    },
-   "c": "72/8*6",
-   "w": "1. In 8 Minuten laufen 72 Liter aus dem Hahn. 2. Geteilt durch 8: In 1 Minute laufen 9 Liter aus dem Hahn. 3. Mal 6: 9 · 6 = 54 Liter."
+   "c": "240/6*4",
+   "w": "1. 6 Brötchen kosten 240 ct. 2. Geteilt durch 6: 1 Brötchen kostet 40 ct. 3. Mal 4: 40 · 4 = 160 ct."
   },
   {
    "l": "dreisatz",
@@ -1789,30 +2543,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "In 5 Stunden fährt ein Radfahrer 90 km. In 12 Stunden fährt ein Radfahrer wie viele km?"
+    "text": "3 Packungen enthalten 36 Kekse. 4 Packungen enthalten wie viele Kekse?"
    },
    "o": {
-    "wert": 216,
-    "einheit": "km"
-   },
-   "c": "90/5*12",
-   "w": "1. In 5 Stunden fährt ein Radfahrer 90 km. 2. Geteilt durch 5: In 1 Stunde fährt ein Radfahrer 18 km. 3. Mal 12: 18 · 12 = 216 km."
-  },
-  {
-   "l": "dreisatz",
-   "t": "dreisatz",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "4 Packungen enthalten 48 Kekse. 10 Packungen enthalten wie viele Kekse?"
-   },
-   "o": {
-    "wert": 120,
+    "wert": 48,
     "einheit": "Kekse"
    },
-   "c": "48/4*10",
-   "w": "1. 4 Packungen enthalten 48 Kekse. 2. Geteilt durch 4: 1 Packung enthält 12 Kekse. 3. Mal 10: 12 · 10 = 120 Kekse."
+   "c": "36/3*4",
+   "w": "1. 3 Packungen enthalten 36 Kekse. 2. Geteilt durch 3: 1 Packung enthält 12 Kekse. 3. Mal 4: 12 · 4 = 48 Kekse."
   },
   {
    "l": "dreisatz",
@@ -1821,14 +2559,46 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "5 Eintrittskarten kosten 60 €. 12 Eintrittskarten kosten wie viel €?"
+    "text": "7 Hefte kosten 21 €. 5 Hefte kosten wie viel €?"
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "€"
+   },
+   "c": "21/7*5",
+   "w": "1. 7 Hefte kosten 21 €. 2. Geteilt durch 7: 1 Heft kostet 3 €. 3. Mal 5: 3 · 5 = 15 €."
+  },
+  {
+   "l": "dreisatz",
+   "t": "dreisatz",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "6 Liter Farbe reichen für 48 m². 9 Liter Farbe reichen für wie viele m²?"
+   },
+   "o": {
+    "wert": 72,
+    "einheit": "m²"
+   },
+   "c": "48/6*9",
+   "w": "1. 6 Liter Farbe reichen für 48 m². 2. Geteilt durch 6: 1 Liter Farbe reicht für 8 m². 3. Mal 9: 8 · 9 = 72 m²."
+  },
+  {
+   "l": "dreisatz",
+   "t": "dreisatz",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "8 Packungen enthalten 96 Kekse. 12 Packungen enthalten wie viele Kekse?"
    },
    "o": {
     "wert": 144,
-    "einheit": "€"
+    "einheit": "Kekse"
    },
-   "c": "60/5*12",
-   "w": "1. 5 Eintrittskarten kosten 60 €. 2. Geteilt durch 5: 1 Karte kostet 12 €. 3. Mal 12: 12 · 12 = 144 €."
+   "c": "96/8*12",
+   "w": "1. 8 Packungen enthalten 96 Kekse. 2. Geteilt durch 8: 1 Packung enthält 12 Kekse. 3. Mal 12: 12 · 12 = 144 Kekse."
   },
   {
    "l": "dreisatz",
@@ -1837,14 +2607,46 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "7 Hefte kosten 14 €. 12 Hefte kosten wie viel €?"
+    "text": "9 Schritte sind 675 cm. 12 Schritte sind wie viele cm?"
+   },
+   "o": {
+    "wert": 900,
+    "einheit": "cm"
+   },
+   "c": "675/9*12",
+   "w": "1. 9 Schritte sind 675 cm. 2. Geteilt durch 9: 1 Schritt ist 75 cm. 3. Mal 12: 75 · 12 = 900 cm."
+  },
+  {
+   "l": "dreisatz",
+   "t": "dreisatz",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In 5 Stunden fährt ein Radfahrer 75 km. In 4 Stunden fährt ein Radfahrer wie viele km?"
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "km"
+   },
+   "c": "75/5*4",
+   "w": "1. In 5 Stunden fährt ein Radfahrer 75 km. 2. Geteilt durch 5: In 1 Stunde fährt ein Radfahrer 15 km. 3. Mal 4: 15 · 4 = 60 km."
+  },
+  {
+   "l": "dreisatz",
+   "t": "dreisatz",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "7 Liter Farbe reichen für 42 m². 4 Liter Farbe reichen für wie viele m²?"
    },
    "o": {
     "wert": 24,
-    "einheit": "€"
+    "einheit": "m²"
    },
-   "c": "14/7*12",
-   "w": "1. 7 Hefte kosten 14 €. 2. Geteilt durch 7: 1 Heft kostet 2 €. 3. Mal 12: 2 · 12 = 24 €."
+   "c": "42/7*4",
+   "w": "1. 7 Liter Farbe reichen für 42 m². 2. Geteilt durch 7: 1 Liter Farbe reicht für 6 m². 3. Mal 4: 6 · 4 = 24 m²."
   },
   {
    "l": "dreisatz",
@@ -1853,30 +2655,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "4 Packungen enthalten 48 Kekse. 9 Packungen enthalten wie viele Kekse?"
+    "text": "4 Brötchen kosten 180 ct. 9 Brötchen kosten wie viel ct?"
    },
    "o": {
-    "wert": 108,
-    "einheit": "Kekse"
-   },
-   "c": "48/4*9",
-   "w": "1. 4 Packungen enthalten 48 Kekse. 2. Geteilt durch 4: 1 Packung enthält 12 Kekse. 3. Mal 9: 12 · 9 = 108 Kekse."
-  },
-  {
-   "l": "dreisatz",
-   "t": "dreisatz",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "5 Brötchen kosten 225 ct. 4 Brötchen kosten wie viel ct?"
-   },
-   "o": {
-    "wert": 180,
+    "wert": 405,
     "einheit": "ct"
    },
-   "c": "225/5*4",
-   "w": "1. 5 Brötchen kosten 225 ct. 2. Geteilt durch 5: 1 Brötchen kostet 45 ct. 3. Mal 4: 45 · 4 = 180 ct."
+   "c": "180/4*9",
+   "w": "1. 4 Brötchen kosten 180 ct. 2. Geteilt durch 4: 1 Brötchen kostet 45 ct. 3. Mal 9: 45 · 9 = 405 ct."
   },
   {
    "l": "dreisatz",
@@ -1885,46 +2671,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "In 9 Minuten laufen 72 Liter aus dem Hahn. In 11 Minuten laufen wie viele Liter aus dem Hahn?"
+    "text": "8 Brötchen kosten 320 ct. 12 Brötchen kosten wie viel ct?"
    },
    "o": {
-    "wert": 88,
-    "einheit": "Liter"
+    "wert": 480,
+    "einheit": "ct"
    },
-   "c": "72/9*11",
-   "w": "1. In 9 Minuten laufen 72 Liter aus dem Hahn. 2. Geteilt durch 9: In 1 Minute laufen 8 Liter aus dem Hahn. 3. Mal 11: 8 · 11 = 88 Liter."
-  },
-  {
-   "l": "dreisatz",
-   "t": "dreisatz",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "In 6 Minuten laufen 36 Liter aus dem Hahn. In 7 Minuten laufen wie viele Liter aus dem Hahn?"
-   },
-   "o": {
-    "wert": 42,
-    "einheit": "Liter"
-   },
-   "c": "36/6*7",
-   "w": "1. In 6 Minuten laufen 36 Liter aus dem Hahn. 2. Geteilt durch 6: In 1 Minute laufen 6 Liter aus dem Hahn. 3. Mal 7: 6 · 7 = 42 Liter."
-  },
-  {
-   "l": "dreisatz",
-   "t": "dreisatz",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "8 Hefte kosten 24 €. 9 Hefte kosten wie viel €?"
-   },
-   "o": {
-    "wert": 27,
-    "einheit": "€"
-   },
-   "c": "24/8*9",
-   "w": "1. 8 Hefte kosten 24 €. 2. Geteilt durch 8: 1 Heft kostet 3 €. 3. Mal 9: 3 · 9 = 27 €."
+   "c": "320/8*12",
+   "w": "1. 8 Brötchen kosten 320 ct. 2. Geteilt durch 8: 1 Brötchen kostet 40 ct. 3. Mal 12: 40 · 12 = 480 ct."
   },
   {
    "l": "geschickt",
@@ -1933,14 +2687,65 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Rechne geschickt: 6 Liter Farbe reichen für 48 m². 4 Liter Farbe reichen für wie viele m²?"
+    "text": "Rechne geschickt: 10 kg Äpfel kosten 20 €. 14 kg Äpfel kosten wie viel €?"
    },
    "o": {
-    "wert": 32,
+    "wert": 28,
+    "einheit": "€"
+   },
+   "c": "20/5*7",
+   "w": "Zwischenschritt 2: 20 : 5 = 4 €. Dann mal 7: 28 €.",
+   "h": "Welche Menge steckt in 10 und in 14?"
+  },
+  {
+   "l": "geschickt",
+   "t": "dreisatz",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 8 Liter Farbe reichen für 96 m². 10 Liter Farbe reichen für wie viele m²?"
+   },
+   "o": {
+    "wert": 120,
     "einheit": "m²"
    },
-   "c": "48/3*2",
-   "w": "Zwischenschritt 2: 48 : 3 = 16 m². Dann mal 2: 32 m².",
+   "c": "96/4*5",
+   "w": "Zwischenschritt 2: 96 : 4 = 24 m². Dann mal 5: 120 m².",
+   "h": "Welche Menge steckt in 8 und in 10?"
+  },
+  {
+   "l": "geschickt",
+   "t": "dreisatz",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 6 Eintrittskarten kosten 84 €. 14 Eintrittskarten kosten wie viel €?"
+   },
+   "o": {
+    "wert": 196,
+    "einheit": "€"
+   },
+   "c": "84/3*7",
+   "w": "Zwischenschritt 2: 84 : 3 = 28 €. Dann mal 7: 196 €.",
+   "h": "Welche Menge steckt in 6 und in 14?"
+  },
+  {
+   "l": "geschickt",
+   "t": "dreisatz",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 6 Schritte sind 390 cm. 4 Schritte sind wie viele cm?"
+   },
+   "o": {
+    "wert": 260,
+    "einheit": "cm"
+   },
+   "c": "390/3*2",
+   "w": "Zwischenschritt 2: 390 : 3 = 130 cm. Dann mal 2: 260 cm.",
    "h": "Welche Menge steckt in 6 und in 4?"
   },
   {
@@ -1950,66 +2755,15 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Rechne geschickt: 10 Liter Farbe reichen für 120 m². 4 Liter Farbe reichen für wie viele m²?"
-   },
-   "o": {
-    "wert": 48,
-    "einheit": "m²"
-   },
-   "c": "120/5*2",
-   "w": "Zwischenschritt 2: 120 : 5 = 24 m². Dann mal 2: 48 m².",
-   "h": "Welche Menge steckt in 10 und in 4?"
-  },
-  {
-   "l": "geschickt",
-   "t": "dreisatz",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Rechne geschickt: In 15 Minuten laufen 120 Liter aus dem Hahn. In 9 Minuten laufen wie viele Liter aus dem Hahn?"
-   },
-   "o": {
-    "wert": 72,
-    "einheit": "Liter"
-   },
-   "c": "120/5*3",
-   "w": "Zwischenschritt 3: 120 : 5 = 24 Liter. Dann mal 3: 72 Liter.",
-   "h": "Welche Menge steckt in 15 und in 9?"
-  },
-  {
-   "l": "geschickt",
-   "t": "dreisatz",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Rechne geschickt: In 9 Stunden fährt ein Radfahrer 135 km. In 15 Stunden fährt ein Radfahrer wie viele km?"
-   },
-   "o": {
-    "wert": 225,
-    "einheit": "km"
-   },
-   "c": "135/3*5",
-   "w": "Zwischenschritt 3: 135 : 3 = 45 km. Dann mal 5: 225 km.",
-   "h": "Welche Menge steckt in 9 und in 15?"
-  },
-  {
-   "l": "geschickt",
-   "t": "dreisatz",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Rechne geschickt: 6 Eintrittskarten kosten 54 €. 14 Eintrittskarten kosten wie viel €?"
+    "text": "Rechne geschickt: 21 Eintrittskarten kosten 294 €. 9 Eintrittskarten kosten wie viel €?"
    },
    "o": {
     "wert": 126,
     "einheit": "€"
    },
-   "c": "54/3*7",
-   "w": "Zwischenschritt 2: 54 : 3 = 18 €. Dann mal 7: 126 €.",
-   "h": "Welche Menge steckt in 6 und in 14?"
+   "c": "294/7*3",
+   "w": "Zwischenschritt 3: 294 : 7 = 42 €. Dann mal 3: 126 €.",
+   "h": "Welche Menge steckt in 21 und in 9?"
   },
   {
    "l": "geschickt",
@@ -2018,14 +2772,31 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Rechne geschickt: 15 kg Äpfel kosten 30 €. 21 kg Äpfel kosten wie viel €?"
+    "text": "Rechne geschickt: 35 Hefte kosten 140 €. 10 Hefte kosten wie viel €?"
    },
    "o": {
-    "wert": 42,
+    "wert": 40,
     "einheit": "€"
    },
-   "c": "30/5*7",
-   "w": "Zwischenschritt 3: 30 : 5 = 6 €. Dann mal 7: 42 €.",
+   "c": "140/7*2",
+   "w": "Zwischenschritt 5: 140 : 7 = 20 €. Dann mal 2: 40 €.",
+   "h": "Welche Menge steckt in 35 und in 10?"
+  },
+  {
+   "l": "geschickt",
+   "t": "dreisatz",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: In 15 Minuten laufen 120 Liter aus dem Hahn. In 21 Minuten laufen wie viele Liter aus dem Hahn?"
+   },
+   "o": {
+    "wert": 168,
+    "einheit": "Liter"
+   },
+   "c": "120/5*7",
+   "w": "Zwischenschritt 3: 120 : 5 = 24 Liter. Dann mal 7: 168 Liter.",
    "h": "Welche Menge steckt in 15 und in 21?"
   },
   {
@@ -2035,301 +2806,207 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Rechne geschickt: 9 Brötchen kosten 360 ct. 15 Brötchen kosten wie viel ct?"
+    "text": "Rechne geschickt: 15 Packungen enthalten 360 Kekse. 6 Packungen enthalten wie viele Kekse?"
    },
    "o": {
-    "wert": 600,
-    "einheit": "ct"
+    "wert": 144,
+    "einheit": "Kekse"
    },
-   "c": "360/3*5",
-   "w": "Zwischenschritt 3: 360 : 3 = 120 ct. Dann mal 5: 600 ct.",
-   "h": "Welche Menge steckt in 9 und in 15?"
+   "c": "360/5*2",
+   "w": "Zwischenschritt 3: 360 : 5 = 72 Kekse. Dann mal 2: 144 Kekse.",
+   "h": "Welche Menge steckt in 15 und in 6?"
   },
   {
    "l": "geschickt",
    "t": "dreisatz",
    "p": "uebung",
    "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Rechne geschickt: In 12 Minuten laufen 72 Liter aus dem Hahn. In 21 Minuten laufen wie viele Liter aus dem Hahn?"
-   },
-   "o": {
-    "wert": 126,
-    "einheit": "Liter"
-   },
-   "c": "72/4*7",
-   "w": "Zwischenschritt 3: 72 : 4 = 18 Liter. Dann mal 7: 126 Liter.",
-   "h": "Welche Menge steckt in 12 und in 21?"
-  },
-  {
-   "l": "geschickt",
-   "t": "dreisatz",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Rechne geschickt: In 21 Stunden fährt ein Radfahrer 252 km. In 15 Stunden fährt ein Radfahrer wie viele km?"
-   },
-   "o": {
-    "wert": 180,
-    "einheit": "km"
-   },
-   "c": "252/7*5",
-   "w": "Zwischenschritt 3: 252 : 7 = 36 km. Dann mal 5: 180 km.",
-   "h": "Welche Menge steckt in 21 und in 15?"
-  },
-  {
-   "l": "geschickt",
-   "t": "dreisatz",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Rechne geschickt: 9 Liter Farbe reichen für 54 m². 21 Liter Farbe reichen für wie viele m²?"
-   },
-   "o": {
-    "wert": 126,
-    "einheit": "m²"
-   },
-   "c": "54/3*7",
-   "w": "Zwischenschritt 3: 54 : 3 = 18 m². Dann mal 7: 126 m².",
-   "h": "Welche Menge steckt in 9 und in 21?"
-  },
-  {
-   "l": "geschickt",
-   "t": "dreisatz",
-   "p": "uebung",
-   "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Du kennst den Wert für 10 Schritte und suchst den Wert für 35 Schritte. Welcher Zwischenschritt ist geschickt?"
+    "text": "Du kennst den Wert für 28 Schritte und suchst den Wert für 16 Schritte. Welcher Zwischenschritt ist geschickt?"
    },
    "a": [
-    "6 Schritte",
     "5 Schritte",
-    "45 Schritte"
+    "44 Schritte",
+    "4 Schritte"
    ],
    "o": {
-    "index": 1
+    "index": 2
    },
-   "w": "5 steckt in 10 (10 : 5 = 2) und in 35 (35 : 5 = 7). Also erst durch 2 teilen, dann mal 7.",
+   "w": "4 steckt in 28 (28 : 4 = 7) und in 16 (16 : 4 = 4). Also erst durch 7 teilen, dann mal 4.",
    "h": "Suche eine Zahl, durch die beide Mengen teilbar sind."
   },
   {
    "l": "geschickt",
    "t": "dreisatz",
    "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Rechne geschickt: 75 Packungen enthalten 1 800 Kekse. 100 Packungen enthalten wie viele Kekse?"
-   },
-   "o": {
-    "wert": 2400,
-    "einheit": "Kekse"
-   },
-   "c": "1800/3*4",
-   "w": "Zwischenschritt 25: 1 800 : 3 = 600 Kekse. Dann mal 4: 2 400 Kekse.",
-   "h": "Welche Menge steckt in 75 und in 100?"
-  },
-  {
-   "l": "geschickt",
-   "t": "dreisatz",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Rechne geschickt: 30 Packungen enthalten 480 Kekse. 45 Packungen enthalten wie viele Kekse?"
-   },
-   "o": {
-    "wert": 720,
-    "einheit": "Kekse"
-   },
-   "c": "480/6*9",
-   "w": "Zwischenschritt 5: 480 : 6 = 80 Kekse. Dann mal 9: 720 Kekse.",
-   "h": "Welche Menge steckt in 30 und in 45?"
-  },
-  {
-   "l": "geschickt",
-   "t": "dreisatz",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Rechne geschickt: In 60 Stunden fährt ein Radfahrer 900 km. In 90 Stunden fährt ein Radfahrer wie viele km?"
-   },
-   "o": {
-    "wert": 1350,
-    "einheit": "km"
-   },
-   "c": "900/6*9",
-   "w": "Zwischenschritt 10: 900 : 6 = 150 km. Dann mal 9: 1 350 km.",
-   "h": "Welche Menge steckt in 60 und in 90?"
-  },
-  {
-   "l": "geschickt",
-   "t": "dreisatz",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Du kennst den Wert für 175 Packungen und suchst den Wert für 100 Packungen. Welcher Zwischenschritt ist geschickt?"
-   },
-   "a": [
-    "25 Packungen",
-    "275 Packungen",
-    "26 Packungen"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "25 steckt in 175 (175 : 25 = 7) und in 100 (100 : 25 = 4). Also erst durch 7 teilen, dann mal 4.",
-   "h": "Suche eine Zahl, durch die beide Mengen teilbar sind."
-  },
-  {
-   "l": "geschickt",
-   "t": "dreisatz",
-   "p": "test",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Rechne geschickt: 12 Schritte sind 840 cm. 20 Schritte sind wie viele cm?"
-   },
-   "o": {
-    "wert": 1400,
-    "einheit": "cm"
-   },
-   "c": "840/3*5",
-   "w": "Zwischenschritt 4: 840 : 3 = 280 cm. Dann mal 5: 1 400 cm."
-  },
-  {
-   "l": "geschickt",
-   "t": "dreisatz",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Rechne geschickt: 28 Packungen enthalten 672 Kekse. 20 Packungen enthalten wie viele Kekse?"
-   },
-   "o": {
-    "wert": 480,
-    "einheit": "Kekse"
-   },
-   "c": "672/7*5",
-   "w": "Zwischenschritt 4: 672 : 7 = 96 Kekse. Dann mal 5: 480 Kekse."
-  },
-  {
-   "l": "geschickt",
-   "t": "dreisatz",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Rechne geschickt: In 16 Minuten laufen 144 Liter aus dem Hahn. In 28 Minuten laufen wie viele Liter aus dem Hahn?"
-   },
-   "o": {
-    "wert": 252,
-    "einheit": "Liter"
-   },
-   "c": "144/4*7",
-   "w": "Zwischenschritt 4: 144 : 4 = 36 Liter. Dann mal 7: 252 Liter."
-  },
-  {
-   "l": "geschickt",
-   "t": "dreisatz",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Rechne geschickt: 28 Hefte kosten 56 €. 12 Hefte kosten wie viel €?"
+    "text": "Rechne geschickt: 20 kg Äpfel kosten 40 €. 12 kg Äpfel kosten wie viel €?"
    },
    "o": {
     "wert": 24,
     "einheit": "€"
    },
-   "c": "56/7*3",
-   "w": "Zwischenschritt 4: 56 : 7 = 8 €. Dann mal 3: 24 €."
+   "c": "40/5*3",
+   "w": "Zwischenschritt 4: 40 : 5 = 8 €. Dann mal 3: 24 €.",
+   "h": "Welche Menge steckt in 20 und in 12?"
   },
   {
    "l": "geschickt",
    "t": "dreisatz",
-   "p": "sicherung",
-   "s": 2,
+   "p": "uebung",
+   "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Rechne geschickt: 25 Liter Farbe reichen für 150 m². 10 Liter Farbe reichen für wie viele m²?"
+    "text": "Rechne geschickt: 54 Schritte sind 4 050 cm. 42 Schritte sind wie viele cm?"
    },
    "o": {
-    "wert": 60,
-    "einheit": "m²"
-   },
-   "c": "150/5*2",
-   "w": "Zwischenschritt 5: 150 : 5 = 30 m². Dann mal 2: 60 m²."
-  },
-  {
-   "l": "geschickt",
-   "t": "dreisatz",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Rechne geschickt: 15 Packungen enthalten 360 Kekse. 21 Packungen enthalten wie viele Kekse?"
-   },
-   "o": {
-    "wert": 504,
-    "einheit": "Kekse"
-   },
-   "c": "360/5*7",
-   "w": "Zwischenschritt 3: 360 : 5 = 72 Kekse. Dann mal 7: 504 Kekse."
-  },
-  {
-   "l": "geschickt",
-   "t": "dreisatz",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Rechne geschickt: 28 Hefte kosten 56 €. 20 Hefte kosten wie viel €?"
-   },
-   "o": {
-    "wert": 40,
-    "einheit": "€"
-   },
-   "c": "56/7*5",
-   "w": "Zwischenschritt 4: 56 : 7 = 8 €. Dann mal 5: 40 €."
-  },
-  {
-   "l": "geschickt",
-   "t": "dreisatz",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Rechne geschickt: 35 Brötchen kosten 1 050 ct. 10 Brötchen kosten wie viel ct?"
-   },
-   "o": {
-    "wert": 300,
-    "einheit": "ct"
-   },
-   "c": "1050/7*2",
-   "w": "Zwischenschritt 5: 1 050 : 7 = 150 ct. Dann mal 2: 300 ct."
-  },
-  {
-   "l": "geschickt",
-   "t": "dreisatz",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Rechne geschickt: 25 Schritte sind 1 875 cm. 15 Schritte sind wie viele cm?"
-   },
-   "o": {
-    "wert": 1125,
+    "wert": 3150,
     "einheit": "cm"
    },
-   "c": "1875/5*3",
-   "w": "Zwischenschritt 5: 1 875 : 5 = 375 cm. Dann mal 3: 1 125 cm."
+   "c": "4050/9*7",
+   "w": "Zwischenschritt 6: 4 050 : 9 = 450 cm. Dann mal 7: 3 150 cm.",
+   "h": "Welche Menge steckt in 54 und in 42?"
+  },
+  {
+   "l": "geschickt",
+   "t": "dreisatz",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 175 kg Äpfel kosten 700 €. 50 kg Äpfel kosten wie viel €?"
+   },
+   "o": {
+    "wert": 200,
+    "einheit": "€"
+   },
+   "c": "700/7*2",
+   "w": "Zwischenschritt 25: 700 : 7 = 100 €. Dann mal 2: 200 €.",
+   "h": "Welche Menge steckt in 175 und in 50?"
+  },
+  {
+   "l": "geschickt",
+   "t": "dreisatz",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 35 Packungen enthalten 560 Kekse. 10 Packungen enthalten wie viele Kekse?"
+   },
+   "o": {
+    "wert": 160,
+    "einheit": "Kekse"
+   },
+   "c": "560/7*2",
+   "w": "Zwischenschritt 5: 560 : 7 = 80 Kekse. Dann mal 2: 160 Kekse.",
+   "h": "Welche Menge steckt in 35 und in 10?"
+  },
+  {
+   "l": "geschickt",
+   "t": "dreisatz",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Du kennst den Wert für 42 Minuten und suchst den Wert für 24 Minuten. Welcher Zwischenschritt ist geschickt?"
+   },
+   "a": [
+    "6 Minuten",
+    "7 Minuten",
+    "66 Minuten"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "6 steckt in 42 (42 : 6 = 7) und in 24 (24 : 6 = 4). Also erst durch 7 teilen, dann mal 4.",
+   "h": "Suche eine Zahl, durch die beide Mengen teilbar sind."
+  },
+  {
+   "l": "geschickt",
+   "t": "dreisatz",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Du kennst den Wert für 42 Minuten und suchst den Wert für 54 Minuten. Welcher Zwischenschritt ist geschickt?"
+   },
+   "a": [
+    "7 Minuten",
+    "6 Minuten",
+    "96 Minuten"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "6 steckt in 42 (42 : 6 = 7) und in 54 (54 : 6 = 9). Also erst durch 7 teilen, dann mal 9.",
+   "h": "Suche eine Zahl, durch die beide Mengen teilbar sind."
+  },
+  {
+   "l": "geschickt",
+   "t": "dreisatz",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 28 Hefte kosten 112 €. 8 Hefte kosten wie viel €?"
+   },
+   "o": {
+    "wert": 32,
+    "einheit": "€"
+   },
+   "c": "112/7*2",
+   "w": "Zwischenschritt 4: 112 : 7 = 16 €. Dann mal 2: 32 €."
+  },
+  {
+   "l": "geschickt",
+   "t": "dreisatz",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 16 Eintrittskarten kosten 112 €. 28 Eintrittskarten kosten wie viel €?"
+   },
+   "o": {
+    "wert": 196,
+    "einheit": "€"
+   },
+   "c": "112/4*7",
+   "w": "Zwischenschritt 4: 112 : 4 = 28 €. Dann mal 7: 196 €."
+  },
+  {
+   "l": "geschickt",
+   "t": "dreisatz",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 25 Hefte kosten 75 €. 15 Hefte kosten wie viel €?"
+   },
+   "o": {
+    "wert": 45,
+    "einheit": "€"
+   },
+   "c": "75/5*3",
+   "w": "Zwischenschritt 5: 75 : 5 = 15 €. Dann mal 3: 45 €."
+  },
+  {
+   "l": "geschickt",
+   "t": "dreisatz",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 20 Liter Farbe reichen für 120 m². 25 Liter Farbe reichen für wie viele m²?"
+   },
+   "o": {
+    "wert": 150,
+    "einheit": "m²"
+   },
+   "c": "120/4*5",
+   "w": "Zwischenschritt 5: 120 : 4 = 30 m². Dann mal 5: 150 m²."
   },
   {
    "l": "geschickt",
@@ -2338,484 +3015,97 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Rechne geschickt: In 25 Minuten laufen 225 Liter aus dem Hahn. In 20 Minuten laufen wie viele Liter aus dem Hahn?"
+    "text": "Rechne geschickt: 25 Schritte sind 1 625 cm. 10 Schritte sind wie viele cm?"
    },
    "o": {
-    "wert": 180,
-    "einheit": "Liter"
+    "wert": 650,
+    "einheit": "cm"
    },
-   "c": "225/5*4",
-   "w": "Zwischenschritt 5: 225 : 5 = 45 Liter. Dann mal 4: 180 Liter."
+   "c": "1625/5*2",
+   "w": "Zwischenschritt 5: 1 625 : 5 = 325 cm. Dann mal 2: 650 cm."
   },
   {
-   "l": "pruefen",
-   "t": "begriff",
-   "p": "uebung",
-   "s": 1,
+   "l": "geschickt",
+   "t": "dreisatz",
+   "p": "sicherung",
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Eine proportionale Tabelle: 3 → 24, 5 → 40, 7 → 56. Welcher Wert gehört zu 1?"
+    "text": "Rechne geschickt: 25 Liter Farbe reichen für 150 m². 20 Liter Farbe reichen für wie viele m²?"
    },
    "o": {
-    "wert": 8
+    "wert": 120,
+    "einheit": "m²"
    },
-   "c": "24/3",
-   "w": "Wert geteilt durch Menge: 24 : 3 = 8. Das stimmt auch für die anderen Paare.",
-   "h": "Teile einen Wert durch seine Menge."
+   "c": "150/5*4",
+   "w": "Zwischenschritt 5: 150 : 5 = 30 m². Dann mal 4: 120 m²."
   },
   {
-   "l": "pruefen",
-   "t": "begriff",
-   "p": "uebung",
-   "s": 1,
+   "l": "geschickt",
+   "t": "dreisatz",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Du kennst den Wert für 9 Packungen und suchst den Wert für 12 Packungen. Welcher Zwischenschritt ist geschickt?"
+   },
+   "a": [
+    "21 Packungen",
+    "4 Packungen",
+    "3 Packungen"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "3 steckt in 9 (9 : 3 = 3) und in 12 (12 : 3 = 4). Also erst durch 3 teilen, dann mal 4."
+  },
+  {
+   "l": "geschickt",
+   "t": "dreisatz",
+   "p": "sicherung",
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Eine proportionale Tabelle: 6 → 18, 8 → 24, 10 → 30. Welcher Wert gehört zu 1?"
+    "text": "Rechne geschickt: 28 Schritte sind 1 680 cm. 16 Schritte sind wie viele cm?"
    },
    "o": {
-    "wert": 3
+    "wert": 960,
+    "einheit": "cm"
    },
-   "c": "18/6",
-   "w": "Wert geteilt durch Menge: 18 : 6 = 3. Das stimmt auch für die anderen Paare.",
-   "h": "Teile einen Wert durch seine Menge."
+   "c": "1680/7*4",
+   "w": "Zwischenschritt 4: 1 680 : 7 = 240 cm. Dann mal 4: 960 cm."
   },
   {
-   "l": "pruefen",
-   "t": "begriff",
-   "p": "uebung",
-   "s": 1,
+   "l": "geschickt",
+   "t": "dreisatz",
+   "p": "sicherung",
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Eine proportionale Tabelle: 8 → 16, 9 → 18, 11 → 22. Welcher Wert gehört zu 1?"
+    "text": "Rechne geschickt: 10 Schritte sind 700 cm. 35 Schritte sind wie viele cm?"
    },
    "o": {
-    "wert": 2
+    "wert": 2450,
+    "einheit": "cm"
    },
-   "c": "16/8",
-   "w": "Wert geteilt durch Menge: 16 : 8 = 2. Das stimmt auch für die anderen Paare.",
-   "h": "Teile einen Wert durch seine Menge."
+   "c": "700/2*7",
+   "w": "Zwischenschritt 5: 700 : 2 = 350 cm. Dann mal 7: 2 450 cm."
   },
   {
-   "l": "pruefen",
-   "t": "begriff",
-   "p": "uebung",
-   "s": 1,
+   "l": "geschickt",
+   "t": "dreisatz",
+   "p": "sicherung",
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Eine proportionale Tabelle: 2 → 8, 10 → 40, 12 → 48. Welcher Wert gehört zu 1?"
+    "text": "Rechne geschickt: 6 kg Äpfel kosten 18 €. 15 kg Äpfel kosten wie viel €?"
    },
    "o": {
-    "wert": 4
+    "wert": 45,
+    "einheit": "€"
    },
-   "c": "8/2",
-   "w": "Wert geteilt durch Menge: 8 : 2 = 4. Das stimmt auch für die anderen Paare.",
-   "h": "Teile einen Wert durch seine Menge."
-  },
-  {
-   "l": "pruefen",
-   "t": "begriff",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Eine proportionale Tabelle: 6 → 24, 7 → 28, 11 → 44. Welcher Wert gehört zu 1?"
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "24/6",
-   "w": "Wert geteilt durch Menge: 24 : 6 = 4. Das stimmt auch für die anderen Paare.",
-   "h": "Teile einen Wert durch seine Menge."
-  },
-  {
-   "l": "pruefen",
-   "t": "begriff",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Zwei Paare gehören zu einer proportionalen Zuordnung, eines passt nicht. Welches?"
-   },
-   "a": [
-    "2 → 6",
-    "5 → 15",
-    "7 → 24"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Bei den beiden anderen ist Wert : Menge = 3. Bei 7 → 24 müsste der Wert 21 sein.",
-   "h": "Rechne bei jedem Paar Wert geteilt durch Menge."
-  },
-  {
-   "l": "pruefen",
-   "t": "begriff",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Zwei Paare gehören zu einer proportionalen Zuordnung, eines passt nicht. Welches?"
-   },
-   "a": [
-    "2 → 6",
-    "4 → 12",
-    "12 → 39"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Bei den beiden anderen ist Wert : Menge = 3. Bei 12 → 39 müsste der Wert 36 sein.",
-   "h": "Rechne bei jedem Paar Wert geteilt durch Menge."
-  },
-  {
-   "l": "pruefen",
-   "t": "begriff",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Zwei Paare gehören zu einer proportionalen Zuordnung, eines passt nicht. Welches?"
-   },
-   "a": [
-    "5 → 38",
-    "10 → 80",
-    "11 → 88"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Bei den beiden anderen ist Wert : Menge = 8. Bei 5 → 38 müsste der Wert 40 sein.",
-   "h": "Rechne bei jedem Paar Wert geteilt durch Menge."
-  },
-  {
-   "l": "pruefen",
-   "t": "begriff",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Zwei Paare gehören zu einer proportionalen Zuordnung, eines passt nicht. Welches?"
-   },
-   "a": [
-    "2 → 10",
-    "5 → 25",
-    "9 → 43"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Bei den beiden anderen ist Wert : Menge = 5. Bei 9 → 43 müsste der Wert 45 sein.",
-   "h": "Rechne bei jedem Paar Wert geteilt durch Menge."
-  },
-  {
-   "l": "pruefen",
-   "t": "begriff",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Zwei Paare gehören zu einer proportionalen Zuordnung, eines passt nicht. Welches?"
-   },
-   "a": [
-    "3 → 17",
-    "4 → 24",
-    "8 → 48"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Bei den beiden anderen ist Wert : Menge = 6. Bei 3 → 17 müsste der Wert 18 sein.",
-   "h": "Rechne bei jedem Paar Wert geteilt durch Menge."
-  },
-  {
-   "l": "pruefen",
-   "t": "begriff",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Tabelle gehört zu einer proportionalen Zuordnung?"
-   },
-   "a": [
-    "4 → 27, 6 → 37, 12 → 67",
-    "4 → 20, 6 → 30, 12 → 60",
-    "4 → 16, 6 → 36, 12 → 144"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Nur bei 4 → 20, 6 → 30, 12 → 60 ist Wert : Menge immer gleich (5). Bei den anderen ändert sich der Quotient.",
-   "h": "Proportional heißt: Wert geteilt durch Menge ist bei allen Paaren gleich."
-  },
-  {
-   "l": "pruefen",
-   "t": "begriff",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Tabelle gehört zu einer proportionalen Zuordnung?"
-   },
-   "a": [
-    "4 → 12, 7 → 18, 11 → 26",
-    "4 → 16, 7 → 49, 11 → 121",
-    "4 → 8, 7 → 14, 11 → 22"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Nur bei 4 → 8, 7 → 14, 11 → 22 ist Wert : Menge immer gleich (2). Bei den anderen ändert sich der Quotient.",
-   "h": "Proportional heißt: Wert geteilt durch Menge ist bei allen Paaren gleich."
-  },
-  {
-   "l": "pruefen",
-   "t": "begriff",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Tabelle gehört zu einer proportionalen Zuordnung?"
-   },
-   "a": [
-    "7 → 49, 10 → 100, 12 → 144",
-    "7 → 42, 10 → 60, 12 → 72",
-    "7 → 50, 10 → 68, 12 → 80"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Nur bei 7 → 42, 10 → 60, 12 → 72 ist Wert : Menge immer gleich (6). Bei den anderen ändert sich der Quotient.",
-   "h": "Proportional heißt: Wert geteilt durch Menge ist bei allen Paaren gleich."
-  },
-  {
-   "l": "pruefen",
-   "t": "begriff",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Tabelle gehört zu einer proportionalen Zuordnung?"
-   },
-   "a": [
-    "4 → 16, 6 → 36, 12 → 144",
-    "4 → 8, 6 → 12, 12 → 24",
-    "4 → 12, 6 → 16, 12 → 28"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Nur bei 4 → 8, 6 → 12, 12 → 24 ist Wert : Menge immer gleich (2). Bei den anderen ändert sich der Quotient.",
-   "h": "Proportional heißt: Wert geteilt durch Menge ist bei allen Paaren gleich."
-  },
-  {
-   "l": "pruefen",
-   "t": "begriff",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Tabelle gehört zu einer proportionalen Zuordnung?"
-   },
-   "a": [
-    "6 → 18, 8 → 24, 12 → 36",
-    "6 → 23, 8 → 29, 12 → 41",
-    "6 → 36, 8 → 64, 12 → 144"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Nur bei 6 → 18, 8 → 24, 12 → 36 ist Wert : Menge immer gleich (3). Bei den anderen ändert sich der Quotient.",
-   "h": "Proportional heißt: Wert geteilt durch Menge ist bei allen Paaren gleich."
-  },
-  {
-   "l": "pruefen",
-   "t": "begriff",
-   "p": "test",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Zwei Paare gehören zu einer proportionalen Zuordnung, eines passt nicht. Welches?"
-   },
-   "a": [
-    "5 → 22",
-    "8 → 32",
-    "9 → 36"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Bei den beiden anderen ist Wert : Menge = 4. Bei 5 → 22 müsste der Wert 20 sein."
-  },
-  {
-   "l": "pruefen",
-   "t": "begriff",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Zwei Paare gehören zu einer proportionalen Zuordnung, eines passt nicht. Welches?"
-   },
-   "a": [
-    "2 → 10",
-    "10 → 49",
-    "11 → 55"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Bei den beiden anderen ist Wert : Menge = 5. Bei 10 → 49 müsste der Wert 50 sein."
-  },
-  {
-   "l": "pruefen",
-   "t": "begriff",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Zwei Paare gehören zu einer proportionalen Zuordnung, eines passt nicht. Welches?"
-   },
-   "a": [
-    "8 → 16",
-    "10 → 23",
-    "12 → 24"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Bei den beiden anderen ist Wert : Menge = 2. Bei 10 → 23 müsste der Wert 20 sein."
-  },
-  {
-   "l": "pruefen",
-   "t": "begriff",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Zwei Paare gehören zu einer proportionalen Zuordnung, eines passt nicht. Welches?"
-   },
-   "a": [
-    "2 → 8",
-    "4 → 16",
-    "10 → 42"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Bei den beiden anderen ist Wert : Menge = 4. Bei 10 → 42 müsste der Wert 40 sein."
-  },
-  {
-   "l": "pruefen",
-   "t": "begriff",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Zwei Paare gehören zu einer proportionalen Zuordnung, eines passt nicht. Welches?"
-   },
-   "a": [
-    "2 → 8",
-    "5 → 21",
-    "11 → 44"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Bei den beiden anderen ist Wert : Menge = 4. Bei 5 → 21 müsste der Wert 20 sein."
-  },
-  {
-   "l": "pruefen",
-   "t": "begriff",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Zwei Paare gehören zu einer proportionalen Zuordnung, eines passt nicht. Welches?"
-   },
-   "a": [
-    "2 → 4",
-    "4 → 8",
-    "8 → 18"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Bei den beiden anderen ist Wert : Menge = 2. Bei 8 → 18 müsste der Wert 16 sein."
-  },
-  {
-   "l": "pruefen",
-   "t": "begriff",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Zwei Paare gehören zu einer proportionalen Zuordnung, eines passt nicht. Welches?"
-   },
-   "a": [
-    "3 → 23",
-    "6 → 42",
-    "11 → 77"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Bei den beiden anderen ist Wert : Menge = 7. Bei 3 → 23 müsste der Wert 21 sein."
-  },
-  {
-   "l": "pruefen",
-   "t": "begriff",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Zwei Paare gehören zu einer proportionalen Zuordnung, eines passt nicht. Welches?"
-   },
-   "a": [
-    "9 → 20",
-    "11 → 22",
-    "12 → 24"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Bei den beiden anderen ist Wert : Menge = 2. Bei 9 → 20 müsste der Wert 18 sein."
-  },
-  {
-   "l": "pruefen",
-   "t": "begriff",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Zwei Paare gehören zu einer proportionalen Zuordnung, eines passt nicht. Welches?"
-   },
-   "a": [
-    "4 → 30",
-    "6 → 42",
-    "11 → 77"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Bei den beiden anderen ist Wert : Menge = 7. Bei 4 → 30 müsste der Wert 28 sein."
-  },
-  {
-   "l": "pruefen",
-   "t": "begriff",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Zwei Paare gehören zu einer proportionalen Zuordnung, eines passt nicht. Welches?"
-   },
-   "a": [
-    "4 → 14",
-    "8 → 24",
-    "11 → 33"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Bei den beiden anderen ist Wert : Menge = 3. Bei 4 → 14 müsste der Wert 12 sein."
+   "c": "18/2*5",
+   "w": "Zwischenschritt 3: 18 : 2 = 9 €. Dann mal 5: 45 €."
   },
   {
    "l": "sach",
@@ -2824,14 +3114,14 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Rezept für 2 Personen braucht 300 g Kartoffeln. Wie viel Gramm braucht man für 6 Personen?"
+    "text": "Ein Rezept für 4 Personen braucht 500 g Reis. Wie viel Gramm braucht man für 12 Personen?"
    },
    "o": {
-    "wert": 900,
+    "wert": 1500,
     "einheit": "g"
    },
-   "c": "300*3",
-   "w": "6 Personen sind 3-mal so viele. 300 g · 3 = 900 g.",
+   "c": "500*3",
+   "w": "12 Personen sind 3-mal so viele. 500 g · 3 = 1 500 g.",
    "h": "Wie viel mal so viele Personen sind es?"
   },
   {
@@ -2841,14 +3131,14 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Rezept für 4 Personen braucht 600 g Reis. Wie viel Gramm braucht man für 16 Personen?"
+    "text": "Ein Rezept für 2 Personen braucht 150 g Reis. Wie viel Gramm braucht man für 6 Personen?"
    },
    "o": {
-    "wert": 2400,
+    "wert": 450,
     "einheit": "g"
    },
-   "c": "600*4",
-   "w": "16 Personen sind 4-mal so viele. 600 g · 4 = 2 400 g.",
+   "c": "150*3",
+   "w": "6 Personen sind 3-mal so viele. 150 g · 3 = 450 g.",
    "h": "Wie viel mal so viele Personen sind es?"
   },
   {
@@ -2858,7 +3148,7 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Rezept für 2 Personen braucht 250 g Nudeln. Wie viel Gramm braucht man für 8 Personen?"
+    "text": "Ein Rezept für 2 Personen braucht 250 g Mehl. Wie viel Gramm braucht man für 8 Personen?"
    },
    "o": {
     "wert": 1000,
@@ -2875,15 +3165,15 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Rezept für 2 Personen braucht 300 g Nudeln. Wie viel Gramm braucht man für 8 Personen?"
+    "text": "Ein Lied dauert 4 Minuten, wenn 4 Kinder es singen. Wie viele Minuten dauert es, wenn 9 Kinder singen?"
    },
    "o": {
-    "wert": 1200,
-    "einheit": "g"
+    "wert": 4,
+    "einheit": "min"
    },
-   "c": "300*4",
-   "w": "8 Personen sind 4-mal so viele. 300 g · 4 = 1 200 g.",
-   "h": "Wie viel mal so viele Personen sind es?"
+   "c": "4",
+   "w": "Falle: Die Zeit hängt nicht von der Anzahl ab. Es bleibt bei 4 Minuten.",
+   "h": "Prüfe zuerst: Wird die Zeit wirklich länger, wenn es mehr sind?"
   },
   {
    "l": "sach",
@@ -2892,15 +3182,15 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Rezept für 2 Personen braucht 250 g Kartoffeln. Wie viel Gramm braucht man für 6 Personen?"
+    "text": "2 Hemden trocknen auf der Leine in 75 Minuten. Wie viele Minuten brauchen 5 Hemden auf derselben Leine?"
    },
    "o": {
-    "wert": 750,
-    "einheit": "g"
+    "wert": 75,
+    "einheit": "min"
    },
-   "c": "250*3",
-   "w": "6 Personen sind 3-mal so viele. 250 g · 3 = 750 g.",
-   "h": "Wie viel mal so viele Personen sind es?"
+   "c": "75",
+   "w": "Falle: Die Zeit hängt nicht von der Anzahl ab. Es bleibt bei 75 Minuten.",
+   "h": "Prüfe zuerst: Wird die Zeit wirklich länger, wenn es mehr sind?"
   },
   {
    "l": "sach",
@@ -2909,41 +3199,7 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Rezept für 5 Muffins braucht 150 g Zucker. Wie viel Gramm braucht man für 8 Muffins?"
-   },
-   "o": {
-    "wert": 240,
-    "einheit": "g"
-   },
-   "c": "150/5*8",
-   "w": "1 Muffin: 150 g : 5 = 30 g. 8 Muffins: 30 g · 8 = 240 g.",
-   "h": "Dreisatz: erst auf 1 Muffin, dann auf die gesuchte Anzahl."
-  },
-  {
-   "l": "sach",
-   "t": "anwenden",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Rezept für 6 Muffins braucht 240 g Quark. Wie viel Gramm braucht man für 4 Muffins?"
-   },
-   "o": {
-    "wert": 160,
-    "einheit": "g"
-   },
-   "c": "240/6*4",
-   "w": "1 Muffin: 240 g : 6 = 40 g. 4 Muffins: 40 g · 4 = 160 g.",
-   "h": "Dreisatz: erst auf 1 Muffin, dann auf die gesuchte Anzahl."
-  },
-  {
-   "l": "sach",
-   "t": "anwenden",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "2 Eier kochen 6 Minuten. Wie viele Minuten kochen 7 Eier im selben Topf?"
+    "text": "3 Eier kochen 6 Minuten. Wie viele Minuten kochen 9 Eier im selben Topf?"
    },
    "o": {
     "wert": 6,
@@ -2958,17 +3214,20 @@
    "t": "anwenden",
    "p": "uebung",
    "s": 2,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Ein Rezept für 6 Muffins braucht 150 g Quark. Wie viel Gramm braucht man für 9 Muffins?"
+    "text": "Ein Hahn füllt in 4 Minuten einen Eimer mit 48 Litern. Ungefähr wie viele Liter laufen in 20 Minuten?"
    },
+   "a": [
+    "etwa 200 Liter",
+    "etwa 70 Liter",
+    "etwa 2 000 Liter"
+   ],
    "o": {
-    "wert": 225,
-    "einheit": "g"
+    "index": 0
    },
-   "c": "150/6*9",
-   "w": "1 Muffin: 150 g : 6 = 25 g. 9 Muffins: 25 g · 9 = 225 g.",
-   "h": "Dreisatz: erst auf 1 Muffin, dann auf die gesuchte Anzahl."
+   "w": "In 1 Minute sind es 48 : 4 = 12 Liter. In 20 Minuten: 12 · 20 = 240 Liter, also etwa 200 Liter. Nur dazuzählen (48 + 20) ist falsch.",
+   "h": "Überschlage: Wie viel ist es für 1? Wie oft so viel brauchst du?"
   },
   {
    "l": "sach",
@@ -2977,14 +3236,51 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Lied dauert 6 Minuten, wenn 3 Kinder es singen. Wie viele Minuten dauert es, wenn 8 Kinder singen?"
+    "text": "Ein Rezept für 4 Muffins braucht 100 g Mehl. Wie viel Gramm braucht man für 10 Muffins?"
    },
    "o": {
-    "wert": 6,
+    "wert": 250,
+    "einheit": "g"
+   },
+   "c": "100/4*10",
+   "w": "1 Muffin: 100 g : 4 = 25 g. 10 Muffins: 25 g · 10 = 250 g.",
+   "h": "Dreisatz: erst auf 1 Muffin, dann auf die gesuchte Anzahl."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Für 3 Pfannkuchen braucht man 150 g Mehl. Ungefähr wie viel Mehl brauchst du für 25 Pfannkuchen?"
+   },
+   "a": [
+    "etwa 13 000 g",
+    "etwa 1 300 g",
+    "etwa 180 g"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Für 1 Pfannkuchen sind es 150 : 3 = 50 g. Für 25 Pfannkuchen: 50 · 25 = 1 250 g, also etwa 1 300 g. Nur dazuzählen (150 + 25) ist falsch.",
+   "h": "Überschlage: Wie viel ist es für 1? Wie oft so viel brauchst du?"
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "3 Hemden trocknen auf der Leine in 75 Minuten. Wie viele Minuten brauchen 7 Hemden auf derselben Leine?"
+   },
+   "o": {
+    "wert": 75,
     "einheit": "min"
    },
-   "c": "6",
-   "w": "Falle: Die Zeit hängt nicht von der Anzahl ab. Es bleibt bei 6 Minuten.",
+   "c": "75",
+   "w": "Falle: Die Zeit hängt nicht von der Anzahl ab. Es bleibt bei 75 Minuten.",
    "h": "Prüfe zuerst: Wird die Zeit wirklich länger, wenn es mehr sind?"
   },
   {
@@ -2994,15 +3290,15 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Auto verbraucht auf 100 km 6 Liter Benzin. Wie viele Liter braucht es für 750 km? (Das Ergebnis ist eine Kommazahl.)"
+    "text": "2 Eier kochen 10 Minuten. Wie viele Minuten kochen 8 Eier im selben Topf?"
    },
    "o": {
-    "wert": 45.0,
-    "einheit": "Liter"
+    "wert": 10,
+    "einheit": "min"
    },
-   "c": "6*750/100",
-   "w": "50 km: 3 Liter. 750 km sind 15-mal 50 km: 3 · 15 = 45 Liter.",
-   "h": "Gehe über 50 km als Zwischenschritt."
+   "c": "10",
+   "w": "Falle: Die Zeit hängt nicht von der Anzahl ab. Es bleibt bei 10 Minuten.",
+   "h": "Prüfe zuerst: Wird die Zeit wirklich länger, wenn es mehr sind?"
   },
   {
    "l": "sach",
@@ -3011,17 +3307,17 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Kleine Packung: 6 Riegel für 360 ct. Große Packung: 10 Riegel für 700 ct. Bei welcher Packung ist ein Riegel billiger?"
+    "text": "Kleine Packung: 4 Riegel für 1,60 €. Große Packung: 6 Riegel für 2,10 €. Bei welcher Packung ist ein Riegel billiger?"
    },
    "a": [
-    "Die große Packung",
     "Beide sind gleich günstig",
-    "Die kleine Packung"
+    "Die kleine Packung",
+    "Die große Packung"
    ],
    "o": {
     "index": 2
    },
-   "w": "Klein: 360 : 6 = 60 ct pro Riegel. Groß: 700 : 10 = 70 ct pro Riegel. Billiger ist die kleine Packung.",
+   "w": "Klein: 160 ct : 4 = 40 ct pro Riegel. Groß: 210 ct : 6 = 35 ct pro Riegel. Billiger ist die große Packung.",
    "h": "Rechne für jede Packung den Preis für 1 Riegel aus."
   },
   {
@@ -3031,7 +3327,7 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Kleine Packung: 4 Riegel für 240 ct. Große Packung: 6 Riegel für 390 ct. Bei welcher Packung ist ein Riegel billiger?"
+    "text": "Kleine Packung: 6 Riegel für 2,40 €. Große Packung: 10 Riegel für 4,50 €. Bei welcher Packung ist ein Riegel billiger?"
    },
    "a": [
     "Die kleine Packung",
@@ -3041,8 +3337,25 @@
    "o": {
     "index": 0
    },
-   "w": "Klein: 240 : 4 = 60 ct pro Riegel. Groß: 390 : 6 = 65 ct pro Riegel. Billiger ist die kleine Packung.",
+   "w": "Klein: 240 ct : 6 = 40 ct pro Riegel. Groß: 450 ct : 10 = 45 ct pro Riegel. Billiger ist die kleine Packung.",
    "h": "Rechne für jede Packung den Preis für 1 Riegel aus."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "3 Eier kochen 9 Minuten. Wie viele Minuten kochen 5 Eier im selben Topf?"
+   },
+   "o": {
+    "wert": 9,
+    "einheit": "min"
+   },
+   "c": "9",
+   "w": "Falle: Die Zeit hängt nicht von der Anzahl ab. Es bleibt bei 9 Minuten.",
+   "h": "Prüfe zuerst: Wird die Zeit wirklich länger, wenn es mehr sind?"
   },
   {
    "l": "sach",
@@ -3051,37 +3364,17 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Kleine Packung: 6 Riegel für 300 ct. Große Packung: 10 Riegel für 550 ct. Bei welcher Packung ist ein Riegel billiger?"
+    "text": "Kleine Packung: 5 Riegel für 3,00 €. Große Packung: 8 Riegel für 4,00 €. Bei welcher Packung ist ein Riegel billiger?"
    },
    "a": [
-    "Beide sind gleich günstig",
     "Die kleine Packung",
-    "Die große Packung"
+    "Die große Packung",
+    "Beide sind gleich günstig"
    ],
    "o": {
     "index": 1
    },
-   "w": "Klein: 300 : 6 = 50 ct pro Riegel. Groß: 550 : 10 = 55 ct pro Riegel. Billiger ist die kleine Packung.",
-   "h": "Rechne für jede Packung den Preis für 1 Riegel aus."
-  },
-  {
-   "l": "sach",
-   "t": "anwenden",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Kleine Packung: 4 Riegel für 200 ct. Große Packung: 6 Riegel für 360 ct. Bei welcher Packung ist ein Riegel billiger?"
-   },
-   "a": [
-    "Beide sind gleich günstig",
-    "Die kleine Packung",
-    "Die große Packung"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Klein: 200 : 4 = 50 ct pro Riegel. Groß: 360 : 6 = 60 ct pro Riegel. Billiger ist die kleine Packung.",
+   "w": "Klein: 300 ct : 5 = 60 ct pro Riegel. Groß: 400 ct : 8 = 50 ct pro Riegel. Billiger ist die große Packung.",
    "h": "Rechne für jede Packung den Preis für 1 Riegel aus."
   },
   {
@@ -3089,16 +3382,19 @@
    "t": "anwenden",
    "p": "test",
    "s": 2,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Ein Rezept für 4 Muffins braucht 160 g Zucker. Wie viel Gramm braucht man für 10 Muffins?"
+    "text": "Ein Hahn füllt in 2 Minuten einen Eimer mit 24 Litern. Ungefähr wie viele Liter laufen in 20 Minuten?"
    },
+   "a": [
+    "etwa 2 000 Liter",
+    "etwa 40 Liter",
+    "etwa 200 Liter"
+   ],
    "o": {
-    "wert": 400,
-    "einheit": "g"
+    "index": 2
    },
-   "c": "160/4*10",
-   "w": "1 Muffin: 160 g : 4 = 40 g. 10 Muffins: 40 g · 10 = 400 g."
+   "w": "In 1 Minute sind es 24 : 2 = 12 Liter. In 20 Minuten: 12 · 20 = 240 Liter, also etwa 200 Liter. Nur dazuzählen (24 + 20) ist falsch."
   },
   {
    "l": "sach",
@@ -3107,14 +3403,33 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Rezept für 4 Muffins braucht 180 g Zucker. Wie viel Gramm braucht man für 6 Muffins?"
+    "text": "4 Eier kochen 7 Minuten. Wie viele Minuten kochen 5 Eier im selben Topf?"
    },
    "o": {
-    "wert": 270,
-    "einheit": "g"
+    "wert": 7,
+    "einheit": "min"
    },
-   "c": "180/4*6",
-   "w": "1 Muffin: 180 g : 4 = 45 g. 6 Muffins: 45 g · 6 = 270 g."
+   "c": "7",
+   "w": "Falle: Die Zeit hängt nicht von der Anzahl ab. Es bleibt bei 7 Minuten."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Hahn füllt in 4 Minuten einen Eimer mit 40 Litern. Ungefähr wie viele Liter laufen in 12 Minuten?"
+   },
+   "a": [
+    "etwa 50 Liter",
+    "etwa 120 Liter",
+    "etwa 1 200 Liter"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "In 1 Minute sind es 40 : 4 = 10 Liter. In 12 Minuten: 10 · 12 = 120 Liter, also etwa 120 Liter. Nur dazuzählen (40 + 12) ist falsch."
   },
   {
    "l": "sach",
@@ -3123,30 +3438,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Rezept für 3 Muffins braucht 90 g Mehl. Wie viel Gramm braucht man für 5 Muffins?"
+    "text": "Ein Rezept für 6 Muffins braucht 78 g Zucker. Wie viel Gramm braucht man für 4 Muffins?"
    },
    "o": {
-    "wert": 150,
+    "wert": 52,
     "einheit": "g"
    },
-   "c": "90/3*5",
-   "w": "1 Muffin: 90 g : 3 = 30 g. 5 Muffins: 30 g · 5 = 150 g."
-  },
-  {
-   "l": "sach",
-   "t": "anwenden",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Rezept für 10 Muffins braucht 300 g Mehl. Wie viel Gramm braucht man für 4 Muffins?"
-   },
-   "o": {
-    "wert": 120,
-    "einheit": "g"
-   },
-   "c": "300/10*4",
-   "w": "1 Muffin: 300 g : 10 = 30 g. 4 Muffins: 30 g · 4 = 120 g."
+   "c": "78/6*4",
+   "w": "1 Muffin: 78 g : 6 = 13 g. 4 Muffins: 13 g · 4 = 52 g."
   },
   {
    "l": "sach",
@@ -3155,14 +3454,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Rezept für 8 Muffins braucht 240 g Zucker. Wie viel Gramm braucht man für 12 Muffins?"
+    "text": "Ein Rezept für 5 Muffins braucht 70 g Butter. Wie viel Gramm braucht man für 8 Muffins?"
    },
    "o": {
-    "wert": 360,
+    "wert": 112,
     "einheit": "g"
    },
-   "c": "240/8*12",
-   "w": "1 Muffin: 240 g : 8 = 30 g. 12 Muffins: 30 g · 12 = 360 g."
+   "c": "70/5*8",
+   "w": "1 Muffin: 70 g : 5 = 14 g. 8 Muffins: 14 g · 8 = 112 g."
   },
   {
    "l": "sach",
@@ -3171,14 +3470,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Rezept für 4 Muffins braucht 180 g Butter. Wie viel Gramm braucht man für 10 Muffins?"
+    "text": "Ein Rezept für 4 Muffins braucht 68 g Zucker. Wie viel Gramm braucht man für 10 Muffins?"
    },
    "o": {
-    "wert": 450,
+    "wert": 170,
     "einheit": "g"
    },
-   "c": "180/4*10",
-   "w": "1 Muffin: 180 g : 4 = 45 g. 10 Muffins: 45 g · 10 = 450 g."
+   "c": "68/4*10",
+   "w": "1 Muffin: 68 g : 4 = 17 g. 10 Muffins: 17 g · 10 = 170 g."
   },
   {
    "l": "sach",
@@ -3187,14 +3486,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "4 Hemden trocknen auf der Leine in 90 Minuten. Wie viele Minuten brauchen 8 Hemden?"
+    "text": "Ein Lied dauert 4 Minuten, wenn 3 Kinder es singen. Wie viele Minuten dauert es, wenn 6 Kinder singen?"
    },
    "o": {
-    "wert": 90,
+    "wert": 4,
     "einheit": "min"
    },
-   "c": "90",
-   "w": "Falle: Die Zeit hängt nicht von der Anzahl ab. Es bleibt bei 90 Minuten."
+   "c": "4",
+   "w": "Falle: Die Zeit hängt nicht von der Anzahl ab. Es bleibt bei 4 Minuten."
   },
   {
    "l": "sach",
@@ -3203,30 +3502,33 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "4 Eier kochen 45 Minuten. Wie viele Minuten kochen 7 Eier im selben Topf?"
+    "text": "Ein Rezept für 4 Muffins braucht 76 g Zucker. Wie viel Gramm braucht man für 10 Muffins?"
    },
    "o": {
-    "wert": 45,
-    "einheit": "min"
-   },
-   "c": "45",
-   "w": "Falle: Die Zeit hängt nicht von der Anzahl ab. Es bleibt bei 45 Minuten."
-  },
-  {
-   "l": "sach",
-   "t": "anwenden",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Rezept für 8 Muffins braucht 320 g Zucker. Wie viel Gramm braucht man für 12 Muffins?"
-   },
-   "o": {
-    "wert": 480,
+    "wert": 190,
     "einheit": "g"
    },
-   "c": "320/8*12",
-   "w": "1 Muffin: 320 g : 8 = 40 g. 12 Muffins: 40 g · 12 = 480 g."
+   "c": "76/4*10",
+   "w": "1 Muffin: 76 g : 4 = 19 g. 10 Muffins: 19 g · 10 = 190 g."
+  },
+  {
+   "l": "sach",
+   "t": "anwenden",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Hahn füllt in 2 Minuten einen Eimer mit 16 Litern. Ungefähr wie viele Liter laufen in 15 Minuten?"
+   },
+   "a": [
+    "etwa 1 200 Liter",
+    "etwa 30 Liter",
+    "etwa 120 Liter"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "In 1 Minute sind es 16 : 2 = 8 Liter. In 15 Minuten: 8 · 15 = 120 Liter, also etwa 120 Liter. Nur dazuzählen (16 + 15) ist falsch."
   },
   {
    "l": "sach",
@@ -3235,14 +3537,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "3 Eier kochen 45 Minuten. Wie viele Minuten kochen 5 Eier im selben Topf?"
+    "text": "Ein Rezept für 4 Muffins braucht 64 g Zucker. Wie viel Gramm braucht man für 6 Muffins?"
    },
    "o": {
-    "wert": 45,
-    "einheit": "min"
+    "wert": 96,
+    "einheit": "g"
    },
-   "c": "45",
-   "w": "Falle: Die Zeit hängt nicht von der Anzahl ab. Es bleibt bei 45 Minuten."
+   "c": "64/4*6",
+   "w": "1 Muffin: 64 g : 4 = 16 g. 6 Muffins: 16 g · 6 = 96 g."
   }
  ]
 }

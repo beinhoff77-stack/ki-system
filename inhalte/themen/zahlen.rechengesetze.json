@@ -30,6 +30,7 @@
     "titel": "Geschickt rechnen",
     "lernziele": [
      "vorteil",
+     "differenz_summe",
      "verteilen"
     ]
    },
@@ -54,21 +55,33 @@
     "titel": "Punkt vor Strich",
     "regel": "⟦Punktrechnung⟧ (mal und geteilt) kommt vor ⟦Strichrechnung⟧ (plus und minus). Gleichrangiges wird von links nach rechts gerechnet.",
     "schritte": [
-     "3 + 4 · 5: zuerst der Punkt, 4 · 5 = 20.",
-     "Dann der Strich: 3 + 20 = ⟦23⟧."
+     "Du kaufst eine Tüte Popcorn für 3 € und 4 Kinokarten zu je 5 €: 3 + 4 · 5.",
+     "Zuerst der Punkt: 4 Karten kosten 4 · 5 = 20 €.",
+     "Dann der Strich: 3 + 20 = ⟦23⟧ €."
     ],
-    "fehler": "Einfach von links nach rechts: 3 + 4 = 7, 7 · 5 = 35 ist falsch. Erst ⟦4 · 5⟧, dann plus 3."
+    "fehler": "Einfach von links nach rechts: 3 + 4 = 7, 7 · 5 = 35 ist falsch. Das wären 7 Kinokarten – du hast aber nur 4 gekauft. Erst ⟦4 · 5⟧, dann plus 3."
    },
    {
     "lernziel": "klammern",
     "titel": "Klammern zuerst",
     "regel": "Was in ⟦Klammern⟧ steht, wird zuerst ausgerechnet. Bei Klammern in Klammern beginnst du ⟦innen⟧. Danach gilt Punkt vor Strich.",
     "schritte": [
-     "(3 + 4) · 5: zuerst die Klammer, 3 + 4 = 7.",
-     "Dann 7 · 5 = ⟦35⟧."
+     "(3 + 4) · 5: zuerst die Klammer, 3 + 4 = 7. Dann 7 · 5 = ⟦35⟧.",
+     "Klammer in Klammer: 2 · (10 − (3 + 4)). Innen zuerst: 3 + 4 = 7.",
+     "Dann die äußere Klammer: 10 − 7 = 3. Zum Schluss 2 · 3 = ⟦6⟧."
     ],
-    "probe": "Ohne Klammer wäre es 3 + 4 · 5 = 23. Die Klammer ändert das Ergebnis.",
-    "fehler": "Die Klammer übersehen und Punkt vor Strich rechnen. Die Klammer hat ⟦immer Vorrang⟧."
+    "probe": "Ohne Klammer wäre 3 + 4 · 5 = 23. Die Klammer ändert das Ergebnis.",
+    "fehler": "Die Klammer übersehen und Punkt vor Strich rechnen: (3 + 4) · 5 = 3 + 20 = 23 ist falsch. Die Klammer sagt: Erst ⟦3 + 4⟧ ausrechnen, dann mal 5. Richtig ist 35."
+   },
+   {
+    "lernziel": "termaufbau",
+    "titel": "Terme lesen und aufstellen",
+    "regel": "Die Rechenart, die du ⟦zuletzt⟧ ausführst, gibt dem Term den Namen: Summe (+), Differenz (−), Produkt (·), Quotient (:).",
+    "schritte": [
+     "3 + 4 · 5: zuletzt wird addiert.",
+     "Der Term ist eine ⟦Summe⟧ aus 3 und dem Produkt von 4 und 5."
+    ],
+    "fehler": "3 + 4 · 5 „Produkt“ nennen, weil ein Malpunkt vorkommt. Entscheidend ist die ⟦letzte⟧ Rechnung, hier das Plus."
    },
    {
     "lernziel": "vorteil",
@@ -81,25 +94,39 @@
     "fehler": "Auch bei Minus oder Geteilt tauschen: 10 − 3 ist nicht 3 − 10. Tauschen geht nur bei ⟦plus und mal⟧."
    },
    {
+    "lernziel": "differenz_summe",
+    "titel": "Das Minus wandert mit",
+    "regel": "Jede Differenz ist eine Summe: 47 − 18 = 47 + (−18). Das Rechenzeichen ⟦gehört zur Zahl dahinter⟧. Wenn du Zahlen tauschst, nimmst du ihr Zeichen ⟦mit⟧.",
+    "schritte": [
+     "Du hast 47 € und gibst 18 € aus. Dann bekommst du 13 € geschenkt: 47 − 18 + 13.",
+     "Tausche die +13 nach vorn, das Minus bleibt bei der 18: 47 + 13 − 18.",
+     "47 + 13 = 60, und 60 − 18 = ⟦42⟧ €."
+    ],
+    "probe": "Von links nach rechts: 47 − 18 = 29, 29 + 13 = 42 ✓",
+    "fehler": "47 − 18 + 13 = 47 − 31 = 16 ist falsch. Du hast die 13 mit unter das Minus gezogen. Die 13 bekommst du aber ⟦dazu⟧, du gibst sie nicht aus."
+   },
+   {
     "lernziel": "verteilen",
     "titel": "Geschickt: verteilen",
-    "regel": "Eine Zahl mal eine Klammer: mit ⟦jedem⟧ Teil der Klammer malnehmen. 7 · (100 − 2) = 7 · 100 − 7 · 2. Rückwärts: gemeinsamen Faktor ⟦ausklammern⟧, 6 · 13 + 6 · 7 = 6 · (13 + 7).",
+    "regel": "Eine Zahl mal eine Klammer: mit ⟦jedem⟧ Teil der Klammer malnehmen. 7 · (100 − 2) = 7 · 100 − 7 · 2. Rückwärts: gemeinsamen Faktor ⟦ausklammern⟧, 6 · 13 + 6 · 7 = 6 · (13 + 7) = 6 · 20.",
     "schritte": [
-     "7 · 98 = 7 · (100 − 2)",
-     "7 · 100 − 7 · 2 = 700 − 14 = ⟦686⟧"
+     "Ein Verein kauft 7 Sporttaschen zu je 98 €: 7 · 98 = 7 · (100 − 2).",
+     "Stell dir vor, jede Tasche kostet 100 €: 7 · 100 = 700 €. Aber jede Tasche ist 2 € billiger, das sind 7 · 2 = 14 € zu viel.",
+     "700 − 14 = ⟦686⟧ €."
     ],
-    "fehler": "Nur den ersten Teil malnehmen: 7 · (100 − 2) = 700 − 2 ist falsch. Auch die 2 wird ⟦mal 7⟧ genommen."
+    "fehler": "Nur den ersten Teil malnehmen: 7 · (100 − 2) = 700 − 2 ist falsch. Jede der ⟦7⟧ Taschen ist 2 € billiger, also ziehst du 7 · 2 = 14 ab, nicht nur 2."
    },
    {
     "lernziel": "mal_ganz",
     "titel": "Ganze Zahlen multiplizieren",
-    "regel": "Rechne mit den Beträgen. ⟦Gleiche⟧ Vorzeichen ergeben plus, ⟦verschiedene⟧ Vorzeichen ergeben minus.",
+    "regel": "Rechne mit den Beträgen. Dann das Vorzeichen: ⟦gleiche⟧ Vorzeichen ergeben plus, ⟦verschiedene⟧ Vorzeichen ergeben minus.",
     "schritte": [
-     "(−6) · 4: Beträge 6 · 4 = 24.",
-     "Verschiedene Vorzeichen, also ⟦−24⟧."
+     "Von deinem Konto werden 4-mal je 6 € abgebucht: 4 · (−6) = (−6) + (−6) + (−6) + (−6) = ⟦−24⟧.",
+     "Warum ist Minus mal Minus plus? Schau auf die Reihe: (−6) · 2 = −12, (−6) · 1 = −6, (−6) · 0 = 0.",
+     "Bei jedem Schritt wird das Ergebnis um 6 größer. Also geht es so weiter: (−6) · (−1) = ⟦6⟧, (−6) · (−2) = ⟦12⟧."
     ],
     "probe": "(−6) + (−6) + (−6) + (−6) = −24 ✓",
-    "fehler": "(−6) · (−4) = −24 ist falsch: Minus mal Minus ergibt ⟦Plus⟧, also 24."
+    "fehler": "(−6) · (−4) = −24 ist falsch: Zwei gleiche Vorzeichen ergeben ⟦Plus⟧, also 24. Aber Achtung: Die Regel gilt nur für mal und geteilt. Beim Addieren ist (−6) + (−4) = −10."
    },
    {
     "lernziel": "geteilt_ganz",
@@ -127,20 +154,13 @@
     "titel": "Schriftlich mal und geteilt",
     "regel": "Schriftlich multiplizieren: mit jeder Ziffer des zweiten Faktors einzeln malnehmen, ⟦stellengerecht⟧ untereinander schreiben, addieren. Schriftlich dividieren: teilen, malnehmen, abziehen, nächste Ziffer herunterholen.",
     "schritte": [
-     "347 · 26: 347 · 20 = 6 940 und 347 · 6 = 2 082.",
-     "6 940 + 2 082 = ⟦9 022⟧. Überschlag: 350 · 25 ≈ 8 750 ✓"
+     "Mal: 347 · 26. Rechne 347 · 20 = 6 940 und 347 · 6 = 2 082. Zusammen ⟦9 022⟧. Überschlag: 350 · 25 = 8 750, passt ✓",
+     "Geteilt: 1 476 : 6. Die 1 allein geht nicht, also 14 : 6 = 2, denn 2 · 6 = 12. Rest 14 − 12 = 2.",
+     "Die 7 herunterholen: 27 : 6 = 4, denn 4 · 6 = 24. Rest 3.",
+     "Die 6 herunterholen: 36 : 6 = 6, Rest 0. Ergebnis: ⟦246⟧."
     ],
-    "fehler": "Das Teilprodukt mit der Zehnerziffer nicht um eine Stelle versetzen. 347 · 2 Zehner sind ⟦6 940⟧, nicht 694."
-   },
-   {
-    "lernziel": "termaufbau",
-    "titel": "Terme lesen und aufstellen",
-    "regel": "Die Rechenart, die du ⟦zuletzt⟧ ausführst, gibt dem Term den Namen: Summe (+), Differenz (−), Produkt (·), Quotient (:).",
-    "schritte": [
-     "3 + 4 · 5: zuletzt wird addiert.",
-     "Der Term ist eine ⟦Summe⟧ aus 3 und dem Produkt von 4 und 5."
-    ],
-    "fehler": "3 + 4 · 5 „Produkt“ nennen, weil ein Malpunkt vorkommt. Entscheidend ist die ⟦letzte⟧ Rechnung, hier das Plus."
+    "fehler": "Beim Malnehmen das Teilprodukt mit der Zehnerziffer nicht um eine Stelle versetzen: 347 · 2 Zehner sind ⟦6 940⟧, nicht 694. Beim Teilen eine Null im Ergebnis vergessen: 1 236 : 6 ist 206, nicht 26 – wenn die heruntergeholte Ziffer nicht reicht, schreibst du ⟦0⟧ ins Ergebnis.",
+    "probe": "246 · 6 = 1 476 ✓"
    }
   ],
   "teilfaehigkeiten": [
@@ -157,6 +177,7 @@
     "text": "Rechengesetze für Rechenvorteile",
     "lernziele": [
      "vorteil",
+     "differenz_summe",
      "verteilen"
     ]
    },
@@ -188,13 +209,14 @@
    "lernziele_pflicht": [
     "punkt_strich",
     "klammern",
+    "termaufbau",
     "vorteil",
+    "differenz_summe",
     "verteilen",
     "mal_ganz",
     "geteilt_ganz",
     "ueberschlag",
-    "schriftlich",
-    "termaufbau"
+    "schriftlich"
    ],
    "lernziele_vertiefung": [],
    "testaufgaben_je_lernziel": 1,
@@ -371,15 +393,71 @@
    "t": "vorrang",
    "p": "uebung",
    "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet 108 − 27 : 9 = 9. Was ist falsch?"
+   },
+   "a": [
+    "Zuerst 27 : 9 = 3, dann 108 − 3 = 105.",
+    "Nichts, 9 stimmt.",
+    "27 : 9 ist falsch ausgerechnet."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Das Kind hat einfach von links nach rechts gerechnet. Punkt vor Strich: Zuerst 27 : 9 = 3, dann 108 − 3 = 105.",
+   "h": "Welche Rechnung muss zuerst kommen?"
+  },
+  {
+   "l": "punkt_strich",
+   "t": "vorrang",
+   "p": "uebung",
+   "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Berechne 136 − 10 · 7 − 54 : 9."
+    "text": "Berechne 81 : 3 : 3 + 5 · 12."
    },
    "o": {
-    "wert": 60
+    "wert": 69
    },
-   "c": "136 - 10 * 7 - 54 / 9",
-   "w": "Zuerst alle Punktrechnungen, jeweils von links nach rechts: 136 − 70 − 6. Dann von links nach rechts: 60.",
+   "c": "81 / 3 / 3 + 5 * 12",
+   "w": "Zuerst alle Punktrechnungen, jeweils von links nach rechts: 9 + 60. Dann von links nach rechts: 69.",
+   "h": "Erst alle Punktrechnungen. Dann die Strichrechnungen von links nach rechts."
+  },
+  {
+   "l": "punkt_strich",
+   "t": "vorrang",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet 48 − 16 : 8 = 4. Was ist falsch?"
+   },
+   "a": [
+    "Nichts, 4 stimmt.",
+    "Zuerst 16 : 8 = 2, dann 48 − 2 = 46.",
+    "16 : 8 ist falsch ausgerechnet."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Das Kind hat einfach von links nach rechts gerechnet. Punkt vor Strich: Zuerst 16 : 8 = 2, dann 48 − 2 = 46.",
+   "h": "Welche Rechnung muss zuerst kommen?"
+  },
+  {
+   "l": "punkt_strich",
+   "t": "vorrang",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 8 + 4 · 8 · 8 − 4."
+   },
+   "o": {
+    "wert": 260
+   },
+   "c": "8 + 4 * 8 * 8 - 4",
+   "w": "Zuerst alle Punktrechnungen, jeweils von links nach rechts: 8 + 256 − 4. Dann von links nach rechts: 260.",
    "h": "Erst alle Punktrechnungen. Dann die Strichrechnungen von links nach rechts."
   },
   {
@@ -389,61 +467,13 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Berechne 121 − 4 · 9 − 81 : 9."
-   },
-   "o": {
-    "wert": 76
-   },
-   "c": "121 - 4 * 9 - 81 / 9",
-   "w": "Zuerst alle Punktrechnungen, jeweils von links nach rechts: 121 − 36 − 9. Dann von links nach rechts: 76.",
-   "h": "Erst alle Punktrechnungen. Dann die Strichrechnungen von links nach rechts."
-  },
-  {
-   "l": "punkt_strich",
-   "t": "vorrang",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 81 − 12 · 3 − 35 : 7."
+    "text": "Berechne 588 : 7 : 7 + 4 · 7."
    },
    "o": {
     "wert": 40
    },
-   "c": "81 - 12 * 3 - 35 / 7",
-   "w": "Zuerst alle Punktrechnungen, jeweils von links nach rechts: 81 − 36 − 5. Dann von links nach rechts: 40.",
-   "h": "Erst alle Punktrechnungen. Dann die Strichrechnungen von links nach rechts."
-  },
-  {
-   "l": "punkt_strich",
-   "t": "vorrang",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 122 − 8 · 11 − 24 : 2."
-   },
-   "o": {
-    "wert": 22
-   },
-   "c": "122 - 8 * 11 - 24 / 2",
-   "w": "Zuerst alle Punktrechnungen, jeweils von links nach rechts: 122 − 88 − 12. Dann von links nach rechts: 22.",
-   "h": "Erst alle Punktrechnungen. Dann die Strichrechnungen von links nach rechts."
-  },
-  {
-   "l": "punkt_strich",
-   "t": "vorrang",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 3 + 9 · 8 · 8 − 4."
-   },
-   "o": {
-    "wert": 575
-   },
-   "c": "3 + 9 * 8 * 8 - 4",
-   "w": "Zuerst alle Punktrechnungen, jeweils von links nach rechts: 3 + 576 − 4. Dann von links nach rechts: 575.",
+   "c": "588 / 7 / 7 + 4 * 7",
+   "w": "Zuerst alle Punktrechnungen, jeweils von links nach rechts: 12 + 28. Dann von links nach rechts: 40.",
    "h": "Erst alle Punktrechnungen. Dann die Strichrechnungen von links nach rechts."
   },
   {
@@ -453,13 +483,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne 8 · 4 + 6 · 8."
+    "text": "Berechne 11 · 6 − 8 : 2."
    },
    "o": {
-    "wert": 80
+    "wert": 62
    },
-   "c": "8 * 4 + 6 * 8",
-   "w": "Zuerst beide Punktrechnungen: 32 + 48. Dann der Strich: 80."
+   "c": "11 * 6 - 8 / 2",
+   "w": "Zuerst beide Punktrechnungen: 66 − 4. Dann der Strich: 62."
   },
   {
    "l": "punkt_strich",
@@ -468,13 +498,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne 28 : 4 + 11 · 6."
+    "text": "Berechne 8 · 4 + 4 · 11."
    },
    "o": {
-    "wert": 73
+    "wert": 76
    },
-   "c": "28 / 4 + 11 * 6",
-   "w": "Zuerst beide Punktrechnungen: 7 + 66. Dann der Strich: 73."
+   "c": "8 * 4 + 4 * 11",
+   "w": "Zuerst beide Punktrechnungen: 32 + 44. Dann der Strich: 76."
   },
   {
    "l": "punkt_strich",
@@ -483,229 +513,213 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne 10 · 2 + 11 · 8."
-   },
-   "o": {
-    "wert": 108
-   },
-   "c": "10 * 2 + 11 * 8",
-   "w": "Zuerst beide Punktrechnungen: 20 + 88. Dann der Strich: 108."
-  },
-  {
-   "l": "punkt_strich",
-   "t": "vorrang",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 11 · 12 − 72 : 9."
-   },
-   "o": {
-    "wert": 124
-   },
-   "c": "11 * 12 - 72 / 9",
-   "w": "Zuerst beide Punktrechnungen: 132 − 8. Dann der Strich: 124."
-  },
-  {
-   "l": "punkt_strich",
-   "t": "vorrang",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 72 : 9 + 11 · 10."
-   },
-   "o": {
-    "wert": 118
-   },
-   "c": "72 / 9 + 11 * 10",
-   "w": "Zuerst beide Punktrechnungen: 8 + 110. Dann der Strich: 118."
-  },
-  {
-   "l": "punkt_strich",
-   "t": "vorrang",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 4 · 5 − 28 : 7."
-   },
-   "o": {
-    "wert": 16
-   },
-   "c": "4 * 5 - 28 / 7",
-   "w": "Zuerst beide Punktrechnungen: 20 − 4. Dann der Strich: 16."
-  },
-  {
-   "l": "punkt_strich",
-   "t": "vorrang",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 36 : 3 + 9 · 2."
-   },
-   "o": {
-    "wert": 30
-   },
-   "c": "36 / 3 + 9 * 2",
-   "w": "Zuerst beide Punktrechnungen: 12 + 18. Dann der Strich: 30."
-  },
-  {
-   "l": "punkt_strich",
-   "t": "vorrang",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 50 : 5 + 10 · 4."
-   },
-   "o": {
-    "wert": 50
-   },
-   "c": "50 / 5 + 10 * 4",
-   "w": "Zuerst beide Punktrechnungen: 10 + 40. Dann der Strich: 50."
-  },
-  {
-   "l": "punkt_strich",
-   "t": "vorrang",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 12 : 4 + 11 · 5."
-   },
-   "o": {
-    "wert": 58
-   },
-   "c": "12 / 4 + 11 * 5",
-   "w": "Zuerst beide Punktrechnungen: 3 + 55. Dann der Strich: 58."
-  },
-  {
-   "l": "punkt_strich",
-   "t": "vorrang",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 21 : 7 + 7 · 3."
-   },
-   "o": {
-    "wert": 24
-   },
-   "c": "21 / 7 + 7 * 3",
-   "w": "Zuerst beide Punktrechnungen: 3 + 21. Dann der Strich: 24."
-  },
-  {
-   "l": "klammern",
-   "t": "vorrang",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne (3 + 11) · 6."
-   },
-   "o": {
-    "wert": 84
-   },
-   "c": "(3 + 11) * 6",
-   "w": "Zuerst die Klammer: 14 · 6. Ergebnis 84.",
-   "h": "Rechne zuerst aus, was in der Klammer steht."
-  },
-  {
-   "l": "klammern",
-   "t": "vorrang",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne (8 + 8) · 10."
-   },
-   "o": {
-    "wert": 160
-   },
-   "c": "(8 + 8) * 10",
-   "w": "Zuerst die Klammer: 16 · 10. Ergebnis 160.",
-   "h": "Rechne zuerst aus, was in der Klammer steht."
-  },
-  {
-   "l": "klammern",
-   "t": "vorrang",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 2 · (14 − 8)."
-   },
-   "o": {
-    "wert": 12
-   },
-   "c": "2 * (14 - 8)",
-   "w": "Zuerst die Klammer: 2 · 6. Ergebnis 12.",
-   "h": "Rechne zuerst aus, was in der Klammer steht."
-  },
-  {
-   "l": "klammern",
-   "t": "vorrang",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 3 · (14 − 6)."
-   },
-   "o": {
-    "wert": 24
-   },
-   "c": "3 * (14 - 6)",
-   "w": "Zuerst die Klammer: 3 · 8. Ergebnis 24.",
-   "h": "Rechne zuerst aus, was in der Klammer steht."
-  },
-  {
-   "l": "klammern",
-   "t": "vorrang",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 4 · (11 − 7)."
-   },
-   "o": {
-    "wert": 16
-   },
-   "c": "4 * (11 - 7)",
-   "w": "Zuerst die Klammer: 4 · 4. Ergebnis 16.",
-   "h": "Rechne zuerst aus, was in der Klammer steht."
-  },
-  {
-   "l": "klammern",
-   "t": "vorrang",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 16 − (3 · 3 − 1)."
-   },
-   "o": {
-    "wert": 8
-   },
-   "c": "16 - (3 * 3 - 1)",
-   "w": "Zuerst die Klammern: 16 − 8. Ergebnis 8.",
-   "h": "Erst jede Klammer ausrechnen, dann Punkt vor Strich."
-  },
-  {
-   "l": "klammern",
-   "t": "vorrang",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne (10 + 9) · (21 − 11)."
+    "text": "Berechne 10 · 10 + 10 · 9."
    },
    "o": {
     "wert": 190
    },
-   "c": "(10 + 9) * (21 - 11)",
-   "w": "Zuerst die Klammern: 19 · 10. Ergebnis 190.",
+   "c": "10 * 10 + 10 * 9",
+   "w": "Zuerst beide Punktrechnungen: 100 + 90. Dann der Strich: 190."
+  },
+  {
+   "l": "punkt_strich",
+   "t": "vorrang",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 11 · 6 − 72 : 9."
+   },
+   "o": {
+    "wert": 58
+   },
+   "c": "11 * 6 - 72 / 9",
+   "w": "Zuerst beide Punktrechnungen: 66 − 8. Dann der Strich: 58."
+  },
+  {
+   "l": "punkt_strich",
+   "t": "vorrang",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 10 · 9 + 8 · 4."
+   },
+   "o": {
+    "wert": 122
+   },
+   "c": "10 * 9 + 8 * 4",
+   "w": "Zuerst beide Punktrechnungen: 90 + 32. Dann der Strich: 122."
+  },
+  {
+   "l": "punkt_strich",
+   "t": "vorrang",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 4 · 7 + 12 · 6."
+   },
+   "o": {
+    "wert": 100
+   },
+   "c": "4 * 7 + 12 * 6",
+   "w": "Zuerst beide Punktrechnungen: 28 + 72. Dann der Strich: 100."
+  },
+  {
+   "l": "punkt_strich",
+   "t": "vorrang",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 3 · 7 + 10 · 4."
+   },
+   "o": {
+    "wert": 61
+   },
+   "c": "3 * 7 + 10 * 4",
+   "w": "Zuerst beide Punktrechnungen: 21 + 40. Dann der Strich: 61."
+  },
+  {
+   "l": "punkt_strich",
+   "t": "vorrang",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 6 · 3 + 4 · 11."
+   },
+   "o": {
+    "wert": 62
+   },
+   "c": "6 * 3 + 4 * 11",
+   "w": "Zuerst beide Punktrechnungen: 18 + 44. Dann der Strich: 62."
+  },
+  {
+   "l": "punkt_strich",
+   "t": "vorrang",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 18 : 3 + 11 · 7."
+   },
+   "o": {
+    "wert": 83
+   },
+   "c": "18 / 3 + 11 * 7",
+   "w": "Zuerst beide Punktrechnungen: 6 + 77. Dann der Strich: 83."
+  },
+  {
+   "l": "punkt_strich",
+   "t": "vorrang",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 7 · 3 − 77 : 7."
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "7 * 3 - 77 / 7",
+   "w": "Zuerst beide Punktrechnungen: 21 − 11. Dann der Strich: 10."
+  },
+  {
+   "l": "klammern",
+   "t": "vorrang",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 8 · (12 − 8)."
+   },
+   "o": {
+    "wert": 32
+   },
+   "c": "8 * (12 - 8)",
+   "w": "Zuerst die Klammer: 8 · 4. Ergebnis 32.",
+   "h": "Rechne zuerst aus, was in der Klammer steht."
+  },
+  {
+   "l": "klammern",
+   "t": "vorrang",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (10 + 2) · 6."
+   },
+   "o": {
+    "wert": 72
+   },
+   "c": "(10 + 2) * 6",
+   "w": "Zuerst die Klammer: 12 · 6. Ergebnis 72.",
+   "h": "Rechne zuerst aus, was in der Klammer steht."
+  },
+  {
+   "l": "klammern",
+   "t": "vorrang",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (11 + 6) · 8."
+   },
+   "o": {
+    "wert": 136
+   },
+   "c": "(11 + 6) * 8",
+   "w": "Zuerst die Klammer: 17 · 8. Ergebnis 136.",
+   "h": "Rechne zuerst aus, was in der Klammer steht."
+  },
+  {
+   "l": "klammern",
+   "t": "vorrang",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (5 + 6) · 4."
+   },
+   "o": {
+    "wert": 44
+   },
+   "c": "(5 + 6) * 4",
+   "w": "Zuerst die Klammer: 11 · 4. Ergebnis 44.",
+   "h": "Rechne zuerst aus, was in der Klammer steht."
+  },
+  {
+   "l": "klammern",
+   "t": "vorrang",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (12 + 12) · 9."
+   },
+   "o": {
+    "wert": 216
+   },
+   "c": "(12 + 12) * 9",
+   "w": "Zuerst die Klammer: 24 · 9. Ergebnis 216.",
+   "h": "Rechne zuerst aus, was in der Klammer steht."
+  },
+  {
+   "l": "klammern",
+   "t": "vorrang",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 90 − (7 · 12 − 10)."
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "90 - (7 * 12 - 10)",
+   "w": "Zuerst die Klammern: 90 − 74. Ergebnis 16.",
    "h": "Erst jede Klammer ausrechnen, dann Punkt vor Strich."
   },
   {
@@ -715,13 +729,29 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne (5 + 3) · (16 − 7)."
+    "text": "Berechne (30 + 33) : 3 + 5."
    },
    "o": {
-    "wert": 72
+    "wert": 26
    },
-   "c": "(5 + 3) * (16 - 7)",
-   "w": "Zuerst die Klammern: 8 · 9. Ergebnis 72.",
+   "c": "(30 + 33) / 3 + 5",
+   "w": "Zuerst die Klammern: 63 : 3 + 5 = 21 + 5. Ergebnis 26.",
+   "h": "Erst jede Klammer ausrechnen, dann Punkt vor Strich."
+  },
+  {
+   "l": "klammern",
+   "t": "vorrang",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (21 + 63) : 7 + 4."
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "(21 + 63) / 7 + 4",
+   "w": "Zuerst die Klammern: 84 : 7 + 4 = 12 + 4. Ergebnis 16.",
    "h": "Erst jede Klammer ausrechnen, dann Punkt vor Strich."
   },
   {
@@ -763,18 +793,18 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Bei welchem Term kommt 162 heraus?"
+    "text": "Wo musst du Klammern setzen, damit 100 : 5 + 5 = 10 stimmt?"
    },
    "a": [
-    "12 + 6 · 9",
-    "12 + (6 · 9)",
-    "(12 + 6) · 9"
+    "Keine Klammer nötig",
+    "(100 : 5) + 5",
+    "100 : (5 + 5)"
    ],
    "o": {
     "index": 2
    },
-   "w": "(12 + 6) · 9 = 18 · 9 = 162. Die beiden anderen Terme ergeben 66, weil dort zuerst 6 · 9 gerechnet wird.",
-   "h": "Rechne jeden Term aus. Achte darauf, was die Klammer ändert."
+   "w": "100 : (5 + 5) = 10. Ohne Klammer (oder mit Klammer um die Punktrechnung) kommt 25 heraus.",
+   "h": "Probiere aus: Was muss zuerst gerechnet werden, damit das Ergebnis passt?"
   },
   {
    "l": "klammern",
@@ -783,18 +813,18 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Bei welchem Term kommt 40 heraus?"
+    "text": "Wo musst du Klammern setzen, damit 6 + 5 · 5 = 55 stimmt?"
    },
    "a": [
-    "2 + 3 · 8",
-    "(2 + 3) · 8",
-    "2 + (3 · 8)"
+    "(6 + 5) · 5",
+    "Keine Klammer nötig",
+    "6 + (5 · 5)"
    ],
    "o": {
-    "index": 1
+    "index": 0
    },
-   "w": "(2 + 3) · 8 = 5 · 8 = 40. Die beiden anderen Terme ergeben 26, weil dort zuerst 3 · 8 gerechnet wird.",
-   "h": "Rechne jeden Term aus. Achte darauf, was die Klammer ändert."
+   "w": "(6 + 5) · 5 = 55. Ohne Klammer (oder mit Klammer um die Punktrechnung) kommt 31 heraus.",
+   "h": "Probiere aus: Was muss zuerst gerechnet werden, damit das Ergebnis passt?"
   },
   {
    "l": "klammern",
@@ -803,13 +833,13 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Berechne 11 · [17 − (2 · 6 − 5)]."
+    "text": "Berechne 12 · [18 − (7 · 2 − 4)]."
    },
    "o": {
-    "wert": 110
+    "wert": 96
    },
-   "c": "11 * (17 - (2 * 6 - 5))",
-   "w": "Von innen nach außen: runde Klammer 2 · 6 − 5 = 7. Eckige Klammer 17 − 7 = 10. Dann 11 · 10 = 110.",
+   "c": "12 * (18 - (7 * 2 - 4))",
+   "w": "Von innen nach außen: runde Klammer 7 · 2 − 4 = 10. Eckige Klammer 18 − 10 = 8. Dann 12 · 8 = 96.",
    "h": "Beginne mit der innersten Klammer."
   },
   {
@@ -819,17 +849,17 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Bei welchem Term kommt 112 heraus?"
+    "text": "Bei welchem Term kommt 88 heraus?"
    },
    "a": [
-    "4 + (12 · 7)",
-    "4 + 12 · 7",
-    "(4 + 12) · 7"
+    "12 + 10 · 4",
+    "(12 + 10) · 4",
+    "12 · 10 + 4"
    ],
    "o": {
-    "index": 2
+    "index": 1
    },
-   "w": "(4 + 12) · 7 = 16 · 7 = 112. Die beiden anderen Terme ergeben 88, weil dort zuerst 12 · 7 gerechnet wird.",
+   "w": "(12 + 10) · 4 = 22 · 4 = 88. 12 + 10 · 4 = 52 (Punkt vor Strich) und 12 · 10 + 4 = 124.",
    "h": "Rechne jeden Term aus. Achte darauf, was die Klammer ändert."
   },
   {
@@ -837,20 +867,16 @@
    "t": "vorrang",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Bei welchem Term kommt 80 heraus?"
+    "text": "Berechne 8 · [47 − (4 · 9 − 11)]."
    },
-   "a": [
-    "6 + 2 · 10",
-    "(6 + 2) · 10",
-    "6 + (2 · 10)"
-   ],
    "o": {
-    "index": 1
+    "wert": 176
    },
-   "w": "(6 + 2) · 10 = 8 · 10 = 80. Die beiden anderen Terme ergeben 26, weil dort zuerst 2 · 10 gerechnet wird.",
-   "h": "Rechne jeden Term aus. Achte darauf, was die Klammer ändert."
+   "c": "8 * (47 - (4 * 9 - 11))",
+   "w": "Von innen nach außen: runde Klammer 4 · 9 − 11 = 25. Eckige Klammer 47 − 25 = 22. Dann 8 · 22 = 176.",
+   "h": "Beginne mit der innersten Klammer."
   },
   {
    "l": "klammern",
@@ -859,13 +885,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne (24 + 32) : 4 + 9."
+    "text": "Berechne (99 + 54) : 9 + 2."
    },
    "o": {
-    "wert": 23
+    "wert": 19
    },
-   "c": "(24 + 32) / 4 + 9",
-   "w": "Zuerst die Klammern: 56 : 4 + 9 = 14 + 9. Ergebnis 23."
+   "c": "(99 + 54) / 9 + 2",
+   "w": "Zuerst die Klammern: 153 : 9 + 2 = 17 + 2. Ergebnis 19."
   },
   {
    "l": "klammern",
@@ -874,118 +900,43 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne (5 + 11) · (15 − 9)."
-   },
-   "o": {
-    "wert": 96
-   },
-   "c": "(5 + 11) * (15 - 9)",
-   "w": "Zuerst die Klammern: 16 · 6. Ergebnis 96."
-  },
-  {
-   "l": "klammern",
-   "t": "vorrang",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne (10 + 11) · (17 − 10)."
-   },
-   "o": {
-    "wert": 147
-   },
-   "c": "(10 + 11) * (17 - 10)",
-   "w": "Zuerst die Klammern: 21 · 7. Ergebnis 147."
-  },
-  {
-   "l": "klammern",
-   "t": "vorrang",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne (66 + 54) : 6 + 6."
-   },
-   "o": {
-    "wert": 26
-   },
-   "c": "(66 + 54) / 6 + 6",
-   "w": "Zuerst die Klammern: 120 : 6 + 6 = 20 + 6. Ergebnis 26."
-  },
-  {
-   "l": "klammern",
-   "t": "vorrang",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne (55 + 10) : 5 + 12."
-   },
-   "o": {
-    "wert": 25
-   },
-   "c": "(55 + 10) / 5 + 12",
-   "w": "Zuerst die Klammern: 65 : 5 + 12 = 13 + 12. Ergebnis 25."
-  },
-  {
-   "l": "klammern",
-   "t": "vorrang",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne (10 + 11) · (7 − 2)."
-   },
-   "o": {
-    "wert": 105
-   },
-   "c": "(10 + 11) * (7 - 2)",
-   "w": "Zuerst die Klammern: 21 · 5. Ergebnis 105."
-  },
-  {
-   "l": "klammern",
-   "t": "vorrang",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne (6 + 5) · (13 − 8)."
-   },
-   "o": {
-    "wert": 55
-   },
-   "c": "(6 + 5) * (13 - 8)",
-   "w": "Zuerst die Klammern: 11 · 5. Ergebnis 55."
-  },
-  {
-   "l": "klammern",
-   "t": "vorrang",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne (20 + 8) : 2 + 9."
-   },
-   "o": {
-    "wert": 23
-   },
-   "c": "(20 + 8) / 2 + 9",
-   "w": "Zuerst die Klammern: 28 : 2 + 9 = 14 + 9. Ergebnis 23."
-  },
-  {
-   "l": "klammern",
-   "t": "vorrang",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne (108 + 45) : 9 + 3."
+    "text": "Berechne (110 + 70) : 10 + 2."
    },
    "o": {
     "wert": 20
    },
-   "c": "(108 + 45) / 9 + 3",
-   "w": "Zuerst die Klammern: 153 : 9 + 3 = 17 + 3. Ergebnis 20."
+   "c": "(110 + 70) / 10 + 2",
+   "w": "Zuerst die Klammern: 180 : 10 + 2 = 18 + 2. Ergebnis 20."
+  },
+  {
+   "l": "klammern",
+   "t": "vorrang",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (9 + 6) · (17 − 11)."
+   },
+   "o": {
+    "wert": 90
+   },
+   "c": "(9 + 6) * (17 - 11)",
+   "w": "Zuerst die Klammern: 15 · 6. Ergebnis 90."
+  },
+  {
+   "l": "klammern",
+   "t": "vorrang",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (60 + 144) : 12 + 10."
+   },
+   "o": {
+    "wert": 27
+   },
+   "c": "(60 + 144) / 12 + 10",
+   "w": "Zuerst die Klammern: 204 : 12 + 10 = 17 + 10. Ergebnis 27."
   },
   {
    "l": "klammern",
@@ -994,13 +945,598 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne 86 − (9 · 9 − 5)."
+    "text": "Berechne (5 + 2) · (10 − 6)."
    },
    "o": {
-    "wert": 10
+    "wert": 28
    },
-   "c": "86 - (9 * 9 - 5)",
-   "w": "Zuerst die Klammern: 86 − 76. Ergebnis 10."
+   "c": "(5 + 2) * (10 - 6)",
+   "w": "Zuerst die Klammern: 7 · 4. Ergebnis 28."
+  },
+  {
+   "l": "klammern",
+   "t": "vorrang",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (5 + 8) · (13 − 10)."
+   },
+   "o": {
+    "wert": 39
+   },
+   "c": "(5 + 8) * (13 - 10)",
+   "w": "Zuerst die Klammern: 13 · 3. Ergebnis 39."
+  },
+  {
+   "l": "klammern",
+   "t": "vorrang",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (2 + 9) · (22 − 12)."
+   },
+   "o": {
+    "wert": 110
+   },
+   "c": "(2 + 9) * (22 - 12)",
+   "w": "Zuerst die Klammern: 11 · 10. Ergebnis 110."
+  },
+  {
+   "l": "klammern",
+   "t": "vorrang",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (9 + 3) · (18 − 9)."
+   },
+   "o": {
+    "wert": 108
+   },
+   "c": "(9 + 3) * (18 - 9)",
+   "w": "Zuerst die Klammern: 12 · 9. Ergebnis 108."
+  },
+  {
+   "l": "klammern",
+   "t": "vorrang",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 52 − (5 · 9 − 12)."
+   },
+   "o": {
+    "wert": 19
+   },
+   "c": "52 - (5 * 9 - 12)",
+   "w": "Zuerst die Klammern: 52 − 33. Ergebnis 19."
+  },
+  {
+   "l": "klammern",
+   "t": "vorrang",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 52 − (8 · 6 − 5)."
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "52 - (8 * 6 - 5)",
+   "w": "Zuerst die Klammern: 52 − 43. Ergebnis 9."
+  },
+  {
+   "l": "termaufbau",
+   "t": "terme",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie heißt der Term 12 · 7?"
+   },
+   "a": [
+    "Quotient",
+    "Produkt",
+    "Summe",
+    "Differenz"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Plus: Summe. Minus: Differenz. Mal: Produkt. Geteilt: Quotient. 12 · 7 ist ein Produkt.",
+   "h": "Welche Rechenart steht da?"
+  },
+  {
+   "l": "termaufbau",
+   "t": "terme",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie heißt der Term 2 + 12?"
+   },
+   "a": [
+    "Produkt",
+    "Differenz",
+    "Summe",
+    "Quotient"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Plus: Summe. Minus: Differenz. Mal: Produkt. Geteilt: Quotient. 2 + 12 ist eine Summe.",
+   "h": "Welche Rechenart steht da?"
+  },
+  {
+   "l": "termaufbau",
+   "t": "terme",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie heißt der Term 24 : 3?"
+   },
+   "a": [
+    "Summe",
+    "Produkt",
+    "Differenz",
+    "Quotient"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Plus: Summe. Minus: Differenz. Mal: Produkt. Geteilt: Quotient. 24 : 3 ist ein Quotient.",
+   "h": "Welche Rechenart steht da?"
+  },
+  {
+   "l": "termaufbau",
+   "t": "terme",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie heißt der Term 5 + 9?"
+   },
+   "a": [
+    "Summe",
+    "Quotient",
+    "Differenz",
+    "Produkt"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Plus: Summe. Minus: Differenz. Mal: Produkt. Geteilt: Quotient. 5 + 9 ist eine Summe.",
+   "h": "Welche Rechenart steht da?"
+  },
+  {
+   "l": "termaufbau",
+   "t": "terme",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie heißt der Term 49 : 7?"
+   },
+   "a": [
+    "Produkt",
+    "Quotient",
+    "Summe",
+    "Differenz"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Plus: Summe. Minus: Differenz. Mal: Produkt. Geteilt: Quotient. 49 : 7 ist ein Quotient.",
+   "h": "Welche Rechenart steht da?"
+  },
+  {
+   "l": "termaufbau",
+   "t": "terme",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Art von Term ist (2 + 6) · 5?"
+   },
+   "a": [
+    "Differenz",
+    "Quotient",
+    "Produkt",
+    "Summe"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Reihenfolge: zuerst die Klammer, zuletzt das Mal. Die letzte Rechnung gibt den Namen: Produkt.",
+   "h": "Welche Rechnung führst du als letzte aus?"
+  },
+  {
+   "l": "termaufbau",
+   "t": "terme",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Art von Term ist 7 + 12 · 5?"
+   },
+   "a": [
+    "Produkt",
+    "Differenz",
+    "Quotient",
+    "Summe"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Reihenfolge: zuerst 12 · 5, zuletzt das Plus. Die letzte Rechnung gibt den Namen: Summe.",
+   "h": "Welche Rechnung führst du als letzte aus?"
+  },
+  {
+   "l": "termaufbau",
+   "t": "terme",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Art von Term ist (4 + 10) · 7?"
+   },
+   "a": [
+    "Produkt",
+    "Differenz",
+    "Quotient",
+    "Summe"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Reihenfolge: zuerst die Klammer, zuletzt das Mal. Die letzte Rechnung gibt den Namen: Produkt.",
+   "h": "Welche Rechnung führst du als letzte aus?"
+  },
+  {
+   "l": "termaufbau",
+   "t": "terme",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Art von Term ist 55 − 12 · 4?"
+   },
+   "a": [
+    "Summe",
+    "Differenz",
+    "Produkt",
+    "Quotient"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Reihenfolge: zuerst 12 · 4, zuletzt das Minus. Die letzte Rechnung gibt den Namen: Differenz.",
+   "h": "Welche Rechnung führst du als letzte aus?"
+  },
+  {
+   "l": "termaufbau",
+   "t": "terme",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Art von Term ist 87 − 11 · 7?"
+   },
+   "a": [
+    "Summe",
+    "Quotient",
+    "Differenz",
+    "Produkt"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Reihenfolge: zuerst 11 · 7, zuletzt das Minus. Die letzte Rechnung gibt den Namen: Differenz.",
+   "h": "Welche Rechnung führst du als letzte aus?"
+  },
+  {
+   "l": "termaufbau",
+   "t": "terme",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Satz passt zum Term 98 : (5 + 9)?"
+   },
+   "a": [
+    "Dividiere 98 durch die Summe aus 5 und 9.",
+    "Addiere 9 zum Quotienten aus 98 und 5.",
+    "Dividiere die Summe aus 98 und 5 durch 9."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die letzte Rechnung gibt den Anfang des Satzes. Die Klammer wird zuerst gerechnet und heißt im Satz Summe oder Differenz: Dividiere 98 durch die Summe aus 5 und 9.",
+   "h": "Welche Rechnung kommt zuletzt? Damit beginnt der Satz."
+  },
+  {
+   "l": "termaufbau",
+   "t": "terme",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Term passt? „Multipliziere die Summe aus 10 und 3 mit 6.“"
+   },
+   "a": [
+    "10 + 3 · 6",
+    "(10 + 3) · 6",
+    "10 · 3 + 6"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Der Satz beschreibt die letzte Rechnung zuerst. Was zuerst gerechnet werden muss, steht als Produkt oder in einer Klammer: (10 + 3) · 6.",
+   "h": "Überlege, was zuerst ausgerechnet werden muss. Das braucht Vorrang (Punktrechnung oder Klammer)."
+  },
+  {
+   "l": "termaufbau",
+   "t": "terme",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Satz passt zum Term (21 − 5) · 9?"
+   },
+   "a": [
+    "Subtrahiere das Produkt aus 5 und 9 von 21.",
+    "Multipliziere 21 mit der Differenz aus 5 und 9.",
+    "Multipliziere die Differenz aus 21 und 5 mit 9."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die letzte Rechnung gibt den Anfang des Satzes. Die Klammer wird zuerst gerechnet und heißt im Satz Summe oder Differenz: Multipliziere die Differenz aus 21 und 5 mit 9.",
+   "h": "Welche Rechnung kommt zuletzt? Damit beginnt der Satz."
+  },
+  {
+   "l": "termaufbau",
+   "t": "terme",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Term passt? „Subtrahiere das Produkt aus 4 und 6 von 30.“"
+   },
+   "a": [
+    "30 − 4 · 6",
+    "4 · 6 − 30",
+    "(30 − 4) · 6"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Der Satz beschreibt die letzte Rechnung zuerst. Was zuerst gerechnet werden muss, steht als Produkt oder in einer Klammer: 30 − 4 · 6.",
+   "h": "Überlege, was zuerst ausgerechnet werden muss. Das braucht Vorrang (Punktrechnung oder Klammer)."
+  },
+  {
+   "l": "termaufbau",
+   "t": "terme",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Satz passt zum Term (20 − 6) · 5?"
+   },
+   "a": [
+    "Subtrahiere das Produkt aus 6 und 5 von 20.",
+    "Multipliziere die Differenz aus 20 und 6 mit 5.",
+    "Multipliziere 20 mit der Differenz aus 6 und 5."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die letzte Rechnung gibt den Anfang des Satzes. Die Klammer wird zuerst gerechnet und heißt im Satz Summe oder Differenz: Multipliziere die Differenz aus 20 und 6 mit 5.",
+   "h": "Welche Rechnung kommt zuletzt? Damit beginnt der Satz."
+  },
+  {
+   "l": "termaufbau",
+   "t": "terme",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Art von Term ist (17 − 5) · 12?"
+   },
+   "a": [
+    "Produkt",
+    "Differenz",
+    "Quotient",
+    "Summe"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Reihenfolge: zuerst die Klammer, zuletzt das Mal. Die letzte Rechnung gibt den Namen: Produkt."
+  },
+  {
+   "l": "termaufbau",
+   "t": "terme",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Art von Term ist (19 − 7) · 2?"
+   },
+   "a": [
+    "Quotient",
+    "Produkt",
+    "Summe",
+    "Differenz"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Reihenfolge: zuerst die Klammer, zuletzt das Mal. Die letzte Rechnung gibt den Namen: Produkt."
+  },
+  {
+   "l": "termaufbau",
+   "t": "terme",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Art von Term ist 100 − 8 · 11?"
+   },
+   "a": [
+    "Summe",
+    "Quotient",
+    "Differenz",
+    "Produkt"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Reihenfolge: zuerst 8 · 11, zuletzt das Minus. Die letzte Rechnung gibt den Namen: Differenz."
+  },
+  {
+   "l": "termaufbau",
+   "t": "terme",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Art von Term ist (15 − 5) · 12?"
+   },
+   "a": [
+    "Summe",
+    "Quotient",
+    "Differenz",
+    "Produkt"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Reihenfolge: zuerst die Klammer, zuletzt das Mal. Die letzte Rechnung gibt den Namen: Produkt."
+  },
+  {
+   "l": "termaufbau",
+   "t": "terme",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Art von Term ist 11 + 5 · 10?"
+   },
+   "a": [
+    "Summe",
+    "Produkt",
+    "Quotient",
+    "Differenz"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Reihenfolge: zuerst 5 · 10, zuletzt das Plus. Die letzte Rechnung gibt den Namen: Summe."
+  },
+  {
+   "l": "termaufbau",
+   "t": "terme",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Art von Term ist 118 − 11 · 10?"
+   },
+   "a": [
+    "Summe",
+    "Differenz",
+    "Quotient",
+    "Produkt"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Reihenfolge: zuerst 11 · 10, zuletzt das Minus. Die letzte Rechnung gibt den Namen: Differenz."
+  },
+  {
+   "l": "termaufbau",
+   "t": "terme",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Art von Term ist 91 − 7 · 12?"
+   },
+   "a": [
+    "Summe",
+    "Produkt",
+    "Differenz",
+    "Quotient"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Reihenfolge: zuerst 7 · 12, zuletzt das Minus. Die letzte Rechnung gibt den Namen: Differenz."
+  },
+  {
+   "l": "termaufbau",
+   "t": "terme",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Art von Term ist 136 − 11 · 12?"
+   },
+   "a": [
+    "Produkt",
+    "Quotient",
+    "Summe",
+    "Differenz"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Reihenfolge: zuerst 11 · 12, zuletzt das Minus. Die letzte Rechnung gibt den Namen: Differenz."
+  },
+  {
+   "l": "termaufbau",
+   "t": "terme",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Art von Term ist (9 − 2) · 5?"
+   },
+   "a": [
+    "Produkt",
+    "Quotient",
+    "Differenz",
+    "Summe"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Reihenfolge: zuerst die Klammer, zuletzt das Mal. Die letzte Rechnung gibt den Namen: Produkt."
+  },
+  {
+   "l": "termaufbau",
+   "t": "terme",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Art von Term ist (19 − 9) · 3?"
+   },
+   "a": [
+    "Summe",
+    "Produkt",
+    "Quotient",
+    "Differenz"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Reihenfolge: zuerst die Klammer, zuletzt das Mal. Die letzte Rechnung gibt den Namen: Produkt."
   },
   {
    "l": "vorteil",
@@ -1009,45 +1545,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Rechne geschickt: 44 + 66 + 56"
+    "text": "Rechne geschickt: 25 · 12 · 4"
    },
    "o": {
-    "wert": 166
+    "wert": 1200
    },
-   "c": "44+66+56",
-   "w": "Tausche so, dass 100 entsteht: 44 + 56 = 100. Dann 100 + 66 = 166.",
-   "h": "Welche zwei Zahlen ergeben zusammen 100?"
-  },
-  {
-   "l": "vorteil",
-   "t": "gesetze",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Rechne geschickt: 36 + 59 + 64"
-   },
-   "o": {
-    "wert": 159
-   },
-   "c": "36+59+64",
-   "w": "Tausche so, dass 100 entsteht: 36 + 64 = 100. Dann 100 + 59 = 159.",
-   "h": "Welche zwei Zahlen ergeben zusammen 100?"
-  },
-  {
-   "l": "vorteil",
-   "t": "gesetze",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Rechne geschickt: 2 · 11 · 50"
-   },
-   "o": {
-    "wert": 1100
-   },
-   "c": "2*11*50",
-   "w": "Tausche: 2 · 50 = 100. Dann 100 · 11 = 1 100.",
+   "c": "25*12*4",
+   "w": "Tausche: 25 · 4 = 100. Dann 100 · 12 = 1 200.",
    "h": "Welche zwei Faktoren ergeben eine glatte Zahl?"
   },
   {
@@ -1057,13 +1561,29 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Rechne geschickt: 2 · 9 · 50"
+    "text": "Rechne geschickt: 45 + 39 + 55"
    },
    "o": {
-    "wert": 900
+    "wert": 139
    },
-   "c": "2*9*50",
-   "w": "Tausche: 2 · 50 = 100. Dann 100 · 9 = 900.",
+   "c": "45+39+55",
+   "w": "Tausche so, dass 100 entsteht: 45 + 55 = 100. Dann 100 + 39 = 139.",
+   "h": "Welche zwei Zahlen ergeben zusammen 100?"
+  },
+  {
+   "l": "vorteil",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 5 · 16 · 2"
+   },
+   "o": {
+    "wert": 160
+   },
+   "c": "5*16*2",
+   "w": "Tausche: 5 · 2 = 10. Dann 10 · 16 = 160.",
    "h": "Welche zwei Faktoren ergeben eine glatte Zahl?"
   },
   {
@@ -1073,13 +1593,29 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Rechne geschickt: 19 + 90 + 81"
+    "text": "Rechne geschickt: 26 + 64 + 74"
+   },
+   "o": {
+    "wert": 164
+   },
+   "c": "26+64+74",
+   "w": "Tausche so, dass 100 entsteht: 26 + 74 = 100. Dann 100 + 64 = 164.",
+   "h": "Welche zwei Zahlen ergeben zusammen 100?"
+  },
+  {
+   "l": "vorteil",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 54 + 90 + 46"
    },
    "o": {
     "wert": 190
    },
-   "c": "19+90+81",
-   "w": "Tausche so, dass 100 entsteht: 19 + 81 = 100. Dann 100 + 90 = 190.",
+   "c": "54+90+46",
+   "w": "Tausche so, dass 100 entsteht: 54 + 46 = 100. Dann 100 + 90 = 190.",
    "h": "Welche zwei Zahlen ergeben zusammen 100?"
   },
   {
@@ -1089,13 +1625,29 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Rechne geschickt: 25 · 32 · 4"
+    "text": "Rechne geschickt: 132 + 22 + 868 + 78"
    },
    "o": {
-    "wert": 3200
+    "wert": 1100
    },
-   "c": "25*32*4",
-   "w": "Tausche: 25 · 4 = 100. Dann 100 · 32 = 3 200.",
+   "c": "132+22+868+78",
+   "w": "Passende Paare: 132 + 868 = 1 000 und 22 + 78 = 100. Zusammen 1 100.",
+   "h": "Suche Paare, die 100 oder 1 000 ergeben."
+  },
+  {
+   "l": "vorteil",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 5 · 17 · 200"
+   },
+   "o": {
+    "wert": 17000
+   },
+   "c": "5*17*200",
+   "w": "Tausche: 5 · 200 = 1 000. Dann 1 000 · 17 = 17 000.",
    "h": "Welche zwei Faktoren ergeben 100 oder 1 000?"
   },
   {
@@ -1105,13 +1657,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Rechne geschickt: 605 + 44 + 395 + 56"
+    "text": "Rechne geschickt: 789 + 12 + 211 + 88"
    },
    "o": {
     "wert": 1100
    },
-   "c": "605+44+395+56",
-   "w": "Passende Paare: 605 + 395 = 1 000 und 44 + 56 = 100. Zusammen 1 100.",
+   "c": "789+12+211+88",
+   "w": "Passende Paare: 789 + 211 = 1 000 und 12 + 88 = 100. Zusammen 1 100.",
    "h": "Suche Paare, die 100 oder 1 000 ergeben."
   },
   {
@@ -1121,13 +1673,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Rechne geschickt: 318 + 72 + 682 + 28"
+    "text": "Rechne geschickt: 236 + 60 + 764 + 40"
    },
    "o": {
     "wert": 1100
    },
-   "c": "318+72+682+28",
-   "w": "Passende Paare: 318 + 682 = 1 000 und 72 + 28 = 100. Zusammen 1 100.",
+   "c": "236+60+764+40",
+   "w": "Passende Paare: 236 + 764 = 1 000 und 60 + 40 = 100. Zusammen 1 100.",
    "h": "Suche Paare, die 100 oder 1 000 ergeben."
   },
   {
@@ -1137,30 +1689,30 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Rechne geschickt: 174 + 57 + 826 + 43"
+    "text": "Rechne geschickt: 125 · 15 · 8"
    },
    "o": {
-    "wert": 1100
+    "wert": 15000
    },
-   "c": "174+57+826+43",
-   "w": "Passende Paare: 174 + 826 = 1 000 und 57 + 43 = 100. Zusammen 1 100.",
-   "h": "Suche Paare, die 100 oder 1 000 ergeben."
+   "c": "125*15*8",
+   "w": "Tausche: 125 · 8 = 1 000. Dann 1 000 · 15 = 15 000.",
+   "h": "Welche zwei Faktoren ergeben 100 oder 1 000?"
   },
   {
    "l": "vorteil",
    "t": "gesetze",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Rechne geschickt: 443 + 12 + 557 + 88"
+    "text": "Rechne geschickt: 125 · 6 · 9 · 8"
    },
    "o": {
-    "wert": 1100
+    "wert": 54000
    },
-   "c": "443+12+557+88",
-   "w": "Passende Paare: 443 + 557 = 1 000 und 12 + 88 = 100. Zusammen 1 100.",
-   "h": "Suche Paare, die 100 oder 1 000 ergeben."
+   "c": "125*6*9*8",
+   "w": "Tausche und verbinde: (125 · 8) · (6 · 9) = 1 000 · 54 = 54 000.",
+   "h": "Welche zwei Faktoren ergeben zusammen eine glatte Zahl? Rechne die anderen beiden zusammen."
   },
   {
    "l": "vorteil",
@@ -1172,48 +1724,16 @@
     "text": "Welche Gleichung ist falsch?"
    },
    "a": [
-    "45 + 2 = 2 + 45",
-    "(45 + 2) + 5 = 45 + (2 + 5)",
-    "45 − 2 = 2 − 45",
-    "45 · 2 = 2 · 45"
+    "(69 + 8) + 5 = 69 + (8 + 5)",
+    "69 · 8 = 8 · 69",
+    "69 − 8 = 8 − 69",
+    "69 + 8 = 8 + 69"
    ],
    "o": {
     "index": 2
    },
-   "w": "Tauschen darf man nur bei Plus und Mal. 45 − 2 = 43, aber 2 − 45 = −43.",
+   "w": "Tauschen darf man nur bei Plus und Mal. 69 − 8 = 61, aber 8 − 69 = −61.",
    "h": "Bei welcher Rechenart darf man nicht tauschen?"
-  },
-  {
-   "l": "vorteil",
-   "t": "gesetze",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Rechne geschickt: 20 · 140"
-   },
-   "o": {
-    "wert": 2800
-   },
-   "c": "20*140",
-   "w": "Zerlege: 20 = 5 · 4 und 140 = 20 · 7. Dann 5 · 20 = 100 und 4 · 7 = 28. Ergebnis 100 · 28 = 2 800.",
-   "h": "Zerlege die Faktoren so, dass 5 · 20 entsteht."
-  },
-  {
-   "l": "vorteil",
-   "t": "gesetze",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Rechne geschickt: 50 · 8"
-   },
-   "o": {
-    "wert": 400
-   },
-   "c": "50*8",
-   "w": "Zerlege: 50 = 25 · 2 und 8 = 4 · 2. Dann 25 · 4 = 100 und 2 · 2 = 4. Ergebnis 100 · 4 = 400.",
-   "h": "Zerlege die Faktoren so, dass 25 · 4 entsteht."
   },
   {
    "l": "vorteil",
@@ -1225,15 +1745,15 @@
     "text": "Welche Gleichung ist falsch?"
    },
    "a": [
-    "61 + 4 = 4 + 61",
-    "61 · 4 = 4 · 61",
-    "(61 + 4) + 5 = 61 + (4 + 5)",
-    "61 − 4 = 4 − 61"
+    "83 + 13 = 13 + 83",
+    "(83 + 13) + 5 = 83 + (13 + 5)",
+    "83 · 13 = 13 · 83",
+    "83 − 13 = 13 − 83"
    ],
    "o": {
     "index": 3
    },
-   "w": "Tauschen darf man nur bei Plus und Mal. 61 − 4 = 57, aber 4 − 61 = −57.",
+   "w": "Tauschen darf man nur bei Plus und Mal. 83 − 13 = 70, aber 13 − 83 = −70.",
    "h": "Bei welcher Rechenart darf man nicht tauschen?"
   },
   {
@@ -1241,21 +1761,32 @@
    "t": "gesetze",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Welche Gleichung ist falsch?"
+    "text": "Rechne geschickt: 20 · 3 · 9 · 5"
    },
-   "a": [
-    "90 − 7 = 7 − 90",
-    "90 + 7 = 7 + 90",
-    "(90 + 7) + 5 = 90 + (7 + 5)",
-    "90 · 7 = 7 · 90"
-   ],
    "o": {
-    "index": 0
+    "wert": 2700
    },
-   "w": "Tauschen darf man nur bei Plus und Mal. 90 − 7 = 83, aber 7 − 90 = −83.",
-   "h": "Bei welcher Rechenart darf man nicht tauschen?"
+   "c": "20*3*9*5",
+   "w": "Tausche und verbinde: (20 · 5) · (3 · 9) = 100 · 27 = 2 700.",
+   "h": "Welche zwei Faktoren ergeben zusammen eine glatte Zahl? Rechne die anderen beiden zusammen."
+  },
+  {
+   "l": "vorteil",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 4 · 50 · 3 · 2"
+   },
+   "o": {
+    "wert": 1200
+   },
+   "c": "4*50*3*2",
+   "w": "Tausche und verbinde: (50 · 2) · (4 · 3) = 100 · 12 = 1 200.",
+   "h": "Welche zwei Faktoren ergeben zusammen eine glatte Zahl? Rechne die anderen beiden zusammen."
   },
   {
    "l": "vorteil",
@@ -1264,13 +1795,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Rechne geschickt: 50 · 29 · 20"
+    "text": "Rechne geschickt: 50 · 15 · 2"
    },
    "o": {
-    "wert": 29000
+    "wert": 1500
    },
-   "c": "50*29*20",
-   "w": "Tausche: 50 · 20 = 1 000. Dann 1 000 · 29 = 29 000."
+   "c": "50*15*2",
+   "w": "Tausche: 50 · 2 = 100. Dann 100 · 15 = 1 500."
   },
   {
    "l": "vorteil",
@@ -1279,13 +1810,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Rechne geschickt: 584 + 58 + 416 + 42"
+    "text": "Rechne geschickt: 50 · 14 · 2"
    },
    "o": {
-    "wert": 1100
+    "wert": 1400
    },
-   "c": "584+58+416+42",
-   "w": "Passende Paare: 584 + 416 = 1 000 und 58 + 42 = 100. Zusammen 1 100."
+   "c": "50*14*2",
+   "w": "Tausche: 50 · 2 = 100. Dann 100 · 14 = 1 400."
   },
   {
    "l": "vorteil",
@@ -1294,13 +1825,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Rechne geschickt: 474 + 79 + 526 + 21"
+    "text": "Rechne geschickt: 153 + 14 + 847 + 86"
    },
    "o": {
     "wert": 1100
    },
-   "c": "474+79+526+21",
-   "w": "Passende Paare: 474 + 526 = 1 000 und 79 + 21 = 100. Zusammen 1 100."
+   "c": "153+14+847+86",
+   "w": "Passende Paare: 153 + 847 = 1 000 und 14 + 86 = 100. Zusammen 1 100."
   },
   {
    "l": "vorteil",
@@ -1309,43 +1840,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Rechne geschickt: 50 · 36 · 20"
-   },
-   "o": {
-    "wert": 36000
-   },
-   "c": "50*36*20",
-   "w": "Tausche: 50 · 20 = 1 000. Dann 1 000 · 36 = 36 000."
-  },
-  {
-   "l": "vorteil",
-   "t": "gesetze",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Rechne geschickt: 312 + 73 + 688 + 27"
+    "text": "Rechne geschickt: 442 + 45 + 558 + 55"
    },
    "o": {
     "wert": 1100
    },
-   "c": "312+73+688+27",
-   "w": "Passende Paare: 312 + 688 = 1 000 und 73 + 27 = 100. Zusammen 1 100."
-  },
-  {
-   "l": "vorteil",
-   "t": "gesetze",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Rechne geschickt: 580 + 47 + 420 + 53"
-   },
-   "o": {
-    "wert": 1100
-   },
-   "c": "580+47+420+53",
-   "w": "Passende Paare: 580 + 420 = 1 000 und 47 + 53 = 100. Zusammen 1 100."
+   "c": "442+45+558+55",
+   "w": "Passende Paare: 442 + 558 = 1 000 und 45 + 55 = 100. Zusammen 1 100."
   },
   {
    "l": "vorteil",
@@ -1369,13 +1870,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Rechne geschickt: 493 + 55 + 507 + 45"
+    "text": "Rechne geschickt: 250 · 25 · 4"
    },
    "o": {
-    "wert": 1100
+    "wert": 25000
    },
-   "c": "493+55+507+45",
-   "w": "Passende Paare: 493 + 507 = 1 000 und 55 + 45 = 100. Zusammen 1 100."
+   "c": "250*25*4",
+   "w": "Tausche: 250 · 4 = 1 000. Dann 1 000 · 25 = 25 000."
   },
   {
    "l": "vorteil",
@@ -1384,13 +1885,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Rechne geschickt: 250 · 26 · 4"
+    "text": "Rechne geschickt: 125 · 21 · 8"
    },
    "o": {
-    "wert": 26000
+    "wert": 21000
    },
-   "c": "250*26*4",
-   "w": "Tausche: 250 · 4 = 1 000. Dann 1 000 · 26 = 26 000."
+   "c": "125*21*8",
+   "w": "Tausche: 125 · 8 = 1 000. Dann 1 000 · 21 = 21 000."
   },
   {
    "l": "vorteil",
@@ -1399,194 +1900,681 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Rechne geschickt: 685 + 13 + 315 + 87"
+    "text": "Rechne geschickt: 250 · 11 · 4"
+   },
+   "o": {
+    "wert": 11000
+   },
+   "c": "250*11*4",
+   "w": "Tausche: 250 · 4 = 1 000. Dann 1 000 · 11 = 11 000."
+  },
+  {
+   "l": "vorteil",
+   "t": "gesetze",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 50 · 27 · 2"
+   },
+   "o": {
+    "wert": 2700
+   },
+   "c": "50*27*2",
+   "w": "Tausche: 50 · 2 = 100. Dann 100 · 27 = 2 700."
+  },
+  {
+   "l": "vorteil",
+   "t": "gesetze",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 142 + 13 + 858 + 87"
    },
    "o": {
     "wert": 1100
    },
-   "c": "685+13+315+87",
-   "w": "Passende Paare: 685 + 315 = 1 000 und 13 + 87 = 100. Zusammen 1 100."
+   "c": "142+13+858+87",
+   "w": "Passende Paare: 142 + 858 = 1 000 und 13 + 87 = 100. Zusammen 1 100."
   },
   {
-   "l": "verteilen",
+   "l": "differenz_summe",
    "t": "gesetze",
    "p": "uebung",
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Rechne geschickt: 8 · 48"
+    "text": "Rechne geschickt: 86 − 68 + 44"
    },
    "o": {
-    "wert": 384
+    "wert": 62
    },
-   "c": "8*48",
-   "w": "8 · 48 = 8 · (50 − 2) = 400 − 16 = 384.",
-   "h": "Zerlege 48 in eine glatte Zahl plus oder minus einen kleinen Rest."
+   "c": "86-68+44",
+   "w": "Das Plus gehört zur 44, das Minus zur 68. Tausche: 86 + 44 − 68 = 130 − 68 = 62.",
+   "h": "Welche zwei Zahlen ergeben zusammen eine glatte Zahl? Das Rechenzeichen wandert mit."
   },
   {
-   "l": "verteilen",
+   "l": "differenz_summe",
    "t": "gesetze",
    "p": "uebung",
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Rechne geschickt: 8 · 33"
+    "text": "Rechne geschickt: 35 − 21 + 35"
    },
    "o": {
-    "wert": 264
+    "wert": 49
    },
-   "c": "8*33",
-   "w": "8 · 33 = 8 · (30 + 3) = 240 + 24 = 264.",
-   "h": "Zerlege 33 in eine glatte Zahl plus oder minus einen kleinen Rest."
+   "c": "35-21+35",
+   "w": "Das Plus gehört zur 35, das Minus zur 21. Tausche: 35 + 35 − 21 = 70 − 21 = 49.",
+   "h": "Welche zwei Zahlen ergeben zusammen eine glatte Zahl? Das Rechenzeichen wandert mit."
   },
   {
-   "l": "verteilen",
+   "l": "differenz_summe",
    "t": "gesetze",
    "p": "uebung",
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Rechne geschickt: 7 · 21"
+    "text": "Rechne geschickt: 85 − 26 + 35"
    },
    "o": {
-    "wert": 147
+    "wert": 94
    },
-   "c": "7*21",
-   "w": "7 · 21 = 7 · (20 + 1) = 140 + 7 = 147.",
-   "h": "Zerlege 21 in eine glatte Zahl plus oder minus einen kleinen Rest."
+   "c": "85-26+35",
+   "w": "Das Plus gehört zur 35, das Minus zur 26. Tausche: 85 + 35 − 26 = 120 − 26 = 94.",
+   "h": "Welche zwei Zahlen ergeben zusammen eine glatte Zahl? Das Rechenzeichen wandert mit."
   },
   {
-   "l": "verteilen",
+   "l": "differenz_summe",
    "t": "gesetze",
    "p": "uebung",
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Rechne geschickt: 9 · 28"
+    "text": "Rechne geschickt: 55 − 22 + 55"
    },
    "o": {
-    "wert": 252
+    "wert": 88
    },
-   "c": "9*28",
-   "w": "9 · 28 = 9 · (30 − 2) = 270 − 18 = 252.",
-   "h": "Zerlege 28 in eine glatte Zahl plus oder minus einen kleinen Rest."
+   "c": "55-22+55",
+   "w": "Das Plus gehört zur 55, das Minus zur 22. Tausche: 55 + 55 − 22 = 110 − 22 = 88.",
+   "h": "Welche zwei Zahlen ergeben zusammen eine glatte Zahl? Das Rechenzeichen wandert mit."
   },
   {
-   "l": "verteilen",
+   "l": "differenz_summe",
    "t": "gesetze",
    "p": "uebung",
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Rechne geschickt: 9 · 29"
+    "text": "Rechne geschickt: 27 − 12 + 23"
    },
    "o": {
-    "wert": 261
+    "wert": 38
    },
-   "c": "9*29",
-   "w": "9 · 29 = 9 · (30 − 1) = 270 − 9 = 261.",
-   "h": "Zerlege 29 in eine glatte Zahl plus oder minus einen kleinen Rest."
+   "c": "27-12+23",
+   "w": "Das Plus gehört zur 23, das Minus zur 12. Tausche: 27 + 23 − 12 = 50 − 12 = 38.",
+   "h": "Welche zwei Zahlen ergeben zusammen eine glatte Zahl? Das Rechenzeichen wandert mit."
   },
   {
-   "l": "verteilen",
+   "l": "differenz_summe",
    "t": "gesetze",
    "p": "uebung",
    "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Rechne geschickt: 8 · 997"
-   },
-   "o": {
-    "wert": 7976
-   },
-   "c": "8*997",
-   "w": "8 · 997 = 8 · (1 000 − 3) = 8 000 − 24 = 7 976.",
-   "h": "997 ist fast 1000."
-  },
-  {
-   "l": "verteilen",
-   "t": "gesetze",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Rechne geschickt: 10 · 496"
-   },
-   "o": {
-    "wert": 4960
-   },
-   "c": "10*496",
-   "w": "10 · 496 = 10 · (500 − 4) = 5 000 − 40 = 4 960.",
-   "h": "496 ist fast 500."
-  },
-  {
-   "l": "verteilen",
-   "t": "gesetze",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Rechne geschickt: 7 · 198"
-   },
-   "o": {
-    "wert": 1386
-   },
-   "c": "7*198",
-   "w": "7 · 198 = 7 · (200 − 2) = 1 400 − 14 = 1 386.",
-   "h": "198 ist fast 200."
-  },
-  {
-   "l": "verteilen",
-   "t": "gesetze",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Rechne geschickt: 12 · 496"
-   },
-   "o": {
-    "wert": 5952
-   },
-   "c": "12*496",
-   "w": "12 · 496 = 12 · (500 − 4) = 6 000 − 48 = 5 952.",
-   "h": "496 ist fast 500."
-  },
-  {
-   "l": "verteilen",
-   "t": "gesetze",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Rechne geschickt: 7 · 498"
-   },
-   "o": {
-    "wert": 3486
-   },
-   "c": "7*498",
-   "w": "7 · 498 = 7 · (500 − 2) = 3 500 − 14 = 3 486.",
-   "h": "498 ist fast 500."
-  },
-  {
-   "l": "verteilen",
-   "t": "gesetze",
-   "p": "uebung",
-   "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Welcher Term ist gleich 3 · (34 + 5)?"
+    "text": "Welcher Term hat denselben Wert wie 44 − 16 + 36?"
    },
    "a": [
-    "3 · 34 + 3 · 5",
-    "3 + 34 · 3 + 5",
-    "3 · 34 · 5",
-    "3 · 34 + 5"
+    "44 − (16 + 36)",
+    "44 − 36 + 16",
+    "44 + 36 − 16"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Jede Zahl nimmt ihr Rechenzeichen mit: −16 und +36. Also 44 + 36 − 16 = 64. 44 − 36 + 16 = 24 und 44 − (16 + 36) = −8.",
+   "h": "Welches Rechenzeichen gehört zu welcher Zahl?"
+  },
+  {
+   "l": "differenz_summe",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Term hat denselben Wert wie 76 − 25 + 34?"
+   },
+   "a": [
+    "76 + 34 − 25",
+    "76 − (25 + 34)",
+    "76 − 34 + 25"
    ],
    "o": {
     "index": 0
    },
-   "w": "Jeder Teil der Klammer wird mal 3 genommen: 3 · 34 + 3 · 5 = 102 + 15 = 117.",
-   "h": "Der Faktor vor der Klammer gehört zu jedem Teil der Klammer."
+   "w": "Jede Zahl nimmt ihr Rechenzeichen mit: −25 und +34. Also 76 + 34 − 25 = 85. 76 − 34 + 25 = 67 und 76 − (25 + 34) = 17.",
+   "h": "Welches Rechenzeichen gehört zu welcher Zahl?"
+  },
+  {
+   "l": "differenz_summe",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Term hat denselben Wert wie 34 − 27 + 16?"
+   },
+   "a": [
+    "34 − 16 + 27",
+    "34 + 16 − 27",
+    "34 − (27 + 16)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Jede Zahl nimmt ihr Rechenzeichen mit: −27 und +16. Also 34 + 16 − 27 = 23. 34 − 16 + 27 = 45 und 34 − (27 + 16) = −9.",
+   "h": "Welches Rechenzeichen gehört zu welcher Zahl?"
+  },
+  {
+   "l": "differenz_summe",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Term hat denselben Wert wie 48 − 27 + 52?"
+   },
+   "a": [
+    "48 − (27 + 52)",
+    "48 − 52 + 27",
+    "48 + 52 − 27"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Jede Zahl nimmt ihr Rechenzeichen mit: −27 und +52. Also 48 + 52 − 27 = 73. 48 − 52 + 27 = 23 und 48 − (27 + 52) = −31.",
+   "h": "Welches Rechenzeichen gehört zu welcher Zahl?"
+  },
+  {
+   "l": "differenz_summe",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Term hat denselben Wert wie 59 − 17 + 41?"
+   },
+   "a": [
+    "59 + 41 − 17",
+    "59 − 41 + 17",
+    "59 − (17 + 41)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Jede Zahl nimmt ihr Rechenzeichen mit: −17 und +41. Also 59 + 41 − 17 = 83. 59 − 41 + 17 = 35 und 59 − (17 + 41) = 1.",
+   "h": "Welches Rechenzeichen gehört zu welcher Zahl?"
+  },
+  {
+   "l": "differenz_summe",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 43 − 26 + 37 − 34"
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "43-26+37-34",
+   "w": "Plus-Zahlen zusammen: 43 + 37 = 80. Minus-Zahlen zusammen: 26 + 34 = 60. 80 − 60 = 20.",
+   "h": "Sammle die Plus-Zahlen und die Minus-Zahlen. Jedes Zeichen wandert mit seiner Zahl."
+  },
+  {
+   "l": "differenz_summe",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 51 − 34 + 9 − 16"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "51-34+9-16",
+   "w": "Plus-Zahlen zusammen: 51 + 9 = 60. Minus-Zahlen zusammen: 34 + 16 = 50. 60 − 50 = 10.",
+   "h": "Sammle die Plus-Zahlen und die Minus-Zahlen. Jedes Zeichen wandert mit seiner Zahl."
+  },
+  {
+   "l": "differenz_summe",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet 46 − 20 + 4 = 46 − 24 = 22. Was ist falsch?"
+   },
+   "a": [
+    "Man muss zuerst 46 − 20 rechnen, dann 26 − 4 = 22.",
+    "Die 4 wird dazugezählt, nicht abgezogen. Richtig: 46 + 4 − 20 = 30.",
+    "Nichts, das Ergebnis stimmt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Das Minus gehört nur zur 20. Die 4 hat ein Plus. Richtig ist 30.",
+   "h": "Welches Rechenzeichen steht vor der letzten Zahl?"
+  },
+  {
+   "l": "differenz_summe",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand rechnet 75 − 26 + 5 = 75 − 31 = 44. Was ist falsch?"
+   },
+   "a": [
+    "Man muss zuerst 75 − 26 rechnen, dann 49 − 5 = 44.",
+    "Nichts, das Ergebnis stimmt.",
+    "Die 5 wird dazugezählt, nicht abgezogen. Richtig: 75 + 5 − 26 = 54."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Das Minus gehört nur zur 26. Die 5 hat ein Plus. Richtig ist 54.",
+   "h": "Welches Rechenzeichen steht vor der letzten Zahl?"
+  },
+  {
+   "l": "differenz_summe",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 42 − 33 + 18 − 17"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "42-33+18-17",
+   "w": "Plus-Zahlen zusammen: 42 + 18 = 60. Minus-Zahlen zusammen: 33 + 17 = 50. 60 − 50 = 10.",
+   "h": "Sammle die Plus-Zahlen und die Minus-Zahlen. Jedes Zeichen wandert mit seiner Zahl."
+  },
+  {
+   "l": "differenz_summe",
+   "t": "gesetze",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Term hat denselben Wert wie 73 − 29 + 17?"
+   },
+   "a": [
+    "73 + 17 − 29",
+    "73 − (29 + 17)",
+    "73 − 17 + 29"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Jede Zahl nimmt ihr Rechenzeichen mit: −29 und +17. Also 73 + 17 − 29 = 61. 73 − 17 + 29 = 85 und 73 − (29 + 17) = 27."
+  },
+  {
+   "l": "differenz_summe",
+   "t": "gesetze",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Term hat denselben Wert wie 46 − 21 + 14?"
+   },
+   "a": [
+    "46 − (21 + 14)",
+    "46 + 14 − 21",
+    "46 − 14 + 21"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Jede Zahl nimmt ihr Rechenzeichen mit: −21 und +14. Also 46 + 14 − 21 = 39. 46 − 14 + 21 = 53 und 46 − (21 + 14) = 11."
+  },
+  {
+   "l": "differenz_summe",
+   "t": "gesetze",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 142 − 58 − 42"
+   },
+   "o": {
+    "wert": 42
+   },
+   "c": "142-58-42",
+   "w": "Tausche die beiden Minus-Zahlen: 142 − 42 − 58 = 100 − 58 = 42."
+  },
+  {
+   "l": "differenz_summe",
+   "t": "gesetze",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 216 − 65 − 16"
+   },
+   "o": {
+    "wert": 135
+   },
+   "c": "216-65-16",
+   "w": "Tausche die beiden Minus-Zahlen: 216 − 16 − 65 = 200 − 65 = 135."
+  },
+  {
+   "l": "differenz_summe",
+   "t": "gesetze",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Term hat denselben Wert wie 54 − 23 + 26?"
+   },
+   "a": [
+    "54 − (23 + 26)",
+    "54 − 26 + 23",
+    "54 + 26 − 23"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Jede Zahl nimmt ihr Rechenzeichen mit: −23 und +26. Also 54 + 26 − 23 = 57. 54 − 26 + 23 = 51 und 54 − (23 + 26) = 5."
+  },
+  {
+   "l": "differenz_summe",
+   "t": "gesetze",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 327 − 71 − 27"
+   },
+   "o": {
+    "wert": 229
+   },
+   "c": "327-71-27",
+   "w": "Tausche die beiden Minus-Zahlen: 327 − 27 − 71 = 300 − 71 = 229."
+  },
+  {
+   "l": "differenz_summe",
+   "t": "gesetze",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Term hat denselben Wert wie 49 − 24 + 31?"
+   },
+   "a": [
+    "49 + 31 − 24",
+    "49 − 31 + 24",
+    "49 − (24 + 31)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Jede Zahl nimmt ihr Rechenzeichen mit: −24 und +31. Also 49 + 31 − 24 = 56. 49 − 31 + 24 = 42 und 49 − (24 + 31) = −6."
+  },
+  {
+   "l": "differenz_summe",
+   "t": "gesetze",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Term hat denselben Wert wie 59 − 26 + 11?"
+   },
+   "a": [
+    "59 − 11 + 26",
+    "59 + 11 − 26",
+    "59 − (26 + 11)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Jede Zahl nimmt ihr Rechenzeichen mit: −26 und +11. Also 59 + 11 − 26 = 44. 59 − 11 + 26 = 74 und 59 − (26 + 11) = 22."
+  },
+  {
+   "l": "differenz_summe",
+   "t": "gesetze",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Term hat denselben Wert wie 63 − 28 + 27?"
+   },
+   "a": [
+    "63 − (28 + 27)",
+    "63 − 27 + 28",
+    "63 + 27 − 28"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Jede Zahl nimmt ihr Rechenzeichen mit: −28 und +27. Also 63 + 27 − 28 = 62. 63 − 27 + 28 = 64 und 63 − (28 + 27) = 8."
+  },
+  {
+   "l": "differenz_summe",
+   "t": "gesetze",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Term hat denselben Wert wie 79 − 16 + 41?"
+   },
+   "a": [
+    "79 + 41 − 16",
+    "79 − 41 + 16",
+    "79 − (16 + 41)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Jede Zahl nimmt ihr Rechenzeichen mit: −16 und +41. Also 79 + 41 − 16 = 104. 79 − 41 + 16 = 54 und 79 − (16 + 41) = 22."
+  },
+  {
+   "l": "verteilen",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 5 · 43"
+   },
+   "o": {
+    "wert": 215
+   },
+   "c": "5*43",
+   "w": "5 · 43 = 5 · (40 + 3) = 200 + 15 = 215.",
+   "h": "Zerlege 43 in eine glatte Zahl plus oder minus einen kleinen Rest."
+  },
+  {
+   "l": "verteilen",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 6 · 47"
+   },
+   "o": {
+    "wert": 282
+   },
+   "c": "6*47",
+   "w": "6 · 47 = 6 · (50 − 3) = 300 − 18 = 282.",
+   "h": "Zerlege 47 in eine glatte Zahl plus oder minus einen kleinen Rest."
+  },
+  {
+   "l": "verteilen",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 3 · 49"
+   },
+   "o": {
+    "wert": 147
+   },
+   "c": "3*49",
+   "w": "3 · 49 = 3 · (50 − 1) = 150 − 3 = 147.",
+   "h": "Zerlege 49 in eine glatte Zahl plus oder minus einen kleinen Rest."
+  },
+  {
+   "l": "verteilen",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 3 · 52"
+   },
+   "o": {
+    "wert": 156
+   },
+   "c": "3*52",
+   "w": "3 · 52 = 3 · (50 + 2) = 150 + 6 = 156.",
+   "h": "Zerlege 52 in eine glatte Zahl plus oder minus einen kleinen Rest."
+  },
+  {
+   "l": "verteilen",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 5 · 39"
+   },
+   "o": {
+    "wert": 195
+   },
+   "c": "5*39",
+   "w": "5 · 39 = 5 · (40 − 1) = 200 − 5 = 195.",
+   "h": "Zerlege 39 in eine glatte Zahl plus oder minus einen kleinen Rest."
+  },
+  {
+   "l": "verteilen",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 7 · 299"
+   },
+   "o": {
+    "wert": 2093
+   },
+   "c": "7*299",
+   "w": "7 · 299 = 7 · (300 − 1) = 2 100 − 7 = 2 093.",
+   "h": "299 ist fast 300."
+  },
+  {
+   "l": "verteilen",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 6 · 13 − 6 · 3"
+   },
+   "o": {
+    "wert": 60
+   },
+   "c": "6 * 13 - 6 * 3",
+   "w": "Gemeinsamer Faktor 6: 6 · (13 − 3) = 6 · 10 = 60.",
+   "h": "Klammere den gemeinsamen Faktor aus."
+  },
+  {
+   "l": "verteilen",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 3 · 31 + 3 · 19"
+   },
+   "o": {
+    "wert": 150
+   },
+   "c": "3 * 31 + 3 * 19",
+   "w": "Gemeinsamer Faktor 3: 3 · (31 + 19) = 3 · 50 = 150.",
+   "h": "Welcher Faktor kommt in beiden Produkten vor? Klammere ihn aus."
+  },
+  {
+   "l": "verteilen",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 6 · 997"
+   },
+   "o": {
+    "wert": 5982
+   },
+   "c": "6*997",
+   "w": "6 · 997 = 6 · (1 000 − 3) = 6 000 − 18 = 5 982.",
+   "h": "997 ist fast 1 000."
+  },
+  {
+   "l": "verteilen",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 9 · 497"
+   },
+   "o": {
+    "wert": 4473
+   },
+   "c": "9*497",
+   "w": "9 · 497 = 9 · (500 − 3) = 4 500 − 27 = 4 473.",
+   "h": "497 ist fast 500."
+  },
+  {
+   "l": "verteilen",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 15 · 29 + 85 · 29"
+   },
+   "o": {
+    "wert": 2900
+   },
+   "c": "15 * 29 + 85 * 29",
+   "w": "Gemeinsamer Faktor 29: 29 · (15 + 85) = 29 · 100 = 2 900.",
+   "h": "Welcher Faktor kommt in beiden Produkten vor? Klammere ihn aus."
+  },
+  {
+   "l": "verteilen",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 53 · 38 + 47 · 38"
+   },
+   "o": {
+    "wert": 3800
+   },
+   "c": "53 * 38 + 47 * 38",
+   "w": "Gemeinsamer Faktor 38: 38 · (53 + 47) = 38 · 100 = 3 800.",
+   "h": "Welcher Faktor kommt in beiden Produkten vor? Klammere ihn aus."
   },
   {
    "l": "verteilen",
@@ -1595,60 +2583,18 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Welcher Term ist gleich 3 · (30 + 6)?"
+    "text": "Welcher Term ist gleich 3 · (10 + 3)?"
    },
    "a": [
-    "3 · 30 · 6",
-    "3 · 30 + 3 · 6",
-    "3 + 30 · 3 + 6",
-    "3 · 30 + 6"
+    "3 · 10 · 3",
+    "3 + 10 · 3 + 3",
+    "3 · 10 + 3 · 3",
+    "3 · 10 + 3"
    ],
    "o": {
-    "index": 1
+    "index": 2
    },
-   "w": "Jeder Teil der Klammer wird mal 3 genommen: 3 · 30 + 3 · 6 = 90 + 18 = 108.",
-   "h": "Der Faktor vor der Klammer gehört zu jedem Teil der Klammer."
-  },
-  {
-   "l": "verteilen",
-   "t": "gesetze",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welcher Term ist gleich 5 · (24 + 6)?"
-   },
-   "a": [
-    "5 + 24 · 5 + 6",
-    "5 · 24 + 5 · 6",
-    "5 · 24 + 6",
-    "5 · 24 · 6"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Jeder Teil der Klammer wird mal 5 genommen: 5 · 24 + 5 · 6 = 120 + 30 = 150.",
-   "h": "Der Faktor vor der Klammer gehört zu jedem Teil der Klammer."
-  },
-  {
-   "l": "verteilen",
-   "t": "gesetze",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welcher Term ist gleich 3 · (30 + 7)?"
-   },
-   "a": [
-    "3 · 30 + 7",
-    "3 · 30 + 3 · 7",
-    "3 · 30 · 7",
-    "3 + 30 · 3 + 7"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Jeder Teil der Klammer wird mal 3 genommen: 3 · 30 + 3 · 7 = 90 + 21 = 111.",
+   "w": "Jeder Teil der Klammer wird mal 3 genommen: 3 · 10 + 3 · 3 = 30 + 9 = 39.",
    "h": "Der Faktor vor der Klammer gehört zu jedem Teil der Klammer."
   },
   {
@@ -1658,13 +2604,29 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Rechne geschickt: 17 · 104 − 17 · 4"
+    "text": "Rechne geschickt: 18 · 11 + 18 · 89"
    },
    "o": {
-    "wert": 1700
+    "wert": 1800
    },
-   "c": "17*104-17*4",
-   "w": "Gemeinsamer Faktor 17: 17 · (104 − 4) = 17 · 100 = 1 700.",
+   "c": "18 * 11 + 18 * 89",
+   "w": "Gemeinsamer Faktor 18: 18 · (11 + 89) = 18 · 100 = 1 800.",
+   "h": "Welcher Faktor kommt in beiden Produkten vor? Klammere ihn aus."
+  },
+  {
+   "l": "verteilen",
+   "t": "gesetze",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 26 · 67 − 26 · 57"
+   },
+   "o": {
+    "wert": 260
+   },
+   "c": "26 * 67 - 26 * 57",
+   "w": "Gemeinsamer Faktor 26: 26 · (67 − 57) = 26 · 10 = 260.",
    "h": "Klammere den gemeinsamen Faktor aus."
   },
   {
@@ -1674,13 +2636,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Rechne geschickt: 11 · 298"
+    "text": "Rechne geschickt: 7 · 496"
    },
    "o": {
-    "wert": 3278
+    "wert": 3472
    },
-   "c": "11*298",
-   "w": "11 · 298 = 11 · (300 − 2) = 3 300 − 22 = 3 278."
+   "c": "7*496",
+   "w": "7 · 496 = 7 · (500 − 4) = 3 500 − 28 = 3 472."
   },
   {
    "l": "verteilen",
@@ -1689,118 +2651,43 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Rechne geschickt: 3 · 27 + 3 · 23"
-   },
-   "o": {
-    "wert": 150
-   },
-   "c": "3*27+3*23",
-   "w": "Gemeinsamer Faktor 3: 3 · (27 + 23) = 3 · 50 = 150."
-  },
-  {
-   "l": "verteilen",
-   "t": "gesetze",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Rechne geschickt: 9 · 298"
-   },
-   "o": {
-    "wert": 2682
-   },
-   "c": "9*298",
-   "w": "9 · 298 = 9 · (300 − 2) = 2 700 − 18 = 2 682."
-  },
-  {
-   "l": "verteilen",
-   "t": "gesetze",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Rechne geschickt: 10 · 196"
-   },
-   "o": {
-    "wert": 1960
-   },
-   "c": "10*196",
-   "w": "10 · 196 = 10 · (200 − 4) = 2 000 − 40 = 1 960."
-  },
-  {
-   "l": "verteilen",
-   "t": "gesetze",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Rechne geschickt: 9 · 496"
-   },
-   "o": {
-    "wert": 4464
-   },
-   "c": "9*496",
-   "w": "9 · 496 = 9 · (500 − 4) = 4 500 − 36 = 4 464."
-  },
-  {
-   "l": "verteilen",
-   "t": "gesetze",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Rechne geschickt: 6 · 999"
-   },
-   "o": {
-    "wert": 5994
-   },
-   "c": "6*999",
-   "w": "6 · 999 = 6 · (1 000 − 1) = 6 000 − 6 = 5 994."
-  },
-  {
-   "l": "verteilen",
-   "t": "gesetze",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Rechne geschickt: 6 · 297"
-   },
-   "o": {
-    "wert": 1782
-   },
-   "c": "6*297",
-   "w": "6 · 297 = 6 · (300 − 3) = 1 800 − 18 = 1 782."
-  },
-  {
-   "l": "verteilen",
-   "t": "gesetze",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Rechne geschickt: 11 · 297"
-   },
-   "o": {
-    "wert": 3267
-   },
-   "c": "11*297",
-   "w": "11 · 297 = 11 · (300 − 3) = 3 300 − 33 = 3 267."
-  },
-  {
-   "l": "verteilen",
-   "t": "gesetze",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Rechne geschickt: 9 · 25 + 9 · 75"
+    "text": "Rechne geschickt: 9 · 30 + 9 · 70"
    },
    "o": {
     "wert": 900
    },
-   "c": "9*25+9*75",
-   "w": "Gemeinsamer Faktor 9: 9 · (25 + 75) = 9 · 100 = 900."
+   "c": "9 * 30 + 9 * 70",
+   "w": "Gemeinsamer Faktor 9: 9 · (30 + 70) = 9 · 100 = 900."
+  },
+  {
+   "l": "verteilen",
+   "t": "gesetze",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 9 · 297"
+   },
+   "o": {
+    "wert": 2673
+   },
+   "c": "9*297",
+   "w": "9 · 297 = 9 · (300 − 3) = 2 700 − 27 = 2 673."
+  },
+  {
+   "l": "verteilen",
+   "t": "gesetze",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 8 · 189 − 8 · 89"
+   },
+   "o": {
+    "wert": 800
+   },
+   "c": "8 * 189 - 8 * 89",
+   "w": "Gemeinsamer Faktor 8: 8 · (189 − 89) = 8 · 100 = 800."
   },
   {
    "l": "verteilen",
@@ -1809,13 +2696,88 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Rechne geschickt: 8 · 199"
+    "text": "Rechne geschickt: 11 · 199"
    },
    "o": {
-    "wert": 1592
+    "wert": 2189
    },
-   "c": "8*199",
-   "w": "8 · 199 = 8 · (200 − 1) = 1 600 − 8 = 1 592."
+   "c": "11*199",
+   "w": "11 · 199 = 11 · (200 − 1) = 2 200 − 11 = 2 189."
+  },
+  {
+   "l": "verteilen",
+   "t": "gesetze",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 5 · 61 + 5 · 39"
+   },
+   "o": {
+    "wert": 500
+   },
+   "c": "5 * 61 + 5 * 39",
+   "w": "Gemeinsamer Faktor 5: 5 · (61 + 39) = 5 · 100 = 500."
+  },
+  {
+   "l": "verteilen",
+   "t": "gesetze",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 6 · 199"
+   },
+   "o": {
+    "wert": 1194
+   },
+   "c": "6*199",
+   "w": "6 · 199 = 6 · (200 − 1) = 1 200 − 6 = 1 194."
+  },
+  {
+   "l": "verteilen",
+   "t": "gesetze",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 8 · 14 + 8 · 36"
+   },
+   "o": {
+    "wert": 400
+   },
+   "c": "8 * 14 + 8 * 36",
+   "w": "Gemeinsamer Faktor 8: 8 · (14 + 36) = 8 · 50 = 400."
+  },
+  {
+   "l": "verteilen",
+   "t": "gesetze",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 6 · 996"
+   },
+   "o": {
+    "wert": 5976
+   },
+   "c": "6*996",
+   "w": "6 · 996 = 6 · (1 000 − 4) = 6 000 − 24 = 5 976."
+  },
+  {
+   "l": "verteilen",
+   "t": "gesetze",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne geschickt: 9 · 102 − 9 · 92"
+   },
+   "o": {
+    "wert": 90
+   },
+   "c": "9 * 102 - 9 * 92",
+   "w": "Gemeinsamer Faktor 9: 9 · (102 − 92) = 9 · 10 = 90."
   },
   {
    "l": "mal_ganz",
@@ -1824,13 +2786,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Berechne (−7) · 6."
+    "text": "Berechne 2 · (−4)."
    },
    "o": {
-    "wert": -42
+    "wert": -8
    },
-   "c": "(-7)*(6)",
-   "w": "Beträge: 7 · 6 = 42. Verschiedene Vorzeichen, also minus: −42.",
+   "c": "(2)*(-4)",
+   "w": "Beträge: 2 · 4 = 8. Verschiedene Vorzeichen, also minus: −8.",
    "h": "Erst die Beträge multiplizieren, dann das Vorzeichen bestimmen."
   },
   {
@@ -1840,13 +2802,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Berechne (−3) · (−10)."
+    "text": "Berechne (−9) · 7."
    },
    "o": {
-    "wert": 30
+    "wert": -63
    },
-   "c": "(-3)*(-10)",
-   "w": "Beträge: 3 · 10 = 30. Gleiche Vorzeichen, also plus: 30.",
+   "c": "(-9)*(7)",
+   "w": "Beträge: 9 · 7 = 63. Verschiedene Vorzeichen, also minus: −63.",
    "h": "Erst die Beträge multiplizieren, dann das Vorzeichen bestimmen."
   },
   {
@@ -1856,13 +2818,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Berechne 3 · (−6)."
+    "text": "Berechne (−8) · (−10)."
    },
    "o": {
-    "wert": -18
+    "wert": 80
    },
-   "c": "(3)*(-6)",
-   "w": "Beträge: 3 · 6 = 18. Verschiedene Vorzeichen, also minus: −18.",
+   "c": "(-8)*(-10)",
+   "w": "Beträge: 8 · 10 = 80. Gleiche Vorzeichen, also plus: 80.",
    "h": "Erst die Beträge multiplizieren, dann das Vorzeichen bestimmen."
   },
   {
@@ -1872,13 +2834,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Berechne 5 · (−2)."
+    "text": "Berechne (−7) · 3."
    },
    "o": {
-    "wert": -10
+    "wert": -21
    },
-   "c": "(5)*(-2)",
-   "w": "Beträge: 5 · 2 = 10. Verschiedene Vorzeichen, also minus: −10.",
+   "c": "(-7)*(3)",
+   "w": "Beträge: 7 · 3 = 21. Verschiedene Vorzeichen, also minus: −21.",
    "h": "Erst die Beträge multiplizieren, dann das Vorzeichen bestimmen."
   },
   {
@@ -1888,13 +2850,49 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Berechne (−10) · 3."
+    "text": "Berechne (−4) · (−10)."
    },
    "o": {
-    "wert": -30
+    "wert": 40
    },
-   "c": "(-10)*(3)",
-   "w": "Beträge: 10 · 3 = 30. Verschiedene Vorzeichen, also minus: −30.",
+   "c": "(-4)*(-10)",
+   "w": "Beträge: 4 · 10 = 40. Gleiche Vorzeichen, also plus: 40.",
+   "h": "Erst die Beträge multiplizieren, dann das Vorzeichen bestimmen."
+  },
+  {
+   "l": "mal_ganz",
+   "t": "ganz",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist (−4) · (−8) · (−9) · (−5) positiv oder negativ? Entscheide, ohne auszurechnen."
+   },
+   "a": [
+    "genau 0",
+    "negativ",
+    "positiv"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Es gibt 4 negative Faktoren. Gerade Anzahl, also positiv (Ergebnis 1 440).",
+   "h": "Zähle die negativen Faktoren."
+  },
+  {
+   "l": "mal_ganz",
+   "t": "ganz",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−3) · 2."
+   },
+   "o": {
+    "wert": -6
+   },
+   "c": "(-3)*(2)",
+   "w": "Beträge: 3 · 2 = 6. Verschiedene Vorzeichen, also minus: −6.",
    "h": "Erst die Beträge multiplizieren, dann das Vorzeichen bestimmen."
   },
   {
@@ -1904,13 +2902,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne 12 · (−12)."
+    "text": "Berechne 4 · (−2)."
    },
    "o": {
-    "wert": -144
+    "wert": -8
    },
-   "c": "(12)*(-12)",
-   "w": "Beträge: 12 · 12 = 144. Verschiedene Vorzeichen, also minus: −144.",
+   "c": "(4)*(-2)",
+   "w": "Beträge: 4 · 2 = 8. Verschiedene Vorzeichen, also minus: −8.",
    "h": "Erst die Beträge multiplizieren, dann das Vorzeichen bestimmen."
   },
   {
@@ -1920,13 +2918,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne (−7) · (−10)."
+    "text": "Berechne (−3) · 9."
    },
    "o": {
-    "wert": 70
+    "wert": -27
    },
-   "c": "(-7)*(-10)",
-   "w": "Beträge: 7 · 10 = 70. Gleiche Vorzeichen, also plus: 70.",
+   "c": "(-3)*(9)",
+   "w": "Beträge: 3 · 9 = 27. Verschiedene Vorzeichen, also minus: −27.",
    "h": "Erst die Beträge multiplizieren, dann das Vorzeichen bestimmen."
   },
   {
@@ -1934,48 +2932,40 @@
    "t": "ganz",
    "p": "uebung",
    "s": 2,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Berechne (−14) · (−13)."
+    "text": "Ist 7 · (−5) · (−5) · 7 positiv oder negativ? Entscheide, ohne auszurechnen."
    },
+   "a": [
+    "positiv",
+    "genau 0",
+    "negativ"
+   ],
    "o": {
-    "wert": 182
+    "index": 0
    },
-   "c": "(-14)*(-13)",
-   "w": "Beträge: 14 · 13 = 182. Gleiche Vorzeichen, also plus: 182.",
-   "h": "Erst die Beträge multiplizieren, dann das Vorzeichen bestimmen."
+   "w": "Es gibt 2 negative Faktoren. Gerade Anzahl, also positiv (Ergebnis 1 225).",
+   "h": "Zähle die negativen Faktoren."
   },
   {
    "l": "mal_ganz",
    "t": "ganz",
    "p": "uebung",
-   "s": 2,
-   "y": "zahl",
+   "s": 3,
+   "y": "auswahl",
    "f": {
-    "text": "Berechne 9 · (−13)."
+    "text": "Ist (−1) · (−6) · (−1) · (−8) positiv oder negativ? Entscheide, ohne auszurechnen."
    },
+   "a": [
+    "negativ",
+    "positiv",
+    "genau 0"
+   ],
    "o": {
-    "wert": -117
+    "index": 1
    },
-   "c": "(9)*(-13)",
-   "w": "Beträge: 9 · 13 = 117. Verschiedene Vorzeichen, also minus: −117.",
-   "h": "Erst die Beträge multiplizieren, dann das Vorzeichen bestimmen."
-  },
-  {
-   "l": "mal_ganz",
-   "t": "ganz",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne (−4) · 7."
-   },
-   "o": {
-    "wert": -28
-   },
-   "c": "(-4)*(7)",
-   "w": "Beträge: 4 · 7 = 28. Verschiedene Vorzeichen, also minus: −28.",
-   "h": "Erst die Beträge multiplizieren, dann das Vorzeichen bestimmen."
+   "w": "Es gibt 4 negative Faktoren. Gerade Anzahl, also positiv (Ergebnis 48).",
+   "h": "Zähle die negativen Faktoren."
   },
   {
    "l": "mal_ganz",
@@ -1984,13 +2974,13 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Berechne (−7) · (−7) · (−5)."
+    "text": "Berechne 2 · 6 · (−5)."
    },
    "o": {
-    "wert": -245
+    "wert": -60
    },
-   "c": "(-7)*(-7)*(-5)",
-   "w": "Beträge: 7 · 7 · 5 = 245. 3 negative Faktoren: ungerade Anzahl, also minus. Ergebnis −245.",
+   "c": "(2)*(6)*(-5)",
+   "w": "Beträge: 2 · 6 · 5 = 60. 1 negativer Faktor: ungerade Anzahl, also minus. Ergebnis −60.",
    "h": "Zähle die negativen Faktoren: gerade Anzahl ergibt plus, ungerade minus."
   },
   {
@@ -1998,16 +2988,20 @@
    "t": "ganz",
    "p": "uebung",
    "s": 3,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Berechne 28 · (−15)."
+    "text": "Ist (−2) · (−8) · (−1) · 2 positiv oder negativ? Entscheide, ohne auszurechnen."
    },
+   "a": [
+    "positiv",
+    "genau 0",
+    "negativ"
+   ],
    "o": {
-    "wert": -420
+    "index": 2
    },
-   "c": "(28)*(-15)",
-   "w": "Beträge: 28 · 15 = 420. Verschiedene Vorzeichen, also minus: −420.",
-   "h": "Erst die Beträge multiplizieren, dann das Vorzeichen bestimmen."
+   "w": "Es gibt 3 negative Faktoren. Ungerade Anzahl, also negativ (Ergebnis −32).",
+   "h": "Zähle die negativen Faktoren."
   },
   {
    "l": "mal_ganz",
@@ -2016,13 +3010,13 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Berechne (−9) · 6 · (−6)."
+    "text": "Berechne 9 · 6 · (−3)."
    },
    "o": {
-    "wert": 324
+    "wert": -162
    },
-   "c": "(-9)*(6)*(-6)",
-   "w": "Beträge: 9 · 6 · 6 = 324. 2 negative Faktoren: gerade Anzahl, also plus. Ergebnis 324.",
+   "c": "(9)*(6)*(-3)",
+   "w": "Beträge: 9 · 6 · 3 = 162. 1 negativer Faktor: ungerade Anzahl, also minus. Ergebnis −162.",
    "h": "Zähle die negativen Faktoren: gerade Anzahl ergibt plus, ungerade minus."
   },
   {
@@ -2030,32 +3024,20 @@
    "t": "ganz",
    "p": "uebung",
    "s": 3,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Berechne 9 · (−27)."
+    "text": "Ist 6 · (−9) · 6 · (−9) positiv oder negativ? Entscheide, ohne auszurechnen."
    },
+   "a": [
+    "positiv",
+    "negativ",
+    "genau 0"
+   ],
    "o": {
-    "wert": -243
+    "index": 0
    },
-   "c": "(9)*(-27)",
-   "w": "Beträge: 9 · 27 = 243. Verschiedene Vorzeichen, also minus: −243.",
-   "h": "Erst die Beträge multiplizieren, dann das Vorzeichen bestimmen."
-  },
-  {
-   "l": "mal_ganz",
-   "t": "ganz",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 24 · (−3)."
-   },
-   "o": {
-    "wert": -72
-   },
-   "c": "(24)*(-3)",
-   "w": "Beträge: 24 · 3 = 72. Verschiedene Vorzeichen, also minus: −72.",
-   "h": "Erst die Beträge multiplizieren, dann das Vorzeichen bestimmen."
+   "w": "Es gibt 2 negative Faktoren. Gerade Anzahl, also positiv (Ergebnis 2 916).",
+   "h": "Zähle die negativen Faktoren."
   },
   {
    "l": "mal_ganz",
@@ -2064,13 +3046,43 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne (−9) · (−11)."
+    "text": "Berechne (−14) · (−12)."
+   },
+   "o": {
+    "wert": 168
+   },
+   "c": "(-14)*(-12)",
+   "w": "Beträge: 14 · 12 = 168. Gleiche Vorzeichen, also plus: 168."
+  },
+  {
+   "l": "mal_ganz",
+   "t": "ganz",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−6) · 15."
+   },
+   "o": {
+    "wert": -90
+   },
+   "c": "(-6)*(15)",
+   "w": "Beträge: 6 · 15 = 90. Verschiedene Vorzeichen, also minus: −90."
+  },
+  {
+   "l": "mal_ganz",
+   "t": "ganz",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−11) · (−9)."
    },
    "o": {
     "wert": 99
    },
-   "c": "(-9)*(-11)",
-   "w": "Beträge: 9 · 11 = 99. Gleiche Vorzeichen, also plus: 99."
+   "c": "(-11)*(-9)",
+   "w": "Beträge: 11 · 9 = 99. Gleiche Vorzeichen, also plus: 99."
   },
   {
    "l": "mal_ganz",
@@ -2079,102 +3091,12 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne (−7) · (−7)."
-   },
-   "o": {
-    "wert": 49
-   },
-   "c": "(-7)*(-7)",
-   "w": "Beträge: 7 · 7 = 49. Gleiche Vorzeichen, also plus: 49."
-  },
-  {
-   "l": "mal_ganz",
-   "t": "ganz",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne (−10) · (−12)."
-   },
-   "o": {
-    "wert": 120
-   },
-   "c": "(-10)*(-12)",
-   "w": "Beträge: 10 · 12 = 120. Gleiche Vorzeichen, also plus: 120."
-  },
-  {
-   "l": "mal_ganz",
-   "t": "ganz",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne (−12) · (−15)."
-   },
-   "o": {
-    "wert": 180
-   },
-   "c": "(-12)*(-15)",
-   "w": "Beträge: 12 · 15 = 180. Gleiche Vorzeichen, also plus: 180."
-  },
-  {
-   "l": "mal_ganz",
-   "t": "ganz",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne (−4) · 2."
-   },
-   "o": {
-    "wert": -8
-   },
-   "c": "(-4)*(2)",
-   "w": "Beträge: 4 · 2 = 8. Verschiedene Vorzeichen, also minus: −8."
-  },
-  {
-   "l": "mal_ganz",
-   "t": "ganz",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne (−9) · (−12)."
-   },
-   "o": {
-    "wert": 108
-   },
-   "c": "(-9)*(-12)",
-   "w": "Beträge: 9 · 12 = 108. Gleiche Vorzeichen, also plus: 108."
-  },
-  {
-   "l": "mal_ganz",
-   "t": "ganz",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 4 · (−15)."
-   },
-   "o": {
-    "wert": -60
-   },
-   "c": "(4)*(-15)",
-   "w": "Beträge: 4 · 15 = 60. Verschiedene Vorzeichen, also minus: −60."
-  },
-  {
-   "l": "mal_ganz",
-   "t": "ganz",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne (−6) · 11."
+    "text": "Berechne 6 · (−11)."
    },
    "o": {
     "wert": -66
    },
-   "c": "(-6)*(11)",
+   "c": "(6)*(-11)",
    "w": "Beträge: 6 · 11 = 66. Verschiedene Vorzeichen, also minus: −66."
   },
   {
@@ -2184,13 +3106,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne (−11) · 15."
+    "text": "Berechne 8 · (−14)."
    },
    "o": {
-    "wert": -165
+    "wert": -112
    },
-   "c": "(-11)*(15)",
-   "w": "Beträge: 11 · 15 = 165. Verschiedene Vorzeichen, also minus: −165."
+   "c": "(8)*(-14)",
+   "w": "Beträge: 8 · 14 = 112. Verschiedene Vorzeichen, also minus: −112."
   },
   {
    "l": "mal_ganz",
@@ -2199,77 +3121,77 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne (−5) · (−6)."
+    "text": "Berechne (−15) · (−3)."
    },
    "o": {
-    "wert": 30
+    "wert": 45
    },
-   "c": "(-5)*(-6)",
-   "w": "Beträge: 5 · 6 = 30. Gleiche Vorzeichen, also plus: 30."
+   "c": "(-15)*(-3)",
+   "w": "Beträge: 15 · 3 = 45. Gleiche Vorzeichen, also plus: 45."
   },
   {
-   "l": "geteilt_ganz",
+   "l": "mal_ganz",
    "t": "ganz",
-   "p": "uebung",
-   "s": 1,
+   "p": "sicherung",
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne (−90) : 10."
-   },
-   "o": {
-    "wert": -9
-   },
-   "c": "(-90)/(10)",
-   "w": "Beträge: 90 : 10 = 9. Verschiedene Vorzeichen, also minus: −9.",
-   "h": "Erst die Beträge dividieren, dann das Vorzeichen bestimmen."
-  },
-  {
-   "l": "geteilt_ganz",
-   "t": "ganz",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne (−40) : (−4)."
-   },
-   "o": {
-    "wert": 10
-   },
-   "c": "(-40)/(-4)",
-   "w": "Beträge: 40 : 4 = 10. Gleiche Vorzeichen, also plus: 10.",
-   "h": "Erst die Beträge dividieren, dann das Vorzeichen bestimmen."
-  },
-  {
-   "l": "geteilt_ganz",
-   "t": "ganz",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne (−70) : 10."
-   },
-   "o": {
-    "wert": -7
-   },
-   "c": "(-70)/(10)",
-   "w": "Beträge: 70 : 10 = 7. Verschiedene Vorzeichen, also minus: −7.",
-   "h": "Erst die Beträge dividieren, dann das Vorzeichen bestimmen."
-  },
-  {
-   "l": "geteilt_ganz",
-   "t": "ganz",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 36 : (−4)."
+    "text": "Berechne (−3) · 3."
    },
    "o": {
     "wert": -9
    },
-   "c": "(36)/(-4)",
-   "w": "Beträge: 36 : 4 = 9. Verschiedene Vorzeichen, also minus: −9.",
-   "h": "Erst die Beträge dividieren, dann das Vorzeichen bestimmen."
+   "c": "(-3)*(3)",
+   "w": "Beträge: 3 · 3 = 9. Verschiedene Vorzeichen, also minus: −9."
+  },
+  {
+   "l": "mal_ganz",
+   "t": "ganz",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist (−3) · 4 · 8 · (−7) positiv oder negativ? Entscheide, ohne auszurechnen."
+   },
+   "a": [
+    "genau 0",
+    "positiv",
+    "negativ"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Es gibt 2 negative Faktoren. Gerade Anzahl, also positiv (Ergebnis 672)."
+  },
+  {
+   "l": "mal_ganz",
+   "t": "ganz",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−12) · (−4)."
+   },
+   "o": {
+    "wert": 48
+   },
+   "c": "(-12)*(-4)",
+   "w": "Beträge: 12 · 4 = 48. Gleiche Vorzeichen, also plus: 48."
+  },
+  {
+   "l": "mal_ganz",
+   "t": "ganz",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 4 · (−3)."
+   },
+   "o": {
+    "wert": -12
+   },
+   "c": "(4)*(-3)",
+   "w": "Beträge: 4 · 3 = 12. Verschiedene Vorzeichen, also minus: −12."
   },
   {
    "l": "geteilt_ganz",
@@ -2278,45 +3200,77 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Berechne 12 : (−3)."
+    "text": "Berechne 20 : (−5)."
    },
    "o": {
     "wert": -4
    },
-   "c": "(12)/(-3)",
-   "w": "Beträge: 12 : 3 = 4. Verschiedene Vorzeichen, also minus: −4.",
+   "c": "(20)/(-5)",
+   "w": "Beträge: 20 : 5 = 4. Verschiedene Vorzeichen, also minus: −4.",
    "h": "Erst die Beträge dividieren, dann das Vorzeichen bestimmen."
   },
   {
    "l": "geteilt_ganz",
    "t": "ganz",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Berechne (−8) : (−2)."
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "(-8)/(-2)",
-   "w": "Beträge: 8 : 2 = 4. Gleiche Vorzeichen, also plus: 4.",
-   "h": "Erst die Beträge dividieren, dann das Vorzeichen bestimmen."
-  },
-  {
-   "l": "geteilt_ganz",
-   "t": "ganz",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne (−8) : (−4)."
+    "text": "Berechne (−20) : (−10)."
    },
    "o": {
     "wert": 2
    },
-   "c": "(-8)/(-4)",
-   "w": "Beträge: 8 : 4 = 2. Gleiche Vorzeichen, also plus: 2.",
+   "c": "(-20)/(-10)",
+   "w": "Beträge: 20 : 10 = 2. Gleiche Vorzeichen, also plus: 2.",
+   "h": "Erst die Beträge dividieren, dann das Vorzeichen bestimmen."
+  },
+  {
+   "l": "geteilt_ganz",
+   "t": "ganz",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−12) : (−4)."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(-12)/(-4)",
+   "w": "Beträge: 12 : 4 = 3. Gleiche Vorzeichen, also plus: 3.",
+   "h": "Erst die Beträge dividieren, dann das Vorzeichen bestimmen."
+  },
+  {
+   "l": "geteilt_ganz",
+   "t": "ganz",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne 36 : (−9)."
+   },
+   "o": {
+    "wert": -4
+   },
+   "c": "(36)/(-9)",
+   "w": "Beträge: 36 : 9 = 4. Verschiedene Vorzeichen, also minus: −4.",
+   "h": "Erst die Beträge dividieren, dann das Vorzeichen bestimmen."
+  },
+  {
+   "l": "geteilt_ganz",
+   "t": "ganz",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−14) : 2."
+   },
+   "o": {
+    "wert": -7
+   },
+   "c": "(-14)/(2)",
+   "w": "Beträge: 14 : 2 = 7. Verschiedene Vorzeichen, also minus: −7.",
    "h": "Erst die Beträge dividieren, dann das Vorzeichen bestimmen."
   },
   {
@@ -2326,13 +3280,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne (−16) : (−2)."
+    "text": "Berechne 15 : (−5)."
    },
    "o": {
-    "wert": 8
+    "wert": -3
    },
-   "c": "(-16)/(-2)",
-   "w": "Beträge: 16 : 2 = 8. Gleiche Vorzeichen, also plus: 8.",
+   "c": "(15)/(-5)",
+   "w": "Beträge: 15 : 5 = 3. Verschiedene Vorzeichen, also minus: −3.",
    "h": "Erst die Beträge dividieren, dann das Vorzeichen bestimmen."
   },
   {
@@ -2358,13 +3312,49 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne (−30) : 6."
+    "text": "Berechne 48 : (−8)."
    },
    "o": {
-    "wert": -5
+    "wert": -6
    },
-   "c": "(-30)/(6)",
-   "w": "Beträge: 30 : 6 = 5. Verschiedene Vorzeichen, also minus: −5.",
+   "c": "(48)/(-8)",
+   "w": "Beträge: 48 : 8 = 6. Verschiedene Vorzeichen, also minus: −6.",
+   "h": "Erst die Beträge dividieren, dann das Vorzeichen bestimmen."
+  },
+  {
+   "l": "geteilt_ganz",
+   "t": "ganz",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Was ergibt (−6) : 0?"
+   },
+   "a": [
+    "−6",
+    "0",
+    "geht nicht, durch 0 darf man nicht teilen"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Es gibt keine Zahl, die mal 0 wieder −6 ergibt. Durch 0 darf man nicht teilen.",
+   "h": "Mach die Probe mit der Umkehraufgabe (Malnehmen)."
+  },
+  {
+   "l": "geteilt_ganz",
+   "t": "ganz",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−120) : 10."
+   },
+   "o": {
+    "wert": -12
+   },
+   "c": "(-120)/(10)",
+   "w": "Beträge: 120 : 10 = 12. Verschiedene Vorzeichen, also minus: −12.",
    "h": "Erst die Beträge dividieren, dann das Vorzeichen bestimmen."
   },
   {
@@ -2374,14 +3364,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Berechne (−30) : (−3) : 2."
+    "text": "Berechne 3 · (−3) : 9."
    },
    "o": {
-    "wert": 5
+    "wert": -1
    },
-   "c": "(-30)/(-3)/(2)",
-   "w": "Von links nach rechts: (−30) : (−3) = 10. Dann 10 : 2 = 5.",
-   "h": "Rechne von links nach rechts und bestimme bei jedem Schritt das Vorzeichen."
+   "c": "(3)*(-3)/(9)",
+   "w": "Von links nach rechts: 3 · (−3) = −9. Dann (−9) : 9 = −1.",
+   "h": "Mal und Geteilt sind gleichrangig: von links nach rechts."
   },
   {
    "l": "geteilt_ganz",
@@ -2406,14 +3396,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Berechne (−189) : 9."
+    "text": "Berechne 12 : 2 : (−2)."
    },
    "o": {
-    "wert": -21
+    "wert": -3
    },
-   "c": "(-189)/(9)",
-   "w": "Beträge: 189 : 9 = 21. Verschiedene Vorzeichen, also minus: −21.",
-   "h": "Erst die Beträge dividieren, dann das Vorzeichen bestimmen."
+   "c": "(12)/(2)/(-2)",
+   "w": "Von links nach rechts: 12 : 2 = 6. Dann 6 : (−2) = −3.",
+   "h": "Rechne von links nach rechts und bestimme bei jedem Schritt das Vorzeichen."
   },
   {
    "l": "geteilt_ganz",
@@ -2422,14 +3412,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Berechne (−14) : 2."
+    "text": "Berechne 24 : 3 : (−2)."
    },
    "o": {
-    "wert": -7
+    "wert": -4
    },
-   "c": "(-14)/(2)",
-   "w": "Beträge: 14 : 2 = 7. Verschiedene Vorzeichen, also minus: −7.",
-   "h": "Erst die Beträge dividieren, dann das Vorzeichen bestimmen."
+   "c": "(24)/(3)/(-2)",
+   "w": "Von links nach rechts: 24 : 3 = 8. Dann 8 : (−2) = −4.",
+   "h": "Rechne von links nach rechts und bestimme bei jedem Schritt das Vorzeichen."
   },
   {
    "l": "geteilt_ganz",
@@ -2438,13 +3428,13 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Berechne 630 : 7 : (−6)."
+    "text": "Berechne (−240) : (−8) : (−6)."
    },
    "o": {
-    "wert": -15
+    "wert": -5
    },
-   "c": "(630)/(7)/(-6)",
-   "w": "Von links nach rechts: 630 : 7 = 90. Dann 90 : (−6) = −15.",
+   "c": "(-240)/(-8)/(-6)",
+   "w": "Von links nach rechts: (−240) : (−8) = 30. Dann 30 : (−6) = −5.",
    "h": "Rechne von links nach rechts und bestimme bei jedem Schritt das Vorzeichen."
   },
   {
@@ -2452,15 +3442,19 @@
    "t": "ganz",
    "p": "test",
    "s": 2,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Berechne (−20) : (−10)."
+    "text": "Was ergibt 0 : 2?"
    },
+   "a": [
+    "0",
+    "2",
+    "geht nicht"
+   ],
    "o": {
-    "wert": 2
+    "index": 0
    },
-   "c": "(-20)/(-10)",
-   "w": "Beträge: 20 : 10 = 2. Gleiche Vorzeichen, also plus: 2."
+   "w": "0 geteilt durch eine Zahl ist immer 0. Probe: 0 · 2 = 0 ✓"
   },
   {
    "l": "geteilt_ganz",
@@ -2469,43 +3463,130 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne 20 : (−10)."
+    "text": "Berechne 70 : (−10)."
+   },
+   "o": {
+    "wert": -7
+   },
+   "c": "(70)/(-10)",
+   "w": "Beträge: 70 : 10 = 7. Verschiedene Vorzeichen, also minus: −7."
+  },
+  {
+   "l": "geteilt_ganz",
+   "t": "ganz",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−132) : 12."
+   },
+   "o": {
+    "wert": -11
+   },
+   "c": "(-132)/(12)",
+   "w": "Beträge: 132 : 12 = 11. Verschiedene Vorzeichen, also minus: −11."
+  },
+  {
+   "l": "geteilt_ganz",
+   "t": "ganz",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Was ergibt 0 : 16?"
+   },
+   "a": [
+    "16",
+    "0",
+    "geht nicht"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "0 geteilt durch eine Zahl ist immer 0. Probe: 0 · 16 = 0 ✓"
+  },
+  {
+   "l": "geteilt_ganz",
+   "t": "ganz",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Was ergibt 0 : 12?"
+   },
+   "a": [
+    "12",
+    "geht nicht",
+    "0"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "0 geteilt durch eine Zahl ist immer 0. Probe: 0 · 12 = 0 ✓"
+  },
+  {
+   "l": "geteilt_ganz",
+   "t": "ganz",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Was ergibt (−3) : 0?"
+   },
+   "a": [
+    "geht nicht, durch 0 darf man nicht teilen",
+    "−3",
+    "0"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Es gibt keine Zahl, die mal 0 wieder −3 ergibt. Durch 0 darf man nicht teilen."
+  },
+  {
+   "l": "geteilt_ganz",
+   "t": "ganz",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−10) : (−2)."
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(-10)/(-2)",
+   "w": "Beträge: 10 : 2 = 5. Gleiche Vorzeichen, also plus: 5."
+  },
+  {
+   "l": "geteilt_ganz",
+   "t": "ganz",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−21) : 3."
+   },
+   "o": {
+    "wert": -7
+   },
+   "c": "(-21)/(3)",
+   "w": "Beträge: 21 : 3 = 7. Verschiedene Vorzeichen, also minus: −7."
+  },
+  {
+   "l": "geteilt_ganz",
+   "t": "ganz",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne (−22) : 11."
    },
    "o": {
     "wert": -2
    },
-   "c": "(20)/(-10)",
-   "w": "Beträge: 20 : 10 = 2. Verschiedene Vorzeichen, also minus: −2."
-  },
-  {
-   "l": "geteilt_ganz",
-   "t": "ganz",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 96 : (−12)."
-   },
-   "o": {
-    "wert": -8
-   },
-   "c": "(96)/(-12)",
-   "w": "Beträge: 96 : 12 = 8. Verschiedene Vorzeichen, also minus: −8."
-  },
-  {
-   "l": "geteilt_ganz",
-   "t": "ganz",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne (−18) : (−2)."
-   },
-   "o": {
-    "wert": 9
-   },
-   "c": "(-18)/(-2)",
-   "w": "Beträge: 18 : 2 = 9. Gleiche Vorzeichen, also plus: 9."
+   "c": "(-22)/(11)",
+   "w": "Beträge: 22 : 11 = 2. Verschiedene Vorzeichen, also minus: −2."
   },
   {
    "l": "geteilt_ganz",
@@ -2514,88 +3595,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Berechne (−10) : 2."
+    "text": "Berechne 8 : (−4)."
    },
    "o": {
-    "wert": -5
+    "wert": -2
    },
-   "c": "(-10)/(2)",
-   "w": "Beträge: 10 : 2 = 5. Verschiedene Vorzeichen, also minus: −5."
-  },
-  {
-   "l": "geteilt_ganz",
-   "t": "ganz",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 48 : (−12)."
-   },
-   "o": {
-    "wert": -4
-   },
-   "c": "(48)/(-12)",
-   "w": "Beträge: 48 : 12 = 4. Verschiedene Vorzeichen, also minus: −4."
-  },
-  {
-   "l": "geteilt_ganz",
-   "t": "ganz",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne (−100) : (−10)."
-   },
-   "o": {
-    "wert": 10
-   },
-   "c": "(-100)/(-10)",
-   "w": "Beträge: 100 : 10 = 10. Gleiche Vorzeichen, also plus: 10."
-  },
-  {
-   "l": "geteilt_ganz",
-   "t": "ganz",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne (−108) : (−9)."
-   },
-   "o": {
-    "wert": 12
-   },
-   "c": "(-108)/(-9)",
-   "w": "Beträge: 108 : 9 = 12. Gleiche Vorzeichen, also plus: 12."
-  },
-  {
-   "l": "geteilt_ganz",
-   "t": "ganz",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne (−12) : (−4)."
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "(-12)/(-4)",
-   "w": "Beträge: 12 : 4 = 3. Gleiche Vorzeichen, also plus: 3."
-  },
-  {
-   "l": "geteilt_ganz",
-   "t": "ganz",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne 20 : (−2)."
-   },
-   "o": {
-    "wert": -10
-   },
-   "c": "(20)/(-2)",
-   "w": "Beträge: 20 : 2 = 10. Verschiedene Vorzeichen, also minus: −10."
+   "c": "(8)/(-4)",
+   "w": "Beträge: 8 : 4 = 2. Verschiedene Vorzeichen, also minus: −2."
   },
   {
    "l": "ueberschlag",
@@ -2604,13 +3610,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Überschlage 258 + 382. Runde dazu beide Zahlen auf Hunderter und addiere."
+    "text": "Überschlage 585 + 823. Runde dazu beide Zahlen auf Hunderter und addiere."
    },
    "o": {
-    "wert": 700
+    "wert": 1400
    },
-   "c": "300+400",
-   "w": "258 ≈ 300 und 382 ≈ 400. Überschlag: 300 + 400 = 700. (Genau: 640)",
+   "c": "600+800",
+   "w": "585 ≈ 600 und 823 ≈ 800. Überschlag: 600 + 800 = 1 400. (Genau: 1 408)",
    "h": "Runde jede Zahl auf Hunderter: Schau auf die Zehnerziffer."
   },
   {
@@ -2620,13 +3626,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Überschlage 586 + 400. Runde dazu beide Zahlen auf Hunderter und addiere."
+    "text": "Überschlage 573 + 732. Runde dazu beide Zahlen auf Hunderter und addiere."
    },
    "o": {
-    "wert": 1000
+    "wert": 1300
    },
-   "c": "600+400",
-   "w": "586 ≈ 600 und 400 ≈ 400. Überschlag: 600 + 400 = 1 000. (Genau: 986)",
+   "c": "600+700",
+   "w": "573 ≈ 600 und 732 ≈ 700. Überschlag: 600 + 700 = 1 300. (Genau: 1 305)",
    "h": "Runde jede Zahl auf Hunderter: Schau auf die Zehnerziffer."
   },
   {
@@ -2636,13 +3642,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Überschlage 213 + 318. Runde dazu beide Zahlen auf Hunderter und addiere."
+    "text": "Überschlage 237 + 267. Runde dazu beide Zahlen auf Hunderter und addiere."
    },
    "o": {
     "wert": 500
    },
    "c": "200+300",
-   "w": "213 ≈ 200 und 318 ≈ 300. Überschlag: 200 + 300 = 500. (Genau: 531)",
+   "w": "237 ≈ 200 und 267 ≈ 300. Überschlag: 200 + 300 = 500. (Genau: 504)",
    "h": "Runde jede Zahl auf Hunderter: Schau auf die Zehnerziffer."
   },
   {
@@ -2652,13 +3658,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Überschlage 742 + 959. Runde dazu beide Zahlen auf Hunderter und addiere."
+    "text": "Überschlage 734 + 864. Runde dazu beide Zahlen auf Hunderter und addiere."
    },
    "o": {
-    "wert": 1700
+    "wert": 1600
    },
-   "c": "700+1000",
-   "w": "742 ≈ 700 und 959 ≈ 1 000. Überschlag: 700 + 1 000 = 1 700. (Genau: 1 701)",
+   "c": "700+900",
+   "w": "734 ≈ 700 und 864 ≈ 900. Überschlag: 700 + 900 = 1 600. (Genau: 1 598)",
    "h": "Runde jede Zahl auf Hunderter: Schau auf die Zehnerziffer."
   },
   {
@@ -2668,13 +3674,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Überschlage 139 + 416. Runde dazu beide Zahlen auf Hunderter und addiere."
+    "text": "Überschlage 234 + 383. Runde dazu beide Zahlen auf Hunderter und addiere."
    },
    "o": {
-    "wert": 500
+    "wert": 600
    },
-   "c": "100+400",
-   "w": "139 ≈ 100 und 416 ≈ 400. Überschlag: 100 + 400 = 500. (Genau: 555)",
+   "c": "200+400",
+   "w": "234 ≈ 200 und 383 ≈ 400. Überschlag: 200 + 400 = 600. (Genau: 617)",
    "h": "Runde jede Zahl auf Hunderter: Schau auf die Zehnerziffer."
   },
   {
@@ -2684,13 +3690,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Überschlage 478 · 74. Runde dazu den ersten Faktor auf Hunderter, den zweiten auf Zehner und multipliziere."
+    "text": "Überschlage 503 · 21. Runde dazu den ersten Faktor auf Hunderter, den zweiten auf Zehner und multipliziere."
    },
    "o": {
-    "wert": 35000
+    "wert": 10000
    },
-   "c": "500*70",
-   "w": "478 ≈ 500 und 74 ≈ 70. Überschlag: 500 · 70 = 35 000. (Genau: 35 372)",
+   "c": "500*20",
+   "w": "503 ≈ 500 und 21 ≈ 20. Überschlag: 500 · 20 = 10 000. (Genau: 10 563)",
    "h": "Runde beide Faktoren, dann rechne im Kopf: erst die Ziffern, dann die Nullen anhängen."
   },
   {
@@ -2700,317 +3706,314 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Überschlage 459 · 51. Runde dazu den ersten Faktor auf Hunderter, den zweiten auf Zehner und multipliziere."
-   },
-   "o": {
-    "wert": 25000
-   },
-   "c": "500*50",
-   "w": "459 ≈ 500 und 51 ≈ 50. Überschlag: 500 · 50 = 25 000. (Genau: 23 409)",
-   "h": "Runde beide Faktoren, dann rechne im Kopf: erst die Ziffern, dann die Nullen anhängen."
-  },
-  {
-   "l": "ueberschlag",
-   "t": "verfahren",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Überschlage 160 · 67. Runde dazu den ersten Faktor auf Hunderter, den zweiten auf Zehner und multipliziere."
-   },
-   "o": {
-    "wert": 14000
-   },
-   "c": "200*70",
-   "w": "160 ≈ 200 und 67 ≈ 70. Überschlag: 200 · 70 = 14 000. (Genau: 10 720)",
-   "h": "Runde beide Faktoren, dann rechne im Kopf: erst die Ziffern, dann die Nullen anhängen."
-  },
-  {
-   "l": "ueberschlag",
-   "t": "verfahren",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Überschlage 504 · 78. Runde dazu den ersten Faktor auf Hunderter, den zweiten auf Zehner und multipliziere."
-   },
-   "o": {
-    "wert": 40000
-   },
-   "c": "500*80",
-   "w": "504 ≈ 500 und 78 ≈ 80. Überschlag: 500 · 80 = 40 000. (Genau: 39 312)",
-   "h": "Runde beide Faktoren, dann rechne im Kopf: erst die Ziffern, dann die Nullen anhängen."
-  },
-  {
-   "l": "ueberschlag",
-   "t": "verfahren",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Überschlage 182 · 20. Runde dazu den ersten Faktor auf Hunderter, den zweiten auf Zehner und multipliziere."
-   },
-   "o": {
-    "wert": 4000
-   },
-   "c": "200*20",
-   "w": "182 ≈ 200 und 20 ≈ 20. Überschlag: 200 · 20 = 4 000. (Genau: 3 640)",
-   "h": "Runde beide Faktoren, dann rechne im Kopf: erst die Ziffern, dann die Nullen anhängen."
-  },
-  {
-   "l": "ueberschlag",
-   "t": "verfahren",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Nur ein Ergebnis kann stimmen. Entscheide mit einem Überschlag: 906 · 58 = ?"
-   },
-   "a": [
-    "52 548",
-    "525 540",
-    "108 906",
-    "5 255"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Überschlag: 900 · 60 = 54 000. Nur 52 548 liegt in dieser Größenordnung.",
-   "h": "Runde beide Faktoren und rechne im Kopf. Welches Ergebnis liegt in der Nähe?"
-  },
-  {
-   "l": "ueberschlag",
-   "t": "verfahren",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Nur ein Ergebnis kann stimmen. Entscheide mit einem Überschlag: 511 · 40 = ?"
-   },
-   "a": [
-    "204 410",
-    "40 511",
-    "20 440",
-    "2 048"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Überschlag: 500 · 40 = 20 000. Nur 20 440 liegt in dieser Größenordnung.",
-   "h": "Runde beide Faktoren und rechne im Kopf. Welches Ergebnis liegt in der Nähe?"
-  },
-  {
-   "l": "ueberschlag",
-   "t": "verfahren",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Nur ein Ergebnis kann stimmen. Entscheide mit einem Überschlag: 685 · 22 = ?"
-   },
-   "a": [
-    "150 770",
-    "15 070",
-    "28 685",
-    "1 512"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Überschlag: 700 · 20 = 14 000. Nur 15 070 liegt in dieser Größenordnung.",
-   "h": "Runde beide Faktoren und rechne im Kopf. Welches Ergebnis liegt in der Nähe?"
-  },
-  {
-   "l": "ueberschlag",
-   "t": "verfahren",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Nur ein Ergebnis kann stimmen. Entscheide mit einem Überschlag: 483 · 70 = ?"
-   },
-   "a": [
-    "3 388",
-    "338 140",
-    "70 483",
-    "33 810"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Überschlag: 500 · 70 = 35 000. Nur 33 810 liegt in dieser Größenordnung.",
-   "h": "Runde beide Faktoren und rechne im Kopf. Welches Ergebnis liegt in der Nähe?"
-  },
-  {
-   "l": "ueberschlag",
-   "t": "verfahren",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Nur ein Ergebnis kann stimmen. Entscheide mit einem Überschlag: 881 · 37 = ?"
-   },
-   "a": [
-    "32 597",
-    "3 260",
-    "325 980",
-    "72 881"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Überschlag: 900 · 40 = 36 000. Nur 32 597 liegt in dieser Größenordnung.",
-   "h": "Runde beide Faktoren und rechne im Kopf. Welches Ergebnis liegt in der Nähe?"
-  },
-  {
-   "l": "ueberschlag",
-   "t": "verfahren",
-   "p": "test",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Überschlage 818 · 60. Runde dazu den ersten Faktor auf Hunderter, den zweiten auf Zehner und multipliziere."
-   },
-   "o": {
-    "wert": 48000
-   },
-   "c": "800*60",
-   "w": "818 ≈ 800 und 60 ≈ 60. Überschlag: 800 · 60 = 48 000. (Genau: 49 080)"
-  },
-  {
-   "l": "ueberschlag",
-   "t": "verfahren",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Überschlage 531 · 14. Runde dazu den ersten Faktor auf Hunderter, den zweiten auf Zehner und multipliziere."
-   },
-   "o": {
-    "wert": 5000
-   },
-   "c": "500*10",
-   "w": "531 ≈ 500 und 14 ≈ 10. Überschlag: 500 · 10 = 5 000. (Genau: 7 434)"
-  },
-  {
-   "l": "ueberschlag",
-   "t": "verfahren",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Überschlage 916 · 48. Runde dazu den ersten Faktor auf Hunderter, den zweiten auf Zehner und multipliziere."
-   },
-   "o": {
-    "wert": 45000
-   },
-   "c": "900*50",
-   "w": "916 ≈ 900 und 48 ≈ 50. Überschlag: 900 · 50 = 45 000. (Genau: 43 968)"
-  },
-  {
-   "l": "ueberschlag",
-   "t": "verfahren",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Überschlage 895 · 83. Runde dazu den ersten Faktor auf Hunderter, den zweiten auf Zehner und multipliziere."
-   },
-   "o": {
-    "wert": 72000
-   },
-   "c": "900*80",
-   "w": "895 ≈ 900 und 83 ≈ 80. Überschlag: 900 · 80 = 72 000. (Genau: 74 285)"
-  },
-  {
-   "l": "ueberschlag",
-   "t": "verfahren",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Überschlage 297 · 23. Runde dazu den ersten Faktor auf Hunderter, den zweiten auf Zehner und multipliziere."
-   },
-   "o": {
-    "wert": 6000
-   },
-   "c": "300*20",
-   "w": "297 ≈ 300 und 23 ≈ 20. Überschlag: 300 · 20 = 6 000. (Genau: 6 831)"
-  },
-  {
-   "l": "ueberschlag",
-   "t": "verfahren",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Überschlage 623 · 78. Runde dazu den ersten Faktor auf Hunderter, den zweiten auf Zehner und multipliziere."
+    "text": "Überschlage 572 · 78. Runde dazu den ersten Faktor auf Hunderter, den zweiten auf Zehner und multipliziere."
    },
    "o": {
     "wert": 48000
    },
    "c": "600*80",
-   "w": "623 ≈ 600 und 78 ≈ 80. Überschlag: 600 · 80 = 48 000. (Genau: 48 594)"
+   "w": "572 ≈ 600 und 78 ≈ 80. Überschlag: 600 · 80 = 48 000. (Genau: 44 616)",
+   "h": "Runde beide Faktoren, dann rechne im Kopf: erst die Ziffern, dann die Nullen anhängen."
   },
   {
    "l": "ueberschlag",
    "t": "verfahren",
-   "p": "sicherung",
+   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Überschlage 327 · 70. Runde dazu den ersten Faktor auf Hunderter, den zweiten auf Zehner und multipliziere."
+    "text": "Überschlage 711 · 74. Runde dazu den ersten Faktor auf Hunderter, den zweiten auf Zehner und multipliziere."
    },
    "o": {
-    "wert": 21000
+    "wert": 49000
    },
-   "c": "300*70",
-   "w": "327 ≈ 300 und 70 ≈ 70. Überschlag: 300 · 70 = 21 000. (Genau: 22 890)"
+   "c": "700*70",
+   "w": "711 ≈ 700 und 74 ≈ 70. Überschlag: 700 · 70 = 49 000. (Genau: 52 614)",
+   "h": "Runde beide Faktoren, dann rechne im Kopf: erst die Ziffern, dann die Nullen anhängen."
   },
   {
    "l": "ueberschlag",
    "t": "verfahren",
-   "p": "sicherung",
+   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Überschlage 816 · 80. Runde dazu den ersten Faktor auf Hunderter, den zweiten auf Zehner und multipliziere."
-   },
-   "o": {
-    "wert": 64000
-   },
-   "c": "800*80",
-   "w": "816 ≈ 800 und 80 ≈ 80. Überschlag: 800 · 80 = 64 000. (Genau: 65 280)"
-  },
-  {
-   "l": "ueberschlag",
-   "t": "verfahren",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Überschlage 199 · 12. Runde dazu den ersten Faktor auf Hunderter, den zweiten auf Zehner und multipliziere."
-   },
-   "o": {
-    "wert": 2000
-   },
-   "c": "200*10",
-   "w": "199 ≈ 200 und 12 ≈ 10. Überschlag: 200 · 10 = 2 000. (Genau: 2 388)"
-  },
-  {
-   "l": "ueberschlag",
-   "t": "verfahren",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Überschlage 408 · 23. Runde dazu den ersten Faktor auf Hunderter, den zweiten auf Zehner und multipliziere."
+    "text": "Überschlage 389 · 18. Runde dazu den ersten Faktor auf Hunderter, den zweiten auf Zehner und multipliziere."
    },
    "o": {
     "wert": 8000
    },
    "c": "400*20",
-   "w": "408 ≈ 400 und 23 ≈ 20. Überschlag: 400 · 20 = 8 000. (Genau: 9 384)"
+   "w": "389 ≈ 400 und 18 ≈ 20. Überschlag: 400 · 20 = 8 000. (Genau: 7 002)",
+   "h": "Runde beide Faktoren, dann rechne im Kopf: erst die Ziffern, dann die Nullen anhängen."
+  },
+  {
+   "l": "ueberschlag",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "33 Kinder fahren ins Schullandheim, jedes zahlt 184 €. Überschlage die Gesamtkosten: Runde 33 auf Zehner und 184 auf Hunderter."
+   },
+   "o": {
+    "wert": 6000,
+    "einheit": "€"
+   },
+   "c": "30*200",
+   "w": "33 ≈ 30 und 184 ≈ 200. Überschlag: 30 · 200 = 6 000 €. (Genau: 6 072 €)",
+   "h": "Runde zuerst beide Zahlen. Dann rechne im Kopf."
+  },
+  {
+   "l": "ueberschlag",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Im Lager stehen 42 Kisten mit je 34 Flaschen. Überschlage die Zahl der Flaschen: Runde beide Zahlen auf Zehner."
+   },
+   "o": {
+    "wert": 1200
+   },
+   "c": "40*30",
+   "w": "42 ≈ 40 und 34 ≈ 30. Überschlag: 40 · 30 = 1 200. (Genau: 1 428)",
+   "h": "Runde zuerst beide Zahlen auf Zehner. Dann rechne im Kopf."
+  },
+  {
+   "l": "ueberschlag",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Nur ein Ergebnis kann stimmen. Entscheide mit einem Überschlag: 818 · 73 = ?"
+   },
+   "a": [
+    "597 180",
+    "5 972",
+    "59 714",
+    "112 818"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Überschlag: 800 · 70 = 56 000. Nur 59 714 liegt in dieser Größenordnung.",
+   "h": "Runde beide Faktoren und rechne im Kopf. Welches Ergebnis liegt in der Nähe?"
+  },
+  {
+   "l": "ueberschlag",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Nur ein Ergebnis kann stimmen. Entscheide mit einem Überschlag: 940 · 59 = ?"
+   },
+   "a": [
+    "55 460",
+    "5 550",
+    "554 640",
+    "108 940"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Überschlag: 900 · 60 = 54 000. Nur 55 460 liegt in dieser Größenordnung.",
+   "h": "Runde beide Faktoren und rechne im Kopf. Welches Ergebnis liegt in der Nähe?"
+  },
+  {
+   "l": "ueberschlag",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Nur ein Ergebnis kann stimmen. Entscheide mit einem Überschlag: 435 · 53 = ?"
+   },
+   "a": [
+    "40 435",
+    "23 055",
+    "230 630",
+    "2 306"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Überschlag: 400 · 50 = 20 000. Nur 23 055 liegt in dieser Größenordnung.",
+   "h": "Runde beide Faktoren und rechne im Kopf. Welches Ergebnis liegt in der Nähe?"
+  },
+  {
+   "l": "ueberschlag",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Nur ein Ergebnis kann stimmen. Entscheide mit einem Überschlag: 367 · 77 = ?"
+   },
+   "a": [
+    "64 367",
+    "2 833",
+    "28 259",
+    "282 620"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Überschlag: 400 · 80 = 32 000. Nur 28 259 liegt in dieser Größenordnung.",
+   "h": "Runde beide Faktoren und rechne im Kopf. Welches Ergebnis liegt in der Nähe?"
+  },
+  {
+   "l": "ueberschlag",
+   "t": "verfahren",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Überschlage 816 · 14. Runde dazu den ersten Faktor auf Hunderter, den zweiten auf Zehner und multipliziere."
+   },
+   "o": {
+    "wert": 8000
+   },
+   "c": "800*10",
+   "w": "816 ≈ 800 und 14 ≈ 10. Überschlag: 800 · 10 = 8 000. (Genau: 11 424)"
+  },
+  {
+   "l": "ueberschlag",
+   "t": "verfahren",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Überschlage 867 · 86. Runde dazu den ersten Faktor auf Hunderter, den zweiten auf Zehner und multipliziere."
+   },
+   "o": {
+    "wert": 81000
+   },
+   "c": "900*90",
+   "w": "867 ≈ 900 und 86 ≈ 90. Überschlag: 900 · 90 = 81 000. (Genau: 74 562)"
+  },
+  {
+   "l": "ueberschlag",
+   "t": "verfahren",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Lager stehen 24 Kisten mit je 33 Flaschen. Überschlage die Zahl der Flaschen: Runde beide Zahlen auf Zehner."
+   },
+   "o": {
+    "wert": 600
+   },
+   "c": "20*30",
+   "w": "24 ≈ 20 und 33 ≈ 30. Überschlag: 20 · 30 = 600. (Genau: 792)"
+  },
+  {
+   "l": "ueberschlag",
+   "t": "verfahren",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Überschlage 195 · 72. Runde dazu den ersten Faktor auf Hunderter, den zweiten auf Zehner und multipliziere."
+   },
+   "o": {
+    "wert": 14000
+   },
+   "c": "200*70",
+   "w": "195 ≈ 200 und 72 ≈ 70. Überschlag: 200 · 70 = 14 000. (Genau: 14 040)"
+  },
+  {
+   "l": "ueberschlag",
+   "t": "verfahren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Überschlage 259 · 60. Runde dazu den ersten Faktor auf Hunderter, den zweiten auf Zehner und multipliziere."
+   },
+   "o": {
+    "wert": 18000
+   },
+   "c": "300*60",
+   "w": "259 ≈ 300 und 60 ≈ 60. Überschlag: 300 · 60 = 18 000. (Genau: 15 540)"
+  },
+  {
+   "l": "ueberschlag",
+   "t": "verfahren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Im Lager stehen 33 Kisten mit je 31 Flaschen. Überschlage die Zahl der Flaschen: Runde beide Zahlen auf Zehner."
+   },
+   "o": {
+    "wert": 900
+   },
+   "c": "30*30",
+   "w": "33 ≈ 30 und 31 ≈ 30. Überschlag: 30 · 30 = 900. (Genau: 1 023)"
+  },
+  {
+   "l": "ueberschlag",
+   "t": "verfahren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Überschlage 230 · 63. Runde dazu den ersten Faktor auf Hunderter, den zweiten auf Zehner und multipliziere."
+   },
+   "o": {
+    "wert": 12000
+   },
+   "c": "200*60",
+   "w": "230 ≈ 200 und 63 ≈ 60. Überschlag: 200 · 60 = 12 000. (Genau: 14 490)"
+  },
+  {
+   "l": "ueberschlag",
+   "t": "verfahren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "24 Kinder fahren ins Schullandheim, jedes zahlt 190 €. Überschlage die Gesamtkosten: Runde 24 auf Zehner und 190 auf Hunderter."
+   },
+   "o": {
+    "wert": 4000,
+    "einheit": "€"
+   },
+   "c": "20*200",
+   "w": "24 ≈ 20 und 190 ≈ 200. Überschlag: 20 · 200 = 4 000 €. (Genau: 4 560 €)"
+  },
+  {
+   "l": "ueberschlag",
+   "t": "verfahren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Überschlage 168 · 17. Runde dazu den ersten Faktor auf Hunderter, den zweiten auf Zehner und multipliziere."
+   },
+   "o": {
+    "wert": 4000
+   },
+   "c": "200*20",
+   "w": "168 ≈ 200 und 17 ≈ 20. Überschlag: 200 · 20 = 4 000. (Genau: 2 856)"
+  },
+  {
+   "l": "ueberschlag",
+   "t": "verfahren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Überschlage 522 · 79. Runde dazu den ersten Faktor auf Hunderter, den zweiten auf Zehner und multipliziere."
+   },
+   "o": {
+    "wert": 40000
+   },
+   "c": "500*80",
+   "w": "522 ≈ 500 und 79 ≈ 80. Überschlag: 500 · 80 = 40 000. (Genau: 41 238)"
   },
   {
    "l": "schriftlich",
@@ -3019,29 +4022,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Rechne schriftlich: 5 010 : 6"
+    "text": "Rechne schriftlich: 816 · 7"
    },
    "o": {
-    "wert": 835
+    "wert": 5712
    },
-   "c": "5010/6",
-   "w": "Probe durch Malnehmen: 835 · 6 = 5 010. Also 5 010 : 6 = 835.",
-   "h": "Teile von links Ziffer für Ziffer. Prüfe am Ende mit der Umkehrrechnung."
-  },
-  {
-   "l": "schriftlich",
-   "t": "verfahren",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Rechne schriftlich: 269 · 8"
-   },
-   "o": {
-    "wert": 2152
-   },
-   "c": "269*8",
-   "w": "Stellenweise: 200 · 8 = 1600, 60 · 8 = 480, 9 · 8 = 72. Summe: 2 152.",
+   "c": "816*7",
+   "w": "Stellenweise: 800 · 7 = 5 600, 10 · 7 = 70, 6 · 7 = 42. Summe: 5 712.",
    "h": "Multipliziere Einer, Zehner und Hunderter einzeln mit dem Faktor und denke an die Überträge."
   },
   {
@@ -3051,29 +4038,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Rechne schriftlich: 5 928 : 8"
+    "text": "Rechne schriftlich: 747 · 6"
    },
    "o": {
-    "wert": 741
+    "wert": 4482
    },
-   "c": "5928/8",
-   "w": "Probe durch Malnehmen: 741 · 8 = 5 928. Also 5 928 : 8 = 741.",
-   "h": "Teile von links Ziffer für Ziffer. Prüfe am Ende mit der Umkehrrechnung."
-  },
-  {
-   "l": "schriftlich",
-   "t": "verfahren",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Rechne schriftlich: 436 · 7"
-   },
-   "o": {
-    "wert": 3052
-   },
-   "c": "436*7",
-   "w": "Stellenweise: 400 · 7 = 2800, 30 · 7 = 210, 6 · 7 = 42. Summe: 3 052.",
+   "c": "747*6",
+   "w": "Stellenweise: 700 · 6 = 4 200, 40 · 6 = 240, 7 · 6 = 42. Summe: 4 482.",
    "h": "Multipliziere Einer, Zehner und Hunderter einzeln mit dem Faktor und denke an die Überträge."
   },
   {
@@ -3083,13 +4054,45 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Rechne schriftlich: 6 006 : 7"
+    "text": "Rechne schriftlich: 413 · 5"
    },
    "o": {
-    "wert": 858
+    "wert": 2065
    },
-   "c": "6006/7",
-   "w": "Probe durch Malnehmen: 858 · 7 = 6 006. Also 6 006 : 7 = 858.",
+   "c": "413*5",
+   "w": "Stellenweise: 400 · 5 = 2 000, 10 · 5 = 50, 3 · 5 = 15. Summe: 2 065.",
+   "h": "Multipliziere Einer, Zehner und Hunderter einzeln mit dem Faktor und denke an die Überträge."
+  },
+  {
+   "l": "schriftlich",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne schriftlich: 883 · 3"
+   },
+   "o": {
+    "wert": 2649
+   },
+   "c": "883*3",
+   "w": "Stellenweise: 800 · 3 = 2 400, 80 · 3 = 240, 3 · 3 = 9. Summe: 2 649.",
+   "h": "Multipliziere Einer, Zehner und Hunderter einzeln mit dem Faktor und denke an die Überträge."
+  },
+  {
+   "l": "schriftlich",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne schriftlich: 2 496 : 8"
+   },
+   "o": {
+    "wert": 312
+   },
+   "c": "2496/8",
+   "w": "24 : 8 = 3. 9 herunterholen: 9 : 8 = 1 Rest 1. 6 herunterholen: 16 : 8 = 2. Ergebnis 312. Probe: 312 · 8 = 2 496.",
    "h": "Teile von links Ziffer für Ziffer. Prüfe am Ende mit der Umkehrrechnung."
   },
   {
@@ -3099,13 +4102,45 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Rechne schriftlich: 498 · 76"
+    "text": "Rechne schriftlich: 552 : 24"
    },
    "o": {
-    "wert": 37848
+    "wert": 23
    },
-   "c": "498*76",
-   "w": "Teilprodukte: 498 · 70 = 34 860 und 498 · 6 = 2 988. Summe: 37 848. Überschlag: 500 · 80 = 40 000.",
+   "c": "552/24",
+   "w": "55 : 24 = 2 Rest 7. 2 herunterholen: 72 : 24 = 3. Ergebnis 23. Probe: 23 · 24 = 552.",
+   "h": "Schreibe dir zuerst die 24er-Reihe bis 24 · 9 auf."
+  },
+  {
+   "l": "schriftlich",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne schriftlich: 1 850 : 25"
+   },
+   "o": {
+    "wert": 74
+   },
+   "c": "1850/25",
+   "w": "185 : 25 = 7 Rest 10. 0 herunterholen: 100 : 25 = 4. Ergebnis 74. Probe: 74 · 25 = 1 850.",
+   "h": "Schreibe dir zuerst die 25er-Reihe bis 25 · 9 auf."
+  },
+  {
+   "l": "schriftlich",
+   "t": "verfahren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne schriftlich: 962 · 26"
+   },
+   "o": {
+    "wert": 25012
+   },
+   "c": "962*26",
+   "w": "Teilprodukte: 962 · 20 = 19 240; 962 · 6 = 5 772. Summe: 25 012. Überschlag: 1 000 · 30 = 30 000.",
    "h": "Zwei Teilprodukte: erst mit den Zehnern (eine Stelle versetzt), dann mit den Einern. Dann addieren."
   },
   {
@@ -3115,14 +4150,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Rechne schriftlich: 884 · 39"
+    "text": "Rechne schriftlich: 897 : 13"
    },
    "o": {
-    "wert": 34476
+    "wert": 69
    },
-   "c": "884*39",
-   "w": "Teilprodukte: 884 · 30 = 26 520 und 884 · 9 = 7 956. Summe: 34 476. Überschlag: 900 · 40 = 36 000.",
-   "h": "Zwei Teilprodukte: erst mit den Zehnern (eine Stelle versetzt), dann mit den Einern. Dann addieren."
+   "c": "897/13",
+   "w": "89 : 13 = 6 Rest 11. 7 herunterholen: 117 : 13 = 9. Ergebnis 69. Probe: 69 · 13 = 897.",
+   "h": "Schreibe dir zuerst die 13er-Reihe bis 13 · 9 auf."
   },
   {
    "l": "schriftlich",
@@ -3131,46 +4166,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Rechne schriftlich: 953 · 53"
+    "text": "Rechne schriftlich: 812 : 14"
    },
    "o": {
-    "wert": 50509
+    "wert": 58
    },
-   "c": "953*53",
-   "w": "Teilprodukte: 953 · 50 = 47 650 und 953 · 3 = 2 859. Summe: 50 509. Überschlag: 1000 · 50 = 50 000.",
-   "h": "Zwei Teilprodukte: erst mit den Zehnern (eine Stelle versetzt), dann mit den Einern. Dann addieren."
-  },
-  {
-   "l": "schriftlich",
-   "t": "verfahren",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Rechne schriftlich: 780 : 20"
-   },
-   "o": {
-    "wert": 39
-   },
-   "c": "780/20",
-   "w": "Probe durch Malnehmen: 39 · 20 = 780. Also 780 : 20 = 39.",
-   "h": "Schreibe dir zuerst die 20er-Reihe bis 20 · 9 auf."
-  },
-  {
-   "l": "schriftlich",
-   "t": "verfahren",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Rechne schriftlich: 1 716 : 22"
-   },
-   "o": {
-    "wert": 78
-   },
-   "c": "1716/22",
-   "w": "Probe durch Malnehmen: 78 · 22 = 1 716. Also 1 716 : 22 = 78.",
-   "h": "Schreibe dir zuerst die 22er-Reihe bis 22 · 9 auf."
+   "c": "812/14",
+   "w": "81 : 14 = 5 Rest 11. 2 herunterholen: 112 : 14 = 8. Ergebnis 58. Probe: 58 · 14 = 812.",
+   "h": "Schreibe dir zuerst die 14er-Reihe bis 14 · 9 auf."
   },
   {
    "l": "schriftlich",
@@ -3179,14 +4182,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Rechne schriftlich: 2 576 · 817"
+    "text": "Rechne schriftlich: 8 136 : 9"
    },
    "o": {
-    "wert": 2104592
+    "wert": 904
    },
-   "c": "2576*817",
-   "w": "Teilprodukte: 2 576 · 800 = 2 060 800, 2 576 · 10 = 25 760, 2 576 · 7 = 18 032. Summe: 2 104 592.",
-   "h": "Drei Teilprodukte stellengerecht untereinander, dann addieren. Mache vorher einen Überschlag."
+   "c": "8136/9",
+   "w": "81 : 9 = 9. 3 herunterholen: 3 : 9 geht nicht, also 0 ins Ergebnis, Rest 3. 6 herunterholen: 36 : 9 = 4. Ergebnis 904. Probe: 904 · 9 = 8 136.",
+   "h": "Wenn die heruntergeholte Zahl nicht reicht, schreibe eine 0 ins Ergebnis."
   },
   {
    "l": "schriftlich",
@@ -3195,14 +4198,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Rechne schriftlich: 9 570 · 885"
+    "text": "Rechne schriftlich: 865 · 47"
    },
    "o": {
-    "wert": 8469450
+    "wert": 40655
    },
-   "c": "9570*885",
-   "w": "Teilprodukte: 9 570 · 800 = 7 656 000, 9 570 · 80 = 765 600, 9 570 · 5 = 47 850. Summe: 8 469 450.",
-   "h": "Drei Teilprodukte stellengerecht untereinander, dann addieren. Mache vorher einen Überschlag."
+   "c": "865*47",
+   "w": "Teilprodukte: 865 · 40 = 34 600; 865 · 7 = 6 055. Summe: 40 655. Überschlag: 900 · 50 = 45 000.",
+   "h": "Achte auf die Überträge und versetze das Zehner-Teilprodukt um eine Stelle. Mache vorher einen Überschlag."
   },
   {
    "l": "schriftlich",
@@ -3211,14 +4214,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Rechne schriftlich: 5 991 · 543"
+    "text": "Rechne schriftlich: 24 008 : 8"
    },
    "o": {
-    "wert": 3253113
+    "wert": 3001
    },
-   "c": "5991*543",
-   "w": "Teilprodukte: 5 991 · 500 = 2 995 500, 5 991 · 40 = 239 640, 5 991 · 3 = 17 973. Summe: 3 253 113.",
-   "h": "Drei Teilprodukte stellengerecht untereinander, dann addieren. Mache vorher einen Überschlag."
+   "c": "24008/8",
+   "w": "24 : 8 = 3. 0 herunterholen: 0 : 8 geht nicht, also 0 ins Ergebnis. 0 herunterholen: 0 : 8 geht nicht, also 0 ins Ergebnis. 8 herunterholen: 8 : 8 = 1. Ergebnis 3 001. Probe: 3 001 · 8 = 24 008.",
+   "h": "Wenn die heruntergeholte Zahl nicht reicht, schreibe eine 0 ins Ergebnis."
   },
   {
    "l": "schriftlich",
@@ -3227,14 +4230,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Rechne schriftlich: 5 447 · 954"
+    "text": "Rechne schriftlich: 2 163 : 7"
    },
    "o": {
-    "wert": 5196438
+    "wert": 309
    },
-   "c": "5447*954",
-   "w": "Teilprodukte: 5 447 · 900 = 4 902 300, 5 447 · 50 = 272 350, 5 447 · 4 = 21 788. Summe: 5 196 438.",
-   "h": "Drei Teilprodukte stellengerecht untereinander, dann addieren. Mache vorher einen Überschlag."
+   "c": "2163/7",
+   "w": "21 : 7 = 3. 6 herunterholen: 6 : 7 geht nicht, also 0 ins Ergebnis, Rest 6. 3 herunterholen: 63 : 7 = 9. Ergebnis 309. Probe: 309 · 7 = 2 163.",
+   "h": "Wenn die heruntergeholte Zahl nicht reicht, schreibe eine 0 ins Ergebnis."
   },
   {
    "l": "schriftlich",
@@ -3243,14 +4246,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Rechne schriftlich: 31 584 : 96"
+    "text": "Rechne schriftlich: 40 072 : 8"
    },
    "o": {
-    "wert": 329
+    "wert": 5009
    },
-   "c": "31584/96",
-   "w": "Probe durch Malnehmen: 329 · 96 = 31 584. Also 31 584 : 96 = 329.",
-   "h": "Überschlage zuerst: Wie oft passt 100 ungefähr hinein?"
+   "c": "40072/8",
+   "w": "40 : 8 = 5. 0 herunterholen: 0 : 8 geht nicht, also 0 ins Ergebnis. 7 herunterholen: 7 : 8 geht nicht, also 0 ins Ergebnis, Rest 7. 2 herunterholen: 72 : 8 = 9. Ergebnis 5 009. Probe: 5 009 · 8 = 40 072.",
+   "h": "Wenn die heruntergeholte Zahl nicht reicht, schreibe eine 0 ins Ergebnis."
   },
   {
    "l": "schriftlich",
@@ -3259,13 +4262,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Rechne schriftlich: 601 · 49"
+    "text": "Rechne schriftlich: 522 : 18"
    },
    "o": {
-    "wert": 29449
+    "wert": 29
    },
-   "c": "601*49",
-   "w": "Teilprodukte: 601 · 40 = 24 040 und 601 · 9 = 5 409. Summe: 29 449. Überschlag: 600 · 50 = 30 000."
+   "c": "522/18",
+   "w": "52 : 18 = 2 Rest 16. 2 herunterholen: 162 : 18 = 9. Ergebnis 29. Probe: 29 · 18 = 522."
   },
   {
    "l": "schriftlich",
@@ -3274,13 +4277,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Rechne schriftlich: 968 : 11"
+    "text": "Rechne schriftlich: 826 : 14"
    },
    "o": {
-    "wert": 88
+    "wert": 59
    },
-   "c": "968/11",
-   "w": "Probe durch Malnehmen: 88 · 11 = 968. Also 968 : 11 = 88."
+   "c": "826/14",
+   "w": "82 : 14 = 5 Rest 12. 6 herunterholen: 126 : 14 = 9. Ergebnis 59. Probe: 59 · 14 = 826."
   },
   {
    "l": "schriftlich",
@@ -3289,13 +4292,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Rechne schriftlich: 411 · 66"
+    "text": "Rechne schriftlich: 475 · 29"
    },
    "o": {
-    "wert": 27126
+    "wert": 13775
    },
-   "c": "411*66",
-   "w": "Teilprodukte: 411 · 60 = 24 660 und 411 · 6 = 2 466. Summe: 27 126. Überschlag: 400 · 70 = 28 000."
+   "c": "475*29",
+   "w": "Teilprodukte: 475 · 20 = 9 500; 475 · 9 = 4 275. Summe: 13 775. Überschlag: 500 · 30 = 15 000."
   },
   {
    "l": "schriftlich",
@@ -3304,13 +4307,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Rechne schriftlich: 1 330 : 14"
+    "text": "Rechne schriftlich: 977 · 61"
    },
    "o": {
-    "wert": 95
+    "wert": 59597
    },
-   "c": "1330/14",
-   "w": "Probe durch Malnehmen: 95 · 14 = 1 330. Also 1 330 : 14 = 95."
+   "c": "977*61",
+   "w": "Teilprodukte: 977 · 60 = 58 620; 977 · 1 = 977. Summe: 59 597. Überschlag: 1 000 · 60 = 60 000."
   },
   {
    "l": "schriftlich",
@@ -3319,13 +4322,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Rechne schriftlich: 817 · 28"
+    "text": "Rechne schriftlich: 792 : 24"
    },
    "o": {
-    "wert": 22876
+    "wert": 33
    },
-   "c": "817*28",
-   "w": "Teilprodukte: 817 · 20 = 16 340 und 817 · 8 = 6 536. Summe: 22 876. Überschlag: 800 · 30 = 24 000."
+   "c": "792/24",
+   "w": "79 : 24 = 3 Rest 7. 2 herunterholen: 72 : 24 = 3. Ergebnis 33. Probe: 33 · 24 = 792."
   },
   {
    "l": "schriftlich",
@@ -3334,13 +4337,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Rechne schriftlich: 420 : 12"
+    "text": "Rechne schriftlich: 1 584 : 22"
    },
    "o": {
-    "wert": 35
+    "wert": 72
    },
-   "c": "420/12",
-   "w": "Probe durch Malnehmen: 35 · 12 = 420. Also 420 : 12 = 35."
+   "c": "1584/22",
+   "w": "158 : 22 = 7 Rest 4. 4 herunterholen: 44 : 22 = 2. Ergebnis 72. Probe: 72 · 22 = 1 584."
   },
   {
    "l": "schriftlich",
@@ -3349,13 +4352,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Rechne schriftlich: 236 · 28"
+    "text": "Rechne schriftlich: 731 · 97"
    },
    "o": {
-    "wert": 6608
+    "wert": 70907
    },
-   "c": "236*28",
-   "w": "Teilprodukte: 236 · 20 = 4 720 und 236 · 8 = 1 888. Summe: 6 608. Überschlag: 200 · 30 = 6 000."
+   "c": "731*97",
+   "w": "Teilprodukte: 731 · 90 = 65 790; 731 · 7 = 5 117. Summe: 70 907. Überschlag: 700 · 100 = 70 000."
   },
   {
    "l": "schriftlich",
@@ -3364,13 +4367,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Rechne schriftlich: 1 296 : 16"
+    "text": "Rechne schriftlich: 575 · 82"
    },
    "o": {
-    "wert": 81
+    "wert": 47150
    },
-   "c": "1296/16",
-   "w": "Probe durch Malnehmen: 81 · 16 = 1 296. Also 1 296 : 16 = 81."
+   "c": "575*82",
+   "w": "Teilprodukte: 575 · 80 = 46 000; 575 · 2 = 1 150. Summe: 47 150. Überschlag: 600 · 80 = 48 000."
   },
   {
    "l": "schriftlich",
@@ -3379,13 +4382,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Rechne schriftlich: 947 · 12"
+    "text": "Rechne schriftlich: 408 · 41"
    },
    "o": {
-    "wert": 11364
+    "wert": 16728
    },
-   "c": "947*12",
-   "w": "Teilprodukte: 947 · 10 = 9 470 und 947 · 2 = 1 894. Summe: 11 364. Überschlag: 900 · 10 = 9 000."
+   "c": "408*41",
+   "w": "Teilprodukte: 408 · 40 = 16 320; 408 · 1 = 408. Summe: 16 728. Überschlag: 400 · 40 = 16 000."
   },
   {
    "l": "schriftlich",
@@ -3394,523 +4397,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Rechne schriftlich: 1 000 : 20"
+    "text": "Rechne schriftlich: 329 · 47"
    },
    "o": {
-    "wert": 50
+    "wert": 15463
    },
-   "c": "1000/20",
-   "w": "Probe durch Malnehmen: 50 · 20 = 1 000. Also 1 000 : 20 = 50."
-  },
-  {
-   "l": "termaufbau",
-   "t": "terme",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie heißt der Term 12 · 3?"
-   },
-   "a": [
-    "Summe",
-    "Differenz",
-    "Produkt",
-    "Quotient"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Plus: Summe. Minus: Differenz. Mal: Produkt. Geteilt: Quotient. 12 · 3 ist ein Produkt.",
-   "h": "Welche Rechenart steht da?"
-  },
-  {
-   "l": "termaufbau",
-   "t": "terme",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie heißt der Term 3 + 3?"
-   },
-   "a": [
-    "Summe",
-    "Quotient",
-    "Produkt",
-    "Differenz"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Plus: Summe. Minus: Differenz. Mal: Produkt. Geteilt: Quotient. 3 + 3 ist eine Summe.",
-   "h": "Welche Rechenart steht da?"
-  },
-  {
-   "l": "termaufbau",
-   "t": "terme",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie heißt der Term 2 · 2?"
-   },
-   "a": [
-    "Summe",
-    "Quotient",
-    "Differenz",
-    "Produkt"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Plus: Summe. Minus: Differenz. Mal: Produkt. Geteilt: Quotient. 2 · 2 ist ein Produkt.",
-   "h": "Welche Rechenart steht da?"
-  },
-  {
-   "l": "termaufbau",
-   "t": "terme",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie heißt der Term 24 : 6?"
-   },
-   "a": [
-    "Quotient",
-    "Summe",
-    "Produkt",
-    "Differenz"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Plus: Summe. Minus: Differenz. Mal: Produkt. Geteilt: Quotient. 24 : 6 ist ein Quotient.",
-   "h": "Welche Rechenart steht da?"
-  },
-  {
-   "l": "termaufbau",
-   "t": "terme",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Wie heißt der Term 48 : 8?"
-   },
-   "a": [
-    "Quotient",
-    "Summe",
-    "Produkt",
-    "Differenz"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Plus: Summe. Minus: Differenz. Mal: Produkt. Geteilt: Quotient. 48 : 8 ist ein Quotient.",
-   "h": "Welche Rechenart steht da?"
-  },
-  {
-   "l": "termaufbau",
-   "t": "terme",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Art von Term ist (12 − 4) · 7?"
-   },
-   "a": [
-    "Summe",
-    "Produkt",
-    "Differenz",
-    "Quotient"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Reihenfolge: zuerst die Klammer, zuletzt das Mal. Die letzte Rechnung gibt den Namen: Produkt.",
-   "h": "Welche Rechnung führst du als letzte aus?"
-  },
-  {
-   "l": "termaufbau",
-   "t": "terme",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Art von Term ist (4 + 2) · 9?"
-   },
-   "a": [
-    "Quotient",
-    "Produkt",
-    "Summe",
-    "Differenz"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Reihenfolge: zuerst die Klammer, zuletzt das Mal. Die letzte Rechnung gibt den Namen: Produkt.",
-   "h": "Welche Rechnung führst du als letzte aus?"
-  },
-  {
-   "l": "termaufbau",
-   "t": "terme",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Art von Term ist 141 − 12 · 11?"
-   },
-   "a": [
-    "Summe",
-    "Produkt",
-    "Quotient",
-    "Differenz"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Reihenfolge: zuerst 12 · 11, zuletzt das Minus. Die letzte Rechnung gibt den Namen: Differenz.",
-   "h": "Welche Rechnung führst du als letzte aus?"
-  },
-  {
-   "l": "termaufbau",
-   "t": "terme",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Art von Term ist 17 − 3 · 4?"
-   },
-   "a": [
-    "Summe",
-    "Produkt",
-    "Differenz",
-    "Quotient"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Reihenfolge: zuerst 3 · 4, zuletzt das Minus. Die letzte Rechnung gibt den Namen: Differenz.",
-   "h": "Welche Rechnung führst du als letzte aus?"
-  },
-  {
-   "l": "termaufbau",
-   "t": "terme",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Art von Term ist (22 − 10) · 6?"
-   },
-   "a": [
-    "Differenz",
-    "Produkt",
-    "Summe",
-    "Quotient"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Reihenfolge: zuerst die Klammer, zuletzt das Mal. Die letzte Rechnung gibt den Namen: Produkt.",
-   "h": "Welche Rechnung führst du als letzte aus?"
-  },
-  {
-   "l": "termaufbau",
-   "t": "terme",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welcher Term passt? „Addiere 6 zum Produkt aus 3 und 8.“"
-   },
-   "a": [
-    "(6 + 3) · 8",
-    "3 · 8 + 6",
-    "6 · 3 + 8"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Der Satz beschreibt die letzte Rechnung zuerst. Was zuerst gerechnet werden muss, steht als Produkt oder in einer Klammer: 3 · 8 + 6.",
-   "h": "Überlege, was zuerst ausgerechnet werden muss. Das braucht Vorrang (Punktrechnung oder Klammer)."
-  },
-  {
-   "l": "termaufbau",
-   "t": "terme",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welcher Term passt? „Addiere 4 zum Produkt aus 6 und 12.“"
-   },
-   "a": [
-    "6 · 12 + 4",
-    "(4 + 6) · 12",
-    "4 · 6 + 12"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Der Satz beschreibt die letzte Rechnung zuerst. Was zuerst gerechnet werden muss, steht als Produkt oder in einer Klammer: 6 · 12 + 4.",
-   "h": "Überlege, was zuerst ausgerechnet werden muss. Das braucht Vorrang (Punktrechnung oder Klammer)."
-  },
-  {
-   "l": "termaufbau",
-   "t": "terme",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welcher Term passt? „Subtrahiere das Produkt aus 7 und 10 von 76.“"
-   },
-   "a": [
-    "(76 − 7) · 10",
-    "7 · 10 − 76",
-    "76 − 7 · 10"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Der Satz beschreibt die letzte Rechnung zuerst. Was zuerst gerechnet werden muss, steht als Produkt oder in einer Klammer: 76 − 7 · 10.",
-   "h": "Überlege, was zuerst ausgerechnet werden muss. Das braucht Vorrang (Punktrechnung oder Klammer)."
-  },
-  {
-   "l": "termaufbau",
-   "t": "terme",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welcher Term passt? „Subtrahiere das Produkt aus 9 und 9 von 90.“"
-   },
-   "a": [
-    "(90 − 9) · 9",
-    "90 − 9 · 9",
-    "9 · 9 − 90"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Der Satz beschreibt die letzte Rechnung zuerst. Was zuerst gerechnet werden muss, steht als Produkt oder in einer Klammer: 90 − 9 · 9.",
-   "h": "Überlege, was zuerst ausgerechnet werden muss. Das braucht Vorrang (Punktrechnung oder Klammer)."
-  },
-  {
-   "l": "termaufbau",
-   "t": "terme",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welcher Term passt? „Multipliziere die Summe aus 12 und 7 mit 10.“"
-   },
-   "a": [
-    "12 · 7 + 10",
-    "(12 + 7) · 10",
-    "12 + 7 · 10"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Der Satz beschreibt die letzte Rechnung zuerst. Was zuerst gerechnet werden muss, steht als Produkt oder in einer Klammer: (12 + 7) · 10.",
-   "h": "Überlege, was zuerst ausgerechnet werden muss. Das braucht Vorrang (Punktrechnung oder Klammer)."
-  },
-  {
-   "l": "termaufbau",
-   "t": "terme",
-   "p": "test",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Art von Term ist (5 − 3) · 7?"
-   },
-   "a": [
-    "Differenz",
-    "Produkt",
-    "Summe",
-    "Quotient"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Reihenfolge: zuerst die Klammer, zuletzt das Mal. Die letzte Rechnung gibt den Namen: Produkt."
-  },
-  {
-   "l": "termaufbau",
-   "t": "terme",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Art von Term ist 12 + 2 · 3?"
-   },
-   "a": [
-    "Differenz",
-    "Produkt",
-    "Quotient",
-    "Summe"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Reihenfolge: zuerst 2 · 3, zuletzt das Plus. Die letzte Rechnung gibt den Namen: Summe."
-  },
-  {
-   "l": "termaufbau",
-   "t": "terme",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Art von Term ist 3 + 10 · 8?"
-   },
-   "a": [
-    "Produkt",
-    "Differenz",
-    "Quotient",
-    "Summe"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Reihenfolge: zuerst 10 · 8, zuletzt das Plus. Die letzte Rechnung gibt den Namen: Summe."
-  },
-  {
-   "l": "termaufbau",
-   "t": "terme",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Art von Term ist 38 − 6 · 5?"
-   },
-   "a": [
-    "Produkt",
-    "Summe",
-    "Differenz",
-    "Quotient"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Reihenfolge: zuerst 6 · 5, zuletzt das Minus. Die letzte Rechnung gibt den Namen: Differenz."
-  },
-  {
-   "l": "termaufbau",
-   "t": "terme",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Art von Term ist 2 + 4 · 6?"
-   },
-   "a": [
-    "Quotient",
-    "Summe",
-    "Produkt",
-    "Differenz"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Reihenfolge: zuerst 4 · 6, zuletzt das Plus. Die letzte Rechnung gibt den Namen: Summe."
-  },
-  {
-   "l": "termaufbau",
-   "t": "terme",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Art von Term ist (10 + 8) · 2?"
-   },
-   "a": [
-    "Produkt",
-    "Differenz",
-    "Summe",
-    "Quotient"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Reihenfolge: zuerst die Klammer, zuletzt das Mal. Die letzte Rechnung gibt den Namen: Produkt."
-  },
-  {
-   "l": "termaufbau",
-   "t": "terme",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Art von Term ist 9 + 2 · 6?"
-   },
-   "a": [
-    "Quotient",
-    "Summe",
-    "Produkt",
-    "Differenz"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Reihenfolge: zuerst 2 · 6, zuletzt das Plus. Die letzte Rechnung gibt den Namen: Summe."
-  },
-  {
-   "l": "termaufbau",
-   "t": "terme",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Art von Term ist (8 + 4) · 10?"
-   },
-   "a": [
-    "Produkt",
-    "Quotient",
-    "Summe",
-    "Differenz"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Reihenfolge: zuerst die Klammer, zuletzt das Mal. Die letzte Rechnung gibt den Namen: Produkt."
-  },
-  {
-   "l": "termaufbau",
-   "t": "terme",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Art von Term ist (12 − 2) · 6?"
-   },
-   "a": [
-    "Quotient",
-    "Differenz",
-    "Summe",
-    "Produkt"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Reihenfolge: zuerst die Klammer, zuletzt das Mal. Die letzte Rechnung gibt den Namen: Produkt."
-  },
-  {
-   "l": "termaufbau",
-   "t": "terme",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Art von Term ist 10 + 7 · 10?"
-   },
-   "a": [
-    "Differenz",
-    "Summe",
-    "Quotient",
-    "Produkt"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Reihenfolge: zuerst 7 · 10, zuletzt das Plus. Die letzte Rechnung gibt den Namen: Summe."
+   "c": "329*47",
+   "w": "Teilprodukte: 329 · 40 = 13 160; 329 · 7 = 2 303. Summe: 15 463. Überschlag: 300 · 50 = 15 000."
   }
  ]
 }

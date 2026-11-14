@@ -511,7 +511,7 @@ function lernAufgabe(a, vorher) {
     const strahl = lernZahlenstrahl(f.grafik || {}, true, (i) => { wert = { index: i }; });
     if (wert) strahl.querySelectorAll('.ziel')[wert.index]?.classList.add('on');
     teile.push(strahl);
-  } else if (f.grafik) teile.push(lernZahlenstrahl(f.grafik, false));
+  } else if (f.grafik) teile.push(f.grafik.typ && f.grafik.typ !== 'zahlenstrahl' ? lernBild(f.grafik) : lernZahlenstrahl(f.grafik, false));
   if (a.antworttyp === 'auswahl') {
     const name = 'a' + a.id + '-' + Math.random().toString(36).slice(2, 7);
     teile.push(el('div', { class: 'lern-auswahl', role: 'radiogroup' }, (a.antworten || []).map((t, i) => {
@@ -613,7 +613,153 @@ function lernBild(b) {
   if (!b) return null;
   if (b.typ === 'zahlenstrahl') return el('div', { class: 'lr-bild' }, lernZahlenstrahl(b, false));
   if (b.typ === 'stellentafel') return el('div', { class: 'lr-bild' }, lernStellentafel(b));
+  if (b.typ === 'koordinaten') return el('div', { class: 'lr-bild' }, lernKoordinaten(b));
+  if (b.typ === 'figur') return el('div', { class: 'lr-bild' }, lernFigur(b));
+  if (b.typ === 'saeulen') return el('div', { class: 'lr-bild' }, lernSaeulen(b));
+  if (b.typ === 'kreisdiagramm') return el('div', { class: 'lr-bild' }, lernKreisdiagramm(b));
+  if (b.typ === 'tabelle') return el('div', { class: 'lr-bild lr-bild-tabelle' }, lernTabelle(b));
   return null;
+}
+
+// ---------- Zeichnungen (W150): Koordinatensystem mit Graphen, Figuren, Diagramme, Tabellen ----------
+const LERN_SVG = 'http://www.w3.org/2000/svg';
+function lernSvg(b, h, label) {
+  const svg = document.createElementNS(LERN_SVG, 'svg');
+  svg.setAttribute('viewBox', `0 0 ${b} ${h}`); svg.setAttribute('class', 'lern-zeichnung'); svg.setAttribute('role', 'img'); svg.setAttribute('aria-label', label);
+  const mk = (tag, a, txt) => { const e = document.createElementNS(LERN_SVG, tag); for (const [k, v] of Object.entries(a)) e.setAttribute(k, v); if (txt !== undefined) e.textContent = txt; svg.append(e); return e; };
+  return { svg, mk };
+}
+// Funktionswert für einen Graphen. Arten: linear (m, t) · poly (k = [c0, c1, c2 …]) · hyperbel (a/(x+b)+c) · potenz (a·x^n) · wurzel (a·√x) · sin/cos (a·sin(b·x°)+d bzw. Bogenmaß mit bogen: true) · exp (a·b^x) · log (Basis b)
+function lernGraphWert(g, x) {
+  const a = g.a ?? 1;
+  switch (g.art) {
+    case 'linear': return (g.m ?? 1) * x + (g.t ?? 0);
+    case 'poly': return (g.k || []).reduce((sum, c, i) => sum + c * x ** i, 0);
+    case 'hyperbel': return x + (g.b ?? 0) === 0 ? NaN : a / (x + (g.b ?? 0)) + (g.c ?? 0);
+    case 'potenz': return (g.n ?? 2) < 0 && x === 0 ? NaN : a * x ** (g.n ?? 2);
+    case 'wurzel': return x < 0 ? NaN : a * Math.sqrt(x);
+    case 'sin': return a * Math.sin((g.b ?? 1) * (g.bogen ? x : x * Math.PI / 180) + (g.c ?? 0)) + (g.d ?? 0);
+    case 'cos': return a * Math.cos((g.b ?? 1) * (g.bogen ? x : x * Math.PI / 180) + (g.c ?? 0)) + (g.d ?? 0);
+    case 'exp': return a * (g.b ?? 2) ** x + (g.c ?? 0);
+    case 'log': return x <= 0 ? NaN : Math.log(x) / Math.log(g.b ?? 10);
+    default: return NaN;
+  }
+}
+function lernKoordinaten(b) {
+  const [x0, x1] = b.x || [-5, 5], [y0, y1] = b.y || [-5, 5];
+  const B = 340, H = Math.round(Math.min(340, Math.max(170, 300 * (y1 - y0) / (x1 - x0) * (b.streckung || 1)))), R = 32;
+  const px = (x) => R + (B - 2 * R) * (x - x0) / (x1 - x0), py = (y) => H - R - (H - 2 * R) * (y - y0) / (y1 - y0);
+  const { svg, mk } = lernSvg(B, H, b.label || `Koordinatensystem von x = ${x0} bis ${x1} und y = ${y0} bis ${y1}`);
+  const schritt = (lo, hi) => { const r = (hi - lo) / 10; const p = 10 ** Math.floor(Math.log10(r)); return [1, 2, 5, 10].map((m) => m * p).find((m) => m >= r) || p * 10; };
+  const sx = b.schritt_x || schritt(x0, x1), sy = b.schritt_y || schritt(y0, y1);
+  const zahl = (v) => lernZahlText(v);
+  for (let x = Math.ceil(x0 / sx) * sx; x <= x1 + 1e-9; x += sx) mk('line', { x1: px(x), y1: py(y0), x2: px(x), y2: py(y1), class: 'gitter' });
+  for (let y = Math.ceil(y0 / sy) * sy; y <= y1 + 1e-9; y += sy) mk('line', { x1: px(x0), y1: py(y), x2: px(x1), y2: py(y), class: 'gitter' });
+  const ax = Math.min(Math.max(0, y0), y1), ay = Math.min(Math.max(0, x0), x1); // Achsen am Rand, wenn 0 außerhalb liegt
+  mk('line', { x1: px(x0) - 6, y1: py(ax), x2: px(x1) + 10, y2: py(ax), class: 'achse' }); mk('path', { d: `M${px(x1) + 14} ${py(ax)} l-8 -4 v8 z`, class: 'spitze' });
+  mk('line', { x1: px(ay), y1: py(y0) + 6, x2: px(ay), y2: py(y1) - 10, class: 'achse' }); mk('path', { d: `M${px(ay)} ${py(y1) - 14} l-4 8 h8 z`, class: 'spitze' });
+  mk('text', { x: px(x1) + 12, y: py(ax) + 15, class: 'zahl kursiv' }, b.name_x || 'x'); mk('text', { x: px(ay) + 11, y: py(y1) - 8, class: 'zahl kursiv' }, b.name_y || 'y');
+  const jeder = (n) => Math.max(1, Math.ceil(n / 8));
+  const nx = jeder((x1 - x0) / sx), ny = jeder((y1 - y0) / sy);
+  for (let i = Math.ceil(x0 / sx); i * sx <= x1 + 1e-9; i++) if (i !== 0 && i % nx === 0) mk('text', { x: px(i * sx), y: py(ax) + 14, class: 'zahl' }, zahl(i * sx) + (b.grad ? '°' : ''));
+  for (let i = Math.ceil(y0 / sy); i * sy <= y1 + 1e-9; i++) if (i !== 0 && i % ny === 0) mk('text', { x: px(ay) - 5, y: py(i * sy) + 4, class: 'zahl rechts' }, zahl(i * sy));
+  for (const v of b.senkrecht || []) mk('line', { x1: px(v), y1: py(y0), x2: px(v), y2: py(y1), class: 'hilfslinie' });
+  for (const v of b.waagrecht || []) mk('line', { x1: px(x0), y1: py(v), x2: px(x1), y2: py(v), class: 'hilfslinie' });
+  (b.graphen || []).forEach((g, gi) => {
+    let d = '', offen = false;
+    const [gx0, gx1] = g.bereich || [x0, x1];
+    for (let i = 0; i <= 400; i++) {
+      const x = gx0 + (gx1 - gx0) * i / 400; const y = lernGraphWert(g, x);
+      if (!Number.isFinite(y) || y < y0 - (y1 - y0) || y > y1 + (y1 - y0)) { offen = false; continue; }
+      d += `${offen ? 'L' : 'M'}${px(x).toFixed(1)} ${py(y).toFixed(1)}`; offen = true;
+    }
+    const clip = `lk${Math.random().toString(36).slice(2, 8)}`;
+    const cp = mk('clipPath', { id: clip }); const r = document.createElementNS(LERN_SVG, 'rect');
+    for (const [k, v] of Object.entries({ x: px(x0), y: py(y1), width: px(x1) - px(x0), height: py(y0) - py(y1) })) r.setAttribute(k, v); cp.append(r);
+    mk('path', { d, class: 'graph graph' + (gi % 3), 'clip-path': `url(#${clip})` });
+    if (g.name) { const xn = g.name_x ?? (x1 - (x1 - x0) * 0.12); const yn = lernGraphWert(g, xn); if (Number.isFinite(yn) && yn > y0 && yn < y1) mk('text', { x: px(xn) + 4, y: py(yn) - 6, class: 'zahl kursiv graphname' + (gi % 3) }, g.name); }
+  });
+  for (const st of b.strecken || []) mk('line', { x1: px(st[0]), y1: py(st[1]), x2: px(st[2]), y2: py(st[3]), class: st[4] === 'gestrichelt' ? 'hilfslinie' : 'strecke' });
+  for (const p of b.punkte || []) { mk('circle', { cx: px(p.x), cy: py(p.y), r: 4, class: p.offen ? 'punkt offen' : 'punkt' }); if (p.name) mk('text', { x: px(p.x) + 7, y: py(p.y) - 7, class: 'zahl links' }, p.name); }
+  return svg;
+}
+// Figur aus benannten Punkten: linien [[A, B, 'c = 4 cm']], flaeche ['A','B','C'], rechter_winkel [[Scheitel, Schenkel1, Schenkel2]], winkel [[Scheitel, S1, S2, 'α']], kreise [{m: 'M'|[x,y], r, name}]
+function lernFigur(b) {
+  const P = b.punkte || {}; const pk = (k) => (Array.isArray(k) ? k : P[k]);
+  const alle = [...Object.values(P), ...(b.kreise || []).flatMap((k) => { const m = pk(k.m); return [[m[0] - k.r, m[1] - k.r], [m[0] + k.r, m[1] + k.r]]; })];
+  const xs = alle.map((p) => p[0]), ys = alle.map((p) => p[1]);
+  const xa = Math.min(...xs), xb = Math.max(...xs), ya = Math.min(...ys), yb = Math.max(...ys);
+  const B = 340, R = 38, RX = 72, f = Math.min((B - 2 * RX) / Math.max(xb - xa, 1e-9), 220 / Math.max(yb - ya, 1e-9)), H = Math.round((yb - ya) * f + 2 * R);
+  const ox = (B - (xb - xa) * f) / 2; const px = (x) => ox + (x - xa) * f, py = (y) => H - R - (y - ya) * f;
+  const mitte = [(xa + xb) / 2, (ya + yb) / 2];
+  const { svg, mk } = lernSvg(B, H, b.label || 'Skizze');
+  if (b.flaeche) mk('polygon', { points: b.flaeche.map((k) => `${px(pk(k)[0])},${py(pk(k)[1])}`).join(' '), class: 'flaeche' });
+  for (const k of b.kreise || []) { const m = pk(k.m); mk('circle', { cx: px(m[0]), cy: py(m[1]), r: k.r * f, class: 'kreis' }); if (k.name) mk('text', { x: px(m[0] + k.r * 0.72) + 6, y: py(m[1] + k.r * 0.72) - 4, class: 'zahl links' }, k.name); }
+  for (const [u, v, text, art] of b.linien || []) {
+    const a = pk(u), c = pk(v);
+    mk('line', { x1: px(a[0]), y1: py(a[1]), x2: px(c[0]), y2: py(c[1]), class: art === 'gestrichelt' ? 'hilfslinie' : 'strecke' });
+    if (text) {
+      const m = [(a[0] + c[0]) / 2, (a[1] + c[1]) / 2]; let n = [-(c[1] - a[1]), c[0] - a[0]]; const l = Math.hypot(...n) || 1; n = [n[0] / l, n[1] / l];
+      if ((m[0] - mitte[0]) * n[0] + (m[1] - mitte[1]) * n[1] < 0) n = [-n[0], -n[1]]; // Beschriftung nach außen
+      mk('text', { x: px(m[0]) + n[0] * (Math.abs(n[0]) > 0.5 ? 9 : 16), y: py(m[1]) - n[1] * 16 + 4, class: 'zahl' + (n[0] > 0.5 ? ' links' : n[0] < -0.5 ? ' rechts' : '') }, text);
+    }
+  }
+  const richtung = (s, q) => { const a = pk(s), c = pk(q); const l = Math.hypot(c[0] - a[0], c[1] - a[1]) || 1; return [(c[0] - a[0]) / l, (c[1] - a[1]) / l]; };
+  for (const [s, q1, q2] of b.rechter_winkel || []) {
+    const a = pk(s), u = richtung(s, q1), v = richtung(s, q2), d = 13;
+    mk('path', { d: `M${px(a[0]) + u[0] * d} ${py(a[1]) - u[1] * d} l${v[0] * d} ${-v[1] * d} l${-u[0] * d} ${u[1] * d}`, class: 'winkel' });
+    mk('circle', { cx: px(a[0]) + (u[0] + v[0]) * d / 2, cy: py(a[1]) - (u[1] + v[1]) * d / 2, r: 1.6, class: 'punkt' });
+  }
+  for (const [s, q1, q2, text] of b.winkel || []) {
+    const a = pk(s), u = richtung(s, q1), v = richtung(s, q2), d = 22;
+    const kreuz = u[0] * v[1] - u[1] * v[0];
+    mk('path', { d: `M${px(a[0]) + u[0] * d} ${py(a[1]) - u[1] * d} A${d} ${d} 0 0 ${kreuz > 0 ? 0 : 1} ${px(a[0]) + v[0] * d} ${py(a[1]) - v[1] * d}`, class: 'winkel' });
+    const w = [u[0] + v[0], u[1] + v[1]]; const l = Math.hypot(...w) || 1;
+    if (text) mk('text', { x: px(a[0]) + w[0] / l * (d + 13), y: py(a[1]) - w[1] / l * (d + 13) + 4, class: 'zahl' }, text);
+  }
+  for (const [name, p] of Object.entries(P)) {
+    if (name.startsWith('_')) continue; // Hilfspunkte ohne Beschriftung
+    let n = [p[0] - mitte[0], p[1] - mitte[1]]; const l = Math.hypot(...n) || 1; n = [n[0] / l, n[1] / l];
+    mk('circle', { cx: px(p[0]), cy: py(p[1]), r: 2.5, class: 'punkt' });
+    mk('text', { x: px(p[0]) + n[0] * 15, y: py(p[1]) - n[1] * 15 + 4, class: 'zahl fett' }, name);
+  }
+  return svg;
+}
+function lernSaeulen(b) {
+  const w = b.werte || []; const B = 340, H = 236, L = 38, U = 44;
+  const y0 = b.y_start ?? 0, max = b.y_max ?? Math.max(...w.map((x) => x.wert), 1);
+  const roh = (max - y0) / 5; const p = 10 ** Math.floor(Math.log10(roh)); const sy = b.schritt || [1, 2, 5, 10].map((m) => m * p).find((m) => m >= roh);
+  const oben = Math.ceil(max / sy) * sy; const py = (v) => H - U - (H - U - 34) * (v - y0) / (oben - y0);
+  const { svg, mk } = lernSvg(B, H, b.label || `Säulendiagramm: ${w.map((x) => `${x.name} ${x.wert}`).join(', ')}`);
+  for (let v = y0; v <= oben + 1e-9; v += sy) { mk('line', { x1: L, y1: py(v), x2: B - 8, y2: py(v), class: 'gitter' }); mk('text', { x: L - 5, y: py(v) + 4, class: 'zahl rechts' }, lernZahlText(v)); }
+  const bw = (B - L - 16) / Math.max(w.length, 1);
+  w.forEach((x, i) => {
+    mk('rect', { x: L + 8 + i * bw + bw * 0.15, y: py(x.wert), width: bw * 0.7, height: py(y0) - py(x.wert), class: 'saeule saeule' + (i % 4) });
+    mk('text', { x: L + 8 + i * bw + bw / 2, y: H - U + 16, class: 'zahl' }, x.name);
+    if (b.zahlen !== false) mk('text', { x: L + 8 + i * bw + bw / 2, y: py(x.wert) - 4, class: 'zahl fett' }, lernZahlText(x.wert));
+  });
+  mk('line', { x1: L, y1: py(y0), x2: B - 8, y2: py(y0), class: 'achse' });
+  if (y0 > 0) mk('path', { d: `M${L - 6} ${py(y0) - 10} l12 -5 l-12 -5 l12 -5`, class: 'winkel' }); // Achse ist abgeschnitten
+  if (b.einheit) mk('text', { x: 4, y: 13, class: 'zahl links' }, b.einheit);
+  return svg;
+}
+function lernKreisdiagramm(b) {
+  const w = b.werte || []; const sum = w.reduce((a, x) => a + x.wert, 0) || 1; const B = 340, H = 220, cx = 110, cy = 110, r = 92;
+  const { svg, mk } = lernSvg(B, H, b.label || `Kreisdiagramm: ${w.map((x) => `${x.name} ${x.wert}`).join(', ')}`);
+  let a0 = -Math.PI / 2;
+  w.forEach((x, i) => {
+    const a1 = a0 + 2 * Math.PI * x.wert / sum; const gross = a1 - a0 > Math.PI ? 1 : 0;
+    mk('path', { d: `M${cx} ${cy} L${cx + r * Math.cos(a0)} ${cy + r * Math.sin(a0)} A${r} ${r} 0 ${gross} 1 ${cx + r * Math.cos(a1)} ${cy + r * Math.sin(a1)} Z`, class: 'saeule sektor saeule' + (i % 4) });
+    mk('rect', { x: 222, y: 24 + i * 24, width: 14, height: 14, class: 'saeule saeule' + (i % 4) });
+    mk('text', { x: 242, y: 36 + i * 24, class: 'zahl links' }, x.name + (b.zahlen === false ? '' : ` (${lernZahlText(x.wert)}${b.einheit || ''})`));
+    a0 = a1;
+  });
+  return svg;
+}
+function lernTabelle(b) {
+  return el('table', { class: 'lr-tafel' },
+    b.kopf ? el('thead', {}, el('tr', {}, ...b.kopf.map((k) => el('th', {}, lernText(k))))) : null,
+    el('tbody', {}, ...(b.zeilen || []).map((z) => el('tr', {}, ...z.map((c, i) => el(i === 0 && b.erste_spalte_kopf !== false ? 'th' : 'td', {}, lernText(c)))))));
 }
 // Erklärung einer Etappe: Regel, vorgerechnetes Beispiel Schritt für Schritt, Probe, typischer Fehler.
 function lernErklaerung(e, { kurz = false } = {}) {
@@ -1068,7 +1214,7 @@ function lernTestErgebnis(ctx, box, r) {
       return el('div', { class: 'card lern-rueck-karte ' + (x.richtig ? 'ok' : 'falsch') },
         el('p', { class: 'eyebrow' }, lernZielName(x.lernziel) + (x.richtig ? ' · ✓ richtig' : ' · ✗ falsch')),
         el('p', { class: 'lern-frage' }, lernText(x.frage?.text)),
-        x.frage?.grafik ? lernZahlenstrahl(x.frage.grafik, false) : null,
+        x.frage?.grafik ? (x.frage.grafik.typ && x.frage.grafik.typ !== 'zahlenstrahl' ? lernBild(x.frage.grafik) : lernZahlenstrahl(x.frage.grafik, false)) : null,
         el('p', { class: 'small' }, 'Deine Antwort: ', el('b', {}, lernAntwortText(a, x.antwort))),
         x.richtig ? null : el('p', { class: 'small' }, 'Richtig: ', el('b', {}, lernLoesungText(a))),
         x.loesungsweg && !x.richtig ? el('p', { class: 'small muted' }, x.loesungsweg) : null);

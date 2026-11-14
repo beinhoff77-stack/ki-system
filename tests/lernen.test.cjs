@@ -77,7 +77,18 @@ async function setup(t, opt = {}) {
         { thema_id: 3, titel: 'Brüche addieren', gebiet: 'Zahlen', ort: 'Pisa', block_id: 47, jahrgang: { gym_by: 6, rs_by: 6, ib_myp: 2 }, einheit: null, stand: {}, geplant: [], rueckmeldungen: 0 },
         { thema_id: 4, titel: 'Lineare Funktionen', gebiet: 'Funktionen', ort: 'Kairo', block_id: 70, jahrgang: { gym_by: 8, rs_by: 8, ib_myp: 3 }, einheit: null, stand: {}, geplant: [], rueckmeldungen: 0 },
         { thema_id: 5, titel: 'Nur Realschule', gebiet: 'Geld', ort: 'Lima', block_id: 71, jahrgang: { rs_by: 7 }, einheit: null, stand: {}, geplant: [], rueckmeldungen: 0 }] };
-    if (b.aktion === 'schule_inhalt_lesen') e = { ok: true, einheit_id: d.einheit_id, status: 'geprueft', ort: { stadt: 'Rom', titel: 'Natürliche Zahlen' },
+    if (b.aktion === 'schule_inhalt_lesen' && d.einheit_id === 77) e = { ok: true, einheit_id: 77, status: 'entwurf', ort: { stadt: 'Test' }, thema: { titel: 'Zeichnungen', jahrgang: { gym_by: 8 } },
+      inhalt: { ziel: 'Zeichnungen', etappen: [
+        { lernziel: 'gerade', titel: 'Gerade und Parabel', regel: 'r', schritte: ['a', 'b'], fehler: 'f', bild: { typ: 'koordinaten', x: [-4, 4], y: [-3, 5], graphen: [{ art: 'linear', m: 2, t: 1, name: 'g' }, { art: 'poly', k: [-2, 0, 1], name: 'p' }], punkte: [{ x: 0, y: 1, name: 'T(0 | 1)' }, { x: 1, y: 3, name: 'P' }], strecken: [[0, 1, 1, 1, 'gestrichelt'], [1, 1, 1, 3, 'gestrichelt']] } },
+        { lernziel: 'hyperbel', titel: 'Hyperbel', regel: 'r', schritte: ['a', 'b'], fehler: 'f', bild: { typ: 'koordinaten', x: [-5, 5], y: [-5, 5], graphen: [{ art: 'hyperbel', a: 2, b: 1, c: 1 }], senkrecht: [-1], waagrecht: [1] } },
+        { lernziel: 'sinus', titel: 'Sinus', regel: 'r', schritte: ['a', 'b'], fehler: 'f', bild: { typ: 'koordinaten', x: [0, 360], y: [-1.5, 1.5], schritt_x: 90, schritt_y: 0.5, grad: true, streckung: 2.2, graphen: [{ art: 'sin', name: 'sin' }, { art: 'cos', name: 'cos', name_x: 150 }] } },
+        { lernziel: 'dreieck', titel: 'Dreieck', regel: 'r', schritte: ['a', 'b'], fehler: 'f', bild: { typ: 'figur', punkte: { A: [0, 0], B: [4, 0], C: [4, 3] }, flaeche: ['A', 'B', 'C'], linien: [['A', 'B', 'c = 4 cm'], ['B', 'C', 'a = 3 cm'], ['A', 'C', 'b = ?']], rechter_winkel: [['B', 'A', 'C']], winkel: [['A', 'B', 'C', 'α']] } },
+        { lernziel: 'thales', titel: 'Thales', regel: 'r', schritte: ['a', 'b'], fehler: 'f', bild: { typ: 'figur', punkte: { A: [-3, 0], B: [3, 0], C: [1.8, 2.4], M: [0, 0] }, kreise: [{ m: 'M', r: 3 }], linien: [['A', 'B'], ['A', 'C'], ['B', 'C']], rechter_winkel: [['C', 'A', 'B']] } },
+        { lernziel: 'saeulen', titel: 'Säulen', regel: 'r', schritte: ['a', 'b'], fehler: 'f', bild: { typ: 'saeulen', einheit: 'Kinder', werte: [{ name: 'Hund', wert: 9 }, { name: 'Katze', wert: 12 }, { name: 'Fisch', wert: 4 }, { name: 'kein Tier', wert: 7 }] } },
+        { lernziel: 'kreisd', titel: 'Kreisdiagramm', regel: 'r', schritte: ['a', 'b'], fehler: 'f', bild: { typ: 'kreisdiagramm', einheit: ' %', werte: [{ name: 'Bus', wert: 40 }, { name: 'Rad', wert: 35 }, { name: 'zu Fuß', wert: 25 }] } },
+        { lernziel: 'tafel', titel: 'Vierfeldertafel', regel: 'r', schritte: ['a', 'b'], fehler: 'f', bild: { typ: 'tabelle', kopf: ['', 'Brille', 'keine Brille', 'Summe'], zeilen: [['Mädchen', '5', '9', '14'], ['Jungen', '4', '10', '14'], ['Summe', '9', '19', '28']] } }] },
+      aufgaben: [{ id: 501, lernziel: 'gerade', pool: 'uebung', stufe: 1, antworttyp: 'zahl', freigegeben: true, frage: { text: 'Lies die Steigung ab.', grafik: { typ: 'koordinaten', x: [-3, 3], y: [-3, 3], graphen: [{ art: 'linear', m: 1, t: 0 }] } }, loesung: { wert: 1 } }], rueckmeldungen: [] };
+    else if (b.aktion === 'schule_inhalt_lesen') e = { ok: true, einheit_id: d.einheit_id, status: 'geprueft', ort: { stadt: 'Rom', titel: 'Natürliche Zahlen' },
       thema: { titel: 'Große natürliche Zahlen', jahrgang: { gym_by: 5, rs_by: 5 } }, inhalt: { ziel: 'Große Zahlen lesen.', etappen: ETAPPEN },
       aufgaben: [{ ...AUFG[11], pool: 'uebung', stufe: 1, freigegeben: true, loesungsweg: 'Tausender-Stelle.' }, { ...AUFG[12], pool: 'uebung', stufe: 2, freigegeben: false },
         { ...AUFG[11], id: 99, pool: 'test', freigegeben: true }],
@@ -351,6 +362,20 @@ test('Lehrplan-Übersicht: Themen je Schulart und Klasse mit Inhaltsstand, Inhal
   await page.getByText('Mehr Aufgaben zum Runden.').waitFor();
   await page.screenshot({ path: path.join(root, 'test-results/inhalte-390.png'), fullPage: true });
   const w = await page.evaluate(() => document.documentElement.scrollWidth); assert.ok(w <= 390, 'keine Querverschiebung: ' + w);
+});
+
+test('Zeichnungen: Koordinatensystem, Figur, Diagramme und Tabelle in den Erklärungen', async (t) => {
+  const { page } = await setup(t);
+  await page.setViewportSize({ width: 430, height: 900 });
+  await page.goto(origin + '/#/inhalte/77');
+  await page.getByText('8 Lernkarten', { exact: false }).waitFor();
+  await page.evaluate(() => document.querySelectorAll('details.lp-karte').forEach((d) => { d.open = true; }));
+  assert.equal(await page.locator('svg.lern-zeichnung').count(), 7);
+  assert.equal(await page.locator('svg.lern-zeichnung path.graph').count(), 5);
+  assert.equal(await page.locator('table.lr-tafel td').count(), 9);
+  fs.mkdirSync(path.join(root, 'test-results'), { recursive: true });
+  for (const [i, n] of ['gerade', 'hyperbel', 'sinus', 'dreieck', 'thales', 'saeulen', 'kreisd'].entries())
+    await page.locator('svg.lern-zeichnung').nth(i).screenshot({ path: path.join(root, `test-results/zeichnung-${n}.png`) });
 });
 
 test('Kinderplan: Schulart und Klasse setzen', async (t) => {

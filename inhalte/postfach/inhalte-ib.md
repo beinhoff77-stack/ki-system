@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-14 15:18 – STATUS
+4/14 daten.standardabweichung fertig: 5 Lernkarten (Abweichungen, Varianz, σ, Eigenschaften, Deuten), 140 Aufgaben, Prüfskript OK. σ der Gesamtheit (durch n), Annahme unter offen.
+
 ## 2026-11-14 15:16 – STATUS
 3/14 daten.zweidimensional fertig: 5 Lernkarten (Streudiagramm lesen, Art des Zusammenhangs, Ausgleichsgerade, Ausreißer, Korrelation/Kausalität), 140 Aufgaben mit Streudiagrammen, Prüfskript OK.
 

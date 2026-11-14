@@ -50,19 +50,72 @@
     ],
     "fehler": "Der Faktor für „um 15 % mehr“ ist nicht 0,15. Mit 0,15 erhältst du nur die ⟦Zunahme⟧, nicht den neuen Wert. Der neue Wert braucht 1,15.",
     "bild": {
-     "typ": "kreisdiagramm",
-     "einheit": " %",
-     "werte": [
-      {
-       "name": "neuer Wert (Senkung)",
-       "wert": 85
-      },
-      {
-       "name": "Abnahme",
-       "wert": 15
-      }
+     "typ": "figur",
+     "punkte": {
+      "_a": [
+       0,
+       0
+      ],
+      "_b": [
+       10,
+       0
+      ],
+      "_c": [
+       11.5,
+       0
+      ],
+      "_d": [
+       11.5,
+       1.5
+      ],
+      "_e": [
+       10,
+       1.5
+      ],
+      "_f": [
+       0,
+       1.5
+      ]
+     },
+     "flaeche": [
+      "_b",
+      "_c",
+      "_d",
+      "_e"
      ],
-     "zahlen": true
+     "linien": [
+      [
+       "_a",
+       "_b",
+       "100 % = Grundwert"
+      ],
+      [
+       "_b",
+       "_c",
+       "+15 %"
+      ],
+      [
+       "_c",
+       "_d"
+      ],
+      [
+       "_d",
+       "_e"
+      ],
+      [
+       "_e",
+       "_f",
+       "115 % → Faktor 1,15"
+      ],
+      [
+       "_f",
+       "_a"
+      ],
+      [
+       "_b",
+       "_e"
+      ]
+     ]
     }
    },
    {
@@ -377,22 +430,6 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Wert wird um 45 % erhöht. Mit welchem Faktor multiplizierst du?"
-   },
-   "o": {
-    "wert": 1.45
-   },
-   "c": "1 + 45 / 100",
-   "w": "100 % + 45 % = 145 % = 1,45.",
-   "h": "Rechne erst 100 % plus oder minus p %, dann in eine Dezimalzahl umwandeln."
-  },
-  {
-   "l": "faktor",
-   "t": "faktor",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
     "text": "Ein Wert wird um 4 % erhöht. Mit welchem Faktor multiplizierst du?"
    },
    "o": {
@@ -409,78 +446,119 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Wert wird um 4 % verringert. Mit welchem Faktor multiplizierst du?"
+    "text": "Ein Wert wird mit dem Faktor 1,6 multipliziert. Um wie viel Prozent ändert er sich? (Zunahme positiv, Abnahme negativ angeben)"
    },
    "o": {
-    "wert": 0.96
-   },
-   "c": "1 - 4 / 100",
-   "w": "100 % − 4 % = 96 % = 0,96.",
-   "h": "Rechne erst 100 % plus oder minus p %, dann in eine Dezimalzahl umwandeln."
-  },
-  {
-   "l": "faktor",
-   "t": "faktor",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Wert wird um 2 % erhöht. Mit welchem Faktor multiplizierst du?"
-   },
-   "o": {
-    "wert": 1.02
-   },
-   "c": "1 + 2 / 100",
-   "w": "100 % + 2 % = 102 % = 1,02.",
-   "h": "Rechne erst 100 % plus oder minus p %, dann in eine Dezimalzahl umwandeln."
-  },
-  {
-   "l": "faktor",
-   "t": "faktor",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Wert wird um 3 % erhöht. Mit welchem Faktor multiplizierst du?"
-   },
-   "o": {
-    "wert": 1.03
-   },
-   "c": "1 + 3 / 100",
-   "w": "100 % + 3 % = 103 % = 1,03.",
-   "h": "Rechne erst 100 % plus oder minus p %, dann in eine Dezimalzahl umwandeln."
-  },
-  {
-   "l": "faktor",
-   "t": "faktor",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Wert wird um 13 % erhöht. Mit welchem Faktor multiplizierst du?"
-   },
-   "o": {
-    "wert": 1.13
-   },
-   "c": "1 + 13 / 100",
-   "w": "100 % + 13 % = 113 % = 1,13.",
-   "h": "Rechne erst 100 % plus oder minus p %, dann in eine Dezimalzahl umwandeln."
-  },
-  {
-   "l": "faktor",
-   "t": "faktor",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Wert wird mit dem Faktor 1,22 multipliziert. Um wie viel Prozent ändert er sich? (Zunahme positiv, Abnahme negativ angeben)"
-   },
-   "o": {
-    "wert": 22,
+    "wert": 60,
     "einheit": "%"
    },
-   "c": "((61/50) - 1) * 100",
-   "w": "1,22 = 122 %. Änderung: 122 % − 100 % = 22 %.",
+   "c": "((8/5) - 1) * 100",
+   "w": "1,6 = 160 %. Änderung: 160 % − 100 % = 60 %.",
+   "h": "Schreibe den Faktor als Prozentzahl und vergleiche mit 100 %."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Wert wird mit dem Faktor 1,15 multipliziert. Um wie viel Prozent ändert er sich? (Zunahme positiv, Abnahme negativ angeben)"
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "%"
+   },
+   "c": "((23/20) - 1) * 100",
+   "w": "1,15 = 115 %. Änderung: 115 % − 100 % = 15 %.",
+   "h": "Schreibe den Faktor als Prozentzahl und vergleiche mit 100 %."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Wert wird mit dem Faktor 1,35 multipliziert. Um wie viel Prozent ändert er sich? (Zunahme positiv, Abnahme negativ angeben)"
+   },
+   "o": {
+    "wert": 35,
+    "einheit": "%"
+   },
+   "c": "((27/20) - 1) * 100",
+   "w": "1,35 = 135 %. Änderung: 135 % − 100 % = 35 %.",
+   "h": "Schreibe den Faktor als Prozentzahl und vergleiche mit 100 %."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Wert wird mit dem Faktor 0,84 multipliziert. Um wie viel Prozent ändert er sich? (Zunahme positiv, Abnahme negativ angeben)"
+   },
+   "o": {
+    "wert": -16,
+    "einheit": "%"
+   },
+   "c": "((21/25) - 1) * 100",
+   "w": "0,84 = 84 %. Änderung: 84 % − 100 % = −16 %.",
+   "h": "Schreibe den Faktor als Prozentzahl und vergleiche mit 100 %."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „Eine Abnahme um 6 % bedeutet den Faktor 0,06.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: Der Faktor ist 1 − 0,06 = 0,94.",
+    "Richtig: 6 % = 0,06.",
+    "Falsch: Der Faktor ist 1,06.",
+    "Falsch: Der Faktor ist 0,6."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "6 % = 0,06. Der neue Wert ist 100 % − 6 % = 94 % = 0,94.",
+   "h": "Der Faktor beschreibt den neuen Wert, nicht nur die Änderung."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Wert wird um 250 % erhöht. Mit welchem Faktor multiplizierst du?"
+   },
+   "o": {
+    "wert": 3.5
+   },
+   "c": "1 + 250 / 100",
+   "w": "100 % + 250 % = 350 % = 3,5. Der Wert wird mehr als verdoppelt.",
+   "h": "Auch über 100 % gilt: 100 % + p %, dann durch 100 teilen."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Wert wird mit dem Faktor 1,125 multipliziert. Um wie viel Prozent ändert er sich? (Zunahme positiv, Abnahme negativ angeben)"
+   },
+   "o": {
+    "wert": 12.5,
+    "einheit": "%"
+   },
+   "c": "((9/8) - 1) * 100",
+   "w": "1,125 = 112,5 %. Änderung: 112,5 % − 100 % = 12,5 %.",
    "h": "Schreibe den Faktor als Prozentzahl und vergleiche mit 100 %."
   },
   {
@@ -490,29 +568,13 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Wert wird um 7,5 % erhöht. Mit welchem Faktor multiplizierst du?"
+    "text": "Ein Wert wird um 22,5 % verringert. Mit welchem Faktor multiplizierst du?"
    },
    "o": {
-    "wert": 1.075
+    "wert": 0.775
    },
-   "c": "1 + (15/2) / 100",
-   "w": "100 % + 7,5 % = 107,5 % = 1,075.",
-   "h": "Rechne erst 100 % plus oder minus p %, dann in eine Dezimalzahl umwandeln."
-  },
-  {
-   "l": "faktor",
-   "t": "faktor",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Wert wird um 36 % verringert. Mit welchem Faktor multiplizierst du?"
-   },
-   "o": {
-    "wert": 0.64
-   },
-   "c": "1 - 36 / 100",
-   "w": "100 % − 36 % = 64 % = 0,64.",
+   "c": "1 - (45/2) / 100",
+   "w": "100 % − 22,5 % = 77,5 % = 0,775.",
    "h": "Rechne erst 100 % plus oder minus p %, dann in eine Dezimalzahl umwandeln."
   },
   {
@@ -522,13 +584,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Wert wird um 75 % verringert. Mit welchem Faktor multiplizierst du?"
+    "text": "Ein Wert wird mit dem Faktor 1,04 multipliziert. Um wie viel Prozent ändert er sich? (Zunahme positiv, Abnahme negativ angeben)"
    },
    "o": {
-    "wert": 0.25
+    "wert": 4,
+    "einheit": "%"
    },
-   "c": "1 - 75 / 100",
-   "w": "100 % − 75 % = 25 % = 0,25."
+   "c": "((26/25) - 1) * 100",
+   "w": "1,04 = 104 %. Änderung: 104 % − 100 % = 4 %."
   },
   {
    "l": "faktor",
@@ -537,13 +600,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Wert wird um 60 % verringert. Mit welchem Faktor multiplizierst du?"
+    "text": "Ein Wert wird mit dem Faktor 1,75 multipliziert. Um wie viel Prozent ändert er sich? (Zunahme positiv, Abnahme negativ angeben)"
    },
    "o": {
-    "wert": 0.4
+    "wert": 75,
+    "einheit": "%"
    },
-   "c": "1 - 60 / 100",
-   "w": "100 % − 60 % = 40 % = 0,4."
+   "c": "((7/4) - 1) * 100",
+   "w": "1,75 = 175 %. Änderung: 175 % − 100 % = 75 %."
   },
   {
    "l": "faktor",
@@ -552,13 +616,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Wert wird um 12 % erhöht. Mit welchem Faktor multiplizierst du?"
+    "text": "Ein Wert wird um 4 % verringert. Mit welchem Faktor multiplizierst du?"
    },
    "o": {
-    "wert": 1.12
+    "wert": 0.96
    },
-   "c": "1 + 12 / 100",
-   "w": "100 % + 12 % = 112 % = 1,12."
+   "c": "1 - 4 / 100",
+   "w": "100 % − 4 % = 96 % = 0,96."
   },
   {
    "l": "faktor",
@@ -567,58 +631,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Wert wird um 35 % verringert. Mit welchem Faktor multiplizierst du?"
+    "text": "Ein Wert wird um 3 % erhöht. Mit welchem Faktor multiplizierst du?"
    },
    "o": {
-    "wert": 0.65
+    "wert": 1.03
    },
-   "c": "1 - 35 / 100",
-   "w": "100 % − 35 % = 65 % = 0,65."
-  },
-  {
-   "l": "faktor",
-   "t": "faktor",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Wert wird um 8 % verringert. Mit welchem Faktor multiplizierst du?"
-   },
-   "o": {
-    "wert": 0.92
-   },
-   "c": "1 - 8 / 100",
-   "w": "100 % − 8 % = 92 % = 0,92."
-  },
-  {
-   "l": "faktor",
-   "t": "faktor",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Wert wird um 2 % verringert. Mit welchem Faktor multiplizierst du?"
-   },
-   "o": {
-    "wert": 0.98
-   },
-   "c": "1 - 2 / 100",
-   "w": "100 % − 2 % = 98 % = 0,98."
-  },
-  {
-   "l": "faktor",
-   "t": "faktor",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Wert wird um 16 % verringert. Mit welchem Faktor multiplizierst du?"
-   },
-   "o": {
-    "wert": 0.84
-   },
-   "c": "1 - 16 / 100",
-   "w": "100 % − 16 % = 84 % = 0,84."
+   "c": "1 + 3 / 100",
+   "w": "100 % + 3 % = 103 % = 1,03."
   },
   {
    "l": "faktor",
@@ -642,6 +661,37 @@
    "s": 2,
    "y": "zahl",
    "f": {
+    "text": "Ein Wert wird um 5 % erhöht. Mit welchem Faktor multiplizierst du?"
+   },
+   "o": {
+    "wert": 1.05
+   },
+   "c": "1 + 5 / 100",
+   "w": "100 % + 5 % = 105 % = 1,05."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Wert wird mit dem Faktor 1,45 multipliziert. Um wie viel Prozent ändert er sich? (Zunahme positiv, Abnahme negativ angeben)"
+   },
+   "o": {
+    "wert": 45,
+    "einheit": "%"
+   },
+   "c": "((29/20) - 1) * 100",
+   "w": "1,45 = 145 %. Änderung: 145 % − 100 % = 45 %."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
     "text": "Ein Wert wird um 18 % verringert. Mit welchem Faktor multiplizierst du?"
    },
    "o": {
@@ -657,64 +707,30 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Wert wird um 5 % erhöht. Mit welchem Faktor multiplizierst du?"
+    "text": "Ein Wert wird mit dem Faktor 0,55 multipliziert. Um wie viel Prozent ändert er sich? (Zunahme positiv, Abnahme negativ angeben)"
    },
    "o": {
-    "wert": 1.05
+    "wert": -45,
+    "einheit": "%"
    },
-   "c": "1 + 5 / 100",
-   "w": "100 % + 5 % = 105 % = 1,05."
+   "c": "((11/20) - 1) * 100",
+   "w": "0,55 = 55 %. Änderung: 55 % − 100 % = −45 %."
   },
   {
-   "l": "vermehrt",
-   "t": "vermehrt",
-   "p": "uebung",
-   "s": 1,
+   "l": "faktor",
+   "t": "faktor",
+   "p": "sicherung",
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Verein hat 800 Mitglieder. Die Mitgliederzahl wächst um 50 %. Wie groß ist der neue Wert?"
+    "text": "Ein Wert wird mit dem Faktor 0,85 multipliziert. Um wie viel Prozent ändert er sich? (Zunahme positiv, Abnahme negativ angeben)"
    },
    "o": {
-    "wert": 1200,
-    "einheit": "Mitglieder"
+    "wert": -15,
+    "einheit": "%"
    },
-   "c": "800 * (1 + 50 / 100)",
-   "w": "Faktor 1,5: 800 · 1,5 = 1200 Mitglieder.",
-   "h": "Bestimme den Faktor 1 ± p/100 und multipliziere."
-  },
-  {
-   "l": "vermehrt",
-   "t": "vermehrt",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Fahrrad kostet 1200 €. Der Preis steigt um 10 %. Wie hoch ist der neue Preis?"
-   },
-   "o": {
-    "wert": 1320,
-    "einheit": "€"
-   },
-   "c": "1200 * (1 + 10 / 100)",
-   "w": "Faktor 1,1: 1200 · 1,1 = 1320 €.",
-   "h": "Bestimme den Faktor 1 ± p/100 und multipliziere."
-  },
-  {
-   "l": "vermehrt",
-   "t": "vermehrt",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Sparguthaben beträgt 1500 €. In einem Jahr kommen 3 % Zinsen dazu. Wie hoch ist das Guthaben danach?"
-   },
-   "o": {
-    "wert": 1545,
-    "einheit": "€"
-   },
-   "c": "1500 * (1 + 3 / 100)",
-   "w": "Faktor 1,03: 1500 · 1,03 = 1545 €.",
-   "h": "Bestimme den Faktor 1 ± p/100 und multipliziere."
+   "c": "((17/20) - 1) * 100",
+   "w": "0,85 = 85 %. Änderung: 85 % − 100 % = −15 %."
   },
   {
    "l": "vermehrt",
@@ -737,7 +753,7 @@
    "l": "vermehrt",
    "t": "vermehrt",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein Sparguthaben beträgt 5000 €. In einem Jahr kommen 3 % Zinsen dazu. Wie hoch ist das Guthaben danach?"
@@ -754,7 +770,7 @@
    "l": "vermehrt",
    "t": "vermehrt",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein Sparguthaben beträgt 2400 €. In einem Jahr kommen 1 % Zinsen dazu. Wie hoch ist das Guthaben danach?"
@@ -771,7 +787,7 @@
    "l": "vermehrt",
    "t": "vermehrt",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
     "text": "Ein Sparguthaben beträgt 800 €. In einem Jahr kommen 2 % Zinsen dazu. Wie hoch ist das Guthaben danach?"
@@ -839,18 +855,52 @@
    "l": "vermehrt",
    "t": "vermehrt",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Monatsgehalt von 2800 € steigt erst um 5 %, danach kommt eine feste Zulage von 80 € dazu. Wie hoch ist das neue Gehalt?"
+    "text": "Ein Nettopreis beträgt 350 €. Dazu kommen 19 % Mehrwertsteuer. Wie hoch ist der Preis mit Mehrwertsteuer?"
    },
    "o": {
-    "wert": 3020,
+    "wert": 416.5,
     "einheit": "€"
    },
-   "c": "2800 * (1 + 5 / 100) + 80",
-   "w": "2800 · 1,05 = 2940 €; + 80 € = 3020 €.",
-   "h": "Erst die prozentuale Erhöhung, dann die feste Zulage."
+   "c": "350 * (1 + 19 / 100)",
+   "w": "Faktor 1,19: 350 · 1,19 = 416,50 €.",
+   "h": "Bestimme den Faktor 1 ± p/100 und multipliziere."
+  },
+  {
+   "l": "vermehrt",
+   "t": "vermehrt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Sparguthaben beträgt 4000 €. In einem Jahr kommen 1,5 % Zinsen dazu. Wie hoch ist das Guthaben danach?"
+   },
+   "o": {
+    "wert": 4060,
+    "einheit": "€"
+   },
+   "c": "4000 * (1 + (3/2) / 100)",
+   "w": "Faktor 1,015: 4000 · 1,015 = 4060 €.",
+   "h": "Bestimme den Faktor 1 ± p/100 und multipliziere."
+  },
+  {
+   "l": "vermehrt",
+   "t": "vermehrt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Monatsmiete beträgt 560 €. Sie wird um 8 % erhöht. Wie groß ist der neue Wert?"
+   },
+   "o": {
+    "wert": 604.8,
+    "einheit": "€"
+   },
+   "c": "560 * (1 + 8 / 100)",
+   "w": "Faktor 1,08: 560 · 1,08 = 604,80 €.",
+   "h": "Bestimme den Faktor 1 ± p/100 und multipliziere."
   },
   {
    "l": "vermehrt",
@@ -859,14 +909,14 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Verein hat 400 Mitglieder. Die Mitgliederzahl wächst um 13 %. Wie groß ist der neue Wert?"
+    "text": "Ein Nettopreis beträgt 60 €. Dazu kommen 19 % Mehrwertsteuer. Wie hoch ist der Preis mit Mehrwertsteuer?"
    },
    "o": {
-    "wert": 452,
-    "einheit": "Mitglieder"
+    "wert": 71.4,
+    "einheit": "€"
    },
-   "c": "400 * (1 + 13 / 100)",
-   "w": "Faktor 1,13: 400 · 1,13 = 452 Mitglieder.",
+   "c": "60 * (1 + 19 / 100)",
+   "w": "Faktor 1,19: 60 · 1,19 = 71,40 €.",
    "h": "Bestimme den Faktor 1 ± p/100 und multipliziere."
   },
   {
@@ -906,18 +956,35 @@
   {
    "l": "vermehrt",
    "t": "vermehrt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Fahrrad kostet 720 €. Der Preis steigt um 2,5 %. Wie hoch ist der neue Preis?"
+   },
+   "o": {
+    "wert": 738,
+    "einheit": "€"
+   },
+   "c": "720 * (1 + (5/2) / 100)",
+   "w": "Faktor 1,025: 720 · 1,025 = 738 €.",
+   "h": "Bestimme den Faktor 1 ± p/100 und multipliziere."
+  },
+  {
+   "l": "vermehrt",
+   "t": "vermehrt",
    "p": "test",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Sparguthaben beträgt 4000 €. In einem Jahr kommen 2 % Zinsen dazu. Wie hoch ist das Guthaben danach?"
+    "text": "Ein Fahrrad kostet 560 €. Der Preis steigt um 18 %. Wie hoch ist der neue Preis?"
    },
    "o": {
-    "wert": 4080,
+    "wert": 660.8,
     "einheit": "€"
    },
-   "c": "4000 * (1 + 2 / 100)",
-   "w": "Faktor 1,02: 4000 · 1,02 = 4080 €."
+   "c": "560 * (1 + 18 / 100)",
+   "w": "Faktor 1,18: 560 · 1,18 = 660,80 €."
   },
   {
    "l": "vermehrt",
@@ -926,14 +993,30 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Verein hat 200 Mitglieder. Die Mitgliederzahl wächst um 2 %. Wie groß ist der neue Wert?"
+    "text": "Ein Fahrrad kostet 450 €. Der Preis steigt um 15 %. Wie hoch ist der neue Preis?"
    },
    "o": {
-    "wert": 204,
-    "einheit": "Mitglieder"
+    "wert": 517.5,
+    "einheit": "€"
    },
-   "c": "200 * (1 + 2 / 100)",
-   "w": "Faktor 1,02: 200 · 1,02 = 204 Mitglieder."
+   "c": "450 * (1 + 15 / 100)",
+   "w": "Faktor 1,15: 450 · 1,15 = 517,50 €."
+  },
+  {
+   "l": "vermehrt",
+   "t": "vermehrt",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Nettopreis beträgt 150 €. Dazu kommen 19 % Mehrwertsteuer. Wie hoch ist der Preis mit Mehrwertsteuer?"
+   },
+   "o": {
+    "wert": 178.5,
+    "einheit": "€"
+   },
+   "c": "150 * (1 + 19 / 100)",
+   "w": "Faktor 1,19: 150 · 1,19 = 178,50 €."
   },
   {
    "l": "vermehrt",
@@ -954,43 +1037,11 @@
   {
    "l": "vermehrt",
    "t": "vermehrt",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Sparguthaben beträgt 1200 €. In einem Jahr kommen 1,5 % Zinsen dazu. Wie hoch ist das Guthaben danach?"
-   },
-   "o": {
-    "wert": 1218,
-    "einheit": "€"
-   },
-   "c": "1200 * (1 + (3/2) / 100)",
-   "w": "Faktor 1,015: 1200 · 1,015 = 1218 €."
-  },
-  {
-   "l": "vermehrt",
-   "t": "vermehrt",
    "p": "sicherung",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Netto-Preis ist 150 €. Dazu kommen 19 % Mehrwertsteuer. Wie hoch ist der Preis mit Mehrwertsteuer?"
-   },
-   "o": {
-    "wert": 178.5,
-    "einheit": "€"
-   },
-   "c": "150 * (1 + 19 / 100)",
-   "w": "Faktor 1,19: 150 · 1,19 = 178,50 €."
-  },
-  {
-   "l": "vermehrt",
-   "t": "vermehrt",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Netto-Preis ist 20 €. Dazu kommen 19 % Mehrwertsteuer. Wie hoch ist der Preis mit Mehrwertsteuer?"
+    "text": "Ein Nettopreis beträgt 20 €. Dazu kommen 19 % Mehrwertsteuer. Wie hoch ist der Preis mit Mehrwertsteuer?"
    },
    "o": {
     "wert": 23.8,
@@ -1006,7 +1057,7 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Netto-Preis ist 200 €. Dazu kommen 19 % Mehrwertsteuer. Wie hoch ist der Preis mit Mehrwertsteuer?"
+    "text": "Ein Nettopreis beträgt 200 €. Dazu kommen 19 % Mehrwertsteuer. Wie hoch ist der Preis mit Mehrwertsteuer?"
    },
    "o": {
     "wert": 238,
@@ -1022,7 +1073,7 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Netto-Preis ist 500 €. Dazu kommen 19 % Mehrwertsteuer. Wie hoch ist der Preis mit Mehrwertsteuer?"
+    "text": "Ein Nettopreis beträgt 500 €. Dazu kommen 19 % Mehrwertsteuer. Wie hoch ist der Preis mit Mehrwertsteuer?"
    },
    "o": {
     "wert": 595,
@@ -1030,22 +1081,6 @@
    },
    "c": "500 * (1 + 19 / 100)",
    "w": "Faktor 1,19: 500 · 1,19 = 595 €."
-  },
-  {
-   "l": "vermehrt",
-   "t": "vermehrt",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Netto-Preis ist 60 €. Dazu kommen 19 % Mehrwertsteuer. Wie hoch ist der Preis mit Mehrwertsteuer?"
-   },
-   "o": {
-    "wert": 71.4,
-    "einheit": "€"
-   },
-   "c": "60 * (1 + 19 / 100)",
-   "w": "Faktor 1,19: 60 · 1,19 = 71,40 €."
   },
   {
    "l": "vermehrt",
@@ -1062,6 +1097,38 @@
    },
    "c": "900 * (1 + 16 / 100)",
    "w": "Faktor 1,16: 900 · 1,16 = 1044 €."
+  },
+  {
+   "l": "vermehrt",
+   "t": "vermehrt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Nettopreis beträgt 120 €. Dazu kommen 19 % Mehrwertsteuer. Wie hoch ist der Preis mit Mehrwertsteuer?"
+   },
+   "o": {
+    "wert": 142.8,
+    "einheit": "€"
+   },
+   "c": "120 * (1 + 19 / 100)",
+   "w": "Faktor 1,19: 120 · 1,19 = 142,80 €."
+  },
+  {
+   "l": "vermehrt",
+   "t": "vermehrt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Monatsmiete beträgt 1200 €. Sie wird um 3 % erhöht. Wie groß ist der neue Wert?"
+   },
+   "o": {
+    "wert": 1236,
+    "einheit": "€"
+   },
+   "c": "1200 * (1 + 3 / 100)",
+   "w": "Faktor 1,03: 1200 · 1,03 = 1236 €."
   },
   {
    "l": "vermindert",
@@ -1087,14 +1154,14 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Handy kostet 450 €. Der Preis sinkt um 30 %. Wie hoch ist der neue Preis?"
+    "text": "Ein Handy kostet 180 €. Der Preis sinkt um 30 %. Wie hoch ist der neue Preis?"
    },
    "o": {
-    "wert": 315,
+    "wert": 126,
     "einheit": "€"
    },
-   "c": "450 * (1 - 30 / 100)",
-   "w": "Faktor 0,7: 450 · 0,7 = 315 €.",
+   "c": "180 * (1 - 30 / 100)",
+   "w": "Faktor 0,7: 180 · 0,7 = 126 €.",
    "h": "Bestimme den Faktor 1 ± p/100 und multipliziere."
   },
   {
@@ -1104,14 +1171,14 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Auto hat einen Wert von 12 000 €. In einem Jahr sinkt der Wert um 10 %. Wie groß ist der neue Wert?"
+    "text": "Ein Auto hat einen Wert von 18 000 €. In einem Jahr sinkt der Wert um 10 %. Wie groß ist der neue Wert?"
    },
    "o": {
-    "wert": 10800,
+    "wert": 16200,
     "einheit": "€"
    },
-   "c": "12000 * (1 - 10 / 100)",
-   "w": "Faktor 0,9: 12 000 · 0,9 = 10 800 €.",
+   "c": "18000 * (1 - 10 / 100)",
+   "w": "Faktor 0,9: 18 000 · 0,9 = 16 200 €.",
    "h": "Bestimme den Faktor 1 ± p/100 und multipliziere."
   },
   {
@@ -1121,48 +1188,14 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Tank enthält 40 Liter. Der Inhalt nimmt um 40 % ab. Wie groß ist der neue Wert?"
+    "text": "Eine Jacke kostet 95 €. Im Ausverkauf gibt es 20 % Rabatt. Wie hoch ist der neue Preis?"
    },
    "o": {
-    "wert": 24,
-    "einheit": "Liter"
-   },
-   "c": "40 * (1 - 40 / 100)",
-   "w": "Faktor 0,6: 40 · 0,6 = 24 Liter.",
-   "h": "Bestimme den Faktor 1 ± p/100 und multipliziere."
-  },
-  {
-   "l": "vermindert",
-   "t": "vermindert",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Auto hat einen Wert von 18 000 €. In einem Jahr sinkt der Wert um 4 %. Wie groß ist der neue Wert?"
-   },
-   "o": {
-    "wert": 17280,
+    "wert": 76,
     "einheit": "€"
    },
-   "c": "18000 * (1 - 4 / 100)",
-   "w": "Faktor 0,96: 18 000 · 0,96 = 17 280 €.",
-   "h": "Bestimme den Faktor 1 ± p/100 und multipliziere."
-  },
-  {
-   "l": "vermindert",
-   "t": "vermindert",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Jacke kostet 95 €. Im Ausverkauf gibt es 8 % Rabatt. Wie hoch ist der neue Preis?"
-   },
-   "o": {
-    "wert": 87.4,
-    "einheit": "€"
-   },
-   "c": "95 * (1 - 8 / 100)",
-   "w": "Faktor 0,92: 95 · 0,92 = 87,40 €.",
+   "c": "95 * (1 - 20 / 100)",
+   "w": "Faktor 0,8: 95 · 0,8 = 76 €.",
    "h": "Bestimme den Faktor 1 ± p/100 und multipliziere."
   },
   {
@@ -1237,69 +1270,103 @@
    "l": "vermindert",
    "t": "vermindert",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Tank enthält 60 Liter. Der Inhalt nimmt um 13 % ab. Wie groß ist der neue Wert?"
+    "text": "Eine Schule hat 500 Schüler. Die Schülerzahl sinkt um 8 %. Wie groß ist der neue Wert?"
    },
    "o": {
-    "wert": 52.2,
-    "einheit": "Liter"
-   },
-   "c": "60 * (1 - 13 / 100)",
-   "w": "Faktor 0,87: 60 · 0,87 = 52,2 Liter.",
-   "h": "Bestimme den Faktor 1 ± p/100 und multipliziere."
-  },
-  {
-   "l": "vermindert",
-   "t": "vermindert",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Schule hat 200 Schüler. Die Schülerzahl sinkt um 7 %. Wie groß ist der neue Wert?"
-   },
-   "o": {
-    "wert": 186,
+    "wert": 460,
     "einheit": "Schüler"
    },
-   "c": "200 * (1 - 7 / 100)",
-   "w": "Faktor 0,93: 200 · 0,93 = 186 Schüler.",
+   "c": "500 * (1 - 8 / 100)",
+   "w": "Faktor 0,92: 500 · 0,92 = 460 Schüler.",
    "h": "Bestimme den Faktor 1 ± p/100 und multipliziere."
   },
   {
    "l": "vermindert",
    "t": "vermindert",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Tank enthält 60 Liter. Der Inhalt nimmt um 28 % ab. Wie groß ist der neue Wert?"
+    "text": "Ein Auto hat einen Wert von 20 000 €. In einem Jahr sinkt der Wert um 16 %. Wie groß ist der neue Wert?"
    },
    "o": {
-    "wert": 43.2,
-    "einheit": "Liter"
-   },
-   "c": "60 * (1 - 28 / 100)",
-   "w": "Faktor 0,72: 60 · 0,72 = 43,2 Liter.",
-   "h": "Bestimme den Faktor 1 ± p/100 und multipliziere."
-  },
-  {
-   "l": "vermindert",
-   "t": "vermindert",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Jacke kostet 40 €. Im Ausverkauf gibt es 22 % Rabatt. Wie hoch ist der neue Preis?"
-   },
-   "o": {
-    "wert": 31.2,
+    "wert": 16800,
     "einheit": "€"
    },
-   "c": "40 * (1 - 22 / 100)",
-   "w": "Faktor 0,78: 40 · 0,78 = 31,20 €.",
+   "c": "20000 * (1 - 16 / 100)",
+   "w": "Faktor 0,84: 20 000 · 0,84 = 16 800 €.",
    "h": "Bestimme den Faktor 1 ± p/100 und multipliziere."
+  },
+  {
+   "l": "vermindert",
+   "t": "vermindert",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Schreibtisch kostet 300 €. Es gibt 10 % Rabatt, auf den reduzierten Preis bei Barzahlung noch 3 % Skonto. Was zahlt man bar?"
+   },
+   "o": {
+    "wert": 261.9,
+    "einheit": "€"
+   },
+   "c": "300 * (1 - 10 / 100) * (1 - 3 / 100)",
+   "w": "300 € · 0,9 = 270 €; 270 € · 0,97 = 261,90 €.",
+   "h": "Zwei Abzüge nacheinander: zwei Faktoren. Das Skonto bezieht sich auf den schon reduzierten Preis."
+  },
+  {
+   "l": "vermindert",
+   "t": "vermindert",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Waschmaschine kostet 600 €. Es gibt 10 % Rabatt, auf den reduzierten Preis bei Barzahlung noch 3 % Skonto. Was zahlt man bar?"
+   },
+   "o": {
+    "wert": 523.8,
+    "einheit": "€"
+   },
+   "c": "600 * (1 - 10 / 100) * (1 - 3 / 100)",
+   "w": "600 € · 0,9 = 540 €; 540 € · 0,97 = 523,80 €.",
+   "h": "Zwei Abzüge nacheinander: zwei Faktoren. Das Skonto bezieht sich auf den schon reduzierten Preis."
+  },
+  {
+   "l": "vermindert",
+   "t": "vermindert",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Waschmaschine kostet 400 €. Es gibt 25 % Rabatt, auf den reduzierten Preis bei Barzahlung noch 2 % Skonto. Was zahlt man bar?"
+   },
+   "o": {
+    "wert": 294,
+    "einheit": "€"
+   },
+   "c": "400 * (1 - 25 / 100) * (1 - 2 / 100)",
+   "w": "400 € · 0,75 = 300 €; 300 € · 0,98 = 294 €.",
+   "h": "Zwei Abzüge nacheinander: zwei Faktoren. Das Skonto bezieht sich auf den schon reduzierten Preis."
+  },
+  {
+   "l": "vermindert",
+   "t": "vermindert",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Jacke kostet 80 €. Es gibt 25 % Rabatt, auf den reduzierten Preis bei Barzahlung noch 2 % Skonto. Was zahlt man bar?"
+   },
+   "o": {
+    "wert": 58.8,
+    "einheit": "€"
+   },
+   "c": "80 * (1 - 25 / 100) * (1 - 2 / 100)",
+   "w": "80 € · 0,75 = 60 €; 60 € · 0,98 = 58,80 €.",
+   "h": "Zwei Abzüge nacheinander: zwei Faktoren. Das Skonto bezieht sich auf den schon reduzierten Preis."
   },
   {
    "l": "vermindert",
@@ -1308,126 +1375,62 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Auto hat einen Wert von 18 000 €. In einem Jahr sinkt der Wert um 3 %. Wie groß ist der neue Wert?"
+    "text": "Eine Schule hat 200 Schüler. Die Schülerzahl sinkt um 4 %. Wie groß ist der neue Wert?"
    },
    "o": {
-    "wert": 17460,
-    "einheit": "€"
-   },
-   "c": "18000 * (1 - 3 / 100)",
-   "w": "Faktor 0,97: 18 000 · 0,97 = 17 460 €."
-  },
-  {
-   "l": "vermindert",
-   "t": "vermindert",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Jacke kostet 220 €. Im Ausverkauf gibt es 35 % Rabatt. Wie hoch ist der neue Preis?"
-   },
-   "o": {
-    "wert": 143,
-    "einheit": "€"
-   },
-   "c": "220 * (1 - 35 / 100)",
-   "w": "Faktor 0,65: 220 · 0,65 = 143 €."
-  },
-  {
-   "l": "vermindert",
-   "t": "vermindert",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Auto hat einen Wert von 15 000 €. In einem Jahr sinkt der Wert um 2 %. Wie groß ist der neue Wert?"
-   },
-   "o": {
-    "wert": 14700,
-    "einheit": "€"
-   },
-   "c": "15000 * (1 - 2 / 100)",
-   "w": "Faktor 0,98: 15 000 · 0,98 = 14 700 €."
-  },
-  {
-   "l": "vermindert",
-   "t": "vermindert",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Auto hat einen Wert von 20 000 €. In einem Jahr sinkt der Wert um 12 %. Wie groß ist der neue Wert?"
-   },
-   "o": {
-    "wert": 17600,
-    "einheit": "€"
-   },
-   "c": "20000 * (1 - 12 / 100)",
-   "w": "Faktor 0,88: 20 000 · 0,88 = 17 600 €."
-  },
-  {
-   "l": "vermindert",
-   "t": "vermindert",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Jacke kostet 40 €. Im Ausverkauf gibt es 12 % Rabatt. Wie hoch ist der neue Preis?"
-   },
-   "o": {
-    "wert": 35.2,
-    "einheit": "€"
-   },
-   "c": "40 * (1 - 12 / 100)",
-   "w": "Faktor 0,88: 40 · 0,88 = 35,20 €."
-  },
-  {
-   "l": "vermindert",
-   "t": "vermindert",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Handy kostet 180 €. Der Preis sinkt um 16 %. Wie hoch ist der neue Preis?"
-   },
-   "o": {
-    "wert": 151.2,
-    "einheit": "€"
-   },
-   "c": "180 * (1 - 16 / 100)",
-   "w": "Faktor 0,84: 180 · 0,84 = 151,20 €."
-  },
-  {
-   "l": "vermindert",
-   "t": "vermindert",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Auto hat einen Wert von 20 000 €. In einem Jahr sinkt der Wert um 2 %. Wie groß ist der neue Wert?"
-   },
-   "o": {
-    "wert": 19600,
-    "einheit": "€"
-   },
-   "c": "20000 * (1 - 2 / 100)",
-   "w": "Faktor 0,98: 20 000 · 0,98 = 19 600 €."
-  },
-  {
-   "l": "vermindert",
-   "t": "vermindert",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Schule hat 250 Schüler. Die Schülerzahl sinkt um 2 %. Wie groß ist der neue Wert?"
-   },
-   "o": {
-    "wert": 245,
+    "wert": 192,
     "einheit": "Schüler"
    },
-   "c": "250 * (1 - 2 / 100)",
-   "w": "Faktor 0,98: 250 · 0,98 = 245 Schüler."
+   "c": "200 * (1 - 4 / 100)",
+   "w": "Faktor 0,96: 200 · 0,96 = 192 Schüler."
+  },
+  {
+   "l": "vermindert",
+   "t": "vermindert",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Auto hat einen Wert von 15 000 €. In einem Jahr sinkt der Wert um 12 %. Wie groß ist der neue Wert?"
+   },
+   "o": {
+    "wert": 13200,
+    "einheit": "€"
+   },
+   "c": "15000 * (1 - 12 / 100)",
+   "w": "Faktor 0,88: 15 000 · 0,88 = 13 200 €."
+  },
+  {
+   "l": "vermindert",
+   "t": "vermindert",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Tank enthält 40 Liter. Der Inhalt nimmt um 45 % ab. Wie groß ist der neue Wert?"
+   },
+   "o": {
+    "wert": 22,
+    "einheit": "Liter"
+   },
+   "c": "40 * (1 - 45 / 100)",
+   "w": "Faktor 0,55: 40 · 0,55 = 22 Liter."
+  },
+  {
+   "l": "vermindert",
+   "t": "vermindert",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Auto hat einen Wert von 12 000 €. In einem Jahr sinkt der Wert um 2 %. Wie groß ist der neue Wert?"
+   },
+   "o": {
+    "wert": 11760,
+    "einheit": "€"
+   },
+   "c": "12000 * (1 - 2 / 100)",
+   "w": "Faktor 0,98: 12 000 · 0,98 = 11 760 €."
   },
   {
    "l": "vermindert",
@@ -1436,14 +1439,78 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Handy kostet 240 €. Der Preis sinkt um 2 %. Wie hoch ist der neue Preis?"
+    "text": "Eine Schule hat 500 Schüler. Die Schülerzahl sinkt um 2 %. Wie groß ist der neue Wert?"
    },
    "o": {
-    "wert": 235.2,
+    "wert": 490,
+    "einheit": "Schüler"
+   },
+   "c": "500 * (1 - 2 / 100)",
+   "w": "Faktor 0,98: 500 · 0,98 = 490 Schüler."
+  },
+  {
+   "l": "vermindert",
+   "t": "vermindert",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Jacke kostet 40 €. Im Ausverkauf gibt es 18 % Rabatt. Wie hoch ist der neue Preis?"
+   },
+   "o": {
+    "wert": 32.8,
     "einheit": "€"
    },
-   "c": "240 * (1 - 2 / 100)",
-   "w": "Faktor 0,98: 240 · 0,98 = 235,20 €."
+   "c": "40 * (1 - 18 / 100)",
+   "w": "Faktor 0,82: 40 · 0,82 = 32,80 €."
+  },
+  {
+   "l": "vermindert",
+   "t": "vermindert",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Schule hat 800 Schüler. Die Schülerzahl sinkt um 4 %. Wie groß ist der neue Wert?"
+   },
+   "o": {
+    "wert": 768,
+    "einheit": "Schüler"
+   },
+   "c": "800 * (1 - 4 / 100)",
+   "w": "Faktor 0,96: 800 · 0,96 = 768 Schüler."
+  },
+  {
+   "l": "vermindert",
+   "t": "vermindert",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Jacke kostet 80 €. Im Ausverkauf gibt es 3 % Rabatt. Wie hoch ist der neue Preis?"
+   },
+   "o": {
+    "wert": 77.6,
+    "einheit": "€"
+   },
+   "c": "80 * (1 - 3 / 100)",
+   "w": "Faktor 0,97: 80 · 0,97 = 77,60 €."
+  },
+  {
+   "l": "vermindert",
+   "t": "vermindert",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Jacke kostet 60 €. Im Ausverkauf gibt es 35 % Rabatt. Wie hoch ist der neue Preis?"
+   },
+   "o": {
+    "wert": 39,
+    "einheit": "€"
+   },
+   "c": "60 * (1 - 35 / 100)",
+   "w": "Faktor 0,65: 60 · 0,65 = 39 €."
   },
   {
    "l": "vermindert",
@@ -1874,7 +1941,7 @@
    },
    "c": "(25 / 50 - 1) * 100",
    "w": "25 : 50 = 0,5. (0,5 − 1) · 100 % = −50 %.",
-   "h": "Teile neu durch alt. Was fehlt oder fehlt zu 1?"
+   "h": "Teile neu durch alt und vergleiche das Ergebnis mit 1."
   },
   {
    "l": "prozentsatz",
@@ -1891,7 +1958,7 @@
    },
    "c": "(180 / 150 - 1) * 100",
    "w": "180 : 150 = 1,2. (1,2 − 1) · 100 % = 20 %.",
-   "h": "Teile neu durch alt. Was fehlt oder fehlt zu 1?"
+   "h": "Teile neu durch alt und vergleiche das Ergebnis mit 1."
   },
   {
    "l": "prozentsatz",
@@ -1908,7 +1975,7 @@
    },
    "c": "((375/2) / 150 - 1) * 100",
    "w": "187,50 : 150 = 1,25. (1,25 − 1) · 100 % = 25 %.",
-   "h": "Teile neu durch alt. Was fehlt oder fehlt zu 1?"
+   "h": "Teile neu durch alt und vergleiche das Ergebnis mit 1."
   },
   {
    "l": "prozentsatz",
@@ -1925,7 +1992,7 @@
    },
    "c": "(75 / 150 - 1) * 100",
    "w": "75 : 150 = 0,5. (0,5 − 1) · 100 % = −50 %.",
-   "h": "Teile neu durch alt. Was fehlt oder fehlt zu 1?"
+   "h": "Teile neu durch alt und vergleiche das Ergebnis mit 1."
   },
   {
    "l": "prozentsatz",
@@ -1942,7 +2009,7 @@
    },
    "c": "(328 / 400 - 1) * 100",
    "w": "328 : 400 = 0,82. (0,82 − 1) · 100 % = −18 %.",
-   "h": "Teile neu durch alt. Was fehlt oder fehlt zu 1?"
+   "h": "Teile neu durch alt und vergleiche das Ergebnis mit 1."
   },
   {
    "l": "prozentsatz",
@@ -1959,7 +2026,7 @@
    },
    "c": "(575 / 500 - 1) * 100",
    "w": "575 : 500 = 1,15. (1,15 − 1) · 100 % = 15 %.",
-   "h": "Teile neu durch alt. Was fehlt oder fehlt zu 1?"
+   "h": "Teile neu durch alt und vergleiche das Ergebnis mit 1."
   },
   {
    "l": "prozentsatz",
@@ -1976,7 +2043,7 @@
    },
    "c": "(540 / 500 - 1) * 100",
    "w": "540 : 500 = 1,08. (1,08 − 1) · 100 % = 8 %.",
-   "h": "Teile neu durch alt. Was fehlt oder fehlt zu 1?"
+   "h": "Teile neu durch alt und vergleiche das Ergebnis mit 1."
   },
   {
    "l": "prozentsatz",
@@ -1993,7 +2060,7 @@
    },
    "c": "(432 / 400 - 1) * 100",
    "w": "432 : 400 = 1,08. (1,08 − 1) · 100 % = 8 %.",
-   "h": "Teile neu durch alt. Was fehlt oder fehlt zu 1?"
+   "h": "Teile neu durch alt und vergleiche das Ergebnis mit 1."
   },
   {
    "l": "prozentsatz",
@@ -2010,7 +2077,7 @@
    },
    "c": "((97/4) / 25 - 1) * 100",
    "w": "24,25 : 25 = 0,97. (0,97 − 1) · 100 % = −3 %.",
-   "h": "Teile neu durch alt. Was fehlt oder fehlt zu 1?"
+   "h": "Teile neu durch alt und vergleiche das Ergebnis mit 1."
   },
   {
    "l": "prozentsatz",
@@ -2027,24 +2094,28 @@
    },
    "c": "(41 / 50 - 1) * 100",
    "w": "41 : 50 = 0,82. (0,82 − 1) · 100 % = −18 %.",
-   "h": "Teile neu durch alt. Was fehlt oder fehlt zu 1?"
+   "h": "Teile neu durch alt und vergleiche das Ergebnis mit 1."
   },
   {
    "l": "prozentsatz",
    "t": "prozentsatz",
    "p": "uebung",
    "s": 3,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Ein Preis ändert sich von 20 € auf 18,60 €. Um wie viel Prozent ändert er sich? (Zunahme positiv, Abnahme negativ)"
+    "text": "Ein Preis steigt von 80 € auf 100 €. Jemand sagt: „Das sind 20 %, denn 20 : 100 = 0,2.“ Was stimmt?"
    },
+   "a": [
+    "Falsch: Es sind 125 %.",
+    "Richtig: Eine Änderung um 20 € sind immer 20 %.",
+    "Falsch: Man teilt durch den alten Wert: 20 : 80, also 25 %.",
+    "Richtig: Man teilt durch den neuen Wert 100 €."
+   ],
    "o": {
-    "wert": -7,
-    "einheit": "%"
+    "index": 2
    },
-   "c": "((93/5) / 20 - 1) * 100",
-   "w": "18,60 : 20 = 0,93. (0,93 − 1) · 100 % = −7 %.",
-   "h": "Teile neu durch alt. Was fehlt oder fehlt zu 1?"
+   "w": "Grundwert ist der alte Preis 80 €. Änderung 20 €; 20 : 80 = 25 %.",
+   "h": "Worauf bezieht sich die Änderung – auf den Preis vorher oder nachher?"
   },
   {
    "l": "prozentsatz",
@@ -2069,18 +2140,21 @@
    "t": "prozentsatz",
    "p": "uebung",
    "s": 3,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Ein Preis fällt von 400 € auf 372 € und steigt danach wieder auf 400 €. Um wie viel Prozent steigt er im zweiten Schritt? Runde auf eine Nachkommastelle."
+    "text": "Ein Preis fällt von 100 € auf 75 €. Jemand sagt: „Das sind ≈ 33,3 %, denn 25 : 75 ≈ 0,333.“ Was stimmt?"
    },
+   "a": [
+    "Falsch: Es sind 75 %.",
+    "Falsch: Man teilt durch den alten Wert: 25 : 100, also 25 %.",
+    "Richtig: Eine Änderung um 25 € sind immer 25 %.",
+    "Richtig: Man teilt durch den neuen Wert 75 €."
+   ],
    "o": {
-    "wert": 7.5,
-    "einheit": "%",
-    "toleranz": 0.1
+    "index": 1
    },
-   "c": "round((400 / 372 - 1) * 100, 1)",
-   "w": "400 : 372 ≈ 1,0753. Zunahme ≈ 7,5 % – mehr als die Abnahme, weil der Bezugswert kleiner ist.",
-   "h": "Bezugswert ist jetzt der gesunkene Preis."
+   "w": "Grundwert ist der alte Preis 100 €. Änderung 25 €; 25 : 100 = 25 %.",
+   "h": "Worauf bezieht sich die Änderung – auf den Preis vorher oder nachher?"
   },
   {
    "l": "prozentsatz",
@@ -2089,15 +2163,16 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Ein Preis ändert sich von 50 € auf 43,50 €. Um wie viel Prozent ändert er sich? (Zunahme positiv, Abnahme negativ)"
+    "text": "Ein Preis fällt von 120 € auf 111,60 € und steigt danach wieder auf 120 €. Um wie viel Prozent steigt er im zweiten Schritt? Runde auf eine Nachkommastelle."
    },
    "o": {
-    "wert": -13,
-    "einheit": "%"
+    "wert": 7.5,
+    "einheit": "%",
+    "toleranz": 0.1
    },
-   "c": "((87/2) / 50 - 1) * 100",
-   "w": "43,50 : 50 = 0,87. (0,87 − 1) · 100 % = −13 %.",
-   "h": "Teile neu durch alt. Was fehlt oder fehlt zu 1?"
+   "c": "round((120 / (558/5) - 1) * 100, 1)",
+   "w": "120 : 111,60 ≈ 1,0753. Zunahme ≈ 7,5 % – mehr als die Abnahme, weil der Bezugswert kleiner ist.",
+   "h": "Bezugswert ist jetzt der gesunkene Preis."
   },
   {
    "l": "prozentsatz",
@@ -2106,14 +2181,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Preis ändert sich von 800 € auf 928 €. Um wie viel Prozent ändert er sich? (Zunahme positiv, Abnahme negativ)"
+    "text": "Ein Preis ändert sich von 20 € auf 19 €. Um wie viel Prozent ändert er sich? (Zunahme positiv, Abnahme negativ)"
    },
    "o": {
-    "wert": 16,
+    "wert": -5,
     "einheit": "%"
    },
-   "c": "(928 / 800 - 1) * 100",
-   "w": "928 : 800 = 1,16. (1,16 − 1) · 100 % = 16 %."
+   "c": "(19 / 20 - 1) * 100",
+   "w": "19 : 20 = 0,95. (0,95 − 1) · 100 % = −5 %."
   },
   {
    "l": "prozentsatz",
@@ -2122,14 +2197,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Preis ändert sich von 50 € auf 44 €. Um wie viel Prozent ändert er sich? (Zunahme positiv, Abnahme negativ)"
+    "text": "Ein Preis ändert sich von 200 € auf 194 €. Um wie viel Prozent ändert er sich? (Zunahme positiv, Abnahme negativ)"
    },
    "o": {
-    "wert": -12,
+    "wert": -3,
     "einheit": "%"
    },
-   "c": "(44 / 50 - 1) * 100",
-   "w": "44 : 50 = 0,88. (0,88 − 1) · 100 % = −12 %."
+   "c": "(194 / 200 - 1) * 100",
+   "w": "194 : 200 = 0,97. (0,97 − 1) · 100 % = −3 %."
   },
   {
    "l": "prozentsatz",
@@ -2138,14 +2213,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Preis ändert sich von 25 € auf 27 €. Um wie viel Prozent ändert er sich? (Zunahme positiv, Abnahme negativ)"
+    "text": "Ein Preis ändert sich von 40 € auf 70 €. Um wie viel Prozent ändert er sich? (Zunahme positiv, Abnahme negativ)"
    },
    "o": {
-    "wert": 8,
+    "wert": 75,
     "einheit": "%"
    },
-   "c": "(27 / 25 - 1) * 100",
-   "w": "27 : 25 = 1,08. (1,08 − 1) · 100 % = 8 %."
+   "c": "(70 / 40 - 1) * 100",
+   "w": "70 : 40 = 1,75. (1,75 − 1) · 100 % = 75 %."
   },
   {
    "l": "prozentsatz",
@@ -2154,14 +2229,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Preis ändert sich von 40 € auf 40,80 €. Um wie viel Prozent ändert er sich? (Zunahme positiv, Abnahme negativ)"
+    "text": "Ein Preis ändert sich von 20 € auf 35 €. Um wie viel Prozent ändert er sich? (Zunahme positiv, Abnahme negativ)"
    },
    "o": {
-    "wert": 2,
+    "wert": 75,
     "einheit": "%"
    },
-   "c": "((204/5) / 40 - 1) * 100",
-   "w": "40,80 : 40 = 1,02. (1,02 − 1) · 100 % = 2 %."
+   "c": "(35 / 20 - 1) * 100",
+   "w": "35 : 20 = 1,75. (1,75 − 1) · 100 % = 75 %."
   },
   {
    "l": "prozentsatz",
@@ -2664,19 +2739,19 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage ist mathematisch richtig?"
+    "text": "Welche Aussage ist mathematisch richtig begründet?"
    },
    "a": [
-    "Aus einem Bruttopreis von 595 € erhält man den Nettopreis, indem man 19 % davon abzieht.",
-    "Sinkt ein Wert um 100 %, halbiert er sich.",
-    "500 € mit 19 % Mehrwertsteuer ergeben 595 €.",
-    "Sinkt ein Preis um 10 %, muss er um 10 % steigen, um wieder den alten Wert zu erreichen."
+    "Aus 595 € brutto erhält man den Nettopreis, indem man 19 % davon abzieht, denn die Steuer beträgt 19 %.",
+    "Der neue Preis ist 10 % niedriger, denn das Geschäft will Kunden anlocken.",
+    "500 € mit 19 % Mehrwertsteuer ergeben 595 €, denn 500 · 1,19 = 595.",
+    "Sinkt ein Preis um 10 %, muss er um 10 % steigen, um den alten Wert zu erreichen, denn es ist dieselbe Änderung."
    ],
    "o": {
     "index": 2
    },
-   "w": "Richtig: 500 € mit 19 % Mehrwertsteuer ergeben 595 €. 500 · 1,19 = 595.",
-   "h": "Rechne jede Aussage mit Faktoren nach."
+   "w": "Richtig begründet: 500 € mit 19 % Mehrwertsteuer ergeben 595 €, denn 500 · 1,19 = 595.",
+   "h": "Rechne jede Aussage mit Faktoren nach. Eine Begründung aus dem Alltag beweist nichts."
   },
   {
    "l": "argumente",
@@ -2685,19 +2760,19 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage ist mathematisch richtig?"
+    "text": "Welche Aussage ist mathematisch richtig begründet?"
    },
    "a": [
-    "30 % Rabatt und dann noch 50 % Rabatt sind zusammen 80 % Rabatt.",
-    "Erst 30 % Rabatt, dann 50 % Rabatt ergibt denselben Preis wie erst 50 %, dann 30 %.",
-    "Aus einem Bruttopreis von 595 € erhält man den Nettopreis, indem man 19 % davon abzieht.",
-    "Erst +30 %, dann −30 %: Der Preis ist danach wieder genau gleich."
+    "30 % Rabatt und dann noch 50 % Rabatt sind zusammen 80 % Rabatt, denn 30 + 50 = 80.",
+    "Erst 30 % Rabatt, dann 50 % Rabatt ergibt denselben Preis wie erst 50 %, dann 30 %, denn beim Multiplizieren der Faktoren ist die Reihenfolge egal.",
+    "Aus 595 € brutto erhält man den Nettopreis, indem man 19 % davon abzieht, denn die Steuer beträgt 19 %.",
+    "Erst +30 %, dann −30 %: Der Preis ist danach wieder genau gleich, denn die Prozente heben sich auf."
    ],
    "o": {
     "index": 1
    },
-   "w": "Richtig: Erst 30 % Rabatt, dann 50 % Rabatt ergibt denselben Preis wie erst 50 %, dann 30 %. Die Faktoren werden multipliziert – die Reihenfolge ist egal.",
-   "h": "Rechne jede Aussage mit Faktoren nach."
+   "w": "Richtig begründet: Erst 30 % Rabatt, dann 50 % Rabatt ergibt denselben Preis wie erst 50 %, dann 30 %, denn beim Multiplizieren der Faktoren ist die Reihenfolge egal.",
+   "h": "Rechne jede Aussage mit Faktoren nach. Eine Begründung aus dem Alltag beweist nichts."
   },
   {
    "l": "argumente",
@@ -2706,19 +2781,19 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage ist mathematisch richtig?"
+    "text": "Welche Aussage ist mathematisch richtig begründet?"
    },
    "a": [
-    "Der Preis wurde reduziert, weil das Geschäft Kunden anlocken will. Also ist der neue Preis 50 % niedriger.",
-    "Sinkt ein Wert um 100 %, halbiert er sich.",
-    "Sinkt ein Preis um 50 %, muss er um 50 % steigen, um wieder den alten Wert zu erreichen.",
-    "200 € mit 19 % Mehrwertsteuer ergeben 238 €."
+    "Sinkt ein Wert um 100 %, halbiert er sich, denn 100 % ist die Hälfte von 200 %.",
+    "Der neue Preis ist 50 % niedriger, denn das Geschäft will Kunden anlocken.",
+    "Sinkt ein Preis um 50 %, muss er um 50 % steigen, um den alten Wert zu erreichen, denn es ist dieselbe Änderung.",
+    "200 € mit 19 % Mehrwertsteuer ergeben 238 €, denn 200 · 1,19 = 238."
    ],
    "o": {
     "index": 3
    },
-   "w": "Richtig: 200 € mit 19 % Mehrwertsteuer ergeben 238 €. 200 · 1,19 = 238.",
-   "h": "Rechne jede Aussage mit Faktoren nach."
+   "w": "Richtig begründet: 200 € mit 19 % Mehrwertsteuer ergeben 238 €, denn 200 · 1,19 = 238.",
+   "h": "Rechne jede Aussage mit Faktoren nach. Eine Begründung aus dem Alltag beweist nichts."
   },
   {
    "l": "argumente",
@@ -2727,19 +2802,19 @@
    "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage ist mathematisch richtig?"
+    "text": "Welche Aussage ist mathematisch richtig begründet?"
    },
    "a": [
-    "Aus einem Bruttopreis von 595 € erhält man den Nettopreis, indem man 19 % davon abzieht.",
-    "Der Preis wurde reduziert, weil das Geschäft Kunden anlocken will. Also ist der neue Preis 20 % niedriger.",
-    "Erst +20 %, dann −20 %: Der Preis ist danach niedriger als vorher.",
-    "Erst +20 %, dann −20 %: Der Preis ist danach wieder genau gleich."
+    "Aus 595 € brutto erhält man den Nettopreis, indem man 19 % davon abzieht, denn die Steuer beträgt 19 %.",
+    "Sinkt ein Wert um 100 %, halbiert er sich, denn 100 % ist die Hälfte von 200 %.",
+    "Erst +20 %, dann −20 %: Der Preis ist danach niedriger als vorher, denn 1,2 · 0,8 = 0,96 < 1.",
+    "Erst +20 %, dann −20 %: Der Preis ist danach wieder genau gleich, denn die Prozente heben sich auf."
    ],
    "o": {
     "index": 2
    },
-   "w": "Richtig: Erst +20 %, dann −20 %: Der Preis ist danach niedriger als vorher. Faktor 1,2 · 0,8 = 0,96 < 1.",
-   "h": "Rechne jede Aussage mit Faktoren nach."
+   "w": "Richtig begründet: Erst +20 %, dann −20 %: Der Preis ist danach niedriger als vorher, denn 1,2 · 0,8 = 0,96 < 1.",
+   "h": "Rechne jede Aussage mit Faktoren nach. Eine Begründung aus dem Alltag beweist nichts."
   },
   {
    "l": "argumente",
@@ -2748,19 +2823,19 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage ist FALSCH oder kein mathematisches Argument?"
+    "text": "Welche Aussage ist mathematisch richtig begründet?"
    },
    "a": [
-    "Erst 10 % Rabatt, dann 50 % Rabatt ergibt denselben Preis wie erst 50 %, dann 10 %.",
-    "400 € mit 19 % Mehrwertsteuer ergeben 476 €.",
-    "Steigt ein Wert um 100 %, verdoppelt er sich.",
-    "Sinkt ein Wert um 100 %, halbiert er sich."
+    "Aus 476 € brutto erhält man den Nettopreis, indem man 19 % davon abzieht, denn die Steuer beträgt 19 %.",
+    "Sinkt ein Wert um 100 %, halbiert er sich, denn 100 % ist die Hälfte von 200 %.",
+    "400 € mit 19 % Mehrwertsteuer ergeben 476 €, denn 400 · 1,19 = 476.",
+    "Der neue Preis ist 10 % niedriger, denn das Geschäft will Kunden anlocken."
    ],
    "o": {
-    "index": 3
+    "index": 2
    },
-   "w": "Nicht haltbar: Sinkt ein Wert um 100 %, halbiert er sich. Faktor 1 − 1 = 0: Der Wert ist dann 0.",
-   "h": "Prüfe mit einer Rechnung – nicht mit Begründungen aus dem Alltag."
+   "w": "Richtig begründet: 400 € mit 19 % Mehrwertsteuer ergeben 476 €, denn 400 · 1,19 = 476.",
+   "h": "Rechne jede Aussage mit Faktoren nach. Eine Begründung aus dem Alltag beweist nichts."
   },
   {
    "l": "argumente",
@@ -2769,19 +2844,19 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage ist FALSCH oder kein mathematisches Argument?"
+    "text": "Ein Preis von 60 € sinkt um 40 % auf 36 €. Welche Begründung zeigt das mathematisch?"
    },
    "a": [
-    "Erst +30 %, dann −30 %: Der Preis ist danach niedriger als vorher.",
-    "Erst +30 %, dann −30 %: Der Preis ist danach wieder genau gleich.",
-    "Erst 30 % Rabatt, dann 40 % Rabatt ergibt denselben Preis wie erst 40 %, dann 30 %.",
-    "Steigt ein Wert um 100 %, verdoppelt er sich."
+    "Das macht jedes Geschäft so.",
+    "60 € · 0,6 = 36 €",
+    "Die Verkäuferin hat es gesagt.",
+    "Das klingt fair."
    ],
    "o": {
     "index": 1
    },
-   "w": "Nicht haltbar: Erst +30 %, dann −30 %: Der Preis ist danach wieder genau gleich. Faktor 1,3 · 0,7 = 0,91 ≠ 1.",
-   "h": "Prüfe mit einer Rechnung – nicht mit Begründungen aus dem Alltag."
+   "w": "Nur die Rechnung ist ein mathematisches Argument: 60 € · 0,6 = 36 €. Die anderen Gründe sind außermathematisch.",
+   "h": "Ein mathematisches Argument ist eine Rechnung."
   },
   {
    "l": "argumente",
@@ -2790,40 +2865,19 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage ist FALSCH oder kein mathematisches Argument?"
+    "text": "Welche Aussage ist mathematisch richtig begründet?"
    },
    "a": [
-    "Sinkt ein Preis um 10 %, muss er um 10 % steigen, um wieder den alten Wert zu erreichen.",
-    "Steigt ein Wert um 100 %, verdoppelt er sich.",
-    "Erst +10 %, dann −10 %: Der Preis ist danach niedriger als vorher.",
-    "Erst 10 % Rabatt, dann 25 % Rabatt ergibt denselben Preis wie erst 25 %, dann 10 %."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Nicht haltbar: Sinkt ein Preis um 10 %, muss er um 10 % steigen, um wieder den alten Wert zu erreichen. Nötig sind ≈ 11,1 %, weil der Bezugswert kleiner ist.",
-   "h": "Prüfe mit einer Rechnung – nicht mit Begründungen aus dem Alltag."
-  },
-  {
-   "l": "argumente",
-   "t": "argumente",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Aussage ist FALSCH oder kein mathematisches Argument?"
-   },
-   "a": [
-    "Erst +50 %, dann −50 %: Der Preis ist danach niedriger als vorher.",
-    "400 € mit 19 % Mehrwertsteuer ergeben 476 €.",
-    "Aus einem Bruttopreis von 476 € erhält man den Nettopreis, indem man 19 % davon abzieht.",
-    "Erst 50 % Rabatt, dann 30 % Rabatt ergibt denselben Preis wie erst 30 %, dann 50 %."
+    "Erst +40 %, dann −40 %: Der Preis ist danach wieder genau gleich, denn die Prozente heben sich auf.",
+    "Sinkt ein Preis um 40 %, muss er um 40 % steigen, um den alten Wert zu erreichen, denn es ist dieselbe Änderung.",
+    "Erst 40 % Rabatt, dann 50 % Rabatt ergibt denselben Preis wie erst 50 %, dann 40 %, denn beim Multiplizieren der Faktoren ist die Reihenfolge egal.",
+    "Sinkt ein Wert um 100 %, halbiert er sich, denn 100 % ist die Hälfte von 200 %."
    ],
    "o": {
     "index": 2
    },
-   "w": "Nicht haltbar: Aus einem Bruttopreis von 476 € erhält man den Nettopreis, indem man 19 % davon abzieht. Die 19 % beziehen sich auf den Nettopreis. Man muss durch 1,19 teilen.",
-   "h": "Prüfe mit einer Rechnung – nicht mit Begründungen aus dem Alltag."
+   "w": "Richtig begründet: Erst 40 % Rabatt, dann 50 % Rabatt ergibt denselben Preis wie erst 50 %, dann 40 %, denn beim Multiplizieren der Faktoren ist die Reihenfolge egal.",
+   "h": "Rechne jede Aussage mit Faktoren nach. Eine Begründung aus dem Alltag beweist nichts."
   },
   {
    "l": "argumente",
@@ -2832,19 +2886,19 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage ist mathematisch richtig?"
+    "text": "Ein Preis von 150 € sinkt um 25 % auf 112,50 €. Welche Begründung zeigt das mathematisch?"
    },
    "a": [
-    "Sinkt ein Preis um 30 %, muss er um 30 % steigen, um wieder den alten Wert zu erreichen.",
-    "Erst +30 %, dann −30 %: Der Preis ist danach wieder genau gleich.",
-    "Erst +30 %, dann −30 %: Der Preis ist danach niedriger als vorher.",
-    "Sinkt ein Wert um 100 %, halbiert er sich."
+    "Die Verkäuferin hat es gesagt.",
+    "Das hat schon immer gestimmt.",
+    "150 € · 0,75 = 112,50 €",
+    "Das klingt fair."
    ],
    "o": {
     "index": 2
    },
-   "w": "Richtig: Erst +30 %, dann −30 %: Der Preis ist danach niedriger als vorher. Faktor 1,3 · 0,7 = 0,91 < 1.",
-   "h": "Rechne jede Aussage mit Faktoren nach."
+   "w": "Nur die Rechnung ist ein mathematisches Argument: 150 € · 0,75 = 112,50 €. Die anderen Gründe sind außermathematisch.",
+   "h": "Ein mathematisches Argument ist eine Rechnung."
   },
   {
    "l": "argumente",
@@ -2853,82 +2907,40 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage ist mathematisch richtig?"
+    "text": "Ein Laden wirbt: „Erst 20 % Rabatt, an der Kasse noch einmal 20 %.“ Spart man 40 %?"
    },
    "a": [
-    "100 € mit 19 % Mehrwertsteuer ergeben 119 €.",
-    "Der Preis wurde reduziert, weil das Geschäft Kunden anlocken will. Also ist der neue Preis 50 % niedriger.",
-    "Sinkt ein Preis um 50 %, muss er um 50 % steigen, um wieder den alten Wert zu erreichen.",
-    "Erst +50 %, dann −50 %: Der Preis ist danach wieder genau gleich."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Richtig: 100 € mit 19 % Mehrwertsteuer ergeben 119 €. 100 · 1,19 = 119.",
-   "h": "Rechne jede Aussage mit Faktoren nach."
-  },
-  {
-   "l": "argumente",
-   "t": "argumente",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Aussage ist FALSCH oder kein mathematisches Argument?"
-   },
-   "a": [
-    "Erst +20 %, dann −20 %: Der Preis ist danach niedriger als vorher.",
-    "Erst 20 % Rabatt, dann 10 % Rabatt ergibt denselben Preis wie erst 10 %, dann 20 %.",
-    "400 € mit 19 % Mehrwertsteuer ergeben 476 €.",
-    "Aus einem Bruttopreis von 476 € erhält man den Nettopreis, indem man 19 % davon abzieht."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Nicht haltbar: Aus einem Bruttopreis von 476 € erhält man den Nettopreis, indem man 19 % davon abzieht. Die 19 % beziehen sich auf den Nettopreis. Man muss durch 1,19 teilen.",
-   "h": "Prüfe mit einer Rechnung – nicht mit Begründungen aus dem Alltag."
-  },
-  {
-   "l": "argumente",
-   "t": "argumente",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Aussage ist FALSCH oder kein mathematisches Argument?"
-   },
-   "a": [
-    "Erst +40 %, dann −40 %: Der Preis ist danach wieder genau gleich.",
-    "Erst 40 % Rabatt, dann 10 % Rabatt ergibt denselben Preis wie erst 10 %, dann 40 %.",
-    "200 € mit 19 % Mehrwertsteuer ergeben 238 €.",
-    "Steigt ein Wert um 100 %, verdoppelt er sich."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Nicht haltbar: Erst +40 %, dann −40 %: Der Preis ist danach wieder genau gleich. Faktor 1,4 · 0,6 = 0,84 ≠ 1.",
-   "h": "Prüfe mit einer Rechnung – nicht mit Begründungen aus dem Alltag."
-  },
-  {
-   "l": "argumente",
-   "t": "argumente",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Aussage ist FALSCH oder kein mathematisches Argument?"
-   },
-   "a": [
-    "Steigt ein Wert um 100 %, verdoppelt er sich.",
-    "Aus einem Bruttopreis von 119 € erhält man den Nettopreis, indem man 19 % davon abzieht.",
-    "Erst +10 %, dann −10 %: Der Preis ist danach niedriger als vorher.",
-    "Erst 10 % Rabatt, dann 30 % Rabatt ergibt denselben Preis wie erst 30 %, dann 10 %."
+    "Ja: Rabatte addiert man immer.",
+    "Nein: 0,8 · 0,8 = 0,64, man spart 36 %.",
+    "Ja: 20 + 20 = 40.",
+    "Nein: Man spart nur 20 %."
    ],
    "o": {
     "index": 1
    },
-   "w": "Nicht haltbar: Aus einem Bruttopreis von 119 € erhält man den Nettopreis, indem man 19 % davon abzieht. Die 19 % beziehen sich auf den Nettopreis. Man muss durch 1,19 teilen.",
-   "h": "Prüfe mit einer Rechnung – nicht mit Begründungen aus dem Alltag."
+   "w": "Der zweite Rabatt bezieht sich auf den schon reduzierten Preis. Faktor 0,64, Ersparnis 36 %.",
+   "h": "Schreibe jeden Rabatt als Faktor."
+  },
+  {
+   "l": "argumente",
+   "t": "argumente",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Preis von 80 € sinkt um 10 % auf 72 €. Welche Begründung zeigt das mathematisch?"
+   },
+   "a": [
+    "Das hat schon immer gestimmt.",
+    "80 € · 0,9 = 72 €",
+    "Das steht so auf dem Werbeschild.",
+    "Die Verkäuferin hat es gesagt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Nur die Rechnung ist ein mathematisches Argument: 80 € · 0,9 = 72 €. Die anderen Gründe sind außermathematisch.",
+   "h": "Ein mathematisches Argument ist eine Rechnung."
   },
   {
    "l": "argumente",
@@ -2937,19 +2949,82 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage ist FALSCH oder kein mathematisches Argument?"
+    "text": "Ein Lohn steigt erst um 50 %, dann sinkt er um 50 %. Ist er danach so hoch wie vorher?"
    },
    "a": [
-    "Der Preis wurde reduziert, weil das Geschäft Kunden anlocken will. Also ist der neue Preis 30 % niedriger.",
-    "200 € mit 19 % Mehrwertsteuer ergeben 238 €.",
-    "Steigt ein Wert um 100 %, verdoppelt er sich.",
-    "Erst +30 %, dann −30 %: Der Preis ist danach niedriger als vorher."
+    "Nein: Er ist danach 25 % höher.",
+    "Ja: −50 % und +50 % heben sich auf.",
+    "Nein: 1,5 · 0,5 = 0,75, also 25 % weniger.",
+    "Ja: Der Lohn steigt ja wieder."
    ],
    "o": {
-    "index": 0
+    "index": 2
    },
-   "w": "Nicht haltbar: Der Preis wurde reduziert, weil das Geschäft Kunden anlocken will. Also ist der neue Preis 30 % niedriger. Der Grund für die Senkung ist ein außermathematisches Argument und sagt nichts über die Prozentzahl.",
-   "h": "Prüfe mit einer Rechnung – nicht mit Begründungen aus dem Alltag."
+   "w": "Gesamtfaktor 0,75 < 1. Der Lohn ist danach 25 % niedriger als vorher.",
+   "h": "Multipliziere die beiden Faktoren."
+  },
+  {
+   "l": "argumente",
+   "t": "argumente",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Laden wirbt: „Erst 20 % Rabatt, an der Kasse noch einmal 10 %.“ Spart man 30 %?"
+   },
+   "a": [
+    "Ja: Rabatte addiert man immer.",
+    "Ja: 20 + 10 = 30.",
+    "Nein: Man spart nur 20 %.",
+    "Nein: 0,8 · 0,9 = 0,72, man spart 28 %."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Der zweite Rabatt bezieht sich auf den schon reduzierten Preis. Faktor 0,72, Ersparnis 28 %.",
+   "h": "Schreibe jeden Rabatt als Faktor."
+  },
+  {
+   "l": "argumente",
+   "t": "argumente",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Preis mit 19 % Mehrwertsteuer beträgt 357 €. Bekommt man den Nettopreis, wenn man 19 % von 357 € abzieht?"
+   },
+   "a": [
+    "Ja: So steht es auf jeder Rechnung.",
+    "Ja: 357 € · 0,81 = 289,17 €.",
+    "Nein: Netto = 357 € : 1,19 = 300 €.",
+    "Nein: Man zieht 19 € ab, also 338 €."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die 19 % beziehen sich auf den Nettopreis. Netto · 1,19 = 357 €, also Netto = 300 €.",
+   "h": "Worauf beziehen sich die 19 %?"
+  },
+  {
+   "l": "argumente",
+   "t": "argumente",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Lohn sinkt erst um 25 %, dann steigt er um 25 %. Ist er danach so hoch wie vorher?"
+   },
+   "a": [
+    "Ja: −25 % und +25 % heben sich auf.",
+    "Nein: 0,75 · 1,25 = 0,9375, also 6,25 % weniger.",
+    "Nein: Er ist danach 6,25 % höher.",
+    "Ja: Der Lohn steigt ja wieder."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gesamtfaktor 0,9375 < 1. Der Lohn ist danach 6,25 % niedriger als vorher.",
+   "h": "Multipliziere die beiden Faktoren."
   },
   {
    "l": "argumente",
@@ -2958,158 +3033,78 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage ist FALSCH oder kein mathematisches Argument?"
+    "text": "Ein Preis mit 19 % Mehrwertsteuer beträgt 1190 €. Bekommt man den Nettopreis, wenn man 19 % von 1190 € abzieht?"
    },
    "a": [
-    "Erst 10 % Rabatt, dann 20 % Rabatt ergibt denselben Preis wie erst 20 %, dann 10 %.",
-    "Steigt ein Wert um 100 %, verdoppelt er sich.",
-    "100 € mit 19 % Mehrwertsteuer ergeben 119 €.",
-    "Sinkt ein Preis um 10 %, muss er um 10 % steigen, um wieder den alten Wert zu erreichen."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Nicht haltbar: Sinkt ein Preis um 10 %, muss er um 10 % steigen, um wieder den alten Wert zu erreichen. Nötig sind ≈ 11,1 %, weil der Bezugswert kleiner ist."
-  },
-  {
-   "l": "argumente",
-   "t": "argumente",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Aussage ist mathematisch richtig?"
-   },
-   "a": [
-    "10 % Rabatt und dann noch 25 % Rabatt sind zusammen 35 % Rabatt.",
-    "Sinkt ein Preis um 10 %, muss er um 10 % steigen, um wieder den alten Wert zu erreichen.",
-    "Steigt ein Wert um 100 %, verdoppelt er sich.",
-    "Der Preis wurde reduziert, weil das Geschäft Kunden anlocken will. Also ist der neue Preis 10 % niedriger."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Richtig: Steigt ein Wert um 100 %, verdoppelt er sich. Faktor 1 + 1 = 2."
-  },
-  {
-   "l": "argumente",
-   "t": "argumente",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Aussage ist mathematisch richtig?"
-   },
-   "a": [
-    "Aus einem Bruttopreis von 238 € erhält man den Nettopreis, indem man 19 % davon abzieht.",
-    "Sinkt ein Preis um 30 %, muss er um 30 % steigen, um wieder den alten Wert zu erreichen.",
-    "Erst 30 % Rabatt, dann 40 % Rabatt ergibt denselben Preis wie erst 40 %, dann 30 %.",
-    "Der Preis wurde reduziert, weil das Geschäft Kunden anlocken will. Also ist der neue Preis 30 % niedriger."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Richtig: Erst 30 % Rabatt, dann 40 % Rabatt ergibt denselben Preis wie erst 40 %, dann 30 %. Die Faktoren werden multipliziert – die Reihenfolge ist egal."
-  },
-  {
-   "l": "argumente",
-   "t": "argumente",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Aussage ist mathematisch richtig?"
-   },
-   "a": [
-    "Der Preis wurde reduziert, weil das Geschäft Kunden anlocken will. Also ist der neue Preis 20 % niedriger.",
-    "Erst +20 %, dann −20 %: Der Preis ist danach niedriger als vorher.",
-    "Erst +20 %, dann −20 %: Der Preis ist danach wieder genau gleich.",
-    "Sinkt ein Wert um 100 %, halbiert er sich."
+    "Ja: 1190 € · 0,81 = 963,90 €.",
+    "Nein: Netto = 1190 € : 1,19 = 1000 €.",
+    "Nein: Man zieht 19 € ab, also 1171 €.",
+    "Ja: So steht es auf jeder Rechnung."
    ],
    "o": {
     "index": 1
    },
-   "w": "Richtig: Erst +20 %, dann −20 %: Der Preis ist danach niedriger als vorher. Faktor 1,2 · 0,8 = 0,96 < 1."
+   "w": "Die 19 % beziehen sich auf den Nettopreis. Netto · 1,19 = 1190 €, also Netto = 1000 €."
   },
   {
    "l": "argumente",
    "t": "argumente",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage ist FALSCH oder kein mathematisches Argument?"
+    "text": "Welche Aussage ist mathematisch richtig begründet?"
    },
    "a": [
-    "400 € mit 19 % Mehrwertsteuer ergeben 476 €.",
-    "Erst +30 %, dann −30 %: Der Preis ist danach niedriger als vorher.",
-    "Sinkt ein Wert um 100 %, halbiert er sich.",
-    "Erst 30 % Rabatt, dann 40 % Rabatt ergibt denselben Preis wie erst 40 %, dann 30 %."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Nicht haltbar: Sinkt ein Wert um 100 %, halbiert er sich. Faktor 1 − 1 = 0: Der Wert ist dann 0."
-  },
-  {
-   "l": "argumente",
-   "t": "argumente",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Aussage ist FALSCH oder kein mathematisches Argument?"
-   },
-   "a": [
-    "400 € mit 19 % Mehrwertsteuer ergeben 476 €.",
-    "Steigt ein Wert um 100 %, verdoppelt er sich.",
-    "Der Preis wurde reduziert, weil das Geschäft Kunden anlocken will. Also ist der neue Preis 20 % niedriger.",
-    "Erst +20 %, dann −20 %: Der Preis ist danach niedriger als vorher."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Nicht haltbar: Der Preis wurde reduziert, weil das Geschäft Kunden anlocken will. Also ist der neue Preis 20 % niedriger. Der Grund für die Senkung ist ein außermathematisches Argument und sagt nichts über die Prozentzahl."
-  },
-  {
-   "l": "argumente",
-   "t": "argumente",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Aussage ist FALSCH oder kein mathematisches Argument?"
-   },
-   "a": [
-    "30 % Rabatt und dann noch 50 % Rabatt sind zusammen 80 % Rabatt.",
-    "Erst +30 %, dann −30 %: Der Preis ist danach niedriger als vorher.",
-    "Steigt ein Wert um 100 %, verdoppelt er sich.",
-    "Erst 30 % Rabatt, dann 50 % Rabatt ergibt denselben Preis wie erst 50 %, dann 30 %."
+    "Erst 30 % Rabatt, dann 40 % Rabatt ergibt denselben Preis wie erst 40 %, dann 30 %, denn beim Multiplizieren der Faktoren ist die Reihenfolge egal.",
+    "Sinkt ein Wert um 100 %, halbiert er sich, denn 100 % ist die Hälfte von 200 %.",
+    "Erst +30 %, dann −30 %: Der Preis ist danach wieder genau gleich, denn die Prozente heben sich auf.",
+    "Sinkt ein Preis um 30 %, muss er um 30 % steigen, um den alten Wert zu erreichen, denn es ist dieselbe Änderung."
    ],
    "o": {
     "index": 0
    },
-   "w": "Nicht haltbar: 30 % Rabatt und dann noch 50 % Rabatt sind zusammen 80 % Rabatt. Faktor 0,7 · 0,5 = 0,35, also 65 % Ersparnis."
+   "w": "Richtig begründet: Erst 30 % Rabatt, dann 40 % Rabatt ergibt denselben Preis wie erst 40 %, dann 30 %, denn beim Multiplizieren der Faktoren ist die Reihenfolge egal."
   },
   {
    "l": "argumente",
    "t": "argumente",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage ist FALSCH oder kein mathematisches Argument?"
+    "text": "Ein Laden wirbt: „Erst 30 % Rabatt, an der Kasse noch einmal 20 %.“ Spart man 50 %?"
    },
    "a": [
-    "Steigt ein Wert um 100 %, verdoppelt er sich.",
-    "Sinkt ein Preis um 30 %, muss er um 30 % steigen, um wieder den alten Wert zu erreichen.",
-    "Erst 30 % Rabatt, dann 10 % Rabatt ergibt denselben Preis wie erst 10 %, dann 30 %.",
-    "Erst +30 %, dann −30 %: Der Preis ist danach niedriger als vorher."
+    "Ja: Rabatte addiert man immer.",
+    "Nein: 0,7 · 0,8 = 0,56, man spart 44 %.",
+    "Nein: Man spart nur 30 %.",
+    "Ja: 30 + 20 = 50."
    ],
    "o": {
     "index": 1
    },
-   "w": "Nicht haltbar: Sinkt ein Preis um 30 %, muss er um 30 % steigen, um wieder den alten Wert zu erreichen. Nötig sind ≈ 42,9 %, weil der Bezugswert kleiner ist."
+   "w": "Der zweite Rabatt bezieht sich auf den schon reduzierten Preis. Faktor 0,56, Ersparnis 44 %."
+  },
+  {
+   "l": "argumente",
+   "t": "argumente",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Laden wirbt: „Erst 10 % Rabatt, an der Kasse noch einmal 10 %.“ Spart man 20 %?"
+   },
+   "a": [
+    "Nein: 0,9 · 0,9 = 0,81, man spart 19 %.",
+    "Ja: Rabatte addiert man immer.",
+    "Nein: Man spart nur 10 %.",
+    "Ja: 10 + 10 = 20."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Der zweite Rabatt bezieht sich auf den schon reduzierten Preis. Faktor 0,81, Ersparnis 19 %."
   },
   {
    "l": "argumente",
@@ -3118,18 +3113,58 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage ist mathematisch richtig?"
+    "text": "Ein Preis von 150 € sinkt um 10 % auf 135 €. Welche Begründung zeigt das mathematisch?"
    },
    "a": [
-    "Erst +40 %, dann −40 %: Der Preis ist danach wieder genau gleich.",
-    "Erst +40 %, dann −40 %: Der Preis ist danach niedriger als vorher.",
-    "Sinkt ein Preis um 40 %, muss er um 40 % steigen, um wieder den alten Wert zu erreichen.",
-    "Aus einem Bruttopreis von 238 € erhält man den Nettopreis, indem man 19 % davon abzieht."
+    "150 € · 0,9 = 135 €",
+    "Das hat schon immer gestimmt.",
+    "Das steht so auf dem Werbeschild.",
+    "Rabatte rechnet man immer so."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Nur die Rechnung ist ein mathematisches Argument: 150 € · 0,9 = 135 €. Die anderen Gründe sind außermathematisch."
+  },
+  {
+   "l": "argumente",
+   "t": "argumente",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Preis mit 19 % Mehrwertsteuer beträgt 714 €. Bekommt man den Nettopreis, wenn man 19 % von 714 € abzieht?"
+   },
+   "a": [
+    "Ja: 714 € · 0,81 = 578,34 €.",
+    "Ja: So steht es auf jeder Rechnung.",
+    "Nein: Netto = 714 € : 1,19 = 600 €.",
+    "Nein: Man zieht 19 € ab, also 695 €."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die 19 % beziehen sich auf den Nettopreis. Netto · 1,19 = 714 €, also Netto = 600 €."
+  },
+  {
+   "l": "argumente",
+   "t": "argumente",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Preis mit 19 % Mehrwertsteuer beträgt 119 €. Bekommt man den Nettopreis, wenn man 19 % von 119 € abzieht?"
+   },
+   "a": [
+    "Nein: Man zieht 19 € ab, also 100 €.",
+    "Nein: Netto = 119 € : 1,19 = 100 €.",
+    "Ja: So steht es auf jeder Rechnung.",
+    "Ja: 119 € · 0,81 = 96,39 €."
    ],
    "o": {
     "index": 1
    },
-   "w": "Richtig: Erst +40 %, dann −40 %: Der Preis ist danach niedriger als vorher. Faktor 1,4 · 0,6 = 0,84 < 1."
+   "w": "Die 19 % beziehen sich auf den Nettopreis. Netto · 1,19 = 119 €, also Netto = 100 €."
   },
   {
    "l": "argumente",
@@ -3138,21 +3173,58 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage ist mathematisch richtig?"
+    "text": "Welche Aussage ist mathematisch richtig begründet?"
    },
    "a": [
-    "40 % Rabatt und dann noch 10 % Rabatt sind zusammen 50 % Rabatt.",
-    "Sinkt ein Preis um 40 %, muss er um 40 % steigen, um wieder den alten Wert zu erreichen.",
-    "Sinkt ein Wert um 100 %, halbiert er sich.",
-    "100 € mit 19 % Mehrwertsteuer ergeben 119 €."
+    "Der neue Preis ist 50 % niedriger, denn das Geschäft will Kunden anlocken.",
+    "Sinkt ein Preis um 50 %, muss er um 50 % steigen, um den alten Wert zu erreichen, denn es ist dieselbe Änderung.",
+    "Sinkt ein Wert um 100 %, halbiert er sich, denn 100 % ist die Hälfte von 200 %.",
+    "100 € mit 19 % Mehrwertsteuer ergeben 119 €, denn 100 · 1,19 = 119."
    ],
    "o": {
     "index": 3
    },
-   "w": "Richtig: 100 € mit 19 % Mehrwertsteuer ergeben 119 €. 100 · 1,19 = 119."
+   "w": "Richtig begründet: 100 € mit 19 % Mehrwertsteuer ergeben 119 €, denn 100 · 1,19 = 119."
+  },
+  {
+   "l": "argumente",
+   "t": "argumente",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage ist mathematisch richtig begründet?"
+   },
+   "a": [
+    "Sinkt ein Preis um 20 %, muss er um 20 % steigen, um den alten Wert zu erreichen, denn es ist dieselbe Änderung.",
+    "Erst +20 %, dann −20 %: Der Preis ist danach wieder genau gleich, denn die Prozente heben sich auf.",
+    "Aus 476 € brutto erhält man den Nettopreis, indem man 19 % davon abzieht, denn die Steuer beträgt 19 %.",
+    "400 € mit 19 % Mehrwertsteuer ergeben 476 €, denn 400 · 1,19 = 476."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Richtig begründet: 400 € mit 19 % Mehrwertsteuer ergeben 476 €, denn 400 · 1,19 = 476."
+  },
+  {
+   "l": "argumente",
+   "t": "argumente",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Laden wirbt: „Erst 30 % Rabatt, an der Kasse noch einmal 10 %.“ Spart man 40 %?"
+   },
+   "a": [
+    "Nein: Man spart nur 30 %.",
+    "Nein: 0,7 · 0,9 = 0,63, man spart 37 %.",
+    "Ja: Rabatte addiert man immer.",
+    "Ja: 30 + 10 = 40."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Der zweite Rabatt bezieht sich auf den schon reduzierten Preis. Faktor 0,63, Ersparnis 37 %."
   }
- ],
- "offen": [
-  "Lernkarten mit Kreis-/Säulendiagramm und Tabellen bebildert. Ein echter Prozentstreifen (Balken mit 100 % / 115 %) wäre noch anschaulicher; die App hat dafür keinen eigenen Bildtyp."
  ]
 }

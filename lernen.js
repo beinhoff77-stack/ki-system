@@ -338,6 +338,7 @@ async function viewWeltkarte(arg) {
   const d = await lernLadeKind(arg);
   if (!d || !live()) return;
   const { kind } = d;
+  if (!d.orte.length) { lernErsetze(main, lernRahmen(kind, 'weltkarte', lernKopf('DEINE MATHE-WELTREISE', 'Noch keine Orte'), el('section', { class: 'lr-karte-box' }, el('p', {}, 'Deine Reise ist noch nicht geplant. Deine Eltern oder deine Lehrkraft legen bald die ersten Orte fest.'), el('a', { class: 'lr-knopf', href: `#/reise/${kind.id}` }, 'Zu Heute')))); return; }
   const konts = [...new Map(d.orte.map((o) => [o.kontinent, o])).values()];
   const zaehl = (k) => { const os = d.orte.filter((o) => o.kontinent === k); return [os.filter((o) => o.zustand === 'fertig' || o.zustand === 'kann').length, os.length]; };
   let wahl = d.orte.find((o) => o.zustand === 'jetzt')?.kontinent || konts[0]?.kontinent;
@@ -348,10 +349,13 @@ async function viewWeltkarte(arg) {
       el('p', { class: 'lr-ueber' }, `${(k0.erdteil || '').toUpperCase()} · ${(k0.kontinent_titel || '').toUpperCase()}`),
       os.length && k0.erdteil !== 'Antarktis' ? el('div', { class: 'lr-kartenbild' }, lernKarte({ orte: os, fokus: os, hervor: LERN_ERDTEIL[wahl], route: true,
         beschriftung: os.filter((o) => o.zustand === 'jetzt').map((o) => ({ ...o, text: o.stadt, jetzt: true })), label: `Karte ${k0.erdteil}`, breite: 340, hoehe: 150 })) : null,
-      el('ol', { class: 'lr-ortliste' }, ...os.map((o, i) => el('li', { class: 'lr-ort-' + o.zustand },
-        el('span', { class: 'lr-nr' }, o.zustand === 'fertig' || o.zustand === 'kann' ? lernIcon(LI.haken, 16) : String(i + 1)),
-        el('span', { class: 'lr-zeile-text' }, el('b', {}, `${o.stadt}: ${o.titel}`), el('small', {}, `${o.land}${o.ziel_klasse ? ' · Kl. ' + o.ziel_klasse : ''}`)),
-        el('span', { class: 'lr-zeile-zustand' }, { fertig: 'Stempel', kann: 'kann schon', jetzt: 'jetzt', offen: o.hat_einheit ? '' : 'bald' }[o.zustand])))));
+      el('ol', { class: 'lr-ortliste' }, ...os.map((o, i) => {
+        const einheit = (d.mit || []).find((x) => x.block_id === o.block_id);
+        const innen = [el('span', { class: 'lr-nr' }, o.zustand === 'fertig' || o.zustand === 'kann' ? lernIcon(LI.haken, 16) : String(i + 1)),
+          el('span', { class: 'lr-zeile-text' }, el('b', {}, `${o.stadt}: ${o.titel}`), el('small', {}, einheit ? o.land : `${o.land} · kommt bald`)),
+          el('span', { class: 'lr-zeile-zustand' }, { fertig: 'Stempel', kann: 'kann schon', jetzt: 'jetzt', offen: einheit ? '›' : '' }[o.zustand])];
+        return el('li', { class: 'lr-ort-' + o.zustand }, einheit ? el('a', { class: 'lr-ortlink', href: `#/lerneinheit/${kind.id}-${einheit.id}` }, ...innen) : innen);
+      })));
   };
   const knoepfe = el('div', { class: 'lr-chips', role: 'tablist', 'aria-label': 'Kontinente' });
   const zeichneKnoepfe = () => lernErsetze(knoepfe, ...konts.map((o) => {
@@ -409,7 +413,10 @@ async function viewReisepass(arg) {
       belohnungen.length ? el('div', { class: 'lr-belohnungen' }, ...belohnungen) : el('p', { class: 'lr-leise' }, 'Mama oder Papa legen hier bald Belohnungen an.'),
       d.einloesungen.length ? el('ul', { class: 'lr-wuensche' }, ...d.einloesungen.slice(0, 5).map((x) => el('li', {}, `${x.titel}: `, el('b', {}, { beantragt: 'wartet auf Bestätigung', bestaetigt: 'bestätigt', abgelehnt: 'abgelehnt' }[x.status] || x.status)))) : null,
       meldung),
-    el('section', { class: 'lr-karte-box' }, el('h2', {}, 'Dein Look'), look)));
+    el('section', { class: 'lr-karte-box' }, el('h2', {}, 'Dein Look'), look),
+    typeof LERN_SEITE !== 'undefined' && document.getElementById('btn-abmelden') ? el('section', { class: 'lr-karte-box lr-abmelden' },
+      el('p', { class: 'lr-leise' }, 'Nur abmelden, wenn du das Gerät abgibst. Danach brauchst du deinen Lern-Code wieder.'),
+      el('button', { type: 'button', class: 'lr-knopf-zweit', onclick: () => document.getElementById('btn-abmelden').click() }, 'Abmelden')) : null));
 }
 
 function lernStandZeile(stand) {
@@ -426,7 +433,7 @@ function lernZahlenstrahl(g, waehlbar, onWahl) {
   const ns = 'http://www.w3.org/2000/svg', B = 340, L = 30, R = B - 40, Y = 44, n = Math.max(1, Number(g.abschnitte) || 1);
   const x = (i) => L + (R - L) * i / n;
   const svg = document.createElementNS(ns, 'svg');
-  svg.setAttribute('viewBox', `0 0 ${B} 84`); svg.setAttribute('class', 'lern-strahl'); svg.setAttribute('role', 'img');
+  svg.setAttribute('viewBox', `0 0 ${B} 84`); svg.setAttribute('class', 'lern-strahl'); svg.setAttribute('role', waehlbar ? 'group' : 'img');
   svg.setAttribute('aria-label', `Zahlenstrahl von ${lernZahl(g.start)} bis ${lernZahl(g.ende)} mit ${n} gleichen Abschnitten`);
   const mk = (tag, a, txt) => { const e = document.createElementNS(ns, tag); for (const [k, v] of Object.entries(a)) e.setAttribute(k, v); if (txt !== undefined) e.textContent = txt; svg.append(e); return e; };
   mk('line', { x1: L - 6, y1: Y, x2: R + 14, y2: Y, class: 'achse' });
@@ -435,10 +442,13 @@ function lernZahlenstrahl(g, waehlbar, onWahl) {
   for (let i = 0; i <= n; i++) {
     mk('line', { x1: x(i), y1: Y - 8, x2: x(i), y2: Y + 8, class: 'strich' });
     if (waehlbar) {
-      const k = mk('circle', { cx: x(i), cy: Y, r: 11, class: 'ziel', tabindex: 0, role: 'button', 'aria-label': `Markierung ${i}` });
+      const marke = mk('circle', { cx: x(i), cy: Y, r: 11, class: 'ziel-marke' });
+      // Tippfläche: volle Höhe, halber Strichabstand nach links und rechts
+      const bw = (R - L) / n;
+      const k = mk('rect', { x: x(i) - bw / 2, y: 2, width: bw, height: 80, class: 'ziel', tabindex: 0, role: 'button', 'aria-label': `Markierung ${i}` });
       const w = () => { knoepfe.forEach((c, j) => c.classList.toggle('on', j === i)); onWahl(i); };
       k.addEventListener('click', w); k.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); w(); } });
-      knoepfe.push(k);
+      knoepfe.push(marke);
     }
   }
   mk('text', { x: x(0), y: Y + 28, class: 'zahl' }, lernZahl(g.start));
@@ -924,7 +934,7 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
   const anzahlUeben = etappen.reduce((n, e) => n + e.aufgaben.length, 0);
   const tabLeiste = el('div', { class: 'lr-tabs lr-tabs-3', role: 'tablist', 'aria-label': 'Thema' },
     ...[['erklaeren', 'Erklären', null], ['ueben', 'Üben', anzahlUeben], ['fehler', 'Fehler', fehlerKarten.length]].map(([k, t, n]) => {
-      tabs[k] = el('button', { type: 'button', role: 'tab', onclick: () => zeige(k) }, t, n ? el('small', {}, ' ' + n) : null);
+      tabs[k] = el('button', { type: 'button', role: 'tab', onclick: () => zeige(k), onkeydown: (ev) => { const r = ['erklaeren', 'ueben', 'fehler']; const d = ev.key === 'ArrowRight' ? 1 : ev.key === 'ArrowLeft' ? -1 : 0; if (d) { const z = r[(r.indexOf(k) + d + 3) % 3]; zeige(z); tabs[z].focus(); } } }, t, n ? el('small', {}, ' ' + n) : null);
       return tabs[k];
     }));
   const zeige = (k, opts = {}) => {
@@ -1034,7 +1044,8 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
               a.antworttyp === 'luecken' && lernIstTermVorlage(a.frage?.schablone) && lernGleichwertigAusgeklammert(a.frage?.schablone, w.werte, r.loesung?.werte)
                 ? el('p', {}, 'Dein Term ist gleichwertig, aber noch nicht vollständig ausgeklammert: Vor die Klammer gehört der größte gemeinsame Faktor.') : null,
               r.loesungsweg ? el('p', {}, el('b', {}, 'So geht’s: '), lernText(r.loesungsweg)) : null,
-              el('p', { class: 'lr-leise' }, 'Die Punkte fangen wieder bei 0 an. Die Erklärung steht oben an der Aufgabe.')));
+              e.fehler ? el('div', { class: 'lr-fehler lr-detektiv' }, el('p', { class: 'lr-ueber' }, 'FEHLER-DETEKTIV: IST DIR DAS PASSIERT?'), el('p', {}, ...lernMarkiert(e.fehler))) : null,
+              el('p', { class: 'lr-leise' }, 'Die Punkte fangen wieder bei 0 an. Die Erklärung steht aufgeklappt bei der Aufgabe.')));
           if (jetztSitzt) lernAnhaengen(meldung, el('section', { class: 'lr-geschafft lr-sitzt' },
             el('div', { class: 'lr-geschafft-haken' }, lernIcon(LI.haken, 48)),
             el('p', { class: 'lr-ueber' }, 'LERNKARTE SITZT'), el('h2', {}, e.titel),
@@ -1256,7 +1267,14 @@ function lernTestLauf(ctx, box, t) {
       try {
         const ok = await speichern(); if (ok === null) return;
         const fehlt = aufg.filter((x) => !gesendet.has(x.id)).length;
-        if (fehlt && !window.confirm(`${fehlt} Aufgabe(n) ohne Antwort. Sie zählen als falsch. Trotzdem abgeben?`)) return;
+        if (fehlt && !abgeben.dataset.sicher) {
+          const erste = aufg.findIndex((x) => !gesendet.has(x.id));
+          lernErsetze(meldung, el('div', { class: 'lr-rueck lr-rueck-falsch' }, el('b', {}, fehlt === 1 ? 'Eine Aufgabe ist noch leer.' : `${fehlt} Aufgaben sind noch leer.`),
+            el('p', {}, 'Leere Aufgaben zählen als falsch.'),
+            el('div', { class: 'row' }, el('button', { type: 'button', class: 'primary', onclick: () => { i = erste; zeige(); } }, `Zu Aufgabe ${erste + 1}`),
+              el('button', { type: 'button', class: 'secondary', onclick: () => { abgeben.dataset.sicher = '1'; abgeben.click(); } }, 'Trotzdem abgeben'))));
+          return;
+        }
         abgeben.disabled = true;
         const r = await lernCall('schule_test_abschliessen', { lernender_id: ctx.kind, sitzung_id: t.sitzung_id });
         if (ctx.live()) lernTestErgebnis(ctx, box, r);
@@ -1392,6 +1410,7 @@ async function viewPlan(arg) {
   const zeichne = () => {
     lernErsetze(liste, ...plan.map((x, i) => {
       const o = ortById.get(x.block_id);
+      const ganzHoch = el('button', { type: 'button', class: 'iconbtn', 'aria-label': `${ortName(o)} nach ganz oben`, title: 'nach ganz oben', disabled: i === 0, onclick: () => { plan.unshift(...plan.splice(i, 1)); markiere(); zeichne(); } }, '⤒');
       const hoch = el('button', { type: 'button', class: 'iconbtn', 'aria-label': `${ortName(o)} nach oben`, disabled: i === 0, onclick: () => { [plan[i - 1], plan[i]] = [plan[i], plan[i - 1]]; markiere(); zeichne(); } }, '↑');
       const runter = el('button', { type: 'button', class: 'iconbtn', 'aria-label': `${ortName(o)} nach unten`, disabled: i === plan.length - 1, onclick: () => { [plan[i + 1], plan[i]] = [plan[i], plan[i + 1]]; markiere(); zeichne(); } }, '↓');
       const kann = el('label', { class: 'lern-plan-kann' }, el('input', { type: 'checkbox', checked: !!x.kann_schon, onchange: (ev) => { x.kann_schon = ev.target.checked; markiere(); } }), ' kann es schon');
@@ -1400,7 +1419,7 @@ async function viewPlan(arg) {
         el('span', { class: 'lern-plan-nr' }, String(i + 1)),
         el('div', { class: 'lern-plan-text' }, el('b', {}, ortName(o)), el('small', {}, [o?.kontinent, x.status === 'fertig' ? 'geschafft' : null].filter(Boolean).join(' · ')),
           themenListe(o)),
-        el('div', { class: 'lern-plan-knoepfe' }, hoch, runter, kann, weg));
+        el('div', { class: 'lern-plan-knoepfe' }, ganzHoch, hoch, runter, kann, weg));
     }));
     if (!plan.length) lernAnhaengen(liste, el('li', { class: 'muted' }, 'Der Plan ist leer. Ohne Plan sieht das Kind alle Themen. Füge unten Themen hinzu.'));
   };
@@ -1579,10 +1598,9 @@ async function viewLehrplan() {
     const basis = (d.themen || []).filter((t) => !f.kl || String(gk(t)) === String(f.kl));
     const zahl = (k) => basis.filter((t) => lernInhaltZustand(t).k === k).length;
     lernErsetze(kacheln, 
-      el('div', { class: 'lp-kachel' }, el('b', {}, String(basis.length)), el('small', {}, 'Themen')),
-      el('div', { class: 'lp-kachel lp-fertig' }, el('b', {}, String(zahl('fertig'))), el('small', {}, 'fertig')),
-      el('div', { class: 'lp-kachel lp-pruefung' }, el('b', {}, String(zahl('pruefung'))), el('small', {}, 'in Prüfung')),
-      el('div', { class: 'lp-kachel lp-leer' }, el('b', {}, String(zahl('leer'))), el('small', {}, 'ohne Inhalt')));
+      ...[['', 'Themen', basis.length, ''], ['fertig', 'fertig', zahl('fertig'), ' lp-fertig'], ['pruefung', 'in Prüfung', zahl('pruefung'), ' lp-pruefung'], ['leer', 'ohne Inhalt', zahl('leer'), ' lp-leer']]
+        .map(([wert, text, n, kl]) => el('button', { type: 'button', class: 'lp-kachel' + kl + (f.inhalt === wert ? ' on' : ''), 'aria-pressed': String(f.inhalt === wert),
+          onclick: () => { f.inhalt = wert; inhSel.value = wert; zeichne(); } }, el('b', {}, String(n)), el('small', {}, text))));
     const treffer = basis.filter((t) => (!f.inhalt || lernInhaltZustand(t).k === f.inhalt)
       && (!q || `${t.titel} ${t.ort} ${t.gebiet}`.toLowerCase().includes(q)));
     const gruppen = new Map();
@@ -1627,7 +1645,7 @@ async function viewInhalte(arg) {
       el('td', {}, lernText(a.frage?.text || a.frage?.schablone || ''), a.antworttyp === 'auswahl' ? el('small', { class: 'muted' }, ' (' + (a.antworten || []).join(' | ') + ')') : null),
       el('td', { class: 'lp-loesung' }, lernLoesungText(a)),
       el('td', { class: 'muted' }, lernText(a.loesungsweg || '')),
-      el('td', {}, a.freigegeben ? el('span', { class: 'lp-ok' }, 'frei') : el('span', { class: 'lp-warte' }, 'in Prüfung')))))));
+      el('td', {}, a.freigegeben ? el('span', { class: 'lp-ok' }, 'frei ✓') : el('span', { class: 'lp-warte' }, 'in Prüfung')))))));
   const karten = etappen.map((e) => {
     const as = aufgaben.filter((a) => a.lernziel === e.lernziel);
     const rm = rmJe(e.lernziel);

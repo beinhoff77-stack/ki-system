@@ -368,7 +368,7 @@ test('Lehrplan-Übersicht: Themen je Schulart und Klasse mit Inhaltsstand, Inhal
   await page.getByText('3 Lernkarten · 2 Übungen · 1 Test- und Nachtestaufgaben', { exact: false }).waitFor();
   await page.locator('details.lp-karte > summary').first().click();
   await page.getByText('ERKLÄRUNG, WIE DAS KIND SIE SIEHT').first().waitFor();
-  await page.locator('.lp-tabelle').first().getByText('frei', { exact: true }).first().waitFor();
+  await page.locator('.lp-tabelle').first().getByText('frei ✓').first().waitFor();
   await page.locator('details.lp-karte > summary', { hasText: '1 in Prüfung' }).waitFor();
   await page.locator('.lp-tabelle').first().getByText('Tausender-Stelle.').waitFor();
   await page.getByText('Mehr Aufgaben zum Runden.').waitFor();

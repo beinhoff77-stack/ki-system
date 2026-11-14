@@ -1,0 +1,117 @@
+{
+  "thema_schluessel": "zahlen.potenzen_basis",
+  "gesamturteil": "brauchbar",
+  "karten": [
+    {
+      "lernziel": "schreibweise",
+      "urteil": "ok",
+      "stufen": "Leicht: Produkt → Potenz, mittel: Basis/Exponent benennen, schwer: Potenz → Produkt mit guten Ablenkern (Summe, Basis·Exponent, vertauscht). Die ‚Basis/Exponent benennen‘-Aufgaben sind sehr gleichförmig (12 Stück).",
+      "fehlende_aufgabentypen": [
+        "Exponent finden (Umkehraufgabe, zahl): ‚2 hoch wie viel ergibt 64?‘ → 6. Beispiel 2: ‚3 hoch wie viel ergibt 81?‘ → 4.",
+        "Exponent 1 (zahl): ‚Berechne 17¹.‘ → 17; Lösungsweg ‚Die 17 steht einmal als Faktor da.‘ Beispiel 2: ‚Schreibe 8 als Potenz mit Basis 8.‘ (auswahl 8¹ | 8⁰ | 1⁸) → 8¹."
+      ],
+      "generator_regeln": [
+        "Basis/Exponent benennen auf höchstens 6 Aufgaben je Karte begrenzen."
+      ]
+    },
+    {
+      "lernziel": "berechnen",
+      "urteil": "ok",
+      "stufen": "Passen. 3⁷ = 2 187 und 9⁴ = 6 561 in Stufe 3 sind für Klasse 5 Kopfrechen-Fleiß, aber noch vertretbar.",
+      "fehlende_aufgabentypen": [
+        "Fehler finden (auswahl): ‚Jemand rechnet 4³ = 12. Was ist falsch?‘ Antworten: ‚Er hat 4 · 3 gerechnet; richtig ist 4 · 4 · 4 = 64‘ (richtig) | ‚Richtig gerechnet‘ | ‚Es muss 3 · 3 · 3 = 27 sein‘. Beispiel 2: ‚5² = 10‘ → ‚5 · 5 = 25‘."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "quadrat",
+      "urteil": "verbessern",
+      "stufen": "Gut: Quadrat berechnen → Wurzel-Umkehrung → Quadratzahl erkennen. Der Tipp bei der Umkehrung verrät bei 225 und 400 das Ergebnis.",
+      "fehlende_aufgabentypen": [
+        "Quadratzahl zwischen zwei Zahlen ist vorhanden; es fehlt ‚Quadratzahlen der Größe nach‘: ‚Wie viele Quadratzahlen liegen zwischen 50 und 150?‘ → 5 (64, 81, 100, 121, 144). Beispiel 2: ‚zwischen 200 und 300‘ → 3 (225, 256, 289)."
+      ],
+      "generator_regeln": [
+        "Tipp bei ‚Welche natürliche Zahl ergibt im Quadrat x?‘ darf keine der Stützstellen 10² = 100, 15² = 225, 20² = 400 enthalten, wenn x selbst eine davon ist. Besser Tipp ohne Zahlen: ‚Probiere: Welche Zahl mal sich selbst ergibt x? Beginne bei einer Zahl, deren Quadrat du kennst.‘",
+        "Bei ‚Welche Zahl ist eine Quadratzahl?‘ die Ablenker als Nachbarn einer Quadratzahl wählen (z. B. 143 neben 144) – das ist gut; zusätzlich das Doppelte der Wurzel als Ablenker (24 statt 144, Fehler 12 · 2)."
+      ]
+    },
+    {
+      "lernziel": "vertauschen",
+      "urteil": "verbessern",
+      "stufen": "Dieselben Paare kommen sehr oft vor (2⁷/7² fünfmal, 2⁸/8² dreimal, 9³/3⁹ dreimal, sogar zweimal derselbe Unterschied 18 954). Der wichtige Sonderfall 2⁴ = 4² fehlt völlig – dadurch ist ‚Beide sind gleich groß‘ nie richtig, und das Kind lernt es als sicheren Ablenker auszuschließen. Stufe 3 (3¹⁰ − 10³ = 58 049) ist nur große Zahlen.",
+      "fehlende_aufgabentypen": [
+        "Sonderfall gleich (auswahl): ‚Vergleiche 2⁴ und 4². Was stimmt?‘ → ‚Beide sind gleich groß‘ (16). Beispiel 2: ‚Für welches Paar gilt aᵇ = bᵃ?‘ Antworten 2⁴ und 4² (richtig) | 2³ und 3² | 3⁴ und 4³.",
+        "Regel begründen (auswahl, Stufe 3): ‚Gilt immer: Die Potenz mit dem größeren Exponenten ist größer?‘ Antworten: ‚Nein, z. B. 3² = 9 > 2³ = 8‘ (richtig) | ‚Ja, immer‘ | ‚Nur bei geraden Zahlen‘. Beispiel 2: ‚Gilt immer aᵇ = bᵃ?‘ → ‚Nein, 2³ = 8, aber 3² = 9‘."
+      ],
+      "generator_regeln": [
+        "Jedes Zahlenpaar höchstens einmal je Karte verwenden (auch nicht in vertauschter Reihenfolge).",
+        "Mindestens eine Aufgabe mit 2⁴ und 4²; Exponenten höchstens 9."
+      ]
+    },
+    {
+      "lernziel": "zehner",
+      "urteil": "ok",
+      "stufen": "Passen; die Milliarden-Auswahl hat gute Ablenker (10⁶, 10¹², 9⁹).",
+      "fehlende_aufgabentypen": [
+        "Zahl → Zehnerpotenz mit mehrstelligem Vorfaktor (zahl): ‚350 000 = 35 · 10 hoch … ?‘ → 4. Beispiel 2: ‚1 200 000 = 12 · 10 hoch …?‘ → 5.",
+        "Sachbezug Größenordnung (auswahl): ‚Deutschland hat etwa 84 Millionen Einwohner. Welche Schreibweise passt?‘ → 84 · 10⁶ | 84 · 10⁹ | 84 · 10³. Beispiel 2: ‚Ein Jahr hat etwa 31 Millionen Sekunden.‘ → 31 · 10⁶."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "negativ",
+      "urteil": "verbessern",
+      "stufen": "Stufen ok. Der wichtigste Fehler bei negativen Basen fehlt: −3² gegenüber (−3)². Der Ablenker ‚null‘ bei positiv/negativ ist kein Denkfehler.",
+      "fehlende_aufgabentypen": [
+        "Klammer oder nicht (auswahl): ‚Was ist −3²?‘ Antworten −9 (richtig) | 9 | −6. Lösungsweg: ‚Ohne Klammer gehört das Hoch nur zur 3: −(3 · 3) = −9.‘ Beispiel 2: ‚Was ist (−2)⁴ − 2⁴?‘ → 0."
+      ],
+      "generator_regeln": [
+        "Bei ‚Ist (−a)ⁿ positiv oder negativ?‘ statt ‚null‘ den Ablenker ‚negativ, weil die Basis negativ ist‘ / ‚positiv, weil der Exponent positiv ist‘ verwenden."
+      ]
+    },
+    {
+      "lernziel": "sach",
+      "urteil": "verbessern",
+      "stufen": "Gute Kontexte (Papier falten, Platten, Würfel). Stufe 3 (Bakterien mit Startwert) prüft echt den Startwert – gut.",
+      "fehlende_aufgabentypen": [
+        "Rückwärts (zahl): ‚Ein Würfel besteht aus 125 kleinen Würfeln. Wie viele kleine Würfel liegen an einer Kante?‘ → 5. Beispiel 2: ‚Ein quadratischer Platz ist mit 169 Platten von 1 m² belegt. Wie lang ist eine Seite?‘ → 13 m."
+      ],
+      "generator_regeln": [
+        "Bakterien realistisch: verdoppeln (nicht verfünffachen); Zeiteinheit z. B. ‚alle 20 Minuten‘.",
+        "Würfel-Aufgaben: Kantenlänge höchstens 10 (sonst unpraktische Mengen)."
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Welche natürliche Zahl ergibt im Quadrat 400?",
+      "art": "tipp_verraet_loesung",
+      "problem": "Tipp: ‚Probiere mit den Quadratzahlen, die du kennst: 10² = 100, 15² = 225, 20² = 400.‘ Das Ergebnis 20 steht im Tipp. Betrifft auch die Aufgabe mit 225 (Ergebnis 15) – insgesamt 3 Aufgaben.",
+      "korrektur": "Tipp: ‚Welche Zahl mal sich selbst ergibt 400? Denke an 4 · 4 und hänge Nullen an.‘ (für 225: ‚Die Zahl endet auf 5.‘)"
+    },
+    {
+      "aufgabe": "Vergleiche 2⁷ und 7². Was stimmt?",
+      "art": "mehrdeutig",
+      "problem": "Kein Rechenfehler, aber dieselbe Aufgabe steht fünfmal in der Karte (Übung, Sicherung, Korrektur, auch als ‚Um wie viel unterscheiden sich 2⁷ und 7²?‘). ‚Beide sind gleich groß‘ ist in keiner Aufgabe richtig.",
+      "korrektur": "Eine der Aufgaben ersetzen durch ‚Vergleiche 2⁴ und 4². Was stimmt?‘ → ‚Beide sind gleich groß‘; Weg ‚2⁴ = 16 und 4² = 16.‘"
+    },
+    {
+      "aufgabe": "Um wie viel unterscheiden sich 3¹⁰ und 10³? Gib den Unterschied als positive Zahl an.",
+      "art": "unrealistisch",
+      "problem": "3¹⁰ = 59 049 im Kopf ist für Klasse 5 Fleißarbeit ohne neuen Gedanken.",
+      "korrektur": "‚Um wie viel unterscheiden sich 2⁵ und 5²?‘ → 7."
+    },
+    {
+      "aufgabe": "In einer Schale sind 5 Bakterien. Jede Stunde verfünffacht sich die Anzahl. Wie viele sind es nach 4 Stunden?",
+      "art": "unrealistisch",
+      "problem": "Bakterien teilen sich (verdoppeln). ‚Verfünffacht‘ ist biologisch falsch.",
+      "korrektur": "‚In einer Schale sind 5 Bakterien. Alle 20 Minuten verdoppelt sich die Anzahl. Wie viele sind es nach 2 Stunden?‘ → 5 · 2⁶ = 320."
+    },
+    {
+      "aufgabe": "Ist (−4)¹³ positiv oder negativ? (Du musst nicht ausrechnen.)",
+      "art": "sprache",
+      "problem": "Antwort ‚null‘ ist kein typischer Fehler; eine Potenz einer von null verschiedenen Zahl kann nicht null sein.",
+      "korrektur": "Antworten: ‚negativ‘ (richtig) | ‚positiv, weil 13 positiv ist‘ | ‚positiv, weil Minus mal Minus Plus ist‘."
+    }
+  ]
+}

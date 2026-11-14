@@ -143,6 +143,22 @@ def g_grad(s):
                 {'Grad': f'{len(kf) - 1}', 'Leitkoeffizient': f'{a}', 'Absolutglied': wert_c(kf, 0)}[frage])
 
 
+def _produktform_finden():
+    nst = sorted(R.sample([i for i in range(-5, 6) if i], 3))
+    kf = mal(*[[1, -v] for v in nst])
+    p = R.choice(nst)
+    q, r = [v for v in nst if v != p]
+    b = kf[1] + p           # (x − p)(x² + bx + c) = x³ + (b − p)x² + (c − pb)x − pc
+    c = -kf[3] // p
+    return luecken(f'f(x) = {poly(*kf)} hat die Nullstelle x = {dz(p)}. Schreibe f in Produktform (kleinste Nullstelle zuerst).',
+                   '(x − □)(x − □)(x − □)', 'die drei Nullstellen, kleinste zuerst (auch negativ)', nst,
+                   f'Ansatz f(x) = {faktor(p)}(x² + bx + c). Absolutglied: −{kl(p)} · c = {dz(kf[3])} ⇒ c = {dz(c)}; '
+                   f'x²-Glied: b − {kl(p)} = {dz(kf[1])} ⇒ b = {dz(b)}. {poly(1, b, c)} = {faktor(q)}{faktor(r)}. '
+                   f'Also f(x) = {"".join(faktor(v) for v in nst)}.',
+                   'Die anderen Nullstellen sind Teiler des Absolutglieds – probiere sie aus, oder vergleiche die Koeffizienten von (x − Nullstelle)(x² + bx + c).',
+                   c=[f'{v} + ({wert_c(kf, v)})' for v in nst])
+
+
 def g_ausmultiplizieren(s):
     if s == 1:
         p, q = R.sample([i for i in range(-6, 7) if i], 2)
@@ -156,6 +172,8 @@ def g_ausmultiplizieren(s):
         return luecken(f'Multipliziere aus: f(x) = {faktor(p)} · {faktor(q)} · {faktor(r)}.', 'x³ + □x² + □x + □', 'Koeffizienten (mit Vorzeichen)', k[1:],
                        f'{faktor(p)} · {faktor(q)} = {poly(*mal([1, -p], [1, -q]))}; mal {faktor(r)}: {poly(*k)}.', 'Erst zwei Klammern, dann mit der dritten.',
                        c=[f'-({p}) - ({q}) - ({r})', f'({p}) * ({q}) + ({p}) * ({r}) + ({q}) * ({r})', f'-({p}) * ({q}) * ({r})'])
+    if R.random() < 0.45:
+        return _produktform_finden()
     a = R.choice([-2, -1, 2, 3])
     p, q = R.sample([i for i in range(-4, 5) if i], 2)
     k = [a * c for c in mal([1, -p], [1, -p], [1, -q])]
@@ -165,7 +183,46 @@ def g_ausmultiplizieren(s):
                    c=[f'{a}', f'{a} * (-2 * ({p}) - ({q}))', f'{a} * (({p}) ** 2 + 2 * ({p}) * ({q}))', f'{a} * (-({p}) ** 2 * ({q}))'])
 
 
+GL = {(0, 1): 'Grad gerade, Leitkoeffizient positiv', (0, -1): 'Grad gerade, Leitkoeffizient negativ',
+      (1, 1): 'Grad ungerade, Leitkoeffizient positiv', (1, -1): 'Grad ungerade, Leitkoeffizient negativ'}
+
+
+def _rand_graph():
+    n = R.choice([3, 3, 4, 4, 5])
+    a = R.choice([1, -1])
+    nst = sorted(R.sample(range(-3, 4), n if n < 5 else 3))
+    viel = [1] * len(nst)
+    while sum(viel) < n: viel[R.randrange(len(viel))] += 1
+    if max(viel) > 2: return None
+    kf = [a * c for c in mal(*[[1, -v] for v, k in zip(nst, viel) for _ in range(k)])]
+    r = GL[(n % 2, a)]
+    return mit_grafik(auswahl('Die Zeichnung zeigt den Graphen einer ganzrationalen Funktion. Welche Aussage über Grad und Leitkoeffizienten passt?', r, list(GL.values()),
+                              f'Der Graph verläuft {VERL[(n % 2, a)]}: {"beide Enden auf derselben Seite ⇒ Grad gerade" if n % 2 == 0 else "Enden auf verschiedenen Seiten ⇒ Grad ungerade"}; '
+                              f'{"rechts oben ⇒ Leitkoeffizient positiv" if a > 0 else "rechts unten ⇒ Leitkoeffizient negativ"}.',
+                              'Schau nur auf die beiden Enden: Liegen sie auf derselben Seite der x-Achse? Wohin geht der Graph ganz rechts?'),
+                      graph_bild(kf, nst))
+
+
+def _rand_produkt():
+    a = R.choice([1, -1, 2, -2, Fr(1, 2)])
+    p, q = R.sample([i for i in range(-4, 5)], 2)
+    m, n = R.choice([(1, 2), (2, 1), (2, 3), (3, 2), (1, 3), (3, 1), (2, 2), (1, 4)])
+    g = m + n
+    r = VERL[(g % 2, 1 if a > 0 else -1)]
+    term = produkt(a, {p: m, q: n})
+    return auswahl(f'Wie verläuft der Graph von f(x) = {term} für sehr kleine und sehr große x?', r, list(VERL.values()),
+                   f'Ausmultipliziert beginnt f mit {dz(a) if a not in (1, -1) else ("−" if a < 0 else "")}x' + str(g).translate(HOCHZ) +
+                   f': Grad {g} = {m} + {n} ({"gerade" if g % 2 == 0 else "ungerade"}), Leitkoeffizient {"positiv" if a > 0 else "negativ"}: {r}.',
+                   'Du musst nicht ausmultiplizieren: Der Grad ist die Summe der Hochzahlen, der Leitkoeffizient der Faktor davor.')
+
+
 def g_randverhalten(s):
+    pool, nr = AKT['pool'], AKT['nr']
+    # Regel: die Standardfrage „Wie verläuft … f(x) = …?“ höchstens 14-mal je Karte
+    if s == 2 and ((pool == 'uebung' and nr % 3 != 0) or (pool != 'uebung' and nr % 2 == 0)):
+        return _rand_graph()
+    if s == 3 and nr % 3 != 2:
+        return _rand_produkt()
     n = R.randint(2, 7)
     a = nz(5)
     k = [a] + [R.randint(-9, 9) for _ in range(n)]
@@ -218,6 +275,33 @@ def g_symmetrie(s):
                 wert_c(k, -u))
 
 
+def _substitution_wenige():
+    """x⁴ + bx² + c mit z₁ > 0, z₂ < 0: nur zwei Lösungen."""
+    a, c = R.randint(1, 5), R.randint(1, 9)
+    kf = [1, 0, -(a * a - c), 0, -a * a * c]
+    return luecken(f'Bestimme alle Nullstellen von f(x) = {poly(*kf)}.', 'x₁ = □; x₂ = □', 'kleinste zuerst', [-a, a],
+                   f'z = x²: z² {plus(-(a * a - c))}z − {a * a * c} = 0 ⇒ z = {a * a} oder z = −{c}. x² = {a * a} ⇒ x = ±{a}; x² = −{c} hat keine Lösung.',
+                   'Substituiere z = x². Liefert jede z-Lösung auch x-Werte?', c=[f'{v} + ({wert_c(kf, v)})' for v in (-a, a)])
+
+
+def _vielfachheit_am_graphen():
+    """Nur ausmultiplizierte Form, eine Nullstelle verraten, Vielfachheit am Graphen ablesen."""
+    p = R.choice([-3, -2, -1, 1, 2, 3])
+    q = R.choice([v for v in range(-3, 4) if v != p])
+    m, n = R.choice([(1, 2), (2, 1), (2, 2), (1, 1)])
+    a = R.choice([1, -1])
+    kf = [a * c for c in mal(*([[1, -p]] * m + [[1, -q]] * n))]
+    richtig = 'doppelt – der Graph berührt dort die x-Achse' if m == 2 else 'einfach – der Graph schneidet dort die x-Achse'
+    falsch = ['doppelt – der Graph schneidet dort die x-Achse', 'einfach – der Graph berührt dort die x-Achse',
+              'einfach – der Graph schneidet dort die x-Achse' if m == 2 else 'doppelt – der Graph berührt dort die x-Achse']
+    return mit_grafik(auswahl(f'f(x) = {poly(*kf)} hat die Nullstelle x = {dz(p)}. Die Zeichnung zeigt den Graphen. Ist x = {dz(p)} eine einfache oder eine doppelte Nullstelle?',
+                              richtig, falsch,
+                              f'Bei x = {dz(p)} {"berührt" if m == 2 else "schneidet"} der Graph die x-Achse, also {"gerade Vielfachheit: doppelt" if m == 2 else "ungerade Vielfachheit: einfach"}. '
+                              f'Probe: f(x) = {produkt(a, {p: m, q: n})}.',
+                              'Schneidet der Graph die x-Achse dort (Vorzeichenwechsel) oder berührt er sie nur?'),
+                      graph_bild(kf, [p, q]))
+
+
 def g_nullstellen(s):
     if s == 1:
         a = R.choice([1, 2, -1])
@@ -231,13 +315,18 @@ def g_nullstellen(s):
         m = R.choice([1, 2])
         kf = mal(*([[1, -p]] * 2 + [[1, -q]] * m)) + [0]
         nst = sorted({0, p, q})
-        r = auswahl(f'f(x) = {poly(*kf)} = x · {faktor(p, 2)} · {faktor(q, m)}. An welcher Nullstelle berührt der Graph die x-Achse, ohne sie zu schneiden?',
+        r = auswahl(f'f(x) = {poly(*kf)} = x · {faktor(p, 2)} · {faktor(q, m)}. An welchen Nullstellen berührt der Graph die x-Achse, ohne sie zu schneiden?',
                     f'x = {dz(p)}' + (f' und x = {dz(q)}' if m == 2 else ''), [f'x = 0', f'x = {dz(q)}' if m == 1 else f'x = {dz(p)}', f'x = {dz(-p)}'],
                     f'Gerade Vielfachheit = Berührung: {faktor(p)} kommt doppelt vor' + (f', {faktor(q)} auch' if m == 2 else '') + '.',
                     'Welche Faktoren kommen in gerader Anzahl vor?')
         return mit_grafik(r, graph_bild(kf, nst))
+    nr = AKT['nr']
     typ = R.random()
-    if typ < 0.5:
+    if nr % 3 == 0:
+        return _vielfachheit_am_graphen()
+    if nr % 3 == 1 and typ < 0.6:
+        return _substitution_wenige()
+    if nr % 3 == 2:
         p, q = R.sample([i for i in range(-6, 7) if i], 2)
         kf = mal([1, -p], [1, -q]) + [0, 0]
         nst = sorted({0, p, q})
@@ -298,6 +387,8 @@ if __name__ == '__main__':
           [('Aufbau', ['grad', 'ausmultiplizieren']), ('Eigenschaften', ['randverhalten', 'symmetrie', 'nullstellen']), ('Graph und Term', ['graph_term', 'term_bestimmen'])],
           ETAPPEN, GEN,
           meiden={'grad': ['−2x³ + 5x − 7.'], 'ausmultiplizieren': ['(x − 1) · (x + 2) · (x − 3)'], 'symmetrie': ['2x⁴ − x² + 3?'], 'nullstellen': ['x³ − 4x² + 4x']},
-          offen=['Zeichnungen: Graphen in den Lernkarten „randverhalten“, „symmetrie“, „nullstellen“, „graph_term“, „term_bestimmen“; Aufgaben zu Berührung, „Welcher Term gehört zum Graphen?“ und „a aus Nullstellen und Punkt“ zeigen den Graphen.',
+          offen=['Prüfung eingearbeitet (Runde 3): Produktform aus einer bekannten Nullstelle, Randverhalten am Graphen und in Produktform (Standardfrage höchstens 14-mal), Substitution mit nur zwei Lösungen, Vielfachheit am Graphen ablesen (nur ausmultiplizierte Form), Mehrzahl „An welchen Nullstellen …“.',
+                 'Nicht umgesetzt: Hinweis der Prüfung zur Überschneidung von „nullstellen“ mit „vielfachheit“ in gleichungen.polynom. Beide Karten sind als „ok“ bewertet und blicken verschieden auf dasselbe (hier Graph, dort Gleichung); die Themen können unabhängig voneinander bearbeitet werden. Ein Verweis zwischen Themen ist Sache des Lehrplans (Reihenfolge), nicht der Karte.',
+                 'Zeichnungen: Graphen in den Lernkarten „randverhalten“, „symmetrie“, „nullstellen“, „graph_term“, „term_bestimmen“; Aufgaben zu Berührung, „Welcher Term gehört zum Graphen?“ und „a aus Nullstellen und Punkt“ zeigen den Graphen.',
                  'Lückenaufgaben „Ausmultiplizieren“ nutzen die Term-Vorlage (z. B. „x³ + □x² + □x + □“): Das Kind tippt den Term frei ein; Koeffizienten können negativ sein.',
                  'Extrempunkte (Ableitung) sind nicht enthalten – das ist Stoff der Oberstufe.'])

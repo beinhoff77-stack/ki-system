@@ -41,13 +41,25 @@ async function viewLernen() {
     liste.replaceChildren(...lernOrte(u, kind));
   };
   zeichne();
+  // Mathe-Merkblatt Kl. 7/8 (ohne Anmeldung, für Leo und den Lehrer) bleibt wie vorher oben sichtbar
+  const url = new URL('mathe/', location.href).href;
+  const status = el('span', { class: 'muted small', role: 'status' });
+  const kopie = el('button', { type: 'button', class: 'secondary' }, 'Link kopieren');
+  kopie.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(url); status.textContent = 'Link kopiert.'; }
+    catch { status.textContent = 'Kopieren nicht möglich. Link bitte markieren und kopieren.'; }
+  });
   main.replaceChildren(
-    el('section', { class: 'start-intro' }, el('p', { class: 'eyebrow' }, 'LERNEN SCHULE'), el('h2', {}, 'Wer lernt heute?')),
+    el('section', { class: 'start-intro' }, el('p', { class: 'eyebrow' }, 'LERNEN SCHULE'), el('h2', {}, 'Mathe Klasse 7/8'),
+      el('p', {}, 'Erklärungen, Aufgaben in drei Stufen und typische Fehler zu Zahlen, Termen, Potenzen, Brüchen, Gleichungen und Gleichungssystemen.')),
+    el('div', { class: 'card learn-resource' },
+      el('p', {}, 'Die Seite öffnet ohne Anmeldung. Du kannst den Link an Leo und die Lehrkraft schicken.'),
+      el('div', { class: 'row' }, el('a', { class: 'btn primary', href: 'mathe/', target: '_blank', rel: 'noopener' }, 'Mathe öffnen ↗'), kopie, status),
+      el('p', { class: 'muted small learn-url' }, url)),
+    el('section', { class: 'start-intro lern-neu' }, el('p', { class: 'eyebrow' }, 'LERNREISE · IM AUFBAU'), el('h2', {}, 'Wer lernt heute?'),
+      el('p', { class: 'small muted' }, 'Neue Lerneinheiten mit Tests. Das kindgerechte Design kommt noch.')),
     kinder.length ? wahl : el('p', { class: 'card muted' }, 'Kein Kind freigeschaltet.'),
-    liste,
-    el('details', { class: 'card lern-merkblatt' }, el('summary', {}, 'Merkblatt Mathe 7/8 (ohne Anmeldung)'),
-      el('p', { class: 'small' }, 'Erklärungen und Übungen zum Nachschlagen. Ohne Lernstand.'),
-      el('a', { class: 'btn primary', href: 'mathe/', target: '_blank', rel: 'noopener' }, 'Merkblatt öffnen ↗')));
+    liste);
 }
 
 function lernOrte(u, kind) {

@@ -3175,3 +3175,4 @@ body[data-area="lernen"] { padding-bottom: calc(100px + env(safe-area-inset-bott
 .lern-weitere { max-width: 760px; }
 .lern-weitere > summary { cursor: pointer; font-weight: 650; padding: 10px 0; color: var(--muted); }
 .lern-weitere[open] > summary { margin-bottom: 8px; }
+.lern-neu { margin-top: 28px; }

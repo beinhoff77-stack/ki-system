@@ -376,6 +376,7 @@ test('Lernen Schule: Startkarte, Bereichswechsel und Link zum Merkblatt', async 
   }
   await page.setViewportSize({ width: 1280, height: 800 });
   await page.locator('.learn-card').click();
+  await page.getByRole('heading', { name: 'Mathe Klasse 7/8' }).waitFor();
   await page.getByRole('heading', { name: 'Wer lernt heute?' }).waitFor();
   for (const [w, h] of [[1280, 800], [375, 800], [320, 700]]) {
     await page.setViewportSize({ width: w, height: h });
@@ -385,7 +386,8 @@ test('Lernen Schule: Startkarte, Bereichswechsel und Link zum Merkblatt', async 
   await page.setViewportSize({ width: 1280, height: 800 });
   assert.equal(await page.evaluate(() => document.body.dataset.area), 'lernen');
   assert.equal(await page.locator('#areas [data-area=lernen]').getAttribute('aria-current'), 'true');
-  const link = page.locator('.lern-merkblatt a');
+  const link = page.getByRole('link', { name: /Mathe öffnen/ });
+  assert(await page.locator('.learn-url').textContent().then((x) => x.endsWith('/mathe/')));
   assert.equal(await link.getAttribute('href'), 'mathe/');
   assert.equal(await link.getAttribute('rel'), 'noopener');
   assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), true);

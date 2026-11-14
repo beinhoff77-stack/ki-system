@@ -1,0 +1,330 @@
+{
+  "thema_schluessel": "geometrie.winkel",
+  "gesamturteil": "gut",
+  "thema_hinweise": [
+    "Gut aufgebaut, Bilder für Kreuzung, Winkel um einen Punkt und Rechteck schon da. Unter „offen“ steht, dass Uhr und Windrose nicht gezeichnet werden können. Fakt: Mit „figur“ geht beides (Kreis, Striche als Linien, Zeiger als Linien, Winkelbogen; Windrose mit benannten Punkten N, NO, …). Bilder angegeben.",
+    "In der Karte „uhr“ fehlt, dass auch der Stundenzeiger wandert (30° pro Stunde, also 0,5° pro Minute). Die Aufgabe „7:30 Uhr“ setzt genau das voraus. Eingebaut.",
+    "Lehrplan: Die Einschätzung unter „offen“ (eigentliche Winkelsätze erst Klasse 7) teile ich (Annahme, nicht geprüft); die Kl.-7-Version gibt es jetzt als geometrie.kongruenz/geometrie.konstruktion bzw. sollte dort stehen.",
+    "Hinweis an die Aufgaben-Prüfung: Die Stufe-3-Aufgabe zur Raute steht in der Karte „figuren“ (Rechteck und Quadrat); die Raute wird dort nicht erklärt."
+  ],
+  "karten": [
+    {
+      "lernziel": "ergaenzen",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "kreuzung",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "um_punkt",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "uhr",
+      "urteil": "verbessern",
+      "probleme": [
+        "Die Regel erklärt nur den Minutenzeiger. Dass der Stundenzeiger sich auch bewegt (0,5° pro Minute), fehlt – die Aufgabe 7:30 Uhr braucht es.",
+        "Kein Bild; eine Uhr lässt sich mit „figur“ zeichnen."
+      ],
+      "neu": {
+        "regel": "Zwischen zwei Zahlen auf dem Zifferblatt liegen ⟦30°⟧ (360° : 12). Der ⟦Minutenzeiger⟧ dreht sich in 60 min einmal herum: ⟦6° pro Minute⟧. Der ⟦Stundenzeiger⟧ wandert in 60 min von einer Zahl zur nächsten: 30° pro Stunde, also ⟦0,5° pro Minute⟧.",
+        "probe": "Um 7:30 Uhr steht der Stundenzeiger genau zwischen 7 und 8, der Minutenzeiger auf 6. Von 6 bis 7 sind 30°, dazu die halbe Strecke bis 8: 15°. Zusammen 45° ✓",
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "M": [
+              0,
+              0
+            ],
+            "_t0a": [
+              0.0,
+              4.4
+            ],
+            "_t0b": [
+              0.0,
+              5.0
+            ],
+            "_t1a": [
+              2.2,
+              3.811
+            ],
+            "_t1b": [
+              2.5,
+              4.33
+            ],
+            "_t2a": [
+              3.811,
+              2.2
+            ],
+            "_t2b": [
+              4.33,
+              2.5
+            ],
+            "_t3a": [
+              4.4,
+              0.0
+            ],
+            "_t3b": [
+              5.0,
+              0.0
+            ],
+            "_t4a": [
+              3.811,
+              -2.2
+            ],
+            "_t4b": [
+              4.33,
+              -2.5
+            ],
+            "_t5a": [
+              2.2,
+              -3.811
+            ],
+            "_t5b": [
+              2.5,
+              -4.33
+            ],
+            "_t6a": [
+              0.0,
+              -4.4
+            ],
+            "_t6b": [
+              0.0,
+              -5.0
+            ],
+            "_t7a": [
+              -2.2,
+              -3.811
+            ],
+            "_t7b": [
+              -2.5,
+              -4.33
+            ],
+            "_t8a": [
+              -3.811,
+              -2.2
+            ],
+            "_t8b": [
+              -4.33,
+              -2.5
+            ],
+            "_t9a": [
+              -4.4,
+              -0.0
+            ],
+            "_t9b": [
+              -5.0,
+              -0.0
+            ],
+            "_t10a": [
+              -3.811,
+              2.2
+            ],
+            "_t10b": [
+              -4.33,
+              2.5
+            ],
+            "_t11a": [
+              -2.2,
+              3.811
+            ],
+            "_t11b": [
+              -2.5,
+              4.33
+            ],
+            "_z12": [
+              0,
+              4
+            ],
+            "_z4": [
+              2.425,
+              -1.4
+            ]
+          },
+          "kreise": [
+            {
+              "m": "M",
+              "r": 5
+            }
+          ],
+          "linien": [
+            [
+              "_t0a",
+              "_t0b"
+            ],
+            [
+              "_t1a",
+              "_t1b"
+            ],
+            [
+              "_t2a",
+              "_t2b"
+            ],
+            [
+              "_t3a",
+              "_t3b"
+            ],
+            [
+              "_t4a",
+              "_t4b"
+            ],
+            [
+              "_t5a",
+              "_t5b"
+            ],
+            [
+              "_t6a",
+              "_t6b"
+            ],
+            [
+              "_t7a",
+              "_t7b"
+            ],
+            [
+              "_t8a",
+              "_t8b"
+            ],
+            [
+              "_t9a",
+              "_t9b"
+            ],
+            [
+              "_t10a",
+              "_t10b"
+            ],
+            [
+              "_t11a",
+              "_t11b"
+            ],
+            [
+              "M",
+              "_z12"
+            ],
+            [
+              "M",
+              "_z4"
+            ]
+          ],
+          "winkel": [
+            [
+              "M",
+              "_z12",
+              "_z4",
+              "120°"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "drehungen",
+      "urteil": "verbessern",
+      "probleme": [
+        "Die Windrose wird nur aufgezählt; im Bild sieht das Kind die 45°-Schritte."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "_M": [
+              0,
+              0
+            ],
+            "N": [
+              0.0,
+              4.0
+            ],
+            "NO": [
+              2.828,
+              2.828
+            ],
+            "O": [
+              4.0,
+              0.0
+            ],
+            "SO": [
+              2.828,
+              -2.828
+            ],
+            "S": [
+              0.0,
+              -4.0
+            ],
+            "SW": [
+              -2.828,
+              -2.828
+            ],
+            "W": [
+              -4.0,
+              -0.0
+            ],
+            "NW": [
+              -2.828,
+              2.828
+            ]
+          },
+          "linien": [
+            [
+              "_M",
+              "N"
+            ],
+            [
+              "_M",
+              "NO",
+              "",
+              "gestrichelt"
+            ],
+            [
+              "_M",
+              "O"
+            ],
+            [
+              "_M",
+              "SO",
+              "",
+              "gestrichelt"
+            ],
+            [
+              "_M",
+              "S"
+            ],
+            [
+              "_M",
+              "SW",
+              "",
+              "gestrichelt"
+            ],
+            [
+              "_M",
+              "W"
+            ],
+            [
+              "_M",
+              "NW",
+              "",
+              "gestrichelt"
+            ]
+          ],
+          "winkel": [
+            [
+              "_M",
+              "N",
+              "SO",
+              "135°"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "figuren",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "verstehen",
+      "urteil": "ok"
+    }
+  ],
+  "neue_karten": []
+}

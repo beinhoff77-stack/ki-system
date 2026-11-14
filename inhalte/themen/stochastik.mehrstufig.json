@@ -1,0 +1,5000 @@
+{
+ "thema_schluessel": "stochastik.mehrstufig",
+ "thema_id": 62,
+ "block_id": 90,
+ "klasse": {
+  "rs_by": 10,
+  "gym_by": 10
+ },
+ "autor": "Claude (Paket Klasse 10)",
+ "inhalt": {
+  "ziel": "Mehrstufige Zufallsexperimente mit Pfadregeln berechnen (mit und ohne Zurücklegen), über das Gegenereignis rechnen und Simulationen deuten.",
+  "merke": [
+   "1. Pfadregel: entlang eines Pfades multiplizieren.",
+   "2. Pfadregel: Pfade eines Ereignisses addieren.",
+   "Ohne Zurücklegen ändern sich die Wahrscheinlichkeiten der zweiten Stufe.",
+   "P(mindestens einmal) = 1 − P(keinmal); erwartete Anzahl = n · p."
+  ],
+  "abschnitte": [
+   {
+    "titel": "Pfadregeln",
+    "lernziele": [
+     "pfad_mult",
+     "pfad_add",
+     "ohne_zuruecklegen"
+    ]
+   },
+   {
+    "titel": "Strategien",
+    "lernziele": [
+     "gegenereignis",
+     "baum_ergaenzen"
+    ]
+   },
+   {
+    "titel": "Simulation und Verstehen",
+    "lernziele": [
+     "simulation",
+     "verstehen"
+    ]
+   }
+  ],
+  "etappen": [
+   {
+    "lernziel": "pfad_mult",
+    "titel": "Pfadregel: Multiplizieren",
+    "regel": "Bei einem mehrstufigen Zufallsexperiment ist die Wahrscheinlichkeit eines Pfades das ⟦Produkt der Wahrscheinlichkeiten entlang des Pfades⟧ (1. Pfadregel).",
+    "schritte": [
+     "Urne mit 3 roten und 2 blauen Kugeln, zweimal ziehen mit Zurücklegen. P(rot) = 3/5.",
+     "P(rot, rot) = 3/5 · 3/5 = ⟦9/25⟧."
+    ],
+    "probe": "9/25 = 0,36 < 3/5 ✓",
+    "fehler": "P(rot, rot) = 3/5 + 3/5 ist falsch: Entlang eines Pfades wird ⟦multipliziert⟧, nicht addiert (sonst käme mehr als 1 heraus).",
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "1. Stufe",
+      "2. Stufe",
+      "Pfad-Wahrscheinlichkeit"
+     ],
+     "zeilen": [
+      [
+       "rot (3/5)",
+       "rot (3/5)",
+       "9/25"
+      ],
+      [
+       "rot (3/5)",
+       "blau (2/5)",
+       "6/25"
+      ],
+      [
+       "blau (2/5)",
+       "rot (3/5)",
+       "6/25"
+      ],
+      [
+       "blau (2/5)",
+       "blau (2/5)",
+       "4/25"
+      ]
+     ]
+    }
+   },
+   {
+    "lernziel": "pfad_add",
+    "titel": "Pfadregel: Addieren",
+    "regel": "Gehören ⟦mehrere Pfade⟧ zu einem Ereignis, ⟦addiert⟧ man ihre Wahrscheinlichkeiten (2. Pfadregel).",
+    "schritte": [
+     "Zweimal Münzwurf, Ereignis „genau einmal Kopf“: Pfade (K, Z) und (Z, K).",
+     "P = ½ · ½ + ½ · ½ = ⟦½⟧."
+    ],
+    "probe": "P(0 · K) + P(1 · K) + P(2 · K) = ¼ + ½ + ¼ = 1 ✓",
+    "fehler": "Bei „genau einmal Kopf“ nur den Pfad (K, Z) zu zählen ist falsch: Auch ⟦(Z, K)⟧ gehört dazu – die Reihenfolge ist egal.",
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "1. Stufe",
+      "2. Stufe",
+      "Pfad-Wahrscheinlichkeit"
+     ],
+     "zeilen": [
+      [
+       "K (½)",
+       "K (½)",
+       "¼"
+      ],
+      [
+       "K (½)",
+       "Z (½)",
+       "¼ ✓"
+      ],
+      [
+       "Z (½)",
+       "K (½)",
+       "¼ ✓"
+      ],
+      [
+       "Z (½)",
+       "Z (½)",
+       "¼"
+      ]
+     ]
+    }
+   },
+   {
+    "lernziel": "ohne_zuruecklegen",
+    "titel": "Ziehen ohne Zurücklegen",
+    "regel": "Ohne Zurücklegen ⟦ändern sich die Wahrscheinlichkeiten⟧ auf der zweiten Stufe: Eine Kugel weniger insgesamt und – falls gleiche Farbe – eine weniger dieser Farbe.",
+    "schritte": [
+     "3 rote, 2 blaue Kugeln, zweimal ohne Zurücklegen: P(rot, rot) = 3/5 · 2/4.",
+     "P = 6/20 = ⟦3/10⟧."
+    ],
+    "probe": "P(blau, blau) = 2/5 · 1/4 = 1/10 ✓",
+    "fehler": "P(rot, rot) = 3/5 · 3/5 gilt nur ⟦mit⟧ Zurücklegen. Ohne Zurücklegen bleiben 2 rote von 4 Kugeln.",
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "1. Stufe",
+      "2. Stufe",
+      "Pfad-Wahrscheinlichkeit"
+     ],
+     "zeilen": [
+      [
+       "rot (3/5)",
+       "rot (2/4)",
+       "6/20"
+      ],
+      [
+       "rot (3/5)",
+       "blau (2/4)",
+       "6/20"
+      ],
+      [
+       "blau (2/5)",
+       "rot (3/4)",
+       "6/20"
+      ],
+      [
+       "blau (2/5)",
+       "blau (1/4)",
+       "2/20"
+      ]
+     ]
+    }
+   },
+   {
+    "lernziel": "gegenereignis",
+    "titel": "Mindestens einmal: Gegenereignis",
+    "regel": "Bei „⟦mindestens einmal⟧“ rechnet man meist über das ⟦Gegenereignis „keinmal“⟧: P(mindestens einmal) = 1 − P(keinmal).",
+    "schritte": [
+     "Dreimal würfeln, mindestens eine Sechs: P(keine Sechs) = (5/6)³ = 125/216.",
+     "P = 1 − 125/216 = ⟦91/216⟧ ≈ 0,42."
+    ],
+    "probe": "91 + 125 = 216 ✓",
+    "fehler": "P(mindestens eine Sechs) = 3 · 1/6 = ½ ist falsch: So werden Pfade mit mehreren Sechsen ⟦mehrfach gezählt⟧. Über das Gegenereignis rechnen."
+   },
+   {
+    "lernziel": "baum_ergaenzen",
+    "titel": "Baumdiagramm vervollständigen",
+    "regel": "Die Wahrscheinlichkeiten der Äste, die von ⟦einem Verzweigungspunkt⟧ ausgehen, ergeben zusammen ⟦1⟧. Kennt man eine Pfadwahrscheinlichkeit und den ersten Ast, findet man den zweiten durch ⟦Teilen⟧.",
+    "schritte": [
+     "Erster Ast P(A) = 0,4, Pfad P(A und B) = 0,1.",
+     "Zweiter Ast: 0,1 : 0,4 = ⟦0,25⟧; der Gegenast hat 0,75."
+    ],
+    "probe": "0,4 · 0,25 = 0,1 ✓",
+    "fehler": "Den zweiten Ast als 0,1 − 0,4 oder 0,1 + 0,4 zu berechnen ist falsch: Pfadwahrscheinlichkeit = Produkt, also ⟦teilen⟧.",
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "1. Stufe",
+      "2. Stufe",
+      "Pfad-Wahrscheinlichkeit"
+     ],
+     "zeilen": [
+      [
+       "A (0,4)",
+       "B (?)",
+       "0,1"
+      ],
+      [
+       "A (0,4)",
+       "nicht B (?)",
+       "?"
+      ],
+      [
+       "nicht A (?)",
+       "…",
+       "?"
+      ]
+     ]
+    }
+   },
+   {
+    "lernziel": "simulation",
+    "titel": "Simulation und Erwartung",
+    "regel": "Bei n Durchführungen erwartet man etwa ⟦n · p⟧ Treffer. Die ⟦relative Häufigkeit⟧ (Treffer : n) aus einer Simulation schwankt, nähert sich bei großem n aber der Wahrscheinlichkeit.",
+    "schritte": [
+     "P(Pasch bei zwei Würfeln) = 6/36 = 1/6. 600 Würfe mit zwei Würfeln.",
+     "Erwartet: 600 · 1/6 = ⟦100⟧ Pasche."
+    ],
+    "probe": "Eine Simulation ergab 94 Pasche: relative Häufigkeit 94/600 ≈ 0,157 ≈ 1/6 ✓",
+    "fehler": "„Nach 5 Würfen ohne Sechs kommt die Sechs jetzt wahrscheinlicher“ ist falsch: Würfel haben ⟦kein Gedächtnis⟧, P bleibt 1/6.",
+    "bild": {
+     "typ": "saeulen",
+     "einheit": "Anzahl",
+     "werte": [
+      {
+       "name": "Pasch",
+       "wert": 94
+      },
+      {
+       "name": "kein Pasch",
+       "wert": 506
+      }
+     ],
+     "zahlen": true
+    }
+   },
+   {
+    "lernziel": "verstehen",
+    "titel": "Aussagen prüfen",
+    "regel": "Prüfe: Wird ⟦entlang⟧ eines Pfades multipliziert und ⟦zwischen⟧ Pfaden addiert? Ändern sich die Wahrscheinlichkeiten ⟦ohne Zurücklegen⟧? Ergeben die Äste je Verzweigung 1?",
+    "schritte": [
+     "Behauptung: Bei zweimal Münzwurf ist P(zweimal Kopf) = ½ + ½ = 1.",
+     "Falsch: Entlang des Pfades ⟦multiplizieren⟧: ½ · ½ = ¼."
+    ],
+    "probe": "P(1) würde „sicher“ bedeuten – zweimal Kopf ist aber nicht sicher ✓",
+    "fehler": "Wahrscheinlichkeiten über 1 sind immer ein Hinweis auf einen ⟦Rechenfehler⟧."
+   }
+  ],
+  "teilfaehigkeiten": [
+   {
+    "k": "pfad_mult",
+    "text": "Pfadregel: Multiplizieren",
+    "lernziele": [
+     "pfad_mult"
+    ]
+   },
+   {
+    "k": "pfad_add",
+    "text": "Pfadregel: Addieren",
+    "lernziele": [
+     "pfad_add"
+    ]
+   },
+   {
+    "k": "ohne_zuruecklegen",
+    "text": "Ziehen ohne Zurücklegen",
+    "lernziele": [
+     "ohne_zuruecklegen"
+    ]
+   },
+   {
+    "k": "gegenereignis",
+    "text": "Mindestens einmal: Gegenereignis",
+    "lernziele": [
+     "gegenereignis"
+    ]
+   },
+   {
+    "k": "baum_ergaenzen",
+    "text": "Baumdiagramm vervollständigen",
+    "lernziele": [
+     "baum_ergaenzen"
+    ]
+   },
+   {
+    "k": "simulation",
+    "text": "Simulation und Erwartung",
+    "lernziele": [
+     "simulation"
+    ]
+   },
+   {
+    "k": "verstehen",
+    "text": "Aussagen prüfen",
+    "lernziele": [
+     "verstehen"
+    ]
+   }
+  ],
+  "bewertung": {
+   "lernziele_pflicht": [
+    "pfad_mult",
+    "pfad_add",
+    "ohne_zuruecklegen",
+    "gegenereignis",
+    "baum_ergaenzen",
+    "simulation",
+    "verstehen"
+   ],
+   "lernziele_vertiefung": [],
+   "testaufgaben_je_lernziel": 1
+  },
+  "quellen": {
+   "erklaerungen": "Eigene Fassung (Claude), Aufgaben vom Generator erzeugt und berechnet.",
+   "begriffe": "Fachbegriffe nach LehrplanPLUS Bayern."
+  }
+ },
+ "aufgaben": [
+  {
+   "l": "pfad_mult",
+   "t": "pfad_mult",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 3 rote und 4 weiße Kugeln. Es wird zweimal mit Zurücklegen gezogen. Berechne P(rot, rot) als gekürzten Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     9,
+     49
+    ]
+   },
+   "w": "P(rot) = 3/7; P(rot, rot) = 3/7 · 3/7 = 9/49.",
+   "h": "Multipliziere entlang des Pfades.",
+   "c": [
+    "9",
+    "49"
+   ]
+  },
+  {
+   "l": "pfad_mult",
+   "t": "pfad_mult",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 3 schwarze und 6 blaue Kugeln. Es wird zweimal mit Zurücklegen gezogen. Berechne P(schwarz, schwarz) als gekürzten Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     1,
+     9
+    ]
+   },
+   "w": "P(schwarz) = 3/9; P(schwarz, schwarz) = 3/9 · 3/9 = 1/9.",
+   "h": "Multipliziere entlang des Pfades.",
+   "c": [
+    "1",
+    "9"
+   ]
+  },
+  {
+   "l": "pfad_mult",
+   "t": "pfad_mult",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 6 rote und 2 blaue Kugeln. Es wird zweimal mit Zurücklegen gezogen. Berechne P(rot, rot) als gekürzten Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     9,
+     16
+    ]
+   },
+   "w": "P(rot) = 6/8; P(rot, rot) = 6/8 · 6/8 = 9/16.",
+   "h": "Multipliziere entlang des Pfades.",
+   "c": [
+    "9",
+    "16"
+   ]
+  },
+  {
+   "l": "pfad_mult",
+   "t": "pfad_mult",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 4 gelbe und 7 weiße Kugeln. Es wird zweimal mit Zurücklegen gezogen. Berechne P(gelb, gelb) als gekürzten Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     16,
+     121
+    ]
+   },
+   "w": "P(gelb) = 4/11; P(gelb, gelb) = 4/11 · 4/11 = 16/121.",
+   "h": "Multipliziere entlang des Pfades.",
+   "c": [
+    "16",
+    "121"
+   ]
+  },
+  {
+   "l": "pfad_mult",
+   "t": "pfad_mult",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 2 weiße und 5 rote Kugeln. Es wird zweimal mit Zurücklegen gezogen. Berechne P(weiß, weiß) als gekürzten Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     4,
+     49
+    ]
+   },
+   "w": "P(weiß) = 2/7; P(weiß, weiß) = 2/7 · 2/7 = 4/49.",
+   "h": "Multipliziere entlang des Pfades.",
+   "c": [
+    "4",
+    "49"
+   ]
+  },
+  {
+   "l": "pfad_mult",
+   "t": "pfad_mult",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 7 blaue und 2 schwarze Kugeln. Es wird zweimal mit Zurücklegen gezogen. Berechne P(blau, blau) als gekürzten Bruch.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     49,
+     81
+    ]
+   },
+   "w": "P(blau) = 7/9; P(blau, blau) = 7/9 · 7/9 = 49/81.",
+   "h": "Multipliziere entlang des Pfades.",
+   "c": [
+    "49",
+    "81"
+   ]
+  },
+  {
+   "l": "pfad_mult",
+   "t": "pfad_mult",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Basketballspieler trifft bei einem Freiwurf mit der Wahrscheinlichkeit 0,6. Mit welcher Wahrscheinlichkeit trifft er 3-mal hintereinander (Würfe unabhängig)?"
+   },
+   "o": {
+    "wert": 0.216
+   },
+   "c": "0.6 ** 3",
+   "w": "P = 0,6³ = 0,216.",
+   "h": "Jeder Wurf ist eine Stufe; multipliziere."
+  },
+  {
+   "l": "pfad_mult",
+   "t": "pfad_mult",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 4 blaue und 6 rote Kugeln. Zweimal mit Zurücklegen: Wie groß ist P(zuerst blau, dann rot)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     6,
+     25
+    ]
+   },
+   "w": "4/10 · 6/10 = 6/25.",
+   "h": "Ein bestimmter Pfad: entlang multiplizieren.",
+   "c": [
+    "6",
+    "25"
+   ]
+  },
+  {
+   "l": "pfad_mult",
+   "t": "pfad_mult",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Basketballspieler trifft bei einem Freiwurf mit der Wahrscheinlichkeit 0,2. Mit welcher Wahrscheinlichkeit trifft er 3-mal hintereinander (Würfe unabhängig)?"
+   },
+   "o": {
+    "wert": 0.008
+   },
+   "c": "0.2 ** 3",
+   "w": "P = 0,2³ = 0,008.",
+   "h": "Jeder Wurf ist eine Stufe; multipliziere."
+  },
+  {
+   "l": "pfad_mult",
+   "t": "pfad_mult",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 8 gelbe und 5 grüne Kugeln. Zweimal mit Zurücklegen: Wie groß ist P(zuerst gelb, dann grün)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     40,
+     169
+    ]
+   },
+   "w": "8/13 · 5/13 = 40/169.",
+   "h": "Ein bestimmter Pfad: entlang multiplizieren.",
+   "c": [
+    "40",
+    "169"
+   ]
+  },
+  {
+   "l": "pfad_mult",
+   "t": "pfad_mult",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Basketballspieler trifft bei einem Freiwurf mit der Wahrscheinlichkeit 0,8. Mit welcher Wahrscheinlichkeit trifft er 2-mal hintereinander (Würfe unabhängig)?"
+   },
+   "o": {
+    "wert": 0.64
+   },
+   "c": "0.8 ** 2",
+   "w": "P = 0,8² = 0,64.",
+   "h": "Jeder Wurf ist eine Stufe; multipliziere."
+  },
+  {
+   "l": "pfad_mult",
+   "t": "pfad_mult",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 6 blaue und 5 rote Kugeln. Zweimal mit Zurücklegen: Wie groß ist P(zuerst blau, dann rot)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     30,
+     121
+    ]
+   },
+   "w": "6/11 · 5/11 = 30/121.",
+   "h": "Ein bestimmter Pfad: entlang multiplizieren.",
+   "c": [
+    "30",
+    "121"
+   ]
+  },
+  {
+   "l": "pfad_mult",
+   "t": "pfad_mult",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 3 blaue und 2 gelbe Kugeln. Es wird dreimal mit Zurücklegen gezogen. Berechne P(blau, blau, gelb) in dieser Reihenfolge.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     18,
+     125
+    ]
+   },
+   "w": "3/5 · 3/5 · 2/5 = 18/125.",
+   "h": "Drei Stufen, ein Pfad: drei Faktoren.",
+   "c": [
+    "18",
+    "125"
+   ]
+  },
+  {
+   "l": "pfad_mult",
+   "t": "pfad_mult",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 4 blaue und 4 rote Kugeln. Es wird dreimal mit Zurücklegen gezogen. Berechne P(blau, blau, rot) in dieser Reihenfolge.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     1,
+     8
+    ]
+   },
+   "w": "4/8 · 4/8 · 4/8 = 1/8.",
+   "h": "Drei Stufen, ein Pfad: drei Faktoren.",
+   "c": [
+    "1",
+    "8"
+   ]
+  },
+  {
+   "l": "pfad_mult",
+   "t": "pfad_mult",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 3 grüne und 6 rote Kugeln. Es wird dreimal mit Zurücklegen gezogen. Berechne P(grün, grün, rot) in dieser Reihenfolge.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     2,
+     27
+    ]
+   },
+   "w": "3/9 · 3/9 · 6/9 = 2/27.",
+   "h": "Drei Stufen, ein Pfad: drei Faktoren.",
+   "c": [
+    "2",
+    "27"
+   ]
+  },
+  {
+   "l": "pfad_mult",
+   "t": "pfad_mult",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 7 blaue und 6 grüne Kugeln. Es wird dreimal mit Zurücklegen gezogen. Berechne P(blau, blau, grün) in dieser Reihenfolge.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     294,
+     2197
+    ]
+   },
+   "w": "7/13 · 7/13 · 6/13 = 294/2197.",
+   "h": "Drei Stufen, ein Pfad: drei Faktoren.",
+   "c": [
+    "294",
+    "2197"
+   ]
+  },
+  {
+   "l": "pfad_mult",
+   "t": "pfad_mult",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 8 gelbe und 6 blaue Kugeln. Es wird dreimal mit Zurücklegen gezogen. Berechne P(gelb, gelb, blau) in dieser Reihenfolge.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     48,
+     343
+    ]
+   },
+   "w": "8/14 · 8/14 · 6/14 = 48/343.",
+   "h": "Drei Stufen, ein Pfad: drei Faktoren.",
+   "c": [
+    "48",
+    "343"
+   ]
+  },
+  {
+   "l": "pfad_mult",
+   "t": "pfad_mult",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 8 grüne und 8 rote Kugeln. Es wird dreimal mit Zurücklegen gezogen. Berechne P(grün, grün, rot) in dieser Reihenfolge.",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     1,
+     8
+    ]
+   },
+   "w": "8/16 · 8/16 · 8/16 = 1/8.",
+   "h": "Drei Stufen, ein Pfad: drei Faktoren.",
+   "c": [
+    "1",
+    "8"
+   ]
+  },
+  {
+   "l": "pfad_mult",
+   "t": "pfad_mult",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 2 schwarze und 3 grüne Kugeln. Zweimal mit Zurücklegen: Wie groß ist P(zuerst schwarz, dann grün)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     6,
+     25
+    ]
+   },
+   "w": "2/5 · 3/5 = 6/25.",
+   "c": [
+    "6",
+    "25"
+   ]
+  },
+  {
+   "l": "pfad_mult",
+   "t": "pfad_mult",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 4 weiße und 8 blaue Kugeln. Zweimal mit Zurücklegen: Wie groß ist P(zuerst weiß, dann blau)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     2,
+     9
+    ]
+   },
+   "w": "4/12 · 8/12 = 2/9.",
+   "c": [
+    "2",
+    "9"
+   ]
+  },
+  {
+   "l": "pfad_mult",
+   "t": "pfad_mult",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 5 rote und 8 gelbe Kugeln. Zweimal mit Zurücklegen: Wie groß ist P(zuerst rot, dann gelb)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     40,
+     169
+    ]
+   },
+   "w": "5/13 · 8/13 = 40/169.",
+   "c": [
+    "40",
+    "169"
+   ]
+  },
+  {
+   "l": "pfad_mult",
+   "t": "pfad_mult",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 6 gelbe und 6 blaue Kugeln. Zweimal mit Zurücklegen: Wie groß ist P(zuerst gelb, dann blau)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     1,
+     4
+    ]
+   },
+   "w": "6/12 · 6/12 = 1/4.",
+   "c": [
+    "1",
+    "4"
+   ]
+  },
+  {
+   "l": "pfad_mult",
+   "t": "pfad_mult",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Basketballspieler trifft bei einem Freiwurf mit der Wahrscheinlichkeit 0,1. Mit welcher Wahrscheinlichkeit trifft er 4-mal hintereinander (Würfe unabhängig)?"
+   },
+   "o": {
+    "wert": 0.0001
+   },
+   "c": "0.1 ** 4",
+   "w": "P = 0,1⁴ = 0,0001."
+  },
+  {
+   "l": "pfad_mult",
+   "t": "pfad_mult",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 5 gelbe und 8 grüne Kugeln. Zweimal mit Zurücklegen: Wie groß ist P(zuerst gelb, dann grün)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     40,
+     169
+    ]
+   },
+   "w": "5/13 · 8/13 = 40/169.",
+   "c": [
+    "40",
+    "169"
+   ]
+  },
+  {
+   "l": "pfad_mult",
+   "t": "pfad_mult",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 5 grüne und 7 weiße Kugeln. Zweimal mit Zurücklegen: Wie groß ist P(zuerst grün, dann weiß)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     35,
+     144
+    ]
+   },
+   "w": "5/12 · 7/12 = 35/144.",
+   "c": [
+    "35",
+    "144"
+   ]
+  },
+  {
+   "l": "pfad_mult",
+   "t": "pfad_mult",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Basketballspieler trifft bei einem Freiwurf mit der Wahrscheinlichkeit 0,6. Mit welcher Wahrscheinlichkeit trifft er 2-mal hintereinander (Würfe unabhängig)?"
+   },
+   "o": {
+    "wert": 0.36
+   },
+   "c": "0.6 ** 2",
+   "w": "P = 0,6² = 0,36."
+  },
+  {
+   "l": "pfad_mult",
+   "t": "pfad_mult",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 5 schwarze und 5 gelbe Kugeln. Zweimal mit Zurücklegen: Wie groß ist P(zuerst schwarz, dann gelb)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     1,
+     4
+    ]
+   },
+   "w": "5/10 · 5/10 = 1/4.",
+   "c": [
+    "1",
+    "4"
+   ]
+  },
+  {
+   "l": "pfad_mult",
+   "t": "pfad_mult",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 4 gelbe und 7 schwarze Kugeln. Zweimal mit Zurücklegen: Wie groß ist P(zuerst gelb, dann schwarz)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     28,
+     121
+    ]
+   },
+   "w": "4/11 · 7/11 = 28/121.",
+   "c": [
+    "28",
+    "121"
+   ]
+  },
+  {
+   "l": "pfad_add",
+   "t": "pfad_add",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 8 blaue und 7 schwarze Kugeln. Es wird zweimal mit Zurücklegen gezogen. Wie groß ist P(zwei verschiedene Farben)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     112,
+     225
+    ]
+   },
+   "w": "Pfade (blau, schwarz) und (schwarz, blau): 8/15 · 7/15 + 7/15 · 8/15 = 112/225.",
+   "h": "Welche Pfade gehören dazu? Addiere sie.",
+   "c": [
+    "112",
+    "225"
+   ]
+  },
+  {
+   "l": "pfad_add",
+   "t": "pfad_add",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 5 weiße und 2 blaue Kugeln. Es wird zweimal mit Zurücklegen gezogen. Wie groß ist P(zwei verschiedene Farben)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     20,
+     49
+    ]
+   },
+   "w": "Pfade (weiß, blau) und (blau, weiß): 5/7 · 2/7 + 2/7 · 5/7 = 20/49.",
+   "h": "Welche Pfade gehören dazu? Addiere sie.",
+   "c": [
+    "20",
+    "49"
+   ]
+  },
+  {
+   "l": "pfad_add",
+   "t": "pfad_add",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 2 gelbe und 6 blaue Kugeln. Es wird zweimal mit Zurücklegen gezogen. Wie groß ist P(zwei verschiedene Farben)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     3,
+     8
+    ]
+   },
+   "w": "Pfade (gelb, blau) und (blau, gelb): 2/8 · 6/8 + 6/8 · 2/8 = 3/8.",
+   "h": "Welche Pfade gehören dazu? Addiere sie.",
+   "c": [
+    "3",
+    "8"
+   ]
+  },
+  {
+   "l": "pfad_add",
+   "t": "pfad_add",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 7 rote und 6 schwarze Kugeln. Es wird zweimal mit Zurücklegen gezogen. Wie groß ist P(zwei verschiedene Farben)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     84,
+     169
+    ]
+   },
+   "w": "Pfade (rot, schwarz) und (schwarz, rot): 7/13 · 6/13 + 6/13 · 7/13 = 84/169.",
+   "h": "Welche Pfade gehören dazu? Addiere sie.",
+   "c": [
+    "84",
+    "169"
+   ]
+  },
+  {
+   "l": "pfad_add",
+   "t": "pfad_add",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 6 weiße und 6 schwarze Kugeln. Es wird zweimal mit Zurücklegen gezogen. Wie groß ist P(zwei verschiedene Farben)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     1,
+     2
+    ]
+   },
+   "w": "Pfade (weiß, schwarz) und (schwarz, weiß): 6/12 · 6/12 + 6/12 · 6/12 = 1/2.",
+   "h": "Welche Pfade gehören dazu? Addiere sie.",
+   "c": [
+    "1",
+    "2"
+   ]
+  },
+  {
+   "l": "pfad_add",
+   "t": "pfad_add",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 3 gelbe und 6 weiße Kugeln. Es wird zweimal mit Zurücklegen gezogen. Wie groß ist P(zwei verschiedene Farben)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     4,
+     9
+    ]
+   },
+   "w": "Pfade (gelb, weiß) und (weiß, gelb): 3/9 · 6/9 + 6/9 · 3/9 = 4/9.",
+   "h": "Welche Pfade gehören dazu? Addiere sie.",
+   "c": [
+    "4",
+    "9"
+   ]
+  },
+  {
+   "l": "pfad_add",
+   "t": "pfad_add",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 5 gelbe und 7 grüne Kugeln. Es wird zweimal mit Zurücklegen gezogen. Wie groß ist P(zweimal dieselbe Farbe)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     37,
+     72
+    ]
+   },
+   "w": "(5/12)² + (7/12)² = 37/72.",
+   "h": "Zwei Pfade: beide gleich gelb oder beide grün.",
+   "c": [
+    "37",
+    "72"
+   ]
+  },
+  {
+   "l": "pfad_add",
+   "t": "pfad_add",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 4 gelbe und 3 blaue Kugeln. Es wird zweimal mit Zurücklegen gezogen. Wie groß ist P(zweimal dieselbe Farbe)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     25,
+     49
+    ]
+   },
+   "w": "(4/7)² + (3/7)² = 25/49.",
+   "h": "Zwei Pfade: beide gleich gelb oder beide blau.",
+   "c": [
+    "25",
+    "49"
+   ]
+  },
+  {
+   "l": "pfad_add",
+   "t": "pfad_add",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 3 grüne und 2 rote Kugeln. Es wird zweimal mit Zurücklegen gezogen. Wie groß ist P(zweimal dieselbe Farbe)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     13,
+     25
+    ]
+   },
+   "w": "(3/5)² + (2/5)² = 13/25.",
+   "h": "Zwei Pfade: beide gleich grün oder beide rot.",
+   "c": [
+    "13",
+    "25"
+   ]
+  },
+  {
+   "l": "pfad_add",
+   "t": "pfad_add",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 8 grüne und 2 weiße Kugeln. Es wird zweimal mit Zurücklegen gezogen. Wie groß ist P(zweimal dieselbe Farbe)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     17,
+     25
+    ]
+   },
+   "w": "(8/10)² + (2/10)² = 17/25.",
+   "h": "Zwei Pfade: beide gleich grün oder beide weiß.",
+   "c": [
+    "17",
+    "25"
+   ]
+  },
+  {
+   "l": "pfad_add",
+   "t": "pfad_add",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 6 blaue und 3 rote Kugeln. Es wird zweimal mit Zurücklegen gezogen. Wie groß ist P(zweimal dieselbe Farbe)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     5,
+     9
+    ]
+   },
+   "w": "(6/9)² + (3/9)² = 5/9.",
+   "h": "Zwei Pfade: beide gleich blau oder beide rot.",
+   "c": [
+    "5",
+    "9"
+   ]
+  },
+  {
+   "l": "pfad_add",
+   "t": "pfad_add",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 4 grüne und 7 blaue Kugeln. Es wird zweimal mit Zurücklegen gezogen. Wie groß ist P(zweimal dieselbe Farbe)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     65,
+     121
+    ]
+   },
+   "w": "(4/11)² + (7/11)² = 65/121.",
+   "h": "Zwei Pfade: beide gleich grün oder beide blau.",
+   "c": [
+    "65",
+    "121"
+   ]
+  },
+  {
+   "l": "pfad_add",
+   "t": "pfad_add",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Glücksrad zeigt mit der Wahrscheinlichkeit 0,7 „Gewinn“. Es wird dreimal gedreht. Wie groß ist P(genau zweimal Gewinn)?"
+   },
+   "o": {
+    "wert": 0.441
+   },
+   "c": "3 * 0.7 ** 2 * (1 - 0.7)",
+   "w": "Drei Pfade (GGN, GNG, NGG), jeder 0,7² · 0,3 = 0,147; zusammen 0,441.",
+   "h": "Wie viele Reihenfolgen gibt es für zwei Gewinne bei drei Drehungen?"
+  },
+  {
+   "l": "pfad_add",
+   "t": "pfad_add",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Glücksrad zeigt mit der Wahrscheinlichkeit 0,6 „Gewinn“. Es wird dreimal gedreht. Wie groß ist P(genau zweimal Gewinn)?"
+   },
+   "o": {
+    "wert": 0.432
+   },
+   "c": "3 * 0.6 ** 2 * (1 - 0.6)",
+   "w": "Drei Pfade (GGN, GNG, NGG), jeder 0,6² · 0,4 = 0,144; zusammen 0,432.",
+   "h": "Wie viele Reihenfolgen gibt es für zwei Gewinne bei drei Drehungen?"
+  },
+  {
+   "l": "pfad_add",
+   "t": "pfad_add",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Glücksrad zeigt mit der Wahrscheinlichkeit 0,2 „Gewinn“. Es wird dreimal gedreht. Wie groß ist P(genau zweimal Gewinn)?"
+   },
+   "o": {
+    "wert": 0.096
+   },
+   "c": "3 * 0.2 ** 2 * (1 - 0.2)",
+   "w": "Drei Pfade (GGN, GNG, NGG), jeder 0,2² · 0,8 = 0,032; zusammen 0,096.",
+   "h": "Wie viele Reihenfolgen gibt es für zwei Gewinne bei drei Drehungen?"
+  },
+  {
+   "l": "pfad_add",
+   "t": "pfad_add",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Glücksrad zeigt mit der Wahrscheinlichkeit 0,3 „Gewinn“. Es wird dreimal gedreht. Wie groß ist P(genau zweimal Gewinn)?"
+   },
+   "o": {
+    "wert": 0.189
+   },
+   "c": "3 * 0.3 ** 2 * (1 - 0.3)",
+   "w": "Drei Pfade (GGN, GNG, NGG), jeder 0,3² · 0,7 = 0,063; zusammen 0,189.",
+   "h": "Wie viele Reihenfolgen gibt es für zwei Gewinne bei drei Drehungen?"
+  },
+  {
+   "l": "pfad_add",
+   "t": "pfad_add",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Glücksrad zeigt mit der Wahrscheinlichkeit 0,4 „Gewinn“. Es wird dreimal gedreht. Wie groß ist P(genau zweimal Gewinn)?"
+   },
+   "o": {
+    "wert": 0.288
+   },
+   "c": "3 * 0.4 ** 2 * (1 - 0.4)",
+   "w": "Drei Pfade (GGN, GNG, NGG), jeder 0,4² · 0,6 = 0,096; zusammen 0,288.",
+   "h": "Wie viele Reihenfolgen gibt es für zwei Gewinne bei drei Drehungen?"
+  },
+  {
+   "l": "pfad_add",
+   "t": "pfad_add",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Glücksrad zeigt mit der Wahrscheinlichkeit 0,8 „Gewinn“. Es wird dreimal gedreht. Wie groß ist P(genau zweimal Gewinn)?"
+   },
+   "o": {
+    "wert": 0.384
+   },
+   "c": "3 * 0.8 ** 2 * (1 - 0.8)",
+   "w": "Drei Pfade (GGN, GNG, NGG), jeder 0,8² · 0,2 = 0,128; zusammen 0,384.",
+   "h": "Wie viele Reihenfolgen gibt es für zwei Gewinne bei drei Drehungen?"
+  },
+  {
+   "l": "pfad_add",
+   "t": "pfad_add",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 3 rote und 5 schwarze Kugeln. Es wird zweimal mit Zurücklegen gezogen. Wie groß ist P(zweimal dieselbe Farbe)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     17,
+     32
+    ]
+   },
+   "w": "(3/8)² + (5/8)² = 17/32.",
+   "c": [
+    "17",
+    "32"
+   ]
+  },
+  {
+   "l": "pfad_add",
+   "t": "pfad_add",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 8 schwarze und 2 weiße Kugeln. Es wird zweimal mit Zurücklegen gezogen. Wie groß ist P(zweimal dieselbe Farbe)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     17,
+     25
+    ]
+   },
+   "w": "(8/10)² + (2/10)² = 17/25.",
+   "c": [
+    "17",
+    "25"
+   ]
+  },
+  {
+   "l": "pfad_add",
+   "t": "pfad_add",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 7 grüne und 4 rote Kugeln. Es wird zweimal mit Zurücklegen gezogen. Wie groß ist P(zweimal dieselbe Farbe)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     65,
+     121
+    ]
+   },
+   "w": "(7/11)² + (4/11)² = 65/121.",
+   "c": [
+    "65",
+    "121"
+   ]
+  },
+  {
+   "l": "pfad_add",
+   "t": "pfad_add",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 6 schwarze und 6 rote Kugeln. Es wird zweimal mit Zurücklegen gezogen. Wie groß ist P(zweimal dieselbe Farbe)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     1,
+     2
+    ]
+   },
+   "w": "(6/12)² + (6/12)² = 1/2.",
+   "c": [
+    "1",
+    "2"
+   ]
+  },
+  {
+   "l": "pfad_add",
+   "t": "pfad_add",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 2 blaue und 6 grüne Kugeln. Es wird zweimal mit Zurücklegen gezogen. Wie groß ist P(zweimal dieselbe Farbe)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     5,
+     8
+    ]
+   },
+   "w": "(2/8)² + (6/8)² = 5/8.",
+   "c": [
+    "5",
+    "8"
+   ]
+  },
+  {
+   "l": "pfad_add",
+   "t": "pfad_add",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 4 gelbe und 3 schwarze Kugeln. Es wird zweimal mit Zurücklegen gezogen. Wie groß ist P(zweimal dieselbe Farbe)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     25,
+     49
+    ]
+   },
+   "w": "(4/7)² + (3/7)² = 25/49.",
+   "c": [
+    "25",
+    "49"
+   ]
+  },
+  {
+   "l": "pfad_add",
+   "t": "pfad_add",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 6 gelbe und 7 grüne Kugeln. Es wird zweimal mit Zurücklegen gezogen. Wie groß ist P(zweimal dieselbe Farbe)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     85,
+     169
+    ]
+   },
+   "w": "(6/13)² + (7/13)² = 85/169.",
+   "c": [
+    "85",
+    "169"
+   ]
+  },
+  {
+   "l": "pfad_add",
+   "t": "pfad_add",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 5 rote und 4 weiße Kugeln. Es wird zweimal mit Zurücklegen gezogen. Wie groß ist P(zweimal dieselbe Farbe)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     41,
+     81
+    ]
+   },
+   "w": "(5/9)² + (4/9)² = 41/81.",
+   "c": [
+    "41",
+    "81"
+   ]
+  },
+  {
+   "l": "pfad_add",
+   "t": "pfad_add",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 4 blaue und 2 weiße Kugeln. Es wird zweimal mit Zurücklegen gezogen. Wie groß ist P(zweimal dieselbe Farbe)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     5,
+     9
+    ]
+   },
+   "w": "(4/6)² + (2/6)² = 5/9.",
+   "c": [
+    "5",
+    "9"
+   ]
+  },
+  {
+   "l": "pfad_add",
+   "t": "pfad_add",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 6 blaue und 8 gelbe Kugeln. Es wird zweimal mit Zurücklegen gezogen. Wie groß ist P(zweimal dieselbe Farbe)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     25,
+     49
+    ]
+   },
+   "w": "(6/14)² + (8/14)² = 25/49.",
+   "c": [
+    "25",
+    "49"
+   ]
+  },
+  {
+   "l": "ohne_zuruecklegen",
+   "t": "ohne_zuruecklegen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 3 gelbe und 5 blaue Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Berechne P(gelb, gelb).",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     3,
+     28
+    ]
+   },
+   "w": "3/8 · 2/7 = 3/28.",
+   "h": "Nach der ersten Kugel: eine Kugel weniger insgesamt und eine weniger dieser Farbe.",
+   "c": [
+    "3",
+    "28"
+   ]
+  },
+  {
+   "l": "ohne_zuruecklegen",
+   "t": "ohne_zuruecklegen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 3 gelbe und 7 grüne Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Berechne P(gelb, gelb).",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     1,
+     15
+    ]
+   },
+   "w": "3/10 · 2/9 = 1/15.",
+   "h": "Nach der ersten Kugel: eine Kugel weniger insgesamt und eine weniger dieser Farbe.",
+   "c": [
+    "1",
+    "15"
+   ]
+  },
+  {
+   "l": "ohne_zuruecklegen",
+   "t": "ohne_zuruecklegen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 6 schwarze und 7 rote Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Berechne P(schwarz, schwarz).",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     5,
+     26
+    ]
+   },
+   "w": "6/13 · 5/12 = 5/26.",
+   "h": "Nach der ersten Kugel: eine Kugel weniger insgesamt und eine weniger dieser Farbe.",
+   "c": [
+    "5",
+    "26"
+   ]
+  },
+  {
+   "l": "ohne_zuruecklegen",
+   "t": "ohne_zuruecklegen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 5 grüne und 6 gelbe Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Berechne P(grün, grün).",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     2,
+     11
+    ]
+   },
+   "w": "5/11 · 4/10 = 2/11.",
+   "h": "Nach der ersten Kugel: eine Kugel weniger insgesamt und eine weniger dieser Farbe.",
+   "c": [
+    "2",
+    "11"
+   ]
+  },
+  {
+   "l": "ohne_zuruecklegen",
+   "t": "ohne_zuruecklegen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 7 weiße und 7 gelbe Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Berechne P(weiß, weiß).",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     3,
+     13
+    ]
+   },
+   "w": "7/14 · 6/13 = 3/13.",
+   "h": "Nach der ersten Kugel: eine Kugel weniger insgesamt und eine weniger dieser Farbe.",
+   "c": [
+    "3",
+    "13"
+   ]
+  },
+  {
+   "l": "ohne_zuruecklegen",
+   "t": "ohne_zuruecklegen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 8 rote und 7 grüne Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Berechne P(rot, rot).",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     4,
+     15
+    ]
+   },
+   "w": "8/15 · 7/14 = 4/15.",
+   "h": "Nach der ersten Kugel: eine Kugel weniger insgesamt und eine weniger dieser Farbe.",
+   "c": [
+    "4",
+    "15"
+   ]
+  },
+  {
+   "l": "ohne_zuruecklegen",
+   "t": "ohne_zuruecklegen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 2 gelbe und 8 blaue Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Wie groß ist P(zwei verschiedene Farben)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     16,
+     45
+    ]
+   },
+   "w": "2/10 · 8/9 + 8/10 · 2/9 = 16/45.",
+   "h": "Zwei Pfade; auf der zweiten Stufe ist der Nenner um 1 kleiner.",
+   "c": [
+    "16",
+    "45"
+   ]
+  },
+  {
+   "l": "ohne_zuruecklegen",
+   "t": "ohne_zuruecklegen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 8 gelbe und 8 rote Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Wie groß ist P(zwei verschiedene Farben)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     8,
+     15
+    ]
+   },
+   "w": "8/16 · 8/15 + 8/16 · 8/15 = 8/15.",
+   "h": "Zwei Pfade; auf der zweiten Stufe ist der Nenner um 1 kleiner.",
+   "c": [
+    "8",
+    "15"
+   ]
+  },
+  {
+   "l": "ohne_zuruecklegen",
+   "t": "ohne_zuruecklegen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 3 rote und 6 grüne Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Wie groß ist P(zwei verschiedene Farben)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     1,
+     2
+    ]
+   },
+   "w": "3/9 · 6/8 + 6/9 · 3/8 = 1/2.",
+   "h": "Zwei Pfade; auf der zweiten Stufe ist der Nenner um 1 kleiner.",
+   "c": [
+    "1",
+    "2"
+   ]
+  },
+  {
+   "l": "ohne_zuruecklegen",
+   "t": "ohne_zuruecklegen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 4 grüne und 8 gelbe Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Wie groß ist P(zwei verschiedene Farben)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     16,
+     33
+    ]
+   },
+   "w": "4/12 · 8/11 + 8/12 · 4/11 = 16/33.",
+   "h": "Zwei Pfade; auf der zweiten Stufe ist der Nenner um 1 kleiner.",
+   "c": [
+    "16",
+    "33"
+   ]
+  },
+  {
+   "l": "ohne_zuruecklegen",
+   "t": "ohne_zuruecklegen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 7 schwarze und 8 gelbe Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Wie groß ist P(zwei verschiedene Farben)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     8,
+     15
+    ]
+   },
+   "w": "7/15 · 8/14 + 8/15 · 7/14 = 8/15.",
+   "h": "Zwei Pfade; auf der zweiten Stufe ist der Nenner um 1 kleiner.",
+   "c": [
+    "8",
+    "15"
+   ]
+  },
+  {
+   "l": "ohne_zuruecklegen",
+   "t": "ohne_zuruecklegen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 6 rote und 3 schwarze Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Wie groß ist P(zwei verschiedene Farben)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     1,
+     2
+    ]
+   },
+   "w": "6/9 · 3/8 + 3/9 · 6/8 = 1/2.",
+   "h": "Zwei Pfade; auf der zweiten Stufe ist der Nenner um 1 kleiner.",
+   "c": [
+    "1",
+    "2"
+   ]
+  },
+  {
+   "l": "ohne_zuruecklegen",
+   "t": "ohne_zuruecklegen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Lostrommel sind 18 Lose, davon 7 Gewinne. Jemand zieht drei Lose (ohne Zurücklegen). Wie groß ist P(drei Gewinne)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     35,
+     816
+    ]
+   },
+   "w": "7/18 · 6/17 · 5/16 = 35/816.",
+   "h": "Bei jedem Zug fehlt ein Gewinnlos und ein Los insgesamt.",
+   "c": [
+    "35",
+    "816"
+   ]
+  },
+  {
+   "l": "ohne_zuruecklegen",
+   "t": "ohne_zuruecklegen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Lostrommel sind 27 Lose, davon 4 Gewinne. Jemand zieht drei Lose (ohne Zurücklegen). Wie groß ist P(drei Gewinne)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     4,
+     2925
+    ]
+   },
+   "w": "4/27 · 3/26 · 2/25 = 4/2925.",
+   "h": "Bei jedem Zug fehlt ein Gewinnlos und ein Los insgesamt.",
+   "c": [
+    "4",
+    "2925"
+   ]
+  },
+  {
+   "l": "ohne_zuruecklegen",
+   "t": "ohne_zuruecklegen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Lostrommel sind 23 Lose, davon 5 Gewinne. Jemand zieht drei Lose (ohne Zurücklegen). Wie groß ist P(drei Gewinne)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     10,
+     1771
+    ]
+   },
+   "w": "5/23 · 4/22 · 3/21 = 10/1771.",
+   "h": "Bei jedem Zug fehlt ein Gewinnlos und ein Los insgesamt.",
+   "c": [
+    "10",
+    "1771"
+   ]
+  },
+  {
+   "l": "ohne_zuruecklegen",
+   "t": "ohne_zuruecklegen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Lostrommel sind 17 Lose, davon 4 Gewinne. Jemand zieht drei Lose (ohne Zurücklegen). Wie groß ist P(drei Gewinne)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     1,
+     170
+    ]
+   },
+   "w": "4/17 · 3/16 · 2/15 = 1/170.",
+   "h": "Bei jedem Zug fehlt ein Gewinnlos und ein Los insgesamt.",
+   "c": [
+    "1",
+    "170"
+   ]
+  },
+  {
+   "l": "ohne_zuruecklegen",
+   "t": "ohne_zuruecklegen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Lostrommel sind 20 Lose, davon 8 Gewinne. Jemand zieht drei Lose (ohne Zurücklegen). Wie groß ist P(drei Gewinne)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     14,
+     285
+    ]
+   },
+   "w": "8/20 · 7/19 · 6/18 = 14/285.",
+   "h": "Bei jedem Zug fehlt ein Gewinnlos und ein Los insgesamt.",
+   "c": [
+    "14",
+    "285"
+   ]
+  },
+  {
+   "l": "ohne_zuruecklegen",
+   "t": "ohne_zuruecklegen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Lostrommel sind 12 Lose, davon 4 Gewinne. Jemand zieht drei Lose (ohne Zurücklegen). Wie groß ist P(drei Gewinne)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     1,
+     55
+    ]
+   },
+   "w": "4/12 · 3/11 · 2/10 = 1/55.",
+   "h": "Bei jedem Zug fehlt ein Gewinnlos und ein Los insgesamt.",
+   "c": [
+    "1",
+    "55"
+   ]
+  },
+  {
+   "l": "ohne_zuruecklegen",
+   "t": "ohne_zuruecklegen",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 3 gelbe und 8 grüne Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Wie groß ist P(zwei verschiedene Farben)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     24,
+     55
+    ]
+   },
+   "w": "3/11 · 8/10 + 8/11 · 3/10 = 24/55.",
+   "c": [
+    "24",
+    "55"
+   ]
+  },
+  {
+   "l": "ohne_zuruecklegen",
+   "t": "ohne_zuruecklegen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 4 schwarze und 2 gelbe Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Wie groß ist P(zwei verschiedene Farben)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     8,
+     15
+    ]
+   },
+   "w": "4/6 · 2/5 + 2/6 · 4/5 = 8/15.",
+   "c": [
+    "8",
+    "15"
+   ]
+  },
+  {
+   "l": "ohne_zuruecklegen",
+   "t": "ohne_zuruecklegen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 7 weiße und 3 gelbe Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Wie groß ist P(zwei verschiedene Farben)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     7,
+     15
+    ]
+   },
+   "w": "7/10 · 3/9 + 3/10 · 7/9 = 7/15.",
+   "c": [
+    "7",
+    "15"
+   ]
+  },
+  {
+   "l": "ohne_zuruecklegen",
+   "t": "ohne_zuruecklegen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 7 schwarze und 4 grüne Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Wie groß ist P(zwei verschiedene Farben)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     28,
+     55
+    ]
+   },
+   "w": "7/11 · 4/10 + 4/11 · 7/10 = 28/55.",
+   "c": [
+    "28",
+    "55"
+   ]
+  },
+  {
+   "l": "ohne_zuruecklegen",
+   "t": "ohne_zuruecklegen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 7 weiße und 6 grüne Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Wie groß ist P(zwei verschiedene Farben)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     7,
+     13
+    ]
+   },
+   "w": "7/13 · 6/12 + 6/13 · 7/12 = 7/13.",
+   "c": [
+    "7",
+    "13"
+   ]
+  },
+  {
+   "l": "ohne_zuruecklegen",
+   "t": "ohne_zuruecklegen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 7 grüne und 3 gelbe Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Wie groß ist P(zwei verschiedene Farben)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     7,
+     15
+    ]
+   },
+   "w": "7/10 · 3/9 + 3/10 · 7/9 = 7/15.",
+   "c": [
+    "7",
+    "15"
+   ]
+  },
+  {
+   "l": "ohne_zuruecklegen",
+   "t": "ohne_zuruecklegen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 3 weiße und 8 schwarze Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Wie groß ist P(zwei verschiedene Farben)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     24,
+     55
+    ]
+   },
+   "w": "3/11 · 8/10 + 8/11 · 3/10 = 24/55.",
+   "c": [
+    "24",
+    "55"
+   ]
+  },
+  {
+   "l": "ohne_zuruecklegen",
+   "t": "ohne_zuruecklegen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 6 weiße und 3 gelbe Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Wie groß ist P(zwei verschiedene Farben)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     1,
+     2
+    ]
+   },
+   "w": "6/9 · 3/8 + 3/9 · 6/8 = 1/2.",
+   "c": [
+    "1",
+    "2"
+   ]
+  },
+  {
+   "l": "ohne_zuruecklegen",
+   "t": "ohne_zuruecklegen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 8 grüne und 6 blaue Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Wie groß ist P(zwei verschiedene Farben)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     48,
+     91
+    ]
+   },
+   "w": "8/14 · 6/13 + 6/14 · 8/13 = 48/91.",
+   "c": [
+    "48",
+    "91"
+   ]
+  },
+  {
+   "l": "ohne_zuruecklegen",
+   "t": "ohne_zuruecklegen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In einer Urne liegen 5 gelbe und 3 grüne Kugeln. Es werden zwei Kugeln ohne Zurücklegen gezogen. Wie groß ist P(zwei verschiedene Farben)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     15,
+     28
+    ]
+   },
+   "w": "5/8 · 3/7 + 3/8 · 5/7 = 15/28.",
+   "c": [
+    "15",
+    "28"
+   ]
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Glücksrad mit 5 gleich großen Feldern (2 rot, 3 weiß) wird 3-mal gedreht. Wie groß ist P(mindestens einmal rot)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     98,
+     125
+    ]
+   },
+   "w": "P(keinmal) = (3/5)³ = 27/125; 1 − 27/125 = 98/125.",
+   "h": "Rechne über das Gegenereignis „keinmal“.",
+   "c": [
+    "98",
+    "125"
+   ]
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Glücksrad mit 4 gleich großen Feldern (1 rot, 3 weiß) wird 3-mal gedreht. Wie groß ist P(mindestens einmal rot)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     37,
+     64
+    ]
+   },
+   "w": "P(keinmal) = (3/4)³ = 27/64; 1 − 27/64 = 37/64.",
+   "h": "Rechne über das Gegenereignis „keinmal“.",
+   "c": [
+    "37",
+    "64"
+   ]
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Glücksrad mit 5 gleich großen Feldern (2 rot, 3 weiß) wird 2-mal gedreht. Wie groß ist P(mindestens einmal rot)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     16,
+     25
+    ]
+   },
+   "w": "P(keinmal) = (3/5)² = 9/25; 1 − 9/25 = 16/25.",
+   "h": "Rechne über das Gegenereignis „keinmal“.",
+   "c": [
+    "16",
+    "25"
+   ]
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Würfel wird 2-mal geworfen. Wie groß ist P(mindestens eine Sechs)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     11,
+     36
+    ]
+   },
+   "w": "P(keinmal) = (5/6)² = 25/36; 1 − 25/36 = 11/36.",
+   "h": "Rechne über das Gegenereignis „keinmal“.",
+   "c": [
+    "11",
+    "36"
+   ]
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Ein Glücksrad mit 4 gleich großen Feldern (1 rot, 3 weiß) wird 2-mal gedreht. Wie groß ist P(mindestens einmal rot)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     7,
+     16
+    ]
+   },
+   "w": "P(keinmal) = (3/4)² = 9/16; 1 − 9/16 = 7/16.",
+   "h": "Rechne über das Gegenereignis „keinmal“.",
+   "c": [
+    "7",
+    "16"
+   ]
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Münze wird 6-mal geworfen. Wie groß ist P(mindestens einmal Kopf)?",
+    "schablone": "□/□",
+    "hinweis": "Zähler und Nenner (gekürzt)"
+   },
+   "o": {
+    "werte": [
+     63,
+     64
+    ]
+   },
+   "w": "P(keinmal) = (1/2)⁶ = 1/64; 1 − 1/64 = 63/64.",
+   "h": "Rechne über das Gegenereignis „keinmal“.",
+   "c": [
+    "63",
+    "64"
+   ]
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Los ist mit der Wahrscheinlichkeit 0,1 ein Gewinn. 4 Lose werden gekauft (unabhängig). Wie groß ist die Wahrscheinlichkeit für mindestens einen Gewinn?"
+   },
+   "o": {
+    "wert": 0.3439
+   },
+   "c": "1 - (1 - 0.1) ** 4",
+   "w": "P(keinmal) = 0,9⁴ = 0,6561; 1 − 0,6561 = 0,3439.",
+   "h": "Gegenereignis: keinmal."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Bauteil ist mit der Wahrscheinlichkeit 0,01 defekt. 4 Bauteile werden geprüft (unabhängig). Wie groß ist die Wahrscheinlichkeit für mindestens ein defektes Bauteil?"
+   },
+   "o": {
+    "wert": 0.03940399
+   },
+   "c": "1 - (1 - 0.01) ** 4",
+   "w": "P(keinmal) = 0,99⁴ = 0,96059601; 1 − 0,96059601 = 0,03940399.",
+   "h": "Gegenereignis: keinmal."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Elfmeter wird mit der Wahrscheinlichkeit 0,2 gehalten. 4 Elfmeter werden geschossen (unabhängig). Wie groß ist die Wahrscheinlichkeit für mindestens einen gehaltenen Elfmeter?"
+   },
+   "o": {
+    "wert": 0.5904
+   },
+   "c": "1 - (1 - 0.2) ** 4",
+   "w": "P(keinmal) = 0,8⁴ = 0,4096; 1 − 0,4096 = 0,5904.",
+   "h": "Gegenereignis: keinmal."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Bauteil ist mit der Wahrscheinlichkeit 0,02 defekt. 4 Bauteile werden geprüft (unabhängig). Wie groß ist die Wahrscheinlichkeit für mindestens ein defektes Bauteil?"
+   },
+   "o": {
+    "wert": 0.07763184
+   },
+   "c": "1 - (1 - 0.02) ** 4",
+   "w": "P(keinmal) = 0,98⁴ = 0,92236816; 1 − 0,92236816 = 0,07763184.",
+   "h": "Gegenereignis: keinmal."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Los ist mit der Wahrscheinlichkeit 0,3 ein Gewinn. 3 Lose werden gekauft (unabhängig). Wie groß ist die Wahrscheinlichkeit für mindestens einen Gewinn?"
+   },
+   "o": {
+    "wert": 0.657
+   },
+   "c": "1 - (1 - 0.3) ** 3",
+   "w": "P(keinmal) = 0,7³ = 0,343; 1 − 0,343 = 0,657.",
+   "h": "Gegenereignis: keinmal."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Bauteil ist mit der Wahrscheinlichkeit 0,05 defekt. 4 Bauteile werden geprüft (unabhängig). Wie groß ist die Wahrscheinlichkeit für mindestens ein defektes Bauteil?"
+   },
+   "o": {
+    "wert": 0.18549375
+   },
+   "c": "1 - (1 - 0.05) ** 4",
+   "w": "P(keinmal) = 0,95⁴ = 0,81450625; 1 − 0,81450625 = 0,18549375.",
+   "h": "Gegenereignis: keinmal."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Spiel wird mit der Wahrscheinlichkeit 0,1 gewonnen. Wie oft muss man mindestens spielen, um mit einer Wahrscheinlichkeit von mindestens 99 % wenigstens einmal zu gewinnen?"
+   },
+   "o": {
+    "wert": 44
+   },
+   "c": "-(-43.708690653566 // 1)",
+   "w": "1 − 0,9ⁿ ≥ 0,99 ⇔ 0,9ⁿ ≤ 0,01. Probieren oder logarithmieren: n = 44 (0,9⁴⁴ ≈ 0,0097).",
+   "h": "Stelle die Ungleichung über das Gegenereignis auf; n muss ganzzahlig sein."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Spiel wird mit der Wahrscheinlichkeit 0,1 gewonnen. Wie oft muss man mindestens spielen, um mit einer Wahrscheinlichkeit von mindestens 95 % wenigstens einmal zu gewinnen?"
+   },
+   "o": {
+    "wert": 29
+   },
+   "c": "-(-28.433158805743 // 1)",
+   "w": "1 − 0,9ⁿ ≥ 0,95 ⇔ 0,9ⁿ ≤ 0,05. Probieren oder logarithmieren: n = 29 (0,9²⁹ ≈ 0,0471).",
+   "h": "Stelle die Ungleichung über das Gegenereignis auf; n muss ganzzahlig sein."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Spiel wird mit der Wahrscheinlichkeit 0,3 gewonnen. Wie oft muss man mindestens spielen, um mit einer Wahrscheinlichkeit von mindestens 99 % wenigstens einmal zu gewinnen?"
+   },
+   "o": {
+    "wert": 13
+   },
+   "c": "-(-12.911392471626 // 1)",
+   "w": "1 − 0,7ⁿ ≥ 0,99 ⇔ 0,7ⁿ ≤ 0,01. Probieren oder logarithmieren: n = 13 (0,7¹³ ≈ 0,0097).",
+   "h": "Stelle die Ungleichung über das Gegenereignis auf; n muss ganzzahlig sein."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Spiel wird mit der Wahrscheinlichkeit 0,2 gewonnen. Wie oft muss man mindestens spielen, um mit einer Wahrscheinlichkeit von mindestens 95 % wenigstens einmal zu gewinnen?"
+   },
+   "o": {
+    "wert": 14
+   },
+   "c": "-(-13.425134878022 // 1)",
+   "w": "1 − 0,8ⁿ ≥ 0,95 ⇔ 0,8ⁿ ≤ 0,05. Probieren oder logarithmieren: n = 14 (0,8¹⁴ ≈ 0,044).",
+   "h": "Stelle die Ungleichung über das Gegenereignis auf; n muss ganzzahlig sein."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Spiel wird mit der Wahrscheinlichkeit 0,3 gewonnen. Wie oft muss man mindestens spielen, um mit einer Wahrscheinlichkeit von mindestens 95 % wenigstens einmal zu gewinnen?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "-(-8.399054445688 // 1)",
+   "w": "1 − 0,7ⁿ ≥ 0,95 ⇔ 0,7ⁿ ≤ 0,05. Probieren oder logarithmieren: n = 9 (0,7⁹ ≈ 0,0404).",
+   "h": "Stelle die Ungleichung über das Gegenereignis auf; n muss ganzzahlig sein."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Spiel wird mit der Wahrscheinlichkeit 0,5 gewonnen. Wie oft muss man mindestens spielen, um mit einer Wahrscheinlichkeit von mindestens 90 % wenigstens einmal zu gewinnen?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "-(-3.321928094887 // 1)",
+   "w": "1 − 0,5ⁿ ≥ 0,9 ⇔ 0,5ⁿ ≤ 0,1. Probieren oder logarithmieren: n = 4 (0,5⁴ ≈ 0,0625).",
+   "h": "Stelle die Ungleichung über das Gegenereignis auf; n muss ganzzahlig sein."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Bauteil ist mit der Wahrscheinlichkeit 0,05 defekt. 2 Bauteile werden geprüft (unabhängig). Wie groß ist die Wahrscheinlichkeit für mindestens ein defektes Bauteil?"
+   },
+   "o": {
+    "wert": 0.0975
+   },
+   "c": "1 - (1 - 0.05) ** 2",
+   "w": "P(keinmal) = 0,95² = 0,9025; 1 − 0,9025 = 0,0975."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Los ist mit der Wahrscheinlichkeit 0,3 ein Gewinn. 4 Lose werden gekauft (unabhängig). Wie groß ist die Wahrscheinlichkeit für mindestens einen Gewinn?"
+   },
+   "o": {
+    "wert": 0.7599
+   },
+   "c": "1 - (1 - 0.3) ** 4",
+   "w": "P(keinmal) = 0,7⁴ = 0,2401; 1 − 0,2401 = 0,7599."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Los ist mit der Wahrscheinlichkeit 0,2 ein Gewinn. 3 Lose werden gekauft (unabhängig). Wie groß ist die Wahrscheinlichkeit für mindestens einen Gewinn?"
+   },
+   "o": {
+    "wert": 0.488
+   },
+   "c": "1 - (1 - 0.2) ** 3",
+   "w": "P(keinmal) = 0,8³ = 0,512; 1 − 0,512 = 0,488."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Bauteil ist mit der Wahrscheinlichkeit 0,02 defekt. 2 Bauteile werden geprüft (unabhängig). Wie groß ist die Wahrscheinlichkeit für mindestens ein defektes Bauteil?"
+   },
+   "o": {
+    "wert": 0.0396
+   },
+   "c": "1 - (1 - 0.02) ** 2",
+   "w": "P(keinmal) = 0,98² = 0,9604; 1 − 0,9604 = 0,0396."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Elfmeter wird mit der Wahrscheinlichkeit 0,3 gehalten. 4 Elfmeter werden geschossen (unabhängig). Wie groß ist die Wahrscheinlichkeit für mindestens einen gehaltenen Elfmeter?"
+   },
+   "o": {
+    "wert": 0.7599
+   },
+   "c": "1 - (1 - 0.3) ** 4",
+   "w": "P(keinmal) = 0,7⁴ = 0,2401; 1 − 0,2401 = 0,7599."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Elfmeter wird mit der Wahrscheinlichkeit 0,1 gehalten. 4 Elfmeter werden geschossen (unabhängig). Wie groß ist die Wahrscheinlichkeit für mindestens einen gehaltenen Elfmeter?"
+   },
+   "o": {
+    "wert": 0.3439
+   },
+   "c": "1 - (1 - 0.1) ** 4",
+   "w": "P(keinmal) = 0,9⁴ = 0,6561; 1 − 0,6561 = 0,3439."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Elfmeter wird mit der Wahrscheinlichkeit 0,2 gehalten. 3 Elfmeter werden geschossen (unabhängig). Wie groß ist die Wahrscheinlichkeit für mindestens einen gehaltenen Elfmeter?"
+   },
+   "o": {
+    "wert": 0.488
+   },
+   "c": "1 - (1 - 0.2) ** 3",
+   "w": "P(keinmal) = 0,8³ = 0,512; 1 − 0,512 = 0,488."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Los ist mit der Wahrscheinlichkeit 0,2 ein Gewinn. 2 Lose werden gekauft (unabhängig). Wie groß ist die Wahrscheinlichkeit für mindestens einen Gewinn?"
+   },
+   "o": {
+    "wert": 0.36
+   },
+   "c": "1 - (1 - 0.2) ** 2",
+   "w": "P(keinmal) = 0,8² = 0,64; 1 − 0,64 = 0,36."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Los ist mit der Wahrscheinlichkeit 0,2 ein Gewinn. 4 Lose werden gekauft (unabhängig). Wie groß ist die Wahrscheinlichkeit für mindestens einen Gewinn?"
+   },
+   "o": {
+    "wert": 0.5904
+   },
+   "c": "1 - (1 - 0.2) ** 4",
+   "w": "P(keinmal) = 0,8⁴ = 0,4096; 1 − 0,4096 = 0,5904."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Elfmeter wird mit der Wahrscheinlichkeit 0,2 gehalten. 2 Elfmeter werden geschossen (unabhängig). Wie groß ist die Wahrscheinlichkeit für mindestens einen gehaltenen Elfmeter?"
+   },
+   "o": {
+    "wert": 0.36
+   },
+   "c": "1 - (1 - 0.2) ** 2",
+   "w": "P(keinmal) = 0,8² = 0,64; 1 − 0,64 = 0,36."
+  },
+  {
+   "l": "baum_ergaenzen",
+   "t": "baum_ergaenzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Von einem Verzweigungspunkt gehen zwei Äste aus. Einer hat die Wahrscheinlichkeit 0,25. Welche Wahrscheinlichkeit hat der andere?"
+   },
+   "o": {
+    "wert": 0.75
+   },
+   "c": "1 - 0.25",
+   "w": "Beide Äste zusammen ergeben 1: 1 − 0,25 = 0,75.",
+   "h": "Die Äste einer Verzweigung ergeben zusammen 1."
+  },
+  {
+   "l": "baum_ergaenzen",
+   "t": "baum_ergaenzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Von einem Verzweigungspunkt gehen zwei Äste aus. Einer hat die Wahrscheinlichkeit 0,45. Welche Wahrscheinlichkeit hat der andere?"
+   },
+   "o": {
+    "wert": 0.55
+   },
+   "c": "1 - 0.45",
+   "w": "Beide Äste zusammen ergeben 1: 1 − 0,45 = 0,55.",
+   "h": "Die Äste einer Verzweigung ergeben zusammen 1."
+  },
+  {
+   "l": "baum_ergaenzen",
+   "t": "baum_ergaenzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Von einem Verzweigungspunkt gehen zwei Äste aus. Einer hat die Wahrscheinlichkeit 0,1. Welche Wahrscheinlichkeit hat der andere?"
+   },
+   "o": {
+    "wert": 0.9
+   },
+   "c": "1 - 0.1",
+   "w": "Beide Äste zusammen ergeben 1: 1 − 0,1 = 0,9.",
+   "h": "Die Äste einer Verzweigung ergeben zusammen 1."
+  },
+  {
+   "l": "baum_ergaenzen",
+   "t": "baum_ergaenzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Von einem Verzweigungspunkt gehen zwei Äste aus. Einer hat die Wahrscheinlichkeit 0,05. Welche Wahrscheinlichkeit hat der andere?"
+   },
+   "o": {
+    "wert": 0.95
+   },
+   "c": "1 - 0.05",
+   "w": "Beide Äste zusammen ergeben 1: 1 − 0,05 = 0,95.",
+   "h": "Die Äste einer Verzweigung ergeben zusammen 1."
+  },
+  {
+   "l": "baum_ergaenzen",
+   "t": "baum_ergaenzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Von einem Verzweigungspunkt gehen zwei Äste aus. Einer hat die Wahrscheinlichkeit 0,3. Welche Wahrscheinlichkeit hat der andere?"
+   },
+   "o": {
+    "wert": 0.7
+   },
+   "c": "1 - 0.3",
+   "w": "Beide Äste zusammen ergeben 1: 1 − 0,3 = 0,7.",
+   "h": "Die Äste einer Verzweigung ergeben zusammen 1."
+  },
+  {
+   "l": "baum_ergaenzen",
+   "t": "baum_ergaenzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Von einem Verzweigungspunkt gehen zwei Äste aus. Einer hat die Wahrscheinlichkeit 0,9. Welche Wahrscheinlichkeit hat der andere?"
+   },
+   "o": {
+    "wert": 0.1
+   },
+   "c": "1 - 0.9",
+   "w": "Beide Äste zusammen ergeben 1: 1 − 0,9 = 0,1.",
+   "h": "Die Äste einer Verzweigung ergeben zusammen 1."
+  },
+  {
+   "l": "baum_ergaenzen",
+   "t": "baum_ergaenzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In einem zweistufigen Baumdiagramm ist P(A) = 0,5 und die Wahrscheinlichkeit des Pfades „A, dann B“ = 0,45. Welche Wahrscheinlichkeit steht am Ast von A nach B?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "1. Stufe",
+      "2. Stufe",
+      "Pfad-Wahrscheinlichkeit"
+     ],
+     "zeilen": [
+      [
+       "A (0,5)",
+       "B (?)",
+       "0,45"
+      ],
+      [
+       "A (0,5)",
+       "nicht B",
+       "?"
+      ],
+      [
+       "nicht A (0,5)",
+       "…",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 0.9
+   },
+   "c": "0.45 / 0.5",
+   "w": "P(A) · x = 0,45 ⇒ x = 0,45 : 0,5 = 0,9.",
+   "h": "Pfadwahrscheinlichkeit = Produkt der Äste; teile."
+  },
+  {
+   "l": "baum_ergaenzen",
+   "t": "baum_ergaenzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In einem zweistufigen Baumdiagramm ist P(A) = 0,2 und die Wahrscheinlichkeit des Pfades „A, dann B“ = 0,18. Welche Wahrscheinlichkeit steht am Ast von A nach B?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "1. Stufe",
+      "2. Stufe",
+      "Pfad-Wahrscheinlichkeit"
+     ],
+     "zeilen": [
+      [
+       "A (0,2)",
+       "B (?)",
+       "0,18"
+      ],
+      [
+       "A (0,2)",
+       "nicht B",
+       "?"
+      ],
+      [
+       "nicht A (0,8)",
+       "…",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 0.9
+   },
+   "c": "0.18 / 0.2",
+   "w": "P(A) · x = 0,18 ⇒ x = 0,18 : 0,2 = 0,9.",
+   "h": "Pfadwahrscheinlichkeit = Produkt der Äste; teile."
+  },
+  {
+   "l": "baum_ergaenzen",
+   "t": "baum_ergaenzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In einem zweistufigen Baumdiagramm ist P(A) = 0,2 und die Wahrscheinlichkeit des Pfades „A, dann B“ = 0,14. Welche Wahrscheinlichkeit steht am Ast von A nach B?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "1. Stufe",
+      "2. Stufe",
+      "Pfad-Wahrscheinlichkeit"
+     ],
+     "zeilen": [
+      [
+       "A (0,2)",
+       "B (?)",
+       "0,14"
+      ],
+      [
+       "A (0,2)",
+       "nicht B",
+       "?"
+      ],
+      [
+       "nicht A (0,8)",
+       "…",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 0.7
+   },
+   "c": "0.14 / 0.2",
+   "w": "P(A) · x = 0,14 ⇒ x = 0,14 : 0,2 = 0,7.",
+   "h": "Pfadwahrscheinlichkeit = Produkt der Äste; teile."
+  },
+  {
+   "l": "baum_ergaenzen",
+   "t": "baum_ergaenzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In einem zweistufigen Baumdiagramm ist P(A) = 0,4 und die Wahrscheinlichkeit des Pfades „A, dann B“ = 0,16. Welche Wahrscheinlichkeit steht am Ast von A nach B?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "1. Stufe",
+      "2. Stufe",
+      "Pfad-Wahrscheinlichkeit"
+     ],
+     "zeilen": [
+      [
+       "A (0,4)",
+       "B (?)",
+       "0,16"
+      ],
+      [
+       "A (0,4)",
+       "nicht B",
+       "?"
+      ],
+      [
+       "nicht A (0,6)",
+       "…",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 0.4
+   },
+   "c": "0.16 / 0.4",
+   "w": "P(A) · x = 0,16 ⇒ x = 0,16 : 0,4 = 0,4.",
+   "h": "Pfadwahrscheinlichkeit = Produkt der Äste; teile."
+  },
+  {
+   "l": "baum_ergaenzen",
+   "t": "baum_ergaenzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In einem zweistufigen Baumdiagramm ist P(A) = 0,2 und die Wahrscheinlichkeit des Pfades „A, dann B“ = 0,08. Welche Wahrscheinlichkeit steht am Ast von A nach B?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "1. Stufe",
+      "2. Stufe",
+      "Pfad-Wahrscheinlichkeit"
+     ],
+     "zeilen": [
+      [
+       "A (0,2)",
+       "B (?)",
+       "0,08"
+      ],
+      [
+       "A (0,2)",
+       "nicht B",
+       "?"
+      ],
+      [
+       "nicht A (0,8)",
+       "…",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 0.4
+   },
+   "c": "0.08 / 0.2",
+   "w": "P(A) · x = 0,08 ⇒ x = 0,08 : 0,2 = 0,4.",
+   "h": "Pfadwahrscheinlichkeit = Produkt der Äste; teile."
+  },
+  {
+   "l": "baum_ergaenzen",
+   "t": "baum_ergaenzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In einem zweistufigen Baumdiagramm ist P(A) = 0,5 und die Wahrscheinlichkeit des Pfades „A, dann B“ = 0,05. Welche Wahrscheinlichkeit steht am Ast von A nach B?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "1. Stufe",
+      "2. Stufe",
+      "Pfad-Wahrscheinlichkeit"
+     ],
+     "zeilen": [
+      [
+       "A (0,5)",
+       "B (?)",
+       "0,05"
+      ],
+      [
+       "A (0,5)",
+       "nicht B",
+       "?"
+      ],
+      [
+       "nicht A (0,5)",
+       "…",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 0.1
+   },
+   "c": "0.05 / 0.5",
+   "w": "P(A) · x = 0,05 ⇒ x = 0,05 : 0,5 = 0,1.",
+   "h": "Pfadwahrscheinlichkeit = Produkt der Äste; teile."
+  },
+  {
+   "l": "baum_ergaenzen",
+   "t": "baum_ergaenzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Krankheit ist bei 5 % der getesteten Tiere vorhanden. Ein Test zeigt bei kranken Tieren mit 98 % „positiv“, bei gesunden mit 5 %. Wie groß ist die Wahrscheinlichkeit für einen positiven Test?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "1. Stufe",
+      "2. Stufe",
+      "Pfad-Wahrscheinlichkeit"
+     ],
+     "zeilen": [
+      [
+       "krank (0,05)",
+       "positiv (0,98)",
+       "?"
+      ],
+      [
+       "krank (0,05)",
+       "negativ (0,02)",
+       ""
+      ],
+      [
+       "gesund (0,95)",
+       "positiv (0,05)",
+       "?"
+      ],
+      [
+       "gesund (0,95)",
+       "negativ (0,95)",
+       ""
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 0.0965
+   },
+   "c": "0.05 * 0.98 + (1 - 0.05) * 0.05",
+   "w": "Zwei Pfade zu „positiv“: 0,05 · 0,98 + 0,95 · 0,05 = 0,0965.",
+   "h": "Zeichne den Baum: erst krank/gesund, dann positiv/negativ. Addiere die Pfade zu „positiv“."
+  },
+  {
+   "l": "baum_ergaenzen",
+   "t": "baum_ergaenzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Krankheit ist bei 10 % der getesteten Tiere vorhanden. Ein Test zeigt bei kranken Tieren mit 90 % „positiv“, bei gesunden mit 5 %. Wie groß ist die Wahrscheinlichkeit für einen positiven Test?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "1. Stufe",
+      "2. Stufe",
+      "Pfad-Wahrscheinlichkeit"
+     ],
+     "zeilen": [
+      [
+       "krank (0,1)",
+       "positiv (0,9)",
+       "?"
+      ],
+      [
+       "krank (0,1)",
+       "negativ (0,1)",
+       ""
+      ],
+      [
+       "gesund (0,9)",
+       "positiv (0,05)",
+       "?"
+      ],
+      [
+       "gesund (0,9)",
+       "negativ (0,95)",
+       ""
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 0.135
+   },
+   "c": "0.1 * 0.9 + (1 - 0.1) * 0.05",
+   "w": "Zwei Pfade zu „positiv“: 0,1 · 0,9 + 0,9 · 0,05 = 0,135.",
+   "h": "Zeichne den Baum: erst krank/gesund, dann positiv/negativ. Addiere die Pfade zu „positiv“."
+  },
+  {
+   "l": "baum_ergaenzen",
+   "t": "baum_ergaenzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Krankheit ist bei 10 % der getesteten Tiere vorhanden. Ein Test zeigt bei kranken Tieren mit 95 % „positiv“, bei gesunden mit 10 %. Wie groß ist die Wahrscheinlichkeit für einen positiven Test?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "1. Stufe",
+      "2. Stufe",
+      "Pfad-Wahrscheinlichkeit"
+     ],
+     "zeilen": [
+      [
+       "krank (0,1)",
+       "positiv (0,95)",
+       "?"
+      ],
+      [
+       "krank (0,1)",
+       "negativ (0,05)",
+       ""
+      ],
+      [
+       "gesund (0,9)",
+       "positiv (0,1)",
+       "?"
+      ],
+      [
+       "gesund (0,9)",
+       "negativ (0,9)",
+       ""
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 0.185
+   },
+   "c": "0.1 * 0.95 + (1 - 0.1) * 0.1",
+   "w": "Zwei Pfade zu „positiv“: 0,1 · 0,95 + 0,9 · 0,1 = 0,185.",
+   "h": "Zeichne den Baum: erst krank/gesund, dann positiv/negativ. Addiere die Pfade zu „positiv“."
+  },
+  {
+   "l": "baum_ergaenzen",
+   "t": "baum_ergaenzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Krankheit ist bei 10 % der getesteten Tiere vorhanden. Ein Test zeigt bei kranken Tieren mit 98 % „positiv“, bei gesunden mit 5 %. Wie groß ist die Wahrscheinlichkeit für einen positiven Test?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "1. Stufe",
+      "2. Stufe",
+      "Pfad-Wahrscheinlichkeit"
+     ],
+     "zeilen": [
+      [
+       "krank (0,1)",
+       "positiv (0,98)",
+       "?"
+      ],
+      [
+       "krank (0,1)",
+       "negativ (0,02)",
+       ""
+      ],
+      [
+       "gesund (0,9)",
+       "positiv (0,05)",
+       "?"
+      ],
+      [
+       "gesund (0,9)",
+       "negativ (0,95)",
+       ""
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 0.143
+   },
+   "c": "0.1 * 0.98 + (1 - 0.1) * 0.05",
+   "w": "Zwei Pfade zu „positiv“: 0,1 · 0,98 + 0,9 · 0,05 = 0,143.",
+   "h": "Zeichne den Baum: erst krank/gesund, dann positiv/negativ. Addiere die Pfade zu „positiv“."
+  },
+  {
+   "l": "baum_ergaenzen",
+   "t": "baum_ergaenzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Krankheit ist bei 20 % der getesteten Tiere vorhanden. Ein Test zeigt bei kranken Tieren mit 90 % „positiv“, bei gesunden mit 5 %. Wie groß ist die Wahrscheinlichkeit für einen positiven Test?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "1. Stufe",
+      "2. Stufe",
+      "Pfad-Wahrscheinlichkeit"
+     ],
+     "zeilen": [
+      [
+       "krank (0,2)",
+       "positiv (0,9)",
+       "?"
+      ],
+      [
+       "krank (0,2)",
+       "negativ (0,1)",
+       ""
+      ],
+      [
+       "gesund (0,8)",
+       "positiv (0,05)",
+       "?"
+      ],
+      [
+       "gesund (0,8)",
+       "negativ (0,95)",
+       ""
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 0.22
+   },
+   "c": "0.2 * 0.9 + (1 - 0.2) * 0.05",
+   "w": "Zwei Pfade zu „positiv“: 0,2 · 0,9 + 0,8 · 0,05 = 0,22.",
+   "h": "Zeichne den Baum: erst krank/gesund, dann positiv/negativ. Addiere die Pfade zu „positiv“."
+  },
+  {
+   "l": "baum_ergaenzen",
+   "t": "baum_ergaenzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Krankheit ist bei 5 % der getesteten Tiere vorhanden. Ein Test zeigt bei kranken Tieren mit 95 % „positiv“, bei gesunden mit 5 %. Wie groß ist die Wahrscheinlichkeit für einen positiven Test?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "1. Stufe",
+      "2. Stufe",
+      "Pfad-Wahrscheinlichkeit"
+     ],
+     "zeilen": [
+      [
+       "krank (0,05)",
+       "positiv (0,95)",
+       "?"
+      ],
+      [
+       "krank (0,05)",
+       "negativ (0,05)",
+       ""
+      ],
+      [
+       "gesund (0,95)",
+       "positiv (0,05)",
+       "?"
+      ],
+      [
+       "gesund (0,95)",
+       "negativ (0,95)",
+       ""
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 0.095
+   },
+   "c": "0.05 * 0.95 + (1 - 0.05) * 0.05",
+   "w": "Zwei Pfade zu „positiv“: 0,05 · 0,95 + 0,95 · 0,05 = 0,095.",
+   "h": "Zeichne den Baum: erst krank/gesund, dann positiv/negativ. Addiere die Pfade zu „positiv“."
+  },
+  {
+   "l": "baum_ergaenzen",
+   "t": "baum_ergaenzen",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In einem zweistufigen Baumdiagramm ist P(A) = 0,2 und die Wahrscheinlichkeit des Pfades „A, dann B“ = 0,16. Welche Wahrscheinlichkeit steht am Ast von A nach B?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "1. Stufe",
+      "2. Stufe",
+      "Pfad-Wahrscheinlichkeit"
+     ],
+     "zeilen": [
+      [
+       "A (0,2)",
+       "B (?)",
+       "0,16"
+      ],
+      [
+       "A (0,2)",
+       "nicht B",
+       "?"
+      ],
+      [
+       "nicht A (0,8)",
+       "…",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 0.8
+   },
+   "c": "0.16 / 0.2",
+   "w": "P(A) · x = 0,16 ⇒ x = 0,16 : 0,2 = 0,8."
+  },
+  {
+   "l": "baum_ergaenzen",
+   "t": "baum_ergaenzen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In einem zweistufigen Baumdiagramm ist P(A) = 0,4 und die Wahrscheinlichkeit des Pfades „A, dann B“ = 0,36. Welche Wahrscheinlichkeit steht am Ast von A nach B?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "1. Stufe",
+      "2. Stufe",
+      "Pfad-Wahrscheinlichkeit"
+     ],
+     "zeilen": [
+      [
+       "A (0,4)",
+       "B (?)",
+       "0,36"
+      ],
+      [
+       "A (0,4)",
+       "nicht B",
+       "?"
+      ],
+      [
+       "nicht A (0,6)",
+       "…",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 0.9
+   },
+   "c": "0.36 / 0.4",
+   "w": "P(A) · x = 0,36 ⇒ x = 0,36 : 0,4 = 0,9."
+  },
+  {
+   "l": "baum_ergaenzen",
+   "t": "baum_ergaenzen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In einem zweistufigen Baumdiagramm ist P(A) = 0,6 und die Wahrscheinlichkeit des Pfades „A, dann B“ = 0,36. Welche Wahrscheinlichkeit steht am Ast von A nach B?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "1. Stufe",
+      "2. Stufe",
+      "Pfad-Wahrscheinlichkeit"
+     ],
+     "zeilen": [
+      [
+       "A (0,6)",
+       "B (?)",
+       "0,36"
+      ],
+      [
+       "A (0,6)",
+       "nicht B",
+       "?"
+      ],
+      [
+       "nicht A (0,4)",
+       "…",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 0.6
+   },
+   "c": "0.36 / 0.6",
+   "w": "P(A) · x = 0,36 ⇒ x = 0,36 : 0,6 = 0,6."
+  },
+  {
+   "l": "baum_ergaenzen",
+   "t": "baum_ergaenzen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In einem zweistufigen Baumdiagramm ist P(A) = 0,8 und die Wahrscheinlichkeit des Pfades „A, dann B“ = 0,08. Welche Wahrscheinlichkeit steht am Ast von A nach B?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "1. Stufe",
+      "2. Stufe",
+      "Pfad-Wahrscheinlichkeit"
+     ],
+     "zeilen": [
+      [
+       "A (0,8)",
+       "B (?)",
+       "0,08"
+      ],
+      [
+       "A (0,8)",
+       "nicht B",
+       "?"
+      ],
+      [
+       "nicht A (0,2)",
+       "…",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 0.1
+   },
+   "c": "0.08 / 0.8",
+   "w": "P(A) · x = 0,08 ⇒ x = 0,08 : 0,8 = 0,1."
+  },
+  {
+   "l": "baum_ergaenzen",
+   "t": "baum_ergaenzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In einem zweistufigen Baumdiagramm ist P(A) = 0,5 und die Wahrscheinlichkeit des Pfades „A, dann B“ = 0,35. Welche Wahrscheinlichkeit steht am Ast von A nach B?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "1. Stufe",
+      "2. Stufe",
+      "Pfad-Wahrscheinlichkeit"
+     ],
+     "zeilen": [
+      [
+       "A (0,5)",
+       "B (?)",
+       "0,35"
+      ],
+      [
+       "A (0,5)",
+       "nicht B",
+       "?"
+      ],
+      [
+       "nicht A (0,5)",
+       "…",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 0.7
+   },
+   "c": "0.35 / 0.5",
+   "w": "P(A) · x = 0,35 ⇒ x = 0,35 : 0,5 = 0,7."
+  },
+  {
+   "l": "baum_ergaenzen",
+   "t": "baum_ergaenzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In einem zweistufigen Baumdiagramm ist P(A) = 0,4 und die Wahrscheinlichkeit des Pfades „A, dann B“ = 0,12. Welche Wahrscheinlichkeit steht am Ast von A nach B?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "1. Stufe",
+      "2. Stufe",
+      "Pfad-Wahrscheinlichkeit"
+     ],
+     "zeilen": [
+      [
+       "A (0,4)",
+       "B (?)",
+       "0,12"
+      ],
+      [
+       "A (0,4)",
+       "nicht B",
+       "?"
+      ],
+      [
+       "nicht A (0,6)",
+       "…",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 0.3
+   },
+   "c": "0.12 / 0.4",
+   "w": "P(A) · x = 0,12 ⇒ x = 0,12 : 0,4 = 0,3."
+  },
+  {
+   "l": "baum_ergaenzen",
+   "t": "baum_ergaenzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In einem zweistufigen Baumdiagramm ist P(A) = 0,8 und die Wahrscheinlichkeit des Pfades „A, dann B“ = 0,56. Welche Wahrscheinlichkeit steht am Ast von A nach B?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "1. Stufe",
+      "2. Stufe",
+      "Pfad-Wahrscheinlichkeit"
+     ],
+     "zeilen": [
+      [
+       "A (0,8)",
+       "B (?)",
+       "0,56"
+      ],
+      [
+       "A (0,8)",
+       "nicht B",
+       "?"
+      ],
+      [
+       "nicht A (0,2)",
+       "…",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 0.7
+   },
+   "c": "0.56 / 0.8",
+   "w": "P(A) · x = 0,56 ⇒ x = 0,56 : 0,8 = 0,7."
+  },
+  {
+   "l": "baum_ergaenzen",
+   "t": "baum_ergaenzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In einem zweistufigen Baumdiagramm ist P(A) = 0,6 und die Wahrscheinlichkeit des Pfades „A, dann B“ = 0,3. Welche Wahrscheinlichkeit steht am Ast von A nach B?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "1. Stufe",
+      "2. Stufe",
+      "Pfad-Wahrscheinlichkeit"
+     ],
+     "zeilen": [
+      [
+       "A (0,6)",
+       "B (?)",
+       "0,3"
+      ],
+      [
+       "A (0,6)",
+       "nicht B",
+       "?"
+      ],
+      [
+       "nicht A (0,4)",
+       "…",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 0.5
+   },
+   "c": "0.3 / 0.6",
+   "w": "P(A) · x = 0,3 ⇒ x = 0,3 : 0,6 = 0,5."
+  },
+  {
+   "l": "baum_ergaenzen",
+   "t": "baum_ergaenzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In einem zweistufigen Baumdiagramm ist P(A) = 0,6 und die Wahrscheinlichkeit des Pfades „A, dann B“ = 0,24. Welche Wahrscheinlichkeit steht am Ast von A nach B?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "1. Stufe",
+      "2. Stufe",
+      "Pfad-Wahrscheinlichkeit"
+     ],
+     "zeilen": [
+      [
+       "A (0,6)",
+       "B (?)",
+       "0,24"
+      ],
+      [
+       "A (0,6)",
+       "nicht B",
+       "?"
+      ],
+      [
+       "nicht A (0,4)",
+       "…",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 0.4
+   },
+   "c": "0.24 / 0.6",
+   "w": "P(A) · x = 0,24 ⇒ x = 0,24 : 0,6 = 0,4."
+  },
+  {
+   "l": "baum_ergaenzen",
+   "t": "baum_ergaenzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "In einem zweistufigen Baumdiagramm ist P(A) = 0,8 und die Wahrscheinlichkeit des Pfades „A, dann B“ = 0,72. Welche Wahrscheinlichkeit steht am Ast von A nach B?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "1. Stufe",
+      "2. Stufe",
+      "Pfad-Wahrscheinlichkeit"
+     ],
+     "zeilen": [
+      [
+       "A (0,8)",
+       "B (?)",
+       "0,72"
+      ],
+      [
+       "A (0,8)",
+       "nicht B",
+       "?"
+      ],
+      [
+       "nicht A (0,2)",
+       "…",
+       "?"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 0.9
+   },
+   "c": "0.72 / 0.8",
+   "w": "P(A) · x = 0,72 ⇒ x = 0,72 : 0,8 = 0,9."
+  },
+  {
+   "l": "simulation",
+   "t": "simulation",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Experiment wird 60-mal durchgeführt. Die Wahrscheinlichkeit für eine Zahl unter 3 beim Würfeln ist 1/3. Wie oft erwartet man eine Zahl unter 3 beim Würfeln?"
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "60 * 1 / 3",
+   "w": "Erwartete Anzahl = n · p = 60 · 1/3 = 20.",
+   "h": "Erwartete Anzahl = n · p."
+  },
+  {
+   "l": "simulation",
+   "t": "simulation",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Experiment wird 60-mal durchgeführt. Die Wahrscheinlichkeit für Kopf ist 1/2. Wie oft erwartet man Kopf?"
+   },
+   "o": {
+    "wert": 30
+   },
+   "c": "60 * 1 / 2",
+   "w": "Erwartete Anzahl = n · p = 60 · 1/2 = 30.",
+   "h": "Erwartete Anzahl = n · p."
+  },
+  {
+   "l": "simulation",
+   "t": "simulation",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Experiment wird 1 200-mal durchgeführt. Die Wahrscheinlichkeit für eine Zahl unter 3 beim Würfeln ist 1/3. Wie oft erwartet man eine Zahl unter 3 beim Würfeln?"
+   },
+   "o": {
+    "wert": 400
+   },
+   "c": "1200 * 1 / 3",
+   "w": "Erwartete Anzahl = n · p = 1 200 · 1/3 = 400.",
+   "h": "Erwartete Anzahl = n · p."
+  },
+  {
+   "l": "simulation",
+   "t": "simulation",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Experiment wird 60-mal durchgeführt. Die Wahrscheinlichkeit für eine Sechs ist 1/6. Wie oft erwartet man eine Sechs?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "60 * 1 / 6",
+   "w": "Erwartete Anzahl = n · p = 60 · 1/6 = 10.",
+   "h": "Erwartete Anzahl = n · p."
+  },
+  {
+   "l": "simulation",
+   "t": "simulation",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Experiment wird 300-mal durchgeführt. Die Wahrscheinlichkeit für eine Zahl unter 3 beim Würfeln ist 1/3. Wie oft erwartet man eine Zahl unter 3 beim Würfeln?"
+   },
+   "o": {
+    "wert": 100
+   },
+   "c": "300 * 1 / 3",
+   "w": "Erwartete Anzahl = n · p = 300 · 1/3 = 100.",
+   "h": "Erwartete Anzahl = n · p."
+  },
+  {
+   "l": "simulation",
+   "t": "simulation",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Experiment wird 1 200-mal durchgeführt. Die Wahrscheinlichkeit für zweimal Kopf bei zwei Münzwürfen ist 1/4. Wie oft erwartet man zweimal Kopf bei zwei Münzwürfen?"
+   },
+   "o": {
+    "wert": 300
+   },
+   "c": "1200 * 1 / 4",
+   "w": "Erwartete Anzahl = n · p = 1 200 · 1/4 = 300.",
+   "h": "Erwartete Anzahl = n · p."
+  },
+  {
+   "l": "simulation",
+   "t": "simulation",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Simulation wurde 200-mal durchgeführt; das Diagramm zeigt die Ergebnisse. Berechne die relative Häufigkeit von „Treffer“.",
+    "grafik": {
+     "typ": "saeulen",
+     "einheit": "Anzahl",
+     "werte": [
+      {
+       "name": "Treffer",
+       "wert": 91
+      },
+      {
+       "name": "kein Treffer",
+       "wert": 109
+      }
+     ],
+     "zahlen": true
+    }
+   },
+   "o": {
+    "wert": 0.455
+   },
+   "c": "91 / 200",
+   "w": "91 : 200 = 0,455.",
+   "h": "Relative Häufigkeit = Anzahl der Treffer : Anzahl aller Durchführungen."
+  },
+  {
+   "l": "simulation",
+   "t": "simulation",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Simulation wurde 500-mal durchgeführt; das Diagramm zeigt die Ergebnisse. Berechne die relative Häufigkeit von „Treffer“.",
+    "grafik": {
+     "typ": "saeulen",
+     "einheit": "Anzahl",
+     "werte": [
+      {
+       "name": "Treffer",
+       "wert": 161
+      },
+      {
+       "name": "kein Treffer",
+       "wert": 339
+      }
+     ],
+     "zahlen": true
+    }
+   },
+   "o": {
+    "wert": 0.322
+   },
+   "c": "161 / 500",
+   "w": "161 : 500 = 0,322.",
+   "h": "Relative Häufigkeit = Anzahl der Treffer : Anzahl aller Durchführungen."
+  },
+  {
+   "l": "simulation",
+   "t": "simulation",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Simulation wurde 250-mal durchgeführt; das Diagramm zeigt die Ergebnisse. Berechne die relative Häufigkeit von „Treffer“.",
+    "grafik": {
+     "typ": "saeulen",
+     "einheit": "Anzahl",
+     "werte": [
+      {
+       "name": "Treffer",
+       "wert": 80
+      },
+      {
+       "name": "kein Treffer",
+       "wert": 170
+      }
+     ],
+     "zahlen": true
+    }
+   },
+   "o": {
+    "wert": 0.32
+   },
+   "c": "80 / 250",
+   "w": "80 : 250 = 0,32.",
+   "h": "Relative Häufigkeit = Anzahl der Treffer : Anzahl aller Durchführungen."
+  },
+  {
+   "l": "simulation",
+   "t": "simulation",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Simulation wurde 500-mal durchgeführt; das Diagramm zeigt die Ergebnisse. Berechne die relative Häufigkeit von „Treffer“.",
+    "grafik": {
+     "typ": "saeulen",
+     "einheit": "Anzahl",
+     "werte": [
+      {
+       "name": "Treffer",
+       "wert": 130
+      },
+      {
+       "name": "kein Treffer",
+       "wert": 370
+      }
+     ],
+     "zahlen": true
+    }
+   },
+   "o": {
+    "wert": 0.26
+   },
+   "c": "130 / 500",
+   "w": "130 : 500 = 0,26.",
+   "h": "Relative Häufigkeit = Anzahl der Treffer : Anzahl aller Durchführungen."
+  },
+  {
+   "l": "simulation",
+   "t": "simulation",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Simulation wurde 200-mal durchgeführt; das Diagramm zeigt die Ergebnisse. Berechne die relative Häufigkeit von „Treffer“.",
+    "grafik": {
+     "typ": "saeulen",
+     "einheit": "Anzahl",
+     "werte": [
+      {
+       "name": "Treffer",
+       "wert": 81
+      },
+      {
+       "name": "kein Treffer",
+       "wert": 119
+      }
+     ],
+     "zahlen": true
+    }
+   },
+   "o": {
+    "wert": 0.405
+   },
+   "c": "81 / 200",
+   "w": "81 : 200 = 0,405.",
+   "h": "Relative Häufigkeit = Anzahl der Treffer : Anzahl aller Durchführungen."
+  },
+  {
+   "l": "simulation",
+   "t": "simulation",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Simulation wurde 500-mal durchgeführt; das Diagramm zeigt die Ergebnisse. Berechne die relative Häufigkeit von „Treffer“.",
+    "grafik": {
+     "typ": "saeulen",
+     "einheit": "Anzahl",
+     "werte": [
+      {
+       "name": "Treffer",
+       "wert": 50
+      },
+      {
+       "name": "kein Treffer",
+       "wert": 450
+      }
+     ],
+     "zahlen": true
+    }
+   },
+   "o": {
+    "wert": 0.1
+   },
+   "c": "50 / 500",
+   "w": "50 : 500 = 0,1.",
+   "h": "Relative Häufigkeit = Anzahl der Treffer : Anzahl aller Durchführungen."
+  },
+  {
+   "l": "simulation",
+   "t": "simulation",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei einem Würfel kam 4-mal hintereinander keine Sechs. Was gilt für den nächsten Wurf?"
+   },
+   "a": [
+    "Eine Sechs ist jetzt unwahrscheinlicher.",
+    "Eine Sechs ist jetzt wahrscheinlicher.",
+    "P(Sechs) = 5/6.",
+    "P(Sechs) ist weiterhin 1/6."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die Würfe sind unabhängig: Der Würfel „merkt“ sich nichts. Erst bei sehr vielen Würfen gleicht sich die relative Häufigkeit aus.",
+   "h": "Hängt der nächste Wurf von den vorigen ab?"
+  },
+  {
+   "l": "simulation",
+   "t": "simulation",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zufallsgerät liefert mit der Wahrscheinlichkeit 0,3 einen Treffer. Es wird immer zweimal hintereinander gestartet; das wird 100-mal wiederholt. Wie oft erwartet man „zwei Treffer“?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "100 * 0.3 ** 2",
+   "w": "P(zwei Treffer) = 0,3² = 0,09; erwartet 100 · 0,09 = 9.",
+   "h": "Erst die Pfadwahrscheinlichkeit, dann mal n."
+  },
+  {
+   "l": "simulation",
+   "t": "simulation",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zufallsgerät liefert mit der Wahrscheinlichkeit 0,3 einen Treffer. Es wird immer zweimal hintereinander gestartet; das wird 200-mal wiederholt. Wie oft erwartet man „zwei Treffer“?"
+   },
+   "o": {
+    "wert": 18
+   },
+   "c": "200 * 0.3 ** 2",
+   "w": "P(zwei Treffer) = 0,3² = 0,09; erwartet 200 · 0,09 = 18.",
+   "h": "Erst die Pfadwahrscheinlichkeit, dann mal n."
+  },
+  {
+   "l": "simulation",
+   "t": "simulation",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Zufallsgerät liefert mit der Wahrscheinlichkeit 0,3 einen Treffer. Es wird immer zweimal hintereinander gestartet; das wird 500-mal wiederholt. Wie oft erwartet man „zwei Treffer“?"
+   },
+   "o": {
+    "wert": 45
+   },
+   "c": "500 * 0.3 ** 2",
+   "w": "P(zwei Treffer) = 0,3² = 0,09; erwartet 500 · 0,09 = 45.",
+   "h": "Erst die Pfadwahrscheinlichkeit, dann mal n."
+  },
+  {
+   "l": "simulation",
+   "t": "simulation",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei einem Würfel kam 3-mal hintereinander keine Sechs. Was gilt für den nächsten Wurf?"
+   },
+   "a": [
+    "Eine Sechs ist jetzt wahrscheinlicher.",
+    "Eine Sechs ist jetzt unwahrscheinlicher.",
+    "P(Sechs) ist weiterhin 1/6.",
+    "P(Sechs) = 4/6."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Würfe sind unabhängig: Der Würfel „merkt“ sich nichts. Erst bei sehr vielen Würfen gleicht sich die relative Häufigkeit aus.",
+   "h": "Hängt der nächste Wurf von den vorigen ab?"
+  },
+  {
+   "l": "simulation",
+   "t": "simulation",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei einem Würfel kam 7-mal hintereinander keine Sechs. Was gilt für den nächsten Wurf?"
+   },
+   "a": [
+    "Eine Sechs ist jetzt wahrscheinlicher.",
+    "P(Sechs) ist weiterhin 1/6.",
+    "P(Sechs) = 8/6.",
+    "Eine Sechs ist jetzt unwahrscheinlicher."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Würfe sind unabhängig: Der Würfel „merkt“ sich nichts. Erst bei sehr vielen Würfen gleicht sich die relative Häufigkeit aus.",
+   "h": "Hängt der nächste Wurf von den vorigen ab?"
+  },
+  {
+   "l": "simulation",
+   "t": "simulation",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Simulation wurde 500-mal durchgeführt; das Diagramm zeigt die Ergebnisse. Berechne die relative Häufigkeit von „Treffer“.",
+    "grafik": {
+     "typ": "saeulen",
+     "einheit": "Anzahl",
+     "werte": [
+      {
+       "name": "Treffer",
+       "wert": 233
+      },
+      {
+       "name": "kein Treffer",
+       "wert": 267
+      }
+     ],
+     "zahlen": true
+    }
+   },
+   "o": {
+    "wert": 0.466
+   },
+   "c": "233 / 500",
+   "w": "233 : 500 = 0,466."
+  },
+  {
+   "l": "simulation",
+   "t": "simulation",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Simulation wurde 400-mal durchgeführt; das Diagramm zeigt die Ergebnisse. Berechne die relative Häufigkeit von „Treffer“.",
+    "grafik": {
+     "typ": "saeulen",
+     "einheit": "Anzahl",
+     "werte": [
+      {
+       "name": "Treffer",
+       "wert": 180
+      },
+      {
+       "name": "kein Treffer",
+       "wert": 220
+      }
+     ],
+     "zahlen": true
+    }
+   },
+   "o": {
+    "wert": 0.45
+   },
+   "c": "180 / 400",
+   "w": "180 : 400 = 0,45."
+  },
+  {
+   "l": "simulation",
+   "t": "simulation",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Simulation wurde 500-mal durchgeführt; das Diagramm zeigt die Ergebnisse. Berechne die relative Häufigkeit von „Treffer“.",
+    "grafik": {
+     "typ": "saeulen",
+     "einheit": "Anzahl",
+     "werte": [
+      {
+       "name": "Treffer",
+       "wert": 184
+      },
+      {
+       "name": "kein Treffer",
+       "wert": 316
+      }
+     ],
+     "zahlen": true
+    }
+   },
+   "o": {
+    "wert": 0.368
+   },
+   "c": "184 / 500",
+   "w": "184 : 500 = 0,368."
+  },
+  {
+   "l": "simulation",
+   "t": "simulation",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Simulation wurde 1 000-mal durchgeführt; das Diagramm zeigt die Ergebnisse. Berechne die relative Häufigkeit von „Treffer“.",
+    "grafik": {
+     "typ": "saeulen",
+     "einheit": "Anzahl",
+     "werte": [
+      {
+       "name": "Treffer",
+       "wert": 490
+      },
+      {
+       "name": "kein Treffer",
+       "wert": 510
+      }
+     ],
+     "zahlen": true
+    }
+   },
+   "o": {
+    "wert": 0.49
+   },
+   "c": "490 / 1000",
+   "w": "490 : 1000 = 0,49."
+  },
+  {
+   "l": "simulation",
+   "t": "simulation",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Simulation wurde 500-mal durchgeführt; das Diagramm zeigt die Ergebnisse. Berechne die relative Häufigkeit von „Treffer“.",
+    "grafik": {
+     "typ": "saeulen",
+     "einheit": "Anzahl",
+     "werte": [
+      {
+       "name": "Treffer",
+       "wert": 218
+      },
+      {
+       "name": "kein Treffer",
+       "wert": 282
+      }
+     ],
+     "zahlen": true
+    }
+   },
+   "o": {
+    "wert": 0.436
+   },
+   "c": "218 / 500",
+   "w": "218 : 500 = 0,436."
+  },
+  {
+   "l": "simulation",
+   "t": "simulation",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Simulation wurde 250-mal durchgeführt; das Diagramm zeigt die Ergebnisse. Berechne die relative Häufigkeit von „Treffer“.",
+    "grafik": {
+     "typ": "saeulen",
+     "einheit": "Anzahl",
+     "werte": [
+      {
+       "name": "Treffer",
+       "wert": 26
+      },
+      {
+       "name": "kein Treffer",
+       "wert": 224
+      }
+     ],
+     "zahlen": true
+    }
+   },
+   "o": {
+    "wert": 0.104
+   },
+   "c": "26 / 250",
+   "w": "26 : 250 = 0,104."
+  },
+  {
+   "l": "simulation",
+   "t": "simulation",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Simulation wurde 200-mal durchgeführt; das Diagramm zeigt die Ergebnisse. Berechne die relative Häufigkeit von „Treffer“.",
+    "grafik": {
+     "typ": "saeulen",
+     "einheit": "Anzahl",
+     "werte": [
+      {
+       "name": "Treffer",
+       "wert": 66
+      },
+      {
+       "name": "kein Treffer",
+       "wert": 134
+      }
+     ],
+     "zahlen": true
+    }
+   },
+   "o": {
+    "wert": 0.33
+   },
+   "c": "66 / 200",
+   "w": "66 : 200 = 0,33."
+  },
+  {
+   "l": "simulation",
+   "t": "simulation",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Simulation wurde 250-mal durchgeführt; das Diagramm zeigt die Ergebnisse. Berechne die relative Häufigkeit von „Treffer“.",
+    "grafik": {
+     "typ": "saeulen",
+     "einheit": "Anzahl",
+     "werte": [
+      {
+       "name": "Treffer",
+       "wert": 120
+      },
+      {
+       "name": "kein Treffer",
+       "wert": 130
+      }
+     ],
+     "zahlen": true
+    }
+   },
+   "o": {
+    "wert": 0.48
+   },
+   "c": "120 / 250",
+   "w": "120 : 250 = 0,48."
+  },
+  {
+   "l": "simulation",
+   "t": "simulation",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Simulation wurde 400-mal durchgeführt; das Diagramm zeigt die Ergebnisse. Berechne die relative Häufigkeit von „Treffer“.",
+    "grafik": {
+     "typ": "saeulen",
+     "einheit": "Anzahl",
+     "werte": [
+      {
+       "name": "Treffer",
+       "wert": 145
+      },
+      {
+       "name": "kein Treffer",
+       "wert": 255
+      }
+     ],
+     "zahlen": true
+    }
+   },
+   "o": {
+    "wert": 0.3625
+   },
+   "c": "145 / 400",
+   "w": "145 : 400 = 0,3625."
+  },
+  {
+   "l": "simulation",
+   "t": "simulation",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Simulation wurde 200-mal durchgeführt; das Diagramm zeigt die Ergebnisse. Berechne die relative Häufigkeit von „Treffer“.",
+    "grafik": {
+     "typ": "saeulen",
+     "einheit": "Anzahl",
+     "werte": [
+      {
+       "name": "Treffer",
+       "wert": 26
+      },
+      {
+       "name": "kein Treffer",
+       "wert": 174
+      }
+     ],
+     "zahlen": true
+    }
+   },
+   "o": {
+    "wert": 0.13
+   },
+   "c": "26 / 200",
+   "w": "26 : 200 = 0,13."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "An einer Verzweigung stehen die Äste 0,7 und 0,9 (nur diese zwei). Was stimmt?"
+   },
+   "a": [
+    "Das ist möglich.",
+    "Das ist nur ohne Zurücklegen möglich.",
+    "Das ist falsch, die Äste müssen zusammen 1 ergeben (1,6 ≠ 1).",
+    "Das ist nur mit Zurücklegen möglich."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Von jedem Verzweigungspunkt aus ergeben die Äste zusammen 1 – eines der Ergebnisse tritt sicher ein.",
+   "h": "Was ergibt die Summe aller Äste einer Verzweigung?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "An einer Verzweigung stehen die Äste 0,8 und 0,8 (nur diese zwei). Was stimmt?"
+   },
+   "a": [
+    "Das ist nur ohne Zurücklegen möglich.",
+    "Das ist möglich.",
+    "Das ist falsch, die Äste müssen zusammen 1 ergeben (1,6 ≠ 1).",
+    "Das ist nur mit Zurücklegen möglich."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Von jedem Verzweigungspunkt aus ergeben die Äste zusammen 1 – eines der Ergebnisse tritt sicher ein.",
+   "h": "Was ergibt die Summe aller Äste einer Verzweigung?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "In einer Urne liegen 3 weiße und 6 blaue Kugeln; es wird zweimal mit Zurücklegen gezogen. Jemand rechnet P(weiß, weiß) = 3/9 + 3/9. Was stimmt?"
+   },
+   "a": [
+    "Falsch: P = 1/12.",
+    "Falsch: P = 3/9.",
+    "Richtig.",
+    "Falsch: entlang des Pfades multiplizieren, P = 1/9."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Ein Pfad – Wahrscheinlichkeiten multiplizieren: 3/9 · 3/9 = 1/9.",
+   "h": "Addieren oder multiplizieren entlang eines Pfades?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "An einer Verzweigung stehen die Äste 0,9 und 0,7 (nur diese zwei). Was stimmt?"
+   },
+   "a": [
+    "Das ist möglich.",
+    "Das ist falsch, die Äste müssen zusammen 1 ergeben (1,6 ≠ 1).",
+    "Das ist nur ohne Zurücklegen möglich.",
+    "Das ist nur mit Zurücklegen möglich."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Von jedem Verzweigungspunkt aus ergeben die Äste zusammen 1 – eines der Ergebnisse tritt sicher ein.",
+   "h": "Was ergibt die Summe aller Äste einer Verzweigung?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "In einer Urne liegen 2 schwarze und 7 weiße Kugeln; es wird zweimal mit Zurücklegen gezogen. Jemand rechnet P(schwarz, schwarz) = 2/9 + 2/9. Was stimmt?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: P = 1/36.",
+    "Falsch: entlang des Pfades multiplizieren, P = 4/81.",
+    "Falsch: P = 2/9."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Ein Pfad – Wahrscheinlichkeiten multiplizieren: 2/9 · 2/9 = 4/81.",
+   "h": "Addieren oder multiplizieren entlang eines Pfades?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "In einer Urne liegen 5 rote und 3 gelbe Kugeln; es wird zweimal mit Zurücklegen gezogen. Jemand rechnet P(rot, rot) = 5/8 + 5/8. Was stimmt?"
+   },
+   "a": [
+    "Falsch: P = 5/14.",
+    "Richtig.",
+    "Falsch: P = 5/8.",
+    "Falsch: entlang des Pfades multiplizieren, P = 25/64."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Ein Pfad – Wahrscheinlichkeiten multiplizieren: 5/8 · 5/8 = 25/64.",
+   "h": "Addieren oder multiplizieren entlang eines Pfades?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "An einer Verzweigung stehen die Äste 0,8 und 0,9 (nur diese zwei). Was stimmt?"
+   },
+   "a": [
+    "Das ist möglich.",
+    "Das ist nur mit Zurücklegen möglich.",
+    "Das ist nur ohne Zurücklegen möglich.",
+    "Das ist falsch, die Äste müssen zusammen 1 ergeben (1,7 ≠ 1)."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Von jedem Verzweigungspunkt aus ergeben die Äste zusammen 1 – eines der Ergebnisse tritt sicher ein.",
+   "h": "Was ergibt die Summe aller Äste einer Verzweigung?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "8 schwarze und 8 gelbe Kugeln, zwei Kugeln ohne Zurücklegen. Jemand rechnet P(schwarz, schwarz) = 8/16 · 8/16. Was stimmt?"
+   },
+   "a": [
+    "Falsch: Beim zweiten Zug sind es 7 von 15, also P = 7/30.",
+    "Falsch: P = 8/16 + 7/15.",
+    "Falsch: P = 8/16.",
+    "Richtig."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ohne Zurücklegen ändern sich Zähler und Nenner: 8/16 · 7/15 = 7/30.",
+   "h": "Was ändert sich nach dem ersten Zug?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "An einer Verzweigung stehen die Äste 0,7 und 0,4 (nur diese zwei). Was stimmt?"
+   },
+   "a": [
+    "Das ist falsch, die Äste müssen zusammen 1 ergeben (1,1 ≠ 1).",
+    "Das ist nur mit Zurücklegen möglich.",
+    "Das ist nur ohne Zurücklegen möglich.",
+    "Das ist möglich."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Von jedem Verzweigungspunkt aus ergeben die Äste zusammen 1 – eines der Ergebnisse tritt sicher ein.",
+   "h": "Was ergibt die Summe aller Äste einer Verzweigung?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "In einer Urne liegen 6 rote und 5 grüne Kugeln; es wird zweimal mit Zurücklegen gezogen. Jemand rechnet P(rot, rot) = 6/11 + 6/11. Was stimmt?"
+   },
+   "a": [
+    "Falsch: P = 3/11.",
+    "Richtig.",
+    "Falsch: P = 6/11.",
+    "Falsch: entlang des Pfades multiplizieren, P = 36/121."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Ein Pfad – Wahrscheinlichkeiten multiplizieren: 6/11 · 6/11 = 36/121.",
+   "h": "Addieren oder multiplizieren entlang eines Pfades?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "In einer Urne liegen 2 weiße und 3 rote Kugeln; es wird zweimal mit Zurücklegen gezogen. Jemand rechnet P(weiß, weiß) = 2/5 + 2/5. Was stimmt?"
+   },
+   "a": [
+    "Falsch: P = 1/10.",
+    "Richtig.",
+    "Falsch: entlang des Pfades multiplizieren, P = 4/25.",
+    "Falsch: P = 2/5."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Ein Pfad – Wahrscheinlichkeiten multiplizieren: 2/5 · 2/5 = 4/25.",
+   "h": "Addieren oder multiplizieren entlang eines Pfades?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "7 gelbe und 3 weiße Kugeln, zwei Kugeln ohne Zurücklegen. Jemand rechnet P(gelb, gelb) = 7/10 · 7/10. Was stimmt?"
+   },
+   "a": [
+    "Falsch: P = 7/10 + 6/9.",
+    "Falsch: P = 7/10.",
+    "Richtig.",
+    "Falsch: Beim zweiten Zug sind es 6 von 9, also P = 7/15."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Ohne Zurücklegen ändern sich Zähler und Nenner: 7/10 · 6/9 = 7/15.",
+   "h": "Was ändert sich nach dem ersten Zug?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „Bei 4 Würfen ist P(mindestens eine Sechs) = 4 · 1/6 = 2/3.“ Was stimmt?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: richtig ist 1 − (5/6)⁴ ≈ 0,518.",
+    "Falsch: richtig ist 1 − 1/6 · 4.",
+    "Falsch: richtig ist (1/6)⁴."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Pfade mit zwei oder mehr Sechsen würden mehrfach gezählt; deshalb über das Gegenereignis rechnen.",
+   "h": "Was wäre bei 6 Würfen? Kann P = 1 sein?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "3 rote und 5 weiße Kugeln, zwei Kugeln ohne Zurücklegen. Jemand rechnet P(rot, rot) = 3/8 · 3/8. Was stimmt?"
+   },
+   "a": [
+    "Falsch: P = 3/8.",
+    "Richtig.",
+    "Falsch: Beim zweiten Zug sind es 2 von 7, also P = 3/28.",
+    "Falsch: P = 3/8 + 2/7."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Ohne Zurücklegen ändern sich Zähler und Nenner: 3/8 · 2/7 = 3/28.",
+   "h": "Was ändert sich nach dem ersten Zug?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "3 weiße und 2 grüne Kugeln, zwei Kugeln ohne Zurücklegen. Jemand rechnet P(weiß, weiß) = 3/5 · 3/5. Was stimmt?"
+   },
+   "a": [
+    "Falsch: Beim zweiten Zug sind es 2 von 4, also P = 3/10.",
+    "Falsch: P = 3/5 + 2/4.",
+    "Richtig.",
+    "Falsch: P = 3/5."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ohne Zurücklegen ändern sich Zähler und Nenner: 3/5 · 2/4 = 3/10.",
+   "h": "Was ändert sich nach dem ersten Zug?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "3 gelbe und 2 schwarze Kugeln, zwei Kugeln ohne Zurücklegen. Jemand rechnet P(gelb, gelb) = 3/5 · 3/5. Was stimmt?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: Beim zweiten Zug sind es 2 von 4, also P = 3/10.",
+    "Falsch: P = 3/5 + 2/4.",
+    "Falsch: P = 3/5."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Ohne Zurücklegen ändern sich Zähler und Nenner: 3/5 · 2/4 = 3/10.",
+   "h": "Was ändert sich nach dem ersten Zug?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Zufallsgerät liefert mit 0,3 einen Treffer. In 20 Simulationen gab es 0 Treffer. Was folgt daraus?"
+   },
+   "a": [
+    "Die Wahrscheinlichkeit ist nicht 0,3.",
+    "Beim nächsten Mal gibt es sicher mehr Treffer.",
+    "Nichts Sicheres: Bei wenigen Durchführungen schwankt die relative Häufigkeit stark.",
+    "Das Gerät ist sicher defekt."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Erst bei vielen Durchführungen nähert sich die relative Häufigkeit der Wahrscheinlichkeit (Gesetz der großen Zahlen).",
+   "h": "Wie zuverlässig sind 20 Versuche?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Zufallsgerät liefert mit 0,3 einen Treffer. In 20 Simulationen gab es 1 Treffer. Was folgt daraus?"
+   },
+   "a": [
+    "Nichts Sicheres: Bei wenigen Durchführungen schwankt die relative Häufigkeit stark.",
+    "Die Wahrscheinlichkeit ist nicht 0,3.",
+    "Das Gerät ist sicher defekt.",
+    "Beim nächsten Mal gibt es sicher mehr Treffer."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Erst bei vielen Durchführungen nähert sich die relative Häufigkeit der Wahrscheinlichkeit (Gesetz der großen Zahlen).",
+   "h": "Wie zuverlässig sind 20 Versuche?"
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „Bei 2 Würfen ist P(mindestens eine Sechs) = 2 · 1/6 = 1/3.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: richtig ist (1/6)².",
+    "Falsch: richtig ist 1 − 1/6 · 2.",
+    "Falsch: richtig ist 1 − (5/6)² ≈ 0,306.",
+    "Richtig."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Pfade mit zwei oder mehr Sechsen würden mehrfach gezählt; deshalb über das Gegenereignis rechnen."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "In einer Urne liegen 5 blaue und 8 weiße Kugeln; es wird zweimal mit Zurücklegen gezogen. Jemand rechnet P(blau, blau) = 5/13 + 5/13. Was stimmt?"
+   },
+   "a": [
+    "Falsch: entlang des Pfades multiplizieren, P = 25/169.",
+    "Richtig.",
+    "Falsch: P = 5/13.",
+    "Falsch: P = 5/39."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ein Pfad – Wahrscheinlichkeiten multiplizieren: 5/13 · 5/13 = 25/169."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "6 blaue und 7 schwarze Kugeln, zwei Kugeln ohne Zurücklegen. Jemand rechnet P(blau, blau) = 6/13 · 6/13. Was stimmt?"
+   },
+   "a": [
+    "Falsch: Beim zweiten Zug sind es 5 von 12, also P = 5/26.",
+    "Richtig.",
+    "Falsch: P = 6/13 + 5/12.",
+    "Falsch: P = 6/13."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ohne Zurücklegen ändern sich Zähler und Nenner: 6/13 · 5/12 = 5/26."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "5 schwarze und 6 weiße Kugeln, zwei Kugeln ohne Zurücklegen. Jemand rechnet P(schwarz, schwarz) = 5/11 · 5/11. Was stimmt?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: P = 5/11 + 4/10.",
+    "Falsch: Beim zweiten Zug sind es 4 von 10, also P = 2/11.",
+    "Falsch: P = 5/11."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Ohne Zurücklegen ändern sich Zähler und Nenner: 5/11 · 4/10 = 2/11."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "In einer Urne liegen 7 rote und 2 weiße Kugeln; es wird zweimal mit Zurücklegen gezogen. Jemand rechnet P(rot, rot) = 7/9 + 7/9. Was stimmt?"
+   },
+   "a": [
+    "Falsch: entlang des Pfades multiplizieren, P = 49/81.",
+    "Richtig.",
+    "Falsch: P = 7/9.",
+    "Falsch: P = 7/12."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ein Pfad – Wahrscheinlichkeiten multiplizieren: 7/9 · 7/9 = 49/81."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "2 blaue und 4 rote Kugeln, zwei Kugeln ohne Zurücklegen. Jemand rechnet P(blau, blau) = 2/6 · 2/6. Was stimmt?"
+   },
+   "a": [
+    "Falsch: P = 2/6 + 1/5.",
+    "Falsch: P = 2/6.",
+    "Richtig.",
+    "Falsch: Beim zweiten Zug sind es 1 von 5, also P = 1/15."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Ohne Zurücklegen ändern sich Zähler und Nenner: 2/6 · 1/5 = 1/15."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "In einer Urne liegen 6 gelbe und 7 schwarze Kugeln; es wird zweimal mit Zurücklegen gezogen. Jemand rechnet P(gelb, gelb) = 6/13 + 6/13. Was stimmt?"
+   },
+   "a": [
+    "Falsch: P = 6/13.",
+    "Falsch: P = 5/26.",
+    "Falsch: entlang des Pfades multiplizieren, P = 36/169.",
+    "Richtig."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Ein Pfad – Wahrscheinlichkeiten multiplizieren: 6/13 · 6/13 = 36/169."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "An einer Verzweigung stehen die Äste 0,6 und 0,5 (nur diese zwei). Was stimmt?"
+   },
+   "a": [
+    "Das ist möglich.",
+    "Das ist nur mit Zurücklegen möglich.",
+    "Das ist nur ohne Zurücklegen möglich.",
+    "Das ist falsch, die Äste müssen zusammen 1 ergeben (1,1 ≠ 1)."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Von jedem Verzweigungspunkt aus ergeben die Äste zusammen 1 – eines der Ergebnisse tritt sicher ein."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "6 grüne und 3 gelbe Kugeln, zwei Kugeln ohne Zurücklegen. Jemand rechnet P(grün, grün) = 6/9 · 6/9. Was stimmt?"
+   },
+   "a": [
+    "Falsch: Beim zweiten Zug sind es 5 von 8, also P = 5/12.",
+    "Falsch: P = 6/9 + 5/8.",
+    "Falsch: P = 6/9.",
+    "Richtig."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ohne Zurücklegen ändern sich Zähler und Nenner: 6/9 · 5/8 = 5/12."
+  },
+  {
+   "l": "verstehen",
+   "t": "verstehen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "4 weiße und 8 rote Kugeln, zwei Kugeln ohne Zurücklegen. Jemand rechnet P(weiß, weiß) = 4/12 · 4/12. Was stimmt?"
+   },
+   "a": [
+    "Falsch: P = 4/12 + 3/11.",
+    "Falsch: Beim zweiten Zug sind es 3 von 11, also P = 1/11.",
+    "Richtig.",
+    "Falsch: P = 4/12."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Ohne Zurücklegen ändern sich Zähler und Nenner: 4/12 · 3/11 = 1/11."
+  }
+ ],
+ "offen": [
+  "Baumdiagramme kann die App noch nicht zeichnen. Ersatz: Tabelle der Pfade (1. Stufe, 2. Stufe, Pfadwahrscheinlichkeit) in Lernkarten und Aufgaben zum Ergänzen; Simulationsergebnisse als Säulendiagramm. Ein echtes Baumdiagramm wäre deutlich anschaulicher.",
+  "Simulation: nur Auswertung (relative Häufigkeit, erwartete Anzahl, Gesetz der großen Zahlen). Selbst simulieren (Zufallszahlen erzeugen) kann das Kind in der App nicht.",
+  "Brüche als Antwort über Lücken „□/□“ (gekürzt)."
+ ]
+}

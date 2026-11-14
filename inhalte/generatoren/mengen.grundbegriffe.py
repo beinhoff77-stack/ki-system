@@ -293,6 +293,6 @@ bauen('mengen.grundbegriffe',
       [('Mengen', ['elemente']), ('Schnitt und Vereinigung', ['schnitt', 'vereinigung']), ('Venn-Diagramme', ['venn', 'verstehen'])],
       ETAPPEN, GEN,
       offen=['Umfang laut Themenliste: Elemente, Schnitt, Vereinigung (IB MYP 1). Komplement nur als Bereich „außerhalb“ im Venn-Diagramm, Mengen-Wahrscheinlichkeiten nicht enthalten (eigenes Thema).',
-             'Venn-Diagramme mit der Figur-Zeichnung gebaut (zwei Kreise + Rechteck als Grundmenge, Zahlen als beschriftete Punkte). Die Punkte erscheinen als kleine Marker – bei Bedarf eine eigene Zeichenart „venn“ ohne Marker.',
+             'Venn-Diagramme mit der Figur-Zeichnung gebaut: zwei Kreise + Rechteck (Grundmenge); Beschriftungen als Namen unsichtbarer Hilfskreise (Radius 0), damit keine Punkt-Marker erscheinen. Mit dem Zeichencode der App nachgeprüft. Eine eigene Zeichenart „venn“ wäre robuster.',
              'Mengenschreibweise mit Semikolon {1; 2; 3}, damit Dezimalkommas eindeutig bleiben.'],
       vertiefung=['verstehen'])

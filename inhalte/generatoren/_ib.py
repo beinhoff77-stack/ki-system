@@ -379,14 +379,50 @@ def _eindeutig(punkte, name, xy):
 
 
 def venn(nur_a, beide, nur_b, aussen=None, A='A', B='B', G='G'):
-    """Venn-Diagramm zweier Mengen als figur. Einträge sind Texte (Anzahlen oder Elementlisten); None = leer lassen."""
-    pk = {'_M1': [0, 0], '_M2': [4, 0], '_E1': [-4.3, -4.2], '_E2': [8.3, -4.2], '_E3': [8.3, 4.2], '_E4': [-4.3, 4.2]}
-    _eindeutig(pk, A, [-2.9, 2.9])
-    _eindeutig(pk, B, [6.9, 2.9])
-    _eindeutig(pk, G, [-3.8, 3.7])
-    for t, xy in ((nur_a, [-1.2, 0]), (beide, [2, 0]), (nur_b, [5.2, 0]), (aussen, [6.6, -3.6])):
-        if t is not None and str(t) != '': _eindeutig(pk, str(t), xy)
-    return {'typ': 'figur', 'punkte': pk, 'kreise': [{'m': '_M1', 'r': 3.2}, {'m': '_M2', 'r': 3.2}],
+    """Venn-Diagramm zweier Mengen als figur (zwei Kreise in einem Rechteck = Grundmenge).
+
+    Beschriftungen ohne Punkt-Marker: Sie hängen als Name an winzigen Hilfskreisen (figur.kreise[].name),
+    (Radius 0, also unsichtbar); die App setzt den Text dann links-bündig neben den Kreismittelpunkt. Die Position wird so verschoben,
+    dass der Text mittig im Bereich steht. Lange Listen ("1; 2; 3; 4") werden auf mehrere Zeilen verteilt.
+    """
+    r, d = 3.2, 3.6
+    x0, x1, y0, y1 = -r - 1.4, d + r + 1.4, -r - 1.2, r + 1.2
+    f = min((340 - 144) / (x1 - x0), 220 / (y1 - y0))           # Maßstab wie in lernFigur (px je Einheit)
+    pk = {'_M1': [0, 0], '_M2': [d, 0], '_E1': [x0, y0], '_E2': [x1, y0], '_E3': [x1, y1], '_E4': [x0, y1]}
+    kreise = [{'m': '_M1', 'r': r}, {'m': '_M2', 'r': r}]
+
+    def breite(t):
+        return sum(7.4 if ch.isupper() else 6.6 if ch.isalnum() else 3.6 for ch in t)
+
+    def text(t, cx, cy, links=False):
+        """Text mit Mitte (cx, cy) in Einheiten; links=True: Text beginnt bei cx."""
+        w = breite(t)
+        mx = cx - 6 / f if links is True else cx - (w + 6) / f if links == 'rechts' else cx - (w / 2 + 6) / f
+        kreise.append({'m': [round(mx, 3), round(cy - 8.5 / f, 3)], 'r': 0, 'name': t})
+
+    def bereich(t, cx, cy, max_px):
+        if t is None or str(t) == '': return
+        t = str(t)
+        teile = t.split('; ')
+        zeilen, akt = [], ''
+        for x in teile:
+            neu = x if not akt else akt + '; ' + x
+            if akt and breite(neu) > max_px: zeilen.append(akt); akt = x
+            else: akt = neu
+        zeilen.append(akt)
+        h = 15 / f
+        for i, z in enumerate(zeilen):
+            text(z, cx, cy + (len(zeilen) - 1) / 2 * h - i * h)
+
+    over = (2 * r - d) * f - 8
+    bereich(nur_a, -1.3, 0, (r + (d - r)) * f * 0.75)
+    bereich(beide, d / 2, 0, over)
+    bereich(nur_b, d + 1.3, 0, (r + (d - r)) * f * 0.75)
+    bereich(aussen, x1 - 0.9, y0 + 0.75, 60)
+    if A: text(A, d / 2 - 0.5, r + 0.6, links='rechts')
+    if B: text(B, d / 2 + 0.5, r + 0.6, links=True)
+    if G: text(G, x0 + 0.25, y0 + 0.6, links=True)
+    return {'typ': 'figur', 'punkte': pk, 'kreise': kreise,
             'linien': [['_E1', '_E2'], ['_E2', '_E3'], ['_E3', '_E4'], ['_E4', '_E1']]}
 
 

@@ -1,0 +1,91 @@
+{
+  "thema_schluessel": "gleichungen.lgs2",
+  "gesamturteil": "brauchbar",
+  "karten": [
+    {
+      "lernziel": "pruefen",
+      "urteil": "ok",
+      "stufen": "Gut: Lösungspaar auswählen → Paar prüfen, welche Gleichung erfüllt ist. Ablenker (x und y vertauscht, Paar erfüllt nur eine Gleichung) sind typische Fehler. Alle 24 nachgeprüft.",
+      "fehlende_aufgabentypen": [
+        "Grafisch lösen (Lehrplan: ‚grafisch und rechnerisch‘, luecken S(□ | □) mit f.grafik koordinaten): Zwei Geraden g: y = 2x − 1 und h: y = −x + 5 im Koordinatensystem; ‚Lies die Lösung des Gleichungssystems am Schnittpunkt ab.‘ → S(2 | 3). Beispiel 2: g: y = 0,5x + 1, h: y = −2x + 6 → S(2 | 2). Ganzzahlige Schnittpunkte wählen."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "einsetzen",
+      "urteil": "verbessern",
+      "stufen": "Steigerung über Form von I (y = ax → y = ax + b → x = …). Gefragt wird immer nur eine Variable; die zweite wird nie geprüft.",
+      "fehlende_aufgabentypen": [
+        "Zahlenpaar eingeben (luecken, Schablone ‚x = □; y = □‘): ‚Löse mit dem Einsetzungsverfahren: I: y = 2x − 3  II: 3x + y = 12.‘ → x = 3; y = 3. Beispiel 2: ‚I: x = y + 4  II: 2x − 3y = 5‘ → x = 7; y = 3."
+      ],
+      "generator_regeln": [
+        "Seit der Zahlenpaar-Lücke vorhanden ist, Lösungen als ‚x = □; y = □‘ abfragen statt ‚Gib x an‘."
+      ]
+    },
+    {
+      "lernziel": "gleichsetzen",
+      "urteil": "ok",
+      "stufen": "Passen; Stufe 3 (eine Gleichung erst umstellen) ist ein echter zusätzlicher Schritt.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Auch hier Zahlenpaar-Lücke verwenden."
+      ]
+    },
+    {
+      "lernziel": "addition",
+      "urteil": "verbessern",
+      "stufen": "Stufen über Anzahl der nötigen Multiplikationen (keine → eine → beide Gleichungen) – gut. Lösungsweg zeigt den Einsetzschritt nicht und hat Leerschritte.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Lösungsweg: Einsetzen ausschreiben (‚x = 1 in I: 3 · 1 + 6y = 27 → 6y = 24 → y = 4‘), keine Schritte ‚x = 1 → x = 1‘."
+      ]
+    },
+    {
+      "lernziel": "loesbarkeit",
+      "urteil": "ok",
+      "stufen": "Sehr gut: alle drei Fälle, Stufe 3 Parameter für ‚keine Lösung‘. Alle 21 Auswahlaufgaben nachgeprüft.",
+      "fehlende_aufgabentypen": [
+        "Begründen mit Geraden (auswahl): ‚Das System hat keine Lösung. Was bedeutet das für die Geraden?‘ → ‚Sie sind parallel und verschieden.‘ | ‚Sie sind identisch.‘ | ‚Sie schneiden sich im Ursprung.‘ Beispiel 2: ‚unendlich viele Lösungen‘ → ‚Die Geraden sind identisch.‘"
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "verfahren",
+      "urteil": "verbessern",
+      "stufen": "Die Einstufung leicht/mittel/schwer folgt keiner erkennbaren Logik; alle Aufgaben sind derselbe Typ. Die richtige Antwort steht in 13 von 24 Fällen an Position 1.",
+      "fehlende_aufgabentypen": [
+        "Effizienz begründen (Lehrplan ‚nach Effizienz wählen‘, auswahl): ‚Bei I: 3x + 2y = 7, II: 5x − 2y = 9 wählt jemand das Einsetzungsverfahren. Warum ist das umständlich?‘ → ‚Man muss erst eine Gleichung umstellen und bekommt Brüche; addieren lässt y sofort wegfallen.‘ | ‚Das Einsetzungsverfahren geht hier nicht.‘ | ‚Es ist nicht umständlicher.‘ Beispiel 2: ‚I: y = 3x − 2, II: y = −x + 6 mit dem Additionsverfahren‘ → ‚Beide sind schon nach y aufgelöst: Gleichsetzen spart das Umordnen.‘"
+      ],
+      "generator_regeln": [
+        "Position der richtigen Antwort mischen."
+      ]
+    },
+    {
+      "lernziel": "sachaufgabe",
+      "urteil": "verbessern",
+      "stufen": "Klassische Kontexte (Münzen, Hühner/Kaninchen, Eintritt). Stufe 3 Nussmischung mit unrealistischem Preis.",
+      "fehlende_aufgabentypen": [
+        "Tarifvergleich (zahl, Stufe 3): ‚Handwerker A: 40 € Anfahrt + 30 € pro Stunde, B: 20 € Anfahrt + 35 € pro Stunde. Nach wie vielen Stunden kosten beide gleich viel?‘ → 4 h. Beispiel 2: ‚Fitnessstudio A: 20 € Monat + 2 € pro Besuch, B: 8 € Monat + 5 € pro Besuch‘ → 4 Besuche.",
+        "Gleichungssystem aufstellen (auswahl): ‚Eine Gruppe aus 12 Personen zahlt 81 € Eintritt, Erwachsene 9 €, Kinder 4,50 €. Welches System passt?‘ → x + y = 12; 9x + 4,5y = 81 | x + y = 81; 9x + 4,5y = 12 | 9x + y = 12; x + 4,5y = 81."
+      ],
+      "generator_regeln": [
+        "Mischungsaufgaben mit realistischen Preisen: Nüsse 8–20 € pro kg, Kaffee 10–30 € pro kg.",
+        "Im Lösungsweg die zweite Unbekannte mit angeben."
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Ein Händler mischt Nüsse zu 2 € pro kg mit Nüssen zu 6 € pro kg. Er erhält 13 kg Mischung im Wert von 62 €. Wie viel kg der billigeren Sorte verwendet er?",
+      "art": "unrealistisch",
+      "problem": "Nüsse für 2 € pro kg gibt es nicht.",
+      "korrektur": "‚Ein Händler mischt Erdnüsse zu 8 € pro kg mit Cashewkernen zu 20 € pro kg. Er erhält 10 kg Mischung im Wert von 128 €. Wie viel kg Erdnüsse verwendet er?‘ → 6 kg (I: x + y = 10, II: 8x + 20y = 128)."
+    },
+    {
+      "aufgabe": "Löse mit dem Additionsverfahren: I: 3x + 6y = 27   II: −2x − 6y = −26. Gib y an.",
+      "art": "loesungsweg",
+      "problem": "Lösungsweg ‚Addieren: x = 1 → x = 1. Einsetzen: y = 4.‘ – doppelter Schritt; der Einsetzschritt, der zu y führt (gefragt!), fehlt.",
+      "korrektur": "Lösungsweg: ‚Addieren: x = 1. In I: 3 · 1 + 6y = 27 → 6y = 24 → y = 4.‘"
+    }
+  ]
+}

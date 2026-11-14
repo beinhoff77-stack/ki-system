@@ -1,0 +1,96 @@
+{
+  "thema_schluessel": "funktionen.trig",
+  "gesamturteil": "brauchbar",
+  "karten": [
+    {
+      "lernziel": "bogenmass",
+      "urteil": "ok",
+      "stufen": "Passt (Vielfache von π, Bogenmaß → Grad, gerundete Umrechnung). Werte nachgerechnet (16° ≈ 0,28; 2 rad ≈ 114,6°).",
+      "fehlende_aufgabentypen": [
+        "Bogenlänge (zahl, Stufe 3): Beispiel 1: 'Ein Kreis hat den Radius 4 cm. Wie lang ist der Bogen zum Winkel 1,5 (Bogenmaß)?' → 6 cm. Beispiel 2: 'Radius 10 cm, Bogenlänge 25 cm. Wie groß ist der Mittelpunktswinkel im Bogenmaß?' → 2,5."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "werte",
+      "urteil": "verbessern",
+      "stufen": "Exakte Werte nur für 0, ±0,5, ±1. Die Werte mit Wurzeln (sin 45° = ½√2, sin 60° = ½√3) fehlen ganz, weil 'zahl' sie nicht abfragen kann. Stufe 2 und 3 sind beide 'Taschenrechner im RAD-Modus' – kein Unterschied.",
+      "fehlende_aufgabentypen": [
+        "Exakte Werte mit Wurzeln (auswahl, Stufe 2): Beispiel 1: 'Exakter Wert von sin(π/4)?' Optionen ½√2 (richtig), ½√3, ½, √2. Beispiel 2: 'Exakter Wert von cos(5π/6)?' Optionen −½√3 (richtig), ½√3, −½, −½√2.",
+        "Vorzeichen ohne Rechner (auswahl, Stufe 3): Beispiel 1: 'Ist sin(4) positiv oder negativ?' → negativ (4 liegt zwischen π und 2π). Beispiel 2: 'cos(2)?' → negativ (2 liegt zwischen π/2 und π)."
+      ],
+      "generator_regeln": [
+        "Stufe 3 nicht nur Taschenrechnerwerte; Taschenrechneraufgaben auf Stufe 1–2."
+      ]
+    },
+    {
+      "lernziel": "periode",
+      "urteil": "verbessern",
+      "stufen": "Gut: Gradmaß, Bogenmaß, Graph ablesen, Fehlvorstellung prüfen. Die Lückenschablone '□/□ · π' erzwingt bei ganzzahligen Ergebnissen die Eingabe '1/1 · π' bzw. '6/1 · π'.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Bei ganzzahligem Vielfachen von π Schablone '□ · π' verwenden (oder Aufgabe als zahl mit Einheit π)."
+      ]
+    },
+    {
+      "lernziel": "parameter",
+      "urteil": "ok",
+      "stufen": "Passt; negatives a in Stufe 3 gut. Ablesen am Graphen nur in Test/Korrektur/Sicherung, nicht in der Übung.",
+      "fehlende_aufgabentypen": [
+        "Term aus Kennwerten aufstellen (luecken, Stufe 3, Schablone 'f(x) = □ · sin(□ · x) + □', x in Grad): Beispiel 1: 'Maximum 7, Minimum 1, Periode 180°, f(0) = Mittelwert, steigend' → [3, 2, 4]. Beispiel 2: 'Maximum 2, Minimum −4, Periode 720°' → [3, 0,5, −1]."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "zuordnen",
+      "urteil": "verbessern",
+      "stufen": "Alle 29 Grafik-Aufgaben per Programm geprüft: jeweils genau ein Term passt, Ablenker (sin/cos vertauscht, b statt a, +d) sinnvoll. Aber: In Stufe 1 zeigen 4 von 6 Übungen denselben Graphen 3 · sin(x). Verschiebung in x-Richtung (c) kommt nie vor, obwohl das Grafikformat sie kann.",
+      "fehlende_aufgabentypen": [
+        "Verschiebung in x-Richtung (auswahl mit Grafik, Stufe 3): Beispiel 1: Graph von sin(x − 90°) → Optionen sin(x − 90°) (richtig), sin(x + 90°), cos(x), −sin(x) – Hinweis im Lösungsweg, dass sin(x − 90°) = −cos x ist, also Option −cos(x) nicht gleichzeitig anbieten. Beispiel 2: Graph von 2 · sin(x + 45°) → Optionen 2 · sin(x + 45°) (richtig), 2 · sin(x − 45°), sin(2x + 45°), 2 · sin(x) + 45."
+      ],
+      "generator_regeln": [
+        "Innerhalb einer Stufe keinen Graphen doppelt verwenden.",
+        "Optionen, die zum selben Graphen führen (z. B. cos x und sin(x + 90°)), nie gemeinsam anbieten."
+      ]
+    },
+    {
+      "lernziel": "eigenschaften",
+      "urteil": "ok",
+      "stufen": "Passt. Werte nachgerechnet (Minimum cos bei 1 260°, Maximum sin bei 1 170°, sin(3x) hat 6 Nullstellen in [0°; 360°)). Die Aufgabe zur Verschiebung sin/cos ist korrekt (cos x = sin(x + 90°)).",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "anwendung",
+      "urteil": "verbessern",
+      "stufen": "Nur Einsetzen und Kennwerte ablesen; alle Riesenrad-Terme haben dieselbe Bauart. Stufe 3 (Tageslänge) ist rechnerisch richtig (t = 364 → 8,6 h; t = 19 → 9,0 h), aber auch nur Einsetzen. Es fehlt die Gegenrichtung: Modell aus Angaben bilden oder Zeitpunkt bestimmen.",
+      "fehlende_aufgabentypen": [
+        "Modell aus Sachangaben (luecken, Stufe 3, Schablone 'h(t) = □ − □ · cos(□° · t)'): Beispiel 1: 'Riesenrad: Durchmesser 50 m, tiefster Punkt der Gondel 2 m über dem Boden, eine Umdrehung 20 min, Start unten.' → [27, 25, 18]. Beispiel 2: 'Durchmesser 30 m, Einstieg 1 m hoch, Umdrehung 12 min.' → [16, 15, 30].",
+        "Zeitpunkt bestimmen (zahl, Stufe 3): Beispiel 1: 'h(t) = 20 − 18 · cos(30° · t). Nach wie vielen Minuten ist die Gondel zum ersten Mal 29 m hoch?' → cos(30°t) = −0,5 → 30t = 120° → 4 min. Beispiel 2: 'h(t) = 30 − 25 · cos(18° · t): Wann zum ersten Mal 30 m?' → 5 min."
+      ],
+      "generator_regeln": [
+        "Nicht alle Sachaufgaben als Riesenrad; z. B. auch Gezeiten (Wasserstand 2 m ± 1,5 m, Periode 12,4 h)."
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Wie viel Grad sind π?",
+      "art": "tipp_verraet_loesung",
+      "problem": "Tipp 'Ersetze π durch 180°.' nennt das Ergebnis.",
+      "korrektur": "Tipp: '360° entsprechen 2π. Was entspricht dann π?'"
+    },
+    {
+      "aufgabe": "Welche Periode hat f(x) = sin(2x) im Bogenmaß? Gib sie als Vielfaches von π an.",
+      "art": "loesungsweg",
+      "problem": "Schablone '□/□ · π' verlangt die Eingabe 1/1 · π; ebenso 6/1 · π bei sin((1/3)x) und cos((1/3)x). Unnatürlich, Schüler geben '1 · π' oder 'π' ein.",
+      "korrektur": "Schablone '□ · π', Lösung [1] (bzw. [6] bei sin((1/3)x))."
+    },
+    {
+      "aufgabe": "Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?",
+      "art": "mehrdeutig",
+      "problem": "Stufe 1 (Übung): vier der sechs Aufgaben zeigen denselben Graphen f(x) = 3 · sin(x); nur die Optionen sind umsortiert. Wirkt für Schüler wie eine Wiederholung.",
+      "korrektur": "Stufe-1-Graphen variieren: 3 · sin(x), 2 · cos(x), sin(x) + 2, −2 · sin(x), cos(x) − 1, 1,5 · cos(x)."
+    }
+  ]
+}

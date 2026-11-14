@@ -1,0 +1,95 @@
+{
+  "thema_schluessel": "funktionen.potenz",
+  "gesamturteil": "brauchbar",
+  "karten": [
+    {
+      "lernziel": "werte",
+      "urteil": "verbessern",
+      "stufen": "Stufe 3 (f(3) für −2x⁴) ist nicht schwerer als Stufe 2 (f(−2) für −3x³) – eher leichter. Werte stimmen.",
+      "fehlende_aufgabentypen": [
+        "Vorzeichenfalle (auswahl, Stufe 3): Beispiel 1: 'f(x) = −x⁴. Jemand rechnet f(−2) = (−(−2))⁴ = 16. Was stimmt?' → 'Falsch: f(−2) = −(−2)⁴ = −16.' Ablenker '16', '−8', 'Richtig'. Beispiel 2: 'f(x) = −2x³, f(−3) = ?' Antworten 54 (richtig), −54 (Vorzeichen von (−3)³ vergessen), −216 ((−6)³ statt −2 · (−3)³), −18.",
+        "Bruch/Dezimalzahl einsetzen (zahl, Stufe 3): Beispiel 1: 'f(x) = 4x³, f(0,5)?' → 0,5. Beispiel 2: 'f(x) = 8x², f(−0,25)?' → 0,5."
+      ],
+      "generator_regeln": [
+        "Stufe 3: x als Dezimalzahl oder a negativ mit x negativ und ungeradem n."
+      ]
+    },
+    {
+      "lernziel": "symmetrie",
+      "urteil": "verbessern",
+      "stufen": "Stufe 1 und 2 sind identisch (sogar dieselbe Aufgabe 'y = −4x²' in beiden). Stufe 3 (Behauptung prüfen) gut. Ohne Graph bleibt Symmetrie eine Regel über gerade/ungerade Hochzahlen.",
+      "fehlende_aufgabentypen": [
+        "Graph erkennen (auswahl, Stufe 2): f.grafik koordinaten mit einem Graphen ({art: 'potenz', a, n}). Beispiel 1: Graph von y = 0,5x³: 'Welche Symmetrie hat der gezeigte Graph?' → punktsymmetrisch zum Ursprung. Beispiel 2: Graph von y = −x⁴ → achsensymmetrisch zur y-Achse.",
+        "Symmetrie bei Summen (auswahl, Stufe 3): Beispiel 1: 'y = x⁴ + x²' → achsensymmetrisch zur y-Achse. Beispiel 2: 'y = x³ + x²' → 'keine dieser Symmetrien' (f(1) = 2, f(−1) = 0)."
+      ],
+      "generator_regeln": [
+        "Antwort 'achsensymmetrisch zur x-Achse' durch 'keine dieser Symmetrien' ersetzen oder ergänzen (Graph einer Funktion kann nie zur x-Achse symmetrisch sein – dieser Ablenker ist zu leicht).",
+        "Keine Aufgabe doppelt (heute 11 Doppelungen im Thema)."
+      ]
+    },
+    {
+      "lernziel": "verlauf",
+      "urteil": "verbessern",
+      "stufen": "Stufe 1, 2 und 3 enthalten überwiegend dieselbe Frage ('Wie verläuft der Graph von …?'); mehrere wörtliche Doppelungen. Die zwei Fragen 'Welcher Graph liegt für 0 < x < 1 weiter oben?' und '(−1 | 1)' sind echte Stufe-3-Aufgaben – davon mehr.",
+      "fehlende_aufgabentypen": [
+        "Graph zu Gleichung zuordnen (auswahl, Stufe 2): f.grafik mit drei Graphen g, h, k (z. B. y = x², y = x⁴, y = −x³). Beispiel 1: 'Welcher Graph gehört zu y = x⁴?' → der flachere bei 0, steilere außerhalb. Beispiel 2: 'Welcher Graph gehört zu y = −x³?' → der fallende.",
+        "Vergleich für x > 1 (auswahl, Stufe 3): Beispiel 1: 'Welcher Graph liegt für x > 1 weiter oben: y = x³ oder y = x⁵?' → y = x⁵. Beispiel 2: 'Für x = 0,5: Ist x² oder x⁴ größer?' → x²."
+      ],
+      "generator_regeln": [
+        "Stufe 1 nur a = ±1, Stufe 2 mit Faktor a, Stufe 3 Vergleich zweier Potenzen oder Graphen-Zuordnung."
+      ]
+    },
+    {
+      "lernziel": "parameter",
+      "urteil": "ok",
+      "stufen": "Passt: a bestimmen, n bestimmen, aus zwei Punkten. Werte stimmen.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Lösungsweg nicht '= −1a', sondern '= −a'."
+      ]
+    },
+    {
+      "lernziel": "negativ",
+      "urteil": "verbessern",
+      "stufen": "Stufe 2 besteht überwiegend aus 'Welche Symmetrie hat y = x^(−6)?' (4-mal dieselbe Aufgabe). Stufe 3 gut (Fehler finden, Definitionsbereich, Verhalten für große x).",
+      "fehlende_aufgabentypen": [
+        "Verhalten nahe 0 (auswahl, Stufe 3): Beispiel 1: 'Was passiert mit y = x^(−1) für x nahe 0, x > 0?' → 'y wird beliebig groß.' Beispiel 2: '… für x nahe 0, x < 0?' → 'y wird beliebig klein (stark negativ).'"
+      ],
+      "generator_regeln": [
+        "Schreibweise x⁻⁶ wie in der Regel (nicht x^(−6)); die App kann hochgestellte Minuszeichen anzeigen.",
+        "Ablenker '16' bei 4^(−4) ist kein typischer Fehler; besser '−16' (−4 · 4)."
+      ]
+    },
+    {
+      "lernziel": "wurzelfunktion",
+      "urteil": "ok",
+      "stufen": "Passt. Stufe 3 (Punkt vertauschen, Definitionsbereich) gut. 'Für welche x ist f(x) = x^(1/2) definiert?' steht doppelt.",
+      "fehlende_aufgabentypen": [
+        "Graph der Umkehrfunktion (auswahl, Stufe 3): f.grafik mit y = x² (x ≥ 0), y = √x und der Geraden y = x. Beispiel 1: 'Wie liegen die beiden Graphen zueinander?' → 'Spiegelbildlich zur Geraden y = x.' Beispiel 2: 'Der Punkt (3 | 27) liegt auf y = x³. Welcher Punkt liegt auf y = ∛x?' → (27 | 3)."
+      ],
+      "generator_regeln": [
+        "Ablenker 'für alle x > 1' ersetzen durch 'für alle x > 0' (Verwechslung von > und ≥)."
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Welche Symmetrie hat der Graph von y = x^(−6)?",
+      "art": "mehrdeutig",
+      "problem": "Viermal dieselbe Aufgabe (dreimal Übung Stufe 2, einmal Korrektur). Weitere Doppelungen: 'y = −4x²', 'y = 3x⁵', 'y = x⁴', 'y = −x⁷', 'y = −x⁹', 'y = −x³', 'y = x^(−2)', 'y = x^(−5)', Umkehrfunktion von x², Definitionsbereich von x^(1/2).",
+      "korrektur": "Weitere Fassungen mit anderen Exponenten: 'Welche Symmetrie hat der Graph von y = 2x⁻³?' – Lösung 'punktsymmetrisch zum Ursprung'; 'y = −x⁻⁴' – 'achsensymmetrisch zur y-Achse'."
+    },
+    {
+      "aufgabe": "y = a · x³ geht durch P(−1 | −6). Bestimme a.",
+      "art": "sprache",
+      "problem": "Lösungsweg schreibt '−6 = a · (−1)³ = −1a'. '−1a' ist keine übliche Schreibweise.",
+      "korrektur": "Lösungsweg: '−6 = a · (−1)³ = −a ⇒ a = 6.'"
+    },
+    {
+      "aufgabe": "Jemand rechnet 4^(−4) = −256. Was stimmt?",
+      "art": "loesungsweg",
+      "problem": "Ablenker 'Falsch: 4^(−4) = 16' entspricht keinem nachvollziehbaren Fehler; die Lösung '0,00390625' ist für Klasse 9 unhandlich.",
+      "korrektur": "Antworten: 'Falsch: 4⁻⁴ = 1/256' (richtig), 'Falsch: 4⁻⁴ = −1/256', 'Falsch: 4⁻⁴ = −16', 'Richtig'."
+    }
+  ]
+}

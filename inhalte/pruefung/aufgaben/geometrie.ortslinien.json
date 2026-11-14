@@ -1,0 +1,86 @@
+{
+  "thema_schluessel": "geometrie.ortslinien",
+  "gesamturteil": "brauchbar",
+  "karten": [
+    {
+      "lernziel": "kreislinie",
+      "urteil": "ok",
+      "stufen": "Passt: Stufe 1 Abstand gegeben, Stufe 2 aus Koordinaten (mit Zeichnung), Stufe 3 Punkte zählen und Lücken. Werte stimmen. 'auf der Kreislinie' ist in keiner gesehenen Auswahlaufgabe richtig.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Etwa ein Drittel der Lage-Aufgaben mit Abstand = Radius ('auf der Kreislinie')."
+      ]
+    },
+    {
+      "lernziel": "parallelen",
+      "urteil": "ok",
+      "stufen": "Passt; der Streifen mit Rand/innen/außen wird gut geübt. Stufe 3 hat nur eine Aufgabe ('Mittelparallele').",
+      "fehlende_aufgabentypen": [
+        "Mittelparallele (luecken, Stufe 3): Beispiel 1: 'g: y = −2, h: y = 6. Welche Gerade enthält alle Punkte, die von g und h gleich weit entfernt sind?' Schablone 'y = □' → [2]. Beispiel 2: 'g: y = −5, h: y = 1' → [−2]."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "zwei_kreise",
+      "urteil": "verbessern",
+      "stufen": "Stufen passen. Es fehlt der Fall 'ein Kreis liegt ganz im anderen' ([AB] kleiner als r₂ − r₁): Dann gibt es keinen Schnittpunkt, obwohl [AB] < r₁ + r₂. Die Regel erwähnt nur 'zu weit auseinander'; Kinder lernen sonst die falsche Faustregel 'AB < r₁ + r₂ ⇒ zwei Punkte'.",
+      "fehlende_aufgabentypen": [
+        "Kreis im Kreis (auswahl, Stufe 3): Beispiel 1: 'Kreis um A mit r = 2 cm, Kreis um B mit r = 8 cm, [AB] = 3 cm. Wie viele Schnittpunkte?' → keinen (Ablenker zwei, weil 3 < 10). Beispiel 2: 'r = 3 cm und r = 7 cm, [AB] = 4 cm' → einen (innen berührend)."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "verknuepfen",
+      "urteil": "verbessern",
+      "stufen": "Stufe 2 und Korrektur/Sicherung bestehen fast nur aus derselben Lückenaufgabe ('Die beiden Parallelen zu g im Abstand … – welchen Abstand haben sie von M?'), 14-mal. Die eigentliche Stufe-3-Frage 'Wie viele Punkte erfüllen beide Bedingungen?' kommt nur einmal vor.",
+      "fehlende_aufgabentypen": [
+        "Anzahl der Punkte mit zwei Bedingungen (zahl, Stufe 2–3): Beispiel 1: 'M hat von g den Abstand 5 cm. Wie viele Punkte haben von M den Abstand 4 cm und von g den Abstand 2 cm?' → 2 (Parallele im Abstand 3 cm von M schneidet zweimal, die im Abstand 7 cm nicht). Beispiel 2: 'M hat von g den Abstand 2 cm. Abstand 4 cm von M und 2 cm von g?' → 3 (Parallelen im Abstand 0 und 4 cm von M: 2 + 1)."
+      ],
+      "generator_regeln": [
+        "Satzbau: 'Die beiden Parallelen zu g haben von g den Abstand 4 cm. Wie weit sind sie von M entfernt?'",
+        "Höchstens 6 Aufgaben dieses Lückentyps je Karte."
+      ]
+    },
+    {
+      "lernziel": "sachsituationen",
+      "urteil": "verbessern",
+      "stufen": "Stufe 3 (Schatz, Handy) ist gut. Stufe 2 bis Sicherung ist fast nur die Straßenaufgabe (Breite + 2 · Streifen). Ablenker 'Nur wenn es in Richtung Norden liegt.' ist kein Denkfehler, sondern ein Füllsatz, und passt bei 'Erreicht der Hund den Napf?' grammatisch nicht ('es').",
+      "fehlende_aufgabentypen": [
+        "Weide am Zaun (zahl, Stufe 3): Beispiel 1: 'Eine Ziege ist mit einer 4 m langen Leine an einem Pflock angebunden. Der Pflock steht 6 m von einem geraden Zaun entfernt. Wie nah kommt die Ziege an den Zaun heran?' → 2 m. Beispiel 2: 'Leine 5 m, Pflock 8 m vom Zaun' → 3 m."
+      ],
+      "generator_regeln": [
+        "Ablenker 'Nur wenn es in Richtung Norden liegt.' ersetzen durch 'Ja, weil 3 m und 2 m fast gleich sind.' oder 'Nein, weil man den Durchmesser nehmen muss.' (Radius/Durchmesser-Verwechslung).",
+        "Keine Fälle genau auf der Grenze (Haus genau 4 km bei 4 km Reichweite), oder 'bis einschließlich' sagen."
+      ]
+    },
+    {
+      "lernziel": "verstehen",
+      "urteil": "verbessern",
+      "stufen": "Inhaltlich gute Aussagen (Rand, Streifenbreite, höchstens 4 Schnittpunkte). Wie in den anderen Klasse-5-Geometriethemen ist die richtige Antwort meist die einzige mit Begründung; Ablenker 'Nein, das ist falsch.' / 'Das kann man nicht entscheiden.'",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Alle Antworten mit gleich gebauter Begründung (z. B. 'Ja, 4 cm nach einer Seite.' / 'Nein, 4 cm nach jeder Seite: 8 cm.' / 'Nein, 2 cm nach jeder Seite: 4 cm.')."
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Ein Hund ist an einer Leine von 9 m angebunden. Sein Napf steht 6 m vom Pflock entfernt. Erreicht der Hund den Napf?",
+      "art": "sprache",
+      "problem": "Ablenker 'Nur wenn es in Richtung Norden liegt.' – 'es' passt nicht zum Napf, und die Antwort ist kein typischer Fehler, sondern leicht auszuschließen.",
+      "korrektur": "Antworten: 'Ja.' (richtig), 'Nein.', 'Nur wenn die Leine doppelt so lang ist wie der Abstand.'"
+    },
+    {
+      "aufgabe": "Ein Funkmast reicht 4 km. Ein Haus steht 4 km vom Mast entfernt. Hat es Empfang?",
+      "art": "mehrdeutig",
+      "problem": "Genau auf der Grenze; ob 'reicht 4 km' den Rand einschließt, ist sprachlich offen.",
+      "korrektur": "Ein Funkmast reicht bis einschließlich 4 km. Ein Haus steht 4 km vom Mast entfernt. Hat es Empfang? – Lösung 'Ja.'"
+    },
+    {
+      "aufgabe": "M hat von g den Abstand 8 cm. Die beiden Parallelen zu g im Abstand 4 cm – welchen Abstand haben sie von M? (kleineren zuerst)",
+      "art": "sprache",
+      "problem": "Unvollständiger Satz; für Fünftklässler schwer zu lesen.",
+      "korrektur": "M ist 8 cm von der Geraden g entfernt. Zwei Parallelen zu g haben von g jeweils den Abstand 4 cm. Wie weit sind die beiden Parallelen von M entfernt? (kleineren Wert zuerst) – Lösung [4, 12]."
+    }
+  ]
+}

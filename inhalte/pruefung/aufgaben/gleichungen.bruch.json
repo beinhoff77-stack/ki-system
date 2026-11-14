@@ -1,0 +1,82 @@
+{
+  "thema_schluessel": "gleichungen.bruch",
+  "gesamturteil": "brauchbar",
+  "karten": [
+    {
+      "lernziel": "definitionsmenge",
+      "urteil": "ok",
+      "stufen": "Passen. Alle 24 Auswahlaufgaben mit einem Algebraprogramm nachgeprüft. Ablenker gut (Vorzeichen verdreht, rechte Seite mit ausgeschlossen).",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "ein_bruch",
+      "urteil": "verbessern",
+      "stufen": "Alle Karten des Themas haben dieselbe Verteilung: 4 leichte Aufgaben einer Vorlage, 16 mittlere einer zweiten, 4 schwere einer dritten. Innerhalb einer Stufe also nur ein Aufgabentyp.",
+      "fehlende_aufgabentypen": [
+        "Grafisch deuten (Lehrplan!, auswahl, f.grafik koordinaten mit hyperbel und waagrechter Gerade): Graph y = 6/(x − 1) und Gerade y = 2. ‚Lies die Lösung von 6/(x − 1) = 2 am Schnittpunkt ab.‘ → x = 4 | x = 2 | x = 1 | x = 6. Beispiel 2: y = −4/(x + 2) und y = 1 → x = −6."
+      ],
+      "generator_regeln": [
+        "Je Stufe mindestens zwei verschiedene Vorlagen (z. B. Stufe 2: Bruch = Zahl, Zahl = Bruch, Bruch mit x im Zähler)."
+      ]
+    },
+    {
+      "lernziel": "ueber_kreuz",
+      "urteil": "ok",
+      "stufen": "Gute Steigerung; Stufe 3 mit wegfallendem x² ist ein echter Sonderfall.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Im Lösungsweg keinen doppelten Schritt ‚→ x = 47 → x = 47‘ ausgeben, wenn nach dem Umstellen der Koeffizient 1 ist."
+      ]
+    },
+    {
+      "lernziel": "hauptnenner",
+      "urteil": "ok",
+      "stufen": "Passen.",
+      "fehlende_aufgabentypen": [
+        "Sachaufgabe gemeinsame Arbeit (zahl, Stufe 3): ‚Ein Wasserhahn füllt eine Wanne allein in 12 Minuten, ein zweiter in 6 Minuten. Wie lange dauert es mit beiden? Löse 1/12 + 1/6 = 1/x.‘ → 4 min. Beispiel 2: ‚Zwei Kinder streichen einen Zaun: allein 6 h bzw. 3 h.‘ → 2 h."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "scheinloesung",
+      "urteil": "ok",
+      "stufen": "Gut gemischt: 12 von 24 Aufgaben haben eine Scheinlösung, die übrigen eine echte Lösung – das Kind muss wirklich prüfen. Alle nachgeprüft.",
+      "fehlende_aufgabentypen": [
+        "Begründen (auswahl): ‚Warum ist x = 2 keine Lösung von (x + 7)/(x − 2) = 9/(x − 2), obwohl die Rechnung x = 2 ergibt?‘ → ‚Für x = 2 ist der Nenner 0, die Gleichung ist dort nicht definiert.‘ | ‚Weil man falsch gerechnet hat.‘ | ‚Weil 2 positiv ist.‘ Beispiel 2: mit (x − 3)/(x + 1) = −4/(x + 1) → x = −1 ausgeschlossen."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "verhaeltnis",
+      "urteil": "verbessern",
+      "stufen": "Leicht enthält Aufgaben wie ‚x : 6 = 16 : 6‘, die man ohne Rechnen sieht. Sachaufgaben gibt es nur zwei (Stufe 3), obwohl Verhältnisse typisch Alltag sind.",
+      "fehlende_aufgabentypen": [
+        "Sachaufgaben Mischverhältnis (zahl, Stufe 2): ‚Saft und Wasser werden im Verhältnis 1 : 4 gemischt. Wie viel Wasser brauchst du für 250 ml Saft?‘ → 1 000 ml. Beispiel 2: ‚Beton: Zement zu Kies 1 : 5. Für 30 kg Kies braucht man wie viel kg Zement?‘ → 6 kg."
+      ],
+      "generator_regeln": [
+        "In ‚x : a = b : c‘ nie a = c."
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Löse 6/(x + 7) = 5/(x − 2).",
+      "art": "loesungsweg",
+      "problem": "Lösungsweg endet mit ‚→ x = 47 → x = 47.‘ (doppelter Schritt). Betrifft alle Aufgaben der Vorlage, bei denen nach dem Umstellen 1x übrig bleibt.",
+      "korrektur": "Lösungsweg: ‚D = ℚ \\ {−7; 2}. Über Kreuz: 6(x − 2) = 5(x + 7) → 6x − 12 = 5x + 35 → x = 47. 47 liegt in D.‘"
+    },
+    {
+      "aufgabe": "Löse die Verhältnisgleichung x : 6 = 16 : 6.",
+      "art": "mehrdeutig",
+      "problem": "Gleiche Nenner auf beiden Seiten – die Lösung 16 ist ohne Produktgleichheit ablesbar; die Aufgabe übt das Verfahren nicht.",
+      "korrektur": "‚Löse die Verhältnisgleichung x : 6 = 16 : 24.‘ → 4."
+    },
+    {
+      "aufgabe": "Löse 2/x = 4/(x + 4).",
+      "art": "loesungsweg",
+      "problem": "Tipp verlangt ‚Bestimme zuerst D‘, der Lösungsweg nennt D aber nicht und prüft nicht, ob 4 in D liegt.",
+      "korrektur": "Lösungsweg: ‚D = ℚ \\ {−4; 0}. Über Kreuz: 2(x + 4) = 4x → 8 = 2x → x = 4. 4 liegt in D.‘"
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "thema_schluessel": "abbildungen.aehnlichkeit",
+  "gesamturteil": "brauchbar",
+  "karten": [
+    {
+      "lernziel": "streckung",
+      "urteil": "verbessern",
+      "stufen": "Gute Steigerung (Länge mal k → Bildpunkt mit k > 0 → Bildpunkt mit k < 0 oder k = 0,5). Alle Bildpunkte nachgerechnet, stimmen. Formulierung 'Strecke P(4 | 0) zentrisch an Z(2 | 1)' ist missverständlich ('Strecke' als Nomen gelesen).",
+      "fehlende_aufgabentypen": [
+        "Streckfaktor mit Vorzeichen bestimmen (zahl, Stufe 3): Beispiel 1: 'Z(0 | 0), P(2 | 1), P'(−4 | −2). Bestimme k.' → −2. Beispiel 2: 'Z(1 | 1), P(5 | 3), P'(3 | 2)' → 0,5.",
+        "Zentrum finden (luecken, Stufe 3, Schablone 'Z(□ | □)'): Beispiel 1: 'P(2 | 2) wird mit k = 2 auf P'(4 | 6) abgebildet. Wo liegt Z?' → [0, −2]. Beispiel 2: 'P(3 | 0), k = 3, P'(7 | 0)' → [1, 0]."
+      ],
+      "generator_regeln": [
+        "Text: 'Strecke den Punkt P(4 | 0) zentrisch mit Zentrum Z(2 | 1) und k = 2. Gib P' an.'",
+        "Bild als f.grafik koordinaten mit Z und P einblenden (in Stufe 1–2)."
+      ]
+    },
+    {
+      "lernziel": "aehnlich",
+      "urteil": "verbessern",
+      "stufen": "Stufe 1–2 passen. Stufe 3 (Ähnlichkeit prüfen) ist gut, die Ablenker sind Denkfehler. Es fehlt die Ähnlichkeit über Winkel, obwohl die Regel 'zwei gleiche Winkel genügen' nennt.",
+      "fehlende_aufgabentypen": [
+        "Ähnlich über Winkel (auswahl, Stufe 2): Beispiel 1: 'Dreieck 1 hat die Winkel 40° und 75°, Dreieck 2 die Winkel 65° und 75°. Sind sie ähnlich?' → 'Ja, der dritte Winkel von Dreieck 1 ist 65°.' Beispiel 2: 'Dreieck 1: 50° und 60°; Dreieck 2: 50° und 80°' → 'Nein, die Winkel sind 50/60/70 und 50/80/50.'",
+        "Ähnlichkeitsfaktor aus nicht sortierten Seiten (zahl, Stufe 3): Beispiel 1: 'Dreieck 1: 6 cm, 4 cm, 8 cm. Dreieck 2 ist ähnlich, seine längste Seite ist 20 cm. Wie lang ist seine kürzeste Seite?' → 10 cm. Beispiel 2: 'Dreieck 1: 9, 15, 12 cm; Dreieck 2 hat kürzeste Seite 6 cm. Längste?' → 10 cm."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "strahlensatz1",
+      "urteil": "verbessern",
+      "stufen": "Rechnungen stimmen. Stufe 1 und 2 sind derselbe Ansatz. Jede Aufgabe trägt denselben 50-Wörter-Vorspann; ohne Figur ist er schwer zu lesen. Die X-Figur (Scheitel zwischen den Parallelen) fehlt ganz.",
+      "fehlende_aufgabentypen": [
+        "X-Figur (zahl, Stufe 3): f.grafik typ 'figur' mit S zwischen den Parallelen. Beispiel 1: 'SA = 4 cm, SB = 6 cm, SA' = 10 cm (A' auf der Verlängerung über S hinaus). Berechne SB'.' → 15 cm. Beispiel 2: 'SA = 3 cm, SA' = 7,5 cm, SB' = 10 cm. SB?' → 4 cm.",
+        "Umkehrung (auswahl, Stufe 3): Beispiel 1: 'SA = 4 cm, AA' = 2 cm, SB = 6 cm, BB' = 3 cm. Sind AB und A'B' parallel?' → 'Ja, 4 : 6 = 6 : 9.' Beispiel 2: 'SA = 5, AA' = 3, SB = 4, BB' = 3' → 'Nein, 5 : 8 ≠ 4 : 7.'"
+      ],
+      "generator_regeln": [
+        "Statt des langen Vorspanns eine Figur als f.grafik (typ 'figur', Punkte S, A, B, A', B', Linien beschriftet, unbekannte Strecke '?') und einen kurzen Satz.",
+        "Aufgaben 'SA = 5 cm, SB = 2 cm, SB' = 2,5 cm' und 'SA = 5 cm, SB = 3 cm, SB' = 3,75 cm' haben dieselbe Lösung 6,25 cm und stehen beide in der Korrektur – verschiedene Ergebnisse wählen."
+      ]
+    },
+    {
+      "lernziel": "strahlensatz2",
+      "urteil": "ok",
+      "stufen": "Passt gut: Stufe 3 'Fehler finden' trifft genau den typischen Fehler (AA' statt SA'). Ablenker sinnvoll.",
+      "fehlende_aufgabentypen": [
+        "Falscher Strahlensatz (auswahl, Stufe 3): Beispiel 1: 'SA = 4 cm, AA' = 2 cm, AB = 5 cm. Jemand rechnet A'B' : AB = AA' : SA.' → 'Falsch: Beim 2. Strahlensatz immer ab S messen: A'B' = 5 · 6 : 4 = 7,5 cm.' Beispiel 2: 'Jemand rechnet AB : A'B' = SB : BB'.' → 'Falsch: SB : SB'.'"
+      ],
+      "generator_regeln": [
+        "Figur als f.grafik statt Vorspann (wie bei strahlensatz1)."
+      ]
+    },
+    {
+      "lernziel": "flaeche_volumen",
+      "urteil": "ok",
+      "stufen": "Passt: Fläche mit k², Volumen mit k³, Rückschluss auf k, Maßstab mit Umrechnung. Werte stimmen.",
+      "fehlende_aufgabentypen": [
+        "Fehler finden (auswahl, Stufe 3): Beispiel 1: 'Ein Foto 10 cm × 15 cm wird auf 20 cm × 30 cm vergrößert. Jemand sagt: Es braucht doppelt so viel Papier.' → 'Falsch: k = 2, Fläche · 4.' Beispiel 2: 'Ein Würfel mit doppelter Kantenlänge wiegt doppelt so viel.' → 'Falsch: Volumen · 8, also 8-mal so schwer.'"
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "anwendung",
+      "urteil": "verbessern",
+      "stufen": "Schattenaufgaben sind eine gute Grundform, aber Stufe 1 und 2 sind identisch. Stufe 3 enthält reine Bruchgleichungen ohne Sachbezug ('Bei einer Strahlensatzfigur ergibt sich …') – das ist keine Anwendung. Einige Größen sind unrealistisch (siehe Fehlerliste).",
+      "fehlende_aufgabentypen": [
+        "Daumensprung / Peilung (zahl, Stufe 3): Beispiel 1: 'Dein Arm ist 60 cm lang, deine Augen sind 6 cm voneinander entfernt. Beim Daumensprung springt dein Daumen um 50 m vor einem Haus hin und her. Wie weit ist das Haus entfernt?' → 500 m. Beispiel 2: 'Arm 65 cm, Augenabstand 6,5 cm, Sprung 30 m' → 300 m."
+      ],
+      "generator_regeln": [
+        "Türme mindestens 15 m, Häuser 6–30 m, Masten 8–40 m; Flussbreiten mindestens 5 m.",
+        "Bruchgleichungen in Stufe 3 nur mit Sachzusammenhang und Figur."
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Ein 0,5 m langer Stab wirft einen 1 m langen Schatten. Zur gleichen Zeit wirft ein Turm einen 4 m langen Schatten. Wie hoch ist er?",
+      "art": "unrealistisch",
+      "problem": "Ein 'Turm' von 2 m Höhe ist keiner. Ähnlich: Turm 5 m, Turm 7 m.",
+      "korrektur": "Ein 0,5 m langer Stab wirft einen 1 m langen Schatten. Zur gleichen Zeit wirft ein Turm einen 48 m langen Schatten. Wie hoch ist er? – Lösung 24 m."
+    },
+    {
+      "aufgabe": "Bei einer Strahlensatzfigur ergibt sich die Gleichung x : (x + 3) = 1 : 2. Löse sie.",
+      "art": "loesungsweg",
+      "problem": "Keine Anwendung, obwohl die Lernkarte 'Strahlensätze anwenden' heißt. Lösungsweg schreibt '1x = 3'.",
+      "korrektur": "Ein Baum steht 3 m hinter einer 2 m hohen Mauer. Von einem Punkt auf dem Boden sieht man gerade noch die Spitze von Mauer und Baum in einer Linie. Der Baum ist 4 m hoch. Wie weit ist der Punkt von der Mauer entfernt? – Lösung 3 m (x : (x + 3) = 2 : 4 ⇒ 4x = 2x + 6 ⇒ x = 3)."
+    },
+    {
+      "aufgabe": "Strecke P(4 | 0) zentrisch an Z(2 | 1) mit k = 2.",
+      "art": "sprache",
+      "problem": "'Strecke' wird als Nomen gelesen ('Die Strecke P …'); 'an Z' ist unüblich. Betrifft alle Bildpunkt-Aufgaben.",
+      "korrektur": "Strecke den Punkt P(4 | 0) zentrisch mit dem Zentrum Z(2 | 1) und k = 2. Gib den Bildpunkt P' an. – Lösung P'(6 | −1)."
+    },
+    {
+      "aufgabe": "Flussbreite messen: S, A und A' liegen auf einer Geraden (A am diesseitigen, A' am jenseitigen Ufer), B und B' auf einer zweiten Geraden durch S, und AB ∥ A'B'. Gemessen: SA = 4 m, SB = 7 m, SB' = 10,5 m. Wie breit ist der Fluss (AA')?",
+      "art": "unrealistisch",
+      "problem": "Für einen 2 m breiten Bach misst man nicht mit Strahlensatz. Außerdem müsste man B' am anderen Ufer messen – dann ist SB' nicht direkt messbar; die Aufgabe bildet das Verfahren nicht realistisch ab.",
+      "korrektur": "Flussbreite messen: Du stehst am Ufer bei A, genau gegenüber steht ein Baum T. Du gehst am Ufer 20 m bis B und steckst einen Stab ein, dann weitere 5 m bis C. Von C gehst du senkrecht vom Fluss weg, bis du bei D den Stab B und den Baum T in einer Linie siehst. CD = 6 m. Wie breit ist der Fluss (AT)? – Lösung 24 m (X-Figur mit Scheitel B: AT : CD = AB : BC ⇒ AT = 6 · 20 : 5 = 24 m)."
+    }
+  ]
+}

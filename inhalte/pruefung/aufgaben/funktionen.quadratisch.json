@@ -1,0 +1,100 @@
+{
+  "thema_schluessel": "funktionen.quadratisch",
+  "gesamturteil": "brauchbar",
+  "karten": [
+    {
+      "lernziel": "scheitel",
+      "urteil": "verbessern",
+      "stufen": "Alle 28 Aufgaben sind dieselbe Lücke 'S(□ | □)' aus der Scheitelform. Stufe 2 und 3 unterscheiden sich nur durch den Faktor a; nur eine Aufgabe ('y = −2 − 0,5(x − 3)²') verlangt Umordnen. Werte stimmen.",
+      "fehlende_aufgabentypen": [
+        "Scheitel am Graphen ablesen (luecken, Stufe 1): f.grafik koordinaten mit {art: 'poly'} einer Parabel. Beispiel 1: Graph von y = (x − 2)² − 3 → S(2 | −3). Beispiel 2: Graph von y = −(x + 1)² + 4 → S(−1 | 4).",
+        "Scheitelform aufstellen (luecken, Stufe 2, Term-Vorlage '□(x − □)² + □'): Beispiel 1: 'Normalparabel, Scheitel S(−3 | 2), nach unten geöffnet' → [−1, −3, 2]. Beispiel 2: 'Mit a = 2 gestreckt, S(1 | −5)' → [2, 1, −5]."
+      ],
+      "generator_regeln": [
+        "Stufe 3 nur mit Umordnen (e vorne, z. B. 'y = 4 + 2(x + 1)²') oder Klammer 'x + d' mit negativem d und e = 0."
+      ]
+    },
+    {
+      "lernziel": "parameter",
+      "urteil": "verbessern",
+      "stufen": "Stufe 1 und 2 gleichartig. Stufe 3 ('Wie viele Nullstellen ohne zu rechnen?', Scheitel-Fehler finden) ist gut. Fachfehler im Lösungsweg (siehe Fehlerliste).",
+      "fehlende_aufgabentypen": [
+        "Graph zur Gleichung (auswahl, Stufe 2): f.grafik mit drei Parabeln. Beispiel 1: 'Welcher Graph gehört zu y = 0,5(x − 1)²?' → der breite mit Scheitel (1 | 0). Beispiel 2: 'Welche Gleichung gehört zum Graphen mit Scheitel (−2 | 1), nach unten geöffnet, schmal?' → y = −2(x + 2)² + 1."
+      ],
+      "generator_regeln": [
+        "Nullstellen-Anzahl: auch Scheitel auf der x-Achse ('genau eine Nullstelle') einbauen."
+      ]
+    },
+    {
+      "lernziel": "umformen",
+      "urteil": "ok",
+      "stufen": "Passt: Stufe 1 a = 1, Stufe 2 mit a = −1, Stufe 3 a ≠ ±1. Alle Ergebnisse nachgerechnet.",
+      "fehlende_aufgabentypen": [
+        "Fehler finden (auswahl, Stufe 3): Beispiel 1: 'Jemand formt y = 2x² + 8x + 3 um: y = 2(x² + 4x + 4) + 3 − 4 = 2(x + 2)² − 1. Was ist falsch?' → 'Es muss 2 · 4 = 8 abgezogen werden: y = 2(x + 2)² − 5.' Beispiel 2: 'y = x² − 6x + 2 = (x − 3)² + 2 + 9' → 'Die Ergänzung wird abgezogen: (x − 3)² − 7.'"
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "nullstellen",
+      "urteil": "ok",
+      "stufen": "Passt (Produktform, Formel, Anzahl). In Stufe 3 ist 'genau eine Nullstelle' nie richtig, 'keine' nur einmal.",
+      "fehlende_aufgabentypen": [
+        "Nullstellen aus der Scheitelform (luecken, Stufe 3): Beispiel 1: 'y = (x − 3)² − 4' → [1, 5]. Beispiel 2: 'y = −2(x + 1)² + 18' → [−4, 2]."
+      ],
+      "generator_regeln": [
+        "Antworten bei 'Wie viele Nullstellen?' etwa gleich verteilt (keine / eine / zwei).",
+        "Frage 'Wie viele Nullstellen hat die Funktion …' statt '… hat der Graph von …'."
+      ]
+    },
+    {
+      "lernziel": "punkte",
+      "urteil": "verbessern",
+      "stufen": "Stufe 2 ist fast nur Punktprobe als Auswahl. Die Antworten widersprechen sich teils selbst ('Ja, denn f(0) = 4' bei P(0 | −4)) und lassen sich teilweise ohne Rechnung ausschließen.",
+      "fehlende_aufgabentypen": [
+        "Fehlende Koordinate (zahl, Stufe 3): Beispiel 1: 'P(u | 5) liegt auf y = x² − 4 und u > 0. Bestimme u.' → 3. Beispiel 2: 'Q(−2 | v) liegt auf y = −x² + 3x. Bestimme v.' → −10."
+      ],
+      "generator_regeln": [
+        "Antworten nur 'Ja' / 'Nein' plus berechneter Wert in der Lösung, oder vier Werte für f(u) zur Auswahl (richtig, Vorzeichenfehler bei (−u)², Rechenfehler bei b · u, c vergessen).",
+        "Im Lösungsweg keine Glieder '+ 0' und '1 · 4²' ausschreiben."
+      ]
+    },
+    {
+      "lernziel": "bestimmen",
+      "urteil": "ok",
+      "stufen": "Passt, Stufe 3 mit drei Punkten ist echt schwer. Die Aufgabe 'Scheitel S(2 | 1), P(3 | 0)' in Stufe 3 ist eine Stufe-1-Aufgabe.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Lösungsweg '= a + 1' statt '= 1a + 1'."
+      ]
+    },
+    {
+      "lernziel": "extremwert",
+      "urteil": "ok",
+      "stufen": "Passt. Sachaufgaben realistisch (Gehege, Hauswand, Eintrittskarten). 'Zwei Zahlen haben die Summe …' kommt 4-mal, Gehege 6-mal – mehr verschiedene Situationen wären besser.",
+      "fehlende_aufgabentypen": [
+        "Wurfbahn (zahl, Stufe 3): Beispiel 1: 'Ein Ball fliegt auf der Bahn h(x) = −0,1x² + 2x + 1,5 (x und h in m). Wie hoch fliegt er höchstens?' → 11,5 m. Beispiel 2: 'h(x) = −0,05x² + x + 2' → 7 m."
+      ],
+      "generator_regeln": []
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Wie sieht die Parabel y = −(x + 5)² − 5 im Vergleich zur Normalparabel aus?",
+      "art": "loesungsweg",
+      "problem": "Lösungsweg: '|a| = 1 < 1 ⇒ weder gestreckt noch gestaucht'. '1 < 1' ist falsch. Gleiches bei 'y = −(x − 2)² + 1'.",
+      "korrektur": "Lösungsweg: 'a = −1: negativ ⇒ nach unten geöffnet; |a| = 1 ⇒ weder gestreckt noch gestaucht.'"
+    },
+    {
+      "aufgabe": "Liegt P(0 | −4) auf dem Graphen von f(x) = x² + 3x − 4?",
+      "art": "loesungsweg",
+      "problem": "Antworten 'Ja, denn f(0) = 4' und 'Nein, denn f(0) = −4' widersprechen sich selbst; die richtige Antwort ist durch Ausschluss erkennbar. Lösungsweg schreibt '1 · 0² + 3 · 0 − 4 = −4 = −4'. Muster in allen Punktproben der Karte.",
+      "korrektur": "Antworten: 'Ja' (richtig), 'Nein, f(0) = 4', 'Nein, f(0) = −1', 'Nein, f(0) = 0'. Lösungsweg: 'f(0) = 0² + 3 · 0 − 4 = −4. Das ist die y-Koordinate von P, also liegt P auf dem Graphen.'"
+    },
+    {
+      "aufgabe": "Liegt P(4 | −1) auf dem Graphen von f(x) = −x² + 5x − 4?",
+      "art": "mehrdeutig",
+      "problem": "Antworten 'Ja, denn f(4) = 0' und 'Nein, denn f(4) = 0' – das Kind muss nur die logisch passende wählen.",
+      "korrektur": "Antworten: 'Nein, f(4) = 0' (richtig), 'Ja', 'Nein, f(4) = 32' (−x² als +16 gerechnet), 'Nein, f(4) = 8'."
+    }
+  ]
+}

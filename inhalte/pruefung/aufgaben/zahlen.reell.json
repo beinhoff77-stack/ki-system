@@ -1,0 +1,82 @@
+{
+  "thema_schluessel": "zahlen.reell",
+  "gesamturteil": "gut",
+  "karten": [
+    {
+      "lernziel": "zahlarten",
+      "urteil": "verbessern",
+      "stufen": "Gute Mischung (kleinste Zahlenmenge, rational/irrational, periodisch). Fachfehler bei 0,999… (siehe Fehlerliste).",
+      "fehlende_aufgabentypen": [
+        "Andere irrationale Zahlen (auswahl): ‚Welche Zahl ist irrational?‘ → π | 22/7 | 3,14 | 3,1̅4̅. Beispiel 2: ‚0,101001000100001… (immer eine 0 mehr)‘ → irrational, ‚0,1̅0̅‘ → rational."
+      ],
+      "generator_regeln": [
+        "Bei Aussagen über periodische Zahlen 0,9̅ bzw. x,9̅ nicht verwenden (Sonderfall = ganze Zahl) oder die Ablenker darauf prüfen.",
+        "Richtige Antwort nicht gehäuft an Position 2 (11 von 28)."
+      ]
+    },
+    {
+      "lernziel": "eingrenzen",
+      "urteil": "ok",
+      "stufen": "Gut: Quadrat einer Dezimalzahl → Zehntel → Hundertstel. Ablenker ‚halbiert statt Wurzel‘ (66,0 bis 66,1) ist ein typischer Fehler.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "wurzel_mal",
+      "urteil": "verbessern",
+      "stufen": "22 Aufgaben ‚Berechne √a · √b‘ in Stufe 1 und 2. Stufe 3 enthält eine Scheinaufgabe (√240 · √60 − √14 400 = 0).",
+      "fehlende_aufgabentypen": [
+        "Division (zahl): ‚Berechne √432 : √3.‘ → 12. Beispiel 2: ‚√(50) : √2‘ → 5.",
+        "Regel gilt nicht für Summen (auswahl): ‚Ist √9 · √16 = √(9 · 16)?‘ → ja; ‚Ist √9 + √16 = √(9 + 16)?‘ → nein (7 ≠ 5)."
+      ],
+      "generator_regeln": [
+        "In ‚√a · √b − √c‘ nicht c = a · b wählen."
+      ]
+    },
+    {
+      "lernziel": "teilweise",
+      "urteil": "verbessern",
+      "stufen": "Gut, alle 28 Lösungen nachgeprüft (Radikand quadratfrei). Die Aufgabe sagt nicht ‚so weit wie möglich‘ – 2√60 wäre auch ein ‚teilweises Wurzelziehen‘ von √240, wird aber als falsch gewertet.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Aufgabentext: ‚Ziehe teilweise die Wurzel, so weit wie möglich: √240.‘"
+      ]
+    },
+    {
+      "lernziel": "zusammenfassen",
+      "urteil": "ok",
+      "stufen": "Passen; Stufe 3 mit 3. binomischer Formel gut. Ergebnisse wie −1√5 werden als ‚−1‘ und ‚5‘ eingegeben – im Lösungsweg korrekt ‚−√5‘.",
+      "fehlende_aufgabentypen": [
+        "Nicht zusammenfassbar (auswahl): ‚Kann man √2 + √3 zusammenfassen?‘ → ‚Nein, verschiedene Radikanden.‘ | ‚Ja, zu √5.‘ | ‚Ja, zu 2√5.‘"
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "nenner_rational",
+      "urteil": "ok",
+      "stufen": "Passen; Stufe 3 mit binomischer Formel. Alle Lösungen nachgerechnet.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Jemand sagt: „0,999… (die 9 wiederholt sich immer) ist irrational.“ Was stimmt?",
+      "art": "falsch",
+      "problem": "0,999… = 1. Damit ist der Ablenker ‚Falsch: Die Zahl ist eine natürliche Zahl.‘ ebenfalls richtig, und ‚Richtig: Die Zahl ist keine ganze Zahl.‘ enthält eine falsche Aussage. Zwei Antworten sind vertretbar.",
+      "korrektur": "Zahl ersetzen durch 0,454545… (‚Jemand sagt: „0,4545… ist irrational.“‘). Richtig: ‚Falsch: Periodische Dezimalzahlen sind rational (0,4̅5̅ = 5/11).‘"
+    },
+    {
+      "aufgabe": "Berechne √240 · √60 − √14 400.",
+      "art": "mehrdeutig",
+      "problem": "Ergebnis immer 0, weil √14 400 = √(240 · 60) – Stufe 3 wird zur Scheinaufgabe.",
+      "korrektur": "‚Berechne √240 · √60 − √3 600.‘ → 120 − 60 = 60."
+    },
+    {
+      "aufgabe": "Ziehe teilweise die Wurzel: √240.",
+      "art": "mehrdeutig",
+      "problem": "Auch 2√60 ist teilweises Wurzelziehen; verlangt ist 4√15.",
+      "korrektur": "‚Ziehe teilweise die Wurzel so weit wie möglich: √240.‘"
+    }
+  ]
+}

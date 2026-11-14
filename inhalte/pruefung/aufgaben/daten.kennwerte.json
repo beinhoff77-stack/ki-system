@@ -1,0 +1,92 @@
+{
+  "thema_schluessel": "daten.kennwerte",
+  "gesamturteil": "brauchbar",
+  "karten": [
+    {
+      "lernziel": "mittelwert",
+      "urteil": "ok",
+      "stufen": "Passen: Zahlenliste → Sachdaten (auch negative Temperaturen) → Durchschnitt pro Tag, Gruppenvergleich. Werte realistisch.",
+      "fehlende_aufgabentypen": [
+        "Mittelwert aus Diagramm (zahl, f.grafik saeulen): Säulendiagramm ‚Gelesene Bücher im Monat‘ für 5 Kinder (3, 5, 2, 6, 4) → Mittelwert 4. Beispiel 2: Regentage Jan–Apr (12, 9, 10, 13) → 11."
+      ],
+      "generator_regeln": [
+        "Tipp ‚Negative Werte beim Addieren beachten.‘ nur, wenn negative Werte vorkommen (nicht bei Körpergröße/Taschengeld)."
+      ]
+    },
+    {
+      "lernziel": "mittel_tabelle",
+      "urteil": "verbessern",
+      "stufen": "Passen. Sprachfehler ‚1 Tore‘. Die Häufigkeitstabelle steht als Fließtext (‚Note 1: 4-mal | Note 2: …‘), obwohl die App jetzt Tabellen zeichnet.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "‚1 Tor‘ statt ‚1 Tore‘.",
+        "Häufigkeiten als f.grafik tabelle (‚Note | 1 | 2 | 3 …‘ / ‚Anzahl | 4 | 1 | 7 …‘) anzeigen.",
+        "Notenspiegel realistisch: meiste Noten bei 2–4, wenige 1 und 5/6."
+      ]
+    },
+    {
+      "lernziel": "mittel_rueckwaerts",
+      "urteil": "verbessern",
+      "stufen": "Gute Umkehraufgaben. Der Generator erzeugt aber triviale Fälle (neues Kind mit genau dem Mittelwert, fehlender Wert 0).",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Bei ‚Ein weiteres Kind kommt mit x Punkten dazu‘ nie x = alter Mittelwert.",
+        "Fehlender Wert nicht 0 (wirkt wie Rechenfehler) und im Sachbereich plausibel (Testpunkte 1–30)."
+      ]
+    },
+    {
+      "lernziel": "modal_spannweite",
+      "urteil": "ok",
+      "stufen": "Passen; Spannweite mit negativen Werten in Stufe 3 ist gut.",
+      "fehlende_aufgabentypen": [
+        "Kein oder mehrere Modalwerte (auswahl): ‚Welchen Modalwert hat 3, 5, 3, 7, 5?‘ → ‚3 und 5‘ | 3 | 5 | 4,6. Beispiel 2: ‚2, 4, 6, 8‘ → ‚Es gibt keinen Modalwert (jeder Wert einmal).‘"
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "median",
+      "urteil": "ok",
+      "stufen": "Passen (ungerade → gerade Anzahl → Ausreißer-Vergleich).",
+      "fehlende_aufgabentypen": [
+        "Fehler finden (auswahl): ‚Jemand bestimmt den Median von 9, 2, 7, 4, 5 als 7 (mittlere Zahl der Liste). Was ist falsch?‘ → ‚Die Werte wurden nicht geordnet; richtig 2, 4, 5, 7, 9 → 5.‘ Beispiel 2: ‚Median von 3, 8, 10, 12 ist 10‘ → ‚Bei gerader Anzahl: (8 + 10) : 2 = 9.‘"
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "verstehen",
+      "urteil": "verbessern",
+      "stufen": "Gute Aussagen (Ausreißer, Verschiebung, Mittelwert nicht in Liste). Aber 21 von 28 Antworten sind ‚Ja‘, und die Vorlage ‚Der Mittelwert von … kann eine Dezimalzahl sein‘ ist für konkrete Listen unsinnig (siehe Fehlerliste).",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Etwa die Hälfte der Aussagen falsch wählen (z. B. ‚Die Spannweite von 6, 2, 11, 11 ist 5.‘).",
+        "Ablenker ‚Das kann man nicht entscheiden.‘ durch einen typischen Fehlgrund ersetzen."
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Stimmt die Aussage? „Der Mittelwert von 2, 2, 10, 6 kann eine Dezimalzahl sein, auch wenn alle Werte ganze Zahlen sind.“",
+      "art": "mehrdeutig",
+      "problem": "Der Mittelwert dieser Liste ist 5 (ganzzahlig) – auf die konkrete Liste bezogen ist die Aussage falsch, als allgemeine Aussage richtig. Als richtig gilt ‚Ja, z. B. Mittelwert von 1 und 2 ist 1,5.‘ Gleiches bei ‚4, 3, 5, 4‘ (Mittelwert 4) und ‚4, 11, 2, 3‘ (Mittelwert 5).",
+      "korrektur": "‚Stimmt die Aussage? „Der Mittelwert ganzer Zahlen ist immer eine ganze Zahl.“‘ → ‚Nein, z. B. Mittelwert von 7, 8, 9, 6 ist 7,5.‘"
+    },
+    {
+      "aufgabe": "5 Kinder haben im Mittel 7 Punkte. Ein weiteres Kind kommt mit 7 Punkten dazu. Wie groß ist der neue Mittelwert?",
+      "art": "mehrdeutig",
+      "problem": "Als Stufe 3 eingestuft, aber trivial (Mittelwert bleibt 7). Der Lerneffekt ‚neue Summe durch neue Anzahl‘ entfällt.",
+      "korrektur": "‚5 Kinder haben im Mittel 7 Punkte. Ein weiteres Kind kommt mit 13 Punkten dazu. Wie groß ist der neue Mittelwert?‘ → 8."
+    },
+    {
+      "aufgabe": "Tore einer Mannschaft – 0 Tore: 4 Spiele | 1 Tore: 4 Spiele | 2 Tore: 8 Spiele. Wie viele Tore schießt sie im Mittel pro Spiel?",
+      "art": "sprache",
+      "problem": "‚1 Tore‘",
+      "korrektur": "‚… | 1 Tor: 4 Spiele | …‘"
+    },
+    {
+      "aufgabe": "Der Mittelwert von 5 Werten ist 20. Bekannt sind 24, 28, 28, 20. Wie heißt der fehlende Wert?",
+      "art": "mehrdeutig",
+      "problem": "Lösung 0 ist richtig, aber ungewöhnlich; Lösungsweg ‚Fehlend: 100 − 100 = 0‘ wirkt wie ein Fehler und lässt Kinder zweifeln.",
+      "korrektur": "‚Der Mittelwert von 5 Werten ist 20. Bekannt sind 24, 18, 28, 15. Wie heißt der fehlende Wert?‘ → 15."
+    }
+  ]
+}

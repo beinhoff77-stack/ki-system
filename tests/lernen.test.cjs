@@ -27,6 +27,8 @@ const AUFG = {
   11: { id: 11, lernziel: 'stellenwert', antworttyp: 'zahl', frage: { text: 'Welchen Wert hat die Ziffer 2 in 182 887?' }, loesung: { wert: 2000 } },
   12: { id: 12, lernziel: 'strahl', antworttyp: 'markierung', frage: { text: 'Tippe die Markierung an, an der 20 000 liegt.', grafik: { typ: 'zahlenstrahl', start: 0, ende: 40000, abschnitte: 8, beschriftet: 'anfang_ende' } }, loesung: { index: 4 } },
   13: { id: 13, lernziel: 'binomisch', antworttyp: 'luecken', frage: { text: 'Multipliziere aus: (x + 1)²', schablone: '□x² + □x + □' }, loesung: { werte: [1, 2, 1] } },
+  15: { id: 15, lernziel: 'binomisch', stufe: 3, antworttyp: 'luecken', frage: { text: 'Kürze 6/8 vollständig.', schablone: '□/□' }, loesung: { werte: [3, 4] } },
+  16: { id: 16, lernziel: 'binomisch', stufe: 3, antworttyp: 'luecken', frage: { text: 'Löse das Gleichungssystem.', schablone: 'x = □; y = □' }, loesung: { werte: [2, -1] } },
   14: { id: 14, lernziel: 'lesen', antworttyp: 'auswahl', frage: { text: 'Wie liest man 11 490 051?' }, antworten: ['elf Millionen vierhundertneuntausend…', 'elf Millionen vierhundertneunzigtausendeinundfünfzig'], loesung: { index: 1 } },
 };
 const ETAPPEN = [
@@ -111,7 +113,7 @@ async function setup(t, opt = {}) {
       einloesungen: [{ id: 9, kind: 'Kind A', titel: 'Eis', sterne: 300, status: 'beantragt' }] };
     else if (['schule_einloesen', 'schule_look_setzen', 'schule_belohnung_setzen', 'schule_einloesung_entscheiden'].includes(b.aktion)) e = { ok: true };
     else if (b.aktion === 'schule_einheit_lesen') e = { ok: true, einheit_id: d.einheit_id, status: 'geprueft', inhalt: { ziel: 'Natürliche Zahlen: große Zahlen lesen', etappen: ETAPPEN },
-      uebungen: [zeig(AUFG[11]), zeig(AUFG[12]), zeig(AUFG[13])], stand: ETAPPEN.map((x) => ({ lernziel: x.lernziel, pflicht: true, status: 'offen' })),
+      uebungen: [zeig(AUFG[11]), zeig(AUFG[12]), zeig(AUFG[13]), zeig(AUFG[15]), zeig(AUFG[16])], stand: ETAPPEN.map((x) => ({ lernziel: x.lernziel, pflicht: true, status: 'offen' })),
       etappen_stand: { stellenwert: { fertig: false, ziel: 2 }, strahl: { fertig: false, ziel: 2 }, binomisch: { fertig: false, ziel: 2 } }, laufender_test: null };
     else if (b.aktion === 'schule_merkheft') e = { ok: true, einheiten: [{ einheit_id: 1, block_id: 49, stadt: 'Rom', ort_titel: 'Natürliche und ganze Zahlen', etappen: ETAPPEN,
       stand: { stellenwert: { fertig: true }, strahl: { fertig: true } }, blocktest_fertig: false, nachtest: { grund: 'einheit_offen' } },
@@ -259,8 +261,22 @@ test('Lernen: Thema – Erklären | Üben | Typische Fehler, Punkte bis „sitzt
   await page.screenshot({ path: path.join(root, 'test-results/lernen-term-390.png'), fullPage: true });
   await page.getByRole('button', { name: 'Prüfen' }).click();
   await page.getByText('Richtig!').waitFor();
+  // Allgemeine Lücken: Bruch als Zähler/Nenner, Zahlenpaar als zwei Felder.
+  await page.getByRole('button', { name: 'Nächste Aufgabe' }).click();
+  await page.getByRole('textbox', { name: 'Zähler' }).fill('3');
+  await page.getByRole('button', { name: 'Prüfen' }).click();
+  await page.getByText('Bitte fülle alle Felder aus.').waitFor();
+  await page.getByRole('textbox', { name: 'Nenner' }).fill('4');
+  await page.getByRole('button', { name: 'Prüfen' }).click();
+  await page.getByText('Richtig!').waitFor();
+  await page.getByRole('button', { name: 'Nächste Aufgabe' }).click();
+  await page.getByRole('textbox', { name: 'Lücke 1' }).fill('2');
+  await page.getByRole('textbox', { name: 'Lücke 2' }).fill('1');
+  await page.screenshot({ path: path.join(root, 'test-results/lernen-luecken-390.png'), fullPage: true });
+  await page.getByRole('button', { name: 'Prüfen' }).click();
+  await page.getByText('Richtig ist: x = 2; y = −1').waitFor();
   const p = calls.filter((c) => c.aktion === 'schule_uebung_pruefen');
-  assert.deepEqual(p.map((c) => c.daten.antwort), [{ wert: '2.000' }, { wert: '2 000' }, { wert: '2000' }, { index: 3 }, { index: 4 }, { werte: ['1', '2', '1'] }]);
+  assert.deepEqual(p.map((c) => c.daten.antwort), [{ wert: '2.000' }, { wert: '2 000' }, { wert: '2000' }, { index: 3 }, { index: 4 }, { werte: ['1', '2', '1'] }, { werte: ['3', '4'] }, { werte: ['2', '1'] }]);
   assert.ok(p.every((c) => c.daten.lernender_id === 1 && c.daten.client_id));
   const w = await page.evaluate(() => document.documentElement.scrollWidth); assert.ok(w <= 390, 'keine Querverschiebung: ' + w);
 });

@@ -487,6 +487,8 @@ function lernGleichwertigAusgeklammert(schablone, werte, loesung) {
   const a = aus(werte), b = aus(loesung);
   return [...new Set([...a.keys(), ...b.keys()])].every((k) => Math.abs((a.get(k) || 0) - (b.get(k) || 0)) < 1e-9);
 }
+// Term-Vorlage (Polynom wie „□x² + □x + □“ oder „□(□x + □)“): frei eintippen. Alles andere: je Lücke ein Feld.
+const lernIstTermVorlage = (schablone) => { const t = String(schablone || ''); return /[a-z]/.test(t) && /^[\s□+\-−·()a-z²³]*$/.test(t); };
 function lernTermFehler(f, schablone) {
   const form = String(schablone).replace(/□/g, '…');
   return { klammer: `Hier gehört eine Klammer in die Antwort, so: ${form}`, ohneklammer: 'Die Antwort soll ohne Klammer sein. Rechne die Klammer aus.',
@@ -526,6 +528,23 @@ function lernAufgabe(a, vorher) {
     inp.addEventListener('input', () => { wert = inp.value.trim() ? { wert: inp.value } : null; });
     felder.push(inp);
     teile.push(el('div', { class: 'lern-zeile' }, inp, a.einheit ? el('span', { class: 'lern-einheit-zeichen' }, a.einheit) : null));
+  } else if (a.antworttyp === 'luecken' && !lernIstTermVorlage(f.schablone)) {
+    // W150: allgemeine Lücken (Bruch □/□, Zahlenpaar x = □; y = □, Punkt S(□ | □) …): je Lücke ein kleines Zahlenfeld.
+    const st = String(f.schablone || '□').split('□'); const n = st.length - 1;
+    const bruch = String(f.schablone).trim() === '□/□';
+    const eingaben = Array.from({ length: n }, (_, i) => el('input', { type: 'text', inputmode: 'text', autocomplete: 'off', class: 'lern-luecke',
+      'aria-label': bruch ? (i ? 'Nenner' : 'Zähler') : `Lücke ${i + 1}`, value: wert?.werte?.[i] ?? '' }));
+    const lies = () => {
+      const w = eingaben.map((x) => x.value.trim());
+      wert = w.every((x) => x !== '') ? { werte: w } : null;
+      fehler = wert ? null : (n > 1 ? 'Bitte fülle alle Felder aus.' : 'Bitte erst antworten.');
+    };
+    eingaben.forEach((x) => { x.addEventListener('input', lies); felder.push(x); });
+    if (f.hinweis) teile.push(el('p', { class: 'small muted' }, f.hinweis));
+    teile.push(bruch
+      ? el('div', { class: 'lern-bruch', role: 'group', 'aria-label': 'Bruch' }, eingaben[0], el('span', { class: 'lern-bruchstrich', 'aria-hidden': 'true' }), eingaben[1])
+      : el('div', { class: 'lern-lueckenzeile' }, ...st.flatMap((t, i) => [t ? el('span', {}, t) : null, i < n ? eingaben[i] : null]).filter(Boolean)));
+    lies(); fehler = null;
   } else if (a.antworttyp === 'luecken') {
     // W150: Term frei eintippen (wie im Heft); die App liest daraus die Zahlen für die Vorlage.
     const vorlage = String(f.schablone || '□');
@@ -792,7 +811,7 @@ function lernThemaSeite(ctx, etappen, start, karteNr) {
           meldung.replaceChildren(r.richtig
             ? el('div', { class: 'lr-rueck lr-rueck-ok' }, el('b', {}, 'Richtig!'), r.loesungsweg ? el('p', {}, lernText(r.loesungsweg)) : null)
             : el('div', { class: 'lr-rueck lr-rueck-falsch' }, el('b', {}, 'Noch nicht. Richtig ist: ' + lernLoesungText(a)),
-              a.antworttyp === 'luecken' && lernGleichwertigAusgeklammert(a.frage?.schablone, w.werte, r.loesung?.werte)
+              a.antworttyp === 'luecken' && lernIstTermVorlage(a.frage?.schablone) && lernGleichwertigAusgeklammert(a.frage?.schablone, w.werte, r.loesung?.werte)
                 ? el('p', {}, 'Dein Term ist gleichwertig, aber noch nicht vollständig ausgeklammert: Vor die Klammer gehört der größte gemeinsame Faktor.') : null,
               r.loesungsweg ? el('p', {}, el('b', {}, 'So geht’s: '), lernText(r.loesungsweg)) : null,
               el('p', { class: 'lr-leise' }, 'Die Punkte fangen wieder bei 0 an. Die Erklärung steht oben an der Aufgabe.')));

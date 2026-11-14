@@ -1,0 +1,6892 @@
+{
+ "thema_schluessel": "funktionen.ganzrational",
+ "thema_id": 39,
+ "block_id": 66,
+ "klasse": {
+  "gym_by": 10,
+  "ib_myp": 4
+ },
+ "autor": "Claude (Paket Klasse 10)",
+ "inhalt": {
+  "ziel": "Ganzrationale Funktionen beschreiben: Grad und Koeffizienten, Randverhalten, Symmetrie, Nullstellen mit Vielfachheit; Graph und Term zuordnen und Terme aus Nullstellen bestimmen.",
+  "merke": [
+   "Grad = höchste Hochzahl, Leitkoeffizient = ihr Faktor, Absolutglied = f(0).",
+   "Randverhalten: nur das höchste Glied zählt.",
+   "Nur gerade Hochzahlen: achsensymmetrisch; nur ungerade: punktsymmetrisch.",
+   "Ungerade Vielfachheit: Schnitt; gerade: Berührung."
+  ],
+  "abschnitte": [
+   {
+    "titel": "Aufbau",
+    "lernziele": [
+     "grad",
+     "ausmultiplizieren"
+    ]
+   },
+   {
+    "titel": "Eigenschaften",
+    "lernziele": [
+     "randverhalten",
+     "symmetrie",
+     "nullstellen"
+    ]
+   },
+   {
+    "titel": "Graph und Term",
+    "lernziele": [
+     "graph_term",
+     "term_bestimmen"
+    ]
+   }
+  ],
+  "etappen": [
+   {
+    "lernziel": "grad",
+    "titel": "Grad, Leitkoeffizient, Absolutglied",
+    "regel": "Eine ⟦ganzrationale Funktion⟧ ist eine Summe von Vielfachen von x-Potenzen. Die höchste Hochzahl ist der ⟦Grad⟧, ihr Faktor der ⟦Leitkoeffizient⟧, die Zahl ohne x das ⟦Absolutglied⟧ (= f(0)).",
+    "schritte": [
+     "f(x) = −2x³ + 5x − 7: höchste Potenz x³.",
+     "Grad ⟦3⟧, Leitkoeffizient ⟦−2⟧, Absolutglied ⟦−7⟧."
+    ],
+    "probe": "f(0) = −7 ✓",
+    "fehler": "Bei f(x) = 4 + x² − 3x³ den Leitkoeffizienten 4 zu nennen ist falsch: Er gehört zur ⟦höchsten⟧ Potenz, also −3."
+   },
+   {
+    "lernziel": "ausmultiplizieren",
+    "titel": "Produktform ausmultiplizieren",
+    "regel": "Aus der ⟦Produktform⟧ entsteht durch ⟦Ausmultiplizieren⟧ die Summenform. Schrittweise: erst zwei Klammern, dann mit der dritten.",
+    "schritte": [
+     "(x − 1)(x + 2) = x² + x − 2.",
+     "(x² + x − 2)(x − 3) = ⟦x³ − 2x² − 5x + 6⟧."
+    ],
+    "probe": "x = 1 eingesetzt: 1 − 2 − 5 + 6 = 0 ✓ (1 ist Nullstelle)",
+    "fehler": "(x − 1)(x + 2) = x² − 2 ist falsch: Die ⟦gemischten Glieder⟧ 2x und −x fehlen. Jedes Glied mit jedem multiplizieren."
+   },
+   {
+    "lernziel": "randverhalten",
+    "titel": "Verhalten für große |x|",
+    "regel": "Für sehr große und sehr kleine x bestimmt nur das ⟦Glied mit der höchsten Potenz⟧ den Verlauf. Gerader Grad: beide Enden gleich; ungerader Grad: Enden entgegengesetzt. Negativer Leitkoeffizient spiegelt.",
+    "schritte": [
+     "f(x) = −x⁴ + 10x³ − 2: höchstes Glied −x⁴.",
+     "Grad gerade, Leitkoeffizient negativ: ⟦von links unten nach rechts unten⟧."
+    ],
+    "probe": "f(100) = −100 000 000 + 10 000 000 − 2 < 0 ✓",
+    "fehler": "„Wegen +10x³ geht der Graph rechts nach oben“ ist falsch: Für große x ⟦überwiegt die höchste Potenz⟧ −x⁴.",
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      11
+     ],
+     "y": [
+      -1500,
+      2000
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -2,
+        0,
+        0,
+        10,
+        -1
+       ],
+       "name": "f"
+      }
+     ],
+     "schritt_y": 500
+    }
+   },
+   {
+    "lernziel": "symmetrie",
+    "titel": "Symmetrie erkennen",
+    "regel": "Nur ⟦gerade⟧ Hochzahlen (Absolutglied zählt als x⁰): ⟦achsensymmetrisch⟧ zur y-Achse. Nur ⟦ungerade⟧ Hochzahlen: ⟦punktsymmetrisch⟧ zum Ursprung. Gemischt: keine dieser Symmetrien.",
+    "schritte": [
+     "f(x) = 2x⁴ − x² + 3: Hochzahlen 4, 2, 0.",
+     "Alle gerade: ⟦achsensymmetrisch zur y-Achse⟧."
+    ],
+    "probe": "f(−1) = 2 − 1 + 3 = 4 = f(1) ✓",
+    "fehler": "f(x) = x³ + 1 als punktsymmetrisch zu bezeichnen ist falsch: Das Absolutglied 1 ist eine ⟦gerade⟧ Potenz (x⁰). f(−1) = 0, aber −f(1) = −2.",
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      2
+     ],
+     "y": [
+      0,
+      8
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        3,
+        0,
+        -1,
+        0,
+        2
+       ],
+       "name": "f"
+      }
+     ],
+     "punkte": [
+      {
+       "x": -1,
+       "y": 4
+      },
+      {
+       "x": 1,
+       "y": 4
+      }
+     ]
+    }
+   },
+   {
+    "lernziel": "nullstellen",
+    "titel": "Nullstellen und Vielfachheit",
+    "regel": "Nullstellen: ⟦f(x) = 0⟧ lösen (Produktform, Ausklammern, Substitution). An einer Nullstelle ⟦ungerader⟧ Vielfachheit ⟦schneidet⟧ der Graph die x-Achse, bei ⟦gerader⟧ ⟦berührt⟧ er sie.",
+    "schritte": [
+     "f(x) = x³ − 4x² + 4x = x(x − 2)².",
+     "Nullstellen ⟦x = 0⟧ (einfach, Schnitt) und ⟦x = 2⟧ (doppelt, Berührpunkt)."
+    ],
+    "probe": "f(2) = 8 − 16 + 8 = 0 ✓",
+    "fehler": "Aus (x − 2)² die Nullstellen 2 und −2 abzulesen ist falsch: Es gibt nur ⟦x = 2⟧, und zwar doppelt.",
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      4
+     ],
+     "y": [
+      -4,
+      4
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0,
+        4,
+        -4,
+        1
+       ],
+       "name": "f"
+      }
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 0,
+       "name": "Schnitt"
+      },
+      {
+       "x": 2,
+       "y": 0,
+       "name": "Berührung"
+      }
+     ]
+    }
+   },
+   {
+    "lernziel": "graph_term",
+    "titel": "Graph und Term zuordnen",
+    "regel": "Vergleiche ⟦Randverhalten⟧ (Grad, Vorzeichen des Leitkoeffizienten), ⟦Nullstellen⟧ mit Schnitt oder Berührung und den ⟦y-Achsenabschnitt⟧ f(0).",
+    "schritte": [
+     "Graph: von links unten nach rechts oben, Nullstellen −1 (Schnitt) und 2 (Berührung).",
+     "Passend: ⟦f(x) = (x + 1)(x − 2)²⟧ (Grad 3, positiver Leitkoeffizient)."
+    ],
+    "probe": "f(0) = 1 · 4 = 4: Der Graph schneidet die y-Achse bei 4 ✓",
+    "fehler": "f(x) = (x − 1)(x + 2)² passt nicht: Die Nullstellen haben die ⟦falschen Vorzeichen⟧ (1 und −2 statt −1 und 2).",
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      4
+     ],
+     "y": [
+      -8,
+      8
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        4,
+        0,
+        -3,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -1,
+       "y": 0
+      },
+      {
+       "x": 2,
+       "y": 0
+      }
+     ]
+    }
+   },
+   {
+    "lernziel": "term_bestimmen",
+    "titel": "Funktionsterm aus Nullstellen",
+    "regel": "Kennt man alle Nullstellen mit Vielfachheit, setzt man ⟦f(x) = a · (x − x₁)(x − x₂)…⟧ an und bestimmt a mit ⟦einem weiteren Punkt⟧.",
+    "schritte": [
+     "Nullstellen −1, 1, 3 (einfach), Punkt (0 | 6): f(x) = a(x + 1)(x − 1)(x − 3).",
+     "f(0) = a · 1 · (−1) · (−3) = 3a = 6 ⇒ ⟦a = 2⟧."
+    ],
+    "probe": "f(0) = 2 · 3 = 6 ✓",
+    "fehler": "Den Punkt (0 | 6) als a = 6 zu deuten ist falsch: f(0) ist das Produkt ⟦a · (0 + 1)(0 − 1)(0 − 3)⟧ = 3a.",
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      4
+     ],
+     "y": [
+      -15,
+      15
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        6,
+        -2,
+        -6,
+        2
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -1,
+       "y": 0
+      },
+      {
+       "x": 1,
+       "y": 0
+      },
+      {
+       "x": 3,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": 6,
+       "name": "(0 | 6)"
+      }
+     ]
+    }
+   }
+  ],
+  "teilfaehigkeiten": [
+   {
+    "k": "grad",
+    "text": "Grad, Leitkoeffizient, Absolutglied",
+    "lernziele": [
+     "grad"
+    ]
+   },
+   {
+    "k": "ausmultiplizieren",
+    "text": "Produktform ausmultiplizieren",
+    "lernziele": [
+     "ausmultiplizieren"
+    ]
+   },
+   {
+    "k": "randverhalten",
+    "text": "Verhalten für große |x|",
+    "lernziele": [
+     "randverhalten"
+    ]
+   },
+   {
+    "k": "symmetrie",
+    "text": "Symmetrie erkennen",
+    "lernziele": [
+     "symmetrie"
+    ]
+   },
+   {
+    "k": "nullstellen",
+    "text": "Nullstellen und Vielfachheit",
+    "lernziele": [
+     "nullstellen"
+    ]
+   },
+   {
+    "k": "graph_term",
+    "text": "Graph und Term zuordnen",
+    "lernziele": [
+     "graph_term"
+    ]
+   },
+   {
+    "k": "term_bestimmen",
+    "text": "Funktionsterm aus Nullstellen",
+    "lernziele": [
+     "term_bestimmen"
+    ]
+   }
+  ],
+  "bewertung": {
+   "lernziele_pflicht": [
+    "grad",
+    "ausmultiplizieren",
+    "randverhalten",
+    "symmetrie",
+    "nullstellen",
+    "graph_term",
+    "term_bestimmen"
+   ],
+   "lernziele_vertiefung": [],
+   "testaufgaben_je_lernziel": 1
+  },
+  "quellen": {
+   "erklaerungen": "Eigene Fassung (Claude), Aufgaben vom Generator erzeugt und berechnet.",
+   "begriffe": "Fachbegriffe nach LehrplanPLUS Bayern."
+  }
+ },
+ "aufgaben": [
+  {
+   "l": "grad",
+   "t": "grad",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme den Leitkoeffizienten von f(x) = x⁵ + 2x⁴ + 3x² + 4x − 2."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "Höchste Potenz x⁵ mit Faktor 1, Absolutglied −2: Leitkoeffizient = 1.",
+   "h": "Suche das Glied mit der höchsten Hochzahl bzw. die Zahl ohne x."
+  },
+  {
+   "l": "grad",
+   "t": "grad",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme den Grad von f(x) = 5x⁶ − 4x⁵ + x⁴ − 5x³ + 3x² − x − 1."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "6",
+   "w": "Höchste Potenz x⁶ mit Faktor 5, Absolutglied −1: Grad = 6.",
+   "h": "Suche das Glied mit der höchsten Hochzahl bzw. die Zahl ohne x."
+  },
+  {
+   "l": "grad",
+   "t": "grad",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme den Grad von f(x) = 5x² + 4x + 3."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Höchste Potenz x² mit Faktor 5, Absolutglied 3: Grad = 2.",
+   "h": "Suche das Glied mit der höchsten Hochzahl bzw. die Zahl ohne x."
+  },
+  {
+   "l": "grad",
+   "t": "grad",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme den Grad von f(x) = −6x⁴ − x³ + x² − 5x − 2."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Höchste Potenz x⁴ mit Faktor −6, Absolutglied −2: Grad = 4.",
+   "h": "Suche das Glied mit der höchsten Hochzahl bzw. die Zahl ohne x."
+  },
+  {
+   "l": "grad",
+   "t": "grad",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme den Leitkoeffizienten von f(x) = −2x² + 4x − 5."
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "-2",
+   "w": "Höchste Potenz x² mit Faktor −2, Absolutglied −5: Leitkoeffizient = −2.",
+   "h": "Suche das Glied mit der höchsten Hochzahl bzw. die Zahl ohne x."
+  },
+  {
+   "l": "grad",
+   "t": "grad",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme das Absolutglied von f(x) = 4x³ − x + 5."
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(4) * (0) ** 3 + (0) * (0) ** 2 + (-1) * (0) ** 1 + (5) * (0) ** 0",
+   "w": "Höchste Potenz x³ mit Faktor 4, Absolutglied 5: Absolutglied = 5.",
+   "h": "Suche das Glied mit der höchsten Hochzahl bzw. die Zahl ohne x."
+  },
+  {
+   "l": "grad",
+   "t": "grad",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme den Leitkoeffizienten von f(x) = −2x² + 6x + 4."
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "-2",
+   "w": "Nach Potenzen geordnet: f(x) = −2x² + 6x + 4. Leitkoeffizient = −2.",
+   "h": "Ordne zuerst nach fallenden Hochzahlen."
+  },
+  {
+   "l": "grad",
+   "t": "grad",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme den Leitkoeffizienten von f(x) = 2 + x⁴ + x² + 4x⁵ − x + x³."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Nach Potenzen geordnet: f(x) = 4x⁵ + x⁴ + x³ + x² − x + 2. Leitkoeffizient = 4.",
+   "h": "Ordne zuerst nach fallenden Hochzahlen."
+  },
+  {
+   "l": "grad",
+   "t": "grad",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme den Grad von f(x) = 6x³ + 3x⁴ − x² + 3x − 3."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Nach Potenzen geordnet: f(x) = 3x⁴ + 6x³ − x² + 3x − 3. Grad = 4.",
+   "h": "Ordne zuerst nach fallenden Hochzahlen."
+  },
+  {
+   "l": "grad",
+   "t": "grad",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme den Grad von f(x) = −6x⁴ − 4x + 1 − 3x² − 6x³ + x⁵ − 6x⁶."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "6",
+   "w": "Nach Potenzen geordnet: f(x) = −6x⁶ + x⁵ − 6x⁴ − 6x³ − 3x² − 4x + 1. Grad = 6.",
+   "h": "Ordne zuerst nach fallenden Hochzahlen."
+  },
+  {
+   "l": "grad",
+   "t": "grad",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme den Leitkoeffizienten von f(x) = −4x³ − 2x² + 4x."
+   },
+   "o": {
+    "wert": -4
+   },
+   "c": "-4",
+   "w": "Nach Potenzen geordnet: f(x) = −4x³ − 2x² + 4x. Leitkoeffizient = −4.",
+   "h": "Ordne zuerst nach fallenden Hochzahlen."
+  },
+  {
+   "l": "grad",
+   "t": "grad",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme den Leitkoeffizienten von f(x) = −6x³ + 2 + 6x⁵ + 2x⁴."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "6",
+   "w": "Nach Potenzen geordnet: f(x) = 6x⁵ + 2x⁴ − 6x³ + 2. Leitkoeffizient = 6.",
+   "h": "Ordne zuerst nach fallenden Hochzahlen."
+  },
+  {
+   "l": "grad",
+   "t": "grad",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme ohne vollständiges Ausmultiplizieren den Leitkoeffizienten von f(x) = −(x + 1) · (x − 1)³ · (x − 3)³."
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "-1",
+   "w": "Höchste Potenz entsteht aus a · x · x · …: Leitkoeffizient −1.",
+   "h": "Grad: Exponenten addieren. Leitkoeffizient: Faktor vor den Klammern. Absolutglied: f(0)."
+  },
+  {
+   "l": "grad",
+   "t": "grad",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme ohne vollständiges Ausmultiplizieren das Absolutglied von f(x) = −4 · (x + 2)² · (x − 3)."
+   },
+   "o": {
+    "wert": 48
+   },
+   "c": "(-4) * (0) ** 3 + (-4) * (0) ** 2 + (32) * (0) ** 1 + (48) * (0) ** 0",
+   "w": "Absolutglied = f(0) = 48.",
+   "h": "Grad: Exponenten addieren. Leitkoeffizient: Faktor vor den Klammern. Absolutglied: f(0)."
+  },
+  {
+   "l": "grad",
+   "t": "grad",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme ohne vollständiges Ausmultiplizieren den Grad von f(x) = 2 · (x + 2)³ · x³ · (x − 1)."
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "7",
+   "w": "Grad = Summe der Exponenten = 3 + 3 + 1 = 7.",
+   "h": "Grad: Exponenten addieren. Leitkoeffizient: Faktor vor den Klammern. Absolutglied: f(0)."
+  },
+  {
+   "l": "grad",
+   "t": "grad",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme ohne vollständiges Ausmultiplizieren das Absolutglied von f(x) = 2 · (x + 4)² · (x + 3)² · (x − 2)³."
+   },
+   "o": {
+    "wert": -2304
+   },
+   "c": "(2) * (0) ** 7 + (16) * (0) ** 6 + (2) * (0) ** 5 + (-220) * (0) ** 4 + (-200) * (0) ** 3 + (1136) * (0) ** 2 + (768) * (0) ** 1 + (-2304) * (0) ** 0",
+   "w": "Absolutglied = f(0) = −2 304.",
+   "h": "Grad: Exponenten addieren. Leitkoeffizient: Faktor vor den Klammern. Absolutglied: f(0)."
+  },
+  {
+   "l": "grad",
+   "t": "grad",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme ohne vollständiges Ausmultiplizieren den Leitkoeffizienten von f(x) = 3 · (x + 1)³ · (x − 2)² · (x − 3)³."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "Höchste Potenz entsteht aus a · x · x · …: Leitkoeffizient 3.",
+   "h": "Grad: Exponenten addieren. Leitkoeffizient: Faktor vor den Klammern. Absolutglied: f(0)."
+  },
+  {
+   "l": "grad",
+   "t": "grad",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme ohne vollständiges Ausmultiplizieren den Grad von f(x) = 3 · (x + 4)³ · (x + 1)² · (x − 4)."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "6",
+   "w": "Grad = Summe der Exponenten = 3 + 1 + 2 = 6.",
+   "h": "Grad: Exponenten addieren. Leitkoeffizient: Faktor vor den Klammern. Absolutglied: f(0)."
+  },
+  {
+   "l": "grad",
+   "t": "grad",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme den Grad von f(x) = 6x⁴ + x³ + x − x² + 6."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Nach Potenzen geordnet: f(x) = 6x⁴ + x³ − x² + x + 6. Grad = 4."
+  },
+  {
+   "l": "grad",
+   "t": "grad",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme den Leitkoeffizienten von f(x) = −5x² + 1 + 4x³ − 5x + 6x⁴."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "6",
+   "w": "Nach Potenzen geordnet: f(x) = 6x⁴ + 4x³ − 5x² − 5x + 1. Leitkoeffizient = 6."
+  },
+  {
+   "l": "grad",
+   "t": "grad",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme den Leitkoeffizienten von f(x) = −2x⁶ − 4x² + 2x⁴ − 3x³ − 4."
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "-2",
+   "w": "Nach Potenzen geordnet: f(x) = −2x⁶ + 2x⁴ − 3x³ − 4x² − 4. Leitkoeffizient = −2."
+  },
+  {
+   "l": "grad",
+   "t": "grad",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme den Grad von f(x) = −6x³ + 5 + 4x."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "Nach Potenzen geordnet: f(x) = −6x³ + 4x + 5. Grad = 3."
+  },
+  {
+   "l": "grad",
+   "t": "grad",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme den Leitkoeffizienten von f(x) = 6x² − 3 + x."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "6",
+   "w": "Nach Potenzen geordnet: f(x) = 6x² + x − 3. Leitkoeffizient = 6."
+  },
+  {
+   "l": "grad",
+   "t": "grad",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme den Leitkoeffizienten von f(x) = 4x⁶ − 3x³ + 5x − 3x⁴ − 4x⁵ + 2 − 6x²."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Nach Potenzen geordnet: f(x) = 4x⁶ − 4x⁵ − 3x⁴ − 3x³ − 6x² + 5x + 2. Leitkoeffizient = 4."
+  },
+  {
+   "l": "grad",
+   "t": "grad",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme den Grad von f(x) = 5x² − 3x⁴ − 2 − 6x + 4x³."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Nach Potenzen geordnet: f(x) = −3x⁴ + 4x³ + 5x² − 6x − 2. Grad = 4."
+  },
+  {
+   "l": "grad",
+   "t": "grad",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme den Grad von f(x) = −4x + 4x² + 5."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "Nach Potenzen geordnet: f(x) = 4x² − 4x + 5. Grad = 2."
+  },
+  {
+   "l": "grad",
+   "t": "grad",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme den Leitkoeffizienten von f(x) = −4x² − 3 + 2x."
+   },
+   "o": {
+    "wert": -4
+   },
+   "c": "-4",
+   "w": "Nach Potenzen geordnet: f(x) = −4x² + 2x − 3. Leitkoeffizient = −4."
+  },
+  {
+   "l": "grad",
+   "t": "grad",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme den Grad von f(x) = −x² + 5 + x + 6x³."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "Nach Potenzen geordnet: f(x) = 6x³ − x² + x + 5. Grad = 3."
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: f(x) = (x + 4) · (x + 3).",
+    "schablone": "x² + □x + □",
+    "hinweis": "Koeffizienten (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     7,
+     12
+    ]
+   },
+   "w": "(x + 4) · (x + 3) = x² + 7x + 12.",
+   "h": "Jedes Glied der ersten Klammer mit jedem der zweiten multiplizieren.",
+   "c": [
+    "-(-4) - (-3)",
+    "(-4) * (-3)"
+   ]
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: f(x) = (x − 6) · (x − 5).",
+    "schablone": "x² + □x + □",
+    "hinweis": "Koeffizienten (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     -11,
+     30
+    ]
+   },
+   "w": "(x − 6) · (x − 5) = x² − 11x + 30.",
+   "h": "Jedes Glied der ersten Klammer mit jedem der zweiten multiplizieren.",
+   "c": [
+    "-(6) - (5)",
+    "(6) * (5)"
+   ]
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: f(x) = (x − 5) · (x + 6).",
+    "schablone": "x² + □x + □",
+    "hinweis": "Koeffizienten (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     1,
+     -30
+    ]
+   },
+   "w": "(x − 5) · (x + 6) = x² + x − 30.",
+   "h": "Jedes Glied der ersten Klammer mit jedem der zweiten multiplizieren.",
+   "c": [
+    "-(5) - (-6)",
+    "(5) * (-6)"
+   ]
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: f(x) = (x − 1) · (x + 5).",
+    "schablone": "x² + □x + □",
+    "hinweis": "Koeffizienten (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     4,
+     -5
+    ]
+   },
+   "w": "(x − 1) · (x + 5) = x² + 4x − 5.",
+   "h": "Jedes Glied der ersten Klammer mit jedem der zweiten multiplizieren.",
+   "c": [
+    "-(1) - (-5)",
+    "(1) * (-5)"
+   ]
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: f(x) = (x + 6) · (x − 3).",
+    "schablone": "x² + □x + □",
+    "hinweis": "Koeffizienten (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     3,
+     -18
+    ]
+   },
+   "w": "(x + 6) · (x − 3) = x² + 3x − 18.",
+   "h": "Jedes Glied der ersten Klammer mit jedem der zweiten multiplizieren.",
+   "c": [
+    "-(-6) - (3)",
+    "(-6) * (3)"
+   ]
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: f(x) = (x + 6) · (x + 4).",
+    "schablone": "x² + □x + □",
+    "hinweis": "Koeffizienten (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     10,
+     24
+    ]
+   },
+   "w": "(x + 6) · (x + 4) = x² + 10x + 24.",
+   "h": "Jedes Glied der ersten Klammer mit jedem der zweiten multiplizieren.",
+   "c": [
+    "-(-6) - (-4)",
+    "(-6) * (-4)"
+   ]
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: f(x) = (x − 2) · (x + 1) · (x − 1).",
+    "schablone": "x³ + □x² + □x + □",
+    "hinweis": "Koeffizienten (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     -2,
+     -1,
+     2
+    ]
+   },
+   "w": "(x − 2) · (x + 1) = x² − x − 2; mal (x − 1): x³ − 2x² − x + 2.",
+   "h": "Erst zwei Klammern, dann mit der dritten.",
+   "c": [
+    "-(2) - (-1) - (1)",
+    "(2) * (-1) + (2) * (1) + (-1) * (1)",
+    "-(2) * (-1) * (1)"
+   ]
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: f(x) = (x + 2) · (x − 3) · (x + 4).",
+    "schablone": "x³ + □x² + □x + □",
+    "hinweis": "Koeffizienten (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     3,
+     -10,
+     -24
+    ]
+   },
+   "w": "(x + 2) · (x − 3) = x² − x − 6; mal (x + 4): x³ + 3x² − 10x − 24.",
+   "h": "Erst zwei Klammern, dann mit der dritten.",
+   "c": [
+    "-(-2) - (3) - (-4)",
+    "(-2) * (3) + (-2) * (-4) + (3) * (-4)",
+    "-(-2) * (3) * (-4)"
+   ]
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: f(x) = (x + 4) · (x − 1) · (x − 3).",
+    "schablone": "x³ + □x² + □x + □",
+    "hinweis": "Koeffizienten (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     0,
+     -13,
+     12
+    ]
+   },
+   "w": "(x + 4) · (x − 1) = x² + 3x − 4; mal (x − 3): x³ − 13x + 12.",
+   "h": "Erst zwei Klammern, dann mit der dritten.",
+   "c": [
+    "-(-4) - (1) - (3)",
+    "(-4) * (1) + (-4) * (3) + (1) * (3)",
+    "-(-4) * (1) * (3)"
+   ]
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: f(x) = (x − 1) · (x + 1) · (x − 3).",
+    "schablone": "x³ + □x² + □x + □",
+    "hinweis": "Koeffizienten (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     -3,
+     -1,
+     3
+    ]
+   },
+   "w": "(x − 1) · (x + 1) = x² − 1; mal (x − 3): x³ − 3x² − x + 3.",
+   "h": "Erst zwei Klammern, dann mit der dritten.",
+   "c": [
+    "-(1) - (-1) - (3)",
+    "(1) * (-1) + (1) * (3) + (-1) * (3)",
+    "-(1) * (-1) * (3)"
+   ]
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: f(x) = (x − 4) · (x + 1) · (x − 2).",
+    "schablone": "x³ + □x² + □x + □",
+    "hinweis": "Koeffizienten (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     -5,
+     2,
+     8
+    ]
+   },
+   "w": "(x − 4) · (x + 1) = x² − 3x − 4; mal (x − 2): x³ − 5x² + 2x + 8.",
+   "h": "Erst zwei Klammern, dann mit der dritten.",
+   "c": [
+    "-(4) - (-1) - (2)",
+    "(4) * (-1) + (4) * (2) + (-1) * (2)",
+    "-(4) * (-1) * (2)"
+   ]
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: f(x) = (x − 1) · (x + 1) · (x + 3).",
+    "schablone": "x³ + □x² + □x + □",
+    "hinweis": "Koeffizienten (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     3,
+     -1,
+     -3
+    ]
+   },
+   "w": "(x − 1) · (x + 1) = x² − 1; mal (x + 3): x³ + 3x² − x − 3.",
+   "h": "Erst zwei Klammern, dann mit der dritten.",
+   "c": [
+    "-(1) - (-1) - (-3)",
+    "(1) * (-1) + (1) * (-3) + (-1) * (-3)",
+    "-(1) * (-1) * (-3)"
+   ]
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: f(x) = −(x − 1)² · (x − 2).",
+    "schablone": "□x³ + □x² + □x + □",
+    "hinweis": "Koeffizienten (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     -1,
+     4,
+     -5,
+     2
+    ]
+   },
+   "w": "(x − 1)² = x² − 2x + 1; mal (x − 2) und mal −1: −x³ + 4x² − 5x + 2.",
+   "h": "Binomische Formel für das Quadrat, dann weiter multiplizieren, zuletzt mit dem Faktor davor.",
+   "c": [
+    "-1",
+    "-1 * (-2 * (1) - (2))",
+    "-1 * ((1) ** 2 + 2 * (1) * (2))",
+    "-1 * (-(1) ** 2 * (2))"
+   ]
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: f(x) = 2 · (x + 4)² · (x + 2).",
+    "schablone": "□x³ + □x² + □x + □",
+    "hinweis": "Koeffizienten (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     2,
+     20,
+     64,
+     64
+    ]
+   },
+   "w": "(x + 4)² = x² + 8x + 16; mal (x + 2) und mal 2: 2x³ + 20x² + 64x + 64.",
+   "h": "Binomische Formel für das Quadrat, dann weiter multiplizieren, zuletzt mit dem Faktor davor.",
+   "c": [
+    "2",
+    "2 * (-2 * (-4) - (-2))",
+    "2 * ((-4) ** 2 + 2 * (-4) * (-2))",
+    "2 * (-(-4) ** 2 * (-2))"
+   ]
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: f(x) = −2 · (x + 4) · (x − 4)².",
+    "schablone": "□x³ + □x² + □x + □",
+    "hinweis": "Koeffizienten (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     -2,
+     8,
+     32,
+     -128
+    ]
+   },
+   "w": "(x − 4)² = x² − 8x + 16; mal (x + 4) und mal −2: −2x³ + 8x² + 32x − 128.",
+   "h": "Binomische Formel für das Quadrat, dann weiter multiplizieren, zuletzt mit dem Faktor davor.",
+   "c": [
+    "-2",
+    "-2 * (-2 * (4) - (-4))",
+    "-2 * ((4) ** 2 + 2 * (4) * (-4))",
+    "-2 * (-(4) ** 2 * (-4))"
+   ]
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: f(x) = 3 · (x − 1) · (x − 2)².",
+    "schablone": "□x³ + □x² + □x + □",
+    "hinweis": "Koeffizienten (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     3,
+     -15,
+     24,
+     -12
+    ]
+   },
+   "w": "(x − 2)² = x² − 4x + 4; mal (x − 1) und mal 3: 3x³ − 15x² + 24x − 12.",
+   "h": "Binomische Formel für das Quadrat, dann weiter multiplizieren, zuletzt mit dem Faktor davor.",
+   "c": [
+    "3",
+    "3 * (-2 * (2) - (1))",
+    "3 * ((2) ** 2 + 2 * (2) * (1))",
+    "3 * (-(2) ** 2 * (1))"
+   ]
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: f(x) = 2 · (x + 1) · (x − 4)².",
+    "schablone": "□x³ + □x² + □x + □",
+    "hinweis": "Koeffizienten (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     2,
+     -14,
+     16,
+     32
+    ]
+   },
+   "w": "(x − 4)² = x² − 8x + 16; mal (x + 1) und mal 2: 2x³ − 14x² + 16x + 32.",
+   "h": "Binomische Formel für das Quadrat, dann weiter multiplizieren, zuletzt mit dem Faktor davor.",
+   "c": [
+    "2",
+    "2 * (-2 * (4) - (-1))",
+    "2 * ((4) ** 2 + 2 * (4) * (-1))",
+    "2 * (-(4) ** 2 * (-1))"
+   ]
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: f(x) = −2 · (x − 2) · (x − 3)².",
+    "schablone": "□x³ + □x² + □x + □",
+    "hinweis": "Koeffizienten (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     -2,
+     16,
+     -42,
+     36
+    ]
+   },
+   "w": "(x − 3)² = x² − 6x + 9; mal (x − 2) und mal −2: −2x³ + 16x² − 42x + 36.",
+   "h": "Binomische Formel für das Quadrat, dann weiter multiplizieren, zuletzt mit dem Faktor davor.",
+   "c": [
+    "-2",
+    "-2 * (-2 * (3) - (2))",
+    "-2 * ((3) ** 2 + 2 * (3) * (2))",
+    "-2 * (-(3) ** 2 * (2))"
+   ]
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: f(x) = (x + 1) · (x + 4) · (x − 4).",
+    "schablone": "x³ + □x² + □x + □",
+    "hinweis": "Koeffizienten (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     1,
+     -16,
+     -16
+    ]
+   },
+   "w": "(x + 1) · (x + 4) = x² + 5x + 4; mal (x − 4): x³ + x² − 16x − 16.",
+   "c": [
+    "-(-1) - (-4) - (4)",
+    "(-1) * (-4) + (-1) * (4) + (-4) * (4)",
+    "-(-1) * (-4) * (4)"
+   ]
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: f(x) = (x − 2) · (x − 1) · (x − 3).",
+    "schablone": "x³ + □x² + □x + □",
+    "hinweis": "Koeffizienten (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     -6,
+     11,
+     -6
+    ]
+   },
+   "w": "(x − 2) · (x − 1) = x² − 3x + 2; mal (x − 3): x³ − 6x² + 11x − 6.",
+   "c": [
+    "-(2) - (1) - (3)",
+    "(2) * (1) + (2) * (3) + (1) * (3)",
+    "-(2) * (1) * (3)"
+   ]
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: f(x) = (x − 1) · (x − 4) · (x − 3).",
+    "schablone": "x³ + □x² + □x + □",
+    "hinweis": "Koeffizienten (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     -8,
+     19,
+     -12
+    ]
+   },
+   "w": "(x − 1) · (x − 4) = x² − 5x + 4; mal (x − 3): x³ − 8x² + 19x − 12.",
+   "c": [
+    "-(1) - (4) - (3)",
+    "(1) * (4) + (1) * (3) + (4) * (3)",
+    "-(1) * (4) * (3)"
+   ]
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: f(x) = (x − 2) · (x − 3) · (x + 1).",
+    "schablone": "x³ + □x² + □x + □",
+    "hinweis": "Koeffizienten (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     -4,
+     1,
+     6
+    ]
+   },
+   "w": "(x − 2) · (x − 3) = x² − 5x + 6; mal (x + 1): x³ − 4x² + x + 6.",
+   "c": [
+    "-(2) - (3) - (-1)",
+    "(2) * (3) + (2) * (-1) + (3) * (-1)",
+    "-(2) * (3) * (-1)"
+   ]
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: f(x) = (x − 2) · (x + 3) · (x + 1).",
+    "schablone": "x³ + □x² + □x + □",
+    "hinweis": "Koeffizienten (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     2,
+     -5,
+     -6
+    ]
+   },
+   "w": "(x − 2) · (x + 3) = x² + x − 6; mal (x + 1): x³ + 2x² − 5x − 6.",
+   "c": [
+    "-(2) - (-3) - (-1)",
+    "(2) * (-3) + (2) * (-1) + (-3) * (-1)",
+    "-(2) * (-3) * (-1)"
+   ]
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: f(x) = (x − 4) · (x + 2) · (x − 2).",
+    "schablone": "x³ + □x² + □x + □",
+    "hinweis": "Koeffizienten (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     -4,
+     -4,
+     16
+    ]
+   },
+   "w": "(x − 4) · (x + 2) = x² − 2x − 8; mal (x − 2): x³ − 4x² − 4x + 16.",
+   "c": [
+    "-(4) - (-2) - (2)",
+    "(4) * (-2) + (4) * (2) + (-2) * (2)",
+    "-(4) * (-2) * (2)"
+   ]
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: f(x) = (x + 3) · (x + 4) · (x − 4).",
+    "schablone": "x³ + □x² + □x + □",
+    "hinweis": "Koeffizienten (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     3,
+     -16,
+     -48
+    ]
+   },
+   "w": "(x + 3) · (x + 4) = x² + 7x + 12; mal (x − 4): x³ + 3x² − 16x − 48.",
+   "c": [
+    "-(-3) - (-4) - (4)",
+    "(-3) * (-4) + (-3) * (4) + (-4) * (4)",
+    "-(-3) * (-4) * (4)"
+   ]
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: f(x) = (x + 1) · (x + 2) · (x − 4).",
+    "schablone": "x³ + □x² + □x + □",
+    "hinweis": "Koeffizienten (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     -1,
+     -10,
+     -8
+    ]
+   },
+   "w": "(x + 1) · (x + 2) = x² + 3x + 2; mal (x − 4): x³ − x² − 10x − 8.",
+   "c": [
+    "-(-1) - (-2) - (4)",
+    "(-1) * (-2) + (-1) * (4) + (-2) * (4)",
+    "-(-1) * (-2) * (4)"
+   ]
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: f(x) = (x + 3) · (x + 2) · (x − 4).",
+    "schablone": "x³ + □x² + □x + □",
+    "hinweis": "Koeffizienten (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     1,
+     -14,
+     -24
+    ]
+   },
+   "w": "(x + 3) · (x + 2) = x² + 5x + 6; mal (x − 4): x³ + x² − 14x − 24.",
+   "c": [
+    "-(-3) - (-2) - (4)",
+    "(-3) * (-2) + (-3) * (4) + (-2) * (4)",
+    "-(-3) * (-2) * (4)"
+   ]
+  },
+  {
+   "l": "ausmultiplizieren",
+   "t": "ausmultiplizieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Multipliziere aus: f(x) = (x + 1) · (x + 3) · (x − 2).",
+    "schablone": "x³ + □x² + □x + □",
+    "hinweis": "Koeffizienten (mit Vorzeichen)"
+   },
+   "o": {
+    "werte": [
+     2,
+     -5,
+     -6
+    ]
+   },
+   "w": "(x + 1) · (x + 3) = x² + 4x + 3; mal (x − 2): x³ + 2x² − 5x − 6.",
+   "c": [
+    "-(-1) - (-3) - (2)",
+    "(-1) * (-3) + (-1) * (2) + (-3) * (2)",
+    "-(-1) * (-3) * (2)"
+   ]
+  },
+  {
+   "l": "randverhalten",
+   "t": "randverhalten",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie verläuft der Graph von f(x) = −4x³ + 4x² + 6x + 4 für sehr kleine und sehr große x?"
+   },
+   "a": [
+    "von links oben nach rechts oben",
+    "von links oben nach rechts unten",
+    "von links unten nach rechts oben",
+    "von links unten nach rechts unten"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Höchstes Glied −4x³: Grad 3 ungerade, Leitkoeffizient negativ: von links oben nach rechts unten.",
+   "h": "Nur das Glied mit der höchsten Potenz zählt. Gerader oder ungerader Grad? Vorzeichen?"
+  },
+  {
+   "l": "randverhalten",
+   "t": "randverhalten",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie verläuft der Graph von f(x) = −2x⁴ + 2x³ − 7x² − 8x + 1 für sehr kleine und sehr große x?"
+   },
+   "a": [
+    "von links unten nach rechts oben",
+    "von links oben nach rechts unten",
+    "von links unten nach rechts unten",
+    "von links oben nach rechts oben"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Höchstes Glied −2x⁴: Grad 4 gerade, Leitkoeffizient negativ: von links unten nach rechts unten.",
+   "h": "Nur das Glied mit der höchsten Potenz zählt. Gerader oder ungerader Grad? Vorzeichen?"
+  },
+  {
+   "l": "randverhalten",
+   "t": "randverhalten",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie verläuft der Graph von f(x) = −3x² − 9x + 4 für sehr kleine und sehr große x?"
+   },
+   "a": [
+    "von links unten nach rechts unten",
+    "von links oben nach rechts oben",
+    "von links unten nach rechts oben",
+    "von links oben nach rechts unten"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Höchstes Glied −3x²: Grad 2 gerade, Leitkoeffizient negativ: von links unten nach rechts unten.",
+   "h": "Nur das Glied mit der höchsten Potenz zählt. Gerader oder ungerader Grad? Vorzeichen?"
+  },
+  {
+   "l": "randverhalten",
+   "t": "randverhalten",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie verläuft der Graph von f(x) = 5x³ + 9x² − 3x − 1 für sehr kleine und sehr große x?"
+   },
+   "a": [
+    "von links oben nach rechts oben",
+    "von links oben nach rechts unten",
+    "von links unten nach rechts oben",
+    "von links unten nach rechts unten"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Höchstes Glied 5x³: Grad 3 ungerade, Leitkoeffizient positiv: von links unten nach rechts oben.",
+   "h": "Nur das Glied mit der höchsten Potenz zählt. Gerader oder ungerader Grad? Vorzeichen?"
+  },
+  {
+   "l": "randverhalten",
+   "t": "randverhalten",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie verläuft der Graph von f(x) = 2x³ + 3x² + 2x − 4 für sehr kleine und sehr große x?"
+   },
+   "a": [
+    "von links unten nach rechts unten",
+    "von links oben nach rechts unten",
+    "von links unten nach rechts oben",
+    "von links oben nach rechts oben"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Höchstes Glied 2x³: Grad 3 ungerade, Leitkoeffizient positiv: von links unten nach rechts oben.",
+   "h": "Nur das Glied mit der höchsten Potenz zählt. Gerader oder ungerader Grad? Vorzeichen?"
+  },
+  {
+   "l": "randverhalten",
+   "t": "randverhalten",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie verläuft der Graph von f(x) = 3x⁶ − 3x⁵ + 2x⁴ − 6x² − 2x + 9 für sehr kleine und sehr große x?"
+   },
+   "a": [
+    "von links oben nach rechts oben",
+    "von links oben nach rechts unten",
+    "von links unten nach rechts oben",
+    "von links unten nach rechts unten"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Höchstes Glied 3x⁶: Grad 6 gerade, Leitkoeffizient positiv: von links oben nach rechts oben.",
+   "h": "Nur das Glied mit der höchsten Potenz zählt. Gerader oder ungerader Grad? Vorzeichen?"
+  },
+  {
+   "l": "randverhalten",
+   "t": "randverhalten",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie verläuft der Graph von f(x) = 4x³ + 9x² + 4 für sehr kleine und sehr große x?"
+   },
+   "a": [
+    "von links unten nach rechts oben",
+    "von links oben nach rechts unten",
+    "von links unten nach rechts unten",
+    "von links oben nach rechts oben"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Höchstes Glied 4x³: Grad 3 ungerade, Leitkoeffizient positiv: von links unten nach rechts oben.",
+   "h": "Nur das Glied mit der höchsten Potenz zählt. Gerader oder ungerader Grad? Vorzeichen?"
+  },
+  {
+   "l": "randverhalten",
+   "t": "randverhalten",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie verläuft der Graph von f(x) = −x⁴ + 6x³ + 6x² + 3x + 3 für sehr kleine und sehr große x?"
+   },
+   "a": [
+    "von links unten nach rechts oben",
+    "von links unten nach rechts unten",
+    "von links oben nach rechts unten",
+    "von links oben nach rechts oben"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Höchstes Glied −x⁴: Grad 4 gerade, Leitkoeffizient negativ: von links unten nach rechts unten.",
+   "h": "Nur das Glied mit der höchsten Potenz zählt. Gerader oder ungerader Grad? Vorzeichen?"
+  },
+  {
+   "l": "randverhalten",
+   "t": "randverhalten",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie verläuft der Graph von f(x) = −3x⁵ − 2x⁴ − 7x³ − 3x² + 4x + 8 für sehr kleine und sehr große x?"
+   },
+   "a": [
+    "von links unten nach rechts unten",
+    "von links unten nach rechts oben",
+    "von links oben nach rechts oben",
+    "von links oben nach rechts unten"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Höchstes Glied −3x⁵: Grad 5 ungerade, Leitkoeffizient negativ: von links oben nach rechts unten.",
+   "h": "Nur das Glied mit der höchsten Potenz zählt. Gerader oder ungerader Grad? Vorzeichen?"
+  },
+  {
+   "l": "randverhalten",
+   "t": "randverhalten",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie verläuft der Graph von f(x) = −x⁶ + 3x⁵ − 7x⁴ − 9x² + 3x − 6 für sehr kleine und sehr große x?"
+   },
+   "a": [
+    "von links unten nach rechts oben",
+    "von links unten nach rechts unten",
+    "von links oben nach rechts unten",
+    "von links oben nach rechts oben"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Höchstes Glied −x⁶: Grad 6 gerade, Leitkoeffizient negativ: von links unten nach rechts unten.",
+   "h": "Nur das Glied mit der höchsten Potenz zählt. Gerader oder ungerader Grad? Vorzeichen?"
+  },
+  {
+   "l": "randverhalten",
+   "t": "randverhalten",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie verläuft der Graph von f(x) = −3x⁶ + 5x⁵ − x⁴ − 9x³ + x² − 6x + 3 für sehr kleine und sehr große x?"
+   },
+   "a": [
+    "von links unten nach rechts unten",
+    "von links oben nach rechts unten",
+    "von links unten nach rechts oben",
+    "von links oben nach rechts oben"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Höchstes Glied −3x⁶: Grad 6 gerade, Leitkoeffizient negativ: von links unten nach rechts unten.",
+   "h": "Nur das Glied mit der höchsten Potenz zählt. Gerader oder ungerader Grad? Vorzeichen?"
+  },
+  {
+   "l": "randverhalten",
+   "t": "randverhalten",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie verläuft der Graph von f(x) = 2x⁶ − 9x⁵ + x⁴ + 6x³ + 7x² − x − 9 für sehr kleine und sehr große x?"
+   },
+   "a": [
+    "von links unten nach rechts oben",
+    "von links oben nach rechts unten",
+    "von links oben nach rechts oben",
+    "von links unten nach rechts unten"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Höchstes Glied 2x⁶: Grad 6 gerade, Leitkoeffizient positiv: von links oben nach rechts oben.",
+   "h": "Nur das Glied mit der höchsten Potenz zählt. Gerader oder ungerader Grad? Vorzeichen?"
+  },
+  {
+   "l": "randverhalten",
+   "t": "randverhalten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie verläuft der Graph von f(x) = 4x⁶ + 8x⁵ − 4x⁴ + 5x³ + 7x² + 3x für sehr kleine und sehr große x?"
+   },
+   "a": [
+    "von links unten nach rechts oben",
+    "von links oben nach rechts unten",
+    "von links unten nach rechts unten",
+    "von links oben nach rechts oben"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Höchstes Glied 4x⁶: Grad 6 gerade, Leitkoeffizient positiv: von links oben nach rechts oben.",
+   "h": "Nur das Glied mit der höchsten Potenz zählt. Gerader oder ungerader Grad? Vorzeichen?"
+  },
+  {
+   "l": "randverhalten",
+   "t": "randverhalten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie verläuft der Graph von f(x) = 30x⁴ − 9x³ − x² + 7x + 8 − 5x⁵ für sehr kleine und sehr große x?"
+   },
+   "a": [
+    "von links oben nach rechts oben",
+    "von links oben nach rechts unten",
+    "von links unten nach rechts oben",
+    "von links unten nach rechts unten"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Entscheidend ist nur das Glied mit der höchsten Potenz: −5x⁵. Grad 5 ungerade, Leitkoeffizient negativ: von links oben nach rechts unten.",
+   "h": "Suche das Glied mit der höchsten Hochzahl – die anderen spielen für große |x| keine Rolle."
+  },
+  {
+   "l": "randverhalten",
+   "t": "randverhalten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie verläuft der Graph von f(x) = 20x − 8 + 4x² für sehr kleine und sehr große x?"
+   },
+   "a": [
+    "von links oben nach rechts unten",
+    "von links unten nach rechts oben",
+    "von links unten nach rechts unten",
+    "von links oben nach rechts oben"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Entscheidend ist nur das Glied mit der höchsten Potenz: 4x². Grad 2 gerade, Leitkoeffizient positiv: von links oben nach rechts oben.",
+   "h": "Suche das Glied mit der höchsten Hochzahl – die anderen spielen für große |x| keine Rolle."
+  },
+  {
+   "l": "randverhalten",
+   "t": "randverhalten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie verläuft der Graph von f(x) = −20x⁶ − 8x⁴ + 4x³ − 2x² + 8x + 7 − 4x⁷ für sehr kleine und sehr große x?"
+   },
+   "a": [
+    "von links oben nach rechts oben",
+    "von links unten nach rechts unten",
+    "von links unten nach rechts oben",
+    "von links oben nach rechts unten"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Entscheidend ist nur das Glied mit der höchsten Potenz: −4x⁷. Grad 7 ungerade, Leitkoeffizient negativ: von links oben nach rechts unten.",
+   "h": "Suche das Glied mit der höchsten Hochzahl – die anderen spielen für große |x| keine Rolle."
+  },
+  {
+   "l": "randverhalten",
+   "t": "randverhalten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie verläuft der Graph von f(x) = −20x⁴ + 9x³ + 3x² − 8x − 7 − 2x⁵ für sehr kleine und sehr große x?"
+   },
+   "a": [
+    "von links unten nach rechts oben",
+    "von links oben nach rechts unten",
+    "von links unten nach rechts unten",
+    "von links oben nach rechts oben"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Entscheidend ist nur das Glied mit der höchsten Potenz: −2x⁵. Grad 5 ungerade, Leitkoeffizient negativ: von links oben nach rechts unten.",
+   "h": "Suche das Glied mit der höchsten Hochzahl – die anderen spielen für große |x| keine Rolle."
+  },
+  {
+   "l": "randverhalten",
+   "t": "randverhalten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie verläuft der Graph von f(x) = −20x⁵ + 4x⁴ + x³ + x² − 2x − 7 + 3x⁶ für sehr kleine und sehr große x?"
+   },
+   "a": [
+    "von links unten nach rechts oben",
+    "von links oben nach rechts oben",
+    "von links unten nach rechts unten",
+    "von links oben nach rechts unten"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Entscheidend ist nur das Glied mit der höchsten Potenz: 3x⁶. Grad 6 gerade, Leitkoeffizient positiv: von links oben nach rechts oben.",
+   "h": "Suche das Glied mit der höchsten Hochzahl – die anderen spielen für große |x| keine Rolle."
+  },
+  {
+   "l": "randverhalten",
+   "t": "randverhalten",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie verläuft der Graph von f(x) = x⁶ + 6x⁵ + 3x⁴ + 2x³ + 4x² + 8x + 9 für sehr kleine und sehr große x?"
+   },
+   "a": [
+    "von links oben nach rechts unten",
+    "von links unten nach rechts oben",
+    "von links unten nach rechts unten",
+    "von links oben nach rechts oben"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Höchstes Glied x⁶: Grad 6 gerade, Leitkoeffizient positiv: von links oben nach rechts oben."
+  },
+  {
+   "l": "randverhalten",
+   "t": "randverhalten",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie verläuft der Graph von f(x) = −x² − 9x − 7 für sehr kleine und sehr große x?"
+   },
+   "a": [
+    "von links unten nach rechts unten",
+    "von links oben nach rechts oben",
+    "von links oben nach rechts unten",
+    "von links unten nach rechts oben"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Höchstes Glied −x²: Grad 2 gerade, Leitkoeffizient negativ: von links unten nach rechts unten."
+  },
+  {
+   "l": "randverhalten",
+   "t": "randverhalten",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie verläuft der Graph von f(x) = 3x⁵ − 6x⁴ + 6x³ − 3x² + 8x − 5 für sehr kleine und sehr große x?"
+   },
+   "a": [
+    "von links oben nach rechts oben",
+    "von links unten nach rechts unten",
+    "von links oben nach rechts unten",
+    "von links unten nach rechts oben"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Höchstes Glied 3x⁵: Grad 5 ungerade, Leitkoeffizient positiv: von links unten nach rechts oben."
+  },
+  {
+   "l": "randverhalten",
+   "t": "randverhalten",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie verläuft der Graph von f(x) = −3x⁵ − 5x³ + 6x² − 6x für sehr kleine und sehr große x?"
+   },
+   "a": [
+    "von links unten nach rechts oben",
+    "von links unten nach rechts unten",
+    "von links oben nach rechts oben",
+    "von links oben nach rechts unten"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Höchstes Glied −3x⁵: Grad 5 ungerade, Leitkoeffizient negativ: von links oben nach rechts unten."
+  },
+  {
+   "l": "randverhalten",
+   "t": "randverhalten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie verläuft der Graph von f(x) = 5x³ + x² − 3 für sehr kleine und sehr große x?"
+   },
+   "a": [
+    "von links unten nach rechts unten",
+    "von links oben nach rechts unten",
+    "von links oben nach rechts oben",
+    "von links unten nach rechts oben"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Höchstes Glied 5x³: Grad 3 ungerade, Leitkoeffizient positiv: von links unten nach rechts oben."
+  },
+  {
+   "l": "randverhalten",
+   "t": "randverhalten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie verläuft der Graph von f(x) = −3x⁶ + 2x⁵ + 6x⁴ + 8x³ − 6x² − 9x + 7 für sehr kleine und sehr große x?"
+   },
+   "a": [
+    "von links unten nach rechts unten",
+    "von links oben nach rechts unten",
+    "von links oben nach rechts oben",
+    "von links unten nach rechts oben"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Höchstes Glied −3x⁶: Grad 6 gerade, Leitkoeffizient negativ: von links unten nach rechts unten."
+  },
+  {
+   "l": "randverhalten",
+   "t": "randverhalten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie verläuft der Graph von f(x) = −x⁷ − 5x⁶ − 9x⁵ + 4x⁴ + 6x³ − 8x² − 5x − 4 für sehr kleine und sehr große x?"
+   },
+   "a": [
+    "von links unten nach rechts unten",
+    "von links unten nach rechts oben",
+    "von links oben nach rechts oben",
+    "von links oben nach rechts unten"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Höchstes Glied −x⁷: Grad 7 ungerade, Leitkoeffizient negativ: von links oben nach rechts unten."
+  },
+  {
+   "l": "randverhalten",
+   "t": "randverhalten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie verläuft der Graph von f(x) = −2x⁶ − 4x⁵ + 5x⁴ + 8x³ + 7x² − 3x − 8 für sehr kleine und sehr große x?"
+   },
+   "a": [
+    "von links unten nach rechts unten",
+    "von links oben nach rechts unten",
+    "von links oben nach rechts oben",
+    "von links unten nach rechts oben"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Höchstes Glied −2x⁶: Grad 6 gerade, Leitkoeffizient negativ: von links unten nach rechts unten."
+  },
+  {
+   "l": "randverhalten",
+   "t": "randverhalten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie verläuft der Graph von f(x) = −x⁷ − x⁶ − 4x⁵ − 6x⁴ + 3x² − 7x + 6 für sehr kleine und sehr große x?"
+   },
+   "a": [
+    "von links unten nach rechts unten",
+    "von links oben nach rechts oben",
+    "von links oben nach rechts unten",
+    "von links unten nach rechts oben"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Höchstes Glied −x⁷: Grad 7 ungerade, Leitkoeffizient negativ: von links oben nach rechts unten."
+  },
+  {
+   "l": "randverhalten",
+   "t": "randverhalten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie verläuft der Graph von f(x) = 3x³ − 9x² + 2x + 2 für sehr kleine und sehr große x?"
+   },
+   "a": [
+    "von links oben nach rechts unten",
+    "von links oben nach rechts oben",
+    "von links unten nach rechts unten",
+    "von links unten nach rechts oben"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Höchstes Glied 3x³: Grad 3 ungerade, Leitkoeffizient positiv: von links unten nach rechts oben."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Symmetrie hat der Graph von f(x) = −2x⁶ + 2x⁴ − 3x² − 2?"
+   },
+   "a": [
+    "punktsymmetrisch zum Ursprung",
+    "achsensymmetrisch zur y-Achse",
+    "keine dieser Symmetrien"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Vorkommende Hochzahlen: 6, 4, 2, 0 – nur gerade.",
+   "h": "Schau auf die Hochzahlen; das Absolutglied zählt als x⁰ (gerade)."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Symmetrie hat der Graph von f(x) = 2x⁵ + x⁴ − 3x³ + 3x² − 2x + 5?"
+   },
+   "a": [
+    "punktsymmetrisch zum Ursprung",
+    "keine dieser Symmetrien",
+    "achsensymmetrisch zur y-Achse"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Vorkommende Hochzahlen: 5, 4, 3, 2, 1, 0 – gerade und ungerade gemischt.",
+   "h": "Schau auf die Hochzahlen; das Absolutglied zählt als x⁰ (gerade)."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Symmetrie hat der Graph von f(x) = 4x⁵ − 2x³ − x?"
+   },
+   "a": [
+    "achsensymmetrisch zur y-Achse",
+    "punktsymmetrisch zum Ursprung",
+    "keine dieser Symmetrien"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Vorkommende Hochzahlen: 5, 3, 1 – nur ungerade.",
+   "h": "Schau auf die Hochzahlen; das Absolutglied zählt als x⁰ (gerade)."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Symmetrie hat der Graph von f(x) = −3x³ + 4x² + 5?"
+   },
+   "a": [
+    "achsensymmetrisch zur y-Achse",
+    "punktsymmetrisch zum Ursprung",
+    "keine dieser Symmetrien"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Vorkommende Hochzahlen: 3, 2, 0 – gerade und ungerade gemischt.",
+   "h": "Schau auf die Hochzahlen; das Absolutglied zählt als x⁰ (gerade)."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Symmetrie hat der Graph von f(x) = −4x³ − x² − 6?"
+   },
+   "a": [
+    "achsensymmetrisch zur y-Achse",
+    "keine dieser Symmetrien",
+    "punktsymmetrisch zum Ursprung"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Vorkommende Hochzahlen: 3, 2, 0 – gerade und ungerade gemischt.",
+   "h": "Schau auf die Hochzahlen; das Absolutglied zählt als x⁰ (gerade)."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Symmetrie hat der Graph von f(x) = 6x⁴ − x² + 1?"
+   },
+   "a": [
+    "punktsymmetrisch zum Ursprung",
+    "achsensymmetrisch zur y-Achse",
+    "keine dieser Symmetrien"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Vorkommende Hochzahlen: 4, 2, 0 – nur gerade.",
+   "h": "Schau auf die Hochzahlen; das Absolutglied zählt als x⁰ (gerade)."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Symmetrie hat der Graph von f(x) = −2x³ + 6x² − 4x + 5?"
+   },
+   "a": [
+    "punktsymmetrisch zum Ursprung",
+    "keine dieser Symmetrien",
+    "achsensymmetrisch zur y-Achse"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Vorkommende Hochzahlen: 3, 2, 1, 0 – gerade und ungerade gemischt.",
+   "h": "Schau auf die Hochzahlen; das Absolutglied zählt als x⁰ (gerade)."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Symmetrie hat der Graph von f(x) = 5x⁴ + 4x³ + 2x² + 3x + 3?"
+   },
+   "a": [
+    "achsensymmetrisch zur y-Achse",
+    "keine dieser Symmetrien",
+    "punktsymmetrisch zum Ursprung"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Vorkommende Hochzahlen: 4, 3, 2, 1, 0 – gerade und ungerade gemischt.",
+   "h": "Schau auf die Hochzahlen; das Absolutglied zählt als x⁰ (gerade)."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Symmetrie hat der Graph von f(x) = −x⁶ + 4x⁴ + 3x² + 4?"
+   },
+   "a": [
+    "punktsymmetrisch zum Ursprung",
+    "keine dieser Symmetrien",
+    "achsensymmetrisch zur y-Achse"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Vorkommende Hochzahlen: 6, 4, 2, 0 – nur gerade.",
+   "h": "Schau auf die Hochzahlen; das Absolutglied zählt als x⁰ (gerade)."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Symmetrie hat der Graph von f(x) = 2x⁴ − 6x³ − 2x?"
+   },
+   "a": [
+    "punktsymmetrisch zum Ursprung",
+    "keine dieser Symmetrien",
+    "achsensymmetrisch zur y-Achse"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Vorkommende Hochzahlen: 4, 3, 1 – gerade und ungerade gemischt.",
+   "h": "Schau auf die Hochzahlen; das Absolutglied zählt als x⁰ (gerade)."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Symmetrie hat der Graph von f(x) = −6x⁶ − 6x⁴ + 6x² − 1?"
+   },
+   "a": [
+    "keine dieser Symmetrien",
+    "achsensymmetrisch zur y-Achse",
+    "punktsymmetrisch zum Ursprung"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Vorkommende Hochzahlen: 6, 4, 2, 0 – nur gerade.",
+   "h": "Schau auf die Hochzahlen; das Absolutglied zählt als x⁰ (gerade)."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Symmetrie hat der Graph von f(x) = −2x³ + 2x² + 5?"
+   },
+   "a": [
+    "keine dieser Symmetrien",
+    "achsensymmetrisch zur y-Achse",
+    "punktsymmetrisch zum Ursprung"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Vorkommende Hochzahlen: 3, 2, 0 – gerade und ungerade gemischt.",
+   "h": "Schau auf die Hochzahlen; das Absolutglied zählt als x⁰ (gerade)."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für f(x) = −6x⁶ − 3x⁴ − 2x² − 1 gilt f(2) = −441. Bestimme f(−2) mithilfe der Symmetrie."
+   },
+   "o": {
+    "wert": -441
+   },
+   "c": "(-6) * (-2) ** 6 + (0) * (-2) ** 5 + (-3) * (-2) ** 4 + (0) * (-2) ** 3 + (-2) * (-2) ** 2 + (0) * (-2) ** 1 + (-1) * (-2) ** 0",
+   "w": "Achsensymmetrisch zur y-achse: f(−x) = f(x), also f(−2) = −441.",
+   "h": "Welche Symmetrie hat der Graph?"
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für f(x) = −6x³ + 6x gilt f(3) = −144. Bestimme f(−3) mithilfe der Symmetrie."
+   },
+   "o": {
+    "wert": 144
+   },
+   "c": "(-6) * (-3) ** 3 + (0) * (-3) ** 2 + (6) * (-3) ** 1 + (0) * (-3) ** 0",
+   "w": "Punktsymmetrisch zum ursprung: f(−x) = −f(x), also f(−3) = 144.",
+   "h": "Welche Symmetrie hat der Graph?"
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für f(x) = −6x⁴ + 5x² − 3 gilt f(2) = −79. Bestimme f(−2) mithilfe der Symmetrie."
+   },
+   "o": {
+    "wert": -79
+   },
+   "c": "(-6) * (-2) ** 4 + (0) * (-2) ** 3 + (5) * (-2) ** 2 + (0) * (-2) ** 1 + (-3) * (-2) ** 0",
+   "w": "Achsensymmetrisch zur y-achse: f(−x) = f(x), also f(−2) = −79.",
+   "h": "Welche Symmetrie hat der Graph?"
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für f(x) = 4x⁶ + 2x⁴ + 3x² + 2 gilt f(3) = 3 107. Bestimme f(−3) mithilfe der Symmetrie."
+   },
+   "o": {
+    "wert": 3107
+   },
+   "c": "(4) * (-3) ** 6 + (0) * (-3) ** 5 + (2) * (-3) ** 4 + (0) * (-3) ** 3 + (3) * (-3) ** 2 + (0) * (-3) ** 1 + (2) * (-3) ** 0",
+   "w": "Achsensymmetrisch zur y-achse: f(−x) = f(x), also f(−3) = 3 107.",
+   "h": "Welche Symmetrie hat der Graph?"
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für f(x) = 4x³ + 6x gilt f(1) = 10. Bestimme f(−1) mithilfe der Symmetrie."
+   },
+   "o": {
+    "wert": -10
+   },
+   "c": "(4) * (-1) ** 3 + (0) * (-1) ** 2 + (6) * (-1) ** 1 + (0) * (-1) ** 0",
+   "w": "Punktsymmetrisch zum ursprung: f(−x) = −f(x), also f(−1) = −10.",
+   "h": "Welche Symmetrie hat der Graph?"
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für f(x) = −5x⁴ − 5x² − 4 gilt f(2) = −104. Bestimme f(−2) mithilfe der Symmetrie."
+   },
+   "o": {
+    "wert": -104
+   },
+   "c": "(-5) * (-2) ** 4 + (0) * (-2) ** 3 + (-5) * (-2) ** 2 + (0) * (-2) ** 1 + (-4) * (-2) ** 0",
+   "w": "Achsensymmetrisch zur y-achse: f(−x) = f(x), also f(−2) = −104.",
+   "h": "Welche Symmetrie hat der Graph?"
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Symmetrie hat der Graph von f(x) = 3x³ − 3?"
+   },
+   "a": [
+    "keine dieser Symmetrien",
+    "achsensymmetrisch zur y-Achse",
+    "punktsymmetrisch zum Ursprung"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Vorkommende Hochzahlen: 3, 0 – gerade und ungerade gemischt."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Symmetrie hat der Graph von f(x) = 2x⁵ + x⁴ + 6x² − 3?"
+   },
+   "a": [
+    "keine dieser Symmetrien",
+    "achsensymmetrisch zur y-Achse",
+    "punktsymmetrisch zum Ursprung"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Vorkommende Hochzahlen: 5, 4, 2, 0 – gerade und ungerade gemischt."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Symmetrie hat der Graph von f(x) = −2x⁶ + 3x⁵ − 2x⁴ + 5x³ − 2x² + 5x − 5?"
+   },
+   "a": [
+    "achsensymmetrisch zur y-Achse",
+    "keine dieser Symmetrien",
+    "punktsymmetrisch zum Ursprung"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Vorkommende Hochzahlen: 6, 5, 4, 3, 2, 1, 0 – gerade und ungerade gemischt."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Symmetrie hat der Graph von f(x) = −2x³ + 5x² − 5x + 1?"
+   },
+   "a": [
+    "achsensymmetrisch zur y-Achse",
+    "keine dieser Symmetrien",
+    "punktsymmetrisch zum Ursprung"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Vorkommende Hochzahlen: 3, 2, 1, 0 – gerade und ungerade gemischt."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Symmetrie hat der Graph von f(x) = −3x³ + 4x² − 4x + 3?"
+   },
+   "a": [
+    "punktsymmetrisch zum Ursprung",
+    "achsensymmetrisch zur y-Achse",
+    "keine dieser Symmetrien"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Vorkommende Hochzahlen: 3, 2, 1, 0 – gerade und ungerade gemischt."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Symmetrie hat der Graph von f(x) = 2x⁵ + 4x⁴ − x³ + x² − 3x?"
+   },
+   "a": [
+    "punktsymmetrisch zum Ursprung",
+    "keine dieser Symmetrien",
+    "achsensymmetrisch zur y-Achse"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Vorkommende Hochzahlen: 5, 4, 3, 2, 1 – gerade und ungerade gemischt."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Symmetrie hat der Graph von f(x) = −x⁵ − 2x⁴ + 6x³ + 3x² − 6x − 4?"
+   },
+   "a": [
+    "punktsymmetrisch zum Ursprung",
+    "achsensymmetrisch zur y-Achse",
+    "keine dieser Symmetrien"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Vorkommende Hochzahlen: 5, 4, 3, 2, 1, 0 – gerade und ungerade gemischt."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Symmetrie hat der Graph von f(x) = −3x⁶ + 3x⁵ + 6x³ + 3x?"
+   },
+   "a": [
+    "keine dieser Symmetrien",
+    "punktsymmetrisch zum Ursprung",
+    "achsensymmetrisch zur y-Achse"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Vorkommende Hochzahlen: 6, 5, 3, 1 – gerade und ungerade gemischt."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Symmetrie hat der Graph von f(x) = 6x⁴ + 4x² + 6?"
+   },
+   "a": [
+    "achsensymmetrisch zur y-Achse",
+    "keine dieser Symmetrien",
+    "punktsymmetrisch zum Ursprung"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Vorkommende Hochzahlen: 4, 2, 0 – nur gerade."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Symmetrie hat der Graph von f(x) = −5x⁶ − 4x⁴ + 2?"
+   },
+   "a": [
+    "keine dieser Symmetrien",
+    "punktsymmetrisch zum Ursprung",
+    "achsensymmetrisch zur y-Achse"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Vorkommende Hochzahlen: 6, 4, 0 – nur gerade."
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme die Nullstellen von f(x) = 2 · (x + 1) · (x − 3) · (x − 5).",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "hinweis": "kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     -1,
+     3,
+     5
+    ]
+   },
+   "w": "Jeder Faktor null: x = −1, 3, 5.",
+   "h": "Satz vom Nullprodukt.",
+   "c": [
+    "-1 + ((2) * (-1) ** 3 + (-14) * (-1) ** 2 + (14) * (-1) ** 1 + (30) * (-1) ** 0)",
+    "3 + ((2) * (3) ** 3 + (-14) * (3) ** 2 + (14) * (3) ** 1 + (30) * (3) ** 0)",
+    "5 + ((2) * (5) ** 3 + (-14) * (5) ** 2 + (14) * (5) ** 1 + (30) * (5) ** 0)"
+   ]
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme die Nullstellen von f(x) = 2 · (x + 5) · (x − 4) · (x − 5).",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "hinweis": "kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     -5,
+     4,
+     5
+    ]
+   },
+   "w": "Jeder Faktor null: x = −5, 4, 5.",
+   "h": "Satz vom Nullprodukt.",
+   "c": [
+    "-5 + ((2) * (-5) ** 3 + (-8) * (-5) ** 2 + (-50) * (-5) ** 1 + (200) * (-5) ** 0)",
+    "4 + ((2) * (4) ** 3 + (-8) * (4) ** 2 + (-50) * (4) ** 1 + (200) * (4) ** 0)",
+    "5 + ((2) * (5) ** 3 + (-8) * (5) ** 2 + (-50) * (5) ** 1 + (200) * (5) ** 0)"
+   ]
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme die Nullstellen von f(x) = x · (x − 3) · (x − 5).",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "hinweis": "kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     0,
+     3,
+     5
+    ]
+   },
+   "w": "Jeder Faktor null: x = 0, 3, 5.",
+   "h": "Satz vom Nullprodukt.",
+   "c": [
+    "0 + ((1) * (0) ** 3 + (-8) * (0) ** 2 + (15) * (0) ** 1 + (0) * (0) ** 0)",
+    "3 + ((1) * (3) ** 3 + (-8) * (3) ** 2 + (15) * (3) ** 1 + (0) * (3) ** 0)",
+    "5 + ((1) * (5) ** 3 + (-8) * (5) ** 2 + (15) * (5) ** 1 + (0) * (5) ** 0)"
+   ]
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme die Nullstellen von f(x) = (x + 3) · (x + 2) · (x − 2).",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "hinweis": "kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     -3,
+     -2,
+     2
+    ]
+   },
+   "w": "Jeder Faktor null: x = −3, −2, 2.",
+   "h": "Satz vom Nullprodukt.",
+   "c": [
+    "-3 + ((1) * (-3) ** 3 + (3) * (-3) ** 2 + (-4) * (-3) ** 1 + (-12) * (-3) ** 0)",
+    "-2 + ((1) * (-2) ** 3 + (3) * (-2) ** 2 + (-4) * (-2) ** 1 + (-12) * (-2) ** 0)",
+    "2 + ((1) * (2) ** 3 + (3) * (2) ** 2 + (-4) * (2) ** 1 + (-12) * (2) ** 0)"
+   ]
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme die Nullstellen von f(x) = −(x + 1) · x · (x − 1).",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "hinweis": "kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     -1,
+     0,
+     1
+    ]
+   },
+   "w": "Jeder Faktor null: x = −1, 0, 1.",
+   "h": "Satz vom Nullprodukt.",
+   "c": [
+    "-1 + ((-1) * (-1) ** 3 + (0) * (-1) ** 2 + (1) * (-1) ** 1 + (0) * (-1) ** 0)",
+    "0 + ((-1) * (0) ** 3 + (0) * (0) ** 2 + (1) * (0) ** 1 + (0) * (0) ** 0)",
+    "1 + ((-1) * (1) ** 3 + (0) * (1) ** 2 + (1) * (1) ** 1 + (0) * (1) ** 0)"
+   ]
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme die Nullstellen von f(x) = (x + 5) · (x + 4) · x.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "hinweis": "kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     -5,
+     -4,
+     0
+    ]
+   },
+   "w": "Jeder Faktor null: x = −5, −4, 0.",
+   "h": "Satz vom Nullprodukt.",
+   "c": [
+    "-5 + ((1) * (-5) ** 3 + (9) * (-5) ** 2 + (20) * (-5) ** 1 + (0) * (-5) ** 0)",
+    "-4 + ((1) * (-4) ** 3 + (9) * (-4) ** 2 + (20) * (-4) ** 1 + (0) * (-4) ** 0)",
+    "0 + ((1) * (0) ** 3 + (9) * (0) ** 2 + (20) * (0) ** 1 + (0) * (0) ** 0)"
+   ]
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "f(x) = x⁵ + 6x⁴ − 11x³ − 60x² + 100x = x · (x − 2)² · (x + 5)². An welcher Nullstelle berührt der Graph die x-Achse, ohne sie zu schneiden?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -7,
+      4
+     ],
+     "y": [
+      -500,
+      500
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0,
+        100,
+        -60,
+        -11,
+        6,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -5,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": 0
+      },
+      {
+       "x": 2,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "x = 2 und x = −5",
+    "x = −2",
+    "x = 2",
+    "x = 0"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Gerade Vielfachheit = Berührung: (x − 2) kommt doppelt vor, (x + 5) auch.",
+   "h": "Welche Faktoren kommen in gerader Anzahl vor?"
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "f(x) = x⁴ + 4x³ − 16x² − 64x = x · (x + 4)² · (x − 4). An welcher Nullstelle berührt der Graph die x-Achse, ohne sie zu schneiden?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -200,
+      250
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0,
+        -64,
+        -16,
+        4,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -4,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": 0
+      },
+      {
+       "x": 4,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "x = 0",
+    "x = 4",
+    "x = −4"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Gerade Vielfachheit = Berührung: (x + 4) kommt doppelt vor.",
+   "h": "Welche Faktoren kommen in gerader Anzahl vor?"
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "f(x) = x⁴ − 11x³ + 40x² − 48x = x · (x − 4)² · (x − 3). An welcher Nullstelle berührt der Graph die x-Achse, ohne sie zu schneiden?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      6
+     ],
+     "y": [
+      -30,
+      60
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0,
+        -48,
+        40,
+        -11,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 0
+      },
+      {
+       "x": 3,
+       "y": 0
+      },
+      {
+       "x": 4,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "x = 3",
+    "x = 4",
+    "x = 0",
+    "x = −4"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gerade Vielfachheit = Berührung: (x − 4) kommt doppelt vor.",
+   "h": "Welche Faktoren kommen in gerader Anzahl vor?"
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "f(x) = x⁵ − 50x³ + 625x = x · (x − 5)² · (x + 5)². An welcher Nullstelle berührt der Graph die x-Achse, ohne sie zu schneiden?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -7,
+      7
+     ],
+     "y": [
+      -1500,
+      1500
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0,
+        625,
+        0,
+        -50,
+        0,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -5,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": 0
+      },
+      {
+       "x": 5,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "x = −5",
+    "x = 0",
+    "x = 5 und x = −5",
+    "x = 5"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Gerade Vielfachheit = Berührung: (x − 5) kommt doppelt vor, (x + 5) auch.",
+   "h": "Welche Faktoren kommen in gerader Anzahl vor?"
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "f(x) = x⁵ + 14x⁴ + 73x³ + 168x² + 144x = x · (x + 3)² · (x + 4)². An welcher Nullstelle berührt der Graph die x-Achse, ohne sie zu schneiden?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      2
+     ],
+     "y": [
+      -150,
+      150
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0,
+        144,
+        168,
+        73,
+        14,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -4,
+       "y": 0
+      },
+      {
+       "x": -3,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "x = 3",
+    "x = 0",
+    "x = −3 und x = −4",
+    "x = −3"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Gerade Vielfachheit = Berührung: (x + 3) kommt doppelt vor, (x + 4) auch.",
+   "h": "Welche Faktoren kommen in gerader Anzahl vor?"
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "f(x) = x⁴ + 7x³ + 8x² − 16x = x · (x + 4)² · (x − 1). An welcher Nullstelle berührt der Graph die x-Achse, ohne sie zu schneiden?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      3
+     ],
+     "y": [
+      -10,
+      60
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0,
+        -16,
+        8,
+        7,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -4,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": 0
+      },
+      {
+       "x": 1,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "x = 4",
+    "x = 0",
+    "x = 1",
+    "x = −4"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Gerade Vielfachheit = Berührung: (x + 4) kommt doppelt vor.",
+   "h": "Welche Faktoren kommen in gerader Anzahl vor?"
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme alle Nullstellen von f(x) = x⁴ − 25x² + 144.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □; x₄ = □",
+    "hinweis": "kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     -4,
+     -3,
+     3,
+     4
+    ]
+   },
+   "w": "Substitution z = x²: z = 9 oder z = 16 ⇒ x = ±3, ±4.",
+   "h": "Substituiere z = x².",
+   "c": [
+    "-4 + ((1) * (-4) ** 4 + (0) * (-4) ** 3 + (-25) * (-4) ** 2 + (0) * (-4) ** 1 + (144) * (-4) ** 0)",
+    "-3 + ((1) * (-3) ** 4 + (0) * (-3) ** 3 + (-25) * (-3) ** 2 + (0) * (-3) ** 1 + (144) * (-3) ** 0)",
+    "3 + ((1) * (3) ** 4 + (0) * (3) ** 3 + (-25) * (3) ** 2 + (0) * (3) ** 1 + (144) * (3) ** 0)",
+    "4 + ((1) * (4) ** 4 + (0) * (4) ** 3 + (-25) * (4) ** 2 + (0) * (4) ** 1 + (144) * (4) ** 0)"
+   ]
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme alle Nullstellen von f(x) = x⁴ − 17x² + 16.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □; x₄ = □",
+    "hinweis": "kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     -4,
+     -1,
+     1,
+     4
+    ]
+   },
+   "w": "Substitution z = x²: z = 1 oder z = 16 ⇒ x = ±1, ±4.",
+   "h": "Substituiere z = x².",
+   "c": [
+    "-4 + ((1) * (-4) ** 4 + (0) * (-4) ** 3 + (-17) * (-4) ** 2 + (0) * (-4) ** 1 + (16) * (-4) ** 0)",
+    "-1 + ((1) * (-1) ** 4 + (0) * (-1) ** 3 + (-17) * (-1) ** 2 + (0) * (-1) ** 1 + (16) * (-1) ** 0)",
+    "1 + ((1) * (1) ** 4 + (0) * (1) ** 3 + (-17) * (1) ** 2 + (0) * (1) ** 1 + (16) * (1) ** 0)",
+    "4 + ((1) * (4) ** 4 + (0) * (4) ** 3 + (-17) * (4) ** 2 + (0) * (4) ** 1 + (16) * (4) ** 0)"
+   ]
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme alle Nullstellen von f(x) = x⁴ − 9x³ + 20x².",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "hinweis": "kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     0,
+     4,
+     5
+    ]
+   },
+   "w": "x²(x² − 9x + 20) = 0 ⇒ x = 0 (doppelt), x = 4, x = 5.",
+   "h": "Klammere die höchste gemeinsame Potenz von x aus.",
+   "c": [
+    "0 + ((1) * (0) ** 4 + (-9) * (0) ** 3 + (20) * (0) ** 2 + (0) * (0) ** 1 + (0) * (0) ** 0)",
+    "4 + ((1) * (4) ** 4 + (-9) * (4) ** 3 + (20) * (4) ** 2 + (0) * (4) ** 1 + (0) * (4) ** 0)",
+    "5 + ((1) * (5) ** 4 + (-9) * (5) ** 3 + (20) * (5) ** 2 + (0) * (5) ** 1 + (0) * (5) ** 0)"
+   ]
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme alle Nullstellen von f(x) = x⁴ − 5x² + 4.",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □; x₄ = □",
+    "hinweis": "kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     -2,
+     -1,
+     1,
+     2
+    ]
+   },
+   "w": "Substitution z = x²: z = 1 oder z = 4 ⇒ x = ±1, ±2.",
+   "h": "Substituiere z = x².",
+   "c": [
+    "-2 + ((1) * (-2) ** 4 + (0) * (-2) ** 3 + (-5) * (-2) ** 2 + (0) * (-2) ** 1 + (4) * (-2) ** 0)",
+    "-1 + ((1) * (-1) ** 4 + (0) * (-1) ** 3 + (-5) * (-1) ** 2 + (0) * (-1) ** 1 + (4) * (-1) ** 0)",
+    "1 + ((1) * (1) ** 4 + (0) * (1) ** 3 + (-5) * (1) ** 2 + (0) * (1) ** 1 + (4) * (1) ** 0)",
+    "2 + ((1) * (2) ** 4 + (0) * (2) ** 3 + (-5) * (2) ** 2 + (0) * (2) ** 1 + (4) * (2) ** 0)"
+   ]
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme alle Nullstellen von f(x) = x⁴ − 4x³ + 3x².",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "hinweis": "kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     0,
+     1,
+     3
+    ]
+   },
+   "w": "x²(x² − 4x + 3) = 0 ⇒ x = 0 (doppelt), x = 1, x = 3.",
+   "h": "Klammere die höchste gemeinsame Potenz von x aus.",
+   "c": [
+    "0 + ((1) * (0) ** 4 + (-4) * (0) ** 3 + (3) * (0) ** 2 + (0) * (0) ** 1 + (0) * (0) ** 0)",
+    "1 + ((1) * (1) ** 4 + (-4) * (1) ** 3 + (3) * (1) ** 2 + (0) * (1) ** 1 + (0) * (1) ** 0)",
+    "3 + ((1) * (3) ** 4 + (-4) * (3) ** 3 + (3) * (3) ** 2 + (0) * (3) ** 1 + (0) * (3) ** 0)"
+   ]
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Bestimme alle Nullstellen von f(x) = x⁴ − 3x³ − 10x².",
+    "schablone": "x₁ = □; x₂ = □; x₃ = □",
+    "hinweis": "kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     -2,
+     0,
+     5
+    ]
+   },
+   "w": "x²(x² − 3x − 10) = 0 ⇒ x = 0 (doppelt), x = −2, x = 5.",
+   "h": "Klammere die höchste gemeinsame Potenz von x aus.",
+   "c": [
+    "-2 + ((1) * (-2) ** 4 + (-3) * (-2) ** 3 + (-10) * (-2) ** 2 + (0) * (-2) ** 1 + (0) * (-2) ** 0)",
+    "0 + ((1) * (0) ** 4 + (-3) * (0) ** 3 + (-10) * (0) ** 2 + (0) * (0) ** 1 + (0) * (0) ** 0)",
+    "5 + ((1) * (5) ** 4 + (-3) * (5) ** 3 + (-10) * (5) ** 2 + (0) * (5) ** 1 + (0) * (5) ** 0)"
+   ]
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "f(x) = x⁴ − 7x³ + 8x² + 16x = x · (x − 4)² · (x + 1). An welcher Nullstelle berührt der Graph die x-Achse, ohne sie zu schneiden?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      6
+     ],
+     "y": [
+      -10,
+      60
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0,
+        16,
+        8,
+        -7,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -1,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": 0
+      },
+      {
+       "x": 4,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "x = −4",
+    "x = 4",
+    "x = 0",
+    "x = −1"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gerade Vielfachheit = Berührung: (x − 4) kommt doppelt vor."
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "f(x) = x⁴ − 2x³ − 15x² + 36x = x · (x − 3)² · (x + 4). An welcher Nullstelle berührt der Graph die x-Achse, ohne sie zu schneiden?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      5
+     ],
+     "y": [
+      -150,
+      200
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0,
+        36,
+        -15,
+        -2,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -4,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": 0
+      },
+      {
+       "x": 3,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "x = 0",
+    "x = −3",
+    "x = 3",
+    "x = −4"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Gerade Vielfachheit = Berührung: (x − 3) kommt doppelt vor."
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "f(x) = x⁵ + 10x⁴ + 37x³ + 60x² + 36x = x · (x + 3)² · (x + 2)². An welcher Nullstelle berührt der Graph die x-Achse, ohne sie zu schneiden?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      2
+     ],
+     "y": [
+      -150,
+      150
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0,
+        36,
+        60,
+        37,
+        10,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 0
+      },
+      {
+       "x": -2,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "x = −3",
+    "x = −3 und x = −2",
+    "x = 0",
+    "x = 3"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gerade Vielfachheit = Berührung: (x + 3) kommt doppelt vor, (x + 2) auch."
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "f(x) = x⁵ − 14x⁴ + 73x³ − 168x² + 144x = x · (x − 3)² · (x − 4)². An welcher Nullstelle berührt der Graph die x-Achse, ohne sie zu schneiden?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      6
+     ],
+     "y": [
+      -150,
+      150
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0,
+        144,
+        -168,
+        73,
+        -14,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 0
+      },
+      {
+       "x": 3,
+       "y": 0
+      },
+      {
+       "x": 4,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "x = −3",
+    "x = 0",
+    "x = 3",
+    "x = 3 und x = 4"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Gerade Vielfachheit = Berührung: (x − 3) kommt doppelt vor, (x − 4) auch."
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "f(x) = x⁵ + 6x⁴ + 13x³ + 12x² + 4x = x · (x + 2)² · (x + 1)². An welcher Nullstelle berührt der Graph die x-Achse, ohne sie zu schneiden?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      2
+     ],
+     "y": [
+      -80,
+      80
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0,
+        4,
+        12,
+        13,
+        6,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -2,
+       "y": 0
+      },
+      {
+       "x": -1,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "x = −2",
+    "x = 2",
+    "x = −2 und x = −1",
+    "x = 0"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Gerade Vielfachheit = Berührung: (x + 2) kommt doppelt vor, (x + 1) auch."
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "f(x) = x⁴ − 5x³ − 25x² + 125x = x · (x − 5)² · (x + 5). An welcher Nullstelle berührt der Graph die x-Achse, ohne sie zu schneiden?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -7,
+      7
+     ],
+     "y": [
+      -600,
+      600
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0,
+        125,
+        -25,
+        -5,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -5,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": 0
+      },
+      {
+       "x": 5,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "x = −5",
+    "x = 5",
+    "x = 0"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gerade Vielfachheit = Berührung: (x − 5) kommt doppelt vor."
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "f(x) = x⁴ + 5x³ + 3x² − 9x = x · (x + 3)² · (x − 1). An welcher Nullstelle berührt der Graph die x-Achse, ohne sie zu schneiden?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      3
+     ],
+     "y": [
+      -10,
+      50
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0,
+        -9,
+        3,
+        5,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": 0
+      },
+      {
+       "x": 1,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "x = 1",
+    "x = 0",
+    "x = 3",
+    "x = −3"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Gerade Vielfachheit = Berührung: (x + 3) kommt doppelt vor."
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "f(x) = x⁵ − 32x³ + 256x = x · (x − 4)² · (x + 4)². An welcher Nullstelle berührt der Graph die x-Achse, ohne sie zu schneiden?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -500,
+      500
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0,
+        256,
+        0,
+        -32,
+        0,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -4,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": 0
+      },
+      {
+       "x": 4,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "x = 4 und x = −4",
+    "x = 0",
+    "x = −4",
+    "x = 4"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Gerade Vielfachheit = Berührung: (x − 4) kommt doppelt vor, (x + 4) auch."
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "f(x) = x⁴ + 11x³ + 35x² + 25x = x · (x + 5)² · (x + 1). An welcher Nullstelle berührt der Graph die x-Achse, ohne sie zu schneiden?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -7,
+      2
+     ],
+     "y": [
+      -10,
+      60
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0,
+        25,
+        35,
+        11,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -5,
+       "y": 0
+      },
+      {
+       "x": -1,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "x = 0",
+    "x = −5",
+    "x = −1",
+    "x = 5"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gerade Vielfachheit = Berührung: (x + 5) kommt doppelt vor."
+  },
+  {
+   "l": "nullstellen",
+   "t": "nullstellen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "f(x) = x⁴ + 2x³ − 7x² + 4x = x · (x − 1)² · (x + 4). An welcher Nullstelle berührt der Graph die x-Achse, ohne sie zu schneiden?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      3
+     ],
+     "y": [
+      -60,
+      80
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0,
+        4,
+        -7,
+        2,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -4,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": 0
+      },
+      {
+       "x": 1,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "x = 1",
+    "x = 0",
+    "x = −4",
+    "x = −1"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Gerade Vielfachheit = Berührung: (x − 1) kommt doppelt vor."
+  },
+  {
+   "l": "graph_term",
+   "t": "graph_term",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      4
+     ],
+     "y": [
+      -1,
+      5
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        2,
+        -3,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 0
+      },
+      {
+       "x": 2,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "f(x) = (x − 1) · (x − 2)",
+    "f(x) = −(x − 1) · (x − 2)",
+    "f(x) = (x − 1)² · (x − 2)",
+    "f(x) = (x + 2) · (x + 1)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Nullstellen 1 (Schnitt) und 2 (Schnitt); Grad 2, Leitkoeffizient positiv (Verlauf von links oben nach rechts oben).",
+   "h": "Lies die Nullstellen ab (Vorzeichen!), achte auf Schnitt/Berührung und auf den Verlauf ganz links und rechts."
+  },
+  {
+   "l": "graph_term",
+   "t": "graph_term",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      4
+     ],
+     "y": [
+      -8,
+      10
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -6,
+        1,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 0
+      },
+      {
+       "x": 2,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "f(x) = (x + 3) · (x − 2)",
+    "f(x) = (x + 2) · (x − 3)",
+    "f(x) = −(x + 3) · (x − 2)",
+    "f(x) = (x + 3)² · (x − 2)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Nullstellen −3 (Schnitt) und 2 (Schnitt); Grad 2, Leitkoeffizient positiv (Verlauf von links oben nach rechts oben).",
+   "h": "Lies die Nullstellen ab (Vorzeichen!), achte auf Schnitt/Berührung und auf den Verlauf ganz links und rechts."
+  },
+  {
+   "l": "graph_term",
+   "t": "graph_term",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      2
+     ],
+     "y": [
+      -8,
+      4
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0,
+        -3,
+        -1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "f(x) = (x + 3) · x",
+    "f(x) = −(x + 3)² · x",
+    "f(x) = −x · (x − 3)",
+    "f(x) = −(x + 3) · x"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Nullstellen −3 (Schnitt) und 0 (Schnitt); Grad 2, Leitkoeffizient negativ (Verlauf von links unten nach rechts unten).",
+   "h": "Lies die Nullstellen ab (Vorzeichen!), achte auf Schnitt/Berührung und auf den Verlauf ganz links und rechts."
+  },
+  {
+   "l": "graph_term",
+   "t": "graph_term",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      5
+     ],
+     "y": [
+      -6,
+      2
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -3,
+        4,
+        -1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 0
+      },
+      {
+       "x": 3,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "f(x) = −(x + 3) · (x + 1)",
+    "f(x) = (x − 1) · (x − 3)",
+    "f(x) = −(x − 1)² · (x − 3)",
+    "f(x) = −(x − 1) · (x − 3)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Nullstellen 1 (Schnitt) und 3 (Schnitt); Grad 2, Leitkoeffizient negativ (Verlauf von links unten nach rechts unten).",
+   "h": "Lies die Nullstellen ab (Vorzeichen!), achte auf Schnitt/Berührung und auf den Verlauf ganz links und rechts."
+  },
+  {
+   "l": "graph_term",
+   "t": "graph_term",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      5
+     ],
+     "y": [
+      -5,
+      1
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -6,
+        5,
+        -1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": 2,
+       "y": 0
+      },
+      {
+       "x": 3,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "f(x) = −(x + 3) · (x + 2)",
+    "f(x) = −(x − 2) · (x − 3)",
+    "f(x) = −(x − 2)² · (x − 3)",
+    "f(x) = (x − 2) · (x − 3)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Nullstellen 2 (Schnitt) und 3 (Schnitt); Grad 2, Leitkoeffizient negativ (Verlauf von links unten nach rechts unten).",
+   "h": "Lies die Nullstellen ab (Vorzeichen!), achte auf Schnitt/Berührung und auf den Verlauf ganz links und rechts."
+  },
+  {
+   "l": "graph_term",
+   "t": "graph_term",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      3
+     ],
+     "y": [
+      -20,
+      20
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        3,
+        -5,
+        1,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 0
+      },
+      {
+       "x": 1,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "f(x) = (x + 1)² · (x − 3)",
+    "f(x) = (x + 3) · (x − 1)²",
+    "f(x) = (x + 3)² · (x − 1)",
+    "f(x) = −(x + 3) · (x − 1)²"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Nullstellen −3 (Schnitt) und 1 (Berührung); Grad 3, Leitkoeffizient positiv (Verlauf von links unten nach rechts oben).",
+   "h": "Lies die Nullstellen ab (Vorzeichen!), achte auf Schnitt/Berührung und auf den Verlauf ganz links und rechts."
+  },
+  {
+   "l": "graph_term",
+   "t": "graph_term",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      5
+     ],
+     "y": [
+      -40,
+      50
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -27,
+        -9,
+        3,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 0
+      },
+      {
+       "x": 3,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "f(x) = (x + 3) · (x − 3)²",
+    "f(x) = −(x + 3)² · (x − 3)",
+    "f(x) = (x + 3)² · (x − 3)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Nullstellen −3 (Berührung) und 3 (Schnitt); Grad 3, Leitkoeffizient positiv (Verlauf von links unten nach rechts oben).",
+   "h": "Lies die Nullstellen ab (Vorzeichen!), achte auf Schnitt/Berührung und auf den Verlauf ganz links und rechts."
+  },
+  {
+   "l": "graph_term",
+   "t": "graph_term",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      4
+     ],
+     "y": [
+      -30,
+      30
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -18,
+        -3,
+        4,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 0
+      },
+      {
+       "x": 2,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "f(x) = (x + 2) · (x − 3)²",
+    "f(x) = −(x + 3)² · (x − 2)",
+    "f(x) = (x + 3) · (x − 2)²",
+    "f(x) = (x + 3)² · (x − 2)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Nullstellen −3 (Berührung) und 2 (Schnitt); Grad 3, Leitkoeffizient positiv (Verlauf von links unten nach rechts oben).",
+   "h": "Lies die Nullstellen ab (Vorzeichen!), achte auf Schnitt/Berührung und auf den Verlauf ganz links und rechts."
+  },
+  {
+   "l": "graph_term",
+   "t": "graph_term",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      0
+     ],
+     "y": [
+      -10,
+      10
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -18,
+        -21,
+        -8,
+        -1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 0
+      },
+      {
+       "x": -2,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "f(x) = −(x − 2) · (x − 3)²",
+    "f(x) = −(x + 3)² · (x + 2)",
+    "f(x) = (x + 3)² · (x + 2)",
+    "f(x) = −(x + 3) · (x + 2)²"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Nullstellen −3 (Berührung) und −2 (Schnitt); Grad 3, Leitkoeffizient negativ (Verlauf von links oben nach rechts unten).",
+   "h": "Lies die Nullstellen ab (Vorzeichen!), achte auf Schnitt/Berührung und auf den Verlauf ganz links und rechts."
+  },
+  {
+   "l": "graph_term",
+   "t": "graph_term",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      3
+     ],
+     "y": [
+      -35,
+      0
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -4,
+        4,
+        3,
+        -2,
+        -1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -2,
+       "y": 0
+      },
+      {
+       "x": 1,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "f(x) = −(x + 2)² · (x − 1)²",
+    "f(x) = −(x + 1)² · (x − 2)²",
+    "f(x) = (x + 2)² · (x − 1)²",
+    "f(x) = −(x + 2)³ · (x − 1)²"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Nullstellen −2 (Berührung) und 1 (Berührung); Grad 4, Leitkoeffizient negativ (Verlauf von links unten nach rechts unten).",
+   "h": "Lies die Nullstellen ab (Vorzeichen!), achte auf Schnitt/Berührung und auf den Verlauf ganz links und rechts."
+  },
+  {
+   "l": "graph_term",
+   "t": "graph_term",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      4
+     ],
+     "y": [
+      0,
+      16
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        4,
+        -12,
+        13,
+        -6,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 0
+      },
+      {
+       "x": 2,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "f(x) = (x − 1)² · (x − 2)²",
+    "f(x) = (x − 1)³ · (x − 2)²",
+    "f(x) = −(x − 1)² · (x − 2)²",
+    "f(x) = (x + 2)² · (x + 1)²"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Nullstellen 1 (Berührung) und 2 (Berührung); Grad 4, Leitkoeffizient positiv (Verlauf von links oben nach rechts oben).",
+   "h": "Lies die Nullstellen ab (Vorzeichen!), achte auf Schnitt/Berührung und auf den Verlauf ganz links und rechts."
+  },
+  {
+   "l": "graph_term",
+   "t": "graph_term",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      5
+     ],
+     "y": [
+      -60,
+      0
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -36,
+        -12,
+        11,
+        2,
+        -1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -2,
+       "y": 0
+      },
+      {
+       "x": 3,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "f(x) = −(x + 2)² · (x − 3)²",
+    "f(x) = −(x + 3)² · (x − 2)²",
+    "f(x) = −(x + 2)³ · (x − 3)²",
+    "f(x) = (x + 2)² · (x − 3)²"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Nullstellen −2 (Berührung) und 3 (Berührung); Grad 4, Leitkoeffizient negativ (Verlauf von links unten nach rechts unten).",
+   "h": "Lies die Nullstellen ab (Vorzeichen!), achte auf Schnitt/Berührung und auf den Verlauf ganz links und rechts."
+  },
+  {
+   "l": "graph_term",
+   "t": "graph_term",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      5
+     ],
+     "y": [
+      -4,
+      12
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        6,
+        -8,
+        2
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 0
+      },
+      {
+       "x": 3,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "f(x) = 2 · (x − 1)² · (x − 3)",
+    "f(x) = 2 · (x + 3) · (x + 1)",
+    "f(x) = 2 · (x − 1) · (x − 3)",
+    "f(x) = −2 · (x − 1) · (x − 3)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Nullstellen 1 (Schnitt) und 3 (Schnitt); Grad 2, Leitkoeffizient positiv (Verlauf von links oben nach rechts oben).",
+   "h": "Lies die Nullstellen ab (Vorzeichen!), achte auf Schnitt/Berührung und auf den Verlauf ganz links und rechts."
+  },
+  {
+   "l": "graph_term",
+   "t": "graph_term",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      2
+     ],
+     "y": [
+      -1,
+      5
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0,
+        1,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -1,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "f(x) = (x + 1) · x",
+    "f(x) = x · (x − 1)",
+    "f(x) = −(x + 1) · x",
+    "f(x) = (x + 1)² · x"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Nullstellen −1 (Schnitt) und 0 (Schnitt); Grad 2, Leitkoeffizient positiv (Verlauf von links oben nach rechts oben).",
+   "h": "Lies die Nullstellen ab (Vorzeichen!), achte auf Schnitt/Berührung und auf den Verlauf ganz links und rechts."
+  },
+  {
+   "l": "graph_term",
+   "t": "graph_term",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      5
+     ],
+     "y": [
+      -100,
+      80
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        54,
+        -27,
+        -9,
+        7,
+        -1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -2,
+       "y": 0
+      },
+      {
+       "x": 3,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "f(x) = −(x + 2)³ · (x − 3)",
+    "f(x) = −(x + 2) · (x − 3)³",
+    "f(x) = −(x + 3)³ · (x − 2)",
+    "f(x) = (x + 2) · (x − 3)³"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Nullstellen −2 (Schnitt) und 3 (Schnitt); Grad 4, Leitkoeffizient negativ (Verlauf von links unten nach rechts unten).",
+   "h": "Lies die Nullstellen ab (Vorzeichen!), achte auf Schnitt/Berührung und auf den Verlauf ganz links und rechts."
+  },
+  {
+   "l": "graph_term",
+   "t": "graph_term",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      3
+     ],
+     "y": [
+      -10,
+      10
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0,
+        0,
+        1,
+        -1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 0
+      },
+      {
+       "x": 1,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "f(x) = −x · (x − 1)²",
+    "f(x) = −x² · (x − 1)",
+    "f(x) = x² · (x − 1)",
+    "f(x) = −(x + 1) · x²"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Nullstellen 0 (Berührung) und 1 (Schnitt); Grad 3, Leitkoeffizient negativ (Verlauf von links oben nach rechts unten).",
+   "h": "Lies die Nullstellen ab (Vorzeichen!), achte auf Schnitt/Berührung und auf den Verlauf ganz links und rechts."
+  },
+  {
+   "l": "graph_term",
+   "t": "graph_term",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      3
+     ],
+     "y": [
+      -16,
+      0
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0,
+        0,
+        -1,
+        2,
+        -1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 0
+      },
+      {
+       "x": 1,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "f(x) = −x³ · (x − 1)²",
+    "f(x) = −x² · (x − 1)²",
+    "f(x) = x² · (x − 1)²",
+    "f(x) = −(x + 1)² · x²"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Nullstellen 0 (Berührung) und 1 (Berührung); Grad 4, Leitkoeffizient negativ (Verlauf von links unten nach rechts unten).",
+   "h": "Lies die Nullstellen ab (Vorzeichen!), achte auf Schnitt/Berührung und auf den Verlauf ganz links und rechts."
+  },
+  {
+   "l": "graph_term",
+   "t": "graph_term",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      3
+     ],
+     "y": [
+      -10,
+      10
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0,
+        -1,
+        2,
+        -1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 0
+      },
+      {
+       "x": 1,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "f(x) = −(x + 1)² · x",
+    "f(x) = −x² · (x − 1)",
+    "f(x) = x · (x − 1)²",
+    "f(x) = −x · (x − 1)²"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Nullstellen 0 (Schnitt) und 1 (Berührung); Grad 3, Leitkoeffizient negativ (Verlauf von links oben nach rechts unten).",
+   "h": "Lies die Nullstellen ab (Vorzeichen!), achte auf Schnitt/Berührung und auf den Verlauf ganz links und rechts."
+  },
+  {
+   "l": "graph_term",
+   "t": "graph_term",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      5
+     ],
+     "y": [
+      -8,
+      6
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        3,
+        2,
+        -1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -1,
+       "y": 0
+      },
+      {
+       "x": 3,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "f(x) = −(x + 3) · (x − 1)",
+    "f(x) = (x + 1) · (x − 3)",
+    "f(x) = −(x + 1) · (x − 3)",
+    "f(x) = −(x + 1)² · (x − 3)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Nullstellen −1 (Schnitt) und 3 (Schnitt); Grad 2, Leitkoeffizient negativ (Verlauf von links unten nach rechts unten)."
+  },
+  {
+   "l": "graph_term",
+   "t": "graph_term",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      4
+     ],
+     "y": [
+      -2,
+      18
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        8,
+        -20,
+        18,
+        -7,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 0
+      },
+      {
+       "x": 2,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "f(x) = (x + 2)³ · (x + 1)",
+    "f(x) = −(x − 1) · (x − 2)³",
+    "f(x) = (x − 1)³ · (x − 2)",
+    "f(x) = (x − 1) · (x − 2)³"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Nullstellen 1 (Schnitt) und 2 (Schnitt); Grad 4, Leitkoeffizient positiv (Verlauf von links oben nach rechts oben)."
+  },
+  {
+   "l": "graph_term",
+   "t": "graph_term",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      0
+     ],
+     "y": [
+      -1,
+      5
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        6,
+        5,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 0
+      },
+      {
+       "x": -2,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "f(x) = (x + 3)² · (x + 2)",
+    "f(x) = (x + 3) · (x + 2)",
+    "f(x) = (x − 2) · (x − 3)",
+    "f(x) = −(x + 3) · (x + 2)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Nullstellen −3 (Schnitt) und −2 (Schnitt); Grad 2, Leitkoeffizient positiv (Verlauf von links oben nach rechts oben)."
+  },
+  {
+   "l": "graph_term",
+   "t": "graph_term",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      3
+     ],
+     "y": [
+      -18,
+      2
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0,
+        1,
+        -3,
+        3,
+        -1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 0
+      },
+      {
+       "x": 1,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "f(x) = −x³ · (x − 1)",
+    "f(x) = x · (x − 1)³",
+    "f(x) = −x · (x − 1)³",
+    "f(x) = −(x + 1)³ · x"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Nullstellen 0 (Schnitt) und 1 (Schnitt); Grad 4, Leitkoeffizient negativ (Verlauf von links unten nach rechts unten)."
+  },
+  {
+   "l": "graph_term",
+   "t": "graph_term",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      3
+     ],
+     "y": [
+      -20,
+      20
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        9,
+        -3,
+        -5,
+        -1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 0
+      },
+      {
+       "x": 1,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "f(x) = −(x + 3)² · (x − 1)",
+    "f(x) = −(x + 1) · (x − 3)²",
+    "f(x) = (x + 3)² · (x − 1)",
+    "f(x) = −(x + 3) · (x − 1)²"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Nullstellen −3 (Berührung) und 1 (Schnitt); Grad 3, Leitkoeffizient negativ (Verlauf von links oben nach rechts unten)."
+  },
+  {
+   "l": "graph_term",
+   "t": "graph_term",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      1
+     ],
+     "y": [
+      -2,
+      6
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        3,
+        4,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 0
+      },
+      {
+       "x": -1,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "f(x) = −(x + 3) · (x + 1)",
+    "f(x) = (x + 3)² · (x + 1)",
+    "f(x) = (x + 3) · (x + 1)",
+    "f(x) = (x − 1) · (x − 3)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Nullstellen −3 (Schnitt) und −1 (Schnitt); Grad 2, Leitkoeffizient positiv (Verlauf von links oben nach rechts oben)."
+  },
+  {
+   "l": "graph_term",
+   "t": "graph_term",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      2
+     ],
+     "y": [
+      -40,
+      20
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0,
+        0,
+        0,
+        -3,
+        -1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "f(x) = −(x + 3)³ · x",
+    "f(x) = −(x + 3) · x³",
+    "f(x) = −x³ · (x − 3)",
+    "f(x) = (x + 3) · x³"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Nullstellen −3 (Schnitt) und 0 (Schnitt); Grad 4, Leitkoeffizient negativ (Verlauf von links unten nach rechts unten)."
+  },
+  {
+   "l": "graph_term",
+   "t": "graph_term",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      2
+     ],
+     "y": [
+      -5,
+      25
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        0,
+        0,
+        0,
+        2,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -2,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "f(x) = x³ · (x − 2)",
+    "f(x) = −(x + 2) · x³",
+    "f(x) = (x + 2) · x³",
+    "f(x) = (x + 2)³ · x"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Nullstellen −2 (Schnitt) und 0 (Schnitt); Grad 4, Leitkoeffizient positiv (Verlauf von links oben nach rechts oben)."
+  },
+  {
+   "l": "graph_term",
+   "t": "graph_term",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      4
+     ],
+     "y": [
+      -5,
+      1
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -2,
+        3,
+        -1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 0
+      },
+      {
+       "x": 2,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "f(x) = −(x + 2) · (x + 1)",
+    "f(x) = (x − 1) · (x − 2)",
+    "f(x) = −(x − 1)² · (x − 2)",
+    "f(x) = −(x − 1) · (x − 2)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Nullstellen 1 (Schnitt) und 2 (Schnitt); Grad 2, Leitkoeffizient negativ (Verlauf von links unten nach rechts unten)."
+  },
+  {
+   "l": "graph_term",
+   "t": "graph_term",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      5
+     ],
+     "y": [
+      -200,
+      200
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -81,
+        54,
+        0,
+        -6,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 0
+      },
+      {
+       "x": 3,
+       "y": 0
+      }
+     ]
+    }
+   },
+   "a": [
+    "f(x) = −(x + 3) · (x − 3)³",
+    "f(x) = (x + 3) · (x − 3)³",
+    "f(x) = (x + 3)³ · (x − 3)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Nullstellen −3 (Schnitt) und 3 (Schnitt); Grad 4, Leitkoeffizient positiv (Verlauf von links oben nach rechts oben)."
+  },
+  {
+   "l": "term_bestimmen",
+   "t": "term_bestimmen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Der gezeichnete Graph hat die einfachen Nullstellen −3, −1 und schneidet die y-Achse bei −6. Bestimme a in f(x) = a · (x − x₁)(x − x₂).",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      1
+     ],
+     "y": [
+      -12,
+      4
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -6,
+        -8,
+        -2
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 0
+      },
+      {
+       "x": -1,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": -6,
+       "name": "(0 | −6)"
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "(-6) / ((0 - (-3)) * (0 - (-1)))",
+   "w": "f(0) = a · 3 · 1 = 3a = −6 ⇒ a = −2.",
+   "h": "Setze x = 0 in die Produktform ein."
+  },
+  {
+   "l": "term_bestimmen",
+   "t": "term_bestimmen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Der gezeichnete Graph hat die einfachen Nullstellen 2, 3 und schneidet die y-Achse bei 6. Bestimme a in f(x) = a · (x − x₁)(x − x₂).",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      5
+     ],
+     "y": [
+      -1,
+      5
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        6,
+        -5,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": 2,
+       "y": 0
+      },
+      {
+       "x": 3,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": 6,
+       "name": "(0 | 6)"
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(6) / ((0 - (2)) * (0 - (3)))",
+   "w": "f(0) = a · (−2) · (−3) = 6a = 6 ⇒ a = 1.",
+   "h": "Setze x = 0 in die Produktform ein."
+  },
+  {
+   "l": "term_bestimmen",
+   "t": "term_bestimmen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Der gezeichnete Graph hat die einfachen Nullstellen −3, 3 und schneidet die y-Achse bei 9. Bestimme a in f(x) = a · (x − x₁)(x − x₂).",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      5
+     ],
+     "y": [
+      -15,
+      15
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        9,
+        0,
+        -1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 0
+      },
+      {
+       "x": 3,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": 9,
+       "name": "(0 | 9)"
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "(9) / ((0 - (-3)) * (0 - (3)))",
+   "w": "f(0) = a · 3 · (−3) = −9a = 9 ⇒ a = −1.",
+   "h": "Setze x = 0 in die Produktform ein."
+  },
+  {
+   "l": "term_bestimmen",
+   "t": "term_bestimmen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Der gezeichnete Graph hat die einfachen Nullstellen 1, 2 und schneidet die y-Achse bei −4. Bestimme a in f(x) = a · (x − x₁)(x − x₂).",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      4
+     ],
+     "y": [
+      -10,
+      2
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -4,
+        6,
+        -2
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 0
+      },
+      {
+       "x": 2,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": -4,
+       "name": "(0 | −4)"
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "(-4) / ((0 - (1)) * (0 - (2)))",
+   "w": "f(0) = a · (−1) · (−2) = 2a = −4 ⇒ a = −2.",
+   "h": "Setze x = 0 in die Produktform ein."
+  },
+  {
+   "l": "term_bestimmen",
+   "t": "term_bestimmen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Der gezeichnete Graph hat die einfachen Nullstellen −2, 1 und schneidet die y-Achse bei −2. Bestimme a in f(x) = a · (x − x₁)(x − x₂).",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      3
+     ],
+     "y": [
+      -4,
+      8
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -2,
+        1,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -2,
+       "y": 0
+      },
+      {
+       "x": 1,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": -2,
+       "name": "(0 | −2)"
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(-2) / ((0 - (-2)) * (0 - (1)))",
+   "w": "f(0) = a · 2 · (−1) = −2a = −2 ⇒ a = 1.",
+   "h": "Setze x = 0 in die Produktform ein."
+  },
+  {
+   "l": "term_bestimmen",
+   "t": "term_bestimmen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Der gezeichnete Graph hat die einfachen Nullstellen 1, 3 und schneidet die y-Achse bei 6. Bestimme a in f(x) = a · (x − x₁)(x − x₂).",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      5
+     ],
+     "y": [
+      -4,
+      12
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        6,
+        -8,
+        2
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 0
+      },
+      {
+       "x": 3,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": 6,
+       "name": "(0 | 6)"
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "(6) / ((0 - (1)) * (0 - (3)))",
+   "w": "f(0) = a · (−1) · (−3) = 3a = 6 ⇒ a = 2.",
+   "h": "Setze x = 0 in die Produktform ein."
+  },
+  {
+   "l": "term_bestimmen",
+   "t": "term_bestimmen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der gezeichnete Graph hat die einfachen Nullstellen −3, −2, 3 und schneidet die y-Achse bei −18. Bestimme a in f(x) = a · (x − x₁)(x − x₂)(x − x₃).",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      5
+     ],
+     "y": [
+      -40,
+      40
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -18,
+        -9,
+        2,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 0
+      },
+      {
+       "x": -2,
+       "y": 0
+      },
+      {
+       "x": 3,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": -18,
+       "name": "(0 | −18)"
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(-18) / ((0 - (-3)) * (0 - (-2)) * (0 - (3)))",
+   "w": "f(0) = a · 3 · 2 · (−3) = −18a = −18 ⇒ a = 1.",
+   "h": "Setze x = 0 in die Produktform ein."
+  },
+  {
+   "l": "term_bestimmen",
+   "t": "term_bestimmen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der gezeichnete Graph hat die einfachen Nullstellen −2, 1, 3 und schneidet die y-Achse bei 18. Bestimme a in f(x) = a · (x − x₁)(x − x₂)(x − x₃).",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      5
+     ],
+     "y": [
+      -80,
+      80
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        18,
+        -15,
+        -6,
+        3
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -2,
+       "y": 0
+      },
+      {
+       "x": 1,
+       "y": 0
+      },
+      {
+       "x": 3,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": 18,
+       "name": "(0 | 18)"
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(18) / ((0 - (-2)) * (0 - (1)) * (0 - (3)))",
+   "w": "f(0) = a · 2 · (−1) · (−3) = 6a = 18 ⇒ a = 3.",
+   "h": "Setze x = 0 in die Produktform ein."
+  },
+  {
+   "l": "term_bestimmen",
+   "t": "term_bestimmen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der gezeichnete Graph hat die einfachen Nullstellen −3, 2, 3 und schneidet die y-Achse bei −54. Bestimme a in f(x) = a · (x − x₁)(x − x₂)(x − x₃).",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      5
+     ],
+     "y": [
+      -150,
+      150
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -54,
+        27,
+        6,
+        -3
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 0
+      },
+      {
+       "x": 2,
+       "y": 0
+      },
+      {
+       "x": 3,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": -54,
+       "name": "(0 | −54)"
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "(-54) / ((0 - (-3)) * (0 - (2)) * (0 - (3)))",
+   "w": "f(0) = a · 3 · (−2) · (−3) = 18a = −54 ⇒ a = −3.",
+   "h": "Setze x = 0 in die Produktform ein."
+  },
+  {
+   "l": "term_bestimmen",
+   "t": "term_bestimmen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der gezeichnete Graph hat die einfachen Nullstellen 1, 2, 3 und schneidet die y-Achse bei 6. Bestimme a in f(x) = a · (x − x₁)(x − x₂)(x − x₃).",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      5
+     ],
+     "y": [
+      -15,
+      15
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        6,
+        -11,
+        6,
+        -1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 0
+      },
+      {
+       "x": 2,
+       "y": 0
+      },
+      {
+       "x": 3,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": 6,
+       "name": "(0 | 6)"
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "(6) / ((0 - (1)) * (0 - (2)) * (0 - (3)))",
+   "w": "f(0) = a · (−1) · (−2) · (−3) = −6a = 6 ⇒ a = −1.",
+   "h": "Setze x = 0 in die Produktform ein."
+  },
+  {
+   "l": "term_bestimmen",
+   "t": "term_bestimmen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der gezeichnete Graph hat die einfachen Nullstellen −3, −2, 1 und schneidet die y-Achse bei −18. Bestimme a in f(x) = a · (x − x₁)(x − x₂)(x − x₃).",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      3
+     ],
+     "y": [
+      -80,
+      80
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -18,
+        3,
+        12,
+        3
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 0
+      },
+      {
+       "x": -2,
+       "y": 0
+      },
+      {
+       "x": 1,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": -18,
+       "name": "(0 | −18)"
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(-18) / ((0 - (-3)) * (0 - (-2)) * (0 - (1)))",
+   "w": "f(0) = a · 3 · 2 · (−1) = −6a = −18 ⇒ a = 3.",
+   "h": "Setze x = 0 in die Produktform ein."
+  },
+  {
+   "l": "term_bestimmen",
+   "t": "term_bestimmen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der gezeichnete Graph hat die einfachen Nullstellen −2, −1, 1 und schneidet die y-Achse bei −6. Bestimme a in f(x) = a · (x − x₁)(x − x₂)(x − x₃).",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      3
+     ],
+     "y": [
+      -60,
+      60
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -6,
+        -3,
+        6,
+        3
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -2,
+       "y": 0
+      },
+      {
+       "x": -1,
+       "y": 0
+      },
+      {
+       "x": 1,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": -6,
+       "name": "(0 | −6)"
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(-6) / ((0 - (-2)) * (0 - (-1)) * (0 - (1)))",
+   "w": "f(0) = a · 2 · 1 · (−1) = −2a = −6 ⇒ a = 3.",
+   "h": "Setze x = 0 in die Produktform ein."
+  },
+  {
+   "l": "term_bestimmen",
+   "t": "term_bestimmen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph einer Funktion 3. Grades hat die einfachen Nullstellen −2, −1, 2 und geht durch P(−3 | −20). Bestimme a in f(x) = a · (x − x₁)(x − x₂)(x − x₃).",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -50,
+      50
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -8,
+        -8,
+        2,
+        2
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -2,
+       "y": 0
+      },
+      {
+       "x": -1,
+       "y": 0
+      },
+      {
+       "x": 2,
+       "y": 0
+      },
+      {
+       "x": -3,
+       "y": -20.0,
+       "name": "P"
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "(-20) / ((-3 - (-2)) * (-3 - (-1)) * (-3 - (2)))",
+   "w": "f(−3) = a · (−3 − (−2)) · (−3 − (−1)) · (−3 − 2) = −10a = −20 ⇒ a = 2.",
+   "h": "Setze die Nullstellen in die Produktform ein, dann den Punkt P."
+  },
+  {
+   "l": "term_bestimmen",
+   "t": "term_bestimmen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph einer Funktion 3. Grades hat die einfachen Nullstellen −3, −1, 2 und geht durch P(1 | −16). Bestimme a in f(x) = a · (x − x₁)(x − x₂)(x − x₃).",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      4
+     ],
+     "y": [
+      -60,
+      60
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -12,
+        -10,
+        4,
+        2
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 0
+      },
+      {
+       "x": -1,
+       "y": 0
+      },
+      {
+       "x": 2,
+       "y": 0
+      },
+      {
+       "x": 1,
+       "y": -16.0,
+       "name": "P"
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "(-16) / ((1 - (-3)) * (1 - (-1)) * (1 - (2)))",
+   "w": "f(1) = a · (1 − (−3)) · (1 − (−1)) · (1 − 2) = −8a = −16 ⇒ a = 2.",
+   "h": "Setze die Nullstellen in die Produktform ein, dann den Punkt P."
+  },
+  {
+   "l": "term_bestimmen",
+   "t": "term_bestimmen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der gezeichnete Graph hat die einfachen Nullstellen −1, 1, 2 und schneidet die y-Achse bei −4. Bestimme a in f(x) = a · (x − x₁)(x − x₂)(x − x₃).",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      4
+     ],
+     "y": [
+      -40,
+      40
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -4,
+        2,
+        4,
+        -2
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -1,
+       "y": 0
+      },
+      {
+       "x": 1,
+       "y": 0
+      },
+      {
+       "x": 2,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": -4,
+       "name": "(0 | −4)"
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "(-4) / ((0 - (-1)) * (0 - (1)) * (0 - (2)))",
+   "w": "f(0) = a · 1 · (−1) · (−2) = 2a = −4 ⇒ a = −2.",
+   "h": "Setze x = 0 in die Produktform ein."
+  },
+  {
+   "l": "term_bestimmen",
+   "t": "term_bestimmen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph einer Funktion 3. Grades hat die einfachen Nullstellen −3, 1, 2 und geht durch P(−2 | −24). Bestimme a in f(x) = a · (x − x₁)(x − x₂)(x − x₃).",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      4
+     ],
+     "y": [
+      -60,
+      60
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -12,
+        14,
+        0,
+        -2
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 0
+      },
+      {
+       "x": 1,
+       "y": 0
+      },
+      {
+       "x": 2,
+       "y": 0
+      },
+      {
+       "x": -2,
+       "y": -24.0,
+       "name": "P"
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "(-24) / ((-2 - (-3)) * (-2 - (1)) * (-2 - (2)))",
+   "w": "f(−2) = a · (−2 − (−3)) · (−2 − 1) · (−2 − 2) = 12a = −24 ⇒ a = −2.",
+   "h": "Setze die Nullstellen in die Produktform ein, dann den Punkt P."
+  },
+  {
+   "l": "term_bestimmen",
+   "t": "term_bestimmen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph einer Funktion 3. Grades hat die einfachen Nullstellen −2, 1, 3 und geht durch P(−3 | −24). Bestimme a in f(x) = a · (x − x₁)(x − x₂)(x − x₃).",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      5
+     ],
+     "y": [
+      -30,
+      30
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        6,
+        -5,
+        -2,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -2,
+       "y": 0
+      },
+      {
+       "x": 1,
+       "y": 0
+      },
+      {
+       "x": 3,
+       "y": 0
+      },
+      {
+       "x": -3,
+       "y": -24.0,
+       "name": "P"
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(-24) / ((-3 - (-2)) * (-3 - (1)) * (-3 - (3)))",
+   "w": "f(−3) = a · (−3 − (−2)) · (−3 − 1) · (−3 − 3) = −24a = −24 ⇒ a = 1.",
+   "h": "Setze die Nullstellen in die Produktform ein, dann den Punkt P."
+  },
+  {
+   "l": "term_bestimmen",
+   "t": "term_bestimmen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph einer Funktion 3. Grades hat die einfachen Nullstellen −3, −1, 2 und geht durch P(1 | −24). Bestimme a in f(x) = a · (x − x₁)(x − x₂)(x − x₃).",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      4
+     ],
+     "y": [
+      -80,
+      80
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -18,
+        -15,
+        6,
+        3
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 0
+      },
+      {
+       "x": -1,
+       "y": 0
+      },
+      {
+       "x": 2,
+       "y": 0
+      },
+      {
+       "x": 1,
+       "y": -24.0,
+       "name": "P"
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(-24) / ((1 - (-3)) * (1 - (-1)) * (1 - (2)))",
+   "w": "f(1) = a · (1 − (−3)) · (1 − (−1)) · (1 − 2) = −8a = −24 ⇒ a = 3.",
+   "h": "Setze die Nullstellen in die Produktform ein, dann den Punkt P."
+  },
+  {
+   "l": "term_bestimmen",
+   "t": "term_bestimmen",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der gezeichnete Graph hat die einfachen Nullstellen −2, 1, 2 und schneidet die y-Achse bei −8. Bestimme a in f(x) = a · (x − x₁)(x − x₂)(x − x₃).",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -50,
+      50
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -8,
+        8,
+        2,
+        -2
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -2,
+       "y": 0
+      },
+      {
+       "x": 1,
+       "y": 0
+      },
+      {
+       "x": 2,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": -8,
+       "name": "(0 | −8)"
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "(-8) / ((0 - (-2)) * (0 - (1)) * (0 - (2)))",
+   "w": "f(0) = a · 2 · (−1) · (−2) = 4a = −8 ⇒ a = −2."
+  },
+  {
+   "l": "term_bestimmen",
+   "t": "term_bestimmen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der gezeichnete Graph hat die einfachen Nullstellen −3, 1, 2 und schneidet die y-Achse bei −6. Bestimme a in f(x) = a · (x − x₁)(x − x₂)(x − x₃).",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      4
+     ],
+     "y": [
+      -30,
+      30
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -6,
+        7,
+        0,
+        -1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 0
+      },
+      {
+       "x": 1,
+       "y": 0
+      },
+      {
+       "x": 2,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": -6,
+       "name": "(0 | −6)"
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "(-6) / ((0 - (-3)) * (0 - (1)) * (0 - (2)))",
+   "w": "f(0) = a · 3 · (−1) · (−2) = 6a = −6 ⇒ a = −1."
+  },
+  {
+   "l": "term_bestimmen",
+   "t": "term_bestimmen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der gezeichnete Graph hat die einfachen Nullstellen −3, 2, 3 und schneidet die y-Achse bei −18. Bestimme a in f(x) = a · (x − x₁)(x − x₂)(x − x₃).",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      5
+     ],
+     "y": [
+      -40,
+      40
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -18,
+        9,
+        2,
+        -1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 0
+      },
+      {
+       "x": 2,
+       "y": 0
+      },
+      {
+       "x": 3,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": -18,
+       "name": "(0 | −18)"
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "(-18) / ((0 - (-3)) * (0 - (2)) * (0 - (3)))",
+   "w": "f(0) = a · 3 · (−2) · (−3) = 18a = −18 ⇒ a = −1."
+  },
+  {
+   "l": "term_bestimmen",
+   "t": "term_bestimmen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der gezeichnete Graph hat die einfachen Nullstellen −2, −1, 1 und schneidet die y-Achse bei 2. Bestimme a in f(x) = a · (x − x₁)(x − x₂)(x − x₃).",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      3
+     ],
+     "y": [
+      -20,
+      20
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        2,
+        1,
+        -2,
+        -1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -2,
+       "y": 0
+      },
+      {
+       "x": -1,
+       "y": 0
+      },
+      {
+       "x": 1,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": 2,
+       "name": "(0 | 2)"
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "(2) / ((0 - (-2)) * (0 - (-1)) * (0 - (1)))",
+   "w": "f(0) = a · 2 · 1 · (−1) = −2a = 2 ⇒ a = −1."
+  },
+  {
+   "l": "term_bestimmen",
+   "t": "term_bestimmen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der gezeichnete Graph hat die einfachen Nullstellen 1, 2, 3 und schneidet die y-Achse bei −6. Bestimme a in f(x) = a · (x − x₁)(x − x₂)(x − x₃).",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      5
+     ],
+     "y": [
+      -15,
+      15
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -6,
+        11,
+        -6,
+        1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 0
+      },
+      {
+       "x": 2,
+       "y": 0
+      },
+      {
+       "x": 3,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": -6,
+       "name": "(0 | −6)"
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(-6) / ((0 - (1)) * (0 - (2)) * (0 - (3)))",
+   "w": "f(0) = a · (−1) · (−2) · (−3) = −6a = −6 ⇒ a = 1."
+  },
+  {
+   "l": "term_bestimmen",
+   "t": "term_bestimmen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der gezeichnete Graph hat die einfachen Nullstellen −3, −1, 1 und schneidet die y-Achse bei 9. Bestimme a in f(x) = a · (x − x₁)(x − x₂)(x − x₃).",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      3
+     ],
+     "y": [
+      -80,
+      80
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        9,
+        3,
+        -9,
+        -3
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 0
+      },
+      {
+       "x": -1,
+       "y": 0
+      },
+      {
+       "x": 1,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": 9,
+       "name": "(0 | 9)"
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "(9) / ((0 - (-3)) * (0 - (-1)) * (0 - (1)))",
+   "w": "f(0) = a · 3 · 1 · (−1) = −3a = 9 ⇒ a = −3."
+  },
+  {
+   "l": "term_bestimmen",
+   "t": "term_bestimmen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der gezeichnete Graph hat die einfachen Nullstellen −2, −1, 2 und schneidet die y-Achse bei 4. Bestimme a in f(x) = a · (x − x₁)(x − x₂)(x − x₃).",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -25,
+      25
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        4,
+        4,
+        -1,
+        -1
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -2,
+       "y": 0
+      },
+      {
+       "x": -1,
+       "y": 0
+      },
+      {
+       "x": 2,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": 4,
+       "name": "(0 | 4)"
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "(4) / ((0 - (-2)) * (0 - (-1)) * (0 - (2)))",
+   "w": "f(0) = a · 2 · 1 · (−2) = −4a = 4 ⇒ a = −1."
+  },
+  {
+   "l": "term_bestimmen",
+   "t": "term_bestimmen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der gezeichnete Graph hat die einfachen Nullstellen −1, 1, 3 und schneidet die y-Achse bei −9. Bestimme a in f(x) = a · (x − x₁)(x − x₂)(x − x₃).",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      5
+     ],
+     "y": [
+      -80,
+      80
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -9,
+        3,
+        9,
+        -3
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -1,
+       "y": 0
+      },
+      {
+       "x": 1,
+       "y": 0
+      },
+      {
+       "x": 3,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": -9,
+       "name": "(0 | −9)"
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "(-9) / ((0 - (-1)) * (0 - (1)) * (0 - (3)))",
+   "w": "f(0) = a · 1 · (−1) · (−3) = 3a = −9 ⇒ a = −3."
+  },
+  {
+   "l": "term_bestimmen",
+   "t": "term_bestimmen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der gezeichnete Graph hat die einfachen Nullstellen −3, 1, 2 und schneidet die y-Achse bei 18. Bestimme a in f(x) = a · (x − x₁)(x − x₂)(x − x₃).",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      4
+     ],
+     "y": [
+      -80,
+      80
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        18,
+        -21,
+        0,
+        3
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 0
+      },
+      {
+       "x": 1,
+       "y": 0
+      },
+      {
+       "x": 2,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": 18,
+       "name": "(0 | 18)"
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(18) / ((0 - (-3)) * (0 - (1)) * (0 - (2)))",
+   "w": "f(0) = a · 3 · (−1) · (−2) = 6a = 18 ⇒ a = 3."
+  },
+  {
+   "l": "term_bestimmen",
+   "t": "term_bestimmen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der gezeichnete Graph hat die einfachen Nullstellen −3, −1, 2 und schneidet die y-Achse bei −18. Bestimme a in f(x) = a · (x − x₁)(x − x₂)(x − x₃).",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      4
+     ],
+     "y": [
+      -80,
+      80
+     ],
+     "graphen": [
+      {
+       "art": "poly",
+       "k": [
+        -18,
+        -15,
+        6,
+        3
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 0
+      },
+      {
+       "x": -1,
+       "y": 0
+      },
+      {
+       "x": 2,
+       "y": 0
+      },
+      {
+       "x": 0,
+       "y": -18,
+       "name": "(0 | −18)"
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(-18) / ((0 - (-3)) * (0 - (-1)) * (0 - (2)))",
+   "w": "f(0) = a · 3 · 1 · (−2) = −6a = −18 ⇒ a = 3."
+  }
+ ],
+ "offen": [
+  "Zeichnungen: Graphen in den Lernkarten „randverhalten“, „symmetrie“, „nullstellen“, „graph_term“, „term_bestimmen“; Aufgaben zu Berührung, „Welcher Term gehört zum Graphen?“ und „a aus Nullstellen und Punkt“ zeigen den Graphen.",
+  "Lückenaufgaben „Ausmultiplizieren“ nutzen die Term-Vorlage (z. B. „x³ + □x² + □x + □“): Das Kind tippt den Term frei ein; Koeffizienten können negativ sein.",
+  "Extrempunkte (Ableitung) sind nicht enthalten – das ist Stoff der Oberstufe."
+ ]
+}

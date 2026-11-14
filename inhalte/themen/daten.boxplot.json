@@ -8,7 +8,7 @@
  },
  "autor": "Claude (Paket Klasse 7)",
  "inhalt": {
-  "ziel": "Median, Modalwert, Spannweite, Mittelwert und Quartile bestimmen, Informationen aus Boxplot-Kennwerten gewinnen und Datensätze vergleichen und beurteilen.",
+  "ziel": "Median, Modalwert, Spannweite, Mittelwert und Quartile bestimmen, Boxplots lesen und zuordnen und Datensätze vergleichen und beurteilen.",
   "merke": [
    "Median: Mitte der geordneten Liste.",
    "Q₁ und Q₃: Mediane der unteren und oberen Hälfte.",
@@ -85,6 +85,17 @@
     }
    },
    {
+    "lernziel": "mittel_median",
+    "titel": "Mittelwert und Median vergleichen",
+    "regel": "Der ⟦Mittelwert⟧ reagiert stark auf ⟦Ausreißer⟧ (einzelne extreme Werte), der ⟦Median⟧ kaum. Bei Ausreißern beschreibt der Median die „typische Mitte“ meist besser.",
+    "schritte": [
+     "Taschengeld (€): 10; 12; 12; 15; 101",
+     "Mittelwert: 150 : 5 = 30 €; Median: 12 €",
+     "Der ⟦Median⟧ passt besser – vier von fünf bekommen höchstens 15 €."
+    ],
+    "fehler": "Der Mittelwert 30 € ist nicht „das, was die meisten bekommen“: Ein einziger großer Wert (101 €) ⟦zieht ihn nach oben⟧."
+   },
+   {
     "lernziel": "quartile",
     "titel": "Quartile bestimmen",
     "regel": "Der Median teilt die geordnete Liste in eine untere und eine obere Hälfte. Das ⟦untere Quartil⟧ ist der Median der unteren Hälfte, das ⟦obere Quartil⟧ der Median der oberen Hälfte. Bei ungerader Anzahl gehört der Median ⟦zu keiner Hälfte⟧.",
@@ -93,7 +104,23 @@
      "Median 6. Untere Hälfte 1; 3; 4 → Q₁ = 3",
      "Obere Hälfte 8; 9; 11 → ⟦Q₃ = 9⟧. Quartilsabstand 9 − 3 = 6"
     ],
-    "fehler": "Das untere Quartil ist nicht „ein Viertel vom größten Wert“. Es ist der Wert, unter dem etwa ⟦ein Viertel der Daten⟧ liegt."
+    "fehler": "Das untere Quartil ist nicht „ein Viertel vom größten Wert“. Es ist der Wert, unter dem etwa ⟦ein Viertel der Daten⟧ liegt.",
+    "bild": {
+     "typ": "boxplot",
+     "achse": [
+      0,
+      12
+     ],
+     "reihen": [
+      {
+       "min": 1,
+       "q1": 3,
+       "median": 6,
+       "q3": 9,
+       "max": 11
+      }
+     ]
+    }
    },
    {
     "lernziel": "boxplot",
@@ -106,35 +133,21 @@
     ],
     "fehler": "Eine längere Antenne bedeutet nicht mehr Werte: In jeder Antenne liegt etwa ⟦ein Viertel⟧ der Daten, nur ⟦weiter gestreut⟧.",
     "bild": {
-     "typ": "tabelle",
-     "kopf": [
-      "Minimum",
-      "unteres Quartil",
-      "Median",
-      "oberes Quartil",
-      "Maximum"
+     "typ": "boxplot",
+     "achse": [
+      10,
+      45
      ],
-     "zeilen": [
-      [
-       "12",
-       "18",
-       "23",
-       "30",
-       "41"
-      ]
+     "reihen": [
+      {
+       "min": 12,
+       "q1": 18,
+       "median": 23,
+       "q3": 30,
+       "max": 41
+      }
      ]
     }
-   },
-   {
-    "lernziel": "mittel_median",
-    "titel": "Mittelwert und Median vergleichen",
-    "regel": "Der ⟦Mittelwert⟧ reagiert stark auf ⟦Ausreißer⟧ (einzelne extreme Werte), der ⟦Median⟧ kaum. Bei Ausreißern beschreibt der Median die „typische Mitte“ meist besser.",
-    "schritte": [
-     "Taschengeld (€): 10; 12; 12; 15; 101",
-     "Mittelwert: 150 : 5 = 30 €; Median: 12 €",
-     "Der ⟦Median⟧ passt besser – vier von fünf bekommen höchstens 15 €."
-    ],
-    "fehler": "Der Mittelwert 30 € ist nicht „das, was die meisten bekommen“: Ein einziger großer Wert (101 €) ⟦zieht ihn nach oben⟧."
    },
    {
     "lernziel": "vergleichen",
@@ -147,32 +160,29 @@
     ],
     "fehler": "Eine größere Spannweite heißt nicht, dass die Gruppe insgesamt besser oder schlechter ist. Sie sagt nur etwas über die ⟦Streuung⟧ aus.",
     "bild": {
-     "typ": "tabelle",
-     "kopf": [
-      "",
-      "Min",
-      "Q₁",
-      "Median",
-      "Q₃",
-      "Max"
+     "typ": "boxplot",
+     "achse": [
+      10,
+      40
      ],
-     "zeilen": [
-      [
-       "Klasse A",
-       "19",
-       "22",
-       "24",
-       "26",
-       "31"
-      ],
-      [
-       "Klasse B",
-       "15",
-       "18",
-       "22",
-       "27",
-       "35"
-      ]
+     "einheit": "s",
+     "reihen": [
+      {
+       "name": "Klasse A",
+       "min": 19,
+       "q1": 22,
+       "median": 24,
+       "q3": 26,
+       "max": 31
+      },
+      {
+       "name": "Klasse B",
+       "min": 15,
+       "q1": 18,
+       "median": 22,
+       "q3": 27,
+       "max": 35
+      }
      ]
     }
    }
@@ -193,6 +203,13 @@
     ]
    },
    {
+    "k": "mittel_median",
+    "text": "Mittelwert und Median vergleichen",
+    "lernziele": [
+     "mittel_median"
+    ]
+   },
+   {
     "k": "quartile",
     "text": "Quartile bestimmen",
     "lernziele": [
@@ -207,13 +224,6 @@
     ]
    },
    {
-    "k": "mittel_median",
-    "text": "Mittelwert und Median vergleichen",
-    "lernziele": [
-     "mittel_median"
-    ]
-   },
-   {
     "k": "vergleichen",
     "text": "Datensätze vergleichen und beurteilen",
     "lernziele": [
@@ -225,9 +235,9 @@
    "lernziele_pflicht": [
     "median",
     "kennwerte",
+    "mittel_median",
     "quartile",
     "boxplot",
-    "mittel_median",
     "vergleichen"
    ],
    "lernziele_vertiefung": [],
@@ -406,14 +416,88 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Tore pro Spiel: 1; 3; 2; 3; 2; 6; 5; 6; 2; 4; 0; 2; 2; 2; 2. Bestimme den Median."
+    "text": "Die Tabelle zeigt, wie oft jeder Wert vorkommt (Geschwister, Anzahl der Kinder). Bestimme den Median.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Geschwister",
+      "0",
+      "1",
+      "2",
+      "3",
+      "4"
+     ],
+     "zeilen": [
+      [
+       "Anzahl Kinder",
+       "2",
+       "2",
+       "7",
+       "4",
+       "7"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 2.5
+   },
+   "c": "(2 + 3) / 2",
+   "w": "Insgesamt 22 Werte. Die Mitte ist der 11. und 12. Wert. Von unten gezählt: bis 0: 2, bis 1: 4, bis 2: 11, bis 3: 15, bis 4: 22. Median: 2,5.",
+   "h": "Zähle alle Werte. Welcher Platz ist die Mitte? Zähle in der Tabelle von unten bis dorthin."
+  },
+  {
+   "l": "median",
+   "t": "median",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Körpergröße in cm: 156; 170; 143; 160; 158; 157; 161; 149; 138; 150; 149; 173; 155; 158; 164. Bestimme den Median."
+   },
+   "o": {
+    "wert": 157
+   },
+   "c": "157",
+   "w": "Geordnet: 138; 143; 149; 149; 150; 155; 156; 157; 158; 158; 160; 161; 164; 170; 173. Mittlerer (8.) Wert: 157.",
+   "h": "Ordne die Werte zuerst der Größe nach."
+  },
+  {
+   "l": "median",
+   "t": "median",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tabelle zeigt, wie oft jeder Wert vorkommt (Tore, Anzahl der Spiele). Bestimme den Median.",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "Tore",
+      "0",
+      "1",
+      "2",
+      "3",
+      "4"
+     ],
+     "zeilen": [
+      [
+       "Anzahl Spiele",
+       "4",
+       "5",
+       "9",
+       "5",
+       "9"
+      ]
+     ]
+    }
    },
    "o": {
     "wert": 2
    },
-   "c": "2",
-   "w": "Geordnet: 0; 1; 2; 2; 2; 2; 2; 2; 2; 3; 3; 4; 5; 6; 6. Mittlerer (8.) Wert: 2.",
-   "h": "Ordne die Werte zuerst der Größe nach."
+   "c": "(2 + 2) / 2",
+   "w": "Insgesamt 32 Werte. Die Mitte ist der 16. und 17. Wert. Von unten gezählt: bis 0: 4, bis 1: 9, bis 2: 18, bis 3: 23, bis 4: 32. Median: 2.",
+   "h": "Zähle alle Werte. Welcher Platz ist die Mitte? Zähle in der Tabelle von unten bis dorthin."
   },
   {
    "l": "median",
@@ -422,45 +506,13 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Punkte in einem Test (höchstens 30): 6; 5; 30; 30; 17; 8; 28; 10; 23; 13; 6; 8; 20; 10. Bestimme den Median."
+    "text": "Seiten gelesen pro Tag: 38; 44; 20; 54; 12; 38; 38; 5; 33; 30; 56; 21. Bestimme den Median."
    },
    "o": {
-    "wert": 11.5
+    "wert": 35.5
    },
-   "c": "(10 + 13) / 2",
-   "w": "Geordnet: 5; 6; 6; 8; 8; 10; 10; 13; 17; 20; 23; 28; 30; 30. Mittlere Werte 10 und 13: (10 + 13) : 2 = 11,5.",
-   "h": "Ordne die Werte zuerst der Größe nach."
-  },
-  {
-   "l": "median",
-   "t": "median",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Liegestütze: 5; 28; 40; 22; 14; 40; 40; 7; 35; 32; 23; 19; 19; 21; 11. Bestimme den Median."
-   },
-   "o": {
-    "wert": 22
-   },
-   "c": "22",
-   "w": "Geordnet: 5; 7; 11; 14; 19; 19; 21; 22; 23; 28; 32; 35; 40; 40; 40. Mittlerer (8.) Wert: 22.",
-   "h": "Ordne die Werte zuerst der Größe nach."
-  },
-  {
-   "l": "median",
-   "t": "median",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Liegestütze: 27; 9; 19; 27; 9; 6; 28; 27; 16; 25; 31; 30; 5; 13; 26; 20. Bestimme den Median."
-   },
-   "o": {
-    "wert": 22.5
-   },
-   "c": "(20 + 25) / 2",
-   "w": "Geordnet: 5; 6; 9; 9; 13; 16; 19; 20; 25; 26; 27; 27; 27; 28; 30; 31. Mittlere Werte 20 und 25: (20 + 25) : 2 = 22,5.",
+   "c": "(33 + 38) / 2",
+   "w": "Geordnet: 5; 12; 20; 21; 30; 33; 38; 38; 38; 44; 54; 56. Mittlere Werte 33 und 38: (33 + 38) : 2 = 35,5.",
    "h": "Ordne die Werte zuerst der Größe nach."
   },
   {
@@ -470,13 +522,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Punkte in einem Test (höchstens 30): 12; 28; 8; 13; 5; 14. Bestimme den Median."
+    "text": "Liegestütze: 19; 21; 11; 34; 39; 27; 9; 19. Bestimme den Median."
    },
    "o": {
-    "wert": 12.5
+    "wert": 20
    },
-   "c": "(12 + 13) / 2",
-   "w": "Geordnet: 5; 8; 12; 13; 14; 28. Mittlere Werte 12 und 13: (12 + 13) : 2 = 12,5."
+   "c": "(19 + 21) / 2",
+   "w": "Geordnet: 9; 11; 19; 19; 21; 27; 34; 39. Mittlere Werte 19 und 21: (19 + 21) : 2 = 20."
   },
   {
    "l": "median",
@@ -485,13 +537,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Körpergröße in cm: 159; 138; 155; 140; 158; 165; 142; 147. Bestimme den Median."
+    "text": "Körpergröße in cm: 143; 140; 162; 161; 150; 175; 159; 165; 164; 139. Bestimme den Median."
    },
    "o": {
-    "wert": 151
+    "wert": 160
    },
-   "c": "(147 + 155) / 2",
-   "w": "Geordnet: 138; 140; 142; 147; 155; 158; 159; 165. Mittlere Werte 147 und 155: (147 + 155) : 2 = 151."
+   "c": "(159 + 161) / 2",
+   "w": "Geordnet: 139; 140; 143; 150; 159; 161; 162; 164; 165; 175. Mittlere Werte 159 und 161: (159 + 161) : 2 = 160."
   },
   {
    "l": "median",
@@ -500,28 +552,88 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Liegestütze: 37; 7; 11; 34; 12; 22; 31; 22. Bestimme den Median."
+    "text": "Minuten Schulweg: 19; 39; 8; 10; 28; 19; 29; 14. Bestimme den Median."
+   },
+   "o": {
+    "wert": 19
+   },
+   "c": "(19 + 19) / 2",
+   "w": "Geordnet: 8; 10; 14; 19; 19; 28; 29; 39. Mittlere Werte 19 und 19: (19 + 19) : 2 = 19."
+  },
+  {
+   "l": "median",
+   "t": "median",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Körpergröße in cm: 175; 148; 159; 138; 155; 140; 158; 165; 142; 147; 153. Bestimme den Median."
+   },
+   "o": {
+    "wert": 153
+   },
+   "c": "153",
+   "w": "Geordnet: 138; 140; 142; 147; 148; 153; 155; 158; 159; 165; 175. Mittlerer (6.) Wert: 153."
+  },
+  {
+   "l": "median",
+   "t": "median",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Punkte in einem Test (höchstens 30): 15; 26; 4; 9; 13; 27. Bestimme den Median."
+   },
+   "o": {
+    "wert": 14
+   },
+   "c": "(13 + 15) / 2",
+   "w": "Geordnet: 4; 9; 13; 15; 26; 27. Mittlere Werte 13 und 15: (13 + 15) : 2 = 14."
+  },
+  {
+   "l": "median",
+   "t": "median",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Liegestütze: 24; 15; 28; 30; 32; 5; 35; 9; 25; 18. Bestimme den Median."
+   },
+   "o": {
+    "wert": 24.5
+   },
+   "c": "(24 + 25) / 2",
+   "w": "Geordnet: 5; 9; 15; 18; 24; 25; 28; 30; 32; 35. Mittlere Werte 24 und 25: (24 + 25) : 2 = 24,5."
+  },
+  {
+   "l": "median",
+   "t": "median",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Seiten gelesen pro Tag: 33; 53; 58; 20; 35; 36; 2; 36. Bestimme den Median."
+   },
+   "o": {
+    "wert": 35.5
+   },
+   "c": "(35 + 36) / 2",
+   "w": "Geordnet: 2; 20; 33; 35; 36; 36; 53; 58. Mittlere Werte 35 und 36: (35 + 36) : 2 = 35,5."
+  },
+  {
+   "l": "median",
+   "t": "median",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Liegestütze: 13; 4; 5; 7; 17; 28; 29; 33; 22; 24; 32. Bestimme den Median."
    },
    "o": {
     "wert": 22
    },
-   "c": "(22 + 22) / 2",
-   "w": "Geordnet: 7; 11; 12; 22; 22; 31; 34; 37. Mittlere Werte 22 und 22: (22 + 22) : 2 = 22."
-  },
-  {
-   "l": "median",
-   "t": "median",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Tore pro Spiel: 3; 3; 3; 5; 6; 6; 0; 4; 3; 6. Bestimme den Median."
-   },
-   "o": {
-    "wert": 3.5
-   },
-   "c": "(3 + 4) / 2",
-   "w": "Geordnet: 0; 3; 3; 3; 3; 4; 5; 6; 6; 6. Mittlere Werte 3 und 4: (3 + 4) : 2 = 3,5."
+   "c": "22",
+   "w": "Geordnet: 4; 5; 7; 13; 17; 22; 24; 28; 29; 32; 33. Mittlerer (6.) Wert: 22."
   },
   {
    "l": "median",
@@ -530,43 +642,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Liegestütze: 25; 18; 39; 12; 31; 35. Bestimme den Median."
+    "text": "Seiten gelesen pro Tag: 21; 41; 59; 15; 56; 44; 54; 57; 44; 3; 23. Bestimme den Median."
    },
    "o": {
-    "wert": 28
+    "wert": 44
    },
-   "c": "(25 + 31) / 2",
-   "w": "Geordnet: 12; 18; 25; 31; 35; 39. Mittlere Werte 25 und 31: (25 + 31) : 2 = 28."
-  },
-  {
-   "l": "median",
-   "t": "median",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Liegestütze: 38; 4; 38; 40; 29; 13; 4; 5; 7; 17. Bestimme den Median."
-   },
-   "o": {
-    "wert": 15
-   },
-   "c": "(13 + 17) / 2",
-   "w": "Geordnet: 4; 4; 5; 7; 13; 17; 29; 38; 38; 40. Mittlere Werte 13 und 17: (13 + 17) : 2 = 15."
-  },
-  {
-   "l": "median",
-   "t": "median",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Liegestütze: 29; 33; 22; 24; 32; 28; 33; 23; 17; 5; 25. Bestimme den Median."
-   },
-   "o": {
-    "wert": 25
-   },
-   "c": "25",
-   "w": "Geordnet: 5; 17; 22; 23; 24; 25; 28; 29; 32; 33; 33. Mittlerer (6.) Wert: 25."
+   "c": "44",
+   "w": "Geordnet: 3; 15; 21; 23; 41; 44; 44; 54; 56; 57; 59. Mittlerer (6.) Wert: 44."
   },
   {
    "l": "median",
@@ -584,43 +666,13 @@
    "w": "Geordnet: 8; 11; 15; 17; 19; 23; 23; 25; 28; 34; 45. Mittlerer (6.) Wert: 23."
   },
   {
-   "l": "median",
-   "t": "median",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Tore pro Spiel: 5; 5; 0; 6; 5; 4. Bestimme den Median."
-   },
-   "o": {
-    "wert": 5
-   },
-   "c": "(5 + 5) / 2",
-   "w": "Geordnet: 0; 4; 5; 5; 5; 6. Mittlere Werte 5 und 5: (5 + 5) : 2 = 5."
-  },
-  {
-   "l": "median",
-   "t": "median",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Punkte in einem Test (höchstens 30): 13; 28; 18; 14; 4; 9; 22; 8; 1; 18; 17. Bestimme den Median."
-   },
-   "o": {
-    "wert": 14
-   },
-   "c": "14",
-   "w": "Geordnet: 1; 4; 8; 9; 13; 14; 17; 18; 18; 22; 28. Mittlerer (6.) Wert: 14."
-  },
-  {
    "l": "kennwerte",
    "t": "kennwerte",
    "p": "uebung",
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Werte: 8; 7; 14; 25; 25; 21; 5; 23; 25; 11. Bestimme die Spannweite."
+    "text": "Punkte beim Ballwurf von 10 Kindern: 7; 14; 25; 25; 21; 5; 23; 25; 11; 18. Bestimme die Spannweite."
    },
    "o": {
     "wert": 20
@@ -636,46 +688,46 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Werte: 21; 24; 3; 18; 3; 20. Bestimme den Modalwert."
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "3",
-   "w": "3 kommt 2-mal vor, öfter als jeder andere Wert.",
-   "h": "Welcher Wert kommt am häufigsten vor?"
-  },
-  {
-   "l": "kennwerte",
-   "t": "kennwerte",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 13; 17; 24; 6; 24; 4; 16. Bestimme den Modalwert."
-   },
-   "o": {
-    "wert": 24
-   },
-   "c": "24",
-   "w": "24 kommt 2-mal vor, öfter als jeder andere Wert.",
-   "h": "Welcher Wert kommt am häufigsten vor?"
-  },
-  {
-   "l": "kennwerte",
-   "t": "kennwerte",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 10; 1; 14; 23; 23; 13. Bestimme den Modalwert."
+    "text": "Euro Taschengeld von 6 Kindern: 24; 3; 18; 3; 20; 1. Bestimme die Spannweite."
    },
    "o": {
     "wert": 23
    },
-   "c": "23",
-   "w": "23 kommt 2-mal vor, öfter als jeder andere Wert.",
-   "h": "Welcher Wert kommt am häufigsten vor?"
+   "c": "24 - 1",
+   "w": "Größter Wert 24, kleinster 1: 24 − 1 = 23.",
+   "h": "Größter minus kleinster Wert."
+  },
+  {
+   "l": "kennwerte",
+   "t": "kennwerte",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Tore in der Saison von 6 Kindern: 13; 17; 24; 6; 24; 4. Bestimme die Spannweite."
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "24 - 4",
+   "w": "Größter Wert 24, kleinster 4: 24 − 4 = 20.",
+   "h": "Größter minus kleinster Wert."
+  },
+  {
+   "l": "kennwerte",
+   "t": "kennwerte",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Euro Taschengeld von 6 Kindern: 5; 10; 1; 14; 23; 23. Bestimme die Spannweite."
+   },
+   "o": {
+    "wert": 22
+   },
+   "c": "23 - 1",
+   "w": "Größter Wert 23, kleinster 1: 23 − 1 = 22.",
+   "h": "Größter minus kleinster Wert."
   },
   {
    "l": "kennwerte",
@@ -684,7 +736,7 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Werte: 7; 24; 9; 24; 4; 10. Bestimme die Spannweite."
+    "text": "Minuten Hausaufgaben von 6 Kindern: 7; 24; 9; 24; 4; 10. Bestimme die Spannweite."
    },
    "o": {
     "wert": 20
@@ -700,23 +752,7 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Werte: 20; 11; 17; 20; 10; 16; 21. Bestimme die Spannweite."
-   },
-   "o": {
-    "wert": 11
-   },
-   "c": "21 - 10",
-   "w": "Größter Wert 21, kleinster 10: 21 − 10 = 11.",
-   "h": "Größter minus kleinster Wert."
-  },
-  {
-   "l": "kennwerte",
-   "t": "kennwerte",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 12; 8; 24; 19; 6; 6. Bestimme den Modalwert."
+    "text": "Tore in der Saison von 6 Kindern: 12; 8; 24; 19; 6; 6. Bestimme den Modalwert."
    },
    "o": {
     "wert": 6
@@ -732,77 +768,77 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Werte: 10; 12; 24; 1; 11; 4; 12; 23. Bestimme die Spannweite."
+    "text": "Liegestütze in einer Minute von 8 Kindern: 11; 15; 14; 21; 17; 18; 25; 25. Bestimme den Modalwert."
    },
    "o": {
-    "wert": 23
+    "wert": 25
    },
-   "c": "24 - 1",
-   "w": "Größter Wert 24, kleinster 1: 24 − 1 = 23.",
+   "c": "25",
+   "w": "25 kommt 2-mal vor, öfter als jeder andere Wert.",
+   "h": "Welcher Wert kommt am häufigsten vor?"
+  },
+  {
+   "l": "kennwerte",
+   "t": "kennwerte",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Euro Taschengeld von 6 Kindern: 14; 12; 11; 9; 10; 12. Bestimme den Modalwert."
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "12",
+   "w": "12 kommt 2-mal vor, öfter als jeder andere Wert.",
+   "h": "Welcher Wert kommt am häufigsten vor?"
+  },
+  {
+   "l": "kennwerte",
+   "t": "kennwerte",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gelesene Bücher im Jahr von 5 Kindern: 1; 9; 20; 9; 16. Bestimme den Modalwert."
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "9",
+   "w": "9 kommt 2-mal vor, öfter als jeder andere Wert.",
+   "h": "Welcher Wert kommt am häufigsten vor?"
+  },
+  {
+   "l": "kennwerte",
+   "t": "kennwerte",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gelesene Bücher im Jahr von 5 Kindern: 6; 14; 22; 10; 6. Bestimme die Spannweite."
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "22 - 6",
+   "w": "Größter Wert 22, kleinster 6: 22 − 6 = 16.",
    "h": "Größter minus kleinster Wert."
   },
   {
    "l": "kennwerte",
    "t": "kennwerte",
    "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 23; 17; 9; 11; 1; 9; 20; 9; 16; 25. Bestimme den Modalwert."
-   },
-   "o": {
-    "wert": 9
-   },
-   "c": "9",
-   "w": "9 kommt 3-mal vor, öfter als jeder andere Wert.",
-   "h": "Welcher Wert kommt am häufigsten vor?"
-  },
-  {
-   "l": "kennwerte",
-   "t": "kennwerte",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 22; 19; 19; 12; 9; 23. Bestimme den Modalwert."
-   },
-   "o": {
-    "wert": 19
-   },
-   "c": "19",
-   "w": "19 kommt 2-mal vor, öfter als jeder andere Wert.",
-   "h": "Welcher Wert kommt am häufigsten vor?"
-  },
-  {
-   "l": "kennwerte",
-   "t": "kennwerte",
-   "p": "uebung",
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Von 8 Werten kennt man 7: 14; 22; 10; 6; 7; 13; 7. Das arithmetische Mittel aller 8 Werte ist 10. Wie groß ist der fehlende Wert?"
+    "text": "Minuten Hausaufgaben von 8 Kindern: 3; 24; 20; 13; 15; 1; 6; 24. Berechne das arithmetische Mittel."
    },
    "o": {
-    "wert": 1
+    "wert": 13.25
    },
-   "c": "10 * 8 - (14 + 22 + 10 + 6 + 7 + 13 + 7)",
-   "w": "Summe aller Werte: 10 · 8 = 80. Bekannte Summe 79. Fehlender Wert: 80 − 79 = 1.",
-   "h": "Mittelwert · Anzahl = Summe."
-  },
-  {
-   "l": "kennwerte",
-   "t": "kennwerte",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 23; 19; 21; 3; 20; 23; 1; 10; 22; 23. Berechne das arithmetische Mittel."
-   },
-   "o": {
-    "wert": 16.5
-   },
-   "c": "(23 + 19 + 21 + 3 + 20 + 23 + 1 + 10 + 22 + 23) / 10",
-   "w": "Summe 165, Anzahl 10: 165 : 10 = 16,5.",
+   "c": "(3 + 24 + 20 + 13 + 15 + 1 + 6 + 24) / 8",
+   "w": "Summe 106, Anzahl 8: 106 : 8 = 13,25.",
    "h": "Alle Werte addieren und durch ihre Anzahl teilen."
   },
   {
@@ -812,13 +848,29 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Von 6 Werten kennt man 5: 1; 6; 24; 17; 4. Das arithmetische Mittel aller 6 Werte ist 15. Wie groß ist der fehlende Wert?"
+    "text": "Gelesene Bücher im Jahr von 6 Kindern: 5; 19; 2; 2; 13; 25. Berechne das arithmetische Mittel."
    },
    "o": {
-    "wert": 38
+    "wert": 11
    },
-   "c": "15 * 6 - (1 + 6 + 24 + 17 + 4)",
-   "w": "Summe aller Werte: 15 · 6 = 90. Bekannte Summe 52. Fehlender Wert: 90 − 52 = 38.",
+   "c": "(5 + 19 + 2 + 2 + 13 + 25) / 6",
+   "w": "Summe 66, Anzahl 6: 66 : 6 = 11.",
+   "h": "Alle Werte addieren und durch ihre Anzahl teilen."
+  },
+  {
+   "l": "kennwerte",
+   "t": "kennwerte",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Liegestütze in einer Minute: Von 6 Kindern kennt man 5 Werte: 23; 23; 2; 7; 12. Das arithmetische Mittel aller 6 Werte ist 18. Wie groß ist der fehlende Wert?"
+   },
+   "o": {
+    "wert": 41
+   },
+   "c": "18 * 6 - (23 + 23 + 2 + 7 + 12)",
+   "w": "Summe aller Werte: 18 · 6 = 108. Bekannte Summe 67. Fehlender Wert: 108 − 67 = 41.",
    "h": "Mittelwert · Anzahl = Summe."
   },
   {
@@ -828,13 +880,13 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Werte: 22; 23; 23; 2; 7; 12; 19; 13. Berechne das arithmetische Mittel."
+    "text": "Tore in der Saison von 10 Kindern: 14; 3; 20; 13; 16; 21; 7; 24; 22; 7. Berechne das arithmetische Mittel."
    },
    "o": {
-    "wert": 15.125
+    "wert": 14.7
    },
-   "c": "(22 + 23 + 23 + 2 + 7 + 12 + 19 + 13) / 8",
-   "w": "Summe 121, Anzahl 8: 121 : 8 = 15,125.",
+   "c": "(14 + 3 + 20 + 13 + 16 + 21 + 7 + 24 + 22 + 7) / 10",
+   "w": "Summe 147, Anzahl 10: 147 : 10 = 14,7.",
    "h": "Alle Werte addieren und durch ihre Anzahl teilen."
   },
   {
@@ -844,13 +896,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Werte: 7; 24; 22; 7; 25; 2; 9. Bestimme den Modalwert."
+    "text": "Liegestütze in einer Minute von 7 Kindern: 4; 1; 22; 17; 17; 13; 17. Berechne das arithmetische Mittel."
    },
    "o": {
-    "wert": 7
+    "wert": 13
    },
-   "c": "7",
-   "w": "7 kommt 2-mal vor, öfter als jeder andere Wert."
+   "c": "(4 + 1 + 22 + 17 + 17 + 13 + 17) / 7",
+   "w": "Summe 91, Anzahl 7: 91 : 7 = 13."
   },
   {
    "l": "kennwerte",
@@ -859,22 +911,7 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Werte: 1; 22; 17; 17; 13. Bestimme den Modalwert."
-   },
-   "o": {
-    "wert": 17
-   },
-   "c": "17",
-   "w": "17 kommt 2-mal vor, öfter als jeder andere Wert."
-  },
-  {
-   "l": "kennwerte",
-   "t": "kennwerte",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 19; 9; 14; 1; 14; 10; 13. Bestimme die Spannweite."
+    "text": "Gelesene Bücher im Jahr von 10 Kindern: 14; 1; 14; 10; 13; 6; 11; 7; 19; 9. Bestimme die Spannweite."
    },
    "o": {
     "wert": 18
@@ -889,13 +926,28 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Werte: 7; 19; 9; 1; 9; 18; 10. Bestimme die Spannweite."
+    "text": "Liegestütze in einer Minute von 7 Kindern: 4; 21; 21; 2; 19; 7; 10. Bestimme die Spannweite."
    },
    "o": {
-    "wert": 18
+    "wert": 19
    },
-   "c": "19 - 1",
-   "w": "Größter Wert 19, kleinster 1: 19 − 1 = 18."
+   "c": "21 - 2",
+   "w": "Größter Wert 21, kleinster 2: 21 − 2 = 19."
+  },
+  {
+   "l": "kennwerte",
+   "t": "kennwerte",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Liegestütze in einer Minute von 7 Kindern: 3; 17; 5; 3; 9; 1; 18. Berechne das arithmetische Mittel."
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "(3 + 17 + 5 + 3 + 9 + 1 + 18) / 7",
+   "w": "Summe 56, Anzahl 7: 56 : 7 = 8."
   },
   {
    "l": "kennwerte",
@@ -904,37 +956,7 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Werte: 18; 9; 2; 11; 7; 11; 25; 17. Bestimme die Spannweite."
-   },
-   "o": {
-    "wert": 23
-   },
-   "c": "25 - 2",
-   "w": "Größter Wert 25, kleinster 2: 25 − 2 = 23."
-  },
-  {
-   "l": "kennwerte",
-   "t": "kennwerte",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 4; 21; 21; 2; 19; 7; 10; 6. Berechne das arithmetische Mittel."
-   },
-   "o": {
-    "wert": 11.25
-   },
-   "c": "(4 + 21 + 21 + 2 + 19 + 7 + 10 + 6) / 8",
-   "w": "Summe 90, Anzahl 8: 90 : 8 = 11,25."
-  },
-  {
-   "l": "kennwerte",
-   "t": "kennwerte",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 3; 17; 5; 3; 9; 1; 18; 15; 22; 21. Bestimme den Modalwert."
+    "text": "Euro Taschengeld von 10 Kindern: 4; 5; 3; 8; 12; 7; 3; 20; 17; 18. Bestimme den Modalwert."
    },
    "o": {
     "wert": 3
@@ -949,22 +971,7 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Werte: 5; 3; 8; 12; 7; 3; 20; 17; 18; 24. Bestimme den Modalwert."
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "3",
-   "w": "3 kommt 2-mal vor, öfter als jeder andere Wert."
-  },
-  {
-   "l": "kennwerte",
-   "t": "kennwerte",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 25; 11; 9; 9; 6; 5; 13; 12; 6; 9. Bestimme den Modalwert."
+    "text": "Liegestütze in einer Minute von 10 Kindern: 25; 11; 9; 9; 6; 5; 13; 12; 6; 9. Bestimme den Modalwert."
    },
    "o": {
     "wert": 9
@@ -979,1233 +986,58 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Werte: 2; 23; 18; 18; 17; 21; 7; 19. Bestimme die Spannweite."
+    "text": "Liegestütze in einer Minute von 8 Kindern: 20; 17; 17; 15; 12; 21; 6; 5. Bestimme den Modalwert."
    },
    "o": {
-    "wert": 21
+    "wert": 17
    },
-   "c": "23 - 2",
-   "w": "Größter Wert 23, kleinster 2: 23 − 2 = 21."
+   "c": "17",
+   "w": "17 kommt 2-mal vor, öfter als jeder andere Wert."
   },
   {
-   "l": "quartile",
-   "t": "quartile",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 2; 6; 9; 9; 11; 14; 18; 23; 24; 42; 47. Bestimme das untere Quartil."
-   },
-   "o": {
-    "wert": 9
-   },
-   "c": "9/1",
-   "w": "Geordnet: 2; 6; 9; 9; 11; 14; 18; 23; 24; 42; 47. Untere Hälfte 2; 6; 9; 9; 11 → Q₁ = 9; obere Hälfte 18; 23; 24; 42; 47 → Q₃ = 24.",
-   "h": "Bilde die untere Hälfte (ohne den Median, falls die Anzahl ungerade ist) und bestimme ihren Median."
-  },
-  {
-   "l": "quartile",
-   "t": "quartile",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 13; 14; 16; 16; 17; 19; 34; 37; 40; 47; 50. Bestimme das untere Quartil."
-   },
-   "o": {
-    "wert": 16
-   },
-   "c": "16/1",
-   "w": "Geordnet: 13; 14; 16; 16; 17; 19; 34; 37; 40; 47; 50. Untere Hälfte 13; 14; 16; 16; 17 → Q₁ = 16; obere Hälfte 34; 37; 40; 47; 50 → Q₃ = 40.",
-   "h": "Bilde die untere Hälfte (ohne den Median, falls die Anzahl ungerade ist) und bestimme ihren Median."
-  },
-  {
-   "l": "quartile",
-   "t": "quartile",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 1; 2; 4; 19; 20; 24; 28; 32; 33; 34; 38. Bestimme das obere Quartil."
-   },
-   "o": {
-    "wert": 33
-   },
-   "c": "33/1",
-   "w": "Geordnet: 1; 2; 4; 19; 20; 24; 28; 32; 33; 34; 38. Untere Hälfte 1; 2; 4; 19; 20 → Q₁ = 4; obere Hälfte 28; 32; 33; 34; 38 → Q₃ = 33.",
-   "h": "Bilde die obere Hälfte (ohne den Median, falls die Anzahl ungerade ist) und bestimme ihren Median."
-  },
-  {
-   "l": "quartile",
-   "t": "quartile",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 15; 20; 27; 37; 39; 48; 49. Bestimme das untere Quartil."
-   },
-   "o": {
-    "wert": 20
-   },
-   "c": "20/1",
-   "w": "Geordnet: 15; 20; 27; 37; 39; 48; 49. Untere Hälfte 15; 20; 27 → Q₁ = 20; obere Hälfte 39; 48; 49 → Q₃ = 48.",
-   "h": "Bilde die untere Hälfte (ohne den Median, falls die Anzahl ungerade ist) und bestimme ihren Median."
-  },
-  {
-   "l": "quartile",
-   "t": "quartile",
-   "p": "uebung",
+   "l": "kennwerte",
+   "t": "kennwerte",
+   "p": "sicherung",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Werte: 17; 24; 20; 22; 5; 4; 35; 35; 31; 35; 9; 47. Bestimme das obere Quartil."
+    "text": "Punkte beim Ballwurf von 7 Kindern: 16; 19; 20; 10; 7; 25; 7. Bestimme den Modalwert."
    },
    "o": {
-    "wert": 35
+    "wert": 7
    },
-   "c": "35/1",
-   "w": "Geordnet: 4; 5; 9; 17; 20; 22; 24; 31; 35; 35; 35; 47. Untere Hälfte 4; 5; 9; 17; 20; 22 → Q₁ = 13; obere Hälfte 24; 31; 35; 35; 35; 47 → Q₃ = 35.",
-   "h": "Bilde die obere Hälfte (ohne den Median, falls die Anzahl ungerade ist) und bestimme ihren Median."
+   "c": "7",
+   "w": "7 kommt 2-mal vor, öfter als jeder andere Wert."
   },
   {
-   "l": "quartile",
-   "t": "quartile",
-   "p": "uebung",
+   "l": "kennwerte",
+   "t": "kennwerte",
+   "p": "sicherung",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Werte: 28; 28; 20; 3; 16; 33; 36; 14; 43. Bestimme das untere Quartil."
-   },
-   "o": {
-    "wert": 15
-   },
-   "c": "15/1",
-   "w": "Geordnet: 3; 14; 16; 20; 28; 28; 33; 36; 43. Untere Hälfte 3; 14; 16; 20 → Q₁ = 15; obere Hälfte 28; 33; 36; 43 → Q₃ = 34,5.",
-   "h": "Bilde die untere Hälfte (ohne den Median, falls die Anzahl ungerade ist) und bestimme ihren Median."
-  },
-  {
-   "l": "quartile",
-   "t": "quartile",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 15; 3; 41; 46; 6; 48; 44; 45; 37. Bestimme das untere Quartil."
+    "text": "Gelesene Bücher im Jahr von 6 Kindern: 14; 4; 14; 9; 12; 10. Berechne das arithmetische Mittel."
    },
    "o": {
     "wert": 10.5
    },
-   "c": "21/2",
-   "w": "Geordnet: 3; 6; 15; 37; 41; 44; 45; 46; 48. Untere Hälfte 3; 6; 15; 37 → Q₁ = 10,5; obere Hälfte 44; 45; 46; 48 → Q₃ = 45,5.",
-   "h": "Bilde die untere Hälfte (ohne den Median, falls die Anzahl ungerade ist) und bestimme ihren Median."
+   "c": "(14 + 4 + 14 + 9 + 12 + 10) / 6",
+   "w": "Summe 63, Anzahl 6: 63 : 6 = 10,5."
   },
   {
-   "l": "quartile",
-   "t": "quartile",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 25; 47; 26; 35; 22; 50; 15; 20; 50; 32; 34; 34. Bestimme das untere Quartil."
-   },
-   "o": {
-    "wert": 23.5
-   },
-   "c": "47/2",
-   "w": "Geordnet: 15; 20; 22; 25; 26; 32; 34; 34; 35; 47; 50; 50. Untere Hälfte 15; 20; 22; 25; 26; 32 → Q₁ = 23,5; obere Hälfte 34; 34; 35; 47; 50; 50 → Q₃ = 41.",
-   "h": "Bilde die untere Hälfte (ohne den Median, falls die Anzahl ungerade ist) und bestimme ihren Median."
-  },
-  {
-   "l": "quartile",
-   "t": "quartile",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 10; 14; 49; 38; 34; 32; 1; 34; 1. Bestimme das obere Quartil."
-   },
-   "o": {
-    "wert": 36
-   },
-   "c": "36/1",
-   "w": "Geordnet: 1; 1; 10; 14; 32; 34; 34; 38; 49. Untere Hälfte 1; 1; 10; 14 → Q₁ = 5,5; obere Hälfte 34; 34; 38; 49 → Q₃ = 36.",
-   "h": "Bilde die obere Hälfte (ohne den Median, falls die Anzahl ungerade ist) und bestimme ihren Median."
-  },
-  {
-   "l": "quartile",
-   "t": "quartile",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 16; 18; 49; 24; 26; 45; 48; 47; 24. Bestimme das untere Quartil."
-   },
-   "o": {
-    "wert": 21
-   },
-   "c": "21/1",
-   "w": "Geordnet: 16; 18; 24; 24; 26; 45; 47; 48; 49. Untere Hälfte 16; 18; 24; 24 → Q₁ = 21; obere Hälfte 45; 47; 48; 49 → Q₃ = 47,5.",
-   "h": "Bilde die untere Hälfte (ohne den Median, falls die Anzahl ungerade ist) und bestimme ihren Median."
-  },
-  {
-   "l": "quartile",
-   "t": "quartile",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 29; 29; 39; 31; 30; 29; 34; 20; 40; 22; 23; 40; 3. Bestimme das untere Quartil."
-   },
-   "o": {
-    "wert": 22.5
-   },
-   "c": "45/2",
-   "w": "Geordnet: 3; 20; 22; 23; 29; 29; 29; 30; 31; 34; 39; 40; 40. Untere Hälfte 3; 20; 22; 23; 29; 29 → Q₁ = 22,5; obere Hälfte 30; 31; 34; 39; 40; 40 → Q₃ = 36,5.",
-   "h": "Bilde die untere Hälfte (ohne den Median, falls die Anzahl ungerade ist) und bestimme ihren Median."
-  },
-  {
-   "l": "quartile",
-   "t": "quartile",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 24; 18; 22; 34; 37; 47; 13; 37; 8; 24; 42; 25; 21. Bestimme das obere Quartil."
-   },
-   "o": {
-    "wert": 37
-   },
-   "c": "37/1",
-   "w": "Geordnet: 8; 13; 18; 21; 22; 24; 24; 25; 34; 37; 37; 42; 47. Untere Hälfte 8; 13; 18; 21; 22; 24 → Q₁ = 19,5; obere Hälfte 25; 34; 37; 37; 42; 47 → Q₃ = 37.",
-   "h": "Bilde die obere Hälfte (ohne den Median, falls die Anzahl ungerade ist) und bestimme ihren Median."
-  },
-  {
-   "l": "quartile",
-   "t": "quartile",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 40; 9; 46; 11; 22; 5; 43; 31; 40; 11; 12; 6; 8. Bestimme das obere Quartil."
-   },
-   "o": {
-    "wert": 40
-   },
-   "c": "40/1",
-   "w": "Geordnet: 5; 6; 8; 9; 11; 11; 12; 22; 31; 40; 40; 43; 46. Untere Hälfte 5; 6; 8; 9; 11; 11 → Q₁ = 8,5; obere Hälfte 22; 31; 40; 40; 43; 46 → Q₃ = 40.",
-   "h": "Bilde die obere Hälfte (ohne den Median, falls die Anzahl ungerade ist) und bestimme ihren Median."
-  },
-  {
-   "l": "quartile",
-   "t": "quartile",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 36; 44; 30; 15; 31; 2; 32; 42; 15; 22; 20; 5; 2; 28; 49. Bestimme das untere Quartil."
-   },
-   "o": {
-    "wert": 15
-   },
-   "c": "15/1",
-   "w": "Geordnet: 2; 2; 5; 15; 15; 20; 22; 28; 30; 31; 32; 36; 42; 44; 49. Untere Hälfte 2; 2; 5; 15; 15; 20; 22 → Q₁ = 15; obere Hälfte 30; 31; 32; 36; 42; 44; 49 → Q₃ = 36.",
-   "h": "Bilde die untere Hälfte (ohne den Median, falls die Anzahl ungerade ist) und bestimme ihren Median."
-  },
-  {
-   "l": "quartile",
-   "t": "quartile",
-   "p": "test",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 2; 45; 3; 43; 21; 28; 38; 31. Bestimme das untere Quartil."
-   },
-   "o": {
-    "wert": 12
-   },
-   "c": "12/1",
-   "w": "Geordnet: 2; 3; 21; 28; 31; 38; 43; 45. Untere Hälfte 2; 3; 21; 28 → Q₁ = 12; obere Hälfte 31; 38; 43; 45 → Q₃ = 40,5."
-  },
-  {
-   "l": "quartile",
-   "t": "quartile",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 30; 28; 25; 5; 8; 39; 3; 25; 10; 40. Bestimme das obere Quartil."
-   },
-   "o": {
-    "wert": 30
-   },
-   "c": "30/1",
-   "w": "Geordnet: 3; 5; 8; 10; 25; 25; 28; 30; 39; 40. Untere Hälfte 3; 5; 8; 10; 25 → Q₁ = 8; obere Hälfte 25; 28; 30; 39; 40 → Q₃ = 30."
-  },
-  {
-   "l": "quartile",
-   "t": "quartile",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 21; 36; 14; 18; 43; 17; 18; 10; 29; 31. Bestimme den Quartilsabstand Q₃ − Q₁."
-   },
-   "o": {
-    "wert": 14
-   },
-   "c": "31/1 - 17/1",
-   "w": "Geordnet: 10; 14; 17; 18; 18; 21; 29; 31; 36; 43. Untere Hälfte 10; 14; 17; 18; 18 → Q₁ = 17; obere Hälfte 21; 29; 31; 36; 43 → Q₃ = 31. Abstand 14."
-  },
-  {
-   "l": "quartile",
-   "t": "quartile",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 21; 8; 32; 20; 15; 27; 42; 3; 33; 14; 29; 42. Bestimme das obere Quartil."
-   },
-   "o": {
-    "wert": 32.5
-   },
-   "c": "65/2",
-   "w": "Geordnet: 3; 8; 14; 15; 20; 21; 27; 29; 32; 33; 42; 42. Untere Hälfte 3; 8; 14; 15; 20; 21 → Q₁ = 14,5; obere Hälfte 27; 29; 32; 33; 42; 42 → Q₃ = 32,5."
-  },
-  {
-   "l": "quartile",
-   "t": "quartile",
+   "l": "kennwerte",
+   "t": "kennwerte",
    "p": "sicherung",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Werte: 7; 2; 43; 1; 46; 32; 28; 20. Bestimme das untere Quartil."
+    "text": "Punkte beim Ballwurf von 5 Kindern: 18; 18; 16; 18; 5. Bestimme den Modalwert."
    },
    "o": {
-    "wert": 4.5
+    "wert": 18
    },
-   "c": "9/2",
-   "w": "Geordnet: 1; 2; 7; 20; 28; 32; 43; 46. Untere Hälfte 1; 2; 7; 20 → Q₁ = 4,5; obere Hälfte 28; 32; 43; 46 → Q₃ = 37,5."
-  },
-  {
-   "l": "quartile",
-   "t": "quartile",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 19; 44; 4; 10; 24; 2; 47; 18; 13; 22; 24; 6. Bestimme das obere Quartil."
-   },
-   "o": {
-    "wert": 24
-   },
-   "c": "24/1",
-   "w": "Geordnet: 2; 4; 6; 10; 13; 18; 19; 22; 24; 24; 44; 47. Untere Hälfte 2; 4; 6; 10; 13; 18 → Q₁ = 8; obere Hälfte 19; 22; 24; 24; 44; 47 → Q₃ = 24."
-  },
-  {
-   "l": "quartile",
-   "t": "quartile",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 43; 28; 2; 25; 35; 45; 36; 29; 11; 40. Bestimme den Quartilsabstand Q₃ − Q₁."
-   },
-   "o": {
-    "wert": 15
-   },
-   "c": "40/1 - 25/1",
-   "w": "Geordnet: 2; 11; 25; 28; 29; 35; 36; 40; 43; 45. Untere Hälfte 2; 11; 25; 28; 29 → Q₁ = 25; obere Hälfte 35; 36; 40; 43; 45 → Q₃ = 40. Abstand 15."
-  },
-  {
-   "l": "quartile",
-   "t": "quartile",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 33; 1; 6; 23; 34; 44; 13; 24; 26; 29. Bestimme das obere Quartil."
-   },
-   "o": {
-    "wert": 33
-   },
-   "c": "33/1",
-   "w": "Geordnet: 1; 6; 13; 23; 24; 26; 29; 33; 34; 44. Untere Hälfte 1; 6; 13; 23; 24 → Q₁ = 13; obere Hälfte 26; 29; 33; 34; 44 → Q₃ = 33."
-  },
-  {
-   "l": "quartile",
-   "t": "quartile",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 7; 8; 45; 18; 38; 10; 38; 26; 28; 21; 7; 30. Bestimme das untere Quartil."
-   },
-   "o": {
-    "wert": 9
-   },
-   "c": "9/1",
-   "w": "Geordnet: 7; 7; 8; 10; 18; 21; 26; 28; 30; 38; 38; 45. Untere Hälfte 7; 7; 8; 10; 18; 21 → Q₁ = 9; obere Hälfte 26; 28; 30; 38; 38; 45 → Q₃ = 34."
-  },
-  {
-   "l": "quartile",
-   "t": "quartile",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 1; 24; 19; 29; 39; 4; 40; 31; 21. Bestimme den Quartilsabstand Q₃ − Q₁."
-   },
-   "o": {
-    "wert": 23.5
-   },
-   "c": "35/1 - 23/2",
-   "w": "Geordnet: 1; 4; 19; 21; 24; 29; 31; 39; 40. Untere Hälfte 1; 4; 19; 21 → Q₁ = 11,5; obere Hälfte 29; 31; 39; 40 → Q₃ = 35. Abstand 23,5."
-  },
-  {
-   "l": "boxplot",
-   "t": "boxplot",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Kennwerte eines Boxplots (Punkte im Test): Minimum 2, unteres Quartil 13, Median 15, oberes Quartil 22, Maximum 33. Gib den Median an.",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Minimum",
-      "unteres Quartil",
-      "Median",
-      "oberes Quartil",
-      "Maximum"
-     ],
-     "zeilen": [
-      [
-       "2",
-       "13",
-       "15",
-       "22",
-       "33"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 15
-   },
-   "c": "15",
-   "w": "Der Strich in der Box: 15.",
-   "h": "Spannweite: ganze Länge. Quartilsabstand: Länge der Box."
-  },
-  {
-   "l": "boxplot",
-   "t": "boxplot",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Kennwerte eines Boxplots (Punkte im Test): Minimum 3, unteres Quartil 9, Median 17, oberes Quartil 22, Maximum 32. Gib den Quartilsabstand an.",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Minimum",
-      "unteres Quartil",
-      "Median",
-      "oberes Quartil",
-      "Maximum"
-     ],
-     "zeilen": [
-      [
-       "3",
-       "9",
-       "17",
-       "22",
-       "32"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 13
-   },
-   "c": "22 - 9",
-   "w": "Q₃ − Q₁ = 22 − 9 = 13.",
-   "h": "Spannweite: ganze Länge. Quartilsabstand: Länge der Box."
-  },
-  {
-   "l": "boxplot",
-   "t": "boxplot",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Kennwerte eines Boxplots (Weitsprung in cm): Minimum 260, unteres Quartil 320, Median 325, oberes Quartil 340, Maximum 375. Gib die Spannweite an.",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Minimum",
-      "unteres Quartil",
-      "Median",
-      "oberes Quartil",
-      "Maximum"
-     ],
-     "zeilen": [
-      [
-       "260",
-       "320",
-       "325",
-       "340",
-       "375"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 115
-   },
-   "c": "375 - 260",
-   "w": "Maximum − Minimum = 375 − 260 = 115.",
-   "h": "Spannweite: ganze Länge. Quartilsabstand: Länge der Box."
-  },
-  {
-   "l": "boxplot",
-   "t": "boxplot",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Kennwerte eines Boxplots (Weitsprung in cm): Minimum 245, unteres Quartil 305, Median 330, oberes Quartil 380, Maximum 390. Gib den Median an.",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Minimum",
-      "unteres Quartil",
-      "Median",
-      "oberes Quartil",
-      "Maximum"
-     ],
-     "zeilen": [
-      [
-       "245",
-       "305",
-       "330",
-       "380",
-       "390"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 330
-   },
-   "c": "330",
-   "w": "Der Strich in der Box: 330.",
-   "h": "Spannweite: ganze Länge. Quartilsabstand: Länge der Box."
-  },
-  {
-   "l": "boxplot",
-   "t": "boxplot",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Kennwerte eines Boxplots (Körpergröße in cm): Minimum 135, unteres Quartil 147, Median 155, oberes Quartil 167, Maximum 172. Etwa wie viel Prozent der Werte liegen unter 147?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Minimum",
-      "unteres Quartil",
-      "Median",
-      "oberes Quartil",
-      "Maximum"
-     ],
-     "zeilen": [
-      [
-       "135",
-       "147",
-       "155",
-       "167",
-       "172"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 25,
-    "einheit": "%"
-   },
-   "c": "25",
-   "w": "Quartile und Median teilen die Daten in Viertel. Unter 147 liegen etwa 25 %.",
-   "h": "Jeder der vier Abschnitte enthält etwa ein Viertel der Daten."
-  },
-  {
-   "l": "boxplot",
-   "t": "boxplot",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Kennwerte eines Boxplots (Körpergröße in cm): Minimum 141, unteres Quartil 151, Median 161, oberes Quartil 169, Maximum 177. Etwa wie viel Prozent der Werte liegen über 151?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Minimum",
-      "unteres Quartil",
-      "Median",
-      "oberes Quartil",
-      "Maximum"
-     ],
-     "zeilen": [
-      [
-       "141",
-       "151",
-       "161",
-       "169",
-       "177"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 75,
-    "einheit": "%"
-   },
-   "c": "75",
-   "w": "Quartile und Median teilen die Daten in Viertel. Über 151 liegen etwa 75 %.",
-   "h": "Jeder der vier Abschnitte enthält etwa ein Viertel der Daten."
-  },
-  {
-   "l": "boxplot",
-   "t": "boxplot",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Kennwerte eines Boxplots (Körpergröße in cm): Minimum 137, unteres Quartil 149, Median 150, oberes Quartil 161, Maximum 163. Etwa wie viel Prozent der Werte liegen zwischen 149 und 161?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Minimum",
-      "unteres Quartil",
-      "Median",
-      "oberes Quartil",
-      "Maximum"
-     ],
-     "zeilen": [
-      [
-       "137",
-       "149",
-       "150",
-       "161",
-       "163"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 50,
-    "einheit": "%"
-   },
-   "c": "50",
-   "w": "Quartile und Median teilen die Daten in Viertel. Zwischen 149 und 161 liegen etwa 50 %.",
-   "h": "Jeder der vier Abschnitte enthält etwa ein Viertel der Daten."
-  },
-  {
-   "l": "boxplot",
-   "t": "boxplot",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Kennwerte eines Boxplots (Wartezeit in min): Minimum 6, unteres Quartil 13, Median 19, oberes Quartil 23, Maximum 26. Etwa wie viel Prozent der Werte liegen über 23?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Minimum",
-      "unteres Quartil",
-      "Median",
-      "oberes Quartil",
-      "Maximum"
-     ],
-     "zeilen": [
-      [
-       "6",
-       "13",
-       "19",
-       "23",
-       "26"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 25,
-    "einheit": "%"
-   },
-   "c": "25",
-   "w": "Quartile und Median teilen die Daten in Viertel. Über 23 liegen etwa 25 %.",
-   "h": "Jeder der vier Abschnitte enthält etwa ein Viertel der Daten."
-  },
-  {
-   "l": "boxplot",
-   "t": "boxplot",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Kennwerte eines Boxplots (Wartezeit in min): Minimum 3, unteres Quartil 13, Median 23, oberes Quartil 33, Maximum 44. Etwa wie viel Prozent der Werte liegen unter 33?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Minimum",
-      "unteres Quartil",
-      "Median",
-      "oberes Quartil",
-      "Maximum"
-     ],
-     "zeilen": [
-      [
-       "3",
-       "13",
-       "23",
-       "33",
-       "44"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 75,
-    "einheit": "%"
-   },
-   "c": "75",
-   "w": "Quartile und Median teilen die Daten in Viertel. Unter 33 liegen etwa 75 %.",
-   "h": "Jeder der vier Abschnitte enthält etwa ein Viertel der Daten."
-  },
-  {
-   "l": "boxplot",
-   "t": "boxplot",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Kennwerte eines Boxplots (Körpergröße in cm): Minimum 140, unteres Quartil 148, Median 153, oberes Quartil 158, Maximum 162. Etwa wie viel Prozent der Werte liegen über 148?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Minimum",
-      "unteres Quartil",
-      "Median",
-      "oberes Quartil",
-      "Maximum"
-     ],
-     "zeilen": [
-      [
-       "140",
-       "148",
-       "153",
-       "158",
-       "162"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 75,
-    "einheit": "%"
-   },
-   "c": "75",
-   "w": "Quartile und Median teilen die Daten in Viertel. Über 148 liegen etwa 75 %.",
-   "h": "Jeder der vier Abschnitte enthält etwa ein Viertel der Daten."
-  },
-  {
-   "l": "boxplot",
-   "t": "boxplot",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "120 Personen wurden befragt (Körpergröße in cm). Kennwerte: Minimum 136, unteres Quartil 147, Median 153, oberes Quartil 158, Maximum 169. Etwa wie viele Personen liegen zwischen 147 und 158?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Minimum",
-      "unteres Quartil",
-      "Median",
-      "oberes Quartil",
-      "Maximum"
-     ],
-     "zeilen": [
-      [
-       "136",
-       "147",
-       "153",
-       "158",
-       "169"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 60
-   },
-   "c": "120 * 1 / 2",
-   "w": "Zwischen 147 und 158 liegt etwa 50 % der Daten: 50 % von 120 = 60.",
-   "h": "Welcher Anteil (Viertel, Hälfte, drei Viertel) ist gemeint?"
-  },
-  {
-   "l": "boxplot",
-   "t": "boxplot",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "200 Personen wurden befragt (Weitsprung in cm). Kennwerte: Minimum 225, unteres Quartil 255, Median 300, oberes Quartil 330, Maximum 380. Etwa wie viele Personen liegen unter 255?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Minimum",
-      "unteres Quartil",
-      "Median",
-      "oberes Quartil",
-      "Maximum"
-     ],
-     "zeilen": [
-      [
-       "225",
-       "255",
-       "300",
-       "330",
-       "380"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 50
-   },
-   "c": "200 * 1 / 4",
-   "w": "Unter 255 liegt etwa 25 % der Daten: 25 % von 200 = 50.",
-   "h": "Welcher Anteil (Viertel, Hälfte, drei Viertel) ist gemeint?"
-  },
-  {
-   "l": "boxplot",
-   "t": "boxplot",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "40 Personen wurden befragt (Punkte im Test). Kennwerte: Minimum 1, unteres Quartil 12, Median 16, oberes Quartil 22, Maximum 33. Etwa wie viele Personen liegen über 22?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Minimum",
-      "unteres Quartil",
-      "Median",
-      "oberes Quartil",
-      "Maximum"
-     ],
-     "zeilen": [
-      [
-       "1",
-       "12",
-       "16",
-       "22",
-       "33"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 10
-   },
-   "c": "40 * 1 / 4",
-   "w": "Über 22 liegt etwa 25 % der Daten: 25 % von 40 = 10.",
-   "h": "Welcher Anteil (Viertel, Hälfte, drei Viertel) ist gemeint?"
-  },
-  {
-   "l": "boxplot",
-   "t": "boxplot",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "120 Personen wurden befragt (Taschengeld in €). Kennwerte: Minimum 8, unteres Quartil 12, Median 16, oberes Quartil 25, Maximum 32. Etwa wie viele Personen liegen über 25?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Minimum",
-      "unteres Quartil",
-      "Median",
-      "oberes Quartil",
-      "Maximum"
-     ],
-     "zeilen": [
-      [
-       "8",
-       "12",
-       "16",
-       "25",
-       "32"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 30
-   },
-   "c": "120 * 1 / 4",
-   "w": "Über 25 liegt etwa 25 % der Daten: 25 % von 120 = 30.",
-   "h": "Welcher Anteil (Viertel, Hälfte, drei Viertel) ist gemeint?"
-  },
-  {
-   "l": "boxplot",
-   "t": "boxplot",
-   "p": "test",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Kennwerte eines Boxplots (Taschengeld in €): Minimum 12, unteres Quartil 19, Median 27, oberes Quartil 39, Maximum 47. Etwa wie viel Prozent der Werte liegen über 39?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Minimum",
-      "unteres Quartil",
-      "Median",
-      "oberes Quartil",
-      "Maximum"
-     ],
-     "zeilen": [
-      [
-       "12",
-       "19",
-       "27",
-       "39",
-       "47"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 25,
-    "einheit": "%"
-   },
-   "c": "25",
-   "w": "Quartile und Median teilen die Daten in Viertel. Über 39 liegen etwa 25 %."
-  },
-  {
-   "l": "boxplot",
-   "t": "boxplot",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Kennwerte eines Boxplots (Wartezeit in min): Minimum 6, unteres Quartil 15, Median 21, oberes Quartil 26, Maximum 34. Etwa wie viel Prozent der Werte liegen unter 15?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Minimum",
-      "unteres Quartil",
-      "Median",
-      "oberes Quartil",
-      "Maximum"
-     ],
-     "zeilen": [
-      [
-       "6",
-       "15",
-       "21",
-       "26",
-       "34"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 25,
-    "einheit": "%"
-   },
-   "c": "25",
-   "w": "Quartile und Median teilen die Daten in Viertel. Unter 15 liegen etwa 25 %."
-  },
-  {
-   "l": "boxplot",
-   "t": "boxplot",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Kennwerte eines Boxplots (Körpergröße in cm): Minimum 137, unteres Quartil 149, Median 151, oberes Quartil 163, Maximum 182. Etwa wie viel Prozent der Werte liegen zwischen 149 und 163?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Minimum",
-      "unteres Quartil",
-      "Median",
-      "oberes Quartil",
-      "Maximum"
-     ],
-     "zeilen": [
-      [
-       "137",
-       "149",
-       "151",
-       "163",
-       "182"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 50,
-    "einheit": "%"
-   },
-   "c": "50",
-   "w": "Quartile und Median teilen die Daten in Viertel. Zwischen 149 und 163 liegen etwa 50 %."
-  },
-  {
-   "l": "boxplot",
-   "t": "boxplot",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Kennwerte eines Boxplots (Weitsprung in cm): Minimum 225, unteres Quartil 245, Median 250, oberes Quartil 280, Maximum 340. Etwa wie viel Prozent der Werte liegen unter 245?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Minimum",
-      "unteres Quartil",
-      "Median",
-      "oberes Quartil",
-      "Maximum"
-     ],
-     "zeilen": [
-      [
-       "225",
-       "245",
-       "250",
-       "280",
-       "340"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 25,
-    "einheit": "%"
-   },
-   "c": "25",
-   "w": "Quartile und Median teilen die Daten in Viertel. Unter 245 liegen etwa 25 %."
-  },
-  {
-   "l": "boxplot",
-   "t": "boxplot",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Kennwerte eines Boxplots (Körpergröße in cm): Minimum 141, unteres Quartil 151, Median 154, oberes Quartil 156, Maximum 166. Etwa wie viel Prozent der Werte liegen unter 156?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Minimum",
-      "unteres Quartil",
-      "Median",
-      "oberes Quartil",
-      "Maximum"
-     ],
-     "zeilen": [
-      [
-       "141",
-       "151",
-       "154",
-       "156",
-       "166"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 75,
-    "einheit": "%"
-   },
-   "c": "75",
-   "w": "Quartile und Median teilen die Daten in Viertel. Unter 156 liegen etwa 75 %."
-  },
-  {
-   "l": "boxplot",
-   "t": "boxplot",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Kennwerte eines Boxplots (Wartezeit in min): Minimum 9, unteres Quartil 15, Median 20, oberes Quartil 22, Maximum 26. Etwa wie viel Prozent der Werte liegen über 22?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Minimum",
-      "unteres Quartil",
-      "Median",
-      "oberes Quartil",
-      "Maximum"
-     ],
-     "zeilen": [
-      [
-       "9",
-       "15",
-       "20",
-       "22",
-       "26"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 25,
-    "einheit": "%"
-   },
-   "c": "25",
-   "w": "Quartile und Median teilen die Daten in Viertel. Über 22 liegen etwa 25 %."
-  },
-  {
-   "l": "boxplot",
-   "t": "boxplot",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Kennwerte eines Boxplots (Punkte im Test): Minimum 10, unteres Quartil 14, Median 19, oberes Quartil 23, Maximum 28. Etwa wie viel Prozent der Werte liegen unter 14?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Minimum",
-      "unteres Quartil",
-      "Median",
-      "oberes Quartil",
-      "Maximum"
-     ],
-     "zeilen": [
-      [
-       "10",
-       "14",
-       "19",
-       "23",
-       "28"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 25,
-    "einheit": "%"
-   },
-   "c": "25",
-   "w": "Quartile und Median teilen die Daten in Viertel. Unter 14 liegen etwa 25 %."
-  },
-  {
-   "l": "boxplot",
-   "t": "boxplot",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Kennwerte eines Boxplots (Weitsprung in cm): Minimum 230, unteres Quartil 290, Median 325, oberes Quartil 370, Maximum 395. Etwa wie viel Prozent der Werte liegen zwischen 290 und 370?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Minimum",
-      "unteres Quartil",
-      "Median",
-      "oberes Quartil",
-      "Maximum"
-     ],
-     "zeilen": [
-      [
-       "230",
-       "290",
-       "325",
-       "370",
-       "395"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 50,
-    "einheit": "%"
-   },
-   "c": "50",
-   "w": "Quartile und Median teilen die Daten in Viertel. Zwischen 290 und 370 liegen etwa 50 %."
-  },
-  {
-   "l": "boxplot",
-   "t": "boxplot",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Kennwerte eines Boxplots (Taschengeld in €): Minimum 9, unteres Quartil 21, Median 22, oberes Quartil 29, Maximum 41. Etwa wie viel Prozent der Werte liegen unter 22?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Minimum",
-      "unteres Quartil",
-      "Median",
-      "oberes Quartil",
-      "Maximum"
-     ],
-     "zeilen": [
-      [
-       "9",
-       "21",
-       "22",
-       "29",
-       "41"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 50,
-    "einheit": "%"
-   },
-   "c": "50",
-   "w": "Quartile und Median teilen die Daten in Viertel. Unter 22 liegen etwa 50 %."
-  },
-  {
-   "l": "boxplot",
-   "t": "boxplot",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Kennwerte eines Boxplots (Weitsprung in cm): Minimum 260, unteres Quartil 320, Median 345, oberes Quartil 395, Maximum 495. Etwa wie viel Prozent der Werte liegen über 395?",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "Minimum",
-      "unteres Quartil",
-      "Median",
-      "oberes Quartil",
-      "Maximum"
-     ],
-     "zeilen": [
-      [
-       "260",
-       "320",
-       "345",
-       "395",
-       "495"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 25,
-    "einheit": "%"
-   },
-   "c": "25",
-   "w": "Quartile und Median teilen die Daten in Viertel. Über 395 liegen etwa 25 %."
+   "c": "18",
+   "w": "18 kommt 3-mal vor, öfter als jeder andere Wert."
   },
   {
    "l": "mittel_median",
@@ -2214,13 +1046,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Werte: 13; 11; 13; 16; 150; 18; 10. Berechne den Mittelwert."
+    "text": "Werte: 11; 16; 16; 18; 75; 11. Berechne den Mittelwert."
    },
    "o": {
-    "wert": 33
+    "wert": 24.5
    },
-   "c": "(13 + 11 + 13 + 16 + 150 + 18 + 10) / 7",
-   "w": "Summe 231 : 7 = 33.",
+   "c": "(11 + 16 + 16 + 18 + 75 + 11) / 6",
+   "w": "Summe 147 : 6 = 24,5.",
    "h": "Summe durch Anzahl."
   },
   {
@@ -2230,13 +1062,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Werte: 19; 75; 12; 17; 8. Berechne den Mittelwert."
+    "text": "Werte: 9; 20; 10; 10; 120; 11; 16. Berechne den Mittelwert."
    },
    "o": {
-    "wert": 26.2
+    "wert": 28
    },
-   "c": "(19 + 75 + 12 + 17 + 8) / 5",
-   "w": "Summe 131 : 5 = 26,2.",
+   "c": "(9 + 20 + 10 + 10 + 120 + 11 + 16) / 7",
+   "w": "Summe 196 : 7 = 28.",
    "h": "Summe durch Anzahl."
   },
   {
@@ -2246,13 +1078,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Werte: 12; 17; 120; 8; 19. Berechne den Mittelwert."
+    "text": "Werte: 14; 13; 90; 12; 20. Berechne den Mittelwert."
    },
    "o": {
-    "wert": 35.2
+    "wert": 29.8
    },
-   "c": "(12 + 17 + 120 + 8 + 19) / 5",
-   "w": "Summe 176 : 5 = 35,2.",
+   "c": "(14 + 13 + 90 + 12 + 20) / 5",
+   "w": "Summe 149 : 5 = 29,8.",
    "h": "Summe durch Anzahl."
   },
   {
@@ -2262,14 +1094,94 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Werte: 13; 14; 12; 15; 60; 14; 12. Berechne den Mittelwert."
+    "text": "Werte: 8; 18; 13; 150; 19; 8; 8. Berechne den Mittelwert."
    },
    "o": {
-    "wert": 20
+    "wert": 32
    },
-   "c": "(13 + 14 + 12 + 15 + 60 + 14 + 12) / 7",
-   "w": "Summe 140 : 7 = 20.",
+   "c": "(8 + 18 + 13 + 150 + 19 + 8 + 8) / 7",
+   "w": "Summe 224 : 7 = 32.",
    "h": "Summe durch Anzahl."
+  },
+  {
+   "l": "mittel_median",
+   "t": "mittel_median",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Werte: 17; 9; 14; 120; 8. Um wie viel unterscheiden sich Mittelwert und Median? (größerer minus kleinerer Wert)"
+   },
+   "o": {
+    "wert": 19.6
+   },
+   "c": "abs((17 + 9 + 14 + 120 + 8) / 5 - 14/1)",
+   "w": "Mittelwert 33,6, Median 14 (geordnet: 8; 9; 14; 17; 120). Unterschied 19,6.",
+   "h": "Berechne beide Werte. Für den Median zuerst ordnen."
+  },
+  {
+   "l": "mittel_median",
+   "t": "mittel_median",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Werte: 150; 10; 20; 18; 12; 12. Um wie viel unterscheiden sich Mittelwert und Median? (größerer minus kleinerer Wert)"
+   },
+   "o": {
+    "wert": 22
+   },
+   "c": "abs((150 + 10 + 20 + 18 + 12 + 12) / 6 - 15/1)",
+   "w": "Mittelwert 37, Median 15 (geordnet: 10; 12; 12; 18; 20; 150). Unterschied 22.",
+   "h": "Berechne beide Werte. Für den Median zuerst ordnen."
+  },
+  {
+   "l": "mittel_median",
+   "t": "mittel_median",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Werte: 18; 8; 16; 14; 120. Um wie viel unterscheiden sich Mittelwert und Median? (größerer minus kleinerer Wert)"
+   },
+   "o": {
+    "wert": 19.2
+   },
+   "c": "abs((18 + 8 + 16 + 14 + 120) / 5 - 16/1)",
+   "w": "Mittelwert 35,2, Median 16 (geordnet: 8; 14; 16; 18; 120). Unterschied 19,2.",
+   "h": "Berechne beide Werte. Für den Median zuerst ordnen."
+  },
+  {
+   "l": "mittel_median",
+   "t": "mittel_median",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Werte: 120; 10; 11; 10; 16; 18; 11. Um wie viel unterscheiden sich Mittelwert und Median? (größerer minus kleinerer Wert)"
+   },
+   "o": {
+    "wert": 17
+   },
+   "c": "abs((120 + 10 + 11 + 10 + 16 + 18 + 11) / 7 - 11/1)",
+   "w": "Mittelwert 28, Median 11 (geordnet: 10; 10; 11; 11; 16; 18; 120). Unterschied 17.",
+   "h": "Berechne beide Werte. Für den Median zuerst ordnen."
+  },
+  {
+   "l": "mittel_median",
+   "t": "mittel_median",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Werte: 13; 14; 12; 15; 60; 14; 12. Um wie viel unterscheiden sich Mittelwert und Median? (größerer minus kleinerer Wert)"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "abs((13 + 14 + 12 + 15 + 60 + 14 + 12) / 7 - 14/1)",
+   "w": "Mittelwert 20, Median 14 (geordnet: 12; 12; 13; 14; 14; 15; 60). Unterschied 6.",
+   "h": "Berechne beide Werte. Für den Median zuerst ordnen."
   },
   {
    "l": "mittel_median",
@@ -2291,101 +1203,21 @@
    "l": "mittel_median",
    "t": "mittel_median",
    "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 16; 90; 19; 8; 14. Um wie viel unterscheiden sich Mittelwert und Median? (größerer minus kleinerer Wert)"
-   },
-   "o": {
-    "wert": 13.4
-   },
-   "c": "abs((16 + 90 + 19 + 8 + 14) / 5 - 16/1)",
-   "w": "Mittelwert 29,4, Median 16 (geordnet: 8; 14; 16; 19; 90). Unterschied 13,4.",
-   "h": "Berechne beide Werte. Für den Median zuerst ordnen."
-  },
-  {
-   "l": "mittel_median",
-   "t": "mittel_median",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 17; 20; 15; 19; 120; 8; 11. Um wie viel unterscheiden sich Mittelwert und Median? (größerer minus kleinerer Wert)"
-   },
-   "o": {
-    "wert": 13
-   },
-   "c": "abs((17 + 20 + 15 + 19 + 120 + 8 + 11) / 7 - 17/1)",
-   "w": "Mittelwert 30, Median 17 (geordnet: 8; 11; 15; 17; 19; 20; 120). Unterschied 13.",
-   "h": "Berechne beide Werte. Für den Median zuerst ordnen."
-  },
-  {
-   "l": "mittel_median",
-   "t": "mittel_median",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 13; 16; 14; 90; 13. Um wie viel unterscheiden sich Mittelwert und Median? (größerer minus kleinerer Wert)"
-   },
-   "o": {
-    "wert": 15.2
-   },
-   "c": "abs((13 + 16 + 14 + 90 + 13) / 5 - 14/1)",
-   "w": "Mittelwert 29,2, Median 14 (geordnet: 13; 13; 14; 16; 90). Unterschied 15,2.",
-   "h": "Berechne beide Werte. Für den Median zuerst ordnen."
-  },
-  {
-   "l": "mittel_median",
-   "t": "mittel_median",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 120; 9; 18; 13; 13; 13. Um wie viel unterscheiden sich Mittelwert und Median? (größerer minus kleinerer Wert)"
-   },
-   "o": {
-    "wert": 18
-   },
-   "c": "abs((120 + 9 + 18 + 13 + 13 + 13) / 6 - 13/1)",
-   "w": "Mittelwert 31, Median 13 (geordnet: 9; 13; 13; 13; 18; 120). Unterschied 18.",
-   "h": "Berechne beide Werte. Für den Median zuerst ordnen."
-  },
-  {
-   "l": "mittel_median",
-   "t": "mittel_median",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 18; 8; 60; 14; 17. Um wie viel unterscheiden sich Mittelwert und Median? (größerer minus kleinerer Wert)"
-   },
-   "o": {
-    "wert": 6.4
-   },
-   "c": "abs((18 + 8 + 60 + 14 + 17) / 5 - 17/1)",
-   "w": "Mittelwert 23,4, Median 17 (geordnet: 8; 14; 17; 18; 60). Unterschied 6,4.",
-   "h": "Berechne beide Werte. Für den Median zuerst ordnen."
-  },
-  {
-   "l": "mittel_median",
-   "t": "mittel_median",
-   "p": "uebung",
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Werte: 11; 9; 12; 12; 150. Welcher Wert beschreibt die typische Mitte besser?"
+    "text": "In einer kleinen Firma verdienen 5 Personen je 3500 € im Monat, die Chefin 20 000 €. Welche Angabe beschreibt das typische Gehalt?"
    },
    "a": [
-    "Der Mittelwert, weil er alle Werte berücksichtigt.",
-    "Beide sind gleich gut, sie sind ja gleich groß.",
-    "Die Spannweite, weil sie alle Werte umfasst.",
-    "Der Median, weil der Ausreißer den Mittelwert stark verschiebt."
+    "Die Spannweite (16 500 €), weil sie alle Gehälter umfasst.",
+    "Mittelwert und Median sind fast gleich, beide passen.",
+    "Der Median (3500 €), denn der Mittelwert (6250 €) wird vom Chefgehalt hochgezogen.",
+    "Der Mittelwert (6250 €), weil er alle Gehälter berücksichtigt."
    ],
    "o": {
-    "index": 3
+    "index": 2
    },
-   "w": "Mittelwert 38,8, Median 12. Der Wert 150 ist ein Ausreißer und verschiebt den Mittelwert.",
+   "w": "Mittelwert: (5 · 3500 + 20 000) : 6 = 6250 €. Median: 3500 €. Nur der Median trifft, was die meisten verdienen.",
    "h": "Gibt es einen Wert, der weit von den anderen entfernt ist?"
   },
   {
@@ -2395,19 +1227,19 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Werte: 19; 75; 9; 13; 10; 13; 15. Welcher Wert beschreibt die typische Mitte besser?"
+    "text": "Wartezeiten an einer Kasse (min): 10; 10; 8; 9; 7; 10. Welcher Wert beschreibt die typische Mitte besser?"
    },
    "a": [
-    "Der Median, weil der Ausreißer den Mittelwert stark verschiebt.",
-    "Beide sind gleich gut, sie sind ja gleich groß.",
+    "Nur der Mittelwert, weil der Median Werte weglässt.",
     "Die Spannweite, weil sie alle Werte umfasst.",
-    "Der Mittelwert, weil er alle Werte berücksichtigt."
+    "Mittelwert und Median sind fast gleich, beide passen.",
+    "Nur der Median, weil der Mittelwert immer durch Ausreißer verfälscht wird."
    ],
    "o": {
-    "index": 0
+    "index": 2
    },
-   "w": "Mittelwert 22, Median 13. Der Wert 75 ist ein Ausreißer und verschiebt den Mittelwert.",
-   "h": "Gibt es einen Wert, der weit von den anderen entfernt ist?"
+   "w": "Mittelwert 9, Median 9,5. Es gibt keinen Ausreißer, die beiden Werte liegen dicht beieinander.",
+   "h": "Gibt es einen Ausreißer? Berechne beide Werte."
   },
   {
    "l": "mittel_median",
@@ -2416,18 +1248,18 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Werte: 9; 10; 120; 8; 8. Welcher Wert beschreibt die typische Mitte besser?"
+    "text": "Werte: 12; 10; 17; 90; 20. Welcher Wert beschreibt die typische Mitte besser?"
    },
    "a": [
-    "Beide sind gleich gut, sie sind ja gleich groß.",
     "Der Median, weil der Ausreißer den Mittelwert stark verschiebt.",
+    "Mittelwert und Median sind fast gleich, beide passen.",
     "Der Mittelwert, weil er alle Werte berücksichtigt.",
     "Die Spannweite, weil sie alle Werte umfasst."
    ],
    "o": {
-    "index": 1
+    "index": 0
    },
-   "w": "Mittelwert 31, Median 9. Der Wert 120 ist ein Ausreißer und verschiebt den Mittelwert.",
+   "w": "Mittelwert 29,8, Median 17. Der Wert 90 ist ein Ausreißer und verschiebt den Mittelwert.",
    "h": "Gibt es einen Wert, der weit von den anderen entfernt ist?"
   },
   {
@@ -2437,19 +1269,19 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Werte: 15; 16; 20; 60; 11; 9; 16. Welcher Wert beschreibt die typische Mitte besser?"
+    "text": "Wartezeiten an einer Kasse (min): 7; 4; 11; 5; 9. Welcher Wert beschreibt die typische Mitte besser?"
    },
    "a": [
-    "Beide sind gleich gut, sie sind ja gleich groß.",
-    "Der Mittelwert, weil er alle Werte berücksichtigt.",
+    "Nur der Median, weil der Mittelwert immer durch Ausreißer verfälscht wird.",
+    "Mittelwert und Median sind fast gleich, beide passen.",
     "Die Spannweite, weil sie alle Werte umfasst.",
-    "Der Median, weil der Ausreißer den Mittelwert stark verschiebt."
+    "Nur der Mittelwert, weil der Median Werte weglässt."
    ],
    "o": {
-    "index": 3
+    "index": 1
    },
-   "w": "Mittelwert 21, Median 16. Der Wert 60 ist ein Ausreißer und verschiebt den Mittelwert.",
-   "h": "Gibt es einen Wert, der weit von den anderen entfernt ist?"
+   "w": "Mittelwert 7,2, Median 7. Es gibt keinen Ausreißer, die beiden Werte liegen dicht beieinander.",
+   "h": "Gibt es einen Ausreißer? Berechne beide Werte."
   },
   {
    "l": "mittel_median",
@@ -2458,548 +1290,1581 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Werte: 11; 19; 10; 75; 12; 15; 19. Um wie viel unterscheiden sich Mittelwert und Median? (größerer minus kleinerer Wert)"
-   },
-   "o": {
-    "wert": 8
-   },
-   "c": "abs((11 + 19 + 10 + 75 + 12 + 15 + 19) / 7 - 15/1)",
-   "w": "Mittelwert 23, Median 15 (geordnet: 10; 11; 12; 15; 19; 19; 75). Unterschied 8."
-  },
-  {
-   "l": "mittel_median",
-   "t": "mittel_median",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 16; 10; 75; 18; 19. Um wie viel unterscheiden sich Mittelwert und Median? (größerer minus kleinerer Wert)"
-   },
-   "o": {
-    "wert": 9.6
-   },
-   "c": "abs((16 + 10 + 75 + 18 + 19) / 5 - 18/1)",
-   "w": "Mittelwert 27,6, Median 18 (geordnet: 10; 16; 18; 19; 75). Unterschied 9,6."
-  },
-  {
-   "l": "mittel_median",
-   "t": "mittel_median",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 15; 16; 60; 20; 14; 14; 15. Um wie viel unterscheiden sich Mittelwert und Median? (größerer minus kleinerer Wert)"
-   },
-   "o": {
-    "wert": 7
-   },
-   "c": "abs((15 + 16 + 60 + 20 + 14 + 14 + 15) / 7 - 15/1)",
-   "w": "Mittelwert 22, Median 15 (geordnet: 14; 14; 15; 15; 16; 20; 60). Unterschied 7."
-  },
-  {
-   "l": "mittel_median",
-   "t": "mittel_median",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 9; 16; 15; 150; 15; 8. Um wie viel unterscheiden sich Mittelwert und Median? (größerer minus kleinerer Wert)"
-   },
-   "o": {
-    "wert": 20.5
-   },
-   "c": "abs((9 + 16 + 15 + 150 + 15 + 8) / 6 - 15/1)",
-   "w": "Mittelwert 35,5, Median 15 (geordnet: 8; 9; 15; 15; 16; 150). Unterschied 20,5."
-  },
-  {
-   "l": "mittel_median",
-   "t": "mittel_median",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 14; 12; 18; 15; 19; 120. Um wie viel unterscheiden sich Mittelwert und Median? (größerer minus kleinerer Wert)"
-   },
-   "o": {
-    "wert": 16.5
-   },
-   "c": "abs((14 + 12 + 18 + 15 + 19 + 120) / 6 - 33/2)",
-   "w": "Mittelwert 33, Median 16,5 (geordnet: 12; 14; 15; 18; 19; 120). Unterschied 16,5."
-  },
-  {
-   "l": "mittel_median",
-   "t": "mittel_median",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 90; 14; 13; 9; 11; 16. Um wie viel unterscheiden sich Mittelwert und Median? (größerer minus kleinerer Wert)"
-   },
-   "o": {
-    "wert": 12
-   },
-   "c": "abs((90 + 14 + 13 + 9 + 11 + 16) / 6 - 27/2)",
-   "w": "Mittelwert 25,5, Median 13,5 (geordnet: 9; 11; 13; 14; 16; 90). Unterschied 12."
-  },
-  {
-   "l": "mittel_median",
-   "t": "mittel_median",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 17; 15; 18; 13; 12; 17; 90. Um wie viel unterscheiden sich Mittelwert und Median? (größerer minus kleinerer Wert)"
-   },
-   "o": {
-    "wert": 9
-   },
-   "c": "abs((17 + 15 + 18 + 13 + 12 + 17 + 90) / 7 - 17/1)",
-   "w": "Mittelwert 26, Median 17 (geordnet: 12; 13; 15; 17; 17; 18; 90). Unterschied 9."
-  },
-  {
-   "l": "mittel_median",
-   "t": "mittel_median",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 20; 20; 15; 9; 90; 12; 9. Um wie viel unterscheiden sich Mittelwert und Median? (größerer minus kleinerer Wert)"
-   },
-   "o": {
-    "wert": 10
-   },
-   "c": "abs((20 + 20 + 15 + 9 + 90 + 12 + 9) / 7 - 15/1)",
-   "w": "Mittelwert 25, Median 15 (geordnet: 9; 9; 12; 15; 20; 20; 90). Unterschied 10."
-  },
-  {
-   "l": "mittel_median",
-   "t": "mittel_median",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 15; 9; 14; 17; 60. Um wie viel unterscheiden sich Mittelwert und Median? (größerer minus kleinerer Wert)"
-   },
-   "o": {
-    "wert": 8
-   },
-   "c": "abs((15 + 9 + 14 + 17 + 60) / 5 - 15/1)",
-   "w": "Mittelwert 23, Median 15 (geordnet: 9; 14; 15; 17; 60). Unterschied 8."
-  },
-  {
-   "l": "mittel_median",
-   "t": "mittel_median",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Werte: 15; 9; 12; 9; 11; 8; 90. Um wie viel unterscheiden sich Mittelwert und Median? (größerer minus kleinerer Wert)"
+    "text": "Werte: 11; 9; 90; 9; 9; 14; 12. Um wie viel unterscheiden sich Mittelwert und Median? (größerer minus kleinerer Wert)"
    },
    "o": {
     "wert": 11
    },
-   "c": "abs((15 + 9 + 12 + 9 + 11 + 8 + 90) / 7 - 11/1)",
-   "w": "Mittelwert 22, Median 11 (geordnet: 8; 9; 9; 11; 12; 15; 90). Unterschied 11."
+   "c": "abs((11 + 9 + 90 + 9 + 9 + 14 + 12) / 7 - 11/1)",
+   "w": "Mittelwert 22, Median 11 (geordnet: 9; 9; 9; 11; 12; 14; 90). Unterschied 11."
   },
   {
-   "l": "vergleichen",
-   "t": "vergleichen",
+   "l": "mittel_median",
+   "t": "mittel_median",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Werte: 15; 15; 17; 75; 17; 8. Um wie viel unterscheiden sich Mittelwert und Median? (größerer minus kleinerer Wert)"
+   },
+   "o": {
+    "wert": 8.5
+   },
+   "c": "abs((15 + 15 + 17 + 75 + 17 + 8) / 6 - 16/1)",
+   "w": "Mittelwert 24,5, Median 16 (geordnet: 8; 15; 15; 17; 17; 75). Unterschied 8,5."
+  },
+  {
+   "l": "mittel_median",
+   "t": "mittel_median",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Werte: 15; 18; 19; 9; 150. Um wie viel unterscheiden sich Mittelwert und Median? (größerer minus kleinerer Wert)"
+   },
+   "o": {
+    "wert": 24.2
+   },
+   "c": "abs((15 + 18 + 19 + 9 + 150) / 5 - 18/1)",
+   "w": "Mittelwert 42,2, Median 18 (geordnet: 9; 15; 18; 19; 150). Unterschied 24,2."
+  },
+  {
+   "l": "mittel_median",
+   "t": "mittel_median",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Werte: 15; 19; 16; 8; 0; 16; 17. Um wie viel unterscheiden sich Mittelwert und Median? (größerer minus kleinerer Wert)"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "abs((15 + 19 + 16 + 8 + 0 + 16 + 17) / 7 - 16/1)",
+   "w": "Mittelwert 13, Median 16 (geordnet: 0; 8; 15; 16; 16; 17; 19). Unterschied 3."
+  },
+  {
+   "l": "mittel_median",
+   "t": "mittel_median",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Werte: 11; 16; 10; 120; 14; 12; 13. Um wie viel unterscheiden sich Mittelwert und Median? (größerer minus kleinerer Wert)"
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "abs((11 + 16 + 10 + 120 + 14 + 12 + 13) / 7 - 13/1)",
+   "w": "Mittelwert 28, Median 13 (geordnet: 10; 11; 12; 13; 14; 16; 120). Unterschied 15."
+  },
+  {
+   "l": "mittel_median",
+   "t": "mittel_median",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Werte: 60; 13; 15; 17; 9. Um wie viel unterscheiden sich Mittelwert und Median? (größerer minus kleinerer Wert)"
+   },
+   "o": {
+    "wert": 7.8
+   },
+   "c": "abs((60 + 13 + 15 + 17 + 9) / 5 - 15/1)",
+   "w": "Mittelwert 22,8, Median 15 (geordnet: 9; 13; 15; 17; 60). Unterschied 7,8."
+  },
+  {
+   "l": "mittel_median",
+   "t": "mittel_median",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Werte: 60; 19; 14; 10; 20; 15. Um wie viel unterscheiden sich Mittelwert und Median? (größerer minus kleinerer Wert)"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "abs((60 + 19 + 14 + 10 + 20 + 15) / 6 - 17/1)",
+   "w": "Mittelwert 23, Median 17 (geordnet: 10; 14; 15; 19; 20; 60). Unterschied 6."
+  },
+  {
+   "l": "mittel_median",
+   "t": "mittel_median",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Werte: 19; 10; 10; 20; 90; 16. Um wie viel unterscheiden sich Mittelwert und Median? (größerer minus kleinerer Wert)"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "abs((19 + 10 + 10 + 20 + 90 + 16) / 6 - 35/2)",
+   "w": "Mittelwert 27,5, Median 17,5 (geordnet: 10; 10; 16; 19; 20; 90). Unterschied 10."
+  },
+  {
+   "l": "mittel_median",
+   "t": "mittel_median",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Werte: 150; 17; 11; 17; 10. Um wie viel unterscheiden sich Mittelwert und Median? (größerer minus kleinerer Wert)"
+   },
+   "o": {
+    "wert": 24
+   },
+   "c": "abs((150 + 17 + 11 + 17 + 10) / 5 - 17/1)",
+   "w": "Mittelwert 41, Median 17 (geordnet: 10; 11; 17; 17; 150). Unterschied 24."
+  },
+  {
+   "l": "mittel_median",
+   "t": "mittel_median",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Werte: 75; 12; 19; 12; 10; 19. Um wie viel unterscheiden sich Mittelwert und Median? (größerer minus kleinerer Wert)"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "abs((75 + 12 + 19 + 12 + 10 + 19) / 6 - 31/2)",
+   "w": "Mittelwert 24,5, Median 15,5 (geordnet: 10; 12; 12; 19; 19; 75). Unterschied 9."
+  },
+  {
+   "l": "quartile",
+   "t": "quartile",
    "p": "uebung",
    "s": 1,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Vergleiche die Gruppen A und B (siehe Tabelle). Welche Aussage ist richtig? A: 0; 7; 12; 23; 34 / B: 4; 16; 18; 28; 43",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "",
-      "Min",
-      "Q₁",
-      "Median",
-      "Q₃",
-      "Max"
-     ],
-     "zeilen": [
-      [
-       "Gruppe A",
-       "0",
-       "7",
-       "12",
-       "23",
-       "34"
-      ],
-      [
-       "Gruppe B",
-       "4",
-       "16",
-       "18",
-       "28",
-       "43"
-      ]
-     ]
-    }
+    "text": "Werte: 17; 17; 22; 28; 28; 28; 41. Bestimme das obere Quartil."
    },
-   "a": [
-    "Weil die Spannweite von B größer ist, hat diese Gruppe mehr Werte.",
-    "In A liegen etwa drei Viertel der Werte unter 7.",
-    "Der Median von A ist größer als der von B.",
-    "Der Median von A ist kleiner als der von B."
-   ],
    "o": {
-    "index": 3
+    "wert": 28
    },
-   "w": "Richtig: Der Median von A ist kleiner als der von B.",
-   "h": "Lies Median, Spannweite und Quartile aus der Tabelle."
+   "c": "28/1",
+   "w": "Geordnet: 17; 17; 22; 28; 28; 28; 41. Untere Hälfte 17; 17; 22 → Q₁ = 17; obere Hälfte 28; 28; 41 → Q₃ = 28. (Festlegung hier: Bei ungerader Anzahl gehört der Median zu keiner Hälfte. Manche Bücher rechnen etwas anders; dann kann das Ergebnis leicht abweichen.)",
+   "h": "Bilde die obere Hälfte (ohne den Median, falls die Anzahl ungerade ist) und bestimme ihren Median."
   },
   {
-   "l": "vergleichen",
-   "t": "vergleichen",
+   "l": "quartile",
+   "t": "quartile",
    "p": "uebung",
    "s": 1,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Vergleiche die Gruppen A und B (siehe Tabelle). Welche Aussage ist richtig? A: 1; 4; 8; 20; 25 / B: 7; 19; 20; 28; 40",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "",
-      "Min",
-      "Q₁",
-      "Median",
-      "Q₃",
-      "Max"
-     ],
-     "zeilen": [
-      [
-       "Gruppe A",
-       "1",
-       "4",
-       "8",
-       "20",
-       "25"
-      ],
-      [
-       "Gruppe B",
-       "7",
-       "19",
-       "20",
-       "28",
-       "40"
-      ]
-     ]
-    }
+    "text": "Werte: 4; 8; 10; 19; 19; 27; 30; 30; 37; 39; 41. Bestimme das obere Quartil."
    },
-   "a": [
-    "In B liegen alle Werte über 19.",
-    "In A liegen etwa drei Viertel der Werte unter 4.",
-    "Die Spannweite von A ist größer als die von B.",
-    "In A liegt etwa die Hälfte der Werte zwischen 4 und 20."
-   ],
    "o": {
-    "index": 3
+    "wert": 37
    },
-   "w": "Richtig: In A liegt etwa die Hälfte der Werte zwischen 4 und 20.",
-   "h": "Lies Median, Spannweite und Quartile aus der Tabelle."
+   "c": "37/1",
+   "w": "Geordnet: 4; 8; 10; 19; 19; 27; 30; 30; 37; 39; 41. Untere Hälfte 4; 8; 10; 19; 19 → Q₁ = 10; obere Hälfte 30; 30; 37; 39; 41 → Q₃ = 37. (Festlegung hier: Bei ungerader Anzahl gehört der Median zu keiner Hälfte. Manche Bücher rechnen etwas anders; dann kann das Ergebnis leicht abweichen.)",
+   "h": "Bilde die obere Hälfte (ohne den Median, falls die Anzahl ungerade ist) und bestimme ihren Median."
   },
   {
-   "l": "vergleichen",
-   "t": "vergleichen",
+   "l": "quartile",
+   "t": "quartile",
    "p": "uebung",
    "s": 1,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Vergleiche die Gruppen A und B (siehe Tabelle). Welche Aussage ist richtig? A: 7; 19; 24; 31; 49 / B: 7; 11; 21; 24; 35",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "",
-      "Min",
-      "Q₁",
-      "Median",
-      "Q₃",
-      "Max"
-     ],
-     "zeilen": [
-      [
-       "Gruppe A",
-       "7",
-       "19",
-       "24",
-       "31",
-       "49"
-      ],
-      [
-       "Gruppe B",
-       "7",
-       "11",
-       "21",
-       "24",
-       "35"
-      ]
-     ]
-    }
+    "text": "Werte: 1; 10; 11; 15; 23; 26; 27; 29; 30; 45; 50. Bestimme das obere Quartil."
    },
-   "a": [
-    "Der Median von A ist kleiner als der von B.",
-    "In A liegen etwa drei Viertel der Werte unter 19.",
-    "In B liegen alle Werte über 11.",
-    "Die mittlere Hälfte der Werte streut in A weniger als in B."
-   ],
    "o": {
-    "index": 3
+    "wert": 30
    },
-   "w": "Richtig: Die mittlere Hälfte der Werte streut in A weniger als in B.",
-   "h": "Lies Median, Spannweite und Quartile aus der Tabelle."
+   "c": "30/1",
+   "w": "Geordnet: 1; 10; 11; 15; 23; 26; 27; 29; 30; 45; 50. Untere Hälfte 1; 10; 11; 15; 23 → Q₁ = 11; obere Hälfte 27; 29; 30; 45; 50 → Q₃ = 30. (Festlegung hier: Bei ungerader Anzahl gehört der Median zu keiner Hälfte. Manche Bücher rechnen etwas anders; dann kann das Ergebnis leicht abweichen.)",
+   "h": "Bilde die obere Hälfte (ohne den Median, falls die Anzahl ungerade ist) und bestimme ihren Median."
   },
   {
-   "l": "vergleichen",
-   "t": "vergleichen",
+   "l": "quartile",
+   "t": "quartile",
    "p": "uebung",
    "s": 1,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Vergleiche die Gruppen A und B (siehe Tabelle). Welche Aussage ist richtig? A: 1; 3; 13; 17; 24 / B: 3; 15; 17; 20; 40",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "",
-      "Min",
-      "Q₁",
-      "Median",
-      "Q₃",
-      "Max"
-     ],
-     "zeilen": [
-      [
-       "Gruppe A",
-       "1",
-       "3",
-       "13",
-       "17",
-       "24"
-      ],
-      [
-       "Gruppe B",
-       "3",
-       "15",
-       "17",
-       "20",
-       "40"
-      ]
-     ]
-    }
+    "text": "Werte: 5; 10; 13; 29; 35; 38; 50. Bestimme das obere Quartil."
    },
-   "a": [
-    "In B liegen alle Werte über 15.",
-    "Die Spannweite von A ist kleiner als die von B.",
-    "Die Spannweite von A ist größer als die von B.",
-    "Weil die Spannweite von B größer ist, hat diese Gruppe mehr Werte."
-   ],
    "o": {
-    "index": 1
+    "wert": 38
    },
-   "w": "Richtig: Die Spannweite von A ist kleiner als die von B.",
-   "h": "Lies Median, Spannweite und Quartile aus der Tabelle."
+   "c": "38/1",
+   "w": "Geordnet: 5; 10; 13; 29; 35; 38; 50. Untere Hälfte 5; 10; 13 → Q₁ = 10; obere Hälfte 35; 38; 50 → Q₃ = 38. (Festlegung hier: Bei ungerader Anzahl gehört der Median zu keiner Hälfte. Manche Bücher rechnen etwas anders; dann kann das Ergebnis leicht abweichen.)",
+   "h": "Bilde die obere Hälfte (ohne den Median, falls die Anzahl ungerade ist) und bestimme ihren Median."
   },
   {
-   "l": "vergleichen",
-   "t": "vergleichen",
+   "l": "quartile",
+   "t": "quartile",
    "p": "uebung",
    "s": 2,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Vergleiche die Gruppen A und B (siehe Tabelle). Welche Aussage ist FALSCH? A: 6; 15; 25; 27; 37 / B: 8; 10; 19; 23; 40",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "",
-      "Min",
-      "Q₁",
-      "Median",
-      "Q₃",
-      "Max"
-     ],
-     "zeilen": [
-      [
-       "Gruppe A",
-       "6",
-       "15",
-       "25",
-       "27",
-       "37"
-      ],
-      [
-       "Gruppe B",
-       "8",
-       "10",
-       "19",
-       "23",
-       "40"
-      ]
-     ]
-    }
+    "text": "Werte: 8; 18; 22; 6; 22; 49; 44; 6. Bestimme das obere Quartil."
    },
-   "a": [
-    "Der Median von A ist größer als der von B.",
-    "Die mittlere Hälfte der Werte streut in A weniger als in B.",
-    "In A liegt etwa die Hälfte der Werte zwischen 15 und 27.",
-    "In B liegen alle Werte über 10."
-   ],
    "o": {
-    "index": 3
+    "wert": 33
    },
-   "w": "Falsch: In B liegen alle Werte über 10. Quartile teilen die Daten in Viertel; die Spannweite sagt nichts über die Anzahl.",
-   "h": "Prüfe jede Aussage mit den Kennwerten."
+   "c": "33/1",
+   "w": "Geordnet: 6; 6; 8; 18; 22; 22; 44; 49. Untere Hälfte 6; 6; 8; 18 → Q₁ = 7; obere Hälfte 22; 22; 44; 49 → Q₃ = 33.",
+   "h": "Bilde die obere Hälfte (ohne den Median, falls die Anzahl ungerade ist) und bestimme ihren Median."
   },
   {
-   "l": "vergleichen",
-   "t": "vergleichen",
+   "l": "quartile",
+   "t": "quartile",
    "p": "uebung",
    "s": 2,
-   "y": "auswahl",
+   "y": "zahl",
    "f": {
-    "text": "Vergleiche die Gruppen A und B (siehe Tabelle). Welche Aussage ist FALSCH? A: 5; 15; 20; 26; 36 / B: 8; 16; 22; 23; 43",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "",
-      "Min",
-      "Q₁",
-      "Median",
-      "Q₃",
-      "Max"
-     ],
-     "zeilen": [
-      [
-       "Gruppe A",
-       "5",
-       "15",
-       "20",
-       "26",
-       "36"
-      ],
-      [
-       "Gruppe B",
-       "8",
-       "16",
-       "22",
-       "23",
-       "43"
-      ]
-     ]
-    }
+    "text": "Werte: 2; 8; 21; 26; 18; 17; 15; 42; 31. Bestimme das obere Quartil."
    },
-   "a": [
-    "Der Median von A ist kleiner als der von B.",
-    "In A liegen etwa drei Viertel der Werte unter 15.",
-    "In B liegt etwa ein Viertel der Werte über 23.",
-    "Die Spannweite von A ist kleiner als die von B."
-   ],
    "o": {
-    "index": 1
+    "wert": 28.5
    },
-   "w": "Falsch: In A liegen etwa drei Viertel der Werte unter 15. Quartile teilen die Daten in Viertel; die Spannweite sagt nichts über die Anzahl.",
-   "h": "Prüfe jede Aussage mit den Kennwerten."
+   "c": "57/2",
+   "w": "Geordnet: 2; 8; 15; 17; 18; 21; 26; 31; 42. Untere Hälfte 2; 8; 15; 17 → Q₁ = 11,5; obere Hälfte 21; 26; 31; 42 → Q₃ = 28,5. (Festlegung hier: Bei ungerader Anzahl gehört der Median zu keiner Hälfte. Manche Bücher rechnen etwas anders; dann kann das Ergebnis leicht abweichen.)",
+   "h": "Bilde die obere Hälfte (ohne den Median, falls die Anzahl ungerade ist) und bestimme ihren Median."
   },
   {
-   "l": "vergleichen",
-   "t": "vergleichen",
+   "l": "quartile",
+   "t": "quartile",
    "p": "uebung",
    "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Werte: 6; 50; 18; 21; 35; 21; 33; 25. Bestimme das untere Quartil."
+   },
+   "o": {
+    "wert": 19.5
+   },
+   "c": "39/2",
+   "w": "Geordnet: 6; 18; 21; 21; 25; 33; 35; 50. Untere Hälfte 6; 18; 21; 21 → Q₁ = 19,5; obere Hälfte 25; 33; 35; 50 → Q₃ = 34.",
+   "h": "Bilde die untere Hälfte (ohne den Median, falls die Anzahl ungerade ist) und bestimme ihren Median."
+  },
+  {
+   "l": "quartile",
+   "t": "quartile",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Werte: 16; 35; 16; 11; 39; 49; 5; 32; 40; 5. Bestimme das obere Quartil."
+   },
+   "o": {
+    "wert": 39
+   },
+   "c": "39/1",
+   "w": "Geordnet: 5; 5; 11; 16; 16; 32; 35; 39; 40; 49. Untere Hälfte 5; 5; 11; 16; 16 → Q₁ = 11; obere Hälfte 32; 35; 39; 40; 49 → Q₃ = 39.",
+   "h": "Bilde die obere Hälfte (ohne den Median, falls die Anzahl ungerade ist) und bestimme ihren Median."
+  },
+  {
+   "l": "quartile",
+   "t": "quartile",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Werte: 44; 8; 36; 11; 21; 20; 35; 14. Bestimme das obere Quartil."
+   },
+   "o": {
+    "wert": 35.5
+   },
+   "c": "71/2",
+   "w": "Geordnet: 8; 11; 14; 20; 21; 35; 36; 44. Untere Hälfte 8; 11; 14; 20 → Q₁ = 12,5; obere Hälfte 21; 35; 36; 44 → Q₃ = 35,5.",
+   "h": "Bilde die obere Hälfte (ohne den Median, falls die Anzahl ungerade ist) und bestimme ihren Median."
+  },
+  {
+   "l": "quartile",
+   "t": "quartile",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Werte: 17; 38; 12; 5; 30; 36; 5; 10; 33; 29. Bestimme das untere Quartil."
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "10/1",
+   "w": "Geordnet: 5; 5; 10; 12; 17; 29; 30; 33; 36; 38. Untere Hälfte 5; 5; 10; 12; 17 → Q₁ = 10; obere Hälfte 29; 30; 33; 36; 38 → Q₃ = 33.",
+   "h": "Bilde die untere Hälfte (ohne den Median, falls die Anzahl ungerade ist) und bestimme ihren Median."
+  },
+  {
+   "l": "quartile",
+   "t": "quartile",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Werte: 3; 6; 42; 32; 15; 19; 45; 22; 43; 30; 3; 18; 45; 25; 38. Bestimme das untere Quartil."
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "15/1",
+   "w": "Geordnet: 3; 3; 6; 15; 18; 19; 22; 25; 30; 32; 38; 42; 43; 45; 45. Untere Hälfte 3; 3; 6; 15; 18; 19; 22 → Q₁ = 15; obere Hälfte 30; 32; 38; 42; 43; 45; 45 → Q₃ = 42. (Festlegung hier: Bei ungerader Anzahl gehört der Median zu keiner Hälfte. Manche Bücher rechnen etwas anders; dann kann das Ergebnis leicht abweichen.)",
+   "h": "Bilde die untere Hälfte (ohne den Median, falls die Anzahl ungerade ist) und bestimme ihren Median."
+  },
+  {
+   "l": "quartile",
+   "t": "quartile",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Werte: 32; 22; 22; 17; 18; 42; 47; 1; 37; 19; 11; 36; 8; 4; 50. Bestimme den Quartilsabstand Q₃ − Q₁."
+   },
+   "o": {
+    "wert": 26
+   },
+   "c": "37/1 - 11/1",
+   "w": "Geordnet: 1; 4; 8; 11; 17; 18; 19; 22; 22; 32; 36; 37; 42; 47; 50. Untere Hälfte 1; 4; 8; 11; 17; 18; 19 → Q₁ = 11; obere Hälfte 22; 32; 36; 37; 42; 47; 50 → Q₃ = 37. (Festlegung hier: Bei ungerader Anzahl gehört der Median zu keiner Hälfte. Manche Bücher rechnen etwas anders; dann kann das Ergebnis leicht abweichen.) Abstand 26.",
+   "h": "Erst ordnen, dann die Hälften bilden, dann jeweils den Median."
+  },
+  {
+   "l": "quartile",
+   "t": "quartile",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Werte: 23; 36; 30; 13; 33; 46; 9; 10; 37; 48; 26; 31; 26. Bestimme das obere Quartil."
+   },
+   "o": {
+    "wert": 36.5
+   },
+   "c": "73/2",
+   "w": "Geordnet: 9; 10; 13; 23; 26; 26; 30; 31; 33; 36; 37; 46; 48. Untere Hälfte 9; 10; 13; 23; 26; 26 → Q₁ = 18; obere Hälfte 31; 33; 36; 37; 46; 48 → Q₃ = 36,5. (Festlegung hier: Bei ungerader Anzahl gehört der Median zu keiner Hälfte. Manche Bücher rechnen etwas anders; dann kann das Ergebnis leicht abweichen.)",
+   "h": "Bilde die obere Hälfte (ohne den Median, falls die Anzahl ungerade ist) und bestimme ihren Median."
+  },
+  {
+   "l": "quartile",
+   "t": "quartile",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Werte: 48; 32; 47; 2; 23; 5; 25; 38; 10; 48; 24; 5; 47; 40; 36. Bestimme das untere Quartil."
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "10/1",
+   "w": "Geordnet: 2; 5; 5; 10; 23; 24; 25; 32; 36; 38; 40; 47; 47; 48; 48. Untere Hälfte 2; 5; 5; 10; 23; 24; 25 → Q₁ = 10; obere Hälfte 36; 38; 40; 47; 47; 48; 48 → Q₃ = 47. (Festlegung hier: Bei ungerader Anzahl gehört der Median zu keiner Hälfte. Manche Bücher rechnen etwas anders; dann kann das Ergebnis leicht abweichen.)",
+   "h": "Bilde die untere Hälfte (ohne den Median, falls die Anzahl ungerade ist) und bestimme ihren Median."
+  },
+  {
+   "l": "quartile",
+   "t": "quartile",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Werte: 37; 17; 30; 28; 46; 15; 3; 8; 7; 16. Bestimme das untere Quartil."
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "8/1",
+   "w": "Geordnet: 3; 7; 8; 15; 16; 17; 28; 30; 37; 46. Untere Hälfte 3; 7; 8; 15; 16 → Q₁ = 8; obere Hälfte 17; 28; 30; 37; 46 → Q₃ = 30."
+  },
+  {
+   "l": "quartile",
+   "t": "quartile",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Werte: 48; 45; 22; 49; 31; 16; 34; 38; 44. Bestimme den Quartilsabstand Q₃ − Q₁."
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "93/2 - 53/2",
+   "w": "Geordnet: 16; 22; 31; 34; 38; 44; 45; 48; 49. Untere Hälfte 16; 22; 31; 34 → Q₁ = 26,5; obere Hälfte 44; 45; 48; 49 → Q₃ = 46,5. (Festlegung hier: Bei ungerader Anzahl gehört der Median zu keiner Hälfte. Manche Bücher rechnen etwas anders; dann kann das Ergebnis leicht abweichen.) Abstand 20."
+  },
+  {
+   "l": "quartile",
+   "t": "quartile",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Werte: 33; 17; 4; 21; 6; 33; 40; 32; 50. Bestimme das obere Quartil."
+   },
+   "o": {
+    "wert": 36.5
+   },
+   "c": "73/2",
+   "w": "Geordnet: 4; 6; 17; 21; 32; 33; 33; 40; 50. Untere Hälfte 4; 6; 17; 21 → Q₁ = 11,5; obere Hälfte 33; 33; 40; 50 → Q₃ = 36,5. (Festlegung hier: Bei ungerader Anzahl gehört der Median zu keiner Hälfte. Manche Bücher rechnen etwas anders; dann kann das Ergebnis leicht abweichen.)"
+  },
+  {
+   "l": "quartile",
+   "t": "quartile",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Werte: 45; 3; 32; 50; 3; 48; 29; 15; 8. Bestimme das obere Quartil."
+   },
+   "o": {
+    "wert": 46.5
+   },
+   "c": "93/2",
+   "w": "Geordnet: 3; 3; 8; 15; 29; 32; 45; 48; 50. Untere Hälfte 3; 3; 8; 15 → Q₁ = 5,5; obere Hälfte 32; 45; 48; 50 → Q₃ = 46,5. (Festlegung hier: Bei ungerader Anzahl gehört der Median zu keiner Hälfte. Manche Bücher rechnen etwas anders; dann kann das Ergebnis leicht abweichen.)"
+  },
+  {
+   "l": "quartile",
+   "t": "quartile",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Werte: 7; 27; 44; 24; 38; 15; 20; 41. Bestimme den Quartilsabstand Q₃ − Q₁."
+   },
+   "o": {
+    "wert": 22
+   },
+   "c": "79/2 - 35/2",
+   "w": "Geordnet: 7; 15; 20; 24; 27; 38; 41; 44. Untere Hälfte 7; 15; 20; 24 → Q₁ = 17,5; obere Hälfte 27; 38; 41; 44 → Q₃ = 39,5. Abstand 22."
+  },
+  {
+   "l": "quartile",
+   "t": "quartile",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Werte: 3; 22; 19; 50; 43; 19; 17; 41; 45; 49. Bestimme das untere Quartil."
+   },
+   "o": {
+    "wert": 19
+   },
+   "c": "19/1",
+   "w": "Geordnet: 3; 17; 19; 19; 22; 41; 43; 45; 49; 50. Untere Hälfte 3; 17; 19; 19; 22 → Q₁ = 19; obere Hälfte 41; 43; 45; 49; 50 → Q₃ = 45."
+  },
+  {
+   "l": "quartile",
+   "t": "quartile",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Werte: 3; 21; 46; 44; 8; 37; 26; 32; 50; 13; 8; 5. Bestimme das untere Quartil."
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "8/1",
+   "w": "Geordnet: 3; 5; 8; 8; 13; 21; 26; 32; 37; 44; 46; 50. Untere Hälfte 3; 5; 8; 8; 13; 21 → Q₁ = 8; obere Hälfte 26; 32; 37; 44; 46; 50 → Q₃ = 40,5."
+  },
+  {
+   "l": "quartile",
+   "t": "quartile",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Werte: 30; 42; 44; 1; 31; 21; 18; 26. Bestimme das obere Quartil."
+   },
+   "o": {
+    "wert": 36.5
+   },
+   "c": "73/2",
+   "w": "Geordnet: 1; 18; 21; 26; 30; 31; 42; 44. Untere Hälfte 1; 18; 21; 26 → Q₁ = 19,5; obere Hälfte 30; 31; 42; 44 → Q₃ = 36,5."
+  },
+  {
+   "l": "quartile",
+   "t": "quartile",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Werte: 32; 33; 18; 16; 21; 42; 11; 29; 47; 31; 40; 23. Bestimme das untere Quartil."
+   },
+   "o": {
+    "wert": 19.5
+   },
+   "c": "39/2",
+   "w": "Geordnet: 11; 16; 18; 21; 23; 29; 31; 32; 33; 40; 42; 47. Untere Hälfte 11; 16; 18; 21; 23; 29 → Q₁ = 19,5; obere Hälfte 31; 32; 33; 40; 42; 47 → Q₃ = 36,5."
+  },
+  {
+   "l": "quartile",
+   "t": "quartile",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Werte: 36; 30; 44; 19; 28; 33; 32; 10; 43; 37; 12; 19. Bestimme den Quartilsabstand Q₃ − Q₁."
+   },
+   "o": {
+    "wert": 17.5
+   },
+   "c": "73/2 - 19/1",
+   "w": "Geordnet: 10; 12; 19; 19; 28; 30; 32; 33; 36; 37; 43; 44. Untere Hälfte 10; 12; 19; 19; 28; 30 → Q₁ = 19; obere Hälfte 32; 33; 36; 37; 43; 44 → Q₃ = 36,5. Abstand 17,5."
+  },
+  {
+   "l": "boxplot",
+   "t": "boxplot",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Der Boxplot zeigt die Ergebnisse einer Erhebung (Körpergröße in cm). Lies den Median ab.",
+    "grafik": {
+     "typ": "boxplot",
+     "achse": [
+      130,
+      180
+     ],
+     "schritt": 5,
+     "einheit": "cm",
+     "reihen": [
+      {
+       "min": 150,
+       "q1": 160,
+       "median": 170,
+       "q3": 175,
+       "max": 180
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 170,
+    "einheit": "cm"
+   },
+   "c": "170",
+   "w": "Der Strich in der Box steht bei 170.",
+   "h": "Box: von Q₁ bis Q₃, Strich in der Box: Median, Antennen: bis Minimum und Maximum."
+  },
+  {
+   "l": "boxplot",
+   "t": "boxplot",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Der Boxplot zeigt die Ergebnisse einer Erhebung (Weitwurf in m). Bestimme den Quartilsabstand.",
+    "grafik": {
+     "typ": "boxplot",
+     "achse": [
+      0,
+      50
+     ],
+     "schritt": 5,
+     "einheit": "m",
+     "reihen": [
+      {
+       "min": 0,
+       "q1": 5,
+       "median": 10,
+       "q3": 15,
+       "max": 45
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "m"
+   },
+   "c": "15 - 5",
+   "w": "Q₃ − Q₁ = 15 − 5 = 10.",
+   "h": "Box: von Q₁ bis Q₃, Strich in der Box: Median, Antennen: bis Minimum und Maximum."
+  },
+  {
+   "l": "boxplot",
+   "t": "boxplot",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Der Boxplot zeigt die Ergebnisse einer Erhebung (Körpergröße in cm). Lies das Maximum ab.",
+    "grafik": {
+     "typ": "boxplot",
+     "achse": [
+      130,
+      180
+     ],
+     "schritt": 5,
+     "einheit": "cm",
+     "reihen": [
+      {
+       "min": 135,
+       "q1": 140,
+       "median": 145,
+       "q3": 175,
+       "max": 180
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 180,
+    "einheit": "cm"
+   },
+   "c": "180",
+   "w": "Das rechte Ende der Antenne steht bei 180.",
+   "h": "Box: von Q₁ bis Q₃, Strich in der Box: Median, Antennen: bis Minimum und Maximum."
+  },
+  {
+   "l": "boxplot",
+   "t": "boxplot",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Der Boxplot zeigt die Ergebnisse einer Erhebung (Punkte im Test). Lies das untere Quartil ab.",
+    "grafik": {
+     "typ": "boxplot",
+     "achse": [
+      0,
+      30
+     ],
+     "schritt": 3,
+     "einheit": "Punkte",
+     "reihen": [
+      {
+       "min": 0,
+       "q1": 3,
+       "median": 12,
+       "q3": 24,
+       "max": 27
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "Der linke Rand der Box steht bei 3.",
+   "h": "Box: von Q₁ bis Q₃, Strich in der Box: Median, Antennen: bis Minimum und Maximum."
+  },
+  {
+   "l": "boxplot",
+   "t": "boxplot",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Boxplot zeigt die Ergebnisse einer Erhebung (Zeit für 1 000 m). Etwa wie viel Prozent der Werte liegen unter 220 s?",
+    "grafik": {
+     "typ": "boxplot",
+     "achse": [
+      200,
+      300
+     ],
+     "schritt": 10,
+     "einheit": "s",
+     "reihen": [
+      {
+       "min": 200,
+       "q1": 220,
+       "median": 240,
+       "q3": 270,
+       "max": 300
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 25,
+    "einheit": "%"
+   },
+   "c": "25",
+   "w": "Quartile und Median teilen die Daten in Viertel. Unter 220 s liegen etwa 25 %.",
+   "h": "Jeder der vier Abschnitte enthält etwa ein Viertel der Daten."
+  },
+  {
+   "l": "boxplot",
+   "t": "boxplot",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Boxplot zeigt die Ergebnisse einer Erhebung (Taschengeld). Etwa wie viel Prozent der Werte liegen unter 8 €?",
+    "grafik": {
+     "typ": "boxplot",
+     "achse": [
+      0,
+      40
+     ],
+     "schritt": 4,
+     "einheit": "€",
+     "reihen": [
+      {
+       "min": 4,
+       "q1": 8,
+       "median": 16,
+       "q3": 20,
+       "max": 28
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 25,
+    "einheit": "%"
+   },
+   "c": "25",
+   "w": "Quartile und Median teilen die Daten in Viertel. Unter 8 € liegen etwa 25 %.",
+   "h": "Jeder der vier Abschnitte enthält etwa ein Viertel der Daten."
+  },
+  {
+   "l": "boxplot",
+   "t": "boxplot",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Boxplot zeigt die Ergebnisse einer Erhebung (Zeit für 1 000 m). Etwa wie viel Prozent der Werte liegen unter 280 s?",
+    "grafik": {
+     "typ": "boxplot",
+     "achse": [
+      200,
+      300
+     ],
+     "schritt": 10,
+     "einheit": "s",
+     "reihen": [
+      {
+       "min": 220,
+       "q1": 240,
+       "median": 250,
+       "q3": 280,
+       "max": 290
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 75,
+    "einheit": "%"
+   },
+   "c": "75",
+   "w": "Quartile und Median teilen die Daten in Viertel. Unter 280 s liegen etwa 75 %.",
+   "h": "Jeder der vier Abschnitte enthält etwa ein Viertel der Daten."
+  },
+  {
+   "l": "boxplot",
+   "t": "boxplot",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Boxplot zeigt die Ergebnisse einer Erhebung (Zeit für 1 000 m). Etwa wie viel Prozent der Werte liegen über 250 s?",
+    "grafik": {
+     "typ": "boxplot",
+     "achse": [
+      200,
+      300
+     ],
+     "schritt": 10,
+     "einheit": "s",
+     "reihen": [
+      {
+       "min": 200,
+       "q1": 240,
+       "median": 250,
+       "q3": 260,
+       "max": 280
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 50,
+    "einheit": "%"
+   },
+   "c": "50",
+   "w": "Quartile und Median teilen die Daten in Viertel. Über 250 s liegen etwa 50 %.",
+   "h": "Jeder der vier Abschnitte enthält etwa ein Viertel der Daten."
+  },
+  {
+   "l": "boxplot",
+   "t": "boxplot",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Boxplot zeigt die Ergebnisse einer Erhebung (Zeit für 1 000 m). Etwa wie viel Prozent der Werte liegen unter 230 s?",
+    "grafik": {
+     "typ": "boxplot",
+     "achse": [
+      200,
+      300
+     ],
+     "schritt": 10,
+     "einheit": "s",
+     "reihen": [
+      {
+       "min": 200,
+       "q1": 210,
+       "median": 230,
+       "q3": 250,
+       "max": 290
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 50,
+    "einheit": "%"
+   },
+   "c": "50",
+   "w": "Quartile und Median teilen die Daten in Viertel. Unter 230 s liegen etwa 50 %.",
+   "h": "Jeder der vier Abschnitte enthält etwa ein Viertel der Daten."
+  },
+  {
+   "l": "boxplot",
+   "t": "boxplot",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Boxplot zeigt die Ergebnisse einer Erhebung (Taschengeld). Etwa wie viel Prozent der Werte liegen über 12 €?",
+    "grafik": {
+     "typ": "boxplot",
+     "achse": [
+      0,
+      40
+     ],
+     "schritt": 4,
+     "einheit": "€",
+     "reihen": [
+      {
+       "min": 8,
+       "q1": 12,
+       "median": 20,
+       "q3": 32,
+       "max": 36
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 75,
+    "einheit": "%"
+   },
+   "c": "75",
+   "w": "Quartile und Median teilen die Daten in Viertel. Über 12 € liegen etwa 75 %.",
+   "h": "Jeder der vier Abschnitte enthält etwa ein Viertel der Daten."
+  },
+  {
+   "l": "boxplot",
+   "t": "boxplot",
+   "p": "uebung",
+   "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Vergleiche die Gruppen A und B (siehe Tabelle). Welche Aussage ist richtig? A: 10; 14; 24; 27; 47 / B: 2; 14; 18; 28; 38",
+    "text": "Daten: 2; 9; 15; 17; 19; 22; 28. Welcher Boxplot passt zu diesen Daten?",
     "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "",
-      "Min",
-      "Q₁",
-      "Median",
-      "Q₃",
-      "Max"
+     "typ": "boxplot",
+     "achse": [
+      0,
+      30
      ],
-     "zeilen": [
-      [
-       "Gruppe A",
-       "10",
-       "14",
-       "24",
-       "27",
-       "47"
-      ],
-      [
-       "Gruppe B",
-       "2",
-       "14",
-       "18",
-       "28",
-       "38"
-      ]
+     "schritt": 5,
+     "reihen": [
+      {
+       "name": "A",
+       "min": 9,
+       "q1": 9,
+       "median": 17,
+       "q3": 22,
+       "max": 22
+      },
+      {
+       "name": "B",
+       "min": 2,
+       "q1": 9,
+       "median": 16,
+       "q3": 22,
+       "max": 28
+      },
+      {
+       "name": "C",
+       "min": 2,
+       "q1": 9,
+       "median": 17,
+       "q3": 22,
+       "max": 28
+      }
      ]
     }
    },
    "a": [
-    "In B liegt etwa ein Viertel der Werte über 28.",
-    "Der Median von A ist kleiner als der von B.",
-    "In A liegen etwa drei Viertel der Werte unter 14.",
-    "Weil die Spannweite von A größer ist, hat diese Gruppe mehr Werte."
+    "Boxplot C",
+    "Boxplot B",
+    "Boxplot A",
+    "keiner der drei"
    ],
    "o": {
     "index": 0
    },
-   "w": "Richtig: In B liegt etwa ein Viertel der Werte über 28.",
-   "h": "Lies Median, Spannweite und Quartile aus der Tabelle."
+   "w": "Minimum 2, Q₁ = 9, Median 17, Q₃ = 22, Maximum 28: Das ist Boxplot C. (Festlegung hier: Bei ungerader Anzahl gehört der Median zu keiner Hälfte. Manche Bücher rechnen etwas anders; dann kann das Ergebnis leicht abweichen.)",
+   "h": "Bestimme Minimum, Median und Maximum zuerst – oft scheiden damit schon Boxplots aus."
+  },
+  {
+   "l": "boxplot",
+   "t": "boxplot",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "120 Personen wurden erfasst (Weitsprung, siehe Boxplot). Etwa wie viele Personen liegen über 380 cm?",
+    "grafik": {
+     "typ": "boxplot",
+     "achse": [
+      200,
+      400
+     ],
+     "schritt": 20,
+     "einheit": "cm",
+     "reihen": [
+      {
+       "min": 260,
+       "q1": 280,
+       "median": 320,
+       "q3": 380,
+       "max": 400
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 30
+   },
+   "c": "120 * 1 / 4",
+   "w": "Über 380 cm liegen etwa 25 % der Daten: 25 % von 120 = 30.",
+   "h": "Lies ab, wo die Grenze liegt (Quartil oder Median), und welcher Anteil gemeint ist."
+  },
+  {
+   "l": "boxplot",
+   "t": "boxplot",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Daten: 1; 2; 3; 6; 8; 19; 22; 23; 26; 27; 30. Welcher Boxplot passt zu diesen Daten?",
+    "grafik": {
+     "typ": "boxplot",
+     "achse": [
+      0,
+      30
+     ],
+     "schritt": 5,
+     "reihen": [
+      {
+       "name": "A",
+       "min": 1,
+       "q1": 4.5,
+       "median": 19,
+       "q3": 24.5,
+       "max": 30
+      },
+      {
+       "name": "B",
+       "min": 1,
+       "q1": 2,
+       "median": 19,
+       "q3": 27,
+       "max": 30
+      },
+      {
+       "name": "C",
+       "min": 1,
+       "q1": 3,
+       "median": 19,
+       "q3": 26,
+       "max": 30
+      }
+     ]
+    }
+   },
+   "a": [
+    "Boxplot C",
+    "Boxplot B",
+    "Boxplot A",
+    "keiner der drei"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Minimum 1, Q₁ = 3, Median 19, Q₃ = 26, Maximum 30: Das ist Boxplot C. (Festlegung hier: Bei ungerader Anzahl gehört der Median zu keiner Hälfte. Manche Bücher rechnen etwas anders; dann kann das Ergebnis leicht abweichen.)",
+   "h": "Bestimme Minimum, Median und Maximum zuerst – oft scheiden damit schon Boxplots aus."
+  },
+  {
+   "l": "boxplot",
+   "t": "boxplot",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "20 Personen wurden erfasst (Zeit für 1 000 m, siehe Boxplot). Etwa wie viele Personen liegen über 280 s?",
+    "grafik": {
+     "typ": "boxplot",
+     "achse": [
+      200,
+      300
+     ],
+     "schritt": 10,
+     "einheit": "s",
+     "reihen": [
+      {
+       "min": 230,
+       "q1": 250,
+       "median": 270,
+       "q3": 280,
+       "max": 300
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "20 * 1 / 4",
+   "w": "Über 280 s liegen etwa 25 % der Daten: 25 % von 20 = 5.",
+   "h": "Lies ab, wo die Grenze liegt (Quartil oder Median), und welcher Anteil gemeint ist."
+  },
+  {
+   "l": "boxplot",
+   "t": "boxplot",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Boxplot zeigt die Ergebnisse einer Erhebung (Weitsprung). Etwa wie viel Prozent der Werte liegen zwischen 220 cm und 300 cm?",
+    "grafik": {
+     "typ": "boxplot",
+     "achse": [
+      200,
+      400
+     ],
+     "schritt": 20,
+     "einheit": "cm",
+     "reihen": [
+      {
+       "min": 200,
+       "q1": 220,
+       "median": 280,
+       "q3": 300,
+       "max": 360
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 50,
+    "einheit": "%"
+   },
+   "c": "50",
+   "w": "Quartile und Median teilen die Daten in Viertel. Zwischen 220 cm und 300 cm liegen etwa 50 %."
+  },
+  {
+   "l": "boxplot",
+   "t": "boxplot",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Boxplot zeigt die Ergebnisse einer Erhebung (Zeit für 1 000 m). Etwa wie viel Prozent der Werte liegen unter 250 s?",
+    "grafik": {
+     "typ": "boxplot",
+     "achse": [
+      200,
+      300
+     ],
+     "schritt": 10,
+     "einheit": "s",
+     "reihen": [
+      {
+       "min": 200,
+       "q1": 220,
+       "median": 230,
+       "q3": 250,
+       "max": 270
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 75,
+    "einheit": "%"
+   },
+   "c": "75",
+   "w": "Quartile und Median teilen die Daten in Viertel. Unter 250 s liegen etwa 75 %."
+  },
+  {
+   "l": "boxplot",
+   "t": "boxplot",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Boxplot zeigt die Ergebnisse einer Erhebung (Weitwurf). Etwa wie viel Prozent der Werte liegen über 10 m?",
+    "grafik": {
+     "typ": "boxplot",
+     "achse": [
+      0,
+      50
+     ],
+     "schritt": 5,
+     "einheit": "m",
+     "reihen": [
+      {
+       "min": 0,
+       "q1": 10,
+       "median": 30,
+       "q3": 40,
+       "max": 50
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 75,
+    "einheit": "%"
+   },
+   "c": "75",
+   "w": "Quartile und Median teilen die Daten in Viertel. Über 10 m liegen etwa 75 %."
+  },
+  {
+   "l": "boxplot",
+   "t": "boxplot",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Boxplot zeigt die Ergebnisse einer Erhebung (Zeit für 1 000 m). Etwa wie viel Prozent der Werte liegen unter 260 s?",
+    "grafik": {
+     "typ": "boxplot",
+     "achse": [
+      200,
+      300
+     ],
+     "schritt": 10,
+     "einheit": "s",
+     "reihen": [
+      {
+       "min": 220,
+       "q1": 230,
+       "median": 250,
+       "q3": 260,
+       "max": 290
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 75,
+    "einheit": "%"
+   },
+   "c": "75",
+   "w": "Quartile und Median teilen die Daten in Viertel. Unter 260 s liegen etwa 75 %."
+  },
+  {
+   "l": "boxplot",
+   "t": "boxplot",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Boxplot zeigt die Ergebnisse einer Erhebung (Taschengeld). Etwa wie viel Prozent der Werte liegen über 16 €?",
+    "grafik": {
+     "typ": "boxplot",
+     "achse": [
+      0,
+      40
+     ],
+     "schritt": 4,
+     "einheit": "€",
+     "reihen": [
+      {
+       "min": 0,
+       "q1": 16,
+       "median": 24,
+       "q3": 32,
+       "max": 40
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 75,
+    "einheit": "%"
+   },
+   "c": "75",
+   "w": "Quartile und Median teilen die Daten in Viertel. Über 16 € liegen etwa 75 %."
+  },
+  {
+   "l": "boxplot",
+   "t": "boxplot",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Boxplot zeigt die Ergebnisse einer Erhebung (Wartezeit). Etwa wie viel Prozent der Werte liegen zwischen 10 min und 18 min?",
+    "grafik": {
+     "typ": "boxplot",
+     "achse": [
+      0,
+      20
+     ],
+     "schritt": 2,
+     "einheit": "min",
+     "reihen": [
+      {
+       "min": 4,
+       "q1": 10,
+       "median": 16,
+       "q3": 18,
+       "max": 20
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 50,
+    "einheit": "%"
+   },
+   "c": "50",
+   "w": "Quartile und Median teilen die Daten in Viertel. Zwischen 10 min und 18 min liegen etwa 50 %."
+  },
+  {
+   "l": "boxplot",
+   "t": "boxplot",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Boxplot zeigt die Ergebnisse einer Erhebung (Weitsprung). Etwa wie viel Prozent der Werte liegen unter 300 cm?",
+    "grafik": {
+     "typ": "boxplot",
+     "achse": [
+      200,
+      400
+     ],
+     "schritt": 20,
+     "einheit": "cm",
+     "reihen": [
+      {
+       "min": 260,
+       "q1": 280,
+       "median": 300,
+       "q3": 320,
+       "max": 400
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 50,
+    "einheit": "%"
+   },
+   "c": "50",
+   "w": "Quartile und Median teilen die Daten in Viertel. Unter 300 cm liegen etwa 50 %."
+  },
+  {
+   "l": "boxplot",
+   "t": "boxplot",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Boxplot zeigt die Ergebnisse einer Erhebung (Punkte im Test). Etwa wie viel Prozent der Werte liegen unter 9 Punkte?",
+    "grafik": {
+     "typ": "boxplot",
+     "achse": [
+      0,
+      30
+     ],
+     "schritt": 3,
+     "einheit": "Punkte",
+     "reihen": [
+      {
+       "min": 0,
+       "q1": 9,
+       "median": 15,
+       "q3": 21,
+       "max": 30
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 25,
+    "einheit": "%"
+   },
+   "c": "25",
+   "w": "Quartile und Median teilen die Daten in Viertel. Unter 9 Punkte liegen etwa 25 %."
+  },
+  {
+   "l": "boxplot",
+   "t": "boxplot",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Boxplot zeigt die Ergebnisse einer Erhebung (Taschengeld). Etwa wie viel Prozent der Werte liegen über 28 €?",
+    "grafik": {
+     "typ": "boxplot",
+     "achse": [
+      0,
+      40
+     ],
+     "schritt": 4,
+     "einheit": "€",
+     "reihen": [
+      {
+       "min": 4,
+       "q1": 12,
+       "median": 20,
+       "q3": 28,
+       "max": 32
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 25,
+    "einheit": "%"
+   },
+   "c": "25",
+   "w": "Quartile und Median teilen die Daten in Viertel. Über 28 € liegen etwa 25 %."
+  },
+  {
+   "l": "boxplot",
+   "t": "boxplot",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Boxplot zeigt die Ergebnisse einer Erhebung (Taschengeld). Etwa wie viel Prozent der Werte liegen unter 16 €?",
+    "grafik": {
+     "typ": "boxplot",
+     "achse": [
+      0,
+      40
+     ],
+     "schritt": 4,
+     "einheit": "€",
+     "reihen": [
+      {
+       "min": 8,
+       "q1": 16,
+       "median": 20,
+       "q3": 24,
+       "max": 32
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 25,
+    "einheit": "%"
+   },
+   "c": "25",
+   "w": "Quartile und Median teilen die Daten in Viertel. Unter 16 € liegen etwa 25 %."
   },
   {
    "l": "vergleichen",
    "t": "vergleichen",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "auswahl",
    "f": {
-    "text": "Vergleiche die Gruppen A und B (siehe Tabelle). Welche Aussage ist richtig? A: 0; 9; 14; 18; 32 / B: 3; 13; 22; 24; 30",
+    "text": "Ergebnisse zweier Klassen beim 1 000-m-Lauf (in s), siehe Boxplots. Welche Aussage ist richtig?",
     "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "",
-      "Min",
-      "Q₁",
-      "Median",
-      "Q₃",
-      "Max"
+     "typ": "boxplot",
+     "achse": [
+      200,
+      300
      ],
-     "zeilen": [
-      [
-       "Gruppe A",
-       "0",
-       "9",
-       "14",
-       "18",
-       "32"
-      ],
-      [
-       "Gruppe B",
-       "3",
-       "13",
-       "22",
-       "24",
-       "30"
-      ]
+     "schritt": 10,
+     "einheit": "s",
+     "reihen": [
+      {
+       "name": "Klasse 7a",
+       "min": 210,
+       "q1": 220,
+       "median": 250,
+       "q3": 260,
+       "max": 280
+      },
+      {
+       "name": "Klasse 7b",
+       "min": 200,
+       "q1": 220,
+       "median": 240,
+       "q3": 290,
+       "max": 300
+      }
      ]
     }
    },
    "a": [
-    "Die Spannweite von A ist kleiner als die von B.",
-    "Weil die Spannweite von A größer ist, hat diese Gruppe mehr Werte.",
-    "Die Spannweite von A ist größer als die von B.",
-    "Der Median von A ist größer als der von B."
+    "Die Spannweite der 7a ist größer als die der 7b.",
+    "In der 7b liegen alle Werte über 220 s.",
+    "In der 7a liegen etwa drei Viertel der Werte unter 220 s.",
+    "Der Median der 7a ist größer als der der 7b."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Richtig: Der Median der 7a ist größer als der der 7b.",
+   "h": "Lies Median, Box und Antennen aus den Boxplots ab."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ergebnisse zweier Klassen beim Hochsprung (in cm), siehe Boxplots. Welche Aussage ist richtig?",
+    "grafik": {
+     "typ": "boxplot",
+     "achse": [
+      80,
+      130
+     ],
+     "schritt": 5,
+     "einheit": "cm",
+     "reihen": [
+      {
+       "name": "Klasse 7a",
+       "min": 80,
+       "q1": 100,
+       "median": 115,
+       "q3": 120,
+       "max": 125
+      },
+      {
+       "name": "Klasse 7b",
+       "min": 80,
+       "q1": 105,
+       "median": 110,
+       "q3": 115,
+       "max": 130
+      }
+     ]
+    }
+   },
+   "a": [
+    "In der 7a liegen etwa drei Viertel der Werte unter 100 cm.",
+    "Die Spannweite der 7a ist größer als die der 7b.",
+    "Die mittlere Hälfte der Werte streut in der 7a stärker als in der 7b.",
+    "In der 7b liegen alle Werte über 105 cm."
    ],
    "o": {
     "index": 2
    },
-   "w": "Richtig: Die Spannweite von A ist größer als die von B.",
-   "h": "Lies Median, Spannweite und Quartile aus der Tabelle."
+   "w": "Richtig: Die mittlere Hälfte der Werte streut in der 7a stärker als in der 7b.",
+   "h": "Lies Median, Box und Antennen aus den Boxplots ab."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ergebnisse zweier Klassen im Mathetest (Punkte), siehe Boxplots. Welche Aussage ist richtig?",
+    "grafik": {
+     "typ": "boxplot",
+     "achse": [
+      0,
+      30
+     ],
+     "schritt": 3,
+     "einheit": "Punkte",
+     "reihen": [
+      {
+       "name": "Klasse 7a",
+       "min": 3,
+       "q1": 12,
+       "median": 15,
+       "q3": 21,
+       "max": 27
+      },
+      {
+       "name": "Klasse 7b",
+       "min": 3,
+       "q1": 9,
+       "median": 18,
+       "q3": 27,
+       "max": 30
+      }
+     ]
+    }
+   },
+   "a": [
+    "Der Median der 7a ist kleiner als der der 7b.",
+    "In der 7a liegen etwa drei Viertel der Werte unter 12 Punkte.",
+    "Die Spannweite der 7a ist größer als die der 7b.",
+    "In der 7b liegen alle Werte über 9 Punkte."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Richtig: Der Median der 7a ist kleiner als der der 7b.",
+   "h": "Lies Median, Box und Antennen aus den Boxplots ab."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ergebnisse zweier Klassen beim 1 000-m-Lauf (in s), siehe Boxplots. Welche Aussage ist richtig?",
+    "grafik": {
+     "typ": "boxplot",
+     "achse": [
+      200,
+      300
+     ],
+     "schritt": 10,
+     "einheit": "s",
+     "reihen": [
+      {
+       "name": "Klasse 7a",
+       "min": 210,
+       "q1": 230,
+       "median": 240,
+       "q3": 260,
+       "max": 270
+      },
+      {
+       "name": "Klasse 7b",
+       "min": 210,
+       "q1": 220,
+       "median": 260,
+       "q3": 280,
+       "max": 290
+      }
+     ]
+    }
+   },
+   "a": [
+    "Weil die Spannweite der 7b größer ist, hat diese Klasse mehr Kinder.",
+    "In der 7b liegen alle Werte über 220 s.",
+    "In der 7a liegen etwa drei Viertel der Werte unter 230 s.",
+    "In der 7b liegt etwa ein Viertel der Werte über 280 s."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Richtig: In der 7b liegt etwa ein Viertel der Werte über 280 s.",
+   "h": "Lies Median, Box und Antennen aus den Boxplots ab."
   },
   {
    "l": "vergleichen",
@@ -3008,48 +2873,46 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Vergleiche die Gruppen A und B (siehe Tabelle). Welche Aussage ist richtig? A: 2; 5; 12; 15; 19 / B: 9; 21; 24; 33; 43",
+    "text": "Ergebnisse zweier Klassen beim 1 000-m-Lauf (in s), siehe Boxplots. Welche Aussage ist richtig?",
     "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "",
-      "Min",
-      "Q₁",
-      "Median",
-      "Q₃",
-      "Max"
+     "typ": "boxplot",
+     "achse": [
+      200,
+      300
      ],
-     "zeilen": [
-      [
-       "Gruppe A",
-       "2",
-       "5",
-       "12",
-       "15",
-       "19"
-      ],
-      [
-       "Gruppe B",
-       "9",
-       "21",
-       "24",
-       "33",
-       "43"
-      ]
+     "schritt": 10,
+     "einheit": "s",
+     "reihen": [
+      {
+       "name": "Klasse 7a",
+       "min": 200,
+       "q1": 210,
+       "median": 220,
+       "q3": 230,
+       "max": 260
+      },
+      {
+       "name": "Klasse 7b",
+       "min": 210,
+       "q1": 230,
+       "median": 250,
+       "q3": 270,
+       "max": 290
+      }
      ]
     }
    },
    "a": [
-    "Weil die Spannweite von B größer ist, hat diese Gruppe mehr Werte.",
-    "In A liegt etwa die Hälfte der Werte zwischen 5 und 15.",
-    "In B liegen alle Werte über 21.",
-    "Der Median von A ist größer als der von B."
+    "Weil die Spannweite der 7b größer ist, hat diese Klasse mehr Kinder.",
+    "Der Median der 7a ist größer als der der 7b.",
+    "In der 7b liegen alle Werte über 230 s.",
+    "Der Median der 7a ist kleiner als der der 7b."
    ],
    "o": {
-    "index": 1
+    "index": 3
    },
-   "w": "Richtig: In A liegt etwa die Hälfte der Werte zwischen 5 und 15.",
-   "h": "Lies Median, Spannweite und Quartile aus der Tabelle."
+   "w": "Richtig: Der Median der 7a ist kleiner als der der 7b.",
+   "h": "Lies Median, Box und Antennen aus den Boxplots ab."
   },
   {
    "l": "vergleichen",
@@ -3058,148 +2921,238 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Vergleiche die Gruppen A und B (siehe Tabelle). Welche Aussage ist richtig? A: 8; 10; 14; 19; 28 / B: 5; 17; 18; 29; 46",
+    "text": "Ergebnisse zweier Klassen beim Sprint über 50 m (in s), siehe Boxplots. In welcher Klasse sind die Leistungen gleichmäßiger?",
     "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "",
-      "Min",
-      "Q₁",
-      "Median",
-      "Q₃",
-      "Max"
+     "typ": "boxplot",
+     "achse": [
+      6,
+      16
      ],
-     "zeilen": [
-      [
-       "Gruppe A",
-       "8",
-       "10",
-       "14",
-       "19",
-       "28"
-      ],
-      [
-       "Gruppe B",
-       "5",
-       "17",
-       "18",
-       "29",
-       "46"
-      ]
+     "schritt": 1,
+     "einheit": "s",
+     "reihen": [
+      {
+       "name": "Klasse 7a",
+       "min": 7,
+       "q1": 8,
+       "median": 9,
+       "q3": 13,
+       "max": 15
+      },
+      {
+       "name": "Klasse 7b",
+       "min": 7,
+       "q1": 8,
+       "median": 10,
+       "q3": 11,
+       "max": 16
+      }
      ]
     }
    },
    "a": [
-    "Die Spannweite von A ist größer als die von B.",
-    "Die mittlere Hälfte der Werte streut in A weniger als in B.",
-    "Weil die Spannweite von B größer ist, hat diese Gruppe mehr Werte.",
-    "In B liegen alle Werte über 17."
+    "Klasse 7a, denn ihre Box ist länger.",
+    "In beiden gleich, weil beide Klassen gleich viele Kinder haben.",
+    "Klasse 7b, denn ihr Median ist größer.",
+    "Klasse 7b, denn ihr Quartilsabstand (Länge der Box) ist kleiner."
    ],
    "o": {
-    "index": 1
+    "index": 3
    },
-   "w": "Richtig: Die mittlere Hälfte der Werte streut in A weniger als in B.",
-   "h": "Lies Median, Spannweite und Quartile aus der Tabelle."
+   "w": "Gleichmäßiger heißt: weniger Streuung. Quartilsabstand 7a: 5 s, 7b: 3 s.",
+   "h": "Welche Box ist kürzer?"
   },
   {
    "l": "vergleichen",
    "t": "vergleichen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Vergleiche die Gruppen A und B (siehe Tabelle). Welche Aussage ist FALSCH? A: 5; 13; 22; 28; 42 / B: 8; 18; 23; 32; 43",
+    "text": "Ergebnisse zweier Klassen beim Weitwurf (in m), siehe Boxplots. Welche Aussage ist richtig?",
     "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "",
-      "Min",
-      "Q₁",
-      "Median",
-      "Q₃",
-      "Max"
+     "typ": "boxplot",
+     "achse": [
+      0,
+      50
      ],
-     "zeilen": [
-      [
-       "Gruppe A",
-       "5",
-       "13",
-       "22",
-       "28",
-       "42"
-      ],
-      [
-       "Gruppe B",
-       "8",
-       "18",
-       "23",
-       "32",
-       "43"
-      ]
+     "schritt": 5,
+     "einheit": "m",
+     "reihen": [
+      {
+       "name": "Klasse 7a",
+       "min": 15,
+       "q1": 25,
+       "median": 30,
+       "q3": 40,
+       "max": 45
+      },
+      {
+       "name": "Klasse 7b",
+       "min": 10,
+       "q1": 15,
+       "median": 25,
+       "q3": 40,
+       "max": 50
+      }
      ]
     }
    },
    "a": [
-    "In B liegt etwa ein Viertel der Werte über 32.",
-    "Der Median von A ist kleiner als der von B.",
-    "In B liegen alle Werte über 18.",
-    "In A liegt etwa die Hälfte der Werte zwischen 13 und 28."
+    "In der 7a liegen etwa drei Viertel der Werte unter 25 m.",
+    "In der 7b liegen alle Werte über 15 m.",
+    "Die Spannweite der 7a ist größer als die der 7b.",
+    "Die Spannweite der 7a ist kleiner als die der 7b."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Richtig: Die Spannweite der 7a ist kleiner als die der 7b.",
+   "h": "Lies Median, Box und Antennen aus den Boxplots ab."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ergebnisse zweier Klassen beim Weitwurf (in m), siehe Boxplots. In welcher Klasse sind die Leistungen gleichmäßiger?",
+    "grafik": {
+     "typ": "boxplot",
+     "achse": [
+      0,
+      50
+     ],
+     "schritt": 5,
+     "einheit": "m",
+     "reihen": [
+      {
+       "name": "Klasse 7a",
+       "min": 5,
+       "q1": 10,
+       "median": 15,
+       "q3": 30,
+       "max": 35
+      },
+      {
+       "name": "Klasse 7b",
+       "min": 0,
+       "q1": 10,
+       "median": 20,
+       "q3": 45,
+       "max": 50
+      }
+     ]
+    }
+   },
+   "a": [
+    "Klasse 7b, denn ihre Box ist länger.",
+    "Klasse 7a, denn ihr Quartilsabstand (Länge der Box) ist kleiner.",
+    "Klasse 7b, denn ihr Median ist größer.",
+    "In beiden gleich, weil beide Klassen gleich viele Kinder haben."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gleichmäßiger heißt: weniger Streuung. Quartilsabstand 7a: 20 m, 7b: 35 m.",
+   "h": "Welche Box ist kürzer?"
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ergebnisse zweier Klassen im Mathetest (Punkte), siehe Boxplots. Welche Klasse schnitt insgesamt besser ab?",
+    "grafik": {
+     "typ": "boxplot",
+     "achse": [
+      0,
+      30
+     ],
+     "schritt": 3,
+     "einheit": "Punkte",
+     "reihen": [
+      {
+       "name": "Klasse 7a",
+       "min": 6,
+       "q1": 9,
+       "median": 12,
+       "q3": 21,
+       "max": 30
+      },
+      {
+       "name": "Klasse 7b",
+       "min": 3,
+       "q1": 6,
+       "median": 21,
+       "q3": 24,
+       "max": 30
+      }
+     ]
+    }
+   },
+   "a": [
+    "Klasse 7a, denn dort gibt es den besten Einzelwert.",
+    "Klasse 7a, denn ihr Median ist kleiner.",
+    "Klasse 7b, denn ihr Median ist größer.",
+    "Das kann man nicht sagen, weil die Spannweiten verschieden sind."
    ],
    "o": {
     "index": 2
    },
-   "w": "Falsch: In B liegen alle Werte über 18. Quartile teilen die Daten in Viertel; die Spannweite sagt nichts über die Anzahl.",
-   "h": "Prüfe jede Aussage mit den Kennwerten."
+   "w": "Die Mitte vergleicht man mit dem Median: 7a 12 Punkte, 7b 21 Punkte.",
+   "h": "Vergleiche die Mitte (Median), nicht einzelne Extremwerte."
   },
   {
    "l": "vergleichen",
    "t": "vergleichen",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Vergleiche die Gruppen A und B (siehe Tabelle). Welche Aussage ist FALSCH? A: 5; 11; 16; 22; 31 / B: 6; 13; 22; 26; 44",
+    "text": "Ergebnisse zweier Klassen beim Hochsprung (in cm), siehe Boxplots. Welche Aussage ist richtig?",
     "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "",
-      "Min",
-      "Q₁",
-      "Median",
-      "Q₃",
-      "Max"
+     "typ": "boxplot",
+     "achse": [
+      80,
+      130
      ],
-     "zeilen": [
-      [
-       "Gruppe A",
-       "5",
-       "11",
-       "16",
-       "22",
-       "31"
-      ],
-      [
-       "Gruppe B",
-       "6",
-       "13",
-       "22",
-       "26",
-       "44"
-      ]
+     "schritt": 5,
+     "einheit": "cm",
+     "reihen": [
+      {
+       "name": "Klasse 7a",
+       "min": 85,
+       "q1": 90,
+       "median": 105,
+       "q3": 110,
+       "max": 125
+      },
+      {
+       "name": "Klasse 7b",
+       "min": 80,
+       "q1": 90,
+       "median": 100,
+       "q3": 105,
+       "max": 110
+      }
      ]
     }
    },
    "a": [
-    "Der Median von A ist größer als der von B.",
-    "Die Spannweite von A ist kleiner als die von B.",
-    "In A liegt etwa die Hälfte der Werte zwischen 11 und 22.",
-    "Der Median von A ist kleiner als der von B."
+    "Die Spannweite der 7a ist größer als die der 7b.",
+    "Die Spannweite der 7a ist kleiner als die der 7b.",
+    "In der 7b liegen alle Werte über 90 cm.",
+    "In der 7a liegen etwa drei Viertel der Werte unter 90 cm."
    ],
    "o": {
     "index": 0
    },
-   "w": "Falsch: Der Median von A ist größer als der von B. Quartile teilen die Daten in Viertel; die Spannweite sagt nichts über die Anzahl.",
-   "h": "Prüfe jede Aussage mit den Kennwerten."
+   "w": "Richtig: Die Spannweite der 7a ist größer als die der 7b.",
+   "h": "Lies Median, Box und Antennen aus den Boxplots ab."
   },
   {
    "l": "vergleichen",
@@ -3208,48 +3161,94 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Vergleiche die Gruppen A und B (siehe Tabelle). Welche Aussage ist FALSCH? A: 7; 18; 26; 33; 37 / B: 9; 14; 15; 24; 37",
+    "text": "Ergebnisse zweier Klassen beim 1 000-m-Lauf (in s), siehe Boxplots. In welcher Klasse sind die Leistungen gleichmäßiger?",
     "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "",
-      "Min",
-      "Q₁",
-      "Median",
-      "Q₃",
-      "Max"
+     "typ": "boxplot",
+     "achse": [
+      200,
+      300
      ],
-     "zeilen": [
-      [
-       "Gruppe A",
-       "7",
-       "18",
-       "26",
-       "33",
-       "37"
-      ],
-      [
-       "Gruppe B",
-       "9",
-       "14",
-       "15",
-       "24",
-       "37"
-      ]
+     "schritt": 10,
+     "einheit": "s",
+     "reihen": [
+      {
+       "name": "Klasse 7a",
+       "min": 220,
+       "q1": 230,
+       "median": 260,
+       "q3": 270,
+       "max": 290
+      },
+      {
+       "name": "Klasse 7b",
+       "min": 200,
+       "q1": 220,
+       "median": 270,
+       "q3": 280,
+       "max": 290
+      }
      ]
     }
    },
    "a": [
-    "In B liegt etwa ein Viertel der Werte über 24.",
-    "Weil die Spannweite von A größer ist, hat diese Gruppe mehr Werte.",
-    "Die Spannweite von A ist größer als die von B.",
-    "Der Median von A ist größer als der von B."
+    "Klasse 7a, denn ihr Quartilsabstand (Länge der Box) ist kleiner.",
+    "In beiden gleich, weil beide Klassen gleich viele Kinder haben.",
+    "Klasse 7b, denn ihre Box ist länger.",
+    "Klasse 7b, denn ihr Median ist größer."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Gleichmäßiger heißt: weniger Streuung. Quartilsabstand 7a: 40 s, 7b: 60 s.",
+   "h": "Welche Box ist kürzer?"
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ergebnisse zweier Klassen beim Hochsprung (in cm), siehe Boxplots. Welche Aussage stimmt nicht?",
+    "grafik": {
+     "typ": "boxplot",
+     "achse": [
+      80,
+      130
+     ],
+     "schritt": 5,
+     "einheit": "cm",
+     "reihen": [
+      {
+       "name": "Klasse 7a",
+       "min": 85,
+       "q1": 90,
+       "median": 95,
+       "q3": 110,
+       "max": 130
+      },
+      {
+       "name": "Klasse 7b",
+       "min": 80,
+       "q1": 95,
+       "median": 100,
+       "q3": 110,
+       "max": 120
+      }
+     ]
+    }
+   },
+   "a": [
+    "In der 7a liegt etwa die Hälfte der Werte zwischen 90 und 110 cm.",
+    "Die Spannweite der 7a ist kleiner als die der 7b.",
+    "Die mittlere Hälfte der Werte streut in der 7a stärker als in der 7b.",
+    "Der Median der 7a ist kleiner als der der 7b."
    ],
    "o": {
     "index": 1
    },
-   "w": "Falsch: Weil die Spannweite von A größer ist, hat diese Gruppe mehr Werte. Quartile teilen die Daten in Viertel; die Spannweite sagt nichts über die Anzahl.",
-   "h": "Prüfe jede Aussage mit den Kennwerten."
+   "w": "Stimmt nicht: Die Spannweite der 7a ist kleiner als die der 7b. Quartile teilen die Daten in Viertel; die Spannweite sagt nichts über die Anzahl.",
+   "h": "Prüfe jede Aussage am Boxplot."
   },
   {
    "l": "vergleichen",
@@ -3258,48 +3257,94 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Vergleiche die Gruppen A und B (siehe Tabelle). Welche Aussage ist FALSCH? A: 5; 13; 20; 25; 42 / B: 6; 16; 26; 33; 45",
+    "text": "Ergebnisse zweier Klassen beim Hochsprung (in cm), siehe Boxplots. Welche Klasse sprang insgesamt höher?",
     "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "",
-      "Min",
-      "Q₁",
-      "Median",
-      "Q₃",
-      "Max"
+     "typ": "boxplot",
+     "achse": [
+      80,
+      130
      ],
-     "zeilen": [
-      [
-       "Gruppe A",
-       "5",
-       "13",
-       "20",
-       "25",
-       "42"
-      ],
-      [
-       "Gruppe B",
-       "6",
-       "16",
-       "26",
-       "33",
-       "45"
-      ]
+     "schritt": 5,
+     "einheit": "cm",
+     "reihen": [
+      {
+       "name": "Klasse 7a",
+       "min": 85,
+       "q1": 110,
+       "median": 120,
+       "q3": 125,
+       "max": 130
+      },
+      {
+       "name": "Klasse 7b",
+       "min": 80,
+       "q1": 85,
+       "median": 90,
+       "q3": 95,
+       "max": 120
+      }
      ]
     }
    },
    "a": [
-    "Der Median von A ist größer als der von B.",
-    "In B liegt etwa ein Viertel der Werte über 33.",
-    "Die Spannweite von A ist kleiner als die von B.",
-    "Der Median von A ist kleiner als der von B."
+    "Klasse 7b, denn dort gibt es den besten Einzelwert.",
+    "Klasse 7b, denn ihr Median ist kleiner.",
+    "Das kann man nicht sagen, weil die Spannweiten verschieden sind.",
+    "Klasse 7a, denn ihr Median ist größer."
    ],
    "o": {
-    "index": 0
+    "index": 3
    },
-   "w": "Falsch: Der Median von A ist größer als der von B. Quartile teilen die Daten in Viertel; die Spannweite sagt nichts über die Anzahl.",
-   "h": "Prüfe jede Aussage mit den Kennwerten."
+   "w": "Die Mitte vergleicht man mit dem Median: 7a 120 cm, 7b 90 cm.",
+   "h": "Vergleiche die Mitte (Median), nicht einzelne Extremwerte."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ergebnisse zweier Klassen beim Hochsprung (in cm), siehe Boxplots. Welche Klasse sprang insgesamt höher?",
+    "grafik": {
+     "typ": "boxplot",
+     "achse": [
+      80,
+      130
+     ],
+     "schritt": 5,
+     "einheit": "cm",
+     "reihen": [
+      {
+       "name": "Klasse 7a",
+       "min": 80,
+       "q1": 85,
+       "median": 90,
+       "q3": 110,
+       "max": 120
+      },
+      {
+       "name": "Klasse 7b",
+       "min": 95,
+       "q1": 105,
+       "median": 115,
+       "q3": 120,
+       "max": 125
+      }
+     ]
+    }
+   },
+   "a": [
+    "Klasse 7a, denn dort gibt es den besten Einzelwert.",
+    "Klasse 7a, denn ihr Median ist kleiner.",
+    "Klasse 7b, denn ihr Median ist größer.",
+    "Das kann man nicht sagen, weil die Spannweiten verschieden sind."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Mitte vergleicht man mit dem Median: 7a 90 cm, 7b 115 cm.",
+   "h": "Vergleiche die Mitte (Median), nicht einzelne Extremwerte."
   },
   {
    "l": "vergleichen",
@@ -3308,47 +3353,45 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Vergleiche die Gruppen A und B (siehe Tabelle). Welche Aussage ist richtig? A: 3; 12; 19; 21; 40 / B: 0; 2; 6; 13; 21",
+    "text": "Ergebnisse zweier Klassen beim 1 000-m-Lauf (in s), siehe Boxplots. Welche Aussage ist richtig?",
     "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "",
-      "Min",
-      "Q₁",
-      "Median",
-      "Q₃",
-      "Max"
+     "typ": "boxplot",
+     "achse": [
+      200,
+      300
      ],
-     "zeilen": [
-      [
-       "Gruppe A",
-       "3",
-       "12",
-       "19",
-       "21",
-       "40"
-      ],
-      [
-       "Gruppe B",
-       "0",
-       "2",
-       "6",
-       "13",
-       "21"
-      ]
+     "schritt": 10,
+     "einheit": "s",
+     "reihen": [
+      {
+       "name": "Klasse 7a",
+       "min": 200,
+       "q1": 220,
+       "median": 270,
+       "q3": 290,
+       "max": 300
+      },
+      {
+       "name": "Klasse 7b",
+       "min": 200,
+       "q1": 220,
+       "median": 230,
+       "q3": 250,
+       "max": 280
+      }
      ]
     }
    },
    "a": [
-    "In B liegt etwa ein Viertel der Werte über 13.",
-    "Die Spannweite von A ist kleiner als die von B.",
-    "In A liegen etwa drei Viertel der Werte unter 12.",
-    "Der Median von A ist kleiner als der von B."
+    "In der 7a liegt etwa die Hälfte der Werte zwischen 220 und 290 s.",
+    "In der 7a liegen etwa drei Viertel der Werte unter 220 s.",
+    "Weil die Spannweite der 7a größer ist, hat diese Klasse mehr Kinder.",
+    "Der Median der 7a ist kleiner als der der 7b."
    ],
    "o": {
     "index": 0
    },
-   "w": "Richtig: In B liegt etwa ein Viertel der Werte über 13."
+   "w": "Richtig: In der 7a liegt etwa die Hälfte der Werte zwischen 220 und 290 s."
   },
   {
    "l": "vergleichen",
@@ -3357,47 +3400,45 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Vergleiche die Gruppen A und B (siehe Tabelle). Welche Aussage ist richtig? A: 2; 13; 15; 20; 37 / B: 5; 13; 16; 22; 41",
+    "text": "Ergebnisse zweier Klassen im Mathetest (Punkte), siehe Boxplots. In welcher Klasse sind die Leistungen gleichmäßiger?",
     "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "",
-      "Min",
-      "Q₁",
-      "Median",
-      "Q₃",
-      "Max"
+     "typ": "boxplot",
+     "achse": [
+      0,
+      30
      ],
-     "zeilen": [
-      [
-       "Gruppe A",
-       "2",
-       "13",
-       "15",
-       "20",
-       "37"
-      ],
-      [
-       "Gruppe B",
-       "5",
-       "13",
-       "16",
-       "22",
-       "41"
-      ]
+     "schritt": 3,
+     "einheit": "Punkte",
+     "reihen": [
+      {
+       "name": "Klasse 7a",
+       "min": 0,
+       "q1": 6,
+       "median": 9,
+       "q3": 21,
+       "max": 27
+      },
+      {
+       "name": "Klasse 7b",
+       "min": 6,
+       "q1": 12,
+       "median": 15,
+       "q3": 21,
+       "max": 27
+      }
      ]
     }
    },
    "a": [
-    "Der Median von A ist kleiner als der von B.",
-    "Die Spannweite von A ist größer als die von B.",
-    "Der Median von A ist größer als der von B.",
-    "In A liegen etwa drei Viertel der Werte unter 13."
+    "Klasse 7b, denn ihr Median ist größer.",
+    "In beiden gleich, weil beide Klassen gleich viele Kinder haben.",
+    "Klasse 7a, denn ihre Box ist länger.",
+    "Klasse 7b, denn ihr Quartilsabstand (Länge der Box) ist kleiner."
    ],
    "o": {
-    "index": 0
+    "index": 3
    },
-   "w": "Richtig: Der Median von A ist kleiner als der von B."
+   "w": "Gleichmäßiger heißt: weniger Streuung. Quartilsabstand 7a: 15 Punkte, 7b: 9 Punkte."
   },
   {
    "l": "vergleichen",
@@ -3406,47 +3447,45 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Vergleiche die Gruppen A und B (siehe Tabelle). Welche Aussage ist FALSCH? A: 9; 18; 25; 36; 38 / B: 7; 19; 29; 33; 50",
+    "text": "Ergebnisse zweier Klassen beim Sprint über 50 m (in s), siehe Boxplots. Welche Aussage stimmt nicht?",
     "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "",
-      "Min",
-      "Q₁",
-      "Median",
-      "Q₃",
-      "Max"
+     "typ": "boxplot",
+     "achse": [
+      6,
+      16
      ],
-     "zeilen": [
-      [
-       "Gruppe A",
-       "9",
-       "18",
-       "25",
-       "36",
-       "38"
-      ],
-      [
-       "Gruppe B",
-       "7",
-       "19",
-       "29",
-       "33",
-       "50"
-      ]
+     "schritt": 1,
+     "einheit": "s",
+     "reihen": [
+      {
+       "name": "Klasse 7a",
+       "min": 7,
+       "q1": 13,
+       "median": 14,
+       "q3": 15,
+       "max": 16
+      },
+      {
+       "name": "Klasse 7b",
+       "min": 7,
+       "q1": 8,
+       "median": 10,
+       "q3": 11,
+       "max": 14
+      }
      ]
     }
    },
    "a": [
-    "Der Median von A ist kleiner als der von B.",
-    "Die Spannweite von A ist größer als die von B.",
-    "In B liegt etwa ein Viertel der Werte über 33.",
-    "Die Spannweite von A ist kleiner als die von B."
+    "Die Spannweite der 7a ist kleiner als die der 7b.",
+    "Die mittlere Hälfte der Werte streut in der 7a weniger als in der 7b.",
+    "Die Spannweite der 7a ist größer als die der 7b.",
+    "In der 7b liegt etwa ein Viertel der Werte über 11 s."
    ],
    "o": {
-    "index": 1
+    "index": 0
    },
-   "w": "Falsch: Die Spannweite von A ist größer als die von B. Quartile teilen die Daten in Viertel; die Spannweite sagt nichts über die Anzahl."
+   "w": "Stimmt nicht: Die Spannweite der 7a ist kleiner als die der 7b. Quartile teilen die Daten in Viertel; die Spannweite sagt nichts über die Anzahl."
   },
   {
    "l": "vergleichen",
@@ -3455,145 +3494,45 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Vergleiche die Gruppen A und B (siehe Tabelle). Welche Aussage ist richtig? A: 9; 19; 24; 33; 41 / B: 6; 17; 26; 36; 40",
+    "text": "Ergebnisse zweier Klassen im Mathetest (Punkte), siehe Boxplots. Welche Klasse schnitt insgesamt besser ab?",
     "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "",
-      "Min",
-      "Q₁",
-      "Median",
-      "Q₃",
-      "Max"
+     "typ": "boxplot",
+     "achse": [
+      0,
+      30
      ],
-     "zeilen": [
-      [
-       "Gruppe A",
-       "9",
-       "19",
-       "24",
-       "33",
-       "41"
-      ],
-      [
-       "Gruppe B",
-       "6",
-       "17",
-       "26",
-       "36",
-       "40"
-      ]
+     "schritt": 3,
+     "einheit": "Punkte",
+     "reihen": [
+      {
+       "name": "Klasse 7a",
+       "min": 0,
+       "q1": 18,
+       "median": 21,
+       "q3": 24,
+       "max": 30
+      },
+      {
+       "name": "Klasse 7b",
+       "min": 0,
+       "q1": 3,
+       "median": 9,
+       "q3": 12,
+       "max": 18
+      }
      ]
     }
    },
    "a": [
-    "Der Median von A ist kleiner als der von B.",
-    "In A liegen etwa drei Viertel der Werte unter 19.",
-    "Die Spannweite von A ist größer als die von B.",
-    "In B liegen alle Werte über 17."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Richtig: Der Median von A ist kleiner als der von B."
-  },
-  {
-   "l": "vergleichen",
-   "t": "vergleichen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Vergleiche die Gruppen A und B (siehe Tabelle). Welche Aussage ist FALSCH? A: 6; 17; 24; 28; 32 / B: 6; 12; 20; 27; 35",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "",
-      "Min",
-      "Q₁",
-      "Median",
-      "Q₃",
-      "Max"
-     ],
-     "zeilen": [
-      [
-       "Gruppe A",
-       "6",
-       "17",
-       "24",
-       "28",
-       "32"
-      ],
-      [
-       "Gruppe B",
-       "6",
-       "12",
-       "20",
-       "27",
-       "35"
-      ]
-     ]
-    }
-   },
-   "a": [
-    "Die Spannweite von A ist größer als die von B.",
-    "Die mittlere Hälfte der Werte streut in A weniger als in B.",
-    "In A liegt etwa die Hälfte der Werte zwischen 17 und 28.",
-    "In B liegt etwa ein Viertel der Werte über 27."
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "Falsch: Die Spannweite von A ist größer als die von B. Quartile teilen die Daten in Viertel; die Spannweite sagt nichts über die Anzahl."
-  },
-  {
-   "l": "vergleichen",
-   "t": "vergleichen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Vergleiche die Gruppen A und B (siehe Tabelle). Welche Aussage ist FALSCH? A: 0; 2; 10; 21; 27 / B: 4; 14; 15; 17; 19",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "",
-      "Min",
-      "Q₁",
-      "Median",
-      "Q₃",
-      "Max"
-     ],
-     "zeilen": [
-      [
-       "Gruppe A",
-       "0",
-       "2",
-       "10",
-       "21",
-       "27"
-      ],
-      [
-       "Gruppe B",
-       "4",
-       "14",
-       "15",
-       "17",
-       "19"
-      ]
-     ]
-    }
-   },
-   "a": [
-    "Die mittlere Hälfte der Werte streut in A stärker als in B.",
-    "In B liegt etwa ein Viertel der Werte über 17.",
-    "Die Spannweite von A ist größer als die von B.",
-    "In B liegen alle Werte über 14."
+    "Klasse 7b, denn dort gibt es den besten Einzelwert.",
+    "Das kann man nicht sagen, weil die Spannweiten verschieden sind.",
+    "Klasse 7b, denn ihr Median ist kleiner.",
+    "Klasse 7a, denn ihr Median ist größer."
    ],
    "o": {
     "index": 3
    },
-   "w": "Falsch: In B liegen alle Werte über 14. Quartile teilen die Daten in Viertel; die Spannweite sagt nichts über die Anzahl."
+   "w": "Die Mitte vergleicht man mit dem Median: 7a 21 Punkte, 7b 9 Punkte."
   },
   {
    "l": "vergleichen",
@@ -3602,47 +3541,45 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Vergleiche die Gruppen A und B (siehe Tabelle). Welche Aussage ist FALSCH? A: 6; 11; 16; 24; 33 / B: 6; 17; 26; 29; 38",
+    "text": "Ergebnisse zweier Klassen im Mathetest (Punkte), siehe Boxplots. In welcher Klasse sind die Leistungen gleichmäßiger?",
     "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "",
-      "Min",
-      "Q₁",
-      "Median",
-      "Q₃",
-      "Max"
+     "typ": "boxplot",
+     "achse": [
+      0,
+      30
      ],
-     "zeilen": [
-      [
-       "Gruppe A",
-       "6",
-       "11",
-       "16",
-       "24",
-       "33"
-      ],
-      [
-       "Gruppe B",
-       "6",
-       "17",
-       "26",
-       "29",
-       "38"
-      ]
+     "schritt": 3,
+     "einheit": "Punkte",
+     "reihen": [
+      {
+       "name": "Klasse 7a",
+       "min": 0,
+       "q1": 12,
+       "median": 18,
+       "q3": 27,
+       "max": 30
+      },
+      {
+       "name": "Klasse 7b",
+       "min": 6,
+       "q1": 12,
+       "median": 15,
+       "q3": 24,
+       "max": 30
+      }
      ]
     }
    },
    "a": [
-    "Die mittlere Hälfte der Werte streut in A stärker als in B.",
-    "In B liegt etwa ein Viertel der Werte über 29.",
-    "In A liegt etwa die Hälfte der Werte zwischen 11 und 24.",
-    "In B liegen alle Werte über 17."
+    "Klasse 7a, denn ihr Median ist größer.",
+    "Klasse 7a, denn ihre Box ist länger.",
+    "In beiden gleich, weil beide Klassen gleich viele Kinder haben.",
+    "Klasse 7b, denn ihr Quartilsabstand (Länge der Box) ist kleiner."
    ],
    "o": {
     "index": 3
    },
-   "w": "Falsch: In B liegen alle Werte über 17. Quartile teilen die Daten in Viertel; die Spannweite sagt nichts über die Anzahl."
+   "w": "Gleichmäßiger heißt: weniger Streuung. Quartilsabstand 7a: 15 Punkte, 7b: 12 Punkte."
   },
   {
    "l": "vergleichen",
@@ -3651,96 +3588,45 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Vergleiche die Gruppen A und B (siehe Tabelle). Welche Aussage ist FALSCH? A: 6; 15; 19; 26; 40 / B: 2; 11; 16; 18; 33",
+    "text": "Ergebnisse zweier Klassen beim Hochsprung (in cm), siehe Boxplots. Welche Aussage ist richtig?",
     "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "",
-      "Min",
-      "Q₁",
-      "Median",
-      "Q₃",
-      "Max"
+     "typ": "boxplot",
+     "achse": [
+      80,
+      130
      ],
-     "zeilen": [
-      [
-       "Gruppe A",
-       "6",
-       "15",
-       "19",
-       "26",
-       "40"
-      ],
-      [
-       "Gruppe B",
-       "2",
-       "11",
-       "16",
-       "18",
-       "33"
-      ]
+     "schritt": 5,
+     "einheit": "cm",
+     "reihen": [
+      {
+       "name": "Klasse 7a",
+       "min": 95,
+       "q1": 105,
+       "median": 110,
+       "q3": 125,
+       "max": 130
+      },
+      {
+       "name": "Klasse 7b",
+       "min": 80,
+       "q1": 90,
+       "median": 95,
+       "q3": 120,
+       "max": 130
+      }
      ]
     }
    },
    "a": [
-    "Die Spannweite von A ist größer als die von B.",
-    "Die mittlere Hälfte der Werte streut in A stärker als in B.",
-    "Der Median von A ist größer als der von B.",
-    "Weil die Spannweite von A größer ist, hat diese Gruppe mehr Werte."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Falsch: Weil die Spannweite von A größer ist, hat diese Gruppe mehr Werte. Quartile teilen die Daten in Viertel; die Spannweite sagt nichts über die Anzahl."
-  },
-  {
-   "l": "vergleichen",
-   "t": "vergleichen",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Vergleiche die Gruppen A und B (siehe Tabelle). Welche Aussage ist richtig? A: 1; 4; 14; 20; 33 / B: 2; 4; 12; 19; 23",
-    "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "",
-      "Min",
-      "Q₁",
-      "Median",
-      "Q₃",
-      "Max"
-     ],
-     "zeilen": [
-      [
-       "Gruppe A",
-       "1",
-       "4",
-       "14",
-       "20",
-       "33"
-      ],
-      [
-       "Gruppe B",
-       "2",
-       "4",
-       "12",
-       "19",
-       "23"
-      ]
-     ]
-    }
-   },
-   "a": [
-    "Der Median von A ist größer als der von B.",
-    "Weil die Spannweite von A größer ist, hat diese Gruppe mehr Werte.",
-    "Der Median von A ist kleiner als der von B.",
-    "Die Spannweite von A ist kleiner als die von B."
+    "Der Median der 7a ist größer als der der 7b.",
+    "Weil die Spannweite der 7b größer ist, hat diese Klasse mehr Kinder.",
+    "In der 7b liegen alle Werte über 90 cm.",
+    "Die Spannweite der 7a ist größer als die der 7b."
    ],
    "o": {
     "index": 0
    },
-   "w": "Richtig: Der Median von A ist größer als der von B."
+   "w": "Richtig: Der Median der 7a ist größer als der der 7b."
   },
   {
    "l": "vergleichen",
@@ -3749,51 +3635,189 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Vergleiche die Gruppen A und B (siehe Tabelle). Welche Aussage ist FALSCH? A: 3; 12; 15; 18; 24 / B: 1; 8; 18; 29; 40",
+    "text": "Ergebnisse zweier Klassen beim Sprint über 50 m (in s), siehe Boxplots. In welcher Klasse sind die Leistungen gleichmäßiger?",
     "grafik": {
-     "typ": "tabelle",
-     "kopf": [
-      "",
-      "Min",
-      "Q₁",
-      "Median",
-      "Q₃",
-      "Max"
+     "typ": "boxplot",
+     "achse": [
+      6,
+      16
      ],
-     "zeilen": [
-      [
-       "Gruppe A",
-       "3",
-       "12",
-       "15",
-       "18",
-       "24"
-      ],
-      [
-       "Gruppe B",
-       "1",
-       "8",
-       "18",
-       "29",
-       "40"
-      ]
+     "schritt": 1,
+     "einheit": "s",
+     "reihen": [
+      {
+       "name": "Klasse 7a",
+       "min": 8,
+       "q1": 10,
+       "median": 11,
+       "q3": 12,
+       "max": 15
+      },
+      {
+       "name": "Klasse 7b",
+       "min": 7,
+       "q1": 9,
+       "median": 13,
+       "q3": 15,
+       "max": 16
+      }
      ]
     }
    },
    "a": [
-    "In A liegt etwa die Hälfte der Werte zwischen 12 und 18.",
-    "Der Median von A ist kleiner als der von B.",
-    "In B liegen alle Werte über 8.",
-    "In B liegt etwa ein Viertel der Werte über 29."
+    "Klasse 7b, denn ihre Box ist länger.",
+    "Klasse 7b, denn ihr Median ist größer.",
+    "Klasse 7a, denn ihr Quartilsabstand (Länge der Box) ist kleiner.",
+    "In beiden gleich, weil beide Klassen gleich viele Kinder haben."
    ],
    "o": {
     "index": 2
    },
-   "w": "Falsch: In B liegen alle Werte über 8. Quartile teilen die Daten in Viertel; die Spannweite sagt nichts über die Anzahl."
+   "w": "Gleichmäßiger heißt: weniger Streuung. Quartilsabstand 7a: 2 s, 7b: 6 s."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ergebnisse zweier Klassen beim Hochsprung (in cm), siehe Boxplots. Welche Aussage ist richtig?",
+    "grafik": {
+     "typ": "boxplot",
+     "achse": [
+      80,
+      130
+     ],
+     "schritt": 5,
+     "einheit": "cm",
+     "reihen": [
+      {
+       "name": "Klasse 7a",
+       "min": 80,
+       "q1": 85,
+       "median": 90,
+       "q3": 95,
+       "max": 120
+      },
+      {
+       "name": "Klasse 7b",
+       "min": 85,
+       "q1": 100,
+       "median": 105,
+       "q3": 125,
+       "max": 130
+      }
+     ]
+    }
+   },
+   "a": [
+    "In der 7a liegen etwa drei Viertel der Werte unter 85 cm.",
+    "In der 7b liegt etwa ein Viertel der Werte über 125 cm.",
+    "Der Median der 7a ist größer als der der 7b.",
+    "Weil die Spannweite der 7b größer ist, hat diese Klasse mehr Kinder."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Richtig: In der 7b liegt etwa ein Viertel der Werte über 125 cm."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ergebnisse zweier Klassen beim Sprint über 50 m (in s), siehe Boxplots. Welche Klasse lief insgesamt schneller?",
+    "grafik": {
+     "typ": "boxplot",
+     "achse": [
+      6,
+      16
+     ],
+     "schritt": 1,
+     "einheit": "s",
+     "reihen": [
+      {
+       "name": "Klasse 7a",
+       "min": 8,
+       "q1": 10,
+       "median": 12,
+       "q3": 13,
+       "max": 14
+      },
+      {
+       "name": "Klasse 7b",
+       "min": 9,
+       "q1": 10,
+       "median": 11,
+       "q3": 14,
+       "max": 16
+      }
+     ]
+    }
+   },
+   "a": [
+    "Das kann man nicht sagen, weil die Spannweiten verschieden sind.",
+    "Klasse 7a, denn dort gibt es den besten Einzelwert.",
+    "Klasse 7b, denn ihr Median ist kleiner.",
+    "Klasse 7a, denn ihr Median ist größer."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Mitte vergleicht man mit dem Median: 7a 12 s, 7b 11 s."
+  },
+  {
+   "l": "vergleichen",
+   "t": "vergleichen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ergebnisse zweier Klassen beim Hochsprung (in cm), siehe Boxplots. In welcher Klasse sind die Leistungen gleichmäßiger?",
+    "grafik": {
+     "typ": "boxplot",
+     "achse": [
+      80,
+      130
+     ],
+     "schritt": 5,
+     "einheit": "cm",
+     "reihen": [
+      {
+       "name": "Klasse 7a",
+       "min": 80,
+       "q1": 85,
+       "median": 90,
+       "q3": 100,
+       "max": 115
+      },
+      {
+       "name": "Klasse 7b",
+       "min": 80,
+       "q1": 100,
+       "median": 110,
+       "q3": 120,
+       "max": 130
+      }
+     ]
+    }
+   },
+   "a": [
+    "Klasse 7b, denn ihr Median ist größer.",
+    "Klasse 7b, denn ihre Box ist länger.",
+    "Klasse 7a, denn ihr Quartilsabstand (Länge der Box) ist kleiner.",
+    "In beiden gleich, weil beide Klassen gleich viele Kinder haben."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Gleichmäßiger heißt: weniger Streuung. Quartilsabstand 7a: 15 cm, 7b: 20 cm."
   }
  ],
  "offen": [
-  "Boxplots selbst kann die App noch nicht zeichnen. Die fünf Kennwerte werden als Tabelle gezeigt; Aufgaben „Lies aus dem Boxplot ab“ und „Welcher Boxplot passt?“ fehlen.",
   "Quartile werden als Median der unteren bzw. oberen Hälfte bestimmt (bei ungerader Anzahl ohne den Median). Schulbücher verwenden teils andere Verfahren; bitte mit dem Buch des Kindes abgleichen."
  ]
 }

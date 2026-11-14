@@ -194,3 +194,45 @@ def bauen(thema, ziel, merke, abschnitte, etappen, gen, offen=(), vertiefung=(),
     ziel_pfad.write_text(json.dumps(datei, ensure_ascii=False, indent=1), encoding='utf-8')
     print(f'{ziel_pfad.name}: {len(etappen)} Lernkarten, {len(alle)} Aufgaben')
     return datei
+
+
+HOCHZ = str.maketrans('0123456789', '⁰¹²³⁴⁵⁶⁷⁸⁹')
+
+
+def poly(*k, v='x'):
+    """Polynom aus Koeffizienten (höchster Grad zuerst) als Text, z. B. poly(2, -3, 1) = '2x² − 3x + 1'."""
+    n = len(k) - 1
+    teile = []
+    for i, c in enumerate(k):
+        g = n - i
+        if c == 0: continue
+        c = Fr(c)
+        bet = abs(c)
+        if g == 0:
+            zt_ = dz(bet) if endlich(bet) else br(bet)
+        else:
+            zt_ = '' if bet == 1 else (dz(bet) if endlich(bet) else br(bet))
+            zt_ += v + ('' if g == 1 else str(g).translate(HOCHZ))
+        if not teile:
+            teile.append(('−' if c < 0 else '') + zt_)
+        else:
+            teile.append(('− ' if c < 0 else '+ ') + zt_)
+    return ' '.join(teile) if teile else '0'
+
+
+def plus(x):
+    """'+ 3' oder '− 3' für Term-Anschlüsse"""
+    return f'+ {dz(x)}' if x >= 0 else f'− {dz(-x)}'
+
+
+def plus_v(c, v='x'):
+    """'+ 3x', '− x' (Koeffizient vor Variable)"""
+    if c == 0: return ''
+    b = '' if abs(c) == 1 else dz(abs(c))
+    return f'{"+" if c > 0 else "−"} {b}{v}'
+
+
+def minus_klammer(p, v='x'):
+    """(x − p) bzw. (x + |p|)"""
+    if p == 0: return v
+    return f'({v} − {dz(p)})' if p > 0 else f'({v} + {dz(-p)})'

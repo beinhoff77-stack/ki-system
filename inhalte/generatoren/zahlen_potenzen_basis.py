@@ -6,7 +6,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _basis import baue, kl, mische, schreibe, zt  # noqa: E402
+from _kl5 import baue, kl, mische, schreibe, zt  # noqa: E402
 
 R = random.Random(67)
 HOCH = str.maketrans('0123456789', '⁰¹²³⁴⁵⁶⁷⁸⁹')

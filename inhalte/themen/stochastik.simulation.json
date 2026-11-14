@@ -1,0 +1,2734 @@
+{
+ "thema_schluessel": "stochastik.simulation",
+ "thema_id": 64,
+ "block_id": 90,
+ "klasse": {
+  "gym_by": 8,
+  "rs_by": 9
+ },
+ "autor": "Claude (Paket Klasse 8)",
+ "inhalt": {
+  "ziel": "Zufallsexperimente mit Münze, Würfel, Urne, Glücksrad und Zufallsziffern simulieren, auswerten und Flächen mit der Monte-Carlo-Methode schätzen.",
+  "merke": [
+   "Zufallsgerät muss genau die gesuchte Wahrscheinlichkeit haben.",
+   "Zufallsziffern: jede Ziffer p = 0,1; zweistellig 00–99: jede Zahl p = 0,01.",
+   "Schätzwert = Treffer : Durchgänge. Monte-Carlo: Fläche ≈ Punkteanteil · Quadratfläche."
+  ],
+  "abschnitte": [
+   {
+    "titel": "Simulieren",
+    "lernziele": [
+     "zufallsgeraet",
+     "regel",
+     "zufallsziffern"
+    ]
+   },
+   {
+    "titel": "Auswerten",
+    "lernziele": [
+     "auswerten",
+     "monte_carlo"
+    ]
+   },
+   {
+    "titel": "Verstehen",
+    "lernziele": [
+     "beurteilen"
+    ]
+   }
+  ],
+  "etappen": [
+   {
+    "lernziel": "zufallsgeraet",
+    "titel": "Ein passendes Zufallsgerät wählen",
+    "regel": "Beim ⟦Simulieren⟧ ersetzt man einen echten Vorgang durch ein ⟦Zufallsgerät⟧ mit ⟦derselben Wahrscheinlichkeit⟧: Münze (1/2), Würfel (1/6), Urne oder Glücksrad (beliebige Anteile).",
+    "schritte": [
+     "Ein Spieler trifft mit Wahrscheinlichkeit 0,3.",
+     "Urne mit 10 Kugeln: 3 rote = Treffer, 7 weiße = kein Treffer.",
+     "Ziehen ⟦mit Zurücklegen⟧ simuliert einen Wurf."
+    ],
+    "fehler": "Eine Münze passt nicht für p = 0,3: Sie liefert immer ⟦p = 0,5⟧. Das Zufallsgerät muss genau die gesuchte Wahrscheinlichkeit haben."
+   },
+   {
+    "lernziel": "zufallsziffern",
+    "titel": "Mit Zufallsziffern simulieren",
+    "regel": "Zufallsziffern 0–9 kommen ⟦gleich oft⟧ vor (je 1/10). Man legt fest, welche Ziffern als ⟦Treffer⟧ zählen, z. B. 0, 1, 2 für p = 0,3, und zählt dann die Treffer.",
+    "schritte": [
+     "Regel: 0–2 = Treffer (p = 0,3)",
+     "Ziffern: 7 1 4 0 9 2 5 8 3 6",
+     "Treffer: 1, 0, 2 → ⟦3 Treffer⟧ in 10 Versuchen"
+    ],
+    "fehler": "Bei der Regel „0–2 = Treffer“ zählt die 2 mit. 0, 1 und 2 sind ⟦drei⟧ Ziffern, also p = 3/10."
+   },
+   {
+    "lernziel": "regel",
+    "titel": "Eine Simulationsregel festlegen",
+    "regel": "Für p = 0,4 nimmt man ⟦4 von 10⟧ Ziffern als Treffer. Für p = 0,35 reichen einzelne Ziffern nicht: Man nimmt ⟦Zahlen von 00 bis 99⟧ und lässt 35 davon als Treffer gelten.",
+    "schritte": [
+     "p = 0,35 = 35/100",
+     "Zweistellige Zufallszahlen 00–99 (100 Stück)",
+     "Regel: ⟦00–34 = Treffer⟧, 35–99 = kein Treffer"
+    ],
+    "fehler": "Die Regel „00–35 = Treffer“ ist für p = 0,35 falsch: Von 00 bis 35 sind es ⟦36⟧ Zahlen."
+   },
+   {
+    "lernziel": "auswerten",
+    "titel": "Simulationen auswerten",
+    "regel": "Aus einer Simulation ⟦schätzt⟧ man eine Wahrscheinlichkeit durch die relative Häufigkeit: ⟦Anzahl der Treffer : Anzahl der Durchgänge⟧. Je mehr Durchgänge, desto zuverlässiger.",
+    "schritte": [
+     "200 Durchgänge, 46-mal trat „mindestens zwei Sechsen“ ein",
+     "Relative Häufigkeit 46 : 200 = 0,23",
+     "Schätzwert: ⟦P ≈ 0,23⟧"
+    ],
+    "fehler": "Die Simulation liefert keinen genauen Wert. 0,23 ist eine ⟦Schätzung⟧ – eine neue Simulation ergibt meist eine etwas andere Zahl."
+   },
+   {
+    "lernziel": "monte_carlo",
+    "titel": "Monte-Carlo-Methode",
+    "regel": "Bei der ⟦Monte-Carlo-Methode⟧ setzt man zufällig viele Punkte in ein Quadrat. Der ⟦Anteil der Punkte⟧ in einer Figur schätzt den ⟦Anteil der Fläche⟧: A(Figur) ≈ (Punkte in der Figur : alle Punkte) · A(Quadrat).",
+    "schritte": [
+     "Quadrat 10 cm × 10 cm = 100 cm², 400 Zufallspunkte",
+     "152 Punkte liegen in der Figur: Anteil 152 : 400 = 0,38",
+     "A(Figur) ≈ 0,38 · 100 cm² = ⟦38 cm²⟧"
+    ],
+    "fehler": "A ≈ 152 cm² ist falsch: Die Anzahl der Punkte ist keine Fläche. Man braucht den ⟦Anteil⟧ der Punkte mal die Quadratfläche."
+   },
+   {
+    "lernziel": "beurteilen",
+    "titel": "Ist die Simulation geeignet?",
+    "regel": "Eine Simulation ist ⟦geeignet⟧, wenn das Zufallsgerät für jeden Teilvorgang ⟦genau die richtige Wahrscheinlichkeit⟧ hat und die Durchgänge wie in der Wirklichkeit ablaufen.",
+    "schritte": [
+     "Ein Elfmeterschütze trifft mit 75 %.",
+     "Simulation mit einem Würfel: 1–4 = Treffer → p = 4/6 ≈ 67 %",
+     "⟦Nicht geeignet⟧ – richtig wäre z. B. ein Glücksrad mit 270°-Trefferfeld."
+    ],
+    "fehler": "Eine Urne ohne Zurücklegen verändert sich bei jedem Zug. Soll jeder Versuch dieselbe Wahrscheinlichkeit haben, muss man ⟦zurücklegen⟧."
+   }
+  ],
+  "teilfaehigkeiten": [
+   {
+    "k": "zufallsgeraet",
+    "text": "Ein passendes Zufallsgerät wählen",
+    "lernziele": [
+     "zufallsgeraet"
+    ]
+   },
+   {
+    "k": "zufallsziffern",
+    "text": "Mit Zufallsziffern simulieren",
+    "lernziele": [
+     "zufallsziffern"
+    ]
+   },
+   {
+    "k": "regel",
+    "text": "Eine Simulationsregel festlegen",
+    "lernziele": [
+     "regel"
+    ]
+   },
+   {
+    "k": "auswerten",
+    "text": "Simulationen auswerten",
+    "lernziele": [
+     "auswerten"
+    ]
+   },
+   {
+    "k": "monte_carlo",
+    "text": "Monte-Carlo-Methode",
+    "lernziele": [
+     "monte_carlo"
+    ]
+   },
+   {
+    "k": "beurteilen",
+    "text": "Ist die Simulation geeignet?",
+    "lernziele": [
+     "beurteilen"
+    ]
+   }
+  ],
+  "bewertung": {
+   "lernziele_pflicht": [
+    "zufallsgeraet",
+    "zufallsziffern",
+    "regel",
+    "auswerten",
+    "monte_carlo",
+    "beurteilen"
+   ],
+   "lernziele_vertiefung": [],
+   "testaufgaben_je_lernziel": 1
+  },
+  "quellen": {
+   "erklaerungen": "Eigene Fassung (Claude).",
+   "begriffe": "Fachbegriffe nach LehrplanPLUS Bayern (Gymnasium)."
+  }
+ },
+ "aufgaben": [
+  {
+   "l": "zufallsgeraet",
+   "t": "zufallsgeraet",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Ampel zeigt bei Ankunft Grün mit der Wahrscheinlichkeit 5/6. Welches Zufallsgerät simuliert das richtig?"
+   },
+   "a": [
+    "Ein Würfel (1 bis 5 = Treffer)",
+    "Ein Würfel (Sechs = Treffer)",
+    "Eine Münze (Wappen = Treffer)",
+    "Ein Glücksrad mit einem 72°-Trefferfeld"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ein Würfel (1 bis 5 = Treffer) hat die Trefferwahrscheinlichkeit 5/6.",
+   "h": "Berechne für jedes Gerät die Trefferwahrscheinlichkeit."
+  },
+  {
+   "l": "zufallsgeraet",
+   "t": "zufallsgeraet",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Samen keimt mit der Wahrscheinlichkeit 1/3. Welches Zufallsgerät simuliert das richtig?"
+   },
+   "a": [
+    "Eine Zufallsziffer (0 = Treffer)",
+    "Ein Würfel (1 bis 5 = Treffer)",
+    "Ein Glücksrad mit einem 72°-Trefferfeld",
+    "Ein Würfel (1 oder 2 = Treffer)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Ein Würfel (1 oder 2 = Treffer) hat die Trefferwahrscheinlichkeit 1/3.",
+   "h": "Berechne für jedes Gerät die Trefferwahrscheinlichkeit."
+  },
+  {
+   "l": "zufallsgeraet",
+   "t": "zufallsgeraet",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Samen keimt mit der Wahrscheinlichkeit 1/3. Welches Zufallsgerät simuliert das richtig?"
+   },
+   "a": [
+    "Ein Würfel (Sechs = Treffer)",
+    "Ein Würfel (1 oder 2 = Treffer)",
+    "Eine Münze (Wappen = Treffer)",
+    "Eine Zufallsziffer (0 = Treffer)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Ein Würfel (1 oder 2 = Treffer) hat die Trefferwahrscheinlichkeit 1/3.",
+   "h": "Berechne für jedes Gerät die Trefferwahrscheinlichkeit."
+  },
+  {
+   "l": "zufallsgeraet",
+   "t": "zufallsgeraet",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Schülerin löst eine Rätselaufgabe mit der Wahrscheinlichkeit 2/3. Welches Zufallsgerät simuliert das richtig?"
+   },
+   "a": [
+    "Ein Würfel (1 bis 4 = Treffer)",
+    "Ein Glücksrad mit einem 72°-Trefferfeld",
+    "Eine Zufallsziffer (0 = Treffer)",
+    "Ein Würfel (Sechs = Treffer)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ein Würfel (1 bis 4 = Treffer) hat die Trefferwahrscheinlichkeit 2/3.",
+   "h": "Berechne für jedes Gerät die Trefferwahrscheinlichkeit."
+  },
+  {
+   "l": "zufallsgeraet",
+   "t": "zufallsgeraet",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Mit einer Urne aus 60 Kugeln soll ein Treffer mit p = 0,4 simuliert werden. Wie viele rote (Treffer-)Kugeln braucht man?"
+   },
+   "o": {
+    "wert": 24
+   },
+   "c": "60 * (2/5)",
+   "w": "0,4 · 60 = 24 rote Kugeln.",
+   "h": "Anteil der roten Kugeln = Wahrscheinlichkeit."
+  },
+  {
+   "l": "zufallsgeraet",
+   "t": "zufallsgeraet",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Mit einer Urne aus 40 Kugeln soll ein Treffer mit p = 0,75 simuliert werden. Wie viele rote (Treffer-)Kugeln braucht man?"
+   },
+   "o": {
+    "wert": 30
+   },
+   "c": "40 * (3/4)",
+   "w": "0,75 · 40 = 30 rote Kugeln.",
+   "h": "Anteil der roten Kugeln = Wahrscheinlichkeit."
+  },
+  {
+   "l": "zufallsgeraet",
+   "t": "zufallsgeraet",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Mit einer Urne aus 60 Kugeln soll ein Treffer mit p = 0,25 simuliert werden. Wie viele rote (Treffer-)Kugeln braucht man?"
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "60 * (1/4)",
+   "w": "0,25 · 60 = 15 rote Kugeln.",
+   "h": "Anteil der roten Kugeln = Wahrscheinlichkeit."
+  },
+  {
+   "l": "zufallsgeraet",
+   "t": "zufallsgeraet",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Schülerin löst eine Rätselaufgabe mit der Wahrscheinlichkeit 0,1. Welches Zufallsgerät simuliert das richtig?"
+   },
+   "a": [
+    "Ein Würfel (1 bis 4 = Treffer)",
+    "Eine Zufallsziffer (0 = Treffer)",
+    "Ein Glücksrad mit einem 72°-Trefferfeld",
+    "Ein Würfel (Sechs = Treffer)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Eine Zufallsziffer (0 = Treffer) hat die Trefferwahrscheinlichkeit 0,1.",
+   "h": "Berechne für jedes Gerät die Trefferwahrscheinlichkeit."
+  },
+  {
+   "l": "zufallsgeraet",
+   "t": "zufallsgeraet",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Bauteil ist fehlerhaft mit der Wahrscheinlichkeit 0,25. Welches Zufallsgerät simuliert das richtig?"
+   },
+   "a": [
+    "Eine Urne mit 2 roten von 5 Kugeln (mit Zurücklegen)",
+    "Ein Glücksrad mit einem 270°-Trefferfeld",
+    "Eine Urne mit 7 roten von 10 Kugeln (mit Zurücklegen)",
+    "Ein Glücksrad mit einem 90°-Trefferfeld"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Ein Glücksrad mit einem 90°-Trefferfeld hat die Trefferwahrscheinlichkeit 0,25.",
+   "h": "Berechne für jedes Gerät die Trefferwahrscheinlichkeit."
+  },
+  {
+   "l": "zufallsgeraet",
+   "t": "zufallsgeraet",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Ampel zeigt bei Ankunft Grün mit der Wahrscheinlichkeit 0,2. Welches Zufallsgerät simuliert das richtig?"
+   },
+   "a": [
+    "Ein Würfel (1 bis 5 = Treffer)",
+    "Ein Würfel (Sechs = Treffer)",
+    "Ein Glücksrad mit einem 72°-Trefferfeld",
+    "Ein Glücksrad mit einem 90°-Trefferfeld"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Ein Glücksrad mit einem 72°-Trefferfeld hat die Trefferwahrscheinlichkeit 0,2.",
+   "h": "Berechne für jedes Gerät die Trefferwahrscheinlichkeit."
+  },
+  {
+   "l": "zufallsgeraet",
+   "t": "zufallsgeraet",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Glücksrad soll einen Treffer mit p = 0,7 simulieren. Wie groß muss der Mittelpunktswinkel des Trefferfeldes sein (in Grad)?"
+   },
+   "o": {
+    "wert": 252,
+    "einheit": "°"
+   },
+   "c": "(7/10) * 360",
+   "w": "0,7 · 360° = 252°.",
+   "h": "Der Anteil am Vollwinkel 360° ist die Wahrscheinlichkeit."
+  },
+  {
+   "l": "zufallsgeraet",
+   "t": "zufallsgeraet",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Glücksrad soll einen Treffer mit p = 0,6 simulieren. Wie groß muss der Mittelpunktswinkel des Trefferfeldes sein (in Grad)?"
+   },
+   "o": {
+    "wert": 216,
+    "einheit": "°"
+   },
+   "c": "(3/5) * 360",
+   "w": "0,6 · 360° = 216°.",
+   "h": "Der Anteil am Vollwinkel 360° ist die Wahrscheinlichkeit."
+  },
+  {
+   "l": "zufallsgeraet",
+   "t": "zufallsgeraet",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Glücksrad soll einen Treffer mit p = 0,45 simulieren. Wie groß muss der Mittelpunktswinkel des Trefferfeldes sein (in Grad)?"
+   },
+   "o": {
+    "wert": 162,
+    "einheit": "°"
+   },
+   "c": "(9/20) * 360",
+   "w": "0,45 · 360° = 162°.",
+   "h": "Der Anteil am Vollwinkel 360° ist die Wahrscheinlichkeit."
+  },
+  {
+   "l": "zufallsgeraet",
+   "t": "zufallsgeraet",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Glücksrad soll einen Treffer mit p = 0,4 simulieren. Wie groß muss der Mittelpunktswinkel des Trefferfeldes sein (in Grad)?"
+   },
+   "o": {
+    "wert": 144,
+    "einheit": "°"
+   },
+   "c": "(2/5) * 360",
+   "w": "0,4 · 360° = 144°.",
+   "h": "Der Anteil am Vollwinkel 360° ist die Wahrscheinlichkeit."
+  },
+  {
+   "l": "zufallsgeraet",
+   "t": "zufallsgeraet",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Mit einer Urne aus 40 Kugeln soll ein Treffer mit p = 0,7 simuliert werden. Wie viele rote (Treffer-)Kugeln braucht man?"
+   },
+   "o": {
+    "wert": 28
+   },
+   "c": "40 * (7/10)",
+   "w": "0,7 · 40 = 28 rote Kugeln."
+  },
+  {
+   "l": "zufallsgeraet",
+   "t": "zufallsgeraet",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Mit einer Urne aus 60 Kugeln soll ein Treffer mit p = 0,85 simuliert werden. Wie viele rote (Treffer-)Kugeln braucht man?"
+   },
+   "o": {
+    "wert": 51
+   },
+   "c": "60 * (17/20)",
+   "w": "0,85 · 60 = 51 rote Kugeln."
+  },
+  {
+   "l": "zufallsgeraet",
+   "t": "zufallsgeraet",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Bauteil ist fehlerhaft mit der Wahrscheinlichkeit 0,2. Welches Zufallsgerät simuliert das richtig?"
+   },
+   "a": [
+    "Ein Glücksrad mit einem 72°-Trefferfeld",
+    "Eine Zufallsziffer (0 = Treffer)",
+    "Eine Urne mit 3 roten von 10 Kugeln (mit Zurücklegen)",
+    "Eine Urne mit 2 roten von 5 Kugeln (mit Zurücklegen)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ein Glücksrad mit einem 72°-Trefferfeld hat die Trefferwahrscheinlichkeit 0,2."
+  },
+  {
+   "l": "zufallsgeraet",
+   "t": "zufallsgeraet",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Schülerin löst eine Rätselaufgabe mit der Wahrscheinlichkeit 0,25. Welches Zufallsgerät simuliert das richtig?"
+   },
+   "a": [
+    "Ein Glücksrad mit einem 90°-Trefferfeld",
+    "Eine Urne mit 2 roten von 5 Kugeln (mit Zurücklegen)",
+    "Ein Glücksrad mit einem 270°-Trefferfeld",
+    "Ein Würfel (Sechs = Treffer)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ein Glücksrad mit einem 90°-Trefferfeld hat die Trefferwahrscheinlichkeit 0,25."
+  },
+  {
+   "l": "zufallsgeraet",
+   "t": "zufallsgeraet",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Samen keimt mit der Wahrscheinlichkeit 0,4. Welches Zufallsgerät simuliert das richtig?"
+   },
+   "a": [
+    "Eine Münze (Wappen = Treffer)",
+    "Eine Urne mit 2 roten von 5 Kugeln (mit Zurücklegen)",
+    "Ein Würfel (1 oder 2 = Treffer)",
+    "Eine Urne mit 7 roten von 10 Kugeln (mit Zurücklegen)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Eine Urne mit 2 roten von 5 Kugeln (mit Zurücklegen) hat die Trefferwahrscheinlichkeit 0,4."
+  },
+  {
+   "l": "zufallsgeraet",
+   "t": "zufallsgeraet",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Mit einer Urne aus 20 Kugeln soll ein Treffer mit p = 0,05 simuliert werden. Wie viele rote (Treffer-)Kugeln braucht man?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "20 * (1/20)",
+   "w": "0,05 · 20 = 1 rote Kugeln."
+  },
+  {
+   "l": "zufallsgeraet",
+   "t": "zufallsgeraet",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Mit einer Urne aus 60 Kugeln soll ein Treffer mit p = 0,65 simuliert werden. Wie viele rote (Treffer-)Kugeln braucht man?"
+   },
+   "o": {
+    "wert": 39
+   },
+   "c": "60 * (13/20)",
+   "w": "0,65 · 60 = 39 rote Kugeln."
+  },
+  {
+   "l": "zufallsgeraet",
+   "t": "zufallsgeraet",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Basketballspieler trifft beim Freiwurf mit der Wahrscheinlichkeit 1/6. Welches Zufallsgerät simuliert das richtig?"
+   },
+   "a": [
+    "Ein Glücksrad mit einem 72°-Trefferfeld",
+    "Ein Würfel (Sechs = Treffer)",
+    "Ein Glücksrad mit einem 270°-Trefferfeld",
+    "Ein Würfel (1 bis 5 = Treffer)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Ein Würfel (Sechs = Treffer) hat die Trefferwahrscheinlichkeit 1/6."
+  },
+  {
+   "l": "zufallsgeraet",
+   "t": "zufallsgeraet",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Mit einer Urne aus 40 Kugeln soll ein Treffer mit p = 0,15 simuliert werden. Wie viele rote (Treffer-)Kugeln braucht man?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "40 * (3/20)",
+   "w": "0,15 · 40 = 6 rote Kugeln."
+  },
+  {
+   "l": "zufallsgeraet",
+   "t": "zufallsgeraet",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Mit einer Urne aus 40 Kugeln soll ein Treffer mit p = 0,6 simuliert werden. Wie viele rote (Treffer-)Kugeln braucht man?"
+   },
+   "o": {
+    "wert": 24
+   },
+   "c": "40 * (3/5)",
+   "w": "0,6 · 40 = 24 rote Kugeln."
+  },
+  {
+   "l": "zufallsziffern",
+   "t": "zufallsziffern",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Regel: Die Ziffern 0 bis 4 bedeuten Treffer (p = 0,5). Zähle die Treffer in den Zufallsziffern 4864 2744 3283 6323 6714."
+   },
+   "o": {
+    "wert": 13
+   },
+   "c": "13",
+   "w": "Treffer-Ziffern 0–4: 4, 4, 2, 4, 4, 3, 2, 3, 3, 2, 3, 1, 4. Das sind 13.",
+   "h": "Gehe die Ziffern einzeln durch."
+  },
+  {
+   "l": "zufallsziffern",
+   "t": "zufallsziffern",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Regel: Die Ziffern 0 bis 2 bedeuten Treffer (p = 0,3). Zähle die Treffer in den Zufallsziffern 5389 3747 2599 0161 1243."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "6",
+   "w": "Treffer-Ziffern 0–2: 2, 0, 1, 1, 1, 2. Das sind 6.",
+   "h": "Gehe die Ziffern einzeln durch."
+  },
+  {
+   "l": "zufallsziffern",
+   "t": "zufallsziffern",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Regel: Die Ziffern 0 bis 3 bedeuten Treffer (p = 0,4). Zähle die Treffer in den Zufallsziffern 1030 8982 2164 1157 7786."
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "9",
+   "w": "Treffer-Ziffern 0–3: 1, 0, 3, 0, 2, 2, 1, 1, 1. Das sind 9.",
+   "h": "Gehe die Ziffern einzeln durch."
+  },
+  {
+   "l": "zufallsziffern",
+   "t": "zufallsziffern",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Regel: Die Ziffern 0 bis 2 bedeuten Treffer (p = 0,3). Zähle die Treffer in den Zufallsziffern 6450 1091 1290 7255 8550."
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "9",
+   "w": "Treffer-Ziffern 0–2: 0, 1, 0, 1, 1, 2, 0, 2, 0. Das sind 9.",
+   "h": "Gehe die Ziffern einzeln durch."
+  },
+  {
+   "l": "zufallsziffern",
+   "t": "zufallsziffern",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Regel: Ziffern 0 bis 5 = Treffer. Zufallsziffern: 5724 0641 7690 0998 3529 9567 0685 78. Wie viele Nicht-Treffer gibt es?"
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "30 - 14",
+   "w": "14 Treffer, also 30 − 14 = 16 Nicht-Treffer.",
+   "h": "Zähle die Treffer und ziehe sie von 30 ab."
+  },
+  {
+   "l": "zufallsziffern",
+   "t": "zufallsziffern",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Regel: Ziffern 0 bis 4 = Treffer. Zufallsziffern: 6327 2157 6933 9474 2566 4579 3677 24. Wie viele Nicht-Treffer gibt es?"
+   },
+   "o": {
+    "wert": 17
+   },
+   "c": "30 - 13",
+   "w": "13 Treffer, also 30 − 13 = 17 Nicht-Treffer.",
+   "h": "Zähle die Treffer und ziehe sie von 30 ab."
+  },
+  {
+   "l": "zufallsziffern",
+   "t": "zufallsziffern",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Regel: Ziffern 0 bis 4 = Treffer. Zufallsziffern: 6864 4504 2138 9905 8827 2811 1385 56. Wie viele Nicht-Treffer gibt es?"
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "30 - 14",
+   "w": "14 Treffer, also 30 − 14 = 16 Nicht-Treffer.",
+   "h": "Zähle die Treffer und ziehe sie von 30 ab."
+  },
+  {
+   "l": "zufallsziffern",
+   "t": "zufallsziffern",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Regel: Ziffern 0 bis 2 = Treffer. Zufallsziffern: 2431 0338 6339 3776 1154 6553 5634 82. Gib die relative Häufigkeit der Treffer als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.2
+   },
+   "c": "6 / 30",
+   "w": "6 Treffer bei 30 Versuchen: 6 : 30 = 0,2.",
+   "h": "Treffer zählen und durch die Anzahl der Ziffern teilen."
+  },
+  {
+   "l": "zufallsziffern",
+   "t": "zufallsziffern",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Regel: Ziffern 0 bis 3 = Treffer. Zufallsziffern: 6366 4288 5182 3491 1853 3504 2228 40. Wie viele Nicht-Treffer gibt es?"
+   },
+   "o": {
+    "wert": 16
+   },
+   "c": "30 - 14",
+   "w": "14 Treffer, also 30 − 14 = 16 Nicht-Treffer.",
+   "h": "Zähle die Treffer und ziehe sie von 30 ab."
+  },
+  {
+   "l": "zufallsziffern",
+   "t": "zufallsziffern",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Regel: Ziffern 0 bis 3 = Treffer. Zufallsziffern: 1242 9810 1302 3485 6478 9147 1793 78. Wie viele Nicht-Treffer gibt es?"
+   },
+   "o": {
+    "wert": 17
+   },
+   "c": "30 - 13",
+   "w": "13 Treffer, also 30 − 13 = 17 Nicht-Treffer.",
+   "h": "Zähle die Treffer und ziehe sie von 30 ab."
+  },
+  {
+   "l": "zufallsziffern",
+   "t": "zufallsziffern",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Jede 3er-Gruppe ist ein Durchgang mit 3 Versuchen; Ziffern 0 bis 2 sind Treffer. In wie vielen Durchgängen gab es mindestens einen Treffer? Gruppen: 233 863 612 851 593 836 715 583"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Gruppen mit mindestens einer Ziffer 0–2: 233, 612, 851, 715. Das sind 4.",
+   "h": "Prüfe jede Gruppe: Ist mindestens eine Treffer-Ziffer dabei?"
+  },
+  {
+   "l": "zufallsziffern",
+   "t": "zufallsziffern",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Jede 4er-Gruppe ist ein Durchgang mit 4 Versuchen; Ziffern 0 bis 1 sind Treffer. In wie vielen Durchgängen gab es mindestens einen Treffer? Gruppen: 6663 3617 7224 0662 1127 2295 4425 7818"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Gruppen mit mindestens einer Ziffer 0–1: 3617, 0662, 1127, 7818. Das sind 4.",
+   "h": "Prüfe jede Gruppe: Ist mindestens eine Treffer-Ziffer dabei?"
+  },
+  {
+   "l": "zufallsziffern",
+   "t": "zufallsziffern",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Jede 4er-Gruppe ist ein Durchgang mit 4 Versuchen; Ziffern 0 bis 1 sind Treffer. In wie vielen Durchgängen gab es mindestens einen Treffer? Gruppen: 1504 0389 8844 7456 6775 8882 9261 1434"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Gruppen mit mindestens einer Ziffer 0–1: 1504, 0389, 9261, 1434. Das sind 4.",
+   "h": "Prüfe jede Gruppe: Ist mindestens eine Treffer-Ziffer dabei?"
+  },
+  {
+   "l": "zufallsziffern",
+   "t": "zufallsziffern",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Jede 4er-Gruppe ist ein Durchgang mit 4 Versuchen; Ziffern 0 bis 0 sind Treffer. In wie vielen Durchgängen gab es mindestens einen Treffer? Gruppen: 8145 2921 6380 7585 7442 8398 2227 4313"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "Gruppen mit mindestens einer Ziffer 0–0: 6380. Das sind 1.",
+   "h": "Prüfe jede Gruppe: Ist mindestens eine Treffer-Ziffer dabei?"
+  },
+  {
+   "l": "zufallsziffern",
+   "t": "zufallsziffern",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Regel: Ziffern 0 bis 5 = Treffer. Zufallsziffern: 0108 9771 4668 5491 7568 6703 2809 50. Gib die relative Häufigkeit der Treffer als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.5
+   },
+   "c": "15 / 30",
+   "w": "15 Treffer bei 30 Versuchen: 15 : 30 = 0,5."
+  },
+  {
+   "l": "zufallsziffern",
+   "t": "zufallsziffern",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Regel: Ziffern 0 bis 2 = Treffer. Zufallsziffern: 6883 3148 2886 9405 3211 6382 3351 11. Wie viele Nicht-Treffer gibt es?"
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "30 - 10",
+   "w": "10 Treffer, also 30 − 10 = 20 Nicht-Treffer."
+  },
+  {
+   "l": "zufallsziffern",
+   "t": "zufallsziffern",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Regel: Ziffern 0 bis 6 = Treffer. Zufallsziffern: 1544 6928 4716 4040 0544 7084 0854 68. Wie viele Nicht-Treffer gibt es?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "30 - 23",
+   "w": "23 Treffer, also 30 − 23 = 7 Nicht-Treffer."
+  },
+  {
+   "l": "zufallsziffern",
+   "t": "zufallsziffern",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Regel: Ziffern 0 bis 2 = Treffer. Zufallsziffern: 9801 9000 4018 2605 7081 4728 5668 49. Gib die relative Häufigkeit der Treffer als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.4
+   },
+   "c": "12 / 30",
+   "w": "12 Treffer bei 30 Versuchen: 12 : 30 = 0,4."
+  },
+  {
+   "l": "zufallsziffern",
+   "t": "zufallsziffern",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Regel: Ziffern 0 bis 4 = Treffer. Zufallsziffern: 8458 7810 9447 2711 4503 8322 8877 21. Wie viele Nicht-Treffer gibt es?"
+   },
+   "o": {
+    "wert": 14
+   },
+   "c": "30 - 16",
+   "w": "16 Treffer, also 30 − 16 = 14 Nicht-Treffer."
+  },
+  {
+   "l": "zufallsziffern",
+   "t": "zufallsziffern",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Regel: Ziffern 0 bis 3 = Treffer. Zufallsziffern: 7535 6837 4370 0084 2183 8968 4442 85. Wie viele Nicht-Treffer gibt es?"
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "30 - 10",
+   "w": "10 Treffer, also 30 − 10 = 20 Nicht-Treffer."
+  },
+  {
+   "l": "zufallsziffern",
+   "t": "zufallsziffern",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Regel: Ziffern 0 bis 6 = Treffer. Zufallsziffern: 9661 6096 1776 3599 2406 5241 3893 73. Gib die relative Häufigkeit der Treffer als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.7
+   },
+   "c": "21 / 30",
+   "w": "21 Treffer bei 30 Versuchen: 21 : 30 = 0,7."
+  },
+  {
+   "l": "zufallsziffern",
+   "t": "zufallsziffern",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Regel: Ziffern 0 bis 1 = Treffer. Zufallsziffern: 4647 5731 3259 0963 3067 7833 6435 11. Wie viele Nicht-Treffer gibt es?"
+   },
+   "o": {
+    "wert": 25
+   },
+   "c": "30 - 5",
+   "w": "5 Treffer, also 30 − 5 = 25 Nicht-Treffer."
+  },
+  {
+   "l": "zufallsziffern",
+   "t": "zufallsziffern",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Regel: Ziffern 0 bis 1 = Treffer. Zufallsziffern: 3214 3090 6824 7305 5189 6498 6795 48. Wie viele Nicht-Treffer gibt es?"
+   },
+   "o": {
+    "wert": 25
+   },
+   "c": "30 - 5",
+   "w": "5 Treffer, also 30 − 5 = 25 Nicht-Treffer."
+  },
+  {
+   "l": "zufallsziffern",
+   "t": "zufallsziffern",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Regel: Ziffern 0 bis 4 = Treffer. Zufallsziffern: 0050 5581 0738 4350 5566 4788 4455 19. Wie viele Nicht-Treffer gibt es?"
+   },
+   "o": {
+    "wert": 17
+   },
+   "c": "30 - 13",
+   "w": "13 Treffer, also 30 − 13 = 17 Nicht-Treffer."
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Mit Zufallsziffern 0–9 soll p = 0,5 simuliert werden. Wie viele der zehn Ziffern müssen als Treffer zählen?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(1/2) * 10",
+   "w": "Jede Ziffer hat p = 0,1. 0,5 : 0,1 = 5 Ziffern.",
+   "h": "Jede Ziffer hat die Wahrscheinlichkeit 1/10."
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Mit Zufallsziffern 0–9 soll p = 0,1 simuliert werden. Wie viele der zehn Ziffern müssen als Treffer zählen?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(1/10) * 10",
+   "w": "Jede Ziffer hat p = 0,1. 0,1 : 0,1 = 1 Ziffern.",
+   "h": "Jede Ziffer hat die Wahrscheinlichkeit 1/10."
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Mit Zufallsziffern 0–9 soll p = 0,8 simuliert werden. Wie viele der zehn Ziffern müssen als Treffer zählen?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "(4/5) * 10",
+   "w": "Jede Ziffer hat p = 0,1. 0,8 : 0,1 = 8 Ziffern.",
+   "h": "Jede Ziffer hat die Wahrscheinlichkeit 1/10."
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Mit Zufallsziffern 0–9 soll p = 0,6 simuliert werden. Wie viele der zehn Ziffern müssen als Treffer zählen?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "(3/5) * 10",
+   "w": "Jede Ziffer hat p = 0,1. 0,6 : 0,1 = 6 Ziffern.",
+   "h": "Jede Ziffer hat die Wahrscheinlichkeit 1/10."
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Mit zweistelligen Zufallszahlen 00–99 soll p = 0,41 simuliert werden. Welche Regel ist richtig?"
+   },
+   "a": [
+    "01 bis 40 = Treffer",
+    "00 bis 4 = Treffer",
+    "00 bis 41 = Treffer",
+    "00 bis 40 = Treffer"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Es gibt 100 Zahlen. 0,41 · 100 = 41 Treffer-Zahlen: 00, 01, …, 40.",
+   "h": "Zähle genau: Von 00 bis 09 sind es 10 Zahlen."
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Mit zweistelligen Zufallszahlen 00–99 soll p = 0,28 simuliert werden. Welche Regel ist richtig?"
+   },
+   "a": [
+    "00 bis 28 = Treffer",
+    "01 bis 27 = Treffer",
+    "00 bis 2 = Treffer",
+    "00 bis 27 = Treffer"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Es gibt 100 Zahlen. 0,28 · 100 = 28 Treffer-Zahlen: 00, 01, …, 27.",
+   "h": "Zähle genau: Von 00 bis 09 sind es 10 Zahlen."
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Mit zweistelligen Zufallszahlen 00–99 soll p = 0,59 simuliert werden. Welche Regel ist richtig?"
+   },
+   "a": [
+    "00 bis 59 = Treffer",
+    "00 bis 5 = Treffer",
+    "01 bis 58 = Treffer",
+    "00 bis 58 = Treffer"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Es gibt 100 Zahlen. 0,59 · 100 = 59 Treffer-Zahlen: 00, 01, …, 58.",
+   "h": "Zähle genau: Von 00 bis 09 sind es 10 Zahlen."
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Mit zweistelligen Zufallszahlen 00–99 soll p = 0,82 simuliert werden. Welche Regel ist richtig?"
+   },
+   "a": [
+    "00 bis 82 = Treffer",
+    "01 bis 81 = Treffer",
+    "00 bis 8 = Treffer",
+    "00 bis 81 = Treffer"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Es gibt 100 Zahlen. 0,82 · 100 = 82 Treffer-Zahlen: 00, 01, …, 81.",
+   "h": "Zähle genau: Von 00 bis 09 sind es 10 Zahlen."
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Mit zweistelligen Zufallszahlen 00–99 soll p = 0,46 simuliert werden. Welche Regel ist richtig?"
+   },
+   "a": [
+    "01 bis 45 = Treffer",
+    "00 bis 45 = Treffer",
+    "00 bis 4 = Treffer",
+    "00 bis 46 = Treffer"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Es gibt 100 Zahlen. 0,46 · 100 = 46 Treffer-Zahlen: 00, 01, …, 45.",
+   "h": "Zähle genau: Von 00 bis 09 sind es 10 Zahlen."
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Mit zweistelligen Zufallszahlen 00–99 soll p = 0,26 simuliert werden. Welche Regel ist richtig?"
+   },
+   "a": [
+    "00 bis 26 = Treffer",
+    "00 bis 2 = Treffer",
+    "01 bis 25 = Treffer",
+    "00 bis 25 = Treffer"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Es gibt 100 Zahlen. 0,26 · 100 = 26 Treffer-Zahlen: 00, 01, …, 25.",
+   "h": "Zähle genau: Von 00 bis 09 sind es 10 Zahlen."
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Mit Zufallsziffern soll ein Würfelwurf mit „Augenzahl ≤ 1“ als Treffer simuliert werden. Welche Regel passt?"
+   },
+   "a": [
+    "Ziffern 1–6 verwenden, 0, 7, 8, 9 überspringen; 1–1 = Treffer",
+    "Ziffern 0–1 = Treffer, alle anderen kein Treffer",
+    "Jede Ziffer zählt als eine Augenzahl",
+    "Ziffern 1–1 = Treffer, 0 und 7–9 kein Treffer"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Für einen Würfel braucht man 6 gleich wahrscheinliche Ergebnisse. Die Ziffern 1–6 liefern das, wenn man die übrigen überspringt. p = 1/6.",
+   "h": "Ein Würfel hat 6 gleich wahrscheinliche Ergebnisse – wie bekommt man die mit Ziffern?"
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Mit Zufallsziffern soll p = 1/3 simuliert werden. Welche Regel passt?"
+   },
+   "a": [
+    "Ziffern 1–9 verwenden, 0 überspringen; 1–3 = Treffer",
+    "Ziffern 0–2 = Treffer",
+    "Ziffern 1–3 = Treffer, 0 und Rest kein Treffer",
+    "Ziffern 0–3 = Treffer"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "1/3 = 3/9: Mit 9 gleich wahrscheinlichen Ziffern (1–9) geht es genau, mit 10 Ziffern nicht.",
+   "h": "Welche Anzahl gleich wahrscheinlicher Ziffern ist durch 3 teilbar?"
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Mit Zufallsziffern soll ein Würfelwurf mit „Augenzahl ≤ 5“ als Treffer simuliert werden. Welche Regel passt?"
+   },
+   "a": [
+    "Ziffern 1–5 = Treffer, 0 und 7–9 kein Treffer",
+    "Ziffern 1–6 verwenden, 0, 7, 8, 9 überspringen; 1–5 = Treffer",
+    "Jede Ziffer zählt als eine Augenzahl",
+    "Ziffern 0–5 = Treffer, alle anderen kein Treffer"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Für einen Würfel braucht man 6 gleich wahrscheinliche Ergebnisse. Die Ziffern 1–6 liefern das, wenn man die übrigen überspringt. p = 5/6.",
+   "h": "Ein Würfel hat 6 gleich wahrscheinliche Ergebnisse – wie bekommt man die mit Ziffern?"
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Mit Zufallsziffern soll p = 2/3 simuliert werden. Welche Regel passt?"
+   },
+   "a": [
+    "Ziffern 1–6 = Treffer, 0 und Rest kein Treffer",
+    "Ziffern 0–6 = Treffer",
+    "Ziffern 0–5 = Treffer",
+    "Ziffern 1–9 verwenden, 0 überspringen; 1–6 = Treffer"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "2/3 = 6/9: Mit 9 gleich wahrscheinlichen Ziffern (1–9) geht es genau, mit 10 Ziffern nicht.",
+   "h": "Welche Anzahl gleich wahrscheinlicher Ziffern ist durch 3 teilbar?"
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Mit zweistelligen Zufallszahlen 00–99 soll p = 0,27 simuliert werden. Welche Regel ist richtig?"
+   },
+   "a": [
+    "00 bis 27 = Treffer",
+    "01 bis 26 = Treffer",
+    "00 bis 2 = Treffer",
+    "00 bis 26 = Treffer"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Es gibt 100 Zahlen. 0,27 · 100 = 27 Treffer-Zahlen: 00, 01, …, 26."
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Mit zweistelligen Zufallszahlen 00–99 soll p = 0,54 simuliert werden. Welche Regel ist richtig?"
+   },
+   "a": [
+    "01 bis 53 = Treffer",
+    "00 bis 53 = Treffer",
+    "00 bis 5 = Treffer",
+    "00 bis 54 = Treffer"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Es gibt 100 Zahlen. 0,54 · 100 = 54 Treffer-Zahlen: 00, 01, …, 53."
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Mit zweistelligen Zufallszahlen 00–99 soll p = 0,95 simuliert werden. Welche Regel ist richtig?"
+   },
+   "a": [
+    "00 bis 95 = Treffer",
+    "00 bis 94 = Treffer",
+    "01 bis 94 = Treffer",
+    "00 bis 9 = Treffer"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Es gibt 100 Zahlen. 0,95 · 100 = 95 Treffer-Zahlen: 00, 01, …, 94."
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Mit zweistelligen Zufallszahlen 00–99 soll p = 0,39 simuliert werden. Welche Regel ist richtig?"
+   },
+   "a": [
+    "00 bis 3 = Treffer",
+    "00 bis 39 = Treffer",
+    "00 bis 38 = Treffer",
+    "01 bis 38 = Treffer"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Es gibt 100 Zahlen. 0,39 · 100 = 39 Treffer-Zahlen: 00, 01, …, 38."
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Mit zweistelligen Zufallszahlen 00–99 soll p = 0,79 simuliert werden. Welche Regel ist richtig?"
+   },
+   "a": [
+    "00 bis 79 = Treffer",
+    "01 bis 78 = Treffer",
+    "00 bis 7 = Treffer",
+    "00 bis 78 = Treffer"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Es gibt 100 Zahlen. 0,79 · 100 = 79 Treffer-Zahlen: 00, 01, …, 78."
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Mit zweistelligen Zufallszahlen 00–99 soll p = 0,64 simuliert werden. Welche Regel ist richtig?"
+   },
+   "a": [
+    "00 bis 64 = Treffer",
+    "00 bis 63 = Treffer",
+    "01 bis 63 = Treffer",
+    "00 bis 6 = Treffer"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Es gibt 100 Zahlen. 0,64 · 100 = 64 Treffer-Zahlen: 00, 01, …, 63."
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Mit zweistelligen Zufallszahlen 00–99 soll p = 0,76 simuliert werden. Welche Regel ist richtig?"
+   },
+   "a": [
+    "00 bis 76 = Treffer",
+    "01 bis 75 = Treffer",
+    "00 bis 7 = Treffer",
+    "00 bis 75 = Treffer"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Es gibt 100 Zahlen. 0,76 · 100 = 76 Treffer-Zahlen: 00, 01, …, 75."
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Mit zweistelligen Zufallszahlen 00–99 soll p = 0,35 simuliert werden. Welche Regel ist richtig?"
+   },
+   "a": [
+    "00 bis 34 = Treffer",
+    "01 bis 34 = Treffer",
+    "00 bis 35 = Treffer",
+    "00 bis 3 = Treffer"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Es gibt 100 Zahlen. 0,35 · 100 = 35 Treffer-Zahlen: 00, 01, …, 34."
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Mit zweistelligen Zufallszahlen 00–99 soll p = 0,83 simuliert werden. Welche Regel ist richtig?"
+   },
+   "a": [
+    "00 bis 82 = Treffer",
+    "00 bis 8 = Treffer",
+    "00 bis 83 = Treffer",
+    "01 bis 82 = Treffer"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Es gibt 100 Zahlen. 0,83 · 100 = 83 Treffer-Zahlen: 00, 01, …, 82."
+  },
+  {
+   "l": "regel",
+   "t": "regel",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Mit zweistelligen Zufallszahlen 00–99 soll p = 0,36 simuliert werden. Welche Regel ist richtig?"
+   },
+   "a": [
+    "00 bis 35 = Treffer",
+    "00 bis 36 = Treffer",
+    "00 bis 3 = Treffer",
+    "01 bis 35 = Treffer"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Es gibt 100 Zahlen. 0,36 · 100 = 36 Treffer-Zahlen: 00, 01, …, 35."
+  },
+  {
+   "l": "auswerten",
+   "t": "auswerten",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Simulation mit 400 Durchgängen ergab 186-mal das Ereignis „Gewinn beim Losen“. Schätze die Wahrscheinlichkeit (als Dezimalzahl)."
+   },
+   "o": {
+    "wert": 0.465
+   },
+   "c": "186 / 400",
+   "w": "P ≈ 186 : 400 = 0,465.",
+   "h": "Relative Häufigkeit = Treffer : Durchgänge."
+  },
+  {
+   "l": "auswerten",
+   "t": "auswerten",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Simulation mit 200 Durchgängen ergab 158-mal das Ereignis „alle drei Kinder sind Mädchen“. Schätze die Wahrscheinlichkeit (als Dezimalzahl)."
+   },
+   "o": {
+    "wert": 0.79
+   },
+   "c": "158 / 200",
+   "w": "P ≈ 158 : 200 = 0,79.",
+   "h": "Relative Häufigkeit = Treffer : Durchgänge."
+  },
+  {
+   "l": "auswerten",
+   "t": "auswerten",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Simulation mit 400 Durchgängen ergab 63-mal das Ereignis „genau zwei Treffer“. Schätze die Wahrscheinlichkeit (als Dezimalzahl)."
+   },
+   "o": {
+    "wert": 0.1575
+   },
+   "c": "63 / 400",
+   "w": "P ≈ 63 : 400 = 0,1575.",
+   "h": "Relative Häufigkeit = Treffer : Durchgänge."
+  },
+  {
+   "l": "auswerten",
+   "t": "auswerten",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Simulation mit 500 Durchgängen ergab 240-mal das Ereignis „mindestens eine Sechs bei vier Würfen“. Schätze die Wahrscheinlichkeit (als Dezimalzahl)."
+   },
+   "o": {
+    "wert": 0.48
+   },
+   "c": "240 / 500",
+   "w": "P ≈ 240 : 500 = 0,48.",
+   "h": "Relative Häufigkeit = Treffer : Durchgänge."
+  },
+  {
+   "l": "auswerten",
+   "t": "auswerten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Simulation mit 125 Durchgängen ergab 102-mal „Gewinn beim Losen“. Wie oft ist das Ereignis bei 1000 echten Durchgängen etwa zu erwarten?"
+   },
+   "o": {
+    "wert": 816
+   },
+   "c": "102 / 125 * 1000",
+   "w": "P ≈ 0,816. Erwartet: 0,816 · 1000 = 816.",
+   "h": "Erst die Wahrscheinlichkeit schätzen, dann mal die Anzahl."
+  },
+  {
+   "l": "auswerten",
+   "t": "auswerten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Simulation mit 80 Durchgängen ergab 11-mal „mindestens eine Sechs bei vier Würfen“. Wie oft ist das Ereignis bei 2000 echten Durchgängen etwa zu erwarten?"
+   },
+   "o": {
+    "wert": 275
+   },
+   "c": "11 / 80 * 2000",
+   "w": "P ≈ 0,1375. Erwartet: 0,1375 · 2000 = 275.",
+   "h": "Erst die Wahrscheinlichkeit schätzen, dann mal die Anzahl."
+  },
+  {
+   "l": "auswerten",
+   "t": "auswerten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Simulation mit 80 Durchgängen ergab 39-mal „der Bus kommt pünktlich“. Wie oft ist das Ereignis bei 2000 echten Durchgängen etwa zu erwarten?"
+   },
+   "o": {
+    "wert": 975
+   },
+   "c": "39 / 80 * 2000",
+   "w": "P ≈ 0,4875. Erwartet: 0,4875 · 2000 = 975.",
+   "h": "Erst die Wahrscheinlichkeit schätzen, dann mal die Anzahl."
+  },
+  {
+   "l": "auswerten",
+   "t": "auswerten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Simulation mit 125 Durchgängen ergab 38-mal „alle drei Kinder sind Mädchen“. Wie oft ist das Ereignis bei 5000 echten Durchgängen etwa zu erwarten?"
+   },
+   "o": {
+    "wert": 1520
+   },
+   "c": "38 / 125 * 5000",
+   "w": "P ≈ 0,304. Erwartet: 0,304 · 5000 = 1520.",
+   "h": "Erst die Wahrscheinlichkeit schätzen, dann mal die Anzahl."
+  },
+  {
+   "l": "auswerten",
+   "t": "auswerten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Simulation mit 250 Durchgängen ergab 130-mal „alle drei Kinder sind Mädchen“. Wie oft ist das Ereignis bei 10 000 echten Durchgängen etwa zu erwarten?"
+   },
+   "o": {
+    "wert": 5200
+   },
+   "c": "130 / 250 * 10000",
+   "w": "P ≈ 0,52. Erwartet: 0,52 · 10 000 = 5200.",
+   "h": "Erst die Wahrscheinlichkeit schätzen, dann mal die Anzahl."
+  },
+  {
+   "l": "auswerten",
+   "t": "auswerten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Simulation mit 1000 Durchgängen ergab 368-mal „mindestens eine Sechs bei vier Würfen“. Wie oft ist das Ereignis bei 1000 echten Durchgängen etwa zu erwarten?"
+   },
+   "o": {
+    "wert": 368
+   },
+   "c": "368 / 1000 * 1000",
+   "w": "P ≈ 0,368. Erwartet: 0,368 · 1000 = 368.",
+   "h": "Erst die Wahrscheinlichkeit schätzen, dann mal die Anzahl."
+  },
+  {
+   "l": "auswerten",
+   "t": "auswerten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Gruppe A simuliert 2000 Durchgänge, Gruppe B 500. Wessen Schätzwert für die Wahrscheinlichkeit ist vermutlich zuverlässiger?"
+   },
+   "a": [
+    "Das hängt nur vom Zufallsgerät ab, nicht von der Anzahl.",
+    "Der von Gruppe A, weil sie mehr Durchgänge hat.",
+    "Beide gleich, Zufall bleibt Zufall.",
+    "Der von Gruppe B, weil sie weniger Durchgänge hat."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Nach dem Gesetz der großen Zahlen schwankt die relative Häufigkeit bei vielen Durchgängen weniger.",
+   "h": "Denke an das Gesetz der großen Zahlen."
+  },
+  {
+   "l": "auswerten",
+   "t": "auswerten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Gruppe A simuliert 20 Durchgänge, Gruppe B 50. Wessen Schätzwert für die Wahrscheinlichkeit ist vermutlich zuverlässiger?"
+   },
+   "a": [
+    "Der von Gruppe A, weil sie weniger Durchgänge hat.",
+    "Der von Gruppe B, weil sie mehr Durchgänge hat.",
+    "Das hängt nur vom Zufallsgerät ab, nicht von der Anzahl.",
+    "Beide gleich, Zufall bleibt Zufall."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Nach dem Gesetz der großen Zahlen schwankt die relative Häufigkeit bei vielen Durchgängen weniger.",
+   "h": "Denke an das Gesetz der großen Zahlen."
+  },
+  {
+   "l": "auswerten",
+   "t": "auswerten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Gruppe A simuliert 100 Durchgänge, Gruppe B 500. Wessen Schätzwert für die Wahrscheinlichkeit ist vermutlich zuverlässiger?"
+   },
+   "a": [
+    "Der von Gruppe A, weil sie weniger Durchgänge hat.",
+    "Der von Gruppe B, weil sie mehr Durchgänge hat.",
+    "Beide gleich, Zufall bleibt Zufall.",
+    "Das hängt nur vom Zufallsgerät ab, nicht von der Anzahl."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Nach dem Gesetz der großen Zahlen schwankt die relative Häufigkeit bei vielen Durchgängen weniger.",
+   "h": "Denke an das Gesetz der großen Zahlen."
+  },
+  {
+   "l": "auswerten",
+   "t": "auswerten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Gruppe A simuliert 100 Durchgänge, Gruppe B 2000. Wessen Schätzwert für die Wahrscheinlichkeit ist vermutlich zuverlässiger?"
+   },
+   "a": [
+    "Beide gleich, Zufall bleibt Zufall.",
+    "Das hängt nur vom Zufallsgerät ab, nicht von der Anzahl.",
+    "Der von Gruppe A, weil sie weniger Durchgänge hat.",
+    "Der von Gruppe B, weil sie mehr Durchgänge hat."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Nach dem Gesetz der großen Zahlen schwankt die relative Häufigkeit bei vielen Durchgängen weniger.",
+   "h": "Denke an das Gesetz der großen Zahlen."
+  },
+  {
+   "l": "auswerten",
+   "t": "auswerten",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Simulation mit 80 Durchgängen ergab 60-mal „der Bus kommt pünktlich“. Wie oft ist das Ereignis bei 5000 echten Durchgängen etwa zu erwarten?"
+   },
+   "o": {
+    "wert": 3750
+   },
+   "c": "60 / 80 * 5000",
+   "w": "P ≈ 0,75. Erwartet: 0,75 · 5000 = 3750."
+  },
+  {
+   "l": "auswerten",
+   "t": "auswerten",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Simulation mit 250 Durchgängen ergab 111-mal „alle drei Kinder sind Mädchen“. Wie oft ist das Ereignis bei 1000 echten Durchgängen etwa zu erwarten?"
+   },
+   "o": {
+    "wert": 444
+   },
+   "c": "111 / 250 * 1000",
+   "w": "P ≈ 0,444. Erwartet: 0,444 · 1000 = 444."
+  },
+  {
+   "l": "auswerten",
+   "t": "auswerten",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Simulation mit 400 Durchgängen ergab 140-mal „der Bus kommt pünktlich“. Wie oft ist das Ereignis bei 1000 echten Durchgängen etwa zu erwarten?"
+   },
+   "o": {
+    "wert": 350
+   },
+   "c": "140 / 400 * 1000",
+   "w": "P ≈ 0,35. Erwartet: 0,35 · 1000 = 350."
+  },
+  {
+   "l": "auswerten",
+   "t": "auswerten",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Simulation mit 100 Durchgängen ergab 82-mal „alle drei Kinder sind Mädchen“. Wie oft ist das Ereignis bei 5000 echten Durchgängen etwa zu erwarten?"
+   },
+   "o": {
+    "wert": 4100
+   },
+   "c": "82 / 100 * 5000",
+   "w": "P ≈ 0,82. Erwartet: 0,82 · 5000 = 4100."
+  },
+  {
+   "l": "auswerten",
+   "t": "auswerten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Simulation mit 200 Durchgängen ergab 172-mal „Gewinn beim Losen“. Wie oft ist das Ereignis bei 5000 echten Durchgängen etwa zu erwarten?"
+   },
+   "o": {
+    "wert": 4300
+   },
+   "c": "172 / 200 * 5000",
+   "w": "P ≈ 0,86. Erwartet: 0,86 · 5000 = 4300."
+  },
+  {
+   "l": "auswerten",
+   "t": "auswerten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Simulation mit 400 Durchgängen ergab 55-mal „mindestens eine Sechs bei vier Würfen“. Wie oft ist das Ereignis bei 2000 echten Durchgängen etwa zu erwarten?"
+   },
+   "o": {
+    "wert": 275
+   },
+   "c": "55 / 400 * 2000",
+   "w": "P ≈ 0,1375. Erwartet: 0,1375 · 2000 = 275."
+  },
+  {
+   "l": "auswerten",
+   "t": "auswerten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Simulation mit 200 Durchgängen ergab 71-mal „alle drei Kinder sind Mädchen“. Wie oft ist das Ereignis bei 5000 echten Durchgängen etwa zu erwarten?"
+   },
+   "o": {
+    "wert": 1775
+   },
+   "c": "71 / 200 * 5000",
+   "w": "P ≈ 0,355. Erwartet: 0,355 · 5000 = 1775."
+  },
+  {
+   "l": "auswerten",
+   "t": "auswerten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Simulation mit 400 Durchgängen ergab 18-mal „genau zwei Treffer“. Wie oft ist das Ereignis bei 1000 echten Durchgängen etwa zu erwarten?"
+   },
+   "o": {
+    "wert": 45
+   },
+   "c": "18 / 400 * 1000",
+   "w": "P ≈ 0,045. Erwartet: 0,045 · 1000 = 45."
+  },
+  {
+   "l": "auswerten",
+   "t": "auswerten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Simulation mit 1000 Durchgängen ergab 952-mal „genau zwei Treffer“. Wie oft ist das Ereignis bei 5000 echten Durchgängen etwa zu erwarten?"
+   },
+   "o": {
+    "wert": 4760
+   },
+   "c": "952 / 1000 * 5000",
+   "w": "P ≈ 0,952. Erwartet: 0,952 · 5000 = 4760."
+  },
+  {
+   "l": "auswerten",
+   "t": "auswerten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Simulation mit 1000 Durchgängen ergab 752-mal „alle drei Kinder sind Mädchen“. Wie oft ist das Ereignis bei 2000 echten Durchgängen etwa zu erwarten?"
+   },
+   "o": {
+    "wert": 1504
+   },
+   "c": "752 / 1000 * 2000",
+   "w": "P ≈ 0,752. Erwartet: 0,752 · 2000 = 1504."
+  },
+  {
+   "l": "monte_carlo",
+   "t": "monte_carlo",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "In ein Quadrat werden 1000 Zufallspunkte gesetzt, 757 liegen in einer Figur. Welcher Anteil der Punkte ist das? (als Dezimalzahl)"
+   },
+   "o": {
+    "wert": 0.757
+   },
+   "c": "757 / 1000",
+   "w": "757 : 1000 = 0,757.",
+   "h": "Punkte in der Figur durch alle Punkte."
+  },
+  {
+   "l": "monte_carlo",
+   "t": "monte_carlo",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "In ein Quadrat werden 400 Zufallspunkte gesetzt, 302 liegen in einer Figur. Welcher Anteil der Punkte ist das? (als Dezimalzahl)"
+   },
+   "o": {
+    "wert": 0.755
+   },
+   "c": "302 / 400",
+   "w": "302 : 400 = 0,755.",
+   "h": "Punkte in der Figur durch alle Punkte."
+  },
+  {
+   "l": "monte_carlo",
+   "t": "monte_carlo",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "In ein Quadrat werden 500 Zufallspunkte gesetzt, 73 liegen in einer Figur. Welcher Anteil der Punkte ist das? (als Dezimalzahl)"
+   },
+   "o": {
+    "wert": 0.146
+   },
+   "c": "73 / 500",
+   "w": "73 : 500 = 0,146.",
+   "h": "Punkte in der Figur durch alle Punkte."
+  },
+  {
+   "l": "monte_carlo",
+   "t": "monte_carlo",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "In ein Quadrat werden 200 Zufallspunkte gesetzt, 135 liegen in einer Figur. Welcher Anteil der Punkte ist das? (als Dezimalzahl)"
+   },
+   "o": {
+    "wert": 0.675
+   },
+   "c": "135 / 200",
+   "w": "135 : 200 = 0,675.",
+   "h": "Punkte in der Figur durch alle Punkte."
+  },
+  {
+   "l": "monte_carlo",
+   "t": "monte_carlo",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quadrat hat die Seitenlänge 20 cm. Von 100 Zufallspunkten liegen 90 in einer Figur im Quadrat. Schätze den Flächeninhalt der Figur."
+   },
+   "o": {
+    "wert": 360,
+    "einheit": "cm²"
+   },
+   "c": "90 / 100 * 20 ** 2",
+   "w": "Anteil 0,9, Quadrat 400 cm². A ≈ 0,9 · 400 = 360 cm².",
+   "h": "Anteil der Punkte mal Fläche des Quadrats."
+  },
+  {
+   "l": "monte_carlo",
+   "t": "monte_carlo",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quadrat hat die Seitenlänge 10 cm. Von 200 Zufallspunkten liegen 40 in einer Figur im Quadrat. Schätze den Flächeninhalt der Figur."
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "cm²"
+   },
+   "c": "40 / 200 * 10 ** 2",
+   "w": "Anteil 0,2, Quadrat 100 cm². A ≈ 0,2 · 100 = 20 cm².",
+   "h": "Anteil der Punkte mal Fläche des Quadrats."
+  },
+  {
+   "l": "monte_carlo",
+   "t": "monte_carlo",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quadrat hat die Seitenlänge 4 cm. Von 500 Zufallspunkten liegen 58 in einer Figur im Quadrat. Schätze den Flächeninhalt der Figur."
+   },
+   "o": {
+    "wert": 1.856,
+    "einheit": "cm²"
+   },
+   "c": "58 / 500 * 4 ** 2",
+   "w": "Anteil 0,116, Quadrat 16 cm². A ≈ 0,116 · 16 = 1,856 cm².",
+   "h": "Anteil der Punkte mal Fläche des Quadrats."
+  },
+  {
+   "l": "monte_carlo",
+   "t": "monte_carlo",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quadrat hat die Seitenlänge 2 cm. Von 200 Zufallspunkten liegen 51 in einer Figur im Quadrat. Schätze den Flächeninhalt der Figur."
+   },
+   "o": {
+    "wert": 1.02,
+    "einheit": "cm²"
+   },
+   "c": "51 / 200 * 2 ** 2",
+   "w": "Anteil 0,255, Quadrat 4 cm². A ≈ 0,255 · 4 = 1,02 cm².",
+   "h": "Anteil der Punkte mal Fläche des Quadrats."
+  },
+  {
+   "l": "monte_carlo",
+   "t": "monte_carlo",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quadrat hat die Seitenlänge 20 cm. Von 1000 Zufallspunkten liegen 418 in einer Figur im Quadrat. Schätze den Flächeninhalt der Figur."
+   },
+   "o": {
+    "wert": 167.2,
+    "einheit": "cm²"
+   },
+   "c": "418 / 1000 * 20 ** 2",
+   "w": "Anteil 0,418, Quadrat 400 cm². A ≈ 0,418 · 400 = 167,2 cm².",
+   "h": "Anteil der Punkte mal Fläche des Quadrats."
+  },
+  {
+   "l": "monte_carlo",
+   "t": "monte_carlo",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quadrat hat die Seitenlänge 5 cm. Von 400 Zufallspunkten liegen 267 in einer Figur im Quadrat. Schätze den Flächeninhalt der Figur."
+   },
+   "o": {
+    "wert": 16.6875,
+    "einheit": "cm²"
+   },
+   "c": "267 / 400 * 5 ** 2",
+   "w": "Anteil 0,6675, Quadrat 25 cm². A ≈ 0,6675 · 25 = 16,6875 cm².",
+   "h": "Anteil der Punkte mal Fläche des Quadrats."
+  },
+  {
+   "l": "monte_carlo",
+   "t": "monte_carlo",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In ein Quadrat mit Seitenlänge 1 wird ein Viertelkreis mit Radius 1 gezeichnet. Von 500 Zufallspunkten liegen 413 im Viertelkreis. Welchen Schätzwert für π erhält man?"
+   },
+   "o": {
+    "wert": 3.304
+   },
+   "c": "4 * 413 / 500",
+   "w": "Viertelkreis A = π/4, Quadrat A = 1. Also π/4 ≈ 413/500 → π ≈ 4 · 0,826 = 3,304.",
+   "h": "Der Viertelkreis hat die Fläche π/4. Setze den Punkteanteil gleich π/4."
+  },
+  {
+   "l": "monte_carlo",
+   "t": "monte_carlo",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In ein Quadrat mit Seitenlänge 1 wird ein Viertelkreis mit Radius 1 gezeichnet. Von 200 Zufallspunkten liegen 156 im Viertelkreis. Welchen Schätzwert für π erhält man?"
+   },
+   "o": {
+    "wert": 3.12
+   },
+   "c": "4 * 156 / 200",
+   "w": "Viertelkreis A = π/4, Quadrat A = 1. Also π/4 ≈ 156/200 → π ≈ 4 · 0,78 = 3,12.",
+   "h": "Der Viertelkreis hat die Fläche π/4. Setze den Punkteanteil gleich π/4."
+  },
+  {
+   "l": "monte_carlo",
+   "t": "monte_carlo",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In ein Quadrat mit Seitenlänge 1 wird ein Viertelkreis mit Radius 1 gezeichnet. Von 400 Zufallspunkten liegen 321 im Viertelkreis. Welchen Schätzwert für π erhält man?"
+   },
+   "o": {
+    "wert": 3.21
+   },
+   "c": "4 * 321 / 400",
+   "w": "Viertelkreis A = π/4, Quadrat A = 1. Also π/4 ≈ 321/400 → π ≈ 4 · 0,8025 = 3,21.",
+   "h": "Der Viertelkreis hat die Fläche π/4. Setze den Punkteanteil gleich π/4."
+  },
+  {
+   "l": "monte_carlo",
+   "t": "monte_carlo",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In ein Quadrat mit Seitenlänge 1 wird ein Viertelkreis mit Radius 1 gezeichnet. Von 200 Zufallspunkten liegen 161 im Viertelkreis. Welchen Schätzwert für π erhält man?"
+   },
+   "o": {
+    "wert": 3.22
+   },
+   "c": "4 * 161 / 200",
+   "w": "Viertelkreis A = π/4, Quadrat A = 1. Also π/4 ≈ 161/200 → π ≈ 4 · 0,805 = 3,22.",
+   "h": "Der Viertelkreis hat die Fläche π/4. Setze den Punkteanteil gleich π/4."
+  },
+  {
+   "l": "monte_carlo",
+   "t": "monte_carlo",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quadrat hat die Seitenlänge 5 cm. Von 200 Zufallspunkten liegen 90 in einer Figur im Quadrat. Schätze den Flächeninhalt der Figur."
+   },
+   "o": {
+    "wert": 11.25,
+    "einheit": "cm²"
+   },
+   "c": "90 / 200 * 5 ** 2",
+   "w": "Anteil 0,45, Quadrat 25 cm². A ≈ 0,45 · 25 = 11,25 cm²."
+  },
+  {
+   "l": "monte_carlo",
+   "t": "monte_carlo",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quadrat hat die Seitenlänge 2 cm. Von 100 Zufallspunkten liegen 30 in einer Figur im Quadrat. Schätze den Flächeninhalt der Figur."
+   },
+   "o": {
+    "wert": 1.2,
+    "einheit": "cm²"
+   },
+   "c": "30 / 100 * 2 ** 2",
+   "w": "Anteil 0,3, Quadrat 4 cm². A ≈ 0,3 · 4 = 1,2 cm²."
+  },
+  {
+   "l": "monte_carlo",
+   "t": "monte_carlo",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quadrat hat die Seitenlänge 5 cm. Von 100 Zufallspunkten liegen 82 in einer Figur im Quadrat. Schätze den Flächeninhalt der Figur."
+   },
+   "o": {
+    "wert": 20.5,
+    "einheit": "cm²"
+   },
+   "c": "82 / 100 * 5 ** 2",
+   "w": "Anteil 0,82, Quadrat 25 cm². A ≈ 0,82 · 25 = 20,5 cm²."
+  },
+  {
+   "l": "monte_carlo",
+   "t": "monte_carlo",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quadrat hat die Seitenlänge 20 cm. Von 400 Zufallspunkten liegen 256 in einer Figur im Quadrat. Schätze den Flächeninhalt der Figur."
+   },
+   "o": {
+    "wert": 256,
+    "einheit": "cm²"
+   },
+   "c": "256 / 400 * 20 ** 2",
+   "w": "Anteil 0,64, Quadrat 400 cm². A ≈ 0,64 · 400 = 256 cm²."
+  },
+  {
+   "l": "monte_carlo",
+   "t": "monte_carlo",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quadrat hat die Seitenlänge 2 cm. Von 100 Zufallspunkten liegen 63 in einer Figur im Quadrat. Schätze den Flächeninhalt der Figur."
+   },
+   "o": {
+    "wert": 2.52,
+    "einheit": "cm²"
+   },
+   "c": "63 / 100 * 2 ** 2",
+   "w": "Anteil 0,63, Quadrat 4 cm². A ≈ 0,63 · 4 = 2,52 cm²."
+  },
+  {
+   "l": "monte_carlo",
+   "t": "monte_carlo",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quadrat hat die Seitenlänge 4 cm. Von 100 Zufallspunkten liegen 19 in einer Figur im Quadrat. Schätze den Flächeninhalt der Figur."
+   },
+   "o": {
+    "wert": 3.04,
+    "einheit": "cm²"
+   },
+   "c": "19 / 100 * 4 ** 2",
+   "w": "Anteil 0,19, Quadrat 16 cm². A ≈ 0,19 · 16 = 3,04 cm²."
+  },
+  {
+   "l": "monte_carlo",
+   "t": "monte_carlo",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quadrat hat die Seitenlänge 5 cm. Von 100 Zufallspunkten liegen 22 in einer Figur im Quadrat. Schätze den Flächeninhalt der Figur."
+   },
+   "o": {
+    "wert": 5.5,
+    "einheit": "cm²"
+   },
+   "c": "22 / 100 * 5 ** 2",
+   "w": "Anteil 0,22, Quadrat 25 cm². A ≈ 0,22 · 25 = 5,5 cm²."
+  },
+  {
+   "l": "monte_carlo",
+   "t": "monte_carlo",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quadrat hat die Seitenlänge 20 cm. Von 250 Zufallspunkten liegen 63 in einer Figur im Quadrat. Schätze den Flächeninhalt der Figur."
+   },
+   "o": {
+    "wert": 100.8,
+    "einheit": "cm²"
+   },
+   "c": "63 / 250 * 20 ** 2",
+   "w": "Anteil 0,252, Quadrat 400 cm². A ≈ 0,252 · 400 = 100,8 cm²."
+  },
+  {
+   "l": "monte_carlo",
+   "t": "monte_carlo",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quadrat hat die Seitenlänge 5 cm. Von 200 Zufallspunkten liegen 115 in einer Figur im Quadrat. Schätze den Flächeninhalt der Figur."
+   },
+   "o": {
+    "wert": 14.375,
+    "einheit": "cm²"
+   },
+   "c": "115 / 200 * 5 ** 2",
+   "w": "Anteil 0,575, Quadrat 25 cm². A ≈ 0,575 · 25 = 14,375 cm²."
+  },
+  {
+   "l": "monte_carlo",
+   "t": "monte_carlo",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quadrat hat die Seitenlänge 4 cm. Von 1000 Zufallspunkten liegen 690 in einer Figur im Quadrat. Schätze den Flächeninhalt der Figur."
+   },
+   "o": {
+    "wert": 11.04,
+    "einheit": "cm²"
+   },
+   "c": "690 / 1000 * 4 ** 2",
+   "w": "Anteil 0,69, Quadrat 16 cm². A ≈ 0,69 · 16 = 11,04 cm²."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Ampel zeigt bei Ankunft Grün mit p = 0,25. Simuliert wird mit einem Glücksrad mit einem 90°-Trefferfeld. Ist das geeignet?"
+   },
+   "a": [
+    "Nein, Simulationen sind nie genau.",
+    "Nein, man braucht dafür immer eine Münze.",
+    "Ja, das Gerät hat genau die richtige Wahrscheinlichkeit.",
+    "Nein, das Gerät hat p = 0,75."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Das Gerät liefert p = 0,25, benötigt wird p = 0,25. Das passt.",
+   "h": "Berechne die Trefferwahrscheinlichkeit des Geräts und vergleiche."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Schülerin löst eine Rätselaufgabe mit p = 1/3. Simuliert wird mit einer Zufallsziffer (0 = Treffer). Ist das geeignet?"
+   },
+   "a": [
+    "Ja, jedes Zufallsgerät ist geeignet.",
+    "Ja, das Gerät hat genau die richtige Wahrscheinlichkeit.",
+    "Nein, das Gerät hat p = 1/3, gebraucht wird 0,1.",
+    "Nein, das Gerät hat p = 0,1, gebraucht wird 1/3."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Das Gerät liefert p = 0,1, benötigt wird p = 1/3. Das passt nicht.",
+   "h": "Berechne die Trefferwahrscheinlichkeit des Geräts und vergleiche."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Bus hat Verspätung mit p = 1/3. Simuliert wird mit einem Würfel (Sechs = Treffer). Ist das geeignet?"
+   },
+   "a": [
+    "Ja, das Gerät hat genau die richtige Wahrscheinlichkeit.",
+    "Nein, das Gerät hat p = 1/6, gebraucht wird 1/3.",
+    "Ja, jedes Zufallsgerät ist geeignet.",
+    "Nein, das Gerät hat p = 1/3, gebraucht wird 1/6."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Das Gerät liefert p = 1/6, benötigt wird p = 1/3. Das passt nicht.",
+   "h": "Berechne die Trefferwahrscheinlichkeit des Geräts und vergleiche."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Basketballspieler trifft beim Freiwurf mit p = 0,4. Simuliert wird mit einem Würfel (1 bis 5 = Treffer). Ist das geeignet?"
+   },
+   "a": [
+    "Nein, das Gerät hat p = 0,4, gebraucht wird 5/6.",
+    "Ja, jedes Zufallsgerät ist geeignet.",
+    "Nein, das Gerät hat p = 5/6, gebraucht wird 0,4.",
+    "Ja, das Gerät hat genau die richtige Wahrscheinlichkeit."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Das Gerät liefert p = 5/6, benötigt wird p = 0,4. Das passt nicht.",
+   "h": "Berechne die Trefferwahrscheinlichkeit des Geräts und vergleiche."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Basketballspieler trifft beim Freiwurf mit p = 0,4. Simuliert wird mit einem Würfel (Sechs = Treffer). Ist das geeignet?"
+   },
+   "a": [
+    "Nein, das Gerät hat p = 1/6, gebraucht wird 0,4.",
+    "Nein, das Gerät hat p = 0,4, gebraucht wird 1/6.",
+    "Ja, jedes Zufallsgerät ist geeignet.",
+    "Ja, das Gerät hat genau die richtige Wahrscheinlichkeit."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Das Gerät liefert p = 1/6, benötigt wird p = 0,4. Das passt nicht.",
+   "h": "Berechne die Trefferwahrscheinlichkeit des Geräts und vergleiche."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Samen keimt mit p = 0,75. Simuliert wird mit einer Zufallsziffer (0 = Treffer). Ist das geeignet?"
+   },
+   "a": [
+    "Nein, das Gerät hat p = 0,75, gebraucht wird 0,1.",
+    "Ja, das Gerät hat genau die richtige Wahrscheinlichkeit.",
+    "Ja, jedes Zufallsgerät ist geeignet.",
+    "Nein, das Gerät hat p = 0,1, gebraucht wird 0,75."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Das Gerät liefert p = 0,1, benötigt wird p = 0,75. Das passt nicht.",
+   "h": "Berechne die Trefferwahrscheinlichkeit des Geräts und vergleiche."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Schülerin löst eine Rätselaufgabe mit p = 0,4. Simuliert wird mit einem Würfel (1 oder 2 = Treffer). Ist das geeignet?"
+   },
+   "a": [
+    "Ja, jedes Zufallsgerät ist geeignet.",
+    "Nein, das Gerät hat p = 1/3, gebraucht wird 0,4.",
+    "Ja, das Gerät hat genau die richtige Wahrscheinlichkeit.",
+    "Nein, das Gerät hat p = 0,4, gebraucht wird 1/3."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Das Gerät liefert p = 1/3, benötigt wird p = 0,4. Das passt nicht.",
+   "h": "Berechne die Trefferwahrscheinlichkeit des Geräts und vergleiche."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Basketballspieler trifft beim Freiwurf mit p = 5/6. Simuliert wird mit einem Glücksrad mit einem 90°-Trefferfeld. Ist das geeignet?"
+   },
+   "a": [
+    "Ja, jedes Zufallsgerät ist geeignet.",
+    "Nein, das Gerät hat p = 0,25, gebraucht wird 5/6.",
+    "Nein, das Gerät hat p = 5/6, gebraucht wird 0,25.",
+    "Ja, das Gerät hat genau die richtige Wahrscheinlichkeit."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Das Gerät liefert p = 0,25, benötigt wird p = 5/6. Das passt nicht.",
+   "h": "Berechne die Trefferwahrscheinlichkeit des Geräts und vergleiche."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Ampel zeigt bei Ankunft Grün mit p = 0,1. Simuliert wird mit einem Glücksrad mit einem 72°-Trefferfeld. Ist das geeignet?"
+   },
+   "a": [
+    "Nein, das Gerät hat p = 0,2, gebraucht wird 0,1.",
+    "Ja, jedes Zufallsgerät ist geeignet.",
+    "Ja, das Gerät hat genau die richtige Wahrscheinlichkeit.",
+    "Nein, das Gerät hat p = 0,1, gebraucht wird 0,2."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Das Gerät liefert p = 0,2, benötigt wird p = 0,1. Das passt nicht.",
+   "h": "Berechne die Trefferwahrscheinlichkeit des Geräts und vergleiche."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Bus hat Verspätung mit p = 0,3. Simuliert wird mit einer Urne mit 3 roten von 10 Kugeln (mit Zurücklegen). Ist das geeignet?"
+   },
+   "a": [
+    "Nein, man braucht dafür immer eine Münze.",
+    "Nein, das Gerät hat p = 0,7.",
+    "Nein, Simulationen sind nie genau.",
+    "Ja, das Gerät hat genau die richtige Wahrscheinlichkeit."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Das Gerät liefert p = 0,3, benötigt wird p = 0,3. Das passt.",
+   "h": "Berechne die Trefferwahrscheinlichkeit des Geräts und vergleiche."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Kind gewinnt beim Losstand mit p = 0,5. Simuliert wird mit einem Glücksrad mit einem 270°-Trefferfeld. Ist das geeignet?"
+   },
+   "a": [
+    "Nein, das Gerät hat p = 0,75, gebraucht wird 0,5.",
+    "Nein, das Gerät hat p = 0,5, gebraucht wird 0,75.",
+    "Ja, das Gerät hat genau die richtige Wahrscheinlichkeit.",
+    "Ja, jedes Zufallsgerät ist geeignet."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Das Gerät liefert p = 0,75, benötigt wird p = 0,5. Das passt nicht.",
+   "h": "Berechne die Trefferwahrscheinlichkeit des Geräts und vergleiche."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Bus hat Verspätung mit p = 0,5. Simuliert wird mit einer Urne mit 3 roten von 10 Kugeln (mit Zurücklegen). Ist das geeignet?"
+   },
+   "a": [
+    "Nein, das Gerät hat p = 0,3, gebraucht wird 0,5.",
+    "Ja, das Gerät hat genau die richtige Wahrscheinlichkeit.",
+    "Nein, das Gerät hat p = 0,5, gebraucht wird 0,3.",
+    "Ja, jedes Zufallsgerät ist geeignet."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Das Gerät liefert p = 0,3, benötigt wird p = 0,5. Das passt nicht.",
+   "h": "Berechne die Trefferwahrscheinlichkeit des Geräts und vergleiche."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Schülerin löst eine Rätselaufgabe jedes Mal mit p = 0,3. Simuliert werden 4 Versuche: Aus einer Urne mit 3 roten von 10 Kugeln wird 4-mal OHNE Zurücklegen gezogen. Ist das geeignet?"
+   },
+   "a": [
+    "Nicht geeignet: Ohne Zurücklegen ändert sich die Wahrscheinlichkeit bei jedem Zug.",
+    "Geeignet, weil man mit einer Urne alles simulieren kann.",
+    "Nicht geeignet, weil eine Urne nie für Simulationen taugt.",
+    "Geeignet, weil der Anteil der roten Kugeln stimmt."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Nach jedem Zug fehlt eine Kugel, der Anteil der roten ändert sich. Mit Zurücklegen wäre es richtig.",
+   "h": "Bleibt die Wahrscheinlichkeit bei jedem Zug gleich?"
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Samen keimt mit p = 2/3. Simuliert wird mit einem Würfel (1 bis 4 = Treffer). Ist das geeignet?"
+   },
+   "a": [
+    "Nein, das Gerät hat p = 1/3.",
+    "Ja, das Gerät hat genau die richtige Wahrscheinlichkeit.",
+    "Nein, man braucht dafür immer eine Münze.",
+    "Nein, Simulationen sind nie genau."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Das Gerät liefert p = 2/3, benötigt wird p = 2/3. Das passt.",
+   "h": "Berechne die Trefferwahrscheinlichkeit des Geräts und vergleiche."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Ampel zeigt bei Ankunft Grün mit p = 0,5. Simuliert wird mit einem Würfel (1 bis 5 = Treffer). Ist das geeignet?"
+   },
+   "a": [
+    "Ja, jedes Zufallsgerät ist geeignet.",
+    "Nein, das Gerät hat p = 5/6, gebraucht wird 0,5.",
+    "Nein, das Gerät hat p = 0,5, gebraucht wird 5/6.",
+    "Ja, das Gerät hat genau die richtige Wahrscheinlichkeit."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Das Gerät liefert p = 5/6, benötigt wird p = 0,5. Das passt nicht."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Kind gewinnt beim Losstand mit p = 0,75. Simuliert wird mit einer Urne mit 7 roten von 10 Kugeln (mit Zurücklegen). Ist das geeignet?"
+   },
+   "a": [
+    "Nein, das Gerät hat p = 0,7, gebraucht wird 0,75.",
+    "Ja, das Gerät hat genau die richtige Wahrscheinlichkeit.",
+    "Nein, das Gerät hat p = 0,75, gebraucht wird 0,7.",
+    "Ja, jedes Zufallsgerät ist geeignet."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Das Gerät liefert p = 0,7, benötigt wird p = 0,75. Das passt nicht."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Bus hat Verspätung mit p = 0,3. Simuliert wird mit einem Glücksrad mit einem 72°-Trefferfeld. Ist das geeignet?"
+   },
+   "a": [
+    "Ja, jedes Zufallsgerät ist geeignet.",
+    "Nein, das Gerät hat p = 0,3, gebraucht wird 0,2.",
+    "Ja, das Gerät hat genau die richtige Wahrscheinlichkeit.",
+    "Nein, das Gerät hat p = 0,2, gebraucht wird 0,3."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Das Gerät liefert p = 0,2, benötigt wird p = 0,3. Das passt nicht."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Ampel zeigt bei Ankunft Grün mit p = 0,2. Simuliert wird mit einem Glücksrad mit einem 90°-Trefferfeld. Ist das geeignet?"
+   },
+   "a": [
+    "Ja, das Gerät hat genau die richtige Wahrscheinlichkeit.",
+    "Ja, jedes Zufallsgerät ist geeignet.",
+    "Nein, das Gerät hat p = 0,25, gebraucht wird 0,2.",
+    "Nein, das Gerät hat p = 0,2, gebraucht wird 0,25."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Das Gerät liefert p = 0,25, benötigt wird p = 0,2. Das passt nicht."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Bus hat Verspätung mit p = 2/3. Simuliert wird mit einem Würfel (1 bis 4 = Treffer). Ist das geeignet?"
+   },
+   "a": [
+    "Ja, das Gerät hat genau die richtige Wahrscheinlichkeit.",
+    "Nein, Simulationen sind nie genau.",
+    "Nein, man braucht dafür immer eine Münze.",
+    "Nein, das Gerät hat p = 1/3."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Das Gerät liefert p = 2/3, benötigt wird p = 2/3. Das passt."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Bus hat Verspätung mit p = 0,5. Simuliert wird mit einer Zufallsziffer (0 = Treffer). Ist das geeignet?"
+   },
+   "a": [
+    "Nein, das Gerät hat p = 0,5, gebraucht wird 0,1.",
+    "Nein, das Gerät hat p = 0,1, gebraucht wird 0,5.",
+    "Ja, das Gerät hat genau die richtige Wahrscheinlichkeit.",
+    "Ja, jedes Zufallsgerät ist geeignet."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Das Gerät liefert p = 0,1, benötigt wird p = 0,5. Das passt nicht."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Basketballspieler trifft beim Freiwurf mit p = 2/3. Simuliert wird mit einem Würfel (Sechs = Treffer). Ist das geeignet?"
+   },
+   "a": [
+    "Ja, das Gerät hat genau die richtige Wahrscheinlichkeit.",
+    "Ja, jedes Zufallsgerät ist geeignet.",
+    "Nein, das Gerät hat p = 2/3, gebraucht wird 1/6.",
+    "Nein, das Gerät hat p = 1/6, gebraucht wird 2/3."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Das Gerät liefert p = 1/6, benötigt wird p = 2/3. Das passt nicht."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Ampel zeigt bei Ankunft Grün mit p = 1/3. Simuliert wird mit einer Zufallsziffer (0 = Treffer). Ist das geeignet?"
+   },
+   "a": [
+    "Ja, das Gerät hat genau die richtige Wahrscheinlichkeit.",
+    "Nein, das Gerät hat p = 0,1, gebraucht wird 1/3.",
+    "Nein, das Gerät hat p = 1/3, gebraucht wird 0,1.",
+    "Ja, jedes Zufallsgerät ist geeignet."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Das Gerät liefert p = 0,1, benötigt wird p = 1/3. Das passt nicht."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Samen keimt mit p = 0,3. Simuliert wird mit einer Urne mit 3 roten von 10 Kugeln (mit Zurücklegen). Ist das geeignet?"
+   },
+   "a": [
+    "Nein, das Gerät hat p = 0,7.",
+    "Nein, man braucht dafür immer eine Münze.",
+    "Nein, Simulationen sind nie genau.",
+    "Ja, das Gerät hat genau die richtige Wahrscheinlichkeit."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Das Gerät liefert p = 0,3, benötigt wird p = 0,3. Das passt."
+  },
+  {
+   "l": "beurteilen",
+   "t": "beurteilen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Ampel zeigt bei Ankunft Grün mit p = 1/3. Simuliert wird mit einer Urne mit 2 roten von 5 Kugeln (mit Zurücklegen). Ist das geeignet?"
+   },
+   "a": [
+    "Ja, das Gerät hat genau die richtige Wahrscheinlichkeit.",
+    "Nein, das Gerät hat p = 1/3, gebraucht wird 0,4.",
+    "Nein, das Gerät hat p = 0,4, gebraucht wird 1/3.",
+    "Ja, jedes Zufallsgerät ist geeignet."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Das Gerät liefert p = 0,4, benötigt wird p = 1/3. Das passt nicht."
+  }
+ ],
+ "offen": [
+  "Echte Simulationen (Würfeln, Ziehen, Zufallszahlen am Rechner) sind in der App nicht möglich; die Zufallsziffern werden fest vorgegeben. Eine kleine Simulationsfunktion in der App (Knopf „100-mal würfeln“) würde das Thema stark verbessern.",
+  "Monte-Carlo-Bilder (Quadrat mit Punkten) fehlen; die Anzahlen werden in Worten genannt."
+ ]
+}

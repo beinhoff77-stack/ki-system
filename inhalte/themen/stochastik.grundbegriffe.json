@@ -1,0 +1,2786 @@
+{
+ "thema_schluessel": "stochastik.grundbegriffe",
+ "thema_id": 61,
+ "block_id": 92,
+ "klasse": {
+  "gym_by": 8,
+  "rs_by": 8
+ },
+ "autor": "Claude (Paket Klasse 8)",
+ "inhalt": {
+  "ziel": "Zufallsexperimente beschreiben, relative Häufigkeiten bestimmen und Laplace-Wahrscheinlichkeiten berechnen; das Gesetz der großen Zahlen verstehen.",
+  "merke": [
+   "Ω = alle Ergebnisse, Ereignis = Teilmenge von Ω.",
+   "Relative Häufigkeit = absolute Häufigkeit : Anzahl der Versuche.",
+   "Laplace: P(E) = günstige : alle (nur bei gleich wahrscheinlichen Ergebnissen).",
+   "P(Ē) = 1 − P(E)."
+  ],
+  "abschnitte": [
+   {
+    "titel": "Grundbegriffe",
+    "lernziele": [
+     "begriffe",
+     "rel_haeufigkeit"
+    ]
+   },
+   {
+    "titel": "Wahrscheinlichkeiten",
+    "lernziele": [
+     "laplace",
+     "gegenereignis",
+     "laplace_pruefen"
+    ]
+   },
+   {
+    "titel": "Zufall auf Dauer",
+    "lernziele": [
+     "grosse_zahlen"
+    ]
+   }
+  ],
+  "etappen": [
+   {
+    "lernziel": "begriffe",
+    "titel": "Ergebnis, Ergebnisraum, Ereignis",
+    "regel": "Ein ⟦Zufallsexperiment⟧ hat mehrere mögliche ⟦Ergebnisse⟧; welches eintritt, ist nicht vorhersagbar. Alle Ergebnisse zusammen bilden den ⟦Ergebnisraum Ω⟧. Ein ⟦Ereignis⟧ ist eine Teilmenge von Ω.",
+    "schritte": [
+     "Würfeln: Ω = {1; 2; 3; 4; 5; 6}",
+     "Ereignis E: „Augenzahl größer als 4“",
+     "⟦E = {5; 6}⟧"
+    ],
+    "fehler": "Zweimal eine Münze werfen hat nicht 3 Ergebnisse (WW, WZ, ZZ). „Erst Wappen, dann Zahl“ und „erst Zahl, dann Wappen“ sind ⟦verschiedene⟧ Ergebnisse: Ω = {WW; WZ; ZW; ZZ}."
+   },
+   {
+    "lernziel": "rel_haeufigkeit",
+    "titel": "Relative Häufigkeit",
+    "regel": "Die ⟦absolute Häufigkeit⟧ zählt, wie oft ein Ergebnis eintrat. Die ⟦relative Häufigkeit⟧ ist der Anteil: ⟦absolute Häufigkeit : Anzahl der Versuche⟧. Sie liegt zwischen 0 und 1.",
+    "schritte": [
+     "50 Würfe, 12-mal eine Sechs",
+     "relative Häufigkeit = 12 : 50",
+     "= ⟦0,24 = 24 %⟧"
+    ],
+    "fehler": "Die relative Häufigkeit von 12 Sechsen bei 50 Würfen ist nicht 12. Das ist die ⟦absolute⟧ Häufigkeit. Relativ heißt: im Verhältnis zur Gesamtzahl."
+   },
+   {
+    "lernziel": "laplace",
+    "titel": "Laplace-Wahrscheinlichkeit",
+    "regel": "Sind alle Ergebnisse ⟦gleich wahrscheinlich⟧ (Laplace-Experiment), gilt: ⟦P(E) = Anzahl der günstigen Ergebnisse : Anzahl aller Ergebnisse⟧.",
+    "schritte": [
+     "Urne: 3 rote, 5 blaue, 2 grüne Kugeln, eine wird gezogen.",
+     "Günstig für „rot“: 3, möglich: 10",
+     "⟦P(rot) = 3/10 = 0,3⟧"
+    ],
+    "fehler": "P(rot) ist nicht 3/7 (rot zu nicht-rot). Im Nenner steht die Anzahl ⟦aller⟧ Kugeln: 3/10."
+   },
+   {
+    "lernziel": "gegenereignis",
+    "titel": "Das Gegenereignis",
+    "regel": "Das ⟦Gegenereignis⟧ Ē tritt genau dann ein, wenn E ⟦nicht⟧ eintritt. Es gilt ⟦P(Ē) = 1 − P(E)⟧.",
+    "schritte": [
+     "E: „Sechs würfeln“, P(E) = 1/6",
+     "Ē: „keine Sechs“",
+     "⟦P(Ē) = 1 − 1/6 = 5/6⟧"
+    ],
+    "fehler": "Das Gegenereignis zu „mindestens eine Sechs“ ist nicht „höchstens eine Sechs“, sondern ⟦„keine Sechs“⟧."
+   },
+   {
+    "lernziel": "grosse_zahlen",
+    "titel": "Gesetz der großen Zahlen",
+    "regel": "Bei ⟦vielen⟧ Wiederholungen nähert sich die relative Häufigkeit meist der ⟦Wahrscheinlichkeit⟧ an. Bei n Versuchen erwartet man etwa ⟦n · P(E)⟧ Treffer – genau vorhersagen kann man es nie.",
+    "schritte": [
+     "Münze 1000-mal werfen, P(Wappen) = 0,5",
+     "Erwartet: 1000 · 0,5 = ⟦etwa 500-mal Wappen⟧",
+     "Tatsächlich z. B. 488 oder 513 – nicht genau 500."
+    ],
+    "fehler": "Kam fünfmal keine Sechs, ist die Sechs beim nächsten Wurf ⟦nicht⟧ wahrscheinlicher. Der Würfel hat kein Gedächtnis: P bleibt 1/6."
+   },
+   {
+    "lernziel": "laplace_pruefen",
+    "titel": "Ist es ein Laplace-Experiment?",
+    "regel": "Ein Experiment ist nur dann ein ⟦Laplace-Experiment⟧, wenn ⟦alle Ergebnisse gleich wahrscheinlich⟧ sind. Ungleich große Glücksradfelder oder eine Reißzwecke sind kein Laplace-Experiment.",
+    "schritte": [
+     "Glücksrad: Feld A 180°, Feld B 90°, Feld C 90°",
+     "A ist doppelt so groß wie B und C.",
+     "⟦Kein⟧ Laplace-Experiment: P(A) = 1/2, nicht 1/3."
+    ],
+    "fehler": "Drei mögliche Ergebnisse bedeuten nicht automatisch P = 1/3 für jedes. Das gilt nur, wenn sie ⟦gleich wahrscheinlich⟧ sind."
+   }
+  ],
+  "teilfaehigkeiten": [
+   {
+    "k": "begriffe",
+    "text": "Ergebnis, Ergebnisraum, Ereignis",
+    "lernziele": [
+     "begriffe"
+    ]
+   },
+   {
+    "k": "rel_haeufigkeit",
+    "text": "Relative Häufigkeit",
+    "lernziele": [
+     "rel_haeufigkeit"
+    ]
+   },
+   {
+    "k": "laplace",
+    "text": "Laplace-Wahrscheinlichkeit",
+    "lernziele": [
+     "laplace"
+    ]
+   },
+   {
+    "k": "gegenereignis",
+    "text": "Das Gegenereignis",
+    "lernziele": [
+     "gegenereignis"
+    ]
+   },
+   {
+    "k": "grosse_zahlen",
+    "text": "Gesetz der großen Zahlen",
+    "lernziele": [
+     "grosse_zahlen"
+    ]
+   },
+   {
+    "k": "laplace_pruefen",
+    "text": "Ist es ein Laplace-Experiment?",
+    "lernziele": [
+     "laplace_pruefen"
+    ]
+   }
+  ],
+  "bewertung": {
+   "lernziele_pflicht": [
+    "begriffe",
+    "rel_haeufigkeit",
+    "laplace",
+    "gegenereignis",
+    "grosse_zahlen",
+    "laplace_pruefen"
+   ],
+   "lernziele_vertiefung": [],
+   "testaufgaben_je_lernziel": 1
+  },
+  "quellen": {
+   "erklaerungen": "Eigene Fassung (Claude).",
+   "begriffe": "Fachbegriffe nach LehrplanPLUS Bayern (Gymnasium)."
+  }
+ },
+ "aufgaben": [
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Urne liegen 5 grüne, 2 blaue, 1 weiße, 2 gelbe Kugeln. Man zieht eine Kugel und notiert die Farbe. Wie viele Ergebnisse hat der Ergebnisraum?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Ergebnis ist die Farbe: Ω = {grün; blau; weiß; gelb}, also 4 Ergebnisse (nicht 10).",
+   "h": "Notiert wird nur die Farbe – wie viele verschiedene Farben gibt es?"
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Glücksrad hat 7 Felder mit den Nummern 1 bis 7. Wie viele Ergebnisse hat der Ergebnisraum bei einer Drehung?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "7",
+   "w": "Jede Nummer ist ein Ergebnis: 7 Ergebnisse.",
+   "h": "Jedes Feld ist ein mögliches Ergebnis."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Münze wird 3-mal geworfen, die Reihenfolge wird notiert. Wie viele Ergebnisse hat der Ergebnisraum?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "2 ** 3",
+   "w": "Bei jedem Wurf 2 Möglichkeiten: 2³ = 8.",
+   "h": "Schreibe alle Möglichkeiten auf: WW, WZ, …"
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Urne liegen 1 weiße, 6 gelbe, 4 blaue Kugeln. Man zieht eine Kugel und notiert die Farbe. Wie viele Ergebnisse hat der Ergebnisraum?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "3",
+   "w": "Ergebnis ist die Farbe: Ω = {weiß; gelb; blau}, also 3 Ergebnisse (nicht 11).",
+   "h": "Notiert wird nur die Farbe – wie viele verschiedene Farben gibt es?"
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Würfel mit den Zahlen 1 bis 10 wird geworfen. Welche Menge beschreibt das Ereignis „Primzahl“?"
+   },
+   "a": [
+    "{2; 3; 5; 7}",
+    "{1; 4; 6; 8; 9; 10}",
+    "{1; 2; 3; 5; 7}"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Alle Ergebnisse aus Ω, die passen: {2; 3; 5; 7}.",
+   "h": "Gehe Ω = {1; …; 10} durch und prüfe jede Zahl."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Würfel mit den Zahlen 1 bis 8 wird geworfen. Welche Menge beschreibt das Ereignis „ungerade Zahl“?"
+   },
+   "a": [
+    "{1; 2; 3; 5; 7}",
+    "{1; 3; 5; 7}",
+    "{2; 4; 6; 8}",
+    "{1; 3; 5}"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Alle Ergebnisse aus Ω, die passen: {1; 3; 5; 7}.",
+   "h": "Gehe Ω = {1; …; 8} durch und prüfe jede Zahl."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Würfel mit den Zahlen 1 bis 8 wird geworfen. Welche Menge beschreibt das Ereignis „Vielfaches von 3“?"
+   },
+   "a": [
+    "{3; 6}",
+    "{1; 3; 6}",
+    "{3}",
+    "{1; 2; 4; 5; 7; 8}"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Alle Ergebnisse aus Ω, die passen: {3; 6}.",
+   "h": "Gehe Ω = {1; …; 8} durch und prüfe jede Zahl."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Würfel mit den Zahlen 1 bis 10 wird geworfen. Welche Menge beschreibt das Ereignis „Teiler von 12“?"
+   },
+   "a": [
+    "{5; 7; 8; 9; 10}",
+    "{1; 2; 3; 4; 5; 6}",
+    "{1; 2; 3; 4; 6}",
+    "{1; 2; 3; 4}"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Alle Ergebnisse aus Ω, die passen: {1; 2; 3; 4; 6}.",
+   "h": "Gehe Ω = {1; …; 10} durch und prüfe jede Zahl."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Würfel mit den Zahlen 1 bis 6 wird geworfen. Welche Menge beschreibt das Ereignis „Zahl kleiner als 3“?"
+   },
+   "a": [
+    "{3; 4; 5; 6}",
+    "{1}",
+    "{1; 2}",
+    "{1; 2; 3}"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Alle Ergebnisse aus Ω, die passen: {1; 2}.",
+   "h": "Gehe Ω = {1; …; 6} durch und prüfe jede Zahl."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Würfel mit den Zahlen 1 bis 10 wird geworfen. Welche Menge beschreibt das Ereignis „Zahl größer als 4“?"
+   },
+   "a": [
+    "{1; 2; 3; 4}",
+    "{1; 5; 6; 7; 8; 9; 10}",
+    "{5; 6; 7; 8; 9}",
+    "{5; 6; 7; 8; 9; 10}"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Alle Ergebnisse aus Ω, die passen: {5; 6; 7; 8; 9; 10}.",
+   "h": "Gehe Ω = {1; …; 10} durch und prüfe jede Zahl."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel mit 4 Flächen und einer mit 6 Flächen werden geworfen, notiert wird das Zahlenpaar. Wie viele Ergebnisse gibt es?"
+   },
+   "o": {
+    "wert": 24
+   },
+   "c": "4 * 6",
+   "w": "Zu jeder der 4 Zahlen des ersten Würfels gibt es 6 Zahlen des zweiten: 4 · 6 = 24.",
+   "h": "Denke an eine Tabelle: Zeilen mal Spalten."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel mit 3 Flächen und einer mit 4 Flächen werden geworfen, notiert wird das Zahlenpaar. Wie viele Ergebnisse gibt es?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "3 * 4",
+   "w": "Zu jeder der 3 Zahlen des ersten Würfels gibt es 4 Zahlen des zweiten: 3 · 4 = 12.",
+   "h": "Denke an eine Tabelle: Zeilen mal Spalten."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei Münzen werden nacheinander geworfen (zwei gleiche Münzen). Welcher Ergebnisraum ist richtig?"
+   },
+   "a": [
+    "Ω = {W; Z}",
+    "Ω = {WW; WZ; ZZ}",
+    "Ω = {WW; ZZ}",
+    "Ω = {WW; WZ; ZW; ZZ}"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Erst Wappen, dann Zahl (WZ) und erst Zahl, dann Wappen (ZW) sind verschiedene Ergebnisse.",
+   "h": "Achte auf die Reihenfolge der Würfe."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Würfel mit 2 Flächen und einer mit 6 Flächen werden geworfen, notiert wird das Zahlenpaar. Wie viele Ergebnisse gibt es?"
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "2 * 6",
+   "w": "Zu jeder der 2 Zahlen des ersten Würfels gibt es 6 Zahlen des zweiten: 2 · 6 = 12.",
+   "h": "Denke an eine Tabelle: Zeilen mal Spalten."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Würfel mit den Zahlen 1 bis 12 wird geworfen. Welche Menge beschreibt das Ereignis „Vielfaches von 3“?"
+   },
+   "a": [
+    "{3; 6; 9; 12}",
+    "{1; 2; 4; 5; 7; 8; 10; 11}",
+    "{1; 3; 6; 9; 12}",
+    "{3; 6; 9}"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Alle Ergebnisse aus Ω, die passen: {3; 6; 9; 12}."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Würfel mit den Zahlen 1 bis 6 wird geworfen. Welche Menge beschreibt das Ereignis „Teiler von 12“?"
+   },
+   "a": [
+    "{1; 2; 3; 4; 6}",
+    "{5}",
+    "{1; 2; 3; 4; 5; 6}",
+    "{1; 2; 3; 4}"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Alle Ergebnisse aus Ω, die passen: {1; 2; 3; 4; 6}."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Würfel mit den Zahlen 1 bis 6 wird geworfen. Welche Menge beschreibt das Ereignis „ungerade Zahl“?"
+   },
+   "a": [
+    "{1; 3; 5}",
+    "{1; 3}",
+    "{1; 2; 3; 5}",
+    "{2; 4; 6}"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Alle Ergebnisse aus Ω, die passen: {1; 3; 5}."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Würfel mit den Zahlen 1 bis 6 wird geworfen. Welche Menge beschreibt das Ereignis „Zahl größer als 4“?"
+   },
+   "a": [
+    "{1; 2; 3; 4}",
+    "{5; 6}",
+    "{1; 5; 6}",
+    "{5}"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Alle Ergebnisse aus Ω, die passen: {5; 6}."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Würfel mit den Zahlen 1 bis 10 wird geworfen. Welche Menge beschreibt das Ereignis „ungerade Zahl“?"
+   },
+   "a": [
+    "{2; 4; 6; 8; 10}",
+    "{1; 3; 5; 7; 9}",
+    "{1; 2; 3; 5; 7; 9}",
+    "{1; 3; 5; 7}"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Alle Ergebnisse aus Ω, die passen: {1; 3; 5; 7; 9}."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Würfel mit den Zahlen 1 bis 12 wird geworfen. Welche Menge beschreibt das Ereignis „Teiler von 12“?"
+   },
+   "a": [
+    "{1; 2; 3; 4; 6; 12}",
+    "{1; 2; 3; 4; 6}",
+    "{1; 2; 3; 4; 5; 6; 12}",
+    "{5; 7; 8; 9; 10; 11}"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Alle Ergebnisse aus Ω, die passen: {1; 2; 3; 4; 6; 12}."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Würfel mit den Zahlen 1 bis 6 wird geworfen. Welche Menge beschreibt das Ereignis „Vielfaches von 3“?"
+   },
+   "a": [
+    "{1; 2; 4; 5}",
+    "{3}",
+    "{3; 6}",
+    "{1; 3; 6}"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Alle Ergebnisse aus Ω, die passen: {3; 6}."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Würfel mit den Zahlen 1 bis 8 wird geworfen. Welche Menge beschreibt das Ereignis „gerade Zahl“?"
+   },
+   "a": [
+    "{2; 4; 6; 8}",
+    "{1; 2; 4; 6; 8}",
+    "{1; 3; 5; 7}",
+    "{2; 4; 6}"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Alle Ergebnisse aus Ω, die passen: {2; 4; 6; 8}."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Würfel mit den Zahlen 1 bis 12 wird geworfen. Welche Menge beschreibt das Ereignis „ungerade Zahl“?"
+   },
+   "a": [
+    "{2; 4; 6; 8; 10; 12}",
+    "{1; 3; 5; 7; 9; 11}",
+    "{1; 2; 3; 5; 7; 9; 11}",
+    "{1; 3; 5; 7; 9}"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Alle Ergebnisse aus Ω, die passen: {1; 3; 5; 7; 9; 11}."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Würfel mit den Zahlen 1 bis 8 wird geworfen. Welche Menge beschreibt das Ereignis „Primzahl“?"
+   },
+   "a": [
+    "{1; 4; 6; 8}",
+    "{2; 3; 5; 7}",
+    "{1; 2; 3; 5; 7}"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Alle Ergebnisse aus Ω, die passen: {2; 3; 5; 7}."
+  },
+  {
+   "l": "rel_haeufigkeit",
+   "t": "rel_haeufigkeit",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Bei 80 Würfen kam 62-mal die Sechs. Berechne die relative Häufigkeit als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.775
+   },
+   "c": "62 / 80",
+   "w": "62 : 80 = 0,775.",
+   "h": "Absolute Häufigkeit durch Anzahl der Versuche."
+  },
+  {
+   "l": "rel_haeufigkeit",
+   "t": "rel_haeufigkeit",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Bei 500 Würfen kam 142-mal die Sechs. Berechne die relative Häufigkeit als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.284
+   },
+   "c": "142 / 500",
+   "w": "142 : 500 = 0,284.",
+   "h": "Absolute Häufigkeit durch Anzahl der Versuche."
+  },
+  {
+   "l": "rel_haeufigkeit",
+   "t": "rel_haeufigkeit",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Bei 500 Würfen kam 329-mal die Sechs. Berechne die relative Häufigkeit als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.658
+   },
+   "c": "329 / 500",
+   "w": "329 : 500 = 0,658.",
+   "h": "Absolute Häufigkeit durch Anzahl der Versuche."
+  },
+  {
+   "l": "rel_haeufigkeit",
+   "t": "rel_haeufigkeit",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Bei 400 Würfen kam 20-mal die Sechs. Berechne die relative Häufigkeit als Dezimalzahl."
+   },
+   "o": {
+    "wert": 0.05
+   },
+   "c": "20 / 400",
+   "w": "20 : 400 = 0,05.",
+   "h": "Absolute Häufigkeit durch Anzahl der Versuche."
+  },
+  {
+   "l": "rel_haeufigkeit",
+   "t": "rel_haeufigkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Reißzwecke wurde 400-mal geworfen und landete 147-mal auf dem Kopf. Gib die relative Häufigkeit in Prozent an."
+   },
+   "o": {
+    "wert": 36.75,
+    "einheit": "%"
+   },
+   "c": "147 / 400 * 100",
+   "w": "147 : 400 = 0,3675 = 36,75 %.",
+   "h": "Erst den Anteil berechnen, dann mal 100."
+  },
+  {
+   "l": "rel_haeufigkeit",
+   "t": "rel_haeufigkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Reißzwecke wurde 400-mal geworfen und landete 37-mal auf dem Kopf. Gib die relative Häufigkeit in Prozent an."
+   },
+   "o": {
+    "wert": 9.25,
+    "einheit": "%"
+   },
+   "c": "37 / 400 * 100",
+   "w": "37 : 400 = 0,0925 = 9,25 %.",
+   "h": "Erst den Anteil berechnen, dann mal 100."
+  },
+  {
+   "l": "rel_haeufigkeit",
+   "t": "rel_haeufigkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Reißzwecke wurde 20-mal geworfen und landete 7-mal auf dem Kopf. Gib die relative Häufigkeit in Prozent an."
+   },
+   "o": {
+    "wert": 35,
+    "einheit": "%"
+   },
+   "c": "7 / 20 * 100",
+   "w": "7 : 20 = 0,35 = 35 %.",
+   "h": "Erst den Anteil berechnen, dann mal 100."
+  },
+  {
+   "l": "rel_haeufigkeit",
+   "t": "rel_haeufigkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Reißzwecke wurde 100-mal geworfen und landete 29-mal auf dem Kopf. Gib die relative Häufigkeit in Prozent an."
+   },
+   "o": {
+    "wert": 29,
+    "einheit": "%"
+   },
+   "c": "29 / 100 * 100",
+   "w": "29 : 100 = 0,29 = 29 %.",
+   "h": "Erst den Anteil berechnen, dann mal 100."
+  },
+  {
+   "l": "rel_haeufigkeit",
+   "t": "rel_haeufigkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Reißzwecke wurde 50-mal geworfen und landete 14-mal auf dem Kopf. Gib die relative Häufigkeit in Prozent an."
+   },
+   "o": {
+    "wert": 28,
+    "einheit": "%"
+   },
+   "c": "14 / 50 * 100",
+   "w": "14 : 50 = 0,28 = 28 %.",
+   "h": "Erst den Anteil berechnen, dann mal 100."
+  },
+  {
+   "l": "rel_haeufigkeit",
+   "t": "rel_haeufigkeit",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bei 200 Versuchen beträgt die relative Häufigkeit eines Ergebnisses 75 %. Wie oft trat es ein?"
+   },
+   "o": {
+    "wert": 150
+   },
+   "c": "200 * 0.75",
+   "w": "75 % von 200 = 0,75 · 200 = 150.",
+   "h": "Absolute Häufigkeit = relative Häufigkeit · Anzahl der Versuche."
+  },
+  {
+   "l": "rel_haeufigkeit",
+   "t": "rel_haeufigkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Gruppen werfen einen Würfel: Gruppe A 40-mal mit 3 Sechsen, Gruppe B 200-mal mit 35 Sechsen. Wie groß ist die relative Häufigkeit der Sechs insgesamt in Prozent? (Runde auf eine Nachkommastelle.)"
+   },
+   "o": {
+    "wert": 15.8,
+    "einheit": "%"
+   },
+   "c": "round(38 / 240 * 100, 1)",
+   "w": "Insgesamt 38 Sechsen bei 240 Würfen: 38 : 240 ≈ 15,8 %.",
+   "h": "Addiere die Sechsen und die Würfe – nicht die Prozentsätze mitteln."
+  },
+  {
+   "l": "rel_haeufigkeit",
+   "t": "rel_haeufigkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Gruppen werfen einen Würfel: Gruppe A 80-mal mit 33 Sechsen, Gruppe B 25-mal mit 13 Sechsen. Wie groß ist die relative Häufigkeit der Sechs insgesamt in Prozent? (Runde auf eine Nachkommastelle.)"
+   },
+   "o": {
+    "wert": 43.8,
+    "einheit": "%"
+   },
+   "c": "round(46 / 105 * 100, 1)",
+   "w": "Insgesamt 46 Sechsen bei 105 Würfen: 46 : 105 ≈ 43,8 %.",
+   "h": "Addiere die Sechsen und die Würfe – nicht die Prozentsätze mitteln."
+  },
+  {
+   "l": "rel_haeufigkeit",
+   "t": "rel_haeufigkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Gruppen werfen einen Würfel: Gruppe A 80-mal mit 69 Sechsen, Gruppe B 50-mal mit 26 Sechsen. Wie groß ist die relative Häufigkeit der Sechs insgesamt in Prozent? (Runde auf eine Nachkommastelle.)"
+   },
+   "o": {
+    "wert": 73.1,
+    "einheit": "%"
+   },
+   "c": "round(95 / 130 * 100, 1)",
+   "w": "Insgesamt 95 Sechsen bei 130 Würfen: 95 : 130 ≈ 73,1 %.",
+   "h": "Addiere die Sechsen und die Würfe – nicht die Prozentsätze mitteln."
+  },
+  {
+   "l": "rel_haeufigkeit",
+   "t": "rel_haeufigkeit",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Zwei Gruppen werfen einen Würfel: Gruppe A 80-mal mit 15 Sechsen, Gruppe B 20-mal mit 1 Sechsen. Wie groß ist die relative Häufigkeit der Sechs insgesamt in Prozent? (Runde auf eine Nachkommastelle.)"
+   },
+   "o": {
+    "wert": 16,
+    "einheit": "%"
+   },
+   "c": "round(16 / 100 * 100, 1)",
+   "w": "Insgesamt 16 Sechsen bei 100 Würfen: 16 : 100 ≈ 16 %.",
+   "h": "Addiere die Sechsen und die Würfe – nicht die Prozentsätze mitteln."
+  },
+  {
+   "l": "rel_haeufigkeit",
+   "t": "rel_haeufigkeit",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Reißzwecke wurde 50-mal geworfen und landete 41-mal auf dem Kopf. Gib die relative Häufigkeit in Prozent an."
+   },
+   "o": {
+    "wert": 82,
+    "einheit": "%"
+   },
+   "c": "41 / 50 * 100",
+   "w": "41 : 50 = 0,82 = 82 %."
+  },
+  {
+   "l": "rel_haeufigkeit",
+   "t": "rel_haeufigkeit",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bei 100 Versuchen beträgt die relative Häufigkeit eines Ergebnisses 30 %. Wie oft trat es ein?"
+   },
+   "o": {
+    "wert": 30
+   },
+   "c": "100 * 0.3",
+   "w": "30 % von 100 = 0,3 · 100 = 30."
+  },
+  {
+   "l": "rel_haeufigkeit",
+   "t": "rel_haeufigkeit",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Reißzwecke wurde 125-mal geworfen und landete 62-mal auf dem Kopf. Gib die relative Häufigkeit in Prozent an."
+   },
+   "o": {
+    "wert": 49.6,
+    "einheit": "%"
+   },
+   "c": "62 / 125 * 100",
+   "w": "62 : 125 = 0,496 = 49,6 %."
+  },
+  {
+   "l": "rel_haeufigkeit",
+   "t": "rel_haeufigkeit",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bei 25 Versuchen beträgt die relative Häufigkeit eines Ergebnisses 12 %. Wie oft trat es ein?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "25 * 0.12",
+   "w": "12 % von 25 = 0,12 · 25 = 3."
+  },
+  {
+   "l": "rel_haeufigkeit",
+   "t": "rel_haeufigkeit",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bei 20 Versuchen beträgt die relative Häufigkeit eines Ergebnisses 75 %. Wie oft trat es ein?"
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "20 * 0.75",
+   "w": "75 % von 20 = 0,75 · 20 = 15."
+  },
+  {
+   "l": "rel_haeufigkeit",
+   "t": "rel_haeufigkeit",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Reißzwecke wurde 20-mal geworfen und landete 10-mal auf dem Kopf. Gib die relative Häufigkeit in Prozent an."
+   },
+   "o": {
+    "wert": 50,
+    "einheit": "%"
+   },
+   "c": "10 / 20 * 100",
+   "w": "10 : 20 = 0,5 = 50 %."
+  },
+  {
+   "l": "rel_haeufigkeit",
+   "t": "rel_haeufigkeit",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Reißzwecke wurde 20-mal geworfen und landete 4-mal auf dem Kopf. Gib die relative Häufigkeit in Prozent an."
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "%"
+   },
+   "c": "4 / 20 * 100",
+   "w": "4 : 20 = 0,2 = 20 %."
+  },
+  {
+   "l": "rel_haeufigkeit",
+   "t": "rel_haeufigkeit",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Reißzwecke wurde 80-mal geworfen und landete 54-mal auf dem Kopf. Gib die relative Häufigkeit in Prozent an."
+   },
+   "o": {
+    "wert": 67.5,
+    "einheit": "%"
+   },
+   "c": "54 / 80 * 100",
+   "w": "54 : 80 = 0,675 = 67,5 %."
+  },
+  {
+   "l": "rel_haeufigkeit",
+   "t": "rel_haeufigkeit",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Reißzwecke wurde 1000-mal geworfen und landete 129-mal auf dem Kopf. Gib die relative Häufigkeit in Prozent an."
+   },
+   "o": {
+    "wert": 12.9,
+    "einheit": "%"
+   },
+   "c": "129 / 1000 * 100",
+   "w": "129 : 1000 = 0,129 = 12,9 %."
+  },
+  {
+   "l": "rel_haeufigkeit",
+   "t": "rel_haeufigkeit",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bei 1000 Versuchen beträgt die relative Häufigkeit eines Ergebnisses 25 %. Wie oft trat es ein?"
+   },
+   "o": {
+    "wert": 250
+   },
+   "c": "1000 * 0.25",
+   "w": "25 % von 1000 = 0,25 · 1000 = 250."
+  },
+  {
+   "l": "laplace",
+   "t": "laplace",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "In einer Urne liegen 7 rote, 3 blaue und 5 grüne Kugeln. Eine wird zufällig gezogen. Wie groß ist P(rot)?"
+   },
+   "a": [
+    "8/15",
+    "3/5",
+    "7/8",
+    "7/15"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "7 günstige von 15 Kugeln: P(rot) = 7/15.",
+   "h": "Im Nenner stehen alle Kugeln."
+  },
+  {
+   "l": "laplace",
+   "t": "laplace",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "In einer Urne liegen 8 rote, 1 blaue und 4 grüne Kugeln. Eine wird zufällig gezogen. Wie groß ist P(grün)?"
+   },
+   "a": [
+    "10/13",
+    "4/9",
+    "4/13",
+    "9/13"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "4 günstige von 13 Kugeln: P(grün) = 4/13.",
+   "h": "Im Nenner stehen alle Kugeln."
+  },
+  {
+   "l": "laplace",
+   "t": "laplace",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "In einer Urne liegen 2 rote, 2 blaue und 2 grüne Kugeln. Eine wird zufällig gezogen. Wie groß ist P(grün)?"
+   },
+   "a": [
+    "5/6",
+    "1/3",
+    "1/2",
+    "2/3"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "2 günstige von 6 Kugeln: P(grün) = 2/6 = 1/3.",
+   "h": "Im Nenner stehen alle Kugeln."
+  },
+  {
+   "l": "laplace",
+   "t": "laplace",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "In einer Urne liegen 4 rote, 6 blaue und 1 grüne Kugeln. Eine wird zufällig gezogen. Wie groß ist P(grün)?"
+   },
+   "a": [
+    "10/11",
+    "1/11",
+    "1/10",
+    "1"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "1 günstige von 11 Kugeln: P(grün) = 1/11.",
+   "h": "Im Nenner stehen alle Kugeln."
+  },
+  {
+   "l": "laplace",
+   "t": "laplace",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein fairer Würfel mit den Zahlen 1 bis 12 wird geworfen. Wie groß ist die Wahrscheinlichkeit für eine Primzahl?"
+   },
+   "a": [
+    "5/12",
+    "2/3",
+    "7/12",
+    "5/7"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "5 günstige von 12 Ergebnissen: P = 5/12 = 5/12.",
+   "h": "Zähle die günstigen Ergebnisse."
+  },
+  {
+   "l": "laplace",
+   "t": "laplace",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Glücksrad hat 8 gleich große Felder, 6 davon sind rot. Wie groß ist die Wahrscheinlichkeit für „rot“? Gib sie als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.75
+   },
+   "c": "6 / 8",
+   "w": "6 günstige von 8 gleich wahrscheinlichen Ergebnissen: P = 6/8 = 0,75.",
+   "h": "Zähle die günstigen Ergebnisse."
+  },
+  {
+   "l": "laplace",
+   "t": "laplace",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Glücksrad hat 12 gleich große Felder, 3 davon sind rot. Wie groß ist die Wahrscheinlichkeit für „rot“? Gib sie als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.25
+   },
+   "c": "3 / 12",
+   "w": "3 günstige von 12 gleich wahrscheinlichen Ergebnissen: P = 3/12 = 0,25.",
+   "h": "Zähle die günstigen Ergebnisse."
+  },
+  {
+   "l": "laplace",
+   "t": "laplace",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Glücksrad hat 5 gleich große Felder, 2 davon sind rot. Wie groß ist die Wahrscheinlichkeit für „rot“? Gib sie als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.4
+   },
+   "c": "2 / 5",
+   "w": "2 günstige von 5 gleich wahrscheinlichen Ergebnissen: P = 2/5 = 0,4.",
+   "h": "Zähle die günstigen Ergebnisse."
+  },
+  {
+   "l": "laplace",
+   "t": "laplace",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein fairer Würfel mit den Zahlen 1 bis 12 wird geworfen. Wie groß ist die Wahrscheinlichkeit für eine gerade Zahl? Gib sie als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.5
+   },
+   "c": "6 / 12",
+   "w": "6 günstige von 12 gleich wahrscheinlichen Ergebnissen: P = 6/12 = 0,5.",
+   "h": "Zähle die günstigen Ergebnisse."
+  },
+  {
+   "l": "laplace",
+   "t": "laplace",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein fairer Würfel mit den Zahlen 1 bis 10 wird geworfen. Wie groß ist die Wahrscheinlichkeit für eine Zahl größer als 3? Gib sie als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.7
+   },
+   "c": "7 / 10",
+   "w": "7 günstige von 10 gleich wahrscheinlichen Ergebnissen: P = 7/10 = 0,7.",
+   "h": "Zähle die günstigen Ergebnisse."
+  },
+  {
+   "l": "laplace",
+   "t": "laplace",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei faire Würfel werden geworfen. Wie groß ist die Wahrscheinlichkeit, dass die Augensumme 7 ist?"
+   },
+   "a": [
+    "1/11",
+    "1/12",
+    "2/7",
+    "1/6"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "36 gleich wahrscheinliche Paare. Summe 7: 6 Paare. P = 6/36 = 1/6.",
+   "h": "Schreibe alle 36 Paare als Tabelle. Die 11 möglichen Summen sind nicht gleich wahrscheinlich!"
+  },
+  {
+   "l": "laplace",
+   "t": "laplace",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei faire Würfel werden geworfen. Wie groß ist die Wahrscheinlichkeit, dass die Augensumme 4 ist?"
+   },
+   "a": [
+    "1/6",
+    "1/11",
+    "1/12",
+    "1/7"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "36 gleich wahrscheinliche Paare. Summe 4: 3 Paare. P = 3/36 = 1/12.",
+   "h": "Schreibe alle 36 Paare als Tabelle. Die 11 möglichen Summen sind nicht gleich wahrscheinlich!"
+  },
+  {
+   "l": "laplace",
+   "t": "laplace",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Zwei faire Würfel werden geworfen. Wie groß ist die Wahrscheinlichkeit, dass die Augensumme 10 ist?"
+   },
+   "a": [
+    "1/7",
+    "1/12",
+    "1/11",
+    "1/6"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "36 gleich wahrscheinliche Paare. Summe 10: 3 Paare. P = 3/36 = 1/12.",
+   "h": "Schreibe alle 36 Paare als Tabelle. Die 11 möglichen Summen sind nicht gleich wahrscheinlich!"
+  },
+  {
+   "l": "laplace",
+   "t": "laplace",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Urne liegen 2 rote und 3 blaue Kugeln. Wie viele blaue Kugeln muss man dazulegen, damit P(rot) = 0,2 ist?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "2 / 0.2 - 2 - 3",
+   "w": "2 : (Gesamtzahl) = 0,2 → Gesamtzahl = 2 : 0,2 = 10. Dazulegen: 10 − 5 = 5.",
+   "h": "Wie viele Kugeln muss es insgesamt geben?"
+  },
+  {
+   "l": "laplace",
+   "t": "laplace",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Glücksrad hat 8 gleich große Felder, 7 davon sind rot. Wie groß ist die Wahrscheinlichkeit für „rot“? Gib sie als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.875
+   },
+   "c": "7 / 8",
+   "w": "7 günstige von 8 gleich wahrscheinlichen Ergebnissen: P = 7/8 = 0,875."
+  },
+  {
+   "l": "laplace",
+   "t": "laplace",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus einem Skatblatt (32 Karten: 4 Farben, je 7, 8, 9, 10, Bube, Dame, König, Ass) wird eine Karte gezogen. Wie groß ist die Wahrscheinlichkeit für eine Herz-Karte? Gib sie als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.25
+   },
+   "c": "8 / 32",
+   "w": "8 günstige von 32 gleich wahrscheinlichen Ergebnissen: P = 8/32 = 0,25."
+  },
+  {
+   "l": "laplace",
+   "t": "laplace",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Glücksrad hat 8 gleich große Felder, 2 davon sind rot. Wie groß ist die Wahrscheinlichkeit für „rot“? Gib sie als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.25
+   },
+   "c": "2 / 8",
+   "w": "2 günstige von 8 gleich wahrscheinlichen Ergebnissen: P = 2/8 = 0,25."
+  },
+  {
+   "l": "laplace",
+   "t": "laplace",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus einem Skatblatt (32 Karten: 4 Farben, je 7, 8, 9, 10, Bube, Dame, König, Ass) wird eine Karte gezogen. Wie groß ist die Wahrscheinlichkeit für eine rote Karte? Gib sie als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.5
+   },
+   "c": "16 / 32",
+   "w": "16 günstige von 32 gleich wahrscheinlichen Ergebnissen: P = 16/32 = 0,5."
+  },
+  {
+   "l": "laplace",
+   "t": "laplace",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein fairer Würfel mit den Zahlen 1 bis 12 wird geworfen. Wie groß ist die Wahrscheinlichkeit für eine Zahl kleiner als 5?"
+   },
+   "a": [
+    "2/3",
+    "3/4",
+    "1/3",
+    "1/2"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "4 günstige von 12 Ergebnissen: P = 4/12 = 1/3."
+  },
+  {
+   "l": "laplace",
+   "t": "laplace",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus einem Skatblatt (32 Karten: 4 Farben, je 7, 8, 9, 10, Bube, Dame, König, Ass) wird eine Karte gezogen. Wie groß ist die Wahrscheinlichkeit für ein Bube oder eine Dame? Gib sie als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.25
+   },
+   "c": "8 / 32",
+   "w": "8 günstige von 32 gleich wahrscheinlichen Ergebnissen: P = 8/32 = 0,25."
+  },
+  {
+   "l": "laplace",
+   "t": "laplace",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein fairer Würfel mit den Zahlen 1 bis 20 wird geworfen. Wie groß ist die Wahrscheinlichkeit für ein Vielfaches von 3? Gib sie als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.3
+   },
+   "c": "6 / 20",
+   "w": "6 günstige von 20 gleich wahrscheinlichen Ergebnissen: P = 6/20 = 0,3."
+  },
+  {
+   "l": "laplace",
+   "t": "laplace",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Glücksrad hat 10 gleich große Felder, 5 davon sind rot. Wie groß ist die Wahrscheinlichkeit für „rot“? Gib sie als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.5
+   },
+   "c": "5 / 10",
+   "w": "5 günstige von 10 gleich wahrscheinlichen Ergebnissen: P = 5/10 = 0,5."
+  },
+  {
+   "l": "laplace",
+   "t": "laplace",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Aus einem Skatblatt (32 Karten: 4 Farben, je 7, 8, 9, 10, Bube, Dame, König, Ass) wird eine Karte gezogen. Wie groß ist die Wahrscheinlichkeit für die Kreuz-Dame?"
+   },
+   "a": [
+    "31/32",
+    "1",
+    "1/32",
+    "1/31"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "1 günstige von 32 Ergebnissen: P = 1/32 = 1/32."
+  },
+  {
+   "l": "laplace",
+   "t": "laplace",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein fairer Würfel mit den Zahlen 1 bis 10 wird geworfen. Wie groß ist die Wahrscheinlichkeit für eine Primzahl? Gib sie als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.4
+   },
+   "c": "4 / 10",
+   "w": "4 günstige von 10 gleich wahrscheinlichen Ergebnissen: P = 4/10 = 0,4."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Wahrscheinlichkeit, dass ein Bus pünktlich ist, beträgt 36 %. Wie groß ist die Wahrscheinlichkeit, dass er nicht pünktlich ist (in %)?"
+   },
+   "o": {
+    "wert": 64,
+    "einheit": "%"
+   },
+   "c": "100 - 36",
+   "w": "P(Ē) = 100 % − 36 % = 64 %.",
+   "h": "P(Ē) = 1 − P(E), also 100 % − P(E)."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Wahrscheinlichkeit, dass ein Bus pünktlich ist, beträgt 68 %. Wie groß ist die Wahrscheinlichkeit, dass er nicht pünktlich ist (in %)?"
+   },
+   "o": {
+    "wert": 32,
+    "einheit": "%"
+   },
+   "c": "100 - 68",
+   "w": "P(Ē) = 100 % − 68 % = 32 %.",
+   "h": "P(Ē) = 1 − P(E), also 100 % − P(E)."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Wahrscheinlichkeit, dass ein Bus pünktlich ist, beträgt 3 %. Wie groß ist die Wahrscheinlichkeit, dass er nicht pünktlich ist (in %)?"
+   },
+   "o": {
+    "wert": 97,
+    "einheit": "%"
+   },
+   "c": "100 - 3",
+   "w": "P(Ē) = 100 % − 3 % = 97 %.",
+   "h": "P(Ē) = 1 − P(E), also 100 % − P(E)."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Wahrscheinlichkeit, dass ein Bus pünktlich ist, beträgt 11 %. Wie groß ist die Wahrscheinlichkeit, dass er nicht pünktlich ist (in %)?"
+   },
+   "o": {
+    "wert": 89,
+    "einheit": "%"
+   },
+   "c": "100 - 11",
+   "w": "P(Ē) = 100 % − 11 % = 89 %.",
+   "h": "P(Ē) = 1 − P(E), also 100 % − P(E)."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie heißt das Gegenereignis zu „alle Kugeln sind rot (bei drei Zügen)“?"
+   },
+   "a": [
+    "keine Sechs",
+    "mindestens eine Kugel ist nicht rot",
+    "keine Kugel ist rot",
+    "höchstens ein Wappen"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Das Gegenereignis umfasst genau die Fälle, in denen „alle Kugeln sind rot (bei drei Zügen)“ nicht eintritt: mindestens eine Kugel ist nicht rot.",
+   "h": "Welche Fälle bleiben übrig, wenn E nicht eintritt?"
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie heißt das Gegenereignis zu „die Zahl ist größer als 2“?"
+   },
+   "a": [
+    "die Zahl ist 1 oder 2",
+    "mindestens eine Kugel ist nicht rot",
+    "die Augenzahl ist ungerade",
+    "die Zahl ist kleiner als 2"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Das Gegenereignis umfasst genau die Fälle, in denen „die Zahl ist größer als 2“ nicht eintritt: die Zahl ist 1 oder 2.",
+   "h": "Welche Fälle bleiben übrig, wenn E nicht eintritt?"
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie heißt das Gegenereignis zu „höchstens zwei Treffer (bei fünf Würfen)“?"
+   },
+   "a": [
+    "mindestens zwei Treffer",
+    "höchstens ein Wappen",
+    "keine Sechs",
+    "mindestens drei Treffer"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Das Gegenereignis umfasst genau die Fälle, in denen „höchstens zwei Treffer (bei fünf Würfen)“ nicht eintritt: mindestens drei Treffer.",
+   "h": "Welche Fälle bleiben übrig, wenn E nicht eintritt?"
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie heißt das Gegenereignis zu „alle Kugeln sind rot (bei drei Zügen)“?"
+   },
+   "a": [
+    "mindestens eine Kugel ist nicht rot",
+    "keine Kugel ist rot",
+    "keine oder zwei Sechsen",
+    "höchstens 4 Treffer"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Das Gegenereignis umfasst genau die Fälle, in denen „alle Kugeln sind rot (bei drei Zügen)“ nicht eintritt: mindestens eine Kugel ist nicht rot.",
+   "h": "Welche Fälle bleiben übrig, wenn E nicht eintritt?"
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie heißt das Gegenereignis zu „genau eine Sechs (bei zwei Würfen)“?"
+   },
+   "a": [
+    "keine Sechs",
+    "keine oder zwei Sechsen",
+    "höchstens 4 Treffer",
+    "die Augenzahl ist ungerade"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Das Gegenereignis umfasst genau die Fälle, in denen „genau eine Sechs (bei zwei Würfen)“ nicht eintritt: keine oder zwei Sechsen.",
+   "h": "Welche Fälle bleiben übrig, wenn E nicht eintritt?"
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie heißt das Gegenereignis zu „genau eine Sechs (bei zwei Würfen)“?"
+   },
+   "a": [
+    "mindestens eine Kugel ist nicht rot",
+    "keine oder zwei Sechsen",
+    "keine Sechs"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Das Gegenereignis umfasst genau die Fälle, in denen „genau eine Sechs (bei zwei Würfen)“ nicht eintritt: keine oder zwei Sechsen.",
+   "h": "Welche Fälle bleiben übrig, wenn E nicht eintritt?"
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein fairer Würfel hat die Zahlen 1 bis 10. Wie groß ist die Wahrscheinlichkeit, KEINE Zahl kleiner oder gleich 2 zu werfen? Gib sie als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.8
+   },
+   "c": "1 - 2 / 10",
+   "w": "P(Zahl ≤ 2) = 2/10. Gegenereignis: 1 − 2/10 = 0,8.",
+   "h": "Berechne erst P(E) und nimm dann 1 − P(E)."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein fairer Würfel hat die Zahlen 1 bis 6. Wie groß ist die Wahrscheinlichkeit, KEINE Zahl kleiner oder gleich 5 zu werfen?"
+   },
+   "a": [
+    "1/7",
+    "1/6",
+    "1/3",
+    "5/6"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "P(Zahl ≤ 5) = 5/6. Gegenereignis: 1 − 5/6 = 1/6.",
+   "h": "Berechne erst P(E) und nimm dann 1 − P(E)."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein fairer Würfel hat die Zahlen 1 bis 8. Wie groß ist die Wahrscheinlichkeit, KEINE Zahl kleiner oder gleich 4 zu werfen? Gib sie als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.5
+   },
+   "c": "1 - 4 / 8",
+   "w": "P(Zahl ≤ 4) = 4/8. Gegenereignis: 1 − 4/8 = 0,5.",
+   "h": "Berechne erst P(E) und nimm dann 1 − P(E)."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein fairer Würfel hat die Zahlen 1 bis 20. Wie groß ist die Wahrscheinlichkeit, KEINE Zahl kleiner oder gleich 9 zu werfen? Gib sie als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.55
+   },
+   "c": "1 - 9 / 20",
+   "w": "P(Zahl ≤ 9) = 9/20. Gegenereignis: 1 − 9/20 = 0,55.",
+   "h": "Berechne erst P(E) und nimm dann 1 − P(E)."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie heißt das Gegenereignis zu „die Augenzahl ist gerade“?"
+   },
+   "a": [
+    "die Augenzahl ist ungerade",
+    "mindestens drei Treffer",
+    "die Augenzahl ist größer als 3",
+    "die Zahl ist 1 oder 2"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Das Gegenereignis umfasst genau die Fälle, in denen „die Augenzahl ist gerade“ nicht eintritt: die Augenzahl ist ungerade."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie heißt das Gegenereignis zu „genau eine Sechs (bei zwei Würfen)“?"
+   },
+   "a": [
+    "die Augenzahl ist ungerade",
+    "keine Sechs",
+    "die Zahl ist 1 oder 2",
+    "keine oder zwei Sechsen"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Das Gegenereignis umfasst genau die Fälle, in denen „genau eine Sechs (bei zwei Würfen)“ nicht eintritt: keine oder zwei Sechsen."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie heißt das Gegenereignis zu „die Zahl ist größer als 2“?"
+   },
+   "a": [
+    "mindestens drei Treffer",
+    "mindestens eine Kugel ist nicht rot",
+    "die Zahl ist 1 oder 2",
+    "die Zahl ist kleiner als 2"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Das Gegenereignis umfasst genau die Fälle, in denen „die Zahl ist größer als 2“ nicht eintritt: die Zahl ist 1 oder 2."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie heißt das Gegenereignis zu „mindestens zwei Wappen (bei drei Würfen)“?"
+   },
+   "a": [
+    "die Augenzahl ist ungerade",
+    "höchstens ein Wappen",
+    "höchstens zwei Wappen",
+    "mindestens eine Kugel ist nicht rot"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Das Gegenereignis umfasst genau die Fälle, in denen „mindestens zwei Wappen (bei drei Würfen)“ nicht eintritt: höchstens ein Wappen."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie heißt das Gegenereignis zu „genau eine Sechs (bei zwei Würfen)“?"
+   },
+   "a": [
+    "die Augenzahl ist ungerade",
+    "mindestens drei Treffer",
+    "keine Sechs",
+    "keine oder zwei Sechsen"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Das Gegenereignis umfasst genau die Fälle, in denen „genau eine Sechs (bei zwei Würfen)“ nicht eintritt: keine oder zwei Sechsen."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie heißt das Gegenereignis zu „alle Kugeln sind rot (bei drei Zügen)“?"
+   },
+   "a": [
+    "keine Kugel ist rot",
+    "mindestens eine Kugel ist nicht rot",
+    "mindestens drei Treffer",
+    "keine oder zwei Sechsen"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Das Gegenereignis umfasst genau die Fälle, in denen „alle Kugeln sind rot (bei drei Zügen)“ nicht eintritt: mindestens eine Kugel ist nicht rot."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie heißt das Gegenereignis zu „die Zahl ist größer als 2“?"
+   },
+   "a": [
+    "keine Sechs",
+    "höchstens 4 Treffer",
+    "die Zahl ist kleiner als 2",
+    "die Zahl ist 1 oder 2"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Das Gegenereignis umfasst genau die Fälle, in denen „die Zahl ist größer als 2“ nicht eintritt: die Zahl ist 1 oder 2."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie heißt das Gegenereignis zu „die Zahl ist größer als 2“?"
+   },
+   "a": [
+    "die Augenzahl ist ungerade",
+    "die Zahl ist kleiner als 2",
+    "keine Sechs",
+    "die Zahl ist 1 oder 2"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Das Gegenereignis umfasst genau die Fälle, in denen „die Zahl ist größer als 2“ nicht eintritt: die Zahl ist 1 oder 2."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie heißt das Gegenereignis zu „mindestens zwei Wappen (bei drei Würfen)“?"
+   },
+   "a": [
+    "die Augenzahl ist ungerade",
+    "höchstens zwei Wappen",
+    "die Zahl ist 1 oder 2",
+    "höchstens ein Wappen"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Das Gegenereignis umfasst genau die Fälle, in denen „mindestens zwei Wappen (bei drei Würfen)“ nicht eintritt: höchstens ein Wappen."
+  },
+  {
+   "l": "gegenereignis",
+   "t": "gegenereignis",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie heißt das Gegenereignis zu „die Augenzahl ist gerade“?"
+   },
+   "a": [
+    "die Augenzahl ist ungerade",
+    "höchstens ein Wappen",
+    "keine Sechs",
+    "die Augenzahl ist größer als 3"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Das Gegenereignis umfasst genau die Fälle, in denen „die Augenzahl ist gerade“ nicht eintritt: die Augenzahl ist ungerade."
+  },
+  {
+   "l": "grosse_zahlen",
+   "t": "grosse_zahlen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie oft erwartest du bei 60 Versuchen ungefähr eine Sechs beim Würfeln?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "60 * 1 / 6",
+   "w": "Erwartet: n · P = 60 · 1/6 = 10. Das tatsächliche Ergebnis schwankt um diesen Wert.",
+   "h": "Anzahl der Versuche mal Wahrscheinlichkeit."
+  },
+  {
+   "l": "grosse_zahlen",
+   "t": "grosse_zahlen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie oft erwartest du bei 1000 Versuchen ungefähr Wappen beim Münzwurf?"
+   },
+   "o": {
+    "wert": 500
+   },
+   "c": "1000 * 1 / 2",
+   "w": "Erwartet: n · P = 1000 · 1/2 = 500. Das tatsächliche Ergebnis schwankt um diesen Wert.",
+   "h": "Anzahl der Versuche mal Wahrscheinlichkeit."
+  },
+  {
+   "l": "grosse_zahlen",
+   "t": "grosse_zahlen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie oft erwartest du bei 600 Versuchen ungefähr eine Sechs beim Würfeln?"
+   },
+   "o": {
+    "wert": 100
+   },
+   "c": "600 * 1 / 6",
+   "w": "Erwartet: n · P = 600 · 1/6 = 100. Das tatsächliche Ergebnis schwankt um diesen Wert.",
+   "h": "Anzahl der Versuche mal Wahrscheinlichkeit."
+  },
+  {
+   "l": "grosse_zahlen",
+   "t": "grosse_zahlen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie oft erwartest du bei 200 Versuchen ungefähr Wappen beim Münzwurf?"
+   },
+   "o": {
+    "wert": 100
+   },
+   "c": "200 * 1 / 2",
+   "w": "Erwartet: n · P = 200 · 1/2 = 100. Das tatsächliche Ergebnis schwankt um diesen Wert.",
+   "h": "Anzahl der Versuche mal Wahrscheinlichkeit."
+  },
+  {
+   "l": "grosse_zahlen",
+   "t": "grosse_zahlen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie oft erwartest du bei 40 Versuchen ungefähr „rot“ beim Glücksrad mit 8 gleichen Feldern, davon 6 rot?"
+   },
+   "o": {
+    "wert": 30
+   },
+   "c": "40 * 3 / 4",
+   "w": "Erwartet: n · P = 40 · 3/4 = 30. Das tatsächliche Ergebnis schwankt um diesen Wert.",
+   "h": "Anzahl der Versuche mal Wahrscheinlichkeit."
+  },
+  {
+   "l": "grosse_zahlen",
+   "t": "grosse_zahlen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie oft erwartest du bei 200 Versuchen ungefähr „rot“ beim Glücksrad mit 5 gleichen Feldern, davon 2 rot?"
+   },
+   "o": {
+    "wert": 80
+   },
+   "c": "200 * 2 / 5",
+   "w": "Erwartet: n · P = 200 · 2/5 = 80. Das tatsächliche Ergebnis schwankt um diesen Wert.",
+   "h": "Anzahl der Versuche mal Wahrscheinlichkeit."
+  },
+  {
+   "l": "grosse_zahlen",
+   "t": "grosse_zahlen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie oft erwartest du bei 100 Versuchen ungefähr Wappen beim Münzwurf?"
+   },
+   "o": {
+    "wert": 50
+   },
+   "c": "100 * 1 / 2",
+   "w": "Erwartet: n · P = 100 · 1/2 = 50. Das tatsächliche Ergebnis schwankt um diesen Wert.",
+   "h": "Anzahl der Versuche mal Wahrscheinlichkeit."
+  },
+  {
+   "l": "grosse_zahlen",
+   "t": "grosse_zahlen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie oft erwartest du bei 400 Versuchen ungefähr „rot“ beim Glücksrad mit 5 gleichen Feldern, davon 1 rot?"
+   },
+   "o": {
+    "wert": 80
+   },
+   "c": "400 * 1 / 5",
+   "w": "Erwartet: n · P = 400 · 1/5 = 80. Das tatsächliche Ergebnis schwankt um diesen Wert.",
+   "h": "Anzahl der Versuche mal Wahrscheinlichkeit."
+  },
+  {
+   "l": "grosse_zahlen",
+   "t": "grosse_zahlen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie oft erwartest du bei 100 Versuchen ungefähr „rot“ beim Glücksrad mit 10 gleichen Feldern, davon 5 rot?"
+   },
+   "o": {
+    "wert": 50
+   },
+   "c": "100 * 1 / 2",
+   "w": "Erwartet: n · P = 100 · 1/2 = 50. Das tatsächliche Ergebnis schwankt um diesen Wert.",
+   "h": "Anzahl der Versuche mal Wahrscheinlichkeit."
+  },
+  {
+   "l": "grosse_zahlen",
+   "t": "grosse_zahlen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie oft erwartest du bei 100 Versuchen ungefähr „rot“ beim Glücksrad mit 10 gleichen Feldern, davon 6 rot?"
+   },
+   "o": {
+    "wert": 60
+   },
+   "c": "100 * 3 / 5",
+   "w": "Erwartet: n · P = 100 · 3/5 = 60. Das tatsächliche Ergebnis schwankt um diesen Wert.",
+   "h": "Anzahl der Versuche mal Wahrscheinlichkeit."
+  },
+  {
+   "l": "grosse_zahlen",
+   "t": "grosse_zahlen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage zum Gesetz der großen Zahlen ist richtig?"
+   },
+   "a": [
+    "Nach fünf Würfen ohne Sechs ist eine Sechs beim nächsten Wurf wahrscheinlicher.",
+    "Bei 6000 Würfen eines fairen Würfels kommt die Sechs ungefähr 1000-mal.",
+    "Bei 10 Münzwürfen gibt es immer genau 5-mal Wappen.",
+    "Bei 6 Würfen eines fairen Würfels kommt die Sechs genau einmal."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Richtig: Bei 6000 Würfen eines fairen Würfels kommt die Sechs ungefähr 1000-mal. Zufall hat kein Gedächtnis; erst bei vielen Versuchen stabilisiert sich die relative Häufigkeit.",
+   "h": "Achte auf Wörter wie „genau“, „immer“ und „muss“."
+  },
+  {
+   "l": "grosse_zahlen",
+   "t": "grosse_zahlen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage ist FALSCH?"
+   },
+   "a": [
+    "Je öfter man eine Münze wirft, desto näher liegt meist der Anteil der Wappen bei 0,5.",
+    "Bei 10 Münzwürfen gibt es immer genau 5-mal Wappen.",
+    "Mit vielen Versuchen kann man eine unbekannte Wahrscheinlichkeit gut schätzen.",
+    "Bei 6000 Würfen eines fairen Würfels kommt die Sechs ungefähr 1000-mal."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Falsch: Bei 10 Münzwürfen gibt es immer genau 5-mal Wappen. Die relative Häufigkeit nähert sich nur ungefähr an, genaue Vorhersagen sind unmöglich.",
+   "h": "Achte auf Wörter wie „genau“, „immer“ und „muss“."
+  },
+  {
+   "l": "grosse_zahlen",
+   "t": "grosse_zahlen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage zum Gesetz der großen Zahlen ist richtig?"
+   },
+   "a": [
+    "Bei 6 Würfen eines fairen Würfels kommt die Sechs genau einmal.",
+    "Nach fünf Würfen ohne Sechs ist eine Sechs beim nächsten Wurf wahrscheinlicher.",
+    "Bei 10 Münzwürfen gibt es immer genau 5-mal Wappen.",
+    "Die relative Häufigkeit kann bei wenigen Versuchen stark von der Wahrscheinlichkeit abweichen."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Richtig: Die relative Häufigkeit kann bei wenigen Versuchen stark von der Wahrscheinlichkeit abweichen. Zufall hat kein Gedächtnis; erst bei vielen Versuchen stabilisiert sich die relative Häufigkeit.",
+   "h": "Achte auf Wörter wie „genau“, „immer“ und „muss“."
+  },
+  {
+   "l": "grosse_zahlen",
+   "t": "grosse_zahlen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage zum Gesetz der großen Zahlen ist richtig?"
+   },
+   "a": [
+    "Wenn beim Roulette fünfmal Rot kam, muss jetzt Schwarz kommen.",
+    "Bei 6 Würfen eines fairen Würfels kommt die Sechs genau einmal.",
+    "Je öfter man eine Münze wirft, desto näher liegt meist der Anteil der Wappen bei 0,5.",
+    "Bei 10 Münzwürfen gibt es immer genau 5-mal Wappen."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Richtig: Je öfter man eine Münze wirft, desto näher liegt meist der Anteil der Wappen bei 0,5. Zufall hat kein Gedächtnis; erst bei vielen Versuchen stabilisiert sich die relative Häufigkeit.",
+   "h": "Achte auf Wörter wie „genau“, „immer“ und „muss“."
+  },
+  {
+   "l": "grosse_zahlen",
+   "t": "grosse_zahlen",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie oft erwartest du bei 2000 Versuchen ungefähr Wappen beim Münzwurf?"
+   },
+   "o": {
+    "wert": 1000
+   },
+   "c": "2000 * 1 / 2",
+   "w": "Erwartet: n · P = 2000 · 1/2 = 1000. Das tatsächliche Ergebnis schwankt um diesen Wert."
+  },
+  {
+   "l": "grosse_zahlen",
+   "t": "grosse_zahlen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie oft erwartest du bei 120 Versuchen ungefähr eine Sechs beim Würfeln?"
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "120 * 1 / 6",
+   "w": "Erwartet: n · P = 120 · 1/6 = 20. Das tatsächliche Ergebnis schwankt um diesen Wert."
+  },
+  {
+   "l": "grosse_zahlen",
+   "t": "grosse_zahlen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie oft erwartest du bei 80 Versuchen ungefähr „rot“ beim Glücksrad mit 10 gleichen Feldern, davon 8 rot?"
+   },
+   "o": {
+    "wert": 64
+   },
+   "c": "80 * 4 / 5",
+   "w": "Erwartet: n · P = 80 · 4/5 = 64. Das tatsächliche Ergebnis schwankt um diesen Wert."
+  },
+  {
+   "l": "grosse_zahlen",
+   "t": "grosse_zahlen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie oft erwartest du bei 500 Versuchen ungefähr Wappen beim Münzwurf?"
+   },
+   "o": {
+    "wert": 250
+   },
+   "c": "500 * 1 / 2",
+   "w": "Erwartet: n · P = 500 · 1/2 = 250. Das tatsächliche Ergebnis schwankt um diesen Wert."
+  },
+  {
+   "l": "grosse_zahlen",
+   "t": "grosse_zahlen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie oft erwartest du bei 200 Versuchen ungefähr „rot“ beim Glücksrad mit 5 gleichen Feldern, davon 1 rot?"
+   },
+   "o": {
+    "wert": 40
+   },
+   "c": "200 * 1 / 5",
+   "w": "Erwartet: n · P = 200 · 1/5 = 40. Das tatsächliche Ergebnis schwankt um diesen Wert."
+  },
+  {
+   "l": "grosse_zahlen",
+   "t": "grosse_zahlen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie oft erwartest du bei 300 Versuchen ungefähr eine Sechs beim Würfeln?"
+   },
+   "o": {
+    "wert": 50
+   },
+   "c": "300 * 1 / 6",
+   "w": "Erwartet: n · P = 300 · 1/6 = 50. Das tatsächliche Ergebnis schwankt um diesen Wert."
+  },
+  {
+   "l": "grosse_zahlen",
+   "t": "grosse_zahlen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie oft erwartest du bei 3000 Versuchen ungefähr eine Sechs beim Würfeln?"
+   },
+   "o": {
+    "wert": 500
+   },
+   "c": "3000 * 1 / 6",
+   "w": "Erwartet: n · P = 3000 · 1/6 = 500. Das tatsächliche Ergebnis schwankt um diesen Wert."
+  },
+  {
+   "l": "grosse_zahlen",
+   "t": "grosse_zahlen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie oft erwartest du bei 200 Versuchen ungefähr „rot“ beim Glücksrad mit 10 gleichen Feldern, davon 9 rot?"
+   },
+   "o": {
+    "wert": 180
+   },
+   "c": "200 * 9 / 10",
+   "w": "Erwartet: n · P = 200 · 9/10 = 180. Das tatsächliche Ergebnis schwankt um diesen Wert."
+  },
+  {
+   "l": "grosse_zahlen",
+   "t": "grosse_zahlen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie oft erwartest du bei 100 Versuchen ungefähr „rot“ beim Glücksrad mit 10 gleichen Feldern, davon 2 rot?"
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "100 * 1 / 5",
+   "w": "Erwartet: n · P = 100 · 1/5 = 20. Das tatsächliche Ergebnis schwankt um diesen Wert."
+  },
+  {
+   "l": "grosse_zahlen",
+   "t": "grosse_zahlen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie oft erwartest du bei 100 Versuchen ungefähr „rot“ beim Glücksrad mit 8 gleichen Feldern, davon 6 rot?"
+   },
+   "o": {
+    "wert": 75
+   },
+   "c": "100 * 3 / 4",
+   "w": "Erwartet: n · P = 100 · 3/4 = 75. Das tatsächliche Ergebnis schwankt um diesen Wert."
+  },
+  {
+   "l": "laplace_pruefen",
+   "t": "laplace_pruefen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist das ein Laplace-Experiment? Würfeln mit zwei Würfeln, notiert wird die Augensumme."
+   },
+   "a": [
+    "Nein, bei Zufallsexperimenten weiß man das nie.",
+    "Ja, weil es zwei oder mehr Ergebnisse gibt.",
+    "Ja, alle Ergebnisse sind gleich wahrscheinlich.",
+    "Nein, die Ergebnisse sind nicht gleich wahrscheinlich."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die Ergebnisse haben verschiedene Wahrscheinlichkeiten (z. B. wegen Form, Anzahl oder Summenbildung).",
+   "h": "Sind wirklich alle Ergebnisse gleich wahrscheinlich?"
+  },
+  {
+   "l": "laplace_pruefen",
+   "t": "laplace_pruefen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist das ein Laplace-Experiment? Werfen eines fairen Spielwürfels."
+   },
+   "a": [
+    "Nein, bei Zufallsexperimenten weiß man das nie.",
+    "Ja, weil es zwei oder mehr Ergebnisse gibt.",
+    "Ja, alle Ergebnisse sind gleich wahrscheinlich.",
+    "Nein, die Ergebnisse sind nicht gleich wahrscheinlich."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Alle Ergebnisse sind gleich wahrscheinlich.",
+   "h": "Sind wirklich alle Ergebnisse gleich wahrscheinlich?"
+  },
+  {
+   "l": "laplace_pruefen",
+   "t": "laplace_pruefen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist das ein Laplace-Experiment? Ziehen einer Karte aus einem gut gemischten Skatblatt."
+   },
+   "a": [
+    "Nein, die Ergebnisse sind nicht gleich wahrscheinlich.",
+    "Nein, bei Zufallsexperimenten weiß man das nie.",
+    "Ja, alle Ergebnisse sind gleich wahrscheinlich.",
+    "Ja, weil es zwei oder mehr Ergebnisse gibt."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Alle Ergebnisse sind gleich wahrscheinlich.",
+   "h": "Sind wirklich alle Ergebnisse gleich wahrscheinlich?"
+  },
+  {
+   "l": "laplace_pruefen",
+   "t": "laplace_pruefen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist das ein Laplace-Experiment? Werfen eines Quaders mit verschieden großen Seitenflächen."
+   },
+   "a": [
+    "Ja, alle Ergebnisse sind gleich wahrscheinlich.",
+    "Ja, weil es zwei oder mehr Ergebnisse gibt.",
+    "Nein, bei Zufallsexperimenten weiß man das nie.",
+    "Nein, die Ergebnisse sind nicht gleich wahrscheinlich."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die Ergebnisse haben verschiedene Wahrscheinlichkeiten (z. B. wegen Form, Anzahl oder Summenbildung).",
+   "h": "Sind wirklich alle Ergebnisse gleich wahrscheinlich?"
+  },
+  {
+   "l": "laplace_pruefen",
+   "t": "laplace_pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Glücksrad hat die Felder A 60°, B 60°, C 60°, D 60°, E 60°, F 60°. Ist eine Drehung (Ergebnis: Feldname) ein Laplace-Experiment?"
+   },
+   "a": [
+    "Nein, dafür braucht man genau 6 Felder.",
+    "Ja, alle Felder sind gleich groß.",
+    "Nein, die Felder sind verschieden groß.",
+    "Nein, ein Glücksrad ist nie ein Laplace-Experiment."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Gleich große Felder → gleich wahrscheinlich.",
+   "h": "Vergleiche die Winkel der Felder."
+  },
+  {
+   "l": "laplace_pruefen",
+   "t": "laplace_pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Glücksrad hat die Felder A 150°, B 180°, C 30°. Ist eine Drehung (Ergebnis: Feldname) ein Laplace-Experiment?"
+   },
+   "a": [
+    "Ja, weil es 3 Felder gibt.",
+    "Nein, die Felder sind verschieden groß.",
+    "Ja, alle Felder sind gleich groß.",
+    "Ja, jedes Glücksrad ist ein Laplace-Experiment."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Größere Felder werden häufiger getroffen.",
+   "h": "Vergleiche die Winkel der Felder."
+  },
+  {
+   "l": "laplace_pruefen",
+   "t": "laplace_pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Glücksrad hat die Felder A 30°, B 150°, C 180°. Ist eine Drehung (Ergebnis: Feldname) ein Laplace-Experiment?"
+   },
+   "a": [
+    "Ja, alle Felder sind gleich groß.",
+    "Ja, jedes Glücksrad ist ein Laplace-Experiment.",
+    "Ja, weil es 3 Felder gibt.",
+    "Nein, die Felder sind verschieden groß."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Größere Felder werden häufiger getroffen.",
+   "h": "Vergleiche die Winkel der Felder."
+  },
+  {
+   "l": "laplace_pruefen",
+   "t": "laplace_pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist das ein Laplace-Experiment? Ziehen einer Kugel aus 3 roten und 5 blauen Kugeln, notiert wird die Farbe."
+   },
+   "a": [
+    "Ja, weil es zwei oder mehr Ergebnisse gibt.",
+    "Ja, alle Ergebnisse sind gleich wahrscheinlich.",
+    "Nein, bei Zufallsexperimenten weiß man das nie.",
+    "Nein, die Ergebnisse sind nicht gleich wahrscheinlich."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die Ergebnisse haben verschiedene Wahrscheinlichkeiten (z. B. wegen Form, Anzahl oder Summenbildung).",
+   "h": "Sind wirklich alle Ergebnisse gleich wahrscheinlich?"
+  },
+  {
+   "l": "laplace_pruefen",
+   "t": "laplace_pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Glücksrad hat die Felder A 30°, B 45°, C 45°, D 60°, E 120°, F 60°. Ist eine Drehung (Ergebnis: Feldname) ein Laplace-Experiment?"
+   },
+   "a": [
+    "Ja, jedes Glücksrad ist ein Laplace-Experiment.",
+    "Nein, die Felder sind verschieden groß.",
+    "Ja, weil es 6 Felder gibt.",
+    "Ja, alle Felder sind gleich groß."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Größere Felder werden häufiger getroffen.",
+   "h": "Vergleiche die Winkel der Felder."
+  },
+  {
+   "l": "laplace_pruefen",
+   "t": "laplace_pruefen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Glücksrad hat die Felder A 30°, B 30°, C 45°, D 45°, E 150°, F 60°. Ist eine Drehung (Ergebnis: Feldname) ein Laplace-Experiment?"
+   },
+   "a": [
+    "Ja, jedes Glücksrad ist ein Laplace-Experiment.",
+    "Ja, alle Felder sind gleich groß.",
+    "Nein, die Felder sind verschieden groß.",
+    "Ja, weil es 6 Felder gibt."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Größere Felder werden häufiger getroffen.",
+   "h": "Vergleiche die Winkel der Felder."
+  },
+  {
+   "l": "laplace_pruefen",
+   "t": "laplace_pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Glücksrad mit den Feldern A 30°, B 60°, C 90°, D 150°, E 30°. Wie groß ist die Wahrscheinlichkeit für Feld C? Gib sie als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.25
+   },
+   "c": "90 / 360",
+   "w": "Kein Laplace-Experiment, aber P ist der Anteil am Vollwinkel: 90° : 360° = 0,25.",
+   "h": "Die Wahrscheinlichkeit ist der Anteil des Feldes am ganzen Kreis (360°)."
+  },
+  {
+   "l": "laplace_pruefen",
+   "t": "laplace_pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Glücksrad hat die Felder A 30°, B 30°, C 45°, D 45°, E 90°, F 120°. Ist eine Drehung (Ergebnis: Feldname) ein Laplace-Experiment?"
+   },
+   "a": [
+    "Nein, die Felder sind verschieden groß.",
+    "Ja, weil es 6 Felder gibt.",
+    "Ja, alle Felder sind gleich groß.",
+    "Ja, jedes Glücksrad ist ein Laplace-Experiment."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Größere Felder werden häufiger getroffen.",
+   "h": "Vergleiche die Winkel der Felder."
+  },
+  {
+   "l": "laplace_pruefen",
+   "t": "laplace_pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Glücksrad hat die Felder A 120°, B 180°, C 60°. Ist eine Drehung (Ergebnis: Feldname) ein Laplace-Experiment?"
+   },
+   "a": [
+    "Nein, die Felder sind verschieden groß.",
+    "Ja, alle Felder sind gleich groß.",
+    "Ja, weil es 3 Felder gibt.",
+    "Ja, jedes Glücksrad ist ein Laplace-Experiment."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Größere Felder werden häufiger getroffen.",
+   "h": "Vergleiche die Winkel der Felder."
+  },
+  {
+   "l": "laplace_pruefen",
+   "t": "laplace_pruefen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Glücksrad mit den Feldern A 90°, B 180°, C 90°. Wie groß ist die Wahrscheinlichkeit für Feld C? Gib sie als Dezimalzahl an."
+   },
+   "o": {
+    "wert": 0.25
+   },
+   "c": "90 / 360",
+   "w": "Kein Laplace-Experiment, aber P ist der Anteil am Vollwinkel: 90° : 360° = 0,25.",
+   "h": "Die Wahrscheinlichkeit ist der Anteil des Feldes am ganzen Kreis (360°)."
+  },
+  {
+   "l": "laplace_pruefen",
+   "t": "laplace_pruefen",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Glücksrad hat die Felder A 30°, B 45°, C 60°, D 90°, E 135°. Ist eine Drehung (Ergebnis: Feldname) ein Laplace-Experiment?"
+   },
+   "a": [
+    "Nein, die Felder sind verschieden groß.",
+    "Ja, weil es 5 Felder gibt.",
+    "Ja, alle Felder sind gleich groß.",
+    "Ja, jedes Glücksrad ist ein Laplace-Experiment."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Größere Felder werden häufiger getroffen."
+  },
+  {
+   "l": "laplace_pruefen",
+   "t": "laplace_pruefen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist das ein Laplace-Experiment? Werfen eines Legosteins."
+   },
+   "a": [
+    "Ja, weil es zwei oder mehr Ergebnisse gibt.",
+    "Nein, bei Zufallsexperimenten weiß man das nie.",
+    "Ja, alle Ergebnisse sind gleich wahrscheinlich.",
+    "Nein, die Ergebnisse sind nicht gleich wahrscheinlich."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die Ergebnisse haben verschiedene Wahrscheinlichkeiten (z. B. wegen Form, Anzahl oder Summenbildung)."
+  },
+  {
+   "l": "laplace_pruefen",
+   "t": "laplace_pruefen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Glücksrad hat die Felder A 90°, B 90°, C 90°, D 90°. Ist eine Drehung (Ergebnis: Feldname) ein Laplace-Experiment?"
+   },
+   "a": [
+    "Nein, ein Glücksrad ist nie ein Laplace-Experiment.",
+    "Nein, die Felder sind verschieden groß.",
+    "Nein, dafür braucht man genau 6 Felder.",
+    "Ja, alle Felder sind gleich groß."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Gleich große Felder → gleich wahrscheinlich."
+  },
+  {
+   "l": "laplace_pruefen",
+   "t": "laplace_pruefen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist das ein Laplace-Experiment? Werfen einer Reißzwecke (Kopf oder Seite)."
+   },
+   "a": [
+    "Nein, bei Zufallsexperimenten weiß man das nie.",
+    "Nein, die Ergebnisse sind nicht gleich wahrscheinlich.",
+    "Ja, alle Ergebnisse sind gleich wahrscheinlich.",
+    "Ja, weil es zwei oder mehr Ergebnisse gibt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Ergebnisse haben verschiedene Wahrscheinlichkeiten (z. B. wegen Form, Anzahl oder Summenbildung)."
+  },
+  {
+   "l": "laplace_pruefen",
+   "t": "laplace_pruefen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Glücksrad hat die Felder A 30°, B 45°, C 180°, D 105°. Ist eine Drehung (Ergebnis: Feldname) ein Laplace-Experiment?"
+   },
+   "a": [
+    "Ja, alle Felder sind gleich groß.",
+    "Ja, weil es 4 Felder gibt.",
+    "Nein, die Felder sind verschieden groß.",
+    "Ja, jedes Glücksrad ist ein Laplace-Experiment."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Größere Felder werden häufiger getroffen."
+  },
+  {
+   "l": "laplace_pruefen",
+   "t": "laplace_pruefen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist das ein Laplace-Experiment? Ziehen einer von 8 gleichen, durchnummerierten Kugeln, notiert wird die Nummer."
+   },
+   "a": [
+    "Nein, die Ergebnisse sind nicht gleich wahrscheinlich.",
+    "Ja, alle Ergebnisse sind gleich wahrscheinlich.",
+    "Nein, bei Zufallsexperimenten weiß man das nie.",
+    "Ja, weil es zwei oder mehr Ergebnisse gibt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Alle Ergebnisse sind gleich wahrscheinlich."
+  },
+  {
+   "l": "laplace_pruefen",
+   "t": "laplace_pruefen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Glücksrad hat die Felder A 120°, B 120°, C 120°. Ist eine Drehung (Ergebnis: Feldname) ein Laplace-Experiment?"
+   },
+   "a": [
+    "Ja, alle Felder sind gleich groß.",
+    "Nein, ein Glücksrad ist nie ein Laplace-Experiment.",
+    "Nein, die Felder sind verschieden groß.",
+    "Nein, dafür braucht man genau 6 Felder."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Gleich große Felder → gleich wahrscheinlich."
+  },
+  {
+   "l": "laplace_pruefen",
+   "t": "laplace_pruefen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Glücksrad hat die Felder A 45°, B 45°, C 270°. Ist eine Drehung (Ergebnis: Feldname) ein Laplace-Experiment?"
+   },
+   "a": [
+    "Ja, alle Felder sind gleich groß.",
+    "Ja, jedes Glücksrad ist ein Laplace-Experiment.",
+    "Ja, weil es 3 Felder gibt.",
+    "Nein, die Felder sind verschieden groß."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Größere Felder werden häufiger getroffen."
+  },
+  {
+   "l": "laplace_pruefen",
+   "t": "laplace_pruefen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Glücksrad hat die Felder A 30°, B 30°, C 60°, D 60°, E 90°, F 90°. Ist eine Drehung (Ergebnis: Feldname) ein Laplace-Experiment?"
+   },
+   "a": [
+    "Ja, jedes Glücksrad ist ein Laplace-Experiment.",
+    "Ja, alle Felder sind gleich groß.",
+    "Nein, die Felder sind verschieden groß.",
+    "Ja, weil es 6 Felder gibt."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Größere Felder werden häufiger getroffen."
+  },
+  {
+   "l": "laplace_pruefen",
+   "t": "laplace_pruefen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Glücksrad hat die Felder A 60°, B 90°, C 150°, D 60°. Ist eine Drehung (Ergebnis: Feldname) ein Laplace-Experiment?"
+   },
+   "a": [
+    "Ja, jedes Glücksrad ist ein Laplace-Experiment.",
+    "Ja, weil es 4 Felder gibt.",
+    "Ja, alle Felder sind gleich groß.",
+    "Nein, die Felder sind verschieden groß."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Größere Felder werden häufiger getroffen."
+  }
+ ],
+ "offen": [
+  "Brüche als Antwort kann die App nur als Auswahl abfragen (Lückenschablone liest keine Brüche). Wahrscheinlichkeiten mit endlicher Dezimalzahl werden als Zahl abgefragt, die übrigen als Auswahl.",
+  "Glücksräder, Urnen und Häufigkeitsdiagramme werden nur in Worten beschrieben; Abbildungen wären hilfreich."
+ ]
+}

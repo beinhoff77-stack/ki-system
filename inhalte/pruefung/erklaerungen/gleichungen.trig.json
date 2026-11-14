@@ -1,0 +1,163 @@
+{
+  "thema_schluessel": "gleichungen.trig",
+  "gesamturteil": "brauchbar",
+  "thema_hinweise": [
+    "Unter „offen“ steht, dass Einheitskreis und Graphen fehlen. Sinus- und Kosinusgraphen gehen jetzt (Graph „sin“/„cos“ mit „grad“: true); eine waagrechte Gerade y = v zeigt die Lösungen und ihre Anzahl. Bilder für sinus, kosinus und anzahl angegeben. Für tan gibt es noch keinen Graphentyp (Vorschlag: „tan“ ergänzen).",
+    "Texte fachlich richtig, typische Fehler gut gewählt."
+  ],
+  "karten": [
+    {
+      "lernziel": "sinus",
+      "urteil": "verbessern",
+      "probleme": [
+        "„Die Gerade y = 0,5 schneidet zweimal“ steht im Fehler, wird aber nicht gezeigt."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "koordinaten",
+          "x": [
+            0,
+            360
+          ],
+          "y": [
+            -1.5,
+            1.5
+          ],
+          "grad": true,
+          "schritt_x": 30,
+          "graphen": [
+            {
+              "art": "sin",
+              "a": 1,
+              "b": 1,
+              "c": 0,
+              "d": 0,
+              "name": "sin x"
+            }
+          ],
+          "waagrecht": [
+            0.5
+          ],
+          "punkte": [
+            {
+              "x": 30,
+              "y": 0.5,
+              "name": "30°"
+            },
+            {
+              "x": 150,
+              "y": 0.5,
+              "name": "150°"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "kosinus",
+      "urteil": "verbessern",
+      "probleme": [
+        "Warum die zweite Lösung 360° − x₁ ist, sieht man am Graphen (symmetrisch zu 180°) sofort."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "koordinaten",
+          "x": [
+            0,
+            360
+          ],
+          "y": [
+            -1.5,
+            1.5
+          ],
+          "grad": true,
+          "schritt_x": 30,
+          "graphen": [
+            {
+              "art": "cos",
+              "a": 1,
+              "b": 1,
+              "c": 0,
+              "d": 0,
+              "name": "cos x"
+            }
+          ],
+          "waagrecht": [
+            -0.5
+          ],
+          "senkrecht": [
+            180
+          ],
+          "punkte": [
+            {
+              "x": 120,
+              "y": -0.5,
+              "name": "120°"
+            },
+            {
+              "x": 240,
+              "y": -0.5,
+              "name": "240°"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "tangens",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "anzahl",
+      "urteil": "verbessern",
+      "probleme": [
+        "Die Lösungsanzahl lässt sich am Graphen direkt abzählen; das Bild fehlt."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "koordinaten",
+          "x": [
+            0,
+            360
+          ],
+          "y": [
+            -1.5,
+            2.5
+          ],
+          "grad": true,
+          "schritt_x": 30,
+          "graphen": [
+            {
+              "art": "cos",
+              "a": 1,
+              "b": 1,
+              "c": 0,
+              "d": 0,
+              "name": "cos x"
+            }
+          ],
+          "waagrecht": [
+            -1,
+            2
+          ],
+          "punkte": [
+            {
+              "x": 180,
+              "y": -1,
+              "name": "180°"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "umformen",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "anwendung",
+      "urteil": "ok"
+    }
+  ],
+  "neue_karten": []
+}

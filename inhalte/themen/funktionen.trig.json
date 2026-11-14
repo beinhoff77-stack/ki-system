@@ -1,0 +1,5075 @@
+{
+ "thema_schluessel": "funktionen.trig",
+ "thema_id": 38,
+ "block_id": 67,
+ "klasse": {
+  "rs_by": 10,
+  "gym_by": 10,
+  "ib_myp": 4
+ },
+ "autor": "Claude (Paket Klasse 10)",
+ "inhalt": {
+  "ziel": "Sinus- und Kosinusfunktion mit Grad- und Bogenmaß beschreiben, Periode, Amplitude und Verschiebung deuten, Graph und Term zuordnen und periodische Vorgänge modellieren.",
+  "merke": [
+   "360° = 2π; x = α · π/180°.",
+   "sin und cos haben die Periode 360° = 2π; sin(b · x) hat die Periode 360° : b.",
+   "f(x) = a · sin(b · x) + d: Amplitude |a|, Mittellinie y = d, Wertemenge [d − |a|; d + |a|].",
+   "sin: Nullstellen k · 180°, punktsymmetrisch; cos: Nullstellen 90° + k · 180°, achsensymmetrisch."
+  ],
+  "abschnitte": [
+   {
+    "titel": "Bogenmaß und Werte",
+    "lernziele": [
+     "bogenmass",
+     "werte"
+    ]
+   },
+   {
+    "titel": "Parameter",
+    "lernziele": [
+     "periode",
+     "parameter",
+     "zuordnen"
+    ]
+   },
+   {
+    "titel": "Eigenschaften und Anwendung",
+    "lernziele": [
+     "eigenschaften",
+     "anwendung"
+    ]
+   }
+  ],
+  "etappen": [
+   {
+    "lernziel": "bogenmass",
+    "titel": "Gradmaß und Bogenmaß",
+    "regel": "Das ⟦Bogenmaß⟧ eines Winkels ist die Länge des zugehörigen Bogens am Einheitskreis. ⟦360° entsprechen 2π⟧, also 180° = π. Umrechnen: x = α · π/180°.",
+    "schritte": [
+     "60° ins Bogenmaß: 60° · π/180° = π/3.",
+     "Also ⟦60° = π/3 ≈ 1,05⟧."
+    ],
+    "probe": "π/3 · 180°/π = 60° ✓",
+    "fehler": "60° = 60π ist falsch: Man muss durch ⟦180°⟧ teilen: 60/180 = 1/3, also π/3."
+   },
+   {
+    "lernziel": "werte",
+    "titel": "Werte von sin x und cos x",
+    "regel": "sin x und cos x sind die ⟦y- und x-Koordinate⟧ des Punktes am Einheitskreis. Besondere Werte: sin(π/6) = 0,5, sin(π/2) = 1, cos(π) = −1. Taschenrechner bei Bogenmaß auf ⟦RAD⟧ stellen.",
+    "schritte": [
+     "sin(5π/6): 5π/6 = 150°, und sin 150° = sin 30°.",
+     "sin(5π/6) = ⟦0,5⟧."
+    ],
+    "probe": "Der Punkt zu 150° liegt oberhalb der x-Achse: positiv ✓",
+    "fehler": "sin(2) im Gradmodus zu berechnen (≈ 0,035) ist falsch, wenn x = 2 im ⟦Bogenmaß⟧ gemeint ist: sin(2) ≈ 0,909.",
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -1.5,
+      1.5
+     ],
+     "graphen": [
+      {
+       "art": "sin",
+       "a": 1,
+       "b": 1,
+       "c": 0.0,
+       "d": 0,
+       "name": "sin"
+      },
+      {
+       "art": "cos",
+       "a": 1,
+       "b": 1,
+       "c": 0.0,
+       "d": 0,
+       "name": "cos",
+       "name_x": 150
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 0.5,
+     "streckung": 1.4
+    }
+   },
+   {
+    "lernziel": "periode",
+    "titel": "Periode und Periodizität",
+    "regel": "sin und cos wiederholen sich nach ⟦360° = 2π⟧: sin(x + 360°) = sin x. Bei f(x) = sin(b · x) ist die ⟦Periode p = 360° : b⟧ (bzw. 2π : b).",
+    "schritte": [
+     "f(x) = sin(3x): p = 360° : 3.",
+     "p = ⟦120°⟧ = 2π/3."
+    ],
+    "probe": "sin(3 · 120°) = sin 360° = 0 = sin 0 ✓",
+    "fehler": "Bei sin(3x) die Periode 3 · 360° = 1 080° anzunehmen ist falsch: Der Faktor 3 macht die Schwingung ⟦schneller⟧, die Periode wird ⟦kürzer⟧.",
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -1.5,
+      1.5
+     ],
+     "graphen": [
+      {
+       "art": "sin",
+       "a": 1,
+       "b": 1,
+       "c": 0.0,
+       "d": 0,
+       "name": "sin x"
+      },
+      {
+       "art": "sin",
+       "a": 1,
+       "b": 3,
+       "c": 0.0,
+       "d": 0,
+       "name": "sin(3x)",
+       "name_x": 280
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 0.5,
+     "streckung": 1.4
+    }
+   },
+   {
+    "lernziel": "parameter",
+    "titel": "Amplitude und Verschiebung",
+    "regel": "Bei f(x) = a · sin(b · x) + d ist ⟦|a| die Amplitude⟧ (Streckung in y-Richtung) und ⟦d die Verschiebung⟧ nach oben/unten. Wertemenge: ⟦[d − |a|; d + |a|]⟧.",
+    "schritte": [
+     "f(x) = 3 · sin x + 1: Amplitude 3, Mittellinie y = 1.",
+     "Wertemenge ⟦[−2; 4]⟧, Maximum 4, Minimum −2."
+    ],
+    "probe": "f(90°) = 3 · 1 + 1 = 4 ✓",
+    "fehler": "Bei f(x) = 3 sin x + 1 die Wertemenge [−3; 3] anzugeben ist falsch: Die Mittellinie ist um ⟦d = 1 nach oben⟧ verschoben.",
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -3,
+      5
+     ],
+     "graphen": [
+      {
+       "art": "sin",
+       "a": 3,
+       "b": 1,
+       "c": 0.0,
+       "d": 1,
+       "name": "f"
+      },
+      {
+       "art": "sin",
+       "a": 1,
+       "b": 1,
+       "c": 0.0,
+       "d": 0,
+       "name": "sin x",
+       "name_x": 200
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 1,
+     "streckung": 1.4,
+     "waagrecht": [
+      1
+     ]
+    }
+   },
+   {
+    "lernziel": "zuordnen",
+    "titel": "Graph und Term zuordnen",
+    "regel": "Am Graphen liest du ab: ⟦Mittellinie⟧ (d), ⟦Abstand Maximum–Mittellinie⟧ (|a|), ⟦Länge einer Schwingung⟧ (Periode p, also b = 360° : p) und ob er bei x = 0 mit dem Maximum (cos) oder auf der Mittellinie (sin) startet.",
+    "schritte": [
+     "Graph: Mittellinie y = 0, Maximum 2, eine Schwingung von 0° bis 180°, Start auf der Mittellinie steigend.",
+     "a = 2, b = 360° : 180° = 2: ⟦f(x) = 2 · sin(2x)⟧."
+    ],
+    "probe": "f(45°) = 2 · sin 90° = 2 = Maximum ✓",
+    "fehler": "Die Periode 180° als b = 180 einzusetzen ist falsch: ⟦b = 360° : p⟧ = 2.",
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -3,
+      3
+     ],
+     "graphen": [
+      {
+       "art": "sin",
+       "a": 2,
+       "b": 2,
+       "c": 0.0,
+       "d": 0
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 1,
+     "streckung": 1.4
+    }
+   },
+   {
+    "lernziel": "eigenschaften",
+    "titel": "Nullstellen und Symmetrie",
+    "regel": "sin x hat die Nullstellen ⟦0°, 180°, 360°, …⟧ (k · 180°), cos x die Nullstellen ⟦90°, 270°, …⟧. Der Graph von sin ist ⟦punktsymmetrisch⟧ zum Ursprung, der von cos ⟦achsensymmetrisch⟧ zur y-Achse. cos x = sin(x + 90°).",
+    "schritte": [
+     "Nullstellen von cos x zwischen 0° und 360°: Der Punkt am Einheitskreis hat x-Koordinate 0.",
+     "Bei ⟦90° und 270°⟧."
+    ],
+    "probe": "cos 90° = 0, cos 270° = 0 ✓",
+    "fehler": "„cos x hat bei 0° eine Nullstelle“ ist falsch: cos 0° = ⟦1⟧ (Maximum). Die Nullstelle bei 0° hat sin x.",
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -360,
+      360
+     ],
+     "y": [
+      -1.5,
+      1.5
+     ],
+     "graphen": [
+      {
+       "art": "cos",
+       "a": 1,
+       "b": 1,
+       "c": 0.0,
+       "d": 0,
+       "name": "cos x"
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 0.5,
+     "streckung": 1.4,
+     "punkte": [
+      {
+       "x": -270,
+       "y": 0
+      },
+      {
+       "x": -90,
+       "y": 0
+      },
+      {
+       "x": 90,
+       "y": 0
+      },
+      {
+       "x": 270,
+       "y": 0
+      }
+     ]
+    }
+   },
+   {
+    "lernziel": "anwendung",
+    "titel": "Periodische Vorgänge beschreiben",
+    "regel": "Periodische Vorgänge (Riesenrad, Tageslänge, Gezeiten) beschreibt man mit ⟦h(t) = a · sin(b · t) + d⟧: d = Mittelwert, |a| = halbe Schwankung, b = 360° : Periodendauer.",
+    "schritte": [
+     "Riesenrad: Mitte in 20 m Höhe, Radius 18 m, eine Umdrehung in 12 min. Gondel startet unten.",
+     "h(t) = 20 − 18 · cos(30° · t): nach 4 min h = 20 − 18 · cos 120° = ⟦29 m⟧."
+    ],
+    "probe": "t = 6 min: h = 20 + 18 = 38 m (oben) ✓",
+    "fehler": "b = 12 zu nehmen ist falsch: In 12 min läuft der Winkel um ⟦360°⟧, also b = 360° : 12 = 30° pro Minute.",
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      24
+     ],
+     "y": [
+      0,
+      40
+     ],
+     "graphen": [
+      {
+       "art": "cos",
+       "a": -18,
+       "b": 30,
+       "d": 20,
+       "bereich": [
+        0,
+        24
+       ]
+      }
+     ],
+     "punkte": [
+      {
+       "x": 4,
+       "y": 29,
+       "name": "(4 | 29)"
+      }
+     ],
+     "schritt_x": 2,
+     "schritt_y": 5,
+     "name_x": "t",
+     "name_y": "h",
+     "streckung": 1.4
+    }
+   }
+  ],
+  "teilfaehigkeiten": [
+   {
+    "k": "bogenmass",
+    "text": "Gradmaß und Bogenmaß",
+    "lernziele": [
+     "bogenmass"
+    ]
+   },
+   {
+    "k": "werte",
+    "text": "Werte von sin x und cos x",
+    "lernziele": [
+     "werte"
+    ]
+   },
+   {
+    "k": "periode",
+    "text": "Periode und Periodizität",
+    "lernziele": [
+     "periode"
+    ]
+   },
+   {
+    "k": "parameter",
+    "text": "Amplitude und Verschiebung",
+    "lernziele": [
+     "parameter"
+    ]
+   },
+   {
+    "k": "zuordnen",
+    "text": "Graph und Term zuordnen",
+    "lernziele": [
+     "zuordnen"
+    ]
+   },
+   {
+    "k": "eigenschaften",
+    "text": "Nullstellen und Symmetrie",
+    "lernziele": [
+     "eigenschaften"
+    ]
+   },
+   {
+    "k": "anwendung",
+    "text": "Periodische Vorgänge beschreiben",
+    "lernziele": [
+     "anwendung"
+    ]
+   }
+  ],
+  "bewertung": {
+   "lernziele_pflicht": [
+    "bogenmass",
+    "werte",
+    "periode",
+    "parameter",
+    "zuordnen",
+    "eigenschaften",
+    "anwendung"
+   ],
+   "lernziele_vertiefung": [],
+   "testaufgaben_je_lernziel": 1
+  },
+  "quellen": {
+   "erklaerungen": "Eigene Fassung (Claude), Aufgaben vom Generator erzeugt und berechnet.",
+   "begriffe": "Fachbegriffe nach LehrplanPLUS Bayern."
+  }
+ },
+ "aufgaben": [
+  {
+   "l": "bogenmass",
+   "t": "bogenmass",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gib 315° im Bogenmaß als Vielfaches von π an.",
+    "schablone": "□/□ · π",
+    "hinweis": "Bruch vor π (gekürzt; bei ganzen Zahlen Nenner 1)"
+   },
+   "o": {
+    "werte": [
+     7,
+     4
+    ]
+   },
+   "w": "315° · π/180° = 7/4 · π = 7π/4.",
+   "h": "Teile den Winkel durch 180° und kürze.",
+   "c": [
+    "315 // 45",
+    "180 // 45"
+   ]
+  },
+  {
+   "l": "bogenmass",
+   "t": "bogenmass",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gib 90° im Bogenmaß als Vielfaches von π an.",
+    "schablone": "□/□ · π",
+    "hinweis": "Bruch vor π (gekürzt; bei ganzen Zahlen Nenner 1)"
+   },
+   "o": {
+    "werte": [
+     1,
+     2
+    ]
+   },
+   "w": "90° · π/180° = 1/2 · π = π/2.",
+   "h": "Teile den Winkel durch 180° und kürze.",
+   "c": [
+    "90 // 90",
+    "180 // 90"
+   ]
+  },
+  {
+   "l": "bogenmass",
+   "t": "bogenmass",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gib 150° im Bogenmaß als Vielfaches von π an.",
+    "schablone": "□/□ · π",
+    "hinweis": "Bruch vor π (gekürzt; bei ganzen Zahlen Nenner 1)"
+   },
+   "o": {
+    "werte": [
+     5,
+     6
+    ]
+   },
+   "w": "150° · π/180° = 5/6 · π = 5π/6.",
+   "h": "Teile den Winkel durch 180° und kürze.",
+   "c": [
+    "150 // 30",
+    "180 // 30"
+   ]
+  },
+  {
+   "l": "bogenmass",
+   "t": "bogenmass",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gib 240° im Bogenmaß als Vielfaches von π an.",
+    "schablone": "□/□ · π",
+    "hinweis": "Bruch vor π (gekürzt; bei ganzen Zahlen Nenner 1)"
+   },
+   "o": {
+    "werte": [
+     4,
+     3
+    ]
+   },
+   "w": "240° · π/180° = 4/3 · π = 4π/3.",
+   "h": "Teile den Winkel durch 180° und kürze.",
+   "c": [
+    "240 // 60",
+    "180 // 60"
+   ]
+  },
+  {
+   "l": "bogenmass",
+   "t": "bogenmass",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gib 45° im Bogenmaß als Vielfaches von π an.",
+    "schablone": "□/□ · π",
+    "hinweis": "Bruch vor π (gekürzt; bei ganzen Zahlen Nenner 1)"
+   },
+   "o": {
+    "werte": [
+     1,
+     4
+    ]
+   },
+   "w": "45° · π/180° = 1/4 · π = π/4.",
+   "h": "Teile den Winkel durch 180° und kürze.",
+   "c": [
+    "45 // 45",
+    "180 // 45"
+   ]
+  },
+  {
+   "l": "bogenmass",
+   "t": "bogenmass",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gib 120° im Bogenmaß als Vielfaches von π an.",
+    "schablone": "□/□ · π",
+    "hinweis": "Bruch vor π (gekürzt; bei ganzen Zahlen Nenner 1)"
+   },
+   "o": {
+    "werte": [
+     2,
+     3
+    ]
+   },
+   "w": "120° · π/180° = 2/3 · π = 2π/3.",
+   "h": "Teile den Winkel durch 180° und kürze.",
+   "c": [
+    "120 // 60",
+    "180 // 60"
+   ]
+  },
+  {
+   "l": "bogenmass",
+   "t": "bogenmass",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viel Grad sind 3π/2?"
+   },
+   "o": {
+    "wert": 270,
+    "einheit": "°"
+   },
+   "c": "3 * 180 / 2",
+   "w": "3π/2 · 180°/π = 3/2 · 180° = 270°.",
+   "h": "Ersetze π durch 180°."
+  },
+  {
+   "l": "bogenmass",
+   "t": "bogenmass",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viel Grad sind π/3?"
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "°"
+   },
+   "c": "1 * 180 / 3",
+   "w": "π/3 · 180°/π = 1/3 · 180° = 60°.",
+   "h": "Ersetze π durch 180°."
+  },
+  {
+   "l": "bogenmass",
+   "t": "bogenmass",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viel Grad sind π?"
+   },
+   "o": {
+    "wert": 180,
+    "einheit": "°"
+   },
+   "c": "1 * 180 / 1",
+   "w": "π · 180°/π = 1 · 180° = 180°.",
+   "h": "Ersetze π durch 180°."
+  },
+  {
+   "l": "bogenmass",
+   "t": "bogenmass",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viel Grad sind π/6?"
+   },
+   "o": {
+    "wert": 30,
+    "einheit": "°"
+   },
+   "c": "1 * 180 / 6",
+   "w": "π/6 · 180°/π = 1/6 · 180° = 30°.",
+   "h": "Ersetze π durch 180°."
+  },
+  {
+   "l": "bogenmass",
+   "t": "bogenmass",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viel Grad sind 2π/3?"
+   },
+   "o": {
+    "wert": 120,
+    "einheit": "°"
+   },
+   "c": "2 * 180 / 3",
+   "w": "2π/3 · 180°/π = 2/3 · 180° = 120°.",
+   "h": "Ersetze π durch 180°."
+  },
+  {
+   "l": "bogenmass",
+   "t": "bogenmass",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viel Grad sind 4π/3?"
+   },
+   "o": {
+    "wert": 240,
+    "einheit": "°"
+   },
+   "c": "4 * 180 / 3",
+   "w": "4π/3 · 180°/π = 4/3 · 180° = 240°.",
+   "h": "Ersetze π durch 180°."
+  },
+  {
+   "l": "bogenmass",
+   "t": "bogenmass",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne 16° ins Bogenmaß um. Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 0.28,
+    "toleranz": 0.01
+   },
+   "c": "round(16 * 3.141592653590 / 180, 2)",
+   "w": "16 · π/180 ≈ 0,28.",
+   "h": "Multipliziere mit π/180."
+  },
+  {
+   "l": "bogenmass",
+   "t": "bogenmass",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne 62° ins Bogenmaß um. Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 1.08,
+    "toleranz": 0.01
+   },
+   "c": "round(62 * 3.141592653590 / 180, 2)",
+   "w": "62 · π/180 ≈ 1,08.",
+   "h": "Multipliziere mit π/180."
+  },
+  {
+   "l": "bogenmass",
+   "t": "bogenmass",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Rechne 26° ins Bogenmaß um. Runde auf zwei Nachkommastellen."
+   },
+   "o": {
+    "wert": 0.45,
+    "toleranz": 0.01
+   },
+   "c": "round(26 * 3.141592653590 / 180, 2)",
+   "w": "26 · π/180 ≈ 0,45.",
+   "h": "Multipliziere mit π/180."
+  },
+  {
+   "l": "bogenmass",
+   "t": "bogenmass",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Winkel hat im Bogenmaß die Größe 2,3. Wie viel Grad sind das? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 131.8,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(2.3 * 180 / 3.141592653590, 1)",
+   "w": "2,3 · 180°/π ≈ 131,8°.",
+   "h": "Multipliziere mit 180°/π."
+  },
+  {
+   "l": "bogenmass",
+   "t": "bogenmass",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Winkel hat im Bogenmaß die Größe 2. Wie viel Grad sind das? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 114.6,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(2.0 * 180 / 3.141592653590, 1)",
+   "w": "2 · 180°/π ≈ 114,6°.",
+   "h": "Multipliziere mit 180°/π."
+  },
+  {
+   "l": "bogenmass",
+   "t": "bogenmass",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Winkel hat im Bogenmaß die Größe 5,9. Wie viel Grad sind das? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 338,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(5.9 * 180 / 3.141592653590, 1)",
+   "w": "5,9 · 180°/π ≈ 338°.",
+   "h": "Multipliziere mit 180°/π."
+  },
+  {
+   "l": "bogenmass",
+   "t": "bogenmass",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viel Grad sind 5π/3?"
+   },
+   "o": {
+    "wert": 300,
+    "einheit": "°"
+   },
+   "c": "5 * 180 / 3",
+   "w": "5π/3 · 180°/π = 5/3 · 180° = 300°."
+  },
+  {
+   "l": "bogenmass",
+   "t": "bogenmass",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viel Grad sind 5π/4?"
+   },
+   "o": {
+    "wert": 225,
+    "einheit": "°"
+   },
+   "c": "5 * 180 / 4",
+   "w": "5π/4 · 180°/π = 5/4 · 180° = 225°."
+  },
+  {
+   "l": "bogenmass",
+   "t": "bogenmass",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viel Grad sind 11π/6?"
+   },
+   "o": {
+    "wert": 330,
+    "einheit": "°"
+   },
+   "c": "11 * 180 / 6",
+   "w": "11π/6 · 180°/π = 11/6 · 180° = 330°."
+  },
+  {
+   "l": "bogenmass",
+   "t": "bogenmass",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viel Grad sind π/4?"
+   },
+   "o": {
+    "wert": 45,
+    "einheit": "°"
+   },
+   "c": "1 * 180 / 4",
+   "w": "π/4 · 180°/π = 1/4 · 180° = 45°."
+  },
+  {
+   "l": "bogenmass",
+   "t": "bogenmass",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viel Grad sind 3π/4?"
+   },
+   "o": {
+    "wert": 135,
+    "einheit": "°"
+   },
+   "c": "3 * 180 / 4",
+   "w": "3π/4 · 180°/π = 3/4 · 180° = 135°."
+  },
+  {
+   "l": "bogenmass",
+   "t": "bogenmass",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viel Grad sind 2π?"
+   },
+   "o": {
+    "wert": 360,
+    "einheit": "°"
+   },
+   "c": "2 * 180 / 1",
+   "w": "2π · 180°/π = 2 · 180° = 360°."
+  },
+  {
+   "l": "bogenmass",
+   "t": "bogenmass",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viel Grad sind 7π/4?"
+   },
+   "o": {
+    "wert": 315,
+    "einheit": "°"
+   },
+   "c": "7 * 180 / 4",
+   "w": "7π/4 · 180°/π = 7/4 · 180° = 315°."
+  },
+  {
+   "l": "bogenmass",
+   "t": "bogenmass",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viel Grad sind π/2?"
+   },
+   "o": {
+    "wert": 90,
+    "einheit": "°"
+   },
+   "c": "1 * 180 / 2",
+   "w": "π/2 · 180°/π = 1/2 · 180° = 90°."
+  },
+  {
+   "l": "bogenmass",
+   "t": "bogenmass",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viel Grad sind 7π/6?"
+   },
+   "o": {
+    "wert": 210,
+    "einheit": "°"
+   },
+   "c": "7 * 180 / 6",
+   "w": "7π/6 · 180°/π = 7/6 · 180° = 210°."
+  },
+  {
+   "l": "bogenmass",
+   "t": "bogenmass",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viel Grad sind 5π/6?"
+   },
+   "o": {
+    "wert": 150,
+    "einheit": "°"
+   },
+   "c": "5 * 180 / 6",
+   "w": "5π/6 · 180°/π = 5/6 · 180° = 150°."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Gib den exakten Wert von cos(π) an."
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "-1",
+   "w": "π = 180°; cos 180° = −1.",
+   "h": "Rechne zuerst ins Gradmaß um und denke an den Einheitskreis."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Gib den exakten Wert von sin(π/6) an."
+   },
+   "o": {
+    "wert": 0.5
+   },
+   "c": "0.5",
+   "w": "π/6 = 30°; sin 30° = 0,5.",
+   "h": "Rechne zuerst ins Gradmaß um und denke an den Einheitskreis."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Gib den exakten Wert von sin(3π/2) an."
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "-1",
+   "w": "3π/2 = 270°; sin 270° = −1.",
+   "h": "Rechne zuerst ins Gradmaß um und denke an den Einheitskreis."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Gib den exakten Wert von cos(3π/2) an."
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "0",
+   "w": "3π/2 = 270°; cos 270° = 0.",
+   "h": "Rechne zuerst ins Gradmaß um und denke an den Einheitskreis."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Gib den exakten Wert von sin(π) an."
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "0",
+   "w": "π = 180°; sin 180° = 0.",
+   "h": "Rechne zuerst ins Gradmaß um und denke an den Einheitskreis."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Gib den exakten Wert von sin(π/2) an."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "π/2 = 90°; sin 90° = 1.",
+   "h": "Rechne zuerst ins Gradmaß um und denke an den Einheitskreis."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib den exakten Wert von cos(2π/3) an."
+   },
+   "o": {
+    "wert": -0.5
+   },
+   "c": "-0.5",
+   "w": "2π/3 = 120°; cos 120° = −0,5.",
+   "h": "Rechne zuerst ins Gradmaß um und denke an den Einheitskreis."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne sin(3,9) (x im Bogenmaß) auf drei Nachkommastellen."
+   },
+   "o": {
+    "wert": -0.688,
+    "toleranz": 0.001
+   },
+   "c": "round(-0.687766159184, 3)",
+   "w": "Taschenrechner im RAD-Modus: sin(3,9) ≈ −0,688.",
+   "h": "Stelle den Taschenrechner auf Bogenmaß (RAD)."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne sin(2,7) (x im Bogenmaß) auf drei Nachkommastellen."
+   },
+   "o": {
+    "wert": 0.427,
+    "toleranz": 0.001
+   },
+   "c": "round(0.427379880234, 3)",
+   "w": "Taschenrechner im RAD-Modus: sin(2,7) ≈ 0,427.",
+   "h": "Stelle den Taschenrechner auf Bogenmaß (RAD)."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne cos(4,4) (x im Bogenmaß) auf drei Nachkommastellen."
+   },
+   "o": {
+    "wert": -0.307,
+    "toleranz": 0.001
+   },
+   "c": "round(-0.307332869978, 3)",
+   "w": "Taschenrechner im RAD-Modus: cos(4,4) ≈ −0,307.",
+   "h": "Stelle den Taschenrechner auf Bogenmaß (RAD)."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib den exakten Wert von cos(4π/3) an."
+   },
+   "o": {
+    "wert": -0.5
+   },
+   "c": "-0.5",
+   "w": "4π/3 = 240°; cos 240° = −0,5.",
+   "h": "Rechne zuerst ins Gradmaß um und denke an den Einheitskreis."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne sin(3,3) (x im Bogenmaß) auf drei Nachkommastellen."
+   },
+   "o": {
+    "wert": -0.158,
+    "toleranz": 0.001
+   },
+   "c": "round(-0.157745694143, 3)",
+   "w": "Taschenrechner im RAD-Modus: sin(3,3) ≈ −0,158.",
+   "h": "Stelle den Taschenrechner auf Bogenmaß (RAD)."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne cos(2) (x im Bogenmaß) auf drei Nachkommastellen."
+   },
+   "o": {
+    "wert": -0.416,
+    "toleranz": 0.001
+   },
+   "c": "round(-0.416146836547, 3)",
+   "w": "Taschenrechner im RAD-Modus: cos(2) ≈ −0,416.",
+   "h": "Stelle den Taschenrechner auf Bogenmaß (RAD)."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne cos(3,9) (x im Bogenmaß) auf drei Nachkommastellen."
+   },
+   "o": {
+    "wert": -0.726,
+    "toleranz": 0.001
+   },
+   "c": "round(-0.725932304200, 3)",
+   "w": "Taschenrechner im RAD-Modus: cos(3,9) ≈ −0,726.",
+   "h": "Stelle den Taschenrechner auf Bogenmaß (RAD)."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne cos(1,6) (x im Bogenmaß) auf drei Nachkommastellen."
+   },
+   "o": {
+    "wert": -0.029,
+    "toleranz": 0.001
+   },
+   "c": "round(-0.029199522301, 3)",
+   "w": "Taschenrechner im RAD-Modus: cos(1,6) ≈ −0,029.",
+   "h": "Stelle den Taschenrechner auf Bogenmaß (RAD)."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne cos(2,5) (x im Bogenmaß) auf drei Nachkommastellen."
+   },
+   "o": {
+    "wert": -0.801,
+    "toleranz": 0.001
+   },
+   "c": "round(-0.801143615547, 3)",
+   "w": "Taschenrechner im RAD-Modus: cos(2,5) ≈ −0,801.",
+   "h": "Stelle den Taschenrechner auf Bogenmaß (RAD)."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne sin(3,4) (x im Bogenmaß) auf drei Nachkommastellen."
+   },
+   "o": {
+    "wert": -0.256,
+    "toleranz": 0.001
+   },
+   "c": "round(-0.255541102027, 3)",
+   "w": "Taschenrechner im RAD-Modus: sin(3,4) ≈ −0,256.",
+   "h": "Stelle den Taschenrechner auf Bogenmaß (RAD)."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne cos(5,8) (x im Bogenmaß) auf drei Nachkommastellen."
+   },
+   "o": {
+    "wert": 0.886,
+    "toleranz": 0.001
+   },
+   "c": "round(0.885519516941, 3)",
+   "w": "Taschenrechner im RAD-Modus: cos(5,8) ≈ 0,886.",
+   "h": "Stelle den Taschenrechner auf Bogenmaß (RAD)."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne sin(4,1) (x im Bogenmaß) auf drei Nachkommastellen."
+   },
+   "o": {
+    "wert": -0.818,
+    "toleranz": 0.001
+   },
+   "c": "round(-0.818277111064, 3)",
+   "w": "Taschenrechner im RAD-Modus: sin(4,1) ≈ −0,818."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne sin(5,3) (x im Bogenmaß) auf drei Nachkommastellen."
+   },
+   "o": {
+    "wert": -0.832,
+    "toleranz": 0.001
+   },
+   "c": "round(-0.832267442224, 3)",
+   "w": "Taschenrechner im RAD-Modus: sin(5,3) ≈ −0,832."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib den exakten Wert von cos(5π/3) an."
+   },
+   "o": {
+    "wert": 0.5
+   },
+   "c": "0.5",
+   "w": "5π/3 = 300°; cos 300° = 0,5."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne cos(0,7) (x im Bogenmaß) auf drei Nachkommastellen."
+   },
+   "o": {
+    "wert": 0.765,
+    "toleranz": 0.001
+   },
+   "c": "round(0.764842187284, 3)",
+   "w": "Taschenrechner im RAD-Modus: cos(0,7) ≈ 0,765."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Gib den exakten Wert von sin(7π/6) an."
+   },
+   "o": {
+    "wert": -0.5
+   },
+   "c": "-0.5",
+   "w": "7π/6 = 210°; sin 210° = −0,5."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne sin(4,3) (x im Bogenmaß) auf drei Nachkommastellen."
+   },
+   "o": {
+    "wert": -0.916,
+    "toleranz": 0.001
+   },
+   "c": "round(-0.916165936749, 3)",
+   "w": "Taschenrechner im RAD-Modus: sin(4,3) ≈ −0,916."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne cos(0,5) (x im Bogenmaß) auf drei Nachkommastellen."
+   },
+   "o": {
+    "wert": 0.878,
+    "toleranz": 0.001
+   },
+   "c": "round(0.877582561890, 3)",
+   "w": "Taschenrechner im RAD-Modus: cos(0,5) ≈ 0,878."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne sin(2) (x im Bogenmaß) auf drei Nachkommastellen."
+   },
+   "o": {
+    "wert": 0.909,
+    "toleranz": 0.001
+   },
+   "c": "round(0.909297426826, 3)",
+   "w": "Taschenrechner im RAD-Modus: sin(2) ≈ 0,909."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne sin(2,9) (x im Bogenmaß) auf drei Nachkommastellen."
+   },
+   "o": {
+    "wert": 0.239,
+    "toleranz": 0.001
+   },
+   "c": "round(0.239249329214, 3)",
+   "w": "Taschenrechner im RAD-Modus: sin(2,9) ≈ 0,239."
+  },
+  {
+   "l": "werte",
+   "t": "werte",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne sin(1,6) (x im Bogenmaß) auf drei Nachkommastellen."
+   },
+   "o": {
+    "wert": 1,
+    "toleranz": 0.001
+   },
+   "c": "round(0.999573603042, 3)",
+   "w": "Taschenrechner im RAD-Modus: sin(1,6) ≈ 1."
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Periode (in Grad) hat f(x) = cos(1,5x)?"
+   },
+   "o": {
+    "wert": 240,
+    "einheit": "°"
+   },
+   "c": "360 / 1.5",
+   "w": "p = 360° : 1,5 = 240°.",
+   "h": "Periode = 360° geteilt durch den Faktor vor x."
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Periode (in Grad) hat f(x) = sin(1,5x)?"
+   },
+   "o": {
+    "wert": 240,
+    "einheit": "°"
+   },
+   "c": "360 / 1.5",
+   "w": "p = 360° : 1,5 = 240°.",
+   "h": "Periode = 360° geteilt durch den Faktor vor x."
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Periode (in Grad) hat f(x) = sin((1/3)x)?"
+   },
+   "o": {
+    "wert": 1080,
+    "einheit": "°"
+   },
+   "c": "360 / (1/3)",
+   "w": "p = 360° : 1/3 = 1 080°.",
+   "h": "Periode = 360° geteilt durch den Faktor vor x."
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Periode (in Grad) hat f(x) = cos(3x)?"
+   },
+   "o": {
+    "wert": 120,
+    "einheit": "°"
+   },
+   "c": "360 / 3",
+   "w": "p = 360° : 3 = 120°.",
+   "h": "Periode = 360° geteilt durch den Faktor vor x."
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Periode (in Grad) hat f(x) = sin(0,5x)?"
+   },
+   "o": {
+    "wert": 720,
+    "einheit": "°"
+   },
+   "c": "360 / 0.5",
+   "w": "p = 360° : 0,5 = 720°.",
+   "h": "Periode = 360° geteilt durch den Faktor vor x."
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Periode (in Grad) hat f(x) = sin(4x)?"
+   },
+   "o": {
+    "wert": 90,
+    "einheit": "°"
+   },
+   "c": "360 / 4",
+   "w": "p = 360° : 4 = 90°.",
+   "h": "Periode = 360° geteilt durch den Faktor vor x."
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph zeigt f(x) = cos(b · x) für 0° ≤ x ≤ 360°. Lies die Periode ab und bestimme b.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -1.5,
+      1.5
+     ],
+     "graphen": [
+      {
+       "art": "cos",
+       "a": 1,
+       "b": 4,
+       "c": 0.0,
+       "d": 0
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 0.5,
+     "streckung": 1.4
+    }
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "360 / 90",
+   "w": "Eine Schwingung dauert 90°, also b = 360° : 90° = 4.",
+   "h": "Miss die Länge einer vollen Schwingung (z. B. von Maximum zu Maximum)."
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph zeigt f(x) = sin(b · x) für 0° ≤ x ≤ 360°. Lies die Periode ab und bestimme b.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -1.5,
+      1.5
+     ],
+     "graphen": [
+      {
+       "art": "sin",
+       "a": 1,
+       "b": 1.5,
+       "c": 0.0,
+       "d": 0
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 0.5,
+     "streckung": 1.4
+    }
+   },
+   "o": {
+    "wert": 1.5
+   },
+   "c": "360 / 240",
+   "w": "Eine Schwingung dauert 240°, also b = 360° : 240° = 1,5.",
+   "h": "Miss die Länge einer vollen Schwingung (z. B. von Maximum zu Maximum)."
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Welche Periode hat f(x) = cos(4x) im Bogenmaß? Gib sie als Vielfaches von π an.",
+    "schablone": "□/□ · π",
+    "hinweis": "Bruch vor π (gekürzt; bei ganzen Zahlen Nenner 1)"
+   },
+   "o": {
+    "werte": [
+     1,
+     2
+    ]
+   },
+   "w": "p = 2π : 4 = π/2.",
+   "h": "Periode = 2π geteilt durch b.",
+   "c": [
+    "1",
+    "2"
+   ]
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Welche Periode hat f(x) = sin(1,5x) im Bogenmaß? Gib sie als Vielfaches von π an.",
+    "schablone": "□/□ · π",
+    "hinweis": "Bruch vor π (gekürzt; bei ganzen Zahlen Nenner 1)"
+   },
+   "o": {
+    "werte": [
+     4,
+     3
+    ]
+   },
+   "w": "p = 2π : 1,5 = 4π/3.",
+   "h": "Periode = 2π geteilt durch b.",
+   "c": [
+    "4",
+    "3"
+   ]
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Welche Periode hat f(x) = sin(5x) im Bogenmaß? Gib sie als Vielfaches von π an.",
+    "schablone": "□/□ · π",
+    "hinweis": "Bruch vor π (gekürzt; bei ganzen Zahlen Nenner 1)"
+   },
+   "o": {
+    "werte": [
+     2,
+     5
+    ]
+   },
+   "w": "p = 2π : 5 = 2π/5.",
+   "h": "Periode = 2π geteilt durch b.",
+   "c": [
+    "2",
+    "5"
+   ]
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Welche Periode hat f(x) = sin(6x) im Bogenmaß? Gib sie als Vielfaches von π an.",
+    "schablone": "□/□ · π",
+    "hinweis": "Bruch vor π (gekürzt; bei ganzen Zahlen Nenner 1)"
+   },
+   "o": {
+    "werte": [
+     1,
+     3
+    ]
+   },
+   "w": "p = 2π : 6 = π/3.",
+   "h": "Periode = 2π geteilt durch b.",
+   "c": [
+    "1",
+    "3"
+   ]
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Sinusfunktion f(x) = sin(b · x) soll die Periode 240° haben. Bestimme b."
+   },
+   "o": {
+    "wert": 1.5
+   },
+   "c": "360 / 240",
+   "w": "b = 360° : 240° = 1,5.",
+   "h": "Stelle p = 360° : b nach b um."
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „f(x) = sin(0,5x) hat die Periode 180°.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: p = 360° : 0,5 = 720°.",
+    "Falsch: p = 0,5°.",
+    "Falsch: p = 360°, der Faktor ändert die Periode nicht.",
+    "Richtig."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Je größer b, desto schneller die Schwingung und desto kürzer die Periode: p = 360° : b = 720°.",
+   "h": "Wird die Periode durch b länger oder kürzer?"
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Sinusfunktion f(x) = sin(b · x) soll die Periode 90° haben. Bestimme b."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "360 / 90",
+   "w": "b = 360° : 90° = 4.",
+   "h": "Stelle p = 360° : b nach b um."
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „f(x) = sin(1,5x) hat die Periode 540°.“ Was stimmt?"
+   },
+   "a": [
+    "Falsch: p = 1,5°.",
+    "Richtig.",
+    "Falsch: p = 360° : 1,5 = 240°.",
+    "Falsch: p = 360°, der Faktor ändert die Periode nicht."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Je größer b, desto schneller die Schwingung und desto kürzer die Periode: p = 360° : b = 240°.",
+   "h": "Wird die Periode durch b länger oder kürzer?"
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand sagt: „f(x) = sin(3x) hat die Periode 1 080°.“ Was stimmt?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: p = 3°.",
+    "Falsch: p = 360°, der Faktor ändert die Periode nicht.",
+    "Falsch: p = 360° : 3 = 120°."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Je größer b, desto schneller die Schwingung und desto kürzer die Periode: p = 360° : b = 120°.",
+   "h": "Wird die Periode durch b länger oder kürzer?"
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Sinusfunktion f(x) = sin(b · x) soll die Periode 60° haben. Bestimme b."
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "360 / 60",
+   "w": "b = 360° : 60° = 6.",
+   "h": "Stelle p = 360° : b nach b um."
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph zeigt f(x) = cos(b · x) für 0° ≤ x ≤ 360°. Lies die Periode ab und bestimme b.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -1.5,
+      1.5
+     ],
+     "graphen": [
+      {
+       "art": "cos",
+       "a": 1,
+       "b": 2,
+       "c": 0.0,
+       "d": 0
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 0.5,
+     "streckung": 1.4
+    }
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "360 / 180",
+   "w": "Eine Schwingung dauert 180°, also b = 360° : 180° = 2."
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Welche Periode hat f(x) = cos(5x) im Bogenmaß? Gib sie als Vielfaches von π an.",
+    "schablone": "□/□ · π",
+    "hinweis": "Bruch vor π (gekürzt; bei ganzen Zahlen Nenner 1)"
+   },
+   "o": {
+    "werte": [
+     2,
+     5
+    ]
+   },
+   "w": "p = 2π : 5 = 2π/5.",
+   "c": [
+    "2",
+    "5"
+   ]
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph zeigt f(x) = cos(b · x) für 0° ≤ x ≤ 360°. Lies die Periode ab und bestimme b.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -1.5,
+      1.5
+     ],
+     "graphen": [
+      {
+       "art": "cos",
+       "a": 1,
+       "b": 3,
+       "c": 0.0,
+       "d": 0
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 0.5,
+     "streckung": 1.4
+    }
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "360 / 120",
+   "w": "Eine Schwingung dauert 120°, also b = 360° : 120° = 3."
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Welche Periode hat f(x) = cos(1,5x) im Bogenmaß? Gib sie als Vielfaches von π an.",
+    "schablone": "□/□ · π",
+    "hinweis": "Bruch vor π (gekürzt; bei ganzen Zahlen Nenner 1)"
+   },
+   "o": {
+    "werte": [
+     4,
+     3
+    ]
+   },
+   "w": "p = 2π : 1,5 = 4π/3.",
+   "c": [
+    "4",
+    "3"
+   ]
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Welche Periode hat f(x) = sin((1/3)x) im Bogenmaß? Gib sie als Vielfaches von π an.",
+    "schablone": "□/□ · π",
+    "hinweis": "Bruch vor π (gekürzt; bei ganzen Zahlen Nenner 1)"
+   },
+   "o": {
+    "werte": [
+     6,
+     1
+    ]
+   },
+   "w": "p = 2π : 1/3 = 6π.",
+   "c": [
+    "6",
+    "1"
+   ]
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph zeigt f(x) = sin(b · x) für 0° ≤ x ≤ 360°. Lies die Periode ab und bestimme b.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -1.5,
+      1.5
+     ],
+     "graphen": [
+      {
+       "art": "sin",
+       "a": 1,
+       "b": 5,
+       "c": 0.0,
+       "d": 0
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 0.5,
+     "streckung": 1.4
+    }
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "360 / 72",
+   "w": "Eine Schwingung dauert 72°, also b = 360° : 72° = 5."
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Welche Periode hat f(x) = sin(2x) im Bogenmaß? Gib sie als Vielfaches von π an.",
+    "schablone": "□/□ · π",
+    "hinweis": "Bruch vor π (gekürzt; bei ganzen Zahlen Nenner 1)"
+   },
+   "o": {
+    "werte": [
+     1,
+     1
+    ]
+   },
+   "w": "p = 2π : 2 = π.",
+   "c": [
+    "1",
+    "1"
+   ]
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Welche Periode hat f(x) = cos((1/3)x) im Bogenmaß? Gib sie als Vielfaches von π an.",
+    "schablone": "□/□ · π",
+    "hinweis": "Bruch vor π (gekürzt; bei ganzen Zahlen Nenner 1)"
+   },
+   "o": {
+    "werte": [
+     6,
+     1
+    ]
+   },
+   "w": "p = 2π : 1/3 = 6π.",
+   "c": [
+    "6",
+    "1"
+   ]
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Welche Periode hat f(x) = sin(3x) im Bogenmaß? Gib sie als Vielfaches von π an.",
+    "schablone": "□/□ · π",
+    "hinweis": "Bruch vor π (gekürzt; bei ganzen Zahlen Nenner 1)"
+   },
+   "o": {
+    "werte": [
+     2,
+     3
+    ]
+   },
+   "w": "p = 2π : 3 = 2π/3.",
+   "c": [
+    "2",
+    "3"
+   ]
+  },
+  {
+   "l": "periode",
+   "t": "periode",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Welche Periode hat f(x) = cos(3x) im Bogenmaß? Gib sie als Vielfaches von π an.",
+    "schablone": "□/□ · π",
+    "hinweis": "Bruch vor π (gekürzt; bei ganzen Zahlen Nenner 1)"
+   },
+   "o": {
+    "werte": [
+     2,
+     3
+    ]
+   },
+   "w": "p = 2π : 3 = 2π/3.",
+   "c": [
+    "2",
+    "3"
+   ]
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Amplitude hat f(x) = 5 · sin(x) + 3?"
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "abs(5)",
+   "w": "Amplitude = |a| = 5.",
+   "h": "Die Amplitude ist der Faktor vor sin bzw. cos (Betrag)."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Amplitude hat f(x) = 2 · cos(x) − 3?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "abs(2)",
+   "w": "Amplitude = |a| = 2.",
+   "h": "Die Amplitude ist der Faktor vor sin bzw. cos (Betrag)."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Amplitude hat f(x) = 0,5 · cos(x)?"
+   },
+   "o": {
+    "wert": 0.5
+   },
+   "c": "abs(0.5)",
+   "w": "Amplitude = |a| = 0,5.",
+   "h": "Die Amplitude ist der Faktor vor sin bzw. cos (Betrag)."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Amplitude hat f(x) = 1,5 · sin(x) − 1?"
+   },
+   "o": {
+    "wert": 1.5
+   },
+   "c": "abs(1.5)",
+   "w": "Amplitude = |a| = 1,5.",
+   "h": "Die Amplitude ist der Faktor vor sin bzw. cos (Betrag)."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Amplitude hat f(x) = 0,5 · sin(x)?"
+   },
+   "o": {
+    "wert": 0.5
+   },
+   "c": "abs(0.5)",
+   "w": "Amplitude = |a| = 0,5.",
+   "h": "Die Amplitude ist der Faktor vor sin bzw. cos (Betrag)."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Welche Amplitude hat f(x) = 3 · sin(x)?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "abs(3)",
+   "w": "Amplitude = |a| = 3.",
+   "h": "Die Amplitude ist der Faktor vor sin bzw. cos (Betrag)."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Welchen größten Wert nimmt f(x) = 0,5 · sin(x) an?"
+   },
+   "o": {
+    "wert": 0.5
+   },
+   "c": "0 + abs(0.5)",
+   "w": "Maximum = d + |a| = 0 + 0,5 = 0,5.",
+   "h": "Der größte Wert liegt eine Amplitude über der Mittellinie."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Wertemenge von f(x) = 2 · cos(x) + 2 an.",
+    "schablone": "W = [□; □]",
+    "hinweis": "kleinster und größter Wert"
+   },
+   "o": {
+    "werte": [
+     0,
+     4
+    ]
+   },
+   "w": "Mittellinie y = 2, Amplitude 2: W = [0; 4].",
+   "h": "Von der Mittellinie aus eine Amplitude nach unten und nach oben.",
+   "c": [
+    "2 - abs(2)",
+    "2 + abs(2)"
+   ]
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Welchen größten Wert nimmt f(x) = 1,5 · cos(x) + 3 an?"
+   },
+   "o": {
+    "wert": 4.5
+   },
+   "c": "3 + abs(1.5)",
+   "w": "Maximum = d + |a| = 3 + 1,5 = 4,5.",
+   "h": "Der größte Wert liegt eine Amplitude über der Mittellinie."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph zeigt f(x) = a · cos(x) + d mit a > 0. Lies die Amplitude a ab.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -2,
+      6
+     ],
+     "graphen": [
+      {
+       "art": "cos",
+       "a": 3,
+       "b": 1,
+       "c": 0.0,
+       "d": 2
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 1,
+     "streckung": 1.4
+    }
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(5 - -1) / 2",
+   "w": "Mittellinie y = 2, Maximum 5: a = 5 − 2 = 3.",
+   "h": "Abstand vom Maximum zur Mittellinie (oder halber Abstand von Maximum zu Minimum)."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Wertemenge von f(x) = 4 · sin(x) + 2 an.",
+    "schablone": "W = [□; □]",
+    "hinweis": "kleinster und größter Wert"
+   },
+   "o": {
+    "werte": [
+     -2,
+     6
+    ]
+   },
+   "w": "Mittellinie y = 2, Amplitude 4: W = [−2; 6].",
+   "h": "Von der Mittellinie aus eine Amplitude nach unten und nach oben.",
+   "c": [
+    "2 - abs(4)",
+    "2 + abs(4)"
+   ]
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph zeigt f(x) = a · cos(x) + d mit a > 0. Lies die Amplitude a ab.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -3,
+      1
+     ],
+     "graphen": [
+      {
+       "art": "cos",
+       "a": 0.5,
+       "b": 1,
+       "c": 0.0,
+       "d": -2
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 1,
+     "streckung": 1.4
+    }
+   },
+   "o": {
+    "wert": 0.5
+   },
+   "c": "(-1.5 - -2.5) / 2",
+   "w": "Mittellinie y = −2, Maximum −1,5: a = −1,5 − (−2) = 0,5.",
+   "h": "Abstand vom Maximum zur Mittellinie (oder halber Abstand von Maximum zu Minimum)."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Wertemenge von f(x) = −4 · sin(x) − 1 an.",
+    "schablone": "W = [□; □]",
+    "hinweis": "kleinster und größter Wert"
+   },
+   "o": {
+    "werte": [
+     -5,
+     3
+    ]
+   },
+   "w": "Mittellinie y = −1, Amplitude 4: W = [−5; 3].",
+   "h": "Von der Mittellinie aus eine Amplitude nach unten und nach oben.",
+   "c": [
+    "-1 - abs(-4)",
+    "-1 + abs(-4)"
+   ]
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Welchen größten Wert nimmt f(x) = 0,5 · sin(x) − 3 an?"
+   },
+   "o": {
+    "wert": -2.5
+   },
+   "c": "-3 + abs(0.5)",
+   "w": "Maximum = d + |a| = −3 + 0,5 = −2,5.",
+   "h": "Der größte Wert liegt eine Amplitude über der Mittellinie."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Wertemenge von f(x) = 3 · cos(x) + 2 an.",
+    "schablone": "W = [□; □]",
+    "hinweis": "kleinster und größter Wert"
+   },
+   "o": {
+    "werte": [
+     -1,
+     5
+    ]
+   },
+   "w": "Mittellinie y = 2, Amplitude 3: W = [−1; 5].",
+   "h": "Von der Mittellinie aus eine Amplitude nach unten und nach oben.",
+   "c": [
+    "2 - abs(3)",
+    "2 + abs(3)"
+   ]
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Wertemenge von f(x) = −5 · sin(x) an.",
+    "schablone": "W = [□; □]",
+    "hinweis": "kleinster und größter Wert"
+   },
+   "o": {
+    "werte": [
+     -5,
+     5
+    ]
+   },
+   "w": "Mittellinie y = 0, Amplitude 5: W = [−5; 5].",
+   "h": "Von der Mittellinie aus eine Amplitude nach unten und nach oben.",
+   "c": [
+    "0 - abs(-5)",
+    "0 + abs(-5)"
+   ]
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Wertemenge von f(x) = −3 · cos(x) − 1 an.",
+    "schablone": "W = [□; □]",
+    "hinweis": "kleinster und größter Wert"
+   },
+   "o": {
+    "werte": [
+     -4,
+     2
+    ]
+   },
+   "w": "Mittellinie y = −1, Amplitude 3: W = [−4; 2].",
+   "h": "Von der Mittellinie aus eine Amplitude nach unten und nach oben.",
+   "c": [
+    "-1 - abs(-3)",
+    "-1 + abs(-3)"
+   ]
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Wertemenge von f(x) = −4 · sin(x) − 2 an.",
+    "schablone": "W = [□; □]",
+    "hinweis": "kleinster und größter Wert"
+   },
+   "o": {
+    "werte": [
+     -6,
+     2
+    ]
+   },
+   "w": "Mittellinie y = −2, Amplitude 4: W = [−6; 2].",
+   "h": "Von der Mittellinie aus eine Amplitude nach unten und nach oben.",
+   "c": [
+    "-2 - abs(-4)",
+    "-2 + abs(-4)"
+   ]
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Wertemenge von f(x) = 2 · sin(x) + 2 an.",
+    "schablone": "W = [□; □]",
+    "hinweis": "kleinster und größter Wert"
+   },
+   "o": {
+    "werte": [
+     0,
+     4
+    ]
+   },
+   "w": "Mittellinie y = 2, Amplitude 2: W = [0; 4].",
+   "c": [
+    "2 - abs(2)",
+    "2 + abs(2)"
+   ]
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph zeigt f(x) = a · cos(x) + d mit a > 0. Lies die Amplitude a ab.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -1,
+      3
+     ],
+     "graphen": [
+      {
+       "art": "cos",
+       "a": 1.5,
+       "b": 1,
+       "c": 0.0,
+       "d": 1
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 1,
+     "streckung": 1.4
+    }
+   },
+   "o": {
+    "wert": 1.5
+   },
+   "c": "(2.5 - -0.5) / 2",
+   "w": "Mittellinie y = 1, Maximum 2,5: a = 2,5 − 1 = 1,5."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Welchen größten Wert nimmt f(x) = 1,5 · sin(x) − 2 an?"
+   },
+   "o": {
+    "wert": -0.5
+   },
+   "c": "-2 + abs(1.5)",
+   "w": "Maximum = d + |a| = −2 + 1,5 = −0,5."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph zeigt f(x) = a · cos(x) + d mit a > 0. Lies die Amplitude a ab.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -3,
+      5
+     ],
+     "graphen": [
+      {
+       "art": "cos",
+       "a": 3,
+       "b": 1,
+       "c": 0.0,
+       "d": 1
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 1,
+     "streckung": 1.4
+    }
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(4 - -2) / 2",
+   "w": "Mittellinie y = 1, Maximum 4: a = 4 − 1 = 3."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph zeigt f(x) = a · cos(x) + d mit a > 0. Lies die Amplitude a ab.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -1,
+      5
+     ],
+     "graphen": [
+      {
+       "art": "cos",
+       "a": 1.5,
+       "b": 1,
+       "c": 0.0,
+       "d": 3
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 1,
+     "streckung": 1.4
+    }
+   },
+   "o": {
+    "wert": 1.5
+   },
+   "c": "(4.5 - 1.5) / 2",
+   "w": "Mittellinie y = 3, Maximum 4,5: a = 4,5 − 3 = 1,5."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph zeigt f(x) = a · cos(x) + d mit a > 0. Lies die Amplitude a ab.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -4,
+      8
+     ],
+     "graphen": [
+      {
+       "art": "cos",
+       "a": 5,
+       "b": 1,
+       "c": 0.0,
+       "d": 2
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 2,
+     "streckung": 1.4
+    }
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(7 - -3) / 2",
+   "w": "Mittellinie y = 2, Maximum 7: a = 7 − 2 = 5."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Wertemenge von f(x) = 5 · sin(x) + 3 an.",
+    "schablone": "W = [□; □]",
+    "hinweis": "kleinster und größter Wert"
+   },
+   "o": {
+    "werte": [
+     -2,
+     8
+    ]
+   },
+   "w": "Mittellinie y = 3, Amplitude 5: W = [−2; 8].",
+   "c": [
+    "3 - abs(5)",
+    "3 + abs(5)"
+   ]
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph zeigt f(x) = a · sin(x) + d mit a > 0. Lies die Amplitude a ab.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -1,
+      6
+     ],
+     "graphen": [
+      {
+       "art": "sin",
+       "a": 2,
+       "b": 1,
+       "c": 0.0,
+       "d": 3
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 1,
+     "streckung": 1.4
+    }
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "(5 - 1) / 2",
+   "w": "Mittellinie y = 3, Maximum 5: a = 5 − 3 = 2."
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Wertemenge von f(x) = 5 · cos(x) − 1 an.",
+    "schablone": "W = [□; □]",
+    "hinweis": "kleinster und größter Wert"
+   },
+   "o": {
+    "werte": [
+     -6,
+     4
+    ]
+   },
+   "w": "Mittellinie y = −1, Amplitude 5: W = [−6; 4].",
+   "c": [
+    "-1 - abs(5)",
+    "-1 + abs(5)"
+   ]
+  },
+  {
+   "l": "parameter",
+   "t": "parameter",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph zeigt f(x) = a · sin(x) + d mit a > 0. Lies die Amplitude a ab.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -2,
+      4
+     ],
+     "graphen": [
+      {
+       "art": "sin",
+       "a": 2,
+       "b": 1,
+       "c": 0.0,
+       "d": 1
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 1,
+     "streckung": 1.4
+    }
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "(3 - -1) / 2",
+   "w": "Mittellinie y = 1, Maximum 3: a = 3 − 1 = 2."
+  },
+  {
+   "l": "zuordnen",
+   "t": "zuordnen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -4,
+      4
+     ],
+     "graphen": [
+      {
+       "art": "sin",
+       "a": 3,
+       "b": 1,
+       "c": 0.0,
+       "d": 0
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 1,
+     "streckung": 1.4
+    }
+   },
+   "a": [
+    "f(x) = 3 · sin(x)",
+    "f(x) = 3 · sin(x) + 3",
+    "f(x) = 3 · cos(x)",
+    "f(x) = sin(3x)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Mittellinie y = 0, Amplitude 3, Periode 360° (b = 1), Start bei x = 0 auf der Mittellinie: f(x) = 3 · sin(x).",
+   "h": "Lies Mittellinie, Amplitude und Periode ab. Wo beginnt der Graph bei x = 0?"
+  },
+  {
+   "l": "zuordnen",
+   "t": "zuordnen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -3,
+      3
+     ],
+     "graphen": [
+      {
+       "art": "cos",
+       "a": 2,
+       "b": 1,
+       "c": 0.0,
+       "d": 0
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 1,
+     "streckung": 1.4
+    }
+   },
+   "a": [
+    "f(x) = cos(2x)",
+    "f(x) = 2 · cos(x) + 2",
+    "f(x) = 2 · cos(x)",
+    "f(x) = −2 · cos(x)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Mittellinie y = 0, Amplitude 2, Periode 360° (b = 1), Start bei x = 0 im Maximum: f(x) = 2 · cos(x).",
+   "h": "Lies Mittellinie, Amplitude und Periode ab. Wo beginnt der Graph bei x = 0?"
+  },
+  {
+   "l": "zuordnen",
+   "t": "zuordnen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -4,
+      4
+     ],
+     "graphen": [
+      {
+       "art": "sin",
+       "a": 3,
+       "b": 1,
+       "c": 0.0,
+       "d": 0
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 1,
+     "streckung": 1.4
+    }
+   },
+   "a": [
+    "f(x) = sin(3x)",
+    "f(x) = 3 · cos(x)",
+    "f(x) = −3 · sin(x)",
+    "f(x) = 3 · sin(x)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Mittellinie y = 0, Amplitude 3, Periode 360° (b = 1), Start bei x = 0 auf der Mittellinie: f(x) = 3 · sin(x).",
+   "h": "Lies Mittellinie, Amplitude und Periode ab. Wo beginnt der Graph bei x = 0?"
+  },
+  {
+   "l": "zuordnen",
+   "t": "zuordnen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -4,
+      4
+     ],
+     "graphen": [
+      {
+       "art": "sin",
+       "a": 3,
+       "b": 1,
+       "c": 0.0,
+       "d": 0
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 1,
+     "streckung": 1.4
+    }
+   },
+   "a": [
+    "f(x) = 3 · sin(x)",
+    "f(x) = sin(3x)",
+    "f(x) = 3 · sin(x) + 3",
+    "f(x) = −3 · sin(x)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Mittellinie y = 0, Amplitude 3, Periode 360° (b = 1), Start bei x = 0 auf der Mittellinie: f(x) = 3 · sin(x).",
+   "h": "Lies Mittellinie, Amplitude und Periode ab. Wo beginnt der Graph bei x = 0?"
+  },
+  {
+   "l": "zuordnen",
+   "t": "zuordnen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -4,
+      4
+     ],
+     "graphen": [
+      {
+       "art": "cos",
+       "a": 3,
+       "b": 1,
+       "c": 0.0,
+       "d": 0
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 1,
+     "streckung": 1.4
+    }
+   },
+   "a": [
+    "f(x) = 3 · cos(x)",
+    "f(x) = cos(3x)",
+    "f(x) = 3 · sin(x)",
+    "f(x) = 3 · cos(x) + 3"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Mittellinie y = 0, Amplitude 3, Periode 360° (b = 1), Start bei x = 0 im Maximum: f(x) = 3 · cos(x).",
+   "h": "Lies Mittellinie, Amplitude und Periode ab. Wo beginnt der Graph bei x = 0?"
+  },
+  {
+   "l": "zuordnen",
+   "t": "zuordnen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -4,
+      4
+     ],
+     "graphen": [
+      {
+       "art": "sin",
+       "a": 3,
+       "b": 1,
+       "c": 0.0,
+       "d": 0
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 1,
+     "streckung": 1.4
+    }
+   },
+   "a": [
+    "f(x) = 3 · sin(x)",
+    "f(x) = 3 · cos(x)",
+    "f(x) = −3 · sin(x)",
+    "f(x) = 3 · sin(x) + 3"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Mittellinie y = 0, Amplitude 3, Periode 360° (b = 1), Start bei x = 0 auf der Mittellinie: f(x) = 3 · sin(x).",
+   "h": "Lies Mittellinie, Amplitude und Periode ab. Wo beginnt der Graph bei x = 0?"
+  },
+  {
+   "l": "zuordnen",
+   "t": "zuordnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -4,
+      4
+     ],
+     "graphen": [
+      {
+       "art": "sin",
+       "a": 3,
+       "b": 0.5,
+       "c": 0.0,
+       "d": 0
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 1,
+     "streckung": 1.4
+    }
+   },
+   "a": [
+    "f(x) = 3 · sin(0,5x)",
+    "f(x) = 3 · sin(0,5x) + 3",
+    "f(x) = 4 · sin(0,5x)",
+    "f(x) = −3 · sin(0,5x)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Mittellinie y = 0, Amplitude 3, Periode 720° (b = 0,5), Start bei x = 0 auf der Mittellinie: f(x) = 3 · sin(0,5x).",
+   "h": "Lies Mittellinie, Amplitude und Periode ab. Wo beginnt der Graph bei x = 0?"
+  },
+  {
+   "l": "zuordnen",
+   "t": "zuordnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -5,
+      3
+     ],
+     "graphen": [
+      {
+       "art": "sin",
+       "a": 3,
+       "b": 2,
+       "c": 0.0,
+       "d": -1
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 1,
+     "streckung": 1.4
+    }
+   },
+   "a": [
+    "f(x) = −3 · sin(2x) − 1",
+    "f(x) = 2 · sin(3x) − 1",
+    "f(x) = 3 · cos(2x) − 1",
+    "f(x) = 3 · sin(2x) − 1"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Mittellinie y = −1, Amplitude 3, Periode 180° (b = 2), Start bei x = 0 auf der Mittellinie: f(x) = 3 · sin(2x) − 1.",
+   "h": "Lies Mittellinie, Amplitude und Periode ab. Wo beginnt der Graph bei x = 0?"
+  },
+  {
+   "l": "zuordnen",
+   "t": "zuordnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -1,
+      3
+     ],
+     "graphen": [
+      {
+       "art": "cos",
+       "a": 1,
+       "b": 0.5,
+       "c": 0.0,
+       "d": 1
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 1,
+     "streckung": 1.4
+    }
+   },
+   "a": [
+    "f(x) = −cos(0,5x) + 1",
+    "f(x) = 2 · cos(0,5x) + 1",
+    "f(x) = cos(0,5x) + 1",
+    "f(x) = cos(0,5x) − 1"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Mittellinie y = 1, Amplitude 1, Periode 720° (b = 0,5), Start bei x = 0 im Maximum: f(x) = cos(0,5x) + 1.",
+   "h": "Lies Mittellinie, Amplitude und Periode ab. Wo beginnt der Graph bei x = 0?"
+  },
+  {
+   "l": "zuordnen",
+   "t": "zuordnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -4,
+      4
+     ],
+     "graphen": [
+      {
+       "art": "sin",
+       "a": 3,
+       "b": 0.5,
+       "c": 0.0,
+       "d": 0
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 1,
+     "streckung": 1.4
+    }
+   },
+   "a": [
+    "f(x) = −3 · sin(0,5x)",
+    "f(x) = 3 · cos(0,5x)",
+    "f(x) = 4 · sin(0,5x)",
+    "f(x) = 3 · sin(0,5x)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Mittellinie y = 0, Amplitude 3, Periode 720° (b = 0,5), Start bei x = 0 auf der Mittellinie: f(x) = 3 · sin(0,5x).",
+   "h": "Lies Mittellinie, Amplitude und Periode ab. Wo beginnt der Graph bei x = 0?"
+  },
+  {
+   "l": "zuordnen",
+   "t": "zuordnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -3,
+      3
+     ],
+     "graphen": [
+      {
+       "art": "cos",
+       "a": 2,
+       "b": 2,
+       "c": 0.0,
+       "d": 0
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 1,
+     "streckung": 1.4
+    }
+   },
+   "a": [
+    "f(x) = −2 · cos(2x)",
+    "f(x) = 2 · cos(2x)",
+    "f(x) = 3 · cos(2x)",
+    "f(x) = 2 · cos(2x) + 2"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Mittellinie y = 0, Amplitude 2, Periode 180° (b = 2), Start bei x = 0 im Maximum: f(x) = 2 · cos(2x).",
+   "h": "Lies Mittellinie, Amplitude und Periode ab. Wo beginnt der Graph bei x = 0?"
+  },
+  {
+   "l": "zuordnen",
+   "t": "zuordnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -1,
+      5
+     ],
+     "graphen": [
+      {
+       "art": "cos",
+       "a": 2,
+       "b": 0.5,
+       "c": 0.0,
+       "d": 2
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 1,
+     "streckung": 1.4
+    }
+   },
+   "a": [
+    "f(x) = 3 · cos(0,5x) + 2",
+    "f(x) = −2 · cos(0,5x) + 2",
+    "f(x) = 2 · cos(0,5x) + 2",
+    "f(x) = 2 · sin(0,5x) + 2"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Mittellinie y = 2, Amplitude 2, Periode 720° (b = 0,5), Start bei x = 0 im Maximum: f(x) = 2 · cos(0,5x) + 2.",
+   "h": "Lies Mittellinie, Amplitude und Periode ab. Wo beginnt der Graph bei x = 0?"
+  },
+  {
+   "l": "zuordnen",
+   "t": "zuordnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -3,
+      3
+     ],
+     "graphen": [
+      {
+       "art": "sin",
+       "a": 2,
+       "b": 0.5,
+       "c": 0.0,
+       "d": 0
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 1,
+     "streckung": 1.4
+    }
+   },
+   "a": [
+    "f(x) = 2 · sin(0,5x) + 2",
+    "f(x) = 3 · sin(0,5x)",
+    "f(x) = 2 · sin(0,5x)",
+    "f(x) = −2 · sin(0,5x)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Mittellinie y = 0, Amplitude 2, Periode 720° (b = 0,5), Start bei x = 0 auf der Mittellinie: f(x) = 2 · sin(0,5x).",
+   "h": "Lies Mittellinie, Amplitude und Periode ab. Wo beginnt der Graph bei x = 0?"
+  },
+  {
+   "l": "zuordnen",
+   "t": "zuordnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -3,
+      1
+     ],
+     "graphen": [
+      {
+       "art": "sin",
+       "a": 1,
+       "b": 0.5,
+       "c": 0.0,
+       "d": -1
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 1,
+     "streckung": 1.4
+    }
+   },
+   "a": [
+    "f(x) = cos(0,5x) − 1",
+    "f(x) = 2 · sin(0,5x) − 1",
+    "f(x) = sin(0,5x) − 1",
+    "f(x) = −sin(0,5x) − 1"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Mittellinie y = −1, Amplitude 1, Periode 720° (b = 0,5), Start bei x = 0 auf der Mittellinie: f(x) = sin(0,5x) − 1.",
+   "h": "Lies Mittellinie, Amplitude und Periode ab. Wo beginnt der Graph bei x = 0?"
+  },
+  {
+   "l": "zuordnen",
+   "t": "zuordnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -1,
+      5
+     ],
+     "graphen": [
+      {
+       "art": "sin",
+       "a": 2,
+       "b": 0.5,
+       "c": 0.0,
+       "d": 2
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 1,
+     "streckung": 1.4
+    }
+   },
+   "a": [
+    "f(x) = 2 · cos(0,5x) + 2",
+    "f(x) = 2 · sin(0,5x) − 2",
+    "f(x) = −2 · sin(0,5x) + 2",
+    "f(x) = 2 · sin(0,5x) + 2"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Mittellinie y = 2, Amplitude 2, Periode 720° (b = 0,5), Start bei x = 0 auf der Mittellinie: f(x) = 2 · sin(0,5x) + 2.",
+   "h": "Lies Mittellinie, Amplitude und Periode ab. Wo beginnt der Graph bei x = 0?"
+  },
+  {
+   "l": "zuordnen",
+   "t": "zuordnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -2,
+      4
+     ],
+     "graphen": [
+      {
+       "art": "cos",
+       "a": 2,
+       "b": 2,
+       "c": 0.0,
+       "d": 1
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 1,
+     "streckung": 1.4
+    }
+   },
+   "a": [
+    "f(x) = 2 · cos(2x) − 1",
+    "f(x) = −2 · cos(2x) + 1",
+    "f(x) = 2 · cos(2x) + 1",
+    "f(x) = 3 · cos(2x) + 1"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Mittellinie y = 1, Amplitude 2, Periode 180° (b = 2), Start bei x = 0 im Maximum: f(x) = 2 · cos(2x) + 1.",
+   "h": "Lies Mittellinie, Amplitude und Periode ab. Wo beginnt der Graph bei x = 0?"
+  },
+  {
+   "l": "zuordnen",
+   "t": "zuordnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -3,
+      3
+     ],
+     "graphen": [
+      {
+       "art": "sin",
+       "a": 2,
+       "b": 1,
+       "c": 0.0,
+       "d": 0
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 1,
+     "streckung": 1.4
+    }
+   },
+   "a": [
+    "f(x) = 2 · sin(x) + 2",
+    "f(x) = 2 · sin(x)",
+    "f(x) = −2 · sin(x)",
+    "f(x) = 2 · cos(x)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Mittellinie y = 0, Amplitude 2, Periode 360° (b = 1), Start bei x = 0 auf der Mittellinie: f(x) = 2 · sin(x).",
+   "h": "Lies Mittellinie, Amplitude und Periode ab. Wo beginnt der Graph bei x = 0?"
+  },
+  {
+   "l": "zuordnen",
+   "t": "zuordnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -2,
+      2
+     ],
+     "graphen": [
+      {
+       "art": "cos",
+       "a": -1,
+       "b": 2,
+       "c": 0.0,
+       "d": 0
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 1,
+     "streckung": 1.4
+    }
+   },
+   "a": [
+    "f(x) = −cos(2x)",
+    "f(x) = −cos(2x) − 1",
+    "f(x) = cos(2x)",
+    "f(x) = 2 · cos(−1x)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Mittellinie y = 0, Amplitude 1, Periode 180° (b = 2), Start bei x = 0 im Minimum: f(x) = −cos(2x).",
+   "h": "Lies Mittellinie, Amplitude und Periode ab. Wo beginnt der Graph bei x = 0?"
+  },
+  {
+   "l": "zuordnen",
+   "t": "zuordnen",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -1,
+      3
+     ],
+     "graphen": [
+      {
+       "art": "sin",
+       "a": 1,
+       "b": 2,
+       "c": 0.0,
+       "d": 1
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 1,
+     "streckung": 1.4
+    }
+   },
+   "a": [
+    "f(x) = cos(2x) + 1",
+    "f(x) = −sin(2x) + 1",
+    "f(x) = sin(2x) + 1",
+    "f(x) = 2 · sin(x) + 1"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Mittellinie y = 1, Amplitude 1, Periode 180° (b = 2), Start bei x = 0 auf der Mittellinie: f(x) = sin(2x) + 1."
+  },
+  {
+   "l": "zuordnen",
+   "t": "zuordnen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -1,
+      4
+     ],
+     "graphen": [
+      {
+       "art": "cos",
+       "a": 1,
+       "b": 2,
+       "c": 0.0,
+       "d": 2
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 1,
+     "streckung": 1.4
+    }
+   },
+   "a": [
+    "f(x) = sin(2x) + 2",
+    "f(x) = cos(2x) − 2",
+    "f(x) = cos(2x) + 2",
+    "f(x) = 2 · cos(x) + 2"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Mittellinie y = 2, Amplitude 1, Periode 180° (b = 2), Start bei x = 0 im Maximum: f(x) = cos(2x) + 2."
+  },
+  {
+   "l": "zuordnen",
+   "t": "zuordnen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -5,
+      3
+     ],
+     "graphen": [
+      {
+       "art": "cos",
+       "a": 3,
+       "b": 0.5,
+       "c": 0.0,
+       "d": -1
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 1,
+     "streckung": 1.4
+    }
+   },
+   "a": [
+    "f(x) = 3 · cos(0,5x) + 1",
+    "f(x) = 4 · cos(0,5x) − 1",
+    "f(x) = 3 · cos(0,5x) − 1",
+    "f(x) = −3 · cos(0,5x) − 1"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Mittellinie y = −1, Amplitude 3, Periode 720° (b = 0,5), Start bei x = 0 im Maximum: f(x) = 3 · cos(0,5x) − 1."
+  },
+  {
+   "l": "zuordnen",
+   "t": "zuordnen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -2,
+      6
+     ],
+     "graphen": [
+      {
+       "art": "cos",
+       "a": 3,
+       "b": 0.5,
+       "c": 0.0,
+       "d": 2
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 1,
+     "streckung": 1.4
+    }
+   },
+   "a": [
+    "f(x) = 3 · sin(0,5x) + 2",
+    "f(x) = 3 · cos(0,5x) + 2",
+    "f(x) = 3 · cos(0,5x) − 2",
+    "f(x) = −3 · cos(0,5x) + 2"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Mittellinie y = 2, Amplitude 3, Periode 720° (b = 0,5), Start bei x = 0 im Maximum: f(x) = 3 · cos(0,5x) + 2."
+  },
+  {
+   "l": "zuordnen",
+   "t": "zuordnen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -2,
+      4
+     ],
+     "graphen": [
+      {
+       "art": "sin",
+       "a": 2,
+       "b": 0.5,
+       "c": 0.0,
+       "d": 1
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 1,
+     "streckung": 1.4
+    }
+   },
+   "a": [
+    "f(x) = −2 · sin(0,5x) + 1",
+    "f(x) = 2 · sin(0,5x) − 1",
+    "f(x) = 3 · sin(0,5x) + 1",
+    "f(x) = 2 · sin(0,5x) + 1"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Mittellinie y = 1, Amplitude 2, Periode 720° (b = 0,5), Start bei x = 0 auf der Mittellinie: f(x) = 2 · sin(0,5x) + 1."
+  },
+  {
+   "l": "zuordnen",
+   "t": "zuordnen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -3,
+      1
+     ],
+     "graphen": [
+      {
+       "art": "cos",
+       "a": 1,
+       "b": 0.5,
+       "c": 0.0,
+       "d": -1
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 1,
+     "streckung": 1.4
+    }
+   },
+   "a": [
+    "f(x) = cos(0,5x) + 1",
+    "f(x) = sin(0,5x) − 1",
+    "f(x) = cos(0,5x) − 1",
+    "f(x) = −cos(0,5x) − 1"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Mittellinie y = −1, Amplitude 1, Periode 720° (b = 0,5), Start bei x = 0 im Maximum: f(x) = cos(0,5x) − 1."
+  },
+  {
+   "l": "zuordnen",
+   "t": "zuordnen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -4,
+      4
+     ],
+     "graphen": [
+      {
+       "art": "sin",
+       "a": 3,
+       "b": 0.5,
+       "c": 0.0,
+       "d": 0
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 1,
+     "streckung": 1.4
+    }
+   },
+   "a": [
+    "f(x) = 3 · sin(0,5x) + 3",
+    "f(x) = 3 · sin(0,5x)",
+    "f(x) = 4 · sin(0,5x)",
+    "f(x) = 3 · cos(0,5x)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Mittellinie y = 0, Amplitude 3, Periode 720° (b = 0,5), Start bei x = 0 auf der Mittellinie: f(x) = 3 · sin(0,5x)."
+  },
+  {
+   "l": "zuordnen",
+   "t": "zuordnen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -3,
+      1
+     ],
+     "graphen": [
+      {
+       "art": "cos",
+       "a": 1,
+       "b": 0.5,
+       "c": 0.0,
+       "d": -1
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 1,
+     "streckung": 1.4
+    }
+   },
+   "a": [
+    "f(x) = cos(0,5x) − 1",
+    "f(x) = 2 · cos(0,5x) − 1",
+    "f(x) = sin(0,5x) − 1",
+    "f(x) = cos(0,5x) + 1"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Mittellinie y = −1, Amplitude 1, Periode 720° (b = 0,5), Start bei x = 0 im Maximum: f(x) = cos(0,5x) − 1."
+  },
+  {
+   "l": "zuordnen",
+   "t": "zuordnen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -2,
+      2
+     ],
+     "graphen": [
+      {
+       "art": "sin",
+       "a": 1,
+       "b": 0.5,
+       "c": 0.0,
+       "d": 0
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 1,
+     "streckung": 1.4
+    }
+   },
+   "a": [
+    "f(x) = cos(0,5x)",
+    "f(x) = −sin(0,5x)",
+    "f(x) = sin(0,5x)",
+    "f(x) = sin(0,5x) + 1"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Mittellinie y = 0, Amplitude 1, Periode 720° (b = 0,5), Start bei x = 0 auf der Mittellinie: f(x) = sin(0,5x)."
+  },
+  {
+   "l": "zuordnen",
+   "t": "zuordnen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      360
+     ],
+     "y": [
+      -3,
+      5
+     ],
+     "graphen": [
+      {
+       "art": "sin",
+       "a": 3,
+       "b": 0.5,
+       "c": 0.0,
+       "d": 1
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 1,
+     "streckung": 1.4
+    }
+   },
+   "a": [
+    "f(x) = 3 · sin(0,5x) − 1",
+    "f(x) = 4 · sin(0,5x) + 1",
+    "f(x) = 3 · sin(0,5x) + 1",
+    "f(x) = 3 · cos(0,5x) + 1"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Mittellinie y = 1, Amplitude 3, Periode 720° (b = 0,5), Start bei x = 0 auf der Mittellinie: f(x) = 3 · sin(0,5x) + 1."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gib alle Nullstellen von f(x) = cos x im Bereich −720° ≤ x ≤ −360° an (in Grad).",
+    "schablone": "x₁ = □°; x₂ = □°",
+    "hinweis": "kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     -630,
+     -450
+    ]
+   },
+   "w": "cos x = 0, wo der Punkt am Einheitskreis auf der y-Achse liegt: −630°, −450°.",
+   "h": "Wo hat der Punkt am Einheitskreis die Koordinate 0? Die Nullstellen wiederholen sich alle 180°.",
+   "c": [
+    "-630",
+    "-450"
+   ]
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gib alle Nullstellen von f(x) = sin x im Bereich −360° ≤ x ≤ 0° an (in Grad).",
+    "schablone": "x₁ = □°; x₂ = □°; x₃ = □°",
+    "hinweis": "kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     -360,
+     -180,
+     0
+    ]
+   },
+   "w": "sin x = 0, wo der Punkt am Einheitskreis auf der x-Achse liegt: −360°, −180°, 0°.",
+   "h": "Wo hat der Punkt am Einheitskreis die Koordinate 0? Die Nullstellen wiederholen sich alle 180°.",
+   "c": [
+    "-360",
+    "-180",
+    "0"
+   ]
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gib alle Nullstellen von f(x) = cos x im Bereich −360° ≤ x ≤ 0° an (in Grad).",
+    "schablone": "x₁ = □°; x₂ = □°",
+    "hinweis": "kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     -270,
+     -90
+    ]
+   },
+   "w": "cos x = 0, wo der Punkt am Einheitskreis auf der y-Achse liegt: −270°, −90°.",
+   "h": "Wo hat der Punkt am Einheitskreis die Koordinate 0? Die Nullstellen wiederholen sich alle 180°.",
+   "c": [
+    "-270",
+    "-90"
+   ]
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gib alle Nullstellen von f(x) = cos x im Bereich 0° ≤ x ≤ 360° an (in Grad).",
+    "schablone": "x₁ = □°; x₂ = □°",
+    "hinweis": "kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     90,
+     270
+    ]
+   },
+   "w": "cos x = 0, wo der Punkt am Einheitskreis auf der y-Achse liegt: 90°, 270°.",
+   "h": "Wo hat der Punkt am Einheitskreis die Koordinate 0? Die Nullstellen wiederholen sich alle 180°.",
+   "c": [
+    "90",
+    "270"
+   ]
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gib alle Nullstellen von f(x) = cos x im Bereich 360° ≤ x ≤ 720° an (in Grad).",
+    "schablone": "x₁ = □°; x₂ = □°",
+    "hinweis": "kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     450,
+     630
+    ]
+   },
+   "w": "cos x = 0, wo der Punkt am Einheitskreis auf der y-Achse liegt: 450°, 630°.",
+   "h": "Wo hat der Punkt am Einheitskreis die Koordinate 0? Die Nullstellen wiederholen sich alle 180°.",
+   "c": [
+    "450",
+    "630"
+   ]
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gib alle Nullstellen von f(x) = sin x im Bereich 0° ≤ x ≤ 360° an (in Grad).",
+    "schablone": "x₁ = □°; x₂ = □°; x₃ = □°",
+    "hinweis": "kleinste zuerst"
+   },
+   "o": {
+    "werte": [
+     0,
+     180,
+     360
+    ]
+   },
+   "w": "sin x = 0, wo der Punkt am Einheitskreis auf der x-Achse liegt: 0°, 180°, 360°.",
+   "h": "Wo hat der Punkt am Einheitskreis die Koordinate 0? Die Nullstellen wiederholen sich alle 180°.",
+   "c": [
+    "0",
+    "180",
+    "360"
+   ]
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Nullstellen hat f(x) = sin(2x) im Bereich 0° ≤ x < 360°?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "360 // (180 // 2)",
+   "w": "Periode 180°; Nullstellen alle 90°: 0°, 90°, …, also 4 Stück.",
+   "h": "Wie viele halbe Perioden passen in 360°?"
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Symmetrie hat der Graph von f(x) = cos x?"
+   },
+   "a": [
+    "punktsymmetrisch zum Ursprung",
+    "achsensymmetrisch zur y-Achse",
+    "keine Symmetrie"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "sin(−x) = −sin x (punktsymmetrisch), cos(−x) = cos x (achsensymmetrisch).",
+   "h": "Vergleiche f(−x) mit f(x)."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme die kleinste positive Nullstelle von f(x) = sin(3x) (in Grad)."
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "°"
+   },
+   "c": "180 / 3",
+   "w": "sin(u) = 0 zuerst bei u = 180°; 3x = 180° ⇒ x = 60°.",
+   "h": "Setze u = 3x und suche die erste Nullstelle von sin(u)."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Der Graph von cos x entsteht aus dem von sin x durch eine Verschiebung. Welche Aussage ist richtig? (Gezeichnet: sin und cos.)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -180,
+      360
+     ],
+     "y": [
+      -1.5,
+      1.5
+     ],
+     "graphen": [
+      {
+       "art": "sin",
+       "a": 1,
+       "b": 1,
+       "c": 0.0,
+       "d": 0,
+       "name": "sin"
+      },
+      {
+       "art": "cos",
+       "a": 1,
+       "b": 1,
+       "c": 0.0,
+       "d": 0,
+       "name": "cos",
+       "name_x": 150
+      }
+     ],
+     "grad": true,
+     "schritt_x": 90,
+     "schritt_y": 0.5,
+     "streckung": 1.4
+    }
+   },
+   "a": [
+    "cos x = −sin x",
+    "cos x = sin(x + 90°)",
+    "cos x = sin(x − 90°)",
+    "cos x = sin x + 1"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Der cos-Graph ist der sin-Graph um 90° nach links verschoben: cos x = sin(x + 90°). Probe: x = 0: sin 90° = 1 = cos 0°.",
+   "h": "Setze x = 0 in jede Aussage ein und vergleiche mit cos 0° = 1."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "An welcher Stelle x zwischen 1 080° und 1 440° hat cos x ein Minimum?"
+   },
+   "o": {
+    "wert": 1260,
+    "einheit": "°"
+   },
+   "c": "180 + 360 * (3)",
+   "w": "cos x = −1 bei 180° + (1 080°) = 1 260°.",
+   "h": "cos x ist bei 180° minimal; addiere Vielfache der Periode."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "An welcher Stelle x zwischen −720° und −360° hat sin x ein Maximum?"
+   },
+   "o": {
+    "wert": -630,
+    "einheit": "°"
+   },
+   "c": "90 + 360 * (-2)",
+   "w": "sin x = 1 bei 90° + (−720°) = −630° (Periode 360°).",
+   "h": "sin x ist bei 90° maximal; addiere Vielfache der Periode."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme die kleinste positive Nullstelle von f(x) = cos(6x) (in Grad)."
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "°"
+   },
+   "c": "90 / 6",
+   "w": "cos(u) = 0 zuerst bei u = 90°; 6x = 90° ⇒ x = 15°.",
+   "h": "Setze u = 6x und suche die erste Nullstelle von cos(u)."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Nullstellen hat f(x) = sin(4x) im Bereich 0° ≤ x < 360°?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "360 // (90 // 2)",
+   "w": "Periode 90°; Nullstellen alle 45°: 0°, 45°, …, also 8 Stück.",
+   "h": "Wie viele halbe Perioden passen in 360°?"
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme die kleinste positive Nullstelle von f(x) = sin(4x) (in Grad)."
+   },
+   "o": {
+    "wert": 45,
+    "einheit": "°"
+   },
+   "c": "180 / 4",
+   "w": "sin(u) = 0 zuerst bei u = 180°; 4x = 180° ⇒ x = 45°.",
+   "h": "Setze u = 4x und suche die erste Nullstelle von sin(u)."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme die kleinste positive Nullstelle von f(x) = cos(2x) (in Grad)."
+   },
+   "o": {
+    "wert": 45,
+    "einheit": "°"
+   },
+   "c": "90 / 2",
+   "w": "cos(u) = 0 zuerst bei u = 90°; 2x = 90° ⇒ x = 45°.",
+   "h": "Setze u = 2x und suche die erste Nullstelle von cos(u)."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme die kleinste positive Nullstelle von f(x) = cos(4x) (in Grad)."
+   },
+   "o": {
+    "wert": 22.5,
+    "einheit": "°"
+   },
+   "c": "90 / 4",
+   "w": "cos(u) = 0 zuerst bei u = 90°; 4x = 90° ⇒ x = 22,5°.",
+   "h": "Setze u = 4x und suche die erste Nullstelle von cos(u)."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Nullstellen hat f(x) = sin(5x) im Bereich 0° ≤ x < 360°?"
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "360 // (72 // 2)",
+   "w": "Periode 72°; Nullstellen alle 36°: 0°, 36°, …, also 10 Stück.",
+   "h": "Wie viele halbe Perioden passen in 360°?"
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "An welcher Stelle x zwischen −360° und 0° hat cos x ein Minimum?"
+   },
+   "o": {
+    "wert": -180,
+    "einheit": "°"
+   },
+   "c": "180 + 360 * (-1)",
+   "w": "cos x = −1 bei 180° + (−360°) = −180°."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Nullstellen hat f(x) = sin(3x) im Bereich 0° ≤ x < 360°?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "360 // (120 // 2)",
+   "w": "Periode 120°; Nullstellen alle 60°: 0°, 60°, …, also 6 Stück."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "An welcher Stelle x zwischen −720° und −360° hat cos x ein Minimum?"
+   },
+   "o": {
+    "wert": -540,
+    "einheit": "°"
+   },
+   "c": "180 + 360 * (-2)",
+   "w": "cos x = −1 bei 180° + (−720°) = −540°."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "An welcher Stelle x zwischen 360° und 720° hat sin x ein Maximum?"
+   },
+   "o": {
+    "wert": 450,
+    "einheit": "°"
+   },
+   "c": "90 + 360 * (1)",
+   "w": "sin x = 1 bei 90° + (360°) = 450° (Periode 360°)."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Symmetrie hat der Graph von f(x) = sin x?"
+   },
+   "a": [
+    "punktsymmetrisch zum Ursprung",
+    "keine Symmetrie",
+    "achsensymmetrisch zur y-Achse"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "sin(−x) = −sin x (punktsymmetrisch), cos(−x) = cos x (achsensymmetrisch)."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "An welcher Stelle x zwischen 0° und 360° hat sin x ein Maximum?"
+   },
+   "o": {
+    "wert": 90,
+    "einheit": "°"
+   },
+   "c": "90 + 360 * (0)",
+   "w": "sin x = 1 bei 90° + (0°) = 90° (Periode 360°)."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Bestimme die kleinste positive Nullstelle von f(x) = cos(5x) (in Grad)."
+   },
+   "o": {
+    "wert": 18,
+    "einheit": "°"
+   },
+   "c": "90 / 5",
+   "w": "cos(u) = 0 zuerst bei u = 90°; 5x = 90° ⇒ x = 18°."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "An welcher Stelle x zwischen 0° und 360° hat cos x ein Minimum?"
+   },
+   "o": {
+    "wert": 180,
+    "einheit": "°"
+   },
+   "c": "180 + 360 * (0)",
+   "w": "cos x = −1 bei 180° + (0°) = 180°."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "An welcher Stelle x zwischen −360° und 0° hat sin x ein Maximum?"
+   },
+   "o": {
+    "wert": -270,
+    "einheit": "°"
+   },
+   "c": "90 + 360 * (-1)",
+   "w": "sin x = 1 bei 90° + (−360°) = −270° (Periode 360°)."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "An welcher Stelle x zwischen 1 080° und 1 440° hat sin x ein Maximum?"
+   },
+   "o": {
+    "wert": 1170,
+    "einheit": "°"
+   },
+   "c": "90 + 360 * (3)",
+   "w": "sin x = 1 bei 90° + (1 080°) = 1 170° (Periode 360°)."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Höhe einer Riesenradgondel ist h(t) = 15 − 12 · cos(45° · t) (t in Minuten, h in m). Wie hoch ist sie nach 4 min?"
+   },
+   "o": {
+    "wert": 27,
+    "einheit": "m"
+   },
+   "c": "15 - 12 * -1",
+   "w": "h(4) = 15 − 12 · cos(180°) = 27 m.",
+   "h": "Setze t ein; cos 0° = 1, cos 90° = 0, cos 180° = −1."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Höhe einer Riesenradgondel ist h(t) = 15 − 12 · cos(45° · t) (t in Minuten, h in m). Wie hoch ist sie nach 2 min?"
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "m"
+   },
+   "c": "15 - 12 * 0",
+   "w": "h(2) = 15 − 12 · cos(90°) = 15 m.",
+   "h": "Setze t ein; cos 0° = 1, cos 90° = 0, cos 180° = −1."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Höhe einer Riesenradgondel ist h(t) = 20 − 18 · cos(30° · t) (t in Minuten, h in m). Wie hoch ist sie nach 6 min?"
+   },
+   "o": {
+    "wert": 38,
+    "einheit": "m"
+   },
+   "c": "20 - 18 * -1",
+   "w": "h(6) = 20 − 18 · cos(180°) = 38 m.",
+   "h": "Setze t ein; cos 0° = 1, cos 90° = 0, cos 180° = −1."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Höhe einer Riesenradgondel ist h(t) = 60 − 55 · cos(12° · t) (t in Minuten, h in m). Wie hoch ist sie nach 15 min?"
+   },
+   "o": {
+    "wert": 115,
+    "einheit": "m"
+   },
+   "c": "60 - 55 * -1",
+   "w": "h(15) = 60 − 55 · cos(180°) = 115 m.",
+   "h": "Setze t ein; cos 0° = 1, cos 90° = 0, cos 180° = −1."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Höhe einer Riesenradgondel ist h(t) = 30 − 25 · cos(18° · t) (t in Minuten, h in m). Wie hoch ist sie nach 15 min?"
+   },
+   "o": {
+    "wert": 30,
+    "einheit": "m"
+   },
+   "c": "30 - 25 * 0",
+   "w": "h(15) = 30 − 25 · cos(270°) = 30 m.",
+   "h": "Setze t ein; cos 0° = 1, cos 90° = 0, cos 180° = −1."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Die Höhe einer Riesenradgondel ist h(t) = 20 − 18 · cos(30° · t) (t in Minuten, h in m). Wie hoch ist sie nach 3 min?"
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "m"
+   },
+   "c": "20 - 18 * 0",
+   "w": "h(3) = 20 − 18 · cos(90°) = 20 m.",
+   "h": "Setze t ein; cos 0° = 1, cos 90° = 0, cos 180° = −1."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "h(t) = 20 − 18 · cos(30° · t) beschreibt die Höhe einer Gondel (h in m). Welche größte Höhe erreicht sie?"
+   },
+   "o": {
+    "wert": 38,
+    "einheit": "m"
+   },
+   "c": "20 + 18",
+   "w": "Größte Höhe = 20 + 18 = 38 m (cos = −1).",
+   "h": "Wann ist −cos am größten?"
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "h(t) = 30 − 25 · cos(18° · t) beschreibt die Höhe einer Gondel (h in m). Welche größte Höhe erreicht sie?"
+   },
+   "o": {
+    "wert": 55,
+    "einheit": "m"
+   },
+   "c": "30 + 25",
+   "w": "Größte Höhe = 30 + 25 = 55 m (cos = −1).",
+   "h": "Wann ist −cos am größten?"
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "h(t) = 40 − 35 · cos(24° · t) (t in Minuten). Wie lange dauert eine Umdrehung?"
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "min"
+   },
+   "c": "360 / 24",
+   "w": "Periode = 360° : 24° = 15 min.",
+   "h": "Periode = 360° : b."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "h(t) = 15 − 12 · cos(45° · t) (t in Minuten). Wie lange dauert eine Umdrehung?"
+   },
+   "o": {
+    "wert": 8,
+    "einheit": "min"
+   },
+   "c": "360 / 45",
+   "w": "Periode = 360° : 45° = 8 min.",
+   "h": "Periode = 360° : b."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "h(t) = 10 − 8 · cos(60° · t) (t in Minuten). Wie lange dauert eine Umdrehung?"
+   },
+   "o": {
+    "wert": 6,
+    "einheit": "min"
+   },
+   "c": "360 / 60",
+   "w": "Periode = 360° : 60° = 6 min.",
+   "h": "Periode = 360° : b."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "h(t) = 30 − 25 · cos(18° · t) (t in Minuten). Wie lange dauert eine Umdrehung?"
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "min"
+   },
+   "c": "360 / 18",
+   "w": "Periode = 360° : 18° = 20 min.",
+   "h": "Periode = 360° : b."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tageslänge an einem Ort wird modelliert durch L(t) = 12 + 3,5 · sin(360°/365 · (t − 80)) (t = Tag des Jahres, L in Stunden). Wie lang ist der Tag t = 364? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 8.6,
+    "einheit": "h",
+    "toleranz": 0.1
+   },
+   "c": "round(8.554341641368, 1)",
+   "w": "L(364) = 12 + 3,5 · sin(280,11°) ≈ 8,6 h.",
+   "h": "Setze t ein; Taschenrechner im Gradmodus."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tageslänge an einem Ort wird modelliert durch L(t) = 12 + 3,5 · sin(360°/365 · (t − 80)) (t = Tag des Jahres, L in Stunden). Wie lang ist der Tag t = 281? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 10.9,
+    "einheit": "h",
+    "toleranz": 0.1
+   },
+   "c": "round(10.904125356725, 1)",
+   "w": "L(281) = 12 + 3,5 · sin(198,25°) ≈ 10,9 h.",
+   "h": "Setze t ein; Taschenrechner im Gradmodus."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "h(t) = 30 − 25 · cos(18° · t) beschreibt die Höhe einer Gondel (t in min, h in m). Wie hoch ist sie nach 3 min? Runde auf eine Nachkommastelle.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      20
+     ],
+     "y": [
+      0,
+      60
+     ],
+     "graphen": [
+      {
+       "art": "cos",
+       "a": -25,
+       "b": 18,
+       "d": 30,
+       "bereich": [
+        0,
+        20
+       ]
+      }
+     ],
+     "name_x": "t",
+     "name_y": "h",
+     "streckung": 1.4
+    }
+   },
+   "o": {
+    "wert": 15.3,
+    "einheit": "m",
+    "toleranz": 0.1
+   },
+   "c": "round(15.305368692688, 1)",
+   "w": "h(3) = 30 − 25 · cos(54°) ≈ 15,3 m.",
+   "h": "Setze t ein (Gradmodus). Der Graph hilft beim Schätzen."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tageslänge an einem Ort wird modelliert durch L(t) = 12 + 3,5 · sin(360°/365 · (t − 80)) (t = Tag des Jahres, L in Stunden). Wie lang ist der Tag t = 19? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 9,
+    "einheit": "h",
+    "toleranz": 0.1
+   },
+   "c": "round(8.963902758446, 1)",
+   "w": "L(19) = 12 + 3,5 · sin(−60,16°) ≈ 9 h.",
+   "h": "Setze t ein; Taschenrechner im Gradmodus."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "h(t) = 20 − 18 · cos(30° · t) beschreibt die Höhe einer Gondel (t in min, h in m). Wie hoch ist sie nach 10 min? Runde auf eine Nachkommastelle.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      0,
+      12
+     ],
+     "y": [
+      0,
+      40
+     ],
+     "graphen": [
+      {
+       "art": "cos",
+       "a": -18,
+       "b": 30,
+       "d": 20,
+       "bereich": [
+        0,
+        12
+       ]
+      }
+     ],
+     "name_x": "t",
+     "name_y": "h",
+     "streckung": 1.4
+    }
+   },
+   "o": {
+    "wert": 11,
+    "einheit": "m",
+    "toleranz": 0.1
+   },
+   "c": "round(11.000000000000, 1)",
+   "w": "h(10) = 20 − 18 · cos(300°) ≈ 11 m.",
+   "h": "Setze t ein (Gradmodus). Der Graph hilft beim Schätzen."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Tageslänge an einem Ort wird modelliert durch L(t) = 12 + 3,5 · sin(360°/365 · (t − 80)) (t = Tag des Jahres, L in Stunden). Wie lang ist der Tag t = 228? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 14,
+    "einheit": "h",
+    "toleranz": 0.1
+   },
+   "c": "round(13.958562418436, 1)",
+   "w": "L(228) = 12 + 3,5 · sin(145,97°) ≈ 14 h.",
+   "h": "Setze t ein; Taschenrechner im Gradmodus."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "h(t) = 40 − 35 · cos(24° · t) beschreibt die Höhe einer Gondel (h in m). Welche kleinste Höhe hat sie?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "m"
+   },
+   "c": "40 - 35",
+   "w": "Kleinste Höhe = 40 − 35 = 5 m (cos = 1)."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "h(t) = 20 − 18 · cos(30° · t) (t in Minuten). Wie lange dauert eine Umdrehung?"
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "min"
+   },
+   "c": "360 / 30",
+   "w": "Periode = 360° : 30° = 12 min."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "h(t) = 30 − 25 · cos(18° · t) beschreibt die Höhe einer Gondel (h in m). Welche kleinste Höhe hat sie?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "m"
+   },
+   "c": "30 - 25",
+   "w": "Kleinste Höhe = 30 − 25 = 5 m (cos = 1)."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "h(t) = 40 − 35 · cos(24° · t) beschreibt die Höhe einer Gondel (h in m). Welche größte Höhe erreicht sie?"
+   },
+   "o": {
+    "wert": 75,
+    "einheit": "m"
+   },
+   "c": "40 + 35",
+   "w": "Größte Höhe = 40 + 35 = 75 m (cos = −1)."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "h(t) = 20 − 18 · cos(30° · t) beschreibt die Höhe einer Gondel (h in m). Welche kleinste Höhe hat sie?"
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "m"
+   },
+   "c": "20 - 18",
+   "w": "Kleinste Höhe = 20 − 18 = 2 m (cos = 1)."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "h(t) = 10 − 8 · cos(60° · t) beschreibt die Höhe einer Gondel (h in m). Welche größte Höhe erreicht sie?"
+   },
+   "o": {
+    "wert": 18,
+    "einheit": "m"
+   },
+   "c": "10 + 8",
+   "w": "Größte Höhe = 10 + 8 = 18 m (cos = −1)."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "h(t) = 60 − 55 · cos(12° · t) beschreibt die Höhe einer Gondel (h in m). Welche größte Höhe erreicht sie?"
+   },
+   "o": {
+    "wert": 115,
+    "einheit": "m"
+   },
+   "c": "60 + 55",
+   "w": "Größte Höhe = 60 + 55 = 115 m (cos = −1)."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "h(t) = 60 − 55 · cos(12° · t) beschreibt die Höhe einer Gondel (h in m). Welche kleinste Höhe hat sie?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "m"
+   },
+   "c": "60 - 55",
+   "w": "Kleinste Höhe = 60 − 55 = 5 m (cos = 1)."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "h(t) = 15 − 12 · cos(45° · t) beschreibt die Höhe einer Gondel (h in m). Welche größte Höhe erreicht sie?"
+   },
+   "o": {
+    "wert": 27,
+    "einheit": "m"
+   },
+   "c": "15 + 12",
+   "w": "Größte Höhe = 15 + 12 = 27 m (cos = −1)."
+  },
+  {
+   "l": "anwendung",
+   "t": "anwendung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "h(t) = 60 − 55 · cos(12° · t) (t in Minuten). Wie lange dauert eine Umdrehung?"
+   },
+   "o": {
+    "wert": 30,
+    "einheit": "min"
+   },
+   "c": "360 / 12",
+   "w": "Periode = 360° : 12° = 30 min."
+  }
+ ],
+ "offen": [
+  "Zeichnungen: Graphen in den Lernkarten „werte“, „periode“, „parameter“, „zuordnen“, „eigenschaften“, „anwendung“; Aufgaben „Graph und Term zuordnen“, „Periode ablesen“, „Amplitude ablesen“ zeigen den Graphen. Die x-Achse ist in Grad beschriftet (grad: true), weil π-Beschriftungen nicht möglich sind; Bogenmaß wird über Umrechnung geübt.",
+  "Verschiebung in x-Richtung (Parameter c) ist nicht enthalten: lehrplan_gym nennt nur „Sinus- und Kosinusfunktion“; a, b und d decken die Wirkung der Parameter ab. Bitte bei der Prüfung bestätigen.",
+  "Rechenausdruck c: Sinus/Kosinus-Werte als 12-stellige Konstanten mit Toleranz."
+ ]
+}

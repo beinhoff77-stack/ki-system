@@ -1,0 +1,6937 @@
+{
+ "thema_schluessel": "geometrie.kreis",
+ "thema_id": 45,
+ "block_id": 79,
+ "klasse": {
+  "gym_by": 7,
+  "rs_by": 7
+ },
+ "autor": "Claude (Paket Klasse 7)",
+ "inhalt": {
+  "ziel": "Den Satz des Thales und seine Umkehrung anwenden und begründen, Tangenten und ihre Eigenschaften nutzen, Umkreis und Inkreis von Dreiecken bestimmen.",
+  "merke": [
+   "Thales: C auf dem Kreis über dem Durchmesser [AB] ⇔ γ = 90°.",
+   "Tangente ⊥ Berührradius. Von außen: zwei gleich lange Tangentenabschnitte.",
+   "Umkreis: Mittelsenkrechten. Inkreis: Winkelhalbierende.",
+   "Passante d > r, Tangente d = r, Sekante d < r."
+  ],
+  "abschnitte": [
+   {
+    "titel": "Satz des Thales",
+    "lernziele": [
+     "thales",
+     "umkehrung",
+     "beweis"
+    ]
+   },
+   {
+    "titel": "Tangenten",
+    "lernziele": [
+     "lage",
+     "tangente"
+    ]
+   },
+   {
+    "titel": "Besondere Kreise",
+    "lernziele": [
+     "umkreis_inkreis"
+    ]
+   }
+  ],
+  "etappen": [
+   {
+    "lernziel": "thales",
+    "titel": "Satz des Thales anwenden",
+    "regel": "⟦Satz des Thales⟧: Liegt C auf einem Kreis mit dem Durchmesser [AB], dann hat das Dreieck ABC bei C einen ⟦rechten Winkel⟧. Den Kreis nennt man ⟦Thaleskreis⟧.",
+    "schritte": [
+     "[AB] ist Durchmesser, C liegt auf dem Kreis, α = 35°.",
+     "Nach Thales: γ = 90°.",
+     "β = 180° − 90° − 35° = ⟦55°⟧"
+    ],
+    "fehler": "Liegt C auf dem Kreis, aber [AB] ist ⟦kein Durchmesser⟧ (sondern nur eine Sehne), gilt der Satz des Thales nicht – γ ist dann im Allgemeinen kein rechter Winkel.",
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       -3,
+       0
+      ],
+      "B": [
+       3,
+       0
+      ],
+      "C": [
+       -1.03,
+       2.82
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "A"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "C",
+       "A",
+       "B"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "35°"
+      ],
+      [
+       "B",
+       "C",
+       "A",
+       "β"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 3
+      }
+     ]
+    }
+   },
+   {
+    "lernziel": "umkehrung",
+    "titel": "Umkehrung: Wo liegt der Thaleskreis?",
+    "regel": "⟦Umkehrung⟧: Hat das Dreieck ABC bei C einen rechten Winkel, dann liegt C auf dem Kreis mit dem ⟦Durchmesser [AB]⟧. Sein Mittelpunkt ist die ⟦Mitte von [AB]⟧, sein Radius die halbe Länge von [AB].",
+    "schritte": [
+     "A(−2 | 1), B(6 | 1), ∠ACB = 90°",
+     "Mitte von [AB]: M((−2 + 6) : 2 | 1) = M(2 | 1)",
+     "Radius: 8 : 2 = ⟦4⟧. C liegt auf dem Kreis um M(2 | 1) mit r = 4."
+    ],
+    "fehler": "Der Mittelpunkt des Thaleskreises ist nicht C, sondern die ⟦Mitte der Hypotenuse⟧ [AB] – der Seite gegenüber dem rechten Winkel.",
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      7
+     ],
+     "y": [
+      -1,
+      6
+     ],
+     "punkte": [
+      {
+       "x": -2,
+       "y": 1,
+       "name": "A"
+      },
+      {
+       "x": 6,
+       "y": 1,
+       "name": "B"
+      },
+      {
+       "x": 2,
+       "y": 1,
+       "name": "M"
+      },
+      {
+       "x": 2,
+       "y": 5,
+       "name": "C"
+      }
+     ],
+     "strecken": [
+      [
+       -2,
+       1,
+       6,
+       1
+      ],
+      [
+       -2,
+       1,
+       2,
+       5
+      ],
+      [
+       6,
+       1,
+       2,
+       5
+      ]
+     ]
+    }
+   },
+   {
+    "lernziel": "tangente",
+    "titel": "Tangenten und Berührradius",
+    "regel": "Eine ⟦Tangente⟧ berührt den Kreis in genau einem Punkt B. Sie steht ⟦senkrecht⟧ auf dem Berührradius [MB]. Von einem Punkt P außerhalb gibt es ⟦zwei⟧ Tangenten; sie sind von P bis zum Berührpunkt gleich lang.",
+    "schritte": [
+     "Die Tangenten von P bilden den Winkel φ = 50°.",
+     "Viereck MBPB': zwei rechte Winkel bei B und B', Winkelsumme 360°.",
+     "∠BMB' = 360° − 90° − 90° − 50° = ⟦130°⟧"
+    ],
+    "fehler": "Der Winkel zwischen Tangente und Berührradius ist nicht „irgendein spitzer Winkel“: Er ist ⟦immer 90°⟧.",
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "P": [
+       4.73,
+       0
+      ],
+      "B": [
+       0.85,
+       1.81
+      ],
+      "B'": [
+       0.85,
+       -1.81
+      ]
+     },
+     "linien": [
+      [
+       "P",
+       "B"
+      ],
+      [
+       "P",
+       "B'"
+      ],
+      [
+       "M",
+       "B",
+       "r"
+      ],
+      [
+       "M",
+       "B'",
+       "r"
+      ],
+      [
+       "M",
+       "P",
+       "",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "B",
+       "M",
+       "P"
+      ],
+      [
+       "B'",
+       "M",
+       "P"
+      ]
+     ],
+     "winkel": [
+      [
+       "P",
+       "B",
+       "B'",
+       "50°"
+      ],
+      [
+       "M",
+       "B'",
+       "B",
+       "?"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 2
+      }
+     ]
+    }
+   },
+   {
+    "lernziel": "umkreis_inkreis",
+    "titel": "Umkreis und Inkreis",
+    "regel": "Der ⟦Umkreismittelpunkt⟧ ist der Schnittpunkt der ⟦Mittelsenkrechten⟧ (gleich weit von allen Ecken). Der ⟦Inkreismittelpunkt⟧ ist der Schnittpunkt der ⟦Winkelhalbierenden⟧ (gleich weit von allen Seiten).",
+    "schritte": [
+     "Dreieck mit γ = 90°",
+     "Nach Thales liegt C auf dem Kreis mit Durchmesser [AB].",
+     "Der Umkreismittelpunkt ist die ⟦Mitte der Seite [AB]⟧."
+    ],
+    "fehler": "Der Inkreismittelpunkt entsteht nicht aus den Mittelsenkrechten: Er muss von den ⟦Seiten⟧ gleich weit weg sein – dafür braucht man die ⟦Winkelhalbierenden⟧."
+   },
+   {
+    "lernziel": "lage",
+    "titel": "Passante, Tangente oder Sekante?",
+    "regel": "Vergleiche den Abstand d der Geraden vom Mittelpunkt mit dem Radius r: ⟦d > r⟧ Passante (kein Punkt), ⟦d = r⟧ Tangente (ein Punkt), ⟦d < r⟧ Sekante (zwei Punkte).",
+    "schritte": [
+     "r = 4 cm, Abstand der Geraden von M: d = 3 cm",
+     "3 cm < 4 cm",
+     "Die Gerade ist eine ⟦Sekante⟧ – sie schneidet den Kreis zweimal."
+    ],
+    "fehler": "Eine Gerade mit d = r schneidet den Kreis nicht zweimal: Sie ⟦berührt⟧ ihn nur in einem Punkt.",
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "_1": [
+       -5,
+       3
+      ],
+      "_2": [
+       5,
+       3
+      ],
+      "_F": [
+       0,
+       3
+      ]
+     },
+     "linien": [
+      [
+       "_1",
+       "_2",
+       "g"
+      ],
+      [
+       "M",
+       "_F",
+       "d = 3",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "_F",
+       "M",
+       "_2"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 4
+      }
+     ]
+    }
+   },
+   {
+    "lernziel": "beweis",
+    "titel": "Vermuten und Beweisen",
+    "regel": "Messungen mit Geometriesoftware führen zu ⟦Vermutungen⟧. Ein ⟦Beweis⟧ zeigt mit Begründungen, dass eine Aussage ⟦immer⟧ gilt. Beim Thalessatz: MA = MB = MC (Radien) ergibt zwei ⟦gleichschenklige Dreiecke⟧.",
+    "schritte": [
+     "Dreieck AMC ist gleichschenklig: ∠ACM = α. Dreieck BMC: ∠BCM = β.",
+     "Also γ = α + β. Winkelsumme: α + β + (α + β) = 180°.",
+     "2(α + β) = 180° → ⟦γ = α + β = 90°⟧"
+    ],
+    "fehler": "Hundert gemessene Beispiele mit 90° sind ⟦kein Beweis⟧: Sie zeigen nur, dass die Aussage für diese Beispiele stimmt."
+   }
+  ],
+  "teilfaehigkeiten": [
+   {
+    "k": "thales",
+    "text": "Satz des Thales anwenden",
+    "lernziele": [
+     "thales"
+    ]
+   },
+   {
+    "k": "umkehrung",
+    "text": "Umkehrung: Wo liegt der Thaleskreis?",
+    "lernziele": [
+     "umkehrung"
+    ]
+   },
+   {
+    "k": "tangente",
+    "text": "Tangenten und Berührradius",
+    "lernziele": [
+     "tangente"
+    ]
+   },
+   {
+    "k": "umkreis_inkreis",
+    "text": "Umkreis und Inkreis",
+    "lernziele": [
+     "umkreis_inkreis"
+    ]
+   },
+   {
+    "k": "lage",
+    "text": "Passante, Tangente oder Sekante?",
+    "lernziele": [
+     "lage"
+    ]
+   },
+   {
+    "k": "beweis",
+    "text": "Vermuten und Beweisen",
+    "lernziele": [
+     "beweis"
+    ]
+   }
+  ],
+  "bewertung": {
+   "lernziele_pflicht": [
+    "thales",
+    "umkehrung",
+    "tangente",
+    "umkreis_inkreis",
+    "lage",
+    "beweis"
+   ],
+   "lernziele_vertiefung": [],
+   "testaufgaben_je_lernziel": 1
+  },
+  "quellen": {
+   "erklaerungen": "Eigene Fassung (Claude).",
+   "begriffe": "Fachbegriffe nach LehrplanPLUS Bayern (Gymnasium)."
+  }
+ },
+ "aufgaben": [
+  {
+   "l": "thales",
+   "t": "thales",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "[AB] ist ein Durchmesser, C liegt auf dem Kreis. Es ist α = 60°. Wie groß ist γ?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       -3,
+       0
+      ],
+      "B": [
+       3,
+       0
+      ],
+      "C": [
+       1.5,
+       2.6
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "A"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "60°"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 3
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 90,
+    "einheit": "°"
+   },
+   "c": "180 - 90",
+   "w": "Nach dem Satz des Thales ist der Winkel bei C ein rechter Winkel: γ = 90°.",
+   "h": "Was sagt der Satz des Thales über den Winkel bei C?"
+  },
+  {
+   "l": "thales",
+   "t": "thales",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "[AB] ist ein Durchmesser, C liegt auf dem Kreis. Es ist α = 67°. Wie groß ist γ?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       -3,
+       0
+      ],
+      "B": [
+       3,
+       0
+      ],
+      "C": [
+       2.08,
+       2.16
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "A"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "67°"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 3
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 90,
+    "einheit": "°"
+   },
+   "c": "180 - 90",
+   "w": "Nach dem Satz des Thales ist der Winkel bei C ein rechter Winkel: γ = 90°.",
+   "h": "Was sagt der Satz des Thales über den Winkel bei C?"
+  },
+  {
+   "l": "thales",
+   "t": "thales",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "[AB] ist ein Durchmesser, C liegt auf dem Kreis. Es ist α = 40°. Wie groß ist γ?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       -3,
+       0
+      ],
+      "B": [
+       3,
+       0
+      ],
+      "C": [
+       -0.52,
+       2.95
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "A"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "40°"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 3
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 90,
+    "einheit": "°"
+   },
+   "c": "180 - 90",
+   "w": "Nach dem Satz des Thales ist der Winkel bei C ein rechter Winkel: γ = 90°.",
+   "h": "Was sagt der Satz des Thales über den Winkel bei C?"
+  },
+  {
+   "l": "thales",
+   "t": "thales",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "[AB] ist ein Durchmesser, C liegt auf dem Kreis. Es ist α = 75°. Wie groß ist γ?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       -3,
+       0
+      ],
+      "B": [
+       3,
+       0
+      ],
+      "C": [
+       2.6,
+       1.5
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "A"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "75°"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 3
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 90,
+    "einheit": "°"
+   },
+   "c": "180 - 90",
+   "w": "Nach dem Satz des Thales ist der Winkel bei C ein rechter Winkel: γ = 90°.",
+   "h": "Was sagt der Satz des Thales über den Winkel bei C?"
+  },
+  {
+   "l": "thales",
+   "t": "thales",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "[AB] ist ein Durchmesser, C liegt auf dem Kreis. Es ist α = 68°. Wie groß ist β?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       -3,
+       0
+      ],
+      "B": [
+       3,
+       0
+      ],
+      "C": [
+       2.16,
+       2.08
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "A"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "C",
+       "A",
+       "B"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "68°"
+      ],
+      [
+       "B",
+       "C",
+       "A",
+       "β"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 3
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 22,
+    "einheit": "°"
+   },
+   "c": "180 - 90 - 68",
+   "w": "Thales: γ = 90°. β = 180° − 90° − 68° = 22°.",
+   "h": "Erst γ mit Thales, dann die Winkelsumme."
+  },
+  {
+   "l": "thales",
+   "t": "thales",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "[AB] ist ein Durchmesser, C liegt auf dem Kreis. Es ist α = 32°. Wie groß ist β?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       -3,
+       0
+      ],
+      "B": [
+       3,
+       0
+      ],
+      "C": [
+       -1.32,
+       2.7
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "A"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "C",
+       "A",
+       "B"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "32°"
+      ],
+      [
+       "B",
+       "C",
+       "A",
+       "β"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 3
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 58,
+    "einheit": "°"
+   },
+   "c": "180 - 90 - 32",
+   "w": "Thales: γ = 90°. β = 180° − 90° − 32° = 58°.",
+   "h": "Erst γ mit Thales, dann die Winkelsumme."
+  },
+  {
+   "l": "thales",
+   "t": "thales",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "[AB] ist ein Durchmesser, C liegt auf dem Kreis. Es ist α = 51°. Wie groß ist β?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       -3,
+       0
+      ],
+      "B": [
+       3,
+       0
+      ],
+      "C": [
+       0.62,
+       2.93
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "A"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "C",
+       "A",
+       "B"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "51°"
+      ],
+      [
+       "B",
+       "C",
+       "A",
+       "β"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 3
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 39,
+    "einheit": "°"
+   },
+   "c": "180 - 90 - 51",
+   "w": "Thales: γ = 90°. β = 180° − 90° − 51° = 39°.",
+   "h": "Erst γ mit Thales, dann die Winkelsumme."
+  },
+  {
+   "l": "thales",
+   "t": "thales",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "[AB] ist ein Durchmesser, C liegt auf dem Kreis. Es ist α = 40°. Wie groß ist β?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       -3,
+       0
+      ],
+      "B": [
+       3,
+       0
+      ],
+      "C": [
+       -0.52,
+       2.95
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "A"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "C",
+       "A",
+       "B"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "40°"
+      ],
+      [
+       "B",
+       "C",
+       "A",
+       "β"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 3
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 50,
+    "einheit": "°"
+   },
+   "c": "180 - 90 - 40",
+   "w": "Thales: γ = 90°. β = 180° − 90° − 40° = 50°.",
+   "h": "Erst γ mit Thales, dann die Winkelsumme."
+  },
+  {
+   "l": "thales",
+   "t": "thales",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "[AB] ist ein Durchmesser, C liegt auf dem Kreis. Es ist α = 75°. Wie groß ist β?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       -3,
+       0
+      ],
+      "B": [
+       3,
+       0
+      ],
+      "C": [
+       2.6,
+       1.5
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "A"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "C",
+       "A",
+       "B"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "75°"
+      ],
+      [
+       "B",
+       "C",
+       "A",
+       "β"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 3
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "°"
+   },
+   "c": "180 - 90 - 75",
+   "w": "Thales: γ = 90°. β = 180° − 90° − 75° = 15°.",
+   "h": "Erst γ mit Thales, dann die Winkelsumme."
+  },
+  {
+   "l": "thales",
+   "t": "thales",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "[AB] ist ein Durchmesser, C liegt auf dem Kreis. Es ist α = 30°. Wie groß ist β?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       -3,
+       0
+      ],
+      "B": [
+       3,
+       0
+      ],
+      "C": [
+       -1.5,
+       2.6
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "A"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "C",
+       "A",
+       "B"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "30°"
+      ],
+      [
+       "B",
+       "C",
+       "A",
+       "β"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 3
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "°"
+   },
+   "c": "180 - 90 - 30",
+   "w": "Thales: γ = 90°. β = 180° − 90° − 30° = 60°.",
+   "h": "Erst γ mit Thales, dann die Winkelsumme."
+  },
+  {
+   "l": "thales",
+   "t": "thales",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "[AB] ist Durchmesser des Kreises um M, C liegt auf dem Kreis, α = 33°. Wie groß ist der Winkel ∠BMC?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       -3,
+       0
+      ],
+      "B": [
+       3,
+       0
+      ],
+      "M": [
+       0,
+       0
+      ],
+      "C": [
+       1.22,
+       2.74
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "A"
+      ],
+      [
+       "M",
+       "C",
+       "",
+       "gestrichelt"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "33°"
+      ],
+      [
+       "M",
+       "B",
+       "C",
+       "?"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 3
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 66,
+    "einheit": "°"
+   },
+   "c": "2 * 33",
+   "w": "Dreieck AMC ist gleichschenklig (MA = MC): ∠ACM = 33°. ∠AMC = 180° − 2 · 33° = 114°. ∠BMC = 180° − 114° = 66°.",
+   "h": "MA und MC sind Radien. Nutze das gleichschenklige Dreieck AMC."
+  },
+  {
+   "l": "thales",
+   "t": "thales",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "[AB] ist Durchmesser, C liegt auf dem Kreis. β ist 2-mal so groß wie α. Wie groß ist α?"
+   },
+   "o": {
+    "wert": 30,
+    "einheit": "°"
+   },
+   "c": "90 / (2 + 1)",
+   "w": "Thales: γ = 90°, also α + β = 90°. α + 2α = 90° → α = 90° : 3 = 30°.",
+   "h": "α + β = 90°."
+  },
+  {
+   "l": "thales",
+   "t": "thales",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "[AB] ist Durchmesser, C liegt auf dem Kreis. β ist 5-mal so groß wie α. Wie groß ist α?"
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "°"
+   },
+   "c": "90 / (5 + 1)",
+   "w": "Thales: γ = 90°, also α + β = 90°. α + 5α = 90° → α = 90° : 6 = 15°.",
+   "h": "α + β = 90°."
+  },
+  {
+   "l": "thales",
+   "t": "thales",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "[AB] ist Durchmesser des Kreises um M, C liegt auf dem Kreis, α = 71°. Wie groß ist der Winkel ∠BMC?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       -3,
+       0
+      ],
+      "B": [
+       3,
+       0
+      ],
+      "M": [
+       0,
+       0
+      ],
+      "C": [
+       -2.36,
+       1.85
+      ]
+     },
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "A"
+      ],
+      [
+       "M",
+       "C",
+       "",
+       "gestrichelt"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "71°"
+      ],
+      [
+       "M",
+       "B",
+       "C",
+       "?"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 3
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 142,
+    "einheit": "°"
+   },
+   "c": "2 * 71",
+   "w": "Dreieck AMC ist gleichschenklig (MA = MC): ∠ACM = 71°. ∠AMC = 180° − 2 · 71° = 38°. ∠BMC = 180° − 38° = 142°.",
+   "h": "MA und MC sind Radien. Nutze das gleichschenklige Dreieck AMC."
+  },
+  {
+   "l": "thales",
+   "t": "thales",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "[AB] ist ein Durchmesser, C liegt auf dem Kreis. Es ist α = 27°. Wie groß ist β?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       -3,
+       0
+      ],
+      "B": [
+       3,
+       0
+      ],
+      "C": [
+       -1.76,
+       2.43
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "A"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "C",
+       "A",
+       "B"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "27°"
+      ],
+      [
+       "B",
+       "C",
+       "A",
+       "β"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 3
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 63,
+    "einheit": "°"
+   },
+   "c": "180 - 90 - 27",
+   "w": "Thales: γ = 90°. β = 180° − 90° − 27° = 63°."
+  },
+  {
+   "l": "thales",
+   "t": "thales",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "[AB] ist ein Durchmesser, C liegt auf dem Kreis. Es ist α = 66°. Wie groß ist β?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       -3,
+       0
+      ],
+      "B": [
+       3,
+       0
+      ],
+      "C": [
+       2.01,
+       2.23
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "A"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "C",
+       "A",
+       "B"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "66°"
+      ],
+      [
+       "B",
+       "C",
+       "A",
+       "β"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 3
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 24,
+    "einheit": "°"
+   },
+   "c": "180 - 90 - 66",
+   "w": "Thales: γ = 90°. β = 180° − 90° − 66° = 24°."
+  },
+  {
+   "l": "thales",
+   "t": "thales",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "[AB] ist ein Durchmesser, C liegt auf dem Kreis. Es ist α = 29°. Wie groß ist β?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       -3,
+       0
+      ],
+      "B": [
+       3,
+       0
+      ],
+      "C": [
+       -1.59,
+       2.54
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "A"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "C",
+       "A",
+       "B"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "29°"
+      ],
+      [
+       "B",
+       "C",
+       "A",
+       "β"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 3
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 61,
+    "einheit": "°"
+   },
+   "c": "180 - 90 - 29",
+   "w": "Thales: γ = 90°. β = 180° − 90° − 29° = 61°."
+  },
+  {
+   "l": "thales",
+   "t": "thales",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "[AB] ist ein Durchmesser, C liegt auf dem Kreis. Es ist α = 70°. Wie groß ist β?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       -3,
+       0
+      ],
+      "B": [
+       3,
+       0
+      ],
+      "C": [
+       2.3,
+       1.93
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "A"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "C",
+       "A",
+       "B"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "70°"
+      ],
+      [
+       "B",
+       "C",
+       "A",
+       "β"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 3
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "°"
+   },
+   "c": "180 - 90 - 70",
+   "w": "Thales: γ = 90°. β = 180° − 90° − 70° = 20°."
+  },
+  {
+   "l": "thales",
+   "t": "thales",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "[AB] ist ein Durchmesser, C liegt auf dem Kreis. Es ist α = 38°. Wie groß ist β?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       -3,
+       0
+      ],
+      "B": [
+       3,
+       0
+      ],
+      "C": [
+       -0.73,
+       2.91
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "A"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "C",
+       "A",
+       "B"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "38°"
+      ],
+      [
+       "B",
+       "C",
+       "A",
+       "β"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 3
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 52,
+    "einheit": "°"
+   },
+   "c": "180 - 90 - 38",
+   "w": "Thales: γ = 90°. β = 180° − 90° − 38° = 52°."
+  },
+  {
+   "l": "thales",
+   "t": "thales",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "[AB] ist ein Durchmesser, C liegt auf dem Kreis. Es ist α = 63°. Wie groß ist β?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       -3,
+       0
+      ],
+      "B": [
+       3,
+       0
+      ],
+      "C": [
+       1.76,
+       2.43
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "A"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "C",
+       "A",
+       "B"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "63°"
+      ],
+      [
+       "B",
+       "C",
+       "A",
+       "β"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 3
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 27,
+    "einheit": "°"
+   },
+   "c": "180 - 90 - 63",
+   "w": "Thales: γ = 90°. β = 180° − 90° − 63° = 27°."
+  },
+  {
+   "l": "thales",
+   "t": "thales",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "[AB] ist ein Durchmesser, C liegt auf dem Kreis. Es ist α = 54°. Wie groß ist β?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       -3,
+       0
+      ],
+      "B": [
+       3,
+       0
+      ],
+      "C": [
+       0.93,
+       2.85
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "A"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "C",
+       "A",
+       "B"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "54°"
+      ],
+      [
+       "B",
+       "C",
+       "A",
+       "β"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 3
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 36,
+    "einheit": "°"
+   },
+   "c": "180 - 90 - 54",
+   "w": "Thales: γ = 90°. β = 180° − 90° − 54° = 36°."
+  },
+  {
+   "l": "thales",
+   "t": "thales",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "[AB] ist ein Durchmesser, C liegt auf dem Kreis. Es ist α = 52°. Wie groß ist β?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       -3,
+       0
+      ],
+      "B": [
+       3,
+       0
+      ],
+      "C": [
+       0.73,
+       2.91
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "A"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "C",
+       "A",
+       "B"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "52°"
+      ],
+      [
+       "B",
+       "C",
+       "A",
+       "β"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 3
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 38,
+    "einheit": "°"
+   },
+   "c": "180 - 90 - 52",
+   "w": "Thales: γ = 90°. β = 180° − 90° − 52° = 38°."
+  },
+  {
+   "l": "thales",
+   "t": "thales",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "[AB] ist ein Durchmesser, C liegt auf dem Kreis. Es ist α = 15°. Wie groß ist β?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       -3,
+       0
+      ],
+      "B": [
+       3,
+       0
+      ],
+      "C": [
+       -2.6,
+       1.5
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "A"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "C",
+       "A",
+       "B"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "15°"
+      ],
+      [
+       "B",
+       "C",
+       "A",
+       "β"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 3
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 75,
+    "einheit": "°"
+   },
+   "c": "180 - 90 - 15",
+   "w": "Thales: γ = 90°. β = 180° − 90° − 15° = 75°."
+  },
+  {
+   "l": "thales",
+   "t": "thales",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "[AB] ist ein Durchmesser, C liegt auf dem Kreis. Es ist α = 33°. Wie groß ist β?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       -3,
+       0
+      ],
+      "B": [
+       3,
+       0
+      ],
+      "C": [
+       -1.22,
+       2.74
+      ],
+      "M": [
+       0,
+       0
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "A"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "C",
+       "A",
+       "B"
+      ]
+     ],
+     "winkel": [
+      [
+       "A",
+       "B",
+       "C",
+       "33°"
+      ],
+      [
+       "B",
+       "C",
+       "A",
+       "β"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 3
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 57,
+    "einheit": "°"
+   },
+   "c": "180 - 90 - 33",
+   "w": "Thales: γ = 90°. β = 180° − 90° − 33° = 57°."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Das Dreieck ABC hat bei C einen rechten Winkel, A(2 | −3), B(4 | −3). Gib den Mittelpunkt des Kreises an, auf dem C liegt.",
+    "schablone": "M(□ | □)",
+    "hinweis": "Trage in jedes Feld eine ganze Zahl ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      5
+     ],
+     "y": [
+      -4,
+      1
+     ],
+     "punkte": [
+      {
+       "x": 2,
+       "y": -3,
+       "name": "A"
+      },
+      {
+       "x": 4,
+       "y": -3,
+       "name": "B"
+      }
+     ],
+     "strecken": [
+      [
+       2,
+       -3,
+       4,
+       -3
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     3,
+     -3
+    ]
+   },
+   "c": [
+    "(2 + 4) // 2",
+    "(-3 + -3) // 2"
+   ],
+   "w": "Thaleskreis über [AB]: Mittelpunkt = Mitte von [AB] = ((2 + 4) : 2 | (−3 + (−3)) : 2) = M(3 | −3).",
+   "h": "Der Mittelpunkt ist die Mitte der Seite gegenüber dem rechten Winkel."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Das Dreieck ABC hat bei C einen rechten Winkel, A(4 | 0), B(12 | 0). Gib den Mittelpunkt des Kreises an, auf dem C liegt.",
+    "schablone": "M(□ | □)",
+    "hinweis": "Trage in jedes Feld eine ganze Zahl ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      13
+     ],
+     "y": [
+      -1,
+      1
+     ],
+     "punkte": [
+      {
+       "x": 4,
+       "y": 0,
+       "name": "A"
+      },
+      {
+       "x": 12,
+       "y": 0,
+       "name": "B"
+      }
+     ],
+     "strecken": [
+      [
+       4,
+       0,
+       12,
+       0
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     8,
+     0
+    ]
+   },
+   "c": [
+    "(4 + 12) // 2",
+    "(0 + 0) // 2"
+   ],
+   "w": "Thaleskreis über [AB]: Mittelpunkt = Mitte von [AB] = ((4 + 12) : 2 | (0 + 0) : 2) = M(8 | 0).",
+   "h": "Der Mittelpunkt ist die Mitte der Seite gegenüber dem rechten Winkel."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Das Dreieck ABC hat bei C einen rechten Winkel, A(−4 | 4), B(0 | 4). Gib den Mittelpunkt des Kreises an, auf dem C liegt.",
+    "schablone": "M(□ | □)",
+    "hinweis": "Trage in jedes Feld eine ganze Zahl ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      1
+     ],
+     "y": [
+      -1,
+      5
+     ],
+     "punkte": [
+      {
+       "x": -4,
+       "y": 4,
+       "name": "A"
+      },
+      {
+       "x": 0,
+       "y": 4,
+       "name": "B"
+      }
+     ],
+     "strecken": [
+      [
+       -4,
+       4,
+       0,
+       4
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     -2,
+     4
+    ]
+   },
+   "c": [
+    "(-4 + 0) // 2",
+    "(4 + 4) // 2"
+   ],
+   "w": "Thaleskreis über [AB]: Mittelpunkt = Mitte von [AB] = ((−4 + 0) : 2 | (4 + 4) : 2) = M(−2 | 4).",
+   "h": "Der Mittelpunkt ist die Mitte der Seite gegenüber dem rechten Winkel."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Das Dreieck ABC hat bei C einen rechten Winkel, A(−6 | 1), B(−6 | 3). Gib den Mittelpunkt des Kreises an, auf dem C liegt.",
+    "schablone": "M(□ | □)",
+    "hinweis": "Trage in jedes Feld eine ganze Zahl ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -7,
+      1
+     ],
+     "y": [
+      -1,
+      4
+     ],
+     "punkte": [
+      {
+       "x": -6,
+       "y": 1,
+       "name": "A"
+      },
+      {
+       "x": -6,
+       "y": 3,
+       "name": "B"
+      }
+     ],
+     "strecken": [
+      [
+       -6,
+       1,
+       -6,
+       3
+      ]
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     -6,
+     2
+    ]
+   },
+   "c": [
+    "(-6 + -6) // 2",
+    "(1 + 3) // 2"
+   ],
+   "w": "Thaleskreis über [AB]: Mittelpunkt = Mitte von [AB] = ((−6 + (−6)) : 2 | (1 + 3) : 2) = M(−6 | 2).",
+   "h": "Der Mittelpunkt ist die Mitte der Seite gegenüber dem rechten Winkel."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Das Dreieck ABC hat bei C einen rechten Winkel, A(−1 | 2), B(−1 | 4). Welchen Radius hat der Kreis, auf dem C liegen muss? (1 Einheit = 1 cm)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      1
+     ],
+     "y": [
+      -1,
+      5
+     ],
+     "punkte": [
+      {
+       "x": -1,
+       "y": 2,
+       "name": "A"
+      },
+      {
+       "x": -1,
+       "y": 4,
+       "name": "B"
+      }
+     ],
+     "strecken": [
+      [
+       -1,
+       2,
+       -1,
+       4
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 1,
+    "einheit": "cm"
+   },
+   "c": "2 / 2",
+   "w": "[AB] ist 2 cm lang (Durchmesser). r = 2 : 2 = 1 cm.",
+   "h": "Der Radius ist die halbe Länge von [AB]."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Das Dreieck ABC hat bei C einen rechten Winkel, A(−4 | −4), B(−2 | −4). Welchen Radius hat der Kreis, auf dem C liegen muss? (1 Einheit = 1 cm)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      1
+     ],
+     "y": [
+      -5,
+      1
+     ],
+     "punkte": [
+      {
+       "x": -4,
+       "y": -4,
+       "name": "A"
+      },
+      {
+       "x": -2,
+       "y": -4,
+       "name": "B"
+      }
+     ],
+     "strecken": [
+      [
+       -4,
+       -4,
+       -2,
+       -4
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 1,
+    "einheit": "cm"
+   },
+   "c": "2 / 2",
+   "w": "[AB] ist 2 cm lang (Durchmesser). r = 2 : 2 = 1 cm.",
+   "h": "Der Radius ist die halbe Länge von [AB]."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Das Dreieck ABC hat bei C einen rechten Winkel, A(−5 | 2), B(−5 | 6). Welchen Radius hat der Kreis, auf dem C liegen muss? (1 Einheit = 1 cm)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      1
+     ],
+     "y": [
+      -1,
+      7
+     ],
+     "punkte": [
+      {
+       "x": -5,
+       "y": 2,
+       "name": "A"
+      },
+      {
+       "x": -5,
+       "y": 6,
+       "name": "B"
+      }
+     ],
+     "strecken": [
+      [
+       -5,
+       2,
+       -5,
+       6
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "cm"
+   },
+   "c": "4 / 2",
+   "w": "[AB] ist 4 cm lang (Durchmesser). r = 4 : 2 = 2 cm.",
+   "h": "Der Radius ist die halbe Länge von [AB]."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Das Dreieck ABC hat bei C einen rechten Winkel, A(−2 | 0), B(−2 | 4). Welchen Radius hat der Kreis, auf dem C liegen muss? (1 Einheit = 1 cm)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      1
+     ],
+     "y": [
+      -1,
+      5
+     ],
+     "punkte": [
+      {
+       "x": -2,
+       "y": 0,
+       "name": "A"
+      },
+      {
+       "x": -2,
+       "y": 4,
+       "name": "B"
+      }
+     ],
+     "strecken": [
+      [
+       -2,
+       0,
+       -2,
+       4
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "cm"
+   },
+   "c": "4 / 2",
+   "w": "[AB] ist 4 cm lang (Durchmesser). r = 4 : 2 = 2 cm.",
+   "h": "Der Radius ist die halbe Länge von [AB]."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Das Dreieck ABC hat bei C einen rechten Winkel, A(4 | 2), B(4 | 4). Welchen Radius hat der Kreis, auf dem C liegen muss? (1 Einheit = 1 cm)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      5
+     ],
+     "y": [
+      -1,
+      5
+     ],
+     "punkte": [
+      {
+       "x": 4,
+       "y": 2,
+       "name": "A"
+      },
+      {
+       "x": 4,
+       "y": 4,
+       "name": "B"
+      }
+     ],
+     "strecken": [
+      [
+       4,
+       2,
+       4,
+       4
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 1,
+    "einheit": "cm"
+   },
+   "c": "2 / 2",
+   "w": "[AB] ist 2 cm lang (Durchmesser). r = 2 : 2 = 1 cm.",
+   "h": "Der Radius ist die halbe Länge von [AB]."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Das Dreieck ABC hat bei C einen rechten Winkel, A(4 | 0), B(4 | 8). Welchen Radius hat der Kreis, auf dem C liegen muss? (1 Einheit = 1 cm)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      5
+     ],
+     "y": [
+      -1,
+      9
+     ],
+     "punkte": [
+      {
+       "x": 4,
+       "y": 0,
+       "name": "A"
+      },
+      {
+       "x": 4,
+       "y": 8,
+       "name": "B"
+      }
+     ],
+     "strecken": [
+      [
+       4,
+       0,
+       4,
+       8
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "cm"
+   },
+   "c": "8 / 2",
+   "w": "[AB] ist 8 cm lang (Durchmesser). r = 8 : 2 = 4 cm.",
+   "h": "Der Radius ist die halbe Länge von [AB]."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist α = 22° und β = 68°. Liegt C auf dem Kreis mit dem Durchmesser [AB]?"
+   },
+   "a": [
+    "Ja, jeder Punkt C liegt auf diesem Kreis.",
+    "Das kann man ohne Zeichnung nicht entscheiden.",
+    "Nein, denn γ = 90° ist kein rechter Winkel.",
+    "Ja, denn γ = 90° (Umkehrung des Thalessatzes)."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "γ = 180° − 22° − 68° = 90°. Rechter Winkel bei C → C liegt auf dem Thaleskreis.",
+   "h": "Berechne γ. C liegt genau dann auf dem Thaleskreis, wenn γ = 90° ist."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist α = 54° und β = 36°. Liegt C auf dem Kreis mit dem Durchmesser [AB]?"
+   },
+   "a": [
+    "Ja, jeder Punkt C liegt auf diesem Kreis.",
+    "Nein, denn γ = 90° ist kein rechter Winkel.",
+    "Das kann man ohne Zeichnung nicht entscheiden.",
+    "Ja, denn γ = 90° (Umkehrung des Thalessatzes)."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "γ = 180° − 54° − 36° = 90°. Rechter Winkel bei C → C liegt auf dem Thaleskreis.",
+   "h": "Berechne γ. C liegt genau dann auf dem Thaleskreis, wenn γ = 90° ist."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist α = 34° und β = 56°. Liegt C auf dem Kreis mit dem Durchmesser [AB]?"
+   },
+   "a": [
+    "Nein, denn γ = 90° ist kein rechter Winkel.",
+    "Ja, jeder Punkt C liegt auf diesem Kreis.",
+    "Das kann man ohne Zeichnung nicht entscheiden.",
+    "Ja, denn γ = 90° (Umkehrung des Thalessatzes)."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "γ = 180° − 34° − 56° = 90°. Rechter Winkel bei C → C liegt auf dem Thaleskreis.",
+   "h": "Berechne γ. C liegt genau dann auf dem Thaleskreis, wenn γ = 90° ist."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Dreieck ABC ist α = 49° und β = 58°. Liegt C auf dem Kreis mit dem Durchmesser [AB]?"
+   },
+   "a": [
+    "Ja, jeder Punkt C liegt auf diesem Kreis.",
+    "Das kann man ohne Zeichnung nicht entscheiden.",
+    "Ja, denn γ = 90° (Umkehrung des Thalessatzes).",
+    "Nein, denn γ = 73° ist kein rechter Winkel."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "γ = 180° − 49° − 58° = 73°. Kein rechter Winkel → C liegt nicht darauf.",
+   "h": "Berechne γ. C liegt genau dann auf dem Thaleskreis, wenn γ = 90° ist."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Das Dreieck ABC hat bei C einen rechten Winkel, A(−3 | 0), B(−1 | 0). Welchen Radius hat der Kreis, auf dem C liegen muss? (1 Einheit = 1 cm)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      1
+     ],
+     "y": [
+      -1,
+      1
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 0,
+       "name": "A"
+      },
+      {
+       "x": -1,
+       "y": 0,
+       "name": "B"
+      }
+     ],
+     "strecken": [
+      [
+       -3,
+       0,
+       -1,
+       0
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 1,
+    "einheit": "cm"
+   },
+   "c": "2 / 2",
+   "w": "[AB] ist 2 cm lang (Durchmesser). r = 2 : 2 = 1 cm."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Das Dreieck ABC hat bei C einen rechten Winkel, A(−5 | 3), B(−3 | 3). Welchen Radius hat der Kreis, auf dem C liegen muss? (1 Einheit = 1 cm)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      1
+     ],
+     "y": [
+      -1,
+      4
+     ],
+     "punkte": [
+      {
+       "x": -5,
+       "y": 3,
+       "name": "A"
+      },
+      {
+       "x": -3,
+       "y": 3,
+       "name": "B"
+      }
+     ],
+     "strecken": [
+      [
+       -5,
+       3,
+       -3,
+       3
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 1,
+    "einheit": "cm"
+   },
+   "c": "2 / 2",
+   "w": "[AB] ist 2 cm lang (Durchmesser). r = 2 : 2 = 1 cm."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Das Dreieck ABC hat bei C einen rechten Winkel, A(0 | 4), B(0 | 6). Welchen Radius hat der Kreis, auf dem C liegen muss? (1 Einheit = 1 cm)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      1
+     ],
+     "y": [
+      -1,
+      7
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 4,
+       "name": "A"
+      },
+      {
+       "x": 0,
+       "y": 6,
+       "name": "B"
+      }
+     ],
+     "strecken": [
+      [
+       0,
+       4,
+       0,
+       6
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 1,
+    "einheit": "cm"
+   },
+   "c": "2 / 2",
+   "w": "[AB] ist 2 cm lang (Durchmesser). r = 2 : 2 = 1 cm."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Das Dreieck ABC hat bei C einen rechten Winkel, A(1 | 1), B(3 | 1). Welchen Radius hat der Kreis, auf dem C liegen muss? (1 Einheit = 1 cm)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      4
+     ],
+     "y": [
+      -1,
+      2
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 1,
+       "name": "A"
+      },
+      {
+       "x": 3,
+       "y": 1,
+       "name": "B"
+      }
+     ],
+     "strecken": [
+      [
+       1,
+       1,
+       3,
+       1
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 1,
+    "einheit": "cm"
+   },
+   "c": "2 / 2",
+   "w": "[AB] ist 2 cm lang (Durchmesser). r = 2 : 2 = 1 cm."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Das Dreieck ABC hat bei C einen rechten Winkel, A(−3 | 3), B(3 | 3). Welchen Radius hat der Kreis, auf dem C liegen muss? (1 Einheit = 1 cm)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      4
+     ],
+     "y": [
+      -1,
+      4
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 3,
+       "name": "A"
+      },
+      {
+       "x": 3,
+       "y": 3,
+       "name": "B"
+      }
+     ],
+     "strecken": [
+      [
+       -3,
+       3,
+       3,
+       3
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "cm"
+   },
+   "c": "6 / 2",
+   "w": "[AB] ist 6 cm lang (Durchmesser). r = 6 : 2 = 3 cm."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Das Dreieck ABC hat bei C einen rechten Winkel, A(−3 | 4), B(−1 | 4). Welchen Radius hat der Kreis, auf dem C liegen muss? (1 Einheit = 1 cm)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      1
+     ],
+     "y": [
+      -1,
+      5
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 4,
+       "name": "A"
+      },
+      {
+       "x": -1,
+       "y": 4,
+       "name": "B"
+      }
+     ],
+     "strecken": [
+      [
+       -3,
+       4,
+       -1,
+       4
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 1,
+    "einheit": "cm"
+   },
+   "c": "2 / 2",
+   "w": "[AB] ist 2 cm lang (Durchmesser). r = 2 : 2 = 1 cm."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Das Dreieck ABC hat bei C einen rechten Winkel, A(−5 | −1), B(−5 | 9). Welchen Radius hat der Kreis, auf dem C liegen muss? (1 Einheit = 1 cm)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      1
+     ],
+     "y": [
+      -2,
+      10
+     ],
+     "punkte": [
+      {
+       "x": -5,
+       "y": -1,
+       "name": "A"
+      },
+      {
+       "x": -5,
+       "y": 9,
+       "name": "B"
+      }
+     ],
+     "strecken": [
+      [
+       -5,
+       -1,
+       -5,
+       9
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "cm"
+   },
+   "c": "10 / 2",
+   "w": "[AB] ist 10 cm lang (Durchmesser). r = 10 : 2 = 5 cm."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Das Dreieck ABC hat bei C einen rechten Winkel, A(−3 | 3), B(7 | 3). Welchen Radius hat der Kreis, auf dem C liegen muss? (1 Einheit = 1 cm)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      8
+     ],
+     "y": [
+      -1,
+      4
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 3,
+       "name": "A"
+      },
+      {
+       "x": 7,
+       "y": 3,
+       "name": "B"
+      }
+     ],
+     "strecken": [
+      [
+       -3,
+       3,
+       7,
+       3
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "cm"
+   },
+   "c": "10 / 2",
+   "w": "[AB] ist 10 cm lang (Durchmesser). r = 10 : 2 = 5 cm."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Das Dreieck ABC hat bei C einen rechten Winkel, A(1 | 1), B(1 | 9). Welchen Radius hat der Kreis, auf dem C liegen muss? (1 Einheit = 1 cm)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      2
+     ],
+     "y": [
+      -1,
+      10
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 1,
+       "name": "A"
+      },
+      {
+       "x": 1,
+       "y": 9,
+       "name": "B"
+      }
+     ],
+     "strecken": [
+      [
+       1,
+       1,
+       1,
+       9
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 4,
+    "einheit": "cm"
+   },
+   "c": "8 / 2",
+   "w": "[AB] ist 8 cm lang (Durchmesser). r = 8 : 2 = 4 cm."
+  },
+  {
+   "l": "umkehrung",
+   "t": "umkehrung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Das Dreieck ABC hat bei C einen rechten Winkel, A(0 | 2), B(0 | 8). Welchen Radius hat der Kreis, auf dem C liegen muss? (1 Einheit = 1 cm)",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      1
+     ],
+     "y": [
+      -1,
+      9
+     ],
+     "punkte": [
+      {
+       "x": 0,
+       "y": 2,
+       "name": "A"
+      },
+      {
+       "x": 0,
+       "y": 8,
+       "name": "B"
+      }
+     ],
+     "strecken": [
+      [
+       0,
+       2,
+       0,
+       8
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 3,
+    "einheit": "cm"
+   },
+   "c": "6 / 2",
+   "w": "[AB] ist 6 cm lang (Durchmesser). r = 6 : 2 = 3 cm."
+  },
+  {
+   "l": "tangente",
+   "t": "tangente",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Von P aus werden zwei Tangenten an den Kreis um M gelegt; sie bilden den Winkel ∠BPB' = 56°. Wie groß ist ∠BPM?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "P": [
+       4.26,
+       0
+      ],
+      "B": [
+       0.94,
+       1.77
+      ],
+      "B'": [
+       0.94,
+       -1.77
+      ]
+     },
+     "linien": [
+      [
+       "P",
+       "B"
+      ],
+      [
+       "P",
+       "B'"
+      ],
+      [
+       "M",
+       "B",
+       "r"
+      ],
+      [
+       "M",
+       "B'",
+       "r"
+      ],
+      [
+       "M",
+       "P",
+       "",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "B",
+       "M",
+       "P"
+      ],
+      [
+       "B'",
+       "M",
+       "P"
+      ]
+     ],
+     "winkel": [
+      [
+       "P",
+       "B",
+       "B'",
+       "56°"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 2
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 28,
+    "einheit": "°"
+   },
+   "c": "56 / 2",
+   "w": "MP ist Symmetrieachse der Figur, sie halbiert den Winkel: 56° : 2 = 28°.",
+   "h": "Die Figur ist symmetrisch zur Geraden MP."
+  },
+  {
+   "l": "tangente",
+   "t": "tangente",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Von P aus werden zwei Tangenten an den Kreis um M gelegt; sie bilden den Winkel ∠BPB' = 116°. Wie groß ist ∠BPM?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "P": [
+       2.36,
+       0
+      ],
+      "B": [
+       1.7,
+       1.06
+      ],
+      "B'": [
+       1.7,
+       -1.06
+      ]
+     },
+     "linien": [
+      [
+       "P",
+       "B"
+      ],
+      [
+       "P",
+       "B'"
+      ],
+      [
+       "M",
+       "B",
+       "r"
+      ],
+      [
+       "M",
+       "B'",
+       "r"
+      ],
+      [
+       "M",
+       "P",
+       "",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "B",
+       "M",
+       "P"
+      ],
+      [
+       "B'",
+       "M",
+       "P"
+      ]
+     ],
+     "winkel": [
+      [
+       "P",
+       "B",
+       "B'",
+       "116°"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 2
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 58,
+    "einheit": "°"
+   },
+   "c": "116 / 2",
+   "w": "MP ist Symmetrieachse der Figur, sie halbiert den Winkel: 116° : 2 = 58°.",
+   "h": "Die Figur ist symmetrisch zur Geraden MP."
+  },
+  {
+   "l": "tangente",
+   "t": "tangente",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Von P aus werden zwei Tangenten an den Kreis um M gelegt; sie bilden den Winkel ∠BPB' = 84°. Wie groß ist ∠BPM?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "P": [
+       2.99,
+       0
+      ],
+      "B": [
+       1.34,
+       1.49
+      ],
+      "B'": [
+       1.34,
+       -1.49
+      ]
+     },
+     "linien": [
+      [
+       "P",
+       "B"
+      ],
+      [
+       "P",
+       "B'"
+      ],
+      [
+       "M",
+       "B",
+       "r"
+      ],
+      [
+       "M",
+       "B'",
+       "r"
+      ],
+      [
+       "M",
+       "P",
+       "",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "B",
+       "M",
+       "P"
+      ],
+      [
+       "B'",
+       "M",
+       "P"
+      ]
+     ],
+     "winkel": [
+      [
+       "P",
+       "B",
+       "B'",
+       "84°"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 2
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 42,
+    "einheit": "°"
+   },
+   "c": "84 / 2",
+   "w": "MP ist Symmetrieachse der Figur, sie halbiert den Winkel: 84° : 2 = 42°.",
+   "h": "Die Figur ist symmetrisch zur Geraden MP."
+  },
+  {
+   "l": "tangente",
+   "t": "tangente",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Von P aus werden zwei Tangenten an den Kreis um M gelegt; sie bilden den Winkel ∠BPB' = 94°. Wie groß ist ∠BPM?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "P": [
+       2.73,
+       0
+      ],
+      "B": [
+       1.46,
+       1.36
+      ],
+      "B'": [
+       1.46,
+       -1.36
+      ]
+     },
+     "linien": [
+      [
+       "P",
+       "B"
+      ],
+      [
+       "P",
+       "B'"
+      ],
+      [
+       "M",
+       "B",
+       "r"
+      ],
+      [
+       "M",
+       "B'",
+       "r"
+      ],
+      [
+       "M",
+       "P",
+       "",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "B",
+       "M",
+       "P"
+      ],
+      [
+       "B'",
+       "M",
+       "P"
+      ]
+     ],
+     "winkel": [
+      [
+       "P",
+       "B",
+       "B'",
+       "94°"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 2
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 47,
+    "einheit": "°"
+   },
+   "c": "94 / 2",
+   "w": "MP ist Symmetrieachse der Figur, sie halbiert den Winkel: 94° : 2 = 47°.",
+   "h": "Die Figur ist symmetrisch zur Geraden MP."
+  },
+  {
+   "l": "tangente",
+   "t": "tangente",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Von P aus werden zwei Tangenten an den Kreis um M gelegt, Berührpunkte B und B'. Es ist ∠BPB' = 66°. Wie groß ist ∠BMB'?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "P": [
+       3.67,
+       0
+      ],
+      "B": [
+       1.09,
+       1.68
+      ],
+      "B'": [
+       1.09,
+       -1.68
+      ]
+     },
+     "linien": [
+      [
+       "P",
+       "B"
+      ],
+      [
+       "P",
+       "B'"
+      ],
+      [
+       "M",
+       "B",
+       "r"
+      ],
+      [
+       "M",
+       "B'",
+       "r"
+      ],
+      [
+       "M",
+       "P",
+       "",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "B",
+       "M",
+       "P"
+      ],
+      [
+       "B'",
+       "M",
+       "P"
+      ]
+     ],
+     "winkel": [
+      [
+       "P",
+       "B",
+       "B'",
+       "66°"
+      ],
+      [
+       "M",
+       "B'",
+       "B",
+       "?"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 2
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 114,
+    "einheit": "°"
+   },
+   "c": "360 - 90 - 90 - 66",
+   "w": "Im Viereck MBPB' sind die Winkel bei B und B' je 90°. ∠BMB' = 360° − 180° − 66° = 114°.",
+   "h": "Winkelsumme im Viereck: 360°. Wo sind rechte Winkel?"
+  },
+  {
+   "l": "tangente",
+   "t": "tangente",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Von P aus werden zwei Tangenten an den Kreis um M gelegt, Berührpunkte B und B'. Es ist ∠BPB' = 46°. Wie groß ist ∠BMB'?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "P": [
+       5.12,
+       0
+      ],
+      "B": [
+       0.78,
+       1.84
+      ],
+      "B'": [
+       0.78,
+       -1.84
+      ]
+     },
+     "linien": [
+      [
+       "P",
+       "B"
+      ],
+      [
+       "P",
+       "B'"
+      ],
+      [
+       "M",
+       "B",
+       "r"
+      ],
+      [
+       "M",
+       "B'",
+       "r"
+      ],
+      [
+       "M",
+       "P",
+       "",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "B",
+       "M",
+       "P"
+      ],
+      [
+       "B'",
+       "M",
+       "P"
+      ]
+     ],
+     "winkel": [
+      [
+       "P",
+       "B",
+       "B'",
+       "46°"
+      ],
+      [
+       "M",
+       "B'",
+       "B",
+       "?"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 2
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 134,
+    "einheit": "°"
+   },
+   "c": "360 - 90 - 90 - 46",
+   "w": "Im Viereck MBPB' sind die Winkel bei B und B' je 90°. ∠BMB' = 360° − 180° − 46° = 134°.",
+   "h": "Winkelsumme im Viereck: 360°. Wo sind rechte Winkel?"
+  },
+  {
+   "l": "tangente",
+   "t": "tangente",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Von P aus werden zwei Tangenten an den Kreis um M gelegt, Berührpunkte B und B'. Es ist ∠BPB' = 60°. Wie groß ist ∠BMB'?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "P": [
+       4,
+       0
+      ],
+      "B": [
+       1,
+       1.73
+      ],
+      "B'": [
+       1,
+       -1.73
+      ]
+     },
+     "linien": [
+      [
+       "P",
+       "B"
+      ],
+      [
+       "P",
+       "B'"
+      ],
+      [
+       "M",
+       "B",
+       "r"
+      ],
+      [
+       "M",
+       "B'",
+       "r"
+      ],
+      [
+       "M",
+       "P",
+       "",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "B",
+       "M",
+       "P"
+      ],
+      [
+       "B'",
+       "M",
+       "P"
+      ]
+     ],
+     "winkel": [
+      [
+       "P",
+       "B",
+       "B'",
+       "60°"
+      ],
+      [
+       "M",
+       "B'",
+       "B",
+       "?"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 2
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 120,
+    "einheit": "°"
+   },
+   "c": "360 - 90 - 90 - 60",
+   "w": "Im Viereck MBPB' sind die Winkel bei B und B' je 90°. ∠BMB' = 360° − 180° − 60° = 120°.",
+   "h": "Winkelsumme im Viereck: 360°. Wo sind rechte Winkel?"
+  },
+  {
+   "l": "tangente",
+   "t": "tangente",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Von P aus werden zwei Tangenten an den Kreis um M gelegt, Berührpunkte B und B'. Es ist ∠BPB' = 92°. Wie groß ist ∠BMB'?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "P": [
+       2.78,
+       0
+      ],
+      "B": [
+       1.44,
+       1.39
+      ],
+      "B'": [
+       1.44,
+       -1.39
+      ]
+     },
+     "linien": [
+      [
+       "P",
+       "B"
+      ],
+      [
+       "P",
+       "B'"
+      ],
+      [
+       "M",
+       "B",
+       "r"
+      ],
+      [
+       "M",
+       "B'",
+       "r"
+      ],
+      [
+       "M",
+       "P",
+       "",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "B",
+       "M",
+       "P"
+      ],
+      [
+       "B'",
+       "M",
+       "P"
+      ]
+     ],
+     "winkel": [
+      [
+       "P",
+       "B",
+       "B'",
+       "92°"
+      ],
+      [
+       "M",
+       "B'",
+       "B",
+       "?"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 2
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 88,
+    "einheit": "°"
+   },
+   "c": "360 - 90 - 90 - 92",
+   "w": "Im Viereck MBPB' sind die Winkel bei B und B' je 90°. ∠BMB' = 360° − 180° − 92° = 88°.",
+   "h": "Winkelsumme im Viereck: 360°. Wo sind rechte Winkel?"
+  },
+  {
+   "l": "tangente",
+   "t": "tangente",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Von P aus werden zwei Tangenten an den Kreis um M gelegt, Berührpunkte B und B'. Es ist ∠BPB' = 30°. Wie groß ist ∠BMB'?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "P": [
+       7.73,
+       0
+      ],
+      "B": [
+       0.52,
+       1.93
+      ],
+      "B'": [
+       0.52,
+       -1.93
+      ]
+     },
+     "linien": [
+      [
+       "P",
+       "B"
+      ],
+      [
+       "P",
+       "B'"
+      ],
+      [
+       "M",
+       "B",
+       "r"
+      ],
+      [
+       "M",
+       "B'",
+       "r"
+      ],
+      [
+       "M",
+       "P",
+       "",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "B",
+       "M",
+       "P"
+      ],
+      [
+       "B'",
+       "M",
+       "P"
+      ]
+     ],
+     "winkel": [
+      [
+       "P",
+       "B",
+       "B'",
+       "30°"
+      ],
+      [
+       "M",
+       "B'",
+       "B",
+       "?"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 2
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 150,
+    "einheit": "°"
+   },
+   "c": "360 - 90 - 90 - 30",
+   "w": "Im Viereck MBPB' sind die Winkel bei B und B' je 90°. ∠BMB' = 360° − 180° − 30° = 150°.",
+   "h": "Winkelsumme im Viereck: 360°. Wo sind rechte Winkel?"
+  },
+  {
+   "l": "tangente",
+   "t": "tangente",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Von P aus werden zwei Tangenten an den Kreis um M gelegt, Berührpunkte B und B'. Es ist ∠BPB' = 114°. Wie groß ist ∠BMB'?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "P": [
+       2.38,
+       0
+      ],
+      "B": [
+       1.68,
+       1.09
+      ],
+      "B'": [
+       1.68,
+       -1.09
+      ]
+     },
+     "linien": [
+      [
+       "P",
+       "B"
+      ],
+      [
+       "P",
+       "B'"
+      ],
+      [
+       "M",
+       "B",
+       "r"
+      ],
+      [
+       "M",
+       "B'",
+       "r"
+      ],
+      [
+       "M",
+       "P",
+       "",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "B",
+       "M",
+       "P"
+      ],
+      [
+       "B'",
+       "M",
+       "P"
+      ]
+     ],
+     "winkel": [
+      [
+       "P",
+       "B",
+       "B'",
+       "114°"
+      ],
+      [
+       "M",
+       "B'",
+       "B",
+       "?"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 2
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 66,
+    "einheit": "°"
+   },
+   "c": "360 - 90 - 90 - 114",
+   "w": "Im Viereck MBPB' sind die Winkel bei B und B' je 90°. ∠BMB' = 360° − 180° − 114° = 66°.",
+   "h": "Winkelsumme im Viereck: 360°. Wo sind rechte Winkel?"
+  },
+  {
+   "l": "tangente",
+   "t": "tangente",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Von P aus berührt eine Tangente den Kreis um M in B. Der Winkel ∠BPM ist 64°. Wie groß ist ∠BMP?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "P": [
+       2.23,
+       0
+      ],
+      "B": [
+       1.8,
+       0.88
+      ],
+      "B'": [
+       1.8,
+       -0.88
+      ]
+     },
+     "linien": [
+      [
+       "P",
+       "B"
+      ],
+      [
+       "P",
+       "B'"
+      ],
+      [
+       "M",
+       "B",
+       "r"
+      ],
+      [
+       "M",
+       "B'",
+       "r"
+      ],
+      [
+       "M",
+       "P",
+       "",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "B",
+       "M",
+       "P"
+      ],
+      [
+       "B'",
+       "M",
+       "P"
+      ]
+     ],
+     "winkel": [],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 2
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 26,
+    "einheit": "°"
+   },
+   "c": "180 - 90 - 64",
+   "w": "Dreieck MBP hat bei B einen rechten Winkel: ∠BMP = 180° − 90° − 64° = 26°.",
+   "h": "Im Dreieck MBP ist der Winkel bei B ein rechter."
+  },
+  {
+   "l": "tangente",
+   "t": "tangente",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Von P aus berührt eine Tangente den Kreis um M in B. Der Winkel ∠BPM ist 60°. Wie groß ist ∠BMP?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "P": [
+       2.31,
+       0
+      ],
+      "B": [
+       1.73,
+       1
+      ],
+      "B'": [
+       1.73,
+       -1
+      ]
+     },
+     "linien": [
+      [
+       "P",
+       "B"
+      ],
+      [
+       "P",
+       "B'"
+      ],
+      [
+       "M",
+       "B",
+       "r"
+      ],
+      [
+       "M",
+       "B'",
+       "r"
+      ],
+      [
+       "M",
+       "P",
+       "",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "B",
+       "M",
+       "P"
+      ],
+      [
+       "B'",
+       "M",
+       "P"
+      ]
+     ],
+     "winkel": [],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 2
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 30,
+    "einheit": "°"
+   },
+   "c": "180 - 90 - 60",
+   "w": "Dreieck MBP hat bei B einen rechten Winkel: ∠BMP = 180° − 90° − 60° = 30°.",
+   "h": "Im Dreieck MBP ist der Winkel bei B ein rechter."
+  },
+  {
+   "l": "tangente",
+   "t": "tangente",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Von P aus werden zwei Tangenten an einen Kreis gelegt. Der Abschnitt von P bis zum ersten Berührpunkt ist 10 cm lang. Wie lang ist der Abschnitt bis zum zweiten Berührpunkt?"
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "cm"
+   },
+   "c": "10",
+   "w": "Die beiden Tangentenabschnitte sind gleich lang (Symmetrie zur Geraden MP): 10 cm.",
+   "h": "Die Figur ist symmetrisch zur Geraden durch P und M."
+  },
+  {
+   "l": "tangente",
+   "t": "tangente",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Von P aus werden zwei Tangenten an einen Kreis gelegt. Der Abschnitt von P bis zum ersten Berührpunkt ist 8 cm lang. Wie lang ist der Abschnitt bis zum zweiten Berührpunkt?"
+   },
+   "o": {
+    "wert": 8,
+    "einheit": "cm"
+   },
+   "c": "8",
+   "w": "Die beiden Tangentenabschnitte sind gleich lang (Symmetrie zur Geraden MP): 8 cm.",
+   "h": "Die Figur ist symmetrisch zur Geraden durch P und M."
+  },
+  {
+   "l": "tangente",
+   "t": "tangente",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Von P aus werden zwei Tangenten an den Kreis um M gelegt, Berührpunkte B und B'. Es ist ∠BPB' = 32°. Wie groß ist ∠BMB'?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "P": [
+       7.26,
+       0
+      ],
+      "B": [
+       0.55,
+       1.92
+      ],
+      "B'": [
+       0.55,
+       -1.92
+      ]
+     },
+     "linien": [
+      [
+       "P",
+       "B"
+      ],
+      [
+       "P",
+       "B'"
+      ],
+      [
+       "M",
+       "B",
+       "r"
+      ],
+      [
+       "M",
+       "B'",
+       "r"
+      ],
+      [
+       "M",
+       "P",
+       "",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "B",
+       "M",
+       "P"
+      ],
+      [
+       "B'",
+       "M",
+       "P"
+      ]
+     ],
+     "winkel": [
+      [
+       "P",
+       "B",
+       "B'",
+       "32°"
+      ],
+      [
+       "M",
+       "B'",
+       "B",
+       "?"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 2
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 148,
+    "einheit": "°"
+   },
+   "c": "360 - 90 - 90 - 32",
+   "w": "Im Viereck MBPB' sind die Winkel bei B und B' je 90°. ∠BMB' = 360° − 180° − 32° = 148°."
+  },
+  {
+   "l": "tangente",
+   "t": "tangente",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Von P aus werden zwei Tangenten an den Kreis um M gelegt, Berührpunkte B und B'. Es ist ∠BPB' = 52°. Wie groß ist ∠BMB'?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "P": [
+       4.56,
+       0
+      ],
+      "B": [
+       0.88,
+       1.8
+      ],
+      "B'": [
+       0.88,
+       -1.8
+      ]
+     },
+     "linien": [
+      [
+       "P",
+       "B"
+      ],
+      [
+       "P",
+       "B'"
+      ],
+      [
+       "M",
+       "B",
+       "r"
+      ],
+      [
+       "M",
+       "B'",
+       "r"
+      ],
+      [
+       "M",
+       "P",
+       "",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "B",
+       "M",
+       "P"
+      ],
+      [
+       "B'",
+       "M",
+       "P"
+      ]
+     ],
+     "winkel": [
+      [
+       "P",
+       "B",
+       "B'",
+       "52°"
+      ],
+      [
+       "M",
+       "B'",
+       "B",
+       "?"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 2
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 128,
+    "einheit": "°"
+   },
+   "c": "360 - 90 - 90 - 52",
+   "w": "Im Viereck MBPB' sind die Winkel bei B und B' je 90°. ∠BMB' = 360° − 180° − 52° = 128°."
+  },
+  {
+   "l": "tangente",
+   "t": "tangente",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Von P aus werden zwei Tangenten an den Kreis um M gelegt, Berührpunkte B und B'. Es ist ∠BPB' = 38°. Wie groß ist ∠BMB'?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "P": [
+       6.14,
+       0
+      ],
+      "B": [
+       0.65,
+       1.89
+      ],
+      "B'": [
+       0.65,
+       -1.89
+      ]
+     },
+     "linien": [
+      [
+       "P",
+       "B"
+      ],
+      [
+       "P",
+       "B'"
+      ],
+      [
+       "M",
+       "B",
+       "r"
+      ],
+      [
+       "M",
+       "B'",
+       "r"
+      ],
+      [
+       "M",
+       "P",
+       "",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "B",
+       "M",
+       "P"
+      ],
+      [
+       "B'",
+       "M",
+       "P"
+      ]
+     ],
+     "winkel": [
+      [
+       "P",
+       "B",
+       "B'",
+       "38°"
+      ],
+      [
+       "M",
+       "B'",
+       "B",
+       "?"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 2
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 142,
+    "einheit": "°"
+   },
+   "c": "360 - 90 - 90 - 38",
+   "w": "Im Viereck MBPB' sind die Winkel bei B und B' je 90°. ∠BMB' = 360° − 180° − 38° = 142°."
+  },
+  {
+   "l": "tangente",
+   "t": "tangente",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Von P aus werden zwei Tangenten an den Kreis um M gelegt, Berührpunkte B und B'. Es ist ∠BPB' = 106°. Wie groß ist ∠BMB'?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "P": [
+       2.5,
+       0
+      ],
+      "B": [
+       1.6,
+       1.2
+      ],
+      "B'": [
+       1.6,
+       -1.2
+      ]
+     },
+     "linien": [
+      [
+       "P",
+       "B"
+      ],
+      [
+       "P",
+       "B'"
+      ],
+      [
+       "M",
+       "B",
+       "r"
+      ],
+      [
+       "M",
+       "B'",
+       "r"
+      ],
+      [
+       "M",
+       "P",
+       "",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "B",
+       "M",
+       "P"
+      ],
+      [
+       "B'",
+       "M",
+       "P"
+      ]
+     ],
+     "winkel": [
+      [
+       "P",
+       "B",
+       "B'",
+       "106°"
+      ],
+      [
+       "M",
+       "B'",
+       "B",
+       "?"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 2
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 74,
+    "einheit": "°"
+   },
+   "c": "360 - 90 - 90 - 106",
+   "w": "Im Viereck MBPB' sind die Winkel bei B und B' je 90°. ∠BMB' = 360° − 180° − 106° = 74°."
+  },
+  {
+   "l": "tangente",
+   "t": "tangente",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Von P aus werden zwei Tangenten an den Kreis um M gelegt, Berührpunkte B und B'. Es ist ∠BPB' = 64°. Wie groß ist ∠BMB'?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "P": [
+       3.77,
+       0
+      ],
+      "B": [
+       1.06,
+       1.7
+      ],
+      "B'": [
+       1.06,
+       -1.7
+      ]
+     },
+     "linien": [
+      [
+       "P",
+       "B"
+      ],
+      [
+       "P",
+       "B'"
+      ],
+      [
+       "M",
+       "B",
+       "r"
+      ],
+      [
+       "M",
+       "B'",
+       "r"
+      ],
+      [
+       "M",
+       "P",
+       "",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "B",
+       "M",
+       "P"
+      ],
+      [
+       "B'",
+       "M",
+       "P"
+      ]
+     ],
+     "winkel": [
+      [
+       "P",
+       "B",
+       "B'",
+       "64°"
+      ],
+      [
+       "M",
+       "B'",
+       "B",
+       "?"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 2
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 116,
+    "einheit": "°"
+   },
+   "c": "360 - 90 - 90 - 64",
+   "w": "Im Viereck MBPB' sind die Winkel bei B und B' je 90°. ∠BMB' = 360° − 180° − 64° = 116°."
+  },
+  {
+   "l": "tangente",
+   "t": "tangente",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Von P aus werden zwei Tangenten an den Kreis um M gelegt, Berührpunkte B und B'. Es ist ∠BPB' = 90°. Wie groß ist ∠BMB'?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "P": [
+       2.83,
+       0
+      ],
+      "B": [
+       1.41,
+       1.41
+      ],
+      "B'": [
+       1.41,
+       -1.41
+      ]
+     },
+     "linien": [
+      [
+       "P",
+       "B"
+      ],
+      [
+       "P",
+       "B'"
+      ],
+      [
+       "M",
+       "B",
+       "r"
+      ],
+      [
+       "M",
+       "B'",
+       "r"
+      ],
+      [
+       "M",
+       "P",
+       "",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "B",
+       "M",
+       "P"
+      ],
+      [
+       "B'",
+       "M",
+       "P"
+      ]
+     ],
+     "winkel": [
+      [
+       "P",
+       "B",
+       "B'",
+       "90°"
+      ],
+      [
+       "M",
+       "B'",
+       "B",
+       "?"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 2
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 90,
+    "einheit": "°"
+   },
+   "c": "360 - 90 - 90 - 90",
+   "w": "Im Viereck MBPB' sind die Winkel bei B und B' je 90°. ∠BMB' = 360° − 180° − 90° = 90°."
+  },
+  {
+   "l": "tangente",
+   "t": "tangente",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Von P aus werden zwei Tangenten an den Kreis um M gelegt, Berührpunkte B und B'. Es ist ∠BPB' = 76°. Wie groß ist ∠BMB'?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "P": [
+       3.25,
+       0
+      ],
+      "B": [
+       1.23,
+       1.58
+      ],
+      "B'": [
+       1.23,
+       -1.58
+      ]
+     },
+     "linien": [
+      [
+       "P",
+       "B"
+      ],
+      [
+       "P",
+       "B'"
+      ],
+      [
+       "M",
+       "B",
+       "r"
+      ],
+      [
+       "M",
+       "B'",
+       "r"
+      ],
+      [
+       "M",
+       "P",
+       "",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "B",
+       "M",
+       "P"
+      ],
+      [
+       "B'",
+       "M",
+       "P"
+      ]
+     ],
+     "winkel": [
+      [
+       "P",
+       "B",
+       "B'",
+       "76°"
+      ],
+      [
+       "M",
+       "B'",
+       "B",
+       "?"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 2
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 104,
+    "einheit": "°"
+   },
+   "c": "360 - 90 - 90 - 76",
+   "w": "Im Viereck MBPB' sind die Winkel bei B und B' je 90°. ∠BMB' = 360° − 180° − 76° = 104°."
+  },
+  {
+   "l": "tangente",
+   "t": "tangente",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Von P aus werden zwei Tangenten an den Kreis um M gelegt, Berührpunkte B und B'. Es ist ∠BPB' = 104°. Wie groß ist ∠BMB'?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "P": [
+       2.54,
+       0
+      ],
+      "B": [
+       1.58,
+       1.23
+      ],
+      "B'": [
+       1.58,
+       -1.23
+      ]
+     },
+     "linien": [
+      [
+       "P",
+       "B"
+      ],
+      [
+       "P",
+       "B'"
+      ],
+      [
+       "M",
+       "B",
+       "r"
+      ],
+      [
+       "M",
+       "B'",
+       "r"
+      ],
+      [
+       "M",
+       "P",
+       "",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "B",
+       "M",
+       "P"
+      ],
+      [
+       "B'",
+       "M",
+       "P"
+      ]
+     ],
+     "winkel": [
+      [
+       "P",
+       "B",
+       "B'",
+       "104°"
+      ],
+      [
+       "M",
+       "B'",
+       "B",
+       "?"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 2
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 76,
+    "einheit": "°"
+   },
+   "c": "360 - 90 - 90 - 104",
+   "w": "Im Viereck MBPB' sind die Winkel bei B und B' je 90°. ∠BMB' = 360° − 180° − 104° = 76°."
+  },
+  {
+   "l": "tangente",
+   "t": "tangente",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Von P aus werden zwei Tangenten an den Kreis um M gelegt, Berührpunkte B und B'. Es ist ∠BPB' = 56°. Wie groß ist ∠BMB'?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "P": [
+       4.26,
+       0
+      ],
+      "B": [
+       0.94,
+       1.77
+      ],
+      "B'": [
+       0.94,
+       -1.77
+      ]
+     },
+     "linien": [
+      [
+       "P",
+       "B"
+      ],
+      [
+       "P",
+       "B'"
+      ],
+      [
+       "M",
+       "B",
+       "r"
+      ],
+      [
+       "M",
+       "B'",
+       "r"
+      ],
+      [
+       "M",
+       "P",
+       "",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "B",
+       "M",
+       "P"
+      ],
+      [
+       "B'",
+       "M",
+       "P"
+      ]
+     ],
+     "winkel": [
+      [
+       "P",
+       "B",
+       "B'",
+       "56°"
+      ],
+      [
+       "M",
+       "B'",
+       "B",
+       "?"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 2
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 124,
+    "einheit": "°"
+   },
+   "c": "360 - 90 - 90 - 56",
+   "w": "Im Viereck MBPB' sind die Winkel bei B und B' je 90°. ∠BMB' = 360° − 180° − 56° = 124°."
+  },
+  {
+   "l": "tangente",
+   "t": "tangente",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Von P aus werden zwei Tangenten an den Kreis um M gelegt, Berührpunkte B und B'. Es ist ∠BPB' = 108°. Wie groß ist ∠BMB'?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "P": [
+       2.47,
+       0
+      ],
+      "B": [
+       1.62,
+       1.18
+      ],
+      "B'": [
+       1.62,
+       -1.18
+      ]
+     },
+     "linien": [
+      [
+       "P",
+       "B"
+      ],
+      [
+       "P",
+       "B'"
+      ],
+      [
+       "M",
+       "B",
+       "r"
+      ],
+      [
+       "M",
+       "B'",
+       "r"
+      ],
+      [
+       "M",
+       "P",
+       "",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "B",
+       "M",
+       "P"
+      ],
+      [
+       "B'",
+       "M",
+       "P"
+      ]
+     ],
+     "winkel": [
+      [
+       "P",
+       "B",
+       "B'",
+       "108°"
+      ],
+      [
+       "M",
+       "B'",
+       "B",
+       "?"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 2
+      }
+     ]
+    }
+   },
+   "o": {
+    "wert": 72,
+    "einheit": "°"
+   },
+   "c": "360 - 90 - 90 - 108",
+   "w": "Im Viereck MBPB' sind die Winkel bei B und B' je 90°. ∠BMB' = 360° − 180° − 108° = 72°."
+  },
+  {
+   "l": "umkreis_inkreis",
+   "t": "umkreis_inkreis",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Von welchen Teilen des Dreiecks ist der Inkreismittelpunkt gleich weit entfernt?"
+   },
+   "a": [
+    "von den drei Seiten",
+    "von keinem Teil",
+    "von den drei Ecken",
+    "von den drei Seitenmitten"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Der Inkreis berührt alle drei Seiten.",
+   "h": "Gleich weit von den Ecken → Mittelsenkrechten. Gleich weit von den Seiten → Winkelhalbierende."
+  },
+  {
+   "l": "umkreis_inkreis",
+   "t": "umkreis_inkreis",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Wo liegt der Umkreismittelpunkt eines rechtwinkligen Dreiecks?"
+   },
+   "a": [
+    "außerhalb des Dreiecks",
+    "im Inkreismittelpunkt",
+    "in der Mitte der Hypotenuse",
+    "im rechten Winkel"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Nach Thales ist die Hypotenuse Durchmesser des Umkreises.",
+   "h": "Gleich weit von den Ecken → Mittelsenkrechten. Gleich weit von den Seiten → Winkelhalbierende."
+  },
+  {
+   "l": "umkreis_inkreis",
+   "t": "umkreis_inkreis",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Linien braucht man, um den Mittelpunkt des Inkreises eines Dreiecks zu konstruieren?"
+   },
+   "a": [
+    "die Mittelsenkrechten",
+    "die Seitenhalbierenden",
+    "die Höhen",
+    "die Winkelhalbierenden"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Der Inkreismittelpunkt ist von allen Seiten gleich weit entfernt – das liefern die Winkelhalbierenden.",
+   "h": "Gleich weit von den Ecken → Mittelsenkrechten. Gleich weit von den Seiten → Winkelhalbierende."
+  },
+  {
+   "l": "umkreis_inkreis",
+   "t": "umkreis_inkreis",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Was macht der Inkreis eines Dreiecks?"
+   },
+   "a": [
+    "Er schneidet jede Seite zweimal.",
+    "Er geht durch alle drei Ecken.",
+    "Er liegt immer außerhalb des Dreiecks.",
+    "Er berührt alle drei Seiten von innen."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die Seiten sind Tangenten des Inkreises.",
+   "h": "Gleich weit von den Ecken → Mittelsenkrechten. Gleich weit von den Seiten → Winkelhalbierende."
+  },
+  {
+   "l": "umkreis_inkreis",
+   "t": "umkreis_inkreis",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Dreieck hat α = 59°, β = 27°. Wo liegt der Umkreismittelpunkt?"
+   },
+   "a": [
+    "auf der längsten Seite (Mitte der Hypotenuse)",
+    "innerhalb des Dreiecks",
+    "außerhalb des Dreiecks",
+    "immer im Schwerpunkt"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "γ = 94°. Größter Winkel 94°: stumpfwinklig → außen.",
+   "h": "Bestimme den größten Winkel: spitz, rechter oder stumpf?"
+  },
+  {
+   "l": "umkreis_inkreis",
+   "t": "umkreis_inkreis",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Dreieck hat α = 81°, β = 9°. Wo liegt der Umkreismittelpunkt?"
+   },
+   "a": [
+    "auf der längsten Seite (Mitte der Hypotenuse)",
+    "innerhalb des Dreiecks",
+    "außerhalb des Dreiecks",
+    "immer im Schwerpunkt"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "γ = 90°. Größter Winkel 90°: rechtwinklig → Thales: Mitte der Hypotenuse.",
+   "h": "Bestimme den größten Winkel: spitz, rechter oder stumpf?"
+  },
+  {
+   "l": "umkreis_inkreis",
+   "t": "umkreis_inkreis",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Dreieck hat α = 26°, β = 52°. Wo liegt der Umkreismittelpunkt?"
+   },
+   "a": [
+    "immer im Schwerpunkt",
+    "außerhalb des Dreiecks",
+    "auf der längsten Seite (Mitte der Hypotenuse)",
+    "innerhalb des Dreiecks"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "γ = 102°. Größter Winkel 102°: stumpfwinklig → außen.",
+   "h": "Bestimme den größten Winkel: spitz, rechter oder stumpf?"
+  },
+  {
+   "l": "umkreis_inkreis",
+   "t": "umkreis_inkreis",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Dreieck hat α = 60°, β = 30°. Wo liegt der Umkreismittelpunkt?"
+   },
+   "a": [
+    "immer im Schwerpunkt",
+    "außerhalb des Dreiecks",
+    "innerhalb des Dreiecks",
+    "auf der längsten Seite (Mitte der Hypotenuse)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "γ = 90°. Größter Winkel 90°: rechtwinklig → Thales: Mitte der Hypotenuse.",
+   "h": "Bestimme den größten Winkel: spitz, rechter oder stumpf?"
+  },
+  {
+   "l": "umkreis_inkreis",
+   "t": "umkreis_inkreis",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Dreieck hat α = 73°, β = 47°. Wo liegt der Umkreismittelpunkt?"
+   },
+   "a": [
+    "außerhalb des Dreiecks",
+    "immer im Schwerpunkt",
+    "auf der längsten Seite (Mitte der Hypotenuse)",
+    "innerhalb des Dreiecks"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "γ = 60°. Größter Winkel 73°: spitzwinklig → innen.",
+   "h": "Bestimme den größten Winkel: spitz, rechter oder stumpf?"
+  },
+  {
+   "l": "umkreis_inkreis",
+   "t": "umkreis_inkreis",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Dreieck hat α = 61°, β = 29°. Wo liegt der Umkreismittelpunkt?"
+   },
+   "a": [
+    "immer im Schwerpunkt",
+    "auf der längsten Seite (Mitte der Hypotenuse)",
+    "außerhalb des Dreiecks",
+    "innerhalb des Dreiecks"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "γ = 90°. Größter Winkel 90°: rechtwinklig → Thales: Mitte der Hypotenuse.",
+   "h": "Bestimme den größten Winkel: spitz, rechter oder stumpf?"
+  },
+  {
+   "l": "umkreis_inkreis",
+   "t": "umkreis_inkreis",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einem Dreieck ABC ist β = 38° und γ = 104°. I ist der Inkreismittelpunkt. Wie groß ist der Winkel ∠BIC?"
+   },
+   "o": {
+    "wert": 109,
+    "einheit": "°"
+   },
+   "c": "180 - 38 / 2 - 104 / 2",
+   "w": "BI und CI halbieren β und γ: Dreieck BIC hat die Winkel 19° und 52°. ∠BIC = 180° − 19° − 52° = 109°.",
+   "h": "Der Inkreismittelpunkt liegt auf den Winkelhalbierenden."
+  },
+  {
+   "l": "umkreis_inkreis",
+   "t": "umkreis_inkreis",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einem Dreieck ABC ist β = 60° und γ = 58°. I ist der Inkreismittelpunkt. Wie groß ist der Winkel ∠BIC?"
+   },
+   "o": {
+    "wert": 121,
+    "einheit": "°"
+   },
+   "c": "180 - 60 / 2 - 58 / 2",
+   "w": "BI und CI halbieren β und γ: Dreieck BIC hat die Winkel 30° und 29°. ∠BIC = 180° − 30° − 29° = 121°.",
+   "h": "Der Inkreismittelpunkt liegt auf den Winkelhalbierenden."
+  },
+  {
+   "l": "umkreis_inkreis",
+   "t": "umkreis_inkreis",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einem Dreieck ABC ist β = 34° und γ = 50°. I ist der Inkreismittelpunkt. Wie groß ist der Winkel ∠BIC?"
+   },
+   "o": {
+    "wert": 138,
+    "einheit": "°"
+   },
+   "c": "180 - 34 / 2 - 50 / 2",
+   "w": "BI und CI halbieren β und γ: Dreieck BIC hat die Winkel 17° und 25°. ∠BIC = 180° − 17° − 25° = 138°.",
+   "h": "Der Inkreismittelpunkt liegt auf den Winkelhalbierenden."
+  },
+  {
+   "l": "umkreis_inkreis",
+   "t": "umkreis_inkreis",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einem Dreieck ABC ist β = 62° und γ = 74°. I ist der Inkreismittelpunkt. Wie groß ist der Winkel ∠BIC?"
+   },
+   "o": {
+    "wert": 112,
+    "einheit": "°"
+   },
+   "c": "180 - 62 / 2 - 74 / 2",
+   "w": "BI und CI halbieren β und γ: Dreieck BIC hat die Winkel 31° und 37°. ∠BIC = 180° − 31° − 37° = 112°.",
+   "h": "Der Inkreismittelpunkt liegt auf den Winkelhalbierenden."
+  },
+  {
+   "l": "umkreis_inkreis",
+   "t": "umkreis_inkreis",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Dreieck hat α = 44°, β = 24°. Wo liegt der Umkreismittelpunkt?"
+   },
+   "a": [
+    "immer im Schwerpunkt",
+    "außerhalb des Dreiecks",
+    "innerhalb des Dreiecks",
+    "auf der längsten Seite (Mitte der Hypotenuse)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "γ = 112°. Größter Winkel 112°: stumpfwinklig → außen."
+  },
+  {
+   "l": "umkreis_inkreis",
+   "t": "umkreis_inkreis",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Dreieck hat α = 43°, β = 26°. Wo liegt der Umkreismittelpunkt?"
+   },
+   "a": [
+    "immer im Schwerpunkt",
+    "auf der längsten Seite (Mitte der Hypotenuse)",
+    "außerhalb des Dreiecks",
+    "innerhalb des Dreiecks"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "γ = 111°. Größter Winkel 111°: stumpfwinklig → außen."
+  },
+  {
+   "l": "umkreis_inkreis",
+   "t": "umkreis_inkreis",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Dreieck hat α = 65°, β = 56°. Wo liegt der Umkreismittelpunkt?"
+   },
+   "a": [
+    "außerhalb des Dreiecks",
+    "auf der längsten Seite (Mitte der Hypotenuse)",
+    "immer im Schwerpunkt",
+    "innerhalb des Dreiecks"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "γ = 59°. Größter Winkel 65°: spitzwinklig → innen."
+  },
+  {
+   "l": "umkreis_inkreis",
+   "t": "umkreis_inkreis",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Dreieck hat α = 79°, β = 92°. Wo liegt der Umkreismittelpunkt?"
+   },
+   "a": [
+    "immer im Schwerpunkt",
+    "außerhalb des Dreiecks",
+    "innerhalb des Dreiecks",
+    "auf der längsten Seite (Mitte der Hypotenuse)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "γ = 9°. Größter Winkel 92°: stumpfwinklig → außen."
+  },
+  {
+   "l": "umkreis_inkreis",
+   "t": "umkreis_inkreis",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Dreieck hat α = 39°, β = 28°. Wo liegt der Umkreismittelpunkt?"
+   },
+   "a": [
+    "auf der längsten Seite (Mitte der Hypotenuse)",
+    "innerhalb des Dreiecks",
+    "immer im Schwerpunkt",
+    "außerhalb des Dreiecks"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "γ = 113°. Größter Winkel 113°: stumpfwinklig → außen."
+  },
+  {
+   "l": "umkreis_inkreis",
+   "t": "umkreis_inkreis",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Dreieck hat α = 74°, β = 61°. Wo liegt der Umkreismittelpunkt?"
+   },
+   "a": [
+    "innerhalb des Dreiecks",
+    "immer im Schwerpunkt",
+    "außerhalb des Dreiecks",
+    "auf der längsten Seite (Mitte der Hypotenuse)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "γ = 45°. Größter Winkel 74°: spitzwinklig → innen."
+  },
+  {
+   "l": "umkreis_inkreis",
+   "t": "umkreis_inkreis",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Dreieck hat α = 81°, β = 85°. Wo liegt der Umkreismittelpunkt?"
+   },
+   "a": [
+    "immer im Schwerpunkt",
+    "außerhalb des Dreiecks",
+    "innerhalb des Dreiecks",
+    "auf der längsten Seite (Mitte der Hypotenuse)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "γ = 14°. Größter Winkel 85°: spitzwinklig → innen."
+  },
+  {
+   "l": "umkreis_inkreis",
+   "t": "umkreis_inkreis",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Dreieck hat α = 40°, β = 50°. Wo liegt der Umkreismittelpunkt?"
+   },
+   "a": [
+    "innerhalb des Dreiecks",
+    "auf der längsten Seite (Mitte der Hypotenuse)",
+    "immer im Schwerpunkt",
+    "außerhalb des Dreiecks"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "γ = 90°. Größter Winkel 90°: rechtwinklig → Thales: Mitte der Hypotenuse."
+  },
+  {
+   "l": "umkreis_inkreis",
+   "t": "umkreis_inkreis",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Dreieck hat α = 28°, β = 62°. Wo liegt der Umkreismittelpunkt?"
+   },
+   "a": [
+    "außerhalb des Dreiecks",
+    "immer im Schwerpunkt",
+    "innerhalb des Dreiecks",
+    "auf der längsten Seite (Mitte der Hypotenuse)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "γ = 90°. Größter Winkel 90°: rechtwinklig → Thales: Mitte der Hypotenuse."
+  },
+  {
+   "l": "umkreis_inkreis",
+   "t": "umkreis_inkreis",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Dreieck hat α = 92°, β = 54°. Wo liegt der Umkreismittelpunkt?"
+   },
+   "a": [
+    "auf der längsten Seite (Mitte der Hypotenuse)",
+    "außerhalb des Dreiecks",
+    "innerhalb des Dreiecks",
+    "immer im Schwerpunkt"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "γ = 34°. Größter Winkel 92°: stumpfwinklig → außen."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Kreis hat den Radius r = 4 cm. Eine Gerade g hat vom Mittelpunkt den Abstand d = 4 cm. Wie heißt g?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "_1": [
+       -6,
+       4
+      ],
+      "_2": [
+       6,
+       4
+      ],
+      "_F": [
+       0,
+       4
+      ]
+     },
+     "linien": [
+      [
+       "_1",
+       "_2",
+       "g"
+      ],
+      [
+       "M",
+       "_F",
+       "d = 4",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "_F",
+       "M",
+       "_2"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 4
+      }
+     ]
+    }
+   },
+   "a": [
+    "Sekante",
+    "Durchmesser",
+    "Tangente",
+    "Passante"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "d = r → Tangente.",
+   "h": "Vergleiche d mit r."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Kreis hat den Radius r = 3 cm. Eine Gerade g hat vom Mittelpunkt den Abstand d = 2 cm. Wie heißt g?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "_1": [
+       -5,
+       2
+      ],
+      "_2": [
+       5,
+       2
+      ],
+      "_F": [
+       0,
+       2
+      ]
+     },
+     "linien": [
+      [
+       "_1",
+       "_2",
+       "g"
+      ],
+      [
+       "M",
+       "_F",
+       "d = 2",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "_F",
+       "M",
+       "_2"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 3
+      }
+     ]
+    }
+   },
+   "a": [
+    "Sekante",
+    "Durchmesser",
+    "Tangente",
+    "Passante"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "d < r → Sekante.",
+   "h": "Vergleiche d mit r."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Kreis hat den Radius r = 5 cm. Eine Gerade g hat vom Mittelpunkt den Abstand d = 3,5 cm. Wie heißt g?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "_1": [
+       -7,
+       3.5
+      ],
+      "_2": [
+       7,
+       3.5
+      ],
+      "_F": [
+       0,
+       3.5
+      ]
+     },
+     "linien": [
+      [
+       "_1",
+       "_2",
+       "g"
+      ],
+      [
+       "M",
+       "_F",
+       "d = 3,5",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "_F",
+       "M",
+       "_2"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 5
+      }
+     ]
+    }
+   },
+   "a": [
+    "Passante",
+    "Durchmesser",
+    "Sekante",
+    "Tangente"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "d < r → Sekante.",
+   "h": "Vergleiche d mit r."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Kreis hat den Radius r = 4 cm. Eine Gerade g hat vom Mittelpunkt den Abstand d = 2,5 cm. Wie heißt g?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "M": [
+       0,
+       0
+      ],
+      "_1": [
+       -6,
+       2.5
+      ],
+      "_2": [
+       6,
+       2.5
+      ],
+      "_F": [
+       0,
+       2.5
+      ]
+     },
+     "linien": [
+      [
+       "_1",
+       "_2",
+       "g"
+      ],
+      [
+       "M",
+       "_F",
+       "d = 2,5",
+       "gestrichelt"
+      ]
+     ],
+     "rechter_winkel": [
+      [
+       "_F",
+       "M",
+       "_2"
+      ]
+     ],
+     "kreise": [
+      {
+       "m": "M",
+       "r": 4
+      }
+     ]
+    }
+   },
+   "a": [
+    "Tangente",
+    "Passante",
+    "Durchmesser",
+    "Sekante"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "d < r → Sekante.",
+   "h": "Vergleiche d mit r."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis hat den Durchmesser 18 cm. Eine Gerade hat vom Mittelpunkt den Abstand 9,5 cm. Wie viele gemeinsame Punkte haben Kreis und Gerade?"
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "0",
+   "w": "r = 18 : 2 = 9 cm. d > r → Passante, also 0 gemeinsame Punkte.",
+   "h": "Achtung: Gegeben ist der Durchmesser, nicht der Radius."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis hat den Durchmesser 6 cm. Eine Gerade hat vom Mittelpunkt den Abstand 3 cm. Wie viele gemeinsame Punkte haben Kreis und Gerade?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "r = 6 : 2 = 3 cm. d = r → Tangente, also 1 gemeinsame Punkte.",
+   "h": "Achtung: Gegeben ist der Durchmesser, nicht der Radius."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis hat den Durchmesser 8 cm. Eine Gerade hat vom Mittelpunkt den Abstand 4,5 cm. Wie viele gemeinsame Punkte haben Kreis und Gerade?"
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "0",
+   "w": "r = 8 : 2 = 4 cm. d > r → Passante, also 0 gemeinsame Punkte.",
+   "h": "Achtung: Gegeben ist der Durchmesser, nicht der Radius."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis hat den Durchmesser 16 cm. Eine Gerade hat vom Mittelpunkt den Abstand 8 cm. Wie viele gemeinsame Punkte haben Kreis und Gerade?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "r = 16 : 2 = 8 cm. d = r → Tangente, also 1 gemeinsame Punkte.",
+   "h": "Achtung: Gegeben ist der Durchmesser, nicht der Radius."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis hat den Durchmesser 4 cm. Eine Gerade hat vom Mittelpunkt den Abstand 3 cm. Wie viele gemeinsame Punkte haben Kreis und Gerade?"
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "0",
+   "w": "r = 4 : 2 = 2 cm. d > r → Passante, also 0 gemeinsame Punkte.",
+   "h": "Achtung: Gegeben ist der Durchmesser, nicht der Radius."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis hat den Durchmesser 8 cm. Eine Gerade hat vom Mittelpunkt den Abstand 4 cm. Wie viele gemeinsame Punkte haben Kreis und Gerade?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "r = 8 : 2 = 4 cm. d = r → Tangente, also 1 gemeinsame Punkte.",
+   "h": "Achtung: Gegeben ist der Durchmesser, nicht der Radius."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Gerade soll den Kreis mit dem Radius 4,3 cm berühren. Welchen Abstand muss sie vom Mittelpunkt haben?"
+   },
+   "o": {
+    "wert": 4.3,
+    "einheit": "cm"
+   },
+   "c": "43 / 10",
+   "w": "Tangente: d = r = 4,3 cm.",
+   "h": "Bei einer Tangente ist der Abstand gleich dem Radius."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Gerade soll den Kreis mit dem Radius 6,1 cm berühren. Welchen Abstand muss sie vom Mittelpunkt haben?"
+   },
+   "o": {
+    "wert": 6.1,
+    "einheit": "cm"
+   },
+   "c": "61 / 10",
+   "w": "Tangente: d = r = 6,1 cm.",
+   "h": "Bei einer Tangente ist der Abstand gleich dem Radius."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Gerade soll den Kreis mit dem Radius 3,1 cm berühren. Welchen Abstand muss sie vom Mittelpunkt haben?"
+   },
+   "o": {
+    "wert": 3.1,
+    "einheit": "cm"
+   },
+   "c": "31 / 10",
+   "w": "Tangente: d = r = 3,1 cm.",
+   "h": "Bei einer Tangente ist der Abstand gleich dem Radius."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Gerade soll den Kreis mit dem Radius 5,6 cm berühren. Welchen Abstand muss sie vom Mittelpunkt haben?"
+   },
+   "o": {
+    "wert": 5.6,
+    "einheit": "cm"
+   },
+   "c": "28 / 5",
+   "w": "Tangente: d = r = 5,6 cm.",
+   "h": "Bei einer Tangente ist der Abstand gleich dem Radius."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis hat den Durchmesser 4 cm. Eine Gerade hat vom Mittelpunkt den Abstand 2 cm. Wie viele gemeinsame Punkte haben Kreis und Gerade?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "r = 4 : 2 = 2 cm. d = r → Tangente, also 1 gemeinsame Punkte."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis hat den Durchmesser 12 cm. Eine Gerade hat vom Mittelpunkt den Abstand 5,5 cm. Wie viele gemeinsame Punkte haben Kreis und Gerade?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "r = 12 : 2 = 6 cm. d < r → Sekante, also 2 gemeinsame Punkte."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis hat den Durchmesser 4 cm. Eine Gerade hat vom Mittelpunkt den Abstand 2,5 cm. Wie viele gemeinsame Punkte haben Kreis und Gerade?"
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "0",
+   "w": "r = 4 : 2 = 2 cm. d > r → Passante, also 0 gemeinsame Punkte."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis hat den Durchmesser 18 cm. Eine Gerade hat vom Mittelpunkt den Abstand 9 cm. Wie viele gemeinsame Punkte haben Kreis und Gerade?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "r = 18 : 2 = 9 cm. d = r → Tangente, also 1 gemeinsame Punkte."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis hat den Durchmesser 14 cm. Eine Gerade hat vom Mittelpunkt den Abstand 5,5 cm. Wie viele gemeinsame Punkte haben Kreis und Gerade?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "r = 14 : 2 = 7 cm. d < r → Sekante, also 2 gemeinsame Punkte."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis hat den Durchmesser 10 cm. Eine Gerade hat vom Mittelpunkt den Abstand 5 cm. Wie viele gemeinsame Punkte haben Kreis und Gerade?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "r = 10 : 2 = 5 cm. d = r → Tangente, also 1 gemeinsame Punkte."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis hat den Durchmesser 4 cm. Eine Gerade hat vom Mittelpunkt den Abstand 4 cm. Wie viele gemeinsame Punkte haben Kreis und Gerade?"
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "0",
+   "w": "r = 4 : 2 = 2 cm. d > r → Passante, also 0 gemeinsame Punkte."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis hat den Durchmesser 10 cm. Eine Gerade hat vom Mittelpunkt den Abstand 4,5 cm. Wie viele gemeinsame Punkte haben Kreis und Gerade?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "r = 10 : 2 = 5 cm. d < r → Sekante, also 2 gemeinsame Punkte."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis hat den Durchmesser 18 cm. Eine Gerade hat vom Mittelpunkt den Abstand 8 cm. Wie viele gemeinsame Punkte haben Kreis und Gerade?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "r = 18 : 2 = 9 cm. d < r → Sekante, also 2 gemeinsame Punkte."
+  },
+  {
+   "l": "lage",
+   "t": "lage",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Kreis hat den Durchmesser 16 cm. Eine Gerade hat vom Mittelpunkt den Abstand 9 cm. Wie viele gemeinsame Punkte haben Kreis und Gerade?"
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "0",
+   "w": "r = 16 : 2 = 8 cm. d > r → Passante, also 0 gemeinsame Punkte."
+  },
+  {
+   "l": "beweis",
+   "t": "beweis",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über Vermutung und Beweis ist richtig?"
+   },
+   "a": [
+    "Eine Zeichnung allein ist ein Beweis.",
+    "Ein Beweis gilt für alle Fälle, nicht nur für gezeichnete.",
+    "Wenn eine Messung 89,8° ergibt, ist der Satz des Thales widerlegt.",
+    "Wenn der Satz des Thales gilt, gilt automatisch jede Umkehrung."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Richtig: Ein Beweis gilt für alle Fälle, nicht nur für gezeichnete.",
+   "h": "Was unterscheidet Messen von Begründen?"
+  },
+  {
+   "l": "beweis",
+   "t": "beweis",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über Vermutung und Beweis ist richtig?"
+   },
+   "a": [
+    "Ein Beweis darf sich auf schon bewiesene Sätze stützen.",
+    "Wenn der Satz des Thales gilt, gilt automatisch jede Umkehrung.",
+    "Eine Zeichnung allein ist ein Beweis.",
+    "Wenn eine Messung 89,8° ergibt, ist der Satz des Thales widerlegt."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Richtig: Ein Beweis darf sich auf schon bewiesene Sätze stützen.",
+   "h": "Was unterscheidet Messen von Begründen?"
+  },
+  {
+   "l": "beweis",
+   "t": "beweis",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über Vermutung und Beweis ist richtig?"
+   },
+   "a": [
+    "Wenn eine Messung 89,8° ergibt, ist der Satz des Thales widerlegt.",
+    "Wenn der Satz des Thales gilt, gilt automatisch jede Umkehrung.",
+    "Ein Beweis gilt für alle Fälle, nicht nur für gezeichnete.",
+    "Eine Behauptung, die in vielen gemessenen Beispielen stimmt, ist damit bewiesen."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Richtig: Ein Beweis gilt für alle Fälle, nicht nur für gezeichnete.",
+   "h": "Was unterscheidet Messen von Begründen?"
+  },
+  {
+   "l": "beweis",
+   "t": "beweis",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über Vermutung und Beweis ist richtig?"
+   },
+   "a": [
+    "Wenn eine Messung 89,8° ergibt, ist der Satz des Thales widerlegt.",
+    "Eine Zeichnung allein ist ein Beweis.",
+    "Wenn der Satz des Thales gilt, gilt automatisch jede Umkehrung.",
+    "Ein einziges Gegenbeispiel widerlegt eine Vermutung."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Richtig: Ein einziges Gegenbeispiel widerlegt eine Vermutung.",
+   "h": "Was unterscheidet Messen von Begründen?"
+  },
+  {
+   "l": "beweis",
+   "t": "beweis",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Beweis (Thales bzw. Tangentenkonstruktion) steht: „∠ACM ist genauso groß wie α.“ Welche Begründung passt?"
+   },
+   "a": [
+    "Bei B ist ein rechter Winkel zwischen MB und PB (Umkehrung des Thalessatzes).",
+    "MA und MC sind Radien desselben Kreises.",
+    "Eigenschaft der Tangente: Sie steht senkrecht auf dem Berührradius.",
+    "Basiswinkel im gleichschenkligen Dreieck AMC sind gleich."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Begründung: Basiswinkel im gleichschenkligen Dreieck AMC sind gleich.",
+   "h": "Welche bekannte Eigenschaft rechtfertigt genau diesen Schritt?"
+  },
+  {
+   "l": "beweis",
+   "t": "beweis",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Beweis (Thales bzw. Tangentenkonstruktion) steht: „Die Tangente steht senkrecht auf [MB].“ Welche Begründung passt?"
+   },
+   "a": [
+    "Bei B ist ein rechter Winkel zwischen MB und PB (Umkehrung des Thalessatzes).",
+    "Eigenschaft der Tangente: Sie steht senkrecht auf dem Berührradius.",
+    "Winkelsumme im Dreieck ABC.",
+    "Die Strecke [MC] teilt γ in die Winkel ∠ACM = α und ∠BCM = β."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Begründung: Eigenschaft der Tangente: Sie steht senkrecht auf dem Berührradius.",
+   "h": "Welche bekannte Eigenschaft rechtfertigt genau diesen Schritt?"
+  },
+  {
+   "l": "beweis",
+   "t": "beweis",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über Vermutung und Beweis ist richtig?"
+   },
+   "a": [
+    "Wenn eine Messung 89,8° ergibt, ist der Satz des Thales widerlegt.",
+    "Mit Geometriesoftware kann man Vermutungen finden, ein Beweis braucht Begründungen.",
+    "Wenn der Satz des Thales gilt, gilt automatisch jede Umkehrung.",
+    "Eine Behauptung, die in vielen gemessenen Beispielen stimmt, ist damit bewiesen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Richtig: Mit Geometriesoftware kann man Vermutungen finden, ein Beweis braucht Begründungen.",
+   "h": "Was unterscheidet Messen von Begründen?"
+  },
+  {
+   "l": "beweis",
+   "t": "beweis",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Beweis (Thales bzw. Tangentenkonstruktion) steht: „γ = α + β.“ Welche Begründung passt?"
+   },
+   "a": [
+    "Die Strecke [MC] teilt γ in die Winkel ∠ACM = α und ∠BCM = β.",
+    "In der Winkelsumme wird α + β durch γ ersetzt.",
+    "Eigenschaft der Tangente: Sie steht senkrecht auf dem Berührradius.",
+    "Winkelsumme im Dreieck ABC."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Begründung: Die Strecke [MC] teilt γ in die Winkel ∠ACM = α und ∠BCM = β.",
+   "h": "Welche bekannte Eigenschaft rechtfertigt genau diesen Schritt?"
+  },
+  {
+   "l": "beweis",
+   "t": "beweis",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Beweis (Thales bzw. Tangentenkonstruktion) steht: „γ = α + β.“ Welche Begründung passt?"
+   },
+   "a": [
+    "Basiswinkel im gleichschenkligen Dreieck AMC sind gleich.",
+    "In der Winkelsumme wird α + β durch γ ersetzt.",
+    "Die Strecke [MC] teilt γ in die Winkel ∠ACM = α und ∠BCM = β.",
+    "Winkelsumme im Dreieck ABC."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Begründung: Die Strecke [MC] teilt γ in die Winkel ∠ACM = α und ∠BCM = β.",
+   "h": "Welche bekannte Eigenschaft rechtfertigt genau diesen Schritt?"
+  },
+  {
+   "l": "beweis",
+   "t": "beweis",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über Vermutung und Beweis ist richtig?"
+   },
+   "a": [
+    "Eine Zeichnung allein ist ein Beweis.",
+    "Wenn eine Messung 89,8° ergibt, ist der Satz des Thales widerlegt.",
+    "Ein Beweis darf sich auf schon bewiesene Sätze stützen.",
+    "Eine Behauptung, die in vielen gemessenen Beispielen stimmt, ist damit bewiesen."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Richtig: Ein Beweis darf sich auf schon bewiesene Sätze stützen.",
+   "h": "Was unterscheidet Messen von Begründen?"
+  },
+  {
+   "l": "beweis",
+   "t": "beweis",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Beweis (Thales bzw. Tangentenkonstruktion) steht: „Der Berührpunkt B liegt auf dem Thaleskreis über [MP].“ Welche Begründung passt?"
+   },
+   "a": [
+    "Bei B ist ein rechter Winkel zwischen MB und PB (Umkehrung des Thalessatzes).",
+    "Eigenschaft der Tangente: Sie steht senkrecht auf dem Berührradius.",
+    "Winkelsumme im Dreieck ABC.",
+    "Die Strecke [MC] teilt γ in die Winkel ∠ACM = α und ∠BCM = β."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Begründung: Bei B ist ein rechter Winkel zwischen MB und PB (Umkehrung des Thalessatzes).",
+   "h": "Welche bekannte Eigenschaft rechtfertigt genau diesen Schritt?"
+  },
+  {
+   "l": "beweis",
+   "t": "beweis",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Beweis (Thales bzw. Tangentenkonstruktion) steht: „∠ACM ist genauso groß wie α.“ Welche Begründung passt?"
+   },
+   "a": [
+    "In der Winkelsumme wird α + β durch γ ersetzt.",
+    "Die Strecke [MC] teilt γ in die Winkel ∠ACM = α und ∠BCM = β.",
+    "Basiswinkel im gleichschenkligen Dreieck AMC sind gleich.",
+    "Eigenschaft der Tangente: Sie steht senkrecht auf dem Berührradius."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Begründung: Basiswinkel im gleichschenkligen Dreieck AMC sind gleich.",
+   "h": "Welche bekannte Eigenschaft rechtfertigt genau diesen Schritt?"
+  },
+  {
+   "l": "beweis",
+   "t": "beweis",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Beweis (Thales bzw. Tangentenkonstruktion) steht: „γ = α + β.“ Welche Begründung passt?"
+   },
+   "a": [
+    "Basiswinkel im gleichschenkligen Dreieck AMC sind gleich.",
+    "In der Winkelsumme wird α + β durch γ ersetzt.",
+    "Die Strecke [MC] teilt γ in die Winkel ∠ACM = α und ∠BCM = β.",
+    "Eigenschaft der Tangente: Sie steht senkrecht auf dem Berührradius."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Begründung: Die Strecke [MC] teilt γ in die Winkel ∠ACM = α und ∠BCM = β.",
+   "h": "Welche bekannte Eigenschaft rechtfertigt genau diesen Schritt?"
+  },
+  {
+   "l": "beweis",
+   "t": "beweis",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Beweis (Thales bzw. Tangentenkonstruktion) steht: „Die Tangente steht senkrecht auf [MB].“ Welche Begründung passt?"
+   },
+   "a": [
+    "MA und MC sind Radien desselben Kreises.",
+    "In der Winkelsumme wird α + β durch γ ersetzt.",
+    "Winkelsumme im Dreieck ABC.",
+    "Eigenschaft der Tangente: Sie steht senkrecht auf dem Berührradius."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Begründung: Eigenschaft der Tangente: Sie steht senkrecht auf dem Berührradius.",
+   "h": "Welche bekannte Eigenschaft rechtfertigt genau diesen Schritt?"
+  },
+  {
+   "l": "beweis",
+   "t": "beweis",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Beweis (Thales bzw. Tangentenkonstruktion) steht: „Dreieck AMC ist gleichschenklig.“ Welche Begründung passt?"
+   },
+   "a": [
+    "Basiswinkel im gleichschenkligen Dreieck AMC sind gleich.",
+    "Winkelsumme im Dreieck ABC.",
+    "Die Strecke [MC] teilt γ in die Winkel ∠ACM = α und ∠BCM = β.",
+    "MA und MC sind Radien desselben Kreises."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Begründung: MA und MC sind Radien desselben Kreises."
+  },
+  {
+   "l": "beweis",
+   "t": "beweis",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über Vermutung und Beweis ist richtig?"
+   },
+   "a": [
+    "Wenn der Satz des Thales gilt, gilt automatisch jede Umkehrung.",
+    "Eine Zeichnung allein ist ein Beweis.",
+    "Ein Beweis gilt für alle Fälle, nicht nur für gezeichnete.",
+    "Eine Behauptung, die in vielen gemessenen Beispielen stimmt, ist damit bewiesen."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Richtig: Ein Beweis gilt für alle Fälle, nicht nur für gezeichnete."
+  },
+  {
+   "l": "beweis",
+   "t": "beweis",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Beweis (Thales bzw. Tangentenkonstruktion) steht: „∠ACM ist genauso groß wie α.“ Welche Begründung passt?"
+   },
+   "a": [
+    "Eigenschaft der Tangente: Sie steht senkrecht auf dem Berührradius.",
+    "MA und MC sind Radien desselben Kreises.",
+    "In der Winkelsumme wird α + β durch γ ersetzt.",
+    "Basiswinkel im gleichschenkligen Dreieck AMC sind gleich."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Begründung: Basiswinkel im gleichschenkligen Dreieck AMC sind gleich."
+  },
+  {
+   "l": "beweis",
+   "t": "beweis",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Beweis (Thales bzw. Tangentenkonstruktion) steht: „γ = α + β.“ Welche Begründung passt?"
+   },
+   "a": [
+    "Die Strecke [MC] teilt γ in die Winkel ∠ACM = α und ∠BCM = β.",
+    "Winkelsumme im Dreieck ABC.",
+    "MA und MC sind Radien desselben Kreises.",
+    "In der Winkelsumme wird α + β durch γ ersetzt."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Begründung: Die Strecke [MC] teilt γ in die Winkel ∠ACM = α und ∠BCM = β."
+  },
+  {
+   "l": "beweis",
+   "t": "beweis",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über Vermutung und Beweis ist richtig?"
+   },
+   "a": [
+    "Wenn eine Messung 89,8° ergibt, ist der Satz des Thales widerlegt.",
+    "Ein Beweis darf sich auf schon bewiesene Sätze stützen.",
+    "Eine Behauptung, die in vielen gemessenen Beispielen stimmt, ist damit bewiesen.",
+    "Wenn der Satz des Thales gilt, gilt automatisch jede Umkehrung."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Richtig: Ein Beweis darf sich auf schon bewiesene Sätze stützen."
+  },
+  {
+   "l": "beweis",
+   "t": "beweis",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über Vermutung und Beweis ist FALSCH?"
+   },
+   "a": [
+    "Ein einziges Gegenbeispiel widerlegt eine Vermutung.",
+    "Wenn der Satz des Thales gilt, gilt automatisch jede Umkehrung.",
+    "Ein Beweis darf sich auf schon bewiesene Sätze stützen.",
+    "Mit Geometriesoftware kann man Vermutungen finden, ein Beweis braucht Begründungen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Falsch: Wenn der Satz des Thales gilt, gilt automatisch jede Umkehrung. Messungen sind ungenau und decken nie alle Fälle ab."
+  },
+  {
+   "l": "beweis",
+   "t": "beweis",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Beweis (Thales bzw. Tangentenkonstruktion) steht: „Dreieck AMC ist gleichschenklig.“ Welche Begründung passt?"
+   },
+   "a": [
+    "In der Winkelsumme wird α + β durch γ ersetzt.",
+    "Eigenschaft der Tangente: Sie steht senkrecht auf dem Berührradius.",
+    "MA und MC sind Radien desselben Kreises.",
+    "Basiswinkel im gleichschenkligen Dreieck AMC sind gleich."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Begründung: MA und MC sind Radien desselben Kreises."
+  },
+  {
+   "l": "beweis",
+   "t": "beweis",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Beweis (Thales bzw. Tangentenkonstruktion) steht: „2γ = 180°, also γ = 90°.“ Welche Begründung passt?"
+   },
+   "a": [
+    "MA und MC sind Radien desselben Kreises.",
+    "Winkelsumme im Dreieck ABC.",
+    "Eigenschaft der Tangente: Sie steht senkrecht auf dem Berührradius.",
+    "In der Winkelsumme wird α + β durch γ ersetzt."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Begründung: In der Winkelsumme wird α + β durch γ ersetzt."
+  },
+  {
+   "l": "beweis",
+   "t": "beweis",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Im Beweis (Thales bzw. Tangentenkonstruktion) steht: „α + β + γ = 180°.“ Welche Begründung passt?"
+   },
+   "a": [
+    "Die Strecke [MC] teilt γ in die Winkel ∠ACM = α und ∠BCM = β.",
+    "In der Winkelsumme wird α + β durch γ ersetzt.",
+    "Winkelsumme im Dreieck ABC.",
+    "MA und MC sind Radien desselben Kreises."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Begründung: Winkelsumme im Dreieck ABC."
+  },
+  {
+   "l": "beweis",
+   "t": "beweis",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über Vermutung und Beweis ist richtig?"
+   },
+   "a": [
+    "Eine Zeichnung allein ist ein Beweis.",
+    "Mit Geometriesoftware kann man Vermutungen finden, ein Beweis braucht Begründungen.",
+    "Wenn der Satz des Thales gilt, gilt automatisch jede Umkehrung.",
+    "Eine Behauptung, die in vielen gemessenen Beispielen stimmt, ist damit bewiesen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Richtig: Mit Geometriesoftware kann man Vermutungen finden, ein Beweis braucht Begründungen."
+  }
+ ],
+ "offen": [
+  "Die Konstruktion der Tangente von einem äußeren Punkt (Thaleskreis über [MP]) wird nur begründet (Lernkarte „beweis“), nicht vom Kind gezeichnet – Zeichnen durch das Kind kann die App nicht.",
+  "Experimentieren mit dynamischer Geometriesoftware (Lehrplan) ist in der App nicht möglich.",
+  "Kreiswinkel (Umfangs-/Mittelpunktswinkelsatz) aus dem Feld „umfang“ weggelassen: nicht im lehrplan_gym für Klasse 7; nur der Spezialfall am Thaleskreis kommt vor."
+ ]
+}

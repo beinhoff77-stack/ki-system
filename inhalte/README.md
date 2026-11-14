@@ -61,9 +61,11 @@ Mehrere Chats bauen parallel Mathe-Themen als **Dateien**. Kein Chat außer dem 
 
 Antworttypen:
 
-- `zahl`: `o = {"wert": 12}` oder `{"wert": 2.5, "einheit": "cm"}`. Kind tippt die Zahl (Komma als Dezimalzeichen). Nur Ergebnisse, die als endliche Dezimalzahl exakt sind. Brüche als Ergebnis → `luecken` oder `auswahl`.
+- `zahl`: `o = {"wert": 12}` oder `{"wert": 2.5, "einheit": "cm"}`. Bei gerundeten Ergebnissen (π, Wurzeln, sin/cos) zusätzlich `"toleranz": 0.1` (bzw. eine Einheit der letzten verlangten Stelle). Kind tippt die Zahl (Komma als Dezimalzeichen). Nur Ergebnisse, die als endliche Dezimalzahl exakt sind. Brüche als Ergebnis → `luecken` oder `auswahl`.
 - `auswahl`: `a = ["…","…","…"]`, `o = {"index": 1}`. Falsche Antworten aus **typischen Fehlern** ableiten, nicht zufällig. Position der richtigen Antwort mischen.
-- `luecken`: `f = {"text": "…", "schablone": "□/□", "hinweis": "Wie eintragen"}`, `o = {"werte": [3, 4]}`. Nur ganze Zahlen. `c` als Liste von Ausdrücken.
+- `luecken`: `f = {"text": "…", "schablone": "…", "hinweis": "Wie eintragen"}`, `o = {"werte": [3, 4]}`. Nur ganze Zahlen. `c` als Liste von Ausdrücken. Zwei Arten:
+  - **Term-Vorlage** (nur □, einzelne Kleinbuchstaben, `+ − · ( ) ² ³`), z. B. `□x² + □x + □`: Das Kind tippt den Term frei ein.
+  - **Alles andere**, z. B. Bruch `□/□` (wird als Zähler über Nenner gezeigt), Zahlenpaar `x = □; y = □`, Punkt `S(□ | □)`: je Lücke ein Zahlenfeld.
 - `text`: `o = {"text": "MMXXIV"}`. Nur für sehr kurze, eindeutige Antworten (Groß-/Kleinschreibung und Leerzeichen egal).
 - `markierung`: `f.grafik = {"typ":"zahlenstrahl","start":0,"ende":160,"abschnitte":8,"beschriftet":"anfang_ende"}`, `o = {"index": 7}`, zusätzlich `"zahl": 140` zum Nachrechnen.
 

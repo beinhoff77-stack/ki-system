@@ -50,7 +50,9 @@ ETAPPEN = [
 
 
 def rz(x, text, c, w, h, einheit):
-    return Z(text, runde(x, 1), f'round({c}, 1)', w, h, einheit)
+    a = Z(text, runde(x, 1), f'round({c}, 1)', w, h, einheit)
+    a['o']['toleranz'] = 0.1   # wer mit 3,14 statt der π-Taste rechnet, liegt höchstens in der letzten Stelle daneben
+    return a
 
 
 def ok(x): return sicher_rundbar(x, 1)

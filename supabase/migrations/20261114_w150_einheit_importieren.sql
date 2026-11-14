@@ -30,3 +30,14 @@ begin
   return jsonb_build_object('einheit_id', v_e, 'thema', p->>'thema_schluessel', 'lernkarten', jsonb_array_length(p->'inhalt'->'etappen'), 'aufgaben', v_n);
 end $$;
 revoke all on function schule.einheit_importieren(jsonb) from public, anon, authenticated;
+
+-- Zahl-Antworten: optionale Toleranz je Aufgabe (loesung.toleranz), z. B. 0.1 bei gerundeten π-Ergebnissen.
+do $$
+declare d text;
+begin
+  select pg_get_functiondef(p.oid) into d from pg_proc p join pg_namespace n on n.oid = p.pronamespace where n.nspname = 'schule' and p.proname = 'antwort_bewerten';
+  d := replace(d, $x$abs(v - (p_aufgabe.loesung->>'wert')::numeric) <= 1e-9)$x$,
+                  $x$abs(v - (p_aufgabe.loesung->>'wert')::numeric) <= greatest(1e-9, coalesce((p_aufgabe.loesung->>'toleranz')::numeric, 0)))$x$);
+  if position('toleranz' in d) = 0 then raise exception 'antwort_bewerten nicht angepasst'; end if;
+  execute d;
+end $$;

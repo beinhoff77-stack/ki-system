@@ -1,0 +1,318 @@
+{
+ "klasse": 9,
+ "reihenfolge": [
+  {
+   "thema_schluessel": "zahlen.wurzeln_basis",
+   "position": 1,
+   "braucht_vorher": [
+    "zahlen.potenzen_basis (Kl. 5: Quadratzahlen bis 400)",
+    "bruch.dezimal (Kl. 6)"
+   ],
+   "begruendung": "Einstieg M9 1: Wurzel als Umkehrung des Quadrierens, noch ohne Irrationalität."
+  },
+  {
+   "thema_schluessel": "zahlen.reell",
+   "position": 2,
+   "braucht_vorher": [
+    "zahlen.wurzeln_basis",
+    "bruch.dezimal (Kl. 6: periodisch)",
+    "terme.umformen (Kl. 7, fehlt: 3. binomische Formel für 'nenner_rational')"
+   ],
+   "begruendung": "M9 1: irrationale Zahlen, Wurzelterme."
+  },
+  {
+   "thema_schluessel": "trigo.pythagoras",
+   "position": 3,
+   "braucht_vorher": [
+    "zahlen.wurzeln_basis",
+    "geometrie.konstruktion (Kl. 7, fehlt: rechtwinklige Dreiecke)"
+   ],
+   "begruendung": "Braucht nur Wurzeln; früh lernen, weil Pythagoras in quadratischen Anwendungen, Trigonometrie und Raumgeometrie gebraucht wird (im Lehrplan M9 6, Vorziehen ist zulässig)."
+  },
+  {
+   "thema_schluessel": "gleichungen.quadratisch",
+   "position": 4,
+   "braucht_vorher": [
+    "zahlen.wurzeln_basis",
+    "terme.umformen (Kl. 7, fehlt: ausklammern, binomische Formeln)",
+    "gleichungen.linear (Kl. 7, fehlt)"
+   ],
+   "begruendung": "M9 2.1. Vor den Funktionen, weil 'funktionen.quadratisch' für Nullstellen das Lösen voraussetzt."
+  },
+  {
+   "thema_schluessel": "funktionen.quadratisch",
+   "position": 5,
+   "braucht_vorher": [
+    "gleichungen.quadratisch",
+    "funktionen.grundbegriffe (Kl. 8)",
+    "funktionen.linear (Kl. 8)"
+   ],
+   "begruendung": "M9 2.1/2.2: Parabeln, Scheitelform, Extremwertprobleme."
+  },
+  {
+   "thema_schluessel": "gleichungen.lgs3",
+   "position": 6,
+   "braucht_vorher": [
+    "gleichungen.lgs2 (Kl. 8)",
+    "funktionen.quadratisch (Parabel durch drei Punkte)"
+   ],
+   "begruendung": "M9 2.2: LGS mit drei Unbekannten v. a. zur Parabelbestimmung."
+  },
+  {
+   "thema_schluessel": "stochastik.verknuepft",
+   "position": 7,
+   "braucht_vorher": [
+    "stochastik.grundbegriffe (Kl. 8)"
+   ],
+   "begruendung": "M9 3, unabhängig von Algebra/Geometrie; kann auch als Abwechslung früher kommen."
+  },
+  {
+   "thema_schluessel": "abbildungen.aehnlichkeit",
+   "position": 8,
+   "braucht_vorher": [
+    "gleichungen.bruch (Kl. 8: Verhältnisgleichungen)",
+    "geometrie.winkel (Kl. 7, fehlt: Stufen-/Wechselwinkel für Ähnlichkeit)",
+    "messen.volumen (Kl. 6, fehlt)"
+   ],
+   "begruendung": "M9 4. Ähnlichkeit begründet, warum Seitenverhältnisse im rechtwinkligen Dreieck nur vom Winkel abhängen → Voraussetzung für Trigonometrie."
+  },
+  {
+   "thema_schluessel": "trigo.rechtwinklig",
+   "position": 9,
+   "braucht_vorher": [
+    "abbildungen.aehnlichkeit",
+    "trigo.pythagoras"
+   ],
+   "begruendung": "M9 7.1."
+  },
+  {
+   "thema_schluessel": "trigo.allgemein",
+   "position": 10,
+   "braucht_vorher": [
+    "trigo.rechtwinklig",
+    "trigo.pythagoras (Kosinussatz als Verallgemeinerung)"
+   ],
+   "begruendung": "M9 7.2: Einheitskreis, Sinus- und Kosinussatz."
+  },
+  {
+   "thema_schluessel": "gleichungen.trig",
+   "position": 11,
+   "braucht_vorher": [
+    "trigo.allgemein (Karte 'einheitskreis')"
+   ],
+   "begruendung": "Winkel zu gegebenem Wert im Bereich 0°–360° setzt den Einheitskreis voraus."
+  },
+  {
+   "thema_schluessel": "funktionen.potenz",
+   "position": 12,
+   "braucht_vorher": [
+    "funktionen.quadratisch",
+    "terme.potenzgesetze (Kl. 6/7)"
+   ],
+   "begruendung": "M9 5: Potenzfunktionen mit natürlichen Exponenten. Karten 'negativ' und 'wurzelfunktion' erst nach zahlen.rationale_exponenten (siehe themen)."
+  },
+  {
+   "thema_schluessel": "gleichungen.potenz",
+   "position": 13,
+   "braucht_vorher": [
+    "funktionen.potenz (Lösungsanzahl am Graphen)",
+    "zahlen.wurzeln_basis"
+   ],
+   "begruendung": "M9 5: xⁿ = c; die n-te Wurzel wird hier erstmals gebraucht."
+  },
+  {
+   "thema_schluessel": "zahlen.rationale_exponenten",
+   "position": 14,
+   "braucht_vorher": [
+    "gleichungen.potenz (n-te Wurzel)",
+    "terme.potenzgesetze / terme.umformen (Potenzgesetze)"
+   ],
+   "begruendung": "M9 5 „Erweiterung des Potenzbegriffs“ als Abschluss des Potenz-Blocks."
+  }
+ ],
+ "luecken": [
+  {
+   "was_fehlt": "Schnittpunkte von Parabel und Gerade (auch Gerade und Hyperbel) berechnen; Bruchgleichungen, die auf quadratische Gleichungen führen.",
+   "lehrplan_bezug": "M9 2.2 („Bruchgleichungen …, die auf quadratische Gleichungen führen; Schnittpunkte von Geraden und Hyperbeln“; nur Auszug des Lehrplantexts eingesehen (ISB-Schwerpunktsetzungen Jgst. 9, distanzunterricht.bayern.de))",
+   "wohin": "funktionen.quadratisch, neue Lernkarte 'schnittpunkte' nach 'bestimmen' (Gleichsetzen → quadratische Gleichung → Diskriminante: Sekante/Tangente/Passante); gleichungen.quadratisch, neue Lernkarte 'bruchgleichung' nach 'loesungsformel'.",
+   "dringlichkeit": "hoch"
+  },
+  {
+   "was_fehlt": "Heron-Verfahren (iterative Näherung für Quadratwurzeln).",
+   "lehrplan_bezug": "M9 1 („erläutern das Heron-Verfahren und bestimmen … Näherungswerte“; nur Auszug des Lehrplantexts eingesehen (ISB-Schwerpunktsetzungen Jgst. 9, distanzunterricht.bayern.de))",
+   "wohin": "zahlen.reell, neue Lernkarte 'heron' nach 'eingrenzen' (Tabelle mit 2–3 Schritten, Bild 'tabelle').",
+   "dringlichkeit": "mittel"
+  },
+  {
+   "was_fehlt": "Binomische Formeln und Ausklammern werden in gleichungen.quadratisch ('faktorisieren', 'ergaenzung'), funktionen.quadratisch ('umformen') und zahlen.reell ('nenner_rational') benutzt, aber nirgends erklärt (Kl.-7-Stoff, Thema fehlt).",
+   "lehrplan_bezug": "M7 1.2 (geprüft)",
+   "wohin": "terme.umformen in Kl. 7 (siehe klasse7.json); bis dahin in gleichungen.quadratisch eine Wiederholungskarte 'binomisch' vor 'faktorisieren'.",
+   "dringlichkeit": "hoch"
+  },
+  {
+   "was_fehlt": "Anwendungsaufgaben mit Sinus- und Kosinussatz (Vermessung, Navigation); trigo.allgemein endet mit 'satz_waehlen' ohne Sachkarte. Beweis des Sinussatzes nachvollziehen; Pythagoras als Spezialfall des Kosinussatzes ist nur ein Halbsatz.",
+   "lehrplan_bezug": "M9 7.2 (nur Auszug des Lehrplantexts eingesehen (ISB-Schwerpunktsetzungen Jgst. 9, distanzunterricht.bayern.de))",
+   "wohin": "trigo.allgemein, neue Lernkarte 'anwendung' am Ende; 'sinussatz_seite' um einen Schritt „Warum gilt das? Höhe h = b · sin α = a · sin β“ ergänzen.",
+   "dringlichkeit": "mittel"
+  },
+  {
+   "was_fehlt": "Sachkarten fehlen in zahlen.reell, zahlen.rationale_exponenten und funktionen.potenz (z. B. Formeln aus Physik/Biologie mit Wurzeln oder Potenzen, Volumen ↔ Kantenlänge).",
+   "lehrplan_bezug": "Prozessbezogene Kompetenz Modellieren (Fachprofil; Wortlaut nicht geprüft, nach Kenntnisstand)",
+   "wohin": "je eine Stufe-3-Aufgabengruppe oder kurze Lernkarte 'sach' am Ende der drei Themen.",
+   "dringlichkeit": "niedrig"
+  },
+  {
+   "was_fehlt": "Betrag bei Wurzeln: √(a²) = |a|.",
+   "lehrplan_bezug": "Wortlaut nicht geprüft, nach Kenntnisstand M9 1",
+   "wohin": "zahlen.reell, Karte 'wurzel_mal' um einen Fehler-Hinweis ergänzen (√((−3)²) = 3, nicht −3).",
+   "dringlichkeit": "niedrig"
+  }
+ ],
+ "zu_viel": [
+  {
+   "thema_schluessel": "stochastik.verknuepft",
+   "lernziel": "bedingt",
+   "warum": "gehört in Klasse 10 (zusammengesetzte Zufallsexperimente – bedingte Wahrscheinlichkeit; themenliste stochastik.mehrstufig). Bereits als Vertiefung markiert – so lassen oder nach Kl. 10 verschieben."
+  },
+  {
+   "thema_schluessel": "gleichungen.trig",
+   "lernziel": "tangens",
+   "warum": "M9 7.2 erweitert nur Sinus und Kosinus auf 0°–360° am Einheitskreis (Auszug geprüft). tan x = v mit x₂ = x₁ + 180° setzt einen Tangens für stumpfe Winkel voraus, der in Kl. 9 nicht eingeführt wird. Weglassen oder als Vertiefung."
+  },
+  {
+   "thema_schluessel": "funktionen.potenz",
+   "lernziel": "negativ (y = x⁻ⁿ), wurzelfunktion (Umkehrfunktion)",
+   "warum": "Wortlaut nicht geprüft, nach Kenntnisstand M9 5 betrifft Potenzfunktionen mit natürlichen Exponenten; Funktionen mit negativen und rationalen Exponenten sowie der Begriff Umkehrfunktion sind Oberstufen-Stoff. Die Erweiterung des Potenzbegriffs gehört in zahlen.rationale_exponenten (Termebene, nicht Funktionen)."
+  },
+  {
+   "thema_schluessel": "trigo.allgemein",
+   "lernziel": "sinussatz_winkel (zweideutiger Fall SsW mit zwei Dreiecken)",
+   "warum": "Fachlich korrekt, aber anspruchsvoll; Vorschlag: nur Stufe 3."
+  }
+ ],
+ "themen": [
+  {
+   "thema_schluessel": "zahlen.wurzeln_basis",
+   "abdeckung": "vollständig",
+   "hinweise": [
+    "Gute Hinführung, Anwendung am Ende ('wurzel_sache').",
+    "Überschneidung mit zahlen.reell und gleichungen.potenz (Kubikwurzel); vertretbar als Grundstufe.",
+    "'wurzel_deuten' nimmt x² = a (zwei Lösungen) vorweg – passt als Brücke zu gleichungen.quadratisch."
+   ]
+  },
+  {
+   "thema_schluessel": "zahlen.reell",
+   "abdeckung": "teilweise",
+   "hinweise": [
+    "Zahlbereiche, Eingrenzen, Wurzelgesetze, teilweise radizieren, Nenner rational: gut.",
+    "Fehlt: Heron-Verfahren, √(a²) = |a|.",
+    "'nenner_rational' mit (√m − n) braucht die 3. binomische Formel (Kl. 7, fehlt)."
+   ]
+  },
+  {
+   "thema_schluessel": "trigo.pythagoras",
+   "abdeckung": "vollständig",
+   "hinweise": [
+    "Satz, Umkehrung, Koordinaten, Raum, Anwendung: vollständig und gut geordnet.",
+    "Bilder: 'figur' mit rechter_winkel ist jetzt möglich – für alle Karten zuerst bauen; 'raum' braucht ein Schrägbild (geht noch nicht)."
+   ]
+  },
+  {
+   "thema_schluessel": "gleichungen.quadratisch",
+   "abdeckung": "teilweise",
+   "hinweise": [
+    "Sonderfälle → Ergänzung → Formel → Diskriminante → Sach: vorbildlicher roter Faden.",
+    "Fehlt: Bruchgleichungen, die auf quadratische führen.",
+    "Irrationale Lösungen fehlen (offen); Vorschlag: Antwort gerundet als 'zahl' mit Toleranz statt Lücke."
+   ]
+  },
+  {
+   "thema_schluessel": "funktionen.quadratisch",
+   "abdeckung": "teilweise",
+   "hinweise": [
+    "Scheitelform, Parameter, Umformen, Nullstellen, Bestimmen, Extremwert: gut.",
+    "Fehlt: Schnittpunkte Parabel–Gerade.",
+    "Doppelt: quadratische Ergänzung ('umformen' ↔ gleichungen.quadratisch 'ergaenzung'), Parabel durch drei Punkte (↔ gleichungen.lgs3). Hier auf Verweis kürzen.",
+    "Bild 'koordinaten' mit 'poly' für 'scheitel' und 'parameter' zuerst bauen."
+   ]
+  },
+  {
+   "thema_schluessel": "gleichungen.lgs3",
+   "abdeckung": "vollständig",
+   "hinweise": [
+    "Deckt M9 2.2 ab; Stufenform vor Eliminieren ist didaktisch geschickt.",
+    "Mehrzeilige Systeme: Bild 'tabelle' oder Zeilenumbruch prüfen."
+   ]
+  },
+  {
+   "thema_schluessel": "stochastik.verknuepft",
+   "abdeckung": "vollständig",
+   "hinweise": [
+    "Verknüpfen, Vierfeldertafel, Additionssatz: vollständig.",
+    "Reihenfolge: 'additionssatz' steht in 'abschnitte' an Platz 2, in 'etappen' an Platz 4. Nach der Vierfeldertafel ist er anschaulicher (wie 'etappen'); 'abschnitte' angleichen.",
+    "Vierfeldertafel jetzt mit Bild 'tabelle' bauen ('offen' ist überholt). Venn-Diagramm geht noch nicht."
+   ]
+  },
+  {
+   "thema_schluessel": "abbildungen.aehnlichkeit",
+   "abdeckung": "vollständig",
+   "hinweise": [
+    "Streckung, Ähnlichkeit, beide Strahlensätze, Fläche/Volumen, Anwendung: vollständig.",
+    "Strahlensatzfigur ist mit 'figur' jetzt möglich – höchste Bild-Priorität in Kl. 9, weil die Aufgabentexte ohne Bild sehr lang sind.",
+    "X-Figur (Parallelen auf beiden Seiten von S) fehlt; mit Bild ergänzen."
+   ]
+  },
+  {
+   "thema_schluessel": "trigo.rechtwinklig",
+   "abdeckung": "vollständig",
+   "hinweise": [
+    "Gut aufgebaut; Anwendung am Ende.",
+    "Ohne Dreiecksskizze schwer (Ankathete/Gegenkathete hängen an der Lage) – 'figur' mit 'winkel' und 'rechter_winkel' ab sofort."
+   ]
+  },
+  {
+   "thema_schluessel": "trigo.allgemein",
+   "abdeckung": "teilweise",
+   "hinweise": [
+    "Einheitskreis, Flächenformel, Sinus-/Kosinussatz, Satzwahl: gut.",
+    "Fehlt: Anwendungskarte; Begründung des Sinussatzes.",
+    "Additionstheoreme zu Recht weggelassen (themenliste 'umfang' korrigieren)."
+   ]
+  },
+  {
+   "thema_schluessel": "gleichungen.trig",
+   "abdeckung": "teilweise",
+   "hinweise": [
+    "Sinus/Kosinus im Bereich 0°–360° passend zu M9 7.2.",
+    "Tangens-Karte über Lehrplan.",
+    "Eigenes Thema ist für Kl. 9 eher groß; Alternative: Karten 'sinus', 'kosinus', 'anzahl' als Teil von trigo.allgemein nach 'einheitskreis'.",
+    "Bild: Einheitskreis ('figur' mit Kreis) oder 'koordinaten' mit sin/cos und waagrechter Linie."
+   ]
+  },
+  {
+   "thema_schluessel": "funktionen.potenz",
+   "abdeckung": "teilweise",
+   "hinweise": [
+    "Natürliche Exponenten (Werte, Symmetrie, Verlauf, Parameter) vollständig.",
+    "'negativ' und 'wurzelfunktion' vermutlich über Lehrplan und setzen zahlen.rationale_exponenten voraus.",
+    "Graphen jetzt mit 'potenz' baubar – das Thema lebt von Bildern."
+   ]
+  },
+  {
+   "thema_schluessel": "gleichungen.potenz",
+   "abdeckung": "vollständig",
+   "hinweise": [
+    "Deckt „xⁿ = c lösen, Lösungsanzahl begründen“ ab.",
+    "Karte 'anzahl' braucht das Bild (y = xⁿ und y = c) – jetzt mit 'koordinaten' baubar."
+   ]
+  },
+  {
+   "thema_schluessel": "zahlen.rationale_exponenten",
+   "abdeckung": "vollständig",
+   "hinweise": [
+    "n-te Wurzel, Umwandeln, Zusammenfassen: vollständig.",
+    "'nte_wurzel' doppelt mit gleichungen.potenz; Reihenfolge so wählen, dass die n-te Wurzel nur einmal eingeführt wird (hier) und gleichungen.potenz darauf aufbaut – oder umgekehrt, aber nicht beides als Einführung."
+   ]
+  }
+ ]
+}

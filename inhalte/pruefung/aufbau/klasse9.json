@@ -25,7 +25,7 @@
    "position": 3,
    "braucht_vorher": [
     "zahlen.wurzeln_basis",
-    "geometrie.konstruktion (Kl. 7, fehlt: rechtwinklige Dreiecke)"
+    "geometrie.konstruktion (Kl. 7: Winkelsumme, besondere Dreiecke)"
    ],
    "begruendung": "Braucht nur Wurzeln; früh lernen, weil Pythagoras in quadratischen Anwendungen, Trigonometrie und Raumgeometrie gebraucht wird (im Lehrplan M9 6, Vorziehen ist zulässig)."
   },
@@ -71,7 +71,7 @@
    "position": 8,
    "braucht_vorher": [
     "gleichungen.bruch (Kl. 8: Verhältnisgleichungen)",
-    "geometrie.winkel (Kl. 7, fehlt: Stufen-/Wechselwinkel für Ähnlichkeit)",
+    "Winkelsätze Kl. 7 (fehlen weiterhin: Stufen-/Wechselwinkel für Ähnlichkeit)",
     "messen.volumen (Kl. 6, fehlt)"
    ],
    "begruendung": "M9 4. Ähnlichkeit begründet, warum Seitenverhältnisse im rechtwinkligen Dreieck nur vom Winkel abhängen → Voraussetzung für Trigonometrie."
@@ -100,7 +100,7 @@
    "braucht_vorher": [
     "trigo.allgemein (Karte 'einheitskreis')"
    ],
-   "begruendung": "Winkel zu gegebenem Wert im Bereich 0°–360° setzt den Einheitskreis voraus."
+   "begruendung": "Nur falls das Thema in Kl. 9 bleibt (Empfehlung: nach Kl. 10 verschieben, siehe zu_viel). Setzt den Einheitskreis voraus."
   },
   {
    "thema_schluessel": "funktionen.potenz",
@@ -172,12 +172,12 @@
   {
    "thema_schluessel": "stochastik.verknuepft",
    "lernziel": "bedingt",
-   "warum": "gehört in Klasse 10 (zusammengesetzte Zufallsexperimente – bedingte Wahrscheinlichkeit; themenliste stochastik.mehrstufig). Bereits als Vertiefung markiert – so lassen oder nach Kl. 10 verschieben."
+   "warum": "KORRIGIERT: nicht Klasse 10 – M10 2 (geprüft) nennt keine bedingte Wahrscheinlichkeit. Nach Kenntnisstand Oberstufe (Jgst. 11; ISB-Unterlagen zur Lernzeitverkürzung behandeln sie als Vorgriff auf 11). Als Vertiefung lassen."
   },
   {
    "thema_schluessel": "gleichungen.trig",
-   "lernziel": "tangens",
-   "warum": "M9 7.2 erweitert nur Sinus und Kosinus auf 0°–360° am Einheitskreis (Auszug geprüft). tan x = v mit x₂ = x₁ + 180° setzt einen Tangens für stumpfe Winkel voraus, der in Kl. 9 nicht eingeführt wird. Weglassen oder als Vertiefung."
+   "lernziel": "ganzes Thema, besonders 'tangens'",
+   "warum": "„Winkel zu gegebenen Sinus- bzw. Kosinuswerten ermitteln“ (0 bis 2π) steht ausdrücklich in M10 3 (Fachlehrplan 10, geprüft); M9 7.2 verlangt nur Werte veranschaulichen und Vorzeichen bestimmen (Auszug). Vorschlag: Thema nach Kl. 10 verschieben und vor funktionen.trig lernen; in Kl. 9 nur sin/cos-Werte 0°–360° in trigo.allgemein. Tangens für stumpfe Winkel steht in keinem der beiden Lehrpläne – weglassen oder Vertiefung."
   },
   {
    "thema_schluessel": "funktionen.potenz",
@@ -283,7 +283,7 @@
    "thema_schluessel": "gleichungen.trig",
    "abdeckung": "teilweise",
    "hinweise": [
-    "Sinus/Kosinus im Bereich 0°–360° passend zu M9 7.2.",
+    "Inhaltlich vor allem M10 3 („Winkel zu gegebenen Sinus- bzw. Kosinuswerten ermitteln“, geprüft); in M9 7.2 nur Werte und Vorzeichen.",
     "Tangens-Karte über Lehrplan.",
     "Eigenes Thema ist für Kl. 9 eher groß; Alternative: Karten 'sinus', 'kosinus', 'anzahl' als Teil von trigo.allgemein nach 'einheitskreis'.",
     "Bild: Einheitskreis ('figur' mit Kreis) oder 'koordinaten' mit sin/cos und waagrechter Linie."

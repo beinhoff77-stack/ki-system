@@ -332,7 +332,7 @@ def g_wurzelfunktion(s):
     u, v = R.randint(2, 9), None
     v = u * u
     return auswahl(f'Der Punkt ({u} | {v}) liegt auf dem Graphen von y = x². Welcher Punkt liegt dann auf dem Graphen von y = √x?',
-                   f'({v} | {u})', [f'({u} | {v})', f'({-u} | {v})', f'({v} | {-u})'],
+                   f'({v} | {u})', [f'({u} | {v})', f'({dz(-u)} | {v})', f'({v} | {dz(-u)})'],
                    f'Bei der Umkehrfunktion werden x und y vertauscht: √{v} = {u}, also ({v} | {u}).',
                    'Was passiert mit x- und y-Koordinate bei der Umkehrung?')
 

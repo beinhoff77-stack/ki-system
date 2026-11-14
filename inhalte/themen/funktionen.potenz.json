@@ -3388,10 +3388,10 @@
     "text": "Der Punkt (9 | 81) liegt auf dem Graphen von y = x². Welcher Punkt liegt dann auf dem Graphen von y = √x?"
    },
    "a": [
-    "(81 | -9)",
+    "(81 | −9)",
     "(81 | 9)",
     "(9 | 81)",
-    "(-9 | 81)"
+    "(−9 | 81)"
    ],
    "o": {
     "index": 1
@@ -3487,10 +3487,10 @@
     "text": "Der Punkt (2 | 4) liegt auf dem Graphen von y = x². Welcher Punkt liegt dann auf dem Graphen von y = √x?"
    },
    "a": [
-    "(4 | -2)",
+    "(4 | −2)",
     "(4 | 2)",
     "(2 | 4)",
-    "(-2 | 4)"
+    "(−2 | 4)"
    ],
    "o": {
     "index": 1

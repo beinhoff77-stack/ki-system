@@ -13,22 +13,27 @@ HB = 'Zähler ins erste Kästchen, Nenner ins zweite.'
 ETAPPEN = [
     {'lernziel': 'bruchteil_von', 'titel': 'Bruchteil einer Größe berechnen',
      'regel': 'Ein Bruch wie 3/4 besteht aus ⟦Zähler⟧ (oben, 3) und ⟦Nenner⟧ (unten, 4). So berechnest du 3/4 von einer Größe: ⟦durch den Nenner teilen⟧, dann ⟦mit dem Zähler malnehmen⟧.',
-     'schritte': ['3/4 von 20 €: Zuerst 20 € : 4 = 5 €. Das ist ein Viertel.', 'Dann 5 € · 3 = ⟦15 €⟧. Das sind drei Viertel.'],
+     'schritte': ['3/4 von 20 €: Teile die 20 € in 4 gleiche Teile. Ein Viertel: 20 € : 4 = 5 €.', 'Du nimmst 3 solche Teile: 5 € · 3 = ⟦15 €⟧. Das sind drei Viertel.'],
+     'bild': streifen(4, 3, '20 €', '3/4 = 15 €'),
      'probe': '15 € ist weniger als 20 € – passt, denn 3/4 ist weniger als ein Ganzes ✓',
      'fehler': '3/4 von 20 € als 20 : 3 · 4 zu rechnen ist falsch: Du teilst durch den ⟦Nenner⟧ (unten) und nimmst mit dem ⟦Zähler⟧ (oben) mal.'},
     {'lernziel': 'anteil_bestimmen', 'titel': 'Welcher Anteil ist das?',
      'regel': 'Der ⟦Anteil⟧ ist ⟦Teil durch Ganzes⟧: Der Teil kommt in den Zähler, das Ganze in den Nenner. Danach ⟦kürzt⟧ man so weit wie möglich.',
-     'schritte': ['Von 30 Kindern spielen 12 ein Instrument. Anteil: 12/30.', 'Zähler und Nenner durch 6 teilen: 12/30 = ⟦2/5⟧.'],
+     'schritte': ['Von 30 Kindern spielen 12 ein Instrument. Anteil = Teil durch Ganzes: 12/30.', 'Ordne die 30 Kinder in 5 Spalten zu je 6. Die 12 Musiker füllen genau 2 Spalten.',
+                  'Zähler und Nenner durch 6 teilen: 12/30 = ⟦2/5⟧.'],
+     'bild': raster(5, 6, 12),
      'probe': '2/5 von 30 = 30 : 5 · 2 = 12 ✓',
      'fehler': 'Den Anteil als 30/12 aufzuschreiben ist falsch: Der Teil steht ⟦oben⟧ im Zähler, das Ganze ⟦unten⟧ im Nenner.'},
     {'lernziel': 'ganzes_bestimmen', 'titel': 'Das Ganze aus einem Teil finden',
      'regel': 'Kennst du einen Bruchteil, findest du das ⟦Ganze⟧ rückwärts: ⟦durch den Zähler teilen⟧ – das ist ein Stück –, dann ⟦mit dem Nenner malnehmen⟧.',
      'schritte': ['2/5 der Klasse sind 12 Kinder. Ein Fünftel: 12 : 2 = 6 Kinder.', 'Das Ganze sind fünf Fünftel: 6 · 5 = ⟦30 Kinder⟧.'],
      'probe': '2/5 von 30 = 30 : 5 · 2 = 12 ✓',
-     'fehler': 'Das Ganze als 2/5 von 12 auszurechnen ist falsch: Dann bekommst du einen ⟦Teil vom Teil⟧. Rückwärts heißt: ⟦durch den Zähler, mal den Nenner⟧.'},
+     'fehler': 'Das Ganze als 2/5 von 12 auszurechnen ist falsch: Dann bekommst du einen ⟦Teil vom Teil⟧. Rückwärts heißt: ⟦durch den Zähler, mal den Nenner⟧.',
+     'bild': streifen(5, 2, '5/5 = ? Kinder', '2/5 = 12 Kinder')},
     {'lernziel': 'erweitern', 'titel': 'Brüche erweitern',
-     'regel': '⟦Erweitern⟧ heißt: Zähler und Nenner mit ⟦derselben Zahl⟧ malnehmen. Der Wert des Bruchs bleibt gleich, nur die Stücke werden kleiner und es werden mehr.',
-     'schritte': ['Erweitere 3/4 auf den Nenner 20. Es gilt 4 · 5 = 20.', 'Also auch den Zähler mal 5: 3 · 5 = 15. Ergebnis: 3/4 = ⟦15/20⟧.'],
+     'regel': '⟦Erweitern⟧ heißt: Zähler und Nenner mit ⟦derselben Zahl⟧ malnehmen. Der Wert bleibt gleich – wie bei einer Schokolade, deren Stücke du noch einmal teilst: Du hast danach mehr, aber kleinere Stücke, und gleich viel Schokolade.',
+     'schritte': ['Erweitere 3/4 auf den Nenner 20. Es gilt 4 · 5 = 20.', 'Jedes Viertel wird in 5 Stücke geteilt. Aus 3 Vierteln werden 3 · 5 = 15 Stücke von 20.', 'Also 3/4 = ⟦15/20⟧.'],
+     'bild': raster(4, 5, 15),
      'probe': '15/20 durch 5 gekürzt ergibt wieder 3/4 ✓',
      'fehler': '3/4 = 3/20 ist falsch: Wer nur den Nenner ändert, verändert den Wert. ⟦Zähler und Nenner⟧ werden mit derselben Zahl malgenommen.'},
     {'lernziel': 'kuerzen', 'titel': 'Brüche vollständig kürzen',
@@ -39,12 +44,13 @@ ETAPPEN = [
     {'lernziel': 'vergleichen', 'titel': 'Brüche vergleichen',
      'regel': 'Gleicher Nenner: Der Bruch mit dem ⟦größeren Zähler⟧ ist größer. Verschiedene Nenner: Erst beide Brüche auf den ⟦Hauptnenner⟧ erweitern (das kleinste gemeinsame Vielfache der Nenner), dann die Zähler vergleichen.',
      'schritte': ['Vergleiche 3/4 und 5/6. Hauptnenner von 4 und 6 ist 12.', '3/4 = 9/12 und 5/6 = 10/12. Weil 10 > 9, ist ⟦5/6 größer⟧.'],
+     'probe': 'Ohne Hauptnenner: 3/4 fehlt 1/4 bis zum Ganzen, 5/6 fehlt nur 1/6. Ein Sechstel ist kleiner als ein Viertel, also ist 5/6 näher an 1 und damit größer ✓',
      'fehler': '„3/8 ist größer als 3/5, weil 8 > 5“ ist falsch: Ein größerer Nenner heißt ⟦kleinere Stücke⟧. Bei gleichem Zähler ist der Bruch mit dem ⟦kleineren Nenner⟧ größer.'},
     {'lernziel': 'zahlenstrahl', 'titel': 'Brüche am Zahlenstrahl',
      'regel': 'Am ⟦Zahlenstrahl⟧ teilst du die Strecke von 0 bis 1 in so viele gleiche Teile, wie der ⟦Nenner⟧ angibt. Der ⟦Zähler⟧ sagt, wie viele Teile du von 0 aus nach rechts gehst.',
      'schritte': ['3/5: Teile die Strecke von 0 bis 1 in 5 gleiche Teile.', 'Gehe von 0 aus 3 Teile nach rechts: Dort liegt ⟦3/5⟧.'],
      'fehler': '3/5 beim 5. Strich einzutragen ist falsch: Der 5. Strich nach der 0 ist schon die ⟦1⟧ (5/5). 3/5 liegt beim ⟦3. Strich⟧.',
-     'bild': {'typ': 'zahlenstrahl', 'start': 0, 'ende': 1, 'abschnitte': 5, 'beschriftet': 'anfang_ende'}},
+     'bild': {'typ': 'zahlenstrahl', 'start': 0, 'ende': 1, 'abschnitte': 5, 'beschriftet': 'anfang_ende', 'pfeil': 3}},
     {'lernziel': 'verstehen', 'titel': 'Aussagen prüfen, Fehler finden',
      'regel': 'Bevor du eine Aussage über Brüche glaubst, ⟦prüfe sie mit einem Beispiel⟧: Erweitere, kürze oder rechne den Anteil aus. Ein einziges Gegenbeispiel zeigt, dass eine allgemeine Aussage ⟦falsch⟧ ist.',
      'schritte': ['Aussage: „Ein Bruch mit größerem Nenner ist immer größer.“ Teste 1/2 und 1/4.', '1/2 = 2/4 ist größer als 1/4. Das ist ein Gegenbeispiel, die Aussage ist also ⟦falsch⟧.'],
@@ -56,8 +62,16 @@ MERKE = ['Bruchteil von: durch den Nenner, mal den Zähler.', 'Anteil = Teil : G
          'Vergleichen: auf den Hauptnenner bringen, dann Zähler vergleichen.']
 
 GROESSEN = [('€', 'Euro'), ('kg', 'Kilogramm'), ('m', 'Meter'), ('l', 'Liter'), ('min', 'Minuten')]
-SACHEN = [('Kinder', 'einer Klasse mit', 'Kinder'), ('Seiten', 'eines Buches mit', 'Seiten'), ('Plätze', 'eines Busses mit', 'Plätzen'),
-          ('Äpfel', 'einer Kiste mit', 'Äpfeln'), ('Tickets', 'eines Kontingents von', 'Tickets')]
+# (Satz mit dem Ganzen, Satz mit dem Bruchteil, Nomen, kleinstes und größtes realistisches Ganzes)
+SACHEN = [('Eine Klasse hat {g} Kinder.', '{b} der Kinder fahren mit dem Bus.', 'Kinder', 20, 32),
+          ('Ein Buch hat {g} Seiten.', 'Du hast schon {b} der Seiten gelesen.', 'Seiten', 60, 400),
+          ('Ein Reisebus hat {g} Plätze.', '{b} der Plätze sind besetzt.', 'Plätze', 30, 60),
+          ('In einer Kiste liegen {g} Äpfel.', '{b} der Äpfel sind rot.', 'Äpfel', 24, 120),
+          ('Für ein Konzert gibt es {g} Eintrittskarten.', '{b} der Eintrittskarten sind schon verkauft.', 'Eintrittskarten', 100, 900)]
+# Einheit -> (Genitiv des Ganzen, Frage nach dem Ganzen)
+GANZES = {'€': ('eines Geldbetrags', 'Wie groß ist der ganze Betrag?'), 'kg': ('eines Mehlvorrats', 'Wie viel wiegt der ganze Vorrat?'),
+          'm': ('einer Strecke', 'Wie lang ist die ganze Strecke?'), 'l': ('eines Wasservorrats', 'Wie viele Liter sind es insgesamt?'),
+          'min': ('einer Zeitspanne', 'Wie lang ist die ganze Zeitspanne?')}
 
 
 def bruchtext(z, n): return f'{z}/{n}'
@@ -83,39 +97,44 @@ def g_von(st):
     if st == 1:
         n = R.randint(2, 10)
         z = 1 if R.random() < .4 else R.randint(1, n - 1)
+        z, n = fl(Fr(z, n))
+        if n == 1: return g_von(1)
         g = n * R.randint(2, 12)
         e, _ = R.choice(GROESSEN)
         r = Fr(g, n) * z
         return {'y': 'zahl', 'f': {'text': f'Berechne {bruchtext(z, n)} von {g} {e}.'}, 'o': {'wert': wert(r), 'einheit': e}, 'c': f'{g} / {n} * {z}',
                 'w': f'{g} {e} : {n} = {zt(Fr(g, n))} {e}' + (f', dann · {z} = {zt(r)} {e}.' if z > 1 else f'. Das ist 1/{n} von {g} {e}.'), 'h': 'Teile zuerst durch den Nenner.'}
     if st == 2:
-        z, n = echt(R, 12)
-        if gcd(z, n) > 1: z, n = fl(Fr(z, n))
-        if n < 2: return g_von(2)
-        g = n * R.randint(5, 40)
-        art = R.choice(SACHEN)
+        z, n = fl(Fr(*echt(R, 12)))
+        ganz, teil, nomen, lo, hi = R.choice(SACHEN)
+        moegl = [g for g in range(lo, hi + 1) if g % n == 0]
+        if n < 2 or not moegl: return g_von(2)
+        g = R.choice(moegl)
         r = Fr(g, n) * z
-        return {'y': 'zahl', 'f': {'text': f'{bruchtext(z, n)} der {art[0]} {art[1]} {g} {art[2]} – wie viele {art[0]} sind das?'}, 'o': {'wert': wert(r)}, 'c': f'{g} / {n} * {z}',
-                'w': f'{g} : {n} = {zt(Fr(g, n))}, dann · {z} = {zt(r)} {art[0]}.', 'h': 'Erst ein Stück ausrechnen (durch den Nenner), dann mit dem Zähler malnehmen.'}
+        w = f'{zt(g)} : {n} = {zt(Fr(g, n))} {nomen}' + (f', dann · {z} = {zt(r)} {nomen}.' if z > 1 else '.')
+        return {'y': 'zahl', 'f': {'text': ganz.format(g=zt(g)) + ' ' + teil.format(b=bruchtext(z, n)) + f' Wie viele {nomen} sind das?'}, 'o': {'wert': wert(r)},
+                'c': f'{g} / {n} * {z}', 'w': w, 'h': 'Erst ein Stück ausrechnen (durch den Nenner), dann mit dem Zähler malnehmen.'}
     art = R.randrange(3)
     if art == 0:
         n = R.choice([2, 3, 4, 5, 6, 10, 12, 15, 20])
         z = R.randint(1, n - 1)
         while gcd(z, n) > 1: z = R.randint(1, n - 1)
-        return {'y': 'zahl', 'f': {'text': f'Wie viele Minuten sind {bruchtext(z, n)} Stunde?'}, 'o': {'wert': wert(Fr(60, n) * z), 'einheit': 'min'}, 'c': f'60 / {n} * {z}',
-                'w': f'1 h = 60 min. 60 : {n} = {zt(Fr(60, n))}, · {z} = {zt(Fr(60, n) * z)} min.', 'h': 'Rechne mit 60 Minuten als Ganzem.'}
+        r = Fr(60, n) * z
+        return {'y': 'zahl', 'f': {'text': f'Wie viele Minuten sind {bruchtext(z, n)} Stunde?'}, 'o': {'wert': wert(r), 'einheit': 'min'}, 'c': f'60 / {n} * {z}',
+                'w': f'1 h = 60 min. 60 : {n} = {zt(Fr(60, n))}' + (f', · {z} = {zt(r)} min.' if z > 1 else ' min.'), 'h': 'Rechne mit 60 Minuten als Ganzem.'}
     if art == 1:
         n = R.choice([2, 4, 5, 8, 10, 20, 25])
         z = R.randint(1, n - 1)
         while gcd(z, n) > 1: z = R.randint(1, n - 1)
         e, k, kl_e = R.choice([('kg', 1000, 'g'), ('km', 1000, 'm'), ('m', 100, 'cm'), ('l', 1000, 'ml')])
-        return {'y': 'zahl', 'f': {'text': f'Wie viele {kl_e} sind {bruchtext(z, n)} {e}?'}, 'o': {'wert': wert(Fr(k, n) * z), 'einheit': kl_e}, 'c': f'{k} / {n} * {z}',
-                'w': f'1 {e} = {zt(k)} {kl_e}. {zt(k)} : {n} = {zt(Fr(k, n))}, · {z} = {zt(Fr(k, n) * z)} {kl_e}.', 'h': f'Rechne zuerst 1 {e} in {kl_e} um.'}
+        r = Fr(k, n) * z
+        return {'y': 'zahl', 'f': {'text': f'Wie viele {kl_e} sind {bruchtext(z, n)} {e}?'}, 'o': {'wert': wert(r), 'einheit': kl_e}, 'c': f'{k} / {n} * {z}',
+                'w': f'1 {e} = {zt(k)} {kl_e}. {zt(k)} : {n} = {zt(Fr(k, n))}' + (f', · {z} = {zt(r)} {kl_e}.' if z > 1 else f' {kl_e}.'), 'h': f'Rechne zuerst 1 {e} in {kl_e} um.'}
     n1, n2 = R.choice([(2, 4), (3, 6), (4, 8), (2, 5), (3, 4), (4, 5), (2, 3)])
-    g = n1 * n2 * R.randint(2, 10)
+    g = n1 * n2 * R.randint(2, 5)
     a, b = Fr(1, n1), Fr(1, n2)
     rest = g - g * a - g * b
-    return {'y': 'zahl', 'f': {'text': f'Von {g} € Taschengeld gibt ein Kind 1/{n1} für Bücher und 1/{n2} für Kino aus. Wie viel Euro bleiben übrig?'}, 'o': {'wert': wert(rest), 'einheit': '€'},
+    return {'y': 'zahl', 'f': {'text': f'Von {g} € Erspartem gibt ein Kind 1/{n1} für Bücher und 1/{n2} für Kino aus. Wie viel Euro bleiben übrig?'}, 'o': {'wert': wert(rest), 'einheit': '€'},
             'c': f'{g} - {g} / {n1} - {g} / {n2}',
             'w': f'1/{n1} von {g} € = {zt(g * a)} €, 1/{n2} von {g} € = {zt(g * b)} €. Übrig: {g} − {zt(g * a)} − {zt(g * b)} = {zt(rest)} €.',
             'h': 'Berechne beide Bruchteile einzeln und ziehe sie vom Ganzen ab.'}
@@ -132,17 +151,37 @@ def luecke_bruch(x, text, w, h, c_ausdruck):
             'c': [f'({c_ausdruck}) * {n}', f'{n}'], 'w': w, 'h': h}
 
 
+def bild_anteil(n, k):
+    """Flächendiagramm mit n gleichen Teilen, k gefärbt: (Bild, Name der Form im Genitiv)."""
+    formen = (['streifen', 'kreis'] if n <= 12 else []) + [(sp, n // sp) for sp in range(2, n) if n % sp == 0 and 2 <= n // sp <= 6 and sp <= 8]
+    f = R.choice(formen)
+    lab = f'{n} gleich große Teile, {k} davon gefärbt'
+    if f == 'streifen': return streifen(n, k, dx=1.0 if n > 8 else 1.5, label='Streifen: ' + lab), 'des Streifens'
+    if f == 'kreis': return kreisteile(n, k, label='Kreis: ' + lab), 'des Kreises'
+    sp, ze = f
+    return raster(sp, ze, k, label='Rechteck: ' + lab), ('des Quadrats' if sp == ze else 'des Rechtecks')
+
+
 def g_anteil(st):
-    if st == 1:
-        n = R.randint(3, 12)
-        z = R.randint(1, n - 1)
-        while gcd(z, n) > 1: z = R.randint(1, n - 1)
-        form, farbe = R.choice(FORMEN), R.choice(FARBEN)
-        if R.random() < .5:
-            return luecke_bruch(Fr(z, n), f'Ein {form} ist in {n} gleich große Teile geteilt. {teile(z)} {'ist' if z == 1 else 'sind'} {farbe}. Welcher Anteil ist {farbe}?',
-                                f'{z} von {n} gleich großen Teilen: Anteil {z}/{n}.', 'Teil durch Ganzes: gefärbte Teile durch alle Teile.', f'{z} / {n}')
-        return luecke_bruch(Fr(n - z, n), f'Ein {form} ist in {n} gleich große Teile geteilt. {teile(z)} {'ist' if z == 1 else 'sind'} {farbe}, der Rest ist weiß. Welcher Anteil ist weiß?',
-                            f'Weiß: {n} − {z} = {teile(n - z)}, Anteil {bruch(Fr(n - z, n))}.', 'Zähle zuerst, wie viele Teile weiß sind.', f'({n} - {z}) / {n}')
+    if st == 1 or (st == 2 and R.random() < .5) or (st == 3 and R.random() < .25):
+        if st == 1:
+            n = R.randint(3, 12)
+            k = R.randint(1, n - 1)
+            while gcd(k, n) > 1: k = R.randint(1, n - 1)
+        else:
+            n = R.choice([6, 8, 9, 10, 12, 15, 16, 18, 20, 24])
+            k = R.randint(2, n - 2)
+            while gcd(k, n) == 1: k = R.randint(2, n - 2)
+        bild, wovon = bild_anteil(n, k)
+        weiss = st == 3 or (st == 1 and R.random() < .35)
+        t = n - k if weiss else k
+        x = Fr(t, n)
+        a = luecke_bruch(x, f'Welcher Anteil {wovon} ist {"weiß (nicht gefärbt)" if weiss else "gefärbt"}?',
+                         (f'Weiß sind {n} − {k} = {t} von {n} gleich großen Teilen: {t}/{n}' if weiss else f'Gefärbt sind {k} von {n} gleich großen Teilen: {k}/{n}')
+                         + (f' = {bruch(x)} (gekürzt mit {gcd(t, n)}).' if gcd(t, n) > 1 else '.'),
+                         'Zähle alle Teile (Nenner) und die gesuchten Teile (Zähler).' + (' Kürze danach.' if st > 1 else ''), f'{t} / {n}')
+        a['f']['grafik'] = bild
+        return a
     if st == 2:
         n = R.choice([12, 15, 16, 18, 20, 24, 25, 27, 28, 30, 32])
         t = R.randint(2, n - 2)
@@ -151,7 +190,8 @@ def g_anteil(st):
         dinge = R.choice([('Kindern', 'fahren', 'mit dem Rad zur Schule'), ('Losen', 'sind', 'Gewinne'), ('Tagen im Monat', 'regnet es an', ''),
                           ('Fragen', 'beantwortet ein Kind', 'richtig'), ('Plätzen', 'sind', 'besetzt')])
         if dinge[0] == 'Tagen im Monat':
-            txt = f'Von {n} Tagen regnet es an {t} Tagen. Welcher Anteil der Tage ist das?'
+            if n < 28: return g_anteil(2)
+            txt = f'Ein Monat hat {n} Tage. An {t} Tagen regnet es. Welcher Anteil der Tage ist das?'
         elif dinge[0] == 'Fragen':
             txt = f'Von {n} Fragen beantwortet ein Kind {t} richtig. Welcher Anteil ist richtig?'
         else:
@@ -181,10 +221,12 @@ def g_ganzes(st):
         n = R.randint(2, 10)
         t = R.randint(2, 15)
         e, _ = R.choice(GROESSEN)
+        gen, frage = GANZES[e]
         if R.random() < .5:
-            return {'y': 'zahl', 'f': {'text': f'1/{n} eines Betrags sind {t} {e}. Wie groß ist das Ganze?'},
+            return {'y': 'zahl', 'f': {'text': f'1/{n} {gen} sind {t} {e}. {frage}'},
                     'o': {'wert': t * n, 'einheit': e}, 'c': f'{t} * {n}',
                     'w': f'Ein Teil (1/{n}) sind {t} {e}, das Ganze sind {n} solche Stücke: {t} · {n} = {t * n} {e}.', 'h': 'Das Ganze besteht aus so vielen Stücken, wie der Nenner sagt.'}
+        if t * n > 300: return g_ganzes(1)
         return {'y': 'zahl', 'f': {'text': f'{t} Kinder sind 1/{n} aller Kinder auf dem Schulhof. Wie viele Kinder sind auf dem Schulhof?'},
                 'o': {'wert': t * n}, 'c': f'{t} * {n}', 'w': f'{t} Kinder sind 1/{n}, also alle: {t} · {n} = {t * n} Kinder.', 'h': 'Ein Stück mal Nenner ergibt das Ganze.'}
     if st == 2:
@@ -194,21 +236,28 @@ def g_ganzes(st):
         k = R.randint(2, 15)
         t = z * k
         e, _ = R.choice(GROESSEN)
-        return {'y': 'zahl', 'f': {'text': f'{z}/{n} eines Ganzen sind {t} {e}. Wie groß ist das Ganze?'}, 'o': {'wert': k * n, 'einheit': e}, 'c': f'{t} / {z} * {n}',
+        gen, frage = GANZES[e]
+        return {'y': 'zahl', 'f': {'text': f'{z}/{n} {gen} sind {t} {e}. {frage}'}, 'o': {'wert': k * n, 'einheit': e}, 'c': f'{t} / {z} * {n}',
                 'w': f'Ein Teil (1/{n}): {t} : {z} = {k} {e}. Das Ganze: {k} · {n} = {k * n} {e}.', 'h': 'Teile durch den Zähler, dann nimm mit dem Nenner mal.'}
     art = R.randrange(3)
     n = R.choice([4, 5, 6, 8, 10])
     z = R.randint(2, n - 1)
     while gcd(z, n) > 1: z = R.randint(2, n - 1)
-    k = R.randint(3, 30) * (10 if art != 1 else 1)
-    t = z * k
     if art == 0:
-        return {'y': 'zahl', 'f': {'text': f'Ein Wanderer hat {z}/{n} seines Weges geschafft. Das sind {zt(t)} m. Wie lang ist der ganze Weg?'}, 'o': {'wert': k * n, 'einheit': 'm'},
-                'c': f'{t} / {z} * {n}', 'w': f'{zt(t)} : {z} = {zt(k)} m (das ist 1/{n}). · {n} = {zt(k * n)} m.', 'h': 'Rückwärts rechnen: durch den Zähler, mal den Nenner.'}
+        k = R.randint(1, 24 // n) if n <= 12 else 1
+        if k * n < 6: return g_ganzes(3)
+        t = z * k
+        return {'y': 'zahl', 'f': {'text': f'Ein Wanderer hat {z}/{n} seines Weges geschafft. Das sind {t} km. Wie lang ist der ganze Weg?'}, 'o': {'wert': k * n, 'einheit': 'km'},
+                'c': f'{t} / {z} * {n}', 'w': f'{t} km : {z} = {k} km (das ist 1/{n}). · {n} = {k * n} km.', 'h': 'Rückwärts rechnen: durch den Zähler, mal den Nenner.'}
     if art == 1:
+        k = R.randint(3, 30)
+        t = z * k
         return {'y': 'zahl', 'f': {'text': f'{z}/{n} der Plätze eines Kinos sind besetzt, das sind {t} Plätze. Wie viele Plätze sind noch frei?'}, 'o': {'wert': k * n - t},
                 'c': f'{t} / {z} * {n} - {t}', 'w': f'Alle Plätze: {t} : {z} · {n} = {k * n}. Frei: {k * n} − {t} = {k * n - t}.', 'h': 'Berechne zuerst alle Plätze, dann ziehe die besetzten ab.'}
-    return {'y': 'zahl', 'f': {'text': f'Ein Tank ist zu {z}/{n} gefüllt und enthält {zt(t)} l. Wie viele Liter passen in den vollen Tank?'}, 'o': {'wert': k * n, 'einheit': 'l'},
+    k = R.randint(1, 100 // n) * 10
+    if k * n < 100: return g_ganzes(3)
+    t = z * k
+    return {'y': 'zahl', 'f': {'text': f'Ein Wassertank ist zu {z}/{n} gefüllt und enthält {zt(t)} l. Wie viele Liter passen in den vollen Tank?'}, 'o': {'wert': k * n, 'einheit': 'l'},
             'c': f'{t} / {z} * {n}', 'w': f'{zt(t)} : {z} = {zt(k)} l, · {n} = {zt(k * n)} l.', 'h': 'Rechne erst aus, wie viel ein Teil (1/Nenner) ist.'}
 
 
@@ -257,7 +306,9 @@ def g_kuerzen(st):
     if st == 2:
         return {'y': 'luecken', 'f': {'text': f'Kürze {Z}/{N} vollständig.', 'schablone': '□/□', 'hinweis': HB}, 'o': {'werte': [z, n]}, 'c': [f'{Z} / {k}', f'{N} / {k}'],
                 'w': f'Größter gemeinsamer Teiler von {Z} und {N} ist {k}. {Z}/{N} = {z}/{n}.', 'h': 'Suche den größten gemeinsamen Teiler. Du kannst auch in mehreren Schritten kürzen.'}
-    art = R.randrange(3)
+    art = R.randrange(4)
+    if art == 3:
+        return kuerzbar_frage()
     if art == 0:
         return {'y': 'luecken', 'f': {'text': f'Kürze {Z}/{N} vollständig.', 'schablone': '□/□', 'hinweis': HB}, 'o': {'werte': [z, n]}, 'c': [f'{Z} / {k}', f'{N} / {k}'],
                 'w': f'Größter gemeinsamer Teiler: {k}. {Z} : {k} = {z}, {N} : {k} = {n}.', 'h': 'Kürze schrittweise, z. B. erst durch 2, 3 oder 5, bis es nicht mehr geht.'}
@@ -272,6 +323,33 @@ def g_kuerzen(st):
     return {**wahl(R, r, [f'{Z - k}/{N - k}' if Z > k else f'{z + 1}/{n + 1}', f'{z}/{N}', f'{Z // 2}/{N}' if Z % 2 == 0 else f'{z + 1}/{n}', f'{n}/{z}']),
             'f': {'text': f'Welcher Bruch entsteht, wenn man {Z}/{N} vollständig kürzt?'}, 'w': f'{Z} : {k} = {z}, {N} : {k} = {n}: {r}.',
             'h': 'Teile Zähler und Nenner durch ihren größten gemeinsamen Teiler.'}
+
+
+def primteiler(x): return [p for p in range(2, x + 1) if x % p == 0 and all(p % q for q in range(2, p))]
+
+
+def kuerzbar_frage():
+    """Kann man a/b kürzen? Etwa die Hälfte nicht kürzbar (teilerfremd, aber beide keine Primzahlen)."""
+    while True:
+        a, b = sorted(R.sample(range(8, 50), 2))
+        if a in primteiler(a) or b in primteiler(b): continue
+        g = gcd(a, b)
+        if (R.random() < .5) != (g == 1): continue
+        pa = [p for p in primteiler(a) if b % p]
+        pb = [p for p in primteiler(b) if a % p]
+        if g == 1:
+            if not pa or not pb: continue
+            r = f'Nein, {a} und {b} haben keinen gemeinsamen Teiler außer 1.'
+            falsch = [f'Ja, durch {R.choice(pa)}.', f'Ja, durch {R.choice(pb)}.']
+            w = f'Teiler von {a} (außer 1): ' + ', '.join(str(d) for d in range(2, a + 1) if a % d == 0) + f'. Keiner davon teilt {b}. Also kann man {a}/{b} nicht kürzen.'
+        else:
+            p = max(primteiler(g))
+            if not pa: continue
+            r = f'Ja, durch {p}.'
+            falsch = ['Nein, sie haben keinen gemeinsamen Teiler außer 1.', f'Ja, durch {R.choice(pa)}.']
+            w = f'{a} = {p} · {a // p} und {b} = {p} · {b // p}. Beide sind durch {p} teilbar: {a}/{b} = {a // p}/{b // p}.'
+        return {**wahl(R, r, falsch, 3), 'f': {'text': f'Kann man {a}/{b} kürzen?'}, 'w': w,
+                'h': 'Zerlege Zähler und Nenner in Faktoren. Gibt es einen Teiler, der in beiden steckt?'}
 
 
 # ---------- 6 Vergleichen ----------
@@ -371,10 +449,12 @@ def g_strahl(st):
             n = R.randint(2, 6)
             k = R.randint(2, 4)
             z = R.randint(1, n - 1)
+            while gcd(z, n) > 1: z = R.randint(1, n - 1)
             return mark(Fr(z, n), 0, 1, n * k, f'Markiere {z}/{n} am Zahlenstrahl (von 0 bis 1, {n * k} gleiche Teile).',
                         f'{z}/{n} = {z * k}/{n * k}. Also beim {z * k}. Strich nach der 0.', f'Erweitere {z}/{n} so, dass der Nenner {n * k} ist.')
         n = R.randint(2, 6)
         z = R.randint(n + 1, 2 * n - 1)
+        if gcd(z, n) > 1: return g_strahl(2)
         return mark(Fr(z, n), 0, 2, 2 * n, f'Markiere {z}/{n} am Zahlenstrahl (von 0 bis 2, {2 * n} gleiche Teile).',
                     f'Jeder Teil ist 1/{n}. {z}/{n} liegt beim {z}. Strich nach der 0, also hinter der 1.', f'Von 0 bis 1 sind es {n} Teile. {z}/{n} ist größer als 1.')
     art = R.randrange(3)
@@ -386,24 +466,38 @@ def g_strahl(st):
         while gcd(z, n) > 1: z = R.randint(1, n - 1)
         x = Fr(z, n)
         idx = x * N
-        return {'y': 'luecken', 'f': {'text': f'Ein Zahlenstrahl von 0 bis 1 ist in {N} gleiche Teile geteilt. Ein Pfeil zeigt auf den {idx}. Strich nach der 0. Welcher Bruch ist das?',
-                                      'schablone': '□/□', 'hinweis': HB + ' Vollständig gekürzt.'}, 'o': {'werte': [z, n]}, 'c': [f'{idx} / {N} * {n}', f'{n}'],
-                'w': f'Der Pfeil zeigt auf {idx}/{N}. Gekürzt: {z}/{n}.', 'h': 'Schreibe zuerst Strich-Nummer / Anzahl der Teile und kürze dann.'}
+        return {'y': 'luecken', 'f': {'text': f'Der Zahlenstrahl von 0 bis 1 ist in {N} gleiche Teile geteilt. Auf welchen Bruch zeigt der Pfeil?',
+                                      'schablone': '□/□', 'hinweis': HB + ' Vollständig gekürzt.',
+                                      'grafik': {'typ': 'zahlenstrahl', 'start': 0, 'ende': 1, 'abschnitte': N, 'beschriftet': 'anfang_ende', 'pfeil': int(idx)}}, 'o': {'werte': [z, n]}, 'c': [f'{idx} / {N} * {n}', f'{n}'],
+                'w': f'Der Pfeil zeigt auf den {idx}. Strich nach der 0, also auf {idx}/{N}. Gekürzt: {z}/{n}.', 'h': 'Zähle die Striche bis zum Pfeil, schreibe Strich-Nummer / Anzahl der Teile und kürze dann.'}
     if art == 1:
         n = R.randint(2, 5)
         z = R.randint(1, n - 1)
+        while gcd(z, n) > 1: z = R.randint(1, n - 1)
         x = 1 + Fr(z, n)
         return mark(x, 1, 2, n, f'Markiere {bruch(x)} am Zahlenstrahl (von 1 bis 2, {n} gleiche Teile).',
                     f'{bruch(x)} = 1 + {z}/{n}. Von der 1 aus {teile(z)} nach rechts.', 'Wie viele Ganze stecken in dem Bruch? Starte bei der 1.')
     n = R.choice([3, 4, 5, 6])
     z = R.randint(1, n - 1)
-    k = 2
+    while gcd(z, n) > 1: z = R.randint(1, n - 1)
     return mark(Fr(z, n), 0, 2, 4 * n, f'Markiere {z}/{n} am Zahlenstrahl (von 0 bis 2, {2 * n * 2} gleiche Teile).',
                 f'Von 0 bis 1 sind es {2 * n} Teile, jeder ist 1/{2 * n}. {z}/{n} = {2 * z}/{2 * n}: beim {2 * z}. Strich.',
                 'Wie viele Teile liegen zwischen 0 und 1? Damit erweiterst du den Bruch.')
 
 
 # ---------- 8 Verstehen ----------
+def brillen_aussage():
+    """Realistisch: 1/4 bis 1/2 einer Klasse mit 20 bis 32 Kindern trägt eine Brille."""
+    zb, nb = R.choice([(1, 4), (1, 3), (2, 5), (1, 2), (3, 8), (2, 7), (3, 10), (5, 12), (4, 9)])
+    N = R.choice([x for x in range(20, 33) if x % nb == 0])
+    t = N * zb // nb
+    if R.random() < .5:
+        return (f'In einer Klasse mit {N} Kindern tragen {t} eine Brille. Der Anteil ist {N}/{t}.', False,
+                f'Nein, der Teil kommt in den Zähler, das Ganze in den Nenner: {t}/{N} = {zb}/{nb}.')
+    return (f'In einer Klasse mit {N} Kindern tragen {t} eine Brille. Der Anteil ist {zb}/{nb}.', True,
+            f'Ja: Anteil {t}/{N}, gekürzt mit {N // nb}: {zb}/{nb}.')
+
+
 def g_verstehen(st):
     z, n = echt(R, 9)
     z, n = fl(Fr(z, n))
@@ -412,16 +506,19 @@ def g_verstehen(st):
     if st == 1:
         aussagen = [
             (f'{z}/{n} und {z * k}/{n * k} sind gleich groß.', True, f'Ja, {z * k}/{n * k} ist {z}/{n} mit {k} erweitert.'),
-            (f'{z}/{n} und {z + k}/{n + k} sind gleich groß.', False, f'Nein, man darf nicht addieren. Mit Hauptnenner sieht man: {bruch(Fr(z, n))} ≠ {bruch(Fr(z + k, n + k))}.'),
+            (f'{z}/{n} und {z + k}/{n + k} sind gleich groß.', False,
+             f'Nein. {z + k}/{n + k} entsteht aus {z}/{n}, wenn man zu Zähler und Nenner {k} addiert – das ist kein Erweitern. '
+             f'{z}/{n} = {z * kgv(n, n + k) // n}/{kgv(n, n + k)}, {z + k}/{n + k} = {(z + k) * kgv(n, n + k) // (n + k)}/{kgv(n, n + k)}.'),
             (f'1/{n} ist größer als 1/{n + k}.', True, f'Ja, bei 1/{n} ist das Ganze in weniger, also größere Stücke geteilt.'),
             (f'1/{n + k} ist größer als 1/{n}, weil {n + k} > {n}.', False, f'Nein, mehr Teile bedeuten kleinere Stücke: 1/{n + k} < 1/{n}.'),
         ]
     elif st == 2:
         g = n * R.randint(3, 12)
         aussagen = [
-            (f'{z}/{n} von {g} sind {g // n * z}.', True, f'Ja: {g} : {n} = {g // n}, · {z} = {g // n * z}.'),
-            (f'{z}/{n} von {g} sind {g * z + n if z > 1 else g // n + z}.', False, f'Nein: {g} : {n} · {z} = {g // n * z}.'),
-            (f'Wenn {z * k} von {n * k} Kindern Brille tragen, ist der Anteil {n * k}/{z * k}.', False, f'Nein, der Teil kommt in den Zähler: {z * k}/{n * k} = {z}/{n}.'),
+            (f'{z}/{n} von {g} sind {g // n * z}.', True, f'Ja: {g} : {n} = {g // n}' + (f', · {z} = {g // n * z}.' if z > 1 else '.')),
+            (f'{z}/{n} von {g} sind {g // n * (z + 1) if z + 1 < n else g // n * z + 1}.', False, f'Nein: {g} : {n} = {g // n}' + (f', · {z} = {g // n * z}.' if z > 1 else '.')
+             + (f' {g // n * (z + 1)} wären {z + 1}/{n}.' if z + 1 < n else '')),
+            brillen_aussage(),
             (f'{z * k}/{n * k} kann man zu {z}/{n} kürzen.', True, f'Ja, Zähler und Nenner durch {k} geteilt.'),
         ]
     else:
@@ -449,7 +546,8 @@ DATEI = datei(E, 'Anteile als Brüche deuten und berechnen, Brüche erweitern, k
                ('Erweitern und kürzen', ['erweitern', 'kuerzen']),
                ('Vergleichen und darstellen', ['vergleichen', 'zahlenstrahl', 'verstehen'])],
               ETAPPEN, GEN,
-              offen=['Lehrplan „Anteile mit Flächendiagrammen veranschaulichen“: Flächen sind nur in Worten beschrieben (Rechteck in n Teile, k gefärbt). Lernkarte anteil_bestimmen braucht Zeichnung: gefärbte Rechteck-/Kreisteile zum Ablesen und Selbst-Färben.',
+              offen=['Lehrplan „Anteile mit Flächendiagrammen veranschaulichen“: Flächendiagramme (Streifen, Rechteck-Raster, Kreis in gleiche Teile) sind jetzt in den Lernkarten und in den Aufgaben zu anteil_bestimmen eingebaut. Es fehlt nur noch das Selbst-Färben durch das Kind (kann die App nicht).',
+                     'Prüfung (Aufgaben, anteil_bestimmen) schlug für „Anteil am Bild“ ein Kreisdiagramm mit zwei Sektoren (gefärbt/weiß) vor. Abweichend umgesetzt mit Bildtyp figur und sichtbaren gleich großen Teilen (Kreis, Streifen, Raster): Ohne Teilungslinien kann ein Kind den Anteil nicht ablesen, nur schätzen.',
                      'Brüche stehen im Text als 3/4 (Schrägstrich). Falls die App echte Bruchdarstellung bekommt, Texte umstellen.',
                      'Bei Markierungen mit Dritteln/Sechsteln fehlt das Feld „zahl“, weil 1/3 keine endliche Dezimalzahl ist; der Index wird vom Programm exakt berechnet.'])
 

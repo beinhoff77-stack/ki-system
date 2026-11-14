@@ -18,9 +18,10 @@ ETAPPEN = [
      'bild': {'typ': 'stellentafel', 'stellen': ['HT', 'ZT', 'T', 'H', 'Z', 'E'], 'ziffern': [1, 0, 0, 0, 0, 0], 'markiert': 0}},
     {'lernziel': 'gross_wissenschaftlich', 'titel': 'Große Zahlen kurz schreiben',
      'regel': 'Große Zahlen schreibt man kurz als ⟦a · 10ⁿ⟧. Dabei steht vor dem Komma von a ⟦genau eine Ziffer von 1 bis 9⟧. Das heißt ⟦wissenschaftliche Schreibweise⟧.',
-     'schritte': ['38 000 000: Setze das Komma hinter die erste Ziffer. So entsteht 3,8.', 'Das Komma ist dabei 7 Stellen nach links gewandert. Also 38 000 000 = ⟦3,8 · 10⁷⟧.'],
-     'probe': '3,8 · 10 000 000 = 38 000 000 ✓',
-     'fehler': '38 000 000 = 38 · 10⁶ ist zwar richtig gerechnet, aber ⟦nicht wissenschaftlich⟧: Vor dem Komma darf nur eine Ziffer stehen. Richtig: 3,8 · 10⁷.'},
+     'schritte': ['Die Sonne ist rund 150 000 000 km von der Erde entfernt.', 'Setze das Komma hinter die erste Ziffer: 1,5. Das Komma ist dabei 8 Stellen nach links gewandert.',
+                  'Also 150 000 000 km = ⟦1,5 · 10⁸ km⟧.'],
+     'probe': '1,5 · 100 000 000 = 150 000 000 ✓',
+     'fehler': '150 000 000 = 15 · 10⁷ ist zwar richtig gerechnet, aber ⟦nicht wissenschaftlich⟧: Vor dem Komma darf nur eine Ziffer von 1 bis 9 stehen. Richtig: 1,5 · 10⁸.'},
     {'lernziel': 'vorsilben_gross', 'titel': 'Kilo, Mega, Giga, Tera',
      'regel': 'Vorsilben vor Einheiten stehen für Zehnerpotenzen: ⟦Kilo (k) = 10³⟧, ⟦Mega (M) = 10⁶⟧, ⟦Giga (G) = 10⁹⟧, ⟦Tera (T) = 10¹²⟧. 5 km sind also 5 · 10³ m = 5 000 m.',
      'schritte': ['2,5 MW (Megawatt) = 2,5 · 10⁶ W.', '2,5 · 1 000 000 = 2 500 000, also 2,5 MW = ⟦2 500 000 W⟧.'],
@@ -33,7 +34,7 @@ ETAPPEN = [
      'fehler': '10⁻³ = −1 000 ist falsch: Ein negativer Exponent macht die Zahl ⟦nicht negativ⟧, sondern klein. 10⁻³ = 0,001.'},
     {'lernziel': 'klein_wissenschaftlich', 'titel': 'Kleine Zahlen kurz schreiben',
      'regel': 'Auch kleine Zahlen schreibt man als ⟦a · 10ⁿ⟧ mit genau einer Ziffer von 1 bis 9 vor dem Komma. Wandert das Komma nach ⟦rechts⟧, ist der Exponent ⟦negativ⟧.',
-     'schritte': ['0,00047: Das Komma muss hinter die 4 wandern. So entsteht 4,7.', 'Es wandert 4 Stellen nach rechts, also 0,00047 = ⟦4,7 · 10⁻⁴⟧.'],
+     'schritte': ['Ein feines Sandkorn ist etwa 0,00047 m dick.', 'Das Komma muss hinter die 4 wandern: 4,7. Es wandert 4 Stellen nach rechts.', 'Also 0,00047 m = ⟦4,7 · 10⁻⁴ m⟧.'],
      'probe': '4,7 · 0,0001 = 0,00047 ✓',
      'fehler': '0,00047 = 4,7 · 10⁴ ist falsch: 4,7 · 10⁴ = 47 000 ist riesig. Bei Zahlen kleiner als 1 ist der Exponent ⟦negativ⟧: 4,7 · 10⁻⁴.'},
     {'lernziel': 'vorsilben_klein', 'titel': 'Milli, Mikro, Nano',
@@ -73,9 +74,9 @@ def g_zehnerpotenz(st):
         n = R.randint(1, 9)
         if R.random() < .5:
             return {'y': 'zahl', 'f': {'text': f'Schreibe 10{hoch(n)} als Zahl.'}, 'o': {'wert': 10 ** n}, 'c': f'10**{n}',
-                    'w': f'10{hoch(n)} ist eine 1 mit {n} Nullen: {zt(10 ** n)}.', 'h': 'Der Exponent sagt dir, wie viele Nullen hinter der 1 stehen.'}
+                    'w': f'10{hoch(n)} ist eine 1 mit ' + ('1 Null' if n == 1 else f'{n} Nullen') + f': {zt(10 ** n)}.', 'h': 'Der Exponent sagt dir, wie viele Nullen hinter der 1 stehen.'}
         return {'y': 'zahl', 'f': {'text': f'Wie viele Nullen hat die Zahl 10{hoch(n)}, wenn du sie ausschreibst?'}, 'o': {'wert': n}, 'c': f'{n}',
-                'w': f'10{hoch(n)} = {zt(10 ** n)}. Das sind {n} Nullen – genauso viele, wie der Exponent angibt.', 'h': 'Schau auf die hochgestellte Zahl.'}
+                'w': f'10{hoch(n)} = {zt(10 ** n)}. Das ' + (f'ist 1 Null' if n == 1 else f'sind {n} Nullen') + ' – genauso viele, wie der Exponent angibt.', 'h': 'Schau auf die hochgestellte Zahl.'}
     if st == 2:
         n = R.randint(2, 10)
         art = R.randrange(3)
@@ -88,8 +89,9 @@ def g_zehnerpotenz(st):
                     'f': {'text': f'Welche Zahl ist gleich 10{hoch(n)}?'},
                     'w': f'10{hoch(n)} ist eine 1 mit {n} Nullen: {r}. Achtung: 10 · {n} = {10 * n} ist etwas anderes.', 'h': 'Der Exponent gibt die Anzahl der Nullen an.'}
         n = R.choice(list(WORTE))
-        return {'y': 'zahl', 'f': {'text': f'Eine {WORTE[n]} ist eine Zehnerpotenz 10ⁿ. Wie groß ist n?'}, 'o': {'wert': n}, 'c': f'{n}',
-                'w': f'Eine {WORTE[n]} = {zt(10 ** n)} hat {n} Nullen, also 10{hoch(n)}.', 'h': 'Schreibe die Zahl mit allen Nullen auf und zähle.'}
+        wort = WORTE[n] if n == 3 else f'Eine {WORTE[n]}'
+        return {'y': 'zahl', 'f': {'text': f'{wort} ist eine Zehnerpotenz 10ⁿ. Wie groß ist n?'}, 'o': {'wert': n}, 'c': f'{n}',
+                'w': f'{wort} = {zt(10 ** n)} hat {n} Nullen, also 10{hoch(n)}.', 'h': 'Schreibe die Zahl mit allen Nullen auf und zähle.'}
     art = R.randrange(3)
     if art == 0:
         n = R.randint(4, 12)
@@ -110,7 +112,7 @@ def g_zehnerpotenz(st):
 # ---------- 2 große Zahlen wissenschaftlich ----------
 FAKTEN_GROSS = [('Die Entfernung von der Erde zur Sonne beträgt etwa', Fr(15, 10), 8, 'km'),
                 ('Die Entfernung von der Erde zum Mond beträgt etwa', Fr(384, 100), 5, 'km'),
-                ('Auf der Erde leben etwa', Fr(8), 9, 'Menschen'),
+                ('Auf der Erde leben etwa', Fr(81, 10), 9, 'Menschen'),
                 ('Licht legt in einer Sekunde etwa', Fr(3), 5, 'km zurück'),
                 ('Der Erdumfang beträgt etwa', Fr(4), 4, 'km'),
                 ('Der Durchmesser der Sonne beträgt etwa', Fr(14, 10), 6, 'km'),
@@ -127,6 +129,11 @@ def g_gross(st):
                     'w': f'Komma von {zt(a)} um {n} Stellen nach rechts verschieben: {wiss(a, n)} = {zt(z)}.', 'h': 'Mal 10ⁿ heißt: Komma um n Stellen nach rechts. Fehlende Stellen mit Nullen füllen.'}
         return {'y': 'zahl', 'f': {'text': f'{zt(z)} = {zt(a)} · 10ⁿ. Wie groß ist n?'}, 'o': {'wert': n}, 'c': f'{n}',
                 'w': f'Das Komma wandert von hinten bis hinter die erste Ziffer: {n} Stellen. Also {zt(z)} = {wiss(a, n)}.', 'h': 'Zähle, wie viele Stellen hinter der ersten Ziffer stehen.'}
+    if st == 2 and R.random() < .3:
+        satz, a, n, einh = R.choice(FAKTEN_GROSS)
+        z = a * 10 ** n
+        return {'y': 'zahl', 'f': {'text': f'{satz} {zt(z)} {einh}. Schreibe die Zahl als a · 10ⁿ. Wie groß ist n?'}, 'o': {'wert': n}, 'c': f'{n}',
+                'w': f'Komma hinter die erste Ziffer: {zt(a)}. Es wandert {n} Stellen nach links: {zt(z)} = {wiss(a, n)}.', 'h': 'Zähle die Stellen hinter der ersten Ziffer.'}
     if st == 2:
         a, n = mantisse(R, R.choice([1, 2])), R.randint(4, 11)
         z = a * 10 ** n
@@ -164,6 +171,26 @@ VG = [('k', 'Kilo', 3), ('M', 'Mega', 6), ('G', 'Giga', 9), ('T', 'Tera', 12)]
 EINH = [('m', 'Meter'), ('g', 'Gramm'), ('W', 'Watt'), ('Hz', 'Hertz')]
 
 
+# Nur gebräuchliche Kombinationen: kW, MW, GW, TW, kHz, MHz, GHz, kB, MB, GB, TB, km, kg
+ERLAUBT = {'k': [('m', 'Meter'), ('g', 'Gramm'), ('W', 'Watt'), ('Hz', 'Hertz'), ('B', 'Byte')],
+           'M': [('W', 'Watt'), ('Hz', 'Hertz'), ('B', 'Byte')],
+           'G': [('W', 'Watt'), ('Hz', 'Hertz'), ('B', 'Byte')],
+           'T': [('W', 'Watt'), ('B', 'Byte')]}
+
+
+def speicher():
+    """Speicher und Daten: MB, GB (1 GB = 1 000 MB)."""
+    if R.random() < .5:
+        foto = R.choice([2, 4, 5, 8])
+        karte = R.choice([16, 32, 64, 128, 256])
+        return {'y': 'zahl', 'f': {'text': f'Ein Foto hat {foto} MB. Wie viele Fotos passen auf eine {karte}-GB-Speicherkarte? (1 GB = 1 000 MB)'},
+                'o': {'wert': karte * 1000 // foto}, 'c': f'{karte} * 1000 / {foto}',
+                'w': f'{karte} GB = {zt(karte * 1000)} MB. {zt(karte * 1000)} : {foto} = {zt(karte * 1000 // foto)} Fotos.', 'h': 'Rechne zuerst GB in MB um (mal 1 000).'}
+    g = R.choice([Fr(15, 10), Fr(25, 10), Fr(32, 10), Fr(45, 10), Fr(7, 10), Fr(12, 10)])
+    return {'y': 'zahl', 'f': {'text': f'Ein Film hat {zt(g)} GB. Wie viele MB sind das? (1 GB = 1 000 MB)'}, 'o': {'wert': wert(g * 1000), 'einheit': 'MB'}, 'c': f'{float(g)} * 1000',
+            'w': f'{zt(g)} · 1 000 = {zt(g * 1000)} MB.', 'h': 'Giga ist 1 000-mal so viel wie Mega.'}
+
+
 def g_vg(st):
     if st == 1:
         if R.random() < .4:
@@ -173,25 +200,34 @@ def g_vg(st):
                     'f': {'text': f'Für welche Zehnerpotenz steht die Vorsilbe {name} ({k})?'},
                     'w': f'{name} ({k}) bedeutet 10{hoch(n)} = {zt(10 ** n)}.', 'h': 'Kilo = 10³. Jede nächste Vorsilbe ist 1 000-mal so groß.'}
         k, name, n = R.choice(VG[:2])
-        e, ename = R.choice(EINH)
+        e, ename = R.choice(ERLAUBT[k])
         x = R.randint(2, 40)
         return {'y': 'zahl', 'f': {'text': f'Wie viele {ename} ({e}) sind {x} {k}{e}?'}, 'o': {'wert': x * 10 ** n, 'einheit': e}, 'c': f'{x} * 10**{n}',
-                'w': f'{k} = 10{hoch(n)}, also {x} {k}{e} = {x} · {zt(10 ** n)} {e} = {zt(x * 10 ** n)} {e}.', 'h': f'{name} bedeutet mal {zt(10 ** n)}.'}
+                'w': f'{name} = 10{hoch(n)}, also {x} {k}{e} = {x} · {zt(10 ** n)} {e} = {zt(x * 10 ** n)} {e}.', 'h': f'{name} bedeutet mal {zt(10 ** n)}.'}
     if st == 2:
+        art = R.random()
+        if art < .2:
+            return speicher()
+        if art < .35:
+            t = mantisse(R, R.choice([0, 1]))
+            return {'y': 'zahl', 'f': {'text': f'Wie viele Gramm sind {zt(t)} t? (1 t = 1 000 kg = 10⁶ g)'}, 'o': {'wert': wert(t * 10 ** 6), 'einheit': 'g'}, 'c': f'{float(t)} * 10**6',
+                    'w': f'1 t = 1 000 kg = 1 000 000 g. {zt(t)} · 1 000 000 = {zt(t * 10 ** 6)} g.', 'h': 'Eine Tonne sind eine Million Gramm.'}
         k, name, n = R.choice(VG)
-        e, ename = R.choice(EINH)
+        e, ename = R.choice(ERLAUBT[k])
         a = mantisse(R, 1)
         if R.random() < .5:
             return {'y': 'zahl', 'f': {'text': f'Rechne um: {zt(a)} {k}{e} = ? {e}'}, 'o': {'wert': wert(a * 10 ** n), 'einheit': e}, 'c': f'{float(a)} * 10**{n}',
-                    'w': f'{zt(a)} {k}{e} = {wiss(a, n)} {e} = {zt(a * 10 ** n)} {e}.', 'h': f'{k} steht für 10{hoch(n)}. Komma um {n} Stellen nach rechts.'}
+                    'w': f'{name} = 10{hoch(n)}: {zt(a)} {k}{e} = {wiss(a, n)} {e} = {zt(a * 10 ** n)} {e}.', 'h': f'{k} steht für 10{hoch(n)}. Komma um {n} Stellen nach rechts.'}
         return {'y': 'zahl', 'f': {'text': f'Rechne um: {zt(a * 10 ** n)} {e} = ? {k}{e}'}, 'o': {'wert': wert(a), 'einheit': f'{k}{e}'}, 'c': f'{int(a * 10 ** n)} / 10**{n}',
-                'w': f'{zt(a * 10 ** n)} : 10{hoch(n)} = {zt(a)}, also {zt(a)} {k}{e}.', 'h': f'Teile durch 10{hoch(n)}: Komma um {n} Stellen nach links.'}
-    art = R.randrange(3)
+                'w': f'{name} = 10{hoch(n)}: {zt(a * 10 ** n)} : 10{hoch(n)} = {zt(a)}, also {zt(a)} {k}{e}.', 'h': f'Teile durch 10{hoch(n)}: Komma um {n} Stellen nach links.'}
+    art = R.randrange(4)
+    if art == 3:
+        return speicher()
     if art == 0:
         i = R.randint(1, 3)
         k, name, n = VG[i]
         k2, _, n2 = VG[i - 1]
-        e, _ = R.choice(EINH)
+        e, _ = R.choice([x for x in ERLAUBT[k] if x in ERLAUBT[k2]])
         a = mantisse(R, R.choice([0, 1]))
         return {'y': 'zahl', 'f': {'text': f'Rechne um: {zt(a)} {k}{e} = ? {k2}{e}'}, 'o': {'wert': wert(a * 10 ** (n - n2)), 'einheit': f'{k2}{e}'}, 'c': f'{float(a)} * 10**{n} / 10**{n2}',
                 'w': f'{k} = 10{hoch(n)} und {k2} = 10{hoch(n2)}: Der Unterschied ist 10{hoch(n - n2)} = 1 000. {zt(a)} · 1 000 = {zt(a * 1000)}.',
@@ -260,7 +296,7 @@ def g_klein(st):
         a, n = mantisse(R, R.choice([0, 1])), R.randint(1, 5)
         z = a * Fr(1, 10 ** n)
         return {'y': 'zahl', 'f': {'text': f'Schreibe als Dezimalzahl: {wiss(a, -n)}'}, 'o': {'wert': wert(z)}, 'c': f'{float(a)} * 10**-{n}',
-                'w': f'Mal 10{hoch(-n)}: Komma um {n} Stellen nach links. {wiss(a, -n)} = {zt(z)}.', 'h': 'Mal 10⁻ⁿ heißt: Komma um n Stellen nach links verschieben.'}
+                'w': f'Mal 10{hoch(-n)}: Komma um ' + ('1 Stelle' if n == 1 else f'{n} Stellen') + f' nach links. {wiss(a, -n)} = {zt(z)}.', 'h': 'Mal 10⁻ⁿ heißt: Komma um n Stellen nach links verschieben.'}
     if st == 2:
         a, n = mantisse(R, R.choice([0, 1, 2])), R.randint(2, 8)
         z = a * Fr(1, 10 ** n)
@@ -271,7 +307,19 @@ def g_klein(st):
         return {**wahl(R, r, [wiss(a, n), wiss(a, -n + 1), f'{zt(a * 10)} · 10{hoch(-n - 1)}', wiss(a, -n - 1)]),
                 'f': {'text': f'Welche Darstellung von {zt(z)} ist die wissenschaftliche Schreibweise?'},
                 'w': f'Komma hinter die erste Ziffer ungleich 0: {zt(a)}. Es wandert {n} Stellen nach rechts, also {r}.', 'h': 'Eine Ziffer vor dem Komma, und der Exponent ist negativ.'}
-    art = R.randrange(2)
+    art = R.randrange(3)
+    if art == 2:
+        ding, a, n, ziel, ziel_m = R.choice([('Ein Bakterium ist', 2, -6, '1 mm', Fr(1, 1000)), ('Ein Haar ist', 8, -5, '1 cm', Fr(1, 100)),
+                                             ('Ein Bakterium ist', 5, -6, '1 mm', Fr(1, 1000)), ('Ein Blatt Papier ist', 1, -4, '1 cm', Fr(1, 100)),
+                                             ('Ein Haar ist', 5, -5, '1 cm', Fr(1, 100)), ('Ein Sandkorn ist', 4, -4, '1 dm', Fr(1, 10))])
+        groesse = a * Fr(10) ** n
+        anz = ziel_m / groesse
+        wort = {'Ein Bakterium ist': ('lang', 'Bakterien hintereinander'), 'Ein Haar ist': ('dick', 'Haare nebeneinander'),
+                'Ein Blatt Papier ist': ('dick', 'Blätter übereinander'), 'Ein Sandkorn ist': ('dick', 'Sandkörner nebeneinander')}[ding]
+        return {'y': 'zahl', 'f': {'text': f'{ding} {wiss(a, n)} m {wort[0]}. Wie viele {wort[1]} ergeben {ziel}?'}, 'o': {'wert': wert(anz)},
+                'c': f'{float(ziel_m)} / ({a} * 10**({n}))',
+                'w': f'{ziel} = {zt(ziel_m)} m, eins ist {zt(groesse)} m. {zt(ziel_m)} : {zt(groesse)} = {zt(anz)}.',
+                'h': f'Schreibe beide Längen in Meter als Dezimalzahl und teile.'}
     if art == 0:
         satz, a, n, einh = R.choice(FAKTEN_KLEIN)
         z = a * Fr(10) ** n
@@ -310,10 +358,10 @@ def g_vk(st):
         if R.random() < .5:
             z = x * Fr(10) ** n
             return {'y': 'zahl', 'f': {'text': f'Rechne um: {x} {k}{e} = ? {e}'}, 'o': {'wert': wert(z), 'einheit': e}, 'c': f'{x} * 10**{n}',
-                    'w': f'{k} = 10{hoch(n)}: {x} {k}{e} = {x} · {zt(Fr(10) ** n)} {e} = {zt(z)} {e}.', 'h': f'Komma um {-n} Stellen nach links.'}
+                    'w': f'{name} bedeutet 10{hoch(n)} = {zt(Fr(10) ** n)}: {x} {k}{e} = {x} · {zt(Fr(10) ** n)} {e} = {zt(z)} {e}.', 'h': f'Komma um {-n} Stellen nach links.'}
         z = x * Fr(10) ** n
         return {'y': 'zahl', 'f': {'text': f'Rechne um: {zt(z)} {e} = ? {k}{e}'}, 'o': {'wert': x, 'einheit': f'{k}{e}'}, 'c': f'{float(z)} / 10**{n}',
-                'w': f'{zt(z)} : 10{hoch(n)} = {zt(z)} · {zt(10 ** -n)} = {x}, also {x} {k}{e}.', 'h': f'Durch 10{hoch(n)} teilen heißt Komma um {-n} Stellen nach rechts.'}
+                'w': f'{name} bedeutet 10{hoch(n)}: {zt(z)} : 10{hoch(n)} = {zt(z)} · {zt(10 ** -n)} = {x}, also {x} {k}{e}.', 'h': f'Durch 10{hoch(n)} teilen heißt Komma um {-n} Stellen nach rechts.'}
     art = R.randrange(3)
     if art == 0:
         i = R.randint(0, 1)
@@ -335,6 +383,25 @@ def g_vk(st):
 
 
 # ---------- 7 Vergleichen und prüfen (Verstehen) ----------
+def gleicher_exponent():
+    """Gleicher Exponent: Vorzahl vergleichen – oder Falle: kleinere Vorzahl, aber größerer Exponent."""
+    if R.random() < .5:
+        n = R.choice([R.randint(3, 9), -R.randint(2, 8)])
+        a, b = mantisse(R, 1), mantisse(R, 1)
+        if a == b: return gleicher_exponent()
+        x, y = wiss(a, n), wiss(b, n)
+        r = x if a > b else y
+        return {**wahl(R, r, [y if r == x else x, 'Beide sind gleich groß'], 3), 'f': {'text': f'Welche Zahl ist größer: {x} oder {y}?'},
+                'w': f'Gleicher Exponent {zt(n)}: Dann entscheidet die Zahl vor dem Malzeichen. {zt(max(a, b))} > {zt(min(a, b))}, also ist {r} größer.',
+                'h': 'Die Exponenten sind gleich. Vergleiche die Zahlen vor dem Malzeichen.'}
+    n = -R.randint(2, 6) if R.random() < .5 else R.randint(3, 8)
+    a, b = Fr(R.randint(51, 99), 10), Fr(R.randint(10, 49), 10)
+    x, y = wiss(a, n), wiss(b, n + 1)
+    return {**wahl(R, y, [x, 'Beide sind gleich groß'], 3), 'f': {'text': f'Welche Zahl ist größer: {x} oder {y}?'},
+            'w': f'{x} = {zt(a * Fr(10) ** n)}, {y} = {zt(b * Fr(10) ** (n + 1))}. Der Exponent {zt(n + 1)} ist größer als {zt(n)}, darum ist {y} größer, obwohl {zt(b)} < {zt(a)}.',
+            'h': 'Zuerst die Exponenten vergleichen. Erst bei gleichem Exponenten zählt die Zahl vor dem Malzeichen.'}
+
+
 def g_vgl(st):
     if st == 1:
         a, b = mantisse(R, 0), mantisse(R, 0)
@@ -353,9 +420,11 @@ def g_vgl(st):
         r = wiss(*min(zs, key=lambda t: t[0] * Fr(10) ** t[1]))
         return {**wahl(R, r, [wiss(*t) for t in zs]),
                 'f': {'text': 'Welche Zahl ist am kleinsten? ' + ' | '.join(wiss(*t) for t in zs)},
-                'w': f'Bei negativen Exponenten gilt: je kleiner der Exponent (z. B. −8 < −3), desto kleiner die Zahl. Am kleinsten: {r}.',
-                'h': 'Der Exponent entscheidet. −7 ist kleiner als −4.'}
-    art = R.randrange(4)
+                'w': f'Bei negativen Exponenten gilt: je kleiner der Exponent (hier {zt(min(ex))} < {zt(max(ex))}), desto kleiner die Zahl. Am kleinsten: {r}.',
+                'h': f'Der Exponent entscheidet. {zt(min(ex))} ist kleiner als {zt(max(ex))}.'}
+    art = R.randrange(5)
+    if art == 4:
+        return gleicher_exponent()
     if art == 0:
         a, n = mantisse(R, 1), R.randint(2, 5)
         z = a * Fr(1, 10 ** n)

@@ -382,12 +382,70 @@ function lernZahlenstrahl(g, waehlbar, onWahl) {
   return svg;
 }
 
+// ---------- Terme lesen (W150) ----------
+// Liest einen frei getippten Term und füllt damit die Vorlage der Aufgabe (z. B. „□x(□x + □)“) – die Datenbank prüft wie bisher die Zahlen.
+const lernTermNorm = (t) => String(t ?? '').replace(/\s+/g, '').replace(/[−–]/g, '-').replace(/[·*⋅×]/g, '').replace(/\^2/g, '²').replace(/\^3/g, '³')
+  .replace(/\+-|-\+/g, '-').replace(/--/g, '+').replace(/\.(?=\d)/g, ',');
+function lernMonoKey(v) {
+  const m = [...v.matchAll(/([a-z])([²³]?)/g)];
+  if (m.map((x) => x[0]).join('') !== v) return null;
+  const pot = {};
+  for (const [, b, e] of m) pot[b] = (pot[b] || 0) + (e === '²' ? 2 : e === '³' ? 3 : 1);
+  return Object.keys(pot).sort().map((b) => b + (pot[b] === 1 ? '' : pot[b] === 2 ? '²' : pot[b] === 3 ? '³' : '^' + pot[b])).join('');
+}
+function lernMono(t) {
+  const m = t.match(/^([+-]?)(\d+(?:,\d+)?)?([a-z²³]*)$/);
+  if (!m || (!m[2] && !m[3])) return null;
+  const key = lernMonoKey(m[3]); if (key === null) return null;
+  let c = m[2] ? Number(m[2].replace(',', '.')) : 1; if (m[1] === '-') c = -c;
+  return { key, c };
+}
+function lernPoly(t) {
+  const glieder = t.match(/[+-]?[^+-]+/g);
+  if (!glieder || glieder.join('') !== t) return null;
+  const map = new Map();
+  for (const g of glieder) { const mo = lernMono(g); if (!mo) return null; if (map.has(mo.key)) return { doppelt: true }; map.set(mo.key, mo.c); }
+  return map;
+}
+function lernVorlage(schablone) {
+  const s = lernTermNorm(schablone); const k = s.indexOf('(');
+  const keys = (x) => (x.match(/[+-]?[^+-]+/g) || []).map((g) => lernMonoKey(g.replace(/^[+-]?□/, '')));
+  return k < 0 ? { prefix: null, inner: keys(s) } : { prefix: lernMonoKey(s.slice(0, k).replace('□', '')), inner: keys(s.slice(k + 1, s.lastIndexOf(')'))) };
+}
+const lernZahlText = (n) => (n < 0 ? '−' : '') + String(Math.abs(Math.round(n * 1e6) / 1e6)).replace('.', ',');
+function lernTermWerte(schablone, eingabe) {
+  const v = lernVorlage(schablone); const s = lernTermNorm(eingabe); let innen = s; let vor = [];
+  if (v.prefix !== null) {
+    const k = s.indexOf('(');
+    if (k < 0 || !s.endsWith(')')) return { fehler: 'klammer' };
+    const p = s.slice(0, k); innen = s.slice(k + 1, -1);
+    const mo = p === '' || p === '+' ? { key: '', c: 1 } : p === '-' ? { key: '', c: -1 } : lernMono(p);
+    if (!mo || mo.key !== v.prefix) return { fehler: 'form' };
+    vor = [mo.c];
+  } else if (/[()]/.test(s)) return { fehler: 'ohneklammer' };
+  const map = lernPoly(innen);
+  if (!map) return { fehler: 'lesen' };
+  if (map.doppelt) return { fehler: 'doppelt' };
+  for (const k of map.keys()) if (!v.inner.includes(k)) return { fehler: 'form' };
+  return { werte: [...vor, ...v.inner.map((k) => (map.has(k) ? map.get(k) : 0))].map(lernZahlText) };
+}
+function lernTermFehler(f, schablone) {
+  const form = String(schablone).replace(/□/g, '…');
+  return { klammer: `Hier gehört eine Klammer in die Antwort, so: ${form}`, ohneklammer: 'Die Antwort soll ohne Klammer sein. Rechne die Klammer aus.',
+    form: `So kann ich das nicht prüfen. Die Antwort soll so aussehen: ${form}`, doppelt: 'Fasse gleiche Glieder noch zusammen.',
+    lesen: 'Das kann ich nicht lesen. Schreib zum Beispiel 3x² − 2x + 5.' }[f] || 'Bitte prüfe deine Eingabe.';
+}
+function lernVorlageFuellen(schablone, werte) {
+  const st = String(schablone).split('□');
+  return st.map((t, i) => t + (i < st.length - 1 ? String(werte[i] ?? '') : '')).join('').replace(/\+ ?[−-]/g, '− ');
+}
+
 // Liefert { node, antwort(), sperren() }; antwort() ist null, solange nichts eingegeben ist.
 function lernAufgabe(a, vorher) {
   const f = a.frage || {};
-  let wert = vorher ?? null;
+  let wert = vorher ?? null; let fehler = null;
   const teile = [el('p', { class: 'lern-frage' }, lernText(f.text))];
-  if (f.hinweis) teile.push(el('p', { class: 'small muted' }, f.hinweis));
+  if (f.hinweis && a.antworttyp !== 'luecken') teile.push(el('p', { class: 'small muted' }, f.hinweis));
   const felder = [];
   if (a.antworttyp === 'markierung') {
     const strahl = lernZahlenstrahl(f.grafik || {}, true, (i) => { wert = { index: i }; });
@@ -411,24 +469,28 @@ function lernAufgabe(a, vorher) {
     felder.push(inp);
     teile.push(el('div', { class: 'lern-zeile' }, inp, a.einheit ? el('span', { class: 'lern-einheit-zeichen' }, a.einheit) : null));
   } else if (a.antworttyp === 'luecken') {
-    const stuecke = String(f.schablone || '□').split('□');
-    const werte = Array.isArray(wert?.werte) ? [...wert.werte] : Array(stuecke.length - 1).fill('');
-    const zeile = el('div', { class: 'lern-luecken' });
-    stuecke.forEach((s, i) => {
-      if (s) zeile.append(el('span', {}, s));
-      if (i < stuecke.length - 1) {
-        const inp = el('input', { type: 'text', inputmode: 'text', autocomplete: 'off', spellcheck: 'false', 'aria-label': `Feld ${i + 1}`, class: 'lern-feld', value: werte[i] || '' });
-        inp.addEventListener('input', () => { werte[i] = inp.value; wert = werte.some((x) => String(x).trim()) ? { werte: [...werte] } : null; });
-        felder.push(inp); zeile.append(inp);
-      }
-    });
-    teile.push(zeile);
-    teile.push(el('div', { class: 'lern-minus' }, el('button', { type: 'button', class: 'secondary', onclick: () => {
-      const akt = felder.includes(document.activeElement) ? document.activeElement : felder.find((x) => !x.value) || felder[0];
-      if (!akt) return; akt.value = akt.value.startsWith('−') ? akt.value.slice(1) : '−' + akt.value.replace(/^-/, ''); akt.dispatchEvent(new Event('input')); akt.focus();
-    } }, '± Vorzeichen')));
+    // W150: Term frei eintippen (wie im Heft); die App liest daraus die Zahlen für die Vorlage.
+    const vorlage = String(f.schablone || '□');
+    const inp = el('input', { type: 'text', inputmode: 'text', autocomplete: 'off', autocapitalize: 'off', spellcheck: 'false', 'aria-label': 'Dein Term', class: 'lern-term',
+      placeholder: 'Term eintippen', value: wert?.werte ? lernVorlageFuellen(vorlage, wert.werte) : '' });
+    const lies = () => {
+      const r = inp.value.trim() ? lernTermWerte(vorlage, inp.value) : null;
+      wert = r?.werte ? { werte: r.werte } : null; fehler = r?.fehler ? lernTermFehler(r.fehler, vorlage) : null;
+    };
+    inp.addEventListener('input', lies);
+    felder.push(inp);
+    const tippe = (t) => {
+      const a0 = inp.selectionStart ?? inp.value.length, b0 = inp.selectionEnd ?? a0;
+      inp.value = inp.value.slice(0, a0) + t + inp.value.slice(b0); inp.focus(); inp.setSelectionRange(a0 + t.length, a0 + t.length); lies();
+    };
+    const buchst = [...new Set((vorlage.match(/[a-z]/g) || []))];
+    const tasten = [...buchst, '²', ...(vorlage.includes('(') ? ['(', ')'] : []), '+', '−'];
+    teile.push(inp, el('div', { class: 'lern-tasten' }, ...tasten.map((t) => el('button', { type: 'button', class: 'lern-taste', 'aria-label': t === '²' ? 'hoch 2' : t === '−' ? 'minus' : t === '+' ? 'plus' : t === '(' ? 'Klammer auf' : t === ')' ? 'Klammer zu' : t,
+      onmousedown: (ev) => ev.preventDefault(), onclick: () => tippe(t) }, t)), el('button', { type: 'button', class: 'lern-taste', 'aria-label': 'löschen',
+      onmousedown: (ev) => ev.preventDefault(), onclick: () => { const a0 = inp.selectionStart ?? inp.value.length; if (a0 > 0) { inp.value = inp.value.slice(0, a0 - 1) + inp.value.slice(a0); inp.setSelectionRange(a0 - 1, a0 - 1); lies(); } } }, '⌫')));
+    if (wert?.werte) lies();
   }
-  return { node: el('div', { class: 'lern-aufgabe' }, ...teile), antwort: () => wert,
+  return { node: el('div', { class: 'lern-aufgabe' }, ...teile), antwort: () => wert, fehlerText: () => fehler,
     sperren: (an = true) => felder.forEach((x) => { x.disabled = an; }) };
 }
 
@@ -575,9 +637,10 @@ function lernEtappe(ctx, etappen, idx) {
     const erkl = e.regel ? el('button', { type: 'button', class: 'lr-knopf-zweit', onclick: () => { erkl.remove(); hilfeBox.append(el('div', { class: 'lr-karte-box lr-nochmal' }, lernErklaerung(e, { kurz: true }))); } }, 'Nochmal erklären') : null;
     const pruefen = el('button', { type: 'button', class: 'lr-knopf' }, 'Prüfen');
     const knoepfe = el('div', { class: 'lr-knopfzeile' }, tipp, erkl);
+    auf.node.addEventListener('input', () => { if (!pruefen.disabled && pruefen.isConnected) meldung.replaceChildren(); });
     pruefen.addEventListener('click', async () => {
       const w = auf.antwort();
-      if (!w) { meldung.replaceChildren(el('p', { class: 'lr-hinweis' }, 'Bitte erst antworten.')); return; }
+      if (!w) { meldung.replaceChildren(el('p', { class: 'lr-hinweis' }, auf.fehlerText() || 'Bitte erst antworten.')); return; }
       pruefen.disabled = true;
       try {
         const r = await lernCall('schule_uebung_pruefen', { lernender_id: ctx.kind, aufgabe_id: a.id, antwort: w, client_id: cid, hilfe });
@@ -784,6 +847,7 @@ function lernTestLauf(ctx, box, t) {
     const meldung = el('div', { role: 'status', 'aria-live': 'polite' });
     const speichern = async () => {
       const w = auf.antwort();
+      if (!w && auf.fehlerText()) { meldung.replaceChildren(el('p', { class: 'lern-hinweis' }, auf.fehlerText())); return null; }
       if (!w) return gesendet.has(a.id);
       const r = await lernCall('schule_test_antwort', { lernender_id: ctx.kind, sitzung_id: t.sitzung_id, aufgabe_id: a.id, antwort: w, client_id: lernCid() });
       if (!r.format_ok) { meldung.replaceChildren(el('p', { class: 'lern-hinweis' }, r.hinweis)); return null; }

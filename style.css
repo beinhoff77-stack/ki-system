@@ -3376,3 +3376,8 @@ body[data-kindmodus] header.top h1 { font-size: 1.15rem; white-space: nowrap; ov
 .lr-merk[open] > summary svg { transform: rotate(90deg); }
 .lr-merk-inhalt { padding: 0 14px 14px; display: flex; flex-direction: column; gap: 12px; }
 .lr-nochmal { margin: 0; }
+
+/* W150: Term frei eintippen */
+.lern-term { width: 100%; box-sizing: border-box; min-height: 56px; border-radius: 12px; border: 2px solid var(--lr-akzent, var(--accent)); background: var(--lr-bg, var(--surface)); color: inherit; padding: 0 14px; font: 700 22px/1.2 ui-monospace, "SF Mono", Menlo, monospace; }
+.lern-tasten { display: grid; grid-template-columns: repeat(auto-fit, minmax(44px, 1fr)); gap: 6px; margin-top: 8px; }
+.lern-taste { min-height: 44px; border-radius: 10px; border: 1px solid var(--lr-linie, var(--border)); background: var(--lr-flaeche, var(--surface)); color: inherit; font: 700 18px/1 ui-monospace, "SF Mono", Menlo, monospace; cursor: pointer; }

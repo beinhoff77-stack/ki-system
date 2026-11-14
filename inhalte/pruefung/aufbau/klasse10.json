@@ -1,0 +1,205 @@
+{
+ "klasse": 10,
+ "reihenfolge": [
+  {
+   "thema_schluessel": "funktionen.exponential_log",
+   "position": 1,
+   "braucht_vorher": [
+    "bruch.prozent_grundwert (Kl. 7: Wachstumsfaktor 1 ± p/100)",
+    "zahlen.rationale_exponenten (Kl. 9: negative und gebrochene Exponenten)",
+    "funktionen.grundbegriffe (Kl. 8)"
+   ],
+   "begruendung": "M10 1 beginnt mit den Eigenschaften exponentieller Zunahme/Abnahme. Karten 'logfunktion' und 'zeitpunkt' aber erst nach gleichungen.exponential (sie brauchen den Logarithmus)."
+  },
+  {
+   "thema_schluessel": "gleichungen.exponential",
+   "position": 2,
+   "braucht_vorher": [
+    "funktionen.exponential_log (Karten werte, faktor, modell, graph)",
+    "gleichungen.potenz (Kl. 9)"
+   ],
+   "begruendung": "Logarithmusdefinition und Exponentialgleichungen (M10 1) beantworten die Frage „Wann wird ein Wert erreicht?“."
+  },
+  {
+   "thema_schluessel": "stochastik.mehrstufig",
+   "position": 3,
+   "braucht_vorher": [
+    "stochastik.kombinatorik (Kl. 5: Baumdiagramm)",
+    "stochastik.grundbegriffe (Kl. 8: Laplace, Gegenereignis)",
+    "stochastik.simulation (Kl. 8)"
+   ],
+   "begruendung": "M10 2; unabhängig von den Funktionen."
+  },
+  {
+   "thema_schluessel": "gleichungen.trig",
+   "position": 4,
+   "braucht_vorher": [
+    "trigo.allgemein (Kl. 9: Einheitskreis)"
+   ],
+   "begruendung": "Liegt als Kl.-9-Datei vor, Inhalt ist aber M10 3 („Winkel zu gegebenen Sinus- bzw. Kosinuswerten ermitteln“). Empfehlung: hierher verschieben und um Bogenmaß ergänzen."
+  },
+  {
+   "thema_schluessel": "funktionen.trig",
+   "position": 5,
+   "braucht_vorher": [
+    "gleichungen.trig",
+    "trigo.allgemein (Kl. 9)",
+    "funktionen.quadratisch (Kl. 9: Wirkung von Parametern)"
+   ],
+   "begruendung": "M10 3: Bogenmaß, Graphen, Parameter, Modellieren."
+  },
+  {
+   "thema_schluessel": "gleichungen.polynom",
+   "position": 6,
+   "braucht_vorher": [
+    "gleichungen.quadratisch (Kl. 9)",
+    "terme.umformen (Kl. 7, fehlt: ausklammern)"
+   ],
+   "begruendung": "Nullstellen mit Vielfachheit und Substitution sind Werkzeug für die Graphenskizze in funktionen.ganzrational."
+  },
+  {
+   "thema_schluessel": "funktionen.ganzrational",
+   "position": 7,
+   "braucht_vorher": [
+    "gleichungen.polynom",
+    "funktionen.potenz (Kl. 9: Verlauf von xⁿ, Symmetrie)"
+   ],
+   "begruendung": "M10 4: Summe von Potenzfunktionen."
+  },
+  {
+   "thema_schluessel": "raum.pyramide_kegel_kugel",
+   "position": 8,
+   "braucht_vorher": [
+    "messen.prisma_zylinder (Kl. 8, fehlt: V = G · h)",
+    "trigo.pythagoras (Kl. 9)",
+    "trigo.rechtwinklig (Kl. 9)",
+    "abbildungen.aehnlichkeit (Kl. 9: Strahlensatz, k³)"
+   ],
+   "begruendung": "M10 5 schließt die Raumgeometrie ab und wendet Pythagoras, Trigonometrie und Strahlensatz an."
+  }
+ ],
+ "luecken": [
+  {
+   "was_fehlt": "Parameter c (Verschiebung in x-Richtung) bei a · sin(b · (x + c)) + d. Bewusst weggelassen ('offen' fragt nach): Der Lehrplan verlangt ihn ausdrücklich, auch Term aus Graph ermitteln.",
+   "lehrplan_bezug": "M10 3 („Wirkung der Parameter a, b, c und d bei Termen a·sin(b·(x + c)) + d“; Fachlehrplan Gym. Bayern Jgst. 10, Wortlaut am 14.11.2026 auf lehrplanplus.bayern.de geprüft)",
+   "wohin": "funktionen.trig, neue Lernkarte 'verschiebung_x' nach 'parameter'; Karte 'zuordnen' danach um c erweitern.",
+   "dringlichkeit": "hoch"
+  },
+  {
+   "was_fehlt": "Exponentielles von linearem Wachstum begründet abgrenzen (gleiche Differenzen vs. gleiche Quotienten); Modellgrenzen benennen.",
+   "lehrplan_bezug": "M10 1 (Fachlehrplan Gym. Bayern Jgst. 10, Wortlaut am 14.11.2026 auf lehrplanplus.bayern.de geprüft)",
+   "wohin": "funktionen.exponential_log, neue Lernkarte 'linear_oder_exponentiell' nach 'faktor' (Wertetabelle als 'tabelle', beide Graphen in einem Koordinatensystem).",
+   "dringlichkeit": "hoch"
+  },
+  {
+   "was_fehlt": "Monte-Carlo-Methode für π und Vergleich mit einem nicht zufallsbasierten Verfahren.",
+   "lehrplan_bezug": "M10 2 (Fachlehrplan Gym. Bayern Jgst. 10, Wortlaut am 14.11.2026 auf lehrplanplus.bayern.de geprüft)",
+   "wohin": "stochastik.mehrstufig, neue Lernkarte 'monte_carlo' nach 'simulation'. Die vorhandene Karte 'monte_carlo' aus stochastik.simulation (Kl. 8) hierher verschieben.",
+   "dringlichkeit": "mittel"
+  },
+  {
+   "was_fehlt": "Sinus/Kosinus für Winkel über 2π und negative Winkel auf 0 bis 2π zurückführen; Graph aus dem Einheitskreis herleiten; Winkel zu gegebenen Sinus-/Kosinuswerten im Bogenmaß.",
+   "lehrplan_bezug": "M10 3 (Fachlehrplan Gym. Bayern Jgst. 10, Wortlaut am 14.11.2026 auf lehrplanplus.bayern.de geprüft)",
+   "wohin": "funktionen.trig, Karte 'periode' um negative Winkel ergänzen; gleichungen.trig (bisher Kl. 9, Gradmaß) nach Kl. 10 holen und um Bogenmaß-Lösungen erweitern.",
+   "dringlichkeit": "mittel"
+  },
+  {
+   "was_fehlt": "Zylinder, Kegel und Kugel als Rotationskörper deuten; Volumen schiefer Prismen (G · h); Schrägbilder und Netze von Pyramide und Kegel.",
+   "lehrplan_bezug": "M10 5 (Fachlehrplan Gym. Bayern Jgst. 10, Wortlaut am 14.11.2026 auf lehrplanplus.bayern.de geprüft)",
+   "wohin": "raum.pyramide_kegel_kugel, neue Lernkarte 'rotation' vor 'kegel_volumen' (aus raum.schraegbilder Kl. 8 übernehmen: 'rotation', 'axialschnitt'); 'verstehen' um schiefe Prismen ergänzen. Schrägbilder/Netze bleiben offen (App).",
+   "dringlichkeit": "mittel"
+  },
+  {
+   "was_fehlt": "Volumen und Oberfläche gerader Prismen und Zylinder (Kl. 8) werden in 'pyr_volumen' (⅓ des Prismas) und 'verstehen' (Pyramide/Kegel = ⅓ Prisma/Zylinder) vorausgesetzt, das Thema fehlt aber.",
+   "lehrplan_bezug": "M8 7 (Auszug geprüft)",
+   "wohin": "siehe klasse8.json, neues Thema messen.prisma_zylinder.",
+   "dringlichkeit": "hoch"
+  },
+  {
+   "was_fehlt": "Baumdiagramme: Die App kann seit 14.11. Bäume zeichnen ('baum'); stochastik.mehrstufig behilft sich mit Pfad-Tabellen ('offen' ist überholt).",
+   "lehrplan_bezug": "M10 2 („mit Baumdiagrammen strukturieren“; Fachlehrplan Gym. Bayern Jgst. 10, Wortlaut am 14.11.2026 auf lehrplanplus.bayern.de geprüft)",
+   "wohin": "stochastik.mehrstufig, alle Karten der Abschnitte „Pfadregeln“ und „Strategien“ mit 'baum' (p an den Ästen, „?“ für Gesuchtes) neu bebildern – größter Gewinn in diesem Thema.",
+   "dringlichkeit": "mittel"
+  }
+ ],
+ "zu_viel": [
+  {
+   "thema_schluessel": "funktionen.exponential_log",
+   "lernziel": "logfunktion",
+   "warum": "M10 1 (geprüft) verlangt die Logarithmus-Definition und Exponentialgleichungen, aber keine Logarithmusfunktion als Umkehrfunktion. Nach Kenntnisstand Oberstufe. Als Vertiefung markieren."
+  },
+  {
+   "thema_schluessel": "funktionen.exponential_log",
+   "lernziel": "zeitpunkt",
+   "warum": "Kein Stoff-Problem, aber doppelt mit gleichungen.exponential ('wachstum'). Vorschlag: hier streichen oder auf einen Verweis kürzen."
+  },
+  {
+   "thema_schluessel": "raum.pyramide_kegel_kugel",
+   "lernziel": "kegel_mantel (Mittelpunktswinkel φ des abgewickelten Mantels)",
+   "warum": "Nicht ausdrücklich im Lehrplan (dort: Oberflächenformel des Kegels begründen); als Teil der Begründung vertretbar, φ-Aufgaben nur Stufe 3."
+  }
+ ],
+ "themen": [
+  {
+   "thema_schluessel": "funktionen.exponential_log",
+   "abdeckung": "teilweise",
+   "hinweise": [
+    "Werte, Faktor, Modell, Graph: deckt den Kern von M10 1 ab, durchgehend mit Graphen.",
+    "Fehlt: Abgrenzung linear/exponentiell, Modellkritik.",
+    "'logfunktion' über Lehrplan, 'zeitpunkt' doppelt mit gleichungen.exponential und braucht den Logarithmus, der erst dort eingeführt wird – Reihenfolge der beiden Themen beachten."
+   ]
+  },
+  {
+   "thema_schluessel": "gleichungen.exponential",
+   "abdeckung": "vollständig",
+   "hinweise": [
+    "Logarithmus → gleiche Basis → logarithmieren → Potenzregel → Wachstum → Verstehen: deckt M10 1 ab, nur Potenzregel (richtig, vgl. ISB-Hinweis, dass weitere Regeln Oberstufe sind).",
+    "Sachkarte 'wachstum' vorhanden."
+   ]
+  },
+  {
+   "thema_schluessel": "stochastik.mehrstufig",
+   "abdeckung": "teilweise",
+   "hinweise": [
+    "Pfadregeln, ohne Zurücklegen, Gegenereignis, Baum ergänzen, Simulation: gut aufgebaut.",
+    "Fehlt: Monte-Carlo für π; Rückführung auf Urnenmodelle nur implizit.",
+    "Echte Baumdiagramme jetzt möglich."
+   ]
+  },
+  {
+   "thema_schluessel": "funktionen.trig",
+   "abdeckung": "teilweise",
+   "hinweise": [
+    "Bogenmaß, Werte, Periode, Amplitude, Zuordnen, Eigenschaften, Anwendung: guter Aufbau mit Graphen.",
+    "Fehlt: Parameter c (Pflicht!), negative Winkel/über 2π, Winkel zu gegebenem Wert.",
+    "x-Achse nur in Grad beschriftet; da Bogenmaß Lernziel ist, sollte die App π-Beschriftungen bekommen (Hinweis an Haupt-Chat)."
+   ]
+  },
+  {
+   "thema_schluessel": "gleichungen.polynom",
+   "abdeckung": "vollständig",
+   "hinweise": [
+    "Ausklammern, Nullprodukt, Substitution, Vielfachheit, Verstehen: deckt den Gleichungsteil von M10 4 ab; Polynomdivision zu Recht weggelassen.",
+    "Setzt Ausklammern (Kl. 7, Thema fehlt) und quadratische Gleichungen (Kl. 9) voraus."
+   ]
+  },
+  {
+   "thema_schluessel": "funktionen.ganzrational",
+   "abdeckung": "vollständig",
+   "hinweise": [
+    "Grad, Ausmultiplizieren, Randverhalten, Symmetrie, Nullstellen, Graph↔Term: deckt M10 4 vollständig ab.",
+    "Karte 'ausmultiplizieren' ist Wiederholung von Kl. 7 (Thema fehlt dort noch).",
+    "Graphenskizze selbst erstellen geht nicht (App) – Zuordnungsaufgaben sind ein guter Ersatz."
+   ]
+  },
+  {
+   "thema_schluessel": "raum.pyramide_kegel_kugel",
+   "abdeckung": "teilweise",
+   "hinweise": [
+    "Pyramide, Kegel, Kugel, Sachaufgaben mit Pythagoras/Trigonometrie, Verstehen: inhaltlich stark.",
+    "Fehlt: Rotationskörper, schiefe Prismen, Schrägbilder/Netze.",
+    "Setzt das fehlende Kl.-8-Thema Prisma/Zylinder voraus."
+   ]
+  }
+ ]
+}

@@ -42,3 +42,6 @@ begin
   if position('''jahrgang''' in d) = 0 then raise exception 'konto nicht angepasst'; end if;
   execute d;
 end $$;
+
+-- Leo ist in Klasse 8 (Sebastian, 14.11.).
+update schule.lernender set klasse = 8 where id = 2 and klasse is distinct from 8;

@@ -101,18 +101,41 @@ EXAKT = {0: (0, 1), 30: (Fr(1, 2), None), 90: (1, 0), 150: (Fr(1, 2), None), 180
          60: (None, Fr(1, 2)), 120: (None, Fr(-1, 2)), 240: (None, Fr(-1, 2)), 300: (None, Fr(1, 2)), 360: (0, 1)}
 
 
+def pi_luecke(text, q, w, h):
+    """Vielfaches von π als Lücke: ganze Zahl → '□ · π', sonst Bruch '□/□ · π'."""
+    q = Fr(q)
+    if q.denominator == 1:
+        return luecken(text, '□ · π', 'Zahl vor π', [q.numerator], w, h, c=[f'{q.numerator}'])
+    return luecken(text, '□/□ · π', 'Bruch vor π (gekürzt)', [q.numerator, q.denominator], w, h, c=[f'{q.numerator}', f'{q.denominator}'])
+
+
 def g_bogenmass(s):
     if s == 1:
         g = R.choice(list(GRAD_PI))
         q = GRAD_PI[g]
-        return luecken(f'Gib {g}° im Bogenmaß als Vielfaches von π an.', '□/□ · π', 'Bruch vor π (gekürzt; bei ganzen Zahlen Nenner 1)', [q.numerator, q.denominator],
-                       f'{g}° · π/180° = {br(Fr(g, 180))} · π = {pi_text(q)}.', 'Teile den Winkel durch 180° und kürze.',
-                       c=[f'{g} // {math.gcd(g, 180)}', f'180 // {math.gcd(g, 180)}'])
+        return pi_luecke(f'Gib {g}° im Bogenmaß als Vielfaches von π an.', q, f'{g}° · π/180° = {br(Fr(g, 180))} · π = {pi_text(q)}.',
+                         'Teile den Winkel durch 180° und kürze.')
     if s == 2:
         g = R.choice(list(GRAD_PI))
         q = GRAD_PI[g]
-        return zahl(f'Wie viel Grad sind {pi_text(q)}?', f'{pi_text(q)} · 180°/π = {br(q)} · 180° = {g}°.', 'Ersetze π durch 180°.', g, f'{q.numerator} * 180 / {q.denominator}', einheit='°')
-    if R.random() < 0.5:
+        return zahl(f'Wie viel Grad sind {pi_text(q)}?', f'{pi_text(q)} · 180°/π = {br(q)} · 180° = {g}°.', '360° entsprechen 2π. Was entspricht dann π?', g,
+                    f'{q.numerator} * 180 / {q.denominator}', einheit='°')
+    typ = R.random()
+    if typ < 0.4:
+        # Bogenlänge am Kreis mit Radius r: b = r · x (x im Bogenmaß)
+        r = R.randint(2, 12)
+        if R.random() < 0.5:
+            x = Fr(R.choice([1, 2, 3, 4, 5, 6]), 2)
+            b = r * x
+            return zahl(f'Ein Kreis hat den Radius {r} cm. Wie lang ist der Bogen zum Mittelpunktswinkel {dz(x)} (im Bogenmaß)?',
+                        f'Am Einheitskreis ist der Bogen {dz(x)} lang; beim Radius {r} cm ist er {r}-mal so lang: b = {r} · {dz(x)} = {dz(b)} cm.',
+                        'Das Bogenmaß ist die Bogenlänge am Kreis mit Radius 1. Wie ändert sich der Bogen bei einem größeren Radius?', b, f'{r} * {cf_(x)}', einheit='cm')
+        x = Fr(R.choice([1, 3, 5, 7, 9, 11]), R.choice([2, 4, 5]))
+        b = r * x
+        if not endlich(x) or not endlich(b) or x > 6: return None
+        return zahl(f'Ein Kreis hat den Radius {r} cm, ein Bogen ist {dz(b)} cm lang. Wie groß ist der Mittelpunktswinkel im Bogenmaß?',
+                    f'x = b : r = {dz(b)} : {r} = {dz(x)}.', 'Bogenlänge = Radius · Winkel im Bogenmaß; nach dem Winkel umstellen.', x, f'{cf_(b)} / {r}')
+    if typ < 0.7:
         g = R.randint(1, 359)
         if g in GRAD_PI: return None
         v = gerundet(math.radians(g), 2)
@@ -126,15 +149,22 @@ def g_bogenmass(s):
                 'Multipliziere mit 180°/π.', v, f'round({float(x)} * 180 / {K(PI)}, 1)', einheit='°', tol=0.1)
 
 
-def g_werte(s):
-    if s == 1 or (s == 2 and R.random() < 0.5):
-        g = R.choice([k for k in EXAKT if k not in (0, 360)] if s == 2 else [30, 90, 180, 270, 60])
-        sn, cs = EXAKT[g]
-        f, v = ('sin', sn) if sn is not None else ('cos', cs)
-        if sn is not None and cs is not None and R.random() < 0.5: f, v = 'cos', cs
-        q = GRAD_PI[g]
-        return zahl(f'Gib den exakten Wert von {f}({pi_text(q)}) an.', f'{pi_text(q)} = {g}°; {f} {g}° = {dz(v)}.',
-                    'Rechne zuerst ins Gradmaß um und denke an den Einheitskreis.', v, cf_(v))
+# exakte Werte mit Wurzeln: Bezugswinkel → Betrag
+ART = {0: '0', 30: '½', 45: '½√2', 60: '½√3', 90: '1'}
+GRAD_PI_45 = dict(GRAD_PI)
+
+
+def exakt_text(f, g):
+    """Exakter Wert von sin/cos(g°) als Text (mit Wurzeln)."""
+    w = math.sin(math.radians(g)) if f == 'sin' else math.cos(math.radians(g))
+    if abs(w) < 1e-9: return '0'
+    r = g % 180
+    ref = min(r, 180 - r)
+    if f == 'cos': ref = 90 - ref
+    return ('−' if w < 0 else '') + ART[ref]
+
+
+def _werte_rechner(s):
     x = Fr(R.randint(1, 60), 10)
     f = R.choice(['sin', 'cos'])
     w = (math.sin if f == 'sin' else math.cos)(float(x))
@@ -142,6 +172,60 @@ def g_werte(s):
     if v is None: return None
     return zahl(f'Berechne {f}({dz(x)}) (x im Bogenmaß) auf drei Nachkommastellen.', f'Taschenrechner im RAD-Modus: {f}({dz(x)}) ≈ {dz(v)}.',
                 'Stelle den Taschenrechner auf Bogenmaß (RAD).', v, f'round({K(w)}, 3)', tol=0.001)
+
+
+def _werte_einfach(s):
+    g = R.choice([k for k in EXAKT if k not in (0, 360)] if s == 2 else [30, 90, 180, 270, 60])
+    sn, cs = EXAKT[g]
+    f, v = ('sin', sn) if sn is not None else ('cos', cs)
+    if sn is not None and cs is not None and R.random() < 0.5: f, v = 'cos', cs
+    q = GRAD_PI[g]
+    return zahl(f'Gib den exakten Wert von {f}({pi_text(q)}) an.', f'{pi_text(q)} = {g}°; {f} {g}° = {dz(v)}.',
+                'Rechne zuerst ins Gradmaß um und denke an den Einheitskreis.', v, cf_(v))
+
+
+def _werte_wurzel(s):
+    g = R.choice([45, 135, 225, 315] + ([30, 60, 120, 150] if s == 2 else [210, 240, 300, 330, 120, 150]))
+    f = R.choice(['sin', 'cos'])
+    richtig = exakt_text(f, g)
+    if richtig.lstrip('−') not in ('½√2', '½√3'): return None
+    betrag = richtig.lstrip('−')
+    vz = '−' if richtig.startswith('−') else ''
+    gegen = '' if vz else '−'
+    andere = [gegen + betrag, vz + ('½√3' if betrag == '½√2' else '½√2'), vz + '½', ('√2' if betrag == '½√2' else '√3')]
+    q = GRAD_PI[g]
+    lage = 'oberhalb' if math.sin(math.radians(g)) > 0 else 'unterhalb'
+    seite = 'rechts' if math.cos(math.radians(g)) > 0 else 'links'
+    return auswahl(f'Welchen exakten Wert hat {f}({pi_text(q)})?', richtig, andere,
+                   f'{pi_text(q)} = {g}°. Der Punkt am Einheitskreis liegt {lage} der x-Achse und {seite} der y-Achse; Bezugswinkel {min(g % 180, 180 - g % 180)}°: {f}({pi_text(q)}) = {richtig}.',
+                   'Rechne ins Gradmaß um, bestimme den Bezugswinkel und das Vorzeichen am Einheitskreis.')
+
+
+def _werte_vorzeichen():
+    x = R.choice([Fr(1, 2), 1, Fr(3, 2), 2, Fr(5, 2), 3, Fr(7, 2), 4, Fr(9, 2), 5, Fr(11, 2), 6])
+    f = R.choice(['sin', 'cos'])
+    w = (math.sin if f == 'sin' else math.cos)(float(x))
+    if abs(w) < 0.1: return None
+    gr = [(Fr(0), 'π/2 ≈ 1,57'), (Fr(157, 100), 'π ≈ 3,14'), (Fr(314, 100), '3π/2 ≈ 4,71'), (Fr(471, 100), '2π ≈ 6,28')]
+    quad = 1 if x < Fr(157, 100) else 2 if x < Fr(314, 100) else 3 if x < Fr(471, 100) else 4
+    grenzen = ['0', 'π/2 ≈ 1,57', 'π ≈ 3,14', '3π/2 ≈ 4,71', '2π ≈ 6,28']
+    richtig = 'positiv' if w > 0 else 'negativ'
+    return auswahl(f'Ist {f}({dz(x)}) (x im Bogenmaß) positiv oder negativ? Entscheide ohne Taschenrechner.', richtig,
+                   ['negativ' if w > 0 else 'positiv', 'genau 0', 'Das kann man ohne Taschenrechner nicht entscheiden.'],
+                   f'{dz(x)} liegt zwischen {grenzen[quad - 1]} und {grenzen[quad]} ({quad}. Viertel des Einheitskreises). Dort ist {f} {richtig}.',
+                   'Vergleiche x mit π/2 ≈ 1,57, π ≈ 3,14 und 3π/2 ≈ 4,71: In welchem Viertel des Einheitskreises liegt der Punkt?')
+
+
+def g_werte(s):
+    # Taschenrechner nur auf Stufe 1–2; Stufe 3: Vorzeichen ohne Rechner und exakte Werte mit Wurzeln
+    if s == 1:
+        return _werte_einfach(1) if R.random() < 0.6 else _werte_rechner(1)
+    if s == 2:
+        z = R.random()
+        if z < 0.4: return _werte_wurzel(2)
+        if z < 0.7: return _werte_einfach(2)
+        return _werte_rechner(2)
+    return _werte_vorzeichen() if R.random() < 0.6 else _werte_wurzel(3)
 
 
 def cf_(x):
@@ -159,9 +243,8 @@ def g_periode(s):
     if s == 2:
         if R.random() < 0.5:
             q = Fr(2) / b
-            return luecken(f'Welche Periode hat f(x) = {fterm(f, b=b)} im Bogenmaß? Gib sie als Vielfaches von π an.', '□/□ · π',
-                           'Bruch vor π (gekürzt; bei ganzen Zahlen Nenner 1)', [q.numerator, q.denominator],
-                           f'p = 2π : {dz(b) if endlich(b) else br(b)} = {pi_text(q)}.', 'Periode = 2π geteilt durch b.', c=[f'{q.numerator}', f'{q.denominator}'])
+            return pi_luecke(f'Welche Periode hat f(x) = {fterm(f, b=b)} im Bogenmaß? Gib sie als Vielfaches von π an.', q,
+                             f'p = 2π : {dz(b) if endlich(b) else br(b)} = {pi_text(q)}.', 'Periode = 2π geteilt durch b.')
         if b < 1 or not endlich(b): return None
         return mit_grafik(zahl(f'Der Graph zeigt f(x) = {f}(b · x) für 0° ≤ x ≤ 360°. Lies die Periode ab und bestimme b.',
                                f'Eine Schwingung dauert {dz(p)}°, also b = 360° : {dz(p)}° = {dz(b)}.', 'Miss die Länge einer vollen Schwingung (z. B. von Maximum zu Maximum).',
@@ -177,6 +260,15 @@ def g_periode(s):
 
 
 def g_parameter(s):
+    if s == 3 and R.random() < 0.4:
+        # Term aus Kennwerten aufstellen
+        a, b, d = R.randint(1, 4), R.choice([1, 2, 3, 4]), R.randint(-3, 4)
+        M, m, p = d + a, d - a, 360 // b
+        return luecken(f'Eine Funktion f(x) = a · sin(b · x) + d (a > 0, b > 0, x in Grad) hat den größten Wert {dz(M)}, den kleinsten Wert {dz(m)} und die Periode {p}°. Bestimme a, b und d.',
+                       'f(x) = □ · sin(□ · x) + □', 'a, b und d (d auch negativ)', [a, b, d],
+                       f'd = ({dz(M)} + {kl(m)}) : 2 = {dz(d)}; a = ({dz(M)} − {kl(m)}) : 2 = {a}; b = 360° : {p}° = {b}. Also f(x) = {fterm("sin", a, b, d)}.',
+                       'Die Mittellinie liegt in der Mitte zwischen größtem und kleinstem Wert; die Amplitude ist der halbe Abstand.',
+                       c=[f'({M} - ({m})) / 2', f'360 / {p}', f'({M} + ({m})) / 2'])
     a = R.choice([2, 3, 4, Fr(1, 2), Fr(3, 2), 5])
     d = R.randint(-3, 3)
     f = R.choice(['sin', 'cos'])
@@ -198,23 +290,82 @@ def g_parameter(s):
                    c=[f'{d} - abs({cf_(aa)})', f'{d} + abs({cf_(aa)})'])
 
 
+# ---------- Graph und Term zuordnen ----------
+# Darstellung einer Funktion: (art, a, b, d, cg) für a · art(b · x + cg°) + d
+S1_GRAPHEN = [('sin', 3, 1, 0, 0), ('cos', 2, 1, 0, 0), ('sin', 1, 1, 2, 0), ('sin', -2, 1, 0, 0), ('cos', 1, 1, -1, 0), ('cos', Fr(3, 2), 1, 0, 0)]
+_GESEHEN = {}
+
+
+def zterm(t):
+    art, a, b, d, cg = t
+    af = '' if a == 1 else '−' if a == -1 else (dz(a) if endlich(Fr(a)) else br(a)) + ' · '
+    bx = 'x' if b == 1 else f'{dz(b)}x' if endlich(Fr(b)) else f'({br(b)})x'
+    innen = bx + (f' {plus(cg)}°' if cg else '')
+    s_ = f'f(x) = {af}{art}({innen})'
+    if d: s_ += f' {plus(d)}'
+    return s_
+
+
+def zwert(t, x):
+    art, a, b, d, cg = t
+    u = math.radians(float(b) * x + cg)
+    return float(a) * (math.sin(u) if art == 'sin' else math.cos(u)) + float(d)
+
+
+def gleich(t1, t2):
+    return all(abs(zwert(t1, x) - zwert(t2, x)) < 1e-9 for x in range(0, 721, 15))
+
+
+def zgraph(t):
+    art, a, b, d, cg = t
+    return {'art': art, 'a': zahlwert_json(a), 'b': zahlwert_json(b), 'c': math.radians(cg), 'd': zahlwert_json(d)}
+
+
 def g_zuordnen(s):
-    f = R.choice(['sin', 'cos'])
-    a = R.choice([1, 2, 3]) if s < 3 else R.choice([1, 2, 3, -1, -2])
-    b = R.choice([1, 2, Fr(1, 2)]) if s > 1 else 1
-    d = 0 if s == 1 else R.choice([0, 0, 1, -1, 2])
-    if s == 1 and a == 1: a = R.choice([2, 3])
-    richtig = 'f(x) = ' + fterm(f, a, b, d)
-    andere = ['f(x) = ' + fterm('cos' if f == 'sin' else 'sin', a, b, d),
-              'f(x) = ' + fterm(f, b if isinstance(b, int) and b != a else a + 1, a if isinstance(b, int) and b != a else b, d),
-              'f(x) = ' + fterm(f, a, b, -d) if d else 'f(x) = ' + fterm(f, a, b, a),
-              'f(x) = ' + fterm(f, -a, b, d)]
-    R.shuffle(andere)
+    pool, nr = AKT['pool'], AKT['nr']
+    if s == 1 and pool == 'uebung':
+        t = S1_GRAPHEN[nr % len(S1_GRAPHEN)]
+    elif s == 3 and R.random() < 0.45:
+        # Verschiebung in x-Richtung
+        t = (R.choice(['sin', 'cos']), R.choice([1, 2, 3]), 1, R.choice([0, 0, 1, -1]), R.choice([90, -90, 45, -45, 60, -60]))
+    else:
+        f = R.choice(['sin', 'cos'])
+        a = R.choice([1, 2, 3]) if s < 3 else R.choice([1, 2, 3, -1, -2])
+        b = R.choice([1, 2, Fr(1, 2)]) if s > 1 else 1
+        d = 0 if s == 1 else R.choice([0, 0, 1, -1, 2])
+        if s == 1 and a == 1: a = R.choice([2, 3])
+        t = (f, a, b, d, 0)
+    # Regel: innerhalb einer Stufe keinen Graphen doppelt
+    schon = _GESEHEN.setdefault(s, [])
+    if any(gleich(t, u) for u in schon): return None
+    f, a, b, d, cg = t
+    anders = 'cos' if f == 'sin' else 'sin'
+    if cg:
+        kand = [(f, a, 1, d, -cg), (anders, a, 1, d, 0), (f, a, 2, d, cg), (f, a, 1, cg, 0), (f, -a, 1, d, 0), (f, a, 1, d, 0)]
+    else:
+        kand = [(anders, a, b, d, 0), (f, b if isinstance(b, int) and b != a else a + 1, a if isinstance(b, int) and b != a else b, d, 0),
+                (f, a, b, -d, 0) if d else (f, a, b, a, 0), (f, -a, b, d, 0)]
+    R.shuffle(kand)
+    # Regel: Optionen, die zum selben Graphen führen, nie gemeinsam anbieten
+    gewaehlt = []
+    for k in kand:
+        if gleich(k, t) or any(gleich(k, g_) for g_ in gewaehlt): continue
+        gewaehlt.append(k)
+    if len(gewaehlt) < 3: return None
     p = Fr(360) / b
-    a_ = auswahl('Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?', richtig, andere,
-                 f'Mittellinie y = {dz(d)}, Amplitude {abs(a)}, Periode {dz(p)}° (b = {dz(b)}), Start bei x = 0 {"auf der Mittellinie" if f == "sin" else "im Maximum" if a > 0 else "im Minimum"}{" fallend" if f == "sin" and a < 0 else ""}: {richtig}.',
-                 'Lies Mittellinie, Amplitude und Periode ab. Wo beginnt der Graph bei x = 0?')
-    return mit_grafik(a_, bild([graph(f, a, b, d)], x=(0, 360)))
+    if cg:
+        start = f'Der Graph ist gegenüber {"a · " if a != 1 else ""}{f}(x) um {abs(cg)}° nach {"links" if cg > 0 else "rechts"} verschoben'
+        w = f'Mittellinie y = {dz(d)}, Amplitude {abs(a)}, Periode 360°. {start}: {zterm(t)}.'
+        if f == 'sin' and abs(cg) == 90:
+            w += f' (Gleichwertig: {"cos x" if cg > 0 else "−cos x"}{" mit Faktor " + str(a) if a != 1 else ""} – diese Schreibweise steht deshalb nicht zur Auswahl.)'
+    else:
+        w = (f'Mittellinie y = {dz(d)}, Amplitude {abs(a)}, Periode {dz(p)}° (b = {dz(b)}), Start bei x = 0 '
+             f'{"auf der Mittellinie" if f == "sin" else "im Maximum" if a > 0 else "im Minimum"}{" fallend" if f == "sin" and a < 0 else ""}: {zterm(t)}.')
+    a_ = auswahl('Welcher Funktionsterm gehört zum gezeichneten Graphen (x in Grad)?', zterm(t), [zterm(k) for k in gewaehlt], w,
+                 'Lies Mittellinie, Amplitude und Periode ab. Wo beginnt der Graph bei x = 0 – und ist er gegenüber sin bzw. cos verschoben?')
+    if a_ is None: return None
+    schon.append(t)
+    return mit_grafik(a_, bild([zgraph(t)], x=(0, 360)))
 
 
 def g_eigenschaften(s):
@@ -260,6 +411,58 @@ def g_eigenschaften(s):
                 'Wie viele halbe Perioden passen in 360°?', 2 * b, f'360 // ({p} // 2)')
 
 
+def _gezeiten(s):
+    """Wasserstand im Hafen: W(t) = m + s · sin(360°/12,4 · t)."""
+    m, sw = R.choice([(2, Fr(3, 2)), (3, 2), (Fr(5, 2), 1), (4, Fr(5, 2)), (3, Fr(3, 2))])
+    term = f'W(t) = {dz(m)} + {dz(sw) + " · " if sw != 1 else ""}sin(360°/12,4 · t)'
+    satz = f'Der Wasserstand in einem Hafen wird beschrieben durch {term} (t in Stunden nach Mitternacht, W in m).'
+    if s == 2:
+        frage = R.choice(['hoch', 'tief', 'T'])
+        if frage == 'hoch':
+            return zahl(f'{satz} Wie hoch steht das Wasser bei Flut höchstens?', f'Größter Wert: {dz(m)} + {dz(sw)} = {dz(m + sw)} m (sin = 1).',
+                        'Wann ist der Sinus am größten?', m + sw, f'{cf_(m)} + {cf_(sw)}', einheit='m')
+        if frage == 'tief':
+            return zahl(f'{satz} Wie hoch steht das Wasser bei Ebbe?', f'Kleinster Wert: {dz(m)} − {dz(sw)} = {dz(m - sw)} m (sin = −1).',
+                        'Wann ist der Sinus am kleinsten?', m - sw, f'{cf_(m)} - {cf_(sw)}', einheit='m')
+        return zahl(f'{satz} Nach wie vielen Stunden wiederholt sich der Wasserstand?', 'Periode = 360° : (360°/12,4) = 12,4 h.',
+                    'Periode = 360° : b.', Fr(124, 10), '360 / (360 / 12.4)', einheit='h')
+    t = R.randint(1, 11)
+    w = float(m) + float(sw) * math.sin(math.radians(360 / 12.4 * t))
+    v = gerundet(w, 1)
+    if v is None: return None
+    return zahl(f'{satz} Wie hoch steht das Wasser um {t} Uhr? Runde auf eine Nachkommastelle.',
+                f'W({t}) = {dz(m)} + {dz(sw)} · sin({dz(round(360 / 12.4 * t, 1))}°) ≈ {dz(v)} m.', 'Setze t ein; Taschenrechner im Gradmodus.',
+                v, f'round({K(w)}, 1)', einheit='m', tol=0.1)
+
+
+def _riesenrad_modell():
+    """Modell aus Sachangaben: h(t) = d − a · cos(b° · t)."""
+    D = R.choice([20, 24, 30, 36, 40, 50, 60, 70, 80])
+    tief = R.choice([1, 2, 3])
+    T = R.choice([10, 12, 15, 18, 20, 24, 30, 36, 40])
+    a, d, b = D // 2, D // 2 + tief, 360 // T
+    return luecken(f'Ein Riesenrad hat den Durchmesser {D} m. Der tiefste Punkt einer Gondel liegt {tief} m über dem Boden, eine Umdrehung dauert {T} min. '
+                   f'Die Gondel startet unten. Stelle die Höhe h(t) (t in Minuten) auf.', 'h(t) = □ − □ · cos(□° · t)', 'Mittelhöhe, Radius, Winkel pro Minute',
+                   [d, a, b], f'Radius a = {D} : 2 = {a} m; Mittelhöhe d = {a} + {tief} = {d} m; b = 360° : {T} = {b}° pro Minute. Also h(t) = {d} − {a} · cos({b}° · t).',
+                   'Die Mitte des Rads liegt einen Radius über dem tiefsten Punkt. In der Umlaufzeit dreht sich das Rad um 360°.',
+                   c=[f'{D} // 2 + {tief}', f'{D} // 2', f'360 // {T}'])
+
+
+def _riesenrad_zeitpunkt():
+    """Zeitpunkt bestimmen: d − a · cos(b t) = Ziel mit cos-Wert aus der Tabelle."""
+    T = R.choice([8, 12, 16, 20, 24, 30, 36, 40])
+    a = R.choice([10, 12, 16, 18, 20, 24, 25, 30])
+    d = a + R.choice([1, 2, 3])
+    k, winkel = R.choice([(Fr(-1, 2), 120), (0, 90), (Fr(1, 2), 60), (-1, 180)])
+    ziel = d - a * k
+    b = Fr(360, T)
+    t = Fr(winkel) / b
+    if not endlich(ziel) or not endlich(t) or not endlich(b): return None
+    return zahl(f'Die Höhe einer Riesenradgondel ist h(t) = {d} − {a} · cos({dz(b)}° · t) (t in min, h in m). Nach wie vielen Minuten ist die Gondel zum ersten Mal {dz(ziel)} m hoch?',
+                f'{d} − {a} · cos({dz(b)}° · t) = {dz(ziel)} ⇒ cos({dz(b)}° · t) = {dz(k)} ⇒ {dz(b)}° · t = {winkel}° (erster Winkel) ⇒ t = {winkel} : {dz(b)} = {dz(t)} min.',
+                'Stelle nach cos(…) um. Für welchen Winkel zwischen 0° und 180° hat cos diesen Wert?', t, f'{winkel} / {cf_(b)}', einheit='min')
+
+
 def g_anwendung(s):
     if s == 1:
         d, a, T = R.choice([(20, 18, 12), (30, 25, 20), (15, 12, 8), (60, 55, 30), (10, 8, 6)])
@@ -269,6 +472,8 @@ def g_anwendung(s):
                     f'h({t}) = {d} − {a} · cos({dz(Fr(360, T) * t)}°) = {dz(h)} m.', 'Setze t ein; cos 0° = 1, cos 90° = 0, cos 180° = −1.', h,
                     f'{d} - {a} * {round(math.cos(math.radians(360 / T * t)))}', einheit='m')
     if s == 2:
+        if R.random() < 0.4:
+            return _gezeiten(2)
         d, a, T = R.choice([(20, 18, 12), (30, 25, 20), (15, 12, 8), (60, 55, 30), (10, 8, 6), (40, 35, 15)])
         frage = R.choice(['max', 'min', 'T'])
         if frage == 'max':
@@ -280,7 +485,13 @@ def g_anwendung(s):
         return zahl(f'h(t) = {d} − {a} · cos({dz(Fr(360, T))}° · t) (t in Minuten). Wie lange dauert eine Umdrehung?',
                     f'Periode = 360° : {dz(Fr(360, T))}° = {T} min.', 'Periode = 360° : b.', T, f'360 / {cf_(Fr(360, T))}', einheit='min')
     typ = R.random()
+    if typ < 0.25:
+        return _riesenrad_modell()
     if typ < 0.5:
+        return _riesenrad_zeitpunkt()
+    if typ < 0.65:
+        return _gezeiten(3)
+    if typ < 0.82:
         d, a, T = R.choice([(12, 4, 365), (12, Fr(9, 2), 365), (12, Fr(7, 2), 365)])
         t = R.randint(1, 364)
         w = float(d) + float(a) * math.sin(math.radians(360 / 365 * (t - 80)))
@@ -314,5 +525,7 @@ if __name__ == '__main__':
           meiden={'bogenmass': ['Gib 60° im Bogenmaß'], 'werte': ['sin(5π/6)'], 'periode': ['f(x) = sin(3x)?'], 'parameter': ['f(x) = 3 · sin(x) + 1'],
                   'anwendung': ['h(t) = 20 − 18 · cos(30° · t) (t in Minuten, h in m). Wie hoch ist sie nach 4 min']},
           offen=['Zeichnungen: Graphen in den Lernkarten „werte“, „periode“, „parameter“, „zuordnen“, „eigenschaften“, „anwendung“; Aufgaben „Graph und Term zuordnen“, „Periode ablesen“, „Amplitude ablesen“ zeigen den Graphen. Die x-Achse ist in Grad beschriftet (grad: true), weil π-Beschriftungen nicht möglich sind; Bogenmaß wird über Umrechnung geübt.',
-                 'Verschiebung in x-Richtung (Parameter c) ist nicht enthalten: lehrplan_gym nennt nur „Sinus- und Kosinusfunktion“; a, b und d decken die Wirkung der Parameter ab. Bitte bei der Prüfung bestätigen.',
+                 'Verschiebung in x-Richtung: nach der Prüfung als Zuordnungsaufgabe mit Zeichnung (Stufe 3, „zuordnen“) aufgenommen; keine eigene Lernkarte.',
+                 'Prüfung eingearbeitet (Runde 3): Bogenlänge, exakte Werte mit Wurzeln (½√2, ½√3), Vorzeichen ohne Rechner, Term aus Kennwerten, Verschiebung in x-Richtung, Riesenrad-Modell aus Sachangaben, Zeitpunkt bestimmen, Gezeiten. Ganzzahlige Vielfache von π als „□ · π“. Zuordnen: kein Graph doppelt je Stufe, gleichwertige Terme nie zusammen als Optionen.',
+                 'Vorschlag der Prüfung an den Haupt-Chat (App, nicht Inhalt): x-Achse in Vielfachen von π beschriften (π/2, π, 3π/2) – würde „bogenmass“ und „werte“ anschaulicher machen. Bis dahin Gradbeschriftung.',
                  'Rechenausdruck c: Sinus/Kosinus-Werte als 12-stellige Konstanten mit Toleranz.'])

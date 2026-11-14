@@ -814,13 +814,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Der Wert eines Autos wächst jedes Jahr um 20 %. Wie groß ist der Wachstumsfaktor b?"
+    "text": "Der Wert eines Autos nimmt jedes Jahr um 15 % ab. Wie groß ist der Wachstumsfaktor b?"
    },
    "o": {
-    "wert": 1.2
+    "wert": 0.85
    },
-   "c": "1 + 20 / 100",
-   "w": "b = 1 + 20/100 = 1,2.",
+   "c": "1 - 15 / 100",
+   "w": "b = 1 − 15/100 = 0,85.",
    "h": "Wie viel Prozent bleiben bzw. kommen dazu?"
   },
   {
@@ -830,23 +830,7 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Eine Pflanzenfläche wächst jedes Jahr um 6 %. Wie groß ist der Wachstumsfaktor b?"
-   },
-   "o": {
-    "wert": 1.06
-   },
-   "c": "1 + 6 / 100",
-   "w": "b = 1 + 6/100 = 1,06.",
-   "h": "Wie viel Prozent bleiben bzw. kommen dazu?"
-  },
-  {
-   "l": "faktor",
-   "t": "faktor",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Guthaben wächst jedes Jahr um 2 %. Wie groß ist der Wachstumsfaktor b?"
+    "text": "Eine Einwohnerzahl wächst jedes Jahr um 2 %. Wie groß ist der Wachstumsfaktor b?"
    },
    "o": {
     "wert": 1.02
@@ -862,13 +846,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Guthaben nimmt jedes Jahr um 30 % ab. Wie groß ist der Wachstumsfaktor b?"
+    "text": "Die Zahl der Nutzer einer App nimmt jedes Jahr um 15 % ab. Wie groß ist der Wachstumsfaktor b?"
    },
    "o": {
-    "wert": 0.7
+    "wert": 0.85
    },
-   "c": "1 - 30 / 100",
-   "w": "b = 1 − 30/100 = 0,7.",
+   "c": "1 - 15 / 100",
+   "w": "b = 1 − 15/100 = 0,85.",
    "h": "Wie viel Prozent bleiben bzw. kommen dazu?"
   },
   {
@@ -878,13 +862,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Eine Einwohnerzahl nimmt jedes Jahr um 40 % ab. Wie groß ist der Wachstumsfaktor b?"
+    "text": "Eine Bakterienkultur wächst jede Stunde um 20 %. Wie groß ist der Wachstumsfaktor b?"
    },
    "o": {
-    "wert": 0.6
+    "wert": 1.2
    },
-   "c": "1 - 40 / 100",
-   "w": "b = 1 − 40/100 = 0,6.",
+   "c": "1 + 20 / 100",
+   "w": "b = 1 + 20/100 = 1,2.",
    "h": "Wie viel Prozent bleiben bzw. kommen dazu?"
   },
   {
@@ -894,283 +878,35 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Ein Bestand an Tieren nimmt jedes Jahr um 18 % ab. Wie groß ist der Wachstumsfaktor b?"
+    "text": "Ein Guthaben wächst jedes Jahr um 3 %. Wie groß ist der Wachstumsfaktor b?"
    },
    "o": {
-    "wert": 0.82
+    "wert": 1.03
    },
-   "c": "1 - 18 / 100",
-   "w": "b = 1 − 18/100 = 0,82.",
+   "c": "1 + 3 / 100",
+   "w": "b = 1 + 3/100 = 1,03.",
    "h": "Wie viel Prozent bleiben bzw. kommen dazu?"
   },
   {
    "l": "faktor",
    "t": "faktor",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "zahl",
    "f": {
-    "text": "f(t) = 1 500 · 1,4^t beschreibt einen Bestand (t in Jahren). Um wie viel Prozent wächst er pro Jahr?"
+    "text": "Der Wert eines Autos nimmt jedes Jahr um 8 % ab. Wie groß ist der Wachstumsfaktor b?"
    },
    "o": {
-    "wert": 40,
-    "einheit": "%"
+    "wert": 0.92
    },
-   "c": "abs(1.4 - 1) * 100",
-   "w": "b = 1,4 > 1: Zunahme um |1,4 − 1| · 100 % = 40 %.",
-   "h": "Vergleiche b mit 1."
+   "c": "1 - 8 / 100",
+   "w": "b = 1 − 8/100 = 0,92.",
+   "h": "Wie viel Prozent bleiben bzw. kommen dazu?"
   },
   {
    "l": "faktor",
    "t": "faktor",
    "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "f(t) = 50 · 0,9^t beschreibt einen Bestand (t in Jahren). Um wie viel Prozent sinkt er pro Jahr?"
-   },
-   "o": {
-    "wert": 10,
-    "einheit": "%"
-   },
-   "c": "abs(0.9 - 1) * 100",
-   "w": "b = 0,9 < 1: Abnahme um |0,9 − 1| · 100 % = 10 %.",
-   "h": "Vergleiche b mit 1."
-  },
-  {
-   "l": "faktor",
-   "t": "faktor",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "f(t) = 200 · 1,18^t beschreibt einen Bestand (t in Jahren). Um wie viel Prozent wächst er pro Jahr?"
-   },
-   "o": {
-    "wert": 18,
-    "einheit": "%"
-   },
-   "c": "abs(1.18 - 1) * 100",
-   "w": "b = 1,18 > 1: Zunahme um |1,18 − 1| · 100 % = 18 %.",
-   "h": "Vergleiche b mit 1."
-  },
-  {
-   "l": "faktor",
-   "t": "faktor",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "f(t) = 1 500 · 1,18^t beschreibt einen Bestand (t in Jahren). Um wie viel Prozent wächst er pro Jahr?"
-   },
-   "o": {
-    "wert": 18,
-    "einheit": "%"
-   },
-   "c": "abs(1.18 - 1) * 100",
-   "w": "b = 1,18 > 1: Zunahme um |1,18 − 1| · 100 % = 18 %.",
-   "h": "Vergleiche b mit 1."
-  },
-  {
-   "l": "faktor",
-   "t": "faktor",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "f(t) = 200 · 0,97^t beschreibt einen Bestand (t in Jahren). Um wie viel Prozent sinkt er pro Jahr?"
-   },
-   "o": {
-    "wert": 3,
-    "einheit": "%"
-   },
-   "c": "abs(0.97 - 1) * 100",
-   "w": "b = 0,97 < 1: Abnahme um |0,97 − 1| · 100 % = 3 %.",
-   "h": "Vergleiche b mit 1."
-  },
-  {
-   "l": "faktor",
-   "t": "faktor",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "f(t) = 120 · 1,3^t beschreibt einen Bestand (t in Jahren). Um wie viel Prozent wächst er pro Jahr?"
-   },
-   "o": {
-    "wert": 30,
-    "einheit": "%"
-   },
-   "c": "abs(1.3 - 1) * 100",
-   "w": "b = 1,3 > 1: Zunahme um |1,3 − 1| · 100 % = 30 %.",
-   "h": "Vergleiche b mit 1."
-  },
-  {
-   "l": "faktor",
-   "t": "faktor",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Beschreibt f(t) = 20 · 1,12^t Wachstum oder Zerfall, und um wie viel Prozent pro Schritt?"
-   },
-   "a": [
-    "Zerfall um 12 %",
-    "Wachstum um 88 %",
-    "Wachstum um 12 %",
-    "Wachstum um 112 %"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "b = 1,12 > 1, Änderung 12 % pro Schritt.",
-   "h": "Ist b größer oder kleiner als 1?"
-  },
-  {
-   "l": "faktor",
-   "t": "faktor",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Einwohnerzahl ändert sich jedes Jahr um −8 %. Um welchen Faktor ändert er sich in 2 Jahren?"
-   },
-   "o": {
-    "wert": 0.8464
-   },
-   "c": "0.92 ** 2",
-   "w": "Faktor pro Jahr 0,92; in 2 Jahren 0,92² = 0,8464.",
-   "h": "Die Faktoren werden multipliziert, nicht die Prozente addiert."
-  },
-  {
-   "l": "faktor",
-   "t": "faktor",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Beschreibt f(t) = 300 · 1,1^t Wachstum oder Zerfall, und um wie viel Prozent pro Schritt?"
-   },
-   "a": [
-    "Wachstum um 110 %",
-    "Wachstum um 90 %",
-    "Zerfall um 10 %",
-    "Wachstum um 10 %"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "b = 1,1 > 1, Änderung 10 % pro Schritt.",
-   "h": "Ist b größer oder kleiner als 1?"
-  },
-  {
-   "l": "faktor",
-   "t": "faktor",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Beschreibt f(t) = 20 · 0,99^t Wachstum oder Zerfall, und um wie viel Prozent pro Schritt?"
-   },
-   "a": [
-    "Zerfall um 1 %",
-    "Zerfall um 99 %",
-    "Wachstum um 1 %"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "b = 0,99 < 1, Änderung 1 % pro Schritt.",
-   "h": "Ist b größer oder kleiner als 1?"
-  },
-  {
-   "l": "faktor",
-   "t": "faktor",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Einwohnerzahl ändert sich jedes Jahr um +6 %. Um welchen Faktor ändert er sich in 3 Jahren?"
-   },
-   "o": {
-    "wert": 1.191016
-   },
-   "c": "1.06 ** 3",
-   "w": "Faktor pro Jahr 1,06; in 3 Jahren 1,06³ = 1,191016.",
-   "h": "Die Faktoren werden multipliziert, nicht die Prozente addiert."
-  },
-  {
-   "l": "faktor",
-   "t": "faktor",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Beschreibt f(t) = 20 · 0,8^t Wachstum oder Zerfall, und um wie viel Prozent pro Schritt?"
-   },
-   "a": [
-    "Zerfall um 20 %",
-    "Wachstum um 20 %",
-    "Zerfall um 80 %"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "b = 0,8 < 1, Änderung 20 % pro Schritt.",
-   "h": "Ist b größer oder kleiner als 1?"
-  },
-  {
-   "l": "faktor",
-   "t": "faktor",
-   "p": "test",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "f(t) = 8 000 · 0,94^t beschreibt einen Bestand (t in Jahren). Um wie viel Prozent sinkt er pro Jahr?"
-   },
-   "o": {
-    "wert": 6,
-    "einheit": "%"
-   },
-   "c": "abs(0.94 - 1) * 100",
-   "w": "b = 0,94 < 1: Abnahme um |0,94 − 1| · 100 % = 6 %."
-  },
-  {
-   "l": "faktor",
-   "t": "faktor",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "f(t) = 200 · 0,75^t beschreibt einen Bestand (t in Jahren). Um wie viel Prozent sinkt er pro Jahr?"
-   },
-   "o": {
-    "wert": 25,
-    "einheit": "%"
-   },
-   "c": "abs(0.75 - 1) * 100",
-   "w": "b = 0,75 < 1: Abnahme um |0,75 − 1| · 100 % = 25 %."
-  },
-  {
-   "l": "faktor",
-   "t": "faktor",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "f(t) = 200 · 0,9^t beschreibt einen Bestand (t in Jahren). Um wie viel Prozent sinkt er pro Jahr?"
-   },
-   "o": {
-    "wert": 10,
-    "einheit": "%"
-   },
-   "c": "abs(0.9 - 1) * 100",
-   "w": "b = 0,9 < 1: Abnahme um |0,9 − 1| · 100 % = 10 %."
-  },
-  {
-   "l": "faktor",
-   "t": "faktor",
-   "p": "korrektur",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -1181,7 +917,267 @@
     "einheit": "%"
    },
    "c": "abs(1.15 - 1) * 100",
-   "w": "b = 1,15 > 1: Zunahme um |1,15 − 1| · 100 % = 15 %."
+   "w": "b = 1,15 > 1: Zunahme um |1,15 − 1| · 100 % = 15 %.",
+   "h": "Vergleiche b mit 1."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "f(t) = 1 500 · 0,82^t beschreibt einen Bestand (t in Jahren). Um wie viel Prozent sinkt er pro Jahr?"
+   },
+   "o": {
+    "wert": 18,
+    "einheit": "%"
+   },
+   "c": "abs(0.82 - 1) * 100",
+   "w": "b = 0,82 < 1: Abnahme um |0,82 − 1| · 100 % = 18 %.",
+   "h": "Vergleiche b mit 1."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "f(t) = 1 500 · 1,1^t beschreibt einen Bestand (t in Jahren). Um wie viel Prozent wächst er pro Jahr?"
+   },
+   "o": {
+    "wert": 10,
+    "einheit": "%"
+   },
+   "c": "abs(1.1 - 1) * 100",
+   "w": "b = 1,1 > 1: Zunahme um |1,1 − 1| · 100 % = 10 %.",
+   "h": "Vergleiche b mit 1."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "f(t) = 50 · 1,08^t beschreibt einen Bestand (t in Jahren). Um wie viel Prozent wächst er pro Jahr?"
+   },
+   "o": {
+    "wert": 8,
+    "einheit": "%"
+   },
+   "c": "abs(1.08 - 1) * 100",
+   "w": "b = 1,08 > 1: Zunahme um |1,08 − 1| · 100 % = 8 %.",
+   "h": "Vergleiche b mit 1."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "f(t) = 200 · 0,88^t beschreibt einen Bestand (t in Jahren). Um wie viel Prozent sinkt er pro Jahr?"
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "%"
+   },
+   "c": "abs(0.88 - 1) * 100",
+   "w": "b = 0,88 < 1: Abnahme um |0,88 − 1| · 100 % = 12 %.",
+   "h": "Vergleiche b mit 1."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "f(t) = 8 000 · 1,12^t beschreibt einen Bestand (t in Jahren). Um wie viel Prozent wächst er pro Jahr?"
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "%"
+   },
+   "c": "abs(1.12 - 1) * 100",
+   "w": "b = 1,12 > 1: Zunahme um |1,12 − 1| · 100 % = 12 %.",
+   "h": "Vergleiche b mit 1."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Beschreibt f(t) = 300 · 1,04^t Wachstum oder Zerfall, und um wie viel Prozent pro Schritt?"
+   },
+   "a": [
+    "Wachstum um 4 %",
+    "Wachstum um 104 %",
+    "Wachstum um 96 %",
+    "Zerfall um 4 %"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "b = 1,04 > 1, Änderung 4 % pro Schritt.",
+   "h": "Ist b größer oder kleiner als 1?"
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Beschreibt f(t) = 20 · 0,94^t Wachstum oder Zerfall, und um wie viel Prozent pro Schritt?"
+   },
+   "a": [
+    "Zerfall um 6 %",
+    "Zerfall um 94 %",
+    "Wachstum um 6 %"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "b = 0,94 < 1, Änderung 6 % pro Schritt.",
+   "h": "Ist b größer oder kleiner als 1?"
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Menge eines Medikaments im Blut sinkt jede Stunde um 15 %. Um welchen Faktor ändert sie sich in 2 Stunden?"
+   },
+   "o": {
+    "wert": 0.7225
+   },
+   "c": "0.85 ** 2",
+   "w": "Faktor pro Jahr 0,85; in 2 Jahren 0,85² = 0,7225.",
+   "h": "Die Faktoren werden multipliziert, nicht die Prozente addiert."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Die Menge eines Medikaments im Blut sinkt jede Stunde um 25 %. Um welchen Faktor ändert sie sich in 2 Stunden?"
+   },
+   "o": {
+    "wert": 0.5625
+   },
+   "c": "0.75 ** 2",
+   "w": "Faktor pro Jahr 0,75; in 2 Jahren 0,75² = 0,5625.",
+   "h": "Die Faktoren werden multipliziert, nicht die Prozente addiert."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Beschreibt f(t) = 5 000 · 1,01^t Wachstum oder Zerfall, und um wie viel Prozent pro Schritt?"
+   },
+   "a": [
+    "Wachstum um 101 %",
+    "Wachstum um 99 %",
+    "Zerfall um 1 %",
+    "Wachstum um 1 %"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "b = 1,01 > 1, Änderung 1 % pro Schritt.",
+   "h": "Ist b größer oder kleiner als 1?"
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Guthaben wächst jedes Jahr um 5 %. Um welchen Faktor ändert es sich in 3 Jahren?"
+   },
+   "o": {
+    "wert": 1.157625
+   },
+   "c": "1.05 ** 3",
+   "w": "Faktor pro Jahr 1,05; in 3 Jahren 1,05³ = 1,157625.",
+   "h": "Die Faktoren werden multipliziert, nicht die Prozente addiert."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "f(t) = 8 000 · 1,01^t beschreibt einen Bestand (t in Jahren). Um wie viel Prozent wächst er pro Jahr?"
+   },
+   "o": {
+    "wert": 1,
+    "einheit": "%"
+   },
+   "c": "abs(1.01 - 1) * 100",
+   "w": "b = 1,01 > 1: Zunahme um |1,01 − 1| · 100 % = 1 %."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "f(t) = 1 500 · 1,01^t beschreibt einen Bestand (t in Jahren). Um wie viel Prozent wächst er pro Jahr?"
+   },
+   "o": {
+    "wert": 1,
+    "einheit": "%"
+   },
+   "c": "abs(1.01 - 1) * 100",
+   "w": "b = 1,01 > 1: Zunahme um |1,01 − 1| · 100 % = 1 %."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "f(t) = 200 · 0,85^t beschreibt einen Bestand (t in Jahren). Um wie viel Prozent sinkt er pro Jahr?"
+   },
+   "o": {
+    "wert": 15,
+    "einheit": "%"
+   },
+   "c": "abs(0.85 - 1) * 100",
+   "w": "b = 0,85 < 1: Abnahme um |0,85 − 1| · 100 % = 15 %."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "f(t) = 200 · 1,02^t beschreibt einen Bestand (t in Jahren). Um wie viel Prozent wächst er pro Jahr?"
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "%"
+   },
+   "c": "abs(1.02 - 1) * 100",
+   "w": "b = 1,02 > 1: Zunahme um |1,02 − 1| · 100 % = 2 %."
   },
   {
    "l": "faktor",
@@ -1190,7 +1186,55 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "f(t) = 120 · 1,04^t beschreibt einen Bestand (t in Jahren). Um wie viel Prozent wächst er pro Jahr?"
+    "text": "f(t) = 120 · 0,95^t beschreibt einen Bestand (t in Jahren). Um wie viel Prozent sinkt er pro Jahr?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "%"
+   },
+   "c": "abs(0.95 - 1) * 100",
+   "w": "b = 0,95 < 1: Abnahme um |0,95 − 1| · 100 % = 5 %."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "f(t) = 50 · 0,8^t beschreibt einen Bestand (t in Jahren). Um wie viel Prozent sinkt er pro Jahr?"
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "%"
+   },
+   "c": "abs(0.8 - 1) * 100",
+   "w": "b = 0,8 < 1: Abnahme um |0,8 − 1| · 100 % = 20 %."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "f(t) = 200 · 0,98^t beschreibt einen Bestand (t in Jahren). Um wie viel Prozent sinkt er pro Jahr?"
+   },
+   "o": {
+    "wert": 2,
+    "einheit": "%"
+   },
+   "c": "abs(0.98 - 1) * 100",
+   "w": "b = 0,98 < 1: Abnahme um |0,98 − 1| · 100 % = 2 %."
+  },
+  {
+   "l": "faktor",
+   "t": "faktor",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "f(t) = 200 · 1,04^t beschreibt einen Bestand (t in Jahren). Um wie viel Prozent wächst er pro Jahr?"
    },
    "o": {
     "wert": 4,
@@ -1206,14 +1250,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "f(t) = 1 500 · 1,1^t beschreibt einen Bestand (t in Jahren). Um wie viel Prozent wächst er pro Jahr?"
+    "text": "f(t) = 50 · 1,02^t beschreibt einen Bestand (t in Jahren). Um wie viel Prozent wächst er pro Jahr?"
    },
    "o": {
-    "wert": 10,
+    "wert": 2,
     "einheit": "%"
    },
-   "c": "abs(1.1 - 1) * 100",
-   "w": "b = 1,1 > 1: Zunahme um |1,1 − 1| · 100 % = 10 %."
+   "c": "abs(1.02 - 1) * 100",
+   "w": "b = 1,02 > 1: Zunahme um |1,02 − 1| · 100 % = 2 %."
   },
   {
    "l": "faktor",
@@ -1222,62 +1266,14 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "f(t) = 50 · 0,96^t beschreibt einen Bestand (t in Jahren). Um wie viel Prozent sinkt er pro Jahr?"
+    "text": "f(t) = 1 500 · 0,85^t beschreibt einen Bestand (t in Jahren). Um wie viel Prozent sinkt er pro Jahr?"
    },
    "o": {
-    "wert": 4,
+    "wert": 15,
     "einheit": "%"
    },
-   "c": "abs(0.96 - 1) * 100",
-   "w": "b = 0,96 < 1: Abnahme um |0,96 − 1| · 100 % = 4 %."
-  },
-  {
-   "l": "faktor",
-   "t": "faktor",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "f(t) = 1 500 · 0,99^t beschreibt einen Bestand (t in Jahren). Um wie viel Prozent sinkt er pro Jahr?"
-   },
-   "o": {
-    "wert": 1,
-    "einheit": "%"
-   },
-   "c": "abs(0.99 - 1) * 100",
-   "w": "b = 0,99 < 1: Abnahme um |0,99 − 1| · 100 % = 1 %."
-  },
-  {
-   "l": "faktor",
-   "t": "faktor",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "f(t) = 8 000 · 0,82^t beschreibt einen Bestand (t in Jahren). Um wie viel Prozent sinkt er pro Jahr?"
-   },
-   "o": {
-    "wert": 18,
-    "einheit": "%"
-   },
-   "c": "abs(0.82 - 1) * 100",
-   "w": "b = 0,82 < 1: Abnahme um |0,82 − 1| · 100 % = 18 %."
-  },
-  {
-   "l": "faktor",
-   "t": "faktor",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "f(t) = 120 · 0,97^t beschreibt einen Bestand (t in Jahren). Um wie viel Prozent sinkt er pro Jahr?"
-   },
-   "o": {
-    "wert": 3,
-    "einheit": "%"
-   },
-   "c": "abs(0.97 - 1) * 100",
-   "w": "b = 0,97 < 1: Abnahme um |0,97 − 1| · 100 % = 3 %."
+   "c": "abs(0.85 - 1) * 100",
+   "w": "b = 0,85 < 1: Abnahme um |0,85 − 1| · 100 % = 15 %."
   },
   {
    "l": "modell",
@@ -1286,13 +1282,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Eine Kultur enthält zu Beginn 400 Zellen und verdoppelt sich alle 5 h. Wie viele Zellen sind es nach 25 h?"
+    "text": "Eine Kultur enthält zu Beginn 300 Zellen und verdoppelt sich alle 5 h. Wie viele Zellen sind es nach 15 h?"
    },
    "o": {
-    "wert": 12800
+    "wert": 2400
    },
-   "c": "400 * 2 ** (25 / 5)",
-   "w": "25 : 5 = 5 Verdopplungen: 400 · 2⁵ = 12 800.",
+   "c": "300 * 2 ** (15 / 5)",
+   "w": "15 : 5 = 3 Verdopplungen: 300 · 2³ = 2 400.",
    "h": "Wie oft passt die Verdopplungszeit in die Zeitspanne?"
   },
   {
@@ -1302,13 +1298,61 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Eine Kultur enthält zu Beginn 300 Zellen und verdoppelt sich alle 20 min. Wie viele Zellen sind es nach 100 min?"
+    "text": "Eine Kultur enthält zu Beginn 500 Zellen und verdoppelt sich alle 6 h. Wie viele Zellen sind es nach 24 h?"
+   },
+   "o": {
+    "wert": 8000
+   },
+   "c": "500 * 2 ** (24 / 6)",
+   "w": "24 : 6 = 4 Verdopplungen: 500 · 2⁴ = 8 000.",
+   "h": "Wie oft passt die Verdopplungszeit in die Zeitspanne?"
+  },
+  {
+   "l": "modell",
+   "t": "modell",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kultur enthält zu Beginn 400 Zellen und verdoppelt sich alle 4 h. Wie viele Zellen sind es nach 16 h?"
+   },
+   "o": {
+    "wert": 6400
+   },
+   "c": "400 * 2 ** (16 / 4)",
+   "w": "16 : 4 = 4 Verdopplungen: 400 · 2⁴ = 6 400.",
+   "h": "Wie oft passt die Verdopplungszeit in die Zeitspanne?"
+  },
+  {
+   "l": "modell",
+   "t": "modell",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kultur enthält zu Beginn 400 Zellen und verdoppelt sich alle 30 min. Wie viele Zellen sind es nach 120 min?"
+   },
+   "o": {
+    "wert": 6400
+   },
+   "c": "400 * 2 ** (120 / 30)",
+   "w": "120 : 30 = 4 Verdopplungen: 400 · 2⁴ = 6 400.",
+   "h": "Wie oft passt die Verdopplungszeit in die Zeitspanne?"
+  },
+  {
+   "l": "modell",
+   "t": "modell",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Kultur enthält zu Beginn 300 Zellen und verdoppelt sich alle 30 min. Wie viele Zellen sind es nach 150 min?"
    },
    "o": {
     "wert": 9600
    },
-   "c": "300 * 2 ** (100 / 20)",
-   "w": "100 : 20 = 5 Verdopplungen: 300 · 2⁵ = 9 600.",
+   "c": "300 * 2 ** (150 / 30)",
+   "w": "150 : 30 = 5 Verdopplungen: 300 · 2⁵ = 9 600.",
    "h": "Wie oft passt die Verdopplungszeit in die Zeitspanne?"
   },
   {
@@ -1318,61 +1362,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Eine Kultur enthält zu Beginn 50 Zellen und verdoppelt sich alle 5 h. Wie viele Zellen sind es nach 20 h?"
+    "text": "Eine Kultur enthält zu Beginn 200 Zellen und verdoppelt sich alle 20 min. Wie viele Zellen sind es nach 40 min?"
    },
    "o": {
     "wert": 800
    },
-   "c": "50 * 2 ** (20 / 5)",
-   "w": "20 : 5 = 4 Verdopplungen: 50 · 2⁴ = 800.",
-   "h": "Wie oft passt die Verdopplungszeit in die Zeitspanne?"
-  },
-  {
-   "l": "modell",
-   "t": "modell",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Kultur enthält zu Beginn 400 Zellen und verdoppelt sich alle 2 h. Wie viele Zellen sind es nach 6 h?"
-   },
-   "o": {
-    "wert": 3200
-   },
-   "c": "400 * 2 ** (6 / 2)",
-   "w": "6 : 2 = 3 Verdopplungen: 400 · 2³ = 3 200.",
-   "h": "Wie oft passt die Verdopplungszeit in die Zeitspanne?"
-  },
-  {
-   "l": "modell",
-   "t": "modell",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Kultur enthält zu Beginn 500 Zellen und verdoppelt sich alle 5 h. Wie viele Zellen sind es nach 15 h?"
-   },
-   "o": {
-    "wert": 4000
-   },
-   "c": "500 * 2 ** (15 / 5)",
-   "w": "15 : 5 = 3 Verdopplungen: 500 · 2³ = 4 000.",
-   "h": "Wie oft passt die Verdopplungszeit in die Zeitspanne?"
-  },
-  {
-   "l": "modell",
-   "t": "modell",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Kultur enthält zu Beginn 400 Zellen und verdoppelt sich alle 5 h. Wie viele Zellen sind es nach 15 h?"
-   },
-   "o": {
-    "wert": 3200
-   },
-   "c": "400 * 2 ** (15 / 5)",
-   "w": "15 : 5 = 3 Verdopplungen: 400 · 2³ = 3 200.",
+   "c": "200 * 2 ** (40 / 20)",
+   "w": "40 : 20 = 2 Verdopplungen: 200 · 2² = 800.",
    "h": "Wie oft passt die Verdopplungszeit in die Zeitspanne?"
   },
   {
@@ -1382,240 +1378,19 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Eine Exponentialfunktion hat f(0) = 80 und f(1) = 240. Bestimme den Wachstumsfaktor b in f(x) = a · b^x."
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "240 / 80",
-   "w": "a = f(0) = 80; b = f(1) : f(0) = 240 : 80 = 3.",
-   "h": "Teile zwei aufeinanderfolgende Werte."
-  },
-  {
-   "l": "modell",
-   "t": "modell",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Exponentialfunktion hat f(0) = 20 und f(1) = 16. Bestimme den Wachstumsfaktor b in f(x) = a · b^x."
-   },
-   "o": {
-    "wert": 0.8
-   },
-   "c": "16 / 20",
-   "w": "a = f(0) = 20; b = f(1) : f(0) = 16 : 20 = 0,8.",
-   "h": "Teile zwei aufeinanderfolgende Werte."
-  },
-  {
-   "l": "modell",
-   "t": "modell",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Exponentialfunktion hat f(0) = 50 und f(1) = 100. Bestimme den Wachstumsfaktor b in f(x) = a · b^x."
-   },
-   "o": {
-    "wert": 2
-   },
-   "c": "100 / 50",
-   "w": "a = f(0) = 50; b = f(1) : f(0) = 100 : 50 = 2.",
-   "h": "Teile zwei aufeinanderfolgende Werte."
-  },
-  {
-   "l": "modell",
-   "t": "modell",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Exponentialfunktion hat f(0) = 50 und f(1) = 60. Bestimme den Wachstumsfaktor b in f(x) = a · b^x."
-   },
-   "o": {
-    "wert": 1.2
-   },
-   "c": "60 / 50",
-   "w": "a = f(0) = 50; b = f(1) : f(0) = 60 : 50 = 1,2.",
-   "h": "Teile zwei aufeinanderfolgende Werte."
-  },
-  {
-   "l": "modell",
-   "t": "modell",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Exponentialfunktion hat f(0) = 250 und f(1) = 125. Bestimme den Wachstumsfaktor b in f(x) = a · b^x."
-   },
-   "o": {
-    "wert": 0.5
-   },
-   "c": "125 / 250",
-   "w": "a = f(0) = 250; b = f(1) : f(0) = 125 : 250 = 0,5.",
-   "h": "Teile zwei aufeinanderfolgende Werte."
-  },
-  {
-   "l": "modell",
-   "t": "modell",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Exponentialfunktion hat f(0) = 250 und f(1) = 375. Bestimme den Wachstumsfaktor b in f(x) = a · b^x."
+    "text": "Eine Exponentialfunktion hat f(0) = 50 und f(1) = 75. Bestimme den Wachstumsfaktor b in f(x) = a · b^x."
    },
    "o": {
     "wert": 1.5
    },
-   "c": "375 / 250",
-   "w": "a = f(0) = 250; b = f(1) : f(0) = 375 : 250 = 1,5.",
+   "c": "75 / 50",
+   "w": "a = f(0) = 50; b = f(1) : f(0) = 75 : 50 = 1,5.",
    "h": "Teile zwei aufeinanderfolgende Werte."
   },
   {
    "l": "modell",
    "t": "modell",
    "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Der Graph von f(x) = a · b^x geht durch P(2 | 72) und Q(4 | 103,68). Bestimme den Anfangswert a."
-   },
-   "o": {
-    "wert": 50
-   },
-   "c": "72 / 1.2 ** 2",
-   "w": "b² = 103,68 : 72 ⇒ b = 1,2; a = 72 : 1,2² = 50.",
-   "h": "Erst b bestimmen, dann a aus einem Punkt."
-  },
-  {
-   "l": "modell",
-   "t": "modell",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Der Graph von f(x) = a · b^x (b > 0) geht durch P(2 | 14,4) und Q(4 | 20,736). Bestimme b."
-   },
-   "o": {
-    "wert": 1.2
-   },
-   "c": "(20.736 / 14.4) / 1.2",
-   "w": "f(4) : f(2) = b² = 20,736 : 14,4 = 1,44 ⇒ b = 1,2 (b > 0).",
-   "h": "Der Quotient der y-Werte ist b hoch Abstand der x-Werte."
-  },
-  {
-   "l": "modell",
-   "t": "modell",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Der Graph von f(x) = a · b^x (b > 0) geht durch P(1 | 75) und Q(3 | 168,75). Bestimme b."
-   },
-   "o": {
-    "wert": 1.5
-   },
-   "c": "(168.75 / 75) / 1.5",
-   "w": "f(3) : f(1) = b² = 168,75 : 75 = 2,25 ⇒ b = 1,5 (b > 0).",
-   "h": "Der Quotient der y-Werte ist b hoch Abstand der x-Werte."
-  },
-  {
-   "l": "modell",
-   "t": "modell",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Der Graph von f(x) = a · b^x geht durch P(3 | 72,9) und Q(5 | 59,049). Bestimme den Anfangswert a."
-   },
-   "o": {
-    "wert": 100
-   },
-   "c": "72.9 / 0.9 ** 3",
-   "w": "b² = 59,049 : 72,9 ⇒ b = 0,9; a = 72,9 : 0,9³ = 100.",
-   "h": "Erst b bestimmen, dann a aus einem Punkt."
-  },
-  {
-   "l": "modell",
-   "t": "modell",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Der Graph von f(x) = a · b^x (b > 0) geht durch P(1 | 50) und Q(3 | 12,5). Bestimme b."
-   },
-   "o": {
-    "wert": 0.5
-   },
-   "c": "(12.5 / 50) / 0.5",
-   "w": "f(3) : f(1) = b² = 12,5 : 50 = 0,25 ⇒ b = 0,5 (b > 0).",
-   "h": "Der Quotient der y-Werte ist b hoch Abstand der x-Werte."
-  },
-  {
-   "l": "modell",
-   "t": "modell",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Der Graph von f(x) = a · b^x geht durch P(3 | 1 350) und Q(5 | 12 150). Bestimme den Anfangswert a."
-   },
-   "o": {
-    "wert": 50
-   },
-   "c": "1350 / 3 ** 3",
-   "w": "b² = 12 150 : 1 350 ⇒ b = 3; a = 1 350 : 3³ = 50.",
-   "h": "Erst b bestimmen, dann a aus einem Punkt."
-  },
-  {
-   "l": "modell",
-   "t": "modell",
-   "p": "test",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Exponentialfunktion hat f(0) = 50 und f(1) = 150. Bestimme den Wachstumsfaktor b in f(x) = a · b^x."
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "150 / 50",
-   "w": "a = f(0) = 50; b = f(1) : f(0) = 150 : 50 = 3."
-  },
-  {
-   "l": "modell",
-   "t": "modell",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Exponentialfunktion hat f(0) = 20 und f(1) = 60. Bestimme den Wachstumsfaktor b in f(x) = a · b^x."
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "60 / 20",
-   "w": "a = f(0) = 20; b = f(1) : f(0) = 60 : 20 = 3."
-  },
-  {
-   "l": "modell",
-   "t": "modell",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Exponentialfunktion hat f(0) = 80 und f(1) = 64. Bestimme den Wachstumsfaktor b in f(x) = a · b^x."
-   },
-   "o": {
-    "wert": 0.8
-   },
-   "c": "64 / 80",
-   "w": "a = f(0) = 80; b = f(1) : f(0) = 64 : 80 = 0,8."
-  },
-  {
-   "l": "modell",
-   "t": "modell",
-   "p": "korrektur",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -1625,22 +1400,404 @@
     "wert": 0.5
    },
    "c": "50 / 100",
-   "w": "a = f(0) = 100; b = f(1) : f(0) = 50 : 100 = 0,5."
+   "w": "a = f(0) = 100; b = f(1) : f(0) = 50 : 100 = 0,5.",
+   "h": "Teile zwei aufeinanderfolgende Werte."
   },
   {
    "l": "modell",
    "t": "modell",
-   "p": "sicherung",
+   "p": "uebung",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Eine Exponentialfunktion hat f(0) = 80 und f(1) = 120. Bestimme den Wachstumsfaktor b in f(x) = a · b^x."
+    "text": "Eine Exponentialfunktion hat f(0) = 50 und f(1) = 150. Bestimme den Wachstumsfaktor b in f(x) = a · b^x."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "150 / 50",
+   "w": "a = f(0) = 50; b = f(1) : f(0) = 150 : 50 = 3.",
+   "h": "Teile zwei aufeinanderfolgende Werte."
+  },
+  {
+   "l": "modell",
+   "t": "modell",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Tabelle zeigt Werte einer Funktion. Ist sie linear oder exponentiell?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "x",
+      "0",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "y",
+       "5",
+       "10",
+       "20",
+       "40"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "linear, +5 je Schritt",
+    "exponentiell, Faktor 5 je Schritt",
+    "weder linear noch exponentiell",
+    "exponentiell, Faktor 2 je Schritt"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "10 : 5 = 2 ; 20 : 10 = 2 ; 40 : 20 = 2: immer derselbe Quotient, also exponentiell mit Faktor 2.",
+   "h": "Prüfe Differenzen (gleich ⇒ linear) und Quotienten (gleich ⇒ exponentiell) aufeinanderfolgender y-Werte."
+  },
+  {
+   "l": "modell",
+   "t": "modell",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Exponentialfunktion hat f(0) = 250 und f(1) = 312,5. Bestimme den Wachstumsfaktor b in f(x) = a · b^x."
+   },
+   "o": {
+    "wert": 1.25
+   },
+   "c": "312.5 / 250",
+   "w": "a = f(0) = 250; b = f(1) : f(0) = 312,5 : 250 = 1,25.",
+   "h": "Teile zwei aufeinanderfolgende Werte."
+  },
+  {
+   "l": "modell",
+   "t": "modell",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Tabelle zeigt Werte einer Funktion. Ist sie linear oder exponentiell?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "x",
+      "0",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "y",
+       "5",
+       "15",
+       "25",
+       "35"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "linear, +15 je Schritt",
+    "linear, +10 je Schritt",
+    "weder linear noch exponentiell",
+    "exponentiell, Faktor 3 je Schritt"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Differenzen: 10, 10, 10 – immer gleich, also linear. Die Quotienten (3, 5/3, …) sind nicht gleich.",
+   "h": "Prüfe Differenzen (gleich ⇒ linear) und Quotienten (gleich ⇒ exponentiell) aufeinanderfolgender y-Werte."
+  },
+  {
+   "l": "modell",
+   "t": "modell",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph von f(x) = a · b^x (b > 0) geht durch P(3 | 2 700) und Q(5 | 24 300). Bestimme b."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(24300 / 2700) / 3",
+   "w": "f(5) : f(3) = b² = 24 300 : 2 700 = 9 ⇒ b = 3 (b > 0).",
+   "h": "Der Quotient der y-Werte ist b hoch Abstand der x-Werte."
+  },
+  {
+   "l": "modell",
+   "t": "modell",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph von f(x) = a · b^x geht durch P(2 | 5) und Q(4 | 1,25). Bestimme den Anfangswert a."
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "5 / 0.5 ** 2",
+   "w": "b² = 1,25 : 5 ⇒ b = 0,5; a = 5 : 0,5² = 20.",
+   "h": "Erst b bestimmen, dann a aus einem Punkt."
+  },
+  {
+   "l": "modell",
+   "t": "modell",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph von f(x) = a · b^x geht durch P(2 | 450) und Q(4 | 4 050). Bestimme den Anfangswert a."
+   },
+   "o": {
+    "wert": 50
+   },
+   "c": "450 / 3 ** 2",
+   "w": "b² = 4 050 : 450 ⇒ b = 3; a = 450 : 3² = 50.",
+   "h": "Erst b bestimmen, dann a aus einem Punkt."
+  },
+  {
+   "l": "modell",
+   "t": "modell",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Graph von f(x) = a · b^x (b > 0) geht durch P(3 | 33,75) und Q(5 | 75,9375). Bestimme b."
    },
    "o": {
     "wert": 1.5
    },
-   "c": "120 / 80",
-   "w": "a = f(0) = 80; b = f(1) : f(0) = 120 : 80 = 1,5."
+   "c": "(75.9375 / 33.75) / 1.5",
+   "w": "f(5) : f(3) = b² = 75,9375 : 33,75 = 2,25 ⇒ b = 1,5 (b > 0).",
+   "h": "Der Quotient der y-Werte ist b hoch Abstand der x-Werte."
+  },
+  {
+   "l": "modell",
+   "t": "modell",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Medikament hat eine Halbwertszeit von 3 h. Anfangs sind 64 mg im Blut vorhanden. Wie viel mg sind es nach 9 h?"
+   },
+   "o": {
+    "wert": 8,
+    "einheit": "mg"
+   },
+   "c": "64 * 0.5 ** (9 / 3)",
+   "w": "Modell f(t) = 64 · 0,5^(t/3). f(9) = 64 · 0,5³ = 8 mg.",
+   "h": "Stelle das Modell mit 0,5 hoch (t : Halbwertszeit) auf."
+  },
+  {
+   "l": "modell",
+   "t": "modell",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Medikament hat eine Halbwertszeit von 8 h. Anfangs sind 160 mg im Blut vorhanden. Wie viel mg sind es nach 24 h?"
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "mg"
+   },
+   "c": "160 * 0.5 ** (24 / 8)",
+   "w": "Modell f(t) = 160 · 0,5^(t/8). f(24) = 160 · 0,5³ = 20 mg.",
+   "h": "Stelle das Modell mit 0,5 hoch (t : Halbwertszeit) auf."
+  },
+  {
+   "l": "modell",
+   "t": "modell",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Exponentialfunktion hat f(0) = 20 und f(1) = 24. Bestimme den Wachstumsfaktor b in f(x) = a · b^x."
+   },
+   "o": {
+    "wert": 1.2
+   },
+   "c": "24 / 20",
+   "w": "a = f(0) = 20; b = f(1) : f(0) = 24 : 20 = 1,2."
+  },
+  {
+   "l": "modell",
+   "t": "modell",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Tabelle zeigt Werte einer Funktion. Ist sie linear oder exponentiell?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "x",
+      "0",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "y",
+       "6",
+       "18",
+       "30",
+       "42"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "weder linear noch exponentiell",
+    "linear, +18 je Schritt",
+    "exponentiell, Faktor 3 je Schritt",
+    "linear, +12 je Schritt"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Differenzen: 12, 12, 12 – immer gleich, also linear. Die Quotienten (3, 5/3, …) sind nicht gleich."
+  },
+  {
+   "l": "modell",
+   "t": "modell",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Exponentialfunktion hat f(0) = 40 und f(1) = 48. Bestimme den Wachstumsfaktor b in f(x) = a · b^x."
+   },
+   "o": {
+    "wert": 1.2
+   },
+   "c": "48 / 40",
+   "w": "a = f(0) = 40; b = f(1) : f(0) = 48 : 40 = 1,2."
+  },
+  {
+   "l": "modell",
+   "t": "modell",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Tabelle zeigt Werte einer Funktion. Ist sie linear oder exponentiell?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "x",
+      "0",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "y",
+       "2",
+       "6",
+       "18",
+       "54"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "exponentiell, Faktor 3 je Schritt",
+    "exponentiell, Faktor 4 je Schritt",
+    "weder linear noch exponentiell",
+    "linear, +4 je Schritt"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "6 : 2 = 3 ; 18 : 6 = 3 ; 54 : 18 = 3: immer derselbe Quotient, also exponentiell mit Faktor 3."
+  },
+  {
+   "l": "modell",
+   "t": "modell",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Tabelle zeigt Werte einer Funktion. Ist sie linear oder exponentiell?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "x",
+      "0",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "y",
+       "4",
+       "12",
+       "20",
+       "28"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "linear, +12 je Schritt",
+    "linear, +8 je Schritt",
+    "exponentiell, Faktor 3 je Schritt",
+    "weder linear noch exponentiell"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Differenzen: 8, 8, 8 – immer gleich, also linear. Die Quotienten (3, 5/3, …) sind nicht gleich."
+  },
+  {
+   "l": "modell",
+   "t": "modell",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Tabelle zeigt Werte einer Funktion. Ist sie linear oder exponentiell?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "x",
+      "0",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "y",
+       "4",
+       "8",
+       "12",
+       "16"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "weder linear noch exponentiell",
+    "linear, +8 je Schritt",
+    "linear, +4 je Schritt",
+    "exponentiell, Faktor 2 je Schritt"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Differenzen: 4, 4, 4 – immer gleich, also linear. Die Quotienten (2, 1,5, …) sind nicht gleich."
   },
   {
    "l": "modell",
@@ -1649,13 +1806,13 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Eine Exponentialfunktion hat f(0) = 250 und f(1) = 750. Bestimme den Wachstumsfaktor b in f(x) = a · b^x."
+    "text": "Eine Exponentialfunktion hat f(0) = 50 und f(1) = 60. Bestimme den Wachstumsfaktor b in f(x) = a · b^x."
    },
    "o": {
-    "wert": 3
+    "wert": 1.2
    },
-   "c": "750 / 250",
-   "w": "a = f(0) = 250; b = f(1) : f(0) = 750 : 250 = 3."
+   "c": "60 / 50",
+   "w": "a = f(0) = 50; b = f(1) : f(0) = 60 : 50 = 1,2."
   },
   {
    "l": "modell",
@@ -1664,28 +1821,52 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Eine Exponentialfunktion hat f(0) = 100 und f(1) = 300. Bestimme den Wachstumsfaktor b in f(x) = a · b^x."
+    "text": "Eine Exponentialfunktion hat f(0) = 40 und f(1) = 32. Bestimme den Wachstumsfaktor b in f(x) = a · b^x."
    },
    "o": {
-    "wert": 3
+    "wert": 0.8
    },
-   "c": "300 / 100",
-   "w": "a = f(0) = 100; b = f(1) : f(0) = 300 : 100 = 3."
+   "c": "32 / 40",
+   "w": "a = f(0) = 40; b = f(1) : f(0) = 32 : 40 = 0,8."
   },
   {
    "l": "modell",
    "t": "modell",
    "p": "sicherung",
    "s": 2,
-   "y": "zahl",
+   "y": "auswahl",
    "f": {
-    "text": "Eine Exponentialfunktion hat f(0) = 40 und f(1) = 120. Bestimme den Wachstumsfaktor b in f(x) = a · b^x."
+    "text": "Die Tabelle zeigt Werte einer Funktion. Ist sie linear oder exponentiell?",
+    "grafik": {
+     "typ": "tabelle",
+     "kopf": [
+      "x",
+      "0",
+      "1",
+      "2",
+      "3"
+     ],
+     "zeilen": [
+      [
+       "y",
+       "4",
+       "12",
+       "36",
+       "108"
+      ]
+     ]
+    }
    },
+   "a": [
+    "exponentiell, Faktor 3 je Schritt",
+    "exponentiell, Faktor 8 je Schritt",
+    "weder linear noch exponentiell",
+    "linear, +8 je Schritt"
+   ],
    "o": {
-    "wert": 3
+    "index": 0
    },
-   "c": "120 / 40",
-   "w": "a = f(0) = 40; b = f(1) : f(0) = 120 : 40 = 3."
+   "w": "12 : 4 = 3 ; 36 : 12 = 3 ; 108 : 36 = 3: immer derselbe Quotient, also exponentiell mit Faktor 3."
   },
   {
    "l": "modell",
@@ -1701,21 +1882,6 @@
    },
    "c": "40 / 80",
    "w": "a = f(0) = 80; b = f(1) : f(0) = 40 : 80 = 0,5."
-  },
-  {
-   "l": "modell",
-   "t": "modell",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Exponentialfunktion hat f(0) = 50 und f(1) = 40. Bestimme den Wachstumsfaktor b in f(x) = a · b^x."
-   },
-   "o": {
-    "wert": 0.8
-   },
-   "c": "40 / 50",
-   "w": "a = f(0) = 50; b = f(1) : f(0) = 40 : 50 = 0,8."
   },
   {
    "l": "graph",
@@ -1764,69 +1930,9 @@
    "t": "graph",
    "p": "uebung",
    "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Ist der Graph von f(x) = 2 · (1/3)^x steigend oder fallend?"
-   },
-   "a": [
-    "zuerst steigend, dann fallend",
-    "fallend",
-    "steigend"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "b = 1/3 < 1 (und a > 0): fallend.",
-   "h": "Vergleiche den Wachstumsfaktor mit 1."
-  },
-  {
-   "l": "graph",
-   "t": "graph",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Ist der Graph von f(x) = 0,5^x steigend oder fallend?"
-   },
-   "a": [
-    "steigend",
-    "fallend",
-    "zuerst steigend, dann fallend"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "b = 0,5 < 1 (und a > 0): fallend.",
-   "h": "Vergleiche den Wachstumsfaktor mit 1."
-  },
-  {
-   "l": "graph",
-   "t": "graph",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Ist der Graph von f(x) = 5 · 5^x steigend oder fallend?"
-   },
-   "a": [
-    "zuerst steigend, dann fallend",
-    "steigend",
-    "fallend"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "b = 5 > 1 (und a > 0): steigend.",
-   "h": "Vergleiche den Wachstumsfaktor mit 1."
-  },
-  {
-   "l": "graph",
-   "t": "graph",
-   "p": "uebung",
-   "s": 1,
    "y": "luecken",
    "f": {
-    "text": "In welchem Punkt schneidet der Graph von f(x) = 4 · 2^x die y-Achse? (Zur Kontrolle ist der Graph gezeichnet.)",
+    "text": "In welchem Punkt schneidet der Graph von f(x) = 5 · (1/3)^x die y-Achse? (Zur Kontrolle ist der Graph gezeichnet.)",
     "schablone": "S(□ | □)",
     "hinweis": "x- und y-Koordinate",
     "grafik": {
@@ -1837,13 +1943,13 @@
      ],
      "y": [
       0,
-      60
+      70
      ],
      "graphen": [
       {
        "art": "exp",
-       "a": 4,
-       "b": 2
+       "a": 5,
+       "b": 0.3333333333333333
       }
      ]
     }
@@ -1851,14 +1957,14 @@
    "o": {
     "werte": [
      0,
-     4
+     5
     ]
    },
-   "w": "f(0) = 4 · 1 = 4, also S(0 | 4).",
+   "w": "f(0) = 5 · 1 = 5, also S(0 | 5).",
    "h": "Setze x = 0 ein.",
    "c": [
     "0",
-    "4 * 2 ** 0"
+    "5 * (1/3) ** 0"
    ]
   },
   {
@@ -1877,37 +1983,97 @@
      ],
      "y": [
       0,
-      70
+      30
      ],
      "graphen": [
       {
        "art": "exp",
-       "a": 5,
+       "a": 2,
        "b": 3
       }
      ]
     }
    },
    "a": [
-    "5 · 3^x",
-    "6 · 3^x",
-    "3 · 5^x",
-    "5 · 0,3333333333^x"
+    "2 · (1/3)^x",
+    "2 · 3^x",
+    "3 · 3^x",
+    "3 · 2^x"
    ],
    "o": {
-    "index": 0
+    "index": 1
    },
-   "w": "y-Achsenabschnitt (0 | 5) ⇒ a = 5; der Graph steigt ⇒ b > 1; f(1) = 15 ⇒ b = 3.",
+   "w": "y-Achsenabschnitt (0 | 2) ⇒ a = 2; der Graph steigt ⇒ b > 1; f(1) = 6 ⇒ b = 3.",
    "h": "Lies f(0) ab (das ist a) und vergleiche f(1) mit f(0) (Faktor b)."
   },
   {
    "l": "graph",
    "t": "graph",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm f(x) passt zum gezeichneten Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      4
+     ],
+     "y": [
+      0,
+      9
+     ],
+     "graphen": [
+      {
+       "art": "exp",
+       "a": 4,
+       "b": 0.8
+      }
+     ]
+    }
+   },
+   "a": [
+    "4 · 0,8^x",
+    "0,8 · 4^x",
+    "4 · 1,25^x",
+    "5 · 0,8^x"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "y-Achsenabschnitt (0 | 4) ⇒ a = 4; der Graph fällt ⇒ b < 1; f(1) = 3,2 ⇒ b = 0,8.",
+   "h": "Lies f(0) ab (das ist a) und vergleiche f(1) mit f(0) (Faktor b)."
+  },
+  {
+   "l": "graph",
+   "t": "graph",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist der Graph von f(x) = 5 · 0,5^x steigend oder fallend?"
+   },
+   "a": [
+    "steigend, weil a = 5 > 1",
+    "fallend, weil b = 0,5 < 1",
+    "steigend, weil b = 0,5 < 1",
+    "fallend, weil a = 5 > 1"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Über Steigen oder Fallen entscheidet der Faktor b, nicht a (a > 0): b = 0,5 < 1, also fallend.",
+   "h": "Welche der beiden Zahlen ist der Wachstumsfaktor?"
+  },
+  {
+   "l": "graph",
+   "t": "graph",
+   "p": "uebung",
+   "s": 1,
    "y": "luecken",
    "f": {
-    "text": "In welchem Punkt schneidet der Graph von f(x) = 5 · 3^x die y-Achse? (Zur Kontrolle ist der Graph gezeichnet.)",
+    "text": "In welchem Punkt schneidet der Graph von f(x) = 4 · 1,5^x die y-Achse? (Zur Kontrolle ist der Graph gezeichnet.)",
     "schablone": "S(□ | □)",
     "hinweis": "x- und y-Koordinate",
     "grafik": {
@@ -1918,13 +2084,13 @@
      ],
      "y": [
       0,
-      70
+      25
      ],
      "graphen": [
       {
        "art": "exp",
-       "a": 5,
-       "b": 3
+       "a": 4,
+       "b": 1.5
       }
      ]
     }
@@ -1932,14 +2098,14 @@
    "o": {
     "werte": [
      0,
-     5
+     4
     ]
    },
-   "w": "f(0) = 5 · 1 = 5, also S(0 | 5).",
+   "w": "f(0) = 4 · 1 = 4, also S(0 | 4).",
    "h": "Setze x = 0 ein.",
    "c": [
     "0",
-    "5 * 3 ** 0"
+    "4 * 1.5 ** 0"
    ]
   },
   {
@@ -1949,148 +2115,103 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Ist der Graph von f(x) = 10 · (1/3)^x steigend oder fallend?"
+    "text": "Welche Aussage über den Graphen von f(x) = 0,8^x ist richtig?"
    },
    "a": [
-    "zuerst steigend, dann fallend",
-    "fallend",
-    "steigend"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "b = 1/3 < 1 (und a > 0): fallend.",
-   "h": "Vergleiche den Wachstumsfaktor mit 1."
-  },
-  {
-   "l": "graph",
-   "t": "graph",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Aussage über den Graphen von f(x) = 4 · 0,8^x ist richtig?"
-   },
-   "a": [
-    "Er schneidet die x-Achse genau einmal.",
-    "Er geht durch (1 | 4).",
-    "Er hat die y-Achse als Asymptote.",
-    "Er hat keine Nullstelle."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "0,8^x ist immer positiv, also auch 4 · 0,8^x > 0. Die x-Achse ist Asymptote. f(1) = 3,2.",
-   "h": "Kann a · b^x null werden?"
-  },
-  {
-   "l": "graph",
-   "t": "graph",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ist der Graph von f(x) = 4 · 0,8^x steigend oder fallend?"
-   },
-   "a": [
-    "zuerst steigend, dann fallend",
-    "fallend",
-    "steigend"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "b = 0,8 < 1 (und a > 0): fallend.",
-   "h": "Vergleiche den Wachstumsfaktor mit 1."
-  },
-  {
-   "l": "graph",
-   "t": "graph",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Aussage über den Graphen von f(x) = 5 · 0,5^x ist richtig?"
-   },
-   "a": [
-    "Er geht durch (1 | 5).",
     "Er hat keine Nullstelle.",
-    "Er schneidet die x-Achse genau einmal.",
-    "Er hat die y-Achse als Asymptote."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "0,5^x ist immer positiv, also auch 5 · 0,5^x > 0. Die x-Achse ist Asymptote. f(1) = 2,5.",
-   "h": "Kann a · b^x null werden?"
-  },
-  {
-   "l": "graph",
-   "t": "graph",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ist der Graph von f(x) = 4 · 1,5^x steigend oder fallend?"
-   },
-   "a": [
-    "steigend",
-    "zuerst steigend, dann fallend",
-    "fallend"
+    "Er geht durch (1 | 1).",
+    "Er hat die y-Achse als Asymptote.",
+    "Er schneidet die x-Achse genau einmal."
    ],
    "o": {
     "index": 0
    },
-   "w": "b = 1,5 > 1 (und a > 0): steigend.",
-   "h": "Vergleiche den Wachstumsfaktor mit 1."
-  },
-  {
-   "l": "graph",
-   "t": "graph",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Asymptote hat der Graph von g(x) = 2^x + 1?"
-   },
-   "a": [
-    "y = 0",
-    "x = 1",
-    "y = −1",
-    "y = 1"
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "b^x nähert sich 0; um 1 verschoben nähert sich g(x) dem Wert 1.",
-   "h": "Wohin nähert sich b^x, und was bewirkt die Verschiebung?"
-  },
-  {
-   "l": "graph",
-   "t": "graph",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Aussage über den Graphen von f(x) = 1,5^x ist richtig?"
-   },
-   "a": [
-    "Er schneidet die x-Achse genau einmal.",
-    "Er hat die y-Achse als Asymptote.",
-    "Er geht durch (1 | 1).",
-    "Er hat keine Nullstelle."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "1,5^x ist immer positiv, also auch 1 · 1,5^x > 0. Die x-Achse ist Asymptote. f(1) = 1,5.",
+   "w": "0,8^x ist immer positiv, also auch 1 · 0,8^x > 0. Die x-Achse ist Asymptote. f(1) = 0,8.",
    "h": "Kann a · b^x null werden?"
   },
   {
    "l": "graph",
    "t": "graph",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm f(x) passt zum gezeichneten Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      4
+     ],
+     "y": [
+      0,
+      2.5
+     ],
+     "graphen": [
+      {
+       "art": "exp",
+       "a": 1,
+       "b": 0.8
+      }
+     ]
+    }
+   },
+   "a": [
+    "0,8^x",
+    "1,25^x",
+    "2 · 0,8^x",
+    "0,8 · 2^x"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "y-Achsenabschnitt (0 | 1) ⇒ a = 1; der Graph fällt ⇒ b < 1; f(1) = 0,8 ⇒ b = 0,8.",
+   "h": "Lies f(0) ab (das ist a) und vergleiche f(1) mit f(0) (Faktor b)."
+  },
+  {
+   "l": "graph",
+   "t": "graph",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm f(x) passt zum gezeichneten Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      4
+     ],
+     "y": [
+      0,
+      45
+     ],
+     "graphen": [
+      {
+       "art": "exp",
+       "a": 5,
+       "b": 0.5
+      }
+     ]
+    }
+   },
+   "a": [
+    "5 · 2^x",
+    "6 · 0,5^x",
+    "0,5 · 5^x",
+    "5 · 0,5^x"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "y-Achsenabschnitt (0 | 5) ⇒ a = 5; der Graph fällt ⇒ b < 1; f(1) = 2,5 ⇒ b = 0,5.",
+   "h": "Lies f(0) ab (das ist a) und vergleiche f(1) mit f(0) (Faktor b)."
+  },
+  {
+   "l": "graph",
+   "t": "graph",
+   "p": "uebung",
+   "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Welcher Funktionsterm f(x) passt zum gezeichneten Graphen?",
@@ -2129,22 +2250,195 @@
    "l": "graph",
    "t": "graph",
    "p": "uebung",
-   "s": 3,
+   "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Wie entsteht der Graph von g(x) = (1/4)^x aus dem Graphen von f(x) = 4^x?"
+    "text": "Ist der Graph von f(x) = 4 · 1,5^x steigend oder fallend?"
    },
    "a": [
-    "durch Spiegelung an der y-Achse",
-    "durch Verschiebung nach unten",
-    "durch Spiegelung an der x-Achse",
-    "durch Spiegelung an der Winkelhalbierenden y = x"
+    "steigend, weil b = 1,5 > 1",
+    "fallend, weil b = 1,5 > 1",
+    "steigend, weil a = 4 > 1",
+    "fallend, weil a = 4 > 1"
    ],
    "o": {
     "index": 0
    },
-   "w": "(1/4)^x = 4^(−x) = f(−x): Spiegelung an der y-Achse.",
+   "w": "Über Steigen oder Fallen entscheidet der Faktor b, nicht a (a > 0): b = 1,5 > 1, also steigend.",
+   "h": "Welche der beiden Zahlen ist der Wachstumsfaktor?"
+  },
+  {
+   "l": "graph",
+   "t": "graph",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "In welchem Punkt schneidet der Graph von f(x) = 3 · 3^x die y-Achse? (Zur Kontrolle ist der Graph gezeichnet.)",
+    "schablone": "S(□ | □)",
+    "hinweis": "x- und y-Koordinate",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      4
+     ],
+     "y": [
+      0,
+      40
+     ],
+     "graphen": [
+      {
+       "art": "exp",
+       "a": 3,
+       "b": 3
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     0,
+     3
+    ]
+   },
+   "w": "f(0) = 3 · 1 = 3, also S(0 | 3).",
+   "h": "Setze x = 0 ein.",
+   "c": [
+    "0",
+    "3 * 3 ** 0"
+   ]
+  },
+  {
+   "l": "graph",
+   "t": "graph",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die Zeichnung zeigt den Graphen von g(x) = 3^x − 1. In welchem Punkt schneidet er die y-Achse?",
+    "schablone": "S(□ | □)",
+    "hinweis": "x- und y-Koordinate",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      3
+     ],
+     "y": [
+      -2,
+      14
+     ],
+     "graphen": [
+      {
+       "art": "exp",
+       "a": 1,
+       "b": 3,
+       "c": -1
+      }
+     ],
+     "waagrecht": [
+      -1
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     0,
+     0
+    ]
+   },
+   "w": "g(0) = 3⁰ − 1 = 1 − 1 = 0, also S(0 | 0).",
+   "h": "Setze x = 0 ein; denk an b⁰ = 1.",
+   "c": [
+    "0",
+    "3 ** 0 + (-1)"
+   ]
+  },
+  {
+   "l": "graph",
+   "t": "graph",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Zeichnung zeigt den Graphen von g(x) = 3^x + 1. Welche Gerade ist Asymptote?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      3
+     ],
+     "y": [
+      0,
+      14
+     ],
+     "graphen": [
+      {
+       "art": "exp",
+       "a": 1,
+       "b": 3,
+       "c": 1
+      }
+     ],
+     "waagrecht": [
+      1
+     ]
+    }
+   },
+   "a": [
+    "y = −1",
+    "y = 0",
+    "x = 1",
+    "y = 1"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "3^x nähert sich für sehr kleine x der 0; um 1 verschoben nähert sich g(x) dem Wert 1. Asymptote: y = 1.",
+   "h": "Wohin nähert sich b^x, und was bewirkt die Verschiebung?"
+  },
+  {
+   "l": "graph",
+   "t": "graph",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Wie entsteht der Graph von g(x) = (1/2)^x aus dem Graphen von f(x) = 2^x?"
+   },
+   "a": [
+    "durch Spiegelung an der Winkelhalbierenden y = x",
+    "durch Spiegelung an der y-Achse",
+    "durch Verschiebung nach unten",
+    "durch Spiegelung an der x-Achse"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "(1/2)^x = 2^(−x) = f(−x): Spiegelung an der y-Achse.",
    "h": "Schreibe 1/b als b hoch −1."
+  },
+  {
+   "l": "graph",
+   "t": "graph",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über den Graphen von f(x) = 3 · 1,5^x ist richtig?"
+   },
+   "a": [
+    "Er hat die y-Achse als Asymptote.",
+    "Er hat keine Nullstelle.",
+    "Er schneidet die x-Achse genau einmal.",
+    "Er geht durch (1 | 3)."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "1,5^x ist immer positiv, also auch 3 · 1,5^x > 0. Die x-Achse ist Asymptote. f(1) = 4,5.",
+   "h": "Kann a · b^x null werden?"
   },
   {
    "l": "graph",
@@ -2156,13 +2450,13 @@
     "text": "Wie entsteht der Graph von g(x) = (1/5)^x aus dem Graphen von f(x) = 5^x?"
    },
    "a": [
-    "durch Verschiebung nach unten",
     "durch Spiegelung an der y-Achse",
     "durch Spiegelung an der x-Achse",
-    "durch Spiegelung an der Winkelhalbierenden y = x"
+    "durch Spiegelung an der Winkelhalbierenden y = x",
+    "durch Verschiebung nach unten"
    ],
    "o": {
-    "index": 1
+    "index": 0
    },
    "w": "(1/5)^x = 5^(−x) = f(−x): Spiegelung an der y-Achse.",
    "h": "Schreibe 1/b als b hoch −1."
@@ -2174,18 +2468,18 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage über den Graphen von f(x) = 3^x ist richtig?"
+    "text": "Welche Aussage über den Graphen von f(x) = 5 · 5^x ist richtig?"
    },
    "a": [
-    "Er geht durch (1 | 1).",
-    "Er schneidet die x-Achse genau einmal.",
     "Er hat keine Nullstelle.",
+    "Er schneidet die x-Achse genau einmal.",
+    "Er geht durch (1 | 5).",
     "Er hat die y-Achse als Asymptote."
    ],
    "o": {
-    "index": 2
+    "index": 0
    },
-   "w": "3^x ist immer positiv, also auch 1 · 3^x > 0. Die x-Achse ist Asymptote. f(1) = 3.",
+   "w": "5^x ist immer positiv, also auch 5 · 5^x > 0. Die x-Achse ist Asymptote. f(1) = 25.",
    "h": "Kann a · b^x null werden?"
   },
   {
@@ -2193,66 +2487,9 @@
    "t": "graph",
    "p": "test",
    "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welcher Funktionsterm f(x) passt zum gezeichneten Graphen?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -3,
-      4
-     ],
-     "y": [
-      0,
-      18
-     ],
-     "graphen": [
-      {
-       "art": "exp",
-       "a": 2,
-       "b": 0.5
-      }
-     ]
-    }
-   },
-   "a": [
-    "2 · 0,5^x",
-    "2 · 2^x",
-    "3 · 0,5^x",
-    "0,5 · 2^x"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "y-Achsenabschnitt (0 | 2) ⇒ a = 2; der Graph fällt ⇒ b < 1; f(1) = 1 ⇒ b = 0,5."
-  },
-  {
-   "l": "graph",
-   "t": "graph",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ist der Graph von f(x) = 10 · 3^x steigend oder fallend?"
-   },
-   "a": [
-    "zuerst steigend, dann fallend",
-    "fallend",
-    "steigend"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "b = 3 > 1 (und a > 0): steigend."
-  },
-  {
-   "l": "graph",
-   "t": "graph",
-   "p": "korrektur",
-   "s": 2,
    "y": "luecken",
    "f": {
-    "text": "In welchem Punkt schneidet der Graph von f(x) = 5 · 5^x die y-Achse? (Zur Kontrolle ist der Graph gezeichnet.)",
+    "text": "In welchem Punkt schneidet der Graph von f(x) = 2 · (1/3)^x die y-Achse? (Zur Kontrolle ist der Graph gezeichnet.)",
     "schablone": "S(□ | □)",
     "hinweis": "x- und y-Koordinate",
     "grafik": {
@@ -2263,13 +2500,13 @@
      ],
      "y": [
       0,
-      70
+      30
      ],
      "graphen": [
       {
        "art": "exp",
-       "a": 5,
-       "b": 5
+       "a": 2,
+       "b": 0.3333333333333333
       }
      ]
     }
@@ -2277,13 +2514,13 @@
    "o": {
     "werte": [
      0,
-     5
+     2
     ]
    },
-   "w": "f(0) = 5 · 1 = 5, also S(0 | 5).",
+   "w": "f(0) = 2 · 1 = 2, also S(0 | 2).",
    "c": [
     "0",
-    "5 * 5 ** 0"
+    "2 * (1/3) ** 0"
    ]
   },
   {
@@ -2293,45 +2530,7 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welcher Funktionsterm f(x) passt zum gezeichneten Graphen?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -3,
-      4
-     ],
-     "y": [
-      0,
-      140
-     ],
-     "graphen": [
-      {
-       "art": "exp",
-       "a": 10,
-       "b": 2
-      }
-     ]
-    }
-   },
-   "a": [
-    "11 · 2^x",
-    "2 · 10^x",
-    "10 · 2^x",
-    "10 · 0,5^x"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "y-Achsenabschnitt (0 | 10) ⇒ a = 10; der Graph steigt ⇒ b > 1; f(1) = 20 ⇒ b = 2."
-  },
-  {
-   "l": "graph",
-   "t": "graph",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Aussage über den Graphen von f(x) = 0,5^x ist richtig?"
+    "text": "Welche Aussage über den Graphen von f(x) = 1,5^x ist richtig?"
    },
    "a": [
     "Er hat keine Nullstelle.",
@@ -2342,46 +2541,47 @@
    "o": {
     "index": 0
    },
-   "w": "0,5^x ist immer positiv, also auch 1 · 0,5^x > 0. Die x-Achse ist Asymptote. f(1) = 0,5."
+   "w": "1,5^x ist immer positiv, also auch 1 · 1,5^x > 0. Die x-Achse ist Asymptote. f(1) = 1,5."
   },
   {
    "l": "graph",
    "t": "graph",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "auswahl",
    "f": {
     "text": "Ist der Graph von f(x) = 4 · 2^x steigend oder fallend?"
    },
    "a": [
-    "steigend",
-    "fallend",
-    "zuerst steigend, dann fallend"
+    "steigend, weil a = 4 > 1",
+    "steigend, weil b = 2 > 1",
+    "fallend, weil b = 2 > 1",
+    "fallend, weil a = 4 > 1"
    ],
    "o": {
-    "index": 0
+    "index": 1
    },
-   "w": "b = 2 > 1 (und a > 0): steigend."
+   "w": "Über Steigen oder Fallen entscheidet der Faktor b, nicht a (a > 0): b = 2 > 1, also steigend."
   },
   {
    "l": "graph",
    "t": "graph",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage über den Graphen von f(x) = 2 · 1,5^x ist richtig?"
+    "text": "Welche Aussage über den Graphen von f(x) = 5 · 1,5^x ist richtig?"
    },
    "a": [
     "Er schneidet die x-Achse genau einmal.",
     "Er hat keine Nullstelle.",
     "Er hat die y-Achse als Asymptote.",
-    "Er geht durch (1 | 2)."
+    "Er geht durch (1 | 5)."
    ],
    "o": {
     "index": 1
    },
-   "w": "1,5^x ist immer positiv, also auch 2 · 1,5^x > 0. Die x-Achse ist Asymptote. f(1) = 3."
+   "w": "1,5^x ist immer positiv, also auch 5 · 1,5^x > 0. Die x-Achse ist Asymptote. f(1) = 7,5."
   },
   {
    "l": "graph",
@@ -2429,44 +2629,6 @@
    "t": "graph",
    "p": "sicherung",
    "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welcher Funktionsterm f(x) passt zum gezeichneten Graphen?",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -3,
-      4
-     ],
-     "y": [
-      0,
-      9
-     ],
-     "graphen": [
-      {
-       "art": "exp",
-       "a": 4,
-       "b": 0.8
-      }
-     ]
-    }
-   },
-   "a": [
-    "0,8 · 4^x",
-    "5 · 0,8^x",
-    "4 · 0,8^x",
-    "4 · 1,25^x"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "y-Achsenabschnitt (0 | 4) ⇒ a = 4; der Graph fällt ⇒ b < 1; f(1) = 3,2 ⇒ b = 0,8."
-  },
-  {
-   "l": "graph",
-   "t": "graph",
-   "p": "sicherung",
-   "s": 2,
    "y": "luecken",
    "f": {
     "text": "In welchem Punkt schneidet der Graph von f(x) = 3 · (1/3)^x die y-Achse? (Zur Kontrolle ist der Graph gezeichnet.)",
@@ -2504,19 +2666,117 @@
    ]
   },
   {
+   "l": "graph",
+   "t": "graph",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Funktionsterm f(x) passt zum gezeichneten Graphen?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      4
+     ],
+     "y": [
+      0,
+      40
+     ],
+     "graphen": [
+      {
+       "art": "exp",
+       "a": 3,
+       "b": 5
+      }
+     ]
+    }
+   },
+   "a": [
+    "3 · 0,2^x",
+    "3 · 5^x",
+    "4 · 5^x",
+    "5 · 3^x"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "y-Achsenabschnitt (0 | 3) ⇒ a = 3; der Graph steigt ⇒ b > 1; f(1) = 15 ⇒ b = 5."
+  },
+  {
+   "l": "graph",
+   "t": "graph",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über den Graphen von f(x) = 2 · 0,8^x ist richtig?"
+   },
+   "a": [
+    "Er hat die y-Achse als Asymptote.",
+    "Er hat keine Nullstelle.",
+    "Er geht durch (1 | 2).",
+    "Er schneidet die x-Achse genau einmal."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "0,8^x ist immer positiv, also auch 2 · 0,8^x > 0. Die x-Achse ist Asymptote. f(1) = 1,6."
+  },
+  {
+   "l": "graph",
+   "t": "graph",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist der Graph von f(x) = 2 · 2^x steigend oder fallend?"
+   },
+   "a": [
+    "steigend, weil b = 2 > 1",
+    "fallend, weil b = 2 > 1",
+    "steigend, weil a = 2 > 1",
+    "fallend, weil a = 2 > 1"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Über Steigen oder Fallen entscheidet der Faktor b, nicht a (a > 0): b = 2 > 1, also steigend."
+  },
+  {
+   "l": "graph",
+   "t": "graph",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist der Graph von f(x) = 1,5^x steigend oder fallend?"
+   },
+   "a": [
+    "fallend, weil a = 1",
+    "fallend, weil b = 1,5 > 1",
+    "steigend, weil b = 1,5 > 1",
+    "steigend, weil a = 1"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Über Steigen oder Fallen entscheidet der Faktor b, nicht a (a > 0): b = 1,5 > 1, also steigend."
+  },
+  {
    "l": "logfunktion",
    "t": "logfunktion",
    "p": "uebung",
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Berechne f(256) für f(x) = log₄(x)."
+    "text": "Berechne f(128) für f(x) = log₂(x)."
    },
    "o": {
-    "wert": 4
+    "wert": 7
    },
-   "c": "4 + (4 ** 4 - 256)",
-   "w": "4⁴ = 256, also f(256) = 4.",
+   "c": "7 + (2 ** 7 - 128)",
+   "w": "2⁷ = 128, also f(128) = 7.",
    "h": "Mit welchem Exponenten wird die Basis zu x?"
   },
   {
@@ -2526,13 +2786,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Berechne f(1 000) für f(x) = lg(x)."
+    "text": "Berechne f(125) für f(x) = log₅(x)."
    },
    "o": {
     "wert": 3
    },
-   "c": "3 + (10 ** 3 - 1000)",
-   "w": "10³ = 1 000, also f(1 000) = 3.",
+   "c": "3 + (5 ** 3 - 125)",
+   "w": "5³ = 125, also f(125) = 3.",
    "h": "Mit welchem Exponenten wird die Basis zu x?"
   },
   {
@@ -2542,45 +2802,13 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "Berechne f(27) für f(x) = log₃(x)."
+    "text": "Berechne f(4) für f(x) = log₄(x)."
    },
    "o": {
-    "wert": 3
+    "wert": 1
    },
-   "c": "3 + (3 ** 3 - 27)",
-   "w": "3³ = 27, also f(27) = 3.",
-   "h": "Mit welchem Exponenten wird die Basis zu x?"
-  },
-  {
-   "l": "logfunktion",
-   "t": "logfunktion",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne f(16) für f(x) = log₂(x)."
-   },
-   "o": {
-    "wert": 4
-   },
-   "c": "4 + (2 ** 4 - 16)",
-   "w": "2⁴ = 16, also f(16) = 4.",
-   "h": "Mit welchem Exponenten wird die Basis zu x?"
-  },
-  {
-   "l": "logfunktion",
-   "t": "logfunktion",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne f(9) für f(x) = log₃(x)."
-   },
-   "o": {
-    "wert": 2
-   },
-   "c": "2 + (3 ** 2 - 9)",
-   "w": "3² = 9, also f(9) = 2.",
+   "c": "1 + (4 ** 1 - 4)",
+   "w": "4¹ = 4, also f(4) = 1.",
    "h": "Mit welchem Exponenten wird die Basis zu x?"
   },
   {
@@ -2603,64 +2831,33 @@
    "l": "logfunktion",
    "t": "logfunktion",
    "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
+   "s": 1,
+   "y": "zahl",
    "f": {
-    "text": "Für welche x ist f(x) = log₄(x) definiert?"
+    "text": "Berechne f(10) für f(x) = lg(x)."
    },
-   "a": [
-    "für alle x ≥ 0",
-    "für alle x ≠ 0",
-    "für alle x > 0",
-    "für alle x"
-   ],
    "o": {
-    "index": 2
+    "wert": 1
    },
-   "w": "4^y ist immer positiv, also gibt es log₄(x) nur für x > 0.",
-   "h": "Welche Werte nimmt b^y an?"
+   "c": "1 + (10 ** 1 - 10)",
+   "w": "10¹ = 10, also f(10) = 1.",
+   "h": "Mit welchem Exponenten wird die Basis zu x?"
   },
   {
    "l": "logfunktion",
    "t": "logfunktion",
    "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
+   "s": 1,
+   "y": "zahl",
    "f": {
-    "text": "Für welche x ist f(x) = log₃(x) definiert?"
+    "text": "Berechne f(27) für f(x) = log₃(x)."
    },
-   "a": [
-    "für alle x > 0",
-    "für alle x",
-    "für alle x ≠ 0",
-    "für alle x ≥ 0"
-   ],
    "o": {
-    "index": 0
+    "wert": 3
    },
-   "w": "3^y ist immer positiv, also gibt es log₃(x) nur für x > 0.",
-   "h": "Welche Werte nimmt b^y an?"
-  },
-  {
-   "l": "logfunktion",
-   "t": "logfunktion",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Für welche x ist f(x) = log₅(x) definiert?"
-   },
-   "a": [
-    "für alle x > 0",
-    "für alle x",
-    "für alle x ≥ 0",
-    "für alle x ≠ 0"
-   ],
-   "o": {
-    "index": 0
-   },
-   "w": "5^y ist immer positiv, also gibt es log₅(x) nur für x > 0.",
-   "h": "Welche Werte nimmt b^y an?"
+   "c": "3 + (3 ** 3 - 27)",
+   "w": "3³ = 27, also f(27) = 3.",
+   "h": "Mit welchem Exponenten wird die Basis zu x?"
   },
   {
    "l": "logfunktion",
@@ -2672,13 +2869,13 @@
     "text": "Für welche x ist f(x) = lg(x) definiert?"
    },
    "a": [
-    "für alle x > 0",
     "für alle x ≥ 0",
-    "für alle x",
-    "für alle x ≠ 0"
+    "für alle x ≠ 0",
+    "für alle x > 0",
+    "für alle x"
    ],
    "o": {
-    "index": 0
+    "index": 2
    },
    "w": "10^y ist immer positiv, also gibt es lg(x) nur für x > 0.",
    "h": "Welche Werte nimmt b^y an?"
@@ -2688,23 +2885,39 @@
    "t": "logfunktion",
    "p": "uebung",
    "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne ohne Taschenrechner: lg(0,01)."
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "-2 + (10 ** (-2) - 0.01)",
+   "w": "0,01 = 10^(−2), also lg(0,01) = −2.",
+   "h": "Schreibe die Zahl als Potenz der Basis; Kehrwert heißt negativer Exponent."
+  },
+  {
+   "l": "logfunktion",
+   "t": "logfunktion",
+   "p": "uebung",
+   "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Der Graph von g(x) = 3^x geht durch P(1 | 3). Welcher Punkt liegt deshalb auf dem Graphen von f(x) = log₃(x)?",
+    "text": "Der Graph von g(x) = 2^x geht durch P(4 | 16). Welcher Punkt liegt deshalb auf dem Graphen von f(x) = log₂(x)?",
     "schablone": "Q(□ | □)",
     "hinweis": "x- und y-Koordinate"
    },
    "o": {
     "werte": [
-     3,
-     1
+     16,
+     4
     ]
    },
-   "w": "Umkehrfunktion: Koordinaten tauschen ⇒ Q(3 | 1).",
+   "w": "Umkehrfunktion: Koordinaten tauschen ⇒ Q(16 | 4).",
    "h": "Bei der Umkehrfunktion werden x und y vertauscht.",
    "c": [
-    "3 ** 1",
-    "1"
+    "2 ** 4",
+    "4"
    ]
   },
   {
@@ -2714,21 +2927,61 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Der Graph von g(x) = 10^x geht durch P(3 | 1 000). Welcher Punkt liegt deshalb auf dem Graphen von f(x) = lg(x)?",
+    "text": "Der Graph von g(x) = 4^x geht durch P(3 | 64). Welcher Punkt liegt deshalb auf dem Graphen von f(x) = log₄(x)?",
     "schablone": "Q(□ | □)",
     "hinweis": "x- und y-Koordinate"
    },
    "o": {
     "werte": [
-     1000,
+     64,
      3
     ]
    },
-   "w": "Umkehrfunktion: Koordinaten tauschen ⇒ Q(1 000 | 3).",
+   "w": "Umkehrfunktion: Koordinaten tauschen ⇒ Q(64 | 3).",
    "h": "Bei der Umkehrfunktion werden x und y vertauscht.",
    "c": [
-    "10 ** 3",
+    "4 ** 3",
     "3"
+   ]
+  },
+  {
+   "l": "logfunktion",
+   "t": "logfunktion",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne ohne Taschenrechner: log₄(1/4)."
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "-1 + (4 ** (-1) - 0.25)",
+   "w": "1/4 = 4^(−1), also log₄(1/4) = −1.",
+   "h": "Schreibe die Zahl als Potenz der Basis; Kehrwert heißt negativer Exponent."
+  },
+  {
+   "l": "logfunktion",
+   "t": "logfunktion",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Der Graph von g(x) = 10^x geht durch P(2 | 100). Welcher Punkt liegt deshalb auf dem Graphen von f(x) = lg(x)?",
+    "schablone": "Q(□ | □)",
+    "hinweis": "x- und y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     100,
+     2
+    ]
+   },
+   "w": "Umkehrfunktion: Koordinaten tauschen ⇒ Q(100 | 2).",
+   "h": "Bei der Umkehrfunktion werden x und y vertauscht.",
+   "c": [
+    "10 ** 2",
+    "2"
    ]
   },
   {
@@ -2738,14 +2991,15 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Berechne f(1/9) für f(x) = log₃(x)."
+    "text": "Berechne f(95) für f(x) = log₄(x) auf zwei Nachkommastellen."
    },
    "o": {
-    "wert": -2
+    "wert": 3.28,
+    "toleranz": 0.01
    },
-   "c": "-2 + (3 ** (-2) - (1/9))",
-   "w": "3^(−2) = 1/9, also f(1/9) = −2.",
-   "h": "Kehrwerte entstehen durch negative Exponenten."
+   "c": "round(3.284927804165, 2)",
+   "w": "log₄(95) = lg 95 : lg 4 ≈ 3,28.",
+   "h": "Mit dem Taschenrechner: lg x : lg b."
   },
   {
    "l": "logfunktion",
@@ -2768,53 +3022,16 @@
    "t": "logfunktion",
    "p": "uebung",
    "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Funktion ist die Umkehrfunktion von f(x) = log₃(x)?"
-   },
-   "a": [
-    "g(x) = x³",
-    "g(x) = −log₃(x)",
-    "g(x) = 3^x",
-    "g(x) = 3x"
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "log₃ macht das Potenzieren mit Basis 3 rückgängig; umgekehrt: g(x) = 3^x.",
-   "h": "Was hebt den Logarithmus auf?"
-  },
-  {
-   "l": "logfunktion",
-   "t": "logfunktion",
-   "p": "uebung",
-   "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Berechne f(0,008) für f(x) = log₅(x)."
+    "text": "Berechne f(8) für f(x) = log₅(x) auf zwei Nachkommastellen."
    },
    "o": {
-    "wert": -3
-   },
-   "c": "-3 + (5 ** (-3) - 0.008)",
-   "w": "5^(−3) = 0,008, also f(0,008) = −3.",
-   "h": "Kehrwerte entstehen durch negative Exponenten."
-  },
-  {
-   "l": "logfunktion",
-   "t": "logfunktion",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Berechne f(66) für f(x) = lg(x) auf zwei Nachkommastellen."
-   },
-   "o": {
-    "wert": 1.82,
+    "wert": 1.29,
     "toleranz": 0.01
    },
-   "c": "round(1.819543935542, 2)",
-   "w": "lg(66) = lg 66 : lg 10 ≈ 1,82.",
+   "c": "round(1.292029674220, 2)",
+   "w": "log₅(8) = lg 8 : lg 5 ≈ 1,29.",
    "h": "Mit dem Taschenrechner: lg x : lg b."
   },
   {
@@ -2822,16 +3039,76 @@
    "t": "logfunktion",
    "p": "uebung",
    "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Die Zeichnung zeigt den Graphen von f(x) = lg(x). Welche Gerade ist Asymptote?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      9
+     ],
+     "y": [
+      -3,
+      4
+     ],
+     "graphen": [
+      {
+       "art": "log",
+       "b": 10,
+       "name": "lg x"
+      }
+     ]
+    }
+   },
+   "a": [
+    "die x-Achse (y = 0)",
+    "die Gerade y = x",
+    "die y-Achse (x = 0)",
+    "die Gerade x = 1"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Für x → 0 (x > 0) werden die Werte von lg(x) beliebig klein; der Graph nähert sich der y-Achse, erreicht sie aber nie.",
+   "h": "Wo ist die Funktion nicht definiert, und wie verhält sich der Graph dort?"
+  },
+  {
+   "l": "logfunktion",
+   "t": "logfunktion",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Durch welchen Punkt gehen die Graphen aller Funktionen f(x) = log_b(x)?"
+   },
+   "a": [
+    "(1 | 1)",
+    "(0 | 1)",
+    "(1 | 0)",
+    "(0 | 0)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "log_b(1) = 0 für jede Basis b, denn b⁰ = 1.",
+   "h": "Welcher x-Wert liefert immer den Exponenten 0?"
+  },
+  {
+   "l": "logfunktion",
+   "t": "logfunktion",
+   "p": "uebung",
+   "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Berechne f(89) für f(x) = log₄(x) auf zwei Nachkommastellen."
+    "text": "Berechne f(95) für f(x) = lg(x) auf zwei Nachkommastellen."
    },
    "o": {
-    "wert": 3.24,
+    "wert": 1.98,
     "toleranz": 0.01
    },
-   "c": "round(3.237866715483, 2)",
-   "w": "log₄(89) = lg 89 : lg 4 ≈ 3,24.",
+   "c": "round(1.977723605289, 2)",
+   "w": "lg(95) = lg 95 : lg 10 ≈ 1,98.",
    "h": "Mit dem Taschenrechner: lg x : lg b."
   },
   {
@@ -2864,41 +3141,21 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Der Graph von g(x) = 2^x geht durch P(4 | 16). Welcher Punkt liegt deshalb auf dem Graphen von f(x) = log₂(x)?",
+    "text": "Der Graph von g(x) = 2^x geht durch P(1 | 2). Welcher Punkt liegt deshalb auf dem Graphen von f(x) = log₂(x)?",
     "schablone": "Q(□ | □)",
     "hinweis": "x- und y-Koordinate"
    },
    "o": {
     "werte": [
-     16,
-     4
+     2,
+     1
     ]
    },
-   "w": "Umkehrfunktion: Koordinaten tauschen ⇒ Q(16 | 4).",
+   "w": "Umkehrfunktion: Koordinaten tauschen ⇒ Q(2 | 1).",
    "c": [
-    "2 ** 4",
-    "4"
+    "2 ** 1",
+    "1"
    ]
-  },
-  {
-   "l": "logfunktion",
-   "t": "logfunktion",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Für welche x ist f(x) = log₂(x) definiert?"
-   },
-   "a": [
-    "für alle x ≥ 0",
-    "für alle x > 0",
-    "für alle x",
-    "für alle x ≠ 0"
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "2^y ist immer positiv, also gibt es log₂(x) nur für x > 0."
   },
   {
    "l": "logfunktion",
@@ -2907,21 +3164,97 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Der Graph von g(x) = 5^x geht durch P(2 | 25). Welcher Punkt liegt deshalb auf dem Graphen von f(x) = log₅(x)?",
+    "text": "Der Graph von g(x) = 10^x geht durch P(3 | 1 000). Welcher Punkt liegt deshalb auf dem Graphen von f(x) = lg(x)?",
     "schablone": "Q(□ | □)",
     "hinweis": "x- und y-Koordinate"
    },
    "o": {
     "werte": [
-     25,
+     1000,
+     3
+    ]
+   },
+   "w": "Umkehrfunktion: Koordinaten tauschen ⇒ Q(1 000 | 3).",
+   "c": [
+    "10 ** 3",
+    "3"
+   ]
+  },
+  {
+   "l": "logfunktion",
+   "t": "logfunktion",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Der Graph von g(x) = 3^x geht durch P(3 | 27). Welcher Punkt liegt deshalb auf dem Graphen von f(x) = log₃(x)?",
+    "schablone": "Q(□ | □)",
+    "hinweis": "x- und y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     27,
+     3
+    ]
+   },
+   "w": "Umkehrfunktion: Koordinaten tauschen ⇒ Q(27 | 3).",
+   "c": [
+    "3 ** 3",
+    "3"
+   ]
+  },
+  {
+   "l": "logfunktion",
+   "t": "logfunktion",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Der Graph von g(x) = 4^x geht durch P(2 | 16). Welcher Punkt liegt deshalb auf dem Graphen von f(x) = log₄(x)?",
+    "schablone": "Q(□ | □)",
+    "hinweis": "x- und y-Koordinate"
+   },
+   "o": {
+    "werte": [
+     16,
      2
     ]
    },
-   "w": "Umkehrfunktion: Koordinaten tauschen ⇒ Q(25 | 2).",
+   "w": "Umkehrfunktion: Koordinaten tauschen ⇒ Q(16 | 2).",
    "c": [
-    "5 ** 2",
+    "4 ** 2",
     "2"
    ]
+  },
+  {
+   "l": "logfunktion",
+   "t": "logfunktion",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne ohne Taschenrechner: log₃(1/9)."
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "-2 + (3 ** (-2) - (1/9))",
+   "w": "1/9 = 3^(−2), also log₃(1/9) = −2."
+  },
+  {
+   "l": "logfunktion",
+   "t": "logfunktion",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne ohne Taschenrechner: log₃(1/3)."
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "-1 + (3 ** (-1) - (1/3))",
+   "w": "1/3 = 3^(−1), also log₃(1/3) = −1."
   },
   {
    "l": "logfunktion",
@@ -2951,115 +3284,40 @@
    "t": "logfunktion",
    "p": "sicherung",
    "s": 2,
-   "y": "luecken",
+   "y": "auswahl",
    "f": {
-    "text": "Der Graph von g(x) = 10^x geht durch P(2 | 100). Welcher Punkt liegt deshalb auf dem Graphen von f(x) = lg(x)?",
-    "schablone": "Q(□ | □)",
-    "hinweis": "x- und y-Koordinate"
+    "text": "Für welche x ist f(x) = log₅(x) definiert?"
    },
+   "a": [
+    "für alle x",
+    "für alle x ≠ 0",
+    "für alle x > 0",
+    "für alle x ≥ 0"
+   ],
    "o": {
-    "werte": [
-     100,
-     2
-    ]
+    "index": 2
    },
-   "w": "Umkehrfunktion: Koordinaten tauschen ⇒ Q(100 | 2).",
-   "c": [
-    "10 ** 2",
-    "2"
-   ]
+   "w": "5^y ist immer positiv, also gibt es log₅(x) nur für x > 0."
   },
   {
    "l": "logfunktion",
    "t": "logfunktion",
    "p": "sicherung",
    "s": 2,
-   "y": "luecken",
+   "y": "auswahl",
    "f": {
-    "text": "Der Graph von g(x) = 4^x geht durch P(1 | 4). Welcher Punkt liegt deshalb auf dem Graphen von f(x) = log₄(x)?",
-    "schablone": "Q(□ | □)",
-    "hinweis": "x- und y-Koordinate"
+    "text": "Für welche x ist f(x) = log₃(x) definiert?"
    },
+   "a": [
+    "für alle x",
+    "für alle x > 0",
+    "für alle x ≥ 0",
+    "für alle x ≠ 0"
+   ],
    "o": {
-    "werte": [
-     4,
-     1
-    ]
+    "index": 1
    },
-   "w": "Umkehrfunktion: Koordinaten tauschen ⇒ Q(4 | 1).",
-   "c": [
-    "4 ** 1",
-    "1"
-   ]
-  },
-  {
-   "l": "logfunktion",
-   "t": "logfunktion",
-   "p": "sicherung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Der Graph von g(x) = 5^x geht durch P(3 | 125). Welcher Punkt liegt deshalb auf dem Graphen von f(x) = log₅(x)?",
-    "schablone": "Q(□ | □)",
-    "hinweis": "x- und y-Koordinate"
-   },
-   "o": {
-    "werte": [
-     125,
-     3
-    ]
-   },
-   "w": "Umkehrfunktion: Koordinaten tauschen ⇒ Q(125 | 3).",
-   "c": [
-    "5 ** 3",
-    "3"
-   ]
-  },
-  {
-   "l": "logfunktion",
-   "t": "logfunktion",
-   "p": "sicherung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Der Graph von g(x) = 2^x geht durch P(2 | 4). Welcher Punkt liegt deshalb auf dem Graphen von f(x) = log₂(x)?",
-    "schablone": "Q(□ | □)",
-    "hinweis": "x- und y-Koordinate"
-   },
-   "o": {
-    "werte": [
-     4,
-     2
-    ]
-   },
-   "w": "Umkehrfunktion: Koordinaten tauschen ⇒ Q(4 | 2).",
-   "c": [
-    "2 ** 2",
-    "2"
-   ]
-  },
-  {
-   "l": "logfunktion",
-   "t": "logfunktion",
-   "p": "sicherung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Der Graph von g(x) = 2^x geht durch P(1 | 2). Welcher Punkt liegt deshalb auf dem Graphen von f(x) = log₂(x)?",
-    "schablone": "Q(□ | □)",
-    "hinweis": "x- und y-Koordinate"
-   },
-   "o": {
-    "werte": [
-     2,
-     1
-    ]
-   },
-   "w": "Umkehrfunktion: Koordinaten tauschen ⇒ Q(2 | 1).",
-   "c": [
-    "2 ** 1",
-    "1"
-   ]
+   "w": "3^y ist immer positiv, also gibt es log₃(x) nur für x > 0."
   },
   {
    "l": "zeitpunkt",
@@ -3068,7 +3326,24 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "f(t) = 200 · 1,1^t. Für welches t ist f(t) = 600? Runde auf eine Nachkommastelle."
+    "text": "f(t) = 200 · 1,05^t. Für welches t ist f(t) = 600? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 22.5,
+    "toleranz": 0.1
+   },
+   "c": "round(22.517085305411, 1)",
+   "w": "1,05^t = 3 ⇒ t = lg 3 : lg 1,05 ≈ 22,5.",
+   "h": "Erst durch den Anfangswert teilen, dann logarithmieren."
+  },
+  {
+   "l": "zeitpunkt",
+   "t": "zeitpunkt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "f(t) = 100 · 1,1^t. Für welches t ist f(t) = 300? Runde auf eine Nachkommastelle."
    },
    "o": {
     "wert": 11.5,
@@ -3085,7 +3360,7 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "f(t) = 200 · 1,05^t. Für welches t ist f(t) = 400? Runde auf eine Nachkommastelle."
+    "text": "f(t) = 1 000 · 1,05^t. Für welches t ist f(t) = 2 000? Runde auf eine Nachkommastelle."
    },
    "o": {
     "wert": 14.2,
@@ -3102,41 +3377,7 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "f(t) = 100 · 1,03^t. Für welches t ist f(t) = 200? Runde auf eine Nachkommastelle."
-   },
-   "o": {
-    "wert": 23.4,
-    "toleranz": 0.1
-   },
-   "c": "round(23.449772250438, 1)",
-   "w": "1,03^t = 2 ⇒ t = lg 2 : lg 1,03 ≈ 23,4.",
-   "h": "Erst durch den Anfangswert teilen, dann logarithmieren."
-  },
-  {
-   "l": "zeitpunkt",
-   "t": "zeitpunkt",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "f(t) = 200 · 1,05^t. Für welches t ist f(t) = 2 000? Runde auf eine Nachkommastelle."
-   },
-   "o": {
-    "wert": 47.2,
-    "toleranz": 0.1
-   },
-   "c": "round(47.193632819064, 1)",
-   "w": "1,05^t = 10 ⇒ t = lg 10 : lg 1,05 ≈ 47,2.",
-   "h": "Erst durch den Anfangswert teilen, dann logarithmieren."
-  },
-  {
-   "l": "zeitpunkt",
-   "t": "zeitpunkt",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "f(t) = 1000 · 1,1^t. Für welches t ist f(t) = 10 000? Runde auf eine Nachkommastelle."
+    "text": "f(t) = 100 · 1,1^t. Für welches t ist f(t) = 1 000? Runde auf eine Nachkommastelle."
    },
    "o": {
     "wert": 24.2,
@@ -3153,14 +3394,31 @@
    "s": 1,
    "y": "zahl",
    "f": {
-    "text": "f(t) = 500 · 1,03^t. Für welches t ist f(t) = 1 000? Runde auf eine Nachkommastelle."
+    "text": "f(t) = 100 · 1,5^t. Für welches t ist f(t) = 500? Runde auf eine Nachkommastelle."
    },
    "o": {
-    "wert": 23.4,
+    "wert": 4,
     "toleranz": 0.1
    },
-   "c": "round(23.449772250438, 1)",
-   "w": "1,03^t = 2 ⇒ t = lg 2 : lg 1,03 ≈ 23,4.",
+   "c": "round(3.969362295916, 1)",
+   "w": "1,5^t = 5 ⇒ t = lg 5 : lg 1,5 ≈ 4,0.",
+   "h": "Erst durch den Anfangswert teilen, dann logarithmieren."
+  },
+  {
+   "l": "zeitpunkt",
+   "t": "zeitpunkt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "f(t) = 200 · 1,1^t. Für welches t ist f(t) = 2 000? Runde auf eine Nachkommastelle."
+   },
+   "o": {
+    "wert": 24.2,
+    "toleranz": 0.1
+   },
+   "c": "round(24.158857928097, 1)",
+   "w": "1,1^t = 10 ⇒ t = lg 10 : lg 1,1 ≈ 24,2.",
    "h": "Erst durch den Anfangswert teilen, dann logarithmieren."
   },
   {
@@ -3170,15 +3428,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Bestand nimmt um 8 % pro Jahr ab. Berechne die Halbwertszeit (eine Nachkommastelle)."
+    "text": "Ein Bestand nimmt um 3 % pro Jahr ab. Berechne die Halbwertszeit (eine Nachkommastelle)."
    },
    "o": {
-    "wert": 8.3,
+    "wert": 22.8,
     "einheit": "Jahre",
     "toleranz": 0.1
    },
-   "c": "round(8.312950414121, 1)",
-   "w": "b = 0,92; T½ = lg 0,5 : lg 0,92 ≈ 8,3 Jahre.",
+   "c": "round(22.756573062773, 1)",
+   "w": "b = 0,97; T½ = lg 0,5 : lg 0,97 ≈ 22,8 Jahre.",
    "h": "Löse b^T = 2 bzw. b^T = 0,5."
   },
   {
@@ -3196,7 +3454,7 @@
     "toleranz": 0.1
    },
    "c": "round(4.959484454640, 1)",
-   "w": "b = 1,15; T₂ = lg 2 : lg 1,15 ≈ 5 Jahre.",
+   "w": "b = 1,15; T₂ = lg 2 : lg 1,15 ≈ 5,0 Jahre.",
    "h": "Löse b^T = 2 bzw. b^T = 0,5."
   },
   {
@@ -3206,15 +3464,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Bestand nimmt um 12 % pro Jahr ab. Berechne die Halbwertszeit (eine Nachkommastelle)."
+    "text": "Ein Bestand wächst um 8 % pro Jahr. Berechne die Verdopplungszeit (eine Nachkommastelle)."
    },
    "o": {
-    "wert": 5.4,
+    "wert": 9,
     "einheit": "Jahre",
     "toleranz": 0.1
    },
-   "c": "round(5.422270979580, 1)",
-   "w": "b = 0,88; T½ = lg 0,5 : lg 0,88 ≈ 5,4 Jahre.",
+   "c": "round(9.006468342001, 1)",
+   "w": "b = 1,08; T₂ = lg 2 : lg 1,08 ≈ 9,0 Jahre.",
    "h": "Löse b^T = 2 bzw. b^T = 0,5."
   },
   {
@@ -3224,199 +3482,21 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Bestand nimmt um 15 % pro Jahr ab. Berechne die Halbwertszeit (eine Nachkommastelle)."
+    "text": "Ein Bestand nimmt um 2 % pro Jahr ab. Berechne die Halbwertszeit (eine Nachkommastelle)."
    },
    "o": {
-    "wert": 4.3,
+    "wert": 34.3,
     "einheit": "Jahre",
     "toleranz": 0.1
    },
-   "c": "round(4.265024281799, 1)",
-   "w": "b = 0,85; T½ = lg 0,5 : lg 0,85 ≈ 4,3 Jahre.",
+   "c": "round(34.309618491521, 1)",
+   "w": "b = 0,98; T½ = lg 0,5 : lg 0,98 ≈ 34,3 Jahre.",
    "h": "Löse b^T = 2 bzw. b^T = 0,5."
   },
   {
    "l": "zeitpunkt",
    "t": "zeitpunkt",
    "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Bestand nimmt um 10 % pro Jahr ab. Berechne die Halbwertszeit (eine Nachkommastelle)."
-   },
-   "o": {
-    "wert": 6.6,
-    "einheit": "Jahre",
-    "toleranz": 0.1
-   },
-   "c": "round(6.578813478961, 1)",
-   "w": "b = 0,9; T½ = lg 0,5 : lg 0,9 ≈ 6,6 Jahre.",
-   "h": "Löse b^T = 2 bzw. b^T = 0,5."
-  },
-  {
-   "l": "zeitpunkt",
-   "t": "zeitpunkt",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Bestand nimmt um 6 % pro Jahr ab. Berechne die Halbwertszeit (eine Nachkommastelle)."
-   },
-   "o": {
-    "wert": 11.2,
-    "einheit": "Jahre",
-    "toleranz": 0.1
-   },
-   "c": "round(11.202305583621, 1)",
-   "w": "b = 0,94; T½ = lg 0,5 : lg 0,94 ≈ 11,2 Jahre.",
-   "h": "Löse b^T = 2 bzw. b^T = 0,5."
-  },
-  {
-   "l": "zeitpunkt",
-   "t": "zeitpunkt",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein heißes Getränk hat eine Übertemperatur von 80 °C (über der Raumtemperatur), die pro Minute um 8 % abnimmt. Nach wie vielen Minuten beträgt sie nur noch 20 °C (eine Nachkommastelle)?"
-   },
-   "o": {
-    "wert": 16.6,
-    "einheit": "min",
-    "toleranz": 0.1
-   },
-   "c": "round(16.625900828242, 1)",
-   "w": "80 · 0,92^t = 20 ⇒ t = lg(0,25) : lg 0,92 ≈ 16,6 min.",
-   "h": "Modell aufstellen, durch den Anfangswert teilen, logarithmieren."
-  },
-  {
-   "l": "zeitpunkt",
-   "t": "zeitpunkt",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein heißes Getränk hat eine Übertemperatur von 100 °C (über der Raumtemperatur), die pro Minute um 8 % abnimmt. Nach wie vielen Minuten beträgt sie nur noch 10 °C (eine Nachkommastelle)?"
-   },
-   "o": {
-    "wert": 27.6,
-    "einheit": "min",
-    "toleranz": 0.1
-   },
-   "c": "round(27.615023532074, 1)",
-   "w": "100 · 0,92^t = 10 ⇒ t = lg(0,1) : lg 0,92 ≈ 27,6 min.",
-   "h": "Modell aufstellen, durch den Anfangswert teilen, logarithmieren."
-  },
-  {
-   "l": "zeitpunkt",
-   "t": "zeitpunkt",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein heißes Getränk hat eine Übertemperatur von 100 °C (über der Raumtemperatur), die pro Minute um 15 % abnimmt. Nach wie vielen Minuten beträgt sie nur noch 10 °C (eine Nachkommastelle)?"
-   },
-   "o": {
-    "wert": 14.2,
-    "einheit": "min",
-    "toleranz": 0.1
-   },
-   "c": "round(14.168103987084, 1)",
-   "w": "100 · 0,85^t = 10 ⇒ t = lg(0,1) : lg 0,85 ≈ 14,2 min.",
-   "h": "Modell aufstellen, durch den Anfangswert teilen, logarithmieren."
-  },
-  {
-   "l": "zeitpunkt",
-   "t": "zeitpunkt",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein heißes Getränk hat eine Übertemperatur von 500 °C (über der Raumtemperatur), die pro Minute um 8 % abnimmt. Nach wie vielen Minuten beträgt sie nur noch 100 °C (eine Nachkommastelle)?"
-   },
-   "o": {
-    "wert": 19.3,
-    "einheit": "min",
-    "toleranz": 0.1
-   },
-   "c": "round(19.302073117953, 1)",
-   "w": "500 · 0,92^t = 100 ⇒ t = lg(0,2) : lg 0,92 ≈ 19,3 min.",
-   "h": "Modell aufstellen, durch den Anfangswert teilen, logarithmieren."
-  },
-  {
-   "l": "zeitpunkt",
-   "t": "zeitpunkt",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein heißes Getränk hat eine Übertemperatur von 100 °C (über der Raumtemperatur), die pro Minute um 20 % abnimmt. Nach wie vielen Minuten beträgt sie nur noch 10 °C (eine Nachkommastelle)?"
-   },
-   "o": {
-    "wert": 10.3,
-    "einheit": "min",
-    "toleranz": 0.1
-   },
-   "c": "round(10.318851158516, 1)",
-   "w": "100 · 0,8^t = 10 ⇒ t = lg(0,1) : lg 0,8 ≈ 10,3 min.",
-   "h": "Modell aufstellen, durch den Anfangswert teilen, logarithmieren."
-  },
-  {
-   "l": "zeitpunkt",
-   "t": "zeitpunkt",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein heißes Getränk hat eine Übertemperatur von 80 °C (über der Raumtemperatur), die pro Minute um 10 % abnimmt. Nach wie vielen Minuten beträgt sie nur noch 20 °C (eine Nachkommastelle)?"
-   },
-   "o": {
-    "wert": 13.2,
-    "einheit": "min",
-    "toleranz": 0.1
-   },
-   "c": "round(13.157626957921, 1)",
-   "w": "80 · 0,9^t = 20 ⇒ t = lg(0,25) : lg 0,9 ≈ 13,2 min.",
-   "h": "Modell aufstellen, durch den Anfangswert teilen, logarithmieren."
-  },
-  {
-   "l": "zeitpunkt",
-   "t": "zeitpunkt",
-   "p": "test",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Bestand wächst um 2 % pro Jahr. Berechne die Verdopplungszeit (eine Nachkommastelle)."
-   },
-   "o": {
-    "wert": 35,
-    "einheit": "Jahre",
-    "toleranz": 0.1
-   },
-   "c": "round(35.002788781146, 1)",
-   "w": "b = 1,02; T₂ = lg 2 : lg 1,02 ≈ 35 Jahre."
-  },
-  {
-   "l": "zeitpunkt",
-   "t": "zeitpunkt",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Bestand nimmt um 4 % pro Jahr ab. Berechne die Halbwertszeit (eine Nachkommastelle)."
-   },
-   "o": {
-    "wert": 17,
-    "einheit": "Jahre",
-    "toleranz": 0.1
-   },
-   "c": "round(16.979748018339, 1)",
-   "w": "b = 0,96; T½ = lg 0,5 : lg 0,96 ≈ 17 Jahre."
-  },
-  {
-   "l": "zeitpunkt",
-   "t": "zeitpunkt",
-   "p": "korrektur",
    "s": 2,
    "y": "zahl",
    "f": {
@@ -3428,7 +3508,185 @@
     "toleranz": 0.1
    },
    "c": "round(10.244768351059, 1)",
-   "w": "b = 1,07; T₂ = lg 2 : lg 1,07 ≈ 10,2 Jahre."
+   "w": "b = 1,07; T₂ = lg 2 : lg 1,07 ≈ 10,2 Jahre.",
+   "h": "Löse b^T = 2 bzw. b^T = 0,5."
+  },
+  {
+   "l": "zeitpunkt",
+   "t": "zeitpunkt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Bestand wächst um 4 % pro Jahr. Berechne die Verdopplungszeit (eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 17.7,
+    "einheit": "Jahre",
+    "toleranz": 0.1
+   },
+   "c": "round(17.672987685130, 1)",
+   "w": "b = 1,04; T₂ = lg 2 : lg 1,04 ≈ 17,7 Jahre.",
+   "h": "Löse b^T = 2 bzw. b^T = 0,5."
+  },
+  {
+   "l": "zeitpunkt",
+   "t": "zeitpunkt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein heißes Getränk hat eine Übertemperatur von 70 °C (über der Raumtemperatur), die pro Minute um 12 % abnimmt. Nach wie vielen Minuten beträgt sie nur noch 5 °C (eine Nachkommastelle)?"
+   },
+   "o": {
+    "wert": 20.6,
+    "einheit": "min",
+    "toleranz": 0.1
+   },
+   "c": "round(20.644510102835, 1)",
+   "w": "70 · 0,88^t = 5 ⇒ t = lg(1/14) : lg 0,88 ≈ 20,6 min.",
+   "h": "Modell aufstellen, durch den Anfangswert teilen, logarithmieren."
+  },
+  {
+   "l": "zeitpunkt",
+   "t": "zeitpunkt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein heißes Getränk hat eine Übertemperatur von 75 °C (über der Raumtemperatur), die pro Minute um 12 % abnimmt. Nach wie vielen Minuten beträgt sie nur noch 30 °C (eine Nachkommastelle)?"
+   },
+   "o": {
+    "wert": 7.2,
+    "einheit": "min",
+    "toleranz": 0.1
+   },
+   "c": "round(7.167852346000, 1)",
+   "w": "75 · 0,88^t = 30 ⇒ t = lg(0,4) : lg 0,88 ≈ 7,2 min.",
+   "h": "Modell aufstellen, durch den Anfangswert teilen, logarithmieren."
+  },
+  {
+   "l": "zeitpunkt",
+   "t": "zeitpunkt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein heißes Getränk hat eine Übertemperatur von 70 °C (über der Raumtemperatur), die pro Minute um 5 % abnimmt. Nach wie vielen Minuten beträgt sie nur noch 10 °C (eine Nachkommastelle)?"
+   },
+   "o": {
+    "wert": 37.9,
+    "einheit": "min",
+    "toleranz": 0.1
+   },
+   "c": "round(37.936930592776, 1)",
+   "w": "70 · 0,95^t = 10 ⇒ t = lg(1/7) : lg 0,95 ≈ 37,9 min.",
+   "h": "Modell aufstellen, durch den Anfangswert teilen, logarithmieren."
+  },
+  {
+   "l": "zeitpunkt",
+   "t": "zeitpunkt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein heißes Getränk hat eine Übertemperatur von 60 °C (über der Raumtemperatur), die pro Minute um 6 % abnimmt. Nach wie vielen Minuten beträgt sie nur noch 12 °C (eine Nachkommastelle)?"
+   },
+   "o": {
+    "wert": 26,
+    "einheit": "min",
+    "toleranz": 0.1
+   },
+   "c": "round(26.010948062124, 1)",
+   "w": "60 · 0,94^t = 12 ⇒ t = lg(0,2) : lg 0,94 ≈ 26,0 min.",
+   "h": "Modell aufstellen, durch den Anfangswert teilen, logarithmieren."
+  },
+  {
+   "l": "zeitpunkt",
+   "t": "zeitpunkt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein heißes Getränk hat eine Übertemperatur von 60 °C (über der Raumtemperatur), die pro Minute um 12 % abnimmt. Nach wie vielen Minuten beträgt sie nur noch 12 °C (eine Nachkommastelle)?"
+   },
+   "o": {
+    "wert": 12.6,
+    "einheit": "min",
+    "toleranz": 0.1
+   },
+   "c": "round(12.590123325580, 1)",
+   "w": "60 · 0,88^t = 12 ⇒ t = lg(0,2) : lg 0,88 ≈ 12,6 min.",
+   "h": "Modell aufstellen, durch den Anfangswert teilen, logarithmieren."
+  },
+  {
+   "l": "zeitpunkt",
+   "t": "zeitpunkt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein heißes Getränk hat eine Übertemperatur von 65 °C (über der Raumtemperatur), die pro Minute um 10 % abnimmt. Nach wie vielen Minuten beträgt sie nur noch 20 °C (eine Nachkommastelle)?"
+   },
+   "o": {
+    "wert": 11.2,
+    "einheit": "min",
+    "toleranz": 0.1
+   },
+   "c": "round(11.186875737867, 1)",
+   "w": "65 · 0,9^t = 20 ⇒ t = lg(4/13) : lg 0,9 ≈ 11,2 min.",
+   "h": "Modell aufstellen, durch den Anfangswert teilen, logarithmieren."
+  },
+  {
+   "l": "zeitpunkt",
+   "t": "zeitpunkt",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Bestand nimmt um 7 % pro Jahr ab. Berechne die Halbwertszeit (eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 9.6,
+    "einheit": "Jahre",
+    "toleranz": 0.1
+   },
+   "c": "round(9.551337509447, 1)",
+   "w": "b = 0,93; T½ = lg 0,5 : lg 0,93 ≈ 9,6 Jahre."
+  },
+  {
+   "l": "zeitpunkt",
+   "t": "zeitpunkt",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Bestand wächst um 10 % pro Jahr. Berechne die Verdopplungszeit (eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 7.3,
+    "einheit": "Jahre",
+    "toleranz": 0.1
+   },
+   "c": "round(7.272540897342, 1)",
+   "w": "b = 1,1; T₂ = lg 2 : lg 1,1 ≈ 7,3 Jahre."
+  },
+  {
+   "l": "zeitpunkt",
+   "t": "zeitpunkt",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Bestand wächst um 6 % pro Jahr. Berechne die Verdopplungszeit (eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 11.9,
+    "einheit": "Jahre",
+    "toleranz": 0.1
+   },
+   "c": "round(11.895661045942, 1)",
+   "w": "b = 1,06; T₂ = lg 2 : lg 1,06 ≈ 11,9 Jahre."
   },
   {
    "l": "zeitpunkt",
@@ -3454,15 +3712,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Bestand nimmt um 3 % pro Jahr ab. Berechne die Halbwertszeit (eine Nachkommastelle)."
+    "text": "Ein Bestand nimmt um 4 % pro Jahr ab. Berechne die Halbwertszeit (eine Nachkommastelle)."
    },
    "o": {
-    "wert": 22.8,
+    "wert": 17,
     "einheit": "Jahre",
     "toleranz": 0.1
    },
-   "c": "round(22.756573062773, 1)",
-   "w": "b = 0,97; T½ = lg 0,5 : lg 0,97 ≈ 22,8 Jahre."
+   "c": "round(16.979748018339, 1)",
+   "w": "b = 0,96; T½ = lg 0,5 : lg 0,96 ≈ 17,0 Jahre."
   },
   {
    "l": "zeitpunkt",
@@ -3471,15 +3729,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Bestand wächst um 6 % pro Jahr. Berechne die Verdopplungszeit (eine Nachkommastelle)."
+    "text": "Ein Bestand nimmt um 12 % pro Jahr ab. Berechne die Halbwertszeit (eine Nachkommastelle)."
    },
    "o": {
-    "wert": 11.9,
+    "wert": 5.4,
     "einheit": "Jahre",
     "toleranz": 0.1
    },
-   "c": "round(11.895661045942, 1)",
-   "w": "b = 1,06; T₂ = lg 2 : lg 1,06 ≈ 11,9 Jahre."
+   "c": "round(5.422270979580, 1)",
+   "w": "b = 0,88; T½ = lg 0,5 : lg 0,88 ≈ 5,4 Jahre."
   },
   {
    "l": "zeitpunkt",
@@ -3488,15 +3746,15 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Bestand nimmt um 2 % pro Jahr ab. Berechne die Halbwertszeit (eine Nachkommastelle)."
+    "text": "Ein Bestand nimmt um 5 % pro Jahr ab. Berechne die Halbwertszeit (eine Nachkommastelle)."
    },
    "o": {
-    "wert": 34.3,
+    "wert": 13.5,
     "einheit": "Jahre",
     "toleranz": 0.1
    },
-   "c": "round(34.309618491521, 1)",
-   "w": "b = 0,98; T½ = lg 0,5 : lg 0,98 ≈ 34,3 Jahre."
+   "c": "round(13.513407333965, 1)",
+   "w": "b = 0,95; T½ = lg 0,5 : lg 0,95 ≈ 13,5 Jahre."
   },
   {
    "l": "zeitpunkt",
@@ -3505,15 +3763,32 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Ein Bestand wächst um 3 % pro Jahr. Berechne die Verdopplungszeit (eine Nachkommastelle)."
+    "text": "Ein Bestand nimmt um 6 % pro Jahr ab. Berechne die Halbwertszeit (eine Nachkommastelle)."
    },
    "o": {
-    "wert": 23.4,
+    "wert": 11.2,
     "einheit": "Jahre",
     "toleranz": 0.1
    },
-   "c": "round(23.449772250438, 1)",
-   "w": "b = 1,03; T₂ = lg 2 : lg 1,03 ≈ 23,4 Jahre."
+   "c": "round(11.202305583621, 1)",
+   "w": "b = 0,94; T½ = lg 0,5 : lg 0,94 ≈ 11,2 Jahre."
+  },
+  {
+   "l": "zeitpunkt",
+   "t": "zeitpunkt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Bestand wächst um 12 % pro Jahr. Berechne die Verdopplungszeit (eine Nachkommastelle)."
+   },
+   "o": {
+    "wert": 6.1,
+    "einheit": "Jahre",
+    "toleranz": 0.1
+   },
+   "c": "round(6.116255374200, 1)",
+   "w": "b = 1,12; T₂ = lg 2 : lg 1,12 ≈ 6,1 Jahre."
   },
   {
    "l": "zeitpunkt",
@@ -3531,26 +3806,11 @@
    },
    "c": "round(3.106283719505, 1)",
    "w": "b = 0,8; T½ = lg 0,5 : lg 0,8 ≈ 3,1 Jahre."
-  },
-  {
-   "l": "zeitpunkt",
-   "t": "zeitpunkt",
-   "p": "sicherung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Ein Bestand nimmt um 7 % pro Jahr ab. Berechne die Halbwertszeit (eine Nachkommastelle)."
-   },
-   "o": {
-    "wert": 9.6,
-    "einheit": "Jahre",
-    "toleranz": 0.1
-   },
-   "c": "round(9.551337509447, 1)",
-   "w": "b = 0,93; T½ = lg 0,5 : lg 0,93 ≈ 9,6 Jahre."
   }
  ],
  "offen": [
+  "Prüfung eingearbeitet (Runde 3): realistische Raten je Größe mit passendem Pronomen, Tabelle „linear oder exponentiell?“, Modell aus Halbwertszeit, verschobene Graphen mit Zeichnung, Logarithmus im Kopf, Graph der Logarithmusfunktion, realistische Getränketemperaturen, eine Nachkommastelle immer angezeigt.",
+  "Nicht übernommen: Vorschlag (Meinung) der Prüfung, in „zeitpunkt“ die Faustregel „Verdopplungszeit ≈ 70 : p“ zu ergänzen. Die Karte ist als „ok“ bewertet; eine Näherungsregel neben der exakten Rechnung lädt dazu ein, sie auch bei großen p (wo sie ungenau wird) zu verwenden. Kann als Zusatz in einer späteren Runde kommen.",
   "Zeichnungen: Jede Lernkarte hat ein Koordinatensystem (Exponential- und Logarithmuskurve, Spiegelung an y = x, Zielwert als waagrechte Linie). Aufgaben „Welcher Term passt zum Graphen?“ und y-Achsenabschnitt zeigen den Graphen.",
   "Gerundete Ergebnisse mit Toleranz 0,1 bzw. 0,01; Logarithmuswerte als 12-stellige Konstanten in c."
  ]

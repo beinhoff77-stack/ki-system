@@ -159,6 +159,20 @@ def g_substitution(s):
         kf = [1, 0, -(z1 + z2), 0, z1 * z2]
         return loes_luecken(f'Löse {poly(*kf)} = 0.', [-b, -a, a, b], kf,
                             f'z = x²: z² − {z1 + z2}z + {z1 * z2} = 0 ⇒ z = {z1} oder z = {z2} ⇒ x = ±{a}, ±{b}.', 'Substituiere z = x², dann rücksubstituieren.')
+    if R.random() < 0.35:
+        z1, z2 = sorted(R.sample(range(1, 13), 2))
+        quad = {1, 4, 9}
+        if z1 in quad and z2 in quad: return None
+        kf = [1, 0, -(z1 + z2), 0, z1 * z2]
+        welche = R.choice([w for w, zz in (('kleinste', z1), ('größte', z2)) if zz not in quad])
+        z = z1 if welche == 'kleinste' else z2
+        x = math.sqrt(z)
+        v = gerundet(x, 2)
+        if v is None: return None
+        xt = lambda zz: str(int(math.isqrt(zz))) if zz in quad else f'√{zz}'  # noqa: E731
+        return zahl(f'Löse {poly(*kf)} = 0. Gib die {welche} positive Lösung auf zwei Nachkommastellen an.',
+                    f'z = x²: z² − {z1 + z2}z + {z1 * z2} = 0 ⇒ z₁ = {z1}, z₂ = {z2}. Positive Lösungen: x = {xt(z1)} und x = {xt(z2)}; die {welche} ist {xt(z)} ≈ {dz(v)}.',
+                    'Substituiere z = x². Aus x² = z folgt x = √z – das muss keine ganze Zahl sein.', v, f'round({K(x)}, 2)', tol=0.01)
     a = R.randint(1, 7)
     z1 = a * a
     z2 = -R.randint(1, 20)
@@ -170,9 +184,26 @@ def g_substitution(s):
                             'Nach der Substitution: Welche z-Werte liefern wirklich x-Werte?')
     m, n = R.randint(1, 9), R.randint(1, 9)
     kf = [1, 0, m + n, 0, m * n]
-    return auswahl(f'Welche Lösungsmenge hat {poly(*kf)} = 0?', 'L = { }', [f'L = {{−{m}; −{n}}}', f'L = {{−√{m}; √{m}}}', f'L = {{{m}; {n}}}'],
+    return auswahl(f'Welche Lösungsmenge hat {poly(*kf)} = 0?', 'L = { }', [f'L = {{−{m}; −{n}}}', f'L = {{−√{m}; √{m}}}' if math.isqrt(m) ** 2 != m else f'L = {{−{math.isqrt(m)}; {math.isqrt(m)}}}', f'L = {{{m}; {n}}}'],
                    f'z² + {m + n}z + {m * n} = 0 ⇒ z = −{m}, z = −{n}. Beide negativ, x² kann nicht negativ sein: keine Lösung.',
                    'Substituiere und prüfe das Vorzeichen der z-Lösungen.')
+
+
+def _vzw(p, q, m, n, ja, mit_bild):
+    """Vorzeichenwechsel-Frage; ja gibt vor, ob die richtige Antwort „Ja“ ist (ausgewogen)."""
+    kandidaten = [(z, k) for z, k in ((p, m), (q, n)) if (k % 2 == 1) == ja]
+    if not kandidaten: return None
+    ziel, k = R.choice(kandidaten)
+    vw = k % 2 == 1
+    f = f'f(x) = {faktor(p, m)} · {faktor(q, n)}'
+    kf = mal(*([[1, -p]] * m + [[1, -q]] * n))
+    zusatz = ' (Die Zeichnung zeigt den Graphen.)' if mit_bild else ''
+    a = auswahl(f'{f}. Wechselt f bei x = {dz(ziel)} das Vorzeichen?{zusatz}', f'{"Ja" if vw else "Nein"}, die Nullstelle ist {k}-fach ({"ungerade" if vw else "gerade"}).',
+                [f'{"Nein" if vw else "Ja"}, die Nullstelle ist {k}-fach ({"ungerade" if vw else "gerade"}).', 'Ja, an jeder Nullstelle wechselt das Vorzeichen.',
+                 'Nein, das Vorzeichen hängt nur vom Leitkoeffizienten ab.'],
+                f'Faktor {faktor(ziel)} hoch {k}: {"ungerade Potenz wechselt das Vorzeichen" if vw else "gerade Potenz bleibt nicht-negativ, kein Vorzeichenwechsel"}.',
+                'Gerade oder ungerade Vielfachheit?' + (' Schneidet oder berührt der Graph die x-Achse?' if mit_bild else ''))
+    return mit_grafik(a, graph_von(kf, [p, q])) if mit_bild else a
 
 
 def g_vielfachheit(s):
@@ -184,15 +215,14 @@ def g_vielfachheit(s):
         kf = mal(*([[1, -p]] * m + [[1, -q]] * n))
         return zahl(f'{f}. Welche Vielfachheit hat die Nullstelle x = {dz(ziel)}?', f'Der Faktor {faktor(ziel)} kommt {k}-mal vor: {k}-fache Nullstelle.',
                     'Zähle, wie oft der passende Faktor vorkommt (Exponent).', k, f'{k} + ({wert_c(kf, ziel)})')
+    pool, nr = AKT['pool'], AKT['nr']
+    ohne_bild = pool in ('korrektur', 'sicherung')
+    if s == 2 and not ohne_bild:
+        return _vzw(p, q, m, n, nr % 2 == 0, True)
     if s == 2:
-        ziel, k = R.choice([(p, m), (q, n)])
-        vw = k % 2 == 1
-        kf = mal(*([[1, -p]] * m + [[1, -q]] * n))
-        return mit_grafik(auswahl(f'{f}. Wechselt f bei x = {dz(ziel)} das Vorzeichen? (Die Zeichnung zeigt den Graphen.)', f'{"Ja" if vw else "Nein"}, die Nullstelle ist {k}-fach ({"ungerade" if vw else "gerade"}).',
-                       [f'{"Nein" if vw else "Ja"}, die Nullstelle ist {k}-fach ({"ungerade" if vw else "gerade"}).', 'Ja, an jeder Nullstelle wechselt das Vorzeichen.',
-                        'Das hängt vom Leitkoeffizienten ab.'],
-                       f'Faktor {faktor(ziel)} hoch {k}: {"ungerade Potenz wechselt das Vorzeichen" if vw else "gerade Potenz bleibt nicht-negativ, kein Vorzeichenwechsel"}.',
-                       'Gerade oder ungerade Vielfachheit? Schneidet oder berührt der Graph die x-Achse?'), graph_von(kf, [p, q]))
+        return _vzw(p, q, m, n, nr % 2 == 0, False)
+    if nr % 3 == 0:
+        return _vzw(p, q, m, n, (nr // 3) % 2 == 0, False)
     typ = R.random()
     if typ < 0.5:
         a = R.randint(1, 6)
@@ -206,8 +236,33 @@ def g_vielfachheit(s):
                 'Jeder Faktor (x − a) trägt den Grad 1 bei.', m + n, f'{m} + {n} + ({len(kf) - 1} - {m + n})')
 
 
+def _sach():
+    if R.random() < 0.5:
+        # Quader x · x · (x + c) = V
+        x, c = R.randint(2, 9), R.randint(1, 6)
+        V = x * x * (x + c)
+        kf = [1, c, 0, -V]
+        # nur eine positive Lösung (f ist für x > 0 streng wachsend)
+        return zahl(f'Ein Quader hat die Kantenlängen x, x und x + {c} (in cm) und das Volumen {V} cm³. Bestimme x.',
+                    f'x · x · (x + {c}) = {V} ⇒ x³ + {c}x² − {V} = 0. Probieren mit Teilern von {V}: x = {x}, denn {x}² · {x + c} = {V}. '
+                    f'Weitere positive Lösungen gibt es nicht, weil x³ + {c}x² mit x wächst.',
+                    'Stelle die Volumengleichung auf und probiere kleine ganze Zahlen (Teiler des Volumens).', x, f'{x} + ({wert_c(kf, x)})', einheit='cm')
+    L = R.choice([12, 16, 20, 24, 30])
+    x = R.randint(1, L // 2 - 2)
+    V = x * (L - 2 * x) ** 2
+    ganz = [t for t in range(1, L // 2) if t * (L - 2 * t) ** 2 == V]
+    if ganz != [x]: return None
+    kf = [4, -4 * L, L * L, -V]
+    return zahl(f'Aus einem {L} cm × {L} cm großen Karton werden an den Ecken Quadrate mit der Seitenlänge x cm ausgeschnitten und die Ränder hochgeklappt. '
+                f'Die Schachtel hat das Volumen V = x · ({L} − 2x)². Für welches ganzzahlige x ist V = {dz(V)} cm³?',
+                f'x · ({L} − 2x)² = {dz(V)}. Sinnvoll ist nur 0 < x < {L // 2}. Probieren: x = {x} ergibt {x} · {L - 2 * x}² = {dz(V)}. Andere ganze Zahlen passen nicht.',
+                f'Welche Werte kann x überhaupt haben? Setze ganze Zahlen zwischen 1 und {L // 2 - 1} ein.', x, f'{x} + ({wert_c(kf, x)})', einheit='cm')
+
+
 def g_verstehen(s):
-    typ = R.choice({1: 'ab', 2: 'abcdf', 3: 'cdeff'}[s])
+    typ = R.choice({1: 'ab', 2: 'abcdf', 3: 'cdeffgg'}[s])
+    if typ == 'g':
+        return _sach()
     if typ == 'a':
         n = R.randint(3, 8)
         return auswahl(f'Wie viele Lösungen kann eine Polynomgleichung vom Grad {n} höchstens haben?', str(n), [str(n - 1), str(n + 1), str(2 * n)],
@@ -260,4 +315,5 @@ if __name__ == '__main__':
           offen=['Zeichnungen: Graphen in den Lernkarten „ausklammern“, „substitution“, „vielfachheit“, „verstehen“; Aufgaben zum Vorzeichenwechsel und „Welcher Term passt zum Graphen?“ zeigen den Graphen. Selbst skizzieren kann das Kind in der App noch nicht (Lehrplan: „Graph skizzieren“).',
                  'Polynomdivision ist nicht enthalten (lehrplan_gym nennt nur Ausklammern und Substitution).',
                  'Lösungen werden als Lücken „x₁ = □; …“ ohne Wiederholung (aufsteigend) abgefragt; die Anzahl der Lücken verrät, wie viele Lösungen es gibt. Wer das vermeiden will, braucht einen Antworttyp „Lösungsmenge“.',
-                 'Rechenausdruck c bei Lücken: „x + f(x)“ – ergibt nur dann x, wenn f(x) = 0, prüft also jede Lösung durch Einsetzen.'])
+                 'Rechenausdruck c bei Lücken: „x + f(x)“ – ergibt nur dann x, wenn f(x) = 0, prüft also jede Lösung durch Einsetzen.',
+                 'Prüfung eingearbeitet (Runde 3): Substitution mit nicht ganzzahligen Lösungen (zahl, Toleranz 0,01), Vorzeichenwechsel in Stufe 3/Korrektur/Sicherung ohne Grafik und Ja/Nein ausgewogen, Sachaufgaben (Quader, Schachtel aus Karton) in „verstehen“ Stufe 3.'])

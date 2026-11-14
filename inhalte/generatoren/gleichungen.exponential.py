@@ -52,7 +52,7 @@ ETAPPEN = [
      'probe': '2^3,32 ≈ 9,99 ✓',
      'fehler': '3 · 2^x = 30 ⇒ 6^x = 30 ist falsch: 3 · 2^x ist nicht (3 · 2)^x. Erst ⟦durch 3 teilen⟧, dann logarithmieren.'},
     {'lernziel': 'potenzregel', 'titel': 'Die Potenzregel für Logarithmen',
-     'regel': 'Ein Exponent im Logarithmus wird zum ⟦Faktor⟧: ⟦log_b(a^r) = r · log_b(a)⟧. So holt man die Unbekannte aus dem Exponenten.',
+     'regel': 'Ein Exponent im Logarithmus wird zum ⟦Faktor⟧: ⟦log_b(a^r) = r · log_b(a)⟧. Warum? Schreib a = b^y, also y = log_b(a). Dann ist a^r = (b^y)^r = b^(r · y). Der Exponent davon ist r · y = r · log_b(a). So holt man die Unbekannte aus dem Exponenten.',
      'schritte': ['5^x = 2^(x + 1): beide Seiten mit lg: x · lg 5 = (x + 1) · lg 2.', 'x(lg 5 − lg 2) = lg 2 ⇒ x = lg 2 : (lg 5 − lg 2) ≈ ⟦0,76⟧.'],
      'probe': '5^0,76 ≈ 3,40; 2^1,76 ≈ 3,39 ✓ (Rundung)',
      'fehler': 'lg(5x) = x · lg 5 ist falsch: Die Potenzregel gilt nur für ⟦Potenzen⟧ 5^x, nicht für Produkte 5 · x.'},
@@ -92,6 +92,27 @@ def g_logarithmus(s):
         xt = dz(x) if b == 10 else br(x)
         return zahl(f'Berechne {lb(b)}({xt}).', f'{pt(b, n)} = {xt}, also {lb(b)}({xt}) = {dz(n)}.',
                     'Ein Kehrwert entsteht durch einen negativen Exponenten; b⁰ = 1.', n, f'{n} + ({b} ** ({n}) - {cf(x)})')
+    typ = R.random()
+    if typ < 0.3:
+        # log_b(x) = n, gesucht b
+        b, n = R.choice([(b_, n_) for b_ in range(2, 13) for n_ in (2, 3, 4) if 8 <= b_ ** n_ <= 5000])
+        x = b ** n
+        return zahl(f'Es gilt log_b({dz(x)}) = {n}. Bestimme die Basis b.', f'log_b({dz(x)}) = {n} heißt b^{n} = {dz(x)}, also b = {b}.',
+                    'Schreibe die Gleichung als Potenz: b hoch … ergibt …', b, f'{b} + ({b} ** {n} - {x})')
+    if typ < 0.6:
+        # log_b(x) = n (auch negativ), gesucht x
+        b = R.choice([2, 3, 4, 5, 10])
+        n = R.choice([-3, -2, -1, 2, 3, 4]) if b != 10 else R.choice([-3, -2, -1, 2, 3])
+        x = Fr(b) ** n
+        if n > 0 and x > 5000: return None
+        if x.denominator == 1:
+            return zahl(f'Es gilt {lb(b)}(x) = {n}. Bestimme x.', f'{lb(b)}(x) = {n} heißt x = {pt(b, n)} = {dz(x)}.',
+                        'Der Logarithmus ist der Exponent: Basis hoch Logarithmus ergibt x.', x, f'{b} ** {n}')
+        if b == 10:
+            return zahl(f'Es gilt lg(x) = {dz(n)}. Bestimme x als Dezimalzahl.', f'lg(x) = {dz(n)} heißt x = 10^({dz(n)}) = {dz(x)}.',
+                        'Der Logarithmus ist der Exponent: 10 hoch Logarithmus ergibt x.', x, f'10 ** ({n})')
+        return bruch_luecke(f'Es gilt {lb(b)}(x) = {dz(n)}. Bestimme x als Bruch.', x, f'{lb(b)}(x) = {dz(n)} heißt x = {pt(b, n)} = {br(x)}.',
+                            'Ein negativer Exponent bedeutet Kehrwert.', c=['1', f'{b} ** {-n}'])
     k = R.choice([1, 3, 5, 7])
     b = R.choice([2, 3, 5])
     if b ** k > 5000: return None
@@ -107,6 +128,19 @@ def g_gleiche_basis(s):
         n = R.randint(2, {2: 9, 3: 6, 5: 4}[b])
         return zahl(f'Löse {b}^x = {dz(b ** n)}.', f'{dz(b ** n)} = {pt(b, n)}, also x = {n}.', f'Schreibe {dz(b ** n)} als Potenz von {b}.',
                     n, f'{n} + ({b} ** {n} - {b ** n})')
+    if s == 2 and R.random() < 0.4:
+        # rechte Seite ist ein Kehrwert: 2^x = 1/16, 5^(x − 1) = 0,2
+        n = R.randint(1, {2: 5, 3: 4, 5: 3}[b])
+        r = Fr(1, b ** n)
+        rt = dz(r) if b in (2, 5) and R.random() < 0.5 else br(r)
+        k = R.choice([0, 0, -1, 1, -2, 2])
+        x = -n - k
+        ex = f'x {plus(k)}' if k else 'x'
+        links = f'{b}^({ex})' if k else f'{b}^x'
+        gl = f'{rt} = 1/{dz(b ** n)}' if rt != br(r) else rt
+        schluss = f'{ex} = −{n} ⇒ x = {dz(x)}' if k else f'x = {dz(x)}'
+        return zahl(f'Löse {links} = {rt}.', f'{gl} = {b}^(−{n}) ⇒ {schluss}.',
+                    'Ein Kehrwert ist eine Potenz mit negativem Exponenten.', x, f'{x} + ({b} ** ({x} + ({k})) * {b ** n} - 1)')
     if s == 2:
         k = R.randint(-4, 4)
         n = R.randint(1, {2: 7, 3: 5, 5: 3}[b])
@@ -128,7 +162,17 @@ def g_gleiche_basis(s):
             bruch_luecke(f'Löse {B}^x = {dz(b ** n)}. Gib x als gekürzten Bruch an.', x,
                          f'{B} = {pt(b, e)}, {dz(b ** n)} = {pt(b, n)} ⇒ {e}x = {n} ⇒ x = {br(x)}.', f'Schreibe beide Seiten als Potenz von {b}.',
                          c=[f'{n} * {x.denominator} // {e}', f'{x.denominator}'])
-    if typ < 0.7:
+    if typ < 0.6:
+        # B^(x + k) = b^n mit B = b^e  ⇒  e(x + k) = n
+        b, B, e = R.choice([(2, 4, 2), (3, 9, 2), (2, 8, 3), (5, 25, 2)])
+        n = R.randint(1, {2: 7, 3: 5, 5: 4}[b])
+        k = R.choice([-2, -1, 1, 2])
+        x = Fr(n, e) - k
+        if not endlich(x) or n % e == 0: return None
+        return zahl(f'Löse {B}^(x {plus(k)}) = {dz(b ** n)}.',
+                    f'{B} = {pt(b, e)}, {dz(b ** n)} = {pt(b, n)} ⇒ {e} · (x {plus(k)}) = {n} ⇒ x {plus(k)} = {zt(Fr(n, e))} ⇒ x = {dz(x)}.',
+                    f'Welche gemeinsame Basis haben {B} und {dz(b ** n)}?', x, f'{cf(x)} + ({b} ** ({e} * ({cf(x)} + ({k}))) - {b ** n})')
+    if typ < 0.75:
         n = R.randint(1, {2: 6, 3: 4, 5: 3}[b])
         return zahl(f'Löse (1/{b})^x = {dz(b ** n)}.', f'(1/{b})^x = {b}^(−x) = {pt(b, n)} ⇒ −x = {n} ⇒ x = −{n}.',
                     'Schreibe 1/b als b hoch −1.', -n, f'({-n}) + ({b} ** (-({-n})) - {b ** n})')
@@ -175,17 +219,40 @@ def g_mit_log_loesen(s):
                 v, f'round({K(x)}, 2)', tol=0.01)
 
 
+def _gl_zwei_basen():
+    a, b2 = R.sample([2, 3, 5, 7], 2)
+    m = R.choice([1, 2, -1, 3, -2])
+    # a^x = b2^(x + m)  ⇒  x lg a = (x + m) lg b2  ⇒  x = m lg b2 / (lg a − lg b2)
+    x = m * lg(b2) / (lg(a) - lg(b2))
+    v = gerundet(x, 2)
+    if v is None: return None
+    return zahl(f'Löse {a}^x = {b2}^(x {plus(m)}). Runde auf zwei Nachkommastellen.',
+                f'x · lg {a} = (x {plus(m)}) · lg {b2} ⇒ x(lg {a} − lg {b2}) = {dz(m)} · lg {b2} ⇒ x ≈ {dz(v)}.',
+                'Logarithmiere beide Seiten, wende die Potenzregel an und sammle die x-Terme.', v, f'round({K(x)}, 2)', tol=0.01)
+
+
 def g_potenzregel(s):
+    pool = AKT['pool']
+    if pool in ('korrektur', 'sicherung') and AKT['nr'] == 0:
+        return _gl_zwei_basen()
     if s == 1:
         b = R.choice([2, 3, 5, 10])
-        a = R.choice([2, 3, 4, 5, 7]) if b == 10 else b ** R.randint(1, 3)
-        r = R.randint(2, 9)
+        a = R.choice([2, 3, 4, 5, 7]) if b == 10 else b
+        r = R.randint(2, 15)
         if b != 10:
-            n = round(log(a, b))
-            return zahl(f'Berechne {lb(b)}({a}^{r}) mit der Potenzregel.', f'{lb(b)}({a}^{r}) = {r} · {lb(b)}({a}) = {r} · {n} = {r * n}.',
-                        'Ziehe den Exponenten als Faktor vor den Logarithmus.', r * n, f'{r} * {n} + ({b} ** {n} - {a})')
+            # Stufe 1: nur ein Schritt (Basis gleich, log_b(b) = 1)
+            return zahl(f'Berechne {lb(b)}({a}^{r}) mit der Potenzregel.', f'{lb(b)}({a}^{r}) = {r} · {lb(b)}({a}) = {r} · 1 = {r}.',
+                        'Ziehe den Exponenten als Faktor vor den Logarithmus.', r, f'{r} + ({b} ** 1 - {a})')
         return luecken(f'Schreibe lg({a}^{r}) mit der Potenzregel als Vielfaches von lg {a}.', f'□ · lg {a}', 'Faktor', [r],
                        f'lg({a}^{r}) = {r} · lg {a}.', 'Der Exponent wird zum Faktor.', c=[str(r)])
+    if s == 2 and R.random() < 0.35:
+        # zwei Schritte: Potenzregel und log_b(a) mit a = b^k
+        b = R.choice([2, 3, 5])
+        k = R.randint(2, 3)
+        a = b ** k
+        r = R.randint(2, 9)
+        return zahl(f'Berechne {lb(b)}({a}^{r}) mit der Potenzregel.', f'{lb(b)}({a}^{r}) = {r} · {lb(b)}({a}) = {r} · {k} = {r * k}.',
+                    f'Ziehe den Exponenten vor und bestimme dann {lb(b)}({a}).', r * k, f'{r} * {k} + ({b} ** {k} - {a})')
     if s == 2:
         base, l = R.choice([(2, Fr(3010, 10000)), (3, Fr(4771, 10000)), (5, Fr(6990, 10000)), (7, Fr(8451, 10000))])
         r = R.randint(2, 6)
@@ -193,15 +260,7 @@ def g_potenzregel(s):
                     f'lg({base}^{r}) = {r} · lg {base} ≈ {r} · {dz(l)} = {dz(r * l)}.', 'Potenzregel: Exponent als Faktor.', r * l, f'{r} * {cf(l)}')
     typ = R.random()
     if typ < 0.6:
-        a, b2 = R.sample([2, 3, 5, 7], 2)
-        m = R.choice([1, 2, -1])
-        # a^x = b2^(x + m)  ⇒  x lg a = (x + m) lg b2  ⇒  x = m lg b2 / (lg a − lg b2)
-        x = m * lg(b2) / (lg(a) - lg(b2))
-        v = gerundet(x, 2)
-        if v is None: return None
-        return zahl(f'Löse {a}^x = {b2}^(x {plus(m)}). Runde auf zwei Nachkommastellen.',
-                    f'x · lg {a} = (x {plus(m)}) · lg {b2} ⇒ x(lg {a} − lg {b2}) = {dz(m)} · lg {b2} ⇒ x ≈ {dz(v)}.',
-                    'Logarithmiere beide Seiten, wende die Potenzregel an und sammle die x-Terme.', v, f'round({K(x)}, 2)', tol=0.01)
+        return _gl_zwei_basen()
     a = R.randint(2, 9)
     return auswahl(f'Welche Umformung ist richtig (x > 0)?', f'lg(x^{a}) = {a} · lg x',
                    [f'lg({a}x) = {a} · lg x', f'lg(x^{a}) = (lg x)^{a}', f'lg(x + {a}) = lg x + lg {a}'],
@@ -209,56 +268,83 @@ def g_potenzregel(s):
                    'Steht die Zahl als Exponent, als Faktor oder als Summand?')
 
 
-def g_wachstum(s):
-    if s == 1:
-        p = R.choice([2, 3, 4, 5, 6, 8, 10])
-        n = R.randint(2, 4)
-        K0 = R.choice([1000, 2000, 5000, 10000])
-        q = 1 + Fr(p, 100)
-        Kn = K0 * q ** n
-        if not endlich(Kn): return None
-        return zahl(f'Ein Kapital von {dz(K0)} € wird mit {p} % pro Jahr verzinst (Zinseszins). Wie groß ist es nach {n} Jahren?',
-                    f'K = {dz(K0)} · {dz(q)}^{n} = {dz(Kn)} €.', 'Wachstumsfaktor 1 + p/100, so oft multiplizieren wie Jahre vergehen.',
-                    Kn, f'{K0} * {cf(q)} ** {n}', einheit='€')
-    if s == 2:
-        typ = R.random()
-        if typ < 0.5:
-            p = R.choice([2, 3, 4, 5, 6, 8])
-            q = 1 + p / 100
-            t = log(2) / log(q)
-            n = ceil(t)
-            if t - int(t) < 0.02: return None
-            return zahl(f'Ein Guthaben wird mit {p} % pro Jahr verzinst. Nach wie vielen vollen Jahren hat es sich erstmals verdoppelt?',
-                        f'{dz(Fr(100 + p, 100))}^t = 2 ⇒ t = lg 2 : lg {dz(Fr(100 + p, 100))} ≈ {dz(round(t, 2))}, also nach {n} Jahren.',
-                        'Löse q^t = 2 und runde auf die nächste ganze Zahl nach oben.', n, f'-(-{K(t)} // 1)', einheit='Jahre')
-        T = R.choice([5, 8, 12, 20, 30])
-        k = R.randint(2, 5)
-        m0 = R.choice([80, 160, 200, 320, 400])
-        m = Fr(m0, 2 ** k)
-        if not endlich(m): return None
-        return zahl(f'Ein radioaktiver Stoff hat eine Halbwertszeit von {T} Tagen. Anfangs sind {m0} mg vorhanden. Wie viel ist nach {T * k} Tagen noch da?',
-                    f'{T * k} Tage = {k} Halbwertszeiten: {m0} · 0,5^{k} = {dz(m)} mg.', 'Wie oft passt die Halbwertszeit in die Zeitspanne?', m,
-                    f'{m0} * 0.5 ** {k}', einheit='mg')
-    typ = R.random()
-    if typ < 0.4:
-        p = R.choice([3, 5, 8, 10, 12, 15, 20])
-        N0, Z = R.choice([(1000, 5000), (500, 2000), (2000, 3000), (100, 1000), (40, 300)])
-        q = 1 + p / 100
-        t = log(Z / N0) / log(q)
-        v = gerundet(t, 1)
-        if v is None: return None
-        return zahl(f'Eine Population wächst um {p} % pro Woche von {dz(N0)} auf {dz(Z)} Tiere. Nach wie vielen Wochen ist das der Fall (eine Nachkommastelle)?',
-                    f'{dz(N0)} · {dz(Fr(100 + p, 100))}^t = {dz(Z)} ⇒ t = lg({zt(Fr(Z, N0))}) : lg {dz(Fr(100 + p, 100))} ≈ {dz(v)} Wochen.',
-                    'Teile durch den Anfangswert, dann logarithmieren.', v, f'round({K(t)}, 1)', einheit='Wochen', tol=0.1)
-    if typ < 0.7:
-        p = R.choice([5, 10, 15, 20, 25, 30])
-        q = 1 - p / 100
-        t = log(0.5) / log(q)
-        v = gerundet(t, 1)
-        if v is None: return None
-        return zahl(f'Der Wert eines Geräts nimmt jedes Jahr um {p} % ab. Nach wie vielen Jahren ist er auf die Hälfte gesunken (eine Nachkommastelle)?',
-                    f'{dz(Fr(100 - p, 100))}^t = 0,5 ⇒ t = lg 0,5 : lg {dz(Fr(100 - p, 100))} ≈ {dz(v)} Jahre.', 'Abnahme um p %: Faktor 1 − p/100.',
-                    v, f'round({K(t)}, 1)', einheit='Jahre', tol=0.1)
+def _eur(v):
+    ganz, nach = f'{v:.2f}'.split('.')
+    return f'{dz(int(ganz))},{nach}'
+
+
+def _w_kapital():
+    p = R.choice([2, 3, 4, 5, 6, 8])
+    n = R.randint(2, 5)
+    K0 = R.choice([1000, 2000, 2500, 5000, 10000])
+    q = 1 + Fr(p, 100)
+    Kn = float(K0 * q ** n)
+    v = gerundet(Kn, 2)
+    if v is None: return None
+    return zahl(f'Ein Kapital von {dz(K0)} € wird mit {p} % pro Jahr verzinst (Zinseszins). Wie groß ist es nach {n} Jahren? Runde auf Cent.',
+                f'K = {dz(K0)} · {dz(q)}^{n} ≈ {_eur(v)} €.', 'Wachstumsfaktor 1 + p/100, so oft multiplizieren wie Jahre vergehen.',
+                v, f'round({K0} * {cf(q)} ** {n}, 2)', einheit='€', tol=0.01)
+
+
+def _w_zeit_einfach():
+    """q^t = k direkt nach der Erklärung (Stufe 1)."""
+    p = R.choice([2, 3, 4, 5, 6, 8, 10])
+    k = R.choice([Fr(3, 2), 2, 3, Fr(5, 4)])
+    q = Fr(100 + p, 100)
+    t = log(k) / log(q)
+    v = gerundet(t, 1)
+    if v is None: return None
+    return zahl(f'Ein Betrag wächst jedes Jahr um {p} %. Löse {dz(q)}^t = {dz(k)}, um zu sehen, wann er das {dz(k)}-Fache erreicht hat. Runde auf eine Nachkommastelle.',
+                f't = lg {dz(k)} : lg {dz(q)} ≈ {dz(v)} Jahre.', 'Logarithmiere beide Seiten: t = lg(rechte Seite) : lg(Basis).', v, f'round({K(t)}, 1)',
+                einheit='Jahre', tol=0.1)
+
+
+def _w_verdoppeln():
+    p = R.choice([2, 3, 4, 5, 6, 8, 9])
+    q = 1 + p / 100
+    t = log(2) / log(q)
+    n = ceil(t)
+    if t - int(t) < 0.02: return None
+    return zahl(f'Ein Guthaben wird mit {p} % pro Jahr verzinst. Nach wie vielen vollen Jahren hat es sich erstmals verdoppelt?',
+                f'{dz(Fr(100 + p, 100))}^t = 2 ⇒ t = lg 2 : lg {dz(Fr(100 + p, 100))} ≈ {dz(round(t, 2))}, also nach {n} Jahren.',
+                'Löse q^t = 2 und runde auf die nächste ganze Zahl nach oben.', n, f'-(-{K(t)} // 1)', einheit='Jahre')
+
+
+def _w_zerfall_menge():
+    T = R.choice([5, 8, 12, 20, 30])
+    k = R.randint(2, 5)
+    m0 = R.choice([80, 160, 200, 320, 400])
+    m = Fr(m0, 2 ** k)
+    if not endlich(m): return None
+    return zahl(f'Ein radioaktiver Stoff hat eine Halbwertszeit von {T} Tagen. Anfangs sind {m0} mg vorhanden. Wie viel ist nach {T * k} Tagen noch da?',
+                f'{T * k} Tage = {k} Halbwertszeiten: {m0} · 0,5^{k} = {dz(m)} mg.', 'Wie oft passt die Halbwertszeit in die Zeitspanne?', m,
+                f'{m0} * 0.5 ** {k}', einheit='mg')
+
+
+def _w_halbieren():
+    p = R.choice([5, 10, 15, 20, 25, 30])
+    q = 1 - p / 100
+    t = log(0.5) / log(q)
+    v = gerundet(t, 1)
+    if v is None: return None
+    return zahl(f'Der Wert eines Geräts nimmt jedes Jahr um {p} % ab. Nach wie vielen Jahren ist er auf die Hälfte gesunken (eine Nachkommastelle)?',
+                f'{dz(Fr(100 - p, 100))}^t = 0,5 ⇒ t = lg 0,5 : lg {dz(Fr(100 - p, 100))} ≈ {dz(v)} Jahre.', 'Abnahme um p %: Faktor 1 − p/100.',
+                v, f'round({K(t)}, 1)', einheit='Jahre', tol=0.1)
+
+
+def _w_population():
+    p = R.choice([3, 5, 8, 10, 12, 15, 20])
+    N0, Z = R.choice([(1000, 5000), (500, 2000), (2000, 3000), (100, 1000), (40, 300)])
+    q = 1 + p / 100
+    t = log(Z / N0) / log(q)
+    v = gerundet(t, 1)
+    if v is None: return None
+    return zahl(f'Eine Population wächst um {p} % pro Woche von {dz(N0)} auf {dz(Z)} Tiere. Nach wie vielen Wochen ist das der Fall (eine Nachkommastelle)?',
+                f'{dz(N0)} · {dz(Fr(100 + p, 100))}^t = {dz(Z)} ⇒ t = lg({zt(Fr(Z, N0))}) : lg {dz(Fr(100 + p, 100))} ≈ {dz(v)} Wochen.',
+                'Teile durch den Anfangswert, dann logarithmieren.', v, f'round({K(t)}, 1)', einheit='Wochen', tol=0.1)
+
+
+def _w_medikament():
     T = R.choice([6, 8, 10, 25])
     rest = R.choice([10, 20, 30, 40, 60, 70])
     t = T * log(rest / 100) / log(0.5)
@@ -267,6 +353,68 @@ def g_wachstum(s):
     return zahl(f'Ein Medikament wird mit einer Halbwertszeit von {T} Stunden abgebaut. Nach welcher Zeit sind noch {rest} % vorhanden (eine Nachkommastelle)?',
                 f'0,5^(t/{T}) = {dz(Fr(rest, 100))} ⇒ t = {T} · lg {dz(Fr(rest, 100))} : lg 0,5 ≈ {dz(v)} h.', 'Ansatz N₀ · 0,5^(t/T) und durch N₀ teilen.',
                 v, f'round({K(t)}, 1)', einheit='h', tol=0.1)
+
+
+def _w_halbwertszeit():
+    """Halbwertszeit bestimmen – aus der Abnahmerate oder aus zwei Messwerten."""
+    if R.random() < 0.5:
+        p = R.choice([2, 3, 4, 5, 6, 8, 12])
+        t = log(0.5) / log(1 - p / 100)
+        v = gerundet(t, 1)
+        if v is None: return None
+        return zahl(f'Ein Stoff nimmt pro Tag um {p} % ab. Wie groß ist die Halbwertszeit? Runde auf eine Nachkommastelle.',
+                    f'Faktor q = {dz(Fr(100 - p, 100))}. q^T = 0,5 ⇒ T = lg 0,5 : lg {dz(Fr(100 - p, 100))} ≈ {dz(v)} Tage.',
+                    'Die Halbwertszeit ist die Zeit, nach der nur noch die Hälfte da ist: q^T = 0,5.', v, f'round({K(t)}, 1)', einheit='Tage', tol=0.1)
+    m0 = R.choice([40, 80, 100, 120, 200])
+    m1 = R.choice(list(range(m0 // 2 + 5, m0 - 4, 5)))
+    d = R.choice([5, 6, 8, 10, 12])
+    # q^d = m1/m0  ⇒  T = d · lg 0,5 / lg(m1/m0)
+    t = d * log(0.5) / log(m1 / m0)
+    v = gerundet(t, 1)
+    if v is None or t > 200: return None
+    return zahl(f'Von {m0} mg eines Stoffs sind nach {d} Tagen noch {m1} mg übrig. Wie groß ist die Halbwertszeit? Runde auf eine Nachkommastelle.',
+                f'q^{d} = {m1} : {m0} = {zt(Fr(m1, m0))}. Die Halbwertszeit T erfüllt q^T = 0,5, also T = {d} · lg 0,5 : lg {zt(Fr(m1, m0))} ≈ {dz(v)} Tage.',
+                'Bestimme zuerst, welcher Anteil nach der gegebenen Zeit übrig ist. Dann: Nach wie vielen Tagen ist es die Hälfte?',
+                v, f'round({K(t)}, 1)', einheit='Tage', tol=0.1)
+
+
+def _w_rate():
+    """Wachstumsrate in % bestimmen (keine Zeitfrage)."""
+    if R.random() < 0.5:
+        K0 = R.choice([2000, 4000, 5000, 8000, 10000])
+        f = R.choice([Fr(7, 5), Fr(13, 10), Fr(6, 5), Fr(3, 2), Fr(5, 4)])
+        n = R.choice([5, 8, 10, 12, 15])
+        K1 = K0 * f
+        p = (float(f) ** (1 / n) - 1) * 100
+        v = gerundet(p, 1)
+        if v is None: return None
+        return zahl(f'Ein Kapital wächst mit Zinseszins in {n} Jahren von {dz(K0)} € auf {dz(K1)} €. Wie hoch ist der Zinssatz? Runde auf eine Nachkommastelle.',
+                    f'q^{n} = {dz(K1)} : {dz(K0)} = {dz(f)} ⇒ q = {dz(f)}^(1/{n}) ≈ {dz(round(1 + p / 100, 4))}, also p ≈ {dz(v)} %.',
+                    'Bestimme den Wachstumsfaktor q pro Jahr; der Zinssatz ist q − 1 in Prozent.', v, f'round({K(p)}, 1)', einheit='%', tol=0.1)
+    k, wort = R.choice([(2, 'verdoppelt'), (3, 'verdreifacht'), (4, 'vervierfacht')])
+    n = R.choice([3, 4, 5, 6, 8])
+    p = (k ** (1 / n) - 1) * 100
+    v = gerundet(p, 1)
+    if v is None: return None
+    return zahl(f'Eine Bakterienkultur {wort} sich in {n} Stunden. Um wie viel Prozent wächst sie pro Stunde? Runde auf eine Nachkommastelle.',
+                f'q^{n} = {k} ⇒ q = {k}^(1/{n}) ≈ {dz(round(1 + p / 100, 4))}, also Wachstum ≈ {dz(v)} % pro Stunde.',
+                'Gesucht ist der Faktor q pro Stunde: q hoch Stundenzahl ergibt die Vervielfachung.', v, f'round({K(p)}, 1)', einheit='%', tol=0.1)
+
+
+def g_wachstum(s):
+    # Regel der Prüfung: mindestens die Hälfte der Aufgaben je Pool fragt nach der Zeit t.
+    pool, nr = AKT['pool'], AKT['nr']
+    if pool != 'uebung':
+        if nr % 2 == 0:
+            return R.choice([_w_verdoppeln, _w_halbieren, _w_medikament, _w_population, _w_halbwertszeit])()
+        return R.choice([_w_kapital, _w_zerfall_menge, _w_rate])()
+    if s == 1:
+        return _w_zeit_einfach() if nr % 2 == 0 else _w_kapital()
+    if s == 2:
+        return _w_zerfall_menge() if nr % 3 == 0 else R.choice([_w_verdoppeln, _w_halbieren])()
+    if nr % 3 == 2:
+        return _w_rate()
+    return R.choice([_w_population, _w_medikament, _w_halbwertszeit])()
 
 
 def g_verstehen(s):
@@ -285,9 +433,11 @@ def g_verstehen(s):
     if typ == 'c':
         b = R.choice([2, 3, 4, 5])
         n = R.randint(2, 5)
-        if b ** (n - 1) == n: return None
-        return auswahl(f'Jemand rechnet {lb(b)}({dz(b ** n)}) = {dz(b ** n)} : {b} = {dz(b ** (n - 1))}. Was stimmt?', f'Falsch, {lb(b)}({dz(b ** n)}) = {n}',
-                       ['Richtig', f'Falsch, {lb(b)}({dz(b ** n)}) = {dz(b ** n * b)}', f'Falsch, {lb(b)}({dz(b ** n)}) = {dz(Fr(b ** n, 2)) if endlich(Fr(b ** n, 2)) else n + 1}'],
+        falsch_wert = b ** (n - 1)
+        if falsch_wert == n: return None
+        ablenker = [w for w in (b ** (2 * n), n - 1, n + 1) if w not in (falsch_wert, n)]
+        return auswahl(f'Jemand rechnet {lb(b)}({dz(b ** n)}) = {dz(b ** n)} : {b} = {dz(falsch_wert)}. Was stimmt?', f'Falsch, {lb(b)}({dz(b ** n)}) = {n}',
+                       ['Richtig'] + [f'Falsch, {lb(b)}({dz(b ** n)}) = {dz(w)}' for w in ablenker],
                        f'Gesucht ist der Exponent: {pt(b, n)} = {dz(b ** n)}.', 'Wonach fragt der Logarithmus?')
     if typ == 'd':
         a, b = R.randint(2, 5), R.choice([2, 3, 5])
@@ -326,4 +476,5 @@ if __name__ == '__main__':
           offen=['Zeichnungen: Lernkarten „logarithmus“, „mit_log_loesen“, „wachstum“ und „verstehen“ haben ein Koordinatensystem; Aufgaben zum Abschätzen (Stufe 1 „mit_log_loesen“) und zu „keine Lösung“ zeigen den Graphen. Die Exponenten heißen in den Graphnamen „2^x“ (Text).',
                  'Nur die Potenzregel für Logarithmen (lehrplan_gym). Produkt- und Quotientenregel sind bewusst nicht enthalten.',
                  'Rechenausdruck c bei exakten Logarithmen: prüft b^n = x (z. B. „5 + (2 ** 5 − 32)“), weil das Prüfskript keinen Logarithmus kennt; gerundete Lösungen als 12-stellige Konstante mit Toleranz 0,01 bzw. 0,1.',
-                 'Schreibweise: Exponenten mit Unbekannten als „2^x“ bzw. „3^(x − 1)“, Logarithmus als „log₂(32)“ und „lg“.'])
+                 'Schreibweise: Exponenten mit Unbekannten als „2^x“ bzw. „3^(x − 1)“, Logarithmus als „log₂(32)“ und „lg“.',
+                 'Prüfung eingearbeitet (Runde 3): Potenzregel begründet; neue Aufgabentypen Basis/Argument bestimmen, Kehrwert-Exponenten, gemeinsame Basis mit Verschiebung, Halbwertszeit und Wachstumsrate bestimmen. „wachstum“: in jedem Pool mindestens die Hälfte Zeitfragen; Geldbeträge auf Cent mit Toleranz 0,01.'])

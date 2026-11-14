@@ -1,0 +1,61 @@
+{
+  "thema_schluessel": "zahlen.potenzen_zehner",
+  "gesamturteil": "gut",
+  "thema_hinweise": [
+    "Klar und fachlich richtig, gute Alltagsbezüge bei den Vorsilben. Bei den beiden Karten zur wissenschaftlichen Schreibweise fehlt der Grund, warum man sie überhaupt braucht: echte sehr große und sehr kleine Größen (Entfernung zur Sonne, Sandkorn). Eingebaut.",
+    "Lehrplanbezug fehlt (lehrplan_gym leer) – vom Aufbau-Prüfer klären lassen. Die Karte „zehnerpotenz“ überschneidet sich mit zahlen.potenzen_basis (Kl. 5, Karte „zehner“)."
+  ],
+  "karten": [
+    {
+      "lernziel": "zehnerpotenz",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "gross_wissenschaftlich",
+      "urteil": "verbessern",
+      "probleme": [
+        "Nackte Zahl; der Sinn der Schreibweise (riesige Zahlen kurz und ohne Nullenzählen) wird erst an einer echten Größe klar."
+      ],
+      "neu": {
+        "schritte": [
+          "Die Sonne ist rund 150 000 000 km von der Erde entfernt.",
+          "Setze das Komma hinter die erste Ziffer: 1,5. Das Komma ist dabei 8 Stellen nach links gewandert.",
+          "Also 150 000 000 km = ⟦1,5 · 10⁸ km⟧."
+        ],
+        "probe": "1,5 · 100 000 000 = 150 000 000 ✓",
+        "fehler": "150 000 000 = 15 · 10⁷ ist zwar richtig gerechnet, aber ⟦nicht wissenschaftlich⟧: Vor dem Komma darf nur eine Ziffer von 1 bis 9 stehen. Richtig: 1,5 · 10⁸."
+      }
+    },
+    {
+      "lernziel": "vorsilben_gross",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "negativer_exponent",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "klein_wissenschaftlich",
+      "urteil": "verbessern",
+      "probleme": [
+        "Nackte Zahl ohne Bezug; eine echte kleine Größe zeigt, wozu man die Schreibweise braucht."
+      ],
+      "neu": {
+        "schritte": [
+          "Ein feines Sandkorn ist etwa 0,00047 m dick.",
+          "Das Komma muss hinter die 4 wandern: 4,7. Es wandert 4 Stellen nach rechts.",
+          "Also 0,00047 m = ⟦4,7 · 10⁻⁴ m⟧."
+        ]
+      }
+    },
+    {
+      "lernziel": "vorsilben_klein",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "vergleichen_pruefen",
+      "urteil": "ok"
+    }
+  ],
+  "neue_karten": []
+}

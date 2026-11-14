@@ -92,10 +92,11 @@ def aufgaben(etappen, gen, plan=PLAN, versuche=3000):
         for pool, stufe in plan:
             for _ in range(versuche):
                 a = gen[e['lernziel']](stufe)
-                if a['f']['text'] not in gesehen: break
+                schl = a['f']['text'] + json.dumps(a['f'].get('grafik'), sort_keys=True)
+                if schl not in gesehen and a['f']['text'] not in gesehen: break
             else:
                 raise SystemExit(f'zu wenige Varianten für {e["lernziel"]} (Stufe {stufe})')
-            gesehen.add(a['f']['text'])
+            gesehen.add(schl)
             assert a.get('h') and a.get('w'), (e['lernziel'], a)
             if pool != 'uebung': a.pop('h', None)
             out.append({'l': e['lernziel'], 't': e['lernziel'], 'p': pool, 's': stufe, **a})

@@ -352,10 +352,14 @@ def g_mst(st):
                 'h': 'Bei f : 1 ist das Bild f-mal so groß wie in Wirklichkeit.'}
     l, b = R.choice([(12, 8), (10, 6), (15, 10), (9, 6), (14, 8)])
     mm = R.choice([50, 100])
-    return luecke([l * 100 // mm, b * 100 // mm] if (l * 100) % mm == 0 and (b * 100) % mm == 0 else [l * 2, b * 2],
+    if (l * 100) % mm or (b * 100) % mm: return g_mst(3)
+    a = luecke([l * 100 // mm, b * 100 // mm],
                   f'Ein Zimmer ist {l} m lang und {b} m breit. Zeichne es im Maßstab 1 : {mm}. Wie lang und breit wird es auf dem Plan (in cm)?', 'Länge □ cm, Breite □ cm', 'Erst die Länge, dann die Breite.',
                   [f'{l} * 100 / {mm}', f'{b} * 100 / {mm}'], f'{l} m = {l * 100} cm, : {mm} = {l * 100 // mm} cm. {b} m = {b * 100} cm, : {mm} = {b * 100 // mm} cm.',
-                  'Erst in cm umrechnen, dann durch die Maßstabszahl teilen.') if (l * 100) % mm == 0 and (b * 100) % mm == 0 else g_mst(3)
+                  'Erst in cm umrechnen, dann durch die Maßstabszahl teilen.')
+    a['f']['grafik'] = {'typ': 'figur', 'punkte': {'_A': [0, 0], '_B': [l, 0], '_C': [l, b], '_D': [0, b]}, 'flaeche': ['_A', '_B', '_C', '_D'],
+                        'linien': [['_A', '_B', f'{l} m'], ['_B', '_C', f'{b} m'], ['_C', '_D'], ['_D', '_A']]}
+    return a
 
 
 # ---------- 8 Verstehen ----------
@@ -396,7 +400,7 @@ DATEI = datei(E, 'Geld, Längen, Massen und Zeitspannen schätzen, umrechnen und
               ETAPPEN, GEN,
               offen=['Flächen- und Volumeneinheiten aus „umfang“ hier weggelassen: Flächeneinheiten gehören laut LehrplanPLUS Kl. 5 zum Lernbereich Flächeninhalt (Thema messen.flaechen), Raumeinheiten sind Stoff Kl. 6.',
                      'Dreisatz/Schlussrechnung steht im eigenen Thema groessen.proportional und ist hier nicht noch einmal enthalten.',
-                     'Lernkarte schaetzen: eine Zeichnung mit Bezugsgrößen (Tür, Schokolade, Lineal) wäre hilfreich, ist aber nicht nötig.'])
+                     'Zeichnung (neu): Grundriss beim Maßstab. Eine Karte mit Maßstabsleiste und eine Uhr für Zeitspannen kann die App noch nicht zeichnen.'])
 
 if __name__ == '__main__':
     schreibe(DATEI)

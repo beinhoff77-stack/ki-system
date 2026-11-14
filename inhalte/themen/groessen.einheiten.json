@@ -3502,7 +3502,54 @@
    "f": {
     "text": "Ein Zimmer ist 10 m lang und 6 m breit. Zeichne es im Maßstab 1 : 50. Wie lang und breit wird es auf dem Plan (in cm)?",
     "schablone": "Länge □ cm, Breite □ cm",
-    "hinweis": "Erst die Länge, dann die Breite."
+    "hinweis": "Erst die Länge, dann die Breite.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_A": [
+       0,
+       0
+      ],
+      "_B": [
+       10,
+       0
+      ],
+      "_C": [
+       10,
+       6
+      ],
+      "_D": [
+       0,
+       6
+      ]
+     },
+     "flaeche": [
+      "_A",
+      "_B",
+      "_C",
+      "_D"
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B",
+       "10 m"
+      ],
+      [
+       "_B",
+       "_C",
+       "6 m"
+      ],
+      [
+       "_C",
+       "_D"
+      ],
+      [
+       "_D",
+       "_A"
+      ]
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -3543,7 +3590,54 @@
    "f": {
     "text": "Ein Zimmer ist 12 m lang und 8 m breit. Zeichne es im Maßstab 1 : 50. Wie lang und breit wird es auf dem Plan (in cm)?",
     "schablone": "Länge □ cm, Breite □ cm",
-    "hinweis": "Erst die Länge, dann die Breite."
+    "hinweis": "Erst die Länge, dann die Breite.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_A": [
+       0,
+       0
+      ],
+      "_B": [
+       12,
+       0
+      ],
+      "_C": [
+       12,
+       8
+      ],
+      "_D": [
+       0,
+       8
+      ]
+     },
+     "flaeche": [
+      "_A",
+      "_B",
+      "_C",
+      "_D"
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B",
+       "12 m"
+      ],
+      [
+       "_B",
+       "_C",
+       "8 m"
+      ],
+      [
+       "_C",
+       "_D"
+      ],
+      [
+       "_D",
+       "_A"
+      ]
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -3567,7 +3661,54 @@
    "f": {
     "text": "Ein Zimmer ist 15 m lang und 10 m breit. Zeichne es im Maßstab 1 : 100. Wie lang und breit wird es auf dem Plan (in cm)?",
     "schablone": "Länge □ cm, Breite □ cm",
-    "hinweis": "Erst die Länge, dann die Breite."
+    "hinweis": "Erst die Länge, dann die Breite.",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "_A": [
+       0,
+       0
+      ],
+      "_B": [
+       15,
+       0
+      ],
+      "_C": [
+       15,
+       10
+      ],
+      "_D": [
+       0,
+       10
+      ]
+     },
+     "flaeche": [
+      "_A",
+      "_B",
+      "_C",
+      "_D"
+     ],
+     "linien": [
+      [
+       "_A",
+       "_B",
+       "15 m"
+      ],
+      [
+       "_B",
+       "_C",
+       "10 m"
+      ],
+      [
+       "_C",
+       "_D"
+      ],
+      [
+       "_D",
+       "_A"
+      ]
+     ]
+    }
    },
    "o": {
     "werte": [
@@ -4296,6 +4437,6 @@
  "offen": [
   "Flächen- und Volumeneinheiten aus „umfang“ hier weggelassen: Flächeneinheiten gehören laut LehrplanPLUS Kl. 5 zum Lernbereich Flächeninhalt (Thema messen.flaechen), Raumeinheiten sind Stoff Kl. 6.",
   "Dreisatz/Schlussrechnung steht im eigenen Thema groessen.proportional und ist hier nicht noch einmal enthalten.",
-  "Lernkarte schaetzen: eine Zeichnung mit Bezugsgrößen (Tür, Schokolade, Lineal) wäre hilfreich, ist aber nicht nötig."
+  "Zeichnung (neu): Grundriss beim Maßstab. Eine Karte mit Maßstabsleiste und eine Uhr für Zeitspannen kann die App noch nicht zeichnen."
  ]
 }

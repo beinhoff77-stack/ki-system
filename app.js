@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.60.3';
+const APP_VERSION = '0.60.4';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 // Serverfunktionen in der Datenbank-Region (Irland) ausführen: sonst läuft die Funktion nahe beim Gerät (z. B. Asien) und jede DB-Abfrage geht um die Welt (W155b, ~4 s statt ~0,3 s)
 const mitRegion = (u) => u + (u.includes('?') ? '&' : '?') + 'forceFunctionRegion=eu-west-1';

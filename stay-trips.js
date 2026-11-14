@@ -222,6 +222,8 @@ async function viewReisen(arg){
   const dayNo=tripFrom&&today>=tripFrom&&today<=tripTo?tripDayDiff(tripFrom,today)+1:null;
   const flightCount=postenBooked.filter(p=>p.art==='flug').reduce((n,p)=>n+p.segmente.length,0);
   const kpi=(v,l)=>el('span',{class:'rp-stat'},el('b',{},v),' '+l);
+  // W175d: geteilte Weltkarte (Artifact) zur Route – nur für die Weltreise
+  const mapLink=trip.id===1?el('a',{class:'rp-maplink',href:'https://claude.ai/artifact/VgnFNRtHirbuWjtXiMkJNA',target:'_blank',rel:'noopener'},'🌍 Weltkarte ansehen & teilen'):null;
   // W175b: Anschlussbuchungen in derselben Unterkunft (gleicher Name, Abreise = nächste Anreise) zählen als ein Aufenthalt
   const aufenthalte=[];for(const e of booked){const prev=aufenthalte[aufenthalte.length-1],nm=String(e.buchung?.name||'').trim().toLowerCase();
    if(prev&&nm&&prev.nm===nm&&String(prev.abreise)===String(e.anreise))prev.abreise=e.abreise;else aufenthalte.push({nm,anreise:e.anreise,abreise:e.abreise});}
@@ -233,7 +235,7 @@ async function viewReisen(arg){
   const bisher=tripFrom&&today>=tripFrom?el('div',{class:'rp-bisher'},el('span',{class:'rp-stat-lab'},'Bisher'),kpi(String(staysDone),staysDone===1?'Unterkunft':'Unterkünfte'),kpi(String(flightsDone),flightsDone===1?'Flug':'Flüge'),daysLeft!==null?kpi(String(daysLeft),(daysLeft===1?'Tag':'Tage')+' übrig'+(endePlan?' · Rückreise '+tripDM(endePlan):'')):null):null;
   content.append(el('section',{class:'rp-total rp-total-slim','aria-label':'Reise-Übersicht'},
    el('div',{class:'rp-total-head'},el('div',{},el('div',{class:'rp-total-title'},el('span',{class:'rp-total-name'},trip.name),dayNo?el('span',{class:'rp-total-day'},'Tag '+dayNo+' von '+tripDays):null),
-     el('div',{class:'rp-stats'},kpi(String(aufenthalte.length),aufenthalte.length===1?'Unterkunft':'Unterkünfte'),kpi(String(flightCount),flightCount===1?'Flug':'Flüge'),kpi(String(tripDays),'Tage')),bisher),more),
+     el('div',{class:'rp-stats'},kpi(String(aufenthalte.length),aufenthalte.length===1?'Unterkunft':'Unterkünfte'),kpi(String(flightCount),flightCount===1?'Flug':'Flüge'),kpi(String(tripDays),'Tage')),bisher,mapLink),more),
    (()=>{const all=essenIn(tageVon||'0000',tripDayAdd(tageBis||'0000-01-01',1)),tile=(lab,val,sub,cls)=>el('div',{class:'rp-tile'+(cls?' '+cls:'')},el('span',{class:'rp-tile-lab'},lab),el('b',{},val),sub?el('span',{class:'rp-tile-sub'},sub):null);
     const diveDays=postenBooked.filter(p=>p.art==='tauchen').length;
     // W175c: Erlebnisse = gebuchte Tickets/Events + Kategorie „erleben“ aus den Nebenkosten (dort abgezogen, Summe bleibt gleich)

@@ -1,0 +1,102 @@
+{
+  "thema_schluessel": "funktionen.gebrochen",
+  "gesamturteil": "brauchbar",
+  "thema_hinweise": [
+    "Unter „offen“ steht, dass keine Hyperbeln gezeichnet werden können. Das geht jetzt (Graph „hyperbel“ mit Hilfslinien für die Asymptoten). Bisher erklärt keine Karte die Hyperbel mit Bild – für ein Thema, das im Lehrplan „Graphen mit Asymptoten zeichnen“ verlangt, ist das die größte Lücke. Bilder sind jetzt in indirekt, asymptoten, achsenpunkte und parameter eingebaut.",
+    "Fachlich richtig und in sinnvoller Reihenfolge."
+  ],
+  "karten": [
+    {
+      "lernziel": "indirekt",
+      "urteil": "verbessern",
+      "probleme": [
+        "Die Hyperbel wird genannt, aber nicht gezeigt. Am Graphen sieht man „doppelt so viele Pumpen – halbe Zeit“ und dass die Kurve nie die Achsen erreicht.",
+        "Der typische Fehler nennt die falsche Rechnung, aber nicht, woran man sie sofort erkennt (weniger Pumpen können nicht schneller sein)."
+      ],
+      "neu": {
+        "schritte": [
+          "4 Pumpen leeren ein Becken in 6 Stunden. Wie lange brauchen 3 Pumpen?",
+          "Die ganze Arbeit sind 4 · 6 = 24 Pumpen-Stunden. Das bleibt gleich, egal wie viele Pumpen arbeiten.",
+          "3 Pumpen brauchen 24 : 3 = ⟦8 Stunden⟧."
+        ],
+        "probe": "Weniger Pumpen, also mehr Zeit: 8 h > 6 h ✓. Und 3 · 8 = 24 ✓",
+        "fehler": "6 : 4 · 3 = 4,5 h ist falsch – damit wäre das Becken mit weniger Pumpen schneller leer! Das ist die Rechnung für direkte Proportionalität. Hier bleibt das ⟦Produkt⟧ gleich: 3 · 8 = 4 · 6.",
+        "bild": {
+          "typ": "koordinaten",
+          "x": [0, 12],
+          "y": [0, 12],
+          "graphen": [{ "art": "hyperbel", "a": 24, "b": 0, "c": 0, "bereich": [1, 12] }],
+          "punkte": [{ "x": 3, "y": 8, "name": "(3 | 8)" }, { "x": 4, "y": 6, "name": "(4 | 6)" }],
+          "name_x": "Pumpen",
+          "name_y": "h"
+        }
+      },
+      "strategie": "Plausibilitätsprobe „mehr – weniger“ vor dem Rechnen: Mehr Pumpen → weniger Zeit. Damit erkennt das Kind die falsche Zuordnungsart sofort."
+    },
+    {
+      "lernziel": "definitionsmenge",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "asymptoten",
+      "urteil": "verbessern",
+      "probleme": [
+        "„Eine Gerade, der sich der Graph immer mehr nähert“ ist ohne Bild für Klasse 8 schwer vorstellbar."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "koordinaten",
+          "x": [-10, 4],
+          "y": [-8, 3],
+          "graphen": [{ "art": "hyperbel", "a": 2, "b": 4, "c": -3, "name": "f" }],
+          "senkrecht": [-4],
+          "waagrecht": [-3]
+        }
+      }
+    },
+    {
+      "lernziel": "achsenpunkte",
+      "urteil": "verbessern",
+      "probleme": [
+        "Der typische Fehler ist verwirrend formuliert („keine Nullstelle bei x = 0“). Der häufigste Fehler ist das Verwechseln: Für die Nullstelle wird x = 0 eingesetzt.",
+        "Kein Bild der beiden Schnittpunkte."
+      ],
+      "neu": {
+        "fehler": "Für die Nullstelle x = 0 einsetzen: f(0) = 4 ist der Schnittpunkt mit der ⟦y-Achse⟧. Die Nullstelle ist dort, wo ⟦y = 0⟧ ist. Merke: Achse x heißt y = 0, Achse y heißt x = 0.",
+        "bild": {
+          "typ": "koordinaten",
+          "x": [-6, 6],
+          "y": [-8, 8],
+          "graphen": [{ "art": "hyperbel", "a": 6, "b": 1, "c": -2, "name": "f" }],
+          "senkrecht": [-1],
+          "waagrecht": [-2],
+          "punkte": [{ "x": 0, "y": 4, "name": "(0 | 4)" }, { "x": 2, "y": 0, "name": "(2 | 0)" }]
+        }
+      }
+    },
+    {
+      "lernziel": "parameter",
+      "urteil": "verbessern",
+      "probleme": [
+        "Die Verschiebung „x − 3 heißt nach rechts“ wirkt wie ein Widerspruch. Die Begründung über die Lücke steht nur im Fehler; sie gehört in die Regel, und ein Bild mit Ausgangs- und verschobenem Graphen zeigt es."
+      ],
+      "neu": {
+        "regel": "Der Graph von a/(x + b) + c entsteht aus a/x durch Verschieben. Die Lücke liegt dort, wo der Nenner 0 ist: Bei 1/(x − 3) ist das ⟦x = 3⟧, also ist der Graph um 3 nach ⟦rechts⟧ gerutscht. Das +c verschiebt um c nach ⟦oben⟧ (negatives c nach unten).",
+        "bild": {
+          "typ": "koordinaten",
+          "x": [-4, 8],
+          "y": [-4, 6],
+          "graphen": [{ "art": "hyperbel", "a": 1, "b": 0, "c": 0, "name": "g" }, { "art": "hyperbel", "a": 1, "b": -3, "c": 2, "name": "f" }],
+          "senkrecht": [3],
+          "waagrecht": [2]
+        }
+      },
+      "strategie": "Statt „Vorzeichen umdrehen“ als Rezept: Frage „Wo ist der Nenner 0?“ – dort liegt die senkrechte Asymptote."
+    },
+    {
+      "lernziel": "beurteilen",
+      "urteil": "ok"
+    }
+  ],
+  "neue_karten": []
+}

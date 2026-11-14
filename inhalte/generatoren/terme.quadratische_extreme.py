@@ -1,0 +1,283 @@
+#!/usr/bin/env python3
+"""Thema terme.quadratische_extreme – Quadratische Terme und Extremwerte (Realschule Bayern, Klasse 8)."""
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from _rs import *  # noqa: E402,F403
+
+start(9701)
+LX = 'x = □; T = □'
+HX = 'Erst die Stelle x, dann den Extremwert T.'
+
+
+def nz(n):
+    return R.choice([i for i in range(-n, n + 1) if i != 0])
+
+
+def quad(a, b, c):
+    return poly(a, b, c)
+
+
+def klammer(d):
+    """(x − d) als Text"""
+    return minus_klammer(d)
+
+
+def scheitel(a, d, e):
+    """a(x − d)² + e als Text"""
+    vor = '' if a == 1 else ('−' if a == -1 else dz(a))
+    if a != 1 and a != -1 and not isinstance(a, int) and Fr(a).denominator != 1: vor = dz(a)
+    k = klammer(d) if d != 0 else 'x'
+    teil = f'{vor}{k}²' if d != 0 else f'{vor}x²'
+    return teil + (f' {plus(e)}' if e != 0 else '')
+
+
+ETAPPEN = [
+    {'lernziel': 'ergaenzen', 'titel': 'Zum Binom ergänzen',
+     'regel': 'Ein Term x² + bx wird zu einem vollständigen Quadrat, wenn du ⟦(b : 2)²⟧ ergänzt: ⟦x² + bx + (b : 2)² = (x + b : 2)²⟧. Bild: x² + 6x sind ein Quadrat x mal x und zwei Streifen 3 mal x. Zum großen Quadrat (x + 3)² fehlt nur die ⟦Ecke 3 · 3 = 9⟧.',
+     'bild': {'typ': 'figur', 'punkte': {'_a': [0, 0], '_b': [5, 0], '_c': [8, 0], '_d': [8, 5], '_e': [8, 8], '_f': [5, 8], '_g': [0, 8], '_h': [0, 5], '_m': [5, 5]},
+              'flaeche': ['_m', '_d', '_e', '_f'],
+              'linien': [['_a', '_b', 'x'], ['_b', '_c', '3'], ['_c', '_d'], ['_d', '_e'], ['_e', '_f'], ['_f', '_g'], ['_g', '_h', '3'], ['_h', '_a', 'x'],
+                         ['_b', '_m'], ['_m', '_f'], ['_h', '_m'], ['_m', '_d']]},
+     'schritte': ['x² + 6x: Hälfte von 6 ist 3, und 3² = 9.', 'x² + 6x + ⟦9⟧ = ⟦(x + 3)²⟧.'],
+     'probe': '(x + 3)² = x² + 2 · 3 · x + 9 = x² + 6x + 9 ✓',
+     'fehler': 'x² + 6x + 36 = (x + 6)² ist falsch: In die Klammer gehört die ⟦Hälfte⟧ von 6, also 3; ergänzt wird 3² = 9.'},
+    {'lernziel': 'scheitelform', 'titel': 'Quadratische Ergänzung',
+     'regel': 'Bei x² + bx + c ergänzt du (b : 2)² und ⟦ziehst es gleich wieder ab⟧ – so ändert sich der Wert nicht: ⟦x² + bx + c = (x + b : 2)² − (b : 2)² + c⟧.',
+     'schritte': ['x² − 8x + 21 = x² − 8x + 16 − 16 + 21.', 'Zusammenfassen: ⟦(x − 4)² + 5⟧.'],
+     'probe': 'x = 0: 0 − 0 + 21 = 21 und (0 − 4)² + 5 = 16 + 5 = 21 ✓',
+     'fehler': 'x² − 8x + 21 = (x − 4)² + 21 ist falsch: Die ergänzte 16 muss auch wieder ⟦abgezogen⟧ werden, sonst ist der Term um 16 zu groß.'},
+    {'lernziel': 'extremwert', 'titel': 'Minimum oder Maximum ablesen',
+     'regel': 'Ein Quadrat ist ⟦nie negativ⟧: (x − 4)² ≥ 0, am kleinsten ist es (nämlich 0) für ⟦x = 4⟧. Also hat (x − 4)² + 5 das ⟦Minimum 5 für x = 4⟧. Steht ein ⟦Minus vor der Klammer⟧, z. B. −(x − 4)² + 5, gibt es ein ⟦Maximum⟧ 5 für x = 4.',
+     'schritte': ['T(x) = (x + 2)² − 7: Die Klammer ist 0 für x = −2.', 'Kleinster Wert: ⟦T = −7 für x = −2⟧ (Minimum).'],
+     'probe': 'x = −1: (1)² − 7 = −6 > −7 ✓',
+     'fehler': 'Bei (x + 2)² − 7 das Minimum bei x = 2 abzulesen ist falsch: (x + 2) wird null für ⟦x = −2⟧.'},
+    {'lernziel': 'mit_faktor', 'titel': 'Terme mit Faktor vor x²',
+     'regel': 'Steht vor x² ein Faktor a ≠ 1, ⟦klammerst du a aus⟧ den x-Gliedern aus und ergänzt in der Klammer. Ist ⟦a > 0⟧, gibt es ein Minimum; ist ⟦a < 0⟧, ein Maximum.',
+     'schritte': ['T(x) = 2x² − 12x + 23 = 2(x² − 6x) + 23 = 2(x² − 6x + 9 − 9) + 23.',
+                  '= 2(x − 3)² − 18 + 23 = ⟦2(x − 3)² + 5⟧. Minimum ⟦T = 5 für x = 3⟧.'],
+     'probe': 'T(3) = 18 − 36 + 23 = 5 ✓',
+     'fehler': '2(x² − 6x + 9 − 9) + 23 = 2(x − 3)² − 9 + 23 ist falsch: Die −9 steht in der Klammer und muss ⟦mit 2 multipliziert⟧ werden: −18.'},
+    {'lernziel': 'optimierung', 'titel': 'Optimierungsaufgaben',
+     'regel': 'Bei Optimierungsaufgaben stellst du die Größe, die möglichst groß oder klein werden soll, als ⟦Term in x⟧ auf. Dann bestimmst du mit der quadratischen Ergänzung das ⟦Extremum⟧ und beantwortest die Frage im Sachzusammenhang.',
+     'schritte': ['Ein Rechteck hat 20 m Umfang. Ist eine Seite x, ist die andere 10 − x. Fläche: A(x) = x(10 − x) = −x² + 10x.',
+                  '−x² + 10x = −(x² − 10x + 25 − 25) = −(x − 5)² + 25. ⟦Maximum 25 m² für x = 5 m⟧ – ein Quadrat.'],
+     'probe': 'x = 4: 4 · 6 = 24 < 25 ✓',
+     'fehler': 'Die Fläche 25 m² als Seitenlänge anzugeben ist falsch: Lies genau, was gefragt ist – die ⟦Stelle x⟧ (Seitenlänge) oder den ⟦Extremwert⟧ (Fläche).'},
+]
+
+
+# ---------- Generatoren ----------
+def g_ergaenzen(s):
+    if s == 1:
+        h = R.randint(1, 9)
+        return luecken('Ergänze zu einem vollständigen Quadrat.', f'x² + {2 * h}x + □ = (x + □)²', 'Erst die ergänzte Zahl, dann die Zahl in der Klammer.',
+                       [h * h, h], f'Hälfte von {2 * h} ist {h}, {h}² = {h * h}: x² + {2 * h}x + {h * h} = (x + {h})².',
+                       'Halbiere die Zahl vor x und quadriere sie.', c=[f'({2 * h} / 2) ** 2', f'{2 * h} / 2'])
+    if s == 2:
+        h = R.randint(1, 12)
+        if R.random() < 0.5:
+            sg = R.choice([1, -1])
+            return luecken(f'Schreibe x² {plus_v(sg * 2 * h)} + {h * h} als Quadrat einer Klammer.', '(x + □)²', 'Zahl in der Klammer; bei Minus eine negative Zahl.',
+                           [sg * h], f'{h * h} = {h}² und {2 * h} = 2 · {h}: x² {plus_v(sg * 2 * h)} + {h * h} = {klammer(-sg * h)}².',
+                           'Welche Zahl ergibt quadriert die Zahl am Ende? Passt das Doppelte zur Zahl vor x?', c=[f'({sg * 2 * h}) / 2'])
+        return luecken('Ergänze so, dass ein Binom entsteht.', f'x² − {2 * h}x + □ = (x − □)²', 'Erst die ergänzte Zahl, dann die Zahl in der Klammer.',
+                       [h * h, h], f'Hälfte von {2 * h} ist {h}, {h}² = {h * h}: x² − {2 * h}x + {h * h} = (x − {h})².',
+                       'Das Minus bleibt in der Klammer. Ergänzt wird immer eine positive Zahl.', c=[f'({2 * h} / 2) ** 2', f'{2 * h} / 2'])
+    art = R.random()
+    h = nz(9)
+    if art < 0.35:
+        b = 2 * h
+        return auswahl(f'Welche Zahl musst du zu x² {plus_v(b)} addieren, damit ein Binom entsteht?', dz(h * h),
+                       [dz(b * b), dz(abs(b)), dz(-h * h)], f'(b : 2)² = ({dz(b)} : 2)² = {kl(h)}² = {dz(h * h)}.',
+                       'Halbieren, dann quadrieren – das Ergebnis ist nie negativ.')
+    if art < 0.7:
+        b = R.choice([1, 3, 5, 7])
+        sg = R.choice([1, -1])
+        # (b/2)² als Dezimalzahl
+        q = Fr(b * b, 4)
+        return zahl(f'Welche Zahl muss man zu x² {plus_v(sg * b)} addieren, damit ein Binom entsteht? Gib sie als Dezimalzahl an.',
+                    f'Hälfte von {b} ist {dz(Fr(b, 2))}, und {dz(Fr(b, 2))}² = {dz(q)}.', 'Auch bei ungeraden Zahlen: halbieren, dann quadrieren.',
+                    q, f'({b} / 2) ** 2')
+    k = R.randint(2, 9)
+    return auswahl(f'Jemand schreibt: x² + {2 * k}x + {2 * k} = (x + {k})². Was stimmt?',
+                   f'Falsch: Ergänzt werden muss {k * k}, also x² + {2 * k}x + {k * k} = (x + {k})².',
+                   ['Richtig.', f'Falsch: Richtig ist (x + {2 * k})².', f'Falsch: Ergänzt werden muss {4 * k * k}.'],
+                   f'(x + {k})² = x² + {2 * k}x + {k * k}. Die ergänzte Zahl ist ({2 * k} : 2)² = {k * k}, nicht {2 * k}.',
+                   'Rechne (x + …)² mit der binomischen Formel aus.')
+
+
+def g_scheitelform(s):
+    LS, HS = 'T(x) = (x + □)² + □', 'Zahl in der Klammer, dann die Zahl dahinter. (x + (−3))² bedeutet (x − 3)².'
+    d = nz(7) if s > 1 else R.randint(1, 6) * R.choice([1, -1])
+    e = R.randint(-12, 12)
+    b, c = -2 * d, d * d + e
+    w = f'{quad(1, b, c)} = {quad(1, b, 0)} + {d * d} − {d * d} {plus(c)} = {klammer(d)}² {plus(e)}.'
+    if s in (1, 2):
+        return luecken(f'Bringe T(x) = {quad(1, b, c)} mit quadratischer Ergänzung in die Form (x + □)² + □.', LS, HS, [-d, e], w,
+                       'Ergänze (b : 2)² und ziehe es gleich wieder ab.', c=[f'({b}) / 2', f'{c} - (({b}) / 2) ** 2'])
+    art = R.random()
+    if art < 0.4:
+        falsch = [f'{klammer(d)}² {plus(c)}', f'{klammer(-d)}² {plus(e)}', f'{klammer(d)}² {plus(c + d * d)}']
+        return auswahl(f'Welcher Term ist gleich T(x) = {quad(1, b, c)}?', f'{klammer(d)}² {plus(e)}', falsch, w,
+                       'Was wurde ergänzt – und wurde es wieder abgezogen?')
+    if art < 0.7:
+        # Umkehr: Scheitelform ausmultiplizieren
+        return luecken(f'Multipliziere T(x) = {klammer(d)}² {plus(e)} aus.', '□x² + □x + □', 'Tippe den ganzen Term ein, z. B. x² − 6x + 4.',
+                       [1, b, c], f'{klammer(d)}² = {quad(1, b, d * d)}, dazu {dz(e)}: {quad(1, b, c)}.',
+                       'Binomische Formel, dann die Zahl dazurechnen.', c=['1', str(b), str(c)])
+    # mit ungeradem b
+    h = Fr(R.choice([1, 3, 5, 7]), 2) * R.choice([1, -1])
+    e2 = Fr(R.randint(-8, 8)) + Fr(R.choice([1, 3]), 4)
+    c2 = h * h + e2
+    b2 = 2 * h
+    return zahl(f'T(x) = x² {plus_v(b2)} {plus(c2)}. Welchen kleinsten Wert kann T(x) annehmen?',
+                f'T(x) = (x {plus(h)})² − {dz(h * h)} {plus(c2)} = (x {plus(h)})² {plus(e2)}. Kleinster Wert {dz(e2)} für x = {dz(-h)}.',
+                'Auch mit Dezimalzahlen: Hälfte von b quadrieren, ergänzen und wieder abziehen.', e2, f'{cz(c2)} - ({cz(b2)} / 2) ** 2')
+
+
+def g_extremwert(s):
+    d, e = nz(8), R.randint(-15, 15)
+    if s == 1:
+        a = R.choice([1, -1])
+        art = 'Minimum' if a > 0 else 'Maximum'
+        return luecken(f'Bestimme Stelle und Wert des Extremums von T(x) = {scheitel(a, d, e)}.', LX, HX, [d, e],
+                       f'Die Klammer ist 0 für x = {dz(d)}. {art} T = {dz(e)} für x = {dz(d)}.',
+                       'Für welches x wird die Klammer null?', c=[str(d), str(e)])
+    if s == 2:
+        a = R.choice([1, -1, 2, -2, 3, Fr(1, 2), -3])
+        if R.random() < 0.4:
+            return auswahl(f'Hat T(x) = {scheitel(a, d, e)} ein Minimum oder ein Maximum?',
+                           f'{"Minimum" if a > 0 else "Maximum"} {dz(e)} für x = {dz(d)}',
+                           [f'{"Maximum" if a > 0 else "Minimum"} {dz(e)} für x = {dz(d)}', f'{"Minimum" if a > 0 else "Maximum"} {dz(e)} für x = {dz(-d)}',
+                            f'{"Minimum" if a > 0 else "Maximum"} {dz(d)} für x = {dz(e)}'],
+                           f'Vorfaktor {dz(a)} {"> 0: Das Quadrat wird addiert, also Minimum" if a > 0 else "< 0: Das Quadrat wird abgezogen, also Maximum"}. Klammer 0 für x = {dz(d)}, Wert {dz(e)}.',
+                           'Wird das Quadrat addiert oder abgezogen?')
+        return luecken(f'Bestimme Stelle und Wert des Extremums von T(x) = {scheitel(a, d, e)}.', LX, HX, [d, e],
+                       f'Klammer 0 für x = {dz(d)}; T = {dz(e)}. Vorfaktor {dz(a)}: {"Minimum" if a > 0 else "Maximum"}.',
+                       'Achte auf das Vorzeichen in der Klammer.', c=[str(d), str(e)])
+    art = R.random()
+    if art < 0.35:
+        b, c = -2 * d, d * d + e
+        sg = R.choice([1, -1])
+        if sg == 1:
+            return luecken(f'Bestimme Stelle und Wert des Minimums von T(x) = {quad(1, b, c)}.', LX, HX, [d, e],
+                           f'T(x) = {klammer(d)}² {plus(e)}. Minimum T = {dz(e)} für x = {dz(d)}.',
+                           'Erst quadratisch ergänzen, dann ablesen.', c=[f'-({b}) / 2', f'{c} - (({b}) / 2) ** 2'])
+        return luecken(f'Bestimme Stelle und Wert des Maximums von T(x) = {quad(-1, -b, -c + 2 * e)}.', LX, HX, [d, e],
+                       f'T(x) = −(x² {plus_v(b)} {plus(c - 2 * e)}) = −({klammer(d)}² {plus(-e)}) = −{klammer(d)}² {plus(e)}. Maximum T = {dz(e)} für x = {dz(d)}.',
+                       'Klammere zuerst −1 aus.', c=[f'-({b}) / 2', f'-((({c - 2 * e}) - (({b}) / 2) ** 2))'])
+    if art < 0.7:
+        a = R.choice([1, 2, -1, -2])
+        f = [f'T(x) kann für ein x kleiner als {dz(e)} werden.' if a > 0 else f'T(x) kann für ein x größer als {dz(e)} werden.',
+             f'Der Extremwert ist {dz(d)}.', f'Für x = {dz(-d)} ist T(x) = {dz(e)}.']
+        r = f'T(x) ist immer {"≥" if a > 0 else "≤"} {dz(e)}.'
+        return auswahl(f'Welche Aussage über T(x) = {scheitel(a, d, e)} ist richtig?', r, f,
+                       f'{scheitel(a, 0, 0).replace("x²", klammer(d) + "²")} ist {"nie negativ" if a > 0 else "nie positiv"}, also T(x) {"≥" if a > 0 else "≤"} {dz(e)}.',
+                       'Was weißt du über das Vorzeichen eines Quadrats?')
+    return auswahl(f'Für welches x ist T(x) = {scheitel(1, d, e)} am kleinsten – und gibt es auch einen größten Wert?',
+                   f'Kleinster Wert bei x = {dz(d)}; einen größten Wert gibt es nicht.',
+                   [f'Kleinster Wert bei x = {dz(d)}; größter Wert bei x = {dz(-d)}.', f'Kleinster Wert bei x = {dz(-d)}; einen größten Wert gibt es nicht.',
+                    f'Kleinster Wert bei x = {dz(e)}; einen größten Wert gibt es nicht.'],
+                   f'Die Klammer ist 0 für x = {dz(d)}. Je weiter x davon weg ist, desto größer wird das Quadrat – ohne Grenze.',
+                   'Wie groß kann ein Quadrat werden?')
+
+
+def g_mit_faktor(s):
+    a = R.choice([2, 3, 4, 5]) * (1 if s == 1 else R.choice([1, -1]))
+    d, e = nz(5), nz(12)
+    b, c = -2 * a * d, a * d * d + e
+    art = 'Minimum' if a > 0 else 'Maximum'
+    w = (f'T(x) = {dz(a)}(x² {plus_v(b // a)}) {plus(c)} = {dz(a)}(x² {plus_v(b // a)} + {d * d} − {d * d}) {plus(c)} '
+         f'= {dz(a)}{klammer(d)}² {plus(-a * d * d)} {plus(c)} = {dz(a)}{klammer(d)}² {plus(e)}. {art} T = {dz(e)} für x = {dz(d)}.')
+    if s in (1, 2):
+        return luecken(f'Bestimme Stelle und Wert des Extremums von T(x) = {quad(a, b, c)}.', LX, HX, [d, e], w,
+                       f'Klammere {dz(a)} aus den x-Gliedern aus, ergänze in der Klammer.', c=[f'-({b}) / (2 * ({a}))', f'{c} - ({b}) ** 2 / (4 * ({a}))'])
+    art_ = R.random()
+    if art_ < 0.4:
+        falsch = e + a * d * d - d * d
+        return auswahl(f'Jemand formt T(x) = {quad(a, b, c)} um zu {dz(a)}{klammer(d)}² {plus(falsch)}. Was stimmt?',
+                       f'Falsch: Die abgezogene {d * d} muss mit {dz(a)} multipliziert werden. Richtig: {dz(a)}{klammer(d)}² {plus(e)}.',
+                       ['Richtig.', f'Falsch: Richtig ist {dz(a)}{klammer(-d)}² {plus(falsch)}.', f'Falsch: Richtig ist {klammer(d)}² {plus(e)}.'],
+                       w, 'Setze x = 0 in beide Terme ein und vergleiche.')
+    if art_ < 0.7:
+        return auswahl(f'Hat T(x) = {quad(a, b, c)} ein Minimum oder ein Maximum?', art,
+                       ['Maximum' if a > 0 else 'Minimum', 'beides', 'keins von beiden'],
+                       f'Der Faktor vor x² ist {dz(a)} {"> 0, also Minimum" if a > 0 else "< 0, also Maximum"}.',
+                       'Schau nur auf das Vorzeichen vor x².')
+    a2 = Fr(R.choice([1, -1]), 2)
+    d2 = R.choice([2, 4, 6, -2, -4])
+    e2 = R.randint(-6, 6)
+    b2, c2 = -2 * a2 * d2, a2 * d2 * d2 + e2
+    return luecken(f'Bestimme Stelle und Wert des Extremums von T(x) = {quad(a2, b2, c2)}.', LX, HX, [d2, e2],
+                   f'T(x) = {dz(a2)}(x² {plus_v(Fr(b2) / a2)}) {plus(c2)} = {dz(a2)}{klammer(d2)}² {plus(-a2 * d2 * d2)} {plus(c2)} = {dz(a2)}{klammer(d2)}² {plus(e2)}. '
+                   f'{"Minimum" if a2 > 0 else "Maximum"} T = {dz(e2)} für x = {dz(d2)}.',
+                   f'Klammere {dz(a2)} aus: Teilen durch {dz(a2)} heißt mal {dz(1 / a2)}.', c=[f'-({cz(b2)}) / (2 * {cz(a2)})', f'{cz(c2)} - ({cz(b2)}) ** 2 / (4 * {cz(a2)})'])
+
+
+def g_optimierung(s):
+    art = R.choice(['rechteck', 'mauer', 'zahlen', 'preis']) if s > 1 else R.choice(['rechteck', 'zahlen'])
+    if art == 'rechteck':
+        U = R.choice([12, 16, 20, 24, 28, 32, 36, 40, 44, 48, 60, 80])
+        h = U // 2
+        x = Fr(h, 2)
+        A = x * x
+        if s == 1:
+            return zahl(f'Ein Rechteck hat den Umfang {U} m. Seite x, andere Seite {h} − x. Wie lang muss x sein, damit die Fläche maximal wird?',
+                        f'A(x) = x({h} − x) = −x² + {h}x = −(x − {dz(x)})² + {dz(A)}. Maximum für x = {dz(x)} m.',
+                        'Stelle A(x) auf und ergänze quadratisch.', x, f'{h} / 2', einheit='m')
+        return zahl(f'Aus {U} m Zaun soll ein rechteckiges Gehege mit möglichst großer Fläche entstehen. Wie groß ist diese Fläche höchstens?',
+                    f'Seiten x und {h} − x. A(x) = −x² + {h}x = −(x − {dz(x)})² + {dz(A)}. Höchstens {dz(A)} m².',
+                    'Halber Umfang = Summe zweier Seiten. A(x) aufstellen und das Maximum bestimmen.', A, f'({h} / 2) ** 2', einheit='m²')
+    if art == 'mauer':
+        L = R.choice([12, 16, 20, 24, 30, 36, 40, 48, 60])
+        x = Fr(L, 4)
+        A = x * (L - 2 * x)
+        if R.random() < 0.5:
+            return zahl(f'An einer langen Mauer wird mit {L} m Zaun ein rechteckiges Beet abgegrenzt (die Mauer ist eine Seite). Die zwei Seiten senkrecht zur Mauer sind je x m lang. Für welches x ist die Fläche maximal?',
+                        f'A(x) = x({L} − 2x) = −2x² + {L}x = −2(x − {dz(x)})² + {dz(A)}. Maximum für x = {dz(x)} m.',
+                        'Die Seite parallel zur Mauer ist L − 2x lang.', x, f'{L} / 4', einheit='m')
+        return zahl(f'An einer Mauer wird mit {L} m Zaun ein Rechteck abgegrenzt (Mauer als eine Seite). Wie groß kann die Fläche höchstens werden?',
+                    f'A(x) = x({L} − 2x) = −2(x − {dz(x)})² + {dz(A)}. Höchstens {dz(A)} m².',
+                    'Zwei Seiten x, eine Seite L − 2x. A(x) aufstellen und ergänzen.', A, f'{L} / 4 * ({L} - 2 * {L} / 4)', einheit='m²')
+    if art == 'zahlen':
+        S = R.choice([8, 10, 12, 14, 16, 18, 20, 22, 26, 30, 7, 9, 11, 13])
+        x = Fr(S, 2)
+        P = x * x
+        if s == 1 or R.random() < 0.5:
+            return zahl(f'Die Summe zweier Zahlen ist {S}. Wie groß kann ihr Produkt höchstens sein?',
+                        f'Zahlen x und {S} − x. P(x) = x({S} − x) = −(x − {dz(x)})² + {dz(P)}. Höchstens {dz(P)}.',
+                        'Zweite Zahl: Summe minus erste Zahl. Produkt als Term in x.', P, f'({S} / 2) ** 2')
+        D = R.choice([4, 6, 8, 10, 12])
+        x = Fr(-D, 2)
+        return zahl(f'Die Differenz zweier Zahlen ist {D}. Welches ist das kleinste mögliche Produkt?',
+                    f'Zahlen x und x + {D}. P(x) = x² + {D}x = (x + {dz(Fr(D, 2))})² − {dz(Fr(D * D, 4))}. Kleinstes Produkt {dz(Fr(-D * D, 4))} für x = {dz(x)}.',
+                    'Zahlen x und x + D. Produkt aufstellen, Minimum bestimmen.', Fr(-D * D, 4), f'-({D} / 2) ** 2')
+    # Preis: Ein Kiosk verkauft n Stück zu p €; je 10 ct teurer, k Stück weniger
+    p0 = R.choice([1, 2, 3])
+    n0 = R.choice([200, 240, 300, 360])
+    k = R.choice([10, 12, 15, 20])
+    # Einnahme E(x) = (p0 + 0,1x)(n0 − kx); Maximum x* = (0,1 n0 − k p0)/(0,2 k)
+    xs = (Fr(n0, 10) - k * p0) / (Fr(2, 10) * k)
+    if xs.denominator != 1 or xs <= 0: return None
+    E = (p0 + Fr(xs, 10)) * (n0 - k * xs)
+    return zahl(f'Ein Kiosk verkauft täglich {n0} Brezen zu je {eur(p0)} €. Jede Preiserhöhung um 10 ct kostet {k} Käufer. Wie viele Erhöhungen um 10 ct bringen die größten Einnahmen?',
+                f'E(x) = ({eur(p0)} + 0,1x)({n0} − {k}x) = {poly(-Fr(k, 10), Fr(n0, 10) - k * p0, p0 * n0)}. '
+                f'Quadratische Ergänzung: Maximum für x = {dz(xs)} (Einnahmen {eur(E)} €).',
+                'Einnahmen = Preis · Anzahl. Beides hängt von der Zahl x der Erhöhungen ab.', xs, f'({n0} / 10 - {k} * {p0}) / (0.2 * {k})')
+
+
+GEN = {'ergaenzen': g_ergaenzen, 'scheitelform': g_scheitelform, 'extremwert': g_extremwert,
+       'mit_faktor': g_mit_faktor, 'optimierung': g_optimierung}
+
+if __name__ == '__main__':
+    bauen('terme.quadratische_extreme',
+          'Quadratische Terme mit der quadratischen Ergänzung umformen, ihr Minimum oder Maximum bestimmen und einfache Optimierungsaufgaben lösen.',
+          ['Ergänzen: x² + bx + (b : 2)² = (x + b : 2)².',
+           'Quadratische Ergänzung: (b : 2)² ergänzen und gleich wieder abziehen.',
+           'a(x − d)² + e: für a > 0 Minimum e, für a < 0 Maximum e – jeweils bei x = d.',
+           'Optimieren: Zielgröße als Term in x aufstellen, Extremum bestimmen, im Sachzusammenhang antworten.'],
+          [('Quadratische Ergänzung', ['ergaenzen', 'scheitelform']), ('Extremwerte', ['extremwert', 'mit_faktor', 'optimierung'])],
+          ETAPPEN, GEN,
+          offen=['Laut Umfang ohne vollständige Parabellehre: keine Graphen, nur Termumformung und Extremwerte. Scheitelpunkt/Parabeln folgen in RS 9.',
+                 'Schreibweise Extremwert: „x = □; T = □“ statt T_min/T_max (Indizes in der App schwer lesbar).'])

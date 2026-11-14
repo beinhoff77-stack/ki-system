@@ -1,0 +1,2802 @@
+{
+ "thema_schluessel": "daten.stichproben",
+ "thema_id": 81,
+ "block_id": 93,
+ "klasse": {
+  "rs_by": 7
+ },
+ "autor": "Claude (Paket Realschule)",
+ "inhalt": {
+  "ziel": "Grundgesamtheit und Stichprobe unterscheiden, von Stichproben hochrechnen und beurteilen, ob eine Stichprobe repräsentativ ist.",
+  "merke": [
+   "Grundgesamtheit: alle, über die man etwas wissen will. Stichprobe: die tatsächlich Befragten (Umfang n).",
+   "Hochrechnen: Anteil in der Stichprobe mal Größe der Grundgesamtheit – ergibt nur eine Schätzung.",
+   "Repräsentativ: zufällig ausgewählt und groß genug.",
+   "Fehlerquellen: zu klein, einseitig, suggestive Frage, nur Freiwillige."
+  ],
+  "abschnitte": [
+   {
+    "titel": "Grundbegriffe",
+    "lernziele": [
+     "begriffe",
+     "hochrechnen"
+    ]
+   },
+   {
+    "titel": "Aussagekraft",
+    "lernziele": [
+     "repraesentativ",
+     "fehlerquellen",
+     "aussagen"
+    ]
+   }
+  ],
+  "etappen": [
+   {
+    "lernziel": "begriffe",
+    "titel": "Grundgesamtheit und Stichprobe",
+    "regel": "Die ⟦Grundgesamtheit⟧ sind alle, über die du etwas wissen willst. Befragst du alle, ist das eine ⟦Vollerhebung⟧. Meist befragt man nur einen Teil: die ⟦Stichprobe⟧. Ihre Größe heißt ⟦Stichprobenumfang⟧ n. Wie beim Kochen: Du probierst einen Löffel (Stichprobe), um den ganzen Topf (Grundgesamtheit) zu beurteilen.",
+    "schritte": [
+     "Eine Realschule hat 620 Kinder. 50 davon werden gefragt, wie sie zur Schule kommen.",
+     "Grundgesamtheit: ⟦alle 620 Kinder der Schule⟧. Stichprobe: die 50 Befragten, also ⟦n = 50⟧."
+    ],
+    "fehler": "Die 50 Befragten als Grundgesamtheit zu bezeichnen ist falsch: Die Grundgesamtheit ist ⟦die ganze Gruppe⟧, über die man eine Aussage machen will – hier alle 620 Kinder."
+   },
+   {
+    "lernziel": "hochrechnen",
+    "titel": "Von der Stichprobe hochrechnen",
+    "regel": "Ist die Stichprobe gut gewählt, überträgt man ihre ⟦relative Häufigkeit⟧ auf die Grundgesamtheit: ⟦Anteil = Anzahl in der Stichprobe : n⟧, dann ⟦geschätzte Anzahl = Anteil · Größe der Grundgesamtheit⟧. Das Ergebnis ist eine ⟦Schätzung⟧, kein genauer Wert.",
+    "schritte": [
+     "Von 80 befragten Kindern einer Schule mit 640 Kindern kommen 28 mit dem Rad. Anteil: 28 : 80 = 0,35 = 35 %.",
+     "Hochrechnung: 0,35 · 640 = ⟦224⟧. Etwa 224 Kinder der Schule kommen mit dem Rad."
+    ],
+    "probe": "224 : 640 = 0,35 ✓",
+    "fehler": "28 · 640 = 17 920 Kinder ist falsch: Erst den ⟦Anteil⟧ bilden (28 : 80), dann mit der Grundgesamtheit multiplizieren."
+   },
+   {
+    "lernziel": "repraesentativ",
+    "titel": "Ist die Stichprobe geeignet?",
+    "regel": "Eine Stichprobe ist ⟦repräsentativ⟧, wenn sie die Grundgesamtheit im Kleinen gut abbildet. Dafür sollte sie ⟦zufällig⟧ ausgewählt werden und ⟦groß genug⟧ sein. Befragt man nur eine besondere Gruppe, wird das Ergebnis ⟦verzerrt⟧.",
+    "schritte": [
+     "Frage: Wie viele Jugendliche in Bayern treiben Sport? Befragt werden nur Mitglieder eines Fußballvereins.",
+     "Nicht geeignet: ⟦Sportler sind zu stark vertreten⟧. Besser: zufällig ausgewählte Jugendliche aus vielen Schulen."
+    ],
+    "fehler": "„Wir haben 500 Leute befragt, also ist es repräsentativ“ ist falsch: Auch eine große Stichprobe ist ⟦verzerrt⟧, wenn sie nur aus einer besonderen Gruppe stammt."
+   },
+   {
+    "lernziel": "fehlerquellen",
+    "titel": "Wie entstehen verzerrte Ergebnisse?",
+    "regel": "Typische Fehlerquellen: die Stichprobe ist ⟦zu klein⟧, die Auswahl ist ⟦einseitig⟧, die Frage ist ⟦suggestiv⟧ (sie drängt zu einer Antwort), oder ⟦nur Freiwillige⟧ antworten – meist die mit einer starken Meinung.",
+    "schritte": [
+     "Ein Verein fragt: „Sie sind doch sicher auch dafür, dass der Spielplatz erneuert wird?“",
+     "Fehlerquelle: ⟦suggestive Frage⟧. Neutral wäre: „Soll der Spielplatz erneuert werden?“"
+    ],
+    "fehler": "Eine Online-Abstimmung mit 10 000 Stimmen für repräsentativ halten ist falsch: Wer ⟦freiwillig⟧ mitmacht, hat meist eine starke Meinung – die anderen fehlen."
+   },
+   {
+    "lernziel": "aussagen",
+    "titel": "Aussagen kritisch prüfen",
+    "regel": "Ergebnisse von Stichproben ⟦schwanken⟧: Zwei Stichproben aus derselben Grundgesamtheit liefern meist etwas verschiedene Anteile. Je ⟦größer⟧ die Stichprobe, desto weniger schwankt sie. Aus einer Stichprobe folgt deshalb nur „⟦ungefähr⟧“, nie „genau“.",
+    "schritte": [
+     "Stichprobe A: 7 von 10 Befragten (70 %) mögen das Mensaessen. Stichprobe B: 260 von 500 (52 %).",
+     "B ist ⟦aussagekräftiger⟧, weil sie viel größer ist. Der Unterschied beträgt 70 % − 52 % = ⟦18 Prozentpunkte⟧."
+    ],
+    "fehler": "„In der Stichprobe waren es 40 %, also sind es in der Grundgesamtheit genau 40 %“ ist falsch: Die Stichprobe liefert nur einen ⟦Schätzwert⟧."
+   }
+  ],
+  "teilfaehigkeiten": [
+   {
+    "k": "begriffe",
+    "text": "Grundgesamtheit und Stichprobe",
+    "lernziele": [
+     "begriffe"
+    ]
+   },
+   {
+    "k": "hochrechnen",
+    "text": "Von der Stichprobe hochrechnen",
+    "lernziele": [
+     "hochrechnen"
+    ]
+   },
+   {
+    "k": "repraesentativ",
+    "text": "Ist die Stichprobe geeignet?",
+    "lernziele": [
+     "repraesentativ"
+    ]
+   },
+   {
+    "k": "fehlerquellen",
+    "text": "Wie entstehen verzerrte Ergebnisse?",
+    "lernziele": [
+     "fehlerquellen"
+    ]
+   },
+   {
+    "k": "aussagen",
+    "text": "Aussagen kritisch prüfen",
+    "lernziele": [
+     "aussagen"
+    ]
+   }
+  ],
+  "bewertung": {
+   "lernziele_pflicht": [
+    "begriffe",
+    "hochrechnen",
+    "repraesentativ",
+    "fehlerquellen",
+    "aussagen"
+   ],
+   "lernziele_vertiefung": [],
+   "testaufgaben_je_lernziel": 1
+  },
+  "quellen": {
+   "erklaerungen": "Eigene Fassung (Claude), Aufgaben vom Generator erzeugt und berechnet.",
+   "begriffe": "Fachbegriffe nach LehrplanPLUS Bayern (Realschule, Wahlpflichtfächergruppe I)."
+  }
+ },
+ "aufgaben": [
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Von 480 Personen einer Gruppe werden 30 befragt. Wie groß ist der Stichprobenumfang n?"
+   },
+   "o": {
+    "wert": 30
+   },
+   "c": "30",
+   "w": "Der Stichprobenumfang ist die Anzahl der Befragten: n = 30.",
+   "h": "Wie viele werden tatsächlich gefragt?"
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Von 480 Personen einer Gruppe werden 50 befragt. Wie groß ist der Stichprobenumfang n?"
+   },
+   "o": {
+    "wert": 50
+   },
+   "c": "50",
+   "w": "Der Stichprobenumfang ist die Anzahl der Befragten: n = 50.",
+   "h": "Wie viele werden tatsächlich gefragt?"
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Von 240 Personen einer Gruppe werden 120 befragt. Wie groß ist der Stichprobenumfang n?"
+   },
+   "o": {
+    "wert": 120
+   },
+   "c": "120",
+   "w": "Der Stichprobenumfang ist die Anzahl der Befragten: n = 120.",
+   "h": "Wie viele werden tatsächlich gefragt?"
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Man will wissen, wen die Wahlberechtigten zum Bürgermeister wählen wollen. Man befragt zufällig aus dem Wählerverzeichnis ausgewählte Personen. Was ist die Grundgesamtheit?"
+   },
+   "a": [
+    "Alle Wahlberechtigten einer Stadt",
+    "Nur die befragten Wahlberechtigten",
+    "Zufällig aus dem Wählerverzeichnis ausgewählte Personen",
+    "Alle Menschen in Deutschland"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die Grundgesamtheit sind alle Wahlberechtigten einer Stadt – über sie will man etwas wissen. Die Befragten sind die Stichprobe.",
+   "h": "Über wen soll die Umfrage etwas aussagen?"
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Man will wissen, ob die Einwohner ein neues Hallenbad wollen. Man befragt zufällig ausgewählte Personen aus dem Einwohnerverzeichnis. Was ist die Grundgesamtheit?"
+   },
+   "a": [
+    "Nur die befragten Personen",
+    "Alle Einwohnerinnen und Einwohner einer Stadt",
+    "Zufällig ausgewählte Personen aus dem Einwohnerverzeichnis",
+    "Alle Menschen in Deutschland"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Grundgesamtheit sind alle Einwohnerinnen und Einwohner einer Stadt – über sie will man etwas wissen. Die Befragten sind die Stichprobe.",
+   "h": "Über wen soll die Umfrage etwas aussagen?"
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Man will wissen, ob die Mitglieder ein neues Vereinsheim wollen. Man befragt per Los aus der Mitgliederliste gezogene Mitglieder. Was ist die Grundgesamtheit?"
+   },
+   "a": [
+    "Nur die befragten Mitglieder",
+    "Per Los aus der Mitgliederliste gezogene Mitglieder",
+    "Alle Mitglieder eines Sportvereins",
+    "Alle Menschen in Deutschland"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Grundgesamtheit sind alle Mitglieder eines Sportvereins – über sie will man etwas wissen. Die Befragten sind die Stichprobe.",
+   "h": "Über wen soll die Umfrage etwas aussagen?"
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus 1 500 Personen werden 25 % zufällig ausgewählt. Wie groß ist der Stichprobenumfang?"
+   },
+   "o": {
+    "wert": 375
+   },
+   "c": "1500 * 25 / 100",
+   "w": "25 % von 1 500: 1 500 · 25 : 100 = 375.",
+   "h": "Prozentwert berechnen: Grundwert mal Prozentsatz."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus 2 400 Personen werden 5 % zufällig ausgewählt. Wie groß ist der Stichprobenumfang?"
+   },
+   "o": {
+    "wert": 120
+   },
+   "c": "2400 * 5 / 100",
+   "w": "5 % von 2 400: 2 400 · 5 : 100 = 120.",
+   "h": "Prozentwert berechnen: Grundwert mal Prozentsatz."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus 1 500 Personen werden 10 % zufällig ausgewählt. Wie groß ist der Stichprobenumfang?"
+   },
+   "o": {
+    "wert": 150
+   },
+   "c": "1500 * 10 / 100",
+   "w": "10 % von 1 500: 1 500 · 10 : 100 = 150.",
+   "h": "Prozentwert berechnen: Grundwert mal Prozentsatz."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus 1 200 Personen werden 5 % zufällig ausgewählt. Wie groß ist der Stichprobenumfang?"
+   },
+   "o": {
+    "wert": 60
+   },
+   "c": "1200 * 5 / 100",
+   "w": "5 % von 1 200: 1 200 · 5 : 100 = 60.",
+   "h": "Prozentwert berechnen: Grundwert mal Prozentsatz."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Alle 1 200 Kinder einer Musikschule werden befragt. Wie nennt man das?"
+   },
+   "a": [
+    "Vollerhebung",
+    "Zufallsstichprobe",
+    "Hochrechnung",
+    "Stichprobe"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Werden alle aus der Grundgesamtheit befragt, ist das eine Vollerhebung.",
+   "h": "Wird jemand ausgelassen?"
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus 840 Personen werden 10 % zufällig ausgewählt. Wie groß ist der Stichprobenumfang?"
+   },
+   "o": {
+    "wert": 84
+   },
+   "c": "840 * 10 / 100",
+   "w": "10 % von 840: 840 · 10 : 100 = 84.",
+   "h": "Prozentwert berechnen: Grundwert mal Prozentsatz."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Warum macht man meist eine Stichprobe statt einer Vollerhebung?"
+   },
+   "a": [
+    "Eine Stichprobe ist immer genauer als eine Vollerhebung.",
+    "Bei einer Vollerhebung darf man nicht rechnen.",
+    "Eine Vollerhebung wäre zu teuer oder dauert zu lange.",
+    "Eine Stichprobe braucht keine Grundgesamtheit."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Alle zu befragen kostet viel Zeit und Geld. Eine gute Stichprobe liefert eine brauchbare Schätzung. Genauer als eine Vollerhebung ist sie nicht.",
+   "h": "Stell dir vor, man müsste alle Menschen in Bayern befragen."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Schule gibt es 4 Klassen. Aus jeder Klasse werden per Los gleich viele Kinder gezogen, insgesamt 32. Wie viele sind es pro Klasse?"
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "32 / 4",
+   "w": "32 : 4 = 8 Kinder pro Klasse. So ist jede Klasse gleich stark vertreten.",
+   "h": "Teile den Stichprobenumfang auf die Klassen auf."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Schule gibt es 10 Klassen. Aus jeder Klasse werden per Los gleich viele Kinder gezogen, insgesamt 40. Wie viele sind es pro Klasse?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "40 / 10",
+   "w": "40 : 10 = 4 Kinder pro Klasse. So ist jede Klasse gleich stark vertreten.",
+   "h": "Teile den Stichprobenumfang auf die Klassen auf."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Schule gibt es 4 Klassen. Aus jeder Klasse werden per Los gleich viele Kinder gezogen, insgesamt 16. Wie viele sind es pro Klasse?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "16 / 4",
+   "w": "16 : 4 = 4 Kinder pro Klasse. So ist jede Klasse gleich stark vertreten.",
+   "h": "Teile den Stichprobenumfang auf die Klassen auf."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Schule gibt es 12 Klassen. Aus jeder Klasse werden per Los gleich viele Kinder gezogen, insgesamt 84. Wie viele sind es pro Klasse?"
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "84 / 12",
+   "w": "84 : 12 = 7 Kinder pro Klasse. So ist jede Klasse gleich stark vertreten.",
+   "h": "Teile den Stichprobenumfang auf die Klassen auf."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Man will wissen, ob die Einwohner ein neues Hallenbad wollen, und befragt nur die Besucher des alten Hallenbads. Welcher Satz beschreibt das richtig?"
+   },
+   "a": [
+    "Das ist die Grundgesamtheit.",
+    "Das ist eine Stichprobe, aber keine geeignete: Schwimmer sind eher dafür.",
+    "Das ist eine geeignete Stichprobe, weil alle Befragten Personen sind.",
+    "Das ist eine Vollerhebung."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Es wird nur ein Teil befragt (Stichprobe). Die Auswahl ist aber verzerrt: Schwimmer sind eher dafür.",
+   "h": "Wird ein Teil oder werden alle befragt? Und wie wurde ausgewählt?"
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Man will wissen, wie viele Stunden Jugendliche pro Woche Sport treiben, und befragt zufällig ausgewählte Jugendliche aus vielen Schulen in ganz Bayern. Was ist hier die Stichprobe?"
+   },
+   "a": [
+    "Die Frage, die gestellt wird",
+    "Alle Jugendlichen in Bayern",
+    "Das Ergebnis der Umfrage",
+    "Die ausgewählten Jugendlichen"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die Stichprobe sind die ausgewählten Jugendlichen, die wirklich befragt werden."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Alle 480 Kinder einer Mittelschule werden befragt. Wie nennt man das?"
+   },
+   "a": [
+    "Stichprobe",
+    "Zufallsstichprobe",
+    "Hochrechnung",
+    "Vollerhebung"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Werden alle aus der Grundgesamtheit befragt, ist das eine Vollerhebung."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Alle 840 Kinder einer Musikschule werden befragt. Wie nennt man das?"
+   },
+   "a": [
+    "Hochrechnung",
+    "Stichprobe",
+    "Vollerhebung",
+    "Zufallsstichprobe"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Werden alle aus der Grundgesamtheit befragt, ist das eine Vollerhebung."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Man will wissen, wen die Wahlberechtigten zum Bürgermeister wählen wollen, und befragt zufällig aus dem Wählerverzeichnis ausgewählte Personen. Was ist hier die Stichprobe?"
+   },
+   "a": [
+    "Die ausgewählten Wahlberechtigten",
+    "Die Frage, die gestellt wird",
+    "Alle Wahlberechtigten einer Stadt",
+    "Das Ergebnis der Umfrage"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die Stichprobe sind die ausgewählten Wahlberechtigten, die wirklich befragt werden."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Alle 750 Kinder einer Mittelschule werden befragt. Wie nennt man das?"
+   },
+   "a": [
+    "Zufallsstichprobe",
+    "Vollerhebung",
+    "Hochrechnung",
+    "Stichprobe"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Werden alle aus der Grundgesamtheit befragt, ist das eine Vollerhebung."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Man will wissen, wie zufrieden die Kunden mit den Öffnungszeiten sind, und befragt an verschiedenen Tagen zu verschiedenen Uhrzeiten zufällig angesprochene Kunden. Was ist hier die Stichprobe?"
+   },
+   "a": [
+    "Die Frage, die gestellt wird",
+    "Alle Kundinnen und Kunden eines Supermarkts",
+    "Das Ergebnis der Umfrage",
+    "Die ausgewählten Kunden"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die Stichprobe sind die ausgewählten Kunden, die wirklich befragt werden."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Man will wissen, ob die Mitglieder ein neues Vereinsheim wollen, und befragt per Los aus der Mitgliederliste gezogene Mitglieder. Was ist hier die Stichprobe?"
+   },
+   "a": [
+    "Das Ergebnis der Umfrage",
+    "Die ausgewählten Mitglieder",
+    "Die Frage, die gestellt wird",
+    "Alle Mitglieder eines Sportvereins"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Stichprobe sind die ausgewählten Mitglieder, die wirklich befragt werden."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Aus 750 Personen werden 10 % zufällig ausgewählt. Wie groß ist der Stichprobenumfang?"
+   },
+   "o": {
+    "wert": 75
+   },
+   "c": "750 * 10 / 100",
+   "w": "10 % von 750: 750 · 10 : 100 = 75."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Man will wissen, wie viele Haushalte ein Haustier haben, und befragt jeden zehnten Haushalt aus der Adressliste. Was ist hier die Stichprobe?"
+   },
+   "a": [
+    "Die Frage, die gestellt wird",
+    "Alle Haushalte einer Gemeinde",
+    "Die ausgewählten Haushalte",
+    "Das Ergebnis der Umfrage"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Stichprobe sind die ausgewählten Haushalte, die wirklich befragt werden."
+  },
+  {
+   "l": "begriffe",
+   "t": "begriffe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Alle 840 Kinder einer Realschule werden befragt. Wie nennt man das?"
+   },
+   "a": [
+    "Vollerhebung",
+    "Zufallsstichprobe",
+    "Stichprobe",
+    "Hochrechnung"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Werden alle aus der Grundgesamtheit befragt, ist das eine Vollerhebung."
+  },
+  {
+   "l": "hochrechnen",
+   "t": "hochrechnen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Von 25 befragten Fahrgästen einer Bahnlinie mit 2 250 Fahrgästen pro Tag haben 22 eine Monatskarte. Wie viel Prozent sind das in der Stichprobe?"
+   },
+   "o": {
+    "wert": 88,
+    "einheit": "%"
+   },
+   "c": "22 / 25 * 100",
+   "w": "22 : 25 = 0,88 = 88 %.",
+   "h": "Anteil = Anzahl : Stichprobenumfang. Dann in Prozent umrechnen."
+  },
+  {
+   "l": "hochrechnen",
+   "t": "hochrechnen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Von 20 befragten Jugendlichen eines Landkreises mit 1 260 Jugendlichen spielen 12 ein Instrument. Wie viel Prozent sind das in der Stichprobe?"
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "%"
+   },
+   "c": "12 / 20 * 100",
+   "w": "12 : 20 = 0,6 = 60 %.",
+   "h": "Anteil = Anzahl : Stichprobenumfang. Dann in Prozent umrechnen."
+  },
+  {
+   "l": "hochrechnen",
+   "t": "hochrechnen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Von 80 befragten Fahrgästen einer Bahnlinie mit 1 936 Fahrgästen pro Tag haben 60 eine Monatskarte. Wie viel Prozent sind das in der Stichprobe?"
+   },
+   "o": {
+    "wert": 75,
+    "einheit": "%"
+   },
+   "c": "60 / 80 * 100",
+   "w": "60 : 80 = 0,75 = 75 %.",
+   "h": "Anteil = Anzahl : Stichprobenumfang. Dann in Prozent umrechnen."
+  },
+  {
+   "l": "hochrechnen",
+   "t": "hochrechnen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Von 25 befragten Haushalten einer Gemeinde mit 1 925 Haushalten haben 3 einen Hund. Wie viel Prozent sind das in der Stichprobe?"
+   },
+   "o": {
+    "wert": 12,
+    "einheit": "%"
+   },
+   "c": "3 / 25 * 100",
+   "w": "3 : 25 = 0,12 = 12 %.",
+   "h": "Anteil = Anzahl : Stichprobenumfang. Dann in Prozent umrechnen."
+  },
+  {
+   "l": "hochrechnen",
+   "t": "hochrechnen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Von 100 befragten Fahrgästen einer Bahnlinie mit 840 Fahrgästen pro Tag haben 20 eine Monatskarte. Wie viel Prozent sind das in der Stichprobe?"
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "%"
+   },
+   "c": "20 / 100 * 100",
+   "w": "20 : 100 = 0,2 = 20 %.",
+   "h": "Anteil = Anzahl : Stichprobenumfang. Dann in Prozent umrechnen."
+  },
+  {
+   "l": "hochrechnen",
+   "t": "hochrechnen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Von 125 befragten Fahrgästen einer Bahnlinie mit 1 750 Fahrgästen pro Tag haben 46 eine Monatskarte. Wie viel Prozent sind das in der Stichprobe?"
+   },
+   "o": {
+    "wert": 36.8,
+    "einheit": "%"
+   },
+   "c": "46 / 125 * 100",
+   "w": "46 : 125 = 0,368 = 36,8 %.",
+   "h": "Anteil = Anzahl : Stichprobenumfang. Dann in Prozent umrechnen."
+  },
+  {
+   "l": "hochrechnen",
+   "t": "hochrechnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Von 25 befragten Fahrgästen einer Bahnlinie mit 1 675 Fahrgästen pro Tag haben 2 eine Monatskarte. Schätze, wie viele Fahrgäste insgesamt eine Monatskarte haben."
+   },
+   "o": {
+    "wert": 134
+   },
+   "c": "2 / 25 * 1675",
+   "w": "Anteil: 2 : 25 = 0,08. Hochrechnung: 0,08 · 1 675 = 134.",
+   "h": "Erst den Anteil in der Stichprobe, dann mal die Größe der Grundgesamtheit."
+  },
+  {
+   "l": "hochrechnen",
+   "t": "hochrechnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Von 20 befragten Kindern einer Schule mit 2 550 Kindern kommen 8 mit dem Rad. Schätze, wie viele Kinder insgesamt mit dem Rad kommen."
+   },
+   "o": {
+    "wert": 1020
+   },
+   "c": "8 / 20 * 2550",
+   "w": "Anteil: 8 : 20 = 0,4. Hochrechnung: 0,4 · 2 550 = 1 020.",
+   "h": "Erst den Anteil in der Stichprobe, dann mal die Größe der Grundgesamtheit."
+  },
+  {
+   "l": "hochrechnen",
+   "t": "hochrechnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Von 125 befragten Fahrgästen einer Bahnlinie mit 2 125 Fahrgästen pro Tag haben 22 eine Monatskarte. Schätze, wie viele Fahrgäste insgesamt eine Monatskarte haben."
+   },
+   "o": {
+    "wert": 374
+   },
+   "c": "22 / 125 * 2125",
+   "w": "Anteil: 22 : 125 = 0,176. Hochrechnung: 0,176 · 2 125 = 374.",
+   "h": "Erst den Anteil in der Stichprobe, dann mal die Größe der Grundgesamtheit."
+  },
+  {
+   "l": "hochrechnen",
+   "t": "hochrechnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Von 80 befragten Besuchern eines Festivals mit 1 080 Besuchern reisen 36 mit dem Zug an. Schätze, wie viele Besucher insgesamt mit dem Zug anreisen."
+   },
+   "o": {
+    "wert": 486
+   },
+   "c": "36 / 80 * 1080",
+   "w": "Anteil: 36 : 80 = 0,45. Hochrechnung: 0,45 · 1 080 = 486.",
+   "h": "Erst den Anteil in der Stichprobe, dann mal die Größe der Grundgesamtheit."
+  },
+  {
+   "l": "hochrechnen",
+   "t": "hochrechnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Von 20 befragten Jugendlichen eines Landkreises mit 240 Jugendlichen spielen 13 ein Instrument. Schätze, wie viele Jugendliche insgesamt ein Instrument spielen."
+   },
+   "o": {
+    "wert": 156
+   },
+   "c": "13 / 20 * 240",
+   "w": "Anteil: 13 : 20 = 0,65. Hochrechnung: 0,65 · 240 = 156.",
+   "h": "Erst den Anteil in der Stichprobe, dann mal die Größe der Grundgesamtheit."
+  },
+  {
+   "l": "hochrechnen",
+   "t": "hochrechnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Von 50 befragten Besuchern eines Festivals mit 1 550 Besuchern reisen 23 mit dem Zug an. Schätze, wie viele Besucher insgesamt mit dem Zug anreisen."
+   },
+   "o": {
+    "wert": 713
+   },
+   "c": "23 / 50 * 1550",
+   "w": "Anteil: 23 : 50 = 0,46. Hochrechnung: 0,46 · 1 550 = 713.",
+   "h": "Erst den Anteil in der Stichprobe, dann mal die Größe der Grundgesamtheit."
+  },
+  {
+   "l": "hochrechnen",
+   "t": "hochrechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Grundgesamtheit von 560 Haushalten schätzt man 294, die einen Hund haben. Die Schätzung beruht auf einer Stichprobe mit n = 80. Wie viele waren es in der Stichprobe?"
+   },
+   "o": {
+    "wert": 42
+   },
+   "c": "294 / 560 * 80",
+   "w": "Anteil: 294 : 560 = 0,525. In der Stichprobe: 0,525 · 80 = 42.",
+   "h": "Gleicher Anteil in Stichprobe und Grundgesamtheit."
+  },
+  {
+   "l": "hochrechnen",
+   "t": "hochrechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Gefragt wird, wer ein Instrument spielt. Stichprobe 1: 46 von 125 Befragten sagen ja. Stichprobe 2: 7 von 20. Um wie viele Prozentpunkte unterscheiden sich die Anteile?"
+   },
+   "o": {
+    "wert": 1.8
+   },
+   "c": "abs(46 / 125 * 100 - 7 / 20 * 100)",
+   "w": "46 : 125 = 36,8 %, 7 : 20 = 35 %. Unterschied: 1,8 Prozentpunkte.",
+   "h": "Beide Anteile in Prozent umrechnen, dann die Differenz bilden."
+  },
+  {
+   "l": "hochrechnen",
+   "t": "hochrechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Gefragt wird, wer eine Monatskarte hat. Stichprobe 1: 59 von 80 Befragten sagen ja. Stichprobe 2: 31 von 40. Um wie viele Prozentpunkte unterscheiden sich die Anteile?"
+   },
+   "o": {
+    "wert": 3.75
+   },
+   "c": "abs(59 / 80 * 100 - 31 / 40 * 100)",
+   "w": "59 : 80 = 73,75 %, 31 : 40 = 77,5 %. Unterschied: 3,75 Prozentpunkte.",
+   "h": "Beide Anteile in Prozent umrechnen, dann die Differenz bilden."
+  },
+  {
+   "l": "hochrechnen",
+   "t": "hochrechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Von 100 befragten Jugendlichen eines Landkreises mit 860 Jugendlichen spielen 20 ein Instrument. Wie viele Jugendliche sind es vermutlich insgesamt, die ein Instrument spielen?"
+   },
+   "a": [
+    "780",
+    "43",
+    "17 200",
+    "172"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Anteil: 20 : 100 = 0,2. Hochrechnung: 0,2 · 860 = 172. Das ist eine Schätzung.",
+   "h": "Anteil bilden, nicht die Anzahl selbst hochrechnen."
+  },
+  {
+   "l": "hochrechnen",
+   "t": "hochrechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Von 200 befragten Fahrgästen einer Bahnlinie mit 2 600 Fahrgästen pro Tag haben 91 eine Monatskarte. Wie viele Fahrgäste sind es vermutlich insgesamt, die eine Monatskarte haben?"
+   },
+   "a": [
+    "2 509",
+    "2 491",
+    "1 183",
+    "236 600"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Anteil: 91 : 200 = 0,455. Hochrechnung: 0,455 · 2 600 = 1 183. Das ist eine Schätzung.",
+   "h": "Anteil bilden, nicht die Anzahl selbst hochrechnen."
+  },
+  {
+   "l": "hochrechnen",
+   "t": "hochrechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einer Grundgesamtheit von 1 450 Beschäftigten schätzt man 319, die regelmäßig in der Kantine essen. Die Schätzung beruht auf einer Stichprobe mit n = 250. Wie viele waren es in der Stichprobe?"
+   },
+   "o": {
+    "wert": 55
+   },
+   "c": "319 / 1450 * 250",
+   "w": "Anteil: 319 : 1 450 = 0,22. In der Stichprobe: 0,22 · 250 = 55.",
+   "h": "Gleicher Anteil in Stichprobe und Grundgesamtheit."
+  },
+  {
+   "l": "hochrechnen",
+   "t": "hochrechnen",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Von 125 befragten Beschäftigten einer Firma mit 1 625 Beschäftigten essen 97 regelmäßig in der Kantine. Schätze, wie viele Beschäftigte insgesamt regelmäßig in der Kantine essen."
+   },
+   "o": {
+    "wert": 1261
+   },
+   "c": "97 / 125 * 1625",
+   "w": "Anteil: 97 : 125 = 0,776. Hochrechnung: 0,776 · 1 625 = 1 261."
+  },
+  {
+   "l": "hochrechnen",
+   "t": "hochrechnen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Von 250 befragten Beschäftigten einer Firma mit 3 000 Beschäftigten essen 43 regelmäßig in der Kantine. Schätze, wie viele Beschäftigte insgesamt regelmäßig in der Kantine essen."
+   },
+   "o": {
+    "wert": 516
+   },
+   "c": "43 / 250 * 3000",
+   "w": "Anteil: 43 : 250 = 0,172. Hochrechnung: 0,172 · 3 000 = 516."
+  },
+  {
+   "l": "hochrechnen",
+   "t": "hochrechnen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Von 125 befragten Fahrgästen einer Bahnlinie mit 2 375 Fahrgästen pro Tag haben 112 eine Monatskarte. Schätze, wie viele Fahrgäste insgesamt eine Monatskarte haben."
+   },
+   "o": {
+    "wert": 2128
+   },
+   "c": "112 / 125 * 2375",
+   "w": "Anteil: 112 : 125 = 0,896. Hochrechnung: 0,896 · 2 375 = 2 128."
+  },
+  {
+   "l": "hochrechnen",
+   "t": "hochrechnen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Von 25 befragten Haushalten einer Gemeinde mit 1 925 Haushalten haben 4 einen Hund. Schätze, wie viele Haushalte insgesamt einen Hund haben."
+   },
+   "o": {
+    "wert": 308
+   },
+   "c": "4 / 25 * 1925",
+   "w": "Anteil: 4 : 25 = 0,16. Hochrechnung: 0,16 · 1 925 = 308."
+  },
+  {
+   "l": "hochrechnen",
+   "t": "hochrechnen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Von 40 befragten Beschäftigten einer Firma mit 2 930 Beschäftigten essen 36 regelmäßig in der Kantine. Schätze, wie viele Beschäftigte insgesamt regelmäßig in der Kantine essen."
+   },
+   "o": {
+    "wert": 2637
+   },
+   "c": "36 / 40 * 2930",
+   "w": "Anteil: 36 : 40 = 0,9. Hochrechnung: 0,9 · 2 930 = 2 637."
+  },
+  {
+   "l": "hochrechnen",
+   "t": "hochrechnen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Von 80 befragten Besuchern eines Festivals mit 200 Besuchern reisen 34 mit dem Zug an. Schätze, wie viele Besucher insgesamt mit dem Zug anreisen."
+   },
+   "o": {
+    "wert": 85
+   },
+   "c": "34 / 80 * 200",
+   "w": "Anteil: 34 : 80 = 0,425. Hochrechnung: 0,425 · 200 = 85."
+  },
+  {
+   "l": "hochrechnen",
+   "t": "hochrechnen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Von 20 befragten Fahrgästen einer Bahnlinie mit 1 080 Fahrgästen pro Tag haben 3 eine Monatskarte. Schätze, wie viele Fahrgäste insgesamt eine Monatskarte haben."
+   },
+   "o": {
+    "wert": 162
+   },
+   "c": "3 / 20 * 1080",
+   "w": "Anteil: 3 : 20 = 0,15. Hochrechnung: 0,15 · 1 080 = 162."
+  },
+  {
+   "l": "hochrechnen",
+   "t": "hochrechnen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Von 125 befragten Fahrgästen einer Bahnlinie mit 2 375 Fahrgästen pro Tag haben 101 eine Monatskarte. Schätze, wie viele Fahrgäste insgesamt eine Monatskarte haben."
+   },
+   "o": {
+    "wert": 1919
+   },
+   "c": "101 / 125 * 2375",
+   "w": "Anteil: 101 : 125 = 0,808. Hochrechnung: 0,808 · 2 375 = 1 919."
+  },
+  {
+   "l": "hochrechnen",
+   "t": "hochrechnen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Von 20 befragten Besuchern eines Festivals mit 240 Besuchern reisen 13 mit dem Zug an. Schätze, wie viele Besucher insgesamt mit dem Zug anreisen."
+   },
+   "o": {
+    "wert": 156
+   },
+   "c": "13 / 20 * 240",
+   "w": "Anteil: 13 : 20 = 0,65. Hochrechnung: 0,65 · 240 = 156."
+  },
+  {
+   "l": "hochrechnen",
+   "t": "hochrechnen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Von 200 befragten Fahrgästen einer Bahnlinie mit 2 000 Fahrgästen pro Tag haben 123 eine Monatskarte. Schätze, wie viele Fahrgäste insgesamt eine Monatskarte haben."
+   },
+   "o": {
+    "wert": 1230
+   },
+   "c": "123 / 200 * 2000",
+   "w": "Anteil: 123 : 200 = 0,615. Hochrechnung: 0,615 · 2 000 = 1 230."
+  },
+  {
+   "l": "repraesentativ",
+   "t": "repraesentativ",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Man will wissen, wen die Wahlberechtigten zum Bürgermeister wählen wollen. Grundgesamtheit: alle Wahlberechtigten einer Stadt. Befragt werden 200 Wahlberechtigte: zufällig aus dem Wählerverzeichnis ausgewählte Personen. Ist die Stichprobe geeignet?"
+   },
+   "a": [
+    "Nein, 200 sind immer zu wenige.",
+    "Ja, die Auswahl ist zufällig und deckt alle Gruppen ab.",
+    "Nein, weil nicht alle dieselbe Antwort geben.",
+    "Nein, man darf nur eine Vollerhebung machen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Auswahl ist zufällig und nicht auf eine besondere Gruppe beschränkt – sie ist geeignet.",
+   "h": "Ist die Auswahl zufällig?"
+  },
+  {
+   "l": "repraesentativ",
+   "t": "repraesentativ",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Man will wissen, wie viele Stunden Jugendliche pro Woche Sport treiben. Grundgesamtheit: alle Jugendlichen in Bayern. Befragt werden 60 Jugendliche: zufällig ausgewählte Jugendliche aus vielen Schulen in ganz Bayern. Ist die Stichprobe geeignet?"
+   },
+   "a": [
+    "Ja, die Auswahl ist zufällig und deckt alle Gruppen ab.",
+    "Nein, man darf nur eine Vollerhebung machen.",
+    "Nein, 60 sind immer zu wenige.",
+    "Nein, weil nicht alle dieselbe Antwort geben."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die Auswahl ist zufällig und nicht auf eine besondere Gruppe beschränkt – sie ist geeignet.",
+   "h": "Ist die Auswahl zufällig?"
+  },
+  {
+   "l": "repraesentativ",
+   "t": "repraesentativ",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Man will wissen, wie zufrieden die Beschäftigten mit der Kantine sind. Grundgesamtheit: alle Beschäftigten einer Firma. Befragt werden 80 Personen: nur Beschäftigte, die gerade in der Kantine essen. Ist die Stichprobe geeignet?"
+   },
+   "a": [
+    "Ja, weil die Befragten Bescheid wissen.",
+    "Ja, jede Stichprobe ist geeignet.",
+    "Nein: wer die Kantine meidet, fehlt.",
+    "Ja, weil viele Personen befragt werden."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Auswahl ist einseitig: wer die Kantine meidet, fehlt. Das Ergebnis wird verzerrt.",
+   "h": "Wer wird befragt – und fehlt dabei jemand?"
+  },
+  {
+   "l": "repraesentativ",
+   "t": "repraesentativ",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Man will wissen, wie viele Haushalte ein Haustier haben. Grundgesamtheit: alle Haushalte einer Gemeinde. Befragt werden 500 Personen: nur Kunden einer Zoohandlung. Ist die Stichprobe geeignet?"
+   },
+   "a": [
+    "Ja, jede Stichprobe ist geeignet.",
+    "Nein: Tierbesitzer sind zu stark vertreten.",
+    "Ja, weil die Befragten Bescheid wissen.",
+    "Ja, weil viele Personen befragt werden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Auswahl ist einseitig: Tierbesitzer sind zu stark vertreten. Das Ergebnis wird verzerrt.",
+   "h": "Wer wird befragt – und fehlt dabei jemand?"
+  },
+  {
+   "l": "repraesentativ",
+   "t": "repraesentativ",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Man will wissen, wen die Wahlberechtigten zum Bürgermeister wählen wollen. Grundgesamtheit: alle Wahlberechtigten einer Stadt. Befragt werden 60 Personen: nur Mitglieder einer Partei. Ist die Stichprobe geeignet?"
+   },
+   "a": [
+    "Ja, jede Stichprobe ist geeignet.",
+    "Ja, weil die Befragten Bescheid wissen.",
+    "Ja, weil viele Personen befragt werden.",
+    "Nein: Anhänger einer Partei sind zu stark vertreten."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die Auswahl ist einseitig: Anhänger einer Partei sind zu stark vertreten. Das Ergebnis wird verzerrt.",
+   "h": "Wer wird befragt – und fehlt dabei jemand?"
+  },
+  {
+   "l": "repraesentativ",
+   "t": "repraesentativ",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Man will wissen, wie viele Haushalte ein Haustier haben. Grundgesamtheit: alle Haushalte einer Gemeinde. Befragt werden 500 Haushalte: jeden zehnten Haushalt aus der Adressliste. Ist die Stichprobe geeignet?"
+   },
+   "a": [
+    "Nein, man darf nur eine Vollerhebung machen.",
+    "Ja, die Auswahl ist zufällig und deckt alle Gruppen ab.",
+    "Nein, 500 sind immer zu wenige.",
+    "Nein, weil nicht alle dieselbe Antwort geben."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Auswahl ist zufällig und nicht auf eine besondere Gruppe beschränkt – sie ist geeignet.",
+   "h": "Ist die Auswahl zufällig?"
+  },
+  {
+   "l": "repraesentativ",
+   "t": "repraesentativ",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Man will wissen, ob die Mitglieder ein neues Vereinsheim wollen (Grundgesamtheit: alle Mitglieder eines Sportvereins). Jeweils 200 Personen sollen befragt werden. Welche Auswahl ist am besten geeignet?"
+   },
+   "a": [
+    "Nur Zuschauer bei einem Heimspiel",
+    "Nur die Mitglieder des Vorstands",
+    "Per Los aus der Mitgliederliste gezogene Mitglieder",
+    "Nur die Mitglieder der Tennisabteilung"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Am besten: per Los aus der Mitgliederliste gezogene Mitglieder. Die anderen sind einseitig: nur eine kleine, besondere Gruppe wird befragt; viele Zuschauer sind keine Mitglieder; nur eine Abteilung wird befragt.",
+   "h": "Welche Auswahl ist zufällig und betrifft alle Gruppen?"
+  },
+  {
+   "l": "repraesentativ",
+   "t": "repraesentativ",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Man will wissen, ob die Mitglieder ein neues Vereinsheim wollen (Grundgesamtheit: alle Mitglieder eines Sportvereins). Jeweils 150 Personen sollen befragt werden. Welche Auswahl ist am besten geeignet?"
+   },
+   "a": [
+    "Per Los aus der Mitgliederliste gezogene Mitglieder",
+    "Nur Zuschauer bei einem Heimspiel",
+    "Nur die Mitglieder des Vorstands",
+    "Nur die Mitglieder der Tennisabteilung"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Am besten: per Los aus der Mitgliederliste gezogene Mitglieder. Die anderen sind einseitig: nur eine kleine, besondere Gruppe wird befragt; viele Zuschauer sind keine Mitglieder; nur eine Abteilung wird befragt.",
+   "h": "Welche Auswahl ist zufällig und betrifft alle Gruppen?"
+  },
+  {
+   "l": "repraesentativ",
+   "t": "repraesentativ",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Man will wissen, ob die Einwohner ein neues Hallenbad wollen (Grundgesamtheit: alle Einwohnerinnen und Einwohner einer Stadt). Jeweils 60 Personen sollen befragt werden. Welche Auswahl ist am besten geeignet?"
+   },
+   "a": [
+    "Nur die Besucher des alten Hallenbads",
+    "Nur Mitglieder des Schwimmvereins",
+    "Nur die Bewohner eines Seniorenheims",
+    "Zufällig ausgewählte Personen aus dem Einwohnerverzeichnis"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Am besten: zufällig ausgewählte Personen aus dem Einwohnerverzeichnis. Die anderen sind einseitig: Schwimmer sind eher dafür; nur eine Altersgruppe wird befragt; Schwimmer sind eher dafür.",
+   "h": "Welche Auswahl ist zufällig und betrifft alle Gruppen?"
+  },
+  {
+   "l": "repraesentativ",
+   "t": "repraesentativ",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Um herauszufinden, wie viele Haushalte ein Haustier haben, werden 100 Personen befragt: nur Kunden einer Zoohandlung. Warum ist das keine geeignete Stichprobe?"
+   },
+   "a": [
+    "Nur eine Altersgruppe wird befragt.",
+    "Unzufriedene sind zu stark vertreten.",
+    "Radfahrer sind zu stark vertreten.",
+    "Tierbesitzer sind zu stark vertreten."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Grundgesamtheit sind alle Haushalte einer Gemeinde. Bei dieser Auswahl gilt: Tierbesitzer sind zu stark vertreten.",
+   "h": "Wer ist in dieser Gruppe besonders häufig – oder wer fehlt?"
+  },
+  {
+   "l": "repraesentativ",
+   "t": "repraesentativ",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Man will wissen, wie viele Haushalte ein Haustier haben (Grundgesamtheit: alle Haushalte einer Gemeinde). Jeweils 200 Personen sollen befragt werden. Welche Auswahl ist am besten geeignet?"
+   },
+   "a": [
+    "Nur Haushalte in einem einzigen Hochhaus",
+    "Nur Haushalte, die beim Tierarzt im Wartezimmer sitzen",
+    "Jeden zehnten Haushalt aus der Adressliste",
+    "Nur Kunden einer Zoohandlung"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Am besten: jeden zehnten Haushalt aus der Adressliste. Die anderen sind einseitig: Tierbesitzer sind zu stark vertreten; nur eine Wohnform wird erfasst; Tierbesitzer sind zu stark vertreten.",
+   "h": "Welche Auswahl ist zufällig und betrifft alle Gruppen?"
+  },
+  {
+   "l": "repraesentativ",
+   "t": "repraesentativ",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Man will wissen, wie zufrieden die Beschäftigten mit der Kantine sind (Grundgesamtheit: alle Beschäftigten einer Firma). Jeweils 150 Personen sollen befragt werden. Welche Auswahl ist am besten geeignet?"
+   },
+   "a": [
+    "Nur die Beschäftigten einer einzigen Abteilung",
+    "Per Los aus allen Abteilungen ausgewählte Beschäftigte",
+    "Nur die Köche der Kantine",
+    "Nur Beschäftigte, die gerade in der Kantine essen"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Am besten: per Los aus allen Abteilungen ausgewählte Beschäftigte. Die anderen sind einseitig: wer die Kantine meidet, fehlt; sie bewerten ihr eigenes Essen; nur eine Abteilung wird befragt.",
+   "h": "Welche Auswahl ist zufällig und betrifft alle Gruppen?"
+  },
+  {
+   "l": "repraesentativ",
+   "t": "repraesentativ",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Man will wissen, ob die Fahrgäste mit der Pünktlichkeit zufrieden sind. Stichprobe A: 1 500 Fahrgäste, aber nur Fahrgäste, die gerade auf einen verspäteten Bus warten. Stichprobe B: 60 Fahrgäste, an mehreren Tagen in verschiedenen Bussen zufällig ausgewählte Fahrgäste. Welche ist aussagekräftiger?"
+   },
+   "a": [
+    "B, weil sie zufällig ausgewählt ist.",
+    "Keine von beiden, man braucht eine Vollerhebung.",
+    "Beide sind gleich gut.",
+    "A, weil sie größer ist."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "A ist zwar groß, aber verzerrt (Verärgerte sind zu stark vertreten). B ist kleiner, bildet die Grundgesamtheit aber besser ab.",
+   "h": "Größe allein reicht nicht – wie wurde ausgewählt?"
+  },
+  {
+   "l": "repraesentativ",
+   "t": "repraesentativ",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Man will wissen, ob die Fahrgäste mit der Pünktlichkeit zufrieden sind. Stichprobe A: 1 500 Fahrgäste, aber nur Fahrgäste am Sonntagmorgen. Stichprobe B: 60 Fahrgäste, an mehreren Tagen in verschiedenen Bussen zufällig ausgewählte Fahrgäste. Welche ist aussagekräftiger?"
+   },
+   "a": [
+    "Beide sind gleich gut.",
+    "A, weil sie größer ist.",
+    "B, weil sie zufällig ausgewählt ist.",
+    "Keine von beiden, man braucht eine Vollerhebung."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "A ist zwar groß, aber verzerrt (nur eine ruhige Tageszeit wird erfasst). B ist kleiner, bildet die Grundgesamtheit aber besser ab.",
+   "h": "Größe allein reicht nicht – wie wurde ausgewählt?"
+  },
+  {
+   "l": "repraesentativ",
+   "t": "repraesentativ",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Man will wissen, wie viele Haushalte ein Haustier haben. Stichprobe A: 1 000 Haushalte, aber nur Kunden einer Zoohandlung. Stichprobe B: 80 Haushalte, jeden zehnten Haushalt aus der Adressliste. Welche ist aussagekräftiger?"
+   },
+   "a": [
+    "Keine von beiden, man braucht eine Vollerhebung.",
+    "Beide sind gleich gut.",
+    "A, weil sie größer ist.",
+    "B, weil sie zufällig ausgewählt ist."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "A ist zwar groß, aber verzerrt (Tierbesitzer sind zu stark vertreten). B ist kleiner, bildet die Grundgesamtheit aber besser ab.",
+   "h": "Größe allein reicht nicht – wie wurde ausgewählt?"
+  },
+  {
+   "l": "repraesentativ",
+   "t": "repraesentativ",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand befragt 150 Personen, und zwar nur Mitglieder eines Fußballvereins, um herauszufinden, wie viele Stunden Jugendliche pro Woche Sport treiben. Was ist das Hauptproblem?"
+   },
+   "a": [
+    "Das Ergebnis lässt sich nicht in Prozent angeben.",
+    "Sportler sind zu stark vertreten.",
+    "150 Personen sind zu viele.",
+    "Man hätte die Frage schriftlich stellen müssen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Stichprobe ist einseitig: Sportler sind zu stark vertreten.",
+   "h": "Passt die befragte Gruppe zur Grundgesamtheit?"
+  },
+  {
+   "l": "repraesentativ",
+   "t": "repraesentativ",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand befragt 200 Personen, und zwar nur die Mitglieder der Tennisabteilung, um herauszufinden, ob die Mitglieder ein neues Vereinsheim wollen. Was ist das Hauptproblem?"
+   },
+   "a": [
+    "Nur eine Abteilung wird befragt.",
+    "Man hätte die Frage schriftlich stellen müssen.",
+    "Das Ergebnis lässt sich nicht in Prozent angeben.",
+    "200 Personen sind zu viele."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die Stichprobe ist einseitig: nur eine Abteilung wird befragt.",
+   "h": "Passt die befragte Gruppe zur Grundgesamtheit?"
+  },
+  {
+   "l": "repraesentativ",
+   "t": "repraesentativ",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand befragt 300 Personen, und zwar nur die Angestellten des Supermarkts, um herauszufinden, wie zufrieden die Kunden mit den Öffnungszeiten sind. Was ist das Hauptproblem?"
+   },
+   "a": [
+    "300 Personen sind zu viele.",
+    "Sie gehören nicht zur Grundgesamtheit.",
+    "Man hätte die Frage schriftlich stellen müssen.",
+    "Das Ergebnis lässt sich nicht in Prozent angeben."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Stichprobe ist einseitig: sie gehören nicht zur Grundgesamtheit.",
+   "h": "Passt die befragte Gruppe zur Grundgesamtheit?"
+  },
+  {
+   "l": "repraesentativ",
+   "t": "repraesentativ",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Um herauszufinden, ob die Einwohner ein neues Hallenbad wollen, werden 100 Personen befragt: nur die Besucher des alten Hallenbads. Warum ist das keine geeignete Stichprobe?"
+   },
+   "a": [
+    "Eine einseitige Gruppe wird befragt.",
+    "Fans der Bahn sind zu stark vertreten.",
+    "Wer die Kantine meidet, fehlt.",
+    "Schwimmer sind eher dafür."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Grundgesamtheit sind alle Einwohnerinnen und Einwohner einer Stadt. Bei dieser Auswahl gilt: Schwimmer sind eher dafür."
+  },
+  {
+   "l": "repraesentativ",
+   "t": "repraesentativ",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Man will wissen, wie zufrieden die Kunden mit den Öffnungszeiten sind (Grundgesamtheit: alle Kundinnen und Kunden eines Supermarkts). Jeweils 80 Personen sollen befragt werden. Welche Auswahl ist am besten geeignet?"
+   },
+   "a": [
+    "An verschiedenen Tagen zu verschiedenen Uhrzeiten zufällig angesprochene Kunden",
+    "Nur die Angestellten des Supermarkts",
+    "Nur Kunden am Samstagvormittag",
+    "Nur Kunden, die sich schon einmal beschwert haben"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Am besten: an verschiedenen Tagen zu verschiedenen Uhrzeiten zufällig angesprochene Kunden. Die anderen sind einseitig: nur eine Tageszeit wird erfasst; Unzufriedene sind zu stark vertreten; sie gehören nicht zur Grundgesamtheit."
+  },
+  {
+   "l": "repraesentativ",
+   "t": "repraesentativ",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Man will wissen, ob die Fahrgäste mit der Pünktlichkeit zufrieden sind (Grundgesamtheit: alle Fahrgäste einer Buslinie). Jeweils 100 Personen sollen befragt werden. Welche Auswahl ist am besten geeignet?"
+   },
+   "a": [
+    "Nur Fahrgäste am Sonntagmorgen",
+    "An mehreren Tagen in verschiedenen Bussen zufällig ausgewählte Fahrgäste",
+    "Nur Fahrgäste, die gerade auf einen verspäteten Bus warten",
+    "Nur die Busfahrer"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Am besten: an mehreren Tagen in verschiedenen Bussen zufällig ausgewählte Fahrgäste. Die anderen sind einseitig: Verärgerte sind zu stark vertreten; sie gehören nicht zur Grundgesamtheit; nur eine ruhige Tageszeit wird erfasst."
+  },
+  {
+   "l": "repraesentativ",
+   "t": "repraesentativ",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Man will wissen, wie den Besuchern die neue Achterbahn gefällt (Grundgesamtheit: alle Besucherinnen und Besucher eines Freizeitparks). Jeweils 500 Personen sollen befragt werden. Welche Auswahl ist am besten geeignet?"
+   },
+   "a": [
+    "Nur die Mitarbeiter des Parks",
+    "Nur Besucher, die gerade aus der Achterbahn steigen und noch einmal anstehen",
+    "Nur Kinder unter 8 Jahren",
+    "Am Ausgang zufällig angesprochene Besucher"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Am besten: am Ausgang zufällig angesprochene Besucher. Die anderen sind einseitig: Fans der Bahn sind zu stark vertreten; nur eine Altersgruppe wird befragt; sie gehören nicht zur Grundgesamtheit."
+  },
+  {
+   "l": "repraesentativ",
+   "t": "repraesentativ",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Um herauszufinden, ob die Mitglieder ein neues Vereinsheim wollen, werden 40 Personen befragt: nur die Mitglieder des Vorstands. Warum ist das keine geeignete Stichprobe?"
+   },
+   "a": [
+    "Nur eine kleine, besondere Gruppe wird befragt.",
+    "Tierbesitzer sind zu stark vertreten.",
+    "Nur eine Abteilung wird befragt.",
+    "Radfahrer sind zu stark vertreten."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Grundgesamtheit sind alle Mitglieder eines Sportvereins. Bei dieser Auswahl gilt: nur eine kleine, besondere Gruppe wird befragt."
+  },
+  {
+   "l": "repraesentativ",
+   "t": "repraesentativ",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Um herauszufinden, ob die Fahrgäste mit der Pünktlichkeit zufrieden sind, werden 500 Personen befragt: nur Fahrgäste, die gerade auf einen verspäteten Bus warten. Warum ist das keine geeignete Stichprobe?"
+   },
+   "a": [
+    "Anhänger einer Partei sind zu stark vertreten.",
+    "Nur eine Wohnform wird erfasst.",
+    "Verärgerte sind zu stark vertreten.",
+    "Sie sind gar nicht wahlberechtigt."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Grundgesamtheit sind alle Fahrgäste einer Buslinie. Bei dieser Auswahl gilt: Verärgerte sind zu stark vertreten."
+  },
+  {
+   "l": "repraesentativ",
+   "t": "repraesentativ",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Um herauszufinden, ob die Mitglieder ein neues Vereinsheim wollen, werden 80 Personen befragt: nur Zuschauer bei einem Heimspiel. Warum ist das keine geeignete Stichprobe?"
+   },
+   "a": [
+    "Verärgerte sind zu stark vertreten.",
+    "Busfahrer sind zu stark vertreten.",
+    "Viele Zuschauer sind keine Mitglieder.",
+    "Tierbesitzer sind zu stark vertreten."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Grundgesamtheit sind alle Mitglieder eines Sportvereins. Bei dieser Auswahl gilt: viele Zuschauer sind keine Mitglieder."
+  },
+  {
+   "l": "repraesentativ",
+   "t": "repraesentativ",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Um herauszufinden, wie die Kinder zur Schule kommen, werden 80 Personen befragt: nur die Kinder der 5. Klassen. Warum ist das keine geeignete Stichprobe?"
+   },
+   "a": [
+    "Sportler sind zu stark vertreten.",
+    "Nur eine Jahrgangsstufe wird befragt.",
+    "Schwimmer sind eher dafür.",
+    "Viele Zuschauer sind keine Mitglieder."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Grundgesamtheit sind alle Schülerinnen und Schüler einer Realschule. Bei dieser Auswahl gilt: nur eine Jahrgangsstufe wird befragt."
+  },
+  {
+   "l": "repraesentativ",
+   "t": "repraesentativ",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Um herauszufinden, ob die Mitglieder ein neues Vereinsheim wollen, werden 60 Personen befragt: nur die Mitglieder des Vorstands. Warum ist das keine geeignete Stichprobe?"
+   },
+   "a": [
+    "Nur eine Tageszeit wird erfasst.",
+    "Schwimmer sind eher dafür.",
+    "Nur ein Ort wird befragt.",
+    "Nur eine kleine, besondere Gruppe wird befragt."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Grundgesamtheit sind alle Mitglieder eines Sportvereins. Bei dieser Auswahl gilt: nur eine kleine, besondere Gruppe wird befragt."
+  },
+  {
+   "l": "repraesentativ",
+   "t": "repraesentativ",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Man will wissen, wie viele Haushalte ein Haustier haben (Grundgesamtheit: alle Haushalte einer Gemeinde). Jeweils 60 Personen sollen befragt werden. Welche Auswahl ist am besten geeignet?"
+   },
+   "a": [
+    "Jeden zehnten Haushalt aus der Adressliste",
+    "Nur Haushalte, die beim Tierarzt im Wartezimmer sitzen",
+    "Nur Kunden einer Zoohandlung",
+    "Nur Haushalte in einem einzigen Hochhaus"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Am besten: jeden zehnten Haushalt aus der Adressliste. Die anderen sind einseitig: Tierbesitzer sind zu stark vertreten; nur eine Wohnform wird erfasst; Tierbesitzer sind zu stark vertreten."
+  },
+  {
+   "l": "fehlerquellen",
+   "t": "fehlerquellen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei einer Umfrage unter 200 zufällig ausgewählten Personen lautet die Frage: „Jeder vernünftige Mensch ist dafür, dass es in der Mensa mehr Gemüse gibt. Sie auch?“ Welche Fehlerquelle liegt vor?"
+   },
+   "a": [
+    "Die Auswahl ist einseitig.",
+    "Nur Freiwillige antworten.",
+    "Die Stichprobe ist zu klein.",
+    "Die Frage ist suggestiv (lenkt die Antwort)."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die Frage drängt zu einem „Ja“ (suggestiv). Neutral wäre eine Frage ohne Wertung, z. B. „Sind Sie dafür oder dagegen?“",
+   "h": "Prüfe: Größe, Auswahl, Fragestellung, Freiwilligkeit."
+  },
+  {
+   "l": "fehlerquellen",
+   "t": "fehlerquellen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei einer Umfrage unter 100 zufällig ausgewählten Personen lautet die Frage: „Jeder vernünftige Mensch ist dafür, dass der Spielplatz erneuert wird. Sie auch?“ Welche Fehlerquelle liegt vor?"
+   },
+   "a": [
+    "Die Frage ist suggestiv (lenkt die Antwort).",
+    "Nur Freiwillige antworten.",
+    "Die Stichprobe ist zu klein.",
+    "Die Auswahl ist einseitig."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die Frage drängt zu einem „Ja“ (suggestiv). Neutral wäre eine Frage ohne Wertung, z. B. „Sind Sie dafür oder dagegen?“",
+   "h": "Prüfe: Größe, Auswahl, Fragestellung, Freiwilligkeit."
+  },
+  {
+   "l": "fehlerquellen",
+   "t": "fehlerquellen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei einer Umfrage unter 100 zufällig ausgewählten Personen lautet die Frage: „Sie sind doch sicher auch dafür, dass mehr Radwege gebaut werden?“ Welche Fehlerquelle liegt vor?"
+   },
+   "a": [
+    "Nur Freiwillige antworten.",
+    "Die Frage ist suggestiv (lenkt die Antwort).",
+    "Die Stichprobe ist zu klein.",
+    "Die Auswahl ist einseitig."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Frage drängt zu einem „Ja“ (suggestiv). Neutral wäre eine Frage ohne Wertung, z. B. „Sind Sie dafür oder dagegen?“",
+   "h": "Prüfe: Größe, Auswahl, Fragestellung, Freiwilligkeit."
+  },
+  {
+   "l": "fehlerquellen",
+   "t": "fehlerquellen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei einer Umfrage unter 400 zufällig ausgewählten Personen lautet die Frage: „Finden Sie nicht auch, dass der Spielplatz erneuert wird?“ Welche Fehlerquelle liegt vor?"
+   },
+   "a": [
+    "Die Auswahl ist einseitig.",
+    "Die Stichprobe ist zu klein.",
+    "Die Frage ist suggestiv (lenkt die Antwort).",
+    "Nur Freiwillige antworten."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Frage drängt zu einem „Ja“ (suggestiv). Neutral wäre eine Frage ohne Wertung, z. B. „Sind Sie dafür oder dagegen?“",
+   "h": "Prüfe: Größe, Auswahl, Fragestellung, Freiwilligkeit."
+  },
+  {
+   "l": "fehlerquellen",
+   "t": "fehlerquellen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Um herauszufinden, ob die Mitglieder ein neues Vereinsheim wollen, werden 8 zufällig ausgewählte Mitglieder befragt. Welche Fehlerquelle liegt vor?"
+   },
+   "a": [
+    "Nur Freiwillige antworten.",
+    "Die Frage ist suggestiv (lenkt die Antwort).",
+    "Die Stichprobe ist zu klein.",
+    "Die Auswahl ist einseitig."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Auswahl ist zwar zufällig, aber 8 Befragte sind viel zu wenige – das Ergebnis schwankt stark.",
+   "h": "Prüfe: Größe, Auswahl, Fragestellung, Freiwilligkeit."
+  },
+  {
+   "l": "fehlerquellen",
+   "t": "fehlerquellen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei einer Umfrage unter 200 zufällig ausgewählten Personen lautet die Frage: „Sie sind doch sicher auch dafür, dass der Spielplatz erneuert wird?“ Welche Fehlerquelle liegt vor?"
+   },
+   "a": [
+    "Die Stichprobe ist zu klein.",
+    "Nur Freiwillige antworten.",
+    "Die Auswahl ist einseitig.",
+    "Die Frage ist suggestiv (lenkt die Antwort)."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die Frage drängt zu einem „Ja“ (suggestiv). Neutral wäre eine Frage ohne Wertung, z. B. „Sind Sie dafür oder dagegen?“",
+   "h": "Prüfe: Größe, Auswahl, Fragestellung, Freiwilligkeit."
+  },
+  {
+   "l": "fehlerquellen",
+   "t": "fehlerquellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Um herauszufinden, ob die Mitglieder ein neues Vereinsheim wollen, werden 200 Personen befragt: nur die Mitglieder der Tennisabteilung. Welche Fehlerquelle liegt vor?"
+   },
+   "a": [
+    "Nur Freiwillige antworten.",
+    "Die Auswahl ist einseitig.",
+    "Die Frage ist suggestiv (lenkt die Antwort).",
+    "Die Stichprobe ist zu klein."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Auswahl ist einseitig: nur eine Abteilung wird befragt.",
+   "h": "Prüfe: Größe, Auswahl, Fragestellung, Freiwilligkeit."
+  },
+  {
+   "l": "fehlerquellen",
+   "t": "fehlerquellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Um herauszufinden, ob die Fahrgäste mit der Pünktlichkeit zufrieden sind, werden 6 zufällig ausgewählte Fahrgäste befragt. Welche Fehlerquelle liegt vor?"
+   },
+   "a": [
+    "Die Stichprobe ist zu klein.",
+    "Die Auswahl ist einseitig.",
+    "Nur Freiwillige antworten.",
+    "Die Frage ist suggestiv (lenkt die Antwort)."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die Auswahl ist zwar zufällig, aber 6 Befragte sind viel zu wenige – das Ergebnis schwankt stark.",
+   "h": "Prüfe: Größe, Auswahl, Fragestellung, Freiwilligkeit."
+  },
+  {
+   "l": "fehlerquellen",
+   "t": "fehlerquellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Um herauszufinden, wie viele Haushalte ein Haustier haben, werden 8 zufällig ausgewählte Haushalte befragt. Welche Fehlerquelle liegt vor?"
+   },
+   "a": [
+    "Die Stichprobe ist zu klein.",
+    "Die Frage ist suggestiv (lenkt die Antwort).",
+    "Die Auswahl ist einseitig.",
+    "Nur Freiwillige antworten."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die Auswahl ist zwar zufällig, aber 8 Befragte sind viel zu wenige – das Ergebnis schwankt stark.",
+   "h": "Prüfe: Größe, Auswahl, Fragestellung, Freiwilligkeit."
+  },
+  {
+   "l": "fehlerquellen",
+   "t": "fehlerquellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Radiosender bittet Hörer, zum Thema „Mehr Hausaufgaben“ anzurufen. Es kommen 800 Antworten. Welche Fehlerquelle liegt vor?"
+   },
+   "a": [
+    "Die Auswahl ist einseitig.",
+    "Nur Freiwillige antworten.",
+    "Die Frage ist suggestiv (lenkt die Antwort).",
+    "Die Stichprobe ist zu klein."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Es antworten nur Freiwillige – meist Menschen mit einer starken Meinung. Die vielen Antworten ändern daran nichts.",
+   "h": "Prüfe: Größe, Auswahl, Fragestellung, Freiwilligkeit."
+  },
+  {
+   "l": "fehlerquellen",
+   "t": "fehlerquellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Zeitschrift ruft ihre Leser auf, im Internet zum Thema „Handyverbot an Schulen“ abzustimmen. Es kommen 9 000 Antworten. Welche Fehlerquelle liegt vor?"
+   },
+   "a": [
+    "Die Stichprobe ist zu klein.",
+    "Die Frage ist suggestiv (lenkt die Antwort).",
+    "Die Auswahl ist einseitig.",
+    "Nur Freiwillige antworten."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Es antworten nur Freiwillige – meist Menschen mit einer starken Meinung. Die vielen Antworten ändern daran nichts.",
+   "h": "Prüfe: Größe, Auswahl, Fragestellung, Freiwilligkeit."
+  },
+  {
+   "l": "fehlerquellen",
+   "t": "fehlerquellen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei einer Umfrage unter 100 zufällig ausgewählten Personen lautet die Frage: „Sie sind doch sicher auch dafür, dass der Bus öfter fährt?“ Welche Fehlerquelle liegt vor?"
+   },
+   "a": [
+    "Nur Freiwillige antworten.",
+    "Die Stichprobe ist zu klein.",
+    "Die Frage ist suggestiv (lenkt die Antwort).",
+    "Die Auswahl ist einseitig."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Frage drängt zu einem „Ja“ (suggestiv). Neutral wäre eine Frage ohne Wertung, z. B. „Sind Sie dafür oder dagegen?“",
+   "h": "Prüfe: Größe, Auswahl, Fragestellung, Freiwilligkeit."
+  },
+  {
+   "l": "fehlerquellen",
+   "t": "fehlerquellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Um herauszufinden, ob die Fahrgäste mit der Pünktlichkeit zufrieden sind, werden 300 Personen befragt: nur Fahrgäste am Sonntagmorgen. Wie verbessert man die Umfrage am wirksamsten?"
+   },
+   "a": [
+    "Die Frage neutral stellen, ohne Wertung.",
+    "Mehr Personen zufällig auswählen.",
+    "Statt einer besonderen Gruppe Personen aus allen Gruppen zufällig auswählen."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Auswahl ist einseitig: nur eine ruhige Tageszeit wird erfasst.",
+   "h": "Finde zuerst die Fehlerquelle, dann die passende Verbesserung."
+  },
+  {
+   "l": "fehlerquellen",
+   "t": "fehlerquellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Radiosender bittet Hörer, zum Thema „Autofreier Sonntag“ anzurufen. Es kommen 1 200 Antworten. Wie verbessert man die Umfrage am wirksamsten?"
+   },
+   "a": [
+    "Die Frage neutral stellen, ohne Wertung.",
+    "Nicht auf Meldungen warten, sondern Personen per Los auswählen und gezielt ansprechen.",
+    "Mehr Personen zufällig auswählen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Es antworten nur Freiwillige – meist Menschen mit einer starken Meinung. Die vielen Antworten ändern daran nichts.",
+   "h": "Finde zuerst die Fehlerquelle, dann die passende Verbesserung."
+  },
+  {
+   "l": "fehlerquellen",
+   "t": "fehlerquellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Um herauszufinden, wen die Wahlberechtigten zum Bürgermeister wählen wollen, werden 300 Personen befragt: nur Mitglieder einer Partei. Wie verbessert man die Umfrage am wirksamsten?"
+   },
+   "a": [
+    "Statt einer besonderen Gruppe Personen aus allen Gruppen zufällig auswählen.",
+    "Mehr Personen zufällig auswählen.",
+    "Die Frage neutral stellen, ohne Wertung."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die Auswahl ist einseitig: Anhänger einer Partei sind zu stark vertreten.",
+   "h": "Finde zuerst die Fehlerquelle, dann die passende Verbesserung."
+  },
+  {
+   "l": "fehlerquellen",
+   "t": "fehlerquellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "An der Schultür hängt ein Zettel: Wer möchte, kann seine Meinung zum Thema „Autofreier Sonntag“ in den Briefkasten werfen. Es kommen 3 500 Antworten. Wie verbessert man die Umfrage am wirksamsten?"
+   },
+   "a": [
+    "Die Frage neutral stellen, ohne Wertung.",
+    "Mehr Personen zufällig auswählen.",
+    "Nicht auf Meldungen warten, sondern Personen per Los auswählen und gezielt ansprechen."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Es antworten nur Freiwillige – meist Menschen mit einer starken Meinung. Die vielen Antworten ändern daran nichts.",
+   "h": "Finde zuerst die Fehlerquelle, dann die passende Verbesserung."
+  },
+  {
+   "l": "fehlerquellen",
+   "t": "fehlerquellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei einer Umfrage unter 400 zufällig ausgewählten Personen lautet die Frage: „Jeder vernünftige Mensch ist dafür, dass der Bus öfter fährt. Sie auch?“ Welche Fehlerquelle liegt vor?"
+   },
+   "a": [
+    "Die Stichprobe ist zu klein.",
+    "Nur Freiwillige antworten.",
+    "Die Frage ist suggestiv (lenkt die Antwort).",
+    "Die Auswahl ist einseitig."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Frage drängt zu einem „Ja“ (suggestiv). Neutral wäre eine Frage ohne Wertung, z. B. „Sind Sie dafür oder dagegen?“",
+   "h": "Prüfe: Größe, Auswahl, Fragestellung, Freiwilligkeit."
+  },
+  {
+   "l": "fehlerquellen",
+   "t": "fehlerquellen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Zeitschrift ruft ihre Leser auf, im Internet zum Thema „Handyverbot an Schulen“ abzustimmen. Es kommen 1 200 Antworten. Welche Fehlerquelle liegt vor?"
+   },
+   "a": [
+    "Die Auswahl ist einseitig.",
+    "Nur Freiwillige antworten.",
+    "Die Stichprobe ist zu klein.",
+    "Die Frage ist suggestiv (lenkt die Antwort)."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Es antworten nur Freiwillige – meist Menschen mit einer starken Meinung. Die vielen Antworten ändern daran nichts.",
+   "h": "Prüfe: Größe, Auswahl, Fragestellung, Freiwilligkeit."
+  },
+  {
+   "l": "fehlerquellen",
+   "t": "fehlerquellen",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Um herauszufinden, wie zufrieden die Kunden mit den Öffnungszeiten sind, werden 4 zufällig ausgewählte Kunden befragt. Welche Fehlerquelle liegt vor?"
+   },
+   "a": [
+    "Die Auswahl ist einseitig.",
+    "Nur Freiwillige antworten.",
+    "Die Frage ist suggestiv (lenkt die Antwort).",
+    "Die Stichprobe ist zu klein."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die Auswahl ist zwar zufällig, aber 4 Befragte sind viel zu wenige – das Ergebnis schwankt stark."
+  },
+  {
+   "l": "fehlerquellen",
+   "t": "fehlerquellen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Um herauszufinden, wie zufrieden die Beschäftigten mit der Kantine sind, werden 300 Personen befragt: nur die Beschäftigten einer einzigen Abteilung. Welche Fehlerquelle liegt vor?"
+   },
+   "a": [
+    "Die Auswahl ist einseitig.",
+    "Die Stichprobe ist zu klein.",
+    "Nur Freiwillige antworten.",
+    "Die Frage ist suggestiv (lenkt die Antwort)."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die Auswahl ist einseitig: nur eine Abteilung wird befragt."
+  },
+  {
+   "l": "fehlerquellen",
+   "t": "fehlerquellen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Um herauszufinden, ob die Mitglieder ein neues Vereinsheim wollen, werden 150 Personen befragt: nur die Mitglieder der Tennisabteilung. Welche Fehlerquelle liegt vor?"
+   },
+   "a": [
+    "Die Frage ist suggestiv (lenkt die Antwort).",
+    "Die Stichprobe ist zu klein.",
+    "Die Auswahl ist einseitig.",
+    "Nur Freiwillige antworten."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Auswahl ist einseitig: nur eine Abteilung wird befragt."
+  },
+  {
+   "l": "fehlerquellen",
+   "t": "fehlerquellen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Zeitschrift ruft ihre Leser auf, im Internet zum Thema „Längere Ladenöffnungszeiten“ abzustimmen. Es kommen 800 Antworten. Welche Fehlerquelle liegt vor?"
+   },
+   "a": [
+    "Die Frage ist suggestiv (lenkt die Antwort).",
+    "Die Stichprobe ist zu klein.",
+    "Die Auswahl ist einseitig.",
+    "Nur Freiwillige antworten."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Es antworten nur Freiwillige – meist Menschen mit einer starken Meinung. Die vielen Antworten ändern daran nichts."
+  },
+  {
+   "l": "fehlerquellen",
+   "t": "fehlerquellen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Um herauszufinden, wie den Besuchern die neue Achterbahn gefällt, werden 5 zufällig ausgewählte Besucher befragt. Welche Fehlerquelle liegt vor?"
+   },
+   "a": [
+    "Die Stichprobe ist zu klein.",
+    "Nur Freiwillige antworten.",
+    "Die Auswahl ist einseitig.",
+    "Die Frage ist suggestiv (lenkt die Antwort)."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die Auswahl ist zwar zufällig, aber 5 Befragte sind viel zu wenige – das Ergebnis schwankt stark."
+  },
+  {
+   "l": "fehlerquellen",
+   "t": "fehlerquellen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei einer Umfrage unter 250 zufällig ausgewählten Personen lautet die Frage: „Finden Sie nicht auch, dass mehr Radwege gebaut werden?“ Welche Fehlerquelle liegt vor?"
+   },
+   "a": [
+    "Die Auswahl ist einseitig.",
+    "Die Frage ist suggestiv (lenkt die Antwort).",
+    "Nur Freiwillige antworten.",
+    "Die Stichprobe ist zu klein."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Frage drängt zu einem „Ja“ (suggestiv). Neutral wäre eine Frage ohne Wertung, z. B. „Sind Sie dafür oder dagegen?“"
+  },
+  {
+   "l": "fehlerquellen",
+   "t": "fehlerquellen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Um herauszufinden, wie den Besuchern die neue Achterbahn gefällt, werden 6 zufällig ausgewählte Besucher befragt. Welche Fehlerquelle liegt vor?"
+   },
+   "a": [
+    "Die Stichprobe ist zu klein.",
+    "Nur Freiwillige antworten.",
+    "Die Auswahl ist einseitig.",
+    "Die Frage ist suggestiv (lenkt die Antwort)."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Die Auswahl ist zwar zufällig, aber 6 Befragte sind viel zu wenige – das Ergebnis schwankt stark."
+  },
+  {
+   "l": "fehlerquellen",
+   "t": "fehlerquellen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "An der Schultür hängt ein Zettel: Wer möchte, kann seine Meinung zum Thema „Neues Jugendzentrum“ in den Briefkasten werfen. Es kommen 9 000 Antworten. Welche Fehlerquelle liegt vor?"
+   },
+   "a": [
+    "Die Frage ist suggestiv (lenkt die Antwort).",
+    "Nur Freiwillige antworten.",
+    "Die Auswahl ist einseitig.",
+    "Die Stichprobe ist zu klein."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Es antworten nur Freiwillige – meist Menschen mit einer starken Meinung. Die vielen Antworten ändern daran nichts."
+  },
+  {
+   "l": "fehlerquellen",
+   "t": "fehlerquellen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Um herauszufinden, wie zufrieden die Kunden mit den Öffnungszeiten sind, werden 8 zufällig ausgewählte Kunden befragt. Welche Fehlerquelle liegt vor?"
+   },
+   "a": [
+    "Nur Freiwillige antworten.",
+    "Die Auswahl ist einseitig.",
+    "Die Stichprobe ist zu klein.",
+    "Die Frage ist suggestiv (lenkt die Antwort)."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Die Auswahl ist zwar zufällig, aber 8 Befragte sind viel zu wenige – das Ergebnis schwankt stark."
+  },
+  {
+   "l": "fehlerquellen",
+   "t": "fehlerquellen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Um herauszufinden, wie viele Stunden Jugendliche pro Woche Sport treiben, werden 8 zufällig ausgewählte Jugendliche befragt. Welche Fehlerquelle liegt vor?"
+   },
+   "a": [
+    "Die Frage ist suggestiv (lenkt die Antwort).",
+    "Die Stichprobe ist zu klein.",
+    "Nur Freiwillige antworten.",
+    "Die Auswahl ist einseitig."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Auswahl ist zwar zufällig, aber 8 Befragte sind viel zu wenige – das Ergebnis schwankt stark."
+  },
+  {
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Stichprobe A hat 10 Befragte, Stichprobe B hat 1000. Beide wurden zufällig ausgewählt. Welche schwankt vermutlich weniger?"
+   },
+   "a": [
+    "B",
+    "Das kann man nicht sagen.",
+    "Beide gleich",
+    "A"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Je größer eine zufällige Stichprobe, desto weniger schwankt ihr Ergebnis.",
+   "h": "Was macht eine Stichprobe zuverlässiger?"
+  },
+  {
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Stichprobe A hat 20 Befragte, Stichprobe B hat 500. Beide wurden zufällig ausgewählt. Welche schwankt vermutlich weniger?"
+   },
+   "a": [
+    "Das kann man nicht sagen.",
+    "A",
+    "B",
+    "Beide gleich"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Je größer eine zufällige Stichprobe, desto weniger schwankt ihr Ergebnis.",
+   "h": "Was macht eine Stichprobe zuverlässiger?"
+  },
+  {
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Stichprobe A hat 12 Befragte, Stichprobe B hat 400. Beide wurden zufällig ausgewählt. Welche schwankt vermutlich weniger?"
+   },
+   "a": [
+    "Beide gleich",
+    "Das kann man nicht sagen.",
+    "A",
+    "B"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Je größer eine zufällige Stichprobe, desto weniger schwankt ihr Ergebnis.",
+   "h": "Was macht eine Stichprobe zuverlässiger?"
+  },
+  {
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Stichprobe A hat 15 Befragte, Stichprobe B hat 300. Beide wurden zufällig ausgewählt. Welche schwankt vermutlich weniger?"
+   },
+   "a": [
+    "A",
+    "Das kann man nicht sagen.",
+    "Beide gleich",
+    "B"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Je größer eine zufällige Stichprobe, desto weniger schwankt ihr Ergebnis.",
+   "h": "Was macht eine Stichprobe zuverlässiger?"
+  },
+  {
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Stichprobe A hat 10 Befragte, Stichprobe B hat 500. Beide wurden zufällig ausgewählt. Welche schwankt vermutlich weniger?"
+   },
+   "a": [
+    "B",
+    "Beide gleich",
+    "A",
+    "Das kann man nicht sagen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Je größer eine zufällige Stichprobe, desto weniger schwankt ihr Ergebnis.",
+   "h": "Was macht eine Stichprobe zuverlässiger?"
+  },
+  {
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Stichprobe A hat 20 Befragte, Stichprobe B hat 800. Beide wurden zufällig ausgewählt. Welche schwankt vermutlich weniger?"
+   },
+   "a": [
+    "Beide gleich",
+    "Das kann man nicht sagen.",
+    "B",
+    "A"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Je größer eine zufällige Stichprobe, desto weniger schwankt ihr Ergebnis.",
+   "h": "Was macht eine Stichprobe zuverlässiger?"
+  },
+  {
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "In einer guten Zufallsstichprobe sagen 25 von 40 Jugendlichen „ja“. Was kann man über alle Jugendlichen sagen?"
+   },
+   "a": [
+    "Man kann gar nichts sagen.",
+    "Ungefähr 62,5 % aller Jugendlichen – ein Schätzwert.",
+    "Genau 62,5 % aller Jugendlichen sagen „ja“.",
+    "Genau 25 Jugendliche sagen „ja“."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "25 : 40 = 62,5 %. Für die Grundgesamtheit ist das nur ein Schätzwert, weil Stichproben schwanken.",
+   "h": "Ist eine Stichprobe genau gleich wie die Grundgesamtheit?"
+  },
+  {
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "In einer guten Zufallsstichprobe sagen 32 von 50 Jugendlichen „ja“. Was kann man über alle Jugendlichen sagen?"
+   },
+   "a": [
+    "Ungefähr 64 % aller Jugendlichen – ein Schätzwert.",
+    "Genau 32 Jugendliche sagen „ja“.",
+    "Genau 64 % aller Jugendlichen sagen „ja“.",
+    "Man kann gar nichts sagen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "32 : 50 = 64 %. Für die Grundgesamtheit ist das nur ein Schätzwert, weil Stichproben schwanken.",
+   "h": "Ist eine Stichprobe genau gleich wie die Grundgesamtheit?"
+  },
+  {
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vier Gruppen ziehen je eine Zufallsstichprobe mit n = 20 aus derselben Schule. Sie zählen 13, 6, 6, 8 Kinder mit Haustier. Wie groß ist die Spannweite der Anteile in Prozentpunkten?"
+   },
+   "o": {
+    "wert": 35
+   },
+   "c": "(max(13, 6, 6, 8) - min(13, 6, 6, 8)) / 20 * 100",
+   "w": "Anteile: 65 %, 30 %, 30 %, 40 %. Spannweite: 65 − 30 = 35 Prozentpunkte.",
+   "h": "Rechne jeden Anteil in Prozent um und ziehe den kleinsten vom größten ab."
+  },
+  {
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "In einer guten Zufallsstichprobe sagen 13 von 20 Jugendlichen „ja“. Was kann man über alle Jugendlichen sagen?"
+   },
+   "a": [
+    "Genau 13 Jugendliche sagen „ja“.",
+    "Ungefähr 65 % aller Jugendlichen – ein Schätzwert.",
+    "Genau 65 % aller Jugendlichen sagen „ja“.",
+    "Man kann gar nichts sagen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "13 : 20 = 65 %. Für die Grundgesamtheit ist das nur ein Schätzwert, weil Stichproben schwanken.",
+   "h": "Ist eine Stichprobe genau gleich wie die Grundgesamtheit?"
+  },
+  {
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vier Gruppen ziehen je eine Zufallsstichprobe mit n = 50 aus derselben Schule. Sie zählen 34, 28, 28, 19 Kinder mit Haustier. Wie groß ist die Spannweite der Anteile in Prozentpunkten?"
+   },
+   "o": {
+    "wert": 30
+   },
+   "c": "(max(34, 28, 28, 19) - min(34, 28, 28, 19)) / 50 * 100",
+   "w": "Anteile: 68 %, 56 %, 56 %, 38 %. Spannweite: 68 − 38 = 30 Prozentpunkte.",
+   "h": "Rechne jeden Anteil in Prozent um und ziehe den kleinsten vom größten ab."
+  },
+  {
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vier Gruppen ziehen je eine Zufallsstichprobe mit n = 20 aus derselben Schule. Sie zählen 14, 7, 11, 14 Kinder mit Haustier. Wie groß ist die Spannweite der Anteile in Prozentpunkten?"
+   },
+   "o": {
+    "wert": 35
+   },
+   "c": "(max(14, 7, 11, 14) - min(14, 7, 11, 14)) / 20 * 100",
+   "w": "Anteile: 70 %, 35 %, 55 %, 70 %. Spannweite: 70 − 35 = 35 Prozentpunkte.",
+   "h": "Rechne jeden Anteil in Prozent um und ziehe den kleinsten vom größten ab."
+  },
+  {
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Zeitung schreibt: „87,5 % der Einwohner von Augsburg wollen ein Stadion!“ Grundlage: 7 von 8 Personen in einer Fußballkneipe sagten ja. Wie ist die Aussage zu beurteilen?"
+   },
+   "a": [
+    "Haltbar, weil es eine Prozentangabe ist.",
+    "Nur einseitig, die Größe ist in Ordnung.",
+    "Nur zu klein, die Auswahl ist in Ordnung.",
+    "Nicht haltbar: Stichprobe viel zu klein und einseitig."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "8 Personen sind viel zu wenige, und Fußballfans sind eher für ein Stadion. Beide Fehler stecken drin.",
+   "h": "Prüfe Größe UND Auswahl."
+  },
+  {
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Zeitung schreibt: „20 % der Einwohner von Würzburg wollen ein Stadion!“ Grundlage: 2 von 10 Personen in einer Fußballkneipe sagten ja. Wie ist die Aussage zu beurteilen?"
+   },
+   "a": [
+    "Nur zu klein, die Auswahl ist in Ordnung.",
+    "Nur einseitig, die Größe ist in Ordnung.",
+    "Nicht haltbar: Stichprobe viel zu klein und einseitig.",
+    "Haltbar, weil es eine Prozentangabe ist."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "10 Personen sind viel zu wenige, und Fußballfans sind eher für ein Stadion. Beide Fehler stecken drin.",
+   "h": "Prüfe Größe UND Auswahl."
+  },
+  {
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Zeitung schreibt: „40 % der Einwohner von Augsburg wollen ein Stadion!“ Grundlage: 4 von 10 Personen in einer Fußballkneipe sagten ja. Wie ist die Aussage zu beurteilen?"
+   },
+   "a": [
+    "Nicht haltbar: Stichprobe viel zu klein und einseitig.",
+    "Nur einseitig, die Größe ist in Ordnung.",
+    "Haltbar, weil es eine Prozentangabe ist.",
+    "Nur zu klein, die Auswahl ist in Ordnung."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "10 Personen sind viel zu wenige, und Fußballfans sind eher für ein Stadion. Beide Fehler stecken drin.",
+   "h": "Prüfe Größe UND Auswahl."
+  },
+  {
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Bei einer guten Zufallsstichprobe mit 1000 Befragten sind 49 % für Vorschlag A und 51 % für Vorschlag B. Welche Aussage ist angemessen?"
+   },
+   "a": [
+    "Die Umfrage ist wertlos.",
+    "B hat sicher die Mehrheit.",
+    "Es ist ziemlich knapp; in der Grundgesamtheit könnte es auch umgekehrt sein.",
+    "Genau 51 % aller sind für B."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Der Unterschied beträgt nur 2 Prozentpunkte. Stichproben schwanken – bei so wenig Abstand ist keine sichere Aussage möglich.",
+   "h": "Wie stark können Stichproben schwanken?"
+  },
+  {
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Klasse 7a befragt 10 zufällig gewählte Kinder: 5 lesen gern. Klasse 7b befragt 200: 64 lesen gern. Um wie viele Prozentpunkte unterscheiden sich die Ergebnisse?"
+   },
+   "o": {
+    "wert": 18
+   },
+   "c": "abs(5 / 10 * 100 - 64 / 200 * 100)",
+   "w": "5 : 10 = 50 %; 64 : 200 = 32 %. Unterschied 18 Prozentpunkte. Dem Ergebnis der 7b (größere Stichprobe) kann man eher trauen.",
+   "h": "Beide Anteile in Prozent, dann Differenz."
+  },
+  {
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Klasse 7a befragt 20 zufällig gewählte Kinder: 15 lesen gern. Klasse 7b befragt 500: 203 lesen gern. Um wie viele Prozentpunkte unterscheiden sich die Ergebnisse?"
+   },
+   "o": {
+    "wert": 34.4
+   },
+   "c": "abs(15 / 20 * 100 - 203 / 500 * 100)",
+   "w": "15 : 20 = 75 %; 203 : 500 = 40,6 %. Unterschied 34,4 Prozentpunkte. Dem Ergebnis der 7b (größere Stichprobe) kann man eher trauen.",
+   "h": "Beide Anteile in Prozent, dann Differenz."
+  },
+  {
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vier Gruppen ziehen je eine Zufallsstichprobe mit n = 20 aus derselben Schule. Sie zählen 13, 11, 10, 7 Kinder mit Haustier. Wie groß ist die Spannweite der Anteile in Prozentpunkten?"
+   },
+   "o": {
+    "wert": 30
+   },
+   "c": "(max(13, 11, 10, 7) - min(13, 11, 10, 7)) / 20 * 100",
+   "w": "Anteile: 65 %, 55 %, 50 %, 35 %. Spannweite: 65 − 35 = 30 Prozentpunkte."
+  },
+  {
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vier Gruppen ziehen je eine Zufallsstichprobe mit n = 25 aus derselben Schule. Sie zählen 18, 15, 11, 13 Kinder mit Haustier. Wie groß ist die Spannweite der Anteile in Prozentpunkten?"
+   },
+   "o": {
+    "wert": 28
+   },
+   "c": "(max(18, 15, 11, 13) - min(18, 15, 11, 13)) / 25 * 100",
+   "w": "Anteile: 72 %, 60 %, 44 %, 52 %. Spannweite: 72 − 44 = 28 Prozentpunkte."
+  },
+  {
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "In einer guten Zufallsstichprobe sagen 34 von 50 Jugendlichen „ja“. Was kann man über alle Jugendlichen sagen?"
+   },
+   "a": [
+    "Man kann gar nichts sagen.",
+    "Ungefähr 68 % aller Jugendlichen – ein Schätzwert.",
+    "Genau 34 Jugendliche sagen „ja“.",
+    "Genau 68 % aller Jugendlichen sagen „ja“."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "34 : 50 = 68 %. Für die Grundgesamtheit ist das nur ein Schätzwert, weil Stichproben schwanken."
+  },
+  {
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "In einer guten Zufallsstichprobe sagen 6 von 25 Jugendlichen „ja“. Was kann man über alle Jugendlichen sagen?"
+   },
+   "a": [
+    "Man kann gar nichts sagen.",
+    "Genau 24 % aller Jugendlichen sagen „ja“.",
+    "Genau 6 Jugendliche sagen „ja“.",
+    "Ungefähr 24 % aller Jugendlichen – ein Schätzwert."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "6 : 25 = 24 %. Für die Grundgesamtheit ist das nur ein Schätzwert, weil Stichproben schwanken."
+  },
+  {
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "In einer guten Zufallsstichprobe sagen 12 von 40 Kindern „ja“. Was kann man über alle Kinder sagen?"
+   },
+   "a": [
+    "Genau 12 Kinder sagen „ja“.",
+    "Ungefähr 30 % aller Kinder – ein Schätzwert.",
+    "Genau 30 % aller Kinder sagen „ja“.",
+    "Man kann gar nichts sagen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "12 : 40 = 30 %. Für die Grundgesamtheit ist das nur ein Schätzwert, weil Stichproben schwanken."
+  },
+  {
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "In einer guten Zufallsstichprobe sagen 32 von 40 Kunden „ja“. Was kann man über alle Kunden sagen?"
+   },
+   "a": [
+    "Ungefähr 80 % aller Kunden – ein Schätzwert.",
+    "Man kann gar nichts sagen.",
+    "Genau 32 Kunden sagen „ja“.",
+    "Genau 80 % aller Kunden sagen „ja“."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "32 : 40 = 80 %. Für die Grundgesamtheit ist das nur ein Schätzwert, weil Stichproben schwanken."
+  },
+  {
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "In einer guten Zufallsstichprobe sagen 19 von 25 Jugendlichen „ja“. Was kann man über alle Jugendlichen sagen?"
+   },
+   "a": [
+    "Genau 76 % aller Jugendlichen sagen „ja“.",
+    "Man kann gar nichts sagen.",
+    "Genau 19 Jugendliche sagen „ja“.",
+    "Ungefähr 76 % aller Jugendlichen – ein Schätzwert."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "19 : 25 = 76 %. Für die Grundgesamtheit ist das nur ein Schätzwert, weil Stichproben schwanken."
+  },
+  {
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Vier Gruppen ziehen je eine Zufallsstichprobe mit n = 25 aus derselben Schule. Sie zählen 18, 16, 14, 8 Kinder mit Haustier. Wie groß ist die Spannweite der Anteile in Prozentpunkten?"
+   },
+   "o": {
+    "wert": 40
+   },
+   "c": "(max(18, 16, 14, 8) - min(18, 16, 14, 8)) / 25 * 100",
+   "w": "Anteile: 72 %, 64 %, 56 %, 32 %. Spannweite: 72 − 32 = 40 Prozentpunkte."
+  },
+  {
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "In einer guten Zufallsstichprobe sagen 7 von 20 Jugendlichen „ja“. Was kann man über alle Jugendlichen sagen?"
+   },
+   "a": [
+    "Genau 7 Jugendliche sagen „ja“.",
+    "Man kann gar nichts sagen.",
+    "Ungefähr 35 % aller Jugendlichen – ein Schätzwert.",
+    "Genau 35 % aller Jugendlichen sagen „ja“."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "7 : 20 = 35 %. Für die Grundgesamtheit ist das nur ein Schätzwert, weil Stichproben schwanken."
+  },
+  {
+   "l": "aussagen",
+   "t": "aussagen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "In einer guten Zufallsstichprobe sagen 9 von 40 Fahrgästen „ja“. Was kann man über alle Fahrgäste sagen?"
+   },
+   "a": [
+    "Man kann gar nichts sagen.",
+    "Ungefähr 22,5 % aller Fahrgäste – ein Schätzwert.",
+    "Genau 9 Fahrgäste sagen „ja“.",
+    "Genau 22,5 % aller Fahrgäste sagen „ja“."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "9 : 40 = 22,5 %. Für die Grundgesamtheit ist das nur ein Schätzwert, weil Stichproben schwanken."
+  }
+ ],
+ "offen": [
+  "Umfang laut Liste nur „Repräsentativität und Grenzen von Aussagen“ (RS 7); die Hochrechnung mit relativen Häufigkeiten wurde als üblicher Schulstoff ergänzt."
+ ]
+}

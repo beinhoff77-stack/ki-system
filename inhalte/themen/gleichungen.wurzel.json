@@ -1,0 +1,3182 @@
+{
+ "thema_schluessel": "gleichungen.wurzel",
+ "thema_id": 13,
+ "block_id": 57,
+ "klasse": {
+  "rs_by": 9
+ },
+ "autor": "Claude (Paket Realschule)",
+ "inhalt": {
+  "ziel": "Wurzelgleichungen lösen: Definitionsmenge bestimmen, Wurzel allein stellen, quadrieren und mit der Probe Scheinlösungen erkennen.",
+  "merke": [
+   "Unter der Wurzel steht nie etwas Negatives: Radikand ≥ 0 liefert D.",
+   "Erst die Wurzel allein stellen, dann beide Seiten quadrieren.",
+   "Eine Wurzel ist nie negativ: √(T) = negative Zahl hat keine Lösung.",
+   "Immer die Probe machen – Quadrieren kann Scheinlösungen erzeugen."
+  ],
+  "abschnitte": [
+   {
+    "titel": "Grundlagen",
+    "lernziele": [
+     "definitionsmenge",
+     "quadrieren",
+     "isolieren"
+    ]
+   },
+   {
+    "titel": "Probe und schwierigere Gleichungen",
+    "lernziele": [
+     "probe",
+     "zwei_seiten"
+    ]
+   },
+   {
+    "titel": "Anwenden",
+    "lernziele": [
+     "sachaufgabe"
+    ]
+   }
+  ],
+  "etappen": [
+   {
+    "lernziel": "definitionsmenge",
+    "titel": "Wann ist die Wurzel definiert?",
+    "regel": "Unter der Wurzel (im ⟦Radikanden⟧) darf ⟦keine negative Zahl⟧ stehen. Bei √(2x − 6) muss also ⟦2x − 6 ≥ 0⟧ gelten. Diese Ungleichung löst du – das ergibt die ⟦Definitionsmenge D⟧. Wie ein Türsteher: Nur x-Werte aus D dürfen in die Gleichung.",
+    "schritte": [
+     "√(2x − 6): 2x − 6 ≥ 0 | + 6 ⇒ 2x ≥ 6 | : 2 ⇒ x ≥ 3.",
+     "Also ⟦D = {x | x ≥ 3}⟧."
+    ],
+    "probe": "x = 3: √0 = 0 ✓; x = 2: √(−2) gibt es nicht ✓",
+    "fehler": "Bei √(6 − 2x) zu schreiben D = {x | x ≥ 3} ist falsch: −2x ≥ −6 und beim Teilen durch ⟦−2 dreht sich das Zeichen⟧: x ≤ 3."
+   },
+   {
+    "lernziel": "quadrieren",
+    "titel": "Durch Quadrieren lösen",
+    "regel": "Steht die Wurzel allein, ⟦quadrierst du beide Seiten⟧: Aus √(T) = c wird ⟦T = c²⟧. Das ist eine Gleichung ohne Wurzel. Danach immer die ⟦Probe⟧ machen.",
+    "schritte": [
+     "√(3x + 1) = 5 | quadrieren ⇒ 3x + 1 = 25.",
+     "3x = 24 ⇒ ⟦x = 8⟧."
+    ],
+    "probe": "√(3 · 8 + 1) = √25 = 5 ✓",
+    "fehler": "√(3x + 1) = 5 ⇒ 3x + 1 = 5 ist falsch: Die rechte Seite muss ⟦auch quadriert⟧ werden: 5² = 25."
+   },
+   {
+    "lernziel": "isolieren",
+    "titel": "Erst die Wurzel allein stellen",
+    "regel": "Bevor du quadrierst, muss die ⟦Wurzel allein⟧ auf einer Seite stehen. Zahlen davor oder dahinter bringst du wie gewohnt weg. Quadrierst du zu früh, entsteht ein unübersichtlicher Term.",
+    "schritte": [
+     "2 · √(x − 3) + 4 = 14 | − 4 ⇒ 2 · √(x − 3) = 10 | : 2 ⇒ √(x − 3) = 5.",
+     "Quadrieren: x − 3 = 25 ⇒ ⟦x = 28⟧."
+    ],
+    "probe": "2 · √25 + 4 = 2 · 5 + 4 = 14 ✓",
+    "fehler": "√(x − 3) + 4 = 14 gleich zu quadrieren und (x − 3) + 16 = 196 zu schreiben ist falsch: (a + b)² ist ⟦nicht a² + b²⟧. Erst die 4 abziehen."
+   },
+   {
+    "lernziel": "probe",
+    "titel": "Probe und Scheinlösungen",
+    "regel": "Quadrieren kann ⟦Scheinlösungen⟧ erzeugen: Aus √(T) = −3 wird T = 9, obwohl eine Wurzel ⟦nie negativ⟧ ist. Deshalb gilt: Jede Lösung mit der ⟦Probe⟧ prüfen. Fällt sie durch, gehört sie nicht zu L.",
+    "schritte": [
+     "√(x + 5) = −3 ⇒ x + 5 = 9 ⇒ x = 4.",
+     "Probe: √(4 + 5) = 3 ≠ −3. x = 4 ist eine Scheinlösung, also ⟦L = { }⟧."
+    ],
+    "fehler": "Bei √(x + 5) = −3 einfach L = {4} anzugeben ist falsch: Die Probe zeigt ⟦3 ≠ −3⟧. Schon vorher erkennbar: Eine Wurzel kann nicht negativ sein."
+   },
+   {
+    "lernziel": "zwei_seiten",
+    "titel": "Wurzel und x auf beiden Seiten",
+    "regel": "Bei √(x + b) = x + c ergibt das Quadrieren eine ⟦quadratische Gleichung⟧: x + b = (x + c)². Sie hat oft zwei Lösungen – aber ⟦nur die mit bestandener Probe⟧ gehört zu L. Bei √(T₁) = √(T₂) quadrierst du einfach zu T₁ = T₂.",
+    "schritte": [
+     "√(x + 7) = x + 1 ⇒ x + 7 = x² + 2x + 1 ⇒ x² + x − 6 = 0 ⇒ x = −3 oder x = 2.",
+     "Probe: x = 2: √9 = 3 = 2 + 1 ✓. x = −3: √4 = 2, aber −3 + 1 = −2 ✗. Also ⟦L = {2}⟧."
+    ],
+    "fehler": "Beide Lösungen der quadratischen Gleichung in L zu schreiben ist falsch: x = −3 macht die rechte Seite ⟦negativ⟧ – eine Scheinlösung."
+   },
+   {
+    "lernziel": "sachaufgabe",
+    "titel": "Formeln mit Wurzeln",
+    "regel": "Manche Formeln enthalten Wurzeln, z. B. die Fallzeit ⟦t = √(h : 5)⟧ (h in m, t in s) oder die Aufprallgeschwindigkeit ⟦v = √(20 · h)⟧ (v in m/s). Ist das Ergebnis gegeben und die Größe ⟦unter der Wurzel⟧ gesucht, löst du eine Wurzelgleichung.",
+    "schritte": [
+     "Ein Stein fällt 3 s lang: √(h : 5) = 3 | quadrieren ⇒ h : 5 = 9.",
+     "h = 45. Er fiel aus ⟦45 m⟧ Höhe."
+    ],
+    "probe": "√(45 : 5) = √9 = 3 ✓",
+    "fehler": "√(h : 5) = 3 ⇒ h = 15 ist falsch: Zuerst ⟦quadrieren⟧ (h : 5 = 9), dann mal 5."
+   }
+  ],
+  "teilfaehigkeiten": [
+   {
+    "k": "definitionsmenge",
+    "text": "Wann ist die Wurzel definiert?",
+    "lernziele": [
+     "definitionsmenge"
+    ]
+   },
+   {
+    "k": "quadrieren",
+    "text": "Durch Quadrieren lösen",
+    "lernziele": [
+     "quadrieren"
+    ]
+   },
+   {
+    "k": "isolieren",
+    "text": "Erst die Wurzel allein stellen",
+    "lernziele": [
+     "isolieren"
+    ]
+   },
+   {
+    "k": "probe",
+    "text": "Probe und Scheinlösungen",
+    "lernziele": [
+     "probe"
+    ]
+   },
+   {
+    "k": "zwei_seiten",
+    "text": "Wurzel und x auf beiden Seiten",
+    "lernziele": [
+     "zwei_seiten"
+    ]
+   },
+   {
+    "k": "sachaufgabe",
+    "text": "Formeln mit Wurzeln",
+    "lernziele": [
+     "sachaufgabe"
+    ]
+   }
+  ],
+  "bewertung": {
+   "lernziele_pflicht": [
+    "definitionsmenge",
+    "quadrieren",
+    "isolieren",
+    "probe",
+    "zwei_seiten",
+    "sachaufgabe"
+   ],
+   "lernziele_vertiefung": [],
+   "testaufgaben_je_lernziel": 1
+  },
+  "quellen": {
+   "erklaerungen": "Eigene Fassung (Claude), Aufgaben vom Generator erzeugt und berechnet.",
+   "begriffe": "Fachbegriffe nach LehrplanPLUS Bayern (Realschule, Wahlpflichtfächergruppe I)."
+  }
+ },
+ "aufgaben": [
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Definitionsmenge von √(x + 2) an.",
+    "schablone": "D = {x | x ≥ □}",
+    "hinweis": "Grenze als Zahl"
+   },
+   "o": {
+    "werte": [
+     -2
+    ]
+   },
+   "w": "x + 2 ≥ 0 ⇔ x ≥ −2. D = {x | x ≥ −2}.",
+   "h": "Der Radikand muss mindestens 0 sein.",
+   "c": [
+    "-(2)"
+   ]
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Definitionsmenge von √(x + 4) an.",
+    "schablone": "D = {x | x ≥ □}",
+    "hinweis": "Grenze als Zahl"
+   },
+   "o": {
+    "werte": [
+     -4
+    ]
+   },
+   "w": "x + 4 ≥ 0 ⇔ x ≥ −4. D = {x | x ≥ −4}.",
+   "h": "Der Radikand muss mindestens 0 sein.",
+   "c": [
+    "-(4)"
+   ]
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Definitionsmenge von √(x − 2) an.",
+    "schablone": "D = {x | x ≥ □}",
+    "hinweis": "Grenze als Zahl"
+   },
+   "o": {
+    "werte": [
+     2
+    ]
+   },
+   "w": "x − 2 ≥ 0 ⇔ x ≥ 2. D = {x | x ≥ 2}.",
+   "h": "Der Radikand muss mindestens 0 sein.",
+   "c": [
+    "-(-2)"
+   ]
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Definitionsmenge von √(x + 12) an.",
+    "schablone": "D = {x | x ≥ □}",
+    "hinweis": "Grenze als Zahl"
+   },
+   "o": {
+    "werte": [
+     -12
+    ]
+   },
+   "w": "x + 12 ≥ 0 ⇔ x ≥ −12. D = {x | x ≥ −12}.",
+   "h": "Der Radikand muss mindestens 0 sein.",
+   "c": [
+    "-(12)"
+   ]
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Definitionsmenge von √(x − 9) an.",
+    "schablone": "D = {x | x ≥ □}",
+    "hinweis": "Grenze als Zahl"
+   },
+   "o": {
+    "werte": [
+     9
+    ]
+   },
+   "w": "x − 9 ≥ 0 ⇔ x ≥ 9. D = {x | x ≥ 9}.",
+   "h": "Der Radikand muss mindestens 0 sein.",
+   "c": [
+    "-(-9)"
+   ]
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Definitionsmenge von √(x − 12) an.",
+    "schablone": "D = {x | x ≥ □}",
+    "hinweis": "Grenze als Zahl"
+   },
+   "o": {
+    "werte": [
+     12
+    ]
+   },
+   "w": "x − 12 ≥ 0 ⇔ x ≥ 12. D = {x | x ≥ 12}.",
+   "h": "Der Radikand muss mindestens 0 sein.",
+   "c": [
+    "-(-12)"
+   ]
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Definitionsmenge von √(4x − 32) an.",
+    "schablone": "D = {x | x ≥ □}",
+    "hinweis": "Grenze als Zahl"
+   },
+   "o": {
+    "werte": [
+     8
+    ]
+   },
+   "w": "4x − 32 ≥ 0 ⇔ 4x ≥ 32 ⇔ x ≥ 8.",
+   "h": "Löse die Ungleichung Radikand ≥ 0.",
+   "c": [
+    "-(-32) / 4"
+   ]
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Definitionsmenge von √(2x − 16) an.",
+    "schablone": "D = {x | x ≥ □}",
+    "hinweis": "Grenze als Zahl"
+   },
+   "o": {
+    "werte": [
+     8
+    ]
+   },
+   "w": "2x − 16 ≥ 0 ⇔ 2x ≥ 16 ⇔ x ≥ 8.",
+   "h": "Löse die Ungleichung Radikand ≥ 0.",
+   "c": [
+    "-(-16) / 2"
+   ]
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Definitionsmenge von √(4x + 28) an.",
+    "schablone": "D = {x | x ≥ □}",
+    "hinweis": "Grenze als Zahl"
+   },
+   "o": {
+    "werte": [
+     -7
+    ]
+   },
+   "w": "4x + 28 ≥ 0 ⇔ 4x ≥ −28 ⇔ x ≥ −7.",
+   "h": "Löse die Ungleichung Radikand ≥ 0.",
+   "c": [
+    "-(28) / 4"
+   ]
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Definitionsmenge von √(6x + 12) an.",
+    "schablone": "D = {x | x ≥ □}",
+    "hinweis": "Grenze als Zahl"
+   },
+   "o": {
+    "werte": [
+     -2
+    ]
+   },
+   "w": "6x + 12 ≥ 0 ⇔ 6x ≥ −12 ⇔ x ≥ −2.",
+   "h": "Löse die Ungleichung Radikand ≥ 0.",
+   "c": [
+    "-(12) / 6"
+   ]
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Definitionsmenge von √(5x − 5) an.",
+    "schablone": "D = {x | x ≥ □}",
+    "hinweis": "Grenze als Zahl"
+   },
+   "o": {
+    "werte": [
+     1
+    ]
+   },
+   "w": "5x − 5 ≥ 0 ⇔ 5x ≥ 5 ⇔ x ≥ 1.",
+   "h": "Löse die Ungleichung Radikand ≥ 0.",
+   "c": [
+    "-(-5) / 5"
+   ]
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Definitionsmenge von √(5x − 30) an.",
+    "schablone": "D = {x | x ≥ □}",
+    "hinweis": "Grenze als Zahl"
+   },
+   "o": {
+    "werte": [
+     6
+    ]
+   },
+   "w": "5x − 30 ≥ 0 ⇔ 5x ≥ 30 ⇔ x ≥ 6.",
+   "h": "Löse die Ungleichung Radikand ≥ 0.",
+   "c": [
+    "-(-30) / 5"
+   ]
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Darf man x = −5 in √(2x + 14) einsetzen?"
+   },
+   "a": [
+    "Nein",
+    "Nur, wenn das Ergebnis eine ganze Zahl ist.",
+    "Ja"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Radikand: 2 · (−5) + 14 = 4. Nicht negativ, also erlaubt.",
+   "h": "Setze ein und prüfe das Vorzeichen des Radikanden."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Darf man x = 1 in √(3x − 6) einsetzen?"
+   },
+   "a": [
+    "Nur, wenn das Ergebnis eine ganze Zahl ist.",
+    "Nein",
+    "Ja"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Radikand: 3 · 1 − 6 = −3. Negativ, also nicht erlaubt.",
+   "h": "Setze ein und prüfe das Vorzeichen des Radikanden."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Definitionsmenge der Gleichung √(x − 5) = √(x − 8) + 1 an.",
+    "schablone": "D = {x | x ≥ □}",
+    "hinweis": "Grenze als Zahl"
+   },
+   "o": {
+    "werte": [
+     8
+    ]
+   },
+   "w": "x − 5 ≥ 0 ⇔ x ≥ 5 und x − 8 ≥ 0 ⇔ x ≥ 8. Beides muss gelten: x ≥ 8.",
+   "h": "Beide Radikanden müssen ≥ 0 sein.",
+   "c": [
+    "max(5, 8)"
+   ]
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Darf man x = 11 in √(2x − 16) einsetzen?"
+   },
+   "a": [
+    "Ja",
+    "Nur, wenn das Ergebnis eine ganze Zahl ist.",
+    "Nein"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Radikand: 2 · 11 − 16 = 6. Nicht negativ, also erlaubt.",
+   "h": "Setze ein und prüfe das Vorzeichen des Radikanden."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Definitionsmenge hat √(12 − 3x)?"
+   },
+   "a": [
+    "D = {x | x ≥ −4}",
+    "D = {x | x ≤ −4}",
+    "D = {x | x ≥ 4}",
+    "D = {x | x ≤ 4}"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "12 − 3x ≥ 0 ⇔ −3x ≥ −12 ⇔ x ≤ 4 (Teilen durch −3 dreht das Zeichen).",
+   "h": "Achtung beim Teilen durch eine negative Zahl."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Definitionsmenge hat √(−14 − 2x)?"
+   },
+   "a": [
+    "D = {x | x ≥ −7}",
+    "D = {x | x ≤ 7}",
+    "D = {x | x ≤ −7}",
+    "D = {x | x ≥ 7}"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "−14 − 2x ≥ 0 ⇔ −2x ≥ 14 ⇔ x ≤ −7 (Teilen durch −2 dreht das Zeichen).",
+   "h": "Achtung beim Teilen durch eine negative Zahl."
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Definitionsmenge von √(4x − 8) an.",
+    "schablone": "D = {x | x ≥ □}",
+    "hinweis": "Grenze als Zahl"
+   },
+   "o": {
+    "werte": [
+     2
+    ]
+   },
+   "w": "4x − 8 ≥ 0 ⇔ 4x ≥ 8 ⇔ x ≥ 2.",
+   "c": [
+    "-(-8) / 4"
+   ]
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Definitionsmenge von √(4x − 12) an.",
+    "schablone": "D = {x | x ≥ □}",
+    "hinweis": "Grenze als Zahl"
+   },
+   "o": {
+    "werte": [
+     3
+    ]
+   },
+   "w": "4x − 12 ≥ 0 ⇔ 4x ≥ 12 ⇔ x ≥ 3.",
+   "c": [
+    "-(-12) / 4"
+   ]
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Definitionsmenge von √(5x + 30) an.",
+    "schablone": "D = {x | x ≥ □}",
+    "hinweis": "Grenze als Zahl"
+   },
+   "o": {
+    "werte": [
+     -6
+    ]
+   },
+   "w": "5x + 30 ≥ 0 ⇔ 5x ≥ −30 ⇔ x ≥ −6.",
+   "c": [
+    "-(30) / 5"
+   ]
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Definitionsmenge von √(2x + 16) an.",
+    "schablone": "D = {x | x ≥ □}",
+    "hinweis": "Grenze als Zahl"
+   },
+   "o": {
+    "werte": [
+     -8
+    ]
+   },
+   "w": "2x + 16 ≥ 0 ⇔ 2x ≥ −16 ⇔ x ≥ −8.",
+   "c": [
+    "-(16) / 2"
+   ]
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Definitionsmenge von √(6x + 42) an.",
+    "schablone": "D = {x | x ≥ □}",
+    "hinweis": "Grenze als Zahl"
+   },
+   "o": {
+    "werte": [
+     -7
+    ]
+   },
+   "w": "6x + 42 ≥ 0 ⇔ 6x ≥ −42 ⇔ x ≥ −7.",
+   "c": [
+    "-(42) / 6"
+   ]
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Definitionsmenge von √(6x + 48) an.",
+    "schablone": "D = {x | x ≥ □}",
+    "hinweis": "Grenze als Zahl"
+   },
+   "o": {
+    "werte": [
+     -8
+    ]
+   },
+   "w": "6x + 48 ≥ 0 ⇔ 6x ≥ −48 ⇔ x ≥ −8.",
+   "c": [
+    "-(48) / 6"
+   ]
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Definitionsmenge von √(3x + 18) an.",
+    "schablone": "D = {x | x ≥ □}",
+    "hinweis": "Grenze als Zahl"
+   },
+   "o": {
+    "werte": [
+     -6
+    ]
+   },
+   "w": "3x + 18 ≥ 0 ⇔ 3x ≥ −18 ⇔ x ≥ −6.",
+   "c": [
+    "-(18) / 3"
+   ]
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Definitionsmenge von √(4x − 20) an.",
+    "schablone": "D = {x | x ≥ □}",
+    "hinweis": "Grenze als Zahl"
+   },
+   "o": {
+    "werte": [
+     5
+    ]
+   },
+   "w": "4x − 20 ≥ 0 ⇔ 4x ≥ 20 ⇔ x ≥ 5.",
+   "c": [
+    "-(-20) / 4"
+   ]
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Definitionsmenge von √(4x − 24) an.",
+    "schablone": "D = {x | x ≥ □}",
+    "hinweis": "Grenze als Zahl"
+   },
+   "o": {
+    "werte": [
+     6
+    ]
+   },
+   "w": "4x − 24 ≥ 0 ⇔ 4x ≥ 24 ⇔ x ≥ 6.",
+   "c": [
+    "-(-24) / 4"
+   ]
+  },
+  {
+   "l": "definitionsmenge",
+   "t": "definitionsmenge",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Definitionsmenge von √(6x + 30) an.",
+    "schablone": "D = {x | x ≥ □}",
+    "hinweis": "Grenze als Zahl"
+   },
+   "o": {
+    "werte": [
+     -5
+    ]
+   },
+   "w": "6x + 30 ≥ 0 ⇔ 6x ≥ −30 ⇔ x ≥ −5.",
+   "c": [
+    "-(30) / 6"
+   ]
+  },
+  {
+   "l": "quadrieren",
+   "t": "quadrieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(x − 14) = 8."
+   },
+   "o": {
+    "wert": 78
+   },
+   "c": "8 ** 2 - (-14)",
+   "w": "Quadrieren: x − 14 = 64 ⇒ x = 78. Probe: √64 = 8 ✓.",
+   "h": "Quadriere beide Seiten."
+  },
+  {
+   "l": "quadrieren",
+   "t": "quadrieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(x − 1) = 6."
+   },
+   "o": {
+    "wert": 37
+   },
+   "c": "6 ** 2 - (-1)",
+   "w": "Quadrieren: x − 1 = 36 ⇒ x = 37. Probe: √36 = 6 ✓.",
+   "h": "Quadriere beide Seiten."
+  },
+  {
+   "l": "quadrieren",
+   "t": "quadrieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(x + 17) = 3."
+   },
+   "o": {
+    "wert": -8
+   },
+   "c": "3 ** 2 - (17)",
+   "w": "Quadrieren: x + 17 = 9 ⇒ x = −8. Probe: √9 = 3 ✓.",
+   "h": "Quadriere beide Seiten."
+  },
+  {
+   "l": "quadrieren",
+   "t": "quadrieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(x + 16) = 11."
+   },
+   "o": {
+    "wert": 105
+   },
+   "c": "11 ** 2 - (16)",
+   "w": "Quadrieren: x + 16 = 121 ⇒ x = 105. Probe: √121 = 11 ✓.",
+   "h": "Quadriere beide Seiten."
+  },
+  {
+   "l": "quadrieren",
+   "t": "quadrieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(x − 16) = 3."
+   },
+   "o": {
+    "wert": 25
+   },
+   "c": "3 ** 2 - (-16)",
+   "w": "Quadrieren: x − 16 = 9 ⇒ x = 25. Probe: √9 = 3 ✓.",
+   "h": "Quadriere beide Seiten."
+  },
+  {
+   "l": "quadrieren",
+   "t": "quadrieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(x + 8) = 9."
+   },
+   "o": {
+    "wert": 73
+   },
+   "c": "9 ** 2 - (8)",
+   "w": "Quadrieren: x + 8 = 81 ⇒ x = 73. Probe: √81 = 9 ✓.",
+   "h": "Quadriere beide Seiten."
+  },
+  {
+   "l": "quadrieren",
+   "t": "quadrieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(3x − 26) = 4."
+   },
+   "o": {
+    "wert": 14
+   },
+   "c": "(4 ** 2 - (-26)) / 3",
+   "w": "Quadrieren: 3x − 26 = 16 ⇒ 3x = 42 ⇒ x = 14. Probe: √(3 · 14 − 26) = √16 = 4 ✓.",
+   "h": "Quadrieren, dann wie eine lineare Gleichung lösen."
+  },
+  {
+   "l": "quadrieren",
+   "t": "quadrieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(6x + 75) = 3."
+   },
+   "o": {
+    "wert": -11
+   },
+   "c": "(3 ** 2 - (75)) / 6",
+   "w": "Quadrieren: 6x + 75 = 9 ⇒ 6x = −66 ⇒ x = −11. Probe: √(6 · (−11) + 75) = √9 = 3 ✓.",
+   "h": "Quadrieren, dann wie eine lineare Gleichung lösen."
+  },
+  {
+   "l": "quadrieren",
+   "t": "quadrieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(2x + 39) = 5."
+   },
+   "o": {
+    "wert": -7
+   },
+   "c": "(5 ** 2 - (39)) / 2",
+   "w": "Quadrieren: 2x + 39 = 25 ⇒ 2x = −14 ⇒ x = −7. Probe: √(2 · (−7) + 39) = √25 = 5 ✓.",
+   "h": "Quadrieren, dann wie eine lineare Gleichung lösen."
+  },
+  {
+   "l": "quadrieren",
+   "t": "quadrieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(2x − 6) = 2."
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(2 ** 2 - (-6)) / 2",
+   "w": "Quadrieren: 2x − 6 = 4 ⇒ 2x = 10 ⇒ x = 5. Probe: √(2 · 5 − 6) = √4 = 2 ✓.",
+   "h": "Quadrieren, dann wie eine lineare Gleichung lösen."
+  },
+  {
+   "l": "quadrieren",
+   "t": "quadrieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(3x + 60) = 9."
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "(9 ** 2 - (60)) / 3",
+   "w": "Quadrieren: 3x + 60 = 81 ⇒ 3x = 21 ⇒ x = 7. Probe: √(3 · 7 + 60) = √81 = 9 ✓.",
+   "h": "Quadrieren, dann wie eine lineare Gleichung lösen."
+  },
+  {
+   "l": "quadrieren",
+   "t": "quadrieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(5x) = 5."
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(5 ** 2 - (0)) / 5",
+   "w": "Quadrieren: 5x = 25 ⇒ 5x = 25 ⇒ x = 5. Probe: √(5 · 5 + 0) = √25 = 5 ✓.",
+   "h": "Quadrieren, dann wie eine lineare Gleichung lösen."
+  },
+  {
+   "l": "quadrieren",
+   "t": "quadrieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst √(4x + 76) = 4 so: 4x + 76 = 4, also x = −18. Was stimmt?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: Rechts muss 4² = 16 stehen; x = −15.",
+    "Falsch: Die Gleichung hat keine Lösung.",
+    "Falsch: x = 23."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Quadrieren: 4x + 76 = 16 ⇒ 4x = −60 ⇒ x = −15. Probe: √(4 · (−15) + 76) = √16 = 4 ✓.",
+   "h": "Was passiert beim Quadrieren mit der rechten Seite?"
+  },
+  {
+   "l": "quadrieren",
+   "t": "quadrieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(5x − 4,75) = 4,5."
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "((9/2) ** 2 - (-19/4)) / 5",
+   "w": "5x − 4,75 = 20,25 ⇒ 5x = 25 ⇒ x = 5.",
+   "h": "Auch Dezimalzahlen quadriert man: 1,5² = 2,25."
+  },
+  {
+   "l": "quadrieren",
+   "t": "quadrieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(x : 2) = 8."
+   },
+   "o": {
+    "wert": 128
+   },
+   "c": "8 ** 2 * 2",
+   "w": "x : 2 = 64 ⇒ x = 128. Probe: √(128 : 2) = √64 = 8 ✓.",
+   "h": "Quadrieren, dann mit dem Teiler multiplizieren."
+  },
+  {
+   "l": "quadrieren",
+   "t": "quadrieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst √(5x + 50) = 10 so: 5x + 50 = 10, also x = −8. Was stimmt?"
+   },
+   "a": [
+    "Falsch: Rechts muss 10² = 100 stehen; x = 10.",
+    "Falsch: Die Gleichung hat keine Lösung.",
+    "Richtig.",
+    "Falsch: x = 30."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Quadrieren: 5x + 50 = 100 ⇒ 5x = 50 ⇒ x = 10. Probe: √(5 · 10 + 50) = √100 = 10 ✓.",
+   "h": "Was passiert beim Quadrieren mit der rechten Seite?"
+  },
+  {
+   "l": "quadrieren",
+   "t": "quadrieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(2x + 6,25) = 0,5."
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "((1/2) ** 2 - (25/4)) / 2",
+   "w": "2x + 6,25 = 0,25 ⇒ 2x = −6 ⇒ x = −3.",
+   "h": "Auch Dezimalzahlen quadriert man: 1,5² = 2,25."
+  },
+  {
+   "l": "quadrieren",
+   "t": "quadrieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst √(2x − 19) = 1 so: 2x − 19 = 1, also x = 10. Was stimmt?"
+   },
+   "a": [
+    "Falsch: Die Gleichung hat keine Lösung.",
+    "Richtig.",
+    "Falsch: Rechts muss 1² = 1 stehen; x = 10.",
+    "Falsch: x = −9."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Quadrieren: 2x − 19 = 1 ⇒ 2x = 20 ⇒ x = 10. Probe: √(2 · 10 − 19) = √1 = 1 ✓.",
+   "h": "Was passiert beim Quadrieren mit der rechten Seite?"
+  },
+  {
+   "l": "quadrieren",
+   "t": "quadrieren",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(2x + 11) = 1."
+   },
+   "o": {
+    "wert": -5
+   },
+   "c": "(1 ** 2 - (11)) / 2",
+   "w": "Quadrieren: 2x + 11 = 1 ⇒ 2x = −10 ⇒ x = −5. Probe: √(2 · (−5) + 11) = √1 = 1 ✓."
+  },
+  {
+   "l": "quadrieren",
+   "t": "quadrieren",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(2x + 51) = 7."
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "(7 ** 2 - (51)) / 2",
+   "w": "Quadrieren: 2x + 51 = 49 ⇒ 2x = −2 ⇒ x = −1. Probe: √(2 · (−1) + 51) = √49 = 7 ✓."
+  },
+  {
+   "l": "quadrieren",
+   "t": "quadrieren",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(3x + 12) = 3."
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "(3 ** 2 - (12)) / 3",
+   "w": "Quadrieren: 3x + 12 = 9 ⇒ 3x = −3 ⇒ x = −1. Probe: √(3 · (−1) + 12) = √9 = 3 ✓."
+  },
+  {
+   "l": "quadrieren",
+   "t": "quadrieren",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(3x + 37) = 4."
+   },
+   "o": {
+    "wert": -7
+   },
+   "c": "(4 ** 2 - (37)) / 3",
+   "w": "Quadrieren: 3x + 37 = 16 ⇒ 3x = −21 ⇒ x = −7. Probe: √(3 · (−7) + 37) = √16 = 4 ✓."
+  },
+  {
+   "l": "quadrieren",
+   "t": "quadrieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(3x + 100) = 8."
+   },
+   "o": {
+    "wert": -12
+   },
+   "c": "(8 ** 2 - (100)) / 3",
+   "w": "Quadrieren: 3x + 100 = 64 ⇒ 3x = −36 ⇒ x = −12. Probe: √(3 · (−12) + 100) = √64 = 8 ✓."
+  },
+  {
+   "l": "quadrieren",
+   "t": "quadrieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(3x + 4) = 4."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(4 ** 2 - (4)) / 3",
+   "w": "Quadrieren: 3x + 4 = 16 ⇒ 3x = 12 ⇒ x = 4. Probe: √(3 · 4 + 4) = √16 = 4 ✓."
+  },
+  {
+   "l": "quadrieren",
+   "t": "quadrieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(5x + 111) = 9."
+   },
+   "o": {
+    "wert": -6
+   },
+   "c": "(9 ** 2 - (111)) / 5",
+   "w": "Quadrieren: 5x + 111 = 81 ⇒ 5x = −30 ⇒ x = −6. Probe: √(5 · (−6) + 111) = √81 = 9 ✓."
+  },
+  {
+   "l": "quadrieren",
+   "t": "quadrieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(3x + 43) = 7."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "(7 ** 2 - (43)) / 3",
+   "w": "Quadrieren: 3x + 43 = 49 ⇒ 3x = 6 ⇒ x = 2. Probe: √(3 · 2 + 43) = √49 = 7 ✓."
+  },
+  {
+   "l": "quadrieren",
+   "t": "quadrieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(4x − 43) = 3."
+   },
+   "o": {
+    "wert": 13
+   },
+   "c": "(3 ** 2 - (-43)) / 4",
+   "w": "Quadrieren: 4x − 43 = 9 ⇒ 4x = 52 ⇒ x = 13. Probe: √(4 · 13 − 43) = √9 = 3 ✓."
+  },
+  {
+   "l": "quadrieren",
+   "t": "quadrieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(4x + 13) = 1."
+   },
+   "o": {
+    "wert": -3
+   },
+   "c": "(1 ** 2 - (13)) / 4",
+   "w": "Quadrieren: 4x + 13 = 1 ⇒ 4x = −12 ⇒ x = −3. Probe: √(4 · (−3) + 13) = √1 = 1 ✓."
+  },
+  {
+   "l": "isolieren",
+   "t": "isolieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(x − 5) + 16 = 23."
+   },
+   "o": {
+    "wert": 54
+   },
+   "c": "(23 - 16) ** 2 - (-5)",
+   "w": "√(x − 5) = 7 ⇒ x − 5 = 49 ⇒ x = 54.",
+   "h": "Erst 16 abziehen, dann quadrieren."
+  },
+  {
+   "l": "isolieren",
+   "t": "isolieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(x + 14) + 8 = 13."
+   },
+   "o": {
+    "wert": 11
+   },
+   "c": "(13 - 8) ** 2 - (14)",
+   "w": "√(x + 14) = 5 ⇒ x + 14 = 25 ⇒ x = 11.",
+   "h": "Erst 8 abziehen, dann quadrieren."
+  },
+  {
+   "l": "isolieren",
+   "t": "isolieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(x + 14) + 20 = 27."
+   },
+   "o": {
+    "wert": 35
+   },
+   "c": "(27 - 20) ** 2 - (14)",
+   "w": "√(x + 14) = 7 ⇒ x + 14 = 49 ⇒ x = 35.",
+   "h": "Erst 20 abziehen, dann quadrieren."
+  },
+  {
+   "l": "isolieren",
+   "t": "isolieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(x − 3) + 16 = 17."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(17 - 16) ** 2 - (-3)",
+   "w": "√(x − 3) = 1 ⇒ x − 3 = 1 ⇒ x = 4.",
+   "h": "Erst 16 abziehen, dann quadrieren."
+  },
+  {
+   "l": "isolieren",
+   "t": "isolieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(x + 3) + 17 = 19."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(19 - 17) ** 2 - (3)",
+   "w": "√(x + 3) = 2 ⇒ x + 3 = 4 ⇒ x = 1.",
+   "h": "Erst 17 abziehen, dann quadrieren."
+  },
+  {
+   "l": "isolieren",
+   "t": "isolieren",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(x − 13) + 5 = 10."
+   },
+   "o": {
+    "wert": 38
+   },
+   "c": "(10 - 5) ** 2 - (-13)",
+   "w": "√(x − 13) = 5 ⇒ x − 13 = 25 ⇒ x = 38.",
+   "h": "Erst 5 abziehen, dann quadrieren."
+  },
+  {
+   "l": "isolieren",
+   "t": "isolieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 2 · √(x − 7) − 4 = 0."
+   },
+   "o": {
+    "wert": 11
+   },
+   "c": "(((0) - (-4)) / 2) ** 2 - (-7)",
+   "w": "2 · √(x − 7) = 0 + 4 = 4 ⇒ √(x − 7) = 2 ⇒ x − 7 = 4 ⇒ x = 11.",
+   "h": "Wurzel allein stellen: erst die Zahl weg, dann durch den Faktor teilen."
+  },
+  {
+   "l": "isolieren",
+   "t": "isolieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 4 · √(x − 1) + 16 = 24."
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(((24) - (16)) / 4) ** 2 - (-1)",
+   "w": "4 · √(x − 1) = 24 − 16 = 8 ⇒ √(x − 1) = 2 ⇒ x − 1 = 4 ⇒ x = 5.",
+   "h": "Wurzel allein stellen: erst die Zahl weg, dann durch den Faktor teilen."
+  },
+  {
+   "l": "isolieren",
+   "t": "isolieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 3 · √(x + 10) + 13 = 28."
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "(((28) - (13)) / 3) ** 2 - (10)",
+   "w": "3 · √(x + 10) = 28 − 13 = 15 ⇒ √(x + 10) = 5 ⇒ x + 10 = 25 ⇒ x = 15.",
+   "h": "Wurzel allein stellen: erst die Zahl weg, dann durch den Faktor teilen."
+  },
+  {
+   "l": "isolieren",
+   "t": "isolieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 5 · √(x + 12) − 8 = 17."
+   },
+   "o": {
+    "wert": 13
+   },
+   "c": "(((17) - (-8)) / 5) ** 2 - (12)",
+   "w": "5 · √(x + 12) = 17 + 8 = 25 ⇒ √(x + 12) = 5 ⇒ x + 12 = 25 ⇒ x = 13.",
+   "h": "Wurzel allein stellen: erst die Zahl weg, dann durch den Faktor teilen."
+  },
+  {
+   "l": "isolieren",
+   "t": "isolieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 4 · √(x + 9) + 3 = 11."
+   },
+   "o": {
+    "wert": -5
+   },
+   "c": "(((11) - (3)) / 4) ** 2 - (9)",
+   "w": "4 · √(x + 9) = 11 − 3 = 8 ⇒ √(x + 9) = 2 ⇒ x + 9 = 4 ⇒ x = −5.",
+   "h": "Wurzel allein stellen: erst die Zahl weg, dann durch den Faktor teilen."
+  },
+  {
+   "l": "isolieren",
+   "t": "isolieren",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 2 · √(x − 4) − 19 = −5."
+   },
+   "o": {
+    "wert": 53
+   },
+   "c": "(((-5) - (-19)) / 2) ** 2 - (-4)",
+   "w": "2 · √(x − 4) = −5 + 19 = 14 ⇒ √(x − 4) = 7 ⇒ x − 4 = 49 ⇒ x = 53.",
+   "h": "Wurzel allein stellen: erst die Zahl weg, dann durch den Faktor teilen."
+  },
+  {
+   "l": "isolieren",
+   "t": "isolieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand quadriert √(x + 3) + 10 = 13 sofort und erhält x + 3 + 100 = 169. Was stimmt?"
+   },
+   "a": [
+    "Falsch: richtig ist x = 66.",
+    "Falsch: Es gibt keine Lösung.",
+    "Richtig, man darf jeden Summanden einzeln quadrieren.",
+    "Falsch: Erst √(x + 3) allein stellen; richtig ist x = 6."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "(a + b)² ≠ a² + b². Richtig: √(x + 3) = 3 ⇒ x = 6.",
+   "h": "Darf man eine Summe gliedweise quadrieren?"
+  },
+  {
+   "l": "isolieren",
+   "t": "isolieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand quadriert √(x − 2) − 11 = 29 sofort und erhält x − 2 + 121 = 841. Was stimmt?"
+   },
+   "a": [
+    "Falsch: Erst √(x − 2) allein stellen; richtig ist x = 1 602.",
+    "Falsch: Es gibt keine Lösung.",
+    "Richtig, man darf jeden Summanden einzeln quadrieren.",
+    "Falsch: richtig ist x = 722."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "(a + b)² ≠ a² + b². Richtig: √(x − 2) = 40 ⇒ x = 1 602.",
+   "h": "Darf man eine Summe gliedweise quadrieren?"
+  },
+  {
+   "l": "isolieren",
+   "t": "isolieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand quadriert √(x − 15) + 4 = 12 sofort und erhält x − 15 + 16 = 144. Was stimmt?"
+   },
+   "a": [
+    "Richtig, man darf jeden Summanden einzeln quadrieren.",
+    "Falsch: Erst √(x − 15) allein stellen; richtig ist x = 79.",
+    "Falsch: Es gibt keine Lösung.",
+    "Falsch: richtig ist x = 143."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "(a + b)² ≠ a² + b². Richtig: √(x − 15) = 8 ⇒ x = 79.",
+   "h": "Darf man eine Summe gliedweise quadrieren?"
+  },
+  {
+   "l": "isolieren",
+   "t": "isolieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand quadriert √(x − 15) + 4 = 18 sofort und erhält x − 15 + 16 = 324. Was stimmt?"
+   },
+   "a": [
+    "Falsch: Erst √(x − 15) allein stellen; richtig ist x = 211.",
+    "Falsch: richtig ist x = 323.",
+    "Richtig, man darf jeden Summanden einzeln quadrieren.",
+    "Falsch: Es gibt keine Lösung."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "(a + b)² ≠ a² + b². Richtig: √(x − 15) = 14 ⇒ x = 211.",
+   "h": "Darf man eine Summe gliedweise quadrieren?"
+  },
+  {
+   "l": "isolieren",
+   "t": "isolieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 16 − √(x − 14) = 12."
+   },
+   "o": {
+    "wert": 30
+   },
+   "c": "(16 - 12) ** 2 - (-14)",
+   "w": "√(x − 14) = 16 − 12 = 4 ⇒ x − 14 = 16 ⇒ x = 30.",
+   "h": "Bring die Wurzel auf die eine Seite, die Zahlen auf die andere."
+  },
+  {
+   "l": "isolieren",
+   "t": "isolieren",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 9 − √(x + 13) = 5."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(9 - 5) ** 2 - (13)",
+   "w": "√(x + 13) = 9 − 5 = 4 ⇒ x + 13 = 16 ⇒ x = 3.",
+   "h": "Bring die Wurzel auf die eine Seite, die Zahlen auf die andere."
+  },
+  {
+   "l": "isolieren",
+   "t": "isolieren",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 5 · √(x − 2) − 15 = 15."
+   },
+   "o": {
+    "wert": 38
+   },
+   "c": "(((15) - (-15)) / 5) ** 2 - (-2)",
+   "w": "5 · √(x − 2) = 15 + 15 = 30 ⇒ √(x − 2) = 6 ⇒ x − 2 = 36 ⇒ x = 38."
+  },
+  {
+   "l": "isolieren",
+   "t": "isolieren",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 5 · √(x + 11) + 15 = 20."
+   },
+   "o": {
+    "wert": -10
+   },
+   "c": "(((20) - (15)) / 5) ** 2 - (11)",
+   "w": "5 · √(x + 11) = 20 − 15 = 5 ⇒ √(x + 11) = 1 ⇒ x + 11 = 1 ⇒ x = −10."
+  },
+  {
+   "l": "isolieren",
+   "t": "isolieren",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 3 · √(x − 8) + 7 = 25."
+   },
+   "o": {
+    "wert": 44
+   },
+   "c": "(((25) - (7)) / 3) ** 2 - (-8)",
+   "w": "3 · √(x − 8) = 25 − 7 = 18 ⇒ √(x − 8) = 6 ⇒ x − 8 = 36 ⇒ x = 44."
+  },
+  {
+   "l": "isolieren",
+   "t": "isolieren",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 5 · √(x − 4) − 3 = 7."
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "(((7) - (-3)) / 5) ** 2 - (-4)",
+   "w": "5 · √(x − 4) = 7 + 3 = 10 ⇒ √(x − 4) = 2 ⇒ x − 4 = 4 ⇒ x = 8."
+  },
+  {
+   "l": "isolieren",
+   "t": "isolieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 4 · √(x + 4) + 7 = 43."
+   },
+   "o": {
+    "wert": 77
+   },
+   "c": "(((43) - (7)) / 4) ** 2 - (4)",
+   "w": "4 · √(x + 4) = 43 − 7 = 36 ⇒ √(x + 4) = 9 ⇒ x + 4 = 81 ⇒ x = 77."
+  },
+  {
+   "l": "isolieren",
+   "t": "isolieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 4 · √(x + 6) − 12 = 12."
+   },
+   "o": {
+    "wert": 30
+   },
+   "c": "(((12) - (-12)) / 4) ** 2 - (6)",
+   "w": "4 · √(x + 6) = 12 + 12 = 24 ⇒ √(x + 6) = 6 ⇒ x + 6 = 36 ⇒ x = 30."
+  },
+  {
+   "l": "isolieren",
+   "t": "isolieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 5 · √(x + 10) + 3 = 8."
+   },
+   "o": {
+    "wert": -9
+   },
+   "c": "(((8) - (3)) / 5) ** 2 - (10)",
+   "w": "5 · √(x + 10) = 8 − 3 = 5 ⇒ √(x + 10) = 1 ⇒ x + 10 = 1 ⇒ x = −9."
+  },
+  {
+   "l": "isolieren",
+   "t": "isolieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 4 · √(x − 11) − 15 = 9."
+   },
+   "o": {
+    "wert": 47
+   },
+   "c": "(((9) - (-15)) / 4) ** 2 - (-11)",
+   "w": "4 · √(x − 11) = 9 + 15 = 24 ⇒ √(x − 11) = 6 ⇒ x − 11 = 36 ⇒ x = 47."
+  },
+  {
+   "l": "isolieren",
+   "t": "isolieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 5 · √(x − 6) − 17 = −2."
+   },
+   "o": {
+    "wert": 15
+   },
+   "c": "(((-2) - (-17)) / 5) ** 2 - (-6)",
+   "w": "5 · √(x − 6) = −2 + 17 = 15 ⇒ √(x − 6) = 3 ⇒ x − 6 = 9 ⇒ x = 15."
+  },
+  {
+   "l": "isolieren",
+   "t": "isolieren",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse 2 · √(x − 4) + 9 = 17."
+   },
+   "o": {
+    "wert": 20
+   },
+   "c": "(((17) - (9)) / 2) ** 2 - (-4)",
+   "w": "2 · √(x − 4) = 17 − 9 = 8 ⇒ √(x − 4) = 4 ⇒ x − 4 = 16 ⇒ x = 20."
+  },
+  {
+   "l": "probe",
+   "t": "probe",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Lösungsmenge hat √(x − 4) = −4?"
+   },
+   "a": [
+    "L = {−4; 4}",
+    "L = {20}",
+    "L = { }",
+    "L = {−12}"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Eine Wurzel ist nie negativ. Quadrieren liefert x = 20, aber die Probe ergibt √16 = 4 ≠ −4.",
+   "h": "Kann eine Wurzel negativ sein?"
+  },
+  {
+   "l": "probe",
+   "t": "probe",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Lösungsmenge hat √(x − 3) = −4?"
+   },
+   "a": [
+    "L = {−4; 4}",
+    "L = { }",
+    "L = {−13}",
+    "L = {19}"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Eine Wurzel ist nie negativ. Quadrieren liefert x = 19, aber die Probe ergibt √16 = 4 ≠ −4.",
+   "h": "Kann eine Wurzel negativ sein?"
+  },
+  {
+   "l": "probe",
+   "t": "probe",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Lösungsmenge hat √(x + 13) = −7?"
+   },
+   "a": [
+    "L = {36}",
+    "L = {−62}",
+    "L = {−7; 7}",
+    "L = { }"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Eine Wurzel ist nie negativ. Quadrieren liefert x = 36, aber die Probe ergibt √49 = 7 ≠ −7.",
+   "h": "Kann eine Wurzel negativ sein?"
+  },
+  {
+   "l": "probe",
+   "t": "probe",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Lösungsmenge hat √(x + 2) = −8?"
+   },
+   "a": [
+    "L = {−8; 8}",
+    "L = { }",
+    "L = {−66}",
+    "L = {62}"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Eine Wurzel ist nie negativ. Quadrieren liefert x = 62, aber die Probe ergibt √64 = 8 ≠ −8.",
+   "h": "Kann eine Wurzel negativ sein?"
+  },
+  {
+   "l": "probe",
+   "t": "probe",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Lösungsmenge hat √(x + 13) = −1?"
+   },
+   "a": [
+    "L = {−14}",
+    "L = {−1; 1}",
+    "L = { }",
+    "L = {−12}"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Eine Wurzel ist nie negativ. Quadrieren liefert x = −12, aber die Probe ergibt √1 = 1 ≠ −1.",
+   "h": "Kann eine Wurzel negativ sein?"
+  },
+  {
+   "l": "probe",
+   "t": "probe",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Lösungsmenge hat √(x − 14) = −1?"
+   },
+   "a": [
+    "L = {13}",
+    "L = {15}",
+    "L = {−1; 1}",
+    "L = { }"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Eine Wurzel ist nie negativ. Quadrieren liefert x = 15, aber die Probe ergibt √1 = 1 ≠ −1.",
+   "h": "Kann eine Wurzel negativ sein?"
+  },
+  {
+   "l": "probe",
+   "t": "probe",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist x = 4 eine Lösung von √(x − 8) = 8?"
+   },
+   "a": [
+    "Nein, x liegt nicht in der Definitionsmenge.",
+    "Ja, aber nur, wenn man die Wurzel auf 8 rundet.",
+    "Nein, aber nur weil die Probe eine Dezimalzahl ergibt.",
+    "Ja."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Radikand: 4 − 8 = −4 < 0. Die Wurzel ist nicht definiert.",
+   "h": "Setze ein: Was steht unter der Wurzel?"
+  },
+  {
+   "l": "probe",
+   "t": "probe",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist x = 1 eine Lösung von √(x + 9) = 9? Mach die Probe."
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Man kann es ohne Taschenrechner nicht sagen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "√(1 + 9) = √10 ≠ 9, denn 9² = 81 ≠ 10.",
+   "h": "Einsetzen und vergleichen."
+  },
+  {
+   "l": "probe",
+   "t": "probe",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist x = −5 eine Lösung von √(x + 3) = 4?"
+   },
+   "a": [
+    "Ja, aber nur, wenn man die Wurzel auf 4 rundet.",
+    "Ja.",
+    "Nein, x liegt nicht in der Definitionsmenge.",
+    "Nein, aber nur weil die Probe eine Dezimalzahl ergibt."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Radikand: −5 + 3 = −2 < 0. Die Wurzel ist nicht definiert.",
+   "h": "Setze ein: Was steht unter der Wurzel?"
+  },
+  {
+   "l": "probe",
+   "t": "probe",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist x = 5 eine Lösung von √(x + 6) = 1? Mach die Probe."
+   },
+   "a": [
+    "Nein",
+    "Man kann es ohne Taschenrechner nicht sagen.",
+    "Ja"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "√(5 + 6) = √11 ≠ 1, denn 1² = 1 ≠ 11.",
+   "h": "Einsetzen und vergleichen."
+  },
+  {
+   "l": "probe",
+   "t": "probe",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist x = 10 eine Lösung von √(x − 10) = 7? Mach die Probe."
+   },
+   "a": [
+    "Man kann es ohne Taschenrechner nicht sagen.",
+    "Ja",
+    "Nein"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "√(10 − 10) = √0 ≠ 7, denn 7² = 49 ≠ 0.",
+   "h": "Einsetzen und vergleichen."
+  },
+  {
+   "l": "probe",
+   "t": "probe",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist x = −2 eine Lösung von √(x + 13) = 4? Mach die Probe."
+   },
+   "a": [
+    "Nein",
+    "Ja",
+    "Man kann es ohne Taschenrechner nicht sagen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "√(−2 + 13) = √11 ≠ 4, denn 4² = 16 ≠ 11.",
+   "h": "Einsetzen und vergleichen."
+  },
+  {
+   "l": "probe",
+   "t": "probe",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Warum muss man bei Wurzelgleichungen immer die Probe machen?"
+   },
+   "a": [
+    "Weil man beim Quadrieren Lösungen verliert.",
+    "Weil Wurzelgleichungen immer zwei Lösungen haben.",
+    "Weil Wurzeln immer gerundet werden.",
+    "Beim Quadrieren können Scheinlösungen entstehen."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Quadrieren macht aus √(T) = −6 und √(T) = 6 dieselbe Gleichung T = 36. Nur die Probe zeigt, welche Lösung passt.",
+   "h": "Was passiert mit dem Vorzeichen der rechten Seite beim Quadrieren?"
+  },
+  {
+   "l": "probe",
+   "t": "probe",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse 4 · √(x + 15) + 18 = −10."
+   },
+   "a": [
+    "L = {−64}",
+    "L = { }",
+    "L = {−22}",
+    "L = {34}"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "4 · √(x + 15) = −28 ⇒ √(x + 15) = −7 < 0. Unmöglich, also keine Lösung (x = 34 wäre eine Scheinlösung).",
+   "h": "Stelle die Wurzel allein. Welches Vorzeichen hat die rechte Seite?"
+  },
+  {
+   "l": "probe",
+   "t": "probe",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse 3 · √(x + 3) + 19 = −2."
+   },
+   "a": [
+    "L = { }",
+    "L = {46}",
+    "L = {−10}",
+    "L = {−52}"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "3 · √(x + 3) = −21 ⇒ √(x + 3) = −7 < 0. Unmöglich, also keine Lösung (x = 46 wäre eine Scheinlösung).",
+   "h": "Stelle die Wurzel allein. Welches Vorzeichen hat die rechte Seite?"
+  },
+  {
+   "l": "probe",
+   "t": "probe",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Löse 5 · √(x + 1) + 17 = −23."
+   },
+   "a": [
+    "L = {−65}",
+    "L = {63}",
+    "L = {−9}",
+    "L = { }"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "5 · √(x + 1) = −40 ⇒ √(x + 1) = −8 < 0. Unmöglich, also keine Lösung (x = 63 wäre eine Scheinlösung).",
+   "h": "Stelle die Wurzel allein. Welches Vorzeichen hat die rechte Seite?"
+  },
+  {
+   "l": "probe",
+   "t": "probe",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst √(x − 12) = −4 und gibt L = {28} an. Was stimmt?"
+   },
+   "a": [
+    "Falsch: L = {−4}.",
+    "Falsch: L = {−4; 4}.",
+    "Falsch: Die Probe ergibt 4 ≠ −4, also L = { }.",
+    "Richtig, die Rechnung stimmt."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Quadrieren liefert x = 28. Probe: √16 = 4, nicht −4. Das ist eine Scheinlösung.",
+   "h": "Mach die Probe."
+  },
+  {
+   "l": "probe",
+   "t": "probe",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand löst √(x − 9) = −7 und gibt L = {58} an. Was stimmt?"
+   },
+   "a": [
+    "Falsch: L = {−7; 7}.",
+    "Falsch: Die Probe ergibt 7 ≠ −7, also L = { }.",
+    "Falsch: L = {−40}.",
+    "Richtig, die Rechnung stimmt."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Quadrieren liefert x = 58. Probe: √49 = 7, nicht −7. Das ist eine Scheinlösung.",
+   "h": "Mach die Probe."
+  },
+  {
+   "l": "probe",
+   "t": "probe",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist x = −4 eine Lösung von √(x + 12) = 7? Mach die Probe."
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Man kann es ohne Taschenrechner nicht sagen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "√(−4 + 12) = √8 ≠ 7, denn 7² = 49 ≠ 8."
+  },
+  {
+   "l": "probe",
+   "t": "probe",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist x = −8 eine Lösung von √(x + 8) = 1? Mach die Probe."
+   },
+   "a": [
+    "Ja",
+    "Man kann es ohne Taschenrechner nicht sagen.",
+    "Nein"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "√(−8 + 8) = √0 ≠ 1, denn 1² = 1 ≠ 0."
+  },
+  {
+   "l": "probe",
+   "t": "probe",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist x = 4 eine Lösung von √(x − 7) = 3?"
+   },
+   "a": [
+    "Ja.",
+    "Ja, aber nur, wenn man die Wurzel auf 3 rundet.",
+    "Nein, aber nur weil die Probe eine Dezimalzahl ergibt.",
+    "Nein, x liegt nicht in der Definitionsmenge."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Radikand: 4 − 7 = −3 < 0. Die Wurzel ist nicht definiert."
+  },
+  {
+   "l": "probe",
+   "t": "probe",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist x = −5 eine Lösung von √(x − 7) = 3?"
+   },
+   "a": [
+    "Nein, aber nur weil die Probe eine Dezimalzahl ergibt.",
+    "Nein, x liegt nicht in der Definitionsmenge.",
+    "Ja.",
+    "Ja, aber nur, wenn man die Wurzel auf 3 rundet."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Radikand: −5 − 7 = −12 < 0. Die Wurzel ist nicht definiert."
+  },
+  {
+   "l": "probe",
+   "t": "probe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist x = −9 eine Lösung von √(x − 11) = 7?"
+   },
+   "a": [
+    "Ja, aber nur, wenn man die Wurzel auf 7 rundet.",
+    "Ja.",
+    "Nein, x liegt nicht in der Definitionsmenge.",
+    "Nein, aber nur weil die Probe eine Dezimalzahl ergibt."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Radikand: −9 − 11 = −20 < 0. Die Wurzel ist nicht definiert."
+  },
+  {
+   "l": "probe",
+   "t": "probe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist x = −6 eine Lösung von √(x − 2) = 2?"
+   },
+   "a": [
+    "Nein, x liegt nicht in der Definitionsmenge.",
+    "Nein, aber nur weil die Probe eine Dezimalzahl ergibt.",
+    "Ja.",
+    "Ja, aber nur, wenn man die Wurzel auf 2 rundet."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Radikand: −6 − 2 = −8 < 0. Die Wurzel ist nicht definiert."
+  },
+  {
+   "l": "probe",
+   "t": "probe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist x = 4 eine Lösung von √(x − 1) = 6? Mach die Probe."
+   },
+   "a": [
+    "Ja",
+    "Man kann es ohne Taschenrechner nicht sagen.",
+    "Nein"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "√(4 − 1) = √3 ≠ 6, denn 6² = 36 ≠ 3."
+  },
+  {
+   "l": "probe",
+   "t": "probe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist x = 1 eine Lösung von √(x − 2) = 7?"
+   },
+   "a": [
+    "Nein, x liegt nicht in der Definitionsmenge.",
+    "Ja, aber nur, wenn man die Wurzel auf 7 rundet.",
+    "Nein, aber nur weil die Probe eine Dezimalzahl ergibt.",
+    "Ja."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Radikand: 1 − 2 = −1 < 0. Die Wurzel ist nicht definiert."
+  },
+  {
+   "l": "probe",
+   "t": "probe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist x = 3 eine Lösung von √(x − 5) = 5?"
+   },
+   "a": [
+    "Ja.",
+    "Nein, aber nur weil die Probe eine Dezimalzahl ergibt.",
+    "Ja, aber nur, wenn man die Wurzel auf 5 rundet.",
+    "Nein, x liegt nicht in der Definitionsmenge."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Radikand: 3 − 5 = −2 < 0. Die Wurzel ist nicht definiert."
+  },
+  {
+   "l": "probe",
+   "t": "probe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist x = −9 eine Lösung von √(x + 10) = 5? Mach die Probe."
+   },
+   "a": [
+    "Man kann es ohne Taschenrechner nicht sagen.",
+    "Nein",
+    "Ja"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "√(−9 + 10) = √1 ≠ 5, denn 5² = 25 ≠ 1."
+  },
+  {
+   "l": "zwei_seiten",
+   "t": "zwei_seiten",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(3x) = √(4x − 10)."
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "((-10) - (0)) / (3 - 4)",
+   "w": "Quadrieren: 3x = 4x − 10 ⇒ −x = −10 ⇒ x = 10. Probe: beide Seiten √30 ✓.",
+   "h": "Quadrieren beseitigt beide Wurzeln."
+  },
+  {
+   "l": "zwei_seiten",
+   "t": "zwei_seiten",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(5x + 7) = √(4x + 17)."
+   },
+   "o": {
+    "wert": 10
+   },
+   "c": "((17) - (7)) / (5 - 4)",
+   "w": "Quadrieren: 5x + 7 = 4x + 17 ⇒ x = 10 ⇒ x = 10. Probe: beide Seiten √57 ✓.",
+   "h": "Quadrieren beseitigt beide Wurzeln."
+  },
+  {
+   "l": "zwei_seiten",
+   "t": "zwei_seiten",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(6x − 4) = √(4x + 10)."
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "((10) - (-4)) / (6 - 4)",
+   "w": "Quadrieren: 6x − 4 = 4x + 10 ⇒ 2x = 14 ⇒ x = 7. Probe: beide Seiten √38 ✓.",
+   "h": "Quadrieren beseitigt beide Wurzeln."
+  },
+  {
+   "l": "zwei_seiten",
+   "t": "zwei_seiten",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(5x − 5) = √(x + 3)."
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "((3) - (-5)) / (5 - 1)",
+   "w": "Quadrieren: 5x − 5 = x + 3 ⇒ 4x = 8 ⇒ x = 2. Probe: beide Seiten √5 ✓.",
+   "h": "Quadrieren beseitigt beide Wurzeln."
+  },
+  {
+   "l": "zwei_seiten",
+   "t": "zwei_seiten",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(5x + 6) = √(4x + 14)."
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "((14) - (6)) / (5 - 4)",
+   "w": "Quadrieren: 5x + 6 = 4x + 14 ⇒ x = 8 ⇒ x = 8. Probe: beide Seiten √46 ✓.",
+   "h": "Quadrieren beseitigt beide Wurzeln."
+  },
+  {
+   "l": "zwei_seiten",
+   "t": "zwei_seiten",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(3x + 8) = √(x + 24)."
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "((24) - (8)) / (3 - 1)",
+   "w": "Quadrieren: 3x + 8 = x + 24 ⇒ 2x = 16 ⇒ x = 8. Probe: beide Seiten √32 ✓.",
+   "h": "Quadrieren beseitigt beide Wurzeln."
+  },
+  {
+   "l": "zwei_seiten",
+   "t": "zwei_seiten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(x + 25) = x + 5. (Eine der Lösungen der quadratischen Gleichung ist eine Scheinlösung.) Gib die Lösung an."
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "(-(9) + 9) / 2",
+   "w": "x + 25 = (x + 5)² ⇒ x² + 9x = 0 ⇒ x = −9 oder x = 0. Probe: x = 0: √25 = 5 ✓; x = −9: √16 = 4 ≠ −4 ✗. L = {0}.",
+   "h": "Quadrieren, quadratische Gleichung lösen, beide Lösungen mit der Probe prüfen."
+  },
+  {
+   "l": "zwei_seiten",
+   "t": "zwei_seiten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(x + 21) = x + 9. (Eine der Lösungen der quadratischen Gleichung ist eine Scheinlösung.) Gib die Lösung an."
+   },
+   "o": {
+    "wert": -5
+   },
+   "c": "(-(17) + 7) / 2",
+   "w": "x + 21 = (x + 9)² ⇒ x² + 17x + 60 = 0 ⇒ x = −12 oder x = −5. Probe: x = −5: √16 = 4 ✓; x = −12: √9 = 3 ≠ −3 ✗. L = {−5}.",
+   "h": "Quadrieren, quadratische Gleichung lösen, beide Lösungen mit der Probe prüfen."
+  },
+  {
+   "l": "zwei_seiten",
+   "t": "zwei_seiten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(x + 13) = x + 7. (Eine der Lösungen der quadratischen Gleichung ist eine Scheinlösung.) Gib die Lösung an."
+   },
+   "o": {
+    "wert": -4
+   },
+   "c": "(-(13) + 5) / 2",
+   "w": "x + 13 = (x + 7)² ⇒ x² + 13x + 36 = 0 ⇒ x = −9 oder x = −4. Probe: x = −4: √9 = 3 ✓; x = −9: √4 = 2 ≠ −2 ✗. L = {−4}.",
+   "h": "Quadrieren, quadratische Gleichung lösen, beide Lösungen mit der Probe prüfen."
+  },
+  {
+   "l": "zwei_seiten",
+   "t": "zwei_seiten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(x + 18) = x − 2. (Eine der Lösungen der quadratischen Gleichung ist eine Scheinlösung.) Gib die Lösung an."
+   },
+   "o": {
+    "wert": 7
+   },
+   "c": "(-(-5) + 9) / 2",
+   "w": "x + 18 = (x − 2)² ⇒ x² − 5x − 14 = 0 ⇒ x = −2 oder x = 7. Probe: x = 7: √25 = 5 ✓; x = −2: √16 = 4 ≠ −4 ✗. L = {7}.",
+   "h": "Quadrieren, quadratische Gleichung lösen, beide Lösungen mit der Probe prüfen."
+  },
+  {
+   "l": "zwei_seiten",
+   "t": "zwei_seiten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(x + 15) = x + 9. (Eine der Lösungen der quadratischen Gleichung ist eine Scheinlösung.) Gib die Lösung an."
+   },
+   "o": {
+    "wert": -6
+   },
+   "c": "(-(17) + 5) / 2",
+   "w": "x + 15 = (x + 9)² ⇒ x² + 17x + 66 = 0 ⇒ x = −11 oder x = −6. Probe: x = −6: √9 = 3 ✓; x = −11: √4 = 2 ≠ −2 ✗. L = {−6}.",
+   "h": "Quadrieren, quadratische Gleichung lösen, beide Lösungen mit der Probe prüfen."
+  },
+  {
+   "l": "zwei_seiten",
+   "t": "zwei_seiten",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(x + 8) = x + 2. (Eine der Lösungen der quadratischen Gleichung ist eine Scheinlösung.) Gib die Lösung an."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(-(3) + 5) / 2",
+   "w": "x + 8 = (x + 2)² ⇒ x² + 3x − 4 = 0 ⇒ x = −4 oder x = 1. Probe: x = 1: √9 = 3 ✓; x = −4: √4 = 2 ≠ −2 ✗. L = {1}.",
+   "h": "Quadrieren, quadratische Gleichung lösen, beide Lösungen mit der Probe prüfen."
+  },
+  {
+   "l": "zwei_seiten",
+   "t": "zwei_seiten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Lösungsmenge hat √(x + 1) = x − 1?"
+   },
+   "a": [
+    "L = {0; 3}",
+    "L = { }",
+    "L = {3}",
+    "L = {0}"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "x + 1 = (x − 1)² ⇒ x² − 3x = 0 ⇒ x = 0 oder x = 3. Probe: x = 3: √4 = 2 ✓; x = 0: √1 = 1 ≠ −1 ✗. L = {3}.",
+   "h": "Löse die quadratische Gleichung und mach mit jeder Lösung die Probe."
+  },
+  {
+   "l": "zwei_seiten",
+   "t": "zwei_seiten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Lösungsmenge hat √(x + 21) = x + 1?"
+   },
+   "a": [
+    "L = {−5}",
+    "L = {4}",
+    "L = { }",
+    "L = {−5; 4}"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "x + 21 = (x + 1)² ⇒ x² + x − 20 = 0 ⇒ x = −5 oder x = 4. Probe: x = 4: √25 = 5 ✓; x = −5: √16 = 4 ≠ −4 ✗. L = {4}.",
+   "h": "Löse die quadratische Gleichung und mach mit jeder Lösung die Probe."
+  },
+  {
+   "l": "zwei_seiten",
+   "t": "zwei_seiten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Beim Lösen von √(x − 5) = x − 7 erhält jemand x = 9 und x = 6. Was stimmt?"
+   },
+   "a": [
+    "Nur x = 9 ist eine Lösung; x = 6 ist eine Scheinlösung.",
+    "Keine von beiden ist eine Lösung.",
+    "Nur x = 6 ist eine Lösung.",
+    "Beide sind Lösungen."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "x − 5 = (x − 7)² ⇒ x² − 15x + 54 = 0 ⇒ x = 6 oder x = 9. Probe: x = 9: √4 = 2 ✓; x = 6: √1 = 1 ≠ −1 ✗. L = {9}.",
+   "h": "Setze beide Werte in die Ausgangsgleichung ein."
+  },
+  {
+   "l": "zwei_seiten",
+   "t": "zwei_seiten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Lösungsmenge hat √(x + 7) = x − 5?"
+   },
+   "a": [
+    "L = {2; 9}",
+    "L = {2}",
+    "L = { }",
+    "L = {9}"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "x + 7 = (x − 5)² ⇒ x² − 11x + 18 = 0 ⇒ x = 2 oder x = 9. Probe: x = 9: √16 = 4 ✓; x = 2: √9 = 3 ≠ −3 ✗. L = {9}.",
+   "h": "Löse die quadratische Gleichung und mach mit jeder Lösung die Probe."
+  },
+  {
+   "l": "zwei_seiten",
+   "t": "zwei_seiten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Beim Lösen von √(x + 14) = x + 2 erhält jemand x = 2 und x = −5. Was stimmt?"
+   },
+   "a": [
+    "Keine von beiden ist eine Lösung.",
+    "Nur x = 2 ist eine Lösung; x = −5 ist eine Scheinlösung.",
+    "Beide sind Lösungen.",
+    "Nur x = −5 ist eine Lösung."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "x + 14 = (x + 2)² ⇒ x² + 3x − 10 = 0 ⇒ x = −5 oder x = 2. Probe: x = 2: √16 = 4 ✓; x = −5: √9 = 3 ≠ −3 ✗. L = {2}.",
+   "h": "Setze beide Werte in die Ausgangsgleichung ein."
+  },
+  {
+   "l": "zwei_seiten",
+   "t": "zwei_seiten",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Lösungsmenge hat √(x + 11) = x + 9?"
+   },
+   "a": [
+    "L = { }",
+    "L = {−10; −7}",
+    "L = {−7}",
+    "L = {−10}"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "x + 11 = (x + 9)² ⇒ x² + 17x + 70 = 0 ⇒ x = −10 oder x = −7. Probe: x = −7: √4 = 2 ✓; x = −10: √1 = 1 ≠ −1 ✗. L = {−7}.",
+   "h": "Löse die quadratische Gleichung und mach mit jeder Lösung die Probe."
+  },
+  {
+   "l": "zwei_seiten",
+   "t": "zwei_seiten",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(x + 13) = x + 1. (Eine der Lösungen der quadratischen Gleichung ist eine Scheinlösung.) Gib die Lösung an."
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(-(1) + 7) / 2",
+   "w": "x + 13 = (x + 1)² ⇒ x² + x − 12 = 0 ⇒ x = −4 oder x = 3. Probe: x = 3: √16 = 4 ✓; x = −4: √9 = 3 ≠ −3 ✗. L = {3}."
+  },
+  {
+   "l": "zwei_seiten",
+   "t": "zwei_seiten",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(x − 4) = x − 6. (Eine der Lösungen der quadratischen Gleichung ist eine Scheinlösung.) Gib die Lösung an."
+   },
+   "o": {
+    "wert": 8
+   },
+   "c": "(-(-13) + 3) / 2",
+   "w": "x − 4 = (x − 6)² ⇒ x² − 13x + 40 = 0 ⇒ x = 5 oder x = 8. Probe: x = 8: √4 = 2 ✓; x = 5: √1 = 1 ≠ −1 ✗. L = {8}."
+  },
+  {
+   "l": "zwei_seiten",
+   "t": "zwei_seiten",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(x + 16) = x − 4. (Eine der Lösungen der quadratischen Gleichung ist eine Scheinlösung.) Gib die Lösung an."
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "(-(-9) + 9) / 2",
+   "w": "x + 16 = (x − 4)² ⇒ x² − 9x = 0 ⇒ x = 0 oder x = 9. Probe: x = 9: √25 = 5 ✓; x = 0: √16 = 4 ≠ −4 ✗. L = {9}."
+  },
+  {
+   "l": "zwei_seiten",
+   "t": "zwei_seiten",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(x + 24) = x + 4. (Eine der Lösungen der quadratischen Gleichung ist eine Scheinlösung.) Gib die Lösung an."
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "(-(7) + 9) / 2",
+   "w": "x + 24 = (x + 4)² ⇒ x² + 7x − 8 = 0 ⇒ x = −8 oder x = 1. Probe: x = 1: √25 = 5 ✓; x = −8: √16 = 4 ≠ −4 ✗. L = {1}."
+  },
+  {
+   "l": "zwei_seiten",
+   "t": "zwei_seiten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(x + 5) = x − 1. (Eine der Lösungen der quadratischen Gleichung ist eine Scheinlösung.) Gib die Lösung an."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(-(-3) + 5) / 2",
+   "w": "x + 5 = (x − 1)² ⇒ x² − 3x − 4 = 0 ⇒ x = −1 oder x = 4. Probe: x = 4: √9 = 3 ✓; x = −1: √4 = 2 ≠ −2 ✗. L = {4}."
+  },
+  {
+   "l": "zwei_seiten",
+   "t": "zwei_seiten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(x + 14) = x + 8. (Eine der Lösungen der quadratischen Gleichung ist eine Scheinlösung.) Gib die Lösung an."
+   },
+   "o": {
+    "wert": -5
+   },
+   "c": "(-(15) + 5) / 2",
+   "w": "x + 14 = (x + 8)² ⇒ x² + 15x + 50 = 0 ⇒ x = −10 oder x = −5. Probe: x = −5: √9 = 3 ✓; x = −10: √4 = 2 ≠ −2 ✗. L = {−5}."
+  },
+  {
+   "l": "zwei_seiten",
+   "t": "zwei_seiten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(x + 11) = x + 5. (Eine der Lösungen der quadratischen Gleichung ist eine Scheinlösung.) Gib die Lösung an."
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "(-(9) + 5) / 2",
+   "w": "x + 11 = (x + 5)² ⇒ x² + 9x + 14 = 0 ⇒ x = −7 oder x = −2. Probe: x = −2: √9 = 3 ✓; x = −7: √4 = 2 ≠ −2 ✗. L = {−2}."
+  },
+  {
+   "l": "zwei_seiten",
+   "t": "zwei_seiten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(x + 20) = x + 8. (Eine der Lösungen der quadratischen Gleichung ist eine Scheinlösung.) Gib die Lösung an."
+   },
+   "o": {
+    "wert": -4
+   },
+   "c": "(-(15) + 7) / 2",
+   "w": "x + 20 = (x + 8)² ⇒ x² + 15x + 44 = 0 ⇒ x = −11 oder x = −4. Probe: x = −4: √16 = 4 ✓; x = −11: √9 = 3 ≠ −3 ✗. L = {−4}."
+  },
+  {
+   "l": "zwei_seiten",
+   "t": "zwei_seiten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(x + 17) = x + 5. (Eine der Lösungen der quadratischen Gleichung ist eine Scheinlösung.) Gib die Lösung an."
+   },
+   "o": {
+    "wert": -1
+   },
+   "c": "(-(9) + 7) / 2",
+   "w": "x + 17 = (x + 5)² ⇒ x² + 9x + 8 = 0 ⇒ x = −8 oder x = −1. Probe: x = −1: √16 = 4 ✓; x = −8: √9 = 3 ≠ −3 ✗. L = {−1}."
+  },
+  {
+   "l": "zwei_seiten",
+   "t": "zwei_seiten",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Löse √(x − 1) = x − 3. (Eine der Lösungen der quadratischen Gleichung ist eine Scheinlösung.) Gib die Lösung an."
+   },
+   "o": {
+    "wert": 5
+   },
+   "c": "(-(-7) + 3) / 2",
+   "w": "x − 1 = (x − 3)² ⇒ x² − 7x + 10 = 0 ⇒ x = 2 oder x = 5. Probe: x = 5: √4 = 2 ✓; x = 2: √1 = 1 ≠ −1 ✗. L = {5}."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Für die Fallzeit gilt t = √(h : 5) (h in m, t in s). Ein Stein fällt 2 s lang. Aus welcher Höhe fiel er?"
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "m"
+   },
+   "c": "2 ** 2 * 5",
+   "w": "√(h : 5) = 2 ⇒ h : 5 = 4 ⇒ h = 20 m.",
+   "h": "Quadrieren, dann mal 5."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Für die Aufprallgeschwindigkeit nach einem Fall gilt näherungsweise v = √(20 · h) (v in m/s, h in m). Aus welcher Höhe muss etwas fallen, um mit 10 m/s aufzuprallen?"
+   },
+   "o": {
+    "wert": 5,
+    "einheit": "m"
+   },
+   "c": "10 ** 2 / 20",
+   "w": "√(20 · h) = 10 ⇒ 20 · h = 100 ⇒ h = 5 m.",
+   "h": "Quadrieren, dann durch 20 teilen."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Für die Fallzeit gilt t = √(h : 5) (h in m, t in s). Ein Stein fällt 3 s lang. Aus welcher Höhe fiel er?"
+   },
+   "o": {
+    "wert": 45,
+    "einheit": "m"
+   },
+   "c": "3 ** 2 * 5",
+   "w": "√(h : 5) = 3 ⇒ h : 5 = 9 ⇒ h = 45 m.",
+   "h": "Quadrieren, dann mal 5."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Für die Aufprallgeschwindigkeit nach einem Fall gilt näherungsweise v = √(20 · h) (v in m/s, h in m). Aus welcher Höhe muss etwas fallen, um mit 30 m/s aufzuprallen?"
+   },
+   "o": {
+    "wert": 45,
+    "einheit": "m"
+   },
+   "c": "30 ** 2 / 20",
+   "w": "√(20 · h) = 30 ⇒ 20 · h = 900 ⇒ h = 45 m.",
+   "h": "Quadrieren, dann durch 20 teilen."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Für die Fallzeit gilt t = √(h : 5) (h in m, t in s). Ein Stein fällt 4 s lang. Aus welcher Höhe fiel er?"
+   },
+   "o": {
+    "wert": 80,
+    "einheit": "m"
+   },
+   "c": "4 ** 2 * 5",
+   "w": "√(h : 5) = 4 ⇒ h : 5 = 16 ⇒ h = 80 m.",
+   "h": "Quadrieren, dann mal 5."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quadrat hat die Seitenlänge a = √A. Wie groß ist die Fläche A, wenn a = 16 cm?"
+   },
+   "o": {
+    "wert": 256,
+    "einheit": "cm²"
+   },
+   "c": "16 ** 2",
+   "w": "√A = 16 ⇒ A = 16² = 256 cm².",
+   "h": "Quadrieren."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein quadratisches Beet wird an jeder Seite um 4 m verlängert. Die neue Seitenlänge ist √A + 4 = 13 m. Wie groß war die alte Fläche A?"
+   },
+   "o": {
+    "wert": 81,
+    "einheit": "m²"
+   },
+   "c": "(13 - 4) ** 2",
+   "w": "√A + 4 = 13 ⇒ √A = 9 ⇒ A = 81 m².",
+   "h": "Wurzel allein stellen, dann quadrieren."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein quadratisches Beet wird an jeder Seite um 6 m verlängert. Die neue Seitenlänge ist √A + 6 = 19 m. Wie groß war die alte Fläche A?"
+   },
+   "o": {
+    "wert": 169,
+    "einheit": "m²"
+   },
+   "c": "(19 - 6) ** 2",
+   "w": "√A + 6 = 19 ⇒ √A = 13 ⇒ A = 169 m².",
+   "h": "Wurzel allein stellen, dann quadrieren."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für die Fallzeit gilt t = √(h : 5) (h in m, t in s). Ein Ball fällt 2,5 s lang. Aus welcher Höhe fiel er?"
+   },
+   "o": {
+    "wert": 31.25,
+    "einheit": "m"
+   },
+   "c": "(5/2) ** 2 * 5",
+   "w": "h : 5 = 2,5² = 6,25 ⇒ h = 31,25 m.",
+   "h": "Quadrieren, dann mal 5."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein quadratisches Beet wird an jeder Seite um 5 m verlängert. Die neue Seitenlänge ist √A + 5 = 24 m. Wie groß war die alte Fläche A?"
+   },
+   "o": {
+    "wert": 361,
+    "einheit": "m²"
+   },
+   "c": "(24 - 5) ** 2",
+   "w": "√A + 5 = 24 ⇒ √A = 19 ⇒ A = 361 m².",
+   "h": "Wurzel allein stellen, dann quadrieren."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein quadratisches Beet wird an jeder Seite um 3 m verlängert. Die neue Seitenlänge ist √A + 3 = 9 m. Wie groß war die alte Fläche A?"
+   },
+   "o": {
+    "wert": 36,
+    "einheit": "m²"
+   },
+   "c": "(9 - 3) ** 2",
+   "w": "√A + 3 = 9 ⇒ √A = 6 ⇒ A = 36 m².",
+   "h": "Wurzel allein stellen, dann quadrieren."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für die Aufprallgeschwindigkeit nach einem Fall gilt näherungsweise v = √(20 · h) (v in m/s, h in m). Aus welcher Höhe muss etwas fallen, um mit 50 m/s aufzuprallen?"
+   },
+   "o": {
+    "wert": 125,
+    "einheit": "m"
+   },
+   "c": "50 ** 2 / 20",
+   "w": "√(20 · h) = 50 ⇒ 20 · h = 2 500 ⇒ h = 125 m.",
+   "h": "Quadrieren, dann durch 20 teilen."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein quadratisches Beet wird an jeder Seite um 2 m verlängert. Die neue Seitenlänge ist √A + 2 = 15 m. Wie groß war die alte Fläche A?"
+   },
+   "o": {
+    "wert": 169,
+    "einheit": "m²"
+   },
+   "c": "(15 - 2) ** 2",
+   "w": "√A + 2 = 15 ⇒ √A = 13 ⇒ A = 169 m².",
+   "h": "Wurzel allein stellen, dann quadrieren."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein quadratisches Beet wird an jeder Seite um 4 m verlängert. Die neue Seitenlänge ist √A + 4 = 24 m. Wie groß war die alte Fläche A?"
+   },
+   "o": {
+    "wert": 400,
+    "einheit": "m²"
+   },
+   "c": "(24 - 4) ** 2",
+   "w": "√A + 4 = 24 ⇒ √A = 20 ⇒ A = 400 m².",
+   "h": "Wurzel allein stellen, dann quadrieren."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für die Fallzeit gilt t = √(h : 5) (h in m, t in s). Ein Ball fällt 1,5 s lang. Aus welcher Höhe fiel er?"
+   },
+   "o": {
+    "wert": 11.25,
+    "einheit": "m"
+   },
+   "c": "(3/2) ** 2 * 5",
+   "w": "h : 5 = 1,5² = 2,25 ⇒ h = 11,25 m.",
+   "h": "Quadrieren, dann mal 5."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein quadratisches Beet wird an jeder Seite um 3 m verlängert. Die neue Seitenlänge ist √A + 3 = 6 m. Wie groß war die alte Fläche A?"
+   },
+   "o": {
+    "wert": 9,
+    "einheit": "m²"
+   },
+   "c": "(6 - 3) ** 2",
+   "w": "√A + 3 = 6 ⇒ √A = 3 ⇒ A = 9 m².",
+   "h": "Wurzel allein stellen, dann quadrieren."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für die Fallzeit gilt t = √(h : 5) (h in m, t in s). Ein Ball fällt 3,5 s lang. Aus welcher Höhe fiel er?"
+   },
+   "o": {
+    "wert": 61.25,
+    "einheit": "m"
+   },
+   "c": "(7/2) ** 2 * 5",
+   "w": "h : 5 = 3,5² = 12,25 ⇒ h = 61,25 m.",
+   "h": "Quadrieren, dann mal 5."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für die Aufprallgeschwindigkeit nach einem Fall gilt näherungsweise v = √(20 · h) (v in m/s, h in m). Aus welcher Höhe muss etwas fallen, um mit 35 m/s aufzuprallen?"
+   },
+   "o": {
+    "wert": 61.25,
+    "einheit": "m"
+   },
+   "c": "35 ** 2 / 20",
+   "w": "√(20 · h) = 35 ⇒ 20 · h = 1 225 ⇒ h = 61,25 m.",
+   "h": "Quadrieren, dann durch 20 teilen."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für die Aufprallgeschwindigkeit nach einem Fall gilt näherungsweise v = √(20 · h) (v in m/s, h in m). Aus welcher Höhe muss etwas fallen, um mit 20 m/s aufzuprallen?"
+   },
+   "o": {
+    "wert": 20,
+    "einheit": "m"
+   },
+   "c": "20 ** 2 / 20",
+   "w": "√(20 · h) = 20 ⇒ 20 · h = 400 ⇒ h = 20 m."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein quadratisches Beet wird an jeder Seite um 6 m verlängert. Die neue Seitenlänge ist √A + 6 = 11 m. Wie groß war die alte Fläche A?"
+   },
+   "o": {
+    "wert": 25,
+    "einheit": "m²"
+   },
+   "c": "(11 - 6) ** 2",
+   "w": "√A + 6 = 11 ⇒ √A = 5 ⇒ A = 25 m²."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für die Aufprallgeschwindigkeit nach einem Fall gilt näherungsweise v = √(20 · h) (v in m/s, h in m). Aus welcher Höhe muss etwas fallen, um mit 40 m/s aufzuprallen?"
+   },
+   "o": {
+    "wert": 80,
+    "einheit": "m"
+   },
+   "c": "40 ** 2 / 20",
+   "w": "√(20 · h) = 40 ⇒ 20 · h = 1 600 ⇒ h = 80 m."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein quadratisches Beet wird an jeder Seite um 6 m verlängert. Die neue Seitenlänge ist √A + 6 = 16 m. Wie groß war die alte Fläche A?"
+   },
+   "o": {
+    "wert": 100,
+    "einheit": "m²"
+   },
+   "c": "(16 - 6) ** 2",
+   "w": "√A + 6 = 16 ⇒ √A = 10 ⇒ A = 100 m²."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein quadratisches Beet wird an jeder Seite um 5 m verlängert. Die neue Seitenlänge ist √A + 5 = 16 m. Wie groß war die alte Fläche A?"
+   },
+   "o": {
+    "wert": 121,
+    "einheit": "m²"
+   },
+   "c": "(16 - 5) ** 2",
+   "w": "√A + 5 = 16 ⇒ √A = 11 ⇒ A = 121 m²."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein quadratisches Beet wird an jeder Seite um 6 m verlängert. Die neue Seitenlänge ist √A + 6 = 20 m. Wie groß war die alte Fläche A?"
+   },
+   "o": {
+    "wert": 196,
+    "einheit": "m²"
+   },
+   "c": "(20 - 6) ** 2",
+   "w": "√A + 6 = 20 ⇒ √A = 14 ⇒ A = 196 m²."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein quadratisches Beet wird an jeder Seite um 3 m verlängert. Die neue Seitenlänge ist √A + 3 = 23 m. Wie groß war die alte Fläche A?"
+   },
+   "o": {
+    "wert": 400,
+    "einheit": "m²"
+   },
+   "c": "(23 - 3) ** 2",
+   "w": "√A + 3 = 23 ⇒ √A = 20 ⇒ A = 400 m²."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für die Aufprallgeschwindigkeit nach einem Fall gilt näherungsweise v = √(20 · h) (v in m/s, h in m). Aus welcher Höhe muss etwas fallen, um mit 60 m/s aufzuprallen?"
+   },
+   "o": {
+    "wert": 180,
+    "einheit": "m"
+   },
+   "c": "60 ** 2 / 20",
+   "w": "√(20 · h) = 60 ⇒ 20 · h = 3 600 ⇒ h = 180 m."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein quadratisches Beet wird an jeder Seite um 4 m verlängert. Die neue Seitenlänge ist √A + 4 = 22 m. Wie groß war die alte Fläche A?"
+   },
+   "o": {
+    "wert": 324,
+    "einheit": "m²"
+   },
+   "c": "(22 - 4) ** 2",
+   "w": "√A + 4 = 22 ⇒ √A = 18 ⇒ A = 324 m²."
+  },
+  {
+   "l": "sachaufgabe",
+   "t": "sachaufgabe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein quadratisches Beet wird an jeder Seite um 6 m verlängert. Die neue Seitenlänge ist √A + 6 = 18 m. Wie groß war die alte Fläche A?"
+   },
+   "o": {
+    "wert": 144,
+    "einheit": "m²"
+   },
+   "c": "(18 - 6) ** 2",
+   "w": "√A + 6 = 18 ⇒ √A = 12 ⇒ A = 144 m²."
+  }
+ ]
+}

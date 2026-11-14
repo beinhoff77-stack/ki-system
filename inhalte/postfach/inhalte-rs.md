@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-14 17:25 – STATUS
+Thema 7/10 fertig: `gleichungen.reinquadratisch` – 6 Lernkarten, 168 Aufgaben, Prüfskript OK. Gerundete Wurzeln mit `toleranz`; Rechenausdruck enthält den Wurzelwert als 12-stelliges Literal (der Prüfrechner kennt keine Wurzel).
+
 ## 2026-11-14 17:10 – STATUS
 Thema 6/10 fertig: `funktionen.transformation` – 6 Lernkarten, 168 Aufgaben, Prüfskript OK. Gebaut auf RS-9-Niveau (Normalparabel + Bildpunkte allgemeiner Graphen); RS-10-Teil (Exp/Log, Spiegelung an y = x) weggelassen, siehe `offen`.
 

@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-14 15:41 – STATUS
+14/14 zahlen.schranken fertig: 5 Lernkarten (Schranken, Messgenauigkeit, Summen/Differenzen, Produkte/Quotienten, Entscheiden im ungünstigsten Fall), 140 Aufgaben, Prüfskript OK. klasse = {"zusatz": 10}.
+
 ## 2026-11-14 15:39 – STATUS
 13/14 sonder.logik fertig: 5 Lernkarten (Aussagen, Verneinung, und/oder, Wahrheitstafeln, wenn–dann), 140 Aufgaben, Prüfskript OK. Wahrheitswerte in Lücken als 1/0. klasse = {"zusatz": 10}.
 

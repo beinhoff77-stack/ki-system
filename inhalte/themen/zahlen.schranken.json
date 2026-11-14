@@ -1,0 +1,2734 @@
+{
+ "thema_schluessel": "zahlen.schranken",
+ "thema_id": 70,
+ "block_id": 97,
+ "klasse": {
+  "zusatz": 10
+ },
+ "autor": "Claude (Paket IB)",
+ "inhalt": {
+  "ziel": "Untere und obere Schranken gerundeter Werte bestimmen, Fehlerbereiche angeben und mit Schranken bei Summen, Differenzen, Produkten und Quotienten rechnen.",
+  "merke": [
+   "Untere Schranke (lower bound) = Wert − halbe Rundungseinheit; obere Schranke (upper bound) = Wert + halbe Einheit.",
+   "Fehlerbereich (error interval): untere ≤ x < obere.",
+   "Größte Summe: obere + obere. Größte Differenz: obere − untere.",
+   "Größtes Produkt: obere · obere. Größter Quotient: obere : untere.",
+   "Für Sicherheit mit dem ungünstigsten Fall rechnen."
+  ],
+  "abschnitte": [
+   {
+    "titel": "Schranken bestimmen",
+    "lernziele": [
+     "grenzen",
+     "messen"
+    ]
+   },
+   {
+    "titel": "Mit Schranken rechnen",
+    "lernziele": [
+     "summe",
+     "produkt"
+    ]
+   },
+   {
+    "titel": "Entscheiden",
+    "lernziele": [
+     "entscheiden"
+    ]
+   }
+  ],
+  "etappen": [
+   {
+    "lernziel": "grenzen",
+    "titel": "Untere und obere Schranke",
+    "regel": "Ein gerundeter Wert verrät nur einen ⟦Bereich⟧ für den wahren Wert x. Die ⟦untere Schranke⟧ (lower bound) liegt eine ⟦halbe Rundungseinheit darunter⟧, die ⟦obere Schranke⟧ (upper bound) eine halbe darüber. Man schreibt den ⟦Fehlerbereich⟧ (error interval) als ⟦untere ≤ x < obere⟧.",
+    "schritte": [
+     "Eine Länge ist auf ganze cm gerundet: 27 cm. Rundungseinheit 1 cm, die Hälfte 0,5 cm.",
+     "Untere Schranke 26,5 cm, obere Schranke 27,5 cm.",
+     "Fehlerbereich: ⟦26,5 cm ≤ x < 27,5 cm⟧."
+    ],
+    "probe": "26,5 wird auf 27 aufgerundet, 27,5 aber schon auf 28 ✓",
+    "bild": {
+     "typ": "koordinaten",
+     "x": [
+      26,
+      28
+     ],
+     "y": [
+      0,
+      2
+     ],
+     "schritt_x": 0.5,
+     "schritt_y": 1,
+     "name_x": "cm",
+     "name_y": " ",
+     "punkte": [
+      {
+       "x": 26.5,
+       "y": 1,
+       "name": "26,5"
+      },
+      {
+       "x": 27,
+       "y": 1,
+       "name": "27"
+      },
+      {
+       "x": 27.5,
+       "y": 1,
+       "name": "27,5",
+       "offen": true
+      }
+     ],
+     "strecken": [
+      [
+       26.5,
+       1,
+       27.5,
+       1
+      ]
+     ]
+    },
+    "fehler": "Bei „auf Zehner gerundet: 70“ den Bereich 69 bis 71 anzugeben ist falsch: Die Rundungseinheit ist 10, die Hälfte also ⟦5⟧. Richtig: 65 ≤ x < 75."
+   },
+   {
+    "lernziel": "messen",
+    "titel": "Genauigkeit von Messungen",
+    "regel": "Jede Messung ist nur ⟦so genau wie das Messgerät⟧. „Auf 0,1 kg genau“ heißt: Rundungseinheit 0,1 kg, also ⟦± 0,05 kg⟧. Der wahre Wert liegt im Fehlerbereich; die obere Schranke selbst gehört ⟦nicht mehr dazu⟧.",
+    "schritte": [
+     "Ein Paket wiegt auf 0,1 kg genau 4,3 kg.",
+     "Halbe Einheit: 0,05 kg. Bereich: ⟦4,25 kg ≤ m < 4,35 kg⟧."
+    ],
+    "probe": "4,25 und 4,349 werden beide zu 4,3 gerundet ✓",
+    "fehler": "Bei „auf 0,1 kg genau 4,3 kg“ den Bereich 4,2 kg bis 4,4 kg anzugeben ist falsch: Das wäre ± 0,1 kg. Man geht nur ⟦eine halbe Einheit⟧ (0,05 kg) nach unten und oben."
+   },
+   {
+    "lernziel": "summe",
+    "titel": "Schranken bei Summen und Differenzen",
+    "regel": "⟦Größte Summe⟧: obere + obere Schranke. ⟦Kleinste Summe⟧: untere + untere. Bei der ⟦Differenz⟧ a − b: größte = ⟦obere(a) − untere(b)⟧, kleinste = untere(a) − obere(b).",
+    "schritte": [
+     "a = 12 cm, b = 5 cm, beide auf ganze cm gerundet.",
+     "Größte Differenz: 12,5 cm − 4,5 cm = ⟦8 cm⟧.",
+     "Kleinste Differenz: 11,5 cm − 5,5 cm = 6 cm."
+    ],
+    "probe": "Für eine große Differenz: a möglichst groß, b möglichst klein ✓",
+    "fehler": "Die größte Differenz als obere − obere (12,5 − 5,5 = 7) zu berechnen ist falsch: Man ⟦zieht möglichst wenig ab⟧, also die ⟦untere⟧ Schranke von b: 12,5 − 4,5 = 8."
+   },
+   {
+    "lernziel": "produkt",
+    "titel": "Schranken bei Produkten und Quotienten",
+    "regel": "Bei positiven Größen gilt: ⟦größtes Produkt⟧ = obere · obere, kleinstes = untere · untere. Beim ⟦Quotienten⟧ a : b: größter = ⟦obere(a) : untere(b)⟧, kleinster = untere(a) : obere(b).",
+    "schritte": [
+     "Ein Rechteck: 8 cm und 5 cm, auf ganze cm gerundet.",
+     "Größte Fläche: 8,5 cm · 5,5 cm = ⟦46,75 cm²⟧.",
+     "Kleinste Fläche: 7,5 cm · 4,5 cm = 33,75 cm²."
+    ],
+    "probe": "33,75 ≤ A < 46,75; der gerundete Wert 8 · 5 = 40 liegt dazwischen ✓",
+    "fehler": "Die größte Geschwindigkeit als obere Strecke : obere Zeit zu berechnen ist falsch: Durch eine ⟦kleinere⟧ Zahl geteilt ergibt mehr – also ⟦obere Strecke : untere Zeit⟧."
+   },
+   {
+    "lernziel": "entscheiden",
+    "titel": "Mit Schranken entscheiden",
+    "regel": "Bei Sicherheitsfragen rechnet man mit dem ⟦ungünstigsten Fall⟧ (worst case): Passt es ⟦auch mit den Schranken⟧ sicher, ist die Antwort „ja, sicher“. Ein Ergebnis gibt man nur so genau an, wie es ⟦beide Schranken hergeben⟧.",
+    "schritte": [
+     "Ein Aufzug darf 630 kg tragen. 8 Personen wiegen je 78 kg (auf ganze kg gerundet).",
+     "Ungünstigster Fall: 8 · 78,5 kg = ⟦628 kg⟧.",
+     "628 kg < 630 kg: ⟦sicher erlaubt⟧."
+    ],
+    "probe": "Mit gerundeten Werten wären es 624 kg – die Reserve wäre kleiner als gedacht ✓",
+    "fehler": "Nur mit den gerundeten Werten zu rechnen (8 · 78 = 624 kg) und daraus „sicher“ zu folgern ist riskant: Der ⟦wahre⟧ Wert kann bis zu 628 kg betragen. Für die Sicherheit zählt die ⟦obere Schranke⟧."
+   }
+  ],
+  "teilfaehigkeiten": [
+   {
+    "k": "grenzen",
+    "text": "Untere und obere Schranke",
+    "lernziele": [
+     "grenzen"
+    ]
+   },
+   {
+    "k": "messen",
+    "text": "Genauigkeit von Messungen",
+    "lernziele": [
+     "messen"
+    ]
+   },
+   {
+    "k": "summe",
+    "text": "Schranken bei Summen und Differenzen",
+    "lernziele": [
+     "summe"
+    ]
+   },
+   {
+    "k": "produkt",
+    "text": "Schranken bei Produkten und Quotienten",
+    "lernziele": [
+     "produkt"
+    ]
+   },
+   {
+    "k": "entscheiden",
+    "text": "Mit Schranken entscheiden",
+    "lernziele": [
+     "entscheiden"
+    ]
+   }
+  ],
+  "bewertung": {
+   "lernziele_pflicht": [
+    "grenzen",
+    "messen",
+    "summe",
+    "produkt",
+    "entscheiden"
+   ],
+   "lernziele_vertiefung": [],
+   "testaufgaben_je_lernziel": 1
+  },
+  "quellen": {
+   "erklaerungen": "Eigene Fassung (Claude), Aufgaben vom Generator erzeugt und berechnet.",
+   "begriffe": "Fachbegriffe deutsch (LehrplanPLUS Bayern), IB-Begriffe beim ersten Auftreten englisch in Klammern."
+  }
+ },
+ "aufgaben": [
+  {
+   "l": "grenzen",
+   "t": "grenzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Zahl x ist auf Zehner gerundet: 790. Wie groß ist die untere Schranke?"
+   },
+   "o": {
+    "wert": 785
+   },
+   "c": "790.0 - 10.0 / 2",
+   "w": "Halbe Rundungseinheit 5: 790 − 5 = 785.",
+   "h": "Ziehe eine halbe Rundungseinheit ab."
+  },
+  {
+   "l": "grenzen",
+   "t": "grenzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Zahl x ist auf Hunderter gerundet: 4 300. Gib den Fehlerbereich an.",
+    "schablone": "□ ≤ x < □",
+    "hinweis": "untere und obere Schranke"
+   },
+   "o": {
+    "werte": [
+     4250,
+     4350
+    ]
+   },
+   "w": "Halbe Rundungseinheit: 50. 4 300 − 50 = 4 250, 4 300 + 50 = 4 350.",
+   "h": "Rundungseinheit halbieren, dann abziehen und addieren.",
+   "c": [
+    "4300.0 - 100.0 / 2",
+    "4300.0 + 100.0 / 2"
+   ]
+  },
+  {
+   "l": "grenzen",
+   "t": "grenzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Zahl x ist auf Ganze gerundet: 17. Wie groß ist die untere Schranke?"
+   },
+   "o": {
+    "wert": 16.5
+   },
+   "c": "17.0 - 1.0 / 2",
+   "w": "Halbe Rundungseinheit 0,5: 17 − 0,5 = 16,5.",
+   "h": "Ziehe eine halbe Rundungseinheit ab."
+  },
+  {
+   "l": "grenzen",
+   "t": "grenzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Zahl x ist auf Zehner gerundet: 850. Gib den Fehlerbereich an.",
+    "schablone": "□ ≤ x < □",
+    "hinweis": "untere und obere Schranke"
+   },
+   "o": {
+    "werte": [
+     845,
+     855
+    ]
+   },
+   "w": "Halbe Rundungseinheit: 5. 850 − 5 = 845, 850 + 5 = 855.",
+   "h": "Rundungseinheit halbieren, dann abziehen und addieren.",
+   "c": [
+    "850.0 - 10.0 / 2",
+    "850.0 + 10.0 / 2"
+   ]
+  },
+  {
+   "l": "grenzen",
+   "t": "grenzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Zahl x ist auf Hunderter gerundet: 3 600. Gib den Fehlerbereich an.",
+    "schablone": "□ ≤ x < □",
+    "hinweis": "untere und obere Schranke"
+   },
+   "o": {
+    "werte": [
+     3550,
+     3650
+    ]
+   },
+   "w": "Halbe Rundungseinheit: 50. 3 600 − 50 = 3 550, 3 600 + 50 = 3 650.",
+   "h": "Rundungseinheit halbieren, dann abziehen und addieren.",
+   "c": [
+    "3600.0 - 100.0 / 2",
+    "3600.0 + 100.0 / 2"
+   ]
+  },
+  {
+   "l": "grenzen",
+   "t": "grenzen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Zahl x ist auf Ganze gerundet: 93. Wie groß ist die obere Schranke?"
+   },
+   "o": {
+    "wert": 93.5
+   },
+   "c": "93.0 + 1.0 / 2",
+   "w": "Halbe Rundungseinheit 0,5: 93 + 0,5 = 93,5.",
+   "h": "Addiere eine halbe Rundungseinheit."
+  },
+  {
+   "l": "grenzen",
+   "t": "grenzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Zahl x ist auf Zehner gerundet: 460. Gib den Fehlerbereich an.",
+    "schablone": "□ ≤ x < □",
+    "hinweis": "untere und obere Schranke"
+   },
+   "o": {
+    "werte": [
+     455,
+     465
+    ]
+   },
+   "w": "Halbe Rundungseinheit: 5. 460 − 5 = 455, 460 + 5 = 465.",
+   "h": "Rundungseinheit halbieren, dann abziehen und addieren.",
+   "c": [
+    "460.0 - 10.0 / 2",
+    "460.0 + 10.0 / 2"
+   ]
+  },
+  {
+   "l": "grenzen",
+   "t": "grenzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Zahl x ist auf zwei Nachkommastellen gerundet: 6,5. Welcher Fehlerbereich ist richtig?"
+   },
+   "a": [
+    "6,49 ≤ x < 6,51",
+    "6,495 < x ≤ 6,505",
+    "6,495 ≤ x < 6,505",
+    "6,5 ≤ x < 6,51"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Eine halbe Einheit (0,005) nach unten und oben; die untere Schranke gehört dazu, die obere nicht (sie würde aufgerundet).",
+   "h": "Wie groß ist die halbe Rundungseinheit? Welche Grenze wird noch auf den Wert gerundet?"
+  },
+  {
+   "l": "grenzen",
+   "t": "grenzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Zahl x ist auf Zehner gerundet: 280. Welcher Fehlerbereich ist richtig?"
+   },
+   "a": [
+    "275 < x ≤ 285",
+    "280 ≤ x < 290",
+    "270 ≤ x < 290",
+    "275 ≤ x < 285"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Eine halbe Einheit (5) nach unten und oben; die untere Schranke gehört dazu, die obere nicht (sie würde aufgerundet).",
+   "h": "Wie groß ist die halbe Rundungseinheit? Welche Grenze wird noch auf den Wert gerundet?"
+  },
+  {
+   "l": "grenzen",
+   "t": "grenzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Zahl x ist auf 5 genau gerundet: 155. Welcher Fehlerbereich ist richtig?"
+   },
+   "a": [
+    "155 ≤ x < 160",
+    "150 ≤ x < 160",
+    "152,5 ≤ x < 157,5",
+    "152,5 < x ≤ 157,5"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Eine halbe Einheit (2,5) nach unten und oben; die untere Schranke gehört dazu, die obere nicht (sie würde aufgerundet).",
+   "h": "Wie groß ist die halbe Rundungseinheit? Welche Grenze wird noch auf den Wert gerundet?"
+  },
+  {
+   "l": "grenzen",
+   "t": "grenzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Zahl x ist auf 5 genau gerundet: 435. Wie groß ist die untere Schranke?"
+   },
+   "o": {
+    "wert": 432.5
+   },
+   "c": "435.0 - 5.0 / 2",
+   "w": "Halbe Rundungseinheit 2,5: 435 − 2,5 = 432,5.",
+   "h": "Ziehe eine halbe Rundungseinheit ab."
+  },
+  {
+   "l": "grenzen",
+   "t": "grenzen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Zahl x ist auf Hunderter gerundet: 400. Wie groß ist die untere Schranke?"
+   },
+   "o": {
+    "wert": 350
+   },
+   "c": "400.0 - 100.0 / 2",
+   "w": "Halbe Rundungseinheit 50: 400 − 50 = 350.",
+   "h": "Ziehe eine halbe Rundungseinheit ab."
+  },
+  {
+   "l": "grenzen",
+   "t": "grenzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Fehlerbereich einer gerundeten Zahl ist 76,5 ≤ x < 77,5. Auf welchen Wert wurde gerundet?"
+   },
+   "o": {
+    "wert": 77
+   },
+   "c": "(76.5 + 77.5) / 2",
+   "w": "Mitte des Bereichs: (76,5 + 77,5) : 2 = 77.",
+   "h": "Der gerundete Wert liegt genau in der Mitte."
+  },
+  {
+   "l": "grenzen",
+   "t": "grenzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Fehlerbereich einer gerundeten Zahl ist 2 250 ≤ x < 2 350. Auf welchen Wert wurde gerundet?"
+   },
+   "o": {
+    "wert": 2300
+   },
+   "c": "(2250.0 + 2350.0) / 2",
+   "w": "Mitte des Bereichs: (2 250 + 2 350) : 2 = 2 300.",
+   "h": "Der gerundete Wert liegt genau in der Mitte."
+  },
+  {
+   "l": "grenzen",
+   "t": "grenzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Der Fehlerbereich einer gerundeten Zahl ist 105 ≤ x < 115. Auf welchen Wert wurde gerundet?"
+   },
+   "o": {
+    "wert": 110
+   },
+   "c": "(105.0 + 115.0) / 2",
+   "w": "Mitte des Bereichs: (105 + 115) : 2 = 110.",
+   "h": "Der gerundete Wert liegt genau in der Mitte."
+  },
+  {
+   "l": "grenzen",
+   "t": "grenzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Zahl x ist auf Ganze gerundet: 67. Welcher Fehlerbereich ist richtig?"
+   },
+   "a": [
+    "66,5 ≤ x < 67,5",
+    "66,5 < x ≤ 67,5",
+    "66 ≤ x < 68",
+    "67 ≤ x < 68"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Eine halbe Einheit (0,5) nach unten und oben; die untere Schranke gehört dazu, die obere nicht (sie würde aufgerundet).",
+   "h": "Wie groß ist die halbe Rundungseinheit? Welche Grenze wird noch auf den Wert gerundet?"
+  },
+  {
+   "l": "grenzen",
+   "t": "grenzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Zahl x ist auf zwei Nachkommastellen gerundet: 2,91. Welcher Fehlerbereich ist richtig?"
+   },
+   "a": [
+    "2,905 ≤ x < 2,915",
+    "2,905 < x ≤ 2,915",
+    "2,91 ≤ x < 2,92",
+    "2,9 ≤ x < 2,92"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Eine halbe Einheit (0,005) nach unten und oben; die untere Schranke gehört dazu, die obere nicht (sie würde aufgerundet).",
+   "h": "Wie groß ist die halbe Rundungseinheit? Welche Grenze wird noch auf den Wert gerundet?"
+  },
+  {
+   "l": "grenzen",
+   "t": "grenzen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Zahl x ist auf Hunderter gerundet: 2 400. Welcher Fehlerbereich ist richtig?"
+   },
+   "a": [
+    "2 350 ≤ x < 2 450",
+    "2 350 < x ≤ 2 450",
+    "2 400 ≤ x < 2 500",
+    "2 300 ≤ x < 2 500"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Eine halbe Einheit (50) nach unten und oben; die untere Schranke gehört dazu, die obere nicht (sie würde aufgerundet).",
+   "h": "Wie groß ist die halbe Rundungseinheit? Welche Grenze wird noch auf den Wert gerundet?"
+  },
+  {
+   "l": "grenzen",
+   "t": "grenzen",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Zahl x ist auf Zehner gerundet: 920. Gib den Fehlerbereich an.",
+    "schablone": "□ ≤ x < □",
+    "hinweis": "untere und obere Schranke"
+   },
+   "o": {
+    "werte": [
+     915,
+     925
+    ]
+   },
+   "w": "Halbe Rundungseinheit: 5. 920 − 5 = 915, 920 + 5 = 925.",
+   "c": [
+    "920.0 - 10.0 / 2",
+    "920.0 + 10.0 / 2"
+   ]
+  },
+  {
+   "l": "grenzen",
+   "t": "grenzen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Zahl x ist auf 5 genau gerundet: 205. Welcher Fehlerbereich ist richtig?"
+   },
+   "a": [
+    "200 ≤ x < 210",
+    "202,5 < x ≤ 207,5",
+    "202,5 ≤ x < 207,5",
+    "205 ≤ x < 210"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Eine halbe Einheit (2,5) nach unten und oben; die untere Schranke gehört dazu, die obere nicht (sie würde aufgerundet)."
+  },
+  {
+   "l": "grenzen",
+   "t": "grenzen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Zahl x ist auf zwei Nachkommastellen gerundet: 6,6. Welcher Fehlerbereich ist richtig?"
+   },
+   "a": [
+    "6,6 ≤ x < 6,61",
+    "6,595 ≤ x < 6,605",
+    "6,59 ≤ x < 6,61",
+    "6,595 < x ≤ 6,605"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Eine halbe Einheit (0,005) nach unten und oben; die untere Schranke gehört dazu, die obere nicht (sie würde aufgerundet)."
+  },
+  {
+   "l": "grenzen",
+   "t": "grenzen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Zahl x ist auf Hunderter gerundet: 2 100. Wie groß ist die untere Schranke?"
+   },
+   "o": {
+    "wert": 2050
+   },
+   "c": "2100.0 - 100.0 / 2",
+   "w": "Halbe Rundungseinheit 50: 2 100 − 50 = 2 050."
+  },
+  {
+   "l": "grenzen",
+   "t": "grenzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Zahl x ist auf 5 genau gerundet: 40. Wie groß ist die obere Schranke?"
+   },
+   "o": {
+    "wert": 42.5
+   },
+   "c": "40.0 + 5.0 / 2",
+   "w": "Halbe Rundungseinheit 2,5: 40 + 2,5 = 42,5."
+  },
+  {
+   "l": "grenzen",
+   "t": "grenzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Zahl x ist auf 5 genau gerundet: 470. Welcher Fehlerbereich ist richtig?"
+   },
+   "a": [
+    "465 ≤ x < 475",
+    "467,5 ≤ x < 472,5",
+    "467,5 < x ≤ 472,5",
+    "470 ≤ x < 475"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Eine halbe Einheit (2,5) nach unten und oben; die untere Schranke gehört dazu, die obere nicht (sie würde aufgerundet)."
+  },
+  {
+   "l": "grenzen",
+   "t": "grenzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Zahl x ist auf zwei Nachkommastellen gerundet: 4,94. Wie groß ist die untere Schranke?"
+   },
+   "o": {
+    "wert": 4.935
+   },
+   "c": "4.94 - 0.01 / 2",
+   "w": "Halbe Rundungseinheit 0,005: 4,94 − 0,005 = 4,935."
+  },
+  {
+   "l": "grenzen",
+   "t": "grenzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Eine Zahl x ist auf Hunderter gerundet: 8 800. Gib den Fehlerbereich an.",
+    "schablone": "□ ≤ x < □",
+    "hinweis": "untere und obere Schranke"
+   },
+   "o": {
+    "werte": [
+     8750,
+     8850
+    ]
+   },
+   "w": "Halbe Rundungseinheit: 50. 8 800 − 50 = 8 750, 8 800 + 50 = 8 850.",
+   "c": [
+    "8800.0 - 100.0 / 2",
+    "8800.0 + 100.0 / 2"
+   ]
+  },
+  {
+   "l": "grenzen",
+   "t": "grenzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Eine Zahl x ist auf 5 genau gerundet: 415. Wie groß ist die untere Schranke?"
+   },
+   "o": {
+    "wert": 412.5
+   },
+   "c": "415.0 - 5.0 / 2",
+   "w": "Halbe Rundungseinheit 2,5: 415 − 2,5 = 412,5."
+  },
+  {
+   "l": "grenzen",
+   "t": "grenzen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Eine Zahl x ist auf Hunderter gerundet: 3 000. Welcher Fehlerbereich ist richtig?"
+   },
+   "a": [
+    "2 950 < x ≤ 3 050",
+    "2 900 ≤ x < 3 100",
+    "2 950 ≤ x < 3 050",
+    "3 000 ≤ x < 3 100"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Eine halbe Einheit (50) nach unten und oben; die untere Schranke gehört dazu, die obere nicht (sie würde aufgerundet)."
+  },
+  {
+   "l": "messen",
+   "t": "messen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Breite eines Zimmers: 6 m, auf 10 cm genau gemessen. Wie groß ist die obere Schranke?"
+   },
+   "o": {
+    "wert": 6.05,
+    "einheit": "m"
+   },
+   "c": "6.0 + 0.1 / 2",
+   "w": "Halbe Einheit 0,05 m: 6 + 0,05 = 6,05 m.",
+   "h": "Die Hälfte der Genauigkeit addieren."
+  },
+  {
+   "l": "messen",
+   "t": "messen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Länge eines Tisches: 132 cm, auf ganze cm gemessen. Wie groß ist die obere Schranke?"
+   },
+   "o": {
+    "wert": 132.5,
+    "einheit": "cm"
+   },
+   "c": "132.0 + 1.0 / 2",
+   "w": "Halbe Einheit 0,5 cm: 132 + 0,5 = 132,5 cm.",
+   "h": "Die Hälfte der Genauigkeit addieren."
+  },
+  {
+   "l": "messen",
+   "t": "messen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Strecke: 240 km, auf ganze km gerundet. Wie groß ist die obere Schranke?"
+   },
+   "o": {
+    "wert": 240.5,
+    "einheit": "km"
+   },
+   "c": "240.0 + 1.0 / 2",
+   "w": "Halbe Einheit 0,5 km: 240 + 0,5 = 240,5 km.",
+   "h": "Die Hälfte der Genauigkeit addieren."
+  },
+  {
+   "l": "messen",
+   "t": "messen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Länge eines Tisches: 124 cm, auf ganze cm gemessen. Wie groß ist die obere Schranke?"
+   },
+   "o": {
+    "wert": 124.5,
+    "einheit": "cm"
+   },
+   "c": "124.0 + 1.0 / 2",
+   "w": "Halbe Einheit 0,5 cm: 124 + 0,5 = 124,5 cm.",
+   "h": "Die Hälfte der Genauigkeit addieren."
+  },
+  {
+   "l": "messen",
+   "t": "messen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Laufzeit über 100 m: 12,4 s, auf Zehntelsekunden gestoppt. Wie groß ist die obere Schranke?"
+   },
+   "o": {
+    "wert": 12.45,
+    "einheit": "s"
+   },
+   "c": "12.4 + 0.1 / 2",
+   "w": "Halbe Einheit 0,05 s: 12,4 + 0,05 = 12,45 s.",
+   "h": "Die Hälfte der Genauigkeit addieren."
+  },
+  {
+   "l": "messen",
+   "t": "messen",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Besucherzahl: 5 000 Personen, auf Hunderter gerundet. Wie groß ist die untere Schranke?"
+   },
+   "o": {
+    "wert": 4950,
+    "einheit": "Personen"
+   },
+   "c": "5000.0 - 100.0 / 2",
+   "w": "Halbe Einheit 50 Personen: 5 000 − 50 = 4 950 Personen.",
+   "h": "Welche Einheit hat die Genauigkeit? Davon die Hälfte abziehen."
+  },
+  {
+   "l": "messen",
+   "t": "messen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Masse eines Pakets: 13,5 kg, auf 0,1 kg genau gewogen. Wie groß ist die untere Schranke?"
+   },
+   "o": {
+    "wert": 13.45,
+    "einheit": "kg"
+   },
+   "c": "13.5 - 0.1 / 2",
+   "w": "Halbe Einheit 0,05 kg: 13,5 − 0,05 = 13,45 kg.",
+   "h": "Welche Einheit hat die Genauigkeit? Davon die Hälfte abziehen."
+  },
+  {
+   "l": "messen",
+   "t": "messen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Breite eines Zimmers: 4,2 m, auf 10 cm genau gemessen. Wie groß ist der Abstand zwischen oberer und unterer Schranke?"
+   },
+   "o": {
+    "wert": 0.1,
+    "einheit": "m"
+   },
+   "c": "4.25 - 4.15",
+   "w": "4,25 − 4,15 = 0,1 m – genau eine Rundungseinheit.",
+   "h": "Berechne beide Schranken oder überlege, wie breit der Bereich ist."
+  },
+  {
+   "l": "messen",
+   "t": "messen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Besucherzahl: 6 900 Personen, auf Hunderter gerundet. Welcher Fehlerbereich passt?"
+   },
+   "a": [
+    "6 850 Personen ≤ x < 6 950 Personen",
+    "6 800 Personen ≤ x < 7 000 Personen",
+    "6 850 Personen < x ≤ 6 950 Personen",
+    "6 900 Personen ≤ x < 7 000 Personen"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "± halbe Einheit (50 Personen); obere Schranke ausgeschlossen.",
+   "h": "Halbe Messgenauigkeit nach unten und oben."
+  },
+  {
+   "l": "messen",
+   "t": "messen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Masse eines Pakets: 5,1 kg, auf 0,1 kg genau gewogen. Wie groß ist der Abstand zwischen oberer und unterer Schranke?"
+   },
+   "o": {
+    "wert": 0.1,
+    "einheit": "kg"
+   },
+   "c": "5.15 - 5.05",
+   "w": "5,15 − 5,05 = 0,1 kg – genau eine Rundungseinheit.",
+   "h": "Berechne beide Schranken oder überlege, wie breit der Bereich ist."
+  },
+  {
+   "l": "messen",
+   "t": "messen",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Laufzeit über 100 m: 11,8 s, auf Zehntelsekunden gestoppt. Welcher Fehlerbereich passt?"
+   },
+   "a": [
+    "11,7 s ≤ x < 11,9 s",
+    "11,75 s < x ≤ 11,85 s",
+    "11,8 s ≤ x < 11,9 s",
+    "11,75 s ≤ x < 11,85 s"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "± halbe Einheit (0,05 s); obere Schranke ausgeschlossen.",
+   "h": "Halbe Messgenauigkeit nach unten und oben."
+  },
+  {
+   "l": "messen",
+   "t": "messen",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Laufzeit über 100 m: 12,1 s, auf Zehntelsekunden gestoppt. Wie groß ist der Abstand zwischen oberer und unterer Schranke?"
+   },
+   "o": {
+    "wert": 0.1,
+    "einheit": "s"
+   },
+   "c": "12.15 - 12.05",
+   "w": "12,15 − 12,05 = 0,1 s – genau eine Rundungseinheit.",
+   "h": "Berechne beide Schranken oder überlege, wie breit der Bereich ist."
+  },
+  {
+   "l": "messen",
+   "t": "messen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Breite eines Zimmers: 5,5 m, auf 10 cm genau gemessen. Kann der wahre Wert 5,52 m sein?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Fehlerbereich: 5,45 m ≤ x < 5,55 m. 5,52 liegt darin.",
+   "h": "Bestimme den Fehlerbereich; Achtung bei den Grenzen."
+  },
+  {
+   "l": "messen",
+   "t": "messen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Laufzeit über 100 m: 12,4 s, auf Zehntelsekunden gestoppt. Wie groß ist der Abstand zwischen oberer und unterer Schranke?"
+   },
+   "o": {
+    "wert": 0.1,
+    "einheit": "s"
+   },
+   "c": "12.45 - 12.35",
+   "w": "12,45 − 12,35 = 0,1 s – genau eine Rundungseinheit.",
+   "h": "Berechne beide Schranken oder überlege, wie breit der Bereich ist."
+  },
+  {
+   "l": "messen",
+   "t": "messen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Der wahre Wert einer Messung (Laufzeit über 100 m) liegt zwischen 12,55 s und 12,65 s. Wie genau wurde gemessen?"
+   },
+   "a": [
+    "auf ganze cm gemessen",
+    "auf 0,1 kg genau gewogen",
+    "auf 10 cm genau gemessen",
+    "auf Zehntelsekunden gestoppt"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Die Breite des Bereichs (0,1 s) ist die Messgenauigkeit: auf Zehntelsekunden gestoppt.",
+   "h": "Wie breit ist der Bereich?"
+  },
+  {
+   "l": "messen",
+   "t": "messen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Länge eines Tisches: 126 cm, auf ganze cm gemessen. Wie groß ist der Abstand zwischen oberer und unterer Schranke?"
+   },
+   "o": {
+    "wert": 1,
+    "einheit": "cm"
+   },
+   "c": "126.5 - 125.5",
+   "w": "126,5 − 125,5 = 1 cm – genau eine Rundungseinheit.",
+   "h": "Berechne beide Schranken oder überlege, wie breit der Bereich ist."
+  },
+  {
+   "l": "messen",
+   "t": "messen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Der wahre Wert einer Messung (Länge eines Tisches) liegt zwischen 192,5 cm und 193,5 cm. Wie genau wurde gemessen?"
+   },
+   "a": [
+    "auf 0,1 kg genau gewogen",
+    "auf ganze cm gemessen",
+    "auf Zehntelsekunden gestoppt",
+    "auf 10 cm genau gemessen"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Die Breite des Bereichs (1 cm) ist die Messgenauigkeit: auf ganze cm gemessen.",
+   "h": "Wie breit ist der Bereich?"
+  },
+  {
+   "l": "messen",
+   "t": "messen",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Strecke: 239 km, auf ganze km gerundet. Wie groß ist der Abstand zwischen oberer und unterer Schranke?"
+   },
+   "o": {
+    "wert": 1,
+    "einheit": "km"
+   },
+   "c": "239.5 - 238.5",
+   "w": "239,5 − 238,5 = 1 km – genau eine Rundungseinheit.",
+   "h": "Berechne beide Schranken oder überlege, wie breit der Bereich ist."
+  },
+  {
+   "l": "messen",
+   "t": "messen",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Breite eines Zimmers: 5 m, auf 10 cm genau gemessen. Wie groß ist die obere Schranke?"
+   },
+   "o": {
+    "wert": 5.05,
+    "einheit": "m"
+   },
+   "c": "5.0 + 0.1 / 2",
+   "w": "Halbe Einheit 0,05 m: 5 + 0,05 = 5,05 m."
+  },
+  {
+   "l": "messen",
+   "t": "messen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Länge eines Tisches: 157 cm, auf ganze cm gemessen. Welcher Fehlerbereich passt?"
+   },
+   "a": [
+    "157 cm ≤ x < 158 cm",
+    "156 cm ≤ x < 158 cm",
+    "156,5 cm ≤ x < 157,5 cm",
+    "156,5 cm < x ≤ 157,5 cm"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "± halbe Einheit (0,5 cm); obere Schranke ausgeschlossen."
+  },
+  {
+   "l": "messen",
+   "t": "messen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Masse eines Pakets: 16,2 kg, auf 0,1 kg genau gewogen. Wie groß ist die obere Schranke?"
+   },
+   "o": {
+    "wert": 16.25,
+    "einheit": "kg"
+   },
+   "c": "16.2 + 0.1 / 2",
+   "w": "Halbe Einheit 0,05 kg: 16,2 + 0,05 = 16,25 kg."
+  },
+  {
+   "l": "messen",
+   "t": "messen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Breite eines Zimmers: 5,5 m, auf 10 cm genau gemessen. Wie groß ist die untere Schranke?"
+   },
+   "o": {
+    "wert": 5.45,
+    "einheit": "m"
+   },
+   "c": "5.5 - 0.1 / 2",
+   "w": "Halbe Einheit 0,05 m: 5,5 − 0,05 = 5,45 m."
+  },
+  {
+   "l": "messen",
+   "t": "messen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Strecke: 207 km, auf ganze km gerundet. Wie groß ist die obere Schranke?"
+   },
+   "o": {
+    "wert": 207.5,
+    "einheit": "km"
+   },
+   "c": "207.0 + 1.0 / 2",
+   "w": "Halbe Einheit 0,5 km: 207 + 0,5 = 207,5 km."
+  },
+  {
+   "l": "messen",
+   "t": "messen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Besucherzahl: 7 100 Personen, auf Hunderter gerundet. Wie groß ist der Abstand zwischen oberer und unterer Schranke?"
+   },
+   "o": {
+    "wert": 100,
+    "einheit": "Personen"
+   },
+   "c": "7150.0 - 7050.0",
+   "w": "7 150 − 7 050 = 100 Personen – genau eine Rundungseinheit."
+  },
+  {
+   "l": "messen",
+   "t": "messen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Masse eines Pakets: 8,1 kg, auf 0,1 kg genau gewogen. Wie groß ist die obere Schranke?"
+   },
+   "o": {
+    "wert": 8.15,
+    "einheit": "kg"
+   },
+   "c": "8.1 + 0.1 / 2",
+   "w": "Halbe Einheit 0,05 kg: 8,1 + 0,05 = 8,15 kg."
+  },
+  {
+   "l": "messen",
+   "t": "messen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Besucherzahl: 4 100 Personen, auf Hunderter gerundet. Welcher Fehlerbereich passt?"
+   },
+   "a": [
+    "4 050 Personen ≤ x < 4 150 Personen",
+    "4 050 Personen < x ≤ 4 150 Personen",
+    "4 000 Personen ≤ x < 4 200 Personen",
+    "4 100 Personen ≤ x < 4 200 Personen"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "± halbe Einheit (50 Personen); obere Schranke ausgeschlossen."
+  },
+  {
+   "l": "messen",
+   "t": "messen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Besucherzahl: 9 000 Personen, auf Hunderter gerundet. Welcher Fehlerbereich passt?"
+   },
+   "a": [
+    "9 000 Personen ≤ x < 9 100 Personen",
+    "8 950 Personen ≤ x < 9 050 Personen",
+    "8 900 Personen ≤ x < 9 100 Personen",
+    "8 950 Personen < x ≤ 9 050 Personen"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "± halbe Einheit (50 Personen); obere Schranke ausgeschlossen."
+  },
+  {
+   "l": "messen",
+   "t": "messen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Masse eines Pakets: 9,5 kg, auf 0,1 kg genau gewogen. Welcher Fehlerbereich passt?"
+   },
+   "a": [
+    "9,45 kg < x ≤ 9,55 kg",
+    "9,45 kg ≤ x < 9,55 kg",
+    "9,4 kg ≤ x < 9,6 kg",
+    "9,5 kg ≤ x < 9,6 kg"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "± halbe Einheit (0,05 kg); obere Schranke ausgeschlossen."
+  },
+  {
+   "l": "summe",
+   "t": "summe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "a = 4,7 kg und b = 2,5 kg, beide auf 0,1 kg gerundet. Wie groß ist a + b mindestens (untere Schranke)?"
+   },
+   "o": {
+    "wert": 7.1,
+    "einheit": "kg"
+   },
+   "c": "4.65 + 2.45",
+   "w": "4,65 + 2,45 = 7,1 kg.",
+   "h": "Untere + untere Schranke."
+  },
+  {
+   "l": "summe",
+   "t": "summe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "a = 58 cm und b = 28 cm, beide auf ganze cm gerundet. Wie groß ist a + b mindestens (untere Schranke)?"
+   },
+   "o": {
+    "wert": 85,
+    "einheit": "cm"
+   },
+   "c": "57.5 + 27.5",
+   "w": "57,5 + 27,5 = 85 cm.",
+   "h": "Untere + untere Schranke."
+  },
+  {
+   "l": "summe",
+   "t": "summe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "a = 5,1 kg und b = 4,1 kg, beide auf 0,1 kg gerundet. Wie groß kann a + b höchstens sein (obere Schranke)?"
+   },
+   "o": {
+    "wert": 9.3,
+    "einheit": "kg"
+   },
+   "c": "5.15 + 4.15",
+   "w": "5,15 + 4,15 = 9,3 kg.",
+   "h": "Obere + obere Schranke."
+  },
+  {
+   "l": "summe",
+   "t": "summe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "a = 5,6 kg und b = 4,9 kg, beide auf 0,1 kg gerundet. Wie groß ist a + b mindestens (untere Schranke)?"
+   },
+   "o": {
+    "wert": 10.4,
+    "einheit": "kg"
+   },
+   "c": "5.55 + 4.85",
+   "w": "5,55 + 4,85 = 10,4 kg.",
+   "h": "Untere + untere Schranke."
+  },
+  {
+   "l": "summe",
+   "t": "summe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "a = 36 cm und b = 11 cm, beide auf ganze cm gerundet. Wie groß kann a + b höchstens sein (obere Schranke)?"
+   },
+   "o": {
+    "wert": 48,
+    "einheit": "cm"
+   },
+   "c": "36.5 + 11.5",
+   "w": "36,5 + 11,5 = 48 cm.",
+   "h": "Obere + obere Schranke."
+  },
+  {
+   "l": "summe",
+   "t": "summe",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "a = 27 cm und b = 6 cm, beide auf ganze cm gerundet. Wie groß kann a + b höchstens sein (obere Schranke)?"
+   },
+   "o": {
+    "wert": 34,
+    "einheit": "cm"
+   },
+   "c": "27.5 + 6.5",
+   "w": "27,5 + 6,5 = 34 cm.",
+   "h": "Obere + obere Schranke."
+  },
+  {
+   "l": "summe",
+   "t": "summe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "a = 610 m und b = 540 m, beide auf 10 m gerundet. Wie groß kann a + b höchstens sein (obere Schranke)?"
+   },
+   "o": {
+    "wert": 1160,
+    "einheit": "m"
+   },
+   "c": "615.0 + 545.0",
+   "w": "615 + 545 = 1 160 m.",
+   "h": "Obere + obere Schranke."
+  },
+  {
+   "l": "summe",
+   "t": "summe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "a = 4,6 kg und b = 3,8 kg, beide auf 0,1 kg gerundet. Wie groß kann a + b höchstens sein (obere Schranke)?"
+   },
+   "o": {
+    "wert": 8.5,
+    "einheit": "kg"
+   },
+   "c": "4.65 + 3.85",
+   "w": "4,65 + 3,85 = 8,5 kg.",
+   "h": "Obere + obere Schranke."
+  },
+  {
+   "l": "summe",
+   "t": "summe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "a = 82 cm und b = 54 cm, beide auf ganze cm gerundet. Wie groß ist a + b mindestens (untere Schranke)?"
+   },
+   "o": {
+    "wert": 135,
+    "einheit": "cm"
+   },
+   "c": "81.5 + 53.5",
+   "w": "81,5 + 53,5 = 135 cm.",
+   "h": "Untere + untere Schranke."
+  },
+  {
+   "l": "summe",
+   "t": "summe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "a = 77 cm und b = 55 cm, beide auf ganze cm gerundet. Wie groß kann a + b höchstens sein (obere Schranke)?"
+   },
+   "o": {
+    "wert": 133,
+    "einheit": "cm"
+   },
+   "c": "77.5 + 55.5",
+   "w": "77,5 + 55,5 = 133 cm.",
+   "h": "Obere + obere Schranke."
+  },
+  {
+   "l": "summe",
+   "t": "summe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "a = 6,8 kg und b = 4,8 kg, beide auf 0,1 kg gerundet. Wie groß ist die obere Schranke von a − b?"
+   },
+   "o": {
+    "wert": 2.1,
+    "einheit": "kg"
+   },
+   "c": "6.85 - 4.75",
+   "w": "Größte Differenz: obere(a) − untere(b) = 6,85 − 4,75 = 2,1 kg.",
+   "h": "a möglichst groß, b möglichst klein."
+  },
+  {
+   "l": "summe",
+   "t": "summe",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "a = 750 m und b = 290 m, beide auf 10 m gerundet. Wie groß kann a + b höchstens sein (obere Schranke)?"
+   },
+   "o": {
+    "wert": 1050,
+    "einheit": "m"
+   },
+   "c": "755.0 + 295.0",
+   "w": "755 + 295 = 1 050 m.",
+   "h": "Obere + obere Schranke."
+  },
+  {
+   "l": "summe",
+   "t": "summe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck hat die Seiten 650 m und 120 m (auf 10 m gerundet). Wie groß ist die obere Schranke des Umfangs?"
+   },
+   "o": {
+    "wert": 1560,
+    "einheit": "m"
+   },
+   "c": "2 * (655.0 + 125.0)",
+   "w": "u = 2 · (655 + 125) = 1 560 m.",
+   "h": "Umfang = 2 · (a + b) – mit beiden oberen Schranken."
+  },
+  {
+   "l": "summe",
+   "t": "summe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck hat die Seiten 22 cm und 10 cm (auf ganze cm gerundet). Wie groß ist die obere Schranke des Umfangs?"
+   },
+   "o": {
+    "wert": 66,
+    "einheit": "cm"
+   },
+   "c": "2 * (22.5 + 10.5)",
+   "w": "u = 2 · (22,5 + 10,5) = 66 cm.",
+   "h": "Umfang = 2 · (a + b) – mit beiden oberen Schranken."
+  },
+  {
+   "l": "summe",
+   "t": "summe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "a = 40 cm und b = 22 cm, beide auf ganze cm gerundet. Wie groß ist die obere Schranke von a − b?"
+   },
+   "o": {
+    "wert": 19,
+    "einheit": "cm"
+   },
+   "c": "40.5 - 21.5",
+   "w": "Größte Differenz: obere(a) − untere(b) = 40,5 − 21,5 = 19 cm.",
+   "h": "a möglichst groß, b möglichst klein."
+  },
+  {
+   "l": "summe",
+   "t": "summe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "a = 7 kg und b = 4 kg, beide auf 0,1 kg gerundet. Wie groß ist die obere Schranke von a − b?"
+   },
+   "o": {
+    "wert": 3.1,
+    "einheit": "kg"
+   },
+   "c": "7.05 - 3.95",
+   "w": "Größte Differenz: obere(a) − untere(b) = 7,05 − 3,95 = 3,1 kg.",
+   "h": "a möglichst groß, b möglichst klein."
+  },
+  {
+   "l": "summe",
+   "t": "summe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Drei Strecken: 3,2 kg, 1,6 kg und 0,6 kg, alle auf 0,1 kg gerundet. Wie groß ist die untere Schranke der Gesamtlänge?"
+   },
+   "o": {
+    "wert": 5.25,
+    "einheit": "kg"
+   },
+   "c": "3.15 + 1.55 + 0.55",
+   "w": "3,15 + 1,55 + 0,55 = 5,25 kg.",
+   "h": "Alle unteren Schranken addieren."
+  },
+  {
+   "l": "summe",
+   "t": "summe",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck hat die Seiten 7,1 kg und 3 kg (auf 0,1 kg gerundet). Wie groß ist die obere Schranke des Umfangs?"
+   },
+   "o": {
+    "wert": 20.4,
+    "einheit": "kg"
+   },
+   "c": "2 * (7.15 + 3.05)",
+   "w": "u = 2 · (7,15 + 3,05) = 20,4 kg.",
+   "h": "Umfang = 2 · (a + b) – mit beiden oberen Schranken."
+  },
+  {
+   "l": "summe",
+   "t": "summe",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "a = 70 cm und b = 6 cm, beide auf ganze cm gerundet. Wie groß ist die untere Schranke von a − b?"
+   },
+   "o": {
+    "wert": 63,
+    "einheit": "cm"
+   },
+   "c": "69.5 - 6.5",
+   "w": "Kleinste Differenz: untere(a) − obere(b) = 69,5 − 6,5 = 63 cm."
+  },
+  {
+   "l": "summe",
+   "t": "summe",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "a = 88 cm und b = 19 cm, beide auf ganze cm gerundet. Wie groß kann a + b höchstens sein (obere Schranke)?"
+   },
+   "o": {
+    "wert": 108,
+    "einheit": "cm"
+   },
+   "c": "88.5 + 19.5",
+   "w": "88,5 + 19,5 = 108 cm."
+  },
+  {
+   "l": "summe",
+   "t": "summe",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "a = 6 kg und b = 5,3 kg, beide auf 0,1 kg gerundet. Wie groß kann a + b höchstens sein (obere Schranke)?"
+   },
+   "o": {
+    "wert": 11.4,
+    "einheit": "kg"
+   },
+   "c": "6.05 + 5.35",
+   "w": "6,05 + 5,35 = 11,4 kg."
+  },
+  {
+   "l": "summe",
+   "t": "summe",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "a = 370 m und b = 70 m, beide auf 10 m gerundet. Wie groß ist a + b mindestens (untere Schranke)?"
+   },
+   "o": {
+    "wert": 430,
+    "einheit": "m"
+   },
+   "c": "365.0 + 65.0",
+   "w": "365 + 65 = 430 m."
+  },
+  {
+   "l": "summe",
+   "t": "summe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "a = 7,3 kg und b = 4,7 kg, beide auf 0,1 kg gerundet. Wie groß ist die untere Schranke von a − b?"
+   },
+   "o": {
+    "wert": 2.5,
+    "einheit": "kg"
+   },
+   "c": "7.25 - 4.75",
+   "w": "Kleinste Differenz: untere(a) − obere(b) = 7,25 − 4,75 = 2,5 kg."
+  },
+  {
+   "l": "summe",
+   "t": "summe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "a = 700 m und b = 90 m, beide auf 10 m gerundet. Wie groß ist die obere Schranke von a − b?"
+   },
+   "o": {
+    "wert": 620,
+    "einheit": "m"
+   },
+   "c": "705.0 - 85.0",
+   "w": "Größte Differenz: obere(a) − untere(b) = 705 − 85 = 620 m."
+  },
+  {
+   "l": "summe",
+   "t": "summe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "a = 7,7 kg und b = 4,9 kg, beide auf 0,1 kg gerundet. Wie groß ist die untere Schranke von a − b?"
+   },
+   "o": {
+    "wert": 2.7,
+    "einheit": "kg"
+   },
+   "c": "7.65 - 4.95",
+   "w": "Kleinste Differenz: untere(a) − obere(b) = 7,65 − 4,95 = 2,7 kg."
+  },
+  {
+   "l": "summe",
+   "t": "summe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "a = 6,4 kg und b = 1,6 kg, beide auf 0,1 kg gerundet. Wie groß ist a + b mindestens (untere Schranke)?"
+   },
+   "o": {
+    "wert": 7.9,
+    "einheit": "kg"
+   },
+   "c": "6.35 + 1.55",
+   "w": "6,35 + 1,55 = 7,9 kg."
+  },
+  {
+   "l": "summe",
+   "t": "summe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "a = 410 m und b = 300 m, beide auf 10 m gerundet. Wie groß kann a + b höchstens sein (obere Schranke)?"
+   },
+   "o": {
+    "wert": 720,
+    "einheit": "m"
+   },
+   "c": "415.0 + 305.0",
+   "w": "415 + 305 = 720 m."
+  },
+  {
+   "l": "summe",
+   "t": "summe",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "a = 75 cm und b = 38 cm, beide auf ganze cm gerundet. Wie groß ist die untere Schranke von a − b?"
+   },
+   "o": {
+    "wert": 36,
+    "einheit": "cm"
+   },
+   "c": "74.5 - 38.5",
+   "w": "Kleinste Differenz: untere(a) − obere(b) = 74,5 − 38,5 = 36 cm."
+  },
+  {
+   "l": "produkt",
+   "t": "produkt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 11 cm lang und 11 cm breit (auf ganze cm gerundet). Wie groß ist die obere Schranke der Fläche?"
+   },
+   "o": {
+    "wert": 132.25,
+    "einheit": "cm²"
+   },
+   "c": "11.5 * 11.5",
+   "w": "A = 11,5 · 11,5 = 132,25 cm².",
+   "h": "Obere · obere Schranke."
+  },
+  {
+   "l": "produkt",
+   "t": "produkt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 9 cm lang und 3 cm breit (auf ganze cm gerundet). Wie groß ist die untere Schranke der Fläche?"
+   },
+   "o": {
+    "wert": 21.25,
+    "einheit": "cm²"
+   },
+   "c": "8.5 * 2.5",
+   "w": "A = 8,5 · 2,5 = 21,25 cm².",
+   "h": "Untere · untere Schranke."
+  },
+  {
+   "l": "produkt",
+   "t": "produkt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 20 cm lang und 14 cm breit (auf ganze cm gerundet). Wie groß ist die obere Schranke der Fläche?"
+   },
+   "o": {
+    "wert": 297.25,
+    "einheit": "cm²"
+   },
+   "c": "20.5 * 14.5",
+   "w": "A = 20,5 · 14,5 = 297,25 cm².",
+   "h": "Obere · obere Schranke."
+  },
+  {
+   "l": "produkt",
+   "t": "produkt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 15 cm lang und 15 cm breit (auf ganze cm gerundet). Wie groß ist die obere Schranke der Fläche?"
+   },
+   "o": {
+    "wert": 240.25,
+    "einheit": "cm²"
+   },
+   "c": "15.5 * 15.5",
+   "w": "A = 15,5 · 15,5 = 240,25 cm².",
+   "h": "Obere · obere Schranke."
+  },
+  {
+   "l": "produkt",
+   "t": "produkt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 5 cm lang und 12 cm breit (auf ganze cm gerundet). Wie groß ist die obere Schranke der Fläche?"
+   },
+   "o": {
+    "wert": 68.75,
+    "einheit": "cm²"
+   },
+   "c": "5.5 * 12.5",
+   "w": "A = 5,5 · 12,5 = 68,75 cm².",
+   "h": "Obere · obere Schranke."
+  },
+  {
+   "l": "produkt",
+   "t": "produkt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 9 cm lang und 10 cm breit (auf ganze cm gerundet). Wie groß ist die untere Schranke der Fläche?"
+   },
+   "o": {
+    "wert": 80.75,
+    "einheit": "cm²"
+   },
+   "c": "8.5 * 9.5",
+   "w": "A = 8,5 · 9,5 = 80,75 cm².",
+   "h": "Untere · untere Schranke."
+  },
+  {
+   "l": "produkt",
+   "t": "produkt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Läufer legt 200 m in 40 s zurück (beides auf ganze Einheiten gerundet). Berechne die untere Schranke seiner Geschwindigkeit in m/s (auf zwei Nachkommastellen)."
+   },
+   "o": {
+    "wert": 4.93,
+    "einheit": "m/s",
+    "toleranz": 0.01
+   },
+   "c": "round(199.5 / 40.5, 2)",
+   "w": "Kleinste Geschwindigkeit: untere Strecke : obere Zeit = 199,5 : 40,5 ≈ 4,93 m/s.",
+   "h": "Bei einem Quotienten: Für das Maximum durch die kleinste Zahl teilen."
+  },
+  {
+   "l": "produkt",
+   "t": "produkt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Läufer legt 300 m in 25 s zurück (beides auf ganze Einheiten gerundet). Berechne die untere Schranke seiner Geschwindigkeit in m/s (auf zwei Nachkommastellen)."
+   },
+   "o": {
+    "wert": 11.75,
+    "einheit": "m/s",
+    "toleranz": 0.01
+   },
+   "c": "round(299.5 / 25.5, 2)",
+   "w": "Kleinste Geschwindigkeit: untere Strecke : obere Zeit = 299,5 : 25,5 ≈ 11,75 m/s.",
+   "h": "Bei einem Quotienten: Für das Maximum durch die kleinste Zahl teilen."
+  },
+  {
+   "l": "produkt",
+   "t": "produkt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 7 cm lang und 13 cm breit (auf ganze cm gerundet). Wie groß ist die untere Schranke der Fläche?"
+   },
+   "o": {
+    "wert": 81.25,
+    "einheit": "cm²"
+   },
+   "c": "6.5 * 12.5",
+   "w": "A = 6,5 · 12,5 = 81,25 cm².",
+   "h": "Untere · untere Schranke."
+  },
+  {
+   "l": "produkt",
+   "t": "produkt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Läufer legt 400 m in 80 s zurück (beides auf ganze Einheiten gerundet). Berechne die untere Schranke seiner Geschwindigkeit in m/s (auf zwei Nachkommastellen)."
+   },
+   "o": {
+    "wert": 4.96,
+    "einheit": "m/s",
+    "toleranz": 0.01
+   },
+   "c": "round(399.5 / 80.5, 2)",
+   "w": "Kleinste Geschwindigkeit: untere Strecke : obere Zeit = 399,5 : 80,5 ≈ 4,96 m/s.",
+   "h": "Bei einem Quotienten: Für das Maximum durch die kleinste Zahl teilen."
+  },
+  {
+   "l": "produkt",
+   "t": "produkt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 14 cm lang und 14 cm breit (auf ganze cm gerundet). Wie groß ist die obere Schranke der Fläche?"
+   },
+   "o": {
+    "wert": 210.25,
+    "einheit": "cm²"
+   },
+   "c": "14.5 * 14.5",
+   "w": "A = 14,5 · 14,5 = 210,25 cm².",
+   "h": "Obere · obere Schranke."
+  },
+  {
+   "l": "produkt",
+   "t": "produkt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 9 cm lang und 5 cm breit (auf ganze cm gerundet). Wie groß ist die obere Schranke der Fläche?"
+   },
+   "o": {
+    "wert": 52.25,
+    "einheit": "cm²"
+   },
+   "c": "9.5 * 5.5",
+   "w": "A = 9,5 · 5,5 = 52,25 cm².",
+   "h": "Obere · obere Schranke."
+  },
+  {
+   "l": "produkt",
+   "t": "produkt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Läufer legt 120 m in 50 s zurück (beides auf ganze Einheiten gerundet). Berechne die obere Schranke seiner Geschwindigkeit in m/s (auf zwei Nachkommastellen)."
+   },
+   "o": {
+    "wert": 2.43,
+    "einheit": "m/s",
+    "toleranz": 0.01
+   },
+   "c": "round(120.5 / 49.5, 2)",
+   "w": "Größte Geschwindigkeit: obere Strecke : untere Zeit = 120,5 : 49,5 ≈ 2,43 m/s.",
+   "h": "Bei einem Quotienten: Für das Maximum durch die kleinste Zahl teilen."
+  },
+  {
+   "l": "produkt",
+   "t": "produkt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 4 cm × 12 cm × 3 cm groß (auf ganze cm gerundet). Wie groß ist die obere Schranke des Volumens (in cm³)?"
+   },
+   "o": {
+    "wert": 196.875,
+    "einheit": "cm³"
+   },
+   "c": "4.5 * 12.5 * 3.5",
+   "w": "V = 4,5 · 12,5 · 3,5 = 196,875 cm³.",
+   "h": "Alle drei oberen Schranken multiplizieren."
+  },
+  {
+   "l": "produkt",
+   "t": "produkt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 4 cm × 15 cm × 4 cm groß (auf ganze cm gerundet). Wie groß ist die obere Schranke des Volumens (in cm³)?"
+   },
+   "o": {
+    "wert": 313.875,
+    "einheit": "cm³"
+   },
+   "c": "4.5 * 15.5 * 4.5",
+   "w": "V = 4,5 · 15,5 · 4,5 = 313,875 cm³.",
+   "h": "Alle drei oberen Schranken multiplizieren."
+  },
+  {
+   "l": "produkt",
+   "t": "produkt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "In einem Behälter sind 2 000 ml Saft (auf 10 ml gerundet). Ein Glas fasst 200 ml (auf 10 ml gerundet). Wie viele Gläser kann man auf jeden Fall vollständig füllen?"
+   },
+   "o": {
+    "wert": 9
+   },
+   "c": "1995 // 205",
+   "w": "Ungünstigster Fall: wenig Saft (1 995 ml), große Gläser (205 ml). 1 995 : 205 ≈ 9,73 → sicher 9 volle Gläser.",
+   "h": "Rechne mit der kleinsten Saftmenge und dem größten Glas."
+  },
+  {
+   "l": "produkt",
+   "t": "produkt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Läufer legt 100 m in 50 s zurück (beides auf ganze Einheiten gerundet). Berechne die untere Schranke seiner Geschwindigkeit in m/s (auf zwei Nachkommastellen)."
+   },
+   "o": {
+    "wert": 1.97,
+    "einheit": "m/s",
+    "toleranz": 0.01
+   },
+   "c": "round(99.5 / 50.5, 2)",
+   "w": "Kleinste Geschwindigkeit: untere Strecke : obere Zeit = 99,5 : 50,5 ≈ 1,97 m/s.",
+   "h": "Bei einem Quotienten: Für das Maximum durch die kleinste Zahl teilen."
+  },
+  {
+   "l": "produkt",
+   "t": "produkt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Quader ist 17 cm × 4 cm × 6 cm groß (auf ganze cm gerundet). Wie groß ist die obere Schranke des Volumens (in cm³)?"
+   },
+   "o": {
+    "wert": 511.875,
+    "einheit": "cm³"
+   },
+   "c": "17.5 * 4.5 * 6.5",
+   "w": "V = 17,5 · 4,5 · 6,5 = 511,875 cm³.",
+   "h": "Alle drei oberen Schranken multiplizieren."
+  },
+  {
+   "l": "produkt",
+   "t": "produkt",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 18 cm lang und 4 cm breit (auf ganze cm gerundet). Wie groß ist die obere Schranke der Fläche?"
+   },
+   "o": {
+    "wert": 83.25,
+    "einheit": "cm²"
+   },
+   "c": "18.5 * 4.5",
+   "w": "A = 18,5 · 4,5 = 83,25 cm²."
+  },
+  {
+   "l": "produkt",
+   "t": "produkt",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Läufer legt 400 m in 40 s zurück (beides auf ganze Einheiten gerundet). Berechne die untere Schranke seiner Geschwindigkeit in m/s (auf zwei Nachkommastellen)."
+   },
+   "o": {
+    "wert": 9.86,
+    "einheit": "m/s",
+    "toleranz": 0.01
+   },
+   "c": "round(399.5 / 40.5, 2)",
+   "w": "Kleinste Geschwindigkeit: untere Strecke : obere Zeit = 399,5 : 40,5 ≈ 9,86 m/s."
+  },
+  {
+   "l": "produkt",
+   "t": "produkt",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Läufer legt 120 m in 60 s zurück (beides auf ganze Einheiten gerundet). Berechne die obere Schranke seiner Geschwindigkeit in m/s (auf zwei Nachkommastellen)."
+   },
+   "o": {
+    "wert": 2.03,
+    "einheit": "m/s",
+    "toleranz": 0.01
+   },
+   "c": "round(120.5 / 59.5, 2)",
+   "w": "Größte Geschwindigkeit: obere Strecke : untere Zeit = 120,5 : 59,5 ≈ 2,03 m/s."
+  },
+  {
+   "l": "produkt",
+   "t": "produkt",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Läufer legt 200 m in 50 s zurück (beides auf ganze Einheiten gerundet). Berechne die obere Schranke seiner Geschwindigkeit in m/s (auf zwei Nachkommastellen)."
+   },
+   "o": {
+    "wert": 4.05,
+    "einheit": "m/s",
+    "toleranz": 0.01
+   },
+   "c": "round(200.5 / 49.5, 2)",
+   "w": "Größte Geschwindigkeit: obere Strecke : untere Zeit = 200,5 : 49,5 ≈ 4,05 m/s."
+  },
+  {
+   "l": "produkt",
+   "t": "produkt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 15 cm lang und 11 cm breit (auf ganze cm gerundet). Wie groß ist die obere Schranke der Fläche?"
+   },
+   "o": {
+    "wert": 178.25,
+    "einheit": "cm²"
+   },
+   "c": "15.5 * 11.5",
+   "w": "A = 15,5 · 11,5 = 178,25 cm²."
+  },
+  {
+   "l": "produkt",
+   "t": "produkt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 20 cm lang und 3 cm breit (auf ganze cm gerundet). Wie groß ist die untere Schranke der Fläche?"
+   },
+   "o": {
+    "wert": 48.75,
+    "einheit": "cm²"
+   },
+   "c": "19.5 * 2.5",
+   "w": "A = 19,5 · 2,5 = 48,75 cm²."
+  },
+  {
+   "l": "produkt",
+   "t": "produkt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Läufer legt 150 m in 10 s zurück (beides auf ganze Einheiten gerundet). Berechne die obere Schranke seiner Geschwindigkeit in m/s (auf zwei Nachkommastellen)."
+   },
+   "o": {
+    "wert": 15.84,
+    "einheit": "m/s",
+    "toleranz": 0.01
+   },
+   "c": "round(150.5 / 9.5, 2)",
+   "w": "Größte Geschwindigkeit: obere Strecke : untere Zeit = 150,5 : 9,5 ≈ 15,84 m/s."
+  },
+  {
+   "l": "produkt",
+   "t": "produkt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 15 cm lang und 13 cm breit (auf ganze cm gerundet). Wie groß ist die obere Schranke der Fläche?"
+   },
+   "o": {
+    "wert": 209.25,
+    "einheit": "cm²"
+   },
+   "c": "15.5 * 13.5",
+   "w": "A = 15,5 · 13,5 = 209,25 cm²."
+  },
+  {
+   "l": "produkt",
+   "t": "produkt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Läufer legt 150 m in 50 s zurück (beides auf ganze Einheiten gerundet). Berechne die untere Schranke seiner Geschwindigkeit in m/s (auf zwei Nachkommastellen)."
+   },
+   "o": {
+    "wert": 2.96,
+    "einheit": "m/s",
+    "toleranz": 0.01
+   },
+   "c": "round(149.5 / 50.5, 2)",
+   "w": "Kleinste Geschwindigkeit: untere Strecke : obere Zeit = 149,5 : 50,5 ≈ 2,96 m/s."
+  },
+  {
+   "l": "produkt",
+   "t": "produkt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein Rechteck ist 4 cm lang und 15 cm breit (auf ganze cm gerundet). Wie groß ist die untere Schranke der Fläche?"
+   },
+   "o": {
+    "wert": 50.75,
+    "einheit": "cm²"
+   },
+   "c": "3.5 * 14.5",
+   "w": "A = 3,5 · 14,5 = 50,75 cm²."
+  },
+  {
+   "l": "entscheiden",
+   "t": "entscheiden",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Schrank ist 117 cm breit, die Lücke in der Küche 119 cm (beide auf ganze cm gerundet). Passt der Schrank sicher hinein?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ungünstigster Fall: Schrank 117,5 cm, Lücke 118,5 cm. Passt sicher.",
+   "h": "Größtmöglicher Schrank gegen kleinstmögliche Lücke."
+  },
+  {
+   "l": "entscheiden",
+   "t": "entscheiden",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Schrank ist 101 cm breit, die Lücke in der Küche 101 cm (beide auf ganze cm gerundet). Passt der Schrank sicher hinein?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Ungünstigster Fall: Schrank 101,5 cm, Lücke 100,5 cm. Nicht sicher – es kann knapp nicht passen.",
+   "h": "Größtmöglicher Schrank gegen kleinstmögliche Lücke."
+  },
+  {
+   "l": "entscheiden",
+   "t": "entscheiden",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Schrank ist 64 cm breit, die Lücke in der Küche 66 cm (beide auf ganze cm gerundet). Passt der Schrank sicher hinein?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ungünstigster Fall: Schrank 64,5 cm, Lücke 65,5 cm. Passt sicher.",
+   "h": "Größtmöglicher Schrank gegen kleinstmögliche Lücke."
+  },
+  {
+   "l": "entscheiden",
+   "t": "entscheiden",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Aufzug darf höchstens 723 kg tragen. 9 Personen wiegen je 80 kg (auf ganze kg gerundet). Ist die Fahrt sicher erlaubt?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Ungünstigster Fall: 9 · 80,5 kg = 724,5 kg > 723 kg: nicht sicher erlaubt.",
+   "h": "Rechne mit der oberen Schranke des Gewichts."
+  },
+  {
+   "l": "entscheiden",
+   "t": "entscheiden",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Aufzug darf höchstens 566 kg tragen. 7 Personen wiegen je 79 kg (auf ganze kg gerundet). Ist die Fahrt sicher erlaubt?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ungünstigster Fall: 7 · 79,5 kg = 556,5 kg ≤ 566 kg: sicher erlaubt.",
+   "h": "Rechne mit der oberen Schranke des Gewichts."
+  },
+  {
+   "l": "entscheiden",
+   "t": "entscheiden",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Schrank ist 82 cm breit, die Lücke in der Küche 82 cm (beide auf ganze cm gerundet). Passt der Schrank sicher hinein?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Ungünstigster Fall: Schrank 82,5 cm, Lücke 81,5 cm. Nicht sicher – es kann knapp nicht passen.",
+   "h": "Größtmöglicher Schrank gegen kleinstmögliche Lücke."
+  },
+  {
+   "l": "entscheiden",
+   "t": "entscheiden",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Schrank ist 100 cm breit, die Lücke in der Küche 102 cm (beide auf ganze cm gerundet). Passt der Schrank sicher hinein?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ungünstigster Fall: Schrank 100,5 cm, Lücke 101,5 cm. Passt sicher.",
+   "h": "Größtmöglicher Schrank gegen kleinstmögliche Lücke."
+  },
+  {
+   "l": "entscheiden",
+   "t": "entscheiden",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "a = 34 cm, b = 13 cm (auf ganze cm gerundet). Jana berechnet die obere Schranke von a − b als 34,5 − 13,5 = 21. Stimmt das?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: richtig ist 34 − 13 = 21.",
+    "Falsch: richtig ist 34,5 − 12,5 = 22.",
+    "Falsch: richtig ist 33,5 − 12,5 = 21."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Für die größte Differenz zieht man möglichst wenig ab: die untere Schranke von b.",
+   "h": "Welche Schranke von b macht a − b am größten?"
+  },
+  {
+   "l": "entscheiden",
+   "t": "entscheiden",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Aufzug darf höchstens 761 kg tragen. 9 Personen wiegen je 83 kg (auf ganze kg gerundet). Ist die Fahrt sicher erlaubt?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ungünstigster Fall: 9 · 83,5 kg = 751,5 kg ≤ 761 kg: sicher erlaubt.",
+   "h": "Rechne mit der oberen Schranke des Gewichts."
+  },
+  {
+   "l": "entscheiden",
+   "t": "entscheiden",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Aufzug darf höchstens 601 kg tragen. 7 Personen wiegen je 85 kg (auf ganze kg gerundet). Ist die Fahrt sicher erlaubt?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ungünstigster Fall: 7 · 85,5 kg = 598,5 kg ≤ 601 kg: sicher erlaubt.",
+   "h": "Rechne mit der oberen Schranke des Gewichts."
+  },
+  {
+   "l": "entscheiden",
+   "t": "entscheiden",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Aufzug darf höchstens 766 kg tragen. 10 Personen wiegen je 76 kg (auf ganze kg gerundet). Ist die Fahrt sicher erlaubt?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ungünstigster Fall: 10 · 76,5 kg = 765 kg ≤ 766 kg: sicher erlaubt.",
+   "h": "Rechne mit der oberen Schranke des Gewichts."
+  },
+  {
+   "l": "entscheiden",
+   "t": "entscheiden",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Aufzug darf höchstens 517 kg tragen. 7 Personen wiegen je 72 kg (auf ganze kg gerundet). Ist die Fahrt sicher erlaubt?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ungünstigster Fall: 7 · 72,5 kg = 507,5 kg ≤ 517 kg: sicher erlaubt.",
+   "h": "Rechne mit der oberen Schranke des Gewichts."
+  },
+  {
+   "l": "entscheiden",
+   "t": "entscheiden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "a = 40 cm, b = 16 cm (auf ganze cm gerundet). Jana berechnet die obere Schranke von a − b als 40,5 − 16,5 = 24. Stimmt das?"
+   },
+   "a": [
+    "Falsch: richtig ist 40 − 16 = 24.",
+    "Falsch: richtig ist 39,5 − 15,5 = 24.",
+    "Richtig.",
+    "Falsch: richtig ist 40,5 − 15,5 = 25."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Für die größte Differenz zieht man möglichst wenig ab: die untere Schranke von b.",
+   "h": "Welche Schranke von b macht a − b am größten?"
+  },
+  {
+   "l": "entscheiden",
+   "t": "entscheiden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Aus einem 265 cm langen Brett sollen 8 Stücke von je 33 cm gesägt werden (alle Maße auf ganze cm gerundet, Sägeschnitte vernachlässigt). Reicht das Brett sicher?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Ungünstigster Fall: Brett 264,5 cm, Stücke 8 · 33,5 = 268 cm. Reicht nicht sicher.",
+   "h": "Kürzestes Brett gegen längste Stücke."
+  },
+  {
+   "l": "entscheiden",
+   "t": "entscheiden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Aufzug darf höchstens 844 kg tragen. 10 Personen wiegen je 84 kg (auf ganze kg gerundet). Ist die Fahrt sicher erlaubt?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Ungünstigster Fall: 10 · 84,5 kg = 845 kg > 844 kg: nicht sicher erlaubt.",
+   "h": "Rechne mit der oberen Schranke des Gewichts."
+  },
+  {
+   "l": "entscheiden",
+   "t": "entscheiden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Aufzug darf höchstens 741 kg tragen. 9 Personen wiegen je 82 kg (auf ganze kg gerundet). Ist die Fahrt sicher erlaubt?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Ungünstigster Fall: 9 · 82,5 kg = 742,5 kg > 741 kg: nicht sicher erlaubt.",
+   "h": "Rechne mit der oberen Schranke des Gewichts."
+  },
+  {
+   "l": "entscheiden",
+   "t": "entscheiden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Aufzug darf höchstens 520 kg tragen. 7 Personen wiegen je 74 kg (auf ganze kg gerundet). Ist die Fahrt sicher erlaubt?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Ungünstigster Fall: 7 · 74,5 kg = 521,5 kg > 520 kg: nicht sicher erlaubt.",
+   "h": "Rechne mit der oberen Schranke des Gewichts."
+  },
+  {
+   "l": "entscheiden",
+   "t": "entscheiden",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Aus einem 230 cm langen Brett sollen 6 Stücke von je 38 cm gesägt werden (alle Maße auf ganze cm gerundet, Sägeschnitte vernachlässigt). Reicht das Brett sicher?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Ungünstigster Fall: Brett 229,5 cm, Stücke 6 · 38,5 = 231 cm. Reicht nicht sicher.",
+   "h": "Kürzestes Brett gegen längste Stücke."
+  },
+  {
+   "l": "entscheiden",
+   "t": "entscheiden",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Schrank ist 80 cm breit, die Lücke in der Küche 80 cm (beide auf ganze cm gerundet). Passt der Schrank sicher hinein?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Ungünstigster Fall: Schrank 80,5 cm, Lücke 79,5 cm. Nicht sicher – es kann knapp nicht passen."
+  },
+  {
+   "l": "entscheiden",
+   "t": "entscheiden",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Schrank ist 111 cm breit, die Lücke in der Küche 111 cm (beide auf ganze cm gerundet). Passt der Schrank sicher hinein?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Ungünstigster Fall: Schrank 111,5 cm, Lücke 110,5 cm. Nicht sicher – es kann knapp nicht passen."
+  },
+  {
+   "l": "entscheiden",
+   "t": "entscheiden",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "a = 49 cm, b = 5 cm (auf ganze cm gerundet). Jana berechnet die obere Schranke von a − b als 49,5 − 5,5 = 44. Stimmt das?"
+   },
+   "a": [
+    "Falsch: richtig ist 48,5 − 4,5 = 44.",
+    "Falsch: richtig ist 49,5 − 4,5 = 45.",
+    "Richtig.",
+    "Falsch: richtig ist 49 − 5 = 44."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Für die größte Differenz zieht man möglichst wenig ab: die untere Schranke von b."
+  },
+  {
+   "l": "entscheiden",
+   "t": "entscheiden",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Schrank ist 115 cm breit, die Lücke in der Küche 115 cm (beide auf ganze cm gerundet). Passt der Schrank sicher hinein?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Ungünstigster Fall: Schrank 115,5 cm, Lücke 114,5 cm. Nicht sicher – es kann knapp nicht passen."
+  },
+  {
+   "l": "entscheiden",
+   "t": "entscheiden",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Schrank ist 60 cm breit, die Lücke in der Küche 60 cm (beide auf ganze cm gerundet). Passt der Schrank sicher hinein?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Ungünstigster Fall: Schrank 60,5 cm, Lücke 59,5 cm. Nicht sicher – es kann knapp nicht passen."
+  },
+  {
+   "l": "entscheiden",
+   "t": "entscheiden",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "a = 34 cm, b = 16 cm (auf ganze cm gerundet). Jana berechnet die obere Schranke von a − b als 34,5 − 16,5 = 18. Stimmt das?"
+   },
+   "a": [
+    "Falsch: richtig ist 34,5 − 15,5 = 19.",
+    "Falsch: richtig ist 34 − 16 = 18.",
+    "Richtig.",
+    "Falsch: richtig ist 33,5 − 15,5 = 18."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Für die größte Differenz zieht man möglichst wenig ab: die untere Schranke von b."
+  },
+  {
+   "l": "entscheiden",
+   "t": "entscheiden",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Aufzug darf höchstens 686 kg tragen. 8 Personen wiegen je 84 kg (auf ganze kg gerundet). Ist die Fahrt sicher erlaubt?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ungünstigster Fall: 8 · 84,5 kg = 676 kg ≤ 686 kg: sicher erlaubt."
+  },
+  {
+   "l": "entscheiden",
+   "t": "entscheiden",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Aufzug darf höchstens 603 kg tragen. 8 Personen wiegen je 75 kg (auf ganze kg gerundet). Ist die Fahrt sicher erlaubt?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Ungünstigster Fall: 8 · 75,5 kg = 604 kg > 603 kg: nicht sicher erlaubt."
+  },
+  {
+   "l": "entscheiden",
+   "t": "entscheiden",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Schrank ist 115 cm breit, die Lücke in der Küche 117 cm (beide auf ganze cm gerundet). Passt der Schrank sicher hinein?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ungünstigster Fall: Schrank 115,5 cm, Lücke 116,5 cm. Passt sicher."
+  },
+  {
+   "l": "entscheiden",
+   "t": "entscheiden",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Aufzug darf höchstens 865 kg tragen. 10 Personen wiegen je 85 kg (auf ganze kg gerundet). Ist die Fahrt sicher erlaubt?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das lässt sich nicht entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ungünstigster Fall: 10 · 85,5 kg = 855 kg ≤ 865 kg: sicher erlaubt."
+  }
+ ],
+ "offen": [
+  "Ohne Lehrplan-Zuordnung (IB-typischer Stoff „upper and lower bounds“); Niveau Klasse 9/10 angenommen. Nur positive Größen; bei Quotienten Ergebnis auf zwei Nachkommastellen mit Toleranz 0,01.",
+  "Lernkarte „grenzen“: Fehlerbereich als Strecke im Koordinatensystem (untere Schranke voller, obere hohler Punkt) – ein Zahlenstrahl mit markiertem Bereich wäre schöner (App-Wunsch).",
+  "Feld klasse: {\"zusatz\": 10} statt {} (Prüfskript verlangt einen Eintrag) – siehe FRAGE im Postfach."
+ ]
+}

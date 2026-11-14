@@ -35,7 +35,8 @@ Regeln:
 - Keine Datenbank, keine Serverfunktionen, kein App-Code, kein Merge nach main. Nur Dateien unter inhalte/.
 - Keine Schulbuchaufgaben abschreiben. Lösungen immer vom Programm berechnen lassen.
 - Braucht eine Lernkarte eine Zeichnung, die die App nicht kann: nicht erfinden, sondern im Feld "offen" der Datei notieren.
-- Arbeite ohne Rückfragen durch. Triff bei Unklarheit die fachlich naheliegende Entscheidung und notiere sie unter "offen".
+- Meldungen (Status nach jedem Thema, Fragen, Blocker, Abschlussbericht) nach inhalte/postfach/README.md in inhalte/postfach/<zweig>.md ablegen und pushen.
+Arbeite ohne Rückfragen durch. Triff bei Unklarheit die fachlich naheliegende Entscheidung und notiere sie unter "offen".
 
 Am Ende: kurze Liste der fertigen Dateien mit Anzahl Lernkarten/Aufgaben und alle "offen"-Punkte.
 ```
@@ -73,7 +74,8 @@ Regeln:
 - Keine Datenbank, keine Serverfunktionen, kein App-Code, kein Merge nach main. Nur Dateien unter inhalte/.
 - Keine Schulbuchaufgaben abschreiben. Lösungen immer vom Programm berechnen lassen.
 - Braucht eine Lernkarte eine Zeichnung, die die App nicht kann: nicht erfinden, sondern im Feld "offen" der Datei notieren.
-- Arbeite ohne Rückfragen durch. Triff bei Unklarheit die fachlich naheliegende Entscheidung und notiere sie unter "offen".
+- Meldungen (Status nach jedem Thema, Fragen, Blocker, Abschlussbericht) nach inhalte/postfach/README.md in inhalte/postfach/<zweig>.md ablegen und pushen.
+Arbeite ohne Rückfragen durch. Triff bei Unklarheit die fachlich naheliegende Entscheidung und notiere sie unter "offen".
 
 Am Ende: kurze Liste der fertigen Dateien mit Anzahl Lernkarten/Aufgaben und alle "offen"-Punkte.
 ```
@@ -105,7 +107,8 @@ Regeln:
 - Keine Datenbank, keine Serverfunktionen, kein App-Code, kein Merge nach main. Nur Dateien unter inhalte/.
 - Keine Schulbuchaufgaben abschreiben. Lösungen immer vom Programm berechnen lassen.
 - Braucht eine Lernkarte eine Zeichnung, die die App nicht kann: nicht erfinden, sondern im Feld "offen" der Datei notieren.
-- Arbeite ohne Rückfragen durch. Triff bei Unklarheit die fachlich naheliegende Entscheidung und notiere sie unter "offen".
+- Meldungen (Status nach jedem Thema, Fragen, Blocker, Abschlussbericht) nach inhalte/postfach/README.md in inhalte/postfach/<zweig>.md ablegen und pushen.
+Arbeite ohne Rückfragen durch. Triff bei Unklarheit die fachlich naheliegende Entscheidung und notiere sie unter "offen".
 
 Am Ende: kurze Liste der fertigen Dateien mit Anzahl Lernkarten/Aufgaben und alle "offen"-Punkte.
 ```
@@ -143,7 +146,8 @@ Regeln:
 - Keine Datenbank, keine Serverfunktionen, kein App-Code, kein Merge nach main. Nur Dateien unter inhalte/.
 - Keine Schulbuchaufgaben abschreiben. Lösungen immer vom Programm berechnen lassen.
 - Braucht eine Lernkarte eine Zeichnung, die die App nicht kann: nicht erfinden, sondern im Feld "offen" der Datei notieren.
-- Arbeite ohne Rückfragen durch. Triff bei Unklarheit die fachlich naheliegende Entscheidung und notiere sie unter "offen".
+- Meldungen (Status nach jedem Thema, Fragen, Blocker, Abschlussbericht) nach inhalte/postfach/README.md in inhalte/postfach/<zweig>.md ablegen und pushen.
+Arbeite ohne Rückfragen durch. Triff bei Unklarheit die fachlich naheliegende Entscheidung und notiere sie unter "offen".
 
 Am Ende: kurze Liste der fertigen Dateien mit Anzahl Lernkarten/Aufgaben und alle "offen"-Punkte.
 ```
@@ -183,7 +187,8 @@ Regeln:
 - Keine Datenbank, keine Serverfunktionen, kein App-Code, kein Merge nach main. Nur Dateien unter inhalte/.
 - Keine Schulbuchaufgaben abschreiben. Lösungen immer vom Programm berechnen lassen.
 - Braucht eine Lernkarte eine Zeichnung, die die App nicht kann: nicht erfinden, sondern im Feld "offen" der Datei notieren.
-- Arbeite ohne Rückfragen durch. Triff bei Unklarheit die fachlich naheliegende Entscheidung und notiere sie unter "offen".
+- Meldungen (Status nach jedem Thema, Fragen, Blocker, Abschlussbericht) nach inhalte/postfach/README.md in inhalte/postfach/<zweig>.md ablegen und pushen.
+Arbeite ohne Rückfragen durch. Triff bei Unklarheit die fachlich naheliegende Entscheidung und notiere sie unter "offen".
 
 Am Ende: kurze Liste der fertigen Dateien mit Anzahl Lernkarten/Aufgaben und alle "offen"-Punkte.
 ```
@@ -215,7 +220,8 @@ Regeln:
 - Keine Datenbank, keine Serverfunktionen, kein App-Code, kein Merge nach main. Nur Dateien unter inhalte/.
 - Keine Schulbuchaufgaben abschreiben. Lösungen immer vom Programm berechnen lassen.
 - Braucht eine Lernkarte eine Zeichnung, die die App nicht kann: nicht erfinden, sondern im Feld "offen" der Datei notieren.
-- Arbeite ohne Rückfragen durch. Triff bei Unklarheit die fachlich naheliegende Entscheidung und notiere sie unter "offen".
+- Meldungen (Status nach jedem Thema, Fragen, Blocker, Abschlussbericht) nach inhalte/postfach/README.md in inhalte/postfach/<zweig>.md ablegen und pushen.
+Arbeite ohne Rückfragen durch. Triff bei Unklarheit die fachlich naheliegende Entscheidung und notiere sie unter "offen".
 
 Am Ende: kurze Liste der fertigen Dateien mit Anzahl Lernkarten/Aufgaben und alle "offen"-Punkte.
 ```
@@ -248,7 +254,8 @@ Regeln:
 - Keine Datenbank, keine Serverfunktionen, kein App-Code, kein Merge nach main. Nur Dateien unter inhalte/.
 - Keine Schulbuchaufgaben abschreiben. Lösungen immer vom Programm berechnen lassen.
 - Braucht eine Lernkarte eine Zeichnung, die die App nicht kann: nicht erfinden, sondern im Feld "offen" der Datei notieren.
-- Arbeite ohne Rückfragen durch. Triff bei Unklarheit die fachlich naheliegende Entscheidung und notiere sie unter "offen".
+- Meldungen (Status nach jedem Thema, Fragen, Blocker, Abschlussbericht) nach inhalte/postfach/README.md in inhalte/postfach/<zweig>.md ablegen und pushen.
+Arbeite ohne Rückfragen durch. Triff bei Unklarheit die fachlich naheliegende Entscheidung und notiere sie unter "offen".
 
 Am Ende: kurze Liste der fertigen Dateien mit Anzahl Lernkarten/Aufgaben und alle "offen"-Punkte.
 ```
@@ -291,6 +298,7 @@ Für jedes Thema, zu dem Prüfdateien vorliegen (inhalte/pruefung/erklaerungen/<
 Themen ohne Prüfdateien überspringen und am Ende nennen.
 
 Verboten: Dateien unter inhalte/pruefung/ ändern, Datenbank, Serverfunktionen, App-Code, Tests, Merge nach main.
+Meldungen (Status nach jedem Thema, Fragen, Blocker, Abschlussbericht) nach inhalte/postfach/README.md in inhalte/postfach/<zweig>.md ablegen und pushen.
 Arbeite ohne Rückfragen durch. Am Ende: je Thema umgesetzte/abgelehnte Punkte, neue Lernkarten, Zahl der Bilder, verbleibende offen-Punkte.
 ```
 
@@ -323,6 +331,7 @@ Für jedes Thema, zu dem Prüfdateien vorliegen (inhalte/pruefung/erklaerungen/<
 Themen ohne Prüfdateien überspringen und am Ende nennen.
 
 Verboten: Dateien unter inhalte/pruefung/ ändern, Datenbank, Serverfunktionen, App-Code, Tests, Merge nach main.
+Meldungen (Status nach jedem Thema, Fragen, Blocker, Abschlussbericht) nach inhalte/postfach/README.md in inhalte/postfach/<zweig>.md ablegen und pushen.
 Arbeite ohne Rückfragen durch. Am Ende: je Thema umgesetzte/abgelehnte Punkte, neue Lernkarten, Zahl der Bilder, verbleibende offen-Punkte.
 ```
 
@@ -355,6 +364,7 @@ Für jedes Thema, zu dem Prüfdateien vorliegen (inhalte/pruefung/erklaerungen/<
 Themen ohne Prüfdateien überspringen und am Ende nennen.
 
 Verboten: Dateien unter inhalte/pruefung/ ändern, Datenbank, Serverfunktionen, App-Code, Tests, Merge nach main.
+Meldungen (Status nach jedem Thema, Fragen, Blocker, Abschlussbericht) nach inhalte/postfach/README.md in inhalte/postfach/<zweig>.md ablegen und pushen.
 Arbeite ohne Rückfragen durch. Am Ende: je Thema umgesetzte/abgelehnte Punkte, neue Lernkarten, Zahl der Bilder, verbleibende offen-Punkte.
 ```
 
@@ -387,6 +397,7 @@ Für jedes Thema, zu dem Prüfdateien vorliegen (inhalte/pruefung/erklaerungen/<
 Themen ohne Prüfdateien überspringen und am Ende nennen.
 
 Verboten: Dateien unter inhalte/pruefung/ ändern, Datenbank, Serverfunktionen, App-Code, Tests, Merge nach main.
+Meldungen (Status nach jedem Thema, Fragen, Blocker, Abschlussbericht) nach inhalte/postfach/README.md in inhalte/postfach/<zweig>.md ablegen und pushen.
 Arbeite ohne Rückfragen durch. Am Ende: je Thema umgesetzte/abgelehnte Punkte, neue Lernkarten, Zahl der Bilder, verbleibende offen-Punkte.
 ```
 
@@ -419,6 +430,7 @@ Für jedes Thema, zu dem Prüfdateien vorliegen (inhalte/pruefung/erklaerungen/<
 Themen ohne Prüfdateien überspringen und am Ende nennen.
 
 Verboten: Dateien unter inhalte/pruefung/ ändern, Datenbank, Serverfunktionen, App-Code, Tests, Merge nach main.
+Meldungen (Status nach jedem Thema, Fragen, Blocker, Abschlussbericht) nach inhalte/postfach/README.md in inhalte/postfach/<zweig>.md ablegen und pushen.
 Arbeite ohne Rückfragen durch. Am Ende: je Thema umgesetzte/abgelehnte Punkte, neue Lernkarten, Zahl der Bilder, verbleibende offen-Punkte.
 ```
 
@@ -451,6 +463,7 @@ Für jedes Thema, zu dem Prüfdateien vorliegen (inhalte/pruefung/erklaerungen/<
 Themen ohne Prüfdateien überspringen und am Ende nennen.
 
 Verboten: Dateien unter inhalte/pruefung/ ändern, Datenbank, Serverfunktionen, App-Code, Tests, Merge nach main.
+Meldungen (Status nach jedem Thema, Fragen, Blocker, Abschlussbericht) nach inhalte/postfach/README.md in inhalte/postfach/<zweig>.md ablegen und pushen.
 Arbeite ohne Rückfragen durch. Am Ende: je Thema umgesetzte/abgelehnte Punkte, neue Lernkarten, Zahl der Bilder, verbleibende offen-Punkte.
 ```
 

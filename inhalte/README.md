@@ -112,3 +112,7 @@ Die App zeichnet jetzt selbst. Dasselbe Objekt geht als `bild` in einer Lernkart
 - **Baumdiagramm** `{"typ": "baum", "aeste": [{"text": "rot", "p": "3/5", "aeste": [{"text": "rot", "p": "2/4"}, {"text": "blau", "p": "2/4"}]}, …]}` – bis zu drei Stufen, höchstens etwa 8 Blätter; `p` (Wahrscheinlichkeit am Ast) ist optional, „?“ für Gesuchtes.
 
 Noch nicht möglich: Schrägbilder und Netze von Körpern, Flächen zum Färben, Zeichnen durch das Kind. Weiter unter `offen` notieren.
+
+## Meldungen an den Haupt-Chat
+
+Status, Fragen, Blocker und der Abschlussbericht gehören zusätzlich in `inhalte/postfach/<name-des-zweigs>.md` (Format und Regeln: `inhalte/postfach/README.md`). So muss niemand Berichte von Hand weiterreichen.

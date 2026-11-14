@@ -156,3 +156,7 @@ Rahmen: Die App ist eine Web-App (HTML/CSS/JS ohne Framework), läuft auf Handy,
 - Fakten von Meinungen trennen: Rechen- und Fachfehler als solche benennen; Geschmacksfragen als Vorschlag.
 - Keine Schulbuchtexte abschreiben. Keine Namen realer Personen.
 - Am Ende eine kurze Zusammenfassung im Chat: wie viele Themen geprüft, die 10 wichtigsten Befunde.
+
+## Meldungen an den Haupt-Chat
+
+Status, Fragen, Blocker und der Abschlussbericht gehören zusätzlich in `inhalte/postfach/<name-des-zweigs>.md` (Format und Regeln: `inhalte/postfach/README.md`). So muss niemand Berichte von Hand weiterreichen.

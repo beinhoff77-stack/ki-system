@@ -4,7 +4,7 @@
   "thema_hinweise": [
     "Reihenfolge: Laut inhalt.abschnitte steht „regel“ vor „zufallsziffern“, in inhalt.etappen ist es umgekehrt. Fachlich ist die Abschnitts-Reihenfolge besser: erst die Regel festlegen, dann mit Ziffern simulieren.",
     "Lehrplanbezug fehlt (lehrplan_gym leer) – vom Aufbau-Prüfer klären lassen.",
-    "Unter „offen“ steht, dass Monte-Carlo-Bilder fehlen. Mit dem Bildtyp „figur“ geht das: Hilfspunkte (Name mit _) werden als Punkte ohne Beschriftung gezeichnet. Ein Bild mit 40 Zufallspunkten im Quadrat mit Viertelkreis ist angegeben.",
+    "Unter „offen“ steht, dass Monte-Carlo-Bilder fehlen. Mit dem Bildtyp „figur“ geht das: Die Zufallspunkte werden als sehr kleine Kreise gezeichnet (kreise mit Koordinatenpaar als Mittelpunkt). Ein Bild mit 40 Zufallspunkten im Quadrat mit Viertelkreis ist angegeben.",
     "Hinweis an die Aufgaben-Prüfung (Fakt): In „zufallsziffern“ gibt es den Text „Ziffern 0 bis 0 sind Treffer“ – besser „nur die Ziffer 0 ist Treffer“."
   ],
   "karten": [

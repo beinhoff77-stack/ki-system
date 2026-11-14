@@ -61,10 +61,15 @@ ETAPPEN = [
      'fehler': 'Ortslinien bestehen meist aus ⟦unendlich vielen⟧ Punkten. Erst durch eine zweite Bedingung bleiben oft nur einzelne Punkte übrig.'},
 ]
 
+PRUEFUNG = pruefung_erklaerungen(ETAPPEN, 'geometrie.ortslinien')   # verknuepfen: Bild Kreis mit Parallelenpaar
+
 MERKE = ['Abstand r zu M: Kreislinie. Höchstens r: Kreisfläche.', 'Abstand d zu g: zwei Parallelen. Höchstens d: Streifen.',
          'Zwei Bedingungen mit „und“: Schnittpunkte der Ortslinien.', 'Kreise um A und B: [AB] > r₁ + r₂ keiner, = genau einer, sonst meist zwei.']
 
 LAGEN = ['innerhalb des Kreises', 'auf der Kreislinie', 'außerhalb des Kreises']
+
+
+ZAEHL = {'lage': 0, 'luecke': 0}
 
 
 def lage(d, r): return LAGEN[0] if d < r else LAGEN[1] if d == r else LAGEN[2]
@@ -74,13 +79,13 @@ def lage(d, r): return LAGEN[0] if d < r else LAGEN[1] if d == r else LAGEN[2]
 def g_kreis(st):
     if st == 1:
         r = R.randint(2, 9)
-        d = R.choice([r, R.randint(1, r - 1) if r > 1 else r, r + R.randint(1, 4)])
+        d = [R.randint(1, r - 1), r, r + R.randint(1, 4)][ZAEHL['lage'] % 3]; ZAEHL['lage'] += 1     # je ein Drittel innen/auf/außen (Prüfung)
         l = lage(d, r)
         return {**wahl(R, l, [x for x in LAGEN if x != l]), 'f': {'text': f'Ein Kreis um M hat den Radius {r} cm. Der Punkt P ist {d} cm von M entfernt. Wo liegt P?'},
                 'w': f'{d} cm {"<" if d < r else "=" if d == r else ">"} {r} cm: P liegt {l}.', 'h': 'Vergleiche den Abstand zu M mit dem Radius.'}
     if st == 2:
         mx, my, r = R.randint(-3, 3), R.randint(-3, 3), R.randint(2, 5)
-        k = R.choice([-1, 1]) * R.randint(1, r + 2)
+        k = R.choice([-1, 1]) * ([R.randint(1, r - 1), r, R.randint(r + 1, r + 2)][ZAEHL['lage'] % 3]); ZAEHL['lage'] += 1
         senk = R.random() < .5
         px, py = (mx, my + k) if senk else (mx + k, my)
         l = lage(abs(k), r)
@@ -117,7 +122,13 @@ def g_par(st):
                 'f': {'text': f'g ist die waagrechte Gerade y = {zt(c)}. Der Streifen enthält alle Punkte mit höchstens {d} Abstand zu g. Wo liegt P{p(x, y)}?',
                       'grafik': {'typ': 'koordinaten', 'x': [-6, 6], 'y': [min(c - d, y) - 1, max(c + d, y) + 1], 'waagrecht': [c, c - d, c + d], 'punkte': [{'x': x, 'y': y, 'name': 'P'}]}},
                 'w': f'Abstand von P zu g: |{zt(y)} − {kl(c)}| = {a}. Vergleich mit {d}: {l}.', 'h': 'Berechne den Abstand von P zu g (Unterschied der y-Koordinaten).'}
-    art = R.randrange(2)
+    art = R.randrange(3)
+    if art == 2:          # Mittelparallele (Prüfung)
+        c1 = R.randint(-6, 2); c2 = c1 + 2 * R.randint(2, 5)
+        m = (c1 + c2) // 2
+        return luecke([m], f'g: y = {zt(c1)} und h: y = {zt(c2)} sind parallel. Welche Gerade enthält alle Punkte, die von g und h gleich weit entfernt sind?', 'y = □',
+                      'Trage den y-Wert ein.', [f'(({c1}) + ({c2})) / 2'], f'Die Mittelparallele liegt genau in der Mitte: ({zt(c1)} + {kl(c2)}) : 2 = {zt(m)}. Sie hat von g und h je {c2 - m} Abstand.',
+                      'Die gesuchte Gerade liegt genau in der Mitte zwischen g und h.')
     if art == 0:
         n = 2 * d + 1
         return {'y': 'zahl', 'f': {'text': f'g ist die waagrechte Gerade y = {zt(c)}. Wie viele Punkte mit ganzzahligen Koordinaten auf der senkrechten Linie x = 2 haben von g höchstens den Abstand {d}?'},
@@ -153,7 +164,16 @@ def g_zwei(st):
         r = 'zwei' if n == 2 else 'einen' if n == 1 else 'keinen'
         return {**wahl(R, r, [x for x in ['zwei', 'einen', 'keinen', 'unendlich viele'] if x != r]), 'f': {'text': f'Kreis um A mit r = {r1} cm und Kreis um B mit r = {r2} cm. [AB] = {e} cm. Wie viele Schnittpunkte haben die Kreise?'},
                 'w': f'{r1} + {r2} = {r1 + r2}, [AB] = {e}: ' + ('genau einen (Berührung).' if n == 1 else 'keinen.' if n == 0 else 'zwei.'), 'h': 'Vergleiche [AB] mit der Summe der Radien.'}
-    art = R.randrange(2)
+    art = R.randrange(3)
+    if art == 2:          # Kreis im Kreis (Prüfung)
+        rk = R.randint(5, 9); rs = R.randint(1, rk - 2)
+        e2 = R.randint(1, rk - rs - 1) if R.random() < .6 and rk - rs > 1 else rk - rs
+        n2 = anzahl(e2, rk, rs)
+        r = 'keinen' if n2 == 0 else 'einen'
+        return {**wahl_rund(R, r, [x for x in ['zwei', 'einen', 'keinen'] if x != r] + ['unendlich viele']),
+                'f': {'text': f'Kreis um A mit r = {rs} cm, Kreis um B mit r = {rk} cm, [AB] = {e2} cm. Wie viele Schnittpunkte haben die Kreise?'},
+                'w': f'Der kleine Kreis liegt im großen: {rk} − {rs} = {rk - rs} cm. ' + ('[AB] ist kleiner: Er liegt ganz innen, kein Schnittpunkt – obwohl [AB] kleiner als ' + str(rk + rs) + ' cm ist.' if n2 == 0 else '[AB] ist genau so groß: Er berührt den großen Kreis von innen, ein Punkt.'),
+                'h': 'Liegt ein Kreis im anderen? Vergleiche [AB] auch mit dem Unterschied der Radien.'}
     if art == 0:
         ax = R.randint(-4, 0)
         rr1, rr2 = R.randint(2, 5), R.randint(2, 5)
@@ -182,15 +202,16 @@ def g_verk(st):
         return {'y': 'zahl', 'f': {'text': f'Kreis um M mit r = {r} cm. Die Gerade g hat von M den Abstand {e} cm. Wie viele Punkte liegen auf dem Kreis und gleichzeitig auf g?',
                                    'grafik': fig_kreis(0, 0, r, gerade=e)}, 'o': {'wert': n1}, 'c': f'{n1}',
                 'w': f'{e} cm {"<" if e < r else "=" if e == r else ">"} {r} cm: ' + ('Sekante, 2 Punkte.' if n1 == 2 else 'Tangente, 1 Punkt.' if n1 == 1 else 'Passante, kein Punkt.'), 'h': 'Vergleiche den Abstand von M zu g mit r.'}
-    if st == 2:
-        return luecke(abst if abst[0] <= abst[1] else abst[::-1], f'M hat von g den Abstand {e} cm. Die beiden Parallelen zu g im Abstand {d} cm – welchen Abstand haben sie von M? (kleineren zuerst)',
+    if st == 2 and ZAEHL['luecke'] < 6:          # höchstens 6 dieser Lückenaufgaben (Prüfung)
+        ZAEHL['luecke'] += 1
+        return luecke(abst if abst[0] <= abst[1] else abst[::-1], f'M ist {e} cm von der Geraden g entfernt. Zwei Parallelen zu g haben von g jeweils den Abstand {d} cm. Wie weit sind die beiden Parallelen von M entfernt? (kleineren Wert zuerst)',
                       '□ cm und □ cm', 'Kleineren Abstand zuerst.', [f'abs({e} - {d})', f'{e} + {d}'], f'Eine Parallele liegt zwischen M und g oder jenseits: |{e} − {d}| = {abs(e - d)} cm. Die andere: {e} + {d} = {e + d} cm.',
                       'Eine Parallele liegt näher an M, die andere weiter weg.')
     fig = {'typ': 'figur', 'punkte': {'M': [0, 0], '_G1': [-r - 3, -e], '_G2': [r + 3, -e], '_P1': [-r - 3, -e + d], '_P2': [r + 3, -e + d], '_Q1': [-r - 3, -e - d], '_Q2': [r + 3, -e - d]},
            'kreise': [{'m': 'M', 'r': r}], 'linien': [['_G1', '_G2', 'g'], ['_P1', '_P2', '', 'gestrichelt'], ['_Q1', '_Q2', '', 'gestrichelt']]}
     return {'y': 'zahl', 'f': {'text': f'M hat von g den Abstand {e} cm. Wie viele Punkte haben von M den Abstand {r} cm und von g den Abstand {d} cm?', 'grafik': fig},
             'o': {'wert': n}, 'c': f'{n}', 'w': f'Die Parallelen haben von M den Abstand {abst[0]} cm und {abst[1]} cm. Mit r = {r} cm: ' +
-            ', '.join(f'{a} cm → {2 if a < r else 1 if a == r else 0}' for a in abst) + f'. Zusammen {n} Punkte.',
+            ', '.join(f'{a} cm → {2 if a < r else 1 if a == r else 0}' for a in abst) + f'. Zusammen {n} {"Punkt" if n == 1 else "Punkte"}.',
             'h': 'Bestimme die Abstände der beiden Parallelen von M und vergleiche jeweils mit r.'}
 
 
@@ -198,21 +219,36 @@ def g_verk(st):
 def g_sach(st):
     if st == 1:
         r = R.randint(2, 12)
-        d = R.choice([r - 1, r, r + 1, r + 2, max(1, r - 3)])
-        ding = R.choice([('Ein Rasensprenger erreicht alles bis', 'Ein Beet ist', 'vom Sprenger entfernt. Wird es gegossen?', 'm'),
-                         ('Ein Hund ist an einer Leine von', 'Sein Napf steht', 'vom Pflock entfernt. Erreicht der Hund den Napf?', 'm'),
-                         ('Ein Funkmast reicht', 'Ein Haus steht', 'vom Mast entfernt. Hat es Empfang?', 'km')])
+        d = R.choice([r - 1, r + 1, r + 2, max(1, r - 3)])          # nie genau auf der Grenze (Prüfung)
+        ding = R.choice([('Ein Rasensprenger erreicht alles bis', 'Ein Beet ist', 'vom Sprenger entfernt. Wird es gegossen?', 'm', 'Nur wenn der Sprenger doppelt so weit reicht wie der Abstand.'),
+                         ('Ein Hund ist an einer Leine von', 'Sein Napf steht', 'vom Pflock entfernt. Erreicht der Hund den Napf?', 'm', 'Nur wenn die Leine doppelt so lang ist wie der Abstand.'),
+                         ('Ein Funkmast reicht', 'Ein Haus steht', 'vom Mast entfernt. Hat das Haus Empfang?', 'km', 'Nur wenn der Mast doppelt so weit reicht wie der Abstand.')])
         ja = d <= r
         rr = 'Ja.' if ja else 'Nein.'
-        return {**wahl(R, rr, ['Nein.' if ja else 'Ja.', 'Nur wenn es in Richtung Norden liegt.'], 3),
+        return {**wahl_rund(R, rr, ['Nein.' if ja else 'Ja.', ding[4]], 3),
                 'f': {'text': f'{ding[0]} {r} {ding[3]}{" angebunden" if "Leine" in ding[0] else ""}. {ding[1]} {d} {ding[3]} {ding[2]}'},
                 'w': f'Erreichbar ist die Kreisfläche mit Radius {r} {ding[3]}. {d} {ding[3]} {"≤" if ja else ">"} {r} {ding[3]}: {rr}', 'h': 'Gilt Abstand ≤ Reichweite?'}
+    if st == 2 and R.random() < .5:
+        if R.random() < .5:
+            r = R.randint(2, 9)
+            return {'y': 'zahl', 'f': {'text': f'Ein Rasensprenger erreicht alles bis {r} m Entfernung. Wie breit ist die nasse Kreisfläche (Durchmesser)?'}, 'o': {'wert': 2 * r, 'einheit': 'm'},
+                    'c': f'2 * {r}', 'w': f'{r} m ist der Radius. Der Durchmesser ist doppelt so lang: 2 · {r} m = {2 * r} m.', 'h': 'Die Reichweite ist der Radius.'}
+        r = R.randint(2, 6); e = 2 * r + R.randint(1, 6)
+        return {'y': 'zahl', 'f': {'text': f'Zwei Rasensprenger stehen {e} m auseinander, jeder reicht {r} m weit. Wie lang ist auf der Verbindungslinie das Stück, das trocken bleibt?'},
+                'o': {'wert': e - 2 * r, 'einheit': 'm'}, 'c': f'{e} - 2 * {r}', 'w': f'Jeder Sprenger macht {r} m nass: zusammen {2 * r} m. Trocken bleiben {e} m − {2 * r} m = {e - 2 * r} m.',
+                'h': 'Zeichne die Verbindungslinie und markiere, wie weit jeder Sprenger reicht.'}
     if st == 2:
         b = R.randint(6, 20)
         s = R.randint(1, 4)
         return {'y': 'zahl', 'f': {'text': f'Eine Straße ist {b} m breit. Auf beiden Seiten soll ein Sicherheitsstreifen von {s} m frei bleiben. Wie breit ist der Bereich insgesamt, in dem nichts gebaut werden darf?'},
                 'o': {'wert': b + 2 * s, 'einheit': 'm'}, 'c': f'{b} + 2 * {s}', 'w': f'{s} m + {b} m + {s} m = {b + 2 * s} m.', 'h': 'Der Streifen liegt auf beiden Seiten.'}
-    art = R.randrange(2)
+    art = R.randrange(3)
+    if art == 2:          # Weide am Zaun (Prüfung)
+        l = R.randint(3, 8); pf = l + R.randint(1, 5)
+        tier = R.choice(['Eine Ziege', 'Ein Schaf', 'Ein Pony'])
+        return {'y': 'zahl', 'f': {'text': f'{tier} ist mit einer {l} m langen Leine an einem Pflock angebunden. Der Pflock steht {pf} m von einem geraden Zaun entfernt. Wie nah kommt das Tier an den Zaun heran?'},
+                'o': {'wert': pf - l, 'einheit': 'm'}, 'c': f'{pf} - {l}', 'w': f'Das Tier erreicht einen Kreis mit r = {l} m. Am nächsten am Zaun ist es senkrecht zum Zaun: {pf} m − {l} m = {pf - l} m.',
+                'h': 'Der kürzeste Weg zum Zaun ist senkrecht. Wie weit kommt das Tier auf diesem Weg?'}
     if art == 0:
         r, e = R.randint(2, 5), R.randint(1, 8)
         d = R.randint(1, 3)
@@ -230,26 +266,26 @@ def g_sach(st):
 
 
 # ---------- 6 Verstehen ----------
+# Prüfung: alle Antworten mit gleich gebauter Begründung
 def g_vers(st):
     r, d = R.randint(2, 7), R.randint(1, 5)
     if st == 1:
-        aussagen = [(f'Alle Punkte mit Abstand {r} cm von M liegen auf einem Kreis.', True, f'Ja, auf dem Kreis um M mit r = {r} cm.'),
-                    (f'Es gibt genau einen Punkt mit Abstand {d} cm von der Geraden g.', False, 'Nein, es sind unendlich viele – auf zwei Parallelen.'),
-                    (f'Ein Punkt mit Abstand {r} cm von M liegt innerhalb des Kreises mit r = {r} cm.', False, 'Nein, er liegt genau auf der Kreislinie.'),
-                    (f'Ein Punkt mit Abstand {r - 1 if r > 1 else 0} cm von M liegt innerhalb des Kreises mit r = {r} cm.', True, f'Ja, {r - 1} < {r}.')]
+        aussagen = [(f'Alle Punkte mit Abstand {r} cm von M liegen auf einem Kreis.', f'Ja, auf dem Kreis um M mit r = {r} cm.', ['Nein, sie liegen auf einer Geraden durch M.', f'Nein, sie liegen auf einem Kreis mit r = {2 * r} cm.']),
+                    (f'Es gibt genau einen Punkt mit Abstand {d} cm von der Geraden g.', 'Nein, es sind unendlich viele – auf zwei Parallelen zu g.', [f'Ja, nämlich den Punkt {d} cm senkrecht über g.', 'Nein, es sind genau zwei Punkte, einer auf jeder Seite.']),
+                    (f'Ein Punkt mit Abstand {r} cm von M liegt innerhalb des Kreises mit r = {r} cm.', 'Nein, er liegt genau auf der Kreislinie.', [f'Ja, {r} cm ist nicht mehr als {r} cm.', 'Nein, er liegt außerhalb des Kreises.']),
+                    (f'Ein Punkt mit Abstand {r - 1} cm von M liegt innerhalb des Kreises mit r = {r} cm.', f'Ja, {r - 1} cm < {r} cm.', [f'Nein, {r - 1} cm < {r} cm heißt außerhalb.', 'Nein, er liegt auf der Kreislinie.'])]
     elif st == 2:
-        aussagen = [(f'Die Punkte mit höchstens {d} cm Abstand von g bilden einen Streifen der Breite {2 * d} cm.', True, f'Ja, {d} cm auf jeder Seite: {2 * d} cm.'),
-                    (f'Die Punkte mit höchstens {d} cm Abstand von g bilden einen Streifen der Breite {d} cm.', False, f'Nein, der Streifen geht nach beiden Seiten: {2 * d} cm breit.'),
-                    (f'Zwei Kreise mit r = {r} cm, deren Mittelpunkte {2 * r} cm auseinander liegen, berühren sich.', True, f'Ja, {r} + {r} = {2 * r} cm.'),
-                    (f'Zwei Kreise mit r = {r} cm, deren Mittelpunkte {2 * r + 1} cm auseinander liegen, schneiden sich.', False, f'Nein, {2 * r + 1} > {2 * r}: Sie haben keinen gemeinsamen Punkt.')]
+        aussagen = [(f'Die Punkte mit höchstens {d} cm Abstand von g bilden einen Streifen der Breite {2 * d} cm.', f'Ja, {d} cm auf jeder Seite: {2 * d} cm.', [f'Nein, der Streifen ist nur {d} cm breit.', f'Nein, er ist {4 * d} cm breit.']),
+                    (f'Die Punkte mit höchstens {d} cm Abstand von g bilden einen Streifen der Breite {d} cm.', f'Nein, der Streifen geht nach beiden Seiten: {2 * d} cm breit.', [f'Ja, der Abstand {d} cm ist die Breite.', f'Nein, er ist {4 * d} cm breit.']),
+                    (f'Zwei Kreise mit r = {r} cm, deren Mittelpunkte {2 * r} cm auseinander liegen, berühren sich.', f'Ja, {r} cm + {r} cm = {2 * r} cm.', ['Nein, sie schneiden sich in zwei Punkten.', f'Nein, dafür müssten sie {r} cm auseinander liegen.']),
+                    (f'Zwei Kreise mit r = {r} cm, deren Mittelpunkte {2 * r + 1} cm auseinander liegen, schneiden sich.', f'Nein, {2 * r + 1} cm > {r} cm + {r} cm: kein gemeinsamer Punkt.', [f'Ja, {2 * r + 1} cm ist weniger als 3 · {r} cm.', 'Ja, zwei gleich große Kreise schneiden sich immer.'])]
     else:
-        aussagen = [('Ein Kreis und zwei Parallelen können zusammen 4 Schnittpunkte haben.', True, 'Ja, wenn beide Parallelen den Kreis schneiden (je 2 Punkte).'),
-                    ('Ein Kreis und zwei Parallelen können 5 Schnittpunkte haben.', False, 'Nein, jede Gerade schneidet einen Kreis höchstens zweimal: höchstens 4.'),
-                    ('Zwei Kreise können sich in drei Punkten schneiden.', False, 'Nein, zwei verschiedene Kreise haben höchstens 2 gemeinsame Punkte.'),
-                    (f'Ein Hund an einer {r} m langen Leine kann eine Kreisfläche mit Durchmesser {2 * r} m erreichen.', True, f'Ja, Radius {r} m, Durchmesser {2 * r} m.')]
-    s, stimmt, grund = R.choice(aussagen)
-    gegen = 'Ja, das stimmt.' if not stimmt else 'Nein, das ist falsch.'
-    return {**wahl(R, grund, [gegen, 'Das kann man nicht entscheiden.'], 3), 'f': {'text': f'Stimmt die Aussage? „{s}“'}, 'w': grund, 'h': 'Mach eine Skizze: Kreis für „Abstand zu M“, Parallelen für „Abstand zu g“.'}
+        aussagen = [('Ein Kreis und zwei Parallelen können zusammen 4 Schnittpunkte haben.', 'Ja, wenn beide Parallelen den Kreis schneiden (je 2 Punkte).', ['Nein, höchstens 2 Schnittpunkte.', 'Nein, höchstens 3 Schnittpunkte.']),
+                    ('Ein Kreis und zwei Parallelen können 5 Schnittpunkte haben.', 'Nein, jede Gerade schneidet einen Kreis höchstens zweimal: höchstens 4.', ['Ja, wenn der Kreis groß genug ist.', 'Ja, 2 + 2 + 1 = 5.']),
+                    ('Zwei Kreise können sich in drei Punkten schneiden.', 'Nein, zwei verschiedene Kreise haben höchstens 2 gemeinsame Punkte.', ['Ja, wenn sie sich stark überlappen.', 'Ja, wenn ein Kreis im anderen liegt.']),
+                    (f'Ein Hund an einer {r} m langen Leine kann eine Kreisfläche mit Durchmesser {2 * r} m erreichen.', f'Ja, Radius {r} m, also Durchmesser {2 * r} m.', [f'Nein, der Durchmesser ist {r} m.', f'Nein, der Durchmesser ist {4 * r} m.'])]
+    s_, grund, f = R.choice(aussagen)
+    return {**wahl_rund(R, grund, f, 3), 'f': {'text': f'Stimmt die Aussage? „{s_}“'}, 'w': grund, 'h': 'Mach eine Skizze: Kreis für „Abstand zu M“, Parallelen für „Abstand zu g“.'}
 
 
 GEN = {'kreislinie': g_kreis, 'parallelen': g_par, 'zwei_kreise': g_zwei, 'verknuepfen': g_verk, 'sachsituationen': g_sach, 'verstehen': g_vers}

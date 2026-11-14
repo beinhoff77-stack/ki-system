@@ -1,5 +1,9 @@
 # Postfach einarbeiten-kl5
 
+## 2026-11-14 16:30 – STATUS
+geometrie.ortslinien fertig: 17 Prüfpunkte umgesetzt, 0 abgelehnt. Neues Lernkarten-Bild in verknuepfen (Kreis mit Parallelenpaar). 6 Lernkarten / 168 Aufgaben, Prüfskript OK.
+Weiter mit messen.flaechen.
+
 ## 2026-11-14 16:10 – STATUS
 geometrie.winkel fertig: 19 Prüfpunkte umgesetzt, 0 abgelehnt. Uhr (Zifferblatt mit Zeigern) und Windrose jetzt als Figur in Lernkarten und Aufgaben; der offen-Punkt „Uhr/Windrose nicht zeichenbar“ ist gestrichen. 7 Lernkarten / 196 Aufgaben, Prüfskript OK.
 Weiter mit geometrie.ortslinien.

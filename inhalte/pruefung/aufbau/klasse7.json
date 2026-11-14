@@ -1,0 +1,128 @@
+{
+ "klasse": 7,
+ "reihenfolge": [
+  {
+   "thema_schluessel": "terme.aufstellen",
+   "position": 1,
+   "braucht_vorher": [
+    "zahlen.rechengesetze (Kl. 5: Termstruktur)",
+    "bruch.rechnen (Kl. 6)",
+    "terme.potenzgesetze (Kl. 6: negative Exponenten)"
+   ],
+   "begruendung": "Keine Datei. Variablen als Werkzeug, Termwerte, Wertetabellen (M7 1.1) – Grundlage der gesamten Algebra ab Kl. 7."
+  },
+  {
+   "thema_schluessel": "terme.umformen",
+   "position": 2,
+   "braucht_vorher": [
+    "terme.aufstellen"
+   ],
+   "begruendung": "NEU, fehlt in themenliste.json: zusammenfassen, ausmultiplizieren, ausklammern, Summen multiplizieren, binomische Formeln, Potenzgesetze mit natürlichen Exponenten (M7 1.2). Ohne dieses Thema fehlen die Grundlagen für terme.bruchterme (Kl. 8), gleichungen.quadratisch und zahlen.reell (Kl. 9)."
+  },
+  {
+   "thema_schluessel": "geometrie.symmetrie",
+   "position": 3,
+   "braucht_vorher": [
+    "geometrie.grundbegriffe (Kl. 5)"
+   ],
+   "begruendung": "Achsen- und punktsymmetrische Figuren, Grundkonstruktionen (M7 2.1). In themenliste.json verteilt auf abbildungen.kongruenz und geometrie.konstruktion – Vorschlag: eigenes Thema."
+  },
+  {
+   "thema_schluessel": "geometrie.winkel",
+   "position": 4,
+   "braucht_vorher": [
+    "geometrie.grundbegriffe (Kl. 5: Winkel messen)",
+    "geometrie.symmetrie"
+   ],
+   "begruendung": "Steht in themenliste.json fälschlich bei Kl. 5; gehört zu M7 2.2 (Scheitel-, Neben-, Stufen-, Wechselwinkel, Winkelsummen)."
+  },
+  {
+   "thema_schluessel": "gleichungen.linear",
+   "position": 5,
+   "braucht_vorher": [
+    "terme.umformen",
+    "Kl.-5-Umkehraufgaben (fehlen dort noch)"
+   ],
+   "begruendung": "NEU, fehlt in themenliste.json: lineare Gleichungen mit Äquivalenzumformungen (M7 3). Wird in fast jedem Kl.-8- und Kl.-9-Thema vorausgesetzt."
+  },
+  {
+   "thema_schluessel": "bruch.prozent_grundwert",
+   "position": 6,
+   "braucht_vorher": [
+    "bruch.prozent (Kl. 6)",
+    "gleichungen.linear"
+   ],
+   "begruendung": "Keine Datei. Komplexere Prozentaufgaben (M7 3) lassen sich mit Gleichungen elegant lösen."
+  },
+  {
+   "thema_schluessel": "daten.boxplot",
+   "position": 7,
+   "braucht_vorher": [
+    "daten.kennwerte (Kl. 6)"
+   ],
+   "begruendung": "Keine Datei. Median, Quartile, Boxplot (M7 4); Bild 'boxplot' ist möglich."
+  },
+  {
+   "thema_schluessel": "geometrie.konstruktion",
+   "position": 8,
+   "braucht_vorher": [
+    "geometrie.symmetrie",
+    "geometrie.winkel"
+   ],
+   "begruendung": "Keine Datei. Kongruenzsätze, besondere Dreiecke, Dreieckskonstruktionen, Satz und Kehrsatz (M7 5)."
+  },
+  {
+   "thema_schluessel": "geometrie.kreis",
+   "position": 9,
+   "braucht_vorher": [
+    "geometrie.konstruktion",
+    "geometrie.winkel (Basiswinkel, Winkelsumme)"
+   ],
+   "begruendung": "Keine Datei. Thales mit Beweis, Tangente, Umkreis/Inkreis (M7 5) – Beweis braucht Winkelsätze."
+  }
+ ],
+ "luecken": [
+  {
+   "was_fehlt": "Für Klasse 7 existiert keine einzige Themendatei. Alle Kl.-8- und Kl.-9-Themen setzen Kl.-7-Stoff voraus (Terme umformen, Gleichungen lösen, binomische Formeln, Winkelsätze, Konstruktionen).",
+   "lehrplan_bezug": "M7 1–5 (Fachlehrplan Gym. Bayern, Wortlaut am 14.11.2026 auf lehrplanplus.bayern.de geprüft)",
+   "wohin": "Paket Kl. 7 als nächstes bauen (vor weiteren Kl.-10-Themen).",
+   "dringlichkeit": "hoch"
+  },
+  {
+   "was_fehlt": "Lineare Gleichungen: Gleichungen aufstellen, mit Äquivalenzumformungen lösen, Probe, Lösung im Sachzusammenhang deuten. Fehlt in themenliste.json komplett. gleichungen.ungleichungen ('wie eine Gleichung'), gleichungen.formeln, funktionen.grundbegriffe ('stelle', 'nullstellen'), gleichungen.lgs2, gleichungen.bruch setzen es voraus.",
+   "lehrplan_bezug": "M7 3 (Fachlehrplan Gym. Bayern, Wortlaut am 14.11.2026 auf lehrplanplus.bayern.de geprüft)",
+   "wohin": "neues Thema gleichungen.linear (Kl. 7): aufstellen, waage_umformen, klammern, x_beide_seiten, probe, sonderfaelle (keine/alle Lösungen), sach.",
+   "dringlichkeit": "hoch"
+  },
+  {
+   "was_fehlt": "Terme umformen: gleichartige Terme zusammenfassen, Produkte vereinfachen, ausmultiplizieren, Summen multiplizieren, ausklammern, binomische Formeln, Potenzgesetze (natürliche Exponenten, auch Potenz einer Potenz). Fehlt in themenliste.json; nur terme.aufstellen ist geplant.",
+   "lehrplan_bezug": "M7 1.2 (Fachlehrplan Gym. Bayern, Wortlaut am 14.11.2026 auf lehrplanplus.bayern.de geprüft)",
+   "wohin": "neues Thema terme.umformen (Kl. 7); die Gesetze-Karten aus terme.potenzgesetze (Kl. 6) hierher verschieben.",
+   "dringlichkeit": "hoch"
+  },
+  {
+   "was_fehlt": "Grundkonstruktionen mit Zirkel und Lineal: Mittelsenkrechte, Lot, Winkelhalbierende; Abstandsprobleme mit Mittelsenkrechte und Kreis; symmetrische Vierecke ordnen.",
+   "lehrplan_bezug": "M7 2.1 (Fachlehrplan Gym. Bayern, Wortlaut am 14.11.2026 auf lehrplanplus.bayern.de geprüft)",
+   "wohin": "neues Thema geometrie.symmetrie oder als Teil von geometrie.konstruktion; Bild 'figur'. Konstruieren selbst kann die App nicht – Konstruktionsbeschreibungen ordnen und Ergebnisse prüfen lassen.",
+   "dringlichkeit": "mittel"
+  }
+ ],
+ "zu_viel": [
+  {
+   "thema_schluessel": "geometrie.kreis",
+   "lernziel": "Kreiswinkel (laut 'umfang')",
+   "warum": "Umfangs-/Mittelpunktswinkelsatz steht nicht im M7-Text (geprüft); dort nur Thales, Tangente, Umkreis, Inkreis. Weglassen oder als Vertiefung."
+  },
+  {
+   "thema_schluessel": "abbildungen.kongruenz",
+   "lernziel": "Verschiebung, Drehung, Parkettierungen (laut 'umfang')",
+   "warum": "M7 2.1 nennt nur achsen- und punktsymmetrische Figuren (geprüft). Verschiebung/Drehung/Parkette höchstens als Vertiefung."
+  },
+  {
+   "thema_schluessel": "geometrie.konstruktion",
+   "lernziel": "Ortslinien (laut 'umfang')",
+   "warum": "Doppelt mit geometrie.ortslinien (Kl. 5). In Kl. 7 nur Mittelsenkrechte/Kreis für Abstandsprobleme."
+  }
+ ],
+ "themen": []
+}

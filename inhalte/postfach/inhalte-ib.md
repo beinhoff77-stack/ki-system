@@ -2,6 +2,9 @@
 
 Neueste Meldung oben.
 
+## 2026-11-14 15:33 – STATUS
+10/14 sonder.optimierung fertig: 5 Lernkarten (Punkt im Bereich, Bedingungen aufstellen, Ecken, Eckenprinzip, Sachaufgaben), 140 Aufgaben, Randgeraden gezeichnet, Prüfskript OK. App-Wunsch (offen): zulässigen Bereich füllen.
+
 ## 2026-11-14 15:29 – STATUS
 9/14 sonder.graphentheorie fertig: 5 Lernkarten (Knoten/Kanten/Grad, Euler, kürzeste Wege, minimaler Spannbaum, Aussagen prüfen), 140 Aufgaben mit gezeichneten Graphen (figur), Prüfskript OK.
 

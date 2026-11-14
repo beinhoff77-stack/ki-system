@@ -3,7 +3,7 @@
    Schreibende Aktionen laufen nur nach einem Klick von Sebastian. */
 'use strict';
 
-const APP_VERSION = '0.60.3';
+const APP_VERSION = '0.61.0';
 const API = 'https://sdgzwxiqcijxfpcjpydw.supabase.co/functions/v1/app-api';
 // Serverfunktionen in der Datenbank-Region (Irland) ausführen: sonst läuft die Funktion nahe beim Gerät (z. B. Asien) und jede DB-Abfrage geht um die Welt (W155b, ~4 s statt ~0,3 s)
 const mitRegion = (u) => u + (u.includes('?') ? '&' : '?') + 'forceFunctionRegion=eu-west-1';
@@ -176,7 +176,7 @@ function parseHash() {
 window.addEventListener('hashchange', render);
 
 function setChrome(title, { back = false, showTabs = true, tab = null } = {}) {
-  const area = current.view === 'login' ? 'login' : current.view === 'start' ? 'start' : current.view === 'lernen' ? 'lernen' : ['suche', 'ergebnisse', 'viertel', 'anzeige', 'reisen', 'etappe', 'papierkorb', 'highlights'].includes(current.view) ? 'unterkunft' : 'council';
+  const area = current.view === 'login' ? 'login' : current.view === 'start' ? 'start' : ['lernen', 'lerneinheit'].includes(current.view) ? 'lernen' : ['suche', 'ergebnisse', 'viertel', 'anzeige', 'reisen', 'etappe', 'papierkorb', 'highlights'].includes(current.view) ? 'unterkunft' : 'council';
   document.body.dataset.area = area;
   for (const meta of document.querySelectorAll('meta[name="theme-color"]')) meta.content = ['unterkunft', 'start', 'lernen'].includes(area) ? '#f6f4ec' : meta.media.includes('dark') ? '#101721' : '#f4f6f8';
   $('#areas').hidden = area === 'login';
@@ -217,7 +217,7 @@ async function render() {
   disposeSuche = () => {};
   current = parseHash();
   if (!store.token && current.view !== 'login') { route('login'); return; }
-  const views = { highlights: viewHighlights, reisen: viewReisen, etappe: viewDecisionPlace, papierkorb: viewPapierkorb, meldungen: viewMeldungen, start: viewStart, lernen: viewLernen, login: viewLogin, auftraege: viewAuftraege, auftrag: viewAuftrag, neu: viewNeu, einstellungen: viewEinstellungen, anzeige: viewAnzeige, werkstatt: viewWerkstatt, suche: viewSuche, viertel: viewViertel, ergebnisse: () => viewSuche(null, { historyOnly: true }) };
+  const views = { highlights: viewHighlights, reisen: viewReisen, etappe: viewDecisionPlace, papierkorb: viewPapierkorb, meldungen: viewMeldungen, start: viewStart, lernen: viewLernen, lerneinheit: viewLernEinheit, login: viewLogin, auftraege: viewAuftraege, auftrag: viewAuftrag, neu: viewNeu, einstellungen: viewEinstellungen, anzeige: viewAnzeige, werkstatt: viewWerkstatt, suche: viewSuche, viertel: viewViertel, ergebnisse: () => viewSuche(null, { historyOnly: true }) };
   const fn = views[current.view] || (() => route('start'));
   try { await fn(current.arg); } catch (e) { if (live()) showError(e); }
 }
@@ -238,7 +238,7 @@ function viewStart() {
     el('h2', {}, 'Was möchtest du heute machen?')),
     theme('Reisen', tripSlot, area('hl-card', '#/highlights', 'hl-art', '✦', 'HIGHLIGHTS', 'Highlights entdecken', 'Vom Reisewunsch bis zum Spot – merken, vertiefen, vergleichen.'), area('stay-card', '#/suche', 'stay-art', '⌂', 'UNTERKUNFT', 'Unterkunft suchen', 'Unterkünfte finden und vergleichen.')),
     theme('Denken & Entscheiden', area('council-card', '#/auftraege', 'council-art', '○○○', 'COUNCIL', 'Council', 'Fragen durchdenken und Entscheidungen vorbereiten.')),
-    theme('Lernen', area('learn-card', '#/lernen', 'learn-art', 'π', 'SCHULE', 'Lernen Schule', 'Merkblätter und Übungen für Leo.')),
+    theme('Lernen', area('learn-card', '#/lernen', 'learn-art', 'π', 'SCHULE', 'Lernen Schule', 'Lerneinheiten, Üben und Tests für die Kinder.')),
     el('p', { class: 'start-footer' }, el('a', { href: '#/einstellungen' }, 'Zugang & Einstellungen'), el('span', {}, ' · '), el('a', { href: '#/werkstatt' }, 'Werkstatt')));
   // W144: aktuelle Reise direkt auf der Startseite
   if (typeof tripCall !== 'function') return;
@@ -268,27 +268,7 @@ function viewStart() {
 
 // ---------- Ansicht: Lernen Schule ----------
 // Das Merkblatt liegt als eigenständige, öffentliche Seite unter mathe/ (ohne Anmeldung erreichbar, z. B. für Leo und Lehrkräfte).
-function viewLernen() {
-  setChrome('Lernen Schule', { tab: 'lernen' });
-  const url = new URL('mathe/', location.href).href;
-  const status = el('span', { class: 'muted small', role: 'status' });
-  const copy = el('button', { type: 'button', class: 'secondary' }, 'Link kopieren');
-  copy.addEventListener('click', async () => {
-    try { await navigator.clipboard.writeText(url); status.textContent = 'Link kopiert.'; }
-    catch { status.textContent = 'Kopieren nicht möglich. Link bitte markieren und kopieren.'; }
-  });
-  main.replaceChildren(
-    el('section', { class: 'start-intro' },
-      el('p', { class: 'eyebrow' }, 'LERNEN SCHULE'),
-      el('h2', {}, 'Mathe Klasse 7/8'),
-      el('p', {}, 'Erklärungen, Aufgaben in drei Stufen und typische Fehler zu Zahlen, Termen, Potenzen, Brüchen, Gleichungen und Gleichungssystemen. Mit Fortschritt und Wiederholung.')),
-    el('div', { class: 'card learn-resource' },
-      el('p', {}, 'Die Seite öffnet ohne Anmeldung. Du kannst den Link an Leo und die Lehrkraft schicken.'),
-      el('div', { class: 'row' },
-        el('a', { class: 'btn primary', href: 'mathe/', target: '_blank', rel: 'noopener' }, 'Mathe öffnen ↗'),
-        copy, status),
-      el('p', { class: 'muted small learn-url' }, url)));
-}
+// viewLernen und viewLernEinheit: lernen.js (W150)
 
 // ---------- Ansicht: Login ----------
 async function viewLogin() {

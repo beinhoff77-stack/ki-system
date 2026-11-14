@@ -314,14 +314,14 @@ test('PWA installiert vollständige Offline-Hülle, API wird nicht gecacht', asy
   assert(cacheNames.includes('ki-system:' + origin + '/another-app/:v1'));
   assert(!cacheNames.includes('ki-system:' + origin + '/:old'));
   await page.evaluate(() => fetch('README.md'));
-  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v99')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
-  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.60.3')); assert(cached.includes('/style.css?v=0.60.3'));
-  assert(cached.includes('/stay-tools.js?v=0.60.3')); assert(cached.includes('/stay-desk.js?v=0.60.3')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
-  assert(cached.includes('/stay-research.js?v=0.60.3'));
-  assert(cached.includes('/stay-form.js?v=0.60.3'));
-  assert(cached.includes('/stay-details.js?v=0.60.3'));
-  assert(cached.includes('/stay-districts.js?v=0.60.3'));
-  assert(cached.includes('/highlights.js?v=0.60.3'));
+  const cached = await page.evaluate(async () => (await (await caches.open('ki-system:' + location.origin + '/:v100')).keys()).map((r) => new URL(r.url).pathname + new URL(r.url).search));
+  assert(cached.includes('/icon-512.png')); assert(cached.includes('/app.js?v=0.61.0')); assert(cached.includes('/style.css?v=0.61.0'));
+  assert(cached.includes('/stay-tools.js?v=0.61.0')); assert(cached.includes('/stay-desk.js?v=0.61.0')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.js')); assert(cached.includes('/vendor/leaflet-1.9.4/leaflet.css'));
+  assert(cached.includes('/stay-research.js?v=0.61.0'));
+  assert(cached.includes('/stay-form.js?v=0.61.0'));
+  assert(cached.includes('/stay-details.js?v=0.61.0'));
+  assert(cached.includes('/stay-districts.js?v=0.61.0'));
+  assert(cached.includes('/highlights.js?v=0.61.0'));
   assert(!cached.includes('/README.md'));
   assert(!cached.some((u) => u.includes('app-api')));
   await context.setOffline(true); await page.reload();
@@ -363,8 +363,9 @@ test('Update lädt neue Skripte und Gestaltung trotz frischem HTTP-Cache der Alt
   assert.equal(await page.evaluate(() => getComputedStyle(document.body).color), 'rgb(0, 128, 0)');
 });
 
-test('Lernen Schule: Startkarte, Bereichswechsel und Link zu Mathe Klasse 7/8', async (t) => {
+test('Lernen Schule: Startkarte, Bereichswechsel und Link zum Merkblatt', async (t) => {
   const { page, calls } = await setup(t, (p) => p.aktion === 'auftraege_suchen' ? [] : { suchauftraege: [] });
+  await page.route('**/functions/v1/lernen-api/**', (r) => r.fulfill({ contentType: 'application/json', body: JSON.stringify({ ok: true, ergebnis: { ok: true, leitung: true, lernende: [{ id: 1, name: 'Kind A', route: [], stand: [] }], einheiten: [] } }) }));
   await page.goto(origin + '/');
   await page.getByRole('heading', { name: 'Was möchtest du heute machen?' }).waitFor();
   fs.mkdirSync(path.join(root, 'test-results'), { recursive: true });
@@ -375,7 +376,7 @@ test('Lernen Schule: Startkarte, Bereichswechsel und Link zu Mathe Klasse 7/8', 
   }
   await page.setViewportSize({ width: 1280, height: 800 });
   await page.locator('.learn-card').click();
-  await page.getByRole('heading', { name: 'Mathe Klasse 7/8' }).waitFor();
+  await page.getByRole('heading', { name: 'Wer lernt heute?' }).waitFor();
   for (const [w, h] of [[1280, 800], [375, 800], [320, 700]]) {
     await page.setViewportSize({ width: w, height: h });
     await page.screenshot({ path: path.join(root, `test-results/lernen-${w}.png`), fullPage: true });
@@ -384,10 +385,9 @@ test('Lernen Schule: Startkarte, Bereichswechsel und Link zu Mathe Klasse 7/8', 
   await page.setViewportSize({ width: 1280, height: 800 });
   assert.equal(await page.evaluate(() => document.body.dataset.area), 'lernen');
   assert.equal(await page.locator('#areas [data-area=lernen]').getAttribute('aria-current'), 'true');
-  const link = page.getByRole('link', { name: /Mathe öffnen/ });
+  const link = page.locator('.lern-merkblatt a');
   assert.equal(await link.getAttribute('href'), 'mathe/');
   assert.equal(await link.getAttribute('rel'), 'noopener');
-  assert(await page.locator('.learn-url').textContent().then((x) => x.endsWith('/mathe/')));
   assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), true);
   await page.locator('#areas [data-area=council]').click();
   await page.getByRole('heading', { name: 'Aufträge', exact: true }).waitFor();

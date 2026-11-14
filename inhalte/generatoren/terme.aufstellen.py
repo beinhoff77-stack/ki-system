@@ -33,13 +33,13 @@ ETAPPEN = [
      '_verbot': ['5 € Grundgebühr, 3 € pro Stunde']},
     {'lernziel': 'muster', 'titel': 'Figurenfolgen mit Termen beschreiben',
      'regel': 'Bei einer ⟦Figurenfolge⟧ suchst du, ⟦wie viel pro Schritt dazukommt⟧. Kommen pro Figur 3 dazu, steht im Term 3 · n. Dann passt du die Zahl an, sodass Figur 1 stimmt.',
-     'schritte': ['Hölzer: Figur 1: 4, Figur 2: 7, Figur 3: 10', 'Pro Figur +3: Term 3n + □. Für n = 1: 3 + □ = 4 → □ = 1', '⟦3n + 1⟧; Figur 10: 31 Hölzer'],
+     'schritte': ['Hölzer: Figur 1: 4, Figur 2: 7, Figur 3: 10. Pro Figur kommen 3 Hölzer dazu.', 'Schau ins Bild: Ganz links steht 1 senkrechtes Holz. Jedes Quadrat bringt 3 neue Hölzer mit: oben, unten und rechts.', 'Figur n hat n Quadrate: 1 + 3 · n Hölzer, also ⟦3n + 1⟧. Figur 10: 31 Hölzer.'],
      'probe': 'n = 2: 3 · 2 + 1 = 7 ✓',
      'fehler': 'Der Term n + 3 passt nicht zu 4, 7, 10: Für n = 2 ergibt er 5. Die ⟦Zunahme pro Schritt⟧ (3) gehört vor das n.',
      'bild': figur({'_a0': [0, 0], '_a1': [1, 0], '_a2': [2, 0], '_a3': [3, 0], '_b0': [0, 1], '_b1': [1, 1], '_b2': [2, 1], '_b3': [3, 1]},
                    linien=[['_a0', '_a1'], ['_a1', '_a2'], ['_a2', '_a3'], ['_b0', '_b1'], ['_b1', '_b2'], ['_b2', '_b3'],
                            ['_a0', '_b0'], ['_a1', '_b1'], ['_a2', '_b2'], ['_a3', '_b3', 'Figur 3: 10 Hölzer']]),
-     '_verbot': ['Figur 1: 4, Figur 2: 7, Figur 3: 10']},
+     '_verbot': ['Figur 1: 4, Figur 2: 7, Figur 3: 10', 'Quadrate in einer Reihe: Figur 1: 4,']},
     {'lernziel': 'deuten', 'titel': 'Terme deuten und prüfen',
      'regel': 'Einen Term ⟦deuten⟧ heißt: sagen, was jede Zahl und jede Variable in der Situation bedeutet. Passt eine Deutung nicht zu allen Teilen, ist sie ⟦falsch⟧.',
      'schritte': ['Handytarif: K = 0,1x + 8 (x = Minuten, K in €)', '8: feste Grundgebühr; 0,1: Preis pro Minute', 'Für 50 Minuten: K = ⟦13 €⟧'],
@@ -53,18 +53,34 @@ ARTEN = ['Summe', 'Differenz', 'Produkt', 'Quotient']
 def nz(R, lo, hi): return R.choice([k for k in range(lo, hi + 1) if k])
 
 
+BAU = [  # (Beschreibung, richtig, Ablenker) – Platzhalter a, b
+    ('ein Produkt, dessen erster Faktor eine Summe ist', '(x + {b}) · {a}', ['x + {b} · {a}', '{a} · x + {b}', '(x · {b}) + {a}']),
+    ('eine Differenz aus einem Quotienten und einer Zahl', 'x : {a} − {b}', ['x : ({a} − {b})', '(x − {b}) : {a}', '{a} · x − {b}']),
+    ('ein Quotient, dessen Dividend eine Differenz ist', '(x − {b}) : {a}', ['x − {b} : {a}', 'x : ({a} − {b})', '{a} · (x − {b})']),
+    ('eine Summe aus einem Produkt und einer Zahl', '{a} · x + {b}', ['{a} · (x + {b})', 'x : {a} + {b}', '({a} + x) · {b}']),
+    ('ein Produkt aus einer Zahl und einer Differenz', '{a} · (x − {b})', ['{a} · x − {b}', '{a} − {b} · x', '(x − {b}) : {a}']),
+    ('eine Differenz aus einer Zahl und einem Produkt', '{b} − {a} · x', ['({b} − {a}) · x', '{a} · x − {b}', '{b} · ({a} − x)']),
+]
+
+
 def g_struktur(R, st):
     a, b = R.randint(2, 9), R.randint(1, 9)
     v = R.choice(['x', 'a', 'y'])
+    if st == 3 and R.random() < .5:
+        d, r, f = R.choice(BAU)
+        a = R.randint(2, 9); b = R.choice([k for k in range(2, 10) if k != a])
+        r = r.format(a=a, b=b)
+        return A(R, f'Welcher Term ist {d}?', r, [x.format(a=a, b=b) for x in f],
+                 f'{r}: Die zuletzt ausgeführte Rechnung bestimmt die Termart – das passt zu „{d}“.', 'Welche Rechnung kommt zuletzt? Was wird vorher in Klammern berechnet?')
     art = R.choice(ARTEN)
     if st == 1:
         t = {'Summe': f'{a}{v} + {b}', 'Differenz': f'{a}{v} − {b}', 'Produkt': f'{a} · ({v} + {b})', 'Quotient': f'({v} + {b}) : {a}'}[art]
     elif st == 2:
         c = R.randint(2, 9)
-        t = {'Summe': f'{a} · {v} + {b} · {c}', 'Differenz': f'({v} + {a}) − {b}{v}', 'Produkt': f'({v} − {a}) · ({v} + {b})', 'Quotient': f'{a}{v} : ({b} + {c})'}[art]
+        t = {'Summe': f'{a}{v} + {v} : {c}', 'Differenz': f'({v} + {a}) − {b}{v}', 'Produkt': f'({v} − {a}) · ({v} + {b})', 'Quotient': f'({a}{v} − {b}) : {c}'}[art]
     else:
         c = R.randint(2, 9)
-        t = {'Summe': f'{a} · ({v} − {b}) + {c}', 'Differenz': f'{v}² − {a} · {b}', 'Produkt': f'{c} · ({a}{v} − {b})', 'Quotient': f'({v}² + {a}) : ({v} − {b})'}[art]
+        t = {'Summe': f'{a} · ({v} − {b}) + {c}', 'Differenz': f'{v}² − {a}{v}', 'Produkt': f'{c} · ({a}{v} − {b})', 'Quotient': f'({v}² + {a}) : ({v} − {b})'}[art]
     zuletzt = {'Summe': 'addiert', 'Differenz': 'subtrahiert', 'Produkt': 'multipliziert', 'Quotient': 'dividiert'}[art]
     return A(R, f'Welche Termart hat der Term {t}?', art, [x for x in ARTEN if x != art],
              f'Rechenreihenfolge: Klammern, dann Punkt vor Strich. Zuletzt wird {zuletzt} – also {"eine" if art in ("Summe", "Differenz") else "ein"} {art}.', 'Welche Rechnung würdest du ganz zum Schluss ausführen?')
@@ -76,6 +92,8 @@ def g_termwert(R, st):
         T = lin(m, t)
         return Z(f'Berechne den Wert von {T} für x = {zt(x)}.', m * x + t, f'({m}) * ({x}) + ({t})', f'x = {zt(x)} einsetzen: {einsetzen(T, x)} = {zt(m * x + t)}.',
                  'Setze die Zahl für x ein. Negative Zahlen in Klammern.')
+    if st == 2 and R.random() < .35:
+        return _wertetabelle(R)
     if st == 2:
         a, b, c = nz(R, -3, 3), R.randint(-6, 6), R.randint(-9, 9); x = R.randint(-5, 5)
         T = (('−' if a < 0 else '') + ('' if abs(a) == 1 else str(abs(a))) + 'x²')
@@ -101,6 +119,28 @@ def g_termwert(R, st):
              f'Zähler: {kl(a)} · {kl(b)} = {zt(a * b)}. Nenner: {kl(a)} + {kl(b)} = {zt(a + b)}. {zt(a * b)} : {kl(a + b)} = {zt(w)}.', 'Rechne Zähler und Nenner getrennt aus.')
 
 
+def _wertetabelle(R):
+    xs = sorted(R.sample([-3, -2, -1, 0, 1, 2, 3], 3))
+    art = R.choice(['quad', 'prod', 'lin'])
+    if art == 'quad':
+        a, c = R.choice([1, 2, 3, -1]), R.randint(-6, 6)
+        T = ('−' if a < 0 else '') + ('' if abs(a) == 1 else str(abs(a))) + 'x²' + (f' {"+" if c > 0 else "−"} {abs(c)}' if c else '')
+        f, ce = (lambda x: a * x * x + c), (lambda x: f'({a}) * ({x}) ** 2 + ({c})')
+    elif art == 'prod':
+        p, q = R.randint(1, 4), R.randint(1, 4)
+        T = f'(x + {p})(x − {q})'
+        f, ce = (lambda x: (x + p) * (x - q)), (lambda x: f'(({x}) + {p}) * (({x}) - {q})')
+    else:
+        m, t = nz(R, -5, 5), R.randint(-8, 8)
+        T = lin(m, t)
+        f, ce = (lambda x: m * x + t), (lambda x: f'({m}) * ({x}) + ({t})')
+    werte = [f(x) for x in xs]
+    schab = '; '.join(f'x = {zt(x)}: □' for x in xs)
+    return L(f'Ergänze die Wertetabelle für den Term {T}.', schab, werte, [ce(x) for x in xs],
+             '; '.join(f'x = {zt(x)}: {einsetzen(T, x)} = {zt(v)}' for x, v in zip(xs, werte)) + '.', 'Setze jeden x-Wert einzeln ein. Negative Zahlen in Klammern.',
+             'Trage je Feld den Termwert ein (auch negative Zahlen).')
+
+
 ZAHLWORT = {2: 'Doppelte', 3: 'Dreifache', 4: 'Vierfache', 5: 'Fünffache', 6: 'Sechsfache', 10: 'Zehnfache'}
 
 
@@ -121,9 +161,9 @@ def g_uebersetzen(R, st):
             return L(f'Schreibe als Term: die Differenz aus {b} und dem {ZAHLWORT[k]}n von x.', '□x + □', [-k, b], [str(-k), str(b)],
                      f'Differenz aus {b} und {k}x: {b} − {k}x.', 'Bei „Differenz aus A und B“ steht A vorne: A − B.', HW)
         if art == 'klammer_summe':
-            return L(f'Schreibe als Term: das {ZAHLWORT[k]} der Summe aus x und {b}.', '□(□x + □)', [k, 1, b], [str(k), '1', str(b)],
+            return L(f'Schreibe als Term: das {ZAHLWORT[k]} der Summe aus x und {b}.', '□(x + □)', [k, b], [str(k), str(b)],
                      f'Summe aus x und {b}: (x + {b}). Das {ZAHLWORT[k]}: {k}(x + {b}).', 'Was zuerst gerechnet wird, kommt in eine Klammer.', HW)
-        return L(f'Schreibe als Term: das {ZAHLWORT[k]} der Differenz aus x und {b}.', '□(□x + □)', [k, 1, -b], [str(k), '1', str(-b)],
+        return L(f'Schreibe als Term: das {ZAHLWORT[k]} der Differenz aus x und {b}.', '□(x − □)', [k, b], [str(k), str(b)],
                  f'Differenz aus x und {b}: (x − {b}). Das {ZAHLWORT[k]}: {k}(x − {b}).', 'Was zuerst gerechnet wird, kommt in eine Klammer.', HW)
     # Stufe 3: Term → Worte (Auswahl) oder längere Wortterme
     if R.random() < .5:
@@ -138,7 +178,16 @@ def g_uebersetzen(R, st):
 
 
 def g_sachsituation(R, st):
-    art = R.choice({1: ['verleih', 'kino'], 2: ['verleih', 'kino', 'rechteck', 'alter'], 3: ['rechteck', 'alter', 'zwei', 'wert']}[st])
+    art = R.choice({1: ['verleih', 'kino'], 2: ['verleih', 'kino', 'rechteck', 'alter', 'abo', 'taxi'], 3: ['rechteck', 'zwei', 'wert', 'vergleich', 'vergleich']}[st])
+    if art == 'vergleich': return _tarifvergleich(R)
+    if art == 'abo':
+        g, p = R.choice([5, 8, 10, 12]), R.choice([2, 3, 4])
+        return L(f'Ein Streamingdienst kostet {g} € im Monat, jeder ausgeliehene Film zusätzlich {p} €. Gib den Term für die Monatskosten (in €) bei x Filmen an.', '□x + □',
+                 [p, g], [str(p), str(g)], f'{p} € je Film: {p}x. Dazu die Monatsgebühr {g} €: {p}x + {g}.', 'Was je Film anfällt, kommt vor das x.', HW)
+    if art == 'taxi':
+        g, p = R.choice([4, 5, 6]), R.choice([2, 3])
+        return L(f'Eine Taxifahrt kostet {g} € Grundpreis und {p} € je Kilometer. Gib den Term für den Fahrpreis (in €) bei x Kilometern an.', '□x + □',
+                 [p, g], [str(p), str(g)], f'{p} € je km: {p}x. Dazu der Grundpreis {g} €: {p}x + {g}.', 'Was je Kilometer anfällt, kommt vor das x.', HW)
     if art == 'verleih':
         g, p = R.choice([3, 4, 5, 6, 8, 10]), R.choice([2, 3, 4, 5, 6])
         return L(f'Ein Kanuverleih verlangt {g} € Grundgebühr und {p} € pro Stunde. Gib den Term für die Kosten (in €) bei x Stunden an.', '□x + □', [p, g], [str(p), str(g)],
@@ -158,59 +207,169 @@ def g_sachsituation(R, st):
         return L(f'Ein Rechteck ist x cm breit und {d} cm länger als breit. Gib einen Term für den Umfang (in cm) an.', '□x + □', [4, 2 * d], ['4', f'2 * {d}'],
                  f'Länge x + {d}. Umfang: 2x + 2(x + {d}) = 4x + {2 * d}.', 'Länge = x + Unterschied. Umfang = 2 · Breite + 2 · Länge.', HW)
     if art == 'alter':
-        d = R.randint(2, 9); k = R.choice([2, 3])
-        return L(f'Ein Kind ist x Jahre alt. Seine Schwester ist {d} Jahre älter, der Vater ist {k}-mal so alt wie das Kind. Gib einen Term für das Alter aller drei zusammen an.', '□x + □',
-                 [2 + k, d], [f'2 + {k}', str(d)], f'x + (x + {d}) + {k}x = {2 + k}x + {d}.', 'Schreibe jedes Alter mit x auf und addiere.', HW)
+        d = R.randint(2, 9)
+        if R.random() < .5:
+            v = R.randint(26, 38)
+            return L(f'Ein Kind ist x Jahre alt. Seine Schwester ist {d} Jahre älter, der Vater ist {v} Jahre älter als das Kind. Gib einen Term für das Alter aller drei zusammen an.', '□x + □',
+                     [3, d + v], ['3', f'{d} + {v}'], f'x + (x + {d}) + (x + {v}) = 3x + {d + v}.', 'Schreibe jedes Alter mit x auf und addiere.', HW)
+        return L(f'Ein Kind ist x Jahre alt. Seine Schwester ist {d} Jahre älter, der Vater ist 3-mal so alt wie das Kind. Gib einen Term für das Alter aller drei zusammen an.', '□x + □',
+                 [5, d], ['1 + 1 + 3', str(d)], f'x + (x + {d}) + 3x = 5x + {d}.', 'Schreibe jedes Alter mit x auf und addiere.', HW)
     if art == 'zwei':
-        p1, p2 = R.choice([(2, 3), (3, 5), (4, 6), (5, 8)])
+        p1, p2 = R.choice([(1, 2), (1, 3), (2, 3), (2, 4)])
         n = R.randint(10, 30)
         return L(f'Für ein Fest werden {n} Getränke gekauft: x Flaschen Saft zu {p2} € und der Rest Wasser zu {p1} €. Gib einen Term für den Gesamtpreis (in €) an und fasse zusammen.', '□x + □',
                  [p2 - p1, p1 * n], [f'{p2} - {p1}', f'{p1} * {n}'], f'Wasser: {n} − x Flaschen. {p2}x + {p1}({n} − x) = {lin(p2 - p1, p1 * n)}.',
                  'Wie viele Wasserflaschen sind es, wenn es x Saftflaschen sind?', HW)
-    g, p = Fr(R.choice([3, 4, 5])), Fr(R.choice([5, 8, 10, 12, 15]), 100)
-    x = R.choice([20, 40, 50, 60, 100, 120])
-    return Z(f'Ein Handytarif kostet {eur(g)} € im Monat plus {eur(p)} € pro SMS. Stelle einen Term auf und berechne die Kosten für x = {x} SMS.', g + p * x,
-             f'{cz(g)} + {cz(p)} * {x}', f'Term: {zt(p)}x + {zt(g)}. Für x = {x}: {zt(p)} · {x} + {zt(g)} = {eur(g + p * x)} €.', 'Grundgebühr + Preis pro SMS · Anzahl.', '€')
+    if R.random() < .5:
+        g, p = Fr(R.choice([5, 8, 10, 12])), Fr(R.choice([150, 200, 250, 300]), 100)
+        x = R.choice([2, 3, 4, 5, 6])
+        return Z(f'Ein Mobilfunktarif kostet {eur(g)} € im Monat; jedes zusätzlich gebuchte GB Datenvolumen kostet {eur(p)} €. Stelle einen Term auf und berechne die Kosten bei x = {x} zusätzlichen GB.',
+                 g + p * x, f'{cz(g)} + {cz(p)} * {x}', f'Term: {zt(p)}x + {zt(g)}. Für x = {x}: {zt(p)} · {x} + {zt(g)} = {eur(g + p * x)} €.', 'Grundgebühr + Preis je GB · Anzahl.', '€')
+    g, p = Fr(R.choice([5, 8, 10, 12])), Fr(R.choice([199, 299, 399]), 100)
+    x = R.choice([2, 3, 4, 5])
+    return Z(f'Ein Streamingdienst kostet {eur(g)} € im Monat, jeder ausgeliehene Film {eur(p)} €. Stelle einen Term auf und berechne die Monatskosten bei x = {x} Filmen.', g + p * x,
+             f'{cz(g)} + {cz(p)} * {x}', f'Term: {zt(p)}x + {zt(g)}. Für x = {x}: {zt(p)} · {x} + {zt(g)} = {eur(g + p * x)} €.', 'Monatsgebühr + Preis je Film · Anzahl.', '€')
 
 
+VERGLEICH = [('Kletterhalle', 'Besuch', 'Besuchen', 'je Besuch', 'Jahreskarte'), ('Schwimmbad', 'Besuch', 'Besuchen', 'je Eintritt', 'Saisonkarte'),
+             ('Fahrradverleih', 'Stunde', 'Stunden', 'je Stunde', 'Grundgebühr'), ('Bootsverleih', 'Stunde', 'Stunden', 'je Stunde', 'Grundgebühr')]
+
+
+def _tarifvergleich(R):
+    ort, ein, mehr, je, fix = R.choice(VERGLEICH)
+    for _ in range(200):
+        pA = R.choice([4, 5, 6, 7, 8, 9, 10]); pB = R.choice([k for k in range(1, pA)]); gB = R.choice([10, 12, 15, 20, 24, 25, 30, 36, 40])
+        d, e = gB, pA - pB
+        gleich = R.random() < .5
+        if gleich and d % e == 0 and 2 <= d // e <= 20: break
+        if not gleich and d % e != 0 and 2 <= d // e <= 20: break
+    if gleich:
+        n = d // e
+        return Z(f'{ort}: Tarif A kostet {pA} € {je}. Tarif B: {fix} {gB} €, dazu {pB} € {je}. Bei wie vielen {mehr} kosten beide gleich viel?', n, f'{d} / {e}',
+                 f'A: {pA}x, B: {pB}x + {gB}. Gleich: {pA}x = {pB}x + {gB} → {e}x = {gB} → x = {n}. Probe: {pA * n} € = {pB * n + gB} €.',
+                 'Stelle für beide Tarife einen Term auf und setze sie gleich.')
+    n = d // e + 1
+    return Z(f'{ort}: Tarif A kostet {pA} € {je}. Tarif B: {fix} {gB} €, dazu {pB} € {je}. Ab wie vielen {mehr} ist Tarif B billiger?', n, f'{d} // {e} + 1',
+             f'A: {pA}x, B: {pB}x + {gB}. B spart je {ein} {e} €, die {fix} von {gB} € muss aufgeholt werden: {gB} : {e} ≈ {zt(Fr(str(round(d / e, 1))))}. '
+             f'Bei {n - 1}: A {pA * (n - 1)} €, B {pB * (n - 1) + gB} €. Bei {n}: A {pA * n} €, B {pB * n + gB} € → ab {n}.',
+             'Stelle beide Terme auf und probiere Werte in der Nähe des Gleichstands.', mehr)
+
+
+def _bild_quadrate(n):
+    pk = {}
+    for i in range(n + 1): pk[f'_o{i}'] = [i, 1]; pk[f'_u{i}'] = [i, 0]
+    li = [[f'_o{i}', f'_o{i + 1}'] for i in range(n)] + [[f'_u{i}', f'_u{i + 1}'] for i in range(n)] + [[f'_o{i}', f'_u{i}'] for i in range(n + 1)]
+    return figur(pk, linien=li)
+
+
+def _bild_dreiecke(n):
+    pk, zz = {}, []
+    for j in range(n + 2):
+        name = f'_z{j}'
+        pk[name] = [j // 2 if j % 2 == 0 else j // 2 + 0.5, 0 if j % 2 == 0 else 0.87]
+        zz.append(name)
+    li = [[zz[j], zz[j + 1]] for j in range(n + 1)]
+    unten, oben = zz[0::2], zz[1::2]
+    li += [[unten[j], unten[j + 1]] for j in range(len(unten) - 1)] + [[oben[j], oben[j + 1]] for j in range(len(oben) - 1)]
+    return figur(pk, linien=li)
+
+
+def _bild_sechsecke(n):
+    pk, li = {}, []
+    for i in range(n + 1):
+        x = round(i * 1.74, 2)
+        pk[f'_lo{i}'] = [x, 0.5]; pk[f'_lu{i}'] = [x, -0.5]
+        li.append([f'_lo{i}', f'_lu{i}'])
+    for i in range(n):
+        x = round(i * 1.74 + 0.87, 2)
+        pk[f'_t{i}'] = [x, 1]; pk[f'_b{i}'] = [x, -1]
+        li += [[f'_lo{i}', f'_t{i}'], [f'_t{i}', f'_lo{i + 1}'], [f'_lu{i}', f'_b{i}'], [f'_b{i}', f'_lu{i + 1}']]
+    return figur(pk, linien=li)
+
+
+def _kaestchen(zellen, flaeche=None):
+    """Plättchen als Quadrate (Zellen (x, y) mit Kantenlänge 1)."""
+    pk, li, seen = {}, [], set()
+    def pt(x, y):
+        n = f'_p{x}_{y}'.replace('-', 'm'); pk[n] = [x, y]; return n
+    for x, y in zellen:
+        for a, b in (((x, y), (x + 1, y)), ((x, y + 1), (x + 1, y + 1)), ((x, y), (x, y + 1)), ((x + 1, y), (x + 1, y + 1))):
+            if (a, b) in seen: continue
+            seen.add((a, b)); li.append([pt(*a), pt(*b)])
+    fl = None
+    if flaeche:
+        (x0, y0), (x1, y1) = flaeche
+        fl = [pt(x0, y0), pt(x1, y0), pt(x1, y1), pt(x0, y1)]
+    return figur(pk, linien=li, flaeche=fl)
+
+
+def _bild_l(n):
+    return _kaestchen([(0, j) for j in range(n)] + [(i, 0) for i in range(1, n)])
+
+
+def _bild_beet(n):
+    rand = [(x, 1) for x in range(n + 2)] + [(x, -1) for x in range(n + 2)] + [(0, 0), (n + 1, 0)]
+    return _kaestchen(rand + [(x, 0) for x in range(1, n + 1)], flaeche=((1, 0), (n + 1, 1)))
+
+
+# (Name im Text, Zunahme, Rest, Zeichnung)
 MUSTER = [
-    ('Streichhölzer für Quadrate in einer Reihe', 3, 1), ('Streichhölzer für Dreiecke in einer Reihe', 2, 1), ('Sitzplätze an einer Reihe zusammengeschobener Tische', 2, 2),
-    ('Plättchen in einer L-Form', 2, -1), ('Punkte in einer Treppe aus Rahmen', 4, 0), ('Plättchen in einer T-Form', 3, -1), ('Bausteine in einem Turm mit Sockel', 2, 3),
-    ('Streichhölzer für Sechsecke in einer Reihe', 5, 1), ('Kreise in einer Kette mit Endkappen', 3, 2), ('Kacheln um ein Beet herum', 2, 6),
+    ('Streichhölzer für Quadrate in einer Reihe', 3, 1, _bild_quadrate), ('Streichhölzer für Dreiecke in einer Reihe', 2, 1, _bild_dreiecke),
+    ('Streichhölzer für Sechsecke in einer Reihe', 5, 1, _bild_sechsecke), ('Sitzplätze an einer Reihe aus n zusammengeschobenen Tischen', 2, 2, None),
+    ('Plättchen in einer L-Form mit Armen aus n Plättchen', 2, -1, _bild_l), ('Randplatten um ein Beet aus n Platten in einer Reihe', 2, 6, _bild_beet),
+]
+
+BEGRUENDUNG = [
+    ('Streichhölzer für Quadrate in einer Reihe: Ganz links steht 1 Holz, jedes Quadrat bringt 3 neue Hölzer mit (oben, unten, rechts).', '3n + 1', ['4n', '3n', 'n + 3'], _bild_quadrate),
+    ('Streichhölzer für Dreiecke in einer Reihe: Ganz links steht 1 Holz, jedes Dreieck bringt 2 neue Hölzer mit.', '2n + 1', ['3n', '2n', 'n + 2'], _bild_dreiecke),
+    ('Streichhölzer für Sechsecke in einer Reihe: Ganz links steht 1 Holz, jedes Sechseck bringt 5 neue Hölzer mit.', '5n + 1', ['6n', '5n', 'n + 5'], _bild_sechsecke),
+    ('Tische in einer Reihe: An jeden Tisch passen 2 Personen an die Längsseiten, an die beiden Enden der Reihe je 1 Person.', '2n + 2', ['4n', '2n', 'n + 2'], None),
+    ('Ein Beet aus n Platten in einer Reihe wird mit Randplatten umlegt: oben und unten je n + 2 Platten, links und rechts je 1 Platte.', '2n + 6', ['2n + 4', 'n + 6', '4n + 2'], _bild_beet),
+    ('Eine L-Form hat einen Arm aus n Plättchen nach oben und einen aus n Plättchen nach rechts; das Eckplättchen gehört zu beiden Armen.', '2n − 1', ['2n', '2n + 1', 'n + 1'], _bild_l),
 ]
 
 
 def g_muster(R, st):
-    a = _g_muster(R, st)
+    if st == 3 and R.random() < .4:
+        text, r, f, bild = R.choice(BEGRUENDUNG)
+        n = R.randint(3, 4)
+        a = A(R, f'{text} Welcher Term gibt die Anzahl bei Figur n an?', r, f,
+              f'Feststück plus gleiches Stück pro Figur: {r}. Probe mit dem Bild oder für n = 1.', 'Was ist in jeder Figur gleich, was kommt pro Schritt dazu?')
+        if bild: a['f']['grafik'] = bild(n); a['f']['text'] = a['f']['text'].replace('Welcher Term', f'Das Bild zeigt Figur {n}. Welcher Term')
+        return a
+    a, bild = _g_muster(R, st)
     import re
     w = re.findall(r'Figur (\d+): (\d+)', a['f']['text'])
-    if w:
+    if bild:
+        a['f']['grafik'] = bild(3)
+        a['f']['text'] = a['f']['text'].replace('. ', '. Das Bild zeigt Figur 3. ', 1)
+    elif w:
         a['f']['grafik'] = {'typ': 'tabelle', 'kopf': ['Figur n'] + [n for n, _ in w], 'zeilen': [['Anzahl'] + [v for _, v in w]]}
     return a
 
 
 def _g_muster(R, st):
-    name, m, t = R.choice(MUSTER)
-    if R.random() < .5:
-        name, m, t = R.choice(['Plättchen in einem Muster', 'Perlen an einer Kette', 'Steine in einer Mauerreihe', 'Stühle in einem Saal']), R.randint(2, 7), R.randint(-1, 6)
+    name, m, t, bild = R.choice(MUSTER)
+    if R.random() < .4:
+        name, m, t, bild = 'Plättchen in einer Figurenfolge', R.randint(2, 7), R.randint(-1, 6), None
     werte = [m * n + t for n in (1, 2, 3)]
     folge = ', '.join(f'Figur {n}: {v}' for n, v in zip((1, 2, 3), werte))
     if st == 1:
         k = R.randint(4, 8)
         return Z(f'{name}: {folge}. Wie viele sind es bei Figur {k}?', m * k + t, f'{m} * {k} + ({t})',
-                 f'Pro Figur kommen {m} dazu: Figur {k}: {werte[2]} + {m} · {k - 3} = {m * k + t}.', 'Wie viele kommen von Figur zu Figur dazu?')
+                 f'Pro Figur kommen {m} dazu: Figur {k}: {werte[2]} + {m} · {k - 3} = {m * k + t}.', 'Wie viele kommen von Figur zu Figur dazu?'), bild
     if st == 2:
         return L(f'{name}: {folge}. Gib einen Term für die Anzahl bei Figur n an.', '□n + □', [m, t], [str(m), str(t)],
                  f'Pro Figur +{m}: {m}n. Für n = 1 muss {werte[0]} herauskommen: {m} + □ = {werte[0]} → □ = {zt(t)}. Term: {lin(m, t, "n")}.', 'Zunahme pro Schritt vor das n, dann für n = 1 anpassen.',
-                 'Tippe den Term mit n ein, z. B. 3n + 1.')
+                 'Tippe den Term mit n ein, z. B. 3n + 1.'), bild
     if R.random() < .5:
         k = R.randint(20, 100)
         return Z(f'{name}: {folge}. Wie viele sind es bei Figur {k}?', m * k + t, f'{m} * {k} + ({t})',
-                 f'Term {lin(m, t, "n")}. Für n = {k}: {m} · {k} {"+" if t >= 0 else "−"} {abs(t)} = {m * k + t}.', 'Stelle erst einen Term auf, dann setze n ein.')
+                 f'Term {lin(m, t, "n")}. Für n = {k}: {m} · {k} {"+" if t >= 0 else "−"} {abs(t)} = {m * k + t}.', 'Stelle erst einen Term auf, dann setze n ein.'), bild
     k = R.randint(10, 60)
     N = m * k + t
     return Z(f'{name}: {folge}. Welche Figur braucht genau {N}?', k, f'({N} - ({t})) / {m}',
-             f'{lin(m, t, "n")} = {N} → {m}n = {N - t} → n = {k}.', 'Stelle den Term auf und setze ihn gleich der Anzahl.')
+             f'{lin(m, t, "n")} = {N} → {m}n = {N - t} → n = {k}.', 'Stelle den Term auf und setze ihn gleich der Anzahl.'), bild
 
 
 def g_deuten(R, st):
@@ -237,24 +396,37 @@ def g_deuten(R, st):
         return A(R, f'{T} ({x}). Was bedeutet die Zahl {zt(zahl)}?', r[0].upper() + r[1:], [s[0].upper() + s[1:] for s in [bg if welche == 'm' else bm, 'der Wert ganz am Ende', 'die Anzahl x']],
                  f'{zt(zahl)} ist {r}.', 'Steht die Zahl vor dem x (pro Einheit) oder allein (fest)?')
     if st == 2:
-        k = R.choice([j for j in (3, 4, 5, 6, 8, 10) if p * j + g >= 0])
-        return Z(f'{T} ({x}). Berechne {T[0]} für x = {k}.', p * k + g, f'{cz(p)} * {k} + {cz(g)}', f'x = {k} einsetzen: {T[0]} = {zt(p)} · {k} + {zt(g)} = {zt(p * k + g)}.',
-                 'Setze x ein.')
-    # Stufe 3: Fehler finden in einem Term
+        k = R.choice([j for j in (2, 3, 4, 5, 6, 8, 10) if p * j + g > 0])
+        v = p * k + g
+        satz = {'taxi': lambda k, v: f'Eine Fahrt von {zt(k)} km kostet {eur(v)} €.', 'handy': lambda k, v: f'Bei {zt(k)} Minuten kostet es im Monat {eur(v)} €.',
+                'kerze': lambda k, v: f'Nach {zt(k)} Stunden ist die Kerze noch {zt(v)} cm hoch.', 'konto': lambda k, v: f'Nach {zt(k)} Wochen sind {eur(v)} € gespart.',
+                'parken': lambda k, v: f'Wer {zt(k)} Stunden parkt, zahlt {eur(v)} €.'}[kontext]
+        je = {'taxi': f'Jeder Kilometer kostet {eur(v)} €.', 'handy': f'Jede Minute kostet {eur(v)} €.', 'kerze': f'Die Kerze brennt in jeder Stunde {zt(v)} cm ab.',
+              'konto': f'Jede Woche werden {eur(v)} € gespart.', 'parken': f'Jede Stunde kostet {eur(v)} €.'}[kontext]
+        falsche = [je, satz(k, abs(p) * k) if abs(p) * k != v else satz(k + 1, v), satz(v, k) if v != k and v.denominator == 1 and 0 < v <= 200 else satz(k, v + g)]
+        if R.random() < .5:
+            rechnung = f'{zt(g)} − {zt(-p)} · {k}' if p < 0 else f'{zt(p)} · {k} + {zt(g)}'
+            frage = f'{T} ({x}). Was bedeutet die Rechnung {rechnung} = {zt(v)}?'
+        else:
+            frage = f'{T} ({x}). Was bedeutet {T[0]} = {zt(v)}?'
+        return A(R, frage, satz(k, v), falsche, f'Für x = {k} ergibt der Term {zt(v)}. Also: {satz(k, v)}', 'Wofür steht x, wofür steht das Ergebnis?')
+    # Stufe 3: Fehler finden in einer Übersetzung – Ablenker passend zur jeweiligen Aufgabe
     k, b = R.randint(2, 6), R.randint(2, 9)
+    zw = ZAHLWORT.get(k, f'{k}-fache')
     fall = R.choice(['klammer', 'reihenfolge', 'richtig'])
     if fall == 'klammer':
-        satz, term = f'das {ZAHLWORT.get(k, str(k) + "-fache")} der Summe aus x und {b}', f'{k}x + {b}'
+        satz, term = f'das {zw} der Summe aus x und {b}', f'{k}x + {b}'
         r = f'Falsch: Die Summe muss in Klammern stehen, richtig ist {k}(x + {b}).'
+        f = ['Richtig übersetzt.', f'Falsch: richtig ist x + {k} · {b}.', f'Falsch: richtig ist {k} · x · {b}.']
     elif fall == 'reihenfolge':
         satz, term = f'die Differenz aus {b} und x', f'x − {b}'
         r = f'Falsch: Bei „Differenz aus {b} und x“ steht {b} vorne, richtig ist {b} − x.'
+        f = ['Richtig übersetzt.', f'Falsch: richtig ist x + {b}.', f'Falsch: richtig ist {b}x.']
     else:
-        satz, term = f'das {ZAHLWORT.get(k, str(k) + "-fache")} von x, vermehrt um {b}', f'{k}x + {b}'
+        satz, term = f'das {zw} von x, vermehrt um {b}', f'{k}x + {b}'
         r = 'Richtig übersetzt.'
-    alle = [f'Falsch: Die Summe muss in Klammern stehen, richtig ist {k}(x + {b}).', f'Falsch: Bei „Differenz aus {b} und x“ steht {b} vorne, richtig ist {b} − x.',
-            'Richtig übersetzt.', f'Falsch: richtig wäre {k + b}x.']
-    return A(R, f'Jemand übersetzt „{satz}“ in den Term {term}. Stimmt das?', r, [s for s in alle if s != r], r,
+        f = [f'Falsch: richtig ist {k}(x + {b}).', f'Falsch: richtig ist {k} + x + {b}.', f'Falsch: richtig ist {k}x · {b}.']
+    return A(R, f'Jemand übersetzt „{satz}“ in den Term {term}. Stimmt das?', r, f, r,
              'Übersetze selbst und vergleiche – achte auf Klammern und Reihenfolge.')
 
 
@@ -266,5 +438,5 @@ if __name__ == '__main__':
          'Terme aus Texten, Sachsituationen und Mustern aufstellen, Termwerte berechnen, die Termart erkennen und Terme im Sachzusammenhang deuten.',
          ['Termart = zuletzt ausgeführte Rechnung.', 'Was zuerst gerechnet wird, kommt in Klammern.',
           'Pro Stück/Stunde/Figur → vor das x (bzw. n); fester Betrag → addieren.'],
-         offen=['Lernkarte „muster“: Die Erklärung zeigt die Streichholzfigur 3 als Zeichnung, die Aufgaben zeigen die Anzahlen als Tabelle. Zeichnungen aller Figurenfolgen je Aufgabe wären möglich, sind aber aufwendig; bei Bedarf nachziehen.',
+         offen=['Lernkarte „muster“: Streichholzfolgen (Quadrate, Dreiecke, Sechsecke) sind gezeichnet. L-Form und Beet mit Randplatten als Kästchenbild (Beet grau). Tischreihe und neutrale Plättchenfolgen stehen weiter als Wertetabelle: Sitzplätze bräuchten Symbole, die die App nicht hat.',
                 'Äquivalenzumformungen von Termen (Ausmultiplizieren, Zusammenfassen als eigenes Thema) sind nicht Teil dieses Themas; nur einfaches Zusammenfassen kommt in Stufe 3 vor.'])

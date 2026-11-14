@@ -1,0 +1,39 @@
+{
+  "thema_schluessel": "funktionen.trig",
+  "gesamturteil": "gut",
+  "thema_hinweise": [
+    "Sehr gut: alle Parameter mit Graph, treffende Fehler (Periode wird kürzer, nicht länger; b = 360° : p), schöne Anwendung Riesenrad. Keine Verbesserung nötig.",
+    "Vorschlag für den Haupt-Chat (nicht für den Inhalt): Der Koordinaten-Bildtyp kann die x-Achse nur in Grad beschriften. Eine Beschriftung in Vielfachen von π (z. B. „π/2, π, 3π/2“) würde die Karte „bogenmass“ und „werte“ deutlich anschaulicher machen."
+  ],
+  "karten": [
+    {
+      "lernziel": "bogenmass",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "werte",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "periode",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "parameter",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "zuordnen",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "eigenschaften",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "anwendung",
+      "urteil": "ok"
+    }
+  ],
+  "neue_karten": []
+}

@@ -1,0 +1,51 @@
+{
+  "thema_schluessel": "terme.potenzgesetze",
+  "gesamturteil": "gut",
+  "thema_hinweise": [
+    "Klar, fachlich richtig; das Ausschreiben der Faktoren als Begründung der Gesetze ist vorbildlich. Einzige echte Lücke: Warum a⁻ⁿ = 1/aⁿ und a⁰ = 1 gilt, wird nicht begründet. Die Rechenreihe (jeder Schritt nach unten heißt : a) liefert beides ohne Auswendiglernen; eingebaut."
+  ],
+  "karten": [
+    {
+      "lernziel": "potenz_begriff",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "negativer_exponent",
+      "urteil": "verbessern",
+      "probleme": [
+        "a⁰ = 1 und a⁻ⁿ = 1/aⁿ werden nur behauptet. Kinder halten a⁰ = 0 für logisch, wenn sie den Grund nicht kennen."
+      ],
+      "neu": {
+        "regel": "Ein negativer Exponent bedeutet ⟦Kehrbruch⟧: a⁻ⁿ = 1/aⁿ. Außerdem gilt ⟦a⁰ = 1⟧ (für a ≠ 0). Warum? Geht der Exponent um 1 runter, wird ⟦durch a geteilt⟧: 2³ = 8, 2² = 4, 2¹ = 2, 2⁰ = 1, 2⁻¹ = 1/2, 2⁻² = 1/4.",
+        "schritte": [
+          "Setze die Reihe fort: 2⁰ = 1, 2⁻¹ = 1/2, 2⁻² = 1/4, 2⁻³ = 1/8.",
+          "Also 2⁻³ = 1/2³ = ⟦1/8⟧ = 0,125."
+        ],
+        "probe": "2⁻³ · 2³ = 1/8 · 8 = 1 ✓",
+        "fehler": "2⁰ = 0 ist falsch: Von 2¹ = 2 einmal durch 2 geteilt ergibt ⟦1⟧. Und 2⁻³ = −8 ist falsch: Das Minus im Exponenten macht ⟦keine negative Zahl⟧, sondern den Kehrbruch 1/8."
+      },
+      "strategie": "Rechenreihe (Permanenz): Exponent − 1 heißt : Basis."
+    },
+    {
+      "lernziel": "mal_gleiche_basis",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "geteilt_gleiche_basis",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "gleicher_exponent",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "anwenden",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "fehler_finden",
+      "urteil": "ok"
+    }
+  ],
+  "neue_karten": []
+}

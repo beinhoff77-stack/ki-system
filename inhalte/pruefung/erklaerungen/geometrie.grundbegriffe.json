@@ -1,0 +1,164 @@
+{
+  "thema_schluessel": "geometrie.grundbegriffe",
+  "gesamturteil": "gut",
+  "thema_hinweise": [
+    "Gut aufgebaut, fachlich richtig, Bilder schon eingebaut. Zwei Fehler im Bild: In „vierecke“ zeigt das Bild ein Parallelogramm (Seiten 4 cm und etwa 3,6 cm), das vorgerechnete Beispiel ist aber eine Raute. In „kreis_lage“ fehlt die Passante im Bild, obwohl die Regel sie erklärt."
+  ],
+  "karten": [
+    {
+      "lernziel": "koordinaten",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "strecken",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "lagebeziehungen",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "kreis_lage",
+      "urteil": "verbessern",
+      "probleme": [
+        "Das Bild zeigt nur Tangente und Sekante; die Passante fehlt.",
+        "Alltagsbezug fehlt: Ein Fahrrad auf der Straße – die Straße ist eine Tangente an den Reifen."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "M": [
+              0,
+              0
+            ],
+            "_T": [
+              0,
+              4
+            ],
+            "_A": [
+              -6,
+              4
+            ],
+            "_B": [
+              6,
+              4
+            ],
+            "_S1": [
+              -6,
+              2
+            ],
+            "_S2": [
+              6,
+              2
+            ],
+            "_P1": [
+              -6,
+              6
+            ],
+            "_P2": [
+              6,
+              6
+            ]
+          },
+          "kreise": [
+            {
+              "m": "M",
+              "r": 4
+            }
+          ],
+          "linien": [
+            [
+              "M",
+              "_T",
+              "r = 4 cm"
+            ],
+            [
+              "_A",
+              "_B",
+              "Tangente"
+            ],
+            [
+              "_S1",
+              "_S2",
+              "Sekante"
+            ],
+            [
+              "_P1",
+              "_P2",
+              "Passante"
+            ]
+          ]
+        },
+        "probe": "Alltag: Ein Fahrradreifen auf der Straße berührt sie in genau einem Punkt – die Straße ist eine Tangente an den Reifen ✓"
+      }
+    },
+    {
+      "lernziel": "winkelarten",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "vierecke",
+      "urteil": "verbessern",
+      "probleme": [
+        "Fakt: Das Bild passt nicht zum Beispiel. Gezeigt wird ein Parallelogramm mit den Seiten 4 cm und √13 cm ≈ 3,6 cm; im Text geht es um eine Raute (4 gleich lange Seiten)."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "A": [
+              0,
+              0
+            ],
+            "B": [
+              4,
+              0
+            ],
+            "C": [
+              6.4,
+              3.2
+            ],
+            "D": [
+              2.4,
+              3.2
+            ]
+          },
+          "flaeche": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "linien": [
+            [
+              "A",
+              "B",
+              "4 cm"
+            ],
+            [
+              "B",
+              "C",
+              "4 cm"
+            ],
+            [
+              "C",
+              "D",
+              "4 cm"
+            ],
+            [
+              "D",
+              "A",
+              "4 cm"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "verstehen",
+      "urteil": "ok"
+    }
+  ],
+  "neue_karten": []
+}

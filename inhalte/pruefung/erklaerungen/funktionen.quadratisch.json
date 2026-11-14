@@ -1,0 +1,205 @@
+{
+  "thema_schluessel": "funktionen.quadratisch",
+  "gesamturteil": "brauchbar",
+  "thema_hinweise": [
+    "Unter „offen“ steht, dass Parabeln nicht gezeichnet werden können. Das geht jetzt. Bilder sind für scheitel, parameter, nullstellen und extremwert angegeben.",
+    "Elegante Idee, die in mehreren Karten fehlt: Die Parabel ist symmetrisch, der Scheitel liegt genau in der Mitte zwischen den Nullstellen. Damit löst man Extremwertaufgaben wie das Rechteck mit Umfang 20 m ohne quadratische Ergänzung; eingebaut in umformen und extremwert."
+  ],
+  "karten": [
+    {
+      "lernziel": "scheitel",
+      "urteil": "verbessern",
+      "probleme": [
+        "Warum in der Klammer „minus d“ steht, wird nur als Achtung-Hinweis gesagt. Begründung: Der Scheitel liegt dort, wo die Klammer null wird.",
+        "Kein Bild der Parabel."
+      ],
+      "neu": {
+        "regel": "In der ⟦Scheitelform⟧ y = a(x − d)² + e liegt der Scheitel bei ⟦S(d | e)⟧. Warum? Die Klammer (x − d)² ist nie negativ und wird bei ⟦x = d⟧ null – dort ist der tiefste (oder höchste) Punkt. Bei (x + 3)² wird die Klammer bei x = −3 null.",
+        "bild": {
+          "typ": "koordinaten",
+          "x": [
+            -6,
+            1
+          ],
+          "y": [
+            -6,
+            4
+          ],
+          "graphen": [
+            {
+              "art": "poly",
+              "k": [
+                13,
+                12,
+                2
+              ]
+            }
+          ],
+          "punkte": [
+            {
+              "x": -3,
+              "y": -5,
+              "name": "S(−3 | −5)"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "parameter",
+      "urteil": "verbessern",
+      "probleme": [
+        "Strecken, Stauchen und Öffnung werden nur beschrieben; ein Vergleich mit der Normalparabel im Bild zeigt es."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "koordinaten",
+          "x": [
+            -4,
+            5
+          ],
+          "y": [
+            -3,
+            6
+          ],
+          "graphen": [
+            {
+              "art": "poly",
+              "k": [
+                0,
+                0,
+                1
+              ],
+              "name": "y = x²"
+            },
+            {
+              "art": "poly",
+              "k": [
+                3.5,
+                1,
+                -0.5
+              ],
+              "name": "f"
+            }
+          ],
+          "punkte": [
+            {
+              "x": 1,
+              "y": 4,
+              "name": "S(1 | 4)"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "umformen",
+      "urteil": "verbessern",
+      "probleme": [
+        "Eine elegante Probe fehlt: Lässt sich der Term faktorisieren, liegt der Scheitel in der Mitte zwischen den Nullstellen."
+      ],
+      "neu": {
+        "probe": "Mitte der Nullstellen: x² − 6x + 5 = (x − 1)(x − 5), Nullstellen 1 und 5. Die Mitte ist 3, und y(3) = 9 − 18 + 5 = −4. Also S(3 | −4) ✓"
+      },
+      "strategie": "Symmetrie der Parabel: Scheitel-x = Mittelwert der Nullstellen."
+    },
+    {
+      "lernziel": "nullstellen",
+      "urteil": "verbessern",
+      "probleme": [
+        "Kein Bild: dass Nullstellen die Schnittpunkte mit der x-Achse sind und ihre Anzahl von der Lage des Scheitels abhängt, sieht man am Graphen."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "koordinaten",
+          "x": [
+            -4,
+            6
+          ],
+          "y": [
+            -10,
+            8
+          ],
+          "graphen": [
+            {
+              "art": "poly",
+              "k": [
+                -8,
+                -2,
+                1
+              ]
+            }
+          ],
+          "punkte": [
+            {
+              "x": -2,
+              "y": 0,
+              "name": "(−2 | 0)"
+            },
+            {
+              "x": 4,
+              "y": 0,
+              "name": "(4 | 0)"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "punkte",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "bestimmen",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "extremwert",
+      "urteil": "verbessern",
+      "probleme": [
+        "Der Scheitel wird nur über die quadratische Ergänzung bestimmt. Eleganter: A(x) = x(10 − x) hat die Nullstellen 0 und 10, der Scheitel liegt in der Mitte bei x = 5 – ohne Umformen.",
+        "Kein Bild der Flächenfunktion."
+      ],
+      "neu": {
+        "schritte": [
+          "Rechteck mit Umfang 20 m: Seiten x und 10 − x. Fläche A(x) = x · (10 − x).",
+          "A(x) ist null bei x = 0 und x = 10. Die Parabel ist symmetrisch, der Scheitel liegt genau in der Mitte: ⟦x = 5⟧.",
+          "A(5) = 5 · 5 = ⟦25 m²⟧. Das größte Rechteck ist ein Quadrat."
+        ],
+        "bild": {
+          "typ": "koordinaten",
+          "x": [
+            0,
+            10
+          ],
+          "y": [
+            0,
+            30
+          ],
+          "graphen": [
+            {
+              "art": "poly",
+              "k": [
+                0,
+                10,
+                -1
+              ],
+              "name": "A"
+            }
+          ],
+          "punkte": [
+            {
+              "x": 5,
+              "y": 25,
+              "name": "S(5 | 25)"
+            }
+          ],
+          "name_x": "x in m",
+          "name_y": "A in m²"
+        }
+      },
+      "strategie": "Nullstellen der Produktform ablesen, Scheitel in der Mitte."
+    }
+  ],
+  "neue_karten": []
+}

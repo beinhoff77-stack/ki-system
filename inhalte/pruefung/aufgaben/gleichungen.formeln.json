@@ -1,0 +1,69 @@
+{
+  "thema_schluessel": "gleichungen.formeln",
+  "gesamturteil": "brauchbar",
+  "karten": [
+    {
+      "lernziel": "ein_schritt",
+      "urteil": "verbessern",
+      "stufen": "Leicht und mittel sind derselbe Aufgabentyp (Auswahl ‚Stelle … nach … um‘); mittel nur mit anderen Formeln. Stufe 3 (umstellen und einsetzen) passt. Alle Auswahlaufgaben mit einem Algebraprogramm nachgeprüft: richtig und eindeutig.",
+      "fehlende_aufgabentypen": [
+        "Erst mit Zahlen, dann mit Buchstaben (zwei Aufgaben hintereinander, zahl + auswahl): ‚Aus 24 = 6 · b folgt b = ?‘ → 4; danach ‚Aus A = a · b folgt b = ?‘ → A : a | a : A | A · a. Beispiel 2: ‚Aus 15 = 45 : t folgt t = ?‘ → 3; danach ‚Aus v = s : t folgt t = ?‘ → s : v. Ziel: Das Kind sieht, dass es dieselbe Umkehrrechnung ist.",
+        "Probe statt Rechnen (auswahl): ‚Ein Rechteck hat A = 20 cm² und a = 4 cm. Jemand rechnet b = a : A = 0,2 cm. Welche Probe zeigt den Fehler?‘ → ‚4 · 0,2 = 0,8 und nicht 20‘ | ‚0,2 ist kleiner als 4‘ | ‚Die Einheit cm stimmt nicht‘. Beispiel 2: ‚ρ = 2,5 g/cm³, m = 10 g, jemand rechnet V = ρ : m = 0,25 cm³.‘ → ‚2,5 · 0,25 = 0,625, nicht 10‘."
+      ],
+      "generator_regeln": [
+        "Lösungsweg mit dem Umformungsschritt: ‚p = F : A | · A → F = p · A.‘ statt nur ‚Richtig ist F = p · A. Probe mit Zahlen: …‘ (ohne Zahlen)."
+      ]
+    },
+    {
+      "lernziel": "zwei_schritte",
+      "urteil": "verbessern",
+      "stufen": "Die Notenmittelwert-Aufgabe kommt 9-mal vor, in Stufe 3 sogar trivial (‚M = 5. Eine Note ist 5‘). Der Tipp ‚Mache zuerst das Plus/Minus rückgängig‘ steht auch bei Formeln ohne Plus/Minus.",
+      "fehlende_aufgabentypen": [
+        "Gesuchte Größe in Klammer (auswahl, Stufe 3): ‚Stelle A = (a + c) · h : 2 nach c um.‘ → c = 2 · A : h − a | c = 2 · A − a : h | c = (2 · A − a) : h | c = A : (2 · h) − a. Beispiel 2: ‚u = 2 · (a + b) nach b‘ → b = u : 2 − a."
+      ],
+      "generator_regeln": [
+        "Notenmittelwert höchstens 3-mal je Karte; in Stufe 3 nicht M = gegebene Note.",
+        "Tipp je nach Formel: ohne Plus/Minus ‚Mache zuerst das Geteilt rückgängig, dann das Mal.‘"
+      ]
+    },
+    {
+      "lernziel": "einsetzen",
+      "urteil": "ok",
+      "stufen": "Gute, realistische Sachkontexte (Dichte, Ohm, Zins, Tarif). Stufe 3 unterscheidet sich kaum von Stufe 2.",
+      "fehlende_aufgabentypen": [
+        "Einheiten umrechnen vor dem Einsetzen (zahl, Stufe 3): ‚Ein Zug fährt 90 km in 45 Minuten. Wie groß ist v in km/h? (v = s : t)‘ → 120. Beispiel 2: ‚Ein Stück Holz (ρ = 0,6 g/cm³) hat das Volumen 2 dm³. Wie schwer ist es in kg?‘ → 1,2."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "geometrie",
+      "urteil": "ok",
+      "stufen": "Passen: Quadrat/Rechteck → Umfang mit Klammer, Prisma → Pyramide/Trapez. Werte realistisch.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "pruefen",
+      "urteil": "ok",
+      "stufen": "Gute Verstehenskarte (Umstellung beurteilen). Alle 24 Aufgaben nachgeprüft. Die richtige Antwort steht in 13 von 24 Fällen an Position 2.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Position der richtigen Antwort gleichmäßiger verteilen."
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Stelle V = G · h : 3 nach h um.",
+      "art": "loesungsweg",
+      "problem": "Tipp ‚Mache zuerst das Plus/Minus rückgängig, dann das Mal/Geteilt.‘ – die Formel hat kein Plus/Minus. Lösungsweg ‚Richtig ist h = 3 · V : G. Probe mit Zahlen: Setze Werte … ein und vergleiche.‘ zeigt weder Schritte noch Zahlen. Gilt für alle Auswahlaufgaben der Karten ein_schritt und zwei_schritte.",
+      "korrektur": "Tipp: ‚Was wurde mit h gemacht? Mal G und geteilt durch 3. Mache beides rückwärts rückgängig.‘ Lösungsweg: ‚V = G · h : 3 | · 3 → 3 · V = G · h | : G → h = 3 · V : G. Probe: G = 10, h = 6 → V = 20; 3 · 20 : 10 = 6 ✓.‘"
+    },
+    {
+      "aufgabe": "Der Mittelwert zweier Noten ist M = 5. Eine Note ist 5. Welche ist die andere? Nutze M = (a + b) : 2.",
+      "art": "mehrdeutig",
+      "problem": "Als Stufe 3 eingestuft, aber die Antwort (5) ist ohne Rechnung klar. Ebenso ‚M = 3. Eine Note ist 3.‘ (Sicherung).",
+      "korrektur": "‚Der Mittelwert dreier Noten ist M = 3. Zwei Noten sind 2 und 5. Welche ist die dritte? Nutze M = (a + b + c) : 3.‘ → 2."
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "thema_schluessel": "gleichungen.potenz",
+  "gesamturteil": "gut",
+  "thema_hinweise": [
+    "Klar und fachlich richtig. Unter „offen“ steht, dass die Karte „anzahl“ eine Zeichnung braucht (Lehrplan: „Lösungsanzahl mit Skizzen begründen“). Das geht jetzt: Graphen y = x⁴ und y = x³ mit waagrechten Geraden; angegeben."
+  ],
+  "karten": [
+    {
+      "lernziel": "gerade",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "ungerade",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "anzahl",
+      "urteil": "verbessern",
+      "probleme": [
+        "Der Lehrplan verlangt die Begründung mit Skizzen; die Karte argumentiert nur in Worten."
+      ],
+      "neu": {
+        "regel": "Entscheidend sind ⟦n gerade oder ungerade⟧ und das ⟦Vorzeichen von c⟧. Zähle im Bild, wie oft die waagrechte Gerade y = c den Graphen trifft. y = x⁴ (gerade): Die Gerade y = 4 trifft ⟦zweimal⟧, die Gerade y = −2 ⟦nie⟧. y = x³ (ungerade): Jede waagrechte Gerade trifft ⟦genau einmal⟧.",
+        "bild": {
+          "typ": "koordinaten",
+          "x": [
+            -3,
+            3
+          ],
+          "y": [
+            -4,
+            6
+          ],
+          "graphen": [
+            {
+              "art": "potenz",
+              "a": 1,
+              "n": 4,
+              "name": "x⁴"
+            },
+            {
+              "art": "potenz",
+              "a": 1,
+              "n": 3,
+              "name": "x³"
+            }
+          ],
+          "waagrecht": [
+            4,
+            -2
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "umformen",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "naeherung",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "sachaufgabe",
+      "urteil": "ok"
+    }
+  ],
+  "neue_karten": []
+}

@@ -1,0 +1,192 @@
+{
+  "thema_schluessel": "gleichungen.quadratisch",
+  "gesamturteil": "gut",
+  "thema_hinweise": [
+    "Gute Reihenfolge von den Sonderfällen zur Lösungsformel, fachlich richtig, sehr gute typische Fehler (z. B. durch x teilen). Verbessert: das geometrische Modell der quadratischen Ergänzung (fehlende Ecke eines Quadrats), der Zahlen-Such-Trick beim Faktorisieren und das Bild zur Diskriminante (Parabel trifft die x-Achse nicht)."
+  ],
+  "karten": [
+    {
+      "lernziel": "reinquadratisch",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "ausklammern",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "faktorisieren",
+      "urteil": "verbessern",
+      "probleme": [
+        "Der schnellste Weg für Gleichungen wie x² + 8x − 9 = 0 fehlt: zwei Zahlen suchen, deren Produkt −9 und deren Summe 8 ist (Satz von Vieta in Kinderform). Die Aufgaben verlangen ihn aber („Faktorisiere in (x − p)(x − q)“)."
+      ],
+      "neu": {
+        "schritte": [
+          "x² − 8x + 16 = 0: 2. binomische Formel, also (x − 4)² = 0.",
+          "Nur x − 4 = 0, also eine Lösung: ⟦x = 4⟧.",
+          "Ohne binomische Formel, z. B. x² + 8x − 9 = 0: Suche zwei Zahlen mit ⟦Produkt −9⟧ und ⟦Summe 8⟧. Das sind 9 und −1. Also (x + 9)(x − 1) = 0 und ⟦x = −9 oder x = 1⟧."
+        ],
+        "probe": "(x + 9)(x − 1) = x² − x + 9x − 9 = x² + 8x − 9 ✓"
+      },
+      "strategie": "Produkt-Summe-Suche: (x + m)(x + n) = x² + (m + n)x + m · n. Begründung durch Ausmultiplizieren."
+    },
+    {
+      "lernziel": "ergaenzung",
+      "urteil": "verbessern",
+      "probleme": [
+        "Die quadratische Ergänzung wird als Rechenrezept gegeben. Das geometrische Bild (x² + 6x ist ein Quadrat mit zwei Streifen, es fehlt eine Ecke von 3 · 3 = 9) erklärt, warum man genau (b/2)² ergänzt."
+      ],
+      "neu": {
+        "regel": "Bei x² + bx + c = 0 ergänzt du ⟦(b/2)²⟧ auf beiden Seiten, sodass links ⟦(x + b/2)²⟧ steht. Warum genau (b/2)²? Leg x² + 6x als Fläche: ein Quadrat x mal x und zwei Streifen 3 mal x. Zum großen Quadrat (x + 3)² fehlt nur die ⟦Ecke 3 · 3 = 9⟧.",
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "_a": [
+              0,
+              0
+            ],
+            "_b": [
+              5,
+              0
+            ],
+            "_c": [
+              8,
+              0
+            ],
+            "_d": [
+              8,
+              5
+            ],
+            "_e": [
+              8,
+              8
+            ],
+            "_f": [
+              5,
+              8
+            ],
+            "_g": [
+              0,
+              8
+            ],
+            "_h": [
+              0,
+              5
+            ],
+            "_m": [
+              5,
+              5
+            ]
+          },
+          "flaeche": [
+            "_m",
+            "_d",
+            "_e",
+            "_f"
+          ],
+          "linien": [
+            [
+              "_a",
+              "_b",
+              "x"
+            ],
+            [
+              "_b",
+              "_c",
+              "3"
+            ],
+            [
+              "_c",
+              "_d"
+            ],
+            [
+              "_d",
+              "_e"
+            ],
+            [
+              "_e",
+              "_f"
+            ],
+            [
+              "_f",
+              "_g"
+            ],
+            [
+              "_g",
+              "_h",
+              "3"
+            ],
+            [
+              "_h",
+              "_a",
+              "x"
+            ],
+            [
+              "_b",
+              "_m"
+            ],
+            [
+              "_m",
+              "_f"
+            ],
+            [
+              "_h",
+              "_m"
+            ],
+            [
+              "_m",
+              "_d"
+            ]
+          ]
+        }
+      },
+      "strategie": "Geometrische quadratische Ergänzung (Quadrat mit fehlender Ecke)."
+    },
+    {
+      "lernziel": "loesungsformel",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "diskriminante",
+      "urteil": "verbessern",
+      "probleme": [
+        "Die Probe über die quadratische Ergänzung ist gut, aber das Bild (Parabel liegt ganz über der x-Achse) zeigt den Grund sofort."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "koordinaten",
+          "x": [
+            -1,
+            5
+          ],
+          "y": [
+            -1,
+            8
+          ],
+          "graphen": [
+            {
+              "art": "poly",
+              "k": [
+                7,
+                -4,
+                1
+              ],
+              "name": "y = x² − 4x + 7"
+            }
+          ],
+          "punkte": [
+            {
+              "x": 2,
+              "y": 3,
+              "name": "S(2 | 3)"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "sachaufgabe",
+      "urteil": "ok"
+    }
+  ],
+  "neue_karten": []
+}

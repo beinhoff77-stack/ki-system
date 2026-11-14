@@ -1,0 +1,85 @@
+{
+  "thema_schluessel": "funktionen.exponential_log",
+  "gesamturteil": "brauchbar",
+  "karten": [
+    {
+      "lernziel": "werte",
+      "urteil": "ok",
+      "stufen": "Passt (ganze Exponenten, negative Exponenten, Dezimalbasis). Werte stimmen. Ergebnisse wie 0,15625 sind exakt, aber für Kopfrechnen unhandlich.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "faktor",
+      "urteil": "ok",
+      "stufen": "Passt; Ablenker (88 %, 112 %, Zerfall statt Wachstum) sind typische Fehler. 'Eine Einwohnerzahl nimmt jedes Jahr um 40 % ab' ist unrealistisch; 'Um welchen Faktor ändert er sich' – Bezugswort fehlt ('sie').",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Einwohnerzahlen: Änderungen zwischen −3 % und +3 % pro Jahr; große Raten bei Bakterien, Medikamenten, Wertverlust.",
+        "Pronomen passend zum Nomen ('die Einwohnerzahl … sie')."
+      ]
+    },
+    {
+      "lernziel": "modell",
+      "urteil": "verbessern",
+      "stufen": "Stufe 2 bis Sicherung bestehen fast nur aus 'f(0) und f(1) gegeben, b gesucht' (11 von 15 gesehenen) – eine Division. Stufe 3 (zwei Punkte, a gesucht) gut.",
+      "fehlende_aufgabentypen": [
+        "Linear oder exponentiell? (auswahl, Stufe 2): f.grafik typ 'tabelle'. Beispiel 1: 'x: 0, 1, 2, 3; y: 5, 10, 20, 40' → 'exponentiell, Faktor 2'. Beispiel 2: 'y: 5, 10, 15, 20' → 'linear, +5 je Schritt' (Ablenker 'exponentiell, Faktor 2', weil 10 : 5 = 2).",
+        "Modell aus Halbwertszeit (zahl, Stufe 3): Beispiel 1: 'Ein Medikament hat eine Halbwertszeit von 6 h. Anfangs sind 80 mg im Blut. Wie viel mg nach 18 h?' → 10. Beispiel 2: 'Halbwertszeit 4 Jahre, 1 200 g am Anfang, nach 12 Jahren?' → 150 g."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "graph",
+      "urteil": "verbessern",
+      "stufen": "Gute Nutzung der Graphen. 'Ist der Graph steigend oder fallend?' kommt sehr oft vor; der Ablenker 'zuerst steigend, dann fallend' ist kaum ein Denkfehler. Ein Ablenker zeigt '0,3333333333' statt 1/3.",
+      "fehlende_aufgabentypen": [
+        "Verschobene Graphen (auswahl, Stufe 3): f.grafik mit Graph von 2^x − 3. Beispiel 1: 'Welche Asymptote?' → y = −3. Beispiel 2: 'Wo schneidet der Graph die y-Achse?' → (0 | −2)."
+      ],
+      "generator_regeln": [
+        "Brüche als Brüche anzeigen ((1/3)^x), nie als abgeschnittene Dezimalzahl.",
+        "Ablenker 'zuerst steigend, dann fallend' ersetzen durch 'steigend, weil a > 1' (Verwechslung von a und b)."
+      ]
+    },
+    {
+      "lernziel": "logfunktion",
+      "urteil": "verbessern",
+      "stufen": "Stufe 2 bis Sicherung bestehen überwiegend aus 'Punkt vertauschen' (11-mal) und 'Definitionsbereich' (5-mal). Logarithmen ohne Taschenrechner (log₂ 8, log₃ (1/9), lg 0,01) kommen kaum vor.",
+      "fehlende_aufgabentypen": [
+        "Logarithmus im Kopf (zahl, Stufe 2): Beispiel 1: 'log₂(1/8)' → −3. Beispiel 2: 'lg(0,001)' → −3.",
+        "Graph der Logarithmusfunktion (auswahl, Stufe 3): f.grafik mit {art: 'log', b: 2}. Beispiel 1: 'Wo schneidet der Graph die x-Achse?' → (1 | 0). Beispiel 2: 'Welche Gerade ist Asymptote?' → die y-Achse (x = 0)."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "zeitpunkt",
+      "urteil": "verbessern",
+      "stufen": "Passt im Aufbau (Gleichung, Halbwertszeit/Verdopplungszeit, Sachaufgabe). Eine Sachaufgabe ist physikalisch unmöglich (siehe Fehlerliste).",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Übertemperatur eines Getränks höchstens 75 °C (Getränk 95 °C, Raum 20 °C); Endwert 5–30 °C.",
+        "Lösungen mit Nachkommastelle anzeigen (17,0 statt 17), wenn 'eine Nachkommastelle' verlangt ist."
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Ein heißes Getränk hat eine Übertemperatur von 500 °C (über der Raumtemperatur), die pro Minute um 8 % abnimmt. Nach wie vielen Minuten beträgt sie nur noch 100 °C (eine Nachkommastelle)?",
+      "art": "unrealistisch",
+      "problem": "Ein Getränk mit 500 °C über Raumtemperatur gibt es nicht (Wasser siedet bei 100 °C).",
+      "korrektur": "Ein heißes Getränk hat eine Übertemperatur von 70 °C (über der Raumtemperatur), die pro Minute um 8 % abnimmt. Nach wie vielen Minuten beträgt sie nur noch 14 °C? Runde auf eine Nachkommastelle. – Lösung 19,3 min (0,92^t = 0,2; t = lg 0,2 : lg 0,92 ≈ 19,3)."
+    },
+    {
+      "aufgabe": "Welcher Funktionsterm f(x) passt zum gezeichneten Graphen?",
+      "art": "sprache",
+      "problem": "Ablenker '5 · 0,3333333333^x' – abgeschnittene Dezimalzahl statt Bruch.",
+      "korrektur": "Ablenker '5 · (1/3)^x'."
+    },
+    {
+      "aufgabe": "Eine Einwohnerzahl ändert sich jedes Jahr um −8 %. Um welchen Faktor ändert er sich in 2 Jahren?",
+      "art": "sprache",
+      "problem": "'er' hat kein Bezugswort; −8 % pro Jahr ist für Einwohnerzahlen unrealistisch.",
+      "korrektur": "Der Wert eines Autos sinkt jedes Jahr um 8 %. Um welchen Faktor ändert er sich in 2 Jahren? – Lösung 0,8464."
+    }
+  ]
+}

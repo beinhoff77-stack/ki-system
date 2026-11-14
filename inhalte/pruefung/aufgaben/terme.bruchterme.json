@@ -1,0 +1,105 @@
+{
+  "thema_schluessel": "terme.bruchterme",
+  "gesamturteil": "gut",
+  "karten": [
+    {
+      "lernziel": "definitionsmenge",
+      "urteil": "verbessern",
+      "stufen": "Gute Steigerung: ein linearer Nenner → Produkt im Nenner → zwei Brüche / Zähler darf 0 sein. Zwei Vorlagen schreiben den Term ohne Klammer um den Zähler (siehe Fehlerliste).",
+      "fehlende_aufgabentypen": [
+        "Sonderfall: Nenner wird nie 0 (auswahl): ‚Gib die Definitionsmenge von 3/(x² + 4) an.‘ → ℚ | ℚ \\ {−4} | ℚ \\ {−2; 2} | ℚ \\ {4}. Lösungsweg: ‚x² ist nie negativ, also ist x² + 4 mindestens 4.‘ Beispiel 2: ‚5/(x² + 1)‘ → ℚ.",
+        "Umkehraufgabe (auswahl): ‚Welcher Term hat die Definitionsmenge ℚ \\ {−3; 2}?‘ → 1/((x + 3)(x − 2)) | 1/((x − 3)(x + 2)) | (x + 3)/(x − 2) | 1/(x + 3) + x − 2. Beispiel 2: ‚… ℚ \\ {0; 5}‘ → 7/(x(x − 5))."
+      ],
+      "generator_regeln": [
+        "Zähler mit mehr als einem Glied immer in Klammern: (2x − 4)/(x − 4), nie 2x − 4/(x − 4)."
+      ]
+    },
+    {
+      "lernziel": "termwert",
+      "urteil": "verbessern",
+      "stufen": "Passen; der Sonderfall ‚nicht definiert‘ kommt nur zweimal (Stufe 3) vor.",
+      "fehlende_aufgabentypen": [
+        "Umkehraufgabe (zahl): ‚Für welches x hat T(x) = 6/(x − 1) den Wert 2?‘ → 4. Beispiel 2: ‚T(x) = 12/(x + 2) hat den Wert −3. Bestimme x.‘ → −6."
+      ],
+      "generator_regeln": [
+        "Den Fall ‚x macht den Nenner 0‘ in mindestens 3 Aufgaben je Karte einbauen, auch in Stufe 2."
+      ]
+    },
+    {
+      "lernziel": "kuerzen",
+      "urteil": "ok",
+      "stufen": "Gut: Monome → Ausklammern → binomische Formel. Alle 24 Auswahlaufgaben mit einem Algebraprogramm nachgeprüft: genau eine Antwort ist gleichwertig.",
+      "fehlende_aufgabentypen": [
+        "Gegenzahl-Faktor (auswahl, Stufe 3): ‚Kürze vollständig: (x − 5)/(5 − x)‘ → −1 | 1 | 0 | x − 5. Beispiel 2: ‚(6 − 2x)/(x − 3)‘ → −2."
+      ],
+      "generator_regeln": [
+        "Ablenker ‚−63/(−14) · x‘ (kein typischer Fehler) ersetzen durch ‚(9x − 9)/(2x − 2)‘: nur die Zahlen 63 und 14 durch 7 gekürzt – das ist der echte Fehler ‚aus Summen kürzen‘."
+      ]
+    },
+    {
+      "lernziel": "erweitern",
+      "urteil": "ok",
+      "stufen": "Passen. Alle 24 Lückenaufgaben nachgerechnet, richtig.",
+      "fehlende_aufgabentypen": [
+        "Erweiterungsfaktor angeben (luecken, Term): ‚Mit welchem Term wurde 3/(x + 2) erweitert, wenn der neue Nenner x² + 2x ist?‘ Schablone □, Lösung x. Beispiel 2: ‚5/(2x) → neuer Nenner 6x³‘ → Schablone □x², Lösung 3."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "addieren",
+      "urteil": "verbessern",
+      "stufen": "Gut; alle 24 Auswahlaufgaben nachgeprüft. Es fehlt die Subtraktion eines Bruchs mit mehrgliedrigem Zähler – dort passiert der häufigste Fehler (Minus vor dem Bruch nicht auf alle Glieder).",
+      "fehlende_aufgabentypen": [
+        "Subtraktion mit Klammer (auswahl): ‚Fasse zusammen: (3x + 1)/x − (x − 4)/x‘ → (2x + 5)/x | (2x − 3)/x | (4x − 3)/x | (2x + 5)/(2x). Beispiel 2: ‚(5x − 2)/(x + 1) − (2x − 7)/(x + 1)‘ → (3x + 5)/(x + 1); Ablenker (3x − 9)/(x + 1)."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "multiplizieren",
+      "urteil": "verbessern",
+      "stufen": "Stufe 1 und 2 sind derselbe Typ (Monom mal Monom), Stufe 2 nur zusätzlich mit ‚:‘. Stufe 3 mit (x + 1)² ist gut. Lösungsweg zeigt den Kürzschritt nicht.",
+      "fehlende_aufgabentypen": [
+        "Mit Binom kürzen nach Faktorisieren (auswahl, Stufe 3): ‚Berechne und kürze: (2x + 6)/x · x²/(x + 3)‘ → 2x | 2x² | 2/x | (2x + 6)x. Beispiel 2: ‚(x² − 9)/4 : (x − 3)/8‘ → 2(x + 3)."
+      ],
+      "generator_regeln": [
+        "Lösungsweg mit Zwischenergebnis: ‚4 · 7x = 28x, 5x² · 8 = 40x². 28x/(40x²) mit 4x kürzen: 7/(10x).‘",
+        "Im Lösungsweg nicht ‚Kürzen mit 1(x + 1)‘, sondern ‚Kürzen mit (x + 1)‘."
+      ]
+    },
+    {
+      "lernziel": "fehler_finden",
+      "urteil": "ok",
+      "stufen": "Sehr gute Verstehenskarte. Alle 24 Aufgaben nachgeprüft: jeweils genau eine Umformung richtig bzw. falsch.",
+      "fehlende_aufgabentypen": [
+        "Begründung wählen (auswahl): ‚Warum darf man in (x + 3)/(x + 7) die x nicht kürzen?‘ → ‚Kürzen geht nur mit Faktoren, x ist hier ein Summand‘ | ‚Weil 3 und 7 verschieden sind‘ | ‚Man darf es doch‘. Beispiel 2: ‚Warum ist x²/x = x nur für x ≠ 0 richtig?‘ → ‚Für x = 0 ist der linke Term nicht definiert.‘"
+      ],
+      "generator_regeln": []
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Gib die Definitionsmenge von 2x − 4/(x − 4) an.",
+      "art": "mehrdeutig",
+      "problem": "Nach Punkt vor Strich bedeutet der Term 2x − (4/(x − 4)). Gemeint ist vermutlich (2x − 4)/(x − 4). Die Definitionsmenge bleibt gleich, aber die Schreibweise ist falsch und widerspricht dem, was in der Karte gelehrt wird. Gleiches: ‚Für welche Zahl ist der Term 2x − 3/(x + 7) nicht definiert?‘",
+      "korrektur": "‚Gib die Definitionsmenge von (2x − 4)/(x − 4) an.‘ (Lösung ℚ \\ {4} unverändert.)"
+    },
+    {
+      "aufgabe": "Welchen Wert hat T(x) = −x/(−x − 6) für x = −6?",
+      "art": "loesungsweg",
+      "problem": "Lösungsweg: ‚Nenner: −· (−6) − 6 = 0.‘ – die Zeichenfolge ‚−·‘ ist kaputt.",
+      "korrektur": "Lösungsweg: ‚Nenner: −(−6) − 6 = 6 − 6 = 0. Durch 0 teilen geht nicht.‘"
+    },
+    {
+      "aufgabe": "Berechne und kürze: (4/(5x²)) · (7x/8)",
+      "art": "loesungsweg",
+      "problem": "Lösungsweg ‚Zähler mal Zähler, Nenner mal Nenner, dann kürzen: 7/(10x).‘ zeigt keine Zahl der Aufgabe. Gilt für alle Aufgaben der Karte multiplizieren.",
+      "korrektur": "Lösungsweg: ‚Zähler: 4 · 7x = 28x. Nenner: 5x² · 8 = 40x². 28x/(40x²) mit 4x kürzen: 7/(10x).‘"
+    },
+    {
+      "aufgabe": "Berechne und kürze: (x + 1)/7 · 5/(x + 1)²",
+      "art": "sprache",
+      "problem": "Lösungsweg: ‚Kürzen mit 1(x + 1)‘.",
+      "korrektur": "Lösungsweg: ‚Zähler: 5(x + 1), Nenner: 7(x + 1)². Mit (x + 1) kürzen: 5/(7(x + 1)).‘"
+    }
+  ]
+}

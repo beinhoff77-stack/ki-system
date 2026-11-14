@@ -1,0 +1,48 @@
+{
+  "thema_schluessel": "raum.pyramide_kegel_kugel",
+  "gesamturteil": "gut",
+  "thema_hinweise": [
+    "Fachlich sehr ordentlich, gute Achsenschnitte, die Kegelmantel-Begründung über den Kreissektor ist vorbildlich.",
+    "Fakt-Fehler: In der Probe von „pyr_volumen“ steht „Würfelförmiges Prisma 36 · 10“ – ein Prisma mit 6 cm × 6 cm × 10 cm ist ein Quader, kein Würfel. Korrigiert.",
+    "Unter „offen“ steht, dass Schrägbilder und Netze von Pyramide und Kegel nicht gezeichnet werden können. Fakt: Ein Pyramiden-Schrägbild ist eine ebene Zeichnung und geht mit „figur“ (verdeckte Kanten gestrichelt); ein fertiges Beispiel steht in inhalte/pruefung/erklaerungen/raum.schraegbilder.json (Karte „laengen“). Ein Pyramidennetz (Quadrat mit vier angesetzten Dreiecken) geht ebenso."
+  ],
+  "karten": [
+    {
+      "lernziel": "pyr_volumen",
+      "urteil": "verbessern",
+      "probleme": [
+        "Fakt: Die Probe nennt das Prisma „würfelförmig“, es ist aber ein Quader (6 × 6 × 10).",
+        "Der Faktor ⅓ wird nur behauptet. Für Würfel gibt es eine anschauliche Begründung: Drei gleiche Pyramiden mit gemeinsamer Spitze in einer Würfelecke füllen den Würfel genau aus."
+      ],
+      "neu": {
+        "regel": "Jede Pyramide hat ⟦ein Drittel⟧ des Volumens eines Prismas mit gleicher Grundfläche und Höhe: ⟦V = ⅓ · G · h⟧. Anschaulich: Ein Würfel lässt sich in ⟦drei gleiche Pyramiden⟧ zerlegen, deren gemeinsame Spitze eine Würfelecke ist – jede hat eine Würfelfläche als Grundfläche und die Kante als Höhe.",
+        "probe": "Quaderförmiges Prisma mit gleicher Grundfläche und Höhe: 36 cm² · 10 cm = 360 cm³; ein Drittel davon sind 120 cm³ ✓"
+      }
+    },
+    {
+      "lernziel": "pyr_oberflaeche",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "kegel_volumen",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "kegel_mantel",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "kugel",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "sachkontext",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "verstehen",
+      "urteil": "ok"
+    }
+  ],
+  "neue_karten": []
+}

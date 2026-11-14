@@ -1,0 +1,93 @@
+{
+  "thema_schluessel": "bruch.prozent",
+  "gesamturteil": "gut",
+  "karten": [
+    {
+      "lernziel": "prozent_bedeutung",
+      "urteil": "ok",
+      "stufen": "Passen: Bruch/Dezimal ↔ Prozent → Vergleich → Runden bei Siebteln.",
+      "fehlende_aufgabentypen": [
+        "Anteil im Bild (zahl, f.grafik kreisdiagramm ohne Zahlen): Kreisdiagramm mit Teilen 1/4 und 3/4 → ‚Wie viel Prozent macht der kleine Teil aus?‘ → 25. Beispiel 2: Teile 3/5 und 2/5 → ‚großer Teil?‘ → 60."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "prozentwert",
+      "urteil": "ok",
+      "stufen": "Passen; Stufe 3 ‚im Kopf mit einfachen Brüchen‘ ist sinnvoll.",
+      "fehlende_aufgabentypen": [
+        "Schätzen (auswahl): ‚Etwa wie viel sind 24 % von 398 €?‘ → ‚etwa 100 €‘ | ‚etwa 24 €‘ | ‚etwa 10 €‘ | ‚etwa 240 €‘. Beispiel 2: ‚49 % von 61 kg‘ → ‚etwa 30 kg‘."
+      ],
+      "generator_regeln": [
+        "Bei ‚Berechne 1 % von …‘ keinen Lösungsweg ‚1 %: 1 · 3 = 3 m‘ (leere Multiplikation)."
+      ]
+    },
+    {
+      "lernziel": "prozentsatz",
+      "urteil": "verbessern",
+      "stufen": "22 von 28 Aufgaben sind ‚Wie viel Prozent sind a von b?‘ – Stufe 1 und 2 identisch. Stufe 3 mit Sachbezug passt.",
+      "fehlende_aufgabentypen": [
+        "Prozentsatz aus Sachsituation (zahl, Stufe 2): ‚In einer Klasse mit 25 Kindern haben 7 eine Brille. Wie viel Prozent?‘ → 28 %. Beispiel 2: ‚Von 40 Freiwürfen trifft ein Kind 26. Trefferquote in Prozent?‘ → 65 %."
+      ],
+      "generator_regeln": [
+        "Vorlage ‚Wie viel Prozent sind a von b?‘ höchstens 10-mal; Stufe 2 als Sachaufgabe."
+      ]
+    },
+    {
+      "lernziel": "grundwert",
+      "urteil": "verbessern",
+      "stufen": "Leicht und mittel passen. Stufe 3 (Wert ist 200 % des alten Werts; Rabatt-Rückrechnung) gehört laut Themenliste zu Klasse 7 (bruch.prozent_grundwert: ‚vermehrter/verminderter Grundwert‘). Lehrplan Kl. 6: ‚Einfache Prozentaufgaben‘.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Aufgaben mit vermehrtem/vermindertem Grundwert (Rückrechnung vom neuen Preis) in Klasse 6 weglassen oder als ‚Ausblick‘ markieren."
+      ]
+    },
+    {
+      "lernziel": "rabatt_aufschlag",
+      "urteil": "verbessern",
+      "stufen": "Gute Sachkontexte. Stufe 3 (zweifacher Rabatt, Rückrechnung ‚Nach 40 % Rabatt kostet … – was vorher?‘) ist Stoff der Klasse 7.",
+      "fehlende_aufgabentypen": [
+        "Angebote vergleichen (auswahl, Kl.-6-tauglich): ‚Laden A: Jacke 80 € mit 25 % Rabatt. Laden B: Jacke 70 € mit 10 % Rabatt. Wo ist sie billiger?‘ → ‚Laden A (60 € gegen 63 €)‘ | ‚Laden B, weil der Preis kleiner ist‘ | ‚Laden A, weil 25 % mehr ist‘ | ‚gleich teuer‘. Beispiel 2: ‚A: 50 € mit 20 % Rabatt, B: 45 € mit 10 % Rabatt‘ → ‚Laden A (40 € gegen 40,50 €)‘."
+      ],
+      "generator_regeln": [
+        "Doppelrabatt und Rückrechnung nach Klasse 7 verschieben (bruch.prozent_grundwert)."
+      ]
+    },
+    {
+      "lernziel": "zinsen",
+      "urteil": "ok",
+      "stufen": "Passen. Zinssätze realistisch (1,5–5 %). ‚Nur 6 Monate angelegt‘ ist ein guter Sonderfall.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "verstehen",
+      "urteil": "ok",
+      "stufen": "Sehr gute Aussagen (20 % runter/rauf, a % von b = b % von a, Prozentwert > Grundwert). Ablenker ‚Das kann man nicht entscheiden.‘ wieder immer dabei.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Ablenker ‚Das kann man nicht entscheiden.‘ durch einen Fehlgrund ersetzen (z. B. ‚Ja, weil 20 − 20 = 0 ist.‘)."
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Berechne 1 % von 300 m.",
+      "art": "loesungsweg",
+      "problem": "Lösungsweg ‚1 % von 300 m = 3 m. 1 %: 1 · 3 = 3 m.‘ – der zweite Satz ist überflüssig und verwirrt.",
+      "korrektur": "Lösungsweg: ‚1 % ist der hundertste Teil: 300 m : 100 = 3 m.‘"
+    },
+    {
+      "aufgabe": "Nach 40 % Rabatt kostet eine Jacke 132 €. Was kostete die Ware vorher?",
+      "art": "mehrdeutig",
+      "problem": "Rechnung richtig, aber verminderter Grundwert ist laut Themenliste Stoff von bruch.prozent_grundwert (Klasse 7). Ebenso ‚Erst … Rabatt, dann auf den neuen Preis noch einmal …‘.",
+      "korrektur": "In Klasse 6 ersetzen durch ‚Eine Jacke kostet 220 €. Es gibt 40 % Rabatt. Was kostet sie jetzt?‘ → 132 €."
+    },
+    {
+      "aufgabe": "Ein Rucksack kostete 60 €. Der Preis steigt um 25 %. Wie viel kostet die Ware jetzt?",
+      "art": "sprache",
+      "problem": "‚Ein Rucksack … Wie viel kostet die Ware jetzt?‘ – das Wort ‚die Ware‘ passt nicht zum vorher genannten Gegenstand (in allen Rabatt-/Aufschlag-Vorlagen).",
+      "korrektur": "‚Ein Rucksack kostete 60 €. Der Preis steigt um 25 %. Wie viel kostet der Rucksack jetzt?‘"
+    }
+  ]
+}

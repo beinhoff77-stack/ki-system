@@ -1,0 +1,111 @@
+{
+  "thema_schluessel": "geometrie.ortslinien",
+  "gesamturteil": "gut",
+  "thema_hinweise": [
+    "Klar, kindgerecht und fachlich richtig, Bilder vorhanden. Einzige Lücke: Die anspruchsvollste Karte „verknuepfen“ hat kein Bild, obwohl gerade dort Kreis und Parallelenpaar zusammen gesehen werden müssen; angegeben."
+  ],
+  "karten": [
+    {
+      "lernziel": "kreislinie",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "parallelen",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "zwei_kreise",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "verknuepfen",
+      "urteil": "verbessern",
+      "probleme": [
+        "Kein Bild. Dass eine Parallele den Kreis berührt und die andere ihn verfehlt, ist ohne Skizze für Klasse 5 kaum nachvollziehbar."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "M": [
+              0,
+              0
+            ],
+            "_g1": [
+              -6,
+              -5
+            ],
+            "_g2": [
+              6,
+              -5
+            ],
+            "_p1": [
+              -6,
+              -3
+            ],
+            "_p2": [
+              6,
+              -3
+            ],
+            "_q1": [
+              -6,
+              -7
+            ],
+            "_q2": [
+              6,
+              -7
+            ],
+            "T": [
+              0,
+              -3
+            ],
+            "_L": [
+              0,
+              -5
+            ]
+          },
+          "kreise": [
+            {
+              "m": "M",
+              "r": 3
+            }
+          ],
+          "linien": [
+            [
+              "_g1",
+              "_g2",
+              "g"
+            ],
+            [
+              "_p1",
+              "_p2",
+              "",
+              "gestrichelt"
+            ],
+            [
+              "_q1",
+              "_q2",
+              "",
+              "gestrichelt"
+            ],
+            [
+              "M",
+              "_L",
+              "5",
+              "gestrichelt"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "sachsituationen",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "verstehen",
+      "urteil": "ok"
+    }
+  ],
+  "neue_karten": []
+}

@@ -1,0 +1,85 @@
+{
+  "thema_schluessel": "messen.kreisberechnung",
+  "gesamturteil": "brauchbar",
+  "karten": [
+    {
+      "lernziel": "umfang",
+      "urteil": "verbessern",
+      "stufen": "Passen (r → d → Umkehrung). Die Sachkontexte haben unrealistische Maße (siehe Fehlerliste).",
+      "fehlende_aufgabentypen": [
+        "Umdrehungen eines Rades (zahl, Stufe 3): ‚Ein Fahrrad hat Räder mit 70 cm Durchmesser. Wie viele volle Umdrehungen macht ein Rad auf 1 km?‘ → 1 000 m : (π · 0,7 m) ≈ 454,7 → 454 volle Umdrehungen. Beispiel 2: ‚Ein Rasenmäherrad mit d = 20 cm rollt 50 m.‘ → 79 volle Umdrehungen.",
+        "π verstehen (auswahl): ‚Du misst bei einer Dose u = 25,1 cm und d = 8 cm. Was ergibt u : d ungefähr?‘ → 3,14 | 2 | 0,32 | 6,28. Beispiel 2: Teller u = 78,5 cm, d = 25 cm → 3,14."
+      ],
+      "generator_regeln": [
+        "Realistische Radien: Fahrradrad 30–36 cm, runder Esstisch 45–75 cm, Pizza 13–18 cm, Uhr 10–20 cm."
+      ]
+    },
+    {
+      "lernziel": "flaeche",
+      "urteil": "ok",
+      "stufen": "Passen. Ein Sachbezug fehlt ganz (nur ‚Ein Kreis hat …‘).",
+      "fehlende_aufgabentypen": [
+        "Pizza-Vergleich (auswahl, Stufe 3): ‚Eine Pizza mit 32 cm Durchmesser kostet 10 €, zwei Pizzen mit 22 cm kosten zusammen 10 €. Wo bekommst du mehr Pizza?‘ → ‚bei der großen (804 cm² gegen 760 cm²)‘ | ‚bei den zwei kleinen (44 cm > 32 cm)‘ | ‚gleich viel‘. Beispiel 2: d = 30 cm gegenüber zwei mit d = 20 cm → große Pizza (707 cm² gegen 628 cm²)."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "exakt",
+      "urteil": "ok",
+      "stufen": "Passen; Stufe 3 (aus Umfang die Fläche exakt) ist ein echter Doppelschritt.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "sektor",
+      "urteil": "verbessern",
+      "stufen": "Passen.",
+      "fehlende_aufgabentypen": [
+        "Winkel aus Bogen (zahl, Stufe 3): ‚Ein Kreisausschnitt mit r = 6 cm hat die Bogenlänge 3π cm. Wie groß ist der Mittelpunktswinkel?‘ → 90°. Beispiel 2: ‚r = 10 cm, Fläche 25π cm²‘ → 90°.",
+        "Sachaufgabe (zahl): ‚Ein Scheibenwischer (Länge 50 cm) überstreicht 120°. Wie groß ist die gewischte Fläche, wenn die inneren 10 cm nicht wischen? (auf ganze cm² runden)‘ → 120/360 · π · (50² − 10²) ≈ 2 513 cm²."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "zusammengesetzt",
+      "urteil": "ok",
+      "stufen": "Gute Figuren (Ring, Segment, Quadrat mit Inkreis, Halbkreisrand). Kreisring 15-mal ist viel. Seit 14.11. könnte f.grafik figur mit kreise die Figur zeigen.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Kreisring höchstens 8-mal; Figuren als f.grafik figur mitgeben (Kreis mit Radius, Quadrat mit Inkreis)."
+      ]
+    },
+    {
+      "lernziel": "zylinder",
+      "urteil": "ok",
+      "stufen": "Passen (Volumen → Mantel → Oberfläche, Liter).",
+      "fehlende_aufgabentypen": [
+        "Rückwärts (zahl): ‚Eine zylindrische Vase (r = 5 cm) soll 1 l fassen. Wie hoch muss sie mindestens sein? (auf eine Stelle runden)‘ → 12,7 cm. Beispiel 2: ‚Ein Regenfass mit r = 30 cm enthält 200 l. Wie hoch steht das Wasser?‘ → 70,7 cm."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "verstehen",
+      "urteil": "ok",
+      "stufen": "Gute Verstehenskarte (Faktor bei Vergrößerung, typische Formelfehler, Vergleich). Stufe 1 ‚Umfang bei Radius mal k‘ ist 3-mal dieselbe Frage.",
+      "fehlende_aufgabentypen": [
+        "Verdoppeln des Durchmessers bei Fläche (zahl): ‚Der Durchmesser wird halbiert. Mit welchem Faktor ändert sich die Fläche?‘ → 0,25. Beispiel 2: ‚Radius mal 1,5 → Fläche mal?‘ → 2,25."
+      ],
+      "generator_regeln": []
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Ein Fahrradreifen hat den Radius 3,6 cm. Wie lang ist der Umfang? Runde auf eine Nachkommastelle.",
+      "art": "unrealistisch",
+      "problem": "Ein Fahrradreifen hat etwa 30–36 cm Radius, nicht 3,6 cm (auch ‚9,2 cm‘ kommt vor).",
+      "korrektur": "‚Ein Fahrradreifen hat den Radius 33 cm. Wie lang ist der Umfang? Runde auf eine Nachkommastelle.‘ → 207,3 cm."
+    },
+    {
+      "aufgabe": "Ein runder Tisch hat den Radius 14,2 cm. Wie lang ist der Umfang? Runde auf eine Nachkommastelle.",
+      "art": "unrealistisch",
+      "problem": "Ein Tisch mit 28 cm Durchmesser ist ein Hocker. Ebenso ‚Radius 6 cm‘, ‚8,2 cm‘, ‚13 cm‘.",
+      "korrektur": "‚Ein runder Tisch hat den Radius 55 cm. Wie lang ist der Umfang? Runde auf eine Nachkommastelle.‘ → 345,6 cm."
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "thema_schluessel": "daten.kennwerte",
+  "gesamturteil": "gut",
+  "thema_hinweise": [
+    "Klar und fachlich richtig. Verbessert: das Ausgleichs-Modell für den Mittelwert (Stapel einebnen) mit Säulenbild, eine Tabelle beim Notenspiegel und ein klarerer typischer Fehler beim Median."
+  ],
+  "karten": [
+    {
+      "lernziel": "mittelwert",
+      "urteil": "verbessern",
+      "probleme": [
+        "„Wenn alle gleich verteilt wären“ ist abstrakt. Das Ausgleichs-Modell (von hohen Stapeln an niedrige abgeben) macht es anschaulich und zeigt, warum durch die Anzahl geteilt wird."
+      ],
+      "neu": {
+        "regel": "Das ⟦arithmetische Mittel⟧ (der Mittelwert, „Durchschnitt“) ist ⟦Summe aller Werte : Anzahl der Werte⟧. Stell dir die Werte als Stapel vor: Du gibst von hohen Stapeln an niedrige ab, bis ⟦alle gleich hoch⟧ sind. Diese Höhe ist der Mittelwert.",
+        "schritte": [
+          "Vier Kinder haben 7, 9, 4 und 8 Punkte. Summe: 7 + 9 + 4 + 8 = 28.",
+          "Verteilt auf 4 Kinder: 28 : 4 = ⟦7⟧.",
+          "Ausgleichen: Der 9er-Stapel gibt 2 ab, der 8er-Stapel 1. Damit wird der 4er-Stapel zu 7. Jetzt sind alle 7 hoch."
+        ],
+        "bild": {
+          "typ": "saeulen",
+          "einheit": "Punkte",
+          "werte": [
+            {
+              "name": "A",
+              "wert": 7
+            },
+            {
+              "name": "B",
+              "wert": 9
+            },
+            {
+              "name": "C",
+              "wert": 4
+            },
+            {
+              "name": "D",
+              "wert": 8
+            }
+          ],
+          "zahlen": true
+        }
+      },
+      "strategie": "Ausgleichsmodell: Mittelwert als gleichmäßig verteilte Summe."
+    },
+    {
+      "lernziel": "mittel_tabelle",
+      "urteil": "verbessern",
+      "probleme": [
+        "Der Notenspiegel steht als Fließtext; als Tabelle mit Zeile „Note · Anzahl“ wird der Rechenweg sichtbar."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "tabelle",
+          "kopf": [
+            "Note",
+            "1",
+            "2",
+            "3",
+            "Summe"
+          ],
+          "zeilen": [
+            [
+              "Anzahl",
+              "2",
+              "5",
+              "3",
+              "10"
+            ],
+            [
+              "Note · Anzahl",
+              "2",
+              "10",
+              "9",
+              "21"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "mittel_rueckwaerts",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "modal_spannweite",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "median",
+      "urteil": "verbessern",
+      "probleme": [
+        "Der typische Fehler ist verwirrend: Er sagt „hier 8, zufällig richtig“ und wechselt dann zu einer anderen Liste."
+      ],
+      "neu": {
+        "fehler": "Den mittleren Wert der ⟦ungeordneten⟧ Liste nehmen. Bei 12, 3, 20, 5, 8 steht in der Mitte die 20 – aber 20 ist der größte Wert! Geordnet: 3, 5, 8, 12, 20, der Median ist ⟦8⟧. Zuerst ⟦ordnen⟧!"
+      }
+    },
+    {
+      "lernziel": "verstehen",
+      "urteil": "ok"
+    }
+  ],
+  "neue_karten": []
+}

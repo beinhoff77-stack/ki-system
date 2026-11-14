@@ -1,0 +1,99 @@
+{
+  "thema_schluessel": "stochastik.grundbegriffe",
+  "gesamturteil": "gut",
+  "thema_hinweise": [
+    "Reihenfolge: Laut inhalt.abschnitte gehört „laplace_pruefen“ in den Bereich „Wahrscheinlichkeiten“ (hinter „gegenereignis“), in inhalt.etappen steht die Karte aber hinter „grosse_zahlen“. Vorschlag: „laplace_pruefen“ direkt hinter „laplace“ – erst prüfen, ob die Formel gilt, dann rechnen.",
+    "Glücksräder lassen sich mit dem Bildtyp „kreisdiagramm“ zeichnen (Werte in Grad). Eingebaut in „laplace_pruefen“. Das Baumdiagramm macht in „begriffe“ sichtbar, warum WZ und ZW verschieden sind.",
+    "Hinweis an die Aufgaben-Prüfung (Fakt): In „rel_haeufigkeit“ steht „Gruppe B 20-mal mit 1 Sechsen“ (Grammatik) und „Runde auf eine Nachkommastelle“, obwohl das Ergebnis 16 % glatt ist."
+  ],
+  "karten": [
+    {
+      "lernziel": "begriffe",
+      "urteil": "verbessern",
+      "probleme": [
+        "Der typische Fehler (WZ und ZW zusammenwerfen) wird beschrieben, aber nicht gezeigt. Ein Baumdiagramm macht die vier Ergebnisse sofort sichtbar."
+      ],
+      "neu": {
+        "fehler": "Zweimal eine Münze werfen hat nicht 3 Ergebnisse (WW, WZ, ZZ). Stell dir eine 1-€- und eine 2-€-Münze vor: „1 € Wappen, 2 € Zahl“ ist etwas anderes als „1 € Zahl, 2 € Wappen“. Der Baum zeigt ⟦vier⟧ Wege: Ω = {WW; WZ; ZW; ZZ}.",
+        "bild": {
+          "typ": "baum",
+          "aeste": [
+            {
+              "text": "W",
+              "p": "1/2",
+              "aeste": [
+                {
+                  "text": "WW",
+                  "p": "1/2"
+                },
+                {
+                  "text": "WZ",
+                  "p": "1/2"
+                }
+              ]
+            },
+            {
+              "text": "Z",
+              "p": "1/2",
+              "aeste": [
+                {
+                  "text": "ZW",
+                  "p": "1/2"
+                },
+                {
+                  "text": "ZZ",
+                  "p": "1/2"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "rel_haeufigkeit",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "laplace",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "gegenereignis",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "grosse_zahlen",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "laplace_pruefen",
+      "urteil": "verbessern",
+      "probleme": [
+        "Das Glücksrad wird nur in Worten beschrieben; das Bild zeigt sofort, dass A so groß ist wie B und C zusammen."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "kreisdiagramm",
+          "einheit": "°",
+          "werte": [
+            {
+              "name": "A",
+              "wert": 180
+            },
+            {
+              "name": "B",
+              "wert": 90
+            },
+            {
+              "name": "C",
+              "wert": 90
+            }
+          ],
+          "zahlen": true
+        }
+      }
+    }
+  ],
+  "neue_karten": []
+}

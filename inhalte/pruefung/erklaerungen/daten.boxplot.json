@@ -1,0 +1,108 @@
+{
+  "thema_schluessel": "daten.boxplot",
+  "gesamturteil": "brauchbar",
+  "thema_hinweise": [
+    "Unter „offen“ steht, dass Boxplots nicht gezeichnet werden können. Den Bildtyp „boxplot“ gibt es jetzt (eine oder mehrere Reihen über derselben Achse). Ein Thema „Boxplot“ ohne Boxplot ist die größte Schwäche; Bilder für quartile, boxplot und vergleichen angegeben. Damit werden auch die fehlenden Aufgaben „Lies aus dem Boxplot ab“ und „Welcher Boxplot passt?“ möglich.",
+    "Reihenfolge: Laut inhalt.abschnitte gehört „mittel_median“ in den ersten Bereich („Kennwerte“), in inhalt.etappen steht die Karte hinter „boxplot“. Vorschlag: der Abschnitts-Reihenfolge folgen."
+  ],
+  "karten": [
+    {
+      "lernziel": "median",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "kennwerte",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "quartile",
+      "urteil": "verbessern",
+      "probleme": [
+        "Die Aufteilung in Viertel ist ohne Bild abstrakt; der Boxplot der Beispieldaten zeigt, wo Q₁, Median und Q₃ liegen."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "boxplot",
+          "achse": [
+            0,
+            12
+          ],
+          "reihen": [
+            {
+              "min": 1,
+              "q1": 3,
+              "median": 6,
+              "q3": 9,
+              "max": 11
+            }
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "boxplot",
+      "urteil": "verbessern",
+      "probleme": [
+        "Das Bild ist eine Tabelle statt eines Boxplots; Box und Antennen, von denen die Regel spricht, sieht das Kind nicht."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "boxplot",
+          "achse": [
+            10,
+            45
+          ],
+          "reihen": [
+            {
+              "min": 12,
+              "q1": 18,
+              "median": 23,
+              "q3": 30,
+              "max": 41
+            }
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "mittel_median",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "vergleichen",
+      "urteil": "verbessern",
+      "probleme": [
+        "Zwei Datensätze vergleicht man am besten mit zwei Boxplots übereinander; die Tabelle zeigt Lage und Streuung nicht auf einen Blick."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "boxplot",
+          "achse": [
+            10,
+            40
+          ],
+          "einheit": "s",
+          "reihen": [
+            {
+              "name": "Klasse A",
+              "min": 19,
+              "q1": 22,
+              "median": 24,
+              "q3": 26,
+              "max": 31
+            },
+            {
+              "name": "Klasse B",
+              "min": 15,
+              "q1": 18,
+              "median": 22,
+              "q3": 27,
+              "max": 35
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "neue_karten": []
+}

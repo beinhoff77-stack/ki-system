@@ -1,0 +1,81 @@
+{
+  "thema_schluessel": "gleichungen.ungleichungen",
+  "gesamturteil": "gut",
+  "thema_hinweise": [
+    "Das grafische Lösen (Lehrplan) fehlte, weil keine Graphen gezeichnet werden konnten. Das geht jetzt. Neue Karte „grafisch“ hinter „pruefen“.",
+    "Das Umdrehen des Zeichens wird nur als Regel und mit einer Probe gezeigt. Das Warum (Malnehmen mit −1 spiegelt an der 0, dadurch kehrt sich die Reihenfolge um) ist für Klasse 8 gut verständlich und jetzt eingebaut.",
+    "Der Zahlenstrahl in „umformen“ zeigt die Grenze nicht. Der Pfeil kann jetzt auf die 4 zeigen."
+  ],
+  "karten": [
+    {
+      "lernziel": "umformen",
+      "urteil": "verbessern",
+      "probleme": [
+        "Der Zahlenstrahl hat keine Markierung; die Grenze 4 sollte mit dem Pfeil gezeigt werden."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "zahlenstrahl",
+          "start": -2,
+          "ende": 8,
+          "abschnitte": 10,
+          "beschriftet": "anfang_ende",
+          "pfeil": 6
+        }
+      }
+    },
+    {
+      "lernziel": "umdrehen",
+      "urteil": "verbessern",
+      "probleme": [
+        "Die Regel wird nur behauptet und mit einer Probe bestätigt. Das Warum fehlt: Mal (−1) spiegelt die Zahlen an der 0, dadurch dreht sich die Reihenfolge um.",
+        "Ohne Begründung vergessen Kinder das Umdrehen oder drehen es auch beim Subtrahieren einer Zahl um."
+      ],
+      "neu": {
+        "regel": "Multiplizierst oder dividierst du beide Seiten mit einer ⟦negativen⟧ Zahl, musst du das Zeichen ⟦umdrehen⟧: aus < wird >, aus ≤ wird ≥. Warum? 2 < 3 ist wahr. Mal (−1): −2 und −3. Jetzt ist −2 > −3 – bei −2 °C ist es wärmer als bei −3 °C. Das Minus spiegelt alles an der 0, die Reihenfolge kehrt sich um.",
+        "fehler": "−2x ≤ 8 ergibt nicht x ≤ −4. Prüfe mit x = −5: −2 · (−5) = 10 ≤ 8 ist falsch. Beim Teilen durch (−2) wird das Zeichen ⟦umgedreht⟧: x ≥ −4. Aber Achtung: Beim ⟦Subtrahieren⟧ einer Zahl, z. B. | − 1, dreht sich nichts um."
+      },
+      "strategie": "Spiegelung an der 0 (Thermometer) als Begründung; Probe mit einer Zahl aus der vermuteten Lösungsmenge."
+    },
+    {
+      "lernziel": "klammern",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "intervall",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "pruefen",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "sachaufgabe",
+      "urteil": "ok"
+    }
+  ],
+  "neue_karten": [
+    {
+      "nach": "pruefen",
+      "lernziel": "grafisch",
+      "titel": "Ungleichung am Graphen lösen",
+      "regel": "Zeichne jede Seite als Gerade. Bei „links < rechts“ suchst du die x-Werte, bei denen die linke Gerade ⟦unterhalb⟧ der rechten liegt. Die Grenze ist der ⟦Schnittpunkt⟧.",
+      "schritte": [
+        "3x + 5 < 17. Links: y = 3x + 5. Rechts: y = 17, eine waagrechte Gerade.",
+        "Die Geraden schneiden sich bei x = 4.",
+        "Links vom Schnittpunkt liegt y = 3x + 5 unter der 17: ⟦x < 4⟧."
+      ],
+      "probe": "x = 2: 3 · 2 + 5 = 11 < 17 ✓",
+      "fehler": "Die falsche Seite nehmen: Rechts vom Schnittpunkt liegt die Gerade y = 3x + 5 ⟦über⟧ der 17. Bei „<“ gehört der Bereich ⟦unterhalb⟧ dazu, also links von x = 4.",
+      "bild": {
+        "typ": "koordinaten",
+        "x": [-1, 6],
+        "y": [0, 22],
+        "graphen": [{ "art": "linear", "m": 3, "t": 5, "name": "y = 3x + 5" }, { "art": "linear", "m": 0, "t": 17, "name": "y = 17" }],
+        "senkrecht": [4],
+        "punkte": [{ "x": 4, "y": 17, "offen": true }]
+      },
+      "begruendung": "Lehrplan: „graphisch und rechnerisch lösen“; der grafische Teil fehlte nur wegen der fehlenden Zeichnung."
+    }
+  ]
+}

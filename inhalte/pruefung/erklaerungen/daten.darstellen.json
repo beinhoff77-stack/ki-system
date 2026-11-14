@@ -1,0 +1,145 @@
+{
+  "thema_schluessel": "daten.darstellen",
+  "gesamturteil": "brauchbar",
+  "thema_hinweise": [
+    "Unter „offen“ steht, dass Säulen- und Kreisdiagramme nicht gezeichnet werden können. Das geht jetzt (Bildtypen „saeulen“, „kreisdiagramm“, „tabelle“, auch mit abgeschnittener Achse über „y_start“). Ein Diagramm-Thema ohne ein einziges Diagramm ist die größte Schwäche; Bilder sind jetzt für tabelle_auswerten, saeulendiagramm, kreisdiagramm und irrefuehrend angegeben.",
+    "Die Texte sind klar und fachlich richtig."
+  ],
+  "karten": [
+    {
+      "lernziel": "absolute_haeufigkeit",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "relative_haeufigkeit",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "tabelle_auswerten",
+      "urteil": "verbessern",
+      "probleme": [
+        "Die Häufigkeitstabelle steht als Fließtext mit senkrechten Strichen da; als echte Tabelle mit Summenzeile ist sie viel leichter zu lesen."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "tabelle",
+          "kopf": [
+            "Schulweg",
+            "Bus",
+            "Rad",
+            "zu Fuß",
+            "Auto",
+            "Summe"
+          ],
+          "zeilen": [
+            [
+              "Anzahl",
+              "12",
+              "9",
+              "6",
+              "3",
+              "30"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "saeulendiagramm",
+      "urteil": "verbessern",
+      "probleme": [
+        "Kein Säulendiagramm im Bild."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "saeulen",
+          "einheit": "Kinder",
+          "werte": [
+            {
+              "name": "Fußball",
+              "wert": 18
+            },
+            {
+              "name": "Schwimmen",
+              "wert": 10
+            },
+            {
+              "name": "Turnen",
+              "wert": 6
+            },
+            {
+              "name": "Tennis",
+              "wert": 4
+            }
+          ],
+          "y_start": 0,
+          "zahlen": true
+        }
+      }
+    },
+    {
+      "lernziel": "kreisdiagramm",
+      "urteil": "verbessern",
+      "probleme": [
+        "Kein Kreisdiagramm im Bild. Erst am Bild sieht das Kind, dass 30 % knapp ein Drittel des Kreises sind – nicht 30°."
+      ],
+      "neu": {
+        "schritte": [
+          "40 Kinder: 12 Rad, 16 Bus, 8 zu Fuß, 4 Auto. Rad: 12 : 40 = 0,3 = 30 %.",
+          "Winkel für Rad: 0,3 · 360° = ⟦108°⟧.",
+          "Ebenso: Bus 40 % → 144°, zu Fuß 20 % → 72°, Auto 10 % → 36°. Zusammen 360°."
+        ],
+        "probe": "108° + 144° + 72° + 36° = 360° ✓",
+        "bild": {
+          "typ": "kreisdiagramm",
+          "einheit": " %",
+          "werte": [
+            {
+              "name": "Rad",
+              "wert": 30
+            },
+            {
+              "name": "Bus",
+              "wert": 40
+            },
+            {
+              "name": "zu Fuß",
+              "wert": 20
+            },
+            {
+              "name": "Auto",
+              "wert": 10
+            }
+          ],
+          "zahlen": true
+        }
+      }
+    },
+    {
+      "lernziel": "irrefuehrend",
+      "urteil": "verbessern",
+      "probleme": [
+        "Die Täuschung wird beschrieben, aber nicht gezeigt. Gerade hier muss das Kind den Effekt selbst sehen."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "saeulen",
+          "einheit": "Besucher",
+          "werte": [
+            {
+              "name": "Samstag",
+              "wert": 980
+            },
+            {
+              "name": "Sonntag",
+              "wert": 1000
+            }
+          ],
+          "y_start": 960,
+          "zahlen": true
+        }
+      }
+    }
+  ],
+  "neue_karten": []
+}

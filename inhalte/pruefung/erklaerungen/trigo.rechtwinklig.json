@@ -1,0 +1,219 @@
+{
+  "thema_schluessel": "trigo.rechtwinklig",
+  "gesamturteil": "brauchbar",
+  "thema_hinweise": [
+    "Die wichtigste Idee fehlt: Warum hängt sin α nur vom Winkel ab und nicht von der Größe des Dreiecks? Weil alle rechtwinkligen Dreiecke mit demselben α ähnlich sind. Ohne diesen Satz sind sin, cos, tan für Kinder Zauberwörter. Eingebaut in „verhaeltnisse“.",
+    "Unter „offen“ steht, dass Skizzen fehlen. Mit „figur“ geht das jetzt (rechter Winkel, Winkelbogen α, Seitenbeschriftung); Bilder für seiten, verhaeltnisse und anwendung angegeben.",
+    "Lehrplanbezug fehlt (lehrplan_gym leer)."
+  ],
+  "karten": [
+    {
+      "lernziel": "seiten",
+      "urteil": "verbessern",
+      "probleme": [
+        "An-, Gegenkathete und Hypotenuse werden nur in Worten erklärt; das braucht ein Bild."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "A": [
+              0,
+              0
+            ],
+            "B": [
+              5,
+              3
+            ],
+            "C": [
+              5,
+              0
+            ]
+          },
+          "flaeche": [
+            "A",
+            "B",
+            "C"
+          ],
+          "linien": [
+            [
+              "A",
+              "C",
+              "Ankathete b"
+            ],
+            [
+              "C",
+              "B",
+              "Gegenkathete a"
+            ],
+            [
+              "A",
+              "B",
+              "Hypotenuse c"
+            ]
+          ],
+          "rechter_winkel": [
+            [
+              "C",
+              "A",
+              "B"
+            ]
+          ],
+          "winkel": [
+            [
+              "A",
+              "C",
+              "B",
+              "α"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "verhaeltnisse",
+      "urteil": "verbessern",
+      "probleme": [
+        "Es fehlt der Grund, warum die Verhältnisse nur vom Winkel abhängen (Ähnlichkeit). Ohne ihn bleibt unklar, warum der Taschenrechner zu 35° immer denselben Sinus liefert."
+      ],
+      "neu": {
+        "regel": "⟦sin α = Gegenkathete : Hypotenuse⟧, ⟦cos α = Ankathete : Hypotenuse⟧, ⟦tan α = Gegenkathete : Ankathete⟧. Warum hängen diese Verhältnisse ⟦nur vom Winkel⟧ ab? Alle rechtwinkligen Dreiecke mit demselben α sind ⟦ähnlich⟧ – ein großes ist nur ein vergrößertes kleines. Beim Vergrößern bleiben die Seitenverhältnisse gleich.",
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "A": [
+              0,
+              0
+            ],
+            "B": [
+              15,
+              8
+            ],
+            "C": [
+              15,
+              0
+            ]
+          },
+          "flaeche": [
+            "A",
+            "B",
+            "C"
+          ],
+          "linien": [
+            [
+              "A",
+              "C",
+              "b = 15 cm"
+            ],
+            [
+              "C",
+              "B",
+              "a = 8 cm"
+            ],
+            [
+              "A",
+              "B",
+              "c = 17 cm"
+            ]
+          ],
+          "rechter_winkel": [
+            [
+              "C",
+              "A",
+              "B"
+            ]
+          ],
+          "winkel": [
+            [
+              "A",
+              "C",
+              "B",
+              "α"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "seite",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "winkel",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "beziehungen",
+      "urteil": "verbessern",
+      "probleme": [
+        "sin² α + cos² α = 1 wird ohne Begründung gegeben; sie ist der Satz des Pythagoras in einer Zeile."
+      ],
+      "neu": {
+        "regel": "Für spitze Winkel gilt ⟦sin² α + cos² α = 1⟧. Warum? Das ist Pythagoras: a² + b² = c², geteilt durch c², ergibt (a/c)² + (b/c)² = 1. Außerdem: ⟦tan α = sin α : cos α⟧ und ⟦sin α = cos(90° − α)⟧. Besondere Werte: sin 30° = cos 60° = 0,5; tan 45° = 1."
+      }
+    },
+    {
+      "lernziel": "anwendung",
+      "urteil": "verbessern",
+      "probleme": [
+        "„8 % Steigung“ wird nur in Worten erklärt; das Steigungsdreieck (100 m waagrecht, 8 m hoch) gehört ins Bild."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "A": [
+              0,
+              0
+            ],
+            "_C": [
+              100,
+              0
+            ],
+            "_B": [
+              100,
+              8
+            ]
+          },
+          "flaeche": [
+            "A",
+            "_C",
+            "_B"
+          ],
+          "linien": [
+            [
+              "A",
+              "_C",
+              "100 m waagrecht"
+            ],
+            [
+              "_C",
+              "_B",
+              "8 m"
+            ],
+            [
+              "A",
+              "_B"
+            ]
+          ],
+          "rechter_winkel": [
+            [
+              "_C",
+              "A",
+              "_B"
+            ]
+          ],
+          "winkel": [
+            [
+              "A",
+              "_C",
+              "_B",
+              "α"
+            ]
+          ]
+        }
+      }
+    }
+  ],
+  "neue_karten": []
+}

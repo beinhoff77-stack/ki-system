@@ -1,0 +1,63 @@
+{
+  "thema_schluessel": "bruch.dezimal",
+  "gesamturteil": "gut",
+  "thema_hinweise": [
+    "Klar, fachlich richtig, gute Reihenfolge. Verbessert: Vergleichen mit dem Alltagsmodell Geld (0,45 € und 0,50 €) und ein Zahlenstrahl, der die Lage wirklich zeigt; beim Periodischen die Begründung, warum nur die Primfaktoren 2 und 5 zu endlichen Dezimalzahlen führen."
+  ],
+  "karten": [
+    {
+      "lernziel": "stellenwerte",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "vergleichen_ordnen",
+      "urteil": "verbessern",
+      "probleme": [
+        "Das Beispiel ist eine nackte Zahl; mit Geld (0,45 € und 0,50 €) ist der Vergleich für Kinder sofort klar.",
+        "Der Zahlenstrahl von 0 bis 1 zeigt keine der beiden Zahlen. Ein Ausschnitt von 0,4 bis 0,5 mit Pfeil auf 0,45 zeigt sie."
+      ],
+      "neu": {
+        "schritte": [
+          "Vergleiche 0,45 und 0,5. Denk an Geld: 0,45 € sind 45 Cent.",
+          "0,5 € sind 50 Cent – hänge eine Null an: 0,5 = 0,50.",
+          "45 Cent sind weniger als 50 Cent, also ⟦0,45 < 0,5⟧."
+        ],
+        "bild": {
+          "typ": "zahlenstrahl",
+          "start": 0.4,
+          "ende": 0.5,
+          "abschnitte": 10,
+          "beschriftet": "anfang_ende",
+          "pfeil": 5
+        }
+      }
+    },
+    {
+      "lernziel": "runden",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "bruch_zu_dezimal",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "dezimal_zu_bruch",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "periodisch",
+      "urteil": "verbessern",
+      "probleme": [
+        "Die Regel „nur Primfaktoren 2 und 5“ steht ohne Warum. Die Begründung (10 = 2 · 5, nur dann lässt sich auf 10, 100, 1 000 erweitern) passt in einen Satz und knüpft an die Karte bruch_zu_dezimal an."
+      ],
+      "neu": {
+        "regel": "Manche Brüche ergeben eine ⟦periodische Dezimalzahl⟧: Die Ziffern wiederholen sich ohne Ende, z. B. 1/3 = 0,333… Man setzt einen ⟦Strich über die Periode⟧: 0,3̅. Ein vollständig gekürzter Bruch ist genau dann ⟦endlich⟧, wenn sein Nenner nur die Primfaktoren ⟦2 und 5⟧ hat. Warum? 10 = 2 · 5. Nur dann kannst du auf 10, 100 oder 1 000 erweitern. Auf 3 oder 6 geht das nie."
+      }
+    },
+    {
+      "lernziel": "verstehen",
+      "urteil": "ok"
+    }
+  ],
+  "neue_karten": []
+}

@@ -1,0 +1,271 @@
+{
+  "thema_schluessel": "trigo.allgemein",
+  "gesamturteil": "brauchbar",
+  "thema_hinweise": [
+    "Unter „offen“ steht, dass Einheitskreis und Dreieckskizzen fehlen. Mit „figur“ geht beides jetzt (Kreis, Achsen als Linien, Winkelbogen, Höhe gestrichelt). Bilder sind für einheitskreis, flaeche und sinussatz_seite angegeben.",
+    "Der Sinussatz wird ohne jede Begründung gegeben. Die Herleitung über die Höhe (h = b · sin α = a · sin β) ist zwei Zeilen lang, nutzt nur Klasse-9-Wissen und macht den Satz verständlich; eingebaut.",
+    "Lehrplan (Annahme, unsicher): Sinus- und Kosinussatz und der Einheitskreis stehen im bayerischen Gymnasium nach meinem Kenntnisstand eher in Jahrgangsstufe 10. Die Themenliste nennt Klasse 9 – vom Aufbau-Prüfer klären lassen. Der Verzicht auf Additionstheoreme (siehe „offen“) ist fachlich richtig."
+  ],
+  "karten": [
+    {
+      "lernziel": "einheitskreis",
+      "urteil": "verbessern",
+      "probleme": [
+        "Der Einheitskreis wird nur in Worten beschrieben; ohne Bild ist „Punkt (cos α | sin α)“ und das Vorzeichen im 2. Quadranten nicht nachvollziehbar."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "M": [
+              0,
+              0
+            ],
+            "_x1": [
+              -1.3,
+              0
+            ],
+            "_x2": [
+              1.3,
+              0
+            ],
+            "_y1": [
+              0,
+              -1.3
+            ],
+            "_y2": [
+              0,
+              1.3
+            ],
+            "P": [
+              -0.5,
+              0.866
+            ],
+            "_F": [
+              -0.5,
+              0
+            ]
+          },
+          "kreise": [
+            {
+              "m": "M",
+              "r": 1
+            }
+          ],
+          "linien": [
+            [
+              "_x1",
+              "_x2"
+            ],
+            [
+              "_y1",
+              "_y2"
+            ],
+            [
+              "M",
+              "P",
+              "1"
+            ],
+            [
+              "P",
+              "_F",
+              "sin 120°",
+              "gestrichelt"
+            ],
+            [
+              "_F",
+              "M",
+              "cos 120° = −0,5"
+            ]
+          ],
+          "winkel": [
+            [
+              "M",
+              "_x2",
+              "P",
+              "120°"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "flaeche",
+      "urteil": "verbessern",
+      "probleme": [
+        "Dass a · sin γ die Höhe ist, steht nur in der Probe; ein Bild mit gestrichelter Höhe zeigt es direkt."
+      ],
+      "neu": {
+        "regel": "Kennt man zwei Seiten und den ⟦eingeschlossenen⟧ Winkel, gilt ⟦A = ½ · a · b · sin γ⟧. Warum? Die Höhe auf b ist h = a · sin γ (rechtwinkliges Teildreieck), und A = ½ · b · h.",
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "C": [
+              0,
+              0
+            ],
+            "A": [
+              9,
+              0
+            ],
+            "B": [
+              5.196,
+              3
+            ],
+            "_H": [
+              5.196,
+              0
+            ]
+          },
+          "flaeche": [
+            "A",
+            "B",
+            "C"
+          ],
+          "linien": [
+            [
+              "C",
+              "A",
+              "b = 9 cm"
+            ],
+            [
+              "C",
+              "B",
+              "a = 6 cm"
+            ],
+            [
+              "A",
+              "B"
+            ],
+            [
+              "B",
+              "_H",
+              "h",
+              "gestrichelt"
+            ]
+          ],
+          "winkel": [
+            [
+              "C",
+              "A",
+              "B",
+              "30°"
+            ]
+          ],
+          "rechter_winkel": [
+            [
+              "_H",
+              "A",
+              "B"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "sinussatz_seite",
+      "urteil": "verbessern",
+      "probleme": [
+        "Der Sinussatz fällt vom Himmel. Die Herleitung über die Höhe ist kurz und für Klasse 9 gut verständlich.",
+        "Keine Skizze mit Standardbezeichnung (a gegenüber α)."
+      ],
+      "neu": {
+        "regel": "In jedem Dreieck gilt der ⟦Sinussatz⟧: ⟦a : sin α = b : sin β = c : sin γ⟧. Warum? Die Höhe h von C auf c lässt sich zweimal ausrechnen: h = b · sin α (links) und h = a · sin β (rechts). Also b · sin α = a · sin β, und daraus folgt a : sin α = b : sin β. Zu jeder Seite gehört der ⟦gegenüberliegende⟧ Winkel.",
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "A": [
+              0,
+              0
+            ],
+            "B": [
+              7,
+              0
+            ],
+            "C": [
+              2.2,
+              4
+            ],
+            "_H": [
+              2.2,
+              0
+            ]
+          },
+          "flaeche": [
+            "A",
+            "B",
+            "C"
+          ],
+          "linien": [
+            [
+              "A",
+              "B",
+              "c"
+            ],
+            [
+              "B",
+              "C",
+              "a"
+            ],
+            [
+              "C",
+              "A",
+              "b"
+            ],
+            [
+              "C",
+              "_H",
+              "h",
+              "gestrichelt"
+            ]
+          ],
+          "winkel": [
+            [
+              "A",
+              "B",
+              "C",
+              "α"
+            ],
+            [
+              "B",
+              "C",
+              "A",
+              "β"
+            ],
+            [
+              "C",
+              "A",
+              "B",
+              "γ"
+            ]
+          ],
+          "rechter_winkel": [
+            [
+              "_H",
+              "B",
+              "C"
+            ]
+          ]
+        }
+      },
+      "strategie": "Herleitung über die doppelt berechnete Höhe."
+    },
+    {
+      "lernziel": "sinussatz_winkel",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "kosinussatz_seite",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "kosinussatz_winkel",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "satz_waehlen",
+      "urteil": "ok"
+    }
+  ],
+  "neue_karten": []
+}

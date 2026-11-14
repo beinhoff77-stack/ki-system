@@ -8,12 +8,13 @@
  },
  "autor": "Claude (Paket Klasse 7)",
  "inhalt": {
-  "ziel": "Achsenspiegelung, Punktspiegelung, Verschiebung und Drehung im Koordinatensystem ausführen, Symmetrien von Figuren erkennen und die Eigenschaften von Kongruenzabbildungen begründen.",
+  "ziel": "Achsenspiegelung, Punktspiegelung, Verschiebung und Drehung im Koordinatensystem ausführen, Symmetrien von Figuren erkennen, Parkettierungen prüfen und die Eigenschaften von Kongruenzabbildungen begründen.",
   "merke": [
    "Achsenspiegelung: gleich weit auf die andere Seite, senkrecht zur Achse.",
    "Punktspiegelung an Z: Z ist Mitte von P und P'.",
    "Verschiebung v = (a | b): x + a, y + b. Drehung um O um 90°: (x | y) → (−y | x).",
-   "Längen, Winkel und Flächen bleiben erhalten."
+   "Längen, Winkel und Flächen bleiben erhalten.",
+   "Parkett: Die Winkel an einer Ecke ergeben 360°."
   ],
   "abschnitte": [
    {
@@ -34,6 +35,7 @@
     "titel": "Symmetrie und Eigenschaften",
     "lernziele": [
      "symmetrie",
+     "parkett",
      "eigenschaften"
     ]
    }
@@ -179,10 +181,10 @@
    {
     "lernziel": "drehung",
     "titel": "Um einen Punkt drehen",
-    "regel": "Bei einer ⟦Drehung⟧ um Z bleibt der Abstand zu Z gleich. Um den Ursprung gilt (gegen den Uhrzeigersinn): ⟦90°: (x | y) → (−y | x)⟧, 180°: (x | y) → (−x | −y), 270°: (x | y) → (y | −x).",
+    "regel": "Bei einer ⟦Drehung⟧ um Z bleibt der Abstand zu Z gleich. Drehung um den Ursprung um 90° gegen den Uhrzeigersinn: Der Weg zu P(4 | 1) ist „4 nach rechts, 1 nach oben“. Gedreht wird daraus „4 nach oben, 1 nach links“. Also ⟦(x | y) → (−y | x)⟧. Um 180°: (x | y) → (−x | −y).",
     "schritte": [
-     "P(4 | 1) um O(0 | 0) um 90° gegen den Uhrzeigersinn drehen",
-     "(x | y) → (−y | x)",
+     "P(4 | 1): Von O aus 4 nach rechts und 1 nach oben.",
+     "Um 90° gedreht: Aus „4 nach rechts“ wird „4 nach oben“, aus „1 nach oben“ wird „1 nach links“.",
      "⟦P'(−1 | 4)⟧"
     ],
     "fehler": "Bei 90° wird nicht einfach das Vorzeichen geändert: (4 | 1) → (−4 | −1) wäre eine Drehung um ⟦180°⟧.",
@@ -316,6 +318,108 @@
     "fehler": "Die Diagonalen eines Rechtecks sind ⟦keine⟧ Symmetrieachsen (außer beim Quadrat): Spiegelt man daran, fallen die Ecken nicht aufeinander."
    },
    {
+    "lernziel": "parkett",
+    "titel": "Lückenlos auslegen (Parkett)",
+    "regel": "Mit lauter gleichen regelmäßigen Vielecken kann man eine Fläche nur dann ⟦lückenlos⟧ auslegen, wenn die Winkel, die an einer Ecke zusammenstoßen, genau ⟦360°⟧ ergeben. Der Innenwinkel muss also in 360° ⟦aufgehen⟧.",
+    "schritte": [
+     "Gleichseitiges Dreieck: Innenwinkel 60°. 360° : 60° = 6 – sechs Dreiecke passen um eine Ecke ✓",
+     "Quadrat: 360° : 90° = 4 ✓. Regelmäßiges Sechseck: 360° : 120° = 3 ✓ (wie bei Bienenwaben).",
+     "Regelmäßiges Fünfeck: Innenwinkel 108°. 360° : 108° = 3,33… – es bleibt eine Lücke: ⟦kein Parkett⟧."
+    ],
+    "fehler": "„Jedes regelmäßige Vieleck ergibt ein Parkett.“ Falsch: Beim Fünfeck passen drei Ecken (324°) und es bleibt eine Lücke von 36°; vier wären 432°, zu viel. Nur bei ⟦Dreieck, Quadrat und Sechseck⟧ geht 360° glatt auf.",
+    "bild": {
+     "typ": "figur",
+     "punkte": {
+      "O": [
+       0,
+       0
+      ],
+      "_h0": [
+       3.0,
+       0.0
+      ],
+      "_h1": [
+       1.5,
+       2.6
+      ],
+      "_h2": [
+       -1.5,
+       2.6
+      ],
+      "_h3": [
+       -3.0,
+       0.0
+      ],
+      "_h4": [
+       -1.5,
+       -2.6
+      ],
+      "_h5": [
+       1.5,
+       -2.6
+      ]
+     },
+     "linien": [
+      [
+       "O",
+       "_h0"
+      ],
+      [
+       "_h0",
+       "_h1"
+      ],
+      [
+       "O",
+       "_h1"
+      ],
+      [
+       "_h1",
+       "_h2"
+      ],
+      [
+       "O",
+       "_h2"
+      ],
+      [
+       "_h2",
+       "_h3"
+      ],
+      [
+       "O",
+       "_h3"
+      ],
+      [
+       "_h3",
+       "_h4"
+      ],
+      [
+       "O",
+       "_h4"
+      ],
+      [
+       "_h4",
+       "_h5"
+      ],
+      [
+       "O",
+       "_h5"
+      ],
+      [
+       "_h5",
+       "_h0"
+      ]
+     ],
+     "winkel": [
+      [
+       "O",
+       "_h0",
+       "_h1",
+       "60°"
+      ]
+     ]
+    }
+   },
+   {
     "lernziel": "eigenschaften",
     "titel": "Was bleibt bei Abbildungen gleich?",
     "regel": "Kongruenzabbildungen erhalten ⟦Längen, Winkel und Flächeninhalte⟧: Bild und Urbild sind ⟦deckungsgleich⟧. Nur die Achsenspiegelung kehrt den ⟦Umlaufsinn⟧ um. Zwei Achsenspiegelungen nacheinander ergeben eine Verschiebung (parallele Achsen) oder eine Drehung (sich schneidende Achsen).",
@@ -364,6 +468,13 @@
     ]
    },
    {
+    "k": "parkett",
+    "text": "Lückenlos auslegen (Parkett)",
+    "lernziele": [
+     "parkett"
+    ]
+   },
+   {
     "k": "eigenschaften",
     "text": "Was bleibt bei Abbildungen gleich?",
     "lernziele": [
@@ -378,6 +489,7 @@
     "verschiebung",
     "drehung",
     "symmetrie",
+    "parkett",
     "eigenschaften"
    ],
    "lernziele_vertiefung": [],
@@ -834,18 +946,18 @@
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "Spiegle P(−4 | −1) an der Winkelhalbierenden y = x.",
+    "text": "Spiegle P(−4 | −1) an der Geraden y = −x.",
     "schablone": "P'(□ | □)",
     "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
     "grafik": {
      "typ": "koordinaten",
      "x": [
       -5,
-      1
+      2
      ],
      "y": [
-      -5,
-      1
+      -2,
+      5
      ],
      "punkte": [
       {
@@ -857,25 +969,25 @@
      "graphen": [
       {
        "art": "linear",
-       "m": 1,
+       "m": -1,
        "t": 0,
-       "name": "y = x"
+       "name": "y = −x"
       }
      ]
     }
    },
    "o": {
     "werte": [
-     -1,
-     -4
+     1,
+     4
     ]
    },
    "c": [
-    "-1",
-    "-4"
+    "1",
+    "4"
    ],
-   "w": "An y = x werden die Koordinaten vertauscht: P'(−1 | −4).",
-   "h": "Bei y = x tauschen x- und y-Koordinate die Plätze."
+   "w": "An y = −x werden die Koordinaten vertauscht und beide Vorzeichen geändert: P'(1 | 4).",
+   "h": "Wie bei y = x tauschen die Koordinaten – zusätzlich ändern sich beide Vorzeichen."
   },
   {
    "l": "achsenspiegelung",
@@ -884,124 +996,69 @@
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "Spiegle P(−7 | −5) an der Winkelhalbierenden y = x.",
-    "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "text": "P(7 | 4) wird an einer Geraden senkrecht zur x-Achse auf P'(−3 | 4) gespiegelt. Gib die Achse an.",
+    "schablone": "x = □",
+    "hinweis": "Trage die Zahl ein.",
     "grafik": {
      "typ": "koordinaten",
      "x": [
-      -8,
-      1
-     ],
-     "y": [
-      -8,
-      1
-     ],
-     "punkte": [
-      {
-       "x": -7,
-       "y": -5,
-       "name": "P"
-      }
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": 1,
-       "t": 0,
-       "name": "y = x"
-      }
-     ]
-    }
-   },
-   "o": {
-    "werte": [
-     -5,
-     -7
-    ]
-   },
-   "c": [
-    "-5",
-    "-7"
-   ],
-   "w": "An y = x werden die Koordinaten vertauscht: P'(−5 | −7).",
-   "h": "Bei y = x tauschen x- und y-Koordinate die Plätze."
-  },
-  {
-   "l": "achsenspiegelung",
-   "t": "achsenspiegelung",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Spiegle P(5 | 8) an der Winkelhalbierenden y = x.",
-    "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -1,
-      9
+      -4,
+      8
      ],
      "y": [
       -1,
-      9
+      5
      ],
      "punkte": [
       {
-       "x": 5,
-       "y": 8,
-       "name": "P"
-      }
-     ],
-     "graphen": [
-      {
-       "art": "linear",
-       "m": 1,
-       "t": 0,
-       "name": "y = x"
-      }
-     ]
-    }
-   },
-   "o": {
-    "werte": [
-     8,
-     5
-    ]
-   },
-   "c": [
-    "8",
-    "5"
-   ],
-   "w": "An y = x werden die Koordinaten vertauscht: P'(8 | 5).",
-   "h": "Bei y = x tauschen x- und y-Koordinate die Plätze."
-  },
-  {
-   "l": "achsenspiegelung",
-   "t": "achsenspiegelung",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Spiegle P(8 | 4) an der Winkelhalbierenden y = x.",
-    "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -1,
-      9
-     ],
-     "y": [
-      -1,
-      9
-     ],
-     "punkte": [
-      {
-       "x": 8,
+       "x": 7,
        "y": 4,
        "name": "P"
+      },
+      {
+       "x": -3,
+       "y": 4,
+       "name": "P'"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     2
+    ]
+   },
+   "c": [
+    "(7 + -3) // 2"
+   ],
+   "w": "Die Achse geht durch die Mitte von P und P': x = (7 + (−3)) : 2 = 2.",
+   "h": "Die Achse liegt genau in der Mitte zwischen P und P'."
+  },
+  {
+   "l": "achsenspiegelung",
+   "t": "achsenspiegelung",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Spiegle P(−5 | 1) an der Winkelhalbierenden y = x.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      2
+     ],
+     "y": [
+      -6,
+      2
+     ],
+     "punkte": [
+      {
+       "x": -5,
+       "y": 1,
+       "name": "P"
       }
      ],
      "graphen": [
@@ -1016,21 +1073,110 @@
    },
    "o": {
     "werte": [
-     4,
+     1,
+     -5
+    ]
+   },
+   "c": [
+    "1",
+    "-5"
+   ],
+   "w": "An y = x werden die Koordinaten vertauscht: P'(1 | −5).",
+   "h": "Bei y = x tauschen x- und y-Koordinate die Plätze."
+  },
+  {
+   "l": "achsenspiegelung",
+   "t": "achsenspiegelung",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "P(−2 | 5) wird an einer Geraden parallel zur x-Achse auf P'(−2 | 11) gespiegelt. Gib die Achse an.",
+    "schablone": "y = □",
+    "hinweis": "Trage die Zahl ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      1
+     ],
+     "y": [
+      -1,
+      12
+     ],
+     "punkte": [
+      {
+       "x": -2,
+       "y": 5,
+       "name": "P"
+      },
+      {
+       "x": -2,
+       "y": 11,
+       "name": "P'"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
      8
     ]
    },
    "c": [
-    "4",
-    "8"
+    "(5 + 11) // 2"
    ],
-   "w": "An y = x werden die Koordinaten vertauscht: P'(4 | 8).",
-   "h": "Bei y = x tauschen x- und y-Koordinate die Plätze."
+   "w": "Die Achse geht durch die Mitte von P und P': y = (5 + 11) : 2 = 8.",
+   "h": "Die Achse liegt genau in der Mitte zwischen P und P'."
   },
   {
    "l": "achsenspiegelung",
    "t": "achsenspiegelung",
    "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Spiegle P(−7 | 8) an der Geraden x = 1 (senkrecht zur x-Achse).",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -8,
+      10
+     ],
+     "y": [
+      -1,
+      9
+     ],
+     "punkte": [
+      {
+       "x": -7,
+       "y": 8,
+       "name": "P"
+      }
+     ],
+     "senkrecht": [
+      1
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     9,
+     8
+    ]
+   },
+   "c": [
+    "9",
+    "8"
+   ],
+   "w": "Abstand zur Achse: −7 − 1 = −8. Auf der anderen Seite: 1 − (−8) = 9. y bleibt 8."
+  },
+  {
+   "l": "achsenspiegelung",
+   "t": "achsenspiegelung",
+   "p": "korrektur",
    "s": 2,
    "y": "luecken",
    "f": {
@@ -1162,7 +1308,7 @@
   {
    "l": "achsenspiegelung",
    "t": "achsenspiegelung",
-   "p": "korrektur",
+   "p": "sicherung",
    "s": 2,
    "y": "luecken",
    "f": {
@@ -1424,48 +1570,98 @@
    "w": "Abstand zur Achse: −2 − 5 = −7. Auf der anderen Seite: 5 − (−7) = 12. y bleibt −6."
   },
   {
-   "l": "achsenspiegelung",
-   "t": "achsenspiegelung",
-   "p": "sicherung",
-   "s": 2,
+   "l": "punktspiegelung",
+   "t": "punktspiegelung",
+   "p": "uebung",
+   "s": 1,
    "y": "luecken",
    "f": {
-    "text": "Spiegle P(−2 | −7) an der Geraden y = 4 (parallel zur x-Achse).",
+    "text": "Spiegle P(−4 | −7) am Ursprung O(0 | 0).",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      5
+     ],
+     "y": [
+      -8,
+      8
+     ],
+     "punkte": [
+      {
+       "x": -4,
+       "y": -7,
+       "name": "P"
+      },
+      {
+       "x": 0,
+       "y": 0,
+       "name": "O"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     4,
+     7
+    ]
+   },
+   "c": [
+    "4",
+    "7"
+   ],
+   "w": "Am Ursprung ändern beide Koordinaten ihr Vorzeichen: P'(4 | 7).",
+   "h": "Gehe von P zum Ursprung und noch einmal so weit."
+  },
+  {
+   "l": "punktspiegelung",
+   "t": "punktspiegelung",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Spiegle P(2 | 4) am Ursprung O(0 | 0).",
     "schablone": "P'(□ | □)",
     "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
     "grafik": {
      "typ": "koordinaten",
      "x": [
       -3,
-      1
+      3
      ],
      "y": [
-      -8,
-      16
+      -5,
+      5
      ],
      "punkte": [
       {
-       "x": -2,
-       "y": -7,
+       "x": 2,
+       "y": 4,
        "name": "P"
+      },
+      {
+       "x": 0,
+       "y": 0,
+       "name": "O"
       }
-     ],
-     "waagrecht": [
-      4
      ]
     }
    },
    "o": {
     "werte": [
      -2,
-     15
+     -4
     ]
    },
    "c": [
     "-2",
-    "15"
+    "-4"
    ],
-   "w": "Abstand zur Achse: −7 − 4 = −11. Auf der anderen Seite: 4 − (−11) = 15. x bleibt −2."
+   "w": "Am Ursprung ändern beide Koordinaten ihr Vorzeichen: P'(−2 | −4).",
+   "h": "Gehe von P zum Ursprung und noch einmal so weit."
   },
   {
    "l": "punktspiegelung",
@@ -1565,21 +1761,21 @@
    "l": "punktspiegelung",
    "t": "punktspiegelung",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Spiegle P(5 | 1) am Ursprung O(0 | 0).",
+    "text": "Spiegle P(5 | 1) am Punkt Z(−1 | 2).",
     "schablone": "P'(□ | □)",
     "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
     "grafik": {
      "typ": "koordinaten",
      "x": [
-      -6,
+      -8,
       6
      ],
      "y": [
-      -2,
-      2
+      -1,
+      4
      ],
      "punkte": [
       {
@@ -1588,72 +1784,25 @@
        "name": "P"
       },
       {
-       "x": 0,
-       "y": 0,
-       "name": "O"
-      }
-     ]
-    }
-   },
-   "o": {
-    "werte": [
-     -5,
-     -1
-    ]
-   },
-   "c": [
-    "-5",
-    "-1"
-   ],
-   "w": "Am Ursprung ändern beide Koordinaten ihr Vorzeichen: P'(−5 | −1).",
-   "h": "Gehe von P zum Ursprung und noch einmal so weit."
-  },
-  {
-   "l": "punktspiegelung",
-   "t": "punktspiegelung",
-   "p": "uebung",
-   "s": 1,
-   "y": "luecken",
-   "f": {
-    "text": "Spiegle P(−4 | 2) am Ursprung O(0 | 0).",
-    "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -5,
-      5
-     ],
-     "y": [
-      -3,
-      3
-     ],
-     "punkte": [
-      {
-       "x": -4,
+       "x": -1,
        "y": 2,
-       "name": "P"
-      },
-      {
-       "x": 0,
-       "y": 0,
-       "name": "O"
+       "name": "Z"
       }
      ]
     }
    },
    "o": {
     "werte": [
-     4,
-     -2
+     -7,
+     3
     ]
    },
    "c": [
-    "4",
-    "-2"
+    "-7",
+    "3"
    ],
-   "w": "Am Ursprung ändern beide Koordinaten ihr Vorzeichen: P'(4 | −2).",
-   "h": "Gehe von P zum Ursprung und noch einmal so weit."
+   "w": "Von P nach Z: x −6, y +1. Noch einmal: P'(−7 | 3).",
+   "h": "Rechne aus, wie weit es von P nach Z ist – und gehe von Z dieselbe Strecke weiter."
   },
   {
    "l": "punktspiegelung",
@@ -1894,11 +2043,11 @@
    "l": "punktspiegelung",
    "t": "punktspiegelung",
    "p": "uebung",
-   "s": 2,
+   "s": 3,
    "y": "luecken",
    "f": {
-    "text": "Spiegle P(−6 | 1) am Punkt Z(4 | −1).",
-    "schablone": "P'(□ | □)",
+    "text": "Bei einer Punktspiegelung wird P(−6 | 1) auf P'(14 | −3) abgebildet. Gib das Zentrum an.",
+    "schablone": "Z(□ | □)",
     "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
     "grafik": {
      "typ": "koordinaten",
@@ -1917,102 +2066,8 @@
        "name": "P"
       },
       {
-       "x": 4,
-       "y": -1,
-       "name": "Z"
-      }
-     ]
-    }
-   },
-   "o": {
-    "werte": [
-     14,
-     -3
-    ]
-   },
-   "c": [
-    "14",
-    "-3"
-   ],
-   "w": "Von P nach Z: x +10, y −2. Noch einmal: P'(14 | −3).",
-   "h": "Rechne aus, wie weit es von P nach Z ist – und gehe von Z dieselbe Strecke weiter."
-  },
-  {
-   "l": "punktspiegelung",
-   "t": "punktspiegelung",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Spiegle P(5 | −2) am Punkt Z(3 | −4).",
-    "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -1,
-      6
-     ],
-     "y": [
-      -7,
-      1
-     ],
-     "punkte": [
-      {
-       "x": 5,
-       "y": -2,
-       "name": "P"
-      },
-      {
-       "x": 3,
-       "y": -4,
-       "name": "Z"
-      }
-     ]
-    }
-   },
-   "o": {
-    "werte": [
-     1,
-     -6
-    ]
-   },
-   "c": [
-    "1",
-    "-6"
-   ],
-   "w": "Von P nach Z: x −2, y −2. Noch einmal: P'(1 | −6).",
-   "h": "Rechne aus, wie weit es von P nach Z ist – und gehe von Z dieselbe Strecke weiter."
-  },
-  {
-   "l": "punktspiegelung",
-   "t": "punktspiegelung",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Bei einer Punktspiegelung wird P(−2 | 1) auf P'(−6 | 3) abgebildet. Gib das Zentrum an.",
-    "schablone": "Z(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -7,
-      1
-     ],
-     "y": [
-      -1,
-      4
-     ],
-     "punkte": [
-      {
-       "x": -2,
-       "y": 1,
-       "name": "P"
-      },
-      {
-       "x": -6,
-       "y": 3,
+       "x": 14,
+       "y": -3,
        "name": "P'"
       }
      ]
@@ -2020,15 +2075,15 @@
    },
    "o": {
     "werte": [
-     -4,
-     2
+     4,
+     -1
     ]
    },
    "c": [
-    "(-2 + -6) // 2",
-    "(1 + 3) // 2"
+    "(-6 + 14) // 2",
+    "(1 + -3) // 2"
    ],
-   "w": "Z ist der Mittelpunkt von PP': ((−2 + (−6)) : 2 | (1 + 3) : 2) = Z(−4 | 2).",
+   "w": "Z ist der Mittelpunkt von PP': ((−6 + 14) : 2 | (1 + (−3)) : 2) = Z(4 | −1).",
    "h": "Das Zentrum liegt in der Mitte zwischen P und P'."
   },
   {
@@ -2038,28 +2093,28 @@
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "Spiegle P(4 | −5) am Punkt Z(1 | −4).",
+    "text": "Spiegle P(−1 | −6) am Punkt Z(1 | 3).",
     "schablone": "P'(□ | □)",
     "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
     "grafik": {
      "typ": "koordinaten",
      "x": [
-      -3,
-      5
+      -2,
+      4
      ],
      "y": [
-      -6,
-      1
+      -7,
+      13
      ],
      "punkte": [
       {
-       "x": 4,
-       "y": -5,
+       "x": -1,
+       "y": -6,
        "name": "P"
       },
       {
        "x": 1,
-       "y": -4,
+       "y": 3,
        "name": "Z"
       }
      ]
@@ -2067,15 +2122,62 @@
    },
    "o": {
     "werte": [
-     -2,
-     -3
+     3,
+     12
     ]
    },
    "c": [
-    "-2",
-    "-3"
+    "3",
+    "12"
    ],
-   "w": "Von P nach Z: x −3, y +1. Noch einmal: P'(−2 | −3).",
+   "w": "Von P nach Z: x +2, y +9. Noch einmal: P'(3 | 12).",
+   "h": "Rechne aus, wie weit es von P nach Z ist – und gehe von Z dieselbe Strecke weiter."
+  },
+  {
+   "l": "punktspiegelung",
+   "t": "punktspiegelung",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Spiegle P(−7 | 2) am Punkt Z(−2 | 1).",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -8,
+      4
+     ],
+     "y": [
+      -1,
+      3
+     ],
+     "punkte": [
+      {
+       "x": -7,
+       "y": 2,
+       "name": "P"
+      },
+      {
+       "x": -2,
+       "y": 1,
+       "name": "Z"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     3,
+     0
+    ]
+   },
+   "c": [
+    "3",
+    "0"
+   ],
+   "w": "Von P nach Z: x +5, y −1. Noch einmal: P'(3 | 0).",
    "h": "Rechne aus, wie weit es von P nach Z ist – und gehe von Z dieselbe Strecke weiter."
   },
   {
@@ -3042,190 +3144,24 @@
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "Ein Dreieck ABC wird verschoben. A(−4 | −7) wird dabei auf A'(−3 | −9) abgebildet. Wohin kommt B(−4 | 1)?",
-    "schablone": "B'(□ | □)",
+    "text": "P(−4 | −7) wird erst mit (1 | −2), dann mit (−2 | −6) verschoben. Wohin kommt P?",
+    "schablone": "P'(□ | □)",
     "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
     "grafik": {
      "typ": "koordinaten",
      "x": [
-      -5,
+      -6,
       1
      ],
      "y": [
-      -10,
-      2
+      -16,
+      1
      ],
      "punkte": [
       {
        "x": -4,
        "y": -7,
-       "name": "A"
-      },
-      {
-       "x": -3,
-       "y": -9,
-       "name": "A'"
-      },
-      {
-       "x": -4,
-       "y": 1,
-       "name": "B"
-      }
-     ]
-    }
-   },
-   "o": {
-    "werte": [
-     -3,
-     -1
-    ]
-   },
-   "c": [
-    "-3",
-    "-1"
-   ],
-   "w": "Pfeil: v = (1 | −2). B' = (−4 + 1 | 1 + (−2)) = (−3 | −1).",
-   "h": "Bestimme erst den Pfeil aus A und A'."
-  },
-  {
-   "l": "verschiebung",
-   "t": "verschiebung",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Ein Dreieck ABC wird verschoben. A(−3 | −7) wird dabei auf A'(2 | −9) abgebildet. Wohin kommt B(6 | 1)?",
-    "schablone": "B'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -4,
-      12
-     ],
-     "y": [
-      -10,
-      2
-     ],
-     "punkte": [
-      {
-       "x": -3,
-       "y": -7,
-       "name": "A"
-      },
-      {
-       "x": 2,
-       "y": -9,
-       "name": "A'"
-      },
-      {
-       "x": 6,
-       "y": 1,
-       "name": "B"
-      }
-     ]
-    }
-   },
-   "o": {
-    "werte": [
-     11,
-     -1
-    ]
-   },
-   "c": [
-    "11",
-    "-1"
-   ],
-   "w": "Pfeil: v = (5 | −2). B' = (6 + 5 | 1 + (−2)) = (11 | −1).",
-   "h": "Bestimme erst den Pfeil aus A und A'."
-  },
-  {
-   "l": "verschiebung",
-   "t": "verschiebung",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Ein Dreieck ABC wird verschoben. A(5 | −2) wird dabei auf A'(9 | 1) abgebildet. Wohin kommt B(7 | −6)?",
-    "schablone": "B'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -1,
-      12
-     ],
-     "y": [
-      -7,
-      2
-     ],
-     "punkte": [
-      {
-       "x": 5,
-       "y": -2,
-       "name": "A"
-      },
-      {
-       "x": 9,
-       "y": 1,
-       "name": "A'"
-      },
-      {
-       "x": 7,
-       "y": -6,
-       "name": "B"
-      }
-     ]
-    }
-   },
-   "o": {
-    "werte": [
-     11,
-     -3
-    ]
-   },
-   "c": [
-    "11",
-    "-3"
-   ],
-   "w": "Pfeil: v = (4 | 3). B' = (7 + 4 | −6 + 3) = (11 | −3).",
-   "h": "Bestimme erst den Pfeil aus A und A'."
-  },
-  {
-   "l": "verschiebung",
-   "t": "verschiebung",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Ein Dreieck ABC wird verschoben. A(−3 | −2) wird dabei auf A'(−2 | 2) abgebildet. Wohin kommt B(−6 | 1)?",
-    "schablone": "B'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -7,
-      1
-     ],
-     "y": [
-      -3,
-      6
-     ],
-     "punkte": [
-      {
-       "x": -3,
-       "y": -2,
-       "name": "A"
-      },
-      {
-       "x": -2,
-       "y": 2,
-       "name": "A'"
-      },
-      {
-       "x": -6,
-       "y": 1,
-       "name": "B"
+       "name": "P"
       }
      ]
     }
@@ -3233,15 +3169,141 @@
    "o": {
     "werte": [
      -5,
-     5
+     -15
     ]
    },
    "c": [
     "-5",
-    "5"
+    "-15"
    ],
-   "w": "Pfeil: v = (1 | 4). B' = (−6 + 1 | 1 + 4) = (−5 | 5).",
-   "h": "Bestimme erst den Pfeil aus A und A'."
+   "w": "Gesamtpfeil (−1 | −8). P' = (−4 + (−1) | −7 + (−8)) = (−5 | −15).",
+   "h": "Addiere erst die beiden Pfeile."
+  },
+  {
+   "l": "verschiebung",
+   "t": "verschiebung",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "P(−3 | 6) wird erst mit (2 | 6), dann mit (3 | −5) verschoben. Welcher Pfeil ersetzt beide Verschiebungen?",
+    "schablone": "v = (□ | □)",
+    "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) insgesamt verschoben wird.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      1
+     ],
+     "y": [
+      -1,
+      7
+     ],
+     "punkte": [
+      {
+       "x": -3,
+       "y": 6,
+       "name": "P"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     5,
+     1
+    ]
+   },
+   "c": [
+    "2 + (3)",
+    "6 + (-5)"
+   ],
+   "w": "Pfeile addieren: (2 + 3 | 6 + (−5)) = (5 | 1).",
+   "h": "Zwei Verschiebungen hintereinander sind wieder eine Verschiebung. Addiere die Pfeile."
+  },
+  {
+   "l": "verschiebung",
+   "t": "verschiebung",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "P(−1 | 3) wird erst mit (−5 | 2), dann mit (6 | −2) verschoben. Wohin kommt P?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      1
+     ],
+     "y": [
+      -1,
+      4
+     ],
+     "punkte": [
+      {
+       "x": -1,
+       "y": 3,
+       "name": "P"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     0,
+     3
+    ]
+   },
+   "c": [
+    "0",
+    "3"
+   ],
+   "w": "Gesamtpfeil (1 | 0). P' = (−1 + 1 | 3 + 0) = (0 | 3).",
+   "h": "Addiere erst die beiden Pfeile."
+  },
+  {
+   "l": "verschiebung",
+   "t": "verschiebung",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "P(−4 | 4) wird erst mit (5 | 2), dann mit (6 | 1) verschoben. Wohin kommt P?",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      8
+     ],
+     "y": [
+      -1,
+      8
+     ],
+     "punkte": [
+      {
+       "x": -4,
+       "y": 4,
+       "name": "P"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     7,
+     7
+    ]
+   },
+   "c": [
+    "7",
+    "7"
+   ],
+   "w": "Gesamtpfeil (11 | 3). P' = (−4 + 11 | 4 + 3) = (7 | 7).",
+   "h": "Addiere erst die beiden Pfeile."
   },
   {
    "l": "verschiebung",
@@ -3250,212 +3312,28 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "P(1 | −3) wird auf P'(7 | −5) verschoben. Gib den Verschiebungspfeil an.",
+    "text": "P(−6 | 6) wird auf P'(−12 | 9) verschoben. Gib den Verschiebungspfeil an.",
     "schablone": "v = (□ | □)",
     "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird.",
     "grafik": {
      "typ": "koordinaten",
      "x": [
-      -1,
-      8
-     ],
-     "y": [
-      -6,
-      1
-     ],
-     "punkte": [
-      {
-       "x": 1,
-       "y": -3,
-       "name": "P"
-      },
-      {
-       "x": 7,
-       "y": -5,
-       "name": "P'"
-      }
-     ]
-    }
-   },
-   "o": {
-    "werte": [
-     6,
-     -2
-    ]
-   },
-   "c": [
-    "7 - (1)",
-    "-5 - (-3)"
-   ],
-   "w": "a = 7 − 1 = 6; b = −5 − (−3) = −2."
-  },
-  {
-   "l": "verschiebung",
-   "t": "verschiebung",
-   "p": "korrektur",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "P(6 | −4) wird auf P'(11 | 1) verschoben. Gib den Verschiebungspfeil an.",
-    "schablone": "v = (□ | □)",
-    "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -1,
-      12
-     ],
-     "y": [
-      -5,
-      2
-     ],
-     "punkte": [
-      {
-       "x": 6,
-       "y": -4,
-       "name": "P"
-      },
-      {
-       "x": 11,
-       "y": 1,
-       "name": "P'"
-      }
-     ]
-    }
-   },
-   "o": {
-    "werte": [
-     5,
-     5
-    ]
-   },
-   "c": [
-    "11 - (6)",
-    "1 - (-4)"
-   ],
-   "w": "a = 11 − 6 = 5; b = 1 − (−4) = 5."
-  },
-  {
-   "l": "verschiebung",
-   "t": "verschiebung",
-   "p": "korrektur",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "P(1 | −2) wird auf P'(4 | 4) verschoben. Gib den Verschiebungspfeil an.",
-    "schablone": "v = (□ | □)",
-    "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -1,
-      5
-     ],
-     "y": [
-      -3,
-      5
-     ],
-     "punkte": [
-      {
-       "x": 1,
-       "y": -2,
-       "name": "P"
-      },
-      {
-       "x": 4,
-       "y": 4,
-       "name": "P'"
-      }
-     ]
-    }
-   },
-   "o": {
-    "werte": [
-     3,
-     6
-    ]
-   },
-   "c": [
-    "4 - (1)",
-    "4 - (-2)"
-   ],
-   "w": "a = 4 − 1 = 3; b = 4 − (−2) = 6."
-  },
-  {
-   "l": "verschiebung",
-   "t": "verschiebung",
-   "p": "korrektur",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "P(−1 | 7) wird auf P'(−6 | 1) verschoben. Gib den Verschiebungspfeil an.",
-    "schablone": "v = (□ | □)",
-    "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -7,
+      -13,
       1
      ],
      "y": [
       -1,
-      8
+      10
      ],
      "punkte": [
-      {
-       "x": -1,
-       "y": 7,
-       "name": "P"
-      },
       {
        "x": -6,
-       "y": 1,
-       "name": "P'"
-      }
-     ]
-    }
-   },
-   "o": {
-    "werte": [
-     -5,
-     -6
-    ]
-   },
-   "c": [
-    "-6 - (-1)",
-    "1 - (7)"
-   ],
-   "w": "a = −6 − (−1) = −5; b = 1 − 7 = −6."
-  },
-  {
-   "l": "verschiebung",
-   "t": "verschiebung",
-   "p": "sicherung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "P(2 | −6) wird auf P'(−4 | −9) verschoben. Gib den Verschiebungspfeil an.",
-    "schablone": "v = (□ | □)",
-    "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -5,
-      3
-     ],
-     "y": [
-      -10,
-      1
-     ],
-     "punkte": [
-      {
-       "x": 2,
-       "y": -6,
+       "y": 6,
        "name": "P"
       },
       {
-       "x": -4,
-       "y": -9,
+       "x": -12,
+       "y": 9,
        "name": "P'"
       }
      ]
@@ -3464,76 +3342,30 @@
    "o": {
     "werte": [
      -6,
-     -3
+     3
     ]
    },
    "c": [
-    "-4 - (2)",
-    "-9 - (-6)"
+    "-12 - (-6)",
+    "9 - (6)"
    ],
-   "w": "a = −4 − 2 = −6; b = −9 − (−6) = −3."
+   "w": "a = −12 − (−6) = −6; b = 9 − 6 = 3."
   },
   {
    "l": "verschiebung",
    "t": "verschiebung",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "P(1 | −6) wird auf P'(−3 | −1) verschoben. Gib den Verschiebungspfeil an.",
+    "text": "P(−6 | −7) wird auf P'(−9 | −5) verschoben. Gib den Verschiebungspfeil an.",
     "schablone": "v = (□ | □)",
     "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird.",
     "grafik": {
      "typ": "koordinaten",
      "x": [
-      -4,
-      2
-     ],
-     "y": [
-      -7,
+      -10,
       1
-     ],
-     "punkte": [
-      {
-       "x": 1,
-       "y": -6,
-       "name": "P"
-      },
-      {
-       "x": -3,
-       "y": -1,
-       "name": "P'"
-      }
-     ]
-    }
-   },
-   "o": {
-    "werte": [
-     -4,
-     5
-    ]
-   },
-   "c": [
-    "-3 - (1)",
-    "-1 - (-6)"
-   ],
-   "w": "a = −3 − 1 = −4; b = −1 − (−6) = 5."
-  },
-  {
-   "l": "verschiebung",
-   "t": "verschiebung",
-   "p": "sicherung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "P(3 | −7) wird auf P'(0 | −2) verschoben. Gib den Verschiebungspfeil an.",
-    "schablone": "v = (□ | □)",
-    "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -1,
-      4
      ],
      "y": [
       -8,
@@ -3541,13 +3373,13 @@
      ],
      "punkte": [
       {
-       "x": 3,
+       "x": -6,
        "y": -7,
        "name": "P"
       },
       {
-       "x": 0,
-       "y": -2,
+       "x": -9,
+       "y": -5,
        "name": "P'"
       }
      ]
@@ -3556,23 +3388,23 @@
    "o": {
     "werte": [
      -3,
-     5
+     2
     ]
    },
    "c": [
-    "0 - (3)",
-    "-2 - (-7)"
+    "-9 - (-6)",
+    "-5 - (-7)"
    ],
-   "w": "a = 0 − 3 = −3; b = −2 − (−7) = 5."
+   "w": "a = −9 − (−6) = −3; b = −5 − (−7) = 2."
   },
   {
    "l": "verschiebung",
    "t": "verschiebung",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "P(−6 | 7) wird auf P'(−2 | 6) verschoben. Gib den Verschiebungspfeil an.",
+    "text": "P(−6 | −5) wird auf P'(−1 | −1) verschoben. Gib den Verschiebungspfeil an.",
     "schablone": "v = (□ | □)",
     "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird.",
     "grafik": {
@@ -3582,18 +3414,18 @@
       1
      ],
      "y": [
-      -1,
-      8
+      -6,
+      1
      ],
      "punkte": [
       {
        "x": -6,
-       "y": 7,
+       "y": -5,
        "name": "P"
       },
       {
-       "x": -2,
-       "y": 6,
+       "x": -1,
+       "y": -1,
        "name": "P'"
       }
      ]
@@ -3601,24 +3433,24 @@
    },
    "o": {
     "werte": [
-     4,
-     -1
+     5,
+     4
     ]
    },
    "c": [
-    "-2 - (-6)",
-    "6 - (7)"
+    "-1 - (-6)",
+    "-1 - (-5)"
    ],
-   "w": "a = −2 − (−6) = 4; b = 6 − 7 = −1."
+   "w": "a = −1 − (−6) = 5; b = −1 − (−5) = 4."
   },
   {
    "l": "verschiebung",
    "t": "verschiebung",
-   "p": "sicherung",
+   "p": "korrektur",
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "P(−7 | −3) wird auf P'(−3 | 1) verschoben. Gib den Verschiebungspfeil an.",
+    "text": "P(−7 | −4) wird auf P'(−2 | −9) verschoben. Gib den Verschiebungspfeil an.",
     "schablone": "v = (□ | □)",
     "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird.",
     "grafik": {
@@ -3628,18 +3460,110 @@
       1
      ],
      "y": [
-      -4,
-      2
+      -10,
+      1
      ],
      "punkte": [
       {
        "x": -7,
-       "y": -3,
+       "y": -4,
        "name": "P"
       },
       {
+       "x": -2,
+       "y": -9,
+       "name": "P'"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     5,
+     -5
+    ]
+   },
+   "c": [
+    "-2 - (-7)",
+    "-9 - (-4)"
+   ],
+   "w": "a = −2 − (−7) = 5; b = −9 − (−4) = −5."
+  },
+  {
+   "l": "verschiebung",
+   "t": "verschiebung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "P(7 | 3) wird auf P'(6 | −3) verschoben. Gib den Verschiebungspfeil an.",
+    "schablone": "v = (□ | □)",
+    "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      8
+     ],
+     "y": [
+      -4,
+      4
+     ],
+     "punkte": [
+      {
+       "x": 7,
+       "y": 3,
+       "name": "P"
+      },
+      {
+       "x": 6,
+       "y": -3,
+       "name": "P'"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     -1,
+     -6
+    ]
+   },
+   "c": [
+    "6 - (7)",
+    "-3 - (3)"
+   ],
+   "w": "a = 6 − 7 = −1; b = −3 − 3 = −6."
+  },
+  {
+   "l": "verschiebung",
+   "t": "verschiebung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "P(−3 | 3) wird auf P'(1 | 7) verschoben. Gib den Verschiebungspfeil an.",
+    "schablone": "v = (□ | □)",
+    "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      2
+     ],
+     "y": [
+      -1,
+      8
+     ],
+     "punkte": [
+      {
        "x": -3,
-       "y": 1,
+       "y": 3,
+       "name": "P"
+      },
+      {
+       "x": 1,
+       "y": 7,
        "name": "P'"
       }
      ]
@@ -3652,10 +3576,10 @@
     ]
    },
    "c": [
-    "-3 - (-7)",
-    "1 - (-3)"
+    "1 - (-3)",
+    "7 - (3)"
    ],
-   "w": "a = −3 − (−7) = 4; b = 1 − (−3) = 4."
+   "w": "a = 1 − (−3) = 4; b = 7 − 3 = 4."
   },
   {
    "l": "verschiebung",
@@ -3664,7 +3588,7 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "P(3 | 3) wird auf P'(2 | 5) verschoben. Gib den Verschiebungspfeil an.",
+    "text": "P(3 | 7) wird auf P'(2 | 9) verschoben. Gib den Verschiebungspfeil an.",
     "schablone": "v = (□ | □)",
     "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird.",
     "grafik": {
@@ -3675,17 +3599,17 @@
      ],
      "y": [
       -1,
-      6
+      10
      ],
      "punkte": [
       {
        "x": 3,
-       "y": 3,
+       "y": 7,
        "name": "P"
       },
       {
        "x": 2,
-       "y": 5,
+       "y": 9,
        "name": "P'"
       }
      ]
@@ -3699,24 +3623,24 @@
    },
    "c": [
     "2 - (3)",
-    "5 - (3)"
+    "9 - (7)"
    ],
-   "w": "a = 2 − 3 = −1; b = 5 − 3 = 2."
+   "w": "a = 2 − 3 = −1; b = 9 − 7 = 2."
   },
   {
-   "l": "drehung",
-   "t": "drehung",
-   "p": "uebung",
-   "s": 1,
+   "l": "verschiebung",
+   "t": "verschiebung",
+   "p": "sicherung",
+   "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Drehe P(7 | 1) um O(0 | 0) um 180° gegen den Uhrzeigersinn.",
-    "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "text": "P(7 | 1) wird auf P'(1 | −1) verschoben. Gib den Verschiebungspfeil an.",
+    "schablone": "v = (□ | □)",
+    "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird.",
     "grafik": {
      "typ": "koordinaten",
      "x": [
-      -8,
+      -1,
       8
      ],
      "y": [
@@ -3730,56 +3654,55 @@
        "name": "P"
       },
       {
-       "x": 0,
-       "y": 0,
-       "name": "O"
+       "x": 1,
+       "y": -1,
+       "name": "P'"
       }
      ]
     }
    },
    "o": {
     "werte": [
-     -7,
-     -1
+     -6,
+     -2
     ]
    },
    "c": [
-    "-7",
-    "-1"
+    "1 - (7)",
+    "-1 - (1)"
    ],
-   "w": "180°: (x | y) → (−x | −y). Also P'(−7 | −1).",
-   "h": "Merke die Regel für 90° und 180°."
+   "w": "a = 1 − 7 = −6; b = −1 − 1 = −2."
   },
   {
-   "l": "drehung",
-   "t": "drehung",
-   "p": "uebung",
-   "s": 1,
+   "l": "verschiebung",
+   "t": "verschiebung",
+   "p": "sicherung",
+   "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Drehe P(−3 | 7) um O(0 | 0) um 180° gegen den Uhrzeigersinn.",
-    "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "text": "P(7 | 6) wird auf P'(10 | 3) verschoben. Gib den Verschiebungspfeil an.",
+    "schablone": "v = (□ | □)",
+    "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird.",
     "grafik": {
      "typ": "koordinaten",
      "x": [
-      -4,
-      4
+      -1,
+      11
      ],
      "y": [
-      -8,
-      8
+      -1,
+      7
      ],
      "punkte": [
       {
-       "x": -3,
-       "y": 7,
+       "x": 7,
+       "y": 6,
        "name": "P"
       },
       {
-       "x": 0,
-       "y": 0,
-       "name": "O"
+       "x": 10,
+       "y": 3,
+       "name": "P'"
       }
      ]
     }
@@ -3787,35 +3710,34 @@
    "o": {
     "werte": [
      3,
-     -7
+     -3
     ]
    },
    "c": [
-    "3",
-    "-7"
+    "10 - (7)",
+    "3 - (6)"
    ],
-   "w": "180°: (x | y) → (−x | −y). Also P'(3 | −7).",
-   "h": "Merke die Regel für 90° und 180°."
+   "w": "a = 10 − 7 = 3; b = 3 − 6 = −3."
   },
   {
-   "l": "drehung",
-   "t": "drehung",
-   "p": "uebung",
-   "s": 1,
+   "l": "verschiebung",
+   "t": "verschiebung",
+   "p": "sicherung",
+   "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Drehe P(−2 | 3) um O(0 | 0) um 90° gegen den Uhrzeigersinn.",
-    "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "text": "P(−2 | 3) wird auf P'(4 | 5) verschoben. Gib den Verschiebungspfeil an.",
+    "schablone": "v = (□ | □)",
+    "hinweis": "Trage ein, wie weit nach rechts (x) und nach oben (y) verschoben wird.",
     "grafik": {
      "typ": "koordinaten",
      "x": [
-      -4,
-      1
+      -3,
+      5
      ],
      "y": [
-      -3,
-      4
+      -1,
+      6
      ],
      "punkte": [
       {
@@ -3824,25 +3746,24 @@
        "name": "P"
       },
       {
-       "x": 0,
-       "y": 0,
-       "name": "O"
+       "x": 4,
+       "y": 5,
+       "name": "P'"
       }
      ]
     }
    },
    "o": {
     "werte": [
-     -3,
-     -2
+     6,
+     2
     ]
    },
    "c": [
-    "-3",
-    "-2"
+    "4 - (-2)",
+    "5 - (3)"
    ],
-   "w": "90°: (x | y) → (−y | x). Also P'(−3 | −2).",
-   "h": "Merke die Regel für 90° und 180°."
+   "w": "a = 4 − (−2) = 6; b = 5 − 3 = 2."
   },
   {
    "l": "drehung",
@@ -3895,10 +3816,10 @@
    "l": "drehung",
    "t": "drehung",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
-    "text": "Drehe P(−7 | −5) um O(0 | 0) um 270° im Uhrzeigersinn.",
+    "text": "Drehe P(−7 | −5) um O(0 | 0) um 90° gegen den Uhrzeigersinn.",
     "schablone": "P'(□ | □)",
     "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
     "grafik": {
@@ -3935,33 +3856,33 @@
     "5",
     "-7"
    ],
-   "w": "270° im Uhrzeigersinn = 90° gegen den Uhrzeigersinn. 90°: (x | y) → (−y | x). Also P'(5 | −7).",
-   "h": "Im Uhrzeigersinn um 90° ist dasselbe wie gegen den Uhrzeigersinn um 270°."
+   "w": "90°: (x | y) → (−y | x). Also P'(5 | −7).",
+   "h": "Merke die Regel für 90° und 180°."
   },
   {
    "l": "drehung",
    "t": "drehung",
    "p": "uebung",
-   "s": 2,
+   "s": 1,
    "y": "luecken",
    "f": {
-    "text": "Drehe P(−6 | −4) um O(0 | 0) um 90° im Uhrzeigersinn.",
+    "text": "Drehe P(−5 | −6) um O(0 | 0) um 180° gegen den Uhrzeigersinn.",
     "schablone": "P'(□ | □)",
     "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
     "grafik": {
      "typ": "koordinaten",
      "x": [
-      -7,
-      1
+      -6,
+      6
      ],
      "y": [
-      -5,
+      -7,
       7
      ],
      "punkte": [
       {
-       "x": -6,
-       "y": -4,
+       "x": -5,
+       "y": -6,
        "name": "P"
       },
       {
@@ -3974,16 +3895,63 @@
    },
    "o": {
     "werte": [
-     -4,
+     5,
      6
     ]
    },
    "c": [
-    "-4",
+    "5",
     "6"
    ],
-   "w": "90° im Uhrzeigersinn = 270° gegen den Uhrzeigersinn. 270°: (x | y) → (y | −x). Also P'(−4 | 6).",
-   "h": "Im Uhrzeigersinn um 90° ist dasselbe wie gegen den Uhrzeigersinn um 270°."
+   "w": "180°: (x | y) → (−x | −y). Also P'(5 | 6).",
+   "h": "Merke die Regel für 90° und 180°."
+  },
+  {
+   "l": "drehung",
+   "t": "drehung",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Drehe P(−4 | −6) um O(0 | 0) um 90° gegen den Uhrzeigersinn.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      7
+     ],
+     "y": [
+      -7,
+      1
+     ],
+     "punkte": [
+      {
+       "x": -4,
+       "y": -6,
+       "name": "P"
+      },
+      {
+       "x": 0,
+       "y": 0,
+       "name": "O"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     6,
+     -4
+    ]
+   },
+   "c": [
+    "6",
+    "-4"
+   ],
+   "w": "90°: (x | y) → (−y | x). Also P'(6 | −4).",
+   "h": "Merke die Regel für 90° und 180°."
   },
   {
    "l": "drehung",
@@ -4030,54 +3998,56 @@
     "-6"
    ],
    "w": "90°: (x | y) → (−y | x). Also P'(−3 | −6).",
-   "h": "Im Uhrzeigersinn um 90° ist dasselbe wie gegen den Uhrzeigersinn um 270°."
+   "h": "Drehe den Weg von O zu P (rechts/oben) mit – gegen den Uhrzeigersinn."
   },
   {
    "l": "drehung",
    "t": "drehung",
    "p": "uebung",
    "s": 2,
-   "y": "luecken",
+   "y": "auswahl",
    "f": {
-    "text": "Drehe P(4 | 7) um O(0 | 0) um 270° gegen den Uhrzeigersinn.",
-    "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "text": "P(3 | 6) wurde um O(0 | 0) gedreht und liegt jetzt bei P'(6 | −3). Um welchen Winkel gegen den Uhrzeigersinn wurde gedreht?",
     "grafik": {
      "typ": "koordinaten",
      "x": [
       -1,
-      8
+      7
      ],
      "y": [
-      -5,
-      8
+      -4,
+      7
      ],
      "punkte": [
       {
-       "x": 4,
-       "y": 7,
+       "x": 3,
+       "y": 6,
        "name": "P"
       },
       {
        "x": 0,
        "y": 0,
        "name": "O"
+      },
+      {
+       "x": 6,
+       "y": -3,
+       "name": "P'"
       }
      ]
     }
    },
-   "o": {
-    "werte": [
-     7,
-     -4
-    ]
-   },
-   "c": [
-    "7",
-    "-4"
+   "a": [
+    "180°",
+    "90°",
+    "270°",
+    "45°"
    ],
-   "w": "270°: (x | y) → (y | −x). Also P'(7 | −4).",
-   "h": "Im Uhrzeigersinn um 90° ist dasselbe wie gegen den Uhrzeigersinn um 270°."
+   "o": {
+    "index": 2
+   },
+   "w": "Der Weg von O zu P (rechts 3, oben 6) wurde um 270° gegen den Uhrzeigersinn mitgedreht: P'(6 | −3).",
+   "h": "Schau, in welchem Viertel P und P' liegen. Eine Vierteldrehung sind 90°."
   },
   {
    "l": "drehung",
@@ -4086,23 +4056,23 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Drehe P(5 | −5) um O(0 | 0) um 270° gegen den Uhrzeigersinn.",
+    "text": "Drehe P(1 | 6) um O(0 | 0) um 90° gegen den Uhrzeigersinn.",
     "schablone": "P'(□ | □)",
     "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
     "grafik": {
      "typ": "koordinaten",
      "x": [
-      -6,
-      6
+      -7,
+      2
      ],
      "y": [
-      -6,
-      1
+      -1,
+      7
      ],
      "punkte": [
       {
-       "x": 5,
-       "y": -5,
+       "x": 1,
+       "y": 6,
        "name": "P"
       },
       {
@@ -4115,16 +4085,16 @@
    },
    "o": {
     "werte": [
-     -5,
-     -5
+     -6,
+     1
     ]
    },
    "c": [
-    "-5",
-    "-5"
+    "-6",
+    "1"
    ],
-   "w": "270°: (x | y) → (y | −x). Also P'(−5 | −5).",
-   "h": "Im Uhrzeigersinn um 90° ist dasselbe wie gegen den Uhrzeigersinn um 270°."
+   "w": "90°: (x | y) → (−y | x). Also P'(−6 | 1).",
+   "h": "Drehe den Weg von O zu P (rechts/oben) mit – gegen den Uhrzeigersinn."
   },
   {
    "l": "drehung",
@@ -4171,7 +4141,101 @@
     "5"
    ],
    "w": "90°: (x | y) → (−y | x). Also P'(1 | 5).",
-   "h": "Im Uhrzeigersinn um 90° ist dasselbe wie gegen den Uhrzeigersinn um 270°."
+   "h": "Drehe den Weg von O zu P (rechts/oben) mit – gegen den Uhrzeigersinn."
+  },
+  {
+   "l": "drehung",
+   "t": "drehung",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Drehe P(6 | 1) um O(0 | 0) um 270° gegen den Uhrzeigersinn.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      7
+     ],
+     "y": [
+      -7,
+      2
+     ],
+     "punkte": [
+      {
+       "x": 6,
+       "y": 1,
+       "name": "P"
+      },
+      {
+       "x": 0,
+       "y": 0,
+       "name": "O"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     1,
+     -6
+    ]
+   },
+   "c": [
+    "1",
+    "-6"
+   ],
+   "w": "270°: (x | y) → (y | −x). Also P'(1 | −6).",
+   "h": "Drehe den Weg von O zu P (rechts/oben) mit – gegen den Uhrzeigersinn."
+  },
+  {
+   "l": "drehung",
+   "t": "drehung",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Drehe P(−5 | 3) um O(0 | 0) um 90° gegen den Uhrzeigersinn.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      1
+     ],
+     "y": [
+      -6,
+      4
+     ],
+     "punkte": [
+      {
+       "x": -5,
+       "y": 3,
+       "name": "P"
+      },
+      {
+       "x": 0,
+       "y": 0,
+       "name": "O"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     -3,
+     -5
+    ]
+   },
+   "c": [
+    "-3",
+    "-5"
+   ],
+   "w": "90°: (x | y) → (−y | x). Also P'(−3 | −5).",
+   "h": "Drehe den Weg von O zu P (rechts/oben) mit – gegen den Uhrzeigersinn."
   },
   {
    "l": "drehung",
@@ -4180,14 +4244,61 @@
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "Drehe P(7 | 4) um Z(2 | −2) um 270° gegen den Uhrzeigersinn.",
+    "text": "Drehe P(−5 | −7) um Z(2 | −2) um 180° gegen den Uhrzeigersinn.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      10
+     ],
+     "y": [
+      -8,
+      4
+     ],
+     "punkte": [
+      {
+       "x": -5,
+       "y": -7,
+       "name": "P"
+      },
+      {
+       "x": 2,
+       "y": -2,
+       "name": "Z"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     9,
+     3
+    ]
+   },
+   "c": [
+    "9",
+    "3"
+   ],
+   "w": "P relativ zu Z: (−7 | −5). Gedreht: (7 | 5). Wieder zu Z addieren: P'(9 | 3).",
+   "h": "Rechne erst, wie P von Z aus liegt. Drehe das, dann addiere Z wieder."
+  },
+  {
+   "l": "drehung",
+   "t": "drehung",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Drehe P(4 | −7) um Z(1 | 1) um 90° gegen den Uhrzeigersinn.",
     "schablone": "P'(□ | □)",
     "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
     "grafik": {
      "typ": "koordinaten",
      "x": [
       -1,
-      9
+      10
      ],
      "y": [
       -8,
@@ -4195,13 +4306,13 @@
      ],
      "punkte": [
       {
-       "x": 7,
-       "y": 4,
+       "x": 4,
+       "y": -7,
        "name": "P"
       },
       {
-       "x": 2,
-       "y": -2,
+       "x": 1,
+       "y": 1,
        "name": "Z"
       }
      ]
@@ -4209,15 +4320,15 @@
    },
    "o": {
     "werte": [
-     8,
-     -7
+     9,
+     4
     ]
    },
    "c": [
-    "8",
-    "-7"
+    "9",
+    "4"
    ],
-   "w": "P relativ zu Z: (5 | 6). Gedreht: (6 | −5). Wieder zu Z addieren: P'(8 | −7).",
+   "w": "P relativ zu Z: (3 | −8). Gedreht: (8 | 3). Wieder zu Z addieren: P'(9 | 4).",
    "h": "Rechne erst, wie P von Z aus liegt. Drehe das, dann addiere Z wieder."
   },
   {
@@ -4227,27 +4338,27 @@
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "Drehe P(7 | 5) um Z(−3 | −2) um 90° gegen den Uhrzeigersinn.",
+    "text": "Drehe P(6 | −6) um Z(1 | −2) um 270° gegen den Uhrzeigersinn.",
     "schablone": "P'(□ | □)",
     "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
     "grafik": {
      "typ": "koordinaten",
      "x": [
-      -11,
-      8
+      -4,
+      7
      ],
      "y": [
-      -3,
-      9
+      -8,
+      1
      ],
      "punkte": [
       {
-       "x": 7,
-       "y": 5,
+       "x": 6,
+       "y": -6,
        "name": "P"
       },
       {
-       "x": -3,
+       "x": 1,
        "y": -2,
        "name": "Z"
       }
@@ -4256,15 +4367,15 @@
    },
    "o": {
     "werte": [
-     -10,
-     8
+     -3,
+     -7
     ]
    },
    "c": [
-    "-10",
-    "8"
+    "-3",
+    "-7"
    ],
-   "w": "P relativ zu Z: (10 | 7). Gedreht: (−7 | 10). Wieder zu Z addieren: P'(−10 | 8).",
+   "w": "P relativ zu Z: (5 | −4). Gedreht: (−4 | −5). Wieder zu Z addieren: P'(−3 | −7).",
    "h": "Rechne erst, wie P von Z aus liegt. Drehe das, dann addiere Z wieder."
   },
   {
@@ -4274,74 +4385,27 @@
    "s": 3,
    "y": "luecken",
    "f": {
-    "text": "Drehe P(2 | −5) um Z(−1 | 3) um 90° gegen den Uhrzeigersinn.",
+    "text": "Drehe P(−1 | −4) um Z(3 | −3) um 270° gegen den Uhrzeigersinn.",
     "schablone": "P'(□ | □)",
     "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
     "grafik": {
      "typ": "koordinaten",
      "x": [
       -2,
-      8
+      4
      ],
      "y": [
-      -6,
-      7
+      -5,
+      2
      ],
      "punkte": [
-      {
-       "x": 2,
-       "y": -5,
-       "name": "P"
-      },
       {
        "x": -1,
-       "y": 3,
-       "name": "Z"
-      }
-     ]
-    }
-   },
-   "o": {
-    "werte": [
-     7,
-     6
-    ]
-   },
-   "c": [
-    "7",
-    "6"
-   ],
-   "w": "P relativ zu Z: (3 | −8). Gedreht: (8 | 3). Wieder zu Z addieren: P'(7 | 6).",
-   "h": "Rechne erst, wie P von Z aus liegt. Drehe das, dann addiere Z wieder."
-  },
-  {
-   "l": "drehung",
-   "t": "drehung",
-   "p": "uebung",
-   "s": 3,
-   "y": "luecken",
-   "f": {
-    "text": "Drehe P(1 | 1) um Z(−3 | −3) um 180° gegen den Uhrzeigersinn.",
-    "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -8,
-      2
-     ],
-     "y": [
-      -8,
-      2
-     ],
-     "punkte": [
-      {
-       "x": 1,
-       "y": 1,
+       "y": -4,
        "name": "P"
       },
       {
-       "x": -3,
+       "x": 3,
        "y": -3,
        "name": "Z"
       }
@@ -4350,15 +4414,15 @@
    },
    "o": {
     "werte": [
-     -7,
-     -7
+     2,
+     1
     ]
    },
    "c": [
-    "-7",
-    "-7"
+    "2",
+    "1"
    ],
-   "w": "P relativ zu Z: (4 | 4). Gedreht: (−4 | −4). Wieder zu Z addieren: P'(−7 | −7).",
+   "w": "P relativ zu Z: (−4 | −1). Gedreht: (−1 | 4). Wieder zu Z addieren: P'(2 | 1).",
    "h": "Rechne erst, wie P von Z aus liegt. Drehe das, dann addiere Z wieder."
   },
   {
@@ -4368,23 +4432,23 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Drehe P(−4 | 6) um O(0 | 0) um 270° im Uhrzeigersinn.",
+    "text": "Drehe P(7 | 3) um O(0 | 0) um 90° im Uhrzeigersinn.",
     "schablone": "P'(□ | □)",
     "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
     "grafik": {
      "typ": "koordinaten",
      "x": [
-      -7,
-      1
+      -1,
+      8
      ],
      "y": [
-      -5,
-      7
+      -8,
+      4
      ],
      "punkte": [
       {
-       "x": -4,
-       "y": 6,
+       "x": 7,
+       "y": 3,
        "name": "P"
       },
       {
@@ -4397,61 +4461,15 @@
    },
    "o": {
     "werte": [
-     -6,
-     -4
-    ]
-   },
-   "c": [
-    "-6",
-    "-4"
-   ],
-   "w": "270° im Uhrzeigersinn = 90° gegen den Uhrzeigersinn. 90°: (x | y) → (−y | x). Also P'(−6 | −4)."
-  },
-  {
-   "l": "drehung",
-   "t": "drehung",
-   "p": "korrektur",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Drehe P(−7 | 5) um O(0 | 0) um 90° gegen den Uhrzeigersinn.",
-    "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -8,
-      1
-     ],
-     "y": [
-      -8,
-      6
-     ],
-     "punkte": [
-      {
-       "x": -7,
-       "y": 5,
-       "name": "P"
-      },
-      {
-       "x": 0,
-       "y": 0,
-       "name": "O"
-      }
-     ]
-    }
-   },
-   "o": {
-    "werte": [
-     -5,
+     3,
      -7
     ]
    },
    "c": [
-    "-5",
+    "3",
     "-7"
    ],
-   "w": "90°: (x | y) → (−y | x). Also P'(−5 | −7)."
+   "w": "Im Uhrzeigersinn: aus „rechts“ wird „unten“, aus „oben“ wird „rechts“. (x | y) → (y | −x). Also P'(3 | −7)."
   },
   {
    "l": "drehung",
@@ -4460,14 +4478,60 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Drehe P(−5 | −5) um O(0 | 0) um 270° im Uhrzeigersinn.",
+    "text": "Drehe P(1 | −1) um O(0 | 0) um 90° im Uhrzeigersinn.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -2,
+      2
+     ],
+     "y": [
+      -2,
+      1
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": -1,
+       "name": "P"
+      },
+      {
+       "x": 0,
+       "y": 0,
+       "name": "O"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     -1,
+     -1
+    ]
+   },
+   "c": [
+    "-1",
+    "-1"
+   ],
+   "w": "Im Uhrzeigersinn: aus „rechts“ wird „unten“, aus „oben“ wird „rechts“. (x | y) → (y | −x). Also P'(−1 | −1)."
+  },
+  {
+   "l": "drehung",
+   "t": "drehung",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Drehe P(−5 | −3) um O(0 | 0) um 90° gegen den Uhrzeigersinn.",
     "schablone": "P'(□ | □)",
     "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
     "grafik": {
      "typ": "koordinaten",
      "x": [
       -6,
-      6
+      4
      ],
      "y": [
       -6,
@@ -4476,7 +4540,7 @@
      "punkte": [
       {
        "x": -5,
-       "y": -5,
+       "y": -3,
        "name": "P"
       },
       {
@@ -4489,26 +4553,24 @@
    },
    "o": {
     "werte": [
-     5,
+     3,
      -5
     ]
    },
    "c": [
-    "5",
+    "3",
     "-5"
    ],
-   "w": "270° im Uhrzeigersinn = 90° gegen den Uhrzeigersinn. 90°: (x | y) → (−y | x). Also P'(5 | −5)."
+   "w": "90°: (x | y) → (−y | x). Also P'(3 | −5)."
   },
   {
    "l": "drehung",
    "t": "drehung",
    "p": "korrektur",
    "s": 2,
-   "y": "luecken",
+   "y": "auswahl",
    "f": {
-    "text": "Drehe P(−5 | −4) um O(0 | 0) um 270° gegen den Uhrzeigersinn.",
-    "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "text": "P(−5 | −4) wurde um O(0 | 0) gedreht und liegt jetzt bei P'(−4 | 5). Um welchen Winkel gegen den Uhrzeigersinn wurde gedreht?",
     "grafik": {
      "typ": "koordinaten",
      "x": [
@@ -4529,159 +4591,121 @@
        "x": 0,
        "y": 0,
        "name": "O"
+      },
+      {
+       "x": -4,
+       "y": 5,
+       "name": "P'"
       }
      ]
     }
    },
-   "o": {
-    "werte": [
-     -4,
-     5
-    ]
-   },
-   "c": [
-    "-4",
-    "5"
+   "a": [
+    "45°",
+    "90°",
+    "270°",
+    "180°"
    ],
-   "w": "270°: (x | y) → (y | −x). Also P'(−4 | 5)."
+   "o": {
+    "index": 2
+   },
+   "w": "Der Weg von O zu P (links 5, unten 4) wurde um 270° gegen den Uhrzeigersinn mitgedreht: P'(−4 | 5)."
   },
   {
    "l": "drehung",
    "t": "drehung",
    "p": "sicherung",
    "s": 2,
-   "y": "luecken",
+   "y": "auswahl",
    "f": {
-    "text": "Drehe P(−2 | −7) um O(0 | 0) um 270° im Uhrzeigersinn.",
-    "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "text": "P(4 | 6) wurde um O(0 | 0) gedreht und liegt jetzt bei P'(−4 | −6). Um welchen Winkel gegen den Uhrzeigersinn wurde gedreht?",
     "grafik": {
      "typ": "koordinaten",
      "x": [
-      -3,
-      8
+      -5,
+      5
      ],
      "y": [
+      -7,
+      7
+     ],
+     "punkte": [
+      {
+       "x": 4,
+       "y": 6,
+       "name": "P"
+      },
+      {
+       "x": 0,
+       "y": 0,
+       "name": "O"
+      },
+      {
+       "x": -4,
+       "y": -6,
+       "name": "P'"
+      }
+     ]
+    }
+   },
+   "a": [
+    "90°",
+    "180°",
+    "45°",
+    "270°"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Der Weg von O zu P (rechts 4, oben 6) wurde um 180° gegen den Uhrzeigersinn mitgedreht: P'(−4 | −6)."
+  },
+  {
+   "l": "drehung",
+   "t": "drehung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "P(−2 | 7) wurde um O(0 | 0) gedreht und liegt jetzt bei P'(−7 | −2). Um welchen Winkel gegen den Uhrzeigersinn wurde gedreht?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
       -8,
       1
+     ],
+     "y": [
+      -3,
+      8
      ],
      "punkte": [
       {
        "x": -2,
-       "y": -7,
+       "y": 7,
        "name": "P"
       },
       {
        "x": 0,
        "y": 0,
        "name": "O"
-      }
-     ]
-    }
-   },
-   "o": {
-    "werte": [
-     7,
-     -2
-    ]
-   },
-   "c": [
-    "7",
-    "-2"
-   ],
-   "w": "270° im Uhrzeigersinn = 90° gegen den Uhrzeigersinn. 90°: (x | y) → (−y | x). Also P'(7 | −2)."
-  },
-  {
-   "l": "drehung",
-   "t": "drehung",
-   "p": "sicherung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Drehe P(−4 | 3) um O(0 | 0) um 270° im Uhrzeigersinn.",
-    "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -5,
-      1
-     ],
-     "y": [
-      -5,
-      4
-     ],
-     "punkte": [
-      {
-       "x": -4,
-       "y": 3,
-       "name": "P"
       },
       {
-       "x": 0,
-       "y": 0,
-       "name": "O"
+       "x": -7,
+       "y": -2,
+       "name": "P'"
       }
      ]
     }
    },
-   "o": {
-    "werte": [
-     -3,
-     -4
-    ]
-   },
-   "c": [
-    "-3",
-    "-4"
+   "a": [
+    "270°",
+    "90°",
+    "180°",
+    "45°"
    ],
-   "w": "270° im Uhrzeigersinn = 90° gegen den Uhrzeigersinn. 90°: (x | y) → (−y | x). Also P'(−3 | −4)."
-  },
-  {
-   "l": "drehung",
-   "t": "drehung",
-   "p": "sicherung",
-   "s": 2,
-   "y": "luecken",
-   "f": {
-    "text": "Drehe P(−3 | −5) um O(0 | 0) um 270° im Uhrzeigersinn.",
-    "schablone": "P'(□ | □)",
-    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
-    "grafik": {
-     "typ": "koordinaten",
-     "x": [
-      -4,
-      6
-     ],
-     "y": [
-      -6,
-      1
-     ],
-     "punkte": [
-      {
-       "x": -3,
-       "y": -5,
-       "name": "P"
-      },
-      {
-       "x": 0,
-       "y": 0,
-       "name": "O"
-      }
-     ]
-    }
-   },
    "o": {
-    "werte": [
-     5,
-     -3
-    ]
+    "index": 1
    },
-   "c": [
-    "5",
-    "-3"
-   ],
-   "w": "270° im Uhrzeigersinn = 90° gegen den Uhrzeigersinn. 90°: (x | y) → (−y | x). Also P'(5 | −3)."
+   "w": "Der Weg von O zu P (links 2, oben 7) wurde um 90° gegen den Uhrzeigersinn mitgedreht: P'(−7 | −2)."
   },
   {
    "l": "drehung",
@@ -4736,23 +4760,69 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Drehe P(7 | −7) um O(0 | 0) um 90° gegen den Uhrzeigersinn.",
+    "text": "Drehe P(3 | 5) um O(0 | 0) um 90° gegen den Uhrzeigersinn.",
     "schablone": "P'(□ | □)",
     "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
     "grafik": {
      "typ": "koordinaten",
      "x": [
+      -6,
+      4
+     ],
+     "y": [
       -1,
+      6
+     ],
+     "punkte": [
+      {
+       "x": 3,
+       "y": 5,
+       "name": "P"
+      },
+      {
+       "x": 0,
+       "y": 0,
+       "name": "O"
+      }
+     ]
+    }
+   },
+   "o": {
+    "werte": [
+     -5,
+     3
+    ]
+   },
+   "c": [
+    "-5",
+    "3"
+   ],
+   "w": "90°: (x | y) → (−y | x). Also P'(−5 | 3)."
+  },
+  {
+   "l": "drehung",
+   "t": "drehung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Drehe P(−4 | 7) um O(0 | 0) um 270° gegen den Uhrzeigersinn.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
       8
      ],
      "y": [
-      -8,
+      -1,
       8
      ],
      "punkte": [
       {
-       "x": 7,
-       "y": -7,
+       "x": -4,
+       "y": 7,
        "name": "P"
       },
       {
@@ -4766,14 +4836,14 @@
    "o": {
     "werte": [
      7,
-     7
+     4
     ]
    },
    "c": [
     "7",
-    "7"
+    "4"
    ],
-   "w": "90°: (x | y) → (−y | x). Also P'(7 | 7)."
+   "w": "270°: (x | y) → (y | −x). Also P'(7 | 4)."
   },
   {
    "l": "drehung",
@@ -4782,18 +4852,18 @@
    "s": 2,
    "y": "luecken",
    "f": {
-    "text": "Drehe P(−6 | 5) um O(0 | 0) um 90° im Uhrzeigersinn.",
+    "text": "Drehe P(−6 | 5) um O(0 | 0) um 90° gegen den Uhrzeigersinn.",
     "schablone": "P'(□ | □)",
     "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein.",
     "grafik": {
      "typ": "koordinaten",
      "x": [
       -7,
-      6
+      1
      ],
      "y": [
-      -1,
-      7
+      -7,
+      6
      ],
      "punkte": [
       {
@@ -4811,15 +4881,137 @@
    },
    "o": {
     "werte": [
-     5,
-     6
+     -5,
+     -6
     ]
    },
    "c": [
-    "5",
-    "6"
+    "-5",
+    "-6"
    ],
-   "w": "90° im Uhrzeigersinn = 270° gegen den Uhrzeigersinn. 270°: (x | y) → (y | −x). Also P'(5 | 6)."
+   "w": "90°: (x | y) → (−y | x). Also P'(−5 | −6)."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Symmetrieachsen hat ein Quadrat?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       4,
+       0
+      ],
+      "C": [
+       4,
+       4
+      ],
+      "D": [
+       0,
+       4
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C",
+      "D"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "D",
+       "A"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "4",
+   "w": "Ein Quadrat hat 4 Symmetrieachsen.",
+   "h": "Stell dir vor, du faltest die Figur: Wo fallen die Hälften genau aufeinander?"
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Symmetrieachsen hat ein gleichschenkliges Trapez, das kein Rechteck ist?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       6,
+       0
+      ],
+      "C": [
+       4.5,
+       3
+      ],
+      "D": [
+       1.5,
+       3
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C",
+      "D"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "D",
+       "A"
+      ]
+     ]
+    }
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "Ein gleichschenkliges Trapez, das kein Rechteck ist, hat 1 Symmetrieachse.",
+   "h": "Stell dir vor, du faltest die Figur: Wo fallen die Hälften genau aufeinander?"
   },
   {
    "l": "symmetrie",
@@ -4965,10 +5157,470 @@
    "l": "symmetrie",
    "t": "symmetrie",
    "p": "uebung",
-   "s": 1,
+   "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Wie viele Symmetrieachsen hat ein regelmäßiges Achteck?",
+    "text": "Wie viele Symmetrieachsen hat der Großbuchstabe E in Blockschrift?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "E hat 1 Symmetrieachse.",
+   "h": "Schreibe den Buchstaben auf und prüfe: Wo kannst du falten, sodass beide Hälften aufeinanderfallen?"
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist ein Rechteck, das kein Quadrat ist, punktsymmetrisch?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       6,
+       0
+      ],
+      "C": [
+       6,
+       3
+      ],
+      "D": [
+       0,
+       3
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C",
+      "D"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "D",
+       "A"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Ja, weil die Figur eine Symmetrieachse hat.",
+    "Ja, weil die Figur zwei gleich lange Seiten hat.",
+    "Ja, eine Drehung um 180° um den Mittelpunkt bildet die Figur auf sich ab.",
+    "Nein, nach einer Drehung um 180° liegt die Figur anders."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Ein Rechteck, das kein Quadrat ist, ist punktsymmetrisch.",
+   "h": "Drehe die Figur in Gedanken um 180°."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Symmetrieachsen hat der Großbuchstabe T in Blockschrift?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "T hat 1 Symmetrieachse.",
+   "h": "Schreibe den Buchstaben auf und prüfe: Wo kannst du falten, sodass beide Hälften aufeinanderfallen?"
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist ein gleichschenkliges Trapez, das kein Rechteck ist, punktsymmetrisch?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       6,
+       0
+      ],
+      "C": [
+       4.5,
+       3
+      ],
+      "D": [
+       1.5,
+       3
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C",
+      "D"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "D",
+       "A"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Ja, weil die Figur eine Symmetrieachse hat.",
+    "Ja, eine Drehung um 180° um den Mittelpunkt bildet die Figur auf sich ab.",
+    "Ja, weil die Figur zwei gleich lange Seiten hat.",
+    "Nein, nach einer Drehung um 180° liegt die Figur anders."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Ein gleichschenkliges Trapez, das kein Rechteck ist, ist nicht punktsymmetrisch.",
+   "h": "Drehe die Figur in Gedanken um 180°."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Um welchen kleinsten Winkel (größer als 0°) muss man ein regelmäßiges 8-Eck um seinen Mittelpunkt drehen, damit es auf sich selbst fällt?"
+   },
+   "o": {
+    "wert": 45,
+    "einheit": "°"
+   },
+   "c": "360 / 8",
+   "w": "360° : 8 = 45°.",
+   "h": "Ein voller Umlauf hat 360°, verteilt auf n gleiche Teile."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Um welchen kleinsten Winkel (größer als 0°) muss man ein regelmäßiges 5-Eck um seinen Mittelpunkt drehen, damit es auf sich selbst fällt?"
+   },
+   "o": {
+    "wert": 72,
+    "einheit": "°"
+   },
+   "c": "360 / 5",
+   "w": "360° : 5 = 72°.",
+   "h": "Ein voller Umlauf hat 360°, verteilt auf n gleiche Teile."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Großbuchstabe (Blockschrift) ist punktsymmetrisch, hat aber keine Symmetrieachse?"
+   },
+   "a": [
+    "V",
+    "N",
+    "A",
+    "I"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "N: 0 Symmetrieachsen, punktsymmetrisch.",
+   "h": "Prüfe bei jedem Buchstaben: falten? um 180° drehen?"
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Großbuchstabe (Blockschrift) ist punktsymmetrisch, hat aber keine Symmetrieachse?"
+   },
+   "a": [
+    "A",
+    "X",
+    "V",
+    "N"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "N: 0 Symmetrieachsen, punktsymmetrisch.",
+   "h": "Prüfe bei jedem Buchstaben: falten? um 180° drehen?"
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Großbuchstabe (Blockschrift) ist achsensymmetrisch, aber nicht punktsymmetrisch?"
+   },
+   "a": [
+    "X",
+    "Z",
+    "A",
+    "S"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "A: 1 Symmetrieachse, nicht punktsymmetrisch.",
+   "h": "Prüfe bei jedem Buchstaben: falten? um 180° drehen?"
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Figur hat genau 4 Symmetrieachsen und ist punktsymmetrisch?"
+   },
+   "a": [
+    "Ein Drachenviereck, das keine Raute ist",
+    "Ein Dreieck mit drei verschieden langen Seiten",
+    "Ein gleichschenkliges Dreieck, das nicht gleichseitig ist",
+    "Ein Quadrat"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Ein Quadrat hat 4 Symmetrieachsen und ist punktsymmetrisch.",
+   "h": "Prüfe beide Eigenschaften: Falten und um 180° drehen."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist ein regelmäßiges Sechseck punktsymmetrisch?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       3
+      ],
+      "B": [
+       -2.6,
+       1.5
+      ],
+      "C": [
+       -2.6,
+       -1.5
+      ],
+      "D": [
+       0,
+       -3
+      ],
+      "E": [
+       2.6,
+       -1.5
+      ],
+      "F": [
+       2.6,
+       1.5
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C",
+      "D",
+      "E",
+      "F"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "D",
+       "E"
+      ],
+      [
+       "E",
+       "F"
+      ],
+      [
+       "F",
+       "A"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Ja, weil die Figur zwei gleich lange Seiten hat.",
+    "Ja, eine Drehung um 180° um den Mittelpunkt bildet die Figur auf sich ab.",
+    "Nein, nach einer Drehung um 180° liegt die Figur anders.",
+    "Ja, weil die Figur eine Symmetrieachse hat."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Ein regelmäßiges Sechseck ist punktsymmetrisch."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Symmetrieachsen hat der Großbuchstabe Z in Blockschrift?"
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "0",
+   "w": "Z hat 0 Symmetrieachsen (er ist aber punktsymmetrisch)."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Symmetrieachsen hat der Großbuchstabe X in Blockschrift?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "2",
+   "w": "X hat 2 Symmetrieachsen – senkrecht und waagrecht."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist ein Quadrat punktsymmetrisch?",
+    "grafik": {
+     "typ": "figur",
+     "punkte": {
+      "A": [
+       0,
+       0
+      ],
+      "B": [
+       4,
+       0
+      ],
+      "C": [
+       4,
+       4
+      ],
+      "D": [
+       0,
+       4
+      ]
+     },
+     "flaeche": [
+      "A",
+      "B",
+      "C",
+      "D"
+     ],
+     "linien": [
+      [
+       "A",
+       "B"
+      ],
+      [
+       "B",
+       "C"
+      ],
+      [
+       "C",
+       "D"
+      ],
+      [
+       "D",
+       "A"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Ja, eine Drehung um 180° um den Mittelpunkt bildet die Figur auf sich ab.",
+    "Nein, nach einer Drehung um 180° liegt die Figur anders.",
+    "Ja, weil die Figur zwei gleich lange Seiten hat.",
+    "Ja, weil die Figur eine Symmetrieachse hat."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Ein Quadrat ist punktsymmetrisch."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ist ein regelmäßiges Achteck punktsymmetrisch?",
     "grafik": {
      "typ": "figur",
      "punkte": {
@@ -5051,181 +5703,25 @@
      ]
     }
    },
-   "o": {
-    "wert": 8
-   },
-   "c": "8",
-   "w": "Ein regelmäßiges Achteck hat 8 Symmetrieachsen.",
-   "h": "Stell dir vor, du faltest die Figur: Wo fallen die Hälften genau aufeinander?"
-  },
-  {
-   "l": "symmetrie",
-   "t": "symmetrie",
-   "p": "uebung",
-   "s": 1,
-   "y": "zahl",
-   "f": {
-    "text": "Wie viele Symmetrieachsen hat ein Dreieck mit drei verschieden langen Seiten?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "A": [
-       0,
-       0
-      ],
-      "B": [
-       6,
-       0
-      ],
-      "C": [
-       1.5,
-       3.5
-      ]
-     },
-     "flaeche": [
-      "A",
-      "B",
-      "C"
-     ],
-     "linien": [
-      [
-       "A",
-       "B"
-      ],
-      [
-       "B",
-       "C"
-      ],
-      [
-       "C",
-       "A"
-      ]
-     ]
-    }
-   },
-   "o": {
-    "wert": 0
-   },
-   "c": "0",
-   "w": "Ein Dreieck mit drei verschieden langen Seiten hat 0 Symmetrieachsen.",
-   "h": "Stell dir vor, du faltest die Figur: Wo fallen die Hälften genau aufeinander?"
-  },
-  {
-   "l": "symmetrie",
-   "t": "symmetrie",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Um welchen kleinsten Winkel (größer als 0°) muss man ein regelmäßiges 4-Eck um seinen Mittelpunkt drehen, damit es auf sich selbst fällt?"
-   },
-   "o": {
-    "wert": 90,
-    "einheit": "°"
-   },
-   "c": "360 / 4",
-   "w": "360° : 4 = 90°.",
-   "h": "Ein voller Umlauf hat 360°, verteilt auf n gleiche Teile."
-  },
-  {
-   "l": "symmetrie",
-   "t": "symmetrie",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ist ein Dreieck mit drei verschieden langen Seiten punktsymmetrisch?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "A": [
-       0,
-       0
-      ],
-      "B": [
-       6,
-       0
-      ],
-      "C": [
-       1.5,
-       3.5
-      ]
-     },
-     "flaeche": [
-      "A",
-      "B",
-      "C"
-     ],
-     "linien": [
-      [
-       "A",
-       "B"
-      ],
-      [
-       "B",
-       "C"
-      ],
-      [
-       "C",
-       "A"
-      ]
-     ]
-    }
-   },
    "a": [
     "Nein, nach einer Drehung um 180° liegt die Figur anders.",
+    "Ja, weil die Figur zwei gleich lange Seiten hat.",
     "Ja, weil die Figur eine Symmetrieachse hat.",
-    "Nein, nur Kreise sind punktsymmetrisch.",
     "Ja, eine Drehung um 180° um den Mittelpunkt bildet die Figur auf sich ab."
    ],
    "o": {
-    "index": 0
+    "index": 3
    },
-   "w": "Ein Dreieck mit drei verschieden langen Seiten ist nicht punktsymmetrisch.",
-   "h": "Drehe die Figur in Gedanken um 180°."
+   "w": "Ein regelmäßiges Achteck ist punktsymmetrisch."
   },
   {
    "l": "symmetrie",
    "t": "symmetrie",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Um welchen kleinsten Winkel (größer als 0°) muss man ein regelmäßiges 9-Eck um seinen Mittelpunkt drehen, damit es auf sich selbst fällt?"
-   },
-   "o": {
-    "wert": 40,
-    "einheit": "°"
-   },
-   "c": "360 / 9",
-   "w": "360° : 9 = 40°.",
-   "h": "Ein voller Umlauf hat 360°, verteilt auf n gleiche Teile."
-  },
-  {
-   "l": "symmetrie",
-   "t": "symmetrie",
-   "p": "uebung",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Um welchen kleinsten Winkel (größer als 0°) muss man ein regelmäßiges 20-Eck um seinen Mittelpunkt drehen, damit es auf sich selbst fällt?"
-   },
-   "o": {
-    "wert": 18,
-    "einheit": "°"
-   },
-   "c": "360 / 20",
-   "w": "360° : 20 = 18°.",
-   "h": "Ein voller Umlauf hat 360°, verteilt auf n gleiche Teile."
-  },
-  {
-   "l": "symmetrie",
-   "t": "symmetrie",
-   "p": "uebung",
+   "p": "sicherung",
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Ist ein Drachenviereck, das keine Raute ist punktsymmetrisch?",
+    "text": "Ist ein Drachenviereck, das keine Raute ist, punktsymmetrisch?",
     "grafik": {
      "typ": "figur",
      "punkte": {
@@ -5273,7 +5769,7 @@
     }
    },
    "a": [
-    "Nein, nur Kreise sind punktsymmetrisch.",
+    "Ja, weil die Figur zwei gleich lange Seiten hat.",
     "Ja, weil die Figur eine Symmetrieachse hat.",
     "Nein, nach einer Drehung um 180° liegt die Figur anders.",
     "Ja, eine Drehung um 180° um den Mittelpunkt bildet die Figur auf sich ab."
@@ -5281,13 +5777,27 @@
    "o": {
     "index": 2
    },
-   "w": "Ein Drachenviereck, das keine Raute ist ist nicht punktsymmetrisch.",
-   "h": "Drehe die Figur in Gedanken um 180°."
+   "w": "Ein Drachenviereck, das keine Raute ist, ist nicht punktsymmetrisch."
   },
   {
    "l": "symmetrie",
    "t": "symmetrie",
-   "p": "uebung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Wie viele Symmetrieachsen hat der Großbuchstabe K in Blockschrift?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "1",
+   "w": "K hat 1 Symmetrieachse."
+  },
+  {
+   "l": "symmetrie",
+   "t": "symmetrie",
+   "p": "sicherung",
    "s": 2,
    "y": "auswahl",
    "f": {
@@ -5330,275 +5840,15 @@
     }
    },
    "a": [
-    "Ja, eine Drehung um 180° um den Mittelpunkt bildet die Figur auf sich ab.",
     "Nein, nach einer Drehung um 180° liegt die Figur anders.",
-    "Nein, nur Kreise sind punktsymmetrisch.",
-    "Ja, weil die Figur eine Symmetrieachse hat."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Ein gleichseitiges Dreieck ist nicht punktsymmetrisch.",
-   "h": "Drehe die Figur in Gedanken um 180°."
-  },
-  {
-   "l": "symmetrie",
-   "t": "symmetrie",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Ein regelmäßiges 6-Eck hat Innenwinkel von 120°. Wie viele dieser 6-Ecke treffen sich in einer Ecke, wenn man damit lückenlos parkettiert?"
-   },
-   "o": {
-    "wert": 3
-   },
-   "c": "360 / 120",
-   "w": "360° : 120° = 3.",
-   "h": "Rund um eine Ecke müssen die Winkel zusammen 360° ergeben."
-  },
-  {
-   "l": "symmetrie",
-   "t": "symmetrie",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein regelmäßiges 12-Eck hat Innenwinkel von 150°. Kann man mit lauter solchen 12-Ecken die Ebene lückenlos parkettieren?"
-   },
-   "a": [
-    "Nein, das geht nur mit Quadraten.",
-    "Ja, denn 360° : 150° ist eine ganze Zahl.",
-    "Nein, denn 360° : 150° ist keine ganze Zahl.",
-    "Ja, mit jedem regelmäßigen Vieleck geht das."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "360° : 150° = 2,4 – keine ganze Zahl, es bleibt eine Lücke.",
-   "h": "An jeder Ecke müssen die Innenwinkel zusammen genau 360° ergeben."
-  },
-  {
-   "l": "symmetrie",
-   "t": "symmetrie",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein regelmäßiges 10-Eck hat Innenwinkel von 144°. Kann man mit lauter solchen 10-Ecken die Ebene lückenlos parkettieren?"
-   },
-   "a": [
-    "Nein, das geht nur mit Quadraten.",
-    "Ja, mit jedem regelmäßigen Vieleck geht das.",
-    "Ja, denn 360° : 144° ist eine ganze Zahl.",
-    "Nein, denn 360° : 144° ist keine ganze Zahl."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "360° : 144° = 2,5 – keine ganze Zahl, es bleibt eine Lücke.",
-   "h": "An jeder Ecke müssen die Innenwinkel zusammen genau 360° ergeben."
-  },
-  {
-   "l": "symmetrie",
-   "t": "symmetrie",
-   "p": "uebung",
-   "s": 3,
-   "y": "auswahl",
-   "f": {
-    "text": "Ein regelmäßiges 9-Eck hat Innenwinkel von 140°. Kann man mit lauter solchen 9-Ecken die Ebene lückenlos parkettieren?"
-   },
-   "a": [
-    "Ja, denn 360° : 140° ist eine ganze Zahl.",
-    "Nein, das geht nur mit Quadraten.",
-    "Ja, mit jedem regelmäßigen Vieleck geht das.",
-    "Nein, denn 360° : 140° ist keine ganze Zahl."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "360° : 140° = 18/7 – keine ganze Zahl, es bleibt eine Lücke.",
-   "h": "An jeder Ecke müssen die Innenwinkel zusammen genau 360° ergeben."
-  },
-  {
-   "l": "symmetrie",
-   "t": "symmetrie",
-   "p": "test",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ist ein Parallelogramm, das weder Rechteck noch Raute ist punktsymmetrisch?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "A": [
-       0,
-       0
-      ],
-      "B": [
-       5,
-       0
-      ],
-      "C": [
-       7,
-       3
-      ],
-      "D": [
-       2,
-       3
-      ]
-     },
-     "flaeche": [
-      "A",
-      "B",
-      "C",
-      "D"
-     ],
-     "linien": [
-      [
-       "A",
-       "B"
-      ],
-      [
-       "B",
-       "C"
-      ],
-      [
-       "C",
-       "D"
-      ],
-      [
-       "D",
-       "A"
-      ]
-     ]
-    }
-   },
-   "a": [
-    "Nein, nach einer Drehung um 180° liegt die Figur anders.",
-    "Nein, nur Kreise sind punktsymmetrisch.",
     "Ja, weil die Figur eine Symmetrieachse hat.",
+    "Ja, weil die Figur zwei gleich lange Seiten hat.",
     "Ja, eine Drehung um 180° um den Mittelpunkt bildet die Figur auf sich ab."
    ],
    "o": {
-    "index": 3
+    "index": 0
    },
-   "w": "Ein Parallelogramm, das weder Rechteck noch Raute ist ist punktsymmetrisch."
-  },
-  {
-   "l": "symmetrie",
-   "t": "symmetrie",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Um welchen kleinsten Winkel (größer als 0°) muss man ein regelmäßiges 10-Eck um seinen Mittelpunkt drehen, damit es auf sich selbst fällt?"
-   },
-   "o": {
-    "wert": 36,
-    "einheit": "°"
-   },
-   "c": "360 / 10",
-   "w": "360° : 10 = 36°."
-  },
-  {
-   "l": "symmetrie",
-   "t": "symmetrie",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ist ein regelmäßiges Sechseck punktsymmetrisch?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "A": [
-       0,
-       3
-      ],
-      "B": [
-       -2.6,
-       1.5
-      ],
-      "C": [
-       -2.6,
-       -1.5
-      ],
-      "D": [
-       0,
-       -3
-      ],
-      "E": [
-       2.6,
-       -1.5
-      ],
-      "F": [
-       2.6,
-       1.5
-      ]
-     },
-     "flaeche": [
-      "A",
-      "B",
-      "C",
-      "D",
-      "E",
-      "F"
-     ],
-     "linien": [
-      [
-       "A",
-       "B"
-      ],
-      [
-       "B",
-       "C"
-      ],
-      [
-       "C",
-       "D"
-      ],
-      [
-       "D",
-       "E"
-      ],
-      [
-       "E",
-       "F"
-      ],
-      [
-       "F",
-       "A"
-      ]
-     ]
-    }
-   },
-   "a": [
-    "Nein, nur Kreise sind punktsymmetrisch.",
-    "Ja, eine Drehung um 180° um den Mittelpunkt bildet die Figur auf sich ab.",
-    "Nein, nach einer Drehung um 180° liegt die Figur anders.",
-    "Ja, weil die Figur eine Symmetrieachse hat."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Ein regelmäßiges Sechseck ist punktsymmetrisch."
-  },
-  {
-   "l": "symmetrie",
-   "t": "symmetrie",
-   "p": "korrektur",
-   "s": 2,
-   "y": "zahl",
-   "f": {
-    "text": "Um welchen kleinsten Winkel (größer als 0°) muss man ein regelmäßiges 18-Eck um seinen Mittelpunkt drehen, damit es auf sich selbst fällt?"
-   },
-   "o": {
-    "wert": 20,
-    "einheit": "°"
-   },
-   "c": "360 / 18",
-   "w": "360° : 18 = 20°."
+   "w": "Ein gleichseitiges Dreieck ist nicht punktsymmetrisch."
   },
   {
    "l": "symmetrie",
@@ -5607,7 +5857,7 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Ist ein gleichschenkliges Dreieck, das nicht gleichseitig ist punktsymmetrisch?",
+    "text": "Ist ein gleichschenkliges Dreieck, das nicht gleichseitig ist, punktsymmetrisch?",
     "grafik": {
      "typ": "figur",
      "punkte": {
@@ -5647,14 +5897,14 @@
    },
    "a": [
     "Nein, nach einer Drehung um 180° liegt die Figur anders.",
-    "Nein, nur Kreise sind punktsymmetrisch.",
-    "Ja, weil die Figur eine Symmetrieachse hat.",
-    "Ja, eine Drehung um 180° um den Mittelpunkt bildet die Figur auf sich ab."
+    "Ja, weil die Figur zwei gleich lange Seiten hat.",
+    "Ja, eine Drehung um 180° um den Mittelpunkt bildet die Figur auf sich ab.",
+    "Ja, weil die Figur eine Symmetrieachse hat."
    ],
    "o": {
     "index": 0
    },
-   "w": "Ein gleichschenkliges Dreieck, das nicht gleichseitig ist ist nicht punktsymmetrisch."
+   "w": "Ein gleichschenkliges Dreieck, das nicht gleichseitig ist, ist nicht punktsymmetrisch."
   },
   {
    "l": "symmetrie",
@@ -5663,185 +5913,485 @@
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Um welchen kleinsten Winkel (größer als 0°) muss man ein regelmäßiges 8-Eck um seinen Mittelpunkt drehen, damit es auf sich selbst fällt?"
+    "text": "Um welchen kleinsten Winkel (größer als 0°) muss man ein regelmäßiges 9-Eck um seinen Mittelpunkt drehen, damit es auf sich selbst fällt?"
    },
    "o": {
-    "wert": 45,
+    "wert": 40,
     "einheit": "°"
    },
-   "c": "360 / 8",
-   "w": "360° : 8 = 45°."
+   "c": "360 / 9",
+   "w": "360° : 9 = 40°."
   },
   {
-   "l": "symmetrie",
-   "t": "symmetrie",
+   "l": "parkett",
+   "t": "parkett",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "An einer Ecke liegen 3 Ecken von Quadraten (je 90°). Wie groß ist der Winkel zusammen?"
+   },
+   "o": {
+    "wert": 270,
+    "einheit": "°"
+   },
+   "c": "3 * 90",
+   "w": "3 · 90° = 270°.",
+   "h": "Multipliziere die Anzahl mit dem Innenwinkel."
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "An einer Ecke liegen 4 Ecken regelmäßiger Sechsecke (je 120°). Wie groß ist der Winkel zusammen?"
+   },
+   "o": {
+    "wert": 480,
+    "einheit": "°"
+   },
+   "c": "4 * 120",
+   "w": "4 · 120° = 480°.",
+   "h": "Multipliziere die Anzahl mit dem Innenwinkel."
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "An einer Ecke liegen 3 Ecken regelmäßiger Sechsecke (je 120°). Wie groß ist der Winkel zusammen?"
+   },
+   "o": {
+    "wert": 360,
+    "einheit": "°"
+   },
+   "c": "3 * 120",
+   "w": "3 · 120° = 360° – genau 360°.",
+   "h": "Multipliziere die Anzahl mit dem Innenwinkel."
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "An einer Ecke liegen 4 Ecken gleichseitiger Dreiecke (je 60°). Wie groß ist der Winkel zusammen?"
+   },
+   "o": {
+    "wert": 240,
+    "einheit": "°"
+   },
+   "c": "4 * 60",
+   "w": "4 · 60° = 240°.",
+   "h": "Multipliziere die Anzahl mit dem Innenwinkel."
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein regelmäßiges Zwölfeck hat Innenwinkel von 150°. Man legt 2 davon um eine Ecke. Wie groß ist die Lücke, die bleibt?"
+   },
+   "o": {
+    "wert": 60,
+    "einheit": "°"
+   },
+   "c": "360 - 2 * 150",
+   "w": "2 · 150° = 300°. Lücke: 360° − 300° = 60°. Ein weiteres passt nicht mehr (450° > 360°).",
+   "h": "Rechne aus, wie viel Winkel die Ecken zusammen belegen."
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein regelmäßiges Neuneck hat Innenwinkel von 140°. Man legt 2 davon um eine Ecke. Wie groß ist die Lücke, die bleibt?"
+   },
+   "o": {
+    "wert": 80,
+    "einheit": "°"
+   },
+   "c": "360 - 2 * 140",
+   "w": "2 · 140° = 280°. Lücke: 360° − 280° = 80°. Ein weiteres passt nicht mehr (420° > 360°).",
+   "h": "Rechne aus, wie viel Winkel die Ecken zusammen belegen."
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Quadrat hat Innenwinkel von 90°. Kann man mit lauter solchen Vielecken die Ebene lückenlos auslegen?"
+   },
+   "a": [
+    "Nein, denn 360° : 90° ist keine ganze Zahl.",
+    "Ja, mit jedem regelmäßigen Vieleck geht das.",
+    "Ja, denn 360° : 90° ist eine ganze Zahl.",
+    "Nein, das geht nur mit Quadraten."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "360° : 90° = 4.",
+   "h": "An jeder Ecke müssen die Innenwinkel zusammen genau 360° ergeben."
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Um eine Ecke passen genau 4 gleiche regelmäßige Vielecke ohne Lücke. Wie groß ist ihr Innenwinkel?"
+   },
+   "o": {
+    "wert": 90,
+    "einheit": "°"
+   },
+   "c": "360 / 4",
+   "w": "360° : 4 = 90°. Das ist das Quadrat.",
+   "h": "Die Winkel an der Ecke ergeben zusammen 360°."
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein regelmäßiges Fünfeck hat Innenwinkel von 108°. Jemand legt 4 davon um eine Ecke. Um wie viel Grad ist das zu viel?"
+   },
+   "o": {
+    "wert": 72,
+    "einheit": "°"
+   },
+   "c": "4 * 108 - 360",
+   "w": "4 · 108° = 432° – das sind 72° mehr als 360°. Die Vielecke würden sich überlappen.",
+   "h": "Vergleiche die Summe der Winkel mit 360°."
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein regelmäßiges Fünfeck hat Innenwinkel von 108°. Man legt 3 davon um eine Ecke. Wie groß ist die Lücke, die bleibt?"
+   },
+   "o": {
+    "wert": 36,
+    "einheit": "°"
+   },
+   "c": "360 - 3 * 108",
+   "w": "3 · 108° = 324°. Lücke: 360° − 324° = 36°. Ein weiteres passt nicht mehr (432° > 360°).",
+   "h": "Rechne aus, wie viel Winkel die Ecken zusammen belegen."
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "An einer Ecke liegen 2 Ecken von Quadraten (je 90°). Wie viele gleichseitige Dreiecke (60°) braucht man noch, damit die Ecke lückenlos ist?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "(360 - 2 * 90) / 60",
+   "w": "360° − 180° = 180°; 180° : 60° = 3.",
+   "h": "Erst den Rest bis 360°, dann durch 60° teilen."
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "An einer Ecke liegen 2 Ecken regelmäßiger Sechsecke (je 120°) und ein weiteres regelmäßiges Vieleck. Welchen Innenwinkel muss es haben?"
+   },
+   "o": {
+    "wert": 120,
+    "einheit": "°"
+   },
+   "c": "360 - 2 * 120",
+   "w": "360° − 2 · 120° = 120°. Das ist das regelmäßiges Sechseck.",
+   "h": "Was fehlt noch bis 360°?"
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Passen 4 gleichseitige Dreiecke und ein Quadrat lückenlos um eine Ecke?"
+   },
+   "a": [
+    "Nein: Verschiedene Vielecke kann man an einer Ecke nie kombinieren.",
+    "Nein: Es müssen immer gleich viele von jeder Sorte sein.",
+    "Ja: 4 · 60° + 1 · 90° = 330°.",
+    "Nein: 4 · 60° + 1 · 90° = 330° ≠ 360°."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Nein: 4 · 60° + 1 · 90° = 330° ≠ 360°.",
+   "h": "Addiere alle Winkel an der Ecke und vergleiche mit 360°."
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Passen 3 gleichseitige Dreiecke und 2 Quadrate lückenlos um eine Ecke?"
+   },
+   "a": [
+    "Nein: Verschiedene Vielecke kann man an einer Ecke nie kombinieren.",
+    "Ja: 3 · 60° + 2 · 90° = 360°.",
+    "Nein: 3 · 60° + 2 · 90° = 360° ≠ 360°.",
+    "Nein: Es müssen immer gleich viele von jeder Sorte sein."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Ja: 3 · 60° + 2 · 90° = 360°.",
+   "h": "Addiere alle Winkel an der Ecke und vergleiche mit 360°."
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein regelmäßiges Achteck hat Innenwinkel von 135°. Kann man mit lauter solchen Vielecken die Ebene lückenlos auslegen?"
+   },
+   "a": [
+    "Ja, denn 360° : 135° ist eine ganze Zahl.",
+    "Nein, denn 360° : 135° ist keine ganze Zahl.",
+    "Nein, das geht nur mit Quadraten.",
+    "Ja, mit jedem regelmäßigen Vieleck geht das."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "360° : 135° = 8/3 – keine ganze Zahl, es bleibt eine Lücke."
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein regelmäßiges Fünfeck hat Innenwinkel von 108°. Kann man mit lauter solchen Vielecken die Ebene lückenlos auslegen?"
+   },
+   "a": [
+    "Nein, denn 360° : 108° ist keine ganze Zahl.",
+    "Ja, mit jedem regelmäßigen Vieleck geht das.",
+    "Ja, denn 360° : 108° ist eine ganze Zahl.",
+    "Nein, das geht nur mit Quadraten."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "360° : 108° = 10/3 – keine ganze Zahl, es bleibt eine Lücke."
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein regelmäßiges Zehneck hat Innenwinkel von 144°. Man legt 2 davon um eine Ecke. Wie groß ist die Lücke, die bleibt?"
+   },
+   "o": {
+    "wert": 72,
+    "einheit": "°"
+   },
+   "c": "360 - 2 * 144",
+   "w": "2 · 144° = 288°. Lücke: 360° − 288° = 72°. Ein weiteres passt nicht mehr (432° > 360°)."
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein regelmäßiges Sechseck hat Innenwinkel von 120°. Kann man mit lauter solchen Vielecken die Ebene lückenlos auslegen?"
+   },
+   "a": [
+    "Ja, denn 360° : 120° ist eine ganze Zahl.",
+    "Ja, mit jedem regelmäßigen Vieleck geht das.",
+    "Nein, denn 360° : 120° ist keine ganze Zahl.",
+    "Nein, das geht nur mit Quadraten."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "360° : 120° = 3."
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein gleichseitiges Dreieck hat Innenwinkel von 60°. Kann man mit lauter solchen Vielecken die Ebene lückenlos auslegen?"
+   },
+   "a": [
+    "Ja, denn 360° : 60° ist eine ganze Zahl.",
+    "Nein, das geht nur mit Quadraten.",
+    "Nein, denn 360° : 60° ist keine ganze Zahl.",
+    "Ja, mit jedem regelmäßigen Vieleck geht das."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "360° : 60° = 6."
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
    "p": "sicherung",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Um welchen kleinsten Winkel (größer als 0°) muss man ein regelmäßiges 6-Eck um seinen Mittelpunkt drehen, damit es auf sich selbst fällt?"
+    "text": "Um eine Ecke passen genau 3 gleiche regelmäßige Vielecke ohne Lücke. Wie groß ist ihr Innenwinkel?"
+   },
+   "o": {
+    "wert": 120,
+    "einheit": "°"
+   },
+   "c": "360 / 3",
+   "w": "360° : 3 = 120°. Das ist das regelmäßiges Sechseck."
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein regelmäßiges Neuneck hat Innenwinkel von 140°. Kann man mit lauter solchen Vielecken die Ebene lückenlos auslegen?"
+   },
+   "a": [
+    "Nein, denn 360° : 140° ist keine ganze Zahl.",
+    "Nein, das geht nur mit Quadraten.",
+    "Ja, mit jedem regelmäßigen Vieleck geht das.",
+    "Ja, denn 360° : 140° ist eine ganze Zahl."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "360° : 140° = 18/7 – keine ganze Zahl, es bleibt eine Lücke."
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Um eine Ecke passen genau 6 gleiche regelmäßige Vielecke ohne Lücke. Wie groß ist ihr Innenwinkel?"
    },
    "o": {
     "wert": 60,
     "einheit": "°"
    },
    "c": "360 / 6",
-   "w": "360° : 6 = 60°."
+   "w": "360° : 6 = 60°. Das ist das gleichseitiges Dreieck."
   },
   {
-   "l": "symmetrie",
-   "t": "symmetrie",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ist ein gleichschenkliges Trapez, das kein Rechteck ist punktsymmetrisch?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "A": [
-       0,
-       0
-      ],
-      "B": [
-       6,
-       0
-      ],
-      "C": [
-       4.5,
-       3
-      ],
-      "D": [
-       1.5,
-       3
-      ]
-     },
-     "flaeche": [
-      "A",
-      "B",
-      "C",
-      "D"
-     ],
-     "linien": [
-      [
-       "A",
-       "B"
-      ],
-      [
-       "B",
-       "C"
-      ],
-      [
-       "C",
-       "D"
-      ],
-      [
-       "D",
-       "A"
-      ]
-     ]
-    }
-   },
-   "a": [
-    "Ja, eine Drehung um 180° um den Mittelpunkt bildet die Figur auf sich ab.",
-    "Ja, weil die Figur eine Symmetrieachse hat.",
-    "Nein, nach einer Drehung um 180° liegt die Figur anders.",
-    "Nein, nur Kreise sind punktsymmetrisch."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Ein gleichschenkliges Trapez, das kein Rechteck ist ist nicht punktsymmetrisch."
-  },
-  {
-   "l": "symmetrie",
-   "t": "symmetrie",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Ist ein regelmäßiges Fünfeck punktsymmetrisch?",
-    "grafik": {
-     "typ": "figur",
-     "punkte": {
-      "A": [
-       0,
-       3
-      ],
-      "B": [
-       -2.85,
-       0.93
-      ],
-      "C": [
-       -1.76,
-       -2.43
-      ],
-      "D": [
-       1.76,
-       -2.43
-      ],
-      "E": [
-       2.85,
-       0.93
-      ]
-     },
-     "flaeche": [
-      "A",
-      "B",
-      "C",
-      "D",
-      "E"
-     ],
-     "linien": [
-      [
-       "A",
-       "B"
-      ],
-      [
-       "B",
-       "C"
-      ],
-      [
-       "C",
-       "D"
-      ],
-      [
-       "D",
-       "E"
-      ],
-      [
-       "E",
-       "A"
-      ]
-     ]
-    }
-   },
-   "a": [
-    "Ja, eine Drehung um 180° um den Mittelpunkt bildet die Figur auf sich ab.",
-    "Ja, weil die Figur eine Symmetrieachse hat.",
-    "Nein, nur Kreise sind punktsymmetrisch.",
-    "Nein, nach einer Drehung um 180° liegt die Figur anders."
-   ],
-   "o": {
-    "index": 3
-   },
-   "w": "Ein regelmäßiges Fünfeck ist nicht punktsymmetrisch."
-  },
-  {
-   "l": "symmetrie",
-   "t": "symmetrie",
+   "l": "parkett",
+   "t": "parkett",
    "p": "sicherung",
    "s": 2,
    "y": "zahl",
    "f": {
-    "text": "Um welchen kleinsten Winkel (größer als 0°) muss man ein regelmäßiges 5-Eck um seinen Mittelpunkt drehen, damit es auf sich selbst fällt?"
+    "text": "Ein regelmäßiges Zehneck hat Innenwinkel von 144°. Jemand legt 3 davon um eine Ecke. Um wie viel Grad ist das zu viel?"
    },
    "o": {
     "wert": 72,
     "einheit": "°"
    },
-   "c": "360 / 5",
-   "w": "360° : 5 = 72°."
+   "c": "3 * 144 - 360",
+   "w": "3 · 144° = 432° – das sind 72° mehr als 360°. Die Vielecke würden sich überlappen."
+  },
+  {
+   "l": "parkett",
+   "t": "parkett",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Ein regelmäßiges Achteck hat Innenwinkel von 135°. Man legt 2 davon um eine Ecke. Wie groß ist die Lücke, die bleibt?"
+   },
+   "o": {
+    "wert": 90,
+    "einheit": "°"
+   },
+   "c": "360 - 2 * 135",
+   "w": "2 · 135° = 270°. Lücke: 360° − 270° = 90°. Ein weiteres passt nicht mehr (405° > 360°)."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über Kongruenzabbildungen ist richtig?"
+   },
+   "a": [
+    "Bei einer Punktspiegelung bleiben alle Punkte auf einer Geraden durch das Zentrum fest.",
+    "Bei einer Achsenspiegelung ändert sich der Umlaufsinn.",
+    "Zwei Achsenspiegelungen ergeben wieder eine Achsenspiegelung.",
+    "Eine Achsenspiegelung verändert Winkelgrößen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Richtig: Bei einer Achsenspiegelung ändert sich der Umlaufsinn. Kongruenzabbildungen erhalten Längen, Winkel und Flächen.",
+   "h": "Kongruent heißt deckungsgleich. Was kann sich dann überhaupt ändern?"
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 1,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Aussage über Kongruenzabbildungen ist richtig?"
+   },
+   "a": [
+    "Eine Achsenspiegelung verändert Winkelgrößen.",
+    "Zwei Achsenspiegelungen an parallelen Achsen ergeben eine Verschiebung.",
+    "Bei einer Verschiebung ändert sich der Umlaufsinn.",
+    "Bei einer Drehung kehrt sich der Umlaufsinn um."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Richtig: Zwei Achsenspiegelungen an parallelen Achsen ergeben eine Verschiebung. Kongruenzabbildungen erhalten Längen, Winkel und Flächen.",
+   "h": "Kongruent heißt deckungsgleich. Was kann sich dann überhaupt ändern?"
   },
   {
    "l": "eigenschaften",
@@ -5854,9 +6404,9 @@
    },
    "a": [
     "Bild und Urbild einer Kongruenzabbildung sind deckungsgleich.",
-    "Eine Verschiebung hat einen Fixpunkt.",
-    "Bei einer Drehung um 90° wird der Flächeninhalt größer.",
-    "Bei einer Punktspiegelung werden alle Winkel verdoppelt."
+    "Bei einer Punktspiegelung bleiben alle Punkte auf einer Geraden durch das Zentrum fest.",
+    "Eine Achsenspiegelung verändert Winkelgrößen.",
+    "Bei einer Drehung um 90° wird der Flächeninhalt größer."
    ],
    "o": {
     "index": 0
@@ -5874,57 +6424,15 @@
     "text": "Welche Aussage über Kongruenzabbildungen ist richtig?"
    },
    "a": [
-    "Eine Verschiebung hat einen Fixpunkt.",
-    "Bei einer Punktspiegelung werden alle Winkel verdoppelt.",
-    "Eine Punktspiegelung ist dasselbe wie eine Drehung um 180°.",
-    "Eine Achsenspiegelung verändert Winkelgrößen."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Richtig: Eine Punktspiegelung ist dasselbe wie eine Drehung um 180°. Kongruenzabbildungen erhalten Längen, Winkel und Flächen.",
-   "h": "Kongruent heißt deckungsgleich. Was kann sich dann überhaupt ändern?"
-  },
-  {
-   "l": "eigenschaften",
-   "t": "eigenschaften",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Aussage über Kongruenzabbildungen ist richtig?"
-   },
-   "a": [
-    "Eine Achsenspiegelung verändert Winkelgrößen.",
-    "Eine Verschiebung bildet jede Gerade auf eine parallele Gerade ab.",
     "Bei einer Drehung um 90° wird der Flächeninhalt größer.",
-    "Bei einer Punktspiegelung werden alle Winkel verdoppelt."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Richtig: Eine Verschiebung bildet jede Gerade auf eine parallele Gerade ab. Kongruenzabbildungen erhalten Längen, Winkel und Flächen.",
-   "h": "Kongruent heißt deckungsgleich. Was kann sich dann überhaupt ändern?"
-  },
-  {
-   "l": "eigenschaften",
-   "t": "eigenschaften",
-   "p": "uebung",
-   "s": 1,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Aussage über Kongruenzabbildungen ist richtig?"
-   },
-   "a": [
-    "Eine Achsenspiegelung verändert Winkelgrößen.",
-    "Eine Verschiebung hat einen Fixpunkt.",
     "Bei einer Verschiebung ändert sich der Umlaufsinn.",
-    "Eine Punktspiegelung ist dasselbe wie eine Drehung um 180°."
+    "Eine Achsenspiegelung verändert Winkelgrößen.",
+    "Bei einer Drehung bleibt der Umlaufsinn erhalten."
    ],
    "o": {
     "index": 3
    },
-   "w": "Richtig: Eine Punktspiegelung ist dasselbe wie eine Drehung um 180°. Kongruenzabbildungen erhalten Längen, Winkel und Flächen.",
+   "w": "Richtig: Bei einer Drehung bleibt der Umlaufsinn erhalten. Kongruenzabbildungen erhalten Längen, Winkel und Flächen.",
    "h": "Kongruent heißt deckungsgleich. Was kann sich dann überhaupt ändern?"
   },
   {
@@ -5934,82 +6442,103 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage über Kongruenzabbildungen ist richtig?"
+    "text": "Das Dreieck ABC wird auf A'B'C' (gestrichelt) abgebildet. Welche Abbildung ist es?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -4,
+      5
+     ],
+     "y": [
+      -5,
+      5
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 2,
+       "name": "A"
+      },
+      {
+       "x": 3,
+       "y": 1,
+       "name": "B"
+      },
+      {
+       "x": 4,
+       "y": 4,
+       "name": "C"
+      },
+      {
+       "x": -3,
+       "y": -3,
+       "name": "A'"
+      },
+      {
+       "x": -1,
+       "y": -4,
+       "name": "B'"
+      },
+      {
+       "x": 0,
+       "y": -1,
+       "name": "C'"
+      }
+     ],
+     "strecken": [
+      [
+       1,
+       2,
+       3,
+       1
+      ],
+      [
+       3,
+       1,
+       4,
+       4
+      ],
+      [
+       4,
+       4,
+       1,
+       2
+      ],
+      [
+       -3,
+       -3,
+       -1,
+       -4,
+       "gestrichelt"
+      ],
+      [
+       -1,
+       -4,
+       0,
+       -1,
+       "gestrichelt"
+      ],
+      [
+       0,
+       -1,
+       -3,
+       -3,
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    "a": [
-    "Bei einer Verschiebung ändert sich der Umlaufsinn.",
-    "Zwei Achsenspiegelungen ergeben wieder eine Achsenspiegelung.",
-    "Eine Punktspiegelung ist dasselbe wie eine Drehung um 180°.",
-    "Das Drehzentrum einer Drehung bewegt sich bei der Drehung mit."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Richtig: Eine Punktspiegelung ist dasselbe wie eine Drehung um 180°. Kongruenzabbildungen erhalten Längen, Winkel und Flächen.",
-   "h": "Kongruent heißt deckungsgleich. Was kann sich dann überhaupt ändern?"
-  },
-  {
-   "l": "eigenschaften",
-   "t": "eigenschaften",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Aussage über Kongruenzabbildungen ist FALSCH?"
-   },
-   "a": [
-    "Zwei Achsenspiegelungen an parallelen Achsen ergeben eine Verschiebung.",
-    "Eine Achsenspiegelung verändert Winkelgrößen.",
-    "Bei einer Drehung bleiben alle Seitenlängen gleich.",
-    "Eine Verschiebung bildet jede Gerade auf eine parallele Gerade ab."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Falsch: Eine Achsenspiegelung verändert Winkelgrößen. Längen, Winkel und Flächen bleiben immer gleich; nur die Achsenspiegelung kehrt den Umlaufsinn um.",
-   "h": "Prüfe jede Aussage an einem einfachen Beispiel."
-  },
-  {
-   "l": "eigenschaften",
-   "t": "eigenschaften",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Aussage über Kongruenzabbildungen ist richtig?"
-   },
-   "a": [
-    "Zwei Achsenspiegelungen ergeben wieder eine Achsenspiegelung.",
-    "Bei einer Achsenspiegelung ändert sich der Umlaufsinn.",
-    "Bei einer Drehung um 90° wird der Flächeninhalt größer.",
-    "Bei einer Punktspiegelung werden alle Winkel verdoppelt."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Richtig: Bei einer Achsenspiegelung ändert sich der Umlaufsinn. Kongruenzabbildungen erhalten Längen, Winkel und Flächen.",
-   "h": "Kongruent heißt deckungsgleich. Was kann sich dann überhaupt ändern?"
-  },
-  {
-   "l": "eigenschaften",
-   "t": "eigenschaften",
-   "p": "uebung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Aussage über Kongruenzabbildungen ist FALSCH?"
-   },
-   "a": [
-    "Eine Achsenspiegelung verändert Winkelgrößen.",
-    "Eine Punktspiegelung ist dasselbe wie eine Drehung um 180°.",
-    "Bei einer Achsenspiegelung bleiben die Punkte auf der Achse fest.",
-    "Bei einer Drehung bleiben alle Seitenlängen gleich."
+    "Verschiebung mit v = (−4 | −5)",
+    "Punktspiegelung an O",
+    "Achsenspiegelung an der x-Achse",
+    "Drehung um O um 90° gegen den Uhrzeigersinn"
    ],
    "o": {
     "index": 0
    },
-   "w": "Falsch: Eine Achsenspiegelung verändert Winkelgrößen. Längen, Winkel und Flächen bleiben immer gleich; nur die Achsenspiegelung kehrt den Umlaufsinn um.",
-   "h": "Prüfe jede Aussage an einem einfachen Beispiel."
+   "w": "Verschiebung mit v = (−4 | −5): alle Punkte wandern gleich weit in dieselbe Richtung.",
+   "h": "Vergleiche einen Punkt mit seinem Bildpunkt. Ist die Beschriftung im gleichen Umlaufsinn?"
   },
   {
    "l": "eigenschaften",
@@ -6018,19 +6547,145 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage über Kongruenzabbildungen ist richtig?"
+    "text": "Ein Dreieck ABC ist im Uhrzeigersinn beschriftet. Es wird um 90° um einen Punkt gedreht. Wie ist das Bilddreieck A'B'C' beschriftet?"
    },
    "a": [
-    "Bei einer Verschiebung ändert sich der Umlaufsinn.",
-    "Zwei Achsenspiegelungen ergeben wieder eine Achsenspiegelung.",
-    "Bei einer Drehung um 90° wird der Flächeninhalt größer.",
-    "Bei einer Achsenspiegelung bleiben die Punkte auf der Achse fest."
+    "gegen den Uhrzeigersinn",
+    "im Uhrzeigersinn",
+    "Das Bild hat keinen Umlaufsinn mehr.",
+    "Das hängt davon ab, wie groß das Dreieck ist."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Diese Abbildung erhält den Umlaufsinn: im Uhrzeigersinn.",
+   "h": "Nur eine einzelne Achsenspiegelung dreht die Reihenfolge der Ecken um."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Dreieck ABC ist gegen den Uhrzeigersinn beschriftet. Es wird an der y-Achse gespiegelt. Wie ist das Bilddreieck A'B'C' beschriftet?"
+   },
+   "a": [
+    "im Uhrzeigersinn",
+    "gegen den Uhrzeigersinn",
+    "Das Bild hat keinen Umlaufsinn mehr.",
+    "Das hängt davon ab, wie groß das Dreieck ist."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Eine Achsenspiegelung kehrt den Umlaufsinn um: im Uhrzeigersinn.",
+   "h": "Nur eine einzelne Achsenspiegelung dreht die Reihenfolge der Ecken um."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Das Dreieck ABC wird auf A'B'C' (gestrichelt) abgebildet. Welche Abbildung ist es?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -1,
+      5
+     ],
+     "y": [
+      -4,
+      4
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 1,
+       "name": "A"
+      },
+      {
+       "x": 4,
+       "y": 1,
+       "name": "B"
+      },
+      {
+       "x": 2,
+       "y": 3,
+       "name": "C"
+      },
+      {
+       "x": 1,
+       "y": -1,
+       "name": "A'"
+      },
+      {
+       "x": 4,
+       "y": -1,
+       "name": "B'"
+      },
+      {
+       "x": 2,
+       "y": -3,
+       "name": "C'"
+      }
+     ],
+     "strecken": [
+      [
+       1,
+       1,
+       4,
+       1
+      ],
+      [
+       4,
+       1,
+       2,
+       3
+      ],
+      [
+       2,
+       3,
+       1,
+       1
+      ],
+      [
+       1,
+       -1,
+       4,
+       -1,
+       "gestrichelt"
+      ],
+      [
+       4,
+       -1,
+       2,
+       -3,
+       "gestrichelt"
+      ],
+      [
+       2,
+       -3,
+       1,
+       -1,
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Verschiebung",
+    "Punktspiegelung an O",
+    "Drehung um O um 90° gegen den Uhrzeigersinn",
+    "Achsenspiegelung an der x-Achse"
    ],
    "o": {
     "index": 3
    },
-   "w": "Richtig: Bei einer Achsenspiegelung bleiben die Punkte auf der Achse fest. Kongruenzabbildungen erhalten Längen, Winkel und Flächen.",
-   "h": "Kongruent heißt deckungsgleich. Was kann sich dann überhaupt ändern?"
+   "w": "Achsenspiegelung an der x-Achse: y wechselt das Vorzeichen, x bleibt; der Umlaufsinn kehrt sich um.",
+   "h": "Vergleiche einen Punkt mit seinem Bildpunkt. Ist die Beschriftung im gleichen Umlaufsinn?"
   },
   {
    "l": "eigenschaften",
@@ -6039,36 +6694,208 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage über Kongruenzabbildungen ist FALSCH?"
+    "text": "Das Dreieck ABC wird auf A'B'C' (gestrichelt) abgebildet. Welche Abbildung ist es?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      4
+     ],
+     "y": [
+      -1,
+      5
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 1,
+       "name": "A"
+      },
+      {
+       "x": 3,
+       "y": 1,
+       "name": "B"
+      },
+      {
+       "x": 1,
+       "y": 4,
+       "name": "C"
+      },
+      {
+       "x": -1,
+       "y": 1,
+       "name": "A'"
+      },
+      {
+       "x": -1,
+       "y": 3,
+       "name": "B'"
+      },
+      {
+       "x": -4,
+       "y": 1,
+       "name": "C'"
+      }
+     ],
+     "strecken": [
+      [
+       1,
+       1,
+       3,
+       1
+      ],
+      [
+       3,
+       1,
+       1,
+       4
+      ],
+      [
+       1,
+       4,
+       1,
+       1
+      ],
+      [
+       -1,
+       1,
+       -1,
+       3,
+       "gestrichelt"
+      ],
+      [
+       -1,
+       3,
+       -4,
+       1,
+       "gestrichelt"
+      ],
+      [
+       -4,
+       1,
+       -1,
+       1,
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    "a": [
-    "Eine Achsenspiegelung verändert Winkelgrößen.",
-    "Zwei Achsenspiegelungen an parallelen Achsen ergeben eine Verschiebung.",
-    "Eine Punktspiegelung ist dasselbe wie eine Drehung um 180°.",
-    "Bei einer Achsenspiegelung bleiben die Punkte auf der Achse fest."
+    "Achsenspiegelung an der y-Achse",
+    "Punktspiegelung an O",
+    "Verschiebung",
+    "Drehung um O um 90° gegen den Uhrzeigersinn"
    ],
    "o": {
-    "index": 0
+    "index": 3
    },
-   "w": "Falsch: Eine Achsenspiegelung verändert Winkelgrößen. Längen, Winkel und Flächen bleiben immer gleich; nur die Achsenspiegelung kehrt den Umlaufsinn um.",
-   "h": "Prüfe jede Aussage an einem einfachen Beispiel."
+   "w": "Drehung um O um 90° gegen den Uhrzeigersinn: (x | y) → (−y | x), der Umlaufsinn bleibt.",
+   "h": "Vergleiche einen Punkt mit seinem Bildpunkt. Ist die Beschriftung im gleichen Umlaufsinn?"
   },
   {
    "l": "eigenschaften",
    "t": "eigenschaften",
    "p": "uebung",
-   "s": 3,
-   "y": "zahl",
+   "s": 2,
+   "y": "auswahl",
    "f": {
-    "text": "Eine Figur wird an zwei parallelen Achsen nacheinander gespiegelt. Die Achsen haben 13 cm Abstand. Um wie viel cm ist das Bild insgesamt verschoben?"
+    "text": "Das Dreieck ABC wird auf A'B'C' (gestrichelt) abgebildet. Welche Abbildung ist es?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -3,
+      6
+     ],
+     "y": [
+      -5,
+      5
+     ],
+     "punkte": [
+      {
+       "x": 2,
+       "y": 1,
+       "name": "A"
+      },
+      {
+       "x": 5,
+       "y": 2,
+       "name": "B"
+      },
+      {
+       "x": 3,
+       "y": 4,
+       "name": "C"
+      },
+      {
+       "x": -2,
+       "y": -4,
+       "name": "A'"
+      },
+      {
+       "x": 1,
+       "y": -3,
+       "name": "B'"
+      },
+      {
+       "x": -1,
+       "y": -1,
+       "name": "C'"
+      }
+     ],
+     "strecken": [
+      [
+       2,
+       1,
+       5,
+       2
+      ],
+      [
+       5,
+       2,
+       3,
+       4
+      ],
+      [
+       3,
+       4,
+       2,
+       1
+      ],
+      [
+       -2,
+       -4,
+       1,
+       -3,
+       "gestrichelt"
+      ],
+      [
+       1,
+       -3,
+       -1,
+       -1,
+       "gestrichelt"
+      ],
+      [
+       -1,
+       -1,
+       -2,
+       -4,
+       "gestrichelt"
+      ]
+     ]
+    }
    },
+   "a": [
+    "Drehung um O um 90° gegen den Uhrzeigersinn",
+    "Achsenspiegelung an der y-Achse",
+    "Achsenspiegelung an der x-Achse",
+    "Verschiebung mit v = (−4 | −5)"
+   ],
    "o": {
-    "wert": 26,
-    "einheit": "cm"
+    "index": 3
    },
-   "c": "2 * 13",
-   "w": "Zwei Spiegelungen an parallelen Achsen = Verschiebung um den doppelten Abstand: 2 · 13 = 26 cm.",
-   "h": "Probiere es mit einem Punkt auf einer Achse aus."
+   "w": "Verschiebung mit v = (−4 | −5): alle Punkte wandern gleich weit in dieselbe Richtung.",
+   "h": "Vergleiche einen Punkt mit seinem Bildpunkt. Ist die Beschriftung im gleichen Umlaufsinn?"
   },
   {
    "l": "eigenschaften",
@@ -6077,19 +6904,313 @@
    "s": 3,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage über Kongruenzabbildungen ist FALSCH?"
+    "text": "Das Dreieck ABC wird auf A'B'C' (gestrichelt) abgebildet. Welche Abbildung ist es?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      6
+     ],
+     "y": [
+      -1,
+      6
+     ],
+     "punkte": [
+      {
+       "x": 2,
+       "y": 1,
+       "name": "A"
+      },
+      {
+       "x": 5,
+       "y": 2,
+       "name": "B"
+      },
+      {
+       "x": 3,
+       "y": 4,
+       "name": "C"
+      },
+      {
+       "x": -1,
+       "y": 2,
+       "name": "A'"
+      },
+      {
+       "x": -2,
+       "y": 5,
+       "name": "B'"
+      },
+      {
+       "x": -4,
+       "y": 3,
+       "name": "C'"
+      }
+     ],
+     "strecken": [
+      [
+       2,
+       1,
+       5,
+       2
+      ],
+      [
+       5,
+       2,
+       3,
+       4
+      ],
+      [
+       3,
+       4,
+       2,
+       1
+      ],
+      [
+       -1,
+       2,
+       -2,
+       5,
+       "gestrichelt"
+      ],
+      [
+       -2,
+       5,
+       -4,
+       3,
+       "gestrichelt"
+      ],
+      [
+       -4,
+       3,
+       -1,
+       2,
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    "a": [
-    "Eine Verschiebung bildet jede Gerade auf eine parallele Gerade ab.",
-    "Bei einer Drehung um 90° wird der Flächeninhalt größer.",
-    "Zwei Achsenspiegelungen an parallelen Achsen ergeben eine Verschiebung.",
-    "Bei einer Drehung bleiben alle Seitenlängen gleich."
+    "Punktspiegelung an O",
+    "Drehung um O um 90° gegen den Uhrzeigersinn",
+    "Achsenspiegelung an der y-Achse",
+    "Achsenspiegelung an der x-Achse"
    ],
    "o": {
     "index": 1
    },
-   "w": "Falsch: Bei einer Drehung um 90° wird der Flächeninhalt größer. Längen, Winkel und Flächen bleiben immer gleich; nur die Achsenspiegelung kehrt den Umlaufsinn um.",
-   "h": "Prüfe jede Aussage an einem einfachen Beispiel."
+   "w": "Drehung um O um 90° gegen den Uhrzeigersinn: (x | y) → (−y | x), der Umlaufsinn bleibt.",
+   "h": "Vergleiche einen Punkt mit seinem Bildpunkt. Ist die Beschriftung im gleichen Umlaufsinn?"
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Das Dreieck ABC wird auf A'B'C' (gestrichelt) abgebildet. Welche Abbildung ist es?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      5
+     ],
+     "y": [
+      -1,
+      4
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 1,
+       "name": "A"
+      },
+      {
+       "x": 4,
+       "y": 1,
+       "name": "B"
+      },
+      {
+       "x": 2,
+       "y": 3,
+       "name": "C"
+      },
+      {
+       "x": -1,
+       "y": 1,
+       "name": "A'"
+      },
+      {
+       "x": -4,
+       "y": 1,
+       "name": "B'"
+      },
+      {
+       "x": -2,
+       "y": 3,
+       "name": "C'"
+      }
+     ],
+     "strecken": [
+      [
+       1,
+       1,
+       4,
+       1
+      ],
+      [
+       4,
+       1,
+       2,
+       3
+      ],
+      [
+       2,
+       3,
+       1,
+       1
+      ],
+      [
+       -1,
+       1,
+       -4,
+       1,
+       "gestrichelt"
+      ],
+      [
+       -4,
+       1,
+       -2,
+       3,
+       "gestrichelt"
+      ],
+      [
+       -2,
+       3,
+       -1,
+       1,
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Achsenspiegelung an der y-Achse",
+    "Verschiebung",
+    "Achsenspiegelung an der x-Achse",
+    "Drehung um O um 90° gegen den Uhrzeigersinn"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Achsenspiegelung an der y-Achse: x wechselt das Vorzeichen, y bleibt; der Umlaufsinn kehrt sich um.",
+   "h": "Vergleiche einen Punkt mit seinem Bildpunkt. Ist die Beschriftung im gleichen Umlaufsinn?"
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Das Dreieck ABC wird auf A'B'C' (gestrichelt) abgebildet. Welche Abbildung ist es?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -6,
+      6
+     ],
+     "y": [
+      -1,
+      5
+     ],
+     "punkte": [
+      {
+       "x": 2,
+       "y": 1,
+       "name": "A"
+      },
+      {
+       "x": 5,
+       "y": 2,
+       "name": "B"
+      },
+      {
+       "x": 3,
+       "y": 4,
+       "name": "C"
+      },
+      {
+       "x": -2,
+       "y": 1,
+       "name": "A'"
+      },
+      {
+       "x": -5,
+       "y": 2,
+       "name": "B'"
+      },
+      {
+       "x": -3,
+       "y": 4,
+       "name": "C'"
+      }
+     ],
+     "strecken": [
+      [
+       2,
+       1,
+       5,
+       2
+      ],
+      [
+       5,
+       2,
+       3,
+       4
+      ],
+      [
+       3,
+       4,
+       2,
+       1
+      ],
+      [
+       -2,
+       1,
+       -5,
+       2,
+       "gestrichelt"
+      ],
+      [
+       -5,
+       2,
+       -3,
+       4,
+       "gestrichelt"
+      ],
+      [
+       -3,
+       4,
+       -2,
+       1,
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Achsenspiegelung an der y-Achse",
+    "Punktspiegelung an O",
+    "Verschiebung",
+    "Drehung um O um 90° gegen den Uhrzeigersinn"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Achsenspiegelung an der y-Achse: x wechselt das Vorzeichen, y bleibt; der Umlaufsinn kehrt sich um.",
+   "h": "Vergleiche einen Punkt mit seinem Bildpunkt. Ist die Beschriftung im gleichen Umlaufsinn?"
   },
   {
    "l": "eigenschaften",
@@ -6098,32 +7219,15 @@
    "s": 3,
    "y": "zahl",
    "f": {
-    "text": "Eine Figur wird an zwei parallelen Achsen nacheinander gespiegelt. Die Achsen haben 12 cm Abstand. Um wie viel cm ist das Bild insgesamt verschoben?"
+    "text": "Eine Figur wird an zwei parallelen Achsen nacheinander gespiegelt. Die Achsen haben 10 cm Abstand. Um wie viel cm ist das Bild insgesamt verschoben?"
    },
    "o": {
-    "wert": 24,
+    "wert": 20,
     "einheit": "cm"
    },
-   "c": "2 * 12",
-   "w": "Zwei Spiegelungen an parallelen Achsen = Verschiebung um den doppelten Abstand: 2 · 12 = 24 cm.",
+   "c": "2 * 10",
+   "w": "Zwei Spiegelungen an parallelen Achsen = Verschiebung um den doppelten Abstand: 2 · 10 = 20 cm.",
    "h": "Probiere es mit einem Punkt auf einer Achse aus."
-  },
-  {
-   "l": "eigenschaften",
-   "t": "eigenschaften",
-   "p": "uebung",
-   "s": 3,
-   "y": "zahl",
-   "f": {
-    "text": "Eine Figur wird an zwei Achsen gespiegelt, die sich unter 15° schneiden. Um welchen Winkel ist das Bild gegenüber dem Original gedreht?"
-   },
-   "o": {
-    "wert": 30,
-    "einheit": "°"
-   },
-   "c": "2 * 15",
-   "w": "Zwei Spiegelungen an sich schneidenden Achsen = Drehung um den doppelten Schnittwinkel: 2 · 15° = 30°.",
-   "h": "Der Drehwinkel ist doppelt so groß wie der Winkel zwischen den Achsen."
   },
   {
    "l": "eigenschaften",
@@ -6132,38 +7236,18 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage über Kongruenzabbildungen ist FALSCH?"
+    "text": "Ein Dreieck ABC ist im Uhrzeigersinn beschriftet. Es wird an einem Punkt Z gespiegelt. Wie ist das Bilddreieck A'B'C' beschriftet?"
    },
    "a": [
-    "Eine Punktspiegelung ist dasselbe wie eine Drehung um 180°.",
-    "Bild und Urbild einer Kongruenzabbildung sind deckungsgleich.",
-    "Bei einer Punktspiegelung werden alle Winkel verdoppelt.",
-    "Bei einer Drehung bleiben alle Seitenlängen gleich."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Falsch: Bei einer Punktspiegelung werden alle Winkel verdoppelt. Längen, Winkel und Flächen bleiben immer gleich; nur die Achsenspiegelung kehrt den Umlaufsinn um."
-  },
-  {
-   "l": "eigenschaften",
-   "t": "eigenschaften",
-   "p": "korrektur",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Aussage über Kongruenzabbildungen ist richtig?"
-   },
-   "a": [
-    "Bei einer Punktspiegelung werden alle Winkel verdoppelt.",
-    "Bei einer Achsenspiegelung ändert sich der Umlaufsinn.",
-    "Eine Achsenspiegelung verändert Winkelgrößen.",
-    "Bei einer Verschiebung ändert sich der Umlaufsinn."
+    "Das hängt davon ab, wie groß das Dreieck ist.",
+    "im Uhrzeigersinn",
+    "Das Bild hat keinen Umlaufsinn mehr.",
+    "gegen den Uhrzeigersinn"
    ],
    "o": {
     "index": 1
    },
-   "w": "Richtig: Bei einer Achsenspiegelung ändert sich der Umlaufsinn. Kongruenzabbildungen erhalten Längen, Winkel und Flächen."
+   "w": "Diese Abbildung erhält den Umlaufsinn: im Uhrzeigersinn."
   },
   {
    "l": "eigenschaften",
@@ -6172,18 +7256,206 @@
    "s": 2,
    "y": "auswahl",
    "f": {
-    "text": "Welche Aussage über Kongruenzabbildungen ist richtig?"
+    "text": "Das Dreieck ABC wird auf A'B'C' (gestrichelt) abgebildet. Welche Abbildung ist es?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      5
+     ],
+     "y": [
+      -4,
+      4
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 1,
+       "name": "A"
+      },
+      {
+       "x": 4,
+       "y": 1,
+       "name": "B"
+      },
+      {
+       "x": 2,
+       "y": 3,
+       "name": "C"
+      },
+      {
+       "x": -1,
+       "y": -1,
+       "name": "A'"
+      },
+      {
+       "x": -4,
+       "y": -1,
+       "name": "B'"
+      },
+      {
+       "x": -2,
+       "y": -3,
+       "name": "C'"
+      }
+     ],
+     "strecken": [
+      [
+       1,
+       1,
+       4,
+       1
+      ],
+      [
+       4,
+       1,
+       2,
+       3
+      ],
+      [
+       2,
+       3,
+       1,
+       1
+      ],
+      [
+       -1,
+       -1,
+       -4,
+       -1,
+       "gestrichelt"
+      ],
+      [
+       -4,
+       -1,
+       -2,
+       -3,
+       "gestrichelt"
+      ],
+      [
+       -2,
+       -3,
+       -1,
+       -1,
+       "gestrichelt"
+      ]
+     ]
+    }
    },
    "a": [
-    "Zwei Achsenspiegelungen an parallelen Achsen ergeben eine Verschiebung.",
-    "Eine Verschiebung hat einen Fixpunkt.",
-    "Bei einer Punktspiegelung werden alle Winkel verdoppelt.",
-    "Das Drehzentrum einer Drehung bewegt sich bei der Drehung mit."
+    "Achsenspiegelung an der x-Achse",
+    "Punktspiegelung an O",
+    "Verschiebung",
+    "Drehung um O um 90° gegen den Uhrzeigersinn"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Punktspiegelung an O: beide Koordinaten wechseln das Vorzeichen; O ist die Mitte von AA'."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Das Dreieck ABC wird auf A'B'C' (gestrichelt) abgebildet. Welche Abbildung ist es?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      5
+     ],
+     "y": [
+      -1,
+      4
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 1,
+       "name": "A"
+      },
+      {
+       "x": 4,
+       "y": 1,
+       "name": "B"
+      },
+      {
+       "x": 2,
+       "y": 3,
+       "name": "C"
+      },
+      {
+       "x": -1,
+       "y": 1,
+       "name": "A'"
+      },
+      {
+       "x": -4,
+       "y": 1,
+       "name": "B'"
+      },
+      {
+       "x": -2,
+       "y": 3,
+       "name": "C'"
+      }
+     ],
+     "strecken": [
+      [
+       1,
+       1,
+       4,
+       1
+      ],
+      [
+       4,
+       1,
+       2,
+       3
+      ],
+      [
+       2,
+       3,
+       1,
+       1
+      ],
+      [
+       -1,
+       1,
+       -4,
+       1,
+       "gestrichelt"
+      ],
+      [
+       -4,
+       1,
+       -2,
+       3,
+       "gestrichelt"
+      ],
+      [
+       -2,
+       3,
+       -1,
+       1,
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Achsenspiegelung an der y-Achse",
+    "Punktspiegelung an O",
+    "Verschiebung",
+    "Achsenspiegelung an der x-Achse"
    ],
    "o": {
     "index": 0
    },
-   "w": "Richtig: Zwei Achsenspiegelungen an parallelen Achsen ergeben eine Verschiebung. Kongruenzabbildungen erhalten Längen, Winkel und Flächen."
+   "w": "Achsenspiegelung an der y-Achse: x wechselt das Vorzeichen, y bleibt; der Umlaufsinn kehrt sich um."
   },
   {
    "l": "eigenschaften",
@@ -6192,143 +7464,397 @@
    "s": 2,
    "y": "auswahl",
    "f": {
+    "text": "Das Dreieck ABC wird auf A'B'C' (gestrichelt) abgebildet. Welche Abbildung ist es?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      5
+     ],
+     "y": [
+      -4,
+      4
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 1,
+       "name": "A"
+      },
+      {
+       "x": 4,
+       "y": 1,
+       "name": "B"
+      },
+      {
+       "x": 2,
+       "y": 3,
+       "name": "C"
+      },
+      {
+       "x": -1,
+       "y": -1,
+       "name": "A'"
+      },
+      {
+       "x": -4,
+       "y": -1,
+       "name": "B'"
+      },
+      {
+       "x": -2,
+       "y": -3,
+       "name": "C'"
+      }
+     ],
+     "strecken": [
+      [
+       1,
+       1,
+       4,
+       1
+      ],
+      [
+       4,
+       1,
+       2,
+       3
+      ],
+      [
+       2,
+       3,
+       1,
+       1
+      ],
+      [
+       -1,
+       -1,
+       -4,
+       -1,
+       "gestrichelt"
+      ],
+      [
+       -4,
+       -1,
+       -2,
+       -3,
+       "gestrichelt"
+      ],
+      [
+       -2,
+       -3,
+       -1,
+       -1,
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Punktspiegelung an O",
+    "Achsenspiegelung an der y-Achse",
+    "Achsenspiegelung an der x-Achse",
+    "Drehung um O um 90° gegen den Uhrzeigersinn"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Punktspiegelung an O: beide Koordinaten wechseln das Vorzeichen; O ist die Mitte von AA'."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Dreieck ABC ist im Uhrzeigersinn beschriftet. Es wird an der y-Achse gespiegelt. Wie ist das Bilddreieck A'B'C' beschriftet?"
+   },
+   "a": [
+    "Das hängt davon ab, wie groß das Dreieck ist.",
+    "im Uhrzeigersinn",
+    "Das Bild hat keinen Umlaufsinn mehr.",
+    "gegen den Uhrzeigersinn"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Eine Achsenspiegelung kehrt den Umlaufsinn um: gegen den Uhrzeigersinn."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Dreieck ABC ist gegen den Uhrzeigersinn beschriftet. Es wird um 90° um einen Punkt gedreht. Wie ist das Bilddreieck A'B'C' beschriftet?"
+   },
+   "a": [
+    "Das hängt davon ab, wie groß das Dreieck ist.",
+    "gegen den Uhrzeigersinn",
+    "Das Bild hat keinen Umlaufsinn mehr.",
+    "im Uhrzeigersinn"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Diese Abbildung erhält den Umlaufsinn: gegen den Uhrzeigersinn."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Das Dreieck ABC wird auf A'B'C' (gestrichelt) abgebildet. Welche Abbildung ist es?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      5
+     ],
+     "y": [
+      -1,
+      5
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 2,
+       "name": "A"
+      },
+      {
+       "x": 3,
+       "y": 1,
+       "name": "B"
+      },
+      {
+       "x": 4,
+       "y": 4,
+       "name": "C"
+      },
+      {
+       "x": -2,
+       "y": 1,
+       "name": "A'"
+      },
+      {
+       "x": -1,
+       "y": 3,
+       "name": "B'"
+      },
+      {
+       "x": -4,
+       "y": 4,
+       "name": "C'"
+      }
+     ],
+     "strecken": [
+      [
+       1,
+       2,
+       3,
+       1
+      ],
+      [
+       3,
+       1,
+       4,
+       4
+      ],
+      [
+       4,
+       4,
+       1,
+       2
+      ],
+      [
+       -2,
+       1,
+       -1,
+       3,
+       "gestrichelt"
+      ],
+      [
+       -1,
+       3,
+       -4,
+       4,
+       "gestrichelt"
+      ],
+      [
+       -4,
+       4,
+       -2,
+       1,
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Drehung um O um 90° gegen den Uhrzeigersinn",
+    "Punktspiegelung an O",
+    "Verschiebung",
+    "Achsenspiegelung an der y-Achse"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Drehung um O um 90° gegen den Uhrzeigersinn: (x | y) → (−y | x), der Umlaufsinn bleibt."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
     "text": "Welche Aussage über Kongruenzabbildungen ist richtig?"
    },
    "a": [
-    "Eine Achsenspiegelung verändert Winkelgrößen.",
-    "Das Drehzentrum einer Drehung bewegt sich bei der Drehung mit.",
-    "Eine Punktspiegelung ist dasselbe wie eine Drehung um 180°.",
-    "Zwei Achsenspiegelungen ergeben wieder eine Achsenspiegelung."
+    "Bei einer Punktspiegelung bleiben alle Punkte auf einer Geraden durch das Zentrum fest.",
+    "Das Drehzentrum bewegt sich bei der Drehung mit.",
+    "Eine Verschiebung hat einen Fixpunkt.",
+    "Bei einer Punktspiegelung ist nur das Zentrum ein Fixpunkt."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Richtig: Bei einer Punktspiegelung ist nur das Zentrum ein Fixpunkt. Kongruenzabbildungen erhalten Längen, Winkel und Flächen."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Ein Dreieck ABC ist gegen den Uhrzeigersinn beschriftet. Es wird verschoben. Wie ist das Bilddreieck A'B'C' beschriftet?"
+   },
+   "a": [
+    "im Uhrzeigersinn",
+    "Das hängt davon ab, wie groß das Dreieck ist.",
+    "Das Bild hat keinen Umlaufsinn mehr.",
+    "gegen den Uhrzeigersinn"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Diese Abbildung erhält den Umlaufsinn: gegen den Uhrzeigersinn."
+  },
+  {
+   "l": "eigenschaften",
+   "t": "eigenschaften",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Das Dreieck ABC wird auf A'B'C' (gestrichelt) abgebildet. Welche Abbildung ist es?",
+    "grafik": {
+     "typ": "koordinaten",
+     "x": [
+      -5,
+      5
+     ],
+     "y": [
+      -1,
+      5
+     ],
+     "punkte": [
+      {
+       "x": 1,
+       "y": 2,
+       "name": "A"
+      },
+      {
+       "x": 3,
+       "y": 1,
+       "name": "B"
+      },
+      {
+       "x": 4,
+       "y": 4,
+       "name": "C"
+      },
+      {
+       "x": -2,
+       "y": 1,
+       "name": "A'"
+      },
+      {
+       "x": -1,
+       "y": 3,
+       "name": "B'"
+      },
+      {
+       "x": -4,
+       "y": 4,
+       "name": "C'"
+      }
+     ],
+     "strecken": [
+      [
+       1,
+       2,
+       3,
+       1
+      ],
+      [
+       3,
+       1,
+       4,
+       4
+      ],
+      [
+       4,
+       4,
+       1,
+       2
+      ],
+      [
+       -2,
+       1,
+       -1,
+       3,
+       "gestrichelt"
+      ],
+      [
+       -1,
+       3,
+       -4,
+       4,
+       "gestrichelt"
+      ],
+      [
+       -4,
+       4,
+       -2,
+       1,
+       "gestrichelt"
+      ]
+     ]
+    }
+   },
+   "a": [
+    "Punktspiegelung an O",
+    "Achsenspiegelung an der y-Achse",
+    "Drehung um O um 90° gegen den Uhrzeigersinn",
+    "Achsenspiegelung an der x-Achse"
    ],
    "o": {
     "index": 2
    },
-   "w": "Richtig: Eine Punktspiegelung ist dasselbe wie eine Drehung um 180°. Kongruenzabbildungen erhalten Längen, Winkel und Flächen."
-  },
-  {
-   "l": "eigenschaften",
-   "t": "eigenschaften",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Aussage über Kongruenzabbildungen ist FALSCH?"
-   },
-   "a": [
-    "Bild und Urbild einer Kongruenzabbildung sind deckungsgleich.",
-    "Eine Achsenspiegelung verändert Winkelgrößen.",
-    "Zwei Achsenspiegelungen an parallelen Achsen ergeben eine Verschiebung.",
-    "Bei einer Achsenspiegelung bleiben die Punkte auf der Achse fest."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Falsch: Eine Achsenspiegelung verändert Winkelgrößen. Längen, Winkel und Flächen bleiben immer gleich; nur die Achsenspiegelung kehrt den Umlaufsinn um."
-  },
-  {
-   "l": "eigenschaften",
-   "t": "eigenschaften",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Aussage über Kongruenzabbildungen ist FALSCH?"
-   },
-   "a": [
-    "Bei einer Drehung bleiben alle Seitenlängen gleich.",
-    "Zwei Achsenspiegelungen an parallelen Achsen ergeben eine Verschiebung.",
-    "Bei einer Verschiebung ändert sich der Umlaufsinn.",
-    "Eine Verschiebung bildet jede Gerade auf eine parallele Gerade ab."
-   ],
-   "o": {
-    "index": 2
-   },
-   "w": "Falsch: Bei einer Verschiebung ändert sich der Umlaufsinn. Längen, Winkel und Flächen bleiben immer gleich; nur die Achsenspiegelung kehrt den Umlaufsinn um."
-  },
-  {
-   "l": "eigenschaften",
-   "t": "eigenschaften",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Aussage über Kongruenzabbildungen ist FALSCH?"
-   },
-   "a": [
-    "Bei einer Achsenspiegelung ändert sich der Umlaufsinn.",
-    "Bei einer Punktspiegelung werden alle Winkel verdoppelt.",
-    "Eine Verschiebung bildet jede Gerade auf eine parallele Gerade ab.",
-    "Bei einer Drehung bleiben alle Seitenlängen gleich."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Falsch: Bei einer Punktspiegelung werden alle Winkel verdoppelt. Längen, Winkel und Flächen bleiben immer gleich; nur die Achsenspiegelung kehrt den Umlaufsinn um."
-  },
-  {
-   "l": "eigenschaften",
-   "t": "eigenschaften",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Aussage über Kongruenzabbildungen ist richtig?"
-   },
-   "a": [
-    "Bei einer Punktspiegelung werden alle Winkel verdoppelt.",
-    "Bild und Urbild einer Kongruenzabbildung sind deckungsgleich.",
-    "Das Drehzentrum einer Drehung bewegt sich bei der Drehung mit.",
-    "Bei einer Drehung um 90° wird der Flächeninhalt größer."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Richtig: Bild und Urbild einer Kongruenzabbildung sind deckungsgleich. Kongruenzabbildungen erhalten Längen, Winkel und Flächen."
-  },
-  {
-   "l": "eigenschaften",
-   "t": "eigenschaften",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Aussage über Kongruenzabbildungen ist richtig?"
-   },
-   "a": [
-    "Eine Achsenspiegelung verändert Winkelgrößen.",
-    "Eine Verschiebung bildet jede Gerade auf eine parallele Gerade ab.",
-    "Eine Verschiebung hat einen Fixpunkt.",
-    "Das Drehzentrum einer Drehung bewegt sich bei der Drehung mit."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Richtig: Eine Verschiebung bildet jede Gerade auf eine parallele Gerade ab. Kongruenzabbildungen erhalten Längen, Winkel und Flächen."
-  },
-  {
-   "l": "eigenschaften",
-   "t": "eigenschaften",
-   "p": "sicherung",
-   "s": 2,
-   "y": "auswahl",
-   "f": {
-    "text": "Welche Aussage über Kongruenzabbildungen ist FALSCH?"
-   },
-   "a": [
-    "Bei einer Drehung bleiben alle Seitenlängen gleich.",
-    "Eine Verschiebung hat einen Fixpunkt.",
-    "Zwei Achsenspiegelungen an parallelen Achsen ergeben eine Verschiebung.",
-    "Eine Verschiebung bildet jede Gerade auf eine parallele Gerade ab."
-   ],
-   "o": {
-    "index": 1
-   },
-   "w": "Falsch: Eine Verschiebung hat einen Fixpunkt. Längen, Winkel und Flächen bleiben immer gleich; nur die Achsenspiegelung kehrt den Umlaufsinn um."
+   "w": "Drehung um O um 90° gegen den Uhrzeigersinn: (x | y) → (−y | x), der Umlaufsinn bleibt."
   }
  ],
  "offen": [
   "Aufgaben zu Spiegelung, Verschiebung und Drehung zeigen die gegebenen Punkte, Achsen und Zentren im Koordinatensystem; das Kind gibt den Bildpunkt als Koordinaten ein. Selbst zeichnen (Konstruktion mit Zirkel und Geodreieck) kann die App noch nicht – dafür bräuchte es Eingabe durch Zeichnen.",
-  "Parkettierungen nur rechnerisch (Innenwinkel regelmäßiger Vielecke); Bilder von Parketten fehlen.",
+  "Neue Lernkarte „parkett“ (aus der Prüfung): Bild einer Ecke mit sechs Dreiecken; Aufgaben rechnerisch. Ganze Parkettflächen als Bild wären möglich, sind aber nicht eingebaut.",
+  "Annahme der Prüfung, nicht umgesetzt: Drehungen würden in Klasse 7 vor allem konstruierend behandelt. Die Koordinatenregeln bleiben, werden aber über das Mitdrehen des Weges (rechts/oben) begründet; Konstruieren durch das Kind kann die App nicht.",
+  "lehrplan_gym ist für dieses Thema in themenliste.json leer (Hinweis der Prüfung); themenliste.json gehört nicht zu diesem Paket und bleibt unverändert.",
   "Drehungen nur um Vielfache von 90°, weil andere Winkel im Koordinatensystem ohne Trigonometrie nicht exakt berechenbar sind."
  ]
 }

@@ -1,0 +1,91 @@
+{
+  "thema_schluessel": "gleichungen.potenz",
+  "gesamturteil": "brauchbar",
+  "karten": [
+    {
+      "lernziel": "gerade",
+      "urteil": "verbessern",
+      "stufen": "Stufe 3 enthält Aufgaben der Stufe 1 ('Bestimme alle Lösungen von 9 = x²'). Die Steigerung läuft nur über größere Zahlen und Exponenten. Werte stimmen.",
+      "fehlende_aufgabentypen": [
+        "Wurzel nicht glatt, exakt angeben (auswahl, Stufe 2): Beispiel 1: 'Löse x² = 12.' → 'x = ±2√3' (Ablenker '2√3', '±6', '±√6'). Beispiel 2: 'x² = 50' → '±5√2'.",
+        "Fehler finden (auswahl, Stufe 3): Beispiel 1: 'Jemand löst x⁴ = 16 mit x = 2. Was fehlt?' → 'Die Lösung −2, denn (−2)⁴ = 16.' Beispiel 2: 'Jemand löst x² = −25 mit x = ±5.' → 'Keine Lösung: x² ist nie negativ; (±5)² = 25.'"
+      ],
+      "generator_regeln": [
+        "Stufe 1 nur x² = c; Stufe 2 x⁴, x⁶; Stufe 3 c = 0, c < 0 oder Fehler finden – keine x² = c-Grundaufgaben in Stufe 3."
+      ]
+    },
+    {
+      "lernziel": "ungerade",
+      "urteil": "ok",
+      "stufen": "Passt; Stufe 2 mit Dezimalzahlen ist eine gute Steigerung. Stufe 3 ('x⁵ = 1', 'x³ = −64') ist leichter als Stufe 2.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Stufe 3 mit Bruch oder negativer Dezimalzahl (x³ = −0,125) oder Klammer ((x + 1)³ = −8 → x = −3)."
+      ]
+    },
+    {
+      "lernziel": "anzahl",
+      "urteil": "ok",
+      "stufen": "Passt; Stufe 3 mit Parameter c und Fehlerbegründung ist gut. Eine Aufgabe ist doppelt; Stufe 1 und 2 unterscheiden sich nur durch c = 0.",
+      "fehlende_aufgabentypen": [
+        "Anzahl am Graphen (auswahl, Stufe 2): f.grafik koordinaten mit Graph y = x⁴ und waagrechter Geraden y = 3. 'Wie viele Lösungen hat x⁴ = 3?' → zwei. Beispiel 2: Graph y = x³ und y = −2 → eine."
+      ],
+      "generator_regeln": [
+        "Keine Aufgabe doppelt ('Jemand sagt: „x⁵ = 243 hat die Lösungen 3 und −3.“' steht zweimal)."
+      ]
+    },
+    {
+      "lernziel": "umformen",
+      "urteil": "ok",
+      "stufen": "Passt (Faktor, Summand, Klammer). Werte stimmen.",
+      "fehlende_aufgabentypen": [
+        "Klammer mit ungeradem Exponenten (zahl, Stufe 3): Beispiel 1: 'Löse (x − 2)³ = −27.' → −1. Beispiel 2: '2(x + 1)³ = 128' → 3."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "naeherung",
+      "urteil": "verbessern",
+      "stufen": "Stufe 3 enthält 'Löse x³ = 176' – identisch mit Stufe 1. Nur eine echte Stufe-3-Aufgabe (5x⁴ = 885). Gerundete Ergebnisse ohne 'toleranz'; Lösungsweg zeigt bei 'zwei Nachkommastellen' nur eine (5,6 statt 5,60).",
+      "fehlende_aufgabentypen": [
+        "Schätzen vor dem Rechnen (auswahl, Stufe 2): Beispiel 1: 'Zwischen welchen ganzen Zahlen liegt ³√100?' → 4 und 5. Beispiel 2: 'Zwischen welchen ganzen Zahlen liegt die positive Lösung von x⁴ = 50?' → 2 und 3."
+      ],
+      "generator_regeln": [
+        "'toleranz': 0.01 bei 'zwei Nachkommastellen'.",
+        "Lösungsweg mit genau der verlangten Stellenzahl (5,60; 3,70)."
+      ]
+    },
+    {
+      "lernziel": "sachaufgabe",
+      "urteil": "verbessern",
+      "stufen": "Gute Kontexte (Würfel, Zinseszins, Kiste, Umschmelzen). Die Terrassen-Aufgabe mit Platten von 1 m Seite ist eine reine Wurzelaufgabe und kommt 6-mal vor. Geldbeträge ohne zwei Nachkommastellen ('1 166,4 €').",
+      "fehlende_aufgabentypen": [
+        "Kugel/Würfel in der Praxis (zahl, Stufe 3): Beispiel 1: 'Ein würfelförmiger Wassertank soll 8 m³ fassen. Wie lang muss eine Innenkante sein?' → 2 m. Beispiel 2: 'Ein Würfel aus Gold wiegt 19,3 kg (1 cm³ wiegt 19,3 g). Wie lang ist seine Kante?' → 10 cm."
+      ],
+      "generator_regeln": [
+        "Geldbeträge immer mit zwei Nachkommastellen: 1 166,40 €.",
+        "Terrassen-Platten nicht 1 m (dann ist die Anzahl schon die Fläche), sondern z. B. 50 cm: '144 Platten mit 50 cm Seite' → 6 m."
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Ein Guthaben wächst in 2 Jahren bei gleichem Zinssatz (mit Zinseszins) von 1 000 € auf 1 166,4 €. Wie hoch ist der Zinssatz in Prozent?",
+      "art": "sprache",
+      "problem": "Geldbetrag '1 166,4 €' statt '1 166,40 €'; ebenso '5 512,5 €' und '1 060,9 €'.",
+      "korrektur": "… von 1 000 € auf 1 166,40 €. Wie hoch ist der Zinssatz in Prozent? – Lösung 8."
+    },
+    {
+      "aufgabe": "Löse x³ = 176. Runde auf zwei Nachkommastellen.",
+      "art": "loesungsweg",
+      "problem": "Lösungsweg '≈ 5,6' bei verlangten zwei Nachkommastellen; ohne 'toleranz' (betrifft 31 gerundete Aufgaben). Die Aufgabe steht in Stufe 3, ist aber eine Stufe-1-Aufgabe.",
+      "korrektur": "Lösungsweg: 'x = ³√176 ≈ 5,60.' Lösung {\"wert\": 5.6, \"toleranz\": 0.01}; Stufe 1."
+    },
+    {
+      "aufgabe": "Eine quadratische Terrasse ist mit 144 gleich großen quadratischen Platten (Seite 1 m) belegt. Wie lang ist eine Seite der Terrasse?",
+      "art": "unrealistisch",
+      "problem": "Terrassenplatten mit 1 m Seite sind unüblich; die Aufgabe reduziert sich auf √144.",
+      "korrektur": "Eine quadratische Terrasse ist mit 144 quadratischen Platten mit 50 cm Seitenlänge belegt. Wie lang ist eine Seite der Terrasse in m? – Lösung 6 (12 Platten je Seite · 0,5 m)."
+    }
+  ]
+}

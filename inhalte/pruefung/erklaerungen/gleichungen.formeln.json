@@ -1,0 +1,54 @@
+{
+  "thema_schluessel": "gleichungen.formeln",
+  "gesamturteil": "gut",
+  "thema_hinweise": [
+    "Reihenfolge: Laut inhalt.abschnitte gehört „pruefen“ in den Bereich „Umstellen“ (hinter „zwei_schritte“), in inhalt.etappen steht die Karte aber am Ende. Vorschlag: „pruefen“ als dritte Karte – die Zahlenprobe hilft schon beim Einsetzen und bei Geometrie.",
+    "Insgesamt klar und fachlich richtig. Verbessert: ein Anschauungsmodell für die Rückwärts-Reihenfolge (Anziehen/Ausziehen) und ein besseres Beispiel für die zufällig passende Zahlenprobe."
+  ],
+  "karten": [
+    {
+      "lernziel": "ein_schritt",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "zwei_schritte",
+      "urteil": "verbessern",
+      "probleme": [
+        "„Rückwärts vorgehen“ wird nicht begründet. Ein Bild aus dem Alltag (erst Socken, dann Schuhe an – beim Ausziehen umgekehrt) macht klar, warum das + zuerst weg muss.",
+        "Das Beispiel s = a + v · t ist für ein Kind in Klasse 8 abstrakt; ein Taxipreis ist greifbarer."
+      ],
+      "neu": {
+        "regel": "Gehe ⟦rückwärts⟧ vor – wie beim Ausziehen: Socken zuerst an, Schuhe zuletzt an, also Schuhe ⟦zuerst⟧ wieder aus. In der Formel wird mal zuerst gerechnet und plus zuletzt. Also entfernst du zuerst das ⟦Plus⟧, dann das Mal.",
+        "schritte": [
+          "Taxipreis: K = G + p · s (K Kosten, G Grundgebühr, p Preis pro km, s Strecke). Gesucht ist s.",
+          "Zuletzt wurde G addiert, also zuerst | − G: K − G = p · s.",
+          "Dann | : p: ⟦s = (K − G) : p⟧."
+        ],
+        "probe": "G = 4 €, p = 2 € pro km, s = 8 km: K = 4 + 16 = 20 €. Rückwärts: (20 − 4) : 2 = 8 ✓",
+        "fehler": "Aus K = G + p · s wird nicht s = K : p − G. Mit Zahlen: 20 : 2 − 4 = 6 km statt 8 km. Zuerst muss das ⟦+ G⟧ weg, sonst wird die Grundgebühr auch durch p geteilt. Richtig: s = (K − G) : p."
+      },
+      "strategie": "Anziehen/Ausziehen-Modell für die Umkehr-Reihenfolge; Zahlenprobe mit einem vorher ausgerechneten Wertesatz."
+    },
+    {
+      "lernziel": "einsetzen",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "geometrie",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "pruefen",
+      "urteil": "verbessern",
+      "probleme": [
+        "Der Fehler arbeitet mit dem Bruch 4/3; das ist für Klasse 8 unnötig kompliziert. Ein ganzzahliges Beispiel zeigt dasselbe.",
+        "Es fehlt der praktische Hinweis, dass 0 und 1 schlechte Testzahlen sind (bei 1 sind mal und geteilt gleich)."
+      ],
+      "neu": {
+        "regel": "Eine Umstellung prüfst du mit ⟦Zahlen⟧: Wähle Werte, rechne mit der Originalformel und setze in die umgestellte Formel ein. Es muss ⟦dasselbe⟧ herauskommen. Nimm keine 0 und keine 1 – mit ihnen fallen viele Fehler nicht auf.",
+        "fehler": "Ein passendes Zahlenbeispiel beweist noch nichts. Jemand stellt u = 4 · a um zu a = u − 12 und testet a = 4: u = 16, und 16 − 12 = 4 ✓ – reiner Zufall! Mit a = 5: u = 20, aber 20 − 12 = 8 ≠ 5. Teste deshalb ⟦zwei verschiedene⟧ Zahlen."
+      }
+    }
+  ],
+  "neue_karten": []
+}

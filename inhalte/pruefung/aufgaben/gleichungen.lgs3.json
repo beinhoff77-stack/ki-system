@@ -1,0 +1,86 @@
+{
+  "thema_schluessel": "gleichungen.lgs3",
+  "gesamturteil": "brauchbar",
+  "karten": [
+    {
+      "lernziel": "pruefen",
+      "urteil": "verbessern",
+      "stufen": "Stufe 1 (eine Gleichung einsetzen) und Stufe 2 (Tripel prüfen) passen; Stufe 3 ist dieselbe Aufgabe wie Stufe 2. In 21 von 22 Auswahlaufgaben ist 'Ja, alle drei Gleichungen sind erfüllt' richtig – wer immer 'Ja' tippt, hat fast alles richtig. Alle Tripel per Programm nachgeprüft: Die Markierungen stimmen.",
+      "fehlende_aufgabentypen": [
+        "Fast-Lösung (auswahl, Stufe 3): Tripel erfüllt zwei Gleichungen, die dritte nicht. Beispiel 1: '(1 | 2 | 3) für (I) x + y + z = 6; (II) x − y + z = 2; (III) 2x + y − z = 2' → 'Nein, Gleichung (III) ist nicht erfüllt (2 + 2 − 3 = 1).' Beispiel 2: '(2 | −1 | 0) für (I) x + y = 1; (II) y − z = −1; (III) x + z = 3' → 'Nein, (III) ist nicht erfüllt (2 + 0 = 2).'"
+      ],
+      "generator_regeln": [
+        "Richtige Antwort 'Ja' in höchstens der Hälfte der Aufgaben; bei 'Nein' die nicht erfüllte Gleichung zufällig wählen."
+      ]
+    },
+    {
+      "lernziel": "stufenform",
+      "urteil": "ok",
+      "stufen": "Passt: Stufe 3 mit ungeordneten Gleichungen ist eine echte Steigerung. Alle Lösungen nachgeprüft.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "eliminieren",
+      "urteil": "ok",
+      "stufen": "Passt (Differenz, dann Vielfache). Alle 28 Ergebnisse nachgeprüft. Stufe 3 unterscheidet sich kaum von Stufe 2; eine Aufgabe 'Welche Kombination eliminiert x?' fehlt.",
+      "fehlende_aufgabentypen": [
+        "Kombination wählen (auswahl, Stufe 3): Beispiel 1: '(I) 2x + y − z = 3; (II) 3x − 2y + z = 1. Welche Rechnung eliminiert x?' → '3 · (I) − 2 · (II)' (ergibt 7y − 5z = 7). Ablenker: '(I) − (II)' (x bleibt), '(I) + (II)' (eliminiert z, nicht x), '2 · (I) + 3 · (II)'. Beispiel 2: '(I) x + 2y − z = 4; (II) 2x − y + 3z = 1. Welche Rechnung eliminiert z?' → '3 · (I) + (II)' (ergibt 5x + 5y = 13)."
+      ],
+      "generator_regeln": [
+        "Gleichungen in der Angabe in der Reihenfolge (I), (II), (III) aufführen (heute oft '(II) …; (I) …')."
+      ]
+    },
+    {
+      "lernziel": "loesen",
+      "urteil": "verbessern",
+      "stufen": "Rechnerisch alles richtig. Stufe 1 enthält schon Systeme mit drei vollen Gleichungen, Stufe 3 nicht deutlich schwerer. Sonderfälle (keine Lösung, unendlich viele Lösungen) fehlen ganz.",
+      "fehlende_aufgabentypen": [
+        "Sonderfall erkennen (auswahl, Stufe 3): Beispiel 1: '(I) x + y + z = 2; (II) x − y + z = 0; (III) 2x + 2z = 5. Wie viele Lösungen?' → 'keine' ((I) + (II) ergibt 2x + 2z = 2 ≠ 5). Beispiel 2: '(I) x + y + z = 2; (II) x − y + z = 0; (III) 2x + 2z = 2' → 'unendlich viele'."
+      ],
+      "generator_regeln": [
+        "Stufe 1: mindestens eine Gleichung mit nur zwei Variablen; Stufe 3: alle Koeffizienten ≠ 0 oder Sonderfall."
+      ]
+    },
+    {
+      "lernziel": "parabel",
+      "urteil": "ok",
+      "stufen": "Passt: Stufe 1 mit x = 0, ±1, Stufe 2 mit x = 0, Stufe 3 ohne x = 0. Alle Lösungen nachgeprüft.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "sachaufgabe",
+      "urteil": "verbessern",
+      "stufen": "20 von 28 Aufgaben sind dieselbe Zoo-Aufgabe. Die Preise sind oft unrealistisch: In 7 von 20 Aufgaben kostet die Seniorenkarte mindestens so viel wie die Erwachsenenkarte. Schablone der Zahlenaufgabe enthält einen Tippfehler. Grammatik ('1 Senioren', '1 Kinder').",
+      "fehlende_aufgabentypen": [
+        "Münzen und Vereinssparten (luecken, Stufe 3): Beispiel 1: 'In einer Spardose sind 19 Münzen zu 50 ct, 1 € und 2 €, zusammen 17 €. Es gibt doppelt so viele 1-€-Münzen wie 2-€-Münzen. Wie viele Münzen jeder Sorte?' Schablone '50 ct: □; 1 €: □; 2 €: □' → [10, 6, 3]. Beispiel 2: 'Ein Sportverein hat 130 Mitglieder in Fußball, Tennis und Schwimmen. Fußball hat doppelt so viele wie Tennis, Schwimmen 10 mehr als Tennis.' Schablone 'Fußball: □; Tennis: □; Schwimmen: □' → [60, 30, 40]."
+      ],
+      "generator_regeln": [
+        "Preise: Kinder < Senioren < Erwachsene (z. B. Kinder 6–10 €, Senioren 10–15 €, Erwachsene 14–22 €).",
+        "Grammatik: '1 Erwachsener', '1 Kind', '1 Senior'; Mehrzahl erst ab 2.",
+        "Höchstens 8 Zoo-Aufgaben je Karte; weitere Kontexte (Kisten wiegen, Münzen, Vereinssparten)."
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Drei Zahlen haben die Summe 9. Die zweite ist 2-mal so groß wie die erste, die dritte ist um 1 größer als die erste. Bestimme die Zahlen.",
+      "art": "sprache",
+      "problem": "Schablone lautet 'erste = □; dritteweite = □; dritte = □' – Tippfehler statt 'zweite' (alle 6 Aufgaben dieses Typs).",
+      "korrektur": "Schablone: 'erste = □; zweite = □; dritte = □' – Lösung [2, 4, 3]."
+    },
+    {
+      "aufgabe": "Im Zoo gilt: 2 Erwachsene, 2 Kinder und 2 Senioren zahlen 56 €; 3 Erwachsene, 3 Kinder und 1 Senioren zahlen 54 €; 4 Erwachsene, 2 Kinder und 3 Senioren zahlen 87 €. Wie viel kostet je eine Karte für Erwachsene, Kinder und Senioren?",
+      "art": "unrealistisch",
+      "problem": "Lösung: Erwachsene 8 €, Kinder 5 €, Senioren 15 € – Senioren zahlen fast das Doppelte der Erwachsenen. Außerdem '1 Senioren'.",
+      "korrektur": "Im Zoo gilt: 2 Erwachsene, 2 Kinder und 2 Senioren zahlen 76 €; 3 Erwachsene, 3 Kinder und 1 Senior zahlen 90 €; 4 Erwachsene, 2 Kinder und 3 Senioren zahlen 124 €. Wie viel kostet je eine Karte? – Lösung Erwachsene 18 €, Kinder 8 €, Senioren 12 € (Probe: 36 + 16 + 24 = 76; 54 + 24 + 12 = 90; 72 + 16 + 36 = 124)."
+    },
+    {
+      "aufgabe": "Ist (3 | 4 | 4) Lösung des Systems (I) x − 3y − 2z = −17; (II) −2x + y + 3z = 10; (III) x − 2z = −5?",
+      "art": "mehrdeutig",
+      "problem": "Rechnung stimmt, aber 'Ja' ist in 21 von 22 Aufgaben der Karte richtig; das Kind kann raten.",
+      "korrektur": "Ein Drittel bis die Hälfte der Aufgaben mit Tripel, das eine Gleichung verletzt, z. B. 'Ist (3 | 4 | 3) Lösung …' – Lösung 'Nein, Gleichung (I) ist nicht erfüllt (3 − 12 − 6 = −15 ≠ −17)'."
+    }
+  ]
+}

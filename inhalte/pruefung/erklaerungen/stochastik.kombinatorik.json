@@ -1,0 +1,102 @@
+{
+  "thema_schluessel": "stochastik.kombinatorik",
+  "gesamturteil": "gut",
+  "thema_hinweise": [
+    "Fachlich richtig, sehr gute typische Fehler (plus statt mal, Händeschütteln doppelt). Unter „offen“ steht, dass das Baumdiagramm nicht gezeichnet werden kann. Das geht jetzt (Bildtyp „baum“, bis 3 Stufen); Bild für die Karte „baumdiagramm“ angegeben."
+  ],
+  "karten": [
+    {
+      "lernziel": "systematisch",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "zaehlprinzip",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "reihenfolgen",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "baumdiagramm",
+      "urteil": "verbessern",
+      "probleme": [
+        "Das Baumdiagramm wird nur beschrieben – ausgerechnet in der Karte, die es einführt."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "baum",
+          "aeste": [
+            {
+              "text": "K",
+              "aeste": [
+                {
+                  "text": "K",
+                  "aeste": [
+                    {
+                      "text": "K"
+                    },
+                    {
+                      "text": "Z"
+                    }
+                  ]
+                },
+                {
+                  "text": "Z",
+                  "aeste": [
+                    {
+                      "text": "K"
+                    },
+                    {
+                      "text": "Z"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "Z",
+              "aeste": [
+                {
+                  "text": "K",
+                  "aeste": [
+                    {
+                      "text": "K"
+                    },
+                    {
+                      "text": "Z"
+                    }
+                  ]
+                },
+                {
+                  "text": "Z",
+                  "aeste": [
+                    {
+                      "text": "K"
+                    },
+                    {
+                      "text": "Z"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "bedingungen",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "grenzen",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "verstehen",
+      "urteil": "ok"
+    }
+  ],
+  "neue_karten": []
+}

@@ -1,0 +1,111 @@
+{
+  "thema_schluessel": "bruch.prozent_grundwert",
+  "gesamturteil": "gut",
+  "thema_hinweise": [
+    "Klar, fachlich richtig, gute Fehler (19 % vom Endpreis abziehen, +10 % −10 %). Das Bild in „faktor“ (Kreisdiagramm 85 % / 15 %) passt schlecht zur Erhöhung, um die es zuerst geht. Ein Prozentstreifen lässt sich mit „figur“ zeichnen (Rechteck 100 % plus angesetztes Stück 15 %); angegeben."
+  ],
+  "karten": [
+    {
+      "lernziel": "faktor",
+      "urteil": "verbessern",
+      "probleme": [
+        "Das Kreisdiagramm zeigt nur die Senkung; dass bei einer Erhöhung mehr als das Ganze (115 %) herauskommt, kann ein Kreis gar nicht zeigen. Ein Prozentstreifen zeigt beides."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "_a": [
+              0,
+              0
+            ],
+            "_b": [
+              10,
+              0
+            ],
+            "_c": [
+              11.5,
+              0
+            ],
+            "_d": [
+              11.5,
+              1.5
+            ],
+            "_e": [
+              10,
+              1.5
+            ],
+            "_f": [
+              0,
+              1.5
+            ]
+          },
+          "flaeche": [
+            "_b",
+            "_c",
+            "_d",
+            "_e"
+          ],
+          "linien": [
+            [
+              "_a",
+              "_b",
+              "100 % = Grundwert"
+            ],
+            [
+              "_b",
+              "_c",
+              "+15 %"
+            ],
+            [
+              "_c",
+              "_d"
+            ],
+            [
+              "_d",
+              "_e"
+            ],
+            [
+              "_e",
+              "_f",
+              "115 % → Faktor 1,15"
+            ],
+            [
+              "_f",
+              "_a"
+            ],
+            [
+              "_b",
+              "_e"
+            ]
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "vermehrt",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "vermindert",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "zurueck",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "prozentsatz",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "mehrfach",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "argumente",
+      "urteil": "ok"
+    }
+  ],
+  "neue_karten": []
+}

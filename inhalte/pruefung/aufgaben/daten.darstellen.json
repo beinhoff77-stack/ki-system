@@ -1,0 +1,90 @@
+{
+  "thema_schluessel": "daten.darstellen",
+  "gesamturteil": "brauchbar",
+  "karten": [
+    {
+      "lernziel": "absolute_haeufigkeit",
+      "urteil": "verbessern",
+      "stufen": "Leicht und mittel unterscheiden sich nur durch die Länge der Urliste. Stufe 3 (Fünferbündel, Unterschied zweier Häufigkeiten) passt. Lange Urlisten im Fließtext sind mühsam zu lesen; eine Strichliste kommt nur in Worten vor.",
+      "fehlende_aufgabentypen": [
+        "Strichliste als Tabelle (zahl, f.grafik tabelle): Zeilen ‚Hund | ||||| ||‘, ‚Katze | ||||| ||||| |‘ … – Frage ‚Wie viele Kinder nannten Katze?‘ → 11. Beispiel 2: ‚Wie viele Kinder wurden insgesamt befragt?‘ → Summe."
+      ],
+      "generator_regeln": [
+        "Urlisten höchstens 15 Einträge; Stufe 2 durch eine zusätzliche Rechnung (Unterschied, Summe zweier Kategorien) schwerer machen statt durch Länge."
+      ]
+    },
+    {
+      "lernziel": "relative_haeufigkeit",
+      "urteil": "ok",
+      "stufen": "Gut: Bruch → Prozent → Rest zu 100 % und Gruppenvergleich (Anteil statt Anzahl).",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "tabelle_auswerten",
+      "urteil": "verbessern",
+      "stufen": "Passen. Die ‚Tabelle‘ steht aber als Textzeile (‚Mathe 7 | Deutsch 15 | …‘), obwohl die App Tabellen zeichnen kann. ‚Wie viele Kinder haben nicht … gewählt?‘ kommt 10-mal vor.",
+      "fehlende_aufgabentypen": [
+        "Zweidimensionale Tabelle (zahl, f.grafik tabelle): Kopf ‚| Mädchen | Jungen‘, Zeilen ‚Bus | 6 | 4‘, ‚Rad | 5 | 9‘ → ‚Wie viele Jungen fahren Rad?‘ → 9; ‚Wie viele Kinder fahren Bus?‘ → 10."
+      ],
+      "generator_regeln": [
+        "Daten als f.grafik tabelle zeigen.",
+        "Vorlage ‚nicht … gewählt‘ höchstens 4-mal."
+      ]
+    },
+    {
+      "lernziel": "saeulendiagramm",
+      "urteil": "verbessern",
+      "stufen": "Die Karte heißt Säulendiagramm, zeigt aber kein einziges Diagramm. Alle Aufgaben rechnen nur mit dem Maßstab ‚1 cm für …‘. Ablesen und Zeichnen-Entscheidungen fehlen.",
+      "fehlende_aufgabentypen": [
+        "Diagramm ablesen (zahl, f.grafik saeulen mit \"zahlen\": false): Säulen Hund 9, Katze 6, Hamster 4, Fisch 3 (Einheit ‚Kinder‘) → ‚Wie viele Kinder mehr nennen Hund als Hamster?‘ → 5. Beispiel 2: ‚Wie viele Kinder wurden befragt?‘ → 22.",
+        "Maßstab am Diagramm (zahl, f.grafik saeulen ohne Zahlen, y-Achse mit Teilung): ‚Die Hochachse ist in Schritten von 5 beschriftet. Die Säule ‚Fußball‘ endet auf halber Höhe zwischen 15 und 20. Wie viele Stimmen?‘ → 17,5 ist unsinnig → Werte so wählen, dass die Säule auf einer Teilung endet: Säule bei 20 → 20. Beispiel 2: Achse in 2er-Schritten, Säule bei 14 → 14."
+      ],
+      "generator_regeln": [
+        "Mindestens die Hälfte der Aufgaben mit gezeichnetem Säulendiagramm."
+      ]
+    },
+    {
+      "lernziel": "kreisdiagramm",
+      "urteil": "verbessern",
+      "stufen": "Rechnerisch gut (Prozent ↔ Winkel ↔ Anzahl). Auch hier wird nie ein Kreisdiagramm gezeigt. ‚Alle Winkel zusammen ergeben …‘ ist als Stufe 3 zu leicht.",
+      "fehlende_aufgabentypen": [
+        "Kreisdiagramm ablesen (zahl, f.grafik kreisdiagramm mit \"zahlen\": false): Bus 50 %, Rad 25 %, zu Fuß 25 % bei 40 Kindern → ‚Wie viele Kinder fahren Rad?‘ → 10. Beispiel 2: Anteile 1/2, 1/3, 1/6 bei 30 Kindern → ‚Wie viele im kleinsten Teil?‘ → 5."
+      ],
+      "generator_regeln": [
+        "Lösungsweg ohne doppelten Punkt (‚gleich häufig..‘)."
+      ]
+    },
+    {
+      "lernziel": "irrefuehrend",
+      "urteil": "ok",
+      "stufen": "Sehr gute Verstehenskarte (abgeschnittene Achse, Bildflächen, Summe ≠ 100 %). Mit f.grafik saeulen und y_start > 0 ließe sich die abgeschnittene Achse jetzt direkt zeigen.",
+      "fehlende_aufgabentypen": [
+        "Abgeschnittene Achse sehen (auswahl, f.grafik saeulen mit y_start 90): Werte 92 und 98 → ‚Wie viel Mal so viel ist der zweite Wert wirklich?‘ → ‚etwas mehr als 1-mal (6 mehr)‘ | ‚4-mal‘ | ‚3-mal‘."
+      ],
+      "generator_regeln": [
+        "Lösungsweg ohne ‚= ≈‘ (‚131 : 12 = ≈ 10,9‘ → ‚131 : 12 ≈ 10,9‘)."
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "In einem Kreisdiagramm ergeben alle Winkel zusammen …",
+      "art": "mehrdeutig",
+      "problem": "Als Stufe 3 eingestuft, ist aber Grundwissen (Stufe 1).",
+      "korrektur": "Stufe auf 1 setzen. Für Stufe 3 ersetzen durch ‚Ein Kreisdiagramm hat die Winkel 144° und 108° und einen dritten Teil. Wie viel Prozent stellt der dritte Teil dar?‘ → 360° − 252° = 108° → 30 %."
+    },
+    {
+      "aufgabe": "Der größte Wert ist 131. Die höchste Säule darf höchstens 12 cm hoch sein. Wie viele Stimmen muss 1 cm mindestens darstellen? (ganze Zahl)",
+      "art": "loesungsweg",
+      "problem": "Lösungsweg ‚131 : 12 = ≈ 10,9‘ – ‚= ≈‘ ist falsche Schreibweise.",
+      "korrektur": "Lösungsweg: ‚131 : 12 ≈ 10,9. Mit 10 pro cm wäre die Säule 13,1 cm – zu hoch. Also mindestens 11 Stimmen pro cm.‘"
+    },
+    {
+      "aufgabe": "In einem Kreisdiagramm sind zwei Ausschnitte gleich groß. Was bedeutet das?",
+      "art": "sprache",
+      "problem": "Lösungsweg ‚Richtig: Beide Gruppen sind gleich häufig..‘ (doppelter Punkt).",
+      "korrektur": "‚Richtig: Beide Gruppen sind gleich häufig. Kreisdiagramme zeigen Anteile am Ganzen.‘"
+    }
+  ]
+}

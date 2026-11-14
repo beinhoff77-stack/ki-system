@@ -5,7 +5,7 @@ from fractions import Fraction as Fr
 from pathlib import Path
 sys.dont_write_bytecode = True
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from _kl7 import A, L, Z, baue, zt  # noqa: E402
+from _kl7 import A, L, Z, baue, jw, zt  # noqa: E402
 
 META = {'thema_schluessel': 'daten.boxplot', 'thema_id': 95, 'block_id': 111, 'klasse': {'gym_by': 7, 'rs_by': 7}}
 
@@ -42,28 +42,29 @@ ETAPPEN = [
      'fehler': 'Die Spannweite von 2; 5; 5; 6; 12 ist nicht 12. Es ist der ⟦Abstand⟧ zwischen größtem und kleinstem Wert: 12 − 2 = 10.',
      'bild': {'typ': 'saeulen', 'einheit': 'Anzahl', 'werte': [{'name': '2', 'wert': 1}, {'name': '5', 'wert': 2}, {'name': '6', 'wert': 1}, {'name': '12', 'wert': 1}], 'zahlen': True},
      '_verbot': ['2; 5; 5; 6; 12']},
-    {'lernziel': 'quartile', 'titel': 'Quartile bestimmen',
-     'regel': 'Der Median teilt die geordnete Liste in eine untere und eine obere Hälfte. Das ⟦untere Quartil⟧ ist der Median der unteren Hälfte, das ⟦obere Quartil⟧ der Median der oberen Hälfte. Bei ungerader Anzahl gehört der Median ⟦zu keiner Hälfte⟧.',
-     'schritte': ['Geordnet: 1; 3; 4; 6; 8; 9; 11', 'Median 6. Untere Hälfte 1; 3; 4 → Q₁ = 3', 'Obere Hälfte 8; 9; 11 → ⟦Q₃ = 9⟧. Quartilsabstand 9 − 3 = 6'],
-     'fehler': 'Das untere Quartil ist nicht „ein Viertel vom größten Wert“. Es ist der Wert, unter dem etwa ⟦ein Viertel der Daten⟧ liegt.',
-     '_verbot': ['1; 3; 4; 6; 8; 9; 11']},
-    {'lernziel': 'boxplot', 'titel': 'Informationen aus Boxplots',
-     'regel': 'Ein ⟦Boxplot⟧ zeigt die fünf Kennwerte Minimum, unteres Quartil, Median, oberes Quartil, Maximum. In der ⟦Box⟧ (zwischen den Quartilen) liegt etwa die ⟦Hälfte⟧ der Daten, in jeder ⟦Antenne⟧ und jeder Boxhälfte etwa ein ⟦Viertel⟧.',
-     'schritte': ['Kennwerte: 12 | 18 | 23 | 30 | 41', 'Spannweite 41 − 12 = 29, Quartilsabstand 30 − 18 = 12', 'Etwa ⟦75 %⟧ der Werte liegen unter 30.'],
-     'fehler': 'Eine längere Antenne bedeutet nicht mehr Werte: In jeder Antenne liegt etwa ⟦ein Viertel⟧ der Daten, nur ⟦weiter gestreut⟧.',
-     'bild': tab5([12, 18, 23, 30, 41]),
-     '_verbot': ['12 | 18 | 23 | 30 | 41']},
     {'lernziel': 'mittel_median', 'titel': 'Mittelwert und Median vergleichen',
      'regel': 'Der ⟦Mittelwert⟧ reagiert stark auf ⟦Ausreißer⟧ (einzelne extreme Werte), der ⟦Median⟧ kaum. Bei Ausreißern beschreibt der Median die „typische Mitte“ meist besser.',
      'schritte': ['Taschengeld (€): 10; 12; 12; 15; 101', 'Mittelwert: 150 : 5 = 30 €; Median: 12 €', 'Der ⟦Median⟧ passt besser – vier von fünf bekommen höchstens 15 €.'],
      'fehler': 'Der Mittelwert 30 € ist nicht „das, was die meisten bekommen“: Ein einziger großer Wert (101 €) ⟦zieht ihn nach oben⟧.',
      '_verbot': ['10; 12; 12; 15; 101']},
+    {'lernziel': 'quartile', 'titel': 'Quartile bestimmen',
+     'regel': 'Der Median teilt die geordnete Liste in eine untere und eine obere Hälfte. Das ⟦untere Quartil⟧ ist der Median der unteren Hälfte, das ⟦obere Quartil⟧ der Median der oberen Hälfte. Bei ungerader Anzahl gehört der Median ⟦zu keiner Hälfte⟧.',
+     'schritte': ['Geordnet: 1; 3; 4; 6; 8; 9; 11', 'Median 6. Untere Hälfte 1; 3; 4 → Q₁ = 3', 'Obere Hälfte 8; 9; 11 → ⟦Q₃ = 9⟧. Quartilsabstand 9 − 3 = 6'],
+     'fehler': 'Das untere Quartil ist nicht „ein Viertel vom größten Wert“. Es ist der Wert, unter dem etwa ⟦ein Viertel der Daten⟧ liegt.',
+     'bild': {'typ': 'boxplot', 'achse': [0, 12], 'reihen': [{'min': 1, 'q1': 3, 'median': 6, 'q3': 9, 'max': 11}]},
+     '_verbot': ['1; 3; 4; 6; 8; 9; 11']},
+    {'lernziel': 'boxplot', 'titel': 'Informationen aus Boxplots',
+     'regel': 'Ein ⟦Boxplot⟧ zeigt die fünf Kennwerte Minimum, unteres Quartil, Median, oberes Quartil, Maximum. In der ⟦Box⟧ (zwischen den Quartilen) liegt etwa die ⟦Hälfte⟧ der Daten, in jeder ⟦Antenne⟧ und jeder Boxhälfte etwa ein ⟦Viertel⟧.',
+     'schritte': ['Kennwerte: 12 | 18 | 23 | 30 | 41', 'Spannweite 41 − 12 = 29, Quartilsabstand 30 − 18 = 12', 'Etwa ⟦75 %⟧ der Werte liegen unter 30.'],
+     'fehler': 'Eine längere Antenne bedeutet nicht mehr Werte: In jeder Antenne liegt etwa ⟦ein Viertel⟧ der Daten, nur ⟦weiter gestreut⟧.',
+     'bild': {'typ': 'boxplot', 'achse': [10, 45], 'reihen': [{'min': 12, 'q1': 18, 'median': 23, 'q3': 30, 'max': 41}]},
+     '_verbot': ['12 | 18 | 23 | 30 | 41']},
     {'lernziel': 'vergleichen', 'titel': 'Datensätze vergleichen und beurteilen',
      'regel': 'Vergleiche zuerst die ⟦Mitte⟧ (Median), dann die ⟦Streuung⟧ (Spannweite, Quartilsabstand). Eine Aussage über „die meisten“ oder „ein Viertel“ prüfst du mit den Quartilen.',
      'schritte': ['Klasse A: Median 24 s, Quartilsabstand 4 s. Klasse B: Median 22 s, Quartilsabstand 9 s.', 'B ist in der Mitte schneller (kleinere Zeit), streut aber stärker.',
                   'Aussage „In A sind die Zeiten einheitlicher“: ⟦richtig⟧.'],
      'fehler': 'Eine größere Spannweite heißt nicht, dass die Gruppe insgesamt besser oder schlechter ist. Sie sagt nur etwas über die ⟦Streuung⟧ aus.',
-     'bild': {'typ': 'tabelle', 'kopf': ['', 'Min', 'Q₁', 'Median', 'Q₃', 'Max'], 'zeilen': [['Klasse A', '19', '22', '24', '26', '31'], ['Klasse B', '15', '18', '22', '27', '35']]}},
+     'bild': {'typ': 'boxplot', 'achse': [10, 40], 'einheit': 's', 'reihen': [{'name': 'Klasse A', 'min': 19, 'q1': 22, 'median': 24, 'q3': 26, 'max': 31}, {'name': 'Klasse B', 'min': 15, 'q1': 18, 'median': 22, 'q3': 27, 'max': 35}]}},
 ]
 
 
@@ -71,50 +72,81 @@ def daten(R, n, lo=1, hi=30):
     return [R.randint(lo, hi) for _ in range(n)]
 
 
+ZYK = {}
+
+
+def zyklus(name, liste):
+    ZYK[name] = ZYK.get(name, -1) + 1
+    return liste[ZYK[name] % len(liste)]
+
+
+HAEUF = [('Note', [1, 2, 3, 4, 5, 6], 'Kinder'), ('Tore', [0, 1, 2, 3, 4], 'Spiele'), ('Geschwister', [0, 1, 2, 3, 4], 'Kinder'), ('Augenzahl', [1, 2, 3, 4, 5, 6], 'Würfe')]
+
+
 def g_median(R, st):
+    if st == 3 and zyklus('med3', [1, 0]):
+        merkmal, werte, wer = R.choice(HAEUF)
+        anz = [R.randint(0, 9) for _ in werte]
+        if sum(anz) < 12: anz = [a + 2 for a in anz]
+        xs = [w for w, a in zip(werte, anz) for _ in range(a)]
+        n = len(xs); m = median(xs)
+        mitte = f'{n // 2 + 1}. Wert' if n % 2 else f'{n // 2}. und {n // 2 + 1}. Wert'
+        a = Z(f'Die Tabelle zeigt, wie oft jeder Wert vorkommt ({merkmal}, Anzahl der {wer}). Bestimme den Median.', m,
+              f'{xs[n // 2]}' if n % 2 else f'({xs[n // 2 - 1]} + {xs[n // 2]}) / 2',
+              f'Insgesamt {n} Werte. Die Mitte ist der {mitte}. Von unten gezählt: ' + ', '.join(f'bis {w}: {sum(anz[:i + 1])}' for i, w in enumerate(werte)) + f'. Median: {zt(m)}.',
+              'Zähle alle Werte. Welcher Platz ist die Mitte? Zähle in der Tabelle von unten bis dorthin.')
+        a['f']['grafik'] = {'typ': 'tabelle', 'kopf': [merkmal] + [str(w) for w in werte], 'zeilen': [[f'Anzahl {wer}'] + [str(x) for x in anz]]}
+        return a
     n = R.choice({1: [5, 7, 9], 2: [6, 8, 10, 11], 3: [12, 14, 15, 16]}[st])
     kontext, lo, hi = R.choice([('Punkte in einem Test (höchstens 30)', 0, 30), ('Tore pro Spiel', 0, 6), ('Minuten Schulweg', 3, 45),
                                 ('Seiten gelesen pro Tag', 2, 60), ('Liegestütze', 4, 40), ('Körpergröße in cm', 138, 176)])
     xs = daten(R, n, lo, hi)
-    m = median(xs); s = sorted(xs)
-    weg = f'Geordnet: {liste(s)}. ' + (f'Mittlerer ({n // 2 + 1}.) Wert: {zt(m)}.' if n % 2 else f'Mittlere Werte {zt(s[n // 2 - 1])} und {zt(s[n // 2])}: ({zt(s[n // 2 - 1])} + {zt(s[n // 2])}) : 2 = {zt(m)}.')
-    a = Z(f'{kontext}: {liste(xs)}. Bestimme den Median.', m, f'{s[n // 2]}' if n % 2 else f'({s[n // 2 - 1]} + {s[n // 2]}) / 2', weg,
-          'Ordne die Werte zuerst der Größe nach.')
-    return a
+    m = median(xs); s_ = sorted(xs)
+    weg = f'Geordnet: {liste(s_)}. ' + (f'Mittlerer ({n // 2 + 1}.) Wert: {zt(m)}.' if n % 2 else f'Mittlere Werte {zt(s_[n // 2 - 1])} und {zt(s_[n // 2])}: ({zt(s_[n // 2 - 1])} + {zt(s_[n // 2])}) : 2 = {zt(m)}.')
+    return Z(f'{kontext}: {liste(xs)}. Bestimme den Median.', m, f'{s_[n // 2]}' if n % 2 else f'({s_[n // 2 - 1]} + {s_[n // 2]}) / 2', weg,
+             'Ordne die Werte zuerst der Größe nach.')
+
+
+KW_KONTEXT = ['Punkte beim Ballwurf', 'Minuten Hausaufgaben', 'Gelesene Bücher im Jahr', 'Tore in der Saison', 'Liegestütze in einer Minute', 'Euro Taschengeld']
 
 
 def g_kennwerte(R, st):
     n = R.choice([5, 6, 7, 8, 10])
+    kon = R.choice(KW_KONTEXT)
     while True:
         xs = daten(R, n, 1, 25)
         mod = max(set(xs), key=xs.count)
-        if [xs.count(v) for v in set(xs)].count(xs.count(mod)) == 1 and xs.count(mod) > 1: break
+        if [xs.count(v) for v in set(xs)].count(xs.count(mod)) == 1 and xs.count(mod) > 1: break   # Modalwert eindeutig
     welches = R.choice({1: ['Modalwert', 'Spannweite'], 2: ['Spannweite', 'Mittelwert', 'Modalwert'], 3: ['Mittelwert', 'fehlend']}[st])
     if welches == 'Modalwert':
-        return Z(f'Werte: {liste(xs)}. Bestimme den Modalwert.', mod, f'{mod}', f'{zt(mod)} kommt {xs.count(mod)}-mal vor, öfter als jeder andere Wert.', 'Welcher Wert kommt am häufigsten vor?')
+        return Z(f'{kon} von {n} Kindern: {liste(xs)}. Bestimme den Modalwert.', mod, f'{mod}', f'{zt(mod)} kommt {xs.count(mod)}-mal vor, öfter als jeder andere Wert.', 'Welcher Wert kommt am häufigsten vor?')
     if welches == 'Spannweite':
-        return Z(f'Werte: {liste(xs)}. Bestimme die Spannweite.', max(xs) - min(xs), f'{max(xs)} - {min(xs)}', f'Größter Wert {max(xs)}, kleinster {min(xs)}: {max(xs)} − {min(xs)} = {max(xs) - min(xs)}.',
+        return Z(f'{kon} von {n} Kindern: {liste(xs)}. Bestimme die Spannweite.', max(xs) - min(xs), f'{max(xs)} - {min(xs)}', f'Größter Wert {max(xs)}, kleinster {min(xs)}: {max(xs)} − {min(xs)} = {max(xs) - min(xs)}.',
                  'Größter minus kleinster Wert.')
     if welches == 'Mittelwert':
         mw = Fr(sum(xs), n)
         if mw.denominator not in (1, 2, 4, 5, 8, 10): return g_kennwerte(R, st)
-        return Z(f'Werte: {liste(xs)}. Berechne das arithmetische Mittel.', mw, f'({" + ".join(map(str, xs))}) / {n}', f'Summe {sum(xs)}, Anzahl {n}: {sum(xs)} : {n} = {zt(mw)}.',
+        return Z(f'{kon} von {n} Kindern: {liste(xs)}. Berechne das arithmetische Mittel.', mw, f'({" + ".join(map(str, xs))}) / {n}', f'Summe {sum(xs)}, Anzahl {n}: {sum(xs)} : {n} = {zt(mw)}.',
                  'Alle Werte addieren und durch ihre Anzahl teilen.')
     mw = R.randint(8, 20); k = n - 1
     teil = daten(R, k, 1, 25)
     fehl = mw * n - sum(teil)
     if fehl < 0 or fehl > 60: return g_kennwerte(R, st)
-    return Z(f'Von {n} Werten kennt man {k}: {liste(teil)}. Das arithmetische Mittel aller {n} Werte ist {mw}. Wie groß ist der fehlende Wert?', fehl, f'{mw} * {n} - ({" + ".join(map(str, teil))})',
+    return Z(f'{kon}: Von {n} Kindern kennt man {k} Werte: {liste(teil)}. Das arithmetische Mittel aller {n} Werte ist {mw}. Wie groß ist der fehlende Wert?', fehl,
+             f'{mw} * {n} - ({" + ".join(map(str, teil))})',
              f'Summe aller Werte: {mw} · {n} = {mw * n}. Bekannte Summe {sum(teil)}. Fehlender Wert: {mw * n} − {sum(teil)} = {fehl}.', 'Mittelwert · Anzahl = Summe.')
+
+
+FESTLEGUNG = ' (Festlegung hier: Bei ungerader Anzahl gehört der Median zu keiner Hälfte. Manche Bücher rechnen etwas anders; dann kann das Ergebnis leicht abweichen.)'
 
 
 def g_quartile(R, st):
     n = R.choice({1: [7, 11], 2: [8, 9, 10, 12], 3: [13, 15, 16]}[st])
     xs = sorted(daten(R, n, 1, 50)) if st == 1 else daten(R, n, 1, 50)
-    q1, q3 = quartile(xs); s = sorted(xs)
+    q1, q3 = quartile(xs); s_ = sorted(xs)
     welches = R.choice({1: ['Q₁', 'Q₃'], 2: ['Q₁', 'Q₃', 'Abstand'], 3: ['Abstand', 'Q₁', 'Q₃']}[st])
-    unten, oben = s[:n // 2], s[(n + 1) // 2:]
-    weg = f'Geordnet: {liste(s)}. Untere Hälfte {liste(unten)} → Q₁ = {zt(q1)}; obere Hälfte {liste(oben)} → Q₃ = {zt(q3)}.'
+    unten, oben = s_[:n // 2], s_[(n + 1) // 2:]
+    weg = f'Geordnet: {liste(s_)}. Untere Hälfte {liste(unten)} → Q₁ = {zt(q1)}; obere Hälfte {liste(oben)} → Q₃ = {zt(q3)}.' + (FESTLEGUNG if n % 2 else '')
     if welches == 'Abstand':
         return Z(f'Werte: {liste(xs)}. Bestimme den Quartilsabstand Q₃ − Q₁.', q3 - q1, f'{q3.numerator}/{q3.denominator} - {q1.numerator}/{q1.denominator}', weg + f' Abstand {zt(q3 - q1)}.',
                  'Erst ordnen, dann die Hälften bilden, dann jeweils den Median.')
@@ -124,38 +156,101 @@ def g_quartile(R, st):
              f'Bilde die {name} Hälfte (ohne den Median, falls die Anzahl ungerade ist) und bestimme ihren Median.')
 
 
-def fuenf(R, lo=0, k=1):
-    mn = lo + k * R.randint(0, 10)
-    q1 = mn + k * R.randint(2, 12); me = q1 + k * R.randint(1, 10); q3 = me + k * R.randint(1, 12); mx = q3 + k * R.randint(2, 20)
-    return [mn, q1, me, q3, mx]
+# Kontext, Achsenanfang, Schritt (Teilstrich), Einheit – alle Kennwerte liegen auf Teilstrichen
+BP_KONTEXT = [('Körpergröße', 130, 5, 'cm'), ('Punkte im Test', 0, 3, 'Punkte'), ('Weitsprung', 200, 20, 'cm'), ('Wartezeit', 0, 2, 'min'),
+              ('Taschengeld', 0, 4, '€'), ('Zeit für 1 000 m', 200, 10, 's'), ('Weitwurf', 0, 5, 'm')]
+
+
+def fuenf_raster(R):
+    while True:
+        pos = sorted(R.sample(range(0, 11), 5))
+        if pos[4] - pos[0] >= 6: return pos
+
+
+def bp(reihen, lo, u, einheit):
+    return {'typ': 'boxplot', 'achse': [lo, lo + 10 * u], 'schritt': u, 'einheit': einheit,
+            'reihen': [{**({'name': n} if n else {}), 'min': w[0], 'q1': w[1], 'median': w[2], 'q3': w[3], 'max': w[4]} for n, w in reihen]}
+
+
+def _zuordnen(R):
+    n = R.choice([7, 9, 11])
+    xs = sorted(daten(R, n, 1, 30))
+    while len(set(xs)) < n - 1: xs = sorted(daten(R, n, 1, 30))
+    q1, q3 = quartile(xs); me = median(xs)
+    richtig = [xs[0], q1, me, q3, xs[-1]]
+    mit_median = [xs[0], median(xs[:n // 2 + 1]), me, median(xs[n // 2:]), xs[-1]]           # andere Quartilsregel – hier nicht gemeint
+    mittel = Fr(sum(xs), n)
+    falsch_mitte = [xs[0], q1, mittel, q3, xs[-1]] if mittel != me and q1 < mittel < q3 and mittel.denominator in (1, 2, 4, 5, 10) else [xs[0], xs[1], me, xs[-2], xs[-1]]
+    falsch_rand = [xs[1], q1, me, q3, xs[-2]]
+    kand = [richtig, falsch_mitte, falsch_rand] if mit_median == richtig or R.random() < .5 else [richtig, falsch_mitte, mit_median]
+    if len({tuple(k) for k in kand}) < 3: kand = [richtig, falsch_mitte, falsch_rand]
+    if len({tuple(k) for k in kand}) < 3: return None
+    R.shuffle(kand)
+    namen = ['A', 'B', 'C']
+    r = namen[kand.index(richtig)]
+    a = A(R, f'Daten: {liste(xs)}. Welcher Boxplot passt zu diesen Daten?', f'Boxplot {r}', [f'Boxplot {x}' for x in namen if x != r] + ['keiner der drei'],
+          f'Minimum {xs[0]}, Q₁ = {zt(q1)}, Median {zt(me)}, Q₃ = {zt(q3)}, Maximum {xs[-1]}: Das ist Boxplot {r}.' + FESTLEGUNG,
+          'Bestimme Minimum, Median und Maximum zuerst – oft scheiden damit schon Boxplots aus.')
+    a['f']['grafik'] = {'typ': 'boxplot', 'achse': [0, 30], 'schritt': 5, 'reihen': [{'name': nm, 'min': jw(k[0]), 'q1': jw(k[1]), 'median': jw(k[2]), 'q3': jw(k[3]), 'max': jw(k[4])}
+                                                                             for nm, k in zip(namen, kand)]}
+    return a
 
 
 def g_boxplot(R, st):
-    kontext, lo, k = R.choice([('Körpergröße in cm', 135, 1), ('Punkte im Test', 0, 1), ('Weitsprung in cm', 220, 5), ('Wartezeit in min', 0, 1), ('Taschengeld in €', 5, 1)])
-    w = fuenf(R, lo, k)
-    gr = tab5(w)
+    if st == 3 and zyklus('bp3', [1, 0]):
+        for _ in range(50):
+            a = _zuordnen(R)
+            if a: return a
+    kontext, lo, u, einh = R.choice(BP_KONTEXT)
+    w = [lo + u * p for p in fuenf_raster(R)]
+    gr = bp([('', w)], lo, u, einh)
     if st == 1:
-        was = R.choice(['Spannweite', 'Quartilsabstand', 'Median'])
-        val = {'Spannweite': w[4] - w[0], 'Quartilsabstand': w[3] - w[1], 'Median': w[2]}[was]
-        c = {'Spannweite': f'{w[4]} - {w[0]}', 'Quartilsabstand': f'{w[3]} - {w[1]}', 'Median': f'{w[2]}'}[was]
-        a = Z(f'Kennwerte eines Boxplots ({kontext}): Minimum {w[0]}, unteres Quartil {w[1]}, Median {w[2]}, oberes Quartil {w[3]}, Maximum {w[4]}. Gib {"den" if was != "Spannweite" else "die"} {was} an.',
-              val, c, {'Spannweite': f'Maximum − Minimum = {w[4]} − {w[0]} = {val}.', 'Quartilsabstand': f'Q₃ − Q₁ = {w[3]} − {w[1]} = {val}.', 'Median': f'Der Strich in der Box: {val}.'}[was],
-              'Spannweite: ganze Länge. Quartilsabstand: Länge der Box.')
+        was = R.choice(['den Median', 'das untere Quartil', 'das obere Quartil', 'das Maximum', 'die Spannweite', 'den Quartilsabstand'])
+        val = {'den Median': w[2], 'das untere Quartil': w[1], 'das obere Quartil': w[3], 'das Maximum': w[4], 'die Spannweite': w[4] - w[0], 'den Quartilsabstand': w[3] - w[1]}[was]
+        c = {'die Spannweite': f'{w[4]} - {w[0]}', 'den Quartilsabstand': f'{w[3]} - {w[1]}'}.get(was, f'{val}')
+        weg = {'den Median': f'Der Strich in der Box steht bei {val}.', 'das untere Quartil': f'Der linke Rand der Box steht bei {val}.',
+               'das obere Quartil': f'Der rechte Rand der Box steht bei {val}.', 'das Maximum': f'Das rechte Ende der Antenne steht bei {val}.',
+               'die Spannweite': f'Maximum − Minimum = {w[4]} − {w[0]} = {val}.', 'den Quartilsabstand': f'Q₃ − Q₁ = {w[3]} − {w[1]} = {val}.'}[was]
+        a = Z(f'Der Boxplot zeigt die Ergebnisse einer Erhebung ({kontext}{"" if einh == "Punkte" else " in " + einh}). ' + (f'Lies {was} ab.' if 'abstand' not in was and 'Spannweite' not in was else f'Bestimme {was}.'), val, c, weg,
+              'Box: von Q₁ bis Q₃, Strich in der Box: Median, Antennen: bis Minimum und Maximum.', einh if einh in ('cm', 'min', 's', 'm', '€') else None)
     elif st == 2:
-        frage, proz = R.choice([(f'unter {w[2]}', 50), (f'über {w[3]}', 25), (f'zwischen {w[1]} und {w[3]}', 50), (f'unter {w[1]}', 25), (f'unter {w[3]}', 75), (f'über {w[1]}', 75)])
-        a = Z(f'Kennwerte eines Boxplots ({kontext}): Minimum {w[0]}, unteres Quartil {w[1]}, Median {w[2]}, oberes Quartil {w[3]}, Maximum {w[4]}. Etwa wie viel Prozent der Werte liegen {frage}?',
+        frage, proz = R.choice([(f'unter {w[2]} {einh}', 50), (f'über {w[3]} {einh}', 25), (f'zwischen {w[1]} {einh} und {w[3]} {einh}', 50), (f'unter {w[1]} {einh}', 25),
+                                (f'unter {w[3]} {einh}', 75), (f'über {w[1]} {einh}', 75), (f'über {w[2]} {einh}', 50)])
+        a = Z(f'Der Boxplot zeigt die Ergebnisse einer Erhebung ({kontext}). Etwa wie viel Prozent der Werte liegen {frage}?',
               proz, f'{proz}', f'Quartile und Median teilen die Daten in Viertel. {frage[0].upper() + frage[1:]} liegen etwa {proz} %.', 'Jeder der vier Abschnitte enthält etwa ein Viertel der Daten.', '%')
     else:
         n = R.choice([20, 40, 60, 80, 100, 120, 200])
-        frage, anteil = R.choice([(f'über {w[3]}', Fr(1, 4)), (f'zwischen {w[1]} und {w[3]}', Fr(1, 2)), (f'unter {w[1]}', Fr(1, 4)), (f'über {w[1]}', Fr(3, 4))])
-        a = Z(f'{n} Personen wurden befragt ({kontext}). Kennwerte: Minimum {w[0]}, unteres Quartil {w[1]}, Median {w[2]}, oberes Quartil {w[3]}, Maximum {w[4]}. Etwa wie viele Personen liegen {frage}?',
-              anteil * n, f'{n} * {anteil.numerator} / {anteil.denominator}', f'{frage[0].upper() + frage[1:]} liegt etwa {zt(anteil * 100)} % der Daten: {zt(anteil * 100)} % von {n} = {zt(anteil * n)}.',
-              'Welcher Anteil (Viertel, Hälfte, drei Viertel) ist gemeint?')
+        frage, anteil = R.choice([(f'über {w[3]} {einh}', Fr(1, 4)), (f'zwischen {w[1]} {einh} und {w[3]} {einh}', Fr(1, 2)), (f'unter {w[1]} {einh}', Fr(1, 4)), (f'über {w[1]} {einh}', Fr(3, 4))])
+        a = Z(f'{n} Personen wurden erfasst ({kontext}, siehe Boxplot). Etwa wie viele Personen liegen {frage}?',
+              anteil * n, f'{n} * {anteil.numerator} / {anteil.denominator}', f'{frage[0].upper() + frage[1:]} liegen etwa {zt(anteil * 100)} % der Daten: {zt(anteil * 100)} % von {n} = {zt(anteil * n)}.',
+              'Lies ab, wo die Grenze liegt (Quartil oder Median), und welcher Anteil gemeint ist.')
     a['f']['grafik'] = gr
     return a
 
 
 def g_mittel_median(R, st):
+    if st == 3:
+        art = zyklus('mm3', ['firma', 'ohne', 'aus', 'ohne'])
+        if art == 'firma':
+            k = R.choice([5, 7, 9]); g = R.choice([2800, 3000, 3200, 3500]); chef = R.choice([20000, 24000, 30000])
+            mw = Fr(k * g + chef, k + 1)
+            if mw.denominator != 1: return g_mittel_median(R, st)
+            r = f'Der Median ({g} €), denn der Mittelwert ({zt(mw)} €) wird vom Chefgehalt hochgezogen.'
+            return A(R, f'In einer kleinen Firma verdienen {k} Personen je {zt(g)} € im Monat, die Chefin {zt(chef)} €. Welche Angabe beschreibt das typische Gehalt?', r,
+                     [f'Der Mittelwert ({zt(mw)} €), weil er alle Gehälter berücksichtigt.', 'Mittelwert und Median sind fast gleich, beide passen.',
+                      f'Die Spannweite ({zt(chef - g)} €), weil sie alle Gehälter umfasst.'],
+                     f'Mittelwert: ({k} · {zt(g)} + {zt(chef)}) : {k + 1} = {zt(mw)} €. Median: {zt(g)} €. Nur der Median trifft, was die meisten verdienen.',
+                     'Gibt es einen Wert, der weit von den anderen entfernt ist?')
+        if art == 'ohne':
+            while True:
+                xs = daten(R, R.choice([5, 6, 7]), 4, 12)
+                mw, me = Fr(sum(xs), len(xs)), median(xs)
+                if abs(mw - me) <= 1 and max(xs) - min(xs) <= 7 and mw.denominator in (1, 2, 4, 5): break
+            r = 'Mittelwert und Median sind fast gleich, beide passen.'
+            return A(R, f'Wartezeiten an einer Kasse (min): {liste(xs)}. Welcher Wert beschreibt die typische Mitte besser?', r,
+                     ['Nur der Median, weil der Mittelwert immer durch Ausreißer verfälscht wird.', 'Nur der Mittelwert, weil der Median Werte weglässt.',
+                      'Die Spannweite, weil sie alle Werte umfasst.'],
+                     f'Mittelwert {zt(mw)}, Median {zt(me)}. Es gibt keinen Ausreißer, die beiden Werte liegen dicht beieinander.', 'Gibt es einen Ausreißer? Berechne beide Werte.')
     n = R.choice([5, 6, 7])
     while True:
         xs = daten(R, n - 1, 8, 20)
@@ -172,37 +267,64 @@ def g_mittel_median(R, st):
                  'Berechne beide Werte. Für den Median zuerst ordnen.')
     r = 'Der Median, weil der Ausreißer den Mittelwert stark verschiebt.'
     return A(R, f'Werte: {liste(xs)}. Welcher Wert beschreibt die typische Mitte besser?', r,
-             ['Der Mittelwert, weil er alle Werte berücksichtigt.', 'Beide sind gleich gut, sie sind ja gleich groß.', 'Die Spannweite, weil sie alle Werte umfasst.'],
+             ['Der Mittelwert, weil er alle Werte berücksichtigt.', 'Mittelwert und Median sind fast gleich, beide passen.', 'Die Spannweite, weil sie alle Werte umfasst.'],
              f'Mittelwert {zt(mw)}, Median {zt(me)}. Der Wert {aus} ist ein Ausreißer und verschiebt den Mittelwert.', 'Gibt es einen Wert, der weit von den anderen entfernt ist?')
 
 
+VG_KONTEXT = [('beim Weitwurf', 0, 5, 'm', 'warf insgesamt weiter', True), ('beim Sprint über 50 m', 6, 1, 's', 'lief insgesamt schneller', False),
+              ('im Mathetest', 0, 3, 'Punkte', 'schnitt insgesamt besser ab', True), ('beim 1 000-m-Lauf', 200, 10, 's', 'lief insgesamt schneller', False),
+              ('beim Hochsprung', 80, 5, 'cm', 'sprang insgesamt höher', True)]
+
+
 def g_vergleichen(R, st):
+    kontext, lo, u, einh, besser, gross_gut = R.choice(VG_KONTEXT)
     while True:
-        a_, b_ = fuenf(R), fuenf(R)
-        if a_[2] != b_[2] and a_[3] - a_[1] != b_[3] - b_[1] and a_[4] - a_[0] != b_[4] - b_[0]: break
-    gr = {'typ': 'tabelle', 'kopf': ['', 'Min', 'Q₁', 'Median', 'Q₃', 'Max'], 'zeilen': [['Gruppe A'] + [zt(v) for v in a_], ['Gruppe B'] + [zt(v) for v in b_]]}
+        pa, pb = fuenf_raster(R), fuenf_raster(R)
+        if pa[2] != pb[2] and pa[3] - pa[1] != pb[3] - pb[1] and pa[4] - pa[0] != pb[4] - pb[0]: break
+    a_, b_ = [lo + u * p for p in pa], [lo + u * p for p in pb]
+    A_, B_ = '7a', '7b'
+    gr = bp([(f'Klasse {A_}', a_), (f'Klasse {B_}', b_)], lo, u, einh)
+    einl = f'Ergebnisse zweier Klassen {kontext} ({einh if einh == "Punkte" else "in " + einh}), siehe Boxplots.'
+    if st >= 2 and zyklus('vg', [0, 1, 0, 1, 1]):
+        if R.random() < .5:
+            sieger = A_ if (a_[2] > b_[2]) == gross_gut else B_
+            r = f'Klasse {sieger}, denn ihr Median ist {"größer" if gross_gut else "kleiner"}.'
+            a = A(R, f'{einl} Welche Klasse {besser}?', r,
+                  [f'Klasse {A_ if sieger == B_ else B_}, denn ihr Median ist {"größer" if not gross_gut else "kleiner"}.',
+                   f'Klasse {A_ if sieger == B_ else B_}, denn dort gibt es den besten Einzelwert.',
+                   'Das kann man nicht sagen, weil die Spannweiten verschieden sind.'],
+                  f'Die Mitte vergleicht man mit dem Median: {A_} {zt(a_[2])} {einh}, {B_} {zt(b_[2])} {einh}.', 'Vergleiche die Mitte (Median), nicht einzelne Extremwerte.')
+        else:
+            ga = a_[3] - a_[1] < b_[3] - b_[1]
+            sieger = A_ if ga else B_
+            r = f'Klasse {sieger}, denn ihr Quartilsabstand (Länge der Box) ist kleiner.'
+            a = A(R, f'{einl} In welcher Klasse sind die Leistungen gleichmäßiger?', r,
+                  [f'Klasse {B_ if ga else A_}, denn ihre Box ist länger.', f'Klasse {A_ if a_[2] > b_[2] else B_}, denn ihr Median ist größer.',
+                   'In beiden gleich, weil beide Klassen gleich viele Kinder haben.'],
+                  f'Gleichmäßiger heißt: weniger Streuung. Quartilsabstand {A_}: {zt(a_[3] - a_[1])} {einh}, {B_}: {zt(b_[3] - b_[1])} {einh}.', 'Welche Box ist kürzer?')
+        a['f']['grafik'] = gr
+        return a
     al = [
-        (f'Der Median von A ist {"größer" if a_[2] > b_[2] else "kleiner"} als der von B.', True),
-        (f'Der Median von A ist {"kleiner" if a_[2] > b_[2] else "größer"} als der von B.', False),
-        (f'Die Spannweite von A ist {"größer" if a_[4] - a_[0] > b_[4] - b_[0] else "kleiner"} als die von B.', True),
-        (f'Die Spannweite von A ist {"kleiner" if a_[4] - a_[0] > b_[4] - b_[0] else "größer"} als die von B.', False),
-        (f'In A liegt etwa die Hälfte der Werte zwischen {a_[1]} und {a_[3]}.', True),
-        (f'In A liegen etwa drei Viertel der Werte unter {a_[1]}.', False),
-        (f'In B liegt etwa ein Viertel der Werte über {b_[3]}.', True),
-        (f'In B liegen alle Werte über {b_[1]}.', False),
-        (f'Die mittlere Hälfte der Werte streut in A {"stärker" if a_[3] - a_[1] > b_[3] - b_[1] else "weniger"} als in B.', True),
-        (f'Weil die Spannweite von {"A" if a_[4] - a_[0] > b_[4] - b_[0] else "B"} größer ist, hat diese Gruppe mehr Werte.', False),
+        (f'Der Median der {A_} ist {"größer" if a_[2] > b_[2] else "kleiner"} als der der {B_}.', True),
+        (f'Der Median der {A_} ist {"kleiner" if a_[2] > b_[2] else "größer"} als der der {B_}.', False),
+        (f'Die Spannweite der {A_} ist {"größer" if a_[4] - a_[0] > b_[4] - b_[0] else "kleiner"} als die der {B_}.', True),
+        (f'Die Spannweite der {A_} ist {"kleiner" if a_[4] - a_[0] > b_[4] - b_[0] else "größer"} als die der {B_}.', False),
+        (f'In der {A_} liegt etwa die Hälfte der Werte zwischen {a_[1]} und {a_[3]} {einh}.', True),
+        (f'In der {A_} liegen etwa drei Viertel der Werte unter {a_[1]} {einh}.', False),
+        (f'In der {B_} liegt etwa ein Viertel der Werte über {b_[3]} {einh}.', True),
+        (f'In der {B_} liegen alle Werte über {b_[1]} {einh}.', False),
+        (f'Die mittlere Hälfte der Werte streut in der {A_} {"stärker" if a_[3] - a_[1] > b_[3] - b_[1] else "weniger"} als in der {B_}.', True),
+        (f'Weil die Spannweite der {A_ if a_[4] - a_[0] > b_[4] - b_[0] else B_} größer ist, hat diese Klasse mehr Kinder.', False),
     ]
     wahr = [t for t, w in al if w]; falsch = [t for t, w in al if not w]
-    if st == 1 or (st == 2 and R.random() < .5):
+    if st == 1 or R.random() < .5:
         t = R.choice(wahr)
-        a = A(R, 'Vergleiche die Gruppen A und B (siehe Tabelle). Welche Aussage ist richtig?', t, R.sample(falsch, 3), f'Richtig: {t}', 'Lies Median, Spannweite und Quartile aus der Tabelle.')
+        a = A(R, f'{einl} Welche Aussage ist richtig?', t, R.sample(falsch, 3), f'Richtig: {t}', 'Lies Median, Box und Antennen aus den Boxplots ab.')
     else:
         t = R.choice(falsch)
-        a = A(R, 'Vergleiche die Gruppen A und B (siehe Tabelle). Welche Aussage ist FALSCH?', t, R.sample(wahr, 3),
-              f'Falsch: {t} Quartile teilen die Daten in Viertel; die Spannweite sagt nichts über die Anzahl.', 'Prüfe jede Aussage mit den Kennwerten.')
+        a = A(R, f'{einl} Welche Aussage stimmt nicht?', t, R.sample(wahr, 3),
+              f'Stimmt nicht: {t} Quartile teilen die Daten in Viertel; die Spannweite sagt nichts über die Anzahl.', 'Prüfe jede Aussage am Boxplot.')
     a['f']['grafik'] = gr
-    a['f']['text'] += ' ' + ' / '.join(f'{n}: {"; ".join(zt(v) for v in w)}' for n, w in (('A', a_), ('B', b_)))
     return a
 
 
@@ -211,8 +333,7 @@ GEN = {'median': g_median, 'kennwerte': g_kennwerte, 'quartile': g_quartile, 'bo
 if __name__ == '__main__':
     baue(META, ETAPPEN, GEN,
          [('Kennwerte', ['median', 'kennwerte', 'mittel_median']), ('Quartile und Boxplot', ['quartile', 'boxplot']), ('Vergleichen', ['vergleichen'])],
-         'Median, Modalwert, Spannweite, Mittelwert und Quartile bestimmen, Informationen aus Boxplot-Kennwerten gewinnen und Datensätze vergleichen und beurteilen.',
+         'Median, Modalwert, Spannweite, Mittelwert und Quartile bestimmen, Boxplots lesen und zuordnen und Datensätze vergleichen und beurteilen.',
          ['Median: Mitte der geordneten Liste.', 'Q₁ und Q₃: Mediane der unteren und oberen Hälfte.', 'Box: mittlere Hälfte der Daten; jede Antenne: ein Viertel.',
           'Bei Ausreißern ist der Median aussagekräftiger als der Mittelwert.'],
-         offen=['Boxplots selbst kann die App noch nicht zeichnen. Die fünf Kennwerte werden als Tabelle gezeigt; Aufgaben „Lies aus dem Boxplot ab“ und „Welcher Boxplot passt?“ fehlen.',
-                'Quartile werden als Median der unteren bzw. oberen Hälfte bestimmt (bei ungerader Anzahl ohne den Median). Schulbücher verwenden teils andere Verfahren; bitte mit dem Buch des Kindes abgleichen.'])
+         offen=['Quartile werden als Median der unteren bzw. oberen Hälfte bestimmt (bei ungerader Anzahl ohne den Median). Schulbücher verwenden teils andere Verfahren; bitte mit dem Buch des Kindes abgleichen.'])

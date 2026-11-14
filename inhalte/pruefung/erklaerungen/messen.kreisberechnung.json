@@ -1,0 +1,246 @@
+{
+  "thema_schluessel": "messen.kreisberechnung",
+  "gesamturteil": "brauchbar",
+  "thema_hinweise": [
+    "Unter „offen“ steht, dass Skizzen fehlen. Mit dem Bildtyp „figur“ (Kreise, Radien, Winkel, Flächen) sind Kreis, Kreisausschnitt und Kreisring jetzt zeichenbar; Bilder sind angegeben.",
+    "Reihenfolge: Laut inhalt.abschnitte gehört „verstehen“ in den Bereich „Kreis“ (hinter „exakt“), in inhalt.etappen steht die Karte aber ganz am Ende hinter dem Zylinder. Vorschlag: hinter „exakt“.",
+    "Größte inhaltliche Lücke: A = π · r² wird ohne jede Begründung gegeben. Die Herleitung über umgelegte Tortenstücke (Kreis wird fast ein Rechteck πr mal r) ist für Klasse 8 anschaulich und gehört zum Verstehen; eingebaut.",
+    "Fast alle Beispiele sind nackte Radien. Pizza, Dose und Tortenstück liegen nahe und sind eingebaut."
+  ],
+  "karten": [
+    {
+      "lernziel": "umfang",
+      "urteil": "verbessern",
+      "probleme": [
+        "Kein Bild von r und d, obwohl genau deren Verwechslung der typische Fehler ist.",
+        "Kein Alltagsbezug; „etwa 3,14-mal“ ist eine Behauptung ohne Erfahrung dahinter."
+      ],
+      "neu": {
+        "regel": "Leg eine Schnur einmal um eine Dose und miss sie: Sie ist gut ⟦dreimal so lang⟧ wie der Durchmesser der Dose – genauer 3,14…-mal. Diese Zahl heißt ⟦π⟧ (Pi). Es gilt ⟦u = π · d = 2 · π · r⟧.",
+        "schritte": [
+          "Eine Dose hat den Radius r = 4 cm. Wie lang muss das Etikett sein?",
+          "u = 2 · π · 4 cm = 8π cm",
+          "u ≈ ⟦25,1 cm⟧"
+        ],
+        "probe": "Überschlag: d = 8 cm, dreimal so viel sind 24 cm – passt zu 25,1 cm ✓",
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "M": [
+              0,
+              0
+            ],
+            "_P": [
+              4,
+              0
+            ],
+            "_Q": [
+              0,
+              -4
+            ],
+            "_R": [
+              0,
+              4
+            ]
+          },
+          "linien": [
+            [
+              "M",
+              "_P",
+              "r = 4 cm"
+            ],
+            [
+              "_Q",
+              "_R",
+              "d = 8 cm",
+              "gestrichelt"
+            ]
+          ],
+          "kreise": [
+            {
+              "m": "M",
+              "r": 4
+            }
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "flaeche",
+      "urteil": "neu_schreiben",
+      "probleme": [
+        "Die Formel A = π · r² wird ohne jede Begründung gegeben. Für ein Kind ist das eine Zauberformel.",
+        "Kein Alltagsbezug."
+      ],
+      "neu": {
+        "regel": "Schneide einen Kreis wie eine Torte in viele schmale Stücke und lege sie abwechselnd mit der Spitze nach oben und nach unten nebeneinander. Es entsteht fast ein ⟦Rechteck⟧: so lang wie der halbe Umfang (π · r) und so hoch wie der Radius r. Also ist ⟦A = π · r · r = π · r²⟧.",
+        "schritte": [
+          "Eine Pizza hat den Durchmesser 30 cm, also r = 15 cm.",
+          "Zuerst quadrieren: r² = 15 cm · 15 cm = 225 cm².",
+          "A = π · 225 cm² ≈ ⟦706,9 cm²⟧"
+        ],
+        "probe": "Überschlag: Das Quadrat um die Pizza hat 30 · 30 = 900 cm². Der Kreis füllt gut drei Viertel davon: etwa 700 cm² ✓",
+        "fehler": "A = π · d² ist falsch: In die Formel gehört der ⟦Radius⟧. Mit d = 30 cm käme π · 900 ≈ 2 827 cm² heraus – viermal zu viel, die Pizza wäre größer als ihr eigener Karton."
+      },
+      "strategie": "Herleitung durch Umlegen der Tortenstücke; Überschlag mit dem umschriebenen Quadrat (Kreis ≈ 3/4 davon)."
+    },
+    {
+      "lernziel": "exakt",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "sektor",
+      "urteil": "verbessern",
+      "probleme": [
+        "Ohne Bild und Alltagsbezug. Ein Tortenstück macht „Anteil α/360°“ sofort klar."
+      ],
+      "neu": {
+        "schritte": [
+          "Ein Tortenstück: r = 6 cm, Mittelpunktswinkel α = 120°. Anteil: 120° von 360° = 1/3 der Torte.",
+          "Bogen: 1/3 · 2π · 6 cm = 4π cm ≈ 12,6 cm.",
+          "Fläche: 1/3 · π · 6² cm² = ⟦12π cm² ≈ 37,7 cm²⟧."
+        ],
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "M": [
+              0,
+              0
+            ],
+            "_s0": [
+              6.0,
+              0.0
+            ],
+            "_s1": [
+              5.64,
+              2.05
+            ],
+            "_s2": [
+              4.6,
+              3.86
+            ],
+            "_s3": [
+              3.0,
+              5.2
+            ],
+            "_s4": [
+              1.04,
+              5.91
+            ],
+            "_s5": [
+              -1.04,
+              5.91
+            ],
+            "_s6": [
+              -3.0,
+              5.2
+            ]
+          },
+          "flaeche": [
+            "M",
+            "_s0",
+            "_s1",
+            "_s2",
+            "_s3",
+            "_s4",
+            "_s5",
+            "_s6"
+          ],
+          "linien": [
+            [
+              "M",
+              "_s0",
+              "r = 6 cm"
+            ],
+            [
+              "M",
+              "_s6"
+            ]
+          ],
+          "winkel": [
+            [
+              "M",
+              "_s0",
+              "_s6",
+              "120°"
+            ]
+          ],
+          "kreise": [
+            {
+              "m": "M",
+              "r": 6
+            }
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "zusammengesetzt",
+      "urteil": "verbessern",
+      "probleme": [
+        "Kein Bild des Kreisrings."
+      ],
+      "neu": {
+        "bild": {
+          "typ": "figur",
+          "punkte": {
+            "M": [
+              0,
+              0
+            ],
+            "_P": [
+              5,
+              0
+            ],
+            "_Q": [
+              0,
+              3
+            ]
+          },
+          "linien": [
+            [
+              "M",
+              "_P",
+              "R = 5 cm"
+            ],
+            [
+              "M",
+              "_Q",
+              "r = 3 cm"
+            ]
+          ],
+          "kreise": [
+            {
+              "m": "M",
+              "r": 5
+            },
+            {
+              "m": "M",
+              "r": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "lernziel": "zylinder",
+      "urteil": "ok"
+    },
+    {
+      "lernziel": "verstehen",
+      "urteil": "verbessern",
+      "probleme": [
+        "Das Beispiel ist rein rechnerisch. Die Pizzafrage (eine große oder zwei kleine?) zeigt, warum das Quadrieren im Alltag zählt, und ist eine echte Überraschung für Kinder."
+      ],
+      "neu": {
+        "schritte": [
+          "Eine große Pizza (d = 30 cm) oder zwei kleine (je d = 20 cm)?",
+          "Groß: π · 15² = 225π cm². Zwei kleine: 2 · π · 10² = 200π cm².",
+          "Die eine große Pizza ist ⟦größer⟧, obwohl 2 · 20 cm mehr sind als 30 cm. Die Fläche wächst mit ⟦r²⟧."
+        ],
+        "probe": "Dreifacher Radius: r = 2 cm gibt 4π cm², r = 6 cm gibt 36π cm². 36π : 4π = 9 = 3² ✓"
+      }
+    }
+  ],
+  "neue_karten": []
+}

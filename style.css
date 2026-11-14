@@ -3176,3 +3176,122 @@ body[data-area="lernen"] { padding-bottom: calc(100px + env(safe-area-inset-bott
 .lern-weitere > summary { cursor: pointer; font-weight: 650; padding: 10px 0; color: var(--muted); }
 .lern-weitere[open] > summary { margin-bottom: 8px; }
 .lern-neu { margin-top: 28px; }
+
+/* ===== W150: Lernreise der Kinder (eigene Farbwelten, echte Weltkarte) ===== */
+body[data-kindmodus] #areas { display: none; }
+body[data-kindmodus] main.view { padding-left: 0; padding-right: 0; padding-top: 0; max-width: none; }
+.lr { --lr-radius: 22px; --lr-radius-klein: 14px; min-height: calc(100dvh - 60px); background: var(--lr-bg); color: var(--lr-text);
+  font-family: ui-rounded, "SF Pro Rounded", "Nunito", system-ui, -apple-system, "Segoe UI", sans-serif; display: flex; flex-direction: column; }
+.lr.lr-studio { --lr-radius: 16px; --lr-radius-klein: 12px; font-family: system-ui, -apple-system, "Segoe UI", Inter, sans-serif; }
+.lr-ozean { color-scheme: light; --lr-bg: #E8F7F9; --lr-flaeche: #fff; --lr-text: #0B3B52; --lr-leise: #3F6B7D; --lr-akzent: #D9482A; --lr-akzent-tief: #A93A1D; --lr-auf-akzent: #fff;
+  --lr-gut: #0E7C86; --lr-linie: #BFDDE3; --lr-meer: #BFE9F0; --lr-EU: #F6C866; --lr-AS: #A8DBA0; --lr-AF: #EFA586; --lr-NA: #93BEEB; --lr-SA: #CDA8EA; --lr-OC: #F4AECB; --lr-AN: #E3ECF0; --lr-blass: #DCE9E6; --lr-rand: #fff; }
+.lr-nacht { color-scheme: dark; --lr-bg: #0D1226; --lr-flaeche: #161D3A; --lr-text: #E8ECF8; --lr-leise: #A9B3D1; --lr-akzent: #C9F26B; --lr-akzent-tief: #8FB33A; --lr-auf-akzent: #0D1226;
+  --lr-gut: #C9F26B; --lr-linie: #2D3762; --lr-meer: #0B1022; --lr-EU: #3B4A86; --lr-AS: #2F7F74; --lr-AF: #5A4A7E; --lr-NA: #2E5C8F; --lr-SA: #4E4380; --lr-OC: #6A3F6E; --lr-AN: #3A4466; --lr-blass: #1C2448; --lr-rand: #0D1226; }
+.lr-dschungel { color-scheme: light; --lr-bg: #EEF6E8; --lr-flaeche: #fff; --lr-text: #1F3A1A; --lr-leise: #4A6541; --lr-akzent: #C2410C; --lr-akzent-tief: #8F300A; --lr-auf-akzent: #fff;
+  --lr-gut: #2F7D32; --lr-linie: #CFE3C4; --lr-meer: #CFE8E4; --lr-EU: #E9C46A; --lr-AS: #8CC084; --lr-AF: #E09F6E; --lr-NA: #7FB2C9; --lr-SA: #B9A2D6; --lr-OC: #E7A3B8; --lr-AN: #E5EDE6; --lr-blass: #DDE8D6; --lr-rand: #fff; }
+.lr-wueste { color-scheme: light; --lr-bg: #FBF3E4; --lr-flaeche: #fff; --lr-text: #3B2A14; --lr-leise: #6B5435; --lr-akzent: #B45309; --lr-akzent-tief: #85400A; --lr-auf-akzent: #fff;
+  --lr-gut: #0F766E; --lr-linie: #EBD9B8; --lr-meer: #CFE3EA; --lr-EU: #E7B85C; --lr-AS: #B9C98A; --lr-AF: #D98C5F; --lr-NA: #8EB1D1; --lr-SA: #C3A2C9; --lr-OC: #E3A08E; --lr-AN: #EFEBE3; --lr-blass: #EDE3D0; --lr-rand: #fff; }
+.lr-inhalt { flex: 1; width: 100%; max-width: 640px; margin: 0 auto; padding: 16px 16px 24px; box-sizing: border-box; display: flex; flex-direction: column; gap: 14px; }
+.lr-kopf { padding: 4px 2px 0; }
+.lr-gruss { margin: 0; font-size: 15px; font-weight: 700; color: var(--lr-leise); }
+.lr-titel { margin: 2px 0 0; font-size: 28px; line-height: 1.1; font-weight: 800; }
+.lr-studio .lr-titel { font-weight: 700; letter-spacing: -.01em; }
+.lr-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.lr-stat { background: var(--lr-flaeche); border-radius: var(--lr-radius-klein); padding: 10px 12px; display: flex; align-items: center; gap: 8px; border: 1px solid var(--lr-linie); color: var(--lr-gut); }
+.lr-stat b { display: block; font-size: 20px; line-height: 1; color: var(--lr-text); }
+.lr-stat span { font-size: 12px; font-weight: 700; color: var(--lr-leise); }
+.lr-karte-box { background: var(--lr-flaeche); border: 1px solid var(--lr-linie); border-radius: var(--lr-radius); padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+.lr-entdecker .lr-karte-box { box-shadow: 0 5px 0 var(--lr-linie); border-width: 0; }
+.lr-karte-box h2 { margin: 0; font-size: 22px; line-height: 1.15; }
+.lr-ueber { margin: 0; font-size: 12px; font-weight: 800; letter-spacing: .07em; color: var(--lr-gut); }
+.lr-leise { margin: 0; color: var(--lr-leise); font-size: 15px; }
+.lr-kartenbild { border-radius: var(--lr-radius-klein); overflow: hidden; line-height: 0; }
+.lr-kartenbild .lr-karte { width: 100%; height: auto; aspect-ratio: 340 / 140; display: block; }
+.lr-welt .lr-karte { aspect-ratio: 1000 / 520; }
+.lr-meer { fill: var(--lr-meer); }
+.lr-land { stroke: var(--lr-rand); stroke-linejoin: round; }
+.lr-land-EU { fill: var(--lr-EU); } .lr-land-AS { fill: var(--lr-AS); } .lr-land-AF { fill: var(--lr-AF); } .lr-land-NA { fill: var(--lr-NA); }
+.lr-land-SA { fill: var(--lr-SA); } .lr-land-OC { fill: var(--lr-OC); } .lr-land-AN { fill: var(--lr-AN); }
+.lr-land.lr-land-blass { fill: var(--lr-blass); }
+.lr-route { fill: none; stroke: var(--lr-text); stroke-linecap: round; opacity: .55; }
+.lr-punkt { stroke: var(--lr-rand); }
+.lr-punkt-fertig, .lr-punkt-kann { fill: var(--lr-gut); }
+.lr-punkt-jetzt { fill: var(--lr-akzent); }
+.lr-punkt-offen { fill: var(--lr-flaeche); stroke: var(--lr-leise); }
+.lr-ortname { fill: var(--lr-text); font-weight: 800; paint-order: stroke; stroke: var(--lr-flaeche); stroke-width: .35em; stroke-linejoin: round; }
+.lr-fortschritt { display: flex; align-items: center; gap: 10px; font-size: 14px; }
+.lr-balken { flex: 1; height: 12px; border-radius: 99px; background: var(--lr-linie); overflow: hidden; }
+.lr-balken span { display: block; height: 100%; background: var(--lr-gut); border-radius: 99px; }
+.lr-knopf { display: flex; align-items: center; justify-content: center; min-height: 56px; border-radius: var(--lr-radius-klein); background: var(--lr-akzent); color: var(--lr-auf-akzent);
+  text-decoration: none; font-size: 20px; font-weight: 800; border: 0; cursor: pointer; padding: 0 18px; }
+.lr-entdecker .lr-knopf { box-shadow: 0 5px 0 var(--lr-akzent-tief); }
+.lr-knopf:active { transform: translateY(2px); box-shadow: none; }
+.lr-knopf-klein { min-height: 44px; font-size: 16px; }
+.lr-knopf:disabled { opacity: .5; }
+.lr-zwischen { margin: 6px 2px 0; font-size: 18px; }
+.lr-zeile { display: flex; align-items: center; gap: 12px; background: var(--lr-flaeche); border: 1px solid var(--lr-linie); border-radius: var(--lr-radius-klein); padding: 12px 14px; color: var(--lr-text); text-decoration: none; min-height: 44px; }
+.lr-zeile-icon { width: 40px; height: 40px; border-radius: 12px; display: grid; place-items: center; background: var(--lr-bg); color: var(--lr-gut); flex: none; }
+.lr-zeile-text { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.lr-zeile-text small { color: var(--lr-leise); font-size: 13px; }
+.lr-zeile-zustand { font-size: 13px; font-weight: 800; color: var(--lr-leise); white-space: nowrap; }
+.lr-mehr > summary { cursor: pointer; font-weight: 800; padding: 8px 2px; color: var(--lr-leise); min-height: 32px; }
+.lr-mehr[open] { display: flex; flex-direction: column; gap: 8px; }
+.lr-nav { position: sticky; bottom: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); background: var(--lr-flaeche); border-top: 1px solid var(--lr-linie); padding: 8px 8px calc(8px + env(safe-area-inset-bottom)); z-index: 5; }
+.lr-nav a { display: flex; flex-direction: column; align-items: center; gap: 2px; min-height: 48px; justify-content: center; text-decoration: none; color: var(--lr-leise); font-size: 12px; font-weight: 800; }
+.lr-nav a.on { color: var(--lr-akzent); }
+.lr-nacht .lr-nav a.on { color: var(--lr-akzent); }
+.lr-legende { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin: 0; font-size: 13px; font-weight: 700; color: var(--lr-leise); }
+.lr-dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: -6px; vertical-align: middle; }
+.lr-dot-fertig { background: var(--lr-gut); } .lr-dot-jetzt { background: var(--lr-akzent); } .lr-dot-offen { background: var(--lr-flaeche); border: 2px solid var(--lr-leise); box-sizing: border-box; }
+.lr-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.lr-chips button { min-height: 44px; padding: 0 14px; border-radius: 99px; border: 1px solid var(--lr-linie); background: var(--lr-flaeche); color: var(--lr-text); font: inherit; font-weight: 800; cursor: pointer; }
+.lr-chips button small { font-weight: 600; color: var(--lr-leise); }
+.lr-chips button.on { background: var(--lr-akzent); color: var(--lr-auf-akzent); border-color: var(--lr-akzent); }
+.lr-chips button.on small { color: inherit; }
+.lr-ortliste { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.lr-ortliste li { display: flex; align-items: center; gap: 10px; padding: 6px 4px; }
+.lr-ortliste li.lr-ort-jetzt { background: var(--lr-bg); border-radius: 12px; padding: 8px; }
+.lr-nr { width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--lr-linie); display: grid; place-items: center; font-size: 13px; font-weight: 800; flex: none; box-sizing: border-box; }
+.lr-ort-fertig .lr-nr, .lr-ort-kann .lr-nr { background: var(--lr-gut); border-color: var(--lr-gut); color: var(--lr-flaeche); }
+.lr-ort-jetzt .lr-nr { background: var(--lr-akzent); border-color: var(--lr-akzent); color: var(--lr-auf-akzent); }
+.lr-stempelraster { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 10px; }
+.lr-stempel { aspect-ratio: 1; border-radius: 50%; border: 3px dashed var(--lr-akzent); color: var(--lr-akzent); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; transform: rotate(var(--dreh, -6deg)); padding: 6px; box-sizing: border-box; }
+.lr-stempel b { font-size: 14px; line-height: 1.1; text-transform: uppercase; }
+.lr-stempel small { font-size: 10px; font-weight: 700; }
+.lr-stempel-gross { display: flex; align-items: center; gap: 16px; margin: 8px 0; }
+.lr-stempel-gross .lr-stempel { width: 96px; flex: none; }
+.lr-belohnungen { display: flex; flex-direction: column; gap: 8px; }
+.lr-belohnung { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 12px; border: 1px solid var(--lr-linie); border-radius: var(--lr-radius-klein); }
+.lr-belohnung small { display: block; color: var(--lr-leise); }
+.lr-fehlt { color: var(--lr-leise); font-weight: 700; text-align: right; }
+.lr-wuensche { margin: 4px 0 0; padding-left: 18px; color: var(--lr-leise); font-size: 14px; }
+.lr-meldung { margin: 0; font-weight: 700; color: var(--lr-gut); }
+.lr-meldung:empty { display: none; }
+.lr-look { display: flex; flex-direction: column; gap: 8px; }
+/* Lerneinheit innerhalb der Lernreise */
+.lr .card, .lr .lern-reiter button.on { background: var(--lr-flaeche); color: var(--lr-text); border-color: var(--lr-linie); }
+.lr .lern-reiter { background: var(--lr-bg); border-color: var(--lr-linie); }
+.lr .lern-reiter button { color: var(--lr-leise); }
+.lr .muted, .lr .small.muted { color: var(--lr-leise); }
+.lr button.primary, .lr .btn.primary { background: var(--lr-akzent); color: var(--lr-auf-akzent); border-color: var(--lr-akzent); }
+.lr button.secondary, .lr .btn.secondary { background: var(--lr-flaeche); color: var(--lr-text); border: 1px solid var(--lr-linie); }
+.lr .lern-option { background: var(--lr-flaeche); border-color: var(--lr-linie); color: var(--lr-text); }
+.lr .lern-option:has(input:checked) { border-color: var(--lr-akzent); background: var(--lr-bg); }
+.lr input[type=text], .lr input[type=number] { background: var(--lr-flaeche); color: var(--lr-text); border-color: var(--lr-linie); }
+.lr .lern-strahl .achse, .lr .lern-strahl .strich { stroke: var(--lr-text); }
+.lr .lern-strahl .zahl { fill: var(--lr-text); }
+.lr .lern-strahl .spitze, .lr .lern-strahl .pfeil { fill: var(--lr-akzent); }
+.lr .lern-strahl .ziel.on { fill: var(--lr-akzent); stroke: var(--lr-akzent); }
+.lr .lern-beispiel { background: var(--lr-bg); color: var(--lr-text); }
+/* Eltern */
+.lern-kinderliste { display: grid; gap: 10px; max-width: 760px; }
+.lern-kindkarte { display: grid; gap: 4px; text-decoration: none; color: var(--text); }
+.lern-kindkarte p { margin: 0; }
+.lern-kindkarte-los { font-weight: 700; color: var(--accent); }
+.lern-eltern { max-width: 760px; margin-top: 26px; display: grid; gap: 12px; }
+.lern-eltern h2 { margin: 0; }
+.lern-wunsch { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; padding: 8px 0; border-top: 1px solid var(--border); }
+.lern-katalog { list-style: none; margin: 0 0 12px; padding: 0; display: grid; gap: 6px; }
+.lern-katalog li { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+.lern-bl-form { display: grid; gap: 8px; border-top: 1px solid var(--border); padding-top: 12px; }
+.lern-bl-form .row label { display: grid; gap: 4px; flex: 1; }

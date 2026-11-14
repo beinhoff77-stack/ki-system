@@ -49,13 +49,26 @@ async function setup(t) {
   await page.route('**/functions/v1/lernen-api/**', async (route) => {
     const b = JSON.parse(route.request().postData() || '{}'); calls.push(b); const d = b.daten || {};
     let e;
+    const geo = (ort, stadt, land, lat, lon, kontinent, kt, erdteil) => ({ ort, stadt, land, lat, lon, kontinent, kontinent_titel: kt, erdteil });
     if (b.aktion === 'schule_uebersicht') e = { ok: true, leitung: true, einheiten: [
-      { id: 1, status: 'geprueft', block_id: 49, ort: 'z1', ort_titel: 'Natürliche und ganze Zahlen', titel: 'Natürliche Zahlen', ziel: 'Große Zahlen lesen.', pflicht_anzahl: 4, ziel_klasse: 5 },
-      { id: 2, status: 'geprueft', block_id: 52, ort: 'g4', ort_titel: 'Zinsen', titel: 'Einfache Zinsen', ziel: 'Zinsen berechnen.', pflicht_anzahl: 6, ziel_klasse: 7 },
-      { id: 3, status: 'entwurf', block_id: 60, ort: 'a3', ort_titel: 'Terme', titel: 'Terme umformen', ziel: 'Terme umformen.', pflicht_anzahl: 8 }],
-      lernende: [{ id: 1, name: 'Kind A', klasse: 5, ist_test: false, route: [{ block_id: 49, position: 101, status: 'offen', kann_schon: false }, { block_id: 52, position: 206, status: 'offen', kann_schon: false }], stand: [{ einheit_id: 1, fertig: 2, fehler: 1, gesichert: 0, blocktest: true, laeuft: false }] },
-        { id: 2, name: 'Kind B', klasse: 7, ist_test: false, route: [{ block_id: 49, position: 101, status: 'offen', kann_schon: true }, { block_id: 52, position: 206, status: 'offen', kann_schon: false }], stand: [] },
+      { id: 1, status: 'geprueft', block_id: 49, ...geo('z1', 'Rom', 'Italien', 41.9, 12.5), kontinent: 'Zahlen', erdteil: 'Europa', ort_titel: 'Natürliche und ganze Zahlen', titel: 'Natürliche Zahlen', ziel: 'Große Zahlen lesen.', pflicht_anzahl: 4, ziel_klasse: 5 },
+      { id: 2, status: 'geprueft', block_id: 52, ...geo('g4', 'New York', 'USA', 40.71, -74.01), kontinent: 'Geld und Verhältnisse', erdteil: 'Nordamerika', ort_titel: 'Zinsen', titel: 'Einfache Zinsen', ziel: 'Zinsen berechnen.', pflicht_anzahl: 6, ziel_klasse: 7 },
+      { id: 3, status: 'entwurf', block_id: 60, ...geo('a3', 'Samarkand', 'Usbekistan', 39.65, 66.96), kontinent: 'Algebra', erdteil: 'Asien', ort_titel: 'Terme', titel: 'Terme umformen', ziel: 'Terme umformen.', pflicht_anzahl: 8, ziel_klasse: 7 }],
+      orte: [
+        { block_id: 49, titel: 'Natürliche und ganze Zahlen', ziel_klasse: 5, hat_einheit: true, ...geo('z1', 'Rom', 'Italien', 41.9, 12.5, 'zahlen', 'Zahlen', 'Europa') },
+        { block_id: 48, titel: 'Teilbarkeit', ziel_klasse: 5, hat_einheit: false, ...geo('z2', 'Athen', 'Griechenland', 37.98, 23.73, 'zahlen', 'Zahlen', 'Europa') },
+        { block_id: 47, titel: 'Brüche', ziel_klasse: 6, hat_einheit: false, ...geo('z3', 'Pisa', 'Italien', 43.72, 10.4, 'zahlen', 'Zahlen', 'Europa') },
+        { block_id: 52, titel: 'Zinsen', ziel_klasse: 7, hat_einheit: true, ...geo('g4', 'New York', 'USA', 40.71, -74.01, 'geld', 'Geld und Verhältnisse', 'Nordamerika') },
+        { block_id: 60, titel: 'Terme umformen', ziel_klasse: 7, hat_einheit: false, ...geo('a3', 'Samarkand', 'Usbekistan', 39.65, 66.96, 'algebra', 'Algebra', 'Asien') }],
+      lernende: [{ id: 1, name: 'Kind A', klasse: 5, stil: 'entdecker', welt: 'Ozean', ist_test: false, route: [{ block_id: 49, position: 101, status: 'offen', kann_schon: false }, { block_id: 52, position: 206, status: 'offen', kann_schon: false }], stand: [{ einheit_id: 1, fertig: 2, fehler: 1, gesichert: 0, blocktest: true, laeuft: false }] },
+        { id: 2, name: 'Kind B', klasse: 7, stil: 'studio', welt: 'Nacht', ist_test: false, route: [{ block_id: 49, position: 101, status: 'fertig', kann_schon: false }, { block_id: 52, position: 206, status: 'offen', kann_schon: false }], stand: [] },
         { id: 3, name: 'Testkind', ist_test: true, route: [], stand: [] }] };
+    else if (b.aktion === 'schule_konto') e = { ok: true, konto: { sterne: 340, sterne_gesamt: 340, stempel: d.lernender_id === 2 ? 1 : 0, lerntage: 12 },
+      look: { stil: d.lernender_id === 2 ? 'studio' : 'entdecker', welt: d.lernender_id === 2 ? 'Nacht' : 'Ozean' },
+      belohnungen: [{ id: 5, titel: 'Eis', kosten_sterne: 300, kosten_stempel: 0 }, { id: 6, titel: 'Kinoabend', kosten_sterne: 0, kosten_stempel: 3 }], einloesungen: [] };
+    else if (b.aktion === 'schule_eltern') e = { ok: true, kinder: [{ id: 1, name: 'Kind A', konto: { sterne: 340, stempel: 0, lerntage: 12 } }], belohnungen: [{ id: 5, titel: 'Eis', kosten_sterne: 300, kosten_stempel: 0, aktiv: true }],
+      einloesungen: [{ id: 9, kind: 'Kind A', titel: 'Eis', sterne: 300, status: 'beantragt' }] };
+    else if (['schule_einloesen', 'schule_look_setzen', 'schule_belohnung_setzen', 'schule_einloesung_entscheiden'].includes(b.aktion)) e = { ok: true };
     else if (b.aktion === 'schule_einheit_lesen') e = { ok: true, einheit_id: d.einheit_id, status: 'geprueft', inhalt: { ziel: 'Natürliche Zahlen: große Zahlen lesen', verstehen: [{ titel: 'Stellenwerte', text: 'Jede Stelle ist zehnmal so viel wert.', beispiel: '2 000 = 2 · 1 000' }], merke: ['Dreiergruppen lesen.'] },
       uebungen: [zeig(AUFG[11]), zeig(AUFG[12]), zeig(AUFG[13])], stand: [{ lernziel: 'stellenwert', pflicht: true, status: 'offen' }], laufender_test: null };
     else if (b.aktion === 'schule_uebung_pruefen') { const a = AUFG[d.aufgabe_id]; e = { ok: true, ...bewerte(a, d.antwort), loesung: a.loesung, loesungsweg: 'Weg zur Lösung.' }; }
@@ -70,30 +83,63 @@ async function setup(t) {
   return { page, calls };
 }
 
-test('Lernen: Übersicht zeigt Kinder, Fortschritt und Entwürfe nur beim Testkind', async (t) => {
-  const { page } = await setup(t);
+test('Lernen: Eltern sehen Kinder, Belohnungen und offene Wünsche', async (t) => {
+  const { page, calls } = await setup(t);
   await page.goto(origin + '/#/lernen');
-  await page.getByRole('tab', { name: 'Kind A' }).waitFor();
-  await page.getByText('2 von 4 Lernzielen geschafft').waitFor();
-  // Kind A (Kl. 5): Zinsen (Kl. 7) unter „Später“, eingeklappt
-  assert.equal(await page.locator('details.lern-weitere', { hasText: 'Später' }).count(), 1);
-  assert.equal(await page.getByText('Einfache Zinsen').isVisible(), false);
-  await page.getByRole('tab', { name: 'Kind B' }).click();
-  // Kind B (Kl. 7): Zinsen jetzt dran, z1 unter „Kann schon“
-  assert.equal(await page.getByText('Einfache Zinsen').isVisible(), true);
-  assert.equal(await page.locator('details.lern-weitere', { hasText: 'Kann schon' }).count(), 1);
-  assert.equal(await page.getByText('Natürliche Zahlen', { exact: true }).isVisible(), false);
-  await page.getByRole('tab', { name: 'Kind A' }).click();
-  assert.equal(await page.getByText('Terme umformen', { exact: true }).count(), 0);
-  await page.getByRole('tab', { name: /Testkind/ }).click();
-  await page.getByText('Terme umformen', { exact: true }).waitFor();
-  assert.equal(await page.locator('.pill', { hasText: 'Entwurf' }).count(), 1);
+  await page.getByRole('heading', { name: 'Mathe Klasse 7/8' }).waitFor();
+  await page.getByText('Jetzt: Rom · Natürliche Zahlen (2/4)').waitFor();
+  await page.getByText('möchte „Eis“').waitFor();
+  await page.getByRole('button', { name: 'Bestätigen' }).click();
+  await page.locator('#bl-titel').fill('Kinoabend');
+  await page.locator('#bl-stempel').fill('3');
+  await page.getByRole('button', { name: 'Hinzufügen' }).click();
+  await page.waitForTimeout(200);
+  assert.deepEqual(calls.filter((c) => c.aktion === 'schule_einloesung_entscheiden').map((c) => c.daten), [{ id: 9, status: 'bestaetigt' }]);
+  assert.equal(calls.find((c) => c.aktion === 'schule_belohnung_setzen').daten.kosten_stempel, 3);
+});
+
+test('Lernreise: Heute dran auf der echten Karte, Weltkarte und Reisepass', async (t) => {
+  const { page, calls } = await setup(t);
+  await page.goto(origin + '/#/reise/1');
+  await page.getByRole('heading', { name: 'Rom: Natürliche Zahlen' }).waitFor();
+  assert.equal(await page.locator('.lr.lr-ozean.lr-entdecker').count(), 1);
+  assert.equal(await page.locator('#areas').isVisible(), false);
+  await page.getByText('Du bist in Rom').waitFor();
+  assert.equal(await page.locator('details.lr-mehr', { hasText: 'Später' }).count(), 1);
+  fs.mkdirSync(path.join(root, 'test-results'), { recursive: true });
+  await page.screenshot({ path: path.join(root, 'test-results/lernreise-heute-390.png'), fullPage: true });
+  await page.getByRole('link', { name: 'Karte' }).click();
+  await page.getByRole('heading', { name: '0 von 5 Orten' }).waitFor();
+  await page.getByText('Rom: Natürliche und ganze Zahlen').waitFor();
+  await page.screenshot({ path: path.join(root, 'test-results/lernreise-karte-390.png'), fullPage: true });
+  await page.getByRole('link', { name: 'Reisepass' }).click();
+  await page.getByRole('heading', { name: 'Belohnungen' }).waitFor();
+  await page.getByText('noch 3 Stempel').waitFor();
+  await page.getByRole('button', { name: 'Einlösen' }).click();
+  await page.getByText('Wunsch „Eis“ ist abgeschickt').waitFor();
+  await page.getByRole('button', { name: /Nacht/ }).click();
+  await page.waitForTimeout(200);
+  assert.deepEqual(calls.find((c) => c.aktion === 'schule_einloesen').daten, { lernender_id: 1, belohnung_id: 5 });
+  assert.deepEqual(calls.find((c) => c.aktion === 'schule_look_setzen').daten, { lernender_id: 1, stil: 'entdecker', welt: 'Nacht' });
   const w = await page.evaluate(() => document.documentElement.scrollWidth); assert.ok(w <= 390, 'keine Querverschiebung: ' + w);
+});
+
+test('Lernreise: Kind B (Studio, Nacht) – Rom geschafft als Stempel, Zinsen jetzt dran', async (t) => {
+  const { page } = await setup(t);
+  await page.goto(origin + '/#/reise/2');
+  await page.getByRole('heading', { name: 'New York: Einfache Zinsen' }).waitFor();
+  assert.equal(await page.locator('.lr.lr-nacht.lr-studio').count(), 1);
+  await page.screenshot({ path: path.join(root, 'test-results/lernreise-leo-390.png'), fullPage: true });
+  await page.getByRole('link', { name: 'Reisepass' }).click();
+  await page.locator('.lr-stempel', { hasText: 'Rom' }).waitFor();
+  await page.goto(origin + '/#/reise/3');
+  await page.getByText('Terme umformen', { exact: false }).first().waitFor();
 });
 
 test('Lernen: Üben mit Zahl, Zahlenstrahl und Lückenfeldern', async (t) => {
   const { page, calls } = await setup(t);
   await page.goto(origin + '/#/lerneinheit/1-1');
+  await page.locator('.lr').waitFor();
   await page.getByText('Jede Stelle ist zehnmal so viel wert.').waitFor();
   await page.getByRole('tab', { name: 'Üben' }).click();
   await page.getByRole('textbox', { name: 'Antwort' }).fill('2.000');

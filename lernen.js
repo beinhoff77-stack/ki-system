@@ -1,13 +1,21 @@
-/* W150: Lernen Schule – Lerneinheiten in der App.
+/* W150: Lernen Schule – Lernreise der Kinder in der App.
    Spricht mit der Serverfunktion lernen-api (gleiche Anmeldung wie app-api). Die Datenbank prüft Zugriff,
-   bewertet Antworten und führt den Lernstand; die App zeigt nur an und schickt Eingaben.
-   Ansichten: #/lernen (Kind wählen, Einheiten je Ort) · #/lerneinheit/<kind>-<einheit> (Verstehen · Üben · Test). */
+   bewertet Antworten und führt Lernstand, Sterne und Stempel; die App zeigt nur an und schickt Eingaben.
+   Ansichten:
+     #/lernen                      Eltern: Mathe-Merkblatt, Lernreisen der Kinder, Belohnungen und Einlösungen
+     #/reise/<kind>                Kind: Heute dran (aktueller Ort auf der echten Weltkarte)
+     #/weltkarte/<kind>            Kind: Weltkarte, Kontinente und Orte
+     #/reisepass/<kind>            Kind: Stempel, Sterne, Belohnungen, Look wählen
+     #/lerneinheit/<kind>-<einheit> Kind: Verstehen · Üben · Test
+   Karte: echte Weltkarte (lernen-welt.js), jedes Mathe-Gebiet liegt fest auf einem Erdteil, jeder Ort ist eine echte Stadt. */
 'use strict';
 
 const lernApi = () => API.replace('/app-api', '/lernen-api'); // API kommt aus app.js (wird danach geladen)
-const LERN_KIND_KEY = 'lern_kind';
 const LZ_STATUS = { offen: 'offen', nachgewiesen: 'geschafft', korrigiert: 'verbessert', gesichert: 'sicher', fehler: 'noch üben' };
 const LZ_KLASSE = { offen: '', nachgewiesen: 'neu', korrigiert: 'neu', gesichert: 'neu', fehler: 'fehler' };
+const LERN_ERDTEIL = { zahlen: 'EU', algebra: 'AS', geld: 'NA', geometrie: 'AF', raum: 'SA', daten: 'OC', funktionen: 'AN' };
+const LERN_WELTEN = [['Ozean', 'Ozean'], ['Nacht', 'Nacht'], ['Dschungel', 'Dschungel'], ['Wüste', 'Wüste']];
+const LERN_STILE = [['entdecker', 'Entdecker', 'verspielt, große Knöpfe'], ['studio', 'Studio', 'klar und sachlich']];
 
 async function lernCall(aktion, daten = {}) {
   const headers = { 'Content-Type': 'application/json' };
@@ -18,36 +26,153 @@ async function lernCall(aktion, daten = {}) {
   if (!j.ok) throw new Error(j.fehler || 'Fehler bei ' + aktion);
   return j.ergebnis;
 }
-const lernKindMerken = (id) => { try { localStorage.setItem(LERN_KIND_KEY, String(id)); } catch { /* privat */ } };
-const lernKindGemerkt = () => { try { return Number(localStorage.getItem(LERN_KIND_KEY)) || null; } catch { return null; } };
 const lernCid = () => (crypto.randomUUID ? crypto.randomUUID() : Date.now() + '-' + Math.random().toString(16).slice(2));
-const lernText = (t) => String(t ?? '').replace(/(\d) (?=\d{3}(?!\d))/g, '$1\u00a0'); // Zahlen wie 20 000 nicht umbrechen
-const lernZahl = (n) => Number(n).toLocaleString('de-DE').replace(/\./g, ' ');
+const lernText = (t) => String(t ?? '').replace(/(\d) (?=\d{3}(?!\d))/g, '$1 '); // Zahlen wie 20 000 nicht umbrechen
+const lernZahl = (n) => Number(n).toLocaleString('de-DE').replace(/\./g, ' ');
+const lernIcon = (d, size = 24) => {
+  const s = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  s.setAttribute('viewBox', '0 0 24 24'); s.setAttribute('width', size); s.setAttribute('height', size); s.setAttribute('aria-hidden', 'true');
+  s.setAttribute('fill', 'none'); s.setAttribute('stroke', 'currentColor'); s.setAttribute('stroke-width', '2.2'); s.setAttribute('stroke-linecap', 'round'); s.setAttribute('stroke-linejoin', 'round');
+  for (const p of d.split('|')) { const e = document.createElementNS('http://www.w3.org/2000/svg', 'path'); e.setAttribute('d', p); s.append(e); }
+  return s;
+};
+const LI = {
+  heute: 'M3 11l9-7 9 7v9H5z', karte: 'M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z|M9 4v14|M15 6v14', pass: 'M6 3h12a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z|M9 11a3 3 0 1 0 6 0a3 3 0 1 0-6 0|M9 17h6',
+  stern: 'M12 3l2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4 6.7 19.4l1.2-6L3.4 9.3l6-.7z', stempel: 'M12 3a9 9 0 1 0 0 18a9 9 0 1 0 0-18z|M12 8a4 4 0 1 0 0 8a4 4 0 1 0 0-8z',
+  tag: 'M4 6h16v14H4z|M4 10h16|M8 3v4|M16 3v4', pfeil: 'M9 6l6 6-6 6', ort: 'M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z|M12 8a2 2 0 1 0 0 4a2 2 0 1 0 0-4z',
+  zurueck: 'M3 12a9 9 0 1 0 3-6.7|M3 4v5h5', haken: 'M5 12l5 5 9-10',
+};
 
-// ---------- Übersicht ----------
+// ---------- Daten je Kind ----------
+// Ordnet die Orte eines Kindes: Jetzt dran · Kann schon · Später (nach Route und Klassenstufe); mit Stand je Einheit.
+function lernReiseDaten(u, kindId) {
+  const kind = (u.lernende || []).find((k) => k.id === kindId);
+  if (!kind) return null;
+  const stand = new Map((kind.stand || []).map((s) => [s.einheit_id, s]));
+  const route = new Map((kind.route || []).map((r) => [r.block_id, r]));
+  const einheiten = (u.einheiten || []).filter((e) => e.status !== 'entwurf' || kind.ist_test);
+  const gruppe = (e) => {
+    const r = route.get(e.block_id);
+    if (kind.ist_test || !kind.route?.length) return 'jetzt';
+    if (r?.kann_schon || r?.status === 'fertig') return 'kann'; // geschaffte Orte wandern zu „zum Wiederholen“
+    if (e.ziel_klasse && kind.klasse && e.ziel_klasse > kind.klasse) return 'spaeter';
+    return 'jetzt';
+  };
+  const pos = (e) => route.get(e.block_id)?.position ?? 1e9;
+  const mit = einheiten.map((e) => {
+    const s = stand.get(e.id) || {};
+    const n = e.pflicht_anzahl || 0, f = Number(s.fertig || 0);
+    return { ...e, gruppe: gruppe(e), fertig: f, n, geschafft: n > 0 && f >= n, fehler: Number(s.fehler || 0), laeuft: !!s.laeuft, blocktest: !!s.blocktest, ortFertig: route.get(e.block_id)?.status === 'fertig' };
+  }).sort((a, b) => pos(a) - pos(b) || a.id - b.id);
+  const ortZustand = (o) => {
+    const r = route.get(o.block_id);
+    if (r?.status === 'fertig') return 'fertig';
+    if (r?.kann_schon) return 'kann';
+    if (mit.some((e) => e.block_id === o.block_id && e.gruppe === 'jetzt')) return 'jetzt';
+    return 'offen';
+  };
+  const orte = (u.orte || []).map((o) => ({ ...o, zustand: ortZustand(o) }));
+  const jetzt = mit.filter((e) => e.gruppe === 'jetzt');
+  const naechste = jetzt.find((e) => !e.geschafft) || jetzt[0] || null;
+  return { kind, mit, orte, jetzt, naechste, kann: mit.filter((e) => e.gruppe === 'kann'), spaeter: mit.filter((e) => e.gruppe === 'spaeter') };
+}
+
+function lernThema(kind) {
+  const welt = String(kind?.welt || 'Ozean').toLowerCase().replace('ü', 'ue');
+  const stil = kind?.stil === 'studio' ? 'studio' : 'entdecker';
+  return `lr lr-${['ozean', 'nacht', 'dschungel', 'wueste'].includes(welt) ? welt : 'ozean'} lr-${stil}`;
+}
+
+// ---------- Karte ----------
+function lernProjektion(lon, lat) {
+  const W = window.LERN_WELT; const l = lon * Math.PI / 180, f = lat * Math.PI / 180, f2 = f * f, f4 = f2 * f2;
+  const x = l * (0.8707 - 0.131979 * f2 + f4 * (-0.013791 + f4 * (0.003971 * f2 - 0.001529 * f4)));
+  const y = f * (1.007226 + f2 * (0.015085 + f4 * (-0.044475 + 0.028874 * f2 - 0.005916 * f4)));
+  return [W.tx + W.k * x, W.ty - W.k * y];
+}
+// Karte als SVG: ganze Welt oder Ausschnitt um die gegebenen Orte. hervor = Erdteil-Kürzel, das farbig bleibt.
+function lernKarte({ orte = [], fokus = null, hervor = null, route = false, beschriftung = [], label = 'Weltkarte', breite = 360, hoehe = 187 } = {}) {
+  const W = window.LERN_WELT; const ns = 'http://www.w3.org/2000/svg';
+  const svg = document.createElementNS(ns, 'svg');
+  let vb = [0, 0, W.w, W.h];
+  if (fokus && fokus.length) {
+    const p = fokus.map((o) => lernProjektion(Number(o.lon), Number(o.lat)));
+    let x0 = Math.min(...p.map((q) => q[0])), x1 = Math.max(...p.map((q) => q[0])), y0 = Math.min(...p.map((q) => q[1])), y1 = Math.max(...p.map((q) => q[1]));
+    const asp = breite / hoehe; let w = Math.max((x1 - x0) * 1.6, 170), h = Math.max((y1 - y0) * 1.7, 70);
+    if (w / h > asp) h = w / asp; else w = h * asp;
+    vb = [(x0 + x1) / 2 - w / 2, (y0 + y1) / 2 - h / 2, w, h];
+  }
+  const z = vb[2] / breite; // Kartenmaß je Bildschirmpixel: Punkte, Linien und Schrift bleiben unabhängig vom Ausschnitt gleich groß
+  svg.setAttribute('viewBox', vb.map((v) => v.toFixed(1)).join(' ')); svg.setAttribute('preserveAspectRatio', 'xMidYMid slice');
+  svg.setAttribute('class', 'lr-karte'); svg.setAttribute('role', 'img'); svg.setAttribute('aria-label', label);
+  const mk = (tag, a) => { const e = document.createElementNS(ns, tag); for (const [k, v] of Object.entries(a)) e.setAttribute(k, v); return e; };
+  svg.append(mk('rect', { x: vb[0] - 10, y: vb[1] - 10, width: vb[2] + 20, height: vb[3] + 20, class: 'lr-meer' }));
+  for (const k of ['AN', 'SA', 'NA', 'AF', 'EU', 'AS', 'OC']) {
+    svg.append(mk('path', { d: W.pfade[k], class: 'lr-land lr-land-' + k + (hervor && hervor !== k ? ' lr-land-blass' : ''), 'stroke-width': (1.2 * z).toFixed(2) }));
+  }
+  const pts = orte.filter((o) => o.lat != null).map((o) => ({ o, p: lernProjektion(Number(o.lon), Number(o.lat)) }));
+  if (route && pts.length > 1) {
+    svg.append(mk('path', { d: 'M' + pts.map((q) => q.p.map((v) => v.toFixed(1)).join(' ')).join(' L'), class: 'lr-route', 'stroke-width': (2.4 * z).toFixed(2), 'stroke-dasharray': `${(2 * z).toFixed(2)} ${(6 * z).toFixed(2)}` }));
+  }
+  for (const { o, p } of pts) {
+    const r = (o.zustand === 'jetzt' ? 7 : 4.6) * z;
+    svg.append(mk('circle', { cx: p[0].toFixed(1), cy: p[1].toFixed(1), r: r.toFixed(2), class: 'lr-punkt lr-punkt-' + (o.zustand || 'offen'), 'stroke-width': (1.6 * z).toFixed(2) }));
+  }
+  for (const b of beschriftung) {
+    const p = lernProjektion(Number(b.lon), Number(b.lat));
+    const t = mk('text', { x: (p[0] + (b.dx ?? 9) * z).toFixed(1), y: (p[1] + (b.dy ?? 4) * z).toFixed(1), class: 'lr-ortname' + (b.jetzt ? ' lr-ortname-jetzt' : ''), 'font-size': ((b.gross ? 15 : 12) * z).toFixed(1) });
+    t.textContent = b.text; svg.append(t);
+  }
+  return svg;
+}
+
+// ---------- Rahmen der Kinderansicht ----------
+function lernRahmen(kind, aktiv, ...inhalt) {
+  const nav = el('nav', { class: 'lr-nav', 'aria-label': 'Lernreise' },
+    ...[['reise', 'Heute', LI.heute], ['weltkarte', 'Karte', LI.karte], ['reisepass', 'Reisepass', LI.pass]].map(([v, t, i]) =>
+      el('a', { href: `#/${v}/${kind.id}`, class: v === aktiv ? 'on' : '', ...(v === aktiv ? { 'aria-current': 'page' } : {}) }, lernIcon(i, 24), el('span', {}, t))));
+  return el('div', { class: lernThema(kind) }, el('div', { class: 'lr-inhalt' }, ...inhalt), nav);
+}
+function lernKopf(gruss, titel) {
+  return el('header', { class: 'lr-kopf' }, el('p', { class: 'lr-gruss' }, gruss), el('h1', { class: 'lr-titel' }, titel));
+}
+function lernStats(konto) {
+  const s = (icon, wert, text) => el('div', { class: 'lr-stat' }, lernIcon(icon, 22), el('div', {}, el('b', {}, String(wert)), el('span', {}, text)));
+  return el('div', { class: 'lr-stats' }, s(LI.stempel, konto?.stempel ?? 0, 'Stempel'), s(LI.stern, lernZahl(konto?.sterne ?? 0), 'Sterne'), s(LI.tag, konto?.lerntage ?? 0, 'Lerntage'));
+}
+async function lernLadeKind(arg) {
+  const kindId = Number(arg);
+  if (!kindId) { route('lernen'); return null; }
+  const [u, k] = await Promise.all([lernCall('schule_uebersicht'), lernCall('schule_konto', { lernender_id: kindId }).catch(() => null)]);
+  const d = lernReiseDaten(u, kindId);
+  if (!d) { route('lernen'); return null; }
+  if (k?.look) Object.assign(d.kind, k.look);
+  d.konto = k?.konto || null; d.belohnungen = k?.belohnungen || []; d.einloesungen = k?.einloesungen || [];
+  return d;
+}
+
+// ---------- Eltern: Übersicht ----------
 async function viewLernen() {
   setChrome('Lernen Schule', { tab: 'lernen' });
   const live = viewGuard();
   loading();
-  const u = await lernCall('schule_uebersicht');
+  const [u, eltern] = await Promise.all([lernCall('schule_uebersicht'), lernCall('schule_eltern').catch(() => null)]);
   if (!live()) return;
-  const kinder = u.lernende || [];
-  let kind = kinder.find((k) => k.id === lernKindGemerkt()) || kinder.find((k) => !k.ist_test) || kinder[0];
-  const liste = el('div', { class: 'lern-orte' });
-  const wahl = el('div', { class: 'lern-kinder', role: 'tablist', 'aria-label': 'Wer lernt?' });
-  const zeichne = () => {
-    wahl.replaceChildren(...kinder.map((k) => el('button', { type: 'button', role: 'tab', class: 'lern-kind' + (k === kind ? ' on' : ''), 'aria-selected': String(k === kind),
-      onclick: () => { kind = k; lernKindMerken(k.id); zeichne(); } }, k.name, k.ist_test ? el('small', {}, ' Prüfung') : null)));
-    liste.replaceChildren(...lernOrte(u, kind));
-  };
-  zeichne();
-  // Mathe-Merkblatt Kl. 7/8 (ohne Anmeldung, für Leo und den Lehrer) bleibt wie vorher oben sichtbar
+  const konten = new Map((eltern?.kinder || []).map((k) => [k.id, k.konto]));
   const url = new URL('mathe/', location.href).href;
   const status = el('span', { class: 'muted small', role: 'status' });
   const kopie = el('button', { type: 'button', class: 'secondary' }, 'Link kopieren');
   kopie.addEventListener('click', async () => {
     try { await navigator.clipboard.writeText(url); status.textContent = 'Link kopiert.'; }
     catch { status.textContent = 'Kopieren nicht möglich. Link bitte markieren und kopieren.'; }
+  });
+  const kinder = (u.lernende || []).map((k) => {
+    const d = lernReiseDaten(u, k.id); const n = d?.naechste; const ko = konten.get(k.id);
+    return el('a', { class: 'card lern-kindkarte', href: `#/reise/${k.id}` },
+      el('div', { class: 'lern-einheit-kopf' }, el('b', {}, k.name), k.ist_test ? el('span', { class: 'pill wartet' }, 'zum Ausprobieren') : null),
+      el('p', { class: 'small muted' }, n ? `Jetzt: ${n.stadt || n.ort_titel} · ${n.titel} (${n.fertig}/${n.n})` : 'Gerade nichts offen'),
+      ko ? el('p', { class: 'small muted' }, `${ko.stempel} Stempel · ${lernZahl(ko.sterne)} Sterne · ${ko.lerntage} Lerntage`) : null,
+      el('span', { class: 'lern-kindkarte-los' }, 'Lernreise öffnen ›'));
   });
   main.replaceChildren(
     el('section', { class: 'start-intro' }, el('p', { class: 'eyebrow' }, 'LERNEN SCHULE'), el('h2', {}, 'Mathe Klasse 7/8'),
@@ -56,73 +181,179 @@ async function viewLernen() {
       el('p', {}, 'Die Seite öffnet ohne Anmeldung. Du kannst den Link an Leo und die Lehrkraft schicken.'),
       el('div', { class: 'row' }, el('a', { class: 'btn primary', href: 'mathe/', target: '_blank', rel: 'noopener' }, 'Mathe öffnen ↗'), kopie, status),
       el('p', { class: 'muted small learn-url' }, url)),
-    el('section', { class: 'start-intro lern-neu' }, el('p', { class: 'eyebrow' }, 'LERNREISE · IM AUFBAU'), el('h2', {}, 'Wer lernt heute?'),
-      el('p', { class: 'small muted' }, 'Neue Lerneinheiten mit Tests. Das kindgerechte Design kommt noch.')),
-    kinder.length ? wahl : el('p', { class: 'card muted' }, 'Kein Kind freigeschaltet.'),
-    liste);
+    el('section', { class: 'start-intro lern-neu' }, el('p', { class: 'eyebrow' }, 'LERNREISE'), el('h2', {}, 'Wer lernt heute?')),
+    el('div', { class: 'lern-kinderliste' }, ...(kinder.length ? kinder : [el('p', { class: 'card muted' }, 'Kein Kind freigeschaltet.')])),
+    eltern ? lernElternBereich(eltern) : null);
 }
 
-function lernOrte(u, kind) {
-  if (!kind) return [];
-  const stand = new Map((kind.stand || []).map((s) => [s.einheit_id, s]));
-  const route = new Map((kind.route || []).map((r) => [r.block_id, r]));
-  const einheiten = (u.einheiten || []).filter((e) => e.status !== 'entwurf' || kind.ist_test);
-  if (!einheiten.length) return [el('p', { class: 'card muted' }, 'Noch keine freigegebenen Lerneinheiten.')];
-  // Je Kind einordnen: Jetzt dran (Ort auf der Route, nicht „kann schon“, Klassenstufe erreicht) · Kann schon · Später
-  const gruppe = (e) => {
-    const r = route.get(e.block_id);
-    if (kind.ist_test || !kind.route?.length) return 'jetzt';
-    if (r?.kann_schon) return 'kann';
-    if (e.ziel_klasse && kind.klasse && e.ziel_klasse > kind.klasse) return 'spaeter';
-    return 'jetzt';
+function lernElternBereich(e) {
+  const box = el('section', { class: 'lern-eltern' });
+  const offen = (e.einloesungen || []).filter((x) => x.status === 'beantragt');
+  const meldung = el('p', { class: 'small muted', role: 'status' });
+  const entscheide = async (id, status) => {
+    try { await lernCall('schule_einloesung_entscheiden', { id, status }); render(); } catch (err) { meldung.textContent = err.message; }
   };
-  const pos = (e) => route.get(e.block_id)?.position ?? 1e9;
-  const sortiert = [...einheiten].sort((a, b) => pos(a) - pos(b) || a.id - b.id);
-  const teil = (g) => sortiert.filter((e) => gruppe(e) === g);
-  const jetzt = teil('jetzt'), kann = teil('kann'), spaeter = teil('spaeter');
-  const out = [];
-  out.push(el('h2', { class: 'lern-gruppe' }, 'Jetzt dran'));
-  out.push(...(jetzt.length ? lernOrtKarten(jetzt, kind, stand, route) : [el('p', { class: 'card muted' }, 'Gerade ist hier nichts offen. Neue Einheiten kommen bald.')]));
-  if (kann.length) out.push(el('details', { class: 'lern-weitere' }, el('summary', {}, `Kann schon – zum Wiederholen (${kann.length})`), ...lernOrtKarten(kann, kind, stand, route)));
-  if (spaeter.length) out.push(el('details', { class: 'lern-weitere' }, el('summary', {}, `Später – für höhere Klassen (${spaeter.length})`), ...lernOrtKarten(spaeter, kind, stand, route)));
-  return out;
+  box.append(el('h2', {}, 'Belohnungen'),
+    el('p', { class: 'small muted' }, 'Die Kinder sammeln Sterne (Üben, Tests) und Stempel (geschaffte Orte) und lösen sie hier ein. Du bestätigst. Abgelehnt gibt die Sterne zurück.'));
+  if (offen.length) box.append(el('div', { class: 'card' }, el('h3', {}, `Offene Wünsche (${offen.length})`),
+    ...offen.map((x) => el('div', { class: 'lern-wunsch' }, el('span', {}, el('b', {}, x.kind), ` möchte „${x.titel}“ (${lernZahl(x.sterne)} Sterne)`),
+      el('div', { class: 'row' }, el('button', { type: 'button', class: 'primary', onclick: () => entscheide(x.id, 'bestaetigt') }, 'Bestätigen'),
+        el('button', { type: 'button', class: 'secondary', onclick: () => entscheide(x.id, 'abgelehnt') }, 'Ablehnen'))))));
+  const liste = (e.belohnungen || []);
+  box.append(el('div', { class: 'card' }, el('h3', {}, 'Katalog'),
+    liste.length ? el('ul', { class: 'lern-katalog' }, ...liste.map((b) => el('li', { class: b.aktiv ? '' : 'muted' },
+      el('span', {}, el('b', {}, b.titel), ` · ${b.kosten_sterne ? lernZahl(b.kosten_sterne) + ' Sterne' : ''}${b.kosten_sterne && b.kosten_stempel ? ' + ' : ''}${b.kosten_stempel ? b.kosten_stempel + ' Stempel' : ''}${b.kosten_sterne || b.kosten_stempel ? '' : 'gratis'}`),
+      el('button', { type: 'button', class: 'secondary', onclick: async () => { try { await lernCall('schule_belohnung_setzen', { id: b.id, aktiv: !b.aktiv }); render(); } catch (err) { meldung.textContent = err.message; } } }, b.aktiv ? 'Ausblenden' : 'Wieder anbieten'))))
+      : el('p', { class: 'small muted' }, 'Noch keine Belohnungen angelegt.'),
+    lernBelohnungFormular(meldung), meldung));
+  return box;
 }
 
-function lernOrtKarten(einheiten, kind, stand, route) {
-  const orte = new Map();
-  for (const e of einheiten) { if (!orte.has(e.block_id)) orte.set(e.block_id, []); orte.get(e.block_id).push(e); }
-  return [...orte.values()].map((es) => {
-    const r = route.get(es[0].block_id);
-    const fertig = r?.status === 'fertig';
-    return el('section', { class: 'lern-ort' },
-      el('h3', {}, es[0].ort_titel, el('span', { class: 'muted small' }, ' · Ort ' + es[0].ort + (es[0].ziel_klasse ? ' · Kl. ' + es[0].ziel_klasse : '')),
-        fertig ? el('span', { class: 'pill neu' }, 'abgeschlossen') : null),
-      ...es.map((e) => {
-        const s = stand.get(e.id) || {};
-        const n = e.pflicht_anzahl || 0, f = Number(s.fertig || 0);
-        const zustand = s.laeuft ? ['laeuft', 'Test läuft'] : n && f >= n ? ['neu', 'geschafft'] : s.fehler ? ['fehler', 'noch üben'] : s.blocktest ? ['wartet', 'Test gemacht'] : null;
-        return el('a', { class: 'card lern-einheit', href: `#/lerneinheit/${kind.id}-${e.id}` },
-          el('div', { class: 'lern-einheit-kopf' }, el('b', {}, e.titel),
-            e.status === 'entwurf' ? el('span', { class: 'pill wartet' }, 'Entwurf') : null,
-            zustand ? el('span', { class: 'pill ' + zustand[0] }, zustand[1]) : null),
-          e.ziel ? el('p', { class: 'small muted' }, e.ziel) : null,
-          n ? el('div', { class: 'lern-balken', role: 'img', 'aria-label': `${f} von ${n} Lernzielen geschafft` },
-            el('span', { style: `width:${Math.round(100 * f / n)}%` })) : null,
-          n ? el('p', { class: 'small muted' }, `${f} von ${n} Lernzielen geschafft`) : null);
-      }));
+function lernBelohnungFormular(meldung) {
+  const titel = el('input', { type: 'text', id: 'bl-titel', placeholder: 'z. B. Eis, Kinoabend, Ausflug', autocomplete: 'off' });
+  const sterne = el('input', { type: 'number', id: 'bl-sterne', min: '0', step: '10', value: '300', inputmode: 'numeric' });
+  const stempel = el('input', { type: 'number', id: 'bl-stempel', min: '0', step: '1', value: '0', inputmode: 'numeric' });
+  const f = el('form', { class: 'lern-bl-form' },
+    el('label', { for: 'bl-titel' }, 'Belohnung'), titel,
+    el('div', { class: 'row' }, el('label', { for: 'bl-sterne' }, 'Sterne', sterne), el('label', { for: 'bl-stempel' }, 'Stempel', stempel)),
+    el('button', { type: 'submit', class: 'primary' }, 'Hinzufügen'));
+  f.addEventListener('submit', async (ev) => {
+    ev.preventDefault();
+    if (!titel.value.trim()) { meldung.textContent = 'Bitte einen Namen eingeben.'; return; }
+    try { await lernCall('schule_belohnung_setzen', { titel: titel.value.trim(), kosten_sterne: Number(sterne.value) || 0, kosten_stempel: Number(stempel.value) || 0 }); render(); }
+    catch (err) { meldung.textContent = err.message; }
   });
+  return f;
 }
 
-// ---------- Einheit ----------
+// ---------- Kind: Heute dran ----------
+async function viewReise(arg) {
+  setChrome('Lernreise', { back: true, showTabs: false });
+  const live = viewGuard();
+  loading();
+  const d = await lernLadeKind(arg);
+  if (!d || !live()) return;
+  const { kind, naechste: n } = d;
+  $('#title').textContent = 'Lernreise ' + kind.name;
+  const teile = [lernKopf(`Hallo ${kind.name}!`, kind.stil === 'studio' ? 'Heute dran' : 'Wohin reist du heute?'), lernStats(d.konto)];
+  if (n) {
+    const kont = d.orte.filter((o) => o.kontinent === (d.orte.find((x) => x.block_id === n.block_id)?.kontinent));
+    const ortN = d.orte.find((o) => o.block_id === n.block_id) || {};
+    teile.push(el('section', { class: 'lr-karte-box lr-haupt' },
+      el('p', { class: 'lr-ueber' }, `JETZT DRAN · ${(n.erdteil || '').toUpperCase()} · ${(n.kontinent || '').toUpperCase()}`),
+      el('div', { class: 'lr-kartenbild' }, lernKarte({ orte: kont, fokus: kont.slice(0, Math.max(3, kont.indexOf(ortN) + 2)), hervor: LERN_ERDTEIL[ortN.kontinent], route: true,
+        beschriftung: [{ ...ortN, text: `Du bist in ${n.stadt}`, jetzt: true, gross: true }], label: `Karte: ${n.stadt}, ${n.land}`, breite: 340, hoehe: 130 })),
+      el('h2', {}, `${n.stadt}: ${n.titel}`),
+      n.ziel ? el('p', { class: 'lr-leise' }, n.ziel) : null,
+      n.n ? el('div', { class: 'lr-fortschritt' }, el('div', { class: 'lr-balken', role: 'img', 'aria-label': `${n.fertig} von ${n.n} Lernzielen` }, el('span', { style: `width:${Math.round(100 * n.fertig / n.n)}%` })), el('b', {}, `${n.fertig} von ${n.n}`)) : null,
+      el('a', { class: 'lr-knopf', href: `#/lerneinheit/${kind.id}-${n.id}` }, n.laeuft ? 'Test weitermachen' : n.fertig ? 'Weiter üben' : 'Losreisen')));
+  } else teile.push(el('section', { class: 'lr-karte-box' }, el('h2', {}, 'Gerade ist nichts offen'), el('p', { class: 'lr-leise' }, 'Neue Orte kommen bald. Schau in deinen Reisepass.')));
+  const weitere = d.jetzt.filter((e) => e !== n);
+  if (weitere.length) teile.push(el('h2', { class: 'lr-zwischen' }, 'Auch offen'), ...weitere.map((e) => lernOrtZeile(kind, e)));
+  if (d.kann.length) teile.push(el('details', { class: 'lr-mehr' }, el('summary', {}, `Geschafft oder kann schon – zum Wiederholen (${d.kann.length})`), ...d.kann.map((e) => lernOrtZeile(kind, e))));
+  if (d.spaeter.length) teile.push(el('details', { class: 'lr-mehr' }, el('summary', {}, `Später – für höhere Klassen (${d.spaeter.length})`), ...d.spaeter.map((e) => lernOrtZeile(kind, e))));
+  main.replaceChildren(lernRahmen(kind, 'reise', ...teile));
+}
+
+function lernOrtZeile(kind, e) {
+  const zustand = e.laeuft ? 'Test läuft' : e.geschafft ? 'geschafft' : e.fehler ? 'noch üben' : e.n ? `${e.fertig}/${e.n}` : '';
+  return el('a', { class: 'lr-zeile', href: `#/lerneinheit/${kind.id}-${e.id}` },
+    el('span', { class: 'lr-zeile-icon' }, lernIcon(e.geschafft ? LI.haken : LI.ort, 22)),
+    el('span', { class: 'lr-zeile-text' }, el('b', {}, `${e.stadt || e.ort_titel}: ${e.titel}`), el('small', {}, `${e.erdteil || ''} · ${e.kontinent || ''}${e.status === 'entwurf' ? ' · Entwurf' : ''}`)),
+    zustand ? el('span', { class: 'lr-zeile-zustand' }, zustand) : null, lernIcon(LI.pfeil, 20));
+}
+
+// ---------- Kind: Weltkarte ----------
+async function viewWeltkarte(arg) {
+  setChrome('Weltkarte', { back: true, showTabs: false });
+  const live = viewGuard();
+  loading();
+  const d = await lernLadeKind(arg);
+  if (!d || !live()) return;
+  const { kind } = d;
+  const konts = [...new Map(d.orte.map((o) => [o.kontinent, o])).values()];
+  const zaehl = (k) => { const os = d.orte.filter((o) => o.kontinent === k); return [os.filter((o) => o.zustand === 'fertig' || o.zustand === 'kann').length, os.length]; };
+  let wahl = d.orte.find((o) => o.zustand === 'jetzt')?.kontinent || konts[0]?.kontinent;
+  const detail = el('section', { class: 'lr-karte-box' });
+  const zeigeKontinent = () => {
+    const os = d.orte.filter((o) => o.kontinent === wahl); const k0 = os[0] || {};
+    detail.replaceChildren(
+      el('p', { class: 'lr-ueber' }, `${(k0.erdteil || '').toUpperCase()} · ${(k0.kontinent_titel || '').toUpperCase()}`),
+      os.length && k0.erdteil !== 'Antarktis' ? el('div', { class: 'lr-kartenbild' }, lernKarte({ orte: os, fokus: os, hervor: LERN_ERDTEIL[wahl], route: true,
+        beschriftung: os.filter((o) => o.zustand === 'jetzt').map((o) => ({ ...o, text: o.stadt, jetzt: true })), label: `Karte ${k0.erdteil}`, breite: 340, hoehe: 150 })) : null,
+      el('ol', { class: 'lr-ortliste' }, ...os.map((o, i) => el('li', { class: 'lr-ort-' + o.zustand },
+        el('span', { class: 'lr-nr' }, o.zustand === 'fertig' || o.zustand === 'kann' ? lernIcon(LI.haken, 16) : String(i + 1)),
+        el('span', { class: 'lr-zeile-text' }, el('b', {}, `${o.stadt}: ${o.titel}`), el('small', {}, `${o.land}${o.ziel_klasse ? ' · Kl. ' + o.ziel_klasse : ''}`)),
+        el('span', { class: 'lr-zeile-zustand' }, { fertig: 'Stempel', kann: 'kann schon', jetzt: 'jetzt', offen: o.hat_einheit ? '' : 'bald' }[o.zustand])))));
+  };
+  const knoepfe = el('div', { class: 'lr-chips', role: 'tablist', 'aria-label': 'Kontinente' });
+  const zeichneKnoepfe = () => knoepfe.replaceChildren(...konts.map((o) => {
+    const [f, n] = zaehl(o.kontinent);
+    return el('button', { type: 'button', role: 'tab', class: o.kontinent === wahl ? 'on' : '', 'aria-selected': String(o.kontinent === wahl),
+      onclick: () => { wahl = o.kontinent; zeichneKnoepfe(); zeigeKontinent(); } }, `${o.kontinent_titel} `, el('small', {}, `${f}/${n}`));
+  }));
+  zeichneKnoepfe(); zeigeKontinent();
+  const fertig = d.orte.filter((o) => o.zustand === 'fertig' || o.zustand === 'kann').length;
+  main.replaceChildren(lernRahmen(kind, 'weltkarte',
+    lernKopf('DEINE MATHE-WELTREISE', `${fertig} von ${d.orte.length} Orten`),
+    el('div', { class: 'lr-kartenbild lr-welt' }, lernKarte({ orte: d.orte, label: 'Weltkarte mit allen Orten' })),
+    el('p', { class: 'lr-legende' }, el('span', { class: 'lr-dot lr-dot-fertig' }), 'geschafft', el('span', { class: 'lr-dot lr-dot-jetzt' }), 'jetzt dran', el('span', { class: 'lr-dot lr-dot-offen' }), 'noch offen'),
+    knoepfe, detail));
+}
+
+// ---------- Kind: Reisepass ----------
+async function viewReisepass(arg) {
+  setChrome('Reisepass', { back: true, showTabs: false });
+  const live = viewGuard();
+  loading();
+  const d = await lernLadeKind(arg);
+  if (!d || !live()) return;
+  const { kind, konto } = d;
+  const meldung = el('p', { class: 'lr-meldung', role: 'status', 'aria-live': 'polite' });
+  const stempel = d.orte.filter((o) => o.zustand === 'fertig');
+  const belohnungen = d.belohnungen.map((b) => {
+    const fehltS = Math.max(0, b.kosten_sterne - (konto?.sterne || 0)), fehltP = Math.max(0, b.kosten_stempel - (konto?.stempel || 0));
+    const kann = !fehltS && !fehltP;
+    return el('div', { class: 'lr-belohnung' },
+      el('div', {}, el('b', {}, b.titel), el('small', {}, [b.kosten_sterne ? `${lernZahl(b.kosten_sterne)} Sterne` : '', b.kosten_stempel ? `${b.kosten_stempel} Stempel` : ''].filter(Boolean).join(' + ') || 'gratis')),
+      kann ? el('button', { type: 'button', class: 'lr-knopf lr-knopf-klein', onclick: async (ev) => {
+        ev.target.disabled = true;
+        try { await lernCall('schule_einloesen', { lernender_id: kind.id, belohnung_id: b.id }); meldung.textContent = `Wunsch „${b.titel}“ ist abgeschickt. Mama oder Papa bestätigen ihn.`; setTimeout(render, 1200); }
+        catch (err) { meldung.textContent = err.message; ev.target.disabled = false; }
+      } }, 'Einlösen') : el('small', { class: 'lr-fehlt' }, `noch ${[fehltS ? lernZahl(fehltS) + ' Sterne' : '', fehltP ? fehltP + ' Stempel' : ''].filter(Boolean).join(' + ')}`));
+  });
+  const look = el('div', { class: 'lr-look' });
+  const setze = async (stil, welt) => {
+    try { await lernCall('schule_look_setzen', { lernender_id: kind.id, stil, welt }); render(); } catch (err) { meldung.textContent = err.message; }
+  };
+  look.append(el('p', { class: 'lr-ueber' }, 'WELT'), el('div', { class: 'lr-chips' }, ...LERN_WELTEN.map(([w, t]) =>
+    el('button', { type: 'button', class: (kind.welt === w ? 'on ' : '') + 'lr-welt-' + w.toLowerCase().replace('ü', 'ue'), 'aria-pressed': String(kind.welt === w), onclick: () => setze(kind.stil || 'entdecker', w) }, t))),
+  el('p', { class: 'lr-ueber' }, 'STIL'), el('div', { class: 'lr-chips' }, ...LERN_STILE.map(([s, t, h]) =>
+    el('button', { type: 'button', class: kind.stil === s ? 'on' : '', 'aria-pressed': String(kind.stil === s), onclick: () => setze(s, kind.welt || 'Ozean') }, t, el('small', {}, ' · ' + h)))));
+  main.replaceChildren(lernRahmen(kind, 'reisepass',
+    lernKopf('REISEPASS', kind.name), lernStats(konto),
+    el('section', { class: 'lr-karte-box' }, el('h2', {}, 'Stempel'),
+      stempel.length ? el('div', { class: 'lr-stempelraster' }, ...stempel.map((o, i) => el('div', { class: 'lr-stempel', style: `--dreh:${(i * 37) % 17 - 8}deg` }, el('b', {}, o.stadt), el('small', {}, o.kontinent_titel))))
+        : el('p', { class: 'lr-leise' }, 'Noch kein Stempel. Den ersten gibt es, wenn du alle Lernziele eines Ortes geschafft hast.')),
+    el('section', { class: 'lr-karte-box' }, el('h2', {}, 'Belohnungen'),
+      belohnungen.length ? el('div', { class: 'lr-belohnungen' }, ...belohnungen) : el('p', { class: 'lr-leise' }, 'Mama oder Papa legen hier bald Belohnungen an.'),
+      d.einloesungen.length ? el('ul', { class: 'lr-wuensche' }, ...d.einloesungen.slice(0, 5).map((x) => el('li', {}, `${x.titel}: `, el('b', {}, { beantragt: 'wartet auf Bestätigung', bestaetigt: 'bestätigt', abgelehnt: 'abgelehnt' }[x.status] || x.status)))) : null,
+      meldung),
+    el('section', { class: 'lr-karte-box' }, el('h2', {}, 'Dein Look'), look)));
+}
+
+// ---------- Kind: Lerneinheit ----------
 async function viewLernEinheit(arg) {
-  setChrome('Lerneinheit', { back: true, tab: 'lernen' });
+  setChrome('Lerneinheit', { back: true, showTabs: false });
   const live = viewGuard();
   const [kindId, einheitId] = String(arg || '').split('-').map(Number);
   if (!kindId || !einheitId) { route('lernen'); return; }
   loading();
   const ctx = { kind: kindId, einheit: einheitId, live };
-  ctx.daten = await lernCall('schule_einheit_lesen', { lernender_id: kindId, einheit_id: einheitId });
+  const [daten, konto] = await Promise.all([lernCall('schule_einheit_lesen', { lernender_id: kindId, einheit_id: einheitId }), lernCall('schule_konto', { lernender_id: kindId }).catch(() => null)]);
+  ctx.daten = daten;
   if (!live()) return;
+  const kind = { id: kindId, ...(konto?.look || {}) };
   const inh = ctx.daten.inhalt || {};
   $('#title').textContent = (inh.ziel || 'Lerneinheit').split(':')[0];
   const body = el('div', { class: 'lern-body' });
@@ -133,8 +364,9 @@ async function viewLernEinheit(arg) {
     body.replaceChildren(k === 'verstehen' ? lernVerstehen(inh) : k === 'ueben' ? lernUeben(ctx) : lernTestStart(ctx, body));
   };
   leiste.append(...reiter.map(([k, t]) => el('button', { type: 'button', role: 'tab', 'data-k': k, onclick: () => zeige(k) }, t)));
-  main.replaceChildren(el('section', { class: 'lern-kopf' }, el('p', { class: 'eyebrow' }, ctx.daten.status === 'entwurf' ? 'ENTWURF · NUR TESTKIND' : 'LERNEINHEIT'),
-    el('p', {}, inh.ziel || '')), lernStandZeile(ctx.daten.stand), leiste, body);
+  main.replaceChildren(lernRahmen(kind, 'reise',
+    el('section', { class: 'lern-kopf' }, el('p', { class: 'lr-ueber' }, ctx.daten.status === 'entwurf' ? 'ENTWURF · NUR TESTKIND' : 'LERNEINHEIT'),
+      el('p', {}, inh.ziel || '')), lernStandZeile(ctx.daten.stand), leiste, body));
   zeige(ctx.daten.laufender_test ? 'test' : 'verstehen');
 }
 
@@ -387,7 +619,8 @@ function lernTestErgebnis(ctx, box, r) {
         bestanden: r.nachtest?.folgerunde && r.nachtest_runde >= 3 ? 'Nachtest geschafft (ab 80 %).' : `Nachtest-Runde ${r.nachtest_runde} geschafft (ab 80 %).`,
         wiederholen: 'Unter 80 %: Diese Runde zählt noch nicht. Verbessere die falschen Lernziele, dann kommt der Nachtest noch einmal.',
         rueckreise: 'Unter 60 %: Rückreise zu diesem Ort. Erst üben und verbessern, dann den Nachtest wiederholen.' }[r.nachtest_ergebnis])) : null,
-      ort.abgeschlossen ? el('p', { class: 'lern-rueck ok' }, el('b', {}, 'Ort abgeschlossen – weiter zum nächsten Ort.')) : null,
+      ort.abgeschlossen ? el('div', { class: 'lr-stempel-gross' }, el('div', { class: 'lr-stempel', style: '--dreh:-8deg' }, el('b', {}, 'GESCHAFFT'), el('small', {}, 'Neuer Stempel')),
+        el('p', {}, el('b', {}, 'Ort geschafft! Der Stempel ist jetzt in deinem Reisepass.'))) : null,
       lernStandZeile(r.lernziele)),
     ...(r.ergebnisse || []).map((x) => {
       const a = { ...x, antworttyp: x.antworttyp || (x.loesung?.werte ? 'luecken' : x.loesung?.index !== undefined ? (x.antworten ? 'auswahl' : 'markierung') : x.loesung?.text !== undefined ? 'text' : 'zahl') };
@@ -399,5 +632,6 @@ function lernTestErgebnis(ctx, box, r) {
         x.richtig ? null : el('p', { class: 'small' }, 'Richtig: ', el('b', {}, lernLoesungText(a))),
         x.loesungsweg && !x.richtig ? el('p', { class: 'small muted' }, x.loesungsweg) : null);
     }),
-    el('button', { type: 'button', class: 'primary', onclick: () => render() }, 'Zur Einheit'));
+    el('div', { class: 'row lern-knoepfe' }, el('button', { type: 'button', class: 'primary', onclick: () => render() }, 'Zur Einheit'),
+      el('a', { class: 'btn secondary', href: `#/reise/${ctx.kind}` }, 'Zur Reise')));
 }

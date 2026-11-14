@@ -1,0 +1,78 @@
+{
+  "thema_schluessel": "messen.koerper_darstellung",
+  "gesamturteil": "brauchbar",
+  "karten": [
+    {
+      "lernziel": "prisma",
+      "urteil": "ok",
+      "stufen": "Passen: Kanten/Flächen zählen → rückwärts (aus Kantenzahl n bestimmen) → Kantenlänge gesamt. Gute Umkehraufgaben.",
+      "fehlende_aufgabentypen": [
+        "Unmöglichkeit erkennen (auswahl, Stufe 3): ‚Kann ein Prisma 20 Kanten haben?‘ → ‚Nein, die Kantenzahl ist immer durch 3 teilbar.‘ | ‚Ja, ein 20-seitiges.‘ | ‚Ja, ein 10-seitiges.‘ Beispiel 2: ‚Kann ein Prisma 9 Ecken haben?‘ → ‚Nein, die Eckenzahl ist immer gerade.‘"
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "netz",
+      "urteil": "verbessern",
+      "stufen": "Rechnerisch gut. Die Karte heißt ‚Netz‘, prüft aber nie ein Netz selbst (welche Faltvorlage ergibt einen Würfel/Quader?). Das braucht eine Zeichnung, die die App noch nicht kann.",
+      "fehlende_aufgabentypen": [
+        "Netz erkennen (braucht Zeichnung: Netz aus Quadraten/Rechtecken – bisher nicht möglich → offen). Ersatz ohne Zeichnung (auswahl): ‚Ein Würfelnetz hat 6 Quadrate. In einer Reihe liegen 4 Quadrate nebeneinander, oben am 1. und unten am 4. Quadrat hängt je eines. Ergibt das einen Würfel?‘ → Ja. Beispiel 2: ‚… oben am 1. und oben am 2. Quadrat‘ → Nein (zwei Flächen überlappen).",
+        "Gegenüberliegende Flächen (zahl): ‚Auf einem Spielwürfel ergeben gegenüberliegende Augenzahlen zusammen 7. Welche Zahl liegt der 2 gegenüber?‘ → 5. Beispiel 2: ‚… der 6?‘ → 1. (Einstieg ins räumliche Denken.)"
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "zylinder",
+      "urteil": "verbessern",
+      "stufen": "Die Auswahl ‚Aus welchen Flächen besteht das Netz eines Zylinders (stehend)?‘ und ‚(liegend)‘ ist dieselbe Frage zweimal. Mantelfläche 16-mal dieselbe Vorlage.",
+      "fehlende_aufgabentypen": [
+        "Etikett einer Dose (zahl, Stufe 3): ‚Eine Dose hat den Durchmesser 7,5 cm und ist 11 cm hoch. Das Etikett überlappt 1 cm. Wie lang muss es sein? (π ≈ 3,14, auf eine Stelle runden)‘ → 24,6 cm (toleranz 0,1). Beispiel 2: ‚Durchmesser 10 cm, Überlappung 2 cm‘ → 33,4 cm."
+      ],
+      "generator_regeln": [
+        "Netzfrage nur einmal je Karte; Zusatz ‚(stehend)/(liegend)‘ streichen.",
+        "Mantelflächen-Vorlage höchstens 8-mal."
+      ]
+    },
+    {
+      "lernziel": "schraegbild",
+      "urteil": "verbessern",
+      "stufen": "Rechenaufgaben mit q gut. Ein Schrägbild selbst kommt nie vor (keine Zeichnung möglich).",
+      "fehlende_aufgabentypen": [
+        "Wahre Größe erkennen (auswahl, mehr davon): ‚Welche Fläche eines Quaders erscheint im Schrägbild (Vorderfläche parallel zur Zeichenebene) als Parallelogramm?‘ → ‚die Seitenflächen und die Deckfläche‘ | ‚nur die Vorderfläche‘ | ‚keine‘. Beispiel 2: ‚Welche Kante eines liegenden dreiseitigen Prismas (Dreieck vorne) wird verkürzt gezeichnet?‘ → ‚die Kanten, die nach hinten laufen‘ | ‚die Dreiecksseiten vorne‘ | ‚alle Kanten‘."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "ansichten",
+      "urteil": "ok",
+      "stufen": "Gute Zuordnung in beide Richtungen. Alle Körper-Auswahlaufgaben nachgeprüft (auch Quadrat als Sonderfall eines Rechtecks): eindeutig.",
+      "fehlende_aufgabentypen": [
+        "Zusammengesetzter Körper (auswahl, Stufe 3): ‚Ein Würfel trägt oben eine quadratische Pyramide mit derselben Grundfläche. Welche Form hat die Vorderansicht?‘ → ‚Quadrat mit Dreieck darauf (Haus)‘ | ‚Dreieck‘ | ‚Quadrat‘. Beispiel 2: ‚Zylinder mit Kegel oben (Bleistift stehend)‘ → ‚Rechteck mit Dreieck darauf‘; Draufsicht ‚Kreis‘."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "beurteilen",
+      "urteil": "verbessern",
+      "stufen": "Gute Aussagen. Alle 24 Aufgaben nachgeprüft: jeweils genau eine richtige/falsche Aussage. Eine Aussage ist aber mehrdeutig formuliert (siehe Fehlerliste).",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Aussage ‚Das Netz eines n-seitigen Prismas enthält n Rechtecke‘ nur für n ≠ 4 verwenden oder als ‚Der Mantel eines geraden n-seitigen Prismas besteht aus n Rechtecken‘ formulieren."
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Welche Aussage ist FALSCH?",
+      "art": "mehrdeutig",
+      "problem": "Antwort ‚Das Netz eines vierseitigen Prismas enthält 4 Rechtecke.‘ gilt als wahr. Bei einem Quader (auch ein vierseitiges Prisma) enthält das Netz aber 6 Rechtecke. ‚Enthält 4‘ kann als ‚genau 4‘ gelesen werden – dann wäre die Aussage falsch und die Aufgabe hätte zwei Lösungen.",
+      "korrektur": "Aussage ersetzen durch ‚Der Mantel eines geraden vierseitigen Prismas besteht aus 4 Rechtecken.‘"
+    },
+    {
+      "aufgabe": "Aus welchen Flächen besteht das Netz eines Zylinders (liegend)?",
+      "art": "sprache",
+      "problem": "‚liegend/stehend‘ ändert am Netz nichts; die Aufgabe ist eine Dublette von ‚… (stehend)?‘ und verwirrt eher.",
+      "korrektur": "Ersetzen durch ‚Ein Zylinder wird aufgeschnitten und flach gelegt. Wie viele Teilflächen hat das Netz?‘ → 3."
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "thema_schluessel": "bruch.dezimal",
+  "gesamturteil": "brauchbar",
+  "karten": [
+    {
+      "lernziel": "stellenwerte",
+      "urteil": "ok",
+      "stufen": "Gut: Ziffer an Stelle → Wert der Ziffer, aus Stellen zusammensetzen → Bündeln (8 Zehntel + 25 Hundertstel) und fehlende Zehntel. Sehr schöne Stufe 3.",
+      "fehlende_aufgabentypen": [
+        "Stellenwerttafel (zahl, f.grafik stellentafel mit Spalten E, z, h, t): Ziffern 4 | 0 | 7 | 2 → ‚Welche Zahl steht in der Tafel?‘ → 4,072. Beispiel 2: ‚Trage 0,305 ein – welche Ziffer steht bei h?‘ → 0."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "vergleichen_ordnen",
+      "urteil": "ok",
+      "stufen": "Passen; Ablenker ‚mehr Ziffern = größer‘ ist eingebaut. Alle Größte/Kleinste-Aufgaben nachgeprüft.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "runden",
+      "urteil": "verbessern",
+      "stufen": "Gut, Stufe 3 mit ‚nicht schrittweise runden‘ und Bereich ‚welche Zahl rundet auf 3,1‘. Beim Runden auf Hundertstel mit Übertrag wird das Ergebnis ohne Endnull angegeben (2,6 statt 2,60).",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Beim Runden auf Hundertstel/Tausendstel das Ergebnis im Lösungsweg mit allen Stellen schreiben (2,596 ≈ 2,60) und erklären, warum die Null stehen bleibt.",
+        "Preise aktuell halten (Benzin etwa 1,60–1,90 € pro Liter, Strom etwa 0,30–0,40 € pro kWh)."
+      ]
+    },
+    {
+      "lernziel": "bruch_zu_dezimal",
+      "urteil": "ok",
+      "stufen": "Passen; Ablenker 5/2 → 5,2 / 0,25 sind typische Fehler.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "dezimal_zu_bruch",
+      "urteil": "verbessern",
+      "stufen": "25 von 28 Aufgaben sind eine Vorlage über alle Stufen; Stufe 3 unterscheidet sich nur durch Tausendstel.",
+      "fehlende_aufgabentypen": [
+        "Dezimalzahl > 1 als gemischte Zahl (luecken ‚□ □/□‘ oder □/□): ‚Schreibe 2,75 als Bruch.‘ → 11/4. Beispiel 2: ‚4,2‘ → 21/5.",
+        "Periodisch → Bruch für einfache Fälle (auswahl, Stufe 3): ‚0,3̅ = ?‘ → 1/3 | 3/10 | 33/100. Beispiel 2: ‚0,6̅‘ → 2/3."
+      ],
+      "generator_regeln": [
+        "Stufe 3: Werte > 1 oder Kürzen um große Faktoren (0,875 → 7/8)."
+      ]
+    },
+    {
+      "lernziel": "periodisch",
+      "urteil": "verbessern",
+      "stufen": "Gute Karte (Periode erkennen, Primfaktoren des Nenners, Stelle in der Periode). Fachfehler bei den Ablenkern mit verschobener Periode (siehe Fehlerliste).",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Ablenker mit ‚verschobener‘ Periode (z. B. 0,18̅1̅ für 0,1̅8̅) sind gleich groß und damit ebenfalls richtig – nicht verwenden. Jeden Ablenker numerisch mit dem Bruch vergleichen.",
+        "Lösungsweg: ‚Die Periode 6 hat 1 Ziffer‘ (Einzahl)."
+      ]
+    },
+    {
+      "lernziel": "verstehen",
+      "urteil": "verbessern",
+      "stufen": "Gute Fehlvorstellungen (Ziffern hinter dem Komma, Endnull, dichte Zahlen). ‚0,39 ist kleiner als 0,49‘ ist als Stufe 3 zu leicht. Holprige Formulierung ‚0,1 ist 0,02 auf Zehntel gerundet.‘",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Rundungsaussagen in der Form ‚0,02 auf Zehntel gerundet ergibt 0,1.‘",
+        "Stufe 3 nur mit Aussagen, bei denen man begründen muss (dichte Zahlen, Periode nach Kürzen)."
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Welche Dezimalzahl ist gleich 2/11?",
+      "art": "falsch",
+      "problem": "Zwei Antworten sind richtig: 0,1̅8̅ (markiert) und 0,18̅1̅ – beide bedeuten 0,181818… Betrifft 7 Aufgaben: 2/11, 10/11, 10/7, 20/11, 16/11, 21/11, 17/11.",
+      "korrektur": "Ablenker 0,18̅1̅ ersetzen durch 0,18̅ (= 0,1888…, falsche Periode). Für 10/7: Ablenker 1,42̅8̅5̅7̅1̅4̅ ersetzen durch 1,4̅2̅ (= 1,4242…)."
+    },
+    {
+      "aufgabe": "Stimmt die Aussage? „Jeder Bruch mit dem Nenner 3 ist periodisch.“",
+      "art": "sprache",
+      "problem": "Lösungsweg/Antwort: ‚z. B. 3/3 = 1 = 1 ist endlich.‘ – doppeltes ‚= 1‘; außerdem ist 3/3 als Beispiel wenig überzeugend.",
+      "korrektur": "‚Nein, z. B. 6/3 = 2 ist endlich. Erst kürzen, dann entscheiden.‘"
+    },
+    {
+      "aufgabe": "Runde 2,596 auf Hundertstel.",
+      "art": "loesungsweg",
+      "problem": "Lösungsweg ‚2,596 ≈ 2,6‘ – beim Runden auf Hundertstel gehört die Endnull dazu (2,60); sonst sieht es aus wie Runden auf Zehntel.",
+      "korrektur": "Lösungsweg: ‚Rechts neben der Hundertstelstelle steht 6: aufrunden. 9 + 1 = 10, Übertrag: 2,596 ≈ 2,60.‘"
+    },
+    {
+      "aufgabe": "Ein Liter Benzin kostet 1,236 €. Runde auf ganze Cent.",
+      "art": "unrealistisch",
+      "problem": "Benzin kostet deutlich mehr (etwa 1,60–1,90 €).",
+      "korrektur": "‚Ein Liter Benzin kostet 1,789 €. Runde auf ganze Cent.‘ → 1,79 €."
+    }
+  ]
+}

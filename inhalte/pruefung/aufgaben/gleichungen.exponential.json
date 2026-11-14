@@ -1,0 +1,83 @@
+{
+  "thema_schluessel": "gleichungen.exponential",
+  "gesamturteil": "brauchbar",
+  "karten": [
+    {
+      "lernziel": "logarithmus",
+      "urteil": "ok",
+      "stufen": "Passt (ganzzahlige Logarithmen, Kehrwerte, Wurzeln). Alle Werte nachgerechnet.",
+      "fehlende_aufgabentypen": [
+        "Gleichung nach Basis oder Argument auflösen (zahl, Stufe 3): Beispiel 1: 'log_b(49) = 2. Bestimme b.' → 7. Beispiel 2: 'log₃(x) = −2. Bestimme x.' → 1/9 (als Bruch-Eingabe oder 0,111… mit Toleranz)."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "gleiche_basis",
+      "urteil": "verbessern",
+      "stufen": "Stufen 1–3 steigen kaum: Stufe 3 ist nur 'erst durch Faktor teilen'. Rechte Seite ist immer eine Potenz der Basis selbst; Fälle wie 4^x = 8 (gemeinsame Basis 2) oder Kehrwerte (2^x = 1/8) fehlen.",
+      "fehlende_aufgabentypen": [
+        "Gemeinsame Basis erst finden (zahl, Stufe 3): Beispiel 1: 'Löse 4^x = 8.' → 1,5 (2^(2x) = 2³). Beispiel 2: 'Löse 9^(x + 1) = 27.' → 0,5.",
+        "Negative Exponenten (zahl, Stufe 2): Beispiel 1: 'Löse 2^x = 1/16.' → −4. Beispiel 2: 'Löse 5^(x − 1) = 0,2.' → 0."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "mit_log_loesen",
+      "urteil": "ok",
+      "stufen": "Gute Stufen (mit Grafik zum Abschätzen, mit Faktor, Exponent mit x-Term). Alle 28 Ergebnisse per Programm nachgerechnet – stimmen.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "potenzregel",
+      "urteil": "verbessern",
+      "stufen": "Stufe 1 enthält mit log₂(8⁸) = 24 eine Aufgabe, die zwei Schritte braucht (Potenzregel und log₂ 8 = 3) – eher Stufe 2. Test, Korrektur und Sicherung fragen nur 'lg(aⁿ) mit gegebenem lg a' ab; die Anwendung (Gleichung 2^x = 5^(x − 1)) steht nur in der Übung.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "In Korrektur und Sicherung mindestens eine Gleichung vom Typ a^x = b^(x + c) aufnehmen."
+      ]
+    },
+    {
+      "lernziel": "wachstum",
+      "urteil": "verbessern",
+      "stufen": "Die Karte heißt 'Wann?' und will t über den Logarithmus bestimmen. Von 28 Aufgaben fragen aber nur 9 nach der Zeit; Test, Korrektur und Sicherung bestehen fast nur aus 'Wie viel ist nach … noch da?' bei ganzzahligen Halbwertszeiten (Halbieren im Kopf, kein Logarithmus). Zinsergebnisse sind nicht auf Cent gerundet.",
+      "fehlende_aufgabentypen": [
+        "Halbwertszeit bestimmen (zahl, Stufe 3): Beispiel 1: 'Ein Stoff nimmt pro Tag um 5 % ab. Wie groß ist die Halbwertszeit (eine Nachkommastelle)?' → 13,5 Tage. Beispiel 2: 'Von 80 mg sind nach 10 Tagen noch 50 mg übrig. Halbwertszeit?' → 14,7 Tage (q = 0,625^(1/10), t = ln 0,5 / ln q).",
+        "Wachstumsrate bestimmen (zahl, Stufe 3): Beispiel 1: 'Ein Kapital wächst in 10 Jahren von 5 000 € auf 7 000 €. Zinssatz (eine Nachkommastelle)?' → 3,4 %. Beispiel 2: 'Eine Bakterienkultur verdreifacht sich in 5 Stunden. Wachstum pro Stunde in %?' → 24,6 %."
+      ],
+      "generator_regeln": [
+        "Mindestens die Hälfte der Aufgaben je Pool fragt nach der Zeit t (Logarithmus nötig).",
+        "Geldbeträge auf Cent runden; Fragetext 'Runde auf Cent', Toleranz 0,01."
+      ]
+    },
+    {
+      "lernziel": "verstehen",
+      "urteil": "verbessern",
+      "stufen": "Fehlvorstellungen gut gewählt (log als Division, lg(a + b), Faktor in die Basis ziehen, negative Rechte Seite). Ablenker teils unsinnig: Bei 'log₂(16) = 16 : 2 = 8' heißt eine Option 'Falsch, log₂(16) = 8' – widerspricht sich selbst.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Bei 'Jemand rechnet …'-Aufgaben darf keine 'Falsch'-Option den falschen Wert des Schülers wiederholen."
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Ein Kapital von 1 000 € wird mit 3 % pro Jahr verzinst (Zinseszins). Wie groß ist es nach 3 Jahren?",
+      "art": "loesungsweg",
+      "problem": "Lösung 1 092,727 € statt auf Cent gerundet; ebenso 1 262,47696 € (6 %, 4 Jahre) und 13 604,8896 € (8 %, 4 Jahre). Wer 1 092,73 eingibt, wird ohne Toleranz als falsch gewertet.",
+      "korrektur": "… Wie groß ist es nach 3 Jahren? Runde auf Cent. – Lösung 1 092,73 €, Toleranz 0,01."
+    },
+    {
+      "aufgabe": "Jemand rechnet log₂(16) = 16 : 2 = 8. Was stimmt?",
+      "art": "mehrdeutig",
+      "problem": "Ablenker 'Falsch, log₂(16) = 8' nennt denselben Wert, den die Person schon hat – logisch widersprüchlich. Gleiches bei 'log₂(32) = 32 : 2 = 16' mit Option 'Falsch, log₂(32) = 16'.",
+      "korrektur": "Optionen: 'Richtig' / 'Falsch, log₂(16) = 4' (richtig) / 'Falsch, log₂(16) = 2' (log₂ 4 statt 16) / 'Falsch, log₂(16) = 256' (16²)."
+    },
+    {
+      "aufgabe": "Berechne log₂(8⁸) mit der Potenzregel.",
+      "art": "loesungsweg",
+      "problem": "Steht in Stufe 1, braucht aber zwei Schritte (8 · log₂ 8 und log₂ 8 = 3); die anderen Stufe-1-Aufgaben haben einen Schritt (log₂(2⁹) = 9).",
+      "korrektur": "In Stufe 2 verschieben oder in Stufe 1 ersetzen durch 'Berechne log₂(2¹²) mit der Potenzregel.' → 12."
+    }
+  ]
+}

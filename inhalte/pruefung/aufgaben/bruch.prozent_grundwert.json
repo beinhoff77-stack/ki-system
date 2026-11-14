@@ -1,0 +1,85 @@
+{
+  "thema_schluessel": "bruch.prozent_grundwert",
+  "gesamturteil": "gut",
+  "karten": [
+    {
+      "lernziel": "faktor",
+      "urteil": "verbessern",
+      "stufen": "Alle 24 Aufgaben sind 'Ein Wert wird um p % erhöht/verringert. Mit welchem Faktor …?' – Stufe 3 unterscheidet sich nicht von Stufe 1. Die Umkehrung (Faktor gegeben, Prozent gesucht) fehlt.",
+      "fehlende_aufgabentypen": [
+        "Faktor deuten (zahl, Stufe 2, Antwort mit Vorzeichen): Beispiel 1: 'Ein Wert wird mit 1,07 multipliziert. Um wie viel Prozent ändert er sich? (Zunahme positiv)' → 7. Beispiel 2: 'Faktor 0,85' → −15.",
+        "Fehler finden (auswahl, Stufe 3): Beispiel 1: 'Jemand sagt: 5 % Abnahme heißt Faktor 0,5.' → 'Falsch: 1 − 0,05 = 0,95.' Beispiel 2: '120 % heißt Faktor 120.' → 'Falsch: 120 % = 1,2.'"
+      ],
+      "generator_regeln": [
+        "Stufe 3 nur Faktoren über 2 (+150 % → 2,5), Prozentsätze mit Komma (+2,5 % → 1,025) oder Umkehrung."
+      ]
+    },
+    {
+      "lernziel": "vermehrt",
+      "urteil": "ok",
+      "stufen": "Passt; Stufe 3 (Prozent + feste Zulage) gut. Realistische Zahlen (Miete, Zinsen, Mehrwertsteuer).",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "'Nettopreis' statt 'Netto-Preis'; 'beträgt' statt 'ist'."
+      ]
+    },
+    {
+      "lernziel": "vermindert",
+      "urteil": "ok",
+      "stufen": "Passt. Stufe 3 ist nur 'krummer' Prozentsatz – kein neuer Gedanke.",
+      "fehlende_aufgabentypen": [
+        "Rabatt und Skonto (zahl, Stufe 3): Beispiel 1: 'Ein Fahrrad kostet 500 €. Es gibt 10 % Rabatt, auf den neuen Preis noch 2 % Skonto bei Barzahlung. Was zahlt man?' → 441 €. Beispiel 2: 'Jacke 80 €, 25 % Rabatt, dann 3 % Skonto' → 58,20 €."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "zurueck",
+      "urteil": "ok",
+      "stufen": "Passt; der Kernfehler (19 % vom Bruttopreis abziehen) wird in 'argumente' aufgegriffen.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "prozentsatz",
+      "urteil": "verbessern",
+      "stufen": "Stufe 3 (20 € → 18,60 €) ist nicht schwerer als Stufe 2. Es fehlt die typische Falle 'falscher Grundwert' (Änderung auf den neuen statt alten Wert bezogen).",
+      "fehlende_aufgabentypen": [
+        "Bezugswert vergleichen (auswahl, Stufe 3): Beispiel 1: 'Ein Preis steigt von 80 € auf 100 €. Jemand sagt: 20 %, denn 20 : 100 = 0,2.' → 'Falsch: Man teilt durch den alten Wert: 20 : 80 = 25 %.' Beispiel 2: 'Von 100 € auf 80 €: −25 %?' → 'Falsch: 20 : 100 = 20 %.'"
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "mehrfach",
+      "urteil": "ok",
+      "stufen": "Passt (Endpreis, Gesamtänderung, rückwärts). Ergebnisse wie −21,25 % sind für Klasse 7 anspruchsvoll, aber korrekt.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "argumente",
+      "urteil": "verbessern",
+      "stufen": "Inhaltlich sehr gut: alle Aussagen nachgeprüft, je Aufgabe genau eine passende Antwort. Aber alle 24 Aufgaben ziehen aus demselben Pool von 40 Sätzen; die Fragen 'Welche Aussage ist FALSCH oder kein mathematisches Argument?' (13-mal) und '… mathematisch richtig?' (11-mal) wechseln, was Kinder leicht verwechseln. 'FALSCH oder kein mathematisches Argument' ist eine doppelte Bedingung und sprachlich schwer.",
+      "fehlende_aufgabentypen": [
+        "Eigene Begründung wählen (auswahl, Stufe 3): Beispiel 1: 'Ein Laden wirbt: Erst 20 % Rabatt, an der Kasse noch einmal 20 %. Spart man 40 %?' → 'Nein, 0,8 · 0,8 = 0,64, man spart 36 %.' (Ablenker 'Ja, 20 + 20 = 40', 'Nein, man spart nur 20 %', 'Ja, Rabatte addiert man immer'). Beispiel 2: 'Lohn sinkt um 10 %, dann steigt er um 10 %. Gleich wie vorher?' → 'Nein, 0,9 · 1,1 = 0,99, 1 % weniger.'"
+      ],
+      "generator_regeln": [
+        "Frage einheitlich 'Welche Aussage ist mathematisch richtig begründet?'; die 'außermathematische' Begründung als Ablenker beibehalten.",
+        "Höchstens 10 Aufgaben aus dem Aussagenpool je Karte."
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Welche Aussage ist FALSCH oder kein mathematisches Argument?",
+      "art": "sprache",
+      "problem": "Doppelte Bedingung ('falsch oder kein Argument') in Großbuchstaben; im Wechsel mit 'Welche Aussage ist mathematisch richtig?' (gleicher Aussagenpool) leicht zu verwechseln.",
+      "korrektur": "Welche Aussage ist falsch? – Antworten nur aus rechnerisch prüfbaren Aussagen; die Aussagen 'Der Preis wurde reduziert, weil das Geschäft Kunden anlocken will …' in eine eigene Aufgabe: 'Welche Begründung ist mathematisch?'"
+    },
+    {
+      "aufgabe": "Ein Wert wird um 13 % erhöht. Mit welchem Faktor multiplizierst du?",
+      "art": "mehrdeutig",
+      "problem": "Als Stufe 3 eingeordnet, ist aber dieselbe Aufgabe wie Stufe 1 ('… um 40 % erhöht').",
+      "korrektur": "Stufe 3: 'Ein Wert wird um 150 % erhöht. Mit welchem Faktor multiplizierst du?' – Lösung 2,5."
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "thema_schluessel": "raum.pyramide_kegel_kugel",
+  "gesamturteil": "gut",
+  "karten": [
+    {
+      "lernziel": "pyr_volumen",
+      "urteil": "ok",
+      "stufen": "Passt (quadratisch, rechteckig, Höhe gesucht, Dreiecksgrundfläche). Stufe 3 (Dreiecksgrundfläche) ist kaum schwerer als Stufe 2. Alle Werte nachgerechnet.",
+      "fehlende_aufgabentypen": [
+        "Seitenkante der quadratischen Pyramide (zahl, Stufe 3, Pythagoras zweimal): Beispiel 1: 'Quadratische Pyramide, a = 6 cm, h = 4 cm. Wie lang ist eine Seitenkante (eine Nachkommastelle)?' → √(4² + 18) = √34 ≈ 5,8 cm. Beispiel 2: 'a = 10 cm, Seitenkante 13 cm. Höhe der Pyramide (eine Nachkommastelle)?' → √(169 − 50) ≈ 10,9 cm."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "pyr_oberflaeche",
+      "urteil": "verbessern",
+      "stufen": "Übung gut gestuft (hₛ mit Pythagoras → Mantel → Oberfläche). Test, Korrektur und Sicherung fragen aber nur die Mantelfläche bei gegebener Seitenhöhe ab (4 · ½ · a · hₛ) – der Kern der Karte (hₛ aus h, O = G + M) wird nie getestet.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "In Test, Korrektur und Sicherung je mindestens eine Aufgabe 'Oberfläche aus a und h' (hₛ selbst bestimmen)."
+      ]
+    },
+    {
+      "lernziel": "kegel_volumen",
+      "urteil": "ok",
+      "stufen": "Passt; Durchmesser-Falle beim Trichter gut. Werte nachgerechnet (z. B. d = 18 cm, t = 15 cm → 1 272,3 cm³; r = 5 cm, V = 1 793 cm³ → h = 68,5 cm).",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Bei 'Höhe gesucht' realistische Proportionen wählen (r = 5 cm und h = 68,5 cm ist ein dünner Spieß, kein typischer Kegel)."
+      ]
+    },
+    {
+      "lernziel": "kegel_mantel",
+      "urteil": "ok",
+      "stufen": "Gut: Mantellinie, Sektorwinkel, Rückrechnung Sektor → Grundkreis. Test/Korrektur/Sicherung nur M = π · r · s mit gegebenem s.",
+      "fehlende_aufgabentypen": [
+        "Oberfläche aus r und h (zahl, Stufe 3): Beispiel 1: 'Kegel r = 6 cm, h = 8 cm. Oberfläche (eine Nachkommastelle)?' → s = 10, O = π · 36 + π · 60 = 96π ≈ 301,6 cm². Beispiel 2: 'r = 5 cm, h = 12 cm' → s = 13, O = 90π ≈ 282,7 cm²."
+      ],
+      "generator_regeln": [
+        "In Korrektur und Sicherung mindestens eine Aufgabe, bei der s erst mit Pythagoras bestimmt werden muss."
+      ]
+    },
+    {
+      "lernziel": "kugel",
+      "urteil": "ok",
+      "stufen": "Passt; Stufe 3 (Radius aus Volumen) gut. Realistische Bälle (Basketball 24 cm, Tennisball 6,7 cm). Alle Werte nachgerechnet.",
+      "fehlende_aufgabentypen": [
+        "Radius aus Oberfläche (zahl, Stufe 3): Beispiel 1: 'Eine Kugel hat die Oberfläche 314 cm². Radius (eine Nachkommastelle)?' → 5,0 cm. Beispiel 2: 'Ein Globus hat 1 257 cm² Oberfläche. Durchmesser?' → r ≈ 10,0 cm, d ≈ 20 cm."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "sachkontext",
+      "urteil": "ok",
+      "stufen": "Gute Kontexte (Sandhaufen, Turm, Eistüte, Kupferkugel, Öffnungswinkel). Alle Turm- und Eistüten-Werte nachgerechnet. Der Turm-Typ macht 9 von 15 geprüften Aufgaben aus.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Turm-Aufgaben höchstens ein Drittel je Pool; weitere Kontexte: Hohlkugel (Volumen abziehen), Pyramidendach (Dachfläche = Mantel)."
+      ]
+    },
+    {
+      "lernziel": "verstehen",
+      "urteil": "ok",
+      "stufen": "Gute Fehlvorstellungen (r statt r², h statt s, Kegel = ½ Zylinder). Kegel 'nur Höhe' und 'nur Radius' gut gemischt.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    }
+  ],
+  "fehler": []
+}

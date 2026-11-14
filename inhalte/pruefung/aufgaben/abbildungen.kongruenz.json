@@ -1,0 +1,81 @@
+{
+  "thema_schluessel": "abbildungen.kongruenz",
+  "gesamturteil": "brauchbar",
+  "karten": [
+    {
+      "lernziel": "achsenspiegelung",
+      "urteil": "ok",
+      "stufen": "Passt: Koordinatenachsen, Parallelen zu den Achsen, Winkelhalbierende y = x. Alle Bildpunkte stimmen. Es fehlt y = −x und das Spiegeln einer ganzen Figur.",
+      "fehlende_aufgabentypen": [
+        "Achse bestimmen (luecken, Stufe 3, Schablone 'x = □' bzw. 'y = □'): Beispiel 1: 'P(−2 | 5) wird auf P'(6 | 5) gespiegelt. An welcher senkrechten Achse?' → x = 2. Beispiel 2: 'P(3 | −4) → P'(3 | 10)' → y = 3."
+      ],
+      "generator_regeln": [
+        "In Stufe 3 auch y = −x: P(a | b) → P'(−b | −a)."
+      ]
+    },
+    {
+      "lernziel": "punktspiegelung",
+      "urteil": "ok",
+      "stufen": "Passt (Ursprung, beliebiges Zentrum, Zentrum gesucht). Werte stimmen.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "verschiebung",
+      "urteil": "ok",
+      "stufen": "Passt. Stufe 3 (Pfeil aus A → A', dann B') ist eine echte Steigerung.",
+      "fehlende_aufgabentypen": [
+        "Hintereinander verschieben (luecken, Stufe 3): Beispiel 1: 'P(1 | 2) wird erst mit (3 | −1), dann mit (−5 | 4) verschoben. Welcher Pfeil ersetzt beide?' → (−2 | 3). Beispiel 2: 'Wohin kommt P?' → P'(−1 | 5)."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "drehung",
+      "urteil": "verbessern",
+      "stufen": "Stufen passen, alle nachgeprüften Bildpunkte stimmen. Annahme, bitte am Lehrplan prüfen: Drehungen werden in Klasse 7 (LehrplanPLUS Bayern) vor allem konstruierend behandelt; die Koordinatenregeln (x | y) → (−y | x) sind dort nicht üblich und werden hier nur auswendig angewendet.",
+      "fehlende_aufgabentypen": [
+        "Drehwinkel erkennen (auswahl, Stufe 2): f.grafik koordinaten mit P und P' und O. Beispiel 1: P(4 | 0), P'(0 | 4): 'Um welchen Winkel gegen den Uhrzeigersinn wurde gedreht?' → 90° (Ablenker 270°, 180°, 45°). Beispiel 2: P(3 | 1), P'(−1 | 3) → 90°."
+      ],
+      "generator_regeln": [
+        "'270° im Uhrzeigersinn' seltener verwenden (höchstens 3 je Karte); 90° im Uhrzeigersinn ist die natürlichere Angabe."
+      ]
+    },
+    {
+      "lernziel": "symmetrie",
+      "urteil": "verbessern",
+      "stufen": "Gute Mischung (Achsen zählen, Drehwinkel, Punktsymmetrie, Parkettierung). Bei den Punktsymmetrie-Fragen fehlt ein Komma ('… keine Raute ist punktsymmetrisch?'). Ablenker 'Nein, nur Kreise sind punktsymmetrisch.' ist kaum ein Denkfehler.",
+      "fehlende_aufgabentypen": [
+        "Symmetrieachsen im Alltag (zahl, Stufe 2): Beispiel 1: 'Wie viele Symmetrieachsen hat der Buchstabe H?' → 2. Beispiel 2: 'Der Buchstabe N?' → 0 (aber punktsymmetrisch)."
+      ],
+      "generator_regeln": [
+        "Komma vor dem Prädikat: 'Ist ein Drachenviereck, das keine Raute ist, punktsymmetrisch?'",
+        "Ablenker 'nur Kreise …' ersetzen durch 'Ja, weil es zwei gleich lange Seiten hat.'"
+      ]
+    },
+    {
+      "lernziel": "eigenschaften",
+      "urteil": "verbessern",
+      "stufen": "21 der 24 Aufgaben sind 'Welche Aussage über Kongruenzabbildungen ist richtig/FALSCH?' mit immer denselben acht Aussagen. Ein Kind lernt die Aussagen auswendig. Ablenker wie 'Bei einer Punktspiegelung werden alle Winkel verdoppelt' sind leicht auszuschließen. Stufe 3 (zwei Achsenspiegelungen) ist gut.",
+      "fehlende_aufgabentypen": [
+        "Abbildung bestimmen (auswahl, Stufe 2): f.grafik mit Dreieck ABC und Bilddreieck A'B'C'. Beispiel 1: Bild ist um 180° um O gedreht → 'Punktspiegelung an O'. Beispiel 2: Bild ist gespiegelt an der y-Achse, Umlaufsinn umgekehrt → 'Achsenspiegelung'."
+      ],
+      "generator_regeln": [
+        "Höchstens 8 Aussage-Aufgaben je Karte; Pool der Aussagen erweitern (Umlaufsinn bei Drehung, Fixpunkte bei Punktspiegelung, Achse als Fixgerade)."
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Ist ein Drachenviereck, das keine Raute ist punktsymmetrisch?",
+      "art": "sprache",
+      "problem": "Komma fehlt; der Satz ist schwer zu lesen. Ebenso bei Parallelogramm, gleichschenkligem Dreieck und gleichschenkligem Trapez.",
+      "korrektur": "Ist ein Drachenviereck, das keine Raute ist, punktsymmetrisch? – Lösung 'Nein, nach einer Drehung um 180° liegt die Figur anders.'"
+    },
+    {
+      "aufgabe": "Welche Aussage über Kongruenzabbildungen ist richtig?",
+      "art": "mehrdeutig",
+      "problem": "Derselbe Fragetext steht 12-mal, 'Welche Aussage … ist FALSCH?' 9-mal, jeweils mit Auswahl aus denselben acht Aussagen. Das Kind kann sich die richtigen Sätze merken, ohne sie zu verstehen.",
+      "korrektur": "Konkrete Fragen statt Aussagenpool, z. B. 'Ein Dreieck ABC ist gegen den Uhrzeigersinn beschriftet. Es wird an einer Achse gespiegelt. Wie ist das Bilddreieck A'B'C' beschriftet?' – Lösung 'im Uhrzeigersinn'."
+    }
+  ]
+}

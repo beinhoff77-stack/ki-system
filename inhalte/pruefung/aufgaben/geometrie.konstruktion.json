@@ -1,0 +1,74 @@
+{
+  "thema_schluessel": "geometrie.konstruktion",
+  "gesamturteil": "brauchbar",
+  "karten": [
+    {
+      "lernziel": "winkelsumme",
+      "urteil": "ok",
+      "stufen": "Passt: Grundform mit Zeichnung, Außenwinkel, Stufe 3 mit Verhältnis. Werte stimmen. Korrektur und Sicherung bestehen überwiegend aus Außenwinkel-Aufgaben.",
+      "fehlende_aufgabentypen": [
+        "Fehler finden (auswahl, Stufe 3): Beispiel 1: 'Jemand sagt: Ein Dreieck kann zwei stumpfe Winkel haben.' → 'Falsch: Zwei stumpfe Winkel sind zusammen schon mehr als 180°.' Beispiel 2: 'In einem rechtwinkligen Dreieck ist α = 50°, also β = 130°.' → 'Falsch: β = 180° − 90° − 50° = 40°.'"
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "gleichschenklig",
+      "urteil": "ok",
+      "stufen": "Passt; die Dach-Aufgabe ist eine gute Anwendung. Stufe 2 bis Sicherung fast nur 'Basiswinkel gegeben, Spitzenwinkel gesucht'.",
+      "fehlende_aufgabentypen": [
+        "Außenwinkel am gleichschenkligen Dreieck (zahl, Stufe 3): Beispiel 1: 'Der Außenwinkel an der Spitze eines gleichschenkligen Dreiecks ist 100°. Wie groß ist ein Basiswinkel?' → 50°. Beispiel 2: 'Der Außenwinkel an einem Basiswinkel ist 110°. Spitzenwinkel?' → 40°."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "kongruenzsatz",
+      "urteil": "verbessern",
+      "stufen": "Gute Karte, alle Zuordnungen geprüft. Die Antwort 'keiner – das Dreieck ist nicht eindeutig' ist bei a = 3 cm, c = 9 cm, α = 35° ungenau: Hier gibt es gar kein Dreieck (der Kreis um B mit 3 cm erreicht den freien Schenkel von α nicht). Stufe 3 unterscheidet sich kaum von Stufe 1.",
+      "fehlende_aufgabentypen": [
+        "SsW unterscheiden (auswahl, Stufe 3): Beispiel 1: 'a = 7 cm, c = 5 cm, α = 50°' → 'SsW, eindeutig (Winkel liegt der längeren Seite gegenüber).' Beispiel 2: 'a = 5 cm, c = 7 cm, α = 40°' → 'nicht eindeutig: zwei Dreiecke möglich.'"
+      ],
+      "generator_regeln": [
+        "Bei SsW mit Winkel gegenüber der kürzeren Seite unterscheiden: 'zwei Dreiecke', 'genau ein (rechtwinkliges) Dreieck' oder 'kein Dreieck'."
+      ]
+    },
+    {
+      "lernziel": "konstruierbar",
+      "urteil": "ok",
+      "stufen": "Passt; Stufe 3 (Anzahl möglicher Längen) gut. Der Satz in der Regel zur Winkelsumme ('zwei Winkel unter 180°') wird nicht geübt.",
+      "fehlende_aufgabentypen": [
+        "Winkelbedingung (auswahl, Stufe 2): Beispiel 1: 'Kann man ein Dreieck mit c = 5 cm, α = 110° und β = 75° konstruieren?' → 'Nein, 110° + 75° = 185° > 180°.' Beispiel 2: 'c = 4 cm, α = 90°, β = 89°' → 'Ja, γ = 1°.'"
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "vierecke",
+      "urteil": "ok",
+      "stufen": "Passt (Parallelogramm, Drachen, Trapez, allgemeines Viereck, Raute). Werte stimmen.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "satz_kehrsatz",
+      "urteil": "verbessern",
+      "stufen": "Gute Inhalte, Wahrheitswerte stimmen. Bei 'Ist der Kehrsatz … wahr?' werden immer dieselben drei Gegenbeispiele aus der Vierecks-Welt angeboten – auch bei Sätzen über Zahlen oder Dreiecke ('Gegenbeispiel: eine Raute mit 60°-Winkel' für 'Wenn eine Zahl gerade ist …'). Solche Ablenker sind ohne Nachdenken auszuschließen.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Gegenbeispiele passend zum Gegenstand des Satzes: bei Zahlen andere Zahlen (2, 8, 12), bei Dreiecken Dreiecke, bei Vierecken Vierecke; ein Ablenker soll den Dann-Teil erfüllen, aber nicht den Wenn-Teil (typischer Fehler)."
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Satz: „Wenn eine Zahl durch 4 teilbar ist, dann ist sie gerade.“ Ist der Kehrsatz „Wenn eine Zahl gerade ist, dann ist sie durch 4 teilbar.“ wahr?",
+      "art": "loesungsweg",
+      "problem": "Ablenker 'Gegenbeispiel: eine Raute mit 60°-Winkel' und 'ein gleichschenkliges Trapez' haben mit Zahlen nichts zu tun.",
+      "korrektur": "Antworten: 'Der Kehrsatz ist falsch, Gegenbeispiel: die Zahl 6.' (richtig), 'Der Kehrsatz ist wahr.', 'Der Kehrsatz ist falsch, Gegenbeispiel: die Zahl 8.' (8 ist durch 4 teilbar), 'Der Kehrsatz ist falsch, Gegenbeispiel: die Zahl 7.' (7 erfüllt den Wenn-Teil nicht)."
+    },
+    {
+      "aufgabe": "Gegeben: a = 3 cm, c = 9 cm, α = 35°. Welcher Kongruenzsatz garantiert ein eindeutiges Dreieck?",
+      "art": "mehrdeutig",
+      "problem": "Richtige Antwort 'keiner – das Dreieck ist nicht eindeutig' legt nahe, es gebe mehrere Dreiecke. Tatsächlich gibt es keines (Abstand von B zum freien Schenkel ist 9 · sin 35° ≈ 5,2 cm > 3 cm).",
+      "korrektur": "Antwort umformulieren: 'keiner – mit diesen Angaben ist das Dreieck nicht eindeutig festgelegt (hier gibt es sogar keines)'. Besser Zahlen wählen, bei denen zwei Dreiecke entstehen: a = 6 cm, c = 9 cm, α = 35°."
+    }
+  ]
+}

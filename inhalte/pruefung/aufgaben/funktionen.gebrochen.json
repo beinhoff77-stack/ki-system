@@ -1,0 +1,77 @@
+{
+  "thema_schluessel": "funktionen.gebrochen",
+  "gesamturteil": "gut",
+  "karten": [
+    {
+      "lernziel": "indirekt",
+      "urteil": "ok",
+      "stufen": "Passen: Sachaufgabe → Tabelle → Art der Zuordnung erkennen (auch ‚weder noch‘). Kontexte realistisch.",
+      "fehlende_aufgabentypen": [
+        "Fehler finden (auswahl): ‚Jemand rechnet: 4 Pumpen brauchen 6 h, also brauchen 8 Pumpen 12 h. Was ist falsch?‘ → ‚Mehr Pumpen brauchen weniger Zeit: 4 · 6 = 24, 24 : 8 = 3 h.‘ | ‚Richtig gerechnet.‘ | ‚Es müssten 10 h sein.‘ Beispiel 2: ‚6 Kinder teilen eine Pizza, jedes bekommt 2 Stücke; 4 Kinder bekommen je 1,5 Stücke.‘ → ‚Weniger Kinder bekommen mehr: 12 : 4 = 3 Stücke.‘"
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "definitionsmenge",
+      "urteil": "ok",
+      "stufen": "Passen. Ablenker (Vorzeichen, c statt b) sind typische Fehler. Alle nachgeprüft.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "asymptoten",
+      "urteil": "verbessern",
+      "stufen": "Rechnerisch gut. Der Lehrplan verlangt ‚Graphen mit Asymptoten zeichnen‘; seit 14.11. kann die App Hyperbeln zeichnen – Ablesen fehlt noch.",
+      "fehlende_aufgabentypen": [
+        "Asymptoten am Graphen ablesen (luecken ‚x = □; y = □‘, f.grafik koordinaten mit hyperbel a=2, b=1, c=−3 und gestrichelten senkrecht/waagrecht-Linien weggelassen): ‚Lies die Asymptoten ab.‘ → x = −1; y = −3. Beispiel 2: Hyperbel a=−1, b=−2, c=1 → x = 2; y = 1.",
+        "Term zum Graphen (auswahl): Hyperbel a=3, b=0, c=2 gezeichnet → f(x) = 3/x + 2 | 3/(x + 2) | 3/(x − 2) | −3/x + 2."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "achsenpunkte",
+      "urteil": "verbessern",
+      "stufen": "19 von 24 Aufgaben sind ‚Berechne die Nullstelle von …‘. Der Sonderfall ‚keine Nullstelle‘ kommt nur einmal vor.",
+      "fehlende_aufgabentypen": [
+        "Keine Nullstelle (auswahl, mehr davon): ‚Welche Nullstelle hat f(x) = 2/(x − 3)?‘ → ‚keine Nullstelle‘ | x = 3 | x = −3 | x = 2. Beispiel 2: ‚f(x) = 5/x‘ → keine Nullstelle (ein Bruch mit Zähler 5 wird nie 0).",
+        "Kein y-Achsenschnitt (auswahl): ‚Wo schneidet f(x) = 3/x − 1 die y-Achse?‘ → ‚gar nicht, x = 0 gehört nicht zu D‘ | y = −1 | y = 2. Beispiel 2: ‚f(x) = −2/x + 4‘ → gar nicht."
+      ],
+      "generator_regeln": [
+        "Nullstellen-Vorlage höchstens 10-mal je Karte."
+      ]
+    },
+    {
+      "lernziel": "parameter",
+      "urteil": "ok",
+      "stufen": "Gut: Verschiebung erkennen ↔ Term aus Verschiebung bilden. Alle 24 nachgeprüft. Die richtige Antwort steht in 9 von 24 Fällen an Position 1.",
+      "fehlende_aufgabentypen": [
+        "Einfluss von a (auswahl): ‚Wie unterscheidet sich der Graph von f(x) = −2/x vom Graphen von g(x) = 2/x?‘ → ‚Er liegt im 2. und 4. Feld statt im 1. und 3.‘ | ‚Er ist nach unten verschoben.‘ | ‚Kein Unterschied.‘ Beispiel 2: ‚5/x gegenüber 1/x‘ → ‚weiter vom Ursprung entfernt (gestreckt)‘."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "beurteilen",
+      "urteil": "verbessern",
+      "stufen": "Gute Verstehenskarte; alle 24 Aussagen nachgeprüft. Bei einzelnen Aufgaben stehen zwei Antworten zu f(−3) nebeneinander (‚f(−3) = 0,5‘ und ‚f(−3) = 1,5‘) – das verrät, wo die falsche Aussage zu suchen ist.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Je Aufgabe höchstens eine Aussage desselben Typs (nicht zweimal f(−3)).",
+        "Lösungsweg der FALSCH-Aufgaben mit dem richtigen Wert: ‚Falsch: f(−3) = 6,25. Richtig ist f(−3) = −2/(−8) + 5 = 5,25.‘"
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Welche Aussage über f(x) = 4/(x − 5) + 1 ist FALSCH?",
+      "art": "mehrdeutig",
+      "problem": "Antworten ‚f(−3) = 0,5‘ und ‚f(−3) = 1,5‘ stehen beide da; eine muss falsch sein. Das Kind braucht die übrigen Aussagen gar nicht zu prüfen.",
+      "korrektur": "Antwort ‚f(−3) = 1,5‘ ersetzen durch ‚Die waagrechte Asymptote ist y = 4.‘ (die falsche Aussage; richtig ist y = 1). Übrige Antworten bleiben: ‚Der Graph schneidet die y-Achse bei y = 0,2.‘ | ‚Die senkrechte Asymptote ist x = 5.‘ | ‚f(−3) = 0,5‘."
+    },
+    {
+      "aufgabe": "Welche Aussage über f(x) = −2/(x − 5) + 5 ist FALSCH?",
+      "art": "loesungsweg",
+      "problem": "Lösungsweg ‚Falsch: f(−3) = 6,25 Asymptoten x = 5, y = 5; der Graph berührt die Asymptoten nie.‘ – Satzzeichen fehlt, und der richtige Wert f(−3) = 5,25 wird nicht genannt.",
+      "korrektur": "Lösungsweg: ‚Falsch ist f(−3) = 6,25. Richtig: f(−3) = −2/(−8) + 5 = 0,25 + 5 = 5,25. Die anderen Aussagen stimmen: Asymptoten x = 5 und y = 5, y-Achse bei 5,4, Nullstelle 5,4.‘"
+    }
+  ]
+}

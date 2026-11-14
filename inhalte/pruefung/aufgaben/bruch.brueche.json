@@ -1,0 +1,108 @@
+{
+  "thema_schluessel": "bruch.brueche",
+  "gesamturteil": "brauchbar",
+  "karten": [
+    {
+      "lernziel": "bruchteil_von",
+      "urteil": "verbessern",
+      "stufen": "Passen (Größe → Sachkontext → Einheiten umrechnen, Rest bestimmen). Sprachlich holprige Vorlage ‚1/2 der Kinder einer Klasse mit 20 Kinder‘ und ‚Kontingent‘.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Dativ beachten: ‚einer Klasse mit 20 Kindern‘.",
+        "Kindgerechte Wörter: statt ‚eines Kontingents von 30 Tickets‘ → ‚von 30 Eintrittskarten‘.",
+        "Bei Zähler 1 keinen Schritt ‚dann · 1 = …‘ ausgeben."
+      ]
+    },
+    {
+      "lernziel": "anteil_bestimmen",
+      "urteil": "verbessern",
+      "stufen": "Gut aufgebaut. Der Lehrplan verlangt ‚Anteile mit Flächendiagrammen veranschaulichen‘ – Streifen, Quadrat und Kreis werden aber nur beschrieben, nie gezeigt.",
+      "fehlende_aufgabentypen": [
+        "Anteil am Bild (luecken □/□, f.grafik kreisdiagramm mit werte [{\"name\": \"gefärbt\", \"wert\": 3}, {\"name\": \"weiß\", \"wert\": 5}] und \"zahlen\": false): ‚Welcher Anteil ist gefärbt?‘ → 3/8. Beispiel 2: gefärbt 4, weiß 2 → 2/3. Echte Flächenteilung in gleich große Stücke (Streifen, Raster) kann die App noch nicht zeichnen → offen."
+      ],
+      "generator_regeln": [
+        "Bei Streifen/Kreis/Rechteck eine Zeichnung mitgeben (kreisdiagramm oder figur mit Unterteilung)."
+      ]
+    },
+    {
+      "lernziel": "ganzes_bestimmen",
+      "urteil": "verbessern",
+      "stufen": "Passen. ‚1/6 eines Betrags sind 13 min‘ – ‚Betrag‘ passt nicht zu Zeit. ‚Ein Wanderer hat 3/4 seines Weges geschafft. Das sind 120 m.‘ – eine Wanderung von 160 m ist keine.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Statt ‚eines Betrags‘ neutral ‚eines Ganzen‘ oder passend zur Einheit (‚einer Zeitspanne‘).",
+        "Wanderwege in km (z. B. 3/4 sind 9 km → 12 km)."
+      ]
+    },
+    {
+      "lernziel": "erweitern",
+      "urteil": "ok",
+      "stufen": "Passen; Ergänzen von Zähler/Nenner und ‚Welcher Bruch ist gleich …?‘ (alle nachgeprüft).",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "kuerzen",
+      "urteil": "ok",
+      "stufen": "Passen; ‚nicht vollständig gekürzt‘ in Stufe 3 ist eine gute Verstehensaufgabe.",
+      "fehlende_aufgabentypen": [
+        "Nicht kürzbar erkennen (auswahl): ‚Kann man 14/15 kürzen?‘ → ‚Nein, 14 und 15 haben keinen gemeinsamen Teiler außer 1.‘ | ‚Ja, durch 7.‘ | ‚Ja, durch 3.‘ Beispiel 2: ‚21/22‘ → nein."
+      ],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "vergleichen",
+      "urteil": "ok",
+      "stufen": "Gut: gleicher Zähler/Nenner → Hauptnenner → Unterschied, Bruch dazwischen, ordnen. Alle Auswahlaufgaben nachgeprüft.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": []
+    },
+    {
+      "lernziel": "zahlenstrahl",
+      "urteil": "verbessern",
+      "stufen": "26 von 28 Aufgaben sind ‚Markiere a/b (0 bis 1, b Teile)‘ – der Nenner ist immer gleich der Anzahl der Teile. Dadurch muss das Kind nie erweitern oder kürzen. Stufe 3 (Pfeil → gekürzter Bruch) ist gut, aber selten.",
+      "fehlende_aufgabentypen": [
+        "Nenner ≠ Teilung (markierung): ‚Markiere 3/4 auf dem Zahlenstrahl von 0 bis 1 mit 8 Teilen.‘ → Index 6. Beispiel 2: ‚Markiere 2/3 bei 12 Teilen‘ → Index 8.",
+        "Über 1 hinaus (markierung): ‚Markiere 5/4 auf dem Zahlenstrahl von 0 bis 2 mit 8 Teilen.‘ → Index 5."
+      ],
+      "generator_regeln": [
+        "Mindestens die Hälfte der Markierungsaufgaben mit Teilung = Vielfaches des Nenners oder Strahl bis 2."
+      ]
+    },
+    {
+      "lernziel": "verstehen",
+      "urteil": "verbessern",
+      "stufen": "Gute Fehlvorstellungen. Antwort ‚Nein, man darf nicht addieren.‘ bei ‚3/5 und 6/8 sind gleich groß‘ ist für Kinder unverständlich.",
+      "fehlende_aufgabentypen": [],
+      "generator_regeln": [
+        "Realistische Anteile (Brillenträger etwa 1/4 bis 1/2 einer Klasse, nicht 32 von 36)."
+      ]
+    }
+  ],
+  "fehler": [
+    {
+      "aufgabe": "Stimmt die Aussage? „3/5 und 6/8 sind gleich groß.“",
+      "art": "sprache",
+      "problem": "Richtige Antwort: ‚Nein, man darf nicht addieren. Mit Hauptnenner sieht man: 3/5 ≠ 3/4.‘ – Das Kind versteht nicht, was ‚addieren‘ hier heißt (gemeint: zu Zähler und Nenner dieselbe Zahl addieren).",
+      "korrektur": "‚Nein. 6/8 entsteht aus 3/5, wenn man zu Zähler und Nenner 3 addiert – das ist kein Erweitern. 3/5 = 24/40, 6/8 = 30/40.‘"
+    },
+    {
+      "aufgabe": "Ein Wanderer hat 3/4 seines Weges geschafft. Das sind 120 m. Wie lang ist der ganze Weg?",
+      "art": "unrealistisch",
+      "problem": "Ein Wanderweg von 160 m ist zu kurz.",
+      "korrektur": "‚Ein Wanderer hat 3/4 seines Weges geschafft. Das sind 12 km. Wie lang ist der ganze Weg?‘ → 16 km."
+    },
+    {
+      "aufgabe": "1/2 der Kinder einer Klasse mit 20 Kinder – wie viele Kinder sind das?",
+      "art": "sprache",
+      "problem": "Grammatik (‚mit 20 Kinder‘); außerdem ist der Satz unvollständig.",
+      "korrektur": "‚Eine Klasse hat 20 Kinder. Die Hälfte (1/2) fährt mit dem Bus. Wie viele Kinder sind das?‘ → 10."
+    },
+    {
+      "aufgabe": "1/6 eines Betrags sind 13 min. Wie groß ist das Ganze?",
+      "art": "sprache",
+      "problem": "‚Betrag‘ wird für Geld verwendet, nicht für Zeit.",
+      "korrektur": "‚1/6 einer Zeitspanne sind 13 min. Wie lang ist die ganze Zeitspanne?‘ → 78 min."
+    }
+  ]
+}

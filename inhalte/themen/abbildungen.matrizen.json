@@ -1,0 +1,3865 @@
+{
+ "thema_schluessel": "abbildungen.matrizen",
+ "thema_id": 49,
+ "block_id": 74,
+ "klasse": {
+  "rs_by": 10,
+  "ib_myp": 4
+ },
+ "autor": "Claude (Paket Realschule)",
+ "inhalt": {
+  "ziel": "Abbildungen im Koordinatensystem mit Matrizen beschreiben (Spiegelung, Drehung, Streckung), mit Matrizen rechnen, Umkehrmatrizen bestimmen und das Skalarprodukt nutzen.",
+  "merke": [
+   "P'(x' | y') mit M = (a  b; c  d): x' = a · x + b · y, y' = c · x + d · y.",
+   "Die Spalten der Matrix sind die Bilder von (1 | 0) und (0 | 1).",
+   "Drehung um φ: (cos φ  −sin φ; sin φ  cos φ).",
+   "A · B: Zeile mal Spalte; „erst B, dann A“. Meist A · B ≠ B · A.",
+   "Inverse existiert nur für det M ≠ 0.",
+   "Skalarprodukt a₁b₁ + a₂b₂; null heißt senkrecht; cos φ = (a · b) : (|a| · |b|)."
+  ],
+  "abschnitte": [
+   {
+    "titel": "Abbildungen mit Matrizen",
+    "lernziele": [
+     "bildpunkt",
+     "abbildungsmatrix",
+     "drehung"
+    ]
+   },
+   {
+    "titel": "Rechnen mit Matrizen",
+    "lernziele": [
+     "rechnen",
+     "inverse"
+    ]
+   },
+   {
+    "titel": "Skalarprodukt",
+    "lernziele": [
+     "skalarprodukt"
+    ]
+   }
+  ],
+  "etappen": [
+   {
+    "lernziel": "bildpunkt",
+    "titel": "Bildpunkte mit einer Matrix",
+    "regel": "Eine ⟦Matrix⟧ ist ein Zahlenschema mit Zeilen und Spalten. Hier schreiben wir sie ⟦zeilenweise⟧: M = (a  b; c  d). Die Abbildung P(x | y) ↦ P'(x' | y') rechnet ⟦Zeile mal Spalte⟧: ⟦x' = a · x + b · y⟧ und ⟦y' = c · x + d · y⟧.",
+    "bild": {
+     "typ": "tabelle",
+     "kopf": [
+      "M",
+      "mal x",
+      "mal y"
+     ],
+     "zeilen": [
+      [
+       "Zeile 1 → x'",
+       "2",
+       "−1"
+      ],
+      [
+       "Zeile 2 → y'",
+       "3",
+       "4"
+      ]
+     ]
+    },
+    "schritte": [
+     "M = (2  −1; 3  4), P(5 | 2). x' = 2 · 5 + (−1) · 2 = 8.",
+     "y' = 3 · 5 + 4 · 2 = 23. Also ⟦P'(8 | 23)⟧."
+    ],
+    "fehler": "Spaltenweise statt zeilenweise zu rechnen, also x' = 2 · 5 + 3 · 2 = 16, ist falsch: Für x' nimmst du die ⟦erste Zeile⟧ (2 und −1)."
+   },
+   {
+    "lernziel": "abbildungsmatrix",
+    "titel": "Matrizen bekannter Abbildungen",
+    "regel": "Die Spalten der Matrix sind die ⟦Bilder der Einheitspunkte⟧ (1 | 0) und (0 | 1). Spiegelung an der x-Achse: ⟦(1  0; 0  −1)⟧. Drehung um O um 90°: ⟦(0  −1; 1  0)⟧. Zentrische Streckung mit Faktor k: ⟦(k  0; 0  k)⟧.",
+    "schritte": [
+     "Spiegelung an der y-Achse: (1 | 0) ↦ (−1 | 0), (0 | 1) ↦ (0 | 1).",
+     "Diese Bilder als Spalten: ⟦(−1  0; 0  1)⟧."
+    ],
+    "probe": "P(3 | 2): x' = −3, y' = 2 – gespiegelt an der y-Achse ✓",
+    "fehler": "Für die Drehung um 90° die Matrix (0  1; −1  0) zu nehmen ist falsch: Das dreht um ⟦−90°⟧ (im Uhrzeigersinn). (1 | 0) muss auf ⟦(0 | 1)⟧ gehen."
+   },
+   {
+    "lernziel": "drehung",
+    "titel": "Drehung um einen beliebigen Winkel",
+    "regel": "Die Drehung um O um den Winkel φ (gegen den Uhrzeigersinn) hat die Matrix ⟦(cos φ  −sin φ; sin φ  cos φ)⟧. Also ⟦x' = x · cos φ − y · sin φ⟧ und ⟦y' = x · sin φ + y · cos φ⟧.",
+    "schritte": [
+     "P(4 | 0), φ = 30°: x' = 4 · cos 30° − 0 = 4 · 0,866… ≈ 3,46.",
+     "y' = 4 · sin 30° + 0 = 4 · 0,5 = 2. Also ⟦P'(3,46 | 2)⟧."
+    ],
+    "probe": "Abstand zu O bleibt 4: 3,46² + 2² ≈ 16 ✓",
+    "fehler": "x' = x · cos φ + y · sin φ ist falsch: In der ersten Zeile steht ⟦−sin φ⟧. Sonst dreht man in die falsche Richtung."
+   },
+   {
+    "lernziel": "rechnen",
+    "titel": "Mit Matrizen rechnen",
+    "regel": "Matrizen gleicher Größe ⟦addierst⟧ du Eintrag für Eintrag. Beim ⟦Vervielfachen⟧ wird jeder Eintrag mal die Zahl genommen. Beim ⟦Multiplizieren⟧ A · B rechnest du ⟦Zeile von A mal Spalte von B⟧. A · B beschreibt die Abbildung „erst B, dann A“.",
+    "schritte": [
+     "A = (1  2; 0  3), B = (4  0; 1  −1). Oben links: Zeile 1 von A mal Spalte 1 von B: 1 · 4 + 2 · 1 = 6.",
+     "Ebenso die anderen Einträge: A · B = ⟦(6  −2; 3  −3)⟧."
+    ],
+    "probe": "Oben rechts: 1 · 0 + 2 · (−1) = −2 ✓",
+    "fehler": "A · B Eintrag für Eintrag zu multiplizieren, also (4  0; 0  −3), ist falsch: Beim Matrizenprodukt gilt ⟦Zeile mal Spalte⟧. Außerdem ist meist ⟦A · B ≠ B · A⟧."
+   },
+   {
+    "lernziel": "inverse",
+    "titel": "Determinante und Umkehrmatrix",
+    "regel": "Die ⟦Determinante⟧ von M = (a  b; c  d) ist ⟦a · d − b · c⟧. Ist sie ⟦nicht 0⟧, gibt es die ⟦inverse Matrix⟧ M⁻¹ = 1/(ad − bc) · (d  −b; −c  a). Sie macht die Abbildung rückgängig.",
+    "schritte": [
+     "M = (3  1; 5  2): det M = 3 · 2 − 1 · 5 = 1.",
+     "M⁻¹ = (2  −1; −5  3) (Hauptdiagonale tauschen, Nebendiagonale Vorzeichen wechseln, durch 1 teilen)."
+    ],
+    "probe": "M · M⁻¹: oben links 3 · 2 + 1 · (−5) = 1, oben rechts 3 · (−1) + 1 · 3 = 0 ✓",
+    "fehler": "Bei M⁻¹ auch b und c zu ⟦vertauschen⟧, also (2  −5; −1  3), ist falsch: Nur a und d tauschen die Plätze; b und c ⟦bleiben⟧, bekommen aber das andere Vorzeichen."
+   },
+   {
+    "lernziel": "skalarprodukt",
+    "titel": "Skalarprodukt und Winkel",
+    "regel": "Das ⟦Skalarprodukt⟧ zweier Vektoren a = (a₁ | a₂) und b = (b₁ | b₂) ist die Zahl ⟦a₁ · b₁ + a₂ · b₂⟧. Ist es ⟦0⟧, stehen die Vektoren ⟦senkrecht⟧ aufeinander. Den Winkel liefert ⟦cos φ = (a · b) : (|a| · |b|)⟧.",
+    "schritte": [
+     "a = (3 | 4), b = (4 | −3): a · b = 12 − 12 = 0, also ⟦senkrecht⟧.",
+     "a = (3 | 4), c = (5 | 0): a · c = 15; |a| = 5, |c| = 5; cos φ = 15 : 25 = 0,6 ⇒ ⟦φ ≈ 53,1°⟧."
+    ],
+    "fehler": "a · b = (3 · 4 | 4 · (−3)) = (12 | −12) ist falsch: Das Skalarprodukt ist ⟦eine Zahl⟧, kein Vektor. Die Produkte werden ⟦addiert⟧."
+   }
+  ],
+  "teilfaehigkeiten": [
+   {
+    "k": "bildpunkt",
+    "text": "Bildpunkte mit einer Matrix",
+    "lernziele": [
+     "bildpunkt"
+    ]
+   },
+   {
+    "k": "abbildungsmatrix",
+    "text": "Matrizen bekannter Abbildungen",
+    "lernziele": [
+     "abbildungsmatrix"
+    ]
+   },
+   {
+    "k": "drehung",
+    "text": "Drehung um einen beliebigen Winkel",
+    "lernziele": [
+     "drehung"
+    ]
+   },
+   {
+    "k": "rechnen",
+    "text": "Mit Matrizen rechnen",
+    "lernziele": [
+     "rechnen"
+    ]
+   },
+   {
+    "k": "inverse",
+    "text": "Determinante und Umkehrmatrix",
+    "lernziele": [
+     "inverse"
+    ]
+   },
+   {
+    "k": "skalarprodukt",
+    "text": "Skalarprodukt und Winkel",
+    "lernziele": [
+     "skalarprodukt"
+    ]
+   }
+  ],
+  "bewertung": {
+   "lernziele_pflicht": [
+    "bildpunkt",
+    "abbildungsmatrix",
+    "drehung",
+    "rechnen",
+    "inverse",
+    "skalarprodukt"
+   ],
+   "lernziele_vertiefung": [],
+   "testaufgaben_je_lernziel": 1
+  },
+  "quellen": {
+   "erklaerungen": "Eigene Fassung (Claude), Aufgaben vom Generator erzeugt und berechnet.",
+   "begriffe": "Fachbegriffe nach LehrplanPLUS Bayern (Realschule, Wahlpflichtfächergruppe I)."
+  }
+ },
+ "aufgaben": [
+  {
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bilde P(6 | 4) mit M = (4  2; 4  4) ab.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     32,
+     40
+    ]
+   },
+   "w": "x' = 4 · 6 + 2 · 4 = 32; y' = 4 · 6 + 4 · 4 = 40. P'(32 | 40).",
+   "h": "Zeile 1 mal (x | y) gibt x', Zeile 2 gibt y'.",
+   "c": [
+    "(4) * (6) + (2) * (4)",
+    "(4) * (6) + (4) * (4)"
+   ]
+  },
+  {
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bilde P(1 | 2) mit M = (0  3; 2  2) ab.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     6,
+     6
+    ]
+   },
+   "w": "x' = 0 · 1 + 3 · 2 = 6; y' = 2 · 1 + 2 · 2 = 6. P'(6 | 6).",
+   "h": "Zeile 1 mal (x | y) gibt x', Zeile 2 gibt y'.",
+   "c": [
+    "(0) * (1) + (3) * (2)",
+    "(2) * (1) + (2) * (2)"
+   ]
+  },
+  {
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bilde P(5 | 1) mit M = (4  4; 0  0) ab.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     24,
+     0
+    ]
+   },
+   "w": "x' = 4 · 5 + 4 · 1 = 24; y' = 0 · 5 + 0 · 1 = 0. P'(24 | 0).",
+   "h": "Zeile 1 mal (x | y) gibt x', Zeile 2 gibt y'.",
+   "c": [
+    "(4) * (5) + (4) * (1)",
+    "(0) * (5) + (0) * (1)"
+   ]
+  },
+  {
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bilde P(3 | 5) mit M = (4  2; 4  3) ab.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     22,
+     27
+    ]
+   },
+   "w": "x' = 4 · 3 + 2 · 5 = 22; y' = 4 · 3 + 3 · 5 = 27. P'(22 | 27).",
+   "h": "Zeile 1 mal (x | y) gibt x', Zeile 2 gibt y'.",
+   "c": [
+    "(4) * (3) + (2) * (5)",
+    "(4) * (3) + (3) * (5)"
+   ]
+  },
+  {
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bilde P(6 | 6) mit M = (4  3; 1  1) ab.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     42,
+     12
+    ]
+   },
+   "w": "x' = 4 · 6 + 3 · 6 = 42; y' = 1 · 6 + 1 · 6 = 12. P'(42 | 12).",
+   "h": "Zeile 1 mal (x | y) gibt x', Zeile 2 gibt y'.",
+   "c": [
+    "(4) * (6) + (3) * (6)",
+    "(1) * (6) + (1) * (6)"
+   ]
+  },
+  {
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bilde P(3 | 3) mit M = (2  4; 3  0) ab.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     18,
+     9
+    ]
+   },
+   "w": "x' = 2 · 3 + 4 · 3 = 18; y' = 3 · 3 + 0 · 3 = 9. P'(18 | 9).",
+   "h": "Zeile 1 mal (x | y) gibt x', Zeile 2 gibt y'.",
+   "c": [
+    "(2) * (3) + (4) * (3)",
+    "(3) * (3) + (0) * (3)"
+   ]
+  },
+  {
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bilde P(−5 | 6) mit M = (−2  −3; −3  −3) ab.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     -8,
+     -3
+    ]
+   },
+   "w": "x' = (−2) · (−5) + (−3) · 6 = −8; y' = (−3) · (−5) + (−3) · 6 = −3. P'(−8 | −3).",
+   "h": "Zeile 1 mal (x | y) gibt x', Zeile 2 gibt y'.",
+   "c": [
+    "(-2) * (-5) + (-3) * (6)",
+    "(-3) * (-5) + (-3) * (6)"
+   ]
+  },
+  {
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bilde P(−6 | −1) mit M = (5  2; −2  4) ab.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     -32,
+     8
+    ]
+   },
+   "w": "x' = 5 · (−6) + 2 · (−1) = −32; y' = (−2) · (−6) + 4 · (−1) = 8. P'(−32 | 8).",
+   "h": "Zeile 1 mal (x | y) gibt x', Zeile 2 gibt y'.",
+   "c": [
+    "(5) * (-6) + (2) * (-1)",
+    "(-2) * (-6) + (4) * (-1)"
+   ]
+  },
+  {
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bilde P(−1 | −1) mit M = (−2  −2; −1  −4) ab.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     4,
+     5
+    ]
+   },
+   "w": "x' = (−2) · (−1) + (−2) · (−1) = 4; y' = (−1) · (−1) + (−4) · (−1) = 5. P'(4 | 5).",
+   "h": "Zeile 1 mal (x | y) gibt x', Zeile 2 gibt y'.",
+   "c": [
+    "(-2) * (-1) + (-2) * (-1)",
+    "(-1) * (-1) + (-4) * (-1)"
+   ]
+  },
+  {
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bilde P(−5 | 3) mit M = (1  3; −2  1) ab.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     4,
+     13
+    ]
+   },
+   "w": "x' = 1 · (−5) + 3 · 3 = 4; y' = (−2) · (−5) + 1 · 3 = 13. P'(4 | 13).",
+   "h": "Zeile 1 mal (x | y) gibt x', Zeile 2 gibt y'.",
+   "c": [
+    "(1) * (-5) + (3) * (3)",
+    "(-2) * (-5) + (1) * (3)"
+   ]
+  },
+  {
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bilde P(6 | −6) mit M = (5  1; −3  −2) ab.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     24,
+     -6
+    ]
+   },
+   "w": "x' = 5 · 6 + 1 · (−6) = 24; y' = (−3) · 6 + (−2) · (−6) = −6. P'(24 | −6).",
+   "h": "Zeile 1 mal (x | y) gibt x', Zeile 2 gibt y'.",
+   "c": [
+    "(5) * (6) + (1) * (-6)",
+    "(-3) * (6) + (-2) * (-6)"
+   ]
+  },
+  {
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bilde P(3 | −4) mit M = (−2  2; −1  −2) ab.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     -14,
+     5
+    ]
+   },
+   "w": "x' = (−2) · 3 + 2 · (−4) = −14; y' = (−1) · 3 + (−2) · (−4) = 5. P'(−14 | 5).",
+   "h": "Zeile 1 mal (x | y) gibt x', Zeile 2 gibt y'.",
+   "c": [
+    "(-2) * (3) + (2) * (-4)",
+    "(-1) * (3) + (-2) * (-4)"
+   ]
+  },
+  {
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die Abbildung mit M = (2  1; 1  1) bildet P auf P'(0 | −3) ab. Berechne P.",
+    "schablone": "P(□ | □)",
+    "hinweis": "x, y"
+   },
+   "o": {
+    "werte": [
+     3,
+     -6
+    ]
+   },
+   "w": "Gleichungssystem: 2x + y = 0 und x + y = −3. Lösung P(3 | −6).",
+   "h": "Stelle die zwei Abbildungsgleichungen auf und löse das Gleichungssystem.",
+   "c": [
+    "((1) * (0) - (1) * (-3)) / (1)",
+    "((2) * (-3) - (1) * (0)) / (1)"
+   ]
+  },
+  {
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die Abbildung mit M = (1  1; 0  1) bildet P auf P'(−8 | −5) ab. Berechne P.",
+    "schablone": "P(□ | □)",
+    "hinweis": "x, y"
+   },
+   "o": {
+    "werte": [
+     -3,
+     -5
+    ]
+   },
+   "w": "Gleichungssystem: x + y = −8 und y = −5. Lösung P(−3 | −5).",
+   "h": "Stelle die zwei Abbildungsgleichungen auf und löse das Gleichungssystem.",
+   "c": [
+    "((1) * (-8) - (1) * (-5)) / (1)",
+    "((1) * (-5) - (0) * (-8)) / (1)"
+   ]
+  },
+  {
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Bildpunkt entsteht, wenn P(−2 | −2) mit M = (5  −4; 1  −4) abgebildet wird?"
+   },
+   "a": [
+    "P'(6 | −2)",
+    "P'(−2 | 6)",
+    "P'(−10 | 8)",
+    "P'(−12 | 16)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "x' = 5 · (−2) + (−4) · (−2) = −2; y' = 1 · (−2) + (−4) · (−2) = 6. P'(−2 | 6).",
+   "h": "Zeilenweise rechnen, nicht spaltenweise."
+  },
+  {
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die Abbildung hat die Gleichungen x' = −2x − y und y' = 2x + 5y. Gib die Matrix an.",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     -2,
+     -1,
+     2,
+     5
+    ]
+   },
+   "w": "Die Koeffizienten zeilenweise: M = (−2  −1; 2  5).",
+   "h": "Vor x und y stehen die Einträge der Zeilen.",
+   "c": [
+    "-2",
+    "-1",
+    "2",
+    "5"
+   ]
+  },
+  {
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Die Abbildung mit M = (1  −1; 1  0) bildet P auf P'(−5 | −2) ab. Berechne P.",
+    "schablone": "P(□ | □)",
+    "hinweis": "x, y"
+   },
+   "o": {
+    "werte": [
+     -2,
+     3
+    ]
+   },
+   "w": "Gleichungssystem: x − y = −5 und x = −2. Lösung P(−2 | 3).",
+   "h": "Stelle die zwei Abbildungsgleichungen auf und löse das Gleichungssystem.",
+   "c": [
+    "((0) * (-5) - (-1) * (-2)) / (1)",
+    "((1) * (-2) - (1) * (-5)) / (1)"
+   ]
+  },
+  {
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welcher Bildpunkt entsteht, wenn P(−3 | −5) mit M = (−2  4; −3  −3) abgebildet wird?"
+   },
+   "a": [
+    "P'(−14 | 24)",
+    "P'(24 | −14)",
+    "P'(21 | 3)",
+    "P'(6 | 15)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "x' = (−2) · (−3) + 4 · (−5) = −14; y' = (−3) · (−3) + (−3) · (−5) = 24. P'(−14 | 24).",
+   "h": "Zeilenweise rechnen, nicht spaltenweise."
+  },
+  {
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bilde P(−2 | −3) mit M = (−3  5; −3  1) ab.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     -9,
+     3
+    ]
+   },
+   "w": "x' = (−3) · (−2) + 5 · (−3) = −9; y' = (−3) · (−2) + 1 · (−3) = 3. P'(−9 | 3).",
+   "c": [
+    "(-3) * (-2) + (5) * (-3)",
+    "(-3) * (-2) + (1) * (-3)"
+   ]
+  },
+  {
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bilde P(4 | −3) mit M = (0  −2; 2  −5) ab.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     6,
+     23
+    ]
+   },
+   "w": "x' = 0 · 4 + (−2) · (−3) = 6; y' = 2 · 4 + (−5) · (−3) = 23. P'(6 | 23).",
+   "c": [
+    "(0) * (4) + (-2) * (-3)",
+    "(2) * (4) + (-5) * (-3)"
+   ]
+  },
+  {
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bilde P(6 | −4) mit M = (−3  3; −5  3) ab.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     -30,
+     -42
+    ]
+   },
+   "w": "x' = (−3) · 6 + 3 · (−4) = −30; y' = (−5) · 6 + 3 · (−4) = −42. P'(−30 | −42).",
+   "c": [
+    "(-3) * (6) + (3) * (-4)",
+    "(-5) * (6) + (3) * (-4)"
+   ]
+  },
+  {
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bilde P(−3 | 6) mit M = (−3  4; −1  −1) ab.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     33,
+     -3
+    ]
+   },
+   "w": "x' = (−3) · (−3) + 4 · 6 = 33; y' = (−1) · (−3) + (−1) · 6 = −3. P'(33 | −3).",
+   "c": [
+    "(-3) * (-3) + (4) * (6)",
+    "(-1) * (-3) + (-1) * (6)"
+   ]
+  },
+  {
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bilde P(4 | −6) mit M = (−4  5; −3  −3) ab.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     -46,
+     6
+    ]
+   },
+   "w": "x' = (−4) · 4 + 5 · (−6) = −46; y' = (−3) · 4 + (−3) · (−6) = 6. P'(−46 | 6).",
+   "c": [
+    "(-4) * (4) + (5) * (-6)",
+    "(-3) * (4) + (-3) * (-6)"
+   ]
+  },
+  {
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bilde P(−4 | 6) mit M = (−5  −3; 2  −4) ab.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     2,
+     -32
+    ]
+   },
+   "w": "x' = (−5) · (−4) + (−3) · 6 = 2; y' = 2 · (−4) + (−4) · 6 = −32. P'(2 | −32).",
+   "c": [
+    "(-5) * (-4) + (-3) * (6)",
+    "(2) * (-4) + (-4) * (6)"
+   ]
+  },
+  {
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bilde P(5 | −1) mit M = (2  5; 5  −3) ab.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     5,
+     28
+    ]
+   },
+   "w": "x' = 2 · 5 + 5 · (−1) = 5; y' = 5 · 5 + (−3) · (−1) = 28. P'(5 | 28).",
+   "c": [
+    "(2) * (5) + (5) * (-1)",
+    "(5) * (5) + (-3) * (-1)"
+   ]
+  },
+  {
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bilde P(−3 | −2) mit M = (−4  2; −2  −4) ab.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     8,
+     14
+    ]
+   },
+   "w": "x' = (−4) · (−3) + 2 · (−2) = 8; y' = (−2) · (−3) + (−4) · (−2) = 14. P'(8 | 14).",
+   "c": [
+    "(-4) * (-3) + (2) * (-2)",
+    "(-2) * (-3) + (-4) * (-2)"
+   ]
+  },
+  {
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bilde P(−2 | −4) mit M = (4  −4; −1  1) ab.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     8,
+     -2
+    ]
+   },
+   "w": "x' = 4 · (−2) + (−4) · (−4) = 8; y' = (−1) · (−2) + 1 · (−4) = −2. P'(8 | −2).",
+   "c": [
+    "(4) * (-2) + (-4) * (-4)",
+    "(-1) * (-2) + (1) * (-4)"
+   ]
+  },
+  {
+   "l": "bildpunkt",
+   "t": "bildpunkt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Bilde P(3 | −1) mit M = (−1  4; 1  −1) ab.",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     -7,
+     4
+    ]
+   },
+   "w": "x' = (−1) · 3 + 4 · (−1) = −7; y' = 1 · 3 + (−1) · (−1) = 4. P'(−7 | 4).",
+   "c": [
+    "(-1) * (3) + (4) * (-1)",
+    "(1) * (3) + (-1) * (-1)"
+   ]
+  },
+  {
+   "l": "abbildungsmatrix",
+   "t": "abbildungsmatrix",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bilde P(−3 | 3) durch die Spiegelung an der x-Achse ab. Die Matrix ist (1  0; 0  −1).",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     -3,
+     -3
+    ]
+   },
+   "w": "x' = 1 · (−3) + 0 · 3 = −3; y' = 0 · (−3) + (−1) · 3 = −3.",
+   "h": "Zeile mal Spalte.",
+   "c": [
+    "(1) * (-3) + (0) * (3)",
+    "(0) * (-3) + (-1) * (3)"
+   ]
+  },
+  {
+   "l": "abbildungsmatrix",
+   "t": "abbildungsmatrix",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bilde P(−4 | 4) durch die Spiegelung an der y-Achse ab. Die Matrix ist (−1  0; 0  1).",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     4,
+     4
+    ]
+   },
+   "w": "x' = (−1) · (−4) + 0 · 4 = 4; y' = 0 · (−4) + 1 · 4 = 4.",
+   "h": "Zeile mal Spalte.",
+   "c": [
+    "(-1) * (-4) + (0) * (4)",
+    "(0) * (-4) + (1) * (4)"
+   ]
+  },
+  {
+   "l": "abbildungsmatrix",
+   "t": "abbildungsmatrix",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bilde P(3 | 3) durch die Drehung um O um 270° (−90°) ab. Die Matrix ist (0  1; −1  0).",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     3,
+     -3
+    ]
+   },
+   "w": "x' = 0 · 3 + 1 · 3 = 3; y' = (−1) · 3 + 0 · 3 = −3.",
+   "h": "Zeile mal Spalte.",
+   "c": [
+    "(0) * (3) + (1) * (3)",
+    "(-1) * (3) + (0) * (3)"
+   ]
+  },
+  {
+   "l": "abbildungsmatrix",
+   "t": "abbildungsmatrix",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bilde P(4 | 2) durch die Spiegelung an der Geraden y = x ab. Die Matrix ist (0  1; 1  0).",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     2,
+     4
+    ]
+   },
+   "w": "x' = 0 · 4 + 1 · 2 = 2; y' = 1 · 4 + 0 · 2 = 4.",
+   "h": "Zeile mal Spalte.",
+   "c": [
+    "(0) * (4) + (1) * (2)",
+    "(1) * (4) + (0) * (2)"
+   ]
+  },
+  {
+   "l": "abbildungsmatrix",
+   "t": "abbildungsmatrix",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bilde P(5 | −6) durch die Spiegelung an der x-Achse ab. Die Matrix ist (1  0; 0  −1).",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     5,
+     6
+    ]
+   },
+   "w": "x' = 1 · 5 + 0 · (−6) = 5; y' = 0 · 5 + (−1) · (−6) = 6.",
+   "h": "Zeile mal Spalte.",
+   "c": [
+    "(1) * (5) + (0) * (-6)",
+    "(0) * (5) + (-1) * (-6)"
+   ]
+  },
+  {
+   "l": "abbildungsmatrix",
+   "t": "abbildungsmatrix",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Bilde P(2 | −4) durch die Spiegelung an der Geraden y = x ab. Die Matrix ist (0  1; 1  0).",
+    "schablone": "P'(□ | □)",
+    "hinweis": "Trage die x- und die y-Koordinate des Bildpunkts ein."
+   },
+   "o": {
+    "werte": [
+     -4,
+     2
+    ]
+   },
+   "w": "x' = 0 · 2 + 1 · (−4) = −4; y' = 1 · 2 + 0 · (−4) = 2.",
+   "h": "Zeile mal Spalte.",
+   "c": [
+    "(0) * (2) + (1) * (-4)",
+    "(1) * (2) + (0) * (-4)"
+   ]
+  },
+  {
+   "l": "abbildungsmatrix",
+   "t": "abbildungsmatrix",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Matrix beschreibt die Spiegelung an der Geraden y = x?"
+   },
+   "a": [
+    "(−1  0; 0  −1)",
+    "(1  0; 0  −1)",
+    "(0  1; 1  0)",
+    "(0  1; −1  0)"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "Bilder der Einheitspunkte: (1 | 0) ↦ (0 | 1), (0 | 1) ↦ (1 | 0). Als Spalten: (0  1; 1  0).",
+   "h": "Wohin gehen (1 | 0) und (0 | 1)? Das sind die Spalten."
+  },
+  {
+   "l": "abbildungsmatrix",
+   "t": "abbildungsmatrix",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Matrix beschreibt die Spiegelung an der Geraden y = x?"
+   },
+   "a": [
+    "(1  0; 0  −1)",
+    "(0  −1; 1  0)",
+    "(−1  0; 0  1)",
+    "(0  1; 1  0)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Bilder der Einheitspunkte: (1 | 0) ↦ (0 | 1), (0 | 1) ↦ (1 | 0). Als Spalten: (0  1; 1  0).",
+   "h": "Wohin gehen (1 | 0) und (0 | 1)? Das sind die Spalten."
+  },
+  {
+   "l": "abbildungsmatrix",
+   "t": "abbildungsmatrix",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Matrix der zentrischen Streckung an O mit k = −2 an.",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     -2,
+     0,
+     0,
+     -2
+    ]
+   },
+   "w": "x' = (−2) · x und y' = (−2) · y, also (−2  0; 0  −2).",
+   "h": "Beide Koordinaten werden mit k multipliziert.",
+   "c": [
+    "-2",
+    "0",
+    "0",
+    "-2"
+   ]
+  },
+  {
+   "l": "abbildungsmatrix",
+   "t": "abbildungsmatrix",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Matrix beschreibt die Drehung um O um 270° (−90°)?"
+   },
+   "a": [
+    "(0  1; −1  0)",
+    "(1  0; 0  −1)",
+    "(0  1; 1  0)",
+    "(−1  0; 0  1)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Bilder der Einheitspunkte: (1 | 0) ↦ (0 | −1), (0 | 1) ↦ (1 | 0). Als Spalten: (0  1; −1  0).",
+   "h": "Wohin gehen (1 | 0) und (0 | 1)? Das sind die Spalten."
+  },
+  {
+   "l": "abbildungsmatrix",
+   "t": "abbildungsmatrix",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Matrix beschreibt die Spiegelung an der x-Achse?"
+   },
+   "a": [
+    "(0  1; 1  0)",
+    "(−1  0; 0  1)",
+    "(0  −1; 1  0)",
+    "(1  0; 0  −1)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Bilder der Einheitspunkte: (1 | 0) ↦ (1 | 0), (0 | 1) ↦ (0 | −1). Als Spalten: (1  0; 0  −1).",
+   "h": "Wohin gehen (1 | 0) und (0 | 1)? Das sind die Spalten."
+  },
+  {
+   "l": "abbildungsmatrix",
+   "t": "abbildungsmatrix",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Matrix beschreibt die Spiegelung an der y-Achse?"
+   },
+   "a": [
+    "(0  −1; 1  0)",
+    "(−1  0; 0  1)",
+    "(1  0; 0  −1)",
+    "(0  1; 1  0)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Bilder der Einheitspunkte: (1 | 0) ↦ (−1 | 0), (0 | 1) ↦ (0 | 1). Als Spalten: (−1  0; 0  1).",
+   "h": "Wohin gehen (1 | 0) und (0 | 1)? Das sind die Spalten."
+  },
+  {
+   "l": "abbildungsmatrix",
+   "t": "abbildungsmatrix",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Matrix der Spiegelung an der y-Achse an.",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     -1,
+     0,
+     0,
+     1
+    ]
+   },
+   "w": "(1 | 0) ↦ (−1 | 0), (0 | 1) ↦ (0 | 1). Matrix (−1  0; 0  1).",
+   "h": "Bilder der Einheitspunkte als Spalten.",
+   "c": [
+    "-1",
+    "0",
+    "0",
+    "1"
+   ]
+  },
+  {
+   "l": "abbildungsmatrix",
+   "t": "abbildungsmatrix",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Abbildung beschreibt die Matrix (0  1; −1  0)?"
+   },
+   "a": [
+    "Punktspiegelung am Ursprung",
+    "Spiegelung an der x-Achse",
+    "Drehung um O um 270° (−90°)",
+    "Spiegelung an der y-Achse"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "(1 | 0) ↦ (0 | −1) und (0 | 1) ↦ (1 | 0): das ist die Drehung um O um 270° (−90°).",
+   "h": "Bilde die Einheitspunkte (1 | 0) und (0 | 1) ab."
+  },
+  {
+   "l": "abbildungsmatrix",
+   "t": "abbildungsmatrix",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand gibt für die Drehung um O um 90° (gegen den Uhrzeigersinn) die Matrix (0  1; −1  0) an. Was stimmt?"
+   },
+   "a": [
+    "Richtig.",
+    "Falsch: Richtig ist (0  1; 1  0).",
+    "Falsch: Richtig ist (−1  0; 0  −1).",
+    "Falsch: Das ist die Drehung um −90°. Richtig ist (0  −1; 1  0)."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "(1 | 0) muss auf (0 | 1) gehen. Mit (0  1; −1  0) geht (1 | 0) auf (0 | −1) – das ist eine Drehung im Uhrzeigersinn.",
+   "h": "Bilde (1 | 0) ab und schau, wohin es zeigt."
+  },
+  {
+   "l": "abbildungsmatrix",
+   "t": "abbildungsmatrix",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Matrix der Drehung um O um 270° (−90°) an.",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     0,
+     1,
+     -1,
+     0
+    ]
+   },
+   "w": "(1 | 0) ↦ (0 | −1), (0 | 1) ↦ (1 | 0). Matrix (0  1; −1  0).",
+   "h": "Bilder der Einheitspunkte als Spalten.",
+   "c": [
+    "0",
+    "1",
+    "-1",
+    "0"
+   ]
+  },
+  {
+   "l": "abbildungsmatrix",
+   "t": "abbildungsmatrix",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Abbildung beschreibt die Matrix (−1  0; 0  1)?"
+   },
+   "a": [
+    "Spiegelung an der x-Achse",
+    "Spiegelung an der Geraden y = x",
+    "Spiegelung an der y-Achse",
+    "Drehung um O um 90°"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "(1 | 0) ↦ (−1 | 0) und (0 | 1) ↦ (0 | 1): das ist die Spiegelung an der y-Achse.",
+   "h": "Bilde die Einheitspunkte (1 | 0) und (0 | 1) ab."
+  },
+  {
+   "l": "abbildungsmatrix",
+   "t": "abbildungsmatrix",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Matrix der Punktspiegelung am Ursprung an.",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     -1,
+     0,
+     0,
+     -1
+    ]
+   },
+   "w": "(1 | 0) ↦ (−1 | 0), (0 | 1) ↦ (0 | −1). Matrix (−1  0; 0  −1).",
+   "h": "Bilder der Einheitspunkte als Spalten.",
+   "c": [
+    "-1",
+    "0",
+    "0",
+    "-1"
+   ]
+  },
+  {
+   "l": "abbildungsmatrix",
+   "t": "abbildungsmatrix",
+   "p": "test",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Matrix beschreibt die Spiegelung an der y-Achse?"
+   },
+   "a": [
+    "(−1  0; 0  1)",
+    "(0  −1; 1  0)",
+    "(1  0; 0  −1)",
+    "(−1  0; 0  −1)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Bilder der Einheitspunkte: (1 | 0) ↦ (−1 | 0), (0 | 1) ↦ (0 | 1). Als Spalten: (−1  0; 0  1)."
+  },
+  {
+   "l": "abbildungsmatrix",
+   "t": "abbildungsmatrix",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Matrix beschreibt die Spiegelung an der Geraden y = x?"
+   },
+   "a": [
+    "(−1  0; 0  −1)",
+    "(0  1; 1  0)",
+    "(−1  0; 0  1)",
+    "(0  1; −1  0)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Bilder der Einheitspunkte: (1 | 0) ↦ (0 | 1), (0 | 1) ↦ (1 | 0). Als Spalten: (0  1; 1  0)."
+  },
+  {
+   "l": "abbildungsmatrix",
+   "t": "abbildungsmatrix",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Matrix beschreibt die Punktspiegelung am Ursprung?"
+   },
+   "a": [
+    "(0  −1; 1  0)",
+    "(1  0; 0  −1)",
+    "(0  1; 1  0)",
+    "(−1  0; 0  −1)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Bilder der Einheitspunkte: (1 | 0) ↦ (−1 | 0), (0 | 1) ↦ (0 | −1). Als Spalten: (−1  0; 0  −1)."
+  },
+  {
+   "l": "abbildungsmatrix",
+   "t": "abbildungsmatrix",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Matrix beschreibt die Spiegelung an der Geraden y = x?"
+   },
+   "a": [
+    "(0  1; −1  0)",
+    "(0  1; 1  0)",
+    "(−1  0; 0  1)",
+    "(0  −1; 1  0)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Bilder der Einheitspunkte: (1 | 0) ↦ (0 | 1), (0 | 1) ↦ (1 | 0). Als Spalten: (0  1; 1  0)."
+  },
+  {
+   "l": "abbildungsmatrix",
+   "t": "abbildungsmatrix",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Matrix der zentrischen Streckung an O mit k = 3 an.",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     3,
+     0,
+     0,
+     3
+    ]
+   },
+   "w": "x' = 3 · x und y' = 3 · y, also (3  0; 0  3).",
+   "c": [
+    "3",
+    "0",
+    "0",
+    "3"
+   ]
+  },
+  {
+   "l": "abbildungsmatrix",
+   "t": "abbildungsmatrix",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Matrix beschreibt die Spiegelung an der x-Achse?"
+   },
+   "a": [
+    "(1  0; 0  −1)",
+    "(0  1; −1  0)",
+    "(0  1; 1  0)",
+    "(−1  0; 0  1)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Bilder der Einheitspunkte: (1 | 0) ↦ (1 | 0), (0 | 1) ↦ (0 | −1). Als Spalten: (1  0; 0  −1)."
+  },
+  {
+   "l": "abbildungsmatrix",
+   "t": "abbildungsmatrix",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Gib die Matrix der zentrischen Streckung an O mit k = −1 an.",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     -1,
+     0,
+     0,
+     -1
+    ]
+   },
+   "w": "x' = (−1) · x und y' = (−1) · y, also (−1  0; 0  −1).",
+   "c": [
+    "-1",
+    "0",
+    "0",
+    "-1"
+   ]
+  },
+  {
+   "l": "abbildungsmatrix",
+   "t": "abbildungsmatrix",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Matrix beschreibt die Spiegelung an der y-Achse?"
+   },
+   "a": [
+    "(−1  0; 0  1)",
+    "(1  0; 0  −1)",
+    "(−1  0; 0  −1)",
+    "(0  1; −1  0)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Bilder der Einheitspunkte: (1 | 0) ↦ (−1 | 0), (0 | 1) ↦ (0 | 1). Als Spalten: (−1  0; 0  1)."
+  },
+  {
+   "l": "abbildungsmatrix",
+   "t": "abbildungsmatrix",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Matrix beschreibt die zentrische Streckung an O mit k = 0,5?"
+   },
+   "a": [
+    "(0,5  0; 0  1)",
+    "(0,5  0; 0  0,5)",
+    "(1  0,5; 0,5  1)",
+    "(0  0,5; 0,5  0)"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "Jede Koordinate wird mit 0,5 multipliziert: (0,5  0; 0  0,5)."
+  },
+  {
+   "l": "abbildungsmatrix",
+   "t": "abbildungsmatrix",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Matrix beschreibt die Spiegelung an der Geraden y = x?"
+   },
+   "a": [
+    "(−1  0; 0  −1)",
+    "(−1  0; 0  1)",
+    "(1  0; 0  −1)",
+    "(0  1; 1  0)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Bilder der Einheitspunkte: (1 | 0) ↦ (0 | 1), (0 | 1) ↦ (1 | 0). Als Spalten: (0  1; 1  0)."
+  },
+  {
+   "l": "drehung",
+   "t": "drehung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "P(8 | 0) wird um O um 110° gedreht. Berechne y' auf zwei Dezimalen."
+   },
+   "o": {
+    "wert": 7.52,
+    "toleranz": 0.01
+   },
+   "c": "round(7.517540966287, 2)",
+   "w": "x' = 8 · cos 110° − 0 · sin 110° ≈ −2,74; y' = 8 · sin 110° + 0 · cos 110° ≈ 7,52.",
+   "h": "x' = x · cos φ − y · sin φ; y' = x · sin φ + y · cos φ."
+  },
+  {
+   "l": "drehung",
+   "t": "drehung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "P(3 | 0) wird um O um 300° gedreht. Berechne x' auf zwei Dezimalen."
+   },
+   "o": {
+    "wert": 1.5,
+    "toleranz": 0.01
+   },
+   "c": "round(1.500000000000, 2)",
+   "w": "x' = 3 · cos 300° − 0 · sin 300° ≈ 1,5; y' = 3 · sin 300° + 0 · cos 300° ≈ −2,6.",
+   "h": "x' = x · cos φ − y · sin φ; y' = x · sin φ + y · cos φ."
+  },
+  {
+   "l": "drehung",
+   "t": "drehung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "P(8 | 0) wird um O um 40° gedreht. Berechne x' auf zwei Dezimalen."
+   },
+   "o": {
+    "wert": 6.13,
+    "toleranz": 0.01
+   },
+   "c": "round(6.128355544952, 2)",
+   "w": "x' = 8 · cos 40° − 0 · sin 40° ≈ 6,13; y' = 8 · sin 40° + 0 · cos 40° ≈ 5,14.",
+   "h": "x' = x · cos φ − y · sin φ; y' = x · sin φ + y · cos φ."
+  },
+  {
+   "l": "drehung",
+   "t": "drehung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "P(3 | 0) wird um O um 40° gedreht. Berechne x' auf zwei Dezimalen."
+   },
+   "o": {
+    "wert": 2.3,
+    "toleranz": 0.01
+   },
+   "c": "round(2.298133329357, 2)",
+   "w": "x' = 3 · cos 40° − 0 · sin 40° ≈ 2,3; y' = 3 · sin 40° + 0 · cos 40° ≈ 1,93.",
+   "h": "x' = x · cos φ − y · sin φ; y' = x · sin φ + y · cos φ."
+  },
+  {
+   "l": "drehung",
+   "t": "drehung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "P(3 | 0) wird um O um 135° gedreht. Berechne y' auf zwei Dezimalen."
+   },
+   "o": {
+    "wert": 2.12,
+    "toleranz": 0.01
+   },
+   "c": "round(2.121320343560, 2)",
+   "w": "x' = 3 · cos 135° − 0 · sin 135° ≈ −2,12; y' = 3 · sin 135° + 0 · cos 135° ≈ 2,12.",
+   "h": "x' = x · cos φ − y · sin φ; y' = x · sin φ + y · cos φ."
+  },
+  {
+   "l": "drehung",
+   "t": "drehung",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "P(6 | 0) wird um O um 135° gedreht. Berechne y' auf zwei Dezimalen."
+   },
+   "o": {
+    "wert": 4.24,
+    "toleranz": 0.01
+   },
+   "c": "round(4.242640687119, 2)",
+   "w": "x' = 6 · cos 135° − 0 · sin 135° ≈ −4,24; y' = 6 · sin 135° + 0 · cos 135° ≈ 4,24.",
+   "h": "x' = x · cos φ − y · sin φ; y' = x · sin φ + y · cos φ."
+  },
+  {
+   "l": "drehung",
+   "t": "drehung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "P(1 | −2) wird um O um 20° gedreht. Berechne x' auf zwei Dezimalen."
+   },
+   "o": {
+    "wert": 1.62,
+    "toleranz": 0.01
+   },
+   "c": "round(1.623732907437, 2)",
+   "w": "x' = 1 · cos 20° − (−2) · sin 20° ≈ 1,62; y' = 1 · sin 20° + (−2) · cos 20° ≈ −1,54.",
+   "h": "x' = x · cos φ − y · sin φ; y' = x · sin φ + y · cos φ."
+  },
+  {
+   "l": "drehung",
+   "t": "drehung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "P(−2 | −4) wird um O um 40° gedreht. Berechne y' auf zwei Dezimalen."
+   },
+   "o": {
+    "wert": -4.35,
+    "toleranz": 0.01
+   },
+   "c": "round(-4.349752991849, 2)",
+   "w": "x' = (−2) · cos 40° − (−4) · sin 40° ≈ 1,04; y' = (−2) · sin 40° + (−4) · cos 40° ≈ −4,35.",
+   "h": "x' = x · cos φ − y · sin φ; y' = x · sin φ + y · cos φ."
+  },
+  {
+   "l": "drehung",
+   "t": "drehung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "P(−2 | 2) wird um O um 135° gedreht. Berechne x' auf zwei Dezimalen."
+   },
+   "o": {
+    "wert": 0,
+    "toleranz": 0.01
+   },
+   "c": "round(-0.000000000000, 2)",
+   "w": "x' = (−2) · cos 135° − 2 · sin 135° ≈ 0; y' = (−2) · sin 135° + 2 · cos 135° ≈ −2,83.",
+   "h": "x' = x · cos φ − y · sin φ; y' = x · sin φ + y · cos φ."
+  },
+  {
+   "l": "drehung",
+   "t": "drehung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "P(−4 | 3) wird um O um 70° gedreht. Berechne y' auf zwei Dezimalen."
+   },
+   "o": {
+    "wert": -2.73,
+    "toleranz": 0.01
+   },
+   "c": "round(-2.732710053167, 2)",
+   "w": "x' = (−4) · cos 70° − 3 · sin 70° ≈ −4,19; y' = (−4) · sin 70° + 3 · cos 70° ≈ −2,73.",
+   "h": "x' = x · cos φ − y · sin φ; y' = x · sin φ + y · cos φ."
+  },
+  {
+   "l": "drehung",
+   "t": "drehung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "P(−6 | 5) wird um O um 20° gedreht. Berechne x' auf zwei Dezimalen."
+   },
+   "o": {
+    "wert": -7.35,
+    "toleranz": 0.01
+   },
+   "c": "round(-7.348256441344, 2)",
+   "w": "x' = (−6) · cos 20° − 5 · sin 20° ≈ −7,35; y' = (−6) · sin 20° + 5 · cos 20° ≈ 2,65.",
+   "h": "x' = x · cos φ − y · sin φ; y' = x · sin φ + y · cos φ."
+  },
+  {
+   "l": "drehung",
+   "t": "drehung",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "P(−5 | 2) wird um O um 150° gedreht. Berechne y' auf zwei Dezimalen."
+   },
+   "o": {
+    "wert": -4.23,
+    "toleranz": 0.01
+   },
+   "c": "round(-4.232050807569, 2)",
+   "w": "x' = (−5) · cos 150° − 2 · sin 150° ≈ 3,33; y' = (−5) · sin 150° + 2 · cos 150° ≈ −4,23.",
+   "h": "x' = x · cos φ − y · sin φ; y' = x · sin φ + y · cos φ."
+  },
+  {
+   "l": "drehung",
+   "t": "drehung",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Welche Matrix beschreibt die Drehung um O um 300°?"
+   },
+   "a": [
+    "(cos 300°  −sin 300°; sin 300°  cos 300°)",
+    "(cos 300°  sin 300°; −sin 300°  cos 300°)",
+    "(sin 300°  −cos 300°; cos 300°  sin 300°)",
+    "(cos 300°  −sin 300°; −sin 300°  cos 300°)"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "Drehmatrix: (cos φ  −sin φ; sin φ  cos φ). Das Minus steht oben rechts.",
+   "h": "Wo steht das Minus?"
+  },
+  {
+   "l": "drehung",
+   "t": "drehung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "P(−5 | 5) wird um O um 40° gedreht. Berechne y' auf zwei Dezimalen."
+   },
+   "o": {
+    "wert": 0.62,
+    "toleranz": 0.01
+   },
+   "c": "round(0.616284167162, 2)",
+   "w": "x' = (−5) · cos 40° − 5 · sin 40° ≈ −7,04; y' = (−5) · sin 40° + 5 · cos 40° ≈ 0,62.",
+   "h": "Setze in die Drehmatrix ein. Achte auf das Minus bei sin φ in der ersten Zeile."
+  },
+  {
+   "l": "drehung",
+   "t": "drehung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "P(−3 | 1) wird um O um 40° gedreht. Wie weit ist P' vom Ursprung entfernt? Runde auf zwei Dezimalen."
+   },
+   "o": {
+    "wert": 3.16,
+    "toleranz": 0.01
+   },
+   "c": "round(3.162277660168, 2)",
+   "w": "Eine Drehung um O ändert den Abstand zu O nicht: |OP| = √((−3)² + 1²) = √10 ≈ 3,16.",
+   "h": "Rechnen ist nicht nötig, wenn du weißt, was eine Drehung mit dem Abstand zu O macht."
+  },
+  {
+   "l": "drehung",
+   "t": "drehung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "P(−5 | 4) wird um O um 60° gedreht. Wie weit ist P' vom Ursprung entfernt? Runde auf zwei Dezimalen."
+   },
+   "o": {
+    "wert": 6.4,
+    "toleranz": 0.01
+   },
+   "c": "round(6.403124237433, 2)",
+   "w": "Eine Drehung um O ändert den Abstand zu O nicht: |OP| = √((−5)² + 4²) = √41 ≈ 6,4.",
+   "h": "Rechnen ist nicht nötig, wenn du weißt, was eine Drehung mit dem Abstand zu O macht."
+  },
+  {
+   "l": "drehung",
+   "t": "drehung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "P(1 | −5) wird um O um 150° gedreht. Berechne x' auf zwei Dezimalen."
+   },
+   "o": {
+    "wert": 1.63,
+    "toleranz": 0.01
+   },
+   "c": "round(1.633974596216, 2)",
+   "w": "x' = 1 · cos 150° − (−5) · sin 150° ≈ 1,63; y' = 1 · sin 150° + (−5) · cos 150° ≈ 4,83.",
+   "h": "Setze in die Drehmatrix ein. Achte auf das Minus bei sin φ in der ersten Zeile."
+  },
+  {
+   "l": "drehung",
+   "t": "drehung",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "P(5 | 5) wird um O um 200° gedreht. Berechne y' auf zwei Dezimalen."
+   },
+   "o": {
+    "wert": -6.41,
+    "toleranz": 0.01
+   },
+   "c": "round(-6.408563820558, 2)",
+   "w": "x' = 5 · cos 200° − 5 · sin 200° ≈ −2,99; y' = 5 · sin 200° + 5 · cos 200° ≈ −6,41.",
+   "h": "Setze in die Drehmatrix ein. Achte auf das Minus bei sin φ in der ersten Zeile."
+  },
+  {
+   "l": "drehung",
+   "t": "drehung",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "P(−3 | −3) wird um O um 60° gedreht. Berechne x' auf zwei Dezimalen."
+   },
+   "o": {
+    "wert": 1.1,
+    "toleranz": 0.01
+   },
+   "c": "round(1.098076211353, 2)",
+   "w": "x' = (−3) · cos 60° − (−3) · sin 60° ≈ 1,1; y' = (−3) · sin 60° + (−3) · cos 60° ≈ −4,1."
+  },
+  {
+   "l": "drehung",
+   "t": "drehung",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "P(−1 | 2) wird um O um 300° gedreht. Berechne y' auf zwei Dezimalen."
+   },
+   "o": {
+    "wert": 1.87,
+    "toleranz": 0.01
+   },
+   "c": "round(1.866025403784, 2)",
+   "w": "x' = (−1) · cos 300° − 2 · sin 300° ≈ 1,23; y' = (−1) · sin 300° + 2 · cos 300° ≈ 1,87."
+  },
+  {
+   "l": "drehung",
+   "t": "drehung",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "P(−1 | −6) wird um O um 40° gedreht. Berechne y' auf zwei Dezimalen."
+   },
+   "o": {
+    "wert": -5.24,
+    "toleranz": 0.01
+   },
+   "c": "round(-5.239054268400, 2)",
+   "w": "x' = (−1) · cos 40° − (−6) · sin 40° ≈ 3,09; y' = (−1) · sin 40° + (−6) · cos 40° ≈ −5,24."
+  },
+  {
+   "l": "drehung",
+   "t": "drehung",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "P(5 | −2) wird um O um 200° gedreht. Berechne x' auf zwei Dezimalen."
+   },
+   "o": {
+    "wert": -5.38,
+    "toleranz": 0.01
+   },
+   "c": "round(-5.382503390581, 2)",
+   "w": "x' = 5 · cos 200° − (−2) · sin 200° ≈ −5,38; y' = 5 · sin 200° + (−2) · cos 200° ≈ 0,17."
+  },
+  {
+   "l": "drehung",
+   "t": "drehung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "P(−3 | 3) wird um O um 110° gedreht. Berechne x' auf zwei Dezimalen."
+   },
+   "o": {
+    "wert": -1.79,
+    "toleranz": 0.01
+   },
+   "c": "round(-1.793017432381, 2)",
+   "w": "x' = (−3) · cos 110° − 3 · sin 110° ≈ −1,79; y' = (−3) · sin 110° + 3 · cos 110° ≈ −3,85."
+  },
+  {
+   "l": "drehung",
+   "t": "drehung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "P(−6 | −1) wird um O um 20° gedreht. Berechne x' auf zwei Dezimalen."
+   },
+   "o": {
+    "wert": -5.3,
+    "toleranz": 0.01
+   },
+   "c": "round(-5.296135581390, 2)",
+   "w": "x' = (−6) · cos 20° − (−1) · sin 20° ≈ −5,3; y' = (−6) · sin 20° + (−1) · cos 20° ≈ −2,99."
+  },
+  {
+   "l": "drehung",
+   "t": "drehung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "P(6 | 1) wird um O um 70° gedreht. Berechne y' auf zwei Dezimalen."
+   },
+   "o": {
+    "wert": 5.98,
+    "toleranz": 0.01
+   },
+   "c": "round(5.980175868041, 2)",
+   "w": "x' = 6 · cos 70° − 1 · sin 70° ≈ 1,11; y' = 6 · sin 70° + 1 · cos 70° ≈ 5,98."
+  },
+  {
+   "l": "drehung",
+   "t": "drehung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "P(4 | −5) wird um O um 300° gedreht. Berechne x' auf zwei Dezimalen."
+   },
+   "o": {
+    "wert": -2.33,
+    "toleranz": 0.01
+   },
+   "c": "round(-2.330127018922, 2)",
+   "w": "x' = 4 · cos 300° − (−5) · sin 300° ≈ −2,33; y' = 4 · sin 300° + (−5) · cos 300° ≈ −5,96."
+  },
+  {
+   "l": "drehung",
+   "t": "drehung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "P(6 | −4) wird um O um 60° gedreht. Berechne x' auf zwei Dezimalen."
+   },
+   "o": {
+    "wert": 6.46,
+    "toleranz": 0.01
+   },
+   "c": "round(6.464101615138, 2)",
+   "w": "x' = 6 · cos 60° − (−4) · sin 60° ≈ 6,46; y' = 6 · sin 60° + (−4) · cos 60° ≈ 3,2."
+  },
+  {
+   "l": "drehung",
+   "t": "drehung",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "P(−2 | −4) wird um O um 300° gedreht. Berechne y' auf zwei Dezimalen."
+   },
+   "o": {
+    "wert": -0.27,
+    "toleranz": 0.01
+   },
+   "c": "round(-0.267949192431, 2)",
+   "w": "x' = (−2) · cos 300° − (−4) · sin 300° ≈ −4,46; y' = (−2) · sin 300° + (−4) · cos 300° ≈ −0,27."
+  },
+  {
+   "l": "rechnen",
+   "t": "rechnen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne 4 · A für A = (4  −3; 1  −2).",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     16,
+     -12,
+     4,
+     -8
+    ]
+   },
+   "w": "Jeden Eintrag mal 4: (16  −12; 4  −8).",
+   "h": "Jeder Eintrag wird mit der Zahl multipliziert.",
+   "c": [
+    "4 * (4)",
+    "4 * (-3)",
+    "4 * (1)",
+    "4 * (-2)"
+   ]
+  },
+  {
+   "l": "rechnen",
+   "t": "rechnen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne (−3) · A für A = (3  0; 0  −1).",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     -9,
+     0,
+     0,
+     3
+    ]
+   },
+   "w": "Jeden Eintrag mal −3: (−9  0; 0  3).",
+   "h": "Jeder Eintrag wird mit der Zahl multipliziert.",
+   "c": [
+    "-3 * (3)",
+    "-3 * (0)",
+    "-3 * (0)",
+    "-3 * (-1)"
+   ]
+  },
+  {
+   "l": "rechnen",
+   "t": "rechnen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne A + B für A = (−3  −2; 1  0) und B = (1  −2; 1  0).",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     -2,
+     -4,
+     2,
+     0
+    ]
+   },
+   "w": "Eintrag für Eintrag addieren: A + B = (−2  −4; 2  0).",
+   "h": "Gleiche Stellen addieren.",
+   "c": [
+    "(-3) + (1)",
+    "(-2) + (-2)",
+    "(1) + (1)",
+    "(0) + (0)"
+   ]
+  },
+  {
+   "l": "rechnen",
+   "t": "rechnen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne A + B für A = (−3  −2; 4  −1) und B = (−3  −2; 1  3).",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     -6,
+     -4,
+     5,
+     2
+    ]
+   },
+   "w": "Eintrag für Eintrag addieren: A + B = (−6  −4; 5  2).",
+   "h": "Gleiche Stellen addieren.",
+   "c": [
+    "(-3) + (-3)",
+    "(-2) + (-2)",
+    "(4) + (1)",
+    "(-1) + (3)"
+   ]
+  },
+  {
+   "l": "rechnen",
+   "t": "rechnen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne A + B für A = (−3  −2; −4  2) und B = (−3  5; 3  −1).",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     -6,
+     3,
+     -1,
+     1
+    ]
+   },
+   "w": "Eintrag für Eintrag addieren: A + B = (−6  3; −1  1).",
+   "h": "Gleiche Stellen addieren.",
+   "c": [
+    "(-3) + (-3)",
+    "(-2) + (5)",
+    "(-4) + (3)",
+    "(2) + (-1)"
+   ]
+  },
+  {
+   "l": "rechnen",
+   "t": "rechnen",
+   "p": "uebung",
+   "s": 1,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne A + B für A = (−1  2; 3  1) und B = (−2  1; −1  4).",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     -3,
+     3,
+     2,
+     5
+    ]
+   },
+   "w": "Eintrag für Eintrag addieren: A + B = (−3  3; 2  5).",
+   "h": "Gleiche Stellen addieren.",
+   "c": [
+    "(-1) + (-2)",
+    "(2) + (1)",
+    "(3) + (-1)",
+    "(1) + (4)"
+   ]
+  },
+  {
+   "l": "rechnen",
+   "t": "rechnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne A · B für A = (3  4; −3  −3) und B = (−2  0; −1  2).",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     -10,
+     8,
+     9,
+     -6
+    ]
+   },
+   "w": "Oben links: 3 · (−2) + 4 · (−1) = −10; oben rechts: 3 · 0 + 4 · 2 = 8; unten links: (−3) · (−2) + (−3) · (−1) = 9; unten rechts: (−3) · 0 + (−3) · 2 = −6.",
+   "h": "Zeile von A mal Spalte von B.",
+   "c": [
+    "(3)*(-2)+(4)*(-1)",
+    "(3)*(0)+(4)*(2)",
+    "(-3)*(-2)+(-3)*(-1)",
+    "(-3)*(0)+(-3)*(2)"
+   ]
+  },
+  {
+   "l": "rechnen",
+   "t": "rechnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne A · B für A = (−4  −3; 3  −4) und B = (4  −4; −2  0).",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     -10,
+     16,
+     20,
+     -12
+    ]
+   },
+   "w": "Oben links: (−4) · 4 + (−3) · (−2) = −10; oben rechts: (−4) · (−4) + (−3) · 0 = 16; unten links: 3 · 4 + (−4) · (−2) = 20; unten rechts: 3 · (−4) + (−4) · 0 = −12.",
+   "h": "Zeile von A mal Spalte von B.",
+   "c": [
+    "(-4)*(4)+(-3)*(-2)",
+    "(-4)*(-4)+(-3)*(0)",
+    "(3)*(4)+(-4)*(-2)",
+    "(3)*(-4)+(-4)*(0)"
+   ]
+  },
+  {
+   "l": "rechnen",
+   "t": "rechnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne A · B für A = (1  4; −2  −3) und B = (−2  3; −1  −3).",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     -6,
+     -9,
+     7,
+     3
+    ]
+   },
+   "w": "Oben links: 1 · (−2) + 4 · (−1) = −6; oben rechts: 1 · 3 + 4 · (−3) = −9; unten links: (−2) · (−2) + (−3) · (−1) = 7; unten rechts: (−2) · 3 + (−3) · (−3) = 3.",
+   "h": "Zeile von A mal Spalte von B.",
+   "c": [
+    "(1)*(-2)+(4)*(-1)",
+    "(1)*(3)+(4)*(-3)",
+    "(-2)*(-2)+(-3)*(-1)",
+    "(-2)*(3)+(-3)*(-3)"
+   ]
+  },
+  {
+   "l": "rechnen",
+   "t": "rechnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne A · B für A = (−4  −2; −3  −3) und B = (−4  −4; 1  1).",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     14,
+     14,
+     9,
+     9
+    ]
+   },
+   "w": "Oben links: (−4) · (−4) + (−2) · 1 = 14; oben rechts: (−4) · (−4) + (−2) · 1 = 14; unten links: (−3) · (−4) + (−3) · 1 = 9; unten rechts: (−3) · (−4) + (−3) · 1 = 9.",
+   "h": "Zeile von A mal Spalte von B.",
+   "c": [
+    "(-4)*(-4)+(-2)*(1)",
+    "(-4)*(-4)+(-2)*(1)",
+    "(-3)*(-4)+(-3)*(1)",
+    "(-3)*(-4)+(-3)*(1)"
+   ]
+  },
+  {
+   "l": "rechnen",
+   "t": "rechnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne A · B für A = (−4  −4; 2  4) und B = (−3  0; −2  −4).",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     20,
+     16,
+     -14,
+     -16
+    ]
+   },
+   "w": "Oben links: (−4) · (−3) + (−4) · (−2) = 20; oben rechts: (−4) · 0 + (−4) · (−4) = 16; unten links: 2 · (−3) + 4 · (−2) = −14; unten rechts: 2 · 0 + 4 · (−4) = −16.",
+   "h": "Zeile von A mal Spalte von B.",
+   "c": [
+    "(-4)*(-3)+(-4)*(-2)",
+    "(-4)*(0)+(-4)*(-4)",
+    "(2)*(-3)+(4)*(-2)",
+    "(2)*(0)+(4)*(-4)"
+   ]
+  },
+  {
+   "l": "rechnen",
+   "t": "rechnen",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne A · B für A = (−2  −4; −2  4) und B = (0  4; −2  3).",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     8,
+     -20,
+     -8,
+     4
+    ]
+   },
+   "w": "Oben links: (−2) · 0 + (−4) · (−2) = 8; oben rechts: (−2) · 4 + (−4) · 3 = −20; unten links: (−2) · 0 + 4 · (−2) = −8; unten rechts: (−2) · 4 + 4 · 3 = 4.",
+   "h": "Zeile von A mal Spalte von B.",
+   "c": [
+    "(-2)*(0)+(-4)*(-2)",
+    "(-2)*(4)+(-4)*(3)",
+    "(-2)*(0)+(4)*(-2)",
+    "(-2)*(4)+(4)*(3)"
+   ]
+  },
+  {
+   "l": "rechnen",
+   "t": "rechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Gilt A · B = B · A für A = (−4  −1; −2  2) und B = (3  0; 0  4)?"
+   },
+   "a": [
+    "Ja",
+    "Nein",
+    "Das gilt für alle Matrizen."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "A · B = (−12  −4; −6  8), B · A = (−12  −3; −8  8). Verschieden – die Reihenfolge zählt.",
+   "h": "Rechne beide Produkte aus."
+  },
+  {
+   "l": "rechnen",
+   "t": "rechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Was ergibt A · B für A = (−1  −3; 3  −4) und B = (−2  0; 3  −4)?"
+   },
+   "a": [
+    "(2  0; 9  16)",
+    "(−3  −3; 6  −8)",
+    "(2  6; −15  7)",
+    "(−7  12; −18  16)"
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "Oben links: (−1) · (−2) + (−3) · 3 = −7; oben rechts: (−1) · 0 + (−3) · (−4) = 12; unten links: 3 · (−2) + (−4) · 3 = −18; unten rechts: 3 · 0 + (−4) · (−4) = 16.",
+   "h": "Zeile mal Spalte – und auf die Reihenfolge achten."
+  },
+  {
+   "l": "rechnen",
+   "t": "rechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Erst wird die Spiegelung an der y-Achse ausgeführt, dann die Spiegelung an der Geraden y = x. Gib die Matrix der Verkettung an (zweite Matrix · erste Matrix).",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     0,
+     1,
+     -1,
+     0
+    ]
+   },
+   "w": "(0  1; 1  0) · (−1  0; 0  1) = (0  1; −1  0).",
+   "h": "„Erst B, dann A“ heißt A · B.",
+   "c": [
+    "(0)*(-1)+(1)*(0)",
+    "(0)*(0)+(1)*(1)",
+    "(1)*(-1)+(0)*(0)",
+    "(1)*(0)+(0)*(1)"
+   ]
+  },
+  {
+   "l": "rechnen",
+   "t": "rechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Erst wird die Spiegelung an der Geraden y = x ausgeführt, dann die Spiegelung an der x-Achse. Gib die Matrix der Verkettung an (zweite Matrix · erste Matrix).",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     0,
+     1,
+     -1,
+     0
+    ]
+   },
+   "w": "(1  0; 0  −1) · (0  1; 1  0) = (0  1; −1  0).",
+   "h": "„Erst B, dann A“ heißt A · B.",
+   "c": [
+    "(1)*(0)+(0)*(1)",
+    "(1)*(1)+(0)*(0)",
+    "(0)*(0)+(-1)*(1)",
+    "(0)*(1)+(-1)*(0)"
+   ]
+  },
+  {
+   "l": "rechnen",
+   "t": "rechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Gilt A · B = B · A für A = (3  −1; 4  3) und B = (−4  1; −2  −2)?"
+   },
+   "a": [
+    "Nein",
+    "Das gilt für alle Matrizen.",
+    "Ja"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "A · B = (−10  5; −22  −2), B · A = (−8  7; −14  −4). Verschieden – die Reihenfolge zählt.",
+   "h": "Rechne beide Produkte aus."
+  },
+  {
+   "l": "rechnen",
+   "t": "rechnen",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "Erst wird die Drehung um O um 90° ausgeführt, dann die Spiegelung an der Geraden y = x. Gib die Matrix der Verkettung an (zweite Matrix · erste Matrix).",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     1,
+     0,
+     0,
+     -1
+    ]
+   },
+   "w": "(0  1; 1  0) · (0  −1; 1  0) = (1  0; 0  −1).",
+   "h": "„Erst B, dann A“ heißt A · B.",
+   "c": [
+    "(0)*(0)+(1)*(1)",
+    "(0)*(-1)+(1)*(0)",
+    "(1)*(0)+(0)*(1)",
+    "(1)*(-1)+(0)*(0)"
+   ]
+  },
+  {
+   "l": "rechnen",
+   "t": "rechnen",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne A · B für A = (0  3; 1  −1) und B = (−4  −2; −3  3).",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     -9,
+     9,
+     -1,
+     -5
+    ]
+   },
+   "w": "Oben links: 0 · (−4) + 3 · (−3) = −9; oben rechts: 0 · (−2) + 3 · 3 = 9; unten links: 1 · (−4) + (−1) · (−3) = −1; unten rechts: 1 · (−2) + (−1) · 3 = −5.",
+   "c": [
+    "(0)*(-4)+(3)*(-3)",
+    "(0)*(-2)+(3)*(3)",
+    "(1)*(-4)+(-1)*(-3)",
+    "(1)*(-2)+(-1)*(3)"
+   ]
+  },
+  {
+   "l": "rechnen",
+   "t": "rechnen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne A · B für A = (1  −2; −3  3) und B = (−4  3; −2  −1).",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     0,
+     5,
+     6,
+     -12
+    ]
+   },
+   "w": "Oben links: 1 · (−4) + (−2) · (−2) = 0; oben rechts: 1 · 3 + (−2) · (−1) = 5; unten links: (−3) · (−4) + 3 · (−2) = 6; unten rechts: (−3) · 3 + 3 · (−1) = −12.",
+   "c": [
+    "(1)*(-4)+(-2)*(-2)",
+    "(1)*(3)+(-2)*(-1)",
+    "(-3)*(-4)+(3)*(-2)",
+    "(-3)*(3)+(3)*(-1)"
+   ]
+  },
+  {
+   "l": "rechnen",
+   "t": "rechnen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne A · B für A = (2  −1; 3  0) und B = (1  1; 4  −1).",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     -2,
+     3,
+     3,
+     3
+    ]
+   },
+   "w": "Oben links: 2 · 1 + (−1) · 4 = −2; oben rechts: 2 · 1 + (−1) · (−1) = 3; unten links: 3 · 1 + 0 · 4 = 3; unten rechts: 3 · 1 + 0 · (−1) = 3.",
+   "c": [
+    "(2)*(1)+(-1)*(4)",
+    "(2)*(1)+(-1)*(-1)",
+    "(3)*(1)+(0)*(4)",
+    "(3)*(1)+(0)*(-1)"
+   ]
+  },
+  {
+   "l": "rechnen",
+   "t": "rechnen",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne A · B für A = (2  −2; 0  0) und B = (−3  −1; −1  2).",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     -4,
+     -6,
+     0,
+     0
+    ]
+   },
+   "w": "Oben links: 2 · (−3) + (−2) · (−1) = −4; oben rechts: 2 · (−1) + (−2) · 2 = −6; unten links: 0 · (−3) + 0 · (−1) = 0; unten rechts: 0 · (−1) + 0 · 2 = 0.",
+   "c": [
+    "(2)*(-3)+(-2)*(-1)",
+    "(2)*(-1)+(-2)*(2)",
+    "(0)*(-3)+(0)*(-1)",
+    "(0)*(-1)+(0)*(2)"
+   ]
+  },
+  {
+   "l": "rechnen",
+   "t": "rechnen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne A · B für A = (1  1; 4  4) und B = (1  4; −1  −1).",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     0,
+     3,
+     0,
+     12
+    ]
+   },
+   "w": "Oben links: 1 · 1 + 1 · (−1) = 0; oben rechts: 1 · 4 + 1 · (−1) = 3; unten links: 4 · 1 + 4 · (−1) = 0; unten rechts: 4 · 4 + 4 · (−1) = 12.",
+   "c": [
+    "(1)*(1)+(1)*(-1)",
+    "(1)*(4)+(1)*(-1)",
+    "(4)*(1)+(4)*(-1)",
+    "(4)*(4)+(4)*(-1)"
+   ]
+  },
+  {
+   "l": "rechnen",
+   "t": "rechnen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne A · B für A = (2  −4; 2  −2) und B = (−1  3; 3  −4).",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     -14,
+     22,
+     -8,
+     14
+    ]
+   },
+   "w": "Oben links: 2 · (−1) + (−4) · 3 = −14; oben rechts: 2 · 3 + (−4) · (−4) = 22; unten links: 2 · (−1) + (−2) · 3 = −8; unten rechts: 2 · 3 + (−2) · (−4) = 14.",
+   "c": [
+    "(2)*(-1)+(-4)*(3)",
+    "(2)*(3)+(-4)*(-4)",
+    "(2)*(-1)+(-2)*(3)",
+    "(2)*(3)+(-2)*(-4)"
+   ]
+  },
+  {
+   "l": "rechnen",
+   "t": "rechnen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne A · B für A = (0  1; 1  1) und B = (−4  −2; −2  −4).",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     -2,
+     -4,
+     -6,
+     -6
+    ]
+   },
+   "w": "Oben links: 0 · (−4) + 1 · (−2) = −2; oben rechts: 0 · (−2) + 1 · (−4) = −4; unten links: 1 · (−4) + 1 · (−2) = −6; unten rechts: 1 · (−2) + 1 · (−4) = −6.",
+   "c": [
+    "(0)*(-4)+(1)*(-2)",
+    "(0)*(-2)+(1)*(-4)",
+    "(1)*(-4)+(1)*(-2)",
+    "(1)*(-2)+(1)*(-4)"
+   ]
+  },
+  {
+   "l": "rechnen",
+   "t": "rechnen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne A · B für A = (1  −3; −2  0) und B = (4  0; 4  3).",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     -8,
+     -9,
+     -8,
+     0
+    ]
+   },
+   "w": "Oben links: 1 · 4 + (−3) · 4 = −8; oben rechts: 1 · 0 + (−3) · 3 = −9; unten links: (−2) · 4 + 0 · 4 = −8; unten rechts: (−2) · 0 + 0 · 3 = 0.",
+   "c": [
+    "(1)*(4)+(-3)*(4)",
+    "(1)*(0)+(-3)*(3)",
+    "(-2)*(4)+(0)*(4)",
+    "(-2)*(0)+(0)*(3)"
+   ]
+  },
+  {
+   "l": "rechnen",
+   "t": "rechnen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne A · B für A = (−1  2; 3  4) und B = (1  0; −3  4).",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     -7,
+     8,
+     -9,
+     16
+    ]
+   },
+   "w": "Oben links: (−1) · 1 + 2 · (−3) = −7; oben rechts: (−1) · 0 + 2 · 4 = 8; unten links: 3 · 1 + 4 · (−3) = −9; unten rechts: 3 · 0 + 4 · 4 = 16.",
+   "c": [
+    "(-1)*(1)+(2)*(-3)",
+    "(-1)*(0)+(2)*(4)",
+    "(3)*(1)+(4)*(-3)",
+    "(3)*(0)+(4)*(4)"
+   ]
+  },
+  {
+   "l": "rechnen",
+   "t": "rechnen",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne A · B für A = (3  4; 0  2) und B = (−4  2; 1  −3).",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     -8,
+     -6,
+     2,
+     -6
+    ]
+   },
+   "w": "Oben links: 3 · (−4) + 4 · 1 = −8; oben rechts: 3 · 2 + 4 · (−3) = −6; unten links: 0 · (−4) + 2 · 1 = 2; unten rechts: 0 · 2 + 2 · (−3) = −6.",
+   "c": [
+    "(3)*(-4)+(4)*(1)",
+    "(3)*(2)+(4)*(-3)",
+    "(0)*(-4)+(2)*(1)",
+    "(0)*(2)+(2)*(-3)"
+   ]
+  },
+  {
+   "l": "inverse",
+   "t": "inverse",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Determinante von M = (2  3; 1  −5)."
+   },
+   "o": {
+    "wert": -13
+   },
+   "c": "(2) * (-5) - (3) * (1)",
+   "w": "det M = 2 · (−5) − 3 · 1 = −13.",
+   "h": "Hauptdiagonale mal minus Nebendiagonale mal."
+  },
+  {
+   "l": "inverse",
+   "t": "inverse",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Determinante von M = (−2  3; 2  −3)."
+   },
+   "o": {
+    "wert": 0
+   },
+   "c": "(-2) * (-3) - (3) * (2)",
+   "w": "det M = (−2) · (−3) − 3 · 2 = 0.",
+   "h": "Hauptdiagonale mal minus Nebendiagonale mal."
+  },
+  {
+   "l": "inverse",
+   "t": "inverse",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Determinante von M = (0  6; −2  3)."
+   },
+   "o": {
+    "wert": 12
+   },
+   "c": "(0) * (3) - (6) * (-2)",
+   "w": "det M = 0 · 3 − 6 · (−2) = 12.",
+   "h": "Hauptdiagonale mal minus Nebendiagonale mal."
+  },
+  {
+   "l": "inverse",
+   "t": "inverse",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Determinante von M = (−1  −4; −5  3)."
+   },
+   "o": {
+    "wert": -23
+   },
+   "c": "(-1) * (3) - (-4) * (-5)",
+   "w": "det M = (−1) · 3 − (−4) · (−5) = −23.",
+   "h": "Hauptdiagonale mal minus Nebendiagonale mal."
+  },
+  {
+   "l": "inverse",
+   "t": "inverse",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Determinante von M = (4  −4; 5  −4)."
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "(4) * (-4) - (-4) * (5)",
+   "w": "det M = 4 · (−4) − (−4) · 5 = 4.",
+   "h": "Hauptdiagonale mal minus Nebendiagonale mal."
+  },
+  {
+   "l": "inverse",
+   "t": "inverse",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne die Determinante von M = (2  −6; 4  −5)."
+   },
+   "o": {
+    "wert": 14
+   },
+   "c": "(2) * (-5) - (-6) * (4)",
+   "w": "det M = 2 · (−5) − (−6) · 4 = 14.",
+   "h": "Hauptdiagonale mal minus Nebendiagonale mal."
+  },
+  {
+   "l": "inverse",
+   "t": "inverse",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne die inverse Matrix von M = (1  −1; −2  3).",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     3,
+     1,
+     2,
+     1
+    ]
+   },
+   "w": "det M = 1 · 3 − (−1) · (−2) = 1. M⁻¹ = 1/1 · (3  1; 2  1) = (3  1; 2  1).",
+   "h": "a und d tauschen, b und c Vorzeichen wechseln, durch die Determinante teilen.",
+   "c": [
+    "(3) / (1)",
+    "(1) / (1)",
+    "(2) / (1)",
+    "(1) / (1)"
+   ]
+  },
+  {
+   "l": "inverse",
+   "t": "inverse",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne die inverse Matrix von M = (4  3; 1  1).",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     1,
+     -3,
+     -1,
+     4
+    ]
+   },
+   "w": "det M = 4 · 1 − 3 · 1 = 1. M⁻¹ = 1/1 · (1  −3; −1  4) = (1  −3; −1  4).",
+   "h": "a und d tauschen, b und c Vorzeichen wechseln, durch die Determinante teilen.",
+   "c": [
+    "(1) / (1)",
+    "(-3) / (1)",
+    "(-1) / (1)",
+    "(4) / (1)"
+   ]
+  },
+  {
+   "l": "inverse",
+   "t": "inverse",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne die inverse Matrix von M = (1  2; 2  5).",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     5,
+     -2,
+     -2,
+     1
+    ]
+   },
+   "w": "det M = 1 · 5 − 2 · 2 = 1. M⁻¹ = 1/1 · (5  −2; −2  1) = (5  −2; −2  1).",
+   "h": "a und d tauschen, b und c Vorzeichen wechseln, durch die Determinante teilen.",
+   "c": [
+    "(5) / (1)",
+    "(-2) / (1)",
+    "(-2) / (1)",
+    "(1) / (1)"
+   ]
+  },
+  {
+   "l": "inverse",
+   "t": "inverse",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne die inverse Matrix von M = (2  3; 1  2).",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     2,
+     -3,
+     -1,
+     2
+    ]
+   },
+   "w": "det M = 2 · 2 − 3 · 1 = 1. M⁻¹ = 1/1 · (2  −3; −1  2) = (2  −3; −1  2).",
+   "h": "a und d tauschen, b und c Vorzeichen wechseln, durch die Determinante teilen.",
+   "c": [
+    "(2) / (1)",
+    "(-3) / (1)",
+    "(-1) / (1)",
+    "(2) / (1)"
+   ]
+  },
+  {
+   "l": "inverse",
+   "t": "inverse",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne die inverse Matrix von M = (3  1; 5  2).",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     2,
+     -1,
+     -5,
+     3
+    ]
+   },
+   "w": "det M = 3 · 2 − 1 · 5 = 1. M⁻¹ = 1/1 · (2  −1; −5  3) = (2  −1; −5  3).",
+   "h": "a und d tauschen, b und c Vorzeichen wechseln, durch die Determinante teilen.",
+   "c": [
+    "(2) / (1)",
+    "(-1) / (1)",
+    "(-5) / (1)",
+    "(3) / (1)"
+   ]
+  },
+  {
+   "l": "inverse",
+   "t": "inverse",
+   "p": "uebung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne die inverse Matrix von M = (5  3; 3  2).",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     2,
+     -3,
+     -3,
+     5
+    ]
+   },
+   "w": "det M = 5 · 2 − 3 · 3 = 1. M⁻¹ = 1/1 · (2  −3; −3  5) = (2  −3; −3  5).",
+   "h": "a und d tauschen, b und c Vorzeichen wechseln, durch die Determinante teilen.",
+   "c": [
+    "(2) / (1)",
+    "(-3) / (1)",
+    "(-3) / (1)",
+    "(5) / (1)"
+   ]
+  },
+  {
+   "l": "inverse",
+   "t": "inverse",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welches x hat M = (x  5; 4  5) keine inverse Matrix?"
+   },
+   "o": {
+    "wert": 4
+   },
+   "c": "5 * 4 / 5",
+   "w": "Keine Inverse, wenn det M = 0: x · 5 − 5 · 4 = 0 ⇒ x = 4.",
+   "h": "Setze die Determinante gleich 0."
+  },
+  {
+   "l": "inverse",
+   "t": "inverse",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welches x hat M = (x  3; 1  5) keine inverse Matrix?"
+   },
+   "o": {
+    "wert": 0.6
+   },
+   "c": "3 * 1 / 5",
+   "w": "Keine Inverse, wenn det M = 0: x · 5 − 3 · 1 = 0 ⇒ x = 0,6.",
+   "h": "Setze die Determinante gleich 0."
+  },
+  {
+   "l": "inverse",
+   "t": "inverse",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Für welches x hat M = (x  1; 5  2) keine inverse Matrix?"
+   },
+   "o": {
+    "wert": 2.5
+   },
+   "c": "1 * 5 / 2",
+   "w": "Keine Inverse, wenn det M = 0: x · 2 − 1 · 5 = 0 ⇒ x = 2,5.",
+   "h": "Setze die Determinante gleich 0."
+  },
+  {
+   "l": "inverse",
+   "t": "inverse",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "M = (3  −1; −2  1) bildet P auf P'(10 | −8) ab. Berechne P mit der inversen Matrix.",
+    "schablone": "P(□ | □)",
+    "hinweis": "x, y"
+   },
+   "o": {
+    "werte": [
+     2,
+     -4
+    ]
+   },
+   "w": "det M = 3 · 1 − (−1) · (−2) = 1. M⁻¹ = 1/1 · (1  1; 2  3) = (1  1; 2  3). P = M⁻¹ · P' = (2 | −4).",
+   "h": "Erst M⁻¹ bestimmen, dann M⁻¹ mal P'.",
+   "c": [
+    "(1) * (10) + (1) * (-8)",
+    "(2) * (10) + (3) * (-8)"
+   ]
+  },
+  {
+   "l": "inverse",
+   "t": "inverse",
+   "p": "uebung",
+   "s": 3,
+   "y": "luecken",
+   "f": {
+    "text": "M = (2  −1; −3  2) bildet P auf P'(−3 | 4) ab. Berechne P mit der inversen Matrix.",
+    "schablone": "P(□ | □)",
+    "hinweis": "x, y"
+   },
+   "o": {
+    "werte": [
+     -2,
+     -1
+    ]
+   },
+   "w": "det M = 2 · 2 − (−1) · (−3) = 1. M⁻¹ = 1/1 · (2  1; 3  2) = (2  1; 3  2). P = M⁻¹ · P' = (−2 | −1).",
+   "h": "Erst M⁻¹ bestimmen, dann M⁻¹ mal P'.",
+   "c": [
+    "(2) * (-3) + (1) * (4)",
+    "(3) * (-3) + (2) * (4)"
+   ]
+  },
+  {
+   "l": "inverse",
+   "t": "inverse",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Hat M = (−2  0; −4  0) eine inverse Matrix?"
+   },
+   "a": [
+    "Nein, weil ein Eintrag größer als 1 ist.",
+    "Ja, M⁻¹ = (0  0; 4  −2).",
+    "Nein, denn det M = 0.",
+    "Ja, jede Matrix hat eine."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "det M = (−2) · 0 − 0 · (−4) = 0. Durch 0 kann man nicht teilen.",
+   "h": "Berechne zuerst die Determinante."
+  },
+  {
+   "l": "inverse",
+   "t": "inverse",
+   "p": "test",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne die inverse Matrix von M = (3  5; 1  2).",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     2,
+     -5,
+     -1,
+     3
+    ]
+   },
+   "w": "det M = 3 · 2 − 5 · 1 = 1. M⁻¹ = 1/1 · (2  −5; −1  3) = (2  −5; −1  3).",
+   "c": [
+    "(2) / (1)",
+    "(-5) / (1)",
+    "(-1) / (1)",
+    "(3) / (1)"
+   ]
+  },
+  {
+   "l": "inverse",
+   "t": "inverse",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne die inverse Matrix von M = (4  1; 3  1).",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     1,
+     -1,
+     -3,
+     4
+    ]
+   },
+   "w": "det M = 4 · 1 − 1 · 3 = 1. M⁻¹ = 1/1 · (1  −1; −3  4) = (1  −1; −3  4).",
+   "c": [
+    "(1) / (1)",
+    "(-1) / (1)",
+    "(-3) / (1)",
+    "(4) / (1)"
+   ]
+  },
+  {
+   "l": "inverse",
+   "t": "inverse",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne die inverse Matrix von M = (1  2; 1  3).",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     3,
+     -2,
+     -1,
+     1
+    ]
+   },
+   "w": "det M = 1 · 3 − 2 · 1 = 1. M⁻¹ = 1/1 · (3  −2; −1  1) = (3  −2; −1  1).",
+   "c": [
+    "(3) / (1)",
+    "(-2) / (1)",
+    "(-1) / (1)",
+    "(1) / (1)"
+   ]
+  },
+  {
+   "l": "inverse",
+   "t": "inverse",
+   "p": "korrektur",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne die inverse Matrix von M = (2  −1; −3  2).",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     2,
+     1,
+     3,
+     2
+    ]
+   },
+   "w": "det M = 2 · 2 − (−1) · (−3) = 1. M⁻¹ = 1/1 · (2  1; 3  2) = (2  1; 3  2).",
+   "c": [
+    "(2) / (1)",
+    "(1) / (1)",
+    "(3) / (1)",
+    "(2) / (1)"
+   ]
+  },
+  {
+   "l": "inverse",
+   "t": "inverse",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne die inverse Matrix von M = (1  1; 3  4).",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     4,
+     -1,
+     -3,
+     1
+    ]
+   },
+   "w": "det M = 1 · 4 − 1 · 3 = 1. M⁻¹ = 1/1 · (4  −1; −3  1) = (4  −1; −3  1).",
+   "c": [
+    "(4) / (1)",
+    "(-1) / (1)",
+    "(-3) / (1)",
+    "(1) / (1)"
+   ]
+  },
+  {
+   "l": "inverse",
+   "t": "inverse",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne die inverse Matrix von M = (2  5; 1  3).",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     3,
+     -5,
+     -1,
+     2
+    ]
+   },
+   "w": "det M = 2 · 3 − 5 · 1 = 1. M⁻¹ = 1/1 · (3  −5; −1  2) = (3  −5; −1  2).",
+   "c": [
+    "(3) / (1)",
+    "(-5) / (1)",
+    "(-1) / (1)",
+    "(2) / (1)"
+   ]
+  },
+  {
+   "l": "inverse",
+   "t": "inverse",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne die inverse Matrix von M = (2  1; 1  1).",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     1,
+     -1,
+     -1,
+     2
+    ]
+   },
+   "w": "det M = 2 · 1 − 1 · 1 = 1. M⁻¹ = 1/1 · (1  −1; −1  2) = (1  −1; −1  2).",
+   "c": [
+    "(1) / (1)",
+    "(-1) / (1)",
+    "(-1) / (1)",
+    "(2) / (1)"
+   ]
+  },
+  {
+   "l": "inverse",
+   "t": "inverse",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne die inverse Matrix von M = (5  2; 2  1).",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     1,
+     -2,
+     -2,
+     5
+    ]
+   },
+   "w": "det M = 5 · 1 − 2 · 2 = 1. M⁻¹ = 1/1 · (1  −2; −2  5) = (1  −2; −2  5).",
+   "c": [
+    "(1) / (1)",
+    "(-2) / (1)",
+    "(-2) / (1)",
+    "(5) / (1)"
+   ]
+  },
+  {
+   "l": "inverse",
+   "t": "inverse",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne die inverse Matrix von M = (1  3; 1  4).",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     4,
+     -3,
+     -1,
+     1
+    ]
+   },
+   "w": "det M = 1 · 4 − 3 · 1 = 1. M⁻¹ = 1/1 · (4  −3; −1  1) = (4  −3; −1  1).",
+   "c": [
+    "(4) / (1)",
+    "(-3) / (1)",
+    "(-1) / (1)",
+    "(1) / (1)"
+   ]
+  },
+  {
+   "l": "inverse",
+   "t": "inverse",
+   "p": "sicherung",
+   "s": 2,
+   "y": "luecken",
+   "f": {
+    "text": "Berechne die inverse Matrix von M = (2  1; 5  3).",
+    "schablone": "(□ □; □ □)",
+    "hinweis": "Zeilenweise: oben links, oben rechts, unten links, unten rechts."
+   },
+   "o": {
+    "werte": [
+     3,
+     -1,
+     -5,
+     2
+    ]
+   },
+   "w": "det M = 2 · 3 − 1 · 5 = 1. M⁻¹ = 1/1 · (3  −1; −5  2) = (3  −1; −5  2).",
+   "c": [
+    "(3) / (1)",
+    "(-1) / (1)",
+    "(-5) / (1)",
+    "(2) / (1)"
+   ]
+  },
+  {
+   "l": "skalarprodukt",
+   "t": "skalarprodukt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne das Skalarprodukt von a = (−7 | −5) und b = (2 | 1)."
+   },
+   "o": {
+    "wert": -19
+   },
+   "c": "(-7) * (2) + (-5) * (1)",
+   "w": "a · b = (−7) · 2 + (−5) · 1 = −19.",
+   "h": "x mal x plus y mal y."
+  },
+  {
+   "l": "skalarprodukt",
+   "t": "skalarprodukt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne das Skalarprodukt von a = (−4 | −4) und b = (−6 | −5)."
+   },
+   "o": {
+    "wert": 44
+   },
+   "c": "(-4) * (-6) + (-4) * (-5)",
+   "w": "a · b = (−4) · (−6) + (−4) · (−5) = 44.",
+   "h": "x mal x plus y mal y."
+  },
+  {
+   "l": "skalarprodukt",
+   "t": "skalarprodukt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne das Skalarprodukt von a = (6 | 2) und b = (−4 | −6)."
+   },
+   "o": {
+    "wert": -36
+   },
+   "c": "(6) * (-4) + (2) * (-6)",
+   "w": "a · b = 6 · (−4) + 2 · (−6) = −36.",
+   "h": "x mal x plus y mal y."
+  },
+  {
+   "l": "skalarprodukt",
+   "t": "skalarprodukt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne das Skalarprodukt von a = (7 | 3) und b = (1 | −7)."
+   },
+   "o": {
+    "wert": -14
+   },
+   "c": "(7) * (1) + (3) * (-7)",
+   "w": "a · b = 7 · 1 + 3 · (−7) = −14.",
+   "h": "x mal x plus y mal y."
+  },
+  {
+   "l": "skalarprodukt",
+   "t": "skalarprodukt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne das Skalarprodukt von a = (5 | 2) und b = (−5 | −2)."
+   },
+   "o": {
+    "wert": -29
+   },
+   "c": "(5) * (-5) + (2) * (-2)",
+   "w": "a · b = 5 · (−5) + 2 · (−2) = −29.",
+   "h": "x mal x plus y mal y."
+  },
+  {
+   "l": "skalarprodukt",
+   "t": "skalarprodukt",
+   "p": "uebung",
+   "s": 1,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne das Skalarprodukt von a = (−4 | −3) und b = (−1 | −5)."
+   },
+   "o": {
+    "wert": 19
+   },
+   "c": "(-4) * (-1) + (-3) * (-5)",
+   "w": "a · b = (−4) · (−1) + (−3) · (−5) = 19.",
+   "h": "x mal x plus y mal y."
+  },
+  {
+   "l": "skalarprodukt",
+   "t": "skalarprodukt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für welches t stehen a = (t | −1) und b = (2 | 2) senkrecht aufeinander?"
+   },
+   "o": {
+    "wert": 1
+   },
+   "c": "-2 * (-1) / (2)",
+   "w": "a · b = 2t − 2 = 0 ⇒ t = 1.",
+   "h": "Senkrecht heißt Skalarprodukt 0."
+  },
+  {
+   "l": "skalarprodukt",
+   "t": "skalarprodukt",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Stehen a = (−2 | 3) und b = (9 | 6) senkrecht aufeinander?"
+   },
+   "a": [
+    "Das kann man nur mit einer Zeichnung entscheiden.",
+    "Nein",
+    "Ja"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "a · b = (−2) · 9 + 3 · 6 = 0. Null: senkrecht.",
+   "h": "Berechne das Skalarprodukt."
+  },
+  {
+   "l": "skalarprodukt",
+   "t": "skalarprodukt",
+   "p": "uebung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für welches t stehen a = (t | −3) und b = (2 | 2) senkrecht aufeinander?"
+   },
+   "o": {
+    "wert": 3
+   },
+   "c": "-2 * (-3) / (2)",
+   "w": "a · b = 2t − 6 = 0 ⇒ t = 3.",
+   "h": "Senkrecht heißt Skalarprodukt 0."
+  },
+  {
+   "l": "skalarprodukt",
+   "t": "skalarprodukt",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Stehen a = (6 | −4) und b = (−12 | −18) senkrecht aufeinander?"
+   },
+   "a": [
+    "Nein",
+    "Ja",
+    "Das kann man nur mit einer Zeichnung entscheiden."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "a · b = 6 · (−12) + (−4) · (−18) = 0. Null: senkrecht.",
+   "h": "Berechne das Skalarprodukt."
+  },
+  {
+   "l": "skalarprodukt",
+   "t": "skalarprodukt",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Stehen a = (−7 | −1) und b = (−3 | 21) senkrecht aufeinander?"
+   },
+   "a": [
+    "Nein",
+    "Das kann man nur mit einer Zeichnung entscheiden.",
+    "Ja"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "a · b = (−7) · (−3) + (−1) · 21 = 0. Null: senkrecht.",
+   "h": "Berechne das Skalarprodukt."
+  },
+  {
+   "l": "skalarprodukt",
+   "t": "skalarprodukt",
+   "p": "uebung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Stehen a = (−7 | 5) und b = (11 | 14) senkrecht aufeinander?"
+   },
+   "a": [
+    "Nein",
+    "Das kann man nur mit einer Zeichnung entscheiden.",
+    "Ja"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "a · b = (−7) · 11 + 5 · 14 = −7. Nicht null: nicht senkrecht.",
+   "h": "Berechne das Skalarprodukt."
+  },
+  {
+   "l": "skalarprodukt",
+   "t": "skalarprodukt",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand berechnet für a = (−2 | 1) und b = (−7 | −5): a · b = (14 | −5). Was stimmt?"
+   },
+   "a": [
+    "Falsch: a · b = 17.",
+    "Richtig.",
+    "Falsch: a · b = (−9 | −4).",
+    "Falsch: Das Skalarprodukt ist eine Zahl: 9."
+   ],
+   "o": {
+    "index": 3
+   },
+   "w": "a · b = (−2) · (−7) + 1 · (−5) = 9.",
+   "h": "Ist das Skalarprodukt ein Vektor oder eine Zahl?"
+  },
+  {
+   "l": "skalarprodukt",
+   "t": "skalarprodukt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Winkel zwischen a = (3 | 4) und b = (5 | 0) auf eine Dezimale."
+   },
+   "o": {
+    "wert": 53.1,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(53.130102354156, 1)",
+   "w": "a · b = 15; |a| = 5, |b| = 5; cos φ = 15 : 25 = 0,6 ⇒ φ ≈ 53,1°.",
+   "h": "cos φ = Skalarprodukt geteilt durch das Produkt der Längen."
+  },
+  {
+   "l": "skalarprodukt",
+   "t": "skalarprodukt",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand berechnet für a = (2 | 2) und b = (6 | −3): a · b = (12 | −6). Was stimmt?"
+   },
+   "a": [
+    "Falsch: a · b = −18.",
+    "Falsch: Das Skalarprodukt ist eine Zahl: 6.",
+    "Falsch: a · b = (8 | −1).",
+    "Richtig."
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "a · b = 2 · 6 + 2 · (−3) = 6.",
+   "h": "Ist das Skalarprodukt ein Vektor oder eine Zahl?"
+  },
+  {
+   "l": "skalarprodukt",
+   "t": "skalarprodukt",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand berechnet für a = (−1 | −2) und b = (−4 | −4): a · b = (4 | 8). Was stimmt?"
+   },
+   "a": [
+    "Falsch: a · b = −4.",
+    "Richtig.",
+    "Falsch: Das Skalarprodukt ist eine Zahl: 12.",
+    "Falsch: a · b = (−5 | −6)."
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "a · b = (−1) · (−4) + (−2) · (−4) = 12.",
+   "h": "Ist das Skalarprodukt ein Vektor oder eine Zahl?"
+  },
+  {
+   "l": "skalarprodukt",
+   "t": "skalarprodukt",
+   "p": "uebung",
+   "s": 3,
+   "y": "zahl",
+   "f": {
+    "text": "Berechne den Winkel zwischen a = (−8 | 6) und b = (3 | 0) auf eine Dezimale."
+   },
+   "o": {
+    "wert": 143.1,
+    "einheit": "°",
+    "toleranz": 0.1
+   },
+   "c": "round(143.130102354156, 1)",
+   "w": "a · b = −24; |a| = 10, |b| = 3; cos φ = −24 : 30 = −0,8 ⇒ φ ≈ 143,1°.",
+   "h": "cos φ = Skalarprodukt geteilt durch das Produkt der Längen."
+  },
+  {
+   "l": "skalarprodukt",
+   "t": "skalarprodukt",
+   "p": "uebung",
+   "s": 3,
+   "y": "auswahl",
+   "f": {
+    "text": "Jemand berechnet für a = (−6 | −1) und b = (4 | 2): a · b = (−24 | −2). Was stimmt?"
+   },
+   "a": [
+    "Falsch: Das Skalarprodukt ist eine Zahl: −26.",
+    "Richtig.",
+    "Falsch: a · b = −8.",
+    "Falsch: a · b = (−2 | 1)."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "a · b = (−6) · 4 + (−1) · 2 = −26.",
+   "h": "Ist das Skalarprodukt ein Vektor oder eine Zahl?"
+  },
+  {
+   "l": "skalarprodukt",
+   "t": "skalarprodukt",
+   "p": "test",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für welches t stehen a = (t | 4) und b = (4 | 2) senkrecht aufeinander?"
+   },
+   "o": {
+    "wert": -2
+   },
+   "c": "-2 * (4) / (4)",
+   "w": "a · b = 4t + 8 = 0 ⇒ t = −2."
+  },
+  {
+   "l": "skalarprodukt",
+   "t": "skalarprodukt",
+   "p": "korrektur",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für welches t stehen a = (t | −3) und b = (4 | 2) senkrecht aufeinander?"
+   },
+   "o": {
+    "wert": 1.5
+   },
+   "c": "-2 * (-3) / (4)",
+   "w": "a · b = 4t − 6 = 0 ⇒ t = 1,5."
+  },
+  {
+   "l": "skalarprodukt",
+   "t": "skalarprodukt",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Stehen a = (3 | −6) und b = (5 | 3) senkrecht aufeinander?"
+   },
+   "a": [
+    "Nein",
+    "Ja",
+    "Das kann man nur mit einer Zeichnung entscheiden."
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "a · b = 3 · 5 + (−6) · 3 = −3. Nicht null: nicht senkrecht."
+  },
+  {
+   "l": "skalarprodukt",
+   "t": "skalarprodukt",
+   "p": "korrektur",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Stehen a = (−1 | −1) und b = (0 | 1) senkrecht aufeinander?"
+   },
+   "a": [
+    "Das kann man nur mit einer Zeichnung entscheiden.",
+    "Nein",
+    "Ja"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "a · b = (−1) · 0 + (−1) · 1 = −1. Nicht null: nicht senkrecht."
+  },
+  {
+   "l": "skalarprodukt",
+   "t": "skalarprodukt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Stehen a = (−5 | −5) und b = (10 | −10) senkrecht aufeinander?"
+   },
+   "a": [
+    "Das kann man nur mit einer Zeichnung entscheiden.",
+    "Nein",
+    "Ja"
+   ],
+   "o": {
+    "index": 2
+   },
+   "w": "a · b = (−5) · 10 + (−5) · (−10) = 0. Null: senkrecht."
+  },
+  {
+   "l": "skalarprodukt",
+   "t": "skalarprodukt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für welches t stehen a = (t | 3) und b = (−1 | 2) senkrecht aufeinander?"
+   },
+   "o": {
+    "wert": 6
+   },
+   "c": "-2 * (3) / (-1)",
+   "w": "a · b = −1t + 6 = 0 ⇒ t = 6."
+  },
+  {
+   "l": "skalarprodukt",
+   "t": "skalarprodukt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Stehen a = (4 | 6) und b = (−7 | 4) senkrecht aufeinander?"
+   },
+   "a": [
+    "Nein",
+    "Das kann man nur mit einer Zeichnung entscheiden.",
+    "Ja"
+   ],
+   "o": {
+    "index": 0
+   },
+   "w": "a · b = 4 · (−7) + 6 · 4 = −4. Nicht null: nicht senkrecht."
+  },
+  {
+   "l": "skalarprodukt",
+   "t": "skalarprodukt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für welches t stehen a = (t | −3) und b = (−1 | 2) senkrecht aufeinander?"
+   },
+   "o": {
+    "wert": -6
+   },
+   "c": "-2 * (-3) / (-1)",
+   "w": "a · b = −1t − 6 = 0 ⇒ t = −6."
+  },
+  {
+   "l": "skalarprodukt",
+   "t": "skalarprodukt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "auswahl",
+   "f": {
+    "text": "Stehen a = (−6 | 7) und b = (−7 | −6) senkrecht aufeinander?"
+   },
+   "a": [
+    "Das kann man nur mit einer Zeichnung entscheiden.",
+    "Ja",
+    "Nein"
+   ],
+   "o": {
+    "index": 1
+   },
+   "w": "a · b = (−6) · (−7) + 7 · (−6) = 0. Null: senkrecht."
+  },
+  {
+   "l": "skalarprodukt",
+   "t": "skalarprodukt",
+   "p": "sicherung",
+   "s": 2,
+   "y": "zahl",
+   "f": {
+    "text": "Für welches t stehen a = (t | −4) und b = (4 | 2) senkrecht aufeinander?"
+   },
+   "o": {
+    "wert": 2
+   },
+   "c": "-2 * (-4) / (4)",
+   "w": "a · b = 4t − 8 = 0 ⇒ t = 2."
+  }
+ ],
+ "offen": [
+  "Matrizen werden zeilenweise als (a  b; c  d) geschrieben; Lückenschablone (□ □; □ □). App-Wunsch: echte Matrixdarstellung (2×2-Klammer) im Text oder als Zeichnung.",
+  "IB MYP 4: Lösen linearer Gleichungssysteme mit der inversen Matrix nur als Urpunkt-Aufgabe enthalten; Parkettierungen nicht enthalten (bräuchten Zeichnungen).",
+  "Spiegelung an beliebigen Ursprungsgeraden (cos 2α, sin 2α) weggelassen; nur Achsen, y = x, Drehungen und zentrische Streckung."
+ ]
+}

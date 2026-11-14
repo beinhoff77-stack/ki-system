@@ -2,6 +2,10 @@
 
 Neueste Meldung oben.
 
+## 2026-11-14 18:00 – STATUS
+Thema 9/10 fertig: `abbildungen.matrizen` – 6 Lernkarten, 168 Aufgaben, Prüfskript OK. Matrizen zeilenweise als (a  b; c  d), Lücken (□ □; □ □).
+- FRAGE / App-Wunsch: echte 2×2-Matrixdarstellung (Klammer mit zwei Zeilen) im Aufgabentext oder als Zeichnung. Annahme bis dahin: zeilenweise Schreibweise mit Strichpunkt, in jeder Lernkarte erklärt.
+
 ## 2026-11-14 17:40 – STATUS
 Thema 8/10 fertig: `gleichungen.wurzel` – 6 Lernkarten, 168 Aufgaben, Prüfskript OK. Inklusive √(x + b) = x + c mit Scheinlösung (nutzt quadratische Gleichungen aus RS 9).
 

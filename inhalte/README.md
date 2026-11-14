@@ -93,3 +93,19 @@ Die App kann bisher nur Zahlenstrahl und Stellenwerttafel zeichnen. Für Geometr
 - `__pycache__` nicht einchecken (steht in `.gitignore`). Eigene Hilfsdatei mit eindeutigem Namen (`_kl7.py`), nie `_basis.py`.
 - Stoff höherer Klassen weglassen, auch wenn er im Feld `umfang` steht; maßgeblich ist `lehrplan_gym`. Die Entscheidung unter `offen` notieren.
 - Sachaufgaben auf Plausibilität lesen (realistische Mengen und Preise). Mindestens 10 Aufgaben je Lernkarte selbst durchlesen.
+
+## Zeichnungen (neu, 14.11.)
+
+Die App zeichnet jetzt selbst. Dasselbe Objekt geht als `bild` in einer Lernkarte **und** als `f.grafik` in einer Aufgabe (jeder Antworttyp außer `markierung`, der beim Zahlenstrahl bleibt). Koordinaten sind mathematisch (y nach oben).
+
+- **Koordinatensystem** `{"typ": "koordinaten", "x": [-4, 4], "y": [-3, 5], "graphen": [...], "punkte": [{"x": 1, "y": 3, "name": "P"}], "strecken": [[0, 1, 1, 1, "gestrichelt"]], "senkrecht": [-1], "waagrecht": [1]}`
+  - Graphen: `{"art": "linear", "m": 2, "t": 1}` · `{"art": "poly", "k": [c0, c1, c2, …]}` · `{"art": "hyperbel", "a": 2, "b": 1, "c": 1}` (a/(x+b)+c) · `{"art": "potenz", "a": 1, "n": 3}` · `{"art": "wurzel"}` · `{"art": "sin"|"cos", "a", "b", "c", "d"}` (x in Grad; mit `"bogen": true` im Bogenmaß) · `{"art": "exp", "a": 1, "b": 2}` · `{"art": "log", "b": 10}`. Optional je Graph `"name": "g"`, `"bereich": [x0, x1]`.
+  - Optional: `"schritt_x"`, `"schritt_y"`, `"grad": true` (x-Achse in °), `"name_x"`, `"name_y"`, `"streckung"`, Punkte mit `"offen": true` (hohler Punkt).
+- **Figur** `{"typ": "figur", "punkte": {"A": [0, 0], "B": [4, 0], "C": [4, 3]}, "flaeche": ["A", "B", "C"], "linien": [["A", "B", "c = 4 cm"], ["A", "C", "b = ?", "gestrichelt"]], "rechter_winkel": [["B", "A", "C"]], "winkel": [["A", "B", "C", "α"]], "kreise": [{"m": "M", "r": 3}]}`
+  - Dreiecke, Vierecke, Strahlensatzfiguren, Thaleskreis, Kreis mit Radius/Sehne. Punkte, deren Name mit `_` beginnt, werden nicht beschriftet (Hilfspunkte). `rechter_winkel`/`winkel`: [Scheitel, Schenkelpunkt 1, Schenkelpunkt 2, Text].
+  - Maßstab frei wählbar; die Figur wird eingepasst. Beschriftungen kurz halten.
+- **Säulendiagramm** `{"typ": "saeulen", "einheit": "Kinder", "werte": [{"name": "Hund", "wert": 9}], "y_start": 0, "zahlen": true}` – `"zahlen": false` blendet die Werte aus (zum Ablesen), `"y_start"` > 0 zeigt eine abgeschnittene Achse (irreführende Diagramme).
+- **Kreisdiagramm** `{"typ": "kreisdiagramm", "einheit": " %", "werte": [{"name": "Bus", "wert": 40}], "zahlen": true}`
+- **Tabelle** `{"typ": "tabelle", "kopf": ["", "Brille", "keine Brille", "Summe"], "zeilen": [["Mädchen", "5", "9", "14"]]}` – für Vierfeldertafeln, Wertetabellen, Häufigkeitstabellen. Unbekanntes als „?“.
+
+Noch nicht möglich: Schrägbilder und Netze von Körpern, Boxplot, Baumdiagramm, Flächen zum Färben, Zeichnen durch das Kind. Weiter unter `offen` notieren.

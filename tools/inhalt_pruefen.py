@@ -22,7 +22,7 @@ TYPEN = ('zahl', 'auswahl', 'text', 'luecken', 'markierung')
 MIN = {'uebung': 12, 'test': 1, 'korrektur': 3, 'sicherung': 6}
 MIN_JE_STUFE = 3            # Übungen: mindestens 3 je Stufe 1, 2, 3
 SLUG = re.compile(r'^[a-z][a-z0-9_]{1,30}$')
-BILDER = ('zahlenstrahl', 'stellentafel')
+BILDER = ('zahlenstrahl', 'stellentafel', 'koordinaten', 'figur', 'saeulen', 'kreisdiagramm', 'tabelle')
 
 # ---------- exakter Rechner für das Feld "c" ----------
 OPS = {ast.Add: operator.add, ast.Sub: operator.sub, ast.Mult: operator.mul, ast.Div: operator.truediv,
@@ -157,6 +157,8 @@ def pruefe(pfad):
                     soll = st + (en - st) * idx / n
                     if soll != zahlwert(a['zahl']): F(f'{wo}: Markierung {idx} liegt bei {soll}, nicht bei {a["zahl"]}')
             except (KeyError, ValueError, TypeError): F(f'{wo}: grafik braucht start, ende, abschnitte; o.index')
+        g = f.get('grafik')
+        if g is not None and y != 'markierung' and g.get('typ') not in BILDER: F(f'{wo}: f.grafik.typ "{g.get("typ")}" gibt es nicht')
         if 'c' in a:
             try:
                 if y == 'luecken':

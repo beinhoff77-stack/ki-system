@@ -5,9 +5,9 @@
    "thema_schluessel": "funktionen.grundbegriffe",
    "position": 1,
    "braucht_vorher": [
-    "terme.aufstellen (Kl. 7: Termwerte, Wertetabellen)",
+    "terme.aufstellen (Kl. 7: Termwerte)",
     "gleichungen.linear (Kl. 7, fehlt: für 'stelle' und 'nullstellen')",
-    "geometrie.grundbegriffe (Kl. 5, fehlt: Koordinatensystem)"
+    "geometrie.grundbegriffe (Kl. 5: Koordinatensystem)"
    ],
    "begruendung": "Funktionsbegriff (M8 1) ist Grundlage für lineare und gebrochen-rationale Funktionen."
   },
@@ -181,12 +181,12 @@
   {
    "thema_schluessel": "raum.schraegbilder",
    "lernziel": "pyramide, laengen (Pyramidenteil)",
-   "warum": "gehört in Klasse 10 (themenliste raum.pyramide_kegel_kugel: „Schrägbilder und Netze von Pyramiden und Kegeln“). M8 7 nennt nur Prismen und Zylinder (Auszug geprüft)."
+   "warum": "gehört in Klasse 10 (M10 5 „Schrägbilder von Pyramiden und Kegeln skizzieren“, geprüft). M8 7 nennt nur Prismen und Zylinder (Auszug geprüft)."
   },
   {
    "thema_schluessel": "raum.schraegbilder",
    "lernziel": "rotation, axialschnitt",
-   "warum": "Kegel und Kugel gehören in Klasse 10 (raum.pyramide_kegel_kugel). Axialschnitt des Zylinders allein wäre Kl. 8 – dann in messen.prisma_zylinder."
+   "warum": "gehört in Klasse 10: M10 5 „Gerade Kreiszylinder, gerade Kreiskegel und Kugeln als Rotationskörper deuten“ (geprüft). In raum.pyramide_kegel_kugel fehlt genau diese Karte – dorthin verschieben."
   },
   {
    "thema_schluessel": "raum.schraegbilder",
@@ -201,7 +201,7 @@
   {
    "thema_schluessel": "stochastik.simulation",
    "lernziel": "monte_carlo",
-   "warum": "Nicht im M8-5-Auszug (dort: Simulation mit Tabellenkalkulation, absoluter/relativer Zellbezug). Fachlich schön, aber Vertiefung."
+   "warum": "gehört in Klasse 10: M10 2 „Mit der Monte-Carlo-Methode einen Näherungswert für π bestimmen“ (Fachlehrplan 10, am 14.11.2026 geprüft). In stochastik.mehrstufig (Kl. 10) fehlt sie – Karte dorthin verschieben."
   },
   {
    "thema_schluessel": "funktionen.gebrochen",

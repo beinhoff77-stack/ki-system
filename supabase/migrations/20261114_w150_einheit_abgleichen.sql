@@ -17,10 +17,12 @@ begin
     || jsonb_build_object('bewertung', coalesce(e.inhalt->'bewertung', '{}'::jsonb) || coalesce(p->'inhalt'->'bewertung', '{}'::jsonb))
    where e.id = v_e;
   with q as (select a from jsonb_array_elements(p->'aufgaben') a)
+  -- Wiedererkannt wird über Frage + Antworten; auch Pool (Übung/Test/Korrektur/Sicherung) und Lernkarte werden nachgezogen.
   update schule.aufgabe b set loesung = q.a->'o', tipp = q.a->>'h', loesungsweg = q.a->>'w', stufe = (q.a->>'s')::smallint,
-         variante_gruppe = q.a->>'l', teilfaehigkeit = q.a->>'t'
-    from q where b.einheit_id = v_e and b.frage = q.a->'f' and b.antworten is not distinct from (case when q.a ? 'a' then q.a->'a' end) and b.pool = q.a->>'p'
-     and (b.loesung, b.tipp, b.loesungsweg, b.stufe, b.variante_gruppe) is distinct from (q.a->'o', q.a->>'h', q.a->>'w', (q.a->>'s')::smallint, q.a->>'l');
+         variante_gruppe = q.a->>'l', teilfaehigkeit = q.a->>'t', pool = q.a->>'p',
+         art = case q.a->>'p' when 'uebung' then 'uebung' when 'test' then 'blocktest' else 'nachtest' end
+    from q where b.einheit_id = v_e and b.frage = q.a->'f' and b.antworten is not distinct from (case when q.a ? 'a' then q.a->'a' end)
+     and (b.loesung, b.tipp, b.loesungsweg, b.stufe, b.variante_gruppe, b.pool) is distinct from (q.a->'o', q.a->>'h', q.a->>'w', (q.a->>'s')::smallint, q.a->>'l', q.a->>'p');
   get diagnostics v_geaendert = row_count;
   select coalesce(max(reihenfolge), 0) into v_max from schule.aufgabe where einheit_id = v_e;
   select jsonb_agg((x.a - 'c' - 'zahl') || jsonb_build_object('r', v_max + x.nr)) into v_auf from (

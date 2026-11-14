@@ -45,6 +45,30 @@ def sektor(s_, phi, ls='s', lphi='φ'):
             'label': 'Abgewickelter Kegelmantel: Kreissektor'}
 
 
+def pyr_schraeg(a, h, la=None, lh=None):
+    """Schrägbild einer quadratischen Pyramide (Kanten nach hinten · ½ unter 45°, verdeckte Kanten gestrichelt)."""
+    t = round(a / 2 * math.cos(math.radians(45)), 2)
+    A, B, C, D = [0, 0], [a, 0], [a + t, t], [t, t]
+    F = [round((a + t) / 2, 2), round(t / 2, 2)]
+    S = [F[0], round(F[1] + h, 2)]
+    return {'typ': 'figur', 'punkte': {'A': A, 'B': B, 'C': C, 'D': D, 'F': F, 'S': S},
+            'linien': [['A', 'B', la or f'a = {dz(a)} cm'], ['B', 'C', ''], ['A', 'D', '', 'gestrichelt'], ['D', 'C', '', 'gestrichelt'],
+                       ['S', 'A'], ['S', 'B'], ['S', 'C'], ['S', 'D', '', 'gestrichelt'], ['F', 'S', lh or f'h = {dz(h)} cm', 'gestrichelt'],
+                       ['A', 'C', '', 'gestrichelt'], ['B', 'D', '', 'gestrichelt']],
+            'label': 'Schrägbild einer quadratischen Pyramide (verdeckte Kanten gestrichelt)'}
+
+
+def pyr_netz(a, hs, la=None, lhs=None):
+    """Netz einer quadratischen Pyramide: Quadrat mit vier angesetzten gleichschenkligen Dreiecken."""
+    m = a / 2
+    pk = {'_A': [0, 0], '_B': [a, 0], '_C': [a, a], '_D': [0, a], '_S1': [m, -hs], '_S2': [a + hs, m], '_S3': [m, a + hs], '_S4': [-hs, m], '_M': [m, 0]}
+    lin = [['_A', '_B', la or f'a = {dz(a)} cm'], ['_B', '_C', ''], ['_C', '_D', ''], ['_D', '_A', ''],
+           ['_A', '_S1', ''], ['_S1', '_B', ''], ['_B', '_S2', ''], ['_S2', '_C', ''], ['_C', '_S3', ''], ['_S3', '_D', ''], ['_D', '_S4', ''], ['_S4', '_A', ''],
+           ['_M', '_S1', lhs or f'hₛ = {dz(hs)} cm', 'gestrichelt']]
+    return {'typ': 'figur', 'punkte': pk, 'flaeche': ['_A', '_S1', '_B', '_S2', '_C', '_S3', '_D', '_S4'], 'linien': lin,
+            'rechter_winkel': [['_M', '_B', '_S1']], 'label': 'Netz einer quadratischen Pyramide'}
+
+
 def kugel_bild(r, lr='r'):
     return {'typ': 'figur', 'punkte': {'M': [0, 0], '_P': [r, 0], '_O': [0, r], '_U': [0, -r]}, 'kreise': [{'m': 'M', 'r': r}],
             'linien': [['M', '_P', lr], ['_O', '_U', '', 'gestrichelt']], 'label': 'Kugel mit Mittelpunkt M und Radius r'}
@@ -52,9 +76,9 @@ def kugel_bild(r, lr='r'):
 
 ETAPPEN = [
     {'lernziel': 'pyr_volumen', 'titel': 'Volumen einer Pyramide',
-     'regel': 'Jede Pyramide hat ⟦ein Drittel⟧ des Volumens eines Prismas mit gleicher Grundfläche und Höhe: ⟦V = ⅓ · G · h⟧.',
+     'regel': 'Jede Pyramide hat ⟦ein Drittel⟧ des Volumens eines Prismas mit gleicher Grundfläche und Höhe: ⟦V = ⅓ · G · h⟧. Anschaulich: Ein Würfel lässt sich in ⟦drei gleiche Pyramiden⟧ zerlegen, deren gemeinsame Spitze eine Würfelecke ist – jede hat eine Würfelfläche als Grundfläche und die Kante als Höhe.',
      'schritte': ['Quadratische Pyramide, a = 6 cm, h = 10 cm: G = 6 · 6 = 36 cm².', 'V = ⅓ · 36 · 10 = ⟦120 cm³⟧.'],
-     'probe': 'Würfelförmiges Prisma 36 · 10 = 360 cm³; ein Drittel davon 120 ✓',
+     'probe': 'Quaderförmiges Prisma mit gleicher Grundfläche und Höhe: 36 cm² · 10 cm = 360 cm³; ein Drittel davon sind 120 cm³ ✓',
      'fehler': 'V = G · h = 360 cm³ ist falsch: Bei Pyramiden fehlt der Faktor ⟦⅓⟧.'},
     {'lernziel': 'pyr_oberflaeche', 'titel': 'Oberfläche einer Pyramide',
      'regel': 'O = G + M. Bei der quadratischen Pyramide besteht der ⟦Mantel aus 4 Dreiecken⟧ mit der ⟦Seitenhöhe hₛ⟧: M = 4 · ½ · a · hₛ. hₛ folgt aus ⟦hₛ² = h² + (a/2)²⟧.',
@@ -88,9 +112,7 @@ ETAPPEN = [
      'fehler': 'Bei doppeltem Radius das doppelte Kegelvolumen anzunehmen ist falsch: r steht ⟦im Quadrat⟧.'},
 ]
 _E = {e['lernziel']: e for e in ETAPPEN}
-_E['pyr_volumen']['bild'] = {'typ': 'figur', 'punkte': {'S': [3, 10], 'A': [0, 0], 'B': [6, 0], '_H': [3, 0]}, 'flaeche': ['A', 'B', 'S'],
-                             'linien': [['A', 'B', 'a = 6 cm'], ['A', 'S', ''], ['B', 'S', ''], ['_H', 'S', 'h = 10 cm', 'gestrichelt']],
-                             'rechter_winkel': [['_H', 'B', 'S']], 'label': 'Seitenansicht einer quadratischen Pyramide'}
+_E['pyr_volumen']['bild'] = pyr_schraeg(6, 10)
 _E['pyr_oberflaeche']['bild'] = pyr_schnitt(6, 4, 'h = 4', 'a/2 = 3', 'hₛ = ?')
 _E['kegel_volumen']['bild'] = kegel_schnitt(3, 8, lr='r = 3', lh='h = 8', ls='s')
 _E['kegel_mantel']['bild'] = sektor(5, 216, 's = 5', 'φ = 216°')
@@ -99,6 +121,32 @@ _E['sachkontext']['bild'] = {'typ': 'figur', 'punkte': {'_S': [0, -10], '_A': [-
                               'flaeche': ['_A', '_S', '_B'] + [f'_{i}' for i in range(13)],
                               'linien': [['_A', '_S', ''], ['_B', '_S', ''], ['_M', '_B', 'r = 2,5'], ['_M', '_S', 'h = 10', 'gestrichelt']] + [[f'_{i}', f'_{i + 1}', ''] for i in range(12)],
                               'label': 'Eistüte im Schnitt: Kegel mit Halbkugel'}
+
+
+def _seitenkante():
+    a = R.choice([4, 6, 8, 10, 12])
+    if R.random() < 0.5:
+        h = R.randint(3, 12)
+        k2 = h * h + a * a / 2
+        k = sqrt(k2)
+        v = gerundet(k, 1)
+        if v is None or k2 == int(k) ** 2: return None
+        return mit_grafik(zahl(f'Eine quadratische Pyramide hat die Grundkante a = {a} cm und die Höhe h = {h} cm. Wie lang ist eine Seitenkante? Runde auf eine Nachkommastelle.',
+                               f'Halbe Diagonale der Grundfläche: (d/2)² = ({a}/2)² + ({a}/2)² = {dz(Fr(a * a, 2))}. Seitenkante: k² = h² + (d/2)² = {h * h} + {dz(Fr(a * a, 2))} = {dz(k2)} ⇒ k ≈ {dz(v)} cm.',
+                               'Die Seitenkante geht von einer Ecke zur Spitze. Der Fußpunkt der Höhe liegt in der Mitte der Diagonale: zweimal Pythagoras.',
+                               v, f'round({K(k)}, 1)', einheit='cm', tol=0.1),
+                          pyr_schraeg(a, h, lh=f'h = {h} cm'))
+    k = R.randint(a // 2 + 3, a + 6)
+    h2 = k * k - a * a / 2
+    if h2 <= 0: return None
+    h = sqrt(h2)
+    v = gerundet(h, 1)
+    if v is None: return None
+    return mit_grafik(zahl(f'Eine quadratische Pyramide hat die Grundkante a = {a} cm, jede Seitenkante ist {k} cm lang. Wie hoch ist die Pyramide? Runde auf eine Nachkommastelle.',
+                           f'(d/2)² = ({a}/2)² + ({a}/2)² = {dz(Fr(a * a, 2))}. h² = k² − (d/2)² = {k * k} − {dz(Fr(a * a, 2))} = {dz(h2)} ⇒ h ≈ {dz(v)} cm.',
+                           'Rechtwinkliges Dreieck aus Höhe, halber Diagonale und Seitenkante – die halbe Diagonale erst mit Pythagoras bestimmen.',
+                           v, f'round({K(h)}, 1)', einheit='cm', tol=0.1),
+                      pyr_schraeg(a, h, lh='h = ?'))
 
 
 def g_pyr_volumen(s):
@@ -122,6 +170,8 @@ def g_pyr_volumen(s):
         if V.denominator != 1: return None
         return zahl(f'Eine quadratische Pyramide mit Grundkante {a} cm hat das Volumen {dz(V)} cm³. Wie hoch ist sie?',
                     f'h = 3V : G = 3 · {dz(V)} : {a * a} = {h} cm.', 'Stelle V = ⅓ · G · h nach h um.', h, f'3 * {cf(V)} / {a} ** 2', einheit='cm')
+    if R.random() < 0.5:
+        return _seitenkante()
     g, gh = R.randint(3, 12), R.randint(2, 10)
     h = R.choice([3, 6, 9, 12])
     G = Fr(g * gh, 2)
@@ -141,10 +191,11 @@ def g_pyr_oberflaeche(s):
                                f'hₛ² = h² + (a/2)² = {h * h} + {halb * halb} = {r * r} ⇒ hₛ = {r} cm.', 'Rechtwinkliges Dreieck aus h, a/2 und hₛ (siehe Zeichnung).',
                                r, f'({h} ** 2 + {halb} ** 2) / {r}', einheit='cm'),
                           pyr_schnitt(a, h, f'h = {h}', f'a/2 = {halb}', 'hₛ = ?'))
-    if s == 2:
+    if s == 2 and not (AKT['pool'] != 'uebung' and AKT['nr'] == 0):
         M = 2 * a * r
-        return zahl(f'Eine quadratische Pyramide hat die Grundkante {a} cm und die Seitenhöhe {r} cm. Berechne die Mantelfläche.',
-                    f'M = 4 · ½ · {a} · {r} = {M} cm².', 'Der Mantel besteht aus 4 gleichen Dreiecken.', M, f'4 * {a} * {r} / 2', einheit='cm²')
+        return mit_grafik(zahl(f'Eine quadratische Pyramide hat die Grundkante {a} cm und die Seitenhöhe {r} cm. Berechne die Mantelfläche. (Die Zeichnung zeigt das Netz.)',
+                               f'M = 4 · ½ · {a} · {r} = {M} cm².', 'Der Mantel besteht aus 4 gleichen Dreiecken (im Netz um das Quadrat herum).', M, f'4 * {a} * {r} / 2', einheit='cm²'),
+                          pyr_netz(a, r, lhs=f'hₛ = {r} cm'))
     O = a * a + 2 * a * r
     return mit_grafik(zahl(f'Eine quadratische Pyramide hat die Grundkante {a} cm und die Höhe {h} cm. Berechne ihre Oberfläche.',
                            f'hₛ = √({h}² + {halb}²) = {r} cm; O = {a}² + 4 · ½ · {a} · {r} = {a * a} + {2 * a * r} = {dz(O)} cm².',
@@ -169,11 +220,12 @@ def g_kegel_volumen(s):
         return zahl(f'Ein kegelförmiger Trichter hat oben den Durchmesser {d} cm und ist {h} cm tief. Wie viel Flüssigkeit fasst er (in cm³, eine Nachkommastelle)?',
                     f'r = {d} : 2 = {r} cm; V = ⅓ · π · {r * r} · {h} ≈ {dz(v)} cm³.', 'Achtung: gegeben ist der Durchmesser.', v,
                     f'round(({d} / 2) ** 2 * {h} * {PI} / 3, 1)', einheit='cm³', tol=0.1)
-    Vg = R.randint(50, 2000)
     rr = R.randint(2, 10)
+    # Höhe zwischen dem 0,8- und 3-Fachen des Radius, Volumen auf ganze cm³
+    Vg = round(pi * rr * rr * rr * R.uniform(0.8, 3) / 3)
     hh = 3 * Vg / (pi * rr * rr)
     v = gerundet(hh, 1)
-    if v is None or hh > 200: return None
+    if v is None or not (0.8 * rr <= hh <= 3 * rr): return None
     return zahl(f'Ein Kegel mit dem Radius {rr} cm hat das Volumen {dz(Vg)} cm³. Wie hoch ist er (eine Nachkommastelle)?',
                 f'h = 3V : (π r²) = 3 · {dz(Vg)} : (π · {rr * rr}) ≈ {dz(v)} cm.', 'Stelle V = ⅓ · π · r² · h nach h um.', v,
                 f'round(3 * {Vg} / ({PI} * {rr} ** 2), 1)', einheit='cm', tol=0.1)
@@ -195,12 +247,17 @@ def g_kegel_mantel(s):
                           sektor(sl, float(phi), f's = {sl}', 'φ = ?'))
     M = pi * r * sl
     O = pi * r * r + M
+    if AKT['pool'] in ('korrektur', 'sicherung') and AKT['nr'] == 0:
+        s = 3
+        wahl_o = True
+    else:
+        wahl_o = R.random() < 0.6
     if s == 2:
         v = gerundet(M, 1)
         if v is None: return None
         return zahl(f'Ein Kegel hat den Radius {r} cm und die Mantellinie {sl} cm. Berechne die Mantelfläche auf eine Nachkommastelle.',
                     f'M = π · r · s = π · {r} · {sl} = {r * sl}π ≈ {dz(v)} cm².', 'M = π · r · s.', v, f'round({PI} * {r} * {sl}, 1)', einheit='cm²', tol=0.1)
-    if R.random() < 0.5:
+    if wahl_o:
         v = gerundet(O, 1)
         if v is None: return None
         return mit_grafik(zahl(f'Ein Kegel hat den Radius {r} cm und die Höhe {h} cm. Berechne seine Oberfläche auf eine Nachkommastelle.',
@@ -252,12 +309,60 @@ def g_kugel(s):
         if v is None: return None
         return zahl(f'Eine Kugel hat das Volumen {dz(V)} cm³. Berechne ihren Radius auf zwei Nachkommastellen.', f'r³ = 3V : (4π) = {dz(3 * V)} : (4π) ⇒ r = ∛(…) ≈ {dz(v)} cm.',
                     'Stelle V = ⁴⁄₃πr³ nach r³ um und ziehe die dritte Wurzel.', v, f'round({K(rr)}, 2)', einheit='cm', tol=0.01)
+    if R.random() < 0.4:
+        # Globus: Durchmesser aus der Oberfläche
+        d_ = R.choice([20, 25, 30, 32, 34, 40, 50])
+        O = round(pi * d_ * d_)
+        rr = sqrt(O / (4 * pi))
+        v = gerundet(2 * rr, 1)
+        if v is None: return None
+        return zahl(f'Ein Globus hat eine Oberfläche von {dz(O)} cm². Welchen Durchmesser hat er? Runde auf eine Nachkommastelle.',
+                    f'r² = O : (4π) = {dz(O)} : (4π) ⇒ r ≈ {dz(round(rr, 2))} cm, also d = 2r ≈ {dz(v)} cm.',
+                    'Erst den Radius aus O = 4πr², dann verdoppeln.', v, f'round(2 * {K(rr)}, 1)', einheit='cm', tol=0.1)
     O = R.randint(50, 3000)
     rr = sqrt(O / (4 * pi))
     v = gerundet(rr, 2)
     if v is None: return None
     return zahl(f'Eine Kugel hat die Oberfläche {dz(O)} cm². Berechne ihren Radius auf zwei Nachkommastellen.', f'r² = O : (4π) = {dz(O)} : (4π) ⇒ r ≈ {dz(v)} cm.',
                 'Stelle O = 4πr² nach r um.', v, f'round({K(rr)}, 2)', einheit='cm', tol=0.01)
+
+
+def _eistuete():
+    r, h = Fr(R.choice([20, 25, 30, 35]), 10), R.choice([8, 10, 12])
+    V = pi * float(r) ** 2 * h / 3 + 2 * pi * float(r) ** 3 / 3
+    v = gerundet(V, 1)
+    if v is None: return None
+    return zahl(f'Eine Eistüte ist ein Kegel (r = {dz(r)} cm, h = {h} cm), oben ist eine Halbkugel Eis mit gleichem Radius. Berechne das Gesamtvolumen (eine Nachkommastelle).',
+                f'V = ⅓π · {dz(r)}² · {h} + ⅔π · {dz(r)}³ ≈ {dz(v)} cm³.', 'Kegel plus halbe Kugel.', v,
+                f'round({PI} * {cf(r)} ** 2 * {h} / 3 + 2 * {PI} * {cf(r)} ** 3 / 3, 1)', einheit='cm³', tol=0.1)
+
+
+def _hohlkugel():
+    ding, d, wand, stoff = R.choice([('Christbaumkugel aus Glas', 8, Fr(2, 10), 'Glas'), ('Hohlkugel aus Stahl', 10, Fr(5, 10), 'Stahl'),
+                                     ('Kugel aus Kunststoff', 12, Fr(1, 2), 'Kunststoff'), ('Bojenkugel aus Kunststoff', 40, 1, 'Kunststoff'),
+                                     ('Hohlkugel aus Aluminium', 20, 1, 'Aluminium')])
+    ra = Fr(d, 2)
+    ri = ra - wand
+    V = 4 * pi * (float(ra) ** 3 - float(ri) ** 3) / 3
+    v = gerundet(V, 1)
+    if v is None: return None
+    return zahl(f'Eine {ding} hat außen {d} cm Durchmesser, die Wand ist {dz(wand)} cm dick. Wie viel cm³ {stoff} stecken in der Wand? Runde auf eine Nachkommastelle.',
+                f'Außenradius {dz(ra)} cm, Innenradius {dz(ra)} − {dz(wand)} = {dz(ri)} cm. V = ⁴⁄₃π · ({dz(ra)}³ − {dz(ri)}³) ≈ {dz(v)} cm³.',
+                'Volumen der ganzen Kugel minus Volumen des Hohlraums. Der Innenradius ist um die Wanddicke kleiner.', v,
+                f'round(4 * {PI} * ({cf(ra)} ** 3 - {cf(ri)} ** 3) / 3, 1)', einheit='cm³', tol=0.1)
+
+
+def _dach():
+    a, hd = R.choice([(8, 3), (10, 4), (12, 5), (6, 4), (9, 6), (11, 4), (7, 3)])
+    hs = sqrt(hd * hd + (a / 2) ** 2)
+    M = 2 * a * hs
+    v = gerundet(M, 1)
+    if v is None: return None
+    return mit_grafik(zahl(f'Ein Pavillon hat ein Dach in Form einer quadratischen Pyramide: Grundkante {a} m, Dachhöhe {hd} m. Wie viel m² Dachfläche müssen gedeckt werden? Runde auf eine Nachkommastelle.',
+                           f'hₛ = √({hd}² + {dz(Fr(a, 2))}²) ≈ {dz(round(hs, 2))} m. Dachfläche = Mantel = 4 · ½ · {a} · hₛ ≈ {dz(v)} m².',
+                           'Die Dachfläche ist nur der Mantel (ohne Grundfläche). Erst die Seitenhöhe mit Pythagoras.', v,
+                           f'round({K(M)}, 1)', einheit='m²', tol=0.1),
+                      pyr_schnitt(a, hd, f'h = {hd} m', f'a/2 = {dz(Fr(a, 2))} m', 'hₛ'))
 
 
 def g_sachkontext(s):
@@ -274,7 +379,10 @@ def g_sachkontext(s):
                           kegel_schnitt(float(r), float(h), lr=f'r = {dz(r)} m', lh=f'h = {dz(h)} m', ls=''))
     typ = R.random()
     if s == 2:
-        if typ < 0.5:
+        nr = AKT['nr']
+        if nr % 3 != 1:
+            return R.choice([_eistuete, _hohlkugel, _dach])()
+        if False:
             r, h = Fr(R.choice([20, 25, 30, 35]), 10), R.choice([8, 10, 12])
             V = pi * float(r) ** 2 * h / 3 + 2 * pi * float(r) ** 3 / 3
             v = gerundet(V, 1)
@@ -364,7 +472,8 @@ if __name__ == '__main__':
           meiden={'pyr_volumen': ['Grundkante a = 6 cm und die Höhe h = 10 cm'], 'pyr_oberflaeche': ['Grundkante a = 6 cm und die Höhe h = 4 cm'],
                   'kegel_volumen': ['Radius r = 3 cm und die Höhe h = 8 cm'], 'kegel_mantel': ['Radius 3 cm und die Höhe 4 cm', 'r = 3 cm, s = 5 cm'],
                   'kugel': ['Radius 6 cm']},
-          offen=['Zeichnungen: Achsenschnitt des Kegels, Schnittdreieck der Pyramide (h, a/2, hₛ), abgewickelter Kegelmantel als Kreissektor (Bogen als Vieleck angenähert), Kugel mit Radius, Eistüte im Schnitt – in Lernkarten und passenden Aufgaben.',
-                 'Noch nicht möglich und deshalb nicht enthalten: Schrägbilder und Netze von Pyramide und Kegel (Lehrplan „Schrägbilder und Netze von Pyramiden und Kegeln“). Braucht eine Zeichenart für Körper.',
+          offen=['Prüfung eingearbeitet (Runde 3): Karte „pyr_volumen“ mit Würfel-Zerlegung und korrigierter Probe (Quader statt Würfel); Schrägbild der Pyramide in „pyr_volumen“ und bei der Seitenkante, Netz der Pyramide bei der Mantelfläche. Neue Aufgaben: Seitenkante/Höhe über zwei Pythagoras-Schritte, Durchmesser eines Globus aus der Oberfläche, Hohlkugel, Pyramidendach; Oberfläche aus a und h bzw. r und h in Test/Korrektur/Sicherung; realistische Kegelhöhen; Turm-Aufgaben höchstens ein Drittel je Pool.',
+                 'Zeichnungen: Achsenschnitt des Kegels, Schnittdreieck der Pyramide (h, a/2, hₛ), abgewickelter Kegelmantel als Kreissektor (Bogen als Vieleck angenähert), Kugel mit Radius, Eistüte im Schnitt – in Lernkarten und passenden Aufgaben.',
+                 'Schrägbild und Netz der quadratischen Pyramide jetzt mit „figur“. Weiter nicht möglich: Schrägbild des Kegels (Ellipse für den Grundkreis) und Zeichnen durch das Kind.',
                  'Prinzip von Cavalieri und „Kegel als Grenzfall der Pyramide“ nur als Verstehensfragen (ohne Zeichnung). Extremwerte an Körpern (umfang) weggelassen – nicht im lehrplan_gym.',
                  'Gerundete Ergebnisse mit Toleranz (0,1 bzw. 0,01; bei ganzen Zahlen 1); π als 12-stellige Konstante in c.'])
